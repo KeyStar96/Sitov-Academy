@@ -8,6 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "test": "jest",
+    "test:db:monthly": "node --test supabase/tests/monthly-bookings.test.mjs",
+    "test:db:profile": "node --test supabase/tests/profile-dashboard.test.mjs",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui"
   },
@@ -37,6 +39,7 @@
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.11.1",
+    "@electric-sql/pglite": "0.3.14",
     "@playwright/test": "^1.58.2",
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.9.1",

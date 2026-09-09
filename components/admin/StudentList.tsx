@@ -37,7 +37,7 @@ export default function StudentList({
     
     setLoadingId(id)
     const res = await updateStudentRole(id, newRole)
-    if (res.success) {
+    if (res.success === true) {
       setStudents(students.map(s => s.id === id ? { ...s, role: newRole } : s))
     } else {
       alert('Fehler beim Ändern der Rolle: ' + res.error)

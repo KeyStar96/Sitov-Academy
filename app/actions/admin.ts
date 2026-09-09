@@ -4,6 +4,8 @@ import { createClient } from '@/utils/supabase/server'
 import { createAdminClient } from '@/utils/supabase/admin'
 import { revalidatePath } from 'next/cache'
 import { sanitizeAllowedLevels } from '@/lib/access/levels'
+import { withBackendSession, checkDatabaseError, revalidateBackendPages } from '@/lib/actions/backend'
+import { profileRoleSchema, uuidSchema } from '@/lib/types/backend'
 
 // Helper to check if current user is admin/teacher
 async function requireAdmin() {
@@ -75,24 +77,16 @@ export async function getStudents() {
 }
 
 export async function updateStudentRole(userId: string, role: string) {
-  try {
-    await requireAdmin()
-    const supabase = createAdminClient()
-    
-    const { error } = await supabase
-      .from('profiles')
-      .update({ role })
-      .eq('id', userId)
-      
-    if (error) throw error
-    
-    revalidatePath('/[lang]/admin/students', 'page')
-    return { success: true }
-  } catch (error) {
-    console.error('Error updating role', error)
-    const message = error instanceof Error ? error.message : 'Unbekannter Fehler'
-    return { success: false, error: message }
-  }
+  return withBackendSession(async () => {
+    const id = uuidSchema.parse(userId)
+    const validRole = profileRoleSchema.parse(role)
+    // Role changes require an admin; teachers retain the other staff actions.
+    const { data, error } = await createAdminClient().from('profiles')
+      .update({ role: validRole }).eq('id', id).select('id').single()
+    checkDatabaseError(error)
+    revalidateBackendPages()
+    return data
+  }, 'admin')
 }
 
 /**

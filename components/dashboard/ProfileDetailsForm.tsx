@@ -1,0 +1,110 @@
+'use client'
+
+import { useEffect, useRef, useState, type FormEvent } from 'react'
+import { UserRound, Check, Loader2 } from 'lucide-react'
+import { updatePersonalDetails } from '@/app/actions/profile'
+import { personalDetailsSchema, type PersonalDetails } from '@/lib/types/profile'
+import { createProfileTranslator, type ProfileTranslations, type ProfileTranslationKey } from '@/lib/profile-i18n'
+
+export default function ProfileDetailsForm({ initial, pendingEmail, lang, translations }: {
+  initial: PersonalDetails; pendingEmail: string | null; lang: string; translations: ProfileTranslations
+}) {
+  const t = createProfileTranslator(translations)
+  const [saved, setSaved] = useState(initial)
+  const [pending, setPending] = useState(pendingEmail)
+  const [draft, setDraft] = useState({ ...initial, email: pendingEmail ?? initial.email })
+  const [saving, setSaving] = useState(false)
+  const inFlight = useRef(false)
+  const [notice, setNotice] = useState<ProfileTranslationKey | null>(null)
+  const [failed, setFailed] = useState(false)
+
+  useEffect(() => {
+    if (!inFlight.current) {
+      setSaved(initial)
+      setPending(pendingEmail)
+      setDraft({ ...initial, email: pendingEmail ?? initial.email })
+    }
+  }, [initial, pendingEmail])
+  useEffect(() => {
+    if (!saving) return
+    const warn = (event: BeforeUnloadEvent) => { event.preventDefault(); event.returnValue = '' }
+    window.addEventListener('beforeunload', warn)
+    return () => window.removeEventListener('beforeunload', warn)
+  }, [saving])
+
+  async function submit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    if (inFlight.current) return
+    const values = { ...draft, lang }
+    const validated = personalDetailsSchema.safeParse(values)
+    if (validated.success === false) { setNotice('invalid_input'); setFailed(true); return }
+    const before = saved
+    inFlight.current = true
+    setSaving(true)
+    setFailed(false)
+    setNotice(null)
+    setSaved(draft)
+    try {
+      const result = await updatePersonalDetails(validated.data)
+      if (result.success === false) throw new Error(result.error)
+      setSaved(result.data.profile)
+      setPending(result.data.pendingEmail)
+      setDraft({ ...result.data.profile, email: result.data.pendingEmail ?? result.data.profile.email })
+      setNotice(result.data.emailChange === 'failed' ? 'email_change_failed'
+        : result.data.emailChange === 'pending' ? 'email_confirmation' : 'saved')
+      setFailed(result.data.emailChange === 'failed')
+    } catch {
+      setSaved(before)
+      setDraft({ ...before, email: pending ?? before.email })
+      setNotice('profile_save_failed')
+      setFailed(true)
+    } finally { setSaving(false); inFlight.current = false }
+  }
+
+  const fields = [
+    { key: 'name', type: 'text', autoComplete: 'name', maxLength: 80, required: true },
+    { key: 'email', type: 'email', autoComplete: 'email', maxLength: 180, required: true },
+    { key: 'phone', type: 'tel', autoComplete: 'tel', maxLength: 50 },
+    { key: 'street', type: 'text', autoComplete: 'street-address', maxLength: 250 },
+    { key: 'zip_code', type: 'text', autoComplete: 'postal-code', maxLength: 32 },
+    { key: 'city', type: 'text', autoComplete: 'address-level2', maxLength: 120 },
+  ] as const
+
+  return (
+    <section aria-labelledby="personal-title" className="min-w-0 rounded-3xl border border-slate-200 bg-white p-4 shadow-sm sm:p-7 dark:border-slate-800 dark:bg-slate-900">
+      <div className="mb-6 flex min-w-0 items-start gap-3">
+        <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-blue-50 text-blue-700 dark:bg-blue-950 dark:text-blue-300"><UserRound aria-hidden="true" size={24} /></span>
+        <div className="min-w-0">
+          <h2 id="personal-title" className="break-words text-xl font-bold text-slate-900 dark:text-white">{t('personal_data')}</h2>
+          <p className="mt-1 break-words text-sm leading-relaxed text-slate-600 dark:text-slate-400">{t('personal_intro')}</p>
+        </div>
+      </div>
+      <form onSubmit={submit} noValidate aria-busy={saving}>
+        <fieldset disabled={saving} className="grid min-w-0 grid-cols-1 gap-4 sm:grid-cols-2">
+          {fields.map(field => (
+            <div key={field.key} className={`min-w-0 ${field.key === 'street' ? 'sm:col-span-2' : ''}`}>
+              <label htmlFor={`profile-${field.key}`} className="mb-2 block text-sm font-semibold text-slate-700 dark:text-slate-200">{t(field.key)}</label>
+              <input id={`profile-${field.key}`} name={field.key} type={field.type} autoComplete={field.autoComplete}
+                maxLength={field.maxLength} required={field.key === 'name' || field.key === 'email'}
+                value={draft[field.key] ?? ''}
+                aria-describedby={field.key === 'email' ? 'profile-email-hint' : undefined}
+                onChange={event => setDraft(current => ({ ...current, [field.key]: field.key === 'name' || field.key === 'email' ? event.target.value : event.target.value || null }))}
+                className="block min-h-12 w-full min-w-0 max-w-full rounded-xl border border-slate-300 bg-white px-3 py-3 text-base text-slate-900 outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-600/25 disabled:bg-slate-50 dark:border-slate-600 dark:bg-slate-950 dark:text-white dark:disabled:bg-slate-800" />
+              {field.key === 'email' && <p id="profile-email-hint" className="mt-2 break-words text-xs leading-relaxed text-slate-500 dark:text-slate-400">{t('email_hint')}</p>}
+            </div>
+          ))}
+        </fieldset>
+        {pending && <p className="mt-4 break-words rounded-xl bg-amber-50 p-3 text-sm text-amber-900 [overflow-wrap:anywhere] dark:bg-amber-950 dark:text-amber-200">{t('pending_email', { email: pending })}</p>}
+        <div className="mt-6 flex min-w-0 flex-col gap-3 sm:flex-row sm:items-center">
+          <button type="submit" disabled={saving} className="inline-flex min-h-12 min-w-12 shrink-0 items-center justify-center gap-2 whitespace-normal rounded-xl bg-blue-700 px-5 py-3 text-base font-bold text-white hover:bg-blue-800 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-orange-500 disabled:opacity-70">
+            {saving ? <Loader2 size={18} aria-hidden="true" className="animate-spin" /> : <Check size={18} aria-hidden="true" />}
+            <span>{saving ? t('saving') : t('save_details')}</span>
+          </button>
+        </div>
+        <div className="mt-3 min-h-12 min-w-0 break-words text-sm leading-relaxed" role={failed ? 'alert' : 'status'} aria-live={failed ? 'assertive' : 'polite'} aria-atomic="true">
+          <p className={failed ? 'text-red-700 dark:text-red-300' : 'text-emerald-800 dark:text-emerald-300'}>{notice ? t(notice) : saving ? t('saving_navigation') : ''}</p>
+        </div>
+      </form>
+    </section>
+  )
+}

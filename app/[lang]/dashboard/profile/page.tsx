@@ -1,117 +1,65 @@
 import { createClient } from '@/utils/supabase/server'
-import { User, Globe, Mail, Languages } from 'lucide-react'
+import { Languages } from 'lucide-react'
 import { redirect } from 'next/navigation'
 import { getDictionary } from '@/lib/dictionary'
-import {
-  createProfileTranslator,
-  translateNativeLanguage,
-  type ProfileTranslations,
-} from '@/lib/profile-i18n'
-import { LOCALES, UI_LOCALE_ENDONYMS, toUiLocale } from '@/lib/locale-routing'
+import { createProfileTranslator, translateNativeLanguage } from '@/lib/profile-i18n'
+import { LOCALES, toUiLocale } from '@/lib/locale-routing'
+import { loadProfileMonthlyState } from '@/lib/profile-dashboard-server'
 import UiLanguageForm from '@/components/dashboard/UiLanguageForm'
+import ProfileDetailsForm from '@/components/dashboard/ProfileDetailsForm'
+import ProfileMonthlyCourses from '@/components/dashboard/ProfileMonthlyCourses'
 
-export default async function ProfilePage({
-  params,
-}: {
-  params: Promise<{ lang: string }>
-}) {
-  const { lang } = await params
-
+export default async function ProfilePage({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang: requestedLang } = await params
+  const lang = toUiLocale(requestedLang)
   const supabase = await createClient()
-  const {
-    data: { user },
-  } = await supabase.auth.getUser()
-
-  if (!user) {
-    redirect(`/${lang}/login`)
-  }
-
-  const dict = await getDictionary(lang)
-  const t = createProfileTranslator((dict.profile ?? {}) as ProfileTranslations)
-
-  const { data: profile } = await supabase.from('profiles').select('*').eq('id', user.id).single()
-
-  const currentUiLanguage = toUiLocale(profile?.ui_language ?? lang)
-  const uiLanguageOptions = LOCALES.map(locale => ({
-    value: locale,
-    label: UI_LOCALE_ENDONYMS[locale],
-  }))
+  const { data: { user }, error: authError } = await supabase.auth.getUser()
+  if (authError || !user) redirect(`/${lang}/login`)
+  const [dict, profileResult] = await Promise.all([
+    getDictionary(lang), supabase.from('profiles').select('*').eq('id', user.id).single(),
+  ])
+  if (profileResult.error || !profileResult.data) throw new Error('profile_load_failed')
+  const profile = profileResult.data
+  const t = createProfileTranslator(dict.profile)
+  // A booking failure must not make the personal details form disappear.
+  let monthly: Awaited<ReturnType<typeof loadProfileMonthlyState>> | null = null
+  try { monthly = await loadProfileMonthlyState(supabase, user) }
+  catch { console.error('[profile] Course plan could not be loaded') }
+  const courseData: Record<string, { title?: string }> = dict.CourseData
+  const titles = Object.fromEntries((monthly?.courses ?? []).map(course => [
+    course.id, courseData[course.translationKey]?.title || course.title || t('course_fallback'),
+  ]))
 
   return (
-    <div className="mx-auto max-w-3xl space-y-8">
-      <h1 className="break-words text-3xl font-extrabold text-slate-900 sm:text-4xl dark:text-white">
-        {t('title')}
-      </h1>
-
-      <div className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-gray-900/5 sm:p-8 dark:bg-slate-900 dark:ring-slate-800">
-        <h2 className="mb-6 border-b border-slate-200 pb-4 text-xl font-bold text-slate-900 sm:text-2xl dark:border-slate-700 dark:text-white">
-          {t('personal_data')}
-        </h2>
-
-        <div className="space-y-6">
-          <div className="flex items-start gap-4 sm:items-center">
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-blue-100 text-blue-600 dark:bg-blue-950 dark:text-blue-300">
-              <User size={24} aria-hidden="true" />
-            </div>
-            <div className="min-w-0">
-              <p className="text-sm font-medium tracking-wider text-slate-500 uppercase">{t('name')}</p>
-              <p className="break-words text-xl font-bold text-slate-900 dark:text-white">
-                {profile?.name || t('not_specified')}
-              </p>
-            </div>
-          </div>
-
-          <div className="flex items-start gap-4 sm:items-center">
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-blue-100 text-blue-600 dark:bg-blue-950 dark:text-blue-300">
-              <Mail size={24} aria-hidden="true" />
-            </div>
-            <div className="min-w-0">
-              <p className="text-sm font-medium tracking-wider text-slate-500 uppercase">{t('email')}</p>
-              <p className="break-all text-xl font-bold text-slate-900 dark:text-white">
-                {profile?.email || t('not_specified')}
-              </p>
-            </div>
-          </div>
-
-          <div className="flex items-start gap-4 sm:items-center">
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-blue-100 text-blue-600 dark:bg-blue-950 dark:text-blue-300">
-              <Globe size={24} aria-hidden="true" />
-            </div>
-            <div className="min-w-0">
-              <p className="text-sm font-medium tracking-wider text-slate-500 uppercase">{t('native_language')}</p>
-              <p className="break-words text-xl font-bold text-slate-900 dark:text-white">
-                {translateNativeLanguage(t, profile?.native_language)}
-              </p>
-            </div>
-          </div>
-        </div>
+    <div className="mx-auto w-full min-w-0 max-w-5xl space-y-6 [overflow-wrap:break-word] sm:space-y-8">
+      <div className="max-w-2xl">
+        <h1 className="break-words text-3xl font-extrabold text-slate-900 sm:text-4xl dark:text-white">{t('title')}</h1>
+        <p className="mt-3 text-base leading-relaxed text-slate-600 dark:text-slate-400">{t('intro')}</p>
       </div>
-
-      {/* Oberflächensprache – jederzeit manuell änderbar */}
-      <div className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-gray-900/5 sm:p-8 dark:bg-slate-900 dark:ring-slate-800">
-        <div className="flex items-start gap-4">
-          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-blue-100 text-blue-600 dark:bg-blue-950 dark:text-blue-300">
-            <Languages size={24} aria-hidden="true" />
-          </div>
+      <div className="grid min-w-0 grid-cols-1 items-start gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
+        <ProfileDetailsForm lang={lang} translations={dict.profile} pendingEmail={user.new_email || null}
+          initial={{ name: profile.name ?? '', email: profile.email, phone: profile.phone, street: profile.street, zip_code: profile.zip_code, city: profile.city }} />
+        {monthly ? <ProfileMonthlyCourses key={`${user.id}:${monthly.targetMonth}`} initial={monthly} lang={lang} translations={dict.profile} courseTitles={titles} />
+          : <section className="min-w-0 rounded-3xl border border-amber-200 bg-amber-50 p-5 dark:border-amber-800 dark:bg-amber-950">
+            <h2 className="text-xl font-bold text-slate-900 dark:text-white">{t('next_month_title')}</h2>
+            <p role="alert" className="mt-3 text-amber-900 dark:text-amber-200">{t('booking_load_failed')}</p>
+            <a href={`/${lang}/dashboard/profile`} className="mt-4 inline-flex min-h-12 min-w-12 items-center rounded-xl border border-amber-500 px-4 py-2 font-bold text-amber-950 dark:text-amber-100">{t('reload')}</a>
+          </section>}
+      </div>
+      <section className="min-w-0 rounded-3xl border border-slate-200 bg-white p-4 sm:p-7 dark:border-slate-800 dark:bg-slate-900">
+        <div className="flex min-w-0 items-start gap-3">
+          <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-blue-50 text-blue-700 dark:bg-blue-950 dark:text-blue-300"><Languages size={24} aria-hidden="true" /></span>
           <div className="min-w-0 flex-1">
-            <h2 className="text-xl font-bold text-slate-900 sm:text-2xl dark:text-white">
-              {t('ui_language')}
-            </h2>
-            <p className="mt-1 text-base text-slate-600 dark:text-slate-400">
-              {t('ui_language_description')}
-            </p>
-
-            <div className="mt-5">
-              <UiLanguageForm
-                current={currentUiLanguage}
-                options={uiLanguageOptions}
-                ariaLabel={t('ui_language')}
-                saveLabel={t('ui_language_save')}
-              />
-            </div>
+            <h2 className="break-words text-xl font-bold text-slate-900 dark:text-white">{t('ui_language')}</h2>
+            <p className="mt-1 text-sm leading-relaxed text-slate-600 dark:text-slate-400">{t('ui_language_description')}</p>
+            <p className="mt-3 text-sm text-slate-500 dark:text-slate-400">{t('native_language')}: {translateNativeLanguage(t, profile.native_language)}</p>
           </div>
         </div>
-      </div>
+        <div className="mt-5">
+          <UiLanguageForm current={toUiLocale(profile.ui_language ?? lang)} options={LOCALES.map(locale => ({ value: locale, label: t(`ui_locale_${locale}`) }))}
+            ariaLabel={t('ui_language')} saveLabel={t('ui_language_save')} />
+        </div>
+      </section>
     </div>
   )
 }

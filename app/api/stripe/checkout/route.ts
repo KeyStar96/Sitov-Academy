@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import { stripe } from '@/utils/stripe/server'
 import { createClient } from '@/utils/supabase/server'
+import { createAdminClient } from '@/utils/supabase/admin'
 import { buildSiteUrl, getSiteUrl } from '@/lib/site-url'
 
 export async function POST(req: Request) {
@@ -36,11 +37,15 @@ export async function POST(req: Request) {
       })
       stripeCustomerId = customer.id
       
-      // Update supabase profile
-      await supabase
+      // Billing columns are not writable by the browser/cookie role.
+      // The authenticated user's ID and Stripe's response are server-derived.
+      const { error: profileUpdateError } = await createAdminClient()
         .from('profiles')
         .update({ stripe_customer_id: stripeCustomerId })
         .eq('id', user.id)
+        .select('id')
+        .single()
+      if (profileUpdateError) throw profileUpdateError
     }
 
     const session = await stripe.checkout.sessions.create({

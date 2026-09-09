@@ -1,6 +1,10 @@
 -- Sitov Academy v2 – Supabase Schema Reference
 -- Projekt-ID: wcaslabeiwtvygxtzcio
--- Stand: synchronisiert mit Live-Datenbank (2026-09-02)
+-- Basis: synchronisiert mit Live-Datenbank (2026-09-02)
+-- Ergänzt: 20260909155919_monthly_bookings_teacher_notes.sql
+-- und 20260909165848_profile_dashboard_workflow.sql, live angewendet am 2026-09-09.
+-- Live-Migrationsversionen: 20260909172738 bzw. 20260909172746.
+-- Private Hilfstabellen/-funktionen, Grants und Backfill: siehe diese Migrationen.
 --
 -- WARNING: Dieses Schema dient als Referenz und Kontext für Agenten.
 -- Es ist nicht als vollständiges Setup-Skript gedacht. Tabellenreihenfolge
@@ -12,6 +16,7 @@
 
 CREATE TABLE public.courses (
   id text NOT NULL,
+  booking_id uuid NOT NULL DEFAULT gen_random_uuid() UNIQUE,
   translation_key text NOT NULL,
   type text NOT NULL CHECK (type = ANY (ARRAY['presence'::text, 'online'::text])),
   price numeric NOT NULL,
@@ -120,7 +125,12 @@ CREATE TABLE public.profiles (
   updated_at timestamp with time zone DEFAULT now(),
   stripe_customer_id text,
   stripe_subscription_id text,
-  role text DEFAULT 'student'::text CHECK (role = ANY (ARRAY['student'::text, 'teacher'::text])),
+  role text DEFAULT 'student'::text CHECK (role IN ('student', 'teacher', 'admin')),
+  legacy_user_id uuid REFERENCES public.users(id) ON DELETE SET NULL,
+  phone text,
+  street text,
+  zip_code text,
+  city text,
   -- Persistente Oberflächensprache (Locale-Code). Standard 'de'; wird bei der
   -- Registrierung aus der Erstsprache abgeleitet, im Profil manuell änderbar.
   ui_language text NOT NULL DEFAULT 'de'::text CHECK (ui_language = ANY (ARRAY['de'::text, 'en'::text, 'uk'::text, 'ru'::text, 'tr'::text])),
@@ -259,6 +269,31 @@ CREATE TABLE public.teacher_feedback (
   CONSTRAINT teacher_feedback_pkey PRIMARY KEY (id),
   CONSTRAINT teacher_feedback_submission_id_fkey FOREIGN KEY (submission_id) REFERENCES public.submissions(id),
   CONSTRAINT teacher_feedback_teacher_id_fkey FOREIGN KEY (teacher_id) REFERENCES public.profiles(id)
+);
+
+CREATE TABLE public.monthly_course_bookings (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id uuid NOT NULL DEFAULT auth.uid() REFERENCES public.profiles(id) ON DELETE CASCADE,
+  target_month date NOT NULL,
+  course_ids uuid[] NOT NULL,
+  status text NOT NULL DEFAULT 'pending' CHECK (status IN ('pending', 'confirmed', 'cancelled')),
+  CONSTRAINT monthly_course_bookings_user_month_key UNIQUE (user_id, target_month),
+  CONSTRAINT monthly_course_bookings_month_check CHECK (
+    isfinite(target_month) AND target_month >= DATE '0001-01-01'
+    AND target_month <= DATE '9999-12-01' AND extract(day FROM target_month) = 1
+  ),
+  CONSTRAINT monthly_course_bookings_courses_check CHECK (
+    (cardinality(course_ids) = 0 AND status = 'cancelled') OR
+    (cardinality(course_ids) BETWEEN 1 AND 100 AND array_ndims(course_ids) = 1
+    AND array_lower(course_ids, 1) = 1 AND array_position(course_ids, NULL) IS NULL)
+  )
+);
+CREATE TABLE public.teacher_student_notes (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  student_id uuid NOT NULL REFERENCES public.profiles(id) ON DELETE CASCADE,
+  teacher_id uuid NOT NULL DEFAULT auth.uid() REFERENCES public.profiles(id) ON DELETE CASCADE,
+  note_text text NOT NULL CHECK (char_length(btrim(note_text)) BETWEEN 1 AND 5000),
+  discount_percent numeric(5,2) NOT NULL DEFAULT 0 CHECK (discount_percent BETWEEN 0 AND 100)
 );
 
 -- =============================================================================
@@ -449,9 +484,14 @@ CREATE POLICY "Admins und Lehrer dürfen Übungen bearbeiten" ON public.exercise
 CREATE POLICY "Admins und Lehrer dürfen Übungen löschen" ON public.exercises FOR DELETE TO public USING ((SELECT profiles.role FROM profiles WHERE profiles.id = auth.uid()) = ANY (ARRAY['admin'::text, 'teacher'::text]));
 
 -- profiles
-CREATE POLICY "Benutzer können eigenes Profil sehen" ON public.profiles FOR SELECT TO public USING (auth.uid() = id);
-CREATE POLICY "Benutzer können eigenes Profil aktualisieren" ON public.profiles FOR UPDATE TO public USING (auth.uid() = id);
-CREATE POLICY "Admins und Lehrer können Profile updaten" ON public.profiles FOR UPDATE TO public USING ((SELECT profiles_1.role FROM profiles profiles_1 WHERE profiles_1.id = auth.uid()) = ANY (ARRAY['admin'::text, 'teacher'::text]));
+CREATE POLICY "Benutzer können eigenes Profil sehen" ON public.profiles FOR SELECT
+  TO authenticated USING ((SELECT auth.uid()) = id);
+CREATE POLICY "Benutzer können eigenes Profil aktualisieren" ON public.profiles FOR UPDATE
+  TO authenticated USING ((SELECT auth.uid()) = id) WITH CHECK ((SELECT auth.uid()) = id);
+CREATE POLICY "Admins und Lehrer können Profile updaten" ON public.profiles
+  FOR UPDATE TO authenticated
+  USING ((SELECT monthly_booking_private.current_profile_role()) IN ('teacher', 'admin'))
+  WITH CHECK ((SELECT monthly_booking_private.current_profile_role()) IN ('teacher', 'admin'));
 
 -- registrations
 CREATE POLICY "Anyone can insert registration" ON public.registrations FOR INSERT TO public WITH CHECK (true);
@@ -461,12 +501,18 @@ CREATE POLICY "Service Role Full Access Registrations" ON public.registrations F
 -- submissions
 CREATE POLICY "Studenten können Submissions erstellen" ON public.submissions FOR INSERT TO public WITH CHECK (auth.uid() = user_id);
 CREATE POLICY "Studenten sehen eigene Submissions" ON public.submissions FOR SELECT TO public USING (auth.uid() = user_id);
-CREATE POLICY "Lehrer sehen alle Submissions" ON public.submissions FOR SELECT TO public USING (EXISTS (SELECT 1 FROM profiles WHERE profiles.id = auth.uid() AND profiles.role = 'teacher'::text));
-CREATE POLICY "Lehrer können Submissions updaten" ON public.submissions FOR UPDATE TO public USING (EXISTS (SELECT 1 FROM profiles WHERE profiles.id = auth.uid() AND profiles.role = 'teacher'::text));
+CREATE POLICY "Lehrer sehen alle Submissions" ON public.submissions FOR SELECT TO authenticated
+  USING ((SELECT monthly_booking_private.current_profile_role()) IN ('teacher', 'admin'));
+CREATE POLICY "Lehrer können Submissions updaten" ON public.submissions FOR UPDATE TO authenticated
+  USING ((SELECT monthly_booking_private.current_profile_role()) IN ('teacher', 'admin'))
+  WITH CHECK ((SELECT monthly_booking_private.current_profile_role()) IN ('teacher', 'admin'));
 
 -- teacher_feedback
-CREATE POLICY "Lehrer können Feedback erstellen" ON public.teacher_feedback FOR INSERT TO public WITH CHECK (auth.uid() = teacher_id AND EXISTS (SELECT 1 FROM profiles WHERE profiles.id = auth.uid() AND profiles.role = 'teacher'::text));
-CREATE POLICY "Lehrer sehen alle Feedbacks" ON public.teacher_feedback FOR SELECT TO public USING (EXISTS (SELECT 1 FROM profiles WHERE profiles.id = auth.uid() AND profiles.role = 'teacher'::text));
+CREATE POLICY "Lehrer können Feedback erstellen" ON public.teacher_feedback FOR INSERT TO authenticated
+  WITH CHECK ((SELECT auth.uid()) = teacher_id
+    AND (SELECT monthly_booking_private.current_profile_role()) IN ('teacher', 'admin'));
+CREATE POLICY "Lehrer sehen alle Feedbacks" ON public.teacher_feedback FOR SELECT TO authenticated
+  USING ((SELECT monthly_booking_private.current_profile_role()) IN ('teacher', 'admin'));
 CREATE POLICY "Studenten sehen ihr Feedback" ON public.teacher_feedback FOR SELECT TO public USING (EXISTS (SELECT 1 FROM submissions WHERE submissions.id = teacher_feedback.submission_id AND submissions.user_id = auth.uid()));
 
 -- trial_lessons
@@ -506,3 +552,40 @@ CREATE POLICY "Jeder darf Vokabelkarten lesen" ON public.vocabulary_cards FOR SE
 CREATE POLICY "Admins und Lehrer dürfen Vokabelkarten einfügen" ON public.vocabulary_cards FOR INSERT TO public WITH CHECK ((SELECT profiles.role FROM profiles WHERE profiles.id = auth.uid()) = ANY (ARRAY['admin'::text, 'teacher'::text]));
 CREATE POLICY "Admins und Lehrer dürfen Vokabelkarten bearbeiten" ON public.vocabulary_cards FOR UPDATE TO public USING ((SELECT profiles.role FROM profiles WHERE profiles.id = auth.uid()) = ANY (ARRAY['admin'::text, 'teacher'::text]));
 CREATE POLICY "Admins und Lehrer dürfen Vokabelkarten löschen" ON public.vocabulary_cards FOR DELETE TO public USING ((SELECT profiles.role FROM profiles WHERE profiles.id = auth.uid()) = ANY (ARRAY['admin'::text, 'teacher'::text]));
+
+CREATE POLICY "Staff can read profiles" ON public.profiles FOR SELECT TO authenticated
+  USING ((SELECT monthly_booking_private.current_profile_role()) IN ('teacher', 'admin'));
+
+CREATE POLICY "Own bookings or admin" ON public.monthly_course_bookings
+  FOR ALL TO authenticated
+  USING ((SELECT auth.uid()) = user_id OR (SELECT monthly_booking_private.current_profile_role()) = 'admin')
+  WITH CHECK ((SELECT auth.uid()) = user_id OR (SELECT monthly_booking_private.current_profile_role()) = 'admin');
+
+CREATE POLICY "Staff read notes" ON public.teacher_student_notes FOR SELECT TO authenticated
+  USING ((SELECT monthly_booking_private.current_profile_role()) IN ('teacher', 'admin'));
+
+CREATE POLICY "Staff insert notes as themselves" ON public.teacher_student_notes FOR INSERT TO authenticated
+  WITH CHECK ((SELECT monthly_booking_private.current_profile_role()) IN ('teacher', 'admin')
+    AND teacher_id = (SELECT auth.uid()));
+
+CREATE POLICY "Staff update notes" ON public.teacher_student_notes FOR UPDATE TO authenticated
+  USING ((SELECT monthly_booking_private.current_profile_role()) IN ('teacher', 'admin'))
+  WITH CHECK ((SELECT monthly_booking_private.current_profile_role()) IN ('teacher', 'admin'));
+
+CREATE POLICY "Staff delete notes" ON public.teacher_student_notes FOR DELETE TO authenticated
+  USING ((SELECT monthly_booking_private.current_profile_role()) IN ('teacher', 'admin'));
+
+ALTER TABLE public.monthly_course_bookings ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.teacher_student_notes ENABLE ROW LEVEL SECURITY;
+
+-- New indexes, immutable-author/booking triggers, UUID-array FK projection,
+-- contact migration audit, private role helper and column grants are defined in
+-- migrations/20260909155919_monthly_bookings_teacher_notes.sql. Apply that file,
+-- not this deliberately partial reference. Browser profile UPDATE grants cover
+-- only name, native_language, ui_language, phone, street, zip_code, city.
+
+-- Profile dashboard follow-up: migrations/20260909165848_profile_dashboard_workflow.sql
+-- defines save_next_month_booking (SECURITY INVOKER, owner-bound, compare-and-swap),
+-- the private confirmed-email synchronization trigger, and profiles_legacy_user_idx.
+-- legacy_user_id has no browser UPDATE grant; only verified/trusted associations
+-- are retained so an auth email change does not unlink existing enrollments.

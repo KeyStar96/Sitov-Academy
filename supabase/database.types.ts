@@ -70,6 +70,7 @@ export type Database = {
       }
       courses: {
         Row: {
+          booking_id: string
           created_at: string | null
           end_date: string | null
           id: string
@@ -84,6 +85,7 @@ export type Database = {
           unit_duration: number
         }
         Insert: {
+          booking_id?: string
           created_at?: string | null
           end_date?: string | null
           id: string
@@ -98,6 +100,7 @@ export type Database = {
           unit_duration: number
         }
         Update: {
+          booking_id?: string
           created_at?: string | null
           end_date?: string | null
           id?: string
@@ -188,8 +191,84 @@ export type Database = {
         }
         Relationships: []
       }
+      monthly_course_bookings: {
+        Row: {
+          id: string
+          user_id: string
+          target_month: string
+          course_ids: string[]
+          status: string
+        }
+        Insert: {
+          id?: string
+          user_id?: string
+          target_month: string
+          course_ids: string[]
+          status?: string
+        }
+        Update: {
+          id?: string
+          user_id?: string
+          target_month?: string
+          course_ids?: string[]
+          status?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "monthly_course_bookings_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      teacher_student_notes: {
+        Row: {
+          id: string
+          student_id: string
+          teacher_id: string
+          note_text: string
+          discount_percent: number
+        }
+        Insert: {
+          id?: string
+          student_id: string
+          teacher_id?: string
+          note_text: string
+          discount_percent?: number
+        }
+        Update: {
+          id?: string
+          student_id?: string
+          teacher_id?: string
+          note_text?: string
+          discount_percent?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "teacher_student_notes_student_id_fkey"
+            columns: ["student_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "teacher_student_notes_teacher_id_fkey"
+            columns: ["teacher_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       profiles: {
         Row: {
+          legacy_user_id: string | null
+          phone: string | null
+          street: string | null
+          zip_code: string | null
+          city: string | null
           allowed_levels: string[]
           created_at: string | null
           email: string
@@ -204,6 +283,11 @@ export type Database = {
           updated_at: string | null
         }
         Insert: {
+          legacy_user_id?: string | null
+          phone?: string | null
+          street?: string | null
+          zip_code?: string | null
+          city?: string | null
           allowed_levels?: string[]
           created_at?: string | null
           email: string
@@ -218,6 +302,11 @@ export type Database = {
           updated_at?: string | null
         }
         Update: {
+          legacy_user_id?: string | null
+          phone?: string | null
+          street?: string | null
+          zip_code?: string | null
+          city?: string | null
           allowed_levels?: string[]
           created_at?: string | null
           email?: string
@@ -231,7 +320,13 @@ export type Database = {
           ui_language?: string
           updated_at?: string | null
         }
-        Relationships: []
+        Relationships: [{
+          foreignKeyName: "profiles_legacy_user_id_fkey"
+          columns: ["legacy_user_id"]
+          isOneToOne: false
+          referencedRelation: "users"
+          referencedColumns: ["id"]
+        }]
       }
       pronunciation_prompts: {
         Row: {
@@ -719,6 +814,17 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      save_next_month_booking: {
+        Args: {
+          p_target_month: string
+          p_course_ids: string[]
+          p_paused: boolean
+          p_expected_id?: string | null
+          p_expected_course_ids?: string[] | null
+          p_expected_status?: string | null
+        }
+        Returns: Database["public"]["Tables"]["monthly_course_bookings"]["Row"][]
+      }
       mark_feedback_seen: {
         Args: { p_submission_id: string }
         Returns: number
