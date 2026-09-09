@@ -6,7 +6,8 @@ jest.mock('@/utils/supabase/admin', () => ({ createAdminClient: jest.fn() }))
 import { createClient } from '@/utils/supabase/server'
 import { createAdminClient } from '@/utils/supabase/admin'
 import { createMonthlyBooking, updateMonthlyBooking, deleteMonthlyBooking } from '@/app/actions/monthly-bookings'
-import { createTeacherNote, getTeacherNotes, updateTeacherNote } from '@/app/actions/teacher-notes'
+import { createTeacherNote, getTeacherNotes, updateTeacherNote, saveBlackboardNote } from '@/app/actions/teacher-notes'
+import { getNextMonthStaffOverview } from '@/app/actions/admin-operations'
 import { updateStudentRole } from '@/app/actions/admin'
 import { updateProfileContact } from '@/app/actions/profile'
 import { revalidatePath } from 'next/cache'
@@ -80,6 +81,27 @@ describe('monthly backend action authorization', () => {
     const { chain } = session('teacher')
     await createTeacherNote({ student_id: other, note_text: '  Hallo\r\nWelt  ', discount_percent: 12.5 })
     expect(chain.insert).toHaveBeenCalledWith({ student_id: other, teacher_id: uid, note_text: 'Hallo\nWelt', discount_percent: 12.5 })
+  })
+  it('saves a discount-only blackboard row with a placeholder note', async () => {
+    const { chain } = session('teacher')
+    const saved = { id: other, student_id: other, teacher_id: uid, note_text: '\u2060', discount_percent: 10 }
+    chain.single.mockResolvedValue({ data: saved, error: null })
+    expect(await saveBlackboardNote({ student_id: other, note_id: null, note_text: '  ', discount_percent: 10 }))
+      .toEqual({ success: true, data: saved })
+    expect(chain.insert).toHaveBeenCalledWith({
+      student_id: other, teacher_id: uid, note_text: '\u2060', discount_percent: 10,
+    })
+  })
+  it('does not insert an empty blackboard', async () => {
+    const { chain } = session('teacher')
+    expect(await saveBlackboardNote({ student_id: other, note_id: null, note_text: '', discount_percent: 0 }))
+      .toEqual({ success: true, data: null })
+    expect(chain.insert).not.toHaveBeenCalled()
+  })
+  it('denies the next-month staff overview to students', async () => {
+    session('student')
+    expect(await getNextMonthStaffOverview()).toEqual({ success: false, error: 'not_authorized' })
+    expect(createAdminClient).not.toHaveBeenCalled()
   })
   it('rejects unsafe note updates before querying notes', async () => {
     const { chain } = session('teacher')

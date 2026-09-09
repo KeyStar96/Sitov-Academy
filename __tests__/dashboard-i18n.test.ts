@@ -6,6 +6,7 @@ import uk from '@/dictionaries/uk.json'
 import { DASHBOARD_FALLBACKS, createDashboardTranslator } from '@/lib/dashboard-i18n'
 import { PROFILE_FALLBACKS, createProfileTranslator } from '@/lib/profile-i18n'
 import { VIDEO_FALLBACKS, createVideoTranslator } from '@/lib/videos-i18n'
+import { ADMIN_FALLBACKS, createAdminTranslator } from '@/lib/admin-i18n'
 
 const DICTIONARIES = { de, en, ru, tr, uk } as const
 
@@ -32,6 +33,14 @@ describe('Lernplattform-Dictionaries', () => {
     expect(missingKeys(PROFILE_FALLBACKS, section)).toEqual([])
   })
 
+  it.each(Object.keys(DICTIONARIES))('%s enthält alle Admin-Schlüssel', (locale) => {
+    const section = DICTIONARIES[locale as keyof typeof DICTIONARIES].admin as Readonly<Record<string, string>>
+    expect(missingKeys(ADMIN_FALLBACKS, section)).toEqual([])
+    for (const key of Object.keys(ADMIN_FALLBACKS)) {
+      expect((section[key].match(/\{\w+\}/g) ?? []).sort()).toEqual((de.admin[key as keyof typeof de.admin].match(/\{\w+\}/g) ?? []).sort())
+    }
+  })
+
   it('setzt den Namen in die Begrüßung ein', () => {
     const t = createDashboardTranslator(de.dashboard)
     expect(t('hello', { name: 'Anna' })).toContain('Anna')
@@ -40,6 +49,12 @@ describe('Lernplattform-Dictionaries', () => {
   it('hebt das Niveau im Titel hervor, ohne HTML im Dictionary', () => {
     expect(de.dashboard.title_highlight).toBe('Sprachniveau')
     expect(de.dashboard.title_before).not.toContain('<span')
+  })
+
+  it('übersetzt die Folgemonat-Navigation', () => {
+    const t = createAdminTranslator(en.admin)
+    expect(t('nav_bookings')).toBe('Next-month bookings')
+    expect(t('student_count', { count: 2 })).toContain('2')
   })
 
   it('übersetzt die Erstsprache im Profil', () => {

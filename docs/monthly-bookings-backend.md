@@ -118,7 +118,12 @@ explizit `result.success === true` bzw. `=== false` verwenden.
 - `monthly-bookings.ts`: `getMonthlyBookings`, `createMonthlyBooking`,
   `updateMonthlyBooking`, `deleteMonthlyBooking`.
 - `teacher-notes.ts`: `getTeacherNotes`, `createTeacherNote`,
-  `updateTeacherNote`, `deleteTeacherNote`.
+  `updateTeacherNote`, `deleteTeacherNote`, `saveBlackboardNote`
+  (Auto-Save für das Schwarze Brett; leerer Text plus Rabatt 0 löscht die Zeile).
+- `admin-operations.ts`: `getNextMonthStaffOverview`, `getStaffBlackboardNotes`.
+  Nach Staff-Auth liest die Übersicht Buchungen über den Service-Role-Client,
+  weil RLS Lehrkräften keine fremden `monthly_course_bookings` zeigt. Der
+  Vormonat gilt als Standard, bis der Schüler ändert oder pausiert.
 - `profile.ts`: `updateProfileContact`; alle vier Kontaktfelder angeben,
   `null` zum expliziten Löschen. Keine implizite Löschung durch fehlende Felder.
 

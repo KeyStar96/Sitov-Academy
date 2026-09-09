@@ -1,5 +1,12 @@
 # Current State Analysis (Ist-Zustand)
 
+## 1a. Änderungsprotokoll — 2026-09-09: Admin Folgemonat-Buchungen & Schwarzes Brett
+
+**Kernänderungen:**
+- **Neue Admin-Ansicht** `/{lang}/admin/bookings`: Folgemonat-Buchungen strikt nach Kurs (z. B. „B1.2 Intensiv“). Pro Kurs Kontaktdaten, Status, Rabatt und Notizen. Der Vormonat wird als Standard übernommen, bis der Schüler ändert oder pausiert.
+- **Schwarzes Brett** in `StudentList`, Schüler-Detail-Modal und der Folgemonat-Ansicht. Freitext plus Prozent-Rabatt, Auto-Save mit Debounce (700 ms) nach `teacher_student_notes`. Optimistic UI, Rollback bei Fehler.
+- **i18n:** Neuer Dictionary-Block `admin` plus `lib/admin-i18n.ts` in de/en/ru/uk/tr. Navigation, Tabellenköpfe, Blackboard und Buchungsstatus laufen über Schlüssel, keine fest codierten UI-Strings.
+
 ## 1a. Änderungsprotokoll — 2026-09-09: Preloader-Übergang ohne Farbkante
 
 **Kernänderungen:**

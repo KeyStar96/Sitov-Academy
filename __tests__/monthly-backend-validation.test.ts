@@ -1,7 +1,7 @@
 import { profileContactSchema } from '@/lib/types/profile'
 import { profileRoleSchema } from '@/lib/types/backend'
 import { createMonthlyBookingSchema, updateMonthlyBookingSchema, targetMonthSchema } from '@/lib/types/monthly-bookings'
-import { createTeacherNoteSchema, updateTeacherNoteSchema } from '@/lib/types/teacher-notes'
+import { createTeacherNoteSchema, updateTeacherNoteSchema, saveBlackboardSchema } from '@/lib/types/teacher-notes'
 
 const course = '00000000-0000-4000-8000-000000000001'
 const note = { student_id: course, note_text: ' Notiz\r\nmit Umlauten: ä, ї, ı ' }
@@ -40,6 +40,10 @@ describe('monthly backend validation', () => {
   })
   it.each([0, 100, 12.5, 99.99])('accepts numeric discount %s', value => {
     expect(createTeacherNoteSchema.parse({ ...note, discount_percent: value }).discount_percent).toBe(value)
+  })
+  it('accepts an empty blackboard note when a discount is stored separately', () => {
+    expect(saveBlackboardSchema.parse({ student_id: course, note_id: null, note_text: '', discount_percent: 0 }))
+      .toEqual({ student_id: course, note_id: null, note_text: '', discount_percent: 0 })
   })
   it('rejects forged teacher and student reassignment', () => {
     expect(createTeacherNoteSchema.safeParse({ ...note, teacher_id: course }).success).toBe(false)

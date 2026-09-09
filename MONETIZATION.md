@@ -1,5 +1,7 @@
 # Monetization Strategy (Stripe Integration)
 
+> **Hinweis (2026-09-09):** Die Admin-Ansicht „Folgemonat-Buchungen“ und das Schwarze Brett (Rabatt in `teacher_student_notes`) dienen der manuellen Monatsabrechnung und Kundenbetreuung. Sie ändern Stripe-Checkout, Webhooks und öffentliche Kursbuchung nicht.
+
 > **Hinweis (2026-09-09):** Preloader-Leinwand, Einstufung wie Lernbox und Profil-Layout berühren Stripe/Abo nicht.
 
 > **Hinweis (2026-09-06):** Die iOS-Wiedergabe (HTML-Audio/WAV) und die Waveform-Vereinfachung berühren Stripe/Abo nicht.

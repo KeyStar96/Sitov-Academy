@@ -1,5 +1,7 @@
 # Architecture Masterplan
 
+> **Admin-Abrechnung (2026-09-09):** `/{lang}/admin/bookings` gruppiert Folgemonat-Buchungen nach `courses.booking_id`. Staff liest Buchungen nach Rollenprüfung über den Service-Role-Client (RLS bleibt für den Cookie-Client: nur Eigentümer/Admin). Schwarzes Brett: `saveBlackboardNote` → `teacher_student_notes`, Auto-Save in `BlackboardProvider`. Texte: `dictionaries/*.json` → `admin` / `lib/admin-i18n.ts`.
+
 > **Preloader (2026-09-09):** Cinematic first-load curtain in `components/effects/Preloader.tsx`. html/body/`AppBackground`/Dashboard teilen `--canvas` (`#FCF4E6` / `#050505`), der Hero startet während des Wipes, der Vorhang blendet danach aus. Light/Dark folgt `html.dark`; Unterlängen bleiben sichtbar.
 
 > **Vokabeltrainer (2026-09-09):** Ersteinstufung zeigt wie die Lernbox zuerst die Übersetzung, dann „Lösung aufdecken“, danach Lernkasten (Phase 1) oder direkt Phase 6. Fällige Karten werden in `getDueCards` gewichtet zufällig gereiht (`PHASE_SELECTION_WEIGHTS` in `lib/leitner.ts`). `VocabCardSession` hält eine feste Kartenhöhe, damit der Wechsel keinen Layout-Shift erzeugt. Vokabelwörter ohne `line-clamp` (Unterlängen sichtbar). Lektionskarten: Aktionen untereinander in einer rechten Spalte. Profil-Folgemonat: kompakte Kurskarten im zweispaltigen Raster. Details siehe `CURRENT_STATE.md`.
@@ -83,6 +85,8 @@ Statt traditioneller `/api`-Routen werden React Server Actions in `actions/` ver
 - `actions/vocabulary.ts`: `getDueCards` (fällige Karten, gewichtete Zufallsreihenfolge), `submitVocabularyAnswer`, `getLessonStats`, `getLessonCards` (Detailansicht inkl. Bild/Audio), `addCardsToTrainer` (manuelle Einzelübernahme), `submitLessonAssessment` (Pre-Assessment: Übersetzung zuerst, nach Aufdecken bekannt → Phase 6, unbekannt → Phase 1). Route `/dashboard/level/[level]/vocabulary/assess?lesson=…` nutzt `getLessonCards` + `submitLessonAssessment`.
 - `actions/student.ts`: Submit Exercise, Update Vocab Box, Upload Audio Submission.
 - `actions/teacher.ts`: Provide Feedback, Update User Subscription (manuell).
+- `actions/admin-operations.ts`: `getNextMonthStaffOverview`, `getStaffBlackboardNotes` (Staff-only, Service-Role nach Session-Prüfung).
+- `actions/teacher-notes.ts`: `saveBlackboardNote` (Upsert/Löschen des Schwarzen Bretts, Debounce-Client in `BlackboardProvider`).
 - `actions/stripe.ts`: Create Checkout Session, Customer Portal.
 
 ## 3. Sicherheitskonzept & RBAC (Role-Based Access Control)
