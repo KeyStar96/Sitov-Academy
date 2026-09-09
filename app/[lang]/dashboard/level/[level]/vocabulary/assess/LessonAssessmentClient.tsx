@@ -161,7 +161,7 @@ export default function LessonAssessmentClient({
       <div className="flex h-64 flex-col items-center justify-center overflow-hidden rounded-3xl bg-white p-6 text-center shadow-xl ring-1 ring-gray-900/10 sm:h-72 sm:p-10">
         <span
           className={cn(
-            'line-clamp-3 max-w-full break-words px-2 text-3xl font-extrabold sm:text-5xl',
+            'max-w-full overflow-visible break-words px-3 py-2 text-3xl font-extrabold leading-snug sm:text-5xl',
             articleColorClass(currentCard.article)
           )}
         >

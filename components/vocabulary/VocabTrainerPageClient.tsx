@@ -327,40 +327,41 @@ export default function VocabTrainerPageClient({
                   event.dataTransfer.effectAllowed = 'copy'
                 }}
                 className={cn(
-                  "overflow-hidden rounded-2xl border-2 bg-white shadow-sm transition-shadow hover:shadow-md",
-                  inBox ? "border-blue-400 ring-2 ring-blue-50" : "border-gray-200"
+                  'overflow-hidden rounded-2xl border-2 bg-white shadow-sm transition-shadow hover:shadow-md',
+                  inBox ? 'border-blue-400 ring-2 ring-blue-50' : 'border-gray-200'
                 )}
               >
-                <div className="flex flex-col gap-4 p-5 md:flex-row md:items-start md:justify-between">
+                <div className="flex flex-col gap-5 p-5 sm:p-6 lg:flex-row lg:items-start lg:justify-between lg:gap-8">
                   <div className="min-w-0 flex-1">
-                    <div className="flex items-center gap-3">
-                      <h3 className="text-xl font-bold text-gray-900">{stat.lesson}</h3>
+                    <div className="flex flex-wrap items-center gap-3">
+                      <h3 className="text-xl font-bold leading-snug text-gray-900">{stat.lesson}</h3>
                       {inBox && (
-                        <span className="shrink-0 rounded-full bg-blue-600 px-3 py-1 text-sm font-bold text-white">
+                        <span className="shrink-0 rounded-full bg-blue-600 px-3 py-1 text-sm font-bold leading-none text-white">
                           {t('lernkasten_in_box')}
                         </span>
                       )}
                     </div>
-                    <div className="mt-3 flex flex-wrap gap-4 text-lg text-gray-600">
-                      <span className="inline-flex items-center gap-2">
-                        <span className="h-3 w-3 rounded-full bg-blue-500" aria-hidden="true" />
+
+                    <ul className="mt-4 flex flex-wrap gap-x-5 gap-y-3 text-lg leading-normal text-gray-600">
+                      <li className="inline-flex items-center gap-2 whitespace-nowrap">
+                        <span className="h-3 w-3 shrink-0 rounded-full bg-blue-500" aria-hidden="true" />
                         {stat.active} {t('in_training')}
-                      </span>
-                      <span className="inline-flex items-center gap-2">
-                        <span className="h-3 w-3 rounded-full bg-green-500" aria-hidden="true" />
+                      </li>
+                      <li className="inline-flex items-center gap-2 whitespace-nowrap">
+                        <span className="h-3 w-3 shrink-0 rounded-full bg-green-500" aria-hidden="true" />
                         {stat.learned} {t('learned')}
-                      </span>
+                      </li>
                       {due > 0 && (
-                        <span className="inline-flex items-center gap-2 font-bold text-amber-700">
-                          <span className="h-3 w-3 rounded-full bg-amber-500" aria-hidden="true" />
+                        <li className="inline-flex items-center gap-2 whitespace-nowrap font-bold text-amber-700">
+                          <span className="h-3 w-3 shrink-0 rounded-full bg-amber-500" aria-hidden="true" />
                           {due} {t('due_now')}
-                        </span>
+                        </li>
                       )}
-                      <span className="inline-flex items-center gap-2">
-                        <span className="h-3 w-3 rounded-full bg-gray-300" aria-hidden="true" />
+                      <li className="inline-flex items-center gap-2 whitespace-nowrap">
+                        <span className="h-3 w-3 shrink-0 rounded-full bg-gray-300" aria-hidden="true" />
                         {stat.total} {t('total')}
-                      </span>
-                    </div>
+                      </li>
+                    </ul>
 
                     {stat.learned > 0 && (
                       <div className="mt-4 flex max-w-md items-center gap-3">
@@ -384,11 +385,11 @@ export default function VocabTrainerPageClient({
                     )}
                   </div>
 
-                  <div className="flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap sm:justify-end md:w-full md:mt-4 md:border-t md:border-gray-100 md:pt-4">
+                  <div className="flex w-full shrink-0 flex-col gap-3 sm:flex-row sm:flex-wrap lg:w-auto lg:flex-col xl:flex-row">
                     {stat.untouched > 0 && (
                       <Link
                         href={assessHref}
-                        className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-emerald-600 px-5 py-2.5 text-base font-bold text-white shadow-sm transition-colors hover:bg-emerald-500 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#FF5C00]"
+                        className="inline-flex min-h-12 items-center justify-center gap-2 whitespace-nowrap rounded-xl bg-emerald-600 px-5 py-2.5 text-base font-bold text-white shadow-sm transition-colors hover:bg-emerald-500 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#FF5C00]"
                       >
                         <ListChecks size={20} aria-hidden="true" />
                         {hasProgress ? t('continue_assessing') : t('assess_set')}
@@ -399,20 +400,20 @@ export default function VocabTrainerPageClient({
                       type="button"
                       onClick={() => handleToggleLesson(stat.lesson)}
                       className={cn(
-                        "inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border-2 px-5 py-2.5 text-base font-bold shadow-sm transition-colors focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#FF5C00]",
+                        'inline-flex min-h-12 items-center justify-center gap-2 whitespace-nowrap rounded-xl border-2 px-5 py-2.5 text-base font-bold shadow-sm transition-colors focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#FF5C00]',
                         inBox
-                          ? "border-blue-200 bg-blue-50 text-blue-700 hover:bg-blue-100 hover:text-blue-800"
-                          : "border-gray-300 bg-white text-gray-800 hover:bg-gray-50"
+                          ? 'border-blue-200 bg-blue-50 text-blue-700 hover:bg-blue-100 hover:text-blue-800'
+                          : 'border-gray-300 bg-white text-gray-800 hover:bg-gray-50'
                       )}
                     >
                       {inBox ? <Check size={20} aria-hidden="true" /> : <Plus size={20} aria-hidden="true" />}
-                      {inBox ? 'Aus Lernbox entfernen' : 'In Lernbox aufnehmen'}
+                      {inBox ? t('lernkasten_remove') : t('lernkasten_add')}
                     </button>
 
                     <button
                       type="button"
                       onClick={() => setOpenLesson(stat.lesson)}
-                      className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border-2 border-gray-300 bg-white px-5 py-2.5 text-base font-bold text-gray-800 shadow-sm transition-colors hover:bg-gray-50 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#FF5C00]"
+                      className="inline-flex min-h-12 items-center justify-center gap-2 whitespace-nowrap rounded-xl border-2 border-gray-300 bg-white px-5 py-2.5 text-base font-bold text-gray-800 shadow-sm transition-colors hover:bg-gray-50 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#FF5C00]"
                     >
                       <ListPlus size={20} aria-hidden="true" />
                       {t('show_cards')}

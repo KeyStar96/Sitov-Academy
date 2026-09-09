@@ -1564,6 +1564,8 @@
     "lernkasten_lesson_meta": "{due} due · {total} words",
     "lernkasten_no_due_badge": "nothing due",
     "lernkasten_in_box": "In the box",
+    "lernkasten_add": "Add to learning box",
+    "lernkasten_remove": "Remove from learning box",
     "lernkasten_add_aria": "Add lesson “{lesson}” to the learning box",
     "lernkasten_remove_aria": "Remove lesson “{lesson}” from the learning box",
     "lernkasten_back": "Back to the learning box"

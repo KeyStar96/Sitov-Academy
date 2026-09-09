@@ -1564,6 +1564,8 @@
     "lernkasten_lesson_meta": "{due} до повторення · {total} слів",
     "lernkasten_no_due_badge": "нічого повторювати",
     "lernkasten_in_box": "У коробці",
+    "lernkasten_add": "Покласти в коробку",
+    "lernkasten_remove": "Прибрати з коробки",
     "lernkasten_add_aria": "Додати урок «{lesson}» до коробки",
     "lernkasten_remove_aria": "Прибрати урок «{lesson}» з коробки",
     "lernkasten_back": "Назад до коробки"

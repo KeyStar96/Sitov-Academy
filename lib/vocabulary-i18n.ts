@@ -127,6 +127,8 @@ export const VOCABULARY_FALLBACKS = {
   lernkasten_lesson_meta: '{due} fällig · {total} Vokabeln',
   lernkasten_no_due_badge: 'nichts fällig',
   lernkasten_in_box: 'Im Lernkasten',
+  lernkasten_add: 'In den Lernkasten legen',
+  lernkasten_remove: 'Aus dem Lernkasten nehmen',
   lernkasten_add_aria: 'Lektion „{lesson}“ in den Lernkasten legen',
   lernkasten_remove_aria: 'Lektion „{lesson}“ aus dem Lernkasten entfernen',
   lernkasten_back: 'Zurück zum Lernkasten',

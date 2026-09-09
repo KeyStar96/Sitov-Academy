@@ -1565,6 +1565,8 @@
     "lernkasten_lesson_meta": "{due} tekrar · {total} kelime",
     "lernkasten_no_due_badge": "tekrar yok",
     "lernkasten_in_box": "Kutuda",
+    "lernkasten_add": "Öğrenme kutusuna ekle",
+    "lernkasten_remove": "Öğrenme kutusundan çıkar",
     "lernkasten_add_aria": "“{lesson}” dersini öğrenme kutusuna ekle",
     "lernkasten_remove_aria": "“{lesson}” dersini öğrenme kutusundan çıkar",
     "lernkasten_back": "Öğrenme kutusuna dön"

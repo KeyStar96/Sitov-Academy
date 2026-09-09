@@ -1565,6 +1565,8 @@
     "lernkasten_lesson_meta": "{due} к повторению · {total} слов",
     "lernkasten_no_due_badge": "нет к повторению",
     "lernkasten_in_box": "В коробке",
+    "lernkasten_add": "Положить в коробку",
+    "lernkasten_remove": "Убрать из коробки",
     "lernkasten_add_aria": "Добавить урок «{lesson}» в коробку",
     "lernkasten_remove_aria": "Убрать урок «{lesson}» из коробки",
     "lernkasten_back": "Назад к коробке"

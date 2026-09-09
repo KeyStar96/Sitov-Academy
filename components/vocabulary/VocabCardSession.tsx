@@ -67,10 +67,10 @@ function CardFront({ item, t, direction }: { item: DueVocabularyCard; t: Vocabul
       </div>
 
       <h2 className={cn(
-        'flex min-h-[3.5rem] w-full items-center justify-center px-2 text-center text-xl font-bold sm:min-h-[4.5rem] sm:text-3xl',
+        'flex min-h-[3.75rem] w-full items-center justify-center px-2 py-1 text-center text-xl font-bold leading-snug sm:min-h-[4.75rem] sm:text-3xl',
         direction === 'target-to-native' ? articleColorClass(card.article) : 'text-gray-800 dark:text-slate-200'
       )}>
-        <span className="line-clamp-2 break-words">{displayWord}</span>
+        <span className="inline-block max-w-full overflow-visible break-words">{displayWord}</span>
       </h2>
     </div>
   )
@@ -254,7 +254,7 @@ export default function VocabCardSession({
                   <>
                     <span
                       className={cn(
-                        'line-clamp-2 break-words text-center text-2xl font-extrabold sm:text-4xl',
+                        'max-w-full overflow-visible break-words px-1 py-1 text-center text-2xl font-extrabold leading-snug sm:text-4xl',
                         quizDirection === 'native-to-target' ? articleColorClass(currentCard.card.article) : 'text-gray-800 dark:text-slate-200'
                       )}
                     >
