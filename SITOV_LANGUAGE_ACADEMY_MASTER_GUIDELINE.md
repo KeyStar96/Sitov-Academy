@@ -1,5 +1,7 @@
 # Sitov Language Academy — Pedagogy & UI/UX Research
 
+> **Preloader (2026-09-09):** First-load curtain mit Marken-Reveal, Fortschrittslinie und Vorhang-Exit; mobil `100dvh` + Safe-Area, `prefers-reduced-motion` wird respektiert. Profil: „Sprache der Oberfläche" kompakt links unter den persönlichen Daten, neben der Kurswahl für den Folgemonat.
+
 > **Vokabeltrainer-Logik (2026-09-09):** Ersteinstufung zeigt nur das Fremdwort. „Kenne ich bereits" legt die Karte in Phase 6, „Kenne ich nicht" in Phase 1 und startet das aktive Lernen ohne Umweg. Die Session-Reihenfolge ist gewichtet (Phase 1 häufig, Phase 6 selten). Kartenwechsel ohne Layout-Shift (feste Kartenhöhe). Unterlängen der Wörter bleiben sichtbar; Lektionskarten-Aktionen untereinander. Profil: Kurskarten für den Folgemonat kompakter und zweispaltig.
 
 > **Aussprache-Update (2026-09-06):** Die Tonspur ist eine Siri-Sinuswelle (Lautstärke/Stimmlage). Wiedergabe auf iPhone über natives HTML-Audio plus WAV, nicht über Web-Audio-Lautsprecher. Übungssätze A1–C2 im Katalog.

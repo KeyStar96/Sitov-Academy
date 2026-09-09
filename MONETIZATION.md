@@ -1,6 +1,6 @@
 # Monetization Strategy (Stripe Integration)
 
-> **Hinweis (2026-09-09):** Einstufung, gewichtete Kartenreihenfolge, Layout-Stabilität, Lektionskarten und die kompaktere Kursauswahl im Profil berühren Stripe/Abo nicht.
+> **Hinweis (2026-09-09):** Preloader-Redesign, Profil-Layout (Sprache links neben Folgemonat) und Vokabeltrainer-Änderungen berühren Stripe/Abo nicht.
 
 > **Hinweis (2026-09-06):** Die iOS-Wiedergabe (HTML-Audio/WAV) und die Waveform-Vereinfachung berühren Stripe/Abo nicht.
 

@@ -1,5 +1,10 @@
 # Current State Analysis (Ist-Zustand)
 
+## 1a. Änderungsprotokoll — 2026-09-09: Cinematic Preloader
+
+**Kernänderungen:**
+- **Ladebildschirm:** `components/effects/Preloader.tsx` ist ein vollflächiger Vorhang (`#050505`) mit typografischem 000–100-Zähler, Marken-Reveal (Sitov / Academy), orangener Fortschrittslinie, Radial-Glow und Noise. Exit als zweigeteilter Wipe. Mobil: `100dvh`, Safe-Area, kein Horizontal-Overflow. `prefers-reduced-motion` überspringt die Choreografie.
+
 ## 1a. Änderungsprotokoll — 2026-09-09: Vokabeltrainer Einstufung, Gewichtung & Layout-Shift
 
 **Kernänderungen:**
@@ -10,6 +15,7 @@
 - **Unterlängen nicht mehr abgeschnitten:** `line-clamp` auf den Vokabelwörtern entfernt; `leading-snug` plus Innenabstand geben Buchstaben wie g/j/q Platz. Gleiches in der Ersteinstufung und auf der Kartenrückseite.
 - **Desktop-Lektionskarten:** Aktionen stehen untereinander in einer festen rechten Spalte (`flex-col`, `lg:w-72`), damit Titel und Button-Texte nicht mehr überlappen oder abgeschnitten werden.
 - **Profil „Kurse auswählen":** Kompaktere Kurskarten (`min-h-12`) und ab `sm` ein zweispaltiges Raster, damit die Liste für den Folgemonat nicht mehr die ganze Seite nach unten zieht.
+- **Profil-Sprache:** „Sprache der Oberfläche" sitzt kompakt in der linken Spalte unter den persönlichen Daten, neben „Meine Kurse für nächsten Monat" – nicht mehr als volle Breite darunter.
 
 ## 1a. Änderungsprotokoll — 2026-09-06: Audio-Recorder UI & Safari Sample-Rate Bugfix
 
