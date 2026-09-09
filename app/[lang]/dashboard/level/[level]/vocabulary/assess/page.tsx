@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ArrowLeft, ListChecks } from 'lucide-react'
+import { ListChecks } from 'lucide-react'
 import { getLessonCards } from '@/app/actions/vocabulary'
 import { getDictionary } from '@/lib/dictionary'
 import { createVocabularyTranslator, type VocabularyTranslations } from '@/lib/vocabulary-i18n'

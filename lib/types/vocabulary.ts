@@ -91,7 +91,9 @@ export interface AssessmentDecision {
 
 export interface SubmitAssessmentResult {
   success: boolean
-  addedLearned: number
+  /** Karten, die als bekannt in Phase 6 gelegt wurden. */
+  addedKnown: number
+  /** Karten, die als unbekannt in Phase 1 gelegt wurden (sofort fällig). */
   addedNew: number
 }
 

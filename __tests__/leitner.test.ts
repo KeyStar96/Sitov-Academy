@@ -1,7 +1,9 @@
 import {
+  ASSESSMENT_KNOWN_PHASE,
   LEITNER_LEARNED_BOX,
   LEITNER_PHASES,
   PHASE_INTERVALS_IN_DAYS,
+  PHASE_SELECTION_WEIGHTS,
   applyLeitnerAnswer,
   intervalForPhase,
   isLearned,
@@ -9,6 +11,8 @@ import {
   nextReviewDateForBox,
   normalizeBox,
   phaseProgressPercent,
+  pickWeightedRandomOrder,
+  selectionWeightForBox,
 } from '@/lib/leitner'
 
 const NOW = new Date('2026-03-01T09:00:00.000Z')
@@ -157,5 +161,46 @@ describe('Fortschrittsanzeige und Migration', () => {
     expect(daysBetween(NOW, nextReviewDateForBox(3, false, NOW))).toBe(3)
     expect(daysBetween(NOW, nextReviewDateForBox(7, false, NOW))).toBe(90)
     expect(daysBetween(NOW, nextReviewDateForBox(null, false, NOW))).toBe(1)
+  })
+})
+
+describe('Gewichtete Zufallsauswahl', () => {
+  it('bildet die Phasen-Gewichte 1.0 … 0.05 ab', () => {
+    expect(ASSESSMENT_KNOWN_PHASE).toBe(6)
+    expect(PHASE_SELECTION_WEIGHTS).toEqual({
+      1: 1,
+      2: 0.7,
+      3: 0.4,
+      4: 0.2,
+      5: 0.1,
+      6: 0.05,
+    })
+    expect(selectionWeightForBox(1)).toBe(1)
+    expect(selectionWeightForBox(6)).toBe(0.05)
+    expect(selectionWeightForBox(LEITNER_LEARNED_BOX)).toBe(0)
+  })
+
+  it('lässt leere und einelementige Listen unverändert', () => {
+    expect(pickWeightedRandomOrder([], () => 1)).toEqual([])
+    expect(pickWeightedRandomOrder(['nur'], () => 1)).toEqual(['nur'])
+  })
+
+  it('zieht bei gleichem Zufallswert höhere Gewichte zuerst', () => {
+    const items = [
+      { id: 'p6', weight: 0.05 },
+      { id: 'p1', weight: 1 },
+      { id: 'p4', weight: 0.2 },
+    ]
+    const ordered = pickWeightedRandomOrder(items, (item) => item.weight, () => 0.5)
+    expect(ordered.map((item) => item.id)).toEqual(['p1', 'p4', 'p6'])
+  })
+
+  it('stellt Karten ohne Gewicht ans Ende', () => {
+    const items = [
+      { id: 'zero', weight: 0 },
+      { id: 'active', weight: 1 },
+    ]
+    const ordered = pickWeightedRandomOrder(items, (item) => item.weight, () => 0.5)
+    expect(ordered.map((item) => item.id)).toEqual(['active', 'zero'])
   })
 })

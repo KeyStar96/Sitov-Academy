@@ -8,6 +8,7 @@
  */
 
 const STORAGE_PREFIX = 'sitov_lernkasten'
+const AUTOSTART_KEY = 'sitov_vocab_autostart'
 
 function storageKey(level: string): string {
   return `${STORAGE_PREFIX}:${level}`
@@ -15,6 +16,10 @@ function storageKey(level: string): string {
 
 function isBrowser(): boolean {
   return typeof window !== 'undefined' && typeof window.localStorage !== 'undefined'
+}
+
+function isSessionBrowser(): boolean {
+  return typeof window !== 'undefined' && typeof window.sessionStorage !== 'undefined'
 }
 
 /**
@@ -50,5 +55,43 @@ export function saveLernkastenSelection(level: string, lessons: string[]): void 
     window.localStorage.setItem(storageKey(level), JSON.stringify(lessons))
   } catch (err) {
     console.error(`Lernkasten-Auswahl für Niveau "${level}" konnte nicht gespeichert werden:`, err)
+  }
+}
+
+/**
+ * Merkt sich, dass nach der Ersteinstufung sofort die Lernsession starten soll.
+ * `sessionStorage`, damit ein Reload der Übersichtsseite den Start nicht doppelt auslöst.
+ */
+export function markVocabularyAutostart(level: string): void {
+  if (!isSessionBrowser()) return
+
+  try {
+    window.sessionStorage.setItem(AUTOSTART_KEY, level)
+  } catch (err) {
+    console.error(`Autostart-Marke für Niveau "${level}" konnte nicht gesetzt werden:`, err)
+  }
+}
+
+export function hasVocabularyAutostart(level: string): boolean {
+  if (!isSessionBrowser()) return false
+
+  try {
+    return window.sessionStorage.getItem(AUTOSTART_KEY) === level
+  } catch (err) {
+    console.error(`Autostart-Marke für Niveau "${level}" konnte nicht gelesen werden:`, err)
+    return false
+  }
+}
+
+/** Löscht die Autostart-Marke, nachdem die Session tatsächlich gestartet wurde. */
+export function consumeVocabularyAutostart(level: string): void {
+  if (!isSessionBrowser()) return
+
+  try {
+    if (window.sessionStorage.getItem(AUTOSTART_KEY) === level) {
+      window.sessionStorage.removeItem(AUTOSTART_KEY)
+    }
+  } catch (err) {
+    console.error(`Autostart-Marke für Niveau "${level}" konnte nicht gelöscht werden:`, err)
   }
 }

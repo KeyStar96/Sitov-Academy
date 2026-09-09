@@ -6,9 +6,12 @@ import { hasLevelAccess } from '@/lib/access/levels'
 import { loadLevelAccessProfile } from '@/lib/access/server'
 import {
   applyLeitnerAnswer,
+  ASSESSMENT_KNOWN_PHASE,
   LEITNER_LEARNED_BOX,
   nextReviewDateForBox,
   normalizeBox,
+  pickWeightedRandomOrder,
+  selectionWeightForBox,
   type LeitnerPhase,
 } from '@/lib/leitner'
 import {
@@ -64,7 +67,8 @@ async function loadNativeLanguage(
 }
 
 /**
- * Liefert alle fälligen Karten eines Sprachniveaus, sortiert nach Termin.
+ * Liefert alle fälligen Karten eines Sprachniveaus in gewichteter Zufallsreihenfolge.
+ * Niedrige Phasen werden häufiger gezogen als hohe (siehe `PHASE_SELECTION_WEIGHTS`).
  * Karten im Zustand „gelernt" (Box 7) werden nicht mehr abgefragt.
  */
 export async function getDueCards(level?: string): Promise<DueVocabularyCard[]> {
@@ -114,7 +118,7 @@ export async function getDueCards(level?: string): Promise<DueVocabularyCard[]> 
       query = query.eq('vocabulary_cards.level', level)
     }
 
-    const { data, error } = await query.order('next_review_date', { ascending: true })
+    const { data, error } = await query
 
     if (error) {
       console.error('Fehler beim Abrufen fälliger Vokabeln:', error.message)
@@ -123,7 +127,7 @@ export async function getDueCards(level?: string): Promise<DueVocabularyCard[]> 
 
     const rows = (data ?? []) as unknown as DueCardRow[]
 
-    return rows.map((row) => {
+    const mapped = rows.map((row) => {
       const box = normalizeBox(row.box_number)
       const phase = (box === LEITNER_LEARNED_BOX ? 6 : box) as LeitnerPhase
 
@@ -145,6 +149,8 @@ export async function getDueCards(level?: string): Promise<DueVocabularyCard[]> 
         isHardForNativeLanguage: isHardForNativeLanguage(row.vocabulary_cards, nativeLanguage),
       }
     })
+
+    return pickWeightedRandomOrder(mapped, (card) => selectionWeightForBox(card.box))
   } catch (err) {
     console.error('Unerwarteter Fehler in getDueCards:', err)
     return []
@@ -364,20 +370,21 @@ export async function addCardsToTrainer(cardIds: string[]): Promise<AddCardsResu
 
 /**
  * Übernimmt das Ergebnis des „Vokabeln einstufen"-Durchlaufs (Pre-Assessment):
- * Bereits bekannte Vokabeln werden direkt als gelernt (Phase 6 / Box 7)
- * verbucht, neue starten regulär in Phase 1. Karten mit bereits bestehendem
- * Lernstand werden übersprungen, damit ein Doppelklick nichts überschreibt.
+ * Bereits bekannte Vokabeln landen in Phase 6, unbekannte sofort fällig in
+ * Phase 1 und damit ohne Umweg im aktiven Lernen. Karten mit bereits
+ * bestehendem Lernstand werden übersprungen, damit ein Doppelklick nichts
+ * überschreibt.
  */
 export async function submitLessonAssessment(decisions: AssessmentDecision[]): Promise<SubmitAssessmentResult> {
   try {
-    if (decisions.length === 0) return { success: true, addedLearned: 0, addedNew: 0 }
+    if (decisions.length === 0) return { success: true, addedKnown: 0, addedNew: 0 }
 
     const supabase = await createClient()
     const {
       data: { user },
     } = await supabase.auth.getUser()
 
-    if (!user) return { success: false, addedLearned: 0, addedNew: 0 }
+    if (!user) return { success: false, addedKnown: 0, addedNew: 0 }
 
     const cardIds = decisions.map((decision) => decision.cardId)
     const { data: existingProgress, error: progressError } = await supabase
@@ -388,7 +395,7 @@ export async function submitLessonAssessment(decisions: AssessmentDecision[]): P
 
     if (progressError) {
       console.error('Bestehender Lernfortschritt nicht ladbar:', progressError.message)
-      return { success: false, addedLearned: 0, addedNew: 0 }
+      return { success: false, addedKnown: 0, addedNew: 0 }
     }
 
     const existingCardIds = new Set((existingProgress ?? []).map((entry) => entry.card_id))
@@ -400,9 +407,9 @@ export async function submitLessonAssessment(decisions: AssessmentDecision[]): P
       .map((decision) => ({
         user_id: user.id,
         card_id: decision.cardId,
-        box_number: decision.alreadyKnown ? LEITNER_LEARNED_BOX : 1,
+        box_number: decision.alreadyKnown ? ASSESSMENT_KNOWN_PHASE : 1,
         next_review_date: decision.alreadyKnown
-          ? nextReviewDateForBox(LEITNER_LEARNED_BOX, false, now).toISOString()
+          ? nextReviewDateForBox(ASSESSMENT_KNOWN_PHASE, false, now).toISOString()
           : nowIso,
       }))
 
@@ -411,21 +418,21 @@ export async function submitLessonAssessment(decisions: AssessmentDecision[]): P
 
       if (insertError) {
         console.error('Einstufung nicht speicherbar:', insertError.message)
-        return { success: false, addedLearned: 0, addedNew: 0 }
+        return { success: false, addedKnown: 0, addedNew: 0 }
       }
     }
 
-    const addedLearned = rows.filter((row) => row.box_number === LEITNER_LEARNED_BOX).length
-    const addedNew = rows.length - addedLearned
+    const addedKnown = rows.filter((row) => row.box_number === ASSESSMENT_KNOWN_PHASE).length
+    const addedNew = rows.length - addedKnown
 
     revalidatePath('/[lang]/dashboard', 'page')
     revalidatePath('/[lang]/dashboard/level/[level]', 'page')
     revalidatePath('/[lang]/dashboard/level/[level]/vocabulary', 'page')
 
-    return { success: true, addedLearned, addedNew }
+    return { success: true, addedKnown, addedNew }
   } catch (err) {
     console.error('Unerwarteter Fehler in submitLessonAssessment:', err)
-    return { success: false, addedLearned: 0, addedNew: 0 }
+    return { success: false, addedKnown: 0, addedNew: 0 }
   }
 }
 

@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import {
@@ -17,7 +17,7 @@ import {
   BookOpenCheck,
 } from 'lucide-react'
 import { createVocabularyTranslator, type VocabularyTranslations } from '@/lib/vocabulary-i18n'
-import { loadLernkastenSelection, saveLernkastenSelection } from '@/lib/vocabulary-lernkasten'
+import { loadLernkastenSelection, saveLernkastenSelection, consumeVocabularyAutostart, hasVocabularyAutostart } from '@/lib/vocabulary-lernkasten'
 import type { DueVocabularyCard, LessonStat } from '@/lib/types/vocabulary'
 import { cn } from '@/lib/utils'
 import { initializeLesson } from '@/app/actions/vocabulary'
@@ -77,6 +77,7 @@ export default function VocabTrainerPageClient({
   const [sessionCards, setSessionCards] = useState<DueVocabularyCard[]>([])
   const [dragOver, setDragOver] = useState(false)
   const [openLesson, setOpenLesson] = useState<string | null>(null)
+  const didAutoStart = useRef(false)
   
   // Onboarding Modal State
   const [onboardingLesson, setOnboardingLesson] = useState<string | null>(null)
@@ -96,6 +97,17 @@ export default function VocabTrainerPageClient({
   }, [selection, hydrated, level])
 
   const selectionSet = useMemo(() => new Set(selection), [selection])
+
+  useEffect(() => {
+    if (!hydrated || didAutoStart.current) return
+    if (!hasVocabularyAutostart(level)) return
+    const chosen = initialCards.filter((item) => selectionSet.has(item.card.lesson))
+    if (chosen.length === 0) return
+    consumeVocabularyAutostart(level)
+    didAutoStart.current = true
+    setSessionCards(chosen)
+    setPhase('train')
+  }, [hydrated, initialCards, level, selectionSet])
 
   const selectedDueCount = useMemo(
     () => selection.reduce((sum, lesson) => sum + (dueByLesson.get(lesson) ?? 0), 0),

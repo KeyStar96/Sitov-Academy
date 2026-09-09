@@ -1,5 +1,13 @@
 # Current State Analysis (Ist-Zustand)
 
+## 1a. Änderungsprotokoll — 2026-09-09: Vokabeltrainer Einstufung, Gewichtung & Layout-Shift
+
+**Kernänderungen:**
+- **Ersteinstufung ohne Übersetzung:** `/vocabulary/assess` zeigt nur noch das Fremdwort (Artikel + Wort). Die native Übersetzung und der Plural sind entfernt, damit die Selbsteinschätzung nicht vorweggenommen wird. Buttons: „Kenne ich bereits" (Phase 6) und „Kenne ich nicht" (Phase 1, sofort fällig).
+- **Bekannte Karten nicht mehr archiviert:** `submitLessonAssessment` legt bekannte Vokabeln in Phase 6 (`ASSESSMENT_KNOWN_PHASE`) statt Box 7/„gelernt". Unbekannte wandern ohne Umweg ins aktive Lernen; nach der letzten unbekannten Karte startet die Session automatisch (sessionStorage-Marke `sitov_vocab_autostart`).
+- **Gewichtete Zufallsauswahl:** `lib/leitner.ts` (`PHASE_SELECTION_WEIGHTS`, `pickWeightedRandomOrder`) und `getDueCards` reihen fällige Karten nicht mehr nach Datum, sondern gewichtet: Phase 1 = 1.0, 2 = 0.7, 3 = 0.4, 4 = 0.2, 5 = 0.1, 6 = 0.05.
+- **Kein Layout-Shift beim Kartenwechsel:** `VocabCardSession` nutzt eine feste Kartenhöhe (`h-[36rem]`/`sm:h-[42rem]`), einheitliche Bildslots und eine reservierte Rückseite. Die Folgekarte liegt ohne Skalierung im selben Grid-Slot. Die Einstufungskarte hat ebenfalls feste Höhe.
+
 ## 1a. Änderungsprotokoll — 2026-09-06: Audio-Recorder UI & Safari Sample-Rate Bugfix
 
 **Kernänderungen:**

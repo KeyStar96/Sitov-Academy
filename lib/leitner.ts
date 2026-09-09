@@ -170,3 +170,52 @@ export function nextReviewDateForBox(
   }
   return addDays(now, intervalForPhase(normalized, isHardForNativeLanguage))
 }
+
+/**
+ * Auswahl-Gewicht je Lernphase für die Session-Reihenfolge.
+ * Niedrige Phasen kommen deutlich häufiger dran als hohe.
+ */
+export const PHASE_SELECTION_WEIGHTS: Readonly<Record<LeitnerPhase, number>> = {
+  1: 1,
+  2: 0.7,
+  3: 0.4,
+  4: 0.2,
+  5: 0.1,
+  6: 0.05,
+}
+
+/** Phase, in die bereits bekannte Vokabeln bei der Ersteinstufung gelegt werden. */
+export const ASSESSMENT_KNOWN_PHASE: LeitnerPhase = 6
+
+export function selectionWeightForBox(box: number | null | undefined): number {
+  const normalized = normalizeBox(box)
+  if (normalized === LEITNER_LEARNED_BOX) return 0
+  return PHASE_SELECTION_WEIGHTS[normalized]
+}
+
+/**
+ * Weighted-Random-Sampling ohne Zurücklegen (Efraimidis–Spirakis).
+ * Höheres Gewicht → höhere Ziehungswahrscheinlichkeit, die relative
+ * Reihenfolge bei gleichem Gewicht bleibt stabil.
+ */
+export function pickWeightedRandomOrder<T>(
+  items: readonly T[],
+  getWeight: (item: T) => number,
+  random: () => number = Math.random
+): T[] {
+  if (items.length <= 1) return [...items]
+
+  return items
+    .map((item, index) => {
+      const weight = getWeight(item)
+      const raw = random()
+      const unit = raw <= 0 ? Number.MIN_VALUE : raw >= 1 ? 1 - Number.EPSILON : raw
+      const key = weight > 0 ? Math.pow(unit, 1 / weight) : Number.NEGATIVE_INFINITY
+      return { item, key, index }
+    })
+    .sort((left, right) => {
+      if (right.key !== left.key) return right.key - left.key
+      return left.index - right.index
+    })
+    .map((entry) => entry.item)
+}
