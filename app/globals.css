@@ -3,17 +3,12 @@
 @tailwind utilities;
 
 /* ============================================
-   APP BACKGROUND — Reiner CSS-Farbverlauf
-   Die früheren WebP-Hintergrundbilder erzeugten auf mobilen Displays
-   sichtbare Farb-Schlieren/Banding. Ersetzt durch einen sauberen,
-   performanten Gradienten (kein Bild-Download, kein Banding durch Kompression).
+   APP BACKGROUND — einheitliche Preloader-Leinwand
+   html, body, AppBackground und Preloader teilen --canvas,
+   damit der Vorhang-Exit keine Farbkante erzeugt.
    ============================================ */
 .app-bg {
-  background-image: linear-gradient(135deg, #FCF4E6 0%, #F5ECD9 55%, #EDE3CE 100%);
-}
-
-.dark .app-bg {
-  background-image: linear-gradient(135deg, #0f172a 0%, #1e293b 55%, #1e1b4b 100%);
+  background-color: var(--canvas);
 }
 
 :root {
@@ -25,7 +20,8 @@
   --primary-orange: hsl(14, 100%, 50%);
   /* Kept for CTAs */
 
-  /* Lightmode */
+  /* Lightmode — dieselbe Leinwand wie der Preloader */
+  --canvas: #FCF4E6;
   --background: #FCF4E6;
   /* Sand/Off-White */
   --foreground: #2D3436;
@@ -37,9 +33,9 @@
 }
 
 .dark {
-  /* Darkmode */
-  --background: #1A1C1E;
-  /* Deep Sea Blue/Dark Slate */
+  /* Darkmode — dieselbe Leinwand wie der Preloader */
+  --canvas: #050505;
+  --background: #050505;
   --foreground: #E2D7CE;
 
   /* Darkmode Surface & Borders */
@@ -51,9 +47,8 @@
 }
 
 body {
-  /* iOS SAFARI: Use theme-appropriate background - prevents bars in both modes */
-  background-color: #C4C4BD;
-  /* Light mode default - matches background image */
+  /* iOS SAFARI: Leinwandfarbe = Preloader, verhindert Balken und harte Cuts */
+  background-color: var(--canvas);
   color: var(--foreground);
   transition: color 0.2s ease;
   /* iOS SAFARI FIX: dvh units handle dynamic toolbar height changes */
@@ -70,20 +65,10 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Dark mode body background */
-.dark body,
-body.dark {
-  background-color: #050505;
-}
-
 html {
   overflow-y: scroll;
   scroll-behavior: smooth;
-  /* iOS SAFARI EDGE-TO-EDGE FIX:
-   * Use theme-appropriate background color for both modes
-   */
-  background-color: #C4C4BD;
-  /* Light mode default - matches background image */
+  background-color: var(--canvas);
   /* iOS SAFARI FIX: Prevent rubber-band on html too */
   overscroll-behavior-y: none;
   -webkit-overflow-scrolling: touch;
@@ -91,12 +76,6 @@ html {
   min-height: 100dvh;
   min-height: 100vh;
   /* Fallback */
-}
-
-/* Dark mode: use dark background on html */
-.dark,
-html.dark {
-  background-color: #050505;
 }
 
 /* GLOBAL GRADIENT REMOVED - User requested uniform colors */

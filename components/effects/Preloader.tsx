@@ -8,8 +8,9 @@ function padProgress(value: number): string {
 }
 
 /**
- * Cinematic first-load curtain. GSAP timeline, then a dual-panel wipe.
- * Respects stored light/dark theme, `prefers-reduced-motion`, and iOS safe areas.
+ * Cinematic first-load curtain. GSAP timeline, dual-panel wipe onto the
+ * same `--canvas` color as the page, then a short fade. The page reveal
+ * starts during the wipe so there is no empty color cut.
  */
 export default function Preloader() {
   const [isComplete, setIsComplete] = useState(false)
@@ -35,12 +36,16 @@ export default function Preloader() {
     const finish = (): void => {
       setIsComplete(true)
       document.body.style.overflow = ''
+    }
+
+    const revealPage = (): void => {
       window.dispatchEvent(new Event('preloader-complete'))
     }
 
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     if (reduced) {
-      const timer = window.setTimeout(finish, 350)
+      revealPage()
+      const timer = window.setTimeout(finish, 280)
       return () => {
         window.clearTimeout(timer)
         document.body.style.overflow = ''
@@ -92,22 +97,30 @@ export default function Preloader() {
 
       tl.to(contentRef.current, {
         opacity: 0,
-        y: -18,
-        duration: 0.42,
-        ease: 'power2.in',
-      }, 2.12)
+        y: -8,
+        duration: 0.48,
+        ease: 'power2.inOut',
+      }, 2.08)
+
+      tl.add(revealPage, 2.16)
 
       tl.to(panelTopRef.current, {
         yPercent: -102,
-        duration: 0.92,
-        ease: 'power4.inOut',
+        duration: 1.08,
+        ease: 'power3.inOut',
       }, 2.22)
 
       tl.to(panelBottomRef.current, {
         yPercent: 102,
-        duration: 0.92,
-        ease: 'power4.inOut',
+        duration: 1.08,
+        ease: 'power3.inOut',
       }, 2.22)
+
+      tl.to(root, {
+        opacity: 0,
+        duration: 0.4,
+        ease: 'power2.out',
+      }, 3.12)
     }, root)
 
     return () => {
@@ -126,15 +139,15 @@ export default function Preloader() {
       aria-valuenow={0}
       aria-valuemax={100}
       aria-label="Sitov Academy"
-      className="fixed inset-0 z-[999999] overflow-hidden touch-none bg-[#FCF4E6] dark:bg-[#050505]"
+      className="fixed inset-0 z-[999999] overflow-hidden touch-none bg-[var(--canvas)]"
     >
       <div
         ref={panelTopRef}
-        className="absolute inset-x-0 top-0 z-0 h-[52%] bg-[#FCF4E6] dark:bg-[#050505] will-change-transform"
+        className="absolute inset-x-0 top-0 z-0 h-[52%] bg-[var(--canvas)] will-change-transform"
       />
       <div
         ref={panelBottomRef}
-        className="absolute inset-x-0 bottom-0 z-0 h-[52%] bg-[#FCF4E6] dark:bg-[#050505] will-change-transform"
+        className="absolute inset-x-0 bottom-0 z-0 h-[52%] bg-[var(--canvas)] will-change-transform"
       />
 
       <div

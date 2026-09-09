@@ -1,6 +1,6 @@
 # Monetization Strategy (Stripe Integration)
 
-> **Hinweis (2026-09-09):** Preloader Light/Dark, Einstufung wie Lernbox (Lösung aufdecken) und Profil-Layout berühren Stripe/Abo nicht.
+> **Hinweis (2026-09-09):** Preloader-Leinwand, Einstufung wie Lernbox und Profil-Layout berühren Stripe/Abo nicht.
 
 > **Hinweis (2026-09-06):** Die iOS-Wiedergabe (HTML-Audio/WAV) und die Waveform-Vereinfachung berühren Stripe/Abo nicht.
 

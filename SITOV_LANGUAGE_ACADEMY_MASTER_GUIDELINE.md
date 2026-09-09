@@ -1,6 +1,6 @@
 # Sitov Language Academy — Pedagogy & UI/UX Research
 
-> **Preloader (2026-09-09):** First-load curtain mit Marken-Reveal, Fortschrittslinie und Vorhang-Exit; Light/Dark folgt der gespeicherten Darstellung; Unterlängen bleiben sichtbar; mobil `100dvh` + Safe-Area, `prefers-reduced-motion` wird respektiert. Profil: „Sprache der Oberfläche" kompakt links unter den persönlichen Daten, neben der Kurswahl für den Folgemonat.
+> **Preloader (2026-09-09):** First-load curtain mit Marken-Reveal; Leinwandfarbe identisch mit Website und Lernplattform (`#FCF4E6` / `#050505`); Hero startet während des Vorhangs; Light/Dark folgt der gespeicherten Darstellung; Unterlängen bleiben sichtbar.
 
 > **Vokabeltrainer-Logik (2026-09-09):** Ersteinstufung wie in der Lernbox: Übersetzung zuerst, dann Lösung aufdecken, danach Lernkasten (Phase 1) oder direkt Phase 6. Die Session-Reihenfolge ist gewichtet (Phase 1 häufig, Phase 6 selten). Kartenwechsel ohne Layout-Shift (feste Kartenhöhe). Unterlängen der Wörter bleiben sichtbar; Lektionskarten-Aktionen untereinander. Profil: Kurskarten für den Folgemonat kompakter und zweispaltig.
 

@@ -3,6 +3,7 @@
 import { useRef, useCallback, useState, useEffect } from "react";
 import { gsap, ScrollTrigger, useGSAP } from "@/lib/gsap";
 import { ArrowRight } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 // Type-safe dictionary interface
 interface HeroDictionary {
@@ -229,9 +230,19 @@ export default function Hero({ dictionary, lang = 'de' }: HeroProps) {
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
-      {/* Ambient Background Glows (Performance Optimized for macOS) */}
-      <div className="absolute top-[20%] left-[10%] w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(255,92,0,0.15)_0%,transparent_60%)] dark:bg-[radial-gradient(circle,rgba(255,92,0,0.08)_0%,transparent_60%)] rounded-full pointer-events-none -z-10" />
-      <div className="absolute bottom-[-10%] right-[10%] w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(59,130,246,0.08)_0%,transparent_60%)] dark:bg-[radial-gradient(circle,rgba(59,130,246,0.05)_0%,transparent_60%)] rounded-full pointer-events-none -z-10" />
+      {/* Ambient glows fade in with the page so they don't flash under the curtain. */}
+      <div
+        className={cn(
+          "pointer-events-none absolute top-[20%] left-[10%] -z-10 h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle,rgba(255,92,0,0.15)_0%,transparent_60%)] transition-opacity duration-700 dark:bg-[radial-gradient(circle,rgba(255,92,0,0.08)_0%,transparent_60%)]",
+          isLoaded ? "opacity-100" : "opacity-0"
+        )}
+      />
+      <div
+        className={cn(
+          "pointer-events-none absolute bottom-[-10%] right-[10%] -z-10 h-[600px] w-[600px] rounded-full bg-[radial-gradient(circle,rgba(255,92,0,0.08)_0%,transparent_60%)] transition-opacity duration-700 dark:bg-[radial-gradient(circle,rgba(255,92,0,0.05)_0%,transparent_60%)]",
+          isLoaded ? "opacity-100" : "opacity-0"
+        )}
+      />
 
       {/* 12-Column Grid Container */}
       <div className="container mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-6 relative z-30">

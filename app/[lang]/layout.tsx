@@ -63,7 +63,7 @@ export const viewport = {
    * This blends the bottom bar area seamlessly
    */
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#C4C4BD' },
+    { media: '(prefers-color-scheme: light)', color: '#FCF4E6' },
     { media: '(prefers-color-scheme: dark)', color: '#050505' },
   ],
 };
@@ -89,7 +89,7 @@ export default async function RootLayout({
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         {/* Force dark color for areas behind safe area on iOS */}
         <meta name="theme-color" content="#050505" media="(prefers-color-scheme: dark)" />
-        <meta name="theme-color" content="#C4C4BD" media="(prefers-color-scheme: light)" />
+        <meta name="theme-color" content="#FCF4E6" media="(prefers-color-scheme: light)" />
         <script
           dangerouslySetInnerHTML={{
             __html: `

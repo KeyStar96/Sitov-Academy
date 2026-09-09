@@ -1,5 +1,11 @@
 # Current State Analysis (Ist-Zustand)
 
+## 1a. Änderungsprotokoll — 2026-09-09: Preloader-Übergang ohne Farbkante
+
+**Kernänderungen:**
+- **Eine Leinwand:** `--canvas` (`#FCF4E6` / `#050505`) gilt für html, body, Preloader-Paneele, `AppBackground`, Dashboard und Admin. Der Indigo-Verlauf und das helle Grau `#C4C4BD` entfallen, damit der Vorhang auf dieselbe Farbe öffnet.
+- **Weicherer Exit:** Der Hero startet während des Wipes (`preloader-complete` vor dem Unmount). Danach blendet der Vorhang aus statt hart zu verschwinden. Hero-Glows sind orange und faden mit ein – kein blauer Blitz mehr unter dem Vorhang.
+
 ## 1a. Änderungsprotokoll — 2026-09-09: Einstufung wie Lernbox
 
 **Kernänderungen:**
@@ -105,7 +111,7 @@ Das Repository "Sitov Academy" ist eine Next.js (App Router) basierte Webanwendu
   - Flashcard-Buttons (Lösung aufdecken, „Wusste ich"/„Wusste ich nicht", Zurück-Pfeil) haben zusätzlich `active:`-Tailwind-Varianten für Touch-Feedback.
 
 - **Homepage-/App-Hintergrund (Schlieren-/Banding-Fix):**
-  - `components/effects/AppBackground.tsx`: Die vier WebP-Hintergrundbilder (Light/Dark, Desktop/Mobile) wurden entfernt und durch einen reinen CSS-Farbverlauf ersetzt (Light: warmes Sand-Off-White `#FCF4E6→#EDE3CE`; Dark: `slate-900 → slate-800 → indigo-950`) inkl. subtilem Radial-Glow und feinem SVG-Rauschen (`bg-noise`) gegen Color-Banding auf mobilen 8-Bit-Panels. Kein Bild-Download/Decoding mehr.
+  - `components/effects/AppBackground.tsx`: Einheitliche Preloader-Leinwand (`#FCF4E6` / `#050505`) plus Orange-Glow und Papier-Rauschen – kein Indigo-Verlauf mehr, damit der Vorhang-Exit keine Farbkante erzeugt.
   - `app/globals.css`: Die ungenutzten `.app-bg`-Bildregeln wurden ebenfalls auf Gradienten umgestellt.
 
 - **Radikale Überarbeitung des Flashcard-Screens (aktiver Lernmodus, Mobile):**

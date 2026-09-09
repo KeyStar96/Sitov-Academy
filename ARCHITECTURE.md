@@ -1,10 +1,10 @@
 # Architecture Masterplan
 
-> **Preloader (2026-09-09):** Cinematic first-load curtain in `components/effects/Preloader.tsx` (GSAP, dual-panel wipe, `100dvh` + Safe-Area). Light/Dark folgt der `html.dark`-Klasse aus `localStorage`; Unterlängen der Markenzeilen bleiben sichtbar. Dispatch `preloader-complete` unverändert für den Hero-Reveal. Profil: Sprachumschalter in der linken Spalte neben der Folgemonats-Kurswahl.
+> **Preloader (2026-09-09):** Cinematic first-load curtain in `components/effects/Preloader.tsx`. html/body/`AppBackground`/Dashboard teilen `--canvas` (`#FCF4E6` / `#050505`), der Hero startet während des Wipes, der Vorhang blendet danach aus. Light/Dark folgt `html.dark`; Unterlängen bleiben sichtbar.
 
 > **Vokabeltrainer (2026-09-09):** Ersteinstufung zeigt wie die Lernbox zuerst die Übersetzung, dann „Lösung aufdecken“, danach Lernkasten (Phase 1) oder direkt Phase 6. Fällige Karten werden in `getDueCards` gewichtet zufällig gereiht (`PHASE_SELECTION_WEIGHTS` in `lib/leitner.ts`). `VocabCardSession` hält eine feste Kartenhöhe, damit der Wechsel keinen Layout-Shift erzeugt. Vokabelwörter ohne `line-clamp` (Unterlängen sichtbar). Lektionskarten: Aktionen untereinander in einer rechten Spalte. Profil-Folgemonat: kompakte Kurskarten im zweispaltigen Raster. Details siehe `CURRENT_STATE.md`.
 
-> **UI-Struktur-Notiz (2026-09-06):** Der globale App-Hintergrund (`components/effects/AppBackground.tsx`, eingebunden in `app/[lang]/layout.tsx`) verwendet keine WebP-Bilder mehr, sondern einen reinen CSS-Farbverlauf (+ Radial-Glow + SVG-Rauschen). Der Vokabeltrainer-Lernmodus rendert Navigation & Layout ausschließlich clientseitig (`VocabTrainerPageClient` → `VocabCardSession`): kompakte 100dvh-Ansicht mit zusammengeführtem Zurück-Pfeil und einzeiliger Meta-Info. Details siehe `CURRENT_STATE.md`.
+> **UI-Struktur-Notiz (2026-09-06):** Der globale App-Hintergrund (`components/effects/AppBackground.tsx`) ist dieselbe Leinwand wie der Preloader (`--canvas`: Sand `#FCF4E6` / `#050505`) plus Orange-Glow und Papier-Rauschen. Der Vokabeltrainer-Lernmodus rendert Navigation & Layout ausschließlich clientseitig (`VocabTrainerPageClient` → `VocabCardSession`): kompakte 100dvh-Ansicht mit zusammengeführtem Zurück-Pfeil und einzeiliger Meta-Info. Details siehe `CURRENT_STATE.md`.
 
 ## 1. Datenmodellierung (Datenbankschema)
 

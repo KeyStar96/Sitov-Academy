@@ -37,7 +37,7 @@ export default async function AdminLayout({
   }
 
   return (
-    <div className="min-h-dvh bg-slate-50 dark:bg-slate-950 flex flex-col transition-colors">
+    <div className="min-h-dvh bg-[#FCF4E6] dark:bg-[#050505] flex flex-col transition-colors">
       <header className="bg-white dark:bg-slate-900 shadow-sm border-b border-slate-200 dark:border-slate-800 sticky top-0 z-20 transition-colors">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex min-h-16 justify-between items-center gap-2 py-2">

@@ -43,7 +43,7 @@ export default async function DashboardLayout({
   const displayName = profile?.name || user.email || ''
 
   return (
-    <div className="flex min-h-dvh flex-col bg-slate-50 transition-colors dark:bg-slate-950">
+    <div className="flex min-h-dvh flex-col bg-[#FCF4E6] transition-colors dark:bg-[#050505]">
       <header className="sticky top-0 z-20 border-b border-slate-200 bg-white pt-[env(safe-area-inset-top)] transition-colors dark:border-slate-800 dark:bg-slate-900">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex min-h-16 w-full flex-wrap items-center justify-between gap-y-2 gap-x-3 py-2 md:flex-nowrap md:gap-x-4">
