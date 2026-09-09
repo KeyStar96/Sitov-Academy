@@ -261,7 +261,7 @@ export async function getLessonCards(lessonName: string, level?: string): Promis
     let cardsQuery = supabase
       .from('vocabulary_cards')
       .select(
-        'id, word_de, article, plural, translation_ru, translation_tr, translation_en, is_hard_for_ru, is_hard_for_tr'
+        'id, word_de, article, plural, translation_ru, translation_tr, translation_en, image_url, audio_url, is_hard_for_ru, is_hard_for_tr'
       )
       .eq('lesson', lessonName)
 
@@ -299,6 +299,8 @@ export async function getLessonCards(lessonName: string, level?: string): Promis
           article: card.article,
           plural: card.plural,
           translation: resolveTranslation(card, nativeLanguage),
+          image_url: card.image_url,
+          audio_url: card.audio_url,
           phase,
           isLearned,
         }

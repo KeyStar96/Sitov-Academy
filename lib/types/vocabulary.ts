@@ -74,6 +74,8 @@ export interface LessonCardView {
   article: string | null
   plural: string | null
   translation: string
+  image_url: string | null
+  audio_url: string | null
   phase: LeitnerPhase | null
   isLearned: boolean
 }

@@ -93,13 +93,13 @@ export const VOCABULARY_FALLBACKS = {
 
   // Lektionsweise Übernahme & Vokabeln-einstufen-Modus (Pre-Assessment)
   assess_set: 'Vokabeln einstufen',
-  assess_set_hint: 'Entscheide für jede Vokabel: schon bekannt oder neu lernen.',
+  assess_set_hint: 'Decke die Lösung auf und entscheide: in den Lernkasten oder direkt in Phase 6.',
   continue_assessing: 'Weitere Vokabeln einstufen',
   assess_title: 'Vokabeln einstufen',
-  assess_subtitle: 'Kennst du dieses Wort schon auf Deutsch?',
+  assess_subtitle: 'Zuerst die Lösung aufdecken, danach entscheiden: Lernkasten oder Phase 6.',
   already_know: 'Kenne ich bereits',
-  already_know_hint: 'Kommt in Phase 6',
-  add_to_box: 'Kenne ich nicht',
+  already_know_hint: 'Direkt in Phase 6',
+  add_to_box: 'In den Lernkasten',
   add_to_box_hint: 'Startet in Phase 1',
   assess_done_title: 'Fertig eingestuft!',
   assess_done_summary: '{known} schon gewusst, {new} neu im Karteikasten.',
