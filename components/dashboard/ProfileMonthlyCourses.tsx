@@ -73,7 +73,7 @@ export default function ProfileMonthlyCourses({ initial, lang, translations, cou
         {needsCourse && <p className="mt-2 text-amber-900 dark:text-amber-200">{t('choose_to_resume')}</p>}
       </div>
       <h3 className="mb-3 font-bold text-slate-900 dark:text-white">{t('choose_courses')}</h3>
-      <div className="space-y-3">
+      <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
         {courses.map(course => {
           const selected = courseIds.includes(course.id)
           const title = courseTitles[course.id] || course.title || t('course_fallback')
@@ -81,20 +81,23 @@ export default function ProfileMonthlyCourses({ initial, lang, translations, cou
             <button key={course.id} type="button" role="checkbox" aria-checked={selected}
               aria-label={title} disabled={monthExpired || (!course.available && !selected)}
               onClick={() => toggleCourse(course.id)}
-              className={`flex min-h-20 w-full min-w-0 items-center gap-3 rounded-2xl border p-3 text-left transition-colors focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-orange-500 disabled:opacity-60 sm:p-4 ${selected && !paused ? 'border-blue-400 bg-blue-50 dark:border-blue-700 dark:bg-blue-950' : 'border-slate-200 bg-white hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:hover:bg-slate-800'}`}>
-              <span aria-hidden="true" className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border ${selected ? 'border-blue-700 bg-blue-700 text-white' : 'border-slate-300 text-slate-500'}`}>
+              className={`flex min-h-12 w-full min-w-0 items-center gap-2.5 rounded-xl border px-3 py-2 text-left transition-colors focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-orange-500 disabled:opacity-60 ${selected && !paused ? 'border-blue-400 bg-blue-50 dark:border-blue-700 dark:bg-blue-950' : 'border-slate-200 bg-white hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:hover:bg-slate-800'}`}>
+              <span aria-hidden="true" className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border ${selected ? 'border-blue-700 bg-blue-700 text-white' : 'border-slate-300 text-slate-500'}`}>
                 {selected ? <Check size={18} /> : <Plus size={18} />}
               </span>
               <span className="min-w-0 flex-1">
-                <span className="block break-words font-semibold text-slate-900 [overflow-wrap:anywhere] dark:text-white">{title}</span>
-                <span className="mt-1 block text-xs leading-relaxed text-slate-600 dark:text-slate-400">{t(course.available ? course.type === 'online' ? 'course_online' : 'course_presence' : 'course_unavailable')}</span>
-                <span className="mt-2 block text-xs font-bold text-blue-800 dark:text-blue-200">{t(selected ? 'course_remove' : 'course_add')}</span>
+                <span className="block break-words text-sm font-semibold leading-snug text-slate-900 dark:text-white">{title}</span>
+                <span className="mt-0.5 block text-xs leading-snug text-slate-600 dark:text-slate-400">
+                  {t(course.available ? course.type === 'online' ? 'course_online' : 'course_presence' : 'course_unavailable')}
+                  {' · '}
+                  <span className="font-bold text-blue-800 dark:text-blue-200">{t(selected ? 'course_remove' : 'course_add')}</span>
+                </span>
               </span>
             </button>
           )
         })}
-        {courses.length === 0 && <p className="rounded-xl bg-slate-50 p-4 text-sm text-slate-600 dark:bg-slate-800 dark:text-slate-300">{t('no_courses')}</p>}
-        {courses.length > 0 && !courseIds.length && !paused && <p className="text-sm text-slate-600 dark:text-slate-300">{t('no_selection')}</p>}
+        {courses.length === 0 && <p className="rounded-xl bg-slate-50 p-4 text-sm text-slate-600 sm:col-span-2 dark:bg-slate-800 dark:text-slate-300">{t('no_courses')}</p>}
+        {courses.length > 0 && !courseIds.length && !paused && <p className="text-sm text-slate-600 sm:col-span-2 dark:text-slate-300">{t('no_selection')}</p>}
       </div>
       <div className="mt-4 min-h-14 break-words text-sm leading-relaxed" role={hasError ? 'alert' : 'status'} aria-live={hasError ? 'assertive' : 'polite'} aria-atomic="true">
         {saving ? <p className="flex items-center gap-2 text-slate-600 dark:text-slate-300"><Loader2 size={18} aria-hidden="true" className="shrink-0 animate-spin" />{t('saving')}</p>

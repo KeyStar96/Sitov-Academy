@@ -9,6 +9,7 @@
 - **Kein Layout-Shift beim Kartenwechsel:** `VocabCardSession` nutzt eine feste Kartenhöhe (`h-[36rem]`/`sm:h-[42rem]`), einheitliche Bildslots und eine reservierte Rückseite. Die Folgekarte liegt ohne Skalierung im selben Grid-Slot. Die Einstufungskarte hat ebenfalls feste Höhe.
 - **Unterlängen nicht mehr abgeschnitten:** `line-clamp` auf den Vokabelwörtern entfernt; `leading-snug` plus Innenabstand geben Buchstaben wie g/j/q Platz. Gleiches in der Ersteinstufung und auf der Kartenrückseite.
 - **Desktop-Lektionskarten:** Aktionen stehen untereinander in einer festen rechten Spalte (`flex-col`, `lg:w-72`), damit Titel und Button-Texte nicht mehr überlappen oder abgeschnitten werden.
+- **Profil „Kurse auswählen":** Kompaktere Kurskarten (`min-h-12`) und ab `sm` ein zweispaltiges Raster, damit die Liste für den Folgemonat nicht mehr die ganze Seite nach unten zieht.
 
 ## 1a. Änderungsprotokoll — 2026-09-06: Audio-Recorder UI & Safari Sample-Rate Bugfix
 
