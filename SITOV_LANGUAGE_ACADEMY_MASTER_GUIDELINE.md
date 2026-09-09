@@ -1,5 +1,7 @@
 # Sitov Language Academy — Pedagogy & UI/UX Research
 
+> **Admin-Header (2026-09-09):** Sprachumschalter im Lehrer-Header; Navigation auf eigener Zeile, damit Name und Nav sich nicht mehr quetschen. Touch-Ziele 48px, Navigation umbrechend statt horizontalem Scroll.
+
 > **Admin-Abrechnung (2026-09-09):** Lehrkräfte steuern Folgemonat-Buchungen kursweise und hinterlegen Notizen/Rabatte auf dem Schwarzen Brett. Alle neuen Admin-Texte liegen in fünf Sprachen (`admin`-Dictionary). Touch-Ziele 48px, mobile Karten statt waagerechtem Tabellen-Scroll.
 
 > **Preloader (2026-09-09):** First-load curtain mit Marken-Reveal; Leinwandfarbe identisch mit Website und Lernplattform (`#FCF4E6` / `#050505`); Hero startet während des Vorhangs; Light/Dark folgt der gespeicherten Darstellung; Unterlängen bleiben sichtbar.

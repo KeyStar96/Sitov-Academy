@@ -20,10 +20,10 @@ export default function AdminNav({ lang }: { lang: string }) {
   ]
 
   return (
-    <nav className="flex w-full items-center gap-2 overflow-x-auto pb-2 whitespace-nowrap scrollbar-hide lg:gap-0 lg:space-x-4 lg:pb-0">
+    <nav className="flex w-full flex-wrap items-center gap-2">
       {navItems.map((item, index) => {
         if ('divider' in item) {
-          return <div key={`div-${index}`} className="mx-2 hidden h-4 w-px bg-slate-300 lg:block dark:bg-slate-700" />
+          return <div key={`div-${index}`} className="hidden h-4 w-px bg-slate-300 sm:block dark:bg-slate-700" />
         }
         const isActive = item.exact ? pathname === item.href : pathname.startsWith(item.href)
         return (

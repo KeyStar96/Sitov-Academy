@@ -1780,6 +1780,11 @@
     "error_description": "That was not your fault. Please try again.",
     "error_retry": "Try again",
     "loading": "The teacher area is loading …",
-    "overview_load_failed": "The overview could not be loaded. Please try again."
+    "overview_load_failed": "The overview could not be loaded. Please try again.",
+    "ui_language": "Interface language",
+    "ui_language_aria": "Choose interface language",
+    "toggle_theme_light": "Switch to light design",
+    "toggle_theme_dark": "Switch to dark design",
+    "logout_aria": "Sign out"
   }
 }

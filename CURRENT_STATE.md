@@ -1,5 +1,11 @@
 # Current State Analysis (Ist-Zustand)
 
+## 1a. Änderungsprotokoll — 2026-09-09: Admin-Header Sprache & Abstand
+
+**Kernänderungen:**
+- **Sprachumschalter** im Lehrer-Header (`HeaderLanguageSwitcher`): speichert `profiles.ui_language` und bleibt auf der aktuellen Admin-Seite (`safeUiLanguageNextPath`). Trigger 48px mit Kürzel, geöffnete Liste mit Endonymen.
+- **Kein gequetschter Name:** Begrüßung „Hallo, …“ ist aus der Nav-Zeile raus. Oben nur Logo und Werkzeuge (Rolle ab `sm`, Sprache, Theme, Logout). Navigation volle Breite darunter, umbrechend, ohne Horizontal-Scroll.
+
 ## 1a. Änderungsprotokoll — 2026-09-09: Admin Folgemonat-Buchungen & Schwarzes Brett
 
 **Kernänderungen:**

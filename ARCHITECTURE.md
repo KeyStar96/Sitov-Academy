@@ -1,5 +1,7 @@
 # Architecture Masterplan
 
+> **Admin-Header (2026-09-09):** Lehrer-Header zweizeilig (Werkzeuge oben, Navigation darunter). Sprachumschalter `HeaderLanguageSwitcher` schreibt `ui_language` und bleibt auf der Admin-Route. Texte: `admin.ui_language_aria`.
+
 > **Admin-Abrechnung (2026-09-09):** `/{lang}/admin/bookings` gruppiert Folgemonat-Buchungen nach `courses.booking_id`. Staff liest Buchungen nach Rollenprüfung über den Service-Role-Client (RLS bleibt für den Cookie-Client: nur Eigentümer/Admin). Schwarzes Brett: `saveBlackboardNote` → `teacher_student_notes`, Auto-Save in `BlackboardProvider`. Texte: `dictionaries/*.json` → `admin` / `lib/admin-i18n.ts`.
 
 > **Preloader (2026-09-09):** Cinematic first-load curtain in `components/effects/Preloader.tsx`. html/body/`AppBackground`/Dashboard teilen `--canvas` (`#FCF4E6` / `#050505`), der Hero startet während des Wipes, der Vorhang blendet danach aus. Light/Dark folgt `html.dark`; Unterlängen bleiben sichtbar.
@@ -135,6 +137,7 @@ Statt traditioneller `/api`-Routen werden React Server Actions in `actions/` ver
 ## 4. UX/UI-Architektur (Geragogik & Barrierefreiheit)
 
 - **Smartphone zuerst:** Cursor-Agent `.cursor/rules/ux-smartphone-agent.mdc` (Mobile-First, 375px, kein Horizontal-Scroll, Safe-Area). Geragogik-Maße bleiben in `ux-geragogik-agent.mdc`.
+- **Lehrer-Header:** `app/[lang]/admin/layout.tsx` trennt Werkzeuge und Navigation: oben Logo links, Rolle/Sprache/Theme/Logout rechts; darunter die umbrechende `AdminNav` ohne Horizontal-Scroll. Sprachwechsel über `HeaderLanguageSwitcher` + `safeUiLanguageNextPath`.
 - **Lernplattform-Hülle:** `app/[lang]/dashboard/layout.tsx` nutzt einen `flex flex-wrap justify-between`-Header: Logo per `order-1` ganz links, Profil/Theme/Abmelden per `order-2`/`order-3` (`md:order-3`) ganz rechts, Breadcrumb-Navigation (`DashboardHeader`) per `order-3 basis-full` (`md:order-2 md:basis-auto`) – auf dem Handy eigene volle Zeile unterhalb, ab `md:` mittig zwischen Logo und Profil-Block. Nur noch eine `DashboardHeader`-Instanz (keine Duplizierung mehr); Breakpoint innerhalb der Komponente ist konsistent `md:`. Touch-Targets 48px, `min-h-dvh`, Safe-Area, Profil-Icon. Texte über `lib/dashboard-i18n.ts` / `lib/videos-i18n.ts` / `lib/profile-i18n.ts`.
 - **Komponenten-Design (Mobile First)**: 
   - Extrem aufgeräumt, große Buttons (min. 48x48px Touch-Target).

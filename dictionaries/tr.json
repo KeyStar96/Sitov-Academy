@@ -1781,6 +1781,11 @@
     "error_description": "Bu sizin hatanız değil. Lütfen tekrar deneyin.",
     "error_retry": "Tekrar dene",
     "loading": "Öğretmen alanı yükleniyor …",
-    "overview_load_failed": "Genel bakış yüklenemedi. Lütfen tekrar deneyin."
+    "overview_load_failed": "Genel bakış yüklenemedi. Lütfen tekrar deneyin.",
+    "ui_language": "Arayüz dili",
+    "ui_language_aria": "Arayüz dilini seç",
+    "toggle_theme_light": "Açık tasarımı aç",
+    "toggle_theme_dark": "Koyu tasarımı aç",
+    "logout_aria": "Çıkış"
   }
 }

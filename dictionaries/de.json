@@ -1779,6 +1779,11 @@
     "error_description": "Das lag nicht an dir. Versuche es bitte noch einmal.",
     "error_retry": "Nochmal versuchen",
     "loading": "Der Lehrer-Bereich wird geladen …",
-    "overview_load_failed": "Die Übersicht konnte nicht geladen werden. Bitte versuche es erneut."
+    "overview_load_failed": "Die Übersicht konnte nicht geladen werden. Bitte versuche es erneut.",
+    "ui_language": "Sprache der Oberfläche",
+    "ui_language_aria": "Oberflächensprache wählen",
+    "toggle_theme_light": "Helles Design aktivieren",
+    "toggle_theme_dark": "Dunkles Design aktivieren",
+    "logout_aria": "Abmelden"
   }
 }

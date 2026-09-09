@@ -9,6 +9,7 @@ import { personalDetailsSchema, profileContactSchema, type ProfileContact, type 
 import type { BackendActionResult } from '@/lib/types/backend'
 import { resolveLegacyProfile } from '@/lib/profile-legacy'
 import { buildSiteUrl, getOutboundSiteUrl } from '@/lib/site-url'
+import { safeUiLanguageNextPath } from '@/lib/locale-routing'
 
 export async function updatePersonalDetails(input: unknown): Promise<BackendActionResult<PersonalDetailsResult>> {
   return withBackendSession(async ({ supabase, userId, user }) => {
@@ -59,8 +60,9 @@ export async function updateProfileContact(input: unknown): Promise<BackendActio
 
 /**
  * Ändert die Oberflächensprache des angemeldeten Nutzers (`profiles.ui_language`)
- * und leitet auf denselben Profil-Screen in der neuen Sprache um. Dadurch wird
- * die gesamte UI (Menüs, Buttons, Texte) sofort umgestellt.
+ * und leitet auf denselben Bildschirm in der neuen Sprache um. Ohne `next`
+ * bleibt das Ziel das Profil. Ein gesetztes `next` darf nur Dashboard- oder
+ * Admin-Pfade enthalten.
  *
  * Wie in `auth.ts` wird `redirect()` bewusst außerhalb von `try` aufgerufen:
  * Next.js signalisiert die Weiterleitung über eine Ausnahme, die ein
@@ -101,5 +103,5 @@ export async function updateUiLanguage(formData: FormData): Promise<void> {
   }
 
   revalidatePath('/', 'layout')
-  redirect(`/${lang}/dashboard/profile`)
+  redirect(safeUiLanguageNextPath(formData.get('next'), lang))
 }

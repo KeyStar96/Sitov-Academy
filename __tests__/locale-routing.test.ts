@@ -5,6 +5,7 @@ import {
   isProtectedPath,
   localeFromPathname,
   mapLegacyLang,
+  safeUiLanguageNextPath,
   shouldApplyLegacyLangRedirect,
 } from '@/lib/locale-routing'
 
@@ -42,6 +43,20 @@ describe('shouldApplyLegacyLangRedirect', () => {
 
   it('tut nichts ohne lang-Parameter', () => {
     expect(shouldApplyLegacyLangRedirect('/', null)).toBe(false)
+  })
+})
+
+describe('safeUiLanguageNextPath', () => {
+  it('keeps the teacher on the same admin page after a language change', () => {
+    expect(safeUiLanguageNextPath('/ru/admin/bookings', 'de')).toBe('/de/admin/bookings')
+    expect(safeUiLanguageNextPath('/en/admin', 'uk')).toBe('/uk/admin')
+  })
+
+  it('falls back to the profile for missing or unsafe targets', () => {
+    expect(safeUiLanguageNextPath(null, 'de')).toBe('/de/dashboard/profile')
+    expect(safeUiLanguageNextPath('https://evil.example/phish', 'de')).toBe('/de/dashboard/profile')
+    expect(safeUiLanguageNextPath('//evil.example', 'de')).toBe('/de/dashboard/profile')
+    expect(safeUiLanguageNextPath('/login', 'de')).toBe('/de/dashboard/profile')
   })
 })
 

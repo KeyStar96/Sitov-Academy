@@ -104,6 +104,31 @@ export function toUiLocale(value: string | null | undefined): UiLocale {
   return LOCALES.find(locale => locale === value) ?? DEFAULT_LOCALE
 }
 
+const LOCALE_PREFIX = /^\/(de|en|uk|ru|tr)(?=\/|$)/
+const UI_LANGUAGE_APP_PREFIXES = ['/dashboard', '/admin'] as const
+
+/** Tauscht oder setzt das Sprachpräfix, ohne den Rest des Pfads zu verändern. */
+export function withUiLocale(pathname: string, lang: UiLocale): string {
+  const stripped = pathname.replace(LOCALE_PREFIX, '') || '/'
+  return stripped === '/' ? `/${lang}` : `/${lang}${stripped}`
+}
+
+/**
+ * Erlaubt nur interne Dashboard-/Admin-Pfade als Ziel nach einem Sprachwechsel.
+ * Verhindert Open Redirects (`//`, Protokolle) und fremde App-Routen.
+ */
+export function safeUiLanguageNextPath(raw: unknown, lang: UiLocale): string {
+  const fallback = `/${lang}/dashboard/profile`
+  if (typeof raw !== 'string' || raw.length === 0 || raw.length > 512) return fallback
+  if (!raw.startsWith('/') || raw.startsWith('//') || /[:\\]/.test(raw)) return fallback
+  const pathOnly = raw.split(/[?#]/, 1)[0] ?? raw
+  const stripped = pathOnly.replace(LOCALE_PREFIX, '') || '/'
+  const allowed = UI_LANGUAGE_APP_PREFIXES.some(
+    prefix => stripped === prefix || stripped.startsWith(`${prefix}/`)
+  )
+  return allowed ? withUiLocale(pathOnly, lang) : fallback
+}
+
 export function isProtectedPath(pathname: string): boolean {
   return (
     pathname.includes('/dashboard') ||
