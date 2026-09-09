@@ -8,7 +8,7 @@
 - **Gewichtete Zufallsauswahl:** `lib/leitner.ts` (`PHASE_SELECTION_WEIGHTS`, `pickWeightedRandomOrder`) und `getDueCards` reihen fällige Karten nicht mehr nach Datum, sondern gewichtet: Phase 1 = 1.0, 2 = 0.7, 3 = 0.4, 4 = 0.2, 5 = 0.1, 6 = 0.05.
 - **Kein Layout-Shift beim Kartenwechsel:** `VocabCardSession` nutzt eine feste Kartenhöhe (`h-[36rem]`/`sm:h-[42rem]`), einheitliche Bildslots und eine reservierte Rückseite. Die Folgekarte liegt ohne Skalierung im selben Grid-Slot. Die Einstufungskarte hat ebenfalls feste Höhe.
 - **Unterlängen nicht mehr abgeschnitten:** `line-clamp` auf den Vokabelwörtern entfernt; `leading-snug` plus Innenabstand geben Buchstaben wie g/j/q Platz. Gleiches in der Ersteinstufung und auf der Kartenrückseite.
-- **Desktop-Lektionskarten:** `md:w-full` in der Button-Zeile hat die linke Spalte auf ~80px gequetscht (Titel und Kennzahlen umgebrochen). Layout ist jetzt `lg:flex-row` mit `lg:w-auto lg:shrink-0` für die Aktionen; Kennzahlen bleiben per `whitespace-nowrap` in einer Zeile.
+- **Desktop-Lektionskarten:** Aktionen stehen untereinander in einer festen rechten Spalte (`flex-col`, `lg:w-72`), damit Titel und Button-Texte nicht mehr überlappen oder abgeschnitten werden.
 
 ## 1a. Änderungsprotokoll — 2026-09-06: Audio-Recorder UI & Safari Sample-Rate Bugfix
 

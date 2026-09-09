@@ -385,11 +385,11 @@ export default function VocabTrainerPageClient({
                     )}
                   </div>
 
-                  <div className="flex w-full shrink-0 flex-col gap-3 sm:flex-row sm:flex-wrap lg:w-auto lg:flex-col xl:flex-row">
+                  <div className="flex w-full shrink-0 flex-col gap-3 lg:w-72">
                     {stat.untouched > 0 && (
                       <Link
                         href={assessHref}
-                        className="inline-flex min-h-12 items-center justify-center gap-2 whitespace-nowrap rounded-xl bg-emerald-600 px-5 py-2.5 text-base font-bold text-white shadow-sm transition-colors hover:bg-emerald-500 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#FF5C00]"
+                        className="inline-flex min-h-12 w-full items-center justify-center gap-2 whitespace-nowrap rounded-xl bg-emerald-600 px-5 py-2.5 text-base font-bold text-white shadow-sm transition-colors hover:bg-emerald-500 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#FF5C00]"
                       >
                         <ListChecks size={20} aria-hidden="true" />
                         {hasProgress ? t('continue_assessing') : t('assess_set')}
@@ -400,7 +400,7 @@ export default function VocabTrainerPageClient({
                       type="button"
                       onClick={() => handleToggleLesson(stat.lesson)}
                       className={cn(
-                        'inline-flex min-h-12 items-center justify-center gap-2 whitespace-nowrap rounded-xl border-2 px-5 py-2.5 text-base font-bold shadow-sm transition-colors focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#FF5C00]',
+                        'inline-flex min-h-12 w-full items-center justify-center gap-2 whitespace-nowrap rounded-xl border-2 px-5 py-2.5 text-base font-bold shadow-sm transition-colors focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#FF5C00]',
                         inBox
                           ? 'border-blue-200 bg-blue-50 text-blue-700 hover:bg-blue-100 hover:text-blue-800'
                           : 'border-gray-300 bg-white text-gray-800 hover:bg-gray-50'
@@ -413,7 +413,7 @@ export default function VocabTrainerPageClient({
                     <button
                       type="button"
                       onClick={() => setOpenLesson(stat.lesson)}
-                      className="inline-flex min-h-12 items-center justify-center gap-2 whitespace-nowrap rounded-xl border-2 border-gray-300 bg-white px-5 py-2.5 text-base font-bold text-gray-800 shadow-sm transition-colors hover:bg-gray-50 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#FF5C00]"
+                      className="inline-flex min-h-12 w-full items-center justify-center gap-2 whitespace-nowrap rounded-xl border-2 border-gray-300 bg-white px-5 py-2.5 text-base font-bold text-gray-800 shadow-sm transition-colors hover:bg-gray-50 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#FF5C00]"
                     >
                       <ListPlus size={20} aria-hidden="true" />
                       {t('show_cards')}

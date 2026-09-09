@@ -1788,7 +1788,7 @@ Evidence is encouraging but still comparatively limited and heterogeneous. Use l
 ### 2026-09-09 — Vokabeltrainer: Einstufung, gewichtete Auswahl, kein Layout-Shift
 - **Ersteinstufung:** Nur das Fremdwort, keine Übersetzung. Bekannt → Phase 6, unbekannt → Phase 1 (sofort fällig) und direkter Session-Start.
 - **Auswahl:** Weighted-Random in `lib/leitner.ts` / `getDueCards` (1.0 / 0.7 / 0.4 / 0.2 / 0.1 / 0.05).
-- **Rendering:** Feste Kartenhöhe in `VocabCardSession`, einheitliche Bildslots, keine Skalierung der Folgekarte. Wörter ohne `line-clamp`, damit Unterlängen (g, j, q) nicht abgeschnitten werden. Lektionskarten auf Desktop: Titel und Kennzahlen in der Hauptspalte, Aktionen `shrink-0` rechts – nicht mehr `md:w-full` (das hatte die linke Spalte zusammengedrückt).
+- **Rendering:** Feste Kartenhöhe in `VocabCardSession`, einheitliche Bildslots, keine Skalierung der Folgekarte. Wörter ohne `line-clamp`, damit Unterlängen (g, j, q) nicht abgeschnitten werden. Lektionskarten: Aktions-Buttons untereinander in einer rechten Spalte.
 
 ### 2026-09-06 — Audio-Wiedergabe: Player-Robustheit & deutsche TTS
 - **Sprachnachrichten hörbar machen:** `WaveformPlayer` prüft das Format vorab (`canPlayType`), zeigt sichtbare Fehlermeldungen mit Retry statt stiller Fehlschläge, hat einen Ladezustand und behebt die `Infinity`-Dauer von webm-Aufnahmen. Häufigste Ursache für „man hört nichts": webm-Aufnahmen sind auf Safari/iOS nicht abspielbar – jetzt erscheint dazu ein klarer Hinweis (echte Cross-Browser-Wiedergabe erfordert serverseitige Transkodierung, bewusst als Folgeschritt notiert).
