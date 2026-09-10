@@ -30,19 +30,6 @@
 
 .canvas { position: absolute; inset: 0; }
 
-.orbit {
-  position: absolute;
-  z-index: -1;
-  top: 12%;
-  left: 50%;
-  height: 76%;
-  aspect-ratio: 1;
-  margin-left: calc(clamp(250px, 34vw, 345px) * -.38);
-  border: 1px dashed color-mix(in srgb, var(--violet) 13%, transparent);
-  border-radius: 50%;
-  pointer-events: none;
-}
-
 .caption {
   position: relative;
   padding: 1.1rem 1.4rem 1.3rem;

@@ -1,5 +1,12 @@
 # Current State Analysis (Ist-Zustand)
 
+## Änderungsprotokoll — 2026-09-10: NeuralBrain vollständig erneuert
+
+- **Gewebe:** 6.400 Nodes und 20.193 lokale Verbindungen, echte innere Tiefe, Perlin-Cluster, kräftigere kortikale Falten und asymmetrische Hirnlappen. Der gestrichelte Kreis hinter dem Hero-Modell entfällt.
+- **Licht:** Kontinuierliche Shader-Schweife auf 16 vorbereiteten Verbindungspfaden. Leuchtender Kopf, dünner Kern und auslaufende transparente Aura ersetzen die früheren wandernden Signalpunkte. Gezielt 1–3 Impulse alle 6,5–9 Sekunden, mindestens 3,45 Sekunden Ruhe zwischen vollständig abgeschlossenen Gruppen.
+- **Darstellung:** Eigene Light-/Dark-Paletten, weiches additives Leuchten im Darkmode und kontrastierendes Amber im Lightmode. Bei reduzierter Bewegung bleibt dasselbe detaillierte Gewebe statisch sichtbar; fehlendes WebGL/Context-Verlust nutzt SVG. Canvas pausiert außerhalb des Viewports und bei verborgenem Dokument.
+- **Prüfung:** Details und Grenzen der lokalen Verifikation stehen in `docs/neural-brain-refactor-2026-09-10.md`. Änderung lokal implementiert.
+
 ## Änderungsprotokoll — 2026-09-10: Lernfluss, Theme und Neural-Audio
 
 - **Theme:** Synchroner Head-Bootstrap setzt gespeichertes/System-Theme vor dem ersten Paint. Root, Skeletons, Dialoge, Lernkarten, Profil-, Video-, Übungs- und Audiokarten verwenden die Academy-Farbvariablen. Die Phasenübersicht nutzt beschriftete horizontale Balken und passt ohne horizontales Scrollen auf 320px.

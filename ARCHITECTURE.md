@@ -1,5 +1,12 @@
 # Architecture Masterplan
 
+## Ergänzung 2026-09-10: organisches NeuralBrain-Gewebe
+
+- `components/effects/neural-brain-geometry.ts` erzeugt einmalig 6.400 deterministisch verteilte Neuronen mit domain-verzerrtem Perlin-Rauschen, dicker Kortikalschicht, inneren Clustern, asymmetrischen Hirnlappen und zentraler Furche. Spatial Hashing begrenzt den Nachbarschaftsgraphen auf 20.193 Verbindungen; gekrümmte Fasern und 16 Graph-Routen werden als Buffer-Geometrien vorbereitet.
+- `neural-brain-shaders.ts` enthält separate Knoten-, Faser- und Comet-Materialien. Impulse sind durchgehende, zur Kamera ausgerichtete Dreiecksbänder mit integriertem Glühkopf, schmalem Lichtkern und weich transparentem Schweif. Die statischen Pfade und Bänder teilen dieselbe minimale Verformung.
+- `NeuralBrain.tsx` steuert drei wiederverwendete Impuls-Meshes zentral: 1–3 Impulse alle 6,5–9 Sekunden, maximal 3,05 Sekunden Gruppenlaufzeit und mindestens 3,45 Sekunden Ruhe. Keine unabhängigen Kantenblitze oder wandernden Signal-Sprites. Zwei Drawcalls im Ruhezustand, höchstens fünf während einer Gruppe; keine laufenden Buffer-Neuallokationen.
+- Farbpaletten und Blending wechseln mit `html.dark`; DPR ist auf 1,5 begrenzt. Unsichtbare Szenen pausieren. Reduzierte Bewegung nutzt das detaillierte 3D-Modell im Demand-Loop ohne Impulse/Rotation; Theme- und Größenänderungen zeichnen es neu. WebGL-Ausfälle zeigen das SVG-Fallback mit instanzeigenem Gradient-Identifier. Alle eigenen GPU-Ressourcen werden freigegeben.
+
 ## Ergänzung 2026-09-10: stille Writes und Neural-MP3
 
 `lib/vocabulary-write-queue.ts` serialisiert optimistische Entscheidungen. Ein stabiler Request-Beleg in `vocabulary_private.answer_receipts` verhindert erneute Bewertung nach verlorener HTTP-Antwort. `expectedLearnerId` bindet gepufferte Aufrufe an den beim Mount authentifizierten Schüler. PostgreSQL bewertet Sätze weiterhin exakt; `lib/vocabulary-languages.ts` wählt eine ausschließlich fremdsprachige Quelle.

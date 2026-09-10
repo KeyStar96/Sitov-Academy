@@ -34,7 +34,6 @@ export default function Hero({ dictionary, lang = 'de' }: { dictionary: Dictiona
       <div className={styles.heading}><span className="academy-eyebrow">{copy.learn_tag}</span><Sparkles size={18} aria-hidden="true" /></div>
       <div className={styles.scene} data-neural-brain-scene>
         <div className={styles.canvas}><NeuralBrain /></div>
-        <div className={styles.orbit} aria-hidden="true" />
       </div>
       <figcaption className={styles.caption} data-neural-brain-caption><p>{copy.brain_caption}</p><span>{copy.brain_note}</span></figcaption>
     </figure>

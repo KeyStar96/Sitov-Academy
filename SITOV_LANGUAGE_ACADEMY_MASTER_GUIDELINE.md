@@ -1,5 +1,7 @@
 # Sitov Language Academy — Pedagogy & UI/UX Research
 
+> **NeuralBrain (2026-09-10):** Die visuelle Metapher „Jedes neue Wort schafft eine Verbindung“ erhält dichtes organisches Gewebe und einzelne nachvollziehbare Lichtschweife. 1–3 Impulse pro Gruppe und mindestens 3,45 Sekunden stille Zwischenzeit unterstützen eine ruhige Betrachtung. Theme-spezifischer Kontrast, statisches 3D bei reduzierter Bewegung und SVG bei WebGL-Ausfall bleiben Teil der Darstellungsanforderungen.
+
 > **Admin-Header (2026-09-09):** Sprachumschalter im Lehrer-Header; Navigation auf eigener Zeile, damit Name und Nav sich nicht mehr quetschen. Touch-Ziele 48px, Navigation umbrechend statt horizontalem Scroll.
 
 > **Admin-Abrechnung (2026-09-09):** Lehrkräfte steuern Folgemonat-Buchungen kursweise und hinterlegen Notizen/Rabatte auf dem Schwarzen Brett. Alle neuen Admin-Texte liegen in fünf Sprachen (`admin`-Dictionary). Touch-Ziele 48px, mobile Karten statt waagerechtem Tabellen-Scroll.

@@ -1,5 +1,7 @@
 # Monetization Strategy (Stripe Integration)
 
+> **NeuralBrain (2026-09-10):** Die Marketing-Visualisierung wurde mit organischem Gewebe und seltenen Shader-Lichtschweifen neu aufgebaut. Ausschließlich clientseitige Darstellung; keine Änderungen an Kursbuchung, Abrechnung, Stripe oder Zugriffsrechten.
+
 > **Hinweis (2026-09-09):** Der Sprachumschalter im Lehrer-Header speichert nur `profiles.ui_language` und ändert Stripe nicht.
 
 > **Hinweis (2026-09-09):** Die Admin-Ansicht „Folgemonat-Buchungen“ und das Schwarze Brett (Rabatt in `teacher_student_notes`) dienen der manuellen Monatsabrechnung und Kundenbetreuung. Sie ändern Stripe-Checkout, Webhooks und öffentliche Kursbuchung nicht.
