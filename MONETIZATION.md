@@ -2,7 +2,7 @@
 
 ## 2026-09-10 — Lesbarkeit als allgemeine Plattformfunktion
 
-Hell/Dunkel und der zusätzliche Hochkontrastmodus stehen unabhängig von Tarif, Kursstufe und Lernstand bereit. Die persönliche Darstellung wird lokal auf dem Gerät gespeichert. Größere Lernbeschriftungen und die vereinfachte Grammatiknavigation ändern keine Buchungen, Preise, Rechnungsabläufe oder Zugangsrechte. [Umfang und Prüfnachweise](docs/readability-grammar-2026-09-10.md).
+Hell/Dunkel und der zusätzliche Hochkontrastmodus stehen unabhängig von Tarif, Kursstufe und Lernstand bereit. Die persönliche Darstellung wird lokal auf dem Gerät gespeichert. Größere Lernbeschriftungen und die vereinfachte Grammatiknavigation ändern keine Buchungen, Preise, Rechnungsabläufe oder Zugangsrechte. Die mobile Darstellungsauswahl ist vollständig erreichbar und bleibt eine allgemeine Plattformfunktion. [Umfang und Prüfnachweise](docs/readability-grammar-2026-09-10.md).
 
 ## Mailgestaltung produktiv — 2026-09-10
 

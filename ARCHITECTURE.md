@@ -2,7 +2,7 @@
 
 ## 2026-09-10 — Unabhängige Darstellungseinstellungen und stabile Grammatiknavigation
 
-`lib/theme.ts` verwaltet Farbschema (`theme`) und Kontrast (`academy-contrast`) getrennt. Das Head-Bootstrap-Script setzt beide vor dem ersten Paint; ThemeInit berücksichtigt Systemänderungen, Tab-Synchronisierung und gesperrten Browser-Speicher. AppearanceProvider liefert zentrale Übersetzungen, ThemeToggle öffnet das gemeinsame Menü einschließlich des Vokabel-Vollbilds. CSS-Farbtokens bilden beide Kontrastvarianten ab. ExerciseClient richtet Karten nach dem React-Commit unter der gemessenen Sticky-Kopfzeile aus; useSolvedActionFocus macht den Weiter-Button nach dem Lösen sichtbar. Die Daten-/Bewertungslogik bleibt unverändert. [Umfang und Prüfnachweise](docs/readability-grammar-2026-09-10.md).
+`lib/theme.ts` verwaltet Farbschema (`theme`) und Kontrast (`academy-contrast`) getrennt. Das Head-Bootstrap-Script setzt beide vor dem ersten Paint; ThemeInit berücksichtigt Systemänderungen, Tab-Synchronisierung und gesperrten Browser-Speicher. AppearanceProvider liefert zentrale Übersetzungen, ThemeToggle öffnet das gemeinsame Menü einschließlich des Vokabel-Vollbilds. CSS-Farbtokens bilden beide Kontrastvarianten ab. ExerciseClient richtet Karten nach dem React-Commit unter der gemessenen Sticky-Kopfzeile aus; useSolvedActionFocus macht den Weiter-Button nach dem Lösen sichtbar. Die Daten-/Bewertungslogik bleibt unverändert. Das Darstellungsfenster wird als fest positioniertes Body-Portal gerendert; dadurch schneiden scrollbare Menüs weder Titel noch Schließen-Button ab. Fokus- und Außenklick-Erkennung berücksichtigen das Portal. [Umfang und Prüfnachweise](docs/readability-grammar-2026-09-10.md).
 
 ## Ergänzung 2026-09-10: produktive E-Mail-Vorlagen
 

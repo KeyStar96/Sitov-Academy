@@ -2,7 +2,7 @@
 
 ## 2026-09-10 — Lesbarkeit und vorhersehbare Übungsnavigation
 
-Begleittexte mit Lern- oder Bedieninformation sollen mindestens 1rem groß bleiben; wichtige Grammatik-Anweisungen verwenden 1.125rem. Große Aufgabenwörter und Vorlesetexte werden nicht pauschal vergrößert. Geringe Bildschirmhöhe darf Beispielsätze nicht ausblenden oder kleine Beschriftungen erzwingen: Inhalte bleiben durch Scrollen erreichbar. Nach einer gelösten Aufgabe bleibt das Layout stabil und die Weiter-Aktion sichtbar; die neue Aufgabe beginnt unter der Kopfzeile. Der optionale Hochkontrastmodus muss mit beiden Farbschemata kombinierbar, per Tastatur bedienbar und in allen fünf Sprachen verfügbar sein. [Umfang und Prüfnachweise](docs/readability-grammar-2026-09-10.md).
+Begleittexte mit Lern- oder Bedieninformation sollen mindestens 1rem groß bleiben; wichtige Grammatik-Anweisungen verwenden 1.125rem. Große Aufgabenwörter und Vorlesetexte werden nicht pauschal vergrößert. Geringe Bildschirmhöhe darf Beispielsätze nicht ausblenden oder kleine Beschriftungen erzwingen: Inhalte bleiben durch Scrollen erreichbar. Nach einer gelösten Aufgabe bleibt das Layout stabil und die Weiter-Aktion sichtbar; die neue Aufgabe beginnt unter der Kopfzeile. Der optionale Hochkontrastmodus muss mit beiden Farbschemata kombinierbar, per Tastatur bedienbar und in allen fünf Sprachen verfügbar sein. Scrollbare Navigationscontainer dürfen das Darstellungsfenster nicht abschneiden; Titel, Bedienelemente und Schließen-Button müssen erreichbar bleiben. [Umfang und Prüfnachweise](docs/readability-grammar-2026-09-10.md).
 
 ## Ergänzung — einheitliche E-Mails, 10. September 2026
 

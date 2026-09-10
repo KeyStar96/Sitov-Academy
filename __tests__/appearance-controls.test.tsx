@@ -148,3 +148,31 @@ it('dismisses outside the dialog and follows the device again after reset', () =
   fireEvent.pointerDown(document.body)
   expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
 })
+
+it('escapes a clipped mobile menu and keeps portal focus and pointer interactions inside the dialog', () => {
+  render(<>
+    <div data-testid="mobile-menu" style={{ overflowY: 'auto', height: 80 }}>
+      <ThemeToggle lightLabel={de.dashboard.toggle_theme_light} darkLabel={de.dashboard.toggle_theme_dark} />
+    </div>
+    <button type="button">Outside appearance</button>
+  </>)
+  const trigger = screen.getByRole('button', { name: de.accessibility.title })
+  fireEvent.click(trigger)
+  const dialog = screen.getByRole('dialog')
+  expect(dialog.parentElement).toBe(document.body)
+  expect(screen.getByTestId('mobile-menu')).not.toContainElement(dialog)
+  expect(dialog).toHaveClass('fixed', 'z-[1000]')
+
+  const contrast = screen.getByRole('switch', { name: de.accessibility.contrast })
+  act(() => contrast.focus())
+  expect(contrast).toHaveFocus()
+  fireEvent.pointerDown(contrast)
+  fireEvent.click(contrast)
+  expect(dialog).toBeInTheDocument()
+  expect(contrast).toHaveAttribute('aria-checked', 'true')
+
+  act(() => trigger.focus())
+  expect(dialog).toBeInTheDocument()
+  act(() => screen.getByRole('button', { name: 'Outside appearance' }).focus())
+  expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
+})
