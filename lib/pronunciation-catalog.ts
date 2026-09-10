@@ -1,3 +1,4 @@
+import readingTexts from '@/supabase/seeds/pronunciation-reading-2026.json'
 import { ACCESS_LEVELS } from '@/lib/access/levels'
 import {
   cefrFamilyFromLevel,
@@ -177,7 +178,7 @@ const BY_FAMILY: Record<CefrFamily, PronunciationPrompt[]> = {
 export function getCatalogPrompts(level: string): PronunciationPrompt[] {
   const trimmed = level.trim()
   if ((ACCESS_LEVELS as readonly string[]).includes(trimmed)) {
-    return BY_ACCESS_LEVEL[trimmed as (typeof ACCESS_LEVELS)[number]]
+    return readingTexts.filter((row) => row.level === trimmed).map((row) => ({ id: row.id, title: row.title, level: row.level, cefrLevel: cefrFamilyFromLevel(row.level)!, sentenceDe: row.text, focus: row.focus, audioUrl: null, sortOrder: row.sortOrder }))
   }
 
   const family = cefrFamilyFromLevel(trimmed)

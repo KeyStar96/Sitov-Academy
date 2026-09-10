@@ -1,0 +1,662 @@
+# Original Sitov Academy curriculum. Each block contains ten authored exercises.
+# @ level | topic | teaching hint. Sentence [answer] | distractor | distractor | optional instruction
+@ A1.1 | Sein und sich vorstellen | Das Verb passt zur Person: ich bin, du bist, er/sie ist, wir sind, ihr seid.
+Ich [bin] neu im Deutschkurs.|bist|ist
+Du [bist] heute sehr pünktlich.|bin|seid
+Das [ist] meine Lehrerin.|sind|bist
+Wir [sind] aus verschiedenen Ländern.|ist|seid
+Ihr [seid] im Raum zwölf.|sind|bist
+Meine Nachbarn [sind] freundlich.|ist|seid
+[Bist] du aus Hannover?|Bin|Seid
+Herr Wolf, [sind] Sie unser Lehrer?|bist|seid
+Meine Telefonnummer [ist] auf dem Zettel.|bin|sind
+Ich [bin] dreißig Jahre alt.|ist|bist
+@ A1.1 | Regelmäßige Verben | Im Präsens: ich -e, du -st, er/sie -t, wir/sie -en, ihr -t.
+Ich [lerne] jeden Tag Deutsch.|lernst|lernen
+Du [wohnst] in der Hüttenstraße.|wohne|wohnen
+Meine Schwester [arbeitet] im Café.|arbeiten|arbeite
+Wir [fragen] die Lehrerin.|fragt|fragst
+Ihr [macht] die Hausaufgaben.|machen|mache
+Die Kinder [spielen] im Park.|spielt|spielst
+Ich [kaufe] Brot und Milch.|kauft|kaufen
+Wo [wartest] du auf den Bus?|warten|wartet
+Der Sprachkurs [beginnt] um neun Uhr.|beginnen|beginnst
+Meine Eltern [leben] in der Türkei.|lebt|lebst
+@ A1.1 | Artikel im Nominativ | Lerne jedes Nomen mit seinem Artikel: der, die oder das.
+[Der] Tisch ist groß.|Die|Das
+[Die] Lampe ist hell.|Der|Das
+[Das] Fenster ist offen.|Der|Die
+[Der] Schlüssel liegt hier.|Die|Das
+[Die] Schule ist in Hannover.|Der|Das
+[Das] Kind spielt draußen.|Der|Die
+[Der] Apfel ist rot.|Die|Das
+[Die] Tür ist geschlossen.|Der|Das
+[Das] Mädchen liest ein Buch.|Der|Die
+[Der] Stuhl ist frei.|Die|Das
+@ A1.1 | Ein und eine | Ein steht bei maskulinen und neutralen Nomen, eine bei femininen Nomen im Nominativ.
+Das ist [ein] Bus.|eine|einen
+Hier ist [eine] Tasche.|ein|einen
+Das ist [ein] Buch.|eine|einen
+Dort steht [eine] Frau.|ein|einen
+Das ist [ein] Foto von meiner Familie.|eine|einen
+Hier ist [eine] Bäckerei.|ein|einen
+Das ist [ein] Bahnhof.|eine|einen
+Im Zimmer steht [eine] Uhr.|ein|einen
+Das ist [ein] Handy.|eine|einen
+Dort wartet [ein] Mann.|eine|einen
+@ A1.1 | Haben | Haben: ich habe, du hast, er/sie hat, wir haben, ihr habt.
+Ich [habe] heute Zeit.|hast|hat
+Du [hast] einen roten Stift.|habe|haben
+Mein Bruder [hat] ein Fahrrad.|hast|haben
+Wir [haben] zwei Kinder.|habt|hat
+Ihr [habt] morgen Deutschunterricht.|haben|hast
+Die Schüler [haben] eine Pause.|hat|habt
+[Hast] du eine Frage?|Hat|Habe
+Das Zimmer [hat] zwei Fenster.|habe|haben
+Frau Berger, [haben] Sie einen Moment Zeit?|hat|habt
+Ich [habe] eine neue Adresse.|hast|haben
+@ A1.1 | Personalpronomen | Das Pronomen ersetzt eine Person oder Sache und muss zur Verbform passen.
+Mein Vater heißt Ali. [Er] arbeitet im Krankenhaus.|Sie|Es
+Meine Mutter heißt Olga. [Sie] kommt aus Odessa.|Er|Es
+Das Baby schläft. [Es] ist müde.|Er|Ihr
+Meine Freunde sind hier. [Sie] lernen mit mir.|Er|Es
+Meine Schwester und ich lernen Deutsch. [Wir] gehen zusammen zum Kurs.|Ihr|Du
+Paul und Mia, [ihr] seid heute früh da.|wir|du
+Du und ich wohnen in Hannover. [Wir] fahren mit der Bahn.|Ihr|Sie
+Das Auto ist alt. [Es] fährt aber gut.|Er|Sie
+Der Computer funktioniert. [Er] ist ganz neu.|Es|Sie
+Die Tasche ist schwer. [Sie] ist voller Bücher.|Er|Es
+@ A1.1 | W-Fragen | Wer fragt nach Personen, wo nach Orten, woher nach Herkunft, wann nach Zeit.
+[Wie] heißt du? – Ich heiße Sara.|Wo|Wer
+[Wo] wohnst du? – In Hannover.|Wer|Wann
+[Woher] kommst du? – Aus Polen.|Wann|Wie
+[Wer] ist das? – Das ist mein Bruder.|Wo|Wann
+[Wann] beginnt der Kurs? – Um zehn Uhr.|Wer|Woher
+[Was] trinkst du? – Wasser.|Wer|Wo
+[Wie] alt bist du? – Ich bin 28.|Wo|Wann
+[Wie viel] kostet das Brot? – Drei Euro.|Wer|Woher
+[Welche] Sprache sprichst du? – Arabisch.|Welcher|Welches
+[Wohin] gehst du? – Zum Bahnhof.|Woher|Wer
+@ A1.1 | Nicht und kein | Kein verneint ein Nomen mit unbestimmtem Artikel; nicht verneint unter anderem Adjektive und Verben.
+Das ist [kein] Hotel.|keine|keinen
+Ich bin [nicht] müde.|kein|keine
+Hier ist [keine] Apotheke.|kein|keinen
+Der Kaffee ist [nicht] heiß.|kein|keine
+Das ist [kein] Problem.|keine|keinen
+Wir wohnen [nicht] in Berlin.|kein|keine
+Heute ist [kein] Unterricht.|keine|keinen
+Meine Schwester ist [nicht] hier.|kein|keine
+Das sind [keine] Bücher, das sind Hefte.|kein|keinen
+Die Antwort ist [nicht] richtig.|kein|keine
+@ A1.1 | Zahlen und Mehrzahl | Nach Zahlen größer als eins steht das Nomen im Plural.
+Im Kurs sind zwölf [Frauen].|Frau|Fraue
+Wir haben zwei [Kinder].|Kind|Kinde
+Auf dem Tisch liegen drei [Bücher].|Buch|Buche
+Im Zimmer stehen vier [Stühle].|Stuhl|Stuhls
+Ich lerne jeden Tag fünf [Wörter].|Wort|Worten
+In der Tasche sind zwei [Hefte].|Heft|Heften
+Die Wohnung hat drei [Zimmer].|Zimmern|Zimmers
+Hier sind sechs [Flaschen].|Flasche|Flascher
+Vor der Schule warten zwei [Busse].|Bus|Bussen
+Wir schreiben zehn [Sätze].|Satz|Sätzen
+@ A1.1 | Zeit und Alltag | Bei Uhrzeiten steht um, bei Wochentagen am; das Verb richtet sich nach dem Subjekt.
+Der Unterricht beginnt [um] acht Uhr.|am|im
+Wir lernen [am] Montag Deutsch.|um|in
+Die Pause ist [um] halb elf.|am|im
+[Am] Freitag habe ich frei.|Um|Im
+Ich [komme] um neun nach Hause.|kommt|kommen
+Du [brauchst] heute ein Heft.|brauche|brauchen
+Wir [hören] einen kurzen Dialog.|hört|höre
+Die Lehrerin [erklärt] ein Wort.|erklären|erklärst
+Ihr [schreibt] die Adresse auf.|schreiben|schreibe
+Am Wochenende [besuche] ich meine Eltern.|besuchst|besuchen
+@ A1.2 | Akkusativartikel | Im Akkusativ wird der/ein zu den/einen; die und das bleiben gleich.
+Ich suche [den] Bahnhof.|der|dem
+Sie kauft [einen] Mantel.|ein|einem
+Wir öffnen [das] Fenster.|der|den
+Er liest [die] Zeitung.|der|dem
+Ich brauche [einen] Termin beim Arzt.|ein|einem
+Du nimmst [den] Regenschirm mit.|der|dem
+Wir bestellen [eine] Suppe.|ein|einen
+Sie trinkt [einen] Tee.|ein|einem
+Ich finde [den] Schlüssel nicht.|der|dem
+Das Kind malt [ein] Haus.|einen|einem
+@ A1.2 | Modalverben | Nach einem Modalverb steht der Infinitiv am Satzende; die Personalform steht an Position zwei.
+Ich [kann] schon etwas Deutsch sprechen.|kannst|können
+Du [musst] das Formular unterschreiben.|muss|müssen
+Meine Tochter [möchte] ein Eis essen.|möchten|möchtest
+Wir [wollen] am Samstag wandern.|will|wollt
+Ihr [dürft] hier Fotos machen.|dürfen|darf
+Der Arzt sagt: Ich [soll] mehr Wasser trinken.|sollst|sollen
+Die Kinder [müssen] um acht ins Bett gehen.|muss|müsst
+[Kannst] du bitte langsamer sprechen?|Kann|Könnt
+Im Krankenhaus [darf] man nicht rauchen.|dürfen|darfst
+Sie [möchten] die Rechnung bezahlen, Herr Sommer?|möchte|möchtest
+@ A1.2 | Trennbare Verben | Die Vorsilbe steht im Hauptsatz am Ende: Ich stehe früh auf.
+Ich stehe jeden Morgen um sieben [auf].|an|zu|Verb: „aufstehen“.
+Der Zug kommt um zwölf [an].|auf|ein|Verb: „ankommen“.
+Bitte mach das Fenster [zu].|ab|aus|Verb: „zumachen“.
+Wir kaufen am Freitag im Supermarkt [ein].|auf|an|Verb: „einkaufen“.
+Ich rufe meine Mutter heute Abend [an].|aus|zu|Verb: „anrufen“.
+Der Film fängt um zwanzig Uhr [an].|ein|ab|Verb: „anfangen“.
+Am Bahnhof steigen wir in den Bus [ein].|an|auf|Verb: „einsteigen“.
+Nach dem Essen räumen wir die Küche [auf].|an|ein|Verb: „aufräumen“.
+Ich nehme mein Wörterbuch zum Kurs [mit].|an|aus|Verb: „mitnehmen“.
+Vor dem Schlafen schalte ich das Licht [aus].|zu|ab|Verb: „ausschalten“.
+@ A1.2 | Possessivartikel | Der Possessivartikel richtet sich nach der besitzenden Person und dem Nomen.
+Ich habe einen Bruder. [Mein] Bruder heißt Karim.|Meine|Meinen
+Du hast eine Tochter. Ist das [deine] Tochter?|dein|deinen
+Paul hat ein Auto. [Sein] Auto ist blau.|Seine|Seinen
+Lena hat eine Katze. [Ihre] Katze schläft viel.|Ihr|Ihren
+Wir haben eine Wohnung. [Unsere] Wohnung ist klein.|Unser|Unseren
+Ihr habt einen Hund. [Euer] Hund ist freundlich.|Eure|Euren
+Ich suche [meinen] Ausweis.|mein|meinem
+Du brauchst [dein] Handy.|deinen|deinem
+Frau Roth, ist das [Ihre] Tasche?|Ihr|Ihren
+Unsere Kinder besuchen [ihre] Großeltern.|ihr|ihren
+@ A1.2 | Dativ im Alltag | Mit, bei, nach, aus und von verlangen den Dativ.
+Ich fahre mit [dem] Bus.|den|der
+Sie spricht mit [der] Lehrerin.|die|den
+Wir sind bei [unseren] Freunden.|unsere|unser
+Er kommt aus [der] Schweiz.|die|den
+Das Geschenk ist von [meinem] Bruder.|meinen|mein
+Nach [dem] Kurs gehen wir nach Hause.|den|der
+Ich helfe [meiner] Mutter.|meine|meinen
+Wir wohnen bei [den] Eltern.|die|der
+Die Jacke gehört [dem] Kind.|das|den
+Sie fährt mit [einem] Fahrrad zur Arbeit.|ein|einen
+@ A1.2 | Perfekt mit haben | Für viele Tätigkeiten braucht man haben und das Partizip am Satzende.
+Ich habe gestern Deutsch [gelernt].|lernen|lernte
+Du hast eine Suppe [gekocht].|kochen|kochst
+Wir haben Musik [gehört].|hören|hörten
+Meine Schwester hat lange [gearbeitet].|arbeiten|arbeitet
+Ihr habt das Fenster [geöffnet].|öffnen|öffnet
+Die Kinder haben im Garten [gespielt].|spielen|spielten
+Ich habe meine Tante [besucht].|gebesucht|besuchen
+Er hat das Brot [gekauft].|kaufen|kauft
+Wir haben auf den Bus [gewartet].|gewarten|warten
+Sie hat die Frage [beantwortet].|gebeantwortet|beantworten
+@ A1.2 | Perfekt mit sein | Viele Verben der Ortsveränderung bilden das Perfekt mit sein.
+Ich [bin] nach Hamburg gefahren.|habe|hast
+Du [bist] spät nach Hause gekommen.|hast|bin
+Meine Eltern [sind] in die Türkei geflogen.|haben|seid
+Wir [sind] zum Markt gegangen.|haben|bin
+Ihr [seid] früh aufgestanden.|habt|sind
+Der Zug [ist] pünktlich angekommen.|hat|sind
+Das Kind [ist] schnell eingeschlafen.|hat|haben
+Ich bin gestern zu Hause [geblieben].|gebleibt|bleiben
+Sie ist über die Brücke [gelaufen].|gelauft|laufen
+Wir sind am Bahnhof [ausgestiegen].|ausgesteigt|aussteigen
+@ A1.2 | Imperativ und Bitten | Eine höfliche Aufforderung mit Sie beginnt mit dem Infinitiv; du- und ihr-Formen sind kürzer.
+[Sprechen] Sie bitte langsam.|Spricht|Sprecht
+[Warte] bitte hier, Jonas.|Warten|Wartest
+[Kommt] bitte herein, Kinder.|Komm|Kommen
+[Nehmen] Sie bitte Platz.|Nimmt|Nehmt
+[Lies] bitte den ersten Satz vor, Anna.|Lest|Liest
+[Sei] bitte leise, das Baby schläft.|Bist|Sind
+[Öffnet] bitte eure Bücher, Kinder.|Öffne|Öffnen
+[Gib] mir bitte den Stift, Tom.|Gebt|Gibt
+[Helfen] Sie mir bitte mit dem Formular.|Hilft|Helft
+[Fahr] bitte vorsichtig nach Hause, Papa.|Fährt|Fahren
+@ A1.2 | Präpositionen für Orte | Wo? beschreibt einen Ort; wohin? beschreibt eine Richtung. Lerne feste Wendungen zusammen.
+Ich gehe heute [zum] Arzt.|zur|zu den
+Wir sind [zu] Hause.|nach|in
+Nach dem Kurs fahre ich [nach] Hause.|zu|bei
+Meine Schwester wohnt [in] Berlin.|nach|zu
+Am Sonntag fahren wir [nach] Bremen.|in der|zu dem
+Die Kinder sind [in der] Schule.|in die|nach die
+Ich arbeite [bei] einer Bäckerei.|nach|zu
+Der Bus fährt [zum] Bahnhof.|zur|zu den
+Wir kommen gerade [aus dem] Supermarkt.|aus den|aus der
+Sie wartet [an der] Haltestelle.|an die|an den
+@ A1.2 | Essen und Einkaufen | Achte auf Person, Kasus und die passende Verbform im Satz.
+Du [isst] gern Gemüse.|essen|esst
+Mein Sohn [nimmt] einen Saft.|nehmen|nimmst
+Ich hätte gern [einen] Kaffee.|ein|einem
+Ich habe [keinen] Hunger und bestelle nur ein Getränk.|kein|keinem
+Wir brauchen [keine] Eier mehr.|kein|keinen
+[Welchen] Käse möchten Sie?|Welcher|Welchem
+Ich finde [diese] Hose schön.|dieser|dieses
+Die Verkäuferin [gibt] mir das Wechselgeld.|geben|gibst
+Kann ich mit Karte [bezahlen]?|bezahlt|bezahle
+Die Schuhe [passen] mir gut.|passt|passe
+@ A2.1 | Weil-Sätze | Im Nebensatz mit weil steht das konjugierte Verb am Ende.
+Ich bleibe zu Hause, weil ich krank [bin].|ist|sein
+Wir nehmen den Bus, weil unser Auto kaputt [ist].|sind|sein
+Sie lernt Deutsch, weil sie hier arbeiten [möchte].|möchten|möchtest
+Ich komme später, weil ich noch einen Termin [habe].|hat|haben
+Er trägt eine Jacke, weil es draußen kalt [ist].|sind|sein
+Die Kinder sind müde, weil sie wenig geschlafen [haben].|hat|sind
+Wir gehen zu Fuß, weil die Sonne [scheint].|scheinen|scheinst
+Sie kauft Obst, weil sie einen Kuchen backen [will].|wollen|willst
+Ich lese den Brief zweimal, weil ich ihn nicht [verstehe].|versteht|verstehen
+Du brauchst eine Fahrkarte, weil du mit dem Zug [fährst].|fahren|fährt
+@ A2.1 | Dass-Sätze | Dass verbindet einen Hauptsatz mit einer Aussage; das Verb steht im Nebensatz am Ende.
+Ich glaube, dass der Laden heute geschlossen [ist].|sein|sind
+Die Lehrerin sagt, dass wir regelmäßig üben [sollen].|soll|sollt
+Er weiß, dass du morgen [kommst].|kommen|kommt
+Ich hoffe, dass es am Wochenende nicht [regnet].|regnen|regnest
+Wir finden, dass die Wohnung gut [passt].|passen|passtest
+Sie erzählt, dass sie einen neuen Job [hat].|haben|hast
+Meine Mutter freut sich, dass ich sie [besuche].|besucht|besuchen
+Ich denke, dass ihr die Prüfung [besteht].|bestehen|bestehst
+Der Arzt sagt, dass ich mehr schlafen [muss].|müssen|musst
+Es ist schön, dass wir zusammen lernen [können].|kann|könnt
+@ A2.1 | Wechselpräpositionen | Wo? verlangt Dativ, wohin? verlangt Akkusativ bei in, an, auf, unter und weiteren Wechselpräpositionen.
+Das Buch liegt auf [dem] Tisch.|den|der
+Ich lege das Buch auf [den] Tisch.|dem|der
+Das Bild hängt an [der] Wand.|die|den
+Sie hängt das Bild an [die] Wand.|der|dem
+Die Katze schläft unter [dem] Bett.|das|den
+Die Katze läuft unter [das] Bett.|dem|der
+Wir sitzen in [der] Küche.|die|den
+Er stellt die Blumen in [die] Küche.|der|dem
+Der Schrank steht neben [dem] Fenster.|das|den
+Wir stellen den Schrank neben [das] Fenster.|dem|der
+@ A2.1 | Komparativ | Beim Vergleichen steht nach dem Komparativ als; einige Formen sind unregelmäßig.
+Der Zug ist [schneller] als der Bus.|schnellsten|schnelle
+Meine neue Wohnung ist [größer] als die alte.|großer|größte
+Im Sommer ist es [wärmer] als im Winter.|wärmste|warme
+Dieser Weg ist [kürzer] als der andere.|kurzer|kürzeste
+Wasser ist hier [billiger] als Saft.|billigste|billiges
+Heute geht es mir [besser] als gestern.|guter|besten
+Ich trinke [lieber] Tee als Kaffee.|liebe|liebsten
+Mein Bruder ist älter [als] ich.|wie|am
+Die rote Tasche ist genauso teuer [wie] die blaue.|als|am
+Dieses Fahrrad gefällt mir [am besten].|am besser|als besten
+@ A2.1 | Reflexive Verben | Das Reflexivpronomen passt zum Subjekt: mich, dich, sich, uns, euch, sich.
+Ich freue [mich] auf den Urlaub.|dich|sich
+Du erinnerst [dich] an den Termin.|du|dein
+Mein Vater rasiert [sich] morgens.|er|seiner
+Wir treffen [uns] vor dem Kino.|wir|unser
+Ihr müsst [euch] beeilen.|uns|sich
+Die Kinder ziehen [sich] warm an.|ihr|ihres
+Ich interessiere [mich] für Geschichte.|mir|dich
+Fühlst du [dich] heute besser?|dir|sich
+Wir setzen [uns] ans Fenster.|wir|unser
+Sie entschuldigt [sich] für die Verspätung.|sie|ihrer
+@ A2.1 | Adjektive nach bestimmtem Artikel | Nach dem bestimmten Artikel hat das Adjektiv meist -e oder -en.
+Der [neue] Lehrer heißt Herr Kaya.|neuen|neues
+Ich suche den [roten] Ordner.|rote|rotes
+Die [kleine] Küche ist hell.|kleinen|kleines
+Wir nehmen das [große] Zimmer.|großen|großer
+Mit dem [alten] Fahrrad fahre ich zur Arbeit.|alte|altes
+Die [frischen] Brötchen sind noch warm.|frische|frisches
+Sie trägt die [blaue] Jacke.|blauen|blaues
+Ich helfe der [netten] Nachbarin.|nette|nettes
+Das [heiße] Wasser steht auf dem Herd.|heißen|heißer
+Wir danken den [freundlichen] Helfern.|freundliche|freundliches
+@ A2.1 | Präteritum von sein und haben | In Berichten über die Vergangenheit sind war und hatte üblich.
+Gestern [war] ich den ganzen Tag zu Hause.|waren|warst
+Als Kind [hatte] ich einen Hund.|hatten|hattest
+Wo [warst] du am Wochenende?|war|wart
+Wir [hatten] letzte Woche Besuch.|hatte|hattet
+Die Geschäfte [waren] am Sonntag geschlossen.|war|wart
+Ihr [wart] gestern sehr leise.|waren|warst
+Der Unterricht [war] interessant.|waren|warst
+Du [hattest] früher längere Haare.|hatte|hattet
+Meine Großeltern [hatten] einen Garten.|hatte|hattet
+Hattet ihr Zeit? – Ja, wir [hatten] Zeit.|hatte|hattest
+@ A2.1 | Dativpronomen | Bei helfen, danken, gefallen und gehören steht ein Dativobjekt.
+Kannst du [mir] bitte helfen? Ich verstehe die Aufgabe nicht.|mich|ich
+Ich danke [dir] für deine Hilfe.|dich|du
+Paul hat Geburtstag. Ich schenke [ihm] ein Buch.|ihn|er
+Meine Schwester ist krank. Ich bringe [ihr] eine Suppe.|sie|ihn
+Wir brauchen Hilfe. Die Lehrerin erklärt [uns] die Regel.|wir|unser
+Kinder, ich lese [euch] eine Geschichte vor.|ihr|euer
+Die Gäste warten. Ich gebe [ihnen] die Speisekarte.|sie|ihr
+Herr Berg, gehört [Ihnen] dieser Schirm?|Sie|Ihr
+Dieses Kleid gefällt [mir] sehr gut.|mich|ich
+Anna, wie geht es [dir] heute?|dich|du
+@ A2.1 | Zeitpräpositionen | Seit beschreibt einen Beginn bis heute, vor einen Zeitpunkt in der Vergangenheit und für eine Dauer.
+Ich lerne [seit] sechs Monaten Deutsch.|vor|ab
+Wir sind [vor] zwei Wochen umgezogen.|seit|bis
+Sie bleibt [für] drei Tage in Berlin.|seit|ab
+Der Kurs dauert von neun [bis] zwölf Uhr.|seit|vor
+[Ab] nächster Woche arbeite ich wieder.|Seit|Vor
+Wir treffen uns [nach] dem Unterricht.|durch|ohne
+Bitte komm [vor] acht Uhr; um acht beginnt der Test.|seit|für
+Ich wohne [seit] 2024 in dieser Straße.|vor|bis
+In [einer] Stunde fährt der Bus.|eine|einen
+Am [ersten] Mai ist Feiertag.|erste|erster
+@ A2.1 | Perfekt mit unregelmäßigen Verben | Lerne unregelmäßige Partizipien zusammen mit haben oder sein.
+Ich habe den Brief [geschrieben].|geschreibt|schreiben
+Wir haben die Zeitung [gelesen].|gelest|lesen
+Sie hat den Schlüssel [gefunden].|gefindet|finden
+Habt ihr den Film schon [gesehen]?|geseht|sehen
+Er hat das Fenster [geschlossen].|geschließt|schließen
+Ich habe heute viel Wasser [getrunken].|getrinkt|trinken
+Du hast sehr gut [gesprochen].|gesprecht|sprechen
+Wir sind mit dem Fahrrad [gefahren].|gefahrt|fahren
+Meine Schwester hat mir [geholfen].|gehelft|helfen
+Die Kinder haben das Lied [gesungen].|gesingt|singen
+@ A2.2 | Wenn und als | Als beschreibt ein einmaliges Ereignis in der Vergangenheit, wenn Wiederholungen oder Bedingungen.
+[Als] ich gestern nach Hause kam, war die Tür offen.|Wenn|Ob
+[Wenn] ich Zeit habe, gehe ich spazieren.|Als|Ob
+[Als] meine Tochter geboren wurde, war ich sehr glücklich.|Wenn|Ob
+Immer [wenn] es regnet, nehme ich den Bus.|als|ob
+[Als] wir 2022 nach Hannover zogen, kannten wir niemanden.|Wenn|Ob
+[Wenn] du Hilfe brauchst, ruf mich an.|Als|Ob
+[Als] ich den Unfall sah, rief ich sofort die Polizei.|Wenn|Ob
+Jedes Mal, [wenn] der Wecker klingelt, steht der Hund auf.|als|ob
+[Als] ich zehn Jahre alt war, bekam ich mein erstes Fahrrad.|Wenn|Ob
+[Wenn] die Sonne scheint, frühstücken wir auf dem Balkon.|Als|Ob
+@ A2.2 | Höflicher Konjunktiv II | Könnte, hätte, wäre und würde machen Bitten und Wünsche höflicher.
+[Könnten] Sie mir bitte den Weg erklären?|Könntest|Könnte
+Ich [hätte] gern ein Glas Wasser.|hättest|hätten
+Es [wäre] schön, wenn du mitkommst.|wären|wärst
+[Würdest] du bitte das Fenster öffnen?|Würde|Würdet
+Wir [würden] gern einen Tisch reservieren.|würde|würdest
+Ich [könnte] dir morgen beim Umzug helfen.|könntest|könnten
+[Hätten] Sie noch einen Termin am Freitag?|Hättet|Hättest
+An deiner Stelle [würde] ich mehr Pausen machen.|würdest|würden
+Du [solltest] mit deiner Lehrerin sprechen.|sollte|sollten
+Das [wäre] für mich kein Problem.|wären|wärst
+@ A2.2 | Indirekte Fragen | Nach ob oder einem Fragewort steht das Verb am Ende der indirekten Frage.
+Weißt du, wann der Zug [abfährt]?|abfahren|abfährst
+Können Sie mir sagen, wo die Post [ist]?|sein|sind
+Ich möchte wissen, ob der Kurs morgen [stattfindet].|stattfinden|stattfindest
+Weißt du, wie viel die Fahrkarte [kostet]?|kosten|kostest
+Er fragt, warum wir so spät [kommen].|kommt|kommst
+Kannst du mir sagen, ob du Zeit [hast]?|hat|haben
+Ich weiß nicht, wer heute [kocht].|kochen|kochst
+Sie fragt, wie lange die Pause [dauert].|dauern|dauerst
+Wir möchten wissen, wo wir parken [dürfen].|darf|dürft
+Ich frage mich, ob das Geschäft noch geöffnet [ist].|sind|sein
+@ A2.2 | Relativsätze im Nominativ | Das Relativpronomen übernimmt Genus und Numerus des Bezugsworts.
+Das ist der Nachbar, [der] mir immer hilft.|die|das
+Ich suche eine Wohnung, [die] einen Balkon hat.|der|das
+Kennst du das Kind, [das] dort spielt?|der|die
+Das sind die Bücher, [die] auf dem Tisch lagen.|der|das
+Hier arbeitet eine Ärztin, [die] auch Türkisch spricht.|der|das
+Wir besuchen den Park, [der] am Fluss liegt.|die|das
+Ich nehme das Zimmer, [das] zum Garten zeigt.|der|die
+Die Frau, [die] neben mir wohnt, ist Lehrerin.|der|das
+Der Bus, [der] zum Bahnhof fährt, kommt gleich.|die|das
+Die Leute, [die] hier warten, haben einen Termin.|der|das
+@ A2.2 | Adjektive nach ein | Der unbestimmte Artikel zeigt nicht jede Endung; das Adjektiv ergänzt fehlende Signale.
+Das ist ein [guter] Vorschlag.|gute|guten
+Sie hat eine [neue] Arbeit.|neuer|neuen
+Wir suchen ein [helles] Zimmer.|helle|hellen
+Er trägt einen [schwarzen] Anzug.|schwarzer|schwarze
+Ich fahre mit einem [alten] Auto.|altes|alter
+Sie wohnt in einer [ruhigen] Straße.|ruhige|ruhiges
+Ein [kleines] Kind sitzt im Wagen.|kleine|kleinen
+Wir haben einen [schönen] Ausflug gemacht.|schöner|schöne
+Das ist eine [wichtige] Nachricht.|wichtiger|wichtigen
+Er spricht mit einer [freundlichen] Verkäuferin.|freundliche|freundlicher
+@ A2.2 | Verben mit Präpositionen | Lerne Verb, Präposition und Kasus als Einheit.
+Ich warte [auf] den Bus.|für|über
+Sie interessiert sich [für] Politik.|auf|mit
+Wir sprechen [über] das Wochenende.|für|bei
+Er denkt oft [an] seine Familie.|für|mit
+Ich freue mich [auf] den Urlaub nächste Woche.|mit|für
+Sie bedankt sich [für] das Geschenk.|auf|über
+Wir nehmen [an] einem Deutschkurs teil.|für|auf
+Er träumt [von] einem Haus am Meer.|für|bei
+Ich bitte dich [um] einen Gefallen.|für|an
+Die Lehrerin beginnt [mit] der ersten Aufgabe.|auf|für
+@ A2.2 | Deshalb und trotzdem | Deshalb nennt eine Folge; trotzdem nennt eine unerwartete Folge. Danach folgt das Verb.
+Ich bin krank, deshalb [bleibe] ich im Bett.|bleiben|bleibst
+Es regnet, trotzdem [gehen] wir spazieren.|geht|gehst
+Der Bus fällt aus, deshalb [nehme] ich die Bahn.|nimmt|nehmen
+Sie hat wenig Zeit, trotzdem [hilft] sie mir.|helfen|hilfst
+Wir haben Hunger, deshalb [kochen] wir jetzt.|kocht|kochest
+Die Aufgabe ist schwer, trotzdem [versuche] ich es.|versucht|versuchen
+Er muss früh arbeiten, deshalb [steht] er um fünf auf.|stehen|stehst
+Die Wohnung ist klein, trotzdem [gefällt] sie uns.|gefallen|gefällst
+Ich habe morgen eine Prüfung, deshalb [lerne] ich heute.|lernt|lernen
+Ihr seid müde, trotzdem [macht] ihr die Aufgabe fertig.|machen|machst
+@ A2.2 | Infinitiv mit zu | Nach bestimmten Verben und Ausdrücken steht zu vor dem Infinitiv; bei trennbaren Verben steht zu in der Mitte.
+Ich versuche, jeden Tag Deutsch [zu sprechen].|sprechen zu|zu gesprochen
+Sie hat vergessen, den Brief [abzuschicken].|zu abschicken|abzuschickt
+Wir haben keine Zeit, lange [zu warten].|warten zu|zu gewartet
+Es ist wichtig, regelmäßig [zu üben].|üben zu|zu geübt
+Er hat vor, früher [aufzustehen].|zu aufstehen|aufzusteht
+Ich freue mich, dich [zu sehen].|sehen zu|zu gesehen
+Sie beginnt, ein Buch [zu lesen].|lesen zu|zu gelesen
+Vergiss nicht, Milch [einzukaufen].|zu einkaufen|einzukauft
+Es ist schön, Freunde [zu treffen].|treffen zu|zu getroffen
+Wir hoffen, die Prüfung [zu bestehen].|bestehen zu|zu bestanden
+@ A2.2 | Modalverben im Präteritum | In der Vergangenheit: musste, konnte, wollte, durfte und sollte.
+Als Kind [konnte] ich noch nicht schwimmen.|könnte|können
+Gestern [musste] ich bis acht Uhr arbeiten.|müssen|musstest
+Wir [wollten] ins Kino gehen, aber es gab keine Karten.|wollte|wolltet
+Du [durftest] gestern länger aufbleiben.|durfte|durften
+Die Ärztin sagte, ich [sollte] eine Woche zu Hause bleiben.|sollten|solltest
+Ihr [konntet] die Tür ohne Schlüssel nicht öffnen.|konnte|konnten
+Mein Bruder [wollte] früher Pilot werden.|wollten|wolltest
+Die Kinder [mussten] nach dem Spielen aufräumen.|musste|musstest
+Ich [durfte] als Kind allein zur Schule gehen.|durften|durftest
+Warum [konntest] du gestern nicht kommen?|konnte|konntet
+@ A2.2 | Alltag und Satzverbindungen | Und, aber, denn und oder verbinden Hauptsätze; nach weil steht das Verb am Ende.
+Ich bleibe zu Hause, [denn] ich bin krank.|weil|dass
+Wir fahren ans Meer, [obwohl] es heute kalt ist.|denn|aber
+Möchtest du Tee [oder] Kaffee?|denn|dass
+Sie spricht Deutsch [und] Englisch.|weil|dass
+Ich komme mit, [aber] ich kann nicht lange bleiben.|weil|dass
+Er sagt, [dass] der Termin ausfällt.|denn|oder
+Wir beeilen uns, [weil] der Zug gleich abfährt.|denn|aber
+Ruf mich an, [wenn] du angekommen bist.|denn|oder
+Ich weiß nicht, [ob] der Laden am Sonntag offen ist.|denn|aber
+Sie nimmt eine Jacke mit, [denn] am Abend wird es kühl.|weil|dass
+@ B1.1 | Relativsätze im Akkusativ und Dativ | Der Kasus des Relativpronomens ergibt sich aus seiner Funktion im Relativsatz.
+Das ist der Film, [den] ich dir empfohlen habe.|der|dem
+Die Frau, [der] ich geholfen habe, wohnt nebenan.|die|den
+Hier ist das Formular, [das] Sie ausfüllen müssen.|dem|der
+Das sind die Kollegen, [denen] ich vertraue.|die|deren
+Der Mann, mit [dem] ich gesprochen habe, ist der Hausmeister.|den|der
+Die Wohnung, [die] wir besichtigt haben, ist zu teuer.|der|denen
+Das Kind, [dem] ich das Buch gegeben habe, freut sich.|das|den
+Die Leute, [die] du eingeladen hast, kommen morgen.|denen|deren
+Das ist die Ärztin, bei [der] ich einen Termin habe.|die|den
+Der Brief, [den] ich gestern erhalten habe, ist wichtig.|der|dem
+@ B1.1 | Passiv im Präsens | Das Vorgangspassiv besteht aus werden und Partizip II; die werden-Form passt zum Subjekt.
+Die Straße [wird] gerade repariert.|werden|wirst
+Die Pakete [werden] jeden Morgen geliefert.|wird|werdet
+Das Formular muss [unterschrieben] werden.|unterschreiben|unterschreibt
+Im Kurs [wird] viel Deutsch gesprochen.|werden|wirst
+Die Fenster [werden] zweimal im Jahr geputzt.|wird|werdet
+Das Haus wird nächstes Jahr [verkauft].|verkaufen|geverkauft
+Die Rechnung [wird] per E-Mail verschickt.|werden|werdet
+Die Öffnungszeiten werden am Eingang [angezeigt].|anzeigen|geanzeigt
+Hier [werden] Fahrräder repariert.|wird|wirst
+Das Essen wird frisch [zubereitet].|zubereiten|gezubereitet
+@ B1.1 | Um zu und damit | Um zu verwendet man bei gleichem Subjekt; damit erlaubt unterschiedliche Subjekte.
+Ich lerne Deutsch, [um] in Deutschland zu arbeiten.|damit|weil
+Sie spricht langsam, [damit] alle sie verstehen.|um|denn
+Wir sparen Geld, [um] eine Reise zu machen.|damit|dass
+Ich schreibe dir die Adresse auf, [damit] du sie nicht vergisst.|um|denn
+Er geht früh ins Bett, [um] morgen fit zu sein.|damit|weil
+Wir öffnen das Fenster, [damit] frische Luft hereinkommt.|um|denn
+Sie besucht einen Kurs, [um] ihre Aussprache zu verbessern.|damit|dass
+Der Vater liest leise, [damit] das Baby nicht aufwacht.|um|denn
+Ich nehme mein Handy mit, [um] unterwegs erreichbar zu sein.|damit|dass
+Die Lehrerin wiederholt den Satz, [damit] wir ihn besser hören.|um|denn
+@ B1.1 | Obwohl und trotzdem | Obwohl leitet einen Nebensatz ein; nach trotzdem steht ein Hauptsatz mit dem Verb an zweiter Stelle.
+[Obwohl] er müde ist, hilft er beim Umzug.|Trotzdem|Deshalb
+Es ist spät, trotzdem [rufe] ich noch kurz an.|ruft|anrufe
+Sie geht zur Arbeit, [obwohl] sie Kopfschmerzen hat.|trotzdem|denn
+Wir haben wenig Geld, trotzdem [machen] wir einen kleinen Ausflug.|macht|mache
+[Obwohl] ich regelmäßig lerne, vergesse ich manchmal Wörter.|Trotzdem|Deshalb
+Der Weg ist lang, trotzdem [fahren] wir mit dem Fahrrad.|fährt|fährst
+Ich kaufe das Buch, [obwohl] es teuer ist.|trotzdem|denn
+Er hat Angst, trotzdem [spricht] er vor der Gruppe.|sprechen|sprichst
+[Obwohl] der Zug Verspätung hatte, erreichten wir den Anschluss.|Trotzdem|Deshalb
+Die Erklärung war kurz, trotzdem [habe] ich alles verstanden.|hat|haben
+@ B1.1 | Genitiv und Präpositionen | Wegen, trotz und während werden in der Standardsprache mit dem Genitiv verwendet.
+Wegen [des] starken Regens fällt das Fest aus.|dem|den
+Während [der] Pause öffnen wir die Fenster.|die|den
+Trotz [des] schlechten Wetters gehen wir spazieren.|dem|den
+Das ist das Büro [meines] Chefs.|meinem|meinen
+Die Farbe [der] Wände gefällt mir.|den|die
+Wegen [einer] Baustelle kommt der Bus später.|eine|einen
+Während [des] Unterrichts bleibt das Handy lautlos.|dem|den
+Das Ende [des] Films hat mich überrascht.|dem|den
+Trotz [ihrer] Krankheit arbeitet sie weiter.|ihre|ihren
+Die Öffnungszeiten [des] Museums stehen im Internet.|dem|den
+@ B1.1 | Pronominaladverbien | Da(r)- und wo(r)- ersetzen Präpositionen mit Sachen; vor Vokalen steht r.
+Wartest du auf den Brief? – Ja, ich warte [darauf].|daran|davon
+Interessierst du dich für Kunst? – Ja, ich interessiere mich [dafür].|darauf|davon
+Erzählst du von deiner Reise? – Ja, ich erzähle [davon].|dafür|damit
+Denkst du an den Termin? – Ja, ich denke [daran].|darauf|damit
+Bist du mit dem Ergebnis zufrieden? – Ja, ich bin [damit] zufrieden.|darauf|davon
+[Worauf] freust du dich? – Auf die Ferien.|Womit|Wovon
+[Wofür] brauchst du das Geld? – Für ein Fahrrad.|Woran|Womit
+[Woran] erinnerst du dich? – An unseren ersten Kurstag.|Womit|Wofür
+Sprichst du über das Problem? – Ja, ich spreche [darüber].|daran|dafür
+Nimmst du an der Besprechung teil? – Ja, ich nehme [daran] teil.|darauf|darüber
+@ B1.1 | Konjunktiv II und Ratschläge | Irreale Wünsche und Bedingungen werden häufig mit hätte, wäre oder würde ausgedrückt.
+Wenn ich mehr Zeit [hätte], würde ich öfter lesen.|habe|hatte
+Wenn das Wetter besser wäre, [würden] wir wandern gehen.|würde|würdet
+An deiner Stelle [würde] ich den Vertrag genau lesen.|würdest|würden
+Ich [wäre] gern schon zu Hause.|wärst|wären
+Du [könntest] deine Nachbarin um Hilfe bitten.|könnte|könnten
+Wenn wir ein Auto hätten, [könnten] wir aufs Land fahren.|könnte|könntet
+Es wäre gut, wenn ihr pünktlich [wärt].|wären|wärst
+Ich würde den Job nehmen, wenn der Arbeitsweg kürzer [wäre].|wären|wärst
+[Hätten] wir mehr Platz, würden wir Gäste einladen.|Hätte|Hättet
+Du solltest früher losfahren, dann [hättest] du weniger Stress.|hätte|hätten
+@ B1.1 | Adjektive ohne Artikel | Ohne Artikel muss die Adjektivendung Kasus, Genus und Numerus anzeigen.
+Ich trinke gern [schwarzen] Tee.|schwarzer|schwarze
+Wir brauchen [frisches] Brot.|frischer|frischen
+Mit [gutem] Werkzeug geht die Arbeit leichter.|gutes|guten
+Sie hört gern [klassische] Musik.|klassischer|klassischen
+[Frische] Luft tut uns gut.|Frischer|Frischen
+Wegen [starken] Verkehrs kommen wir später.|starkem|starker
+Er hilft Menschen mit [kleinen] Kindern.|kleine|kleiner
+Zum Frühstück gibt es [frischen] Käse.|frischer|frisches
+Ich wünsche dir [gute] Besserung.|guter|guten
+Bei [schlechtem] Wetter bleiben wir drinnen.|schlechtes|schlechten
+@ B1.1 | Temporale Nebensätze | Bevor, nachdem und während ordnen Ereignisse zeitlich ein; das Verb steht am Ende.
+Ich putze die Zähne, bevor ich ins Bett [gehe].|geht|gehen
+Während sie kocht, [deckt] er den Tisch.|decken|deckst
+Nachdem ich gegessen hatte, [ging] ich spazieren.|gehe|gegangen
+Bevor du das Formular abschickst, [prüfe] bitte die Angaben.|prüfst|prüfen
+Wir hören Musik, während wir die Wohnung [putzen].|putzt|putze
+Nachdem der Zug angekommen war, [stiegen] wir aus.|steigen|gestiegen
+Ruf mich an, bevor du [losfährst].|losfahren|losfährt
+Während ich auf den Bus wartete, [las] ich die Nachrichten.|lesen|gelesen
+Nachdem sie die Prüfung bestanden hatte, [feierte] sie mit Freunden.|feiern|gefeiert
+Mach das Licht aus, bevor du das Zimmer [verlässt].|verlassen|verlasst
+@ B1.1 | Lassen und brauchen | Nach lassen steht ein Infinitiv ohne zu; verneintes brauchen wird standardsprachlich mit zu verwendet.
+Ich lasse mein Fahrrad [reparieren].|repariert|zu reparieren
+Du brauchst heute nicht [zu kommen].|zu gekommen|kommst
+Sie lässt ihre Haare [schneiden].|geschnitten|zu schneiden
+Wir brauchen das Formular nicht noch einmal [auszufüllen].|zu ausfüllen|ausgefüllt
+Lass mich bitte [ausreden].|zu ausreden|ausgeredet
+Ihr braucht euch keine Sorgen [zu machen].|zu gemacht|macht
+Er lässt den Motor kurz [laufen].|zu laufen|gelaufen
+Sie braucht nicht so früh [aufzustehen].|zu aufstehen|aufgestanden
+Wir lassen die Kinder im Garten [spielen].|zu spielen|gespielt
+Das Fenster lässt sich leicht [öffnen].|zu öffnen|geöffnet
+@ B1.2 | Plusquamperfekt | Das Plusquamperfekt beschreibt die frühere von zwei vergangenen Handlungen: hatte/war + Partizip.
+Als ich am Bahnhof ankam, [war] der Zug schon abgefahren.|hatte|wurde
+Nachdem wir gegessen [hatten], gingen wir ins Kino.|waren|wurden
+Ich konnte nicht bezahlen, weil ich mein Portemonnaie vergessen [hatte].|war|wurde
+Sie war müde, weil sie schlecht geschlafen [hatte].|war|wurde
+Nachdem er nach Hause gekommen [war], rief er seine Mutter an.|hatte|wurde
+Das Geschäft war geschlossen. Die Verkäuferin [hatte] die Tür schon abgeschlossen.|war|wurde
+Wir fanden den Weg, weil wir die Karte vorher [angesehen hatten].|angesehen waren|angesehen wurden
+Nachdem die Gäste gegangen [waren], räumten wir auf.|hatten|wurden
+Ich erkannte sie sofort, obwohl ich sie lange nicht gesehen [hatte].|war|wurde
+Der Boden war nass, weil jemand Wasser verschüttet [hatte].|war|wurde
+@ B1.2 | Passiv in der Vergangenheit | Passiv im Präteritum: wurde + Partizip; Passiv im Perfekt: ist + Partizip + worden.
+Die Brücke [wurde] vor zehn Jahren gebaut.|wurden|wurdest
+Die Briefe [wurden] gestern verschickt.|wurde|wurdest
+Das Fenster ist repariert [worden].|geworden|werden
+Die Gäste sind freundlich begrüßt [worden].|geworden|wurden
+Mein Fahrrad [wurde] letzte Woche gestohlen.|wurden|wurdest
+Die Straße ist wegen eines Unfalls gesperrt [worden].|geworden|wurde
+Im alten Gebäude [wurden] früher Möbel hergestellt.|wurde|wurdest
+Das Ergebnis [wurde] gestern bekannt gegeben.|wurden|wurdest
+Die Unterlagen sind bereits geprüft [worden].|geworden|werden
+Die Küche [wurde] nach dem Fest gründlich gereinigt.|wurden|wurdest
+@ B1.2 | Zweiteilige Konnektoren | Zweiteilige Konnektoren haben feste Partner: sowohl … als auch, entweder … oder, weder … noch.
+Sie spricht sowohl Deutsch [als auch] Türkisch.|oder|sondern
+Wir fahren entweder mit dem Zug [oder] mit dem Bus.|noch|aber
+Ich habe weder Hunger [noch] Durst.|oder|sondern
+Er ist nicht nur freundlich, [sondern auch] sehr hilfsbereit.|als auch|weder
+Die Wohnung ist zwar klein, [aber] sehr hell.|sondern|noch
+Je mehr ich übe, [desto] sicherer spreche ich.|weil|obwohl
+Sowohl meine Schwester [als auch] mein Bruder kommen zum Fest.|noch|entweder
+Entweder du kommst pünktlich, [oder] wir fahren ohne dich.|noch|sondern
+Sie trinkt weder Kaffee [noch] schwarzen Tee.|oder|aber
+Das Angebot ist nicht nur günstig, [sondern auch] praktisch.|als auch|entweder
+@ B1.2 | Relativsätze mit Präposition und Genitiv | Die Präposition bestimmt den Kasus; dessen/deren beziehen sich auf den Besitzer.
+Das ist der Kollege, [dessen] Tochter bei uns lernt.|deren|denen
+Ich kenne die Frau, [deren] Fahrrad gestohlen wurde.|dessen|denen
+Hier sind die Kinder, [deren] Eltern gerade arbeiten.|dessen|denen
+Das ist das Haus, in [dem] ich aufgewachsen bin.|das|den
+Die Prüfung, auf [die] ich mich vorbereite, ist im Mai.|der|denen
+Der Freund, für [den] ich koche, isst kein Fleisch.|dem|der
+Die Firma, bei [der] ich mich bewerbe, sucht neue Mitarbeiter.|die|den
+Die Kollegen, mit [denen] ich zusammenarbeite, sind nett.|die|deren
+Das Thema, über [das] wir diskutieren, ist kompliziert.|dem|der
+Der Mann, [dessen] Auto im Weg steht, kommt gleich.|deren|denen
+@ B1.2 | Ohne zu und anstatt zu | Bei gleichem Subjekt stehen ohne zu und anstatt zu mit Infinitiv; bei anderem Subjekt verwendet man ohne dass.
+Er ging weg, ohne sich [zu verabschieden].|verabschieden zu|zu verabschiedet
+Sie nahm die Treppe, anstatt den Aufzug [zu benutzen].|benutzen zu|zu benutzt
+Ich schaltete das Handy aus, um mich besser [zu konzentrieren].|konzentrieren zu|zu konzentriert
+Wir gingen leise hinein, ohne [dass] das Baby aufwachte.|zu|um
+Er sah fern, anstatt seine Hausaufgaben [zu machen].|machen zu|zu gemacht
+Sie half uns, ohne lange [zu überlegen].|überlegen zu|zu überlegt
+Ich kaufte die Fahrkarte online, um nicht Schlange stehen [zu müssen].|müssen zu|zu musste
+Er fuhr weiter, ohne [dass] wir ihn bemerkten.|zu|um
+Sie rief an, anstatt eine Nachricht [zu schreiben].|schreiben zu|zu geschrieben
+Wir lösten das Problem, ohne uns [zu streiten].|streiten zu|zu gestritten
+@ B1.2 | Zeitliche Zusammenhänge | Seitdem beschreibt einen Beginn, bis einen Endpunkt und sobald den unmittelbar folgenden Zeitpunkt.
+Seitdem ich hier wohne, [kenne] ich viele Nachbarn.|kennt|kennen
+Warte bitte, bis ich fertig [bin].|sein|bist
+Sobald der Termin feststeht, [sage] ich dir Bescheid.|sagt|sagen
+Solange die Kinder schlafen, [arbeite] ich leise.|arbeitet|arbeiten
+Seitdem sie regelmäßig übt, [spricht] sie flüssiger.|sprechen|sprichst
+Wir bleiben hier, bis der Regen [aufhört].|aufhören|aufhörst
+Sobald du die Antwort weißt, [melde] dich bitte.|meldest|melden
+Solange ich Urlaub habe, [lese] ich jeden Morgen.|liest|lesen
+Seitdem wir umgezogen sind, [haben] wir mehr Platz.|hat|habt
+Ich schicke dir die Fotos, sobald ich zu Hause [bin].|bist|sein
+@ B1.2 | Indefinitpronomen und Artikel | Indefinitpronomen übernehmen die Endungen passend zu Genus und Kasus.
+Hast du einen Stift? – Ja, hier ist [einer].|einen|einem
+Brauchst du eine Tasche? – Nein, ich habe schon [eine].|einer|einen
+Ist noch Brot da? – Nein, es ist [keines] mehr da.|keinen|keinem
+Ich kenne hier [niemanden].|niemandem|niemandes
+Kann mir [jemand] helfen?|jemanden|jemandem
+Wir haben mehrere Vorschläge. [Einige] sind sehr interessant.|Einiges|Einigem
+Ich suche einen freien Platz, aber ich finde [keinen].|keiner|keinem
+Gibt es noch Äpfel? – Ja, dort liegen [welche].|welcher|welches
+Mit [manchen] Nachbarn sprechen wir jeden Tag.|manche|mancher
+[Jeder] Teilnehmer bekommt eine Bescheinigung.|Jede|Jedes
+@ B1.2 | Satzstellung und Mittelfeld | Im Hauptsatz steht das finite Verb an Position zwei; im Nebensatz am Ende. Pronomen stehen meist vor Nomenobjekten.
+Morgen [habe ich] einen wichtigen Termin.|ich habe|haben ich
+Den Brief [schicke ich] dir heute Abend.|ich schicke|schicken ich
+Weil der Bus ausfällt, [gehen wir] zu Fuß.|wir gehen|geht wir
+Ich freue mich, weil [du heute kommst].|du kommst heute|kommst du heute
+Die Lehrerin gibt [ihm das Buch].|er das Buch|ihn das Buch
+Den Schlüssel? Ich gebe [ihn dir] gleich zurück.|ihm dich|er dir
+Am Wochenende [möchten wir] unsere Freunde besuchen.|wir möchten|möchte wir
+Sie sagt, dass [sie morgen arbeiten muss].|sie muss morgen arbeiten|muss sie morgen arbeiten
+Nach dem Kurs [gehen die Schüler] nach Hause.|die Schüler gehen|geht die Schüler
+Kannst du [mir die Aufgabe] erklären?|mich die Aufgabe|mir der Aufgabe
+@ B1.2 | Bewerbung und formelles Deutsch | Formelle Schreiben benötigen klare Satzverbindungen, höfliche Formen und passende Kasus.
+Hiermit bewerbe ich mich [um] die ausgeschriebene Stelle.|mit|an
+Ich interessiere mich [für] die Arbeit in Ihrem Unternehmen.|auf|an
+Über eine Einladung zum Gespräch [würde] ich mich sehr freuen.|würden|würdest
+Für weitere Fragen stehe ich [Ihnen] gern zur Verfügung.|Sie|Ihr
+Ich habe Erfahrung [in der] Betreuung von Kindern.|in die|in den
+Bitte teilen Sie mir mit, wann das Gespräch [stattfindet].|stattfinden|stattfindest
+Anbei finden Sie [meinen] Lebenslauf.|mein|meinem
+Ich danke Ihnen [für] Ihre Rückmeldung.|auf|an
+Ich wäre Ihnen dankbar, wenn Sie mir bald antworten [könnten].|könntet|könntest
+Mit [freundlichen] Grüßen verabschiedet sich Lea Weber.|freundliche|freundlicher
+@ B1.2 | Argumentieren und Meinungen | Begründe Aussagen mit klaren Verknüpfungen und achte auf den Satzbau.
+Meiner Meinung [nach] brauchen Kinder genug Freizeit.|wegen|für
+Ich bin dafür, [dass] die Bibliothek länger geöffnet bleibt.|denn|ob
+Ein Vorteil besteht [darin], dass man Zeit spart.|darauf|dafür
+Ich stimme dir [zu], denn dein Vorschlag ist sinnvoll.|an|auf
+Es kommt [darauf] an, wie viel Zeit wir haben.|darin|damit
+Einerseits ist die Wohnung günstig, [andererseits] liegt sie weit außerhalb.|entweder|weder
+Ich halte es für wichtig, regelmäßig Pausen [zu machen].|machen zu|zu gemacht
+Das spricht [dafür], den Kurs fortzusetzen.|darin|darauf
+Ich bin anderer Meinung, [weil] die Kosten zu hoch sind.|denn|aber
+Zusammenfassend lässt sich [sagen], dass Übung Sicherheit gibt.|zu sagen|gesagt

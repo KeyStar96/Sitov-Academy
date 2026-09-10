@@ -1,127 +1,79 @@
 'use client'
 
-import { useState } from 'react'
-import { addVideo, deleteVideo } from '@/app/actions/cms'
-import { Trash2, Plus, Loader2, PlaySquare } from 'lucide-react'
+import { useRef, useState } from 'react'
+import { addVideo, updateVideo, deleteVideo } from '@/app/actions/cms'
+import { ArrowUpRight, Check, Loader2, Pencil, Plus, Search, Trash2 } from 'lucide-react'
+import { ACCESS_LEVELS } from '@/lib/access/levels'
+import { createVideoTranslator, type VideoTranslations } from '@/lib/videos-i18n'
+import { youtubeWatchUrl, type VideoRecord, type VideoWriteInput } from '@/lib/video-links'
 
-export default function VideoCMS({ initialData }: { initialData: any[] }) {
+const empty: VideoWriteInput = { level: 'A1.1', title: '', description: '', lesson: '', external_url: '' }
+const fieldClass = 'min-h-12 w-full rounded-xl border border-[var(--border)] bg-[var(--canvas)] px-4 py-3 text-[var(--foreground)] focus-visible:outline-2 focus-visible:outline-[var(--violet)]'
+interface Props { initialData: VideoRecord[]; translations?: VideoTranslations }
+
+export default function VideoCMS({ initialData, translations = {} }: Props) {
+  const t = createVideoTranslator(translations)
   const [items, setItems] = useState(initialData)
-  const [loading, setLoading] = useState(false)
-  const [deletingId, setDeletingId] = useState<string | null>(null)
-  
-  const [form, setForm] = useState({
-    level: 'A1.1',
-    title: '',
-    description: '',
-    lesson: '',
-    video_url: '',
-    is_external: false,
-    external_url: ''
-  })
+  const [form, setForm] = useState<VideoWriteInput>(empty)
+  const [editing, setEditing] = useState<string | null>(null)
+  const [busy, setBusy] = useState<string | null>(null)
+  const [notice, setNotice] = useState<'cms_saved' | 'cms_failed' | null>(null)
+  const [search, setSearch] = useState('')
+  const formRef = useRef<HTMLFormElement>(null)
+  const visible = items.filter(item => `${item.level} ${item.title} ${item.lesson}`.toLocaleLowerCase().includes(search.toLocaleLowerCase()))
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setLoading(true)
-    const res = await addVideo(form)
-    if (res.success) {
-      alert('Video hinzugefügt!')
-      window.location.reload()
-    } else {
-      alert('Fehler: ' + res.error)
-    }
-    setLoading(false)
+  async function save(event: React.FormEvent) {
+    event.preventDefault()
+    if (busy) return
+    setBusy('save'); setNotice(null)
+    try {
+      const result = editing ? await updateVideo(editing, form) : await addVideo(form)
+      if (!result.success || !result.data) throw new Error('save_failed')
+      const saved = result.data
+      setItems(previous => editing ? previous.map(item => item.id === editing ? saved : item) : [saved, ...previous])
+      setForm(empty); setEditing(null); setNotice('cms_saved')
+    } catch { setNotice('cms_failed') } finally { setBusy(null) }
   }
-
-  const handleDelete = async (id: string) => {
-    if (!confirm('Wirklich löschen?')) return
-    setDeletingId(id)
-    const res = await deleteVideo(id)
-    if (res.success) {
-      setItems(items.filter(i => i.id !== id))
-    } else {
-      alert('Fehler: ' + res.error)
-    }
-    setDeletingId(null)
+  async function remove(id: string) {
+    if (busy || !window.confirm(t('cms_confirm_delete'))) return
+    setBusy(id); setNotice(null)
+    try {
+      const result = await deleteVideo(id)
+      if (!result.success) throw new Error('delete_failed')
+      setItems(previous => previous.filter(item => item.id !== id))
+      if (editing === id) { setEditing(null); setForm(empty) }
+    } catch { setNotice('cms_failed') } finally { setBusy(null) }
   }
-
-  return (
-    <div className="space-y-8">
-      {/* Form */}
-      <form onSubmit={handleSubmit} className="bg-white dark:bg-slate-900 p-6 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800">
-        <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4">Neues Video anlegen</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <div className="relative">
-              <select value={form.level} onChange={e => setForm({...form, level: e.target.value})} className="appearance-none w-full p-3 pr-10 rounded-xl border border-slate-200 dark:border-slate-700 dark:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-[#FF5C00] cursor-pointer font-bold">
-                <option value="A1.1">A1.1</option>
-                <option value="A1.2">A1.2</option>
-                <option value="A2.1">A2.1</option>
-                <option value="A2.2">A2.2</option>
-                <option value="B1.1">B1.1</option>
-                <option value="B1.2">B1.2</option>
-              </select>
-              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-slate-500">
-                <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
-              </div>
-            </div>
-          </div>
-          <input required placeholder="Titel des Videos" value={form.title} onChange={e => setForm({...form, title: e.target.value})} className="p-3 rounded-xl border border-slate-200 dark:border-slate-700 dark:bg-slate-800" />
-          <input required placeholder="Lektion (z.B. A1.1)" value={form.lesson} onChange={e => setForm({...form, lesson: e.target.value})} className="p-3 rounded-xl border border-slate-200 dark:border-slate-700 dark:bg-slate-800" />
-          <input placeholder="Beschreibung (optional)" value={form.description} onChange={e => setForm({...form, description: e.target.value})} className="p-3 rounded-xl border border-slate-200 dark:border-slate-700 dark:bg-slate-800 md:col-span-2" />
-          
-          <div className="flex items-center gap-2 p-3 border border-slate-200 dark:border-slate-700 rounded-xl">
-            <input type="checkbox" id="ext" checked={form.is_external} onChange={e => setForm({...form, is_external: e.target.checked})} className="w-5 h-5 rounded border-slate-300 text-[#FF5C00] focus:ring-[#FF5C00]" />
-            <label htmlFor="ext" className="text-sm font-bold text-slate-700 dark:text-slate-300">Ist externes YouTube Video?</label>
-          </div>
-          
-          {form.is_external ? (
-            <input placeholder="YouTube Video URL" value={form.external_url} onChange={e => setForm({...form, external_url: e.target.value})} className="p-3 rounded-xl border border-slate-200 dark:border-slate-700 dark:bg-slate-800" />
-          ) : (
-             <input placeholder="Interne Video URL (aus Storage)" value={form.video_url} onChange={e => setForm({...form, video_url: e.target.value})} className="p-3 rounded-xl border border-slate-200 dark:border-slate-700 dark:bg-slate-800" />
-          )}
+  function edit(item: VideoRecord) {
+    setEditing(item.id); setNotice(null)
+    setForm({ level: item.level, title: item.title, description: item.description ?? '', lesson: item.lesson, external_url: youtubeWatchUrl(item.external_url ?? item.video_url) ?? '' })
+    formRef.current?.scrollIntoView({ block: 'start', behavior: 'smooth' })
+    formRef.current?.querySelector<HTMLInputElement>('input')?.focus({ preventScroll: true })
+  }
+  return <div className="grid items-start gap-6 xl:grid-cols-[minmax(0,1fr)_minmax(20rem,.8fr)]">
+    <section className="min-w-0 space-y-4">
+      <label className="flex items-center gap-3 rounded-xl border border-[var(--border)] bg-[var(--surface)] px-4"><Search size={18} className="shrink-0 text-[var(--muted)]" aria-hidden="true" /><input className="min-h-12 min-w-0 flex-1 bg-transparent outline-none" value={search} onChange={event => setSearch(event.target.value)} placeholder={t('cms_search')} aria-label={t('cms_search')} /></label>
+      {visible.map(item => <article key={item.id} className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-5">
+        <div className="flex flex-wrap items-center gap-2 text-xs text-[var(--muted)]"><span className="rounded-full border border-[var(--border)] px-2 py-1 font-semibold">{item.level}</span><span>{item.lesson}</span></div>
+        <h2 className="mt-3 break-words text-lg font-semibold">{item.title}</h2>
+        {item.description && <p className="mt-2 break-words text-sm text-[var(--muted)]">{item.description}</p>}
+        {!youtubeWatchUrl(item.external_url ?? item.video_url) && <p className="mt-3 text-sm text-[var(--muted)]">{t('cms_legacy')}</p>}
+        <div className="mt-4 flex flex-wrap gap-2">
+          <button type="button" disabled={!!busy} onClick={() => edit(item)} className="inline-flex min-h-12 items-center gap-2 rounded-xl border border-[var(--border)] px-3 text-sm disabled:opacity-50"><Pencil size={16} aria-hidden="true" />{t('cms_edit')}</button>
+          {youtubeWatchUrl(item.external_url ?? item.video_url) && <a href={youtubeWatchUrl(item.external_url ?? item.video_url)!} target="_blank" rel="noopener noreferrer" aria-label={`${t('cms_open')}: ${item.title}`} className="inline-flex h-12 w-12 items-center justify-center rounded-xl border border-[var(--border)]"><ArrowUpRight size={18} aria-hidden="true" /></a>}
+          <button type="button" disabled={!!busy} onClick={() => void remove(item.id)} aria-label={`${t('cms_delete')}: ${item.title}`} className="ml-auto inline-flex h-12 w-12 items-center justify-center rounded-xl text-[var(--muted)] hover:bg-[var(--surface-muted)] disabled:opacity-50">{busy === item.id ? <Loader2 size={18} className="animate-spin" aria-hidden="true" /> : <Trash2 size={18} aria-hidden="true" />}</button>
         </div>
-        <button disabled={loading} type="submit" className="mt-6 flex items-center justify-center gap-2 bg-[#FF5C00] text-white px-6 py-3 rounded-xl font-bold w-full md:w-auto hover:bg-[#e05200] transition-colors disabled:opacity-50">
-          {loading ? <Loader2 className="animate-spin" /> : <Plus />}
-          Speichern
-        </button>
-      </form>
-
-      {/* List */}
-      <div className="bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800 overflow-hidden">
-        <table className="w-full text-left border-collapse">
-          <thead>
-            <tr className="bg-slate-50 dark:bg-slate-800/50 text-slate-500 text-sm">
-              <th className="p-4 font-bold">Video</th>
-              <th className="p-4 font-bold">Lektion</th>
-              <th className="p-4 font-bold">Typ</th>
-              <th className="p-4 font-bold text-right">Aktionen</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-slate-200 dark:divide-slate-800">
-            {items.map((item) => (
-              <tr key={item.id} className="hover:bg-slate-50 dark:hover:bg-slate-800/20">
-                <td className="p-4">
-                  <div className="font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                    <PlaySquare size={16} className="text-[#FF5C00]" />
-                    <span className="bg-[#FF5C00] text-white px-2 py-0.5 rounded text-xs">{item.level}</span>
-                    {item.title}
-                  </div>
-                  <div className="text-sm text-slate-500 truncate max-w-xs">{item.description}</div>
-                </td>
-                <td className="p-4 text-slate-500">{item.lesson}</td>
-                <td className="p-4 text-slate-500 text-sm">
-                  {item.is_external ? <span className="bg-red-100 text-red-800 px-2 py-1 rounded-full font-bold text-xs">YouTube</span> : <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full font-bold text-xs">Intern</span>}
-                </td>
-                <td className="p-4 text-right">
-                  <button onClick={() => handleDelete(item.id)} disabled={deletingId === item.id} className="p-2 text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors">
-                    {deletingId === item.id ? <Loader2 size={20} className="animate-spin" /> : <Trash2 size={20} />}
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </div>
-  )
+      </article>)}
+      {!visible.length && <p className="rounded-2xl border border-dashed border-[var(--border)] p-8 text-[var(--muted)]">{t('cms_empty')}</p>}
+    </section>
+    <form ref={formRef} onSubmit={save} className="space-y-5 rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-5 sm:p-6">
+      <h2 className="flex items-center gap-2 text-xl font-semibold"><Plus size={20} aria-hidden="true" />{t(editing ? 'cms_edit' : 'cms_new')}</h2>
+      <label className="block space-y-2 text-sm font-medium"><span>{t('cms_title_field')}</span><input required maxLength={180} className={fieldClass} value={form.title} onChange={event => setForm({ ...form, title: event.target.value })} /></label>
+      <div className="grid gap-4 sm:grid-cols-2"><label className="block space-y-2 text-sm font-medium"><span>{t('cms_level')}</span><select className={fieldClass} value={form.level} onChange={event => setForm({ ...form, level: event.target.value })}>{ACCESS_LEVELS.map(level => <option key={level}>{level}</option>)}</select></label><label className="block space-y-2 text-sm font-medium"><span>{t('cms_lesson')}</span><input required maxLength={100} className={fieldClass} value={form.lesson} onChange={event => setForm({ ...form, lesson: event.target.value })} /></label></div>
+      <label className="block space-y-2 text-sm font-medium"><span>{t('cms_url')}</span><input required type="url" className={fieldClass} placeholder="https://www.youtube.com/watch?v=…" value={form.external_url} onChange={event => setForm({ ...form, external_url: event.target.value })} /></label>
+      <label className="block space-y-2 text-sm font-medium"><span>{t('cms_description')}</span><textarea rows={3} maxLength={1200} className={fieldClass} value={form.description} onChange={event => setForm({ ...form, description: event.target.value })} /></label>
+      <div className="flex flex-wrap gap-3"><button disabled={!!busy} className="inline-flex min-h-12 flex-1 items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-5 font-semibold text-[var(--accent-foreground)] disabled:opacity-50">{busy === 'save' ? <Loader2 size={18} className="animate-spin" aria-hidden="true" /> : <Check size={18} aria-hidden="true" />}{t('cms_save')}</button>{editing && <button type="button" disabled={!!busy} onClick={() => { setEditing(null); setForm(empty) }} className="min-h-12 rounded-xl border border-[var(--border)] px-4">{t('cms_cancel')}</button>}</div>
+      <p role="status" aria-live="polite" className="text-sm text-[var(--muted)]">{notice ? t(notice) : ''}</p>
+    </form>
+  </div>
 }

@@ -1,5 +1,15 @@
 # Monetization Strategy (Stripe Integration)
 
+## Aktueller manueller Abrechnungsablauf — 2026-09-10
+
+Die Kursabrechnung erfolgt weiterhin manuell über Papierkram. Im Lehrer-Dashboard werden neue Anmeldungen zuerst geprüft und von `pending` auf `confirmed` gesetzt. Der gesonderte Rechnungsbereich öffnet standardmäßig den nächsten Monat, passend zur Vorkasserechnung am Ende des laufenden Monats. Lehrkräfte sehen pro Person die relevanten Kurse und können nach tatsächlicher Erstellung der Rechnung das Kennzeichen „Rechnung erstellt“ mit optionaler Rechnungsnummer setzen oder korrigieren.
+
+Offene und bereits erstellte Rechnungen sind getrennt filterbar. Die Rechnungsliste fasst aktive Kurse einer Person zusammen und berücksichtigt explizite Monatsbuchungen bzw. Pausen vor wiederkehrenden Altbuchungen. Ein vorbereiteter Eintrag bleibt auch nach einer späteren Buchungsänderung sichtbar; eine Datenbanksperre verhindert zwei Erledigt-Kennzeichen für dieselbe Person/Monat. Das Kennzeichen bestätigt ausschließlich den manuellen Arbeitsschritt, weder Zahlung noch Versand. Es existiert keine neue Papierkram-API-Integration und kein automatischer Rechnungsversand.
+
+Die Registrierungswerbung sagt nun „Monatlich flexibel – Kündigung per Formular oder E-Mail“ und erklärt Zahlung per Überweisung nach Rechnung sowie Abrechnung im Voraus. Die bestehende Vertragslogik wird durch Marketingtexte nicht stillschweigend geändert. AGB ergänzen manuelle Monatsrechnungen und digitale Lernleistungen in allen fünf Sprachen; die abschließende rechtliche Prüfung bleibt erforderlich. Neue Trainerinhalte werden über die vorhandenen Niveaurechte freigegeben, ohne einen neuen Paywall-/Stripe-Ablauf einzuführen.
+
+Technische Umsetzung und Prüfnachweise: [Trainer- und Verwaltungsumbau](docs/trainer-admin-refresh-2026-09-10.md).
+
 > **Kontakt/Impulstakt (2026-09-10):** Anastasias Kontaktbutton führt zu `https://t.me/Sprachschule_Anastasia`; NeuralBrain-Impulse erscheinen leicht häufiger (Gruppen alle 6–8 Sekunden). Beide Anpassungen betreffen die Startseite und ändern keine Buchungs-, Abrechnungs- oder Zugriffslogik.
 
 > **Layout/Audio (2026-09-10):** CSS-Sticky stabilisiert die Kurs-Zahlungsübersicht; die Preis-, Einwilligungs- und Submit-Funktionen bleiben nach AST-Abgleich unverändert. Header-Buchungslink, getrennte Footer-Adressen und das Audio-Vorladen ändern keine Stripe-, Rechnungs- oder Zugriffslogik.

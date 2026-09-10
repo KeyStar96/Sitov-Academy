@@ -16,6 +16,7 @@ export const SMART_HINT_THRESHOLD = 2
 export const SMART_HINT_LETTER_THRESHOLD = 3
 
 export interface FillInBlankContent {
+  instruction?: string
   text_before: string
   text_after: string
   correct_answer: string
@@ -26,9 +27,11 @@ export interface FillInBlankContent {
 }
 
 export interface MultipleChoiceContent {
+  instruction?: string
   question: string
   options: string[]
   correct_answer: string
+  explanation?: string
 }
 
 export interface SentenceBuildingContent {
@@ -74,13 +77,14 @@ export type StudentExercise = FillInBlankExercise | MultipleChoiceExercise
 /** Zusätzliche Metadaten, die der Client bei jedem Antwortversuch mitliefert. */
 export interface RecordExerciseAttemptInput {
   exerciseId: string
-  isCorrect: boolean
+  answer: string
   /** True, wenn vor diesem Versuch ein Smart Hint sichtbar war. */
   hintShown: boolean
 }
 
 export interface RecordExerciseAttemptResult {
   success: boolean
+  isCorrect?: boolean
   /** Gesamtzahl der Versuche nach dieser Antwort. */
   attempts: number
 }
@@ -118,8 +122,10 @@ export function parseFillInBlankContent(value: Json): FillInBlankContent | null 
 
   const options = asStringArray(value.options)
   const smartHint = asString(value.smart_hint)
+  const instruction = asString(value.instruction)
 
   return {
+    ...(instruction ? { instruction } : {}),
     text_before: asString(value.text_before) ?? '',
     text_after: asString(value.text_after) ?? '',
     correct_answer: correctAnswer,
@@ -158,5 +164,7 @@ export function parseMultipleChoiceContent(value: Json): MultipleChoiceContent |
 
   if (!question || !correctAnswer || !options || options.length < 2) return null
 
-  return { question, options, correct_answer: correctAnswer }
+  const explanation = asString(value.explanation)
+  const instruction = asString(value.instruction)
+  return { question, options, correct_answer: correctAnswer, ...(explanation ? { explanation } : {}), ...(instruction ? { instruction } : {}) }
 }

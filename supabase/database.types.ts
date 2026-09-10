@@ -191,6 +191,64 @@ export type Database = {
         }
         Relationships: []
       }
+      manual_invoice_status: {
+        Row: {
+          created_by: string | null
+          id: string
+          invoice_created_at: string | null
+          invoice_reference: string | null
+          monthly_booking_id: string | null
+          registration_id: string | null
+          status: string
+          target_month: string
+          updated_at: string
+        }
+        Insert: {
+          created_by?: string | null
+          id?: string
+          invoice_created_at?: string | null
+          invoice_reference?: string | null
+          monthly_booking_id?: string | null
+          registration_id?: string | null
+          status?: string
+          target_month: string
+          updated_at?: string
+        }
+        Update: {
+          created_by?: string | null
+          id?: string
+          invoice_created_at?: string | null
+          invoice_reference?: string | null
+          monthly_booking_id?: string | null
+          registration_id?: string | null
+          status?: string
+          target_month?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "manual_invoice_status_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "manual_invoice_status_monthly_booking_id_fkey"
+            columns: ["monthly_booking_id"]
+            isOneToOne: false
+            referencedRelation: "monthly_course_bookings"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "manual_invoice_status_registration_id_fkey"
+            columns: ["registration_id"]
+            isOneToOne: false
+            referencedRelation: "registrations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       monthly_course_bookings: {
         Row: {
           course_ids: string[]
@@ -291,6 +349,54 @@ export type Database = {
           },
         ]
       }
+      pronunciation_messages: {
+        Row: {
+          audio_path: string | null
+          created_at: string
+          id: string
+          seen_at: string | null
+          sender_id: string
+          sender_role: string
+          submission_id: string
+          text_content: string
+        }
+        Insert: {
+          audio_path?: string | null
+          created_at?: string
+          id?: string
+          seen_at?: string | null
+          sender_id: string
+          sender_role?: string
+          submission_id: string
+          text_content?: string
+        }
+        Update: {
+          audio_path?: string | null
+          created_at?: string
+          id?: string
+          seen_at?: string | null
+          sender_id?: string
+          sender_role?: string
+          submission_id?: string
+          text_content?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "pronunciation_messages_sender_id_fkey"
+            columns: ["sender_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "pronunciation_messages_submission_id_fkey"
+            columns: ["submission_id"]
+            isOneToOne: false
+            referencedRelation: "submissions"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       pronunciation_prompts: {
         Row: {
           audio_url: string | null
@@ -298,8 +404,11 @@ export type Database = {
           created_at: string | null
           focus: string | null
           id: string
+          is_active: boolean
+          level: string | null
           sentence_de: string
           sort_order: number
+          title: string | null
         }
         Insert: {
           audio_url?: string | null
@@ -307,8 +416,11 @@ export type Database = {
           created_at?: string | null
           focus?: string | null
           id?: string
+          is_active?: boolean
+          level?: string | null
           sentence_de: string
           sort_order?: number
+          title?: string | null
         }
         Update: {
           audio_url?: string | null
@@ -316,8 +428,11 @@ export type Database = {
           created_at?: string | null
           focus?: string | null
           id?: string
+          is_active?: boolean
+          level?: string | null
           sentence_de?: string
           sort_order?: number
+          title?: string | null
         }
         Relationships: []
       }
@@ -326,6 +441,7 @@ export type Database = {
           agb_accepted: boolean
           cancellation_mail_sent: boolean | null
           confirmation_mail_sent: boolean | null
+          contact_snapshot: Json | null
           course_ids: string[] | null
           course_prices: Json | null
           created_at: string | null
@@ -342,6 +458,7 @@ export type Database = {
           agb_accepted?: boolean
           cancellation_mail_sent?: boolean | null
           confirmation_mail_sent?: boolean | null
+          contact_snapshot?: Json | null
           course_ids?: string[] | null
           course_prices?: Json | null
           created_at?: string | null
@@ -358,6 +475,7 @@ export type Database = {
           agb_accepted?: boolean
           cancellation_mail_sent?: boolean | null
           confirmation_mail_sent?: boolean | null
+          contact_snapshot?: Json | null
           course_ids?: string[] | null
           course_prices?: Json | null
           created_at?: string | null
@@ -388,6 +506,8 @@ export type Database = {
           id: string
           level: string
           parent_id: string | null
+          prompt_id: string | null
+          prompt_title: string | null
           status: string | null
           text_content: string | null
           type: string
@@ -400,6 +520,8 @@ export type Database = {
           id?: string
           level?: string
           parent_id?: string | null
+          prompt_id?: string | null
+          prompt_title?: string | null
           status?: string | null
           text_content?: string | null
           type: string
@@ -412,6 +534,8 @@ export type Database = {
           id?: string
           level?: string
           parent_id?: string | null
+          prompt_id?: string | null
+          prompt_title?: string | null
           status?: string | null
           text_content?: string | null
           type?: string
@@ -423,6 +547,13 @@ export type Database = {
             columns: ["parent_id"]
             isOneToOne: false
             referencedRelation: "submissions"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "submissions_prompt_id_fkey"
+            columns: ["prompt_id"]
+            isOneToOne: false
+            referencedRelation: "pronunciation_prompts"
             referencedColumns: ["id"]
           },
           {
@@ -956,11 +1087,32 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      claim_verified_legacy_profile: { Args: never; Returns: Json }
+      confirm_staff_registration: {
+        Args: { p_id: string; p_source: string }
+        Returns: Json
+      }
+      create_pronunciation_submission: {
+        Args: { p_audio_path: string; p_prompt_id: string }
+        Returns: string
+      }
       initialize_vocabulary_cards: {
         Args: { p_decisions: Json }
         Returns: Json
       }
       mark_feedback_seen: { Args: { p_submission_id: string }; Returns: number }
+      mark_pronunciation_seen: {
+        Args: { p_submission_id: string }
+        Returns: undefined
+      }
+      record_grammar_attempt: {
+        Args: {
+          p_answer: string
+          p_exercise_id: string
+          p_hint_shown?: boolean
+        }
+        Returns: Json
+      }
       save_next_month_booking: {
         Args: {
           p_course_ids: string[]
@@ -983,6 +1135,16 @@ export type Database = {
           isOneToOne: true
           isSetofReturn: false
         }
+      }
+      set_manual_invoice_status: {
+        Args: {
+          p_created: boolean
+          p_id: string
+          p_month: string
+          p_reference?: string
+          p_source: string
+        }
+        Returns: Json
       }
       skip_vocabulary_assessment: { Args: { p_level: string }; Returns: Json }
       submit_vocabulary_answer: {

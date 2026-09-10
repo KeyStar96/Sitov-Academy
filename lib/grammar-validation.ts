@@ -1,0 +1,51 @@
+import { z } from 'zod'
+import { ACCESS_LEVELS } from '@/lib/access/levels'
+import type { Database } from '@/supabase/database.types'
+
+const answer = z.string().trim().min(1).max(1000)
+const options = z.array(answer).min(2).max(8)
+const metadata = {
+  level: z.enum(ACCESS_LEVELS),
+  lesson: z.string().trim().min(1).max(120),
+  topic: z.string().trim().min(1).max(160),
+  hint_ru: z.string().trim().max(2000).nullable(),
+  hint_tr: z.string().trim().max(2000).nullable(),
+  solution_audio_url: z.url().max(2000).refine(value => value.startsWith('https://')).nullable(),
+}
+export const grammarWriteSchema = z.discriminatedUnion('type', [
+  z.object({
+    ...metadata,
+    type: z.literal('fill_in_blank'),
+    content: z.object({
+      instruction: z.string().trim().max(500).optional(),
+      text_before: z.string().max(2000), text_after: z.string().max(2000),
+      correct_answer: answer, options, smart_hint: z.string().trim().max(2000).optional(),
+    }).refine(content => `${content.text_before}${content.text_after}`.trim().length > 0),
+  }),
+  z.object({
+    ...metadata,
+    type: z.literal('multiple_choice'),
+    content: z.object({
+      instruction: z.string().trim().max(500).optional(),
+      question: z.string().trim().min(1).max(4000), correct_answer: answer, options,
+      explanation: z.string().trim().max(2000).optional(),
+    }),
+  }),
+]).superRefine((value, context) => {
+  const normalized = value.content.options.map(normalizeGrammarAnswer)
+  if (new Set(normalized).size !== normalized.length) {
+    context.addIssue({ code: 'custom', message: 'Answers must be distinct', path: ['content', 'options'] })
+  }
+  if (!normalized.includes(normalizeGrammarAnswer(value.content.correct_answer))) {
+    context.addIssue({ code: 'custom', message: 'Correct answer must be available', path: ['content', 'correct_answer'] })
+  }
+})
+export type GrammarWriteInput = z.infer<typeof grammarWriteSchema>
+export type GrammarExerciseRow = Database['public']['Tables']['exercises']['Row']
+export type GrammarSaveResult = { success: true; data: GrammarExerciseRow } | { success: false; error: 'invalid' | 'failed' }
+export interface GrammarDeleteResult { success: boolean }
+export interface GrammarLoadResult { data: GrammarExerciseRow[]; failed: boolean }
+
+export function normalizeGrammarAnswer(value: string): string {
+  return value.trim().replace(/\s+/g, ' ').toLocaleLowerCase('de-DE')
+}

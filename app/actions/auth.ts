@@ -6,6 +6,7 @@ import { redirect } from 'next/navigation'
 import { createClient } from '@/utils/supabase/server'
 import { rateLimit } from '@/lib/ratelimit'
 import { buildSiteUrl, getOutboundSiteUrl } from '@/lib/site-url'
+import { resolveLegacyProfile } from '@/lib/profile-legacy'
 import {
   emailOnlySchema,
   loginSchema,
@@ -126,6 +127,8 @@ export async function login(formData: FormData) {
           })
         }
       } else if (data.user) {
+        try { await resolveLegacyProfile(data.user) }
+        catch { console.error('[auth] Verified profile association unavailable') }
         // Oberflächensprache aus dem Profil laden (getrennter try/catch: ein
         // Fehler hier darf die erfolgreiche Anmeldung nicht scheitern lassen).
         try {
@@ -196,14 +199,10 @@ export async function signup(formData: FormData) {
           code: error.code,
           message: error.message,
         })
-        status = error.code === 'user_already_exists' ? 'signup_email_exists' : 'signup_failed'
+        status = error.code === 'user_already_exists' ? 'signup_email_sent' : 'signup_failed'
       } else if (data.user && data.user.identities?.length === 0) {
-        // Supabase antwortet für eine bereits registrierte Adresse bewusst wie
-        // bei einer neuen – erkennbar nur an der leeren Identitätsliste. Wir
-        // sagen es hier trotzdem offen: Sonst wartet der Nutzer auf eine
-        // E-Mail, die nie kommt. Die Meldung nennt direkt den Weg über
-        // „Passwort vergessen".
-        status = 'signup_email_exists'
+        // A public signup form must not disclose existing student addresses.
+        status = 'signup_email_sent'
       }
     }
   } catch (error) {

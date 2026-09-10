@@ -11,7 +11,7 @@ jest.mock("@supabase/supabase-js", () => ({
 
 // Mock next/cache so unstable_cache just passes through the function
 jest.mock("next/cache", () => ({
-    unstable_cache: (fn: Function) => fn,
+    unstable_cache: <T,>(fn: T) => fn,
 }));
 jest.mock("@/utils/supabase/admin", () => ({
     createAdminClient: jest.fn(),
@@ -35,6 +35,8 @@ jest.mock("next/headers", () => ({
 describe("Database Integration Tests (Mocked)", () => {
     // --- Shared Spies ---
     const mockSelect = jest.fn();
+    const mockCourseIn = jest.fn();
+    const mockUserIlike = jest.fn();
 
     // Reg Table Mocks
     const mockRegSingle = jest.fn();
@@ -100,10 +102,11 @@ describe("Database Integration Tests (Mocked)", () => {
 
         // Default Valid Responses
         // 1. Courses
-        mockSelect.mockReturnValue(Promise.resolve({ data: [], error: null })); // Default empty
+        mockSelect.mockReturnValue({ in: mockCourseIn });
+        mockCourseIn.mockImplementation((_field: string, ids: string[]) => Promise.resolve({data: ids.map(id => ({id})), error:null}));
 
         // 2. Registration Chain: insert -> select -> single
-        mockRegInsert.mockReturnValue({ select: mockRegSelect });
+        mockRegInsert.mockResolvedValue({ error: null });
         mockRegSelect.mockReturnValue({ single: mockRegSingle });
         mockRegSingle.mockResolvedValue({ data: { id: "mock-reg-uuid" }, error: null });
 
@@ -114,7 +117,8 @@ describe("Database Integration Tests (Mocked)", () => {
         mockUserSelect.mockReturnValue({ eq: mockUserEq1 });
         mockUserEq1.mockReturnValue({ eq: mockUserEq2 });
         mockUserEq2.mockReturnValue({ eq: mockUserEq3 });
-        mockUserEq3.mockReturnValue({ limit: mockUserLimit });
+        mockUserEq3.mockReturnValue({ ilike: mockUserIlike });
+        mockUserIlike.mockReturnValue({ limit: mockUserLimit });
 
         // Default: No existing user found (Simulate new user flow)
         mockUserLimit.mockResolvedValue({ data: [], error: null });
@@ -179,7 +183,7 @@ describe("Database Integration Tests (Mocked)", () => {
 
         it("should create new user and insert registration correctly", async () => {
             const result = await submitEnrollment(
-                mockFormData as any,
+                mockFormData,
                 ["c_1", "c_2"],
                 "01.01.2026", // Valid date
                 500,
@@ -192,7 +196,8 @@ describe("Database Integration Tests (Mocked)", () => {
             // 1. Verify User Check
             expect(mockFrom).toHaveBeenCalledWith("users");
             expect(mockUserSelect).toHaveBeenCalledWith("id"); // Checking existence
-            expect(mockUserLimit).toHaveBeenCalledWith(1);
+            expect(mockUserLimit).toHaveBeenCalledWith(2);
+            expect(mockUserIlike).toHaveBeenCalledWith("email", "max@example.com");
 
             // 2. Verify User Creation (since finding returned [])
             expect(mockUserInsert).toHaveBeenCalledWith(expect.objectContaining({
@@ -226,7 +231,7 @@ describe("Database Integration Tests (Mocked)", () => {
             mockUserLimit.mockResolvedValue({ data: [{ id: "existing-user-id" }], error: null });
 
             const result = await submitEnrollment(
-                mockFormData as any,
+                mockFormData,
                 ["c_1"],
                 "01.01.2026",
                 100,
@@ -246,7 +251,7 @@ describe("Database Integration Tests (Mocked)", () => {
             }));
         });
 
-        it("should UPDATE contact info for returning user", async () => {
+        it("never overwrites established contact details and records submitted changes in the registration snapshot", async () => {
             // Mock finding a user
             mockUserLimit.mockResolvedValue({ data: [{ id: "existing-user-id" }], error: null });
 
@@ -262,7 +267,7 @@ describe("Database Integration Tests (Mocked)", () => {
             };
 
             const result = await submitEnrollment(
-                updatedFormData as any,
+                updatedFormData,
                 ["c_1"],
                 "01.01.2026",
                 100,
@@ -272,22 +277,19 @@ describe("Database Integration Tests (Mocked)", () => {
 
             expect(result.success).toBe(true);
 
-            // Verify UPDATE called with NEW data
-            expect(mockUserUpdate).toHaveBeenCalledWith(expect.objectContaining({
-                email: "new-email@example.com",
-                city: "Munich",
-                street: "New Street 1"
+            expect(mockUserUpdate).not.toHaveBeenCalled();
+            expect(mockUserIlike).toHaveBeenCalledWith("email", "new-email@example.com");
+            expect(mockRegInsert).toHaveBeenCalledWith(expect.objectContaining({
+                status: "pending",
+                contact_snapshot: expect.objectContaining({email:"new-email@example.com",city:"Munich",street:"New Street 1"})
             }));
-
-            // Verify Update targeted correct user
-            expect(mockUserUpdateEq).toHaveBeenCalledWith("id", "existing-user-id");
         });
 
         it("should handle Registration Table failure", async () => {
-            mockRegSingle.mockResolvedValue({ data: null, error: { message: "Reg failed" } });
+            mockRegInsert.mockResolvedValue({ error: { message: "Private database error" } });
 
             const result = await submitEnrollment(
-                mockFormData as any,
+                mockFormData,
                 ["c_1"],
                 "01.01.2026",
                 100,
@@ -296,7 +298,7 @@ describe("Database Integration Tests (Mocked)", () => {
             );
 
             expect(result.success).toBe(false);
-            expect(result.message).toContain("Registration failed");
+            expect(result).toEqual({success:false,message:"generic_error"});
             expect(mockEnrollInsert).not.toHaveBeenCalled();
         });
 

@@ -1,5 +1,16 @@
 # Architecture Masterplan
 
+## Ergänzung 2026-09-10: Lernstudios, verifizierte Profile und manuelle Rechnungen
+
+Diese Ergänzung ersetzt ältere Beschreibungen des Satzkatalogs, öffentlicher neuer Audio-Uploads, des Video-Players und der Verknüpfung importierter Profile. Details und Prüfnachweise: [Trainer- und Verwaltungsumbau](docs/trainer-admin-refresh-2026-09-10.md).
+
+- Grammatik: `ExerciseClient` stellt Themenauswahl und Einheiten mit zehn Aufgaben dar; `grammar-session` und `grammar-validation` teilen Sitzungsauswahl und validierte Inhaltsverträge mit dem Lehrer-CMS. `record_grammar_attempt` bewertet Antworten in PostgreSQL, prüft Niveau/Eigentümer und schreibt Fortschritt atomar. Die versionierte Sammlung enthält 600 zusätzliche Übungen, je 100 in A1.1 bis B1.2. Bestehende IDs und Fortschritte bleiben erhalten.
+- Aussprache: `PronunciationPractice` lädt zusammenhängende Lesetexte mit exakter Kursstufe; `PronunciationConversation`/`PronunciationInbox` zeigen dauerhaft gespeicherte Text- und Audionachrichten. `pronunciation_messages` ergänzt vorhandene Einreichungen und Feedback. Neue Aufnahmen liegen im privaten Bucket `pronunciation_audio`; Teilnehmer erhalten zeitlich begrenzte signierte URLs. Datenbankfunktionen prüfen authentifizierte Identität, Niveau, Eigentümer der Aufnahme und Gesprächszugehörigkeit. Der Text-Snapshot einer Einreichung bleibt nach späteren CMS-Änderungen erhalten. Sichtbare Postfächer aktualisieren sich alle 30 Sekunden und bei erneutem Fensterfokus.
+- `VideoLibrary` rendert ausschließlich geprüfte YouTube-Links. `video-links` normalisiert erlaubte URLs; bestehende Detail-Routen prüfen den Zugriff und leiten zum jeweiligen Video weiter. Ohne gültige Videos erscheint ein zurückhaltender Leerzustand.
+- `claim_verified_legacy_profile` nimmt keine E-Mail/Personen-ID vom Client an: Die private Funktion liest die bestätigte Auth-Identität, verknüpft nur einen eindeutigen, noch nicht anderweitig beanspruchten Altbestand und übernimmt verfügbare Profildaten. Mehrdeutige gemeinsame E-Mail-Adressen werden nicht automatisch zugeordnet. Öffentliche Kursanmeldungen speichern ihre Angaben als `contact_snapshot`, ohne vorhandene Stammdaten anhand ungeprüfter Angaben zu überschreiben.
+- `RegistrationDesk` verwendet rollenvalidierte Actions und DTOs für Anmeldungen sowie Monatsrechnungen. Bestätigung und Rechnungskennzeichen laufen über gesicherte RPCs. `manual_invoice_status` speichert Monat, Quelle, Status und optionale Referenz; die Datenbank verhindert doppelte Erledigt-Kennzeichen für dieselbe Person im selben Monat. Explizite Monatsbuchungen/Pausen haben Vorrang vor wiederkehrenden Altbuchungen.
+- `schema.sql` und generierte Datenbanktypen sind mit dem gebundenen Supabase-Projekt synchron. Sechs additive Migrationen wurden dort angewendet; Inhaltssammlungen und isolierte PostgreSQL-Tests liegen unter `supabase/seeds` bzw. `supabase/tests`.
+
 > **Kontakt/Impulstakt (2026-09-10):** `AcademyStory.tsx` verlinkt Anastasia direkt über `https://t.me/Sprachschule_Anastasia`. `NeuralBrain.tsx` startet jetzt alle 6–8 Sekunden eine Gruppe mit weiterhin 1–3 Impulsen; bei maximal 3,05 Sekunden Gruppenlaufzeit bleiben mindestens 2,95 Sekunden vollständige Ruhe. Dies ersetzt den unten protokollierten bisherigen Takt.
 
 ## Ergänzung 2026-09-10: natives Sticky-Layout und vorbereitete Audio-Wiedergabe

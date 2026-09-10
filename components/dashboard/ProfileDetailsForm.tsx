@@ -5,9 +5,10 @@ import { UserRound, Check, Loader2 } from 'lucide-react'
 import { updatePersonalDetails } from '@/app/actions/profile'
 import { personalDetailsSchema, type PersonalDetails } from '@/lib/types/profile'
 import { createProfileTranslator, type ProfileTranslations, type ProfileTranslationKey } from '@/lib/profile-i18n'
+import { registrationLabels } from '@/lib/admin-registration-i18n'
 
-export default function ProfileDetailsForm({ initial, pendingEmail, lang, translations }: {
-  initial: PersonalDetails; pendingEmail: string | null; lang: string; translations: ProfileTranslations
+export default function ProfileDetailsForm({ initial, pendingEmail, lang, translations, birthDate }: {
+  initial: PersonalDetails; pendingEmail: string | null; lang: string; translations: ProfileTranslations; birthDate?: string | null
 }) {
   const t = createProfileTranslator(translations)
   const [saved, setSaved] = useState(initial)
@@ -79,6 +80,7 @@ export default function ProfileDetailsForm({ initial, pendingEmail, lang, transl
           <p className="mt-1 break-words text-sm leading-relaxed text-[var(--muted)]">{t('personal_intro')}</p>
         </div>
       </div>
+      {birthDate && <dl className="mb-5 flex flex-wrap justify-between gap-2 rounded-xl bg-[var(--canvas)] px-4 py-3 text-sm"><dt className="text-[var(--muted)]">{registrationLabels(lang).birthday}</dt><dd className="font-semibold text-[var(--foreground)]">{birthDate}</dd></dl>}
       <form onSubmit={submit} noValidate aria-busy={saving}>
         <fieldset disabled={saving} className="grid min-w-0 grid-cols-1 gap-4 sm:grid-cols-2">
           {fields.map(field => (

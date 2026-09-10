@@ -1,0 +1,29 @@
+'use server'
+import { withBackendSession, checkDatabaseError, revalidateBackendPages } from '@/lib/actions/backend'
+import { loadRegistrationOverview } from '@/lib/admin-registration-data'
+import { staffConfirmationSchema, invoiceStatusInputSchema, type RegistrationOverview } from '@/lib/types/admin-registrations'
+import { targetMonthSchema } from '@/lib/types/monthly-bookings'
+import type { BackendActionResult } from '@/lib/types/backend'
+import { profileMonthWindow } from '@/lib/profile-month'
+
+export async function getRegistrationOverview(month?: string): Promise<BackendActionResult<RegistrationOverview>> {
+  return withBackendSession(()=>loadRegistrationOverview(targetMonthSchema.parse(month ?? profileMonthWindow().next)), 'staff')
+}
+export async function confirmRegistration(input: unknown): Promise<BackendActionResult<{status:'confirmed'}>> {
+  return withBackendSession(async({supabase})=>{
+    const data = staffConfirmationSchema.parse(input)
+    const result = await supabase.rpc('confirm_staff_registration',{p_source:data.source,p_id:data.id})
+    checkDatabaseError(result.error)
+    revalidateBackendPages()
+    return {status:'confirmed' as const}
+  },'staff')
+}
+export async function saveManualInvoiceStatus(input: unknown): Promise<BackendActionResult<{saved:true}>> {
+  return withBackendSession(async({supabase})=>{
+    const data = invoiceStatusInputSchema.parse(input)
+    const result = await supabase.rpc('set_manual_invoice_status',{p_source:data.source,p_id:data.id,p_month:data.month,p_created:data.created,p_reference:data.reference})
+    checkDatabaseError(result.error)
+    revalidateBackendPages()
+    return {saved:true as const}
+  },'staff')
+}

@@ -33,6 +33,7 @@ export function baseMimeType(mimeType: string | undefined | null): string {
 /** Dateiendung passend zum aufgenommenen MIME-Type (`audio/webm` → `webm`, `audio/mp4` → `mp4`). */
 export function extensionForMimeType(mimeType: string): string {
   const base = baseMimeType(mimeType)
+  if (base.includes('mpeg')) return 'mp3'
   if (base.includes('wav')) return 'wav'
   if (base.includes('mp4')) return 'mp4'
   if (base.includes('ogg')) return 'ogg'
@@ -145,4 +146,27 @@ export function uploadStudentRecording(blob: Blob): Promise<AudioUploadResult> {
 export function uploadFeedbackRecording(blob: Blob, submissionId: string): Promise<AudioUploadResult> {
   const ext = extensionForMimeType(blob.type)
   return uploadToBucket(blob, () => `feedback/${submissionId}_${Date.now()}.${ext}`)
+}
+
+/** Private recordings use immutable owner folders; only participants receive signed playback URLs. */
+export async function uploadPrivatePronunciationRecording(blob: Blob): Promise<AudioUploadResult> {
+  try {
+    const contentType = baseMimeType(blob.type)
+    if (blob.size === 0 || blob.size > 25 * 1024 * 1024 || !['audio/webm', 'audio/mp4', 'audio/ogg', 'audio/wav', 'audio/mpeg'].includes(contentType)) {
+      return { success: false, reason: 'upload_failed' }
+    }
+    const supabase = createClient()
+    const { data: { user }, error } = await supabase.auth.getUser()
+    if (error || !user) return { success: false, reason: 'not_authenticated' }
+    const path = `${user.id}/${crypto.randomUUID()}.${extensionForMimeType(contentType)}`
+    const { error: uploadError } = await supabase.storage.from('pronunciation_audio').upload(path, blob, { contentType, upsert: false })
+    if (uploadError) {
+      console.error('Private pronunciation upload failed', { userId: user.id, message: uploadError.message })
+      return { success: false, reason: 'upload_failed' }
+    }
+    return { success: true, publicUrl: `storage://pronunciation_audio/${path}` }
+  } catch (error) {
+    console.error('Private pronunciation upload failed', error)
+    return { success: false, reason: 'upload_failed' }
+  }
 }

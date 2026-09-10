@@ -40,7 +40,7 @@ export default async function AGBPage({ params }: { params: Promise<{ lang: stri
 
             <main className="container mx-auto px-4 pt-32 pb-16 max-w-4xl relative">
                 <div className="mb-12">
-                    <Link href={`/${lang}`} className="inline-flex items-center px-5 py-2.5 bg-white/60 dark:bg-[#1a1a1a]/60 backdrop-blur-md border border-white/40 dark:border-white/10 rounded-full text-foreground/60 hover:text-primary-orange hover:shadow-lg transition-all duration-300 gap-3 group">
+                    <Link href={`/${lang}`} className="inline-flex min-h-12 items-center px-5 py-2.5 bg-white/60 dark:bg-[#1a1a1a]/60 backdrop-blur-md border border-white/40 dark:border-white/10 rounded-full text-foreground/60 hover:text-primary-orange hover:shadow-lg transition-all duration-300 gap-3 group">
                         <span className="text-xl group-hover:-translate-x-1 transition-transform">←</span>
                         <span className="text-xs font-bold tracking-widest uppercase">{dictionary.registration?.back_home || "Zurück zur Startseite"}</span>
                     </Link>
@@ -56,7 +56,7 @@ export default async function AGBPage({ params }: { params: Promise<{ lang: stri
                 </div>
 
                 <div className="space-y-8">
-                    {dictionary.agb?.sections?.map((section: any, index: number) => (
+                    {dictionary.agb?.sections?.map((section: { title: string; content: string[]; highlight?: boolean }, index: number) => (
                         <section
                             key={index}
                             className={`relative overflow-hidden bg-white/60 dark:bg-[#1a1a1a]/60 backdrop-blur-md p-8 md:p-10 rounded-3xl border border-white/40 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.1)] transition-all duration-300 hover:shadow-xl hover:border-white/80 dark:hover:border-white/30 ${section.highlight ? 'ring-2 ring-primary-orange/50' : ''}`}

@@ -1,3 +1,4 @@
+import pronunciationUpdates from '@/lib/pronunciation-translations.json'
 import { createTranslator, type Translations, type Translator } from '@/lib/i18n-runtime'
 
 /**
@@ -81,6 +82,7 @@ export const PRONUNCIATION_FALLBACKS = {
   error_title: 'Das Aussprache-Training konnte leider nicht geladen werden.',
   error_description: 'Das lag nicht an dir. Versuche es bitte noch einmal.',
   error_retry: 'Nochmal versuchen',
+  ...pronunciationUpdates.de,
 } as const
 
 export type PronunciationTranslationKey = Extract<keyof typeof PRONUNCIATION_FALLBACKS, string>
@@ -88,6 +90,11 @@ export type PronunciationTranslationKey = Extract<keyof typeof PRONUNCIATION_FAL
 export type PronunciationTranslations = Translations
 
 export type PronunciationTranslator = Translator<PronunciationTranslationKey>
+
+export function getPronunciationTranslations(lang: string, translations: PronunciationTranslations = {}): PronunciationTranslations {
+  const key = lang in pronunciationUpdates ? lang as keyof typeof pronunciationUpdates : 'de'
+  return { ...translations, ...pronunciationUpdates[key] }
+}
 
 export function createPronunciationTranslator(
   translations: PronunciationTranslations

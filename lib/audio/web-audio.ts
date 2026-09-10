@@ -6,9 +6,10 @@
  * iOS/Safari-Regeln, die hier gekapselt sind:
  *  - Ein `AudioContext` startet fast immer als `suspended` und muss aus
  *    einer Nutzer-Geste (`resume`) kommen – *bevor* `await getUserMedia`.
- *  - Mehrere Contexts erzeugen oder einen Context nach der Aufnahme
- *    `close()`en führt auf iOS oft zu stummer Wiedergabe.
- *  - Deshalb gibt es genau einen geteilten Context, der nicht geschlossen wird.
+ *  - Playback und Mikrofon verwenden jeweils einen wiederverwendeten Context.
+ *    Der Mic-Context entsteht erst nach getUserMedia wegen der Safari-Sample-Rate.
+ *  - Die Contexts werden nach Aufnahmen nicht geschlossen; MediaRecorder wartet
+ *    nicht auf deren durch Autoplay-Regeln möglicherweise ausstehendes resume().
  *  - Safari nimmt zuverlässig `audio/mp4` auf, nicht `audio/webm`.
  */
 
@@ -97,6 +98,18 @@ export function ensureMicContext(): AudioContext | null {
   if (!Ctor) return null
   sharedMicContext = new Ctor()
   return sharedMicContext
+}
+
+/** Resume is best-effort for capture: autoplay policies must never block MediaRecorder. */
+export function resumeAudioContextWithoutBlocking(context: AudioContext | null): void {
+  if (!context || context.state === 'closed' || context.state === 'running') return
+  try {
+    void context.resume().catch((error: unknown) => {
+      console.error('AudioContext konnte nicht fortgesetzt werden:', error)
+    })
+  } catch (error) {
+    console.error('AudioContext konnte nicht fortgesetzt werden:', error)
+  }
 }
 
 export async function unlockAudioContext(): Promise<AudioContext | null> {

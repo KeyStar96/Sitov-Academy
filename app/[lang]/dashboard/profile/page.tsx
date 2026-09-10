@@ -8,6 +8,9 @@ import { loadProfileMonthlyState } from '@/lib/profile-dashboard-server'
 import UiLanguageForm from '@/components/dashboard/UiLanguageForm'
 import ProfileDetailsForm from '@/components/dashboard/ProfileDetailsForm'
 import ProfileMonthlyCourses from '@/components/dashboard/ProfileMonthlyCourses'
+import { resolveLegacyProfile } from '@/lib/profile-legacy'
+import { loadVerifiedCourseHistory } from '@/lib/profile-course-history'
+import ProfileCourseHistory from '@/components/dashboard/ProfileCourseHistory'
 
 export default async function ProfilePage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang: requestedLang } = await params
@@ -15,6 +18,8 @@ export default async function ProfilePage({ params }: { params: Promise<{ lang: 
   const supabase = await createClient()
   const { data: { user }, error: authError } = await supabase.auth.getUser()
   if (authError || !user) redirect(`/${lang}/login`)
+  try { await resolveLegacyProfile(user) }
+  catch { console.error('[profile] Verified legacy association could not be loaded') }
   const [dict, profileResult] = await Promise.all([
     getDictionary(lang), supabase.from('profiles').select('*').eq('id', user.id).single(),
   ])
@@ -29,6 +34,9 @@ export default async function ProfilePage({ params }: { params: Promise<{ lang: 
   const titles = Object.fromEntries((monthly?.courses ?? []).map(course => [
     course.id, courseData[course.translationKey]?.title || course.title || t('course_fallback'),
   ]))
+  let courseHistory: Awaited<ReturnType<typeof loadVerifiedCourseHistory>> = null
+  try { courseHistory = await loadVerifiedCourseHistory(user) }
+  catch { console.error('[profile] Existing course history could not be loaded') }
 
   return (
     <div className="mx-auto w-full min-w-0 max-w-5xl space-y-6 [overflow-wrap:break-word] sm:space-y-8">
@@ -38,7 +46,7 @@ export default async function ProfilePage({ params }: { params: Promise<{ lang: 
       </div>
       <div className="grid min-w-0 grid-cols-1 items-start gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
         <div className="flex min-w-0 flex-col gap-6">
-          <ProfileDetailsForm lang={lang} translations={dict.profile} pendingEmail={user.new_email || null}
+          <ProfileDetailsForm lang={lang} translations={dict.profile} pendingEmail={user.new_email || null} birthDate={courseHistory?.birthDate}
             initial={{ name: profile.name ?? '', email: profile.email, phone: profile.phone, street: profile.street, zip_code: profile.zip_code, city: profile.city }} />
           <section className="min-w-0 rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-4 shadow-sm sm:p-5">
             <div className="flex min-w-0 items-start gap-3">
@@ -68,6 +76,7 @@ export default async function ProfilePage({ params }: { params: Promise<{ lang: 
             <a href={`/${lang}/dashboard/profile`} className="mt-4 inline-flex min-h-12 min-w-12 items-center rounded-xl border border-amber-500 px-4 py-2 font-bold text-amber-950 dark:text-amber-100">{t('reload')}</a>
           </section>}
       </div>
+      <ProfileCourseHistory history={courseHistory} lang={lang} />
     </div>
   )
 }

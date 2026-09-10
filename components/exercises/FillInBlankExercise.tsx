@@ -13,13 +13,13 @@ interface FillInBlankExerciseProps {
   exercise: FillInBlankExerciseData
   t: ExerciseTranslator
   /** Persistiert den Versuch. Der Aufrufer entscheidet über die Speicherung. */
-  onAttempt: (isCorrect: boolean, hintShown: boolean) => void
+  onAttempt: (isCorrect: boolean, hintShown: boolean, answer: string) => void
   onNext: () => void
   nextLabel: string
 }
 
 function isSameWord(left: string, right: string): boolean {
-  return left.trim().toLocaleLowerCase('de-DE') === right.trim().toLocaleLowerCase('de-DE')
+  return left.trim().replace(/\s+/g, ' ').toLocaleLowerCase('de-DE') === right.trim().replace(/\s+/g, ' ').toLocaleLowerCase('de-DE')
 }
 
 /**
@@ -75,7 +75,7 @@ export default function FillInBlankExerciseCard({
     if (!selectedChip || isSolved) return
 
     const isCorrect = isSameWord(selectedChip, exercise.content.correct_answer)
-    onAttempt(isCorrect, smartHint !== null)
+    onAttempt(isCorrect, smartHint !== null, selectedChip)
 
     if (isCorrect) {
       setIsSolved(true)
@@ -93,6 +93,7 @@ export default function FillInBlankExerciseCard({
 
   return (
     <div className="p-5 sm:p-10">
+      {exercise.content.instruction && <p className="mb-6 text-base font-semibold text-[var(--violet)]">{exercise.content.instruction}</p>}
       {/* Satz mit Lücke – auf dem Handy 20px, ab Tablet 30px. */}
       <p className="break-words text-center text-xl font-medium leading-relaxed text-[var(--foreground)] sm:text-3xl sm:leading-loose">
         {exercise.content.text_before}
@@ -100,7 +101,7 @@ export default function FillInBlankExerciseCard({
           className={cn(
             'mx-2 inline-flex max-w-full min-w-[6rem] items-center justify-center break-words rounded-xl border-b-4 px-3 py-1 align-middle transition-colors sm:min-w-[9rem] sm:px-4',
             isSolved
-              ? 'border-green-600 bg-green-50 font-bold text-green-800'
+              ? 'border-[var(--violet)] bg-[var(--surface-muted)] font-bold text-[var(--violet)]'
               : selectedChip
                 ? 'border-[var(--violet)] bg-[var(--surface-muted)] font-bold text-[var(--violet)]'
                 : 'border-dashed border-[var(--border)]  bg-[var(--surface-muted)]  text-[var(--muted)] '
@@ -185,6 +186,7 @@ export default function FillInBlankExerciseCard({
             <p className="text-2xl font-bold text-green-800 dark:text-green-500">{t('correct_well_done')}</p>
           </div>
 
+          {exercise.content.smart_hint && <p className="mt-4 text-base leading-relaxed text-[var(--foreground)]">{exercise.content.smart_hint}</p>}
           {/* Tap-to-Listen für das gelöste Wort und den gesamten Satz. */}
           <div className="mt-6 flex w-full flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
             <SolutionAudioButton
@@ -214,7 +216,7 @@ export default function FillInBlankExerciseCard({
           <button
             type="button"
             onClick={onNext}
-            className="inline-flex min-h-16 w-full items-center justify-center gap-3 rounded-2xl bg-[var(--accent)] px-8 py-4 text-xl font-bold text-[var(--accent-foreground)] shadow-md transition-colors hover:opacity-90 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)] sm:w-auto"
+            className="inline-flex min-h-16 w-full items-center justify-center gap-3 rounded-full bg-[var(--accent)] px-8 py-4 text-xl font-bold text-[var(--accent-foreground)] shadow-md transition-colors hover:opacity-90 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)] sm:w-auto"
           >
             {nextLabel}
             <ArrowRight size={28} aria-hidden="true" />
@@ -224,7 +226,7 @@ export default function FillInBlankExerciseCard({
             type="button"
             onClick={handleCheck}
             disabled={!selectedChip}
-            className="min-h-16 w-full rounded-2xl bg-[var(--violet)] px-8 py-4 text-xl font-bold text-[var(--surface)] shadow-md transition-colors hover:bg-[var(--violet)] disabled:cursor-not-allowed disabled:opacity-50 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)] sm:w-auto"
+            className="min-h-16 w-full rounded-full bg-[var(--violet)] px-8 py-4 text-xl font-bold text-[var(--surface)] shadow-md transition-colors hover:bg-[var(--violet)] disabled:cursor-not-allowed disabled:opacity-50 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)] sm:w-auto"
           >
             {t('check_answer')}
           </button>

@@ -1,5 +1,16 @@
 # Sitov Language Academy — Pedagogy & UI/UX Research
 
+## Verbindliche Ergänzung — Lernstudios und Betreuung, 10. September 2026
+
+- Die Lernübersicht priorisiert Wortschatz, Grammatik und Aussprache. Lernvideos bleiben bis zur Produktion ein sekundärer Bereich mit ehrlichem Leerzustand und später ausschließlich externen YouTube-Links.
+- „Gelernt“ bezeichnet beim Vokabeltrainer einen überprüfbaren Softwarestatus: beide Abfragerichtungen nach korrekt abgeschlossener Phase 6. Eine Ersteinstufung „bekannt“ ist kein Abschluss. Fortschritt darf weder dauerhaftes Erinnern noch einen zertifizierten Spracherwerb versprechen. Die bestehende Phase-6-Logik bleibt erhalten und wird vor dem Training verständlich erklärt.
+- Grammatik wird in überschaubaren Zehner-Einheiten mit Themenauswahl gelernt. Hilfen, konkrete Rückmeldungen und weitere Versuche erhalten den ruhigen Lernfluss. Aufgaben haben eindeutige Lösungen bzw. explizite Arbeitsanweisungen; die erste Sammlung umfasst 100 Übungen je bestehender Kursstufe A1.1–B1.2. Lehrkräfte können den Bestand erweitern und bearbeiten.
+- Aussprache verwendet zusammenhängende Alltagstexte mit steigender sprachlicher Komplexität, zunächst zehn eigene Texte je Kursstufe. Text, Hörvorbild und Aufnahme bilden einen klaren Arbeitsablauf. Die Waveform bleibt für Aufnahme und Wiedergabe bestehen; asynchrones Lehrerfeedback kann als Text oder Sprachnachricht erfolgen und von Lernenden beantwortet werden. Neue Aufnahmen werden ausschließlich im privaten Lernkontext bereitgestellt, ohne öffentliche Veröffentlichung oder automatische Stimmbewertung.
+- Alle neuen Bedienelemente folgen den Academy-Farbvariablen, Light-/Darkmode und mindestens 48px großen Touch-Zielen. Schüler- und Verwaltungsansichten bleiben bei schmalen Bildschirmen nutzbar. Neue UI-Texte sind in DE/EN/RU/UK/TR vorhanden; die deutschen Lerninhalte richten sich nach dem jeweiligen Unterrichtsniveau.
+- Ein öffentlicher E-Mail-Eintrag ist niemals ein Identitätsnachweis. Übernahme bestehender persönlicher Daten/Kursbuchungen erst nach bestätigter Auth-E-Mail und eindeutiger Zuordnung; gemeinsame E-Mail-Adressen werden nicht geraten. Rechnungskennzeichen sind von Annahme, Versand und Zahlung getrennte Zustände.
+
+Implementierungsdetails und Validierung: [Trainer- und Verwaltungsumbau](docs/trainer-admin-refresh-2026-09-10.md).
+
 > **Kontakt/Impulstakt (2026-09-10):** Anastasias Kontaktaktion öffnet ihren Telegram-Account `@Sprachschule_Anastasia`. Die NeuralBrain-Gruppen erscheinen leicht häufiger, alle 6–8 Sekunden mit weiterhin 1–3 Impulsen und mindestens 2,95 Sekunden vollständiger Ruhe; diese Feinjustierung ersetzt die bisherige Taktvorgabe im folgenden Protokoll.
 
 > **Layout/Audio (2026-09-10):** Die Zahlungsübersicht bleibt per CSS mit 32px Abstand stabil, Formulare nutzen natives Scrollen. Header-Reihenfolge Methode → Über mich → Kurse und gleich hohe 48px-Bedienelemente erleichtern die Orientierung. Unterrichtsort und Firmensitz sind im Footer ausdrücklich getrennt. „Anhören“ verlangt einen Klick; aktuelle/nächste Wörter werden früh vorbereitet, ausstehende Wiedergabe ist abbrechbar und startet nach Kartenwechsel nicht nachträglich.

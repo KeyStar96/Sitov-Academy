@@ -5,6 +5,7 @@ import type { GenerateAudioResult } from '@/lib/types/audio'
 jest.mock('@/app/actions/generate-audio', () => ({ generateAudio: jest.fn() }))
 
 let sequence = 0
+let loadedElements: HTMLMediaElement[] = []
 const source = (): NeuralAudioSource => ({ text: `das Wort ${++sequence}`, cardId: `card-${sequence}`, language: 'de' })
 function deferred<T>() {
   let resolve: (value: T) => void = () => undefined
@@ -15,7 +16,8 @@ async function flushRequests() { for (let turn = 0; turn < 12; turn += 1) await 
 
 beforeEach(() => {
   jest.clearAllMocks()
-  jest.spyOn(HTMLMediaElement.prototype, 'load').mockImplementation(() => undefined)
+  loadedElements = []
+  jest.spyOn(HTMLMediaElement.prototype, 'load').mockImplementation(function(this: HTMLMediaElement) { loadedElements.push(this) })
   jest.spyOn(HTMLMediaElement.prototype, 'play').mockResolvedValue()
   jest.mocked(generateAudio).mockImplementation(async input => ({ success: true, audioUrl: `https://media.example.com/${encodeURIComponent(input.text)}.mp3`, cached: false }))
 })
@@ -37,7 +39,7 @@ it('deduplicates a foreground tap against bounded current/next prefetch and prel
   await flushRequests()
   expect(cachedNeuralAudio(first)).toBe('https://media.example.com/prefetched.mp3')
   expect(jest.mocked(generateAudio).mock.calls.map(([input]) => input.text)).toEqual([first.text, second.text])
-  const players = jest.mocked(HTMLMediaElement.prototype.load).mock.instances
+  const players = loadedElements
   expect(players.some(player => player.src === 'https://media.example.com/prefetched.mp3' && player.preload === 'auto')).toBe(true)
   expect(HTMLMediaElement.prototype.play).not.toHaveBeenCalled()
   cancel()
@@ -60,7 +62,7 @@ it('limits background synthesis to two requests and drops obsolete queued cards 
   secondRequest.resolve({ success: true, audioUrl: 'https://media.example.com/old-b.mp3', cached: true })
   await flushRequests()
   expect(jest.mocked(generateAudio).mock.calls.map(([input]) => input.text)).toEqual([...first.map(item => item.text), latest.text])
-  const loadedSources = jest.mocked(HTMLMediaElement.prototype.load).mock.instances.map(player => player.getAttribute('src')).filter(Boolean)
+  const loadedSources = loadedElements.map(player => player.getAttribute('src')).filter(Boolean)
   expect(loadedSources).not.toContain('https://media.example.com/old-a.mp3')
   expect(loadedSources).not.toContain('https://media.example.com/old-b.mp3')
   cancelLatest()
@@ -83,7 +85,7 @@ it('reuses supplied recordings without synthesis and retains at most four native
     await flushRequests()
     cancel()
   }
-  const players = [...new Set(jest.mocked(HTMLMediaElement.prototype.load).mock.instances)]
+  const players = [...new Set(loadedElements)]
   expect(players.filter(player => player.hasAttribute('src'))).toHaveLength(4)
   expect(generateAudio).not.toHaveBeenCalled()
   expect(HTMLMediaElement.prototype.play).not.toHaveBeenCalled()

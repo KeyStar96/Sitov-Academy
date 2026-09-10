@@ -10,8 +10,8 @@ export const NEURAL_VOICES = {
 
 export const AUDIO_CACHE_BUCKET = 'audio_cache'
 export const AUDIO_CACHE_VERSION = 'edge-v1'
-export const AUDIO_MAX_BYTES = 1024 * 1024
-export const AUDIO_MAX_TEXT_LENGTH = 800
+export const AUDIO_MAX_BYTES = 2 * 1024 * 1024
+export const AUDIO_MAX_TEXT_LENGTH = 3000
 export const AUDIO_RATE = '-10%'
 export const AUDIO_FORMAT = 'audio-24khz-48kbitrate-mono-mp3'
 

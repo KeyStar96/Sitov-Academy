@@ -7,6 +7,7 @@ import AuthStatusMessage from '@/components/auth/AuthStatusMessage'
 import { authStatusMessage, authTranslations, createAuthTranslator } from '@/lib/auth-i18n'
 import { getDictionary } from '@/lib/dictionary'
 import { parseAuthStatus, type AuthStatusCode } from '@/lib/types/auth'
+import { registrationLabels } from '@/lib/admin-registration-i18n'
 
 export const dynamic = 'force-dynamic'
 
@@ -38,6 +39,7 @@ export default async function LoginPage({
 
   const dictionary = await getDictionary(lang)
   const t = createAuthTranslator(authTranslations(dictionary))
+  const learning = registrationLabels(lang)
 
   const showResend = status !== null && RESEND_STATUS.includes(status)
 
@@ -57,7 +59,8 @@ export default async function LoginPage({
         </>
       }
     >
-      {status && <AuthStatusMessage status={status} message={authStatusMessage(t, status)} />}
+      {status && <AuthStatusMessage status={status} message={status === 'signup_email_sent' ? learning.auth_email_sent : authStatusMessage(t, status)} />}
+      <p className="rounded-2xl bg-[var(--canvas)] p-4 text-sm leading-relaxed text-[var(--muted)]">{learning.auth_existing}</p>
 
       <AuthForm
         action={login}

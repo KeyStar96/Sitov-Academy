@@ -1,13 +1,16 @@
 'use client'
 
-import { useCallback, useMemo, useState } from 'react'
+import { useCallback, useMemo, useRef, useState } from 'react'
 import Link from 'next/link'
-import { BookOpenCheck, CloudOff, PartyPopper } from 'lucide-react'
+import { ArrowLeft, ArrowRight, BookOpenCheck, CheckCircle2, CloudOff, Loader2, PenLine, RotateCcw } from 'lucide-react'
 import FillInBlankExerciseCard from '@/components/exercises/FillInBlankExercise'
 import MultipleChoiceExerciseCard from '@/components/exercises/MultipleChoiceExercise'
 import { finishExerciseSession, recordExerciseAttempt } from '@/app/actions/exercises'
 import { createExerciseTranslator, type ExerciseTranslations } from '@/lib/exercise-i18n'
+import { grammarTranslator } from '@/lib/grammar-i18n'
+import { createGrammarSession, groupGrammarTopics } from '@/lib/grammar-session'
 import type { StudentExercise } from '@/lib/types/exercise'
+import styles from './GrammarStudio.module.css'
 
 interface ExerciseClientProps {
   exercises: StudentExercise[]
@@ -16,142 +19,136 @@ interface ExerciseClientProps {
   level: string
 }
 
-export default function ExerciseClient({
-  exercises,
-  translations = {},
-  lang,
-  level,
-}: ExerciseClientProps) {
-  /**
-   * Bewusst als Snapshot: Würde die Liste mitten im Durchlauf aus dem Server
-   * neu einfliegen, verschöben sich die Indizes und der Lernende verlöre den
-   * Kontext.
-   */
-  const [session] = useState<StudentExercise[]>(exercises)
+export default function ExerciseClient({ exercises, translations = {}, lang, level }: ExerciseClientProps) {
+  const [library, setLibrary] = useState(exercises)
+  const [session, setSession] = useState<StudentExercise[] | null>(null)
   const [currentIndex, setCurrentIndex] = useState(0)
   const [saveFailed, setSaveFailed] = useState(false)
-
+  const [saving, setSaving] = useState(false)
+  const [pendingAttempts, setPendingAttempts] = useState<Array<{ exerciseId: string; answer: string; hintShown: boolean }>>([])
+  const saveQueue = useRef<Promise<void>>(Promise.resolve())
   const t = useMemo(() => createExerciseTranslator(translations), [translations])
-  const currentExercise = session[currentIndex]
+  const g = useMemo(() => grammarTranslator(lang), [lang])
+  const topics = useMemo(() => groupGrammarTopics(library), [library])
+  const completed = library.filter(exercise => exercise.completed).length
+  const currentExercise = session?.[currentIndex]
+  const headingRef = useRef<HTMLHeadingElement>(null)
 
-  const handleAttempt = useCallback(
-    (exerciseId: string, isCorrect: boolean, hintShown: boolean): void => {
-      void recordExerciseAttempt({ exerciseId, isCorrect, hintShown })
-        .then((result) => setSaveFailed(!result.success))
-        .catch(() => setSaveFailed(true))
-    },
-    []
-  )
+  const startSession = useCallback((topic?: string, review = false) => {
+    const next = createGrammarSession(library, { topic, review })
+    setSession(next)
+    setCurrentIndex(0)
+    window.requestAnimationFrame(() => headingRef.current?.focus())
+  }, [library])
 
-  const handleNext = useCallback((): void => {
+  const saveAttempt = useCallback((input: { exerciseId: string; answer: string; hintShown: boolean }) => {
+    setSaving(true)
+    saveQueue.current = saveQueue.current.then(async () => {
+      try {
+        const result = await recordExerciseAttempt(input)
+        if (!result.success) {
+          setSaveFailed(true)
+          setPendingAttempts(previous => [...previous, input])
+          return
+        }
+        if (result.isCorrect) setLibrary(previous => previous.map(exercise => exercise.id === input.exerciseId
+          ? { ...exercise, completed: true, attempts: result.attempts } : exercise))
+      } catch {
+        setSaveFailed(true)
+        setPendingAttempts(previous => [...previous, input])
+      }
+    })
+    const currentQueue = saveQueue.current
+    void currentQueue.finally(() => { if (saveQueue.current === currentQueue) setSaving(false) })
+  }, [])
+
+  const handleAttempt = useCallback((exerciseId: string, _isCorrect: boolean, hintShown: boolean, answer: string) => {
+    saveAttempt({ exerciseId, answer, hintShown })
+  }, [saveAttempt])
+
+  const retrySave = () => {
+    setPendingAttempts([])
+    setSaveFailed(false)
+    for (const input of pendingAttempts) saveAttempt(input)
+  }
+
+  const handleNext = useCallback(() => {
     const nextIndex = currentIndex + 1
     setCurrentIndex(nextIndex)
-
-    if (nextIndex >= session.length) {
-      void finishExerciseSession(level).catch(() => {
-        // Fortschrittsanzeige aktualisiert sich dann erst beim nächsten Aufruf.
+    window.requestAnimationFrame(() => headingRef.current?.focus())
+    if (session && nextIndex >= session.length) {
+      void saveQueue.current.then(async () => {
+        try { await finishExerciseSession(level) } catch { setSaveFailed(true) }
       })
     }
-  }, [currentIndex, level, session.length])
-
-  if (session.length === 0) {
-    return (
-      <div className="rounded-3xl bg-[var(--surface)] p-6 text-center shadow-sm ring-1 ring-[var(--border)] sm:p-12">
-        <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-[var(--surface-muted)]">
-          <BookOpenCheck className="h-10 w-10 text-[var(--violet)]" aria-hidden="true" />
-        </div>
-        <h2 className="text-3xl font-bold text-[var(--foreground)]">{t('no_exercises')}</h2>
-        <p className="mx-auto mt-3 max-w-lg text-xl text-[var(--muted)]">{t('no_exercises_hint')}</p>
-        <Link
-          href={`/${lang}/dashboard/level/${encodeURIComponent(level)}`}
-          className="mt-8 inline-flex min-h-16 items-center rounded-2xl bg-[var(--violet)] px-8 py-4 text-xl font-bold text-[var(--surface)] shadow-md transition-colors hover:bg-[var(--violet)]"
-        >
-          {t('back_to_level')}
-        </Link>
-      </div>
-    )
-  }
-
-  if (!currentExercise) {
-    return (
-      <div className="rounded-3xl border-2 border-green-200 bg-green-50 p-6 text-center shadow-sm sm:p-12">
-        <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-green-100">
-          <PartyPopper className="h-10 w-10 text-green-600" aria-hidden="true" />
-        </div>
-        <h2 className="text-3xl font-bold text-green-900">{t('great')}</h2>
-        <p className="mt-3 text-xl text-green-800">{t('all_completed')}</p>
-        <Link
-          href={`/${lang}/dashboard/level/${encodeURIComponent(level)}`}
-          className="mt-8 inline-flex min-h-16 items-center rounded-2xl bg-green-700 px-8 py-4 text-xl font-bold text-white shadow-md transition-colors hover:bg-green-600"
-        >
-          {t('back_to_level')}
-        </Link>
-      </div>
-    )
-  }
-
-  const nextLabel = currentIndex + 1 >= session.length ? t('great') : t('next_exercise')
-  const progressPercent = Math.round((currentIndex / session.length) * 100)
+  }, [currentIndex, level, session])
 
   return (
-    <div className="overflow-hidden rounded-3xl bg-[var(--surface)] shadow-lg ring-1 ring-[var(--border)]">
-      <div className="border-b border-[var(--border)] bg-[var(--surface-muted)] px-5 py-5 text-[var(--foreground)] sm:px-6">
-        <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
-          <span className="break-words text-lg font-medium opacity-90">
-            {currentExercise.lesson} • {currentExercise.topic}
-          </span>
-          <span className="text-lg font-bold">
-            {t('progress_label', { current: currentIndex + 1, total: session.length })}
-          </span>
+    <section className={styles.shell}>
+      <Link href={`/${lang}/dashboard/level/${encodeURIComponent(level)}`} className="academy-button academy-button-secondary mb-2">
+        <ArrowLeft size={18} aria-hidden="true" />{t('back_to_level')}
+      </Link>
+      <header className={styles.hero}>
+        <div>
+          <span className={styles.eyebrow}><PenLine size={16} aria-hidden="true" />{g('level', { level })}</span>
+          <h1 ref={headingRef} tabIndex={-1} className={styles.title}>{g('title')}</h1>
+          <p className={styles.subtitle}>{g('subtitle')}</p>
         </div>
-        {/* Ruhige Fortschrittsanzeige – kein Timer, keine Punktejagd. */}
-        <div
-          className="mt-4 h-3 w-full overflow-hidden rounded-full bg-[var(--border)]"
-          role="progressbar"
-          aria-valuenow={progressPercent}
-          aria-valuemin={0}
-          aria-valuemax={100}
-          aria-label={t('completed_count')}
-        >
-          <div
-            className="h-full rounded-full bg-[var(--accent)] transition-all duration-500"
-            style={{ width: `${progressPercent}%` }}
-          />
+        <div className={styles.stats}>
+          <div className={styles.stat}><strong>{library.length}</strong><span>{g('total')}</span></div>
+          <div className={styles.stat}><strong>{topics.length}</strong><span>{g('topics')}</span></div>
+          <div className={styles.stat}><strong>{completed}</strong><span>{g('solved')}</span></div>
         </div>
-      </div>
+      </header>
 
-      {currentExercise.type === 'fill_in_blank' ? (
-        <FillInBlankExerciseCard
-          key={currentExercise.id}
-          exercise={currentExercise}
-          t={t}
-          nextLabel={nextLabel}
-          onAttempt={(isCorrect, hintShown) => handleAttempt(currentExercise.id, isCorrect, hintShown)}
-          onNext={handleNext}
-        />
-      ) : (
-        <MultipleChoiceExerciseCard
-          key={currentExercise.id}
-          exercise={currentExercise}
-          t={t}
-          nextLabel={nextLabel}
-          onAttempt={(isCorrect, hintShown) => handleAttempt(currentExercise.id, isCorrect, hintShown)}
-          onNext={handleNext}
-        />
-      )}
+      {saveFailed && <div role="status" className={styles.notice}>
+        <CloudOff className="shrink-0" size={20} aria-hidden="true" />
+        <span>{g('saveFailed')}</span>
+        {pendingAttempts.length > 0 && <button type="button" disabled={saving} onClick={retrySave} className="academy-button academy-button-secondary">{t('error_retry')}</button>}
+      </div>}
+      {saving && <p role="status" className={styles.notice}><Loader2 size={18} className="animate-spin" aria-hidden="true" />{g('saving')}</p>}
 
-      {/* Graceful Degradation: Der Durchlauf bleibt nutzbar, auch wenn das
-          Speichern des Fortschritts scheitert. */}
-      {saveFailed && (
-        <div
-          role="status"
-          aria-live="polite"
-          className="flex items-center gap-3 border-t border-[var(--border)] bg-[var(--surface-muted)] px-6 py-4 sm:px-10"
-        >
-          <CloudOff className="h-6 w-6 shrink-0 text-[var(--muted)]" aria-hidden="true" />
-          <p className="text-lg text-[var(--muted)]">{t('error_description')}</p>
+      {library.length === 0 ? <div className={styles.empty}>
+        <BookOpenCheck className="mx-auto text-[var(--violet)]" size={38} aria-hidden="true" />
+        <h2>{t('no_exercises')}</h2><p>{t('no_exercises_hint')}</p>
+      </div> : !session ? <>
+        <div className={styles.sessionBanner}>
+          <div><h2>{g('session')}</h2><p>{completed === library.length ? g('noOpen') : g('sessionHint')}</p></div>
+          <div className={styles.actions}>
+            <button type="button" onClick={() => startSession(undefined, completed === library.length)} className="academy-button academy-button-primary">
+              {completed === library.length ? <RotateCcw size={18} aria-hidden="true" /> : <ArrowRight size={18} aria-hidden="true" />}
+              {completed === library.length ? g('repeat') : g('start')}
+            </button>
+          </div>
         </div>
-      )}
-    </div>
+        <div className={styles.sectionHeading}><h2>{g('library')}</h2><span className="text-sm text-[var(--muted)]">{g('open', { count: library.length - completed })}</span></div>
+        <div className={styles.grid}>
+          {topics.map((topic, index) => <button type="button" key={topic.name} className={styles.topicCard} onClick={() => startSession(topic.name, topic.completed === topic.total)} aria-label={`${topic.name}: ${topic.completed === topic.total ? g('review') : g('practice')}`}>
+            <span className={styles.topicTop}><span className={styles.topicNumber}>{String(index + 1).padStart(2, '0')}</span><span>{topic.completed === topic.total ? <CheckCircle2 size={20} aria-hidden="true" /> : g('open', { count: topic.total - topic.completed })}</span></span>
+            <h3>{topic.name}</h3>
+            <span className={styles.topicFooter}><span>{g('topicProgress', { done: topic.completed, total: topic.total })}</span><ArrowRight size={19} aria-hidden="true" /></span>
+            <span className={styles.progress} aria-hidden="true"><span style={{ width: `${topic.completed / topic.total * 100}%` }} /></span>
+          </button>)}
+        </div>
+      </> : !currentExercise ? <div className={styles.empty}>
+        <CheckCircle2 size={44} className="mx-auto text-[var(--violet)]" aria-hidden="true" />
+        <h2>{g('finished')}</h2><p>{g('finishedHint', { count: session.length })}</p>
+        <button type="button" onClick={() => setSession(null)} className="academy-button academy-button-primary">{g('back')}<ArrowRight size={18} aria-hidden="true" /></button>
+      </div> : <>
+        <button type="button" onClick={() => setSession(null)} className="academy-button academy-button-secondary mb-4"><ArrowLeft size={18} aria-hidden="true" />{g('back')}</button>
+        <div className={styles.practice}>
+          <header className={styles.practiceHeader}>
+            <div className={styles.practiceMeta}><span>{currentExercise.topic}</span><span>{t('progress_label', { current: currentIndex + 1, total: session.length })}</span></div>
+            <div className={styles.progress} role="progressbar" aria-valuenow={currentIndex} aria-valuemin={0} aria-valuemax={session.length} aria-label={t('completed_count')}><span style={{ width: `${currentIndex / session.length * 100}%` }} /></div>
+          </header>
+          {currentExercise.type === 'fill_in_blank' ? <FillInBlankExerciseCard key={currentExercise.id} exercise={currentExercise} t={t}
+            nextLabel={currentIndex + 1 >= session.length ? g('finish') : t('next_exercise')}
+            onAttempt={(correct, hint, answer) => handleAttempt(currentExercise.id, correct, hint, answer)} onNext={handleNext} />
+            : <MultipleChoiceExerciseCard key={currentExercise.id} exercise={currentExercise} t={t}
+              nextLabel={currentIndex + 1 >= session.length ? g('finish') : t('next_exercise')}
+              onAttempt={(correct, hint, answer) => handleAttempt(currentExercise.id, correct, hint, answer)} onNext={handleNext} />}
+        </div>
+      </>}
+    </section>
   )
 }

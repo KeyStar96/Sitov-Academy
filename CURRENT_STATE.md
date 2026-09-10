@@ -1,5 +1,17 @@
 # Current State Analysis (Ist-Zustand)
 
+## Änderungsprotokoll — 2026-09-10: Trainer und Lehrer-Verwaltung
+
+- **Vokabelprüfung:** Lokale Lernlogik und Live-RPC stimmen mit dem Sechs-Phasen-Prinzip überein: richtig +1, falsch −1 (Minimum 1), Abstände 1/3/9/29/90 Tage. Phase 6 ist noch aktiv; nach ihrer richtigen Wiederholung folgt der interne Abschlusswert 7. Ein ganzes Wort zählt erst nach Abschluss beider Richtungen als gelernt. „Kenne ich“ bei der Ersteinstufung setzt beide Richtungen auf Phase 6 mit späterer Fälligkeit, nicht sofort auf gelernt. Die Übersicht erklärt diese Regeln jetzt in allen fünf Oberflächensprachen.
+- **Grammatik:** Neues Themen-/Sitzungsdesign und ausgebautes Lehrer-CMS; 600 neue Aufgaben (100 je A1.1, A1.2, A2.1, A2.2, B1.1, B1.2) zusätzlich zu vier vorhandenen. Serverbewertung, Wiederholversuche und sichere Fortschrittsspeicherung sind integriert. Inhaltsprüfung korrigierte mehrdeutige Distraktoren und ergänzte eindeutige Aufgabenanweisungen.
+- **Aussprache:** 60 selbst verfasste Lesetexte (zehn je vorhandener Kursstufe), Vorbild-Audio, Aufnahme/Waveform, private Einreichung und fortlaufender Text-/Sprachnachrichten-Dialog mit der Lehrkraft. Neue CMS-Seite für Lesetexte; bestehende Aufnahmen und Rückmeldungen bleiben sichtbar. Referenz-TTS unterstützt jetzt bis 3.000 Zeichen und 2 MiB Cache-Objekte.
+- **Videos:** Sekundärer Bereich im Niveau-Dashboard, gestalteter Leerzustand und reine YouTube-Verlinkungen ohne eingebetteten Player. Lehrkräfte können später gültige Links eintragen.
+- **Anmeldung/Registrierung:** Auth-Seiten nutzen Academy-Oberflächen und einen direkten Homepage-Link. Missverständliche Nichtzahlen-Werbung wurde durch klare monatliche Flexibilität/Kündigung per Formular oder E-Mail ersetzt. Bestehende Profile einschließlich verfügbarer Kontaktdaten und Kurshistorie werden ausschließlich nach überprüfter E-Mail-Inhaberschaft verknüpft.
+- **Lehrer-Dashboard:** Neue Bereiche `admin/registrations` und `admin/invoices` mit Kontaktdaten, Kursen, Pending-/Confirmed-Filtern, Annahmefunktion, auswählbarem Rechnungsmonat, offenen/erstellten Rechnungen und optionaler Rechnungsnummer. Papierkram bleibt die manuelle Rechnungserstellung. Ein Kennzeichen ist kein Zahlungseingang oder Versandbeleg.
+- **Rechtstexte:** Datenschutz und AGB in DE/EN/RU/UK/TR um Lernfortschritt, bestätigte Konten, private neue Aufnahmen, Lehrer-Chat, TTS, YouTube-Links und manuelle Vorkasserechnungen ergänzt. Hostingangabe auf Netlify und Papierkram-Anbieter/Aufbewahrungsangabe anhand offizieller Quellen berichtigt. Juristische Prüfung und tatsächliche Anbietervereinbarungen bleiben eine Betreiberaufgabe.
+- **Backend:** Sechs Migrationen live im gebundenen Projekt angewendet. Vorhandene Benutzer, Profile, Registrierungen, Einschreibungen, Vokabelfortschritte, Einreichungen und Lehrerfeedback sind nach Vergleich von Anzahl und Bestandsprüfsummen unverändert. Kein echter Nutzer wurde testweise bestätigt, keine Rechnung versendet und keine Nachricht an Lernende geschickt.
+- **Validierung und Grenzen:** Siehe [Prüfbericht](docs/trainer-admin-refresh-2026-09-10.md). Die Website selbst wurde in diesem Auftrag nicht veröffentlicht.
+
 ## Änderungsprotokoll — 2026-09-10: Telegram-Ziel und leicht häufigere Lichtimpulse
 
 - Anastasias Kontaktbutton führt jetzt zu `https://t.me/Sprachschule_Anastasia` statt zum bisherigen Platzhalter.

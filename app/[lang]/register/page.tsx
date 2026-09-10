@@ -12,6 +12,7 @@ import {
 } from '@/lib/auth-i18n'
 import { getDictionary } from '@/lib/dictionary'
 import { parseAuthStatus, PASSWORD_MIN_LENGTH } from '@/lib/types/auth'
+import { registrationLabels } from '@/lib/admin-registration-i18n'
 
 export const dynamic = 'force-dynamic'
 
@@ -32,6 +33,7 @@ export default async function RegisterPage({
 
   const dictionary = await getDictionary(lang)
   const t = createAuthTranslator(authTranslations(dictionary))
+  const learning = registrationLabels(lang)
 
   return (
     <AuthShell
@@ -50,6 +52,7 @@ export default async function RegisterPage({
       }
     >
       {status && <AuthStatusMessage status={status} message={authStatusMessage(t, status)} />}
+      <p className="rounded-2xl bg-[var(--canvas)] p-4 text-sm leading-relaxed text-[var(--muted)]">{learning.auth_existing}</p>
 
       <AuthForm
         action={signup}

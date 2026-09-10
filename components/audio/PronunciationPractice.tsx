@@ -1,137 +1,45 @@
 'use client'
 
-import { useMemo, useState } from 'react'
-import { Check, ListMusic } from 'lucide-react'
+import { useEffect, useState } from 'react'
+import { prefetchNeuralAudio } from '@/lib/audio/neural-client'
+import { BookOpen, Check, Headphones, Mic, MessageCircle } from 'lucide-react'
 import AudioRecorder from '@/components/audio/AudioRecorder'
 import WaveformPlayer from '@/components/audio/WaveformPlayer'
 import SolutionAudioButton from '@/components/exercises/SolutionAudioButton'
-import {
-  createPronunciationTranslator,
-  type PronunciationTranslations,
-} from '@/lib/pronunciation-i18n'
+import { createPronunciationTranslator, type PronunciationTranslations } from '@/lib/pronunciation-i18n'
 import type { PronunciationPrompt } from '@/lib/pronunciation-prompts'
 
-/**
- * Satzauswahl + Referenzhören + Aufnahme.
- *
- * Die Waveform der Referenz nutzt denselben `AnalyserNode`-Pfad wie die
- * Wiedergabe eigener Aufnahmen, sobald eine Audio-URL vorliegt. Fehlt die
- * Datei, lädt der Neural-Player eine gecachte deutsche MP3.
- */
-export default function PronunciationPractice({
-  prompts,
-  level,
-  translations,
-}: {
-  prompts: readonly PronunciationPrompt[]
-  level: string
-  translations?: PronunciationTranslations
-}) {
+export default function PronunciationPractice({ prompts, level, translations }: { prompts: readonly PronunciationPrompt[]; level: string; translations?: PronunciationTranslations }) {
   const t = createPronunciationTranslator(translations ?? {})
-  const [selectedId, setSelectedId] = useState<string | null>(prompts[0]?.id ?? null)
-
-  const selected = useMemo(
-    () => prompts.find((prompt) => prompt.id === selectedId) ?? prompts[0] ?? null,
-    [prompts, selectedId]
-  )
-
-  if (prompts.length === 0) {
-    return (
-      <div className="rounded-3xl border-2 border-dashed border-[var(--border)] bg-[var(--surface-muted)] p-8 text-center">
-        <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-[var(--surface-muted)]">
-          <ListMusic className="h-8 w-8 text-[var(--accent)]" aria-hidden="true" />
-        </div>
-        <p className="text-lg font-bold text-[var(--foreground)]">{t('prompts_empty')}</p>
-        <p className="mx-auto mt-2 max-w-md text-base text-[var(--muted)]">
-          {t('prompts_empty_hint')}
-        </p>
-        <div className="mt-8">
-          <AudioRecorder level={level} translations={translations} />
-        </div>
+  const [selectedId, setSelectedId] = useState(prompts[0]?.id)
+  const [recordingBusy, setRecordingBusy] = useState(false)
+  const selected = prompts.find((prompt) => prompt.id === selectedId) ?? prompts[0]
+  useEffect(() => {
+    if (!selected) return
+    return prefetchNeuralAudio([{ text: selected.sentenceDe, language: 'de', audioUrl: selected.audioUrl }])
+  }, [selected?.sentenceDe, selected?.audioUrl])
+  if (!selected) return <section className="rounded-[2rem] border border-dashed border-[var(--border)] p-10 text-center"><BookOpen className="mx-auto mb-4 text-[var(--accent)]" size={32} /><h2 className="text-xl font-semibold">{t('prompts_empty')}</h2><p className="mt-3 text-[var(--muted)]">{t('prompts_empty_hint')}</p></section>
+  const wordCount = selected.sentenceDe.split(/\s+/).length
+  return <div className="space-y-6">
+    <ol className="grid gap-3 sm:grid-cols-3">
+      {([{ icon: BookOpen, key: 'step_read' }, { icon: Mic, key: 'step_record' }, { icon: MessageCircle, key: 'step_feedback' }] as const).map(({ icon: Icon, key }, index) => <li key={key} className="flex items-center gap-3 rounded-2xl border border-[var(--border)] bg-[var(--surface)] px-4 py-4"><span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[var(--surface-muted)] text-[var(--accent)]"><Icon size={20} /></span><span className="text-sm font-semibold"><span className="mr-2 text-[var(--muted)]">0{index + 1}</span>{t(key)}</span></li>)}
+    </ol>
+    <div className="grid items-start gap-6 lg:grid-cols-[260px_minmax(0,1fr)]">
+      <aside className="min-w-0 rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-4 lg:sticky lg:top-8">
+        <div className="mb-4 px-2"><h2 className="font-semibold">{t('prompts_title')}</h2><p className="mt-1 text-sm text-[var(--muted)]">{t('text_count', { count: prompts.length })} · {level}</p></div>
+        <label className="sr-only" htmlFor="pronunciation-text">{t('choose_text')}</label>
+        <select id="pronunciation-text" value={selected.id} onChange={(event) => setSelectedId(event.target.value)} disabled={recordingBusy} className="min-h-12 w-full min-w-0 rounded-xl border border-[var(--border)] bg-[var(--surface)] px-3 text-base disabled:opacity-50 lg:hidden">{prompts.map((prompt,index) => <option key={prompt.id} value={prompt.id}>{index + 1}. {prompt.title ?? prompt.sentenceDe}</option>)}</select>
+        <ol className="hidden space-y-1 lg:block">{prompts.map((prompt,index) => <li key={prompt.id}><button type="button" disabled={recordingBusy && prompt.id !== selected.id} aria-pressed={prompt.id === selected.id} onClick={() => setSelectedId(prompt.id)} className={`flex min-h-14 w-full items-center gap-3 rounded-xl p-3 text-left text-sm transition-colors disabled:opacity-40 ${prompt.id === selected.id ? 'bg-[color-mix(in_srgb,var(--accent)_12%,var(--surface))] text-[var(--accent)]' : 'text-[var(--muted)] hover:bg-[var(--surface-muted)]'}`}><span className="w-5 shrink-0 font-semibold">{prompt.id === selected.id ? <Check size={18} /> : String(index+1).padStart(2,'0')}</span><span className="font-medium">{prompt.title ?? prompt.sentenceDe}</span></button></li>)}</ol>
+      </aside>
+      <div className="min-w-0 space-y-5">
+        <article className="overflow-hidden rounded-[2rem] border border-[var(--border)] bg-[var(--surface)] shadow-sm">
+          <header className="border-b border-[var(--border)] p-6 sm:p-8"><div className="mb-4 flex flex-wrap gap-2 text-xs font-semibold text-[var(--muted)]"><span className="rounded-full bg-[var(--surface-muted)] px-3 py-1.5">{level}</span><span className="rounded-full bg-[var(--surface-muted)] px-3 py-1.5">{t('words', { count: wordCount })}</span><span className="rounded-full bg-[var(--surface-muted)] px-3 py-1.5">{t('reading_time', { minutes: Math.max(1, Math.ceil(wordCount / 70)) })}</span></div><h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">{selected.title ?? t('reference_label')}</h2>{selected.focus && <p className="mt-3 text-sm leading-relaxed text-[var(--muted)]">{t('prompt_focus', { focus: selected.focus })}</p>}</header>
+          <div className="p-6 sm:p-8"><p lang="de" className="whitespace-pre-line text-lg leading-[1.95] text-[var(--foreground)] sm:text-xl">{selected.sentenceDe}</p><div className="mt-7 border-t border-[var(--border)] pt-6">{selected.audioUrl ? <WaveformPlayer src={selected.audioUrl} t={t} label={t('reference_listen')} /> : <SolutionAudioButton text={selected.sentenceDe} language="de" label={t('reference_listen')} ariaLabel={t('reference_listen_aria')} />}</div></div>
+        </article>
+        <p className="flex items-start gap-3 px-2 text-sm leading-relaxed text-[var(--muted)]"><Headphones size={20} className="mt-0.5 shrink-0 text-[var(--accent)]" />{t('reading_tip')}</p>
+        <AudioRecorder key={selected.id} promptId={selected.id} level={level} translations={translations} onRecordingStateChange={setRecordingBusy} />
+        <p className="px-3 text-center text-xs leading-relaxed text-[var(--muted)]">{t('recording_privacy')}</p>
       </div>
-    )
-  }
-
-  return (
-    <div className="space-y-6">
-      <section
-        aria-label={t('prompts_title')}
-        className="rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-5 shadow-sm sm:p-6"
-      >
-        <h2 className="text-xl font-bold text-[var(--foreground)]">{t('prompts_title')}</h2>
-        <p className="mt-1 text-base text-[var(--muted)]">{t('prompts_hint')}</p>
-
-        <ul className="mt-4 grid grid-cols-1 gap-3">
-          {prompts.map((prompt, index) => {
-            const isSelected = selected?.id === prompt.id
-            return (
-              <li key={prompt.id}>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setSelectedId(prompt.id)
-                  }}
-                  aria-pressed={isSelected}
-                  className={`flex min-h-14 w-full items-start gap-3 rounded-2xl border-2 p-4 text-left transition-colors focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)] ${
-                    isSelected
-                      ? 'border-[var(--accent)] bg-[var(--surface-muted)]'
-                      : 'border-[var(--border)] bg-[var(--surface)] hover:bg-[var(--surface-muted)]'
-                  }`}
-                >
-                  <span
-                    className={`mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-sm font-bold ${
-                      isSelected ? 'bg-[var(--accent)] text-[var(--accent-foreground)]' : 'bg-[var(--surface-muted)] text-[var(--muted)]'
-                    }`}
-                    aria-hidden="true"
-                  >
-                    {isSelected ? <Check size={20} /> : index + 1}
-                  </span>
-                  <span className="min-w-0 flex-1">
-                    <span className="block text-lg font-semibold text-[var(--foreground)]">
-                      {prompt.sentenceDe}
-                    </span>
-                    {prompt.focus && (
-                      <span className="mt-1 block text-sm font-medium text-[var(--muted)]">
-                        {t('prompt_focus', { focus: prompt.focus })}
-                      </span>
-                    )}
-                  </span>
-                </button>
-              </li>
-            )
-          })}
-        </ul>
-      </section>
-
-      {selected && (
-        <section className="rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-5 shadow-sm sm:p-6">
-          <p className="text-sm font-bold uppercase tracking-wide text-[var(--muted)]">
-            {t('reference_label')}
-          </p>
-          <p className="mt-2 text-2xl font-extrabold leading-snug text-[var(--foreground)]">
-            {selected.sentenceDe}
-          </p>
-
-          <div className="mt-5">
-            {selected.audioUrl ? (
-              <WaveformPlayer
-                src={selected.audioUrl}
-                t={t}
-                label={t('reference_listen')}
-              />
-            ) : (
-              <SolutionAudioButton
-                text={selected.sentenceDe}
-                language="de"
-                label={t('reference_listen')}
-                ariaLabel={t('reference_listen_aria')}
-              />
-            )}
-          </div>
-        </section>
-      )}
-
-      <AudioRecorder level={level} translations={translations} />
     </div>
-  )
+  </div>
 }

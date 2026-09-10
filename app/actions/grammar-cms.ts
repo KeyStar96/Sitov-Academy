@@ -1,0 +1,72 @@
+'use server'
+
+import { z } from 'zod'
+import { revalidatePath } from 'next/cache'
+import { createClient } from '@/utils/supabase/server'
+import { toJsonContent } from '@/lib/types/exercise'
+import {
+  grammarWriteSchema, type GrammarWriteInput, type GrammarSaveResult,
+  type GrammarDeleteResult, type GrammarLoadResult, type GrammarExerciseRow,
+} from '@/lib/grammar-validation'
+
+async function requireGrammarTeacher() {
+  const supabase = await createClient()
+  const { data: { user }, error: authError } = await supabase.auth.getUser()
+  if (authError || !user) throw new Error('staff_required')
+  const { data, error } = await supabase.from('profiles').select('role').eq('id', user.id).single()
+  if (error || (data?.role !== 'admin' && data?.role !== 'teacher')) throw new Error('staff_required')
+  return supabase
+}
+
+export async function getGrammarExercises(): Promise<GrammarLoadResult> {
+  try {
+    const supabase = await requireGrammarTeacher()
+    const rows: GrammarExerciseRow[] = []
+    let offset = 0
+    while (true) {
+      const { data, error } = await supabase.from('exercises').select('*')
+        .order('level').order('lesson').order('id').range(offset, offset + 999)
+      if (error) throw error
+      rows.push(...data)
+      if (data.length < 1000) break
+      offset += 1000
+    }
+    return { data: rows, failed: false }
+  } catch (error) {
+    console.error('Grammar CMS loading failed:', error)
+    return { data: [], failed: true }
+  }
+}
+
+export async function saveGrammarExercise(input: GrammarWriteInput, id?: string): Promise<GrammarSaveResult> {
+  const parsed = grammarWriteSchema.safeParse(input)
+  if (!parsed.success || (id !== undefined && !z.uuid().safeParse(id).success)) return { success: false, error: 'invalid' }
+  try {
+    const supabase = await requireGrammarTeacher()
+    const payload = { ...parsed.data, content: toJsonContent(parsed.data.content) }
+    const query = id ? supabase.from('exercises').update(payload).eq('id', id) : supabase.from('exercises').insert(payload)
+    const { data, error } = await query.select('*').single()
+    if (error || !data) throw error ?? new Error('exercise_unavailable')
+    revalidatePath('/[lang]/admin/content/exercises', 'page')
+    revalidatePath('/[lang]/dashboard/level/[level]/exercises', 'page')
+    return { success: true, data }
+  } catch (error) {
+    console.error('Grammar CMS save failed:', { id, error })
+    return { success: false, error: 'failed' }
+  }
+}
+
+export async function removeGrammarExercise(id: string): Promise<GrammarDeleteResult> {
+  if (!z.uuid().safeParse(id).success) return { success: false }
+  try {
+    const supabase = await requireGrammarTeacher()
+    const { data, error } = await supabase.from('exercises').delete().eq('id', id).select('id').single()
+    if (error || !data) throw error ?? new Error('exercise_unavailable')
+    revalidatePath('/[lang]/admin/content/exercises', 'page')
+    revalidatePath('/[lang]/dashboard/level/[level]/exercises', 'page')
+    return { success: true }
+  } catch (error) {
+    console.error('Grammar CMS delete failed:', { id, error })
+    return { success: false }
+  }
+}

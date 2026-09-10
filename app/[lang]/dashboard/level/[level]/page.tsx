@@ -5,14 +5,6 @@ import { createDashboardTranslator, type DashboardTranslations } from '@/lib/das
 
 const CATEGORIES = [
   {
-    id: 'videos',
-    titleKey: 'cat_videos_title',
-    descKey: 'cat_videos_desc',
-    icon: Video,
-    color: 'vocabulary-phase-review',
-    path: 'videos',
-  },
-  {
     id: 'vocabulary',
     titleKey: 'cat_vocabulary_title',
     descKey: 'cat_vocabulary_desc',
@@ -35,6 +27,14 @@ const CATEGORIES = [
     icon: Mic,
     color: 'vocabulary-phase-secure',
     path: 'pronunciation',
+  },
+  {
+    id: 'videos',
+    titleKey: 'cat_videos_title',
+    descKey: 'cat_videos_desc',
+    icon: Video,
+    color: 'vocabulary-phase-review',
+    path: 'videos',
   },
 ] as const
 
@@ -79,12 +79,12 @@ export default async function LevelDashboard({
         </div>
       </div>
 
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-6">
         {CATEGORIES.map((cat) => (
           <Link
             key={cat.id}
             href={`/${lang}/dashboard/level/${level}/${cat.path}`}
-            className="group flex min-w-0 min-h-[5.5rem] flex-col items-start gap-4 rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-5 shadow-sm transition-colors hover:border-[var(--violet)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)] sm:flex-row sm:items-center sm:gap-6 sm:p-6"
+            className={`${cat.id === 'videos' ? 'md:col-span-3 bg-[var(--surface-muted)]' : ''} group flex min-w-0 min-h-[5.5rem] flex-col items-start gap-4 rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-5 shadow-sm transition-colors hover:border-[var(--violet)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)] sm:flex-col sm:items-start sm:gap-6 sm:p-6`}
           >
             <div
               className={`flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl ${cat.color}`}

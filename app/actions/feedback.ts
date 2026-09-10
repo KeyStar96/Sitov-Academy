@@ -4,6 +4,8 @@ import { revalidatePath } from 'next/cache'
 import { getOutboundSiteUrl } from '@/lib/site-url'
 import { sendEmail } from '@/lib/mail'
 import { createClient } from '@/utils/supabase/server'
+import { currentUserHasLevelAccess } from '@/lib/access/server'
+import { z } from 'zod'
 import type {
   FeedbackActionResult,
   StudentSubmission,
@@ -30,15 +32,25 @@ export async function submitAudioUrl(input: SubmitAudioInput): Promise<FeedbackA
     } = await supabase.auth.getUser()
 
     if (!user) return { success: false, reason: 'not_authenticated' }
-
+    const level = input.level ?? 'A1.1'
+    if (!(await currentUserHasLevelAccess(level))) return { success: false, reason: 'invalid_input' }
+    const legacyPrefix = `https://wcaslabeiwtvygxtzcio.supabase.co/storage/v1/object/public/audio_submissions/${user.id}-`
+    if (!input.url.startsWith(legacyPrefix) || !/^\d+\.(webm|mp4|wav|ogg)$/.test(input.url.slice(legacyPrefix.length))) return { success: false, reason: 'invalid_input' }
+    let attemptNumber = 1
+    if (input.parentId) {
+      if (!z.uuid().safeParse(input.parentId).success) return { success: false, reason: 'invalid_input' }
+      const { data: parent } = await supabase.from('submissions').select('user_id,level,attempt_number').eq('id', input.parentId).single()
+      if (!parent || parent.user_id !== user.id || parent.level !== level) return { success: false, reason: 'invalid_input' }
+      attemptNumber = (parent.attempt_number ?? 1) + 1
+    }
     const { error } = await supabase.from('submissions').insert({
       user_id: user.id,
       type: 'audio',
       content_url: input.url,
       status: 'pending',
       parent_id: input.parentId ?? null,
-      attempt_number: input.attemptNumber ?? 1,
-      level: input.level ?? 'A1.1',
+      attempt_number: attemptNumber,
+      level,
     })
 
     if (error) {
@@ -149,13 +161,18 @@ export async function getUnseenFeedbackSummary(): Promise<UnseenFeedbackSummary>
       return empty
     }
 
-    const rows = data ?? []
-    if (rows.length === 0) return empty
+    const { data: messages, error: messageError } = await supabase
+      .from('pronunciation_messages')
+      .select('created_at, submissions!inner(level,user_id)')
+      .is('seen_at', null)
+      .in('sender_role', ['teacher', 'admin'])
+      .eq('submissions.user_id', user.id)
+      .order('created_at', { ascending: false })
+    if (messageError) console.error('Unread pronunciation messages unavailable', messageError.message)
+    const rows = [...(data ?? []), ...(messages ?? [])]
+      .sort((a, b) => (b.created_at ?? '').localeCompare(a.created_at ?? ''))
+    return { count: rows.length, latestLevel: rows[0]?.submissions?.level ?? null }
 
-    return {
-      count: rows.length,
-      latestLevel: rows[0]?.submissions?.level ?? null,
-    }
   } catch (err) {
     console.error('Unerwarteter Fehler in getUnseenFeedbackSummary:', err)
     return empty
@@ -381,6 +398,13 @@ export async function submitTeacherFeedback(
 
     if (!user) return { success: false, reason: 'not_authenticated' }
 
+    const { data: roleProfile } = await supabase.from('profiles').select('role').eq('id', user.id).single()
+    if (roleProfile?.role !== 'teacher' && roleProfile?.role !== 'admin') return { success: false, reason: 'not_authenticated' }
+    if (!z.uuid().safeParse(input.submissionId).success || feedbackText.length > 5000) return { success: false, reason: 'invalid_input' }
+    if (input.feedbackAudioUrl) {
+      const prefix = `https://wcaslabeiwtvygxtzcio.supabase.co/storage/v1/object/public/audio_submissions/feedback/${input.submissionId}_`
+      if (!input.feedbackAudioUrl.startsWith(prefix) || !/^\d+\.(webm|mp4|wav|ogg)$/.test(input.feedbackAudioUrl.slice(prefix.length))) return { success: false, reason: 'invalid_input' }
+    }
     const { error: insertError } = await supabase.from('teacher_feedback').insert({
       submission_id: input.submissionId,
       teacher_id: user.id,

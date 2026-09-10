@@ -1,9 +1,11 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { useRouter } from 'next/navigation'
+import { createPronunciationSubmission } from '@/app/actions/pronunciation-conversations'
 import { CheckCircle2, Loader2, Mic, Square, Trash2, TriangleAlert, UploadCloud } from 'lucide-react'
 import { submitAudioUrl } from '@/app/actions/feedback'
-import { uploadStudentRecording } from '@/lib/audio/upload'
+import { uploadStudentRecording, uploadPrivatePronunciationRecording } from '@/lib/audio/upload'
 import { useAudioRecorder } from '@/lib/audio/useAudioRecorder'
 import {
   createPronunciationTranslator,
@@ -19,6 +21,8 @@ import WaveformPlayer from '@/components/audio/WaveformPlayer'
  * `lib/audio/upload.ts`. Diese Komponente ist reine UI und Ablaufsteuerung.
  */
 export default function AudioRecorder({
+  promptId,
+  onRecordingStateChange,
   parentId,
   attemptNumber = 1,
   level,
@@ -26,6 +30,8 @@ export default function AudioRecorder({
   onSubmitted,
   compact = false,
 }: {
+  promptId?: string
+  onRecordingStateChange?: (busy: boolean) => void
   parentId?: string
   attemptNumber?: number
   level?: string
@@ -35,10 +41,12 @@ export default function AudioRecorder({
 }) {
   const t = createPronunciationTranslator(translations ?? {})
   const recorder = useAudioRecorder()
+  const router = useRouter()
 
   const [isUploading, setIsUploading] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [uploadFailed, setUploadFailed] = useState(false)
+  useEffect(() => { onRecordingStateChange?.(recorder.isRecording || (recorder.hasRecording && !isSubmitted)) }, [recorder.isRecording, recorder.hasRecording, isSubmitted, onRecordingStateChange])
 
   const statusMessage = (() => {
     if (recorder.status === 'denied') return t('mic_denied')
@@ -61,7 +69,7 @@ export default function AudioRecorder({
     setUploadFailed(false)
 
     try {
-      const upload = await uploadStudentRecording(recorder.audioBlob)
+      const upload = await (promptId ? uploadPrivatePronunciationRecording(recorder.audioBlob) : uploadStudentRecording(recorder.audioBlob))
       if (upload.success === false) {
         // Details stehen bereits im Log von `uploadStudentRecording`
         // (Bucket, Pfad, MIME-Type, Fehlergrund) – hier nur der Ablaufkontext.
@@ -75,7 +83,7 @@ export default function AudioRecorder({
         return
       }
 
-      const result = await submitAudioUrl({
+      const result = promptId ? await createPronunciationSubmission({ promptId, audioPath: upload.publicUrl }) : await submitAudioUrl({
         url: upload.publicUrl,
         parentId,
         attemptNumber,
@@ -95,6 +103,7 @@ export default function AudioRecorder({
 
       setIsSubmitted(true)
       onSubmitted?.()
+      router.refresh()
     } catch (err) {
       // Fängt z.B. Netzwerkabbrüche beim Aufruf der Server Action ab, die
       // sonst als unbehandelte Promise-Rejection verschwinden würden.
@@ -178,6 +187,9 @@ export default function AudioRecorder({
         </p>
       )}
 
+      {recorder.status === 'requesting' && (
+        <p role="status" className="mb-4 text-base text-[var(--muted)]">{t('requesting_mic')}</p>
+      )}
       <div className="mb-2 flex flex-col items-center justify-center gap-4 sm:flex-row">
         {recorder.isRecording ? (
           <button

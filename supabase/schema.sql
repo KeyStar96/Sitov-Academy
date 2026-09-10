@@ -680,3 +680,445 @@ REVOKE ALL ON vocabulary_private.answer_receipts FROM PUBLIC, anon, authenticate
 -- authenticated, owner-bound private submit_answer_once and public invoker wrapper
 -- submit_vocabulary_answer_once(uuid,uuid,boolean,text,text). Exact request replay
 -- returns the committed response without grading twice or moving the cursor.
+
+-- Learning platform refresh, 2026-09-10. Additive definitions; legacy data retained.
+
+-- Source: 20260910184129_secure_registration_manual_invoicing.sql
+BEGIN;
+SET LOCAL lock_timeout = '5s';
+SET LOCAL statement_timeout = '120s';
+
+-- Keep submitted contact details separate from the established student record.
+-- Public registration must never change an existing person's identity.
+ALTER TABLE public.registrations ADD COLUMN contact_snapshot jsonb;
+ALTER TABLE public.registrations ADD CONSTRAINT registrations_contact_snapshot_object
+  CHECK (contact_snapshot IS NULL OR jsonb_typeof(contact_snapshot) = 'object');
+
+-- All public enrollment writes already go through a rate-limited server action.
+-- Direct anonymous writes could bypass pending status and consent validation.
+DROP POLICY IF EXISTS "Anyone can insert registration" ON public.registrations;
+DROP POLICY IF EXISTS "Anyone can insert enrollments" ON public.enrollments;
+REVOKE INSERT, UPDATE, DELETE, TRUNCATE, REFERENCES, TRIGGER ON public.registrations, public.enrollments, public.users FROM anon, authenticated;
+
+CREATE INDEX IF NOT EXISTS users_normalized_email_idx ON public.users (lower(btrim(email)));
+CREATE INDEX IF NOT EXISTS registrations_status_start_idx ON public.registrations(status, start_date);
+
+-- No email/name argument is accepted. Auth confirms email ownership, and the
+-- association is saved atomically so later email changes cannot claim a second
+-- person. Shared addresses and an already claimed legacy record stay unlinked.
+CREATE FUNCTION monthly_booking_private.claim_verified_legacy_profile()
+RETURNS jsonb LANGUAGE plpgsql SECURITY DEFINER SET search_path = '' AS $$
+DECLARE
+  actor uuid := auth.uid();
+  verified_email text;
+  existing_link uuid;
+  candidate uuid;
+  matches integer;
+  person public.users;
+BEGIN
+  IF actor IS NULL THEN RAISE EXCEPTION 'Not authenticated' USING ERRCODE = '42501'; END IF;
+  SELECT lower(btrim(email)) INTO verified_email FROM auth.users
+    WHERE id = actor AND email_confirmed_at IS NOT NULL;
+  IF verified_email IS NULL THEN RETURN jsonb_build_object('id', NULL, 'unresolved', false); END IF;
+  SELECT legacy_user_id INTO existing_link FROM public.profiles WHERE id = actor FOR UPDATE;
+  IF NOT FOUND THEN RAISE EXCEPTION 'Profile missing' USING ERRCODE = '42501'; END IF;
+  IF existing_link IS NOT NULL THEN RETURN jsonb_build_object('id', existing_link, 'unresolved', false); END IF;
+  PERFORM pg_advisory_xact_lock(hashtextextended('legacy-email:' || verified_email, 0));
+  SELECT count(*), (array_agg(id))[1] INTO matches, candidate FROM public.users WHERE lower(btrim(email)) = verified_email;
+  IF matches <> 1 THEN RETURN jsonb_build_object('id', NULL, 'unresolved', matches > 1); END IF;
+  IF EXISTS (SELECT 1 FROM public.profiles WHERE legacy_user_id = candidate AND id <> actor) THEN
+    RETURN jsonb_build_object('id', NULL, 'unresolved', true);
+  END IF;
+  SELECT * INTO person FROM public.users WHERE id = candidate;
+  UPDATE public.profiles SET legacy_user_id = candidate,
+    name = btrim(person.first_name || ' ' || person.last_name),
+    phone = coalesce(phone, person.phone), street = coalesce(street, person.street),
+    zip_code = coalesce(zip_code, person.zip), city = coalesce(city, person.city), updated_at = now()
+    WHERE id = actor AND legacy_user_id IS NULL;
+  RETURN jsonb_build_object('id', candidate, 'unresolved', false);
+END $$;
+REVOKE ALL ON FUNCTION monthly_booking_private.claim_verified_legacy_profile() FROM PUBLIC, anon;
+GRANT EXECUTE ON FUNCTION monthly_booking_private.claim_verified_legacy_profile() TO authenticated;
+CREATE FUNCTION public.claim_verified_legacy_profile() RETURNS jsonb
+LANGUAGE sql SECURITY INVOKER SET search_path = '' AS $$
+  SELECT monthly_booking_private.claim_verified_legacy_profile();
+$$;
+REVOKE ALL ON FUNCTION public.claim_verified_legacy_profile() FROM PUBLIC, anon;
+GRANT EXECUTE ON FUNCTION public.claim_verified_legacy_profile() TO authenticated;
+
+CREATE TABLE public.manual_invoice_status (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  registration_id uuid REFERENCES public.registrations(id) ON DELETE RESTRICT,
+  monthly_booking_id uuid REFERENCES public.monthly_course_bookings(id) ON DELETE RESTRICT,
+  target_month date NOT NULL CHECK (extract(day FROM target_month) = 1),
+  status text NOT NULL DEFAULT 'outstanding' CHECK (status IN ('outstanding', 'created')),
+  invoice_reference text CHECK (char_length(invoice_reference) <= 120),
+  created_by uuid REFERENCES public.profiles(id) ON DELETE SET NULL,
+  invoice_created_at timestamptz,
+  updated_at timestamptz NOT NULL DEFAULT now(),
+  CHECK (num_nonnulls(registration_id, monthly_booking_id) = 1),
+  CHECK ((status = 'created') = (invoice_created_at IS NOT NULL))
+);
+CREATE UNIQUE INDEX manual_invoice_registration_month_idx ON public.manual_invoice_status(registration_id, target_month) WHERE registration_id IS NOT NULL;
+CREATE UNIQUE INDEX manual_invoice_booking_month_idx ON public.manual_invoice_status(monthly_booking_id, target_month) WHERE monthly_booking_id IS NOT NULL;
+CREATE INDEX manual_invoice_month_status_idx ON public.manual_invoice_status(target_month, status);
+CREATE INDEX manual_invoice_created_by_idx ON public.manual_invoice_status(created_by);
+ALTER TABLE public.manual_invoice_status ENABLE ROW LEVEL SECURITY;
+REVOKE ALL ON public.manual_invoice_status FROM PUBLIC, anon, authenticated;
+GRANT SELECT ON public.manual_invoice_status TO authenticated;
+GRANT ALL ON public.manual_invoice_status TO service_role;
+CREATE POLICY "Staff read manual invoice status" ON public.manual_invoice_status FOR SELECT TO authenticated
+  USING ((SELECT monthly_booking_private.current_profile_role()) IN ('teacher', 'admin'));
+
+CREATE FUNCTION monthly_booking_private.confirm_staff_registration(p_source text, p_id uuid)
+RETURNS jsonb LANGUAGE plpgsql SECURITY DEFINER SET search_path = '' AS $$
+DECLARE current_status text;
+BEGIN
+  IF auth.uid() IS NULL OR coalesce(monthly_booking_private.current_profile_role(), '') NOT IN ('teacher', 'admin') THEN
+    RAISE EXCEPTION 'Not authorized' USING ERRCODE = '42501';
+  END IF;
+  IF p_source = 'registration' THEN
+    SELECT status INTO current_status FROM public.registrations WHERE id = p_id FOR UPDATE;
+    IF current_status = 'pending' THEN UPDATE public.registrations SET status = 'confirmed' WHERE id = p_id; END IF;
+  ELSIF p_source = 'monthly_booking' THEN
+    SELECT status INTO current_status FROM public.monthly_course_bookings WHERE id = p_id FOR UPDATE;
+    IF current_status = 'pending' THEN UPDATE public.monthly_course_bookings SET status = 'confirmed' WHERE id = p_id; END IF;
+  ELSE RAISE EXCEPTION 'Invalid source' USING ERRCODE = '23514';
+  END IF;
+  IF current_status IS NULL THEN RAISE EXCEPTION 'Not found' USING ERRCODE = 'P0002'; END IF;
+  IF current_status NOT IN ('pending', 'confirmed') THEN RAISE EXCEPTION 'Registration changed' USING ERRCODE = '40001'; END IF;
+  RETURN jsonb_build_object('status', 'confirmed');
+END $$;
+REVOKE ALL ON FUNCTION monthly_booking_private.confirm_staff_registration(text, uuid) FROM PUBLIC, anon;
+GRANT EXECUTE ON FUNCTION monthly_booking_private.confirm_staff_registration(text, uuid) TO authenticated;
+CREATE FUNCTION public.confirm_staff_registration(p_source text, p_id uuid) RETURNS jsonb
+LANGUAGE sql SECURITY INVOKER SET search_path = '' AS $$ SELECT monthly_booking_private.confirm_staff_registration(p_source, p_id); $$;
+REVOKE ALL ON FUNCTION public.confirm_staff_registration(text, uuid) FROM PUBLIC, anon;
+GRANT EXECUTE ON FUNCTION public.confirm_staff_registration(text, uuid) TO authenticated;
+
+CREATE FUNCTION monthly_booking_private.set_manual_invoice_status(p_source text, p_id uuid, p_month date, p_created boolean, p_reference text)
+RETURNS jsonb LANGUAGE plpgsql SECURITY DEFINER SET search_path = '' AS $$
+DECLARE saved public.manual_invoice_status; current_status text; source_month date;
+BEGIN
+  IF auth.uid() IS NULL OR coalesce(monthly_booking_private.current_profile_role(), '') NOT IN ('teacher', 'admin') THEN
+    RAISE EXCEPTION 'Not authorized' USING ERRCODE = '42501';
+  END IF;
+  IF p_month IS NULL OR extract(day FROM p_month) <> 1 OR p_created IS NULL OR char_length(p_reference) > 120 THEN
+    RAISE EXCEPTION 'Invalid input' USING ERRCODE = '23514';
+  END IF;
+  PERFORM pg_advisory_xact_lock(hashtextextended('invoice:' || p_source || ':' || p_id::text || ':' || p_month::text, 0));
+  IF p_source = 'registration' THEN
+    SELECT status, date_trunc('month', start_date)::date INTO current_status, source_month FROM public.registrations WHERE id = p_id FOR SHARE;
+    IF p_month < source_month THEN RAISE EXCEPTION 'Invalid month' USING ERRCODE = '23514'; END IF;
+  ELSIF p_source = 'monthly_booking' THEN
+    SELECT status, target_month INTO current_status, source_month FROM public.monthly_course_bookings WHERE id = p_id FOR SHARE;
+    IF p_month IS DISTINCT FROM source_month THEN RAISE EXCEPTION 'Invalid month' USING ERRCODE = '23514'; END IF;
+  ELSE RAISE EXCEPTION 'Invalid source' USING ERRCODE = '23514';
+  END IF;
+  IF current_status IS DISTINCT FROM 'confirmed' AND p_created THEN
+    RAISE EXCEPTION 'Booking not confirmed' USING ERRCODE = '40001';
+  END IF;
+  SELECT * INTO saved FROM public.manual_invoice_status WHERE target_month = p_month
+    AND (CASE WHEN p_source = 'registration' THEN registration_id = p_id ELSE monthly_booking_id = p_id END) FOR UPDATE;
+  IF saved.id IS NULL THEN
+    INSERT INTO public.manual_invoice_status(registration_id, monthly_booking_id, target_month)
+    VALUES(CASE WHEN p_source = 'registration' THEN p_id END, CASE WHEN p_source = 'monthly_booking' THEN p_id END, p_month)
+    RETURNING * INTO saved;
+  END IF;
+  UPDATE public.manual_invoice_status SET status = CASE WHEN p_created THEN 'created' ELSE 'outstanding' END,
+    invoice_reference = CASE WHEN p_created THEN nullif(btrim(p_reference), '') ELSE NULL END,
+    created_by = CASE WHEN p_created THEN auth.uid() ELSE NULL END,
+    invoice_created_at = CASE WHEN p_created THEN coalesce(saved.invoice_created_at, now()) ELSE NULL END, updated_at = now()
+    WHERE id = saved.id RETURNING * INTO saved;
+  RETURN to_jsonb(saved);
+END $$;
+REVOKE ALL ON FUNCTION monthly_booking_private.set_manual_invoice_status(text, uuid, date, boolean, text) FROM PUBLIC, anon;
+GRANT EXECUTE ON FUNCTION monthly_booking_private.set_manual_invoice_status(text, uuid, date, boolean, text) TO authenticated;
+CREATE FUNCTION public.set_manual_invoice_status(p_source text, p_id uuid, p_month date, p_created boolean, p_reference text DEFAULT NULL)
+RETURNS jsonb LANGUAGE sql SECURITY INVOKER SET search_path = '' AS $$
+ SELECT monthly_booking_private.set_manual_invoice_status(p_source, p_id, p_month, p_created, p_reference);
+$$;
+REVOKE ALL ON FUNCTION public.set_manual_invoice_status(text, uuid, date, boolean, text) FROM PUBLIC, anon;
+GRANT EXECUTE ON FUNCTION public.set_manual_invoice_status(text, uuid, date, boolean, text) TO authenticated;
+COMMIT;
+
+
+-- Source: 20260910184438_pronunciation_reading_conversations.sql
+-- Additive upgrade: original submissions, feedback and public files remain intact.
+ALTER TABLE public.pronunciation_prompts ADD COLUMN IF NOT EXISTS level text
+  CHECK (level IN ('A1.1','A1.2','A2.1','A2.2','B1.1','B1.2'));
+ALTER TABLE public.pronunciation_prompts ADD COLUMN IF NOT EXISTS title text;
+ALTER TABLE public.pronunciation_prompts ADD COLUMN IF NOT EXISTS is_active boolean NOT NULL DEFAULT true;
+CREATE INDEX IF NOT EXISTS pronunciation_prompts_level_active_idx ON public.pronunciation_prompts (level, sort_order) WHERE is_active;
+ALTER TABLE public.submissions ADD COLUMN IF NOT EXISTS prompt_id uuid REFERENCES public.pronunciation_prompts(id) ON DELETE SET NULL;
+ALTER TABLE public.submissions ADD COLUMN IF NOT EXISTS prompt_title text;
+CREATE INDEX IF NOT EXISTS submissions_prompt_id_idx ON public.submissions(prompt_id);
+CREATE SCHEMA IF NOT EXISTS pronunciation_private;
+REVOKE ALL ON SCHEMA pronunciation_private FROM PUBLIC, anon;
+GRANT USAGE ON SCHEMA pronunciation_private TO authenticated;
+CREATE OR REPLACE FUNCTION pronunciation_private.can_access_submission(p_id uuid)
+RETURNS boolean LANGUAGE sql STABLE SECURITY DEFINER SET search_path = '' AS $$
+ SELECT (SELECT auth.uid()) IS NOT NULL AND EXISTS (
+   SELECT 1 FROM public.submissions s WHERE s.id = p_id AND
+   (s.user_id = (SELECT auth.uid()) OR (SELECT monthly_booking_private.current_profile_role()) IN ('teacher','admin'))
+ );
+$$;
+REVOKE ALL ON FUNCTION pronunciation_private.can_access_submission(uuid) FROM PUBLIC, anon;
+GRANT EXECUTE ON FUNCTION pronunciation_private.can_access_submission(uuid) TO authenticated;
+CREATE TABLE public.pronunciation_messages (
+ id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+ submission_id uuid NOT NULL REFERENCES public.submissions(id) ON DELETE CASCADE,
+ sender_id uuid NOT NULL REFERENCES public.profiles(id),
+ sender_role text NOT NULL DEFAULT 'student' CHECK (sender_role IN ('student','teacher','admin')),
+ text_content text NOT NULL DEFAULT '' CHECK (char_length(text_content) <= 5000),
+ audio_path text,
+ created_at timestamptz NOT NULL DEFAULT now(),
+ seen_at timestamptz,
+ CONSTRAINT pronunciation_message_not_empty CHECK (length(btrim(text_content)) > 0 OR audio_path IS NOT NULL)
+);
+CREATE INDEX pronunciation_messages_thread_created_idx ON public.pronunciation_messages(submission_id,created_at,id);
+CREATE INDEX pronunciation_messages_sender_idx ON public.pronunciation_messages(sender_id);
+CREATE INDEX pronunciation_messages_unseen_idx ON public.pronunciation_messages(submission_id) WHERE seen_at IS NULL;
+ALTER TABLE public.pronunciation_messages ENABLE ROW LEVEL SECURITY;
+REVOKE ALL ON public.pronunciation_messages FROM PUBLIC, anon, authenticated;
+GRANT SELECT, INSERT ON public.pronunciation_messages TO authenticated;
+CREATE POLICY "Conversation participants read messages" ON public.pronunciation_messages FOR SELECT TO authenticated
+ USING ((SELECT pronunciation_private.can_access_submission(submission_id)));
+CREATE POLICY "Participants send their own messages" ON public.pronunciation_messages FOR INSERT TO authenticated
+ WITH CHECK (sender_id = (SELECT auth.uid()) AND (SELECT pronunciation_private.can_access_submission(submission_id)));
+INSERT INTO storage.buckets(id,name,public,file_size_limit,allowed_mime_types)
+ VALUES('pronunciation_audio','pronunciation_audio',false,26214400,ARRAY['audio/webm','audio/mp4','audio/ogg','audio/wav','audio/mpeg'])
+ ON CONFLICT(id) DO NOTHING;
+CREATE POLICY "Pronunciation owners upload" ON storage.objects FOR INSERT TO authenticated
+ WITH CHECK (bucket_id = 'pronunciation_audio' AND (storage.foldername(name))[1] = (SELECT auth.uid())::text);
+CREATE POLICY "Pronunciation participants listen" ON storage.objects FOR SELECT TO authenticated USING (
+ bucket_id = 'pronunciation_audio' AND (
+ (storage.foldername(name))[1] = (SELECT auth.uid())::text
+ OR (SELECT monthly_booking_private.current_profile_role()) IN ('teacher','admin')
+ OR EXISTS(SELECT 1 FROM public.pronunciation_messages m WHERE m.audio_path = 'storage://pronunciation_audio/' || name AND pronunciation_private.can_access_submission(m.submission_id))
+ ));
+CREATE OR REPLACE FUNCTION pronunciation_private.validate_message()
+RETURNS trigger LANGUAGE plpgsql SECURITY DEFINER SET search_path = '' AS $$
+DECLARE actor uuid := (SELECT auth.uid()); actual_role text;
+BEGIN
+ IF actor IS NULL OR NEW.sender_id <> actor OR NOT pronunciation_private.can_access_submission(NEW.submission_id) THEN
+   RAISE EXCEPTION 'Not authorized';
+ END IF;
+ actual_role := (SELECT p.role FROM public.profiles p WHERE p.id = actor);
+ NEW.sender_role := CASE WHEN actual_role IN ('teacher','admin') THEN actual_role ELSE 'student' END;
+ NEW.created_at := now(); NEW.seen_at := NULL;
+ IF NEW.audio_path IS NOT NULL AND (
+   NEW.audio_path NOT LIKE 'storage://pronunciation_audio/' || actor::text || '/%'
+   OR NOT EXISTS(SELECT 1 FROM storage.objects o WHERE o.bucket_id = 'pronunciation_audio' AND 'storage://pronunciation_audio/' || o.name = NEW.audio_path)
+ ) THEN RAISE EXCEPTION 'Invalid recording'; END IF;
+ RETURN NEW;
+END;
+$$;
+REVOKE ALL ON FUNCTION pronunciation_private.validate_message() FROM PUBLIC, anon, authenticated;
+CREATE TRIGGER pronunciation_message_validate BEFORE INSERT ON public.pronunciation_messages
+ FOR EACH ROW EXECUTE FUNCTION pronunciation_private.validate_message();
+CREATE OR REPLACE FUNCTION pronunciation_private.update_conversation_status()
+RETURNS trigger LANGUAGE plpgsql SECURITY DEFINER SET search_path = '' AS $$
+BEGIN
+ IF (SELECT auth.uid()) IS NULL OR NEW.sender_id <> (SELECT auth.uid()) THEN RAISE EXCEPTION 'Not authorized'; END IF;
+ UPDATE public.submissions SET status = CASE WHEN NEW.sender_role IN ('teacher','admin') THEN 'reviewed' ELSE 'pending' END WHERE id = NEW.submission_id;
+ RETURN NEW;
+END;
+$$;
+REVOKE ALL ON FUNCTION pronunciation_private.update_conversation_status() FROM PUBLIC, anon, authenticated;
+CREATE TRIGGER pronunciation_message_status AFTER INSERT ON public.pronunciation_messages
+ FOR EACH ROW EXECUTE FUNCTION pronunciation_private.update_conversation_status();
+CREATE OR REPLACE FUNCTION pronunciation_private.mark_seen(p_submission_id uuid)
+RETURNS void LANGUAGE plpgsql SECURITY DEFINER SET search_path = '' AS $$
+BEGIN
+ IF NOT pronunciation_private.can_access_submission(p_submission_id) THEN RAISE EXCEPTION 'Not authorized'; END IF;
+ UPDATE public.pronunciation_messages SET seen_at = now()
+ WHERE submission_id = p_submission_id AND sender_id <> (SELECT auth.uid()) AND seen_at IS NULL
+ AND (CASE WHEN (SELECT monthly_booking_private.current_profile_role()) IN ('teacher','admin') THEN sender_role = 'student' ELSE sender_role IN ('teacher','admin') END);
+END;
+$$;
+REVOKE ALL ON FUNCTION pronunciation_private.mark_seen(uuid) FROM PUBLIC, anon;
+GRANT EXECUTE ON FUNCTION pronunciation_private.mark_seen(uuid) TO authenticated;
+CREATE OR REPLACE FUNCTION public.mark_pronunciation_seen(p_submission_id uuid)
+RETURNS void LANGUAGE sql SECURITY INVOKER SET search_path = '' AS $$ SELECT pronunciation_private.mark_seen(p_submission_id); $$;
+REVOKE ALL ON FUNCTION public.mark_pronunciation_seen(uuid) FROM PUBLIC, anon;
+GRANT EXECUTE ON FUNCTION public.mark_pronunciation_seen(uuid) TO authenticated;
+-- Exact level access also applies to REST reads. Legacy family texts stay available to staff.
+DROP POLICY IF EXISTS "Nutzer können Übungssätze sehen" ON public.pronunciation_prompts;
+CREATE POLICY "Readers access released pronunciation levels" ON public.pronunciation_prompts FOR SELECT TO authenticated USING (
+ (SELECT monthly_booking_private.current_profile_role()) IN ('teacher','admin') OR
+ (is_active AND level = ANY(COALESCE((SELECT p.allowed_levels FROM public.profiles p WHERE p.id = (SELECT auth.uid())), ARRAY[]::text[])))
+);
+ALTER POLICY "Admins und Lehrer dürfen Übungssätze einfügen" ON public.pronunciation_prompts TO authenticated
+ WITH CHECK ((SELECT monthly_booking_private.current_profile_role()) IN ('teacher','admin'));
+ALTER POLICY "Admins und Lehrer dürfen Übungssätze bearbeiten" ON public.pronunciation_prompts TO authenticated
+ USING ((SELECT monthly_booking_private.current_profile_role()) IN ('teacher','admin'))
+ WITH CHECK ((SELECT monthly_booking_private.current_profile_role()) IN ('teacher','admin'));
+ALTER POLICY "Admins und Lehrer dürfen Übungssätze löschen" ON public.pronunciation_prompts TO authenticated
+ USING ((SELECT monthly_booking_private.current_profile_role()) IN ('teacher','admin'));
+
+-- Reading catalog: 60 seed records live in the linked migration.
+-- Snapshot the reading text server-side, never trust a caller's text or level.
+CREATE OR REPLACE FUNCTION pronunciation_private.create_submission(p_prompt_id uuid, p_audio_path text)
+RETURNS uuid LANGUAGE plpgsql SECURITY DEFINER SET search_path = '' AS $$
+DECLARE actor uuid := (SELECT auth.uid()); prompt public.pronunciation_prompts%ROWTYPE; result uuid;
+BEGIN
+ IF actor IS NULL THEN RAISE EXCEPTION 'Not authenticated'; END IF;
+ SELECT * INTO prompt FROM public.pronunciation_prompts WHERE id = p_prompt_id AND is_active;
+ IF NOT FOUND OR prompt.level IS NULL OR NOT EXISTS(SELECT 1 FROM public.profiles p WHERE p.id = actor AND
+   (p.role IN ('teacher','admin') OR prompt.level = ANY(COALESCE(p.allowed_levels,ARRAY[]::text[])))) THEN RAISE EXCEPTION 'Level not allowed'; END IF;
+ IF p_audio_path NOT LIKE 'storage://pronunciation_audio/' || actor::text || '/%' OR NOT EXISTS(
+ SELECT 1 FROM storage.objects o WHERE o.bucket_id = 'pronunciation_audio' AND 'storage://pronunciation_audio/' || o.name = p_audio_path)
+ THEN RAISE EXCEPTION 'Invalid recording'; END IF;
+ INSERT INTO public.submissions(user_id,type,content_url,text_content,status,level,prompt_id,prompt_title)
+ VALUES(actor,'audio',p_audio_path,prompt.sentence_de,'pending',prompt.level,prompt.id,prompt.title) RETURNING id INTO result;
+ RETURN result;
+END;
+$$;
+REVOKE ALL ON FUNCTION pronunciation_private.create_submission(uuid,text) FROM PUBLIC, anon;
+GRANT EXECUTE ON FUNCTION pronunciation_private.create_submission(uuid,text) TO authenticated;
+CREATE OR REPLACE FUNCTION public.create_pronunciation_submission(p_prompt_id uuid,p_audio_path text)
+RETURNS uuid LANGUAGE sql SECURITY INVOKER SET search_path = '' AS $$ SELECT pronunciation_private.create_submission(p_prompt_id,p_audio_path); $$;
+REVOKE ALL ON FUNCTION public.create_pronunciation_submission(uuid,text) FROM PUBLIC, anon;
+GRANT EXECUTE ON FUNCTION public.create_pronunciation_submission(uuid,text) TO authenticated;
+
+
+-- Source: 20260910184937_grammar_curriculum_and_progress.sql
+-- Apply through the bound project migration workflow, alongside the application.
+-- No existing exercises or progress rows are removed.
+CREATE SCHEMA IF NOT EXISTS grammar_private;
+REVOKE ALL ON SCHEMA grammar_private FROM PUBLIC, anon;
+GRANT USAGE ON SCHEMA grammar_private TO authenticated;
+
+-- Direct client writes could otherwise bypass answer checks and grant scores.
+REVOKE INSERT, UPDATE, DELETE ON public.user_exercise_progress FROM anon, authenticated;
+GRANT SELECT ON public.user_exercise_progress TO authenticated;
+
+CREATE POLICY exercises_level_guard ON public.exercises AS RESTRICTIVE
+FOR SELECT TO authenticated USING (
+  EXISTS (SELECT 1 FROM public.profiles p WHERE p.id = (SELECT auth.uid())
+    AND (p.role IN ('teacher', 'admin') OR exercises.level = ANY(coalesce(p.allowed_levels, ARRAY[]::text[]))))
+);
+
+CREATE FUNCTION grammar_private.record_attempt(p_exercise_id uuid, p_answer text, p_hint_shown boolean DEFAULT false)
+RETURNS jsonb LANGUAGE plpgsql SECURITY DEFINER SET search_path = '' AS $$
+DECLARE
+  actor uuid := auth.uid();
+  target public.exercises;
+  correct boolean;
+  answer_normalized text;
+  attempt_count integer;
+BEGIN
+  IF actor IS NULL THEN RAISE EXCEPTION 'authentication_required' USING ERRCODE = '42501'; END IF;
+  IF p_answer IS NULL OR length(btrim(p_answer)) = 0 OR length(p_answer) > 1000 THEN
+    RAISE EXCEPTION 'invalid_answer' USING ERRCODE = '22023';
+  END IF;
+  SELECT * INTO target FROM public.exercises WHERE id = p_exercise_id;
+  IF NOT FOUND OR target.type NOT IN ('fill_in_blank', 'multiple_choice') THEN
+    RAISE EXCEPTION 'exercise_unavailable' USING ERRCODE = '22023';
+  END IF;
+  IF NOT EXISTS (SELECT 1 FROM public.profiles p WHERE p.id = actor
+    AND (p.role IN ('teacher','admin') OR target.level = ANY(coalesce(p.allowed_levels, ARRAY[]::text[])))) THEN
+    RAISE EXCEPTION 'level_access_denied' USING ERRCODE = '42501';
+  END IF;
+  IF coalesce(target.content->>'correct_answer', '') = '' THEN
+    RAISE EXCEPTION 'exercise_unavailable' USING ERRCODE = '22023';
+  END IF;
+  answer_normalized := lower(regexp_replace(btrim(p_answer), '\s+', ' ', 'g'));
+  correct := answer_normalized = lower(regexp_replace(btrim(target.content->>'correct_answer'), '\s+', ' ', 'g'));
+
+  INSERT INTO public.user_exercise_progress AS progress
+    (user_id, exercise_id, attempts, completed, score, hint_shown, updated_at)
+  VALUES (actor, p_exercise_id, 1, correct, CASE WHEN correct THEN 100 ELSE 0 END, coalesce(p_hint_shown,false), now())
+  ON CONFLICT (user_id, exercise_id) DO UPDATE SET
+    attempts = progress.attempts + 1,
+    completed = coalesce(progress.completed, false) OR correct,
+    hint_shown = progress.hint_shown OR coalesce(p_hint_shown, false),
+    score = greatest(coalesce(progress.score, 0), CASE WHEN correct THEN
+      CASE WHEN progress.attempts + 1 <= 1 THEN 100 WHEN progress.attempts + 1 = 2 THEN 80
+        WHEN progress.attempts + 1 = 3 THEN 60 ELSE 40 END ELSE 0 END),
+    updated_at = now()
+  RETURNING attempts INTO attempt_count;
+  RETURN jsonb_build_object('success', true, 'attempts', attempt_count, 'isCorrect', correct);
+END;
+$$;
+REVOKE ALL ON FUNCTION grammar_private.record_attempt(uuid,text,boolean) FROM PUBLIC, anon;
+GRANT EXECUTE ON FUNCTION grammar_private.record_attempt(uuid,text,boolean) TO authenticated;
+
+CREATE FUNCTION public.record_grammar_attempt(p_exercise_id uuid, p_answer text, p_hint_shown boolean DEFAULT false)
+RETURNS jsonb LANGUAGE sql SECURITY INVOKER SET search_path = '' AS $$
+  SELECT grammar_private.record_attempt(p_exercise_id, p_answer, p_hint_shown);
+$$;
+REVOKE ALL ON FUNCTION public.record_grammar_attempt(uuid,text,boolean) FROM PUBLIC, anon;
+GRANT EXECUTE ON FUNCTION public.record_grammar_attempt(uuid,text,boolean) TO authenticated;
+
+
+
+-- Additional per-pupil invoice guard.
+BEGIN;
+SET LOCAL lock_timeout = '5s';
+SET LOCAL statement_timeout = '120s';
+
+CREATE OR REPLACE FUNCTION monthly_booking_private.set_manual_invoice_status(p_source text, p_id uuid, p_month date, p_created boolean, p_reference text)
+RETURNS jsonb LANGUAGE plpgsql SECURITY DEFINER SET search_path = '' AS $$
+DECLARE saved public.manual_invoice_status; current_status text; source_month date; person_id uuid;
+BEGIN
+  IF auth.uid() IS NULL OR coalesce(monthly_booking_private.current_profile_role(), '') NOT IN ('teacher', 'admin') THEN
+    RAISE EXCEPTION 'Not authorized' USING ERRCODE = '42501';
+  END IF;
+  IF p_month IS NULL OR extract(day FROM p_month) <> 1 OR p_created IS NULL OR char_length(p_reference) > 120 THEN
+    RAISE EXCEPTION 'Invalid input' USING ERRCODE = '23514';
+  END IF;
+  IF p_source = 'registration' THEN
+    SELECT status, date_trunc('month', start_date)::date, user_id INTO current_status, source_month, person_id FROM public.registrations WHERE id = p_id FOR SHARE;
+    IF p_month < source_month THEN RAISE EXCEPTION 'Invalid month' USING ERRCODE = '23514'; END IF;
+  ELSIF p_source = 'monthly_booking' THEN
+    SELECT b.status, b.target_month, coalesce(p.legacy_user_id, p.id) INTO current_status, source_month, person_id
+      FROM public.monthly_course_bookings b JOIN public.profiles p ON p.id = b.user_id WHERE b.id = p_id FOR SHARE OF b;
+    IF p_month IS DISTINCT FROM source_month THEN RAISE EXCEPTION 'Invalid month' USING ERRCODE = '23514'; END IF;
+  ELSE RAISE EXCEPTION 'Invalid source' USING ERRCODE = '23514';
+  END IF;
+  IF current_status IS DISTINCT FROM 'confirmed' AND p_created THEN
+    RAISE EXCEPTION 'Booking not confirmed' USING ERRCODE = '40001';
+  END IF;
+  IF person_id IS NULL THEN RAISE EXCEPTION 'Not found' USING ERRCODE = 'P0002'; END IF;
+  -- Serialize by pupil and month, including when a new registration or monthly
+  -- selection replaces a previously invoiced source. Staff can reopen the old
+  -- label first; the same pupil must never accidentally appear twice as due.
+  PERFORM pg_advisory_xact_lock(hashtextextended('invoice-person:' || person_id::text || ':' || p_month::text, 0));
+  IF p_created AND EXISTS (
+    SELECT 1 FROM public.manual_invoice_status i
+    LEFT JOIN public.registrations r ON r.id = i.registration_id
+    LEFT JOIN public.monthly_course_bookings b ON b.id = i.monthly_booking_id
+    LEFT JOIN public.profiles p ON p.id = b.user_id
+    WHERE i.target_month = p_month AND i.status = 'created'
+      AND coalesce(r.user_id, p.legacy_user_id, p.id) = person_id
+      AND ((p_source = 'registration' AND i.registration_id = p_id)
+        OR (p_source = 'monthly_booking' AND i.monthly_booking_id = p_id)) IS NOT TRUE
+  ) THEN RAISE EXCEPTION 'Invoice already recorded for this pupil and month' USING ERRCODE = '40001'; END IF;
+  SELECT * INTO saved FROM public.manual_invoice_status WHERE target_month = p_month
+    AND (CASE WHEN p_source = 'registration' THEN registration_id = p_id ELSE monthly_booking_id = p_id END) FOR UPDATE;
+  IF saved.id IS NULL THEN
+    INSERT INTO public.manual_invoice_status(registration_id, monthly_booking_id, target_month)
+    VALUES(CASE WHEN p_source = 'registration' THEN p_id END, CASE WHEN p_source = 'monthly_booking' THEN p_id END, p_month)
+    RETURNING * INTO saved;
+  END IF;
+  UPDATE public.manual_invoice_status SET status = CASE WHEN p_created THEN 'created' ELSE 'outstanding' END,
+    invoice_reference = CASE WHEN p_created THEN nullif(btrim(p_reference), '') ELSE NULL END,
+    created_by = CASE WHEN p_created THEN auth.uid() ELSE NULL END,
+    invoice_created_at = CASE WHEN p_created THEN coalesce(saved.invoice_created_at, now()) ELSE NULL END, updated_at = now()
+    WHERE id = saved.id RETURNING * INTO saved;
+  RETURN to_jsonb(saved);
+END $$;
+
+COMMIT;
+
+-- Longer reading texts require a bounded two-megabyte synthesized reference cache.
+UPDATE storage.buckets SET file_size_limit = 2097152 WHERE id = 'audio_cache';
+-- Trigger execution does not require clients to call these functions directly.
+ALTER FUNCTION public.handle_new_user() SET search_path = '';
+ALTER FUNCTION public.handle_registration_confirmation() SET search_path = '';
+REVOKE EXECUTE ON FUNCTION public.handle_new_user(), public.handle_registration_confirmation() FROM PUBLIC, anon, authenticated;
+
+-- Curriculum content proofread: 20260910190329_grammar_curriculum_proofread.sql;
+-- same IDs, guarded content-only updates, no schema or learner data changes.

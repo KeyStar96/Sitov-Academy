@@ -11,7 +11,7 @@ import {
   isMicrophonePermissionDenied,
   pickRecorderMimeType,
   requestMicrophoneStream,
-  unlockAudioContext,
+  resumeAudioContextWithoutBlocking,
 } from '@/lib/audio/web-audio'
 import { mixDownToMono, wavBlobFromMono } from '@/lib/audio/wav'
 import { appendLevel, levelFromTimeDomain, WAVEFORM_BAR_COUNT } from '@/lib/audio/waveform'
@@ -82,6 +82,9 @@ export function useAudioRecorder(): UseAudioRecorderResult {
   const [audioBlob, setAudioBlob] = useState<Blob | null>(null)
 
   const recorderRef = useRef<MediaRecorder | null>(null)
+  const startPendingRef = useRef(false)
+  const generationRef = useRef(0)
+  const mountedRef = useRef(true)
   const streamRef = useRef<MediaStream | null>(null)
   const recordStreamRef = useRef<MediaStream | null>(null)
   const chunksRef = useRef<Blob[]>([])
@@ -136,24 +139,32 @@ export function useAudioRecorder(): UseAudioRecorderResult {
     streamRef.current = null
   }, [])
 
-  useEffect(
-    () => () => {
+  useEffect(() => {
+    mountedRef.current = true
+    return () => {
+      mountedRef.current = false
+      generationRef.current += 1
+      startPendingRef.current = false
       teardown()
       releaseObjectUrl()
-    },
-    [releaseObjectUrl, teardown]
-  )
+    }
+  }, [releaseObjectUrl, teardown])
 
   const start = useCallback(async () => {
+    if (startPendingRef.current || recorderRef.current?.state === 'recording') return
     if (!isRecordingSupported()) {
       setStatus('unsupported')
       return
     }
 
-    // Noch in der Nutzer-Geste: Context anlegen und resume anstoßen.
-    // Nach `await getUserMedia` ist die iOS-Geste verbraucht.
-    const context = ensureAudioContext()
-    void context?.resume()
+    startPendingRef.current = true
+    const generation = ++generationRef.current
+    // Prepare playback during the gesture; recording itself never waits for autoplay.
+    try {
+      resumeAudioContextWithoutBlocking(ensureAudioContext())
+    } catch (error) {
+      console.error('Wiedergabe-Context konnte nicht vorbereitet werden:', error)
+    }
 
     releaseObjectUrl()
     setAudioUrl(null)
@@ -167,14 +178,19 @@ export function useAudioRecorder(): UseAudioRecorderResult {
       stream = await requestMicrophoneStream()
     } catch (err) {
       console.error('Mikrofon-Zugriff nicht möglich:', err)
-      setStatus(isMicrophonePermissionDenied(err) ? 'denied' : 'failed')
+      if (mountedRef.current && generation === generationRef.current) setStatus(isMicrophonePermissionDenied(err) ? 'denied' : 'failed')
+      startPendingRef.current = false
       return
     }
 
+    if (!mountedRef.current || generation !== generationRef.current) {
+      stream.getTracks().forEach((track) => track.stop())
+      startPendingRef.current = false
+      return
+    }
     streamRef.current = stream
 
     try {
-      await unlockAudioContext()
 
       const preferMp4 = browserPrefersMp4Recording()
       const mimeType = pickRecorderMimeType(
@@ -198,6 +214,8 @@ export function useAudioRecorder(): UseAudioRecorderResult {
       }
 
       recorder.onstop = () => {
+        if (!mountedRef.current || generation !== generationRef.current) return
+        teardown()
         void (async () => {
           const type = blobTypeForRecorder(recorder.mimeType, mimeType, preferMp4)
           let output = new Blob(chunksRef.current, { type })
@@ -216,6 +234,7 @@ export function useAudioRecorder(): UseAudioRecorderResult {
             console.error('Aufnahme konnte nicht nach WAV gewandelt werden:', err)
           }
 
+          if (!mountedRef.current || generation !== generationRef.current) return
           const url = URL.createObjectURL(output)
           objectUrlRef.current = url
           setAudioBlob(output)
@@ -226,60 +245,55 @@ export function useAudioRecorder(): UseAudioRecorderResult {
       }
 
       recorder.onerror = () => {
+        if (!mountedRef.current || generation !== generationRef.current) return
         console.error('MediaRecorder hat die Aufnahme abgebrochen.')
         setStatus('failed')
         teardown()
       }
 
-      const analyserContext = ensureMicContext()
-      if (analyserContext && analyserContext.state !== 'closed') {
-        // Im Fall von "suspended" versuchen wir einen Resume
-        if (analyserContext.state === 'suspended') {
-          try {
-            await analyserContext.resume()
-          } catch (err) {
-            console.error('MicContext resume failed:', err)
-          }
-        }
-        
-        const analyser = createAnalyserNode(analyserContext)
-        const source = analyserContext.createMediaStreamSource(stream)
-        source.connect(analyser)
-        sourceNodeRef.current = source
-        analyserRef.current = analyser
-
-        const buffer = new Uint8Array(analyser.fftSize)
-        const tick = () => {
-          const active = analyserRef.current
-          if (!active) return
-
-          const now = performance.now()
-          setElapsedSeconds((now - startedAtRef.current) / 1000)
-
-          if (now - lastSampleAtRef.current >= LEVEL_SAMPLE_INTERVAL_MS) {
-            lastSampleAtRef.current = now
-            active.getByteTimeDomainData(buffer)
-            const level = levelFromTimeDomain(buffer)
-            setLevels((previous) => appendLevel(previous, level, WAVEFORM_BAR_COUNT))
-          }
-
-          frameRef.current = requestAnimationFrame(tick)
-        }
-
-        startedAtRef.current = performance.now()
-        lastSampleAtRef.current = 0
-        frameRef.current = requestAnimationFrame(tick)
-      } else {
-        startedAtRef.current = performance.now()
-      }
-
-      // timeslice: iOS flush't sonst oft erst beim Stopp einen leeren Container.
+      // Native capture is independent of the optional Web Audio visualization.
+      // timeslice also makes Safari flush chunks before the final stop event.
       recorder.start(250)
+      startedAtRef.current = performance.now()
+      lastSampleAtRef.current = 0
       setStatus('recording')
+
+      // Deliberately created AFTER getUserMedia: Safari must see the microphone sample rate.
+      try {
+        const analyserContext = ensureMicContext()
+        if (analyserContext && analyserContext.state !== 'closed') {
+          resumeAudioContextWithoutBlocking(analyserContext)
+          const analyser = createAnalyserNode(analyserContext)
+          const source = analyserContext.createMediaStreamSource(stream)
+          source.connect(analyser)
+          sourceNodeRef.current = source
+          analyserRef.current = analyser
+        }
+      } catch (error) {
+        // A visualizer failure must not discard an otherwise valid microphone recording.
+        console.error('Mikrofon-Waveform konnte nicht verbunden werden:', error)
+      }
+      const buffer = new Uint8Array(analyserRef.current?.fftSize ?? 2048)
+      const tick = () => {
+        if (!mountedRef.current || generation !== generationRef.current || recorder.state !== 'recording') return
+        const now = performance.now()
+        setElapsedSeconds((now - startedAtRef.current) / 1000)
+        if (now - lastSampleAtRef.current >= LEVEL_SAMPLE_INTERVAL_MS) {
+          lastSampleAtRef.current = now
+          const analyser = analyserRef.current
+          if (analyser) analyser.getByteTimeDomainData(buffer)
+          const level = analyser ? levelFromTimeDomain(buffer) : 0
+          setLevels((previous) => appendLevel(previous, level, WAVEFORM_BAR_COUNT))
+        }
+        frameRef.current = requestAnimationFrame(tick)
+      }
+      frameRef.current = requestAnimationFrame(tick)
     } catch (err) {
       console.error('Aufnahme konnte nicht gestartet werden:', err)
       teardown()
-      setStatus('failed')
+      if (mountedRef.current && generation === generationRef.current) setStatus('failed')
+    } finally {
+      startPendingRef.current = false
     }
   }, [releaseObjectUrl, teardown])
 
@@ -293,13 +307,16 @@ export function useAudioRecorder(): UseAudioRecorderResult {
   }, [teardown])
 
   const reset = useCallback(() => {
+    generationRef.current += 1
+    startPendingRef.current = false
+    teardown()
     releaseObjectUrl()
     setAudioBlob(null)
     setAudioUrl(null)
     setLevels([])
     setElapsedSeconds(0)
     setStatus('idle')
-  }, [releaseObjectUrl])
+  }, [releaseObjectUrl, teardown])
 
   return {
     status,

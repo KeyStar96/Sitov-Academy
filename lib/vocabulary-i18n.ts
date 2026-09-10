@@ -5,6 +5,11 @@ import { createTranslator, type Translations, type Translator } from '@/lib/i18n
  * im Regelfall kommen die Texte aus `dictionaries/*.json` (Key `vocabulary`).
  */
 export const VOCABULARY_FALLBACKS = {
+  method_title: "So funktioniert dein Karteikasten",
+  method_progress: "Eine richtige Antwort verschiebt diese Abfragerichtung eine Phase weiter. Bei einer falschen Antwort geht es eine Phase zurück, höchstens bis Phase 1.",
+  method_intervals: "Zwischen richtigen Antworten liegen 1, 3, 9, 29 und 90 Tage. Als schwierig markierte Wörter werden je nach Muttersprache früher wiederholt.",
+  method_learned: "Ein Wort gilt als gelernt, wenn du die fällige Wiederholung in Phase 6 in beiden Richtungen bestanden hast: Deutsch → Übersetzung und Übersetzung → Deutsch. Danach erscheint es nicht mehr in der regulären Abfrage. „Gelernt“ ist ein Lernstatus, keine Garantie, dass du das Wort nie vergisst.",
+  method_assessment: "Bei der Ersteinstufung startet „Kenne ich schon“ direkt in Phase 6. Nach 90 Tagen wird das Wort nochmals in beiden Richtungen geprüft. Das ist eine Abkürzung für vorhandenes Wissen.",
   title: 'Vokabel-Trainer',
   subtitle: 'Lerne Vokabeln mit dem bewährten Phase-6-Karteikasten.',
   due_count: 'Vokabeln fällig',

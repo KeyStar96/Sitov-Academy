@@ -1,0 +1,482 @@
+[
+  {
+    "id": "6d2f8e95-6f87-510b-b244-0631733f8ff9",
+    "level": "A1.1",
+    "title": "Guten Tag, das bin ich",
+    "focus": "ie und ch; kurze Satzpausen",
+    "text": "Guten Tag, ich heiße Anna. Ich komme aus Polen und wohne jetzt in Hannover. Ich bin dreißig Jahre alt. Meine Familie ist klein. Mein Mann heißt Paul. Wir lernen zusammen Deutsch. Am Abend trinken wir Tee und lesen ein Buch.",
+    "sortOrder": 1
+  },
+  {
+    "id": "d7280df2-9f87-5729-bd8f-19c9b47c9488",
+    "level": "A1.1",
+    "title": "Mein Frühstück",
+    "focus": "ü und st; Aufzählungen",
+    "text": "Es ist sieben Uhr. Ich sitze in der Küche und frühstücke. Auf dem Tisch stehen Brot, Käse und eine Tasse Tee. Mein Sohn trinkt Milch. Er isst einen Apfel. Das Brot ist frisch. Wir haben Zeit und sprechen ein bisschen.",
+    "sortOrder": 2
+  },
+  {
+    "id": "25bdcac1-9272-5294-893f-c2063b4838b9",
+    "level": "A1.1",
+    "title": "Unser Kursraum",
+    "focus": "sch und lange Vokale",
+    "text": "Das ist unser Kursraum. Er ist hell und groß. Hier stehen zwölf Stühle und sechs Tische. An der Wand ist eine Tafel. Mein Heft liegt auf dem Tisch. Die Lehrerin kommt und sagt guten Morgen. Jetzt beginnt unser Deutschkurs.",
+    "sortOrder": 3
+  },
+  {
+    "id": "b73f6228-c6c7-591b-ac83-2bae82a3b163",
+    "level": "A1.1",
+    "title": "Eine neue Nachbarin",
+    "focus": "ei und eu; Fragen",
+    "text": "Ich wohne in der Gartenstraße. Meine Nachbarin heißt Leyla. Sie ist neu hier. Heute treffen wir uns vor dem Haus. Ich sage Hallo und frage: Wie geht es Ihnen? Leyla lächelt. Es geht ihr gut. Wir trinken später zusammen Kaffee.",
+    "sortOrder": 4
+  },
+  {
+    "id": "fd1297a1-999f-5759-b0d9-1f77c381d114",
+    "level": "A1.1",
+    "title": "Am Samstag im Park",
+    "focus": "a und r; ruhiger Rhythmus",
+    "text": "Heute ist Samstag. Die Sonne scheint. Mein Freund und ich gehen in den Park. Dort sind viele Bäume und Blumen. Wir sitzen auf einer Bank. Ein kleiner Hund spielt im Gras. Wir hören Musik und essen unser Brot.",
+    "sortOrder": 5
+  },
+  {
+    "id": "a218b88e-9369-5472-b5fe-34c99d1ced76",
+    "level": "A1.1",
+    "title": "Mein Zimmer",
+    "focus": "z und sch; Wortbetonung",
+    "text": "Mein Zimmer ist nicht groß, aber schön. Links steht mein Bett. Am Fenster steht ein Tisch. Auf dem Tisch liegt mein Deutschbuch. Der Stuhl ist blau. Ich lese hier gern. Am Abend mache ich die Lampe an und lerne neue Wörter.",
+    "sortOrder": 6
+  },
+  {
+    "id": "15c29bec-e14e-5f27-8f12-ea9e45145e97",
+    "level": "A1.1",
+    "title": "Im kleinen Laden",
+    "focus": "ä und ch; Zahlen",
+    "text": "Ich bin im Laden. Ich brauche Milch, Brot und drei Äpfel. Die Verkäuferin ist freundlich. Sie zeigt mir das Brot. Es kostet zwei Euro. Ich nehme auch Wasser. Dann bezahle ich und sage danke. Meine Tasche ist jetzt voll.",
+    "sortOrder": 7
+  },
+  {
+    "id": "610e3f81-2a6f-5794-bb78-ef06cb7ece17",
+    "level": "A1.1",
+    "title": "Meine Familie",
+    "focus": "ie und ö; Namen deutlich sprechen",
+    "text": "Das ist ein Foto von meiner Familie. Meine Mutter heißt Maria. Sie kocht gern. Mein Vater heißt Oleg. Er hört gern Musik. Meine Schwester ist zwanzig Jahre alt. Sie lernt Deutsch wie ich. Wir telefonieren oft und lachen viel.",
+    "sortOrder": 8
+  },
+  {
+    "id": "c8055fa7-7bb0-5027-9f3e-13d001eb728b",
+    "level": "A1.1",
+    "title": "Der Weg zum Kurs",
+    "focus": "w und k; Satzende",
+    "text": "Mein Kurs beginnt um neun Uhr. Ich gehe um acht Uhr aus dem Haus. Die Haltestelle ist nah. Ich fahre mit dem Bus. Am Bahnhof steige ich aus. Die Schule ist rechts. Vor der Tür wartet mein Freund. Wir gehen zusammen hinein.",
+    "sortOrder": 9
+  },
+  {
+    "id": "4a6f7008-9439-5c6e-9d60-113e8945f800",
+    "level": "A1.1",
+    "title": "Ein ruhiger Abend",
+    "focus": "au und ng; gleichmäßiges Tempo",
+    "text": "Es ist Abend. Ich bin zu Hause. Mein Handy liegt auf dem Tisch. Heute lese ich ein kleines Buch. Meine Katze schläft auf dem Sofa. Ich trinke Wasser und höre leise Musik. Um zehn Uhr gehe ich ins Bett. Gute Nacht!",
+    "sortOrder": 10
+  },
+  {
+    "id": "1b5c02d4-7217-56e0-8abb-906c20784e30",
+    "level": "A1.2",
+    "title": "Ein Termin beim Arzt",
+    "focus": "ch und ts; höfliche Fragen",
+    "text": "Seit gestern tut mein Hals weh. Ich rufe in der Praxis an und möchte einen Termin machen. Die Mitarbeiterin fragt nach meinem Namen. Ich buchstabiere ihn langsam. Am Nachmittag ist ein Termin frei. Ich kann um drei Uhr kommen. Meine Versichertenkarte nehme ich mit. Danach bleibe ich zu Hause und trinke warmen Tee.",
+    "sortOrder": 1
+  },
+  {
+    "id": "add5b212-15af-55b5-b224-6282b5c39c13",
+    "level": "A1.2",
+    "title": "Wir kochen zusammen",
+    "focus": "sch und ü; Arbeitsfolge",
+    "text": "Am Freitag kommen zwei Freunde zu mir. Wir möchten zusammen eine Suppe kochen. Zuerst kaufen wir Gemüse auf dem Markt. Dann waschen wir die Karotten und schneiden die Kartoffeln. Meine Freundin kocht Wasser. Ich decke den Tisch. Die Suppe schmeckt gut, und wir essen noch Brot dazu. Später räumen wir die Küche auf.",
+    "sortOrder": 2
+  },
+  {
+    "id": "924ee488-8b97-5070-ba23-eea0f03992e6",
+    "level": "A1.2",
+    "title": "Ein Besuch im Schwimmbad",
+    "focus": "schw und au; Satzmelodie",
+    "text": "Meine Tochter kann schon gut schwimmen. Am Sonntag gehen wir ins Schwimmbad. Ich packe zwei Handtücher und unsere Badesachen ein. An der Kasse kaufen wir zwei Karten. Das Wasser ist angenehm warm. Meine Tochter schwimmt, und ich übe mit ihr. Nach einer Stunde machen wir eine Pause. Wir haben Hunger und essen eine Banane.",
+    "sortOrder": 3
+  },
+  {
+    "id": "6e15b015-d482-58e4-9fa2-25ba0c8dea72",
+    "level": "A1.2",
+    "title": "Die Einladung",
+    "focus": "ei und ü; Betonung von Zeitangaben",
+    "text": "Nächste Woche habe ich Geburtstag. Ich möchte mit meinen Nachbarn feiern. Die Feier beginnt am Samstag um vier Uhr. Ich schreibe eine kurze Einladung und lege sie in ihre Briefkästen. Jeder kann etwas zu essen mitbringen. Ich kaufe Getränke und backe einen Kuchen. Wir können im Garten sitzen. Bei Regen feiern wir in meiner Wohnung.",
+    "sortOrder": 4
+  },
+  {
+    "id": "93e4a1ed-cb70-5f0a-9dd2-cf6b2a9c9699",
+    "level": "A1.2",
+    "title": "Auf dem Wochenmarkt",
+    "focus": "ö und pf; Mengenangaben",
+    "text": "Am Mittwoch ist Markt auf dem großen Platz. Ich gehe mit meinem Korb dorthin. An einem Stand gibt es frische Äpfel und Birnen. Ich möchte ein Kilo Äpfel kaufen. Die Verkäuferin lässt mich einen Apfel probieren. Er schmeckt süß. Am nächsten Stand kaufe ich Kartoffeln. Zum Schluss hole ich Blumen für meine Küche.",
+    "sortOrder": 5
+  },
+  {
+    "id": "5b3316e2-4a9f-5689-ba11-e5d0dc420f2b",
+    "level": "A1.2",
+    "title": "Eine Wohnung besichtigen",
+    "focus": "w und ü; sinnvolle Pausen",
+    "text": "Wir suchen eine neue Wohnung. Unsere Wohnung ist zu klein. Heute sehen wir uns eine Wohnung in der Nordstraße an. Sie hat drei Zimmer und einen Balkon. Die Küche ist hell. Neben dem Haus ist ein Spielplatz. Die Miete ist für uns etwas hoch. Wir möchten noch eine Nacht darüber schlafen und morgen anrufen.",
+    "sortOrder": 6
+  },
+  {
+    "id": "00cedd4e-cf66-50ae-a181-e687d85a8379",
+    "level": "A1.2",
+    "title": "Ein Ausflug mit dem Zug",
+    "focus": "z und ü; Zahlen und Uhrzeiten",
+    "text": "Morgen besuchen wir meine Schwester in Bremen. Unser Zug fährt um halb zehn. Wir müssen früh aufstehen und die Taschen packen. Am Bahnhof kaufen wir noch ein Brötchen. Auf der Anzeige steht Gleis sieben. Im Zug sitzen wir am Fenster. Meine Schwester wartet am Bahnhof auf uns. Zusammen fahren wir mit der Straßenbahn zu ihr.",
+    "sortOrder": 7
+  },
+  {
+    "id": "0022c931-279a-5050-ac2d-459c1e978cd1",
+    "level": "A1.2",
+    "title": "In der Bibliothek",
+    "focus": "b und ch; Fragesätze",
+    "text": "Ich möchte mehr auf Deutsch lesen. Deshalb gehe ich heute in die Bibliothek. Eine Mitarbeiterin erklärt mir die Anmeldung. Ich brauche meinen Ausweis und bekomme eine Karte. Im ersten Stock finde ich leichte Bücher. Ich nehme eine kurze Geschichte mit vielen Bildern. Das Buch darf ich vier Wochen behalten. Nächste Woche möchte ich wiederkommen.",
+    "sortOrder": 8
+  },
+  {
+    "id": "b3fd31c6-efa8-5a64-85d9-7d419b4c42f4",
+    "level": "A1.2",
+    "title": "Ein verlorener Schlüssel",
+    "focus": "schl und ü; Hauptakzente",
+    "text": "Ich stehe vor meiner Haustür und suche meinen Schlüssel. Er ist nicht in meiner Jacke. Auch in meiner Tasche finde ich ihn nicht. Ich rufe meinen Mann an. Er ist noch bei der Arbeit. Zum Glück hat unsere Nachbarin einen zweiten Schlüssel. Sie öffnet mir die Tür. Mein Schlüssel liegt auf dem Küchentisch.",
+    "sortOrder": 9
+  },
+  {
+    "id": "8cd6b9c9-8eaf-5a08-863b-27e712dbc484",
+    "level": "A1.2",
+    "title": "Der neue Stundenplan",
+    "focus": "st und sp; Satzverbindungen",
+    "text": "Unser Deutschkurs hat ab Montag neue Zeiten. Wir lernen jetzt am Vormittag von neun bis zwölf Uhr. Am Dienstag üben wir besonders viel Sprechen. Am Donnerstag lesen wir kurze Texte. Die Lehrerin erklärt den Stundenplan langsam. Ich schreibe die Zeiten in meinen Kalender. Nach dem Kurs kann ich meine Tochter von der Schule abholen. Das passt gut für mich.",
+    "sortOrder": 10
+  },
+  {
+    "id": "b2ae5915-20dd-5018-8921-6afe5be0f1fd",
+    "level": "A2.1",
+    "title": "Mein erster Arbeitstag",
+    "focus": "ei und ar; Vergangenheitsformen",
+    "text": "Gestern hatte ich meinen ersten Arbeitstag in einer Bäckerei. Ich war ein bisschen nervös und bin sehr früh losgefahren. Meine Kollegin hat mir zuerst die Küche gezeigt. Danach haben wir zusammen die Brötchen sortiert. An der Kasse musste ich oft nachfragen, weil die Kunden schnell gesprochen haben. Meine Kollegin war geduldig und hat mir geholfen. Am Abend war ich müde, aber auch stolz. Heute kenne ich schon mehr Wörter für meine Arbeit.",
+    "sortOrder": 1
+  },
+  {
+    "id": "acb54d47-e197-56ca-9eb7-a890abce63f6",
+    "level": "A2.1",
+    "title": "Das Fahrrad ist kaputt",
+    "focus": "f und pf; Begründungen",
+    "text": "Auf dem Weg zum Kurs ist mein Fahrrad kaputtgegangen. Der hintere Reifen war plötzlich leer. Ich habe das Rad bis zur nächsten Werkstatt geschoben. Der Mechaniker hat ein kleines Loch gefunden. Er konnte den Reifen noch am selben Vormittag reparieren. Deshalb bin ich mit dem Bus zur Schule gefahren. Meiner Lehrerin habe ich eine kurze Nachricht geschickt. Nach dem Kurs habe ich mein Fahrrad abgeholt und bin vorsichtig nach Hause gefahren.",
+    "sortOrder": 2
+  },
+  {
+    "id": "2c6b8ac4-28e2-556d-950e-9937d7da0da9",
+    "level": "A2.1",
+    "title": "Ein Paket für die Nachbarin",
+    "focus": "p und k; Satzglieder verbinden",
+    "text": "Als ich gestern nach Hause kam, klingelte der Paketbote. Meine Nachbarin war nicht da, und ich habe ihr Paket angenommen. Am Abend habe ich einen Zettel an ihre Tür gehängt. Darauf stand, dass sie bei mir klingeln kann. Eine Stunde später kam sie vorbei. In dem Paket waren Bücher für ihre Tochter. Wir haben kurz über die Schule gesprochen. Zum Dank hat sie mich am Wochenende zum Kaffee eingeladen.",
+    "sortOrder": 3
+  },
+  {
+    "id": "5ec73679-e979-5ef6-bbac-8d14af8d2651",
+    "level": "A2.1",
+    "title": "Ein Rezept von meiner Mutter",
+    "focus": "r und ch; Reihenfolge hörbar machen",
+    "text": "Meine Mutter hat mir am Telefon ein einfaches Rezept erklärt. Ich wollte einen Apfelkuchen backen, hatte aber wenig Erfahrung. Zuerst habe ich die Zutaten aufgeschrieben und alles eingekauft. Dann habe ich den Teig vorbereitet. Während der Kuchen im Ofen war, habe ich die Küche aufgeräumt. Nach vierzig Minuten roch die ganze Wohnung nach Äpfeln. Der Kuchen war etwas dunkel, hat aber gut geschmeckt. Meiner Mutter habe ich ein Foto geschickt.",
+    "sortOrder": 4
+  },
+  {
+    "id": "3dfcf736-84e5-599d-a492-b780ffc491c4",
+    "level": "A2.1",
+    "title": "Sport nach der Arbeit",
+    "focus": "sp und st; längere Wortgruppen",
+    "text": "Seit einem Monat besuche ich einen Sportkurs im Stadtteilzentrum. Der Kurs findet immer mittwochs nach meiner Arbeit statt. Am Anfang waren die Übungen ziemlich anstrengend. Jetzt kann ich schon länger mitmachen. Die Trainerin zeigt jede Bewegung langsam und erklärt sie noch einmal. In der Gruppe sind Menschen aus verschiedenen Ländern. Nach dem Training trinken wir manchmal zusammen Wasser und unterhalten uns. Ich bewege mich mehr und lerne dabei neue Leute kennen.",
+    "sortOrder": 5
+  },
+  {
+    "id": "dbe98ecb-4d32-5767-be6c-f54728c93f7d",
+    "level": "A2.1",
+    "title": "Ein Besuch auf dem Land",
+    "focus": "l und au; weiche Übergänge",
+    "text": "Letztes Wochenende haben wir Freunde auf dem Land besucht. Sie wohnen in einem alten Haus mit einem großen Garten. Wir sind morgens mit dem Zug gefahren. Am Bahnhof haben sie uns abgeholt. Nach dem Mittagessen haben wir einen langen Spaziergang gemacht. Die Kinder haben Pferde gesehen und viele Fragen gestellt. Abends haben wir draußen gesessen, bis es kühl wurde. Am Sonntag wollten die Kinder gar nicht wieder nach Hause fahren.",
+    "sortOrder": 6
+  },
+  {
+    "id": "2f3b292b-8bdb-5007-90cb-278f9c00fc02",
+    "level": "A2.1",
+    "title": "Die Anmeldung im Verein",
+    "focus": "ng und ei; höfliche Bitten",
+    "text": "Ich möchte in einem Verein Fußball spielen und habe mich im Internet informiert. Ein Verein in meiner Nähe bietet ein kostenloses Probetraining an. Ich habe eine E-Mail geschrieben und nach der Uhrzeit gefragt. Der Trainer hat schnell geantwortet. Ich soll Sportschuhe und etwas zu trinken mitbringen. Am Donnerstag gehe ich zum ersten Mal hin. Ein Freund begleitet mich, weil er auch gern Fußball spielt. Wir freuen uns auf das Training.",
+    "sortOrder": 7
+  },
+  {
+    "id": "ad61d4d1-2223-533e-974e-51a2d97806b0",
+    "level": "A2.1",
+    "title": "Ein Ausfall der Heizung",
+    "focus": "h und z; Problem erklären",
+    "text": "Heute Morgen war es in unserer Wohnung sehr kalt. Obwohl ich die Heizung aufgedreht habe, blieb sie kalt. Ich habe den Vermieter angerufen und das Problem beschrieben. Er hat sofort einen Handwerker bestellt. Bis der Handwerker kam, haben wir warme Pullover angezogen und Tee getrunken. Zum Glück war nur ein kleines Teil kaputt. Am Nachmittag wurde die Wohnung wieder warm. Ich war froh, dass der Vermieter so schnell reagiert hat.",
+    "sortOrder": 8
+  },
+  {
+    "id": "c5d7b014-5b84-57f5-bfb0-67e3bcb65066",
+    "level": "A2.1",
+    "title": "Lernen in der Gruppe",
+    "focus": "ü und gr; Betonung wichtiger Wörter",
+    "text": "Vor der letzten Prüfung haben wir uns zu dritt in der Bibliothek getroffen. Jeder hat eine kleine Aufgabe vorbereitet. Zuerst haben wir neue Wörter wiederholt. Danach haben wir kurze Gespräche geübt. Wenn jemand einen Fehler gemacht hat, haben die anderen geholfen. Niemand musste sich schämen. Nach einer Stunde haben wir eine Pause gemacht. Das gemeinsame Lernen war angenehm, und wir möchten uns jetzt jede Woche treffen.",
+    "sortOrder": 9
+  },
+  {
+    "id": "99feaf25-8ae7-58f7-a492-e2aa4a501707",
+    "level": "A2.1",
+    "title": "Ein Tag ohne Handy",
+    "focus": "a und ei; deutliche Satzenden",
+    "text": "Am Sonntag habe ich mein Handy zu Hause vergessen. Zuerst war ich unruhig, weil ich meine Nachrichten nicht lesen konnte. Im Park habe ich mich dann auf eine Bank gesetzt und die Menschen beobachtet. Später habe ich in einem Café eine Zeitung gelesen. Ohne Handy hatte ich viel mehr Zeit. Am Abend habe ich meine Nachrichten beantwortet. Es war nichts Dringendes dabei. Vielleicht lasse ich mein Handy am nächsten Sonntag wieder zu Hause.",
+    "sortOrder": 10
+  },
+  {
+    "id": "bea3e65f-1668-5539-a4c3-ce044fe067e1",
+    "level": "A2.2",
+    "title": "Eine Reise mit Hindernissen",
+    "focus": "r und ch; Nebensatzpausen",
+    "text": "Wir wollten am Samstag früh zu meinen Eltern fahren, doch unser Zug hatte Verspätung. Auf dem Bahnsteig war es voll, und die Durchsage war schwer zu verstehen. Eine Mitarbeiterin erklärte uns, dass wir einen anderen Zug nehmen konnten. Weil wir in einer fremden Stadt umsteigen mussten, war ich zunächst unsicher. Zum Glück zeigte uns ein Mitreisender das richtige Gleis. Wir kamen zwei Stunden später an als geplant. Meine Eltern hatten das Essen warm gehalten. Trotz der langen Fahrt wurde es noch ein schöner Abend.",
+    "sortOrder": 1
+  },
+  {
+    "id": "3243b764-4bfc-5fc6-8c24-1a49962988ff",
+    "level": "A2.2",
+    "title": "Ein Gespräch über Arbeitszeiten",
+    "focus": "ts und ei; Wünsche betonen",
+    "text": "Seit meine Tochter in die Schule geht, passen meine Arbeitszeiten nicht mehr gut zu unserem Alltag. Deshalb habe ich meine Chefin um ein Gespräch gebeten. Ich habe erklärt, dass ich am Nachmittag früher zu Hause sein muss. Dafür könnte ich morgens eine Stunde früher anfangen. Meine Chefin wollte zuerst mit dem Team sprechen. Einige Tage später hat sie meinem Vorschlag zugestimmt. Wir probieren die neue Regelung zunächst für einen Monat aus. Ich bin froh, dass ich offen über mein Problem gesprochen habe.",
+    "sortOrder": 2
+  },
+  {
+    "id": "51347d93-a3a8-50aa-811e-4ea2816386f9",
+    "level": "A2.2",
+    "title": "Unser gemeinsamer Innenhof",
+    "focus": "h und ö; Gegensätze hörbar machen",
+    "text": "Der Innenhof unseres Hauses war lange leer und ungemütlich. Bei einem Treffen haben wir Nachbarn überlegt, wie wir ihn verändern könnten. Einige wollten Blumen pflanzen, andere wünschten sich eine Bank. Gemeinsam haben wir einen Plan gemacht und beim Vermieter nachgefragt. Nachdem er zugestimmt hatte, haben wir an einem Samstag alles vorbereitet. Jeder hat eine kleine Aufgabe übernommen. Jetzt sitzen wir abends oft draußen. Der Hof ist schöner geworden, und wir kennen uns im Haus viel besser.",
+    "sortOrder": 3
+  },
+  {
+    "id": "194df28b-7175-5ffa-9813-2c5967cc2cb9",
+    "level": "A2.2",
+    "title": "Eine Reklamation im Geschäft",
+    "focus": "k und r; sachlicher Ton",
+    "text": "Vor zwei Wochen habe ich neue Schuhe gekauft. Schon nach wenigen Tagen hat sich an einem Schuh die Sohle gelöst. Deshalb bin ich mit den Schuhen und dem Kassenbon ins Geschäft gegangen. Ich habe der Verkäuferin ruhig erklärt, was passiert ist. Sie hat die Schuhe geprüft und eine Kollegin dazugeholt. Leider war meine Größe nicht mehr da. Wir haben vereinbart, dass das Geschäft mich anruft, sobald ein neues Paar ankommt. Die freundliche Lösung hat mich erleichtert.",
+    "sortOrder": 4
+  },
+  {
+    "id": "cdc98a2c-2e24-505e-bcc8-a1e68bfe2553",
+    "level": "A2.2",
+    "title": "Hilfe beim Deutschlernen",
+    "focus": "ch und l; indirekte Fragen",
+    "text": "Mein Nachbar lernt seit Kurzem Deutsch und hat mich gefragt, wie ich zu Hause übe. Ich habe ihm gezeigt, dass ich jeden Tag nur wenige neue Wörter lerne und ältere Wörter regelmäßig wiederhole. Außerdem höre ich kurze Texte mehrmals an. Zuerst achte ich auf den Inhalt, später auf die Aussprache. Wir haben beschlossen, uns zweimal in der Woche für zwanzig Minuten zu treffen. Dabei wollen wir über Alltagsthemen sprechen. Ich kann selbst noch nicht alles richtig sagen, aber wir helfen uns gegenseitig.",
+    "sortOrder": 5
+  },
+  {
+    "id": "1c914afb-1958-5045-bda2-d609de2bd365",
+    "level": "A2.2",
+    "title": "Ein freiwilliger Einsatz",
+    "focus": "f und ei; flüssige Aufzählungen",
+    "text": "In unserem Stadtteil wurde am Samstag Müll gesammelt. Ich habe durch einen Aushang davon erfahren und mich angemeldet. Am Treffpunkt bekamen wir Handschuhe und große Säcke. Eine Organisatorin erklärte, welche Wege wir sauber machen sollten. Ich war mit einer älteren Frau in einer Gruppe. Während wir arbeiteten, erzählte sie mir viel über den Stadtteil. Nach zwei Stunden waren die Wege deutlich sauberer. Zum Schluss gab es Suppe für alle. Beim nächsten Mal möchte ich wieder mithelfen.",
+    "sortOrder": 6
+  },
+  {
+    "id": "cff8a034-8b6e-5258-affc-6958091ef60b",
+    "level": "A2.2",
+    "title": "Ein Missverständnis am Telefon",
+    "focus": "st und ä; nachfragen und korrigieren",
+    "text": "Ich hatte telefonisch einen Termin beim Friseur vereinbart. Als ich am Dienstag im Salon ankam, war mein Name nicht im Kalender. Die Mitarbeiterin fragte noch einmal nach meiner Telefonnummer. Dann stellte sich heraus, dass sie Donnerstag statt Dienstag verstanden hatte. Früher hätte ich mich in so einer Situation sehr geärgert. Diesmal blieben wir beide ruhig und suchten eine Lösung. Nach einer kurzen Wartezeit konnte ich doch noch bleiben. In Zukunft wiederhole ich Datum und Uhrzeit am Ende des Gesprächs.",
+    "sortOrder": 7
+  },
+  {
+    "id": "4533b44b-4ec1-5147-8a69-3345d5df7933",
+    "level": "A2.2",
+    "title": "Ein Haustier auf Zeit",
+    "focus": "au und sch; Erzählrhythmus",
+    "text": "Unsere Freunde sind für eine Woche verreist und haben uns gebeten, auf ihre Katze aufzupassen. Jeden Morgen bin ich in ihre Wohnung gegangen. Ich habe frisches Wasser hingestellt, Futter gegeben und das Katzenklo sauber gemacht. Am ersten Tag hat sich die Katze unter dem Sofa versteckt. Nach einigen Tagen kam sie schon zur Tür, wenn sie mich hörte. Ich habe unseren Freunden ein Foto geschickt, damit sie sich keine Sorgen machen. Als sie zurückkamen, war die Katze trotzdem am glücklichsten.",
+    "sortOrder": 8
+  },
+  {
+    "id": "4c550a8b-95b1-5a53-ac3c-b2ad48ea592d",
+    "level": "A2.2",
+    "title": "Die Entscheidung für einen Kurs",
+    "focus": "ü und ei; Gründe klar gliedern",
+    "text": "Ich möchte mich beruflich weiterentwickeln und suche einen Computerkurs. Im Internet habe ich zwei passende Angebote gefunden. Ein Kurs findet am Wochenende statt, der andere an zwei Abenden in der Woche. Obwohl der Abendkurs günstiger ist, habe ich mich für den Wochenendkurs entschieden. Nach der Arbeit bin ich oft zu müde, um konzentriert zu lernen. Vor der Anmeldung habe ich gefragt, ob man einen eigenen Laptop braucht. Das ist zum Glück nicht nötig. Die Schule stellt Geräte zur Verfügung.",
+    "sortOrder": 9
+  },
+  {
+    "id": "f6fed4f3-e48e-5cc0-91e6-270734c1e369",
+    "level": "A2.2",
+    "title": "Ein Gespräch mit der Lehrerin",
+    "focus": "l und r; ruhige Fragemelodie",
+    "text": "Die Lehrerin meines Sohnes hat mich zu einem Gespräch eingeladen. Zuerst war ich besorgt, weil ich nicht wusste, worum es ging. Im Gespräch erklärte sie, dass mein Sohn im Unterricht gut mitarbeitet, aber seine Hausaufgaben oft vergisst. Gemeinsam haben wir überlegt, wie wir ihm helfen können. Er bekommt jetzt ein kleines Heft, in das er seine Aufgaben schreibt. Zu Hause schauen wir jeden Nachmittag kurz hinein. Nach zwei Wochen klappt es schon besser. Die gemeinsame Lösung war hilfreicher als Schimpfen.",
+    "sortOrder": 10
+  },
+  {
+    "id": "19846618-a6c3-5001-84d5-06b21b99dff5",
+    "level": "B1.1",
+    "title": "Ein neuer Beruf als Chance",
+    "focus": "b und ch; längere Satzbögen",
+    "text": "Nachdem ich viele Jahre im Verkauf gearbeitet hatte, wollte ich beruflich etwas Neues ausprobieren. Besonders die Arbeit mit älteren Menschen interessierte mich. Deshalb habe ich mich über eine Ausbildung im Pflegebereich informiert. Die Beratung war hilfreich, trotzdem hatte ich Zweifel: Würde mein Deutsch für den Unterricht ausreichen? Eine Beraterin empfahl mir ein Praktikum. Dort merkte ich, dass ich vieles verstehen konnte und bei Unklarheiten nachfragen durfte. Jetzt bereite ich meine Bewerbung vor. Der Wechsel wird bestimmt anstrengend, aber ich möchte es versuchen. Für mich bedeutet Lernen auch, neue Möglichkeiten zu entdecken.",
+    "sortOrder": 1
+  },
+  {
+    "id": "b5bd057d-17ae-5fac-824a-a8a75fe827ed",
+    "level": "B1.1",
+    "title": "Nachhaltiger einkaufen",
+    "focus": "ch und au; Argumente betonen",
+    "text": "Früher habe ich im Supermarkt häufig mehr gekauft, als ich brauchte. Am Ende der Woche musste ich manchmal Lebensmittel wegwerfen. Das hat mich gestört, deshalb plane ich meine Einkäufe inzwischen genauer. Bevor ich losgehe, schaue ich in den Kühlschrank und schreibe eine Liste. Außerdem kaufe ich kleinere Mengen, auch wenn große Packungen manchmal günstiger erscheinen. Ganz ohne spontane Einkäufe klappt es noch nicht. Trotzdem landet deutlich weniger im Müll. Für mich ist diese Veränderung gut machbar, weil sie kein besonderes Wissen verlangt. Sie kostet nur ein wenig Zeit und Aufmerksamkeit.",
+    "sortOrder": 2
+  },
+  {
+    "id": "f0c48467-2e7b-53ef-acde-b08564514ba9",
+    "level": "B1.1",
+    "title": "Freundschaften in einer neuen Stadt",
+    "focus": "fr und sch; Gefühle im Ton",
+    "text": "Als ich nach Hannover gezogen bin, kannte ich außer meiner Schwester niemanden. Nach der Arbeit blieb ich meistens zu Hause und fühlte mich oft allein. Meine Schwester schlug vor, einen Kurs zu besuchen, der nichts mit meinem Beruf zu tun hatte. Ich entschied mich für einen Fotokurs. Anfangs fiel es mir schwer, die anderen anzusprechen. Doch bei den gemeinsamen Spaziergängen kamen Gespräche fast von selbst zustande. Aus zwei Bekanntschaften sind inzwischen Freundschaften geworden. Ich habe gelernt, dass Kontakte Zeit brauchen. Manchmal reicht ein gemeinsames Interesse, damit aus einem ersten Gespräch mehr entsteht.",
+    "sortOrder": 3
+  },
+  {
+    "id": "a32ba623-4578-55b4-9b44-b717c857a46c",
+    "level": "B1.1",
+    "title": "Eine faire Aufgabenverteilung",
+    "focus": "f und t; Gegensätze und Lösungen",
+    "text": "In unserer Wohngemeinschaft gab es immer wieder Streit über die Hausarbeit. Einige putzten häufig, andere bemerkten den Schmutz angeblich gar nicht. Irgendwann setzten wir uns zusammen, statt nur kurze Nachrichten in die Gruppe zu schreiben. Jeder erklärte, welche Aufgaben er übernehmen konnte und was ihn störte. Wir erstellten einen einfachen Plan, der jede Woche wechselt. Außerdem vereinbarten wir, rechtzeitig Bescheid zu geben, wenn jemand keine Zeit hat. Seitdem ist nicht alles perfekt, aber die Stimmung ist besser. Besonders geholfen hat uns, einander zuzuhören und konkrete Absprachen zu treffen.",
+    "sortOrder": 4
+  },
+  {
+    "id": "525d59e3-5cad-543c-820a-b9316809645f",
+    "level": "B1.1",
+    "title": "Ein sicherer Umgang mit Nachrichten",
+    "focus": "ng und ch; sachlich erklären",
+    "text": "In einer Chatgruppe bekam ich eine Nachricht über eine angebliche Änderung bei unseren Kurszeiten. Viele Teilnehmende waren sofort beunruhigt. Bevor ich die Nachricht weiterleitete, schaute ich auf der Webseite der Schule nach. Dort stand nichts dazu. Ich rief im Büro an und erfuhr, dass es sich um eine alte Information handelte. Anschließend schrieb ich eine kurze Erklärung in die Gruppe. Die Situation hat mir gezeigt, wie schnell Missverständnisse entstehen können. Heute prüfe ich wichtige Nachrichten lieber einmal mehr. Dabei helfen mir das Datum, die Quelle und eine direkte Nachfrage bei der zuständigen Stelle.",
+    "sortOrder": 5
+  },
+  {
+    "id": "2824e504-aef5-5a89-9290-aa72f1d42342",
+    "level": "B1.1",
+    "title": "Eine kleine Reise allein",
+    "focus": "ei und r; Erzähltempo variieren",
+    "text": "Zum ersten Mal seit vielen Jahren bin ich allein für ein Wochenende verreist. Ich hatte mir eine kleine Stadt ausgesucht, die gut mit dem Zug erreichbar war. Zuerst fand ich es ungewohnt, alle Entscheidungen selbst zu treffen. Niemand fragte, wann wir essen oder welches Museum wir besuchen wollten. Nach einigen Stunden begann ich, diese Freiheit zu genießen. In einem Café kam ich mit einer anderen Reisenden ins Gespräch. Wir tauschten Tipps aus und gingen dann wieder eigene Wege. Zu Hause freute ich mich auf meine Familie. Trotzdem möchte ich eine solche Reise gern wiederholen.",
+    "sortOrder": 6
+  },
+  {
+    "id": "92818a0b-1e3d-5f69-b023-f61637d49279",
+    "level": "B1.1",
+    "title": "Homeoffice im Alltag",
+    "focus": "h und o; Vor- und Nachteile",
+    "text": "An zwei Tagen in der Woche arbeite ich von zu Hause aus. Dadurch spare ich den Arbeitsweg und kann morgens ruhiger beginnen. Allerdings war es anfangs schwierig, nach Feierabend wirklich aufzuhören. Mein Laptop stand auf dem Küchentisch, und ich beantwortete noch spät Nachrichten. Inzwischen habe ich einen festen Arbeitsplatz und klare Arbeitszeiten. Nach der letzten Aufgabe schalte ich den Computer aus und gehe kurz spazieren. Diese kleine Gewohnheit hilft mir, Arbeit und Freizeit zu trennen. Den Kontakt zu meinen Kolleginnen und Kollegen möchte ich trotzdem nicht verlieren. Deshalb bin ich auch gern regelmäßig im Büro.",
+    "sortOrder": 7
+  },
+  {
+    "id": "d0e1136a-e6ee-5b28-b3b8-37c744be5528",
+    "level": "B1.1",
+    "title": "Gemeinsam eine Veranstaltung planen",
+    "focus": "v und st; Informationen ordnen",
+    "text": "Unser Deutschkurs organisiert einen kleinen Nachmittag für Familien und Freunde. Wir möchten zeigen, was wir in den letzten Monaten gelernt haben. Eine Gruppe bereitet kurze Geschichten vor, eine andere kümmert sich um Spiele für die Kinder. Ich bin für die Einladung zuständig. Zuerst hatte ich Angst, dabei Fehler zu machen. Die Lehrerin erklärte jedoch, dass wir uns gegenseitig helfen sollen. Gemeinsam haben wir den Text gelesen und verbessert. Bei der Planung merken wir, wie viel man mit Deutsch schon erreichen kann. Entscheidend ist, dass wir miteinander sprechen und nicht auf den perfekten Satz warten.",
+    "sortOrder": 8
+  },
+  {
+    "id": "8c963a66-e60b-5f88-bee3-73aa3f3e3df7",
+    "level": "B1.1",
+    "title": "Mit Fehlern umgehen",
+    "focus": "f und ä; Betonung von Schlüsselsätzen",
+    "text": "In meinem ersten Jahr in Deutschland wollte ich möglichst keine Fehler machen. Deshalb habe ich oft geschwiegen, obwohl ich etwas sagen konnte. Das änderte sich bei einem Gespräch mit einer Kollegin. Sie erzählte mir, wie unsicher sie selbst beim Lernen einer anderen Sprache war. Seitdem versuche ich, Fehler als Teil des Lernens zu betrachten. Wenn ich ein Wort falsch benutze, schreibe ich mir später ein Beispiel auf. Natürlich gibt es Situationen, in denen Genauigkeit wichtig ist. Im Alltag hilft es mir aber mehr, freundlich nachzufragen und weiterzusprechen. So werde ich langsam sicherer.",
+    "sortOrder": 9
+  },
+  {
+    "id": "c5dc1e9e-43fb-5505-ae4a-82cdc74fac41",
+    "level": "B1.1",
+    "title": "Ein Ort für alle Generationen",
+    "focus": "ö und g; ruhige Satzmelodie",
+    "text": "In unserem Stadtteil wurde ein leer stehender Laden in einen offenen Treffpunkt umgebaut. Dort kann man lesen, Kaffee trinken oder an kleinen Veranstaltungen teilnehmen. Besonders schön finde ich, dass Menschen verschiedener Generationen zusammenkommen. Eine Rentnerin bietet Hilfe beim Nähen an, während Jugendliche Fragen zum Smartphone beantworten. Niemand muss etwas kaufen, um bleiben zu dürfen. Ich besuche dort einmal im Monat ein Sprachcafé. Dabei üben wir Deutsch und sprechen über unseren Alltag. Der Treffpunkt zeigt, dass gute Begegnungen nicht viel kosten müssen. Wichtig sind ein offener Raum und Menschen, die ihre Zeit miteinander teilen.",
+    "sortOrder": 10
+  },
+  {
+    "id": "cacb3a6d-e789-5abc-9e94-f6eecfb36bdb",
+    "level": "B1.2",
+    "title": "Ein Vorschlag im Betrieb",
+    "focus": "sch und tr; überzeugend sprechen",
+    "text": "In unserem Betrieb werden Besprechungen häufig kurzfristig angesetzt. Dadurch können Mitarbeitende mit Teilzeitverträgen nicht immer teilnehmen. Bei der letzten Teamsitzung habe ich vorgeschlagen, einen festen Termin einzuführen und die wichtigsten Ergebnisse schriftlich festzuhalten. Zunächst befürchteten einige, dass dadurch zusätzliche Arbeit entstehen würde. Ich erklärte, dass kurze Notizen auch Rückfragen vermeiden könnten. Schließlich beschlossen wir, die Idee sechs Wochen lang auszuprobieren. Nach dieser Zeit wollen wir gemeinsam prüfen, ob sich die Zusammenarbeit verbessert hat. Ich finde es wichtig, Veränderungen nicht nur zu kritisieren oder zu fordern. Ein konkreter Vorschlag mit einer überschaubaren Testphase macht es leichter, gemeinsam eine Lösung zu finden.",
+    "sortOrder": 1
+  },
+  {
+    "id": "6b4676fc-7a16-51d6-8c1c-4b5da00ffaf2",
+    "level": "B1.2",
+    "title": "Wem gehört der öffentliche Raum?",
+    "focus": "r und ö; verschiedene Sichtweisen",
+    "text": "Auf dem Platz vor unserer Bibliothek treffen sich abends häufig Jugendliche. Einige Anwohner fühlen sich durch die Gespräche und die Musik gestört. Andere finden, dass junge Menschen einen Ort brauchen, an dem sie kostenlos zusammenkommen können. Bei einem Treffen im Stadtteilzentrum wurden beide Seiten angehört. Die Jugendlichen erklärten, dass es in der Nähe kaum Angebote für sie gibt. Gemeinsam wurden feste Ruhezeiten und ein zusätzlicher Treffpunkt vorgeschlagen. Noch sind nicht alle zufrieden, aber das Gespräch war ein Anfang. Für mich zeigt die Situation, dass öffentlicher Raum unterschiedliche Bedürfnisse erfüllen muss. Dauerhafte Lösungen entstehen eher durch klare Regeln und Beteiligung als durch gegenseitige Vorwürfe.",
+    "sortOrder": 2
+  },
+  {
+    "id": "876f98ba-930f-59f0-8b53-e7e09e235b6e",
+    "level": "B1.2",
+    "title": "Lernen neben Beruf und Familie",
+    "focus": "l und er; Pausen bei Nebensätzen",
+    "text": "Seit drei Monaten besuche ich einen Abendkurs, obwohl mein Alltag mit Beruf und Familie bereits gut gefüllt ist. In den ersten Wochen wollte ich jeden freien Moment zum Lernen nutzen. Bald merkte ich jedoch, dass ich ständig müde war und mir wenig merken konnte. Gemeinsam mit meiner Familie habe ich deshalb feste Lernzeiten vereinbart. An zwei Abenden kümmert sich mein Partner um das Essen, damit ich konzentriert arbeiten kann. Dafür bleibt der Sonntag weitgehend frei. Mein Fortschritt ist vielleicht langsamer als geplant, aber die neue Routine lässt sich durchhalten. Ich habe verstanden, dass ein realistischer Plan langfristig hilfreicher ist als ein besonders ehrgeiziger Anfang.",
+    "sortOrder": 3
+  },
+  {
+    "id": "fd156fa0-66df-5eeb-8558-f3d99b3b7119",
+    "level": "B1.2",
+    "title": "Eine Entscheidung im Verein",
+    "focus": "ei und ng; Argumente gewichten",
+    "text": "Unser Sportverein möchte seine Mitgliedsbeiträge erhöhen, weil die Kosten für die Halle gestiegen sind. Bei der Versammlung gab es dazu unterschiedliche Meinungen. Einige Mitglieder hielten die Erhöhung für notwendig, andere sorgten sich um Familien mit wenig Geld. Der Vorstand stellte die wichtigsten Ausgaben vor und beantwortete Fragen. Anschließend wurde vorgeschlagen, einen Sozialbeitrag und eine freiwillige Unterstützung einzuführen. Dieser Vorschlag fand breite Zustimmung. Mir hat gefallen, dass Zahlen erklärt wurden, bevor die Abstimmung begann. So konnten alle besser einschätzen, warum eine Veränderung nötig war. Eine faire Entscheidung bedeutet für mich nicht, dass jeder dasselbe zahlt, sondern dass möglichst viele weiter teilnehmen können.",
+    "sortOrder": 4
+  },
+  {
+    "id": "b080a8ae-7be6-5225-af48-1d7aae6f1f6c",
+    "level": "B1.2",
+    "title": "Künstliche Intelligenz beim Lernen",
+    "focus": "k und ts; Fachwörter verständlich sprechen",
+    "text": "Digitale Programme können beim Sprachenlernen nützlich sein. Sie erklären Wörter, lesen Texte vor und bieten Übungen zu verschiedenen Themen an. Ich nutze solche Hilfen gern, besonders wenn ich zu Hause eine kurze Frage habe. Trotzdem prüfe ich Antworten, die mir ungewöhnlich vorkommen. Ein Programm kennt meine persönliche Situation nicht immer und kann auch Fehler machen. Das Gespräch mit einer Lehrkraft bleibt deshalb wichtig. Sie hört, was ich eigentlich ausdrücken möchte, und kann gezielt nachfragen. Für mich ergänzen sich digitale Übungen und persönlicher Unterricht. Entscheidend ist, dass ich selbst aktiv bleibe, statt jede Aufgabe sofort von einem Programm lösen zu lassen.",
+    "sortOrder": 5
+  },
+  {
+    "id": "2fa06ffd-6b82-5386-9c84-a4320c87bbc7",
+    "level": "B1.2",
+    "title": "Ein Konflikt mit einem Nachbarn",
+    "focus": "ch und kn; respektvoller Ton",
+    "text": "Über mehrere Wochen hörte ich spät am Abend laute Musik aus der Nachbarwohnung. Zunächst ärgerte ich mich nur und erzählte anderen davon. Als ich schließlich an der Tür klingelte, versuchte ich bewusst, ruhig zu bleiben. Ich erklärte, wann ich schlafen muss und wie die Musik mich dabei stört. Mein Nachbar war überrascht, weil er nicht wusste, wie deutlich man die Bässe durch die Wand hört. Wir vereinbarten, dass er ab einer bestimmten Uhrzeit Kopfhörer benutzt. Seitdem hat sich die Situation verbessert. Das Gespräch war mir vorher unangenehm, doch es hat mehr bewirkt als meine stillen Vorwürfe. Manchmal fehlt der anderen Person einfach eine wichtige Information.",
+    "sortOrder": 6
+  },
+  {
+    "id": "13264420-65a8-54f1-984e-b001a5244341",
+    "level": "B1.2",
+    "title": "Warum ich mich ehrenamtlich engagiere",
+    "focus": "eh und ge; persönliche Haltung",
+    "text": "Einmal pro Woche helfe ich in einer kleinen Fahrradwerkstatt, die von Freiwilligen organisiert wird. Dort unterstützen wir Menschen dabei, ihre Räder selbst zu reparieren. Als ich damit angefangen habe, wollte ich vor allem meine handwerklichen Kenntnisse nutzen. Inzwischen schätze ich besonders die Gespräche mit Menschen, denen ich sonst kaum begegnen würde. Nicht jeder Termin verläuft einfach: Manchmal fehlen Teile, manchmal braucht eine Erklärung viel Geduld. Trotzdem gehe ich meistens zufrieden nach Hause. Ich sehe unmittelbar, dass meine Zeit jemandem geholfen hat. Gleichzeitig lerne ich selbst weiter. Ehrenamt bedeutet für mich deshalb nicht nur, etwas zu geben, sondern auch Erfahrungen und neue Perspektiven zu gewinnen.",
+    "sortOrder": 7
+  },
+  {
+    "id": "5dc0cf34-6f7c-5e67-9728-22bbe90c5dc7",
+    "level": "B1.2",
+    "title": "Ein bewusster Umgang mit Bewertungen",
+    "focus": "b und w; Einschränkungen betonen",
+    "text": "Bevor ich einen Kurs buche oder ein Gerät kaufe, lese ich häufig Bewertungen im Internet. Früher habe ich mich vor allem an der Zahl der Sterne orientiert. Heute schaue ich genauer hin. Mich interessiert, ob jemand konkrete Erfahrungen beschreibt und ob die Bewertung zu meinen eigenen Erwartungen passt. Ein Kurs kann für Anfänger hilfreich und für Fortgeschrittene zu langsam sein. Auch das Datum spielt eine Rolle, denn Angebote können sich verändern. Einzelne sehr positive oder negative Kommentare entscheiden deshalb nicht allein über meine Wahl. Bewertungen sind für mich eine erste Orientierung. Wenn eine Entscheidung wichtig ist, suche ich zusätzliche Informationen oder frage direkt beim Anbieter nach.",
+    "sortOrder": 8
+  },
+  {
+    "id": "8cf76d58-8428-59ef-b449-4301051413ba",
+    "level": "B1.2",
+    "title": "Die Stadt aus einer anderen Perspektive",
+    "focus": "st und sp; flüssig erzählen",
+    "text": "Vor Kurzem habe ich einen Spaziergang mit einer Bekannten gemacht, die einen Rollstuhl benutzt. Wir wollten gemeinsam ein Café besuchen und danach in die Bibliothek gehen. Schon auf dem Weg fiel mir auf, wie viele kleine Hindernisse ich sonst übersehe: eine hohe Bordsteinkante, Fahrräder auf dem Gehweg und eine schwere Eingangstür. Meine Bekannte erklärte, welche Wege gut funktionieren und wo sie Hilfe braucht. Gleichzeitig wollte sie nicht, dass ich alles ungefragt für sie übernehme. Der Nachmittag hat meinen Blick auf die Stadt verändert. Seitdem achte ich stärker darauf, ob Orte wirklich für alle zugänglich sind. Gute Absichten helfen, aber Zuhören und konkrete Verbesserungen sind ebenso wichtig.",
+    "sortOrder": 9
+  },
+  {
+    "id": "6e667abd-3011-597c-9cf9-0c20c2c30e2d",
+    "level": "B1.2",
+    "title": "Was Erfolg beim Sprachenlernen bedeutet",
+    "focus": "ch und spr; abschließende Gedanken",
+    "text": "Vor einem Jahr hätte ich Erfolg beim Deutschlernen vor allem an einer guten Prüfungsnote gemessen. Heute denke ich auch an viele kleine Situationen: ein verständliches Telefonat, ein Gespräch mit der Lehrerin meines Kindes oder eine Frage bei der Arbeit. Solche Erlebnisse zeigen mir, dass ich die Sprache tatsächlich nutzen kann. Natürlich möchte ich meine Grammatik und Aussprache weiter verbessern. Trotzdem versuche ich, meinen Fortschritt nicht ständig mit dem anderer Menschen zu vergleichen. Jeder bringt andere Erfahrungen mit und hat unterschiedlich viel Zeit. Mein nächstes Ziel ist, in einer Besprechung meine Meinung klar zu erklären. Es ist ein kleines Ziel, aber für meinen Alltag ein bedeutender Schritt.",
+    "sortOrder": 10
+  }
+]

@@ -772,14 +772,14 @@
     "pricing_roadmap": {
       "due_today": "Invoice Amount",
       "optional_continuation": "Optional continuation",
-      "cancel_anytime": "Cancel anytime – simply don't pay",
+      "cancel_anytime": "Monthly flexibility – cancel by form or email",
       "how_payment_works": "How does the subscription work?",
-      "payment_explanation": "You pay the first month today. After that, your course continues automatically. Want to stop? Simply don't pay the next invoice – this counts as automatic cancellation. No hidden costs, no paperwork.",
+      "payment_explanation": "Course fees are paid by bank transfer after an invoice is issued. Subsequent invoices are prepared at month-end for the following month. To end your participation, please use the cancellation form or email us; see the Terms for details.",
       "total_today": "Total Amount",
       "payment_popover_title": "Relaxed Subscription Model",
-      "payment_point_1": "Course renews automatically every month.",
-      "payment_point_2": "Paying the invoice = consent to participate.",
-      "payment_point_3": "Not paying = automatic cancellation, no extra costs."
+      "payment_point_1": "Monthly invoicing in advance.",
+      "payment_point_2": "Pay by bank transfer after receiving your invoice.",
+      "payment_point_3": "Cancel using the form or by email."
     }
   },
   "cancellation": {
@@ -815,7 +815,7 @@
   "agb": {
     "title": "General Terms and Conditions (GTC)",
     "school_name": "Sitov Language Academy",
-    "status_date": "Status: April 2026",
+    "status_date": "Updated: 10 September 2026",
     "sections": [
       {
         "title": "§ 1 Scope of Application, Provider",
@@ -862,7 +862,8 @@
           "BIC: NTSBDEB1XXX",
           "Bank: N26 Bank SE",
           "Reason for payment: Invoice number",
-          "(6) In case of late payment, statutory default regulations (§ 288 BGB) apply only if the payment was announced but not made within the specified period."
+          "(6) In case of late payment, statutory default regulations (§ 288 BGB) apply only if the payment was announced but not made within the specified period.",
+          "(7) Subsequent invoices are usually prepared at month-end for the following teaching month. Payment is due in advance as stated on the invoice. An internal dashboard mark for invoice creation does not confirm delivery or receipt of payment."
         ]
       },
       {
@@ -934,7 +935,18 @@
         ]
       },
       {
-        "title": "§ 12 Final Provisions",
+        "title": "§ 12 Digital learning platform and teacher support",
+        "content": [
+          "(1) The learning area supplements booked and released course services with vocabulary, grammar, reading and pronunciation practice. Availability and access depend on the course description and access permissions. Unpublished learning videos are not a promised additional service.",
+          "(2) Account credentials must not be shared. Existing student and booking records become available only after verified sign-in and an unambiguous match. Third-party email addresses must not be used. Creating an account or receiving an application does not replace the school’s acceptance under § 3.",
+          "(3) Vocabulary practice uses spaced repetition. “Learned” describes progress in the exercises and does not guarantee permanent recall or an examination result. Self-assessment affects review dates.",
+          "(4) Students may send their own recordings and messages for pronunciation feedback. Teachers may reply in writing or by voice message, and students may respond again. This is asynchronous support, not a continuously staffed live chat. A fixed response time applies only if separately agreed.",
+          "(5) Submit only your own content or content you may lawfully use. The school receives only the usage rights needed to store, play and discuss submissions for individual teaching. Students retain rights to their own recordings. Publication or advertising use requires a separate agreement. This is distinct from recordings of online lessons under § 9.",
+          "(6) YouTube videos open through external links and are governed by the provider’s terms. Report technical problems to the school; statutory rights for service failures remain unaffected."
+        ]
+      },
+      {
+        "title": "§ 13 Final Provisions",
         "content": [
           "(1) German law applies.",
           "(2) The contract language is German.",
@@ -986,7 +998,7 @@
   },
   "privacy": {
     "title": "Privacy Policy",
-    "status": "Status: November 2025",
+    "status": "Updated: 10 September 2026",
     "intro": "We are pleased about your interest in our language school. The protection of your privacy is of the utmost importance to us. Below we inform you in detail about the handling of your data.",
     "sections": [
       {
@@ -1005,29 +1017,15 @@
       {
         "title": "2. Hosting and Server Log Files",
         "content": [
-          "We host our website at IONOS SE, Elgendorfer Str. 57, 56410 Montabaur, Germany. IONOS acts as a processor with whom a data processing agreement exists.",
-          "When visiting our website, information is automatically transmitted by your browser and stored in server log files:",
-          "- IP address of the requesting computer",
-          "- Date and time of access",
-          "- Name and URL of the retrieved file",
-          "- Amount of data transferred",
-          "- Notification of successful retrieval",
-          "- Browser type and version",
-          "- Operating system of the user",
-          "- Referrer URL (previously visited page)",
-          "Legal basis: Art. 6 Para. 1 lit. f GDPR (legitimate interest in the technical provision and security of the website).",
-          "Storage period: The log files are automatically deleted after a maximum of 7 days."
+          "Our website and learning platform are delivered through Netlify, Inc. (USA). This involves necessary connection data such as IP address, page requested, time, browser, referrer and error status, to deliver and secure the service under Article 6(1)(f) GDPR.",
+          "Processing may take place outside the EU. Netlify provides its processing and transfer terms at https://www.netlify.com/pdf/netlify-dpa.pdf. Technical logs are deleted after the period necessary for operation and security incidents; statutory record-keeping duties may require longer retention."
         ]
       },
       {
         "title": "3. Cookies and LocalStorage",
         "content": [
-          "Our website uses localStorage (a browser-side storage technology) and technically necessary cookies to ensure the functionality of the website. These technologies are used exclusively for the following purposes:",
-          "- Storage of your language selection (German, English, Russian, Ukrainian)",
-          "- Session management for forms",
-          "- Technical functionality of the website",
-          "Legal basis: Art. 6 Para. 1 lit. f GDPR (legitimate interest) and § 25 Para. 2 TTDSG (technically necessary cookies/storage).",
-          "This storage is technically necessary for the convenient use of the website and takes place without consent. No tracking or profiling takes place."
+          "Essential cookies and browser storage support languages, appearance and sign-in. Section 11 explains learning preferences and answers awaiting synchronization.",
+          "Art. 6(1)(b), (f) GDPR; § 25(2) TDDDG."
         ]
       },
       {
@@ -1044,7 +1042,7 @@
           "- Registration date",
           "Purpose: Management of course registrations, waiting lists, communication with participants, organization of lessons.",
           "Legal basis: Art. 6 Para. 1 lit. b GDPR (contract initiation and execution) and Art. 6 Para. 1 lit. f GDPR (legitimate interest in efficient course management).",
-          "Storage period: Course data (name, contact, participation) are stored for up to 3 years after the end of the course. Invoice data are kept for 10 years (statutory retention obligation according to HGB/AO). Registration forms for offline registration are kept for 10 years (obligation to provide proof).",
+          "Invoices and accounting vouchers are generally retained for eight years from the end of the year of creation (§ 147 AO and, where applicable, § 257 HGB); other records may require six or ten years. Ongoing tax proceedings can extend retention.",
           "A data processing agreement pursuant to Art. 28 GDPR exists with Supabase."
         ]
       },
@@ -1052,7 +1050,7 @@
         "title": "5. Invoicing and Accounting (Papierkram.de)",
         "content": [
           "We use the service Papierkram.de for the creation and management of invoices.",
-          "Provider: Papierkram GmbH, Grünberger Str. 54, 10245 Berlin, Germany",
+          "Papierkram.de: odacer finanzsoftware GmbH, Konrad-Adenauer-Ring 13, 65187 Wiesbaden, Deutschland. https://www.papierkram.de/impressum/",
           "Processed data:",
           "- Name, First Name",
           "- Address",
@@ -1060,8 +1058,9 @@
           "- Invoice information (courses, prices, payment data)",
           "Purpose: Creation and sending of invoices, accounting, fulfillment of tax obligations.",
           "Legal basis: Art. 6 Para. 1 lit. b GDPR (performance of contract) and Art. 6 Para. 1 lit. c GDPR (statutory retention obligations according to HGB/AO).",
-          "Storage period: Invoice data are stored for 10 years in accordance with statutory retention periods.",
-          "A data processing agreement pursuant to Art. 28 GDPR exists with Papierkram.de."
+          "Invoices and accounting vouchers are generally retained for eight years from the end of the year of creation (§ 147 AO and, where applicable, § 257 HGB); other records may require six or ten years. Ongoing tax proceedings can extend retention.",
+          "A data processing agreement pursuant to Art. 28 GDPR exists with Papierkram.de.",
+          "Invoices are created manually in Papierkram.de, usually at month-end in advance for the next teaching month. The teacher dashboard stores acceptance status, invoice month, processing status, optional invoice reference and processing time. “Invoice created” confirms neither delivery nor receipt of payment."
         ]
       },
       {
@@ -1105,25 +1104,12 @@
         "title": "8. Data Collection on our Website",
         "content": [
           "8.1 Hosting and Server Log Files",
-          "To ensure the secure and stable operation of our website, we use hosting services from the following provider:",
-          "IONOS SE, Elgendorfer Str. 57, 56410 Montabaur, Germany",
-          "We have concluded a data processing agreement (DPA) with this provider in accordance with Art. 28 GDPR. This contract ensures that the provider processes the data of our website visitors only in accordance with our instructions and in compliance with the GDPR.",
-          "When you visit our website, our host automatically collects information that your browser transmits (so-called server log files). These are:",
-          "- IP address (is usually stored anonymously)",
-          "- Date and time of the request",
-          "- Content of the request (concrete page)",
-          "- Access status/HTTP status code",
-          "- Website from which the request comes (Referrer URL)",
-          "- Browser and operating system",
-          "Legal basis: The processing is carried out on the basis of our legitimate interest (Art. 6 Para. 1 lit. f GDPR) in a technically error-free presentation and the guarantee of the stability and security of our website.",
-          "Storage period: The IP addresses of visitors are anonymized in the server log files after 7 days. The anonymized log files are then stored for 8 weeks and then deleted. After anonymization, it is no longer possible to trace back to your person.",
-          "",
+          "Section 2 describes hosting and technical logs.",
           "8.2 Cookies",
           "Our website uses cookies. Cookies are small text files that are stored on your device. We use exclusively technically necessary cookies that are required for the basic operation of the website (e.g. to save the language you have selected).",
           "We do not use cookies for analysis, tracking or marketing purposes.",
           "Legal basis: The use of these technically necessary cookies takes place on the basis of our legitimate interest in a user-friendly and functional provision of our services (Art. 6 Para. 1 lit. f GDPR).",
           "Storage period: Most of the cookies we use are so-called 'session cookies'. They are automatically deleted after your visit. Other cookies (e.g. for language selection) remain stored on your device until you delete them. You can check your browser settings to be informed about the setting of cookies and only allow cookies in individual cases or exclude the acceptance of cookies for certain cases or generally.",
-          "",
           "8.3 Registration for Courses",
           "If you register for a course via our website, by e-mail or by paper form on site, we collect the data necessary for the execution of the contract:",
           "- Name and First Name",
@@ -1133,8 +1119,7 @@
           "- Further voluntary information that you have provided to us",
           "For offline registrations: The data from the signed paper form are manually entered by us into our course management system (Supabase, Frankfurt). The original form is kept by us in accordance with the statutory retention periods. For offline registration, we additionally collect your handwritten signature on the registration form.",
           "Legal basis: The processing of this data takes place for the implementation of pre-contractual measures and for the fulfillment of a contract (Art. 6 Para. 1 lit. b GDPR).",
-          "Storage period: We store this data until the expiry of the statutory warranty and limitation periods. Data subject to accounting obligations (e.g. invoices) are stored in accordance with statutory periods (usually 10 years according to HGB and AO).",
-          "",
+          "Invoices and accounting vouchers are generally retained for eight years from the end of the year of creation (§ 147 AO and, where applicable, § 257 HGB); other records may require six or ten years. Ongoing tax proceedings can extend retention.",
           "8.4 Course Support and Homework (Telegram)",
           "For communication with the teacher, the exchange of homework and daily course support, we use the messenger service Telegram. Participation in the Telegram channel/group is optional, but recommended for optimal course support.",
           "Provider: Telegram Messenger LLP, Dubai, United Arab Emirates / Telegram FZ-LLC, Dubai",
@@ -1156,11 +1141,9 @@
           "- Alternative communication: If you have concerns regarding Telegram, you can alternatively communicate with us by e-mail. We strive to ensure good course support even without Telegram.",
           "Storage period: Messages in Telegram groups are stored for the duration of the course and up to 6 months after the end of the course, unless the group is deleted earlier. You can delete your own messages yourself at any time.",
           "Further information on data protection at Telegram: https://telegram.org/privacy",
-          "",
           "8.5 Contact (E-Mail, Phone)",
           "If you contact us by e-mail or phone, the data you provide (your e-mail address, possibly your name and phone number) will be stored by us to answer your questions.",
           "Legal basis: Art. 6 Para. 1 lit. b GDPR (for contract initiation) or Art. 6 Para. 1 lit. f GDPR (legitimate interest in efficient communication).",
-          "",
           "8.6 Google Maps",
           "On our website we use the offer of Google Maps. This allows us to display interactive maps directly on the website and enables you to use the map function comfortably (e.g. for directions).",
           "Provider: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland.",
@@ -1200,9 +1183,31 @@
         ]
       },
       {
-        "title": "11. Validity and Amendment of this Privacy Policy",
+        "title": "11. Learning account, progress and access protection",
         "content": [
-          "This Privacy Policy is currently valid and has the status November 2025. Due to the further development of our website or due to changed legal requirements, it may become necessary to change this Privacy Policy."
+          "The platform processes account details (email, profile name, language), released levels and booked courses, vocabulary phases, review directions and dates, answers, exercise attempts and results. This supports individual practice, progress display and teacher support under Article 6(1)(b) GDPR. Access protection and security logging are based on Article 6(1)(f) GDPR.",
+          "An existing student record is linked only after verified sign-in and an unambiguous match. Entering a known email address alone does not reveal stored student information. Ambiguous matches require review by the school. Authorized teachers and administrators access information needed for teaching and course administration.",
+          "Browser storage and essential sign-in cookies retain language, theme, session state, selected learning sets and, where necessary, answers awaiting synchronization. Local preferences remain until deleted in the browser. Personal learning records are stored for use and support of the account and deleted when it ends, unless separate statutory duties or a specific need to preserve legal claims require retention. Requests for access or deletion can be sent to info@sitov-academy.com."
+        ]
+      },
+      {
+        "title": "12. Pronunciation practice, recordings and messages",
+        "content": [
+          "You choose a reading text and start microphone recording yourself. Before submission, the recording stays in your browser. Submitting stores your voice, selected text, level, timestamps and subsequent text or voice messages for personal feedback under Article 6(1)(b) GDPR. You can revoke browser microphone permission at any time.",
+          "New trainer recordings use private Supabase storage. The relevant student and authorized teachers and administrators have access. Conversations allow repeated replies and use timestamps and read status. Recordings are not automatically published or uploaded to YouTube. We do not use voice recordings for biometric identification or automated voice assessment. Recordings and messages remain for support of the learning account; the retention and deletion criteria in the preceding section apply.",
+          "Text-to-speech sends learning words and reference texts from our server to Microsoft’s speech service and caches generated audio. Student recordings are not sent to that service for analysis. Microsoft may also process data outside the EU; see https://privacy.microsoft.com/en-us/privacystatement. Please do not include confidential personal details in learning texts."
+        ]
+      },
+      {
+        "title": "13. External learning videos",
+        "content": [
+          "Learning videos are provided as YouTube links (Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland). The video area does not automatically load YouTube players or thumbnails. Opening a link takes you outside our platform; YouTube then processes connection data and, where applicable, account data under its own terms. See https://policies.google.com/privacy."
+        ]
+      },
+      {
+        "title": "14. Updates to this privacy notice",
+        "content": [
+          "This notice reflects the learning platform’s functions as of 10 September 2026. We update it when processing changes."
         ]
       }
     ]
@@ -1316,11 +1321,11 @@
   },
   "videos": {
     "back_to_level": "Back to overview",
-    "internal_title": "Sitov Academy lessons",
-    "internal_subtitle": "Our own video lessons, tailored to the course.",
+    "internal_title": "Learning videos",
+    "internal_subtitle": "Our video lessons complement your course. Open them on YouTube and learn at your own pace.",
     "coming_soon": "Coming soon",
-    "empty_internal": "No videos are available yet.",
-    "empty_internal_hint": "Your teacher will add new learning videos here soon.",
+    "empty_internal": "Our first learning videos are in preparation.",
+    "empty_internal_hint": "In the meantime, keep practising vocabulary, grammar and pronunciation. New videos will appear here as YouTube links.",
     "empty_external": "No external videos have been added yet.",
     "external_title": "Nicos Weg (Deutsche Welle)",
     "external_badge": "External offer",
@@ -1338,7 +1343,30 @@
     "speed_aria": "Switch playback speed, currently {speed}",
     "error_title": "The videos could not be loaded.",
     "error_description": "That was not your fault. Please try again.",
-    "error_retry": "Try again"
+    "error_retry": "Try again",
+    "supplement_label": "Course supplement",
+    "watch_youtube": "Watch on YouTube",
+    "continue_vocabulary": "Continue vocabulary",
+    "external_privacy": "YouTube opens only when you select a video link. No YouTube players or thumbnails load on this page.",
+    "cms_title": "Manage learning videos",
+    "cms_subtitle": "Publish the YouTube link when a video is ready. Videos supplement the three trainers.",
+    "cms_new": "Add video link",
+    "cms_edit": "Edit video link",
+    "cms_title_field": "Title",
+    "cms_lesson": "Lesson / topic",
+    "cms_description": "Description (optional)",
+    "cms_url": "YouTube link",
+    "cms_level": "Level",
+    "cms_save": "Save",
+    "cms_cancel": "Cancel",
+    "cms_delete": "Remove",
+    "cms_confirm_delete": "Remove this video link?",
+    "cms_failed": "The video link could not be saved. Check the details and try again.",
+    "cms_saved": "Video link saved.",
+    "cms_empty": "No video links yet.",
+    "cms_legacy": "Older entry – add a YouTube link to show it in the learning area.",
+    "cms_search": "Search videos",
+    "cms_open": "Open video"
   },
   "profile": {
     "title": "My profile",
@@ -1620,7 +1648,12 @@
     "reset_progress": "Reset learning progress",
     "reset_progress_confirm": "All progress in this lesson will be reset. Do you want to continue?",
     "reset_progress_yes": "Yes, reset",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "method_title": "How your flashcards work",
+    "method_progress": "A correct answer moves that direction up one phase. An incorrect answer moves it back one phase, down to phase 1 at most.",
+    "method_intervals": "Correct answers are spaced 1, 3, 9, 29 and 90 days apart. Words marked difficult for your native language may be reviewed sooner.",
+    "method_learned": "A word counts as learned once you pass the due review in phase 6 in both directions: German → translation and translation → German. It then leaves regular review. “Learned” is a progress status, not a guarantee that you will never forget it.",
+    "method_assessment": "During the initial assessment, “Already know it” starts directly in phase 6. Both directions are checked again after 90 days. This is a shortcut for existing knowledge."
   },
   "exercises": {
     "no_exercises": "No exercises are available right now.",
@@ -1905,7 +1938,10 @@
     "cms_delete_final": "Delete permanently",
     "cms_page": "Page {page} of {pages} · {count} results",
     "cms_previous": "Previous",
-    "cms_next": "Next"
+    "cms_next": "Next",
+    "nav_registrations": "Registrations",
+    "nav_invoices": "Invoices",
+    "nav_pronunciation": "Reading texts"
   },
   "academy": {
     "brand_name": "Sitov Academy",

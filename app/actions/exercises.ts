@@ -1,10 +1,11 @@
 'use server'
 
 import { revalidatePath } from 'next/cache'
+import { z } from 'zod'
 import { createClient } from '@/utils/supabase/server'
 import { hasLevelAccess } from '@/lib/access/levels'
 import { loadLevelAccessProfile } from '@/lib/access/server'
-import { buildFillInBlankChips, scoreForAttempts } from '@/lib/exercise-chips'
+import { buildFillInBlankChips } from '@/lib/exercise-chips'
 import {
   parseFillInBlankContent,
   parseMultipleChoiceContent,
@@ -100,10 +101,8 @@ export async function getExercises(level?: string): Promise<StudentExercise[]> {
 
     if (!user) return []
 
-    if (level) {
-      const accessProfile = await loadLevelAccessProfile(supabase, user.id)
-      if (!hasLevelAccess(accessProfile, level)) return []
-    }
+    const accessProfile = await loadLevelAccessProfile(supabase, user.id)
+    if (level && !hasLevelAccess(accessProfile, level)) return []
 
     const { data: profile, error: profileError } = await supabase
       .from('profiles')
@@ -118,10 +117,14 @@ export async function getExercises(level?: string): Promise<StudentExercise[]> {
     let query = supabase
       .from('exercises')
       .select('*, user_exercise_progress (completed, score, attempts)')
+      .eq('user_exercise_progress.user_id', user.id)
       .order('lesson', { ascending: true })
+      .order('id', { ascending: true })
 
     if (level) {
       query = query.eq('level', level)
+    } else if (accessProfile?.role !== 'admin' && accessProfile?.role !== 'teacher') {
+      query = query.in('level', accessProfile?.allowed_levels ?? [])
     }
 
     const { data, error } = await query
@@ -257,47 +260,21 @@ export async function recordExerciseAttempt(
 
     if (!user) return { success: false, attempts: 0 }
 
-    const { data: existing, error: readError } = await supabase
-      .from('user_exercise_progress')
-      .select('attempts, completed, score, hint_shown')
-      .eq('user_id', user.id)
-      .eq('exercise_id', input.exerciseId)
-      .maybeSingle()
-
-    if (readError) {
-      console.error(
-        `Fehler beim Lesen des Übungsfortschritts (User ${user.id}, Übung ${input.exerciseId}):`,
-        readError.message
-      )
+    const parsed = z.object({
+      exerciseId: z.uuid(), answer: z.string().trim().min(1).max(1000), hintShown: z.boolean(),
+    }).safeParse(input)
+    if (!parsed.success) return { success: false, attempts: 0 }
+    const { data, error } = await supabase.rpc('record_grammar_attempt', {
+      p_exercise_id: parsed.data.exerciseId,
+      p_answer: parsed.data.answer,
+      p_hint_shown: parsed.data.hintShown,
+    })
+    if (error) {
+      console.error('Grammar attempt could not be saved:', { userId: user.id, exerciseId: input.exerciseId, code: error.code })
       return { success: false, attempts: 0 }
     }
-
-    const attempts = (existing?.attempts ?? 0) + 1
-    const wasCompleted = existing?.completed ?? false
-    const previousScore = existing?.score ?? 0
-
-    const { error: writeError } = await supabase.from('user_exercise_progress').upsert(
-      {
-        user_id: user.id,
-        exercise_id: input.exerciseId,
-        attempts,
-        hint_shown: input.hintShown || (existing?.hint_shown ?? false),
-        completed: input.isCorrect || wasCompleted,
-        score: input.isCorrect ? Math.max(previousScore, scoreForAttempts(attempts)) : previousScore,
-        updated_at: new Date().toISOString(),
-      },
-      { onConflict: 'user_id, exercise_id' }
-    )
-
-    if (writeError) {
-      console.error(
-        `Fehler beim Speichern des Übungsfortschritts (User ${user.id}, Übung ${input.exerciseId}):`,
-        writeError.message
-      )
-      return { success: false, attempts: 0 }
-    }
-
-    return { success: true, attempts }
+    const result = z.object({ success: z.boolean(), attempts: z.number().int(), isCorrect: z.boolean() }).safeParse(data)
+    return result.success ? result.data : { success: false, attempts: 0 }
   } catch (err) {
     console.error('Unerwarteter Fehler in recordExerciseAttempt:', err)
     return { success: false, attempts: 0 }
@@ -323,8 +300,8 @@ export async function finishExerciseSession(level: string): Promise<{ success: b
 /** Nur noch als Kompatibilitätsschicht – neue Aufrufer nutzen recordExerciseAttempt. */
 export async function saveExerciseProgress(
   exerciseId: string,
-  isCorrect: boolean
+  answer: string
 ): Promise<{ success: boolean }> {
-  const result = await recordExerciseAttempt({ exerciseId, isCorrect, hintShown: false })
+  const result = await recordExerciseAttempt({ exerciseId, answer, hintShown: false })
   return { success: result.success }
 }

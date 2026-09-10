@@ -774,14 +774,14 @@
     "pricing_roadmap": {
       "due_today": "Rechnungsbetrag",
       "optional_continuation": "Optionale Fortführung",
-      "cancel_anytime": "Jederzeit kündbar – einfach nicht zahlen",
+      "cancel_anytime": "Monatlich flexibel – Kündigung per Formular oder E-Mail",
       "how_payment_works": "Wie funktioniert das Abo?",
-      "payment_explanation": "Sie zahlen heute den ersten Monat. Danach läuft Ihr Kurs automatisch weiter. Möchten Sie aufhören, genügt es, die nächste Rechnung nicht zu bezahlen – das gilt als automatische Kündigung. Keine versteckten Kosten, kein Papierkram.",
+      "payment_explanation": "Die Kursgebühr wird nach Rechnungsstellung per Überweisung bezahlt. Folgerechnungen werden zum Monatsende für den nächsten Monat erstellt. Für eine Beendigung nutze bitte das Kündigungsformular oder schreibe uns eine E-Mail; Einzelheiten stehen in den AGB.",
       "total_today": "Gesamtbetrag",
       "payment_popover_title": "Entspanntes Abo-Modell",
-      "payment_point_1": "Kurs verlängert sich monatlich automatisch.",
-      "payment_point_2": "Rechnung bezahlen = Zustimmung zur Teilnahme.",
-      "payment_point_3": "Nicht bezahlen = automatische Kündigung, keine Extrakosten."
+      "payment_point_1": "Monatliche Abrechnung im Voraus.",
+      "payment_point_2": "Zahlung per Überweisung nach Rechnungserhalt.",
+      "payment_point_3": "Kündigung einfach per Formular oder E-Mail."
     }
   },
   "cancellation": {
@@ -817,7 +817,7 @@
   "agb": {
     "title": "Allgemeine Geschäftsbedingungen",
     "school_name": "Sitov Language Academy",
-    "status_date": "Stand: April 2026",
+    "status_date": "Stand: 10. September 2026",
     "sections": [
       {
         "title": "§ 1 Geltungsbereich, Anbieter",
@@ -864,7 +864,8 @@
           "BIC: NTSBDEB1XXX",
           "Bank: N26 Bank SE",
           "Verwendungszweck: Rechnungsnummer",
-          "(6) Bei verspäteter Zahlung gelten die gesetzlichen Verzugsregelungen (§ 288 BGB) nur dann, wenn die Zahlung angekündigt, aber nicht fristgerecht geleistet wurde."
+          "(6) Bei verspäteter Zahlung gelten die gesetzlichen Verzugsregelungen (§ 288 BGB) nur dann, wenn die Zahlung angekündigt, aber nicht fristgerecht geleistet wurde.",
+          "(7) Folgerechnungen werden regelmäßig zum Monatsende für den folgenden Unterrichtsmonat erstellt. Die Zahlung erfolgt im Voraus nach den Angaben auf der Rechnung. Ein interner Vermerk im Lehrer-Dashboard über die Rechnungserstellung ist keine Bestätigung ihres Versands oder eines Zahlungseingangs."
         ]
       },
       {
@@ -933,7 +934,18 @@
         ]
       },
       {
-        "title": "§ 12 Schlussbestimmungen",
+        "title": "§ 12 Digitale Lernplattform und Lernbetreuung",
+        "content": [
+          "(1) Der Lernraum ergänzt die jeweils gebuchten und freigegebenen Kursleistungen durch Vokabeltraining, Grammatikübungen, Lesetexte und Ausspracheübungen. Umfang und Zugang richten sich nach der Kursbeschreibung und der Freigabe. Noch nicht veröffentlichte Lernvideos sind keine zugesagte zusätzliche Leistung.",
+          "(2) Zugangsdaten dürfen nicht weitergegeben werden. Bereits vorhandene Schüler- und Buchungsdaten werden einem Konto erst nach verifizierter Anmeldung und eindeutiger Zuordnung zugänglich gemacht. Fremde E-Mail-Adressen dürfen nicht verwendet werden. Ein Lernkonto oder der Eingang einer Anmeldung ersetzt nicht die Annahme des Kursangebots durch die Sprachschule nach § 3.",
+          "(3) Der Vokabeltrainer verwendet zeitlich verteilte Wiederholungen. Der Status „gelernt“ bezeichnet den erreichten Übungsstand und garantiert kein dauerhaftes Erinnern oder Prüfungsergebnis. Eigene Einstufungen beeinflussen die Wiederholungstermine.",
+          "(4) Für Ausspracheübungen können eigene Aufnahmen und Nachrichten an die Lehrkraft gesendet werden. Die Lehrkraft kann schriftlich und per Sprachnachricht antworten; Rückfragen des Schülers sind möglich. Es handelt sich um asynchrone Betreuung, nicht um einen ständig besetzten Live-Chat. Ein bestimmter Antwortzeitraum gilt nur, wenn er gesondert vereinbart ist.",
+          "(5) Teilnehmende dürfen nur eigene oder rechtmäßig verwendbare Inhalte einsenden. Die Sprachschule erhält daran nur die für Speicherung, Wiedergabe und persönliche Lernbetreuung erforderlichen Nutzungsrechte. Die Rechte an eigenen Aufnahmen verbleiben bei den Teilnehmenden. Eine Veröffentlichung oder Nutzung zu Werbezwecken bedarf einer gesonderten Vereinbarung. Aufzeichnungen aus Online-Unterricht nach § 9 sind hiervon zu unterscheiden.",
+          "(6) YouTube-Videos öffnen sich über externe Links. Für die Nutzung des fremden Angebots gelten dessen Bedingungen. Technische Störungen sind der Sprachschule mitzuteilen; gesetzliche Rechte bei Leistungsstörungen bleiben unberührt."
+        ]
+      },
+      {
+        "title": "§ 13 Schlussbestimmungen",
         "content": [
           "(1) Es gilt deutsches Recht.",
           "(2) Die Vertragssprache ist Deutsch.",
@@ -985,7 +997,7 @@
   },
   "privacy": {
     "title": "Datenschutzerklärung",
-    "status": "Stand: November 2025",
+    "status": "Stand: 10. September 2026",
     "intro": "Wir freuen uns über Ihr Interesse an unserer Sprachschule. Der Schutz Ihrer Privatsphäre ist für uns von höchster Bedeutung. Nachfolgend informieren wir Sie ausführlich über den Umgang mit Ihren Daten.",
     "sections": [
       {
@@ -1004,29 +1016,15 @@
       {
         "title": "2. Hosting und Server-Logfiles",
         "content": [
-          "Wir hosten unsere Website bei IONOS SE, Elgendorfer Str. 57, 56410 Montabaur, Deutschland. IONOS ist als Auftragsverarbeiter tätig, mit dem ein Auftragsverarbeitungsvertrag besteht.",
-          "Bei jedem Aufruf unserer Website werden automatisch Informationen durch Ihren Browser übermittelt und in Server-Logfiles gespeichert:",
-          "- IP-Adresse des anfragenden Rechners",
-          "- Datum und Uhrzeit des Zugriffs",
-          "- Name und URL der abgerufenen Datei",
-          "- Übertragene Datenmenge",
-          "- Meldung über erfolgreichen Abruf",
-          "- Browsertyp und -version",
-          "- Betriebssystem des Nutzers",
-          "- Referrer URL (zuvor besuchte Seite)",
-          "Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der technischen Bereitstellung und Sicherheit der Website).",
-          "Speicherdauer: Die Logfiles werden nach spätestens 7 Tagen automatisch gelöscht."
+          "Unsere Website und Lernplattform werden über Netlify, Inc. (USA) bereitgestellt. Dabei werden technisch erforderliche Verbindungsdaten wie IP-Adresse, aufgerufene Seite, Zeitpunkt, Browser, Referrer und Fehlerstatus verarbeitet. Zweck ist die Auslieferung und Absicherung des Angebots; Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO.",
+          "Die Verarbeitung kann außerhalb der EU stattfinden. Angaben zu Auftragsverarbeitung und Übermittlungsgrundlagen stellt Netlify unter https://www.netlify.com/pdf/netlify-dpa.pdf bereit. Technische Protokolle werden nach dem für Betrieb und Sicherheitsvorfälle erforderlichen Zeitraum gelöscht; gesetzliche Nachweispflichten können eine längere Speicherung erfordern."
         ]
       },
       {
         "title": "3. Cookies und LocalStorage",
         "content": [
-          "Unsere Website nutzt localStorage (eine browserseitige Speichertechnologie) sowie technisch notwendige Cookies, um die Funktionalität der Website zu gewährleisten. Diese Technologien werden ausschließlich für folgende Zwecke eingesetzt:",
-          "- Speicherung Ihrer Sprachauswahl (Deutsch, Englisch, Russisch, Ukrainisch)",
-          "- Session-Verwaltung für Formulare",
-          "- Technische Funktionalität der Website",
-          "Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse) sowie § 25 Abs. 2 TTDSG (technisch notwendige Cookies/Speicherung).",
-          "Diese Speicherung ist technisch notwendig für die komfortable Nutzung der Website und erfolgt ohne Einwilligung. Es findet kein Tracking oder Profiling statt."
+          "Sprachen, Darstellung und Anmeldung werden durch technisch notwendige Cookies und Browser-Speicher unterstützt. Details zu Lernraum-Einstellungen und noch zu synchronisierenden Antworten stehen in Abschnitt 11.",
+          "Art. 6(1)(b), (f) GDPR; § 25(2) TDDDG."
         ]
       },
       {
@@ -1043,7 +1041,7 @@
           "- Anmeldedatum",
           "Zweck: Verwaltung von Kursanmeldungen, Wartelisten, Kommunikation mit Teilnehmern, Organisation des Unterrichts.",
           "Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Vertragsanbahnung und -durchführung) sowie Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an effizienter Kursverwaltung).",
-          "Speicherdauer: Kursdaten (Name, Kontakt, Teilnahme) werden bis 3 Jahre nach Kursende gespeichert. Rechnungsdaten werden 10 Jahre aufbewahrt (gesetzliche Aufbewahrungspflicht nach HGB/AO). Anmeldeformulare bei Offline-Anmeldung werden 10 Jahre aufbewahrt (Nachweispflicht).",
+          "Rechnungs- und Buchungsbelege werden grundsätzlich acht Jahre ab Ende des Entstehungsjahres aufbewahrt (§ 147 AO, gegebenenfalls § 257 HGB); für andere Unterlagen können sechs- oder zehnjährige Fristen gelten. Laufende steuerliche Verfahren können die Aufbewahrung verlängern.",
           "Mit Supabase besteht ein Auftragsverarbeitungsvertrag gemäß Art. 28 DSGVO."
         ]
       },
@@ -1051,7 +1049,7 @@
         "title": "5. Rechnungsstellung und Buchhaltung (Papierkram.de)",
         "content": [
           "Für die Erstellung und Verwaltung von Rechnungen nutzen wir den Dienst Papierkram.de.",
-          "Anbieter: Papierkram GmbH, Grünberger Str. 54, 10245 Berlin, Deutschland",
+          "Papierkram.de: odacer finanzsoftware GmbH, Konrad-Adenauer-Ring 13, 65187 Wiesbaden, Deutschland. https://www.papierkram.de/impressum/",
           "Verarbeitete Daten:",
           "- Name, Vorname",
           "- Adresse",
@@ -1059,8 +1057,9 @@
           "- Rechnungsinformationen (Kurse, Preise, Zahlungsdaten)",
           "Zweck: Erstellung und Versand von Rechnungen, Buchhaltung, Erfüllung steuerlicher Pflichten.",
           "Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung) sowie Art. 6 Abs. 1 lit. c DSGVO (gesetzliche Aufbewahrungspflichten nach HGB/AO).",
-          "Speicherdauer: Rechnungsdaten werden gemäß den gesetzlichen Aufbewahrungsfristen für 10 Jahre gespeichert.",
-          "Mit Papierkram.de besteht ein Auftragsverarbeitungsvertrag gemäß Art. 28 DSGVO."
+          "Rechnungs- und Buchungsbelege werden grundsätzlich acht Jahre ab Ende des Entstehungsjahres aufbewahrt (§ 147 AO, gegebenenfalls § 257 HGB); für andere Unterlagen können sechs- oder zehnjährige Fristen gelten. Laufende steuerliche Verfahren können die Aufbewahrung verlängern.",
+          "Mit Papierkram.de besteht ein Auftragsverarbeitungsvertrag gemäß Art. 28 DSGVO.",
+          "Die Rechnungen werden manuell in Papierkram.de erstellt, regelmäßig am Monatsende für den folgenden Unterrichtsmonat im Voraus. Im Lehrer-Dashboard werden Annahmestatus, Rechnungsmonat, Bearbeitungsstatus, gegebenenfalls Rechnungsreferenz und Bearbeitungszeitpunkt geführt. Die Markierung „Rechnung erstellt“ bestätigt weder Versand noch Zahlungseingang."
         ]
       },
       {
@@ -1104,25 +1103,12 @@
         "title": "8. Datenerfassung auf unserer Website",
         "content": [
           "8.1 Hosting und Server-Logfiles",
-          "Um den sicheren und stabilen Betrieb unserer Website zu gewährleisten, nehmen wir Hosting-Leistungen bei folgendem Anbieter in Anspruch:",
-          "IONOS SE, Elgendorfer Str. 57, 56410 Montabaur, Deutschland",
-          "Mit diesem Anbieter haben wir einen Auftragsverarbeitungsvertrag (AVV) gemäß Art. 28 DSGVO geschlossen. Dieser Vertrag stellt sicher, dass der Anbieter die Daten unserer Website-Besucher nur nach unseren Weisungen und unter Einhaltung der DSGVO verarbeitet.",
-          "Bei jedem Aufruf unserer Website erfasst unser Hoster automatisch Informationen, die Ihr Browser übermittelt (sog. Server-Logfiles). Dies sind:",
-          "- IP-Adresse (wird in der Regel anonymisiert gespeichert)",
-          "- Datum und Uhrzeit der Anfrage",
-          "- Inhalt der Anforderung (konkrete Seite)",
-          "- Zugriffsstatus/HTTP-Statuscode",
-          "- Website, von der die Anforderung kommt (Referrer URL)",
-          "- Browser und Betriebssystem",
-          "Rechtsgrundlage: Die Verarbeitung erfolgt auf Grundlage unseres berechtigten Interesses (Art. 6 Abs. 1 lit. f DSGVO) an einer technisch fehlerfreien Darstellung und der Gewährleistung der Stabilität und Sicherheit unserer Website.",
-          "Speicherdauer: Die IP-Adressen der Besucher werden in den Server-Logfiles nach 7 Tagen anonymisiert. Die anonymisierten Logfiles werden anschließend für 8 Wochen gespeichert und danach gelöscht. Nach der Anonymisierung ist ein Rückbezug auf Ihre Person nicht mehr möglich.",
-          "",
+          "Für Hosting und technische Protokolle gelten die Informationen in Abschnitt 2.",
           "8.2 Cookies",
           "Unsere Website verwendet Cookies. Cookies sind kleine Textdateien, die auf Ihrem Endgerät gespeichert werden. Wir setzen ausschließlich technisch notwendige Cookies ein, die für den Grundbetrieb der Website erforderlich sind (z.B. zur Speicherung der von Ihnen gewählten Sprache).",
           "Wir verwenden keine Cookies für Analyse-, Tracking- oder Marketingzwecke.",
           "Rechtsgrundlage: Der Einsatz dieser technisch notwendigen Cookies erfolgt auf Grundlage unseres berechtigten Interesses an einer nutzerfreundlichen und funktionsfähigen Bereitstellung unserer Dienste (Art. 6 Abs. 1 lit. f DSGVO).",
           "Speicherdauer: Die meisten der von uns verwendeten Cookies sind so genannte „Session-Cookies“. Sie werden nach Ende Ihres Besuchs automatisch gelöscht. Andere Cookies (z.B. für die Sprachwahl) bleiben auf Ihrem Endgerät gespeichert, bis Sie diese löschen. Sie können Ihren Browser so einstellen, dass Sie über das Setzen von Cookies informiert werden und Cookies nur im Einzelfall erlauben oder die Annahme von Cookies für bestimmte Fälle oder generell ausschließen.",
-          "",
           "8.3 Anmeldung zu Kursen",
           "Wenn Sie sich über unsere Website, per E-Mail oder per Papierformular vor Ort für einen Kurs anmelden, erheben wir die für die Vertragsdurchführung notwendigen Daten:",
           "- Name und Vorname",
@@ -1132,8 +1118,7 @@
           "- Weitere freiwillige Informationen, die Sie uns zur Verfügung gestellt haben",
           "Bei Offline-Anmeldungen: Die Daten aus dem unterschriebenen Papierformular werden manuell von uns in unser Kursverwaltungssystem (Supabase, Frankfurt) eingegeben. Das Original-Formular wird gemäß den gesetzlichen Aufbewahrungsfristen bei uns aufbewahrt. Bei Offline-Anmeldung erheben wir zusätzlich Ihre handschriftliche Unterschrift auf dem Anmeldeformular.",
           "Rechtsgrundlage: Die Verarbeitung dieser Daten erfolgt zur Durchführung vorvertraglicher Maßnahmen und zur Erfüllung eines Vertrages (Art. 6 Abs. 1 lit. b DSGVO).",
-          "Speicherdauer: Wir speichern diese Daten bis zum Ablauf der gesetzlichen Gewährleistungs- und Verjährungsfristen. Daten, die buchhalterischen Pflichten unterliegen (z.B. Rechnungen), speichern wir gemäß den gesetzlichen Fristen (i.d.R. 10 Jahre nach HGB und AO).",
-          "",
+          "Rechnungs- und Buchungsbelege werden grundsätzlich acht Jahre ab Ende des Entstehungsjahres aufbewahrt (§ 147 AO, gegebenenfalls § 257 HGB); für andere Unterlagen können sechs- oder zehnjährige Fristen gelten. Laufende steuerliche Verfahren können die Aufbewahrung verlängern.",
           "8.4 Kursbetreuung und Hausaufgaben (Telegram)",
           "Für die Kommunikation mit der Lehrkraft, den Austausch von Hausaufgaben und die tägliche Kursbetreuung nutzen wir den Messenger-Dienst Telegram. Die Teilnahme am Telegram-Kanal/der Telegram-Gruppe ist optional, wird aber für eine optimale Kursbetreuung empfohlen.",
           "Anbieter: Telegram Messenger LLP, Dubai, Vereinigte Arabische Emirate / Telegram FZ-LLC, Dubai",
@@ -1155,11 +1140,9 @@
           "- Alternative Kommunikation: Falls Sie Bedenken bezüglich Telegram haben, können Sie alternativ per E-Mail mit uns kommunizieren. Wir bemühen uns, auch ohne Telegram eine gute Kursbetreuung zu gewährleisten.",
           "Speicherdauer: Nachrichten in Telegram-Gruppen werden für die Dauer des Kurses und bis zu 6 Monate nach Kursende gespeichert, sofern die Gruppe nicht früher gelöscht wird. Sie können Ihre eigenen Nachrichten jederzeit selbst löschen.",
           "Weitere Informationen zum Datenschutz bei Telegram: https://telegram.org/privacy",
-          "",
           "8.5 Kontaktaufnahme (E-Mail, Telefon)",
           "Wenn Sie uns per E-Mail oder Telefon kontaktieren, werden die von Ihnen mitgeteilten Daten (Ihre E-Mail-Adresse, ggf. Ihr Name und Ihre Telefonnummer) von uns gespeichert, um Ihre Fragen zu beantworten.",
           "Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (bei Vertragsanbahnung) bzw. Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an effizienter Kommunikation).",
-          "",
           "8.6 Google Maps",
           "Auf unserer Website nutzen wir das Angebot von Google Maps. Dadurch können wir Ihnen interaktive Karten direkt in der Website anzeigen und ermöglichen Ihnen die komfortable Nutzung der Karten-Funktion (z.B. zur Anfahrtssuche).",
           "Anbieter: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland.",
@@ -1199,9 +1182,31 @@
         ]
       },
       {
-        "title": "11. Aktualität und Änderung dieser Datenschutzerklärung",
+        "title": "11. Lernkonto, Lernfortschritt und Zugangsschutz",
         "content": [
-          "Diese Datenschutzerklärung ist aktuell gültig und hat den Stand November 2025. Durch die Weiterentwicklung unserer Website oder aufgrund geänderter gesetzlicher Vorgaben kann es notwendig werden, diese Datenschutzerklärung zu ändern."
+          "Die Lernplattform verarbeitet Kontodaten (E-Mail, Profilname, Sprache), freigegebene Niveaus und gebuchte Kurse sowie Vokabelphasen, Abfragerichtungen, Wiederholungstermine, Antworten, Übungsversuche und Ergebnisse. Die Zwecke sind persönliches Training, Fortschrittsanzeige und Betreuung durch die Lehrkraft; Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO. Sicherheitsprotokolle und Maßnahmen gegen missbräuchliche Zugriffe beruhen auf Art. 6 Abs. 1 lit. f DSGVO.",
+          "Ein bestehender Schülerdatensatz wird erst nach verifizierter Anmeldung und eindeutiger Zuordnung mit dem Lernkonto verbunden. Die bloße Eingabe einer bekannten E-Mail-Adresse zeigt keine gespeicherten Schülerdaten an. Bei mehrdeutigen Zuordnungen ist eine Prüfung durch die Sprachschule erforderlich. Lehrkräfte und Administratoren sehen die zur Kursverwaltung und Betreuung benötigten Daten.",
+          "Browser-Speicher und notwendige Anmelde-Cookies speichern unter anderem Sprache, Design, Sitzungsstatus, Lernset-Auswahl und gegebenenfalls noch zu synchronisierende Antworten. Lokale Einstellungen bleiben bis zum Löschen im Browser bestehen. Personenbezogene Lernstände werden für die Nutzung und Betreuung des Lernkontos gespeichert; bei Beendigung des Kontos werden sie gelöscht, soweit keine gesonderte gesetzliche Pflicht oder konkret erforderliche Anspruchssicherung entgegensteht. Auskunft und Löschung können unter info@sitov-academy.com angefragt werden."
+        ]
+      },
+      {
+        "title": "12. Ausspracheübungen, Aufnahmen und Nachrichten",
+        "content": [
+          "Im Aussprache-Trainer wählst du einen Lesetext und startest die Mikrofonaufnahme selbst. Vor dem Absenden bleibt die Aufnahme im Browser. Mit dem Absenden werden Stimme, ausgewählter Text, Niveau, Zeitstempel sowie anschließend ausgetauschte Text- und Sprachnachrichten zur individuellen Rückmeldung gespeichert. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO für die von dir angeforderte Lernbetreuung. Die Mikrofonberechtigung des Browsers kann jederzeit entzogen werden.",
+          "Neue Traineraufnahmen werden in einem privaten Supabase-Speicher abgelegt. Zugriff erhalten der betreffende Schüler sowie berechtigte Lehrkräfte und Administratoren. Rückmeldungen können mehrfach beantwortet werden; Zeitstempel und Gelesen-Status erleichtern die Betreuung. Diese Aufnahmen werden nicht automatisch veröffentlicht oder auf YouTube hochgeladen. Es erfolgt keine biometrische Identifizierung und keine automatische Bewertung der Stimme. Aufnahmen und Nachrichten werden für die Betreuung im Lernkonto gespeichert; für ihre Löschung gelten die im vorherigen Abschnitt beschriebenen Kriterien.",
+          "Für die Vorlesefunktion werden Lernwörter und Referenztexte serverseitig an den Microsoft-Sprachdienst übermittelt und erzeugte Audiodateien zwischengespeichert. Schüleraufnahmen werden diesem Dienst nicht zur Analyse übermittelt. Microsoft kann Daten auch außerhalb der EU verarbeiten; nähere Informationen: https://privacy.microsoft.com/de-de/privacystatement. Bitte trage keine vertraulichen personenbezogenen Angaben in Lerntexte ein."
+        ]
+      },
+      {
+        "title": "13. Externe Lernvideos",
+        "content": [
+          "Lernvideos werden als Links zu YouTube (Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland) angeboten. Im Lernvideo-Bereich werden keine YouTube-Player oder Vorschaubilder automatisch geladen. Erst beim Öffnen eines Links verlässt du unsere Plattform; danach verarbeitet YouTube insbesondere Verbindungsdaten und gegebenenfalls Kontodaten nach seinen eigenen Bedingungen. Weitere Informationen: https://policies.google.com/privacy."
+        ]
+      },
+      {
+        "title": "14. Aktualität dieser Datenschutzerklärung",
+        "content": [
+          "Diese Datenschutzerklärung berücksichtigt den Funktionsumfang der Lernplattform am 10. September 2026. Bei Änderungen der Verarbeitung passen wir die Informationen an."
         ]
       }
     ]
@@ -1315,11 +1320,11 @@
   },
   "videos": {
     "back_to_level": "Zurück zur Übersicht",
-    "internal_title": "Sitov Academy Lektionen",
-    "internal_subtitle": "Unsere eigenen Video-Lektionen – passgenau zum Kurs.",
+    "internal_title": "Lernvideos",
+    "internal_subtitle": "Unsere Video-Lektionen ergänzen deinen Kurs. Öffne sie direkt auf YouTube und lerne in deinem Tempo.",
     "coming_soon": "Demnächst",
-    "empty_internal": "Aktuell sind keine Videos verfügbar.",
-    "empty_internal_hint": "Deine Lehrerin stellt hier bald neue Lernvideos für dich ein.",
+    "empty_internal": "Unsere ersten Lernvideos entstehen gerade.",
+    "empty_internal_hint": "Bis es hier losgeht, kannst du mit Vokabeln, Grammatik und Aussprache weiterlernen. Neue Videos findest du später hier als YouTube-Link.",
     "empty_external": "Aktuell sind keine externen Videos hinterlegt.",
     "external_title": "Nicos Weg (Deutsche Welle)",
     "external_badge": "Externes Angebot",
@@ -1337,7 +1342,30 @@
     "speed_aria": "Abspieltempo umschalten, aktuell {speed}",
     "error_title": "Die Videos konnten leider nicht geladen werden.",
     "error_description": "Das lag nicht an dir. Versuche es bitte noch einmal.",
-    "error_retry": "Nochmal versuchen"
+    "error_retry": "Nochmal versuchen",
+    "supplement_label": "Ergänzend zum Kurs",
+    "watch_youtube": "Auf YouTube ansehen",
+    "continue_vocabulary": "Vokabeln weiterlernen",
+    "external_privacy": "YouTube wird erst geöffnet, wenn du einen Videolink anklickst. Es werden hier keine YouTube-Player oder Vorschaubilder geladen.",
+    "cms_title": "Lernvideos verwalten",
+    "cms_subtitle": "Veröffentliche den YouTube-Link, sobald ein Video fertig ist. Lernvideos ergänzen die drei Trainer.",
+    "cms_new": "Videolink hinzufügen",
+    "cms_edit": "Videolink bearbeiten",
+    "cms_title_field": "Titel",
+    "cms_lesson": "Lektion / Thema",
+    "cms_description": "Beschreibung (optional)",
+    "cms_url": "YouTube-Link",
+    "cms_level": "Niveau",
+    "cms_save": "Speichern",
+    "cms_cancel": "Abbrechen",
+    "cms_delete": "Entfernen",
+    "cms_confirm_delete": "Diesen Videolink entfernen?",
+    "cms_failed": "Der Videolink konnte nicht gespeichert werden. Prüfe die Angaben und versuche es erneut.",
+    "cms_saved": "Videolink gespeichert.",
+    "cms_empty": "Noch keine Videolinks vorhanden.",
+    "cms_legacy": "Älterer Eintrag – ergänze einen YouTube-Link, um ihn im Lernraum anzuzeigen.",
+    "cms_search": "Videos durchsuchen",
+    "cms_open": "Video öffnen"
   },
   "profile": {
     "title": "Mein Profil",
@@ -1619,7 +1647,12 @@
     "reset_progress": "Lernfortschritt zurücksetzen",
     "reset_progress_confirm": "Alle Lernstände dieser Lektion werden zurückgesetzt. Möchtest du fortfahren?",
     "reset_progress_yes": "Ja, zurücksetzen",
-    "cancel": "Abbrechen"
+    "cancel": "Abbrechen",
+    "method_title": "So funktioniert dein Karteikasten",
+    "method_progress": "Eine richtige Antwort verschiebt diese Abfragerichtung eine Phase weiter. Bei einer falschen Antwort geht es eine Phase zurück, höchstens bis Phase 1.",
+    "method_intervals": "Zwischen richtigen Antworten liegen 1, 3, 9, 29 und 90 Tage. Als schwierig markierte Wörter werden je nach Muttersprache früher wiederholt.",
+    "method_learned": "Ein Wort gilt als gelernt, wenn du die fällige Wiederholung in Phase 6 in beiden Richtungen bestanden hast: Deutsch → Übersetzung und Übersetzung → Deutsch. Danach erscheint es nicht mehr in der regulären Abfrage. „Gelernt“ ist ein Lernstatus, keine Garantie, dass du das Wort nie vergisst.",
+    "method_assessment": "Bei der Ersteinstufung startet „Kenne ich schon“ direkt in Phase 6. Nach 90 Tagen wird das Wort nochmals in beiden Richtungen geprüft. Das ist eine Abkürzung für vorhandenes Wissen."
   },
   "exercises": {
     "no_exercises": "Aktuell sind keine Übungen verfügbar.",
@@ -1904,7 +1937,10 @@
     "cms_delete_final": "Endgültig löschen",
     "cms_page": "Seite {page} von {pages} · {count} Ergebnisse",
     "cms_previous": "Zurück",
-    "cms_next": "Weiter"
+    "cms_next": "Weiter",
+    "nav_registrations": "Anmeldungen",
+    "nav_invoices": "Rechnungen",
+    "nav_pronunciation": "Lesetexte"
   },
   "academy": {
     "brand_name": "Sitov Academy",

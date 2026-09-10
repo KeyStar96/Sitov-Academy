@@ -9,13 +9,13 @@ import { cn } from '@/lib/utils'
 interface MultipleChoiceExerciseProps {
   exercise: MultipleChoiceExerciseData
   t: ExerciseTranslator
-  onAttempt: (isCorrect: boolean, hintShown: boolean) => void
+  onAttempt: (isCorrect: boolean, hintShown: boolean, answer: string) => void
   onNext: () => void
   nextLabel: string
 }
 
 function isSameOption(left: string, right: string): boolean {
-  return left.trim().toLocaleLowerCase('de-DE') === right.trim().toLocaleLowerCase('de-DE')
+  return left.trim().replace(/\s+/g, ' ').toLocaleLowerCase('de-DE') === right.trim().replace(/\s+/g, ' ').toLocaleLowerCase('de-DE')
 }
 
 /**
@@ -45,7 +45,7 @@ export default function MultipleChoiceExerciseCard({
     if (!selectedOption || isSolved) return
 
     const isCorrect = isSameOption(selectedOption, exercise.content.correct_answer)
-    onAttempt(isCorrect, false)
+    onAttempt(isCorrect, Boolean(exercise.content.explanation && failedAttempts >= 2), selectedOption)
 
     if (isCorrect) {
       setIsSolved(true)
@@ -61,6 +61,7 @@ export default function MultipleChoiceExerciseCard({
 
   return (
     <div className="p-5 sm:p-10">
+      {exercise.content.instruction && <p className="mb-6 text-base font-semibold text-[var(--violet)]">{exercise.content.instruction}</p>}
       <h3 className="break-words text-xl font-bold leading-relaxed text-[var(--foreground)] sm:text-2xl">{exercise.content.question}</h3>
 
       <div className="mt-8 space-y-4">
@@ -79,7 +80,7 @@ export default function MultipleChoiceExerciseCard({
               aria-label={isExcluded ? t('chip_wrong_aria', { word: option }) : t('choose_word_aria', { word: option })}
               className={cn(
                 'flex min-h-16 min-w-0 w-full items-center break-words [overflow-wrap:anywhere] rounded-2xl border-2 px-6 py-4 text-left text-xl font-medium transition-all focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)]',
-                isCorrectAndSolved && 'border-green-500 bg-green-50 font-bold text-green-800',
+                isCorrectAndSolved && 'border-[var(--violet)] bg-[var(--surface-muted)] font-bold text-[var(--violet)]',
                 !isCorrectAndSolved && isExcluded && 'cursor-not-allowed border-[var(--border)]  bg-[var(--surface-muted)]  text-[var(--muted)]  line-through',
                 !isCorrectAndSolved && !isExcluded && isSelected && 'border-[var(--violet)] bg-[var(--violet)] text-[var(--surface)] shadow-lg',
                 !isCorrectAndSolved && !isExcluded && !isSelected && 'border-[var(--border)]  bg-[var(--surface)]  text-[var(--foreground)]  hover:border-[var(--violet)]  hover:bg-[var(--surface-muted)] '
@@ -115,6 +116,8 @@ export default function MultipleChoiceExerciseCard({
         </div>
       )}
 
+      {exercise.content.explanation && (isSolved || failedAttempts >= 2) && <div className="mt-6 rounded-2xl border border-[var(--border)] bg-[var(--surface-muted)] p-5"><h4 className="font-semibold text-[var(--violet)]">{t('hint_title')}</h4><p className="mt-2 text-base leading-relaxed text-[var(--foreground)]">{exercise.content.explanation}</p></div>}
+
       {isSolved && (
         <div
           role="status"
@@ -131,7 +134,7 @@ export default function MultipleChoiceExerciseCard({
           <button
             type="button"
             onClick={onNext}
-            className="inline-flex min-h-16 w-full items-center justify-center gap-3 rounded-2xl bg-[var(--accent)] px-8 py-4 text-xl font-bold text-[var(--accent-foreground)] shadow-md transition-colors hover:opacity-90 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)] sm:w-auto"
+            className="inline-flex min-h-16 w-full items-center justify-center gap-3 rounded-full bg-[var(--accent)] px-8 py-4 text-xl font-bold text-[var(--accent-foreground)] shadow-md transition-colors hover:opacity-90 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)] sm:w-auto"
           >
             {nextLabel}
             <ArrowRight size={28} aria-hidden="true" />
@@ -141,7 +144,7 @@ export default function MultipleChoiceExerciseCard({
             type="button"
             onClick={handleCheck}
             disabled={!selectedOption}
-            className="min-h-16 w-full rounded-2xl bg-[var(--violet)] px-8 py-4 text-xl font-bold text-[var(--surface)] shadow-md transition-colors hover:bg-[var(--violet)] disabled:cursor-not-allowed disabled:opacity-50 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)] sm:w-auto"
+            className="min-h-16 w-full rounded-full bg-[var(--violet)] px-8 py-4 text-xl font-bold text-[var(--surface)] shadow-md transition-colors hover:bg-[var(--violet)] disabled:cursor-not-allowed disabled:opacity-50 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)] sm:w-auto"
           >
             {t('check_answer')}
           </button>

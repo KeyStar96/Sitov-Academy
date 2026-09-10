@@ -776,14 +776,14 @@
     "pricing_roadmap": {
       "due_today": "Fatura Tutarı",
       "optional_continuation": "İsteğe bağlı devam",
-      "cancel_anytime": "Her zaman iptal edin – sadece ödemeyin",
+      "cancel_anytime": "Aylık esneklik — form veya e-posta ile iptal",
       "how_payment_works": "Abonelik nasıl çalışır?",
-      "payment_explanation": "Bugün ilk ayı ödüyorsunuz. Sonrasında kursunuz otomatik olarak devam eder. Durdurmak mı istiyorsunuz? Bir sonraki faturayı ödemeyin yeter – bu otomatik iptal sayılır. Gizli maliyet yok, evrak işi yok.",
+      "payment_explanation": "Kurs ücreti fatura düzenlendikten sonra banka havalesiyle ödenir. Sonraki faturalar ay sonunda bir sonraki ay için hazırlanır. Katılımı sonlandırmak için iptal formunu kullanın veya e-posta gönderin; ayrıntılar sözleşme koşullarındadır.",
       "total_today": "Toplam Tutar",
       "payment_popover_title": "Rahat Abonelik Modeli",
-      "payment_point_1": "Kurs her ay otomatik olarak yenilenir.",
-      "payment_point_2": "Faturayı ödemek = katılım onayı.",
-      "payment_point_3": "Ödememek = otomatik iptal, ek maliyet yok."
+      "payment_point_1": "Aylık peşin faturalandırma.",
+      "payment_point_2": "Fatura alındıktan sonra banka havalesiyle ödeme.",
+      "payment_point_3": "Form veya e-posta ile kolay iptal."
     }
   },
   "cancellation": {
@@ -819,7 +819,7 @@
   "agb": {
     "title": "Genel İşlem Koşulları (GİK)",
     "school_name": "Sitov Language Academy",
-    "status_date": "Durum: Nisan 2026",
+    "status_date": "Güncelleme: 10 Eylül 2026",
     "sections": [
       {
         "title": "§ 1 Kapsam, Sağlayıcı",
@@ -866,7 +866,8 @@
           "BIC: NTSBDEB1XXX",
           "Banka: N26 Bank SE",
           "Açıklama: Fatura Numarası",
-          "(6) Geç ödeme durumunda, yasal temerrüt düzenlemeleri (§ 288 BGB) yalnızca ödemenin beyan edildiği ancak belirlenen süre içinde yapılmadığı durumlarda geçerlidir."
+          "(6) Geç ödeme durumunda, yasal temerrüt düzenlemeleri (§ 288 BGB) yalnızca ödemenin beyan edildiği ancak belirlenen süre içinde yapılmadığı durumlarda geçerlidir.",
+          "(7) Sonraki faturalar genellikle ay sonunda bir sonraki eğitim ayı için hazırlanır. Ödeme faturadaki bilgilere göre peşin yapılır. Panelde faturanın oluşturulduğuna ilişkin iç kayıt, gönderim veya ödeme alındığını doğrulamaz."
         ]
       },
       {
@@ -935,7 +936,18 @@
         ]
       },
       {
-        "title": "§ 12 Son Hükümler",
+        "title": "§ 12 Dijital öğrenme platformu ve öğretmen desteği",
+        "content": [
+          "(1) Öğrenme alanı, kaydolunan ve erişime açılan kurs hizmetlerini kelime, dil bilgisi, okuma ve telaffuz çalışmalarıyla tamamlar. Kapsam ve erişim kurs açıklaması ve yetkilere bağlıdır. Henüz yayınlanmayan videolar taahhüt edilen ek hizmet değildir.",
+          "(2) Giriş bilgileri paylaşılmamalıdır. Mevcut öğrenci ve kurs bilgileri yalnızca doğrulanmış giriş ve kesin eşleştirmeden sonra gösterilir. Başkasının e-posta adresi kullanılmamalıdır. Hesap oluşturmak veya başvurunun alınması, § 3 uyarınca okulun kabulünün yerine geçmez.",
+          "(3) Kelime çalışması aralıklı tekrar kullanır. “Öğrenildi” durumu alıştırma ilerlemesini belirtir; kalıcı hatırlamayı veya sınav sonucunu garanti etmez. Öz değerlendirme tekrar tarihlerini etkiler.",
+          "(4) Öğrenciler telaffuz geri bildirimi için kendi kayıt ve mesajlarını gönderebilir. Öğretmen yazılı veya sesli yanıt verebilir; öğrenci tekrar cevaplayabilir. Bu, sürekli açık canlı sohbet değil, asenkron destektir. Belirli yanıt süresi ancak ayrıca kararlaştırılmışsa geçerlidir.",
+          "(5) Yalnızca size ait veya hukuken kullanabileceğiniz içerikleri gönderin. Okul, kayıtları saklamak, oynatmak ve bireysel eğitim amacıyla değerlendirmek için gereken kullanım haklarını alır. Öğrencinin kendi kaydı üzerindeki hakları öğrencide kalır. Yayın veya reklam kullanımı ayrı anlaşma gerektirir. § 9 kapsamındaki çevrim içi ders kayıtları bundan ayrıdır.",
+          "(6) YouTube videoları harici bağlantıyla açılır ve sağlayıcının koşullarına tabidir. Teknik sorunlar okula bildirilmelidir; hizmet aksaklıklarına ilişkin yasal haklar saklıdır."
+        ]
+      },
+      {
+        "title": "§ 13 Son Hükümler",
         "content": [
           "(1) Alman hukuku geçerlidir.",
           "(2) Sözleşme dili Almancadır.",
@@ -987,7 +999,7 @@
   },
   "privacy": {
     "title": "Gizlilik Politikası",
-    "status": "Durum: Kasım 2025",
+    "status": "Güncelleme: 10 Eylül 2026",
     "intro": "Dil okulumuza gösterdiğiniz ilgiden dolayı mutluyuz. Gizliliğinizin korunması bizim için son derece önemlidir. Aşağıda verilerinizin işlenmesi hakkında sizi ayrıntılı olarak bilgilendiriyoruz.",
     "sections": [
       {
@@ -1006,29 +1018,15 @@
       {
         "title": "2. Barındırma ve Sunucu Günlük Dosyaları",
         "content": [
-          "Web sitemizi IONOS SE, Elgendorfer Str. 57, 56410 Montabaur, Almanya adresinde barındırıyoruz. IONOS, kendisiyle bir veri işleme sözleşmesi bulunan bir işlemci olarak hareket etmektedir.",
-          "Web sitemizi ziyaret ettiğinizde, tarayıcınız tarafından otomatik olarak iletilen bilgiler sunucu günlük dosyalarına kaydedilir:",
-          "- İstekte bulunan bilgisayarın IP adresi",
-          "- Erişim tarihi ve saati",
-          "- İstenen dosyanın adı ve URL'si",
-          "- Aktarılan veri miktarı",
-          "- Başarılı erişim bildirimi",
-          "- Tarayıcı türü ve sürümü",
-          "- Kullanıcının işletim sistemi",
-          "- Yönlendiren URL (daha önce ziyaret edilen sayfa)",
-          "Yasal dayanak: DSGVO Madde 6 Fıkra 1 bent f (web sitesinin teknik olarak sağlanması ve güvenliğindeki meşru menfaat).",
-          "Saklama süresi: Günlük dosyaları en geç 7 gün sonra otomatik olarak silinir."
+          "Web sitesi ve öğrenme platformu Netlify, Inc. (ABD) üzerinden sunulur. IP adresi, istenen sayfa, zaman, tarayıcı, yönlendiren sayfa ve hata durumu gibi gerekli bağlantı bilgileri, hizmetin sunulması ve korunması için GDPR Madde 6(1)(f) kapsamında işlenir.",
+          "İşleme AB dışında gerçekleşebilir. Netlify’ın işleme ve aktarım koşulları: https://www.netlify.com/pdf/netlify-dpa.pdf. Teknik kayıtlar işletim ve güvenlik olayları için gerekli sürenin ardından silinir; yasal kayıt yükümlülükleri daha uzun saklama gerektirebilir."
         ]
       },
       {
         "title": "3. Çerezler ve LocalStorage",
         "content": [
-          "Web sitemiz, web sitesinin işlevselliğini sağlamak için localStorage (tarayıcı tarafı depolama teknolojisi) ve teknik olarak gerekli çerezleri kullanır. Bu teknolojiler yalnızca aşağıdaki amaçlar için kullanılır:",
-          "- Dil seçiminizin saklanması (Almanca, İngilizce, Rusça, Ukraynaca)",
-          "- Formlar için oturum yönetimi",
-          "- Web sitesinin teknik işlevselliği",
-          "Yasal dayanak: DSGVO Madde 6 Fıkra 1 bent f (meşru menfaat) ve TTDSG § 25 Fıkra 2 (teknik olarak gerekli çerezler/depolama).",
-          "Bu depolama, web sitesinin rahat bir şekilde kullanılması için teknik olarak gereklidir ve rıza olmaksızın gerçekleşir. Herhangi bir izleme veya profilleme yapılmaz."
+          "Gerekli çerezler ve tarayıcı depolaması dil, görünüm ve girişi destekler. Öğrenme ayarları ve eşitlenmeyi bekleyen cevaplar bölüm 11’de açıklanmıştır.",
+          "Art. 6(1)(b), (f) GDPR; § 25(2) TDDDG."
         ]
       },
       {
@@ -1045,7 +1043,7 @@
           "- Kayıt tarihi",
           "Amaç: Kurs kayıtlarının, bekleme listelerinin yönetimi, katılımcılarla iletişim, derslerin organizasyonu.",
           "Yasal dayanak: DSGVO Madde 6 Fıkra 1 bent b (sözleşmenin başlatılması ve ifası) ve DSGVO Madde 6 Fıkra 1 bent f (verimli kurs yönetimindeki meşru menfaat).",
-          "Saklama süresi: Kurs verileri (isim, iletişim, katılım) kurs bitiminden sonra 3 yıla kadar saklanır. Fatura verileri 10 yıl saklanır (HGB/AO uyarınca yasal saklama yükümlülüğü). Çevrimdışı kayıt için kayıt formları 10 yıl saklanır (kanıt sağlama yükümlülüğü).",
+          "Fatura ve muhasebe belgeleri genellikle oluşturuldukları yılın sonundan itibaren sekiz yıl saklanır (§ 147 AO ve uygulanıyorsa § 257 HGB); diğer belgeler için altı veya on yıl gerekebilir. Devam eden vergi işlemleri süreyi uzatabilir.",
           "Supabase ile DSGVO Madde 28 uyarınca bir veri işleme sözleşmesi mevcuttur."
         ]
       },
@@ -1053,7 +1051,7 @@
         "title": "5. Faturalandırma ve Muhasebe (Papierkram.de)",
         "content": [
           "Faturaların oluşturulması ve yönetimi için Papierkram.de hizmetini kullanıyoruz.",
-          "Sağlayıcı: Papierkram GmbH, Grünberger Str. 54, 10245 Berlin, Almanya",
+          "Papierkram.de: odacer finanzsoftware GmbH, Konrad-Adenauer-Ring 13, 65187 Wiesbaden, Deutschland. https://www.papierkram.de/impressum/",
           "İşlenen veriler:",
           "- Soyadı, Adı",
           "- Adres",
@@ -1061,8 +1059,9 @@
           "- Fatura bilgileri (kurslar, fiyatlar, ödeme verileri)",
           "Amaç: Faturaların oluşturulması ve gönderilmesi, muhasebe, vergi yükümlülüklerinin yerine getirilmesi.",
           "Yasal dayanak: DSGVO Madde 6 Fıkra 1 bent b (sözleşmenin ifası) ve DSGVO Madde 6 Fıkra 1 bent c (HGB/AO uyarınca yasal saklama yükümlülükleri).",
-          "Saklama süresi: Fatura verileri, yasal saklama sürelerine uygun olarak 10 yıl boyunca saklanır.",
-          "Papierkram.de ile DSGVO Madde 28 uyarınca bir veri işleme sözleşmesi mevcuttur."
+          "Fatura ve muhasebe belgeleri genellikle oluşturuldukları yılın sonundan itibaren sekiz yıl saklanır (§ 147 AO ve uygulanıyorsa § 257 HGB); diğer belgeler için altı veya on yıl gerekebilir. Devam eden vergi işlemleri süreyi uzatabilir.",
+          "Papierkram.de ile DSGVO Madde 28 uyarınca bir veri işleme sözleşmesi mevcuttur.",
+          "Faturalar Papierkram.de üzerinden elle, genellikle ay sonunda bir sonraki eğitim ayı için peşin olarak hazırlanır. Öğretmen panelinde kabul durumu, fatura ayı, işlem durumu, varsa fatura referansı ve işlem zamanı tutulur. “Fatura oluşturuldu” etiketi gönderimi veya ödemenin alındığını doğrulamaz."
         ]
       },
       {
@@ -1106,25 +1105,12 @@
         "title": "8. Web Sitemizde Veri Toplama",
         "content": [
           "8.1 Barındırma ve Sunucu Günlük Dosyaları",
-          "Web sitemizin güvenli ve istikrarlı çalışmasını sağlamak için aşağıdaki sağlayıcıdan barındırma hizmetleri kullanıyoruz:",
-          "IONOS SE, Elgendorfer Str. 57, 56410 Montabaur, Almanya",
-          "Bu sağlayıcı ile DSGVO Madde 28 uyarınca bir veri işleme sözleşmesi (AVV) imzaladık. Bu sözleşme, sağlayıcının web sitesi ziyaretçilerimizin verilerini yalnızca talimatlarımıza göre ve DSGVO'ya uygun olarak işlemesini garanti eder.",
-          "Web sitemizi ziyaret ettiğinizde, ev sahibimiz tarayıcınızın ilettiği bilgileri (sunucu günlük dosyaları adı verilir) otomatik olarak toplar. Bunlar:",
-          "- IP adresi (genellikle anonim olarak saklanır)",
-          "- İsteğin tarihi ve saati",
-          "- İsteğin içeriği (belirli sayfa)",
-          "- Erişim durumu/HTTP durum kodu",
-          "- İsteğin geldiği web sitesi (Yönlendiren URL)",
-          "- Tarayıcı ve işletim sistemi",
-          "Yasal dayanak: İşleme, web sitemizin teknik olarak hatasız sunumu ve istikrarının ve güvenliğinin garanti edilmesindeki meşru menfaatimize (DSGVO Madde 6 Fıkra 1 bent f) dayanmaktadır.",
-          "Saklama süresi: Ziyaretçilerin IP adresleri 7 gün sonra sunucu günlük dosyalarında anonimleştirilir. Anonimleştirilmiş günlük dosyaları daha sonra 8 hafta saklanır ve ardından silinir. Anonimleştirmeden sonra kişinize kadar izlenmesi artık mümkün değildir.",
-          "",
+          "Barındırma ve teknik kayıtlar bölüm 2’de açıklanmıştır.",
           "8.2 Çerezler",
           "Web sitemiz çerezler kullanır. Çerezler, cihazınızda saklanan küçük metin dosyalarıdır. Yalnızca web sitesinin temel çalışması için gerekli olan teknik olarak gerekli çerezleri kullanıyoruz (örneğin seçtiğiniz dili kaydetmek için).",
           "Analiz, izleme veya pazarlama amacıyla çerez kullanmıyoruz.",
           "Yasal dayanak: Bu teknik olarak gerekli çerezlerin kullanımı, hizmetlerimizin kullanıcı dostu ve işlevsel bir şekilde sunulmasındaki meşru menfaatimize (DSGVO Madde 6 Fıkra 1 bent f) dayanmaktadır.",
           "Saklama süresi: Kullandığımız çerezlerin çoğu sözde 'oturum çerezleri'dir. Ziyaretinizin bitiminden sonra otomatik olarak silinirler. Diğer çerezler (örneğin dil seçimi için) siz silene kadar cihazınızda kayıtlı kalır. Tarayıcınızı, çerezlerin ayarlanması hakkında bilgilendirilecek ve yalnızca bireysel durumlarda çerezlere izin verecek veya belirli durumlar için veya genel olarak çerezlerin kabul edilmesini hariç tutacak şekilde ayarlayabilirsiniz.",
-          "",
           "8.3 Kurslara Kayıt",
           "Web sitemiz üzerinden, e-posta ile veya yerinde kağıt form ile bir kursa kayıt olursanız, sözleşmenin ifası için gerekli verileri toplarız:",
           "- Soyadı ve Adı",
@@ -1134,8 +1120,7 @@
           "- Bize sağladığınız diğer gönüllü bilgiler",
           "Çevrimdışı kayıtlar için: İmzalı kağıt formdaki veriler tarafımızca manuel olarak kurs yönetim sistemimize (Supabase, Frankfurt) girilir. Orijinal form, yasal saklama sürelerine uygun olarak tarafımızca saklanır. Çevrimdışı kayıt için ayrıca kayıt formunda el yazısı imzanızı topluyoruz.",
           "Yasal dayanak: Bu verilerin işlenmesi, sözleşme öncesi önlemlerin uygulanması ve bir sözleşmenin yerine getirilmesi için gerçekleşir (DSGVO Madde 6 Fıkra 1 bent b).",
-          "Saklama süresi: Bu verileri yasal garanti ve zaman aşımı süreleri dolana kadar saklıyoruz. Muhasebe yükümlülüklerine tabi veriler (örneğin faturalar) yasal sürelere (genellikle HGB ve AO uyarınca 10 yıl) uygun olarak saklanır.",
-          "",
+          "Fatura ve muhasebe belgeleri genellikle oluşturuldukları yılın sonundan itibaren sekiz yıl saklanır (§ 147 AO ve uygulanıyorsa § 257 HGB); diğer belgeler için altı veya on yıl gerekebilir. Devam eden vergi işlemleri süreyi uzatabilir.",
           "8.4 Kurs Desteği ve Ödevler (Telegram)",
           "Öğretmenle iletişim, ödev değişimi ve günlük kurs desteği için Telegram mesajlaşma hizmetini kullanıyoruz. Telegram kanalına/grubuna katılım isteğe bağlıdır, ancak optimum kurs desteği için önerilir.",
           "Sağlayıcı: Telegram Messenger LLP, Dubai, Birleşik Arap Emirlikleri / Telegram FZ-LLC, Dubai",
@@ -1157,11 +1142,9 @@
           "- Alternatif iletişim: Telegram ile ilgili endişeleriniz varsa, bizimle alternatif olarak e-posta yoluyla iletişim kurabilirsiniz. Telegram olmadan da iyi bir kurs desteği sağlamaya çalışıyoruz.",
           "Saklama süresi: Telegram gruplarındaki mesajlar, grup daha önce silinmedikçe kurs süresince ve kurs bitiminden sonra 6 aya kadar saklanır. Kendi mesajlarınızı her zaman kendiniz silebilirsiniz.",
           "Telegram'da veri koruma hakkında daha fazla bilgi: https://telegram.org/privacy",
-          "",
           "8.5 İletişim (E-Posta, Telefon)",
           "Bizimle e-posta veya telefon yoluyla iletişime geçerseniz, verdiğiniz veriler (e-posta adresiniz, muhtemelen adınız ve telefon numaranız) sorularınızı yanıtlamak için tarafımızca saklanacaktır.",
           "Yasal dayanak: DSGVO Madde 6 Fıkra 1 bent b (sözleşme hazırlığı için) veya DSGVO Madde 6 Fıkra 1 bent f (verimli iletişimdeki meşru menfaat).",
-          "",
           "8.6 Google Maps",
           "Web sitemizde Google Maps hizmetini kullanıyoruz. Bu, etkileşimli haritaları doğrudan web sitesinde görüntülememize ve harita işlevini rahatça kullanmanıza (örneğin yol tarifi için) olanak tanır.",
           "Sağlayıcı: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, İrlanda.",
@@ -1201,9 +1184,31 @@
         ]
       },
       {
-        "title": "11. Bu Gizlilik Politikasının Geçerliliği ve Değiştirilmesi",
+        "title": "11. Öğrenme hesabı, ilerleme ve erişim güvenliği",
         "content": [
-          "Bu Gizlilik Politikası şu anda geçerlidir ve Kasım 2025 durumundadır. Web sitemizin daha da geliştirilmesi veya değişen yasal gereklilikler nedeniyle, bu Gizlilik Politikasını değiştirmek gerekebilir."
+          "Platform; hesap bilgilerini (e-posta, profil adı, dil), açılan seviyeleri ve kaydolunan kursları, kelime aşamalarını, sorgulama yönlerini, tekrar tarihlerini, cevapları, alıştırma denemelerini ve sonuçlarını işler. Amaç bireysel çalışma, ilerlemenin gösterilmesi ve öğretmen desteğidir; hukuki dayanak GDPR Madde 6(1)(b)’dir. Erişim güvenliği ve güvenlik kayıtları Madde 6(1)(f)’ye dayanır.",
+          "Mevcut öğrenci kaydı yalnızca doğrulanmış girişten ve kesin eşleştirmeden sonra hesaba bağlanır. Bilinen bir e-posta adresini yazmak, kayıtlı öğrenci bilgilerini göstermez. Belirsiz eşleşmeleri okul inceler. Yetkili öğretmen ve yöneticiler, eğitim ve kurs yönetimi için gerekli bilgilere erişebilir.",
+          "Tarayıcı depolaması ve gerekli giriş çerezleri dil, tema, oturum, seçilen çalışma setleri ve gerektiğinde eşitlenmeyi bekleyen cevapları saklar. Yerel ayarlar tarayıcıdan silinene kadar kalır. Kişisel öğrenme kayıtları hesabın kullanımı ve desteği için saklanır; ayrı yasal yükümlülükler veya somut hak koruma ihtiyacı bulunmadıkça hesap sona erdiğinde silinir. Bilgi ve silme talepleri: info@sitov-academy.com."
+        ]
+      },
+      {
+        "title": "12. Telaffuz çalışmaları, kayıtlar ve mesajlar",
+        "content": [
+          "Okuma metnini seçer ve mikrofon kaydını kendiniz başlatırsınız. Göndermeden önce kayıt tarayıcıda kalır. Gönderimle birlikte sesiniz, seçilen metin, seviye, zaman bilgileri ve sonraki yazılı veya sesli mesajlar bireysel geri bildirim için GDPR Madde 6(1)(b) kapsamında saklanır. Tarayıcının mikrofon iznini istediğiniz zaman kaldırabilirsiniz.",
+          "Yeni alıştırma kayıtları özel Supabase depolamasında saklanır. İlgili öğrenci ile yetkili öğretmen ve yöneticiler erişebilir. Görüşmeler tekrar yanıtlanabilir; zaman ve okunma bilgileri desteği kolaylaştırır. Kayıtlar otomatik yayınlanmaz veya YouTube’a yüklenmez. Biyometrik kimlik tespiti veya otomatik ses değerlendirmesi yapılmaz. Kayıt ve mesajlar öğrenme hesabının desteği için saklanır; önceki bölümdeki saklama ve silme ölçütleri geçerlidir.",
+          "Sesli okuma için öğrenme kelimeleri ve örnek metinler sunucumuzdan Microsoft’un konuşma hizmetine iletilir ve oluşturulan sesler önbelleğe alınır. Öğrenci kayıtları analiz için bu hizmete gönderilmez. Microsoft AB dışında da veri işleyebilir: https://privacy.microsoft.com/tr-tr/privacystatement. Öğrenme metinlerine gizli kişisel bilgiler eklemeyin."
+        ]
+      },
+      {
+        "title": "13. Harici eğitim videoları",
+        "content": [
+          "Eğitim videoları YouTube bağlantıları olarak sunulur (Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, İrlanda). Video alanında YouTube oynatıcısı veya küçük resimler otomatik yüklenmez. Bağlantıyı açtığınızda platformdan ayrılırsınız; YouTube bundan sonra bağlantı ve gerekirse hesap bilgilerini kendi koşulları kapsamında işler: https://policies.google.com/privacy."
+        ]
+      },
+      {
+        "title": "14. Bu gizlilik bildirimindeki güncellemeler",
+        "content": [
+          "Bu bildirim, öğrenme platformunun 10 Eylül 2026 tarihindeki işlevlerini kapsar. Veri işleme değiştiğinde bilgiler güncellenir."
         ]
       }
     ]
@@ -1317,11 +1322,11 @@
   },
   "videos": {
     "back_to_level": "Genel görünüme dön",
-    "internal_title": "Sitov Academy dersleri",
-    "internal_subtitle": "Kursa özel, kendi video derslerimiz.",
+    "internal_title": "Eğitim videoları",
+    "internal_subtitle": "Video derslerimiz kursunuzu tamamlar. YouTube üzerinden açın ve kendi hızınızda öğrenin.",
     "coming_soon": "Yakında",
-    "empty_internal": "Şu anda video yok.",
-    "empty_internal_hint": "Öğretmeniniz yakında buraya yeni öğrenme videoları ekleyecek.",
+    "empty_internal": "İlk eğitim videolarımız hazırlanıyor.",
+    "empty_internal_hint": "Bu arada kelime, dil bilgisi ve telaffuz çalışmalarına devam edebilirsiniz. Yeni videolar burada YouTube bağlantısı olarak yer alacak.",
     "empty_external": "Henüz harici video eklenmedi.",
     "external_title": "Nicos Weg (Deutsche Welle)",
     "external_badge": "Harici içerik",
@@ -1339,7 +1344,30 @@
     "speed_aria": "Oynatma hızını değiştir, şu an {speed}",
     "error_title": "Videolar yüklenemedi.",
     "error_description": "Bu sizin hatanız değil. Lütfen tekrar deneyin.",
-    "error_retry": "Tekrar dene"
+    "error_retry": "Tekrar dene",
+    "supplement_label": "Kursa ek kaynak",
+    "watch_youtube": "YouTube’da izle",
+    "continue_vocabulary": "Kelime çalışmasına devam et",
+    "external_privacy": "YouTube yalnızca bir video bağlantısına tıkladığınızda açılır. Bu sayfada YouTube oynatıcısı veya küçük resimleri yüklenmez.",
+    "cms_title": "Eğitim videolarını yönet",
+    "cms_subtitle": "Video hazır olduğunda YouTube bağlantısını yayınlayın. Videolar üç alıştırma alanını tamamlar.",
+    "cms_new": "Video bağlantısı ekle",
+    "cms_edit": "Video bağlantısını düzenle",
+    "cms_title_field": "Başlık",
+    "cms_lesson": "Ders / konu",
+    "cms_description": "Açıklama (isteğe bağlı)",
+    "cms_url": "YouTube bağlantısı",
+    "cms_level": "Seviye",
+    "cms_save": "Kaydet",
+    "cms_cancel": "Vazgeç",
+    "cms_delete": "Kaldır",
+    "cms_confirm_delete": "Bu video bağlantısı kaldırılsın mı?",
+    "cms_failed": "Video bağlantısı kaydedilemedi. Bilgileri kontrol edip tekrar deneyin.",
+    "cms_saved": "Video bağlantısı kaydedildi.",
+    "cms_empty": "Henüz video bağlantısı yok.",
+    "cms_legacy": "Eski kayıt — öğrenme alanında göstermek için YouTube bağlantısı ekleyin.",
+    "cms_search": "Video ara",
+    "cms_open": "Videoyu aç"
   },
   "profile": {
     "title": "Profilim",
@@ -1621,7 +1649,12 @@
     "reset_progress": "İlerlemeyi sıfırla",
     "reset_progress_confirm": "Bu dersteki tüm ilerleme sıfırlanacak. Devam etmek istiyor musunuz?",
     "reset_progress_yes": "Evet, sıfırla",
-    "cancel": "İptal"
+    "cancel": "İptal",
+    "method_title": "Kelime kartların nasıl çalışır?",
+    "method_progress": "Doğru cevap, o sorgulama yönünü bir üst aşamaya taşır. Yanlış cevap bir aşama geri götürür; en düşük aşama 1’dir.",
+    "method_intervals": "Doğru cevaplar arasında 1, 3, 9, 29 ve 90 gün beklenir. Ana dilinize göre zor olarak işaretlenen kelimeler daha erken tekrarlanır.",
+    "method_learned": "Bir kelime, 6. aşamadaki zamanı gelen tekrarı her iki yönde de doğru yanıtladığınızda öğrenilmiş sayılır: Almanca → çeviri ve çeviri → Almanca. Ardından düzenli tekrarlarda görünmez. “Öğrenildi” bir ilerleme durumudur, kelimeyi hiç unutmayacağınız anlamına gelmez.",
+    "method_assessment": "İlk değerlendirmede “Zaten biliyorum” seçimi doğrudan 6. aşamadan başlatır. Kelime 90 gün sonra her iki yönde tekrar kontrol edilir. Bu, mevcut bilgiler için bir kısayoldur."
   },
   "exercises": {
     "no_exercises": "Şu anda mevcut egzersiz yok.",
@@ -1906,7 +1939,10 @@
     "cms_delete_final": "Kalıcı olarak sil",
     "cms_page": "Sayfa {page}/{pages} · {count} sonuç",
     "cms_previous": "Önceki",
-    "cms_next": "Sonraki"
+    "cms_next": "Sonraki",
+    "nav_registrations": "Başvurular",
+    "nav_invoices": "Faturalar",
+    "nav_pronunciation": "Okuma metinleri"
   },
   "academy": {
     "brand_name": "Sitov Academy",
