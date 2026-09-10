@@ -1,5 +1,13 @@
 # Current State Analysis (Ist-Zustand)
 
+## Änderungsprotokoll — 2026-09-10: Feinschliff an Startseite, Audio und Anmeldung
+
+- **Über mich:** Das Porträt zeigt den vorhandenen Oberkörper vollständig (`object-contain`, unterer Bildanker, reservierter Bildrahmen). Zweisprachiges Aufwachsen mit Deutsch/Russisch, Bachelor/Master an der Leibniz Universität Hannover und DaZ/DaF-Weiterbildung an der TU Braunschweig sind in allen fünf Sprachen wieder enthalten. Der Kontaktbutton führt zum ausdrücklich gewünschten Telegram-Platzhalter `https://t.me/DeinNutzername`.
+- **Neural Brain:** Eigene Layoutzeilen für Überschrift, Canvas und Bildunterschrift. 1.300 Neuronen, 2.317 prozedurale Verbindungen und entsprechend viele wiederverwendete Signalpunkte; Kanten wachsen zeitversetzt, Lichtpunkte und Schweife laufen entlang derselben interpolierten Endpunkte. Drei Drawcalls, keine laufenden Buffer-Neuallokationen; Pause bei unsichtbarem Tab/Canvas, statisches Fallback bei reduzierter Bewegung oder WebGL-Ausfall. Ein in der Browserprüfung entdeckter reservierter GLSL-Bezeichner wurde korrigiert.
+- **Audio:** `FluidWaveform` füllt die exakte Fläche zwischen den beiden Hauptkurven und pulsiert sanft im vorhandenen Animationsloop. Pausierte Wiedergabe und reduzierte Bewegung bleiben statisch. Wiedergabe-/Aufnahmelogik ist unverändert.
+- **Header und Registrierung:** Direkter Buchungsbutton, auf Smartphones ständig sichtbar. Alle drei Schritte verwenden Academy-Farben, Schriften, Rundungen und weiche Schatten. Kalenderdaten umbrechen ohne horizontale Leiste; Felder haben dauerhafte Labels, die Telefonvorwahl ist ein beschriftetes natives Select. Kalender und Monatsübersicht folgen der UI-Sprache; reduzierte Bewegung wird direkt in Framer Motion berücksichtigt. Preis-, Validierungs-, Einwilligungs- und Submit-Logik bleiben erhalten.
+- **Prüfung:** Produktionsbuild und 641 Jest-Tests erfolgreich. Header/Kursauswahl in fünf Sprachen bei 320px, Desktop bei 1280px, Darkmode, Eingabe-/Bestätigungs-/Erfolgsschritt mit gemockten Server Actions sowie Audio- und WebGL-Darstellung geprüft. Keine neue Datenbankmigration und keine Veröffentlichung. Weitere Details und Code-Auszüge: `docs/ui-polish-2026-09-10.md`.
+
 ## Änderungsprotokoll — 2026-09-10: Academy-Redesign und bidirektionales Lernen
 
 Dieser Stand ersetzt die älteren Beschreibungen zu Übersetzung/Revealen in der Ersteinstufung, fester 36rem-Kartenhöhe und kursweise wiederholten Schülerzeilen.

@@ -4,16 +4,15 @@ import { useRef } from 'react'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
 import { ArrowRight, ArrowUpRight, Sparkles } from 'lucide-react'
-import { motion, useReducedMotion } from 'framer-motion'
 import { gsap, useGSAP } from '@/lib/gsap'
 import type { getDictionary } from '@/lib/dictionary'
+import styles from './HeroBrain.module.css'
 
 const NeuralBrain = dynamic(() => import('@/components/effects/NeuralBrain'), { ssr: false })
 type Dictionary = Awaited<ReturnType<typeof getDictionary>>
 
 export default function Hero({ dictionary, lang = 'de' }: { dictionary: Dictionary; lang?: string }) {
   const container = useRef<HTMLElement>(null)
-  const reduced = useReducedMotion()
   const copy = dictionary.academy
   useGSAP(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
@@ -31,11 +30,13 @@ export default function Hero({ dictionary, lang = 'de' }: { dictionary: Dictiona
       </div>
       <div className="academy-hero-footnote hero-reveal"><span>A1—B1</span><span aria-hidden="true">·</span><span>{dictionary.header.banner.location}</span></div>
     </div>
-    <div className="academy-brain-card">
-      <div className="academy-brain-top"><span className="academy-eyebrow">{copy.learn_tag}</span><Sparkles size={18} aria-hidden="true" /></div>
-      <div className="academy-brain-scene"><NeuralBrain /></div>
-      <div className="academy-brain-caption"><p>{copy.brain_caption}</p><span>{copy.brain_note}</span></div>
-      <motion.div className="academy-brain-orbit" aria-hidden="true" animate={reduced ? undefined : { rotate: 360 }} transition={{ duration: 100, repeat: Infinity, ease: 'linear' }} />
-    </div>
+    <figure className={styles.card} data-neural-brain-panel>
+      <div className={styles.heading}><span className="academy-eyebrow">{copy.learn_tag}</span><Sparkles size={18} aria-hidden="true" /></div>
+      <div className={styles.scene} data-neural-brain-scene>
+        <div className={styles.canvas}><NeuralBrain /></div>
+        <div className={styles.orbit} aria-hidden="true" />
+      </div>
+      <figcaption className={styles.caption} data-neural-brain-caption><p>{copy.brain_caption}</p><span>{copy.brain_note}</span></figcaption>
+    </figure>
   </section>
 }

@@ -616,7 +616,8 @@
       "success_message": "We have received your request and will get back to you shortly at",
       "already_used_title": "Trial already used",
       "already_used_message": "You have already used your free trial lesson. You are welcome to register directly for one of our courses!",
-      "price_label": "Free"
+      "price_label": "Free",
+      "no_dates": "No dates are currently available for this course."
     },
     "step_course": "COURSE",
     "step_personal": "PERSONAL",
@@ -645,7 +646,8 @@
       "birthdate": "DATE OF BIRTH",
       "date_placeholder": "DD.MM.YYYY",
       "required_hint": "* Required field",
-      "select_course_hint": "Select a course below to see details"
+      "select_course_hint": "Select a course below to see details",
+      "country_code": "Country calling code"
     },
     "errors": {
       "firstname_required": "First name is required",
@@ -731,7 +733,17 @@
         "contact": "Contact",
         "personal": "Date of Birth",
         "address": "Address"
-      }
+      },
+      "back_step": "Back",
+      "scroll_to_summary": "Go to summary",
+      "legal_title": "Consents",
+      "summary_data_title": "Your details",
+      "summary_courses_title": "Your courses in",
+      "edit": "Edit details",
+      "change_selection": "Change courses",
+      "total_label": "Total",
+      "total_sub_1": "VAT included",
+      "total_sub_2": "Pay by invoice"
     },
     "support_node": {
       "telegram": "Telegram",
@@ -1912,7 +1924,7 @@
     "method_3_text": "Short learning sessions and focused reviews. Your progress is always saved.",
     "teacher_eyebrow": "Someone by your side",
     "teacher_title": "Hello, I’m Anastasia.",
-    "teacher_text": "Language opens doors. As a teacher of German as a foreign and second language, I guide you with experience, patience and an eye for your strengths.",
+    "teacher_text": "Language opens doors. I grew up bilingual, with German and Russian as my native languages. As a teacher, I support you with experience, patience and an eye for your strengths.",
     "teacher_cta": "Let’s get to know each other",
     "teacher_alt": "Anastasia Sitov, German teacher",
     "course_eyebrow": "Moving forward together",
@@ -1942,6 +1954,11 @@
     "breadcrumb": "Page navigation",
     "course_unit": "per {minutes} minutes",
     "location_address": "Freizeitheim Vahrenwald, Vahrenwalder Straße 92, 30165 Hannover",
-    "support_whatsapp": "WhatsApp"
+    "support_whatsapp": "WhatsApp",
+    "book_course": "Book a course",
+    "teacher_academic_title": "Bachelor’s & master’s degrees",
+    "teacher_academic_text": "Bachelor of Science in Biology and German, and Master of Education in teaching Biology and German at Leibniz University Hannover.",
+    "teacher_training_title": "Further training in DaZ / DaF",
+    "teacher_training_text": "Further training in German as a second language and German as a foreign language at TU Braunschweig."
   }
 }

@@ -2,6 +2,14 @@
 
 > **Aktueller Stand (2026-09-10):** Die folgenden Änderungen ersetzen ältere Einstufungs-, Layout- und Buchungstabellen-Beschreibungen. Gemeinsame Marken-Komponenten (`BrandLogo`, Header, `Academy*`) und Farbvariablen verbinden Marketing und Lernbereich; Admin bleibt eine kompakte Arbeitsoberfläche. Next.js 16 läuft mit kompatiblem React 19 / React Three Fiber 9.
 
+### Darstellungsarchitektur: Feinschliff am 10. September 2026
+
+`HeroBrain.module.css` trennt Canvas und Beschriftungen in echte Layoutzeilen. `NeuralBrain` erzeugt Knoten-, Kanten- und Signal-Geometrie einmalig; die drei Shader teilen Animationszeit und Signalbahn. Pro Frame werden Uniforms aktualisiert. WebGL-/Reduced-Motion-Fallback und Sichtbarkeit bleiben vom eigentlichen Lernzustand unabhängig.
+
+`FluidWaveform` verwendet dieselben abgetasteten Punkte für Konturen und geschlossene Füllfläche. Der vorhandene RAF-Loop steuert die langsame Deckkraftvariation; `isActive` und die Bewegungspräferenz stoppen sie. `WaveformPlayer` und die Web-Audio-Integration ändern sich nicht.
+
+`EnrollmentTerminal` behält seine Formular-/Kurszustände und Server-Action-Grenzen. Die Gestaltung liegt in `components/registration/registration.css` mit Academy-Tokens; `PricingRoadmap` enthält weiterhin dieselbe Kostenberechnung. `PremiumDatePicker.locale` betrifft ausschließlich Kalenderbeschriftungen. Neue Texte stehen unter `registration` und `academy` in allen fünf Dictionaries. `Header` verlinkt direkt auf `/{lang}/registration`; `AcademyStory` verwendet das vorhandene Porträt ohne Zoom und einen austauschbaren Telegram-Link.
+
 ### Lernarchitektur ab 10. September 2026
 
 `LessonAssessmentClient` sendet Einzelentscheidungen an `submitLessonAssessment`; die DB-RPC initialisiert zwei unabhängige Richtungen in Phase 6 bzw. Phase 1. `skipVocabularyAssessment` initialisiert die numerisch erste vorhandene Lektion und persistiert `vocabulary_onboarding`. Die Assessment-Seite übergibt ausschließlich ID, Lernwort und Artikel an den Client.

@@ -1,0 +1,161 @@
+/* Registration owns its presentation; pricing, calendar and submission logic stay shared. */
+.registration-flow {
+  --registration-on-accent: #fff;
+  background: var(--canvas);
+  color: var(--foreground);
+  min-width: 0;
+  max-width: 1440px;
+  margin: 0 auto;
+  isolation: isolate;
+  overflow-x: clip;
+}
+.dark .registration-flow { --registration-on-accent: #23150e; }
+.registration-flow :is(button, input, select, textarea, [role="checkbox"]) { touch-action: manipulation; }
+.registration-flow :is(button, a, input, select, textarea, [role="checkbox"]):focus-visible {
+  outline: 3px solid var(--violet);
+  outline-offset: 3px;
+}
+.registration-flow :is(button, a) { -webkit-tap-highlight-color: transparent; }
+.registration-flow :is(.text-gray-400, .text-gray-500, .text-gray-600) { color: var(--muted); }
+.registration-flow :is(.enrollment-header, .enrollment-panel, .enrollment-course, .enrollment-receipt) { min-width: 0; }
+.enrollment-header h1 { line-height: 1.1; overflow-wrap: anywhere; }
+.enrollment-header > div:first-child { min-height: 48px; }
+.enrollment-brand .academy-logo-mark { width: 34px; height: 34px; }
+.enrollment-brand .academy-logo-name { font-size: 15px; }
+.enrollment-panel { box-shadow: 0 4px 24px rgb(24 40 26 / 3%); }
+.enrollment-course { background: var(--surface); border-color: var(--border); transition: background 160ms ease, border-color 160ms ease; }
+.enrollment-course:hover { border-color: var(--accent); background: var(--surface-muted); }
+.enrollment-course-selected { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 6%, var(--surface)); }
+.enrollment-course-private:not(.enrollment-course-selected) { border-color: color-mix(in srgb, var(--violet) 35%, var(--border)); }
+.enrollment-course > div { min-width: 0; }
+.enrollment-course svg { flex-shrink: 0; }
+.enrollment-course .bg-\[var\(--accent\)\] .text-white { color: var(--registration-on-accent); }
+.enrollment-course-selected [class*="bg-white"] { background: var(--surface-muted); color: var(--foreground); }
+.enrollment-course [class*="text-gray-"] { color: var(--muted); }
+
+/* Keep labels visible while reading or correcting a form; never dim other fields. */
+.registration-flow .enrollment-personal { overflow: visible; }
+.registration-flow .enrollment-personal input:not([type="checkbox"]) {
+  width: 100%; min-width: 0; min-height: 52px;
+  border: 1px solid var(--border); border-radius: 12px;
+  padding: 13px 14px; margin-top: 26px;
+  background: var(--surface); color: var(--foreground);
+  font-family: inherit; font-size: 16px; line-height: 1.45;
+  box-shadow: none;
+}
+.registration-flow .enrollment-personal input:not([type="checkbox"]):focus { border-color: var(--accent); }
+.registration-flow .enrollment-personal input:not([type="checkbox"]):-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px var(--surface) inset;
+  -webkit-text-fill-color: var(--foreground);
+}
+.registration-flow .enrollment-personal input ~ label,
+.registration-flow .enrollment-phone > span {
+  top: 0; left: 0; font-family: inherit; font-size: 13px; line-height: 1.4;
+  font-weight: 600; letter-spacing: 0; text-transform: none;
+  color: var(--muted);
+}
+.registration-flow .enrollment-personal .enrollment-phone input { margin-top: 0; }
+.registration-flow .enrollment-personal .enrollment-phone button { min-height: 52px; border-radius: 12px; font-family: inherit; }
+.registration-flow .enrollment-personal :is(.enrollment-field, .enrollment-phone) > span:last-child:not(:first-child) {
+  position: static; display: block; margin-top: 5px; font-size: 12px; line-height: 1.4;
+}
+.registration-flow .enrollment-personal [class*="text-red-"] { color: #a32c24; }
+.dark .registration-flow .enrollment-personal [class*="text-red-"] { color: #ffb4a8; }
+.enrollment-consent { color: var(--foreground); }
+.enrollment-consent:hover { background: var(--surface-muted); }
+.enrollment-consent input { margin-top: 2px; accent-color: var(--accent); }
+
+/* Calendar dates wrap into visible touch targets instead of hiding behind horizontal swipes. */
+.registration-flow .enrollment-control-grid .premium-scrollbar {
+  display: flex; flex-wrap: wrap; gap: 6px;
+  overflow-x: visible; overscroll-behavior: auto;
+  margin-bottom: 10px; padding-bottom: 10px;
+  scrollbar-width: none;
+}
+.registration-flow .enrollment-control-grid .premium-scrollbar::-webkit-scrollbar { display: none; }
+.registration-flow .enrollment-control-grid .premium-scrollbar > button {
+  min-height: 44px; padding: 8px 12px; font-family: inherit; font-size: 13px;
+}
+.registration-flow .enrollment-control-grid .premium-scrollbar:has(> button.flex-col) {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(44px, 1fr));
+  gap: 6px; width: 100%; padding-bottom: 0; margin-bottom: 0;
+}
+.registration-flow .enrollment-control-grid .premium-scrollbar > button.flex-col {
+  min-width: 0; width: 100%; height: 60px; min-height: 60px; padding: 6px 2px; border-radius: 12px;
+}
+.registration-flow .enrollment-control-grid .premium-scrollbar > button.flex-col:not(:disabled) {
+  background: var(--surface); border-color: var(--border); box-shadow: none;
+}
+.registration-flow .enrollment-control-grid .premium-scrollbar > button.flex-col > div { border-radius: 12px; box-shadow: none; }
+.registration-flow .enrollment-control-grid .premium-scrollbar > button.flex-col .text-2xl { font-size: 20px; }
+.registration-flow .enrollment-control-grid .premium-scrollbar > button.flex-col .bg-gray-900 { background: var(--foreground); }
+.registration-flow .enrollment-control-grid .premium-scrollbar > button.flex-col.text-white > span { color: var(--surface); }
+.registration-flow .enrollment-control-grid .premium-scrollbar > button:not(.flex-col) { color: var(--muted); background: var(--surface-muted); }
+.registration-flow .enrollment-control-grid .premium-scrollbar > button:not(.flex-col).text-white { color: var(--registration-on-accent); }
+.registration-flow .enrollment-control-grid .premium-scrollbar > button:not(.flex-col) > .bg-\[\#FF5C00\] { background: var(--accent); box-shadow: none; }
+
+/* A calm invoice preview shares the same light/dark system as the form. */
+.registration-flow .enrollment-receipt { background: var(--surface); border-top: 1px solid var(--border); color: var(--foreground); }
+.registration-flow .enrollment-receipt :is(.text-gray-200, .text-gray-300, .text-white) { color: var(--foreground); }
+.registration-flow .enrollment-receipt :is(.text-gray-400, .text-gray-500, .text-gray-600) { color: var(--muted); }
+.registration-flow .enrollment-receipt [class*="border-white"] { border-color: var(--border); }
+.registration-flow .enrollment-receipt :is(.text-green-400, .text-green-500) { color: var(--accent); }
+.registration-flow .enrollment-receipt [class*="text-red-"] { color: #a32c24; }
+.dark .registration-flow .enrollment-receipt [class*="text-red-"] { color: #ffb4a8; }
+.enrollment-receipt-items { overflow-wrap: anywhere; }
+.enrollment-receipt-total { background: var(--surface-muted); }
+.enrollment-receipt-total > div { flex-wrap: wrap; gap: 8px 14px; }
+.enrollment-receipt-total .tabular-nums { color: var(--foreground); }
+.enrollment-receipt-footer { padding: 0 0 max(16px, env(safe-area-inset-bottom)); }
+.registration-flow .enrollment-receipt .enrollment-submit {
+  width: calc(100% - 32px); margin: 16px 16px 0; border-radius: 14px; letter-spacing: 0;
+  min-height: 68px; height: auto; box-shadow: none; white-space: normal;
+}
+.registration-flow .enrollment-receipt .enrollment-submit:not(:disabled),
+.registration-flow :is(.enrollment-scroll-link, .enrollment-home-button) {
+  background: var(--accent); color: var(--registration-on-accent);
+}
+.registration-flow .enrollment-receipt .enrollment-submit:disabled { background: var(--surface-muted); color: var(--muted); }
+.enrollment-submit > span { min-width: 0; overflow-wrap: anywhere; }
+.enrollment-submit > svg { flex-shrink: 0; }
+.enrollment-scroll-link { max-width: calc(100vw - 32px); white-space: nowrap; }
+.enrollment-result { background: var(--canvas); color: var(--foreground); }
+.enrollment-result p { line-height: 1.65; overflow-wrap: anywhere; }
+@media (min-width: 1024px) {
+  .registration-flow .enrollment-receipt { align-self: flex-start; position: sticky; top: 16px; border: 1px solid var(--border); border-radius: 24px; margin: 24px 24px 24px 0; overflow: hidden; box-shadow: 0 8px 32px rgb(24 40 26 / 4%); }
+  .registration-flow .enrollment-main { padding-bottom: 16px; }
+}
+@media (max-width: 430px) {
+  .enrollment-header .academy-logo-name { font-size: 14px; }
+  .registration-flow .enrollment-course { padding: 14px; }
+  .enrollment-course > div:first-child { gap: 12px; }
+  .registration-flow .enrollment-control-grid .enrollment-panel { padding: 16px; }
+  .enrollment-receipt-items { padding: 20px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .registration-flow *, .registration-flow *::before, .registration-flow *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
+}
+.registration-flow .enrollment-personal input ~ span[class*="text-red-"] {
+  position: static; display: block; margin-top: 5px; font-size: 12px; line-height: 1.4;
+}
+.registration-flow .enrollment-control-grid .premium-scrollbar { font-family: inherit; }
+.registration-flow .enrollment-control-grid .premium-scrollbar > button.flex-col:disabled { opacity: .55; }
+.registration-flow .enrollment-panel > .absolute[class*="top-"][class*="backdrop-blur"] {
+  background: var(--surface); color: var(--foreground); border-color: var(--border);
+  box-shadow: 0 8px 28px rgb(24 40 26 / 8%);
+}
+.registration-flow .enrollment-personal .opacity-30 { opacity: 1; }
+.registration-flow .enrollment-personal .relative input ~ label {
+  top: 0; left: 0; font-family: inherit; font-size: 13px; line-height: 1.4;
+  font-weight: 600; letter-spacing: 0; text-transform: none; color: var(--muted);
+}
+/* Contain the first input's top margin so floating labels sit above its border. */
+.registration-flow .enrollment-personal .relative:has(> input:not([type="checkbox"])) {
+  display: flow-root;
+}
+.registration-flow .enrollment-personal .enrollment-country-code {
+  display: block; width: 100%; min-width: 44px; min-height: 52px;
+  border: 1px solid var(--border); border-radius: 12px;
+  padding: 12px 8px; background: var(--surface); color: var(--foreground);
+  font-family: inherit; font-size: 16px; line-height: 1.45;
+}

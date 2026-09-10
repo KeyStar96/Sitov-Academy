@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, MotionConfig, useReducedMotion } from "framer-motion";
 import BrandLogo from "@/components/layout/BrandLogo";
 import Link from "next/link";
 import { ChevronLeft, Check, X, ArrowRight, Loader2, MapPin, Monitor, User, ChevronDown, ArrowLeft, CheckCircle2, Gift, CalendarDays } from "lucide-react";
@@ -13,8 +13,9 @@ import { useSearchParams } from "next/navigation";
 import { CourseConfig, Day, CourseException, CourseSession } from "@/lib/course-config";
 import { calculateMonthlyStats, getDurationMinutes, DAY_MAP, getNext6Months } from "@/lib/course-calculations";
 import { createSchema, EnrollmentFormData } from "@/lib/registration-schema";
-import PricingRoadmap from "@/components/registration/PricingRoadmap";
-import { CustomSelect } from "@/components/ui/CustomSelect";
+import PricingRoadmap, { type RegistrationDictionary } from "@/components/registration/PricingRoadmap";
+import germanDictionary from "@/dictionaries/de.json";
+import "./registration.css";
 import { DateDropdowns } from "@/components/ui/DateDropdowns";
 import { PremiumDatePicker } from "@/components/ui/PremiumDatePicker";
 import { submitEnrollment } from "@/app/actions/submit-enrollment";
@@ -22,8 +23,8 @@ import { submitTrialLesson } from "@/app/actions/submit-trial";
 import { checkTrialEligibility } from "@/app/actions/check-trial-eligibility";
 import { trackMetaEvent } from "@/lib/analytics/meta-pixel";
 
-// Use the CSS variable --font-mono from layout.tsx instead of re-instantiating
-const monoClassName = "font-mono";
+// Use the CSS variable --font-sans tabular-nums from layout.tsx instead of re-instantiating
+const monoClassName = "font-sans tabular-nums";
 
 // --- TYPE INTERFACES ---
 interface MaskedDateInputProps {
@@ -43,7 +44,7 @@ interface CourseRowProps {
     title: string;
     priceFormatted: string;
     level?: string;
-    dictionary: Record<string, any>;
+    dictionary: RegistrationDictionary;
 }
 
 interface TerminalInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -59,6 +60,7 @@ interface PhoneInputProps {
     label: string;
     error?: string;
     required?: boolean;
+    countryCodeLabel: string;
 }
 
 
@@ -222,59 +224,58 @@ const CourseRow = React.memo(({ course, selected, onToggle, title, priceFormatte
 
     return (
         <motion.div
+            role="checkbox"
+            aria-checked={selected}
+            tabIndex={0}
             onClick={onToggle}
+            onKeyDown={event => {
+                if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); onToggle(); }
+            }}
             layout
             className={cn(
-                "group relative w-full cursor-pointer rounded-3xl p-4 md:p-6 border transition-all duration-500 overflow-hidden backdrop-blur-md",
-                selected
-                    ? "border-[#FF5C00] shadow-sm bg-orange-50/80 dark:bg-[#FF5C00]/20"
-                    : isPrivate
-                        ? "bg-gradient-to-br from-rose-500/5 via-purple-500/5 to-cyan-500/5 dark:from-rose-500/10 dark:via-purple-500/10 dark:to-cyan-500/10 border-purple-200/50 dark:border-purple-500/30 hover:border-purple-300 dark:hover:border-purple-400 shadow-[0_8px_30px_rgba(168,85,247,0.1)] before:absolute before:inset-0 before:-z-10 before:bg-gradient-to-br before:from-pink-500/10 before:via-purple-500/10 before:to-indigo-500/10 before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-700"
-                        : "bg-white/60 dark:bg-[#1a1a1a]/60 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.1)] border-white/40 dark:border-white/10 hover:border-white/80 dark:hover:border-white/30 hover:shadow-xl"
+                "enrollment-course group relative w-full min-w-0 cursor-pointer rounded-2xl border p-4 text-left sm:p-5",
+                selected ? "enrollment-course-selected" : isPrivate ? "enrollment-course-private" : ""
             )}
         >
-            {/* Ambient hover glow inside card (Performance Optimized) */}
-            <div className="absolute -top-12 -right-12 w-32 h-32 bg-[radial-gradient(circle,rgba(251,146,60,0.4)_0%,transparent_70%)] rounded-full transition-all duration-700 group-hover:scale-150 z-0 pointer-events-none opacity-0 group-hover:opacity-100" />
-            
             <div className="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                 {/* 1. Top Row: Checkbox + Title (Left) / Price (Right) */}
-                <div className="flex items-start w-full md:w-auto justify-between md:justify-start">
+                <div className="flex min-w-0 flex-1 items-start w-full md:w-auto justify-between md:justify-start">
 
                     {/* Left: Checkbox + Title Group */}
-                    <div className="flex items-start">
+                    <div className="flex min-w-0 items-start">
                         {/* Checkbox */}
                         <div className={cn(
-                            "w-5 h-5 shrink-0 rounded border mr-3 md:mr-6 flex items-center justify-center transition-all duration-300 mt-1 md:mt-0",
+                            "w-5 h-5 shrink-0 rounded border mr-3 md:mr-3 flex items-center justify-center transition-all duration-300 mt-1 md:mt-0",
                             selected
-                                ? "bg-[#FF5C00] border-[#FF5C00]"
+                                ? "bg-[var(--accent)] border-[var(--accent)]"
                                 : "bg-transparent border-black/20 dark:border-white/20 group-hover:border-black/40 dark:group-hover:border-white/40"
                         )}>
                             {selected && <Check size={12} className="text-white" strokeWidth={3} />}
                         </div>
 
                         {/* Title & Metadata Container */}
-                        <div className="flex flex-col gap-1 md:gap-2">
+                        <div className="flex min-w-0 flex-col gap-1 md:gap-2">
                             {/* Title */}
                             <span className={cn(
-                                "font-sans text-base md:text-lg font-bold tracking-tight transition-colors md:w-[280px] break-words md:truncate pr-2",
-                                selected ? "text-[#FF5C00]" : "text-[#111111] dark:text-[#E2D7CE]"
+                                "font-sans text-base md:text-lg font-semibold tracking-tight transition-colors break-words pr-2",
+                                selected ? "text-[var(--accent)]" : "text-[var(--foreground)]"
                             )}>
                                 {title}
                             </span>
 
                             {/* Mobile: Metadata Row (Left Aligned under title) */}
-                            <div className="flex items-center gap-2 md:hidden">
+                            <div className="flex flex-wrap items-center gap-2 md:hidden">
                                 {level && (
-                                    <span className="text-[10px] font-mono uppercase bg-white dark:bg-[#FF5C00] border border-black/10 dark:border-[#FF5C00] px-1.5 py-0.5 rounded text-gray-500 dark:text-white">
+                                    <span className="text-xs font-sans tabular-nums bg-white dark:bg-[var(--accent)] border border-black/10 dark:border-[var(--accent)] px-1.5 py-0.5 rounded text-gray-500 dark:text-white">
                                         {level}
                                     </span>
                                 )}
                                 <span className={cn(
-                                    "font-mono uppercase text-[10px] flex items-center gap-1",
-                                    course.type === 'online' ? "text-blue-600" : "text-gray-500"
+                                    "font-sans tabular-nums text-xs flex items-center gap-1",
+                                    course.type === 'online' ? "text-[var(--violet)]" : "text-gray-500"
                                 )}>
                                     {course.type === 'online' ? <Monitor size={10} /> : <MapPin size={10} />}
-                                    {course.type === 'online' ? (t?.online_label || "ONLINE").toUpperCase() : (t?.presence_label || "PRÄSENZ")}
+                                    {course.type === 'online' ? (t?.online_label || germanDictionary.registration.course_card.online_label).toUpperCase() : (t?.presence_label || germanDictionary.registration.course_card.presence_label)}
                                 </span>
                             </div>
                         </div>
@@ -282,8 +283,8 @@ const CourseRow = React.memo(({ course, selected, onToggle, title, priceFormatte
 
                     {/* Right: Price (Mobile Only - moved up) */}
                     <div className="text-right shrink-0 md:hidden pl-2">
-                        <div className="font-mono text-sm text-gray-900 dark:text-[#E2D7CE] font-bold">{priceFormatted}</div>
-                        <div className="text-gray-400 text-[9px] uppercase">{t?.units_suffix || "/ Units"}</div>
+                        <div className="font-sans tabular-nums text-sm text-[var(--foreground)] font-semibold">{priceFormatted}</div>
+                        <div className="text-gray-400 text-xs">{t?.units_suffix || germanDictionary.registration.course_card.units_suffix}</div>
                     </div>
                 </div>
 
@@ -292,7 +293,7 @@ const CourseRow = React.memo(({ course, selected, onToggle, title, priceFormatte
                     {/* Badge */}
                     <div className="w-[60px] flex items-center shrink-0">
                         {level && (
-                            <span className="text-[10px] font-mono uppercase bg-white dark:bg-[#FF5C00] border border-black/10 dark:border-[#FF5C00] px-1.5 py-0.5 rounded text-gray-500 dark:text-white">
+                            <span className="text-xs font-sans tabular-nums bg-white dark:bg-[var(--accent)] border border-black/10 dark:border-[var(--accent)] px-1.5 py-0.5 rounded text-gray-500 dark:text-white">
                                 {level}
                             </span>
                         )}
@@ -300,38 +301,38 @@ const CourseRow = React.memo(({ course, selected, onToggle, title, priceFormatte
 
                     {/* Type */}
                     <span className={cn(
-                        "font-mono uppercase text-[10px] flex items-center gap-2 shrink-0",
-                        course.type === 'online' ? "text-blue-600" : "text-gray-500"
+                        "font-sans tabular-nums text-xs flex items-center gap-2 shrink-0",
+                        course.type === 'online' ? "text-[var(--violet)]" : "text-gray-500"
                     )}>
                         {course.type === 'online' ? <Monitor size={12} /> : <MapPin size={12} />}
-                        {course.type === 'online' ? (t?.online_label || "ONLINE").toUpperCase() : (t?.presence_label || "PRÄSENZ")}
+                        {course.type === 'online' ? (t?.online_label || germanDictionary.registration.course_card.online_label).toUpperCase() : (t?.presence_label || germanDictionary.registration.course_card.presence_label)}
                     </span>
                 </div>
 
                 {/* Desktop: Price (Hidden on Mobile) */}
                 <div className="hidden md:block text-right pl-9 md:pl-0 w-full md:w-auto shrink-0">
-                    <span className="font-mono text-sm text-gray-900 dark:text-[#E2D7CE] font-bold">{priceFormatted} <span className="text-gray-400 text-[10px] uppercase font-normal">{t?.units_suffix || "/ Units"}</span></span>
+                    <span className="font-sans tabular-nums text-sm text-[var(--foreground)] font-semibold">{priceFormatted} <span className="text-gray-400 text-xs font-normal">{t?.units_suffix || germanDictionary.registration.course_card.units_suffix}</span></span>
                 </div>
             </div>
 
             {/* Expanded Details when selected */}
-            <div className="relative z-10 flex flex-wrap gap-x-3 gap-y-1 mt-3 pl-9 md:pl-[44px]">
+            <div className="relative z-10 flex flex-wrap gap-x-3 gap-y-1 mt-3 pl-8">
                 {course.sessions.map((s: CourseSession, i: number) => {
                     // Properly access day properties
                     const shortWeekdays: Record<string, string> = {
-                        "mo": daysDict?.mo || "Mo",
-                        "di": daysDict?.di || "Di",
-                        "mi": daysDict?.mi || "Mi",
-                        "do": daysDict?.do || "Do",
-                        "fr": daysDict?.fr || "Fr",
-                        "sa": daysDict?.sa || "Sa",
-                        "so": daysDict?.so || "So"
+                        "mo": daysDict?.mo || germanDictionary.timetable.days.mo,
+                        "di": daysDict?.di || germanDictionary.timetable.days.di,
+                        "mi": daysDict?.mi || germanDictionary.timetable.days.mi,
+                        "do": daysDict?.do || germanDictionary.timetable.days.do,
+                        "fr": daysDict?.fr || germanDictionary.timetable.days.fr,
+                        "sa": daysDict?.sa || germanDictionary.timetable.days.sa,
+                        "so": daysDict?.so || germanDictionary.timetable.days.so
                     };
                     const dayKey = s.day.toLowerCase() as keyof typeof shortWeekdays;
 
                     return (
-                        <span key={i} className="text-[10px] font-mono uppercase text-gray-400">
-                            {shortWeekdays[dayKey] || s.day} {s.startTime} {s.isAlternating && s.altStartTime ? `& ${s.altStartTime} (${timetableLabels?.alternating || 'Wechsel'})` : ''}
+                        <span key={i} className="text-xs font-sans tabular-nums text-gray-400">
+                            {shortWeekdays[dayKey] || s.day} {s.startTime} {s.isAlternating && s.altStartTime ? `& ${s.altStartTime} (${timetableLabels?.alternating || germanDictionary.timetable.labels.alternating})` : ''}
                         </span>
                     );
                 })}
@@ -352,14 +353,14 @@ const TerminalInput = ({ label, error, registration, isDimmed, ...props }: Termi
     const defaultId = React.useId();
     const id = props.id || registration?.name || defaultId;
     return (
-        <div className={cn("relative group transition-opacity duration-500", isDimmed ? "opacity-30" : "opacity-100")}>
+        <div className={cn("enrollment-field relative group", isDimmed ? "opacity-30" : "opacity-100")}>
             <input
                 id={id}
                 {...registration}
                 {...props}
                 placeholder=" "
                 className={cn(
-                    "block w-full bg-transparent border-b border-gray-400/30 dark:border-white/20 py-4 pt-6 text-lg font-sans text-gray-900 dark:text-[#E2D7CE] focus:outline-none focus:border-[#FF5C00] dark:focus:border-[#FF5C00] transition-colors peer placeholder-transparent autofill:bg-transparent",
+                    "block w-full bg-transparent border-b border-gray-400/30 dark:border-white/20 py-4 pt-6 text-lg font-sans text-[var(--foreground)] focus:outline-none focus:border-[var(--accent)] dark:focus:border-[var(--accent)] transition-colors peer placeholder-transparent autofill:bg-transparent",
                     // Force transparent background for autofill and adjust text color
                     "[&:-webkit-autofill]:bg-transparent [&:-webkit-autofill]:shadow-[0_0_0_100px_#FCF4E6_inset] dark:[&:-webkit-autofill]:shadow-[0_0_0_100px_#1A1C1E_inset]",
                     "[&:-webkit-autofill]:[-webkit-text-fill-color:#111827] dark:[&:-webkit-autofill]:[-webkit-text-fill-color:#E2D7CE]",
@@ -369,15 +370,15 @@ const TerminalInput = ({ label, error, registration, isDimmed, ...props }: Termi
             <label
                 htmlFor={id}
                 className={cn(
-                    "absolute left-0 top-0 text-xs uppercase tracking-widest text-gray-500 dark:text-gray-400 transition-all pointer-events-none",
+                    "absolute left-0 top-0 text-xs tracking-normal text-[var(--muted)] transition-all pointer-events-none",
                     monoClassName,
                     "peer-placeholder-shown:top-5 peer-placeholder-shown:text-lg peer-placeholder-shown:normal-case peer-placeholder-shown:font-sans peer-placeholder-shown:text-gray-500 dark:peer-placeholder-shown:text-gray-500",
-                    "peer-focus:top-0 peer-focus:text-xs peer-focus:uppercase peer-focus:tracking-widest peer-focus:text-[#FF5C00]",
+                    "peer-focus:top-0 peer-focus:text-xs peer-focus:uppercase peer-focus:tracking-widest peer-focus:text-[var(--accent)]",
                     monoClassName
                 )}>
-                {label} {props.required && <span className="text-[#FF5C00]">*</span>}
+                {label} {props.required && <span className="text-[var(--accent)]">*</span>}
             </label>
-            {error && <span className={cn("text-red-500 dark:text-red-400 text-[10px] absolute right-0 top-2", monoClassName)}>{error}</span>}
+            {error && <span className={cn("text-red-500 dark:text-red-400 text-xs absolute right-0 top-2", monoClassName)}>{error}</span>}
         </div>
     );
 };
@@ -416,6 +417,7 @@ const PhoneInput = ({
     value,
     onChange,
     label,
+    countryCodeLabel,
     error,
     required,
     ...props
@@ -455,42 +457,50 @@ const PhoneInput = ({
     };
 
     return (
-        <div className={cn("relative group z-30 transition-opacity duration-500", props.isDimmed ? "opacity-30" : "opacity-100")}>
+        <div className={cn("enrollment-phone relative group z-30", props.isDimmed ? "opacity-30" : "opacity-100")}>
             <span className={cn(
-                "absolute left-0 top-0 text-xs uppercase tracking-widest text-[#FF5C00] transition-all",
+                "absolute left-0 top-0 text-xs tracking-normal text-[var(--accent)] transition-all",
                 monoClassName,
                 // Always visible label
             )}>
                 {label} {required && <span>*</span>}
             </span>
 
-            <div className="flex gap-4 pt-6">
-                <div className="relative w-[110px]">
-                    <CustomSelect
+            <div className="flex min-w-0 gap-2 pt-6">
+                <div className="relative w-[104px] shrink-0">
+                    <select
+                        aria-label={countryCodeLabel}
+                        autoComplete="tel-country-code"
                         value={code}
-                        onChange={(v: string) => updateValue(v, number)}
-                        options={COUNTRY_CODES}
-                        placeholder="+49"
+                        onChange={event => updateValue(event.target.value, number)}
                         onFocus={props.onFocus}
                         onBlur={props.onBlur}
-                    />
+                        className="enrollment-country-code"
+                    >
+                        {COUNTRY_CODES.map(country => (
+                            <option key={country.value} value={country.value}>{country.label}</option>
+                        ))}
+                    </select>
                 </div>
 
-                <div className="relative flex-1">
+                <div className="relative min-w-0 flex-1">
                     <input
+                        type="tel"
+                        aria-label={label}
+                        autoComplete="tel-national"
                         value={number}
                         onChange={(e) => updateValue(code, e.target.value)}
                         onFocus={props.onFocus}
                         onBlur={props.onBlur}
                         className={cn(
-                            "block w-full bg-transparent border-b border-gray-400/30 dark:border-white/20 py-4 text-lg font-sans text-gray-900 dark:text-[#E2D7CE] focus:outline-none focus:border-[#FF5C00] dark:focus:border-[#FF5C00] transition-colors placeholder-gray-300 autofill:bg-transparent",
+                            "block w-full bg-transparent border-b border-gray-400/30 dark:border-white/20 py-4 text-lg font-sans text-[var(--foreground)] focus:outline-none focus:border-[var(--accent)] dark:focus:border-[var(--accent)] transition-colors placeholder-gray-300 autofill:bg-transparent",
                             "[&:-webkit-autofill]:bg-transparent [&:-webkit-autofill]:shadow-[0_0_0_100px_#FCF4E6_inset] dark:[&:-webkit-autofill]:shadow-[0_0_0_100px_#1A1C1E_inset]",
                             "[&:-webkit-autofill]:-webkit-text-fill-color-[#111827] dark:[&:-webkit-autofill]:-webkit-text-fill-color-[#E2D7CE]"
                         )}
                     />
                 </div>
             </div>
-            {error && <span className={cn("text-red-500 text-[10px] absolute right-0 top-2", monoClassName)}>{error}</span>}
+            {error && <span className={cn("text-red-500 text-xs absolute right-0 top-2", monoClassName)}>{error}</span>}
         </div>
     );
 };
@@ -500,13 +510,14 @@ const PhoneInput = ({
 // --- MAIN TERMINAL ---
 
 export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime, courses, exceptions = [] }: {
-    dictionary: Record<string, any>,
+    dictionary: RegistrationDictionary,
     lang: string,
     serverTime?: number,
     courses: CourseConfig[],
     exceptions?: CourseException[]
 }) {
     const searchParams = useSearchParams();
+    const reducedMotion = useReducedMotion();
     const initialCourseId = searchParams.get("courseId");
     const isTrialMode = searchParams.get("trial") === "1";
 
@@ -531,7 +542,11 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
     const [focusedField, setFocusedField] = useState<string | null>(null);
 
     // Premium Animations
-    const stepVariants = {
+    const stepVariants = reducedMotion ? {
+        initial: { opacity: 1, y: 0, filter: "none" },
+        animate: { opacity: 1, y: 0, filter: "none", transition: { duration: 0 } },
+        exit: { opacity: 1, y: 0, filter: "none", transition: { duration: 0 } },
+    } : {
         initial: { opacity: 0, y: 40, filter: "blur(10px)" },
         animate: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as const } },
         exit: { opacity: 0, y: -40, filter: "blur(10px)", transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] as const } }
@@ -566,13 +581,13 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
         today.setHours(0, 0, 0, 0);
         const daysDict = dictionary?.timetable?.days;
         const dayNames: Record<string, string> = {
-            0: daysDict?.so || "So",
-            1: daysDict?.mo || "Mo",
-            2: daysDict?.di || "Di",
-            3: daysDict?.mi || "Mi",
-            4: daysDict?.do || "Do",
-            5: daysDict?.fr || "Fr",
-            6: daysDict?.sa || "Sa",
+            0: daysDict?.so || germanDictionary.timetable.days.so,
+            1: daysDict?.mo || germanDictionary.timetable.days.mo,
+            2: daysDict?.di || germanDictionary.timetable.days.di,
+            3: daysDict?.mi || germanDictionary.timetable.days.mi,
+            4: daysDict?.do || germanDictionary.timetable.days.do,
+            5: daysDict?.fr || germanDictionary.timetable.days.fr,
+            6: daysDict?.sa || germanDictionary.timetable.days.sa,
         };
         for (let i = 1; i <= 60; i++) { // Look ahead up to 60 days
             const d = new Date(today);
@@ -652,7 +667,7 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
         'en': 'en-US',
         'ru': 'ru-RU',
         'uk': 'uk-UA',
-        'tu': 'tr-TR'
+        'tr': 'tr-TR'
     };
     const localeTag = localeMap[lang] || 'de-DE';
 
@@ -715,7 +730,7 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
         // The Monthly Total is calculated separately in `totalMonthlyPrice`.
         return {
             title: dictionary?.CourseData?.[c.translationKey]?.title || dictionary?.CourseData?.[c.id.replace('c_', '')]?.title || c.title || c.translationKey,
-            priceFormatted: isTrialMode ? (trialT?.price_label || "Kostenlos") : new Intl.NumberFormat(lang === 'en' ? 'de-DE' : 'de-DE', { style: 'currency', currency: 'EUR' }).format(c.price),
+            priceFormatted: isTrialMode ? (trialT?.price_label || germanDictionary.registration.trial.price_label) : new Intl.NumberFormat(lang === 'en' ? 'de-DE' : 'de-DE', { style: 'currency', currency: 'EUR' }).format(c.price),
             level: dictionary?.CourseData?.[c.translationKey]?.level,
             dictionary // Pass dictionary down
         };
@@ -873,17 +888,18 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
 
     // Helper for rendering legal checkboxes
     const LegalCheckbox = ({ id, label, checked, onChange }: { id: string, label: string, checked: boolean, onChange: (v: boolean) => void }) => (
-        <label className="flex items-start gap-4 cursor-pointer group mt-4">
+        <label className="enrollment-consent flex min-h-11 items-start gap-3 cursor-pointer group mt-4 rounded-xl p-2">
             <div className="relative mt-0.5 shrink-0">
                 <input
+                    id={id}
                     type="checkbox"
                     checked={checked}
                     onChange={(e) => onChange(e.target.checked)}
-                    className="appearance-none h-4 w-4 bg-transparent border border-gray-400 dark:border-white/30 rounded-sm checked:bg-[#FF5C00] checked:border-[#FF5C00] transition-colors"
+                    className="appearance-none h-5 w-5 bg-transparent border border-gray-400 dark:border-white/30 rounded-sm checked:bg-[var(--accent)] checked:border-[var(--accent)] transition-colors"
                 />
                 {checked && <Check size={12} className="text-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none" strokeWidth={3} />}
             </div>
-            <span className="text-xs md:text-sm font-medium text-gray-900 dark:text-white leading-normal select-none transition-colors">
+            <span className="text-xs md:text-sm font-medium text-[var(--foreground)] leading-normal select-none transition-colors">
                 {label}
             </span>
         </label>
@@ -1022,19 +1038,19 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
 
     if (isAlreadyUsed) {
         return (
-            <div className="min-h-screen w-full flex flex-col items-center justify-center text-center p-8 font-sans">
-                <div className="w-20 h-20 rounded-full bg-[#FF5C00]/10 text-[#FF5C00] flex items-center justify-center mb-6 relative">
+            <div className="registration-flow enrollment-result min-h-screen w-full flex flex-col items-center justify-center text-center p-6 font-sans">
+                <div className="w-20 h-20 rounded-full bg-[var(--accent)]/10 text-[var(--accent)] flex items-center justify-center mb-6 relative">
                     <span className="absolute -top-1 -right-1 text-xs">!</span>
                     <User size={32} />
                 </div>
-                <h3 className="text-3xl font-bold mb-4 tracking-tight text-gray-900 dark:text-white">
-                    {trialT?.already_used_title || "Bereits gebucht"}
+                <h3 className="text-3xl font-semibold mb-4 tracking-tight text-[var(--foreground)]">
+                    {trialT?.already_used_title || germanDictionary.registration.trial.already_used_title}
                 </h3>
                 <p className="text-gray-500 text-lg mb-12 max-w-md mx-auto">
-                    {trialT?.already_used_message || "Sie haben bereits eine kostenlose Probestunde in Anspruch genommen."}
+                    {trialT?.already_used_message || germanDictionary.registration.trial.already_used_message}
                 </p>
-                <Link href={`/${lang}`} className="bg-[#FF5C00] text-white px-8 py-4 rounded font-bold uppercase tracking-widest hover:bg-[#FF7A33] transition-colors">
-                    {t?.back_home || "Zur Startseite"}
+                <Link href={`/${lang}`} className="enrollment-home-button inline-flex min-h-12 items-center rounded-2xl px-6 py-3 font-semibold transition-colors">
+                    {t?.back_home || germanDictionary.registration.back_home}
                 </Link>
             </div>
         );
@@ -1045,20 +1061,20 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
         if (isTrialMode) {
             const selectedDateLabel = trialDates.find(d => d.iso === trialDate)?.label || trialDate;
             return (
-                <div className="min-h-screen w-full flex flex-col items-center justify-center text-center p-8 font-sans">
+                <div className="registration-flow enrollment-result min-h-screen w-full flex flex-col items-center justify-center text-center p-6 font-sans">
                     <div className="w-20 h-20 rounded-full bg-green-500/20 text-green-500 flex items-center justify-center mb-6">
                         <Gift size={40} />
                     </div>
-                    <h3 className="text-3xl font-bold mb-4 tracking-tight text-gray-900 dark:text-white">{trialT?.success_title || "Probestunde angefragt!"}</h3>
+                    <h3 className="text-3xl font-semibold mb-4 tracking-tight text-[var(--foreground)]">{trialT?.success_title || germanDictionary.registration.trial.success_title}</h3>
                     <p className="text-gray-500 text-lg mb-4 max-w-md">
-                        {(trialT?.success_message || "Wir haben Ihre Anfrage erhalten und melden uns in Kürze bei")}{" "}
-                        <strong className="text-gray-900 dark:text-white">{formData?.email}</strong>.
+                        {(trialT?.success_message || germanDictionary.registration.trial.success_message)}{" "}
+                        <strong className="text-[var(--foreground)]">{formData?.email}</strong>.
                     </p>
-                    <p className="text-[#FF5C00] font-bold text-lg mb-12">
+                    <p className="text-[var(--accent)] font-semibold text-lg mb-12">
                         <CalendarDays size={18} className="inline mr-2" />
                         {selectedDateLabel}
                     </p>
-                    <Link href={`/${lang}`} className="bg-[#FF5C00] text-white px-8 py-4 rounded font-bold uppercase tracking-widest hover:bg-[#FF7A33] transition-colors">
+                    <Link href={`/${lang}`} className="enrollment-home-button inline-flex min-h-12 items-center rounded-2xl px-6 py-3 font-semibold transition-colors">
                         {t?.back_home}
                     </Link>
                 </div>
@@ -1066,13 +1082,13 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
         }
 
         return (
-            <div className="min-h-screen w-full text-white flex flex-col items-center justify-center text-center p-8 font-sans">
+            <div className="registration-flow enrollment-result min-h-screen w-full flex flex-col items-center justify-center text-center p-6 font-sans">
                 <div className="w-20 h-20 rounded-full bg-green-500/20 text-green-500 flex items-center justify-center mb-6">
                     <Check size={40} />
                 </div>
-                <h3 className="text-3xl font-bold mb-4 tracking-tight">{success?.title || "Success"}</h3>
+                <h3 className="text-3xl font-semibold mb-4 tracking-tight">{success?.title || germanDictionary.registration.success.title}</h3>
                 <p className="text-gray-400 text-lg mb-12 max-w-md">{success?.message} <strong>{formData?.email}</strong>.</p>
-                <Link href={`/${lang}`} className="bg-[#FF5C00] text-white px-8 py-4 rounded font-bold uppercase tracking-widest hover:bg-[#FF7A33] transition-colors">
+                <Link href={`/${lang}`} className="enrollment-home-button inline-flex min-h-12 items-center rounded-2xl px-6 py-3 font-semibold transition-colors">
                     {t?.back_home}
                 </Link>
             </div>
@@ -1081,50 +1097,36 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
 
 
     return (
-        <div className="min-h-screen lg:h-screen w-full bg-transparent text-[#2D3436] dark:text-[#E2D7CE] flex flex-col lg:flex-row overflow-x-hidden font-sans relative transition-colors duration-500">
+        <MotionConfig reducedMotion="user" transition={reducedMotion ? { duration: 0 } : undefined}>
+        <div className="registration-flow min-h-screen w-full flex flex-col lg:flex-row font-sans relative">
             
-            {/* GIANT WATERMARK TYPOGRAPHY */}
-            <div className="fixed inset-0 pointer-events-none z-0 flex items-center justify-center overflow-hidden mix-blend-overlay opacity-[0.015] dark:opacity-[0.02]">
-                <AnimatePresence mode="wait">
-                    <motion.span
-                        key={step}
-                        initial={{ y: 50, opacity: 0, filter: "blur(20px)", scale: 0.9 }}
-                        animate={{ y: 0, opacity: 1, filter: "blur(0px)", scale: 1 }}
-                        exit={{ y: -50, opacity: 0, filter: "blur(20px)", scale: 1.1 }}
-                        transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                        className="text-[60vw] md:text-[50vw] font-black tracking-tighter leading-none"
-                    >
-                        0{step}
-                    </motion.span>
-                </AnimatePresence>
-            </div>
-
             {/* SCROLL INDICATOR (Mobile Mostly) */}
             <AnimatePresence>
                 {showScrollHint && (
-                    <motion.div
+                    <motion.button
+                        type="button"
                         initial={{ opacity: 0, y: 10, x: "-50%" }}
                         animate={{ opacity: 1, y: 0, x: "-50%" }}
                         exit={{ opacity: 0, y: 10, x: "-50%" }}
                         onClick={scrollToBottom}
-                        className="fixed bottom-6 left-1/2 z-40 bg-[#FF5C00] text-white rounded-full p-3 shadow-lg cursor-pointer lg:hidden hover:bg-[#FF7A33] transition-colors"
+                        className="enrollment-scroll-link fixed bottom-4 left-1/2 z-40 flex min-h-11 items-center gap-2 rounded-full px-4 py-3 shadow-lg lg:hidden"
                     >
-                        <ChevronDown className="animate-bounce" size={24} />
-                    </motion.div>
+                        <ChevronDown size={18} aria-hidden="true" /><span className="text-sm font-semibold">{wizard?.scroll_to_summary}</span>
+                    </motion.button>
                 )}
             </AnimatePresence>
 
             {/* --- LEFT PANEL: WIZARD CONTENT --- */}
-            <div className="flex-1 flex flex-col min-h-0 relative w-full lg:h-full">
+            <div className="enrollment-main flex-1 flex flex-col min-h-0 min-w-0 relative w-full">
 
                 {/* Header with Progress */}
                 {/* Header with Progress */}
-                <header className="px-6 md:px-12 py-8 shrink-0 z-10">
-                    <div className="flex justify-between items-start mb-6">
-                        <Link href={`/${lang}`} className={cn("text-[10px] uppercase tracking-[0.2em] text-gray-600 dark:text-gray-400 hover:text-[#FF5C00] transition-colors flex items-center gap-2", monoClassName)}>
-                            <ChevronLeft size={14} /> {t?.back_home || "Back"}
+                <header className="enrollment-header px-4 py-6 sm:px-8 lg:px-10 shrink-0 z-10">
+                    <div className="flex flex-wrap justify-between items-center gap-3 mb-6">
+                        <Link href={`/${lang}`} className={cn("min-h-11 text-sm font-medium text-[var(--muted)] hover:text-[var(--accent)] transition-colors flex items-center gap-2", monoClassName)}>
+                            <ChevronLeft size={14} /> {t?.back_home || germanDictionary.registration.back_home}
                         </Link>
-                        <div className="bg-white/90 dark:bg-zinc-900/90 backdrop-blur-md px-3 py-1.5 md:px-4 md:py-1.5 rounded-full border border-black/5 dark:border-white/10 shadow-lg flex items-center justify-center overflow-hidden">
+                        <div className="enrollment-brand flex min-w-0 items-center">
                             <BrandLogo name={dictionary.academy.brand_name} />
                         </div>
                     </div>
@@ -1134,35 +1136,35 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                         {step > 1 && (
                             <button
                                 onClick={() => setStep(s => s - 1 as 1 | 2 | 3)}
-                                className="w-6 h-6 flex items-center justify-center rounded-full bg-gray-200 dark:bg-white/10 hover:bg-[#FF5C00] dark:hover:bg-[#FF5C00] hover:text-white transition-colors text-gray-500 dark:text-gray-400"
+                                className="enrollment-back-step flex min-h-11 min-w-11 shrink-0 items-center justify-center gap-1.5 rounded-xl border border-[var(--border)] px-3 text-sm text-[var(--muted)]"
                             >
-                                <ChevronLeft size={14} />
+                                <ChevronLeft size={16} aria-hidden="true" /><span>{wizard?.back_step}</span>
                             </button>
                         )}
-                        <div className="h-1 bg-gray-200 dark:bg-white/10 flex-1 rounded-full overflow-hidden">
+                        <div className="h-1 bg-[var(--surface-muted)] flex-1 rounded-full overflow-hidden">
                             <motion.div
-                                className="h-full bg-[#FF5C00]"
+                                className="h-full bg-[var(--accent)]"
                                 initial={{ width: "33%" }}
                                 animate={{ width: step === 1 ? "33%" : step === 2 ? "66%" : "100%" }}
-                                transition={{ type: "spring", stiffness: 60, damping: 15 }}
+                                transition={reducedMotion ? { duration: 0 } : { type: "spring", stiffness: 60, damping: 15 }}
                             />
                         </div>
-                        <span className={cn("text-xs text-gray-600 dark:text-gray-500", monoClassName)}>{wizard?.step_label || "SCHRITT"} {step} / 3</span>
+                        <span className={cn("text-xs text-[var(--muted)]", monoClassName)}>{wizard?.step_label || germanDictionary.registration.wizard.step_label} {step} / 3</span>
                     </div>
 
                     {/* Trial Mode Banner */}
                     {isTrialMode && (
-                        <div className="flex items-center gap-2 mb-4 bg-[#FF5C00]/10 dark:bg-[#FF5C00]/20 border border-[#FF5C00]/30 rounded-lg px-4 py-2 w-fit">
-                            <Gift size={16} className="text-[#FF5C00]" />
-                            <span className={cn("text-[11px] font-bold uppercase tracking-widest text-[#FF5C00]", monoClassName)}>
-                                {trialT?.badge || "KOSTENLOSE PROBESTUNDE"}
+                        <div className="flex items-center gap-2 mb-4 bg-[var(--accent)]/10 dark:bg-[var(--accent)]/20 border border-[var(--accent)]/30 rounded-lg px-4 py-2 w-fit">
+                            <Gift size={16} className="text-[var(--accent)]" />
+                            <span className={cn("text-xs font-semibold tracking-normal text-[var(--accent)]", monoClassName)}>
+                                {trialT?.badge || germanDictionary.registration.trial.badge}
                             </span>
                         </div>
                     )}
 
-                    <h1 className="text-3xl md:text-5xl font-bold tracking-tighter text-[#111111] dark:text-[#E2D7CE] mb-2 transition-colors duration-300">
+                    <h1 className="text-3xl md:text-5xl font-semibold tracking-tight text-[var(--foreground)] mb-2 transition-colors duration-300">
                         {isTrialMode
-                            ? (trialT?.title || "Probestunde buchen")
+                            ? (trialT?.title || germanDictionary.registration.trial.title)
                             : (<>
                                 {step === 1 && wizard?.step1_title}
                                 {step === 2 && wizard?.step2_title}
@@ -1171,11 +1173,11 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                         }
                     </h1>
                     {isTrialMode
-                        ? <p className="text-sm md:text-base text-gray-500 dark:text-gray-400 max-w-xl transition-colors duration-300">{trialT?.subtitle || "Lernen Sie uns unverbindlich kennen."}</p>
+                        ? <p className="text-sm md:text-base text-[var(--muted)] max-w-xl transition-colors duration-300">{trialT?.subtitle || germanDictionary.registration.trial.subtitle}</p>
                         : (<>
-                            {step === 1 && <p className="text-sm md:text-base text-gray-500 dark:text-gray-400 max-w-xl transition-colors duration-300">{wizard?.step1_sub} <span className="text-[#FF5C00] font-bold">{currentMonthLabel}</span>.</p>}
-                            {step === 2 && <p className="text-sm md:text-base text-gray-500 dark:text-gray-400 max-w-xl transition-colors duration-300">{wizard?.step2_sub}</p>}
-                            {step === 3 && <p className="text-sm md:text-base text-gray-500 dark:text-gray-400 max-w-xl transition-colors duration-300">{wizard?.step3_sub}</p>}
+                            {step === 1 && <p className="text-sm md:text-base text-[var(--muted)] max-w-xl transition-colors duration-300">{wizard?.step1_sub} <span className="text-[var(--accent)] font-semibold">{currentMonthLabel}</span>.</p>}
+                            {step === 2 && <p className="text-sm md:text-base text-[var(--muted)] max-w-xl transition-colors duration-300">{wizard?.step2_sub}</p>}
+                            {step === 3 && <p className="text-sm md:text-base text-[var(--muted)] max-w-xl transition-colors duration-300">{wizard?.step3_sub}</p>}
                         </>)
                     }
                 </header>
@@ -1185,7 +1187,7 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                 <div
                     ref={desktopScrollRef}
                     data-lenis-prevent
-                    className="flex-1 lg:overflow-y-auto scrollbar-thin scrollbar-thumb-gray-200 px-4 md:px-12 pb-32 min-h-0"
+                    className="enrollment-content flex-1 px-4 sm:px-8 lg:px-10 pb-8 min-h-0 min-w-0"
                 >
                     {/* Full-width Content Area */}
                     <div className="max-w-4xl mx-auto">
@@ -1199,20 +1201,20 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                                     initial="initial"
                                     animate="animate"
                                     exit="exit"
-                                    className="space-y-12 py-4 relative z-10"
+                                    className="space-y-7 py-2 relative z-10"
                                 >
                                     {/* === CONTROL DECK: Top Fixed Container === */}
-                                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 h-auto lg:h-[294px] mb-8 relative z-30">
+                                    <div className="enrollment-control-grid grid grid-cols-1 xl:grid-cols-2 gap-4 h-auto mb-6 relative z-30">
 
                                         {!isTrialMode ? (
                                             <>
                                                 {/* LEFT BOX: Startdatum (Date Selection) */}
-                                                <div className="bg-white/60 dark:bg-[#1a1a1a]/60 backdrop-blur-md border border-white/40 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.1)] rounded-3xl p-6 relative flex flex-col h-full overflow-hidden">
+                                                <div className="enrollment-panel border border-[var(--border)] bg-[var(--surface)] rounded-2xl p-4 sm:p-5 relative flex flex-col h-full overflow-hidden">
                                                     {/* Ambient Glow */}
-                                                    <div className="absolute -top-24 -left-24 w-48 h-48 bg-[radial-gradient(circle,rgba(251,146,60,0.15)_0%,transparent_70%)] rounded-full pointer-events-none" />
+                                                    <div aria-hidden="true" className="hidden absolute -top-24 -left-24 w-48 h-48 bg-[radial-gradient(circle,rgba(251,146,60,0.15)_0%,transparent_70%)] rounded-full pointer-events-none" />
                                                     {/* Header */}
-                                                    <span className={cn("font-mono text-[10px] tracking-[0.2em] text-[#FF5C00] uppercase mb-0", monoClassName)}>
-                                                        {t?.start_date_label || "STARTDATUM"}
+                                                    <span className={cn("font-sans tabular-nums text-xs tracking-normal text-[var(--accent)] uppercase mb-0", monoClassName)}>
+                                                        {formLabels?.start_date_label || germanDictionary.registration.form.start_date_label}
                                                     </span>
 
                                                     {/* Input Area - Centered */}
@@ -1244,6 +1246,7 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
 
                                                             return (
                                                                 <PremiumDatePicker
+                                                                    locale={lang}
                                                                     label=""
                                                                     value={startDate}
                                                                     minDate={minDate}
@@ -1274,14 +1277,14 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                                                 </div>
 
                                                 {/* RIGHT BOX: Kostenübersicht (Price Preview) */}
-                                                <div className="bg-white/60 dark:bg-[#1a1a1a]/60 backdrop-blur-md border border-white/40 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.1)] rounded-3xl p-6 relative flex flex-col h-full min-h-[294px]">
+                                                <div className="enrollment-panel border border-[var(--border)] bg-[var(--surface)] rounded-2xl p-4 sm:p-5 relative flex flex-col h-full min-h-[294px]">
                                                     {/* Ambient Glow */}
                                                     <div className="absolute inset-0 rounded-3xl overflow-hidden pointer-events-none">
-                                                        <div className="absolute -bottom-24 -right-24 w-48 h-48 bg-[radial-gradient(circle,rgba(251,146,60,0.15)_0%,transparent_70%)] rounded-full" />
+                                                        <div aria-hidden="true" className="hidden absolute -bottom-24 -right-24 w-48 h-48 bg-[radial-gradient(circle,rgba(251,146,60,0.15)_0%,transparent_70%)] rounded-full" />
                                                     </div>
                                                     {/* Header */}
-                                                    <span className={cn("font-mono text-[10px] tracking-[0.2em] text-[#FF5C00] uppercase mb-0", monoClassName)}>
-                                                        {wizard?.sidebar_hint_title || "KOSTENÜBERSICHT"}
+                                                    <span className={cn("font-sans tabular-nums text-xs tracking-normal text-[var(--accent)] uppercase mb-0", monoClassName)}>
+                                                        {wizard?.sidebar_hint_title || germanDictionary.registration.wizard.sidebar_hint_title}
                                                     </span>
 
                                                     {/* Content Area */}
@@ -1298,8 +1301,8 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                                                                 <div className="w-16 h-16 mb-4 rounded-full bg-gray-100 dark:bg-white/5 flex items-center justify-center">
                                                                     <Monitor size={32} className="text-gray-300 dark:text-gray-600" />
                                                                 </div>
-                                                                <p className={cn("text-xs md:text-sm text-gray-500 dark:text-gray-400 font-medium max-w-[200px]", monoClassName)}>
-                                                                    {formLabels?.select_course_hint || "Wählen Sie unten einen Kurs, um Details zu sehen"}
+                                                                <p className={cn("text-xs md:text-sm text-[var(--muted)] font-medium max-w-[200px]", monoClassName)}>
+                                                                    {formLabels?.select_course_hint || germanDictionary.registration.form.select_course_hint}
                                                                 </p>
                                                             </motion.div>
                                                         ) : (
@@ -1327,9 +1330,9 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                                                     <button
                                                         type="button"
                                                         onClick={() => setShowPaymentInfo(prev => !prev)}
-                                                        className="mt-auto text-xs text-black/40 dark:text-white/40 underline decoration-dotted hover:text-[#FF5C00] transition-colors text-left"
+                                                        className="min-h-11 mt-3 text-sm text-[var(--muted)] underline decoration-dotted hover:text-[var(--accent)] transition-colors text-left"
                                                     >
-                                                        {t?.pricing_roadmap?.how_payment_works || "Wie funktioniert die Bezahlung?"}
+                                                        {t?.pricing_roadmap?.how_payment_works || germanDictionary.registration.pricing_roadmap.how_payment_works}
                                                     </button>
 
                                                     {/* Payment Info Floating Glass Card Popover */}
@@ -1347,35 +1350,35 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                                                                     initial={{ opacity: 0, y: -10, scale: 0.95 }}
                                                                     animate={{ opacity: 1, y: 0, scale: 1 }}
                                                                     exit={{ opacity: 0, scale: 0.95 }}
-                                                                    transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                                                                    transition={reducedMotion ? { duration: 0 } : { type: "spring", stiffness: 400, damping: 25 }}
                                                                     className="absolute top-[calc(100%+8px)] left-0 w-full z-50 bg-white/90 dark:bg-[#1A1C1E]/90 backdrop-blur-md border border-black/5 dark:border-white/10 rounded-xl p-5 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.2)]"
                                                                 >
                                                                     {/* Content Layout */}
                                                                     <div className="flex gap-4">
                                                                         {/* Trust Icon */}
                                                                         <div className="shrink-0 mt-0.5">
-                                                                            <CheckCircle2 size={20} className="text-[#FF5C00]" />
+                                                                            <CheckCircle2 size={20} className="text-[var(--accent)]" />
                                                                         </div>
 
                                                                         {/* Text Block */}
                                                                         <div className="flex flex-col gap-2">
                                                                             {/* Headline */}
-                                                                            <h4 className="text-sm font-bold text-gray-900 dark:text-white">
-                                                                                {t?.pricing_roadmap?.payment_popover_title || "Keine Knebelverträge"}
+                                                                            <h4 className="text-sm font-semibold text-[var(--foreground)]">
+                                                                                {t?.pricing_roadmap?.payment_popover_title || germanDictionary.registration.pricing_roadmap.payment_popover_title}
                                                                             </h4>
 
                                                                             {/* Bullet Points */}
                                                                             <ul className="space-y-1.5">
-                                                                                <li className="text-xs text-gray-600 dark:text-gray-300 flex items-start gap-2">
-                                                                                    <span className="text-[#FF5C00] mt-0.5">•</span>
+                                                                                <li className="text-xs text-[var(--muted)] flex items-start gap-2">
+                                                                                    <span className="text-[var(--accent)] mt-0.5">•</span>
                                                                                     <span>{t?.pricing_roadmap?.payment_point_1 || "Sie zahlen heute nur den ersten Monat."}</span>
                                                                                 </li>
-                                                                                <li className="text-xs text-gray-600 dark:text-gray-300 flex items-start gap-2">
-                                                                                    <span className="text-[#FF5C00] mt-0.5">•</span>
+                                                                                <li className="text-xs text-[var(--muted)] flex items-start gap-2">
+                                                                                    <span className="text-[var(--accent)] mt-0.5">•</span>
                                                                                     <span>{t?.pricing_roadmap?.payment_point_2 || "Danach entscheiden Sie flexibel weiter."}</span>
                                                                                 </li>
-                                                                                <li className="text-xs text-gray-600 dark:text-gray-300 flex items-start gap-2">
-                                                                                    <span className="text-[#FF5C00] mt-0.5">•</span>
+                                                                                <li className="text-xs text-[var(--muted)] flex items-start gap-2">
+                                                                                    <span className="text-[var(--accent)] mt-0.5">•</span>
                                                                                     <span>{t?.pricing_roadmap?.payment_point_3 || "Kündbar bis zum 25. des Monats."}</span>
                                                                                 </li>
                                                                             </ul>
@@ -1388,12 +1391,12 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                                                 </div>
                                             </>
                                         ) : (
-                                            <div className="col-span-1 lg:col-span-2 bg-white/60 dark:bg-[#1a1a1a]/60 backdrop-blur-md border border-white/40 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.1)] rounded-3xl p-6 relative flex flex-col h-full overflow-hidden">
+                                            <div className="col-span-1 xl:col-span-2 enrollment-panel border border-[var(--border)] bg-[var(--surface)] rounded-2xl p-4 sm:p-5 relative flex flex-col h-full overflow-hidden">
                                                 {/* Ambient Glow */}
-                                                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-[radial-gradient(circle,rgba(251,146,60,0.1)_0%,transparent_70%)] rounded-full pointer-events-none" />
+                                                <div aria-hidden="true" className="hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-[radial-gradient(circle,rgba(251,146,60,0.1)_0%,transparent_70%)] rounded-full pointer-events-none" />
                                                 {/* Header */}
-                                                <span className={cn("font-mono text-[10px] tracking-[0.2em] text-[#FF5C00] uppercase mb-6", monoClassName)}>
-                                                    {trialT?.select_day || "Tag für Ihre Probestunde wählen"}
+                                                <span className={cn("font-sans tabular-nums text-xs tracking-normal text-[var(--accent)] uppercase mb-6", monoClassName)}>
+                                                    {trialT?.select_day || germanDictionary.registration.trial.select_day}
                                                 </span>
 
                                                 {selectedCourseIds.length === 0 ? (
@@ -1401,8 +1404,8 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                                                         <div className="w-16 h-16 mb-4 rounded-full bg-gray-100 dark:bg-white/5 flex items-center justify-center">
                                                             <CalendarDays size={32} className="text-gray-300 dark:text-gray-600" />
                                                         </div>
-                                                        <p className={cn("text-xs md:text-sm text-gray-500 dark:text-gray-400 font-medium max-w-[200px]", monoClassName)}>
-                                                            {formLabels?.select_course_hint || "Wählen Sie unten einen Kurs, um Details zu sehen"}
+                                                        <p className={cn("text-xs md:text-sm text-[var(--muted)] font-medium max-w-[200px]", monoClassName)}>
+                                                            {formLabels?.select_course_hint || germanDictionary.registration.form.select_course_hint}
                                                         </p>
                                                     </div>
                                                 ) : (
@@ -1414,10 +1417,10 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                                                                     type="button"
                                                                     onClick={() => setTrialDate(d.iso)}
                                                                     className={cn(
-                                                                        "text-left px-4 py-3 rounded-sm border transition-all duration-200 font-mono text-sm",
+                                                                        "min-h-11 text-left px-4 py-3 rounded-xl border transition-colors duration-200 font-sans tabular-nums text-sm",
                                                                         trialDate === d.iso
-                                                                            ? "bg-[#FFF4EC] dark:bg-[#FF5C00]/10 border-[#FF5C00] text-[#FF5C00] font-bold shadow-sm"
-                                                                            : "border-black/5 dark:border-white/5 text-gray-700 dark:text-gray-300 hover:border-[#FF5C00] dark:hover:border-[#FF5C00]"
+                                                                            ? "bg-[#FFF4EC] dark:bg-[var(--accent)]/10 border-[var(--accent)] text-[var(--accent)] font-semibold shadow-sm"
+                                                                            : "border-black/5 dark:border-white/5 text-gray-700 dark:text-gray-300 hover:border-[var(--accent)] dark:hover:border-[var(--accent)]"
                                                                     )}
                                                                 >
                                                                     {trialDate === d.iso && <Check size={12} className="inline mr-2" />}
@@ -1425,8 +1428,8 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                                                                 </button>
                                                             ))}
                                                             {trialDates.length === 0 && (
-                                                                <p className="text-xs text-gray-500 font-mono italic mt-2 col-span-full">
-                                                                    {trialT?.no_dates || "Keine verfügbaren Termine für diesen Kurs."}
+                                                                <p className="text-xs text-gray-500 font-sans tabular-nums italic mt-2 col-span-full">
+                                                                    {trialT?.no_dates || germanDictionary.registration.trial.no_dates}
                                                                 </p>
                                                             )}
                                                         </div>
@@ -1438,13 +1441,13 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
 
                                     {/* === COURSE LIST (Full Width Below Control Deck) === */}
                                     {[
-                                        { title: groupTitles?.presence || "01 // PRESENCE", courses: presenceCourses },
-                                        { title: groupTitles?.speech || "02 // SPEECH", courses: speechCourses },
-                                        { title: groupTitles?.online || "03 // ONLINE", courses: onlineCourses }
+                                        { title: groupTitles?.presence || germanDictionary.registration.group_titles.presence, courses: presenceCourses },
+                                        { title: groupTitles?.speech || germanDictionary.registration.group_titles.speech, courses: speechCourses },
+                                        { title: groupTitles?.online || germanDictionary.registration.group_titles.online, courses: onlineCourses }
                                     ].map((group, idx) => (
                                         <section key={idx} className="mb-8">
-                                            <div className="flex items-center gap-3 mb-6 opacity-60">
-                                                <span className="font-mono text-[10px] uppercase tracking-widest text-black dark:text-[#FF5C00]">{group.title}</span>
+                                            <div className="flex items-center gap-3 mb-4">
+                                                <span className="font-sans tabular-nums text-xs tracking-normal text-black dark:text-[var(--accent)]">{group.title}</span>
                                                 <div className="h-px bg-black/20 dark:bg-white/20 flex-1" />
                                             </div>
                                             <div className="space-y-4">
@@ -1467,13 +1470,13 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                                     initial="initial"
                                     animate="animate"
                                     exit="exit"
-                                    className="py-8 max-w-2xl relative z-10"
+                                    className="enrollment-personal enrollment-panel rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-4 sm:p-7 max-w-3xl relative z-10"
                                 >
-                                    <div className="space-y-12">
+                                    <div className="space-y-6">
 
-                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                             <TerminalInput 
-                                                label={formLabels?.firstname || "First Name"} 
+                                                label={formLabels?.firstname || germanDictionary.registration.form.firstname}
                                                 required 
                                                 registration={register("personal.firstName")} 
                                                 error={errors.personal?.firstName?.message} 
@@ -1482,7 +1485,7 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                                                 isDimmed={focusedField !== null && focusedField !== 'firstName'}
                                             />
                                             <TerminalInput 
-                                                label={formLabels?.lastname || "Last Name"} 
+                                                label={formLabels?.lastname || germanDictionary.registration.form.lastname}
                                                 required 
                                                 registration={register("personal.lastName")} 
                                                 error={errors.personal?.lastName?.message} 
@@ -1492,9 +1495,9 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                                             />
                                         </div>
 
-                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                             <TerminalInput 
-                                                label={formLabels?.email || "Email"} 
+                                                label={formLabels?.email || germanDictionary.registration.form.email}
                                                 type="email" 
                                                 required 
                                                 registration={register("personal.email")} 
@@ -1504,11 +1507,11 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                                                 isDimmed={focusedField !== null && focusedField !== 'email'}
                                             />
                                             {/* DateDropdowns might need a wrapper to support dimming, applying simple class here */}
-                                            <div className={cn("transition-opacity duration-500", focusedField !== null && focusedField !== 'birthDate' ? "opacity-30" : "opacity-100")} 
+                                            <div className={cn("transition-opacity duration-500", focusedField !== null && focusedField !== 'birthDate' ? "opacity-30" : "opacity-100")}
                                                  onFocusCapture={() => setFocusedField('birthDate')} 
                                                  onBlurCapture={() => setFocusedField(null)}>
                                                 <DateDropdowns
-                                                    label={formLabels?.birthdate || "Birthdate"}
+                                                    label={formLabels?.birthdate || germanDictionary.registration.form.birthdate}
                                                     required
                                                     value={watch("personal.birthDate")}
                                                     onChange={(val: string) => form.setValue("personal.birthDate", val, { shouldValidate: true })}
@@ -1519,7 +1522,8 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                                         </div>
                                         
                                         <PhoneInput
-                                            label={formLabels?.phone || "Phone"}
+                                            countryCodeLabel={formLabels.country_code}
+                                            label={formLabels?.phone || germanDictionary.registration.form.phone}
                                             value={watch("personal.phone")}
                                             onChange={(val: string) => form.setValue("personal.phone", val, { shouldValidate: true })}
                                             error={errors.personal?.phone?.message}
@@ -1528,9 +1532,9 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                                             isDimmed={focusedField !== null && focusedField !== 'phone'}
                                         />
 
-                                        <div className="grid grid-cols-[3fr_1fr] gap-8">
+                                        <div className="grid grid-cols-1 gap-6 sm:grid-cols-[minmax(0,3fr)_minmax(7rem,1fr)]">
                                             <TerminalInput 
-                                                label={formLabels?.street || "Street"} 
+                                                label={formLabels?.street || germanDictionary.registration.form.street}
                                                 required 
                                                 registration={register("personal.street")} 
                                                 error={errors.personal?.street?.message} 
@@ -1539,7 +1543,7 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                                                 isDimmed={focusedField !== null && focusedField !== 'street'}
                                             />
                                             <TerminalInput 
-                                                label={formLabels?.zip || "ZIP"} 
+                                                label={formLabels?.zip || germanDictionary.registration.form.zip}
                                                 required 
                                                 registration={register("personal.zip")} 
                                                 maxLength={5} 
@@ -1550,7 +1554,7 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                                             />
                                         </div>
                                         <TerminalInput 
-                                            label={formLabels?.city || "City"} 
+                                            label={formLabels?.city || germanDictionary.registration.form.city}
                                             required 
                                             registration={register("personal.city")} 
                                             error={errors.personal?.city?.message} 
@@ -1559,7 +1563,7 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                                             isDimmed={focusedField !== null && focusedField !== 'city'}
                                         />
 
-                                        <div className="text-[10px] text-gray-400 font-mono uppercase tracking-wider text-right">
+                                        <div className="text-xs text-gray-400 font-sans tabular-nums tracking-normal text-right">
                                             {formLabels?.required_hint}
                                         </div>
 
@@ -1579,66 +1583,66 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                                     className="flex flex-col gap-8 h-full relative z-10"
                                 >
                                     {/* LEGAL CONSENTS (Moved to Top) */}
-                                    <div className="bg-white/60 dark:bg-[#1a1a1a]/60 backdrop-blur-md border border-white/40 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.1)] rounded-3xl p-8 relative overflow-hidden">
-                                        <div className="absolute -top-24 -right-24 w-48 h-48 bg-[radial-gradient(circle,rgba(251,146,60,0.15)_0%,transparent_70%)] rounded-full pointer-events-none" />
+                                    <div className="enrollment-panel border border-[var(--border)] bg-[var(--surface)] rounded-2xl p-5 sm:p-7 relative overflow-hidden">
+                                        <div aria-hidden="true" className="hidden absolute -top-24 -right-24 w-48 h-48 bg-[radial-gradient(circle,rgba(251,146,60,0.15)_0%,transparent_70%)] rounded-full pointer-events-none" />
                                         <div className="relative z-10">
-                                        <h3 className="font-bold text-lg uppercase tracking-wider mb-2 border-b dark:border-white/10 pb-4">Rechtliches</h3>
+                                        <h3 className="font-semibold text-lg tracking-normal mb-2 border-b border-[var(--border)] pb-4">{wizard?.legal_title}</h3>
                                         <div className="space-y-4 pt-2">
                                             <LegalCheckbox
                                                 id="privacy"
-                                                label={t?.legal?.privacy || "Privacy Policy"}
+                                                label={t?.legal?.privacy || germanDictionary.registration.legal.privacy}
                                                 checked={consents.privacy}
                                                 onChange={(v) => setConsents(prev => ({ ...prev, privacy: v }))}
                                             />
                                             <LegalCheckbox
                                                 id="agb"
-                                                label={t?.legal?.agb || "AGB"}
+                                                label={t?.legal?.agb || germanDictionary.registration.legal.agb}
                                                 checked={consents.agb}
                                                 onChange={(v) => setConsents(prev => ({ ...prev, agb: v }))}
                                             />
                                             <LegalCheckbox
                                                 id="revocation"
-                                                label={t?.legal?.revocation || "Revocation"}
+                                                label={t?.legal?.revocation || germanDictionary.registration.legal.revocation}
                                                 checked={consents.revocation}
                                                 onChange={(v) => setConsents(prev => ({ ...prev, revocation: v }))}
                                             />
                                             {hasOnlineCourse && (
                                                 <LegalCheckbox
                                                     id="videoRecording"
-                                                    label={t?.legal?.video_recording || "I consent to the recording of online sessions via Microsoft Teams (audio and video) exclusively for internal teaching purposes.*"}
+                                                    label={t?.legal?.video_recording || germanDictionary.registration.legal.video_recording}
                                                     checked={consents.videoRecording}
                                                     onChange={(v) => setConsents(prev => ({ ...prev, videoRecording: v }))}
                                                 />
                                             )}
                                         </div>
-                                        <p className="text-xs md:text-sm font-medium text-gray-400 dark:text-gray-400 text-right mt-6">
+                                        <p className="text-xs md:text-sm font-medium text-[var(--muted)] text-right mt-6">
                                             {formLabels?.required_hint}
                                         </p>
                                     </div>
                                     </div>
-                                    <div className="bg-white/60 dark:bg-[#1a1a1a]/60 backdrop-blur-md border border-white/40 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.1)] p-8 rounded-3xl h-full flex flex-col justify-between relative overflow-hidden">
-                                        <div className="absolute -bottom-32 -left-32 w-64 h-64 bg-[radial-gradient(circle,rgba(251,146,60,0.1)_0%,transparent_70%)] rounded-full pointer-events-none" />
+                                    <div className="enrollment-panel border border-[var(--border)] bg-[var(--surface)] p-5 sm:p-7 rounded-2xl h-full flex flex-col justify-between relative overflow-hidden">
+                                        <div aria-hidden="true" className="hidden absolute -bottom-32 -left-32 w-64 h-64 bg-[radial-gradient(circle,rgba(251,146,60,0.1)_0%,transparent_70%)] rounded-full pointer-events-none" />
                                         <div className="relative z-10 flex flex-col h-full">
-                                        <div><h3 className="font-bold text-lg uppercase tracking-wider mb-6 border-b dark:border-white/10 pb-4">{wizard?.summary_data_title}</h3></div>
+                                        <div><h3 className="font-semibold text-lg tracking-normal mb-6 border-b border-[var(--border)] pb-4">{wizard?.summary_data_title}</h3></div>
                                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 text-sm">
-                                            <div className="text-gray-500">{wizard?.summary_labels?.name || "Name"}</div>
-                                            <div className="font-medium text-gray-900 dark:text-white">{formData?.firstName} {formData?.lastName}</div>
-                                            <div className="text-gray-500">{wizard?.summary_labels?.contact || "Kontakt"}</div>
-                                            <div className="font-medium break-all text-gray-900 dark:text-white">{formData?.email}<br />{formData?.phone}</div>
-                                            <div className="text-gray-500">{wizard?.summary_labels?.personal || "Persönlich"}</div>
-                                            <div className="font-medium text-gray-900 dark:text-white">{formData?.birthDate}</div>
-                                            <div className="text-gray-500">{wizard?.summary_labels?.address || "Adresse"}</div>
-                                            <div className="font-medium text-gray-900 dark:text-white">{formData?.street}<br />{formData?.zip} {formData?.city}</div>
+                                            <div className="text-gray-500">{wizard?.summary_labels?.name || germanDictionary.registration.wizard.summary_labels.name}</div>
+                                            <div className="font-medium text-[var(--foreground)]">{formData?.firstName} {formData?.lastName}</div>
+                                            <div className="text-gray-500">{wizard?.summary_labels?.contact || germanDictionary.registration.wizard.summary_labels.contact}</div>
+                                            <div className="font-medium break-all text-[var(--foreground)]">{formData?.email}<br />{formData?.phone}</div>
+                                            <div className="text-gray-500">{wizard?.summary_labels?.personal || germanDictionary.registration.wizard.summary_labels.personal}</div>
+                                            <div className="font-medium text-[var(--foreground)]">{formData?.birthDate}</div>
+                                            <div className="text-gray-500">{wizard?.summary_labels?.address || germanDictionary.registration.wizard.summary_labels.address}</div>
+                                            <div className="font-medium text-[var(--foreground)]">{formData?.street}<br />{formData?.zip} {formData?.city}</div>
                                         </div>
-                                        <button onClick={() => setStep(2)} className="text-[#FF5C00] text-xs uppercase font-bold tracking-widest hover:underline mt-4">
+                                        <button onClick={() => setStep(2)} className="inline-flex min-h-11 items-center text-[var(--accent)] text-sm font-semibold hover:underline mt-4">
                                             {wizard?.edit}
                                         </button>
                                         </div>
                                     </div>
 
                                     {/* Summary: Courses */}
-                                    <div className="bg-[#F0EFE9] dark:bg-[#1A1C1E] p-8 border border-black/10 dark:border-white/10 rounded-sm space-y-6">
-                                        <h3 className="font-bold text-lg uppercase tracking-wider mb-6 border-b dark:border-white/10 pb-4">{wizard?.summary_courses_title} {currentMonthLabel}</h3>
+                                    <div className="enrollment-panel bg-[var(--surface)] p-5 sm:p-7 border border-[var(--border)] rounded-2xl space-y-6">
+                                        <h3 className="font-semibold text-lg tracking-normal mb-6 border-b border-[var(--border)] pb-4">{wizard?.summary_courses_title} {currentMonthLabel}</h3>
                                         <div className="space-y-4">
                                             {selectedCoursesFull.map(c => {
                                                 const [d, m, y] = startDate.split('.').map(Number);
@@ -1646,12 +1650,12 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                                                 const netPrice = c.price * totalUnits;
                                                 return (
                                                     <div key={c.id} className="flex justify-between items-center text-sm">
-                                                        <span className="font-bold text-gray-900 dark:text-white">{dictionary?.CourseData?.[c.translationKey]?.title || dictionary?.CourseData?.[c.id.replace('c_', '')]?.title || c.translationKey}</span>
+                                                        <span className="font-semibold text-[var(--foreground)]">{dictionary?.CourseData?.[c.translationKey]?.title || dictionary?.CourseData?.[c.id.replace('c_', '')]?.title || c.translationKey}</span>
                                                         <div className="text-right">
-                                                            <span className="font-mono text-gray-900 dark:text-white">{formatPrice(netPrice)}</span>
+                                                            <span className="font-sans tabular-nums text-[var(--foreground)]">{formatPrice(netPrice)}</span>
                                                             {deductions.length > 0 && (
-                                                                <div className="text-[10px] text-red-500 text-right">
-                                                                    ({receipt?.incl || "inkl."} {deductions.length} {deductions.length === 1 ? receipt?.cancellation_s || "Ausfall" : receipt?.cancellation_p || "Ausfälle"})
+                                                                <div className="text-xs text-red-500 text-right">
+                                                                    ({receipt?.incl || germanDictionary.registration.receipt.incl} {deductions.length} {deductions.length === 1 ? receipt?.cancellation_s || germanDictionary.registration.receipt.cancellation_s : receipt?.cancellation_p || germanDictionary.registration.receipt.cancellation_p})
                                                                 </div>
                                                             )}
                                                         </div>
@@ -1659,7 +1663,7 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                                                 );
                                             })}
                                         </div>
-                                        <button onClick={() => setStep(1)} className="text-[#FF5C00] text-xs uppercase font-bold tracking-widest hover:underline mt-4">
+                                        <button onClick={() => setStep(1)} className="inline-flex min-h-11 items-center text-[var(--accent)] text-sm font-semibold hover:underline mt-4">
                                             {wizard?.change_selection}
                                         </button>
                                     </div>
@@ -1674,52 +1678,52 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
 
             {/* --- RIGHT PANEL: LIVE TERMINAL --- */}
             {/* Desktop: Fixed width Right Side. Mobile: Full width at bottom (or sticky). Here: stacked at bottom. */}
-            <div className="w-full lg:w-[400px] xl:w-[450px] bg-[#1A1C1E]/80 backdrop-blur-3xl border-l border-white/10 text-white flex flex-col relative shadow-[0_0_50px_rgba(0,0,0,0.5)] shrink-0 z-20">
-                <div className="absolute inset-0 bg-noise opacity-5 pointer-events-none mix-blend-overlay" />
+            <div className="enrollment-receipt w-full lg:w-[340px] xl:w-[380px] flex flex-col relative shrink-0 z-20">
+                <div aria-hidden="true" className="hidden" />
 
                 {/* RECEIPT HEADER */}
-                <div className="px-8 pt-8 pb-4 shrink-0 border-b border-white/10 hidden lg:block">
+                <div className="enrollment-receipt-heading px-5 pt-6 pb-4 shrink-0 border-b border-[var(--border)]">
                     <div className="flex items-center justify-between">
                         <div className="flex items-center gap-2">
-                            <span className="font-mono text-xs text-[#FF5C00] uppercase tracking-widest">
-                                {isTrialMode ? (trialT?.badge || "PROBESTUNDE") : (receipt?.live_title || "Live Receipt")}
+                            <span className="font-sans tabular-nums text-xs text-[var(--accent)] tracking-normal">
+                                {isTrialMode ? (trialT?.badge || germanDictionary.registration.trial.badge) : (receipt?.live_title || germanDictionary.registration.receipt.live_title)}
                             </span>
                             <span className="relative flex h-2 w-2">
                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
                                 <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
                             </span>
                         </div>
-                        {!isTrialMode && <span className="font-mono text-xs text-gray-500">{currentMonthLabel}</span>}
+                        {!isTrialMode && <span className="font-sans tabular-nums text-xs text-gray-500">{currentMonthLabel}</span>}
                     </div>
                 </div>
 
-                <div data-lenis-prevent className="flex-1 overflow-y-auto p-6 md:p-8 space-y-4 min-h-[200px] lg:min-h-0">
+                <div data-lenis-prevent className="enrollment-receipt-items flex-1 p-5 space-y-4 min-h-[100px] min-w-0">
                     {isTrialMode && trialCourse ? (
                         <div className="space-y-6">
                             {/* Course */}
-                            <div className="font-mono text-sm border-b border-white/5 pb-4">
+                            <div className="font-sans tabular-nums text-sm border-b border-white/5 pb-4">
                                 <div className="flex justify-between items-start mb-1 gap-4">
-                                    <span className="text-gray-200 font-bold flex-1 break-words">
+                                    <span className="text-gray-200 font-semibold flex-1 break-words">
                                         {dictionary?.CourseData?.[trialCourse.translationKey]?.title || trialCourse.translationKey}
                                     </span>
-                                    <span className="text-green-400 font-bold whitespace-nowrap">{trialT?.price_label || "Kostenlos"}</span>
+                                    <span className="text-green-400 font-semibold whitespace-nowrap">{trialT?.price_label || germanDictionary.registration.trial.price_label}</span>
                                 </div>
-                                <div className="text-[10px] text-gray-500 uppercase mt-1">
-                                    {trialT?.badge || "PROBESTUNDE"}
+                                <div className="text-xs text-gray-500 uppercase mt-1">
+                                    {trialT?.badge || germanDictionary.registration.trial.badge}
                                 </div>
                             </div>
 
                             {/* Selected Date */}
                             {trialDate && (
                                 <div className="flex items-center gap-2 text-sm text-gray-300">
-                                    <CalendarDays size={14} className="text-[#FF5C00]" />
-                                    <span className="font-mono">{trialDates.find(d => d.iso === trialDate)?.label || trialDate}</span>
+                                    <CalendarDays size={14} className="text-[var(--accent)]" />
+                                    <span className="font-sans tabular-nums">{trialDates.find(d => d.iso === trialDate)?.label || trialDate}</span>
                                 </div>
                             )}
 
                             {/* Contact Summary */}
                             {formData?.firstName && (
-                                <div className="text-[10px] text-gray-500 font-mono uppercase space-y-1 pt-2 border-t border-white/5">
+                                <div className="text-xs text-gray-500 font-sans tabular-nums space-y-1 pt-2 border-t border-white/5">
                                     <div>{formData.firstName} {formData.lastName}</div>
                                     {formData.email && <div className="text-gray-400">{formData.email}</div>}
                                     {formData.phone && <div>{formData.phone}</div>}
@@ -1729,8 +1733,8 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                     ) : (
                         <AnimatePresence>
                             {selectedCoursesFull.length === 0 ? (
-                                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-gray-600 font-mono text-xs italic mt-10 text-center">
-                                // {receipt?.waiting || "Waiting..."}
+                                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-gray-600 font-sans tabular-nums text-xs italic mt-10 text-center">
+                                {receipt?.waiting || germanDictionary.registration.receipt.waiting}
                                 </motion.div>
                             ) : (
                                 selectedCoursesFull.map(c => {
@@ -1746,22 +1750,22 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                                             initial={{ opacity: 0, x: -10 }}
                                             animate={{ opacity: 1, x: 0 }}
                                             exit={{ opacity: 0, height: 0 }}
-                                            className="font-mono text-sm border-b border-white/5 pb-3 last:border-0"
+                                            className="font-sans tabular-nums text-sm border-b border-white/5 pb-3 last:border-0"
                                         >
                                             <div className="flex justify-between items-start mb-1 gap-4">
-                                                <span className="text-gray-200 font-bold flex-1 break-words">{dictionary?.CourseData?.[c.translationKey]?.title || dictionary?.CourseData?.[c.id.replace('c_', '')]?.title || c.translationKey}</span>
+                                                <span className="text-gray-200 font-semibold flex-1 break-words">{dictionary?.CourseData?.[c.translationKey]?.title || dictionary?.CourseData?.[c.id.replace('c_', '')]?.title || c.translationKey}</span>
                                                 <span className="text-white whitespace-nowrap">{formatPrice(grossPrice)}</span>
                                             </div>
 
                                             {deductions.map((d, i) => (
-                                                <div key={i} className="flex justify-between text-[10px] text-red-500 mb-1">
+                                                <div key={i} className="flex justify-between text-xs text-red-500 mb-1">
                                                     <span>{d.date}: {d.reason}</span>
                                                     <span>- {formatPrice(d.amount)}</span>
                                                 </div>
                                             ))}
 
-                                            <div className="flex justify-between text-[10px] text-gray-500 uppercase mt-1">
-                                                <span>{totalUnits} {receipt?.units || "Einheiten"} ({sessionCount} {receipt?.sessions || "Termine"})</span>
+                                            <div className="flex justify-between text-xs text-gray-500 uppercase mt-1">
+                                                <span>{totalUnits} {receipt?.units || germanDictionary.registration.receipt.units} ({sessionCount} {receipt?.sessions || germanDictionary.registration.receipt.sessions})</span>
                                             </div>
                                         </motion.div>
                                     );
@@ -1774,34 +1778,34 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                 {/* FOOTER AREA (Total + Action) */}
                 <div
                     ref={footerRef}
-                    className="bg-[#2D3436] p-0 relative overflow-hidden transition-all duration-500 shrink-0 z-50"
+                    className="enrollment-receipt-footer p-0 relative shrink-0 z-50"
                 >
 
                     {/* TOTAL Display */}
                     {isTrialMode ? (
-                        <div className="p-6 md:p-8 pb-4 pt-6 border-t border-white/10 bg-black/20 backdrop-blur-md">
+                        <div className="enrollment-receipt-total p-5 border-t border-[var(--border)]">
                             <div className="flex justify-between items-end mb-2">
-                                <span className="font-mono text-xs uppercase text-gray-400">{trialT?.price_label || "Kostenlos"}</span>
-                                <span className="text-2xl md:text-3xl font-bold tracking-tight tabular-nums text-green-400">0,00 €</span>
+                                <span className="font-sans tabular-nums text-xs text-gray-400">{trialT?.price_label || germanDictionary.registration.trial.price_label}</span>
+                                <span className="text-2xl md:text-3xl font-semibold tracking-tight tabular-nums text-green-400">{formatPrice(0)}</span>
                             </div>
-                            <div className="flex justify-between text-[10px] text-gray-600 font-mono uppercase">
-                                <span>{trialT?.badge || "PROBESTUNDE"}</span>
+                            <div className="flex justify-between text-xs text-gray-600 font-sans tabular-nums">
+                                <span>{trialT?.badge || germanDictionary.registration.trial.badge}</span>
                             </div>
                         </div>
                     ) : (
-                        <div className="p-6 md:p-8 pb-4 pt-6 border-t border-white/10 bg-black/20 backdrop-blur-md">
+                        <div className="enrollment-receipt-total p-5 border-t border-[var(--border)]">
                             <div className="flex justify-between items-end mb-2">
-                                <span className="font-mono text-xs uppercase text-gray-400">{wizard?.total_label}</span>
+                                <span className="font-sans tabular-nums text-xs text-gray-400">{wizard?.total_label}</span>
                                 <motion.span
                                     key={totalMonthlyPrice}
-                                    initial={{ scale: 1.1, color: '#fff' }}
-                                    animate={{ scale: 1, color: '#FF5C00' }}
-                                    className="text-2xl md:text-3xl font-bold tracking-tight tabular-nums"
+                                    initial={{ scale: 1.04 }}
+                                    animate={{ scale: 1 }}
+                                    className="text-2xl md:text-3xl font-semibold tracking-tight tabular-nums"
                                 >
                                     {formatPrice(totalMonthlyPrice)}
                                 </motion.span>
                             </div>
-                            <div className="flex justify-between text-[10px] text-gray-600 font-mono uppercase">
+                            <div className="flex justify-between text-xs text-gray-600 font-sans tabular-nums">
                                 <span>{wizard?.total_sub_1}</span>
                                 <span>{wizard?.total_sub_2}</span>
                             </div>
@@ -1822,7 +1826,7 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                                 isSubmitting
                             }
                             className={cn(
-                                "w-full h-16 md:h-20 font-bold uppercase tracking-[0.2em] text-sm flex items-center justify-between px-6 md:px-8 transition-all duration-300 group hover:shadow-[0_0_30px_rgba(255,92,0,0.3)] z-10 relative",
+                                "enrollment-submit w-full min-h-16 font-semibold text-sm flex items-center justify-between gap-3 px-5 py-4 transition-colors duration-200 group z-10 relative",
                                 (
                                     (step === 1 && (selectedCourseIds.length === 0 || !trialDate)) ||
                                     (step === 2 && !isValid) ||
@@ -1830,17 +1834,17 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                                     trialEligible === false
                                 )
                                     ? "bg-gray-700 text-gray-500 cursor-not-allowed"
-                                    : "bg-[#FF5C00] text-white hover:bg-[#FF7A33]"
+                                    : "bg-[var(--accent)] text-white hover:bg-[#FF7A33]"
                             )}
                         >
                             <span className="flex flex-col items-start gap-1">
-                                <span className="text-[10px] opacity-70 font-mono normal-case tracking-normal">
-                                    {step === 1 ? wizard?.btn_next : step === 2 ? wizard?.btn_almost : (trialT?.badge || "PROBESTUNDE")}
+                                <span className="text-xs opacity-70 font-sans tabular-nums normal-case tracking-normal">
+                                    {step === 1 ? wizard?.btn_next : step === 2 ? wizard?.btn_almost : (trialT?.badge || germanDictionary.registration.trial.badge)}
                                 </span>
                                 <span>
                                     {step === 1 && wizard?.btn_continue}
                                     {step === 2 && (trialCheckLoading ? <Loader2 className="animate-spin" /> : wizard?.btn_overview)}
-                                    {step === 3 && (isSubmitting ? <Loader2 className="animate-spin" /> : (trialT?.submit_button || "Probestunde anfragen"))}
+                                    {step === 3 && (isSubmitting ? <Loader2 className="animate-spin" /> : (trialT?.submit_button || germanDictionary.registration.trial.submit_button))}
                                 </span>
                             </span>
                             {step === 3 ? (
@@ -1858,14 +1862,14 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                             onClick={step === 3 ? handleSubmit(onSubmit) : handleNextStep}
                             disabled={(step === 1 && selectedCourseIds.length === 0) || (step === 2 && !isValid) || (step === 3 && !isLegalValid) || isSubmitting}
                             className={cn(
-                                "w-full h-16 md:h-20 font-bold uppercase tracking-[0.2em] text-sm flex items-center justify-between px-6 md:px-8 transition-all duration-300 group hover:shadow-[0_0_30px_rgba(255,92,0,0.3)] z-10 relative",
+                                "enrollment-submit w-full min-h-16 font-semibold text-sm flex items-center justify-between gap-3 px-5 py-4 transition-colors duration-200 group z-10 relative",
                                 ((step === 1 && selectedCourseIds.length === 0) || (step === 2 && !isValid) || (step === 3 && !isLegalValid))
                                     ? "bg-gray-700 text-gray-500 cursor-not-allowed"
-                                    : "bg-[#FF5C00] text-white hover:bg-[#FF7A33]"
+                                    : "bg-[var(--accent)] text-white hover:bg-[#FF7A33]"
                             )}
                         >
                             <span className="flex flex-col items-start gap-1">
-                                <span className="text-[10px] opacity-70 font-mono normal-case tracking-normal">
+                                <span className="text-xs opacity-70 font-sans tabular-nums normal-case tracking-normal">
                                     {step === 1 ? wizard?.btn_next : step === 2 ? wizard?.btn_almost : wizard?.btn_binding}
                                 </span>
                                 <span>
@@ -1884,5 +1888,6 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                 </div>
             </div>
         </div >
+        </MotionConfig>
     );
 }

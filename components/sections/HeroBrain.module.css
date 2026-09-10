@@ -1,0 +1,63 @@
+.card {
+  display: grid;
+  grid-template-rows: auto auto auto;
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 1.8rem;
+  background: var(--surface);
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.3rem 1.4rem .35rem;
+  color: var(--violet);
+}
+
+.heading > svg { flex-shrink: 0; }
+
+.scene {
+  position: relative;
+  isolation: isolate;
+  height: clamp(250px, 34vw, 345px);
+  overflow: hidden;
+  background: radial-gradient(ellipse at 50% 48%, color-mix(in srgb, var(--violet) 7%, transparent), transparent 67%);
+}
+
+.canvas { position: absolute; inset: 0; }
+
+.orbit {
+  position: absolute;
+  z-index: -1;
+  top: 12%;
+  left: 50%;
+  height: 76%;
+  aspect-ratio: 1;
+  margin-left: calc(clamp(250px, 34vw, 345px) * -.38);
+  border: 1px dashed color-mix(in srgb, var(--violet) 13%, transparent);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.caption {
+  position: relative;
+  padding: 1.1rem 1.4rem 1.3rem;
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.caption p { margin: 0; color: var(--foreground); font-size: .95rem; font-weight: 650; line-height: 1.6; }
+.caption span { display: block; margin-top: .4rem; color: var(--muted); font-size: .72rem; line-height: 1.6; }
+
+@media (min-width: 1024px) {
+  .card { border-radius: 2rem; }
+  .heading { padding: 1.65rem 1.9rem .5rem; }
+  .caption { padding: 1.3rem 1.9rem 1.6rem; }
+  .caption p { font-size: 1.05rem; }
+}
+
+@media (hover: none) { .canvas { pointer-events: none; } }

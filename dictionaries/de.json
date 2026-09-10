@@ -618,7 +618,8 @@
       "success_message": "Wir haben Ihre Anfrage erhalten und melden uns in Kürze bei",
       "already_used_title": "Probestunde bereits genutzt",
       "already_used_message": "Sie haben bereits eine kostenlose Probestunde in Anspruch genommen. Melden Sie sich gerne direkt für einen unserer Kurse an!",
-      "price_label": "Kostenlos"
+      "price_label": "Kostenlos",
+      "no_dates": "Für diesen Kurs sind derzeit keine Termine verfügbar."
     },
     "step_course": "KURS",
     "step_personal": "PERSÖNLICHES",
@@ -647,7 +648,8 @@
       "birthdate": "GEBURTSDATUM",
       "date_placeholder": "TT.MM.JJJJ",
       "required_hint": "* Pflichtfeld",
-      "select_course_hint": "Wählen Sie unten einen Kurs, um Details zu sehen"
+      "select_course_hint": "Wählen Sie unten einen Kurs, um Details zu sehen",
+      "country_code": "Ländervorwahl"
     },
     "errors": {
       "firstname_required": "Vorname ist erforderlich",
@@ -733,7 +735,17 @@
         "contact": "Kontakt",
         "personal": "Geburtstag",
         "address": "Adresse"
-      }
+      },
+      "back_step": "Zurück",
+      "scroll_to_summary": "Zur Zusammenfassung",
+      "legal_title": "Einwilligungen",
+      "summary_data_title": "Deine Angaben",
+      "summary_courses_title": "Deine Kurse im",
+      "edit": "Angaben bearbeiten",
+      "change_selection": "Kursauswahl ändern",
+      "total_label": "Gesamtbetrag",
+      "total_sub_1": "Inklusive MwSt.",
+      "total_sub_2": "Zahlung per Rechnung"
     },
     "support_node": {
       "telegram": "Telegram",
@@ -1911,7 +1923,7 @@
     "method_3_text": "Kurze Lerneinheiten und gezielte Wiederholungen. Dein Fortschritt bleibt gespeichert.",
     "teacher_eyebrow": "Ein Mensch an deiner Seite",
     "teacher_title": "Hallo, ich bin Anastasia.",
-    "teacher_text": "Sprache öffnet Türen. Als Lehrerin für Deutsch als Fremd- und Zweitsprache begleite ich dich mit Erfahrung, Geduld und einem Blick für deine Stärken.",
+    "teacher_text": "Sprache öffnet Türen. Ich bin mit Deutsch und Russisch als Muttersprachen zweisprachig aufgewachsen. Als Lehrerin begleite ich dich mit Erfahrung, Geduld und einem Blick für deine Stärken.",
     "teacher_cta": "Lernen wir uns kennen",
     "teacher_alt": "Anastasia Sitov, Deutschlehrerin",
     "course_eyebrow": "Gemeinsam weiterkommen",
@@ -1941,6 +1953,11 @@
     "breadcrumb": "Seitennavigation",
     "course_unit": "pro {minutes} Minuten",
     "location_address": "Freizeitheim Vahrenwald, Vahrenwalder Straße 92, 30165 Hannover",
-    "support_whatsapp": "WhatsApp"
+    "support_whatsapp": "WhatsApp",
+    "book_course": "Kurs buchen",
+    "teacher_academic_title": "Bachelor & Master",
+    "teacher_academic_text": "Bachelor of Science in Biologie & Deutsch und Master of Education für das Lehramt in Biologie & Deutsch an der Leibniz Universität Hannover.",
+    "teacher_training_title": "Weiterbildung DaZ / DaF",
+    "teacher_training_text": "Weiterbildung in Deutsch als Zweitsprache und Deutsch als Fremdsprache an der TU Braunschweig."
   }
 }

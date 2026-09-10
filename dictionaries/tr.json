@@ -620,7 +620,8 @@
       "success_message": "Talebinizi aldık ve en kısa sürede size döneceğiz:",
       "already_used_title": "Deneme dersi zaten kullanıldı",
       "already_used_message": "Ücretsiz deneme dersinizi zaten kullandınız. Kurslarımızdan birine doğrudan kayıt olabilirsiniz!",
-      "price_label": "Ücretsiz"
+      "price_label": "Ücretsiz",
+      "no_dates": "Bu kurs için şu anda uygun tarih bulunmuyor."
     },
     "step_course": "DERS",
     "step_personal": "KİŞİSEL VERİLER",
@@ -649,7 +650,8 @@
       "birthdate": "DOĞUM TARİHİ",
       "date_placeholder": "GG.AA.YYYY",
       "required_hint": "* Zorunlu alan",
-      "select_course_hint": "Ayrıntıları görmek için aşağıdan bir kurs seçin"
+      "select_course_hint": "Ayrıntıları görmek için aşağıdan bir kurs seçin",
+      "country_code": "Ülke telefon kodu"
     },
     "errors": {
       "firstname_required": "Adınız gerekli",
@@ -735,7 +737,17 @@
         "contact": "İletişim",
         "personal": "Doğum Tarihi",
         "address": "Adres"
-      }
+      },
+      "back_step": "Geri",
+      "scroll_to_summary": "Özete git",
+      "legal_title": "Onaylar",
+      "summary_data_title": "Bilgileriniz",
+      "summary_courses_title": "Kurslarınız:",
+      "edit": "Bilgileri düzenle",
+      "change_selection": "Kurs seçimini değiştir",
+      "total_label": "Toplam",
+      "total_sub_1": "KDV dahil",
+      "total_sub_2": "Fatura ile ödeme"
     },
     "support_node": {
       "telegram": "Telegram",
@@ -1913,7 +1925,7 @@
     "method_3_text": "Kısa öğrenme oturumları ve hedefli tekrarlar. İlerlemen kaydedilir.",
     "teacher_eyebrow": "Yanında bir insan",
     "teacher_title": "Merhaba, ben Anastasia.",
-    "teacher_text": "Dil kapıları açar. Yabancı ve ikinci dil olarak Almanca öğretmeni olarak sana deneyim, sabır ve güçlü yönlerine dikkat ederek rehberlik ediyorum.",
+    "teacher_text": "Dil kapıları açar. Almanca ve Rusçayı ana dilim olarak konuşarak iki dilli büyüdüm. Bir öğretmen olarak deneyimim, sabrım ve güçlü yönlerine gösterdiğim özenle sana eşlik ediyorum.",
     "teacher_cta": "Birbirimizi tanıyalım",
     "teacher_alt": "Anastasia Sitov, Almanca öğretmeni",
     "course_eyebrow": "Birlikte ilerliyoruz",
@@ -1943,6 +1955,11 @@
     "breadcrumb": "Sayfa gezinmesi",
     "course_unit": "{minutes} dakika için",
     "location_address": "Freizeitheim Vahrenwald, Vahrenwalder Straße 92, 30165 Hannover",
-    "support_whatsapp": "WhatsApp"
+    "support_whatsapp": "WhatsApp",
+    "book_course": "Kursa kaydol",
+    "teacher_academic_title": "Lisans ve yüksek lisans",
+    "teacher_academic_text": "Leibniz Hannover Üniversitesinde biyoloji ve Almanca alanlarında fen bilimleri lisansı, biyoloji ve Almanca öğretmenliği alanlarında eğitim yüksek lisansı.",
+    "teacher_training_title": "DaZ / DaF uzmanlık eğitimi",
+    "teacher_training_text": "Braunschweig Teknik Üniversitesinde Almancanın ikinci dil ve yabancı dil olarak öğretimi üzerine uzmanlık eğitimi."
   }
 }

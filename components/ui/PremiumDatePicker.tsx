@@ -3,6 +3,7 @@
 import React, { useEffect, useMemo, useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { toUiLocale } from "@/lib/locale-routing";
 import { JetBrains_Mono } from "next/font/google";
 
 const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"] });
@@ -123,6 +124,7 @@ interface PremiumDatePickerProps {
     required?: boolean;
     minDate: Date;
     maxDate: Date;
+    locale?: string;
 }
 
 export const PremiumDatePicker = ({
@@ -133,7 +135,9 @@ export const PremiumDatePicker = ({
     required,
     minDate,
     maxDate,
+    locale = "de",
 }: PremiumDatePickerProps) => {
+    const calendarLocale = toUiLocale(locale);
     const monthsRef = useHorizontalScroll();
     const daysRef = useHorizontalScroll();
 
@@ -162,12 +166,12 @@ export const PremiumDatePicker = ({
             months.push({
                 month: curr.getMonth() + 1,
                 year: curr.getFullYear(),
-                label: curr.toLocaleString('de-DE', { month: 'long' }) + (curr.getFullYear() !== minDate.getFullYear() ? ` '${String(curr.getFullYear()).slice(-2)}` : '')
+                label: curr.toLocaleString(calendarLocale, { month: 'long' }) + (curr.getFullYear() !== minDate.getFullYear() ? ` '${String(curr.getFullYear()).slice(-2)}` : '')
             });
             curr.setMonth(curr.getMonth() + 1);
         }
         return months;
-    }, [minDate, maxDate]);
+    }, [minDate, maxDate, calendarLocale]);
 
     // Calculate available days for the currently viewed month
     const availableDays = useMemo(() => {
@@ -190,12 +194,12 @@ export const PremiumDatePicker = ({
             
             days.push({
                 day: i,
-                dayOfWeek: dateObj.toLocaleString('de-DE', { weekday: 'short' }),
+                dayOfWeek: dateObj.toLocaleString(calendarLocale, { weekday: 'short' }),
                 isDisabled
             });
         }
         return days;
-    }, [viewYear, viewMonth, minDate, maxDate]);
+    }, [viewYear, viewMonth, minDate, maxDate, calendarLocale]);
 
     const handleMonthSelect = (m: number, y: number) => {
         setViewMonth(m);

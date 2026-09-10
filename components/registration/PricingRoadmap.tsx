@@ -1,14 +1,18 @@
 "use client";
 
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, Check, HelpCircle } from "lucide-react";
-import { cn } from "@/lib/utils";
+import React from "react";
+import { motion, useReducedMotion } from "framer-motion";
+import { Check } from "lucide-react";
+import germanDictionary from "@/dictionaries/de.json";
+
+export type RegistrationDictionary = Pick<typeof germanDictionary, "registration" | "timetable" | "academy"> & {
+    CourseData: Record<string, { title?: string; level?: string }>
+};
 import { CourseConfig, CourseException } from "@/lib/course-config";
 import { calculateMonthlyStats } from "@/lib/course-calculations";
 
 interface PricingRoadmapProps {
-    dictionary: any;
+    dictionary: RegistrationDictionary;
     lang: string;
     startDate: string;
     selectedCourses: CourseConfig[];
@@ -26,8 +30,9 @@ export default function PricingRoadmap({
     exceptions = [],
     onShowPaymentInfo
 }: PricingRoadmapProps) {
+    const reducedMotion = useReducedMotion();
     // Translation shortcuts
-    const t = dictionary?.registration?.pricing_roadmap;
+    const t = dictionary?.registration?.pricing_roadmap ?? germanDictionary.registration.pricing_roadmap;
 
     // Format price helper
     const formatPrice = (price: number) =>
@@ -39,7 +44,7 @@ export default function PricingRoadmap({
         'en': 'en-US',
         'ru': 'ru-RU',
         'uk': 'uk-UA',
-        'tu': 'tr-TR'
+        'tr': 'tr-TR'
     };
     const localeTag = localeMap[lang] || 'de-DE';
 
@@ -88,79 +93,37 @@ export default function PricingRoadmap({
 
     return (
         <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{
-                height: { type: "spring", stiffness: 300, damping: 30 },
-                opacity: { duration: 0.2 }
-            }}
-            className="h-full flex flex-col"
+            initial={reducedMotion ? false : { opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: reducedMotion ? 0 : 0.18 }}
+            className="enrollment-pricing flex h-full min-w-0 flex-col"
         >
-            <div className="flex-1">
-                {/* Current Month - Highlighted */}
-                <div className="relative mb-4">
-                    {/* Green accent bar */}
-                    <div className="absolute left-0 top-0 bottom-0 w-1 bg-green-500 rounded-full" />
-
-                    <div className="pl-5">
-                        {/* Label */}
-                        <span className="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-widest text-green-500 font-bold mb-2">
-                            <Check size={12} strokeWidth={3} className="text-green-500" />
-                            {t?.due_today || "Heute fällig"}
-                        </span>
-
-                        {/* Month + Price */}
-                        <div className="flex justify-between items-baseline gap-4">
-                            <span className="text-lg font-semibold text-gray-900 dark:text-white">
-                                {currentMonthLabel}
-                            </span>
-                            <span className="font-mono text-xl font-bold text-[#FF5C00]">
-                                {formatPrice(currentMonthPrice)}
-                            </span>
-                        </div>
+            <div className="min-w-0 flex-1">
+                <div className="enrollment-pricing-current">
+                    <span className="mb-3 inline-flex items-center gap-2 text-xs font-semibold text-[var(--muted)]">
+                        <Check size={15} aria-hidden="true" />{t.due_today}
+                    </span>
+                    <div className="flex min-w-0 flex-wrap items-baseline justify-between gap-x-4 gap-y-2">
+                        <span className="min-w-0 text-base font-medium text-[var(--foreground)]">{currentMonthLabel}</span>
+                        <span className="text-2xl font-semibold tracking-tight text-[var(--accent)] tabular-nums">{formatPrice(currentMonthPrice)}</span>
                     </div>
                 </div>
-
-                {/* Divider */}
-                <div className="h-px bg-black/10 dark:bg-white/10 my-3" />
-
-                {/* Future Months - Compact */}
-                <div className="space-y-2 mb-4">
+                <div className="my-4 h-px bg-[var(--border)]" />
+                <div className="mb-4 space-y-4">
                     {futureMonths.map((month, idx) => (
-                        <motion.div
-                            key={idx}
-                            initial={{ opacity: 0, x: -10 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: 0.1 * (idx + 1) }}
-                            className="relative pl-5"
-                        >
-                            {/* Grey dot indicator */}
-                            <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-gray-300 dark:bg-gray-600" />
-
-                            <div className="flex justify-between items-baseline gap-3">
-                                <div className="flex flex-col">
-                                    <span className="text-xs text-gray-500 dark:text-gray-400">
-                                        {month.label}
-                                    </span>
-                                    <span className="text-[9px] text-gray-400 dark:text-gray-500 italic">
-                                        ({t?.optional_continuation || "Optionale Fortführung"})
-                                    </span>
-                                </div>
-                                <span className="font-mono text-xs text-gray-500 dark:text-gray-400">
-                                    {formatPrice(month.cost)}
-                                </span>
+                        <div key={idx} className="flex min-w-0 flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                            <div className="min-w-0 flex-1">
+                                <p className="text-sm font-medium text-[var(--foreground)]">{month.label}</p>
+                                <p className="mt-1 text-xs leading-relaxed text-[var(--muted)]">{t.optional_continuation}</p>
                             </div>
-                        </motion.div>
+                            <span className="text-sm font-semibold text-[var(--foreground)] tabular-nums">{formatPrice(month.cost)}</span>
+                        </div>
                     ))}
                 </div>
-
-                {/* Cancel Anytime Badge - Compact */}
-                <div className="flex items-center gap-2 py-2 px-3 rounded-sm bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800/50">
-                    <Check size={14} className="text-green-600 dark:text-green-400 shrink-0" strokeWidth={2.5} />
-                    <span className="text-xs font-medium text-green-800 dark:text-green-300">
-                        {t?.cancel_anytime || "Jederzeit zum Monatsende kündbar"}
-                    </span>
+                <div className="flex items-start gap-2 rounded-xl border border-[var(--border)] bg-[var(--surface-muted)] px-3 py-3">
+                    <Check size={17} className="mt-0.5 shrink-0 text-[var(--accent)]" aria-hidden="true" />
+                    <span className="text-xs font-medium leading-relaxed text-[var(--foreground)]">{t.cancel_anytime}</span>
                 </div>
             </div>
         </motion.div>
