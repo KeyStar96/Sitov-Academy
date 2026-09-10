@@ -1,5 +1,5 @@
 import { getDictionary } from "@/lib/dictionary";
-import FooterLayout from "@/components/footer/FooterLayout";
+import AcademyFooter from "@/components/sections/AcademyFooter";
 import Header from "@/components/layout/Header";
 import Link from "next/link";
 import { Metadata } from "next";
@@ -40,7 +40,7 @@ export default async function ImprintPage({ params }: { params: Promise<{ lang: 
 
             <main className="container mx-auto px-4 pt-32 pb-16 max-w-4xl relative">
                 <div className="mb-12">
-                    <Link href={`/${lang}`} className="inline-flex items-center px-5 py-2.5 bg-white/60 dark:bg-[#1a1a1a]/60 backdrop-blur-md border border-white/40 dark:border-white/10 rounded-full text-foreground/60 hover:text-primary-orange hover:shadow-lg transition-all duration-300 gap-3 group">
+                    <Link href={`/${lang}`} className="inline-flex min-h-12 items-center px-5 py-2.5 bg-white/60 dark:bg-[#1a1a1a]/60 backdrop-blur-md border border-white/40 dark:border-white/10 rounded-full text-foreground/60 hover:text-primary-orange hover:shadow-lg transition-all duration-300 gap-3 group">
                         <span className="text-xl group-hover:-translate-x-1 transition-transform">←</span>
                         <span className="text-xs font-bold tracking-widest uppercase">{dictionary.registration?.back_home || "Zurück zur Startseite"}</span>
                     </Link>
@@ -51,7 +51,7 @@ export default async function ImprintPage({ params }: { params: Promise<{ lang: 
                 </h1>
 
                 <div className="space-y-8">
-                    {dictionary.imprint?.sections?.map((section: any, index: number) => (
+                    {dictionary.imprint?.sections?.map((section, index) => (
                         <section
                             key={index}
                             className={`relative overflow-hidden bg-white/60 dark:bg-[#1a1a1a]/60 backdrop-blur-md p-8 md:p-10 rounded-3xl border border-white/40 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.1)] transition-all duration-300 hover:shadow-xl hover:border-white/80 dark:hover:border-white/30`}
@@ -72,7 +72,7 @@ export default async function ImprintPage({ params }: { params: Promise<{ lang: 
                 </div>
             </main>
 
-            <FooterLayout dictionary={dictionary} lang={lang} />
+            <AcademyFooter dictionary={dictionary} lang={lang} />
         </div>
     );
 }

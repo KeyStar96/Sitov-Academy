@@ -15,8 +15,8 @@ import { RouteFeedbackProvider, type RouteFeedbackCopy } from "@/components/layo
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.sitov-academy.com'),
   title: {
-    template: '%s | Sitov Language Academy',
-    default: 'Sitov Language Academy — Deutschkurse in Hannover',
+    template: '%s | Sitov Academy',
+    default: 'Sitov Academy — Deutschkurse in Hannover',
   },
   description: 'Deutschkurse in Hannover für Ukrainer & Russischsprachige. A1-B2, Online & Präsenz.',
   formatDetection: {

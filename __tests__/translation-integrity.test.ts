@@ -54,7 +54,7 @@ describe('Translation Integrity', () => {
     test('Values should not be identical to Master (DE) unless explicitly allowed', () => {
         // Heuristic: If value is identical to DE and length > 4, it's likely untranslated.
         // We can add a "whitelist" if needed.
-        const whitelist = ['Sitov Language Academy', 'Sitov', 'Academy', 'Email', 'Telegram', 'WhatsApp', 'A1.1', 'A1.2', 'A2', 'B1', 'B2', 'info@sitov-academy.com'];
+        const whitelist = ['Sitov Academy', 'Sitov', 'Academy', 'Email', 'Telegram', 'WhatsApp', 'A1.1', 'A1.2', 'A2', 'B1', 'B2', 'info@sitov-academy.com'];
 
         locales.forEach(locale => {
             const warnings: string[] = [];

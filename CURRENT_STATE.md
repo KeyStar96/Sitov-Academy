@@ -1,12 +1,20 @@
 # Current State Analysis (Ist-Zustand)
 
+## Änderungsprotokoll — 2026-09-10: einheitlicher Footer, Kurse und Marke
+
+AGB, Impressum und Datenschutz verwenden in allen fünf Sprachen den Startseiten-Footer; die alten Footer-Komponenten sind entfernt. Kurskarten folgen Deutsch Level 1/2/3 → Sprechtraining Mo/Di/Mi → Online A1/B1 → Privatunterricht. Der Hero zeigt „A1—C2 · Sitov Academy Hannover“; aktive Texte und Metadaten verwenden „Sitov Academy“. 59 bestehende Tests, Produktionsbuild mit Webpack inklusive TypeScript und Browserprüfungen aller fünf Startseiten sowie 15 Rechtsrouten bestanden. Mail-Quellen ebenfalls aktualisiert, aber noch nicht in Supabase veröffentlicht. [Umfang und Prüfnachweise](docs/brand-footer-course-order-2026-09-10.md).
+
+## Änderungsprotokoll — 2026-09-10: globaler Lernreset tatsächlich ausgeführt
+
+Auf ausdrückliche Nachfrage wurden die Lerndaten aller sechs aktuellen Schüler live gelöscht: 462 alte und 924 richtungsbezogene Vokabelstände, sechs Grammatikstände, Einstufungs-/Lernstatus und Antwortbelege. Alle sieben Einreichungen, zwei Feedbacks, eine Dialognachricht und **20 echte Audio-Dateien** sind entfernt. Abschlussprüfung 22:20 Uhr: sämtliche Zielbestände null, keine aktiven Löschsperren. Profile, Buchungen, Rechnungsstatus und Unterrichtsinhalte bleiben erhalten; die zwei Lehrer-Grammatikstände ebenfalls. [Ausführung und Prüfnachweis](docs/global-learning-reset-2026-09-10.md).
+
 ## Änderungsprotokoll — 2026-09-10: Gehirnform, einfache Navigation und vollständiger Lernreset
 
 - **Gehirn:** Längliches Großhirn mit zwei Hemisphären, sichtbarer Längsfurche und weicheren Windungen ersetzt die wolkenartige Verteilung. Die anatomische Oberfläche verbessert den Kontrast in beiden Themes. Dichtes neuronales Netz, höchstens drei Lichtschweife alle 6–8 Sekunden und Bewegungs-/WebGL-Fallbacks bleiben erhalten.
 - **Navigation:** Große sekundäre Header auf Übersicht, Profil, Niveau, Vokabeln, Grammatik, Aussprache, Videos und Einstufung entfernt. Nur die gemeinsame dezente Breadcrumb benennt die reguläre Seite; Inhalt und angepasste Ladeskelette beginnen direkt darunter. Fullscreen-Lernmodus behält seine notwendige eigene Navigation.
 - **Profil:** Unter der Spracheinstellung steht eine kleine rot umrandete Reset-Zone mit Bestätigungsdialog in DE/EN/RU/UK/TR. Ausdrücklich bestätigt wurde der Umfang **nur Lerndaten und Audio-Dialoge**, einschließlich alter/neuer Vokabelstände, Einstufung, Grammatik, Aufnahmen und zugehöriger Rückmeldungen. Profil, Rechte, Buchungen, Monatsplanung, Rechnungen und Unterrichtsinhalte bleiben bestehen.
 - **Backend:** Neue Action `resetUserProgress.ts`; laufende Löschvorgänge bleiben bei Fehlern wiederaufnehmbar. Storage-Löschung erfolgt über die API und vor dem atomaren Löschen der Lerndatensätze. Fremde Dateien/Bestände sind geschützt; gemeinsam verwendete Lehreraufnahmen bleiben für andere Schüler erhalten. Andere Tabs desselben Kontos laden nach einem erfolgreichen Reset neu.
-- **Live-Stand:** Migration angewendet, jedoch **kein Account zurückgesetzt**. Vorher-/Nachher-Prüfsummen und Anzahlen identisch: 6 Profile, 84 Registrierungen, 112 Einschreibungen, 7 Einreichungen, 924 richtungsbezogene Vokabelstände und 66 Storage-Dateien. Beide neuen internen Reset-Tabellen sind leer.
+- **Stand bei Implementierung, vor dem oben protokollierten globalen Reset:** Migration angewendet, zunächst kein Account zurückgesetzt. Damalige Vorher-/Nachher-Prüfsummen und Anzahlen identisch: 6 Profile, 84 Registrierungen, 112 Einschreibungen, 7 Einreichungen, 924 richtungsbezogene Vokabelstände und 66 Storage-Dateien. Beide neuen internen Reset-Tabellen waren zu diesem Zeitpunkt leer.
 - **Prüfung:** 909 Anwendungstests, 119 isolierte PostgreSQL-Tests und Produktionsbuild bestanden; separate Geometrie-/WebGL- sowie responsive Navigationsprüfungen erfolgreich. Details und Einschränkungen stehen im [Prüfbericht](docs/brain-navigation-reset-2026-09-10.md). Kein Frontend-Deployment vorgenommen.
 
 ## Änderungsprotokoll — 2026-09-10: Trainer und Lehrer-Verwaltung

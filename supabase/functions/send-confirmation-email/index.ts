@@ -133,8 +133,8 @@ Deno.serve(async (req) => {
                 </tr>`;
             }).join('');
 
-            // Logo URL in Supabase Storage (public 'assets' bucket)
-            const logoUrl = `${SUPABASE_URL}/storage/v1/object/public/assets/logo.png`;
+            // Use the current website brand mark with an accessible HTML wordmark.
+            const logoUrl = 'https://www.sitov-academy.com/Bilder/favicon.png';
 
             // Calculate Payment Period (Start Date - End of Month)
             let periodString = '';
@@ -226,7 +226,8 @@ Deno.serve(async (req) => {
         
         <!-- Header -->
         <div class="header">
-            <img src="${logoUrl}" alt="Sitov Language Academy Logo" class="logo">
+            <img src="${logoUrl}" alt="" width="50" height="50" class="logo" style="display:block;width:50px;height:50px;margin:0 auto 12px;">
+            <div style="font-size:26px;line-height:1.2;font-weight:bold;color:#24272a;">Sitov Academy</div>
         </div>
 
         <!-- Content -->
@@ -238,7 +239,7 @@ Deno.serve(async (req) => {
             </p>
             
             <p class="text">
-                vielen Dank für deine Anmeldung bei Sitov Language Academy! Wir haben deine Kursauswahl erhalten und bestätigt.
+                vielen Dank für deine Anmeldung bei Sitov Academy! Wir haben deine Kursauswahl erhalten und bestätigt.
             </p>
 
             <!-- Course Table -->
@@ -267,21 +268,21 @@ Deno.serve(async (req) => {
             </p>
 
             <p class="text" style="font-weight: 600; margin-top: 32px;">
-                Dein Sitov Language Academy Team
+                Dein Sitov Academy Team
             </p>
         </div>
 
         <!-- Footer -->
         <div class="footer">
             <p style="margin-bottom: 16px;">
-                <strong>Sitov Language Academy</strong><br>
+                <strong>Sitov Academy</strong><br>
                 Hüttenstraße 24a • 30165 Hannover
             </p>
             <p style="margin-bottom: 8px;">
                 <a href="mailto:info@sitov-academy.com">info@sitov-academy.com</a> • +49 171 4758620
             </p>
             <div class="copyright">
-                &copy; 2026 Sitov Language Academy. Alle Rechte vorbehalten.<br>
+                &copy; 2026 Sitov Academy. Alle Rechte vorbehalten.<br>
                 Vertretungsberechtigt: Anastasia Sitov<br><br>
                 <a href="https://www.sitov-academy.com/imprint">Impressum</a> • 
                 <a href="https://www.sitov-academy.com/privacy">Datenschutz</a> • 
@@ -297,9 +298,9 @@ Deno.serve(async (req) => {
 
             // 3. Send Email
             const { data: emailData, error: emailError } = await resend.emails.send({
-                from: 'Sitov Language Academy <info@sitov-academy.com>', // WARNING: This must be a VERIFIED domain in Resend!
+                from: 'Sitov Academy <info@sitov-academy.com>', // WARNING: This must be a VERIFIED domain in Resend!
                 to: [user.email],
-                subject: 'Deine Anmeldebestätigung - Sitov Language Academy',
+                subject: 'Deine Anmeldebestätigung - Sitov Academy',
                 html: emailHtml,
             });
 

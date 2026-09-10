@@ -1,4 +1,12 @@
-# Sitov Language Academy — Pedagogy & UI/UX Research
+# Sitov Academy — Pedagogy & UI/UX Research
+
+## Ergänzung — einheitliche Marke und Orientierung, 10. September 2026
+
+Aktuelle Oberflächen verwenden durchgehend „Sitov Academy“. Der Hero benennt das Gesamtangebot mit „A1—C2 · Sitov Academy Hannover“. Kurskarten führen vom aufbauenden Deutschunterricht über Sprechtraining nach Wochentagen und Online-Gruppen zum Privatunterricht. Auch Rechtsseiten schließen mit dem gemeinsamen Startseiten-Footer ab. [Umsetzung und Prüfung](docs/brand-footer-course-order-2026-09-10.md).
+
+## Betriebsprotokoll — globaler Lernreset, 10. September 2026
+
+Auf ausdrücklichen Auftrag wurden die persönlichen Lernstände aller sechs Schüler sowie sämtliche Aufnahmen und Audio-Dialoge live entfernt. Die Lerninhalte und Kurszugänge bleiben verfügbar; die Schüler beginnen mit einem leeren Lernstand. Bereits offene Lernseiten müssen neu geladen werden. Der individuelle Reset im Profil bleibt unverändert und setzt weiterhin nur das eigene Konto nach Bestätigung zurück. [Umfang und Prüfung](docs/global-learning-reset-2026-09-10.md).
 
 ## Ergänzung — klare Gehirnform, Orientierung und Reset, 10. September 2026
 

@@ -36,7 +36,7 @@ export async function generateMetadata({
       title: dictionary.meta.title,
       description: dictionary.meta.description,
       url: `${BASE_URL}/${lang}`,
-      siteName: "Sitov Language Academy",
+      siteName: "Sitov Academy",
       type: "website",
       locale: OG_LOCALE_MAP[lang] || 'de_DE',
       images: [{
@@ -82,8 +82,8 @@ export default async function HomePage({
       {
         "@type": ["EducationalOrganization", "LocalBusiness"],
         "@id": `${BASE_URL}/#organization`,
-        "name": "Sitov Language Academy",
-        "alternateName": "Sitov Language Academy Hannover",
+        "name": "Sitov Academy",
+        "alternateName": "Sitov Academy Hannover",
         "url": BASE_URL,
         "logo": `${BASE_URL}/Bilder/favicon.png`,
         "image": `${BASE_URL}/Bilder/og-sitov-academy.jpg`,
@@ -139,7 +139,7 @@ export default async function HomePage({
         "@type": "WebSite",
         "@id": `${BASE_URL}/#website`,
         "url": BASE_URL,
-        "name": "Sitov Language Academy",
+        "name": "Sitov Academy",
         "inLanguage": lang,
         "publisher": { "@id": `${BASE_URL}/#organization` },
       },
@@ -151,7 +151,7 @@ export default async function HomePage({
           {
             "@type": "ListItem",
             "position": 1,
-            "name": "Sitov Language Academy",
+            "name": "Sitov Academy",
             "item": BASE_URL,
           },
           {

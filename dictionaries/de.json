@@ -1,6 +1,6 @@
 {
   "meta": {
-    "title": "Deutsch lernen in Hannover | Spezialisiert auf Ukrainer & Russischsprachige | Sitov Language Academy",
+    "title": "Deutsch lernen in Hannover | Spezialisiert auf Ukrainer & Russischsprachige | Sitov Academy",
     "description": "Deutschkurse in Hannover mit muttersprachlicher Lehrerin. Für alle, die Deutsch lernen möchten. A1-B2 Kurse, Online & Präsenz. Jetzt anmelden!",
     "keywords": [
       "Deutschkurse Hannover",
@@ -24,13 +24,13 @@
       "Deutsch Anfänger Hannover",
       "Deutsch Konversationskurs Hannover"
     ],
-    "og_image_alt": "Sitov Language Academy – Deutschkurse in Hannover für Ukrainer und Russischsprachige"
+    "og_image_alt": "Sitov Academy – Deutschkurse in Hannover für Ukrainer und Russischsprachige"
   },
   "header": {
     "banner": {
       "next_course": "Nächster Kursstart: 03. Februar 2026",
       "reserve_spot": "Jetzt Platz sichern",
-      "location": "Sitov Language Academy Hannover",
+      "location": "Sitov Academy Hannover",
       "native_teachers": "Muttersprachliche Lehrer",
       "online_courses": "Online-Kurse"
     },
@@ -57,7 +57,7 @@
     "brand_name_part1": "Smart",
     "brand_name_part2": "German",
     "badge": "Evidenzbasiert • Neuro-Didaktik • Master-Expertise",
-    "headline": "<<Sitov Language Academy>>: Mit Erfahrung und Wissenschaft zur neuen Sprache.",
+    "headline": "<<Sitov Academy>>: Mit Erfahrung und Wissenschaft zur neuen Sprache.",
     "claim": "Mit Erfahrung und Wissenschaft zur neuen Sprache.",
     "subline": "Entdecken Sie eine Methode, die Ihr Wissen wertschätzt und Ihr Lerntempo respektiert. Sprachenlernen im besten Alter ist keine Frage des Alters – es ist eine Frage der richtigen Verbindung.",
     "cta_primary": "Die Methode entdecken",
@@ -75,7 +75,7 @@
     "features": {
       "title_part1": "Was uns",
       "title_part2": "auszeichnet",
-      "intro": "Sitov Language Academy bietet Ihnen einen modernen und effektiven Weg, Deutsch zu lernen – fokussiert auf Qualität und Flexibilität.",
+      "intro": "Sitov Academy bietet Ihnen einen modernen und effektiven Weg, Deutsch zu lernen – fokussiert auf Qualität und Flexibilität.",
       "native_speakers": {
         "title": "Muttersprachliche Lehrer",
         "description": "Unsere qualifizierten Muttersprachler kombinieren professionelle Lehrerfahrung mit interkultureller Kompetenz für ein authentisches Lernerlebnis."
@@ -374,7 +374,7 @@
     "load_map": "Karte laden"
   },
   "footer": {
-    "rights": "© 2026 Sitov Language Academy Hannover. Alle Rechte vorbehalten.",
+    "rights": "© 2026 Sitov Academy Hannover. Alle Rechte vorbehalten.",
     "links": {
       "imprint": "Impressum",
       "privacy": "Datenschutz",
@@ -484,7 +484,7 @@
   },
   "Footer": {
     "Hero": {
-      "title": "Sitov Language Academy",
+      "title": "Sitov Academy",
       "mission": "Maßgeschneiderte Deutschkurse für Neuankömmlinge in Deutschland. Sprache und Kultur zugänglich machen."
     },
     "Nav": {
@@ -538,7 +538,7 @@
       ]
     },
     "Legal": {
-      "copyright": "© 2026 Sitov Language Academy. Alle Rechte vorbehalten.",
+      "copyright": "© 2026 Sitov Academy. Alle Rechte vorbehalten.",
       "privacy": "Datenschutz",
       "imprint": "Impressum",
       "terms": "AGB",
@@ -816,15 +816,15 @@
   },
   "agb": {
     "title": "Allgemeine Geschäftsbedingungen",
-    "school_name": "Sitov Language Academy",
+    "school_name": "Sitov Academy",
     "status_date": "Stand: 10. September 2026",
     "sections": [
       {
         "title": "§ 1 Geltungsbereich, Anbieter",
         "content": [
-          "(1) Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für sämtliche Verträge über die Teilnahme an Sprachkursen, Sprachtrainings, Einzelunterricht, Online-Kursen und sonstigen Leistungen der Sitov Language Academy (nachfolgend \"Sprachschule\").",
+          "(1) Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für sämtliche Verträge über die Teilnahme an Sprachkursen, Sprachtrainings, Einzelunterricht, Online-Kursen und sonstigen Leistungen der Sitov Academy (nachfolgend \"Sprachschule\").",
           "Anbieter:",
-          "Sitov Language Academy",
+          "Sitov Academy",
           "Hüttenstraße 24a, 30165 Hannover, Deutschland",
           "E-Mail: info@sitov-academy.com",
           "Telefon: +49 171 4758620",
@@ -960,7 +960,7 @@
       {
         "title": "Angaben gemäß § 5 DDG",
         "content": [
-          "Sitov Language Academy",
+          "Sitov Academy",
           "Hüttenstraße 24a",
           "30165 Hannover",
           "Deutschland"
@@ -1004,7 +1004,7 @@
         "title": "1. Verantwortlicher für die Datenverarbeitung",
         "content": [
           "Verantwortlich für die Erhebung, Verarbeitung und Nutzung Ihrer personenbezogenen Daten im Sinne von Art. 4 Nr. 7 DSGVO ist:",
-          "Sitov Language Academy",
+          "Sitov Academy",
           "Vertreten durch: Anastasia Sitov",
           "Hüttenstraße 24a",
           "30165 Hannover",
@@ -1943,6 +1943,7 @@
     "nav_pronunciation": "Lesetexte"
   },
   "academy": {
+    "hero_level_range": "A1—C2",
     "brand_name": "Sitov Academy",
     "brand_descriptor": "Sprache verbindet.",
     "menu_open": "Menü öffnen",

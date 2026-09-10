@@ -1,5 +1,5 @@
 import { getDictionary } from "@/lib/dictionary";
-import FooterLayout from "@/components/footer/FooterLayout";
+import AcademyFooter from "@/components/sections/AcademyFooter";
 import Header from "@/components/layout/Header";
 import Link from "next/link";
 import { Metadata } from "next";
@@ -77,7 +77,7 @@ export default async function AGBPage({ params }: { params: Promise<{ lang: stri
                 </div>
             </main>
 
-            <FooterLayout dictionary={dictionary} lang={lang} />
+            <AcademyFooter dictionary={dictionary} lang={lang} />
         </div>
     );
 }

@@ -52,13 +52,13 @@ export async function sendEmail(options: MailOptions): Promise<MailSendResult> {
 
     const defaultFrom =
       process.env.SMTP_FROM ||
-      (process.env.SMTP_USER ? `"Sitov Language Academy" <${process.env.SMTP_USER}>` : '"Sitov Language Academy" <info@sitov-academy.com>')
+      (process.env.SMTP_USER ? `"Sitov Academy" <${process.env.SMTP_USER}>` : '"Sitov Academy" <info@sitov-academy.com>')
 
     const fromAddress = options.from || defaultFrom
     const formattedFrom =
       fromAddress.includes('<') && fromAddress.includes('>')
         ? fromAddress
-        : `"Sitov Language Academy" <${fromAddress}>`
+        : `"Sitov Academy" <${fromAddress}>`
 
     const info = await transporter.sendMail({
       from: formattedFrom,

@@ -2,11 +2,12 @@ import Link from 'next/link'
 import { ArrowUpRight, Clock3, MapPin, Monitor } from 'lucide-react'
 import { toUiLocale } from '@/lib/locale-routing'
 import { getCourses } from '@/app/actions/get-courses'
+import { sortMarketingCourses } from '@/lib/marketing-course-order'
 import type { getDictionary } from '@/lib/dictionary'
 
 type Dictionary = Awaited<ReturnType<typeof getDictionary>>
 export default async function AcademyCourses({ dictionary, lang }: { dictionary: Dictionary; lang: string }) {
-  const courses = await getCourses()
+  const courses = sortMarketingCourses(await getCourses())
   const copy = dictionary.academy
   const formatter = new Intl.NumberFormat(toUiLocale(lang), { style: 'currency', currency: 'EUR', maximumFractionDigits: 2 })
   const courseTexts: Record<string, { title: string; description: string }> = dictionary.CourseData

@@ -1,5 +1,13 @@
 # Architecture Masterplan
 
+## Ergänzung 2026-09-10: gemeinsamer Footer und Kursreihenfolge
+
+Die drei Rechtsseiten nutzen ausschließlich `AcademyFooter`; der frühere Ordner `components/footer` ist entfernt. `lib/marketing-course-order.ts` kapselt die von Sprache und Datenbank-Reihenfolge unabhängige Startseiten-Sortierung, ohne den Kurscache zu mutieren. Hero-Niveaubereich und Markenbezeichnungen kommen aus den fünf Dictionaries; Metadaten und Mail-Quellen sind entsprechend angepasst. [Details und Prüfung](docs/brand-footer-course-order-2026-09-10.md).
+
+## Betriebsprotokoll 2026-09-10: globaler Lernreset
+
+Der ausdrücklich beauftragte globale Reset wurde über die bestehenden RPCs und die Storage-API ausgeführt. Sechs Schülerkonten sind zurückgesetzt; alle 20 Dateien der Aufnahme-Buckets einschließlich verwaister Clips wurden gelöscht. Die kurzzeitig eingesetzte, zusätzlich authentifizierte Wartungsfunktion ist anschließend auf HTTP 410 ohne Datenzugriff stillgelegt worden. Kein Schema- oder Rechteumbau; keine dauerhaft aktive globale Löschschnittstelle. [Ausführung, Sperren und Prüfnachweise](docs/global-learning-reset-2026-09-10.md).
+
 ## Ergänzung 2026-09-10: Gehirnanatomie, Dashboard-Navigation und Lernreset
 
 - `neural-brain-geometry.ts` ordnet 6.400 Neuronen auf/in zwei sagittalen Hälften eines länglichen Großhirns an. Eine deterministische anatomische Grundform begrenzt das Rauschen auf Windungen und Furchen; eine gefaltete kortikale Fläche macht die Silhouette auch ohne Impulse lesbar. `NeuralBrain` verwendet eine obere Dreiviertelperspektive, entsorgt alle Cortex-/Netzressourcen und behält Shader-Lichtschweife, Theme-Wechsel, Reduced Motion und Sichtbarkeitspause. Keine GLB-Datei oder neue Abhängigkeit erforderlich.

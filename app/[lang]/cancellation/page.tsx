@@ -22,7 +22,7 @@ export async function generateMetadata({
     const dictionary = await getDictionary(lang);
 
     return {
-        title: `${dictionary.cancellation.title} | Sitov Language Academy`,
+        title: `${dictionary.cancellation.title} | Sitov Academy`,
         description: dictionary.cancellation.description,
         alternates: {
             canonical: `https://www.sitov-academy.com/${lang}/cancellation`,

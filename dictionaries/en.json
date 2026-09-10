@@ -1,6 +1,6 @@
 {
   "meta": {
-    "title": "Learn German in Hannover | Specialized for Ukrainians & Russian Speakers | Sitov Language Academy",
+    "title": "Learn German in Hannover | Specialized for Ukrainians & Russian Speakers | Sitov Academy",
     "description": "German courses in Hannover with native teacher. For everyone who wants to learn German. A1-B2 courses, Online & In-person. Sign up now!",
     "keywords": [
       "German courses Hannover",
@@ -22,13 +22,13 @@
       "German language school near me Hannover",
       "German classes for expats Hannover"
     ],
-    "og_image_alt": "Sitov Language Academy – German courses in Hannover for Ukrainians and Russian speakers"
+    "og_image_alt": "Sitov Academy – German courses in Hannover for Ukrainians and Russian speakers"
   },
   "header": {
     "banner": {
       "next_course": "Next course start: February 3, 2026",
       "reserve_spot": "Reserve your spot now",
-      "location": "Sitov Language Academy Hannover",
+      "location": "Sitov Academy Hannover",
       "native_teachers": "Native teachers",
       "online_courses": "Online courses"
     },
@@ -73,7 +73,7 @@
     "features": {
       "title_part1": "What makes us",
       "title_part2": "stand out",
-      "intro": "Sitov Language Academy offers you a modern and effective way to learn German – focused on quality and flexibility.",
+      "intro": "Sitov Academy offers you a modern and effective way to learn German – focused on quality and flexibility.",
       "native_speakers": {
         "title": "Native Teachers",
         "description": "Our qualified native speakers combine professional teaching experience with intercultural competence for an authentic learning experience."
@@ -358,7 +358,7 @@
     "load_map": "Load Map"
   },
   "footer": {
-    "rights": "© 2026 Sitov Language Academy Hannover. All rights reserved.",
+    "rights": "© 2026 Sitov Academy Hannover. All rights reserved.",
     "links": {
       "imprint": "Imprint",
       "privacy": "Privacy",
@@ -468,7 +468,7 @@
   },
   "Footer": {
     "Hero": {
-      "title": "Sitov Language Academy",
+      "title": "Sitov Academy",
       "mission": "Tailored German courses for newcomers in Germany. Making language and culture accessible."
     },
     "Nav": {
@@ -522,7 +522,7 @@
       ]
     },
     "Legal": {
-      "copyright": "© 2026 Sitov Language Academy. All rights reserved.",
+      "copyright": "© 2026 Sitov Academy. All rights reserved.",
       "privacy": "Privacy Policy",
       "imprint": "Imprint",
       "terms": "Terms & Conditions",
@@ -814,15 +814,15 @@
   },
   "agb": {
     "title": "General Terms and Conditions (GTC)",
-    "school_name": "Sitov Language Academy",
+    "school_name": "Sitov Academy",
     "status_date": "Updated: 10 September 2026",
     "sections": [
       {
         "title": "§ 1 Scope of Application, Provider",
         "content": [
-          "(1) These General Terms and Conditions (GTC) apply to all contracts for participation in language courses, language training, private lessons, online courses, and other services of the Sitov Language Academy (hereinafter \"Language School\").",
+          "(1) These General Terms and Conditions (GTC) apply to all contracts for participation in language courses, language training, private lessons, online courses, and other services of the Sitov Academy (hereinafter \"Language School\").",
           "Provider:",
-          "Sitov Language Academy",
+          "Sitov Academy",
           "Hüttenstraße 24a, 30165 Hannover, Germany",
           "E-Mail: info@sitov-academy.com",
           "Phone: +49 171 4758620",
@@ -961,7 +961,7 @@
       {
         "title": "Information according to § 5 DDG",
         "content": [
-          "Sitov Language Academy",
+          "Sitov Academy",
           "Hüttenstraße 24a",
           "30165 Hannover",
           "Germany"
@@ -1005,7 +1005,7 @@
         "title": "1. Controller for Data Processing",
         "content": [
           "Responsible for the collection, processing and use of your personal data within the meaning of Art. 4 No. 7 GDPR is:",
-          "Sitov Language Academy",
+          "Sitov Academy",
           "Represented by: Anastasia Sitov",
           "Hüttenstraße 24a",
           "30165 Hannover",
@@ -1944,6 +1944,7 @@
     "nav_pronunciation": "Reading texts"
   },
   "academy": {
+    "hero_level_range": "A1—C2",
     "brand_name": "Sitov Academy",
     "brand_descriptor": "Language connects.",
     "menu_open": "Open menu",

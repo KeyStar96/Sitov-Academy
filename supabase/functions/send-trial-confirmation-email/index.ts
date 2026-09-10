@@ -45,7 +45,7 @@ Deno.serve(async (req) => {
         }
 
         const results = []
-        const logoUrl = `${SUPABASE_URL}/storage/v1/object/public/assets/logo.png`
+        const logoUrl = 'https://www.sitov-academy.com/Bilder/favicon.png'
 
         for (const trial of trials) {
             const courseName = trial.courses?.title || trial.courses?.translation_key || 'Deutschkurs'
@@ -94,7 +94,8 @@ Deno.serve(async (req) => {
 <body>
     <div class="container">
         <div class="header">
-            <img src="${logoUrl}" alt="Sitov Language Academy Logo" class="logo">
+            <img src="${logoUrl}" alt="" width="50" height="50" class="logo" style="display:block;width:50px;height:50px;margin:0 auto 12px;">
+            <div style="font-size:26px;line-height:1.2;font-weight:bold;color:#24272a;">Sitov Academy</div>
         </div>
         <div class="content">
             <h1 class="h1">Deine Probestunde ist bestätigt! 🎉</h1>
@@ -104,7 +105,7 @@ Deno.serve(async (req) => {
             </p>
             
             <p class="text">
-                wir freuen uns sehr, dass du eine Probestunde bei Sitov Language Academy ausprobieren möchtest!
+                wir freuen uns sehr, dass du eine Probestunde bei Sitov Academy ausprobieren möchtest!
             </p>
 
             <div class="highlight-box">
@@ -121,19 +122,19 @@ Deno.serve(async (req) => {
             </p>
 
             <p class="text" style="font-weight: 600; margin-top: 32px;">
-                Dein Sitov Language Academy Team
+                Dein Sitov Academy Team
             </p>
         </div>
         <div class="footer">
             <p style="margin-bottom: 16px;">
-                <strong>Sitov Language Academy</strong><br>
+                <strong>Sitov Academy</strong><br>
                 Vahrenwalder Straße 92 • 30165 Hannover
             </p>
             <p style="margin-bottom: 8px;">
                 <a href="mailto:info@sitov-academy.com">info@sitov-academy.com</a> • +49 171 4758620
             </p>
             <div class="copyright">
-                &copy; 2026 Sitov Language Academy. Alle Rechte vorbehalten.<br>
+                &copy; 2026 Sitov Academy. Alle Rechte vorbehalten.<br>
                 Vertretungsberechtigt: Anastasia Sitov<br><br>
                 <a href="https://www.sitov-academy.com/imprint">Impressum</a> • 
                 <a href="https://www.sitov-academy.com/privacy">Datenschutz</a> • 
@@ -146,7 +147,7 @@ Deno.serve(async (req) => {
             `
 
             const { data: emailData, error: emailError } = await resend.emails.send({
-                from: 'Sitov Language Academy <info@sitov-academy.com>',
+                from: 'Sitov Academy <info@sitov-academy.com>',
                 to: [trial.email],
                 subject: `Deine Probestunde ist bestätigt – ${formattedDate}`,
                 html: emailHtml,

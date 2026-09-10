@@ -1,6 +1,6 @@
 {
   "meta": {
-    "title": "Hannover'de Almanca Öğrenin | Ukraynalılar ve Rusça Konuşanlar İçin Uzmanlaşmış | Sitov Language Academy",
+    "title": "Hannover'de Almanca Öğrenin | Ukraynalılar ve Rusça Konuşanlar İçin Uzmanlaşmış | Sitov Academy",
     "description": "Hannover'de ana dili öğretmen ile Almanca kursları. Almanca öğrenmek isteyen herkes için. A1-B2 kursları, Online ve Yüz yüze. Hemen kaydolun!",
     "keywords": [
       "Hannover Almanca kursları",
@@ -21,13 +21,13 @@
       "Almanca konuşma kursu Hannover",
       "göçmenler için Almanca Hannover"
     ],
-    "og_image_alt": "Sitov Language Academy – Hannover'de Ukraynalılar ve Rusça konuşanlar için Almanca kursları"
+    "og_image_alt": "Sitov Academy – Hannover'de Ukraynalılar ve Rusça konuşanlar için Almanca kursları"
   },
   "header": {
     "banner": {
       "next_course": "Sonraki kurs başlangıcı: 3 Şubat 2026",
       "reserve_spot": "Şimdi yerinizi ayırın",
-      "location": "Sitov Language Academy Hannover",
+      "location": "Sitov Academy Hannover",
       "native_teachers": "Ana dili öğretmenler",
       "online_courses": "Çevrimiçi kurslar"
     },
@@ -72,7 +72,7 @@
     "features": {
       "title_part1": "Bizi",
       "title_part2": "farklı kılan",
-      "intro": "Sitov Language Academy, size Almanca öğrenmenin modern ve etkili bir yolunu sunar – kalite ve esnekliğe odaklanır.",
+      "intro": "Sitov Academy, size Almanca öğrenmenin modern ve etkili bir yolunu sunar – kalite ve esnekliğe odaklanır.",
       "native_speakers": {
         "title": "Ana Dili Öğretmenler",
         "description": "Nitelikli ana dili öğretmenlerimiz, otantik bir öğrenme deneyimi için profesyonel öğretim deneyimini kültürlerarası yeterlilikle birleştirir."
@@ -449,7 +449,7 @@
     }
   },
   "footer": {
-    "rights": "© 2026 Sitov Language Academy Hannover. Tüm hakları saklıdır.",
+    "rights": "© 2026 Sitov Academy Hannover. Tüm hakları saklıdır.",
     "links": {
       "imprint": "İçindekiler",
       "privacy": "Gizlilik",
@@ -560,7 +560,7 @@
   },
   "Footer": {
     "Hero": {
-      "title": "Sitov Language Academy",
+      "title": "Sitov Academy",
       "mission": "Almanya'ya yeni gelenler için özel Almanca kursları. Dil ve kültürü erişilebilir kılmak."
     },
     "Nav": {
@@ -614,7 +614,7 @@
       ]
     },
     "Legal": {
-      "copyright": "© 2026 Sitov Language Academy. Tüm hakları saklıdır.",
+      "copyright": "© 2026 Sitov Academy. Tüm hakları saklıdır.",
       "privacy": "Gizlilik",
       "imprint": "Künye",
       "terms": "Şartlar",
@@ -818,15 +818,15 @@
   },
   "agb": {
     "title": "Genel İşlem Koşulları (GİK)",
-    "school_name": "Sitov Language Academy",
+    "school_name": "Sitov Academy",
     "status_date": "Güncelleme: 10 Eylül 2026",
     "sections": [
       {
         "title": "§ 1 Kapsam, Sağlayıcı",
         "content": [
-          "(1) Bu Genel İşlem Koşulları (GİK), Sitov Language Academy, sahibi Anastasia Sitov, Hüttenstraße 24a, 30165 Hannover (bundan böyle \"Dil Okulu\" olarak anılacaktır) ile katılımcı (bundan böyle \"katılımcı\" olarak anılacaktır) arasında yapılan dil kurslarına, dil eğitimlerine, özel derslere, online kurslara ve diğer hizmetlere katılıma ilişkin tüm sözleşmeler için geçerlidir.",
+          "(1) Bu Genel İşlem Koşulları (GİK), Sitov Academy, sahibi Anastasia Sitov, Hüttenstraße 24a, 30165 Hannover (bundan böyle \"Dil Okulu\" olarak anılacaktır) ile katılımcı (bundan böyle \"katılımcı\" olarak anılacaktır) arasında yapılan dil kurslarına, dil eğitimlerine, özel derslere, online kurslara ve diğer hizmetlere katılıma ilişkin tüm sözleşmeler için geçerlidir.",
           "Sağlayıcı:",
-          "Sitov Language Academy",
+          "Sitov Academy",
           "Hüttenstraße 24a, 30165 Hannover, Almanya",
           "E-Posta: info@sitov-academy.com",
           "Telefon: +49 171 4758620",
@@ -962,7 +962,7 @@
       {
         "title": "§ 5 DDG uyarınca bilgiler",
         "content": [
-          "Sitov Language Academy",
+          "Sitov Academy",
           "Hüttenstraße 24a",
           "30165 Hannover",
           "Almanya"
@@ -1006,7 +1006,7 @@
         "title": "1. Veri İşlemeden Sorumlu Olan",
         "content": [
           "DSGVO Madde 4 No. 7 anlamında kişisel verilerinizin toplanması, işlenmesi ve kullanılmasından sorumlu olan:",
-          "Sitov Language Academy",
+          "Sitov Academy",
           "Temsilci: Anastasia Sitov",
           "Hüttenstraße 24a",
           "30165 Hannover",
@@ -1945,6 +1945,7 @@
     "nav_pronunciation": "Okuma metinleri"
   },
   "academy": {
+    "hero_level_range": "A1—C2",
     "brand_name": "Sitov Academy",
     "brand_descriptor": "Dil birleştirir.",
     "menu_open": "Menüyü aç",

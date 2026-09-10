@@ -194,7 +194,7 @@ Deno.serve(async (req) => {
         </div>
         <div class="footer">
             Diese Nachricht wurde automatisch generiert.<br>
-            Sitov Language Academy
+            Sitov Academy
         </div>
     </div>
 </body>
@@ -205,7 +205,7 @@ Deno.serve(async (req) => {
         console.log(`Sending notification email. Subject: "${subject}"`)
 
         const { data: emailData, error: emailError } = await resend.emails.send({
-            from: 'Sitov Language Academy <info@sitov-academy.com>',
+            from: 'Sitov Academy <info@sitov-academy.com>',
             to: [NOTIFY_EMAIL],
             subject: subject,
             html: emailHtml,

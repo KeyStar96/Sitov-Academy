@@ -28,7 +28,7 @@ export default function Hero({ dictionary, lang = 'de' }: { dictionary: Dictiona
         <Link href="#courses" className="academy-button academy-button-primary">{copy.hero_primary}<ArrowUpRight size={20} aria-hidden="true" /></Link>
         <Link href={`/${lang}/dashboard`} className="academy-button academy-button-outline">{copy.hero_secondary}<ArrowRight size={18} aria-hidden="true" /></Link>
       </div>
-      <div className="academy-hero-footnote hero-reveal"><span>A1—B1</span><span aria-hidden="true">·</span><span>{dictionary.header.banner.location}</span></div>
+      <div className="academy-hero-footnote hero-reveal"><span>{copy.hero_level_range}</span><span aria-hidden="true">·</span><span>{dictionary.header.banner.location}</span></div>
     </div>
     <figure className={styles.card} data-neural-brain-panel>
       <div className={styles.heading}><span className="academy-eyebrow">{copy.learn_tag}</span><Sparkles size={18} aria-hidden="true" /></div>

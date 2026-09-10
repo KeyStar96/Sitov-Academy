@@ -1,5 +1,13 @@
 # Monetization Strategy (Stripe Integration)
 
+## Einheitliche Marke und Kursdarstellung — 2026-09-10
+
+„Sitov Academy“ ist die einheitliche aktive Markenbezeichnung. Die neue Reihenfolge der Startseiten-Kurse ändert keine Preise, Termine, Buchungskennungen oder Zahlungsabläufe; beide Privatunterrichtsvarianten bleiben erhalten. Rechtsseiten verwenden denselben Kontakt-/Adress-Footer wie die Startseite. Mail-Absender und Vorlagen sind im Quellcode aktualisiert; produktive Supabase-Mailkonfiguration wurde nicht verändert. [Prüfnachweise](docs/brand-footer-course-order-2026-09-10.md).
+
+## Globaler Lernreset ausgeführt — 2026-09-10
+
+Alle Schüler-Lerndaten und Sprachaufnahmen wurden auf ausdrücklichen Auftrag tatsächlich gelöscht. 84 Registrierungen, 112 Einschreibungen, Monatsbuchung und Rechnungsstatus sind mit identischen Vorher-/Nachher-Prüfsummen erhalten. Der Vorgang hat keine Kündigung oder Änderung der Abrechnung ausgelöst. [Operativer Nachweis](docs/global-learning-reset-2026-09-10.md).
+
 ## Lernreset und Vertragsdaten — 2026-09-10
 
 Der neue Profil-Reset löscht ausschließlich persönliche Lernergebnisse, Sprachaufnahmen und die zugehörigen Audio-Dialoge. Der Nutzer hat ausdrücklich bestätigt, dass **verbindliche Kursbuchungen erhalten bleiben**. `registrations`, `enrollments`, `monthly_course_bookings`, `manual_invoice_status`, Profil-/Niveaurechte und Zahlungsintegration werden durch die Reset-Action nicht gelöscht oder zurückgesetzt. Ein Lernreset ist keine Kündigung und kein Account-Löschvorgang.
