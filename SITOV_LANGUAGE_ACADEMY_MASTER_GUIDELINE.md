@@ -1,5 +1,9 @@
 # Sitov Academy — Pedagogy & UI/UX Research
 
+## Ergänzung — einheitliche E-Mails, 10. September 2026
+
+Die neue Marke und das aktuelle Logo gelten auch für Kursnachrichten, Kontobestätigung, Passwort-Hilfe und Feedback-Benachrichtigung. Große Aktionsflächen, lesbare Texte und ein erreichbarer Kontakt unterstützen die Nutzung. Die produktiven Supabase-Vorlagen sind übernommen; sicherheitsrelevante Link-Platzhalter bleiben erhalten. [Umfang und Nachweise](docs/mail-templates-live-2026-09-10.md).
+
 ## Ergänzung — einheitliche Marke und Orientierung, 10. September 2026
 
 Aktuelle Oberflächen verwenden durchgehend „Sitov Academy“. Der Hero benennt das Gesamtangebot mit „A1—C2 · Sitov Academy Hannover“. Kurskarten führen vom aufbauenden Deutschunterricht über Sprechtraining nach Wochentagen und Online-Gruppen zum Privatunterricht. Auch Rechtsseiten schließen mit dem gemeinsamen Startseiten-Footer ab. [Umsetzung und Prüfung](docs/brand-footer-course-order-2026-09-10.md).

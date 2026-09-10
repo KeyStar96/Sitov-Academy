@@ -1,5 +1,9 @@
 # Current State Analysis (Ist-Zustand)
 
+## Änderungsprotokoll — 2026-09-10: Mailvorlagen produktiv übernommen
+
+Alle sechs bestehenden Supabase-Mailfunktionen sind mit „Sitov Academy“, aktuellem Logo, Farbpalette und korrigierten Adress-/Rechtsfootern live veröffentlicht und durch erneutes Auslesen geprüft. Bestätigungs- und Passwort-Mail einschließlich Betreff sowie SMTP-Anzeigename wurden direkt im Supabase-Dashboard gespeichert. Auth-Link-Platzhalter und Versandlogik bleiben unverändert. Die zusätzliche Feedback-Mail des Lernraums nutzt jetzt `lib/feedback-email.ts`; TypeScript und 42 zugehörige Tests bestanden. Die Veröffentlichung dieser App-Änderung erfolgt über die bestehende GitHub/Vercel-Integration. [Details und Veröffentlichungsnachweis](docs/mail-templates-live-2026-09-10.md).
+
 ## Änderungsprotokoll — 2026-09-10: einheitlicher Footer, Kurse und Marke
 
 AGB, Impressum und Datenschutz verwenden in allen fünf Sprachen den Startseiten-Footer; die alten Footer-Komponenten sind entfernt. Kurskarten folgen Deutsch Level 1/2/3 → Sprechtraining Mo/Di/Mi → Online A1/B1 → Privatunterricht. Der Hero zeigt „A1—C2 · Sitov Academy Hannover“; aktive Texte und Metadaten verwenden „Sitov Academy“. 59 bestehende Tests, Produktionsbuild mit Webpack inklusive TypeScript und Browserprüfungen aller fünf Startseiten sowie 15 Rechtsrouten bestanden. Mail-Quellen ebenfalls aktualisiert, aber noch nicht in Supabase veröffentlicht. [Umfang und Prüfnachweise](docs/brand-footer-course-order-2026-09-10.md).

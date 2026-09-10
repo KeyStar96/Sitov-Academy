@@ -1,5 +1,9 @@
 # Architecture Masterplan
 
+## Ergänzung 2026-09-10: produktive E-Mail-Vorlagen
+
+Sechs bestehende Supabase-Edge-Mailfunktionen sind mit den lokalen Quellen synchron veröffentlicht; Slugs und Authentifizierung bleiben erhalten. Die Auth-Templates und Betreffzeilen sind gesondert im Dashboard konfiguriert. `lib/feedback-email.ts` kapselt nun das HTML der Lernraum-Feedback-Mail mit maskierten Nutzerdaten und validierten Links; `app/actions/feedback.ts` behält die bisherige Versandsteuerung. Kein Datenbankschema geändert. [Live-Nachweis](docs/mail-templates-live-2026-09-10.md).
+
 ## Ergänzung 2026-09-10: gemeinsamer Footer und Kursreihenfolge
 
 Die drei Rechtsseiten nutzen ausschließlich `AcademyFooter`; der frühere Ordner `components/footer` ist entfernt. `lib/marketing-course-order.ts` kapselt die von Sprache und Datenbank-Reihenfolge unabhängige Startseiten-Sortierung, ohne den Kurscache zu mutieren. Hero-Niveaubereich und Markenbezeichnungen kommen aus den fünf Dictionaries; Metadaten und Mail-Quellen sind entsprechend angepasst. [Details und Prüfung](docs/brand-footer-course-order-2026-09-10.md).

@@ -1,5 +1,9 @@
 # Monetization Strategy (Stripe Integration)
 
+## Mailgestaltung produktiv — 2026-09-10
+
+Kurs-, Probe- und Kündigungs-Mails verwenden jetzt live die Marke „Sitov Academy“ sowie klar getrennte Unterrichts- und Firmenadressen. Absendernamen, Logos und Rechtslinks sind aktualisiert; Preise, Zahlungszeiträume, Empfänger und Versandtrigger bleiben unverändert. Auth-Mailgestaltung und SMTP-Anzeigename sind ebenfalls in Supabase gespeichert. Es wurden keine Testbuchungen oder Kundenmails ausgelöst. [Ausführung und Prüfung](docs/mail-templates-live-2026-09-10.md).
+
 ## Einheitliche Marke und Kursdarstellung — 2026-09-10
 
 „Sitov Academy“ ist die einheitliche aktive Markenbezeichnung. Die neue Reihenfolge der Startseiten-Kurse ändert keine Preise, Termine, Buchungskennungen oder Zahlungsabläufe; beide Privatunterrichtsvarianten bleiben erhalten. Rechtsseiten verwenden denselben Kontakt-/Adress-Footer wie die Startseite. Mail-Absender und Vorlagen sind im Quellcode aktualisiert; produktive Supabase-Mailkonfiguration wurde nicht verändert. [Prüfnachweise](docs/brand-footer-course-order-2026-09-10.md).

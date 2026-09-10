@@ -3,6 +3,7 @@
 import { revalidatePath } from 'next/cache'
 import { getOutboundSiteUrl } from '@/lib/site-url'
 import { sendEmail } from '@/lib/mail'
+import { renderFeedbackNotificationEmail } from '@/lib/feedback-email'
 import { createClient } from '@/utils/supabase/server'
 import { currentUserHasLevelAccess } from '@/lib/access/server'
 import { z } from 'zod'
@@ -366,16 +367,7 @@ async function notifyStudentByEmail(
     await sendEmail({
       to: studentEmail,
       subject: 'Du hast eine neue Sprachnachricht erhalten',
-      html: `
-        <div style="font-family: Arial, sans-serif; color: #333; max-width: 600px; margin: 0 auto; font-size: 18px; line-height: 1.6;">
-          <h2 style="color: #FF5C00; font-size: 24px;">Hallo ${studentName},</h2>
-          <p>Deine Lehrkraft hat dir eine Rückmeldung zu deiner Sprachaufnahme hinterlegt.</p>
-          <p>Du kannst sie dir jetzt in Ruhe anhören.</p>
-          <a href="${dashUrl}" style="display: inline-block; background-color: #FF5C00; color: white; padding: 16px 32px; text-decoration: none; border-radius: 8px; font-weight: bold; margin-top: 20px; font-size: 18px;">
-            Feedback anhören
-          </a>
-        </div>
-      `,
+      html: renderFeedbackNotificationEmail({ studentName, feedbackUrl: dashUrl, siteUrl }),
     })
   } catch (err) {
     console.error(`E-Mail-Benachrichtigung zu Einreichung ${submissionId} fehlgeschlagen:`, err)

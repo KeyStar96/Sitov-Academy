@@ -82,9 +82,9 @@ Deno.serve(async (req) => {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eingangsbestätigung Kündigung</title>
     <style>
-        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #f3f4f6; margin: 0; padding: 0; color: #374151; }
+        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #f7f5ef; margin: 0; padding: 0; color: #374151; }
         .container { max-width: 600px; margin: 40px auto; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
-        .header { background-color: #ffffff; padding: 40px 40px 20px; text-align: center; border-bottom: 3px solid #FF5C00; }
+        .header { background-color: #ffffff; padding: 40px 40px 20px; text-align: center; border-bottom: 3px solid #bd3510; }
         .logo { height: 50px; width: auto; }
         .content { padding: 40px; }
         .h1 { color: #111827; font-size: 24px; font-weight: 700; margin-bottom: 24px; text-align: center; letter-spacing: -0.025em; }
@@ -93,7 +93,7 @@ Deno.serve(async (req) => {
         .info-row { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px; }
         .info-label { color: #9C3800; font-weight: 600; }
         .info-value { color: #5C2B0D; text-align: right; }
-        .footer { background-color: #0F172A; padding: 40px; text-align: center; color: #94A3B8; font-size: 13px; line-height: 1.6; }
+        .footer { background-color: #24272a; padding: 40px; text-align: center; color: #94A3B8; font-size: 13px; line-height: 1.6; }
         .footer a { color: #CBD5E1; text-decoration: none; transition: color 0.2s; }
         .footer a:hover { color: #ffffff; text-decoration: underline; }
         .copyright { margin-top: 24px; padding-top: 24px; border-top: 1px solid #1E293B; color: #64748B; font-size: 12px; }
@@ -148,18 +148,27 @@ Deno.serve(async (req) => {
         <!-- Footer -->
         <div class="footer">
             <p style="margin-bottom: 16px;">
-                <strong>Sitov Academy</strong><br>
+                <strong>Sitov Academy</strong>
+            </p>
+            <p style="margin-bottom: 16px;">
+                <strong>Präsenzunterricht</strong><br>
+                Freizeitheim Vahrenwald<br>
+                Vahrenwalder Str. 92 • 30165 Hannover
+            </p>
+            <p style="margin-bottom: 16px;">
+                <strong>Sitz der Sprachschule</strong><br>
                 Hüttenstraße 24a • 30165 Hannover
             </p>
             <p style="margin-bottom: 8px;">
-                <a href="mailto:info@sitov-academy.com">info@sitov-academy.com</a> • +49 171 4758620
+                <a href="mailto:info@sitov-academy.com">info@sitov-academy.com</a><br>
+                <a href="tel:+491714758620">+49 171 4758620</a>
             </p>
             <div class="copyright">
                 &copy; 2026 Sitov Academy. Alle Rechte vorbehalten.<br>
                 Vertretungsberechtigt: Anastasia Sitov<br><br>
-                <a href="https://www.sitov-academy.com/imprint">Impressum</a> • 
-                <a href="https://www.sitov-academy.com/privacy">Datenschutz</a> • 
-                <a href="https://www.sitov-academy.com/agb">AGB</a>
+                <a href="https://www.sitov-academy.com/de/imprint">Impressum</a> •
+                <a href="https://www.sitov-academy.com/de/privacy">Datenschutz</a> •
+                <a href="https://www.sitov-academy.com/de/agb">AGB</a>
             </div>
         </div>
     </div>

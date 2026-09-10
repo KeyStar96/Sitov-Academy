@@ -144,9 +144,9 @@ Deno.serve(async (req) => {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Neue Anmeldung</title>
     <style>
-        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #f3f4f6; margin: 0; padding: 0; color: #374151; }
+        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #f7f5ef; margin: 0; padding: 0; color: #374151; }
         .container { max-width: 600px; margin: 40px auto; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
-        .header { background-color: #0F172A; padding: 32px 40px; text-align: center; }
+        .header { background-color: #24272a; padding: 32px 40px; text-align: center; }
         .header h1 { color: #ffffff; font-size: 20px; font-weight: 700; margin: 0; letter-spacing: -0.025em; }
         .content { padding: 40px; }
         .badge { display: inline-block; padding: 6px 16px; border-radius: 20px; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 24px; }
@@ -166,6 +166,7 @@ Deno.serve(async (req) => {
 <body>
     <div class="container">
         <div class="header">
+            <div style="font-size:26px;line-height:1.2;font-weight:bold;color:#ffffff;margin-bottom:16px;">Sitov Academy</div>
             <h1>📋 Neue Kursanmeldung eingegangen</h1>
         </div>
         <div class="content">
