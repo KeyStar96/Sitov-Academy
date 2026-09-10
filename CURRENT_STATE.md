@@ -2,7 +2,7 @@
 
 ## Änderungsprotokoll — 2026-09-10: Mailvorlagen produktiv übernommen
 
-Alle sechs bestehenden Supabase-Mailfunktionen sind mit „Sitov Academy“, aktuellem Logo, Farbpalette und korrigierten Adress-/Rechtsfootern live veröffentlicht und durch erneutes Auslesen geprüft. Bestätigungs- und Passwort-Mail einschließlich Betreff sowie SMTP-Anzeigename wurden direkt im Supabase-Dashboard gespeichert. Auth-Link-Platzhalter und Versandlogik bleiben unverändert. Die zusätzliche Feedback-Mail des Lernraums nutzt jetzt `lib/feedback-email.ts`; TypeScript und 42 zugehörige Tests bestanden. Die Veröffentlichung dieser App-Änderung erfolgt über die bestehende GitHub/Vercel-Integration. [Details und Veröffentlichungsnachweis](docs/mail-templates-live-2026-09-10.md).
+Alle sechs bestehenden Supabase-Mailfunktionen sind mit „Sitov Academy“, aktuellem Logo, Farbpalette und korrigierten Adress-/Rechtsfootern live veröffentlicht und durch erneutes Auslesen geprüft. Bestätigungs- und Passwort-Mail einschließlich Betreff sowie SMTP-Anzeigename wurden direkt im Supabase-Dashboard gespeichert. Auth-Link-Platzhalter und Versandlogik bleiben unverändert. Die zusätzliche Feedback-Mail des Lernraums nutzt jetzt `lib/feedback-email.ts`; TypeScript und 42 zugehörige Tests bestanden. Die App-Änderungen sind auf `main` veröffentlicht und werden über die bestehende GitHub/Vercel-Integration bereitgestellt; auch konfigurierte alte SMTP-Anzeigenamen werden ohne Mailboxänderung angeglichen. [Details und Veröffentlichungsnachweis](docs/mail-templates-live-2026-09-10.md).
 
 ## Änderungsprotokoll — 2026-09-10: einheitlicher Footer, Kurse und Marke
 

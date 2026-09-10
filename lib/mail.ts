@@ -54,7 +54,8 @@ export async function sendEmail(options: MailOptions): Promise<MailSendResult> {
       process.env.SMTP_FROM ||
       (process.env.SMTP_USER ? `"Sitov Academy" <${process.env.SMTP_USER}>` : '"Sitov Academy" <info@sitov-academy.com>')
 
-    const fromAddress = options.from || defaultFrom
+    // Keep the configured mailbox, including deployments with the former display name.
+    const fromAddress = (options.from || defaultFrom).replace(/\bSitov Language Academy\b/gi, 'Sitov Academy')
     const formattedFrom =
       fromAddress.includes('<') && fromAddress.includes('>')
         ? fromAddress

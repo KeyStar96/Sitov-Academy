@@ -38,9 +38,8 @@ Auch der SMTP-Anzeigename wurde im Dashboard von der alten Marke auf **Sitov Aca
 
 Namen und URLs werden für HTML maskiert. Feedback-Links erlauben nur HTTP(S) ohne eingebettete Zugangsdaten. TypeScript und 42 bestehende Tests für URL-Konfiguration und Aussprache-Aktionen bestanden; zusätzliche lokale Prüfungen für HTML-Injection und URL-Validierung erfolgreich.
 
-Die Feedback-Mail wird über die bereits vorhandene GitHub/Vercel-Integration veröffentlicht; der Status wird nach dem Deployment ergänzt. Die kanonischen Domains zeigen derzeit einen separaten Netlify-Auftritt. DNS und Hosting-Zuordnung werden durch diese Mail-Anpassung nicht verändert.
+Die Feedback-Mail ist auf `main` veröffentlicht und wird über die bereits vorhandene GitHub/Vercel-Integration bereitgestellt. `lib/mail.ts` gleicht außerdem den alten Markennamen in vorhandenen SMTP-Absenderkonfigurationen an; die tatsächliche Mailbox bleibt erhalten. Der zugehörige Commitstatus in GitHub dient als Deployment-Nachweis. Die kanonischen Domains zeigen derzeit einen separaten Netlify-Auftritt. DNS und Hosting-Zuordnung werden durch diese Mail-Anpassung nicht verändert.
 
 ## Grenzen der Prüfung
 
 Keine echten Testmails an Schüler versandt, keine Reset-/Registrierungsabläufe ausgelöst und keine Lern-, Buchungs- oder Zahlungsdaten verändert. Die Prüfung umfasst gespeicherten Code/HTML, Vorschauen, Link-Erreichbarkeit und die vorhandenen automatisierten Tests, keinen Zustelltest bei einem Mailanbieter.
-

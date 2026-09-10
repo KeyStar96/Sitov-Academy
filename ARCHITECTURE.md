@@ -2,7 +2,7 @@
 
 ## Ergänzung 2026-09-10: produktive E-Mail-Vorlagen
 
-Sechs bestehende Supabase-Edge-Mailfunktionen sind mit den lokalen Quellen synchron veröffentlicht; Slugs und Authentifizierung bleiben erhalten. Die Auth-Templates und Betreffzeilen sind gesondert im Dashboard konfiguriert. `lib/feedback-email.ts` kapselt nun das HTML der Lernraum-Feedback-Mail mit maskierten Nutzerdaten und validierten Links; `app/actions/feedback.ts` behält die bisherige Versandsteuerung. Kein Datenbankschema geändert. [Live-Nachweis](docs/mail-templates-live-2026-09-10.md).
+Sechs bestehende Supabase-Edge-Mailfunktionen sind mit den lokalen Quellen synchron veröffentlicht; Slugs und Authentifizierung bleiben erhalten. Die Auth-Templates und Betreffzeilen sind gesondert im Dashboard konfiguriert. `lib/feedback-email.ts` kapselt nun das HTML der Lernraum-Feedback-Mail mit maskierten Nutzerdaten und validierten Links; `app/actions/feedback.ts` behält die bisherige Versandsteuerung. `lib/mail.ts` normalisiert auch alte Markennamen in konfigurierten Absenderanzeigen, ohne Adressen zu ändern. Kein Datenbankschema geändert. [Live-Nachweis](docs/mail-templates-live-2026-09-10.md).
 
 ## Ergänzung 2026-09-10: gemeinsamer Footer und Kursreihenfolge
 

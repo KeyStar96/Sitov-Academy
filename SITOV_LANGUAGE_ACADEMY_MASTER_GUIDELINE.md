@@ -2,7 +2,7 @@
 
 ## Ergänzung — einheitliche E-Mails, 10. September 2026
 
-Die neue Marke und das aktuelle Logo gelten auch für Kursnachrichten, Kontobestätigung, Passwort-Hilfe und Feedback-Benachrichtigung. Große Aktionsflächen, lesbare Texte und ein erreichbarer Kontakt unterstützen die Nutzung. Die produktiven Supabase-Vorlagen sind übernommen; sicherheitsrelevante Link-Platzhalter bleiben erhalten. [Umfang und Nachweise](docs/mail-templates-live-2026-09-10.md).
+Die neue Marke und das aktuelle Logo gelten auch für Kursnachrichten, Kontobestätigung, Passwort-Hilfe und Feedback-Benachrichtigung. Große Aktionsflächen, lesbare Texte und ein erreichbarer Kontakt unterstützen die Nutzung. Die produktiven Supabase-Vorlagen sind übernommen; sicherheitsrelevante Link-Platzhalter bleiben erhalten. Auch bei älteren SMTP-Konfigurationen wird der bekannte neue Markenname als Absenderanzeige verwendet. [Umfang und Nachweise](docs/mail-templates-live-2026-09-10.md).
 
 ## Ergänzung — einheitliche Marke und Orientierung, 10. September 2026
 
