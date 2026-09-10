@@ -1961,5 +1961,12 @@
     "teacher_academic_text": "Leibniz Hannover Üniversitesinde biyoloji ve Almanca alanlarında fen bilimleri lisansı, biyoloji ve Almanca öğretmenliği alanlarında eğitim yüksek lisansı.",
     "teacher_training_title": "DaZ / DaF uzmanlık eğitimi",
     "teacher_training_text": "Braunschweig Teknik Üniversitesinde Almancanın ikinci dil ve yabancı dil olarak öğretimi üzerine uzmanlık eğitimi."
+  },
+  "neural_audio": {
+    "error": "Ses dosyası yüklenemedi.",
+    "retry": "Sesi yeniden yükle",
+    "ready": "Ses hazır. Dinlemek için dokunun.",
+    "loading": "Ses hazırlanıyor.",
+    "pause": "Sesi duraklat"
   }
 }

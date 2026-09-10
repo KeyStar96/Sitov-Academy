@@ -7,6 +7,9 @@
 -- Live ergänzt am 2026-09-10: 20260910133125_vocabulary_bidirectional_learning.sql
 -- und 20260910135831_vocabulary_context_content.sql.
 -- Live-Migrationsversionen: 20260910140547 bzw. 20260910140553.
+-- Live ergänzt am 2026-09-10: 20260910151457_neural_audio_cache.sql
+-- und 20260910151533_vocabulary_answer_receipts.sql.
+-- Live-Migrationsversionen: 20260910153135 bzw. 20260910153144.
 -- Private Hilfstabellen/-funktionen, Grants und Backfill: siehe diese Migrationen.
 --
 -- WARNING: Dieses Schema dient als Referenz und Kontext für Agenten.
@@ -653,3 +656,27 @@ GRANT SELECT ON public.vocabulary_onboarding TO authenticated;
 GRANT ALL ON public.vocabulary_onboarding TO service_role;
 CREATE POLICY vocabulary_onboarding_owner_read ON public.vocabulary_onboarding FOR SELECT TO authenticated
   USING ((SELECT auth.uid()) = user_id);
+
+-- Neural audio: public content-addressed MP3 retrieval; only server service-role uploads.
+-- Bucket creation and compatibility assertions: 20260910151457_neural_audio_cache.sql.
+-- storage.buckets: audio_cache, public=true, file_size_limit=1048576,
+-- allowed_mime_types={'audio/mpeg'}. No client object mutation/listing policy.
+-- vocabulary_cards.audio_url stores the canonical German headword recording only.
+
+CREATE TABLE vocabulary_private.answer_receipts (
+  user_id uuid NOT NULL REFERENCES public.profiles(id) ON DELETE CASCADE,
+  request_id uuid NOT NULL,
+  progress_id uuid NOT NULL,
+  is_correct boolean,
+  typed_answer text CHECK (length(typed_answer) <= 4000),
+  ui_language text NOT NULL CHECK (ui_language IN ('de','en','ru','uk','tr')),
+  response jsonb NOT NULL CHECK (jsonb_typeof(response) = 'object'),
+  created_at timestamptz NOT NULL DEFAULT now(),
+  PRIMARY KEY (user_id, request_id)
+);
+ALTER TABLE vocabulary_private.answer_receipts ENABLE ROW LEVEL SECURITY;
+REVOKE ALL ON vocabulary_private.answer_receipts FROM PUBLIC, anon, authenticated, service_role;
+-- No direct table policies by design. Migration 20260910151533 defines the
+-- authenticated, owner-bound private submit_answer_once and public invoker wrapper
+-- submit_vocabulary_answer_once(uuid,uuid,boolean,text,text). Exact request replay
+-- returns the committed response without grading twice or moving the cursor.

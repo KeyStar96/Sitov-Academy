@@ -1,5 +1,14 @@
 # Current State Analysis (Ist-Zustand)
 
+## Änderungsprotokoll — 2026-09-10: Lernfluss, Theme und Neural-Audio
+
+- **Theme:** Synchroner Head-Bootstrap setzt gespeichertes/System-Theme vor dem ersten Paint. Root, Skeletons, Dialoge, Lernkarten, Profil-, Video-, Übungs- und Audiokarten verwenden die Academy-Farbvariablen. Die Phasenübersicht nutzt beschriftete horizontale Balken und passt ohne horizontales Scrollen auf 320px.
+- **Sofortige Wortentscheidungen:** Einstufung und Lernsession wechseln ohne Serverwartezeit. Eine geordnete Queue speichert lautlos; fehlgeschlagene Einträge und spätere Entscheidungen bleiben für Retry erhalten. Exit/Skip warten still auf Bestätigungen. Jeder Write ist an die ursprüngliche Schüler-ID gebunden. Wiederholte Session-Anfragen sind über stabile requestId-Belege idempotent. Ein vollständiges Schließen/Neuladen des Tabs kann noch nicht versandte In-Memory-Einträge verlieren; es gibt keine dauerhafte lokale Outbox.
+- **Satzmatrix:** DE-Oberfläche verwendet eine fremde Muttersprache, sonst Russisch bzw. verfügbare Fremdsprache. EN/RU/UK/TR verwenden ausschließlich ihre Quellsprache. Fehlende oder mit Deutsch identische Quellen werden nicht abgefragt. Die deutsche Zielantwort bleibt serverseitig bytegenau geprüft.
+- **Neural-Audio:** `generate-audio.ts` validiert Nutzer, Rolle, Level und Kopfwort. Microsoft-Stimmen Katja/Svetlana/Polina sowie Aria/Emel erzeugen MP3s über einen begrenzten Node-WebSocket-Adapter mit gepinntem `node-edge-tts`-Protokoll. `audio_cache` speichert Text-/Stimmen-Hashes unveränderlich. Nur kanonische deutsche Vokabelaudios werden in freie `audio_url`-Felder eingetragen; manuelle Aufnahmen bleiben erhalten. HTML5-Wiedergabe ersetzt `speechSynthesis` auch für Übungslösungen/Aussprache.
+- **Live:** Audio-Bucket und private Antwortbelege sind migriert. Alle 512 Karten und 390 Richtungsstände haben nach der Migration unveränderte Prüfsummen. Details/Tests und Grenzen: `docs/learning-refactor-2026-09-10.md`. 775 Jest-Tests, 72 PostgreSQL-Tests und Produktionsbuild erfolgreich. Die Frontend-Änderungen sind lokal implementiert und noch nicht veröffentlicht.
+
+
 ## Änderungsprotokoll — 2026-09-10: Feinschliff an Startseite, Audio und Anmeldung
 
 - **Über mich:** Das Porträt zeigt den vorhandenen Oberkörper vollständig (`object-contain`, unterer Bildanker, reservierter Bildrahmen). Zweisprachiges Aufwachsen mit Deutsch/Russisch, Bachelor/Master an der Leibniz Universität Hannover und DaZ/DaF-Weiterbildung an der TU Braunschweig sind in allen fünf Sprachen wieder enthalten. Der Kontaktbutton führt zum ausdrücklich gewünschten Telegram-Platzhalter `https://t.me/DeinNutzername`.

@@ -994,6 +994,16 @@ export type Database = {
         }
         Returns: Json
       }
+      submit_vocabulary_answer_once: {
+        Args: {
+          p_is_correct?: boolean
+          p_progress_id: string
+          p_request_id: string
+          p_typed_answer?: string
+          p_ui_language?: string
+        }
+        Returns: Json
+      }
     }
     Enums: {
       [_ in never]: never

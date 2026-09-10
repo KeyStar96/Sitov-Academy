@@ -8,6 +8,8 @@ import AppBackground from "@/components/effects/AppBackground";
 import { ThemeInit } from "@/components/effects/ThemeInit";
 import NavigationProgress from "@/components/effects/NavigationProgress";
 import Preloader from "@/components/effects/Preloader";
+import { THEME_BOOTSTRAP_SCRIPT } from "@/lib/theme";
+import { RouteFeedbackProvider, type RouteFeedbackCopy } from "@/components/layout/RouteFeedbackProvider";
 
 /* ─── Global metadata defaults (inherited by all pages) ─── */
 export const metadata: Metadata = {
@@ -79,6 +81,12 @@ export default async function RootLayout({
   // Hier "warten" wir auf die Sprache
   const { lang } = await params;
   const dictionary = await getDictionary(lang);
+  const feedback = ({ loading, error_title, error_description, error_retry }: RouteFeedbackCopy): RouteFeedbackCopy => ({ loading, error_title, error_description, error_retry });
+  const feedbackMessages = {
+    auth: feedback(dictionary.auth), vocabulary: feedback(dictionary.vocabulary),
+    exercises: feedback(dictionary.exercises), videos: feedback(dictionary.videos),
+    pronunciation: feedback(dictionary.pronunciation), profile: feedback(dictionary.profile),
+  };
 
   return (
     <html lang={lang} suppressHydrationWarning>
@@ -87,21 +95,7 @@ export default async function RootLayout({
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        {/* Force dark color for areas behind safe area on iOS */}
-        <meta name="theme-color" content="#121417" media="(prefers-color-scheme: dark)" />
-        <meta name="theme-color" content="#f7f5ef" media="(prefers-color-scheme: light)" />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  const theme = localStorage.getItem('theme') || 'light';
-                  document.documentElement.classList.toggle('dark', theme === 'dark');
-                } catch (e) {}
-              })();
-            `,
-          }}
-        />
+        <script dangerouslySetInnerHTML={{ __html: THEME_BOOTSTRAP_SCRIPT }} />
         {/* Meta Pixel Code */}
         <script
           dangerouslySetInnerHTML={{
@@ -130,7 +124,7 @@ fbq('track', 'PageView');
         </noscript>
         {/* End Meta Pixel Code */}
       </head>
-      <body className={`${manrope.className} ${jetbrainsMono.variable} bg-[var(--background)] text-[var(--foreground)] antialiased transition-colors duration-500 overflow-x-clip w-full selection:bg-[#FF5C00]/20 selection:text-[#FF5C00]`}>
+      <body className={`${manrope.className} ${jetbrainsMono.variable} bg-[var(--canvas)] text-[var(--foreground)] antialiased overflow-x-clip w-full`}>
         <a className="academy-skip-link" href="#main-content">{dictionary.academy.skip_content}</a>
         <Preloader label={dictionary.academy.preloader_label} name={dictionary.academy.brand_name} descriptor={dictionary.academy.brand_descriptor} />
         {/* Navigation progress bar — instant visual feedback during page transitions */}
@@ -172,11 +166,13 @@ fbq('track', 'PageView');
         {/* Header moved to page.tsx */}
 
         {/* 4. Main Content: KEIN z-index damit backdrop-filter funktioniert! */}
+        <RouteFeedbackProvider messages={feedbackMessages} audio={dictionary.neural_audio}>
         <SmoothScroll>
           <main id="main-content" className="pt-0 scroll-3d-container min-h-screen relative">
             {children}
           </main>
         </SmoothScroll>
+        </RouteFeedbackProvider>
         <SupportNode dictionary={dictionary} />
       </body>
     </html>

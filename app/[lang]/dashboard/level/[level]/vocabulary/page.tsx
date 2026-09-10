@@ -20,6 +20,8 @@ export default async function VocabularyOverviewPage({
 
   return (
     <VocabTrainerPageClient
+      key={session.learnerId}
+      learnerId={session.learnerId}
       initialCards={session.cards}
       initialDeferredCount={session.deferredCount}
       initialPreviousCardId={session.previousCardId}

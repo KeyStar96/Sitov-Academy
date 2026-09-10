@@ -94,7 +94,7 @@ export default function FillInBlankExerciseCard({
   return (
     <div className="p-5 sm:p-10">
       {/* Satz mit Lücke – auf dem Handy 20px, ab Tablet 30px. */}
-      <p className="break-words text-center text-xl font-medium leading-relaxed text-gray-900 dark:text-slate-100 sm:text-3xl sm:leading-loose">
+      <p className="break-words text-center text-xl font-medium leading-relaxed text-[var(--foreground)] sm:text-3xl sm:leading-loose">
         {exercise.content.text_before}
         <span
           className={cn(
@@ -102,8 +102,8 @@ export default function FillInBlankExerciseCard({
             isSolved
               ? 'border-green-600 bg-green-50 font-bold text-green-800'
               : selectedChip
-                ? 'border-blue-600 bg-blue-50 font-bold text-blue-800'
-                : 'border-dashed border-gray-400 dark:border-slate-600 bg-gray-50 dark:bg-slate-800/80 text-gray-400 dark:text-slate-500'
+                ? 'border-[var(--violet)] bg-[var(--surface-muted)] font-bold text-[var(--violet)]'
+                : 'border-dashed border-[var(--border)]  bg-[var(--surface-muted)]  text-[var(--muted)] '
           )}
           aria-label={gapContent ?? t('blank_label')}
         >
@@ -114,7 +114,7 @@ export default function FillInBlankExerciseCard({
 
       {!isSolved && (
         <>
-          <h3 className="mt-10 text-center text-2xl font-bold text-gray-800 dark:text-slate-200">{t('choose_word')}</h3>
+          <h3 className="mt-10 text-center text-2xl font-bold text-[var(--foreground)]">{t('choose_word')}</h3>
 
           {/* Tipp-Chips: Touch-Targets mit 64px Höhe, kein Drag-and-Drop. */}
           <div className="mt-6 flex flex-wrap justify-center gap-3 sm:gap-4">
@@ -133,10 +133,10 @@ export default function FillInBlankExerciseCard({
                     isExcluded ? t('chip_wrong_aria', { word: chip }) : t('choose_word_aria', { word: chip })
                   }
                   className={cn(
-                    'min-h-16 min-w-16 rounded-2xl border-2 px-8 py-4 text-2xl font-bold transition-all focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#FF5C00]',
-                    isExcluded && 'cursor-not-allowed border-gray-200 dark:border-slate-800 bg-gray-100 dark:bg-slate-800/80 text-gray-400 dark:text-slate-500 line-through',
-                    !isExcluded && isSelected && 'border-blue-600 bg-blue-600 text-white shadow-lg',
-                    !isExcluded && !isSelected && 'border-gray-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-gray-900 dark:text-slate-200 hover:border-blue-400 dark:hover:border-blue-500 hover:bg-blue-50 dark:hover:bg-blue-900/30'
+                    'min-h-16 min-w-16 max-w-full break-words [overflow-wrap:anywhere] rounded-2xl border-2 px-4 sm:px-8 py-4 text-2xl font-bold transition-all focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)]',
+                    isExcluded && 'cursor-not-allowed border-[var(--border)]  bg-[var(--surface-muted)]  text-[var(--muted)]  line-through',
+                    !isExcluded && isSelected && 'border-[var(--violet)] bg-[var(--violet)] text-[var(--surface)] shadow-lg',
+                    !isExcluded && !isSelected && 'border-[var(--border)]  bg-[var(--surface)]  text-[var(--foreground)]  hover:border-[var(--violet)]  hover:bg-[var(--surface-muted)] '
                   )}
                 >
                   {chip}
@@ -214,7 +214,7 @@ export default function FillInBlankExerciseCard({
           <button
             type="button"
             onClick={onNext}
-            className="inline-flex min-h-16 w-full items-center justify-center gap-3 rounded-2xl bg-gray-900 dark:bg-slate-700 px-8 py-4 text-xl font-bold text-white shadow-md transition-colors hover:bg-gray-800 dark:hover:bg-slate-600 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#FF5C00] sm:w-auto"
+            className="inline-flex min-h-16 w-full items-center justify-center gap-3 rounded-2xl bg-[var(--accent)] px-8 py-4 text-xl font-bold text-[var(--accent-foreground)] shadow-md transition-colors hover:opacity-90 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)] sm:w-auto"
           >
             {nextLabel}
             <ArrowRight size={28} aria-hidden="true" />
@@ -224,7 +224,7 @@ export default function FillInBlankExerciseCard({
             type="button"
             onClick={handleCheck}
             disabled={!selectedChip}
-            className="min-h-16 w-full rounded-2xl bg-blue-600 px-8 py-4 text-xl font-bold text-white shadow-md transition-colors hover:bg-blue-500 disabled:cursor-not-allowed disabled:opacity-50 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#FF5C00] sm:w-auto"
+            className="min-h-16 w-full rounded-2xl bg-[var(--violet)] px-8 py-4 text-xl font-bold text-[var(--surface)] shadow-md transition-colors hover:bg-[var(--violet)] disabled:cursor-not-allowed disabled:opacity-50 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)] sm:w-auto"
           >
             {t('check_answer')}
           </button>

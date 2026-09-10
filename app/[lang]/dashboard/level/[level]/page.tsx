@@ -9,7 +9,7 @@ const CATEGORIES = [
     titleKey: 'cat_videos_title',
     descKey: 'cat_videos_desc',
     icon: Video,
-    color: 'bg-blue-500',
+    color: 'vocabulary-phase-review',
     path: 'videos',
   },
   {
@@ -17,7 +17,7 @@ const CATEGORIES = [
     titleKey: 'cat_vocabulary_title',
     descKey: 'cat_vocabulary_desc',
     icon: BookOpen,
-    color: 'bg-emerald-500',
+    color: 'vocabulary-phase-new',
     path: 'vocabulary',
   },
   {
@@ -25,7 +25,7 @@ const CATEGORIES = [
     titleKey: 'cat_exercises_title',
     descKey: 'cat_exercises_desc',
     icon: PenTool,
-    color: 'bg-purple-500',
+    color: 'vocabulary-phase-review',
     path: 'exercises',
   },
   {
@@ -33,7 +33,7 @@ const CATEGORIES = [
     titleKey: 'cat_pronunciation_title',
     descKey: 'cat_pronunciation_desc',
     icon: Mic,
-    color: 'bg-[#FF5C00]',
+    color: 'vocabulary-phase-secure',
     path: 'pronunciation',
   },
 ] as const
@@ -53,27 +53,27 @@ export default async function LevelDashboard({
       <div className="mb-6 flex items-start gap-3 sm:mb-8 sm:items-center sm:gap-4">
         <Link
           href={`/${lang}/dashboard`}
-          className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl text-slate-600 transition-colors hover:bg-slate-200 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#FF5C00] dark:text-slate-400 dark:hover:bg-slate-800"
+          className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl text-[var(--muted)] transition-colors hover:bg-[var(--surface-muted)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)]"
           aria-label={t('nav_back_aria')}
         >
           <ArrowLeft size={24} aria-hidden="true" />
         </Link>
         <div className="min-w-0">
-          <h1 className="break-words text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl md:text-4xl dark:text-white">
+          <h1 className="break-words text-2xl font-extrabold tracking-tight text-[var(--foreground)] sm:text-3xl md:text-4xl">
             {t('level_heading', { level: decodedLevel })
               .split(decodedLevel)
               .flatMap((part, index) =>
                 index === 0
                   ? [part]
                   : [
-                      <span key="level" className="text-[#FF5C00]">
+                      <span key="level" className="text-[var(--accent)]">
                         {decodedLevel}
                       </span>,
                       part,
                     ]
               )}
           </h1>
-          <p className="mt-1 text-base leading-relaxed text-slate-600 sm:text-lg dark:text-slate-400">
+          <p className="mt-1 text-base leading-relaxed text-[var(--muted)] sm:text-lg">
             {t('level_subtitle')}
           </p>
         </div>
@@ -84,18 +84,18 @@ export default async function LevelDashboard({
           <Link
             key={cat.id}
             href={`/${lang}/dashboard/level/${level}/${cat.path}`}
-            className="group flex min-h-[5.5rem] flex-col items-start gap-4 rounded-3xl border border-slate-200 bg-white p-5 shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#FF5C00] sm:flex-row sm:items-center sm:gap-6 sm:p-6 dark:border-slate-800 dark:bg-slate-900"
+            className="group flex min-w-0 min-h-[5.5rem] flex-col items-start gap-4 rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-5 shadow-sm transition-colors hover:border-[var(--violet)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)] sm:flex-row sm:items-center sm:gap-6 sm:p-6"
           >
             <div
-              className={`flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl text-white shadow-lg ${cat.color}`}
+              className={`flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl ${cat.color}`}
             >
               <cat.icon size={32} aria-hidden="true" />
             </div>
             <div className="min-w-0">
-              <h2 className="mb-1 break-words text-xl font-bold text-slate-900 transition-colors group-hover:text-[#FF5C00] sm:mb-2 sm:text-2xl dark:text-white">
+              <h2 className="mb-1 break-words text-xl font-bold text-[var(--foreground)] transition-colors group-hover:text-[var(--accent)] sm:mb-2 sm:text-2xl">
                 {t(cat.titleKey)}
               </h2>
-              <p className="text-base leading-relaxed text-slate-600 sm:text-lg dark:text-slate-400">
+              <p className="text-base leading-relaxed text-[var(--muted)] sm:text-lg">
                 {t(cat.descKey)}
               </p>
             </div>

@@ -71,32 +71,32 @@ export default function ProfileDetailsForm({ initial, pendingEmail, lang, transl
   ] as const
 
   return (
-    <section aria-labelledby="personal-title" className="min-w-0 rounded-3xl border border-slate-200 bg-white p-4 shadow-sm sm:p-7 dark:border-slate-800 dark:bg-slate-900">
+    <section aria-labelledby="personal-title" className="min-w-0 rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-4 shadow-sm sm:p-7">
       <div className="mb-6 flex min-w-0 items-start gap-3">
-        <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-blue-50 text-blue-700 dark:bg-blue-950 dark:text-blue-300"><UserRound aria-hidden="true" size={24} /></span>
+        <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[var(--surface-muted)] text-[var(--violet)]"><UserRound aria-hidden="true" size={24} /></span>
         <div className="min-w-0">
-          <h2 id="personal-title" className="break-words text-xl font-bold text-slate-900 dark:text-white">{t('personal_data')}</h2>
-          <p className="mt-1 break-words text-sm leading-relaxed text-slate-600 dark:text-slate-400">{t('personal_intro')}</p>
+          <h2 id="personal-title" className="break-words text-xl font-bold text-[var(--foreground)]">{t('personal_data')}</h2>
+          <p className="mt-1 break-words text-sm leading-relaxed text-[var(--muted)]">{t('personal_intro')}</p>
         </div>
       </div>
       <form onSubmit={submit} noValidate aria-busy={saving}>
         <fieldset disabled={saving} className="grid min-w-0 grid-cols-1 gap-4 sm:grid-cols-2">
           {fields.map(field => (
             <div key={field.key} className={`min-w-0 ${field.key === 'street' ? 'sm:col-span-2' : ''}`}>
-              <label htmlFor={`profile-${field.key}`} className="mb-2 block text-sm font-semibold text-slate-700 dark:text-slate-200">{t(field.key)}</label>
+              <label htmlFor={`profile-${field.key}`} className="mb-2 block text-sm font-semibold text-[var(--foreground)]">{t(field.key)}</label>
               <input id={`profile-${field.key}`} name={field.key} type={field.type} autoComplete={field.autoComplete}
                 maxLength={field.maxLength} required={field.key === 'name' || field.key === 'email'}
                 value={draft[field.key] ?? ''}
                 aria-describedby={field.key === 'email' ? 'profile-email-hint' : undefined}
                 onChange={event => setDraft(current => ({ ...current, [field.key]: field.key === 'name' || field.key === 'email' ? event.target.value : event.target.value || null }))}
-                className="block min-h-12 w-full min-w-0 max-w-full rounded-xl border border-slate-300 bg-white px-3 py-3 text-base text-slate-900 outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-600/25 disabled:bg-slate-50 dark:border-slate-600 dark:bg-slate-950 dark:text-white dark:disabled:bg-slate-800" />
-              {field.key === 'email' && <p id="profile-email-hint" className="mt-2 break-words text-xs leading-relaxed text-slate-500 dark:text-slate-400">{t('email_hint')}</p>}
+                className="block min-h-12 w-full min-w-0 max-w-full rounded-xl border border-[var(--border)] bg-[var(--surface)] px-3 py-3 text-base text-[var(--foreground)] outline-none focus:border-[var(--violet)] focus:ring-2 focus:ring-[var(--violet)] disabled:bg-[var(--surface-muted)]" />
+              {field.key === 'email' && <p id="profile-email-hint" className="mt-2 break-words text-xs leading-relaxed text-[var(--muted)]">{t('email_hint')}</p>}
             </div>
           ))}
         </fieldset>
         {pending && <p className="mt-4 break-words rounded-xl bg-amber-50 p-3 text-sm text-amber-900 [overflow-wrap:anywhere] dark:bg-amber-950 dark:text-amber-200">{t('pending_email', { email: pending })}</p>}
         <div className="mt-6 flex min-w-0 flex-col gap-3 sm:flex-row sm:items-center">
-          <button type="submit" disabled={saving} className="inline-flex min-h-12 min-w-12 shrink-0 items-center justify-center gap-2 whitespace-normal rounded-xl bg-blue-700 px-5 py-3 text-base font-bold text-white hover:bg-blue-800 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-orange-500 disabled:opacity-70">
+          <button type="submit" disabled={saving} className="inline-flex min-h-12 min-w-12 shrink-0 items-center justify-center gap-2 whitespace-normal rounded-xl bg-[var(--violet)] px-5 py-3 text-base font-bold text-[var(--surface)] hover:bg-[var(--violet)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-orange-500 disabled:opacity-70">
             {saving ? <Loader2 size={18} aria-hidden="true" className="animate-spin" /> : <Check size={18} aria-hidden="true" />}
             <span>{saving ? t('saving') : t('save_details')}</span>
           </button>

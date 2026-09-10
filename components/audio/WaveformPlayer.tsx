@@ -93,21 +93,21 @@ export default function WaveformPlayer({
   const playbackBlocked = playback.error !== null
 
   return (
-    <div className="w-full">
+    <div className="min-w-0 w-full break-words">
       {label && (
-        <p className="mb-2 text-sm font-bold uppercase tracking-wide text-slate-500 dark:text-slate-400">
+        <p className="mb-2 text-sm font-bold uppercase tracking-wide text-[var(--muted)]">
           {label}
         </p>
       )}
 
-      <div className="flex items-center gap-4">
+      <div className="grid grid-cols-[auto_minmax(44px,1fr)] items-center gap-3 sm:grid-cols-[auto_minmax(44px,1fr)_auto] sm:gap-4">
         <button
           type="button"
           onClick={togglePlayback}
           disabled={playbackBlocked}
           aria-label={playback.isPlaying ? translate('pause_aria') : translate('play_aria')}
           aria-busy={playback.isBuffering}
-          className={`flex shrink-0 items-center justify-center rounded-full bg-[#FF5C00] text-white shadow-md transition-colors hover:bg-[#e05200] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-slate-900 disabled:cursor-not-allowed disabled:opacity-50 ${
+          className={`flex shrink-0 items-center justify-center rounded-full bg-[var(--accent)] text-[var(--accent-foreground)] shadow-sm transition-colors hover:brightness-95 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] disabled:cursor-not-allowed disabled:opacity-50 ${
             compact ? 'h-12 w-12' : 'h-16 w-16'
           }`}
         >
@@ -130,29 +130,29 @@ export default function WaveformPlayer({
           aria-valuetext={`${formatDuration(playback.currentTime)} / ${formatDuration(playback.duration)}`}
           onClick={(event) => handleSeek(event.clientX, event.currentTarget)}
           onKeyDown={handleSeekByKeyboard}
-          className={`relative flex-1 cursor-pointer overflow-hidden rounded-2xl bg-slate-100 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#FF5C00] dark:bg-slate-800 ${
+          className={`relative min-w-[44px] cursor-pointer overflow-hidden rounded-2xl bg-[var(--surface-muted)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] ${
             compact ? 'h-12' : 'h-16'
           }`}
         >
           <FluidWaveform getVolume={getVolume} getTone={getTone} isActive={playback.isPlaying} />
 
-          <div className="absolute inset-x-0 bottom-0 h-1 bg-slate-300/70 dark:bg-slate-600/70">
+          <div className="absolute inset-x-0 bottom-0 h-1 bg-[var(--border)]">
             <div
-              className="h-full bg-[#FF5C00] transition-[width] duration-150"
+              className="h-full bg-[var(--accent)] transition-[width] duration-150"
               style={{ width: `${Math.round(progress * 100)}%` }}
             />
           </div>
         </div>
 
-        <div className="flex shrink-0 flex-col items-end gap-1">
-          <span className="text-base font-semibold tabular-nums text-slate-600 dark:text-slate-300">
+        <div className="col-span-2 flex min-w-0 items-center justify-between gap-2 sm:col-span-1 sm:flex-col sm:items-end sm:gap-1">
+          <span className="text-base font-semibold tabular-nums text-[var(--muted)]">
             {formatDuration(playback.currentTime)} / {formatDuration(playback.duration)}
           </span>
           <button
             type="button"
             onClick={() => setSpeedIndex((index) => (index + 1) % SPEEDS.length)}
             aria-label={translate('speed_aria', { speed: `${speed}×` })}
-            className="min-h-12 rounded-xl bg-slate-100 px-4 text-base font-bold text-slate-700 transition-colors hover:bg-slate-200 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#FF5C00] dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700"
+            className="min-h-12 min-w-[44px] rounded-xl bg-[var(--surface-muted)] px-4 text-base font-semibold text-[var(--foreground)] transition-colors hover:bg-[var(--surface)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
           >
             {translate('speed_label', { speed: `${speed}×` })}
           </button>
@@ -160,7 +160,7 @@ export default function WaveformPlayer({
       </div>
 
       {playback.isBuffering && !playbackBlocked && (
-        <p className="mt-2 flex items-center gap-2 text-base text-slate-600 dark:text-slate-400" role="status">
+        <p className="mt-2 flex items-center gap-2 text-base text-[var(--muted)]" role="status">
           <Loader2 size={18} className="animate-spin" aria-hidden="true" />
           {translate('audio_loading')}
         </p>
@@ -169,16 +169,16 @@ export default function WaveformPlayer({
       {playbackBlocked && (
         <div
           role="alert"
-          className="mt-3 rounded-2xl border border-amber-200 bg-amber-50 p-4 dark:border-amber-900/40 dark:bg-amber-900/20"
+          className="mt-3 rounded-2xl border border-[var(--border)] bg-[var(--surface-muted)] p-4"
         >
-          <p className="text-base text-amber-900 dark:text-amber-200">
+          <p className="text-base text-[var(--danger)]">
             {playback.error === 'format' ? translate('audio_format_unsupported') : translate('audio_unavailable')}
           </p>
           {playback.error === 'load' && (
             <button
               type="button"
               onClick={handleRetry}
-              className="mt-3 inline-flex min-h-12 items-center gap-2 rounded-xl bg-amber-600 px-5 text-base font-bold text-white shadow-sm transition-colors hover:bg-amber-500 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#FF5C00]"
+              className="mt-3 inline-flex min-h-12 items-center gap-2 rounded-xl bg-[var(--surface)] px-5 py-2 text-base font-semibold text-[var(--danger)] shadow-sm transition-colors hover:bg-[var(--surface-muted)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
             >
               <RotateCcw size={18} aria-hidden="true" />
               {translate('audio_retry')}

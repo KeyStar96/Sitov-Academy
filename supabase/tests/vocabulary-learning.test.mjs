@@ -6,6 +6,7 @@ import { test } from 'node:test'
 const read = path => readFile(new URL(path, import.meta.url), 'utf8')
 const migration = await read('../migrations/20260910133125_vocabulary_bidirectional_learning.sql')
 const contexts = await read('../migrations/20260910135831_vocabulary_context_content.sql')
+const receipts = await read('../migrations/20260910151533_vocabulary_answer_receipts.sql')
 const user = '00000000-0000-4000-8000-000000000001'
 const other = '00000000-0000-4000-8000-000000000002'
 const teacher = '00000000-0000-4000-8000-000000000003'
@@ -46,6 +47,9 @@ await test('Bidirectional learning migration on isolated PostgreSQL', async t =>
   await db.query("insert into user_vocabulary_progress(user_id,card_id,box_number,next_review_date,lapses,last_answered_at) values($1,$2,4,'2026-01-02',2,'2026-01-01')",[user,card(1)])
   const legacyBefore = (await db.query('select row_to_json(p) row from user_vocabulary_progress p')).rows
   await db.exec(migration)
+  const previousRpc = (await db.query("select pg_get_functiondef('public.submit_vocabulary_answer(uuid,boolean,text,text)'::regprocedure) body")).rows[0].body
+  const previousGrading = (await db.query("select pg_get_functiondef('vocabulary_private.submit_answer(uuid,boolean,text,text)'::regprocedure) body")).rows[0].body
+  await db.exec(receipts)
   async function actor(uid,role='authenticated') {
    await db.exec('reset role'); await db.query("select set_config('request.jwt.claim.sub',$1,false)",[uid??'']); await db.exec(`set role ${role}`)
   }
@@ -61,6 +65,10 @@ await test('Bidirectional learning migration on isolated PostgreSQL', async t =>
    assert.equal(pair.length,2); assert.equal(pair[0].id,legacyBefore[0].row.id); assert.equal(pair[0].box_number,4)
    assert.equal((await db.query('select last_card_id from vocabulary_learning_state where user_id=$1',[user])).rows[0].last_card_id,card(1));
    assert.equal(pair[0].lapses,2);assert.equal(pair[1].box_number,1);assert.equal(pair[1].lapses,0)
+  })
+  await t.test('receipt migration preserves deployed grading and RPC contracts',async()=>{
+   assert.equal((await db.query("select pg_get_functiondef('public.submit_vocabulary_answer(uuid,boolean,text,text)'::regprocedure) body")).rows[0].body,previousRpc)
+   assert.equal((await db.query("select pg_get_functiondef('vocabulary_private.submit_answer(uuid,boolean,text,text)'::regprocedure) body")).rows[0].body,previousGrading)
   })
   await t.test('seed fills contexts and enables complete five-language sentences',async()=>{
    await db.query("update vocabulary_cards set context_sentence_de='Existing editor text' where id=$1",[card(5)])
@@ -165,6 +173,117 @@ await test('Bidirectional learning migration on isolated PostgreSQL', async t =>
    await db.query('delete from user_vocabulary_progress where card_id=$1',[card(6)])
    await assert.rejects(init([{cardId:card(6),alreadyKnown:false},{cardId:card(99),alreadyKnown:false}]),e=>e.code==='42501')
    assert.equal((await states(6)).length,0)
+  })
+
+  const request = n => `20000000-0000-4000-8000-${String(n).padStart(12,'0')}`
+  async function once(key,id,correct=null,text=null,lang='de') {
+   return (await db.query('select submit_vocabulary_answer_once($1,$2,$3,$4,$5) result',[key,id,correct,text,lang])).rows[0].result
+  }
+  async function addWord(n,uid=user) {
+   await actor(null,'postgres')
+   await db.query("insert into vocabulary_cards(id,word_de,lesson,level) values($1,'Testwort','Lektion 1','A1.1')",[card(n)])
+   await actor(uid);await init([{cardId:card(n),alreadyKnown:false}])
+   return (await states(n,uid))[0].id
+  }
+  async function privateReceipts(uid=user) {
+   await actor(null,'postgres')
+   const rows=(await db.query('select * from vocabulary_private.answer_receipts where user_id=$1 order by request_id',[uid])).rows
+   await actor(user);return rows
+  }
+  await t.test('committed answer replay returns the same response without regrading or moving the cursor',async()=>{
+   const id=await addWord(101)
+   const original=await once(request(1),id,true)
+   const after=(await states(101))[0]
+   assert.deepEqual(await once(request(1),id,true),original)
+   assert.deepEqual((await states(101))[0],after)
+   // Simulate another successfully committed queued answer before a delayed retry.
+   const spacer=await addWord(102);await once(request(2),spacer,false)
+   const cursorBefore=(await db.query('select * from vocabulary_learning_state')).rows
+   assert.deepEqual(await once(request(1),id,true),original)
+   assert.deepEqual((await db.query('select * from vocabulary_learning_state')).rows,cursorBefore)
+   assert.deepEqual((await states(101))[0],after)
+   assert.equal((await privateReceipts()).length,2)
+   await assert.rejects(once(request(3),id,true),e=>e.code==='40001')
+   assert.equal((await privateReceipts()).length,2)
+  })
+  await t.test('each request ID binds progress, nullable rating, exact text and UI language',async()=>{
+   const id=(await states(101))[0].id
+   for (const payload of [
+    [(await states(102))[0].id,true,null,'de'],[id,false,null,'de'],[id,null,null,'de'],
+    [id,true,'','de'],[id,true,' ','de'],[id,true,null,'ru'],
+   ]) await assert.rejects(once(request(1),...payload),e=>e.code==='22023' && e.message.includes('request_conflict'))
+   await assert.rejects(once(null,id,true),e=>e.code==='22023')
+   await assert.rejects(once(request(99),id,true,null,'fr'),e=>e.code==='22023')
+   assert.equal((await privateReceipts()).length,2)
+  })
+  await t.test('receipt ownership prevents cross-user replay and keys are scoped per user',async()=>{
+   const id=(await states(101))[0].id
+   await actor(teacher)
+   await assert.rejects(once(request(1),id,true),e=>e.code==='42501')
+   const own=await addWord(103,teacher)
+   assert.equal((await once(request(1),own,true)).success,true)
+   await actor(user)
+   assert.equal((await once(request(1),id,true)).success,true)
+   assert.equal((await privateReceipts(teacher)).length,1)
+  })
+  await t.test('private receipts cannot be read or forged, and anonymous replay is denied',async()=>{
+   const id=(await states(101))[0].id
+   await assert.rejects(db.exec('select * from vocabulary_private.answer_receipts'),e=>e.code==='42501')
+   await assert.rejects(db.exec('delete from vocabulary_private.answer_receipts'),e=>e.code==='42501')
+   await assert.rejects(db.query("insert into vocabulary_private.answer_receipts(user_id,request_id,progress_id,ui_language,response) values($1,$2,$3,'de','{}')",[user,request(90),id]),e=>e.code==='42501')
+   await actor(null,'anon');await assert.rejects(once(request(1),id,true),e=>e.code==='42501')
+   await actor(null);await assert.rejects(once(request(1),id,true),e=>e.code==='42501')
+   await actor(null,'postgres')
+   const table=(await db.query("select relrowsecurity from pg_class where oid='vocabulary_private.answer_receipts'::regclass")).rows[0]
+   assert.equal(table.relrowsecurity,true)
+   assert.equal((await db.query("select * from pg_policy where polrelid='vocabulary_private.answer_receipts'::regclass")).rows.length,0)
+   await actor(user)
+  })
+  await t.test('rollback removes both grade and receipt so the same request can retry normally',async()=>{
+   const id=await addWord(104);const before=(await states(104))[0]
+   await db.exec('begin');const result=await once(request(4),id,false);await db.exec('rollback')
+   assert.deepEqual((await states(104))[0],before)
+   assert.equal((await privateReceipts()).some(row=>row.request_id===request(4)),false)
+   assert.deepEqual(await once(request(4),id,false),result)
+   assert.equal((await states(104))[0].lapses,1)
+  })
+  await t.test('receipt insertion failure also rolls back the inner grading function',async()=>{
+   const id=await addWord(105);const before=(await states(105))[0]
+   await actor(null,'postgres')
+   await db.exec(`alter table vocabulary_private.answer_receipts add constraint test_reject_receipt check(request_id <> '${request(5)}'::uuid)`)
+   await actor(user)
+   await assert.rejects(once(request(5),id,false),e=>e.code==='23514')
+   assert.deepEqual((await states(105))[0],before)
+   await actor(null,'postgres');await db.exec('alter table vocabulary_private.answer_receipts drop constraint test_reject_receipt');await actor(user)
+   assert.equal((await once(request(5),id,false)).success,true)
+   assert.equal((await states(105))[0].lapses,1)
+  })
+  await t.test('sentence retries preserve byte-exact grading, payload binding and answer disclosure',async()=>{
+   await addWord(106)
+   await actor(null,'postgres')
+   const target='Ich öffne die Tür.'
+   await db.query("update vocabulary_cards set sentence_practice=true,context_sentence_de=$1,context_sentence_en='I open the door.',context_sentence_ru='Я открываю дверь.',context_sentence_uk='Я відчиняю двері.',context_sentence_tr='Kapıyı açıyorum.' where id=$2",[target,card(106)])
+   await actor(user);const id=(await states(106))[1].id
+   const wrong=target.normalize('NFD')
+   const result=await once(request(6),id,true,wrong,'de')
+   assert.equal(result.isCorrect,false);assert.equal(result.correctAnswer,target)
+   assert.deepEqual(await once(request(6),id,true,wrong,'de'),result)
+   await assert.rejects(once(request(6),id,true,target,'de'),e=>e.code==='22023')
+   await clearSpacing();await makeDue(id)
+   assert.equal((await once(request(7),id,false,target,'tr')).isCorrect,true)
+  })
+  await t.test('duplicate in-flight calls apply one grade and return one result',async()=>{
+   const id=await addWord(107)
+   // PGlite serializes its single connection; this exercises repeated queued
+   // statements. Multi-connection lock contention requires a real PG server.
+   const [first,second]=await Promise.all([once(request(8),id,false),once(request(8),id,false)])
+   assert.deepEqual(first,second);assert.equal((await states(107))[0].lapses,1)
+  })
+  await t.test('lesson reset retains receipts and cannot resurrect or regrade removed progress',async()=>{
+   const id=(await states(107))[0].id;const original=await once(request(8),id,false)
+   await db.query('delete from user_vocabulary_progress where card_id=$1',[card(107)])
+   assert.deepEqual(await once(request(8),id,false),original)
+   assert.equal((await states(107)).length,0)
   })
  } finally { await db.close() }
 })

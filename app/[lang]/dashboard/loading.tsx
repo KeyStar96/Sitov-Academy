@@ -1,45 +1,28 @@
+'use client'
+
+import { useRouteFeedback } from '@/components/layout/RouteFeedbackProvider'
+
+/** Reserve the introduction, recommendation and level grid used by the loaded page. */
 export default function DashboardLoading() {
-  // Wir erzeugen 6 Platzhalter-Karten für A1.1 bis B1.2
-  const skeletonCards = Array.from({ length: 6 })
-
-  return (
-    <div className="space-y-8 animate-pulse">
-      {/* Skeleton für den Titel und Untertitel */}
-      <div className="text-center max-w-2xl mx-auto mb-12 flex flex-col items-center">
-        <div className="h-12 bg-slate-200 dark:bg-slate-800 rounded-2xl w-3/4 mb-6"></div>
-        <div className="h-6 bg-slate-200 dark:bg-slate-800 rounded-xl w-full max-w-md"></div>
-      </div>
-
-      {/* Skeleton für das Karten-Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {skeletonCards.map((_, i) => (
-          <div 
-            key={i} 
-            className="bg-white dark:bg-slate-900 rounded-3xl p-8 shadow-sm border border-slate-100 dark:border-slate-800 h-[280px] flex flex-col justify-between"
-          >
-            {/* Oberer Bereich mit Icon-Platzhalter und Titel */}
-            <div className="flex justify-between items-start mb-6">
-              <div className="w-16 h-16 rounded-full bg-slate-100 dark:bg-slate-800"></div>
-              <div className="flex flex-col items-end gap-2">
-                <div className="w-16 h-8 bg-slate-100 dark:bg-slate-800 rounded-lg"></div>
-                <div className="w-24 h-4 bg-slate-100 dark:bg-slate-800 rounded-md"></div>
-              </div>
-            </div>
-
-            {/* Mittlerer Text-Bereich */}
-            <div className="space-y-3 mb-6">
-              <div className="w-3/4 h-6 bg-slate-100 dark:bg-slate-800 rounded-lg"></div>
-              <div className="w-full h-4 bg-slate-50 dark:bg-slate-800/50 rounded-md"></div>
-              <div className="w-5/6 h-4 bg-slate-50 dark:bg-slate-800/50 rounded-md"></div>
-            </div>
-
-            {/* Unterer Button-Platzhalter */}
-            <div className="flex items-center gap-2">
-              <div className="w-24 h-5 bg-slate-100 dark:bg-slate-800 rounded-md"></div>
-            </div>
-          </div>
-        ))}
-      </div>
+  const copy = useRouteFeedback('auth')
+  return <div className="academy-dashboard" role="status" aria-busy="true">
+    <span className="sr-only">{copy.loading}</span>
+    <div className="academy-dashboard-intro" aria-hidden="true">
+      <div className="w-full max-w-xl space-y-4"><div className="academy-skeleton h-4 w-36 max-w-full rounded-lg" /><div className="academy-skeleton h-12 w-3/4 rounded-xl" /><div className="academy-skeleton h-7 w-full rounded-lg" /></div>
+      <div className="academy-skeleton h-12 w-40 max-w-full shrink-0 rounded-full" />
     </div>
-  )
+    <div className="academy-next-step" aria-hidden="true">
+      <div className="w-full max-w-xl space-y-5"><div className="academy-skeleton h-4 w-40 max-w-full rounded-lg" /><div className="academy-skeleton h-8 w-3/4 rounded-xl" /><div className="academy-skeleton h-6 w-full rounded-lg" /><div className="academy-skeleton h-12 w-40 max-w-full rounded-full" /></div>
+      <div className="academy-skeleton h-28 w-28 shrink-0 rounded-full sm:h-40 sm:w-40" />
+    </div>
+    <div aria-hidden="true">
+      <div className="academy-level-heading"><div className="academy-skeleton h-7 w-48 max-w-full rounded-lg" /></div>
+      <div className="academy-level-grid">{[0, 1, 2, 3, 4, 5].map(index => <div key={index} className="academy-level-card min-h-64 gap-5">
+        <div className="flex justify-between gap-4"><div className="academy-skeleton h-9 w-16 rounded-lg" /><div className="academy-skeleton h-6 w-6 rounded-full" /></div>
+        <div className="academy-skeleton h-6 w-3/4 rounded-lg" />
+        <div className="space-y-2"><div className="academy-skeleton h-4 w-full rounded" /><div className="academy-skeleton h-4 w-4/5 rounded" /></div>
+        <div className="academy-skeleton mt-auto h-5 w-32 max-w-full rounded" />
+      </div>)}</div>
+    </div>
+  </div>
 }

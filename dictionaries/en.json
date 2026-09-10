@@ -1960,5 +1960,12 @@
     "teacher_academic_text": "Bachelor of Science in Biology and German, and Master of Education in teaching Biology and German at Leibniz University Hannover.",
     "teacher_training_title": "Further training in DaZ / DaF",
     "teacher_training_text": "Further training in German as a second language and German as a foreign language at TU Braunschweig."
+  },
+  "neural_audio": {
+    "error": "The audio could not be loaded.",
+    "retry": "Retry loading audio",
+    "ready": "Audio is ready. Tap to play.",
+    "loading": "Preparing audio.",
+    "pause": "Pause audio"
   }
 }

@@ -1053,6 +1053,8 @@ p {
   --accent: #bd3510;
   --accent-foreground: #ffffff;
   --violet: #6942a0;
+  --success: #246642;
+  --danger: #b42332;
   --primary-orange: var(--accent);
   --lm-bg-bone: var(--canvas);
   --lm-text-espresso: var(--foreground);
@@ -1071,6 +1073,8 @@ p {
   --accent: #ff946b;
   --accent-foreground: #24150f;
   --violet: #c2a7ff;
+  --success: #8bdaad;
+  --danger: #ff9ca5;
   --dm-surface-teal: var(--surface);
   --dm-border-slate: var(--border);
   --dm-text-main: var(--foreground);
@@ -1281,3 +1285,18 @@ body:has(.learning-screen) .academy-student-header, body:has(.learning-screen) .
 body:has(.learning-screen) .academy-support { display: none; }
 @media (hover: none) { .academy-brain-scene { pointer-events: none; } }
 .academy-footer-bottom a { min-width: 44px; }
+
+/* Learning overlays use the same opaque surfaces as the page behind them. */
+.academy-modal-backdrop { position: fixed; inset: 0; z-index: 90; display: flex; align-items: center; justify-content: center; padding: max(.75rem, env(safe-area-inset-top)) .75rem max(.75rem, env(safe-area-inset-bottom)); background: #00000080; }
+.academy-lesson-dialog { display: flex; flex-direction: column; width: 100%; min-width: 0; max-width: 42rem; height: min(46rem, calc(100dvh - 2rem - env(safe-area-inset-top) - env(safe-area-inset-bottom))); border: 1px solid var(--border); border-radius: 1.5rem; overflow: hidden; background: var(--surface); color: var(--foreground); box-shadow: 0 24px 80px #00000040; }
+.academy-lesson-dialog :is(button, input) { min-height: 44px; min-width: 44px; }
+.academy-lesson-dialog button { overflow-wrap: anywhere; }
+.academy-lesson-tabs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .5rem; padding: 0 1rem 1rem; }
+.academy-lesson-tab { min-width: 0; border-radius: .85rem; padding: .75rem .5rem; font-size: .875rem; font-weight: 700; line-height: 1.5; text-align: center; background: var(--surface-muted); color: var(--foreground); }
+.academy-lesson-tab[aria-selected='true'] { background: var(--accent); color: var(--accent-foreground); }
+.vocabulary-phase-new { background: color-mix(in srgb, var(--accent) 12%, var(--surface)); color: var(--accent); }
+.vocabulary-phase-review { background: color-mix(in srgb, var(--violet) 12%, var(--surface)); color: var(--violet); }
+.vocabulary-phase-secure { background: color-mix(in srgb, var(--success) 12%, var(--surface)); color: var(--success); }
+.vocabulary-phase-learned { background: var(--success); color: var(--surface); }
+.academy-skeleton { background: var(--surface-muted); animation: pulse 2s cubic-bezier(.4, 0, .6, 1) infinite; }
+@media (prefers-reduced-motion: reduce) { .academy-skeleton { animation: none; } }

@@ -31,14 +31,14 @@ export default async function PronunciationDashboard({
       <div>
         <Link
           href={`/${lang}/dashboard/level/${encodeURIComponent(decodedLevel)}`}
-          className="inline-flex min-h-12 items-center gap-2 text-lg font-medium text-blue-600 transition-colors hover:text-blue-800"
+          className="inline-flex min-h-12 items-center gap-2 text-lg font-medium text-[var(--violet)] transition-colors hover:text-[var(--violet)]"
         >
           <ArrowLeft size={24} aria-hidden="true" /> {t('back_to_level')}
         </Link>
       </div>
 
-      <div className="relative overflow-hidden rounded-3xl bg-slate-900 p-6 text-white shadow-lg sm:p-8 dark:bg-slate-800">
-        <div className="pointer-events-none absolute right-0 top-0 h-64 w-64 -translate-y-1/2 translate-x-1/2 rounded-full bg-[#FF5C00] opacity-20 blur-[100px]" />
+      <div className="relative overflow-hidden rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-6 text-[var(--foreground)] shadow-lg sm:p-8">
+        <div className="pointer-events-none absolute right-0 top-0 h-64 w-64 -translate-y-1/2 translate-x-1/2 rounded-full bg-[var(--accent)] opacity-20 blur-[100px]" />
         <h1 className="relative z-10 mb-4 break-words text-2xl font-bold sm:text-3xl">{t('title')}</h1>
         <p className="relative z-10 text-lg leading-relaxed opacity-90 sm:text-xl">{t('subtitle')}</p>
       </div>
@@ -51,7 +51,7 @@ export default async function PronunciationDashboard({
 
       {/* Fließt natürlich unter der Aufnahme-Box; die Seite scrollt normal per Mausrad/Trackpad. */}
       <div className="space-y-6">
-        <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100">
+        <h2 className="text-2xl font-bold text-[var(--foreground)]">
           {t('history_title')}
         </h2>
 

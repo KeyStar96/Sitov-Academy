@@ -53,11 +53,11 @@ export default async function VideoPlayerPage({
 
   if (!found) {
     return (
-      <div className="mx-auto max-w-2xl rounded-3xl bg-white p-8 text-center shadow-sm ring-1 ring-gray-900/5 sm:p-12 dark:bg-slate-900 dark:ring-slate-800">
-        <h1 className="mb-4 text-2xl font-bold text-slate-900 sm:text-3xl dark:text-white">{t('not_found')}</h1>
+      <div className="mx-auto max-w-2xl rounded-3xl bg-[var(--surface)] p-8 text-center shadow-sm ring-1 ring-[var(--border)] sm:p-12">
+        <h1 className="mb-4 text-2xl font-bold text-[var(--foreground)] sm:text-3xl">{t('not_found')}</h1>
         <Link
           href={overviewHref}
-          className="inline-flex min-h-12 items-center gap-2 text-lg font-medium text-blue-600 hover:text-blue-800"
+          className="inline-flex min-h-12 items-center gap-2 text-lg font-medium text-[var(--violet)] hover:text-[var(--violet)]"
         >
           <ArrowLeft size={24} aria-hidden="true" /> {t('back_to_level')}
         </Link>
@@ -69,12 +69,12 @@ export default async function VideoPlayerPage({
     <div className="mx-auto max-w-4xl">
       <Link
         href={overviewHref}
-        className="mb-6 inline-flex min-h-12 items-center gap-2 text-lg font-medium text-blue-600 transition-colors hover:text-blue-800 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#FF5C00]"
+        className="mb-6 inline-flex min-h-12 items-center gap-2 text-lg font-medium text-[var(--violet)] transition-colors hover:text-[var(--violet)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)]"
       >
         <ArrowLeft size={24} aria-hidden="true" /> {t('back_to_level')}
       </Link>
 
-      <div className="overflow-hidden rounded-3xl bg-white shadow-xl ring-1 ring-gray-900/5 dark:bg-slate-900 dark:ring-slate-800">
+      <div className="overflow-hidden rounded-3xl bg-[var(--surface)] shadow-xl ring-1 ring-[var(--border)]">
         {videoUrl ? (
           <VideoPlayer
             src={videoUrl}
@@ -93,20 +93,20 @@ export default async function VideoPlayerPage({
                 <Play className="h-12 w-12 text-yellow-500" aria-hidden="true" />
               </div>
               <h2 className="mb-4 text-2xl font-bold text-white sm:text-3xl">{t('in_preparation')}</h2>
-              <p className="text-lg text-slate-400 sm:text-xl">{t('in_preparation_hint')}</p>
+              <p className="text-lg text-[var(--muted)] sm:text-xl">{t('in_preparation_hint')}</p>
             </div>
           </div>
         )}
 
         <div className="p-6 sm:p-10">
-          <div className="mb-2 text-lg font-bold text-blue-600">
+          <div className="mb-2 text-lg font-bold text-[var(--violet)]">
             {t('lesson_label', { lesson: stripLessonPrefix(videoLesson) })}
           </div>
-          <h1 className="mb-4 break-words text-2xl font-extrabold text-slate-900 sm:text-4xl dark:text-white">
+          <h1 className="mb-4 break-words text-2xl font-extrabold text-[var(--foreground)] sm:text-4xl">
             {videoTitle}
           </h1>
           {videoDescription ? (
-            <p className="text-lg leading-relaxed break-words text-slate-600 sm:text-xl dark:text-slate-400">
+            <p className="text-lg leading-relaxed break-words text-[var(--muted)] sm:text-xl">
               {videoDescription}
             </p>
           ) : null}

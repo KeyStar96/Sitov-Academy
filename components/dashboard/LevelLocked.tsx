@@ -22,19 +22,19 @@ export default function LevelLocked({
   const t = createDashboardTranslator(translations)
 
   return (
-    <div className="mx-auto max-w-xl rounded-3xl bg-white p-8 text-center shadow-sm ring-1 ring-gray-900/5 sm:p-12 dark:bg-slate-900 dark:ring-slate-800">
-      <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800">
-        <Lock className="h-8 w-8 text-slate-500 dark:text-slate-400" aria-hidden="true" />
+    <div className="mx-auto max-w-xl rounded-3xl bg-[var(--surface)] p-8 text-center shadow-sm ring-1 ring-[var(--border)] sm:p-12">
+      <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-[var(--surface-muted)]">
+        <Lock className="h-8 w-8 text-[var(--muted)]" aria-hidden="true" />
       </div>
-      <h1 className="mb-4 break-words text-2xl font-bold text-slate-900 dark:text-white">
+      <h1 className="mb-4 break-words text-2xl font-bold text-[var(--foreground)]">
         {t('level_locked_title')}
       </h1>
-      <p className="mx-auto mb-8 max-w-md text-lg leading-relaxed text-slate-600 dark:text-slate-400">
+      <p className="mx-auto mb-8 max-w-md text-lg leading-relaxed text-[var(--muted)]">
         {t('level_locked_text', { level })}
       </p>
       <Link
         href={`/${lang}/dashboard`}
-        className="inline-flex min-h-14 items-center justify-center gap-2 rounded-2xl bg-[#FF5C00] px-6 text-lg font-bold text-white shadow-sm transition-colors hover:bg-[#e05200] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#FF5C00]"
+        className="inline-flex min-h-14 items-center justify-center gap-2 rounded-2xl bg-[var(--accent)] px-6 text-lg font-bold text-[var(--accent-foreground)] shadow-sm transition-colors hover:opacity-90 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)]"
       >
         <ArrowLeft size={20} aria-hidden="true" />
         {t('back_to_dashboard')}

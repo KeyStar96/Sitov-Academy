@@ -7,11 +7,13 @@ import { hasLevelAccess, isAccessLevel } from '@/lib/access/levels'
 import { LEITNER_LEARNED_BOX, normalizeBox, pickWeightedRandomOrder, selectionWeightForBox, type LeitnerPhase } from '@/lib/leitner'
 import { scheduleVocabularyCards } from '@/lib/vocabulary-scheduler'
 import { readVocabularyProgress } from '@/lib/vocabulary-queries'
+import { resolveVocabularySentenceSource, resolveVocabularyTranslation } from '@/lib/vocabulary-languages'
 import {
   isHardForNativeLanguage, resolveTranslation,
   type AddCardsResult, type AssessmentDecision, type DueVocabularyCard,
   type InitializeLessonResult, type LessonCardView, type LessonStat,
   type SubmitAssessmentResult, type SubmitVocabularyAnswerInput, type SubmitVocabularyAnswerResult,
+  type VocabularySession, type VocabularyAssessmentSession,
 } from '@/lib/types/vocabulary'
 
 const languageSchema = z.enum(['de', 'en', 'ru', 'uk', 'tr'])
@@ -23,10 +25,11 @@ const reviewResultSchema = z.object({
   becameLearned: z.boolean(), movedBack: z.boolean(), intervalInDays: z.number().int().positive(),
 })
 
-async function loadLearner() {
+async function loadLearner(expectedLearnerId?: string) {
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
-  if (!user) return null
+  if (!user || (expectedLearnerId !== undefined &&
+    (!z.string().uuid().safeParse(expectedLearnerId).success || user.id !== expectedLearnerId))) return null
   const { data: profile, error } = await supabase.from('profiles')
     .select('role, allowed_levels, native_language, ui_language').eq('id', user.id).single()
   if (error || !profile) return null
@@ -41,10 +44,10 @@ function refreshVocabulary() {
 }
 
 /** Due dates remain intact when sibling directions have to wait for another word. */
-export async function getVocabularySession(level?: string, uiLanguage?: string): Promise<{ cards: DueVocabularyCard[]; deferredCount: number; previousCardId: string | null }> {
+export async function getVocabularySession(level?: string, uiLanguage?: string): Promise<VocabularySession> {
   try {
     const learner = await loadLearner()
-    if (!learner || (level && !hasLevelAccess(learner.profile, level))) return { cards: [], deferredCount: 0, previousCardId: null }
+    if (!learner || (level && !hasLevelAccess(learner.profile, level))) return { learnerId: null, cards: [], deferredCount: 0, previousCardId: null }
     const { supabase, user, profile } = learner
     const language = languageSchema.catch('de').parse(uiLanguage ?? profile.ui_language)
     let query = supabase.from('vocabulary_direction_progress').select('*, vocabulary_cards!inner(*)')
@@ -67,31 +70,35 @@ export async function getVocabularySession(level?: string, uiLanguage?: string):
     // Fail closed if the previous word cannot be determined: never violate spacing.
     if (error || cursorError) {
       console.error('Vocabulary session could not be loaded:', error?.code ?? cursorError?.code)
-      return { cards: [], deferredCount: 0, previousCardId: null }
+      return { learnerId: null, cards: [], deferredCount: 0, previousCardId: null }
     }
-    const cards: DueVocabularyCard[] = (data ?? []).filter(row => hasLevelAccess(profile, row.vocabulary_cards.level)).map(row => {
+    const cards: DueVocabularyCard[] = (data ?? []).filter(row => hasLevelAccess(profile, row.vocabulary_cards.level)).flatMap(row => {
       const card = row.vocabulary_cards
       const box = normalizeBox(row.box_number)
       const direction = row.direction === 'native_to_de' ? 'native_to_de' : 'de_to_native'
-      const localizedContext = card[`context_sentence_${language}`]
-      const sentence = direction === 'native_to_de' && card.sentence_practice && !!localizedContext?.trim() && !!card.context_sentence_de?.trim()
-      const translation = resolveTranslation(card, profile.native_language)
-      return {
+      const sentence = direction === 'native_to_de' && card.sentence_practice
+      const source = sentence ? resolveVocabularySentenceSource(card, language, profile.native_language) : null
+      const translatedWord = resolveVocabularyTranslation(card, profile.native_language)
+      // Incomplete content must never downgrade a DB-enforced sentence to self-rating.
+      if ((sentence && !source) || (!sentence && !translatedWord)) return []
+      const translation = translatedWord?.text ?? ''
+      return [{
         progressId: row.id, direction, format: sentence ? 'sentence' : 'word',
-        prompt: sentence ? localizedContext! : direction === 'native_to_de' ? translation : card.word_de,
+        prompt: source ? source.text : direction === 'native_to_de' ? translation : card.word_de,
+        promptLanguage: source ? source.language : direction === 'native_to_de' ? translatedWord!.language : 'de',
         // Never send the exact German sentence before a typing answer is submitted.
         contextSentence: sentence ? null : card.context_sentence_de,
         box, phase: (box === LEITNER_LEARNED_BOX ? 6 : box) as LeitnerPhase,
         card: { id: card.id, level: card.level, lesson: card.lesson, word_de: card.word_de,
           article: card.article, plural: card.plural, image_url: card.image_url, audio_url: card.audio_url },
         translation, isHardForNativeLanguage: isHardForNativeLanguage(card, profile.native_language),
-      }
+      } satisfies DueVocabularyCard]
     })
     const weighted = pickWeightedRandomOrder(cards, card => selectionWeightForBox(card.box))
-    return { ...scheduleVocabularyCards(weighted, cursor?.last_card_id), previousCardId: cursor?.last_card_id ?? null }
+    return { learnerId: user.id, ...scheduleVocabularyCards(weighted, cursor?.last_card_id), previousCardId: cursor?.last_card_id ?? null }
   } catch (error) {
     console.error('Vocabulary session failed:', error instanceof Error ? error.name : 'unknown')
-    return { cards: [], deferredCount: 0, previousCardId: null }
+    return { learnerId: null, cards: [], deferredCount: 0, previousCardId: null }
   }
 }
 
@@ -99,14 +106,25 @@ export async function getDueCards(level?: string, uiLanguage?: string): Promise<
   return (await getVocabularySession(level, uiLanguage)).cards
 }
 
+/** Minimal assessment payload plus the verified actor for queued decisions. */
+export async function getVocabularyAssessment(lessonName: string, level: string): Promise<VocabularyAssessmentSession> {
+  const learner = await loadLearner()
+  if (!learner || !hasLevelAccess(learner.profile, level)) return { learnerId: null, cards: [] }
+  const allCards = await getLessonCards(lessonName, level)
+  return {
+    learnerId: learner.user.id,
+    cards: allCards.filter(card => card.phase === null).map(({ id, word_de, article }) => ({ id, word_de, article })),
+  }
+}
+
 /** One decision initializes both directions, without changing any existing state. */
-export async function submitLessonAssessment(decisions: AssessmentDecision[]): Promise<SubmitAssessmentResult> {
+export async function submitLessonAssessment(decisions: AssessmentDecision[], expectedLearnerId?: string): Promise<SubmitAssessmentResult> {
   const failed: SubmitAssessmentResult = { success: false, addedKnown: 0, addedNew: 0 }
   const parsed = decisionSchema.safeParse(decisions)
   if (!parsed.success) return failed
   if (parsed.data.length === 0) return { success: true, addedKnown: 0, addedNew: 0 }
   try {
-    const learner = await loadLearner()
+    const learner = await loadLearner(expectedLearnerId)
     if (!learner) return failed
     // Duplicate decisions are rejected rather than allowing contradictory grades.
     if (new Set(parsed.data.map(item => item.cardId)).size !== parsed.data.length) return failed
@@ -125,16 +143,16 @@ export async function submitLessonAssessment(decisions: AssessmentDecision[]): P
   }
 }
 
-export async function addCardsToTrainer(cardIds: string[]): Promise<AddCardsResult> {
+export async function addCardsToTrainer(cardIds: string[], expectedLearnerId?: string): Promise<AddCardsResult> {
   if (!Array.isArray(cardIds)) return { success: false, added: 0 }
-  const result = await submitLessonAssessment([...new Set(cardIds)].map(cardId => ({ cardId, alreadyKnown: false })))
+  const result = await submitLessonAssessment([...new Set(cardIds)].map(cardId => ({ cardId, alreadyKnown: false })), expectedLearnerId)
   return { success: result.success, added: result.addedNew }
 }
 
-export async function initializeLesson(lessonName: string, level?: string): Promise<InitializeLessonResult> {
+export async function initializeLesson(lessonName: string, level?: string, expectedLearnerId?: string): Promise<InitializeLessonResult> {
   try {
     if (typeof lessonName !== 'string' || !lessonName.trim() || lessonName.length > 200) return { success: false, added: 0 }
-    const learner = await loadLearner()
+    const learner = await loadLearner(expectedLearnerId)
     if (!learner || (level && !hasLevelAccess(learner.profile, level))) return { success: false, added: 0 }
     let query = learner.supabase.from('vocabulary_cards').select('id,level').eq('lesson', lessonName)
     if (level) query = query.eq('level', level)
@@ -142,17 +160,17 @@ export async function initializeLesson(lessonName: string, level?: string): Prom
     if (error || !data?.length) return { success: false, added: 0 }
     const allowed = data.filter(card => hasLevelAccess(learner.profile, card.level))
     if (!allowed.length) return { success: false, added: 0 }
-    return addCardsToTrainer(allowed.map(card => card.id))
+    return addCardsToTrainer(allowed.map(card => card.id), learner.user.id)
   } catch {
     return { success: false, added: 0 }
   }
 }
 
 /** Atomic skip + first actual lesson initialization; never a guessed lesson label. */
-export async function skipVocabularyAssessment(level: string): Promise<InitializeLessonResult & { lesson?: string }> {
+export async function skipVocabularyAssessment(level: string, expectedLearnerId?: string): Promise<InitializeLessonResult & { lesson?: string }> {
   if (!isAccessLevel(level)) return { success: false, added: 0 }
   try {
-    const learner = await loadLearner()
+    const learner = await loadLearner(expectedLearnerId)
     if (!learner || !hasLevelAccess(learner.profile, level)) return { success: false, added: 0 }
     const { data, error } = await learner.supabase.rpc('skip_vocabulary_assessment', { p_level: level })
     const result = initializationResultSchema.extend({ lesson: z.string().min(1) }).safeParse(data)
@@ -175,17 +193,20 @@ export async function getVocabularyOnboarding(level: string): Promise<{ status: 
 
 /** Word self-rating is accepted; sentence correctness is computed inside PostgreSQL. */
 export async function submitVocabularyAnswer(input: SubmitVocabularyAnswerInput): Promise<SubmitVocabularyAnswerResult> {
-  const parsed = z.object({ progressId: z.string().uuid(), isCorrect: z.boolean().optional(),
+  const parsed = z.object({ progressId: z.string().uuid(), expectedLearnerId: z.string().uuid().optional(), requestId: z.string().uuid().optional(), isCorrect: z.boolean().optional(),
     typedAnswer: z.string().max(4000).optional(), uiLanguage: languageSchema.optional() }).safeParse(input)
   if (!parsed.success) return { success: false, error: 'invalid_input' }
   try {
-    const learner = await loadLearner()
+    const learner = await loadLearner(parsed.data.expectedLearnerId)
     if (!learner) return { success: false, error: 'save_failed' }
-    const { data, error } = await learner.supabase.rpc('submit_vocabulary_answer', {
+    const payload = {
       p_progress_id: parsed.data.progressId, p_is_correct: parsed.data.isCorrect ?? null,
       p_typed_answer: parsed.data.typedAnswer ?? null,
       p_ui_language: parsed.data.uiLanguage ?? languageSchema.catch('de').parse(learner.profile.ui_language),
-    })
+    }
+    const { data, error } = parsed.data.requestId
+      ? await learner.supabase.rpc('submit_vocabulary_answer_once', { ...payload, p_request_id: parsed.data.requestId })
+      : await learner.supabase.rpc('submit_vocabulary_answer', payload)
     if (error) return { success: false, error: error.message.includes('vocabulary_spacing_required') ? 'spacing_required' : 'save_failed' }
     const result = reviewResultSchema.safeParse(data)
     if (!result.success) return { success: false, error: 'save_failed' }

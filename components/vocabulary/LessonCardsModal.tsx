@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback, useEffect, useId, useMemo, useState, type FormEvent, type WheelEvent } from 'react'
+import { useCallback, useEffect, useId, useMemo, useRef, useState, type FormEvent, type WheelEvent } from 'react'
 import { CloudOff, Loader2, Plus, Trash2, X } from 'lucide-react'
 import { addCardsToTrainer, getLessonCards, resetLessonProgress } from '@/app/actions/vocabulary'
 import {
@@ -43,7 +43,7 @@ function toDisplayCard(card: LessonCardView | CustomVocabularyCard): DisplayCard
 /**
  * Vokabelliste einer Lektion als Overlay mit Tabs.
  *
- * Scroll-Vertrag: Der Dialog ist `flex flex-col` mit `max-h-[calc(100vh-6rem)]`.
+ * Der Dialog reserviert die dynamische Viewport-Höhe samt Safe Areas.
  * Header (Titel, Tabs, Schließen) bleibt `flex-shrink-0`. Der Inhalt darunter
  * bekommt `flex-1 min-h-0 overflow-y-auto overscroll-contain` plus
  * `data-lenis-prevent`, damit Lenis (Desktop-Smooth-Scroll) Trackpad- und
@@ -65,6 +65,7 @@ export default function LessonCardsModal({
 }) {
   const t = createVocabularyTranslator(translations)
   const tabIds = useId()
+  const dialog = useRef<HTMLDivElement>(null)
   const wordsTabId = `${tabIds}-words`
   const phasesTabId = `${tabIds}-phases`
   const wordsPanelId = `${tabIds}-words-panel`
@@ -81,6 +82,7 @@ export default function LessonCardsModal({
   const [customError, setCustomError] = useState(false)
   const [isResetting, setIsResetting] = useState(false)
   const [showResetConfirm, setShowResetConfirm] = useState(false)
+  const [resetFailed, setResetFailed] = useState(false)
 
   useEffect(() => {
     setCustomCards(loadCustomVocabulary(level, lesson))
@@ -105,11 +107,26 @@ export default function LessonCardsModal({
   }, [lesson, level])
 
   useEffect(() => {
+    const previousFocus = document.activeElement
+    dialog.current?.querySelector<HTMLButtonElement>('button')?.focus({ preventScroll: true })
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') onClose()
+      if (event.key === 'Escape') { event.preventDefault(); onClose(); return }
+      if (event.key !== 'Tab') return
+      const focusable = dialog.current?.querySelectorAll<HTMLElement>('button:not(:disabled):not([tabindex="-1"]), input:not(:disabled), [href], [tabindex="0"]')
+      if (!focusable?.length) return
+      const first = focusable[0]
+      const last = focusable[focusable.length - 1]
+      if (event.shiftKey && (document.activeElement === first || !dialog.current?.contains(document.activeElement))) {
+        event.preventDefault(); last.focus()
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault(); first.focus()
+      }
     }
     window.addEventListener('keydown', handleKeyDown)
-    return () => window.removeEventListener('keydown', handleKeyDown)
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown)
+      if (previousFocus instanceof HTMLElement) previousFocus.focus({ preventScroll: true })
+    }
   }, [onClose])
 
   useEffect(() => {
@@ -127,28 +144,28 @@ export default function LessonCardsModal({
 
   const handleAddSingleCard = useCallback(
     async (cardId: string) => {
+      if (!Array.isArray(cardsState) || pendingCardId !== null || isResetting) return
+      const previousCards = cardsState
       setPendingCardId(cardId)
       setAddFailed(false)
+      setCardsState(previousCards.map(card => card.id === cardId ? { ...card, phase: 1, isLearned: false } : card))
       try {
         const result = await addCardsToTrainer([cardId])
         if (!result.success) {
+          setCardsState(previousCards)
           setAddFailed(true)
           return
         }
-        setCardsState((prev) =>
-          Array.isArray(prev)
-            ? prev.map((card) => (card.id === cardId ? { ...card, phase: 1, isLearned: false } : card))
-            : prev
-        )
         onCardAdded()
       } catch (err) {
         console.error(`Vokabel ${cardId} konnte nicht manuell übernommen werden:`, err)
+        setCardsState(previousCards)
         setAddFailed(true)
       } finally {
         setPendingCardId(null)
       }
     },
-    [onCardAdded]
+    [cardsState, isResetting, onCardAdded, pendingCardId]
   )
 
   const handleSaveCustom = useCallback(
@@ -188,52 +205,53 @@ export default function LessonCardsModal({
   )
 
   const handleResetProgress = useCallback(async () => {
+    if (!Array.isArray(cardsState) || isResetting || pendingCardId !== null) return
+    const previousCards = cardsState
     setIsResetting(true)
+    setResetFailed(false)
+    setCardsState(previousCards.map(card => ({ ...card, phase: null, isLearned: false })))
     try {
       const result = await resetLessonProgress(lesson, level)
-      if (result.success) {
-        // Refresh cards
-        const cards = await getLessonCards(lesson, level)
-        setCardsState(cards)
-        setShowResetConfirm(false)
-        onCardAdded() // trigger parent refresh
-      } else {
-        console.error('Fehler beim Zurücksetzen des Fortschritts')
-      }
+      if (!result.success) throw new Error('lesson_reset_failed')
+      setShowResetConfirm(false)
+      onCardAdded()
     } catch (err) {
-      console.error('Unerwarteter Fehler beim Zurücksetzen:', err)
+      console.error('Lernfortschritt konnte nicht zurückgesetzt werden:', err)
+      setCardsState(previousCards)
+      setResetFailed(true)
     } finally {
       setIsResetting(false)
     }
-  }, [lesson, level, onCardAdded])
+  }, [cardsState, isResetting, lesson, level, onCardAdded, pendingCardId])
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4"
+      className="academy-modal-backdrop"
       onClick={onClose}
       onWheel={(event: WheelEvent<HTMLDivElement>) => {
         if (event.target === event.currentTarget) event.preventDefault()
       }}
     >
       <div
+        ref={dialog}
         role="dialog"
         aria-modal="true"
         aria-label={lesson}
         data-lenis-prevent
         onClick={(event) => event.stopPropagation()}
         onWheel={(event) => event.stopPropagation()}
-        className="flex max-h-[calc(100vh-6rem)] w-full max-w-2xl flex-col overflow-hidden rounded-3xl bg-white shadow-2xl dark:bg-slate-900"
+        className="academy-lesson-dialog"
       >
-        <div className="flex shrink-0 flex-col border-b border-gray-100 dark:border-slate-800">
-          <div className="flex items-center justify-between gap-4 p-5 pb-3">
-            <h3 className="min-w-0 truncate text-xl font-bold text-gray-900 dark:text-slate-100">
+        <div className="flex shrink-0 flex-col border-b border-[var(--border)]">
+          <div className="flex items-start justify-between gap-3 p-4 pb-3 sm:p-5 sm:pb-3">
+            <h3 className="min-w-0 break-words pt-2 text-lg font-bold text-[var(--foreground)]">
               {lesson}
             </h3>
             <button
               type="button"
               onClick={onClose}
               aria-label={t('close_cards')}
-              className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-gray-500 transition-colors hover:bg-gray-100 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#FF5C00] dark:text-slate-400 dark:hover:bg-slate-800"
+              className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-[var(--muted)] transition-colors hover:bg-[var(--surface-muted)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)]"
             >
               <X size={24} aria-hidden="true" />
             </button>
@@ -242,7 +260,14 @@ export default function LessonCardsModal({
           <div
             role="tablist"
             aria-label={t('modal_tabs_aria')}
-            className="flex gap-2 px-5 pb-4"
+            className="academy-lesson-tabs"
+            onKeyDown={event => {
+              if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return
+              event.preventDefault()
+              const tab: ModalTab = event.key === 'Home' ? 'words' : event.key === 'End' ? 'phases' : activeTab === 'words' ? 'phases' : 'words'
+              setActiveTab(tab)
+              document.getElementById(tab === 'words' ? wordsTabId : phasesTabId)?.focus()
+            }}
           >
             <button
               type="button"
@@ -252,12 +277,7 @@ export default function LessonCardsModal({
               aria-selected={activeTab === 'words'}
               tabIndex={activeTab === 'words' ? 0 : -1}
               onClick={() => setActiveTab('words')}
-              className={cn(
-                'inline-flex min-h-12 flex-1 items-center justify-center rounded-2xl px-4 text-lg font-bold transition-colors focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#FF5C00]',
-                activeTab === 'words'
-                  ? 'bg-[#FF5C00] text-white shadow-sm'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700'
-              )}
+              className="academy-lesson-tab"
             >
               {t('tab_words')}
             </button>
@@ -269,12 +289,7 @@ export default function LessonCardsModal({
               aria-selected={activeTab === 'phases'}
               tabIndex={activeTab === 'phases' ? 0 : -1}
               onClick={() => setActiveTab('phases')}
-              className={cn(
-                'inline-flex min-h-12 flex-1 items-center justify-center rounded-2xl px-4 text-lg font-bold transition-colors focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#FF5C00]',
-                activeTab === 'phases'
-                  ? 'bg-[#FF5C00] text-white shadow-sm'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700'
-              )}
+              className="academy-lesson-tab"
             >
               {t('tab_phases')}
             </button>
@@ -283,19 +298,19 @@ export default function LessonCardsModal({
 
         <div
           data-lenis-prevent
-          className="modal-scroll-region min-h-0 flex-1 overflow-y-auto overscroll-contain p-5 sm:p-6"
+          className="modal-scroll-region min-h-0 flex-1 overflow-y-auto overflow-x-hidden overscroll-contain p-4 sm:p-6"
         >
           {activeTab === 'words' && (
-            <div role="tabpanel" id={wordsPanelId} aria-labelledby={wordsTabId}>
+            <div role="tabpanel" tabIndex={0} id={wordsPanelId} aria-labelledby={wordsTabId}>
               {cardsState === 'loading' && (
-                <p className="flex items-center gap-3 text-lg text-gray-600 dark:text-slate-400">
+                <p className="flex items-center gap-3 text-base text-[var(--muted)]">
                   <Loader2 className="h-6 w-6 animate-spin" aria-hidden="true" />
                   {t('cards_loading')}
                 </p>
               )}
 
               {cardsState === 'error' && (
-                <p className="flex items-center gap-3 text-lg text-gray-600 dark:text-slate-400">
+                <p className="flex items-center gap-3 text-base text-[var(--muted)]">
                   <CloudOff className="h-6 w-6 shrink-0" aria-hidden="true" />
                   {t('cards_load_failed')}
                 </p>
@@ -306,10 +321,10 @@ export default function LessonCardsModal({
                   {showCustomForm ? (
                     <form
                       onSubmit={handleSaveCustom}
-                      className="space-y-4 rounded-2xl border-2 border-[#FF5C00]/30 bg-orange-50 p-4 dark:border-orange-900 dark:bg-orange-950/30"
+                      className="space-y-4 rounded-2xl border-2 border-[var(--border)] vocabulary-phase-new p-4"
                     >
                       <div>
-                        <label htmlFor={`${tabIds}-custom-word`} className="mb-2 block text-lg font-bold text-gray-900 dark:text-slate-100">
+                        <label htmlFor={`${tabIds}-custom-word`} className="mb-2 block text-base font-bold text-[var(--foreground)]">
                           {t('custom_vocab_word_label')}
                         </label>
                         <input
@@ -322,11 +337,11 @@ export default function LessonCardsModal({
                           }}
                           placeholder={t('custom_vocab_word_placeholder')}
                           autoComplete="off"
-                          className="min-h-14 w-full rounded-2xl border-2 border-gray-300 bg-white px-4 text-lg text-gray-900 placeholder:text-gray-400 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#FF5C00] dark:border-slate-600 dark:bg-slate-900 dark:text-slate-100"
+                          className="min-h-14 w-full rounded-2xl border-2 border-[var(--border)] bg-[var(--surface)] px-4 text-base text-[var(--foreground)] placeholder:text-[var(--muted)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)]"
                         />
                       </div>
                       <div>
-                        <label htmlFor={`${tabIds}-custom-translation`} className="mb-2 block text-lg font-bold text-gray-900 dark:text-slate-100">
+                        <label htmlFor={`${tabIds}-custom-translation`} className="mb-2 block text-base font-bold text-[var(--foreground)]">
                           {t('custom_vocab_translation_label')}
                         </label>
                         <input
@@ -339,18 +354,18 @@ export default function LessonCardsModal({
                           }}
                           placeholder={t('custom_vocab_translation_placeholder')}
                           autoComplete="off"
-                          className="min-h-14 w-full rounded-2xl border-2 border-gray-300 bg-white px-4 text-lg text-gray-900 placeholder:text-gray-400 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#FF5C00] dark:border-slate-600 dark:bg-slate-900 dark:text-slate-100"
+                          className="min-h-14 w-full rounded-2xl border-2 border-[var(--border)] bg-[var(--surface)] px-4 text-base text-[var(--foreground)] placeholder:text-[var(--muted)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)]"
                         />
                       </div>
                       {customError && (
-                        <p role="alert" className="text-lg font-medium text-amber-800 dark:text-amber-300">
+                        <p role="alert" className="text-base font-medium text-amber-800 dark:text-amber-300">
                           {t('custom_vocab_error')}
                         </p>
                       )}
                       <div className="flex flex-col gap-3 sm:flex-row">
                         <button
                           type="submit"
-                          className="inline-flex min-h-14 flex-1 items-center justify-center rounded-2xl bg-[#FF5C00] px-6 text-lg font-bold text-white shadow-sm transition-colors hover:bg-[#E65000] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#FF5C00]"
+                          className="inline-flex min-h-14 flex-1 items-center justify-center rounded-2xl bg-[var(--accent)] px-6 text-base font-bold text-[var(--accent-foreground)] shadow-sm transition-colors hover:opacity-90 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)]"
                         >
                           {t('custom_vocab_save')}
                         </button>
@@ -360,7 +375,7 @@ export default function LessonCardsModal({
                             setShowCustomForm(false)
                             setCustomError(false)
                           }}
-                          className="inline-flex min-h-14 flex-1 items-center justify-center rounded-2xl border-2 border-gray-300 bg-white px-6 text-lg font-bold text-gray-800 transition-colors hover:bg-gray-50 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#FF5C00] dark:border-slate-600 dark:bg-slate-800 dark:text-slate-100"
+                          className="inline-flex min-h-14 flex-1 items-center justify-center rounded-2xl border-2 border-[var(--border)] bg-[var(--surface)] px-6 text-base font-bold text-[var(--foreground)] transition-colors hover:bg-[var(--surface-muted)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)]"
                         >
                           {t('custom_vocab_cancel')}
                         </button>
@@ -370,7 +385,7 @@ export default function LessonCardsModal({
                     <button
                       type="button"
                       onClick={() => setShowCustomForm(true)}
-                      className="inline-flex min-h-14 w-full items-center justify-center rounded-2xl border-2 border-dashed border-[#FF5C00] bg-orange-50 px-6 text-lg font-bold text-[#CC4700] transition-colors hover:bg-orange-100 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#FF5C00] dark:border-orange-500 dark:bg-orange-950/40 dark:text-orange-200"
+                      className="inline-flex min-h-14 w-full items-center justify-center rounded-2xl border-2 border-dashed border-[var(--accent)] vocabulary-phase-new px-6 text-base font-bold text-[var(--accent)] transition-colors hover:opacity-90 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)]"
                     >
                       {t('add_custom_vocab')}
                     </button>
@@ -387,24 +402,24 @@ export default function LessonCardsModal({
                       return (
                         <li
                           key={card.id}
-                          className="flex flex-col gap-3 rounded-xl bg-gray-50 p-4 shadow-sm ring-1 ring-gray-900/5 sm:flex-row sm:items-center sm:justify-between dark:bg-slate-800 dark:ring-slate-700"
+                          className="flex min-w-0 flex-col gap-3 rounded-2xl bg-[var(--surface-muted)] p-4 shadow-sm ring-1 ring-[var(--border)] sm:flex-row sm:items-center sm:justify-between"
                         >
                           <div className="min-w-0">
-                            <p className={cn('break-words text-lg font-bold', articleColorClass(card.article))}>
+                            <p className={cn('break-words text-base font-bold', articleColorClass(card.article))}>
                               {displayWord}
                             </p>
-                            <p className="break-words text-base text-gray-600 dark:text-slate-400">
+                            <p className="break-words text-base text-[var(--muted)]">
                               {card.translation || t('no_translation')}
                             </p>
                             {card.isCustom && (
-                              <p className="mt-1 text-base font-semibold text-[#CC4700] dark:text-orange-300">
+                              <p className="mt-1 text-base font-semibold text-[var(--accent)]">
                                 {t('custom_vocab_badge')}
                               </p>
                             )}
                           </div>
 
                           {card.isCustom ? (
-                            <div className="flex shrink-0 items-center gap-2">
+                            <div className="flex min-w-0 flex-wrap items-center gap-2">
                               <span
                                 className={cn(
                                   'inline-flex min-h-12 items-center justify-center rounded-full px-5 text-base font-bold',
@@ -417,7 +432,7 @@ export default function LessonCardsModal({
                                 type="button"
                                 onClick={() => handleRemoveCustom(card.id)}
                                 aria-label={t('remove_custom_vocab_aria', { word: card.word_de })}
-                                className="flex h-12 w-12 items-center justify-center rounded-xl text-gray-500 transition-colors hover:bg-red-50 hover:text-red-700 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#FF5C00] dark:hover:bg-red-950/40 dark:hover:text-red-300"
+                                className="flex h-12 w-12 items-center justify-center rounded-xl text-[var(--muted)] transition-colors hover:bg-red-50 hover:text-red-700 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)] dark:hover:bg-red-950/40 dark:hover:text-red-300"
                               >
                                 <Trash2 size={22} aria-hidden="true" />
                               </button>
@@ -426,9 +441,9 @@ export default function LessonCardsModal({
                             <button
                               type="button"
                               onClick={() => void handleAddSingleCard(card.id)}
-                              disabled={isPending}
+                              disabled={pendingCardId !== null || isResetting}
                               aria-label={t('add_single_card_aria', { word: card.word_de })}
-                              className="inline-flex min-h-12 min-w-12 shrink-0 items-center justify-center gap-2 rounded-xl bg-blue-600 px-5 py-3 text-base font-bold text-white shadow-sm transition-colors hover:bg-blue-500 disabled:opacity-60 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#FF5C00]"
+                              className="inline-flex min-h-12 min-w-12 shrink-0 items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-5 py-3 text-base font-bold text-[var(--accent-foreground)] shadow-sm transition-colors hover:opacity-90 disabled:opacity-60 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)]"
                             >
                               {isPending ? (
                                 <Loader2 size={20} className="animate-spin" aria-hidden="true" />
@@ -440,7 +455,7 @@ export default function LessonCardsModal({
                           ) : (
                             <span
                               className={cn(
-                                'inline-flex min-h-12 shrink-0 items-center justify-center rounded-full px-5 text-base font-bold',
+                                'inline-flex min-h-11 max-w-full shrink-0 items-center justify-center rounded-full px-4 text-sm font-bold',
                                 phaseBadgeClasses(card.phase, card.isLearned)
                               )}
                             >
@@ -457,17 +472,19 @@ export default function LessonCardsModal({
               )}
 
               {addFailed && (
-                <p role="status" aria-live="polite" className="mt-4 text-lg font-medium text-amber-700 dark:text-amber-400">
+                <p role="status" aria-live="polite" className="mt-4 text-base font-medium text-amber-700 dark:text-amber-400">
                   {t('manual_add_failed')}
                 </p>
               )}
 
+              {resetFailed && <p role="alert" className="mt-4 text-base text-[var(--danger)]">{t('error_description')}</p>}
+
               {/* Reset Progress Section */}
-              {Array.isArray(cardsState) && cardsState.some((c) => c.phase !== null) && (
-                <div className="mt-8 border-t border-gray-200 pt-6 dark:border-slate-800">
+              {Array.isArray(cardsState) && (isResetting || cardsState.some((c) => c.phase !== null)) && (
+                <div className="mt-8 border-t border-[var(--border)] pt-6">
                   {showResetConfirm ? (
                     <div className="rounded-2xl border-2 border-red-200 bg-red-50 p-4 dark:border-red-900 dark:bg-red-950/30">
-                      <p className="mb-4 text-lg font-bold text-red-900 dark:text-red-100">
+                      <p className="mb-4 text-base font-bold text-red-900 dark:text-red-100">
                         {t('reset_progress_confirm')}
                       </p>
                       <div className="flex flex-wrap gap-4">
@@ -475,15 +492,15 @@ export default function LessonCardsModal({
                           type="button"
                           onClick={handleResetProgress}
                           disabled={isResetting}
-                          className="inline-flex min-h-12 items-center justify-center rounded-xl bg-red-600 px-6 font-bold text-white transition-colors hover:bg-red-700 disabled:opacity-50"
+                          className="inline-flex min-h-12 items-center justify-center rounded-xl bg-red-700 px-6 font-bold text-white transition-colors hover:bg-red-700 disabled:opacity-50"
                         >
-                          {isResetting ? <Loader2 size={20} className="animate-spin" /> : t('reset_progress_yes')}
+                          {isResetting && <Loader2 size={20} className="mr-2 animate-spin" aria-hidden="true" />}{t('reset_progress_yes')}
                         </button>
                         <button
                           type="button"
                           onClick={() => setShowResetConfirm(false)}
                           disabled={isResetting}
-                          className="inline-flex min-h-12 items-center justify-center rounded-xl border-2 border-gray-300 bg-white px-6 font-bold text-gray-700 transition-colors hover:bg-gray-50 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-200"
+                          className="inline-flex min-h-12 items-center justify-center rounded-xl border-2 border-[var(--border)] bg-[var(--surface)] px-6 font-bold text-[var(--foreground)] transition-colors hover:bg-[var(--surface-muted)]"
                         >
                           {t('cancel')}
                         </button>
@@ -492,7 +509,8 @@ export default function LessonCardsModal({
                   ) : (
                     <button
                       type="button"
-                      onClick={() => setShowResetConfirm(true)}
+                      disabled={pendingCardId !== null}
+                      onClick={() => { setResetFailed(false); setShowResetConfirm(true) }}
                       className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl text-red-600 transition-colors hover:text-red-800 dark:text-red-400 dark:hover:text-red-300"
                     >
                       <Trash2 size={20} />
@@ -505,12 +523,14 @@ export default function LessonCardsModal({
           )}
 
           {activeTab === 'phases' && (
-            <div role="tabpanel" id={phasesPanelId} aria-labelledby={phasesTabId}>
+            <div role="tabpanel" tabIndex={0} id={phasesPanelId} aria-labelledby={phasesTabId}>
               {cardsState === 'loading' ? (
-                <p className="flex items-center gap-3 text-lg text-gray-600 dark:text-slate-400">
+                <p className="flex items-center gap-3 text-base text-[var(--muted)]">
                   <Loader2 className="h-6 w-6 animate-spin" aria-hidden="true" />
                   {t('cards_loading')}
                 </p>
+              ) : cardsState === 'error' ? (
+                <p className="flex items-center gap-3 text-base text-[var(--muted)]" role="status"><CloudOff className="h-6 w-6 shrink-0" aria-hidden="true" />{t('cards_load_failed')}</p>
               ) : (
                 <PhaseDistributionChart cards={displayCards} translations={translations} />
               )}

@@ -102,21 +102,21 @@ export function articleColorClass(article: string | null): string {
     case 'das':
       return 'text-green-700 dark:text-green-300'
     default:
-      return 'text-gray-900 dark:text-stone-100'
+      return 'text-[var(--foreground)]'
   }
 }
 
 /**
  * Farbliche Einstufung des Phasen-Badges in der Lektions-Detailansicht:
- * Von Amber (frisch, Phase 1–2) über Blau (Phase 3–4) bis Grün (Phase 5–6),
- * „gelernt" erhält eine eigene, kräftigere Grün-Variante.
+ * Markenorange (Phase 1–2), Violett (Phase 3–4), Grün (Phase 5–6);
+ * „gelernt" erhält eine gefüllte, kontrastreiche Variante.
  */
 export function phaseBadgeClasses(phase: LeitnerPhase | null, isLearned: boolean): string {
-  if (isLearned) return 'bg-green-600 text-white'
-  if (phase === null) return 'bg-gray-100 text-gray-500'
-  if (phase <= 2) return 'bg-amber-100 text-amber-900'
-  if (phase <= 4) return 'bg-blue-100 text-blue-900'
-  return 'bg-green-100 text-green-900'
+  if (isLearned) return 'vocabulary-phase-learned'
+  if (phase === null) return 'bg-[var(--surface-muted)] text-[var(--muted)]'
+  if (phase <= 2) return 'vocabulary-phase-new'
+  if (phase <= 4) return 'vocabulary-phase-review'
+  return 'vocabulary-phase-secure'
 }
 
 export type PhaseBucketKey = LeitnerPhase | 'learned'
@@ -178,22 +178,9 @@ export function computePhaseDistribution(cards: readonly PhaseCountCard[]): Phas
   }
 }
 
-/** Balken- und Label-Farben: Amber/Orange (Phase 1) bis Grün (Phase 6 / gelernt). */
+/** Brand accents identify early practice, review and secure knowledge in both themes. */
 export function phaseBarClasses(key: PhaseBucketKey): { bar: string; label: string } {
-  switch (key) {
-    case 1:
-      return { bar: 'bg-amber-400', label: 'text-amber-800 dark:text-amber-300' }
-    case 2:
-      return { bar: 'bg-orange-400', label: 'text-orange-800 dark:text-orange-300' }
-    case 3:
-      return { bar: 'bg-[#FF5C00]', label: 'text-[#CC4700] dark:text-orange-300' }
-    case 4:
-      return { bar: 'bg-blue-500', label: 'text-blue-800 dark:text-blue-300' }
-    case 5:
-      return { bar: 'bg-emerald-500', label: 'text-emerald-800 dark:text-emerald-300' }
-    case 6:
-      return { bar: 'bg-green-600', label: 'text-green-800 dark:text-green-300' }
-    case 'learned':
-      return { bar: 'bg-green-700', label: 'text-green-900 dark:text-green-200' }
-  }
+  if (key === 'learned' || key === 6) return { bar: 'bg-[var(--success)]', label: 'text-[var(--success)]' }
+  if (key >= 4) return { bar: 'bg-[var(--violet)]', label: 'text-[var(--violet)]' }
+  return { bar: 'bg-[var(--accent)]', label: 'text-[var(--accent)]' }
 }

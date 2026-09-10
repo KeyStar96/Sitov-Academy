@@ -1959,5 +1959,12 @@
     "teacher_academic_text": "Bachelor of Science in Biologie & Deutsch und Master of Education für das Lehramt in Biologie & Deutsch an der Leibniz Universität Hannover.",
     "teacher_training_title": "Weiterbildung DaZ / DaF",
     "teacher_training_text": "Weiterbildung in Deutsch als Zweitsprache und Deutsch als Fremdsprache an der TU Braunschweig."
+  },
+  "neural_audio": {
+    "error": "Die Audiodatei konnte nicht geladen werden.",
+    "retry": "Audio erneut laden",
+    "ready": "Audio ist bereit. Tippe zum Abspielen.",
+    "loading": "Audio wird vorbereitet.",
+    "pause": "Audio pausieren"
   }
 }

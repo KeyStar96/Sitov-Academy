@@ -42,20 +42,20 @@ export default function FeedbackNotificationCard({
     >
       <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
         <div className="flex items-start gap-4">
-          <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-[#FF5C00] text-white shadow-md">
+          <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-[var(--accent)] text-[var(--accent-foreground)] shadow-md">
             <Mic size={30} aria-hidden="true" />
           </span>
           <div className="min-w-0">
-            <h2 className="break-words text-xl font-bold text-slate-900 sm:text-2xl dark:text-slate-100">
+            <h2 className="break-words text-xl font-bold text-[var(--foreground)] sm:text-2xl">
               {t('notification_title')}
             </h2>
-            <p className="mt-1 text-lg text-slate-700 dark:text-slate-300">{description}</p>
+            <p className="mt-1 text-lg text-[var(--foreground)]">{description}</p>
           </div>
         </div>
 
         <Link
           href={href}
-          className="flex min-h-16 w-full shrink-0 items-center justify-center gap-3 rounded-2xl bg-[#FF5C00] px-8 text-xl font-bold text-white shadow-md transition-colors hover:bg-[#e05200] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-slate-900 md:w-auto"
+          className="flex min-h-16 w-full shrink-0 items-center justify-center gap-3 rounded-2xl bg-[var(--accent)] px-8 text-xl font-bold text-[var(--accent-foreground)] shadow-md transition-colors hover:opacity-90 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-slate-900 md:w-auto"
         >
           {t('notification_cta')}
           <ChevronRight size={26} aria-hidden="true" />

@@ -1,5 +1,7 @@
 import type { LeitnerBox, LeitnerPhase } from '@/lib/leitner'
 import type { Database } from '@/supabase/database.types'
+import type { UiLocale } from '@/lib/locale-routing'
+import { resolveVocabularyTranslation, vocabularyNativeLocale } from '@/lib/vocabulary-languages'
 
 export type VocabularyDirection = 'de_to_native' | 'native_to_de'
 export type VocabularyFormat = 'word' | 'sentence'
@@ -24,6 +26,8 @@ export interface DueVocabularyCard {
   direction: VocabularyDirection
   format: VocabularyFormat
   prompt: string
+  /** Actual language of the prompt, including an explicitly selected fallback. */
+  promptLanguage: UiLocale
   /** German context is omitted from unrevealed sentence prompts. */
   contextSentence: string | null
   box: LeitnerBox
@@ -36,6 +40,19 @@ export interface DueVocabularyCard {
   translation: string
   /** Steuert die halbierten Intervalle für kontrastiv schwere Vokabeln. */
   isHardForNativeLanguage: boolean
+}
+
+/** Identity belongs to the same authenticated request that produced these cards. */
+export interface VocabularySession {
+  learnerId: string | null
+  cards: DueVocabularyCard[]
+  deferredCount: number
+  previousCardId: string | null
+}
+
+export interface VocabularyAssessmentSession {
+  learnerId: string | null
+  cards: Array<Pick<LessonCardView, 'id' | 'word_de' | 'article'>>
 }
 
 /** Lernstand einer Lektion für die Übersichtsseite. */
@@ -54,6 +71,10 @@ export interface LessonStat {
 
 export interface SubmitVocabularyAnswerInput {
   progressId: string
+  /** Authenticated identity captured when the learning screen was loaded. */
+  expectedLearnerId?: string
+  /** Reuse this UUID with an identical payload when retrying a queued answer. */
+  requestId?: string
   isCorrect?: boolean
   typedAnswer?: string
   uiLanguage?: string
@@ -122,17 +143,15 @@ export function resolveTranslation(
   card: Pick<VocabularyCardRow, 'translation_ru' | 'translation_tr' | 'translation_en'> & { translation_uk?: string | null },
   nativeLanguage: string | null
 ): string {
-  if ((nativeLanguage === 'Ukrainisch' || nativeLanguage === 'uk') && card.translation_uk) return card.translation_uk
-  if ((nativeLanguage === 'Russisch' || nativeLanguage === 'ru') && card.translation_ru) return card.translation_ru
-  if (nativeLanguage === 'Türkisch' && card.translation_tr) return card.translation_tr
-  return card.translation_en ?? card.translation_ru ?? card.translation_tr ?? ''
+  return resolveVocabularyTranslation(card, nativeLanguage)?.text ?? ''
 }
 
 export function isHardForNativeLanguage(
   card: Pick<VocabularyCardRow, 'is_hard_for_ru' | 'is_hard_for_tr'>,
   nativeLanguage: string | null
 ): boolean {
-  if (nativeLanguage === 'Russisch' || nativeLanguage === 'ru') return card.is_hard_for_ru ?? false
-  if (nativeLanguage === 'Türkisch') return card.is_hard_for_tr ?? false
+  const locale = vocabularyNativeLocale(nativeLanguage)
+  if (locale === 'ru') return card.is_hard_for_ru ?? false
+  if (locale === 'tr') return card.is_hard_for_tr ?? false
   return false
 }

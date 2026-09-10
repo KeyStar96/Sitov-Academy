@@ -61,7 +61,7 @@ export default function MultipleChoiceExerciseCard({
 
   return (
     <div className="p-5 sm:p-10">
-      <h3 className="break-words text-xl font-bold leading-relaxed text-gray-900 dark:text-slate-100 sm:text-2xl">{exercise.content.question}</h3>
+      <h3 className="break-words text-xl font-bold leading-relaxed text-[var(--foreground)] sm:text-2xl">{exercise.content.question}</h3>
 
       <div className="mt-8 space-y-4">
         {exercise.content.options.map((option) => {
@@ -78,11 +78,11 @@ export default function MultipleChoiceExerciseCard({
               aria-pressed={isSelected}
               aria-label={isExcluded ? t('chip_wrong_aria', { word: option }) : t('choose_word_aria', { word: option })}
               className={cn(
-                'flex min-h-16 w-full items-center rounded-2xl border-2 px-6 py-4 text-left text-xl font-medium transition-all focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#FF5C00]',
+                'flex min-h-16 min-w-0 w-full items-center break-words [overflow-wrap:anywhere] rounded-2xl border-2 px-6 py-4 text-left text-xl font-medium transition-all focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)]',
                 isCorrectAndSolved && 'border-green-500 bg-green-50 font-bold text-green-800',
-                !isCorrectAndSolved && isExcluded && 'cursor-not-allowed border-gray-200 dark:border-slate-800 bg-gray-100 dark:bg-slate-800/80 text-gray-400 dark:text-slate-500 line-through',
-                !isCorrectAndSolved && !isExcluded && isSelected && 'border-blue-600 bg-blue-600 text-white shadow-lg',
-                !isCorrectAndSolved && !isExcluded && !isSelected && 'border-gray-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-gray-900 dark:text-slate-200 hover:border-blue-400 dark:hover:border-blue-500 hover:bg-blue-50 dark:hover:bg-blue-900/30'
+                !isCorrectAndSolved && isExcluded && 'cursor-not-allowed border-[var(--border)]  bg-[var(--surface-muted)]  text-[var(--muted)]  line-through',
+                !isCorrectAndSolved && !isExcluded && isSelected && 'border-[var(--violet)] bg-[var(--violet)] text-[var(--surface)] shadow-lg',
+                !isCorrectAndSolved && !isExcluded && !isSelected && 'border-[var(--border)]  bg-[var(--surface)]  text-[var(--foreground)]  hover:border-[var(--violet)]  hover:bg-[var(--surface-muted)] '
               )}
             >
               {option}
@@ -131,7 +131,7 @@ export default function MultipleChoiceExerciseCard({
           <button
             type="button"
             onClick={onNext}
-            className="inline-flex min-h-16 w-full items-center justify-center gap-3 rounded-2xl bg-gray-900 dark:bg-slate-700 px-8 py-4 text-xl font-bold text-white shadow-md transition-colors hover:bg-gray-800 dark:hover:bg-slate-600 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#FF5C00] sm:w-auto"
+            className="inline-flex min-h-16 w-full items-center justify-center gap-3 rounded-2xl bg-[var(--accent)] px-8 py-4 text-xl font-bold text-[var(--accent-foreground)] shadow-md transition-colors hover:opacity-90 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)] sm:w-auto"
           >
             {nextLabel}
             <ArrowRight size={28} aria-hidden="true" />
@@ -141,7 +141,7 @@ export default function MultipleChoiceExerciseCard({
             type="button"
             onClick={handleCheck}
             disabled={!selectedOption}
-            className="min-h-16 w-full rounded-2xl bg-blue-600 px-8 py-4 text-xl font-bold text-white shadow-md transition-colors hover:bg-blue-500 disabled:cursor-not-allowed disabled:opacity-50 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#FF5C00] sm:w-auto"
+            className="min-h-16 w-full rounded-2xl bg-[var(--violet)] px-8 py-4 text-xl font-bold text-[var(--surface)] shadow-md transition-colors hover:bg-[var(--violet)] disabled:cursor-not-allowed disabled:opacity-50 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)] sm:w-auto"
           >
             {t('check_answer')}
           </button>

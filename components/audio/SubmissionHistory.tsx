@@ -49,18 +49,18 @@ export default function SubmissionHistory({
 
   if (submissions.length === 0) {
     return (
-      <div className="rounded-3xl border border-slate-200 bg-white p-12 text-center dark:border-slate-800 dark:bg-slate-900">
-        <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800">
-          <Inbox className="h-10 w-10 text-slate-400" aria-hidden="true" />
+      <div className="rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-6 text-center sm:p-12">
+        <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-[var(--surface-muted)]">
+          <Inbox className="h-10 w-10 text-[var(--muted)]" aria-hidden="true" />
         </div>
-        <p className="text-xl font-bold text-slate-900 dark:text-slate-100">{t('history_empty')}</p>
-        <p className="mt-2 text-lg text-slate-600 dark:text-slate-400">{t('history_empty_hint')}</p>
+        <p className="text-xl font-bold text-[var(--foreground)]">{t('history_empty')}</p>
+        <p className="mt-2 text-lg text-[var(--muted)]">{t('history_empty_hint')}</p>
       </div>
     )
   }
 
   return (
-    <div className="space-y-4">
+    <div className="min-w-0 space-y-4 break-words">
       {submissions.map((submission) => {
         const feedback = submission.teacher_feedback[0]
         const isHighlighted = highlightedIds.has(submission.id)
@@ -68,14 +68,14 @@ export default function SubmissionHistory({
         return (
           <div
             key={submission.id}
-            className={`rounded-3xl border bg-white p-6 shadow-sm transition-colors dark:bg-slate-900 ${
+            className={`rounded-3xl border bg-[var(--surface)] p-4 shadow-sm transition-colors sm:p-6 ${
               isHighlighted
-                ? 'border-[#FF5C00] ring-2 ring-[#FF5C00]/20'
-                : 'border-slate-200 dark:border-slate-800'
+                ? 'border-[var(--accent)] ring-2 ring-[color-mix(in_srgb,var(--accent)_20%,transparent)]'
+                : 'border-[var(--border)]'
             }`}
           >
             <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
-              <span className="text-base font-medium text-slate-600 dark:text-slate-400">
+              <span className="text-base font-medium text-[var(--muted)]">
                 {submission.created_at
                   ? new Date(submission.created_at).toLocaleDateString(lang, {
                       day: '2-digit',
@@ -89,22 +89,22 @@ export default function SubmissionHistory({
 
               <div className="flex flex-wrap items-center gap-2">
                 {isHighlighted && (
-                  <span className="inline-flex min-h-10 items-center gap-2 rounded-full bg-[#FF5C00] px-4 text-base font-bold text-white">
+                  <span className="inline-flex min-h-10 items-center gap-2 rounded-full bg-[var(--accent)] px-4 text-base font-semibold text-[var(--accent-foreground)]">
                     <Sparkles size={18} aria-hidden="true" /> {t('new_badge')}
                   </span>
                 )}
                 {submission.attempt_number > 1 && (
-                  <span className="inline-flex min-h-10 items-center gap-2 rounded-full bg-blue-100 px-4 text-base font-bold text-blue-800 dark:bg-blue-900/30 dark:text-blue-300">
+                  <span className="inline-flex min-h-10 items-center gap-2 rounded-full bg-[var(--surface-muted)] px-4 text-base font-semibold text-[var(--foreground)]">
                     <RotateCcw size={18} aria-hidden="true" />{' '}
                     {t('attempt_label', { attempt: submission.attempt_number })}
                   </span>
                 )}
                 {submission.status === 'reviewed' ? (
-                  <span className="inline-flex min-h-10 items-center gap-2 rounded-full bg-emerald-100 px-4 text-base font-bold text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300">
+                  <span className="inline-flex min-h-10 items-center gap-2 rounded-full bg-[color-mix(in_srgb,var(--success)_12%,var(--surface))] px-4 text-base font-semibold text-[var(--success)]">
                     <CheckCircle2 size={18} aria-hidden="true" /> {t('status_reviewed')}
                   </span>
                 ) : (
-                  <span className="inline-flex min-h-10 items-center gap-2 rounded-full bg-amber-100 px-4 text-base font-bold text-amber-800 dark:bg-amber-900/30 dark:text-amber-300">
+                  <span className="inline-flex min-h-10 items-center gap-2 rounded-full bg-[var(--surface-muted)] px-4 text-base font-semibold text-[var(--muted)]">
                     <Clock size={18} aria-hidden="true" /> {t('status_pending')}
                   </span>
                 )}
@@ -114,21 +114,21 @@ export default function SubmissionHistory({
             <WaveformPlayer src={submission.content_url} t={t} label={t('your_recording')} />
 
             {feedback && (
-              <div className="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-6 dark:border-slate-700 dark:bg-slate-800">
-                <div className="mb-3 flex items-center gap-3 text-xl font-bold text-slate-900 dark:text-slate-100">
-                  <MessageSquare size={24} className="text-[#FF5C00]" aria-hidden="true" />
+              <div className="mt-6 rounded-2xl border border-[var(--border)] bg-[var(--surface-muted)] p-4 sm:p-6">
+                <div className="mb-3 flex items-center gap-3 text-xl font-bold text-[var(--foreground)]">
+                  <MessageSquare size={24} className="shrink-0 text-[var(--accent)]" aria-hidden="true" />
                   {t('teacher_feedback')}
                 </div>
 
                 {feedback.feedback_text && (
-                  <p className="mb-4 text-lg leading-relaxed text-slate-700 dark:text-slate-300">
+                  <p className="mb-4 text-lg leading-relaxed text-[var(--foreground)]">
                     {feedback.feedback_text}
                   </p>
                 )}
 
                 {feedback.feedback_audio_url && (
-                  <div className="rounded-2xl border border-slate-200 bg-white p-4 dark:border-slate-700 dark:bg-slate-900">
-                    <div className="mb-3 flex items-center gap-2 text-base font-bold text-[#FF5C00]">
+                  <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-3 sm:p-4">
+                    <div className="mb-3 flex items-center gap-2 text-base font-bold text-[var(--accent)]">
                       <Mic size={20} aria-hidden="true" /> {t('voice_message')}
                     </div>
                     <WaveformPlayer src={feedback.feedback_audio_url} t={t} />

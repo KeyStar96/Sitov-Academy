@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { ListChecks } from 'lucide-react'
-import { getLessonCards } from '@/app/actions/vocabulary'
+import { getVocabularyAssessment } from '@/app/actions/vocabulary'
 import { getDictionary } from '@/lib/dictionary'
 import { createVocabularyTranslator, type VocabularyTranslations } from '@/lib/vocabulary-i18n'
 import LessonAssessmentClient from './LessonAssessmentClient'
@@ -21,10 +21,8 @@ export default async function VocabularyAssessPage({
   const t = createVocabularyTranslator(translations)
   const overviewHref = `/${lang}/dashboard/level/${encodeURIComponent(decodedLevel)}/vocabulary`
 
-  const allCards = decodedLesson ? await getLessonCards(decodedLesson, decodedLevel) : []
-  // Keep translations, examples and audio entirely outside the assessment payload.
-  const cardsToAssess = allCards.filter((card) => card.phase === null)
-    .map(({ id, word_de, article }) => ({ id, word_de, article }))
+  const assessment = decodedLesson ? await getVocabularyAssessment(decodedLesson, decodedLevel) : { learnerId: null, cards: [] }
+  const cardsToAssess = assessment.cards
 
   return (
     <div className="mx-auto min-h-screen w-full max-w-4xl rounded-3xl bg-[var(--surface)] p-5 py-8 text-[var(--foreground)] shadow-sm ring-1 ring-[var(--border)] sm:p-8">
@@ -50,6 +48,8 @@ export default async function VocabularyAssessPage({
         </div>
       ) : (
         <LessonAssessmentClient
+          key={assessment.learnerId}
+          learnerId={assessment.learnerId}
           cards={cardsToAssess}
           lessonName={decodedLesson}
           lang={lang}

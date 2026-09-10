@@ -1,16 +1,11 @@
 .learning-screen {
-  --learn-canvas: #f7f5ef; --learn-surface: #fff; --learn-muted-surface: #efeee8;
-  --learn-text: #202321; --learn-muted: #60665f; --learn-border: #daddd3;
-  --learn-accent: #bd3510; --learn-on-accent: #fff; --learn-violet: #6656a7;
+  --learn-canvas: var(--canvas); --learn-surface: var(--surface); --learn-muted-surface: var(--surface-muted);
+  --learn-text: var(--foreground); --learn-muted: var(--muted); --learn-border: var(--border);
+  --learn-accent: var(--accent); --learn-on-accent: var(--accent-foreground); --learn-violet: var(--violet);
   position: fixed; inset: 0; z-index: 80; height: 100dvh;
   display: flex; flex-direction: column; overflow: hidden; outline: none;
   padding: env(safe-area-inset-top) max(12px, env(safe-area-inset-right)) env(safe-area-inset-bottom) max(12px, env(safe-area-inset-left));
   background: var(--learn-canvas); color: var(--learn-text);
-}
-.dark .learning-screen {
-  --learn-canvas: #111512; --learn-surface: #1b211d; --learn-muted-surface: #252d27;
-  --learn-text: #f5f4ee; --learn-muted: #b9c1b6; --learn-border: #414a41;
-  --learn-accent: #ff946b; --learn-on-accent: #23150e; --learn-violet: #beaff5;
 }
 .learning-header { display: flex; align-items: center; gap: 8px; width: 100%; max-width: 1040px; min-height: 64px; margin: 0 auto; flex-shrink: 0; }
 .learning-heading { min-width: 0; flex: 1; text-align: center; }

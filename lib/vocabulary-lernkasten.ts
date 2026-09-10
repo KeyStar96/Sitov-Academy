@@ -15,7 +15,12 @@ function storageKey(level: string): string {
 }
 
 function isBrowser(): boolean {
-  return typeof window !== 'undefined' && typeof window.localStorage !== 'undefined'
+  // Accessing the storage property itself can throw (blocked storage/sandbox).
+  try {
+    return typeof window !== 'undefined' && typeof window.localStorage !== 'undefined'
+  } catch {
+    return false
+  }
 }
 
 function isSessionBrowser(): boolean {

@@ -1,25 +1,24 @@
-"use client";
+'use client'
 
-import { useEffect } from "react";
+import { useEffect } from 'react'
+import { applyTheme, getPreferredTheme } from '@/lib/theme'
 
-/**
- * Ensures that the theme stored in localStorage is applied
- * when the component mounts (e.g., after a language switch).
- */
+/** Keep route changes, other tabs and system theme changes on the same canvas. */
 export function ThemeInit() {
-    useEffect(() => {
-        try {
-            const theme = localStorage.getItem("theme");
-            // Only set dark if explicitly chosen; default (null) = light
-            if (theme === "dark") {
-                document.documentElement.classList.add("dark");
-            } else {
-                document.documentElement.classList.remove("dark");
-            }
-        } catch (e) {
-            // Ignore errors (e.g. valid localStorage access)
-        }
-    }, []);
-
-    return null;
+  useEffect(() => {
+    const root = document.documentElement
+    const sync = () => applyTheme(getPreferredTheme())
+    // The head script already applied the preference. Preserve it during hydration,
+    // including an in-tab choice made while localStorage is unavailable.
+    if (root.dataset.theme !== 'dark' && root.dataset.theme !== 'light') sync()
+    else applyTheme(root.dataset.theme)
+    const system = window.matchMedia('(prefers-color-scheme: dark)')
+    system.addEventListener('change', sync)
+    window.addEventListener('storage', sync)
+    return () => {
+      system.removeEventListener('change', sync)
+      window.removeEventListener('storage', sync)
+    }
+  }, [])
+  return null
 }

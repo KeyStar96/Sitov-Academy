@@ -10,6 +10,7 @@ import ru from '@/dictionaries/ru.json'
 import uk from '@/dictionaries/uk.json'
 import tr from '@/dictionaries/tr.json'
 
+const learnerId = '00000000-0000-4000-8000-000000000001'
 jest.unmock('lucide-react')
 jest.mock('@/app/actions/vocabulary', () => ({
   submitLessonAssessment: jest.fn(),
@@ -47,6 +48,7 @@ const tree: LessonCardView = {
 function renderAssess(cards: LessonCardView[] = [house, tree]) {
   return render(
     <LessonAssessmentClient
+      learnerId={learnerId}
       cards={cards}
       lessonName="Lektion 1"
       lang="ru"
@@ -93,7 +95,7 @@ it('lässt unmittelbar über Stufe 1 oder Stufe 6 entscheiden', async () => {
 
   fireEvent.click(screen.getByText(translations.already_know))
   await waitFor(() => {
-    expect(submitLessonAssessment).toHaveBeenCalledWith([{ cardId: 'card-house', alreadyKnown: true }])
+    expect(submitLessonAssessment).toHaveBeenCalledWith([{ cardId: 'card-house', alreadyKnown: true }], learnerId)
   })
 })
 
@@ -102,6 +104,6 @@ it('nimmt unbekannte Wörter ohne Aufdecken in den Lernkasten auf', async () => 
   renderAssess()
   fireEvent.click(screen.getByText(translations.add_to_box))
   await waitFor(() => {
-    expect(submitLessonAssessment).toHaveBeenCalledWith([{ cardId: 'card-house', alreadyKnown: false }])
+    expect(submitLessonAssessment).toHaveBeenCalledWith([{ cardId: 'card-house', alreadyKnown: false }], learnerId)
   })
 })

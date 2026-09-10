@@ -9,6 +9,7 @@ import ru from '@/dictionaries/ru.json'
 import uk from '@/dictionaries/uk.json'
 import tr from '@/dictionaries/tr.json'
 
+const learnerId = '00000000-0000-4000-8000-000000000001'
 jest.unmock('lucide-react')
 const mockReplace = jest.fn()
 jest.mock('next/navigation', () => ({ useRouter: () => ({ push: jest.fn(), replace: mockReplace }) }))
@@ -16,7 +17,7 @@ jest.mock('@/app/actions/vocabulary', () => ({ submitLessonAssessment: jest.fn()
 jest.mock('@/components/layout/ThemeToggle', () => ({ __esModule: true, default: () => null }))
 const cards = [{ id: 'word-1', article: 'das', word_de: 'Haus' }, { id: 'word-2', article: null, word_de: 'lernen' }]
 function renderAssessment(locale = de.vocabulary, lang = 'de') {
-  return render(<LessonAssessmentClient cards={cards} lessonName="Lektion 2" level="A1.1" lang={lang} translations={locale} />)
+  return render(<LessonAssessmentClient learnerId={learnerId} cards={cards} lessonName="Lektion 2" level="A1.1" lang={lang} translations={locale} />)
 }
 beforeEach(() => {
   jest.clearAllMocks()
@@ -33,7 +34,7 @@ it.each([['de', de], ['en', en], ['ru', ru], ['uk', uk], ['tr', tr]] as const)('
 it('stores an unknown word immediately, selects its lesson, and starts learning after assessment', async () => {
   renderAssessment()
   await act(async () => fireEvent.click(screen.getByRole('button', { name: /Kenne ich nicht/ })))
-  expect(submitLessonAssessment).toHaveBeenCalledWith([{ cardId: 'word-1', alreadyKnown: false }])
+  expect(submitLessonAssessment).toHaveBeenCalledWith([{ cardId: 'word-1', alreadyKnown: false }], learnerId)
   expect(loadLernkastenSelection('A1.1')).toEqual(['Lektion 2'])
   expect(screen.getByRole('heading', { name: 'lernen' })).toBeVisible()
   await act(async () => fireEvent.click(screen.getByRole('button', { name: /Kenne ich bereits/ })))
@@ -52,7 +53,93 @@ it('can skip an unfinished assessment directly to the first lesson returned by t
   jest.mocked(skipVocabularyAssessment).mockResolvedValue({ success: true, lesson: 'Lektion 1', added: 2 })
   renderAssessment()
   await act(async () => fireEvent.click(screen.getByRole('button', { name: de.vocabulary.skip_assessment })))
-  expect(skipVocabularyAssessment).toHaveBeenCalledWith('A1.1')
+  expect(skipVocabularyAssessment).toHaveBeenCalledWith('A1.1', learnerId)
   expect(mockReplace).toHaveBeenCalledWith('/de/dashboard/level/A1.1/vocabulary/train?lesson=Lektion%201')
   expect(submitLessonAssessment).not.toHaveBeenCalled()
+})
+
+function deferred<Result>() {
+  let resolve!: (result: Result) => void
+  const promise = new Promise<Result>(done => { resolve = done })
+  return { promise, resolve }
+}
+it('accepts rapid assessment clicks without save labels and navigates only after both acknowledgements', async () => {
+  const first = deferred<{ success: boolean; addedKnown: number; addedNew: number }>()
+  const last = deferred<{ success: boolean; addedKnown: number; addedNew: number }>()
+  jest.mocked(submitLessonAssessment).mockReturnValueOnce(first.promise).mockReturnValueOnce(last.promise)
+  renderAssessment()
+  fireEvent.click(screen.getByRole('button', { name: /Kenne ich nicht/ }))
+  expect(screen.getByRole('heading', { name: 'lernen' })).toBeVisible()
+  expect(screen.getByRole('button', { name: /Kenne ich bereits/ })).toBeEnabled()
+  fireEvent.click(screen.getByRole('button', { name: /Kenne ich bereits/ }))
+  expect(screen.getByText(de.vocabulary.assess_done_title)).toBeVisible()
+  expect(screen.queryByText(de.vocabulary.saving_progress)).not.toBeInTheDocument()
+  expect(screen.queryByText(de.vocabulary.assessment_auto_save)).not.toBeInTheDocument()
+  expect(submitLessonAssessment).toHaveBeenCalledTimes(1)
+  expect(mockReplace).not.toHaveBeenCalled()
+  await act(async () => first.resolve({ success: true, addedKnown: 0, addedNew: 1 }))
+  expect(submitLessonAssessment).toHaveBeenCalledTimes(2)
+  expect(mockReplace).not.toHaveBeenCalled()
+  await act(async () => last.resolve({ success: true, addedKnown: 1, addedNew: 0 }))
+  expect(mockReplace).toHaveBeenCalledTimes(1)
+})
+it('keeps all rapid assessment decisions after an early failure and retries them in order', async () => {
+  const first = deferred<{ success: boolean; addedKnown: number; addedNew: number }>()
+  jest.mocked(submitLessonAssessment).mockReturnValueOnce(first.promise)
+    .mockResolvedValueOnce({ success: true, addedKnown: 0, addedNew: 1 }).mockResolvedValueOnce({ success: true, addedKnown: 1, addedNew: 0 })
+  renderAssessment()
+  fireEvent.click(screen.getByRole('button', { name: /Kenne ich nicht/ }))
+  fireEvent.click(screen.getByRole('button', { name: /Kenne ich bereits/ }))
+  await act(async () => first.resolve({ success: false, addedKnown: 0, addedNew: 0 }))
+  expect(screen.getByRole('heading', { name: 'das Haus' })).toBeVisible()
+  expect(loadLernkastenSelection('A1.1')).toBeNull()
+  await act(async () => fireEvent.click(screen.getByRole('button', { name: de.vocabulary.error_retry })))
+  expect(jest.mocked(submitLessonAssessment).mock.calls.map(([decision]) => decision)).toEqual([
+    [{ cardId: 'word-1', alreadyKnown: false }], [{ cardId: 'word-1', alreadyKnown: false }], [{ cardId: 'word-2', alreadyKnown: true }],
+  ])
+  expect(mockReplace).toHaveBeenCalledTimes(1)
+})
+it('queues skip behind pending decisions instead of dropping them', async () => {
+  const first = deferred<{ success: boolean; addedKnown: number; addedNew: number }>()
+  jest.mocked(submitLessonAssessment).mockReturnValueOnce(first.promise)
+  jest.mocked(skipVocabularyAssessment).mockResolvedValueOnce({ success: true, lesson: 'Lektion 1', added: 1 })
+  renderAssessment()
+  fireEvent.click(screen.getByRole('button', { name: /Kenne ich nicht/ }))
+  fireEvent.click(screen.getByRole('button', { name: de.vocabulary.skip_assessment }))
+  expect(skipVocabularyAssessment).not.toHaveBeenCalled()
+  await act(async () => first.resolve({ success: true, addedKnown: 0, addedNew: 1 }))
+  expect(skipVocabularyAssessment).toHaveBeenCalledTimes(1)
+  expect(mockReplace).toHaveBeenCalledWith('/de/dashboard/level/A1.1/vocabulary/train?lesson=Lektion%201')
+})
+it('never rebinds buffered assessment choices to a different incoming learner', async () => {
+  const first = deferred<{ success: boolean; addedKnown: number; addedNew: number }>()
+  jest.mocked(submitLessonAssessment).mockReturnValueOnce(first.promise).mockResolvedValueOnce({ success: true, addedKnown: 1, addedNew: 0 })
+  const { rerender } = renderAssessment()
+  fireEvent.click(screen.getByRole('button', { name: /Kenne ich nicht/ }))
+  rerender(<LessonAssessmentClient learnerId="00000000-0000-4000-8000-000000000002" cards={cards} lessonName="Lektion 2" level="A1.1" lang="de" translations={de.vocabulary} />)
+  fireEvent.click(screen.getByRole('button', { name: /Kenne ich bereits/ }))
+  await act(async () => first.resolve({ success: true, addedKnown: 0, addedNew: 1 }))
+  expect(jest.mocked(submitLessonAssessment).mock.calls.map(([, actor]) => actor)).toEqual([learnerId, learnerId])
+})
+
+it('flushes rapid decisions and starts learning when the browser blocks the storage getter', async () => {
+  const first = deferred<{ success: boolean; addedKnown: number; addedNew: number }>()
+  jest.mocked(submitLessonAssessment).mockReturnValueOnce(first.promise)
+  const storage = jest.spyOn(window, 'localStorage', 'get').mockImplementation(() => {
+    throw new DOMException('Storage is blocked', 'SecurityError')
+  })
+  try {
+    renderAssessment()
+    fireEvent.click(screen.getByRole('button', { name: /Kenne ich nicht/ }))
+    fireEvent.click(screen.getByRole('button', { name: /Kenne ich bereits/ }))
+    await act(async () => first.resolve({ success: true, addedKnown: 0, addedNew: 1 }))
+    expect(jest.mocked(submitLessonAssessment).mock.calls.map(([decision]) => decision)).toEqual([
+      [{ cardId: 'word-1', alreadyKnown: false }], [{ cardId: 'word-2', alreadyKnown: true }],
+    ])
+    expect(mockReplace).toHaveBeenCalledTimes(1)
+    expect(mockReplace).toHaveBeenCalledWith('/de/dashboard/level/A1.1/vocabulary/train?lesson=Lektion%202')
+    expect(screen.queryByText(de.vocabulary.assess_save_failed)).not.toBeInTheDocument()
+  } finally {
+    storage.mockRestore()
+  }
 })

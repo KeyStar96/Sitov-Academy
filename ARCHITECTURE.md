@@ -1,5 +1,14 @@
 # Architecture Masterplan
 
+## Ergänzung 2026-09-10: stille Writes und Neural-MP3
+
+`lib/vocabulary-write-queue.ts` serialisiert optimistische Entscheidungen. Ein stabiler Request-Beleg in `vocabulary_private.answer_receipts` verhindert erneute Bewertung nach verlorener HTTP-Antwort. `expectedLearnerId` bindet gepufferte Aufrufe an den beim Mount authentifizierten Schüler. PostgreSQL bewertet Sätze weiterhin exakt; `lib/vocabulary-languages.ts` wählt eine ausschließlich fremdsprachige Quelle.
+
+`SolutionAudioButton` besitzt ein natives HTMLAudioElement pro Text/Karte. Es lädt sichtbare Kopfwortaudios vor, dedupliziert laufende Anfragen und pausiert vorherige Player. `generateAudio` → Auth/Level/Input/Rateprüfung → `neural-cache` → begrenzter `edge-tts`-WebSocket-Adapter → immutable `audio_cache`. Service Role bleibt serverseitig. Stimmen/Format/Tempo fließen in den SHA-256-Dateinamen ein; Übersetzungen überschreiben nie die kanonische deutsche `vocabulary_cards.audio_url`. Keine Browser-Sprachausgabe und kein Python-Subprozess.
+
+`THEME_BOOTSTRAP_SCRIPT` setzt die Academy-Themevariablen vor Paint. `RouteFeedbackProvider` liefert lokalisierte Boundary- und Audio-Texte; Skeletons, Karten und Overlays beziehen dieselben Surface-/Border-/Text-Tokens.
+
+
 > **Aktueller Stand (2026-09-10):** Die folgenden Änderungen ersetzen ältere Einstufungs-, Layout- und Buchungstabellen-Beschreibungen. Gemeinsame Marken-Komponenten (`BrandLogo`, Header, `Academy*`) und Farbvariablen verbinden Marketing und Lernbereich; Admin bleibt eine kompakte Arbeitsoberfläche. Next.js 16 läuft mit kompatiblem React 19 / React Three Fiber 9.
 
 ### Darstellungsarchitektur: Feinschliff am 10. September 2026

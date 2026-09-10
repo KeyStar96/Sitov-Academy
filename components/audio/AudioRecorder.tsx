@@ -107,29 +107,29 @@ export default function AudioRecorder({
 
   return (
     <div
-      className={`rounded-3xl border border-slate-200 bg-white text-center shadow-md transition-colors dark:border-slate-800 dark:bg-slate-900 ${
+      className={`min-w-0 break-words rounded-3xl border border-[var(--border)] bg-[var(--surface)] text-center text-[var(--foreground)] shadow-sm transition-colors ${
         compact ? 'p-5 shadow-none' : 'p-5 sm:p-8'
       }`}
     >
       {!compact && (
         <>
-          <h2 className="mb-4 text-2xl font-bold text-slate-900 dark:text-slate-100">
+          <h2 className="mb-4 text-2xl font-bold text-[var(--foreground)]">
             {t('record_title')}
           </h2>
-          <p className="mb-8 text-lg text-slate-600 dark:text-slate-400">{t('record_hint')}</p>
+          <p className="mb-8 text-lg text-[var(--muted)]">{t('record_hint')}</p>
         </>
       )}
 
       {(recorder.isRecording || recorder.hasRecording) && (
-        <div className="mb-6 bg-slate-50 dark:bg-slate-800/50 p-5 rounded-2xl border border-slate-100 dark:border-slate-800 text-left">
+        <div className="mb-6 bg-[var(--surface-muted)] p-3 sm:p-5 rounded-2xl border border-[var(--border)] text-left">
           {recorder.isRecording ? (
             <div className="mb-3">
-              <div className="flex items-center justify-between mb-3">
-                <span className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+              <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
+                <span className="text-xs font-bold uppercase tracking-wider text-[var(--muted)]">
                   {t('your_recording')}
                 </span>
-                <span className="flex items-center gap-2 text-xs font-bold text-[#FF5C00] bg-orange-50 dark:bg-orange-900/20 px-2 py-1 rounded">
-                  <span className="h-2 w-2 bg-[#FF5C00] rounded-full animate-pulse"></span>
+                <span className="flex items-center gap-2 text-xs font-bold text-[var(--accent)] bg-[color-mix(in_srgb,var(--accent)_10%,var(--surface))] px-2 py-1 rounded">
+                  <span className="h-2 w-2 bg-[var(--accent)] rounded-full animate-pulse"></span>
                   {t('recording_running')}
                 </span>
               </div>
@@ -143,7 +143,7 @@ export default function AudioRecorder({
             </div>
           ) : (
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
-              <div className="flex-1 w-full">
+              <div className="min-w-0 flex-1 w-full">
                 <WaveformPlayer
                   src={recorder.audioUrl}
                   blob={recorder.audioBlob}
@@ -158,7 +158,7 @@ export default function AudioRecorder({
                   onClick={recorder.reset}
                   disabled={isUploading}
                   aria-label={t('delete_recording_aria')}
-                  className="mt-4 sm:mt-0 p-3 text-slate-400 hover:text-red-500 bg-white dark:bg-slate-900 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-xl transition-colors border border-slate-200 dark:border-slate-700 hover:border-red-200 dark:hover:border-red-800 disabled:opacity-50 shrink-0 w-full sm:w-auto flex justify-center"
+                  className="mt-4 flex min-h-[48px] min-w-[48px] w-full shrink-0 items-center justify-center rounded-xl border border-[var(--border)] bg-[var(--surface)] p-3 text-[var(--muted)] transition-colors hover:border-[var(--danger)] hover:bg-[color-mix(in_srgb,var(--danger)_8%,var(--surface))] hover:text-[var(--danger)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] disabled:opacity-50 sm:mt-0 sm:w-auto"
                 >
                   <Trash2 size={24} aria-hidden="true" />
                 </button>
@@ -170,7 +170,7 @@ export default function AudioRecorder({
 
       {statusMessage && (
         <p
-          className="mx-auto mb-6 flex max-w-xl items-start gap-3 rounded-2xl bg-amber-50 p-4 text-left text-lg text-amber-900 dark:bg-amber-950/40 dark:text-amber-200"
+          className="mx-auto mb-6 flex max-w-xl items-start gap-3 rounded-2xl border border-[var(--border)] bg-[var(--surface-muted)] p-4 text-left text-lg text-[var(--danger)]"
           role="status"
         >
           <TriangleAlert size={24} className="mt-0.5 shrink-0" aria-hidden="true" />
@@ -183,7 +183,7 @@ export default function AudioRecorder({
           <button
             type="button"
             onClick={recorder.stop}
-            className="flex min-h-[56px] w-full items-center justify-center gap-3 rounded-2xl bg-slate-900 px-8 text-xl font-bold text-white shadow-lg transition-colors hover:bg-slate-800 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#FF5C00] sm:w-auto dark:bg-slate-700 dark:hover:bg-slate-600"
+            className="flex min-h-[56px] w-full items-center justify-center gap-3 rounded-2xl border border-[var(--border)] bg-[var(--surface-muted)] px-5 py-3 text-lg font-semibold text-[var(--foreground)] shadow-sm transition-colors hover:bg-[var(--surface)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] sm:w-auto"
           >
             <Square size={26} aria-hidden="true" /> {t('stop_recording')}
           </button>
@@ -193,7 +193,7 @@ export default function AudioRecorder({
               type="button"
               onClick={handleStart}
               disabled={recorder.status === 'requesting' || isUploading}
-              className="flex min-h-[56px] w-full items-center justify-center gap-3 rounded-2xl bg-[#FF5C00] px-8 text-xl font-bold text-white shadow-lg transition-colors hover:bg-[#e05200] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-slate-900 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
+              className="flex min-h-[56px] w-full items-center justify-center gap-3 rounded-2xl bg-[var(--accent)] px-5 py-3 text-lg font-semibold text-[var(--accent-foreground)] shadow-sm transition-colors hover:brightness-95 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
             >
               {recorder.status === 'requesting' ? (
                 <Loader2 size={26} className="animate-spin" aria-hidden="true" />
@@ -207,15 +207,15 @@ export default function AudioRecorder({
       </div>
 
       {recorder.hasRecording && (
-        <div className="mt-6 border-t border-slate-200 pt-6 dark:border-slate-800">
+        <div className="mt-6 border-t border-[var(--border)] pt-6">
           {isSubmitted ? (
-            <div className="mx-auto inline-flex max-w-xl items-center gap-4 rounded-2xl border border-emerald-200 bg-emerald-50 p-6 text-left dark:border-emerald-800 dark:bg-emerald-950/50">
-              <CheckCircle2 className="h-8 w-8 shrink-0 text-emerald-600 dark:text-emerald-400" aria-hidden="true" />
+            <div className="mx-auto inline-flex max-w-xl items-center gap-4 rounded-2xl border border-[var(--border)] bg-[color-mix(in_srgb,var(--success)_10%,var(--surface))] p-4 text-left sm:p-6">
+              <CheckCircle2 className="h-8 w-8 shrink-0 text-[var(--success)]" aria-hidden="true" />
               <div>
-                <p className="text-xl font-bold text-emerald-800 dark:text-emerald-300">
+                <p className="text-xl font-bold text-[var(--success)]">
                   {t('submitted')}
                 </p>
-                <p className="mt-1 text-lg text-emerald-800/80 dark:text-emerald-300/80">
+                <p className="mt-1 text-lg text-[var(--success)]">
                   {t('submitted_hint')}
                 </p>
               </div>
@@ -225,7 +225,7 @@ export default function AudioRecorder({
               type="button"
               onClick={handleSubmit}
               disabled={isUploading}
-              className="mx-auto flex min-h-16 w-full items-center justify-center gap-3 rounded-2xl bg-emerald-600 px-10 text-xl font-bold text-white shadow-lg transition-colors hover:bg-emerald-500 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-slate-900 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
+              className="mx-auto flex min-h-16 w-full items-center justify-center gap-3 rounded-2xl bg-[var(--accent)] px-5 py-3 text-lg font-semibold text-[var(--accent-foreground)] shadow-sm transition-colors hover:brightness-95 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
             >
               {isUploading ? (
                 <Loader2 className="animate-spin" size={28} aria-hidden="true" />

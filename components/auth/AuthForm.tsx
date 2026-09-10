@@ -14,8 +14,7 @@ import { Loader2 } from 'lucide-react'
  * Geragogik-Maße: Beschriftungen 18px, Eingabefelder und Schaltflächen
  * mindestens 56px hoch, sichtbarer Fokusrahmen, keine Zeitbegrenzung.
  *
- * Der Ladezustand liegt in lokalem State und nicht in `useFormStatus`: Das
- * Projekt läuft auf React 18.3, dort ist der Hook noch nicht verfügbar.
+ * Der lokale Submit-State sperrt wiederholte Einsendungen sofort.
  */
 
 export interface AuthFormOption {
@@ -35,7 +34,7 @@ export interface AuthFormField {
 }
 
 const FIELD_CLASSES =
-  'block min-h-14 w-full rounded-2xl border-2 border-slate-300 bg-white px-4 py-3 text-lg text-slate-900 placeholder:text-slate-400 focus:border-[#FF5C00] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#FF5C00] dark:border-slate-600 dark:bg-slate-800 dark:text-slate-100 dark:placeholder:text-slate-500'
+  'block min-h-14 w-full rounded-2xl border-2 border-[var(--border)] bg-[var(--surface)] px-4 py-3 text-lg text-[var(--foreground)] placeholder:text-[var(--muted)] focus:border-[var(--violet)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)]    '
 
 export default function AuthForm({
   action,
@@ -78,7 +77,7 @@ export default function AuthForm({
           <div key={field.name} className="space-y-2">
             <label
               htmlFor={field.name}
-              className="block text-lg font-semibold text-slate-900 dark:text-slate-100"
+              className="block text-lg font-semibold text-[var(--foreground)]"
             >
               {field.label}
             </label>
@@ -116,7 +115,7 @@ export default function AuthForm({
             )}
 
             {field.hint && (
-              <p id={hintId} className="text-base text-slate-600 dark:text-slate-400">
+              <p id={hintId} className="text-base text-[var(--muted)]">
                 {field.hint}
               </p>
             )}
@@ -128,7 +127,7 @@ export default function AuthForm({
         type="submit"
         disabled={isPending}
         aria-busy={isPending}
-        className="flex min-h-14 w-full items-center justify-center gap-3 rounded-2xl bg-[#FF5C00] px-6 text-xl font-bold text-white shadow-md transition-colors hover:bg-[#e05200] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-slate-900 disabled:cursor-not-allowed disabled:opacity-80 dark:focus-visible:outline-white"
+        className="flex min-h-14 w-full items-center justify-center gap-3 rounded-2xl bg-[var(--accent)] px-6 text-xl font-bold text-[var(--accent-foreground)] shadow-md transition-colors hover:opacity-90 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)] disabled:cursor-not-allowed disabled:opacity-80"
       >
         {isPending && <Loader2 size={24} className="animate-spin" aria-hidden="true" />}
         {isPending ? pendingLabel : submitLabel}

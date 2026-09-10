@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { Sun, Moon } from "lucide-react";
+import { applyTheme } from "@/lib/theme";
 
 export default function ThemeToggle({
   lightLabel,
@@ -23,9 +24,8 @@ export default function ThemeToggle({
   const toggleTheme = () => {
     if (isDark === null) return;
     const newTheme = !isDark;
-    document.documentElement.classList.toggle("dark", newTheme);
+    applyTheme(newTheme ? "dark" : "light");
     try { localStorage.setItem("theme", newTheme ? "dark" : "light"); } catch { /* The selected theme remains active in this tab. */ }
-    window.dispatchEvent(new Event("storage"));
   };
 
   if (isDark === null) {

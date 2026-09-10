@@ -13,6 +13,7 @@ import VocabCardSession from './VocabCardSession'
 import LessonCardsModal from './LessonCardsModal'
 
 interface Props {
+  learnerId: string | null
   initialCards: DueVocabularyCard[]
   lessonStats: LessonStat[]
   translations?: VocabularyTranslations
@@ -22,7 +23,7 @@ interface Props {
   initialPreviousCardId?: string | null
 }
 
-export default function VocabTrainerPageClient({ initialCards, lessonStats, translations = {}, lang, level, initialDeferredCount = 0, initialPreviousCardId = null }: Props) {
+export default function VocabTrainerPageClient({ learnerId, initialCards, lessonStats, translations = {}, lang, level, initialDeferredCount = 0, initialPreviousCardId = null }: Props) {
   const router = useRouter()
   const [refreshing, startRefresh] = useTransition()
   const t = useMemo(() => createVocabularyTranslator(translations), [translations])
@@ -57,13 +58,13 @@ export default function VocabTrainerPageClient({ initialCards, lessonStats, tran
     else setSelection([...selection, lesson.lesson])
   }
   async function initialize() {
-    if (!onboarding || pending) return
+    if (!learnerId || !onboarding || pending) return
     setPending(true)
     setError(false)
     const lesson = onboarding
     setSelection(previous => [...new Set([...previous, lesson])])
     try {
-      const result = await initializeLesson(lesson, level)
+      const result = await initializeLesson(lesson, level, learnerId ?? undefined)
       if (!result.success) throw new Error('lesson_init_failed')
       router.push(`${overview}/train?lesson=${encodeURIComponent(lesson)}`)
     } catch {
@@ -72,7 +73,7 @@ export default function VocabTrainerPageClient({ initialCards, lessonStats, tran
     } finally { setPending(false) }
   }
 
-  if (session) return <VocabCardSession cards={session} translations={translations} uiLanguage={lang} previousCardId={previousCardId} initialDeferredCount={initialDeferredCount} overviewHref={overview}
+  if (session) return <VocabCardSession key={learnerId} learnerId={learnerId} cards={session} translations={translations} uiLanguage={lang} previousCardId={previousCardId} initialDeferredCount={initialDeferredCount} overviewHref={overview}
     onBackToLernkasten={lastId => { setPreviousCardId(lastId); setSession(null); startRefresh(() => router.refresh()) }} />
 
   return <div className="mx-auto w-full max-w-5xl space-y-8 text-[var(--foreground)]">
@@ -86,7 +87,7 @@ export default function VocabTrainerPageClient({ initialCards, lessonStats, tran
       <div className="flex flex-wrap items-center justify-between gap-5">
         <div><p className="text-sm text-[var(--muted)]">{t('due_now')}</p><p className="mt-1 text-5xl font-semibold tracking-tighter tabular-nums">{selectedCards.length}</p></div>
         <button type="button" disabled={!ready || refreshing || selectedCards.length === 0} onClick={() => setSession(selectedCards)}
-          className="flex min-h-14 w-full items-center justify-center gap-3 rounded-2xl bg-[var(--accent)] px-6 py-3 font-semibold text-white disabled:opacity-50 sm:w-auto dark:text-[#23150e]">
+          className="flex min-h-14 w-full items-center justify-center gap-3 rounded-2xl bg-[var(--accent)] px-6 py-3 font-semibold text-[var(--accent-foreground)] disabled:opacity-50 sm:w-auto">
           {t('lernkasten_start')}<ArrowRight size={18} aria-hidden="true" />
         </button>
       </div>
@@ -113,10 +114,10 @@ export default function VocabTrainerPageClient({ initialCards, lessonStats, tran
       </div>
       {lessonStats.length === 0 && <p className="py-10 text-[var(--muted)]">{t('no_sets')}</p>}
     </section>
-    {onboarding && <dialog ref={onboardingDialog} onCancel={event => { event.preventDefault(); if (!pending) setOnboarding(null) }} aria-labelledby="onboarding-title" className="w-[calc(100%_-_2rem)] max-w-md rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-6 text-[var(--foreground)] backdrop:bg-black/50">
+    {onboarding && <dialog ref={onboardingDialog} onCancel={event => { event.preventDefault(); if (!pending) setOnboarding(null) }} aria-labelledby="onboarding-title" className="w-[calc(100%_-_2rem)] max-h-[calc(100dvh_-_2rem)] overflow-y-auto overscroll-contain max-w-md rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-4 sm:p-6 text-[var(--foreground)] backdrop:bg-black/50">
         <h2 id="onboarding-title" className="text-2xl font-semibold">{t('onboarding_choice_title')}</h2><p className="mt-3 text-[var(--muted)]">{t('onboarding_choice_hint')}</p>
         <div className="mt-6 flex flex-col gap-3">
-          <button type="button" disabled={pending} onClick={() => router.push(`${overview}/assess?lesson=${encodeURIComponent(onboarding)}`)} className="flex min-h-12 items-center justify-center rounded-xl bg-[var(--accent)] p-3 text-center font-semibold text-white disabled:opacity-60 dark:text-[#23150e]">{t('assess_set')}</button>
+          <button type="button" disabled={pending} onClick={() => router.push(`${overview}/assess?lesson=${encodeURIComponent(onboarding)}`)} className="flex min-h-12 items-center justify-center rounded-xl bg-[var(--accent)] p-3 text-center font-semibold text-[var(--accent-foreground)] disabled:opacity-60">{t('assess_set')}</button>
           <button type="button" onClick={() => void initialize()} disabled={pending} className="min-h-12 rounded-xl border border-[var(--border)] p-3 font-semibold">{t('start_all_words')}</button>
           <button type="button" onClick={() => setOnboarding(null)} disabled={pending} className="min-h-11 rounded-xl p-2 text-sm">{t('cancel_selection')}</button>
         </div>
