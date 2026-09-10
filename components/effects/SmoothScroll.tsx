@@ -1,5 +1,6 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { ReactLenis } from "lenis/react";
 import { ReactNode, useMemo, useEffect, useState } from "react";
 
@@ -43,6 +44,7 @@ const isMacOS = (): boolean => {
 };
 
 export default function SmoothScroll({ children }: { children: ReactNode }) {
+  const pathname = usePathname();
   const [mounted, setMounted] = useState(false);
   const [useNativeScroll, setUseNativeScroll] = useState(false);
 
@@ -53,7 +55,7 @@ export default function SmoothScroll({ children }: { children: ReactNode }) {
       // Touch-Geräte, Mobile OS oder kleine Screens (< 1024px) → Natives Scrolling
       const isSmallScreen = window.innerWidth < 1024;
 
-      if (isTouchDevice() || isMobileOS() || isSmallScreen) {
+      if (isTouchDevice() || isMobileOS() || isMacOS() || isSmallScreen || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
         setUseNativeScroll(true);
       } else {
         setUseNativeScroll(false);
@@ -99,7 +101,7 @@ export default function SmoothScroll({ children }: { children: ReactNode }) {
   }
 
   // Touch/Mobile: Natives Scrolling - kein Lenis
-  if (useNativeScroll) {
+  if (useNativeScroll || pathname.includes("/dashboard") || pathname.includes("/admin")) {
     return <>{children}</>;
   }
 

@@ -193,25 +193,25 @@ export type Database = {
       }
       monthly_course_bookings: {
         Row: {
-          id: string
-          user_id: string
-          target_month: string
           course_ids: string[]
+          id: string
           status: string
+          target_month: string
+          user_id: string
         }
         Insert: {
-          id?: string
-          user_id?: string
-          target_month: string
           course_ids: string[]
+          id?: string
           status?: string
+          target_month: string
+          user_id?: string
         }
         Update: {
-          id?: string
-          user_id?: string
-          target_month?: string
           course_ids?: string[]
+          id?: string
           status?: string
+          target_month?: string
+          user_id?: string
         }
         Relationships: [
           {
@@ -223,110 +223,73 @@ export type Database = {
           },
         ]
       }
-      teacher_student_notes: {
-        Row: {
-          id: string
-          student_id: string
-          teacher_id: string
-          note_text: string
-          discount_percent: number
-        }
-        Insert: {
-          id?: string
-          student_id: string
-          teacher_id?: string
-          note_text: string
-          discount_percent?: number
-        }
-        Update: {
-          id?: string
-          student_id?: string
-          teacher_id?: string
-          note_text?: string
-          discount_percent?: number
-        }
-        Relationships: [
-          {
-            foreignKeyName: "teacher_student_notes_student_id_fkey"
-            columns: ["student_id"]
-            isOneToOne: false
-            referencedRelation: "profiles"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "teacher_student_notes_teacher_id_fkey"
-            columns: ["teacher_id"]
-            isOneToOne: false
-            referencedRelation: "profiles"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
       profiles: {
         Row: {
-          legacy_user_id: string | null
-          phone: string | null
-          street: string | null
-          zip_code: string | null
-          city: string | null
           allowed_levels: string[]
+          city: string | null
           created_at: string | null
           email: string
           id: string
+          legacy_user_id: string | null
           name: string | null
           native_language: string | null
+          phone: string | null
           role: string | null
+          street: string | null
           stripe_customer_id: string | null
           stripe_subscription_id: string | null
           subscription_status: string | null
           ui_language: string
           updated_at: string | null
+          zip_code: string | null
         }
         Insert: {
-          legacy_user_id?: string | null
-          phone?: string | null
-          street?: string | null
-          zip_code?: string | null
-          city?: string | null
           allowed_levels?: string[]
+          city?: string | null
           created_at?: string | null
           email: string
           id: string
+          legacy_user_id?: string | null
           name?: string | null
           native_language?: string | null
+          phone?: string | null
           role?: string | null
+          street?: string | null
           stripe_customer_id?: string | null
           stripe_subscription_id?: string | null
           subscription_status?: string | null
           ui_language?: string
           updated_at?: string | null
+          zip_code?: string | null
         }
         Update: {
-          legacy_user_id?: string | null
-          phone?: string | null
-          street?: string | null
-          zip_code?: string | null
-          city?: string | null
           allowed_levels?: string[]
+          city?: string | null
           created_at?: string | null
           email?: string
           id?: string
+          legacy_user_id?: string | null
           name?: string | null
           native_language?: string | null
+          phone?: string | null
           role?: string | null
+          street?: string | null
           stripe_customer_id?: string | null
           stripe_subscription_id?: string | null
           subscription_status?: string | null
           ui_language?: string
           updated_at?: string | null
+          zip_code?: string | null
         }
-        Relationships: [{
-          foreignKeyName: "profiles_legacy_user_id_fkey"
-          columns: ["legacy_user_id"]
-          isOneToOne: false
-          referencedRelation: "users"
-          referencedColumns: ["id"]
-        }]
+        Relationships: [
+          {
+            foreignKeyName: "profiles_legacy_user_id_fkey"
+            columns: ["legacy_user_id"]
+            isOneToOne: false
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       pronunciation_prompts: {
         Row: {
@@ -509,6 +472,45 @@ export type Database = {
           },
           {
             foreignKeyName: "teacher_feedback_teacher_id_fkey"
+            columns: ["teacher_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      teacher_student_notes: {
+        Row: {
+          discount_percent: number
+          id: string
+          note_text: string
+          student_id: string
+          teacher_id: string
+        }
+        Insert: {
+          discount_percent?: number
+          id?: string
+          note_text: string
+          student_id: string
+          teacher_id?: string
+        }
+        Update: {
+          discount_percent?: number
+          id?: string
+          note_text?: string
+          student_id?: string
+          teacher_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "teacher_student_notes_student_id_fkey"
+            columns: ["student_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "teacher_student_notes_teacher_id_fkey"
             columns: ["teacher_id"]
             isOneToOne: false
             referencedRelation: "profiles"
@@ -762,6 +764,11 @@ export type Database = {
         Row: {
           article: string | null
           audio_url: string | null
+          context_sentence_de: string | null
+          context_sentence_en: string | null
+          context_sentence_ru: string | null
+          context_sentence_tr: string | null
+          context_sentence_uk: string | null
           created_at: string | null
           id: string
           image_url: string | null
@@ -770,14 +777,21 @@ export type Database = {
           lesson: string
           level: string
           plural: string | null
+          sentence_practice: boolean
           translation_en: string | null
           translation_ru: string | null
           translation_tr: string | null
+          translation_uk: string | null
           word_de: string
         }
         Insert: {
           article?: string | null
           audio_url?: string | null
+          context_sentence_de?: string | null
+          context_sentence_en?: string | null
+          context_sentence_ru?: string | null
+          context_sentence_tr?: string | null
+          context_sentence_uk?: string | null
           created_at?: string | null
           id?: string
           image_url?: string | null
@@ -786,14 +800,21 @@ export type Database = {
           lesson: string
           level?: string
           plural?: string | null
+          sentence_practice?: boolean
           translation_en?: string | null
           translation_ru?: string | null
           translation_tr?: string | null
+          translation_uk?: string | null
           word_de: string
         }
         Update: {
           article?: string | null
           audio_url?: string | null
+          context_sentence_de?: string | null
+          context_sentence_en?: string | null
+          context_sentence_ru?: string | null
+          context_sentence_tr?: string | null
+          context_sentence_uk?: string | null
           created_at?: string | null
           id?: string
           image_url?: string | null
@@ -802,32 +823,176 @@ export type Database = {
           lesson?: string
           level?: string
           plural?: string | null
+          sentence_practice?: boolean
           translation_en?: string | null
           translation_ru?: string | null
           translation_tr?: string | null
+          translation_uk?: string | null
           word_de?: string
         }
         Relationships: []
+      }
+      vocabulary_direction_progress: {
+        Row: {
+          box_number: number | null
+          card_id: string
+          created_at: string | null
+          direction: string
+          id: string
+          lapses: number
+          last_answered_at: string | null
+          next_review_date: string | null
+          updated_at: string | null
+          user_id: string
+        }
+        Insert: {
+          box_number?: number | null
+          card_id: string
+          created_at?: string | null
+          direction: string
+          id?: string
+          lapses?: number
+          last_answered_at?: string | null
+          next_review_date?: string | null
+          updated_at?: string | null
+          user_id: string
+        }
+        Update: {
+          box_number?: number | null
+          card_id?: string
+          created_at?: string | null
+          direction?: string
+          id?: string
+          lapses?: number
+          last_answered_at?: string | null
+          next_review_date?: string | null
+          updated_at?: string | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "vocabulary_direction_progress_card_id_fkey"
+            columns: ["card_id"]
+            isOneToOne: false
+            referencedRelation: "vocabulary_cards"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "vocabulary_direction_progress_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      vocabulary_learning_state: {
+        Row: {
+          last_card_id: string | null
+          last_reviewed_at: string | null
+          user_id: string
+        }
+        Insert: {
+          last_card_id?: string | null
+          last_reviewed_at?: string | null
+          user_id: string
+        }
+        Update: {
+          last_card_id?: string | null
+          last_reviewed_at?: string | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "vocabulary_learning_state_last_card_id_fkey"
+            columns: ["last_card_id"]
+            isOneToOne: false
+            referencedRelation: "vocabulary_cards"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "vocabulary_learning_state_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: true
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      vocabulary_onboarding: {
+        Row: {
+          level: string
+          started_lesson: string
+          status: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          level: string
+          started_lesson: string
+          status: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          level?: string
+          started_lesson?: string
+          status?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "vocabulary_onboarding_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
       }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
+      initialize_vocabulary_cards: {
+        Args: { p_decisions: Json }
+        Returns: Json
+      }
+      mark_feedback_seen: { Args: { p_submission_id: string }; Returns: number }
       save_next_month_booking: {
         Args: {
-          p_target_month: string
           p_course_ids: string[]
+          p_expected_course_ids?: string[]
+          p_expected_id?: string
+          p_expected_status?: string
           p_paused: boolean
-          p_expected_id?: string | null
-          p_expected_course_ids?: string[] | null
-          p_expected_status?: string | null
+          p_target_month: string
         }
-        Returns: Database["public"]["Tables"]["monthly_course_bookings"]["Row"][]
+        Returns: {
+          course_ids: string[]
+          id: string
+          status: string
+          target_month: string
+          user_id: string
+        }
+        SetofOptions: {
+          from: "*"
+          to: "monthly_course_bookings"
+          isOneToOne: true
+          isSetofReturn: false
+        }
       }
-      mark_feedback_seen: {
-        Args: { p_submission_id: string }
-        Returns: number
+      skip_vocabulary_assessment: { Args: { p_level: string }; Returns: Json }
+      submit_vocabulary_answer: {
+        Args: {
+          p_is_correct?: boolean
+          p_progress_id: string
+          p_typed_answer?: string
+          p_ui_language?: string
+        }
+        Returns: Json
       }
     }
     Enums: {

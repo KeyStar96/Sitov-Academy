@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { updateStudentRole, updateStudentAllowedLevels } from '@/app/actions/admin'
 import { ACCESS_LEVELS } from '@/lib/access/levels'
 import { Loader2 } from 'lucide-react'
@@ -32,77 +32,95 @@ export default function StudentList({
   const [message, setMessage] = useState<string | null>(null)
   const [hasError, setHasError] = useState(false)
   const [selectedId, setSelectedId] = useState<string | null>(null)
+  const mutationLock = useRef(false)
+  const [search, setSearch] = useState('')
+  const [visibleProgress, setVisibleProgress] = useState(progressData)
+  const filteredStudents = students.filter(student => `${student.name ?? ''} ${student.email}`.toLocaleLowerCase(lang).includes(search.toLocaleLowerCase(lang).trim()))
   const selected = students.find(student => student.id === selectedId) ?? null
 
   const handleRoleChange = async (id: string, newRole: string) => {
+    if (mutationLock.current) return
     if (id === currentUserId && newRole === 'student') {
       setHasError(true)
       setMessage(t('role_self_denied'))
       return
     }
+    mutationLock.current = true
+    const previous = students
+    setStudents(current => current.map(student => student.id === id ? { ...student, role: newRole } : student))
     setLoadingId(id)
-    const res = await updateStudentRole(id, newRole)
-    if (res.success === true) {
-      setStudents(students.map(student => student.id === id ? { ...student, role: newRole } : student))
+    try {
+      const result = await updateStudentRole(id, newRole)
+      if (result.success !== true) throw new Error('role_change_failed')
       setHasError(false)
       setMessage(null)
-    } else {
+    } catch {
+      setStudents(previous)
       setHasError(true)
       setMessage(t('role_change_failed'))
-    }
-    setLoadingId(null)
+    } finally { mutationLock.current = false; setLoadingId(null) }
   }
 
   const handleLevelToggle = async (id: string, level: string) => {
+    if (mutationLock.current) return
     const student = students.find(item => item.id === id)
     if (!student) return
+    mutationLock.current = true
+    const previous = students
     const current = student.allowed_levels ?? []
     const nextLevels = current.includes(level) ? current.filter(item => item !== level) : [...current, level]
+    setStudents(rows => rows.map(item => item.id === id ? { ...item, allowed_levels: nextLevels } : item))
     setLoadingId(id)
-    const res = await updateStudentAllowedLevels(id, nextLevels)
-    if (res.success) {
-      setStudents(students.map(item => item.id === id ? { ...item, allowed_levels: res.allowedLevels ?? nextLevels } : item))
+    try {
+      const result = await updateStudentAllowedLevels(id, nextLevels)
+      if (result.success !== true) throw new Error('levels_save_failed')
+      setStudents(rows => rows.map(item => item.id === id ? { ...item, allowed_levels: result.allowedLevels ?? nextLevels } : item))
       setHasError(false)
       setMessage(null)
-    } else {
+    } catch {
+      setStudents(previous)
       setHasError(true)
       setMessage(t('levels_save_failed'))
-    }
-    setLoadingId(null)
+    } finally { mutationLock.current = false; setLoadingId(null) }
   }
 
   const handleResetProgress = async (id: string, level: string) => {
-    if (!confirm(t('reset_confirm', { level }))) return
+    if (mutationLock.current || !confirm(t('reset_confirm', { level }))) return
+    mutationLock.current = true
+    const previous = visibleProgress
+    setVisibleProgress(current => ({ ...current, [id]: { ...current[id], [level]: 0 } }))
     setLoadingId(id)
-    const { resetStudentProgress } = await import('@/app/actions/admin')
-    const res = await resetStudentProgress(id, level)
-    if (res.success) {
+    try {
+      const { resetStudentProgress } = await import('@/app/actions/admin')
+      const result = await resetStudentProgress(id, level)
+      if (result.success !== true) throw new Error('reset_failed')
       setHasError(false)
       setMessage(t('reset_success', { level }))
-    } else {
+    } catch {
+      setVisibleProgress(previous)
       setHasError(true)
       setMessage(t('reset_failed'))
-    }
-    setLoadingId(null)
+    } finally { mutationLock.current = false; setLoadingId(null) }
   }
 
   return (
-    <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900">
+    <div className="min-w-0 overflow-hidden rounded-lg border border-[var(--border)] bg-[var(--surface)]">
+      <div className="border-b border-[var(--border)] p-3"><label className="block text-sm font-medium text-[var(--foreground)]"><span className="mb-1.5 block">{t('grid_search_label')}</span><input type="search" value={search} onChange={event => setSearch(event.target.value)} placeholder={t('grid_search_placeholder')} className="min-h-11 w-full rounded-md border border-[var(--border)] bg-[var(--surface)] px-3" /></label><p className="mt-2 text-xs text-[var(--muted)]" role="status">{t('grid_result_count', { count: filteredStudents.length, total: students.length })}</p></div>
       <div className={`min-h-6 px-4 pt-4 text-sm ${hasError ? 'text-red-700 dark:text-red-300' : 'text-emerald-800 dark:text-emerald-300'}`} role={hasError ? 'alert' : 'status'} aria-live={hasError ? 'assertive' : 'polite'}>
         {message}
       </div>
-      <div className="space-y-4 p-4 lg:hidden">
-        {students.map(student => {
+      <div className="space-y-3 p-3 lg:hidden">
+        {filteredStudents.map(student => {
           const name = student.name || t('unknown_name')
           const board = getBoard(student.id)
           const notePreview = displayBlackboardNote(board.noteText)
           return (
-            <article key={student.id} className="rounded-2xl border border-slate-200 p-4 dark:border-slate-700">
+            <article key={student.id} className="rounded-lg border border-slate-200 p-3 dark:border-slate-700">
               <button
                 type="button"
                 onClick={() => setSelectedId(student.id)}
                 aria-label={t('open_details_aria', { name })}
-                className="min-h-12 w-full rounded-xl text-left focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#FF5C00]"
+                className="min-h-11 w-full rounded-md text-left focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#FF5C00]"
               >
                 <p className="font-bold text-slate-900 dark:text-white">{name}</p>
                 <p className="break-words text-sm text-slate-500">{student.email}</p>
@@ -122,7 +140,7 @@ export default function StudentList({
                 currentUserRole={currentUserRole}
                 loadingId={loadingId}
                 resetLevel={resetLevel[student.id] || 'A1.1'}
-                progressData={progressData[student.id] || {}}
+                progressData={visibleProgress[student.id] || {}}
                 onRoleChange={handleRoleChange}
                 onLevelToggle={handleLevelToggle}
                 onResetLevelChange={level => setResetLevel({ ...resetLevel, [student.id]: level })}
@@ -132,56 +150,56 @@ export default function StudentList({
             </article>
           )
         })}
-        {students.length === 0 && <p className="p-6 text-center text-slate-500">{t('empty_students')}</p>}
+        {filteredStudents.length === 0 && <p className="p-6 text-center text-slate-500">{t('empty_students')}</p>}
       </div>
       <div className="hidden overflow-x-auto lg:block">
         <table className="w-full border-collapse text-left">
           <thead>
             <tr className="bg-slate-50 text-sm text-slate-500 dark:bg-slate-800/50 dark:text-slate-400">
-              <th className="border-b border-slate-200 p-4 font-bold dark:border-slate-800">{t('col_name_email')}</th>
-              <th className="border-b border-slate-200 p-4 font-bold dark:border-slate-800">{t('col_registered')}</th>
-              <th className="border-b border-slate-200 p-4 font-bold dark:border-slate-800">{t('col_progress')}</th>
-              <th className="border-b border-slate-200 p-4 font-bold dark:border-slate-800">{t('col_levels')}</th>
-              <th className="border-b border-slate-200 p-4 font-bold dark:border-slate-800">{t('blackboard_title')}</th>
-              <th className="border-b border-slate-200 p-4 font-bold dark:border-slate-800">{t('col_role')}</th>
-              <th className="border-b border-slate-200 p-4 font-bold dark:border-slate-800">{t('col_actions')}</th>
+              <th className="border-b border-slate-200 p-3 font-bold dark:border-slate-800">{t('col_name_email')}</th>
+              <th className="border-b border-slate-200 p-3 font-bold dark:border-slate-800">{t('col_registered')}</th>
+              <th className="border-b border-slate-200 p-3 font-bold dark:border-slate-800">{t('col_progress')}</th>
+              <th className="border-b border-slate-200 p-3 font-bold dark:border-slate-800">{t('col_levels')}</th>
+              <th className="border-b border-slate-200 p-3 font-bold dark:border-slate-800">{t('blackboard_title')}</th>
+              <th className="border-b border-slate-200 p-3 font-bold dark:border-slate-800">{t('col_role')}</th>
+              <th className="border-b border-slate-200 p-3 font-bold dark:border-slate-800">{t('col_actions')}</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-slate-200 dark:divide-slate-800">
-            {students.map(student => {
+            {filteredStudents.map(student => {
               const name = student.name || t('unknown_name')
               return (
                 <tr key={student.id} className="align-top hover:bg-slate-50 dark:hover:bg-slate-800/20">
-                  <td className="p-4">
+                  <td className="p-3">
                     <button
                       type="button"
                       onClick={() => setSelectedId(student.id)}
                       aria-label={t('open_details_aria', { name })}
-                      className="min-h-12 rounded-xl text-left focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#FF5C00]"
+                      className="min-h-11 rounded-md text-left focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#FF5C00]"
                     >
                       <div className="font-bold text-slate-900 dark:text-white">{name}</div>
                       <div className="text-sm text-slate-500">{student.email}</div>
                     </button>
                   </td>
-                  <td className="p-4 text-sm text-slate-500">
+                  <td className="p-3 text-sm text-slate-500">
                     {student.created_at ? new Date(student.created_at).toLocaleDateString(lang) : '—'}
                   </td>
-                  <td className="p-4">
-                    <ProgressBadges progress={progressData[student.id] || {}} emptyLabel={t('no_progress')} />
+                  <td className="p-3">
+                    <ProgressBadges progress={visibleProgress[student.id] || {}} emptyLabel={t('no_progress')} />
                   </td>
-                  <td className="p-4">
+                  <td className="p-3">
                     <LevelToggles
                       student={student}
                       loading={loadingId === student.id}
                       onToggle={handleLevelToggle}
                     />
                   </td>
-                  <td className="min-w-[16rem] p-4">
+                  <td className="min-w-[16rem] p-3">
                     {selectedId !== student.id && (
                       <BlackboardEditor studentId={student.id} studentName={name} compact />
                     )}
                   </td>
-                  <td className="p-4">
+                  <td className="p-3">
                     <RoleSelect
                       student={student}
                       currentUserId={currentUserId}
@@ -190,7 +208,7 @@ export default function StudentList({
                       onChange={handleRoleChange}
                     />
                   </td>
-                  <td className="p-4">
+                  <td className="p-3">
                     <ResetControls
                       student={student}
                       level={resetLevel[student.id] || 'A1.1'}
@@ -203,7 +221,7 @@ export default function StudentList({
                 </tr>
               )
             })}
-            {students.length === 0 && (
+            {filteredStudents.length === 0 && (
               <tr>
                 <td colSpan={7} className="p-8 text-center text-slate-500">{t('empty_students')}</td>
               </tr>
@@ -261,7 +279,7 @@ function LevelToggles({
             aria-label={t('level_toggle_aria', { level, name, action: isOn ? t('level_revoke') : t('level_grant') })}
             disabled={loading}
             onClick={() => onToggle(student.id, level)}
-            className={`min-h-12 rounded-lg px-2.5 py-1 text-xs font-bold transition-colors focus:outline-none focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#FF5C00] disabled:cursor-not-allowed disabled:opacity-50 ${
+            className={`min-h-11 rounded-lg px-2.5 py-1 text-xs font-bold transition-colors focus:outline-none focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#FF5C00] disabled:cursor-not-allowed disabled:opacity-50 ${
               isOn
                 ? 'border border-emerald-300 bg-emerald-50 text-emerald-700 dark:border-emerald-500/30 dark:bg-emerald-500/10 dark:text-emerald-400'
                 : 'border border-slate-200 bg-slate-50 text-slate-500 hover:border-slate-300 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400'

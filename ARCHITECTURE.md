@@ -1,5 +1,17 @@
 # Architecture Masterplan
 
+> **Aktueller Stand (2026-09-10):** Die folgenden Änderungen ersetzen ältere Einstufungs-, Layout- und Buchungstabellen-Beschreibungen. Gemeinsame Marken-Komponenten (`BrandLogo`, Header, `Academy*`) und Farbvariablen verbinden Marketing und Lernbereich; Admin bleibt eine kompakte Arbeitsoberfläche. Next.js 16 läuft mit kompatiblem React 19 / React Three Fiber 9.
+
+### Lernarchitektur ab 10. September 2026
+
+`LessonAssessmentClient` sendet Einzelentscheidungen an `submitLessonAssessment`; die DB-RPC initialisiert zwei unabhängige Richtungen in Phase 6 bzw. Phase 1. `skipVocabularyAssessment` initialisiert die numerisch erste vorhandene Lektion und persistiert `vocabulary_onboarding`. Die Assessment-Seite übergibt ausschließlich ID, Lernwort und Artikel an den Client.
+
+`getVocabularySession` lädt paginierte fällige `vocabulary_direction_progress` samt `vocabulary_learning_state.last_card_id`. `lib/vocabulary-scheduler.ts` erzwingt Wortabstand. Nach Lektionsauswahl plant der Client erneut mit demselben Cursor. `LearningScreen` stellt eine fokussierte 100dvh-Ansicht für Assessment und `VocabCardSession` bereit. Wort-Selbsteinschätzungen sind optimistisch; Schreibübungen vergleichen in PostgreSQL exakt den eingegebenen deutschen Satz. Der Client erhält die Satzlösung erst mit dem Ergebnis. Ein Wort zählt erst nach Abschluss beider Richtungen als gelernt.
+
+`vocabulary_direction_progress`, `vocabulary_learning_state` und `vocabulary_onboarding` erlauben unter RLS ausschließlich eigenen Lesezugriff. Schreiboperationen laufen über öffentliche Invoker-RPCs und private Funktionen mit `auth.uid()`-/Niveau-/Rollenprüfung. Einseitiges Legacy-Mirroring erhält den bisher ausgelieferten Trainer während des Rollouts. Das ursprüngliche `user_vocabulary_progress` bleibt bestehen. Inhaltsfelder und Ablaufdetails: `docs/vocabulary-learning-backend.md`; verifizierter Live-Stand: `docs/supabase-deployment-2026-09-10.md`.
+
+`NextMonthBookings` erhält den vorhandenen rollenvalidierten Server-Überblick und verwendet `lib/admin-booking-grid.ts` für Deduplizierung, Mehrfachfilter und stabile mehrstufige Sortierung. Das Schwarze Brett behält optimistische Auto-Saves. `VocabCMS` trennt Eingabe-UI, validierte CMS-Actions und `lib/admin-vocabulary.ts`; eine Satzfreigabe erfordert vollständige Kontexte in allen fünf Sprachen.
+
 > **Admin-Header (2026-09-09):** Lehrer-Header zweizeilig (Werkzeuge oben, Navigation darunter). Sprachumschalter `HeaderLanguageSwitcher` schreibt `ui_language` und bleibt auf der Admin-Route. Texte: `admin.ui_language_aria`.
 
 > **Admin-Abrechnung (2026-09-09):** `/{lang}/admin/bookings` gruppiert Folgemonat-Buchungen nach `courses.booking_id`. Staff liest Buchungen nach Rollenprüfung über den Service-Role-Client (RLS bleibt für den Cookie-Client: nur Eigentümer/Admin). Schwarzes Brett: `saveBlackboardNote` → `teacher_student_notes`, Auto-Save in `BlackboardProvider`. Texte: `dictionaries/*.json` → `admin` / `lib/admin-i18n.ts`.

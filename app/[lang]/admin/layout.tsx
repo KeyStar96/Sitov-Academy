@@ -1,7 +1,7 @@
 import { logout } from '@/app/actions/auth'
 import Link from 'next/link'
 import { redirect } from 'next/navigation'
-import Image from 'next/image'
+import BrandLogo from '@/components/layout/BrandLogo'
 import { LogOut } from 'lucide-react'
 import ThemeToggle from '@/components/layout/ThemeToggle'
 import HeaderLanguageSwitcher from '@/components/layout/HeaderLanguageSwitcher'
@@ -45,34 +45,19 @@ export default async function AdminLayout({
 
   return (
     <AdminI18nProvider translations={translations}>
-      <div className="flex min-h-dvh flex-col bg-[#FCF4E6] transition-colors dark:bg-[#050505]">
-        <header className="sticky top-0 z-20 border-b border-slate-200 bg-white pt-[env(safe-area-inset-top)] transition-colors dark:border-slate-800 dark:bg-slate-900">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="flex min-h-16 w-full items-center justify-between gap-3 py-2">
+      <div className="flex min-h-dvh min-w-0 flex-col bg-[var(--canvas)] text-[var(--foreground)]">
+        <header className="z-20 border-b border-[var(--border)] bg-[var(--surface)] pt-[env(safe-area-inset-top)]">
+          <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
+            <div className="flex min-h-16 w-full flex-wrap items-center justify-between gap-2 py-2">
               <Link
                 href={`/${lang}/admin`}
                 className="flex h-12 shrink-0 items-center rounded-xl px-1 transition-opacity hover:opacity-80 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#FF5C00]"
               >
-                <Image
-                  src="/Bilder/SG_Logo_Lightmode.png"
-                  alt="Sitov Language Academy"
-                  width={240}
-                  height={48}
-                  className="h-7 w-auto object-contain dark:hidden md:h-8"
-                  priority
-                />
-                <Image
-                  src="/Bilder/SG_Logo_Darkmode3.png"
-                  alt="Sitov Language Academy"
-                  width={240}
-                  height={48}
-                  className="hidden h-7 w-auto object-contain dark:block md:h-8"
-                  priority
-                />
+                <BrandLogo name={t('brand_name')} />
               </Link>
-              <div className="flex shrink-0 items-center gap-2">
+              <div className="ml-auto flex shrink-0 flex-wrap items-center gap-2">
                 <span
-                  className="hidden h-12 max-w-[9rem] items-center truncate rounded-2xl bg-[#FF5C00]/10 px-3 text-[10px] font-bold uppercase tracking-wider text-[#FF5C00] ring-1 ring-inset ring-[#FF5C00]/20 sm:inline-flex"
+                  className="hidden min-h-11 max-w-[9rem] items-center truncate border-l border-[var(--border)] px-3 text-xs font-medium text-[var(--muted)] md:inline-flex"
                   title={displayName}
                 >
                   {roleLabel}
@@ -85,7 +70,7 @@ export default async function AdminLayout({
                 }}>
                   <button
                     type="submit"
-                    className="inline-flex h-12 min-w-12 items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white px-3 text-sm font-bold text-slate-900 shadow-sm transition-colors hover:bg-slate-50 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#FF5C00] dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-700"
+                    className="inline-flex h-12 min-w-12 items-center justify-center gap-2 rounded-md border border-slate-200 bg-white px-3 text-sm font-bold text-slate-900 shadow-sm transition-colors hover:bg-slate-50 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#FF5C00] dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-700"
                     aria-label={t('logout_aria')}
                   >
                     <LogOut size={18} aria-hidden="true" />
@@ -99,8 +84,8 @@ export default async function AdminLayout({
             </div>
           </div>
         </header>
-        <main className="flex-1">
-          <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 pb-[max(1.5rem,env(safe-area-inset-bottom))]">
+        <main className="min-w-0 flex-1">
+          <div className="mx-auto max-w-[1440px] px-4 py-6 sm:px-6 lg:px-8 pb-[max(1.5rem,env(safe-area-inset-bottom))]">
             {children}
           </div>
         </main>

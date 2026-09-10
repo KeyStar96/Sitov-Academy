@@ -1,4 +1,4 @@
-import { getDueCards, getLessonStats } from '@/app/actions/vocabulary'
+import { getVocabularySession, getLessonStats } from '@/app/actions/vocabulary'
 import { getDictionary } from '@/lib/dictionary'
 import { type VocabularyTranslations } from '@/lib/vocabulary-i18n'
 import VocabTrainerPageClient from '@/components/vocabulary/VocabTrainerPageClient'
@@ -13,14 +13,16 @@ export default async function VocabularyOverviewPage({
   const dict = await getDictionary(lang)
   const translations = (dict.vocabulary ?? {}) as VocabularyTranslations
 
-  const [stats, dueCards] = await Promise.all([
+  const [stats, session] = await Promise.all([
     getLessonStats(decodedLevel),
-    getDueCards(decodedLevel),
+    getVocabularySession(decodedLevel, lang),
   ])
 
   return (
     <VocabTrainerPageClient
-      initialCards={dueCards}
+      initialCards={session.cards}
+      initialDeferredCount={session.deferredCount}
+      initialPreviousCardId={session.previousCardId}
       lessonStats={stats}
       translations={translations}
       lang={lang}

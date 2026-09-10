@@ -468,16 +468,16 @@ export default function LessonCardsModal({
                   {showResetConfirm ? (
                     <div className="rounded-2xl border-2 border-red-200 bg-red-50 p-4 dark:border-red-900 dark:bg-red-950/30">
                       <p className="mb-4 text-lg font-bold text-red-900 dark:text-red-100">
-                        Bist du sicher? Alle Fortschritte in dieser Lektion werden gelöscht.
+                        {t('reset_progress_confirm')}
                       </p>
-                      <div className="flex gap-4">
+                      <div className="flex flex-wrap gap-4">
                         <button
                           type="button"
                           onClick={handleResetProgress}
                           disabled={isResetting}
                           className="inline-flex min-h-12 items-center justify-center rounded-xl bg-red-600 px-6 font-bold text-white transition-colors hover:bg-red-700 disabled:opacity-50"
                         >
-                          {isResetting ? <Loader2 size={20} className="animate-spin" /> : 'Ja, zurücksetzen'}
+                          {isResetting ? <Loader2 size={20} className="animate-spin" /> : t('reset_progress_yes')}
                         </button>
                         <button
                           type="button"
@@ -485,7 +485,7 @@ export default function LessonCardsModal({
                           disabled={isResetting}
                           className="inline-flex min-h-12 items-center justify-center rounded-xl border-2 border-gray-300 bg-white px-6 font-bold text-gray-700 transition-colors hover:bg-gray-50 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-200"
                         >
-                          Abbrechen
+                          {t('cancel')}
                         </button>
                       </div>
                     </div>
@@ -496,7 +496,7 @@ export default function LessonCardsModal({
                       className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl text-red-600 transition-colors hover:text-red-800 dark:text-red-400 dark:hover:text-red-300"
                     >
                       <Trash2 size={20} />
-                      <span className="font-bold underline underline-offset-4">Lernfortschritt zurücksetzen</span>
+                      <span className="font-bold underline underline-offset-4">{t('reset_progress')}</span>
                     </button>
                   )}
                 </div>

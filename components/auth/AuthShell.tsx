@@ -1,4 +1,5 @@
-import Image from 'next/image'
+import BrandLogo from '@/components/layout/BrandLogo'
+import { getDictionary } from '@/lib/dictionary'
 import Link from 'next/link'
 import type { ReactNode } from 'react'
 
@@ -9,7 +10,7 @@ import type { ReactNode } from 'react'
  * Seitentitel), der Fließtext 18px. Das Logo verlinkt auf die Startseite,
  * damit ein versehentlicher Aufruf nicht in einer Sackgasse endet.
  */
-export default function AuthShell({
+export default async function AuthShell({
   lang,
   title,
   description,
@@ -20,34 +21,20 @@ export default function AuthShell({
   description?: ReactNode
   children: ReactNode
 }) {
+  const dict = await getDictionary(lang)
   return (
-    <div className="flex min-h-dvh items-center justify-center bg-slate-50 px-4 py-12 pb-[max(3rem,env(safe-area-inset-bottom))] dark:bg-slate-950">
+    <div className="flex min-h-dvh items-center justify-center bg-[var(--canvas)] px-4 py-12 pb-[max(3rem,env(safe-area-inset-bottom))] dark:bg-[var(--canvas)]">
       <div className="w-full max-w-lg space-y-8">
         <div className="flex justify-center">
           <Link
             href={`/${lang}`}
             className="inline-flex min-h-14 items-center rounded-2xl px-4 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#FF5C00]"
           >
-            <Image
-              src="/Bilder/SG_Logo_Lightmode.png"
-              alt="Sitov Language Academy"
-              width={220}
-              height={44}
-              className="h-9 w-auto object-contain dark:hidden"
-              priority
-            />
-            <Image
-              src="/Bilder/SG_Logo_Darkmode3.png"
-              alt="Sitov Language Academy"
-              width={220}
-              height={44}
-              className="hidden h-9 w-auto object-contain dark:block"
-              priority
-            />
+            <BrandLogo name={dict.academy.brand_name} descriptor={dict.academy.brand_descriptor} />
           </Link>
         </div>
 
-        <div className="space-y-6 rounded-3xl border-2 border-slate-200 bg-white p-6 shadow-sm sm:p-8 dark:border-slate-800 dark:bg-slate-900">
+        <div className="space-y-6 rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-6 shadow-sm sm:p-8 dark:border-[var(--border)] dark:bg-[var(--surface)]">
           <div className="space-y-2">
             <h1 className="text-2xl font-bold text-slate-900 dark:text-slate-100">{title}</h1>
             {description && (

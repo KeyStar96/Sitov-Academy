@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { motion, AnimatePresence } from "framer-motion";
-import Image from "next/image";
+import BrandLogo from "@/components/layout/BrandLogo";
 import Link from "next/link";
 import { ChevronLeft, Check, X, ArrowRight, Loader2, MapPin, Monitor, User, ChevronDown, ArrowLeft, CheckCircle2, Gift, CalendarDays } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -1125,22 +1125,7 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                             <ChevronLeft size={14} /> {t?.back_home || "Back"}
                         </Link>
                         <div className="bg-white/90 dark:bg-zinc-900/90 backdrop-blur-md px-3 py-1.5 md:px-4 md:py-1.5 rounded-full border border-black/5 dark:border-white/10 shadow-lg flex items-center justify-center overflow-hidden">
-                            <Image
-                                src="/Bilder/SG_Logo_Lightmode.png"
-                                alt="Sitov Academy"
-                                width={240}
-                                height={48}
-                                priority
-                                className="object-contain w-auto h-7 md:h-9 scale-95 dark:hidden"
-                            />
-                            <Image
-                                src="/Bilder/SG_Logo_Darkmode3.png"
-                                alt="Sitov Academy"
-                                width={240}
-                                height={48}
-                                priority
-                                className="object-contain w-auto h-7 md:h-9 scale-95 hidden dark:block"
-                            />
+                            <BrandLogo name={dictionary.academy.brand_name} />
                         </div>
                     </div>
 

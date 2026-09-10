@@ -96,13 +96,13 @@ export function levelVisual(levelId: string): LevelVisual {
 export function articleColorClass(article: string | null): string {
   switch (article) {
     case 'der':
-      return 'text-blue-700'
+      return 'text-blue-700 dark:text-blue-300'
     case 'die':
-      return 'text-red-700'
+      return 'text-red-700 dark:text-red-300'
     case 'das':
-      return 'text-green-700'
+      return 'text-green-700 dark:text-green-300'
     default:
-      return 'text-gray-900'
+      return 'text-gray-900 dark:text-stone-100'
   }
 }
 

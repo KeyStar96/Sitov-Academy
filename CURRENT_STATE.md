@@ -1,5 +1,19 @@
 # Current State Analysis (Ist-Zustand)
 
+## Änderungsprotokoll — 2026-09-10: Academy-Redesign und bidirektionales Lernen
+
+Dieser Stand ersetzt die älteren Beschreibungen zu Übersetzung/Revealen in der Ersteinstufung, fester 36rem-Kartenhöhe und kursweise wiederholten Schülerzeilen.
+
+- **Gemeinsame Gestaltung:** Marketing, Anmeldung und Schüler-Dashboard nutzen dieselben hellen/dunklen Farbvariablen, Typografie, Favicon-Marke und klar beschrifteten 44px-Bedienelemente. Die Startseite verbindet Kursangebot und Lernraum. Der prozedurale Neural Brain verwendet React Three Fiber, eigene Shader und ein SVG-Fallback bei fehlendem WebGL oder reduzierter Bewegung. GSAP-Einstieg und Framer-Kartenwechsel respektieren reduzierte Bewegung; Preloader-Zeilen haben Platz für Unterlängen.
+- **Einstufung:** Nur das deutsche Lernwort mit Artikel, ohne Übersetzung, Bild, Audio oder Aufdecken. „Kenne ich bereits“ erzeugt beide Richtungen in Phase 6; „Kenne ich nicht“ in Phase 1, sofort fällig. Jede Entscheidung speichert direkt, Fehler rollen den sichtbaren Schritt zurück. Nach Abschluss mit unbekannten Karten öffnet sich die Lernsession direkt. „Direkt in Lektion 1 starten“ speichert den Skip und startet die tatsächlich erste vorhandene Lektion.
+- **Lernsession:** Neue Route `/{lang}/dashboard/level/{level}/vocabulary/train`. `LearningScreen` füllt den Viewport, sperrt den Hintergrund für Tastaturfokus und lässt Inhalte/Bedienung auf kleinen Smartphones sichtbar. Lernrichtung ist eigener Fortschritt. Der Scheduler und der persistierte Datenbank-Cursor verhindern benachbarte Gegenrichtungen desselben Worts; nicht platzierbare Karten bleiben fällig. Wortantworten arbeiten optimistisch mit Rollback. Satzantworten werden vor einer Erfolgsmeldung serverseitig bytegenau bewertet.
+- **Kontextinhalte:** Alle 512 Vokabeleinträge haben ein redaktionelles Alltagsbeispiel. 26 Datensätze (24 unterschiedliche Wörter) sind mit vollständigen Satzvarianten in de/en/ru/uk/tr für exaktes deutsches Tippen freigeschaltet. Diese Beispiele sind keine statistische Häufigkeitsmessung. Der Lehrer-Editor verwaltet die fünf Kontexte, ukrainische Wortübersetzung und Satzfreigabe mit Servervalidierung.
+- **Lehrbereich:** Neutrale, kompakte Oberfläche. Die Folgemonat-Tabelle zeigt jeden Schüler einmal, unterstützt Namens-/E-Mail-Suche, kombinierte Status-/Kurs-/Formatfilter sowie primäre/sekundäre Sortierung nach Name, Status, Kursanzahl, Ort oder Rabatt. Notizen bleiben direkt erreichbar; Mobile bricht Zeilen ohne horizontales Scrollen um.
+- **Live-Datenbank:** Migrationen angewendet am 10. September 2026. Die 195 alten Lernstände samt IDs/Phasen/Terminen bleiben unverändert; separate Richtungsstände enthalten 195 Vorwärtskopien und 195 neue Rückwärtsstände. RLS, geschützte RPCs, explizite Rollen-/Niveauprüfungen und Legacy-Kompatibilität sind geprüft. Details: `docs/supabase-deployment-2026-09-10.md` und `docs/vocabulary-learning-backend.md`.
+- **Stack:** Next.js 16 App Router nutzt React 19 intern. Die vorher deklarierte React-18/Fiber-8-Kombination verursachte im Browser einen Importabsturz. React, React DOM, Typen und Fiber wurden auf miteinander kompatible 19-/9-Versionen angeglichen.
+- **Lokalisierung:** Neue Texte in allen fünf Dictionaries (`academy`, `vocabulary`, `admin`), einschließlich Toasts, Fehlern, Formularlabels und zugänglichen Beschriftungen.
+- **Verifikation:** Produktionsbuild erfolgreich, 638 Jest- und 61 isolierte PostgreSQL-Tests erfolgreich. Mobile-/Darkmode-Prüfungen und genaue Testgrenzen: `docs/redesign-verification-2026-09-10.md`. Frontend noch nicht auf Vercel veröffentlicht.
+
 ## 1a. Änderungsprotokoll — 2026-09-09: Admin-Header Sprache & Abstand
 
 **Kernänderungen:**

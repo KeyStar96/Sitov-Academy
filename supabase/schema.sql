@@ -4,6 +4,9 @@
 -- Ergänzt: 20260909155919_monthly_bookings_teacher_notes.sql
 -- und 20260909165848_profile_dashboard_workflow.sql, live angewendet am 2026-09-09.
 -- Live-Migrationsversionen: 20260909172738 bzw. 20260909172746.
+-- Live ergänzt am 2026-09-10: 20260910133125_vocabulary_bidirectional_learning.sql
+-- und 20260910135831_vocabulary_context_content.sql.
+-- Live-Migrationsversionen: 20260910140547 bzw. 20260910140553.
 -- Private Hilfstabellen/-funktionen, Grants und Backfill: siehe diese Migrationen.
 --
 -- WARNING: Dieses Schema dient als Referenz und Kontext für Agenten.
@@ -156,7 +159,18 @@ CREATE TABLE public.vocabulary_cards (
   is_hard_for_tr boolean DEFAULT false,
   created_at timestamp with time zone DEFAULT now(),
   level text NOT NULL DEFAULT 'A1.1'::text CHECK (level = ANY (ARRAY['A1.1'::text, 'A1.2'::text, 'A2.1'::text, 'A2.2'::text, 'B1.1'::text, 'B1.2'::text])),
-  CONSTRAINT vocabulary_cards_pkey PRIMARY KEY (id)
+  CONSTRAINT vocabulary_cards_pkey PRIMARY KEY (id),
+  translation_uk text,
+  context_sentence_de text,
+  context_sentence_en text,
+  context_sentence_ru text,
+  context_sentence_uk text,
+  context_sentence_tr text,
+  sentence_practice boolean NOT NULL DEFAULT false,
+  CONSTRAINT vocabulary_sentence_target_check CHECK (NOT sentence_practice OR (
+    nullif(btrim(context_sentence_de), '') IS NOT NULL AND nullif(btrim(context_sentence_en), '') IS NOT NULL
+    AND nullif(btrim(context_sentence_ru), '') IS NOT NULL AND nullif(btrim(context_sentence_uk), '') IS NOT NULL
+    AND nullif(btrim(context_sentence_tr), '') IS NOT NULL))
 );
 
 CREATE TABLE public.user_vocabulary_progress (
@@ -589,3 +603,53 @@ ALTER TABLE public.teacher_student_notes ENABLE ROW LEVEL SECURITY;
 -- the private confirmed-email synchronization trigger, and profiles_legacy_user_idx.
 -- legacy_user_id has no browser UPDATE grant; only verified/trusted associations
 -- are retained so an auth email change does not unlink existing enrollments.
+
+
+-- Bidirectional vocabulary learning: the legacy progress table stays intact.
+-- Private mutation RPCs and compatibility trigger: see 20260910133125 migration.
+CREATE TABLE public.vocabulary_direction_progress (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id uuid NOT NULL REFERENCES public.profiles(id) ON DELETE CASCADE,
+  card_id uuid NOT NULL REFERENCES public.vocabulary_cards(id) ON DELETE CASCADE,
+  direction text NOT NULL CHECK (direction IN ('de_to_native','native_to_de')),
+  box_number integer CHECK (box_number BETWEEN 1 AND 7) DEFAULT 1,
+  next_review_date timestamptz DEFAULT now(),
+  created_at timestamptz DEFAULT now(),
+  updated_at timestamptz DEFAULT now(),
+  lapses integer NOT NULL DEFAULT 0,
+  last_answered_at timestamptz,
+  UNIQUE (user_id,card_id,direction)
+);
+ALTER TABLE public.vocabulary_direction_progress ENABLE ROW LEVEL SECURITY;
+REVOKE ALL ON public.vocabulary_direction_progress FROM PUBLIC, anon, authenticated;
+GRANT SELECT ON public.vocabulary_direction_progress TO authenticated;
+GRANT ALL ON public.vocabulary_direction_progress TO service_role;
+CREATE POLICY vocabulary_direction_owner_read ON public.vocabulary_direction_progress FOR SELECT TO authenticated
+  USING ((SELECT auth.uid()) = user_id);
+
+CREATE TABLE public.vocabulary_learning_state (
+  user_id uuid PRIMARY KEY REFERENCES public.profiles(id) ON DELETE CASCADE,
+  last_card_id uuid REFERENCES public.vocabulary_cards(id) ON DELETE SET NULL,
+  last_reviewed_at timestamptz
+);
+ALTER TABLE public.vocabulary_learning_state ENABLE ROW LEVEL SECURITY;
+REVOKE ALL ON public.vocabulary_learning_state FROM PUBLIC, anon, authenticated;
+GRANT SELECT ON public.vocabulary_learning_state TO authenticated;
+GRANT ALL ON public.vocabulary_learning_state TO service_role;
+CREATE POLICY vocabulary_state_owner_read ON public.vocabulary_learning_state FOR SELECT TO authenticated
+  USING ((SELECT auth.uid()) = user_id);
+
+CREATE TABLE public.vocabulary_onboarding (
+  user_id uuid NOT NULL REFERENCES public.profiles(id) ON DELETE CASCADE,
+  level text NOT NULL CHECK (level IN ('A1.1','A1.2','A2.1','A2.2','B1.1','B1.2')),
+  status text NOT NULL CHECK (status IN ('skipped', 'completed')),
+  started_lesson text NOT NULL,
+  updated_at timestamptz NOT NULL DEFAULT now(),
+  PRIMARY KEY (user_id, level)
+);
+ALTER TABLE public.vocabulary_onboarding ENABLE ROW LEVEL SECURITY;
+REVOKE ALL ON public.vocabulary_onboarding FROM PUBLIC, anon, authenticated;
+GRANT SELECT ON public.vocabulary_onboarding TO authenticated;
+GRANT ALL ON public.vocabulary_onboarding TO service_role;
+CREATE POLICY vocabulary_onboarding_owner_read ON public.vocabulary_onboarding FOR SELECT TO authenticated
+  USING ((SELECT auth.uid()) = user_id);

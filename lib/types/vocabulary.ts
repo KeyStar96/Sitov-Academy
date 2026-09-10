@@ -1,6 +1,9 @@
 import type { LeitnerBox, LeitnerPhase } from '@/lib/leitner'
 import type { Database } from '@/supabase/database.types'
 
+export type VocabularyDirection = 'de_to_native' | 'native_to_de'
+export type VocabularyFormat = 'word' | 'sentence'
+
 export type VocabularyCardRow = Database['public']['Tables']['vocabulary_cards']['Row']
 
 /** Felder der Vokabelkarte, die der Trainer tatsächlich benötigt. */
@@ -18,6 +21,11 @@ export interface VocabularyCardView {
 /** Eine fällige Karte inklusive aufgelöstem Lernstand und Übersetzung. */
 export interface DueVocabularyCard {
   progressId: string
+  direction: VocabularyDirection
+  format: VocabularyFormat
+  prompt: string
+  /** German context is omitted from unrevealed sentence prompts. */
+  contextSentence: string | null
   box: LeitnerBox
   phase: LeitnerPhase
   card: VocabularyCardView
@@ -46,11 +54,16 @@ export interface LessonStat {
 
 export interface SubmitVocabularyAnswerInput {
   progressId: string
-  isCorrect: boolean
+  isCorrect?: boolean
+  typedAnswer?: string
+  uiLanguage?: string
 }
 
 export interface SubmitVocabularyAnswerResult {
   success: boolean
+  isCorrect?: boolean
+  correctAnswer?: string
+  error?: 'invalid_input' | 'spacing_required' | 'save_failed'
   previousPhase?: LeitnerPhase
   newPhase?: LeitnerPhase
   becameLearned?: boolean
@@ -78,6 +91,7 @@ export interface LessonCardView {
   audio_url: string | null
   phase: LeitnerPhase | null
   isLearned: boolean
+  contextSentence?: string | null
 }
 
 export interface AddCardsResult {
@@ -105,10 +119,11 @@ export interface SubmitAssessmentResult {
  * Empty-State statt einer kaputten Karte.
  */
 export function resolveTranslation(
-  card: Pick<VocabularyCardRow, 'translation_ru' | 'translation_tr' | 'translation_en'>,
+  card: Pick<VocabularyCardRow, 'translation_ru' | 'translation_tr' | 'translation_en'> & { translation_uk?: string | null },
   nativeLanguage: string | null
 ): string {
-  if (nativeLanguage === 'Russisch' && card.translation_ru) return card.translation_ru
+  if ((nativeLanguage === 'Ukrainisch' || nativeLanguage === 'uk') && card.translation_uk) return card.translation_uk
+  if ((nativeLanguage === 'Russisch' || nativeLanguage === 'ru') && card.translation_ru) return card.translation_ru
   if (nativeLanguage === 'Türkisch' && card.translation_tr) return card.translation_tr
   return card.translation_en ?? card.translation_ru ?? card.translation_tr ?? ''
 }
@@ -117,7 +132,7 @@ export function isHardForNativeLanguage(
   card: Pick<VocabularyCardRow, 'is_hard_for_ru' | 'is_hard_for_tr'>,
   nativeLanguage: string | null
 ): boolean {
-  if (nativeLanguage === 'Russisch') return card.is_hard_for_ru ?? false
+  if (nativeLanguage === 'Russisch' || nativeLanguage === 'ru') return card.is_hard_for_ru ?? false
   if (nativeLanguage === 'Türkisch') return card.is_hard_for_tr ?? false
   return false
 }

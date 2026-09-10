@@ -48,7 +48,7 @@ beforeEach(() => {
   })
 })
 
-it.each([['de', de], ['en', en], ['ru', ru], ['uk', uk], ['tr', tr]] as const)('renders course grouping and blackboard labels in %s', (lang, dict) => {
+it.each([['de', de], ['en', en], ['ru', ru], ['uk', uk], ['tr', tr]] as const)('renders the booking grid and blackboard labels in %s', (lang, dict) => {
   render(
     <AdminI18nProvider translations={dict.admin}>
       <BlackboardProvider initialNotes={{}}>
@@ -56,7 +56,8 @@ it.each([['de', de], ['en', en], ['ru', ru], ['uk', uk], ['tr', tr]] as const)('
       </BlackboardProvider>
     </AdminI18nProvider>
   )
-  expect(screen.getByRole('heading', { name: 'B1.2 Intensiv' })).toBeInTheDocument()
+  expect(screen.getByRole('table')).toBeInTheDocument()
+  expect(screen.getAllByText('B1.2 Intensiv').length).toBeGreaterThan(0)
   expect(screen.getAllByText(dict.admin.blackboard_title).length).toBeGreaterThan(0)
   expect(screen.getAllByLabelText(`${dict.admin.blackboard_note_label}: Anna`).length).toBeGreaterThan(0)
 })

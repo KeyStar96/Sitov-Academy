@@ -1,6 +1,7 @@
 'use server'
 
 import { createClient } from '@/utils/supabase/server'
+import { readVocabularyProgress } from '@/lib/vocabulary-queries'
 
 export async function getAllLevelsProgress() {
   const supabase = await createClient()
@@ -22,11 +23,7 @@ export async function getAllLevelsProgress() {
     .eq('completed', true)
 
   // 4. Hole den Fortschritt des Users für Vokabeln (Box 7 = gemeistert)
-  const { data: vocabProgress } = await supabase
-    .from('user_vocabulary_progress')
-    .select('card_id')
-    .eq('user_id', user.id)
-    .eq('box_number', 7)
+  const vocabProgress = (await readVocabularyProgress(supabase, user.id)).filter(row => row.box_number === 7)
 
   // Map IDs to Level
   const exerciseLevelMap = new Map((exercises || []).map(e => [e.id, e.level]))
@@ -49,8 +46,15 @@ export async function getAllLevelsProgress() {
       completedPerLevel[level] = (completedPerLevel[level] || 0) + 1
     }
   })
-  vocabProgress?.forEach(p => {
-    const level = vocabLevelMap.get(p.card_id)
+  const learnedDirections = new Map<string, Set<string>>()
+  vocabProgress?.forEach(item => {
+    const directions = learnedDirections.get(item.card_id) ?? new Set<string>()
+    directions.add(item.direction)
+    learnedDirections.set(item.card_id, directions)
+  })
+  learnedDirections.forEach((directions, cardId) => {
+    if (!directions.has('de_to_native') || !directions.has('native_to_de')) return
+    const level = vocabLevelMap.get(cardId)
     if (level) {
       completedPerLevel[level] = (completedPerLevel[level] || 0) + 1
     }

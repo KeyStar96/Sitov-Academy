@@ -20,7 +20,7 @@ export default function AdminNav({ lang }: { lang: string }) {
   ]
 
   return (
-    <nav className="flex w-full flex-wrap items-center gap-2">
+    <nav className="flex w-full min-w-0 flex-wrap items-center gap-1">
       {navItems.map((item, index) => {
         if ('divider' in item) {
           return <div key={`div-${index}`} className="hidden h-4 w-px bg-slate-300 sm:block dark:bg-slate-700" />
@@ -30,10 +30,11 @@ export default function AdminNav({ lang }: { lang: string }) {
           <Link
             key={item.href}
             href={item.href}
-            className={`inline-flex min-h-12 shrink-0 items-center rounded-lg px-3 py-1.5 text-sm font-bold transition-colors focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#FF5C00] ${
+            aria-current={isActive ? 'page' : undefined}
+            className={`inline-flex min-h-11 min-w-0 items-center rounded-md px-3 py-1.5 text-sm font-medium transition-colors focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#FF5C00] ${
               isActive
-                ? 'bg-[#FF5C00]/10 text-[#FF5C00] hover:bg-[#FF5C00]/20'
-                : 'text-slate-700 hover:bg-slate-100 hover:text-[#FF5C00] dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-[#FF5C00]'
+                ? 'bg-[var(--foreground)] text-[var(--surface)]'
+                : 'text-[var(--muted)] hover:bg-[var(--surface-muted)] hover:text-[var(--foreground)]'
             }`}
           >
             {item.name}

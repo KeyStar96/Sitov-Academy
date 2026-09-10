@@ -13,6 +13,7 @@ import tr from '@/dictionaries/tr.json'
 jest.unmock('lucide-react')
 jest.mock('@/app/actions/vocabulary', () => ({
   submitLessonAssessment: jest.fn(),
+  skipVocabularyAssessment: jest.fn(),
 }))
 jest.mock('@/components/exercises/SolutionAudioButton', () => ({
   __esModule: true,
@@ -73,21 +74,20 @@ it.each([
   }
 })
 
-it('zeigt zuerst die Übersetzung und noch nicht die deutsche Lösung', () => {
+it('zeigt nur das Lernwort und beide Entscheidungen ohne Lösungsschritt', () => {
   renderAssess()
-  expect(screen.getByText('дом')).toBeInTheDocument()
-  expect(screen.queryByText('das Haus')).not.toBeInTheDocument()
-  expect(screen.getByRole('button', { name: translations.reveal_solution })).toBeInTheDocument()
-  expect(screen.queryByText(translations.already_know)).not.toBeInTheDocument()
-  expect(screen.queryByText(translations.add_to_box)).not.toBeInTheDocument()
+  expect(screen.queryByText('дом')).not.toBeInTheDocument()
+  expect(screen.getByText('das Haus')).toBeInTheDocument()
+  expect(screen.queryByRole('button', { name: translations.reveal_solution })).not.toBeInTheDocument()
+  expect(screen.getByText(translations.already_know)).toBeInTheDocument()
+  expect(screen.getByText(translations.add_to_box)).toBeInTheDocument()
 })
 
-it('deckt die Lösung auf und lässt erst danach über Lernkasten oder Phase 6 entscheiden', async () => {
+it('lässt unmittelbar über Stufe 1 oder Stufe 6 entscheiden', async () => {
   renderAssess()
-  fireEvent.click(screen.getByRole('button', { name: translations.reveal_solution }))
 
   expect(screen.getByText('das Haus')).toBeInTheDocument()
-  expect(screen.getByText(translations.plural_label.replace('{plural}', 'Häuser'))).toBeInTheDocument()
+  expect(screen.queryByText(translations.plural_label.replace('{plural}', 'Häuser'))).not.toBeInTheDocument()
   expect(screen.getByText(translations.already_know)).toBeInTheDocument()
   expect(screen.getByText(translations.add_to_box)).toBeInTheDocument()
 
@@ -97,10 +97,9 @@ it('deckt die Lösung auf und lässt erst danach über Lernkasten oder Phase 6 e
   })
 })
 
-it('nimmt unbekannte Wörter nach dem Aufdecken in den Lernkasten auf', async () => {
+it('nimmt unbekannte Wörter ohne Aufdecken in den Lernkasten auf', async () => {
   jest.mocked(submitLessonAssessment).mockResolvedValue({ success: true, addedKnown: 0, addedNew: 1 })
   renderAssess()
-  fireEvent.click(screen.getByRole('button', { name: translations.reveal_solution }))
   fireEvent.click(screen.getByText(translations.add_to_box))
   await waitFor(() => {
     expect(submitLessonAssessment).toHaveBeenCalledWith([{ cardId: 'card-house', alreadyKnown: false }])

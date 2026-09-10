@@ -1,18 +1,12 @@
 import { type Metadata } from "next";
-import dynamic from "next/dynamic";
 import { Suspense } from "react";
 import Hero from "@/components/sections/Hero";
 import { getDictionary } from "@/lib/dictionary";
 import Header from "@/components/layout/Header";
 
-// Dynamic Imports for below-the-fold components
-const GoogleReviews = dynamic(() => import("@/components/sections/GoogleReviews"));
-const ScienceSection = dynamic(() => import("@/components/sections/ScienceSection"));
-const WhyUsBento = dynamic(() => import("@/components/sections/WhyUsBento"));
-const AboutContainer = dynamic(() => import("@/components/sections/About/AboutContainer"));
-const CourseDataWrapper = dynamic(() => import("@/components/sections/CourseDataWrapper"));
-const LocationSection = dynamic(() => import("@/components/sections/Location/LocationSection").then(mod => mod.LocationSection));
-import FooterLayout from "@/components/footer/FooterLayout";
+import AcademyStory from "@/components/sections/AcademyStory";
+import AcademyCourses from "@/components/sections/AcademyCourses";
+import AcademyFooter from "@/components/sections/AcademyFooter";
 
 /* ─── Locale → OpenGraph locale mapping ─── */
 const OG_LOCALE_MAP: Record<string, string> = {
@@ -91,7 +85,7 @@ export default async function HomePage({
         "name": "Sitov Language Academy",
         "alternateName": "Sitov Language Academy Hannover",
         "url": BASE_URL,
-        "logo": `${BASE_URL}/Bilder/SG_Logo_Lightmode.png`,
+        "logo": `${BASE_URL}/Bilder/favicon.png`,
         "image": `${BASE_URL}/Bilder/og-sitov-academy.jpg`,
         "description": dictionary.meta.description,
         "email": "info@sitov-academy.com",
@@ -180,22 +174,14 @@ export default async function HomePage({
 
       <Header lang={lang} dictionary={dictionary} />
 
-      {/* Semantic: layout.tsx already provides <main id="main-content">, so no nested <main> */}
-      <div className="w-full bg-transparent">
-        <div className="relative w-full pt-28">
-          <Hero dictionary={dictionary} lang={lang} />
-          <GoogleReviews title={dictionary.reviews_title || "Erfahrungen unserer Schüler"} dictionary={dictionary} />
-          <ScienceSection dictionary={dictionary} />
-          <AboutContainer dictionary={dictionary} />
-          <WhyUsBento dictionary={dictionary} />
-          <Suspense fallback={<div className="h-[50vh] flex items-center justify-center text-white/50 animate-pulse">Lade Kurse...</div>}>
-            <CourseDataWrapper dictionary={dictionary} />
-          </Suspense>
-          <LocationSection dictionary={dictionary} />
-        </div>
+      <div className="academy-home">
+        <Hero dictionary={dictionary} lang={lang} />
+        <AcademyStory dictionary={dictionary} lang={lang} />
+        <Suspense fallback={<section id="courses" className="academy-section academy-container min-h-[30rem]" aria-busy="true"><p role="status">{dictionary.academy.course_loading}</p></section>}>
+          <AcademyCourses dictionary={dictionary} lang={lang} />
+        </Suspense>
       </div>
-
-      <FooterLayout dictionary={dictionary} lang={lang} />
+      <AcademyFooter dictionary={dictionary} lang={lang} />
     </>
   );
 }

@@ -1,672 +1,264 @@
 'use server'
 
 import { revalidatePath } from 'next/cache'
+import { z } from 'zod'
 import { createClient } from '@/utils/supabase/server'
-import { hasLevelAccess } from '@/lib/access/levels'
-import { loadLevelAccessProfile } from '@/lib/access/server'
+import { hasLevelAccess, isAccessLevel } from '@/lib/access/levels'
+import { LEITNER_LEARNED_BOX, normalizeBox, pickWeightedRandomOrder, selectionWeightForBox, type LeitnerPhase } from '@/lib/leitner'
+import { scheduleVocabularyCards } from '@/lib/vocabulary-scheduler'
+import { readVocabularyProgress } from '@/lib/vocabulary-queries'
 import {
-  applyLeitnerAnswer,
-  ASSESSMENT_KNOWN_PHASE,
-  LEITNER_LEARNED_BOX,
-  nextReviewDateForBox,
-  normalizeBox,
-  pickWeightedRandomOrder,
-  selectionWeightForBox,
-  type LeitnerPhase,
-} from '@/lib/leitner'
-import {
-  isHardForNativeLanguage,
-  resolveTranslation,
-  type AddCardsResult,
-  type AssessmentDecision,
-  type DueVocabularyCard,
-  type InitializeLessonResult,
-  type LessonCardView,
-  type LessonStat,
-  type SubmitAssessmentResult,
-  type SubmitVocabularyAnswerInput,
-  type SubmitVocabularyAnswerResult,
+  isHardForNativeLanguage, resolveTranslation,
+  type AddCardsResult, type AssessmentDecision, type DueVocabularyCard,
+  type InitializeLessonResult, type LessonCardView, type LessonStat,
+  type SubmitAssessmentResult, type SubmitVocabularyAnswerInput, type SubmitVocabularyAnswerResult,
 } from '@/lib/types/vocabulary'
 
-interface DueCardRow {
-  id: string
-  box_number: number | null
-  vocabulary_cards: {
-    id: string
-    level: string
-    lesson: string
-    word_de: string
-    article: string | null
-    plural: string | null
-    translation_ru: string | null
-    translation_tr: string | null
-    translation_en: string | null
-    image_url: string | null
-    audio_url: string | null
-    is_hard_for_ru: boolean | null
-    is_hard_for_tr: boolean | null
-  }
+const languageSchema = z.enum(['de', 'en', 'ru', 'uk', 'tr'])
+const decisionSchema = z.array(z.object({ cardId: z.string().uuid(), alreadyKnown: z.boolean() })).max(1000)
+const initializationResultSchema = z.object({ addedKnown: z.number().int().nonnegative(), addedNew: z.number().int().nonnegative() })
+const reviewResultSchema = z.object({
+  success: z.literal(true), isCorrect: z.boolean(), correctAnswer: z.string().optional(),
+  previousPhase: z.number().int().min(1).max(6), newPhase: z.number().int().min(1).max(6),
+  becameLearned: z.boolean(), movedBack: z.boolean(), intervalInDays: z.number().int().positive(),
+})
+
+async function loadLearner() {
+  const supabase = await createClient()
+  const { data: { user } } = await supabase.auth.getUser()
+  if (!user) return null
+  const { data: profile, error } = await supabase.from('profiles')
+    .select('role, allowed_levels, native_language, ui_language').eq('id', user.id).single()
+  if (error || !profile) return null
+  return { supabase, user, profile }
 }
 
-async function loadNativeLanguage(
-  supabase: Awaited<ReturnType<typeof createClient>>,
-  userId: string
-): Promise<string | null> {
-  const { data, error } = await supabase
-    .from('profiles')
-    .select('native_language')
-    .eq('id', userId)
-    .single()
-
-  if (error) {
-    console.error(`Muttersprache für Nutzer ${userId} nicht ladbar:`, error.message)
-    return null
-  }
-
-  return data?.native_language ?? null
+function refreshVocabulary() {
+  revalidatePath('/[lang]/dashboard', 'page')
+  revalidatePath('/[lang]/dashboard/level/[level]', 'page')
+  revalidatePath('/[lang]/dashboard/level/[level]/vocabulary', 'page')
+  revalidatePath('/[lang]/dashboard/level/[level]/vocabulary/train', 'page')
 }
 
-/**
- * Liefert alle fälligen Karten eines Sprachniveaus in gewichteter Zufallsreihenfolge.
- * Niedrige Phasen werden häufiger gezogen als hohe (siehe `PHASE_SELECTION_WEIGHTS`).
- * Karten im Zustand „gelernt" (Box 7) werden nicht mehr abgefragt.
- */
-export async function getDueCards(level?: string): Promise<DueVocabularyCard[]> {
+/** Due dates remain intact when sibling directions have to wait for another word. */
+export async function getVocabularySession(level?: string, uiLanguage?: string): Promise<{ cards: DueVocabularyCard[]; deferredCount: number; previousCardId: string | null }> {
   try {
-    const supabase = await createClient()
-    const {
-      data: { user },
-    } = await supabase.auth.getUser()
-
-    if (!user) return []
-
-    // Defense-in-Depth: gesperrte Niveaus liefern keine Karten, auch wenn die
-    // Action direkt (ohne Route-Guard) aufgerufen wird.
-    if (level) {
-      const profile = await loadLevelAccessProfile(supabase, user.id)
-      if (!hasLevelAccess(profile, level)) return []
-    }
-
-    const nativeLanguage = await loadNativeLanguage(supabase, user.id)
-
-    let query = supabase
-      .from('user_vocabulary_progress')
-      .select(`
-        id,
-        box_number,
-        vocabulary_cards!inner (
-          id,
-          level,
-          lesson,
-          word_de,
-          article,
-          plural,
-          translation_ru,
-          translation_tr,
-          translation_en,
-          image_url,
-          audio_url,
-          is_hard_for_ru,
-          is_hard_for_tr
-        )
-      `)
-      .eq('user_id', user.id)
-      .lte('next_review_date', new Date().toISOString())
-      .lt('box_number', LEITNER_LEARNED_BOX)
-
-    if (level) {
-      query = query.eq('vocabulary_cards.level', level)
-    }
-
-    const { data, error } = await query
-
-    if (error) {
-      console.error('Fehler beim Abrufen fälliger Vokabeln:', error.message)
-      return []
-    }
-
-    const rows = (data ?? []) as unknown as DueCardRow[]
-
-    const mapped = rows.map((row) => {
-      const box = normalizeBox(row.box_number)
-      const phase = (box === LEITNER_LEARNED_BOX ? 6 : box) as LeitnerPhase
-
-      return {
-        progressId: row.id,
-        box,
-        phase,
-        card: {
-          id: row.vocabulary_cards.id,
-          lesson: row.vocabulary_cards.lesson,
-          level: row.vocabulary_cards.level,
-          word_de: row.vocabulary_cards.word_de,
-          article: row.vocabulary_cards.article,
-          plural: row.vocabulary_cards.plural,
-          image_url: row.vocabulary_cards.image_url,
-          audio_url: row.vocabulary_cards.audio_url,
-        },
-        translation: resolveTranslation(row.vocabulary_cards, nativeLanguage),
-        isHardForNativeLanguage: isHardForNativeLanguage(row.vocabulary_cards, nativeLanguage),
-      }
-    })
-
-    return pickWeightedRandomOrder(mapped, (card) => selectionWeightForBox(card.box))
-  } catch (err) {
-    console.error('Unerwarteter Fehler in getDueCards:', err)
-    return []
-  }
-}
-
-/**
- * Legt den Lernstand für eine Lektion an. Neue Karten starten in Phase 1 und
- * sind sofort fällig, damit der erste Kontakt noch heute möglich ist.
- *
- * Das Sprachniveau muss mitgegeben werden: Lektionsnamen wie „Lektion 1"
- * kommen in mehreren Niveaus vor.
- */
-export async function initializeLesson(
-  lessonName: string,
-  level?: string
-): Promise<InitializeLessonResult> {
-  try {
-    const supabase = await createClient()
-    const {
-      data: { user },
-    } = await supabase.auth.getUser()
-
-    if (!user) return { success: false, added: 0 }
-
-    if (level) {
-      const profile = await loadLevelAccessProfile(supabase, user.id)
-      if (!hasLevelAccess(profile, level)) return { success: false, added: 0 }
-    }
-
-    let cardsQuery = supabase.from('vocabulary_cards').select('id').eq('lesson', lessonName)
-    if (level) {
-      cardsQuery = cardsQuery.eq('level', level)
-    }
-
-    const { data: cards, error: cardsError } = await cardsQuery
-
-    if (cardsError) {
-      console.error(`Karten der Lektion "${lessonName}" nicht ladbar:`, cardsError.message)
-      return { success: false, added: 0 }
-    }
-
-    if (!cards || cards.length === 0) return { success: false, added: 0 }
-
-    const { data: existingProgress, error: progressError } = await supabase
-      .from('user_vocabulary_progress')
-      .select('card_id')
-      .eq('user_id', user.id)
-
-    if (progressError) {
-      console.error('Bestehender Lernfortschritt nicht ladbar:', progressError.message)
-      return { success: false, added: 0 }
-    }
-
-    const existingCardIds = new Set((existingProgress ?? []).map((entry) => entry.card_id))
-    const now = new Date().toISOString()
-
-    const newProgress = cards
-      .filter((card) => !existingCardIds.has(card.id))
-      .map((card) => ({
-        user_id: user.id,
-        card_id: card.id,
-        box_number: 1,
-        next_review_date: now,
-      }))
-
-    if (newProgress.length > 0) {
-      const { error: insertError } = await supabase
-        .from('user_vocabulary_progress')
-        .insert(newProgress)
-
-      if (insertError) {
-        console.error(`Lernstand für "${lessonName}" nicht anlegbar:`, insertError.message)
-        return { success: false, added: 0 }
+    const learner = await loadLearner()
+    if (!learner || (level && !hasLevelAccess(learner.profile, level))) return { cards: [], deferredCount: 0, previousCardId: null }
+    const { supabase, user, profile } = learner
+    const language = languageSchema.catch('de').parse(uiLanguage ?? profile.ui_language)
+    let query = supabase.from('vocabulary_direction_progress').select('*, vocabulary_cards!inner(*)')
+      .eq('user_id', user.id).lte('next_review_date', new Date().toISOString()).lt('box_number', LEITNER_LEARNED_BOX)
+    if (level) query = query.eq('vocabulary_cards.level', level)
+    query = query.order('id')
+    const readDue = async () => {
+      const rows: NonNullable<Awaited<typeof query>['data']> = []
+      for (let offset = 0; ; offset += 500) {
+        const { data, error } = await query.range(offset, offset + 499)
+        if (error) return { data: null, error }
+        rows.push(...(data ?? []))
+        if (!data || data.length < 500) return { data: rows, error: null }
       }
     }
-
-    revalidatePath('/[lang]/dashboard/level/[level]/vocabulary', 'page')
-    return { success: true, added: newProgress.length }
-  } catch (err) {
-    console.error('Unerwarteter Fehler in initializeLesson:', err)
-    return { success: false, added: 0 }
-  }
-}
-
-/**
- * Liefert alle Vokabeln einer Lektion inklusive persönlichem Lernstand –
- * Grundlage für die Lektions-Detailansicht und den Einstufungs-Durchlauf.
- * Karten ohne Lernstand (`phase: null`) wurden noch nicht in den
- * Karteikasten übernommen.
- */
-export async function getLessonCards(lessonName: string, level?: string): Promise<LessonCardView[]> {
-  try {
-    const supabase = await createClient()
-    const {
-      data: { user },
-    } = await supabase.auth.getUser()
-
-    if (!user) return []
-
-    if (level) {
-      const profile = await loadLevelAccessProfile(supabase, user.id)
-      if (!hasLevelAccess(profile, level)) return []
-    }
-
-    const nativeLanguage = await loadNativeLanguage(supabase, user.id)
-
-    let cardsQuery = supabase
-      .from('vocabulary_cards')
-      .select(
-        'id, word_de, article, plural, translation_ru, translation_tr, translation_en, image_url, audio_url, is_hard_for_ru, is_hard_for_tr'
-      )
-      .eq('lesson', lessonName)
-
-    if (level) {
-      cardsQuery = cardsQuery.eq('level', level)
-    }
-
-    const [{ data: cards, error: cardsError }, { data: progress, error: progressError }] = await Promise.all([
-      cardsQuery,
-      supabase.from('user_vocabulary_progress').select('card_id, box_number').eq('user_id', user.id),
+    const [{ data, error }, { data: cursor, error: cursorError }] = await Promise.all([
+      readDue(),
+      supabase.from('vocabulary_learning_state').select('last_card_id').eq('user_id', user.id).maybeSingle(),
     ])
-
-    if (cardsError) {
-      console.error(`Karten der Lektion "${lessonName}" nicht ladbar:`, cardsError.message)
-      return []
+    // Fail closed if the previous word cannot be determined: never violate spacing.
+    if (error || cursorError) {
+      console.error('Vocabulary session could not be loaded:', error?.code ?? cursorError?.code)
+      return { cards: [], deferredCount: 0, previousCardId: null }
     }
-
-    if (progressError) {
-      console.error('Lernfortschritt für die Detailansicht nicht ladbar:', progressError.message)
-    }
-
-    const progressByCard = new Map(
-      (progress ?? []).map((entry) => [entry.card_id, normalizeBox(entry.box_number)])
-    )
-
-    return (cards ?? [])
-      .map((card) => {
-        const box = progressByCard.get(card.id)
-        const isLearned = box === LEITNER_LEARNED_BOX
-        const phase: LeitnerPhase | null = box === undefined ? null : isLearned ? 6 : box
-
-        return {
-          id: card.id,
-          word_de: card.word_de,
-          article: card.article,
-          plural: card.plural,
-          translation: resolveTranslation(card, nativeLanguage),
-          image_url: card.image_url,
-          audio_url: card.audio_url,
-          phase,
-          isLearned,
-        }
-      })
-      .sort((a, b) => a.word_de.localeCompare(b.word_de, 'de-DE'))
-  } catch (err) {
-    console.error('Unerwarteter Fehler in getLessonCards:', err)
-    return []
+    const cards: DueVocabularyCard[] = (data ?? []).filter(row => hasLevelAccess(profile, row.vocabulary_cards.level)).map(row => {
+      const card = row.vocabulary_cards
+      const box = normalizeBox(row.box_number)
+      const direction = row.direction === 'native_to_de' ? 'native_to_de' : 'de_to_native'
+      const localizedContext = card[`context_sentence_${language}`]
+      const sentence = direction === 'native_to_de' && card.sentence_practice && !!localizedContext?.trim() && !!card.context_sentence_de?.trim()
+      const translation = resolveTranslation(card, profile.native_language)
+      return {
+        progressId: row.id, direction, format: sentence ? 'sentence' : 'word',
+        prompt: sentence ? localizedContext! : direction === 'native_to_de' ? translation : card.word_de,
+        // Never send the exact German sentence before a typing answer is submitted.
+        contextSentence: sentence ? null : card.context_sentence_de,
+        box, phase: (box === LEITNER_LEARNED_BOX ? 6 : box) as LeitnerPhase,
+        card: { id: card.id, level: card.level, lesson: card.lesson, word_de: card.word_de,
+          article: card.article, plural: card.plural, image_url: card.image_url, audio_url: card.audio_url },
+        translation, isHardForNativeLanguage: isHardForNativeLanguage(card, profile.native_language),
+      }
+    })
+    const weighted = pickWeightedRandomOrder(cards, card => selectionWeightForBox(card.box))
+    return { ...scheduleVocabularyCards(weighted, cursor?.last_card_id), previousCardId: cursor?.last_card_id ?? null }
+  } catch (error) {
+    console.error('Vocabulary session failed:', error instanceof Error ? error.name : 'unknown')
+    return { cards: [], deferredCount: 0, previousCardId: null }
   }
 }
 
-/**
- * Manuelle Übernahme einzelner, gezielt ausgewählter Vokabeln in den
- * Karteikasten. Startet immer in Phase 1, unabhängig vom Lektionsstatus.
- * Karten mit bereits bestehendem Lernstand werden übersprungen.
- */
-export async function addCardsToTrainer(cardIds: string[]): Promise<AddCardsResult> {
+export async function getDueCards(level?: string, uiLanguage?: string): Promise<DueVocabularyCard[]> {
+  return (await getVocabularySession(level, uiLanguage)).cards
+}
+
+/** One decision initializes both directions, without changing any existing state. */
+export async function submitLessonAssessment(decisions: AssessmentDecision[]): Promise<SubmitAssessmentResult> {
+  const failed: SubmitAssessmentResult = { success: false, addedKnown: 0, addedNew: 0 }
+  const parsed = decisionSchema.safeParse(decisions)
+  if (!parsed.success) return failed
+  if (parsed.data.length === 0) return { success: true, addedKnown: 0, addedNew: 0 }
   try {
-    if (cardIds.length === 0) return { success: true, added: 0 }
-
-    const supabase = await createClient()
-    const {
-      data: { user },
-    } = await supabase.auth.getUser()
-
-    if (!user) return { success: false, added: 0 }
-
-    const { data: existingProgress, error: progressError } = await supabase
-      .from('user_vocabulary_progress')
-      .select('card_id')
-      .eq('user_id', user.id)
-      .in('card_id', cardIds)
-
-    if (progressError) {
-      console.error('Bestehender Lernfortschritt nicht ladbar:', progressError.message)
-      return { success: false, added: 0 }
+    const learner = await loadLearner()
+    if (!learner) return failed
+    // Duplicate decisions are rejected rather than allowing contradictory grades.
+    if (new Set(parsed.data.map(item => item.cardId)).size !== parsed.data.length) return failed
+    const { data, error } = await learner.supabase.rpc('initialize_vocabulary_cards', { p_decisions: parsed.data })
+    if (error) {
+      console.error('Vocabulary assessment failed:', error.code)
+      return failed
     }
+    const result = initializationResultSchema.safeParse(data)
+    if (!result.success) return failed
+    refreshVocabulary()
+    return { success: true, ...result.data }
+  } catch (error) {
+    console.error('Vocabulary assessment failed:', error instanceof Error ? error.name : 'unknown')
+    return failed
+  }
+}
 
-    const existingCardIds = new Set((existingProgress ?? []).map((entry) => entry.card_id))
-    const now = new Date().toISOString()
+export async function addCardsToTrainer(cardIds: string[]): Promise<AddCardsResult> {
+  if (!Array.isArray(cardIds)) return { success: false, added: 0 }
+  const result = await submitLessonAssessment([...new Set(cardIds)].map(cardId => ({ cardId, alreadyKnown: false })))
+  return { success: result.success, added: result.addedNew }
+}
 
-    const newProgress = cardIds
-      .filter((cardId) => !existingCardIds.has(cardId))
-      .map((cardId) => ({
-        user_id: user.id,
-        card_id: cardId,
-        box_number: 1,
-        next_review_date: now,
-      }))
-
-    if (newProgress.length > 0) {
-      const { error: insertError } = await supabase.from('user_vocabulary_progress').insert(newProgress)
-
-      if (insertError) {
-        console.error('Manuelle Vokabel-Übernahme nicht speicherbar:', insertError.message)
-        return { success: false, added: 0 }
-      }
-    }
-
-    revalidatePath('/[lang]/dashboard', 'page')
-    revalidatePath('/[lang]/dashboard/level/[level]', 'page')
-    revalidatePath('/[lang]/dashboard/level/[level]/vocabulary', 'page')
-    return { success: true, added: newProgress.length }
-  } catch (err) {
-    console.error('Unerwarteter Fehler in addCardsToTrainer:', err)
+export async function initializeLesson(lessonName: string, level?: string): Promise<InitializeLessonResult> {
+  try {
+    if (typeof lessonName !== 'string' || !lessonName.trim() || lessonName.length > 200) return { success: false, added: 0 }
+    const learner = await loadLearner()
+    if (!learner || (level && !hasLevelAccess(learner.profile, level))) return { success: false, added: 0 }
+    let query = learner.supabase.from('vocabulary_cards').select('id,level').eq('lesson', lessonName)
+    if (level) query = query.eq('level', level)
+    const { data, error } = await query
+    if (error || !data?.length) return { success: false, added: 0 }
+    const allowed = data.filter(card => hasLevelAccess(learner.profile, card.level))
+    if (!allowed.length) return { success: false, added: 0 }
+    return addCardsToTrainer(allowed.map(card => card.id))
+  } catch {
     return { success: false, added: 0 }
   }
 }
 
-/**
- * Übernimmt das Ergebnis des „Vokabeln einstufen"-Durchlaufs (Pre-Assessment):
- * Bereits bekannte Vokabeln landen in Phase 6, unbekannte sofort fällig in
- * Phase 1 und damit ohne Umweg im aktiven Lernen. Karten mit bereits
- * bestehendem Lernstand werden übersprungen, damit ein Doppelklick nichts
- * überschreibt.
- */
-export async function submitLessonAssessment(decisions: AssessmentDecision[]): Promise<SubmitAssessmentResult> {
+/** Atomic skip + first actual lesson initialization; never a guessed lesson label. */
+export async function skipVocabularyAssessment(level: string): Promise<InitializeLessonResult & { lesson?: string }> {
+  if (!isAccessLevel(level)) return { success: false, added: 0 }
   try {
-    if (decisions.length === 0) return { success: true, addedKnown: 0, addedNew: 0 }
-
-    const supabase = await createClient()
-    const {
-      data: { user },
-    } = await supabase.auth.getUser()
-
-    if (!user) return { success: false, addedKnown: 0, addedNew: 0 }
-
-    const cardIds = decisions.map((decision) => decision.cardId)
-    const { data: existingProgress, error: progressError } = await supabase
-      .from('user_vocabulary_progress')
-      .select('card_id')
-      .eq('user_id', user.id)
-      .in('card_id', cardIds)
-
-    if (progressError) {
-      console.error('Bestehender Lernfortschritt nicht ladbar:', progressError.message)
-      return { success: false, addedKnown: 0, addedNew: 0 }
-    }
-
-    const existingCardIds = new Set((existingProgress ?? []).map((entry) => entry.card_id))
-    const now = new Date()
-    const nowIso = now.toISOString()
-
-    const rows = decisions
-      .filter((decision) => !existingCardIds.has(decision.cardId))
-      .map((decision) => ({
-        user_id: user.id,
-        card_id: decision.cardId,
-        box_number: decision.alreadyKnown ? ASSESSMENT_KNOWN_PHASE : 1,
-        next_review_date: decision.alreadyKnown
-          ? nextReviewDateForBox(ASSESSMENT_KNOWN_PHASE, false, now).toISOString()
-          : nowIso,
-      }))
-
-    if (rows.length > 0) {
-      const { error: insertError } = await supabase.from('user_vocabulary_progress').insert(rows)
-
-      if (insertError) {
-        console.error('Einstufung nicht speicherbar:', insertError.message)
-        return { success: false, addedKnown: 0, addedNew: 0 }
-      }
-    }
-
-    const addedKnown = rows.filter((row) => row.box_number === ASSESSMENT_KNOWN_PHASE).length
-    const addedNew = rows.length - addedKnown
-
-    revalidatePath('/[lang]/dashboard', 'page')
-    revalidatePath('/[lang]/dashboard/level/[level]', 'page')
-    revalidatePath('/[lang]/dashboard/level/[level]/vocabulary', 'page')
-
-    return { success: true, addedKnown, addedNew }
-  } catch (err) {
-    console.error('Unerwarteter Fehler in submitLessonAssessment:', err)
-    return { success: false, addedKnown: 0, addedNew: 0 }
+    const learner = await loadLearner()
+    if (!learner || !hasLevelAccess(learner.profile, level)) return { success: false, added: 0 }
+    const { data, error } = await learner.supabase.rpc('skip_vocabulary_assessment', { p_level: level })
+    const result = initializationResultSchema.extend({ lesson: z.string().min(1) }).safeParse(data)
+    if (error || !result.success) return { success: false, added: 0 }
+    refreshVocabulary()
+    return { success: true, added: result.data.addedNew, lesson: result.data.lesson }
+  } catch {
+    return { success: false, added: 0 }
   }
 }
 
-/**
- * Verbucht eine Antwort im Phase-6-Modell.
- *
- * Richtig → eine Phase weiter, aus Phase 6 heraus gilt die Vokabel als gelernt.
- * Falsch  → exakt eine Phase zurück, mindestens bis Phase 1. Der bisherige
- *           Lernfortschritt bleibt erhalten und wird nicht zurückgesetzt.
- *
- * Muttersprache und Schwierigkeitsmarker werden serverseitig aus Profil und
- * Karte gelesen – der Client kann die Intervalle damit nicht beeinflussen.
- *
- * Bewusst ohne revalidatePath: Ein Refresh mitten in der Lernsession würde die
- * Kartenliste neu filtern. Die Übersichten aktualisiert `finishVocabularySession`.
- */
-export async function submitVocabularyAnswer(
-  input: SubmitVocabularyAnswerInput
-): Promise<SubmitVocabularyAnswerResult> {
+export async function getVocabularyOnboarding(level: string): Promise<{ status: 'skipped' | 'completed'; lesson: string } | null> {
+  const learner = await loadLearner()
+  if (!learner || !hasLevelAccess(learner.profile, level)) return null
+  const { data, error } = await learner.supabase.from('vocabulary_onboarding').select('status,started_lesson')
+    .eq('user_id', learner.user.id).eq('level', level).maybeSingle()
+  if (error || !data || (data.status !== 'skipped' && data.status !== 'completed')) return null
+  return { status: data.status, lesson: data.started_lesson }
+}
+
+/** Word self-rating is accepted; sentence correctness is computed inside PostgreSQL. */
+export async function submitVocabularyAnswer(input: SubmitVocabularyAnswerInput): Promise<SubmitVocabularyAnswerResult> {
+  const parsed = z.object({ progressId: z.string().uuid(), isCorrect: z.boolean().optional(),
+    typedAnswer: z.string().max(4000).optional(), uiLanguage: languageSchema.optional() }).safeParse(input)
+  if (!parsed.success) return { success: false, error: 'invalid_input' }
   try {
-    const supabase = await createClient()
-    const {
-      data: { user },
-    } = await supabase.auth.getUser()
-
-    if (!user) return { success: false }
-
-    const { data: progress, error: readError } = await supabase
-      .from('user_vocabulary_progress')
-      .select('box_number, lapses, vocabulary_cards!inner (is_hard_for_ru, is_hard_for_tr)')
-      .eq('id', input.progressId)
-      .eq('user_id', user.id)
-      .single()
-
-    if (readError || !progress) {
-      console.error(
-        `Lernstand ${input.progressId} für Nutzer ${user.id} nicht ladbar:`,
-        readError?.message ?? 'kein Datensatz'
-      )
-      return { success: false }
-    }
-
-    const nativeLanguage = await loadNativeLanguage(supabase, user.id)
-    const card = progress.vocabulary_cards as unknown as {
-      is_hard_for_ru: boolean | null
-      is_hard_for_tr: boolean | null
-    }
-
-    const result = applyLeitnerAnswer({
-      currentBox: progress.box_number,
-      isCorrect: input.isCorrect,
-      isHardForNativeLanguage: isHardForNativeLanguage(card, nativeLanguage),
+    const learner = await loadLearner()
+    if (!learner) return { success: false, error: 'save_failed' }
+    const { data, error } = await learner.supabase.rpc('submit_vocabulary_answer', {
+      p_progress_id: parsed.data.progressId, p_is_correct: parsed.data.isCorrect ?? null,
+      p_typed_answer: parsed.data.typedAnswer ?? null,
+      p_ui_language: parsed.data.uiLanguage ?? languageSchema.catch('de').parse(learner.profile.ui_language),
     })
-
-    const now = new Date().toISOString()
-    const { error: writeError } = await supabase
-      .from('user_vocabulary_progress')
-      .update({
-        box_number: result.newBox,
-        next_review_date: result.nextReviewDate.toISOString(),
-        lapses: (progress.lapses ?? 0) + (result.movedBack ? 1 : 0),
-        last_answered_at: now,
-        updated_at: now,
-      })
-      .eq('id', input.progressId)
-      .eq('user_id', user.id)
-
-    if (writeError) {
-      console.error(`Lernstand ${input.progressId} nicht speicherbar:`, writeError.message)
-      return { success: false }
-    }
-
-    return {
-      success: true,
-      previousPhase: result.previousPhase,
-      newPhase: result.newPhase,
-      becameLearned: result.becameLearned,
-      movedBack: result.movedBack,
-      intervalInDays: result.intervalInDays,
-    }
-  } catch (err) {
-    console.error('Unerwarteter Fehler in submitVocabularyAnswer:', err)
-    return { success: false }
+    if (error) return { success: false, error: error.message.includes('vocabulary_spacing_required') ? 'spacing_required' : 'save_failed' }
+    const result = reviewResultSchema.safeParse(data)
+    if (!result.success) return { success: false, error: 'save_failed' }
+    return { ...result.data, previousPhase: result.data.previousPhase as LeitnerPhase, newPhase: result.data.newPhase as LeitnerPhase }
+  } catch {
+    return { success: false, error: 'save_failed' }
   }
 }
 
-/** Aktualisiert die Fortschrittsanzeigen nach dem Ende einer Lernsession. */
 export async function finishVocabularySession(): Promise<{ success: boolean }> {
-  try {
-    revalidatePath('/[lang]/dashboard', 'page')
-    revalidatePath('/[lang]/dashboard/level/[level]', 'page')
-    revalidatePath('/[lang]/dashboard/level/[level]/vocabulary', 'page')
-    return { success: true }
-  } catch (err) {
-    console.error('Unerwarteter Fehler in finishVocabularySession:', err)
-    return { success: false }
-  }
+  refreshVocabulary()
+  return { success: true }
 }
 
-/** Lernstand je Lektion für die Übersichtsseite. */
+/** A word is learned only after both independently scheduled directions are learned. */
+export async function getLessonCards(lessonName: string, level?: string): Promise<LessonCardView[]> {
+  const learner = await loadLearner()
+  if (!learner || (level && !hasLevelAccess(learner.profile, level))) return []
+  let query = learner.supabase.from('vocabulary_cards').select('*').eq('lesson', lessonName)
+  if (level) query = query.eq('level', level)
+  const [{ data: cards, error }, progress] = await Promise.all([
+    query, readVocabularyProgress(learner.supabase, learner.user.id).catch(() => null),
+  ])
+  if (error || !progress) return []
+  return (cards ?? []).filter(card => hasLevelAccess(learner.profile, card.level)).map(card => {
+    const states = (progress ?? []).filter(row => row.card_id === card.id)
+    const learned = states.length === 2 && states.every(row => normalizeBox(row.box_number) === LEITNER_LEARNED_BOX)
+    const phase = states.length ? Math.min(...states.map(row => Math.min(6, normalizeBox(row.box_number)))) as LeitnerPhase : null
+    return { id: card.id, word_de: card.word_de, article: card.article, plural: card.plural,
+      translation: resolveTranslation(card, learner.profile.native_language), image_url: card.image_url, audio_url: card.audio_url,
+      phase, isLearned: learned, contextSentence: card.context_sentence_de }
+  }).sort((a, b) => a.word_de.localeCompare(b.word_de, 'de-DE'))
+}
+
 export async function getLessonStats(level?: string): Promise<LessonStat[]> {
-  try {
-    const supabase = await createClient()
-    const {
-      data: { user },
-    } = await supabase.auth.getUser()
-
-    if (!user) return []
-
-    if (level) {
-      const profile = await loadLevelAccessProfile(supabase, user.id)
-      if (!hasLevelAccess(profile, level)) return []
+  const learner = await loadLearner()
+  if (!learner || (level && !hasLevelAccess(learner.profile, level))) return []
+  let query = learner.supabase.from('vocabulary_cards').select('id,lesson,level')
+  if (level) query = query.eq('level', level)
+  const [{ data: cards, error }, progress] = await Promise.all([
+    query, readVocabularyProgress(learner.supabase, learner.user.id).catch(() => null),
+  ])
+  if (error || !progress) return []
+  const stats = new Map<string, LessonStat>()
+  const now = Date.now()
+  for (const card of cards ?? []) {
+    if (!hasLevelAccess(learner.profile, card.level)) continue
+    const stat = stats.get(card.lesson) ?? { lesson: card.lesson, total: 0, active: 0, learned: 0, untouched: 0, due: 0 }
+    const states = (progress ?? []).filter(row => row.card_id === card.id)
+    stat.total += 1
+    if (!states.length) stat.untouched += 1
+    else if (states.length === 2 && states.every(row => normalizeBox(row.box_number) === LEITNER_LEARNED_BOX)) stat.learned += 1
+    else {
+      stat.active += 1
+      if (states.some(row => normalizeBox(row.box_number) < LEITNER_LEARNED_BOX && row.next_review_date && Date.parse(row.next_review_date) <= now)) stat.due += 1
     }
-
-    let cardsQuery = supabase.from('vocabulary_cards').select('id, lesson')
-    if (level) {
-      cardsQuery = cardsQuery.eq('level', level)
-    }
-
-    const [{ data: cards, error: cardsError }, { data: progress, error: progressError }] =
-      await Promise.all([
-        cardsQuery,
-        supabase
-          .from('user_vocabulary_progress')
-          .select('card_id, box_number, next_review_date')
-          .eq('user_id', user.id),
-      ])
-
-    if (cardsError) {
-      console.error('Vokabelkarten für die Statistik nicht ladbar:', cardsError.message)
-      return []
-    }
-
-    if (progressError) {
-      console.error('Lernfortschritt für die Statistik nicht ladbar:', progressError.message)
-    }
-
-    const progressByCard = new Map(
-      (progress ?? []).map((entry) => [
-        entry.card_id,
-        { box: normalizeBox(entry.box_number), nextReviewDate: entry.next_review_date },
-      ])
-    )
-
-    const now = Date.now()
-    const stats = new Map<string, LessonStat>()
-
-    for (const card of cards ?? []) {
-      const stat = stats.get(card.lesson) ?? {
-        lesson: card.lesson,
-        total: 0,
-        active: 0,
-        learned: 0,
-        untouched: 0,
-        due: 0,
-      }
-
-      stat.total += 1
-      const entry = progressByCard.get(card.id)
-
-      if (!entry) {
-        stat.untouched += 1
-      } else if (entry.box === LEITNER_LEARNED_BOX) {
-        stat.learned += 1
-      } else {
-        stat.active += 1
-        if (entry.nextReviewDate && new Date(entry.nextReviewDate).getTime() <= now) {
-          stat.due += 1
-        }
-      }
-
-      stats.set(card.lesson, stat)
-    }
-
-    return [...stats.values()].sort((left, right) => left.lesson.localeCompare(right.lesson, 'de-DE'))
-  } catch (err) {
-    console.error('Unerwarteter Fehler in getLessonStats:', err)
-    return []
+    stats.set(card.lesson, stat)
   }
+  return [...stats.values()].sort((a, b) => a.lesson.localeCompare(b.lesson, 'de-DE', { numeric: true }))
 }
 
-/**
- * Setzt den Lernfortschritt für eine bestimmte Lektion zurück.
- * Löscht alle zugehörigen Einträge aus `user_vocabulary_progress`.
- */
 export async function resetLessonProgress(lessonName: string, level?: string): Promise<{ success: boolean }> {
-  try {
-    const supabase = await createClient()
-    const {
-      data: { user },
-    } = await supabase.auth.getUser()
-
-    if (!user) return { success: false }
-
-    if (level) {
-      const profile = await loadLevelAccessProfile(supabase, user.id)
-      if (!hasLevelAccess(profile, level)) return { success: false }
-    }
-
-    // Finde zuerst alle card_ids für diese Lektion
-    let cardsQuery = supabase.from('vocabulary_cards').select('id').eq('lesson', lessonName)
-    if (level) {
-      cardsQuery = cardsQuery.eq('level', level)
-    }
-
-    const { data: cards, error: cardsError } = await cardsQuery
-
-    if (cardsError || !cards || cards.length === 0) {
-      console.error(`Karten der Lektion "${lessonName}" nicht ladbar:`, cardsError?.message)
-      return { success: false }
-    }
-
-    const cardIds = cards.map(c => c.id)
-
-    const { error: deleteError } = await supabase
-      .from('user_vocabulary_progress')
-      .delete()
-      .eq('user_id', user.id)
-      .in('card_id', cardIds)
-
-    if (deleteError) {
-      console.error('Fehler beim Zurücksetzen des Fortschritts:', deleteError.message)
-      return { success: false }
-    }
-
-    revalidatePath('/[lang]/dashboard', 'page')
-    revalidatePath('/[lang]/dashboard/level/[level]', 'page')
-    revalidatePath('/[lang]/dashboard/level/[level]/vocabulary', 'page')
-
-    return { success: true }
-  } catch (err) {
-    console.error('Unerwarteter Fehler in resetLessonProgress:', err)
-    return { success: false }
-  }
+  const learner = await loadLearner()
+  if (!learner || (level && !hasLevelAccess(learner.profile, level))) return { success: false }
+  let query = learner.supabase.from('vocabulary_cards').select('id,level').eq('lesson', lessonName)
+  if (level) query = query.eq('level', level)
+  const { data: cards, error } = await query
+  const allowed = (cards ?? []).filter(card => hasLevelAccess(learner.profile, card.level))
+  if (error || !allowed.length) return { success: false }
+  // The legacy delete trigger removes both directions in the same transaction.
+  const { error: deleteError } = await learner.supabase.from('user_vocabulary_progress').delete()
+    .eq('user_id', learner.user.id).in('card_id', allowed.map(card => card.id))
+  if (deleteError) return { success: false }
+  refreshVocabulary()
+  return { success: true }
 }

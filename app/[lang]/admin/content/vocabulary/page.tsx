@@ -1,19 +1,11 @@
 import { getVocabs } from '@/app/actions/cms'
 import VocabCMS from '@/components/admin/VocabCMS'
+import { getDictionary } from '@/lib/dictionary'
+import { createAdminTranslator } from '@/lib/admin-i18n'
 
-export default async function AdminVocabularyPage() {
-  const items = await getVocabs()
-
-  return (
-    <div className="space-y-8">
-      <div>
-        <h1 className="text-3xl font-bold text-slate-900 dark:text-white">Vokabeln verwalten</h1>
-        <p className="text-slate-500 dark:text-slate-400 mt-2">
-          Lege hier neue Vokabelkarten an oder lösche bestehende.
-        </p>
-      </div>
-
-      <VocabCMS initialData={items} />
-    </div>
-  )
+export default async function AdminVocabularyPage({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang } = await params
+  const [items, dictionary] = await Promise.all([getVocabs(), getDictionary(lang)])
+  const t = createAdminTranslator(dictionary.admin)
+  return <div className="min-w-0 space-y-5"><header><h1 className="text-2xl font-semibold text-[var(--foreground)]">{t('cms_title')}</h1><p className="mt-2 text-sm leading-relaxed text-[var(--muted)]">{t('cms_intro')}</p></header><VocabCMS initialData={items} /></div>
 }

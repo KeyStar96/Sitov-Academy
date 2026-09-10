@@ -13,9 +13,11 @@ import {
 export default function DashboardHeader({
   lang,
   translations,
+  breadcrumbLabel,
 }: {
   lang: string
   translations: DashboardTranslations
+  breadcrumbLabel?: string
 }) {
   const pathname = usePathname()
   const t = createDashboardTranslator(translations)
@@ -61,7 +63,7 @@ export default function DashboardHeader({
         </Link>
       ) : null}
 
-      <nav className="hidden min-w-0 md:flex" aria-label="Breadcrumb">
+      <nav className="hidden min-w-0 md:flex" aria-label={breadcrumbLabel || t('nav_dashboard')}>
         <ol className="flex min-w-0 flex-wrap items-center gap-x-2 gap-y-1">
           {breadcrumbs.map((crumb, index) => {
             const isLast = index === breadcrumbs.length - 1
@@ -69,9 +71,9 @@ export default function DashboardHeader({
               <li key={crumb.href} className="flex min-w-0 items-center">
                 <Link
                   href={crumb.href}
-                  className={`break-words text-sm font-bold transition-colors ${
+                  className={`inline-flex min-h-11 items-center break-words text-sm font-bold transition-colors ${
                     isLast
-                      ? 'text-[#FF5C00] pointer-events-none'
+                      ? 'text-[var(--accent)] pointer-events-none'
                       : 'text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100'
                   }`}
                 >
@@ -86,7 +88,7 @@ export default function DashboardHeader({
         </ol>
       </nav>
 
-      <p className="min-w-0 truncate text-base font-bold text-[#FF5C00] md:hidden">{currentName}</p>
+      <p className="min-w-0 truncate text-base font-bold text-[var(--accent)] md:hidden">{currentName}</p>
     </div>
   )
 }

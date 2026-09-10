@@ -33,9 +33,9 @@ export default async function AdminStudentsPage({ params }: { params: Promise<{ 
   }))
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-5">
       <div>
-        <h1 className="text-3xl font-bold text-slate-900 dark:text-white">{t('students_title')}</h1>
+        <h1 className="text-2xl font-semibold text-slate-900 dark:text-white">{t('students_title')}</h1>
         <p className="mt-2 text-slate-500 dark:text-slate-400">{t('students_intro')}</p>
       </div>
       <BlackboardProvider initialNotes={notesResult.success === true ? notesResult.data : {}}>
