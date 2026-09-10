@@ -1,5 +1,7 @@
 # Monetization Strategy (Stripe Integration)
 
+> **Kontakt/Impulstakt (2026-09-10):** Anastasias Kontaktbutton führt zu `https://t.me/Sprachschule_Anastasia`; NeuralBrain-Impulse erscheinen leicht häufiger (Gruppen alle 6–8 Sekunden). Beide Anpassungen betreffen die Startseite und ändern keine Buchungs-, Abrechnungs- oder Zugriffslogik.
+
 > **Layout/Audio (2026-09-10):** CSS-Sticky stabilisiert die Kurs-Zahlungsübersicht; die Preis-, Einwilligungs- und Submit-Funktionen bleiben nach AST-Abgleich unverändert. Header-Buchungslink, getrennte Footer-Adressen und das Audio-Vorladen ändern keine Stripe-, Rechnungs- oder Zugriffslogik.
 
 > **NeuralBrain (2026-09-10):** Die Marketing-Visualisierung wurde mit organischem Gewebe und seltenen Shader-Lichtschweifen neu aufgebaut. Ausschließlich clientseitige Darstellung; keine Änderungen an Kursbuchung, Abrechnung, Stripe oder Zugriffsrechten.

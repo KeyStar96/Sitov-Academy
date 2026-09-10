@@ -137,8 +137,8 @@ function BrainScene({ dark, reducedMotion, onContextLost }: {
         slots.current[index].start = now + index * 0.16
         slots.current[index].duration = 1.7 + variation(burst * 3 + index) * 0.4
       }
-      // Entire bursts finish in <=3.05 s, leaving at least 3.45 s of silence.
-      nextBurst.current = now + 6.5 + variation(burst + 41) * 2.5
+      // Entire bursts finish in <=3.05 s, leaving at least 2.95 s of silence.
+      nextBurst.current = now + 6 + variation(burst + 41) * 2
     }
 
     for (let index = 0; index < MAX_COMETS; index++) {

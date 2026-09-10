@@ -1,5 +1,7 @@
 # Architecture Masterplan
 
+> **Kontakt/Impulstakt (2026-09-10):** `AcademyStory.tsx` verlinkt Anastasia direkt über `https://t.me/Sprachschule_Anastasia`. `NeuralBrain.tsx` startet jetzt alle 6–8 Sekunden eine Gruppe mit weiterhin 1–3 Impulsen; bei maximal 3,05 Sekunden Gruppenlaufzeit bleiben mindestens 2,95 Sekunden vollständige Ruhe. Dies ersetzt den unten protokollierten bisherigen Takt.
+
 ## Ergänzung 2026-09-10: natives Sticky-Layout und vorbereitete Audio-Wiedergabe
 
 - `EnrollmentTerminal.tsx` legt die linke Formularspalte und rechte Belegspalte in ein start-ausgerichtetes CSS-Grid. Sticky-Position und oberer Abstand gehören ausschließlich CSS; `SmoothScroll.tsx` nimmt Registrierungsrouten von Lenis aus. Der mobile Sprung zur Zusammenfassung verwendet einen separaten, nur mobil aktiven Observer.

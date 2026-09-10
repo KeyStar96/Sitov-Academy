@@ -27,7 +27,7 @@ export default function AcademyStory({ dictionary, lang }: { dictionary: Diction
             <li><GraduationCap size={22} aria-hidden="true" /><div><h3>{copy.teacher_academic_title}</h3><p>{copy.teacher_academic_text}</p></div></li>
             <li><BookOpen size={22} aria-hidden="true" /><div><h3>{copy.teacher_training_title}</h3><p>{copy.teacher_training_text}</p></div></li>
           </ul>
-          <a className="academy-button academy-button-outline" href="https://t.me/DeinNutzername" target="_blank" rel="noopener noreferrer">{copy.teacher_cta}<ArrowUpRight size={19} aria-hidden="true" /></a>
+          <a className="academy-button academy-button-outline" href="https://t.me/Sprachschule_Anastasia" target="_blank" rel="noopener noreferrer">{copy.teacher_cta}<ArrowUpRight size={19} aria-hidden="true" /></a>
         </div>
       </div>
     </section>

@@ -1,5 +1,10 @@
 # Current State Analysis (Ist-Zustand)
 
+## Änderungsprotokoll — 2026-09-10: Telegram-Ziel und leicht häufigere Lichtimpulse
+
+- Anastasias Kontaktbutton führt jetzt zu `https://t.me/Sprachschule_Anastasia` statt zum bisherigen Platzhalter.
+- NeuralBrain-Gruppen starten jetzt alle 6–8 statt 6,5–9 Sekunden, weiterhin mit höchstens drei gleichzeitigen Lichtschweifen und mindestens 2,95 Sekunden vollständiger Ruhe zwischen Gruppen.
+
 ## Änderungsprotokoll — 2026-09-10: Sticky-Registrierung, Navigation, Footer und Audio-Start
 
 - **Registrierung:** CSS-Grid mit `items-start` und `lg:sticky lg:top-8`; einheitlich natives Dokument-Scrolling auch auf Desktop. Veraltete Container-Scroll-Resets entfernt, Summary-Observer auf mobile Ansichten begrenzt. Lange Desktop-Belege begrenzen nur die Kursliste; Summe und Weiter-Button bleiben erreichbar. Preis-, Formular- und Submit-Berechnungen sind unverändert.
