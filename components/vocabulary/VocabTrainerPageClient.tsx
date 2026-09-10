@@ -77,12 +77,6 @@ export default function VocabTrainerPageClient({ learnerId, initialCards, lesson
     onBackToLernkasten={lastId => { setPreviousCardId(lastId); setSession(null); startRefresh(() => router.refresh()) }} />
 
   return <div className="mx-auto w-full max-w-5xl space-y-8 text-[var(--foreground)]">
-    <header className="flex flex-wrap items-end justify-between gap-5">
-      <div className="max-w-xl"><Link href={`/${lang}/dashboard/level/${encodeURIComponent(level)}`} className="inline-flex min-h-12 items-center text-sm font-semibold text-[var(--muted)]">← {t('back_to_level')}</Link>
-        <h1 className="text-3xl font-semibold tracking-tight sm:text-5xl">{t('title')}</h1><p className="mt-3 leading-relaxed text-[var(--muted)]">{t('subtitle')}</p>
-      </div>
-      <span className="rounded-full border border-[var(--border)] px-4 py-2 text-sm font-semibold">{level}</span>
-    </header>
     <section className="rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-5 sm:p-7" aria-label={t('lernkasten_title')}>
       <div className="flex flex-wrap items-center justify-between gap-5">
         <div><p className="text-sm text-[var(--muted)]">{t('due_now')}</p><p className="mt-1 text-5xl font-semibold tracking-tighter tabular-nums">{selectedCards.length}</p></div>

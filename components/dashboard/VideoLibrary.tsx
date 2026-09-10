@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ArrowLeft, ArrowUpRight, BookOpen, Play, Video } from 'lucide-react'
+import { ArrowUpRight, BookOpen, Play, Video } from 'lucide-react'
 import { createVideoTranslator, type VideoTranslations } from '@/lib/videos-i18n'
 import { youtubeWatchUrl, type VideoRecord } from '@/lib/video-links'
 
@@ -13,12 +13,6 @@ export default function VideoLibrary({ videos, lang, level, translations, failed
     return url ? [{ ...video, url }] : []
   })
   return <div className="mx-auto max-w-5xl space-y-8 text-[var(--foreground)]">
-    <header>
-      <Link href={levelHref} className="inline-flex min-h-12 items-center gap-2 text-sm font-semibold text-[var(--muted)]"><ArrowLeft size={16} aria-hidden="true" />{t('back_to_level')}</Link>
-      <div className="mt-3 flex flex-wrap items-center gap-3"><span className="rounded-full border border-[var(--border)] px-3 py-1 text-xs font-semibold">{level}</span><span className="text-xs font-medium tracking-widest text-[var(--muted)] uppercase">{t('supplement_label')}</span></div>
-      <h1 className="mt-4 text-3xl font-semibold tracking-tight sm:text-5xl">{t('internal_title')}</h1>
-      <p className="mt-4 max-w-2xl leading-relaxed text-[var(--muted)]">{t('internal_subtitle')}</p>
-    </header>
     {failed ? <p role="alert" className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-6">{t('error_description')}</p> : links.length ? <section className="space-y-3">
       {links.map((video, index) => <a key={video.id} href={video.url} target="_blank" rel="noopener noreferrer" aria-label={t('open_external_aria', { title: video.title })}
         className="group flex min-h-24 items-center gap-4 rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-5 transition-colors hover:border-[var(--violet)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--violet)] sm:gap-6 sm:p-6">

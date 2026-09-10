@@ -13,13 +13,7 @@ export default function VocabularyLoading() {
     >
       <span className="sr-only">{copy.loading}</span>
 
-      <div className="mb-8 flex flex-col justify-between gap-6 border-b border-[var(--border)] pb-6 md:flex-row">
-        <div className="space-y-3">
-          <div className="h-10 w-72 max-w-full animate-pulse rounded-lg bg-[var(--surface-muted)]" />
-          <div className="h-6 w-96 max-w-full animate-pulse rounded-lg bg-[var(--surface-muted)]" />
-        </div>
-        <div className="h-44 w-full animate-pulse rounded-2xl bg-[var(--surface-muted)] md:w-56" />
-      </div>
+      <div aria-hidden="true" className="mb-6 h-40 animate-pulse rounded-2xl bg-[var(--surface-muted)]" />
 
       <div className="mb-6 h-8 w-48 max-w-full animate-pulse rounded-lg bg-[var(--surface-muted)]" />
 

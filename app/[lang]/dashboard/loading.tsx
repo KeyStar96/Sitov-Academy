@@ -2,15 +2,11 @@
 
 import { useRouteFeedback } from '@/components/layout/RouteFeedbackProvider'
 
-/** Reserve the introduction, recommendation and level grid used by the loaded page. */
+/** Reserve the recommendation and level grid used by the loaded page. */
 export default function DashboardLoading() {
   const copy = useRouteFeedback('auth')
   return <div className="academy-dashboard" role="status" aria-busy="true">
     <span className="sr-only">{copy.loading}</span>
-    <div className="academy-dashboard-intro" aria-hidden="true">
-      <div className="w-full max-w-xl space-y-4"><div className="academy-skeleton h-4 w-36 max-w-full rounded-lg" /><div className="academy-skeleton h-12 w-3/4 rounded-xl" /><div className="academy-skeleton h-7 w-full rounded-lg" /></div>
-      <div className="academy-skeleton h-12 w-40 max-w-full shrink-0 rounded-full" />
-    </div>
     <div className="academy-next-step" aria-hidden="true">
       <div className="w-full max-w-xl space-y-5"><div className="academy-skeleton h-4 w-40 max-w-full rounded-lg" /><div className="academy-skeleton h-8 w-3/4 rounded-xl" /><div className="academy-skeleton h-6 w-full rounded-lg" /><div className="academy-skeleton h-12 w-40 max-w-full rounded-full" /></div>
       <div className="academy-skeleton h-28 w-28 shrink-0 rounded-full sm:h-40 sm:w-40" />

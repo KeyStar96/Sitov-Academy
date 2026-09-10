@@ -15,7 +15,8 @@
     "test:db:vocabulary": "node --test supabase/tests/vocabulary-learning.test.mjs",
     "test:db:registrations": "node --test supabase/tests/registration-invoicing.test.mjs",
     "test:db:grammar": "node --test supabase/tests/grammar-learning.test.mjs",
-    "test:db:pronunciation": "node --test supabase/tests/pronunciation-conversations.test.mjs"
+    "test:db:pronunciation": "node --test supabase/tests/pronunciation-conversations.test.mjs",
+    "test:db:reset": "node --test supabase/tests/learning-reset.test.mjs"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",

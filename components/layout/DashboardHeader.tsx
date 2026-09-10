@@ -55,7 +55,7 @@ export default function DashboardHeader({
       {backHref ? (
         <Link
           href={backHref}
-          className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl text-slate-600 transition-colors hover:bg-slate-100 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#FF5C00] dark:text-slate-300 dark:hover:bg-slate-800"
+          className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl text-[var(--muted)] transition-colors hover:bg-[var(--surface-muted)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
           aria-label={t('nav_back_aria')}
           title={t('nav_back')}
         >
@@ -69,18 +69,17 @@ export default function DashboardHeader({
             const isLast = index === breadcrumbs.length - 1
             return (
               <li key={crumb.href} className="flex min-w-0 items-center">
-                <Link
-                  href={crumb.href}
-                  className={`inline-flex min-h-11 items-center break-words text-sm font-bold transition-colors ${
-                    isLast
-                      ? 'text-[var(--accent)] pointer-events-none'
-                      : 'text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100'
-                  }`}
-                >
-                  {crumb.name}
-                </Link>
+                {isLast ? (
+                  <h1 aria-current="page" className="inline-flex min-h-12 items-center break-words text-sm font-semibold text-[var(--foreground)]">
+                    {crumb.name}
+                  </h1>
+                ) : (
+                  <Link href={crumb.href} className="inline-flex min-h-12 items-center break-words text-sm font-medium text-[var(--muted)] transition-colors hover:text-[var(--foreground)]">
+                    {crumb.name}
+                  </Link>
+                )}
                 {!isLast && (
-                  <ChevronRight size={16} className="ml-2 shrink-0 text-slate-400 dark:text-slate-600" aria-hidden="true" />
+                  <ChevronRight size={16} className="ml-2 shrink-0 text-[var(--muted)]" aria-hidden="true" />
                 )}
               </li>
             )
@@ -88,7 +87,7 @@ export default function DashboardHeader({
         </ol>
       </nav>
 
-      <p className="min-w-0 truncate text-base font-bold text-[var(--accent)] md:hidden">{currentName}</p>
+      <h1 aria-current="page" className="min-w-0 truncate text-base font-semibold text-[var(--foreground)] md:hidden">{currentName}</h1>
     </div>
   )
 }

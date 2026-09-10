@@ -4,7 +4,7 @@ import { Component, useCallback, useEffect, useId, useMemo, useRef, useState, ty
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { AdditiveBlending, Color, DoubleSide, Group, Mesh, NormalBlending, ShaderMaterial } from 'three'
 import { createNeuralGeometry } from './neural-brain-geometry'
-import { cometFragment, cometVertex, fiberFragment, fiberVertex, nodeFragment, nodeVertex } from './neural-brain-shaders'
+import { cometFragment, cometVertex, cortexFragment, cortexVertex, fiberFragment, fiberVertex, nodeFragment, nodeVertex } from './neural-brain-shaders'
 
 const MAX_COMETS = 3
 const TAIL_LENGTH = 0.3
@@ -34,6 +34,9 @@ function createMaterial(vertexShader: string, fragmentShader: string) {
       uDepthColor: { value: new Color('#9984b0') },
       uNodeOpacity: { value: 0.75 },
       uFiberOpacity: { value: 0.2 },
+      uCortexOpacity: { value: 0.22 },
+      uCortexLight: { value: new Color('#eee5f2') },
+      uCortexShadow: { value: new Color('#7f6293') },
       uProgress: { value: -1 },
       uTail: { value: TAIL_LENGTH },
       uEnvelope: { value: 0 },
@@ -64,19 +67,23 @@ function BrainScene({ dark, reducedMotion, onContextLost }: {
       return material
     })
     return {
+      cortex: createMaterial(cortexVertex, cortexFragment),
       nodes: createMaterial(nodeVertex, nodeFragment),
       fibers: createMaterial(fiberVertex, fiberFragment),
       impulses,
     }
   }, [])
-  const materialList = useMemo(() => [materials.nodes, materials.fibers, ...materials.impulses], [materials])
+  const materialList = useMemo(() => [materials.cortex, materials.nodes, materials.fibers, ...materials.impulses], [materials])
 
   useEffect(() => {
     for (const material of materialList) {
       material.uniforms.uTissue.value.set(dark ? '#c7b4ed' : '#644578')
       material.uniforms.uDepthColor.value.set(dark ? '#625685' : '#9984b0')
-      material.uniforms.uNodeOpacity.value = dark ? 0.95 : 0.88
-      material.uniforms.uFiberOpacity.value = dark ? 0.28 : 0.3
+      material.uniforms.uNodeOpacity.value = dark ? .86 : .8
+      material.uniforms.uFiberOpacity.value = dark ? .24 : .16
+      material.uniforms.uCortexOpacity.value = dark ? .62 : .88
+      material.uniforms.uCortexLight.value.set(dark ? '#bca2df' : '#c5afd3')
+      material.uniforms.uCortexShadow.value.set(dark ? '#443456' : '#624173')
       material.uniforms.uEmber.value.set(dark ? '#ca602b' : '#b75020')
       material.uniforms.uFlame.value.set(dark ? '#ffb865' : '#ed853c')
       material.uniforms.uCore.value.set(dark ? '#fff6dd' : '#fff4d4')
@@ -112,6 +119,7 @@ function BrainScene({ dark, reducedMotion, onContextLost }: {
 
   useEffect(() => () => {
     geometry.nodes.dispose()
+    geometry.cortex.dispose()
     geometry.fibers.dispose()
     for (const pathway of geometry.pathways) pathway.dispose()
     for (const material of materialList) material.dispose()
@@ -156,16 +164,17 @@ function BrainScene({ dark, reducedMotion, onContextLost }: {
 
     if (group.current) {
       const response = 1 - Math.exp(-step * 2)
-      const targetY = -0.2 + Math.sin(now * 0.09) * 0.1 + pointer.x * 0.045
-      const targetX = -0.12 + pointer.y * 0.025
+      const targetY = -.12 + Math.sin(now * .09) * .045 + pointer.x * .025
+      const targetX = .04 + pointer.y * .02
       group.current.rotation.y += (targetY - group.current.rotation.y) * response
       group.current.rotation.x += (targetX - group.current.rotation.x) * response
       group.current.position.y = Math.sin(now * 0.32) * 0.018
     }
   })
 
-  const scale = 1.08 * Math.min(1, size.width / size.height / 0.95)
-  return <group ref={group} rotation={[-0.12, -0.2, -0.035]} scale={scale} dispose={null}>
+  const scale = 1.1 * Math.min(1, size.width / size.height / .95)
+  return <group ref={group} rotation={[.04, -.12, -.12]} scale={scale} dispose={null}>
+    <mesh geometry={geometry.cortex} material={materials.cortex} renderOrder={-1} />
     <lineSegments geometry={geometry.fibers} material={materials.fibers} />
     <points geometry={geometry.nodes} material={materials.nodes} />
     {materials.impulses.map((material, index) => <mesh
@@ -237,7 +246,7 @@ export default function NeuralBrain() {
 
   return <div ref={root} className="h-full w-full" aria-hidden="true">
     {enabled && !contextLost ? <CanvasBoundary><Canvas
-      camera={{ position: [0, 0, 4.3], fov: 34 }}
+      camera={{ position: [1.4, 3.2, 2.75], fov: 36 }}
       dpr={[1, 1.5]}
       gl={{ antialias: true, alpha: true, powerPreference: 'low-power' }}
       frameloop={!visible ? 'never' : reducedMotion ? 'demand' : 'always'}

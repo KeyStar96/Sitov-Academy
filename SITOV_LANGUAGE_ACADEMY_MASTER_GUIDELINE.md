@@ -1,5 +1,14 @@
 # Sitov Language Academy — Pedagogy & UI/UX Research
 
+## Ergänzung — klare Gehirnform, Orientierung und Reset, 10. September 2026
+
+- Die neuronale Visualisierung muss schon im Ruhezustand als Gehirn erkennbar sein: zwei Hemisphären einer länglichen Großhirnform, durchgehende Längsfurche, organische Windungen. Zufall beeinflusst das Gewebe, nicht die grundlegende Anatomie. Lesbarkeit in Light/Dark und ruhige, seltene Lichtschweife bleiben verbindlich.
+- Reguläre Lernplattformseiten verwenden eine einzige dezente Breadcrumb-/Titelzeile. Darunter beginnt direkt der Inhalt. Eine zusätzliche große Überschrift mit erneutem Zurück-Pfeil ist redundant. Inhaltliche Abschnittstitel und der erforderliche Header in einem eigenständigen Fullscreen-Lernmodus bleiben sinnvoll.
+- Der vollständige Lernreset gehört zurückhaltend unter die Spracheinstellungen des Profils. Die irreversible Folge wird ausdrücklich erklärt und erst in einem zweiten Dialog bestätigt. Initialer Fokus liegt auf Abbrechen; während des Resets sind Doppelklicks/Schließen gesperrt, Fehler und Wiederaufnahme werden verständlich erklärt. Alle Texte stehen in den fünf Oberflächensprachen bereit.
+- Löschumfang ist ausdrücklich von Vertragsdaten getrennt: eigene Lernfortschritte und Sprachdialoge werden zurückgesetzt, Profil und verbindliche Kurse bleiben bestehen. Fehlgeschlagene Teillöschungen dürfen keine falsche Erfolgsmeldung erzeugen; nach erfolgreichem Abschluss aktualisieren sich andere geöffnete Tabs desselben Kontos.
+
+Implementierung und Prüfnachweise: [Gehirn, Navigation und Reset](docs/brain-navigation-reset-2026-09-10.md).
+
 ## Verbindliche Ergänzung — Lernstudios und Betreuung, 10. September 2026
 
 - Die Lernübersicht priorisiert Wortschatz, Grammatik und Aussprache. Lernvideos bleiben bis zur Produktion ein sekundärer Bereich mit ehrlichem Leerzustand und später ausschließlich externen YouTube-Links.

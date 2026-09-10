@@ -1,5 +1,14 @@
 # Current State Analysis (Ist-Zustand)
 
+## Änderungsprotokoll — 2026-09-10: Gehirnform, einfache Navigation und vollständiger Lernreset
+
+- **Gehirn:** Längliches Großhirn mit zwei Hemisphären, sichtbarer Längsfurche und weicheren Windungen ersetzt die wolkenartige Verteilung. Die anatomische Oberfläche verbessert den Kontrast in beiden Themes. Dichtes neuronales Netz, höchstens drei Lichtschweife alle 6–8 Sekunden und Bewegungs-/WebGL-Fallbacks bleiben erhalten.
+- **Navigation:** Große sekundäre Header auf Übersicht, Profil, Niveau, Vokabeln, Grammatik, Aussprache, Videos und Einstufung entfernt. Nur die gemeinsame dezente Breadcrumb benennt die reguläre Seite; Inhalt und angepasste Ladeskelette beginnen direkt darunter. Fullscreen-Lernmodus behält seine notwendige eigene Navigation.
+- **Profil:** Unter der Spracheinstellung steht eine kleine rot umrandete Reset-Zone mit Bestätigungsdialog in DE/EN/RU/UK/TR. Ausdrücklich bestätigt wurde der Umfang **nur Lerndaten und Audio-Dialoge**, einschließlich alter/neuer Vokabelstände, Einstufung, Grammatik, Aufnahmen und zugehöriger Rückmeldungen. Profil, Rechte, Buchungen, Monatsplanung, Rechnungen und Unterrichtsinhalte bleiben bestehen.
+- **Backend:** Neue Action `resetUserProgress.ts`; laufende Löschvorgänge bleiben bei Fehlern wiederaufnehmbar. Storage-Löschung erfolgt über die API und vor dem atomaren Löschen der Lerndatensätze. Fremde Dateien/Bestände sind geschützt; gemeinsam verwendete Lehreraufnahmen bleiben für andere Schüler erhalten. Andere Tabs desselben Kontos laden nach einem erfolgreichen Reset neu.
+- **Live-Stand:** Migration angewendet, jedoch **kein Account zurückgesetzt**. Vorher-/Nachher-Prüfsummen und Anzahlen identisch: 6 Profile, 84 Registrierungen, 112 Einschreibungen, 7 Einreichungen, 924 richtungsbezogene Vokabelstände und 66 Storage-Dateien. Beide neuen internen Reset-Tabellen sind leer.
+- **Prüfung:** 909 Anwendungstests, 119 isolierte PostgreSQL-Tests und Produktionsbuild bestanden; separate Geometrie-/WebGL- sowie responsive Navigationsprüfungen erfolgreich. Details und Einschränkungen stehen im [Prüfbericht](docs/brain-navigation-reset-2026-09-10.md). Kein Frontend-Deployment vorgenommen.
+
 ## Änderungsprotokoll — 2026-09-10: Trainer und Lehrer-Verwaltung
 
 - **Vokabelprüfung:** Lokale Lernlogik und Live-RPC stimmen mit dem Sechs-Phasen-Prinzip überein: richtig +1, falsch −1 (Minimum 1), Abstände 1/3/9/29/90 Tage. Phase 6 ist noch aktiv; nach ihrer richtigen Wiederholung folgt der interne Abschlusswert 7. Ein ganzes Wort zählt erst nach Abschluss beider Richtungen als gelernt. „Kenne ich“ bei der Ersteinstufung setzt beide Richtungen auf Phase 6 mit späterer Fälligkeit, nicht sofort auf gelernt. Die Übersicht erklärt diese Regeln jetzt in allen fünf Oberflächensprachen.

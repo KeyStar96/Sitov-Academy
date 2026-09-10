@@ -8,6 +8,44 @@ const tissueGLSL = `
   }
 `
 
+/** Quiet surface shading makes gyri readable while the network remains dominant. */
+export const cortexVertex = `
+  uniform float uTime;
+  varying vec3 vNormal;
+  varying vec3 vView;
+  varying float vFissure;
+  ${tissueGLSL}
+  void main() {
+    vec4 view = modelViewMatrix * vec4(tissuePosition(position, uTime), 1.0);
+    vNormal = normalize(normalMatrix * normal);
+    vView = normalize(-view.xyz);
+    vFissure = (1.0 - smoothstep(0.026, 0.12, abs(position.x)))
+      * smoothstep(-0.15, 0.45, position.y);
+    gl_Position = projectionMatrix * view;
+  }
+`
+
+export const cortexFragment = `
+  uniform vec3 uCortexLight;
+  uniform vec3 uCortexShadow;
+  uniform float uCortexOpacity;
+  varying vec3 vNormal;
+  varying vec3 vView;
+  varying float vFissure;
+  void main() {
+    vec3 normal = normalize(vNormal);
+    float light = max(0.0, dot(normal, normalize(vec3(-0.55, 0.75, 1.0))));
+    float rim = pow(1.0 - max(0.0, dot(normal, normalize(vView))), 2.0);
+    vec3 color = mix(uCortexShadow, uCortexLight, light);
+    // A soft occlusion cue along the medial rim makes the sulcus readable on
+    // pale canvases too, where a transparent gap alone would disappear.
+    color = mix(color, uCortexShadow, vFissure * 0.8);
+    float alpha = uCortexOpacity * (0.7 + rim * 0.3);
+    gl_FragColor = vec4(color, alpha);
+    #include <colorspace_fragment>
+  }
+`
+
 export const nodeVertex = `
   uniform float uTime;
   uniform float uPixelRatio;

@@ -2016,5 +2016,21 @@
     "ready": "Audio is ready. Tap to play.",
     "loading": "Preparing audio.",
     "pause": "Pause audio"
+  },
+  "progress_reset": {
+    "title": "Start again",
+    "description": "Reset your learning progress and start your exercises from the beginning.",
+    "button": "Reset all learning progress",
+    "dialog_title": "Are you sure?",
+    "dialog_description": "All progress and voice recordings will be permanently lost.",
+    "cancel": "Cancel",
+    "confirm": "Yes, permanently reset learning progress",
+    "pending": "Resetting learning progress …",
+    "pending_description": "Please keep this window open until the process is complete.",
+    "success": "Your learning progress and voice recordings have been reset. You can start again.",
+    "error": "The reset could not be completed. Recordings already deleted cannot be restored. Please try again.",
+    "not_authenticated": "Please sign in again before resetting your learning progress.",
+    "reset_in_progress": "A reset is already in progress. Please wait a moment and try again.",
+    "scope": "Your personal profile and course bookings will be kept."
   }
 }

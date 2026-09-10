@@ -2017,5 +2017,21 @@
     "ready": "Ses hazır. Dinlemek için dokunun.",
     "loading": "Ses hazırlanıyor.",
     "pause": "Sesi duraklat"
+  },
+  "progress_reset": {
+    "title": "Yeniden başla",
+    "description": "Öğrenme ilerlemeni sıfırla ve alıştırmalarına baştan başla.",
+    "button": "Tüm öğrenme ilerlemesini sıfırla",
+    "dialog_title": "Emin misin?",
+    "dialog_description": "Tüm ilerleme ve ses kayıtları kalıcı olarak silinecek.",
+    "cancel": "Vazgeç",
+    "confirm": "Evet, öğrenme ilerlemesini kalıcı olarak sıfırla",
+    "pending": "Öğrenme ilerlemesi sıfırlanıyor …",
+    "pending_description": "İşlem tamamlanana kadar lütfen bu pencereyi açık tut.",
+    "success": "Öğrenme ilerlemen ve ses kayıtların sıfırlandı. Yeniden başlayabilirsin.",
+    "error": "Sıfırlama tamamlanamadı. Silinmiş kayıtlar geri getirilemez. Lütfen yeniden dene.",
+    "not_authenticated": "Öğrenme ilerlemeni sıfırlamadan önce lütfen tekrar giriş yap.",
+    "reset_in_progress": "Sıfırlama işlemi zaten devam ediyor. Biraz bekleyip tekrar dene.",
+    "scope": "Kişisel profilin ve kurs kayıtların korunacak."
   }
 }

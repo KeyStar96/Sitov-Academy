@@ -1,5 +1,15 @@
 # Architecture Masterplan
 
+## Ergänzung 2026-09-10: Gehirnanatomie, Dashboard-Navigation und Lernreset
+
+- `neural-brain-geometry.ts` ordnet 6.400 Neuronen auf/in zwei sagittalen Hälften eines länglichen Großhirns an. Eine deterministische anatomische Grundform begrenzt das Rauschen auf Windungen und Furchen; eine gefaltete kortikale Fläche macht die Silhouette auch ohne Impulse lesbar. `NeuralBrain` verwendet eine obere Dreiviertelperspektive, entsorgt alle Cortex-/Netzressourcen und behält Shader-Lichtschweife, Theme-Wechsel, Reduced Motion und Sichtbarkeitspause. Keine GLB-Datei oder neue Abhängigkeit erforderlich.
+- `DashboardHeader` trägt den einzigen dezenten Seitentitel innerhalb der Breadcrumb. Reguläre Dashboardseiten beginnen direkt mit ihrem Inhalt; redundante große Titel/Intros/Zurücklinks und zugehörige Ladeskelette entfallen. Der eigene Fullscreen-Lernheader bleibt dort erhalten, wo die gemeinsame Navigationsleiste ausgeblendet ist.
+- `app/actions/resetUserProgress.ts` validiert Bestätigung und aktuelle Supabase-Sitzung. Drei öffentliche Invoker-RPCs mit privaten, identitätsgebundenen Implementierungen erstellen ein wiederaufnehmbares Löschverzeichnis, liefern jeweils höchstens 500 Audioobjekte und schließen den Reset atomar ab. `lib/reset-user-progress.ts` entfernt echte Dateien über die Storage-API und behandelt Teilfehler, Zeitbudget und begrenzte Deadlock-Wiederholungen. SQL verändert ausschließlich Lerntabellen; Storage-Metadaten werden dort nur gelesen.
+- `learning_reset_private` kapselt Vorgang und geprüfte Objektidentitäten. Schreibwächter verhindern neue Lernstände/Audio-Referenzen sowie Überschreiben und Umbenennen vorgemerkter Dateien während eines Resets. Geteilte Lehrerdateien in fremden Schülerdialogen werden erhalten. Profile, Kursrechte, verbindliche Buchungen und Rechnungen bleiben entsprechend der bestätigten Nutzerentscheidung bestehen.
+- `ProfileProgressReset` liegt direkt unter den Spracheinstellungen. Der native Dialog verlangt eine zweite ausdrückliche Bestätigung, steuert Fokus und Lade-/Fehlerzustände. `LearningResetSync` aktualisiert andere offene Tabs desselben Kontos nach Erfolg; kontoabhängige Browsermeldungen enthalten keine Löschberechtigung. Migration `20260910195205_complete_learning_reset.sql`, Schema und generierte Typen sind synchron.
+
+Prüfdetails: [Gehirn, Navigation und Reset](docs/brain-navigation-reset-2026-09-10.md).
+
 ## Ergänzung 2026-09-10: Lernstudios, verifizierte Profile und manuelle Rechnungen
 
 Diese Ergänzung ersetzt ältere Beschreibungen des Satzkatalogs, öffentlicher neuer Audio-Uploads, des Video-Players und der Verknüpfung importierter Profile. Details und Prüfnachweise: [Trainer- und Verwaltungsumbau](docs/trainer-admin-refresh-2026-09-10.md).

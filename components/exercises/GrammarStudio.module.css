@@ -3,7 +3,8 @@
 .eyebrow { display: inline-flex; align-items: center; gap: .5rem; color: var(--violet); font-size: .75rem; font-weight: 750; letter-spacing: .11em; text-transform: uppercase; }
 .title { margin-top: .65rem; font-size: clamp(2rem, 4.5vw, 3.2rem); line-height: 1.12; letter-spacing: -.055em; font-weight: 650; }
 .subtitle { color: var(--muted); max-width: 40rem; margin-top: .9rem; font-size: 1.05rem; line-height: 1.7; }
-.stats { display: flex; gap: 1.5rem; }
+.stats { display: flex; flex-wrap: wrap; gap: 1.5rem; }
+.stat:first-child { border: 0; padding-left: 0; }
 .stat { border-left: 1px solid var(--border); padding-left: 1.2rem; }
 .stat strong { display: block; font-size: 1.7rem; font-weight: 600; letter-spacing: -.05em; }
 .stat span { font-size: .75rem; color: var(--muted); }

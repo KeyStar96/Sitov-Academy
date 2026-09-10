@@ -2015,5 +2015,21 @@
     "ready": "Audio ist bereit. Tippe zum Abspielen.",
     "loading": "Audio wird vorbereitet.",
     "pause": "Audio pausieren"
+  },
+  "progress_reset": {
+    "title": "Neu anfangen",
+    "description": "Setze deinen Lernfortschritt zurück und beginne deine Übungen von vorn.",
+    "button": "Lernfortschritt komplett zurücksetzen",
+    "dialog_title": "Bist du sicher?",
+    "dialog_description": "Alle Fortschritte und Sprachaufnahmen gehen unwiderruflich verloren.",
+    "cancel": "Abbrechen",
+    "confirm": "Ja, Lernfortschritt endgültig zurücksetzen",
+    "pending": "Lernfortschritt wird zurückgesetzt …",
+    "pending_description": "Bitte lass dieses Fenster geöffnet, bis der Vorgang abgeschlossen ist.",
+    "success": "Dein Lernfortschritt und deine Sprachaufnahmen wurden zurückgesetzt. Du kannst neu beginnen.",
+    "error": "Der Reset konnte nicht abgeschlossen werden. Bereits gelöschte Aufnahmen lassen sich nicht wiederherstellen. Bitte versuche es erneut.",
+    "not_authenticated": "Bitte melde dich erneut an, bevor du deinen Lernfortschritt zurücksetzt.",
+    "reset_in_progress": "Das Zurücksetzen läuft bereits. Bitte warte einen Moment und versuche es dann erneut.",
+    "scope": "Dein persönliches Profil und deine Kursbuchungen bleiben erhalten."
   }
 }

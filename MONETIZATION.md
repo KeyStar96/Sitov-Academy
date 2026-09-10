@@ -1,5 +1,11 @@
 # Monetization Strategy (Stripe Integration)
 
+## Lernreset und Vertragsdaten — 2026-09-10
+
+Der neue Profil-Reset löscht ausschließlich persönliche Lernergebnisse, Sprachaufnahmen und die zugehörigen Audio-Dialoge. Der Nutzer hat ausdrücklich bestätigt, dass **verbindliche Kursbuchungen erhalten bleiben**. `registrations`, `enrollments`, `monthly_course_bookings`, `manual_invoice_status`, Profil-/Niveaurechte und Zahlungsintegration werden durch die Reset-Action nicht gelöscht oder zurückgesetzt. Ein Lernreset ist keine Kündigung und kein Account-Löschvorgang.
+
+Die anatomisch klarere Gehirnvisualisierung und die reduzierte Dashboard-Navigation ändern keine Preise oder Vertragsabläufe. Der Reset wird erst nach Bestätigung im Profil ausgeführt; beim Implementieren/Testen wurde kein produktiver Reset ausgelöst. Ablauf und Nachweise: [Prüfbericht](docs/brain-navigation-reset-2026-09-10.md).
+
 ## Aktueller manueller Abrechnungsablauf — 2026-09-10
 
 Die Kursabrechnung erfolgt weiterhin manuell über Papierkram. Im Lehrer-Dashboard werden neue Anmeldungen zuerst geprüft und von `pending` auf `confirmed` gesetzt. Der gesonderte Rechnungsbereich öffnet standardmäßig den nächsten Monat, passend zur Vorkasserechnung am Ende des laufenden Monats. Lehrkräfte sehen pro Person die relevanten Kurse und können nach tatsächlicher Erstellung der Rechnung das Kennzeichen „Rechnung erstellt“ mit optionaler Rechnungsnummer setzen oder korrigieren.

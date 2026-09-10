@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { ListChecks } from 'lucide-react'
 import { getVocabularyAssessment } from '@/app/actions/vocabulary'
 import { getDictionary } from '@/lib/dictionary'
 import { createVocabularyTranslator, type VocabularyTranslations } from '@/lib/vocabulary-i18n'
@@ -25,15 +24,7 @@ export default async function VocabularyAssessPage({
   const cardsToAssess = assessment.cards
 
   return (
-    <div className="mx-auto min-h-screen w-full max-w-4xl rounded-3xl bg-[var(--surface)] p-5 py-8 text-[var(--foreground)] shadow-sm ring-1 ring-[var(--border)] sm:p-8">
-
-      <div className="mb-6 border-b border-[var(--border)] pb-6">
-        <h1 className="flex items-center gap-3 break-words text-3xl font-extrabold text-[var(--foreground)] sm:text-4xl">
-          <ListChecks className="h-8 w-8 shrink-0 text-[var(--accent)]" aria-hidden="true" />
-          {t('assess_title')}
-        </h1>
-        <p className="mt-2 text-xl text-[var(--muted)]">{t('assess_subtitle')}</p>
-      </div>
+    <div className="mx-auto w-full max-w-4xl text-[var(--foreground)]">
 
       {cardsToAssess.length === 0 ? (
         <div className="rounded-2xl border-2 border-dashed border-[var(--border)] bg-[var(--surface-muted)] py-12 text-center">

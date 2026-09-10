@@ -6,6 +6,7 @@ interface Neuron {
   seed: number
   density: number
   hemisphere: number
+  cortical: boolean
 }
 
 interface Connection {
@@ -15,6 +16,7 @@ interface Connection {
 }
 
 export interface NeuralGeometry {
+  cortex: BufferGeometry
   nodes: BufferGeometry
   fibers: BufferGeometry
   pathways: BufferGeometry[]
@@ -27,6 +29,79 @@ const NODE_COUNT = 6400
 const CELL_SIZE = .145
 const PATH_SAMPLES = 192
 const noise = new ImprovedNoise()
+
+/** Anatomical axes: x = left/right, y = inferior/superior, z = posterior/anterior. */
+export const BRAIN_PROPORTIONS = { halfWidth: .87, height: .69, halfLength: 1.16, fissure: .018 } as const
+
+interface CortexSample {
+  point: Vector3
+  sulcus: number
+}
+
+/**
+ * Two sagittal halves of one elongated cerebrum, not two touching spheres.
+ * The midline does not taper into a heart-shaped tip. Frontal and occipital
+ * poles stay rounded; the inferior surface is slightly flatter than the crown.
+ * Large-scale anatomy is deterministic. Noise only folds the cortical sheet.
+ */
+export function sampleCortex(hemisphere: -1 | 1, latitude: number, longitude: number): CortexSample {
+  const ring = Math.cos(latitude)
+  const x = Math.max(0, Math.cos(longitude) * ring)
+  const y = Math.sin(latitude)
+  const z = Math.sin(longitude) * ring
+  const warp = tissueNoise(x * 2.8 + hemisphere * .17, y * 2.5 + 7.2, z * 2.3 + 15.9)
+  // Long, meandering gyri run around each hemisphere. The lateral orientation
+  // bends them toward the temporal lobes rather than creating latitude rings.
+  const lateral = smoothstep(.35, .85, x) * (1 - smoothstep(.1, .8, y))
+  const phase = (x * 25 + z * 6) * (1 - lateral) + (y * 22 + z * 8) * lateral
+    + warp * 8 + Math.sin(z * 8 + y * 4) * .85
+  const sulcus = Math.pow(.5 + .5 * Math.sin(phase), 6)
+  const fineSulcus = Math.pow(.5 + .5 * Math.sin(z * 29 - y * 7 + warp * 5), 9)
+  // The central sulcus crosses the upper lateral surface behind the frontal lobe.
+  const central = Math.exp(-(((z + .12 + x * .2) / .055) ** 2)) * smoothstep(.08, .65, y)
+  const folding = 1 - .075 * sulcus - .015 * fineSulcus - .038 * central
+  const frontalFullness = 1 + .055 * smoothstep(-.3, .8, z)
+  const posteriorTaper = 1 - .065 * smoothstep(.25, .95, -z)
+  const fissure = BRAIN_PROPORTIONS.fissure + .009 * smoothstep(-.15, .75, y)
+  const crown = Math.sign(y) * Math.pow(Math.abs(y), .91)
+  const length = Math.sign(z) * Math.pow(Math.abs(z), .9)
+  return {
+    point: new Vector3(
+      hemisphere * (fissure + Math.pow(x, .93) * BRAIN_PROPORTIONS.halfWidth * frontalFullness * posteriorTaper * folding),
+      crown * BRAIN_PROPORTIONS.height * (y < 0 ? .8 : 1) * folding + .022 * z,
+      length * BRAIN_PROPORTIONS.halfLength * folding,
+    ),
+    sulcus,
+  }
+}
+
+/** The thin folded sheet supplies readable anatomy under the transparent graph. */
+function createCorticalSheet(): BufferGeometry {
+  const latitudes = 112
+  const longitudes = 160
+  const positions: number[] = []
+  const indices: number[] = []
+  for (const hemisphere of [-1, 1] as const) {
+    const offset = positions.length / 3
+    for (let row = 0; row <= latitudes; row++) {
+      const latitude = -Math.PI / 2 + Math.PI * row / latitudes
+      for (let column = 0; column <= longitudes; column++) {
+        const longitude = -Math.PI / 2 + Math.PI * column / longitudes
+        sampleCortex(hemisphere, latitude, longitude).point.toArray(positions, positions.length)
+        if (row === latitudes || column === longitudes) continue
+        const a = offset + row * (longitudes + 1) + column
+        const b = a + longitudes + 1
+        if (hemisphere === 1) indices.push(a, b, a + 1, a + 1, b, b + 1)
+        else indices.push(a, a + 1, b, a + 1, b + 1, b)
+      }
+    }
+  }
+  const geometry = new BufferGeometry()
+  geometry.setAttribute('position', new BufferAttribute(new Float32Array(positions), 3))
+  geometry.setIndex(indices)
+  geometry.computeVertexNormals()
+  return finishGeometry(geometry)
+}
 
 function createRandom(seed: number): () => number {
   let state = seed >>> 0
@@ -114,7 +189,8 @@ function findRoute(start: number, end: number, neurons: Neuron[], neighbors: num
       if (visited[neighbor]) continue
       const point = neurons[neighbor].position
       // Prefer routes on the visible cortex while allowing genuine deep bridges.
-      const depthPenalty = 1 + Math.max(0, .17 - point.z) * 4
+      const depthPenalty = 1 + Math.max(0, .5 - point.y * .7 - point.z * .65) * 3
+        + (neurons[neighbor].cortical ? 0 : 2)
       const distance = neurons[index].position.distanceTo(point)
       const cost = costs[index] + distance * depthPenalty
       if (cost >= costs[neighbor]) continue
@@ -182,36 +258,24 @@ export function createNeuralGeometry(): NeuralGeometry {
 
   while (neurons.length < NODE_COUNT) {
     const hemisphere = neurons.length < NODE_COUNT / 2 ? -1 : 1
-    const y = random() * 2 - 1
-    const angle = random() * Math.PI * 2
-    const ring = Math.sqrt(1 - y * y)
-    const x = Math.abs(Math.cos(angle)) * ring
-    const z = Math.sin(angle) * ring
-    // A thick cortical layer surrounds a substantial population in the interior.
-    const cortical = random() < .63
-    const radius = cortical ? .76 + .24 * Math.pow(random(), .58) : Math.cbrt(random()) * .91
-    const sideOffset = hemisphere < 0 ? 3.7 : 11.3
-    const folding = tissueNoise(x * 2.3 + sideOffset, y * 3.1, z * 2.7)
-    const grooves = noise.noise(x * 7.8 + sideOffset, y * 8.6, z * 7.3)
-    const contour = .94 + folding * .3 + grooves * .1
-    const depth = radius * contour
-    // A broad frontal crown, narrower temporal base and asymmetry avoid a sphere.
-    const temple = 1 - .29 * smoothstep(-.05, .88, -y) + .13 * smoothstep(-.2, .62, y)
-    const fissure = .02 + .023 * smoothstep(-.4, .65, y) + .009 * Math.sin(y * 5.4 + z * 2.1)
-    const upperCleft = .14 * smoothstep(.42, .95, y) * (1 - smoothstep(.08, .37, x))
-    const frontalCrown = .045 * smoothstep(.16, .4, x) * smoothstep(.15, .85, y)
-    const px = hemisphere * (fissure + x * depth * .99 * temple)
-    const py = y * depth * .82 + .028 * x * x + frontalCrown - upperCleft
-      - .025 * smoothstep(.25, .95, -y) + hemisphere * .013
-    const pz = z * depth * .67 * (1 + .055 * y) + .025 * folding
+    const latitude = Math.asin(random() * 2 - 1)
+    const longitude = (random() - .5) * Math.PI
+    const sampled = sampleCortex(hemisphere, latitude, longitude)
+    // Most neurons hug the folded cortex; a smaller population gives internal
+    // connectivity without visually filling the sulci or longitudinal fissure.
+    const cortical = random() < .8
+    const radius = cortical ? .955 + .045 * random() : .88 * Math.cbrt(random())
+    const px = hemisphere * (BRAIN_PROPORTIONS.fissure + (Math.abs(sampled.point.x) - BRAIN_PROPORTIONS.fissure) * radius)
+    const py = sampled.point.y * radius
+    const pz = sampled.point.z * radius
     const clustered = tissueNoise(px * 5.5 + 27.6, py * 5.7, pz * 5.2)
-    const density = smoothstep(-.32, .38, clustered)
+    const density = smoothstep(-.32, .38, clustered) * (1 - sampled.sulcus * .48)
     // Rejection sampling forms bundles and quieter gaps instead of a uniform shell.
     if (random() > .27 + density * .73) continue
     const position = new Vector3(px, py, pz)
     const seed = random()
     const index = neurons.length
-    neurons.push({ position, seed, density, hemisphere })
+    neurons.push({ position, seed, density, hemisphere, cortical })
     positions.push(px, py, pz)
     seeds.push(seed)
     densities.push(density)
@@ -256,12 +320,13 @@ export function createNeuralGeometry(): NeuralGeometry {
     for (const candidate of candidates.slice(0, neighborCount)) connect(index, candidate.index)
   }
 
-  const nearest = (target: Point3, hemisphere: number): number => {
+  const nearest = (target: Point3, hemisphere: number, surfaceOnly = false): number => {
     let closest = -1
     let distance = Infinity
     for (let index = 0; index < neurons.length; index++) {
       const neuron = neurons[index]
       if (neuron.hemisphere !== hemisphere) continue
+      if (surfaceOnly && !neuron.cortical) continue
       const point = neuron.position
       const candidate = (point.x - target[0]) ** 2 + (point.y - target[1]) ** 2 + (point.z - target[2]) ** 2
       if (candidate < distance) { closest = index; distance = candidate }
@@ -326,7 +391,7 @@ export function createNeuralGeometry(): NeuralGeometry {
   ]
   const pathways: BufferGeometry[] = []
   for (const [from, to] of routeTargets) {
-    const route = findRoute(nearest(from, Math.sign(from[0])), nearest(to, Math.sign(to[0])), neurons, neighbors)
+    const route = findRoute(nearest(from, Math.sign(from[0]), true), nearest(to, Math.sign(to[0]), true), neurons, neighbors)
     if (route.length < 3) continue
     // Each curve interpolates an actual connected graph route. Its centerline is
     // also part of the static tissue so the comet always lights a visible fiber.
@@ -348,7 +413,7 @@ export function createNeuralGeometry(): NeuralGeometry {
   fibers.setAttribute('aDensity', new BufferAttribute(new Float32Array(fiberDensities), 1))
 
   return {
-    nodes: finishGeometry(nodes), fibers: finishGeometry(fibers), pathways,
+    cortex: createCorticalSheet(), nodes: finishGeometry(nodes), fibers: finishGeometry(fibers), pathways,
     stats: { nodeCount: neurons.length, edgeCount: connections.length, pathwayCount: pathways.length },
   }
 }

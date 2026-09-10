@@ -1,8 +1,7 @@
 'use client'
 
 import { useCallback, useMemo, useRef, useState } from 'react'
-import Link from 'next/link'
-import { ArrowLeft, ArrowRight, BookOpenCheck, CheckCircle2, CloudOff, Loader2, PenLine, RotateCcw } from 'lucide-react'
+import { ArrowLeft, ArrowRight, BookOpenCheck, CheckCircle2, CloudOff, Loader2, RotateCcw } from 'lucide-react'
 import FillInBlankExerciseCard from '@/components/exercises/FillInBlankExercise'
 import MultipleChoiceExerciseCard from '@/components/exercises/MultipleChoiceExercise'
 import { finishExerciseSession, recordExerciseAttempt } from '@/app/actions/exercises'
@@ -85,21 +84,11 @@ export default function ExerciseClient({ exercises, translations = {}, lang, lev
 
   return (
     <section className={styles.shell}>
-      <Link href={`/${lang}/dashboard/level/${encodeURIComponent(level)}`} className="academy-button academy-button-secondary mb-2">
-        <ArrowLeft size={18} aria-hidden="true" />{t('back_to_level')}
-      </Link>
-      <header className={styles.hero}>
-        <div>
-          <span className={styles.eyebrow}><PenLine size={16} aria-hidden="true" />{g('level', { level })}</span>
-          <h1 ref={headingRef} tabIndex={-1} className={styles.title}>{g('title')}</h1>
-          <p className={styles.subtitle}>{g('subtitle')}</p>
-        </div>
-        <div className={styles.stats}>
-          <div className={styles.stat}><strong>{library.length}</strong><span>{g('total')}</span></div>
-          <div className={styles.stat}><strong>{topics.length}</strong><span>{g('topics')}</span></div>
-          <div className={styles.stat}><strong>{completed}</strong><span>{g('solved')}</span></div>
-        </div>
-      </header>
+      {!session && library.length > 0 && <div className={`${styles.stats} mb-6`}>
+        <div className={styles.stat}><strong>{library.length}</strong><span>{g('total')}</span></div>
+        <div className={styles.stat}><strong>{topics.length}</strong><span>{g('topics')}</span></div>
+        <div className={styles.stat}><strong>{completed}</strong><span>{g('solved')}</span></div>
+      </div>}
 
       {saveFailed && <div role="status" className={styles.notice}>
         <CloudOff className="shrink-0" size={20} aria-hidden="true" />
@@ -132,13 +121,13 @@ export default function ExerciseClient({ exercises, translations = {}, lang, lev
         </div>
       </> : !currentExercise ? <div className={styles.empty}>
         <CheckCircle2 size={44} className="mx-auto text-[var(--violet)]" aria-hidden="true" />
-        <h2>{g('finished')}</h2><p>{g('finishedHint', { count: session.length })}</p>
+        <h2 ref={headingRef} tabIndex={-1}>{g('finished')}</h2><p>{g('finishedHint', { count: session.length })}</p>
         <button type="button" onClick={() => setSession(null)} className="academy-button academy-button-primary">{g('back')}<ArrowRight size={18} aria-hidden="true" /></button>
       </div> : <>
         <button type="button" onClick={() => setSession(null)} className="academy-button academy-button-secondary mb-4"><ArrowLeft size={18} aria-hidden="true" />{g('back')}</button>
         <div className={styles.practice}>
           <header className={styles.practiceHeader}>
-            <div className={styles.practiceMeta}><span>{currentExercise.topic}</span><span>{t('progress_label', { current: currentIndex + 1, total: session.length })}</span></div>
+            <div className={styles.practiceMeta}><h2 ref={headingRef} tabIndex={-1} className="font-medium">{currentExercise.topic}</h2><span>{t('progress_label', { current: currentIndex + 1, total: session.length })}</span></div>
             <div className={styles.progress} role="progressbar" aria-valuenow={currentIndex} aria-valuemin={0} aria-valuemax={session.length} aria-label={t('completed_count')}><span style={{ width: `${currentIndex / session.length * 100}%` }} /></div>
           </header>
           {currentExercise.type === 'fill_in_blank' ? <FillInBlankExerciseCard key={currentExercise.id} exercise={currentExercise} t={t}

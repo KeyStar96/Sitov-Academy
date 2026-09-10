@@ -9,10 +9,8 @@ export default function ExercisesLoading() {
     <div className="mx-auto max-w-4xl" aria-busy="true" aria-live="polite">
       <span className="sr-only">{copy.loading}</span>
 
-      <div className="mb-6 space-y-3">
-        <div className="h-6 w-48 max-w-full animate-pulse rounded-lg bg-[var(--surface-muted)]" />
-        <div className="h-10 w-72 max-w-full animate-pulse rounded-lg bg-[var(--surface-muted)]" />
-        <div className="h-6 w-96 max-w-full animate-pulse rounded-lg bg-[var(--surface-muted)]" />
+      <div aria-hidden="true" className="mb-6 flex gap-5">
+        {[0, 1, 2].map(index => <div key={index} className="h-14 w-20 animate-pulse rounded-xl bg-[var(--surface-muted)]" />)}
       </div>
 
       <div className="overflow-hidden rounded-3xl bg-[var(--surface)] shadow-lg ring-1 ring-[var(--border)]">

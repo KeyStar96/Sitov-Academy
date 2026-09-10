@@ -1087,6 +1087,10 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      begin_learning_reset: {
+        Args: { p_confirmation: string }
+        Returns: string
+      }
       claim_verified_legacy_profile: { Args: never; Returns: Json }
       confirm_staff_registration: {
         Args: { p_id: string; p_source: string }
@@ -1096,9 +1100,17 @@ export type Database = {
         Args: { p_audio_path: string; p_prompt_id: string }
         Returns: string
       }
+      finish_learning_reset: { Args: { p_token: string }; Returns: boolean }
       initialize_vocabulary_cards: {
         Args: { p_decisions: Json }
         Returns: Json
+      }
+      learning_reset_audio_batch: {
+        Args: { p_token: string }
+        Returns: {
+          bucket_id: string
+          object_name: string
+        }[]
       }
       mark_feedback_seen: { Args: { p_submission_id: string }; Returns: number }
       mark_pronunciation_seen: {

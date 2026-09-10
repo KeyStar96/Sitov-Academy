@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { BookOpen, Video, Mic, PenTool, ArrowLeft } from 'lucide-react'
+import { BookOpen, Video, Mic, PenTool } from 'lucide-react'
 import { getDictionary } from '@/lib/dictionary'
 import { createDashboardTranslator, type DashboardTranslations } from '@/lib/dashboard-i18n'
 
@@ -44,41 +44,11 @@ export default async function LevelDashboard({
   params: Promise<{ lang: string; level: string }>
 }) {
   const { lang, level } = await params
-  const decodedLevel = decodeURIComponent(level)
   const dict = await getDictionary(lang)
   const t = createDashboardTranslator((dict.dashboard ?? {}) as DashboardTranslations)
 
   return (
     <div className="space-y-8">
-      <div className="mb-6 flex items-start gap-3 sm:mb-8 sm:items-center sm:gap-4">
-        <Link
-          href={`/${lang}/dashboard`}
-          className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl text-[var(--muted)] transition-colors hover:bg-[var(--surface-muted)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)]"
-          aria-label={t('nav_back_aria')}
-        >
-          <ArrowLeft size={24} aria-hidden="true" />
-        </Link>
-        <div className="min-w-0">
-          <h1 className="break-words text-2xl font-extrabold tracking-tight text-[var(--foreground)] sm:text-3xl md:text-4xl">
-            {t('level_heading', { level: decodedLevel })
-              .split(decodedLevel)
-              .flatMap((part, index) =>
-                index === 0
-                  ? [part]
-                  : [
-                      <span key="level" className="text-[var(--accent)]">
-                        {decodedLevel}
-                      </span>,
-                      part,
-                    ]
-              )}
-          </h1>
-          <p className="mt-1 text-base leading-relaxed text-[var(--muted)] sm:text-lg">
-            {t('level_subtitle')}
-          </p>
-        </div>
-      </div>
-
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-6">
         {CATEGORIES.map((cat) => (
           <Link

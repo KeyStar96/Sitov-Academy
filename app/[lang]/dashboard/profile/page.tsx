@@ -11,6 +11,7 @@ import ProfileMonthlyCourses from '@/components/dashboard/ProfileMonthlyCourses'
 import { resolveLegacyProfile } from '@/lib/profile-legacy'
 import { loadVerifiedCourseHistory } from '@/lib/profile-course-history'
 import ProfileCourseHistory from '@/components/dashboard/ProfileCourseHistory'
+import ProfileProgressReset from '@/components/dashboard/ProfileProgressReset'
 
 export default async function ProfilePage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang: requestedLang } = await params
@@ -40,10 +41,6 @@ export default async function ProfilePage({ params }: { params: Promise<{ lang: 
 
   return (
     <div className="mx-auto w-full min-w-0 max-w-5xl space-y-6 [overflow-wrap:break-word] sm:space-y-8">
-      <div className="max-w-2xl">
-        <h1 className="break-words text-3xl font-extrabold text-[var(--foreground)] sm:text-4xl">{t('title')}</h1>
-        <p className="mt-3 text-base leading-relaxed text-[var(--muted)]">{t('intro')}</p>
-      </div>
       <div className="grid min-w-0 grid-cols-1 items-start gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
         <div className="flex min-w-0 flex-col gap-6">
           <ProfileDetailsForm lang={lang} translations={dict.profile} pendingEmail={user.new_email || null} birthDate={courseHistory?.birthDate}
@@ -68,6 +65,7 @@ export default async function ProfilePage({ params }: { params: Promise<{ lang: 
               />
             </div>
           </section>
+          <ProfileProgressReset translations={dict.progress_reset} userId={user.id} />
         </div>
         {monthly ? <ProfileMonthlyCourses key={`${user.id}:${monthly.targetMonth}`} initial={monthly} lang={lang} translations={dict.profile} courseTitles={titles} />
           : <section className="min-w-0 rounded-3xl border border-amber-200 bg-amber-50 p-5 dark:border-amber-800 dark:bg-amber-950">
