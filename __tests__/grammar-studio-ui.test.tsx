@@ -1,5 +1,6 @@
 import React from 'react'
 import { act, fireEvent, render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import ExerciseClient from '@/components/exercises/ExerciseClient'
 import ExerciseCMS from '@/components/admin/ExerciseCMS'
 import { recordExerciseAttempt, finishExerciseSession } from '@/app/actions/exercises'
@@ -17,16 +18,92 @@ const item: StudentExercise = {
   type: 'multiple_choice', content: { question: '___ Tisch ist frei.', options: ['Der', 'Die', 'Das'], correct_answer: 'Der', explanation: 'Tisch ist maskulin.' },
   hint: null, completed: false, attempts: 0, score: 0,
 }
+const fill: StudentExercise = {
+  ...item, id: 'a611d604-4b69-4040-a12c-451f8c5e1652', type: 'fill_in_blank',
+  content: { text_before: 'Das ist ', text_after: '.', correct_answer: 'ein Tisch' },
+  chips: ['ein Tisch', 'eine Tisch'], solutionArticle: 'der', solutionAudioUrl: null,
+}
 const authored: GrammarExerciseRow = {
   id: item.id, level: 'A1.1', lesson: '01', topic: 'Artikel', type: 'multiple_choice',
   content: { ...item.content, instruction: 'Wähle den Artikel.' }, created_at: '2026-09-10T00:00:00Z',
   hint_ru: null, hint_tr: null, solution_audio_url: null,
 }
 beforeEach(() => {
+  jest.restoreAllMocks()
   jest.clearAllMocks()
-  jest.mocked(recordExerciseAttempt).mockResolvedValue({ success: true, attempts: 1, isCorrect: true })
+  jest.mocked(recordExerciseAttempt).mockReset().mockResolvedValue({ success: true, attempts: 1, isCorrect: true })
   jest.mocked(finishExerciseSession).mockResolvedValue({ success: true })
   HTMLElement.prototype.scrollIntoView = jest.fn()
+})
+it('positions each new card below the actual sticky header and preserves keyboard focus', async () => {
+  const user = userEvent.setup()
+  jest.spyOn(HTMLElement.prototype, 'getBoundingClientRect').mockImplementation(function (this: HTMLElement) {
+    const top = this.classList.contains('academy-student-header') ? 0 : 480
+    const height = this.classList.contains('academy-student-header') ? 180 : 32
+    return { x: 0, y: top, top, bottom: top + height, left: 0, right: 390, width: 390, height, toJSON: () => ({ top, height }) }
+  })
+  render(<><header className="academy-student-header" /><ExerciseClient exercises={[fill, item]} lang="de" level="A1.1" /></>)
+
+  expect(window.scrollTo).not.toHaveBeenCalled()
+  await user.click(screen.getByRole('button', { name: 'Mit offenen Aufgaben starten' }))
+  const firstHeading = screen.getByRole('heading', { name: 'Artikel', level: 2 })
+  expect(firstHeading).toHaveFocus()
+  expect(window.scrollTo).toHaveBeenLastCalledWith({ top: 284, behavior: 'smooth' })
+
+  await user.click(screen.getByRole('button', { name: /Wort .ein Tisch. auswählen/ }))
+  await user.click(screen.getByRole('button', { name: 'Antwort prüfen' }))
+  expect(window.scrollTo).toHaveBeenCalledTimes(1)
+  expect(screen.getByRole('button', { name: /Wort .ein Tisch. auswählen/ })).toBeDisabled()
+  expect(screen.getByRole('button', { name: /Wort .ein Tisch. auswählen/ })).toHaveAttribute('aria-pressed', 'true')
+  expect(screen.getByRole('button', { name: /Wort .eine Tisch. auswählen/ })).toBeDisabled()
+
+  const next = screen.getByRole('button', { name: 'Nächste Übung' })
+  expect(next).toHaveFocus()
+  next.focus()
+  await user.keyboard('{Enter}')
+  expect(screen.getByRole('heading', { name: 'Artikel', level: 2 })).toBe(firstHeading)
+  expect(firstHeading).toHaveFocus()
+  expect(window.scrollTo).toHaveBeenCalledTimes(2)
+  expect(screen.getByRole('button', { name: 'Antwort prüfen' })).toBeDisabled()
+  expect(screen.queryByText('Richtig! Gut gemacht.')).not.toBeInTheDocument()
+
+  await user.click(screen.getByRole('button', { name: /Wort .Der. auswählen/ }))
+  await user.click(screen.getByRole('button', { name: 'Antwort prüfen' }))
+  await user.click(screen.getByRole('button', { name: 'Lerneinheit abschließen' }))
+  expect(screen.getByRole('heading', { name: 'Ein guter Schritt nach vorn.' })).toHaveFocus()
+  expect(window.scrollTo).toHaveBeenCalledTimes(3)
+})
+it('moves to the exercise without animation when reduced motion is preferred', async () => {
+  const media = window.matchMedia('(prefers-reduced-motion: reduce)')
+  jest.spyOn(window, 'matchMedia').mockReturnValue({ ...media, matches: true })
+  render(<ExerciseClient exercises={[item]} lang="de" level="A1.1" />)
+  fireEvent.click(screen.getByRole('button', { name: 'Mit offenen Aufgaben starten' }))
+  expect(window.scrollTo).toHaveBeenLastCalledWith({ top: 0, behavior: 'instant' })
+  expect(screen.getByRole('heading', { name: 'Artikel', level: 2 })).toHaveFocus()
+})
+it.each([
+  { name: 'fill-in-blank', exercise: fill, wrong: 'eine Tisch', answer: 'ein Tisch', reduced: false },
+  { name: 'multiple-choice', exercise: item, wrong: 'Die', answer: 'Der', reduced: true },
+])('reveals the next $name action only after solving, including reduced motion', async ({ exercise, wrong, answer, reduced }) => {
+  const user = userEvent.setup()
+  const media = window.matchMedia('(prefers-reduced-motion: reduce)')
+  jest.spyOn(window, 'matchMedia').mockReturnValue({ ...media, matches: reduced })
+  jest.mocked(recordExerciseAttempt).mockResolvedValueOnce({ success: true, attempts: 1, isCorrect: false })
+  render(<ExerciseClient exercises={[exercise]} lang="de" level="A1.1" />)
+  await user.click(screen.getByRole('button', { name: 'Mit offenen Aufgaben starten' }))
+  await user.click(screen.getByRole('button', { name: new RegExp(`Wort .${wrong}. auswählen`) }))
+  await user.click(screen.getByRole('button', { name: 'Antwort prüfen' }))
+  expect(HTMLElement.prototype.scrollIntoView).not.toHaveBeenCalled()
+
+  await user.click(screen.getByRole('button', { name: new RegExp(`Wort .${answer}. auswählen`) }))
+  await user.click(screen.getByRole('button', { name: 'Antwort prüfen' }))
+  const next = screen.getByRole('button', { name: 'Lerneinheit abschließen' })
+  expect(next).toHaveFocus()
+  expect(HTMLElement.prototype.scrollIntoView).toHaveBeenCalledTimes(1)
+  expect(jest.mocked(HTMLElement.prototype.scrollIntoView).mock.contexts[0]).toBe(next)
+  expect(HTMLElement.prototype.scrollIntoView).toHaveBeenCalledWith({
+    block: 'nearest', inline: 'nearest', behavior: reduced ? 'instant' : 'smooth',
+  })
 })
 it('submits the chosen answer and exposes solved-topic review after completion', async () => {
   render(<ExerciseClient exercises={[item]} lang="de" level="A1.1" />)

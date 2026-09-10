@@ -134,10 +134,10 @@ export default function AudioRecorder({
           {recorder.isRecording ? (
             <div className="mb-3">
               <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
-                <span className="text-xs font-bold uppercase tracking-wider text-[var(--muted)]">
+                <span className="text-base font-bold uppercase tracking-wider text-[var(--muted)]">
                   {t('your_recording')}
                 </span>
-                <span className="flex items-center gap-2 text-xs font-bold text-[var(--accent)] bg-[color-mix(in_srgb,var(--accent)_10%,var(--surface))] px-2 py-1 rounded">
+                <span className="flex items-center gap-2 text-base font-bold text-[var(--accent)] bg-[color-mix(in_srgb,var(--accent)_10%,var(--surface))] px-2 py-1 rounded">
                   <span className="h-2 w-2 bg-[var(--accent)] rounded-full animate-pulse"></span>
                   {t('recording_running')}
                 </span>

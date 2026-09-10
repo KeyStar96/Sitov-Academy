@@ -33,12 +33,12 @@ export default function SmartHintPanel({ hint, t }: SmartHintPanelProps) {
     <div
       role="status"
       aria-live="polite"
-      className="mt-8 flex items-start gap-4 rounded-2xl border-2 border-sky-200 dark:border-sky-800 bg-sky-50 dark:bg-sky-950/40 p-6"
+      className="mt-8 flex items-start gap-4 rounded-2xl border-2 border-[var(--border)] bg-[var(--surface-muted)] p-6"
     >
-      <Lightbulb className="mt-1 h-8 w-8 shrink-0 text-sky-600 dark:text-sky-500" aria-hidden="true" />
+      <Lightbulb className="mt-1 h-8 w-8 shrink-0 text-[var(--violet)]" aria-hidden="true" />
       <div>
-        <h4 className="mb-1 text-xl font-bold text-sky-900 dark:text-sky-400">{t('hint_title')}</h4>
-        <p className="text-xl leading-relaxed text-sky-800 dark:text-sky-300">{renderHintText(hint, t)}</p>
+        <h4 className="mb-1 text-xl font-bold text-[var(--foreground)]">{t('hint_title')}</h4>
+        <p className="text-xl leading-relaxed text-[var(--foreground)]">{renderHintText(hint, t)}</p>
       </div>
     </div>
   )

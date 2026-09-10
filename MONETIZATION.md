@@ -1,5 +1,9 @@
 # Monetization Strategy (Stripe Integration)
 
+## 2026-09-10 — Lesbarkeit als allgemeine Plattformfunktion
+
+Hell/Dunkel und der zusätzliche Hochkontrastmodus stehen unabhängig von Tarif, Kursstufe und Lernstand bereit. Die persönliche Darstellung wird lokal auf dem Gerät gespeichert. Größere Lernbeschriftungen und die vereinfachte Grammatiknavigation ändern keine Buchungen, Preise, Rechnungsabläufe oder Zugangsrechte. [Umfang und Prüfnachweise](docs/readability-grammar-2026-09-10.md).
+
 ## Mailgestaltung produktiv — 2026-09-10
 
 Kurs-, Probe- und Kündigungs-Mails verwenden jetzt live die Marke „Sitov Academy“ sowie klar getrennte Unterrichts- und Firmenadressen. Absendernamen, Logos und Rechtslinks sind aktualisiert; Preise, Zahlungszeiträume, Empfänger und Versandtrigger bleiben unverändert. Auth-Mailgestaltung und SMTP-Anzeigename sind ebenfalls in Supabase gespeichert. Alte Markenanzeigen aus vorhandener App-SMTP-Konfiguration werden ebenfalls korrigiert; die Mailbox bleibt erhalten. Es wurden keine Testbuchungen oder Kundenmails ausgelöst. [Ausführung und Prüfung](docs/mail-templates-live-2026-09-10.md).

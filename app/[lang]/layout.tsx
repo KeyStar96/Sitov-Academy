@@ -5,6 +5,7 @@ import SmoothScroll from "@/components/effects/SmoothScroll";
 import { getDictionary } from "@/lib/dictionary";
 import SupportNode from "@/components/layout/SupportNode";
 import AppBackground from "@/components/effects/AppBackground";
+import { AppearanceProvider } from "@/components/layout/AppearanceProvider";
 import { ThemeInit } from "@/components/effects/ThemeInit";
 import NavigationProgress from "@/components/effects/NavigationProgress";
 import Preloader from "@/components/effects/Preloader";
@@ -166,6 +167,7 @@ fbq('track', 'PageView');
         {/* Header moved to page.tsx */}
 
         {/* 4. Main Content: KEIN z-index damit backdrop-filter funktioniert! */}
+        <AppearanceProvider copy={dictionary.accessibility}>
         <RouteFeedbackProvider messages={feedbackMessages} audio={dictionary.neural_audio}>
         <SmoothScroll>
           <main id="main-content" className="pt-0 scroll-3d-container min-h-screen relative">
@@ -173,6 +175,7 @@ fbq('track', 'PageView');
           </main>
         </SmoothScroll>
         </RouteFeedbackProvider>
+        </AppearanceProvider>
         <SupportNode dictionary={dictionary} />
       </body>
     </html>

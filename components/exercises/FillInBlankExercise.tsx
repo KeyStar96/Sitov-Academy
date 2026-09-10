@@ -4,6 +4,7 @@ import { useMemo, useState } from 'react'
 import { AlertCircle, ArrowRight, CheckCircle2, Info } from 'lucide-react'
 import SmartHintPanel from '@/components/exercises/SmartHintPanel'
 import SolutionAudioButton from '@/components/exercises/SolutionAudioButton'
+import { useSolvedActionFocus } from '@/components/exercises/useSolvedActionFocus'
 import { buildSmartHint } from '@/lib/exercise-chips'
 import type { ExerciseTranslator } from '@/lib/exercise-i18n'
 import type { FillInBlankExercise as FillInBlankExerciseData } from '@/lib/types/exercise'
@@ -45,6 +46,7 @@ export default function FillInBlankExerciseCard({
   const [isSolved, setIsSolved] = useState(false)
   const [showRetryNotice, setShowRetryNotice] = useState(false)
   const [audioUnsupported, setAudioUnsupported] = useState(false)
+  const nextButtonRef = useSolvedActionFocus(isSolved)
 
   const smartHint = useMemo(
     () =>
@@ -93,7 +95,7 @@ export default function FillInBlankExerciseCard({
 
   return (
     <div className="p-5 sm:p-10">
-      {exercise.content.instruction && <p className="mb-6 text-base font-semibold text-[var(--violet)]">{exercise.content.instruction}</p>}
+      {exercise.content.instruction && <p className="mb-6 text-lg font-semibold leading-relaxed text-[var(--violet)]">{exercise.content.instruction}</p>}
       {/* Satz mit Lücke – auf dem Handy 20px, ab Tablet 30px. */}
       <p className="break-words text-center text-xl font-medium leading-relaxed text-[var(--foreground)] sm:text-3xl sm:leading-loose">
         {exercise.content.text_before}
@@ -113,51 +115,50 @@ export default function FillInBlankExerciseCard({
         {exercise.content.text_after}
       </p>
 
-      {!isSolved && (
-        <>
-          <h3 className="mt-10 text-center text-2xl font-bold text-[var(--foreground)]">{t('choose_word')}</h3>
+      {/* Keep solved choices visible so the next button cannot jump upward. */}
+      <h3 className="mt-10 text-center text-2xl font-bold text-[var(--foreground)]">{t('choose_word')}</h3>
 
-          {/* Tipp-Chips: Touch-Targets mit 64px Höhe, kein Drag-and-Drop. */}
-          <div className="mt-6 flex flex-wrap justify-center gap-3 sm:gap-4">
-            {exercise.chips.map((chip) => {
-              const isExcluded = excludedChips.includes(chip)
-              const isSelected = selectedChip === chip
+      {/* Tipp-Chips: Touch-Targets mit 64px Höhe, kein Drag-and-Drop. */}
+      <div className="mt-6 flex flex-wrap justify-center gap-3 sm:gap-4">
+        {exercise.chips.map((chip) => {
+          const isExcluded = excludedChips.includes(chip)
+          const isSelected = selectedChip === chip
+          const isCorrectAndSolved = isSolved && isSameWord(chip, exercise.content.correct_answer)
 
-              return (
-                <button
-                  key={chip}
-                  type="button"
-                  onClick={() => handleChipClick(chip)}
-                  disabled={isExcluded}
-                  aria-pressed={isSelected}
-                  aria-label={
-                    isExcluded ? t('chip_wrong_aria', { word: chip }) : t('choose_word_aria', { word: chip })
-                  }
-                  className={cn(
-                    'min-h-16 min-w-16 max-w-full break-words [overflow-wrap:anywhere] rounded-2xl border-2 px-4 sm:px-8 py-4 text-2xl font-bold transition-all focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)]',
-                    isExcluded && 'cursor-not-allowed border-[var(--border)]  bg-[var(--surface-muted)]  text-[var(--muted)]  line-through',
-                    !isExcluded && isSelected && 'border-[var(--violet)] bg-[var(--violet)] text-[var(--surface)] shadow-lg',
-                    !isExcluded && !isSelected && 'border-[var(--border)]  bg-[var(--surface)]  text-[var(--foreground)]  hover:border-[var(--violet)]  hover:bg-[var(--surface-muted)] '
-                  )}
-                >
-                  {chip}
-                </button>
-              )
-            })}
-          </div>
-        </>
-      )}
+          return (
+            <button
+              key={chip}
+              type="button"
+              onClick={() => handleChipClick(chip)}
+              disabled={isExcluded || isSolved}
+              aria-pressed={isSelected}
+              aria-label={
+                isExcluded ? t('chip_wrong_aria', { word: chip }) : t('choose_word_aria', { word: chip })
+              }
+              className={cn(
+                'min-h-16 min-w-16 max-w-full break-words [overflow-wrap:anywhere] rounded-2xl border-2 px-4 sm:px-8 py-4 text-2xl font-bold transition-all focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)]',
+                isCorrectAndSolved && 'border-[var(--violet)] bg-[var(--surface-muted)] font-bold text-[var(--violet)]',
+                !isCorrectAndSolved && isExcluded && 'cursor-not-allowed border-[var(--border)]  bg-[var(--surface-muted)]  text-[var(--muted)]  line-through',
+                !isCorrectAndSolved && !isExcluded && isSelected && 'border-[var(--violet)] bg-[var(--violet)] text-[var(--surface)] shadow-lg',
+                !isCorrectAndSolved && !isExcluded && !isSelected && 'border-[var(--border)]  bg-[var(--surface)]  text-[var(--foreground)]  enabled:hover:border-[var(--violet)] enabled:hover:bg-[var(--surface-muted)]'
+              )}
+            >
+              {chip}
+            </button>
+          )
+        })}
+      </div>
 
       {showRetryNotice && !isSolved && (
         <div
           role="status"
           aria-live="polite"
-          className="mt-8 flex items-start gap-4 rounded-2xl border-2 border-amber-200 dark:border-amber-700/50 bg-amber-50 dark:bg-amber-950/30 p-6"
+          className="mt-8 flex items-start gap-4 rounded-2xl border-2 border-[var(--border)] bg-[var(--surface-muted)] p-6"
         >
-          <Info className="mt-1 h-8 w-8 shrink-0 text-amber-600" aria-hidden="true" />
+          <Info className="mt-1 h-8 w-8 shrink-0 text-[var(--violet)]" aria-hidden="true" />
           <div>
-            <p className="text-xl font-bold text-amber-900 dark:text-amber-500">{t('try_again')}</p>
-            <p className="mt-1 text-lg text-amber-800 dark:text-amber-400/90">{t('try_again_detail')}</p>
+            <p className="text-xl font-bold text-[var(--foreground)]">{t('try_again')}</p>
+            <p className="mt-1 text-lg leading-relaxed text-[var(--foreground)]">{t('try_again_detail')}</p>
           </div>
         </div>
       )}
@@ -166,11 +167,11 @@ export default function FillInBlankExerciseCard({
 
       {/* Kontrastiver Hinweis in der Muttersprache, sobald es einmal nicht geklappt hat. */}
       {exercise.hint && failedAttempts > 0 && !isSolved && (
-        <div className="mt-6 flex items-start gap-4 rounded-r-2xl border-l-4 border-amber-500 dark:border-amber-600 bg-amber-50 dark:bg-amber-950/30 p-6">
-          <AlertCircle className="mt-1 h-8 w-8 shrink-0 text-amber-600" aria-hidden="true" />
+        <div className="mt-6 flex items-start gap-4 rounded-r-2xl border-l-4 border-[var(--violet)] bg-[var(--surface-muted)] p-6">
+          <AlertCircle className="mt-1 h-8 w-8 shrink-0 text-[var(--violet)]" aria-hidden="true" />
           <div>
-            <h4 className="mb-1 text-xl font-bold text-amber-900 dark:text-amber-500">{t('tip_mother_tongue')}</h4>
-            <p className="text-lg text-amber-800 dark:text-amber-400/90">{exercise.hint}</p>
+            <h4 className="mb-1 text-xl font-bold text-[var(--foreground)]">{t('tip_mother_tongue')}</h4>
+            <p className="text-lg leading-relaxed text-[var(--foreground)]">{exercise.hint}</p>
           </div>
         </div>
       )}
@@ -179,14 +180,14 @@ export default function FillInBlankExerciseCard({
         <div
           role="status"
           aria-live="polite"
-          className="mt-10 rounded-2xl border-2 border-green-200 dark:border-green-700/50 bg-green-50 dark:bg-green-950/30 p-6"
+          className="mt-10 rounded-2xl border-2 border-[var(--violet)] bg-[var(--surface-muted)] p-6"
         >
           <div className="flex items-center gap-4">
-            <CheckCircle2 className="h-9 w-9 shrink-0 text-green-600 dark:text-green-500" aria-hidden="true" />
-            <p className="text-2xl font-bold text-green-800 dark:text-green-500">{t('correct_well_done')}</p>
+            <CheckCircle2 className="h-9 w-9 shrink-0 text-[var(--violet)]" aria-hidden="true" />
+            <p className="text-2xl font-bold text-[var(--foreground)]">{t('correct_well_done')}</p>
           </div>
 
-          {exercise.content.smart_hint && <p className="mt-4 text-base leading-relaxed text-[var(--foreground)]">{exercise.content.smart_hint}</p>}
+          {exercise.content.smart_hint && <p className="mt-4 text-lg leading-relaxed text-[var(--foreground)]">{exercise.content.smart_hint}</p>}
           {/* Tap-to-Listen für das gelöste Wort und den gesamten Satz. */}
           <div className="mt-6 flex w-full flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
             <SolutionAudioButton
@@ -206,7 +207,7 @@ export default function FillInBlankExerciseCard({
           </div>
 
           {audioUnsupported && (
-            <p className="mt-4 text-lg text-green-900">{t('audio_unavailable')}</p>
+            <p className="mt-4 text-lg leading-relaxed text-[var(--foreground)]">{t('audio_unavailable')}</p>
           )}
         </div>
       )}
@@ -214,9 +215,10 @@ export default function FillInBlankExerciseCard({
       <div className="mt-10 flex flex-col sm:flex-row sm:justify-end">
         {isSolved ? (
           <button
+            ref={nextButtonRef}
             type="button"
             onClick={onNext}
-            className="inline-flex min-h-16 w-full items-center justify-center gap-3 rounded-full bg-[var(--accent)] px-8 py-4 text-xl font-bold text-[var(--accent-foreground)] shadow-md transition-colors hover:opacity-90 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)] sm:w-auto"
+            className="inline-flex min-h-16 w-full scroll-mb-4 items-center justify-center gap-3 rounded-full bg-[var(--accent)] px-8 py-4 text-xl font-bold text-[var(--accent-foreground)] shadow-md transition-colors hover:opacity-90 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)] sm:w-auto"
           >
             {nextLabel}
             <ArrowRight size={28} aria-hidden="true" />

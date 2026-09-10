@@ -1,53 +1,81 @@
-"use client";
+'use client'
 
-import React, { useState, useEffect } from "react";
-import { Sun, Moon } from "lucide-react";
-import { applyTheme } from "@/lib/theme";
+import { useEffect, useId, useLayoutEffect, useRef, useState, type CSSProperties } from 'react'
+import { Contrast, X } from 'lucide-react'
+import AppearanceOptions from './AppearanceOptions'
+import { useAppearanceCopy } from './AppearanceProvider'
 
-export default function ThemeToggle({
-  lightLabel,
-  darkLabel,
-}: {
-  lightLabel: string
-  darkLabel: string
-}) {
-  const [isDark, setIsDark] = useState<boolean | null>(null);
+/** One compact entry point for light, dark and the independent contrast preference. */
+export default function ThemeToggle({ lightLabel, darkLabel }: { lightLabel: string; darkLabel: string }) {
+  const copy = useAppearanceCopy()
+  const [open, setOpen] = useState(false)
+  const [position, setPosition] = useState<CSSProperties>({ visibility: 'hidden' })
+  const wrapper = useRef<HTMLDivElement>(null)
+  const trigger = useRef<HTMLButtonElement>(null)
+  const panel = useRef<HTMLDivElement>(null)
+  const id = useId()
+
+  const close = () => { setOpen(false); trigger.current?.focus({ preventScroll: true }) }
+
+  useLayoutEffect(() => {
+    if (!open) return
+    const place = () => {
+      if (!wrapper.current || !panel.current || !trigger.current) return
+      const anchor = trigger.current.getBoundingClientRect()
+      const parent = wrapper.current.getBoundingClientRect()
+      const width = panel.current.getBoundingClientRect().width
+      const viewport = window.visualViewport
+      const viewportLeft = viewport?.offsetLeft ?? 0
+      const viewportTop = viewport?.offsetTop ?? 0
+      const viewportWidth = viewport?.width ?? window.innerWidth
+      const viewportHeight = viewport?.height ?? window.innerHeight
+      const height = Math.min(panel.current.scrollHeight, viewportHeight - 32)
+      const left = Math.max(viewportLeft + 16, Math.min(anchor.right - width, viewportLeft + viewportWidth - width - 16))
+      const below = anchor.bottom + 8
+      const top = below + height <= viewportTop + viewportHeight - 16
+        ? below : Math.max(viewportTop + 16, Math.min(anchor.top - height - 8, viewportTop + viewportHeight - height - 16))
+      setPosition({ left: left - parent.left, top: top - parent.top, right: 'auto', maxHeight: viewportTop + viewportHeight - top - 16, visibility: 'visible' })
+    }
+    place()
+    window.addEventListener('resize', place)
+    window.addEventListener('scroll', place, true)
+    window.visualViewport?.addEventListener('resize', place)
+    return () => {
+      window.removeEventListener('resize', place)
+      window.removeEventListener('scroll', place, true)
+      window.visualViewport?.removeEventListener('resize', place)
+    }
+  }, [open])
 
   useEffect(() => {
-    const check = () => setIsDark(document.documentElement.classList.contains("dark"));
-    check();
-    const observer = new MutationObserver(check);
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
-    return () => observer.disconnect();
-  }, []);
+    if (open && position.visibility === 'visible') panel.current?.querySelector<HTMLButtonElement>('[aria-pressed="true"]')?.focus({ preventScroll: true })
+  }, [open, position.visibility])
 
-  const toggleTheme = () => {
-    if (isDark === null) return;
-    const newTheme = !isDark;
-    applyTheme(newTheme ? "dark" : "light");
-    try { localStorage.setItem("theme", newTheme ? "dark" : "light"); } catch { /* The selected theme remains active in this tab. */ }
-  };
-
-  if (isDark === null) {
-    return <div className="h-12 w-12 shrink-0" aria-hidden="true" />;
-  }
-
-  const ariaLabel = isDark
-    ? lightLabel
-    : darkLabel;
+  useEffect(() => {
+    if (!open) return
+    const outside = (event: PointerEvent) => {
+      if (event.target instanceof Node && !wrapper.current?.contains(event.target)) setOpen(false)
+    }
+    document.addEventListener('pointerdown', outside, true)
+    return () => document.removeEventListener('pointerdown', outside, true)
+  }, [open])
 
   return (
-    <button
-      type="button"
-      onClick={toggleTheme}
-      className="academy-icon-button"
-      aria-label={ariaLabel}
-    >
-      {isDark ? (
-        <Sun className="h-5 w-5" aria-hidden="true" />
-      ) : (
-        <Moon className="h-5 w-5" aria-hidden="true" />
-      )}
-    </button>
-  );
+    <div ref={wrapper} className="academy-appearance relative shrink-0" onKeyDown={event => {
+      if (event.key === 'Escape' && open) { event.preventDefault(); event.stopPropagation(); close() }
+    }} onBlur={event => {
+      if (event.relatedTarget instanceof Node && !event.currentTarget.contains(event.relatedTarget)) setOpen(false)
+    }}>
+      <button ref={trigger} type="button" onClick={() => setOpen(value => !value)} className="academy-icon-button" aria-label={copy.title} title={copy.title} aria-expanded={open} aria-haspopup="dialog" aria-controls={open ? id : undefined}>
+        <Contrast className="h-5 w-5" aria-hidden="true" />
+      </button>
+      {open && <div ref={panel} id={id} role="dialog" aria-labelledby={`${id}-title`} className="academy-appearance-panel absolute z-[100] w-[min(20rem,calc(100vw-2rem))] overflow-y-auto overscroll-contain rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-4 text-[var(--foreground)] shadow-xl [overflow-wrap:break-word]" style={position}>
+        <div className="mb-3 flex min-w-0 items-center justify-between gap-2">
+          <h2 id={`${id}-title`} className="min-w-0 text-lg font-bold leading-snug">{copy.title}</h2>
+          <button type="button" className="academy-icon-button shrink-0" aria-label={copy.close} onClick={close}><X size={20} aria-hidden="true" /></button>
+        </div>
+        <AppearanceOptions lightLabel={lightLabel} darkLabel={darkLabel} />
+      </div>}
+    </div>
+  )
 }

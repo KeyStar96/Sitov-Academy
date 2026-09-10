@@ -48,15 +48,15 @@ export default function ProfileMonthlyCourses({ initial, lang, translations, cou
       <div className="flex min-w-0 items-start gap-3">
         <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-orange-50 text-orange-700 dark:bg-orange-950 dark:text-orange-300"><CalendarDays size={24} aria-hidden="true" /></span>
         <div className="min-w-0">
-          <p className="mb-1 break-words text-sm font-bold text-orange-800 dark:text-orange-300">{month}</p>
+          <p className="mb-1 break-words text-base font-bold text-orange-800 dark:text-orange-300">{month}</p>
           <h2 id="monthly-title" className="break-words text-xl font-bold text-[var(--foreground)]">{t('next_month_title')}</h2>
         </div>
       </div>
-      <p className="mt-4 text-sm leading-relaxed text-[var(--muted)]">{t('next_month_intro', { month })}</p>
+      <p className="mt-4 text-base leading-relaxed text-[var(--muted)]">{t('next_month_intro', { month })}</p>
       <div className="mt-4 grid min-h-12">
-        {sourceHint.current && <p aria-hidden="true" data-reserve={t(sourceHint.current)} className="invisible rounded-xl p-3 text-sm [grid-area:1/1] before:content-[attr(data-reserve)]" />}
-        {(state.source === 'previous' || state.source === 'enrollments') && <p className="rounded-xl bg-[var(--surface-muted)] p-3 text-sm text-[var(--violet)] [grid-area:1/1]">{t('inherited_courses')}</p>}
-        {state.source === 'unresolved' && <p className="rounded-xl bg-amber-50 p-3 text-sm text-amber-900 [grid-area:1/1] dark:bg-amber-950 dark:text-amber-200">{t('unresolved_courses')}</p>}
+        {sourceHint.current && <p aria-hidden="true" data-reserve={t(sourceHint.current)} className="invisible rounded-xl p-3 text-base [grid-area:1/1] before:content-[attr(data-reserve)]" />}
+        {(state.source === 'previous' || state.source === 'enrollments') && <p className="rounded-xl bg-[var(--surface-muted)] p-3 text-base text-[var(--violet)] [grid-area:1/1]">{t('inherited_courses')}</p>}
+        {state.source === 'unresolved' && <p className="rounded-xl bg-amber-50 p-3 text-base text-amber-900 [grid-area:1/1] dark:bg-amber-950 dark:text-amber-200">{t('unresolved_courses')}</p>}
       </div>
       <button type="button" role="switch" aria-checked={paused} aria-label={t('pause_next_month')}
         aria-describedby="pause-description" onClick={togglePause} disabled={monthExpired}
@@ -66,8 +66,8 @@ export default function ProfileMonthlyCourses({ initial, lang, translations, cou
           <span className={`h-5 w-5 rounded-full bg-[var(--surface)] shadow-sm transition-transform motion-reduce:transition-none ${paused ? 'translate-x-5' : ''}`} />
         </span>
       </button>
-      <p id="pause-description" className="mt-2 text-xs leading-relaxed text-[var(--muted)]">{t('pause_description', { month })}</p>
-      <div className="mt-4 min-h-14 text-sm leading-relaxed" aria-live="polite">
+      <p id="pause-description" className="mt-2 text-base leading-relaxed text-[var(--muted)]">{t('pause_description', { month })}</p>
+      <div className="mt-4 min-h-14 text-base leading-relaxed" aria-live="polite">
         {paused ? <p className="text-amber-900 dark:text-amber-200">{t('paused_notice', { month })}</p>
           : <p className="font-semibold text-[var(--foreground)]">{t('selection_count', { count: courseIds.length })}</p>}
         {needsCourse && <p className="mt-2 text-amber-900 dark:text-amber-200">{t('choose_to_resume')}</p>}
@@ -86,8 +86,8 @@ export default function ProfileMonthlyCourses({ initial, lang, translations, cou
                 {selected ? <Check size={18} /> : <Plus size={18} />}
               </span>
               <span className="min-w-0 flex-1">
-                <span className="block break-words text-sm font-semibold leading-snug text-[var(--foreground)]">{title}</span>
-                <span className="mt-0.5 block text-xs leading-snug text-[var(--muted)]">
+                <span className="block break-words text-base font-semibold leading-snug text-[var(--foreground)]">{title}</span>
+                <span className="mt-0.5 block text-base leading-snug text-[var(--muted)]">
                   {t(course.available ? course.type === 'online' ? 'course_online' : 'course_presence' : 'course_unavailable')}
                   {' · '}
                   <span className="font-bold text-[var(--violet)]">{t(selected ? 'course_remove' : 'course_add')}</span>
@@ -96,10 +96,10 @@ export default function ProfileMonthlyCourses({ initial, lang, translations, cou
             </button>
           )
         })}
-        {courses.length === 0 && <p className="rounded-xl bg-[var(--surface-muted)] p-4 text-sm text-[var(--muted)] sm:col-span-2">{t('no_courses')}</p>}
-        {courses.length > 0 && !courseIds.length && !paused && <p className="text-sm text-[var(--muted)] sm:col-span-2">{t('no_selection')}</p>}
+        {courses.length === 0 && <p className="rounded-xl bg-[var(--surface-muted)] p-4 text-base text-[var(--muted)] sm:col-span-2">{t('no_courses')}</p>}
+        {courses.length > 0 && !courseIds.length && !paused && <p className="text-base text-[var(--muted)] sm:col-span-2">{t('no_selection')}</p>}
       </div>
-      <div className="mt-4 min-h-14 break-words text-sm leading-relaxed" role={hasError ? 'alert' : 'status'} aria-live={hasError ? 'assertive' : 'polite'} aria-atomic="true">
+      <div className="mt-4 min-h-14 break-words text-base leading-relaxed" role={hasError ? 'alert' : 'status'} aria-live={hasError ? 'assertive' : 'polite'} aria-atomic="true">
         {saving ? <p className="flex items-center gap-2 text-[var(--muted)]"><Loader2 size={18} aria-hidden="true" className="shrink-0 animate-spin" />{t('saving')}</p>
           : message && <p className={hasError ? 'text-red-700 dark:text-red-300' : 'text-emerald-800 dark:text-emerald-300'}>{t(message)}</p>}
         {monthExpired && <p className="mt-2 text-amber-900 dark:text-amber-200">{t('month_changed')}</p>}

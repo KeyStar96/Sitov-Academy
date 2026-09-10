@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { AlertCircle, ArrowRight, CheckCircle2, Info } from 'lucide-react'
+import { useSolvedActionFocus } from '@/components/exercises/useSolvedActionFocus'
 import type { ExerciseTranslator } from '@/lib/exercise-i18n'
 import type { MultipleChoiceExercise as MultipleChoiceExerciseData } from '@/lib/types/exercise'
 import { cn } from '@/lib/utils'
@@ -34,6 +35,7 @@ export default function MultipleChoiceExerciseCard({
   const [failedAttempts, setFailedAttempts] = useState(exercise.attempts)
   const [isSolved, setIsSolved] = useState(false)
   const [showRetryNotice, setShowRetryNotice] = useState(false)
+  const nextButtonRef = useSolvedActionFocus(isSolved)
 
   const handleSelect = (option: string): void => {
     if (isSolved || excludedOptions.includes(option)) return
@@ -61,7 +63,7 @@ export default function MultipleChoiceExerciseCard({
 
   return (
     <div className="p-5 sm:p-10">
-      {exercise.content.instruction && <p className="mb-6 text-base font-semibold text-[var(--violet)]">{exercise.content.instruction}</p>}
+      {exercise.content.instruction && <p className="mb-6 text-lg font-semibold leading-relaxed text-[var(--violet)]">{exercise.content.instruction}</p>}
       <h3 className="break-words text-xl font-bold leading-relaxed text-[var(--foreground)] sm:text-2xl">{exercise.content.question}</h3>
 
       <div className="mt-8 space-y-4">
@@ -96,45 +98,46 @@ export default function MultipleChoiceExerciseCard({
         <div
           role="status"
           aria-live="polite"
-          className="mt-8 flex items-start gap-4 rounded-2xl border-2 border-amber-200 dark:border-amber-700/50 bg-amber-50 dark:bg-amber-950/30 p-6"
+          className="mt-8 flex items-start gap-4 rounded-2xl border-2 border-[var(--border)] bg-[var(--surface-muted)] p-6"
         >
-          <Info className="mt-1 h-8 w-8 shrink-0 text-amber-600" aria-hidden="true" />
+          <Info className="mt-1 h-8 w-8 shrink-0 text-[var(--violet)]" aria-hidden="true" />
           <div>
-            <p className="text-xl font-bold text-amber-900 dark:text-amber-500">{t('try_again')}</p>
-            <p className="mt-1 text-lg text-amber-800 dark:text-amber-400/90">{t('try_again_detail')}</p>
+            <p className="text-xl font-bold text-[var(--foreground)]">{t('try_again')}</p>
+            <p className="mt-1 text-lg leading-relaxed text-[var(--foreground)]">{t('try_again_detail')}</p>
           </div>
         </div>
       )}
 
       {exercise.hint && failedAttempts > 0 && !isSolved && (
-        <div className="mt-6 flex items-start gap-4 rounded-r-2xl border-l-4 border-amber-500 dark:border-amber-600 bg-amber-50 dark:bg-amber-950/30 p-6">
-          <AlertCircle className="mt-1 h-8 w-8 shrink-0 text-amber-600" aria-hidden="true" />
+        <div className="mt-6 flex items-start gap-4 rounded-r-2xl border-l-4 border-[var(--violet)] bg-[var(--surface-muted)] p-6">
+          <AlertCircle className="mt-1 h-8 w-8 shrink-0 text-[var(--violet)]" aria-hidden="true" />
           <div>
-            <h4 className="mb-1 text-xl font-bold text-amber-900 dark:text-amber-500">{t('tip_mother_tongue')}</h4>
-            <p className="text-lg text-amber-800 dark:text-amber-400/90">{exercise.hint}</p>
+            <h4 className="mb-1 text-xl font-bold text-[var(--foreground)]">{t('tip_mother_tongue')}</h4>
+            <p className="text-lg leading-relaxed text-[var(--foreground)]">{exercise.hint}</p>
           </div>
         </div>
       )}
 
-      {exercise.content.explanation && (isSolved || failedAttempts >= 2) && <div className="mt-6 rounded-2xl border border-[var(--border)] bg-[var(--surface-muted)] p-5"><h4 className="font-semibold text-[var(--violet)]">{t('hint_title')}</h4><p className="mt-2 text-base leading-relaxed text-[var(--foreground)]">{exercise.content.explanation}</p></div>}
+      {exercise.content.explanation && (isSolved || failedAttempts >= 2) && <div className="mt-6 rounded-2xl border border-[var(--border)] bg-[var(--surface-muted)] p-5"><h4 className="text-lg font-semibold text-[var(--violet)]">{t('hint_title')}</h4><p className="mt-2 text-lg leading-relaxed text-[var(--foreground)]">{exercise.content.explanation}</p></div>}
 
       {isSolved && (
         <div
           role="status"
           aria-live="polite"
-          className="mt-8 flex items-center gap-4 rounded-2xl border-2 border-green-200 dark:border-green-700/50 bg-green-50 dark:bg-green-950/30 p-6"
+          className="mt-8 flex items-center gap-4 rounded-2xl border-2 border-[var(--violet)] bg-[var(--surface-muted)] p-6"
         >
-          <CheckCircle2 className="h-9 w-9 shrink-0 text-green-600 dark:text-green-500" aria-hidden="true" />
-          <p className="text-2xl font-bold text-green-800 dark:text-green-500">{t('correct_well_done')}</p>
+          <CheckCircle2 className="h-9 w-9 shrink-0 text-[var(--violet)]" aria-hidden="true" />
+          <p className="text-2xl font-bold text-[var(--foreground)]">{t('correct_well_done')}</p>
         </div>
       )}
 
       <div className="mt-10 flex flex-col sm:flex-row sm:justify-end">
         {isSolved ? (
           <button
+            ref={nextButtonRef}
             type="button"
             onClick={onNext}
-            className="inline-flex min-h-16 w-full items-center justify-center gap-3 rounded-full bg-[var(--accent)] px-8 py-4 text-xl font-bold text-[var(--accent-foreground)] shadow-md transition-colors hover:opacity-90 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)] sm:w-auto"
+            className="inline-flex min-h-16 w-full scroll-mb-4 items-center justify-center gap-3 rounded-full bg-[var(--accent)] px-8 py-4 text-xl font-bold text-[var(--accent-foreground)] shadow-md transition-colors hover:opacity-90 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)] sm:w-auto"
           >
             {nextLabel}
             <ArrowRight size={28} aria-hidden="true" />

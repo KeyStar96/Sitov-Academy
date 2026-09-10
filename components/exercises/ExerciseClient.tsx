@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback, useMemo, useRef, useState } from 'react'
+import { useCallback, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import { ArrowLeft, ArrowRight, BookOpenCheck, CheckCircle2, CloudOff, Loader2, RotateCcw } from 'lucide-react'
 import FillInBlankExerciseCard from '@/components/exercises/FillInBlankExercise'
 import MultipleChoiceExerciseCard from '@/components/exercises/MultipleChoiceExercise'
@@ -33,11 +33,25 @@ export default function ExerciseClient({ exercises, translations = {}, lang, lev
   const currentExercise = session?.[currentIndex]
   const headingRef = useRef<HTMLHeadingElement>(null)
 
+  useLayoutEffect(() => {
+    if (!session || !headingRef.current) return
+
+    // Focus alone does not reposition a heading that remains mounted between cards.
+    // Measure the real header so wrapped breadcrumbs and larger text stay clear.
+    const heading = headingRef.current
+    const header = document.querySelector<HTMLElement>('.academy-student-header')
+    const headerBottom = Math.max(0, header?.getBoundingClientRect().bottom ?? 0)
+    heading.focus({ preventScroll: true })
+    window.scrollTo({
+      top: Math.max(0, window.scrollY + heading.getBoundingClientRect().top - headerBottom - 16),
+      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
+    })
+  }, [session, currentIndex])
+
   const startSession = useCallback((topic?: string, review = false) => {
     const next = createGrammarSession(library, { topic, review })
     setSession(next)
     setCurrentIndex(0)
-    window.requestAnimationFrame(() => headingRef.current?.focus())
   }, [library])
 
   const saveAttempt = useCallback((input: { exerciseId: string; answer: string; hintShown: boolean }) => {
@@ -74,7 +88,6 @@ export default function ExerciseClient({ exercises, translations = {}, lang, lev
   const handleNext = useCallback(() => {
     const nextIndex = currentIndex + 1
     setCurrentIndex(nextIndex)
-    window.requestAnimationFrame(() => headingRef.current?.focus())
     if (session && nextIndex >= session.length) {
       void saveQueue.current.then(async () => {
         try { await finishExerciseSession(level) } catch { setSaveFailed(true) }
@@ -90,13 +103,6 @@ export default function ExerciseClient({ exercises, translations = {}, lang, lev
         <div className={styles.stat}><strong>{completed}</strong><span>{g('solved')}</span></div>
       </div>}
 
-      {saveFailed && <div role="status" className={styles.notice}>
-        <CloudOff className="shrink-0" size={20} aria-hidden="true" />
-        <span>{g('saveFailed')}</span>
-        {pendingAttempts.length > 0 && <button type="button" disabled={saving} onClick={retrySave} className="academy-button academy-button-secondary">{t('error_retry')}</button>}
-      </div>}
-      {saving && <p role="status" className={styles.notice}><Loader2 size={18} className="animate-spin" aria-hidden="true" />{g('saving')}</p>}
-
       {library.length === 0 ? <div className={styles.empty}>
         <BookOpenCheck className="mx-auto text-[var(--violet)]" size={38} aria-hidden="true" />
         <h2>{t('no_exercises')}</h2><p>{t('no_exercises_hint')}</p>
@@ -110,7 +116,7 @@ export default function ExerciseClient({ exercises, translations = {}, lang, lev
             </button>
           </div>
         </div>
-        <div className={styles.sectionHeading}><h2>{g('library')}</h2><span className="text-sm text-[var(--muted)]">{g('open', { count: library.length - completed })}</span></div>
+        <div className={styles.sectionHeading}><h2>{g('library')}</h2><span className="text-base text-[var(--muted)]">{g('open', { count: library.length - completed })}</span></div>
         <div className={styles.grid}>
           {topics.map((topic, index) => <button type="button" key={topic.name} className={styles.topicCard} onClick={() => startSession(topic.name, topic.completed === topic.total)} aria-label={`${topic.name}: ${topic.completed === topic.total ? g('review') : g('practice')}`}>
             <span className={styles.topicTop}><span className={styles.topicNumber}>{String(index + 1).padStart(2, '0')}</span><span>{topic.completed === topic.total ? <CheckCircle2 size={20} aria-hidden="true" /> : g('open', { count: topic.total - topic.completed })}</span></span>
@@ -138,6 +144,13 @@ export default function ExerciseClient({ exercises, translations = {}, lang, lev
               onAttempt={(correct, hint, answer) => handleAttempt(currentExercise.id, correct, hint, answer)} onNext={handleNext} />}
         </div>
       </>}
+      {/* Async save updates must not move the exercise while it is being read. */}
+      {saveFailed && <div role="status" className={styles.notice}>
+        <CloudOff className="shrink-0" size={20} aria-hidden="true" />
+        <span>{g('saveFailed')}</span>
+        {pendingAttempts.length > 0 && <button type="button" disabled={saving} onClick={retrySave} className="academy-button academy-button-secondary">{t('error_retry')}</button>}
+      </div>}
+      {saving && <p role="status" className={styles.notice}><Loader2 size={18} className="animate-spin" aria-hidden="true" />{g('saving')}</p>}
     </section>
   )
 }

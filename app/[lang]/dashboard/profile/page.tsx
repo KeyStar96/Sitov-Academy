@@ -11,6 +11,7 @@ import ProfileMonthlyCourses from '@/components/dashboard/ProfileMonthlyCourses'
 import { resolveLegacyProfile } from '@/lib/profile-legacy'
 import { loadVerifiedCourseHistory } from '@/lib/profile-course-history'
 import ProfileCourseHistory from '@/components/dashboard/ProfileCourseHistory'
+import ProfileAppearanceSettings from '@/components/dashboard/ProfileAppearanceSettings'
 import ProfileProgressReset from '@/components/dashboard/ProfileProgressReset'
 
 export default async function ProfilePage({ params }: { params: Promise<{ lang: string }> }) {
@@ -65,6 +66,7 @@ export default async function ProfilePage({ params }: { params: Promise<{ lang: 
               />
             </div>
           </section>
+          <ProfileAppearanceSettings />
           <ProfileProgressReset translations={dict.progress_reset} userId={user.id} />
         </div>
         {monthly ? <ProfileMonthlyCourses key={`${user.id}:${monthly.targetMonth}`} initial={monthly} lang={lang} translations={dict.profile} courseTitles={titles} />

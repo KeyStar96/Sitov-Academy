@@ -95,7 +95,7 @@ export default function WaveformPlayer({
   return (
     <div className="min-w-0 w-full break-words">
       {label && (
-        <p className="mb-2 text-sm font-bold uppercase tracking-wide text-[var(--muted)]">
+        <p className="mb-2 text-base font-bold uppercase tracking-wide text-[var(--muted)]">
           {label}
         </p>
       )}

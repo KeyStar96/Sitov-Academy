@@ -79,36 +79,36 @@ export default function VocabTrainerPageClient({ learnerId, initialCards, lesson
   return <div className="mx-auto w-full max-w-5xl space-y-8 text-[var(--foreground)]">
     <section className="rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-5 sm:p-7" aria-label={t('lernkasten_title')}>
       <div className="flex flex-wrap items-center justify-between gap-5">
-        <div><p className="text-sm text-[var(--muted)]">{t('due_now')}</p><p className="mt-1 text-5xl font-semibold tracking-tighter tabular-nums">{selectedCards.length}</p></div>
+        <div><p className="text-base text-[var(--muted)]">{t('due_now')}</p><p className="mt-1 text-5xl font-semibold tracking-tighter tabular-nums">{selectedCards.length}</p></div>
         <button type="button" disabled={!ready || refreshing || selectedCards.length === 0} onClick={() => setSession(selectedCards)}
           className="flex min-h-14 w-full items-center justify-center gap-3 rounded-2xl bg-[var(--accent)] px-6 py-3 font-semibold text-[var(--accent-foreground)] disabled:opacity-50 sm:w-auto">
           {t('lernkasten_start')}<ArrowRight size={18} aria-hidden="true" />
         </button>
       </div>
-      <p className="mt-5 border-t border-[var(--border)] pt-4 text-sm leading-relaxed text-[var(--muted)]">{selectedCards.length ? t('lernkasten_summary', { lessons: selection.length, cards: selectedCards.length }) : t('lernkasten_start_hint_nothing_due')}</p>
-      {initialDeferredCount > 0 && <p className="mt-2 text-sm text-[var(--muted)]">{t('repetition_gap_hint')}</p>}
+      <p className="mt-5 border-t border-[var(--border)] pt-4 text-base leading-relaxed text-[var(--muted)]">{selectedCards.length ? t('lernkasten_summary', { lessons: selection.length, cards: selectedCards.length }) : t('lernkasten_start_hint_nothing_due')}</p>
+      {initialDeferredCount > 0 && <p className="mt-2 text-base text-[var(--muted)]">{t('repetition_gap_hint')}</p>}
     </section>
     <details className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] px-5 sm:px-7">
       <summary className="flex min-h-14 cursor-pointer items-center gap-3 py-3 font-semibold"><BookOpen size={18} aria-hidden="true" />{t('method_title')}</summary>
-      <div className="space-y-3 border-t border-[var(--border)] py-5 text-sm leading-relaxed text-[var(--muted)]">
+      <div className="space-y-3 border-t border-[var(--border)] py-5 text-base leading-relaxed text-[var(--muted)]">
         <p>{t('method_progress')}</p><p>{t('method_intervals')}</p><p>{t('method_learned')}</p><p>{t('method_assessment')}</p>
       </div>
     </details>
     <section aria-label={t('your_sets')}>
       <div className="mb-4 flex flex-wrap items-center justify-between gap-2"><h2 className="text-xl font-semibold">{t('your_sets')}</h2>
-        <button type="button" onClick={() => setSelection(Array.from(dueByLesson.keys()))} className="min-h-12 rounded-xl px-3 text-sm font-semibold text-[var(--accent)]">{t('lernkasten_select_all')}</button>
+        <button type="button" onClick={() => setSelection(Array.from(dueByLesson.keys()))} className="min-h-12 rounded-xl px-3 text-base font-semibold text-[var(--accent)]">{t('lernkasten_select_all')}</button>
       </div>
       <div className="grid gap-3 md:grid-cols-2">
         {lessonStats.map(lesson => <article key={lesson.lesson} className="min-w-0 rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-4 sm:p-5">
-          <div className="flex items-start justify-between gap-3"><div className="min-w-0"><p className="text-xs text-[var(--muted)]">{t('lesson_label', { lesson: stripLessonPrefix(lesson.lesson) })}</p><h3 className="mt-1 break-words text-lg font-semibold">{lesson.lesson}</h3></div>
+          <div className="flex items-start justify-between gap-3"><div className="min-w-0"><p className="text-base text-[var(--muted)]">{t('lesson_label', { lesson: stripLessonPrefix(lesson.lesson) })}</p><h3 className="mt-1 break-words text-lg font-semibold">{lesson.lesson}</h3></div>
             <button type="button" onClick={() => toggle(lesson)} aria-pressed={selection.includes(lesson.lesson)} aria-label={t(selection.includes(lesson.lesson) ? 'lernkasten_remove_aria' : 'lernkasten_add_aria', { lesson: lesson.lesson })}
               className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-[var(--border)] text-[var(--accent)]">{selection.includes(lesson.lesson) ? <Check size={20} aria-hidden="true" /> : <Plus size={20} aria-hidden="true" />}</button>
           </div>
-          <p className="mt-3 text-sm text-[var(--muted)]">{t('lernkasten_lesson_meta', { due: dueByLesson.get(lesson.lesson) ?? 0, total: lesson.total })}</p>
+          <p className="mt-3 text-base text-[var(--muted)]">{t('lernkasten_lesson_meta', { due: dueByLesson.get(lesson.lesson) ?? 0, total: lesson.total })}</p>
           <div className="mt-4 h-1 rounded-full bg-[var(--surface-muted)]" aria-hidden="true"><div className="h-full rounded-full bg-[var(--violet)]" style={{ width: `${lesson.total ? lesson.learned / lesson.total * 100 : 0}%` }} /></div>
           <div className="mt-3 flex flex-wrap gap-2">
-            <button type="button" onClick={() => setOpenLesson(lesson.lesson)} className="inline-flex min-h-12 items-center gap-2 rounded-xl px-2 text-sm font-semibold"><BookOpen size={16} aria-hidden="true" />{t('show_cards')}</button>
-            {lesson.untouched > 0 && <Link className="inline-flex min-h-12 items-center rounded-xl px-2 text-sm font-semibold text-[var(--accent)]" href={`${overview}/assess?lesson=${encodeURIComponent(lesson.lesson)}`}>{t('assess_set')}</Link>}
+            <button type="button" onClick={() => setOpenLesson(lesson.lesson)} className="inline-flex min-h-12 items-center gap-2 rounded-xl px-2 text-base font-semibold"><BookOpen size={16} aria-hidden="true" />{t('show_cards')}</button>
+            {lesson.untouched > 0 && <Link className="inline-flex min-h-12 items-center rounded-xl px-2 text-base font-semibold text-[var(--accent)]" href={`${overview}/assess?lesson=${encodeURIComponent(lesson.lesson)}`}>{t('assess_set')}</Link>}
           </div>
         </article>)}
       </div>
@@ -119,9 +119,9 @@ export default function VocabTrainerPageClient({ learnerId, initialCards, lesson
         <div className="mt-6 flex flex-col gap-3">
           <button type="button" disabled={pending} onClick={() => router.push(`${overview}/assess?lesson=${encodeURIComponent(onboarding)}`)} className="flex min-h-12 items-center justify-center rounded-xl bg-[var(--accent)] p-3 text-center font-semibold text-[var(--accent-foreground)] disabled:opacity-60">{t('assess_set')}</button>
           <button type="button" onClick={() => void initialize()} disabled={pending} className="min-h-12 rounded-xl border border-[var(--border)] p-3 font-semibold">{t('start_all_words')}</button>
-          <button type="button" onClick={() => setOnboarding(null)} disabled={pending} className="min-h-12 rounded-xl p-2 text-sm">{t('cancel_selection')}</button>
+          <button type="button" onClick={() => setOnboarding(null)} disabled={pending} className="min-h-12 rounded-xl p-2 text-base">{t('cancel_selection')}</button>
         </div>
-        <p role="status" className="mt-3 text-sm">{error ? t('manual_add_failed') : pending ? t('saving_progress') : ''}</p>
+        <p role="status" className="mt-3 text-base">{error ? t('manual_add_failed') : pending ? t('saving_progress') : ''}</p>
     </dialog>}
     {openLesson && <LessonCardsModal lesson={openLesson} level={level} translations={translations} onClose={() => setOpenLesson(null)} onCardAdded={() => router.refresh()} />}
   </div>

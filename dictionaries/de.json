@@ -2032,5 +2032,17 @@
     "not_authenticated": "Bitte melde dich erneut an, bevor du deinen Lernfortschritt zurücksetzt.",
     "reset_in_progress": "Das Zurücksetzen läuft bereits. Bitte warte einen Moment und versuche es dann erneut.",
     "scope": "Dein persönliches Profil und deine Kursbuchungen bleiben erhalten."
+  },
+  "accessibility": {
+    "title": "Darstellung & Lesbarkeit",
+    "description": "Wähle die Darstellung, mit der du angenehm lernen kannst. Deine Auswahl gilt auf diesem Gerät für die gesamte Website.",
+    "theme": "Farbschema",
+    "light": "Hell",
+    "dark": "Dunkel",
+    "contrast": "Hoher Kontrast",
+    "contrast_description": "Deutlichere Texte, kräftige Konturen und ruhige Hintergründe – im hellen und dunklen Design.",
+    "system": "Systemeinstellungen verwenden",
+    "system_description": "Folgt den Einstellungen deines Geräts.",
+    "close": "Darstellung schließen"
   }
 }

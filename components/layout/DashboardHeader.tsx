@@ -70,11 +70,11 @@ export default function DashboardHeader({
             return (
               <li key={crumb.href} className="flex min-w-0 items-center">
                 {isLast ? (
-                  <h1 aria-current="page" className="inline-flex min-h-12 items-center break-words text-sm font-semibold text-[var(--foreground)]">
+                  <h1 aria-current="page" className="inline-flex min-h-12 items-center break-words text-base font-semibold text-[var(--foreground)]">
                     {crumb.name}
                   </h1>
                 ) : (
-                  <Link href={crumb.href} className="inline-flex min-h-12 items-center break-words text-sm font-medium text-[var(--muted)] transition-colors hover:text-[var(--foreground)]">
+                  <Link href={crumb.href} className="inline-flex min-h-12 items-center break-words text-base font-medium text-[var(--muted)] transition-colors hover:text-[var(--foreground)]">
                     {crumb.name}
                   </Link>
                 )}

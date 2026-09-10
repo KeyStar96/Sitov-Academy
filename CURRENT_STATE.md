@@ -1,5 +1,9 @@
 # Current State Analysis (Ist-Zustand)
 
+## 2026-09-10 — Grammatik-Navigation und Lesbarkeit
+
+Der Grammatiktrainer hält gelöste Antwortfelder stabil, bringt die Weiter-Aktion nach dem Feedback in den sichtbaren Bereich und richtet die nächste Aufgabe unter der tatsächlichen Kopfzeile aus. Speicherhinweise verändern die Kartenposition nicht mehr. Kleine Lernhinweise, Statusangaben und Bedienelemente wurden gezielt auf 16px, Grammatik-Erklärungen auf 18px angehoben; bereits große Aufgaben bleiben groß. Ein gespeicherter Hochkontrastmodus ergänzt Hell/Dunkel und ist über „Darstellung & Lesbarkeit“ sowie unter den Profileinstellungen erreichbar. DE/EN/RU/UK/TR sind vollständig übersetzt. [Umfang und Prüfnachweise](docs/readability-grammar-2026-09-10.md).
+
 ## Änderungsprotokoll — 2026-09-10: Mailvorlagen produktiv übernommen
 
 Alle sechs bestehenden Supabase-Mailfunktionen sind mit „Sitov Academy“, aktuellem Logo, Farbpalette und korrigierten Adress-/Rechtsfootern live veröffentlicht und durch erneutes Auslesen geprüft. Bestätigungs- und Passwort-Mail einschließlich Betreff sowie SMTP-Anzeigename wurden direkt im Supabase-Dashboard gespeichert. Auth-Link-Platzhalter und Versandlogik bleiben unverändert. Die zusätzliche Feedback-Mail des Lernraums nutzt jetzt `lib/feedback-email.ts`; TypeScript und 42 zugehörige Tests bestanden. Die App-Änderungen sind auf `main` veröffentlicht und werden über die bestehende GitHub/Vercel-Integration bereitgestellt; auch konfigurierte alte SMTP-Anzeigenamen werden ohne Mailboxänderung angeglichen. [Details und Veröffentlichungsnachweis](docs/mail-templates-live-2026-09-10.md).

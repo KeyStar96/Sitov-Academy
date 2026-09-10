@@ -1,8 +1,8 @@
-import { applyTheme, getPreferredTheme, THEME_BOOTSTRAP_SCRIPT } from '@/lib/theme'
+import { applyTheme, getPreferredTheme, THEME_BOOTSTRAP_SCRIPT, syncAppearanceFromStorage } from '@/lib/theme'
 
 function systemTheme(dark: boolean) {
   jest.mocked(window.matchMedia).mockImplementation((query: string): MediaQueryList => ({
-    matches: dark, media: query, onchange: null,
+    matches: query === '(prefers-color-scheme: dark)' && dark, media: query, onchange: null,
     addListener: jest.fn(), removeListener: jest.fn(),
     addEventListener: jest.fn(), removeEventListener: jest.fn(), dispatchEvent: jest.fn(),
   }))
@@ -13,9 +13,11 @@ beforeEach(() => {
   localStorage.clear()
   document.documentElement.className = ''
   document.documentElement.removeAttribute('data-theme')
+  document.documentElement.removeAttribute('data-contrast')
   document.documentElement.removeAttribute('style')
   document.head.innerHTML = '<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">'
   systemTheme(false)
+  syncAppearanceFromStorage(null)
 })
 
 it.each(['light', 'dark'] as const)('applies saved %s before hydration, independently of the system preference', theme => {

@@ -2033,5 +2033,17 @@
     "not_authenticated": "Please sign in again before resetting your learning progress.",
     "reset_in_progress": "A reset is already in progress. Please wait a moment and try again.",
     "scope": "Your personal profile and course bookings will be kept."
+  },
+  "accessibility": {
+    "title": "Appearance & readability",
+    "description": "Choose the appearance that feels comfortable for learning. Your choice applies to the whole website on this device.",
+    "theme": "Colour scheme",
+    "light": "Light",
+    "dark": "Dark",
+    "contrast": "High contrast",
+    "contrast_description": "Clearer text, stronger outlines and calm backgrounds in both light and dark mode.",
+    "system": "Use device settings",
+    "system_description": "Follows the settings on your device.",
+    "close": "Close appearance settings"
   }
 }

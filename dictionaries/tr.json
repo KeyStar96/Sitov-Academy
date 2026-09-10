@@ -2034,5 +2034,17 @@
     "not_authenticated": "Öğrenme ilerlemeni sıfırlamadan önce lütfen tekrar giriş yap.",
     "reset_in_progress": "Sıfırlama işlemi zaten devam ediyor. Biraz bekleyip tekrar dene.",
     "scope": "Kişisel profilin ve kurs kayıtların korunacak."
+  },
+  "accessibility": {
+    "title": "Görünüm ve okunabilirlik",
+    "description": "Rahatça öğrenebileceğiniz görünümü seçin. Seçiminiz bu cihazda tüm web sitesi için geçerlidir.",
+    "theme": "Renk teması",
+    "light": "Açık",
+    "dark": "Koyu",
+    "contrast": "Yüksek kontrast",
+    "contrast_description": "Açık ve koyu temada daha net metinler, belirgin çizgiler ve sade arka planlar.",
+    "system": "Cihaz ayarlarını kullan",
+    "system_description": "Cihazınızın ayarlarını izler.",
+    "close": "Görünüm ayarlarını kapat"
   }
 }
