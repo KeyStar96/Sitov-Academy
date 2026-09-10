@@ -10,6 +10,8 @@ import { scheduleVocabularyCards } from '@/lib/vocabulary-scheduler'
 import { articleColorClass } from '@/lib/vocabulary-ui'
 import type { DueVocabularyCard, SubmitVocabularyAnswerInput, SubmitVocabularyAnswerResult } from '@/lib/types/vocabulary'
 import { createOrderedWriteQueue, type OrderedWriteQueue } from '@/lib/vocabulary-write-queue'
+import { prefetchNeuralAudio } from '@/lib/audio/neural-client'
+import { vocabularyAudioText } from '@/lib/audio/neural-config'
 import { cn, stripLessonPrefix } from '@/lib/utils'
 
 interface VocabCardSessionProps {
@@ -44,6 +46,9 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
   const finalized = useRef(false)
   const t = useMemo(() => createVocabularyTranslator(translations), [translations])
   const current = session[index]
+  useEffect(() => prefetchNeuralAudio(session.slice(index, index + 2)
+    .filter(item => item.format === 'word')
+    .map(item => ({ text: vocabularyAudioText(item.card), language: 'de', cardId: item.card.id, audioUrl: item.card.audio_url }))), [index, session])
   type ReviewIntent = { index: number; card: DueVocabularyCard; input: SubmitVocabularyAnswerInput }
   const writes = useRef<OrderedWriteQueue<ReviewIntent> | null>(null)
 

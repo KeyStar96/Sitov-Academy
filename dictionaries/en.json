@@ -478,6 +478,19 @@
       "about": "About Me",
       "location": "Location"
     },
+    "Addresses": {
+      "classroom": {
+        "label": "In-person classes",
+        "venue": "Freizeitheim Vahrenwald",
+        "street": "Vahrenwalder Str. 92",
+        "city": "30165 Hannover"
+      },
+      "school": {
+        "label": "Registered school address",
+        "street": "Hüttenstraße 24a",
+        "city": "30165 Hannover"
+      }
+    },
     "Contact": {
       "title": "Contact",
       "email": "info@sitov-academy.com",
@@ -1953,7 +1966,7 @@
     "skip_content": "Skip to content",
     "breadcrumb": "Page navigation",
     "course_unit": "per {minutes} minutes",
-    "location_address": "Freizeitheim Vahrenwald, Vahrenwalder Straße 92, 30165 Hannover",
+    "location_address": "Freizeitheim Vahrenwald, Vahrenwalder Str. 92, 30165 Hannover",
     "support_whatsapp": "WhatsApp",
     "book_course": "Book a course",
     "teacher_academic_title": "Bachelor’s & master’s degrees",

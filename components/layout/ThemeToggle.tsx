@@ -29,7 +29,7 @@ export default function ThemeToggle({
   };
 
   if (isDark === null) {
-    return <div className="h-11 w-11 shrink-0" aria-hidden="true" />;
+    return <div className="h-12 w-12 shrink-0" aria-hidden="true" />;
   }
 
   const ariaLabel = isDark

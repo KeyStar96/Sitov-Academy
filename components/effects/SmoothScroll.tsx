@@ -100,8 +100,8 @@ export default function SmoothScroll({ children }: { children: ReactNode }) {
     return <>{children}</>;
   }
 
-  // Touch/Mobile: Natives Scrolling - kein Lenis
-  if (useNativeScroll || pathname.includes("/dashboard") || pathname.includes("/admin")) {
+  // Forms and learning views use document scrolling; CSS sticky must share one scroll source.
+  if (useNativeScroll || pathname.includes("/dashboard") || pathname.includes("/admin") || pathname.includes("/registration")) {
     return <>{children}</>;
   }
 

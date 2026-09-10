@@ -568,6 +568,19 @@
       "about": "Обо мне",
       "location": "Местоположение"
     },
+    "Addresses": {
+      "classroom": {
+        "label": "Очные занятия",
+        "venue": "Freizeitheim Vahrenwald",
+        "street": "Vahrenwalder Str. 92",
+        "city": "30165 Hannover"
+      },
+      "school": {
+        "label": "Юридический адрес школы",
+        "street": "Hüttenstraße 24a",
+        "city": "30165 Hannover"
+      }
+    },
     "Contact": {
       "title": "Контакт",
       "email": "info@sitov-academy.com",
@@ -1954,7 +1967,7 @@
     "skip_content": "Перейти к содержимому",
     "breadcrumb": "Навигация по страницам",
     "course_unit": "за {minutes} минут",
-    "location_address": "Freizeitheim Vahrenwald, Vahrenwalder Straße 92, 30165 Hannover",
+    "location_address": "Freizeitheim Vahrenwald, Vahrenwalder Str. 92, 30165 Hannover",
     "support_whatsapp": "WhatsApp",
     "book_course": "Записаться на курс",
     "teacher_academic_title": "Бакалавриат и магистратура",

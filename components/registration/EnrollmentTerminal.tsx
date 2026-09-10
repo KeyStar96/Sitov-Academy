@@ -807,48 +807,43 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
 
     const formatPrice = React.useCallback((p: number) => new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(p), []);
 
-    // --- SCROLL & UX LOGIC ---
-    const desktopScrollRef = React.useRef<HTMLDivElement>(null);
+    // Step navigation and the mobile shortcut use the document's native scroll.
+    // The desktop receipt is positioned entirely by CSS; it never observes scroll.
     const footerRef = React.useRef<HTMLDivElement>(null);
     const [showScrollHint, setShowScrollHint] = useState(false);
 
     useEffect(() => {
-        // Force scroll to top on step change
-        const scrollToTop = () => {
-            // 1. Browser Native
-            window.scrollTo({ top: 0, behavior: "auto" }); // "auto" is instant, often reliable
-            document.documentElement.scrollTop = 0;
-            document.body.scrollTop = 0;
-
-            // 2. Desktop Container
-            if (desktopScrollRef.current) {
-                desktopScrollRef.current.scrollTo({ top: 0, behavior: "auto" });
-            }
-        };
-
-        // Small timeout to ensure render frame is complete
-        setTimeout(scrollToTop, 10);
+        window.scrollTo({ top: 0, behavior: "instant" });
     }, [step]);
 
-    // 2. Scroll Hint Observer
     useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                // If footer is NOT intersecting (not visible), show hint
-                setShowScrollHint(!entry.isIntersecting);
-            },
-            { threshold: 0.1 }
-        );
+        const mobileViewport = window.matchMedia("(max-width: 1023px)");
+        let observer: IntersectionObserver | undefined;
 
-        if (footerRef.current) {
+        const observeMobileSummary = () => {
+            observer?.disconnect();
+            setShowScrollHint(false);
+
+            if (!mobileViewport.matches || !footerRef.current) return;
+
+            observer = new IntersectionObserver(
+                ([entry]) => setShowScrollHint(!entry.isIntersecting),
+                { threshold: 0.1 }
+            );
             observer.observe(footerRef.current);
-        }
+        };
 
-        return () => observer.disconnect();
+        observeMobileSummary();
+        mobileViewport.addEventListener("change", observeMobileSummary);
+
+        return () => {
+            observer?.disconnect();
+            mobileViewport.removeEventListener("change", observeMobileSummary);
+        };
     }, []);
 
     const scrollToBottom = () => {
-        footerRef.current?.scrollIntoView({ behavior: "smooth" });
+        footerRef.current?.scrollIntoView({ behavior: reducedMotion ? "instant" : "smooth" });
     };
 
     // --- LEGAL CONSENTS ---
@@ -1098,7 +1093,10 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
 
     return (
         <MotionConfig reducedMotion="user" transition={reducedMotion ? { duration: 0 } : undefined}>
-        <div className="registration-flow min-h-screen w-full flex flex-col lg:flex-row font-sans relative">
+        <div
+            data-lenis-prevent
+            className="registration-flow relative grid min-h-screen w-full grid-cols-1 items-start font-sans lg:grid-cols-[minmax(0,1fr)_340px] lg:pr-6 xl:grid-cols-[minmax(0,1fr)_380px]"
+        >
             
             {/* SCROLL INDICATOR (Mobile Mostly) */}
             <AnimatePresence>
@@ -1182,11 +1180,8 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                     }
                 </header>
 
-                {/* SCROLLABLE CONTENT AREA */}
-                {/* On mobile: standard scroll. On Desktop: overflow-y-auto */}
+                {/* Keep the form in document flow so the receipt shares one native scroll root. */}
                 <div
-                    ref={desktopScrollRef}
-                    data-lenis-prevent
                     className="enrollment-content flex-1 px-4 sm:px-8 lg:px-10 pb-8 min-h-0 min-w-0"
                 >
                     {/* Full-width Content Area */}
@@ -1676,9 +1671,9 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                 </div>
             </div>
 
-            {/* --- RIGHT PANEL: LIVE TERMINAL --- */}
-            {/* Desktop: Fixed width Right Side. Mobile: Full width at bottom (or sticky). Here: stacked at bottom. */}
-            <div className="enrollment-receipt w-full lg:w-[340px] xl:w-[380px] flex flex-col relative shrink-0 z-20">
+            {/* The grid and sticky positioning stay outside all motion/layout animations. */}
+            {/* Mobile keeps the summary in the form's natural reading order. */}
+            <div className="enrollment-receipt relative z-20 flex w-full min-w-0 flex-col lg:sticky lg:top-8 lg:my-6">
                 <div aria-hidden="true" className="hidden" />
 
                 {/* RECEIPT HEADER */}
@@ -1697,7 +1692,7 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                     </div>
                 </div>
 
-                <div data-lenis-prevent className="enrollment-receipt-items flex-1 p-5 space-y-4 min-h-[100px] min-w-0">
+                <div className="enrollment-receipt-items flex-1 p-5 space-y-4 min-h-[100px] min-w-0">
                     {isTrialMode && trialCourse ? (
                         <div className="space-y-6">
                             {/* Course */}

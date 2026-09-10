@@ -1,5 +1,12 @@
 # Architecture Masterplan
 
+## Ergänzung 2026-09-10: natives Sticky-Layout und vorbereitete Audio-Wiedergabe
+
+- `EnrollmentTerminal.tsx` legt die linke Formularspalte und rechte Belegspalte in ein start-ausgerichtetes CSS-Grid. Sticky-Position und oberer Abstand gehören ausschließlich CSS; `SmoothScroll.tsx` nimmt Registrierungsrouten von Lenis aus. Der mobile Sprung zur Zusammenfassung verwendet einen separaten, nur mobil aktiven Observer.
+- `Header.tsx` teilt Hilfsfunktionen und Handlungsbuttons in eigene Flexgruppen. `AcademyFooter.tsx` verwendet `Footer.Addresses.classroom` und `Footer.Addresses.school` aus allen fünf Dictionaries; Kontakt und beide Adressen sind eigene Grid-Bereiche.
+- `lib/audio/neural-client.ts` kapselt geteilte URL-Auflösung, In-flight-Deduplizierung, einen auf 256 Einträge begrenzten URL-Cache, zwei gleichzeitige Prefetch-Jobs und vier vorgeladene HTMLAudio-Quellen. `VocabCardSession` plant nur die aktuelle/nächste Wortkarte, entfernt veraltete Warteschlangeneinträge und spielt beim Vorladen nichts ab.
+- `SolutionAudioButton` verwaltet ein natives Audioelement pro Quellenidentität sowie globale Wiedergabezuordnung und Request-IDs. Bei fehlender URL startet im Klick synchron ein kurzer stiller PCM-Clip auf demselben Element; nach Auflösung und Freigabe wird zur Neural-MP3 gewechselt. Native Events steuern Wiedergabe-/Ladezustand. Der ausdrücklich blockierte Autoplay-Fall behält native Controls als Fallback. Provider, MP3-Qualität, serverseitige Berechtigungsprüfung und persistenter Audio-Cache bleiben erhalten.
+
 ## Ergänzung 2026-09-10: organisches NeuralBrain-Gewebe
 
 - `components/effects/neural-brain-geometry.ts` erzeugt einmalig 6.400 deterministisch verteilte Neuronen mit domain-verzerrtem Perlin-Rauschen, dicker Kortikalschicht, inneren Clustern, asymmetrischen Hirnlappen und zentraler Furche. Spatial Hashing begrenzt den Nachbarschaftsgraphen auf 20.193 Verbindungen; gekrümmte Fasern und 16 Graph-Routen werden als Buffer-Geometrien vorbereitet.

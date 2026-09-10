@@ -5,12 +5,14 @@ import VocabCardSession from '@/components/vocabulary/VocabCardSession'
 import { finishVocabularySession, submitVocabularyAnswer } from '@/app/actions/vocabulary'
 import type { DueVocabularyCard } from '@/lib/types/vocabulary'
 import de from '@/dictionaries/de.json'
+import { prefetchNeuralAudio } from '@/lib/audio/neural-client'
 
 jest.unmock('lucide-react')
 jest.unmock('framer-motion')
 jest.mock('@/app/actions/vocabulary', () => ({ submitVocabularyAnswer: jest.fn(), finishVocabularySession: jest.fn().mockResolvedValue({ success: true }) }))
 jest.mock('@/components/layout/ThemeToggle', () => ({ __esModule: true, default: () => null }))
 jest.mock('@/components/exercises/SolutionAudioButton', () => ({ __esModule: true, default: ({ label }: { label: string }) => <button>{label}</button> }))
+jest.mock('@/lib/audio/neural-client', () => ({ prefetchNeuralAudio: jest.fn().mockReturnValue(jest.fn()) }))
 const learnerId = '00000000-0000-4000-8000-000000000001'
 const word: DueVocabularyCard = {
   progressId: 'progress-1', box: 1, phase: 1, promptLanguage: 'ru', direction: 'native_to_de', format: 'word', prompt: 'дом',
@@ -21,6 +23,14 @@ const second: DueVocabularyCard = { ...word, progressId: 'progress-2', prompt: '
 const sentence: DueVocabularyCard = { ...word, format: 'sentence', prompt: 'Я учу немецкий.', contextSentence: null }
 beforeEach(() => { jest.clearAllMocks(); Object.defineProperty(crypto, 'randomUUID', { configurable: true, value: randomUUID }) })
 function mount(cards: DueVocabularyCard[]) { return render(<VocabCardSession learnerId={learnerId} cards={cards} translations={de.vocabulary} overviewHref="/de/dashboard" />) }
+it('prepares the current and next headwords before revealing either solution', () => {
+  mount([word, second, { ...word, progressId: 'third', card: { ...word.card, id: 'word-3', word_de: 'Katze', article: 'die' } }])
+  expect(prefetchNeuralAudio).toHaveBeenCalledWith([
+    { text: 'das Haus', language: 'de', cardId: word.card.id, audioUrl: null },
+    { text: 'lernen', language: 'de', cardId: second.card.id, audioUrl: null },
+  ])
+  expect(screen.queryByRole('button', { name: de.vocabulary.listen_word })).not.toBeInTheDocument()
+})
 it('rolls a failed optimistic answer back to the same revealed card', async () => {
   jest.mocked(submitVocabularyAnswer).mockResolvedValue({ success: false })
   mount([word, second])

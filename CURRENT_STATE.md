@@ -1,5 +1,13 @@
 # Current State Analysis (Ist-Zustand)
 
+## Änderungsprotokoll — 2026-09-10: Sticky-Registrierung, Navigation, Footer und Audio-Start
+
+- **Registrierung:** CSS-Grid mit `items-start` und `lg:sticky lg:top-8`; einheitlich natives Dokument-Scrolling auch auf Desktop. Veraltete Container-Scroll-Resets entfernt, Summary-Observer auf mobile Ansichten begrenzt. Lange Desktop-Belege begrenzen nur die Kursliste; Summe und Weiter-Button bleiben erreichbar. Preis-, Formular- und Submit-Berechnungen sind unverändert.
+- **Header:** Reihenfolge Methode → Über mich → Kurse, identisch im mobilen Menü. Getrennte Theme-/Sprach- und Buchungs-/Lernraumgruppen, 16/24px Abstände, einheitliche 48px-Controls. Mobil bleibt der Buchungsbutton direkt sichtbar.
+- **Footer:** Getrennte, in fünf Sprachen beschriftete Blöcke für Präsenzunterricht (Freizeitheim Vahrenwald, Vahrenwalder Str. 92) und Sitz der Sprachschule (Hüttenstraße 24a), jeweils 30165 Hannover. Luftiger Kontaktbereich für `info@sitov-academy.com` und die bestehende Telefonnummer. Zusätzlicher unterer Abstand hält Rechtslinks über der schwebenden Kontakt-Schaltfläche.
+- **Audio:** Aktuelle/nächste Wortkarte laden bereits vor dem Aufdecken. Gemeinsamer URL-Cache, deduplizierte Anfragen und maximal vier vorgeladene Audioquellen. Der erste Klick aktiviert das native Mediaelement; eine verspätet erzeugte Aussprache startet ohne zweiten Klick. Kartenwechsel/Abbruch verhindern verspätetes Abspielen. Ein erstmaliger Cache-Miss benötigt weiterhin die echte Synthesezeit, wird aber vorgezogen und automatisch abgespielt.
+- **Prüfung:** Dokumentation und lokale Browsermessungen in `docs/layout-audio-fixes-2026-09-10.md`. Keine Veröffentlichung und keine Datenbankänderung.
+
 ## Änderungsprotokoll — 2026-09-10: NeuralBrain vollständig erneuert
 
 - **Gewebe:** 6.400 Nodes und 20.193 lokale Verbindungen, echte innere Tiefe, Perlin-Cluster, kräftigere kortikale Falten und asymmetrische Hirnlappen. Der gestrichelte Kreis hinter dem Hero-Modell entfällt.

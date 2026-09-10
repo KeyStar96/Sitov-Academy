@@ -22,6 +22,7 @@ function props() {
 
 function playMedia(this: HTMLMediaElement) {
   this.dispatchEvent(new Event('play'))
+  this.dispatchEvent(new Event('playing'))
   return Promise.resolve()
 }
 
@@ -52,6 +53,80 @@ it('plays an existing MP3 synchronously during the click gesture', () => {
   expect(screen.getByRole('button', { name: dictionary.neural_audio.pause })).toHaveAttribute('aria-pressed', 'true')
 })
 
+it('unlocks the same native player in the first tap and automatically speaks after delayed synthesis', async () => {
+  const request = deferred<GenerateAudioResult>()
+  const allowedPlayers = new WeakSet<HTMLMediaElement>()
+  const playedSources: string[] = []
+  let inClick = false
+  jest.mocked(generateAudio).mockReturnValueOnce(request.promise)
+  jest.mocked(HTMLMediaElement.prototype.play).mockImplementation(function () {
+    if (inClick) allowedPlayers.add(this)
+    if (!allowedPlayers.has(this)) return Promise.reject(new DOMException('User gesture required', 'NotAllowedError'))
+    playedSources.push(this.src)
+    return playMedia.call(this)
+  })
+  const input = props()
+  const { container } = render(<SolutionAudioButton {...input} />)
+  const player = container.querySelector('audio')
+  inClick = true
+  fireEvent.click(screen.getByRole('button', { name: input.ariaLabel }))
+  inClick = false
+  expect(playedSources).toEqual([expect.stringMatching(/^data:audio\/wav;base64,/u)])
+  expect(screen.getByRole('button')).toHaveAttribute('aria-busy', 'true')
+  expect(screen.getByRole('button')).toHaveAttribute('aria-pressed', 'false')
+  await act(async () => { request.resolve({ success: true, audioUrl: 'https://media.example.com/first-tap.mp3', cached: false }) })
+  expect(playedSources).toEqual([expect.stringMatching(/^data:audio\/wav;base64,/u), 'https://media.example.com/first-tap.mp3'])
+  expect(jest.mocked(HTMLMediaElement.prototype.play).mock.instances).toEqual([player, player])
+  expect(screen.getByRole('button')).toHaveAttribute('aria-busy', 'false')
+  expect(screen.getByRole('button')).toHaveAttribute('aria-pressed', 'true')
+  expect(screen.queryByText(dictionary.neural_audio.ready)).not.toBeInTheDocument()
+  expect(generateAudio).toHaveBeenCalledTimes(1)
+})
+
+it('does not interrupt the gesture unlock when the URL resolves before the silent player starts', async () => {
+  const request = deferred<GenerateAudioResult>()
+  const unlock = deferred<void>()
+  jest.mocked(generateAudio).mockReturnValueOnce(request.promise)
+  jest.mocked(HTMLMediaElement.prototype.play).mockReturnValueOnce(unlock.promise)
+  const input = props()
+  const { container } = render(<SolutionAudioButton {...input} />)
+  fireEvent.click(screen.getByRole('button', { name: input.ariaLabel }))
+  await act(async () => { request.resolve({ success: true, audioUrl: 'https://media.example.com/race.mp3', cached: false }) })
+  expect(container.querySelector('audio')?.src).toMatch(/^data:audio\/wav;/u)
+  expect(HTMLMediaElement.prototype.play).toHaveBeenCalledTimes(1)
+  await act(async () => { unlock.resolve() })
+  expect(container.querySelector('audio')?.src).toBe('https://media.example.com/race.mp3')
+  expect(HTMLMediaElement.prototype.play).toHaveBeenCalledTimes(2)
+})
+
+it('allows cancelling a pending pronunciation without late playback or losing the cached result', async () => {
+  const request = deferred<GenerateAudioResult>()
+  jest.mocked(generateAudio).mockReturnValueOnce(request.promise)
+  const input = props()
+  render(<SolutionAudioButton {...input} />)
+  fireEvent.click(screen.getByRole('button', { name: input.ariaLabel }))
+  fireEvent.click(screen.getByRole('button', { name: dictionary.neural_audio.pause }))
+  await act(async () => { request.resolve({ success: true, audioUrl: 'https://media.example.com/cancelled.mp3', cached: false }) })
+  expect(HTMLMediaElement.prototype.play).toHaveBeenCalledTimes(1)
+  expect(screen.getByRole('button')).toHaveAttribute('aria-busy', 'false')
+  fireEvent.click(screen.getByRole('button', { name: input.ariaLabel }))
+  expect(HTMLMediaElement.prototype.play).toHaveBeenCalledTimes(2)
+  expect(generateAudio).toHaveBeenCalledTimes(1)
+})
+
+it('pauses and cancels the pending player on unmount', async () => {
+  const request = deferred<GenerateAudioResult>()
+  jest.mocked(generateAudio).mockReturnValueOnce(request.promise)
+  const input = props()
+  const { container, unmount } = render(<SolutionAudioButton {...input} />)
+  const player = container.querySelector('audio')
+  fireEvent.click(screen.getByRole('button', { name: input.ariaLabel }))
+  unmount()
+  await act(async () => { request.resolve({ success: true, audioUrl: 'https://media.example.com/unmounted.mp3', cached: false }) })
+  expect(jest.mocked(HTMLMediaElement.prototype.pause).mock.instances).toContain(player)
+  expect(HTMLMediaElement.prototype.play).toHaveBeenCalledTimes(1)
+})
+
 it('pauses a playing card when its text changes', () => {
   const input = props()
   const { container, rerender } = render(<SolutionAudioButton {...input} audioUrl="https://media.example.com/old.mp3" />)
@@ -75,7 +150,7 @@ it('never plays a late generated MP3 after moving to a different card', async ()
   rerender(<SolutionAudioButton {...nextInput} audioUrl="https://media.example.com/next.mp3" />)
   const current = container.querySelector('audio')
   await act(async () => { request.resolve({ success: true, audioUrl: 'https://media.example.com/late.mp3', cached: false }) })
-  expect(HTMLMediaElement.prototype.play).not.toHaveBeenCalled()
+  expect(HTMLMediaElement.prototype.play).toHaveBeenCalledTimes(1)
   expect(current?.src).toBe('https://media.example.com/next.mp3')
 })
 
@@ -132,7 +207,7 @@ it('shows a localized retry after generation fails and starts the successful ret
   expect(screen.getByRole('alert')).toHaveTextContent(dictionary.neural_audio.error)
   expect(onUnsupported).toHaveBeenCalledTimes(1)
   fireEvent.click(screen.getByRole('button', { name: dictionary.neural_audio.retry }))
-  await waitFor(() => expect(HTMLMediaElement.prototype.play).toHaveBeenCalledTimes(1))
+  await waitFor(() => expect(HTMLMediaElement.prototype.play).toHaveBeenCalledTimes(3))
   expect(generateAudio).toHaveBeenCalledTimes(2)
   expect(screen.queryByRole('alert')).not.toBeInTheDocument()
 })
@@ -146,7 +221,7 @@ it('replaces a broken media URL when playback emits an error', async () => {
   expect(screen.getByRole('alert')).toHaveTextContent(dictionary.neural_audio.error)
   fireEvent.click(screen.getByRole('button', { name: dictionary.neural_audio.retry }))
   await waitFor(() => expect(player.src).toBe('https://media.example.com/generated.mp3'))
-  expect(HTMLMediaElement.prototype.play).toHaveBeenCalledTimes(1)
+  expect(HTMLMediaElement.prototype.play).toHaveBeenCalledTimes(2)
 })
 
 it('does not let an older pending click interrupt a more recently selected player', async () => {
@@ -158,8 +233,8 @@ it('does not let an older pending click interrupt a more recently selected playe
   fireEvent.click(screen.getByRole('button', { name: first.ariaLabel }))
   fireEvent.click(screen.getByRole('button', { name: second.ariaLabel }))
   await act(async () => { request.resolve({ success: true, audioUrl: 'https://media.example.com/older.mp3', cached: false }) })
-  expect(HTMLMediaElement.prototype.play).toHaveBeenCalledTimes(1)
-  expect(jest.mocked(HTMLMediaElement.prototype.play).mock.instances[0]).toBe(container.querySelectorAll('audio')[1])
+  expect(HTMLMediaElement.prototype.play).toHaveBeenCalledTimes(2)
+  expect(jest.mocked(HTMLMediaElement.prototype.play).mock.instances[1]).toBe(container.querySelectorAll('audio')[1])
 })
 
 it('also pauses the previous player when native Safari controls start playback', async () => {

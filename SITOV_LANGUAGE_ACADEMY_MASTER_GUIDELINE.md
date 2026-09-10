@@ -1,5 +1,7 @@
 # Sitov Language Academy — Pedagogy & UI/UX Research
 
+> **Layout/Audio (2026-09-10):** Die Zahlungsübersicht bleibt per CSS mit 32px Abstand stabil, Formulare nutzen natives Scrollen. Header-Reihenfolge Methode → Über mich → Kurse und gleich hohe 48px-Bedienelemente erleichtern die Orientierung. Unterrichtsort und Firmensitz sind im Footer ausdrücklich getrennt. „Anhören“ verlangt einen Klick; aktuelle/nächste Wörter werden früh vorbereitet, ausstehende Wiedergabe ist abbrechbar und startet nach Kartenwechsel nicht nachträglich.
+
 > **NeuralBrain (2026-09-10):** Die visuelle Metapher „Jedes neue Wort schafft eine Verbindung“ erhält dichtes organisches Gewebe und einzelne nachvollziehbare Lichtschweife. 1–3 Impulse pro Gruppe und mindestens 3,45 Sekunden stille Zwischenzeit unterstützen eine ruhige Betrachtung. Theme-spezifischer Kontrast, statisches 3D bei reduzierter Bewegung und SVG bei WebGL-Ausfall bleiben Teil der Darstellungsanforderungen.
 
 > **Admin-Header (2026-09-09):** Sprachumschalter im Lehrer-Header; Navigation auf eigener Zeile, damit Name und Nav sich nicht mehr quetschen. Touch-Ziele 48px, Navigation umbrechend statt horizontalem Scroll.

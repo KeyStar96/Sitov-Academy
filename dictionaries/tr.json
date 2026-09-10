@@ -570,6 +570,19 @@
       "about": "Hakkımda",
       "location": "Konum"
     },
+    "Addresses": {
+      "classroom": {
+        "label": "Yüz yüze dersler",
+        "venue": "Freizeitheim Vahrenwald",
+        "street": "Vahrenwalder Str. 92",
+        "city": "30165 Hannover"
+      },
+      "school": {
+        "label": "Dil okulunun resmî adresi",
+        "street": "Hüttenstraße 24a",
+        "city": "30165 Hannover"
+      }
+    },
     "Contact": {
       "title": "İletişim",
       "email": "info@sitov-academy.com",
@@ -1954,7 +1967,7 @@
     "skip_content": "İçeriğe geç",
     "breadcrumb": "Sayfa gezinmesi",
     "course_unit": "{minutes} dakika için",
-    "location_address": "Freizeitheim Vahrenwald, Vahrenwalder Straße 92, 30165 Hannover",
+    "location_address": "Freizeitheim Vahrenwald, Vahrenwalder Str. 92, 30165 Hannover",
     "support_whatsapp": "WhatsApp",
     "book_course": "Kursa kaydol",
     "teacher_academic_title": "Lisans ve yüksek lisans",

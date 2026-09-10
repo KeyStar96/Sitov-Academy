@@ -1,5 +1,7 @@
 # Monetization Strategy (Stripe Integration)
 
+> **Layout/Audio (2026-09-10):** CSS-Sticky stabilisiert die Kurs-Zahlungsübersicht; die Preis-, Einwilligungs- und Submit-Funktionen bleiben nach AST-Abgleich unverändert. Header-Buchungslink, getrennte Footer-Adressen und das Audio-Vorladen ändern keine Stripe-, Rechnungs- oder Zugriffslogik.
+
 > **NeuralBrain (2026-09-10):** Die Marketing-Visualisierung wurde mit organischem Gewebe und seltenen Shader-Lichtschweifen neu aufgebaut. Ausschließlich clientseitige Darstellung; keine Änderungen an Kursbuchung, Abrechnung, Stripe oder Zugriffsrechten.
 
 > **Hinweis (2026-09-09):** Der Sprachumschalter im Lehrer-Header speichert nur `profiles.ui_language` und ändert Stripe nicht.
