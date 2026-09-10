@@ -1,9 +1,9 @@
 'use client'
 
 import { useRef, useState } from 'react'
-import { updateStudentRole, updateStudentAllowedLevels } from '@/app/actions/admin'
-import { ACCESS_LEVELS } from '@/lib/access/levels'
-import { Loader2 } from 'lucide-react'
+import { updateStudentRole, updateStudentAllowedLevels, updateStudentTrainerAccess } from '@/app/actions/admin'
+import { ACCESS_LEVELS, TRAINERS, hasTrainerAccess, type Trainer, type AccessLevel } from '@/lib/access/levels'
+import { Loader2, Lock, LockOpen } from 'lucide-react'
 import { useAdminTranslator } from './AdminI18nProvider'
 import { useBlackboard } from './BlackboardProvider'
 import BlackboardEditor from './BlackboardEditor'
@@ -84,6 +84,28 @@ export default function StudentList({
     } finally { mutationLock.current = false; setLoadingId(null) }
   }
 
+  const handleTrainerToggle = async (id: string, level: AccessLevel, trainer: Trainer) => {
+    if (mutationLock.current) return
+    const student = students.find(item => item.id === id)
+    if (!student || !student.allowed_levels?.includes(level)) return
+    mutationLock.current = true
+    const previous = students
+    const enabled = !hasTrainerAccess(student, level, trainer)
+    const rules = [...(student.student_trainer_access ?? []).filter(rule => rule.level !== level || rule.trainer !== trainer), { level, trainer, enabled }]
+    setStudents(rows => rows.map(item => item.id === id ? { ...item, student_trainer_access: rules } : item))
+    setLoadingId(id)
+    try {
+      const result = await updateStudentTrainerAccess({ userId: id, level, trainer, enabled })
+      if (!result.success) throw new Error('trainer_save_failed')
+      setHasError(false)
+      setMessage(null)
+    } catch {
+      setStudents(previous)
+      setHasError(true)
+      setMessage(t('trainer_save_failed'))
+    } finally { mutationLock.current = false; setLoadingId(null) }
+  }
+
   const handleResetProgress = async (id: string, level: string) => {
     if (mutationLock.current || !confirm(t('reset_confirm', { level }))) return
     mutationLock.current = true
@@ -143,6 +165,7 @@ export default function StudentList({
                 progressData={visibleProgress[student.id] || {}}
                 onRoleChange={handleRoleChange}
                 onLevelToggle={handleLevelToggle}
+                onTrainerToggle={handleTrainerToggle}
                 onResetLevelChange={level => setResetLevel({ ...resetLevel, [student.id]: level })}
                 onResetProgress={handleResetProgress}
                 onOpen={() => setSelectedId(student.id)}
@@ -192,6 +215,7 @@ export default function StudentList({
                       student={student}
                       loading={loadingId === student.id}
                       onToggle={handleLevelToggle}
+                      onTrainerToggle={handleTrainerToggle}
                     />
                   </td>
                   <td className="min-w-[16rem] p-3">
@@ -249,11 +273,12 @@ function ProgressBadges({ progress, emptyLabel }: { progress: Record<string, num
 }
 
 function LevelToggles({
-  student, loading, onToggle,
+  student, loading, onToggle, onTrainerToggle,
 }: {
   student: AdminStudentRow
   loading: boolean
   onToggle: (id: string, level: string) => void
+  onTrainerToggle: (id: string, level: AccessLevel, trainer: Trainer) => void
 }) {
   const t = useAdminTranslator()
   const isFullAccess = student.role === 'admin' || student.role === 'teacher'
@@ -267,26 +292,41 @@ function LevelToggles({
     )
   }
   return (
-    <div className="flex max-w-[220px] flex-wrap gap-1.5">
+    <div className="min-w-[220px] max-w-sm space-y-2">
+      <p className="text-sm font-semibold text-[var(--foreground)]">{t('trainer_access_title')}</p>
       {ACCESS_LEVELS.map(level => {
         const isOn = allowed.includes(level)
         return (
+          <details key={level} className="rounded-xl border border-[var(--border)] bg-[var(--surface)] p-2">
+            <summary className="min-h-12 cursor-pointer content-center px-2 font-semibold text-[var(--foreground)]">{level} · {isOn ? `${TRAINERS.filter(trainer => hasTrainerAccess(student, level, trainer)).length}/4` : t('trainer_disabled')}</summary>
           <button
-            key={level}
             type="button"
             role="checkbox"
             aria-checked={isOn}
             aria-label={t('level_toggle_aria', { level, name, action: isOn ? t('level_revoke') : t('level_grant') })}
             disabled={loading}
             onClick={() => onToggle(student.id, level)}
-            className={`min-h-11 rounded-lg px-2.5 py-1 text-xs font-bold transition-colors focus:outline-none focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#FF5C00] disabled:cursor-not-allowed disabled:opacity-50 ${
+            className={`min-h-12 rounded-lg px-2.5 py-1 text-base font-semibold transition-colors focus:outline-none focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#FF5C00] disabled:cursor-not-allowed disabled:opacity-50 ${
               isOn
-                ? 'border border-emerald-300 bg-emerald-50 text-emerald-700 dark:border-emerald-500/30 dark:bg-emerald-500/10 dark:text-emerald-400'
-                : 'border border-slate-200 bg-slate-50 text-slate-500 hover:border-slate-300 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400'
+                ? 'border border-[var(--accent)] bg-[var(--surface-muted)] text-[var(--foreground)]'
+                : 'border border-[var(--border)] bg-[var(--surface)] text-[var(--foreground)] hover:border-[var(--accent)]'
             }`}
           >
-            {isOn ? '✓ ' : ''}{level}
+            {isOn ? '✓ ' : ''}{level} · {isOn ? t('level_revoke') : t('level_grant')}
           </button>
+          <fieldset className="mt-3 space-y-1" disabled={loading || !isOn}>
+            <legend className="mb-2 text-sm font-semibold text-[var(--foreground)]">{t('trainer_access_level', { level })}</legend>
+            {!isOn && <p className="text-sm text-[var(--muted)]">{t('trainer_level_required')}</p>}
+            {TRAINERS.map(trainer => {
+              const enabled = hasTrainerAccess(student, level, trainer)
+              return <label key={trainer} className="flex min-h-12 cursor-pointer items-center gap-3 rounded-lg px-2 text-base text-[var(--foreground)] has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-[var(--violet)]">
+                <input type="checkbox" checked={enabled} onChange={() => onTrainerToggle(student.id, level, trainer)} aria-label={`${name} · ${level} · ${t(`trainer_${trainer}`)}`} className="h-5 w-5 shrink-0 accent-[var(--accent)]" />
+                <span className="flex-1">{t(`trainer_${trainer}`)}</span>
+                {enabled ? <LockOpen size={18} aria-hidden="true" /> : <Lock size={18} aria-hidden="true" />}
+              </label>
+            })}
+          </fieldset>
+          </details>
         )
       })}
       {loading && <span className="inline-flex items-center text-slate-400"><Loader2 size={14} className="animate-spin" /></span>}
@@ -378,7 +418,7 @@ function ResetControls({
 
 function StudentAdminControls({
   student, currentUserId, currentUserRole, loadingId, resetLevel, progressData,
-  onRoleChange, onLevelToggle, onResetLevelChange, onResetProgress, onOpen,
+  onRoleChange, onLevelToggle, onTrainerToggle, onResetLevelChange, onResetProgress, onOpen,
 }: {
   student: AdminStudentRow
   currentUserId?: string
@@ -388,6 +428,7 @@ function StudentAdminControls({
   progressData: Record<string, number>
   onRoleChange: (id: string, role: string) => void
   onLevelToggle: (id: string, level: string) => void
+  onTrainerToggle: (id: string, level: AccessLevel, trainer: Trainer) => void
   onResetLevelChange: (level: string) => void
   onResetProgress: (id: string, level: string) => void
   onOpen: () => void
@@ -396,7 +437,7 @@ function StudentAdminControls({
   return (
     <div className="mt-4 space-y-3">
       <ProgressBadges progress={progressData} emptyLabel={t('no_progress')} />
-      <LevelToggles student={student} loading={loadingId === student.id} onToggle={onLevelToggle} />
+      <LevelToggles student={student} loading={loadingId === student.id} onToggle={onLevelToggle} onTrainerToggle={onTrainerToggle} />
       <RoleSelect
         student={student}
         currentUserId={currentUserId}

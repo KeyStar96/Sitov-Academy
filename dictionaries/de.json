@@ -1316,7 +1316,11 @@
     "level_locked_badge": "Gesperrt",
     "level_locked_title": "Dieses Sprachniveau ist noch nicht freigeschaltet",
     "level_locked_text": "Dein Zugang zu Niveau {level} wurde noch nicht freigegeben. Bitte wende dich an deine Lehrkraft, damit dieses Niveau für dich freigeschaltet wird.",
-    "level_locked_hint": "Zum Freischalten bitte an die Lehrkraft wenden."
+    "level_locked_hint": "Zum Freischalten bitte an die Lehrkraft wenden.",
+    "trainer_locked_title": "Dieser Trainer ist noch gesperrt.",
+    "trainer_locked_text": "Deine Lehrkraft kann diesen Trainer für {level} freischalten.",
+    "back_to_level": "Zur Niveau-Übersicht",
+    "trainer_locked_badge": "Gesperrt"
   },
   "videos": {
     "back_to_level": "Zurück zur Übersicht",
@@ -1940,7 +1944,17 @@
     "cms_next": "Weiter",
     "nav_registrations": "Anmeldungen",
     "nav_invoices": "Rechnungen",
-    "nav_pronunciation": "Lesetexte"
+    "nav_pronunciation": "Lesetexte",
+    "trainer_access_title": "Trainer-Freigaben",
+    "trainer_access_level": "Trainer für {level}",
+    "trainer_enabled": "Freigeschaltet",
+    "trainer_disabled": "Gesperrt",
+    "trainer_level_required": "Zuerst das Niveau freischalten.",
+    "trainer_save_failed": "Die Freigabe konnte nicht gespeichert werden. Bitte erneut versuchen.",
+    "trainer_vocabulary": "Vokabeltrainer",
+    "trainer_exercises": "Grammatikübungen",
+    "trainer_pronunciation": "Aussprache-Training",
+    "trainer_videos": "Lernvideos"
   },
   "academy": {
     "hero_level_range": "A1—C2",

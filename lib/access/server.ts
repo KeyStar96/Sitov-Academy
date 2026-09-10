@@ -2,7 +2,7 @@ import 'server-only'
 
 import { createClient } from '@/utils/supabase/server'
 import {
-  hasLevelAccess,
+  hasLevelAccess, hasTrainerAccess, type Trainer,
   type LevelAccessProfile,
 } from '@/lib/access/levels'
 
@@ -21,7 +21,7 @@ export async function loadLevelAccessProfile(
   try {
     const { data, error } = await supabase
       .from('profiles')
-      .select('role, allowed_levels')
+      .select('role, allowed_levels, student_trainer_access(level,trainer,enabled)')
       .eq('id', userId)
       .single()
 
@@ -56,6 +56,17 @@ export async function currentUserHasLevelAccess(level: string): Promise<boolean>
     return hasLevelAccess(profile, level)
   } catch (err) {
     console.error('Unerwarteter Fehler bei der Niveau-Zugriffsprüfung:', err)
+    return false
+  }
+}
+
+export async function currentUserHasTrainerAccess(level: string, trainer: Trainer): Promise<boolean> {
+  try {
+    const supabase = await createClient()
+    const { data: { user } } = await supabase.auth.getUser()
+    return !!user && hasTrainerAccess(await loadLevelAccessProfile(supabase, user.id), level, trainer)
+  } catch (error) {
+    console.error('Trainer access check failed:', error)
     return false
   }
 }

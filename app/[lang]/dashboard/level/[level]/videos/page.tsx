@@ -1,6 +1,6 @@
 import { createClient } from '@/utils/supabase/server'
 import { getDictionary } from '@/lib/dictionary'
-import { currentUserHasLevelAccess } from '@/lib/access/server'
+import { currentUserHasTrainerAccess } from '@/lib/access/server'
 import VideoLibrary from '@/components/dashboard/VideoLibrary'
 import type { VideoRecord } from '@/lib/video-links'
 
@@ -11,7 +11,7 @@ export default async function VideosOverviewPage({ params }: { params: Promise<{
   let videos: VideoRecord[] = []
   let failed = false
   try {
-    if (await currentUserHasLevelAccess(decodedLevel)) {
+    if (await currentUserHasTrainerAccess(decodedLevel, 'videos')) {
       const supabase = await createClient()
       const { data, error } = await supabase.from('videos').select('*').eq('level', decodedLevel).order('created_at')
       if (error) throw error

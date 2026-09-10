@@ -1,5 +1,9 @@
 # Monetization Strategy (Stripe Integration)
 
+## 2026-09-10 — Trainer-Freigaben pro Schüler und Niveau
+
+Lehrkräfte können innerhalb eines freigegebenen Niveaus gezielt einzelne Trainer anbieten. Die manuelle Auswahl beeinflusst weder Preise noch Registrierungen, Rechnungen oder Kursbuchungen. Bestehende Niveau-Freigaben umfassen zunächst weiterhin alle vier Trainer; ein Entzug löscht keine Lernstände oder Audio-Dialoge. [Umfang und Prüfnachweise](docs/trainer-access-2026-09-10.md).
+
 ## 2026-09-10 — Lesbarkeit als allgemeine Plattformfunktion
 
 Hell/Dunkel und der zusätzliche Hochkontrastmodus stehen unabhängig von Tarif, Kursstufe und Lernstand bereit. Die persönliche Darstellung wird lokal auf dem Gerät gespeichert. Größere Lernbeschriftungen und die vereinfachte Grammatiknavigation ändern keine Buchungen, Preise, Rechnungsabläufe oder Zugangsrechte. Die mobile Darstellungsauswahl ist vollständig erreichbar und bleibt eine allgemeine Plattformfunktion. [Umfang und Prüfnachweise](docs/readability-grammar-2026-09-10.md).

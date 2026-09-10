@@ -3,7 +3,7 @@
 import { revalidatePath } from 'next/cache'
 import { z } from 'zod'
 import { createClient } from '@/utils/supabase/server'
-import { hasLevelAccess, isAccessLevel } from '@/lib/access/levels'
+import { hasTrainerAccess, isAccessLevel } from '@/lib/access/levels'
 import { LEITNER_LEARNED_BOX, normalizeBox, pickWeightedRandomOrder, selectionWeightForBox, type LeitnerPhase } from '@/lib/leitner'
 import { scheduleVocabularyCards } from '@/lib/vocabulary-scheduler'
 import { readVocabularyProgress } from '@/lib/vocabulary-queries'
@@ -31,7 +31,7 @@ async function loadLearner(expectedLearnerId?: string) {
   if (!user || (expectedLearnerId !== undefined &&
     (!z.string().uuid().safeParse(expectedLearnerId).success || user.id !== expectedLearnerId))) return null
   const { data: profile, error } = await supabase.from('profiles')
-    .select('role, allowed_levels, native_language, ui_language').eq('id', user.id).single()
+    .select('role, allowed_levels, native_language, ui_language, student_trainer_access(level,trainer,enabled)').eq('id', user.id).single()
   if (error || !profile) return null
   return { supabase, user, profile }
 }
@@ -47,7 +47,7 @@ function refreshVocabulary() {
 export async function getVocabularySession(level?: string, uiLanguage?: string): Promise<VocabularySession> {
   try {
     const learner = await loadLearner()
-    if (!learner || (level && !hasLevelAccess(learner.profile, level))) return { learnerId: null, cards: [], deferredCount: 0, previousCardId: null }
+    if (!learner || (level && !hasTrainerAccess(learner.profile, level, 'vocabulary'))) return { learnerId: null, cards: [], deferredCount: 0, previousCardId: null }
     const { supabase, user, profile } = learner
     const language = languageSchema.catch('de').parse(uiLanguage ?? profile.ui_language)
     let query = supabase.from('vocabulary_direction_progress').select('*, vocabulary_cards!inner(*)')
@@ -72,7 +72,7 @@ export async function getVocabularySession(level?: string, uiLanguage?: string):
       console.error('Vocabulary session could not be loaded:', error?.code ?? cursorError?.code)
       return { learnerId: null, cards: [], deferredCount: 0, previousCardId: null }
     }
-    const cards: DueVocabularyCard[] = (data ?? []).filter(row => hasLevelAccess(profile, row.vocabulary_cards.level)).flatMap(row => {
+    const cards: DueVocabularyCard[] = (data ?? []).filter(row => hasTrainerAccess(profile, row.vocabulary_cards.level, 'vocabulary')).flatMap(row => {
       const card = row.vocabulary_cards
       const box = normalizeBox(row.box_number)
       const direction = row.direction === 'native_to_de' ? 'native_to_de' : 'de_to_native'
@@ -109,7 +109,7 @@ export async function getDueCards(level?: string, uiLanguage?: string): Promise<
 /** Minimal assessment payload plus the verified actor for queued decisions. */
 export async function getVocabularyAssessment(lessonName: string, level: string): Promise<VocabularyAssessmentSession> {
   const learner = await loadLearner()
-  if (!learner || !hasLevelAccess(learner.profile, level)) return { learnerId: null, cards: [] }
+  if (!learner || !hasTrainerAccess(learner.profile, level, 'vocabulary')) return { learnerId: null, cards: [] }
   const allCards = await getLessonCards(lessonName, level)
   return {
     learnerId: learner.user.id,
@@ -153,12 +153,12 @@ export async function initializeLesson(lessonName: string, level?: string, expec
   try {
     if (typeof lessonName !== 'string' || !lessonName.trim() || lessonName.length > 200) return { success: false, added: 0 }
     const learner = await loadLearner(expectedLearnerId)
-    if (!learner || (level && !hasLevelAccess(learner.profile, level))) return { success: false, added: 0 }
+    if (!learner || (level && !hasTrainerAccess(learner.profile, level, 'vocabulary'))) return { success: false, added: 0 }
     let query = learner.supabase.from('vocabulary_cards').select('id,level').eq('lesson', lessonName)
     if (level) query = query.eq('level', level)
     const { data, error } = await query
     if (error || !data?.length) return { success: false, added: 0 }
-    const allowed = data.filter(card => hasLevelAccess(learner.profile, card.level))
+    const allowed = data.filter(card => hasTrainerAccess(learner.profile, card.level, 'vocabulary'))
     if (!allowed.length) return { success: false, added: 0 }
     return addCardsToTrainer(allowed.map(card => card.id), learner.user.id)
   } catch {
@@ -171,7 +171,7 @@ export async function skipVocabularyAssessment(level: string, expectedLearnerId?
   if (!isAccessLevel(level)) return { success: false, added: 0 }
   try {
     const learner = await loadLearner(expectedLearnerId)
-    if (!learner || !hasLevelAccess(learner.profile, level)) return { success: false, added: 0 }
+    if (!learner || !hasTrainerAccess(learner.profile, level, 'vocabulary')) return { success: false, added: 0 }
     const { data, error } = await learner.supabase.rpc('skip_vocabulary_assessment', { p_level: level })
     const result = initializationResultSchema.extend({ lesson: z.string().min(1) }).safeParse(data)
     if (error || !result.success) return { success: false, added: 0 }
@@ -184,7 +184,7 @@ export async function skipVocabularyAssessment(level: string, expectedLearnerId?
 
 export async function getVocabularyOnboarding(level: string): Promise<{ status: 'skipped' | 'completed'; lesson: string } | null> {
   const learner = await loadLearner()
-  if (!learner || !hasLevelAccess(learner.profile, level)) return null
+  if (!learner || !hasTrainerAccess(learner.profile, level, 'vocabulary')) return null
   const { data, error } = await learner.supabase.from('vocabulary_onboarding').select('status,started_lesson')
     .eq('user_id', learner.user.id).eq('level', level).maybeSingle()
   if (error || !data || (data.status !== 'skipped' && data.status !== 'completed')) return null
@@ -224,14 +224,14 @@ export async function finishVocabularySession(): Promise<{ success: boolean }> {
 /** A word is learned only after both independently scheduled directions are learned. */
 export async function getLessonCards(lessonName: string, level?: string): Promise<LessonCardView[]> {
   const learner = await loadLearner()
-  if (!learner || (level && !hasLevelAccess(learner.profile, level))) return []
+  if (!learner || (level && !hasTrainerAccess(learner.profile, level, 'vocabulary'))) return []
   let query = learner.supabase.from('vocabulary_cards').select('*').eq('lesson', lessonName)
   if (level) query = query.eq('level', level)
   const [{ data: cards, error }, progress] = await Promise.all([
     query, readVocabularyProgress(learner.supabase, learner.user.id).catch(() => null),
   ])
   if (error || !progress) return []
-  return (cards ?? []).filter(card => hasLevelAccess(learner.profile, card.level)).map(card => {
+  return (cards ?? []).filter(card => hasTrainerAccess(learner.profile, card.level, 'vocabulary')).map(card => {
     const states = (progress ?? []).filter(row => row.card_id === card.id)
     const learned = states.length === 2 && states.every(row => normalizeBox(row.box_number) === LEITNER_LEARNED_BOX)
     const phase = states.length ? Math.min(...states.map(row => Math.min(6, normalizeBox(row.box_number)))) as LeitnerPhase : null
@@ -243,7 +243,7 @@ export async function getLessonCards(lessonName: string, level?: string): Promis
 
 export async function getLessonStats(level?: string): Promise<LessonStat[]> {
   const learner = await loadLearner()
-  if (!learner || (level && !hasLevelAccess(learner.profile, level))) return []
+  if (!learner || (level && !hasTrainerAccess(learner.profile, level, 'vocabulary'))) return []
   let query = learner.supabase.from('vocabulary_cards').select('id,lesson,level')
   if (level) query = query.eq('level', level)
   const [{ data: cards, error }, progress] = await Promise.all([
@@ -253,7 +253,7 @@ export async function getLessonStats(level?: string): Promise<LessonStat[]> {
   const stats = new Map<string, LessonStat>()
   const now = Date.now()
   for (const card of cards ?? []) {
-    if (!hasLevelAccess(learner.profile, card.level)) continue
+    if (!hasTrainerAccess(learner.profile, card.level, 'vocabulary')) continue
     const stat = stats.get(card.lesson) ?? { lesson: card.lesson, total: 0, active: 0, learned: 0, untouched: 0, due: 0 }
     const states = (progress ?? []).filter(row => row.card_id === card.id)
     stat.total += 1
@@ -270,11 +270,11 @@ export async function getLessonStats(level?: string): Promise<LessonStat[]> {
 
 export async function resetLessonProgress(lessonName: string, level?: string): Promise<{ success: boolean }> {
   const learner = await loadLearner()
-  if (!learner || (level && !hasLevelAccess(learner.profile, level))) return { success: false }
+  if (!learner || (level && !hasTrainerAccess(learner.profile, level, 'vocabulary'))) return { success: false }
   let query = learner.supabase.from('vocabulary_cards').select('id,level').eq('lesson', lessonName)
   if (level) query = query.eq('level', level)
   const { data: cards, error } = await query
-  const allowed = (cards ?? []).filter(card => hasLevelAccess(learner.profile, card.level))
+  const allowed = (cards ?? []).filter(card => hasTrainerAccess(learner.profile, card.level, 'vocabulary'))
   if (error || !allowed.length) return { success: false }
   // The legacy delete trigger removes both directions in the same transaction.
   const { error: deleteError } = await learner.supabase.from('user_vocabulary_progress').delete()

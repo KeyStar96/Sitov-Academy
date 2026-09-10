@@ -1,5 +1,9 @@
 # Sitov Academy — Pedagogy & UI/UX Research
 
+## 2026-09-10 — Trainer-Freigaben pro Schüler und Niveau
+
+Freigaben bestehen aus zwei Ebenen: freigegebenes Niveau und darin erlaubter Trainer. Neue Overrides dürfen niemals selbstständig ein gesperrtes Niveau öffnen. Ein fehlender Override erhält den bisherigen Zugang; Lehrer/Admins behalten Vollzugriff. Bei gesperrten Trainern Schloss und lokalisierte Erklärung mit lesbaren Kontrasten anzeigen. Sperrungen müssen in UI, Direktrouten und Datenbank greifen; bisherige Lernstände und Gespräche bleiben gespeichert. [Umfang und Prüfnachweise](docs/trainer-access-2026-09-10.md).
+
 ## 2026-09-10 — Lesbarkeit und vorhersehbare Übungsnavigation
 
 Begleittexte mit Lern- oder Bedieninformation sollen mindestens 1rem groß bleiben; wichtige Grammatik-Anweisungen verwenden 1.125rem. Große Aufgabenwörter und Vorlesetexte werden nicht pauschal vergrößert. Geringe Bildschirmhöhe darf Beispielsätze nicht ausblenden oder kleine Beschriftungen erzwingen: Inhalte bleiben durch Scrollen erreichbar. Nach einer gelösten Aufgabe bleibt das Layout stabil und die Weiter-Aktion sichtbar; die neue Aufgabe beginnt unter der Kopfzeile. Der optionale Hochkontrastmodus muss mit beiden Farbschemata kombinierbar, per Tastatur bedienbar und in allen fünf Sprachen verfügbar sein. Scrollbare Navigationscontainer dürfen das Darstellungsfenster nicht abschneiden; Titel, Bedienelemente und Schließen-Button müssen erreichbar bleiben. [Umfang und Prüfnachweise](docs/readability-grammar-2026-09-10.md).

@@ -3,7 +3,7 @@
 import { z } from 'zod'
 import { createClient } from '@/utils/supabase/server'
 import { createAdminClient } from '@/utils/supabase/admin'
-import { hasLevelAccess } from '@/lib/access/levels'
+import { hasTrainerAccess } from '@/lib/access/levels'
 import { loadLevelAccessProfile } from '@/lib/access/server'
 import { rateLimit } from '@/lib/ratelimit'
 import { findCachedAudio, generateCachedAudio, neuralAudioPath } from '@/lib/audio/neural-cache'
@@ -31,7 +31,7 @@ export async function generateAudio(input: GenerateAudioInput): Promise<Generate
     let card: { id: string; word_de: string; article: string | null; level: string; audio_url: string | null } | null = null
     if (cardId) {
       const result = await supabase.from('vocabulary_cards').select('id,word_de,article,level,audio_url').eq('id', cardId).maybeSingle()
-      if (result.error || !result.data || !hasLevelAccess(profile, result.data.level)) return { success: false, error: 'forbidden' }
+      if (result.error || !result.data || !hasTrainerAccess(profile, result.data.level, 'vocabulary')) return { success: false, error: 'forbidden' }
       card = result.data
       // audio_url represents only the canonical German headword, never translations or arbitrary text.
       if (language === 'de' && text !== vocabularyAudioText(card)) return { success: false, error: 'invalid_input' }

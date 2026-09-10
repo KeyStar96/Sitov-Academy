@@ -1,7 +1,10 @@
 import type { MonthlyBookingStatus } from './monthly-bookings'
 import type { TeacherStudentNote } from './teacher-notes'
 
+import type { TrainerAccessRule } from '@/lib/access/levels'
+
 export interface AdminStudentRow {
+  student_trainer_access?: TrainerAccessRule[] | null
   id: string
   name: string | null
   email: string

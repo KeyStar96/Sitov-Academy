@@ -1,9 +1,10 @@
 'use server'
 
+import { z } from 'zod'
 import { createClient } from '@/utils/supabase/server'
 import { createAdminClient } from '@/utils/supabase/admin'
 import { revalidatePath } from 'next/cache'
-import { sanitizeAllowedLevels } from '@/lib/access/levels'
+import { sanitizeAllowedLevels, ACCESS_LEVELS, TRAINERS } from '@/lib/access/levels'
 import { withBackendSession, checkDatabaseError, revalidateBackendPages } from '@/lib/actions/backend'
 import { profileRoleSchema, uuidSchema } from '@/lib/types/backend'
 
@@ -65,7 +66,7 @@ export async function getStudents() {
     
     const { data, error } = await supabase
       .from('profiles')
-      .select('*')
+      .select('*, student_trainer_access(level,trainer,enabled)')
       .order('created_at', { ascending: false })
       
     if (error) throw error
@@ -233,5 +234,24 @@ export async function resetStudentProgress(userId: string, level: string) {
     console.error('Error resetting student progress', error)
     const message = error instanceof Error ? error.message : 'Unbekannter Fehler'
     return { success: false, error: message }
+  }
+}
+
+const trainerAccessInput = z.object({ userId: z.uuid(), level: z.enum(ACCESS_LEVELS), trainer: z.enum(TRAINERS), enabled: z.boolean() }).strict()
+export async function updateStudentTrainerAccess(input: z.infer<typeof trainerAccessInput>): Promise<{ success: boolean }> {
+  try {
+    await requireAdmin()
+    const parsed = trainerAccessInput.parse(input)
+    const supabase = await createClient()
+    const { error } = await supabase.from('student_trainer_access').upsert({
+      user_id: parsed.userId, level: parsed.level, trainer: parsed.trainer, enabled: parsed.enabled,
+    }, { onConflict: 'user_id,level,trainer' })
+    if (error) throw error
+    revalidatePath('/[lang]/admin/students', 'page')
+    revalidatePath('/[lang]/dashboard', 'layout')
+    return { success: true }
+  } catch (error) {
+    console.error('Trainer access update failed:', error)
+    return { success: false }
   }
 }

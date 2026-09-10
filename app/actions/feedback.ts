@@ -5,7 +5,7 @@ import { getOutboundSiteUrl } from '@/lib/site-url'
 import { sendEmail } from '@/lib/mail'
 import { renderFeedbackNotificationEmail } from '@/lib/feedback-email'
 import { createClient } from '@/utils/supabase/server'
-import { currentUserHasLevelAccess } from '@/lib/access/server'
+import { currentUserHasTrainerAccess } from '@/lib/access/server'
 import { z } from 'zod'
 import type {
   FeedbackActionResult,
@@ -34,7 +34,7 @@ export async function submitAudioUrl(input: SubmitAudioInput): Promise<FeedbackA
 
     if (!user) return { success: false, reason: 'not_authenticated' }
     const level = input.level ?? 'A1.1'
-    if (!(await currentUserHasLevelAccess(level))) return { success: false, reason: 'invalid_input' }
+    if (!(await currentUserHasTrainerAccess(level, 'pronunciation'))) return { success: false, reason: 'invalid_input' }
     const legacyPrefix = `https://wcaslabeiwtvygxtzcio.supabase.co/storage/v1/object/public/audio_submissions/${user.id}-`
     if (!input.url.startsWith(legacyPrefix) || !/^\d+\.(webm|mp4|wav|ogg)$/.test(input.url.slice(legacyPrefix.length))) return { success: false, reason: 'invalid_input' }
     let attemptNumber = 1

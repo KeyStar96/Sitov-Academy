@@ -1318,7 +1318,11 @@
     "level_locked_badge": "Закрыто",
     "level_locked_title": "Этот языковой уровень ещё не открыт",
     "level_locked_text": "Доступ к уровню {level} пока не предоставлен. Пожалуйста, обратитесь к преподавателю, чтобы открыть этот уровень.",
-    "level_locked_hint": "Чтобы открыть уровень, обратитесь к преподавателю."
+    "level_locked_hint": "Чтобы открыть уровень, обратитесь к преподавателю.",
+    "trainer_locked_title": "Этот тренажёр пока закрыт.",
+    "trainer_locked_text": "Преподаватель может открыть этот тренажёр для уровня {level}.",
+    "back_to_level": "К обзору уровня",
+    "trainer_locked_badge": "Закрыт"
   },
   "videos": {
     "back_to_level": "Вернуться к обзору",
@@ -1942,7 +1946,17 @@
     "cms_next": "Далее",
     "nav_registrations": "Заявки",
     "nav_invoices": "Счета",
-    "nav_pronunciation": "Тексты для чтения"
+    "nav_pronunciation": "Тексты для чтения",
+    "trainer_access_title": "Доступ к тренажёрам",
+    "trainer_access_level": "Тренажёры уровня {level}",
+    "trainer_enabled": "Открыт",
+    "trainer_disabled": "Закрыт",
+    "trainer_level_required": "Сначала откройте доступ к уровню.",
+    "trainer_save_failed": "Не удалось сохранить доступ. Попробуйте ещё раз.",
+    "trainer_vocabulary": "Тренажёр слов",
+    "trainer_exercises": "Упражнения по грамматике",
+    "trainer_pronunciation": "Тренировка произношения",
+    "trainer_videos": "Учебные видео"
   },
   "academy": {
     "hero_level_range": "A1—C2",

@@ -1317,7 +1317,11 @@
     "level_locked_badge": "Закрито",
     "level_locked_title": "Цей мовний рівень ще не відкрито",
     "level_locked_text": "Доступ до рівня {level} ще не надано. Будь ласка, зверніться до викладачки, щоб відкрити цей рівень.",
-    "level_locked_hint": "Щоб відкрити рівень, зверніться до викладачки."
+    "level_locked_hint": "Щоб відкрити рівень, зверніться до викладачки.",
+    "trainer_locked_title": "Цей тренажер поки закритий.",
+    "trainer_locked_text": "Викладач може відкрити цей тренажер для рівня {level}.",
+    "back_to_level": "До огляду рівня",
+    "trainer_locked_badge": "Закрито"
   },
   "videos": {
     "back_to_level": "Повернутися до огляду",
@@ -1941,7 +1945,17 @@
     "cms_next": "Далі",
     "nav_registrations": "Заявки",
     "nav_invoices": "Рахунки",
-    "nav_pronunciation": "Тексти для читання"
+    "nav_pronunciation": "Тексти для читання",
+    "trainer_access_title": "Доступ до тренажерів",
+    "trainer_access_level": "Тренажери рівня {level}",
+    "trainer_enabled": "Відкрито",
+    "trainer_disabled": "Закрито",
+    "trainer_level_required": "Спочатку відкрийте доступ до рівня.",
+    "trainer_save_failed": "Не вдалося зберегти доступ. Спробуйте ще раз.",
+    "trainer_vocabulary": "Тренажер слів",
+    "trainer_exercises": "Вправи з граматики",
+    "trainer_pronunciation": "Тренування вимови",
+    "trainer_videos": "Навчальні відео"
   },
   "academy": {
     "hero_level_range": "A1—C2",

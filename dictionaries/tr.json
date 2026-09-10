@@ -1318,7 +1318,11 @@
     "level_locked_badge": "Kilitli",
     "level_locked_title": "Bu dil seviyesi henüz açılmadı",
     "level_locked_text": "{level} seviyesine erişiminiz henüz verilmedi. Bu seviyeyi açtırmak için lütfen öğretmeninizle iletişime geçin.",
-    "level_locked_hint": "Bu seviyeyi açmak için lütfen öğretmeninizle iletişime geçin."
+    "level_locked_hint": "Bu seviyeyi açmak için lütfen öğretmeninizle iletişime geçin.",
+    "trainer_locked_title": "Bu alıştırma henüz kilitli.",
+    "trainer_locked_text": "Öğretmeniniz {level} seviyesi için bu alıştırmanın kilidini açabilir.",
+    "back_to_level": "Seviye genel görünümüne dön",
+    "trainer_locked_badge": "Kilitli"
   },
   "videos": {
     "back_to_level": "Genel görünüme dön",
@@ -1942,7 +1946,17 @@
     "cms_next": "Sonraki",
     "nav_registrations": "Başvurular",
     "nav_invoices": "Faturalar",
-    "nav_pronunciation": "Okuma metinleri"
+    "nav_pronunciation": "Okuma metinleri",
+    "trainer_access_title": "Alıştırma erişimi",
+    "trainer_access_level": "{level} seviyesi alıştırmaları",
+    "trainer_enabled": "Açık",
+    "trainer_disabled": "Kilitli",
+    "trainer_level_required": "Önce seviyenin kilidini açın.",
+    "trainer_save_failed": "Erişim kaydedilemedi. Lütfen tekrar deneyin.",
+    "trainer_vocabulary": "Kelime antrenörü",
+    "trainer_exercises": "Dilbilgisi alıştırmaları",
+    "trainer_pronunciation": "Telaffuz çalışması",
+    "trainer_videos": "Öğrenme videoları"
   },
   "academy": {
     "hero_level_range": "A1—C2",

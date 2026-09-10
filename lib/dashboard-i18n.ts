@@ -5,6 +5,10 @@ import { createTranslator, type Translations, type Translator } from '@/lib/i18n
  * Fallbacks nur als Sicherheitsnetz – die Oberfläche liest die Dictionaries.
  */
 export const DASHBOARD_FALLBACKS = {
+  trainer_locked_title: 'Dieser Trainer ist noch gesperrt.',
+  trainer_locked_text: 'Deine Lehrkraft kann diesen Trainer für {level} freischalten.',
+  trainer_locked_badge: 'Gesperrt',
+  back_to_level: 'Zur Niveau-Übersicht',
   title_before: 'Wähle dein',
   title_highlight: 'Sprachniveau',
   subtitle: 'Womit möchtest du heute starten?',

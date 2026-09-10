@@ -14,9 +14,11 @@ export default function LevelLocked({
   lang,
   level,
   translations,
+  trainer = false,
 }: {
   lang: string
   level: string
+  trainer?: boolean
   translations: DashboardTranslations
 }) {
   const t = createDashboardTranslator(translations)
@@ -27,17 +29,17 @@ export default function LevelLocked({
         <Lock className="h-8 w-8 text-[var(--muted)]" aria-hidden="true" />
       </div>
       <h1 className="mb-4 break-words text-2xl font-bold text-[var(--foreground)]">
-        {t('level_locked_title')}
+        {t(trainer ? 'trainer_locked_title' : 'level_locked_title')}
       </h1>
       <p className="mx-auto mb-8 max-w-md text-lg leading-relaxed text-[var(--muted)]">
-        {t('level_locked_text', { level })}
+        {t(trainer ? 'trainer_locked_text' : 'level_locked_text', { level })}
       </p>
       <Link
-        href={`/${lang}/dashboard`}
+        href={trainer ? `/${lang}/dashboard/level/${encodeURIComponent(level)}` : `/${lang}/dashboard`}
         className="inline-flex min-h-14 items-center justify-center gap-2 rounded-2xl bg-[var(--accent)] px-6 text-lg font-bold text-[var(--accent-foreground)] shadow-sm transition-colors hover:opacity-90 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)]"
       >
         <ArrowLeft size={20} aria-hidden="true" />
-        {t('back_to_dashboard')}
+        {t(trainer ? 'back_to_level' : 'back_to_dashboard')}
       </Link>
     </div>
   )

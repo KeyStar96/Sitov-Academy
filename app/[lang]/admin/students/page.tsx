@@ -25,6 +25,7 @@ export default async function AdminStudentsPage({ params }: { params: Promise<{ 
     email: student.email,
     role: student.role,
     allowed_levels: student.allowed_levels,
+    student_trainer_access: student.student_trainer_access,
     created_at: student.created_at,
     phone: student.phone,
     street: student.street,

@@ -498,6 +498,35 @@ export type Database = {
           },
         ]
       }
+      student_trainer_access: {
+        Row: {
+          enabled: boolean
+          level: string
+          trainer: string
+          user_id: string
+        }
+        Insert: {
+          enabled: boolean
+          level: string
+          trainer: string
+          user_id: string
+        }
+        Update: {
+          enabled?: boolean
+          level?: string
+          trainer?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "student_trainer_access_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       submissions: {
         Row: {
           attempt_number: number | null

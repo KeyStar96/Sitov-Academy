@@ -1317,7 +1317,11 @@
     "level_locked_badge": "Locked",
     "level_locked_title": "This language level is not unlocked yet",
     "level_locked_text": "Your access to level {level} has not been granted yet. Please contact your teacher to have this level unlocked for you.",
-    "level_locked_hint": "Please contact your teacher to unlock this level."
+    "level_locked_hint": "Please contact your teacher to unlock this level.",
+    "trainer_locked_title": "This trainer is still locked.",
+    "trainer_locked_text": "Your teacher can unlock this trainer for {level}.",
+    "back_to_level": "Back to level overview",
+    "trainer_locked_badge": "Locked"
   },
   "videos": {
     "back_to_level": "Back to overview",
@@ -1941,7 +1945,17 @@
     "cms_next": "Next",
     "nav_registrations": "Registrations",
     "nav_invoices": "Invoices",
-    "nav_pronunciation": "Reading texts"
+    "nav_pronunciation": "Reading texts",
+    "trainer_access_title": "Trainer access",
+    "trainer_access_level": "Trainers for {level}",
+    "trainer_enabled": "Unlocked",
+    "trainer_disabled": "Locked",
+    "trainer_level_required": "Unlock the level first.",
+    "trainer_save_failed": "Access could not be saved. Please try again.",
+    "trainer_vocabulary": "Vocabulary trainer",
+    "trainer_exercises": "Grammar exercises",
+    "trainer_pronunciation": "Pronunciation training",
+    "trainer_videos": "Learning videos"
   },
   "academy": {
     "hero_level_range": "A1—C2",

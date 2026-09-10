@@ -1,5 +1,9 @@
 # Current State Analysis (Ist-Zustand)
 
+## 2026-09-10 — Trainer-Freigaben pro Schüler und Niveau
+
+Im Lehrer-Dashboard unter Schüler → Trainer-Freigaben ein Niveau öffnen und Vokabeltrainer, Grammatikübungen, Aussprache-Training oder Lernvideos einzeln aktivieren/deaktivieren. Die Anzeige zählt aktive Trainer (z. B. 2/4). Gesperrte Studentenkarten haben Schloss, Text und gestrichelten Rahmen und sind nicht verlinkt. Direktrouten und Datenzugriffe sind geschützt. Die rückwärtskompatiblen Migrationen wurden im gebundenen Supabase-Projekt eingespielt; bestehende Rechte und Datensätze sind unverändert. [Umfang und Prüfnachweise](docs/trainer-access-2026-09-10.md).
+
 ## 2026-09-10 — Grammatik-Navigation und Lesbarkeit
 
 Der Grammatiktrainer hält gelöste Antwortfelder stabil, bringt die Weiter-Aktion nach dem Feedback in den sichtbaren Bereich und richtet die nächste Aufgabe unter der tatsächlichen Kopfzeile aus. Speicherhinweise verändern die Kartenposition nicht mehr. Kleine Lernhinweise, Statusangaben und Bedienelemente wurden gezielt auf 16px, Grammatik-Erklärungen auf 18px angehoben; bereits große Aufgaben bleiben groß. Ein gespeicherter Hochkontrastmodus ergänzt Hell/Dunkel und ist über „Darstellung & Lesbarkeit“ sowie unter den Profileinstellungen erreichbar. DE/EN/RU/UK/TR sind vollständig übersetzt. Auch im mobilen Hauptmenü bleibt das Darstellungsfenster vollständig sichtbar. [Umfang und Prüfnachweise](docs/readability-grammar-2026-09-10.md).

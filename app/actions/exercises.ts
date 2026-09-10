@@ -3,7 +3,7 @@
 import { revalidatePath } from 'next/cache'
 import { z } from 'zod'
 import { createClient } from '@/utils/supabase/server'
-import { hasLevelAccess } from '@/lib/access/levels'
+import { hasTrainerAccess } from '@/lib/access/levels'
 import { loadLevelAccessProfile } from '@/lib/access/server'
 import { buildFillInBlankChips } from '@/lib/exercise-chips'
 import {
@@ -102,7 +102,7 @@ export async function getExercises(level?: string): Promise<StudentExercise[]> {
     if (!user) return []
 
     const accessProfile = await loadLevelAccessProfile(supabase, user.id)
-    if (level && !hasLevelAccess(accessProfile, level)) return []
+    if (level && !hasTrainerAccess(accessProfile, level, 'exercises')) return []
 
     const { data: profile, error: profileError } = await supabase
       .from('profiles')
@@ -124,7 +124,7 @@ export async function getExercises(level?: string): Promise<StudentExercise[]> {
     if (level) {
       query = query.eq('level', level)
     } else if (accessProfile?.role !== 'admin' && accessProfile?.role !== 'teacher') {
-      query = query.in('level', accessProfile?.allowed_levels ?? [])
+      query = query.in('level', (accessProfile?.allowed_levels ?? []).filter(item => hasTrainerAccess(accessProfile, item, 'exercises')))
     }
 
     const { data, error } = await query

@@ -5,6 +5,8 @@
  * - Jeder Nutzer kann sich registrieren/anmelden.
  * - Zugriff auf gebührenpflichtige Sprachniveaus wird pro Nutzer explizit über
  *   `profiles.allowed_levels` (feingranular, z. B. `"A1.1"`) freigeschaltet.
+ * - Pro Niveau können Trainer durch `student_trainer_access` gesperrt werden.
+ *   Ohne Override gilt die bestehende Niveau-Freigabe für alle vier Trainer.
  * - Ein frisch registrierter Nutzer hat ein leeres Array → kein Zugriff.
  * - Admins und Lehrer (role `admin`/`teacher`) haben unabhängig davon Vollzugriff.
  *
@@ -54,6 +56,7 @@ export function sanitizeAllowedLevels(input: readonly unknown[] | null | undefin
 export interface LevelAccessProfile {
   role: string | null
   allowed_levels: string[] | null
+  student_trainer_access?: readonly TrainerAccessRule[] | null
 }
 
 /**
@@ -73,4 +76,15 @@ export function hasLevelAccess(
 /** Ob eine Rolle grundsätzlich Vollzugriff besitzt (z. B. für UI-Hinweise). */
 export function hasFullAccessRole(role: string | null | undefined): boolean {
   return !!role && FULL_ACCESS_ROLES.has(role)
+}
+
+/** Missing overrides preserve the existing whole-level entitlement. */
+export const TRAINERS = ['vocabulary', 'exercises', 'pronunciation', 'videos'] as const
+export type Trainer = (typeof TRAINERS)[number]
+export interface TrainerAccessRule { level: string; trainer: string; enabled: boolean }
+
+export function hasTrainerAccess(profile: LevelAccessProfile | null | undefined, level: string, trainer: Trainer): boolean {
+  if (!hasLevelAccess(profile, level)) return false
+  if (hasFullAccessRole(profile?.role)) return true
+  return profile?.student_trainer_access?.find(rule => rule.level === level.trim() && rule.trainer === trainer)?.enabled ?? true
 }
