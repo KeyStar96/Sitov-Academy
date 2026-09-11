@@ -136,10 +136,10 @@ export default function ExerciseClient({ exercises, translations = {}, lang, lev
             <div className={styles.practiceMeta}><h2 ref={headingRef} tabIndex={-1} className="font-medium">{currentExercise.topic}</h2><span>{t('progress_label', { current: currentIndex + 1, total: session.length })}</span></div>
             <div className={styles.progress} role="progressbar" aria-valuenow={currentIndex} aria-valuemin={0} aria-valuemax={session.length} aria-label={t('completed_count')}><span style={{ width: `${currentIndex / session.length * 100}%` }} /></div>
           </header>
-          {currentExercise.type === 'fill_in_blank' ? <FillInBlankExerciseCard key={currentExercise.id} exercise={currentExercise} t={t}
+          {currentExercise.type === 'fill_in_blank' ? <FillInBlankExerciseCard key={currentExercise.id} exercise={currentExercise} t={t} lang={lang}
             nextLabel={currentIndex + 1 >= session.length ? g('finish') : t('next_exercise')}
             onAttempt={(correct, hint, answer) => handleAttempt(currentExercise.id, correct, hint, answer)} onNext={handleNext} />
-            : <MultipleChoiceExerciseCard key={currentExercise.id} exercise={currentExercise} t={t}
+            : <MultipleChoiceExerciseCard key={currentExercise.id} exercise={currentExercise} t={t} lang={lang}
               nextLabel={currentIndex + 1 >= session.length ? g('finish') : t('next_exercise')}
               onAttempt={(correct, hint, answer) => handleAttempt(currentExercise.id, correct, hint, answer)} onNext={handleNext} />}
         </div>

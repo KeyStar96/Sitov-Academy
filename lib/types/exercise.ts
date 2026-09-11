@@ -15,6 +15,8 @@ export const SMART_HINT_THRESHOLD = 2
 /** Ab hier wird der konkretere Buchstaben-Hinweis gezeigt. */
 export const SMART_HINT_LETTER_THRESHOLD = 3
 
+export type LocalizedText = Partial<Record<string, string>>
+
 export interface FillInBlankContent {
   instruction?: string
   text_before: string
@@ -23,7 +25,7 @@ export interface FillInBlankContent {
   /** Von der Lehrkraft gepflegte Auswahl-Chips. Fehlt sie, werden Chips generiert. */
   options?: string[]
   /** Überschreibt den automatisch abgeleiteten Smart Hint. */
-  smart_hint?: string
+  smart_hint?: LocalizedText | string
 }
 
 export interface MultipleChoiceContent {
@@ -31,7 +33,7 @@ export interface MultipleChoiceContent {
   question: string
   options: string[]
   correct_answer: string
-  explanation?: string
+  explanation?: LocalizedText | string
 }
 
 export interface SentenceBuildingContent {
@@ -48,8 +50,8 @@ interface StudentExerciseBase {
   lesson: string
   topic: string
   level: string
-  /** Kontrastiver Hinweis in der Muttersprache (hint_ru / hint_tr). */
-  hint: string | null
+  /** Kontrastiver Hinweis als lokalisierbares JSON. */
+  hint: LocalizedText | null
   completed: boolean
   score: number
   /** Persistierte Fehlversuche, damit Smart Hints einen Reload überleben. */
@@ -108,6 +110,18 @@ function asString(value: Json | undefined): string | null {
   return typeof value === 'string' ? value : null
 }
 
+function asLocalizedText(value: Json | undefined): LocalizedText | string | undefined {
+  if (typeof value === 'string') return value
+  if (isRecord(value)) {
+    const result: LocalizedText = {}
+    for (const [k, v] of Object.entries(value)) {
+      if (typeof v === 'string') result[k] = v
+    }
+    return result
+  }
+  return undefined
+}
+
 function asStringArray(value: Json | undefined): string[] | null {
   if (!Array.isArray(value)) return null
   const strings = value.filter((entry): entry is string => typeof entry === 'string')
@@ -121,7 +135,7 @@ export function parseFillInBlankContent(value: Json): FillInBlankContent | null 
   if (!correctAnswer || correctAnswer.trim().length === 0) return null
 
   const options = asStringArray(value.options)
-  const smartHint = asString(value.smart_hint)
+  const smartHint = asLocalizedText(value.smart_hint)
   const instruction = asString(value.instruction)
 
   return {
@@ -130,7 +144,7 @@ export function parseFillInBlankContent(value: Json): FillInBlankContent | null 
     text_after: asString(value.text_after) ?? '',
     correct_answer: correctAnswer,
     ...(options && options.length > 0 ? { options } : {}),
-    ...(smartHint && smartHint.trim().length > 0 ? { smart_hint: smartHint } : {}),
+    ...(smartHint ? { smart_hint: smartHint } : {}),
   }
 }
 
@@ -140,8 +154,7 @@ export interface AddExerciseInput {
   lesson: string
   topic: string
   type: ExerciseType
-  hint_ru: string | null
-  hint_tr: string | null
+  hint: LocalizedText | null
   solution_audio_url: string | null
   content: ExerciseContent
 }
@@ -164,7 +177,7 @@ export function parseMultipleChoiceContent(value: Json): MultipleChoiceContent |
 
   if (!question || !correctAnswer || !options || options.length < 2) return null
 
-  const explanation = asString(value.explanation)
+  const explanation = asLocalizedText(value.explanation)
   const instruction = asString(value.instruction)
   return { question, options, correct_answer: correctAnswer, ...(explanation ? { explanation } : {}), ...(instruction ? { instruction } : {}) }
 }

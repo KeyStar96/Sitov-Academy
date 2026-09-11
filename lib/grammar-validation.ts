@@ -4,12 +4,13 @@ import type { Database } from '@/supabase/database.types'
 
 const answer = z.string().trim().min(1).max(1000)
 const options = z.array(answer).min(2).max(8)
+const localizedTextSchema = z.record(z.string(), z.string().trim().max(2000)).nullable().optional()
+
 const metadata = {
   level: z.enum(ACCESS_LEVELS),
   lesson: z.string().trim().min(1).max(120),
   topic: z.string().trim().min(1).max(160),
-  hint_ru: z.string().trim().max(2000).nullable(),
-  hint_tr: z.string().trim().max(2000).nullable(),
+  hint: localizedTextSchema,
   solution_audio_url: z.url().max(2000).refine(value => value.startsWith('https://')).nullable(),
 }
 export const grammarWriteSchema = z.discriminatedUnion('type', [
@@ -19,7 +20,7 @@ export const grammarWriteSchema = z.discriminatedUnion('type', [
     content: z.object({
       instruction: z.string().trim().max(500).optional(),
       text_before: z.string().max(2000), text_after: z.string().max(2000),
-      correct_answer: answer, options, smart_hint: z.string().trim().max(2000).optional(),
+      correct_answer: answer, options, smart_hint: localizedTextSchema,
     }).refine(content => `${content.text_before}${content.text_after}`.trim().length > 0),
   }),
   z.object({
@@ -28,7 +29,7 @@ export const grammarWriteSchema = z.discriminatedUnion('type', [
     content: z.object({
       instruction: z.string().trim().max(500).optional(),
       question: z.string().trim().min(1).max(4000), correct_answer: answer, options,
-      explanation: z.string().trim().max(2000).optional(),
+      explanation: localizedTextSchema,
     }),
   }),
 ]).superRefine((value, context) => {

@@ -60,32 +60,7 @@ export default function WaveformPlayer({
     void playback.play()
   }, [playback])
 
-  const handleSeek = useCallback(
-    (clientX: number, track: HTMLDivElement) => {
-      if (playback.duration <= 0) return
-      const rect = track.getBoundingClientRect()
-      playback.seek(seekTargetSeconds(clientX - rect.left, rect.width, playback.duration))
-    },
-    [playback]
-  )
 
-  const handleSeekByKeyboard = useCallback(
-    (event: KeyboardEvent<HTMLDivElement>) => {
-      if (playback.duration <= 0) return
-
-      if (event.key === 'ArrowLeft') {
-        event.preventDefault()
-        playback.seek(Math.max(0, playback.currentTime - KEYBOARD_SEEK_SECONDS))
-      } else if (event.key === 'ArrowRight') {
-        event.preventDefault()
-        playback.seek(Math.min(playback.duration, playback.currentTime + KEYBOARD_SEEK_SECONDS))
-      } else if (event.key === 'Home') {
-        event.preventDefault()
-        playback.seek(0)
-      }
-    },
-    [playback]
-  )
 
   if (!src) return null
 
@@ -121,16 +96,7 @@ export default function WaveformPlayer({
         </button>
 
         <div
-          role="slider"
-          tabIndex={0}
-          aria-label={translate('waveform_aria')}
-          aria-valuemin={0}
-          aria-valuemax={Math.max(0, Math.round(playback.duration))}
-          aria-valuenow={Math.round(playback.currentTime)}
-          aria-valuetext={`${formatDuration(playback.currentTime)} / ${formatDuration(playback.duration)}`}
-          onClick={(event) => handleSeek(event.clientX, event.currentTarget)}
-          onKeyDown={handleSeekByKeyboard}
-          className={`relative min-w-[44px] cursor-pointer overflow-hidden rounded-2xl bg-[var(--surface-muted)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] ${
+          className={`relative min-w-[44px] overflow-hidden rounded-2xl bg-[var(--surface-muted)] focus-within:outline focus-within:outline-4 focus-within:outline-offset-2 focus-within:outline-[var(--accent)] ${
             compact ? 'h-12' : 'h-16'
           }`}
         >
@@ -142,6 +108,20 @@ export default function WaveformPlayer({
               style={{ width: `${Math.round(progress * 100)}%` }}
             />
           </div>
+
+          <input
+            type="range"
+            min={0}
+            max={playback.duration || 100}
+            step={0.01}
+            value={playback.currentTime}
+            onChange={(e) => {
+              if (playback.duration > 0) playback.seek(Number(e.target.value))
+            }}
+            aria-label={translate('waveform_aria')}
+            aria-valuetext={`${formatDuration(playback.currentTime)} / ${formatDuration(playback.duration)}`}
+            className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+          />
         </div>
 
         <div className="col-span-2 flex min-w-0 items-center justify-between gap-2 sm:col-span-1 sm:flex-col sm:items-end sm:gap-1">

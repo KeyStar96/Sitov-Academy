@@ -36,9 +36,14 @@ function normalizeWord(value: string): string {
   return value.trim().toLocaleLowerCase('de-DE')
 }
 
-function resolveContrastiveHint(exercise: ExerciseRow, nativeLanguage: string | null): string | null {
-  if (nativeLanguage === 'Russisch' && exercise.hint_ru) return exercise.hint_ru
-  if (nativeLanguage === 'Türkisch' && exercise.hint_tr) return exercise.hint_tr
+function asLocalizedText(value: unknown): Record<string, string> | null {
+  if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
+    const result: Record<string, string> = {}
+    for (const [k, v] of Object.entries(value)) {
+      if (typeof v === 'string') result[k] = v
+    }
+    return result
+  }
   return null
 }
 
@@ -106,12 +111,12 @@ export async function getExercises(level?: string): Promise<StudentExercise[]> {
 
     const { data: profile, error: profileError } = await supabase
       .from('profiles')
-      .select('native_language')
+      .select('id')
       .eq('id', user.id)
       .single()
 
     if (profileError) {
-      console.error('Profil für Übungshinweise nicht ladbar:', profileError.message)
+      console.error('Profil für Übungen nicht ladbar:', profileError.message)
     }
 
     let query = supabase
@@ -135,7 +140,6 @@ export async function getExercises(level?: string): Promise<StudentExercise[]> {
     }
 
     const rows = (data ?? []) as ExerciseWithProgress[]
-    const nativeLanguage = profile?.native_language ?? null
 
     // Lösungen der Lückentexte vorab sammeln: für Geschwister-Distraktoren
     // und für den Abgleich mit der Vokabelbank.
@@ -163,7 +167,7 @@ export async function getExercises(level?: string): Promise<StudentExercise[]> {
 
     for (const row of rows) {
       const progress = readProgress(row.user_exercise_progress)
-      const hint = resolveContrastiveHint(row, nativeLanguage)
+      const hint = asLocalizedText(row.hint)
 
       if (row.type === 'fill_in_blank') {
         const content = parseFillInBlankContent(row.content)

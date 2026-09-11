@@ -13,6 +13,7 @@ interface MultipleChoiceExerciseProps {
   onAttempt: (isCorrect: boolean, hintShown: boolean, answer: string) => void
   onNext: () => void
   nextLabel: string
+  lang: string
 }
 
 function isSameOption(left: string, right: string): boolean {
@@ -29,13 +30,19 @@ export default function MultipleChoiceExerciseCard({
   onAttempt,
   onNext,
   nextLabel,
+  lang,
 }: MultipleChoiceExerciseProps) {
   const [selectedOption, setSelectedOption] = useState<string | null>(null)
   const [excludedOptions, setExcludedOptions] = useState<readonly string[]>([])
   const [failedAttempts, setFailedAttempts] = useState(exercise.attempts)
   const [isSolved, setIsSolved] = useState(false)
   const [showRetryNotice, setShowRetryNotice] = useState(false)
+  const [showHint, setShowHint] = useState(false)
   const nextButtonRef = useSolvedActionFocus(isSolved)
+
+  const localizedHint = exercise.hint ? (typeof exercise.hint === 'string' ? exercise.hint : (exercise.hint[lang] ?? exercise.hint.de)) : null
+  const explanationObj = exercise.content.explanation
+  const localizedExplanation = explanationObj ? (typeof explanationObj === 'string' ? explanationObj : (explanationObj[lang] ?? explanationObj.de)) : null
 
   const handleSelect = (option: string): void => {
     if (isSolved || excludedOptions.includes(option)) return
@@ -108,17 +115,26 @@ export default function MultipleChoiceExerciseCard({
         </div>
       )}
 
-      {exercise.hint && failedAttempts > 0 && !isSolved && (
-        <div className="mt-6 flex items-start gap-4 rounded-r-2xl border-l-4 border-[var(--violet)] bg-[var(--surface-muted)] p-6">
-          <AlertCircle className="mt-1 h-8 w-8 shrink-0 text-[var(--violet)]" aria-hidden="true" />
-          <div>
-            <h4 className="mb-1 text-xl font-bold text-[var(--foreground)]">{t('tip_mother_tongue')}</h4>
-            <p className="text-lg leading-relaxed text-[var(--foreground)]">{exercise.hint}</p>
-          </div>
+      {localizedHint && failedAttempts > 0 && !isSolved && (
+        <div className="mt-6 flex flex-col gap-4 rounded-r-2xl border-l-4 border-[var(--violet)] bg-[var(--surface-muted)] p-6">
+          {!showHint ? (
+            <button type="button" onClick={() => setShowHint(true)} className="academy-button academy-button-secondary w-full sm:w-auto self-start">
+              <Info size={18} className="mr-2" />
+              {t('hint_title')}
+            </button>
+          ) : (
+            <div className="flex items-start gap-4">
+              <AlertCircle className="mt-1 h-8 w-8 shrink-0 text-[var(--violet)]" aria-hidden="true" />
+              <div>
+                <h4 className="mb-1 text-xl font-bold text-[var(--foreground)]">{t('tip_mother_tongue')}</h4>
+                <p className="text-lg leading-relaxed text-[var(--foreground)]">{localizedHint}</p>
+              </div>
+            </div>
+          )}
         </div>
       )}
 
-      {exercise.content.explanation && (isSolved || failedAttempts >= 2) && <div className="mt-6 rounded-2xl border border-[var(--border)] bg-[var(--surface-muted)] p-5"><h4 className="text-lg font-semibold text-[var(--violet)]">{t('hint_title')}</h4><p className="mt-2 text-lg leading-relaxed text-[var(--foreground)]">{exercise.content.explanation}</p></div>}
+      {localizedExplanation && (isSolved || failedAttempts >= 1) && <div className="mt-6 rounded-2xl border border-[var(--border)] bg-[var(--surface-muted)] p-5"><h4 className="text-lg font-semibold text-[var(--violet)]">{t('hint_title')}</h4><p className="mt-2 text-lg leading-relaxed text-[var(--foreground)]">{localizedExplanation}</p></div>}
 
       {isSolved && (
         <div

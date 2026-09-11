@@ -1,6 +1,7 @@
 'use client'
 
-import { Lightbulb } from 'lucide-react'
+import { useState } from 'react'
+import { Info, Lightbulb } from 'lucide-react'
 import type { ExerciseTranslator } from '@/lib/exercise-i18n'
 import type { SmartHintDescriptor } from '@/lib/types/exercise'
 
@@ -29,6 +30,19 @@ function renderHintText(hint: SmartHintDescriptor, t: ExerciseTranslator): strin
  * keine Fehlermetaphorik – der Hinweis ist eine Hilfe, keine Bewertung.
  */
 export default function SmartHintPanel({ hint, t }: SmartHintPanelProps) {
+  const [revealed, setRevealed] = useState(false)
+
+  if (!revealed) {
+    return (
+      <div className="mt-8 flex flex-col gap-4 rounded-2xl border-2 border-[var(--border)] bg-[var(--surface-muted)] p-6">
+        <button type="button" onClick={() => setRevealed(true)} className="academy-button academy-button-secondary w-full sm:w-auto self-start">
+          <Info size={18} className="mr-2" />
+          {t('hint_title')}
+        </button>
+      </div>
+    )
+  }
+
   return (
     <div
       role="status"

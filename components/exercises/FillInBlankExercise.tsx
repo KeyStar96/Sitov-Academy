@@ -17,10 +17,22 @@ interface FillInBlankExerciseProps {
   onAttempt: (isCorrect: boolean, hintShown: boolean, answer: string) => void
   onNext: () => void
   nextLabel: string
+  lang: string
 }
 
-function isSameWord(left: string, right: string): boolean {
-  return left.trim().replace(/\s+/g, ' ').toLocaleLowerCase('de-DE') === right.trim().replace(/\s+/g, ' ').toLocaleLowerCase('de-DE')
+function startsUppercase(value: string): boolean {
+  const first = value.trim().charAt(0)
+  return first.length > 0 && first === first.toLocaleUpperCase('de-DE') && first !== first.toLocaleLowerCase('de-DE')
+}
+
+function isSameWord(left: string, right: string, isCaseSensitive: boolean): boolean {
+  let l = left.trim().replace(/\s+/g, ' ').replace(/[.,!?]+$/, '')
+  let r = right.trim().replace(/\s+/g, ' ').replace(/[.,!?]+$/, '')
+  if (!isCaseSensitive) {
+    l = l.toLocaleLowerCase('de-DE')
+    r = r.toLocaleLowerCase('de-DE')
+  }
+  return l === r
 }
 
 /**
@@ -39,24 +51,29 @@ export default function FillInBlankExerciseCard({
   onAttempt,
   onNext,
   nextLabel,
+  lang,
 }: FillInBlankExerciseProps) {
-  const [selectedChip, setSelectedChip] = useState<string | null>(null)
-  const [excludedChips, setExcludedChips] = useState<readonly string[]>([])
+  const [inputValue, setInputValue] = useState('')
+  const [hasError, setHasError] = useState(false)
   const [failedAttempts, setFailedAttempts] = useState(exercise.attempts)
   const [isSolved, setIsSolved] = useState(false)
   const [showRetryNotice, setShowRetryNotice] = useState(false)
   const [audioUnsupported, setAudioUnsupported] = useState(false)
   const nextButtonRef = useSolvedActionFocus(isSolved)
 
+  const localizedHint = exercise.hint ? (typeof exercise.hint === 'string' ? exercise.hint : (exercise.hint[lang] ?? exercise.hint.de)) : null
+  const smartHintObj = exercise.content.smart_hint
+  const localizedSmartHint = smartHintObj ? (typeof smartHintObj === 'string' ? smartHintObj : (smartHintObj[lang] ?? smartHintObj.de)) : null
+
   const smartHint = useMemo(
     () =>
       buildSmartHint({
         correctAnswer: exercise.content.correct_answer,
         failedAttempts,
-        customHint: exercise.content.smart_hint,
+        customHint: localizedSmartHint,
         article: exercise.solutionArticle,
       }),
-    [exercise.content.correct_answer, exercise.content.smart_hint, exercise.solutionArticle, failedAttempts]
+    [exercise.content.correct_answer, localizedSmartHint, exercise.solutionArticle, failedAttempts]
   )
 
   const fullSentence = useMemo(
@@ -67,31 +84,33 @@ export default function FillInBlankExerciseCard({
     [exercise.content]
   )
 
-  const handleChipClick = (chip: string): void => {
-    if (isSolved || excludedChips.includes(chip)) return
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (isSolved) return
+    setInputValue(e.target.value)
     setShowRetryNotice(false)
-    setSelectedChip((current) => (current === chip ? null : chip))
+    setHasError(false)
   }
 
   const handleCheck = (): void => {
-    if (!selectedChip || isSolved) return
+    if (!inputValue || isSolved) return
 
-    const isCorrect = isSameWord(selectedChip, exercise.content.correct_answer)
-    onAttempt(isCorrect, smartHint !== null, selectedChip)
+    const isCaseSensitive = startsUppercase(exercise.content.correct_answer)
+    const isCorrect = isSameWord(inputValue, exercise.content.correct_answer, isCaseSensitive)
+    onAttempt(isCorrect, smartHint !== null, inputValue)
 
     if (isCorrect) {
       setIsSolved(true)
       setShowRetryNotice(false)
+      setHasError(false)
       return
     }
 
-    setExcludedChips((current) => [...current, selectedChip])
-    setSelectedChip(null)
+    setHasError(true)
     setFailedAttempts((current) => current + 1)
     setShowRetryNotice(true)
   }
 
-  const gapContent = isSolved ? exercise.content.correct_answer : selectedChip
+  const gapContent = isSolved ? exercise.content.correct_answer : inputValue
 
   return (
     <div className="p-5 sm:p-10">
@@ -99,55 +118,33 @@ export default function FillInBlankExerciseCard({
       {/* Satz mit Lücke – auf dem Handy 20px, ab Tablet 30px. */}
       <p className="break-words text-center text-xl font-medium leading-relaxed text-[var(--foreground)] sm:text-3xl sm:leading-loose">
         {exercise.content.text_before}
-        <span
-          className={cn(
-            'mx-2 inline-flex max-w-full min-w-[6rem] items-center justify-center break-words rounded-xl border-b-4 px-3 py-1 align-middle transition-colors sm:min-w-[9rem] sm:px-4',
-            isSolved
-              ? 'border-[var(--violet)] bg-[var(--surface-muted)] font-bold text-[var(--violet)]'
-              : selectedChip
-                ? 'border-[var(--violet)] bg-[var(--surface-muted)] font-bold text-[var(--violet)]'
-                : 'border-dashed border-[var(--border)]  bg-[var(--surface-muted)]  text-[var(--muted)] '
-          )}
-          aria-label={gapContent ?? t('blank_label')}
-        >
-          {gapContent ?? '\u00A0\u00A0\u00A0'}
-        </span>
-        {exercise.content.text_after}
-      </p>
-
-      {/* Keep solved choices visible so the next button cannot jump upward. */}
-      <h3 className="mt-10 text-center text-2xl font-bold text-[var(--foreground)]">{t('choose_word')}</h3>
-
-      {/* Tipp-Chips: Touch-Targets mit 64px Höhe, kein Drag-and-Drop. */}
-      <div className="mt-6 flex flex-wrap justify-center gap-3 sm:gap-4">
-        {exercise.chips.map((chip) => {
-          const isExcluded = excludedChips.includes(chip)
-          const isSelected = selectedChip === chip
-          const isCorrectAndSolved = isSolved && isSameWord(chip, exercise.content.correct_answer)
-
-          return (
-            <button
-              key={chip}
-              type="button"
-              onClick={() => handleChipClick(chip)}
-              disabled={isExcluded || isSolved}
-              aria-pressed={isSelected}
-              aria-label={
-                isExcluded ? t('chip_wrong_aria', { word: chip }) : t('choose_word_aria', { word: chip })
-              }
-              className={cn(
-                'min-h-16 min-w-16 max-w-full break-words [overflow-wrap:anywhere] rounded-2xl border-2 px-4 sm:px-8 py-4 text-2xl font-bold transition-all focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)]',
-                isCorrectAndSolved && 'border-[var(--violet)] bg-[var(--surface-muted)] font-bold text-[var(--violet)]',
-                !isCorrectAndSolved && isExcluded && 'cursor-not-allowed border-[var(--border)]  bg-[var(--surface-muted)]  text-[var(--muted)]  line-through',
-                !isCorrectAndSolved && !isExcluded && isSelected && 'border-[var(--violet)] bg-[var(--violet)] text-[var(--surface)] shadow-lg',
-                !isCorrectAndSolved && !isExcluded && !isSelected && 'border-[var(--border)]  bg-[var(--surface)]  text-[var(--foreground)]  enabled:hover:border-[var(--violet)] enabled:hover:bg-[var(--surface-muted)]'
-              )}
-            >
-              {chip}
-            </button>
-          )
-        })}
-      </div>
+        {!isSolved ? (
+          <input
+            type="text"
+            value={inputValue}
+            onChange={handleChange}
+            placeholder={t('blank_label')}
+            className={cn(
+              'mx-2 inline-flex w-32 max-w-full text-center rounded-xl border-b-4 px-3 py-1 align-middle transition-colors sm:w-48 sm:px-4 focus:outline-none focus:border-[var(--violet)]',
+              hasError
+                ? 'border-red-500 bg-red-50 text-red-700'
+                : 'border-[var(--border)] bg-[var(--surface)] text-[var(--foreground)]'
+            )}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') handleCheck()
+            }}
+          />
+        ) : (
+          <span
+            className={cn(
+              'mx-2 inline-flex max-w-full min-w-[6rem] items-center justify-center break-words rounded-xl border-b-4 px-3 py-1 align-middle transition-colors sm:min-w-[9rem] sm:px-4',
+              'border-[var(--violet)] bg-[var(--surface-muted)] font-bold text-[var(--violet)]'
+            )}
+            aria-label={exercise.content.correct_answer}
+          >
+            {exercise.content.correct_answer}
+          </span>
+        )}
 
       {showRetryNotice && !isSolved && (
         <div
@@ -165,13 +162,14 @@ export default function FillInBlankExerciseCard({
 
       {smartHint && !isSolved && <SmartHintPanel hint={smartHint} t={t} />}
 
-      {/* Kontrastiver Hinweis in der Muttersprache, sobald es einmal nicht geklappt hat. */}
-      {exercise.hint && failedAttempts > 0 && !isSolved && (
-        <div className="mt-6 flex items-start gap-4 rounded-r-2xl border-l-4 border-[var(--violet)] bg-[var(--surface-muted)] p-6">
-          <AlertCircle className="mt-1 h-8 w-8 shrink-0 text-[var(--violet)]" aria-hidden="true" />
-          <div>
-            <h4 className="mb-1 text-xl font-bold text-[var(--foreground)]">{t('tip_mother_tongue')}</h4>
-            <p className="text-lg leading-relaxed text-[var(--foreground)]">{exercise.hint}</p>
+      {localizedHint && failedAttempts > 0 && !isSolved && (
+        <div className="mt-6 flex flex-col gap-4 rounded-r-2xl border-l-4 border-[var(--violet)] bg-[var(--surface-muted)] p-6">
+          <div className="flex items-start gap-4">
+            <AlertCircle className="mt-1 h-8 w-8 shrink-0 text-[var(--violet)]" aria-hidden="true" />
+            <div>
+              <h4 className="mb-1 text-xl font-bold text-[var(--foreground)]">{t('tip_mother_tongue')}</h4>
+              <p className="text-lg leading-relaxed text-[var(--foreground)]">{localizedHint}</p>
+            </div>
           </div>
         </div>
       )}
@@ -187,7 +185,7 @@ export default function FillInBlankExerciseCard({
             <p className="text-2xl font-bold text-[var(--foreground)]">{t('correct_well_done')}</p>
           </div>
 
-          {exercise.content.smart_hint && <p className="mt-4 text-lg leading-relaxed text-[var(--foreground)]">{exercise.content.smart_hint}</p>}
+          {localizedSmartHint && <p className="mt-4 text-lg leading-relaxed text-[var(--foreground)]">{localizedSmartHint}</p>}
           {/* Tap-to-Listen für das gelöste Wort und den gesamten Satz. */}
           <div className="mt-6 flex w-full flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
             <SolutionAudioButton
@@ -227,7 +225,7 @@ export default function FillInBlankExerciseCard({
           <button
             type="button"
             onClick={handleCheck}
-            disabled={!selectedChip}
+            disabled={!inputValue}
             className="min-h-16 w-full rounded-full bg-[var(--violet)] px-8 py-4 text-xl font-bold text-[var(--surface)] shadow-md transition-colors hover:bg-[var(--violet)] disabled:cursor-not-allowed disabled:opacity-50 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)] sm:w-auto"
           >
             {t('check_answer')}

@@ -59,11 +59,22 @@ export default function ExerciseCMS({ initialData, lang = 'de', loadFailed = fal
       const fill = row.type === 'fill_in_blank' ? parseFillInBlankContent(row.content) : null
       const choice = row.type === 'multiple_choice' ? parseMultipleChoiceContent(row.content) : null
       if (!fill && !choice) return
+      
+      const getDe = (obj: any) => typeof obj === 'string' ? obj : (obj?.de ?? '')
+      const getRu = (obj: any) => typeof obj === 'string' ? '' : (obj?.ru ?? '')
+      const getTr = (obj: any) => typeof obj === 'string' ? '' : (obj?.tr ?? '')
+      
+      const hintObj = row.type === 'fill_in_blank' ? fill?.smart_hint : choice?.explanation
+      const contrastiveHintObj = row.hint
+      
       setEditor({ id: row.id, level: row.level, lesson: row.lesson, topic: row.topic,
         type: fill ? 'fill_in_blank' : 'multiple_choice', textBefore: fill?.text_before ?? '', textAfter: fill?.text_after ?? '',
         question: choice?.question ?? '', instruction: fill?.instruction ?? choice?.instruction ?? '', answer: fill?.correct_answer ?? choice?.correct_answer ?? '',
-        options: (fill?.options ?? choice?.options ?? []).join('\n'), hint: fill?.smart_hint ?? choice?.explanation ?? '',
-        audio: row.solution_audio_url ?? '', hintRu: row.hint_ru ?? '', hintTr: row.hint_tr ?? '',
+        options: (fill?.options ?? choice?.options ?? []).join('\n'), 
+        hint: getDe(hintObj),
+        audio: row.solution_audio_url ?? '', 
+        hintRu: getRu(contrastiveHintObj) || getRu(hintObj) || '', 
+        hintTr: getTr(contrastiveHintObj) || getTr(hintObj) || '',
       })
     }
     window.requestAnimationFrame(() => {
@@ -76,12 +87,26 @@ export default function ExerciseCMS({ initialData, lang = 'de', loadFailed = fal
     event.preventDefault()
     if (!editor) return
     const options = editor.options.split('\n').map(value => value.trim()).filter(Boolean)
+    
+    const localizedContrastiveHint = {
+      ru: editor.hintRu.trim() || undefined,
+      tr: editor.hintTr.trim() || undefined
+    }
+    const hint = Object.keys(localizedContrastiveHint).length > 0 ? localizedContrastiveHint : null
+    
+    const localizedHint = {
+      de: editor.hint.trim() || undefined,
+      ru: editor.hintRu.trim() || undefined,
+      tr: editor.hintTr.trim() || undefined
+    }
+    const smartHintOrExplanation = Object.keys(localizedHint).length > 0 ? localizedHint : null
+    
     const parsed = grammarWriteSchema.safeParse({
       level: editor.level, lesson: editor.lesson, topic: editor.topic, type: editor.type,
-      hint_ru: editor.hintRu.trim() || null, hint_tr: editor.hintTr.trim() || null, solution_audio_url: editor.audio.trim() || null,
+      hint, solution_audio_url: editor.audio.trim() || null,
       content: editor.type === 'fill_in_blank'
-        ? { instruction: editor.instruction, text_before: editor.textBefore, text_after: editor.textAfter, correct_answer: editor.answer, options, smart_hint: editor.hint }
-        : { instruction: editor.instruction, question: editor.question, correct_answer: editor.answer, options, explanation: editor.hint },
+        ? { instruction: editor.instruction, text_before: editor.textBefore, text_after: editor.textAfter, correct_answer: editor.answer, options, smart_hint: smartHintOrExplanation }
+        : { instruction: editor.instruction, question: editor.question, correct_answer: editor.answer, options, explanation: smartHintOrExplanation },
     })
     if (!parsed.success) { setMessage('invalid'); return }
     setBusy(true)
