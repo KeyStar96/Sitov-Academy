@@ -36,13 +36,13 @@ function isSameWord(left: string, right: string, isCaseSensitive: boolean): bool
 }
 
 /**
- * Lückentext mit Auswahl-Chips statt Tastatureingabe.
+ * Lückentext mit Texteingabe (Input).
  *
  * Geragogik-Entscheidungen:
- * - Keine freie Eingabe, dadurch keine Tippfehler auf Mobilgeräten.
- * - Falsch getippte Chips werden ausgegraut statt als Fehler markiert; die
- *   Aufgabe bleibt offen, bis sie gelöst ist (Zero-Error-UX, kein Timer).
- * - Ab zwei Fehlversuchen erscheint ein Smart Hint.
+ * - Freie Texteingabe, da pädagogisch sinnvoller als reine Auswahl.
+ * - Smarte Validierung: Trimmt Leerzeichen und ignoriert Groß-/Kleinschreibung bei Wörtern, die nicht großgeschrieben werden müssen.
+ * - Fehlerhafte Eingaben rütteln nicht auf, sondern bleiben stehen mit Fehler-Feedback.
+ * - Ab zwei Fehlversuchen erscheint ein Smart Hint oder muttersprachlicher Hinweis.
  * - Die gelöste Lücke bekommt einen Tap-Button für die Aussprache.
  */
 export default function FillInBlankExerciseCard({
