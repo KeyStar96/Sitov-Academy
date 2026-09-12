@@ -1955,7 +1955,15 @@
     "trainer_vocabulary": "Vocabulary trainer",
     "trainer_exercises": "Grammar exercises",
     "trainer_pronunciation": "Pronunciation training",
-    "trainer_videos": "Learning videos"
+    "trainer_videos": "Learning videos",
+    "lesson_access_title": "Unlock lessons",
+    "no_lessons_found": "No lessons found for this trainer.",
+    "select_all": "Select all",
+    "select_none": "Select none",
+    "lessons_restricted": "Restricted",
+    "restrict_lessons": "Restrict lessons",
+    "save": "Save",
+    "save_failed": "Save failed"
   },
   "academy": {
     "hero_level_range": "A1—C2",

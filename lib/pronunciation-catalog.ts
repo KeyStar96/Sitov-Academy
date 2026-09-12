@@ -23,6 +23,7 @@ function makePrompts(levelKey: string, cefrLevel: CefrFamily, rows: readonly Cat
   return rows.map((row, index) => ({
     id: `catalog:${levelKey}:${index + 1}`,
     cefrLevel,
+    lesson: 'Katalog',
     sentenceDe: row.sentenceDe,
     focus: row.focus,
     audioUrl: null,
@@ -178,7 +179,7 @@ const BY_FAMILY: Record<CefrFamily, PronunciationPrompt[]> = {
 export function getCatalogPrompts(level: string): PronunciationPrompt[] {
   const trimmed = level.trim()
   if ((ACCESS_LEVELS as readonly string[]).includes(trimmed)) {
-    return readingTexts.filter((row) => row.level === trimmed).map((row) => ({ id: row.id, title: row.title, level: row.level, cefrLevel: cefrFamilyFromLevel(row.level)!, sentenceDe: row.text, focus: row.focus, audioUrl: null, sortOrder: row.sortOrder }))
+    return readingTexts.filter((row) => row.level === trimmed).map((row) => ({ id: row.id, title: row.title, lesson: 'Katalog', level: row.level, cefrLevel: cefrFamilyFromLevel(row.level)!, sentenceDe: row.text, focus: row.focus, audioUrl: null, sortOrder: row.sortOrder }))
   }
 
   const family = cefrFamilyFromLevel(trimmed)

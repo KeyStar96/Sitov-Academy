@@ -405,6 +405,7 @@ export type Database = {
           focus: string | null
           id: string
           is_active: boolean
+          lesson: string
           level: string | null
           sentence_de: string
           sort_order: number
@@ -417,6 +418,7 @@ export type Database = {
           focus?: string | null
           id?: string
           is_active?: boolean
+          lesson?: string
           level?: string | null
           sentence_de: string
           sort_order?: number
@@ -429,6 +431,7 @@ export type Database = {
           focus?: string | null
           id?: string
           is_active?: boolean
+          lesson?: string
           level?: string | null
           sentence_de?: string
           sort_order?: number
@@ -500,18 +503,21 @@ export type Database = {
       }
       student_trainer_access: {
         Row: {
+          allowed_lessons: string[] | null
           enabled: boolean
           level: string
           trainer: string
           user_id: string
         }
         Insert: {
+          allowed_lessons?: string[] | null
           enabled: boolean
           level: string
           trainer: string
           user_id: string
         }
         Update: {
+          allowed_lessons?: string[] | null
           enabled?: boolean
           level?: string
           trainer?: string

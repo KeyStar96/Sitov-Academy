@@ -237,14 +237,14 @@ export async function resetStudentProgress(userId: string, level: string) {
   }
 }
 
-const trainerAccessInput = z.object({ userId: z.uuid(), level: z.enum(ACCESS_LEVELS), trainer: z.enum(TRAINERS), enabled: z.boolean() }).strict()
+const trainerAccessInput = z.object({ userId: z.uuid(), level: z.enum(ACCESS_LEVELS), trainer: z.enum(TRAINERS), enabled: z.boolean(), allowedLessons: z.array(z.string()).nullable().optional() }).strict()
 export async function updateStudentTrainerAccess(input: z.infer<typeof trainerAccessInput>): Promise<{ success: boolean }> {
   try {
     await requireAdmin()
     const parsed = trainerAccessInput.parse(input)
     const supabase = await createClient()
     const { error } = await supabase.from('student_trainer_access').upsert({
-      user_id: parsed.userId, level: parsed.level, trainer: parsed.trainer, enabled: parsed.enabled,
+      user_id: parsed.userId, level: parsed.level, trainer: parsed.trainer, enabled: parsed.enabled, allowed_lessons: parsed.allowedLessons,
     }, { onConflict: 'user_id,level,trainer' })
     if (error) throw error
     revalidatePath('/[lang]/admin/students', 'page')
@@ -253,5 +253,28 @@ export async function updateStudentTrainerAccess(input: z.infer<typeof trainerAc
   } catch (error) {
     console.error('Trainer access update failed:', error)
     return { success: false }
+  }
+}
+
+export async function getAvailableLessons(level: string, trainer: string): Promise<string[]> {
+  try {
+    await requireAdmin()
+    const supabase = await createClient()
+    if (trainer === 'vocabulary') {
+      const { data } = await supabase.from('vocabulary_cards').select('lesson').eq('level', level)
+      return [...new Set(data?.map(d => d.lesson) || [])].sort((a, b) => a.localeCompare(b, 'de-DE', { numeric: true }))
+    }
+    if (trainer === 'exercises') {
+      const { data } = await supabase.from('exercises').select('lesson').eq('level', level)
+      return [...new Set(data?.map(d => d.lesson) || [])].sort((a, b) => a.localeCompare(b, 'de-DE', { numeric: true }))
+    }
+    if (trainer === 'pronunciation') {
+      const { data } = await supabase.from('pronunciation_prompts').select('lesson').eq('level', level)
+      return [...new Set(data?.map(d => d.lesson) || [])].sort((a, b) => a.localeCompare(b, 'de-DE', { numeric: true }))
+    }
+    return []
+  } catch (error) {
+    console.error('Failed to get available lessons:', error)
+    return []
   }
 }

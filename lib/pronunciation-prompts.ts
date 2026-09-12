@@ -14,6 +14,7 @@ export type CefrFamily = (typeof CEFR_FAMILIES)[number]
 export interface PronunciationPrompt {
   id: string
   title?: string
+  lesson: string
   level?: string
   isActive?: boolean
   cefrLevel: CefrFamily

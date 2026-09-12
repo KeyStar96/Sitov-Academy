@@ -1956,7 +1956,15 @@
     "trainer_vocabulary": "Kelime antrenörü",
     "trainer_exercises": "Dilbilgisi alıştırmaları",
     "trainer_pronunciation": "Telaffuz çalışması",
-    "trainer_videos": "Öğrenme videoları"
+    "trainer_videos": "Öğrenme videoları",
+    "lesson_access_title": "Dersleri aç",
+    "no_lessons_found": "Bu eğitmen için ders bulunamadı.",
+    "select_all": "Tümünü seç",
+    "select_none": "Hiçbirini seçme",
+    "lessons_restricted": "Sınırlandırılmış",
+    "restrict_lessons": "Dersleri sınırlandır",
+    "save": "Kaydet",
+    "save_failed": "Kaydetme başarısız"
   },
   "academy": {
     "hero_level_range": "A1—C2",

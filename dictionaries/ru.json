@@ -1956,7 +1956,15 @@
     "trainer_vocabulary": "Тренажёр слов",
     "trainer_exercises": "Упражнения по грамматике",
     "trainer_pronunciation": "Тренировка произношения",
-    "trainer_videos": "Учебные видео"
+    "trainer_videos": "Учебные видео",
+    "lesson_access_title": "Разблокировать уроки",
+    "no_lessons_found": "Уроки для этого тренажера не найдены.",
+    "select_all": "Выбрать все",
+    "select_none": "Ничего не выбирать",
+    "lessons_restricted": "Ограничено",
+    "restrict_lessons": "Ограничить уроки",
+    "save": "Сохранить",
+    "save_failed": "Не удалось сохранить"
   },
   "academy": {
     "hero_level_range": "A1—C2",

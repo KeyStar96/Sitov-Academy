@@ -81,10 +81,18 @@ export function hasFullAccessRole(role: string | null | undefined): boolean {
 /** Missing overrides preserve the existing whole-level entitlement. */
 export const TRAINERS = ['vocabulary', 'exercises', 'pronunciation', 'videos'] as const
 export type Trainer = (typeof TRAINERS)[number]
-export interface TrainerAccessRule { level: string; trainer: string; enabled: boolean }
+export interface TrainerAccessRule { level: string; trainer: string; enabled: boolean; allowed_lessons?: string[] | null }
 
 export function hasTrainerAccess(profile: LevelAccessProfile | null | undefined, level: string, trainer: Trainer): boolean {
   if (!hasLevelAccess(profile, level)) return false
   if (hasFullAccessRole(profile?.role)) return true
   return profile?.student_trainer_access?.find(rule => rule.level === level.trim() && rule.trainer === trainer)?.enabled ?? true
+}
+
+export function getAllowedLessons(profile: LevelAccessProfile | null | undefined, level: string, trainer: Trainer): string[] | null {
+  if (!hasTrainerAccess(profile, level, trainer)) return []
+  if (hasFullAccessRole(profile?.role)) return null // null means all lessons are allowed
+  const rule = profile?.student_trainer_access?.find(rule => rule.level === level.trim() && rule.trainer === trainer)
+  if (!rule || !rule.allowed_lessons || rule.allowed_lessons.length === 0) return null
+  return rule.allowed_lessons
 }

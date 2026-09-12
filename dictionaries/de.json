@@ -1954,7 +1954,15 @@
     "trainer_vocabulary": "Vokabeltrainer",
     "trainer_exercises": "Grammatikübungen",
     "trainer_pronunciation": "Aussprache-Training",
-    "trainer_videos": "Lernvideos"
+    "trainer_videos": "Lernvideos",
+    "lesson_access_title": "Lektionen freischalten",
+    "no_lessons_found": "Keine Lektionen für diesen Trainer gefunden.",
+    "select_all": "Alle auswählen",
+    "select_none": "Keine auswählen",
+    "lessons_restricted": "Eingeschränkt",
+    "restrict_lessons": "Lektionen einschränken",
+    "save": "Speichern",
+    "save_failed": "Speichern fehlgeschlagen"
   },
   "academy": {
     "hero_level_range": "A1—C2",

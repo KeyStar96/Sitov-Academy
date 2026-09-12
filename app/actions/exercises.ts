@@ -3,7 +3,7 @@
 import { revalidatePath } from 'next/cache'
 import { z } from 'zod'
 import { createClient } from '@/utils/supabase/server'
-import { hasTrainerAccess } from '@/lib/access/levels'
+import { hasTrainerAccess, isAccessLevel, getAllowedLessons, type TrainerAccessRule } from '@/lib/access/levels'
 import { loadLevelAccessProfile } from '@/lib/access/server'
 import { buildFillInBlankChips } from '@/lib/exercise-chips'
 import {
@@ -139,7 +139,10 @@ export async function getExercises(level?: string): Promise<StudentExercise[]> {
       return []
     }
 
-    const rows = (data ?? []) as ExerciseWithProgress[]
+    const rows = ((data ?? []) as ExerciseWithProgress[]).filter(row => {
+      const allowedLessons = getAllowedLessons(accessProfile, row.level, 'exercises')
+      return !allowedLessons || allowedLessons.includes(row.lesson)
+    })
 
     // Lösungen der Lückentexte vorab sammeln: für Geschwister-Distraktoren
     // und für den Abgleich mit der Vokabelbank.

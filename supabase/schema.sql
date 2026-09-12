@@ -215,6 +215,7 @@ CREATE TABLE public.pronunciation_prompts (
   audio_url text,
   sort_order integer NOT NULL DEFAULT 0,
   created_at timestamp with time zone DEFAULT now(),
+  lesson text NOT NULL DEFAULT 'Lektion 1',
   CONSTRAINT pronunciation_prompts_pkey PRIMARY KEY (id)
 );
 
@@ -1367,6 +1368,7 @@ CREATE TABLE public.student_trainer_access (
   level text NOT NULL CHECK (level IN ('A1.1','A1.2','A2.1','A2.2','B1.1','B1.2')),
   trainer text NOT NULL CHECK (trainer IN ('vocabulary','exercises','pronunciation','videos')),
   enabled boolean NOT NULL,
+  allowed_lessons text[],
   PRIMARY KEY (user_id, level, trainer)
 );
 ALTER TABLE public.student_trainer_access ENABLE ROW LEVEL SECURITY;

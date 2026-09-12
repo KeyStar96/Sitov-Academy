@@ -1955,7 +1955,15 @@
     "trainer_vocabulary": "Тренажер слів",
     "trainer_exercises": "Вправи з граматики",
     "trainer_pronunciation": "Тренування вимови",
-    "trainer_videos": "Навчальні відео"
+    "trainer_videos": "Навчальні відео",
+    "lesson_access_title": "Розблокувати уроки",
+    "no_lessons_found": "Уроки для цього тренажера не знайдено.",
+    "select_all": "Вибрати всі",
+    "select_none": "Нічого не вибирати",
+    "lessons_restricted": "Обмежено",
+    "restrict_lessons": "Обмежити уроки",
+    "save": "Зберегти",
+    "save_failed": "Не вдалося зберегти"
   },
   "academy": {
     "hero_level_range": "A1—C2",
