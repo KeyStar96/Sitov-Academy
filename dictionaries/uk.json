@@ -1618,7 +1618,7 @@
     "lernkasten_select_all": "Додати всі до повторення",
     "lernkasten_available_title": "Доступні уроки",
     "lernkasten_available_empty": "Для цього рівня зараз немає уроків до повторення.",
-    "lernkasten_lesson_meta": "{due} до повторення · {total} слів",
+    "lernkasten_lesson_meta": "{due} завдань до повторення (із {total} слів)",
     "lernkasten_no_due_badge": "нічого повторювати",
     "lernkasten_in_box": "У коробці",
     "lernkasten_add": "Покласти в коробку",

@@ -1619,7 +1619,7 @@
     "lernkasten_select_all": "Добавить все к повторению",
     "lernkasten_available_title": "Доступные уроки",
     "lernkasten_available_empty": "Для этого уровня сейчас нет уроков к повторению.",
-    "lernkasten_lesson_meta": "{due} к повторению · {total} слов",
+    "lernkasten_lesson_meta": "{due} заданий к повторению (из {total} слов)",
     "lernkasten_no_due_badge": "нет к повторению",
     "lernkasten_in_box": "В коробке",
     "lernkasten_add": "Положить в коробку",

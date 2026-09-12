@@ -1617,7 +1617,7 @@
     "lernkasten_select_all": "Alle fälligen hinzufügen",
     "lernkasten_available_title": "Verfügbare Lektionen",
     "lernkasten_available_empty": "Für dieses Sprachniveau sind aktuell keine Lektionen fällig.",
-    "lernkasten_lesson_meta": "{due} fällig · {total} Vokabeln",
+    "lernkasten_lesson_meta": "{due} Aufgaben fällig (aus {total} Vokabeln)",
     "lernkasten_no_due_badge": "nichts fällig",
     "lernkasten_in_box": "Im Lernkasten",
     "lernkasten_add": "In den Lernkasten legen",

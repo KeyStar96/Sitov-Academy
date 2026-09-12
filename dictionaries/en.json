@@ -1618,7 +1618,7 @@
     "lernkasten_select_all": "Add all due",
     "lernkasten_available_title": "Available lessons",
     "lernkasten_available_empty": "No lessons are due for this level right now.",
-    "lernkasten_lesson_meta": "{due} due · {total} words",
+    "lernkasten_lesson_meta": "{due} tasks due (from {total} words)",
     "lernkasten_no_due_badge": "nothing due",
     "lernkasten_in_box": "In the box",
     "lernkasten_add": "Add to learning box",

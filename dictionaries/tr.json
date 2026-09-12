@@ -1619,7 +1619,7 @@
     "lernkasten_select_all": "Tümünü ekle",
     "lernkasten_available_title": "Mevcut dersler",
     "lernkasten_available_empty": "Bu seviye için şu anda tekrar edilecek ders yok.",
-    "lernkasten_lesson_meta": "{due} tekrar · {total} kelime",
+    "lernkasten_lesson_meta": "{due} görev tekrar (toplam {total} kelime)",
     "lernkasten_no_due_badge": "tekrar yok",
     "lernkasten_in_box": "Kutuda",
     "lernkasten_add": "Öğrenme kutusuna ekle",

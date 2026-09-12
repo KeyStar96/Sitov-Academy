@@ -101,7 +101,7 @@ export default function VocabTrainerPageClient({ learnerId, initialCards, lesson
       </div>
       <div className="grid gap-3 md:grid-cols-2">
         {lessonStats.map(lesson => <article key={lesson.lesson} className="min-w-0 rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-4 sm:p-5">
-          <div className="flex items-start justify-between gap-3"><div className="min-w-0"><p className="text-base text-[var(--muted)]">{t('lesson_label', { lesson: stripLessonPrefix(lesson.lesson) })}</p><h3 className="mt-1 break-words text-lg font-semibold">{lesson.lesson}</h3></div>
+          <div className="flex items-start justify-between gap-3"><div className="min-w-0"><h3 className="break-words text-lg font-semibold">{lesson.lesson}</h3></div>
             <button type="button" onClick={() => toggle(lesson)} aria-pressed={selection.includes(lesson.lesson)} aria-label={t(selection.includes(lesson.lesson) ? 'lernkasten_remove_aria' : 'lernkasten_add_aria', { lesson: lesson.lesson })}
               className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-[var(--border)] text-[var(--accent)]">{selection.includes(lesson.lesson) ? <Check size={20} aria-hidden="true" /> : <Plus size={20} aria-hidden="true" />}</button>
           </div>
