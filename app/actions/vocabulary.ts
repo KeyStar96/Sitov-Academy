@@ -20,7 +20,7 @@ const languageSchema = z.enum(['de', 'en', 'ru', 'uk', 'tr'])
 const decisionSchema = z.array(z.object({ cardId: z.string().uuid(), alreadyKnown: z.boolean() })).max(1000)
 const initializationResultSchema = z.object({ addedKnown: z.number().int().nonnegative(), addedNew: z.number().int().nonnegative() })
 const reviewResultSchema = z.object({
-  success: z.literal(true), isCorrect: z.boolean(), correctAnswer: z.string().optional(),
+  success: z.literal(true), isCorrect: z.boolean(), correctAnswer: z.string().optional(), isAlternative: z.boolean().optional(),
   previousPhase: z.number().int().min(1).max(6), newPhase: z.number().int().min(1).max(6),
   becameLearned: z.boolean(), movedBack: z.boolean(), intervalInDays: z.number().int().positive(),
 })

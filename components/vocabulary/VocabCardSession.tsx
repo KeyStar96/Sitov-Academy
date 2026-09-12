@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useRouter } from 'next/navigation'
+import { Info } from 'lucide-react'
 import { finishVocabularySession, submitVocabularyAnswer } from '@/app/actions/vocabulary'
 import SolutionAudioButton from '@/components/exercises/SolutionAudioButton'
 import LearningScreen from './LearningScreen'
@@ -13,6 +14,7 @@ import { createOrderedWriteQueue, type OrderedWriteQueue } from '@/lib/vocabular
 import { prefetchNeuralAudio } from '@/lib/audio/neural-client'
 import { vocabularyAudioText } from '@/lib/audio/neural-config'
 import { cn, stripLessonPrefix } from '@/lib/utils'
+import VisualDiff from '@/components/exercises/VisualDiff'
 
 interface VocabCardSessionProps {
   learnerId: string | null
@@ -181,6 +183,21 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
             {isSentence ? sentenceResult && <>
               <div className="learning-divider" />
               <p className={sentenceResult.correct ? 'learning-success' : 'learning-error'} role="status">{t(sentenceResult.correct ? 'sentence_correct' : 'sentence_incorrect')}</p>
+              {sentenceResult.isAlternative && (
+                <div className="mt-3 flex items-start gap-3 rounded-xl border border-blue-200 bg-blue-50 p-4 text-blue-800">
+                  <Info className="mt-0.5 h-5 w-5 shrink-0" aria-hidden="true" />
+                  <p>
+                    {t('alternative_answer_hint') || 'Richtig! Oft wird hierfür auch diese Form verwendet:'} <br />
+                    <strong>{sentenceResult.solution}</strong>
+                  </p>
+                </div>
+              )}
+              {!sentenceResult.correct && (
+                <div className="mt-4 mb-6 rounded-2xl border-2 border-red-200 bg-red-50 p-4">
+                  <span className="learning-eyebrow mb-2 text-red-600 block">{t('your_answer_label') || 'Deine Eingabe'}</span>
+                  <VisualDiff actual={answer} expected={sentenceResult.solution} />
+                </div>
+              )}
               <span className="learning-eyebrow">{t('correct_sentence_label')}</span>
               <p className="learning-sentence" lang="de">{sentenceResult.solution}</p>
             </> : revealed && <>

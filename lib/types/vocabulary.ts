@@ -84,6 +84,7 @@ export interface SubmitVocabularyAnswerResult {
   success: boolean
   isCorrect?: boolean
   correctAnswer?: string
+  isAlternative?: boolean
   error?: 'invalid_input' | 'spacing_required' | 'save_failed'
   previousPhase?: LeitnerPhase
   newPhase?: LeitnerPhase

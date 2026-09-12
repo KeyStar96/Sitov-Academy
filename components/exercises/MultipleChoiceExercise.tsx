@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { AlertCircle, ArrowRight, CheckCircle2, Info } from 'lucide-react'
 import { useSolvedActionFocus } from '@/components/exercises/useSolvedActionFocus'
+import SolutionAudioButton from '@/components/exercises/SolutionAudioButton'
 import type { ExerciseTranslator } from '@/lib/exercise-i18n'
 import type { MultipleChoiceExercise as MultipleChoiceExerciseData } from '@/lib/types/exercise'
 import { cn } from '@/lib/utils'
@@ -38,6 +39,7 @@ export default function MultipleChoiceExerciseCard({
   const [isSolved, setIsSolved] = useState(false)
   const [showRetryNotice, setShowRetryNotice] = useState(false)
   const [showHint, setShowHint] = useState(false)
+  const [audioUnsupported, setAudioUnsupported] = useState(false)
   const nextButtonRef = useSolvedActionFocus(isSolved)
 
   const localizedHint = exercise.hint ? (typeof exercise.hint === 'string' ? exercise.hint : (exercise.hint[lang] ?? exercise.hint.de)) : null
@@ -140,10 +142,28 @@ export default function MultipleChoiceExerciseCard({
         <div
           role="status"
           aria-live="polite"
-          className="mt-8 flex items-center gap-4 rounded-2xl border-2 border-[var(--violet)] bg-[var(--surface-muted)] p-6"
+          className="mt-8 rounded-2xl border-2 border-[var(--violet)] bg-[var(--surface-muted)] p-6"
         >
-          <CheckCircle2 className="h-9 w-9 shrink-0 text-[var(--violet)]" aria-hidden="true" />
-          <p className="text-2xl font-bold text-[var(--foreground)]">{t('correct_well_done')}</p>
+          <div className="flex items-center gap-4">
+            <CheckCircle2 className="h-9 w-9 shrink-0 text-[var(--violet)]" aria-hidden="true" />
+            <p className="text-2xl font-bold text-[var(--foreground)]">{t('correct_well_done')}</p>
+          </div>
+          
+          <div className="mt-6 flex w-full flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
+            <SolutionAudioButton
+              text={exercise.content.question.includes('___') 
+                ? exercise.content.question.replace('___', exercise.content.correct_answer)
+                : exercise.content.question + ' ' + exercise.content.correct_answer}
+              label={t('listen_sentence')}
+              ariaLabel={t('listen_sentence_aria')}
+              variant="secondary"
+              onUnsupported={() => setAudioUnsupported(true)}
+            />
+          </div>
+
+          {audioUnsupported && (
+            <p className="mt-4 text-lg leading-relaxed text-[var(--foreground)]">{t('audio_unavailable')}</p>
+          )}
         </div>
       )}
 

@@ -922,6 +922,7 @@ export type Database = {
       }
       vocabulary_cards: {
         Row: {
+          alternative_answers_de: string[]
           article: string | null
           audio_url: string | null
           context_sentence_de: string | null
@@ -945,6 +946,7 @@ export type Database = {
           word_de: string
         }
         Insert: {
+          alternative_answers_de?: string[]
           article?: string | null
           audio_url?: string | null
           context_sentence_de?: string | null
@@ -968,6 +970,7 @@ export type Database = {
           word_de: string
         }
         Update: {
+          alternative_answers_de?: string[]
           article?: string | null
           audio_url?: string | null
           context_sentence_de?: string | null
