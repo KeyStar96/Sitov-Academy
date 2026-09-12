@@ -66,7 +66,8 @@ export default function VocabTrainerPageClient({ learnerId, initialCards, lesson
     try {
       const result = await initializeLesson(lesson, level, learnerId ?? undefined)
       if (!result.success) throw new Error('lesson_init_failed')
-      router.push(`${overview}/train?lesson=${encodeURIComponent(lesson)}`)
+      setOnboarding(null)
+      startRefresh(() => router.refresh())
     } catch {
       setSelection(previous => previous.filter(item => item !== lesson))
       setError(true)
