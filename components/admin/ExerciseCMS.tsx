@@ -65,8 +65,10 @@ export default function ExerciseCMS({ initialData, lang = 'de', loadFailed = fal
       const getTr = (obj: any) => typeof obj === 'string' ? '' : (obj?.tr ?? '')
       
       const hintObj = row.type === 'fill_in_blank' ? fill?.smart_hint : choice?.explanation
-      const contrastiveHintObj = row.hint
-      
+      const contrastiveHintObj = {
+        ru: row.hint_ru ?? undefined,
+        tr: row.hint_tr ?? undefined
+      }
       setEditor({ id: row.id, level: row.level, lesson: row.lesson, topic: row.topic,
         type: fill ? 'fill_in_blank' : 'multiple_choice', textBefore: fill?.text_before ?? '', textAfter: fill?.text_after ?? '',
         question: choice?.question ?? '', instruction: fill?.instruction ?? choice?.instruction ?? '', answer: fill?.correct_answer ?? choice?.correct_answer ?? '',
@@ -88,11 +90,8 @@ export default function ExerciseCMS({ initialData, lang = 'de', loadFailed = fal
     if (!editor) return
     const options = editor.options.split('\n').map(value => value.trim()).filter(Boolean)
     
-    const localizedContrastiveHint = {
-      ru: editor.hintRu.trim() || undefined,
-      tr: editor.hintTr.trim() || undefined
-    }
-    const hint = Object.keys(localizedContrastiveHint).length > 0 ? localizedContrastiveHint : null
+    const hintRu = editor.hintRu.trim() || null
+    const hintTr = editor.hintTr.trim() || null
     
     const localizedHint = {
       de: editor.hint.trim() || undefined,
@@ -103,7 +102,7 @@ export default function ExerciseCMS({ initialData, lang = 'de', loadFailed = fal
     
     const parsed = grammarWriteSchema.safeParse({
       level: editor.level, lesson: editor.lesson, topic: editor.topic, type: editor.type,
-      hint, solution_audio_url: editor.audio.trim() || null,
+      hint_ru: hintRu, hint_tr: hintTr, solution_audio_url: editor.audio.trim() || null,
       content: editor.type === 'fill_in_blank'
         ? { instruction: editor.instruction, text_before: editor.textBefore, text_after: editor.textAfter, correct_answer: editor.answer, options, smart_hint: smartHintOrExplanation }
         : { instruction: editor.instruction, question: editor.question, correct_answer: editor.answer, options, explanation: smartHintOrExplanation },

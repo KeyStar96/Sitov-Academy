@@ -10,7 +10,8 @@ const metadata = {
   level: z.enum(ACCESS_LEVELS),
   lesson: z.string().trim().min(1).max(120),
   topic: z.string().trim().min(1).max(160),
-  hint: localizedTextSchema,
+  hint_ru: z.string().trim().max(2000).nullable().optional(),
+  hint_tr: z.string().trim().max(2000).nullable().optional(),
   solution_audio_url: z.url().max(2000).refine(value => value.startsWith('https://')).nullable(),
 }
 export const grammarWriteSchema = z.discriminatedUnion('type', [

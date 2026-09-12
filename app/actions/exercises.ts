@@ -167,7 +167,10 @@ export async function getExercises(level?: string): Promise<StudentExercise[]> {
 
     for (const row of rows) {
       const progress = readProgress(row.user_exercise_progress)
-      const hint = asLocalizedText(row.hint)
+      const hintObj: Record<string, string> = {}
+      if (row.hint_ru) hintObj.ru = row.hint_ru
+      if (row.hint_tr) hintObj.tr = row.hint_tr
+      const hint = Object.keys(hintObj).length > 0 ? hintObj : null
 
       if (row.type === 'fill_in_blank') {
         const content = parseFillInBlankContent(row.content)
