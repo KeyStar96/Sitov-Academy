@@ -151,6 +151,8 @@ export default function FillInBlankExerciseCard({
             {exercise.content.correct_answer}
           </span>
         )}
+        {exercise.content.text_after}
+      </p>
 
       {showRetryNotice && !isSolved && (
         <div
