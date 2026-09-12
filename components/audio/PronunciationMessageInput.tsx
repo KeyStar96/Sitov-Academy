@@ -6,13 +6,13 @@ import { Loader2, Mic, Send, Square, Trash2 } from 'lucide-react'
 import { sendPronunciationMessage } from '@/app/actions/pronunciation-conversations'
 import { uploadPrivatePronunciationRecording } from '@/lib/audio/upload'
 import { useAudioRecorder } from '@/lib/audio/useAudioRecorder'
-import type { ExerciseTranslator } from '@/lib/exercise-i18n'
+import type { PronunciationTranslator } from '@/lib/pronunciation-i18n'
 import LiveWaveform from '@/components/audio/LiveWaveform'
 import WaveformPlayer from '@/components/audio/WaveformPlayer'
 
 interface PronunciationMessageInputProps {
   conversationId: string
-  t: ExerciseTranslator
+  t: PronunciationTranslator
   onMessageSent: () => Promise<void>
 }
 

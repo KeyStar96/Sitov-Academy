@@ -72,6 +72,13 @@ export const PRONUNCIATION_FALLBACKS = {
   resubmit_button: 'Neue Aufnahme machen',
   resubmit_cancel: 'Abbrechen',
 
+  reply_label: 'Deine Antwort',
+  reply_placeholder: 'Tippe deine Nachricht ...',
+  message_sent: 'Nachricht gesendet!',
+  message_failed: 'Nachricht konnte nicht gesendet werden.',
+  send_message: 'Senden',
+  sending_message: 'Wird gesendet ...',
+
   notification_title: 'Du hast eine neue Sprachnachricht erhalten',
   notification_text_one:
     'Deine Lehrkraft hat dir Feedback zu deiner Aufnahme im Niveau {level} hinterlegt.',

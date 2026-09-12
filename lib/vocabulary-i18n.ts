@@ -164,6 +164,8 @@ export const VOCABULARY_FALLBACKS = {
   reset_progress_confirm: "Alle Lernstände dieser Lektion werden zurückgesetzt. Möchtest du fortfahren?",
   reset_progress_yes: "Ja, zurücksetzen",
   cancel: "Abbrechen",
+  your_answer_label: 'Deine Eingabe:',
+  alternative_answer_hint: 'Richtig! Oft wird hierfür auch diese Form verwendet:',
 } as const
 
 export type VocabularyTranslationKey = Extract<keyof typeof VOCABULARY_FALLBACKS, string>

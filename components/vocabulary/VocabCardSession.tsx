@@ -43,7 +43,7 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
   const [saveFailed, setSaveFailed] = useState(false)
   const [answer, setAnswer] = useState('')
   const drafts = useRef(new Map<string, string>())
-  const [sentenceResult, setSentenceResult] = useState<{ correct: boolean; solution: string } | null>(null)
+  const [sentenceResult, setSentenceResult] = useState<{ correct: boolean; solution: string; isAlternative?: boolean } | null>(null)
   const exitRequested = useRef(false)
   const finalized = useRef(false)
   const t = useMemo(() => createVocabularyTranslator(translations), [translations])
@@ -75,7 +75,7 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
       if (mounted.current && item.card.format === 'sentence') {
         sentenceBusy.current = false
         setSentencePending(false)
-        setSentenceResult({ correct: result.isCorrect === true, solution: result.correctAnswer ?? '' })
+        setSentenceResult({ correct: result.isCorrect === true, solution: result.correctAnswer ?? '', isAlternative: result.isAlternative })
       }
     },
     onBlocked: pending => {
