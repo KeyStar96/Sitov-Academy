@@ -10,10 +10,10 @@ export async function getAllLevelsProgress() {
   if (!user) return {}
 
   // 1. Hole alle Übungen und deren Level
-  const { data: exercises } = await supabase.from('exercises').select('id, level')
+  const { data: exercises } = await supabase.from('learning_exercises').select('id, unit:learning_units!inner(level)')
   
   // 2. Hole alle Vokabelkarten und deren Level
-  const { data: vocabCards } = await supabase.from('vocabulary_cards').select('id, level')
+  const { data: vocabCards } = await supabase.from('learning_vocabulary_cards').select('id, unit:learning_units!inner(level)')
 
   // 3. Hole den Fortschritt des Users für Übungen
   const { data: exerciseProgress } = await supabase
@@ -26,16 +26,16 @@ export async function getAllLevelsProgress() {
   const vocabProgress = (await readVocabularyProgress(supabase, user.id)).filter(row => row.box_number === 7)
 
   // Map IDs to Level
-  const exerciseLevelMap = new Map((exercises || []).map(e => [e.id, e.level]))
-  const vocabLevelMap = new Map((vocabCards || []).map(v => [v.id, v.level]))
+  const exerciseLevelMap = new Map((exercises || []).map(e => [e.id, e.unit.level]))
+  const vocabLevelMap = new Map((vocabCards || []).map(v => [v.id, v.unit.level]))
 
   // Total items per level
   const totalPerLevel: Record<string, number> = {}
   exercises?.forEach(e => {
-    totalPerLevel[e.level] = (totalPerLevel[e.level] || 0) + 1
+    totalPerLevel[e.unit.level] = (totalPerLevel[e.unit.level] || 0) + 1
   })
   vocabCards?.forEach(v => {
-    totalPerLevel[v.level] = (totalPerLevel[v.level] || 0) + 1
+    totalPerLevel[v.unit.level] = (totalPerLevel[v.unit.level] || 0) + 1
   })
 
   // Completed items per level

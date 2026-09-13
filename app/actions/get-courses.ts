@@ -13,14 +13,13 @@ export const getCourses = unstable_cache(async ():Promise<CourseConfig[]> => {
     if(error) throw error
     const today=new Date().toISOString().slice(0,10)
     return (data??[]).filter(row=>!row.end_date||row.end_date>=today).map(row=>({
-      id:row.id,translationKey:row.translation_key,title:row.title,description:row.description,type:row.type==='online'?'online':'presence',price:Number(row.price),
+      id:row.id,slug:row.slug,title:row.title,description:row.description,type:row.type==='online'?'online':'presence',unitPrice:Number(row.unit_price),
       category:row.category==='private'?'private':row.category==='speaking'?'speaking':row.category==='online'?'online':'german',
-      sortOrder:row.sort_order,level:row.level,instructor:row.instructor==='special'?'special':'standard',unitDuration:row.unit_duration,
+      sortOrder:row.sort_order,level:row.level,unitMinutes:row.unit_minutes,
       startDate:row.start_date??undefined,endDate:row.end_date??undefined,trialLessons:row.trial_lessons,
       translations:row.course_translations.map(item=>({locale:item.locale,title:item.title,description:item.description})),
       sessions:row.course_schedules.sort((a,b)=>a.weekday-b.weekday||a.start_time.localeCompare(b.start_time)).map(item=>({
         day:DAYS[item.weekday-1],startTime:item.start_time.slice(0,5),endTime:item.end_time.slice(0,5),
-        isAlternating:!!item.alternate_start_time,altStartTime:item.alternate_start_time?.slice(0,5),altEndTime:item.alternate_end_time?.slice(0,5),
       })),
     }))
   }catch {console.error('[courses] Catalog unavailable');return []}

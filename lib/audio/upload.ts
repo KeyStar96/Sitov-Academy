@@ -27,16 +27,8 @@ export function extensionForMimeType(mimeType: string): string {
 }
 
 export type AudioUploadResult =
-  | { success: true; publicUrl: string }
+  | { success: true; audioPath: string }
   | { success: false; reason: 'not_authenticated' | 'upload_failed' | 'not_configured' }
-
-/** Compatibility for the earlier recorder controls; both use the same private store. */
-export function uploadStudentRecording(blob: Blob): Promise<AudioUploadResult> {
-  return uploadPrivatePronunciationRecording(blob)
-}
-export function uploadFeedbackRecording(blob: Blob, _submissionId: string): Promise<AudioUploadResult> {
-  return uploadPrivatePronunciationRecording(blob)
-}
 
 /** Private recordings use immutable owner folders; only participants receive signed playback URLs. */
 export async function uploadPrivatePronunciationRecording(blob: Blob): Promise<AudioUploadResult> {
@@ -54,7 +46,7 @@ export async function uploadPrivatePronunciationRecording(blob: Blob): Promise<A
       console.error('Private pronunciation upload failed', { userId: user.id, message: uploadError.message })
       return { success: false, reason: 'upload_failed' }
     }
-    return { success: true, publicUrl: `storage://pronunciation_audio/${path}` }
+    return { success: true, audioPath: `storage://pronunciation_audio/${path}` }
   } catch (error) {
     if (error instanceof SupabaseConfigError) return { success: false, reason: 'not_configured' }
     console.error('Private pronunciation upload failed', error)

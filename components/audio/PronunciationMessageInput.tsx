@@ -40,7 +40,7 @@ export default function PronunciationMessageInput({ conversationId, t, onMessage
         else {
           const result = await uploadPrivatePronunciationRecording(recorder.audioBlob)
           if (!result.success) { setNotice('error'); return }
-          audioPath = result.publicUrl
+          audioPath = result.audioPath
           uploaded.current = { blob: recorder.audioBlob, path: audioPath }
         }
       }

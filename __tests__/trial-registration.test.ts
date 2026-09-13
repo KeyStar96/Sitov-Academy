@@ -13,7 +13,7 @@ it('does not expose existing pupils through public eligibility probes',async()=>
 })
 it('stores trials through the atomic business RPC with explicit consents',async()=>{
  expect(await submitTrialLesson(input)).toEqual({success:true,message:'trial_success'})
- expect(rpc).toHaveBeenCalledWith('submit_business_registration',expect.objectContaining({p_course_ids:[id],p_start:'2026-10-05',p_trial:true,p_locale:'uk',p_consents:{privacy:true,agb:true,recording:null}}))
+ expect(rpc).toHaveBeenCalledWith('submit_business_registration',expect.objectContaining({p_course_selections:[{course_id:id}],p_start:'2026-10-05',p_trial:true,p_locale:'uk',p_consents:{privacy:true,agb:true,recording:null}}))
 })
 it('rejects missing consents and legacy course IDs before database access',async()=>{
  expect((await submitTrialLesson({...input,privacyAccepted:false})).success).toBe(false)

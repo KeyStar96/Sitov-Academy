@@ -9,7 +9,7 @@ jest.mock('@/components/exercises/GrammarStudio.module.css', () => new Proxy({},
 jest.mock('@/app/actions/grammar-cms', () => ({ saveGrammarExercise: jest.fn(), removeGrammarExercise: jest.fn() }))
 
 const row: GrammarExerciseRow = {
-  id: '00000000-0000-4000-8000-000000000001', level: 'A1.1', lesson: 'A1.1 · 01', topic: 'Artikel', type: 'fill_in_blank',
+  unit_id: '00000000-0000-4000-8000-000000000099', id: '00000000-0000-4000-8000-000000000001', level: 'A1.1', lesson: 'A1.1 · 01', topic: 'Artikel', type: 'fill_in_blank',
   content: { text_before: '', text_after: ' Tisch ist groß.', correct_answer: 'Der', options: ['Der', 'Die', 'Das'], alternative_answers: ['Dieser'], smart_hint: { de: 'Erklärung', en: 'Explanation', ru: 'Объяснение', uk: 'Пояснення', tr: 'Açıklama' } },
   hint: { en: 'Contrastive English', ru: 'Vergleich Russisch', tr: 'Vergleich Türkisch', uk: 'Contrastive Ukrainian' },
   solution_audio_url: null, created_at: null,

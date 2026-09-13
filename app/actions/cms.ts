@@ -1,13 +1,11 @@
 'use server'
 
 import { createClient } from '@/utils/supabase/server'
+import { videoQuery, mapVideo } from '@/lib/learning-catalog'
 import { revalidatePath } from 'next/cache'
-import type { AddExerciseInput } from '@/lib/types/exercise'
-import { grammarWriteSchema } from '@/lib/grammar-validation'
-import { getGrammarExercises, saveGrammarExercise, removeGrammarExercise } from '@/app/actions/grammar-cms'
 import { z } from 'zod'
 import { videoInputSchema, videoRecordSchema, type VideoWriteInput, type VideoWriteResult, type VideoDeleteResult, type VideoRecord } from '@/lib/video-links'
-import { saveLearningContent, deleteLearningContent } from '@/lib/learning-content'
+import { saveLearningContent, deleteLearningContent } from '@/lib/learning-writes'
 import { vocabWriteSchema, type VocabWriteInput, type VocabSaveResult } from '@/lib/types/vocabulary-admin'
 import { readAdminVocabulary, writeAdminVocabulary, removeAdminVocabulary } from '@/lib/admin-vocabulary'
 
@@ -76,9 +74,9 @@ export async function deleteVocab(id: string) {
 export async function getVideos(): Promise<VideoRecord[]> {
   try {
     const supabase = await requireAdmin()
-    const { data, error } = await supabase.from('videos').select('*').order('created_at', { ascending: false })
+    const { data, error } = await videoQuery(supabase).order('created_at', { ascending: false })
     if (error) throw error
-    return (data ?? []).map(row => videoRecordSchema.parse(row))
+    return (data ?? []).map(row => mapVideo(row))
   } catch (error) {
     console.error('Teacher video library unavailable:', error instanceof Error ? error.name : 'database_error')
     throw new Error('video_load_failed')
@@ -95,8 +93,7 @@ async function saveVideo(payload: VideoWriteInput, id?: string): Promise<VideoWr
   if (!parsed.success) return { success: false, error: 'invalid_input' }
   try {
     const supabase = await requireAdmin()
-    const record = { ...parsed.data, is_external: true, video_url: null }
-    const data = videoRecordSchema.parse(await saveLearningContent(supabase, 'videos', record, id))
+    const data = videoRecordSchema.parse(await saveLearningContent(supabase, 'videos', parsed.data, id))
     revalidatePath('/[lang]/admin/content/videos', 'page')
     revalidatePath('/[lang]/dashboard/level/[level]/videos', 'page')
     return { success: true, data }
@@ -117,22 +114,4 @@ export async function deleteVideo(id: string): Promise<VideoDeleteResult> {
     console.error('Teacher video delete failed:', error instanceof Error ? error.name : 'database_error')
     return { success: false, error: 'delete_failed' }
   }
-}
-
-// -------------------------------------------------------------
-// EXERCISES: compatibility names delegate to the validated teacher actions.
-// -------------------------------------------------------------
-export async function getExercises() {
-  return (await getGrammarExercises()).data
-}
-
-export async function addExercise(payload: AddExerciseInput): Promise<{ success: boolean; error?: string }> {
-  const parsed = grammarWriteSchema.safeParse(payload)
-  if (!parsed.success) return { success: false, error: 'invalid' }
-  const result = await saveGrammarExercise(parsed.data)
-  return result.success === false ? { success: false, error: result.error } : { success: true }
-}
-
-export async function deleteExercise(id: string) {
-  return removeGrammarExercise(id)
 }

@@ -1,4 +1,7 @@
 "use client";
+import CourseQuantityInput from './CourseQuantityInput';
+import { formatCourseQuantity } from '@/lib/course-quantity-i18n';
+import type { CourseSelection } from '@/lib/course-selection';
 import { courseText } from '@/lib/business-courses';
 
 import React, { useState, useEffect, useRef } from "react";
@@ -285,7 +288,7 @@ const CourseRow = React.memo(({ course, selected, onToggle, title, priceFormatte
                     {/* Right: Price (Mobile Only - moved up) */}
                     <div className="text-right shrink-0 md:hidden pl-2">
                         <div className="font-sans tabular-nums text-sm text-[var(--foreground)] font-semibold">{priceFormatted}</div>
-                        <div className="text-gray-400 text-xs">{t?.units_suffix || germanDictionary.registration.course_card.units_suffix}</div>
+                        <div className="text-gray-400 text-xs">{dictionary.academy.course_unit.replace('{minutes}', String(course.unitMinutes))}</div>
                     </div>
                 </div>
 
@@ -312,7 +315,7 @@ const CourseRow = React.memo(({ course, selected, onToggle, title, priceFormatte
 
                 {/* Desktop: Price (Hidden on Mobile) */}
                 <div className="hidden md:block text-right pl-9 md:pl-0 w-full md:w-auto shrink-0">
-                    <span className="font-sans tabular-nums text-sm text-[var(--foreground)] font-semibold">{priceFormatted} <span className="text-gray-400 text-xs font-normal">{t?.units_suffix || germanDictionary.registration.course_card.units_suffix}</span></span>
+                    <span className="font-sans tabular-nums text-sm text-[var(--foreground)] font-semibold">{priceFormatted} <span className="text-gray-400 text-xs font-normal">{dictionary.academy.course_unit.replace('{minutes}', String(course.unitMinutes))}</span></span>
                 </div>
             </div>
 
@@ -333,7 +336,7 @@ const CourseRow = React.memo(({ course, selected, onToggle, title, priceFormatte
 
                     return (
                         <span key={i} className="text-xs font-sans tabular-nums text-gray-400">
-                            {shortWeekdays[dayKey] || s.day} {s.startTime} {s.isAlternating && s.altStartTime ? `& ${s.altStartTime} (${timetableLabels?.alternating || germanDictionary.timetable.labels.alternating})` : ''}
+                            {shortWeekdays[dayKey] || s.day} {s.startTime}
                         </span>
                     );
                 })}
@@ -533,6 +536,8 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
 
     const [step, setStep] = useState<1 | 2 | 3>(1);
     const [selectedCourseIds, setSelectedCourseIds] = useState<string[]>([]);
+    const [requestedUnits, setRequestedUnits] = useState<Record<string,number>>({});
+    const courseSelections: CourseSelection[] = selectedCourseIds.map(courseId=>({courseId,...(courses.find(course=>course.id===courseId)?.category==='private'?{requestedUnits:requestedUnits[courseId]??1}:{})}));
     const [isSubmitting, setIsSubmitting] = useState(false);
     const isSubmittingRef = useRef(false);
     const [isSuccess, setIsSuccess] = useState(false);
@@ -727,7 +732,7 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
         // The Monthly Total is calculated separately in `totalMonthlyPrice`.
         return {
             title: courseText(c, lang).title,
-            priceFormatted: isTrialMode ? (trialT?.price_label || germanDictionary.registration.trial.price_label) : new Intl.NumberFormat(lang === 'en' ? 'de-DE' : 'de-DE', { style: 'currency', currency: 'EUR' }).format(c.price),
+            priceFormatted: isTrialMode ? (trialT?.price_label || germanDictionary.registration.trial.price_label) : new Intl.NumberFormat(lang === 'en' ? 'de-DE' : 'de-DE', { style: 'currency', currency: 'EUR' }).format(c.unitPrice),
             level: c.level,
             dictionary // Pass dictionary down
         };
@@ -742,11 +747,11 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
 
         return selectedCoursesFull.reduce((acc, c) => {
             // Pass startDay (d) for the first month
-            const stats = calculateMonthlyStats(c, lang, m - 1, y, exceptions, d);
+            const stats = calculateMonthlyStats(c, lang, m - 1, y, exceptions, d, requestedUnits[c.id]??1);
             const units = stats.totalUnits;
-            return acc + (units * c.price);
+            return acc + (units * c.unitPrice);
         }, 0);
-    }, [selectedCoursesFull, lang, startDate, exceptions]);
+    }, [selectedCoursesFull, lang, startDate, exceptions, requestedUnits]);
 
     // Auto-advance start date if no sessions are left in the selected month
     React.useEffect(() => {
@@ -757,7 +762,7 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
 
         let totalUnitsRemaining = 0;
         selectedCoursesFull.forEach(c => {
-            const stats = calculateMonthlyStats(c, lang, m - 1, y, exceptions, d);
+            const stats = calculateMonthlyStats(c, lang, m - 1, y, exceptions, d, requestedUnits[c.id]??1);
             totalUnitsRemaining += stats.totalUnits;
         });
 
@@ -772,35 +777,7 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
             const newDate = `01.${String(nextM).padStart(2, '0')}.${nextY}`;
             setStartDate(newDate);
         }
-    }, [selectedCoursesFull, lang, startDate, exceptions, isTrialMode]);
-
-    // Future Outlook (Next 2 Months)
-    const futurePrices = React.useMemo(() => {
-        const [d, m, y] = startDate.split('.').map(Number);
-        if (!d || !m || !y) return [];
-
-        const nextMonths = [];
-        // Calculate for +1 and +2 months
-        for (let i = 1; i <= 2; i++) {
-            let nextM = m - 1 + i;
-            let nextY = y;
-            if (nextM > 11) {
-                nextM -= 12;
-                nextY++;
-            }
-
-            const monthLabel = new Date(nextY, nextM, 1).toLocaleString(lang === 'de' ? 'de-DE' : 'en-US', { month: 'long', year: 'numeric' });
-
-            const cost = selectedCoursesFull.reduce((acc, c) => {
-                // Full month calculation (startDay defaults to 1)
-                const stats = calculateMonthlyStats(c, lang, nextM, nextY, exceptions);
-                return acc + (stats.totalUnits * c.price);
-            }, 0);
-
-            nextMonths.push({ label: monthLabel, cost });
-        }
-        return nextMonths;
-    }, [selectedCoursesFull, lang, startDate, exceptions]);
+    }, [selectedCoursesFull, lang, startDate, exceptions, isTrialMode, requestedUnits]);
 
     const formatPrice = React.useCallback((p: number) => new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(p), []);
 
@@ -953,27 +930,10 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
         isSubmittingRef.current = true;
         setIsSubmitting(true);
 
-        // Calculate individual prices for the map
-        const coursePrices: Record<string, number> = {};
-        const [d, m, y] = startDate.split('.').map(Number);
-
-        selectedCoursesFull.forEach(c => {
-            const stats = calculateMonthlyStats(c, lang, m - 1, y, exceptions, d);
-            coursePrices[c.id] = stats.totalUnits * c.price;
-        });
-
-        console.log("Submitting to Supabase...", {
-            courses: selectedCourseIds,
-            personal: data,
-            consents,
-            coursePrices
-        });
-
         try {
-            const result = await submitEnrollment(data, selectedCourseIds, startDate, totalMonthlyPrice, consents, coursePrices, lang);
+            const result = await submitEnrollment(data, courseSelections, startDate, consents, lang);
 
             if (result.success) {
-                console.log("Enrollment success:", result);
                 trackMetaEvent('Purchase', {
                     content_name: 'Kurseinschreibung',
                     content_category: 'Course Enrollment',
@@ -1312,6 +1272,7 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                                                                     lang={lang}
                                                                     startDate={startDate}
                                                                     selectedCourses={selectedCoursesFull}
+                                                                    courseSelections={courseSelections}
                                                                     currentMonthPrice={totalMonthlyPrice}
                                                                     exceptions={exceptions}
                                                                 />
@@ -1445,7 +1406,7 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                                             </div>
                                             <div className="space-y-4">
                                                 {group.courses.map(c => (
-                                                    <CourseRow key={c.id} course={c} selected={selectedCourseIds.includes(c.id)} onToggle={() => toggleCourse(c.id)} {...getCourseData(c)} />
+                                                    <div key={c.id} className="space-y-2"><CourseRow course={c} selected={selectedCourseIds.includes(c.id)} onToggle={() => toggleCourse(c.id)} {...getCourseData(c)} />{!isTrialMode && c.category==='private' && selectedCourseIds.includes(c.id) && <CourseQuantityInput value={requestedUnits[c.id]??1} onChange={value=>setRequestedUnits(current=>({...current,[c.id]:value}))} unitMinutes={c.unitMinutes} unitPrice={c.unitPrice} lang={lang}/>}</div>
                                                 ))}
                                             </div>
                                         </section>
@@ -1639,11 +1600,11 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                                         <div className="space-y-4">
                                             {selectedCoursesFull.map(c => {
                                                 const [d, m, y] = startDate.split('.').map(Number);
-                                                const { totalUnits, deductions } = calculateMonthlyStats(c, lang, m - 1, y, exceptions, d);
-                                                const netPrice = c.price * totalUnits;
+                                                const { totalUnits, deductions } = calculateMonthlyStats(c, lang, m - 1, y, exceptions, d, requestedUnits[c.id]??1);
+                                                const netPrice = c.unitPrice * totalUnits;
                                                 return (
                                                     <div key={c.id} className="flex justify-between items-center text-sm">
-                                                        <span className="font-semibold text-[var(--foreground)]">{courseText(c, lang).title}</span>
+                                                        <span className="font-semibold text-[var(--foreground)]">{courseText(c, lang).title}<span className="mt-1 block text-base font-normal text-[var(--muted)]">{formatCourseQuantity(totalUnits,c.unitMinutes,lang)}</span></span>
                                                         <div className="text-right">
                                                             <span className="font-sans tabular-nums text-[var(--foreground)]">{formatPrice(netPrice)}</span>
                                                             {deductions.length > 0 && (
@@ -1732,8 +1693,8 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                             ) : (
                                 selectedCoursesFull.map(c => {
                                     const [d, m, y] = startDate.split('.').map(Number);
-                                    const { sessionCount, totalUnits, deductions } = calculateMonthlyStats(c, lang, m - 1, y, exceptions, d);
-                                    const netPrice = c.price * totalUnits;
+                                    const { sessionCount, totalUnits, deductions } = calculateMonthlyStats(c, lang, m - 1, y, exceptions, d, requestedUnits[c.id]??1);
+                                    const netPrice = c.unitPrice * totalUnits;
                                     const deductionSum = deductions.reduce((acc, d) => acc + d.amount, 0);
                                     const grossPrice = netPrice + deductionSum;
 
@@ -1758,7 +1719,7 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                                             ))}
 
                                             <div className="flex justify-between text-xs text-gray-500 uppercase mt-1">
-                                                <span>{totalUnits} {receipt?.units || germanDictionary.registration.receipt.units} ({sessionCount} {receipt?.sessions || germanDictionary.registration.receipt.sessions})</span>
+                                                <span>{c.category==='private'?formatCourseQuantity(totalUnits,c.unitMinutes,lang):<>{totalUnits} {receipt?.units || germanDictionary.registration.receipt.units} ({sessionCount} {receipt?.sessions || germanDictionary.registration.receipt.sessions})</>}</span>
                                             </div>
                                         </motion.div>
                                     );

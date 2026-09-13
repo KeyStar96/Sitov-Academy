@@ -19,8 +19,8 @@ describe('private pronunciation recording uploads', () => {
   expect(mockUpload).toHaveBeenCalledWith(expect.stringMatching(new RegExp(`^${owner}/[0-9a-f-]{36}\\.webm$`)),blob,{contentType:'audio/webm',upsert:false})
   expect(first.success).toBe(true); expect(second.success).toBe(true)
   if (first.success && second.success) {
-   expect(first.publicUrl).toMatch(/^storage:\/\/pronunciation_audio\//)
-   expect(first.publicUrl).not.toEqual(second.publicUrl)
+   expect(first.audioPath).toMatch(/^storage:\/\/pronunciation_audio\//)
+   expect(first.audioPath).not.toEqual(second.audioPath)
   }
  })
  it('does not upload empty, oversized or non-audio blobs', async () => {

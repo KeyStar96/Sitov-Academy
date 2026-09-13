@@ -2,6 +2,7 @@
 
 import { revalidatePath } from 'next/cache'
 import { z } from 'zod'
+import { grammarQuery, mapGrammarExercise } from '@/lib/learning-catalog'
 import { createClient } from '@/utils/supabase/server'
 import { hasTrainerAccess, getAllowedLessons } from '@/lib/access/levels'
 import { loadLevelAccessProfile } from '@/lib/access/server'
@@ -73,7 +74,7 @@ async function loadVocabularyMatches(
   if (words.length === 0) return matches
 
   const { data, error } = await supabase
-    .from('vocabulary_cards')
+    .from('learning_vocabulary_cards')
     .select('word_de, article, audio_url')
     .in('word_de', [...words])
 
@@ -111,16 +112,14 @@ export async function getExercises(level?: string): Promise<StudentExercise[]> {
     const accessProfile = await loadLevelAccessProfile(supabase, user.id)
     if (level && !hasTrainerAccess(accessProfile, level, 'exercises')) return []
 
-    let query = supabase
-      .from('exercises')
-      .select('*')
-      .order('lesson', { ascending: true })
+    let query = grammarQuery(supabase)
+      .order('label', { referencedTable: 'unit', ascending: true })
       .order('id', { ascending: true })
 
     if (level) {
-      query = query.eq('level', level)
+      query = query.eq('unit.level', level)
     } else if (accessProfile?.role !== 'admin' && accessProfile?.role !== 'teacher') {
-      query = query.in('level', (accessProfile?.allowed_levels ?? []).filter(item => hasTrainerAccess(accessProfile, item, 'exercises')))
+      query = query.in('unit.level', (accessProfile?.allowed_levels ?? []).filter(item => hasTrainerAccess(accessProfile, item, 'exercises')))
     }
 
     const [data, progress] = await Promise.all([
@@ -130,12 +129,12 @@ export async function getExercises(level?: string): Promise<StudentExercise[]> {
     const progressById = new Map(progress.map(row => [row.exercise_id, row]))
 
     const rows: ExerciseWithProgress[] = (data ?? []).flatMap(row => {
-      const parsed = grammarExerciseSchema.safeParse(row)
+      const parsed = grammarExerciseSchema.safeParse(mapGrammarExercise(row))
       if (!parsed.success) return []
       return [{ ...parsed.data, user_exercise_progress: progressById.has(parsed.data.id) ? [progressById.get(parsed.data.id)!] : [] }]
     }).filter(row => {
       const allowedLessons = getAllowedLessons(accessProfile, row.level, 'exercises')
-      return !allowedLessons || allowedLessons.includes(row.unit_id ?? row.lesson)
+      return !allowedLessons || allowedLessons.includes(row.unit_id)
     })
 
     // Lösungen der Lückentexte vorab sammeln: für Geschwister-Distraktoren
@@ -296,13 +295,4 @@ export async function finishExerciseSession(level: string): Promise<{ success: b
     console.error(`Unerwarteter Fehler in finishExerciseSession (Level ${level}):`, err)
     return { success: false }
   }
-}
-
-/** Nur noch als Kompatibilitätsschicht – neue Aufrufer nutzen recordExerciseAttempt. */
-export async function saveExerciseProgress(
-  exerciseId: string,
-  answer: string
-): Promise<{ success: boolean }> {
-  const result = await recordExerciseAttempt({ exerciseId, answer, hintShown: false })
-  return { success: result.success }
 }

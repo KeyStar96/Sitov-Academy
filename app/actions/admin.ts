@@ -34,15 +34,14 @@ export async function getAdminStats() {
     
     // Get total students
     const { count: studentCount } = await supabase
-      .from('profile_details')
-      .select('*', { count: 'exact', head: true })
+      .from('profiles')
+      .select('id', { count: 'exact', head: true })
       .eq('role', 'student')
 
     // Freigeschaltete Nutzer: mind. ein Sprachniveau freigegeben.
     const { count: activatedCount } = await supabase
-      .from('profile_details')
-      .select('*', { count: 'exact', head: true })
-      .not('allowed_levels', 'eq', '{}')
+      .from('profiles')
+      .select('id,student_level_access!inner(user_id)', { count: 'exact', head: true })
 
     // Get pending submissions
     const { count: pendingSubmissions } = await supabase
@@ -67,14 +66,14 @@ export async function getStudents() {
     const supabase = createAdminClient()
     
     const { data, error } = await supabase
-      .from('profile_details')
-      .select('*')
+      .from('profiles')
+      .select('id,role,created_at,person:people(*),level_access:student_level_access(level)')
       .order('created_at', { ascending: false })
       
     if (error) throw error
-    const { data: rules, error: rulesError } = await supabase.from('student_trainer_access').select('*')
+    const { data: rules, error: rulesError } = await supabase.from('learning_trainer_grants').select('user_id,level,trainer,enabled,unit_mode,units:learning_unit_grants(unit_id)')
     if (rulesError) throw rulesError
-    return (data ?? []).map(student => ({ ...student, student_trainer_access: (rules ?? []).filter(rule => rule.user_id === student.id) }))
+    return (data ?? []).map(student => ({ ...student, role: profileRoleSchema.nullable().parse(student.role), allowed_levels: student.level_access.map(access => access.level), trainer_grants: (rules ?? []).filter(rule => rule.user_id === student.id).map(rule => ({ level: rule.level, trainer: rule.trainer, enabled: rule.enabled, unit_ids: rule.unit_mode === 'all' ? null : rule.units.map(item => item.unit_id) })) }))
   } catch (error) {
     console.error('Error fetching students', error)
     return []
@@ -127,20 +126,20 @@ export async function getAllStudentsProgressData() {
     const supabase = createAdminClient()
     
     const [exercises, vocabCards, exerciseProgress, vocabProgress] = await Promise.all([
-      readAllRows((from, to) => supabase.from('exercises').select('id,level').order('id').range(from, to)),
-      readAllRows((from, to) => supabase.from('vocabulary_cards').select('id,level').order('id').range(from, to)),
+      readAllRows((from, to) => supabase.from('learning_exercises').select('id,unit:learning_units!inner(level)').order('id').range(from, to)),
+      readAllRows((from, to) => supabase.from('learning_vocabulary_cards').select('id,unit:learning_units!inner(level)').order('id').range(from, to)),
       readAllRows((from, to) => supabase.from('user_exercise_progress').select('user_id,exercise_id').eq('completed', true).order('id').range(from, to)),
       readAllRows((from, to) => supabase.from('vocabulary_direction_progress').select('user_id,card_id,direction').eq('box_number', 7).order('id').range(from, to)),
     ])
 
     // Maps
-    const exerciseLevelMap = new Map((exercises || []).map(e => [e.id, e.level]))
-    const vocabLevelMap = new Map((vocabCards || []).map(v => [v.id, v.level]))
+    const exerciseLevelMap = new Map((exercises || []).map(e => [e.id, e.unit.level]))
+    const vocabLevelMap = new Map((vocabCards || []).map(v => [v.id, v.unit.level]))
 
     // Total per level
     const totalPerLevel: Record<string, number> = {}
-    exercises?.forEach(e => { if (!e.level) return; totalPerLevel[e.level] = (totalPerLevel[e.level] || 0) + 1 })
-    vocabCards?.forEach(v => { if (!v.level) return; totalPerLevel[v.level] = (totalPerLevel[v.level] || 0) + 1 })
+    exercises?.forEach(e => { if (!e.unit.level) return; totalPerLevel[e.unit.level] = (totalPerLevel[e.unit.level] || 0) + 1 })
+    vocabCards?.forEach(v => { if (!v.unit.level) return; totalPerLevel[v.unit.level] = (totalPerLevel[v.unit.level] || 0) + 1 })
 
     // Completed per user per level
     const userCompletedPerLevel: Record<string, Record<string, number>> = {}
@@ -243,7 +242,7 @@ export async function getAvailableLessons(level: string, trainer: string): Promi
     if (error) throw error
     const topics = new Map<string, Set<string>>()
     if (validTrainer === 'exercises') {
-      const { data, error: contentError } = await supabase.from('exercises').select('unit_id,topic').eq('level', validLevel)
+      const { data, error: contentError } = await supabase.from('learning_exercises').select('unit_id,topic,unit:learning_units!inner(level)').eq('unit.level', validLevel)
       if (contentError) throw contentError
       for (const row of data ?? []) {
         if (!row.unit_id || !row.topic) continue

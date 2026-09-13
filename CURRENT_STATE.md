@@ -1,20 +1,12 @@
 # Current State Analysis (Ist-Zustand)
 
-## Aktueller Stand — VPS-Umbau vom 13. September 2026
+## Stand dieses Releases — kanonisches VPS-Schema, 13. September 2026
 
-**Die Datenmigration ist live angewendet; [https://217.154.228.254](https://217.154.228.254) läuft auf dem eigenen VPS mit vertrauenswürdigem Let's-Encrypt-IP-TLS.** `certbot renew --dry-run` war erfolgreich. Das Zertifikat ist kurzlebig (etwa sieben Tage), der systemd-Timer prüft die Erneuerung alle zwölf Stunden; DNS bleibt unverändert. Die zuletzt erlaubte lesende Cloud-Orientierung wurde nicht genutzt. Dieser Umbau wurde ohne Cloud-Zugriffe ausgeführt.
+Die bisherige Kompatibilitätsschicht ist aus Code und Schema entfernt. Der Kurskatalog enthält neun physische Datensätze, alle Trainerinhalte bleiben erhalten. Privatunterricht Online unterstützt eine eingetippte oder per Plus/Minus gewählte Anzahl von 1–1.000 Einheiten zu 25 € je 45 Minuten. Vier Einheiten ergeben 100 €; Registrierung, Folgemonate, Lehreransicht und E-Mails verwenden dieselbe gespeicherte Mengen-/Preisgrundlage.
 
-Der vollständige Sicherungssatz liegt unter `/root/backups/sitov-before-refactor-20260913T130956Z` und enthält Datenbankdump, Rollen, geschützte Konfiguration und Proxy-Konfiguration. Der Restore wurde getestet; weitere Sicherungen entstanden vor DDL-Änderungen. Ein verwaistes Altprofil wurde ausschließlich in der isolierten Testkopie quarantänisiert. Der freigegebene Schüler-Neustart wurde nach dem Backup ausgeführt; zwei Staff-Konten blieben erhalten. Die spätere individuelle Funktion „Lernfortschritt zurücksetzen“ löscht dagegen keine Vertragsdaten oder Profile.
+Vor den Änderungen wurde die lokale Instanz vollständig gesichert. Der Dump wurde isoliert unter PostgreSQL 15.8 wiederhergestellt; die endgültige Gesamtmigration bestand zusätzlich einen frischen Wiederholungslauf. TypeScript, die komplette Jest-Suite und elf echte REST-Testgruppen gegen den isolierten Clone sind geprüft. Kein Cloud-Zugriff, kein externer Testmailversand und keine DNS-Änderung.
 
-Der live geprüfte Katalog enthält **512 Vokabelkarten, 604 Grammatikübungen, 149 Aussprachetexte davon 60 aktiv, zehn aktive Kurse und zwei archivierte Kurse**. Die Trainer umfassen A1.1, A1.2, A2.1, A2.2, B1.1 und B1.2. Datenmodell und Anwendung nutzen UUID-Lerneinheiten, relationale Freigaben, eine Vokabelfortschrittstabelle für beide Richtungen und einen gemeinsamen Audio-/Feedback-Dialogspeicher. Neue Schüler beginnen ohne Niveauzugang.
-
-Nachgewiesen sind 82 Jest-Suites mit 1.079 bestandenen Tests, ein übersprungener Opt-in-Netzwerktest, 60 isolierte PostgreSQL-/Worker-Tests und fehlerfreies TypeScript. 22 Live-REST-Prüfgruppen bestanden: 14 Basisprüfungen, fünf NULL-Eingabeprüfungen und drei fachliche Konfliktfälle. Letztere antworteten mit HTTP 409 in 51/53/114 ms, jeweils ohne Datenänderung.
-
-Im Live-Browser wurden Kurse angelegt, bearbeitet und archiviert. Acht axe-Scans der Auth-Seiten meldeten keine Verstöße; dies ist keine pauschale Barrierefreiheitszertifizierung. Zwei Grammatik-Kartenwechsel kamen ohne manuelles Scrollen aus. Die Kette Schüleraufnahme → Lehrer-Sprachantwort → Schülerantwort funktionierte einschließlich Waveform-Wiedergabe. Ein lokales TTS-Hörvorbild startete mit einem Klick nach 891 ms im geprüften Ablauf; dies ist eine Einzelmessung, kein allgemeines Latenzversprechen.
-
-Eine lokale Auth-Mail wurde zugestellt und ihr Bestätigungstoken erfolgreich verwendet. Der native Mailworker verarbeitete einen Auftrag mit `--once` bis `sent`; externe Testmails wurden nicht versendet. Der regelmäßige Mailworker ist aktiviert und läuft unter systemd. Alte Cloud-HTTP-Jobs sind entfernt. Next.js läuft als systemd-Dienst auf Loopback-Port 3000, Supabase im eigenen Docker-Stack, Postfix und Sprachsynthese lokal. Releases liegen unveränderlich unter `/var/www/sitov-releases/<12hash>`; `/var/www/sitov-current` wird durch [deploy-release.sh](deploy/vps/deploy-release.sh) mit Gesundheitsprüfung und automatischem Anwendungs-Rollback umgeschaltet. Kein PM2.
-
-**Abschlussstand:** Chat-Korrektur live bestätigt, Testkonten und Testaufnahmen entfernt, regelmäßiger Mailworker aktiviert. Die Bereinigung wurde unter `/root/backups/sitov-before-qa-cleanup-20260913T145917Z` gesichert. Zwei Staff-Konten, zehn aktive Kurse und alle Trainerinhalte sind erhalten; Schülerkonten, Buchungen, Lernstände und private Aufnahmen sind leer. [Modell, Migration und detaillierte Prüfnachweise](docs/vps-refactor-2026-09-13.md).
+Aktueller Migrations- und Deploymentnachweis: [canonical-schema-2026-09-13.md](docs/canonical-schema-2026-09-13.md). Frühere Prüfzahlen und Betriebsstände stehen im ausdrücklich historischen Abschnitt.
 
 ## Historie — frühere Architektur- und Betriebsstände
 

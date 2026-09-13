@@ -1,5 +1,6 @@
 import { ACCESS_LEVELS } from '@/lib/access/levels'
-import { getCatalogPrompts } from '@/lib/pronunciation-catalog'
+import readingTexts from '@/supabase/seeds/pronunciation-reading-2026.json'
+const getCatalogPrompts = (level: string) => readingTexts.filter(text => text.level === level).map(text => ({ id: text.id, level: text.level, title: text.title, sentenceDe: text.text, focus: text.focus }))
 import { createPronunciationSubmissionSchema, pronunciationMessageSchema, pronunciationAudioObjectPath, isOwnedPronunciationAudio } from '@/lib/pronunciation-conversations'
 import { getPronunciationTranslations, createPronunciationTranslator } from '@/lib/pronunciation-i18n'
 

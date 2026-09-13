@@ -1,4 +1,4 @@
--- VPS application schema reference. Auth/Storage bootstrap belongs to Supabase; apply the reviewed migrations for deployment.
+-- Canonical VPS application schema. Apply reviewed migrations; Supabase Auth/Storage bootstrap is managed separately.
 --
 -- PostgreSQL database dump
 --
@@ -32,6 +32,13 @@ CREATE SCHEMA grammar_private;
 
 
 --
+-- Name: identity_private; Type: SCHEMA; Schema: -; Owner: -
+--
+
+CREATE SCHEMA identity_private;
+
+
+--
 -- Name: learning_private; Type: SCHEMA; Schema: -; Owner: -
 --
 
@@ -43,13 +50,6 @@ CREATE SCHEMA learning_private;
 --
 
 CREATE SCHEMA learning_reset_private;
-
-
---
--- Name: monthly_booking_private; Type: SCHEMA; Schema: -; Owner: -
---
-
-CREATE SCHEMA monthly_booking_private;
 
 
 --
@@ -149,26 +149,57 @@ begin
  if b.kind<>'trial' then insert into public.invoice_cases(person_id,target_month,booking_id) values(b.person_id,b.target_month,b.id) on conflict(person_id,target_month) do nothing;end if;
  select * into strict p from public.people where id=b.person_id;
  perform public.queue_transactional_email('confirmed:'||b.id,case when b.kind='trial' then 'trial_confirmed' else 'registration_confirmed' end,b.contact_email,p.preferred_locale,
- jsonb_build_object('name',b.contact_name,'startDate',b.start_date,'courses',(select jsonb_agg(jsonb_build_object('title',title_snapshot,'price',amount)) from public.booking_items where booking_id=b.id)));
+ jsonb_build_object('name',b.contact_name,'startDate',b.start_date,'courses',(select jsonb_agg(jsonb_build_object('title',title_snapshot,'units',units,'unitPrice',unit_price,'unitMinutes',unit_minutes,'price',amount)) from public.booking_items where booking_id=b.id)));
 end $$;
 
 
 --
--- Name: course_quote(uuid, date, boolean); Type: FUNCTION; Schema: business_private; Owner: -
+-- Name: course_quote(uuid, date, integer, boolean); Type: FUNCTION; Schema: business_private; Owner: -
 --
 
-CREATE FUNCTION business_private.course_quote(p_course uuid, p_start date, p_trial boolean DEFAULT false) RETURNS TABLE(units numeric, amount numeric)
+CREATE FUNCTION business_private.course_quote(p_course uuid, p_start date, p_requested_units integer, p_trial boolean DEFAULT false) RETURNS TABLE(units numeric, amount numeric)
     LANGUAGE sql STABLE
     SET search_path TO ''
     AS $$
-select case when p_trial then 0 else coalesce(sum(extract(epoch from (s.end_time-s.start_time))/60/c.unit_duration),0) end,
-case when p_trial then 0 else round(coalesce(sum(extract(epoch from (s.end_time-s.start_time))/60/c.unit_duration*c.price),0),2) end
-from public.courses c join public.course_schedules s on s.course_id=c.id
-cross join lateral generate_series(p_start::timestamp,(date_trunc('month',p_start)+interval '1 month - 1 day')::timestamp,interval '1 day') day
-where c.id=p_course and extract(isodow from day)=s.weekday
- and (c.start_date is null or day::date>=c.start_date) and (c.end_date is null or day::date<=c.end_date)
- and not exists(select 1 from public.course_exceptions e where e.date=day::date and (e.course_id is null or e.course_id=c.id));
+ SELECT CASE WHEN p_trial THEN 0 WHEN c.category='private' THEN p_requested_units::numeric ELSE calendar.units END,
+ CASE WHEN p_trial THEN 0 WHEN c.category='private' THEN round(p_requested_units*c.unit_price,2) ELSE round(calendar.units*c.unit_price,2) END
+ FROM public.courses c CROSS JOIN LATERAL (
+  SELECT coalesce(sum(extract(epoch FROM(s.end_time-s.start_time))/60/c.unit_minutes),0) units
+  FROM public.course_schedules s
+  CROSS JOIN LATERAL generate_series(p_start::timestamp,(date_trunc('month',p_start)+interval '1 month - 1 day')::timestamp,interval '1 day') day
+  WHERE s.course_id=c.id AND extract(isodow FROM day)=s.weekday
+   AND(c.start_date IS NULL OR day::date>=c.start_date) AND(c.end_date IS NULL OR day::date<=c.end_date)
+   AND NOT EXISTS(SELECT 1 FROM public.course_exceptions e WHERE e.date=day::date AND(e.course_id IS NULL OR e.course_id=c.id))
+ ) calendar WHERE c.id=p_course;
 $$;
+
+
+--
+-- Name: decline_booking(uuid); Type: FUNCTION; Schema: business_private; Owner: -
+--
+
+CREATE FUNCTION business_private.decline_booking(p_id uuid) RETURNS void
+    LANGUAGE plpgsql SECURITY DEFINER
+    SET search_path TO ''
+    AS $$
+DECLARE b public.bookings; v_locale text;
+BEGIN
+ IF NOT business_private.is_staff() THEN RAISE insufficient_privilege; END IF;
+ SELECT * INTO b FROM public.bookings WHERE id=p_id FOR UPDATE;
+ IF NOT FOUND THEN RAISE no_data_found; END IF;
+ -- Retrying an acknowledged rejection or encountering a student's pause is a no-op.
+ IF b.status='cancelled' THEN RETURN; END IF;
+ IF b.status<>'pending' OR EXISTS(
+   SELECT 1 FROM public.invoice_cases i WHERE i.booking_id=b.id AND i.status='created'
+ ) THEN RAISE EXCEPTION 'Only pending requests without an issued invoice may be declined' USING ERRCODE='PT409'; END IF;
+ SELECT preferred_locale INTO v_locale FROM public.people WHERE id=b.person_id;
+ UPDATE public.bookings SET status='cancelled',revision=revision+1,updated_at=now() WHERE id=b.id;
+ -- A later, deliberately resubmitted request is a new revision and can receive a new reply.
+ PERFORM public.queue_transactional_email('declined:'||b.id||':'||(b.revision+1),
+   CASE WHEN b.kind='trial' THEN 'trial_cancelled' ELSE 'booking_cancelled' END,
+   b.contact_email,v_locale,jsonb_build_object('name',b.contact_name,'startDate',b.start_date,
+     'courses',(SELECT jsonb_agg(jsonb_build_object('title',title_snapshot)) FROM public.booking_items WHERE booking_id=b.id)));
+END $$;
 
 
 --
@@ -210,20 +241,20 @@ CREATE FUNCTION business_private.prepare_month(p_month date) RETURNS integer
     LANGUAGE plpgsql SECURITY DEFINER
     SET search_path TO ''
     AS $$
-declare p public.people;previous public.bookings;v_id uuid;ids uuid[];v_count integer:=0;
+declare p public.people;previous public.bookings;v_id uuid;selections jsonb;v_count integer:=0;
 begin
  if not business_private.is_staff() then raise insufficient_privilege;end if;
- if extract(day from p_month)<>1 or p_month>(date_trunc('month',now() at time zone 'Europe/Berlin')+interval '1 month')::date then raise check_violation;end if;
+ if p_month is null or extract(day from p_month)<>1 or p_month>(date_trunc('month',now() at time zone 'Europe/Berlin')+interval '1 month')::date then raise check_violation;end if;
  for p in select * from public.people order by id for update loop
   if exists(select 1 from public.bookings where person_id=p.id and target_month=p_month and kind<>'trial') then continue;end if;
   select * into previous from public.bookings where person_id=p.id and target_month<p_month and kind<>'trial' order by target_month desc limit 1;
   if previous.id is null or previous.status<>'confirmed' then continue;end if;
-  select array_agg(i.course_id) into ids from public.booking_items i join public.courses c on c.id=i.course_id where i.booking_id=previous.id and c.archived_at is null
+  select jsonb_agg(jsonb_strip_nulls(jsonb_build_object('course_id',i.course_id,'requested_units',case when c.category='private' then i.requested_units end))) into selections from public.booking_items i join public.courses c on c.id=i.course_id where i.booking_id=previous.id and c.archived_at is null
    and (c.start_date is null or c.start_date<(p_month+interval '1 month')::date) and (c.end_date is null or c.end_date>=p_month);
-  if ids is null then continue;end if;
+  if selections is null then continue;end if;
   insert into public.bookings(person_id,target_month,start_date,kind,status,contact_name,contact_email,contact_birth_date,contact_phone,contact_street,contact_postal_code,contact_city,privacy_accepted,agb_accepted,revocation_accepted,recording_accepted,confirmed_at,confirmed_by)
   values(p.id,p_month,p_month,'monthly','confirmed',p.display_name,p.email,p.birth_date,p.phone,p.street,p.postal_code,p.city,previous.privacy_accepted,previous.agb_accepted,previous.revocation_accepted,previous.recording_accepted,now(),auth.uid()) returning id into v_id;
-  perform business_private.replace_items(v_id,ids);
+  perform business_private.replace_items(v_id,selections);
   insert into public.invoice_cases(person_id,target_month,booking_id) values(p.id,p_month,v_id) on conflict(person_id,target_month) do nothing;
   v_count:=v_count+1;
  end loop;
@@ -239,38 +270,38 @@ CREATE FUNCTION business_private.provision_profile() RETURNS trigger
     LANGUAGE plpgsql SECURITY DEFINER
     SET search_path TO ''
     AS $$
-declare v_locale text;v_name text;v_native text;
-begin
- v_native:=case when new.raw_user_meta_data->>'native_language' in ('Deutsch','Russisch','Türkisch','Englisch','Ukrainisch','Andere') then new.raw_user_meta_data->>'native_language' else 'Andere' end;
- v_locale:=case v_native when 'Russisch' then 'ru' when 'Türkisch' then 'tr' when 'Englisch' then 'en' when 'Ukrainisch' then 'uk' else 'de' end;
- v_name:=left(coalesce(nullif(btrim(new.raw_user_meta_data->>'name'),''),split_part(new.email,'@',1),'Student'),160);
- insert into public.profiles(id,role,native_language,ui_language) values(new.id,'student',v_native,v_locale) on conflict(id) do nothing;
- -- Unverified signups receive an empty identity; no submitted-address matching here.
- insert into public.people(auth_user_id,display_name,email,preferred_locale) values(new.id,v_name,coalesce(new.email,''),v_locale) on conflict(auth_user_id) do nothing;
- return new;
-end $$;
+DECLARE native text; locale text; display_name text;
+BEGIN
+ native:=CASE WHEN new.raw_user_meta_data->>'native_language' IN('de','en','ru','uk','tr') THEN new.raw_user_meta_data->>'native_language' END;
+ locale:=CASE WHEN new.raw_user_meta_data->>'ui_language' IN('de','en','ru','uk','tr') THEN new.raw_user_meta_data->>'ui_language' ELSE coalesce(native,'de') END;
+ display_name:=left(coalesce(nullif(btrim(new.raw_user_meta_data->>'display_name'),''),split_part(new.email,'@',1),'Student'),160);
+ INSERT INTO public.profiles(id,role,native_language,ui_language) VALUES(new.id,'student',native,locale) ON CONFLICT(id) DO NOTHING;
+ -- A signup always receives its own fresh person. No unverified address lookup.
+ INSERT INTO public.people(auth_user_id,display_name,email,preferred_locale)
+ VALUES(new.id,display_name,coalesce(new.email,''),locale) ON CONFLICT(auth_user_id) DO NOTHING;
+ RETURN new;
+END $$;
 
 
 --
--- Name: replace_items(uuid, uuid[]); Type: FUNCTION; Schema: business_private; Owner: -
+-- Name: replace_items(uuid, jsonb); Type: FUNCTION; Schema: business_private; Owner: -
 --
 
-CREATE FUNCTION business_private.replace_items(p_booking uuid, p_courses uuid[]) RETURNS void
+CREATE FUNCTION business_private.replace_items(p_booking uuid, p_course_selections jsonb) RETURNS void
     LANGUAGE plpgsql
     SET search_path TO ''
     AS $$
-declare b public.bookings;
-begin
- select * into strict b from public.bookings where id=p_booking;
- if p_courses is null or cardinality(p_courses) not between 1 and 100 or cardinality(p_courses)<>(select count(distinct id) from unnest(p_courses) id)
- or (select count(*) from public.courses where id=any(p_courses) and archived_at is null and (end_date is null or end_date>=b.start_date))<>cardinality(p_courses) then
-  raise check_violation using message='Invalid course selection';
- end if;
- delete from public.booking_items where booking_id=b.id;
- insert into public.booking_items(booking_id,course_id,title_snapshot,unit_price,unit_minutes,units,amount)
- select b.id,c.id,c.title,c.price,c.unit_duration,q.units,q.amount from public.courses c
- cross join lateral business_private.course_quote(c.id,b.start_date,b.kind='trial') q where c.id=any(p_courses);
-end $$;
+DECLARE b public.bookings;
+BEGIN
+ SELECT * INTO STRICT b FROM public.bookings WHERE id=p_booking;
+ -- Materialize and validate everything before changing any existing items.
+ PERFORM * FROM business_private.validate_course_selections(p_course_selections,b.start_date);
+ DELETE FROM public.booking_items WHERE booking_id=b.id;
+ INSERT INTO public.booking_items(booking_id,course_id,title_snapshot,unit_price,unit_minutes,requested_units,units,amount)
+ SELECT b.id,c.id,c.title,c.unit_price,c.unit_minutes,s.requested_units,q.units,q.amount
+ FROM business_private.validate_course_selections(p_course_selections,b.start_date) s JOIN public.courses c ON c.id=s.course_id
+ CROSS JOIN LATERAL business_private.course_quote(c.id,b.start_date,s.requested_units,b.kind='trial') q;
+END $$;
 
 
 --
@@ -284,20 +315,29 @@ CREATE FUNCTION business_private.save_course(p_data jsonb) RETURNS uuid
 declare v_id uuid;v_schedule jsonb;v_translation jsonb;v_exception jsonb;
 begin
  if not business_private.is_staff() then raise insufficient_privilege;end if;
+ if jsonb_typeof(p_data) is distinct from 'object' or jsonb_typeof(p_data->'schedules') is distinct from 'array' or jsonb_typeof(p_data->'translations') is distinct from 'array' or jsonb_typeof(p_data->'exceptions') is distinct from 'array' then raise check_violation;end if;
+ if p_data->>'category'='private' and ((p_data->'schedules')<>'[]'::jsonb or coalesce((p_data->>'trial_lessons')::boolean,true)) then raise check_violation using message='Private lessons use requested units and have no fixed schedule or trial';end if;
  v_id:=coalesce(nullif(p_data->>'id','')::uuid,gen_random_uuid());
+ -- Hold the course row while checking its booking references. A scheduled
+ -- booking has no requested quantity and cannot become a private renewal.
+ perform 1 from public.courses where id=v_id for update;
  if nullif(p_data->>'id','') is not null and not exists(select 1 from public.courses where id=v_id) then raise no_data_found;end if;
- insert into public.courses(id,slug,title,description,type,category,level,price,unit_duration,instructor,start_date,end_date,trial_lessons,sort_order,archived_at)
- values(v_id,p_data->>'slug',p_data->>'title',coalesce(p_data->>'description',''),p_data->>'type',p_data->>'category',coalesce(p_data->>'level',''),(p_data->>'price')::numeric,
- (p_data->>'unit_duration')::integer,p_data->>'instructor',nullif(p_data->>'start_date','')::date,nullif(p_data->>'end_date','')::date,(p_data->>'trial_lessons')::boolean,(p_data->>'sort_order')::integer,
+ if exists(select 1 from public.courses c where c.id=v_id
+   and (c.category='private') is distinct from (p_data->>'category'='private')
+   and exists(select 1 from public.booking_items i where i.course_id=c.id)) then
+  raise check_violation using message='The pricing model of a booked course cannot be changed';
+ end if;
+ insert into public.courses(id,slug,title,description,type,category,level,unit_price,unit_minutes,start_date,end_date,trial_lessons,sort_order,archived_at)
+ values(v_id,p_data->>'slug',p_data->>'title',coalesce(p_data->>'description',''),p_data->>'type',p_data->>'category',coalesce(p_data->>'level',''),(p_data->>'unit_price')::numeric,
+ (p_data->>'unit_minutes')::integer,nullif(p_data->>'start_date','')::date,nullif(p_data->>'end_date','')::date,(p_data->>'trial_lessons')::boolean,(p_data->>'sort_order')::integer,
  case when (p_data->>'archived')::boolean then now() else null end)
  on conflict(id) do update set slug=excluded.slug,title=excluded.title,description=excluded.description,type=excluded.type,category=excluded.category,level=excluded.level,
- price=excluded.price,unit_duration=excluded.unit_duration,instructor=excluded.instructor,start_date=excluded.start_date,end_date=excluded.end_date,trial_lessons=excluded.trial_lessons,
+ unit_price=excluded.unit_price,unit_minutes=excluded.unit_minutes,start_date=excluded.start_date,end_date=excluded.end_date,trial_lessons=excluded.trial_lessons,
  sort_order=excluded.sort_order,archived_at=excluded.archived_at,updated_at=now();
  delete from public.course_schedules where course_id=v_id;
  for v_schedule in select value from jsonb_array_elements(p_data->'schedules') loop
-  insert into public.course_schedules(course_id,weekday,start_time,end_time,alternate_start_time,alternate_end_time)
-  values(v_id,(v_schedule->>'weekday')::smallint,(v_schedule->>'start_time')::time,(v_schedule->>'end_time')::time,
-  nullif(v_schedule->>'alternate_start_time','')::time,nullif(v_schedule->>'alternate_end_time','')::time);
+  insert into public.course_schedules(course_id,weekday,start_time,end_time)
+  values(v_id,(v_schedule->>'weekday')::smallint,(v_schedule->>'start_time')::time,(v_schedule->>'end_time')::time);
  end loop;
  delete from public.course_translations where course_id=v_id;
  for v_translation in select value from jsonb_array_elements(p_data->'translations') loop
@@ -312,10 +352,10 @@ end $$;
 
 
 --
--- Name: save_month(date, uuid[], boolean, uuid, integer); Type: FUNCTION; Schema: business_private; Owner: -
+-- Name: save_month(date, jsonb, boolean, uuid, integer); Type: FUNCTION; Schema: business_private; Owner: -
 --
 
-CREATE FUNCTION business_private.save_month(p_month date, p_courses uuid[], p_paused boolean, p_expected uuid, p_revision integer) RETURNS uuid
+CREATE FUNCTION business_private.save_month(p_month date, p_course_selections jsonb, p_paused boolean, p_expected uuid, p_revision integer) RETURNS uuid
     LANGUAGE plpgsql SECURITY DEFINER
     SET search_path TO ''
     AS $$
@@ -325,7 +365,8 @@ begin
  select * into strict p from public.people where auth_user_id=auth.uid() for update;
  v_next:=(date_trunc('month',now() at time zone 'Europe/Berlin')+interval '1 month')::date;
  if p_month is null or p_month<>v_next then raise sqlstate '22008';end if;
- if p_courses is null or p_paused is null then raise check_violation using message='Courses and pause choice are required';end if;
+ if jsonb_typeof(p_course_selections) is distinct from 'array' or p_paused is null then raise check_violation using message='Courses and pause choice are required';end if;
+ if p_paused and p_course_selections<>'[]'::jsonb then raise check_violation using message='A pause must have no selected courses';end if;
  select * into b from public.bookings where person_id=p.id and target_month=p_month and kind<>'trial' for update;
  if b.id is distinct from p_expected or (b.id is not null and b.revision is distinct from p_revision) then raise exception 'Booking revision changed' using errcode='PT409';end if;
  if exists(select 1 from public.invoice_cases where person_id=p.id and target_month=p_month and status='created') then raise check_violation using message='Invoice already created';end if;
@@ -336,7 +377,7 @@ begin
   update public.bookings set status=case when p_paused then 'cancelled' else 'pending' end,updated_at=now(),revision=revision+1 where id=b.id;
  end if;
  if p_paused then delete from public.booking_items where booking_id=b.id;
- else perform business_private.replace_items(b.id,p_courses);end if;
+ else perform business_private.replace_items(b.id,p_course_selections);end if;
  return b.id;
 end $$;
 
@@ -358,6 +399,45 @@ end $$;
 
 
 --
+-- Name: validate_course_selections(jsonb, date); Type: FUNCTION; Schema: business_private; Owner: -
+--
+
+CREATE FUNCTION business_private.validate_course_selections(p_selections jsonb, p_start date) RETURNS TABLE(course_id uuid, requested_units integer)
+    LANGUAGE plpgsql STABLE
+    SET search_path TO ''
+    AS $$
+DECLARE item jsonb; seen uuid[]:='{}'; selected public.courses; quantity numeric;
+BEGIN
+ IF p_start IS NULL OR jsonb_typeof(p_selections) IS DISTINCT FROM 'array' THEN
+  RAISE check_violation USING message='Course selections must be an array';
+ END IF;
+ IF jsonb_array_length(p_selections) NOT BETWEEN 1 AND 100 THEN RAISE check_violation USING message='Choose between 1 and 100 courses'; END IF;
+ FOR item IN SELECT value FROM jsonb_array_elements(p_selections) LOOP
+  IF jsonb_typeof(item) IS DISTINCT FROM 'object' OR jsonb_typeof(item->'course_id') IS DISTINCT FROM 'string'
+   OR item-'course_id'-'requested_units'<>'{}'::jsonb THEN
+   RAISE check_violation USING message='Invalid course selection fields';
+  END IF;
+  SELECT * INTO selected FROM public.courses WHERE id=(item->>'course_id')::uuid AND archived_at IS NULL
+   AND (end_date IS NULL OR end_date>=p_start)
+   AND (start_date IS NULL OR start_date<(date_trunc('month',p_start)+interval '1 month')::date);
+  IF selected.id IS NULL OR selected.id=ANY(seen) THEN RAISE check_violation USING message='Unavailable or duplicate course'; END IF;
+  seen:=array_append(seen,selected.id);
+  requested_units:=NULL;
+  IF selected.category='private' THEN
+   IF jsonb_typeof(item->'requested_units') IS DISTINCT FROM 'number' THEN RAISE check_violation USING message='Private lessons require a unit quantity'; END IF;
+   quantity:=(item->>'requested_units')::numeric;
+   IF quantity NOT BETWEEN 1 AND 1000 OR quantity<>trunc(quantity) THEN RAISE check_violation USING message='Unit quantity must be a whole number from 1 to 1000'; END IF;
+   requested_units:=quantity::integer;
+  ELSIF item ? 'requested_units' THEN
+   RAISE check_violation USING message='Scheduled course quantities come from the calendar';
+  END IF;
+  course_id:=selected.id;
+  RETURN NEXT;
+ END LOOP;
+END $$;
+
+
+--
 -- Name: record_attempt(uuid, text, boolean); Type: FUNCTION; Schema: grammar_private; Owner: -
 --
 
@@ -367,7 +447,7 @@ CREATE FUNCTION grammar_private.record_attempt(p_exercise_id uuid, p_answer text
     AS $$
 DECLARE
   actor uuid := auth.uid();
-  target public.exercises;
+  target public.learning_exercises;
   correct boolean;
   answer_normalized text;
   attempt_count integer;
@@ -376,15 +456,11 @@ BEGIN
   IF p_answer IS NULL OR length(btrim(p_answer)) = 0 OR length(p_answer) > 1000 THEN
     RAISE EXCEPTION 'invalid_answer' USING ERRCODE = '22023';
   END IF;
-  SELECT * INTO target FROM public.exercises WHERE id = p_exercise_id;
+  SELECT * INTO target FROM public.learning_exercises WHERE id = p_exercise_id;
   IF NOT FOUND OR target.type NOT IN ('fill_in_blank', 'multiple_choice') THEN
     RAISE EXCEPTION 'exercise_unavailable' USING ERRCODE = '22023';
   END IF;
-  IF NOT EXISTS (SELECT 1 FROM public.profile_details p WHERE p.id = actor
-    AND (p.role IN ('teacher','admin') OR target.level = ANY(coalesce(p.allowed_levels, ARRAY[]::text[])))) THEN
-    RAISE EXCEPTION 'level_access_denied' USING ERRCODE = '42501';
-  END IF;
-  IF NOT trainer_access_private.unit_allowed(target.level, 'exercises', target.lesson) THEN RAISE EXCEPTION 'trainer_access_denied' USING ERRCODE='42501'; END IF;
+  IF NOT learning_private.unit_allowed(target.unit_id) THEN RAISE EXCEPTION 'trainer_access_denied' USING ERRCODE='42501'; END IF;
   IF coalesce(target.content->>'correct_answer', '') = '' THEN
     RAISE EXCEPTION 'exercise_unavailable' USING ERRCODE = '22023';
   END IF;
@@ -414,6 +490,42 @@ $$;
 
 
 --
+-- Name: current_profile_role(); Type: FUNCTION; Schema: identity_private; Owner: -
+--
+
+CREATE FUNCTION identity_private.current_profile_role() RETURNS text
+    LANGUAGE sql STABLE SECURITY DEFINER
+    SET search_path TO ''
+    AS $$
+ SELECT role FROM public.profiles WHERE id=(SELECT auth.uid()) AND (SELECT auth.uid()) IS NOT NULL
+$$;
+
+
+--
+-- Name: validate_teacher_note(); Type: FUNCTION; Schema: identity_private; Owner: -
+--
+
+CREATE FUNCTION identity_private.validate_teacher_note() RETURNS trigger
+    LANGUAGE plpgsql
+    SET search_path TO ''
+    AS $$
+BEGIN
+ IF TG_OP='UPDATE' THEN
+  IF new.id IS DISTINCT FROM old.id OR new.student_id IS DISTINCT FROM old.student_id OR new.teacher_id IS DISTINCT FROM old.teacher_id OR new.created_at IS DISTINCT FROM old.created_at THEN
+   RAISE check_violation USING message='Note identity and authorship are immutable';
+  END IF;
+ ELSE
+  IF NOT EXISTS(SELECT 1 FROM public.profiles WHERE id=new.student_id AND role='student') OR
+     NOT EXISTS(SELECT 1 FROM public.profiles WHERE id=new.teacher_id AND role IN('teacher','admin')) THEN
+   RAISE check_violation USING message='Invalid student or teacher';
+  END IF;
+ END IF;
+ new.updated_at:=now();
+ RETURN new;
+END $$;
+
+
+--
 -- Name: audio_readable(text); Type: FUNCTION; Schema: learning_private; Owner: -
 --
 
@@ -422,7 +534,7 @@ CREATE FUNCTION learning_private.audio_readable(p_name text) RETURNS boolean
     SET search_path TO ''
     AS $$
  SELECT (SELECT auth.uid()) IS NOT NULL AND CASE
- WHEN (SELECT monthly_booking_private.current_profile_role()) IN('teacher','admin') THEN true
+ WHEN (SELECT identity_private.current_profile_role()) IN('teacher','admin') THEN true
  WHEN EXISTS(SELECT 1 FROM public.submissions WHERE content_url='storage://pronunciation_audio/'||p_name)
    OR EXISTS(SELECT 1 FROM public.pronunciation_messages WHERE audio_path='storage://pronunciation_audio/'||p_name)
  THEN EXISTS(SELECT 1 FROM public.submissions s WHERE s.content_url='storage://pronunciation_audio/'||p_name AND pronunciation_private.can_access_submission(s.id))
@@ -466,13 +578,13 @@ CREATE FUNCTION learning_private.reset_student_level(p_student_id uuid, p_level 
     LANGUAGE plpgsql SECURITY DEFINER
     SET search_path TO ''
     AS $$ BEGIN
- IF auth.uid() IS NULL OR coalesce(monthly_booking_private.current_profile_role(),'') NOT IN('teacher','admin') THEN RAISE EXCEPTION 'Staff required' USING ERRCODE='42501'; END IF;
+ IF auth.uid() IS NULL OR coalesce(identity_private.current_profile_role(),'') NOT IN('teacher','admin') THEN RAISE EXCEPTION 'Staff required' USING ERRCODE='42501'; END IF;
  IF NOT EXISTS(SELECT 1 FROM public.learning_levels WHERE code=p_level) OR NOT EXISTS(SELECT 1 FROM public.profiles WHERE id=p_student_id) THEN RAISE EXCEPTION 'Invalid learner/level' USING ERRCODE='23514'; END IF;
  PERFORM pg_advisory_xact_lock(hashtextextended('vocabulary:'||p_student_id::text,0));
- DELETE FROM public.vocabulary_direction_progress p USING public.vocabulary_cards c WHERE p.card_id=c.id AND p.user_id=p_student_id AND c.level=p_level;
- DELETE FROM public.user_exercise_progress p USING public.exercises e WHERE p.exercise_id=e.id AND p.user_id=p_student_id AND e.level=p_level;
+ DELETE FROM public.vocabulary_direction_progress p USING public.learning_vocabulary_cards c,public.learning_units u WHERE u.id=c.unit_id AND p.card_id=c.id AND p.user_id=p_student_id AND u.level=p_level;
+ DELETE FROM public.user_exercise_progress p USING public.learning_exercises e,public.learning_units u WHERE u.id=e.unit_id AND p.exercise_id=e.id AND p.user_id=p_student_id AND u.level=p_level;
  DELETE FROM public.vocabulary_onboarding WHERE user_id=p_student_id AND level=p_level;
- UPDATE public.vocabulary_learning_state SET last_card_id=NULL WHERE user_id=p_student_id AND last_card_id IN(SELECT id FROM public.vocabulary_cards WHERE level=p_level);
+ UPDATE public.vocabulary_learning_state SET last_card_id=NULL WHERE user_id=p_student_id AND last_card_id IN(SELECT c.id FROM public.learning_vocabulary_cards c JOIN public.learning_units u ON u.id=c.unit_id WHERE u.level=p_level);
 END $$;
 
 
@@ -501,6 +613,37 @@ BEGIN
  IF NEW.unit_id IS NOT NULL AND NOT EXISTS(SELECT 1 FROM public.learning_units WHERE id=NEW.unit_id AND trainer=TG_ARGV[0]) THEN
   RAISE EXCEPTION 'Content unit has the wrong trainer' USING ERRCODE='23514'; END IF;
  RETURN NEW;
+END $$;
+
+
+--
+-- Name: validate_onboarding_unit(); Type: FUNCTION; Schema: learning_private; Owner: -
+--
+
+CREATE FUNCTION learning_private.validate_onboarding_unit() RETURNS trigger
+    LANGUAGE plpgsql
+    SET search_path TO ''
+    AS $$ BEGIN
+ IF NOT EXISTS(SELECT 1 FROM public.learning_units WHERE id=NEW.started_unit_id AND level=NEW.level AND trainer='vocabulary') THEN
+ RAISE EXCEPTION 'Invalid onboarding unit' USING ERRCODE='23514'; END IF;
+ RETURN NEW;
+END $$;
+
+
+--
+-- Name: validate_video_publication(); Type: FUNCTION; Schema: learning_private; Owner: -
+--
+
+CREATE FUNCTION learning_private.validate_video_publication() RETURNS trigger
+    LANGUAGE plpgsql SECURITY DEFINER
+    SET search_path TO ''
+    AS $$
+BEGIN
+ IF EXISTS(SELECT 1 FROM public.learning_videos v JOIN public.learning_units u ON u.id=v.unit_id
+  WHERE v.source_url IS NULL AND u.is_active
+  AND ((TG_TABLE_NAME='learning_videos' AND v.id=NEW.id) OR (TG_TABLE_NAME='learning_units' AND u.id=NEW.id)))
+ THEN RAISE EXCEPTION 'Published learning resources require a source URL' USING ERRCODE='23514'; END IF;
+ RETURN NULL;
 END $$;
 
 
@@ -611,7 +754,6 @@ BEGIN
  IF NOT job.active THEN RETURN true; END IF;
  IF EXISTS(SELECT 1 FROM learning_reset_private.audio_objects a JOIN storage.objects o ON o.id=a.object_id WHERE a.user_id=actor) THEN
   RAISE EXCEPTION 'audio_removal_incomplete' USING ERRCODE='55000'; END IF;
- UPDATE public.submissions SET parent_id=NULL WHERE user_id<>actor AND parent_id IN(SELECT id FROM public.submissions WHERE user_id=actor);
  DELETE FROM public.pronunciation_messages WHERE submission_id IN(SELECT id FROM public.submissions WHERE user_id=actor);
  DELETE FROM public.submissions WHERE user_id=actor;
  DELETE FROM vocabulary_private.answer_receipts WHERE user_id=actor;
@@ -635,40 +777,18 @@ CREATE FUNCTION learning_reset_private.guard_write() RETURNS trigger
     AS $$
 DECLARE learner uuid; reference text;
 BEGIN
- -- Only the reset owner may detach an unchanged foreign legacy child before
- -- deleting its own parent. Do not cascade-delete another learner's submission.
- IF TG_TABLE_NAME='submissions' THEN
-  IF TG_OP='UPDATE' THEN
-   IF NEW.parent_id IS NULL AND OLD.parent_id IS NOT NULL
-    AND (to_jsonb(NEW)-'parent_id')=(to_jsonb(OLD)-'parent_id')
-    AND EXISTS(SELECT 1 FROM public.submissions s JOIN learning_reset_private.jobs j ON j.user_id=s.user_id
-      WHERE s.id=OLD.parent_id AND j.active AND s.user_id=(SELECT auth.uid())) THEN RETURN NEW; END IF;
-  END IF;
- END IF;
- IF TG_TABLE_NAME IN ('submissions','pronunciation_messages','teacher_feedback') THEN
+ IF TG_TABLE_NAME IN('submissions','pronunciation_messages') THEN
   PERFORM pg_advisory_xact_lock(hashtextextended('learning-reset:audio-catalog',0));
-  IF TG_TABLE_NAME='submissions' THEN reference:=NEW.content_url;
-  ELSIF TG_TABLE_NAME='pronunciation_messages' THEN reference:=NEW.audio_path;
-  ELSE reference:=NEW.feedback_audio_url; END IF;
+  reference:=CASE WHEN TG_TABLE_NAME='submissions' THEN to_jsonb(NEW)->>'content_url' ELSE to_jsonb(NEW)->>'audio_path' END;
   IF EXISTS(SELECT 1 FROM learning_reset_private.audio_objects a JOIN learning_reset_private.jobs j USING(user_id)
-    WHERE j.active AND learning_reset_private.matches_audio(reference,a.bucket_id,a.object_name)) THEN
-   RAISE EXCEPTION 'learning_reset_in_progress' USING ERRCODE='55000';
-  END IF;
+   WHERE j.active AND learning_reset_private.matches_audio(reference,a.bucket_id,a.object_name)) THEN
+   RAISE EXCEPTION 'learning_reset_in_progress' USING ERRCODE='55000'; END IF;
  END IF;
- IF TG_TABLE_NAME IN ('pronunciation_messages','teacher_feedback') THEN
-  SELECT user_id INTO learner FROM public.submissions WHERE id=NEW.submission_id;
- ELSE learner:=NEW.user_id;
- END IF;
+ IF TG_TABLE_NAME='pronunciation_messages' THEN SELECT user_id INTO learner FROM public.submissions WHERE id=NEW.submission_id;
+ ELSE learner:=NEW.user_id; END IF;
  IF learner IS NOT NULL THEN PERFORM learning_reset_private.assert_writable(learner); END IF;
- IF TG_TABLE_NAME='submissions' THEN
-  IF NEW.parent_id IS NOT NULL AND EXISTS(
-   SELECT 1 FROM public.submissions WHERE id=NEW.parent_id AND user_id<>NEW.user_id) THEN
-   RAISE EXCEPTION 'submission_owner_mismatch' USING ERRCODE='42501';
-  END IF;
- END IF;
  RETURN NEW;
-END;
-$$;
+END $$;
 
 
 --
@@ -692,49 +812,12 @@ CREATE FUNCTION learning_reset_private.storage_writable(p_bucket text, p_id uuid
     SET search_path TO ''
     AS $$
 BEGIN
- IF p_bucket NOT IN ('audio_submissions','pronunciation_audio') THEN RETURN true; END IF;
+ IF p_bucket<>'pronunciation_audio' THEN RETURN true; END IF;
  PERFORM pg_advisory_xact_lock(hashtextextended('learning-reset:audio-catalog',0));
  IF EXISTS(SELECT 1 FROM learning_reset_private.audio_objects a JOIN learning_reset_private.jobs j USING(user_id)
-   WHERE a.object_id=p_id AND j.active) THEN RAISE EXCEPTION 'learning_reset_in_progress' USING ERRCODE='55000'; END IF;
+  WHERE a.object_id=p_id AND j.active) THEN RAISE EXCEPTION 'learning_reset_in_progress' USING ERRCODE='55000'; END IF;
  PERFORM learning_reset_private.assert_writable((SELECT auth.uid()));
  RETURN true;
-END;
-$$;
-
-
---
--- Name: current_profile_role(); Type: FUNCTION; Schema: monthly_booking_private; Owner: -
---
-
-CREATE FUNCTION monthly_booking_private.current_profile_role() RETURNS text
-    LANGUAGE sql STABLE SECURITY DEFINER
-    SET search_path TO ''
-    AS $$
-  SELECT p.role FROM public.profiles p
-  WHERE p.id = (SELECT auth.uid()) AND (SELECT auth.uid()) IS NOT NULL
-$$;
-
-
---
--- Name: validate_teacher_note(); Type: FUNCTION; Schema: monthly_booking_private; Owner: -
---
-
-CREATE FUNCTION monthly_booking_private.validate_teacher_note() RETURNS trigger
-    LANGUAGE plpgsql
-    SET search_path TO ''
-    AS $$
-BEGIN
-  IF TG_OP = 'UPDATE' THEN
-    IF NEW.id <> OLD.id OR NEW.student_id <> OLD.student_id OR NEW.teacher_id <> OLD.teacher_id THEN
-      RAISE EXCEPTION 'Note identity and authorship are immutable' USING ERRCODE = '23514';
-    END IF;
-  ELSE
-    IF NOT EXISTS (SELECT 1 FROM public.profiles WHERE id = NEW.student_id AND role = 'student')
-      OR NOT EXISTS (SELECT 1 FROM public.profiles WHERE id = NEW.teacher_id AND role IN ('teacher', 'admin')) THEN
-      RAISE EXCEPTION 'Invalid student or teacher' USING ERRCODE = '23514';
-    END IF;
-  END IF;
-  RETURN NEW;
 END $$;
 
 
@@ -748,8 +831,8 @@ CREATE FUNCTION pronunciation_private.can_access_submission(p_id uuid) RETURNS b
     AS $$
  SELECT (SELECT auth.uid()) IS NOT NULL AND EXISTS (
    SELECT 1 FROM public.submissions s WHERE s.id=p_id AND
-   ((SELECT monthly_booking_private.current_profile_role()) IN ('teacher','admin') OR
-    (s.user_id=(SELECT auth.uid()) AND trainer_access_private.unit_allowed(s.level,'pronunciation',s.prompt_id::text)))
+   ((SELECT identity_private.current_profile_role()) IN ('teacher','admin') OR
+    (s.user_id=(SELECT auth.uid()) AND EXISTS(SELECT 1 FROM public.learning_reading_texts r WHERE r.id=s.prompt_id AND learning_private.unit_allowed(r.unit_id))))
  );
 $$;
 
@@ -762,18 +845,18 @@ CREATE FUNCTION pronunciation_private.create_submission(p_prompt_id uuid, p_audi
     LANGUAGE plpgsql SECURITY DEFINER
     SET search_path TO ''
     AS $$
-DECLARE actor uuid := (SELECT auth.uid()); prompt public.pronunciation_prompts%ROWTYPE; result uuid;
+DECLARE actor uuid := (SELECT auth.uid()); prompt public.learning_reading_texts%ROWTYPE; unit public.learning_units; result uuid;
 BEGIN
  IF actor IS NULL THEN RAISE EXCEPTION 'Not authenticated'; END IF;
- SELECT * INTO prompt FROM public.pronunciation_prompts WHERE id = p_prompt_id AND is_active;
- IF NOT FOUND OR prompt.level IS NULL OR NOT EXISTS(SELECT 1 FROM public.profile_details p WHERE p.id = actor AND
-   (p.role IN ('teacher','admin') OR prompt.level = ANY(COALESCE(p.allowed_levels,ARRAY[]::text[])))) THEN RAISE EXCEPTION 'Level not allowed'; END IF;
-  IF NOT trainer_access_private.unit_allowed(prompt.level, 'pronunciation', prompt.id::text) THEN RAISE EXCEPTION 'trainer_access_denied' USING ERRCODE='42501'; END IF;
+ SELECT * INTO prompt FROM public.learning_reading_texts WHERE id=p_prompt_id;
+ IF NOT FOUND OR NOT learning_private.unit_allowed(prompt.unit_id) THEN RAISE EXCEPTION 'trainer_access_denied' USING ERRCODE='42501'; END IF;
+ SELECT * INTO unit FROM public.learning_units WHERE id=prompt.unit_id AND is_active;
+ IF NOT FOUND THEN RAISE EXCEPTION 'inactive_content' USING ERRCODE='42501'; END IF;
  IF p_audio_path NOT LIKE 'storage://pronunciation_audio/' || actor::text || '/%' OR NOT EXISTS(
  SELECT 1 FROM storage.objects o WHERE o.bucket_id = 'pronunciation_audio' AND 'storage://pronunciation_audio/' || o.name = p_audio_path)
  THEN RAISE EXCEPTION 'Invalid recording'; END IF;
  INSERT INTO public.submissions(user_id,type,content_url,text_content,status,level,prompt_id,prompt_title)
- VALUES(actor,'audio',p_audio_path,prompt.sentence_de,'pending',prompt.level,prompt.id,prompt.title) RETURNING id INTO result;
+ VALUES(actor,'audio',p_audio_path,prompt.sentence_de,'pending',unit.level,prompt.id,unit.label) RETURNING id INTO result;
  RETURN result;
 END;
 $$;
@@ -791,7 +874,7 @@ BEGIN
  IF NOT pronunciation_private.can_access_submission(p_submission_id) THEN RAISE EXCEPTION 'Not authorized'; END IF;
  UPDATE public.pronunciation_messages SET seen_at = now()
  WHERE submission_id = p_submission_id AND sender_id <> (SELECT auth.uid()) AND seen_at IS NULL
- AND (CASE WHEN (SELECT monthly_booking_private.current_profile_role()) IN ('teacher','admin') THEN sender_role = 'student' ELSE sender_role IN ('teacher','admin') END);
+ AND (CASE WHEN (SELECT identity_private.current_profile_role()) IN ('teacher','admin') THEN sender_role = 'student' ELSE sender_role IN ('teacher','admin') END);
 END;
 $$;
 
@@ -913,13 +996,13 @@ END $$;
 
 
 --
--- Name: claim_verified_legacy_profile(); Type: FUNCTION; Schema: public; Owner: -
+-- Name: claim_verified_person(); Type: FUNCTION; Schema: public; Owner: -
 --
 
-CREATE FUNCTION public.claim_verified_legacy_profile() RETURNS jsonb
+CREATE FUNCTION public.claim_verified_person() RETURNS jsonb
     LANGUAGE sql
     SET search_path TO ''
-    AS $$select business_private.claim_person();$$;
+    AS $$SELECT business_private.claim_person()$$;
 
 
 --
@@ -986,6 +1069,16 @@ CREATE FUNCTION public.create_pronunciation_submission(p_prompt_id uuid, p_audio
 
 
 --
+-- Name: decline_business_booking(uuid); Type: FUNCTION; Schema: public; Owner: -
+--
+
+CREATE FUNCTION public.decline_business_booking(p_id uuid) RETURNS void
+    LANGUAGE sql
+    SET search_path TO ''
+    AS $$ SELECT business_private.decline_booking(p_id); $$;
+
+
+--
 -- Name: delete_learning_content(text, uuid); Type: FUNCTION; Schema: public; Owner: -
 --
 
@@ -993,7 +1086,7 @@ CREATE FUNCTION public.delete_learning_content(p_trainer text, p_id uuid) RETURN
     LANGUAGE plpgsql
     SET search_path TO ''
     AS $$ BEGIN
- IF coalesce((SELECT monthly_booking_private.current_profile_role()),'') NOT IN('teacher','admin') THEN RAISE EXCEPTION 'Staff required' USING ERRCODE='42501'; END IF;
+ IF coalesce((SELECT identity_private.current_profile_role()),'') NOT IN('teacher','admin') THEN RAISE EXCEPTION 'Staff required' USING ERRCODE='42501'; END IF;
  IF p_trainer='vocabulary' THEN DELETE FROM public.learning_vocabulary_cards WHERE id=p_id;
  ELSIF p_trainer='exercises' THEN DELETE FROM public.learning_exercises WHERE id=p_id;
  ELSIF p_trainer='pronunciation' THEN UPDATE public.learning_units SET is_active=false WHERE id=(SELECT unit_id FROM public.learning_reading_texts WHERE id=p_id);
@@ -1031,78 +1124,6 @@ CREATE FUNCTION public.finish_learning_reset(p_token uuid) RETURNS boolean
 
 
 --
--- Name: handle_new_user(); Type: FUNCTION; Schema: public; Owner: -
---
-
-CREATE FUNCTION public.handle_new_user() RETURNS trigger
-    LANGUAGE plpgsql SECURITY DEFINER
-    SET search_path TO ''
-    AS $$
-DECLARE
-  v_native text := new.raw_user_meta_data->>'native_language';
-BEGIN
-  INSERT INTO public.profiles (id, email, name, native_language, ui_language)
-  VALUES (
-    new.id,
-    new.email,
-    new.raw_user_meta_data->>'name',
-    v_native,
-    CASE v_native
-      WHEN 'Russisch' THEN 'ru'
-      WHEN 'Türkisch' THEN 'tr'
-      WHEN 'Ukrainisch' THEN 'uk'
-      WHEN 'Englisch' THEN 'en'
-      WHEN 'Deutsch' THEN 'de'
-      ELSE 'de'
-    END
-  );
-  RETURN new;
-END;
-$$;
-
-
---
--- Name: handle_registration_confirmation(); Type: FUNCTION; Schema: public; Owner: -
---
-
-CREATE FUNCTION public.handle_registration_confirmation() RETURNS trigger
-    LANGUAGE plpgsql SECURITY DEFINER
-    SET search_path TO ''
-    AS $$
-DECLARE
-  cid text;
-  c_price numeric;
-BEGIN
-  -- Only proceed if status changed to 'confirmed'
-  IF NEW.status = 'confirmed' AND (OLD.status IS DISTINCT FROM 'confirmed') THEN
-
-    -- Iterate through the course_ids array
-    IF NEW.course_ids IS NOT NULL THEN
-      FOREACH cid IN ARRAY NEW.course_ids
-      LOOP
-        -- Extract price from the JSONB map (default to 0 if missing)
-        -- JSONB access: NEW.course_prices ->> cid
-        BEGIN
-            c_price := (NEW.course_prices ->> cid)::numeric;
-        EXCEPTION WHEN OTHERS THEN
-            c_price := 0;
-        END;
-
-        -- Insert into enrollments with the specific price
-        INSERT INTO public.enrollments (registration_id, course_id, assigned_at, price)
-        VALUES (NEW.id, cid, now(), c_price)
-        ON CONFLICT (registration_id, course_id)
-        DO UPDATE SET price = EXCLUDED.price; -- Update price if re-confirming
-      END LOOP;
-    END IF;
-
-  END IF;
-  RETURN NEW;
-END;
-$$;
-
-
---
 -- Name: initialize_vocabulary_cards(jsonb); Type: FUNCTION; Schema: public; Owner: -
 --
 
@@ -1134,44 +1155,6 @@ CREATE FUNCTION public.mark_business_invoice(p_booking uuid, p_month date, p_cre
     LANGUAGE sql
     SET search_path TO ''
     AS $$select business_private.mark_invoice(p_booking,p_month,p_created,p_reference);$$;
-
-
---
--- Name: mark_feedback_seen(uuid); Type: FUNCTION; Schema: public; Owner: -
---
-
-CREATE FUNCTION public.mark_feedback_seen(p_submission_id uuid) RETURNS integer
-    LANGUAGE plpgsql SECURITY DEFINER
-    SET search_path TO ''
-    AS $$
-DECLARE
-  v_updated integer;
-BEGIN
-  IF auth.uid() IS NULL THEN
-    RETURN 0;
-  END IF;
-
-  UPDATE public.teacher_feedback AS tf
-  SET seen_at = now()
-  WHERE tf.submission_id = p_submission_id
-    AND tf.seen_at IS NULL
-    AND EXISTS (
-      SELECT 1 FROM public.submissions s
-      WHERE s.id = tf.submission_id
-        AND s.user_id = auth.uid()
-    );
-
-  GET DIAGNOSTICS v_updated = ROW_COUNT;
-  RETURN v_updated;
-END;
-$$;
-
-
---
--- Name: FUNCTION mark_feedback_seen(p_submission_id uuid); Type: COMMENT; Schema: public; Owner: -
---
-
-COMMENT ON FUNCTION public.mark_feedback_seen(p_submission_id uuid) IS 'Markiert das Feedback einer eigenen Einreichung als gelesen. Setzt nur seen_at.';
 
 
 --
@@ -1235,13 +1218,13 @@ CREATE FUNCTION public.reset_student_level_progress(p_student_id uuid, p_level t
 
 
 --
--- Name: reset_vocabulary_lesson_progress(text, text); Type: FUNCTION; Schema: public; Owner: -
+-- Name: reset_vocabulary_lesson_progress(uuid); Type: FUNCTION; Schema: public; Owner: -
 --
 
-CREATE FUNCTION public.reset_vocabulary_lesson_progress(p_level text, p_lesson text) RETURNS void
+CREATE FUNCTION public.reset_vocabulary_lesson_progress(p_unit_id uuid) RETURNS void
     LANGUAGE sql
     SET search_path TO ''
-    AS $$ SELECT vocabulary_private.reset_lesson(p_level,p_lesson); $$;
+    AS $$ SELECT vocabulary_private.reset_lesson(p_unit_id); $$;
 
 
 --
@@ -1255,13 +1238,13 @@ CREATE FUNCTION public.save_business_course(p_data jsonb) RETURNS uuid
 
 
 --
--- Name: save_business_month(date, uuid[], boolean, uuid, integer); Type: FUNCTION; Schema: public; Owner: -
+-- Name: save_business_month(date, jsonb, boolean, uuid, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
-CREATE FUNCTION public.save_business_month(p_month date, p_courses uuid[], p_paused boolean, p_expected uuid DEFAULT NULL::uuid, p_revision integer DEFAULT NULL::integer) RETURNS uuid
+CREATE FUNCTION public.save_business_month(p_month date, p_course_selections jsonb, p_paused boolean, p_expected uuid DEFAULT NULL::uuid, p_revision integer DEFAULT NULL::integer) RETURNS uuid
     LANGUAGE sql
     SET search_path TO ''
-    AS $$select business_private.save_month(p_month,p_courses,p_paused,p_expected,p_revision);$$;
+    AS $$select business_private.save_month(p_month,p_course_selections,p_paused,p_expected,p_revision);$$;
 
 
 --
@@ -1272,75 +1255,79 @@ CREATE FUNCTION public.save_learning_content(p_trainer text, p_payload jsonb, p_
     LANGUAGE plpgsql
     SET search_path TO ''
     AS $$
-DECLARE old_row jsonb; v jsonb; item uuid:=coalesce(p_id,gen_random_uuid()); unit uuid; lang text; labels jsonb; result jsonb; BEGIN
- IF current_user NOT IN('service_role','postgres') AND coalesce((SELECT monthly_booking_private.current_profile_role()),'') NOT IN('teacher','admin') THEN
-  RAISE EXCEPTION 'Staff required' USING ERRCODE='42501'; END IF;
- IF jsonb_typeof(p_payload)<>'object' OR p_trainer NOT IN('vocabulary','exercises','pronunciation','videos') THEN
-  RAISE EXCEPTION 'Invalid content' USING ERRCODE='23514'; END IF;
+DECLARE old_fields jsonb; fields jsonb; unit_data jsonb:=p_payload->'unit'; translations jsonb:=p_payload->'translations';
+ item uuid:=coalesce(p_id,gen_random_uuid()); old_unit uuid; target_unit uuid; old_meta public.learning_units; translation_row jsonb;
+BEGIN
+ IF current_user NOT IN('service_role','postgres') AND coalesce(identity_private.current_profile_role(),'') NOT IN('teacher','admin') THEN RAISE EXCEPTION 'Staff required' USING ERRCODE='42501'; END IF;
+ IF p_trainer IS NULL OR NOT EXISTS(SELECT 1 FROM public.learning_trainers WHERE code=p_trainer)
+ OR jsonb_typeof(unit_data) IS DISTINCT FROM 'object' OR jsonb_typeof(p_payload->'fields') IS DISTINCT FROM 'object'
+ OR nullif(btrim(unit_data->>'label'),'') IS NULL OR NOT EXISTS(SELECT 1 FROM public.learning_levels WHERE code=unit_data->>'level') THEN
+ RAISE EXCEPTION 'Invalid content' USING ERRCODE='23514'; END IF;
  IF p_id IS NOT NULL THEN
-  IF p_trainer='vocabulary' THEN SELECT to_jsonb(c) INTO old_row FROM public.vocabulary_cards c WHERE id=p_id;
-  ELSIF p_trainer='exercises' THEN SELECT to_jsonb(e) INTO old_row FROM public.exercises e WHERE id=p_id;
-  ELSIF p_trainer='pronunciation' THEN SELECT to_jsonb(p) INTO old_row FROM public.pronunciation_prompts p WHERE id=p_id;
-  ELSE SELECT to_jsonb(x) INTO old_row FROM public.videos x WHERE id=p_id; END IF;
-  IF old_row IS NULL THEN RAISE EXCEPTION 'Content unavailable' USING ERRCODE='23514'; END IF;
+  IF p_trainer='vocabulary' THEN SELECT to_jsonb(c),c.unit_id INTO old_fields,old_unit FROM public.learning_vocabulary_cards c WHERE c.id=p_id;
+  ELSIF p_trainer='exercises' THEN SELECT to_jsonb(c),c.unit_id INTO old_fields,old_unit FROM public.learning_exercises c WHERE c.id=p_id;
+  ELSIF p_trainer='pronunciation' THEN SELECT to_jsonb(c),c.unit_id INTO old_fields,old_unit FROM public.learning_reading_texts c WHERE c.id=p_id;
+  ELSE SELECT to_jsonb(c),c.unit_id INTO old_fields,old_unit FROM public.learning_videos c WHERE c.id=p_id; END IF;
+  IF old_fields IS NULL THEN RAISE EXCEPTION 'Content unavailable' USING ERRCODE='23514'; END IF;
+  SELECT * INTO old_meta FROM public.learning_units WHERE id=old_unit;
  END IF;
- v:=coalesce(old_row,'{}'::jsonb)||p_payload;
- -- A changed lesson selects/creates its own unit rather than renaming every sibling.
+ fields:=coalesce(old_fields,'{}'::jsonb)||(p_payload->'fields');
  IF p_trainer IN('vocabulary','exercises') THEN
-  IF old_row IS NOT NULL AND v->>'lesson'=old_row->>'lesson' AND v->>'level'=old_row->>'level' THEN unit:=(old_row->>'unit_id')::uuid;
-  ELSE unit:=learning_private.ensure_unit(NULL,v->>'level',p_trainer,v->>'lesson'); END IF;
+  IF old_unit IS NOT NULL AND old_meta.level=unit_data->>'level' AND old_meta.label=unit_data->>'label' THEN target_unit:=old_unit;
+  ELSE target_unit:=learning_private.ensure_unit(NULL,unit_data->>'level',p_trainer,unit_data->>'label'); END IF;
  ELSE
-  unit:=learning_private.ensure_unit(coalesce((old_row->>'unit_id')::uuid,(old_row->>'id')::uuid),v->>'level',p_trainer,v->>'title',coalesce((v->>'is_active')::boolean,true),coalesce((v->>'sort_order')::integer,100));
-  IF p_id IS NULL THEN item:=unit; END IF;
+  target_unit:=learning_private.ensure_unit(old_unit,unit_data->>'level',p_trainer,unit_data->>'label',
+    coalesce((unit_data->>'is_active')::boolean,old_meta.is_active,true),coalesce((unit_data->>'sort_order')::integer,old_meta.sort_order,100));
+ END IF;
+ IF p_trainer IN('vocabulary','exercises') THEN
+  IF jsonb_typeof(translations) IS DISTINCT FROM 'array'
+  OR EXISTS(SELECT 1 FROM jsonb_array_elements(translations) t WHERE NOT EXISTS(SELECT 1 FROM public.locales WHERE code=t->>'locale'))
+  OR EXISTS(SELECT 1 FROM jsonb_array_elements(translations) t GROUP BY t->>'locale' HAVING count(*)>1) THEN
+  RAISE EXCEPTION 'Invalid translations' USING ERRCODE='23514'; END IF;
  END IF;
  IF p_trainer='vocabulary' THEN
-  IF coalesce((v->>'sentence_practice')::boolean,false) AND EXISTS(SELECT 1 FROM unnest(ARRAY['de','en','ru','uk','tr']) l WHERE nullif(btrim(v->>('context_sentence_'||l)),'') IS NULL) THEN
-   RAISE EXCEPTION 'Sentence translations required' USING ERRCODE='23514'; END IF;
+  IF coalesce((fields->>'sentence_practice')::boolean,false) AND EXISTS(SELECT 1 FROM public.locales l WHERE NOT EXISTS(
+   SELECT 1 FROM jsonb_array_elements(translations) t WHERE t->>'locale'=l.code AND nullif(btrim(t->>'context_sentence'),'') IS NOT NULL)) THEN
+  RAISE EXCEPTION 'Sentence translations required' USING ERRCODE='23514'; END IF;
   INSERT INTO public.learning_vocabulary_cards(id,unit_id,word_de,article,plural,image_url,audio_url,sentence_practice,alternative_answers_de)
-  VALUES(item,unit,v->>'word_de',nullif(v->>'article','none'),v->>'plural',v->>'image_url',v->>'audio_url',coalesce((v->>'sentence_practice')::boolean,false),
-   ARRAY(SELECT jsonb_array_elements_text(coalesce(v->'alternative_answers_de','[]'::jsonb))))
+  VALUES(item,target_unit,fields->>'word_de',fields->>'article',fields->>'plural',fields->>'image_url',fields->>'audio_url',coalesce((fields->>'sentence_practice')::boolean,false),
+  ARRAY(SELECT jsonb_array_elements_text(coalesce(fields->'alternative_answers_de','[]'::jsonb))))
   ON CONFLICT(id) DO UPDATE SET unit_id=excluded.unit_id,word_de=excluded.word_de,article=excluded.article,plural=excluded.plural,
-   image_url=excluded.image_url,audio_url=excluded.audio_url,sentence_practice=excluded.sentence_practice,alternative_answers_de=excluded.alternative_answers_de;
-  FOREACH lang IN ARRAY ARRAY['de','en','ru','uk','tr'] LOOP
+  image_url=excluded.image_url,audio_url=excluded.audio_url,sentence_practice=excluded.sentence_practice,alternative_answers_de=excluded.alternative_answers_de;
+  DELETE FROM public.vocabulary_translations WHERE card_id=item;
+  FOR translation_row IN SELECT value FROM jsonb_array_elements(translations) LOOP
    INSERT INTO public.vocabulary_translations(card_id,locale,translation,context_sentence,is_difficult)
-   VALUES(item,lang,v->>('translation_'||lang),v->>('context_sentence_'||lang),coalesce((v->>('is_hard_for_'||lang))::boolean,false))
-   ON CONFLICT(card_id,locale) DO UPDATE SET translation=excluded.translation,context_sentence=excluded.context_sentence,is_difficult=excluded.is_difficult;
+   VALUES(item,translation_row->>'locale',translation_row->>'translation',translation_row->>'context_sentence',coalesce((translation_row->>'is_difficult')::boolean,false));
   END LOOP;
-  SELECT to_jsonb(c) INTO result FROM public.vocabulary_cards c WHERE id=item;
  ELSIF p_trainer='exercises' THEN
-  IF v->>'type' NOT IN('fill_in_blank','multiple_choice') OR jsonb_typeof(v->'content')<>'object'
-   OR nullif(btrim(v->'content'->>'correct_answer'),'') IS NULL THEN RAISE EXCEPTION 'Invalid exercise' USING ERRCODE='23514'; END IF;
+  IF fields->>'type' NOT IN('fill_in_blank','multiple_choice') OR jsonb_typeof(fields->'content') IS DISTINCT FROM 'object'
+  OR nullif(btrim(fields->'content'->>'correct_answer'),'') IS NULL OR (fields->'content') ?| ARRAY['smart_hint','explanation'] THEN
+  RAISE EXCEPTION 'Invalid exercise' USING ERRCODE='23514'; END IF;
   INSERT INTO public.learning_exercises(id,unit_id,topic,type,content,solution_audio_url)
-  VALUES(item,unit,v->>'topic',v->>'type',(v->'content')-'smart_hint'-'explanation',v->>'solution_audio_url')
+  VALUES(item,target_unit,fields->>'topic',fields->>'type',fields->'content',fields->>'solution_audio_url')
   ON CONFLICT(id) DO UPDATE SET unit_id=excluded.unit_id,topic=excluded.topic,type=excluded.type,content=excluded.content,solution_audio_url=excluded.solution_audio_url;
   DELETE FROM public.grammar_translations WHERE exercise_id=item;
-  FOR lang IN SELECT jsonb_object_keys(CASE WHEN jsonb_typeof(v->'hint')='object' THEN v->'hint' ELSE '{}'::jsonb END)
-   UNION SELECT jsonb_object_keys(CASE WHEN jsonb_typeof(v->'content'->'smart_hint')='object' THEN v->'content'->'smart_hint' ELSE '{}'::jsonb END)
-   UNION SELECT jsonb_object_keys(CASE WHEN jsonb_typeof(v->'content'->'explanation')='object' THEN v->'content'->'explanation' ELSE '{}'::jsonb END)
-   UNION SELECT 'de' WHERE jsonb_typeof(v->'content'->'smart_hint')='string' OR jsonb_typeof(v->'content'->'explanation')='string'
-  LOOP
-   INSERT INTO public.grammar_translations(exercise_id,locale,hint,smart_hint,explanation) VALUES(item,lang,v->'hint'->>lang,
-    CASE WHEN jsonb_typeof(v->'content'->'smart_hint')='object' THEN v->'content'->'smart_hint'->>lang WHEN lang='de' THEN v->'content'->>'smart_hint' END,
-    CASE WHEN jsonb_typeof(v->'content'->'explanation')='object' THEN v->'content'->'explanation'->>lang WHEN lang='de' THEN v->'content'->>'explanation' END);
+  FOR translation_row IN SELECT value FROM jsonb_array_elements(translations) LOOP
+   INSERT INTO public.grammar_translations(exercise_id,locale,hint,smart_hint,explanation)
+   VALUES(item,translation_row->>'locale',translation_row->>'hint',translation_row->>'smart_hint',translation_row->>'explanation');
   END LOOP;
-  SELECT to_jsonb(e) INTO result FROM public.exercises e WHERE id=item;
  ELSIF p_trainer='pronunciation' THEN
-  INSERT INTO public.learning_reading_texts(id,unit_id,legacy_cefr_level,sentence_de,focus,audio_url)
-  VALUES(item,unit,NULL,v->>'sentence_de',v->>'focus',v->>'audio_url')
-  ON CONFLICT(id) DO UPDATE SET unit_id=excluded.unit_id,legacy_cefr_level=excluded.legacy_cefr_level,sentence_de=excluded.sentence_de,focus=excluded.focus,audio_url=excluded.audio_url;
-  SELECT to_jsonb(p) INTO result FROM public.pronunciation_prompts p WHERE id=item;
+  INSERT INTO public.learning_reading_texts(id,unit_id,sentence_de,focus,audio_url)
+  VALUES(item,target_unit,fields->>'sentence_de',fields->>'focus',fields->>'audio_url')
+  ON CONFLICT(id) DO UPDATE SET unit_id=excluded.unit_id,sentence_de=excluded.sentence_de,focus=excluded.focus,audio_url=excluded.audio_url;
  ELSE
-  INSERT INTO public.learning_videos(id,unit_id,description,video_url,external_url,is_external)
-  VALUES(item,unit,v->>'description',v->>'video_url',v->>'external_url',coalesce((v->>'is_external')::boolean,true))
-  ON CONFLICT(id) DO UPDATE SET unit_id=excluded.unit_id,description=excluded.description,video_url=excluded.video_url,external_url=excluded.external_url,is_external=excluded.is_external;
-  SELECT to_jsonb(x) INTO result FROM public.videos x WHERE id=item;
+  INSERT INTO public.learning_videos(id,unit_id,description,source_url)
+  VALUES(item,target_unit,fields->>'description',nullif(btrim(fields->>'source_url'),''))
+  ON CONFLICT(id) DO UPDATE SET unit_id=excluded.unit_id,description=excluded.description,source_url=excluded.source_url;
  END IF;
- IF old_row IS NOT NULL AND (old_row->>'unit_id')::uuid IS DISTINCT FROM unit THEN
-  DELETE FROM public.learning_units u WHERE u.id=(old_row->>'unit_id')::uuid
-   AND NOT EXISTS(SELECT 1 FROM public.learning_vocabulary_cards c WHERE c.unit_id=u.id)
-   AND NOT EXISTS(SELECT 1 FROM public.learning_exercises e WHERE e.unit_id=u.id);
+ IF old_unit IS NOT NULL AND old_unit<>target_unit THEN
+  DELETE FROM public.learning_units u WHERE u.id=old_unit
+  AND NOT EXISTS(SELECT 1 FROM public.learning_vocabulary_cards c WHERE c.unit_id=u.id)
+  AND NOT EXISTS(SELECT 1 FROM public.learning_exercises c WHERE c.unit_id=u.id)
+  AND NOT EXISTS(SELECT 1 FROM public.learning_reading_texts c WHERE c.unit_id=u.id)
+  AND NOT EXISTS(SELECT 1 FROM public.learning_videos c WHERE c.unit_id=u.id);
  END IF;
- RETURN result;
+ RETURN jsonb_build_object('id',item);
 END $$;
 
 
@@ -1353,18 +1340,10 @@ CREATE TABLE public.teacher_student_notes (
     student_id uuid NOT NULL,
     teacher_id uuid DEFAULT auth.uid() NOT NULL,
     note_text text NOT NULL,
-    discount_percent numeric(5,2) DEFAULT 0 NOT NULL,
-    is_blackboard boolean DEFAULT false NOT NULL,
-    CONSTRAINT teacher_student_notes_discount_percent_check CHECK (((discount_percent >= (0)::numeric) AND (discount_percent <= (100)::numeric))),
-    CONSTRAINT teacher_student_notes_note_text_check CHECK (((char_length(btrim(note_text)) >= 1) AND (char_length(btrim(note_text)) <= 5000)))
+    created_at timestamp with time zone DEFAULT now() NOT NULL,
+    updated_at timestamp with time zone DEFAULT now() NOT NULL,
+    CONSTRAINT teacher_student_notes_text_length CHECK ((length(note_text) <= 5000))
 );
-
-
---
--- Name: COLUMN teacher_student_notes.is_blackboard; Type: COMMENT; Schema: public; Owner: -
---
-
-COMMENT ON COLUMN public.teacher_student_notes.is_blackboard IS 'Stable central student board. Other rows retain legacy notes and discounts.';
 
 
 --
@@ -1375,50 +1354,24 @@ CREATE FUNCTION public.save_student_blackboard(p_student_id uuid, p_note_text te
     LANGUAGE plpgsql
     SET search_path TO ''
     AS $$
-DECLARE
-  actor uuid := (SELECT auth.uid());
-  board public.teacher_student_notes%ROWTYPE;
-  prose text;
+DECLARE actor uuid:=(SELECT auth.uid()); board public.teacher_student_notes; prose text;
 BEGIN
-  IF actor IS NULL OR coalesce(monthly_booking_private.current_profile_role(), '')
-    NOT IN ('teacher', 'admin') THEN
-    RAISE EXCEPTION 'Staff access required' USING ERRCODE = '42501';
-  END IF;
-  IF p_note_text IS NULL OR char_length(p_note_text) > 5000
-    OR NOT EXISTS (SELECT 1 FROM public.profiles WHERE id = p_student_id) THEN
-    RAISE EXCEPTION 'Invalid student or note' USING ERRCODE = '23514';
-  END IF;
-  prose := btrim(p_note_text);
-
-  -- This lock also covers the first save, when there is no row to lock yet.
-  PERFORM pg_catalog.pg_advisory_xact_lock(
-    pg_catalog.hashtextextended('student-blackboard:' || p_student_id::text, 0)
-  );
-  SELECT * INTO board FROM public.teacher_student_notes
-  WHERE student_id = p_student_id
-  ORDER BY is_blackboard DESC, id
-  LIMIT 1 FOR UPDATE;
-
-  -- A stale/foreign note ID must never update another student's note or silently
-  -- switch the central board. Null IDs from simultaneous first saves are safe.
-  IF p_expected_note_id IS NOT NULL AND p_expected_note_id IS DISTINCT FROM board.id THEN
-    RAISE EXCEPTION 'The central note changed; reload and retry' USING ERRCODE = 'PT409';
-  END IF;
-  IF board.id IS NULL THEN
-    IF prose = '' THEN RETURN; END IF;
-    RETURN QUERY INSERT INTO public.teacher_student_notes
-      (student_id, teacher_id, note_text, is_blackboard)
-      VALUES (p_student_id, actor, prose, true)
-      RETURNING *;
-  ELSE
-    -- Clearing retains the canonical identity, so an older note cannot reappear.
-    -- Discount metadata and the original author are never changed by this RPC.
-    RETURN QUERY UPDATE public.teacher_student_notes
-      SET note_text = CASE WHEN prose = '' THEN U&'\2060' ELSE prose END,
-          is_blackboard = true
-      WHERE id = board.id AND student_id = p_student_id
-      RETURNING *;
-  END IF;
+ IF actor IS NULL OR coalesce(identity_private.current_profile_role(),'') NOT IN('teacher','admin') THEN RAISE insufficient_privilege; END IF;
+ IF p_note_text IS NULL OR length(p_note_text)>5000 OR NOT EXISTS(SELECT 1 FROM public.profiles WHERE id=p_student_id AND role='student') THEN
+  RAISE check_violation USING message='Invalid student or note';
+ END IF;
+ prose:=btrim(p_note_text);
+ PERFORM pg_advisory_xact_lock(hashtextextended('student-note:'||p_student_id::text,0));
+ SELECT * INTO board FROM public.teacher_student_notes WHERE student_id=p_student_id FOR UPDATE;
+ IF p_expected_note_id IS NOT NULL AND p_expected_note_id IS DISTINCT FROM board.id THEN
+  RAISE EXCEPTION 'The note changed; reload and retry' USING ERRCODE='PT409';
+ END IF;
+ IF board.id IS NULL THEN
+  IF prose='' THEN RETURN; END IF;
+  RETURN QUERY INSERT INTO public.teacher_student_notes(student_id,teacher_id,note_text) VALUES(p_student_id,actor,prose) RETURNING *;
+ ELSE
+  RETURN QUERY UPDATE public.teacher_student_notes SET note_text=prose WHERE id=board.id AND student_id=p_student_id RETURNING *;
+ END IF;
 END $$;
 
 
@@ -1430,7 +1383,7 @@ CREATE FUNCTION public.set_student_level_access(p_user_id uuid, p_levels text[])
     LANGUAGE plpgsql
     SET search_path TO ''
     AS $$ BEGIN
- IF (SELECT monthly_booking_private.current_profile_role()) NOT IN('teacher','admin') OR auth.uid() IS NULL THEN
+ IF (SELECT identity_private.current_profile_role()) NOT IN('teacher','admin') OR auth.uid() IS NULL THEN
   RAISE EXCEPTION 'Staff required' USING ERRCODE='42501'; END IF;
  IF p_levels IS NULL OR EXISTS(SELECT 1 FROM unnest(p_levels) l WHERE l IS NULL OR NOT EXISTS(SELECT 1 FROM public.learning_levels WHERE code=l)) THEN
   RAISE EXCEPTION 'Invalid levels' USING ERRCODE='23514'; END IF;
@@ -1448,7 +1401,7 @@ CREATE FUNCTION public.set_student_trainer_access(p_user_id uuid, p_level text, 
     LANGUAGE plpgsql
     SET search_path TO ''
     AS $$ BEGIN
- IF (SELECT monthly_booking_private.current_profile_role()) NOT IN('teacher','admin') OR auth.uid() IS NULL THEN
+ IF (SELECT identity_private.current_profile_role()) NOT IN('teacher','admin') OR auth.uid() IS NULL THEN
   RAISE EXCEPTION 'Staff required' USING ERRCODE='42501'; END IF;
  IF p_replace_units AND p_unit_ids IS NOT NULL AND EXISTS(SELECT 1 FROM unnest(p_unit_ids) item WHERE NOT EXISTS(
  SELECT 1 FROM public.learning_units u WHERE u.id=item AND u.level=p_level AND u.trainer=p_trainer)) THEN
@@ -1495,23 +1448,25 @@ end $$;
 
 
 --
--- Name: submit_business_registration(jsonb, uuid[], date, jsonb, text, boolean); Type: FUNCTION; Schema: public; Owner: -
+-- Name: submit_business_registration(jsonb, jsonb, date, jsonb, text, boolean); Type: FUNCTION; Schema: public; Owner: -
 --
 
-CREATE FUNCTION public.submit_business_registration(p_contact jsonb, p_course_ids uuid[], p_start date, p_consents jsonb, p_locale text DEFAULT 'de'::text, p_trial boolean DEFAULT false) RETURNS uuid
+CREATE FUNCTION public.submit_business_registration(p_contact jsonb, p_course_selections jsonb, p_start date, p_consents jsonb, p_locale text DEFAULT 'de'::text, p_trial boolean DEFAULT false) RETURNS uuid
     LANGUAGE plpgsql
     SET search_path TO ''
     AS $$
 declare v_person uuid;v_booking uuid;v_email text;v_name text;v_matches integer;
 begin
- if p_start<current_date or cardinality(p_course_ids) not between 1 and 100 or coalesce((p_consents->>'privacy')::boolean,false)=false or coalesce((p_consents->>'agb')::boolean,false)=false then raise check_violation;end if;
+ if p_start is null or p_trial is null or p_start<(now() at time zone 'Europe/Berlin')::date or p_start>(now() at time zone 'Europe/Berlin')::date+366 or coalesce((p_consents->>'privacy')::boolean,false)=false or coalesce((p_consents->>'agb')::boolean,false)=false then raise check_violation;end if;
+ perform * from business_private.validate_course_selections(p_course_selections,p_start);
+ if not exists(select 1 from public.locales where code=p_locale) then raise check_violation;end if;
  v_email:=lower(btrim(p_contact->>'email'));v_name:=btrim(p_contact->>'name');
- if v_email is null or length(v_name) not between 1 and 160 then raise check_violation;end if;
+ if v_email is null or length(v_email) not between 3 and 254 or v_name is null or length(v_name) not between 1 and 160 then raise check_violation;end if;
  if p_trial then
   perform pg_advisory_xact_lock(hashtextextended(v_email||':'||lower(v_name),0));
   if exists(select 1 from public.bookings where kind='trial' and lower(contact_email)=v_email and lower(contact_name)=lower(v_name)) then raise unique_violation;end if;
-  if cardinality(p_course_ids)<>1 or not exists(select 1 from public.courses c join public.course_schedules s on s.course_id=c.id
-   where c.id=p_course_ids[1] and c.trial_lessons and c.archived_at is null and s.weekday=extract(isodow from p_start)
+  if jsonb_array_length(p_course_selections)<>1 or not exists(select 1 from public.courses c join public.course_schedules s on s.course_id=c.id
+   where c.id=(p_course_selections->0->>'course_id')::uuid and c.category<>'private' and c.trial_lessons and c.archived_at is null and s.weekday=extract(isodow from p_start)
    and (c.start_date is null or p_start>=c.start_date) and (c.end_date is null or p_start<=c.end_date)
    and not exists(select 1 from public.course_exceptions e where e.date=p_start and (e.course_id is null or e.course_id=c.id))) then raise check_violation;end if;
  end if;
@@ -1526,8 +1481,8 @@ begin
  end if;
  insert into public.bookings(person_id,target_month,start_date,kind,contact_name,contact_email,contact_birth_date,contact_phone,contact_street,contact_postal_code,contact_city,privacy_accepted,agb_accepted,revocation_accepted,recording_accepted)
  values(v_person,date_trunc('month',p_start)::date,p_start,case when p_trial then 'trial' else 'registration' end,v_name,v_email,(p_contact->>'birth_date')::date,p_contact->>'phone',p_contact->>'street',p_contact->>'postal_code',p_contact->>'city',true,true,coalesce((p_consents->>'revocation')::boolean,false),(p_consents->>'recording')::boolean) returning id into v_booking;
- perform business_private.replace_items(v_booking,p_course_ids);
- perform public.queue_transactional_email('registration:'||v_booking,'registration_received',v_email,p_locale,jsonb_build_object('name',v_name,'startDate',p_start));
+ perform business_private.replace_items(v_booking,p_course_selections);
+ perform public.queue_transactional_email('registration:'||v_booking,'registration_received',v_email,p_locale,jsonb_build_object('name',v_name,'startDate',p_start,'courses',(select jsonb_agg(jsonb_build_object('title',title_snapshot,'units',units,'unitPrice',unit_price,'unitMinutes',unit_minutes,'price',amount)) from public.booking_items where booking_id=v_booking)));
  perform public.queue_transactional_email('staff-registration:'||v_booking,'new_enrollment','info@sitov-academy.com','de',jsonb_build_object('name',v_name,'path','/de/admin/registrations'));
  return v_booking;
 end $$;
@@ -1581,7 +1536,7 @@ CREATE FUNCTION trainer_access_private.audio_readable(p_bucket text, p_name text
     SET search_path TO ''
     AS $$
  SELECT CASE WHEN p_bucket <> 'pronunciation_audio' THEN true
- WHEN (SELECT monthly_booking_private.current_profile_role()) IN ('teacher','admin') THEN true
+ WHEN (SELECT identity_private.current_profile_role()) IN ('teacher','admin') THEN true
  WHEN EXISTS(SELECT 1 FROM public.submissions s WHERE s.content_url='storage://pronunciation_audio/'||p_name)
    OR EXISTS(SELECT 1 FROM public.pronunciation_messages m WHERE m.audio_path='storage://pronunciation_audio/'||p_name)
  THEN EXISTS(SELECT 1 FROM public.submissions s WHERE s.content_url='storage://pronunciation_audio/'||p_name AND pronunciation_private.can_access_submission(s.id))
@@ -1613,8 +1568,8 @@ CREATE FUNCTION trainer_access_private.unit_allowed(p_level text, p_trainer text
     SET search_path TO ''
     AS $$
  SELECT trainer_access_private.allowed(p_level,p_trainer) AND EXISTS(SELECT 1 FROM public.learning_units u
- WHERE u.level=p_level AND u.trainer=p_trainer AND (u.id::text=p_unit OR u.label=p_unit) AND(
- (SELECT monthly_booking_private.current_profile_role()) IN('teacher','admin') OR(u.is_active AND NOT EXISTS(
+ WHERE u.level=p_level AND u.trainer=p_trainer AND u.id::text=p_unit AND(
+ (SELECT identity_private.current_profile_role()) IN('teacher','admin') OR(u.is_active AND NOT EXISTS(
  SELECT 1 FROM public.learning_trainer_grants a WHERE a.user_id=(SELECT auth.uid()) AND a.level=p_level AND a.trainer=p_trainer
  AND a.unit_mode='selected' AND NOT EXISTS(SELECT 1 FROM public.learning_unit_grants g
  WHERE g.user_id=a.user_id AND g.level=a.level AND g.trainer=a.trainer AND g.unit_id=u.id)))));
@@ -1655,8 +1610,7 @@ BEGIN
     target := (item->>'cardId')::uuid;
     known := (item->>'alreadyKnown')::boolean;
     IF NOT EXISTS (
-      SELECT 1 FROM public.vocabulary_cards c JOIN public.profile_details p ON p.id = actor
-      WHERE c.id = target AND trainer_access_private.unit_allowed(c.level, 'vocabulary', c.lesson) AND (p.role IN ('teacher','admin') OR c.level = ANY(coalesce(p.allowed_levels, ARRAY[]::text[])))
+      SELECT 1 FROM public.learning_vocabulary_cards c WHERE c.id=target AND learning_private.unit_allowed(c.unit_id)
     ) THEN RAISE EXCEPTION 'level_access_denied' USING ERRCODE = '42501'; END IF;
     INSERT INTO public.vocabulary_direction_progress(user_id, card_id, direction, box_number, next_review_date)
       SELECT actor, target, d, CASE WHEN known THEN 6 ELSE 1 END,
@@ -1675,18 +1629,18 @@ $$;
 
 
 --
--- Name: reset_lesson(text, text); Type: FUNCTION; Schema: vocabulary_private; Owner: -
+-- Name: reset_lesson(uuid); Type: FUNCTION; Schema: vocabulary_private; Owner: -
 --
 
-CREATE FUNCTION vocabulary_private.reset_lesson(p_level text, p_lesson text) RETURNS void
+CREATE FUNCTION vocabulary_private.reset_lesson(p_unit_id uuid) RETURNS void
     LANGUAGE plpgsql SECURITY DEFINER
     SET search_path TO ''
     AS $$
-DECLARE actor uuid:=(SELECT auth.uid()); BEGIN
- IF actor IS NULL OR NOT trainer_access_private.unit_allowed(p_level,'vocabulary',p_lesson) THEN RAISE EXCEPTION 'trainer_access_denied' USING ERRCODE='42501'; END IF;
+DECLARE actor uuid:=auth.uid(); BEGIN
+ IF actor IS NULL OR NOT learning_private.unit_allowed(p_unit_id)
+ OR NOT EXISTS(SELECT 1 FROM public.learning_units WHERE id=p_unit_id AND trainer='vocabulary') THEN RAISE EXCEPTION 'trainer_access_denied' USING ERRCODE='42501'; END IF;
  PERFORM pg_advisory_xact_lock(hashtextextended('vocabulary:'||actor::text,0));
- DELETE FROM public.vocabulary_direction_progress v USING public.vocabulary_cards c
- WHERE v.user_id=actor AND v.card_id=c.id AND c.level=p_level AND c.lesson=p_lesson;
+ DELETE FROM public.vocabulary_direction_progress v USING public.learning_vocabulary_cards c WHERE v.user_id=actor AND v.card_id=c.id AND c.unit_id=p_unit_id;
 END $$;
 
 
@@ -1698,25 +1652,19 @@ CREATE FUNCTION vocabulary_private.skip_assessment(p_level text) RETURNS jsonb
     LANGUAGE plpgsql SECURITY DEFINER
     SET search_path TO ''
     AS $$
-DECLARE actor uuid := auth.uid(); first_lesson text; decisions jsonb; result jsonb;
+DECLARE actor uuid := auth.uid(); first_unit public.learning_units; decisions jsonb; result jsonb;
 BEGIN
-  IF actor IS NULL OR NOT EXISTS(SELECT 1 FROM public.profile_details p WHERE p.id = actor
-    AND (p.role IN ('teacher','admin') OR p_level = ANY(coalesce(p.allowed_levels, ARRAY[]::text[])))) THEN
-    RAISE EXCEPTION 'level_access_denied' USING ERRCODE = '42501';
-  END IF;
-  IF NOT trainer_access_private.allowed(p_level, 'vocabulary') THEN RAISE EXCEPTION 'trainer_access_denied' USING ERRCODE='42501'; END IF;
-  SELECT c.lesson INTO first_lesson FROM public.vocabulary_cards c WHERE c.level = p_level AND trainer_access_private.unit_allowed(c.level,'vocabulary',c.lesson)
-    ORDER BY nullif(substring(c.lesson from '[0-9]+'),'')::integer NULLS LAST, c.lesson, c.id LIMIT 1;
-  IF first_lesson IS NULL THEN RAISE EXCEPTION 'lesson_not_found' USING ERRCODE = '22023'; END IF;
-  SELECT jsonb_agg(jsonb_build_object('cardId',id,'alreadyKnown',false)) INTO decisions
-    FROM public.vocabulary_cards WHERE level = p_level AND lesson = first_lesson;
-  result := vocabulary_private.initialize_cards(decisions);
-  INSERT INTO public.vocabulary_onboarding(user_id,level,status,started_lesson)
-    VALUES(actor,p_level,'skipped',first_lesson)
-    ON CONFLICT(user_id,level) DO UPDATE SET status='skipped',started_lesson=excluded.started_lesson,updated_at=now();
-  RETURN result || jsonb_build_object('lesson',first_lesson);
-END;
-$$;
+ IF actor IS NULL OR NOT trainer_access_private.allowed(p_level,'vocabulary') THEN RAISE EXCEPTION 'trainer_access_denied' USING ERRCODE='42501'; END IF;
+ SELECT u.* INTO first_unit FROM public.learning_units u WHERE u.level=p_level AND u.trainer='vocabulary'
+ AND learning_private.unit_allowed(u.id) AND EXISTS(SELECT 1 FROM public.learning_vocabulary_cards c WHERE c.unit_id=u.id)
+ ORDER BY u.sort_order,u.label,u.id LIMIT 1;
+ IF NOT FOUND THEN RAISE EXCEPTION 'lesson_not_found' USING ERRCODE='22023'; END IF;
+ SELECT jsonb_agg(jsonb_build_object('cardId',id,'alreadyKnown',false)) INTO decisions FROM public.learning_vocabulary_cards WHERE unit_id=first_unit.id;
+ result:=vocabulary_private.initialize_cards(decisions);
+ INSERT INTO public.vocabulary_onboarding(user_id,level,status,started_unit_id) VALUES(actor,p_level,'skipped',first_unit.id)
+ ON CONFLICT(user_id,level) DO UPDATE SET status='skipped',started_unit_id=excluded.started_unit_id,updated_at=now();
+ RETURN result||jsonb_build_object('lesson',first_unit.label);
+END $$;
 
 
 --
@@ -1728,8 +1676,8 @@ CREATE FUNCTION vocabulary_private.submit_answer(p_progress_id uuid, p_is_correc
     SET search_path TO ''
     AS $$
 DECLARE
-  actor uuid := auth.uid(); progress public.vocabulary_direction_progress; card public.vocabulary_cards;
-  profile public.profile_details; previous_card uuid; prompt text; correct boolean; sentence boolean;
+  actor uuid := auth.uid(); progress public.vocabulary_direction_progress; card public.learning_vocabulary_cards;
+  profile public.profiles; german_sentence text; previous_card uuid; prompt text; correct boolean; sentence boolean;
   old_phase integer; new_phase integer; new_box integer; days integer; difficult boolean;
   is_alternative boolean := false;
 BEGIN
@@ -1741,12 +1689,9 @@ BEGIN
   PERFORM pg_advisory_xact_lock(hashtextextended('vocabulary:' || actor::text, 0));
   SELECT * INTO progress FROM public.vocabulary_direction_progress WHERE id = p_progress_id AND user_id = actor FOR UPDATE;
   IF NOT FOUND THEN RAISE EXCEPTION 'progress_not_found' USING ERRCODE = '42501'; END IF;
-  SELECT * INTO card FROM public.vocabulary_cards WHERE id = progress.card_id;
-  SELECT * INTO profile FROM public.profile_details WHERE id = actor;
-  IF NOT (coalesce(profile.role IN ('teacher','admin'),false) OR card.level = ANY(coalesce(profile.allowed_levels,ARRAY[]::text[]))) THEN
-    RAISE EXCEPTION 'level_access_denied' USING ERRCODE = '42501';
-  END IF;
-  IF NOT trainer_access_private.unit_allowed(card.level,'vocabulary',card.lesson) OR p_ui_language='de' THEN
+  SELECT * INTO card FROM public.learning_vocabulary_cards WHERE id = progress.card_id;
+  SELECT * INTO profile FROM public.profiles WHERE id = actor;
+  IF NOT learning_private.unit_allowed(card.unit_id) OR p_ui_language='de' THEN
     RAISE EXCEPTION 'trainer_access_denied' USING ERRCODE='42501';
   END IF;
   IF progress.box_number = 7 OR progress.next_review_date > now() THEN
@@ -1756,15 +1701,15 @@ BEGIN
   IF previous_card = progress.card_id THEN
     RAISE EXCEPTION 'vocabulary_spacing_required' USING ERRCODE = 'PT409';
   END IF;
-  prompt := CASE p_ui_language WHEN 'de' THEN card.context_sentence_de WHEN 'en' THEN card.context_sentence_en
-    WHEN 'ru' THEN card.context_sentence_ru WHEN 'uk' THEN card.context_sentence_uk WHEN 'tr' THEN card.context_sentence_tr END;
+  SELECT context_sentence INTO prompt FROM public.vocabulary_translations WHERE card_id=card.id AND locale=p_ui_language;
+  SELECT context_sentence INTO german_sentence FROM public.vocabulary_translations WHERE card_id=card.id AND locale='de';
   sentence := card.sentence_practice AND progress.direction = 'native_to_de';
-  IF sentence AND (nullif(btrim(prompt),'') IS NULL OR nullif(btrim(card.context_sentence_de),'') IS NULL) THEN
+  IF sentence AND (nullif(btrim(prompt),'') IS NULL OR nullif(btrim(german_sentence),'') IS NULL) THEN
     RAISE EXCEPTION 'sentence_content_missing' USING ERRCODE='23514';
   END IF;
   IF sentence THEN
     -- Byte-exact comparison: no trimming, case folding, punctuation removal or client grading.
-    correct := coalesce(convert_to(p_typed_answer,'UTF8') = convert_to(card.context_sentence_de,'UTF8'),false);
+    correct := coalesce(convert_to(p_typed_answer,'UTF8') = convert_to(german_sentence,'UTF8'),false);
     IF NOT correct AND card.alternative_answers_de IS NOT NULL AND array_length(card.alternative_answers_de, 1) > 0 THEN
       IF coalesce(convert_to(p_typed_answer,'UTF8') = ANY (
            SELECT convert_to(alt, 'UTF8') FROM unnest(card.alternative_answers_de) alt
@@ -1781,8 +1726,7 @@ BEGIN
   new_phase := CASE WHEN correct THEN least(6,old_phase+1) ELSE greatest(1,old_phase-1) END;
   new_box := CASE WHEN correct AND old_phase=6 THEN 7 ELSE new_phase END;
   days := CASE new_phase WHEN 1 THEN 1 WHEN 2 THEN 1 WHEN 3 THEN 3 WHEN 4 THEN 9 WHEN 5 THEN 29 ELSE 90 END;
-  difficult := CASE profile.native_language WHEN 'Russisch' THEN coalesce(card.is_hard_for_ru,false)
-    WHEN 'Türkisch' THEN coalesce(card.is_hard_for_tr,false) ELSE false END;
+  SELECT coalesce(t.is_difficult,false) INTO difficult FROM public.vocabulary_translations t WHERE t.card_id=card.id AND t.locale=profile.native_language;
   IF difficult THEN days := greatest(1,days/2); END IF;
   UPDATE public.vocabulary_direction_progress SET box_number=new_box,next_review_date=now()+make_interval(days=>days),
     lapses=lapses+CASE WHEN NOT correct THEN 1 ELSE 0 END,last_answered_at=now(),updated_at=now()
@@ -1792,7 +1736,7 @@ BEGIN
     SET last_card_id=excluded.last_card_id,last_reviewed_at=excluded.last_reviewed_at;
   RETURN jsonb_build_object('success',true,'isCorrect',correct,'previousPhase',old_phase,'newPhase',new_phase,
     'becameLearned',new_box=7,'movedBack',new_phase<old_phase,'intervalInDays',days)
-    || CASE WHEN sentence THEN jsonb_build_object('correctAnswer',card.context_sentence_de,'isAlternative',is_alternative) ELSE '{}'::jsonb END;
+    || CASE WHEN sentence THEN jsonb_build_object('correctAnswer',german_sentence,'isAlternative',is_alternative) ELSE '{}'::jsonb END;
 END;
 $$;
 
@@ -1823,8 +1767,8 @@ BEGIN
   -- locks are reentrant, so its nested acquisition cannot deadlock with us.
   -- Serialize lookup + grade + receipt together, including concurrent retries.
   PERFORM pg_advisory_xact_lock(hashtextextended('vocabulary:' || actor::text, 0));
-  IF NOT EXISTS (SELECT 1 FROM public.vocabulary_direction_progress v JOIN public.vocabulary_cards c ON c.id=v.card_id
-    WHERE v.id=p_progress_id AND v.user_id=actor AND trainer_access_private.unit_allowed(c.level,'vocabulary',c.lesson)) THEN
+  IF NOT EXISTS (SELECT 1 FROM public.vocabulary_direction_progress v JOIN public.learning_vocabulary_cards c ON c.id=v.card_id
+    WHERE v.id=p_progress_id AND v.user_id=actor AND learning_private.unit_allowed(c.unit_id)) THEN
     RAISE EXCEPTION 'trainer_access_denied' USING ERRCODE='42501';
   END IF;
   IF p_ui_language='de' THEN
@@ -1863,7 +1807,7 @@ CREATE TABLE learning_reset_private.audio_objects (
     object_id uuid NOT NULL,
     bucket_id text NOT NULL,
     object_name text NOT NULL,
-    CONSTRAINT audio_objects_bucket_id_check CHECK ((bucket_id = ANY (ARRAY['audio_submissions'::text, 'pronunciation_audio'::text])))
+    CONSTRAINT audio_objects_bucket_id_check CHECK ((bucket_id = 'pronunciation_audio'::text))
 );
 
 
@@ -1906,7 +1850,9 @@ CREATE TABLE public.booking_items (
     unit_minutes integer NOT NULL,
     units numeric(10,3) NOT NULL,
     amount numeric(10,2) NOT NULL,
+    requested_units integer,
     CONSTRAINT booking_items_amount_check CHECK ((amount >= (0)::numeric)),
+    CONSTRAINT booking_items_requested_units_check CHECK (((requested_units >= 1) AND (requested_units <= 1000))),
     CONSTRAINT booking_items_unit_minutes_check CHECK ((unit_minutes > 0)),
     CONSTRAINT booking_items_unit_price_check CHECK ((unit_price >= (0)::numeric)),
     CONSTRAINT booking_items_units_check CHECK ((units >= (0)::numeric))
@@ -1964,6 +1910,16 @@ CREATE TABLE public.cancellation_requests (
 
 
 --
+-- Name: cefr_levels; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.cefr_levels (
+    code text NOT NULL,
+    CONSTRAINT cefr_levels_code_check CHECK ((code = ANY (ARRAY['A1'::text, 'A2'::text, 'B1'::text, 'B2'::text, 'C1'::text, 'C2'::text])))
+);
+
+
+--
 -- Name: course_exceptions; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -1986,11 +1942,7 @@ CREATE TABLE public.course_schedules (
     weekday smallint NOT NULL,
     start_time time without time zone NOT NULL,
     end_time time without time zone NOT NULL,
-    alternate_start_time time without time zone,
-    alternate_end_time time without time zone,
     CONSTRAINT course_schedules_check CHECK ((end_time > start_time)),
-    CONSTRAINT course_schedules_check1 CHECK (((alternate_start_time IS NULL) = (alternate_end_time IS NULL))),
-    CONSTRAINT course_schedules_check2 CHECK (((alternate_end_time IS NULL) OR (alternate_end_time > alternate_start_time))),
     CONSTRAINT course_schedules_weekday_check CHECK (((weekday >= 1) AND (weekday <= 7)))
 );
 
@@ -2004,7 +1956,7 @@ CREATE TABLE public.course_translations (
     locale text NOT NULL,
     title text NOT NULL,
     description text DEFAULT ''::text NOT NULL,
-    CONSTRAINT course_translations_locale_check CHECK ((locale = ANY (ARRAY['de'::text, 'en'::text, 'ru'::text, 'uk'::text, 'tr'::text]))),
+    CONSTRAINT course_translations_non_source_locale CHECK ((locale <> 'de'::text)),
     CONSTRAINT course_translations_title_check CHECK (((length(title) >= 1) AND (length(title) <= 180)))
 );
 
@@ -2016,15 +1968,13 @@ CREATE TABLE public.course_translations (
 CREATE TABLE public.courses (
     id uuid DEFAULT gen_random_uuid() NOT NULL,
     slug text NOT NULL,
-    translation_key text DEFAULT ''::text NOT NULL,
     title text NOT NULL,
     description text DEFAULT ''::text NOT NULL,
     type text NOT NULL,
     category text NOT NULL,
     level text DEFAULT ''::text NOT NULL,
-    price numeric(10,2) NOT NULL,
-    unit_duration integer DEFAULT 45 NOT NULL,
-    instructor text DEFAULT 'standard'::text NOT NULL,
+    unit_price numeric(10,2) NOT NULL,
+    unit_minutes integer DEFAULT 45 NOT NULL,
     start_date date,
     end_date date,
     trial_lessons boolean DEFAULT true NOT NULL,
@@ -2034,12 +1984,11 @@ CREATE TABLE public.courses (
     updated_at timestamp with time zone DEFAULT now() NOT NULL,
     CONSTRAINT courses_category_check CHECK ((category = ANY (ARRAY['german'::text, 'speaking'::text, 'online'::text, 'private'::text]))),
     CONSTRAINT courses_check CHECK (((end_date IS NULL) OR (start_date IS NULL) OR (end_date >= start_date))),
-    CONSTRAINT courses_instructor_check CHECK ((instructor = ANY (ARRAY['standard'::text, 'special'::text]))),
-    CONSTRAINT courses_price_check CHECK ((price >= (0)::numeric)),
     CONSTRAINT courses_slug_check CHECK ((slug ~ '^[a-z0-9][a-z0-9_-]{1,99}$'::text)),
     CONSTRAINT courses_title_check CHECK (((length(title) >= 1) AND (length(title) <= 180))),
     CONSTRAINT courses_type_check CHECK ((type = ANY (ARRAY['presence'::text, 'online'::text]))),
-    CONSTRAINT courses_unit_duration_check CHECK (((unit_duration >= 15) AND (unit_duration <= 180)))
+    CONSTRAINT courses_unit_minutes_check CHECK (((unit_minutes >= 15) AND (unit_minutes <= 180))),
+    CONSTRAINT courses_unit_price_check CHECK ((unit_price >= (0)::numeric))
 );
 
 
@@ -2054,6 +2003,26 @@ CREATE TABLE public.grammar_translations (
     smart_hint text,
     explanation text,
     CONSTRAINT grammar_translations_locale_check CHECK (((length(locale) >= 2) AND (length(locale) <= 20)))
+);
+
+
+--
+-- Name: invoice_cases; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.invoice_cases (
+    id uuid DEFAULT gen_random_uuid() NOT NULL,
+    person_id uuid NOT NULL,
+    target_month date NOT NULL,
+    booking_id uuid NOT NULL,
+    status text DEFAULT 'outstanding'::text NOT NULL,
+    invoice_reference text,
+    invoice_created_at timestamp with time zone,
+    created_by uuid,
+    updated_at timestamp with time zone DEFAULT now() NOT NULL,
+    CONSTRAINT invoice_cases_check CHECK (((status = 'created'::text) = (invoice_created_at IS NOT NULL))),
+    CONSTRAINT invoice_cases_status_check CHECK ((status = ANY (ARRAY['outstanding'::text, 'created'::text]))),
+    CONSTRAINT invoice_cases_target_month_check CHECK ((EXTRACT(day FROM target_month) = (1)::numeric))
 );
 
 
@@ -2084,74 +2053,6 @@ COMMENT ON COLUMN public.learning_exercises.solution_audio_url IS 'Optionale MP3
 
 
 --
--- Name: learning_units; Type: TABLE; Schema: public; Owner: -
---
-
-CREATE TABLE public.learning_units (
-    id uuid DEFAULT gen_random_uuid() NOT NULL,
-    level text NOT NULL,
-    trainer text NOT NULL,
-    label text NOT NULL,
-    sort_order integer DEFAULT 0 NOT NULL,
-    is_active boolean DEFAULT true NOT NULL,
-    CONSTRAINT learning_units_label_check CHECK (((length(btrim(label)) >= 1) AND (length(btrim(label)) <= 160))),
-    CONSTRAINT learning_units_trainer_check CHECK ((trainer = ANY (ARRAY['vocabulary'::text, 'exercises'::text, 'pronunciation'::text, 'videos'::text])))
-);
-
-
---
--- Name: exercises; Type: VIEW; Schema: public; Owner: -
---
-
-CREATE VIEW public.exercises WITH (security_invoker='true') AS
- SELECT e.id,
-    u.label AS lesson,
-    e.topic,
-    e.type,
-    ((e.content ||
-        CASE
-            WHEN (t.smart_hint IS NOT NULL) THEN jsonb_build_object('smart_hint', t.smart_hint)
-            ELSE '{}'::jsonb
-        END) ||
-        CASE
-            WHEN (t.explanation IS NOT NULL) THEN jsonb_build_object('explanation', t.explanation)
-            ELSE '{}'::jsonb
-        END) AS content,
-    t.hint,
-    e.created_at,
-    u.level,
-    e.solution_audio_url,
-    e.unit_id
-   FROM ((public.learning_exercises e
-     JOIN public.learning_units u ON ((u.id = e.unit_id)))
-     LEFT JOIN LATERAL ( SELECT jsonb_object_agg(grammar_translations.locale, grammar_translations.hint) FILTER (WHERE (grammar_translations.hint IS NOT NULL)) AS hint,
-            jsonb_object_agg(grammar_translations.locale, grammar_translations.smart_hint) FILTER (WHERE (grammar_translations.smart_hint IS NOT NULL)) AS smart_hint,
-            jsonb_object_agg(grammar_translations.locale, grammar_translations.explanation) FILTER (WHERE (grammar_translations.explanation IS NOT NULL)) AS explanation
-           FROM public.grammar_translations
-          WHERE (grammar_translations.exercise_id = e.id)) t ON (true));
-
-
---
--- Name: invoice_cases; Type: TABLE; Schema: public; Owner: -
---
-
-CREATE TABLE public.invoice_cases (
-    id uuid DEFAULT gen_random_uuid() NOT NULL,
-    person_id uuid NOT NULL,
-    target_month date NOT NULL,
-    booking_id uuid NOT NULL,
-    status text DEFAULT 'outstanding'::text NOT NULL,
-    invoice_reference text,
-    invoice_created_at timestamp with time zone,
-    created_by uuid,
-    updated_at timestamp with time zone DEFAULT now() NOT NULL,
-    CONSTRAINT invoice_cases_check CHECK (((status = 'created'::text) = (invoice_created_at IS NOT NULL))),
-    CONSTRAINT invoice_cases_status_check CHECK ((status = ANY (ARRAY['outstanding'::text, 'created'::text]))),
-    CONSTRAINT invoice_cases_target_month_check CHECK ((EXTRACT(day FROM target_month) = (1)::numeric))
-);
-
-
---
 -- Name: learning_levels; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -2159,6 +2060,7 @@ CREATE TABLE public.learning_levels (
     code text NOT NULL,
     cefr_level text NOT NULL,
     sort_order smallint NOT NULL,
+    is_active boolean DEFAULT true NOT NULL,
     CONSTRAINT learning_levels_cefr_level_check CHECK ((cefr_level = ANY (ARRAY['A1'::text, 'A2'::text, 'B1'::text, 'B2'::text, 'C1'::text, 'C2'::text]))),
     CONSTRAINT learning_levels_sort_order_check CHECK ((sort_order > 0))
 );
@@ -2170,14 +2072,11 @@ CREATE TABLE public.learning_levels (
 
 CREATE TABLE public.learning_reading_texts (
     id uuid DEFAULT gen_random_uuid() NOT NULL,
-    legacy_cefr_level text,
     sentence_de text NOT NULL,
     focus text,
     audio_url text,
     created_at timestamp with time zone DEFAULT now(),
-    unit_id uuid,
-    CONSTRAINT pronunciation_prompts_cefr_level_check CHECK ((legacy_cefr_level = ANY (ARRAY['A1'::text, 'A2'::text, 'B1'::text, 'B2'::text, 'C1'::text, 'C2'::text]))),
-    CONSTRAINT reading_text_level CHECK (((unit_id IS NOT NULL) OR (legacy_cefr_level IS NOT NULL)))
+    unit_id uuid NOT NULL
 );
 
 
@@ -2197,6 +2096,16 @@ CREATE TABLE public.learning_trainer_grants (
 
 
 --
+-- Name: learning_trainers; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.learning_trainers (
+    code text NOT NULL,
+    CONSTRAINT learning_trainers_code_check CHECK ((code = ANY (ARRAY['vocabulary'::text, 'exercises'::text, 'pronunciation'::text, 'videos'::text])))
+);
+
+
+--
 -- Name: learning_unit_grants; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -2209,17 +2118,32 @@ CREATE TABLE public.learning_unit_grants (
 
 
 --
+-- Name: learning_units; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.learning_units (
+    id uuid DEFAULT gen_random_uuid() NOT NULL,
+    level text NOT NULL,
+    trainer text NOT NULL,
+    label text NOT NULL,
+    sort_order integer DEFAULT 0 NOT NULL,
+    is_active boolean DEFAULT true NOT NULL,
+    CONSTRAINT learning_units_label_check CHECK (((length(btrim(label)) >= 1) AND (length(btrim(label)) <= 160))),
+    CONSTRAINT learning_units_trainer_check CHECK ((trainer = ANY (ARRAY['vocabulary'::text, 'exercises'::text, 'pronunciation'::text, 'videos'::text])))
+);
+
+
+--
 -- Name: learning_videos; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.learning_videos (
     id uuid DEFAULT gen_random_uuid() NOT NULL,
     description text,
-    video_url text,
-    is_external boolean DEFAULT false,
-    external_url text,
     created_at timestamp with time zone DEFAULT now(),
-    unit_id uuid NOT NULL
+    unit_id uuid NOT NULL,
+    source_url text,
+    CONSTRAINT learning_videos_source_url_check CHECK (((source_url IS NULL) OR (source_url ~* '^https?://[^[:space:]/?#@]+([/?#][^[:space:]]*)?$'::text)))
 );
 
 
@@ -2243,6 +2167,16 @@ CREATE TABLE public.learning_vocabulary_cards (
 
 
 --
+-- Name: locales; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.locales (
+    code text NOT NULL,
+    CONSTRAINT locales_code_check CHECK ((code ~ '^[a-z]{2}$'::text))
+);
+
+
+--
 -- Name: people; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -2260,8 +2194,7 @@ CREATE TABLE public.people (
     created_at timestamp with time zone DEFAULT now() NOT NULL,
     updated_at timestamp with time zone DEFAULT now() NOT NULL,
     CONSTRAINT people_display_name_check CHECK (((length(display_name) >= 1) AND (length(display_name) <= 160))),
-    CONSTRAINT people_email_check CHECK (((length(email) >= 3) AND (length(email) <= 254))),
-    CONSTRAINT people_preferred_locale_check CHECK ((preferred_locale = ANY (ARRAY['de'::text, 'en'::text, 'ru'::text, 'uk'::text, 'tr'::text])))
+    CONSTRAINT people_email_check CHECK (((length(email) >= 3) AND (length(email) <= 254)))
 );
 
 
@@ -2272,57 +2205,12 @@ CREATE TABLE public.people (
 CREATE TABLE public.profiles (
     id uuid NOT NULL,
     native_language text,
-    subscription_status text DEFAULT 'kostenlos'::text,
     created_at timestamp with time zone DEFAULT now(),
     updated_at timestamp with time zone DEFAULT now(),
-    stripe_customer_id text,
-    stripe_subscription_id text,
     role text DEFAULT 'student'::text,
     ui_language text DEFAULT 'de'::text NOT NULL,
-    CONSTRAINT profiles_native_language_check CHECK ((native_language = ANY (ARRAY['Deutsch'::text, 'Englisch'::text, 'Russisch'::text, 'Türkisch'::text, 'Ukrainisch'::text, 'Andere'::text]))),
-    CONSTRAINT profiles_role_check CHECK ((role = ANY (ARRAY['student'::text, 'teacher'::text, 'admin'::text]))),
-    CONSTRAINT profiles_subscription_status_check CHECK ((subscription_status = ANY (ARRAY['kostenlos'::text, 'aktiv'::text]))),
-    CONSTRAINT profiles_ui_language_check CHECK ((ui_language = ANY (ARRAY['de'::text, 'en'::text, 'uk'::text, 'ru'::text, 'tr'::text])))
+    CONSTRAINT profiles_role_check CHECK ((role = ANY (ARRAY['student'::text, 'teacher'::text, 'admin'::text])))
 );
-
-
---
--- Name: student_level_access; Type: TABLE; Schema: public; Owner: -
---
-
-CREATE TABLE public.student_level_access (
-    user_id uuid NOT NULL,
-    level text NOT NULL
-);
-
-
---
--- Name: profile_details; Type: VIEW; Schema: public; Owner: -
---
-
-CREATE VIEW public.profile_details WITH (security_invoker='true') AS
- SELECT p.id,
-    p.native_language,
-    p.subscription_status,
-    p.created_at,
-    p.updated_at,
-    p.stripe_customer_id,
-    p.stripe_subscription_id,
-    p.role,
-    p.ui_language,
-    person.id AS legacy_user_id,
-    person.display_name AS name,
-    person.email,
-    person.phone,
-    person.street,
-    person.postal_code AS zip_code,
-    person.city,
-    ARRAY( SELECT a.level
-           FROM public.student_level_access a
-          WHERE (a.user_id = p.id)
-          ORDER BY a.level) AS allowed_levels
-   FROM (public.profiles p
-     LEFT JOIN public.people person ON ((person.auth_user_id = p.id)));
 
 
 --
@@ -2345,44 +2233,13 @@ CREATE TABLE public.pronunciation_messages (
 
 
 --
--- Name: pronunciation_prompts; Type: VIEW; Schema: public; Owner: -
+-- Name: student_level_access; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE VIEW public.pronunciation_prompts WITH (security_invoker='true') AS
- SELECT p.id,
-    COALESCE(l.cefr_level, p.legacy_cefr_level) AS cefr_level,
-    p.sentence_de,
-    p.focus,
-    p.audio_url,
-    COALESCE(u.sort_order, 0) AS sort_order,
-    p.created_at,
-    COALESCE(u.label, 'Archiv'::text) AS lesson,
-    u.level,
-    u.label AS title,
-    COALESCE(u.is_active, false) AS is_active,
-    p.unit_id
-   FROM ((public.learning_reading_texts p
-     LEFT JOIN public.learning_units u ON ((u.id = p.unit_id)))
-     LEFT JOIN public.learning_levels l ON ((l.code = u.level)));
-
-
---
--- Name: student_trainer_access; Type: VIEW; Schema: public; Owner: -
---
-
-CREATE VIEW public.student_trainer_access WITH (security_invoker='true') AS
- SELECT a.user_id,
-    a.level,
-    a.trainer,
-    a.enabled,
-        CASE
-            WHEN (a.unit_mode = 'all'::text) THEN NULL::text[]
-            ELSE ARRAY( SELECT (g.unit_id)::text AS unit_id
-               FROM public.learning_unit_grants g
-              WHERE ((g.user_id = a.user_id) AND (g.level = a.level) AND (g.trainer = a.trainer))
-              ORDER BY g.unit_id)
-        END AS allowed_lessons
-   FROM public.learning_trainer_grants a;
+CREATE TABLE public.student_level_access (
+    user_id uuid NOT NULL,
+    level text NOT NULL
+);
 
 
 --
@@ -2397,8 +2254,6 @@ CREATE TABLE public.submissions (
     text_content text,
     status text DEFAULT 'pending'::text,
     created_at timestamp with time zone DEFAULT now(),
-    parent_id uuid,
-    attempt_number integer DEFAULT 1,
     level text DEFAULT 'A1.1'::text NOT NULL,
     prompt_id uuid,
     prompt_title text,
@@ -2406,22 +2261,6 @@ CREATE TABLE public.submissions (
     CONSTRAINT submissions_status_check CHECK ((status = ANY (ARRAY['pending'::text, 'reviewed'::text]))),
     CONSTRAINT submissions_type_check CHECK ((type = ANY (ARRAY['audio'::text, 'text'::text])))
 );
-
-
---
--- Name: teacher_feedback; Type: VIEW; Schema: public; Owner: -
---
-
-CREATE VIEW public.teacher_feedback WITH (security_invoker='true') AS
- SELECT pronunciation_messages.id,
-    pronunciation_messages.submission_id,
-    pronunciation_messages.sender_id AS teacher_id,
-    pronunciation_messages.text_content AS feedback_text,
-    pronunciation_messages.audio_path AS feedback_audio_url,
-    pronunciation_messages.created_at,
-    pronunciation_messages.seen_at
-   FROM public.pronunciation_messages
-  WHERE (pronunciation_messages.sender_role = ANY (ARRAY['teacher'::text, 'admin'::text]));
 
 
 --
@@ -2477,94 +2316,6 @@ CREATE TABLE public.vocabulary_direction_progress (
 
 
 --
--- Name: user_vocabulary_progress; Type: VIEW; Schema: public; Owner: -
---
-
-CREATE VIEW public.user_vocabulary_progress WITH (security_invoker='true') AS
- SELECT vocabulary_direction_progress.id,
-    vocabulary_direction_progress.user_id,
-    vocabulary_direction_progress.card_id,
-    vocabulary_direction_progress.box_number,
-    vocabulary_direction_progress.next_review_date,
-    vocabulary_direction_progress.lapses,
-    vocabulary_direction_progress.last_answered_at,
-    vocabulary_direction_progress.created_at,
-    vocabulary_direction_progress.updated_at
-   FROM public.vocabulary_direction_progress
-  WHERE (vocabulary_direction_progress.direction = 'de_to_native'::text);
-
-
---
--- Name: videos; Type: VIEW; Schema: public; Owner: -
---
-
-CREATE VIEW public.videos WITH (security_invoker='true') AS
- SELECT v.id,
-    u.label AS title,
-    v.description,
-    u.label AS lesson,
-    v.video_url,
-    v.external_url,
-    v.is_external,
-    v.created_at,
-    u.level,
-    v.unit_id
-   FROM (public.learning_videos v
-     JOIN public.learning_units u ON ((u.id = v.unit_id)));
-
-
---
--- Name: vocabulary_translations; Type: TABLE; Schema: public; Owner: -
---
-
-CREATE TABLE public.vocabulary_translations (
-    card_id uuid NOT NULL,
-    locale text NOT NULL,
-    translation text,
-    context_sentence text,
-    is_difficult boolean DEFAULT false NOT NULL,
-    CONSTRAINT vocabulary_translations_locale_check CHECK ((locale = ANY (ARRAY['de'::text, 'en'::text, 'ru'::text, 'uk'::text, 'tr'::text])))
-);
-
-
---
--- Name: vocabulary_cards; Type: VIEW; Schema: public; Owner: -
---
-
-CREATE VIEW public.vocabulary_cards WITH (security_invoker='true') AS
- SELECT c.id,
-    u.label AS lesson,
-    c.word_de,
-    c.article,
-    c.plural,
-    en.translation AS translation_en,
-    ru.translation AS translation_ru,
-    tr.translation AS translation_tr,
-    uk.translation AS translation_uk,
-    c.image_url,
-    c.audio_url,
-    ru.is_difficult AS is_hard_for_ru,
-    tr.is_difficult AS is_hard_for_tr,
-    c.created_at,
-    u.level,
-    de.context_sentence AS context_sentence_de,
-    en.context_sentence AS context_sentence_en,
-    ru.context_sentence AS context_sentence_ru,
-    uk.context_sentence AS context_sentence_uk,
-    tr.context_sentence AS context_sentence_tr,
-    c.sentence_practice,
-    c.alternative_answers_de,
-    c.unit_id
-   FROM ((((((public.learning_vocabulary_cards c
-     JOIN public.learning_units u ON ((u.id = c.unit_id)))
-     LEFT JOIN public.vocabulary_translations de ON (((de.card_id = c.id) AND (de.locale = 'de'::text))))
-     LEFT JOIN public.vocabulary_translations en ON (((en.card_id = c.id) AND (en.locale = 'en'::text))))
-     LEFT JOIN public.vocabulary_translations ru ON (((ru.card_id = c.id) AND (ru.locale = 'ru'::text))))
-     LEFT JOIN public.vocabulary_translations uk ON (((uk.card_id = c.id) AND (uk.locale = 'uk'::text))))
-     LEFT JOIN public.vocabulary_translations tr ON (((tr.card_id = c.id) AND (tr.locale = 'tr'::text))));
-
-
---
 -- Name: vocabulary_learning_state; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -2583,10 +2334,24 @@ CREATE TABLE public.vocabulary_onboarding (
     user_id uuid NOT NULL,
     level text NOT NULL,
     status text NOT NULL,
-    started_lesson text NOT NULL,
     updated_at timestamp with time zone DEFAULT now() NOT NULL,
+    started_unit_id uuid NOT NULL,
     CONSTRAINT vocabulary_onboarding_level_check CHECK ((level = ANY (ARRAY['A1.1'::text, 'A1.2'::text, 'A2.1'::text, 'A2.2'::text, 'B1.1'::text, 'B1.2'::text]))),
     CONSTRAINT vocabulary_onboarding_status_check CHECK ((status = ANY (ARRAY['skipped'::text, 'completed'::text])))
+);
+
+
+--
+-- Name: vocabulary_translations; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.vocabulary_translations (
+    card_id uuid NOT NULL,
+    locale text NOT NULL,
+    translation text,
+    context_sentence text,
+    is_difficult boolean DEFAULT false NOT NULL,
+    CONSTRAINT vocabulary_translations_locale_check CHECK ((locale = ANY (ARRAY['de'::text, 'en'::text, 'ru'::text, 'uk'::text, 'tr'::text])))
 );
 
 
@@ -2687,6 +2452,14 @@ ALTER TABLE ONLY public.bookings
 
 ALTER TABLE ONLY public.cancellation_requests
     ADD CONSTRAINT cancellation_requests_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: cefr_levels cefr_levels_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.cefr_levels
+    ADD CONSTRAINT cefr_levels_pkey PRIMARY KEY (code);
 
 
 --
@@ -2810,6 +2583,14 @@ ALTER TABLE ONLY public.learning_trainer_grants
 
 
 --
+-- Name: learning_trainers learning_trainers_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.learning_trainers
+    ADD CONSTRAINT learning_trainers_pkey PRIMARY KEY (code);
+
+
+--
 -- Name: learning_unit_grants learning_unit_grants_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -2839,6 +2620,14 @@ ALTER TABLE ONLY public.learning_units
 
 ALTER TABLE ONLY public.learning_videos
     ADD CONSTRAINT learning_videos_unit_id_key UNIQUE (unit_id);
+
+
+--
+-- Name: locales locales_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.locales
+    ADD CONSTRAINT locales_pkey PRIMARY KEY (code);
 
 
 --
@@ -2903,6 +2692,14 @@ ALTER TABLE ONLY public.submissions
 
 ALTER TABLE ONLY public.teacher_student_notes
     ADD CONSTRAINT teacher_student_notes_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: teacher_student_notes teacher_student_notes_student_unique; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.teacher_student_notes
+    ADD CONSTRAINT teacher_student_notes_student_unique UNIQUE (student_id);
 
 
 --
@@ -3007,6 +2804,13 @@ CREATE INDEX mail_outbox_lease_idx ON private.mail_outbox USING btree (lease_unt
 
 
 --
+-- Name: mail_outbox_locale_idx; Type: INDEX; Schema: private; Owner: -
+--
+
+CREATE INDEX mail_outbox_locale_idx ON private.mail_outbox USING btree (locale);
+
+
+--
 -- Name: booking_items_course; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -3049,6 +2853,13 @@ CREATE UNIQUE INDEX course_exceptions_one ON public.course_exceptions USING btre
 
 
 --
+-- Name: course_translations_locale_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX course_translations_locale_idx ON public.course_translations USING btree (locale);
+
+
+--
 -- Name: courses_active_order; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -3056,17 +2867,10 @@ CREATE INDEX courses_active_order ON public.courses USING btree (sort_order, id)
 
 
 --
--- Name: idx_profiles_stripe_customer_id; Type: INDEX; Schema: public; Owner: -
+-- Name: grammar_translations_locale_idx; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX idx_profiles_stripe_customer_id ON public.profiles USING btree (stripe_customer_id);
-
-
---
--- Name: idx_profiles_stripe_subscription_id; Type: INDEX; Schema: public; Owner: -
---
-
-CREATE INDEX idx_profiles_stripe_subscription_id ON public.profiles USING btree (stripe_subscription_id);
+CREATE INDEX grammar_translations_locale_idx ON public.grammar_translations USING btree (locale);
 
 
 --
@@ -3161,31 +2965,10 @@ CREATE INDEX pronunciation_messages_unseen_idx ON public.pronunciation_messages 
 
 
 --
--- Name: submissions_parent_id_idx; Type: INDEX; Schema: public; Owner: -
---
-
-CREATE INDEX submissions_parent_id_idx ON public.submissions USING btree (parent_id);
-
-
---
 -- Name: submissions_prompt_id_idx; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE INDEX submissions_prompt_id_idx ON public.submissions USING btree (prompt_id);
-
-
---
--- Name: teacher_student_notes_one_blackboard_idx; Type: INDEX; Schema: public; Owner: -
---
-
-CREATE UNIQUE INDEX teacher_student_notes_one_blackboard_idx ON public.teacher_student_notes USING btree (student_id) WHERE is_blackboard;
-
-
---
--- Name: teacher_student_notes_student_idx; Type: INDEX; Schema: public; Owner: -
---
-
-CREATE INDEX teacher_student_notes_student_idx ON public.teacher_student_notes USING btree (student_id);
 
 
 --
@@ -3214,6 +2997,20 @@ CREATE INDEX vocabulary_direction_due_idx ON public.vocabulary_direction_progres
 --
 
 CREATE INDEX vocabulary_learning_last_card_idx ON public.vocabulary_learning_state USING btree (last_card_id);
+
+
+--
+-- Name: vocabulary_onboarding_unit_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX vocabulary_onboarding_unit_idx ON public.vocabulary_onboarding USING btree (started_unit_id);
+
+
+--
+-- Name: vocabulary_translations_locale_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX vocabulary_translations_locale_idx ON public.vocabulary_translations USING btree (locale);
 
 
 --
@@ -3273,10 +3070,17 @@ CREATE TRIGGER pronunciation_message_validate BEFORE INSERT ON public.pronunciat
 
 
 --
+-- Name: vocabulary_onboarding validate_onboarding_unit; Type: TRIGGER; Schema: public; Owner: -
+--
+
+CREATE TRIGGER validate_onboarding_unit BEFORE INSERT OR UPDATE OF started_unit_id, level ON public.vocabulary_onboarding FOR EACH ROW EXECUTE FUNCTION learning_private.validate_onboarding_unit();
+
+
+--
 -- Name: teacher_student_notes validate_teacher_student_note; Type: TRIGGER; Schema: public; Owner: -
 --
 
-CREATE TRIGGER validate_teacher_student_note BEFORE INSERT OR UPDATE ON public.teacher_student_notes FOR EACH ROW EXECUTE FUNCTION monthly_booking_private.validate_teacher_note();
+CREATE TRIGGER validate_teacher_student_note BEFORE INSERT OR UPDATE ON public.teacher_student_notes FOR EACH ROW EXECUTE FUNCTION identity_private.validate_teacher_note();
 
 
 --
@@ -3308,6 +3112,20 @@ CREATE TRIGGER validate_unit BEFORE INSERT OR UPDATE OF unit_id ON public.learni
 
 
 --
+-- Name: learning_videos validate_video_publication; Type: TRIGGER; Schema: public; Owner: -
+--
+
+CREATE CONSTRAINT TRIGGER validate_video_publication AFTER INSERT OR UPDATE ON public.learning_videos DEFERRABLE INITIALLY DEFERRED FOR EACH ROW EXECUTE FUNCTION learning_private.validate_video_publication();
+
+
+--
+-- Name: learning_units validate_video_unit_publication; Type: TRIGGER; Schema: public; Owner: -
+--
+
+CREATE CONSTRAINT TRIGGER validate_video_unit_publication AFTER INSERT OR UPDATE ON public.learning_units DEFERRABLE INITIALLY DEFERRED FOR EACH ROW EXECUTE FUNCTION learning_private.validate_video_publication();
+
+
+--
 -- Name: answer_receipts learning_reset_guard; Type: TRIGGER; Schema: vocabulary_private; Owner: -
 --
 
@@ -3320,6 +3138,14 @@ CREATE TRIGGER learning_reset_guard BEFORE INSERT OR UPDATE ON vocabulary_privat
 
 ALTER TABLE ONLY learning_reset_private.audio_objects
     ADD CONSTRAINT audio_objects_user_id_fkey FOREIGN KEY (user_id) REFERENCES learning_reset_private.jobs(user_id) ON DELETE CASCADE;
+
+
+--
+-- Name: mail_outbox mail_outbox_locale_fkey; Type: FK CONSTRAINT; Schema: private; Owner: -
+--
+
+ALTER TABLE ONLY private.mail_outbox
+    ADD CONSTRAINT mail_outbox_locale_fkey FOREIGN KEY (locale) REFERENCES public.locales(code);
 
 
 --
@@ -3379,6 +3205,22 @@ ALTER TABLE ONLY public.course_translations
 
 
 --
+-- Name: course_translations course_translations_locale_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.course_translations
+    ADD CONSTRAINT course_translations_locale_fkey FOREIGN KEY (locale) REFERENCES public.locales(code);
+
+
+--
+-- Name: grammar_translations grammar_locale_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.grammar_translations
+    ADD CONSTRAINT grammar_locale_fk FOREIGN KEY (locale) REFERENCES public.locales(code);
+
+
+--
 -- Name: grammar_translations grammar_translations_exercise_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -3416,6 +3258,22 @@ ALTER TABLE ONLY public.invoice_cases
 
 ALTER TABLE ONLY public.learning_exercises
     ADD CONSTRAINT learning_exercises_unit_id_fkey FOREIGN KEY (unit_id) REFERENCES public.learning_units(id);
+
+
+--
+-- Name: learning_trainer_grants learning_grants_trainer_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.learning_trainer_grants
+    ADD CONSTRAINT learning_grants_trainer_fk FOREIGN KEY (trainer) REFERENCES public.learning_trainers(code);
+
+
+--
+-- Name: learning_levels learning_levels_cefr_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.learning_levels
+    ADD CONSTRAINT learning_levels_cefr_fk FOREIGN KEY (cefr_level) REFERENCES public.cefr_levels(code);
 
 
 --
@@ -3467,6 +3325,14 @@ ALTER TABLE ONLY public.learning_units
 
 
 --
+-- Name: learning_units learning_units_trainer_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.learning_units
+    ADD CONSTRAINT learning_units_trainer_fk FOREIGN KEY (trainer) REFERENCES public.learning_trainers(code);
+
+
+--
 -- Name: learning_videos learning_videos_unit_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -3491,11 +3357,35 @@ ALTER TABLE ONLY public.people
 
 
 --
+-- Name: people people_preferred_locale_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.people
+    ADD CONSTRAINT people_preferred_locale_fkey FOREIGN KEY (preferred_locale) REFERENCES public.locales(code);
+
+
+--
 -- Name: profiles profiles_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.profiles
     ADD CONSTRAINT profiles_id_fkey FOREIGN KEY (id) REFERENCES auth.users(id) ON DELETE CASCADE;
+
+
+--
+-- Name: profiles profiles_native_language_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.profiles
+    ADD CONSTRAINT profiles_native_language_fkey FOREIGN KEY (native_language) REFERENCES public.locales(code);
+
+
+--
+-- Name: profiles profiles_ui_language_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.profiles
+    ADD CONSTRAINT profiles_ui_language_fkey FOREIGN KEY (ui_language) REFERENCES public.locales(code);
 
 
 --
@@ -3531,11 +3421,11 @@ ALTER TABLE ONLY public.student_level_access
 
 
 --
--- Name: submissions submissions_parent_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: submissions submissions_level_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.submissions
-    ADD CONSTRAINT submissions_parent_id_fkey FOREIGN KEY (parent_id) REFERENCES public.submissions(id) ON DELETE CASCADE;
+    ADD CONSTRAINT submissions_level_fk FOREIGN KEY (level) REFERENCES public.learning_levels(code);
 
 
 --
@@ -3619,6 +3509,30 @@ ALTER TABLE ONLY public.vocabulary_learning_state
 
 
 --
+-- Name: vocabulary_translations vocabulary_locale_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.vocabulary_translations
+    ADD CONSTRAINT vocabulary_locale_fk FOREIGN KEY (locale) REFERENCES public.locales(code);
+
+
+--
+-- Name: vocabulary_onboarding vocabulary_onboarding_level_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.vocabulary_onboarding
+    ADD CONSTRAINT vocabulary_onboarding_level_fk FOREIGN KEY (level) REFERENCES public.learning_levels(code);
+
+
+--
+-- Name: vocabulary_onboarding vocabulary_onboarding_unit_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.vocabulary_onboarding
+    ADD CONSTRAINT vocabulary_onboarding_unit_fk FOREIGN KEY (started_unit_id) REFERENCES public.learning_units(id) ON DELETE CASCADE;
+
+
+--
 -- Name: vocabulary_onboarding vocabulary_onboarding_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -3657,62 +3571,6 @@ ALTER TABLE platform_private.rate_limits ENABLE ROW LEVEL SECURITY;
 --
 
 ALTER TABLE private.mail_outbox ENABLE ROW LEVEL SECURITY;
-
---
--- Name: profiles Admins und Lehrer können Profile updaten; Type: POLICY; Schema: public; Owner: -
---
-
-CREATE POLICY "Admins und Lehrer können Profile updaten" ON public.profiles FOR UPDATE TO authenticated USING ((( SELECT monthly_booking_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text]))) WITH CHECK ((( SELECT monthly_booking_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text])));
-
-
---
--- Name: profiles Benutzer können eigenes Profil aktualisieren; Type: POLICY; Schema: public; Owner: -
---
-
-CREATE POLICY "Benutzer können eigenes Profil aktualisieren" ON public.profiles FOR UPDATE TO authenticated USING ((( SELECT auth.uid() AS uid) = id)) WITH CHECK ((( SELECT auth.uid() AS uid) = id));
-
-
---
--- Name: profiles Benutzer können eigenes Profil sehen; Type: POLICY; Schema: public; Owner: -
---
-
-CREATE POLICY "Benutzer können eigenes Profil sehen" ON public.profiles FOR SELECT TO authenticated USING ((( SELECT auth.uid() AS uid) = id));
-
-
---
--- Name: profiles Staff can read profiles; Type: POLICY; Schema: public; Owner: -
---
-
-CREATE POLICY "Staff can read profiles" ON public.profiles FOR SELECT TO authenticated USING ((( SELECT monthly_booking_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text])));
-
-
---
--- Name: teacher_student_notes Staff delete notes; Type: POLICY; Schema: public; Owner: -
---
-
-CREATE POLICY "Staff delete notes" ON public.teacher_student_notes FOR DELETE TO authenticated USING ((( SELECT monthly_booking_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text])));
-
-
---
--- Name: teacher_student_notes Staff insert notes as themselves; Type: POLICY; Schema: public; Owner: -
---
-
-CREATE POLICY "Staff insert notes as themselves" ON public.teacher_student_notes FOR INSERT TO authenticated WITH CHECK (((( SELECT monthly_booking_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text])) AND (teacher_id = ( SELECT auth.uid() AS uid))));
-
-
---
--- Name: teacher_student_notes Staff read notes; Type: POLICY; Schema: public; Owner: -
---
-
-CREATE POLICY "Staff read notes" ON public.teacher_student_notes FOR SELECT TO authenticated USING ((( SELECT monthly_booking_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text])));
-
-
---
--- Name: teacher_student_notes Staff update notes; Type: POLICY; Schema: public; Owner: -
---
-
-CREATE POLICY "Staff update notes" ON public.teacher_student_notes FOR UPDATE TO authenticated USING ((( SELECT monthly_booking_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text]))) WITH CHECK ((( SELECT monthly_booking_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text])));
-
 
 --
 -- Name: learning_levels authenticated_levels; Type: POLICY; Schema: public; Owner: -
@@ -3756,10 +3614,24 @@ CREATE POLICY cancellation_read ON public.cancellation_requests FOR SELECT TO au
 ALTER TABLE public.cancellation_requests ENABLE ROW LEVEL SECURITY;
 
 --
+-- Name: cefr_levels catalog_read; Type: POLICY; Schema: public; Owner: -
+--
+
+CREATE POLICY catalog_read ON public.cefr_levels FOR SELECT TO authenticated USING (true);
+
+
+--
 -- Name: courses catalog_read; Type: POLICY; Schema: public; Owner: -
 --
 
-CREATE POLICY catalog_read ON public.courses FOR SELECT TO authenticated, anon USING ((archived_at IS NULL));
+CREATE POLICY catalog_read ON public.courses FOR SELECT TO anon, authenticated USING ((archived_at IS NULL));
+
+
+--
+-- Name: learning_trainers catalog_read; Type: POLICY; Schema: public; Owner: -
+--
+
+CREATE POLICY catalog_read ON public.learning_trainers FOR SELECT TO authenticated USING (true);
 
 
 --
@@ -3768,6 +3640,12 @@ CREATE POLICY catalog_read ON public.courses FOR SELECT TO authenticated, anon U
 
 CREATE POLICY catalog_staff ON public.courses FOR SELECT TO authenticated USING (( SELECT business_private.is_staff() AS is_staff));
 
+
+--
+-- Name: cefr_levels; Type: ROW SECURITY; Schema: public; Owner: -
+--
+
+ALTER TABLE public.cefr_levels ENABLE ROW LEVEL SECURITY;
 
 --
 -- Name: course_exceptions; Type: ROW SECURITY; Schema: public; Owner: -
@@ -3797,7 +3675,7 @@ ALTER TABLE public.courses ENABLE ROW LEVEL SECURITY;
 -- Name: course_exceptions exception_read; Type: POLICY; Schema: public; Owner: -
 --
 
-CREATE POLICY exception_read ON public.course_exceptions FOR SELECT TO authenticated, anon USING (((course_id IS NULL) OR (EXISTS ( SELECT 1
+CREATE POLICY exception_read ON public.course_exceptions FOR SELECT TO anon, authenticated USING (((course_id IS NULL) OR (EXISTS ( SELECT 1
    FROM public.courses c
   WHERE (c.id = course_exceptions.course_id)))));
 
@@ -3806,7 +3684,7 @@ CREATE POLICY exception_read ON public.course_exceptions FOR SELECT TO authentic
 -- Name: user_exercise_progress grammar_progress_read; Type: POLICY; Schema: public; Owner: -
 --
 
-CREATE POLICY grammar_progress_read ON public.user_exercise_progress FOR SELECT TO authenticated USING (((( SELECT monthly_booking_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text])) OR ((user_id = ( SELECT auth.uid() AS uid)) AND (EXISTS ( SELECT 1
+CREATE POLICY grammar_progress_read ON public.user_exercise_progress FOR SELECT TO authenticated USING (((( SELECT identity_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text])) OR ((user_id = ( SELECT auth.uid() AS uid)) AND (EXISTS ( SELECT 1
    FROM public.learning_exercises e
   WHERE ((e.id = user_exercise_progress.exercise_id) AND learning_private.unit_allowed(e.unit_id)))))));
 
@@ -3864,6 +3742,12 @@ ALTER TABLE public.learning_reading_texts ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.learning_trainer_grants ENABLE ROW LEVEL SECURITY;
 
 --
+-- Name: learning_trainers; Type: ROW SECURITY; Schema: public; Owner: -
+--
+
+ALTER TABLE public.learning_trainers ENABLE ROW LEVEL SECURITY;
+
+--
 -- Name: learning_unit_grants; Type: ROW SECURITY; Schema: public; Owner: -
 --
 
@@ -3886,6 +3770,19 @@ ALTER TABLE public.learning_videos ENABLE ROW LEVEL SECURITY;
 --
 
 ALTER TABLE public.learning_vocabulary_cards ENABLE ROW LEVEL SECURITY;
+
+--
+-- Name: locales; Type: ROW SECURITY; Schema: public; Owner: -
+--
+
+ALTER TABLE public.locales ENABLE ROW LEVEL SECURITY;
+
+--
+-- Name: locales locales_read; Type: POLICY; Schema: public; Owner: -
+--
+
+CREATE POLICY locales_read ON public.locales FOR SELECT TO anon, authenticated USING (true);
+
 
 --
 -- Name: learning_trainer_grants own_access_read; Type: POLICY; Schema: public; Owner: -
@@ -3918,14 +3815,14 @@ ALTER TABLE public.people ENABLE ROW LEVEL SECURITY;
 -- Name: people people_read; Type: POLICY; Schema: public; Owner: -
 --
 
-CREATE POLICY people_read ON public.people FOR SELECT TO authenticated USING (((auth_user_id = ( SELECT auth.uid() AS uid)) OR ( SELECT business_private.is_staff() AS is_staff)));
+CREATE POLICY people_read ON public.people FOR SELECT TO authenticated USING (((auth_user_id = ( SELECT auth.uid() AS uid)) OR (( SELECT identity_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text]))));
 
 
 --
--- Name: people people_update; Type: POLICY; Schema: public; Owner: -
+-- Name: people people_update_contact; Type: POLICY; Schema: public; Owner: -
 --
 
-CREATE POLICY people_update ON public.people FOR UPDATE TO authenticated USING (((auth_user_id = ( SELECT auth.uid() AS uid)) OR ( SELECT business_private.is_staff() AS is_staff))) WITH CHECK (((auth_user_id = ( SELECT auth.uid() AS uid)) OR ( SELECT business_private.is_staff() AS is_staff)));
+CREATE POLICY people_update_contact ON public.people FOR UPDATE TO authenticated USING (((auth_user_id = ( SELECT auth.uid() AS uid)) OR (( SELECT identity_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text])))) WITH CHECK (((auth_user_id = ( SELECT auth.uid() AS uid)) OR (( SELECT identity_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text]))));
 
 
 --
@@ -3933,6 +3830,20 @@ CREATE POLICY people_update ON public.people FOR UPDATE TO authenticated USING (
 --
 
 ALTER TABLE public.profiles ENABLE ROW LEVEL SECURITY;
+
+--
+-- Name: profiles profiles_read; Type: POLICY; Schema: public; Owner: -
+--
+
+CREATE POLICY profiles_read ON public.profiles FOR SELECT TO authenticated USING (((id = ( SELECT auth.uid() AS uid)) OR (( SELECT identity_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text]))));
+
+
+--
+-- Name: profiles profiles_update_preferences; Type: POLICY; Schema: public; Owner: -
+--
+
+CREATE POLICY profiles_update_preferences ON public.profiles FOR UPDATE TO authenticated USING ((id = ( SELECT auth.uid() AS uid))) WITH CHECK ((id = ( SELECT auth.uid() AS uid)));
+
 
 --
 -- Name: pronunciation_messages; Type: ROW SECURITY; Schema: public; Owner: -
@@ -4018,7 +3929,7 @@ CREATE POLICY released_units ON public.learning_units FOR SELECT TO authenticate
 -- Name: course_schedules schedule_read; Type: POLICY; Schema: public; Owner: -
 --
 
-CREATE POLICY schedule_read ON public.course_schedules FOR SELECT TO authenticated, anon USING ((EXISTS ( SELECT 1
+CREATE POLICY schedule_read ON public.course_schedules FOR SELECT TO anon, authenticated USING ((EXISTS ( SELECT 1
    FROM public.courses c
   WHERE (c.id = course_schedules.course_id))));
 
@@ -4027,77 +3938,77 @@ CREATE POLICY schedule_read ON public.course_schedules FOR SELECT TO authenticat
 -- Name: grammar_translations staff_manage; Type: POLICY; Schema: public; Owner: -
 --
 
-CREATE POLICY staff_manage ON public.grammar_translations TO authenticated USING ((( SELECT monthly_booking_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text]))) WITH CHECK ((( SELECT monthly_booking_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text])));
+CREATE POLICY staff_manage ON public.grammar_translations TO authenticated USING ((( SELECT identity_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text]))) WITH CHECK ((( SELECT identity_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text])));
 
 
 --
 -- Name: learning_exercises staff_manage; Type: POLICY; Schema: public; Owner: -
 --
 
-CREATE POLICY staff_manage ON public.learning_exercises TO authenticated USING ((( SELECT monthly_booking_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text]))) WITH CHECK ((( SELECT monthly_booking_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text])));
+CREATE POLICY staff_manage ON public.learning_exercises TO authenticated USING ((( SELECT identity_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text]))) WITH CHECK ((( SELECT identity_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text])));
 
 
 --
 -- Name: learning_levels staff_manage; Type: POLICY; Schema: public; Owner: -
 --
 
-CREATE POLICY staff_manage ON public.learning_levels TO authenticated USING ((( SELECT monthly_booking_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text]))) WITH CHECK ((( SELECT monthly_booking_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text])));
+CREATE POLICY staff_manage ON public.learning_levels TO authenticated USING ((( SELECT identity_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text]))) WITH CHECK ((( SELECT identity_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text])));
 
 
 --
 -- Name: learning_reading_texts staff_manage; Type: POLICY; Schema: public; Owner: -
 --
 
-CREATE POLICY staff_manage ON public.learning_reading_texts TO authenticated USING ((( SELECT monthly_booking_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text]))) WITH CHECK ((( SELECT monthly_booking_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text])));
+CREATE POLICY staff_manage ON public.learning_reading_texts TO authenticated USING ((( SELECT identity_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text]))) WITH CHECK ((( SELECT identity_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text])));
 
 
 --
 -- Name: learning_trainer_grants staff_manage; Type: POLICY; Schema: public; Owner: -
 --
 
-CREATE POLICY staff_manage ON public.learning_trainer_grants TO authenticated USING ((( SELECT monthly_booking_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text]))) WITH CHECK ((( SELECT monthly_booking_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text])));
+CREATE POLICY staff_manage ON public.learning_trainer_grants TO authenticated USING ((( SELECT identity_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text]))) WITH CHECK ((( SELECT identity_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text])));
 
 
 --
 -- Name: learning_unit_grants staff_manage; Type: POLICY; Schema: public; Owner: -
 --
 
-CREATE POLICY staff_manage ON public.learning_unit_grants TO authenticated USING ((( SELECT monthly_booking_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text]))) WITH CHECK ((( SELECT monthly_booking_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text])));
+CREATE POLICY staff_manage ON public.learning_unit_grants TO authenticated USING ((( SELECT identity_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text]))) WITH CHECK ((( SELECT identity_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text])));
 
 
 --
 -- Name: learning_units staff_manage; Type: POLICY; Schema: public; Owner: -
 --
 
-CREATE POLICY staff_manage ON public.learning_units TO authenticated USING ((( SELECT monthly_booking_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text]))) WITH CHECK ((( SELECT monthly_booking_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text])));
+CREATE POLICY staff_manage ON public.learning_units TO authenticated USING ((( SELECT identity_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text]))) WITH CHECK ((( SELECT identity_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text])));
 
 
 --
 -- Name: learning_videos staff_manage; Type: POLICY; Schema: public; Owner: -
 --
 
-CREATE POLICY staff_manage ON public.learning_videos TO authenticated USING ((( SELECT monthly_booking_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text]))) WITH CHECK ((( SELECT monthly_booking_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text])));
+CREATE POLICY staff_manage ON public.learning_videos TO authenticated USING ((( SELECT identity_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text]))) WITH CHECK ((( SELECT identity_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text])));
 
 
 --
 -- Name: learning_vocabulary_cards staff_manage; Type: POLICY; Schema: public; Owner: -
 --
 
-CREATE POLICY staff_manage ON public.learning_vocabulary_cards TO authenticated USING ((( SELECT monthly_booking_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text]))) WITH CHECK ((( SELECT monthly_booking_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text])));
+CREATE POLICY staff_manage ON public.learning_vocabulary_cards TO authenticated USING ((( SELECT identity_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text]))) WITH CHECK ((( SELECT identity_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text])));
 
 
 --
 -- Name: student_level_access staff_manage; Type: POLICY; Schema: public; Owner: -
 --
 
-CREATE POLICY staff_manage ON public.student_level_access TO authenticated USING ((( SELECT monthly_booking_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text]))) WITH CHECK ((( SELECT monthly_booking_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text])));
+CREATE POLICY staff_manage ON public.student_level_access TO authenticated USING ((( SELECT identity_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text]))) WITH CHECK ((( SELECT identity_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text])));
 
 
 --
 -- Name: vocabulary_translations staff_manage; Type: POLICY; Schema: public; Owner: -
 --
 
-CREATE POLICY staff_manage ON public.vocabulary_translations TO authenticated USING ((( SELECT monthly_booking_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text]))) WITH CHECK ((( SELECT monthly_booking_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text])));
+CREATE POLICY staff_manage ON public.vocabulary_translations TO authenticated USING ((( SELECT identity_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text]))) WITH CHECK ((( SELECT identity_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text])));
 
 
 --
@@ -4113,6 +4024,34 @@ ALTER TABLE public.student_level_access ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.submissions ENABLE ROW LEVEL SECURITY;
 
 --
+-- Name: teacher_student_notes teacher_notes_delete; Type: POLICY; Schema: public; Owner: -
+--
+
+CREATE POLICY teacher_notes_delete ON public.teacher_student_notes FOR DELETE TO authenticated USING ((( SELECT identity_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text])));
+
+
+--
+-- Name: teacher_student_notes teacher_notes_insert; Type: POLICY; Schema: public; Owner: -
+--
+
+CREATE POLICY teacher_notes_insert ON public.teacher_student_notes FOR INSERT TO authenticated WITH CHECK (((( SELECT identity_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text])) AND (teacher_id = ( SELECT auth.uid() AS uid))));
+
+
+--
+-- Name: teacher_student_notes teacher_notes_read; Type: POLICY; Schema: public; Owner: -
+--
+
+CREATE POLICY teacher_notes_read ON public.teacher_student_notes FOR SELECT TO authenticated USING ((( SELECT identity_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text])));
+
+
+--
+-- Name: teacher_student_notes teacher_notes_update; Type: POLICY; Schema: public; Owner: -
+--
+
+CREATE POLICY teacher_notes_update ON public.teacher_student_notes FOR UPDATE TO authenticated USING ((( SELECT identity_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text]))) WITH CHECK ((( SELECT identity_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text])));
+
+
+--
 -- Name: teacher_student_notes; Type: ROW SECURITY; Schema: public; Owner: -
 --
 
@@ -4122,7 +4061,7 @@ ALTER TABLE public.teacher_student_notes ENABLE ROW LEVEL SECURITY;
 -- Name: course_translations translation_read; Type: POLICY; Schema: public; Owner: -
 --
 
-CREATE POLICY translation_read ON public.course_translations FOR SELECT TO authenticated, anon USING ((EXISTS ( SELECT 1
+CREATE POLICY translation_read ON public.course_translations FOR SELECT TO anon, authenticated USING ((EXISTS ( SELECT 1
    FROM public.courses c
   WHERE (c.id = course_translations.course_id))));
 
@@ -4162,7 +4101,7 @@ CREATE POLICY vocabulary_onboarding_read ON public.vocabulary_onboarding FOR SEL
 -- Name: vocabulary_direction_progress vocabulary_progress_read; Type: POLICY; Schema: public; Owner: -
 --
 
-CREATE POLICY vocabulary_progress_read ON public.vocabulary_direction_progress FOR SELECT TO authenticated USING (((( SELECT monthly_booking_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text])) OR ((user_id = ( SELECT auth.uid() AS uid)) AND (EXISTS ( SELECT 1
+CREATE POLICY vocabulary_progress_read ON public.vocabulary_direction_progress FOR SELECT TO authenticated USING (((( SELECT identity_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text])) OR ((user_id = ( SELECT auth.uid() AS uid)) AND (EXISTS ( SELECT 1
    FROM public.learning_vocabulary_cards c
   WHERE ((c.id = vocabulary_direction_progress.card_id) AND learning_private.unit_allowed(c.unit_id)))))));
 
@@ -4202,6 +4141,14 @@ GRANT USAGE ON SCHEMA grammar_private TO authenticated;
 
 
 --
+-- Name: SCHEMA identity_private; Type: ACL; Schema: -; Owner: -
+--
+
+GRANT USAGE ON SCHEMA identity_private TO authenticated;
+GRANT USAGE ON SCHEMA identity_private TO service_role;
+
+
+--
 -- Name: SCHEMA learning_private; Type: ACL; Schema: -; Owner: -
 --
 
@@ -4214,14 +4161,6 @@ GRANT USAGE ON SCHEMA learning_private TO service_role;
 --
 
 GRANT USAGE ON SCHEMA learning_reset_private TO authenticated;
-
-
---
--- Name: SCHEMA monthly_booking_private; Type: ACL; Schema: -; Owner: -
---
-
-GRANT USAGE ON SCHEMA monthly_booking_private TO authenticated;
-GRANT USAGE ON SCHEMA monthly_booking_private TO service_role;
 
 
 --
@@ -4283,11 +4222,19 @@ GRANT ALL ON FUNCTION business_private.confirm_booking(p_id uuid) TO service_rol
 
 
 --
--- Name: FUNCTION course_quote(p_course uuid, p_start date, p_trial boolean); Type: ACL; Schema: business_private; Owner: -
+-- Name: FUNCTION course_quote(p_course uuid, p_start date, p_requested_units integer, p_trial boolean); Type: ACL; Schema: business_private; Owner: -
 --
 
-REVOKE ALL ON FUNCTION business_private.course_quote(p_course uuid, p_start date, p_trial boolean) FROM PUBLIC;
-GRANT ALL ON FUNCTION business_private.course_quote(p_course uuid, p_start date, p_trial boolean) TO service_role;
+REVOKE ALL ON FUNCTION business_private.course_quote(p_course uuid, p_start date, p_requested_units integer, p_trial boolean) FROM PUBLIC;
+GRANT ALL ON FUNCTION business_private.course_quote(p_course uuid, p_start date, p_requested_units integer, p_trial boolean) TO service_role;
+
+
+--
+-- Name: FUNCTION decline_booking(p_id uuid); Type: ACL; Schema: business_private; Owner: -
+--
+
+REVOKE ALL ON FUNCTION business_private.decline_booking(p_id uuid) FROM PUBLIC;
+GRANT ALL ON FUNCTION business_private.decline_booking(p_id uuid) TO authenticated;
 
 
 --
@@ -4326,11 +4273,11 @@ GRANT ALL ON FUNCTION business_private.provision_profile() TO service_role;
 
 
 --
--- Name: FUNCTION replace_items(p_booking uuid, p_courses uuid[]); Type: ACL; Schema: business_private; Owner: -
+-- Name: FUNCTION replace_items(p_booking uuid, p_course_selections jsonb); Type: ACL; Schema: business_private; Owner: -
 --
 
-REVOKE ALL ON FUNCTION business_private.replace_items(p_booking uuid, p_courses uuid[]) FROM PUBLIC;
-GRANT ALL ON FUNCTION business_private.replace_items(p_booking uuid, p_courses uuid[]) TO service_role;
+REVOKE ALL ON FUNCTION business_private.replace_items(p_booking uuid, p_course_selections jsonb) FROM PUBLIC;
+GRANT ALL ON FUNCTION business_private.replace_items(p_booking uuid, p_course_selections jsonb) TO service_role;
 
 
 --
@@ -4343,12 +4290,11 @@ GRANT ALL ON FUNCTION business_private.save_course(p_data jsonb) TO service_role
 
 
 --
--- Name: FUNCTION save_month(p_month date, p_courses uuid[], p_paused boolean, p_expected uuid, p_revision integer); Type: ACL; Schema: business_private; Owner: -
+-- Name: FUNCTION save_month(p_month date, p_course_selections jsonb, p_paused boolean, p_expected uuid, p_revision integer); Type: ACL; Schema: business_private; Owner: -
 --
 
-REVOKE ALL ON FUNCTION business_private.save_month(p_month date, p_courses uuid[], p_paused boolean, p_expected uuid, p_revision integer) FROM PUBLIC;
-GRANT ALL ON FUNCTION business_private.save_month(p_month date, p_courses uuid[], p_paused boolean, p_expected uuid, p_revision integer) TO authenticated;
-GRANT ALL ON FUNCTION business_private.save_month(p_month date, p_courses uuid[], p_paused boolean, p_expected uuid, p_revision integer) TO service_role;
+REVOKE ALL ON FUNCTION business_private.save_month(p_month date, p_course_selections jsonb, p_paused boolean, p_expected uuid, p_revision integer) FROM PUBLIC;
+GRANT ALL ON FUNCTION business_private.save_month(p_month date, p_course_selections jsonb, p_paused boolean, p_expected uuid, p_revision integer) TO authenticated;
 
 
 --
@@ -4360,11 +4306,35 @@ GRANT ALL ON FUNCTION business_private.sync_verified_email() TO service_role;
 
 
 --
+-- Name: FUNCTION validate_course_selections(p_selections jsonb, p_start date); Type: ACL; Schema: business_private; Owner: -
+--
+
+REVOKE ALL ON FUNCTION business_private.validate_course_selections(p_selections jsonb, p_start date) FROM PUBLIC;
+GRANT ALL ON FUNCTION business_private.validate_course_selections(p_selections jsonb, p_start date) TO service_role;
+
+
+--
 -- Name: FUNCTION record_attempt(p_exercise_id uuid, p_answer text, p_hint_shown boolean); Type: ACL; Schema: grammar_private; Owner: -
 --
 
 REVOKE ALL ON FUNCTION grammar_private.record_attempt(p_exercise_id uuid, p_answer text, p_hint_shown boolean) FROM PUBLIC;
 GRANT ALL ON FUNCTION grammar_private.record_attempt(p_exercise_id uuid, p_answer text, p_hint_shown boolean) TO authenticated;
+
+
+--
+-- Name: FUNCTION current_profile_role(); Type: ACL; Schema: identity_private; Owner: -
+--
+
+REVOKE ALL ON FUNCTION identity_private.current_profile_role() FROM PUBLIC;
+GRANT ALL ON FUNCTION identity_private.current_profile_role() TO authenticated;
+GRANT ALL ON FUNCTION identity_private.current_profile_role() TO service_role;
+
+
+--
+-- Name: FUNCTION validate_teacher_note(); Type: ACL; Schema: identity_private; Owner: -
+--
+
+REVOKE ALL ON FUNCTION identity_private.validate_teacher_note() FROM PUBLIC;
 
 
 --
@@ -4406,6 +4376,20 @@ GRANT ALL ON FUNCTION learning_private.unit_allowed(p_unit_id uuid) TO service_r
 --
 
 REVOKE ALL ON FUNCTION learning_private.validate_content_unit() FROM PUBLIC;
+
+
+--
+-- Name: FUNCTION validate_onboarding_unit(); Type: ACL; Schema: learning_private; Owner: -
+--
+
+REVOKE ALL ON FUNCTION learning_private.validate_onboarding_unit() FROM PUBLIC;
+
+
+--
+-- Name: FUNCTION validate_video_publication(); Type: ACL; Schema: learning_private; Owner: -
+--
+
+REVOKE ALL ON FUNCTION learning_private.validate_video_publication() FROM PUBLIC;
 
 
 --
@@ -4467,21 +4451,6 @@ REVOKE ALL ON FUNCTION learning_reset_private.matches_audio(p_reference text, p_
 
 REVOKE ALL ON FUNCTION learning_reset_private.storage_writable(p_bucket text, p_id uuid) FROM PUBLIC;
 GRANT ALL ON FUNCTION learning_reset_private.storage_writable(p_bucket text, p_id uuid) TO authenticated;
-
-
---
--- Name: FUNCTION current_profile_role(); Type: ACL; Schema: monthly_booking_private; Owner: -
---
-
-REVOKE ALL ON FUNCTION monthly_booking_private.current_profile_role() FROM PUBLIC;
-GRANT ALL ON FUNCTION monthly_booking_private.current_profile_role() TO authenticated;
-
-
---
--- Name: FUNCTION validate_teacher_note(); Type: ACL; Schema: monthly_booking_private; Owner: -
---
-
-REVOKE ALL ON FUNCTION monthly_booking_private.validate_teacher_note() FROM PUBLIC;
 
 
 --
@@ -4547,12 +4516,11 @@ GRANT ALL ON FUNCTION public.claim_mail_jobs(p_worker_id uuid, p_limit integer) 
 
 
 --
--- Name: FUNCTION claim_verified_legacy_profile(); Type: ACL; Schema: public; Owner: -
+-- Name: FUNCTION claim_verified_person(); Type: ACL; Schema: public; Owner: -
 --
 
-REVOKE ALL ON FUNCTION public.claim_verified_legacy_profile() FROM PUBLIC;
-GRANT ALL ON FUNCTION public.claim_verified_legacy_profile() TO authenticated;
-GRANT ALL ON FUNCTION public.claim_verified_legacy_profile() TO service_role;
+REVOKE ALL ON FUNCTION public.claim_verified_person() FROM PUBLIC;
+GRANT ALL ON FUNCTION public.claim_verified_person() TO authenticated;
 
 
 --
@@ -4589,6 +4557,14 @@ GRANT ALL ON FUNCTION public.create_pronunciation_submission(p_prompt_id uuid, p
 
 
 --
+-- Name: FUNCTION decline_business_booking(p_id uuid); Type: ACL; Schema: public; Owner: -
+--
+
+REVOKE ALL ON FUNCTION public.decline_business_booking(p_id uuid) FROM PUBLIC;
+GRANT ALL ON FUNCTION public.decline_business_booking(p_id uuid) TO authenticated;
+
+
+--
 -- Name: FUNCTION delete_learning_content(p_trainer text, p_id uuid); Type: ACL; Schema: public; Owner: -
 --
 
@@ -4611,22 +4587,6 @@ GRANT ALL ON FUNCTION public.fail_mail_job(p_id uuid, p_lease_token uuid, p_erro
 REVOKE ALL ON FUNCTION public.finish_learning_reset(p_token uuid) FROM PUBLIC;
 GRANT ALL ON FUNCTION public.finish_learning_reset(p_token uuid) TO authenticated;
 GRANT ALL ON FUNCTION public.finish_learning_reset(p_token uuid) TO service_role;
-
-
---
--- Name: FUNCTION handle_new_user(); Type: ACL; Schema: public; Owner: -
---
-
-REVOKE ALL ON FUNCTION public.handle_new_user() FROM PUBLIC;
-GRANT ALL ON FUNCTION public.handle_new_user() TO service_role;
-
-
---
--- Name: FUNCTION handle_registration_confirmation(); Type: ACL; Schema: public; Owner: -
---
-
-REVOKE ALL ON FUNCTION public.handle_registration_confirmation() FROM PUBLIC;
-GRANT ALL ON FUNCTION public.handle_registration_confirmation() TO service_role;
 
 
 --
@@ -4653,15 +4613,6 @@ GRANT ALL ON FUNCTION public.learning_reset_audio_batch(p_token uuid) TO service
 
 REVOKE ALL ON FUNCTION public.mark_business_invoice(p_booking uuid, p_month date, p_created boolean, p_reference text) FROM PUBLIC;
 GRANT ALL ON FUNCTION public.mark_business_invoice(p_booking uuid, p_month date, p_created boolean, p_reference text) TO authenticated;
-
-
---
--- Name: FUNCTION mark_feedback_seen(p_submission_id uuid); Type: ACL; Schema: public; Owner: -
---
-
-REVOKE ALL ON FUNCTION public.mark_feedback_seen(p_submission_id uuid) FROM PUBLIC;
-GRANT ALL ON FUNCTION public.mark_feedback_seen(p_submission_id uuid) TO authenticated;
-GRANT ALL ON FUNCTION public.mark_feedback_seen(p_submission_id uuid) TO service_role;
 
 
 --
@@ -4707,12 +4658,11 @@ GRANT ALL ON FUNCTION public.reset_student_level_progress(p_student_id uuid, p_l
 
 
 --
--- Name: FUNCTION reset_vocabulary_lesson_progress(p_level text, p_lesson text); Type: ACL; Schema: public; Owner: -
+-- Name: FUNCTION reset_vocabulary_lesson_progress(p_unit_id uuid); Type: ACL; Schema: public; Owner: -
 --
 
-REVOKE ALL ON FUNCTION public.reset_vocabulary_lesson_progress(p_level text, p_lesson text) FROM PUBLIC;
-GRANT ALL ON FUNCTION public.reset_vocabulary_lesson_progress(p_level text, p_lesson text) TO authenticated;
-GRANT ALL ON FUNCTION public.reset_vocabulary_lesson_progress(p_level text, p_lesson text) TO service_role;
+REVOKE ALL ON FUNCTION public.reset_vocabulary_lesson_progress(p_unit_id uuid) FROM PUBLIC;
+GRANT ALL ON FUNCTION public.reset_vocabulary_lesson_progress(p_unit_id uuid) TO authenticated;
 
 
 --
@@ -4724,11 +4674,11 @@ GRANT ALL ON FUNCTION public.save_business_course(p_data jsonb) TO authenticated
 
 
 --
--- Name: FUNCTION save_business_month(p_month date, p_courses uuid[], p_paused boolean, p_expected uuid, p_revision integer); Type: ACL; Schema: public; Owner: -
+-- Name: FUNCTION save_business_month(p_month date, p_course_selections jsonb, p_paused boolean, p_expected uuid, p_revision integer); Type: ACL; Schema: public; Owner: -
 --
 
-REVOKE ALL ON FUNCTION public.save_business_month(p_month date, p_courses uuid[], p_paused boolean, p_expected uuid, p_revision integer) FROM PUBLIC;
-GRANT ALL ON FUNCTION public.save_business_month(p_month date, p_courses uuid[], p_paused boolean, p_expected uuid, p_revision integer) TO authenticated;
+REVOKE ALL ON FUNCTION public.save_business_month(p_month date, p_course_selections jsonb, p_paused boolean, p_expected uuid, p_revision integer) FROM PUBLIC;
+GRANT ALL ON FUNCTION public.save_business_month(p_month date, p_course_selections jsonb, p_paused boolean, p_expected uuid, p_revision integer) TO authenticated;
 
 
 --
@@ -4745,7 +4695,28 @@ GRANT ALL ON FUNCTION public.save_learning_content(p_trainer text, p_payload jso
 --
 
 GRANT ALL ON TABLE public.teacher_student_notes TO service_role;
-GRANT SELECT,INSERT,DELETE,UPDATE ON TABLE public.teacher_student_notes TO authenticated;
+GRANT SELECT,DELETE ON TABLE public.teacher_student_notes TO authenticated;
+
+
+--
+-- Name: COLUMN teacher_student_notes.student_id; Type: ACL; Schema: public; Owner: -
+--
+
+GRANT INSERT(student_id) ON TABLE public.teacher_student_notes TO authenticated;
+
+
+--
+-- Name: COLUMN teacher_student_notes.teacher_id; Type: ACL; Schema: public; Owner: -
+--
+
+GRANT INSERT(teacher_id) ON TABLE public.teacher_student_notes TO authenticated;
+
+
+--
+-- Name: COLUMN teacher_student_notes.note_text; Type: ACL; Schema: public; Owner: -
+--
+
+GRANT INSERT(note_text),UPDATE(note_text) ON TABLE public.teacher_student_notes TO authenticated;
 
 
 --
@@ -4791,11 +4762,11 @@ GRANT ALL ON FUNCTION public.submit_business_cancellation(p_name text, p_email t
 
 
 --
--- Name: FUNCTION submit_business_registration(p_contact jsonb, p_course_ids uuid[], p_start date, p_consents jsonb, p_locale text, p_trial boolean); Type: ACL; Schema: public; Owner: -
+-- Name: FUNCTION submit_business_registration(p_contact jsonb, p_course_selections jsonb, p_start date, p_consents jsonb, p_locale text, p_trial boolean); Type: ACL; Schema: public; Owner: -
 --
 
-REVOKE ALL ON FUNCTION public.submit_business_registration(p_contact jsonb, p_course_ids uuid[], p_start date, p_consents jsonb, p_locale text, p_trial boolean) FROM PUBLIC;
-GRANT ALL ON FUNCTION public.submit_business_registration(p_contact jsonb, p_course_ids uuid[], p_start date, p_consents jsonb, p_locale text, p_trial boolean) TO service_role;
+REVOKE ALL ON FUNCTION public.submit_business_registration(p_contact jsonb, p_course_selections jsonb, p_start date, p_consents jsonb, p_locale text, p_trial boolean) FROM PUBLIC;
+GRANT ALL ON FUNCTION public.submit_business_registration(p_contact jsonb, p_course_selections jsonb, p_start date, p_consents jsonb, p_locale text, p_trial boolean) TO service_role;
 
 
 --
@@ -4822,6 +4793,14 @@ GRANT ALL ON FUNCTION public.submit_vocabulary_answer_once(p_request_id uuid, p_
 
 REVOKE ALL ON FUNCTION vocabulary_private.initialize_cards(p_decisions jsonb) FROM PUBLIC;
 GRANT ALL ON FUNCTION vocabulary_private.initialize_cards(p_decisions jsonb) TO authenticated;
+
+
+--
+-- Name: FUNCTION reset_lesson(p_unit_id uuid); Type: ACL; Schema: vocabulary_private; Owner: -
+--
+
+REVOKE ALL ON FUNCTION vocabulary_private.reset_lesson(p_unit_id uuid) FROM PUBLIC;
+GRANT ALL ON FUNCTION vocabulary_private.reset_lesson(p_unit_id uuid) TO authenticated;
 
 
 --
@@ -4880,6 +4859,14 @@ GRANT ALL ON TABLE public.cancellation_requests TO service_role;
 
 
 --
+-- Name: TABLE cefr_levels; Type: ACL; Schema: public; Owner: -
+--
+
+GRANT SELECT ON TABLE public.cefr_levels TO authenticated;
+GRANT ALL ON TABLE public.cefr_levels TO service_role;
+
+
+--
 -- Name: TABLE course_exceptions; Type: ACL; Schema: public; Owner: -
 --
 
@@ -4924,35 +4911,19 @@ GRANT ALL ON TABLE public.grammar_translations TO service_role;
 
 
 --
--- Name: TABLE learning_exercises; Type: ACL; Schema: public; Owner: -
---
-
-GRANT ALL ON TABLE public.learning_exercises TO service_role;
-GRANT SELECT,INSERT,DELETE,UPDATE ON TABLE public.learning_exercises TO authenticated;
-
-
---
--- Name: TABLE learning_units; Type: ACL; Schema: public; Owner: -
---
-
-GRANT SELECT,INSERT,DELETE,UPDATE ON TABLE public.learning_units TO authenticated;
-GRANT ALL ON TABLE public.learning_units TO service_role;
-
-
---
--- Name: TABLE exercises; Type: ACL; Schema: public; Owner: -
---
-
-GRANT SELECT ON TABLE public.exercises TO authenticated;
-GRANT SELECT ON TABLE public.exercises TO service_role;
-
-
---
 -- Name: TABLE invoice_cases; Type: ACL; Schema: public; Owner: -
 --
 
 GRANT SELECT ON TABLE public.invoice_cases TO authenticated;
 GRANT ALL ON TABLE public.invoice_cases TO service_role;
+
+
+--
+-- Name: TABLE learning_exercises; Type: ACL; Schema: public; Owner: -
+--
+
+GRANT ALL ON TABLE public.learning_exercises TO service_role;
+GRANT SELECT,INSERT,DELETE,UPDATE ON TABLE public.learning_exercises TO authenticated;
 
 
 --
@@ -4980,11 +4951,27 @@ GRANT ALL ON TABLE public.learning_trainer_grants TO service_role;
 
 
 --
+-- Name: TABLE learning_trainers; Type: ACL; Schema: public; Owner: -
+--
+
+GRANT SELECT ON TABLE public.learning_trainers TO authenticated;
+GRANT ALL ON TABLE public.learning_trainers TO service_role;
+
+
+--
 -- Name: TABLE learning_unit_grants; Type: ACL; Schema: public; Owner: -
 --
 
 GRANT SELECT,INSERT,DELETE,UPDATE ON TABLE public.learning_unit_grants TO authenticated;
 GRANT ALL ON TABLE public.learning_unit_grants TO service_role;
+
+
+--
+-- Name: TABLE learning_units; Type: ACL; Schema: public; Owner: -
+--
+
+GRANT SELECT,INSERT,DELETE,UPDATE ON TABLE public.learning_units TO authenticated;
+GRANT ALL ON TABLE public.learning_units TO service_role;
 
 
 --
@@ -5004,11 +4991,20 @@ GRANT SELECT,INSERT,DELETE,UPDATE ON TABLE public.learning_vocabulary_cards TO a
 
 
 --
+-- Name: TABLE locales; Type: ACL; Schema: public; Owner: -
+--
+
+GRANT SELECT ON TABLE public.locales TO anon;
+GRANT SELECT ON TABLE public.locales TO authenticated;
+GRANT ALL ON TABLE public.locales TO service_role;
+
+
+--
 -- Name: TABLE people; Type: ACL; Schema: public; Owner: -
 --
 
-GRANT SELECT ON TABLE public.people TO authenticated;
 GRANT ALL ON TABLE public.people TO service_role;
+GRANT SELECT ON TABLE public.people TO authenticated;
 
 
 --
@@ -5076,22 +5072,6 @@ GRANT UPDATE(ui_language) ON TABLE public.profiles TO authenticated;
 
 
 --
--- Name: TABLE student_level_access; Type: ACL; Schema: public; Owner: -
---
-
-GRANT SELECT,INSERT,DELETE,UPDATE ON TABLE public.student_level_access TO authenticated;
-GRANT ALL ON TABLE public.student_level_access TO service_role;
-
-
---
--- Name: TABLE profile_details; Type: ACL; Schema: public; Owner: -
---
-
-GRANT SELECT ON TABLE public.profile_details TO authenticated;
-GRANT SELECT ON TABLE public.profile_details TO service_role;
-
-
---
 -- Name: TABLE pronunciation_messages; Type: ACL; Schema: public; Owner: -
 --
 
@@ -5100,19 +5080,11 @@ GRANT SELECT,INSERT ON TABLE public.pronunciation_messages TO authenticated;
 
 
 --
--- Name: TABLE pronunciation_prompts; Type: ACL; Schema: public; Owner: -
+-- Name: TABLE student_level_access; Type: ACL; Schema: public; Owner: -
 --
 
-GRANT SELECT ON TABLE public.pronunciation_prompts TO authenticated;
-GRANT SELECT ON TABLE public.pronunciation_prompts TO service_role;
-
-
---
--- Name: TABLE student_trainer_access; Type: ACL; Schema: public; Owner: -
---
-
-GRANT SELECT ON TABLE public.student_trainer_access TO authenticated;
-GRANT SELECT ON TABLE public.student_trainer_access TO service_role;
+GRANT SELECT,INSERT,DELETE,UPDATE ON TABLE public.student_level_access TO authenticated;
+GRANT ALL ON TABLE public.student_level_access TO service_role;
 
 
 --
@@ -5121,14 +5093,6 @@ GRANT SELECT ON TABLE public.student_trainer_access TO service_role;
 
 GRANT ALL ON TABLE public.submissions TO service_role;
 GRANT SELECT ON TABLE public.submissions TO authenticated;
-
-
---
--- Name: TABLE teacher_feedback; Type: ACL; Schema: public; Owner: -
---
-
-GRANT SELECT ON TABLE public.teacher_feedback TO authenticated;
-GRANT SELECT ON TABLE public.teacher_feedback TO service_role;
 
 
 --
@@ -5148,38 +5112,6 @@ GRANT SELECT ON TABLE public.vocabulary_direction_progress TO authenticated;
 
 
 --
--- Name: TABLE user_vocabulary_progress; Type: ACL; Schema: public; Owner: -
---
-
-GRANT SELECT ON TABLE public.user_vocabulary_progress TO service_role;
-GRANT SELECT ON TABLE public.user_vocabulary_progress TO authenticated;
-
-
---
--- Name: TABLE videos; Type: ACL; Schema: public; Owner: -
---
-
-GRANT SELECT ON TABLE public.videos TO authenticated;
-GRANT SELECT ON TABLE public.videos TO service_role;
-
-
---
--- Name: TABLE vocabulary_translations; Type: ACL; Schema: public; Owner: -
---
-
-GRANT SELECT,INSERT,DELETE,UPDATE ON TABLE public.vocabulary_translations TO authenticated;
-GRANT ALL ON TABLE public.vocabulary_translations TO service_role;
-
-
---
--- Name: TABLE vocabulary_cards; Type: ACL; Schema: public; Owner: -
---
-
-GRANT SELECT ON TABLE public.vocabulary_cards TO authenticated;
-GRANT SELECT ON TABLE public.vocabulary_cards TO service_role;
-
-
---
 -- Name: TABLE vocabulary_learning_state; Type: ACL; Schema: public; Owner: -
 --
 
@@ -5193,6 +5125,14 @@ GRANT SELECT ON TABLE public.vocabulary_learning_state TO authenticated;
 
 GRANT ALL ON TABLE public.vocabulary_onboarding TO service_role;
 GRANT SELECT ON TABLE public.vocabulary_onboarding TO authenticated;
+
+
+--
+-- Name: TABLE vocabulary_translations; Type: ACL; Schema: public; Owner: -
+--
+
+GRANT SELECT,INSERT,DELETE,UPDATE ON TABLE public.vocabulary_translations TO authenticated;
+GRANT ALL ON TABLE public.vocabulary_translations TO service_role;
 
 
 --
@@ -5228,31 +5168,3 @@ ALTER DEFAULT PRIVILEGES FOR ROLE postgres IN SCHEMA public GRANT ALL ON TABLES 
 --
 -- PostgreSQL database dump complete
 --
-
--- Staff rejection RPCs added by 20260913150205_decline_pending_business_bookings.
-CREATE FUNCTION business_private.decline_booking(p_id uuid) RETURNS void
-LANGUAGE plpgsql SECURITY DEFINER SET search_path='' AS $$
-DECLARE b public.bookings; v_locale text;
-BEGIN
- IF NOT business_private.is_staff() THEN RAISE insufficient_privilege; END IF;
- SELECT * INTO b FROM public.bookings WHERE id=p_id FOR UPDATE;
- IF NOT FOUND THEN RAISE no_data_found; END IF;
- -- Retrying an acknowledged rejection or encountering a student's pause is a no-op.
- IF b.status='cancelled' THEN RETURN; END IF;
- IF b.status<>'pending' OR EXISTS(
-   SELECT 1 FROM public.invoice_cases i WHERE i.booking_id=b.id AND i.status='created'
- ) THEN RAISE EXCEPTION 'Only pending requests without an issued invoice may be declined' USING ERRCODE='PT409'; END IF;
- SELECT preferred_locale INTO v_locale FROM public.people WHERE id=b.person_id;
- UPDATE public.bookings SET status='cancelled',revision=revision+1,updated_at=now() WHERE id=b.id;
- -- A later, deliberately resubmitted request is a new revision and can receive a new reply.
- PERFORM public.queue_transactional_email('declined:'||b.id||':'||(b.revision+1),
-   CASE WHEN b.kind='trial' THEN 'trial_cancelled' ELSE 'booking_cancelled' END,
-   b.contact_email,v_locale,jsonb_build_object('name',b.contact_name,'startDate',b.start_date,
-     'courses',(SELECT jsonb_agg(jsonb_build_object('title',title_snapshot)) FROM public.booking_items WHERE booking_id=b.id)));
-END $$;
-REVOKE ALL ON FUNCTION business_private.decline_booking(uuid) FROM PUBLIC,anon;
-GRANT EXECUTE ON FUNCTION business_private.decline_booking(uuid) TO authenticated;
-CREATE FUNCTION public.decline_business_booking(p_id uuid) RETURNS void
-LANGUAGE sql SECURITY INVOKER SET search_path='' AS $$ SELECT business_private.decline_booking(p_id); $$;
-REVOKE ALL ON FUNCTION public.decline_business_booking(uuid) FROM PUBLIC,anon;
-GRANT EXECUTE ON FUNCTION public.decline_business_booking(uuid) TO authenticated;

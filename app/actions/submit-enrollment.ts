@@ -1,6 +1,7 @@
 'use server'
 
 import { z } from 'zod'
+import { courseSelectionsSchema, courseSelectionsForRpc, type CourseSelection } from '@/lib/course-selection'
 import { headers } from 'next/headers'
 import { createAdminClient } from '@/utils/supabase/admin'
 import { type EnrollmentFormData } from '@/lib/registration-schema'
@@ -18,33 +19,32 @@ const enrollmentSchema = z.object({
     email: z.string().trim().email().max(100).transform(value => value.toLowerCase()),
     phone: z.string().trim().max(50).optional(), street: field(100), zip: z.string().regex(/^\d{5}$/), city: field(100),
   }).strict(),
-  selectedCourseIds: z.array(z.string().uuid()).min(1).max(100).refine(ids => new Set(ids).size === ids.length),
-  startDate: dateSchema, totalPrice: z.number().finite().min(0).max(100000),
+  courseSelections: courseSelectionsSchema.refine(rows => rows.length > 0),
+  startDate: dateSchema,
   consents: z.object({ privacy: z.literal(true), agb: z.literal(true), revocation: z.boolean(), videoRecording: z.boolean().optional() }).strict(),
-  coursePrices: z.record(z.string(), z.number().finite().min(0).max(100000)),
 }).strict()
 
 /** A public enrollment may record the submitted details, but never update an
  * existing person's email/address. Guessing a name and birth date is not proof
  * of identity. The immutable snapshot lets staff review each actual request. */
 export async function submitEnrollment(
-  formData: EnrollmentFormData, selectedCourseIds: string[], startDateRaw: string, totalPrice: number,
+  formData: EnrollmentFormData, courseSelections: CourseSelection[], startDateRaw: string,
   consents: { privacy: boolean; agb: boolean; revocation: boolean; videoRecording?: boolean },
-  coursePrices: Record<string, number>, locale: string = 'de',
+  locale: string = 'de',
 ): Promise<SubmitEnrollmentResult> {
   try {
-    const input = enrollmentSchema.safeParse({ ...formData, selectedCourseIds, startDate: startDateRaw, totalPrice, consents, coursePrices })
+    const input = enrollmentSchema.safeParse({ ...formData, courseSelections, startDate: startDateRaw, consents })
     if (!input.success) return { success: false, message: 'generic_error' }
     const headerList = await headers()
     const ip = headerList.get('x-nf-client-connection-ip') ?? headerList.get('x-forwarded-for')?.split(',')[0]?.trim() ?? 'unknown'
     const limit = await rateLimit(`enrollment:${ip}`, 3, '60 m')
     if (!limit.success) return { success: false, message: 'generic_error' }
     const admin = createAdminClient()
-    const { personal, selectedCourseIds: ids, consents: accepted } = input.data
+    const { personal, courseSelections: selections, consents: accepted } = input.data
     const iso=(value:string)=>value.split('.').reverse().join('-')
     const {error}=await admin.rpc('submit_business_registration',{
       p_contact:{name:`${personal.firstName} ${personal.lastName}`,email:personal.email,birth_date:iso(personal.birthDate),phone:personal.phone||null,street:personal.street,postal_code:personal.zip,city:personal.city},
-      p_course_ids:ids,p_start:iso(input.data.startDate),p_consents:{privacy:accepted.privacy,agb:accepted.agb,revocation:accepted.revocation,recording:accepted.videoRecording??null},p_locale:locale,p_trial:false,
+      p_course_selections:courseSelectionsForRpc(selections),p_start:iso(input.data.startDate),p_consents:{privacy:accepted.privacy,agb:accepted.agb,revocation:accepted.revocation,recording:accepted.videoRecording??null},p_locale:locale,p_trial:false,
     })
     if(error)throw new Error('registration_failed')
     return { success: true, message: 'registration_success' }

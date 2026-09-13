@@ -3,13 +3,13 @@ import { readFile } from 'node:fs/promises'
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
 
-const security = await readFile(new URL('../seeds/grammar-progress-security.sql', import.meta.url), 'utf8')
-const seed = await readFile(new URL('../seeds/grammar-curriculum-2026.sql', import.meta.url), 'utf8')
+const security = await readFile(new URL('../history/seeds/grammar-progress-security.sql', import.meta.url), 'utf8')
+const seed = await readFile(new URL('../history/seeds/grammar-curriculum-2026.sql', import.meta.url), 'utf8')
 const student = '00000000-0000-4000-8000-000000000001'
 const other = '00000000-0000-4000-8000-000000000002'
 const teacher = '00000000-0000-4000-8000-000000000003'
 
-test('Grammar curriculum and server grading in isolated PostgreSQL', async t => {
+test('Historical grammar migration and server grading in isolated PostgreSQL', async t => {
   const db = new PGlite()
   try {
     await db.exec(`

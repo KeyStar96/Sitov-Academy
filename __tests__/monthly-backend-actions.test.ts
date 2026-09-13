@@ -6,7 +6,7 @@ jest.mock('@/utils/supabase/admin', () => ({ createAdminClient: jest.fn() }))
 import { createClient } from '@/utils/supabase/server'
 import { createAdminClient } from '@/utils/supabase/admin'
 import { saveNextMonthBooking } from '@/app/actions/monthly-bookings'
-import { createTeacherNote, getTeacherNotes, updateTeacherNote, saveBlackboardNote } from '@/app/actions/teacher-notes'
+import { saveBlackboardNote } from '@/app/actions/teacher-notes'
 import { getNextMonthStaffOverview } from '@/app/actions/admin-operations'
 import { updateStudentRole } from '@/app/actions/admin'
 import { updateProfileContact } from '@/app/actions/profile'
@@ -15,8 +15,8 @@ import { revalidatePath } from 'next/cache'
 const uid = '00000000-0000-4000-8000-000000000001'
 const other = '00000000-0000-4000-8000-000000000002'
 const course = '00000000-0000-4000-8000-000000000003'
-const bookingInput = { targetMonth: '2026-10-01', courseIds: [course], paused:false, expected:null }
-const row = { id: other, target_month:bookingInput.targetMonth,booking_items:[{course_id:course}], status: 'pending',revision:1 }
+const bookingInput = { targetMonth: '2026-10-01', courseSelections: [{courseId:course}], paused:false, expected:null }
+const row = { id: other, target_month:bookingInput.targetMonth,booking_items:[{course_id:course,requested_units:null}], status: 'pending',revision:1 }
 
 function session(role: string | null = 'student', signedIn = true, queryError: { code: string; message?: string } | null = null) {
   const chain = {
@@ -43,16 +43,11 @@ describe('monthly backend action authorization', () => {
     expect(await saveNextMonthBooking(bookingInput)).toEqual({ success: false, error: 'not_authenticated' })
     expect(from).not.toHaveBeenCalled()
   })
-  it.each(['student', null])('denies note reads to %s', async role => {
-    const { from } = session(role)
-    expect(await getTeacherNotes()).toEqual({ success: false, error: 'not_authorized' })
-    expect(from).not.toHaveBeenCalledWith('teacher_student_notes')
-  })
   it('derives ownership from the RPC session and reloads the acknowledged revision', async () => {
     const { chain,rpc } = session()
     rpc.mockResolvedValue({data:other,error:null})
-    expect(await saveNextMonthBooking(bookingInput)).toEqual({success:true,data:{id:other,user_id:uid,target_month:bookingInput.targetMonth,course_ids:[course],status:'pending',revision:1}})
-    expect(rpc).toHaveBeenCalledWith('save_business_month',{p_month:bookingInput.targetMonth,p_courses:[course],p_paused:false,p_expected:undefined,p_revision:undefined})
+    expect(await saveNextMonthBooking(bookingInput)).toEqual({success:true,data:{id:other,userId:uid,targetMonth:bookingInput.targetMonth,courseSelections:[{courseId:course}],status:'pending',revision:1}})
+    expect(rpc).toHaveBeenCalledWith('save_business_month',{p_month:bookingInput.targetMonth,p_course_selections:[{course_id:course}],p_paused:false,p_expected:undefined,p_revision:undefined})
     expect(chain.insert).not.toHaveBeenCalled()
     expect(createAdminClient).not.toHaveBeenCalled()
     expect(revalidatePath).toHaveBeenCalledWith('/[lang]/dashboard','layout')
@@ -73,16 +68,11 @@ describe('monthly backend action authorization', () => {
     rpc.mockResolvedValue({data:other,error:null});chain.single.mockResolvedValue({data:null,error:{code:'PGRST116'}})
     expect(await saveNextMonthBooking(bookingInput)).toEqual({success:false,error:'not_found'})
   })
-  it('derives note author from session and sanitizes text', async () => {
-    const { chain } = session('teacher')
-    await createTeacherNote({ student_id: other, note_text: '  Hallo\r\nWelt  ', discount_percent: 12.5 })
-    expect(chain.insert).toHaveBeenCalledWith({ student_id: other, teacher_id: uid, note_text: 'Hallo\nWelt', discount_percent: 12.5 })
-  })
-  it('saves through the canonical RPC without overwriting a hidden legacy discount', async () => {
+  it('saves the central note through the canonical RPC', async () => {
     const { chain, rpc } = session('teacher')
-    const saved = { id: other, student_id: other, teacher_id: uid, note_text: 'Notiz', discount_percent: 10, is_blackboard: true }
+    const saved = { id: other, student_id: other, teacher_id: uid, note_text: 'Notiz', created_at: '2026-01-01', updated_at: '2026-01-01' }
     rpc.mockResolvedValue({ data: [saved], error: null })
-    expect(await saveBlackboardNote({ student_id: other, note_id: other, note_text: '  Notiz  ', discount_percent: 0 }))
+    expect(await saveBlackboardNote({ student_id: other, note_id: other, note_text: '  Notiz  ' }))
       .toEqual({ success: true, data: saved })
     expect(rpc).toHaveBeenCalledWith('save_student_blackboard', {
       p_student_id: other, p_expected_note_id: other, p_note_text: 'Notiz',
@@ -92,29 +82,29 @@ describe('monthly backend action authorization', () => {
   })
   it('does not insert an empty blackboard', async () => {
     const { chain, rpc } = session('teacher')
-    expect(await saveBlackboardNote({ student_id: other, note_id: null, note_text: '', discount_percent: 0 }))
+    expect(await saveBlackboardNote({ student_id: other, note_id: null, note_text: '' }))
       .toEqual({ success: true, data: null })
     expect(chain.insert).not.toHaveBeenCalled()
     expect(rpc).toHaveBeenCalledWith('save_student_blackboard', { p_student_id: other, p_expected_note_id: null, p_note_text: '' })
   })
   it('keeps the canonical ID when clearing a board instead of deleting the row', async () => {
     const { chain, rpc } = session('teacher')
-    const cleared = { id: other, student_id: other, teacher_id: uid, note_text: '\u2060', discount_percent: 0, is_blackboard: true }
+    const cleared = { id: other, student_id: other, teacher_id: uid, note_text: '' }
     rpc.mockResolvedValue({ data: [cleared], error: null })
-    expect(await saveBlackboardNote({ student_id: other, note_id: other, note_text: '', discount_percent: 0 }))
+    expect(await saveBlackboardNote({ student_id: other, note_id: other, note_text: '' }))
       .toEqual({ success: true, data: cleared })
     expect(chain.delete).not.toHaveBeenCalled()
   })
   it.each(['40001','PT409'])('reports a stale or foreign note ID %s as a safe conflict', async code => {
     const { rpc } = session('teacher')
     rpc.mockResolvedValue({ data: null, error: { code, message: 'Private note details' } })
-    expect(await saveBlackboardNote({ student_id: other, note_id: course, note_text: 'Retain draft', discount_percent: 0 }))
+    expect(await saveBlackboardNote({ student_id: other, note_id: course, note_text: 'Retain draft' }))
       .toEqual({ success: false, error: 'conflict' })
     expect(revalidatePath).not.toHaveBeenCalled()
   })
   it('rejects student blackboard saves before making an RPC call', async () => {
     const { rpc } = session('student')
-    expect(await saveBlackboardNote({ student_id: other, note_id: null, note_text: 'Forged', discount_percent: 0 }))
+    expect(await saveBlackboardNote({ student_id: other, note_id: null, note_text: 'Forged' }))
       .toEqual({ success: false, error: 'not_authorized' })
     expect(rpc).not.toHaveBeenCalled()
   })
@@ -124,9 +114,9 @@ describe('monthly backend action authorization', () => {
     expect(createAdminClient).not.toHaveBeenCalled()
   })
   it('rejects unsafe note updates before querying notes', async () => {
-    const { chain } = session('teacher')
-    expect(await updateTeacherNote({ id: other, note_text: '<script>x</script>' })).toEqual({ success: false, error: 'invalid_input' })
-    expect(chain.update).not.toHaveBeenCalled()
+    const { rpc } = session('teacher')
+    expect(await saveBlackboardNote({ student_id: other, note_id: null, note_text: '<script>x</script>' })).toEqual({ success: false, error: 'invalid_input' })
+    expect(rpc).not.toHaveBeenCalled()
   })
   it('prevents teacher self-promotion via the existing service-role action', async () => {
     session('teacher')
@@ -140,6 +130,6 @@ describe('monthly backend action authorization', () => {
   })
   it('rejects address role injection before any update', async () => {
     session()
-    expect(await updateProfileContact({ phone: null, street: null, zip_code: null, city: null, role: 'admin' })).toEqual({ success: false, error: 'invalid_input' })
+    expect(await updateProfileContact({ phone: null, street: null, postal_code: null, city: null, role: 'admin' })).toEqual({ success: false, error: 'invalid_input' })
   })
 })

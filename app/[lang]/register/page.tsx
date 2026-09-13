@@ -61,7 +61,7 @@ export default async function RegisterPage({
         pendingLabel={t('register_pending')}
         fields={[
           {
-            name: 'name',
+            name: 'display_name',
             label: t('field_name'),
             type: 'text',
             placeholder: t('field_name_placeholder'),
@@ -79,16 +79,12 @@ export default async function RegisterPage({
             label: t('field_native_language'),
             type: 'select',
             placeholder: t('field_native_language_placeholder'),
-            // Die Werte müssen dem CHECK-Constraint auf `profiles.native_language`
-            // entsprechen, sonst scheitert der Trigger beim Anlegen des Profils.
-            // Aus der Erstsprache leitet der Trigger `handle_new_user` zugleich
-            // die Start-Oberflächensprache (`ui_language`) ab.
             options: [
-              { value: 'Russisch', label: t('native_language_russian') },
-              { value: 'Türkisch', label: t('native_language_turkish') },
-              { value: 'Ukrainisch', label: t('native_language_ukrainian') },
-              { value: 'Englisch', label: t('native_language_english') },
-              { value: 'Deutsch', label: t('native_language_german') },
+              { value: 'ru', label: t('native_language_russian') },
+              { value: 'tr', label: t('native_language_turkish') },
+              { value: 'uk', label: t('native_language_ukrainian') },
+              { value: 'en', label: t('native_language_english') },
+              { value: 'de', label: t('native_language_german') },
             ],
           },
           {

@@ -3,28 +3,21 @@
 import { createContext, useCallback, useContext, useEffect, useRef, useState, type ReactNode } from 'react'
 import { saveBlackboardNote } from '@/app/actions/teacher-notes'
 import {
-  displayBlackboardNote, parseDiscountInput, type TeacherStudentNote,
+  displayBlackboardNote, type TeacherStudentNote,
 } from '@/lib/types/teacher-notes'
 
-export type BlackboardSaveStatus = 'idle' | 'saving' | 'saved' | 'error' | 'invalid'
+export type BlackboardSaveStatus = 'idle' | 'saving' | 'saved' | 'error'
 
 export interface BoardDraft {
   noteId: string | null
   noteText: string
-  discount: number
-  discountInput: string
-  discountValid: boolean
   status: BlackboardSaveStatus
 }
 
 function fromNote(note: TeacherStudentNote | null): BoardDraft {
-  const discount = note?.discount_percent ?? 0
   return {
     noteId: note?.id ?? null,
     noteText: displayBlackboardNote(note?.note_text),
-    discount,
-    discountInput: Number.isInteger(discount) ? String(discount) : discount.toFixed(2),
-    discountValid: true,
     status: 'idle',
   }
 }
@@ -32,7 +25,6 @@ function fromNote(note: TeacherStudentNote | null): BoardDraft {
 interface BlackboardContextValue {
   getBoard: (studentId: string) => BoardDraft
   setNoteText: (studentId: string, noteText: string) => void
-  setDiscountInput: (studentId: string, discountInput: string) => void
   retrySave: (studentId: string) => void
 }
 
@@ -52,7 +44,7 @@ export function BlackboardProvider({
   })
   const boardsRef = useRef(boards)
   const confirmedRef = useRef<Record<string, BoardDraft>>({ ...boards })
-  const queuedRef = useRef<Record<string, { noteText: string; discount: number }>>({})
+  const queuedRef = useRef<Record<string, { noteText: string }>>({})
   const runningRef = useRef<Record<string, boolean>>({})
   const timersRef = useRef<Record<string, number>>({})
   const mountedRef = useRef(true)
@@ -87,7 +79,6 @@ export function BlackboardProvider({
           student_id: studentId,
           note_id: previous.noteId,
           note_text: draft.noteText,
-          discount_percent: draft.discount,
         })
         if (result.success === false) {
           delete queuedRef.current[studentId]
@@ -112,9 +103,6 @@ export function BlackboardProvider({
               [studentId]: {
                 ...saved,
                 noteText: live.noteText,
-                discountInput: live.discountInput,
-                discount: live.discountValid ? live.discount : saved.discount,
-                discountValid: live.discountValid,
                 status: 'saved',
               },
             }
@@ -136,8 +124,8 @@ export function BlackboardProvider({
     }
   }, [initialNotes])
 
-  const schedule = useCallback((studentId: string, noteText: string, discount: number) => {
-    queuedRef.current[studentId] = { noteText, discount }
+  const schedule = useCallback((studentId: string, noteText: string) => {
+    queuedRef.current[studentId] = { noteText }
     const existing = timersRef.current[studentId]
     if (existing) window.clearTimeout(existing)
     timersRef.current[studentId] = window.setTimeout(() => {
@@ -150,23 +138,7 @@ export function BlackboardProvider({
     const current = ensureBoard(studentId)
     const next = { ...current, noteText, status: 'idle' as const }
     setBoards(boards => ({ ...boards, [studentId]: next }))
-    if (!current.discountValid) return
-    schedule(studentId, noteText, current.discount)
-  }, [ensureBoard, schedule])
-
-  const setDiscountInput = useCallback((studentId: string, discountInput: string) => {
-    const current = ensureBoard(studentId)
-    const parsed = parseDiscountInput(discountInput)
-    const next: BoardDraft = {
-      ...current,
-      discountInput,
-      discountValid: parsed !== null,
-      discount: parsed ?? current.discount,
-      status: parsed === null ? 'invalid' : 'idle',
-    }
-    setBoards(boards => ({ ...boards, [studentId]: next }))
-    if (parsed === null) return
-    schedule(studentId, current.noteText, parsed)
+    schedule(studentId, noteText)
   }, [ensureBoard, schedule])
 
   const getBoard = useCallback((studentId: string) => {
@@ -175,13 +147,13 @@ export function BlackboardProvider({
 
   const retrySave = useCallback((studentId: string) => {
     const current = ensureBoard(studentId)
-    if (current.status !== 'error' || !current.discountValid) return
+    if (current.status !== 'error') return
     setBoards(boards => ({ ...boards, [studentId]: { ...current, status: 'saving' } }))
-    schedule(studentId, current.noteText, current.discount)
+    schedule(studentId, current.noteText)
   }, [ensureBoard, schedule])
 
   return (
-    <BlackboardContext.Provider value={{ getBoard, setNoteText, setDiscountInput, retrySave }}>
+    <BlackboardContext.Provider value={{ getBoard, setNoteText, retrySave }}>
       {children}
     </BlackboardContext.Provider>
   )

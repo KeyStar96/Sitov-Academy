@@ -15,22 +15,22 @@ const consents={privacy:true,agb:true,revocation:false}
 const rpc=jest.fn()
 beforeEach(()=>{jest.clearAllMocks();jest.mocked(rateLimit).mockResolvedValue({success:true,limit:3,remaining:2,reset:0});jest.mocked(createAdminClient).mockReturnValue({rpc} as unknown as ReturnType<typeof createAdminClient>);rpc.mockResolvedValue({data:id,error:null})})
 it('saves registration in one RPC and never trusts browser totals or prices',async()=>{
- expect(await submitEnrollment(form,[id],'01.10.2026',0,consents,{[id]:0},'uk')).toEqual({success:true,message:'registration_success'})
- expect(rpc).toHaveBeenCalledWith('submit_business_registration',{p_contact:{name:'Anna Test',email:'anna@example.test',birth_date:'1980-01-01',phone:null,street:'Teststraße 1',postal_code:'30165',city:'Hannover'},p_course_ids:[id],p_start:'2026-10-01',p_consents:{privacy:true,agb:true,revocation:false,recording:null},p_locale:'uk',p_trial:false})
+ expect(await submitEnrollment(form,[{courseId:id,requestedUnits:3}],'01.10.2026',consents,'uk')).toEqual({success:true,message:'registration_success'})
+ expect(rpc).toHaveBeenCalledWith('submit_business_registration',{p_contact:{name:'Anna Test',email:'anna@example.test',birth_date:'1980-01-01',phone:null,street:'Teststraße 1',postal_code:'30165',city:'Hannover'},p_course_selections:[{course_id:id,requested_units:3}],p_start:'2026-10-01',p_consents:{privacy:true,agb:true,revocation:false,recording:null},p_locale:'uk',p_trial:false})
 })
 it('validates UUID course selections, dates and consent before accessing storage',async()=>{
- for(const [ids,start,legal] of [[[id,id],'01.10.2026',consents],[['legacy-text-id'],'01.10.2026',consents],[[id],'31.02.2026',consents],[[id],'01.10.2026',{...consents,privacy:false}]] as const){expect((await submitEnrollment(form,[...ids],start,0,legal,{})).success).toBe(false)}
+ for(const [ids,start,legal] of [[[id,id],'01.10.2026',consents],[['legacy-text-id'],'01.10.2026',consents],[[id],'31.02.2026',consents],[[id],'01.10.2026',{...consents,privacy:false}]] as const){expect((await submitEnrollment(form,ids.map(courseId=>({courseId})),start,legal)).success).toBe(false)}
  expect(createAdminClient).not.toHaveBeenCalled()
 })
 it('rate limits before creating privileged clients',async()=>{
  jest.mocked(rateLimit).mockResolvedValue({success:false,limit:3,remaining:0,reset:0})
- expect((await submitEnrollment(form,[id],'01.10.2026',0,consents,{})).success).toBe(false);expect(createAdminClient).not.toHaveBeenCalled()
+ expect((await submitEnrollment(form,[{courseId:id}],'01.10.2026',consents)).success).toBe(false);expect(createAdminClient).not.toHaveBeenCalled()
 })
 it('hides database errors without falsely acknowledging a registration',async()=>{
  rpc.mockResolvedValue({data:null,error:{code:'23505',message:'Private identity'}})
- expect(await submitEnrollment(form,[id],'01.10.2026',10,consents,{})).toEqual({success:false,message:'generic_error'})
+ expect(await submitEnrollment(form,[{courseId:id}],'01.10.2026',consents)).toEqual({success:false,message:'generic_error'})
 })
 it('maps relational schedules and database translations for previously unknown courses',async()=>{
- const chain={select:jest.fn().mockReturnThis(),is:jest.fn().mockReturnThis(),order:jest.fn()};chain.order.mockReturnValueOnce(chain).mockResolvedValueOnce({error:null,data:[{id,translation_key:'',title:'Neuer C2-Kurs',description:'Individuell',type:'online',category:'speaking',price:15,sort_order:125,level:'C2',instructor:'standard',unit_duration:60,start_date:null,end_date:null,trial_lessons:false,course_translations:[{locale:'uk',title:'Новий курс',description:'Опис'}],course_schedules:[{weekday:6,start_time:'10:00:00',end_time:'11:00:00',alternate_start_time:null,alternate_end_time:null}]}]});mockCatalog.from.mockReturnValue(chain)
- const result=await getCourses();expect(result[0]).toEqual(expect.objectContaining({id,title:'Neuer C2-Kurs',sortOrder:125,category:'speaking',translations:[{locale:'uk',title:'Новий курс',description:'Опис'}],sessions:[{day:'Sa',startTime:'10:00',endTime:'11:00',isAlternating:false,altStartTime:undefined,altEndTime:undefined}]}))
+ const chain={select:jest.fn().mockReturnThis(),is:jest.fn().mockReturnThis(),order:jest.fn()};chain.order.mockReturnValueOnce(chain).mockResolvedValueOnce({error:null,data:[{id,slug:'new-c2',title:'Neuer C2-Kurs',description:'Individuell',type:'online',category:'speaking',unit_price:15,sort_order:125,level:'C2',unit_minutes:60,start_date:null,end_date:null,trial_lessons:false,course_translations:[{locale:'uk',title:'Новий курс',description:'Опис'}],course_schedules:[{weekday:6,start_time:'10:00:00',end_time:'11:00:00'}]}]});mockCatalog.from.mockReturnValue(chain)
+ const result=await getCourses();expect(result[0]).toEqual(expect.objectContaining({id,title:'Neuer C2-Kurs',sortOrder:125,category:'speaking',translations:[{locale:'uk',title:'Новий курс',description:'Опис'}],sessions:[{day:'Sa',startTime:'10:00',endTime:'11:00'}]}))
 })

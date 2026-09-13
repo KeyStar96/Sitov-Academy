@@ -4,8 +4,8 @@
  * Rechtemodell (seit Ablösung von Free/Premium):
  * - Jeder Nutzer kann sich registrieren/anmelden.
  * - Zugriff auf gebührenpflichtige Sprachniveaus wird pro Nutzer explizit über
- *   `profiles.allowed_levels` (feingranular, z. B. `"A1.1"`) freigeschaltet.
- * - Pro Niveau können Trainer durch `student_trainer_access` gesperrt werden.
+ *   `student_level_access` (feingranular, z. B. `"A1.1"`) freigeschaltet.
+ * - Pro Niveau können Trainer durch `learning_trainer_grants` gesperrt werden.
  *   Ohne Override gilt die bestehende Niveau-Freigabe für alle vier Trainer.
  * - Ein frisch registrierter Nutzer hat ein leeres Array → kein Zugriff.
  * - Admins und Lehrer (role `admin`/`teacher`) haben unabhängig davon Vollzugriff.
@@ -58,7 +58,7 @@ export interface LevelAccessProfile {
   native_language?: string | null
   ui_language?: string | null
   allowed_levels: string[] | null
-  student_trainer_access?: readonly TrainerAccessRule[] | null
+  trainer_grants?: readonly TrainerAccessRule[] | null
 }
 
 /**
@@ -83,28 +83,28 @@ export function hasFullAccessRole(role: string | null | undefined): boolean {
 /** Missing overrides preserve the existing whole-level entitlement. */
 export const TRAINERS = ['vocabulary', 'exercises', 'pronunciation', 'videos'] as const
 export type Trainer = (typeof TRAINERS)[number]
-export interface TrainerAccessRule { level: string; trainer: string; enabled: boolean; allowed_lessons?: string[] | null }
+export interface TrainerAccessRule { level: string; trainer: string; enabled: boolean; unit_ids?: string[] | null }
 
 /** Configuration shown to teachers is independent from a student's interface choice. */
 export function hasConfiguredTrainerAccess(profile: LevelAccessProfile | null | undefined, level: string, trainer: Trainer): boolean {
   if (!hasLevelAccess(profile, level)) return false
   if (hasFullAccessRole(profile?.role)) return true
-  return profile?.student_trainer_access?.find(rule => rule.level === level.trim() && rule.trainer === trainer)?.enabled ?? true
+  return profile?.trainer_grants?.find(rule => rule.level === level.trim() && rule.trainer === trainer)?.enabled ?? true
 }
 
 export function hasTrainerAccess(profile: LevelAccessProfile | null | undefined, level: string, trainer: Trainer): boolean {
   if (hasFullAccessRole(profile?.role)) return true
   if (profile?.ui_language === 'de' || !hasConfiguredTrainerAccess(profile, level, trainer)) return false
-  const restriction = profile?.student_trainer_access?.find(rule => rule.level === level.trim() && rule.trainer === trainer)?.allowed_lessons
+  const restriction = profile?.trainer_grants?.find(rule => rule.level === level.trim() && rule.trainer === trainer)?.unit_ids
   return trainer === 'videos' || restriction == null || restriction.length > 0
 }
 
 export function getAllowedLessons(profile: LevelAccessProfile | null | undefined, level: string, trainer: Trainer): string[] | null {
   if (!hasTrainerAccess(profile, level, trainer)) return []
   if (hasFullAccessRole(profile?.role)) return null // null means all lessons are allowed
-  const rule = profile?.student_trainer_access?.find(rule => rule.level === level.trim() && rule.trainer === trainer)
-  if (!rule || rule.allowed_lessons == null) return null
-  return rule.allowed_lessons
+  const rule = profile?.trainer_grants?.find(rule => rule.level === level.trim() && rule.trainer === trainer)
+  if (!rule || rule.unit_ids == null) return null
+  return rule.unit_ids
 }
 
 export function hasUnitAccess(profile: LevelAccessProfile | null | undefined, level: string, trainer: Trainer, unit: string): boolean {

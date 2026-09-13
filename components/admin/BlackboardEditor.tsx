@@ -46,9 +46,9 @@ export default function BlackboardEditor({
         <Loader2 size={18} aria-hidden="true" className="animate-spin text-[var(--muted)]" />
       )}
       <p
-        className={`min-h-6 text-sm leading-relaxed ${board.status === 'error' || board.status === 'invalid' ? 'text-red-700 dark:text-red-300' : 'text-emerald-800 dark:text-emerald-300'}`}
-        role={board.status === 'error' || board.status === 'invalid' ? 'alert' : 'status'}
-        aria-live={board.status === 'error' || board.status === 'invalid' ? 'assertive' : 'polite'}
+        className={`min-h-6 text-sm leading-relaxed ${board.status === 'error' ? 'text-red-700 dark:text-red-300' : 'text-emerald-800 dark:text-emerald-300'}`}
+        role={board.status === 'error' ? 'alert' : 'status'}
+        aria-live={board.status === 'error' ? 'assertive' : 'polite'}
       >
         {statusText}
       </p>

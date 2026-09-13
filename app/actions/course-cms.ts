@@ -9,9 +9,9 @@ export async function getCourseCatalog():Promise<BackendActionResult<CourseEdito
   const {data,error}=await supabase.from('courses').select('*, course_schedules(*), course_translations(*), course_exceptions(*)').order('sort_order').order('id')
   checkDatabaseError(error)
   return (data??[]).map(row=>courseEditorSchema.parse({
-    id:row.id,slug:row.slug,title:row.title,description:row.description,type:row.type,category:row.category,level:row.level,price:row.price,
-    unit_duration:row.unit_duration,instructor:row.instructor,start_date:row.start_date??'',end_date:row.end_date??'',trial_lessons:row.trial_lessons,sort_order:row.sort_order,archived:!!row.archived_at,
-    schedules:row.course_schedules.map(s=>({weekday:s.weekday,start_time:s.start_time.slice(0,5),end_time:s.end_time.slice(0,5),alternate_start_time:s.alternate_start_time?.slice(0,5)??'',alternate_end_time:s.alternate_end_time?.slice(0,5)??''})),
+    id:row.id,slug:row.slug,title:row.title,description:row.description,type:row.type,category:row.category,level:row.level,unit_price:row.unit_price,
+    unit_minutes:row.unit_minutes,start_date:row.start_date??'',end_date:row.end_date??'',trial_lessons:row.trial_lessons,sort_order:row.sort_order,archived:!!row.archived_at,
+    schedules:row.course_schedules.map(s=>({weekday:s.weekday,start_time:s.start_time.slice(0,5),end_time:s.end_time.slice(0,5)})),
     translations:row.course_translations.map(t=>({locale:t.locale,title:t.title,description:t.description})),exceptions:row.course_exceptions.map(e=>({date:e.date,reason:e.reason})),
   }))
  },'staff')

@@ -24,7 +24,7 @@ export default function LessonAccessModal({ studentId, level, trainer, rule, onC
   const [saveFailed, setSaveFailed] = useState(false)
   const [saving, setSaving] = useState(false)
   const [attempt, setAttempt] = useState(0)
-  const [selected, setSelected] = useState<string[] | null>(rule?.allowed_lessons ?? null)
+  const [selected, setSelected] = useState<string[] | null>(rule?.unit_ids ?? null)
 
   useEffect(() => {
     let active = true

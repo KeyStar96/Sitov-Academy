@@ -5,9 +5,8 @@ import { motion, useReducedMotion } from "framer-motion";
 import { Check } from "lucide-react";
 import germanDictionary from "@/dictionaries/de.json";
 
-export type RegistrationDictionary = Pick<typeof germanDictionary, "registration" | "timetable" | "academy"> & {
-    CourseData: Record<string, { title?: string; level?: string }>
-};
+export type RegistrationDictionary = Pick<typeof germanDictionary, "registration" | "timetable" | "academy">;
+import type { CourseSelection } from "@/lib/course-selection";
 import { CourseConfig, CourseException } from "@/lib/course-config";
 import { calculateMonthlyStats } from "@/lib/course-calculations";
 
@@ -16,6 +15,7 @@ interface PricingRoadmapProps {
     lang: string;
     startDate: string;
     selectedCourses: CourseConfig[];
+    courseSelections: CourseSelection[];
     currentMonthPrice: number;
     exceptions?: CourseException[];
     onShowPaymentInfo?: () => void;
@@ -26,6 +26,7 @@ export default function PricingRoadmap({
     lang,
     startDate,
     selectedCourses,
+    courseSelections,
     currentMonthPrice,
     exceptions = [],
     onShowPaymentInfo
@@ -78,15 +79,16 @@ export default function PricingRoadmap({
                     futureDate.getMonth(),
                     futureDate.getFullYear(),
                     exceptions,
-                    1
+                    1,
+                    courseSelections.find(selection=>selection.courseId===course.id)?.requestedUnits ?? 1
                 );
-                return acc + (stats.totalUnits * course.price);
+                return acc + (stats.totalUnits * course.unitPrice);
             }, 0);
 
             months.push({ label: monthLabel, cost });
         }
         return months;
-    }, [selectedCourses, lang, startDate, exceptions, d, m, y, localeTag]);
+    }, [selectedCourses, courseSelections, lang, startDate, exceptions, d, m, y, localeTag]);
 
     // Don't render if no courses selected
     if (selectedCourses.length === 0) return null;

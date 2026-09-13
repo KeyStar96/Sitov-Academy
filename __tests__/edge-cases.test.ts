@@ -40,12 +40,11 @@ describe('Critical Edge Cases', () => {
     describe('Year Boundary Course Calculations', () => {
         const testCourse: CourseConfig = {
             id: "test_course",
-            translationKey: "test",
+            slug: "test",
             type: "presence",
-            price: 5.00,
-            unitDuration: 45,
-            instructor: "standard",
-            sessions: [{ day: "Mo", startTime: "09:00", endTime: "10:30" }]
+            unitPrice: 5.00,
+            unitMinutes: 45,
+                sessions: [{ day: "Mo", startTime: "09:00", endTime: "10:30" }]
         };
 
         test('December base date should calculate for January next year', () => {

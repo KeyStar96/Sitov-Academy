@@ -22,10 +22,10 @@ const overview: NextMonthOverview = {
   enrolledCount: 1,
   paused: [],
   groups: [{
-    courseId: course, title: 'B1.2 Intensiv', translationKey: 'b12', type: 'presence',
+    courseId: course, title: 'B1.2 Intensiv', type: 'presence',
     students: [{
-      student: { id: student, name: 'Anna', email: 'anna@example.invalid', phone: '+49 111', street: 'Weg 1', zip_code: '30159', city: 'Hannover' },
-      courseIds: [course], source: 'booking', status: 'pending', note: null,
+      student: { id: student, person: { display_name: 'Anna', email: 'anna@example.invalid', phone: '+49 111', street: 'Weg 1', postal_code: '30159', city: 'Hannover' } },
+      courseSelections: [{ courseId: course, requestedUnits: undefined }], source: 'booking', status: 'pending', note: null,
     }],
   }],
 }
@@ -44,7 +44,7 @@ beforeEach(() => {
   jest.clearAllMocks()
   jest.mocked(saveBlackboardNote).mockResolvedValue({
     success: true,
-    data: { id: course, student_id: student, teacher_id: student, note_text: 'Stammkunde', discount_percent: 10, is_blackboard: true },
+    data: { id: course, student_id: student, teacher_id: student, note_text: 'Stammkunde', created_at: '2026-01-01', updated_at: '2026-01-01' },
   })
 })
 
@@ -72,7 +72,7 @@ it('shows contact details and autosaves blackboard edits', async () => {
   await act(async () => { jest.advanceTimersByTime(800) })
   await waitFor(() => expect(saveBlackboardNote).toHaveBeenCalled())
   expect(jest.mocked(saveBlackboardNote).mock.calls.at(-1)?.[0]).toMatchObject({
-    student_id: student, note_text: 'Stammkunde', discount_percent: 0,
+    student_id: student, note_text: 'Stammkunde',
   })
   jest.useRealTimers()
 })
@@ -94,17 +94,17 @@ it('keeps the latest optimistic note visible while saving', async () => {
   jest.useRealTimers()
 })
 
-it('keeps a previously stored discount untouched when updating the central note', async () => {
+it('updates the existing central note without obsolete billing fields', async () => {
   jest.useFakeTimers()
   render(<AdminI18nProvider translations={de.admin}>
-    <BlackboardProvider initialNotes={{ [student]: { id: course, student_id: student, teacher_id: student, note_text: 'Vorhanden', discount_percent: 10, is_blackboard: true } }}>
+    <BlackboardProvider initialNotes={{ [student]: { id: course, student_id: student, teacher_id: student, note_text: 'Vorhanden', created_at: '2026-01-01', updated_at: '2026-01-01' } }}>
       <BlackboardEditor studentId={student} studentName="Anna" />
     </BlackboardProvider>
   </AdminI18nProvider>)
   expect(screen.queryByLabelText(`${de.admin.blackboard_discount_label}: Anna`)).not.toBeInTheDocument()
   fireEvent.change(screen.getByLabelText(`${de.admin.blackboard_note_label}: Anna`), { target: { value: 'Neue Notiz' } })
   await act(async () => { jest.advanceTimersByTime(800) })
-  await waitFor(() => expect(saveBlackboardNote).toHaveBeenCalledWith(expect.objectContaining({ note_text: 'Neue Notiz', discount_percent: 10 })))
+  await waitFor(() => expect(saveBlackboardNote).toHaveBeenCalledWith(expect.objectContaining({ note_text: 'Neue Notiz' })))
   jest.useRealTimers()
 })
 

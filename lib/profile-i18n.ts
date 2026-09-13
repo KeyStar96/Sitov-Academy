@@ -14,12 +14,11 @@ export function createProfileTranslator(translations: ProfileTranslations): Prof
 }
 
 const NATIVE_LANGUAGE_KEYS: Record<string, ProfileTranslationKey> = {
-  Russisch: 'lang_russian',
-  Türkisch: 'lang_turkish',
-  Ukrainisch: 'lang_ukrainian',
-  Englisch: 'lang_english',
-  Deutsch: 'lang_german',
-  Andere: 'lang_other',
+  ru: 'lang_russian',
+  tr: 'lang_turkish',
+  uk: 'lang_ukrainian',
+  en: 'lang_english',
+  de: 'lang_german',
 }
 
 export function translateNativeLanguage(
@@ -28,5 +27,5 @@ export function translateNativeLanguage(
 ): string {
   if (!value) return t('not_specified')
   const key = NATIVE_LANGUAGE_KEYS[value]
-  return key ? t(key) : value
+  return key ? t(key) : t('not_specified')
 }

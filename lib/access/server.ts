@@ -20,19 +20,17 @@ export async function loadLevelAccessProfile(
 ): Promise<LevelAccessProfile | null> {
   try {
     const [{ data, error }, rules] = await Promise.all([
-      supabase.from('profile_details').select('role, native_language, ui_language, allowed_levels').eq('id', userId).single(),
-      supabase.from('student_trainer_access').select('level,trainer,enabled,allowed_lessons').eq('user_id', userId),
+      supabase.from('profiles').select('role,native_language,ui_language,level_access:student_level_access(level)').eq('id', userId).single(),
+      supabase.from('learning_trainer_grants').select('level,trainer,enabled,unit_mode,units:learning_unit_grants(unit_id)').eq('user_id', userId),
     ])
-
-    if (error || rules.error) {
+    if (error || rules.error || !data) {
       console.error(`Zugriffsprofil für Nutzer ${userId} nicht ladbar:`, error?.code ?? rules.error?.code)
       return null
     }
-
-    if (!data) return null
-    return { ...data, student_trainer_access: (rules.data ?? []).flatMap(rule =>
-      rule.level && rule.trainer && typeof rule.enabled === 'boolean'
-        ? [{ level: rule.level, trainer: rule.trainer, enabled: rule.enabled, allowed_lessons: rule.allowed_lessons }] : []) }
+    return { role: data.role, native_language: data.native_language, ui_language: data.ui_language,
+      allowed_levels: data.level_access.map(item => item.level),
+      trainer_grants: (rules.data ?? []).map(rule => ({ level: rule.level, trainer: rule.trainer,
+        enabled: rule.enabled, unit_ids: rule.unit_mode === 'all' ? null : rule.units.map(item => item.unit_id) })) }
   } catch (err) {
     console.error('Unerwarteter Fehler beim Laden des Zugriffsprofils:', err)
     return null

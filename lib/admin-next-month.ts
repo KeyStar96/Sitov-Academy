@@ -1,3 +1,4 @@
+import type { CourseSelection } from '@/lib/course-selection'
 import type { MonthlyCourseBooking } from '@/lib/types/monthly-bookings'
 import type { TeacherStudentNote } from '@/lib/types/teacher-notes'
 import type {
@@ -11,48 +12,28 @@ export function isCourseAvailableInNextMonth(
     && (!course.endDate || course.endDate >= nextMonth)
 }
 
-export function pickCanonicalNote(notes: TeacherStudentNote[]): TeacherStudentNote | null {
-  if (notes.length === 0) return null
-  // The explicit marker remains stable when legacy notes are added later. Keep
-  // the old order only as a fallback for notes created outside the board flow.
-  return [...notes].sort((left, right) =>
-    Number(right.is_blackboard === true) - Number(left.is_blackboard === true)
-      || left.id.localeCompare(right.id))[0]
-}
-
 export function notesByStudent(notes: TeacherStudentNote[]): Record<string, TeacherStudentNote> {
-  const grouped = new Map<string, TeacherStudentNote[]>()
-  for (const note of notes) {
-    const list = grouped.get(note.student_id) ?? []
-    list.push(note)
-    grouped.set(note.student_id, list)
-  }
-  const result: Record<string, TeacherStudentNote> = {}
-  for (const [studentId, list] of grouped) {
-    const canonical = pickCanonicalNote(list)
-    if (canonical) result[studentId] = canonical
-  }
-  return result
+  return Object.fromEntries(notes.map(note => [note.student_id, note]))
 }
 
 export function bookingForMonth(
   bookings: MonthlyCourseBooking[], userId: string, month: string,
 ): MonthlyCourseBooking | null {
-  return bookings.find(booking => booking.user_id === userId && booking.target_month === month) ?? null
+  return bookings.find(booking => booking.userId === userId && booking.targetMonth === month) ?? null
 }
 
 export function latestBookingBefore(
   bookings: MonthlyCourseBooking[], userId: string, nextMonth: string,
 ): MonthlyCourseBooking | null {
   const candidates = bookings
-    .filter(booking => booking.user_id === userId && booking.target_month < nextMonth)
-    .sort((left, right) => right.target_month.localeCompare(left.target_month) || left.id.localeCompare(right.id))
+    .filter(booking => booking.userId === userId && booking.targetMonth < nextMonth)
+    .sort((left, right) => right.targetMonth.localeCompare(left.targetMonth) || left.id.localeCompare(right.id))
   return candidates[0] ?? null
 }
 
 export type EffectiveSelection =
   | { kind: 'paused' }
-  | { kind: 'enrolled'; courseIds: string[]; source: 'booking' | 'previous'; status: NextMonthStudentRow['status'] }
+  | { kind: 'enrolled'; courseSelections: CourseSelection[]; source: 'booking' | 'previous'; status: NextMonthStudentRow['status'] }
   | { kind: 'none' }
 
 export function effectiveNextMonthSelection(
@@ -61,27 +42,27 @@ export function effectiveNextMonthSelection(
   catalog: CatalogCourse[],
   months: { next: string; afterNext: string },
 ): EffectiveSelection {
-  const known = (id: string) => catalog.some(course => course.bookingId === id)
+  const known = (id: string) => catalog.some(course => course.id === id)
   if (next) {
     if (next.status === 'cancelled') return { kind: 'paused' }
     return {
       kind: 'enrolled',
-      courseIds: next.course_ids.filter(known),
+      courseSelections: next.courseSelections.filter(selection=>known(selection.courseId)),
       source: 'booking',
       status: next.status === 'confirmed' ? 'confirmed' : 'pending',
     }
   }
   if (previous && previous.status !== 'cancelled') {
-    const courseIds = previous.course_ids.filter(id => catalog.some(course =>
-      course.bookingId === id && isCourseAvailableInNextMonth(course, months.next, months.afterNext)))
-    if (courseIds.length === 0) return { kind: 'none' }
-    return { kind: 'enrolled', courseIds, source: 'previous', status: 'inherited' }
+    const courseSelections = previous.courseSelections.filter(selection => catalog.some(course =>
+      course.id === selection.courseId && isCourseAvailableInNextMonth(course, months.next, months.afterNext)))
+    if (courseSelections.length === 0) return { kind: 'none' }
+    return { kind: 'enrolled', courseSelections, source: 'previous', status: 'inherited' }
   }
   return { kind: 'none' }
 }
 
 function studentName(student: StaffStudentContact): string {
-  return (student.name ?? student.email).toLocaleLowerCase('de')
+  return (student.person?.display_name ?? student.person?.email ?? '').toLocaleLowerCase('de')
 }
 
 export function buildNextMonthOverview(input: {
@@ -97,8 +78,8 @@ export function buildNextMonthOverview(input: {
   const paused: NextMonthStudentRow[] = []
   const enrolledIds = new Set<string>()
   for (const course of input.catalog) {
-    groups.set(course.bookingId, {
-      courseId: course.bookingId, title: course.title, translationKey: course.translationKey,
+    groups.set(course.id, {
+      courseId: course.id, title: course.title,
       type: course.type, students: [],
     })
   }
@@ -110,7 +91,7 @@ export function buildNextMonthOverview(input: {
     )
     if (selection.kind === 'none') continue
     const row: NextMonthStudentRow = {
-      student, courseIds: selection.kind === 'enrolled' ? selection.courseIds : [],
+      student, courseSelections: selection.kind === 'enrolled' ? selection.courseSelections : [],
       source: selection.kind === 'enrolled' ? selection.source : 'booking',
       status: selection.kind === 'paused' ? 'cancelled' : selection.status,
       note: input.notes[student.id] ?? null,
@@ -120,14 +101,14 @@ export function buildNextMonthOverview(input: {
       continue
     }
     enrolledIds.add(student.id)
-    for (const courseId of selection.courseIds) {
+    for (const {courseId} of selection.courseSelections) {
       const existing = groups.get(courseId)
       if (existing) {
         existing.students.push(row)
         continue
       }
       groups.set(courseId, {
-        courseId, title: null, translationKey: '', type: 'presence', students: [row],
+        courseId, title: null, type: 'presence', students: [row],
       })
     }
   }

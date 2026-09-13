@@ -4,6 +4,7 @@ import { useMemo, useState } from 'react'
 import { ArrowDownWideNarrow, Search, SlidersHorizontal } from 'lucide-react'
 import { useAdminTranslator } from './AdminI18nProvider'
 import BlackboardEditor from './BlackboardEditor'
+import { courseQuantityCopy } from '@/lib/course-quantity-i18n'
 import { formatProfileMonth } from '@/lib/profile-month'
 import { formatStudentAddress, type NextMonthOverview, type NextMonthRowStatus } from '@/lib/types/admin-staff'
 import { bookingGridRows, filterAndSortBookings, type BookingGridFilters, type BookingSort, type BookingSortField } from '@/lib/admin-booking-grid'
@@ -75,11 +76,11 @@ export default function NextMonthBookings({ overview, lang, courseTitles }: {
           <thead className="hidden border-b border-[var(--border)] bg-[var(--surface-muted)] text-[var(--muted)] lg:table-header-group"><tr>{(['col_name_email', 'grid_course', 'col_status', 'col_contact', 'blackboard_title'] as const).map(key => <th scope="col" key={key} className="px-4 py-3 font-medium">{t(key)}</th>)}</tr></thead>
           <tbody className="block divide-y divide-[var(--border)] lg:table-row-group">{rows.map(row => (
             <tr key={row.student.id} className="grid min-w-0 grid-cols-1 gap-3 p-4 align-top sm:grid-cols-2 lg:table-row lg:p-0">
-              <td className="min-w-0 break-words lg:px-4 lg:py-3"><p className="font-semibold">{row.student.name || t('unknown_name')}</p><p className="mt-1 break-all text-xs text-[var(--muted)]">{row.student.email}</p></td>
-              <td className="min-w-0 lg:px-4 lg:py-3"><p className="mb-1 text-xs text-[var(--muted)] lg:hidden">{t('grid_course')}</p>{row.courseIds.length ? <ul className="space-y-1">{row.courseIds.map(id => <li key={id} className="break-words">{courseTitles[id] || t('course_fallback')}</li>)}</ul> : <span className="text-[var(--muted)]">{t('status_cancelled')}</span>}</td>
+              <td className="min-w-0 break-words lg:px-4 lg:py-3"><p className="font-semibold">{row.student.person?.display_name || t('unknown_name')}</p><p className="mt-1 break-all text-xs text-[var(--muted)]">{row.student.person?.email}</p></td>
+              <td className="min-w-0 lg:px-4 lg:py-3"><p className="mb-1 text-xs text-[var(--muted)] lg:hidden">{t('grid_course')}</p>{row.courseSelections.length ? <ul className="space-y-1">{row.courseSelections.map(selection => <li key={selection.courseId} className="break-words">{courseTitles[selection.courseId] || t('course_fallback')}{selection.requestedUnits!==undefined&&<span className="block text-[var(--muted)]">{courseQuantityCopy(lang).label}: {selection.requestedUnits}</span>}</li>)}</ul> : <span className="text-[var(--muted)]">{t('status_cancelled')}</span>}</td>
               <td className="min-w-0 lg:px-4 lg:py-3"><span className={`inline-flex rounded px-2 py-1 text-xs font-semibold ${row.status === 'confirmed' ? 'bg-emerald-50 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-200' : row.status === 'cancelled' ? 'bg-amber-50 text-amber-900 dark:bg-amber-950 dark:text-amber-200' : 'bg-[var(--surface-muted)] text-[var(--foreground)]'}`}>{t(statusKeys[row.status])}</span></td>
-              <td className="min-w-0 break-words text-[var(--muted)] lg:px-4 lg:py-3"><p>{row.student.phone || t('not_specified')}</p><p className="mt-1 text-xs leading-relaxed">{formatStudentAddress(row.student) || t('not_specified')}</p></td>
-              <td className="min-w-0 sm:col-span-2 lg:px-4 lg:py-3"><details><summary className="flex min-h-11 cursor-pointer list-none items-center rounded-md border border-[var(--border)] px-3 font-medium">{t('grid_open_notes')}</summary><div className="pt-3"><BlackboardEditor studentId={row.student.id} studentName={row.student.name || t('unknown_name')} compact /></div></details></td>
+              <td className="min-w-0 break-words text-[var(--muted)] lg:px-4 lg:py-3"><p>{row.student.person?.phone || t('not_specified')}</p><p className="mt-1 text-xs leading-relaxed">{formatStudentAddress(row.student) || t('not_specified')}</p></td>
+              <td className="min-w-0 sm:col-span-2 lg:px-4 lg:py-3"><details><summary className="flex min-h-11 cursor-pointer list-none items-center rounded-md border border-[var(--border)] px-3 font-medium">{t('grid_open_notes')}</summary><div className="pt-3"><BlackboardEditor studentId={row.student.id} studentName={row.student.person?.display_name || t('unknown_name')} compact /></div></details></td>
             </tr>
           ))}</tbody>
         </table>

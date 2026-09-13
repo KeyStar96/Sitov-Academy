@@ -1,6 +1,6 @@
 import type { NextMonthOverview, NextMonthRowStatus, NextMonthStudentRow } from '@/lib/types/admin-staff'
 
-export type BookingSortField = 'name' | 'status' | 'courses' | 'city' | 'discount'
+export type BookingSortField = 'name' | 'status' | 'courses' | 'city'
 export type BookingSortDirection = 'asc' | 'desc'
 export interface BookingSort { field: BookingSortField; direction: BookingSortDirection }
 export interface BookingGridFilters {
@@ -25,7 +25,6 @@ export function filterAndSortBookings(
   filters: BookingGridFilters,
   sorts: readonly BookingSort[],
   locale: string,
-  discountByStudent: ReadonlyMap<string, number> = new Map(),
 ): NextMonthStudentRow[] {
   const collator = new Intl.Collator(locale, { sensitivity: 'base', numeric: true })
   const search = filters.search.normalize('NFKC').toLocaleLowerCase(locale).trim()
@@ -33,19 +32,18 @@ export function filterAndSortBookings(
   const statusOrder: Record<NextMonthRowStatus, number> = { pending: 0, inherited: 1, confirmed: 2, cancelled: 3 }
   function compare(left: NextMonthStudentRow, right: NextMonthStudentRow, field: BookingSortField): number {
     switch (field) {
-      case 'name': return collator.compare(left.student.name || left.student.email, right.student.name || right.student.email)
+      case 'name': return collator.compare(left.student.person?.display_name || left.student.person?.email || '', right.student.person?.display_name || right.student.person?.email || '')
       case 'status': return statusOrder[left.status] - statusOrder[right.status]
-      case 'courses': return left.courseIds.length - right.courseIds.length
-      case 'city': return collator.compare(left.student.city || '', right.student.city || '')
-      case 'discount': return (discountByStudent.get(left.student.id) ?? left.note?.discount_percent ?? 0) - (discountByStudent.get(right.student.id) ?? right.note?.discount_percent ?? 0)
+      case 'courses': return left.courseSelections.length - right.courseSelections.length
+      case 'city': return collator.compare(left.student.person?.city || '', right.student.person?.city || '')
     }
   }
   return bookingGridRows(overview).filter(row => {
-    const nameAndEmail = `${row.student.name ?? ''} ${row.student.email}`.normalize('NFKC').toLocaleLowerCase(locale)
+    const nameAndEmail = `${row.student.person?.display_name ?? ''} ${row.student.person?.email ?? ''}`.normalize('NFKC').toLocaleLowerCase(locale)
     return (!search || search.split(/\s+/).every(part => nameAndEmail.includes(part)))
       && (filters.status === 'all' || row.status === filters.status)
-      && (filters.course === 'all' || row.courseIds.includes(filters.course))
-      && (filters.format === 'all' || row.courseIds.some(id => formats.get(id) === filters.format))
+      && (filters.course === 'all' || row.courseSelections.some(selection=>selection.courseId===filters.course))
+      && (filters.format === 'all' || row.courseSelections.some(selection => formats.get(selection.courseId) === filters.format))
   }).sort((left, right) => {
     for (const sort of sorts) {
       const result = compare(left, right, sort.field)

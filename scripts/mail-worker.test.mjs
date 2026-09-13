@@ -10,6 +10,17 @@ const site='http://203.0.113.24'
 const job={id:'00000000-0000-4000-8000-000000000003',lease_token:'00000000-0000-4000-8000-000000000004',recipient:'student@example.test',locale:'de',kind:'feedback_available',payload:{name:'Anna',path:'/de/dashboard/profile'}}
 const log={info(){},error(){}}
 
+test('booking templates show selected units, unit duration, price and total',()=>{
+  for(const locale of MAIL_LOCALES) {
+    const mail=renderTransactionalEmail('registration_received',locale,{courses:[{
+      title:'Privatunterricht – Online',units:4,unitMinutes:45,unitPrice:25,price:100,
+    }]},site)
+    assert.match(mail.text,/4 × 45 min/)
+    assert.ok(mail.text.includes(new Intl.NumberFormat(locale,{style:'currency',currency:'EUR'}).format(25)))
+    assert.ok(mail.text.includes(new Intl.NumberFormat(locale,{style:'currency',currency:'EUR'}).format(100)))
+  }
+})
+
 test('all event templates render in five languages, escape data, and stay on configured IP',()=>{
   for(const locale of MAIL_LOCALES) for(const kind of MAIL_KINDS) {
     const rendered=renderTransactionalEmail(kind,locale,{name:'<img src=x onerror=alert(1)>',courses:[{title:'Deutsch <A1>',price:90}],total:90},site)

@@ -14,16 +14,9 @@ export interface VocabularySource {
   text: string
 }
 
-/** Profiles historically store German language names; accept locale codes too. */
+/** Profiles store one validated ISO interface-language code, never a display name. */
 export function vocabularyNativeLocale(value: string | null): UiLocale | null {
-  switch (value?.trim().toLowerCase()) {
-    case 'de': case 'deutsch': case 'german': return 'de'
-    case 'en': case 'englisch': case 'english': return 'en'
-    case 'ru': case 'russisch': case 'russian': case 'русский': return 'ru'
-    case 'uk': case 'ua': case 'ukrainisch': case 'ukrainian': case 'українська': return 'uk'
-    case 'tr': case 'türkisch': case 'turkish': case 'türkçe': return 'tr'
-    default: return null
-  }
+  return value === 'de' || value === 'en' || value === 'ru' || value === 'uk' || value === 'tr' ? value : null
 }
 
 /**

@@ -9,7 +9,7 @@ import { scheduleVocabularyCards } from '@/lib/vocabulary-scheduler'
 import { readVocabularyProgress } from '@/lib/vocabulary-queries'
 import { loadLevelAccessProfile } from '@/lib/access/server'
 import { readAllRows } from '@/lib/supabase-read'
-import { vocabularyCardSchema } from '@/lib/learning-content'
+import { vocabularyQuery, mapVocabularyCard } from '@/lib/learning-catalog'
 import { resolveVocabularySentenceSource, resolveVocabularyInterfaceTranslation } from '@/lib/vocabulary-languages'
 import {
   isHardForNativeLanguage,
@@ -53,8 +53,8 @@ export async function getVocabularySession(level?: string, uiLanguage?: string):
     const { supabase, user, profile } = learner
     const language = languageSchema.catch('de').parse(uiLanguage ?? profile.ui_language)
     if (language === 'de') return { learnerId: null, cards: [], deferredCount: 0, previousCardId: null }
-    let catalogQuery = supabase.from('vocabulary_cards').select('*').order('id')
-    if (level) catalogQuery = catalogQuery.eq('level', level)
+    let catalogQuery = vocabularyQuery(supabase).order('id')
+    if (level) catalogQuery = catalogQuery.eq('unit.level', level)
     const [catalog, progress, { data: cursor, error: cursorError }] = await Promise.all([
       readAllRows((from, to) => catalogQuery.range(from, to)),
       readAllRows((from, to) => supabase.from('vocabulary_direction_progress').select('*')
@@ -63,12 +63,12 @@ export async function getVocabularySession(level?: string, uiLanguage?: string):
       supabase.from('vocabulary_learning_state').select('last_card_id').eq('user_id', user.id).maybeSingle(),
     ])
     if (cursorError) return { learnerId: null, cards: [], deferredCount: 0, previousCardId: null }
-    const catalogById = new Map(catalog.map(row => vocabularyCardSchema.parse(row)).map(card => [card.id, card]))
+    const catalogById = new Map(catalog.map(row => mapVocabularyCard(row)).map(card => [card.id, card]))
     const cards: DueVocabularyCard[] = progress.flatMap(row => {
       const card = catalogById.get(row.card_id)
       if (!card || !hasTrainerAccess(profile, card.level, 'vocabulary')) return []
       const allowedLessons = getAllowedLessons(profile, card.level, 'vocabulary')
-      if (allowedLessons !== null && !allowedLessons.includes(card.unit_id ?? card.lesson)) return []
+      if (allowedLessons !== null && !allowedLessons.includes(card.unit_id)) return []
       const box = normalizeBox(row.box_number)
       const direction = row.direction === 'native_to_de' ? 'native_to_de' : 'de_to_native'
       const sentence = direction === 'native_to_de' && card.sentence_practice
@@ -110,15 +110,15 @@ export async function getVocabularyAssessment(lessonName: string, level: string,
     const allowed = getAllowedLessons(learner.profile, level, 'vocabulary')
     if (language === 'de') return { learnerId: null, cards: [] }
     const [{ data, error }, progress] = await Promise.all([
-      learner.supabase.from('vocabulary_cards').select('*').eq('level', level).eq('lesson', lessonName).order('id'),
+      vocabularyQuery(learner.supabase).eq('unit.level', level).eq('unit.label', lessonName).order('id'),
       readVocabularyProgress(learner.supabase, learner.user.id),
     ])
     if (error) return { learnerId: null, cards: [] }
     const assessed = new Set(progress.map(row => `${row.card_id}:${row.direction}`))
     return {
       learnerId: learner.user.id,
-      cards: (['de_to_native', 'native_to_de'] as const).flatMap(direction => (data ?? []).map(row => vocabularyCardSchema.parse(row)).flatMap(card => {
-        if (allowed !== null && !allowed.includes(card.unit_id ?? card.lesson)) return []
+      cards: (['de_to_native', 'native_to_de'] as const).flatMap(direction => (data ?? []).map(row => mapVocabularyCard(row)).flatMap(card => {
+        if (allowed !== null && !allowed.includes(card.unit_id)) return []
         const translation = resolveVocabularyInterfaceTranslation(card, language)
         if (!translation || assessed.has(`${card.id}:${direction}`)) return []
         return [{ id: card.id, word_de: card.word_de, article: card.article,
@@ -174,11 +174,11 @@ export async function initializeLesson(lessonName: string, level?: string, expec
     if (typeof lessonName !== 'string' || !lessonName.trim() || lessonName.length > 200) return { success: false, added: 0 }
     const learner = await loadLearner(expectedLearnerId)
     if (!learner || (level && !hasTrainerAccess(learner.profile, level, 'vocabulary'))) return { success: false, added: 0 }
-    let query = learner.supabase.from('vocabulary_cards').select('id,level').eq('lesson', lessonName)
-    if (level) query = query.eq('level', level)
+    let query = vocabularyQuery(learner.supabase).eq('unit.label', lessonName)
+    if (level) query = query.eq('unit.level', level)
     const { data, error } = await query
     if (error || !data?.length) return { success: false, added: 0 }
-    const allowed = data.filter((card): card is { id: string; level: string } => typeof card.id === 'string' && typeof card.level === 'string' && hasTrainerAccess(learner.profile, card.level, 'vocabulary'))
+    const allowed = data.map(mapVocabularyCard).filter(card => typeof card.id === 'string' && typeof card.level === 'string' && hasTrainerAccess(learner.profile, card.level, 'vocabulary'))
     if (!allowed.length) return { success: false, added: 0 }
     return addCardsToTrainer(allowed.map(card => card.id), learner.user.id)
   } catch {
@@ -205,10 +205,10 @@ export async function skipVocabularyAssessment(level: string, expectedLearnerId?
 export async function getVocabularyOnboarding(level: string): Promise<{ status: 'skipped' | 'completed'; lesson: string } | null> {
   const learner = await loadLearner()
   if (!learner || !hasTrainerAccess(learner.profile, level, 'vocabulary')) return null
-  const { data, error } = await learner.supabase.from('vocabulary_onboarding').select('status,started_lesson')
+  const { data, error } = await learner.supabase.from('vocabulary_onboarding').select('status,unit:learning_units!inner(label)')
     .eq('user_id', learner.user.id).eq('level', level).maybeSingle()
   if (error || !data || (data.status !== 'skipped' && data.status !== 'completed')) return null
-  return { status: data.status, lesson: data.started_lesson }
+  return { status: data.status, lesson: data.unit.label }
 }
 
 /** Word self-rating is accepted; sentence correctness is computed inside PostgreSQL. */
@@ -247,16 +247,16 @@ export async function getLessonCards(lessonName: string, level?: string, uiLangu
   if (!learner || (level && !hasTrainerAccess(learner.profile, level, 'vocabulary'))) return []
   const language = languageSchema.catch('de').parse(uiLanguage ?? learner.profile.ui_language)
   if (language === 'de') return []
-  let query = learner.supabase.from('vocabulary_cards').select('*').eq('lesson', lessonName)
-  if (level) query = query.eq('level', level)
+  let query = vocabularyQuery(learner.supabase).eq('unit.label', lessonName)
+  if (level) query = query.eq('unit.level', level)
   const [{ data: cards, error }, progress] = await Promise.all([
     query, readVocabularyProgress(learner.supabase, learner.user.id).catch(() => null),
   ])
   if (error || !progress) return []
-  return (cards ?? []).map(row => vocabularyCardSchema.parse(row)).filter(card => {
+  return (cards ?? []).map(row => mapVocabularyCard(row)).filter(card => {
     if (!card.id || !card.lesson || !card.level || !hasTrainerAccess(learner.profile, card.level, 'vocabulary')) return false
     const allowedLessons = getAllowedLessons(learner.profile, card.level, 'vocabulary')
-    if (allowedLessons && !allowedLessons.includes(card.unit_id ?? card.lesson)) return false
+    if (allowedLessons && !allowedLessons.includes(card.unit_id)) return false
     return true
   }).map(card => {
     const states = (progress ?? []).filter(row => row.card_id === card.id)
@@ -271,19 +271,19 @@ export async function getLessonCards(lessonName: string, level?: string, uiLangu
 export async function getLessonStats(level?: string): Promise<LessonStat[]> {
   const learner = await loadLearner()
   if (!learner || (level && !hasTrainerAccess(learner.profile, level, 'vocabulary'))) return []
-  let query = learner.supabase.from('vocabulary_cards').select('id,lesson,level,unit_id')
-  if (level) query = query.eq('level', level)
+  let query = vocabularyQuery(learner.supabase)
+  if (level) query = query.eq('unit.level', level)
   const [{ data: cards, error }, progress] = await Promise.all([
     query, readVocabularyProgress(learner.supabase, learner.user.id).catch(() => null),
   ])
   if (error || !progress) return []
   const stats = new Map<string, LessonStat>()
   const now = Date.now()
-  for (const card of cards ?? []) {
+  for (const card of (cards ?? []).map(mapVocabularyCard)) {
     if (!card.id || !card.lesson || !card.level) continue
     if (!hasTrainerAccess(learner.profile, card.level, 'vocabulary')) continue
     const allowedLessons = getAllowedLessons(learner.profile, card.level, 'vocabulary')
-    if (allowedLessons && !allowedLessons.includes(card.unit_id ?? card.lesson)) continue
+    if (allowedLessons && !allowedLessons.includes(card.unit_id)) continue
     const stat = stats.get(card.lesson) ?? { lesson: card.lesson, total: 0, active: 0, learned: 0, untouched: 0, due: 0 }
     const states = (progress ?? []).filter(row => row.card_id === card.id)
     stat.total += 1
@@ -301,18 +301,18 @@ export async function getLessonStats(level?: string): Promise<LessonStat[]> {
 export async function resetLessonProgress(lessonName: string, level?: string): Promise<{ success: boolean }> {
   const learner = await loadLearner()
   if (!learner || (level && !hasTrainerAccess(learner.profile, level, 'vocabulary'))) return { success: false }
-  let query = learner.supabase.from('vocabulary_cards').select('id,level,lesson,unit_id').eq('lesson', lessonName)
-  if (level) query = query.eq('level', level)
+  let query = vocabularyQuery(learner.supabase).eq('unit.label', lessonName)
+  if (level) query = query.eq('unit.level', level)
   const { data: cards, error } = await query
-  const allowed = (cards ?? []).filter(card => {
+  const allowed = (cards ?? []).map(mapVocabularyCard).filter(card => {
     if (!card.id || !card.lesson || !card.level || !hasTrainerAccess(learner.profile, card.level, 'vocabulary')) return false
     const allowedLessons = getAllowedLessons(learner.profile, card.level, 'vocabulary')
-    if (allowedLessons && !allowedLessons.includes(card.unit_id ?? card.lesson)) return false
+    if (allowedLessons && !allowedLessons.includes(card.unit_id)) return false
     return true
   })
   if (error || !allowed.length) return { success: false }
-  for (const cardLevel of new Set(allowed.map(card => card.level))) {
-    const { error: deleteError } = await learner.supabase.rpc('reset_vocabulary_lesson_progress', { p_level: z.string().parse(cardLevel), p_lesson: lessonName })
+  for (const unitId of new Set(allowed.map(card => card.unit_id))) {
+    const { error: deleteError } = await learner.supabase.rpc('reset_vocabulary_lesson_progress', { p_unit_id: z.string().uuid().parse(unitId) })
     if (deleteError) return { success: false }
   }
   refreshVocabulary()

@@ -14,9 +14,14 @@ const input = grammarWriteSchema.parse({
 
 function setup(role: string) {
   const profile = { select: jest.fn().mockReturnThis(), eq: jest.fn().mockReturnThis(), single: jest.fn().mockResolvedValue({ data: { role }, error: null }) }
-  const write = { insert: jest.fn().mockReturnThis(), update: jest.fn().mockReturnThis(), eq: jest.fn().mockReturnThis(), select: jest.fn().mockReturnThis(), single: jest.fn().mockResolvedValue({ data: { id, ...input, created_at: null }, error: null }) }
+  const { smart_hint, ...content } = input.type === 'fill_in_blank' ? input.content : { ...input.content, smart_hint: undefined }
+  const row = { id, unit_id: id, topic: input.topic, type: input.type, solution_audio_url: null, content, created_at: null,
+    unit: { id, level: input.level, label: input.lesson, sort_order: 1, is_active: true },
+    translations: ['de', 'en', 'ru', 'uk', 'tr'].map(locale => ({ exercise_id: id, locale, hint: input.hint?.[locale] ?? null, smart_hint: typeof smart_hint === 'object' && smart_hint !== null ? smart_hint[locale] ?? null : null, explanation: null })),
+  }
+  const write = { insert: jest.fn().mockReturnThis(), update: jest.fn().mockReturnThis(), eq: jest.fn().mockReturnThis(), select: jest.fn().mockReturnThis(), single: jest.fn().mockResolvedValue({ data: row, error: null }) }
   const client = {
-    rpc: jest.fn().mockResolvedValue({ data: { id, ...input, created_at: null }, error: null }),
+    rpc: jest.fn().mockResolvedValue({ data: { id }, error: null }),
     auth: { getUser: jest.fn().mockResolvedValue({ data: { user: { id } }, error: null }) },
     from: jest.fn((table: string) => table === 'profiles' ? profile : write),
   }
@@ -28,8 +33,10 @@ beforeEach(() => jest.clearAllMocks())
 
 test('teacher updates preserve localized hints and alternatives through the normalized writer', async () => {
   const { client, write } = setup('teacher')
-  expect(await saveGrammarExercise(input, id)).toMatchObject({ success: true })
-  expect(client.rpc).toHaveBeenCalledWith('save_learning_content', { p_trainer: 'exercises', p_id: id, p_payload: expect.objectContaining({ hint: input.hint, content: input.content }) })
+  expect(await saveGrammarExercise(input, id)).toMatchObject({ success: true, data: { hint: input.hint, content: input.content } })
+  expect(client.rpc).toHaveBeenCalledWith('save_learning_content', { p_trainer: 'exercises', p_id: id, p_payload: { unit: { level: input.level, label: input.lesson }, fields: expect.objectContaining({ content: expect.objectContaining({ correct_answer: 'Der', alternative_answers: ['Dieser'] }) }), translations: expect.arrayContaining([{ locale: 'ru', hint: 'Vergleich Russisch', smart_hint: 'Объяснение', explanation: null }, { locale: 'uk', hint: 'Vergleich Ukrainisch', smart_hint: null, explanation: null }]) } })
+  expect(client.rpc.mock.calls[0][1].p_payload.fields.content).not.toHaveProperty('smart_hint')
+  expect(client.from).toHaveBeenCalledWith('learning_exercises')
   expect(write.update).not.toHaveBeenCalled()
 })
 

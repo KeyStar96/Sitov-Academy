@@ -11,7 +11,6 @@ export default async function AcademyCourses({ dictionary, lang }: { dictionary:
   const courses = sortMarketingCourses(await getCourses())
   const copy = dictionary.academy
   const formatter = new Intl.NumberFormat(toUiLocale(lang), { style: 'currency', currency: 'EUR', maximumFractionDigits: 2 })
-  const courseTexts: Record<string, { title: string; description: string }> = dictionary.CourseData
   const days: Record<string, string> = dictionary.timetable.days
   return <section id="courses" className="academy-section academy-container">
     <div className="academy-section-heading"><p className="academy-eyebrow">{copy.course_eyebrow}</p><h2>{copy.course_title}</h2><p>{copy.course_description}</p></div>
@@ -20,8 +19,8 @@ export default async function AcademyCourses({ dictionary, lang }: { dictionary:
       return <article className="academy-course-card" key={course.id}>
         <div className="flex flex-wrap items-center justify-between gap-3"><span className="academy-course-level">{course.level}</span><span className="academy-course-mode">{course.type === 'online' ? <Monitor size={16} aria-hidden="true" /> : <MapPin size={16} aria-hidden="true" />}{course.type === 'online' ? copy.course_online : copy.course_presence}</span></div>
         <h3>{text.title}</h3><p className="academy-course-description">{text?.description}</p>
-        <ul className="academy-course-schedule" aria-label={copy.course_schedule}>{course.sessions.map((session, index) => <li key={`${session.day}-${index}`}><Clock3 size={16} aria-hidden="true" /><span>{days[session.day] || session.day}</span><span>{session.startTime}–{session.endTime}{session.isAlternating && session.altStartTime && session.altEndTime ? ` / ${session.altStartTime}–${session.altEndTime}` : ''}</span></li>)}</ul>
-        <div className="academy-course-price"><strong>{formatter.format(course.price)}</strong><span>{copy.course_unit.replace('{minutes}', String(course.unitDuration))}</span></div><Link className="academy-button academy-button-outline" href={`/${lang}/registration?courseId=${encodeURIComponent(course.id)}`}>{copy.course_details}<ArrowUpRight size={18} aria-hidden="true" /></Link>{course.trialLessons !== false && <Link className="academy-course-trial" href={`/${lang}/registration?courseId=${encodeURIComponent(course.id)}&trial=1`}>{dictionary.courses_v2.trial_cta}</Link>}
+        <ul className="academy-course-schedule" aria-label={copy.course_schedule}>{course.sessions.map((session, index) => <li key={`${session.day}-${index}`}><Clock3 size={16} aria-hidden="true" /><span>{days[session.day] || session.day}</span><span>{session.startTime}–{session.endTime}</span></li>)}</ul>
+        <div className="academy-course-price"><strong>{formatter.format(course.unitPrice)}</strong><span>{copy.course_unit.replace('{minutes}', String(course.unitMinutes))}</span></div><Link className="academy-button academy-button-outline" href={`/${lang}/registration?courseId=${encodeURIComponent(course.id)}`}>{copy.course_details}<ArrowUpRight size={18} aria-hidden="true" /></Link>{course.trialLessons !== false && <Link className="academy-course-trial" href={`/${lang}/registration?courseId=${encodeURIComponent(course.id)}&trial=1`}>{dictionary.courses_v2.trial_cta}</Link>}
       </article>
     })}</div>}
   </section>

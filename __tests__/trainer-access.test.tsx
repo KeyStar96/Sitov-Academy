@@ -14,11 +14,11 @@ import tr from '@/dictionaries/tr.json'
 
 jest.unmock('lucide-react')
 jest.mock('@/app/actions/admin', () => ({ getAvailableLessons: jest.fn(), updateStudentTrainerAccess: jest.fn(), updateStudentRole: jest.fn(), updateStudentAllowedLevels: jest.fn() }))
-jest.mock('@/components/admin/BlackboardProvider', () => ({ useBlackboard: () => ({ getBoard: () => ({ noteText: '', discount: 0 }) }) }))
+jest.mock('@/components/admin/BlackboardProvider', () => ({ useBlackboard: () => ({ getBoard: () => ({ noteText: '' }) }) }))
 jest.mock('@/components/admin/BlackboardEditor', () => () => null)
 jest.mock('@/components/admin/StudentDetailModal', () => () => null)
 const student: LevelAccessProfile = { role: 'student', allowed_levels: ['A1.1','A1.2'] }
-const denied = { ...student, student_trainer_access: [{ level: 'A1.1', trainer: 'exercises', enabled: false }] }
+const denied = { ...student, trainer_grants: [{ level: 'A1.1', trainer: 'exercises', enabled: false }] }
 
 describe('Trainer entitlement decisions', () => {
  test.each(TRAINERS)('inherits existing level rights for %s', trainer => {
@@ -36,7 +36,7 @@ describe('Trainer entitlement decisions', () => {
  })
 })
 test('empty unit selections lock learner cards while teacher configuration remains editable, including German profiles',()=>{
- const profile={...student,ui_language:'de',student_trainer_access:[{level:'A1.1',trainer:'pronunciation',enabled:true,allowed_lessons:[]}]}
+ const profile={...student,ui_language:'de',trainer_grants:[{level:'A1.1',trainer:'pronunciation',enabled:true,unit_ids:[]}]}
  expect(hasConfiguredTrainerAccess(profile,'A1.1','pronunciation')).toBe(true)
  expect(hasTrainerAccess(profile,'A1.1','pronunciation')).toBe(false)
  expect(hasTrainerAccess({...profile,ui_language:'ru'},'A1.1','pronunciation')).toBe(false)
@@ -55,8 +55,8 @@ describe('Student trainer cards', () => {
 })
 describe('Teacher trainer controls', () => {
  const id='00000000-0000-4000-8000-000000000001'
- const renderList=(rules: AdminStudentRow['student_trainer_access'] = [])=>render(<AdminI18nProvider translations={de.admin}><StudentList initialStudents={[{
-  id, email:'learner@example.test',name:'Lernende',role:'student',allowed_levels:['A1.1'],created_at:null,phone:null,street:null,zip_code:null,city:null, student_trainer_access: rules,
+ const renderList=(rules: AdminStudentRow['trainer_grants'] = [])=>render(<AdminI18nProvider translations={de.admin}><StudentList initialStudents={[{
+  id, person:{id,auth_user_id:id,display_name:'Lernende',email:'learner@example.test',phone:null,street:null,postal_code:null,city:null,birth_date:null,preferred_locale:'de',created_at:'2026-01-01',updated_at:'2026-01-01'},role:'student',allowed_levels:['A1.1'],created_at:null, trainer_grants: rules,
  }]} lang="de" currentUserRole="teacher" /></AdminI18nProvider>)
  const openAccess=()=>fireEvent.click(screen.getByRole('button',{name:'Freigaben für Lernende verwalten'}))
  beforeAll(()=>{
@@ -98,7 +98,7 @@ describe('Teacher trainer controls', () => {
   expect(checkbox).toBeChecked()
  })
  test('trainer off/on keeps its selected lessons and an empty selection means none',async()=>{
-  renderList([{level:'A1.1',trainer:'exercises',enabled:true,allowed_lessons:[]}])
+  renderList([{level:'A1.1',trainer:'exercises',enabled:true,unit_ids:[]}])
   openAccess()
   const checkbox=screen.getByLabelText('Lernende · A1.1 · Grammatikübungen')
   fireEvent.click(checkbox)

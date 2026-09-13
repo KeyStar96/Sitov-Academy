@@ -6,6 +6,7 @@ import { CalendarDays, Check, Plus, Loader2 } from 'lucide-react'
 import { createProfileTranslator, type ProfileTranslations } from '@/lib/profile-i18n'
 import { formatProfileMonth, profileMonthWindow } from '@/lib/profile-month'
 import type { ProfileMonthlyState } from '@/lib/types/monthly-bookings'
+import CourseQuantityInput from '@/components/registration/CourseQuantityInput'
 import { useMonthlySelection } from './useMonthlySelection'
 
 export default function ProfileMonthlyCourses({ initial, lang, translations, courseTitles }: {
@@ -19,9 +20,10 @@ export default function ProfileMonthlyCourses({ initial, lang, translations, cou
   // Preserve the original hint's height when an inherited selection is saved.
   // The hidden CSS content reserves space without duplicating accessible text.
   const sourceHint = useRef(initial.source === 'unresolved' ? 'unresolved_courses' as const
-    : initial.source === 'previous' || initial.source === 'enrollments' ? 'inherited_courses' as const : null)
+    : initial.source === 'previous' ? 'inherited_courses' as const : null)
   const month = formatProfileMonth(state.targetMonth, lang)
-  const { courseIds, paused } = state.selection
+  const { courseSelections, paused } = state.selection
+  const courseIds = courseSelections.map(selection=>selection.courseId)
   const courses = state.courses.filter(course => course.available || courseIds.includes(course.id))
   useEffect(() => {
     const check = () => setMonthExpired(profileMonthWindow().next !== state.targetMonth)
@@ -34,13 +36,13 @@ export default function ProfileMonthlyCourses({ initial, lang, translations, cou
   function togglePause() {
     if (paused && courseIds.length === 0) { setNeedsCourse(true); return }
     setNeedsCourse(false)
-    change({ courseIds, paused: !paused })
+    change({ courseSelections: paused ? courseSelections : [], paused: !paused })
   }
   function toggleCourse(id: string) {
     const selected = courseIds.includes(id)
-    const next = selected ? courseIds.filter(value => value !== id) : [...courseIds, id]
+    const next = selected ? courseSelections.filter(value => value.courseId !== id) : [...courseSelections, {courseId:id,...(courses.find(course=>course.id===id)?.category==='private'?{requestedUnits:1}:{})}]
     setNeedsCourse(false)
-    change({ courseIds: next, paused: next.length === 0 })
+    change({ courseSelections: next, paused: next.length === 0 })
   }
 
   return (
@@ -55,7 +57,7 @@ export default function ProfileMonthlyCourses({ initial, lang, translations, cou
       <p className="mt-4 text-base leading-relaxed text-[var(--muted)]">{t('next_month_intro', { month })}</p>
       <div className="mt-4 grid min-h-12">
         {sourceHint.current && <p aria-hidden="true" data-reserve={t(sourceHint.current)} className="invisible rounded-xl p-3 text-base [grid-area:1/1] before:content-[attr(data-reserve)]" />}
-        {(state.source === 'previous' || state.source === 'enrollments') && <p className="rounded-xl bg-[var(--surface-muted)] p-3 text-base text-[var(--violet)] [grid-area:1/1]">{t('inherited_courses')}</p>}
+        {(state.source === 'previous') && <p className="rounded-xl bg-[var(--surface-muted)] p-3 text-base text-[var(--violet)] [grid-area:1/1]">{t('inherited_courses')}</p>}
         {state.source === 'unresolved' && <p className="rounded-xl bg-amber-50 p-3 text-base text-amber-900 [grid-area:1/1] dark:bg-amber-950 dark:text-amber-200">{t('unresolved_courses')}</p>}
       </div>
       <button type="button" role="switch" aria-checked={paused} aria-label={t('pause_next_month')}
@@ -78,7 +80,7 @@ export default function ProfileMonthlyCourses({ initial, lang, translations, cou
           const selected = courseIds.includes(course.id)
           const title = courseTitles[course.id] || course.title || t('course_fallback')
           return (
-            <button key={course.id} type="button" role="checkbox" aria-checked={selected}
+            <div key={course.id} className="space-y-2"><button type="button" role="checkbox" aria-checked={selected}
               aria-label={title} disabled={monthExpired || (!course.available && !selected)}
               onClick={() => toggleCourse(course.id)}
               className={`flex min-h-12 w-full min-w-0 items-center gap-2.5 rounded-xl border px-3 py-2 text-left transition-colors focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-orange-500 disabled:opacity-60 ${selected && !paused ? 'border-[var(--violet)] bg-[var(--surface-muted)]  ' : 'border-[var(--border)] bg-[var(--surface)] hover:bg-[var(--surface-muted)]   '}`}>
@@ -94,6 +96,10 @@ export default function ProfileMonthlyCourses({ initial, lang, translations, cou
                 </span>
               </span>
             </button>
+            {selected&&course.category==='private'&&<CourseQuantityInput value={courseSelections.find(selection=>selection.courseId===course.id)?.requestedUnits??1}
+              onChange={requestedUnits=>change({courseSelections:courseSelections.map(selection=>selection.courseId===course.id?{...selection,requestedUnits}:selection),paused})}
+              unitPrice={course.unitPrice} unitMinutes={course.unitMinutes} lang={lang} disabled={monthExpired||paused}/>}
+            </div>
           )
         })}
         {courses.length === 0 && <p className="rounded-xl bg-[var(--surface-muted)] p-4 text-base text-[var(--muted)] sm:col-span-2">{t('no_courses')}</p>}

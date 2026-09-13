@@ -30,7 +30,7 @@ export default async function AdminLayout({
   }
 
   const [{ data: profile }, dict] = await Promise.all([
-    supabase.from('profile_details').select('*').eq('id', user.id).single(),
+    supabase.from('profiles').select('role,ui_language,person:people(display_name)').eq('id', user.id).single(),
     getDictionary(lang),
   ])
 
@@ -40,7 +40,7 @@ export default async function AdminLayout({
 
   const translations = (dict.admin ?? {}) as AdminTranslations
   const t = createAdminTranslator(translations)
-  const displayName = profile?.name || user.email || ''
+  const displayName = profile?.person?.display_name || user.email || ''
   const roleLabel = profile?.role === 'admin' ? t('role_badge_admin') : t('role_badge_teacher')
 
   return (

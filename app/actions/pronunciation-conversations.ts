@@ -48,11 +48,11 @@ async function notifyPronunciationFeedback(supabase: Client, senderId: string, s
     if (sender?.role !== 'teacher' && sender?.role !== 'admin') return
     const { data: thread } = await supabase.from('submissions').select('user_id,level').eq('id', submissionId).single()
     if (!thread) return
-    const { data: learner } = await supabase.from('profile_details').select('name,email,ui_language').eq('id', thread.user_id).single()
-    if (!learner?.email) return
+    const { data: learner } = await supabase.from('profiles').select('ui_language,person:people(display_name,email)').eq('id', thread.user_id).single()
+    if (!learner?.person?.email) return
     const locale = z.enum(['de', 'en', 'ru', 'uk', 'tr']).catch('en').parse(learner.ui_language)
-    const queued = await queueTransactionalEmail({ dedupeKey: `pronunciation-message:${messageId}`, kind: 'feedback_available', to: learner.email, locale,
-      payload: { name: learner.name ?? '', path: `/${locale}/dashboard/level/${encodeURIComponent(thread.level)}/pronunciation` } })
+    const queued = await queueTransactionalEmail({ dedupeKey: `pronunciation-message:${messageId}`, kind: 'feedback_available', to: learner.person.email, locale,
+      payload: { name: learner.person.display_name ?? '', path: `/${locale}/dashboard/level/${encodeURIComponent(thread.level)}/pronunciation` } })
     if (!queued.success) console.error('Pronunciation notification could not be queued', { messageId })
   } catch { console.error('Pronunciation notification could not be queued', { messageId }) }
 }
@@ -99,8 +99,8 @@ export async function getPronunciationConversations(level?: string, submissionId
     const { data, error } = await query.order('created_at', { ascending: false })
     if (error) { console.error('Loading pronunciation conversations failed', { userId: user.id, message: error.message }); return [] }
     const studentIds = [...new Set((data ?? []).map(row => row.user_id))]
-    const { data: profiles } = studentIds.length ? await supabase.from('profile_details').select('id,name,email').in('id', studentIds) : { data: [] }
-    const people = new Map((profiles ?? []).map(profile => [profile.id, profile]))
+    const { data: profiles } = studentIds.length ? await supabase.from('people').select('auth_user_id,display_name,email').in('auth_user_id', studentIds) : { data: [] }
+    const people = new Map((profiles ?? []).map(profile => [profile.auth_user_id, profile]))
     const conversations = await Promise.all((data ?? []).map(async (row): Promise<PronunciationConversation> => {
       const messages: PronunciationMessage[] = [{ id: `recording-${row.id}`, senderRole: 'student', text: '', audioUrl: await playbackUrl(supabase, row.content_url), createdAt: row.created_at ?? '', unseen: false }]
       for (const message of row.pronunciation_messages ?? []) {
@@ -108,7 +108,7 @@ export async function getPronunciationConversations(level?: string, submissionId
         messages.push({ id: message.id, senderRole, text: message.text_content, audioUrl: await playbackUrl(supabase, message.audio_path), createdAt: message.created_at, unseen: !message.seen_at && (staff ? senderRole === 'student' : senderRole !== 'student') })
       }
       messages.sort((a, b) => a.createdAt.localeCompare(b.createdAt) || a.id.localeCompare(b.id))
-      return { id: row.id, level: row.level, title: row.prompt_title, readingText: row.text_content, status: row.status ?? 'pending', studentName: people.get(row.user_id)?.name ?? null, studentEmail: staff ? people.get(row.user_id)?.email ?? null : null, createdAt: row.created_at ?? '', messages, hasUnseen: messages.some((message) => message.unseen) }
+      return { id: row.id, level: row.level, title: row.prompt_title, readingText: row.text_content, status: row.status ?? 'pending', studentName: people.get(row.user_id)?.display_name ?? null, studentEmail: staff ? people.get(row.user_id)?.email ?? null : null, createdAt: row.created_at ?? '', messages, hasUnseen: messages.some((message) => message.unseen) }
     }))
     return conversations.sort((a, b) => (b.messages.at(-1)?.createdAt ?? '').localeCompare(a.messages.at(-1)?.createdAt ?? ''))
   } catch (error) { console.error('Loading pronunciation conversations failed', error); return [] }

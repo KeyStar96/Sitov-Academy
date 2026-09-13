@@ -33,12 +33,8 @@ export async function performLearningReset(client: SupabaseClient<Database>): Pr
       const fingerprint = JSON.stringify(batch)
       if (fingerprint === lastBatch) throw new Error('audio_deletion_not_confirmed')
       lastBatch = fingerprint
-      for (const bucket of ['audio_submissions', 'pronunciation_audio'] as const) {
-        const paths = batch.filter(object => object.bucket_id === bucket).map(object => object.object_name)
-        if (!paths.length) continue
-        const { error } = await client.storage.from(bucket).remove(paths)
-        if (error) throw error
-      }
+      const { error } = await client.storage.from('pronunciation_audio').remove(batch.map(object => object.object_name))
+      if (error) throw error
     }
     return { success: false, reason: 'reset_in_progress' }
   } catch (error) {

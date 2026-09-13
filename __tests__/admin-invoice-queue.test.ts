@@ -1,7 +1,7 @@
 import {invoiceQueue} from '@/lib/admin-invoice-queue'
 import {invoiceStatusInputSchema,type StaffRegistration,type StaffInvoice} from '@/lib/types/admin-registrations'
 const month='2026-10-01'
-const booking=(changes:Partial<StaffRegistration>={}):StaffRegistration=>({id:'booking',source:'registration',personId:'person',profileId:'profile',createdAt:'2026-09-01',startDate:month,targetMonth:month,status:'confirmed',contact:{name:'Test',email:'test@example.test',phone:null,street:null,zip:null,city:null,birthDate:null},courses:[{id:'course',title:'Course snapshot',translationKey:'',price:99,endDate:null}],totalPrice:99,consents:null,...changes})
+const booking=(changes:Partial<StaffRegistration>={}):StaffRegistration=>({id:'booking',source:'registration',personId:'person',profileId:'profile',createdAt:'2026-09-01',startDate:month,targetMonth:month,status:'confirmed',contact:{name:'Test',email:'test@example.test',phone:null,street:null,zip:null,city:null,birthDate:null},courses:[{id:'course',title:'Course snapshot',amount: 99, unitPrice: 10, unitMinutes: 45, units: 8, requestedUnits: null}],totalPrice:99,consents:null,...changes})
 it('shows only confirmed paid bookings for the selected month',()=>{
  const active=booking()
  expect(invoiceQueue([active,booking({id:'pending',status:'pending'}),booking({id:'future',targetMonth:'2026-11-01'}),booking({id:'trial',isTrial:true}),booking({id:'cancelled',status:'cancelled'})],[],month)).toEqual([active])

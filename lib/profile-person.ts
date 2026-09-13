@@ -8,11 +8,11 @@ import { checkDatabaseError } from '@/lib/actions/backend'
  * Save the verified association before requesting an email change. No matching
  * by mutable names and no fallback to the first member of a shared email.
  */
-export async function resolveLegacyProfile(user: User, _remember = false): Promise<{ id: string | null; unresolved: boolean }> {
+export async function resolveVerifiedPerson(user: User): Promise<{ id: string | null; unresolved: boolean }> {
   if (!user.email_confirmed_at) return { id: null, unresolved: false }
   const supabase = await createClient()
   // No email or ID argument: the database derives identity from verified Auth.
-  const { data, error } = await supabase.rpc('claim_verified_legacy_profile')
+  const { data, error } = await supabase.rpc('claim_verified_person')
   checkDatabaseError(error)
   const parsed = z.object({ id: z.string().uuid().nullable(), unresolved: z.boolean() }).parse(data)
   return { id: parsed.id ?? null, unresolved: parsed.unresolved }

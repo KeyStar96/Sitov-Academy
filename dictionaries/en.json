@@ -543,80 +543,6 @@
     "trial_cta": "★ Free Trial Lesson",
     "start_prefix": "Start"
   },
-  "CourseData": {
-    "de50_a1_1": {
-      "title": "German Level 2",
-      "description": "Specially designed for mature learners. Slow pace, relaxed atmosphere.",
-      "level": "A1-A2",
-      "location": "Freizeitheim Vahrenwald"
-    },
-    "de50_a1_2": {
-      "title": "German Level 3",
-      "description": "Advanced beginners. Deepening the basics.",
-      "level": "A2-B1",
-      "location": "Freizeitheim Vahrenwald"
-    },
-    "de50_a2": {
-      "title": "German A2.2",
-      "description": "Independent communication (doctors, authorities).",
-      "level": "A2.2",
-      "location": "Freizeitheim Vahrenwald"
-    },
-    "speech_a1_1": {
-      "title": "Speech Training A1-B2",
-      "description": "Lose shyness, gain confidence.",
-      "level": "A1-B2",
-      "location": "Freizeitheim Vahrenwald"
-    },
-    "speech_a1_2": {
-      "title": "Speech Training A1-B2",
-      "description": "Deepening speaking skills.",
-      "level": "A1-B2",
-      "location": "Freizeitheim Vahrenwald"
-    },
-    "speech_a2": {
-      "title": "Speech Training A1-B2",
-      "description": "Confident speaking in everyday situations.",
-      "level": "A1-B2",
-      "location": "Freizeitheim Vahrenwald"
-    },
-    "online_a1_1": {
-      "title": "Basics A1.1 (Online)",
-      "description": "Comfortably from home. In small groups (max. 10 people), including lesson recordings for your own review afterwards and intensive 24/7 Telegram support from the teacher for questions about grammar and language.",
-      "level": "A1.1",
-      "location": "Microsoft Teams"
-    },
-    "online_b1": {
-      "title": "German B1 (Online)",
-      "description": "Intermediate level for advanced learners. In small groups (max. 10 people), including lesson recordings for your own review afterwards and intensive 24/7 Telegram support from the teacher for questions about grammar and language.",
-      "level": "B1",
-      "location": "Microsoft Teams"
-    },
-    "de50_a1_1_replacement_2026_07": {
-      "title": "German Level 1",
-      "description": "Especially for learners in their prime. Slow pace, lots of repetition. We start completely from scratch!",
-      "level": "A0-A1",
-      "location": "Freizeitheim Vahrenwald"
-    },
-    "speech_a1_1_replacement_2026_07": {
-      "title": "Speech Training A1-B2",
-      "description": "Lose your fear of speaking. Ideal addition to the A1.1 course.",
-      "level": "A1-B2",
-      "location": "Freizeitheim Vahrenwald"
-    },
-    "online_a1_1_2026_09": {
-      "title": "German A1.1 (Online)",
-      "description": "Comfortably from home. We start completely from scratch! In small groups (max. 10 people), including lesson recordings for your own review afterwards and intensive 24/7 Telegram support from the teacher for questions about grammar and language.",
-      "level": "A1.1",
-      "location": "Microsoft Teams"
-    },
-    "private_lesson": {
-      "title": "Private Lessons",
-      "description": "Book flexible private lessons—available online or in-person in Hannover. The curriculum is tailored individually to your pace and goals (25 € / 45 Min.). > Following your booking, your instructor will promptly contact you to coordinate your lesson schedule.",
-      "level": "A1-C2",
-      "location": "Flexible"
-    }
-  },
   "registration": {
     "back_home": "BACK TO HOMEPAGE",
     "trial": {
@@ -1341,15 +1267,15 @@
     "supplement_label": "Course supplement",
     "watch_youtube": "Watch on YouTube",
     "continue_vocabulary": "Continue vocabulary",
-    "external_privacy": "YouTube opens only when you select a video link. No YouTube players or thumbnails load on this page.",
+    "external_privacy": "External providers are contacted only when you open a link. No external players or thumbnails load on this page.",
     "cms_title": "Manage learning videos",
-    "cms_subtitle": "Publish the YouTube link when a video is ready. Videos supplement the three trainers.",
+    "cms_subtitle": "Publish finished videos as YouTube links or add a learning resource. Drafts remain hidden from learners.",
     "cms_new": "Add video link",
     "cms_edit": "Edit video link",
     "cms_title_field": "Title",
     "cms_lesson": "Lesson / topic",
     "cms_description": "Description (optional)",
-    "cms_url": "YouTube link",
+    "cms_url": "Video or learning link",
     "cms_level": "Level",
     "cms_save": "Save",
     "cms_cancel": "Cancel",
@@ -1358,9 +1284,11 @@
     "cms_failed": "The video link could not be saved. Check the details and try again.",
     "cms_saved": "Video link saved.",
     "cms_empty": "No video links yet.",
-    "cms_legacy": "Older entry – add a YouTube link to show it in the learning area.",
     "cms_search": "Search videos",
-    "cms_open": "Open video"
+    "cms_open": "Open video",
+    "cms_active": "Publish in the learning area",
+    "cms_draft": "Draft – not yet published",
+    "watch_resource": "Open learning resource"
   },
   "profile": {
     "title": "My profile",

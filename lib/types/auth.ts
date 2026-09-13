@@ -70,21 +70,9 @@ export function toneForAuthStatus(status: AuthStatusCode): AuthStatusTone {
  */
 export const PASSWORD_MIN_LENGTH = 8
 
-/**
- * Bei der Registrierung auswählbare Erstsprachen. Reihenfolge = Anzeigereihenfolge.
- * Die Werte müssen dem CHECK-Constraint auf `profiles.native_language` entsprechen
- * (Migration `add_ui_language_and_expand_native_language`).
- */
-export const NATIVE_LANGUAGES = ['Russisch', 'Türkisch', 'Ukrainisch', 'Englisch', 'Deutsch'] as const
-
+/** ISO language codes; translated labels belong to the UI. */
+export const NATIVE_LANGUAGES = ['ru', 'tr', 'uk', 'en', 'de'] as const
 export type NativeLanguage = (typeof NATIVE_LANGUAGES)[number]
-
-/**
- * Legacy-Wert: Bestandsprofile bzw. Alt-Registrierungen konnten „Andere"
- * speichern. Nicht mehr auswählbar, aber für Anzeige/Validierung weiterhin
- * bekannt (CHECK-Constraint erlaubt ihn rückwärtskompatibel weiter).
- */
-export const LEGACY_NATIVE_LANGUAGE = 'Andere' as const
 
 const emailField = z
   .string()
@@ -110,7 +98,7 @@ export const loginSchema = z.object({
 })
 
 export const signupSchema = z.object({
-  name: z.string().trim().min(2).max(80),
+  display_name: z.string().trim().min(2).max(80),
   email: emailField,
   password: passwordField,
   native_language: z.enum(NATIVE_LANGUAGES),

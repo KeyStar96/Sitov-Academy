@@ -18,11 +18,10 @@ const TEST_COURSES: CourseConfig[] = [
     // Präsenz-Kurse (Senioren / 50+)
     {
         id: "c_a1_1_50plus",
-        translationKey: "de50_a1_1",
+        slug: "de50_a1_1",
         type: "presence",
-        price: 2.50,
-        unitDuration: 45,
-        instructor: "standard",
+        unitPrice: 2.50,
+        unitMinutes: 45,
         sessions: [
             { day: "Mo", startTime: "09:00", endTime: "10:30" },
             { day: "Di", startTime: "10:30", endTime: "12:00" }
@@ -30,11 +29,10 @@ const TEST_COURSES: CourseConfig[] = [
     },
     {
         id: "c_a1_2_50plus",
-        translationKey: "de50_a1_2",
+        slug: "de50_a1_2",
         type: "presence",
-        price: 2.50,
-        unitDuration: 45,
-        instructor: "standard",
+        unitPrice: 2.50,
+        unitMinutes: 45,
         sessions: [
             { day: "Di", startTime: "09:00", endTime: "10:30" },
             { day: "Mi", startTime: "10:30", endTime: "12:00" }
@@ -42,11 +40,10 @@ const TEST_COURSES: CourseConfig[] = [
     },
     {
         id: "c_a2_50plus",
-        translationKey: "de50_a2",
+        slug: "de50_a2",
         type: "presence",
-        price: 2.50,
-        unitDuration: 45,
-        instructor: "standard",
+        unitPrice: 2.50,
+        unitMinutes: 45,
         sessions: [
             { day: "Mo", startTime: "10:30", endTime: "12:00" },
             { day: "Mi", startTime: "09:00", endTime: "10:30" }
@@ -55,33 +52,30 @@ const TEST_COURSES: CourseConfig[] = [
     // Sprechtraining
     {
         id: "c_speech_a1_1",
-        translationKey: "speech_a1_1",
+        slug: "speech_a1_1",
         type: "presence",
-        price: 3.50,
-        unitDuration: 60,
-        instructor: "standard",
+        unitPrice: 3.50,
+        unitMinutes: 60,
         sessions: [
             { day: "Di", startTime: "12:00", endTime: "13:00" }
         ]
     },
     {
         id: "c_speech_a1_2",
-        translationKey: "speech_a1_2",
+        slug: "speech_a1_2",
         type: "presence",
-        price: 3.50,
-        unitDuration: 60,
-        instructor: "standard",
+        unitPrice: 3.50,
+        unitMinutes: 60,
         sessions: [
             { day: "Mi", startTime: "12:00", endTime: "13:00" }
         ]
     },
     {
         id: "c_speech_a2",
-        translationKey: "speech_a2",
+        slug: "speech_a2",
         type: "presence",
-        price: 3.50,
-        unitDuration: 60,
-        instructor: "standard",
+        unitPrice: 3.50,
+        unitMinutes: 60,
         sessions: [
             { day: "Mo", startTime: "12:00", endTime: "13:00" }
         ]
@@ -90,11 +84,10 @@ const TEST_COURSES: CourseConfig[] = [
     // Online-Kurse
     {
         id: "c_online_a1_1",
-        translationKey: "online_a1_1",
+        slug: "online_a1_1",
         type: "online",
-        price: 7.50,
-        unitDuration: 45,
-        instructor: "standard",
+        unitPrice: 7.50,
+        unitMinutes: 45,
         sessions: [
             { day: "Do", startTime: "19:00", endTime: "20:30" },
             { day: "Fr", startTime: "19:00", endTime: "20:30" }
@@ -102,11 +95,10 @@ const TEST_COURSES: CourseConfig[] = [
     },
     {
         id: "c_online_b1",
-        translationKey: "online_b1",
+        slug: "online_b1",
         type: "online",
-        price: 7.50,
-        unitDuration: 45,
-        instructor: "standard",
+        unitPrice: 7.50,
+        unitMinutes: 45,
         sessions: [
             { day: "Mo", startTime: "14:30", endTime: "16:00" },
             { day: "Di", startTime: "14:30", endTime: "16:00" }
@@ -114,11 +106,10 @@ const TEST_COURSES: CourseConfig[] = [
     },
     {
         id: "c_online_b2",
-        translationKey: "online_b2",
+        slug: "online_b2",
         type: "online",
-        price: 7.50,
-        unitDuration: 45,
-        instructor: "special",
+        unitPrice: 7.50,
+        unitMinutes: 45,
         sessions: [
             { day: "Mo", startTime: "16:00", endTime: "17:30" },
             { day: "Mi", startTime: "16:00", endTime: "17:30" }
@@ -172,7 +163,7 @@ describe('Pricing Calculation Logic (Exhaustive Matrix)', () => {
         const testMonths = generateNext12Months();
 
         TEST_COURSES.forEach(course => {
-            describe(`Course: ${course.id} (${course.unitDuration}min / ${course.price}€)`, () => {
+            describe(`Course: ${course.id} (${course.unitMinutes}min / ${course.unitPrice}€)`, () => {
 
                 testMonths.forEach(baseDate => {
                     // Calculate target month from baseDate (Old logic was baseDate -> Next Month)
@@ -218,7 +209,7 @@ describe('Pricing Calculation Logic (Exhaustive Matrix)', () => {
                                     sessionsToday.forEach(session => {
                                         const mins = getDurationMinutes(session.startTime, session.endTime);
                                         // Unit calculation: Duration / UnitDuration (e.g. 90 / 45 = 2)
-                                        const units = mins / course.unitDuration;
+                                        const units = mins / course.unitMinutes;
                                         expectedUnits += units;
                                     });
                                 }
@@ -231,12 +222,12 @@ describe('Pricing Calculation Logic (Exhaustive Matrix)', () => {
 
                         // Price Verification
                         // Total Price = Total Units * Price Per Unit
-                        const expectedPrice = expectedUnits * course.price;
+                        const expectedPrice = expectedUnits * course.unitPrice;
                         // We strictly verify the implicit price math
 
                         // Sanity: If we have units, we must have a valid price
                         if (expectedUnits > 0) {
-                            expect(course.price).toBeGreaterThan(0);
+                            expect(course.unitPrice).toBeGreaterThan(0);
                         }
                     });
                 });
@@ -298,11 +289,11 @@ describe('Pricing Calculation Logic (Exhaustive Matrix)', () => {
                         let dailyUnits = 0;
                         sessionsToday.forEach(s => {
                             const duration = getDurationMinutes(s.startTime, s.endTime);
-                            dailyUnits += duration / course.unitDuration;
+                            dailyUnits += duration / course.unitMinutes;
                         });
 
                         // Add to Total Cost
-                        expectedTotal += dailyUnits * course.price;
+                        expectedTotal += dailyUnits * course.unitPrice;
                     }
                 }
             });
@@ -349,7 +340,7 @@ describe('Pricing Calculation Logic (Exhaustive Matrix)', () => {
                         let appTotal = 0;
                         selectedCourses.forEach(course => {
                             const stats = calculateMonthlyStats(course, 'de', targetDate.getMonth(), targetDate.getFullYear(), TEST_EXCEPTIONS);
-                            appTotal += stats.totalUnits * course.price;
+                            appTotal += stats.totalUnits * course.unitPrice;
                         });
 
                         // 2. Calculate using AUDIT Logic
@@ -417,7 +408,7 @@ describe('Pricing Calculation Logic (Exhaustive Matrix)', () => {
                     let totalUnits = 0;
                     selectedCourses.forEach(course => {
                         const stats = calculateMonthlyStats(course, 'de', targetDate.getMonth(), targetDate.getFullYear(), TEST_EXCEPTIONS);
-                        appTotal += stats.totalUnits * course.price;
+                        appTotal += stats.totalUnits * course.unitPrice;
                         totalUnits += stats.totalUnits;
                     });
 
@@ -443,20 +434,20 @@ describe('Pricing Calculation Logic (Exhaustive Matrix)', () => {
             TEST_COURSES.forEach(c => {
                 // 1. Sanity Check: Unit Price should be "small"
                 // If someone enters 120.00 here, it's likely a mistake.
-                if (c.price > 50) {
-                    warnings.push(`WARNING: Course ${c.id} has a high unit price of ${c.price}€. Is this a monthly total?`);
+                if (c.unitPrice > 50) {
+                    warnings.push(`WARNING: Course ${c.id} has a high unit price of ${c.unitPrice}€. Is this a monthly total?`);
                 }
-                expect(c.price).toBeLessThan(50); // Enforce strict limit for "Unit Price"
+                expect(c.unitPrice).toBeLessThan(50); // Enforce strict limit for "Unit Price"
 
                 // 2. Distinction Check
                 // Calculate a typical month (e.g., March with ~4 weeks)
                 // The Total Price should be significantly higher than the Unit Price
                 // (unless it's a 1-session-per-month course, which is rare)
                 const stats = calculateMonthlyStats(c, 'de', 2, 2026, TEST_EXCEPTIONS); // March 2026
-                const monthlyTotal = stats.totalUnits * c.price;
+                const monthlyTotal = stats.totalUnits * c.unitPrice;
 
                 if (stats.totalUnits > 1) {
-                    expect(monthlyTotal).toBeGreaterThan(c.price);
+                    expect(monthlyTotal).toBeGreaterThan(c.unitPrice);
                 }
             });
 
@@ -473,10 +464,10 @@ describe('Pricing Calculation Logic (Exhaustive Matrix)', () => {
 
             TEST_COURSES.forEach(c => {
                 const stats = calculateMonthlyStats(c, 'de', 2, 2026, TEST_EXCEPTIONS); // March 2026
-                const monthlyTotal = stats.totalUnits * c.price;
-                const check = monthlyTotal >= c.price ? "✅" : "⚠️";
+                const monthlyTotal = stats.totalUnits * c.unitPrice;
+                const check = monthlyTotal >= c.unitPrice ? "✅" : "⚠️";
 
-                const displayStr = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(c.price);
+                const displayStr = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(c.unitPrice);
                 const totalStr = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(monthlyTotal);
 
                 console.log(`| ${c.id} | **${displayStr}** | ${totalStr} | ${check} |`);
@@ -486,13 +477,12 @@ describe('Pricing Calculation Logic (Exhaustive Matrix)', () => {
     describe('7. Flexible Start Date Logic (Pro-Rata)', () => {
         const mockCourse: CourseConfig = {
             id: "test_flexible",
-            translationKey: "A1.1",
+            slug: "A1.1",
             level: "A1.1",
             type: "presence",
-            price: 10,
-            unitDuration: 45,
-            instructor: "standard",
-            sessions: [
+            unitPrice: 10,
+            unitMinutes: 45,
+                sessions: [
                 { day: "Mo", startTime: "10:00", endTime: "11:30" }, // 90 mins = 2 units
                 { day: "Mi", startTime: "10:00", endTime: "11:30" }  // 90 mins = 2 units
             ]

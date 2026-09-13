@@ -545,80 +545,6 @@
       "cancellation": "Vertrag kündigen"
     }
   },
-  "CourseData": {
-    "de50_a1_1": {
-      "title": "Deutsch Level 2",
-      "description": "Speziell für Lernende im besten Alter. Langsames Tempo, viel Wiederholung.",
-      "level": "A1-A2",
-      "location": "Freizeitheim Vahrenwald"
-    },
-    "de50_a1_2": {
-      "title": "Deutsch Level 3",
-      "description": "Aufbaukurs. Vertiefen Sie Grundlagen und Wortschatz.",
-      "level": "A2-B1",
-      "location": "Freizeitheim Vahrenwald"
-    },
-    "de50_a2": {
-      "title": "Deutsch A2.2",
-      "description": "Für selbstständige Kommunikation im Alltag.",
-      "level": "A2.2",
-      "location": "Freizeitheim Vahrenwald"
-    },
-    "speech_a1_1": {
-      "title": "Sprechtraining A1-B2",
-      "description": "Verlieren Sie die Scheu vorm Sprechen.",
-      "level": "A1-B2",
-      "location": "Freizeitheim Vahrenwald"
-    },
-    "speech_a1_2": {
-      "title": "Sprechtraining A1-B2",
-      "description": "Fokus auf Aussprache und Wortfluss.",
-      "level": "A1-B2",
-      "location": "Freizeitheim Vahrenwald"
-    },
-    "speech_a2": {
-      "title": "Sprechtraining A1-B2",
-      "description": "Sicherheit im freien Sprechen gewinnen.",
-      "level": "A1-B2",
-      "location": "Freizeitheim Vahrenwald"
-    },
-    "online_a1_1": {
-      "title": "Grundlagen A1.1 (Online)",
-      "description": "Bequem von zu Hause. In kleinen Gruppen (max. 10 Personen), inklusive Unterrichtsaufzeichnung für die eigene Wiederholung im Anschluss und intensivem 24/7 Telegram-Support durch die Lehrerin bei Fragen zur Grammatik und Sprache.",
-      "level": "A1.1",
-      "location": "Microsoft Teams"
-    },
-    "online_b1": {
-      "title": "Deutsch B1 (Online)",
-      "description": "Vertiefung der Kenntnisse für Beruf und Alltag. In kleinen Gruppen (max. 10 Personen), inklusive Unterrichtsaufzeichnung für die eigene Wiederholung im Anschluss und intensivem 24/7 Telegram-Support durch die Lehrerin bei Fragen zur Grammatik und Sprache.",
-      "level": "B1",
-      "location": "Microsoft Teams"
-    },
-    "de50_a1_1_replacement_2026_07": {
-      "title": "Deutsch Level 1",
-      "description": "Speziell für Lernende im besten Alter. Langsames Tempo, viel Wiederholung. Wir fangen komplett von vorne an!",
-      "level": "A0-A1",
-      "location": "Freizeitheim Vahrenwald"
-    },
-    "speech_a1_1_replacement_2026_07": {
-      "title": "Sprechtraining A1-B2",
-      "description": "Verlieren Sie die Scheu vorm Sprechen. Ideale Ergänzung zum A1.1 Kurs.",
-      "level": "A1-B2",
-      "location": "Freizeitheim Vahrenwald"
-    },
-    "online_a1_1_2026_09": {
-      "title": "Deutsch A1.1 (Online)",
-      "description": "Bequem von zu Hause. Wir fangen komplett von vorne an! In kleinen Gruppen (max. 10 Personen), inklusive Unterrichtsaufzeichnung für die eigene Wiederholung im Anschluss und intensivem 24/7 Telegram-Support durch die Lehrerin bei Fragen zur Grammatik und Sprache.",
-      "level": "A1.1",
-      "location": "Microsoft Teams"
-    },
-    "private_lesson": {
-      "title": "Privatunterricht",
-      "description": "Buchen Sie flexiblen Privatunterricht – online oder vor Ort in Hannover. Das Lernprogramm wird individuell auf Ihr Tempo und Ihre Ziele abgestimmt (25 € / 45 Min.). > Im Anschluss an Ihre Buchung wird sich Ihre Lehrkraft umgehend mit Ihnen in Verbindung setzen, um die Unterrichtstermine gemeinsam zu koordinieren.",
-      "level": "A1-C2",
-      "location": "Flexibel"
-    }
-  },
   "registration": {
     "back_home": "ZURÜCK ZUR STARTSEITE",
     "trial": {
@@ -1340,15 +1266,15 @@
     "supplement_label": "Ergänzend zum Kurs",
     "watch_youtube": "Auf YouTube ansehen",
     "continue_vocabulary": "Vokabeln weiterlernen",
-    "external_privacy": "YouTube wird erst geöffnet, wenn du einen Videolink anklickst. Es werden hier keine YouTube-Player oder Vorschaubilder geladen.",
+    "external_privacy": "Externe Anbieter werden erst beim Öffnen eines Links aufgerufen. Hier werden keine externen Player oder Vorschaubilder geladen.",
     "cms_title": "Lernvideos verwalten",
-    "cms_subtitle": "Veröffentliche den YouTube-Link, sobald ein Video fertig ist. Lernvideos ergänzen die drei Trainer.",
+    "cms_subtitle": "Veröffentliche fertige Videos als YouTube-Link oder ergänze einen Lernlink. Entwürfe bleiben für Lernende verborgen.",
     "cms_new": "Videolink hinzufügen",
     "cms_edit": "Videolink bearbeiten",
     "cms_title_field": "Titel",
     "cms_lesson": "Lektion / Thema",
     "cms_description": "Beschreibung (optional)",
-    "cms_url": "YouTube-Link",
+    "cms_url": "Video- oder Lernlink",
     "cms_level": "Niveau",
     "cms_save": "Speichern",
     "cms_cancel": "Abbrechen",
@@ -1357,9 +1283,11 @@
     "cms_failed": "Der Videolink konnte nicht gespeichert werden. Prüfe die Angaben und versuche es erneut.",
     "cms_saved": "Videolink gespeichert.",
     "cms_empty": "Noch keine Videolinks vorhanden.",
-    "cms_legacy": "Älterer Eintrag – ergänze einen YouTube-Link, um ihn im Lernraum anzuzeigen.",
     "cms_search": "Videos durchsuchen",
-    "cms_open": "Video öffnen"
+    "cms_open": "Video öffnen",
+    "cms_active": "Im Lernraum veröffentlichen",
+    "cms_draft": "Entwurf – noch nicht veröffentlicht",
+    "watch_resource": "Lernressource öffnen"
   },
   "profile": {
     "title": "Mein Profil",

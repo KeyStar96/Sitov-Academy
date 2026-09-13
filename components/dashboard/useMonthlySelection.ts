@@ -42,14 +42,14 @@ export function useMonthlySelection(initial: ProfileMonthlyState) {
           const result = await saveNextMonthBooking({
             targetMonth: previous.targetMonth, ...selection,
             expected: previous.booking ? {
-              id: previous.booking.id, course_ids: previous.booking.course_ids, status: previous.booking.status, revision: previous.booking.revision,
+              id: previous.booking.id, revision: previous.booking.revision,
             } : null,
           })
           if (result.success === false) {
             throw new Error(result.error)
           }
           confirmed.current = { ...previous, booking: result.data, source: 'booking',
-            selection: { courseIds: result.data.course_ids, paused: result.data.status === 'cancelled' } }
+            selection: { courseSelections: result.data.courseSelections, paused: result.data.status === 'cancelled' } }
           if (mounted.current && !queued.current) {
             setState(confirmed.current)
             setMessage(selection.paused ? 'pause_saved' : 'booking_saved')

@@ -1,13 +1,10 @@
 import { z } from 'zod'
-import type { Json, Database } from '@/supabase/database.types'
-import type { SupabaseClient } from '@supabase/supabase-js'
-import type { Trainer } from '@/lib/access/levels'
+import type { Json } from '@/supabase/database.types'
 
-/** Public compatibility views are nullable to PostgREST's type generator. Validate
- * their required domain fields once at the boundary instead of asserting casts. */
+/** Validated UI content contracts assembled from canonical table relationships. */
 const optionalText = z.string().nullable()
 export const vocabularyCardSchema = z.object({
-  id: z.string(), unit_id: z.string().optional(), lesson: z.string(), level: z.string(),
+  id: z.string(), unit_id: z.string().uuid(), lesson: z.string(), level: z.string(),
   word_de: z.string(), article: optionalText, plural: optionalText,
   image_url: optionalText, audio_url: optionalText, created_at: optionalText,
   translation_en: optionalText, translation_ru: optionalText, translation_uk: optionalText, translation_tr: optionalText,
@@ -25,20 +22,8 @@ function isJson(value: unknown): value is Json {
   return typeof value === 'object' && value !== null && Object.values(value).every(isJson)
 }
 export const grammarExerciseSchema = z.object({
-  id: z.string(), unit_id: z.string().optional(), lesson: z.string(), level: z.string(), topic: z.string(), type: z.string(),
+  id: z.string(), unit_id: z.string().uuid(), lesson: z.string(), level: z.string(), topic: z.string(), type: z.string(),
   content: z.custom<Json>(isJson), hint: z.custom<Json>(isJson).nullable(),
   created_at: optionalText, solution_audio_url: optionalText,
 })
 export type GrammarContentRow = z.infer<typeof grammarExerciseSchema>
-
-export async function saveLearningContent(client: SupabaseClient<Database>, trainer: Trainer, payload: Json, id?: string): Promise<Json> {
-  const { data, error } = await client.rpc('save_learning_content', {
-    p_trainer: trainer, p_payload: payload, p_id: id,
-  })
-  if (error) throw new Error(`Content save failed: ${error.code}`)
-  return data
-}
-export async function deleteLearningContent(client: SupabaseClient<Database>, trainer: Trainer, id: string): Promise<void> {
-  const { error } = await client.rpc('delete_learning_content', { p_trainer: trainer, p_id: id })
-  if (error) throw new Error(`Content deletion failed: ${error.code}`)
-}

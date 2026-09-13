@@ -5,8 +5,10 @@ SOURCE_DIR=/var/www/sitov-academy
 RELEASES_DIR=/var/www/sitov-releases
 CURRENT_LINK=/var/www/sitov-current
 cd "$SOURCE_DIR"
-# The historical repository tracked this generated compiler cache.
-git restore -- tsconfig.tsbuildinfo
+# Discard only a generated cache if an older checkout still tracks it.
+if git ls-files --error-unmatch tsconfig.tsbuildinfo >/dev/null 2>&1; then
+  git restore -- tsconfig.tsbuildinfo
+fi
 git pull --ff-only
 REVISION="$(git rev-parse --short=12 HEAD)"
 RELEASE_DIR="$RELEASES_DIR/$REVISION"

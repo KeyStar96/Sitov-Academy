@@ -2,7 +2,7 @@
  * Phase-6-Leitner-Prinzip für den Vokabeltrainer.
  *
  * Sechs aktive Phasen plus einen terminalen Zustand „gelernt". In der
- * Datenbank liegt der Wert in `user_vocabulary_progress.box_number`:
+ * Datenbank liegt der Wert in `vocabulary_direction_progress.box_number`:
  * 1–6 sind die Lernphasen, 7 bedeutet dauerhaft gelernt und wird nicht mehr
  * abgefragt. Diese Aufteilung entspricht dem bereits bestehenden CHECK
  * (1..7) und der bisherigen Abfrage `box_number < 7` — die Umstellung ist
@@ -63,7 +63,7 @@ function currentPhaseOf(box: LeitnerBox): LeitnerPhase {
 }
 
 export interface LeitnerAnswerInput {
-  /** Aktueller Wert aus `user_vocabulary_progress.box_number`. */
+  /** Aktueller Wert aus `vocabulary_direction_progress.box_number`. */
   currentBox: number | null | undefined
   isCorrect: boolean
   /**

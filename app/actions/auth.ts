@@ -6,7 +6,7 @@ import { redirect } from 'next/navigation'
 import { createClient } from '@/utils/supabase/server'
 import { rateLimit } from '@/lib/ratelimit'
 import { buildSiteUrl, getOutboundSiteUrl } from '@/lib/site-url'
-import { resolveLegacyProfile } from '@/lib/profile-legacy'
+import { resolveVerifiedPerson } from '@/lib/profile-person'
 import {
   emailOnlySchema,
   loginSchema,
@@ -127,7 +127,7 @@ export async function login(formData: FormData) {
           })
         }
       } else if (data.user) {
-        try { await resolveLegacyProfile(data.user) }
+        try { await resolveVerifiedPerson(data.user) }
         catch { console.error('[auth] Verified profile association unavailable') }
         // Oberflächensprache aus dem Profil laden (getrennter try/catch: ein
         // Fehler hier darf die erfolgreiche Anmeldung nicht scheitern lassen).
@@ -169,7 +169,7 @@ export async function signup(formData: FormData) {
 
   try {
     const parsed = signupSchema.safeParse({
-      name: formData.get('name'),
+      display_name: formData.get('display_name'),
       email: formData.get('email'),
       password: formData.get('password'),
       native_language: formData.get('native_language'),
@@ -187,8 +187,8 @@ export async function signup(formData: FormData) {
         options: {
           emailRedirectTo: await authCallbackUrl(lang),
           data: {
-            name: parsed.data.name,
-            // Wird vom Trigger `handle_new_user` in `profiles` übernommen.
+            display_name: parsed.data.display_name,
+            // Wird vom Trigger `provision_profile` in `profiles` übernommen.
             native_language: parsed.data.native_language,
             ui_language: lang,
           },

@@ -62,7 +62,7 @@ describe('authenticated pronunciation writes', () => {
 })
 describe('durable teacher feedback notifications', () => {
  function staffMessage() {
-  mockFrom.mockImplementation((table:string) => table === 'profiles' ? query({role:'teacher'}) : table === 'submissions' ? query({user_id:other,level:'A1.1'}) : table === 'profile_details' ? query({name:'Lernende',email:'student@example.invalid',ui_language:'uk'}) : query({id:promptId}))
+  mockFrom.mockImplementation((table:string) => table === 'profiles' ? query({role:'teacher',ui_language:'uk',person:{display_name:'Lernende',email:'student@example.invalid'}}) : table === 'submissions' ? query({user_id:other,level:'A1.1'}) : query({id:promptId}))
  }
  it('queues one localized event using the committed message identity', async () => {
   staffMessage()
@@ -80,12 +80,12 @@ describe('durable teacher feedback notifications', () => {
 describe('canonical conversation history', () => {
  const row = {
   id:promptId,user_id:owner,level:'A1.1',prompt_title:null,text_content:'Mein alter Lesetext.',content_url:'https://legacy.example/recording.webm',status:'reviewed',created_at:'2026-08-01T10:00:00Z',profiles:{name:'Test Student',email:'student@example.invalid'},
-  teacher_feedback:[{id:'old-feedback-1',feedback_text:'Bitte langsamer.',feedback_audio_url:null,created_at:'2026-08-02T10:00:00Z',seen_at:null},{id:'old-feedback-2',feedback_text:'Schon besser!',feedback_audio_url:'https://legacy.example/feedback.webm',created_at:'2026-08-03T10:00:00Z',seen_at:null}],
+
   pronunciation_messages:[{id:'new-message',sender_role:'student',text_content:'Meine neue Aufnahme.',audio_path:path,created_at:'2026-08-04T10:00:00Z',seen_at:null}],
  }
- it('enforces ownership, ignores duplicate compatibility feedback and signs only private references', async () => {
+ it('enforces ownership and signs only private recording references', async () => {
   const profiles = query({role:'student'}), submissions = query([row])
-  mockFrom.mockImplementation((table:string) => table === 'profiles' ? profiles : table === 'profile_details' ? query([{id:owner,name:'Test Student',email:'student@example.invalid'}]) : submissions)
+  mockFrom.mockImplementation((table:string) => table === 'profiles' ? profiles : table === 'people' ? query([{auth_user_id:owner,display_name:'Test Student',email:'student@example.invalid'}]) : submissions)
   const result = await getPronunciationConversations('A1.1')
   expect(submissions.eq).toHaveBeenCalledWith('user_id',owner)
   expect(submissions.eq).toHaveBeenCalledWith('level','A1.1')
@@ -97,7 +97,7 @@ describe('canonical conversation history', () => {
  })
  it('allows a server-verified teacher to load the queue and student contact', async () => {
   const profiles = query({role:'teacher'}), submissions = query([row])
-  mockFrom.mockImplementation((table:string) => table === 'profiles' ? profiles : table === 'profile_details' ? query([{id:owner,name:'Test Student',email:'student@example.invalid'}]) : submissions)
+  mockFrom.mockImplementation((table:string) => table === 'profiles' ? profiles : table === 'people' ? query([{auth_user_id:owner,display_name:'Test Student',email:'student@example.invalid'}]) : submissions)
   const result = await getPronunciationConversations()
   expect(submissions.eq).not.toHaveBeenCalledWith('user_id',owner)
   expect(result[0].studentEmail).toBe('student@example.invalid')

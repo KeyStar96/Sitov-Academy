@@ -7,6 +7,11 @@ export type Json =
   | Json[]
 
 export type Database = {
+  // Allows to automatically instantiate createClient with right options
+  // instead of createClient<Database, { PostgrestVersion: 'XX' }>(URL, KEY)
+  __InternalSupabase: {
+    PostgrestVersion: "14.6"
+  }
   public: {
     Tables: {
       booking_items: {
@@ -15,6 +20,7 @@ export type Database = {
           booking_id: string
           course_id: string
           id: string
+          requested_units: number | null
           title_snapshot: string
           unit_minutes: number
           unit_price: number
@@ -25,6 +31,7 @@ export type Database = {
           booking_id: string
           course_id: string
           id?: string
+          requested_units?: number | null
           title_snapshot: string
           unit_minutes: number
           unit_price: number
@@ -35,6 +42,7 @@ export type Database = {
           booking_id?: string
           course_id?: string
           id?: string
+          requested_units?: number | null
           title_snapshot?: string
           unit_minutes?: number
           unit_price?: number
@@ -44,12 +52,14 @@ export type Database = {
           {
             foreignKeyName: "booking_items_booking_id_fkey"
             columns: ["booking_id"]
+            isOneToOne: false
             referencedRelation: "bookings"
             referencedColumns: ["id"]
           },
           {
             foreignKeyName: "booking_items_course_id_fkey"
             columns: ["course_id"]
+            isOneToOne: false
             referencedRelation: "courses"
             referencedColumns: ["id"]
           },
@@ -132,26 +142,16 @@ export type Database = {
           {
             foreignKeyName: "bookings_confirmed_by_fkey"
             columns: ["confirmed_by"]
-            referencedRelation: "profile_details"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "bookings_confirmed_by_fkey"
-            columns: ["confirmed_by"]
+            isOneToOne: false
             referencedRelation: "profiles"
             referencedColumns: ["id"]
           },
           {
             foreignKeyName: "bookings_person_id_fkey"
             columns: ["person_id"]
+            isOneToOne: false
             referencedRelation: "people"
             referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "bookings_person_id_fkey"
-            columns: ["person_id"]
-            referencedRelation: "profile_details"
-            referencedColumns: ["legacy_user_id"]
           },
         ]
       }
@@ -188,6 +188,18 @@ export type Database = {
         }
         Relationships: []
       }
+      cefr_levels: {
+        Row: {
+          code: string
+        }
+        Insert: {
+          code: string
+        }
+        Update: {
+          code?: string
+        }
+        Relationships: []
+      }
       course_exceptions: {
         Row: {
           course_id: string | null
@@ -211,6 +223,7 @@ export type Database = {
           {
             foreignKeyName: "course_exceptions_course_id_fkey"
             columns: ["course_id"]
+            isOneToOne: false
             referencedRelation: "courses"
             referencedColumns: ["id"]
           },
@@ -218,8 +231,6 @@ export type Database = {
       }
       course_schedules: {
         Row: {
-          alternate_end_time: string | null
-          alternate_start_time: string | null
           course_id: string
           end_time: string
           id: string
@@ -227,8 +238,6 @@ export type Database = {
           weekday: number
         }
         Insert: {
-          alternate_end_time?: string | null
-          alternate_start_time?: string | null
           course_id: string
           end_time: string
           id?: string
@@ -236,8 +245,6 @@ export type Database = {
           weekday: number
         }
         Update: {
-          alternate_end_time?: string | null
-          alternate_start_time?: string | null
           course_id?: string
           end_time?: string
           id?: string
@@ -248,6 +255,7 @@ export type Database = {
           {
             foreignKeyName: "course_schedules_course_id_fkey"
             columns: ["course_id"]
+            isOneToOne: false
             referencedRelation: "courses"
             referencedColumns: ["id"]
           },
@@ -276,8 +284,16 @@ export type Database = {
           {
             foreignKeyName: "course_translations_course_id_fkey"
             columns: ["course_id"]
+            isOneToOne: false
             referencedRelation: "courses"
             referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "course_translations_locale_fkey"
+            columns: ["locale"]
+            isOneToOne: false
+            referencedRelation: "locales"
+            referencedColumns: ["code"]
           },
         ]
       }
@@ -289,17 +305,15 @@ export type Database = {
           description: string
           end_date: string | null
           id: string
-          instructor: string
           level: string
-          price: number
           slug: string
           sort_order: number
           start_date: string | null
           title: string
-          translation_key: string
           trial_lessons: boolean
           type: string
-          unit_duration: number
+          unit_minutes: number
+          unit_price: number
           updated_at: string
         }
         Insert: {
@@ -309,17 +323,15 @@ export type Database = {
           description?: string
           end_date?: string | null
           id?: string
-          instructor?: string
           level?: string
-          price: number
           slug: string
           sort_order?: number
           start_date?: string | null
           title: string
-          translation_key?: string
           trial_lessons?: boolean
           type: string
-          unit_duration?: number
+          unit_minutes?: number
+          unit_price: number
           updated_at?: string
         }
         Update: {
@@ -329,17 +341,15 @@ export type Database = {
           description?: string
           end_date?: string | null
           id?: string
-          instructor?: string
           level?: string
-          price?: number
           slug?: string
           sort_order?: number
           start_date?: string | null
           title?: string
-          translation_key?: string
           trial_lessons?: boolean
           type?: string
-          unit_duration?: number
+          unit_minutes?: number
+          unit_price?: number
           updated_at?: string
         }
         Relationships: []
@@ -368,14 +378,16 @@ export type Database = {
         }
         Relationships: [
           {
-            foreignKeyName: "grammar_translations_exercise_id_fkey"
-            columns: ["exercise_id"]
-            referencedRelation: "exercises"
-            referencedColumns: ["id"]
+            foreignKeyName: "grammar_locale_fk"
+            columns: ["locale"]
+            isOneToOne: false
+            referencedRelation: "locales"
+            referencedColumns: ["code"]
           },
           {
             foreignKeyName: "grammar_translations_exercise_id_fkey"
             columns: ["exercise_id"]
+            isOneToOne: false
             referencedRelation: "learning_exercises"
             referencedColumns: ["id"]
           },
@@ -419,32 +431,23 @@ export type Database = {
           {
             foreignKeyName: "invoice_cases_booking_id_fkey"
             columns: ["booking_id"]
+            isOneToOne: true
             referencedRelation: "bookings"
             referencedColumns: ["id"]
           },
           {
             foreignKeyName: "invoice_cases_created_by_fkey"
             columns: ["created_by"]
-            referencedRelation: "profile_details"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "invoice_cases_created_by_fkey"
-            columns: ["created_by"]
+            isOneToOne: false
             referencedRelation: "profiles"
             referencedColumns: ["id"]
           },
           {
             foreignKeyName: "invoice_cases_person_id_fkey"
             columns: ["person_id"]
+            isOneToOne: false
             referencedRelation: "people"
             referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "invoice_cases_person_id_fkey"
-            columns: ["person_id"]
-            referencedRelation: "profile_details"
-            referencedColumns: ["legacy_user_id"]
           },
         ]
       }
@@ -483,6 +486,7 @@ export type Database = {
           {
             foreignKeyName: "learning_exercises_unit_id_fkey"
             columns: ["unit_id"]
+            isOneToOne: false
             referencedRelation: "learning_units"
             referencedColumns: ["id"]
           },
@@ -492,19 +496,30 @@ export type Database = {
         Row: {
           cefr_level: string
           code: string
+          is_active: boolean
           sort_order: number
         }
         Insert: {
           cefr_level: string
           code: string
+          is_active?: boolean
           sort_order: number
         }
         Update: {
           cefr_level?: string
           code?: string
+          is_active?: boolean
           sort_order?: number
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "learning_levels_cefr_fk"
+            columns: ["cefr_level"]
+            isOneToOne: false
+            referencedRelation: "cefr_levels"
+            referencedColumns: ["code"]
+          },
+        ]
       }
       learning_reading_texts: {
         Row: {
@@ -512,32 +527,30 @@ export type Database = {
           created_at: string | null
           focus: string | null
           id: string
-          legacy_cefr_level: string | null
           sentence_de: string
-          unit_id: string | null
+          unit_id: string
         }
         Insert: {
           audio_url?: string | null
           created_at?: string | null
           focus?: string | null
           id?: string
-          legacy_cefr_level?: string | null
           sentence_de: string
-          unit_id?: string | null
+          unit_id: string
         }
         Update: {
           audio_url?: string | null
           created_at?: string | null
           focus?: string | null
           id?: string
-          legacy_cefr_level?: string | null
           sentence_de?: string
-          unit_id?: string | null
+          unit_id?: string
         }
         Relationships: [
           {
             foreignKeyName: "learning_reading_texts_unit_id_fkey"
             columns: ["unit_id"]
+            isOneToOne: true
             referencedRelation: "learning_units"
             referencedColumns: ["id"]
           },
@@ -567,24 +580,39 @@ export type Database = {
         }
         Relationships: [
           {
+            foreignKeyName: "learning_grants_trainer_fk"
+            columns: ["trainer"]
+            isOneToOne: false
+            referencedRelation: "learning_trainers"
+            referencedColumns: ["code"]
+          },
+          {
             foreignKeyName: "learning_trainer_grants_level_fkey"
             columns: ["level"]
+            isOneToOne: false
             referencedRelation: "learning_levels"
             referencedColumns: ["code"]
           },
           {
             foreignKeyName: "learning_trainer_grants_user_id_fkey"
             columns: ["user_id"]
-            referencedRelation: "profile_details"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "learning_trainer_grants_user_id_fkey"
-            columns: ["user_id"]
+            isOneToOne: false
             referencedRelation: "profiles"
             referencedColumns: ["id"]
           },
         ]
+      }
+      learning_trainers: {
+        Row: {
+          code: string
+        }
+        Insert: {
+          code: string
+        }
+        Update: {
+          code?: string
+        }
+        Relationships: []
       }
       learning_unit_grants: {
         Row: {
@@ -609,19 +637,15 @@ export type Database = {
           {
             foreignKeyName: "learning_unit_grants_unit_id_level_trainer_fkey"
             columns: ["unit_id", "level", "trainer"]
+            isOneToOne: false
             referencedRelation: "learning_units"
             referencedColumns: ["id", "level", "trainer"]
           },
           {
             foreignKeyName: "learning_unit_grants_user_id_level_trainer_fkey"
             columns: ["user_id", "level", "trainer"]
+            isOneToOne: false
             referencedRelation: "learning_trainer_grants"
-            referencedColumns: ["user_id", "level", "trainer"]
-          },
-          {
-            foreignKeyName: "learning_unit_grants_user_id_level_trainer_fkey"
-            columns: ["user_id", "level", "trainer"]
-            referencedRelation: "student_trainer_access"
             referencedColumns: ["user_id", "level", "trainer"]
           },
         ]
@@ -655,7 +679,15 @@ export type Database = {
           {
             foreignKeyName: "learning_units_level_fkey"
             columns: ["level"]
+            isOneToOne: false
             referencedRelation: "learning_levels"
+            referencedColumns: ["code"]
+          },
+          {
+            foreignKeyName: "learning_units_trainer_fk"
+            columns: ["trainer"]
+            isOneToOne: false
+            referencedRelation: "learning_trainers"
             referencedColumns: ["code"]
           },
         ]
@@ -664,34 +696,29 @@ export type Database = {
         Row: {
           created_at: string | null
           description: string | null
-          external_url: string | null
           id: string
-          is_external: boolean | null
+          source_url: string | null
           unit_id: string
-          video_url: string | null
         }
         Insert: {
           created_at?: string | null
           description?: string | null
-          external_url?: string | null
           id?: string
-          is_external?: boolean | null
+          source_url?: string | null
           unit_id: string
-          video_url?: string | null
         }
         Update: {
           created_at?: string | null
           description?: string | null
-          external_url?: string | null
           id?: string
-          is_external?: boolean | null
+          source_url?: string | null
           unit_id?: string
-          video_url?: string | null
         }
         Relationships: [
           {
             foreignKeyName: "learning_videos_unit_id_fkey"
             columns: ["unit_id"]
+            isOneToOne: true
             referencedRelation: "learning_units"
             referencedColumns: ["id"]
           },
@@ -738,10 +765,23 @@ export type Database = {
           {
             foreignKeyName: "learning_vocabulary_cards_unit_id_fkey"
             columns: ["unit_id"]
+            isOneToOne: false
             referencedRelation: "learning_units"
             referencedColumns: ["id"]
           },
         ]
+      }
+      locales: {
+        Row: {
+          code: string
+        }
+        Insert: {
+          code: string
+        }
+        Update: {
+          code?: string
+        }
+        Relationships: []
       }
       people: {
         Row: {
@@ -790,14 +830,16 @@ export type Database = {
           {
             foreignKeyName: "people_auth_user_id_fkey"
             columns: ["auth_user_id"]
-            referencedRelation: "profile_details"
+            isOneToOne: true
+            referencedRelation: "profiles"
             referencedColumns: ["id"]
           },
           {
-            foreignKeyName: "people_auth_user_id_fkey"
-            columns: ["auth_user_id"]
-            referencedRelation: "profiles"
-            referencedColumns: ["id"]
+            foreignKeyName: "people_preferred_locale_fkey"
+            columns: ["preferred_locale"]
+            isOneToOne: false
+            referencedRelation: "locales"
+            referencedColumns: ["code"]
           },
         ]
       }
@@ -807,9 +849,6 @@ export type Database = {
           id: string
           native_language: string | null
           role: string | null
-          stripe_customer_id: string | null
-          stripe_subscription_id: string | null
-          subscription_status: string | null
           ui_language: string
           updated_at: string | null
         }
@@ -818,9 +857,6 @@ export type Database = {
           id: string
           native_language?: string | null
           role?: string | null
-          stripe_customer_id?: string | null
-          stripe_subscription_id?: string | null
-          subscription_status?: string | null
           ui_language?: string
           updated_at?: string | null
         }
@@ -829,13 +865,25 @@ export type Database = {
           id?: string
           native_language?: string | null
           role?: string | null
-          stripe_customer_id?: string | null
-          stripe_subscription_id?: string | null
-          subscription_status?: string | null
           ui_language?: string
           updated_at?: string | null
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "profiles_native_language_fkey"
+            columns: ["native_language"]
+            isOneToOne: false
+            referencedRelation: "locales"
+            referencedColumns: ["code"]
+          },
+          {
+            foreignKeyName: "profiles_ui_language_fkey"
+            columns: ["ui_language"]
+            isOneToOne: false
+            referencedRelation: "locales"
+            referencedColumns: ["code"]
+          },
+        ]
       }
       pronunciation_messages: {
         Row: {
@@ -872,18 +920,14 @@ export type Database = {
           {
             foreignKeyName: "pronunciation_messages_sender_id_fkey"
             columns: ["sender_id"]
-            referencedRelation: "profile_details"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "pronunciation_messages_sender_id_fkey"
-            columns: ["sender_id"]
+            isOneToOne: false
             referencedRelation: "profiles"
             referencedColumns: ["id"]
           },
           {
             foreignKeyName: "pronunciation_messages_submission_id_fkey"
             columns: ["submission_id"]
+            isOneToOne: false
             referencedRelation: "submissions"
             referencedColumns: ["id"]
           },
@@ -906,18 +950,14 @@ export type Database = {
           {
             foreignKeyName: "student_level_access_level_fkey"
             columns: ["level"]
+            isOneToOne: false
             referencedRelation: "learning_levels"
             referencedColumns: ["code"]
           },
           {
             foreignKeyName: "student_level_access_user_id_fkey"
             columns: ["user_id"]
-            referencedRelation: "profile_details"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "student_level_access_user_id_fkey"
-            columns: ["user_id"]
+            isOneToOne: false
             referencedRelation: "profiles"
             referencedColumns: ["id"]
           },
@@ -925,12 +965,10 @@ export type Database = {
       }
       submissions: {
         Row: {
-          attempt_number: number | null
           content_url: string | null
           created_at: string | null
           id: string
           level: string
-          parent_id: string | null
           prompt_id: string | null
           prompt_title: string | null
           status: string | null
@@ -939,12 +977,10 @@ export type Database = {
           user_id: string
         }
         Insert: {
-          attempt_number?: number | null
           content_url?: string | null
           created_at?: string | null
           id?: string
           level?: string
-          parent_id?: string | null
           prompt_id?: string | null
           prompt_title?: string | null
           status?: string | null
@@ -953,12 +989,10 @@ export type Database = {
           user_id: string
         }
         Update: {
-          attempt_number?: number | null
           content_url?: string | null
           created_at?: string | null
           id?: string
           level?: string
-          parent_id?: string | null
           prompt_id?: string | null
           prompt_title?: string | null
           status?: string | null
@@ -968,32 +1002,23 @@ export type Database = {
         }
         Relationships: [
           {
-            foreignKeyName: "submissions_parent_id_fkey"
-            columns: ["parent_id"]
-            referencedRelation: "submissions"
-            referencedColumns: ["id"]
+            foreignKeyName: "submissions_level_fk"
+            columns: ["level"]
+            isOneToOne: false
+            referencedRelation: "learning_levels"
+            referencedColumns: ["code"]
           },
           {
             foreignKeyName: "submissions_prompt_id_fkey"
             columns: ["prompt_id"]
+            isOneToOne: false
             referencedRelation: "learning_reading_texts"
             referencedColumns: ["id"]
           },
           {
-            foreignKeyName: "submissions_prompt_id_fkey"
-            columns: ["prompt_id"]
-            referencedRelation: "pronunciation_prompts"
-            referencedColumns: ["id"]
-          },
-          {
             foreignKeyName: "submissions_user_id_fkey"
             columns: ["user_id"]
-            referencedRelation: "profile_details"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "submissions_user_id_fkey"
-            columns: ["user_id"]
+            isOneToOne: false
             referencedRelation: "profiles"
             referencedColumns: ["id"]
           },
@@ -1001,51 +1026,41 @@ export type Database = {
       }
       teacher_student_notes: {
         Row: {
-          discount_percent: number
+          created_at: string
           id: string
-          is_blackboard: boolean
           note_text: string
           student_id: string
           teacher_id: string
+          updated_at: string
         }
         Insert: {
-          discount_percent?: number
+          created_at?: string
           id?: string
-          is_blackboard?: boolean
           note_text: string
           student_id: string
           teacher_id?: string
+          updated_at?: string
         }
         Update: {
-          discount_percent?: number
+          created_at?: string
           id?: string
-          is_blackboard?: boolean
           note_text?: string
           student_id?: string
           teacher_id?: string
+          updated_at?: string
         }
         Relationships: [
           {
             foreignKeyName: "teacher_student_notes_student_id_fkey"
             columns: ["student_id"]
-            referencedRelation: "profile_details"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "teacher_student_notes_student_id_fkey"
-            columns: ["student_id"]
+            isOneToOne: true
             referencedRelation: "profiles"
             referencedColumns: ["id"]
           },
           {
             foreignKeyName: "teacher_student_notes_teacher_id_fkey"
             columns: ["teacher_id"]
-            referencedRelation: "profile_details"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "teacher_student_notes_teacher_id_fkey"
-            columns: ["teacher_id"]
+            isOneToOne: false
             referencedRelation: "profiles"
             referencedColumns: ["id"]
           },
@@ -1089,24 +1104,14 @@ export type Database = {
           {
             foreignKeyName: "user_exercise_progress_exercise_id_fkey"
             columns: ["exercise_id"]
-            referencedRelation: "exercises"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "user_exercise_progress_exercise_id_fkey"
-            columns: ["exercise_id"]
+            isOneToOne: false
             referencedRelation: "learning_exercises"
             referencedColumns: ["id"]
           },
           {
             foreignKeyName: "user_exercise_progress_user_id_fkey"
             columns: ["user_id"]
-            referencedRelation: "profile_details"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "user_exercise_progress_user_id_fkey"
-            columns: ["user_id"]
+            isOneToOne: false
             referencedRelation: "profiles"
             referencedColumns: ["id"]
           },
@@ -1153,24 +1158,14 @@ export type Database = {
           {
             foreignKeyName: "vocabulary_direction_progress_card_id_fkey"
             columns: ["card_id"]
+            isOneToOne: false
             referencedRelation: "learning_vocabulary_cards"
             referencedColumns: ["id"]
           },
           {
-            foreignKeyName: "vocabulary_direction_progress_card_id_fkey"
-            columns: ["card_id"]
-            referencedRelation: "vocabulary_cards"
-            referencedColumns: ["id"]
-          },
-          {
             foreignKeyName: "vocabulary_direction_progress_user_id_fkey"
             columns: ["user_id"]
-            referencedRelation: "profile_details"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "vocabulary_direction_progress_user_id_fkey"
-            columns: ["user_id"]
+            isOneToOne: false
             referencedRelation: "profiles"
             referencedColumns: ["id"]
           },
@@ -1196,24 +1191,14 @@ export type Database = {
           {
             foreignKeyName: "vocabulary_learning_state_last_card_id_fkey"
             columns: ["last_card_id"]
+            isOneToOne: false
             referencedRelation: "learning_vocabulary_cards"
             referencedColumns: ["id"]
           },
           {
-            foreignKeyName: "vocabulary_learning_state_last_card_id_fkey"
-            columns: ["last_card_id"]
-            referencedRelation: "vocabulary_cards"
-            referencedColumns: ["id"]
-          },
-          {
             foreignKeyName: "vocabulary_learning_state_user_id_fkey"
             columns: ["user_id"]
-            referencedRelation: "profile_details"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "vocabulary_learning_state_user_id_fkey"
-            columns: ["user_id"]
+            isOneToOne: true
             referencedRelation: "profiles"
             referencedColumns: ["id"]
           },
@@ -1222,35 +1207,44 @@ export type Database = {
       vocabulary_onboarding: {
         Row: {
           level: string
-          started_lesson: string
+          started_unit_id: string
           status: string
           updated_at: string
           user_id: string
         }
         Insert: {
           level: string
-          started_lesson: string
+          started_unit_id: string
           status: string
           updated_at?: string
           user_id: string
         }
         Update: {
           level?: string
-          started_lesson?: string
+          started_unit_id?: string
           status?: string
           updated_at?: string
           user_id?: string
         }
         Relationships: [
           {
-            foreignKeyName: "vocabulary_onboarding_user_id_fkey"
-            columns: ["user_id"]
-            referencedRelation: "profile_details"
+            foreignKeyName: "vocabulary_onboarding_level_fk"
+            columns: ["level"]
+            isOneToOne: false
+            referencedRelation: "learning_levels"
+            referencedColumns: ["code"]
+          },
+          {
+            foreignKeyName: "vocabulary_onboarding_unit_fk"
+            columns: ["started_unit_id"]
+            isOneToOne: false
+            referencedRelation: "learning_units"
             referencedColumns: ["id"]
           },
           {
             foreignKeyName: "vocabulary_onboarding_user_id_fkey"
             columns: ["user_id"]
+            isOneToOne: false
             referencedRelation: "profiles"
             referencedColumns: ["id"]
           },
@@ -1280,323 +1274,24 @@ export type Database = {
         }
         Relationships: [
           {
-            foreignKeyName: "vocabulary_translations_card_id_fkey"
-            columns: ["card_id"]
-            referencedRelation: "learning_vocabulary_cards"
-            referencedColumns: ["id"]
+            foreignKeyName: "vocabulary_locale_fk"
+            columns: ["locale"]
+            isOneToOne: false
+            referencedRelation: "locales"
+            referencedColumns: ["code"]
           },
           {
             foreignKeyName: "vocabulary_translations_card_id_fkey"
             columns: ["card_id"]
-            referencedRelation: "vocabulary_cards"
+            isOneToOne: false
+            referencedRelation: "learning_vocabulary_cards"
             referencedColumns: ["id"]
           },
         ]
       }
     }
     Views: {
-      exercises: {
-        Row: {
-          content: Json | null
-          created_at: string | null
-          hint: Json | null
-          id: string | null
-          lesson: string | null
-          level: string | null
-          solution_audio_url: string | null
-          topic: string | null
-          type: string | null
-          unit_id: string | null
-        }
-        Relationships: [
-          {
-            foreignKeyName: "learning_exercises_unit_id_fkey"
-            columns: ["unit_id"]
-            referencedRelation: "learning_units"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "learning_units_level_fkey"
-            columns: ["level"]
-            referencedRelation: "learning_levels"
-            referencedColumns: ["code"]
-          },
-        ]
-      }
-      profile_details: {
-        Row: {
-          allowed_levels: string[] | null
-          city: string | null
-          created_at: string | null
-          email: string | null
-          id: string | null
-          legacy_user_id: string | null
-          name: string | null
-          native_language: string | null
-          phone: string | null
-          role: string | null
-          street: string | null
-          stripe_customer_id: string | null
-          stripe_subscription_id: string | null
-          subscription_status: string | null
-          ui_language: string | null
-          updated_at: string | null
-          zip_code: string | null
-        }
-        Relationships: []
-      }
-      pronunciation_prompts: {
-        Row: {
-          audio_url: string | null
-          cefr_level: string | null
-          created_at: string | null
-          focus: string | null
-          id: string | null
-          is_active: boolean | null
-          lesson: string | null
-          level: string | null
-          sentence_de: string | null
-          sort_order: number | null
-          title: string | null
-          unit_id: string | null
-        }
-        Relationships: [
-          {
-            foreignKeyName: "learning_reading_texts_unit_id_fkey"
-            columns: ["unit_id"]
-            referencedRelation: "learning_units"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "learning_units_level_fkey"
-            columns: ["level"]
-            referencedRelation: "learning_levels"
-            referencedColumns: ["code"]
-          },
-        ]
-      }
-      student_trainer_access: {
-        Row: {
-          allowed_lessons: string[] | null
-          enabled: boolean | null
-          level: string | null
-          trainer: string | null
-          user_id: string | null
-        }
-        Insert: {
-          allowed_lessons?: never
-          enabled?: boolean | null
-          level?: string | null
-          trainer?: string | null
-          user_id?: string | null
-        }
-        Update: {
-          allowed_lessons?: never
-          enabled?: boolean | null
-          level?: string | null
-          trainer?: string | null
-          user_id?: string | null
-        }
-        Relationships: [
-          {
-            foreignKeyName: "learning_trainer_grants_level_fkey"
-            columns: ["level"]
-            referencedRelation: "learning_levels"
-            referencedColumns: ["code"]
-          },
-          {
-            foreignKeyName: "learning_trainer_grants_user_id_fkey"
-            columns: ["user_id"]
-            referencedRelation: "profile_details"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "learning_trainer_grants_user_id_fkey"
-            columns: ["user_id"]
-            referencedRelation: "profiles"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
-      teacher_feedback: {
-        Row: {
-          created_at: string | null
-          feedback_audio_url: string | null
-          feedback_text: string | null
-          id: string | null
-          seen_at: string | null
-          submission_id: string | null
-          teacher_id: string | null
-        }
-        Insert: {
-          created_at?: string | null
-          feedback_audio_url?: string | null
-          feedback_text?: string | null
-          id?: string | null
-          seen_at?: string | null
-          submission_id?: string | null
-          teacher_id?: string | null
-        }
-        Update: {
-          created_at?: string | null
-          feedback_audio_url?: string | null
-          feedback_text?: string | null
-          id?: string | null
-          seen_at?: string | null
-          submission_id?: string | null
-          teacher_id?: string | null
-        }
-        Relationships: [
-          {
-            foreignKeyName: "pronunciation_messages_sender_id_fkey"
-            columns: ["teacher_id"]
-            referencedRelation: "profile_details"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "pronunciation_messages_sender_id_fkey"
-            columns: ["teacher_id"]
-            referencedRelation: "profiles"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "pronunciation_messages_submission_id_fkey"
-            columns: ["submission_id"]
-            referencedRelation: "submissions"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
-      user_vocabulary_progress: {
-        Row: {
-          box_number: number | null
-          card_id: string | null
-          created_at: string | null
-          id: string | null
-          lapses: number | null
-          last_answered_at: string | null
-          next_review_date: string | null
-          updated_at: string | null
-          user_id: string | null
-        }
-        Insert: {
-          box_number?: number | null
-          card_id?: string | null
-          created_at?: string | null
-          id?: string | null
-          lapses?: number | null
-          last_answered_at?: string | null
-          next_review_date?: string | null
-          updated_at?: string | null
-          user_id?: string | null
-        }
-        Update: {
-          box_number?: number | null
-          card_id?: string | null
-          created_at?: string | null
-          id?: string | null
-          lapses?: number | null
-          last_answered_at?: string | null
-          next_review_date?: string | null
-          updated_at?: string | null
-          user_id?: string | null
-        }
-        Relationships: [
-          {
-            foreignKeyName: "vocabulary_direction_progress_card_id_fkey"
-            columns: ["card_id"]
-            referencedRelation: "learning_vocabulary_cards"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "vocabulary_direction_progress_card_id_fkey"
-            columns: ["card_id"]
-            referencedRelation: "vocabulary_cards"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "vocabulary_direction_progress_user_id_fkey"
-            columns: ["user_id"]
-            referencedRelation: "profile_details"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "vocabulary_direction_progress_user_id_fkey"
-            columns: ["user_id"]
-            referencedRelation: "profiles"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
-      videos: {
-        Row: {
-          created_at: string | null
-          description: string | null
-          external_url: string | null
-          id: string | null
-          is_external: boolean | null
-          lesson: string | null
-          level: string | null
-          title: string | null
-          unit_id: string | null
-          video_url: string | null
-        }
-        Relationships: [
-          {
-            foreignKeyName: "learning_units_level_fkey"
-            columns: ["level"]
-            referencedRelation: "learning_levels"
-            referencedColumns: ["code"]
-          },
-          {
-            foreignKeyName: "learning_videos_unit_id_fkey"
-            columns: ["unit_id"]
-            referencedRelation: "learning_units"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
-      vocabulary_cards: {
-        Row: {
-          alternative_answers_de: string[] | null
-          article: string | null
-          audio_url: string | null
-          context_sentence_de: string | null
-          context_sentence_en: string | null
-          context_sentence_ru: string | null
-          context_sentence_tr: string | null
-          context_sentence_uk: string | null
-          created_at: string | null
-          id: string | null
-          image_url: string | null
-          is_hard_for_ru: boolean | null
-          is_hard_for_tr: boolean | null
-          lesson: string | null
-          level: string | null
-          plural: string | null
-          sentence_practice: boolean | null
-          translation_en: string | null
-          translation_ru: string | null
-          translation_tr: string | null
-          translation_uk: string | null
-          unit_id: string | null
-          word_de: string | null
-        }
-        Relationships: [
-          {
-            foreignKeyName: "learning_units_level_fkey"
-            columns: ["level"]
-            referencedRelation: "learning_levels"
-            referencedColumns: ["code"]
-          },
-          {
-            foreignKeyName: "learning_vocabulary_cards_unit_id_fkey"
-            columns: ["unit_id"]
-            referencedRelation: "learning_units"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
+      [_ in never]: never
     }
     Functions: {
       begin_learning_reset: {
@@ -1613,7 +1308,7 @@ export type Database = {
           isSetofReturn: true
         }
       }
-      claim_verified_legacy_profile: { Args: never; Returns: Json }
+      claim_verified_person: { Args: never; Returns: Json }
       complete_mail_job: {
         Args: { p_id: string; p_lease_token: string; p_message_id: string }
         Returns: boolean
@@ -1666,7 +1361,6 @@ export type Database = {
         }
         Returns: undefined
       }
-      mark_feedback_seen: { Args: { p_submission_id: string }; Returns: number }
       mark_pronunciation_seen: {
         Args: { p_submission_id: string }
         Returns: undefined
@@ -1695,13 +1389,13 @@ export type Database = {
         Returns: undefined
       }
       reset_vocabulary_lesson_progress: {
-        Args: { p_lesson: string; p_level: string }
+        Args: { p_unit_id: string }
         Returns: undefined
       }
       save_business_course: { Args: { p_data: Json }; Returns: string }
       save_business_month: {
         Args: {
-          p_courses: string[]
+          p_course_selections: Json
           p_expected?: string
           p_month: string
           p_paused: boolean
@@ -1720,12 +1414,12 @@ export type Database = {
           p_student_id: string
         }
         Returns: {
-          discount_percent: number
+          created_at: string
           id: string
-          is_blackboard: boolean
           note_text: string
           student_id: string
           teacher_id: string
+          updated_at: string
         }[]
         SetofOptions: {
           from: "*"
@@ -1765,7 +1459,7 @@ export type Database = {
         Args: {
           p_consents: Json
           p_contact: Json
-          p_course_ids: string[]
+          p_course_selections: Json
           p_locale?: string
           p_start: string
           p_trial?: boolean

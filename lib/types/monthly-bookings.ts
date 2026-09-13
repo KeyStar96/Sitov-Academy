@@ -1,49 +1,32 @@
 import { z } from 'zod'
 import { uuidSchema } from './backend'
+import { courseSelectionsSchema, type CourseSelection } from '@/lib/course-selection'
 
 export const monthlyBookingStatusSchema = z.enum(['pending', 'confirmed', 'cancelled'])
 export type MonthlyBookingStatus = z.infer<typeof monthlyBookingStatusSchema>
 export interface MonthlyCourseBooking {
-  id:string;user_id:string;target_month:string;course_ids:string[];status:MonthlyBookingStatus;revision?:number
+  id: string
+  userId: string
+  targetMonth: string
+  courseSelections: CourseSelection[]
+  status: MonthlyBookingStatus
+  revision: number
 }
-export type MonthlyCourseBookingInsert = Omit<MonthlyCourseBooking,'id'>
-export type MonthlyCourseBookingUpdate = Partial<MonthlyCourseBooking>
 /** A calendar month, represented by its first day; no timezone conversion. */
 export const targetMonthSchema = z.string().regex(/^(?!0000)\d{4}-(0[1-9]|1[0-2])-01$/)
-/** Canonical course UUIDs; all public booking flows use the same identity. */
-const courseIdsSchema = z.array(uuidSchema).min(1).max(100)
-  .refine(ids => new Set(ids).size === ids.length)
-export const createMonthlyBookingSchema = z.object({
-  target_month: targetMonthSchema,
-  course_ids: courseIdsSchema,
-  // Optional admin override. Regular users can only use their own ID.
-  user_id: uuidSchema.optional(),
-}).strict()
-export const updateMonthlyBookingSchema = z.object({
-  id: uuidSchema,
-  target_month: targetMonthSchema.optional(),
-  course_ids: courseIdsSchema.optional(),
-  status: monthlyBookingStatusSchema.optional(),
-}).strict().refine(value => value.target_month !== undefined || value.course_ids !== undefined || value.status !== undefined)
-export const listMonthlyBookingsSchema = z.object({
-  user_id: uuidSchema.optional(),
-  target_month: targetMonthSchema.optional(),
-  offset: z.number().int().min(0).max(1_000_000).default(0),
-  limit: z.number().int().min(1).max(100).default(50),
-}).strict()
-export type CreateMonthlyBookingInput = z.input<typeof createMonthlyBookingSchema>
-export type UpdateMonthlyBookingInput = z.input<typeof updateMonthlyBookingSchema>
-export type ListMonthlyBookingsInput = z.input<typeof listMonthlyBookingsSchema>
-
 export interface ProfileCourse {
   id: string
-  title: string | null
-  translationKey: string
+  slug: string
+  title: string
+  translations: {locale:string;title:string;description:string}[]
   type: 'online' | 'presence'
+  category: string
+  unitPrice: number
+  unitMinutes: number
   available: boolean
 }
 export interface MonthlySelection {
-  courseIds: string[]
+  courseSelections: CourseSelection[]
   paused: boolean
 }
 export interface ProfileMonthlyState {
@@ -51,16 +34,11 @@ export interface ProfileMonthlyState {
   booking: MonthlyCourseBooking | null
   selection: MonthlySelection
   courses: ProfileCourse[]
-  source: 'booking' | 'previous' | 'enrollments' | 'empty' | 'unresolved'
+  source: 'booking' | 'previous' | 'empty' | 'unresolved'
 }
 export const saveNextMonthSchema = z.object({
   targetMonth: targetMonthSchema,
-  courseIds: z.array(uuidSchema).max(100).refine(ids => new Set(ids).size === ids.length),
+  courseSelections: courseSelectionsSchema,
   paused: z.boolean(),
-  expected: z.object({
-    id: uuidSchema,
-    course_ids: z.array(uuidSchema).max(100),
-    status: monthlyBookingStatusSchema,
-    revision:z.number().int().positive().optional(),
-  }).strict().nullable(),
-}).strict().refine(value => value.paused || value.courseIds.length > 0)
+  expected: z.object({id: uuidSchema, revision: z.number().int().positive()}).strict().nullable(),
+}).strict().refine(value => value.paused ? value.courseSelections.length === 0 : value.courseSelections.length > 0)

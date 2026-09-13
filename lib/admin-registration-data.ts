@@ -18,7 +18,7 @@ export async function loadRegistrationOverview(month:string):Promise<Registratio
  contact:{name:row.contact_name,email:row.contact_email,phone:row.contact_phone,street:row.contact_street,zip:row.contact_postal_code,city:row.contact_city,birthDate:row.contact_birth_date},
  totalPrice:row.booking_items.reduce((sum,item)=>sum+item.amount,0),
  consents:{privacy:row.privacy_accepted,agb:row.agb_accepted,revocation:row.revocation_accepted,recording:row.recording_accepted},
- courses:row.booking_items.map(item=>({id:item.course_id,title:item.title_snapshot,translationKey:'',price:item.amount,endDate:null})),
+ courses:row.booking_items.map(item=>({id:item.course_id,title:item.title_snapshot,amount:item.amount,unitPrice:item.unit_price,unitMinutes:item.unit_minutes,units:item.units,requestedUnits:item.requested_units})),
  }))
  return {registrations,targetMonth:month,invoices:(invoices.data??[]).map(row=>({source:registrations.find(b=>b.id===row.booking_id)?.source??'registration',sourceId:row.booking_id,month:row.target_month,status:row.status==='created'?'created':'outstanding',reference:row.invoice_reference,createdAt:row.invoice_created_at}))}
 }

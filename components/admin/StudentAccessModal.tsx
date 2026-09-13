@@ -22,7 +22,7 @@ export default function StudentAccessModal({ student, loading, message, hasError
   const [level, setLevel] = useState<AccessLevel>(ACCESS_LEVELS.find(item => student.allowed_levels?.includes(item)) ?? ACCESS_LEVELS[0])
   const [trainer, setTrainer] = useState<Trainer | null>(null)
   const [savingLessons, setSavingLessons] = useState(false)
-  const name = student.name || student.email
+  const name = student.person?.display_name || student.person?.email || t('unknown_name')
   const levelEnabled = student.allowed_levels?.includes(level) ?? false
   const busy = loading || savingLessons
 
@@ -39,7 +39,7 @@ export default function StudentAccessModal({ student, loading, message, hasError
           studentId={student.id}
           level={level}
           trainer={trainer}
-          rule={student.student_trainer_access?.find(rule => rule.level === level && rule.trainer === trainer)}
+          rule={student.trainer_grants?.find(rule => rule.level === level && rule.trainer === trainer)}
           onClose={() => setTrainer(null)}
           onSave={lessons => { onLessonsUpdate(student.id, level, trainer, lessons); setTrainer(null) }}
           onBusyChange={setSavingLessons}
@@ -62,7 +62,7 @@ export default function StudentAccessModal({ student, loading, message, hasError
             <legend className="mb-3 text-base font-bold">{t('trainer_access_level', { level })}</legend>
             {TRAINERS.map(item => {
               const enabled = hasConfiguredTrainerAccess(student, level, item)
-              const allowedLessons = student.student_trainer_access?.find(rule => rule.level === level && rule.trainer === item)?.allowed_lessons
+              const allowedLessons = student.trainer_grants?.find(rule => rule.level === level && rule.trainer === item)?.unit_ids
               const restricted = allowedLessons !== undefined && allowedLessons !== null
               return (
                 <div key={item} className="flex flex-col rounded-2xl border border-[var(--border)] p-3">

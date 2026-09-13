@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { ArrowUpRight, BookOpen, Play, Video } from 'lucide-react'
 import { createVideoTranslator, type VideoTranslations } from '@/lib/videos-i18n'
-import { youtubeWatchUrl, type VideoRecord } from '@/lib/video-links'
+import { learningResourceUrl, youtubeWatchUrl, type VideoRecord } from '@/lib/video-links'
 
 interface Props { videos: VideoRecord[]; lang: string; level: string; translations: VideoTranslations; failed?: boolean }
 
@@ -9,7 +9,7 @@ export default function VideoLibrary({ videos, lang, level, translations, failed
   const t = createVideoTranslator(translations)
   const levelHref = `/${lang}/dashboard/level/${encodeURIComponent(level)}`
   const links = videos.flatMap(video => {
-    const url = youtubeWatchUrl(video.external_url ?? video.video_url)
+    const url = video.is_active ? learningResourceUrl(video.source_url) : null
     return url ? [{ ...video, url }] : []
   })
   return <div className="mx-auto max-w-5xl space-y-8 text-[var(--foreground)]">
@@ -18,7 +18,7 @@ export default function VideoLibrary({ videos, lang, level, translations, failed
         className="group flex min-h-24 items-center gap-4 rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-5 transition-colors hover:border-[var(--violet)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--violet)] sm:gap-6 sm:p-6">
         <span className="hidden text-xl font-medium tabular-nums text-[var(--muted)] sm:block">{String(index + 1).padStart(2, '0')}</span>
         <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[var(--surface-muted)] text-[var(--violet)]"><Play size={20} aria-hidden="true" /></span>
-        <div className="min-w-0 flex-1"><p className="text-base font-medium text-[var(--muted)]">{video.lesson} · YouTube</p><h2 className="mt-1 break-words text-lg font-semibold">{video.title}</h2>{video.description && <p className="mt-2 break-words text-base leading-relaxed text-[var(--muted)]">{video.description}</p>}<span className="mt-3 inline-flex min-h-12 items-center gap-2 text-base font-semibold text-[var(--violet)]">{t('watch_youtube')}<ArrowUpRight size={16} aria-hidden="true" /></span></div>
+        <div className="min-w-0 flex-1"><p className="text-base font-medium text-[var(--muted)]">{video.level} · {youtubeWatchUrl(video.url) ? 'YouTube' : new URL(video.url).hostname}</p><h2 className="mt-1 break-words text-lg font-semibold">{video.title}</h2>{video.description && <p className="mt-2 break-words text-base leading-relaxed text-[var(--muted)]">{video.description}</p>}<span className="mt-3 inline-flex min-h-12 items-center gap-2 text-base font-semibold text-[var(--violet)]">{t(youtubeWatchUrl(video.url) ? 'watch_youtube' : 'watch_resource')}<ArrowUpRight size={16} aria-hidden="true" /></span></div>
       </a>)}
     </section> : <section className="rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-6 sm:p-10">
       <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[var(--surface-muted)] text-[var(--muted)]"><Video size={25} aria-hidden="true" /></div>

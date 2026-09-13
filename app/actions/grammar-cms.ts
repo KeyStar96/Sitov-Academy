@@ -1,11 +1,14 @@
 'use server'
 
+import { saveLearningContent, deleteLearningContent } from '@/lib/learning-writes'
+
 import { z } from 'zod'
+import { grammarQuery, mapGrammarExercise } from '@/lib/learning-catalog'
 import { revalidatePath } from 'next/cache'
 import { createClient } from '@/utils/supabase/server'
 import type { Database } from '@/supabase/database.types'
 import { toJsonContent } from '@/lib/types/exercise'
-import { grammarExerciseSchema, saveLearningContent, deleteLearningContent } from '@/lib/learning-content'
+import { grammarExerciseSchema } from '@/lib/learning-content'
 import {
   grammarWriteSchema, type GrammarWriteInput, type GrammarSaveResult,
   type GrammarDeleteResult, type GrammarLoadResult, type GrammarExerciseRow,
@@ -26,10 +29,10 @@ export async function getGrammarExercises(): Promise<GrammarLoadResult> {
     const rows: GrammarExerciseRow[] = []
     let offset = 0
     while (true) {
-      const { data, error } = await supabase.from('exercises').select('*')
-        .order('level').order('lesson').order('id').range(offset, offset + 999)
+      const { data, error } = await grammarQuery(supabase)
+        .order('id').range(offset, offset + 999)
       if (error) throw error
-      rows.push(...data.map(row => grammarExerciseSchema.parse(row)))
+      rows.push(...data.map(row => mapGrammarExercise(row)))
       if (data.length < 1000) break
       offset += 1000
     }

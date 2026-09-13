@@ -22,9 +22,11 @@ export interface RegistrationContact {
 export interface RegistrationCourse {
   id: string
   title: string
-  translationKey: string
-  price: number | null
-  endDate: string | null
+  amount: number
+  unitPrice: number
+  unitMinutes: number
+  units: number
+  requestedUnits: number | null
 }
 export interface StaffRegistration {
   isTrial?: boolean

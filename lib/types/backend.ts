@@ -13,7 +13,7 @@ export type BackendActionResult<T> =
 
 /** Plain text only. Normalize whitespace, reject markup and hidden controls.
  * Render as escaped text in React; never use dangerouslySetInnerHTML.
- * Legacy addresses are copied verbatim by SQL, not passed through this schema.
+ * Existing address snapshots stay unchanged when a new form is validated.
  */
 export function plainTextSchema(max: number) {
   return z.string().max(max).transform(value => value.replace(/\r\n?/g, '\n').trim())

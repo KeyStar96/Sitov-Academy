@@ -1,7 +1,7 @@
 /**
  * Übungssätze des Aussprache-Trainers.
  *
- * Die Sätze liegen in `pronunciation_prompts` (CEFR-Familien A1–C2).
+ * Die Sätze liegen in `learning_reading_texts` mit UUID-Lerneinheiten (CEFR-Familien A1–C2).
  * Die Lernplattform routet feingranular (A1.1, A1.2, …) – diese Datei
  * mappt das Routen-Niveau auf die passende Familie, damit nur Sätze
  * des freigeschalteten Niveaus geladen werden.
@@ -13,6 +13,7 @@ export type CefrFamily = (typeof CEFR_FAMILIES)[number]
 
 export interface PronunciationPrompt {
   id: string
+  unitId: string
   title?: string
   lesson: string
   level?: string

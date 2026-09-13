@@ -24,10 +24,9 @@ export default async function AdminBookingsPage({ params }: { params: Promise<{ 
   }
 
   const overview = overviewResult.data
-  const courseData: Record<string, { title?: string }> = dict.CourseData
   const titles = Object.fromEntries(overview.groups.map(group => [
     group.courseId,
-    courseData[group.translationKey]?.title || group.title || t('course_fallback'),
+    group.title || t('course_fallback'),
   ]))
   const notes: Record<string, TeacherStudentNote> = {}
   for (const group of overview.groups) {

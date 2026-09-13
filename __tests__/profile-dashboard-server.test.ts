@@ -1,20 +1,20 @@
 jest.mock('server-only',()=>({}),{virtual:true})
 jest.mock('next/cache',()=>({revalidatePath:jest.fn()}))
 jest.mock('@/utils/supabase/server',()=>({createClient:jest.fn()}))
-jest.mock('@/lib/profile-legacy',()=>({resolveLegacyProfile:jest.fn().mockResolvedValue({id:null,unresolved:false})}))
+jest.mock('@/lib/profile-person',()=>({resolveVerifiedPerson:jest.fn().mockResolvedValue({id:null,unresolved:false})}))
 jest.mock('@/lib/site-url',()=>({getOutboundSiteUrl:async()=> 'https://example.invalid',buildSiteUrl:()=> 'https://example.invalid/auth/callback?lang=uk'}))
 import { createClient } from '@/utils/supabase/server'
 import { updatePersonalDetails } from '@/app/actions/profile'
 import { saveNextMonthBooking } from '@/app/actions/monthly-bookings'
-import { resolveLegacyProfile } from '@/lib/profile-legacy'
+import { resolveVerifiedPerson } from '@/lib/profile-person'
 import { profileMonthWindow } from '@/lib/profile-month'
 
 const uid='00000000-0000-4000-8000-000000000001'
-const profile={name:'Anna',email:'old@example.invalid',phone:null,street:null,zip_code:'00123',city:'Berlin'}
+const profile={display_name:'Anna',email:'old@example.invalid',phone:null,street:null,postal_code:'00123',city:'Berlin'}
 function setup(emailFails=false,profileFails=false) {
   const user={id:uid,email:profile.email,email_confirmed_at:'2026-01-01T00:00:00Z'}
   const role={select:jest.fn().mockReturnThis(),eq:jest.fn().mockReturnThis(),single:jest.fn().mockResolvedValue({data:{role:'student'},error:null})}
-  const mutate={update:jest.fn().mockReturnThis(),eq:jest.fn().mockReturnThis(),select:jest.fn().mockReturnThis(),single:jest.fn().mockResolvedValue({data:profileFails?null:{...profile,display_name:profile.name,postal_code:profile.zip_code},error:profileFails?{code:'42501'}:null})}
+  const mutate={update:jest.fn().mockReturnThis(),eq:jest.fn().mockReturnThis(),select:jest.fn().mockReturnThis(),single:jest.fn().mockResolvedValue({data:profileFails?null:profile,error:profileFails?{code:'42501'}:null})}
   const booking={select:jest.fn().mockReturnThis(),eq:jest.fn().mockReturnThis(),single:jest.fn().mockResolvedValue({data:{id:uid,target_month:profileMonthWindow().next,booking_items:[],status:'cancelled',revision:1},error:null})}
   const rpc=jest.fn().mockResolvedValue({data:uid,error:null})
   const client={auth:{getUser:jest.fn().mockResolvedValue({data:{user},error:null}),updateUser:jest.fn().mockResolvedValue({data:{user:{...user,new_email:'new@example.invalid'}},error:emailFails?{code:'over_email_send_rate_limit'}:null})},from:jest.fn((table:string)=>table==='profiles'?role:table==='bookings'?booking:mutate),rpc}
@@ -27,7 +27,7 @@ it('keeps verified email in canonical people and requests confirmation through A
   const {client,mutate,user}=setup()
   const result=await updatePersonalDetails({...profile,email:'new@example.invalid',lang:'uk'})
   expect(mutate.update).toHaveBeenCalledWith({display_name:'Anna',phone:null,street:null,postal_code:'00123',city:'Berlin'})
-  expect(resolveLegacyProfile).toHaveBeenCalledWith(user,true)
+  expect(resolveVerifiedPerson).toHaveBeenCalledWith(user)
   expect(client.auth.updateUser).toHaveBeenCalledWith({email:'new@example.invalid'},{emailRedirectTo:'https://example.invalid/auth/callback?lang=uk'})
   expect(result).toEqual({success:true,data:{profile,pendingEmail:'new@example.invalid',emailChange:'pending'}})
 })
@@ -52,11 +52,11 @@ it('rejects privilege fields before saving or sending confirmation',async()=>{
 })
 it('saves pauses through the atomic RPC without taking an owner from the client',async()=>{
   const {client}=setup()
-  expect((await saveNextMonthBooking({targetMonth:profileMonthWindow().next,courseIds:[],paused:true,expected:null})).success).toBe(true)
-  expect(client.rpc).toHaveBeenCalledWith('save_business_month',{p_month:profileMonthWindow().next,p_courses:[],p_paused:true,p_expected:undefined,p_revision:undefined})
+  expect((await saveNextMonthBooking({targetMonth:profileMonthWindow().next,courseSelections:[],paused:true,expected:null})).success).toBe(true)
+  expect(client.rpc).toHaveBeenCalledWith('save_business_month',{p_month:profileMonthWindow().next,p_course_selections:[],p_paused:true,p_expected:undefined,p_revision:undefined})
 })
 it('maps concurrent-session conflicts without exposing SQL detail',async()=>{
   const {rpc}=setup()
   rpc.mockResolvedValue({data:null,error:{code:'40001',message:'Private SQL'}})
-  expect(await saveNextMonthBooking({targetMonth:profileMonthWindow().next,courseIds:[],paused:true,expected:null})).toEqual({success:false,error:'conflict'})
+  expect(await saveNextMonthBooking({targetMonth:profileMonthWindow().next,courseSelections:[],paused:true,expected:null})).toEqual({success:false,error:'conflict'})
 })

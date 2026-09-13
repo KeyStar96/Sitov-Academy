@@ -19,12 +19,12 @@ jest.mock('@/app/actions/profile',()=>({updatePersonalDetails:jest.fn()}))
 
 const one='00000000-0000-4000-8000-000000000001',two='00000000-0000-4000-8000-000000000002'
 const initial: ProfileMonthlyState = {
-  targetMonth:profileMonthWindow().next, booking:null,source:'previous',selection:{courseIds:[one],paused:false},
-  courses:[{id:one,title:'A1',translationKey:'a1',type:'online',available:true},{id:two,title:'A2',translationKey:'a2',type:'presence',available:true}],
+  targetMonth:profileMonthWindow().next, booking:null,source:'previous',selection:{courseSelections:[{courseId:one}],paused:false},
+  courses:[{id:one,title:'A1',slug:'a1',translations:[],unitPrice:25,unitMinutes:45,category:'online',type:'online',available:true},{id:two,title:'A2',slug:'a2',translations:[],unitPrice:25,unitMinutes:45,category:'german',type:'presence',available:true}],
 }
-const row=(ids:string[],paused=false):MonthlyCourseBooking=>({id:two,user_id:one,target_month:initial.targetMonth,course_ids:ids,status:paused?'cancelled':'pending'})
+const row=(ids:string[],paused=false):MonthlyCourseBooking=>({id:two,userId:one,targetMonth:initial.targetMonth,courseSelections:ids.map(courseId=>({courseId})),revision:1,status:paused?'cancelled':'pending'})
 const renderCourses=(state=initial,lang='de',translations=de.profile)=>render(<ProfileMonthlyCourses initial={state} lang={lang} translations={translations} courseTitles={{[one]:'A1',[two]:'A2'}} />)
-const profile={name:'Anna',email:'anna@example.invalid',phone:null,street:null,zip_code:'00123',city:'Berlin'}
+const profile={display_name:'Anna',email:'anna@example.invalid',phone:null,street:null,postal_code:'00123',city:'Berlin'}
 beforeEach(()=>{
   jest.clearAllMocks()
   jest.mocked(getProfileMonthlyState).mockResolvedValue({success:true,data:initial})
@@ -63,7 +63,7 @@ it('updates immediately and serializes rapid edits with the acknowledged record'
   expect(saveNextMonthBooking).toHaveBeenCalledTimes(1)
   await act(async()=>resolveFirst({success:true,data:row([one,two])}))
   await waitFor(()=>expect(saveNextMonthBooking).toHaveBeenCalledTimes(2))
-  expect(jest.mocked(saveNextMonthBooking).mock.calls[1][0]).toMatchObject({courseIds:[two],expected:{id:two,course_ids:[one,two],status:'pending'}})
+  expect(jest.mocked(saveNextMonthBooking).mock.calls[1][0]).toMatchObject({courseSelections:[{courseId:two}],expected:{id:two,revision:1}})
   expect(screen.getByRole('checkbox',{name:'A1'})).toHaveAttribute('aria-checked','false')
 })
 it('rolls back and reconciles after a failed save',async()=>{
@@ -75,23 +75,41 @@ it('rolls back and reconciles after a failed save',async()=>{
 })
 it('persists a pause with no selected courses and restores it on reload',async()=>{
   jest.mocked(saveNextMonthBooking).mockResolvedValue({success:true,data:row([],true)})
-  const view=renderCourses({...initial,selection:{courseIds:[],paused:false}})
+  const view=renderCourses({...initial,selection:{courseSelections:[],paused:false}})
   fireEvent.click(screen.getByRole('switch'))
   expect(screen.getByRole('switch')).toHaveAttribute('aria-checked','true')
-  await waitFor(()=>expect(saveNextMonthBooking).toHaveBeenCalledWith(expect.objectContaining({courseIds:[],paused:true})))
+  await waitFor(()=>expect(saveNextMonthBooking).toHaveBeenCalledWith(expect.objectContaining({courseSelections:[],paused:true})))
   await screen.findByText(de.profile.pause_saved)
   view.unmount()
-  renderCourses({...initial,booking:row([],true),selection:{courseIds:[],paused:true},source:'booking'})
+  renderCourses({...initial,booking:row([],true),selection:{courseSelections:[],paused:true},source:'booking'})
   expect(screen.getByRole('switch')).toHaveAttribute('aria-checked','true')
 })
 it('cannot resume an empty pause without choosing a course',async()=>{
-  renderCourses({...initial,selection:{courseIds:[],paused:true}})
+  renderCourses({...initial,selection:{courseSelections:[],paused:true}})
   fireEvent.click(screen.getByRole('switch'))
   expect(screen.getByText(de.profile.choose_to_resume)).toBeInTheDocument()
   expect(saveNextMonthBooking).not.toHaveBeenCalled()
 })
+it('clears the selected units when explicitly pausing the next month',async()=>{
+  jest.mocked(saveNextMonthBooking).mockResolvedValue({success:true,data:row([],true)})
+  renderCourses()
+  fireEvent.click(screen.getByRole('switch'))
+  await waitFor(()=>expect(saveNextMonthBooking).toHaveBeenCalledWith({targetMonth:initial.targetMonth,courseSelections:[],paused:true,expected:null}))
+  expect(screen.getByRole('checkbox',{name:'A1'})).toHaveAttribute('aria-checked','false')
+})
+it('saves the chosen private lesson quantity with the acknowledged revision',async()=>{
+  const privateState:ProfileMonthlyState={...initial,source:'booking',booking:{...row([one]),courseSelections:[{courseId:one,requestedUnits:3}]},
+    selection:{courseSelections:[{courseId:one,requestedUnits:3}],paused:false},courses:[{...initial.courses[0],category:'private'}]}
+  jest.mocked(saveNextMonthBooking).mockResolvedValue({success:true,data:{...row([one]),revision:2,courseSelections:[{courseId:one,requestedUnits:4}]}})
+  renderCourses(privateState)
+  expect(screen.getByRole('spinbutton',{name:'Unterrichtseinheiten'})).toHaveValue(3)
+  fireEvent.click(screen.getByRole('button',{name:'Eine Einheit mehr'}))
+  await waitFor(()=>expect(saveNextMonthBooking).toHaveBeenCalledWith({targetMonth:initial.targetMonth,courseSelections:[{courseId:one,requestedUnits:4}],paused:false,expected:{id:two,revision:1}}))
+  expect(screen.getByRole('spinbutton')).toHaveValue(4)
+  expect(screen.getByText('100,00 €')).toBeInTheDocument()
+})
 it('keeps confirmed contact values after an email-only failure',async()=>{
-  jest.mocked(updatePersonalDetails).mockResolvedValue({success:true,data:{profile:{...profile,name:'Anna Neu'},pendingEmail:null,emailChange:'failed'}})
+  jest.mocked(updatePersonalDetails).mockResolvedValue({success:true,data:{profile:{...profile,display_name:'Anna Neu'},pendingEmail:null,emailChange:'failed'}})
   render(<ProfileDetailsForm initial={profile} pendingEmail={null} lang="de" translations={de.profile} />)
   fireEvent.change(screen.getByLabelText(de.profile.name),{target:{value:'Anna Neu'}})
   fireEvent.change(screen.getByLabelText(de.profile.email),{target:{value:'new@example.invalid'}})

@@ -11,7 +11,7 @@ export async function submitTrialLesson(input:unknown):Promise<SubmitTrialResult
   if(!limit.success)return {success:false,message:'generic_error'}
   const client=createAdminClient();const {error}=await client.rpc('submit_business_registration',{
    p_contact:{name:`${data.firstName} ${data.lastName}`,email:data.email,birth_date:data.birthDate?.split('.').reverse().join('-')??null,phone:data.phone??null,street:data.street??null,postal_code:data.zip??null,city:data.city??null},
-   p_course_ids:[data.courseId],p_start:data.trialDate,p_consents:{privacy:true,agb:true,recording:data.videoRecordingAccepted??null},p_locale:data.locale,p_trial:true,
+   p_course_selections:[{course_id:data.courseId}],p_start:data.trialDate,p_consents:{privacy:true,agb:true,recording:data.videoRecordingAccepted??null},p_locale:data.locale,p_trial:true,
   })
   if(error)return {success:false,message:error.code==='23505'?'trial_already_used':'generic_error'}
   return {success:true,message:'trial_success'}

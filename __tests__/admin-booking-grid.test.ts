@@ -3,14 +3,14 @@ import type { NextMonthOverview, NextMonthStudentRow } from '@/lib/types/admin-s
 
 const filters: BookingGridFilters = { search: '', status: 'all', course: 'all', format: 'all' }
 function row(id: string, name: string, status: NextMonthStudentRow['status'], courseIds: string[], city = ''): NextMonthStudentRow {
-  return { student: { id, name, email: `${id}@example.invalid`, city, phone: null, street: null, zip_code: null }, status, courseIds, source: 'booking', note: null }
+  return { student: { id, person:{ display_name:name, email: `${id}@example.invalid`, city, phone: null, street: null, postal_code: null } }, status, courseSelections:courseIds.map(courseId=>({courseId})), source: 'booking', note: null }
 }
 const anna = row('a', 'Änne Müller', 'pending', ['online', 'presence'], 'Berlin')
 const boris = row('b', 'Boris', 'confirmed', ['online'], 'Berlin')
 const carla = row('c', 'Carla', 'cancelled', [], 'Aachen')
 const overview: NextMonthOverview = { targetMonth: '2026-10-01', enrolledCount: 2, paused: [carla], groups: [
-  { courseId: 'online', type: 'online', title: 'Online', translationKey: 'online', students: [boris, anna] },
-  { courseId: 'presence', type: 'presence', title: 'Presence', translationKey: 'presence', students: [anna] },
+  { courseId: 'online', type: 'online', title: 'Online', students: [boris, anna] },
+  { courseId: 'presence', type: 'presence', title: 'Presence', students: [anna] },
 ] }
 
 describe('staff booking grid', () => {

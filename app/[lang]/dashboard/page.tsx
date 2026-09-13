@@ -6,6 +6,7 @@ import { getDictionary } from '@/lib/dictionary'
 import { createDashboardTranslator, type DashboardTranslations } from '@/lib/dashboard-i18n'
 import type { PronunciationTranslations } from '@/lib/pronunciation-i18n'
 import { createClient } from '@/utils/supabase/server'
+import { loadLevelAccessProfile } from '@/lib/access/server'
 import { hasLevelAccess } from '@/lib/access/levels'
 import FeedbackNotificationCard from '@/components/dashboard/FeedbackNotificationCard'
 
@@ -15,9 +16,7 @@ export default async function DashboardPage({ params }: { params: Promise<{ lang
   const [{ data: { user } }, progressMap, unseenFeedback, dict] = await Promise.all([
     supabase.auth.getUser(), getAllLevelsProgress(), getUnseenFeedbackSummary(), getDictionary(lang),
   ])
-  const { data: accessProfile } = user
-    ? await supabase.from('profile_details').select('role, allowed_levels').eq('id', user.id).single()
-    : { data: null }
+  const accessProfile = user ? await loadLevelAccessProfile(supabase, user.id) : null
   const t = createDashboardTranslator(dict.dashboard as DashboardTranslations)
   const copy = dict.academy
   const levels = [

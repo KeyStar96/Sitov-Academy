@@ -4,8 +4,7 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { createPronunciationSubmission } from '@/app/actions/pronunciation-conversations'
 import { CheckCircle2, Loader2, Mic, Square, Trash2, TriangleAlert, UploadCloud } from 'lucide-react'
-import { submitAudioUrl } from '@/app/actions/feedback'
-import { uploadStudentRecording, uploadPrivatePronunciationRecording } from '@/lib/audio/upload'
+import { uploadPrivatePronunciationRecording } from '@/lib/audio/upload'
 import { useAudioRecorder } from '@/lib/audio/useAudioRecorder'
 import {
   createPronunciationTranslator,
@@ -23,17 +22,13 @@ import WaveformPlayer from '@/components/audio/WaveformPlayer'
 export default function AudioRecorder({
   promptId,
   onRecordingStateChange,
-  parentId,
-  attemptNumber = 1,
   level,
   translations,
   onSubmitted,
   compact = false,
 }: {
-  promptId?: string
+  promptId: string
   onRecordingStateChange?: (busy: boolean) => void
-  parentId?: string
-  attemptNumber?: number
   level?: string
   translations?: PronunciationTranslations
   onSubmitted?: () => void
@@ -69,33 +64,24 @@ export default function AudioRecorder({
     setUploadFailed(false)
 
     try {
-      const upload = await (promptId ? uploadPrivatePronunciationRecording(recorder.audioBlob) : uploadStudentRecording(recorder.audioBlob))
+      const upload = await uploadPrivatePronunciationRecording(recorder.audioBlob)
       if (upload.success === false) {
-        // Details stehen bereits im Log von `uploadStudentRecording`
+        // Details stehen bereits im Log des privaten Uploads
         // (Bucket, Pfad, MIME-Type, Fehlergrund) – hier nur der Ablaufkontext.
         console.error('Einreichung abgebrochen: Audio-Upload fehlgeschlagen.', {
           reason: upload.reason,
-          parentId,
-          attemptNumber,
-          level,
+                  level,
         })
         setUploadFailed(true)
         return
       }
 
-      const result = promptId ? await createPronunciationSubmission({ promptId, audioPath: upload.publicUrl }) : await submitAudioUrl({
-        url: upload.publicUrl,
-        parentId,
-        attemptNumber,
-        level,
-      })
+      const result = await createPronunciationSubmission({ promptId, audioPath: upload.audioPath })
 
       if (!result.success) {
         console.error('Einreichung abgebrochen: Speichern in der Datenbank fehlgeschlagen.', {
           reason: result.reason,
-          parentId,
-          attemptNumber,
-          level,
+                  level,
         })
         setUploadFailed(true)
         return

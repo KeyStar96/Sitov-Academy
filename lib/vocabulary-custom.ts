@@ -1,8 +1,8 @@
 /**
  * Clientseitig gespeicherte, selbst hinzugefügte Vokabeln je Lektion.
  *
- * Bewusst getrennt von der echten Leitner-Datenbank (`user_vocabulary_progress`):
- * Diese Wörter haben keine `vocabulary_cards`-Zeile und keinen Server-seitigen
+ * Bewusst getrennt von der echten Leitner-Datenbank (`vocabulary_direction_progress`):
+ * Diese Wörter haben keine `learning_vocabulary_cards`-Zeile und keinen Server-seitigen
  * Fälligkeits-Mechanismus. Sie dienen als schnelle, private Merkliste direkt im
  * Lektions-Modal (Wörterliste + Phasen-Verteilung) und überleben einen Reload
  * über `localStorage` – aber nicht den Wechsel des Browsers/Geräts.

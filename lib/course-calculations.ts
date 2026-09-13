@@ -17,7 +17,7 @@ const LOCALE_MAP: Readonly<Record<string, string>> = {
     'en': 'en-US',
     'ru': 'ru-RU',
     'uk': 'uk-UA',
-    'tu': 'tr-TR'
+    'tr': 'tr-TR'
 } as const;
 
 export interface MonthlyStats {
@@ -36,7 +36,8 @@ export const calculateMonthlyStats = (
     targetMonth: number, // 0-11
     targetYear: number,
     exceptions: CourseException[] = [], // Default to empty if not provided for now
-    startDay: number = 1 // New Parameter: Start counting from this day (inclusive)
+    startDay: number = 1,
+    requestedUnits: number = 1
 ): MonthlyStats => {
     const daysInMonth = new Date(targetYear, targetMonth + 1, 0).getDate();
 
@@ -54,6 +55,14 @@ export const calculateMonthlyStats = (
 
     const locale = LOCALE_MAP[lang] || 'de-DE';
 
+    if (course.category === 'private') {
+        const monthStart = `${targetYear}-${String(targetMonth + 1).padStart(2, '0')}-01`;
+        const monthEnd = `${targetYear}-${String(targetMonth + 1).padStart(2, '0')}-${String(daysInMonth).padStart(2, '0')}`;
+        const available = (!course.startDate || course.startDate <= monthEnd) && (!course.endDate || course.endDate >= monthStart);
+        const units = available && Number.isInteger(requestedUnits) && requestedUnits >= 1 && requestedUnits <= 1000 ? requestedUnits : 0;
+        return { sessionCount: units, totalUnits: units, deductions: [], monthName: new Date(targetYear, targetMonth, 1).toLocaleString(locale, { month: 'long', year: 'numeric' }), targetYear, targetMonth };
+    }
+
     // Loop starts from startDay instead of fixed 1
     for (let d = startDay; d <= daysInMonth; d++) {
         const date = new Date(targetYear, targetMonth, d);
@@ -70,8 +79,8 @@ export const calculateMonthlyStats = (
         if (sessionsToday) {
             sessionsToday.forEach(s => {
                 const mins = getDurationMinutes(s.startTime, s.endTime);
-                const units = mins / (course.unitDuration || 45);
-                const cost = units * course.price;
+                const units = mins / (course.unitMinutes || 45);
+                const cost = units * course.unitPrice;
 
                 // Check for exception
                 const exception = exceptions.find(e =>

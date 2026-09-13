@@ -79,24 +79,9 @@ export const UI_LOCALE_ENDONYMS: Readonly<Record<UiLocale, string>> = {
   tr: 'Türkçe',
 }
 
-/**
- * Ordnet die bei der Registrierung gewählte Erstsprache (deutsches Label in
- * `profiles.native_language`) der passenden Oberflächensprache zu. Unbekanntes
- * bzw. „Andere" fällt sicher auf Deutsch zurück. Muss mit dem DB-Trigger
- * `handle_new_user` konsistent bleiben (Migration
- * `add_ui_language_and_expand_native_language`).
- */
-const NATIVE_LANGUAGE_TO_LOCALE: Readonly<Record<string, UiLocale>> = {
-  Deutsch: 'de',
-  Englisch: 'en',
-  Russisch: 'ru',
-  Türkisch: 'tr',
-  Ukrainisch: 'uk',
-}
-
+/** Native and interface languages use the same ISO codes. */
 export function localeFromNativeLanguage(value: string | null | undefined): UiLocale {
-  if (!value) return DEFAULT_LOCALE
-  return NATIVE_LANGUAGE_TO_LOCALE[value] ?? DEFAULT_LOCALE
+  return toUiLocale(value)
 }
 
 /** Sichere Normalisierung eines beliebigen Werts auf eine bekannte UI-Locale. */

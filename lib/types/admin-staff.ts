@@ -1,26 +1,18 @@
+import type { Profile, Person } from './profile'
+import type { CourseSelection } from '@/lib/course-selection'
 import type { MonthlyBookingStatus } from './monthly-bookings'
 import type { TeacherStudentNote } from './teacher-notes'
 
 import type { TrainerAccessRule } from '@/lib/access/levels'
 
-export interface AdminStudentRow {
-  student_trainer_access?: TrainerAccessRule[] | null
-  id: string
-  name: string | null
-  email: string
-  role: string | null
+export interface AdminStudentRow extends Pick<Profile, 'id' | 'role' | 'created_at' | 'person'> {
+  trainer_grants?: TrainerAccessRule[] | null
   allowed_levels: string[] | null
-  created_at: string | null
-  phone: string | null
-  street: string | null
-  zip_code: string | null
-  city: string | null
 }
 
 export interface CatalogCourse {
-  bookingId: string
+  id: string
   title: string | null
-  translationKey: string
   type: 'online' | 'presence'
   startDate: string | null
   endDate: string | null
@@ -28,19 +20,14 @@ export interface CatalogCourse {
 
 export interface StaffStudentContact {
   id: string
-  name: string | null
-  email: string
-  phone: string | null
-  street: string | null
-  zip_code: string | null
-  city: string | null
+  person: Pick<Person, 'display_name' | 'email' | 'phone' | 'street' | 'postal_code' | 'city'> | null
 }
 
 export type NextMonthRowStatus = MonthlyBookingStatus | 'inherited'
 
 export interface NextMonthStudentRow {
   student: StaffStudentContact
-  courseIds: string[]
+  courseSelections: CourseSelection[]
   source: 'booking' | 'previous'
   status: NextMonthRowStatus
   note: TeacherStudentNote | null
@@ -49,7 +36,6 @@ export interface NextMonthStudentRow {
 export interface NextMonthCourseGroup {
   courseId: string
   title: string | null
-  translationKey: string
   type: 'online' | 'presence'
   students: NextMonthStudentRow[]
 }
@@ -62,7 +48,7 @@ export interface NextMonthOverview {
 }
 
 export function formatStudentAddress(student: StaffStudentContact): string | null {
-  const cityLine = [student.zip_code, student.city].filter(Boolean).join(' ').trim()
-  const line = [student.street, cityLine].filter(value => value && value.length > 0).join(', ')
+  const cityLine = [student.person?.postal_code, student.person?.city].filter(Boolean).join(' ').trim()
+  const line = [student.person?.street, cityLine].filter(value => value && value.length > 0).join(', ')
   return line.length > 0 ? line : null
 }

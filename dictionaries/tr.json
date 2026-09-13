@@ -266,84 +266,6 @@
       "desc": "Ön bilgi olmadan ideal başlangıç."
     }
   },
-  "CourseData": {
-    "de50_a1_1": {
-      "title": "Almanca Seviye 2",
-      "description": "yetişkin öğrenciler için özel. Yavaş tempo, rahat atmosfer.",
-      "level": "A1-A2",
-      "location": "Yüz yüze"
-    },
-    "de50_a1_2": {
-      "title": "Almanca Seviye 3",
-      "description": "Geliştirme kursu. Temellerin derinleştirilmesi.",
-      "level": "A2-B1",
-      "location": "Yüz yüze"
-    },
-    "de50_a2": {
-      "title": "Almanca A2.2",
-      "description": "Bağımsız iletişim (doktor, resmi daireler).",
-      "level": "A2.2",
-      "location": "Yüz yüze"
-    },
-    "speech_a1_1": {
-      "title": "Konuşma Pratiği A1-B2",
-      "description": "Çekingenliği yenmek, özgüven kazanmak.",
-      "level": "A1-B2",
-      "location": "Yüz yüze"
-    },
-    "speech_a1_2": {
-      "title": "Konuşma Pratiği A1-B2",
-      "description": "Konuşma becerilerini derinleştirme.",
-      "level": "A1-B2",
-      "location": "Yüz yüze"
-    },
-    "speech_a2": {
-      "title": "Konuşma Pratiği A1-B2",
-      "description": "Günlük durumlarda özgüvenli konuşma.",
-      "level": "A1-B2",
-      "location": "Yüz yüze"
-    },
-    "online_a1_1": {
-      "title": "Temeller A1.1 (Çevrimiçi)",
-      "description": "Evinizin rahatlığında. Küçük gruplar halinde (en fazla 10 kişi), dersin kaydını daha sonra tekrar izlemeniz için dahil ve gramer ve dil ile ilgili sorularınız için öğretmenin 7/24 Telegram üzerinden sunduğu yoğun destek.",
-      "level": "A1.1",
-      "location": "Çevrimiçi",
-      "price": "15€",
-      "price_unit": "/ 90 Dak"
-    },
-    "online_b1": {
-      "title": "Almanca B1 (Çevrimiçi)",
-      "description": "Mesleki ve günlük yaşamda bilgilerin pekiştirilmesi. Küçük gruplar halinde (en fazla 10 kişi), derslerin kaydını içeren (dersi daha sonra tekrarlamak için) ve gramer ve dil ile ilgili sorularınız için öğretmenin 7/24 Telegram üzerinden sunduğu yoğun destek.",
-      "level": "B1",
-      "location": "Çevrimiçi",
-      "price": "15€",
-      "price_unit": "/ 90 Dak"
-    },
-    "de50_a1_1_replacement_2026_07": {
-      "title": "Almanca Seviye 1",
-      "description": "Özellikle ileri yaşta öğrenenler için. Yavaş tempo, bol tekrar. Tamamen baştan başlıyoruz!",
-      "level": "A0-A1",
-      "location": "Freizeitheim Vahrenwald"
-    },
-    "speech_a1_1_replacement_2026_07": {
-      "title": "Konuşma Pratiği A1-B2",
-      "description": "Konuşma korkunuzu yenin. A1.1 kursu için ideal bir eklenti.",
-      "level": "A1-B2",
-      "location": "Freizeitheim Vahrenwald"
-    },
-    "online_a1_1_2026_09": {
-      "title": "Almanca A1.1 (Çevrimiçi)",
-      "description": "Evinizin rahatlığında. Tamamen sıfırdan başlıyoruz! Küçük gruplar halinde (en fazla 10 kişi), derslerin kaydını daha sonra kendi başınıza tekrar edebilmeniz için sunuyoruz ve gramer ve dil ile ilgili sorularınız için öğretmenimizden 7/24 yoğun Telegram desteği alabilirsiniz.",
-      "level": "A1.1",
-      "location": "Microsoft Teams"
-    },
-    "private_lesson": {
-      "title": "Özel Dersler",
-      "description": "Esnek özel derslerinizi ayırtın — çevrimiçi veya Hannover'de yüz yüze. Eğitim programı, hızınıza ve hedeflerinize uygun olarak bireysel şekilde tasarlanır (25 € / 45 Dk.). > Rezervasyonunuzun ardından eğitmeniniz ders programını birlikte planlamak üzere sizinle iletişime geçecektir.",
-      "level": "A1-C2",
-      "location": "Esnek"
-    }
-  },
   "courses_v2": {
     "label_small": "PROGRAM VE FORMATLAR",
     "headline": {
@@ -1342,15 +1264,15 @@
     "supplement_label": "Kursa ek kaynak",
     "watch_youtube": "YouTube’da izle",
     "continue_vocabulary": "Kelime çalışmasına devam et",
-    "external_privacy": "YouTube yalnızca bir video bağlantısına tıkladığınızda açılır. Bu sayfada YouTube oynatıcısı veya küçük resimleri yüklenmez.",
+    "external_privacy": "Harici sağlayıcılara yalnızca bir bağlantıyı açtığınızda bağlanılır. Bu sayfada harici oynatıcılar veya önizleme resimleri yüklenmez.",
     "cms_title": "Eğitim videolarını yönet",
-    "cms_subtitle": "Video hazır olduğunda YouTube bağlantısını yayınlayın. Videolar üç alıştırma alanını tamamlar.",
+    "cms_subtitle": "Hazır videoları YouTube bağlantısı olarak yayınlayın veya bir öğrenme kaynağı ekleyin. Taslaklar öğrencilere gösterilmez.",
     "cms_new": "Video bağlantısı ekle",
     "cms_edit": "Video bağlantısını düzenle",
     "cms_title_field": "Başlık",
     "cms_lesson": "Ders / konu",
     "cms_description": "Açıklama (isteğe bağlı)",
-    "cms_url": "YouTube bağlantısı",
+    "cms_url": "Video veya öğrenme bağlantısı",
     "cms_level": "Seviye",
     "cms_save": "Kaydet",
     "cms_cancel": "Vazgeç",
@@ -1359,9 +1281,11 @@
     "cms_failed": "Video bağlantısı kaydedilemedi. Bilgileri kontrol edip tekrar deneyin.",
     "cms_saved": "Video bağlantısı kaydedildi.",
     "cms_empty": "Henüz video bağlantısı yok.",
-    "cms_legacy": "Eski kayıt — öğrenme alanında göstermek için YouTube bağlantısı ekleyin.",
     "cms_search": "Video ara",
-    "cms_open": "Videoyu aç"
+    "cms_open": "Videoyu aç",
+    "cms_active": "Öğrenme alanında yayınla",
+    "cms_draft": "Taslak – henüz yayınlanmadı",
+    "watch_resource": "Öğrenme kaynağını aç"
   },
   "profile": {
     "title": "Profilim",

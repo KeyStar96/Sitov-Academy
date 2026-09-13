@@ -24,6 +24,7 @@ const fill: StudentExercise = {
   chips: ['ein Tisch', 'eine Tisch'], solutionArticle: 'der', solutionAudioUrl: null,
 }
 const authored: GrammarExerciseRow = {
+  unit_id: '00000000-0000-4000-8000-000000000099',
   id: item.id, level: 'A1.1', lesson: '01', topic: 'Artikel', type: 'multiple_choice',
   content: { ...item.content, instruction: 'Wähle den Artikel.' }, created_at: '2026-09-10T00:00:00Z',
   hint: null, solution_audio_url: null,

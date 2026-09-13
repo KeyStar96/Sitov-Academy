@@ -1,11 +1,10 @@
 import { z } from 'zod'
 import { ACCESS_LEVELS } from '@/lib/access/levels'
-import type { Database } from '@/supabase/database.types'
 
 export const videoRecordSchema = z.object({
-  id: z.string(), title: z.string(), lesson: z.string(), level: z.string(), unit_id: z.string().optional(),
-  description: z.string().nullable(), video_url: z.string().nullable(), external_url: z.string().nullable(),
-  is_external: z.boolean().nullable(), created_at: z.string().nullable(),
+  id: z.string(), title: z.string(), level: z.string(), unit_id: z.string().uuid(),
+  description: z.string().nullable(), source_url: z.string().nullable(),
+  is_active: z.boolean(), created_at: z.string().nullable(),
 })
 export type VideoRecord = z.infer<typeof videoRecordSchema>
 
@@ -26,13 +25,24 @@ export function youtubeWatchUrl(input: string | null | undefined): string | null
   } catch { return null }
 }
 
+/** Accept real outbound learning resources; preserve authored URLs and normalize YouTube. */
+export function learningResourceUrl(input: string | null | undefined): string | null {
+  if (!input?.trim()) return null
+  const value = input.trim()
+  try {
+    const url = new URL(value)
+    if (!['http:', 'https:'].includes(url.protocol) || !url.hostname || url.username || url.password || /\s/.test(value)) return null
+    return youtubeWatchUrl(value) ?? value
+  } catch { return null }
+}
+
 export const videoInputSchema = z.object({
   level: z.enum(ACCESS_LEVELS),
   title: z.string().trim().min(2).max(180),
-  lesson: z.string().trim().min(1).max(100),
   description: z.string().trim().max(1200).default(''),
-  external_url: z.string().transform(youtubeWatchUrl).refine((value): value is string => value !== null),
-})
-export interface VideoWriteInput { level: string; title: string; lesson: string; description: string; external_url: string }
+  source_url: z.string().trim().refine(value => value === '' || learningResourceUrl(value) !== null).transform(learningResourceUrl),
+  is_active: z.boolean(),
+}).refine(value => !value.is_active || value.source_url !== null, { path: ['source_url'], message: 'Published resources require a URL' })
+export interface VideoWriteInput { level: string; title: string; description: string; source_url: string; is_active: boolean }
 export interface VideoWriteResult { success: boolean; data?: VideoRecord; error?: 'invalid_input' | 'save_failed' }
 export interface VideoDeleteResult { success: boolean; error?: 'invalid_input' | 'delete_failed' }

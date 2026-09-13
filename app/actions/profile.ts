@@ -7,20 +7,20 @@ import { uiLanguageSchema } from '@/lib/types/auth'
 import { BackendError, checkDatabaseError, revalidateBackendPages, withBackendSession } from '@/lib/actions/backend'
 import { personalDetailsSchema, profileContactSchema, type ProfileContact, type PersonalDetailsResult } from '@/lib/types/profile'
 import type { BackendActionResult } from '@/lib/types/backend'
-import { resolveLegacyProfile } from '@/lib/profile-legacy'
+import { resolveVerifiedPerson } from '@/lib/profile-person'
 import { buildSiteUrl, getOutboundSiteUrl } from '@/lib/site-url'
 import { safeUiLanguageNextPath } from '@/lib/locale-routing'
 
 export async function updatePersonalDetails(input: unknown): Promise<BackendActionResult<PersonalDetailsResult>> {
   return withBackendSession(async ({ supabase, userId, user }) => {
     const { email, lang, ...details } = personalDetailsSchema.parse(input)
-    if (email !== user.email?.toLowerCase()) await resolveLegacyProfile(user, true)
-    const { data, error } = await supabase.from('people').update({display_name:details.name,phone:details.phone,street:details.street,postal_code:details.zip_code,city:details.city}).eq('auth_user_id', userId)
+    if (email !== user.email?.toLowerCase()) await resolveVerifiedPerson(user)
+    const { data, error } = await supabase.from('people').update({display_name:details.display_name,phone:details.phone,street:details.street,postal_code:details.postal_code,city:details.city}).eq('auth_user_id', userId)
       .select('display_name, email, phone, street, postal_code, city').single()
     checkDatabaseError(error)
     if (!data) throw new BackendError('not_found')
     const result: PersonalDetailsResult = {
-      profile: { name:data.display_name,email:data.email,phone:data.phone,street:data.street,zip_code:data.postal_code,city:data.city },
+      profile: { display_name:data.display_name,email:data.email,phone:data.phone,street:data.street,postal_code:data.postal_code,city:data.city },
       pendingEmail: user.new_email || null,
       emailChange: user.new_email ? 'pending' : 'unchanged',
     }
@@ -49,12 +49,12 @@ export async function updatePersonalDetails(input: unknown): Promise<BackendActi
 export async function updateProfileContact(input: unknown): Promise<BackendActionResult<ProfileContact>> {
   return withBackendSession(async ({ supabase, userId }) => {
     const fields = profileContactSchema.parse(input)
-    const { data, error } = await supabase.from('people').update({phone:fields.phone,street:fields.street,postal_code:fields.zip_code,city:fields.city})
+    const { data, error } = await supabase.from('people').update({phone:fields.phone,street:fields.street,postal_code:fields.postal_code,city:fields.city})
       .eq('auth_user_id', userId).select('phone, street, postal_code, city').single()
     checkDatabaseError(error)
     if (!data) throw new BackendError('not_found')
     revalidateBackendPages()
-    return {phone:data.phone,street:data.street,zip_code:data.postal_code,city:data.city}
+    return {phone:data.phone,street:data.street,postal_code:data.postal_code,city:data.city}
   })
 }
 

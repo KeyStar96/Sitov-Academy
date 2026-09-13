@@ -10,6 +10,7 @@ import StudentDetailModal from './StudentDetailModal'
 import StudentAccessModal from './StudentAccessModal'
 import { displayBlackboardNote } from '@/lib/types/teacher-notes'
 import type { AdminStudentRow } from '@/lib/types/admin-staff'
+import { profileRoleSchema } from '@/lib/types/backend'
 
 export default function StudentList({
   initialStudents,
@@ -39,11 +40,12 @@ export default function StudentList({
   const [accessStudentId, setAccessStudentId] = useState<string | null>(null)
   const accessStudent = students.find(student => student.id === accessStudentId) ?? null
 
-  const filteredStudents = students.filter(student => `${student.name ?? ''} ${student.email}`.toLocaleLowerCase(lang).includes(search.toLocaleLowerCase(lang).trim()))
+  const filteredStudents = students.filter(student => `${student.person?.display_name ?? ''} ${student.person?.email ?? ''}`.toLocaleLowerCase(lang).includes(search.toLocaleLowerCase(lang).trim()))
   const selected = students.find(student => student.id === selectedId) ?? null
 
   const handleRoleChange = async (id: string, newRole: string) => {
-    if (mutationLock.current) return
+    const parsedRole = profileRoleSchema.safeParse(newRole)
+    if (!parsedRole.success || mutationLock.current) return
     if (id === currentUserId && newRole === 'student') {
       setHasError(true)
       setMessage(t('role_self_denied'))
@@ -51,7 +53,7 @@ export default function StudentList({
     }
     mutationLock.current = true
     const previous = students
-    setStudents(current => current.map(student => student.id === id ? { ...student, role: newRole } : student))
+    setStudents(current => current.map(student => student.id === id ? { ...student, role: parsedRole.data } : student))
     setLoadingId(id)
     try {
       const result = await updateStudentRole(id, newRole)
@@ -95,9 +97,9 @@ export default function StudentList({
     mutationLock.current = true
     const previous = students
     const enabled = !hasConfiguredTrainerAccess(student, level, trainer)
-    const previousRule = student.student_trainer_access?.find(rule => rule.level === level && rule.trainer === trainer)
-    const rules = [...(student.student_trainer_access ?? []).filter(rule => rule.level !== level || rule.trainer !== trainer), { ...previousRule, level, trainer, enabled }]
-    setStudents(rows => rows.map(item => item.id === id ? { ...item, student_trainer_access: rules } : item))
+    const previousRule = student.trainer_grants?.find(rule => rule.level === level && rule.trainer === trainer)
+    const rules = [...(student.trainer_grants ?? []).filter(rule => rule.level !== level || rule.trainer !== trainer), { ...previousRule, level, trainer, enabled }]
+    setStudents(rows => rows.map(item => item.id === id ? { ...item, trainer_grants: rules } : item))
     setLoadingId(id)
     try {
       const result = await updateStudentTrainerAccess({ userId: id, level, trainer, enabled })
@@ -114,12 +116,12 @@ export default function StudentList({
   const handleAllowedLessonsUpdate = (id: string, level: AccessLevel, trainer: Trainer, allowedLessons: string[] | null) => {
     const student = students.find(item => item.id === id)
     if (!student) return
-    const rules = [...(student.student_trainer_access ?? []).filter(rule => rule.level !== level || rule.trainer !== trainer)]
+    const rules = [...(student.trainer_grants ?? []).filter(rule => rule.level !== level || rule.trainer !== trainer)]
 
-    const oldRule = student.student_trainer_access?.find(rule => rule.level === level && rule.trainer === trainer)
-    rules.push({ level, trainer, enabled: oldRule?.enabled ?? true, allowed_lessons: allowedLessons })
+    const oldRule = student.trainer_grants?.find(rule => rule.level === level && rule.trainer === trainer)
+    rules.push({ level, trainer, enabled: oldRule?.enabled ?? true, unit_ids: allowedLessons })
 
-    setStudents(rows => rows.map(item => item.id === id ? { ...item, student_trainer_access: rules } : item))
+    setStudents(rows => rows.map(item => item.id === id ? { ...item, trainer_grants: rules } : item))
   }
 
   const handleResetProgress = async (id: string, level: string) => {
@@ -154,12 +156,12 @@ export default function StudentList({
         </thead>
         <tbody className="block divide-y divide-[var(--border)] lg:table-row-group">
           {filteredStudents.map(student => {
-            const name = student.name || t('unknown_name')
+            const name = student.person?.display_name || t('unknown_name')
             const notePreview = displayBlackboardNote(getBoard(student.id).noteText)
             const fullAccess = student.role === 'teacher' || student.role === 'admin'
             return (
               <tr key={student.id} className="grid min-w-0 grid-cols-1 gap-3 p-4 align-top sm:grid-cols-2 lg:table-row lg:p-0">
-                <td className="min-w-0 lg:p-4"><button type="button" onClick={() => setSelectedId(student.id)} aria-label={t('open_details_aria', { name })} className="min-h-12 w-full min-w-0 rounded-lg text-left"><span className="block break-words text-base font-bold">{name}</span><span className="mt-1 block break-all text-sm text-[var(--muted)]">{student.email}</span></button></td>
+                <td className="min-w-0 lg:p-4"><button type="button" onClick={() => setSelectedId(student.id)} aria-label={t('open_details_aria', { name })} className="min-h-12 w-full min-w-0 rounded-lg text-left"><span className="block break-words text-base font-bold">{name}</span><span className="mt-1 block break-all text-sm text-[var(--muted)]">{student.person?.email}</span></button></td>
                 <td className="text-sm text-[var(--muted)] lg:p-4">{student.created_at ? new Date(student.created_at).toLocaleDateString(lang) : '—'}</td>
                 <td className="lg:p-4"><ProgressBadges progress={visibleProgress[student.id] || {}} emptyLabel={t('no_progress')} /></td>
                 <td className="lg:p-4">
@@ -236,7 +238,7 @@ function ResetControls({
   onReset: (id: string, level: string) => void
 }) {
   const t = useAdminTranslator()
-  const name = student.name || t('unknown_name')
+  const name = student.person?.display_name || t('unknown_name')
   return (
     <div className="flex flex-col gap-2">
       <select

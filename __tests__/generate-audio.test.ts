@@ -15,7 +15,7 @@ import { AUDIO_MAX_TEXT_LENGTH } from '@/lib/audio/neural-config'
 const userId = '00000000-0000-4000-8000-000000000001'
 const cardId = '10000000-0000-4000-8000-000000000001'
 const audioUrl = 'https://project.supabase.co/storage/v1/object/public/audio_cache/audio.mp3'
-const baseCard = { id: cardId, article: 'die', word_de: 'Tür', level: 'A1.1', audio_url: null as string | null }
+const baseCard = { id: cardId, article: 'die', word_de: 'Tür', unit: { level: 'A1.1' }, audio_url: null as string | null }
 const input: GenerateAudioInput = { text: 'die Tür', language: 'de', cardId }
 const allowed = { success: true, remaining: 100, limit: 120, reset: 0 }
 
@@ -23,7 +23,7 @@ function session(options: {
   signedIn?: boolean; authError?: boolean; role?: string | null; levels?: string[];
   profileMissing?: boolean; card?: typeof baseCard | null; cardError?: boolean
 } = {}) {
-  const profile = options.profileMissing ? null : { role: options.role === undefined ? 'student' : options.role, allowed_levels: options.levels ?? ['A1.1'] }
+  const profile = options.profileMissing ? null : { role: options.role === undefined ? 'student' : options.role, level_access: (options.levels ?? ['A1.1']).map(level => ({ level })) }
   const profileChain = {
     select: jest.fn().mockReturnThis(), eq: jest.fn().mockReturnThis(),
     single: jest.fn().mockResolvedValue({ data: profile, error: null }),
@@ -34,7 +34,7 @@ function session(options: {
   }
   const rulesResult = Promise.resolve({ data: [], error: null })
   const rules = { select: jest.fn().mockReturnThis(), eq: jest.fn().mockReturnThis(), then: rulesResult.then.bind(rulesResult) }
-  const from = jest.fn((table: string) => table === 'profile_details' ? profileChain : table === 'student_trainer_access' ? rules : cardChain)
+  const from = jest.fn((table: string) => table === 'profiles' ? profileChain : table === 'learning_trainer_grants' ? rules : cardChain)
   const client = {
     from, auth: { getUser: jest.fn().mockResolvedValue({ data: { user: options.signedIn === false ? null : { id: userId } }, error: options.authError ? new Error('Expired') : null }) },
   }

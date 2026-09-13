@@ -21,8 +21,8 @@ const booking: StaffRegistration = {
     street: null, zip: null, city: null, birthDate: null,
   },
   courses: [
-    { id: 'course-1', title: 'Deutsch Level 1', translationKey: 'level_1', price: 80, endDate: null },
-    { id: 'course-2', title: 'Sprechtraining Montag', translationKey: 'speaking_monday', price: 40, endDate: null },
+    { id: 'course-1', title: 'Deutsch Level 1', amount: 80, unitPrice: 10, unitMinutes: 45, units: 8, requestedUnits: null },
+    { id: 'course-2', title: 'Sprechtraining Montag', amount: 40, unitPrice: 10, unitMinutes: 45, units: 8, requestedUnits: null },
   ],
   totalPrice: 120, consents: null,
 }

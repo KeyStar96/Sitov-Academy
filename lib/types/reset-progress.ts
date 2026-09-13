@@ -7,6 +7,6 @@ export type ResetUserProgressResult =
   | { success: false; reason: 'invalid_input' | 'not_authenticated' | 'reset_failed' | 'reset_in_progress' }
 
 export const learningResetBatchSchema = z.array(z.object({
-  bucket_id: z.enum(['audio_submissions', 'pronunciation_audio']),
+  bucket_id: z.literal('pronunciation_audio'),
   object_name: z.string().min(1),
 }))
