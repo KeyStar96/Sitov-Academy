@@ -583,7 +583,7 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
         const dayMap: Record<string, number> = { Mo: 1, Di: 2, Mi: 3, Do: 4, Fr: 5, Sa: 6, So: 0 };
         const sessionDays = trialCourse.sessions.map(s => dayMap[s.day]);
         const dates: { date: Date; label: string; iso: string }[] = [];
-        const today = new Date();
+        const today = new Date(serverTime ?? Date.now());
         today.setHours(0, 0, 0, 0);
         const daysDict = dictionary?.timetable?.days;
         const dayNames: Record<string, string> = {
@@ -600,6 +600,10 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
             d.setDate(d.getDate() + i);
             if (sessionDays.includes(d.getDay())) {
                 const iso = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+                if ((trialCourse.startDate && iso < trialCourse.startDate) ||
+                    (trialCourse.endDate && iso > trialCourse.endDate) ||
+                    exceptions.some(exception => exception.date === iso &&
+                        (!exception.courseIds || exception.courseIds.includes(trialCourse.id)))) continue;
                 const dayName = dayNames[d.getDay()];
                 const label = `${dayName}, ${String(d.getDate()).padStart(2, '0')}.${String(d.getMonth() + 1).padStart(2, '0')}.${d.getFullYear()}`;
                 dates.push({ date: d, label, iso });
@@ -607,7 +611,11 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
             }
         }
         return dates;
-    }, [trialCourse, dictionary]);
+    }, [trialCourse, dictionary, exceptions, serverTime]);
+
+    useEffect(() => {
+        setTrialDate(current => current && !trialDates.some(date => date.iso === current) ? "" : current);
+    }, [trialDates]);
 
     // Dynamic Start Date (Default: Tomorrow)
     const [startDate, setStartDate] = useState(() => {
@@ -878,7 +886,7 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
     const onTrialSubmit = async (data: EnrollmentFormData) => {
         if (!isLegalValid) return;
         const courseId = selectedCourseIds[0];
-        if (!courseId || !trialDate) return;
+        if (!courseId || !trialDates.some(date => date.iso === trialDate)) return;
         if (trialEligible === false) return;
 
         if (isSubmittingRef.current) return;
