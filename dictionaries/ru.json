@@ -1315,7 +1315,7 @@
     "lang_other": "Другой",
     "ui_language": "Язык интерфейса",
     "ui_language_description": "Выберите язык для меню, кнопок и текста.",
-    "ui_language_save": "Сохранить язык",
+    "ui_language_save": "Сохранить",
     "error_title": "Профиль не удалось загрузить.",
     "error_description": "Это не ваша вина. Пожалуйста, попробуйте ещё раз.",
     "error_retry": "Попробовать снова",
