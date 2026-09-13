@@ -18,6 +18,15 @@ export async function confirmRegistration(input: unknown): Promise<BackendAction
     return {status:'confirmed' as const}
   },'staff')
 }
+export async function declineRegistration(input: unknown): Promise<BackendActionResult<{status:'cancelled'}>> {
+  return withBackendSession(async({supabase})=>{
+    const data = staffConfirmationSchema.parse(input)
+    const result = await supabase.rpc('decline_business_booking',{p_id:data.id})
+    checkDatabaseError(result.error)
+    revalidateBackendPages()
+    return {status:'cancelled' as const}
+  },'staff')
+}
 export async function saveManualInvoiceStatus(input: unknown): Promise<BackendActionResult<{saved:true}>> {
   return withBackendSession(async({supabase})=>{
     const data = invoiceStatusInputSchema.parse(input)

@@ -24,6 +24,17 @@ test('all event templates render in five languages, escape data, and stay on con
   assert.equal(mailLink(site,'https://evil.example/','de'),`${site}/de/dashboard`)
 })
 
+test('declined pending requests offer other courses without implying a terminated contract',()=>{
+  for (const locale of MAIL_LOCALES) for (const kind of ['booking_cancelled','trial_cancelled']) {
+    const rendered=renderTransactionalEmail(kind,locale,{name:'Anna'},site)
+    assert.ok(rendered.text.includes(`${site}/${locale}/#courses`))
+    assert.ok(!rendered.text.includes(`/${locale}/dashboard`))
+  }
+  const german=renderTransactionalEmail('booking_cancelled','de',{},site)
+  assert.match(german.text,/Kursanfrage konnte leider nicht bestätigt werden/)
+  assert.doesNotMatch(german.text,/Vertrags|Zahlungsbedingungen|Buchung wurde beendet/)
+})
+
 test('actual Nodemailer delivery is captured by loopback SMTP and acknowledged after acceptance',async()=>{
   const messages=[]
   const sockets=new Set()

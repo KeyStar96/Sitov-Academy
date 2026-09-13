@@ -122,5 +122,83 @@ await test('VPS business model uses local PostgreSQL only',async t=>{
   await db.query("UPDATE courses SET price=99,title='Changed for future bookings' WHERE id=$1",[course])
   assert.deepEqual((await db.query('SELECT amount,unit_price,title_snapshot FROM booking_items WHERE booking_id=$1',[booking])).rows[0],before)
  })
+ const createPending=async(name,trial=false)=>{
+  await actor(null,'service_role')
+  const date=trial?(await db.query(`SELECT d::date::text date FROM generate_series($1::date,$1::date+interval '1 month'-interval '1 day',interval '1 day') d
+   JOIN course_schedules s ON s.course_id=$2 AND s.weekday=extract(isodow FROM d)
+   JOIN courses c ON c.id=s.course_id WHERE (c.start_date IS NULL OR d>=c.start_date) AND (c.end_date IS NULL OR d<=c.end_date)
+   AND NOT EXISTS(SELECT 1 FROM course_exceptions e WHERE e.date=d::date AND (e.course_id IS NULL OR e.course_id=c.id)) ORDER BY d LIMIT 1`,[start,course])).rows[0].date:start
+  return (await db.query('SELECT submit_business_registration($1,$2,$3,$4,$5,$6) id',[
+   JSON.stringify({name,email:`${name.toLowerCase().replaceAll(' ','-')}@example.test`}),[course],date,JSON.stringify({privacy:true,agb:true}),'uk',trial,
+  ])).rows[0].id
+ }
+ const declineJobs=async(id)=>{
+  await actor(null,'service_role')
+  return (await db.query('SELECT kind,recipient,locale,payload FROM private.mail_outbox WHERE dedupe_key LIKE $1 ORDER BY created_at',[`declined:${id}:%`])).rows
+ }
+ for(const trial of [false,true])await t.test(`staff decline of a pending ${trial?'trial':'course'} request is atomic and idempotent`,async()=>{
+  const name=trial?'Declined Trial':'Declined Course'
+  const id=await createPending(name,trial)
+  const before=(await db.query('SELECT status,revision,start_date::text FROM bookings WHERE id=$1',[id])).rows[0]
+  const items=(await db.query('SELECT * FROM booking_items WHERE booking_id=$1 ORDER BY id',[id])).rows
+  await actor(student)
+  await assert.rejects(db.query('SELECT decline_business_booking($1)',[id]),e=>e.code==='42501')
+  await actor(null,'anon')
+  await assert.rejects(db.query('SELECT decline_business_booking($1)',[id]),e=>e.code==='42501')
+  assert.equal((await declineJobs(id)).length,0)
+  await actor(teacher)
+  await db.query('SELECT decline_business_booking($1)',[id])
+  await db.query('SELECT decline_business_booking($1)',[id])
+  assert.deepEqual((await db.query('SELECT status,revision,start_date::text FROM bookings WHERE id=$1',[id])).rows[0],{...before,status:'cancelled',revision:before.revision+1})
+  assert.deepEqual((await db.query('SELECT * FROM booking_items WHERE booking_id=$1 ORDER BY id',[id])).rows,items)
+  assert.equal((await db.query('SELECT count(*)::int n FROM invoice_cases WHERE booking_id=$1',[id])).rows[0].n,0)
+  assert.deepEqual(await declineJobs(id),[{
+   kind:trial?'trial_cancelled':'booking_cancelled',recipient:`${name.toLowerCase().replaceAll(' ','-')}@example.test`,locale:'uk',
+   payload:{name,startDate:before.start_date,courses:items.map(item=>({title:item.title_snapshot}))},
+  }])
+ })
+ await t.test('decline never cancels a confirmed booking or changes its issued invoice',async()=>{
+  await actor(teacher)
+  const before=(await db.query('SELECT * FROM bookings WHERE id=$1',[booking])).rows[0]
+  const invoices=(await db.query('SELECT * FROM invoice_cases WHERE booking_id=$1',[booking])).rows
+  await assert.rejects(db.query('SELECT decline_business_booking($1)',[booking]),e=>e.code==='PT409')
+  assert.deepEqual((await db.query('SELECT * FROM bookings WHERE id=$1',[booking])).rows[0],before)
+  assert.deepEqual((await db.query('SELECT * FROM invoice_cases WHERE booking_id=$1',[booking])).rows,invoices)
+  assert.equal((await declineJobs(booking)).length,0)
+ })
+ await t.test('an issued invoice also protects an anomalously pending request',async()=>{
+  const id=await createPending('Protected Pending')
+  await db.query(`INSERT INTO invoice_cases(person_id,target_month,booking_id,status,invoice_created_at,invoice_reference)
+   SELECT person_id,target_month,id,'created',now(),'LOCAL-TEST' FROM bookings WHERE id=$1`,[id])
+  const before=(await db.query('SELECT * FROM invoice_cases WHERE booking_id=$1',[id])).rows
+  await actor(teacher)
+  await assert.rejects(db.query('SELECT decline_business_booking($1)',[id]),e=>e.code==='PT409')
+  assert.equal((await db.query('SELECT status FROM bookings WHERE id=$1',[id])).rows[0].status,'pending')
+  assert.deepEqual((await db.query('SELECT * FROM invoice_cases WHERE booking_id=$1',[id])).rows,before)
+  assert.equal((await declineJobs(id)).length,0)
+ })
+ await t.test('outbox insertion failure rolls back the decline and its revision',async()=>{
+  const id=await createPending('Queue Rollback')
+  await db.query("UPDATE bookings SET contact_email='invalid address' WHERE id=$1",[id])
+  const before=(await db.query('SELECT * FROM bookings WHERE id=$1',[id])).rows[0]
+  await actor(teacher)
+  await assert.rejects(db.query('SELECT decline_business_booking($1)',[id]),e=>e.code==='23514')
+  assert.deepEqual((await db.query('SELECT * FROM bookings WHERE id=$1',[id])).rows[0],before)
+  assert.equal((await declineJobs(id)).length,0)
+ })
+ await t.test('a previously paused booking remains a no-op without any rejection mail',async()=>{
+  await actor(other)
+  const before=(await db.query("SELECT * FROM bookings WHERE status='cancelled'")).rows[0]
+  assert.ok(before)
+  await actor(teacher)
+  await db.query('SELECT decline_business_booking($1)',[before.id])
+  assert.deepEqual((await db.query('SELECT * FROM bookings WHERE id=$1',[before.id])).rows[0],before)
+  assert.equal((await declineJobs(before.id)).length,0)
+ })
+ await t.test('a missing booking is reported without creating an outbox job',async()=>{
+  await actor(teacher)
+  await assert.rejects(db.query('SELECT decline_business_booking($1)',[uid(999)]),e=>e.code==='P0002')
+  assert.equal((await declineJobs(uid(999))).length,0)
+ })
  }finally{await db.close()}
 })

@@ -3,7 +3,8 @@ jest.mock('next/cache',()=>({revalidatePath:jest.fn()}))
 jest.mock('@/utils/supabase/server',()=>({createClient:jest.fn()}))
 jest.mock('@/lib/admin-registration-data',()=>({loadRegistrationOverview:jest.fn()}))
 import { createClient } from '@/utils/supabase/server'
-import { confirmRegistration, saveManualInvoiceStatus, getRegistrationOverview } from '@/app/actions/admin-registrations'
+import { revalidatePath } from 'next/cache'
+import { confirmRegistration, declineRegistration, saveManualInvoiceStatus, getRegistrationOverview } from '@/app/actions/admin-registrations'
 import { loadRegistrationOverview } from '@/lib/admin-registration-data'
 const id='00000000-0000-4000-8000-000000000001'
 function setup(role:string,userPresent=true){
@@ -18,6 +19,7 @@ it('denies students and signed-out callers before any privileged read or write',
  for(const [role,present,error] of [['student',true,'not_authorized'],['teacher',false,'not_authenticated']] as const){
   const db=setup(role,present)
   expect(await confirmRegistration({source:'registration',id})).toEqual({success:false,error})
+  expect(await declineRegistration({source:'registration',id})).toEqual({success:false,error})
   expect(await getRegistrationOverview()).toEqual({success:false,error})
   expect(db.rpc).not.toHaveBeenCalled();expect(loadRegistrationOverview).not.toHaveBeenCalled()
  }
@@ -35,4 +37,31 @@ it('invoice status uses a separate per-month RPC and never changes payment or re
 it('maps stale cancelled registrations to conflict without returning SQL errors',async()=>{
  const db=setup('teacher');db.rpc.mockResolvedValue({data:null,error:{code:'40001'}})
  expect(await confirmRegistration({source:'registration',id})).toEqual({success:false,error:'conflict'})
+})
+it.each(['registration','monthly_booking'] as const)('staff can decline a %s using only its database ID',async(source)=>{
+ const db=setup('teacher')
+ expect(await declineRegistration({source,id})).toEqual({success:true,data:{status:'cancelled'}})
+ expect(db.rpc).toHaveBeenCalledWith('decline_business_booking',{p_id:id})
+ expect(revalidatePath).toHaveBeenCalledWith('/[lang]/dashboard','layout')
+ expect(revalidatePath).toHaveBeenCalledWith('/[lang]/admin','layout')
+})
+it.each([
+ {source:'registration',id,role:'admin'},
+ {source:'registration',id,email:'different@example.test'},
+ {source:'registration',id,status:'confirmed'},
+ {source:'registration',id:'not-a-uuid'},
+ {source:'unknown',id},
+])('rejects forged or invalid decline input before the RPC: %j',async(input)=>{
+ const db=setup('teacher')
+ expect(await declineRegistration(input)).toEqual({success:false,error:'invalid_input'})
+ expect(db.rpc).not.toHaveBeenCalled()
+ expect(revalidatePath).not.toHaveBeenCalled()
+})
+it.each([
+ ['PT409','conflict'],['P0002','not_found'],['42501','not_authorized'],['XX000','request_failed'],
+])('maps declined booking database error %s without exposing internal details',async(code,error)=>{
+ const db=setup('teacher')
+ db.rpc.mockResolvedValue({data:null,error:{code,message:'Internal private booking details'}})
+ expect(await declineRegistration({source:'registration',id})).toEqual({success:false,error})
+ expect(revalidatePath).not.toHaveBeenCalled()
 })

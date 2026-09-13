@@ -1631,6 +1631,7 @@ export type Database = {
         Args: { p_audio_path: string; p_prompt_id: string }
         Returns: string
       }
+      decline_business_booking: { Args: { p_id: string }; Returns: undefined }
       delete_learning_content: {
         Args: { p_id: string; p_trainer: string }
         Returns: undefined
