@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import TrainerLanguageRequired from '@/components/dashboard/TrainerLanguageRequired'
 import { getVocabularyAssessment } from '@/app/actions/vocabulary'
 import { getDictionary } from '@/lib/dictionary'
 import { createVocabularyTranslator, type VocabularyTranslations } from '@/lib/vocabulary-i18n'
@@ -12,6 +13,7 @@ export default async function VocabularyAssessPage({
   searchParams: Promise<{ lesson?: string }>
 }) {
   const { lang, level } = await params
+  if (lang === 'de') return <TrainerLanguageRequired lang={lang} />
   const { lesson } = await searchParams
   const decodedLevel = decodeURIComponent(level)
   const decodedLesson = lesson ?? ''
@@ -20,7 +22,7 @@ export default async function VocabularyAssessPage({
   const t = createVocabularyTranslator(translations)
   const overviewHref = `/${lang}/dashboard/level/${encodeURIComponent(decodedLevel)}/vocabulary`
 
-  const assessment = decodedLesson ? await getVocabularyAssessment(decodedLesson, decodedLevel) : { learnerId: null, cards: [] }
+  const assessment = decodedLesson ? await getVocabularyAssessment(decodedLesson, decodedLevel, lang) : { learnerId: null, cards: [] }
   const cardsToAssess = assessment.cards
 
   return (

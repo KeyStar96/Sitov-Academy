@@ -21,7 +21,7 @@ export async function loadLevelAccessProfile(
   try {
     const { data, error } = await supabase
       .from('profiles')
-      .select('role, allowed_levels, student_trainer_access(level,trainer,enabled,allowed_lessons)')
+      .select('role, ui_language, allowed_levels, student_trainer_access(level,trainer,enabled,allowed_lessons)')
       .eq('id', userId)
       .single()
 

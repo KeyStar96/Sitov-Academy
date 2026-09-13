@@ -1,3 +1,4 @@
+import TrainerLanguageRequired from '@/components/dashboard/TrainerLanguageRequired'
 import { getPronunciationConversations } from '@/app/actions/pronunciation-conversations'
 import { getDictionary } from '@/lib/dictionary'
 import { getPronunciationTranslations } from '@/lib/pronunciation-i18n'
@@ -6,6 +7,7 @@ import PronunciationPractice from '@/components/audio/PronunciationPractice'
 import PronunciationInbox from '@/components/audio/PronunciationInbox'
 export default async function PronunciationDashboard({ params }: { params: Promise<{ lang: string; level: string }> }) {
  const { lang, level } = await params
+  if (lang === 'de') return <TrainerLanguageRequired lang={lang} />
  const decodedLevel = decodeURIComponent(level)
  const dict = await getDictionary(lang)
  const translations = getPronunciationTranslations(lang, dict.pronunciation)

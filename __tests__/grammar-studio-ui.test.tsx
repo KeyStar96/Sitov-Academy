@@ -26,7 +26,7 @@ const fill: StudentExercise = {
 const authored: GrammarExerciseRow = {
   id: item.id, level: 'A1.1', lesson: '01', topic: 'Artikel', type: 'multiple_choice',
   content: { ...item.content, instruction: 'Wähle den Artikel.' }, created_at: '2026-09-10T00:00:00Z',
-  hint_ru: null, hint_tr: null, solution_audio_url: null,
+  hint: null, solution_audio_url: null,
 }
 beforeEach(() => {
   jest.restoreAllMocks()
@@ -50,12 +50,10 @@ it('positions each new card below the actual sticky header and preserves keyboar
   expect(firstHeading).toHaveFocus()
   expect(window.scrollTo).toHaveBeenLastCalledWith({ top: 284, behavior: 'smooth' })
 
-  await user.click(screen.getByRole('button', { name: /Wort .ein Tisch. auswählen/ }))
+  await user.type(screen.getByRole('textbox', { name: 'Lücke' }), 'ein Tisch')
   await user.click(screen.getByRole('button', { name: 'Antwort prüfen' }))
   expect(window.scrollTo).toHaveBeenCalledTimes(1)
-  expect(screen.getByRole('button', { name: /Wort .ein Tisch. auswählen/ })).toBeDisabled()
-  expect(screen.getByRole('button', { name: /Wort .ein Tisch. auswählen/ })).toHaveAttribute('aria-pressed', 'true')
-  expect(screen.getByRole('button', { name: /Wort .eine Tisch. auswählen/ })).toBeDisabled()
+  expect(screen.queryByRole('textbox', { name: 'Lücke' })).not.toBeInTheDocument()
 
   const next = screen.getByRole('button', { name: 'Nächste Übung' })
   expect(next).toHaveFocus()
@@ -91,11 +89,15 @@ it.each([
   jest.mocked(recordExerciseAttempt).mockResolvedValueOnce({ success: true, attempts: 1, isCorrect: false })
   render(<ExerciseClient exercises={[exercise]} lang="de" level="A1.1" />)
   await user.click(screen.getByRole('button', { name: 'Mit offenen Aufgaben starten' }))
-  await user.click(screen.getByRole('button', { name: new RegExp(`Wort .${wrong}. auswählen`) }))
+  if (exercise.type === 'fill_in_blank') await user.type(screen.getByRole('textbox', { name: 'Lücke' }), wrong)
+  else await user.click(screen.getByRole('button', { name: new RegExp(`Wort .${wrong}. auswählen`) }))
   await user.click(screen.getByRole('button', { name: 'Antwort prüfen' }))
   expect(HTMLElement.prototype.scrollIntoView).not.toHaveBeenCalled()
 
-  await user.click(screen.getByRole('button', { name: new RegExp(`Wort .${answer}. auswählen`) }))
+  if (exercise.type === 'fill_in_blank') {
+    await user.clear(screen.getByRole('textbox', { name: 'Lücke' }))
+    await user.type(screen.getByRole('textbox', { name: 'Lücke' }), answer)
+  } else await user.click(screen.getByRole('button', { name: new RegExp(`Wort .${answer}. auswählen`) }))
   await user.click(screen.getByRole('button', { name: 'Antwort prüfen' }))
   const next = screen.getByRole('button', { name: 'Lerneinheit abschließen' })
   expect(next).toHaveFocus()

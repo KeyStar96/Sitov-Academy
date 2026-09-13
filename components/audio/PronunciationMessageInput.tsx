@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { Loader2, Mic, Send, Square, Trash2 } from 'lucide-react'
 import { sendPronunciationMessage } from '@/app/actions/pronunciation-conversations'
@@ -14,18 +14,23 @@ interface PronunciationMessageInputProps {
   conversationId: string
   t: PronunciationTranslator
   onMessageSent: () => Promise<void>
+  onBusyChange?: (busy: boolean) => void
 }
 
-export default function PronunciationMessageInput({ conversationId, t, onMessageSent }: PronunciationMessageInputProps) {
+export default function PronunciationMessageInput({ conversationId, t, onMessageSent, onBusyChange }: PronunciationMessageInputProps) {
   const router = useRouter()
   const [text, setText] = useState('')
   const [sending, setSending] = useState(false)
   const [notice, setNotice] = useState<'success' | 'error' | null>(null)
   const recorder = useAudioRecorder()
   const uploaded = useRef<{ blob: Blob; path: string } | null>(null)
+  const sendPending = useRef(false)
+  const busy = sending || recorder.isRecording || recorder.status === 'requesting'
+  useEffect(() => { onBusyChange?.(busy) }, [busy, onBusyChange])
 
   async function send() {
-    if (sending || recorder.isRecording || (!text.trim() && !recorder.audioBlob)) return
+    if (sendPending.current || recorder.isRecording || recorder.status === 'requesting' || (!text.trim() && !recorder.audioBlob)) return
+    sendPending.current = true
     setSending(true)
     setNotice(null)
     try {
@@ -45,12 +50,14 @@ export default function PronunciationMessageInput({ conversationId, t, onMessage
       recorder.reset()
       uploaded.current = null
       setNotice('success')
-      await onMessageSent()
-      router.refresh()
+      // A failed refresh must not turn an already committed message into a failure.
+      try { await onMessageSent(); router.refresh() }
+      catch (error) { console.error('Refreshing sent conversation failed', error) }
     } catch (error) {
       console.error('Sending conversation message failed', error)
       setNotice('error')
     } finally {
+      sendPending.current = false
       setSending(false)
     }
   }
@@ -67,9 +74,9 @@ export default function PronunciationMessageInput({ conversationId, t, onMessage
         onChange={(event) => setText(event.target.value)}
         disabled={sending}
         maxLength={5000}
-        rows={3}
+        rows={2}
         placeholder={t('reply_placeholder')}
-        className="w-full resize-y rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-4 text-base focus:outline-2 focus:outline-[var(--accent)] disabled:opacity-50"
+        className="min-h-12 w-full resize-y rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-3 text-base focus:outline-2 focus:outline-[var(--accent)] disabled:opacity-50"
       />
       {recorder.isRecording && (
         <LiveWaveform levels={recorder.levels} isActive elapsedSeconds={recorder.elapsedSeconds} analyserRef={recorder.analyserRef} ariaLabel={t('waveform_live_aria')} />
@@ -79,7 +86,7 @@ export default function PronunciationMessageInput({ conversationId, t, onMessage
           <div className="min-w-0 flex-1">
             <WaveformPlayer src={recorder.audioUrl} blob={recorder.audioBlob} t={t} label={t('your_recording')} compact />
           </div>
-          <button type="button" className={button} disabled={sending} onClick={recorder.reset} aria-label={t('delete_recording_aria')}>
+          <button type="button" className={button} disabled={sending} onClick={() => { recorder.reset(); uploaded.current = null }} aria-label={t('delete_recording_aria')}>
             <Trash2 size={20} />
           </button>
         </div>
@@ -103,7 +110,7 @@ export default function PronunciationMessageInput({ conversationId, t, onMessage
         )}
         <button
           type="button"
-          disabled={sending || recorder.isRecording || (!text.trim() && !recorder.audioBlob)}
+          disabled={busy || (!text.trim() && !recorder.audioBlob)}
           onClick={() => void send()}
           className="ml-auto inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-5 py-3 text-base font-semibold text-[var(--accent-foreground)] disabled:opacity-50"
         >

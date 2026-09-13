@@ -1,5 +1,9 @@
 # Sitov Academy — Pedagogy & UI/UX Research
 
+## 2026-09-13 — Gemini-Review, Inhaltsfreigaben und bidirektionales Lernen
+
+Freigaben müssen eindeutige pädagogische Einheiten mit Namen zeigen und dürfen Schülerzeilen nicht vergrößern. Leere Inhaltsauswahl bedeutet gesperrt; einzelne Lesetexte werden über stabile IDs verwaltet. Einstufung und Wiederholung prüfen Deutsch→Interfacesprache und Interfacesprache→Deutsch unabhängig. Deutsch als Interfacesprache sperrt Lerntrainer mit Weg zur Sprachwahl; Lehrkräfte verwalten weiter auf Deutsch. Satzkorrekturen zeigen Originaleingabe und darunter den korrekten Satz mit roten Zielzeichen, ohne Durchstreichen. Gemeinsame Farbvariablen sichern Hell/Dunkel und hohen Kontrast. Audio-Entwürfe bleiben beim Schließen erhalten. [Befunde und Prüfnachweise](docs/gemini-review-2026-09-13.md).
+
 ## 2026-09-10 — Trainer-Freigaben pro Schüler und Niveau
 
 Freigaben bestehen aus zwei Ebenen: freigegebenes Niveau und darin erlaubter Trainer. Neue Overrides dürfen niemals selbstständig ein gesperrtes Niveau öffnen. Ein fehlender Override erhält den bisherigen Zugang; Lehrer/Admins behalten Vollzugriff. Bei gesperrten Trainern Schloss und lokalisierte Erklärung mit lesbaren Kontrasten anzeigen. Sperrungen müssen in UI, Direktrouten und Datenbank greifen; bisherige Lernstände und Gespräche bleiben gespeichert. [Umfang und Prüfnachweise](docs/trainer-access-2026-09-10.md).

@@ -1,6 +1,8 @@
 'use client'
 
 import Link from 'next/link'
+import TrainerLanguageRequired from './TrainerLanguageRequired'
+import { getTrainerLanguageCopy } from '@/lib/trainer-language-i18n'
 import { BookOpen, Video, Mic, PenTool, Lock } from 'lucide-react'
 import { hasTrainerAccess, type LevelAccessProfile } from '@/lib/access/levels'
 import { createDashboardTranslator, type DashboardTranslations } from '@/lib/dashboard-i18n'
@@ -44,18 +46,21 @@ export default function LevelTrainerCards({ lang, level, profile, translations }
   lang: string; level: string; profile: LevelAccessProfile | null; translations: DashboardTranslations
 }) {
   const t = createDashboardTranslator(translations)
+  const languageLocked = lang === 'de'
+  const languageCopy = getTrainerLanguageCopy(lang)
   return (
     <div className="space-y-8">
+      {languageLocked && <TrainerLanguageRequired lang={lang} />}
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-6">
         {CATEGORIES.map((cat) => {
-          const locked = !hasTrainerAccess(profile, decodeURIComponent(level), cat.id)
+          const locked = languageLocked || !hasTrainerAccess(profile, decodeURIComponent(level), cat.id)
           const content = <>
             <div className={`flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl ${locked ? 'bg-[var(--surface-muted)] text-[var(--muted)]' : cat.color}`}>
               {locked ? <Lock size={32} aria-hidden="true" /> : <cat.icon size={32} aria-hidden="true" />}
             </div>
             <div className="min-w-0">
               <h2 className="mb-2 break-words text-xl font-bold text-[var(--foreground)] sm:text-2xl">{t(cat.titleKey)}</h2>
-              <p className="text-base leading-relaxed text-[var(--muted)] sm:text-lg">{locked ? t('trainer_locked_text', { level: decodeURIComponent(level) }) : t(cat.descKey)}</p>
+              <p className="text-base leading-relaxed text-[var(--muted)] sm:text-lg">{languageLocked ? languageCopy.locked : locked ? t('trainer_locked_text', { level: decodeURIComponent(level) }) : t(cat.descKey)}</p>
               {locked && <span className="mt-4 inline-flex items-center gap-2 rounded-full border border-[var(--border)] px-3 py-1 font-semibold text-[var(--foreground)]"><Lock size={16} aria-hidden="true" />{t('trainer_locked_badge')}</span>}
             </div>
           </>

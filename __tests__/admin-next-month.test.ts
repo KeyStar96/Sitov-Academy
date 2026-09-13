@@ -60,8 +60,8 @@ describe('next-month grouping', () => {
     )).toEqual({ kind: 'none' })
   })
   it('lists paused students separately and keeps one canonical note per student', () => {
-    const older: TeacherStudentNote = { id: 'a', student_id: studentA, teacher_id: studentB, note_text: 'alt', discount_percent: 0 }
-    const newer: TeacherStudentNote = { id: 'b', student_id: studentA, teacher_id: studentB, note_text: 'neu', discount_percent: 10 }
+    const older: TeacherStudentNote = { id: 'a', student_id: studentA, teacher_id: studentB, note_text: 'alt', discount_percent: 0, is_blackboard: false }
+    const newer: TeacherStudentNote = { id: 'b', student_id: studentA, teacher_id: studentB, note_text: 'neu', discount_percent: 10, is_blackboard: false }
     expect(pickCanonicalNote([newer, older])?.id).toBe('a')
     expect(notesByStudent([older, newer])[studentA].note_text).toBe('alt')
     const overview = buildNextMonthOverview({
@@ -71,6 +71,12 @@ describe('next-month grouping', () => {
     })
     expect(overview.groups).toEqual([])
     expect(overview.paused[0]?.note?.note_text).toBe('alt')
+  })
+  it('keeps an explicitly marked empty board ahead of an older legacy note', () => {
+    const legacy: TeacherStudentNote = { id: 'a', student_id: studentA, teacher_id: studentB, note_text: 'Legacy history', discount_percent: 5, is_blackboard: false }
+    const central: TeacherStudentNote = { ...legacy, id: 'z', note_text: BLACKBOARD_EMPTY_NOTE, is_blackboard: true }
+    expect(pickCanonicalNote([legacy, central])).toEqual(central)
+    expect(displayBlackboardNote(notesByStudent([legacy, central])[studentA].note_text)).toBe('')
   })
 })
 

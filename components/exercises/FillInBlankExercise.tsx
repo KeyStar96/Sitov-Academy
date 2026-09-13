@@ -10,6 +10,7 @@ import type { ExerciseTranslator } from '@/lib/exercise-i18n'
 import type { FillInBlankExercise as FillInBlankExerciseData } from '@/lib/types/exercise'
 import { cn } from '@/lib/utils'
 import VisualDiff from '@/components/exercises/VisualDiff'
+import { normalizeGrammarAnswer } from '@/lib/grammar-validation'
 
 interface FillInBlankExerciseProps {
   exercise: FillInBlankExerciseData
@@ -21,31 +22,7 @@ interface FillInBlankExerciseProps {
   lang: string
 }
 
-function startsUppercase(value: string): boolean {
-  const first = value.trim().charAt(0)
-  return first.length > 0 && first === first.toLocaleUpperCase('de-DE') && first !== first.toLocaleLowerCase('de-DE')
-}
-
-function isSameWord(left: string, right: string, isCaseSensitive: boolean): boolean {
-  let l = left.trim().replace(/\s+/g, ' ').replace(/[.,!?]+$/, '')
-  let r = right.trim().replace(/\s+/g, ' ').replace(/[.,!?]+$/, '')
-  if (!isCaseSensitive) {
-    l = l.toLocaleLowerCase('de-DE')
-    r = r.toLocaleLowerCase('de-DE')
-  }
-  return l === r
-}
-
-/**
- * Lückentext mit Texteingabe (Input).
- *
- * Geragogik-Entscheidungen:
- * - Freie Texteingabe, da pädagogisch sinnvoller als reine Auswahl.
- * - Smarte Validierung: Trimmt Leerzeichen und ignoriert Groß-/Kleinschreibung bei Wörtern, die nicht großgeschrieben werden müssen.
- * - Fehlerhafte Eingaben rütteln nicht auf, sondern bleiben stehen mit Fehler-Feedback.
- * - Ab zwei Fehlversuchen erscheint ein Smart Hint oder muttersprachlicher Hinweis.
- * - Die gelöste Lücke bekommt einen Tap-Button für die Aussprache.
- */
+/** Free typing uses the same normalization as the server-side grammar scorer. */
 export default function FillInBlankExerciseCard({
   exercise,
   t,
@@ -96,9 +73,8 @@ export default function FillInBlankExerciseCard({
   const handleCheck = (): void => {
     if (!inputValue || isSolved) return
 
-    const isCaseSensitive = startsUppercase(exercise.content.correct_answer)
-    const isExact = isSameWord(inputValue, exercise.content.correct_answer, isCaseSensitive)
-    const isAlternative = !isExact && (exercise.content.alternative_answers?.some(alt => isSameWord(inputValue, alt, isCaseSensitive)) ?? false)
+    const isExact = normalizeGrammarAnswer(inputValue) === normalizeGrammarAnswer(exercise.content.correct_answer)
+    const isAlternative = !isExact && (exercise.content.alternative_answers?.some(alt => normalizeGrammarAnswer(inputValue) === normalizeGrammarAnswer(alt)) ?? false)
     const isCorrect = isExact || isAlternative
 
     onAttempt(isCorrect, smartHint !== null, inputValue)
@@ -116,7 +92,6 @@ export default function FillInBlankExerciseCard({
     setShowRetryNotice(true)
   }
 
-  const gapContent = isSolved ? exercise.content.correct_answer : inputValue
 
   return (
     <div className="p-5 sm:p-10">
@@ -127,13 +102,16 @@ export default function FillInBlankExerciseCard({
         {!isSolved ? (
           <input
             type="text"
+            aria-label={t('blank_label')}
+            autoComplete="off"
+            spellCheck={false}
             value={inputValue}
             onChange={handleChange}
             placeholder={t('blank_label')}
             className={cn(
-              'mx-2 inline-flex w-32 max-w-full text-center rounded-xl border-b-4 px-3 py-1 align-middle transition-colors sm:w-48 sm:px-4 focus:outline-none focus:border-[var(--violet)]',
+              'mx-2 inline-flex min-h-12 w-32 max-w-full text-center rounded-xl border-b-4 px-3 py-1 align-middle transition-colors sm:w-48 sm:px-4 focus:outline-none focus:border-[var(--violet)]',
               hasError
-                ? 'border-red-500 bg-red-50 text-red-700'
+                ? 'border-[var(--danger)] bg-[var(--surface)] text-[var(--foreground)]'
                 : 'border-[var(--border)] bg-[var(--surface)] text-[var(--foreground)]'
             )}
             onKeyDown={(e) => {
@@ -163,10 +141,12 @@ export default function FillInBlankExerciseCard({
           <Info className="mt-1 h-8 w-8 shrink-0 text-[var(--violet)]" aria-hidden="true" />
           <div className="flex-1 w-full">
             <p className="text-xl font-bold text-[var(--foreground)]">{t('try_again')}</p>
-            <p className="mt-1 text-lg leading-relaxed text-[var(--foreground)]">{t('try_again_detail')}</p>
+            <p className="mt-1 text-lg leading-relaxed text-[var(--foreground)]">{t('typing_retry_detail')}</p>
             <div className="mt-4 w-full rounded-xl border border-[var(--border)] bg-[var(--surface)] p-4 shadow-sm">
-              <span className="mb-2 block text-sm font-semibold text-[var(--muted)]">{t('your_answer_label') || 'Deine Eingabe:'}</span>
-              <VisualDiff actual={inputValue} expected={exercise.content.correct_answer} />
+              <span className="mb-2 block text-sm font-semibold text-[var(--muted)]">{t('your_answer_label')}</span>
+              <p className="whitespace-pre-wrap break-words text-lg text-[var(--foreground)]">{exercise.content.text_before}{inputValue}{exercise.content.text_after}</p>
+              <span className="mb-2 mt-4 block text-base font-semibold text-[var(--muted)]">{t('correct_sentence_label')}</span>
+              <VisualDiff actual={`${exercise.content.text_before}${inputValue}${exercise.content.text_after}`} expected={fullSentence} />
             </div>
           </div>
         </div>
@@ -198,10 +178,10 @@ export default function FillInBlankExerciseCard({
           </div>
 
           {usedAlternative && (
-            <div className="mt-4 flex items-start gap-3 rounded-xl border border-blue-200 bg-blue-50 p-4 text-blue-800">
+            <div className="mt-4 flex items-start gap-3 rounded-xl border border-[var(--border)] bg-[var(--surface)] p-4 text-[var(--foreground)]">
               <Info className="mt-0.5 h-5 w-5 shrink-0" aria-hidden="true" />
               <p>
-                {t('alternative_answer_hint') || 'Richtig! Oft wird hierfür auch diese Form verwendet:'} <br />
+                {t('alternative_answer_hint')} <br />
                 <strong>{exercise.content.correct_answer}</strong>
               </p>
             </div>

@@ -26,11 +26,11 @@ export async function getPronunciationPrompts(level: string): Promise<Pronunciat
 
   const { data, error } = await supabase.from('pronunciation_prompts').select('*').eq('level', level).eq('is_active', true).order('sort_order')
   if (error) { console.error('Loading pronunciation texts failed', { level, message: error.message }); return getCatalogPrompts(level) }
-  return (data ?? []).map(mapPrompt).filter((prompt): prompt is PronunciationPrompt => prompt !== null && (!allowedLessons || allowedLessons.includes(prompt.lesson)))
+  return (data ?? []).map(mapPrompt).filter((prompt): prompt is PronunciationPrompt => prompt !== null && (!allowedLessons || allowedLessons.includes(prompt.id)))
  } catch (error) { console.error('Loading pronunciation texts failed', error); return [] }
 }
-export interface SavePronunciationPromptInput { id?: string; level: string; lesson: string; title: string; text: string; focus: string; isActive: boolean }
-const promptSchema = z.object({ id: z.uuid().optional(), level: z.enum(ACCESS_LEVELS), lesson: z.string().trim().min(3).max(120), title: z.string().trim().min(3).max(120), text: z.string().trim().min(80).max(3000), focus: z.string().trim().max(200), isActive: z.boolean() })
+export interface SavePronunciationPromptInput { id?: string; level: string; lesson?: string; title: string; text: string; focus: string; isActive: boolean }
+const promptSchema = z.object({ id: z.uuid().optional(), level: z.enum(ACCESS_LEVELS), lesson: z.string().trim().min(3).max(120).optional(), title: z.string().trim().min(3).max(120), text: z.string().trim().min(80).max(3000), focus: z.string().trim().max(200), isActive: z.boolean() })
 async function staffClient() {
  const supabase = await createClient()
  const { data: { user } } = await supabase.auth.getUser()
@@ -54,7 +54,7 @@ export async function savePronunciationPrompt(input: SavePronunciationPromptInpu
   const supabase = await staffClient()
   if (!supabase) return { success: false, reason: 'not_authenticated' }
   const value = parsed.data
-  const payload = { level: value.level, lesson: value.lesson, cefr_level: cefrFamilyFromLevel(value.level)!, title: value.title, sentence_de: value.text, focus: value.focus || null, is_active: value.isActive }
+  const payload = { level: value.level, ...(value.lesson ? { lesson: value.lesson } : {}), cefr_level: cefrFamilyFromLevel(value.level)!, title: value.title, sentence_de: value.text, focus: value.focus || null, is_active: value.isActive }
   const query = value.id ? supabase.from('pronunciation_prompts').update(payload).eq('id', value.id) : supabase.from('pronunciation_prompts').insert({ ...payload, sort_order: 100 })
   const { data, error } = await query.select('id').single()
   if (error) { console.error('Saving pronunciation text failed', error.message); return { success: false, reason: 'save_failed' } }

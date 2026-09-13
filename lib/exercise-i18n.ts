@@ -44,6 +44,8 @@ export const EXERCISE_FALLBACKS = {
   error_title: 'Diese Übungen konnten leider nicht geladen werden.',
   error_description: 'Das lag nicht an dir. Versuche es bitte noch einmal.',
   error_retry: 'Nochmal versuchen',
+  typing_retry_detail: 'Vergleiche deine Eingabe mit dem richtigen Satz und versuche es erneut.',
+  correct_sentence_label: 'Der richtige Satz:',
   your_answer_label: 'Deine Eingabe:',
   alternative_answer_hint: 'Richtig! Oft wird hierfür auch diese Form verwendet:',
 } as const

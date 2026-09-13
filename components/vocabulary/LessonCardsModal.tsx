@@ -52,12 +52,14 @@ function toDisplayCard(card: LessonCardView | CustomVocabularyCard): DisplayCard
 export default function LessonCardsModal({
   lesson,
   level,
+  uiLanguage,
   translations = {},
   onClose,
   onCardAdded,
 }: {
   lesson: string
   level: string
+  uiLanguage?: string
   translations?: VocabularyTranslations
   onClose: () => void
   /** Wird nach erfolgreicher manueller Übernahme aufgerufen, damit die Lektionsliste dahinter aktualisiert. */
@@ -92,7 +94,7 @@ export default function LessonCardsModal({
     let cancelled = false
     setCardsState('loading')
 
-    void getLessonCards(lesson, level)
+    void getLessonCards(lesson, level, uiLanguage)
       .then((cards) => {
         if (!cancelled) setCardsState(cards)
       })
@@ -104,7 +106,7 @@ export default function LessonCardsModal({
     return () => {
       cancelled = true
     }
-  }, [lesson, level])
+  }, [lesson, level, uiLanguage])
 
   useEffect(() => {
     const previousFocus = document.activeElement

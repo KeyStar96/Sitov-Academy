@@ -28,10 +28,11 @@ function session(role: string | null = 'student', signedIn = true, queryError: {
   }
   const profileChain = { select: jest.fn().mockReturnThis(), eq: jest.fn().mockReturnThis(), single: jest.fn().mockResolvedValue({ data: { role }, error: null }) }
   const from = jest.fn((table: string) => table === 'profiles' ? profileChain : chain)
-  const client = { auth: { getUser: jest.fn().mockResolvedValue({ data: { user: signedIn ? { id: uid } : null }, error: null }) }, from }
+  const rpc = jest.fn().mockResolvedValue({ data: [], error: queryError })
+  const client = { auth: { getUser: jest.fn().mockResolvedValue({ data: { user: signedIn ? { id: uid } : null }, error: null }) }, from, rpc }
   // The fake is deliberately narrow; production queries use Database generics.
   jest.mocked(createClient).mockResolvedValue(client as unknown as Awaited<ReturnType<typeof createClient>>)
-  return { chain, from, client, profileChain }
+  return { chain, from, client, profileChain, rpc }
 }
 
 beforeEach(() => jest.clearAllMocks())
@@ -82,21 +83,45 @@ describe('monthly backend action authorization', () => {
     await createTeacherNote({ student_id: other, note_text: '  Hallo\r\nWelt  ', discount_percent: 12.5 })
     expect(chain.insert).toHaveBeenCalledWith({ student_id: other, teacher_id: uid, note_text: 'Hallo\nWelt', discount_percent: 12.5 })
   })
-  it('saves a discount-only blackboard row with a placeholder note', async () => {
-    const { chain } = session('teacher')
-    const saved = { id: other, student_id: other, teacher_id: uid, note_text: '\u2060', discount_percent: 10 }
-    chain.single.mockResolvedValue({ data: saved, error: null })
-    expect(await saveBlackboardNote({ student_id: other, note_id: null, note_text: '  ', discount_percent: 10 }))
+  it('saves through the canonical RPC without overwriting a hidden legacy discount', async () => {
+    const { chain, rpc } = session('teacher')
+    const saved = { id: other, student_id: other, teacher_id: uid, note_text: 'Notiz', discount_percent: 10, is_blackboard: true }
+    rpc.mockResolvedValue({ data: [saved], error: null })
+    expect(await saveBlackboardNote({ student_id: other, note_id: other, note_text: '  Notiz  ', discount_percent: 0 }))
       .toEqual({ success: true, data: saved })
-    expect(chain.insert).toHaveBeenCalledWith({
-      student_id: other, teacher_id: uid, note_text: '\u2060', discount_percent: 10,
+    expect(rpc).toHaveBeenCalledWith('save_student_blackboard', {
+      p_student_id: other, p_expected_note_id: other, p_note_text: 'Notiz',
     })
+    expect(chain.insert).not.toHaveBeenCalled()
+    expect(chain.update).not.toHaveBeenCalled()
   })
   it('does not insert an empty blackboard', async () => {
-    const { chain } = session('teacher')
+    const { chain, rpc } = session('teacher')
     expect(await saveBlackboardNote({ student_id: other, note_id: null, note_text: '', discount_percent: 0 }))
       .toEqual({ success: true, data: null })
     expect(chain.insert).not.toHaveBeenCalled()
+    expect(rpc).toHaveBeenCalledWith('save_student_blackboard', { p_student_id: other, p_expected_note_id: null, p_note_text: '' })
+  })
+  it('keeps the canonical ID when clearing a board instead of deleting the row', async () => {
+    const { chain, rpc } = session('teacher')
+    const cleared = { id: other, student_id: other, teacher_id: uid, note_text: '\u2060', discount_percent: 0, is_blackboard: true }
+    rpc.mockResolvedValue({ data: [cleared], error: null })
+    expect(await saveBlackboardNote({ student_id: other, note_id: other, note_text: '', discount_percent: 0 }))
+      .toEqual({ success: true, data: cleared })
+    expect(chain.delete).not.toHaveBeenCalled()
+  })
+  it('reports a stale or foreign note ID as a safe conflict', async () => {
+    const { rpc } = session('teacher')
+    rpc.mockResolvedValue({ data: null, error: { code: '40001', message: 'Private note details' } })
+    expect(await saveBlackboardNote({ student_id: other, note_id: course, note_text: 'Retain draft', discount_percent: 0 }))
+      .toEqual({ success: false, error: 'conflict' })
+    expect(revalidatePath).not.toHaveBeenCalled()
+  })
+  it('rejects student blackboard saves before making an RPC call', async () => {
+    const { rpc } = session('student')
+    expect(await saveBlackboardNote({ student_id: other, note_id: null, note_text: 'Forged', discount_percent: 0 }))
+      .toEqual({ success: false, error: 'not_authorized' })
+    expect(rpc).not.toHaveBeenCalled()
   })
   it('denies the next-month staff overview to students', async () => {
     session('student')

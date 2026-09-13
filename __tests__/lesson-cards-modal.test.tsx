@@ -68,3 +68,9 @@ it('clears reset progress immediately and rolls it back if persistence fails', a
   expect(screen.getByRole('alert')).toHaveTextContent(VOCABULARY_FALLBACKS.error_description)
   expect(onCardAdded).not.toHaveBeenCalled()
 })
+
+it('requests lesson translations using the current interface language', async () => {
+  render(<LessonCardsModal lesson="Lektion 1" level="A1.1" uiLanguage="uk" onClose={onClose} onCardAdded={onCardAdded} />)
+  await screen.findByText('house')
+  expect(getLessonCards).toHaveBeenCalledWith('Lektion 1', 'A1.1', 'uk')
+})

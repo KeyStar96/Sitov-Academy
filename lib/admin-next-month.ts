@@ -13,7 +13,11 @@ export function isCourseAvailableInNextMonth(
 
 export function pickCanonicalNote(notes: TeacherStudentNote[]): TeacherStudentNote | null {
   if (notes.length === 0) return null
-  return [...notes].sort((left, right) => left.id.localeCompare(right.id))[0]
+  // The explicit marker remains stable when legacy notes are added later. Keep
+  // the old order only as a fallback for notes created outside the board flow.
+  return [...notes].sort((left, right) =>
+    Number(right.is_blackboard === true) - Number(left.is_blackboard === true)
+      || left.id.localeCompare(right.id))[0]
 }
 
 export function notesByStudent(notes: TeacherStudentNote[]): Record<string, TeacherStudentNote> {

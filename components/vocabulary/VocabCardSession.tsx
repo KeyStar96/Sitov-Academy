@@ -184,22 +184,25 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
               <div className="learning-divider" />
               <p className={sentenceResult.correct ? 'learning-success' : 'learning-error'} role="status">{t(sentenceResult.correct ? 'sentence_correct' : 'sentence_incorrect')}</p>
               {sentenceResult.isAlternative && (
-                <div className="mt-3 flex items-start gap-3 rounded-xl border border-blue-200 bg-blue-50 p-4 text-blue-800">
-                  <Info className="mt-0.5 h-5 w-5 shrink-0" aria-hidden="true" />
+                <div className="mt-3 flex items-start gap-3 rounded-xl border border-[var(--border)] bg-[var(--surface-muted)] p-4 text-[var(--foreground)]">
+                  <Info className="mt-0.5 h-5 w-5 shrink-0 text-[var(--violet)]" aria-hidden="true" />
                   <p>
-                    {t('alternative_answer_hint') || 'Richtig! Oft wird hierfür auch diese Form verwendet:'} <br />
-                    <strong>{sentenceResult.solution}</strong>
+                    {t('alternative_answer_hint')}
                   </p>
                 </div>
               )}
               {!sentenceResult.correct && (
-                <div className="mt-4 mb-6 rounded-2xl border-2 border-red-200 bg-red-50 p-4">
-                  <span className="learning-eyebrow mb-2 text-red-600 block">{t('your_answer_label') || 'Deine Eingabe'}</span>
-                  <VisualDiff actual={answer} expected={sentenceResult.solution} />
+                <div className="my-4 w-full rounded-2xl border border-[var(--border)] bg-[var(--surface-muted)] p-4 text-left" lang="de">
+                  <span className="learning-eyebrow mb-2 block">{t('your_answer_label')}</span>
+                  <p className="learning-sentence whitespace-pre-wrap break-words">{answer}</p>
+                  <span className="learning-eyebrow mb-2 mt-5 block">{t('correct_sentence_label')}</span>
+                  <VisualDiff actual={answer} expected={sentenceResult.solution} className="learning-sentence" />
                 </div>
               )}
-              <span className="learning-eyebrow">{t('correct_sentence_label')}</span>
-              <p className="learning-sentence" lang="de">{sentenceResult.solution}</p>
+              {sentenceResult.correct && <>
+                <span className="learning-eyebrow">{t('correct_sentence_label')}</span>
+                <p className="learning-sentence" lang="de">{sentenceResult.solution}</p>
+              </>}
             </> : revealed && <>
               <div className="learning-divider" />
               <p className={cn('learning-solution', isToGerman && articleColorClass(current.card.article))}>{isToGerman ? targetWord : current.translation || t('no_translation')}</p>

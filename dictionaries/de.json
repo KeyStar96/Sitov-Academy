@@ -1511,7 +1511,9 @@
     "loading": "Deine Einreichungen werden geladen …",
     "error_title": "Das Aussprache-Training konnte leider nicht geladen werden.",
     "error_description": "Das lag nicht an dir. Versuche es bitte noch einmal.",
-    "error_retry": "Nochmal versuchen"
+    "error_retry": "Nochmal versuchen",
+    "close_conversation": "Gespräch schließen",
+    "refresh_failed": "Die Nachrichten konnten nicht aktualisiert werden. Bitte versuche es erneut."
   },
   "vocabulary": {
     "title": "Vokabel-Trainer",
@@ -1656,7 +1658,9 @@
     "method_progress": "Eine richtige Antwort verschiebt diese Abfragerichtung eine Phase weiter. Bei einer falschen Antwort geht es eine Phase zurück, höchstens bis Phase 1.",
     "method_intervals": "Zwischen richtigen Antworten liegen 1, 3, 9, 29 und 90 Tage. Als schwierig markierte Wörter werden je nach Muttersprache früher wiederholt.",
     "method_learned": "Ein Wort gilt als gelernt, wenn du die fällige Wiederholung in Phase 6 in beiden Richtungen bestanden hast: Deutsch → Übersetzung und Übersetzung → Deutsch. Danach erscheint es nicht mehr in der regulären Abfrage. „Gelernt“ ist ein Lernstatus, keine Garantie, dass du das Wort nie vergisst.",
-    "method_assessment": "Bei der Ersteinstufung startet „Kenne ich schon“ direkt in Phase 6. Nach 90 Tagen wird das Wort nochmals in beiden Richtungen geprüft. Das ist eine Abkürzung für vorhandenes Wissen."
+    "method_assessment": "Bei der Ersteinstufung prüfst du beide Richtungen getrennt: Deutsch → Interfacesprache und Interfacesprache → Deutsch. „Kenne ich schon“ startet die jeweilige Richtung in Phase 6, „Kenne ich nicht“ in Phase 1. Bekannte Richtungen werden nach 90 Tagen erneut geprüft.",
+    "your_answer_label": "Deine Eingabe:",
+    "alternative_answer_hint": "Richtig! Oft wird hierfür auch diese Form verwendet:"
   },
   "exercises": {
     "no_exercises": "Aktuell sind keine Übungen verfügbar.",
@@ -1696,7 +1700,11 @@
     "loading": "Die Übungen werden geladen …",
     "error_title": "Diese Übungen konnten leider nicht geladen werden.",
     "error_description": "Das lag nicht an dir. Versuche es bitte noch einmal.",
-    "error_retry": "Nochmal versuchen"
+    "error_retry": "Nochmal versuchen",
+    "your_answer_label": "Deine Eingabe:",
+    "alternative_answer_hint": "Richtig! Oft wird hierfür auch diese Form verwendet:",
+    "correct_sentence_label": "Der richtige Satz:",
+    "typing_retry_detail": "Vergleiche deine Eingabe mit dem richtigen Satz und versuche es erneut."
   },
   "auth": {
     "login_title": "Willkommen zurück",
@@ -1790,7 +1798,7 @@
     "quick_students_title": "Nutzerverwaltung",
     "quick_students_desc": "Rollen, Sprachniveaus und Schwarzes Brett",
     "quick_bookings_title": "Folgemonat-Buchungen",
-    "quick_bookings_desc": "Abrechnung nach Kursen, Kontakte und Rabatte",
+    "quick_bookings_desc": "Abrechnung nach Kursen, Kontakte und Notizen",
     "quick_vocab_title": "Vokabeln",
     "quick_vocab_desc": "Lektionen & Karten anlegen",
     "quick_exercises_title": "Übungen",
@@ -1840,7 +1848,7 @@
     "email": "E-Mail-Adresse",
     "not_specified": "Nicht angegeben",
     "blackboard_title": "Schwarzes Brett",
-    "blackboard_intro": "Notizen und Rabatte gelten für alle Lehrkräfte. Änderungen werden automatisch gespeichert.",
+    "blackboard_intro": "Diese zentrale Notiz ist für alle Lehrkräfte sichtbar. Änderungen werden automatisch gespeichert.",
     "blackboard_note_label": "Notiz",
     "blackboard_note_placeholder": "Freitext für die Kundenbetreuung …",
     "blackboard_discount_label": "Rabatt in Prozent",
@@ -1898,7 +1906,7 @@
     "grid_no_results_hint": "Ändere den Suchbegriff oder setze die Filter zurück.",
     "grid_reset": "Filter zurücksetzen",
     "grid_caption": "Schüler und Kursbuchungen für {month}",
-    "grid_open_notes": "Notiz & Rabatt",
+    "grid_open_notes": "Schwarzes Brett",
     "cms_title": "Vokabeln verwalten",
     "cms_intro": "Wörter, Übersetzungen und häufige Alltagssätze an einem Ort bearbeiten.",
     "cms_count": "{count} Vokabeln",
@@ -1962,7 +1970,22 @@
     "lessons_restricted": "Eingeschränkt",
     "restrict_lessons": "Lektionen einschränken",
     "save": "Speichern",
-    "save_failed": "Speichern fehlgeschlagen"
+    "save_failed": "Speichern fehlgeschlagen",
+    "access_manage": "Freigaben verwalten",
+    "access_manage_aria": "Freigaben für {name} verwalten",
+    "access_level_select": "Niveau auswählen",
+    "access_saved_automatically": "Änderungen werden sofort gespeichert.",
+    "access_back": "Zurück zu den Trainern",
+    "access_none": "Keine Niveaus freigeschaltet",
+    "access_all_units": "Alle aktuellen und zukünftigen Inhalte",
+    "access_selected_units": "{count} Inhalte ausgewählt",
+    "access_only_selected": "Nur ausgewählte Inhalte",
+    "access_load_failed": "Die Inhalte konnten nicht geladen werden.",
+    "pronunciation_access_title": "Lesetexte freischalten",
+    "pronunciation_access_button": "Lesetexte auswählen",
+    "access_retry": "Erneut laden",
+    "cancel": "Abbrechen",
+    "dialog_close": "Dialog schließen"
   },
   "academy": {
     "hero_level_range": "A1—C2",

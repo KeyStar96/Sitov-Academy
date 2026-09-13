@@ -156,8 +156,7 @@ export type Database = {
         Row: {
           content: Json
           created_at: string | null
-          hint_ru: string | null
-          hint_tr: string | null
+          hint: Json | null
           id: string
           lesson: string
           level: string
@@ -168,8 +167,7 @@ export type Database = {
         Insert: {
           content: Json
           created_at?: string | null
-          hint_ru?: string | null
-          hint_tr?: string | null
+          hint?: Json | null
           id?: string
           lesson: string
           level?: string
@@ -180,8 +178,7 @@ export type Database = {
         Update: {
           content?: Json
           created_at?: string | null
-          hint_ru?: string | null
-          hint_tr?: string | null
+          hint?: Json | null
           id?: string
           lesson?: string
           level?: string
@@ -649,6 +646,7 @@ export type Database = {
         Row: {
           discount_percent: number
           id: string
+          is_blackboard: boolean
           note_text: string
           student_id: string
           teacher_id: string
@@ -656,6 +654,7 @@ export type Database = {
         Insert: {
           discount_percent?: number
           id?: string
+          is_blackboard?: boolean
           note_text: string
           student_id: string
           teacher_id?: string
@@ -663,6 +662,7 @@ export type Database = {
         Update: {
           discount_percent?: number
           id?: string
+          is_blackboard?: boolean
           note_text?: string
           student_id?: string
           teacher_id?: string
@@ -1163,6 +1163,10 @@ export type Database = {
         }
         Returns: Json
       }
+      reset_vocabulary_lesson_progress: {
+        Args: { p_lesson: string; p_level: string }
+        Returns: undefined
+      }
       save_next_month_booking: {
         Args: {
           p_course_ids: string[]
@@ -1184,6 +1188,27 @@ export type Database = {
           to: "monthly_course_bookings"
           isOneToOne: true
           isSetofReturn: false
+        }
+      }
+      save_student_blackboard: {
+        Args: {
+          p_expected_note_id?: string
+          p_note_text: string
+          p_student_id: string
+        }
+        Returns: {
+          discount_percent: number
+          id: string
+          is_blackboard: boolean
+          note_text: string
+          student_id: string
+          teacher_id: string
+        }[]
+        SetofOptions: {
+          from: "*"
+          to: "teacher_student_notes"
+          isOneToOne: false
+          isSetofReturn: true
         }
       }
       set_manual_invoice_status: {

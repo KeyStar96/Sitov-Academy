@@ -9,7 +9,7 @@ import de from '@/dictionaries/de.json'
 
 jest.unmock('lucide-react')
 jest.mock('@/app/actions/cms', () => ({ addVocab: jest.fn(), updateVocab: jest.fn(), deleteVocab: jest.fn() }))
-const item: VocabularyCardRow = { ...emptyVocabForm(), id: '00000000-0000-4000-8000-000000000001', word_de: 'lernen', lesson: 'Lektion 1', article: null, audio_url: null, image_url: null, is_hard_for_ru: false, is_hard_for_tr: false, created_at: null }
+const item: VocabularyCardRow = { ...emptyVocabForm(), alternative_answers_de: [], id: '00000000-0000-4000-8000-000000000001', word_de: 'lernen', lesson: 'Lektion 1', article: null, audio_url: null, image_url: null, is_hard_for_ru: false, is_hard_for_tr: false, created_at: null }
 
 beforeEach(() => {
   jest.clearAllMocks()

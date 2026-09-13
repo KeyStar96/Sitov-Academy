@@ -49,7 +49,7 @@ function renderAssess(cards: LessonCardView[] = [house, tree]) {
   return render(
     <LessonAssessmentClient
       learnerId={learnerId}
-      cards={cards}
+      cards={cards.map(card => ({ ...card, direction: 'de_to_native', translationLanguage: 'ru' }))}
       lessonName="Lektion 1"
       lang="ru"
       level="A1.1"
@@ -95,7 +95,7 @@ it('lässt unmittelbar über Stufe 1 oder Stufe 6 entscheiden', async () => {
 
   fireEvent.click(screen.getByText(translations.already_know))
   await waitFor(() => {
-    expect(submitLessonAssessment).toHaveBeenCalledWith([{ cardId: 'card-house', alreadyKnown: true }], learnerId)
+    expect(submitLessonAssessment).toHaveBeenCalledWith([{ cardId: 'card-house', alreadyKnown: true, direction: 'de_to_native' }], learnerId)
   })
 })
 
@@ -104,6 +104,6 @@ it('nimmt unbekannte Wörter ohne Aufdecken in den Lernkasten auf', async () => 
   renderAssess()
   fireEvent.click(screen.getByText(translations.add_to_box))
   await waitFor(() => {
-    expect(submitLessonAssessment).toHaveBeenCalledWith([{ cardId: 'card-house', alreadyKnown: false }], learnerId)
+    expect(submitLessonAssessment).toHaveBeenCalledWith([{ cardId: 'card-house', alreadyKnown: false, direction: 'de_to_native' }], learnerId)
   })
 })

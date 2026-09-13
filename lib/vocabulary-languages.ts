@@ -27,29 +27,30 @@ export function vocabularyNativeLocale(value: string | null): UiLocale | null {
 }
 
 /**
- * Non-German UI locales are authoritative. German UI uses a foreign native
- * language, then Russian and the remaining available foreign contexts.
+ * The interface locale is authoritative. German is the learning target, so
+ * German UI and missing translations cannot silently select another language.
  * Missing/duplicated German prompts never silently become a word exercise.
  * Original text is returned verbatim; trimming only checks content availability.
  */
 export function resolveVocabularySentenceSource(
   card: ContextCard,
   uiLanguage: UiLocale,
-  nativeLanguage: string | null,
+  _nativeLanguage: string | null = null,
 ): VocabularySource | null {
   const target = card.context_sentence_de
-  if (!target?.trim()) return null
-  const nativeLocale = vocabularyNativeLocale(nativeLanguage)
-  const candidates: VocabularySourceLanguage[] = uiLanguage !== 'de'
-    ? [uiLanguage]
-    : [...(nativeLocale && nativeLocale !== 'de' ? [nativeLocale] : []), 'ru', 'en', 'uk', 'tr']
-  for (const language of new Set(candidates)) {
-    const text = card[`context_sentence_${language}`]
-    if (text?.trim() && text.trim().normalize('NFC') !== target.trim().normalize('NFC')) {
-      return { language, text }
-    }
+  if (!target?.trim() || uiLanguage === 'de') return null
+  const text = card[`context_sentence_${uiLanguage}`]
+  if (text?.trim() && text.trim().normalize('NFC') !== target.trim().normalize('NFC')) {
+    return { language: uiLanguage, text }
   }
   return null
+}
+
+/** Learning prompts must never switch language because a translation is absent. */
+export function resolveVocabularyInterfaceTranslation(card: TranslationCard, uiLanguage: UiLocale): VocabularySource | null {
+  if (uiLanguage === 'de') return null
+  const text = card[`translation_${uiLanguage}`]
+  return text?.trim() ? { language: uiLanguage, text } : null
 }
 
 /** Resolve both the text and its actual language so labels never misstate a fallback. */

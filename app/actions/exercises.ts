@@ -3,7 +3,7 @@
 import { revalidatePath } from 'next/cache'
 import { z } from 'zod'
 import { createClient } from '@/utils/supabase/server'
-import { hasTrainerAccess, isAccessLevel, getAllowedLessons, type TrainerAccessRule } from '@/lib/access/levels'
+import { hasTrainerAccess, getAllowedLessons } from '@/lib/access/levels'
 import { loadLevelAccessProfile } from '@/lib/access/server'
 import { buildFillInBlankChips } from '@/lib/exercise-chips'
 import {
@@ -109,16 +109,6 @@ export async function getExercises(level?: string): Promise<StudentExercise[]> {
     const accessProfile = await loadLevelAccessProfile(supabase, user.id)
     if (level && !hasTrainerAccess(accessProfile, level, 'exercises')) return []
 
-    const { data: profile, error: profileError } = await supabase
-      .from('profiles')
-      .select('id')
-      .eq('id', user.id)
-      .single()
-
-    if (profileError) {
-      console.error('Profil für Übungen nicht ladbar:', profileError.message)
-    }
-
     let query = supabase
       .from('exercises')
       .select('*, user_exercise_progress (completed, score, attempts)')
@@ -170,10 +160,7 @@ export async function getExercises(level?: string): Promise<StudentExercise[]> {
 
     for (const row of rows) {
       const progress = readProgress(row.user_exercise_progress)
-      const hintObj: Record<string, string> = {}
-      if (row.hint_ru) hintObj.ru = row.hint_ru
-      if (row.hint_tr) hintObj.tr = row.hint_tr
-      const hint = Object.keys(hintObj).length > 0 ? hintObj : null
+      const hint = asLocalizedText(row.hint)
 
       if (row.type === 'fill_in_blank') {
         const content = parseFillInBlankContent(row.content)

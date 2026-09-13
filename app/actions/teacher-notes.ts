@@ -6,7 +6,7 @@ import {
 import { uuidSchema, type BackendActionResult } from '@/lib/types/backend'
 import {
   createTeacherNoteSchema, updateTeacherNoteSchema, listTeacherNotesSchema, saveBlackboardSchema,
-  toTeacherNote, storedBlackboardNote, isEmptyBlackboard, type TeacherStudentNote,
+  toTeacherNote, type TeacherStudentNote,
 } from '@/lib/types/teacher-notes'
 
 export async function getTeacherNotes(input: unknown = {}): Promise<BackendActionResult<TeacherStudentNote[]>> {
@@ -61,35 +61,17 @@ export async function deleteTeacherNote(input: unknown): Promise<BackendActionRe
 export async function saveBlackboardNote(
   input: unknown,
 ): Promise<BackendActionResult<TeacherStudentNote | null>> {
-  return withBackendSession(async ({ supabase, userId }) => {
+  return withBackendSession(async ({ supabase }) => {
     const fields = saveBlackboardSchema.parse(input)
-    if (isEmptyBlackboard(fields.note_text, fields.discount_percent)) {
-      if (!fields.note_id) return null
-      const { data, error } = await supabase.from('teacher_student_notes').delete()
-        .eq('id', fields.note_id).select('id').single()
-      checkDatabaseError(error)
-      if (!data) throw new BackendError('not_found')
-      revalidateBackendPages()
-      return null
-    }
-    const noteText = storedBlackboardNote(fields.note_text)
-    if (fields.note_id) {
-      const { data, error } = await supabase.from('teacher_student_notes')
-        .update({ note_text: noteText, discount_percent: fields.discount_percent })
-        .eq('id', fields.note_id).select('*').single()
-      checkDatabaseError(error)
-      if (!data) throw new BackendError('not_found')
-      revalidateBackendPages()
-      return toTeacherNote(data)
-    }
-    const { data, error } = await supabase.from('teacher_student_notes')
-      .insert({
-        student_id: fields.student_id, teacher_id: userId,
-        note_text: noteText, discount_percent: fields.discount_percent,
-      }).select('*').single()
+    // One transaction chooses/locks the central row, including simultaneous first
+    // saves. Hidden legacy discount metadata is preserved directly in the DB.
+    const { data, error } = await supabase.rpc('save_student_blackboard', {
+      p_student_id: fields.student_id,
+      p_note_text: fields.note_text,
+      p_expected_note_id: fields.note_id,
+    })
     checkDatabaseError(error)
-    if (!data) throw new BackendError('not_found')
     revalidateBackendPages()
-    return toTeacherNote(data)
+    return data?.[0] ? toTeacherNote(data[0]) : null
   }, 'staff')
 }

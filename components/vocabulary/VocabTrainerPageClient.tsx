@@ -124,6 +124,6 @@ export default function VocabTrainerPageClient({ learnerId, initialCards, lesson
         </div>
         <p role="status" className="mt-3 text-base">{error ? t('manual_add_failed') : pending ? t('saving_progress') : ''}</p>
     </dialog>}
-    {openLesson && <LessonCardsModal lesson={openLesson} level={level} translations={translations} onClose={() => setOpenLesson(null)} onCardAdded={() => router.refresh()} />}
+    {openLesson && <LessonCardsModal lesson={openLesson} level={level} uiLanguage={lang} translations={translations} onClose={() => setOpenLesson(null)} onCardAdded={() => router.refresh()} />}
   </div>
 }

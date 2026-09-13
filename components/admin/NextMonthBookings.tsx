@@ -4,7 +4,6 @@ import { useMemo, useState } from 'react'
 import { ArrowDownWideNarrow, Search, SlidersHorizontal } from 'lucide-react'
 import { useAdminTranslator } from './AdminI18nProvider'
 import BlackboardEditor from './BlackboardEditor'
-import { useBlackboard } from './BlackboardProvider'
 import { formatProfileMonth } from '@/lib/profile-month'
 import { formatStudentAddress, type NextMonthOverview, type NextMonthRowStatus } from '@/lib/types/admin-staff'
 import { bookingGridRows, filterAndSortBookings, type BookingGridFilters, type BookingSort, type BookingSortField } from '@/lib/admin-booking-grid'
@@ -12,7 +11,7 @@ import { bookingGridRows, filterAndSortBookings, type BookingGridFilters, type B
 const inputClass = 'min-h-11 w-full min-w-0 rounded-md border border-[var(--border)] bg-[var(--surface)] px-3 text-sm text-[var(--foreground)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]'
 const defaultFilters: BookingGridFilters = { search: '', status: 'all', course: 'all', format: 'all' }
 const statusKeys = { pending: 'status_pending', confirmed: 'status_confirmed', inherited: 'status_inherited', cancelled: 'status_cancelled' } as const
-const sortKeys = { name: 'grid_sort_name', status: 'col_status', courses: 'grid_sort_courses', city: 'grid_sort_city', discount: 'col_discount' } as const
+const sortKeys = { name: 'grid_sort_name', status: 'col_status', courses: 'grid_sort_courses', city: 'grid_sort_city' } as const
 
 export default function NextMonthBookings({ overview, lang, courseTitles }: {
   overview: NextMonthOverview
@@ -20,10 +19,9 @@ export default function NextMonthBookings({ overview, lang, courseTitles }: {
   courseTitles: Record<string, string>
 }) {
   const t = useAdminTranslator()
-  const { getBoard } = useBlackboard()
   const [filters, setFilters] = useState(defaultFilters)
   const [sorts, setSorts] = useState<BookingSort[]>([{ field: 'name', direction: 'asc' }, { field: 'status', direction: 'asc' }])
-  const rows = useMemo(() => filterAndSortBookings(overview, filters, sorts, lang, new Map(bookingGridRows(overview).map(row => [row.student.id, getBoard(row.student.id).discount]))), [overview, filters, sorts, lang, getBoard])
+  const rows = useMemo(() => filterAndSortBookings(overview, filters, sorts, lang), [overview, filters, sorts, lang])
   const total = useMemo(() => bookingGridRows(overview).length, [overview])
   const month = formatProfileMonth(overview.targetMonth, lang)
   const setFilter = <K extends keyof BookingGridFilters>(key: K, value: BookingGridFilters[K]) => setFilters(previous => ({ ...previous, [key]: value }))

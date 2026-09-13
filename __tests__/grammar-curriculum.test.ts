@@ -64,3 +64,20 @@ describe('Grammar sessions', () => {
     expect(groupGrammarTopics(exercises)).toEqual([{ name: 'Artikel', total: 16, completed: 1 }, { name: 'Verben', total: 1, completed: 0 }])
   })
 })
+
+describe('Grammar CMS authored data validation', () => {
+  it('accepts seed string explanations and multilingual metadata without mixing them', () => {
+    const result = grammarWriteSchema.parse({ ...curriculum[0], hint: { ru: 'Сравнение', uk: 'Порівняння' } })
+    expect(result.hint).toEqual({ ru: 'Сравнение', uk: 'Порівняння' })
+    expect(result.content).toHaveProperty('smart_hint', curriculum[0].content.smart_hint)
+    expect(result).not.toHaveProperty('hint_ru')
+    expect(result).not.toHaveProperty('hint_tr')
+  })
+  it('validates accepted alternatives and rejects invalid or duplicated answers', () => {
+    const first = curriculum[0]
+    expect(grammarWriteSchema.safeParse({ ...first, content: { ...first.content, alternative_answers: ['werde sein'] } }).success).toBe(true)
+    for (const alternatives of [[''], ['x', ' X '], [first.content.correct_answer], Array(21).fill('x'), [3]]) {
+      expect(grammarWriteSchema.safeParse({ ...first, content: { ...first.content, alternative_answers: alternatives } }).success).toBe(false)
+    }
+  })
+})

@@ -1,6 +1,7 @@
 'use server'
 
 import { z } from 'zod'
+import { grammarLessonLabel, type AvailableLessonsResult } from '@/lib/access/units'
 import { createClient } from '@/utils/supabase/server'
 import { createAdminClient } from '@/utils/supabase/admin'
 import { revalidatePath } from 'next/cache'
@@ -66,7 +67,7 @@ export async function getStudents() {
     
     const { data, error } = await supabase
       .from('profiles')
-      .select('*, student_trainer_access(level,trainer,enabled)')
+      .select('*, student_trainer_access(level,trainer,enabled,allowed_lessons)')
       .order('created_at', { ascending: false })
       
     if (error) throw error
@@ -237,14 +238,19 @@ export async function resetStudentProgress(userId: string, level: string) {
   }
 }
 
-const trainerAccessInput = z.object({ userId: z.uuid(), level: z.enum(ACCESS_LEVELS), trainer: z.enum(TRAINERS), enabled: z.boolean(), allowedLessons: z.array(z.string()).nullable().optional() }).strict()
+const trainerAccessInput = z.object({ userId: z.uuid(), level: z.enum(ACCESS_LEVELS), trainer: z.enum(TRAINERS), enabled: z.boolean(), allowedLessons: z.array(z.string().trim().min(1).max(160)).max(1000).nullable().optional() }).strict()
 export async function updateStudentTrainerAccess(input: z.infer<typeof trainerAccessInput>): Promise<{ success: boolean }> {
   try {
     await requireAdmin()
     const parsed = trainerAccessInput.parse(input)
+    if (parsed.allowedLessons != null) {
+      const catalog = await getAvailableLessons(parsed.level, parsed.trainer)
+      if (!catalog.success || parsed.allowedLessons.some(id => !catalog.lessons.some(unit => unit.id === id))) return { success: false }
+    }
     const supabase = await createClient()
     const { error } = await supabase.from('student_trainer_access').upsert({
-      user_id: parsed.userId, level: parsed.level, trainer: parsed.trainer, enabled: parsed.enabled, allowed_lessons: parsed.allowedLessons,
+      user_id: parsed.userId, level: parsed.level, trainer: parsed.trainer, enabled: parsed.enabled,
+      ...(parsed.allowedLessons !== undefined ? { allowed_lessons: parsed.allowedLessons === null ? null : [...new Set(parsed.allowedLessons)] } : {}),
     }, { onConflict: 'user_id,level,trainer' })
     if (error) throw error
     revalidatePath('/[lang]/admin/students', 'page')
@@ -256,25 +262,36 @@ export async function updateStudentTrainerAccess(input: z.infer<typeof trainerAc
   }
 }
 
-export async function getAvailableLessons(level: string, trainer: string): Promise<string[]> {
+export async function getAvailableLessons(level: string, trainer: string): Promise<AvailableLessonsResult> {
   try {
     await requireAdmin()
+    const validLevel = z.enum(ACCESS_LEVELS).parse(level)
+    const validTrainer = z.enum(TRAINERS).parse(trainer)
     const supabase = await createClient()
-    if (trainer === 'vocabulary') {
-      const { data } = await supabase.from('vocabulary_cards').select('lesson').eq('level', level)
-      return [...new Set(data?.map(d => d.lesson) || [])].sort((a, b) => a.localeCompare(b, 'de-DE', { numeric: true }))
+    if (validTrainer === 'pronunciation') {
+      const { data, error } = await supabase.from('pronunciation_prompts').select('id,title,sentence_de').eq('level', validLevel).eq('is_active', true).order('sort_order').order('id')
+      if (error) throw error
+      return { success: true, lessons: (data ?? []).map(row => ({ id: row.id, label: row.title?.trim() || row.sentence_de.slice(0, 90) })) }
     }
-    if (trainer === 'exercises') {
-      const { data } = await supabase.from('exercises').select('lesson').eq('level', level)
-      return [...new Set(data?.map(d => d.lesson) || [])].sort((a, b) => a.localeCompare(b, 'de-DE', { numeric: true }))
+    if (validTrainer === 'videos') return { success: true, lessons: [] }
+    const lessons = new Map<string, Set<string>>()
+    for (let offset = 0; ; offset += 500) {
+      const { data, error } = validTrainer === 'exercises'
+        ? await supabase.from('exercises').select('lesson,topic').eq('level', validLevel).order('id').range(offset, offset + 499)
+        : await supabase.from('vocabulary_cards').select('lesson').eq('level', validLevel).order('id').range(offset, offset + 499)
+      if (error) throw error
+      for (const row of data ?? []) {
+        const topics = lessons.get(row.lesson) ?? new Set<string>()
+        if ('topic' in row && typeof row.topic === 'string') topics.add(row.topic)
+        lessons.set(row.lesson, topics)
+      }
+      if (!data || data.length < 500) break
     }
-    if (trainer === 'pronunciation') {
-      const { data } = await supabase.from('pronunciation_prompts').select('lesson').eq('level', level)
-      return [...new Set(data?.map(d => d.lesson) || [])].sort((a, b) => a.localeCompare(b, 'de-DE', { numeric: true }))
-    }
-    return []
+    return { success: true, lessons: [...lessons].sort(([a], [b]) => a.localeCompare(b, 'de', { numeric: true })).map(([id, topics]) => ({
+      id, label: validTrainer === 'exercises' ? grammarLessonLabel(id, [...topics]) : id,
+    })) }
   } catch (error) {
     console.error('Failed to get available lessons:', error)
-    return []
+    return { success: false }
   }
 }

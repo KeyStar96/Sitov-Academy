@@ -1,10 +1,10 @@
 'use client'
 
-import { useCallback, useState, type KeyboardEvent } from 'react'
+import { useCallback, useEffect, useState, type KeyboardEvent } from 'react'
 import { Loader2, Pause, Play, RotateCcw } from 'lucide-react'
 import FluidWaveform from '@/components/audio/FluidWaveform'
 import { useAudioPlayback } from '@/lib/audio/useAudioPlayback'
-import { formatDuration, playbackProgress, seekTargetSeconds } from '@/lib/audio/waveform'
+import { formatDuration, playbackProgress } from '@/lib/audio/waveform'
 import {
   createPronunciationTranslator,
   type PronunciationTranslator,
@@ -39,6 +39,7 @@ export default function WaveformPlayer({
   const speed = SPEEDS[speedIndex] ?? 1
 
   const playback = useAudioPlayback(src, speed, blob)
+  useEffect(() => () => playback.pause(), [playback.pause])
 
   const getVolume = useCallback((): number => {
     if (!playback.isPlaying) return 0
@@ -59,9 +60,19 @@ export default function WaveformPlayer({
   const handleRetry = useCallback(() => {
     void playback.play()
   }, [playback])
-
-
-
+  const handleSeekByKeyboard = (event: KeyboardEvent<HTMLInputElement>) => {
+    if (playback.duration <= 0) return
+    let target: number
+    switch (event.key) {
+      case 'ArrowLeft': case 'ArrowDown': target = playback.currentTime - KEYBOARD_SEEK_SECONDS; break
+      case 'ArrowRight': case 'ArrowUp': target = playback.currentTime + KEYBOARD_SEEK_SECONDS; break
+      case 'Home': target = 0; break
+      case 'End': target = playback.duration; break
+      default: return
+    }
+    event.preventDefault()
+    playback.seek(Math.max(0, Math.min(playback.duration, target)))
+  }
   if (!src) return null
 
   const progress = playbackProgress(playback.currentTime, playback.duration)
@@ -75,7 +86,7 @@ export default function WaveformPlayer({
         </p>
       )}
 
-      <div className="grid grid-cols-[auto_minmax(44px,1fr)] items-center gap-3 sm:grid-cols-[auto_minmax(44px,1fr)_auto] sm:gap-4">
+      <div className="grid grid-cols-[auto_minmax(48px,1fr)] items-center gap-3 sm:grid-cols-[auto_minmax(48px,1fr)_auto] sm:gap-4">
         <button
           type="button"
           onClick={togglePlayback}
@@ -96,7 +107,7 @@ export default function WaveformPlayer({
         </button>
 
         <div
-          className={`relative min-w-[44px] overflow-hidden rounded-2xl bg-[var(--surface-muted)] focus-within:outline focus-within:outline-4 focus-within:outline-offset-2 focus-within:outline-[var(--accent)] ${
+          className={`relative min-w-12 overflow-hidden rounded-2xl bg-[var(--surface-muted)] focus-within:outline focus-within:outline-4 focus-within:outline-offset-2 focus-within:outline-[var(--accent)] ${
             compact ? 'h-12' : 'h-16'
           }`}
         >
@@ -115,6 +126,8 @@ export default function WaveformPlayer({
             max={playback.duration || 100}
             step={0.01}
             value={playback.currentTime}
+            disabled={playback.duration <= 0 || playbackBlocked}
+            onKeyDown={handleSeekByKeyboard}
             onChange={(e) => {
               if (playback.duration > 0) playback.seek(Number(e.target.value))
             }}
@@ -132,7 +145,7 @@ export default function WaveformPlayer({
             type="button"
             onClick={() => setSpeedIndex((index) => (index + 1) % SPEEDS.length)}
             aria-label={translate('speed_aria', { speed: `${speed}×` })}
-            className="min-h-12 min-w-[44px] rounded-xl bg-[var(--surface-muted)] px-4 text-base font-semibold text-[var(--foreground)] transition-colors hover:bg-[var(--surface)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
+            className="min-h-12 min-w-12 rounded-xl bg-[var(--surface-muted)] px-4 text-base font-semibold text-[var(--foreground)] transition-colors hover:bg-[var(--surface)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
           >
             {translate('speed_label', { speed: `${speed}×` })}
           </button>

@@ -33,6 +33,7 @@ interface BlackboardContextValue {
   getBoard: (studentId: string) => BoardDraft
   setNoteText: (studentId: string, noteText: string) => void
   setDiscountInput: (studentId: string, discountInput: string) => void
+  retrySave: (studentId: string) => void
 }
 
 const BlackboardContext = createContext<BlackboardContextValue | null>(null)
@@ -93,7 +94,7 @@ export function BlackboardProvider({
           if (mountedRef.current) {
             setBoards(current => ({
               ...current,
-              [studentId]: { ...previous, status: 'error' },
+              [studentId]: { ...(current[studentId] ?? previous), status: 'error' },
             }))
           }
           confirmedRef.current[studentId] = previous
@@ -119,6 +120,15 @@ export function BlackboardProvider({
             }
           })
         }
+      }
+    } catch {
+      // A rejected action must keep the teacher's unsaved text available for retry.
+      delete queuedRef.current[studentId]
+      if (mountedRef.current) {
+        setBoards(current => ({
+          ...current,
+          [studentId]: { ...(current[studentId] ?? fromNote(initialNotes[studentId] ?? null)), status: 'error' },
+        }))
       }
     } finally {
       runningRef.current[studentId] = false
@@ -163,8 +173,15 @@ export function BlackboardProvider({
     return boards[studentId] ?? fromNote(initialNotes[studentId] ?? null)
   }, [boards, initialNotes])
 
+  const retrySave = useCallback((studentId: string) => {
+    const current = ensureBoard(studentId)
+    if (current.status !== 'error' || !current.discountValid) return
+    setBoards(boards => ({ ...boards, [studentId]: { ...current, status: 'saving' } }))
+    schedule(studentId, current.noteText, current.discount)
+  }, [ensureBoard, schedule])
+
   return (
-    <BlackboardContext.Provider value={{ getBoard, setNoteText, setDiscountInput }}>
+    <BlackboardContext.Provider value={{ getBoard, setNoteText, setDiscountInput, retrySave }}>
       {children}
     </BlackboardContext.Provider>
   )

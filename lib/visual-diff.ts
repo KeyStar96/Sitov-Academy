@@ -1,62 +1,56 @@
-export type DiffChunk = {
+export interface DiffChunk {
   value: string
   status: 'correct' | 'missing' | 'wrong'
 }
 
 /**
- * Computes a word-level visual diff between the typed answer and the correct solution.
- * Uses a basic Longest Common Subsequence (LCS) approach on word tokens.
+ * Align the learner's spelling with the solution, preserving the solution verbatim.
+ * Only solution characters are returned: substitutions and missing characters can
+ * be highlighted without inserting deleted input or changing the correct sentence.
+ * Graphemes keep accented letters and emoji intact; comparisons remain case-sensitive.
  */
 export function computeVisualDiff(actual: string, expected: string): DiffChunk[] {
-  // Tokenize by word boundaries, keeping spaces as part of the token or separating them.
-  // We'll split by words and punctuation.
-  const tokenize = (text: string) => text.match(/[\wäöüÄÖÜß]+|[^\wäöüÄÖÜß]+/g) || []
-  const actualTokens = tokenize(actual)
-  const expectedTokens = tokenize(expected)
-
-  // LCS Matrix
-  const m = actualTokens.length
-  const n = expectedTokens.length
-  const dp: number[][] = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0))
-
-  for (let i = 1; i <= m; i++) {
-    for (let j = 1; j <= n; j++) {
-      if (actualTokens[i - 1].toLowerCase() === expectedTokens[j - 1].toLowerCase()) {
-        dp[i][j] = dp[i - 1][j - 1] + 1
-      } else {
-        dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1])
-      }
+  const segmenter = typeof Intl.Segmenter === 'function' ? new Intl.Segmenter(undefined, { granularity: 'grapheme' }) : null
+  const split = (text: string) => segmenter ? Array.from(segmenter.segment(text), part => part.segment) : Array.from(text)
+  const input = split(actual)
+  const solution = split(expected)
+  const equal = (left: string, right: string) => left === right
+  const distances = Array.from({ length: input.length + 1 }, () => new Uint32Array(solution.length + 1))
+  for (let i = 0; i <= input.length; i++) distances[i][0] = i
+  for (let j = 0; j <= solution.length; j++) distances[0][j] = j
+  for (let i = 1; i <= input.length; i++) {
+    for (let j = 1; j <= solution.length; j++) {
+      distances[i][j] = Math.min(
+        distances[i - 1][j] + 1,
+        distances[i][j - 1] + 1,
+        distances[i - 1][j - 1] + Number(!equal(input[i - 1], solution[j - 1])),
+      )
     }
   }
 
-  // Backtrack to find diff
-  let i = m
-  let j = n
-  const result: DiffChunk[] = []
-
+  const reversed: DiffChunk[] = []
+  let i = input.length
+  let j = solution.length
   while (i > 0 || j > 0) {
-    if (i > 0 && j > 0 && actualTokens[i - 1].toLowerCase() === expectedTokens[j - 1].toLowerCase()) {
-      result.unshift({ value: expectedTokens[j - 1], status: 'correct' })
+    if (i > 0 && j > 0 && equal(input[i - 1], solution[j - 1])) {
+      reversed.push({ value: solution[--j], status: 'correct' })
       i--
-      j--
-    } else if (j > 0 && (i === 0 || dp[i][j - 1] >= dp[i - 1][j])) {
-      result.unshift({ value: expectedTokens[j - 1], status: 'missing' })
-      j--
-    } else if (i > 0 && (j === 0 || dp[i][j - 1] < dp[i - 1][j])) {
-      result.unshift({ value: actualTokens[i - 1], status: 'wrong' })
+    } else if (i > 0 && j > 0 && distances[i][j] === distances[i - 1][j - 1] + 1) {
+      reversed.push({ value: solution[--j], status: 'wrong' })
       i--
-    }
-  }
-
-  // Merge consecutive chunks of the same status
-  const merged: DiffChunk[] = []
-  for (const chunk of result) {
-    if (merged.length > 0 && merged[merged.length - 1].status === chunk.status) {
-      merged[merged.length - 1].value += chunk.value
+    } else if (j > 0 && distances[i][j] === distances[i][j - 1] + 1) {
+      reversed.push({ value: solution[--j], status: 'missing' })
     } else {
-      merged.push({ ...chunk })
+      // Extra input belongs in the separate, unmodified learner-answer paragraph.
+      i--
     }
   }
 
-  return merged
+  const chunks: DiffChunk[] = []
+  for (const chunk of reversed.reverse()) {
+    const previous = chunks.at(-1)
+    if (previous?.status === chunk.status) previous.value += chunk.value
+    else chunks.push({ ...chunk })
+  }
+  return chunks
 }

@@ -1,5 +1,9 @@
 # Monetization Strategy (Stripe Integration)
 
+## 2026-09-13 — Gemini-Review, Inhaltsfreigaben und bidirektionales Lernen
+
+Lehrkräfte können Kurszugang innerhalb eines Niveaus bis auf einzelne Grammatik-/Vokabellektionsgruppen und Aussprachetexte eingrenzen. Änderungen an Freigaben löschen keine Fortschritte oder Aufnahmen. Die sichtbare Rabatt-Eingabe entfällt zugunsten einer gemeinsamen Notiz; bestehende Rabattwerte werden erhalten. Kursbuchungen, Preise, Rechnungen und Zahlungsflows bleiben unverändert. [Befunde und Prüfnachweise](docs/gemini-review-2026-09-13.md).
+
 ## 2026-09-10 — Trainer-Freigaben pro Schüler und Niveau
 
 Lehrkräfte können innerhalb eines freigegebenen Niveaus gezielt einzelne Trainer anbieten. Die manuelle Auswahl beeinflusst weder Preise noch Registrierungen, Rechnungen oder Kursbuchungen. Bestehende Niveau-Freigaben umfassen zunächst weiterhin alle vier Trainer; ein Entzug löscht keine Lernstände oder Audio-Dialoge. [Umfang und Prüfnachweise](docs/trainer-access-2026-09-10.md).

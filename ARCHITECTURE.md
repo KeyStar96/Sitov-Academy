@@ -1,5 +1,9 @@
 # Architecture Masterplan
 
+## 2026-09-13 — Gemini-Review, Inhaltsfreigaben und bidirektionales Lernen
+
+`trainer_access_private.unit_allowed` ergänzt Trainerrechte um Lektion bzw. Aussprache-Prompt-UUID; restriktive RLS-Policies und sämtliche Lern-/Dialog-RPCs prüfen denselben Umfang. `null` bedeutet alle Inhalte, `[]` keine. Lehrer-Konfiguration ist von der studentischen Sprachwahl getrennt. Explizite Einstufungsrichtungen werden unabhängig initialisiert, ohne implizite Gegenrichtung durch den Legacy-Mirror. Wortlisten und Sessions erhalten die aktuelle Interfacesprache. Grammatik-CMS nutzt `hint`-JSONB und erhält Inhaltsübersetzungen sowie Alternativen. Native Dialoge kapseln Freigaben und Audio-Unterhaltungen. `teacher_student_notes.is_blackboard` und ein partieller Unique-Index markieren die stabile zentrale Notiz; `save_student_blackboard` speichert als Staff-geprüfte Invoker-RPC mit Advisory-Lock und erhält Historie/Rabattwerte. [Befunde und Prüfnachweise](docs/gemini-review-2026-09-13.md).
+
 ## 2026-09-10 — Trainer-Freigaben pro Schüler und Niveau
 
 `student_trainer_access` speichert Overrides pro Profil, Niveau und Trainer mit zusammengesetztem Primärschlüssel. Fehlende Overrides erben die bestehende Niveau-Freigabe. RLS erlaubt ausschließlich Lehrern/Admins Änderungen; Studierende lesen nur eigene Overrides. `hasTrainerAccess`, Trainer-Segment-Layouts, Server Actions, restriktive Inhalts-/Audio-Policies und geprüfte private Lern-RPCs verwenden denselben Zugriffsumfang. Bereits quittierte Vokabelantworten prüfen die aktuelle Freigabe vor dem Replay. Profilrollen, Buchungsflows und Lernreset bleiben erhalten. [Umfang und Prüfnachweise](docs/trainer-access-2026-09-10.md).

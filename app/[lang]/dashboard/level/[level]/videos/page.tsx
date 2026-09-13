@@ -1,3 +1,4 @@
+import TrainerLanguageRequired from '@/components/dashboard/TrainerLanguageRequired'
 import { createClient } from '@/utils/supabase/server'
 import { getDictionary } from '@/lib/dictionary'
 import { currentUserHasTrainerAccess } from '@/lib/access/server'
@@ -6,6 +7,7 @@ import type { VideoRecord } from '@/lib/video-links'
 
 export default async function VideosOverviewPage({ params }: { params: Promise<{ lang: string; level: string }> }) {
   const { lang, level } = await params
+  if (lang === 'de') return <TrainerLanguageRequired lang={lang} />
   const decodedLevel = decodeURIComponent(level)
   const dict = await getDictionary(lang)
   let videos: VideoRecord[] = []

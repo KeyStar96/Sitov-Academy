@@ -48,7 +48,7 @@ it('sends typed spelling unchanged and waits for the server result', async () =>
   await act(async () => fireEvent.click(screen.getByRole('button', { name: de.vocabulary.check_sentence })))
   expect(submitVocabularyAnswer).toHaveBeenCalledWith(expect.objectContaining({ progressId: 'progress-1', typedAnswer: 'ich lerne Deutsch.', uiLanguage: 'de', requestId: expect.any(String) }))
   await waitFor(() => expect(screen.getByText(de.vocabulary.sentence_incorrect)).toBeVisible())
-  expect(screen.getByText('Ich lerne Deutsch.')).toBeVisible()
+  expect(screen.getByText((_, element) => element?.tagName === 'P' && element.textContent === 'Ich lerne Deutsch.')).toBeVisible()
   expect(screen.queryByRole('button', { name: /Wusste ich/ })).not.toBeInTheDocument()
 })
 it('does not present the opposite direction as the next card when no separator exists', async () => {
@@ -139,7 +139,7 @@ it('preserves queued sentence spelling when an earlier word fails and never gues
   await act(async () => fireEvent.click(screen.getByRole('button', { name: de.vocabulary.error_retry })))
   expect(jest.mocked(submitVocabularyAnswer).mock.calls[2][0]).toEqual(expect.objectContaining({ progressId: 'typed', typedAnswer: 'ich lerne Deutsch.' }))
   expect(screen.getByText(de.vocabulary.sentence_incorrect)).toBeVisible()
-  expect(screen.getByText('Ich lerne Deutsch.')).toBeVisible()
+  expect(screen.getByText((_, element) => element?.tagName === 'P' && element.textContent === 'Ich lerne Deutsch.')).toBeVisible()
 })
 it('restores only an unacknowledged last card and never repeats committed decisions', async () => {
   const last = deferred<{ success: boolean }>()
@@ -203,4 +203,50 @@ it('binds every queued review to the initial learner even if incoming props chan
   answerKnown()
   await act(async () => first.resolve({ success: true }))
   expect(jest.mocked(submitVocabularyAnswer).mock.calls.map(([input]) => input.expectedLearnerId)).toEqual([learnerId, learnerId])
+})
+
+it('shows the original answer before the correction with only the wrong letter red', async () => {
+  jest.mocked(submitVocabularyAnswer).mockResolvedValue({ success: true, isCorrect: false, correctAnswer: 'Ich lerne Deutsch.' })
+  const { container } = mount([sentence])
+  const answer = 'ich lerne Deutsch.'
+  fireEvent.change(screen.getByLabelText(de.vocabulary.type_german), { target: { value: answer } })
+  await act(async () => fireEvent.click(screen.getByRole('button', { name: de.vocabulary.check_sentence })))
+  const original = screen.getByText(answer)
+  const corrected = screen.getByText((_, element) => element?.tagName === 'P' && element.textContent === 'Ich lerne Deutsch.')
+  expect(original.compareDocumentPosition(corrected) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
+  expect(original).not.toHaveClass('learning-error')
+  expect(corrected.querySelector('span')?.textContent).toBe('I')
+  expect(corrected.querySelector('span')).toHaveClass('text-[var(--danger)]')
+  expect(corrected.querySelectorAll('[class*=danger]')).toHaveLength(1)
+  expect(container.querySelector('del, s, .line-through')).toBeNull()
+})
+
+it('tests both word directions with the corresponding prompt and revealed solution', async () => {
+  jest.mocked(submitVocabularyAnswer).mockResolvedValue({ success: true })
+  const reverse: DueVocabularyCard = { ...word, progressId: 'reverse', direction: 'de_to_native', promptLanguage: 'de', prompt: 'Haus' }
+  mount([word, second, reverse])
+  expect(screen.getByRole('heading', { name: 'дом' })).toHaveAttribute('lang', 'ru')
+  expect(screen.queryByText('das Haus')).not.toBeInTheDocument()
+  fireEvent.click(screen.getByRole('button', { name: de.vocabulary.reveal_solution }))
+  expect(screen.getByText('das Haus')).toBeVisible()
+  fireEvent.click(screen.getByRole('button', { name: /Wusste ich Eine Phase weiter/ }))
+  answerKnown()
+  expect(screen.getByRole('heading', { name: 'das Haus' })).toHaveAttribute('lang', 'de')
+  expect(screen.queryByText('дом')).not.toBeInTheDocument()
+  fireEvent.click(screen.getByRole('button', { name: de.vocabulary.reveal_solution }))
+  expect(screen.getByText('дом')).toBeVisible()
+  fireEvent.click(screen.getByRole('button', { name: /Wusste ich Eine Phase weiter/ }))
+  await act(async () => undefined)
+  expect(jest.mocked(submitVocabularyAnswer).mock.calls.map(([input]) => input.progressId)).toEqual([word.progressId, second.progressId, reverse.progressId])
+})
+
+it('accepts a correct alternative without presenting it as a spelling error', async () => {
+  jest.mocked(submitVocabularyAnswer).mockResolvedValue({ success: true, isCorrect: true, isAlternative: true, correctAnswer: 'Ich lerne Deutsch.' })
+  const { container } = mount([sentence])
+  fireEvent.change(screen.getByLabelText(de.vocabulary.type_german), { target: { value: 'Deutsch lerne ich.' } })
+  await act(async () => fireEvent.click(screen.getByRole('button', { name: de.vocabulary.check_sentence })))
+  expect(screen.getByText(de.vocabulary.sentence_correct)).toBeVisible()
+  expect(screen.queryByText(de.vocabulary.sentence_incorrect)).not.toBeInTheDocument()
+  expect(screen.getAllByText('Ich lerne Deutsch.')).toHaveLength(1)
+  expect(container.querySelector('.line-through')).toBeNull()
 })

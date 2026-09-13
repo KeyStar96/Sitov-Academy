@@ -7,6 +7,7 @@ import { grammarWriteSchema, type GrammarExerciseRow } from '@/lib/grammar-valid
 import { parseFillInBlankContent, parseMultipleChoiceContent } from '@/lib/types/exercise'
 import { grammarTranslator } from '@/lib/grammar-i18n'
 import { ACCESS_LEVELS } from '@/lib/access/levels'
+import type { Json } from '@/supabase/database.types'
 import styles from '@/components/exercises/GrammarStudio.module.css'
 
 interface EditorState {
@@ -25,11 +26,27 @@ interface EditorState {
   audio: string
   hintRu: string
   hintTr: string
+  contentHints: Record<string, string>
+  metadataHints: Record<string, string>
+  alternativeAnswers: string
 }
 const emptyEditor = (): EditorState => ({
   level: 'A1.1', lesson: '', topic: '', type: 'fill_in_blank', textBefore: '', textAfter: '',
-  question: '', instruction: '', answer: '', options: '', hint: '', audio: '', hintRu: '', hintTr: '',
+  question: '', instruction: '', answer: '', options: '', hint: '', audio: '', hintRu: '', hintTr: '', contentHints: {}, metadataHints: {}, alternativeAnswers: '',
 })
+function localizedHints(value: Json | undefined): Record<string, string> {
+  if (typeof value === 'string') return { de: value }
+  if (typeof value !== 'object' || value === null || Array.isArray(value)) return {}
+  return Object.fromEntries(Object.entries(value).filter((entry): entry is [string, string] => typeof entry[1] === 'string'))
+}
+
+function editHint(current: Record<string, string>, language: string, text: string): Record<string, string> {
+  const next = { ...current }
+  if (text.trim()) next[language] = text.trim()
+  else delete next[language]
+  return next
+}
+
 function previewFor(row: GrammarExerciseRow): string {
   if (row.type === 'fill_in_blank') {
     const content = parseFillInBlankContent(row.content)
@@ -50,7 +67,7 @@ export default function ExerciseCMS({ initialData, lang = 'de', loadFailed = fal
   const editorRef = useRef<HTMLFormElement>(null)
   const g = useMemo(() => grammarTranslator(lang), [lang])
   const filtered = items.filter(row => (!level || row.level === level) && `${row.topic} ${row.lesson} ${previewFor(row)}`.toLocaleLowerCase('de-DE').includes(query.toLocaleLowerCase('de-DE')))
-  const set = (key: keyof EditorState, value: string) => setEditor(previous => previous ? { ...previous, [key]: value } : previous)
+  const set = (key: Exclude<keyof EditorState, 'contentHints' | 'metadataHints'>, value: string) => setEditor(previous => previous ? { ...previous, [key]: value } : previous)
 
   const openEditor = (row?: GrammarExerciseRow) => {
     setMessage(null)
@@ -59,24 +76,18 @@ export default function ExerciseCMS({ initialData, lang = 'de', loadFailed = fal
       const fill = row.type === 'fill_in_blank' ? parseFillInBlankContent(row.content) : null
       const choice = row.type === 'multiple_choice' ? parseMultipleChoiceContent(row.content) : null
       if (!fill && !choice) return
-      
-      const getDe = (obj: any) => typeof obj === 'string' ? obj : (obj?.de ?? '')
-      const getRu = (obj: any) => typeof obj === 'string' ? '' : (obj?.ru ?? '')
-      const getTr = (obj: any) => typeof obj === 'string' ? '' : (obj?.tr ?? '')
-      
-      const hintObj = row.type === 'fill_in_blank' ? fill?.smart_hint : choice?.explanation
-      const contrastiveHintObj = {
-        ru: row.hint_ru ?? undefined,
-        tr: row.hint_tr ?? undefined
-      }
+
+      const contentHints = localizedHints(row.type === 'fill_in_blank' ? fill?.smart_hint : choice?.explanation)
+      const metadataHints = localizedHints(row.hint)
       setEditor({ id: row.id, level: row.level, lesson: row.lesson, topic: row.topic,
         type: fill ? 'fill_in_blank' : 'multiple_choice', textBefore: fill?.text_before ?? '', textAfter: fill?.text_after ?? '',
         question: choice?.question ?? '', instruction: fill?.instruction ?? choice?.instruction ?? '', answer: fill?.correct_answer ?? choice?.correct_answer ?? '',
-        options: (fill?.options ?? choice?.options ?? []).join('\n'), 
-        hint: getDe(hintObj),
-        audio: row.solution_audio_url ?? '', 
-        hintRu: getRu(contrastiveHintObj) || getRu(hintObj) || '', 
-        hintTr: getTr(contrastiveHintObj) || getTr(hintObj) || '',
+        options: (fill?.options ?? choice?.options ?? []).join('\n'),
+        hint: contentHints.de ?? '', contentHints, metadataHints,
+        alternativeAnswers: (fill?.alternative_answers ?? []).join('\n'),
+        audio: row.solution_audio_url ?? '',
+        hintRu: metadataHints.ru ?? '',
+        hintTr: metadataHints.tr ?? '',
       })
     }
     window.requestAnimationFrame(() => {
@@ -87,24 +98,19 @@ export default function ExerciseCMS({ initialData, lang = 'de', loadFailed = fal
 
   const handleSave = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    if (!editor) return
+    if (!editor || busy) return
     const options = editor.options.split('\n').map(value => value.trim()).filter(Boolean)
-    
-    const hintRu = editor.hintRu.trim() || null
-    const hintTr = editor.hintTr.trim() || null
-    
-    const localizedHint = {
-      de: editor.hint.trim() || undefined,
-      ru: editor.hintRu.trim() || undefined,
-      tr: editor.hintTr.trim() || undefined
-    }
-    const smartHintOrExplanation = Object.keys(localizedHint).length > 0 ? localizedHint : null
-    
+
+    const metadataHints = editHint(editHint(editor.metadataHints, 'ru', editor.hintRu), 'tr', editor.hintTr)
+    const contentHints = editHint(editor.contentHints, 'de', editor.hint)
+    const smartHintOrExplanation = Object.keys(contentHints).length ? contentHints : null
+    const alternativeAnswers = editor.alternativeAnswers.split('\n').map(value => value.trim()).filter(Boolean)
+
     const parsed = grammarWriteSchema.safeParse({
       level: editor.level, lesson: editor.lesson, topic: editor.topic, type: editor.type,
-      hint_ru: hintRu, hint_tr: hintTr, solution_audio_url: editor.audio.trim() || null,
+      hint: Object.keys(metadataHints).length ? metadataHints : null, solution_audio_url: editor.audio.trim() || null,
       content: editor.type === 'fill_in_blank'
-        ? { instruction: editor.instruction, text_before: editor.textBefore, text_after: editor.textAfter, correct_answer: editor.answer, options, smart_hint: smartHintOrExplanation }
+        ? { instruction: editor.instruction, text_before: editor.textBefore, text_after: editor.textAfter, correct_answer: editor.answer, options, alternative_answers: alternativeAnswers, smart_hint: smartHintOrExplanation }
         : { instruction: editor.instruction, question: editor.question, correct_answer: editor.answer, options, explanation: smartHintOrExplanation },
     })
     if (!parsed.success) { setMessage('invalid'); return }
@@ -133,9 +139,9 @@ export default function ExerciseCMS({ initialData, lang = 'de', loadFailed = fal
   return <section className={styles.shell}>
     <header className={styles.hero}>
       <div><span className={styles.eyebrow}><BookOpenCheck size={17} aria-hidden="true" />{g('total')}</span><h1 className={styles.title}>{g('adminTitle')}</h1><p className={styles.subtitle}>{g('adminSubtitle')}</p></div>
-      <button type="button" onClick={() => openEditor()} className="academy-button academy-button-primary"><Plus size={19} aria-hidden="true" />{g('newExercise')}</button>
+      <button type="button" disabled={busy} onClick={() => openEditor()} className="academy-button academy-button-primary"><Plus size={19} aria-hidden="true" />{g('newExercise')}</button>
     </header>
-    {message && <p role="status" className={`${styles.notice} rounded-xl border border-[var(--border)] bg-[var(--surface-muted)]`}><CheckCircle2 size={18} aria-hidden="true" />{g(message)}</p>}
+    {message && <p role={message === 'invalid' || message === 'failed' ? 'alert' : 'status'} className={`${styles.notice} rounded-xl border border-[var(--border)] bg-[var(--surface-muted)]`}><CheckCircle2 size={18} aria-hidden="true" />{g(message)}</p>}
     {editor && <form onSubmit={handleSave} ref={editorRef} className={styles.editor}>
       <div className="flex flex-wrap items-center justify-between gap-3"><h2 className="text-xl font-semibold">{g(editor.id ? 'editExercise' : 'newExercise')}</h2><button type="button" disabled={busy} onClick={() => setEditor(null)} className="academy-button academy-button-secondary"><X size={17} aria-hidden="true" />{g('cancel')}</button></div>
       <div className={styles.editorGrid}>
@@ -149,6 +155,7 @@ export default function ExerciseCMS({ initialData, lang = 'de', loadFailed = fal
           <label className={styles.field}>{g('after')}<textarea maxLength={2000} rows={3} value={editor.textAfter} onChange={event => set('textAfter', event.target.value)} /></label>
         </> : <label className={`${styles.field} ${styles.wide}`}>{g('question')}<textarea required maxLength={4000} rows={3} value={editor.question} onChange={event => set('question', event.target.value)} /></label>}
         <label className={styles.field}>{g('answer')}<input required maxLength={1000} value={editor.answer} onChange={event => set('answer', event.target.value)} /></label>
+        {editor.type === 'fill_in_blank' && <label className={`${styles.field} ${styles.wide}`}>{g('alternativeAnswers')}<textarea rows={2} value={editor.alternativeAnswers} onChange={event => set('alternativeAnswers', event.target.value)} /></label>}
         <label className={styles.field}>{g('options')}<textarea required rows={3} value={editor.options} onChange={event => set('options', event.target.value)} /></label>
         <label className={`${styles.field} ${styles.wide}`}>{g('hint')}<textarea rows={2} maxLength={2000} value={editor.hint} onChange={event => set('hint', event.target.value)} /></label>
         <label className={`${styles.field} ${styles.wide}`}>{g('audio')}<input type="url" value={editor.audio} onChange={event => set('audio', event.target.value)} /></label>

@@ -13,26 +13,24 @@ export default function BlackboardEditor({
   compact?: boolean
 }) {
   const t = useAdminTranslator()
-  const { getBoard, setNoteText, setDiscountInput } = useBlackboard()
+  const { getBoard, setNoteText, retrySave } = useBlackboard()
   const board = getBoard(studentId)
   const instanceId = useId()
   const noteId = `${studentId}-${instanceId}-note`
-  const discountId = `${studentId}-${instanceId}-discount`
   const statusText = board.status === 'saving' ? t('blackboard_saving')
     : board.status === 'saved' ? t('blackboard_saved')
     : board.status === 'error' ? t('blackboard_save_failed')
-    : board.status === 'invalid' ? t('blackboard_invalid_discount')
     : ''
 
   return (
     <div className={compact ? 'space-y-2' : 'space-y-3'}>
       {!compact && (
         <div>
-          <h3 className="text-base font-bold text-slate-900 dark:text-white">{t('blackboard_title')}</h3>
-          <p className="mt-1 text-sm leading-relaxed text-slate-600 dark:text-slate-400">{t('blackboard_intro')}</p>
+          <h3 className="text-base font-bold text-[var(--foreground)]">{t('blackboard_title')}</h3>
+          <p className="mt-1 text-sm leading-relaxed text-[var(--muted)]">{t('blackboard_intro')}</p>
         </div>
       )}
-      <label htmlFor={noteId} className="block text-sm font-bold text-slate-700 dark:text-slate-300">
+      <label htmlFor={noteId} className="block text-sm font-bold text-[var(--foreground)]">
         {t('blackboard_note_label')}
       </label>
       <textarea
@@ -42,30 +40,11 @@ export default function BlackboardEditor({
         placeholder={t('blackboard_note_placeholder')}
         aria-label={`${t('blackboard_note_label')}: ${studentName}`}
         rows={compact ? 2 : 4}
-        className="min-h-11 w-full rounded-md border border-slate-200 bg-white px-3 py-2 text-sm leading-relaxed text-slate-900 focus:outline-none focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#FF5C00] dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100"
+        className="min-h-12 w-full resize-y rounded-xl border border-[var(--border)] bg-[var(--surface)] px-3 py-3 text-base leading-relaxed text-[var(--foreground)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)]"
       />
-      <div className="flex min-w-0 flex-wrap items-end gap-3">
-        <div className="min-w-0 flex-1">
-          <label htmlFor={discountId} className="block text-sm font-bold text-slate-700 dark:text-slate-300">
-            {t('blackboard_discount_label')}
-          </label>
-          <div className="mt-1 flex min-h-11 items-center gap-2">
-            <input
-              id={discountId}
-              inputMode="decimal"
-              value={board.discountInput}
-              onChange={event => setDiscountInput(studentId, event.target.value)}
-              aria-invalid={!board.discountValid}
-              aria-label={`${t('blackboard_discount_label')}: ${studentName}`}
-              className="h-12 w-24 rounded-md border border-slate-200 bg-white px-3 text-sm font-bold text-slate-900 focus:outline-none focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#FF5C00] dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100"
-            />
-            <span className="text-sm font-bold text-slate-600 dark:text-slate-300">{t('blackboard_discount_suffix')}</span>
-          </div>
-        </div>
-        {board.status === 'saving' && (
-          <Loader2 size={18} aria-hidden="true" className="mb-3 shrink-0 animate-spin text-slate-500" />
-        )}
-      </div>
+      {board.status === 'saving' && (
+        <Loader2 size={18} aria-hidden="true" className="animate-spin text-[var(--muted)]" />
+      )}
       <p
         className={`min-h-6 text-sm leading-relaxed ${board.status === 'error' || board.status === 'invalid' ? 'text-red-700 dark:text-red-300' : 'text-emerald-800 dark:text-emerald-300'}`}
         role={board.status === 'error' || board.status === 'invalid' ? 'alert' : 'status'}
@@ -73,6 +52,7 @@ export default function BlackboardEditor({
       >
         {statusText}
       </p>
+      {board.status === 'error' && <button type="button" onClick={() => retrySave(studentId)} className="min-h-12 rounded-xl border border-[var(--border)] px-4 text-base font-semibold">{t('access_retry')}</button>}
     </div>
   )
 }

@@ -1,3 +1,4 @@
+import TrainerLanguageRequired from '@/components/dashboard/TrainerLanguageRequired'
 import { getVocabularySession, getLessonStats } from '@/app/actions/vocabulary'
 import { getDictionary } from '@/lib/dictionary'
 import { type VocabularyTranslations } from '@/lib/vocabulary-i18n'
@@ -9,6 +10,7 @@ export default async function VocabularyOverviewPage({
   params: Promise<{ lang: string; level: string }>
 }) {
   const { lang, level } = await params
+  if (lang === 'de') return <TrainerLanguageRequired lang={lang} />
   const decodedLevel = decodeURIComponent(level)
   const dict = await getDictionary(lang)
   const translations = (dict.vocabulary ?? {}) as VocabularyTranslations

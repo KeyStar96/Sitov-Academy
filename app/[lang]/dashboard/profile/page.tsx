@@ -46,7 +46,7 @@ export default async function ProfilePage({ params }: { params: Promise<{ lang: 
         <div className="flex min-w-0 flex-col gap-6">
           <ProfileDetailsForm lang={lang} translations={dict.profile} pendingEmail={user.new_email || null} birthDate={courseHistory?.birthDate}
             initial={{ name: profile.name ?? '', email: profile.email, phone: profile.phone, street: profile.street, zip_code: profile.zip_code, city: profile.city }} />
-          <section className="min-w-0 rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-4 shadow-sm sm:p-5">
+          <section id="language-settings" className="scroll-mt-28 min-w-0 rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-4 shadow-sm sm:p-5">
             <div className="flex min-w-0 items-start gap-3">
               <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-blue-50 text-blue-700 dark:bg-blue-950 dark:text-blue-300">
                 <Languages size={22} aria-hidden="true" />

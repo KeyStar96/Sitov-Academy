@@ -1513,7 +1513,9 @@
     "loading": "Gönderileriniz yükleniyor …",
     "error_title": "Telaffuz çalışması ne yazık ki yüklenemedi.",
     "error_description": "Bu sizin hatanız değil. Lütfen tekrar deneyin.",
-    "error_retry": "Yeniden dene"
+    "error_retry": "Yeniden dene",
+    "close_conversation": "Sohbeti kapat",
+    "refresh_failed": "Mesajlar yenilenemedi. Lütfen yeniden deneyin."
   },
   "vocabulary": {
     "title": "Kelime Antrenörü",
@@ -1658,7 +1660,9 @@
     "method_progress": "Doğru cevap, o sorgulama yönünü bir üst aşamaya taşır. Yanlış cevap bir aşama geri götürür; en düşük aşama 1’dir.",
     "method_intervals": "Doğru cevaplar arasında 1, 3, 9, 29 ve 90 gün beklenir. Ana dilinize göre zor olarak işaretlenen kelimeler daha erken tekrarlanır.",
     "method_learned": "Bir kelime, 6. aşamadaki zamanı gelen tekrarı her iki yönde de doğru yanıtladığınızda öğrenilmiş sayılır: Almanca → çeviri ve çeviri → Almanca. Ardından düzenli tekrarlarda görünmez. “Öğrenildi” bir ilerleme durumudur, kelimeyi hiç unutmayacağınız anlamına gelmez.",
-    "method_assessment": "İlk değerlendirmede “Zaten biliyorum” seçimi doğrudan 6. aşamadan başlatır. Kelime 90 gün sonra her iki yönde tekrar kontrol edilir. Bu, mevcut bilgiler için bir kısayoldur."
+    "method_assessment": "İlk değerlendirmede iki yön ayrı ayrı sınanır: Almanca → arayüz dili ve arayüz dili → Almanca. “Zaten biliyorum” o yönü 6. aşamadan, “Hâlâ öğreniyorum” ise 1. aşamadan başlatır. Bilinen yönler 90 gün sonra tekrar sınanır.",
+    "your_answer_label": "Yanıtınız:",
+    "alternative_answer_hint": "Doğru! Bu biçim de sık kullanılır:"
   },
   "exercises": {
     "no_exercises": "Şu anda mevcut egzersiz yok.",
@@ -1698,7 +1702,11 @@
     "loading": "Egzersizler yükleniyor …",
     "error_title": "Bu egzersizler maalesef yüklenemedi.",
     "error_description": "Bu sizin hatanız değil. Lütfen tekrar deneyin.",
-    "error_retry": "Tekrar dene"
+    "error_retry": "Tekrar dene",
+    "your_answer_label": "Yanıtınız:",
+    "alternative_answer_hint": "Doğru! Bu biçim de sık kullanılır:",
+    "correct_sentence_label": "Doğru cümle:",
+    "typing_retry_detail": "Yanıtınızı doğru cümleyle karşılaştırın ve yeniden deneyin."
   },
   "auth": {
     "login_title": "Tekrar hoş geldiniz",
@@ -1792,7 +1800,7 @@
     "quick_students_title": "Kullanıcı yönetimi",
     "quick_students_desc": "Roller, dil düzeyleri ve öğretmen panosu",
     "quick_bookings_title": "Sonraki ay kayıtları",
-    "quick_bookings_desc": "Kursa göre faturalama, iletişim ve indirimler",
+    "quick_bookings_desc": "Kurs faturaları, kişiler ve notlar",
     "quick_vocab_title": "Kelimeler",
     "quick_vocab_desc": "Ders ve kart ekle",
     "quick_exercises_title": "Alıştırmalar",
@@ -1842,7 +1850,7 @@
     "email": "E-posta adresi",
     "not_specified": "Belirtilmedi",
     "blackboard_title": "Öğretmen panosu",
-    "blackboard_intro": "Notlar ve indirimler tüm öğretmenler tarafından görülür. Değişiklikler otomatik kaydedilir.",
+    "blackboard_intro": "Bu ortak not tüm öğretmenler tarafından görülebilir. Değişiklikler otomatik kaydedilir.",
     "blackboard_note_label": "Not",
     "blackboard_note_placeholder": "Öğrenci takibi için serbest metin …",
     "blackboard_discount_label": "Yüzde olarak indirim",
@@ -1900,7 +1908,7 @@
     "grid_no_results_hint": "Aramayı değiştirin veya filtreleri sıfırlayın.",
     "grid_reset": "Filtreleri sıfırla",
     "grid_caption": "{month} için öğrenciler ve kurs kayıtları",
-    "grid_open_notes": "Not ve indirim",
+    "grid_open_notes": "Ortak not",
     "cms_title": "Kelimeleri yönet",
     "cms_intro": "Kelimeleri, çevirileri ve yaygın günlük cümleleri tek yerde düzenleyin.",
     "cms_count": "{count} kelime",
@@ -1964,7 +1972,22 @@
     "lessons_restricted": "Sınırlandırılmış",
     "restrict_lessons": "Dersleri sınırlandır",
     "save": "Kaydet",
-    "save_failed": "Kaydetme başarısız"
+    "save_failed": "Kaydetme başarısız",
+    "access_manage": "Erişimi yönet",
+    "access_manage_aria": "{name} için erişimi yönet",
+    "access_level_select": "Seviye seçin",
+    "access_saved_automatically": "Değişiklikler hemen kaydedilir.",
+    "access_back": "Alıştırmalara dön",
+    "access_none": "Açık seviye yok",
+    "access_all_units": "Mevcut ve gelecekteki tüm içerikler",
+    "access_selected_units": "{count} içerik seçildi",
+    "access_only_selected": "Yalnızca seçilen içerikler",
+    "access_load_failed": "İçerik yüklenemedi.",
+    "pronunciation_access_title": "Okuma metinlerini aç",
+    "pronunciation_access_button": "Okuma metinlerini seç",
+    "access_retry": "Yeniden yükle",
+    "cancel": "İptal",
+    "dialog_close": "Pencereyi kapat"
   },
   "academy": {
     "hero_level_range": "A1—C2",

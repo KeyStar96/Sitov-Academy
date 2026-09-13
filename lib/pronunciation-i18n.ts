@@ -78,6 +78,8 @@ export const PRONUNCIATION_FALLBACKS = {
   message_failed: 'Nachricht konnte nicht gesendet werden.',
   send_message: 'Senden',
   sending_message: 'Wird gesendet ...',
+  close_conversation: 'Gespräch schließen',
+  refresh_failed: 'Die Nachrichten konnten nicht aktualisiert werden. Bitte versuche es erneut.',
 
   notification_title: 'Du hast eine neue Sprachnachricht erhalten',
   notification_text_one:

@@ -1512,7 +1512,9 @@
     "loading": "Loading your submissions …",
     "error_title": "Unfortunately the pronunciation training could not be loaded.",
     "error_description": "This was not your fault. Please try again.",
-    "error_retry": "Try again"
+    "error_retry": "Try again",
+    "close_conversation": "Close conversation",
+    "refresh_failed": "Messages could not be refreshed. Please try again."
   },
   "vocabulary": {
     "title": "Vocabulary Trainer",
@@ -1657,7 +1659,9 @@
     "method_progress": "A correct answer moves that direction up one phase. An incorrect answer moves it back one phase, down to phase 1 at most.",
     "method_intervals": "Correct answers are spaced 1, 3, 9, 29 and 90 days apart. Words marked difficult for your native language may be reviewed sooner.",
     "method_learned": "A word counts as learned once you pass the due review in phase 6 in both directions: German → translation and translation → German. It then leaves regular review. “Learned” is a progress status, not a guarantee that you will never forget it.",
-    "method_assessment": "During the initial assessment, “Already know it” starts directly in phase 6. Both directions are checked again after 90 days. This is a shortcut for existing knowledge."
+    "method_assessment": "The initial assessment tests both directions separately: German → interface language and interface language → German. “Already know it” starts that direction in phase 6; “Still learning” starts in phase 1. Known directions are reviewed after 90 days.",
+    "your_answer_label": "Your answer:",
+    "alternative_answer_hint": "Correct! This form is also commonly used:"
   },
   "exercises": {
     "no_exercises": "No exercises are available right now.",
@@ -1697,7 +1701,11 @@
     "loading": "Loading the exercises …",
     "error_title": "Unfortunately these exercises could not be loaded.",
     "error_description": "This was not your fault. Please try again.",
-    "error_retry": "Try again"
+    "error_retry": "Try again",
+    "your_answer_label": "Your answer:",
+    "alternative_answer_hint": "Correct! This form is also commonly used:",
+    "correct_sentence_label": "The correct sentence:",
+    "typing_retry_detail": "Compare your answer with the correct sentence and try again."
   },
   "auth": {
     "login_title": "Welcome back",
@@ -1791,7 +1799,7 @@
     "quick_students_title": "User management",
     "quick_students_desc": "Roles, language levels and staff board",
     "quick_bookings_title": "Next-month bookings",
-    "quick_bookings_desc": "Billing by course, contacts and discounts",
+    "quick_bookings_desc": "Course billing, contacts and notes",
     "quick_vocab_title": "Vocabulary",
     "quick_vocab_desc": "Create lessons and cards",
     "quick_exercises_title": "Exercises",
@@ -1841,7 +1849,7 @@
     "email": "Email address",
     "not_specified": "Not specified",
     "blackboard_title": "Staff board",
-    "blackboard_intro": "Notes and discounts are visible to all teachers. Changes are saved automatically.",
+    "blackboard_intro": "This central note is visible to all teachers. Changes are saved automatically.",
     "blackboard_note_label": "Note",
     "blackboard_note_placeholder": "Free text for student support …",
     "blackboard_discount_label": "Discount in percent",
@@ -1899,7 +1907,7 @@
     "grid_no_results_hint": "Change your search or reset the filters.",
     "grid_reset": "Reset filters",
     "grid_caption": "Students and course bookings for {month}",
-    "grid_open_notes": "Note & discount",
+    "grid_open_notes": "Noticeboard",
     "cms_title": "Manage vocabulary",
     "cms_intro": "Edit words, translations and common everyday sentences in one place.",
     "cms_count": "{count} words",
@@ -1963,7 +1971,22 @@
     "lessons_restricted": "Restricted",
     "restrict_lessons": "Restrict lessons",
     "save": "Save",
-    "save_failed": "Save failed"
+    "save_failed": "Save failed",
+    "access_manage": "Manage access",
+    "access_manage_aria": "Manage access for {name}",
+    "access_level_select": "Choose level",
+    "access_saved_automatically": "Changes are saved immediately.",
+    "access_back": "Back to trainers",
+    "access_none": "No levels unlocked",
+    "access_all_units": "All current and future content",
+    "access_selected_units": "{count} items selected",
+    "access_only_selected": "Selected content only",
+    "access_load_failed": "Content could not be loaded.",
+    "pronunciation_access_title": "Unlock reading texts",
+    "pronunciation_access_button": "Choose reading texts",
+    "access_retry": "Try again",
+    "cancel": "Cancel",
+    "dialog_close": "Close dialog"
   },
   "academy": {
     "hero_level_range": "A1—C2",

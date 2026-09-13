@@ -55,6 +55,7 @@ export function sanitizeAllowedLevels(input: readonly unknown[] | null | undefin
 /** Minimale Profilform, die für die Zugriffsentscheidung nötig ist. */
 export interface LevelAccessProfile {
   role: string | null
+  ui_language?: string | null
   allowed_levels: string[] | null
   student_trainer_access?: readonly TrainerAccessRule[] | null
 }
@@ -83,16 +84,29 @@ export const TRAINERS = ['vocabulary', 'exercises', 'pronunciation', 'videos'] a
 export type Trainer = (typeof TRAINERS)[number]
 export interface TrainerAccessRule { level: string; trainer: string; enabled: boolean; allowed_lessons?: string[] | null }
 
-export function hasTrainerAccess(profile: LevelAccessProfile | null | undefined, level: string, trainer: Trainer): boolean {
+/** Configuration shown to teachers is independent from a student's interface choice. */
+export function hasConfiguredTrainerAccess(profile: LevelAccessProfile | null | undefined, level: string, trainer: Trainer): boolean {
   if (!hasLevelAccess(profile, level)) return false
   if (hasFullAccessRole(profile?.role)) return true
   return profile?.student_trainer_access?.find(rule => rule.level === level.trim() && rule.trainer === trainer)?.enabled ?? true
+}
+
+export function hasTrainerAccess(profile: LevelAccessProfile | null | undefined, level: string, trainer: Trainer): boolean {
+  if (hasFullAccessRole(profile?.role)) return true
+  if (profile?.ui_language === 'de' || !hasConfiguredTrainerAccess(profile, level, trainer)) return false
+  const restriction = profile?.student_trainer_access?.find(rule => rule.level === level.trim() && rule.trainer === trainer)?.allowed_lessons
+  return trainer === 'videos' || restriction == null || restriction.length > 0
 }
 
 export function getAllowedLessons(profile: LevelAccessProfile | null | undefined, level: string, trainer: Trainer): string[] | null {
   if (!hasTrainerAccess(profile, level, trainer)) return []
   if (hasFullAccessRole(profile?.role)) return null // null means all lessons are allowed
   const rule = profile?.student_trainer_access?.find(rule => rule.level === level.trim() && rule.trainer === trainer)
-  if (!rule || !rule.allowed_lessons || rule.allowed_lessons.length === 0) return null
+  if (!rule || rule.allowed_lessons == null) return null
   return rule.allowed_lessons
+}
+
+export function hasUnitAccess(profile: LevelAccessProfile | null | undefined, level: string, trainer: Trainer, unit: string): boolean {
+  const allowed = getAllowedLessons(profile, level, trainer)
+  return allowed === null || allowed.includes(unit)
 }

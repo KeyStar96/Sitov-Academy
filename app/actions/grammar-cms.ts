@@ -3,6 +3,7 @@
 import { z } from 'zod'
 import { revalidatePath } from 'next/cache'
 import { createClient } from '@/utils/supabase/server'
+import type { Database } from '@/supabase/database.types'
 import { toJsonContent } from '@/lib/types/exercise'
 import {
   grammarWriteSchema, type GrammarWriteInput, type GrammarSaveResult,
@@ -43,7 +44,9 @@ export async function saveGrammarExercise(input: GrammarWriteInput, id?: string)
   if (!parsed.success || (id !== undefined && !z.uuid().safeParse(id).success)) return { success: false, error: 'invalid' }
   try {
     const supabase = await requireGrammarTeacher()
-    const payload = { ...parsed.data, content: toJsonContent(parsed.data.content) }
+    const payload: Database['public']['Tables']['exercises']['Insert'] = {
+      ...parsed.data, content: toJsonContent(parsed.data.content),
+    }
     const query = id ? supabase.from('exercises').update(payload).eq('id', id) : supabase.from('exercises').insert(payload)
     const { data, error } = await query.select('*').single()
     if (error || !data) throw error ?? new Error('exercise_unavailable')

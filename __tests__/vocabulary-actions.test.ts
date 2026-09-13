@@ -12,7 +12,7 @@ const requestId = '20000000-0000-4000-8000-000000000001'
 const card: VocabularyCardRow = {
   id: '30000000-0000-4000-8000-000000000001', word_de: 'Tür', lesson: 'Lektion 1', level: 'A1.1',
   article: 'die', plural: 'Türen', created_at: null, image_url: null, audio_url: null,
-  is_hard_for_ru: false, is_hard_for_tr: false, sentence_practice: true,
+  is_hard_for_ru: false, is_hard_for_tr: false, sentence_practice: true, alternative_answers_de: [],
   translation_en: 'door', translation_ru: 'дверь', translation_uk: 'двері', translation_tr: 'kapı',
   context_sentence_de: 'Ich öffne die Tür.', context_sentence_en: 'I open the door.',
   context_sentence_ru: 'Я открываю дверь.', context_sentence_uk: 'Я відчиняю двері.', context_sentence_tr: 'Kapıyı açıyorum.',
@@ -28,7 +28,7 @@ function session(options: {
 } = {}) {
   const profile = {
     role: 'student', allowed_levels: ['A1.1'], native_language: options.nativeLanguage ?? 'Russisch',
-    ui_language: options.uiLanguage ?? 'de',
+    ui_language: options.uiLanguage ?? 'ru',
   }
   const rows = [{
     id: progressId, user_id: userId, vocabulary_cards: options.card ?? card,
@@ -58,17 +58,14 @@ function session(options: {
 beforeEach(() => jest.clearAllMocks())
 
 describe('session DTO source language', () => {
-  it('uses the foreign native sentence for German UI without leaking its German answer', async () => {
-    const { progress, cursor } = session({ nativeLanguage: 'Türkisch' })
-    const result = await getVocabularySession('A1.1', 'de')
-    expect(result.cards).toHaveLength(1)
-    expect(result.cards[0]).toMatchObject({ format: 'sentence', prompt: card.context_sentence_tr, promptLanguage: 'tr', contextSentence: null })
-    expect(JSON.stringify(result.cards[0])).not.toContain(card.context_sentence_de)
-    expect(progress.eq).toHaveBeenCalledWith('user_id', userId)
-    expect(cursor.eq).toHaveBeenCalledWith('user_id', userId)
+  it('blocks German UI instead of silently substituting the native language', async () => {
+    const { progress } = session({ nativeLanguage: 'Türkisch', uiLanguage: 'de' })
+    expect((await getVocabularySession('A1.1', 'de')).cards).toEqual([])
+    expect(progress.range).not.toHaveBeenCalled()
+    expect((await getVocabularySession('A1.1', 'tr')).cards).toEqual([])
   })
   it.each(['en', 'ru', 'uk', 'tr'] as const)('returns the exact %s UI sentence regardless of profile preferences', async language => {
-    session({ nativeLanguage: 'Türkisch', uiLanguage: 'de' })
+    session({ nativeLanguage: 'Türkisch', uiLanguage: language })
     const result = await getVocabularySession('A1.1', language)
     expect(result.cards[0]).toMatchObject({ prompt: card[`context_sentence_${language}`], promptLanguage: language, format: 'sentence' })
   })
@@ -78,15 +75,15 @@ describe('session DTO source language', () => {
     session({ card: { ...card, context_sentence_de: null } })
     expect((await getVocabularySession('A1.1', 'en')).cards).toEqual([])
   })
-  it('reports the actual foreign fallback while keeping forward word prompts German', async () => {
-    session({ card: { ...card, sentence_practice: false, translation_tr: null }, nativeLanguage: 'Türkisch' })
-    expect((await getVocabularySession('A1.1', 'de')).cards[0]).toMatchObject({ format: 'word', prompt: 'door', promptLanguage: 'en' })
-    session({ direction: 'de_to_native' })
-    expect((await getVocabularySession('A1.1', 'tr')).cards[0]).toMatchObject({ format: 'word', prompt: 'Tür', promptLanguage: 'de' })
+  it('requires the selected UI translation and keeps forward word prompts German', async () => {
+    session({ card: { ...card, sentence_practice: false, translation_tr: null }, nativeLanguage: 'Türkisch', uiLanguage: 'tr' })
+    expect((await getVocabularySession('A1.1', 'tr')).cards).toEqual([])
+    session({ direction: 'de_to_native', uiLanguage: 'tr' })
+    expect((await getVocabularySession('A1.1', 'tr')).cards[0]).toMatchObject({ format: 'word', prompt: 'Tür', promptLanguage: 'de', translation: 'kapı' })
   })
   it('continues respecting the persisted spacing boundary after source resolution', async () => {
     session({ previousCardId: card.id })
-    expect(await getVocabularySession('A1.1', 'de')).toEqual({ learnerId: userId, cards: [], deferredCount: 1, previousCardId: card.id })
+    expect(await getVocabularySession('A1.1', 'ru')).toEqual({ learnerId: userId, cards: [], deferredCount: 1, previousCardId: card.id })
   })
 })
 
@@ -166,4 +163,15 @@ describe('queued action actor binding', () => {
     expect(await submitVocabularyAnswer({ progressId, requestId, isCorrect: true, expectedLearnerId: userId })).toMatchObject({ success: true })
     expect(rpc).toHaveBeenCalledWith('submit_vocabulary_answer_once', expect.not.objectContaining({ p_user_id: userId }))
   })
+})
+
+it('accepts separate directional decisions but rejects duplicate or overlapping grades', async () => {
+ const {rpc}=session()
+ rpc.mockResolvedValue({data:{addedKnown:1,addedNew:1},error:null})
+ const decisions=[{cardId:card.id,alreadyKnown:true,direction:'de_to_native' as const},{cardId:card.id,alreadyKnown:false,direction:'native_to_de' as const}]
+ expect(await submitLessonAssessment(decisions,userId)).toMatchObject({success:true})
+ rpc.mockClear()
+ expect(await submitLessonAssessment([decisions[0],decisions[0]],userId)).toMatchObject({success:false})
+ expect(await submitLessonAssessment([decisions[0],{cardId:card.id,alreadyKnown:false}],userId)).toMatchObject({success:false})
+ expect(rpc).not.toHaveBeenCalled()
 })

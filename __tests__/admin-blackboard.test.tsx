@@ -44,7 +44,7 @@ beforeEach(() => {
   jest.clearAllMocks()
   jest.mocked(saveBlackboardNote).mockResolvedValue({
     success: true,
-    data: { id: course, student_id: student, teacher_id: student, note_text: 'Stammkunde', discount_percent: 10 },
+    data: { id: course, student_id: student, teacher_id: student, note_text: 'Stammkunde', discount_percent: 10, is_blackboard: true },
   })
 })
 
@@ -67,12 +67,12 @@ it('shows contact details and autosaves blackboard edits', async () => {
   renderBoard()
   expect(screen.getAllByText('+49 111', { exact: false }).length).toBeGreaterThan(0)
   fireEvent.change(screen.getAllByLabelText(`${de.admin.blackboard_note_label}: Anna`)[0], { target: { value: 'Stammkunde' } })
-  fireEvent.change(screen.getAllByLabelText(`${de.admin.blackboard_discount_label}: Anna`)[0], { target: { value: '10' } })
+  expect(screen.queryByLabelText(`${de.admin.blackboard_discount_label}: Anna`)).not.toBeInTheDocument()
   expect(saveBlackboardNote).not.toHaveBeenCalled()
   await act(async () => { jest.advanceTimersByTime(800) })
   await waitFor(() => expect(saveBlackboardNote).toHaveBeenCalled())
   expect(jest.mocked(saveBlackboardNote).mock.calls.at(-1)?.[0]).toMatchObject({
-    student_id: student, note_text: 'Stammkunde', discount_percent: 10,
+    student_id: student, note_text: 'Stammkunde', discount_percent: 0,
   })
   jest.useRealTimers()
 })
@@ -91,5 +91,36 @@ it('keeps the latest optimistic note visible while saving', async () => {
   expect(field).toHaveValue('Erste Notiz')
   await act(async () => { jest.advanceTimersByTime(800) })
   await waitFor(() => expect(saveBlackboardNote).toHaveBeenCalled())
+  jest.useRealTimers()
+})
+
+it('keeps a previously stored discount untouched when updating the central note', async () => {
+  jest.useFakeTimers()
+  render(<AdminI18nProvider translations={de.admin}>
+    <BlackboardProvider initialNotes={{ [student]: { id: course, student_id: student, teacher_id: student, note_text: 'Vorhanden', discount_percent: 10, is_blackboard: true } }}>
+      <BlackboardEditor studentId={student} studentName="Anna" />
+    </BlackboardProvider>
+  </AdminI18nProvider>)
+  expect(screen.queryByLabelText(`${de.admin.blackboard_discount_label}: Anna`)).not.toBeInTheDocument()
+  fireEvent.change(screen.getByLabelText(`${de.admin.blackboard_note_label}: Anna`), { target: { value: 'Neue Notiz' } })
+  await act(async () => { jest.advanceTimersByTime(800) })
+  await waitFor(() => expect(saveBlackboardNote).toHaveBeenCalledWith(expect.objectContaining({ note_text: 'Neue Notiz', discount_percent: 10 })))
+  jest.useRealTimers()
+})
+
+it('preserves the latest note after a rejected save and allows retry', async () => {
+  jest.useFakeTimers()
+  jest.mocked(saveBlackboardNote).mockRejectedValueOnce(new Error('offline'))
+  render(<AdminI18nProvider translations={de.admin}><BlackboardProvider initialNotes={{}}><BlackboardEditor studentId={student} studentName="Anna" /></BlackboardProvider></AdminI18nProvider>)
+  const field = screen.getByLabelText(`${de.admin.blackboard_note_label}: Anna`)
+  fireEvent.change(field, { target: { value: 'Diese Notiz behalten' } })
+  await act(async () => { jest.advanceTimersByTime(800) })
+  await waitFor(() => expect(screen.getByRole('alert')).toHaveTextContent(de.admin.blackboard_save_failed))
+  expect(field).toHaveValue('Diese Notiz behalten')
+  fireEvent.click(screen.getByRole('button', { name: de.admin.access_retry }))
+  await act(async () => { jest.advanceTimersByTime(800) })
+  await waitFor(() => expect(saveBlackboardNote).toHaveBeenCalledTimes(2))
+  expect(jest.mocked(saveBlackboardNote).mock.calls[1][0]).toMatchObject({ note_text: 'Diese Notiz behalten' })
+  expect(screen.queryByRole('alert')).not.toBeInTheDocument()
   jest.useRealTimers()
 })

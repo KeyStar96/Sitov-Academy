@@ -1,7 +1,7 @@
 import type { LeitnerBox, LeitnerPhase } from '@/lib/leitner'
 import type { Database } from '@/supabase/database.types'
 import type { UiLocale } from '@/lib/locale-routing'
-import { resolveVocabularyTranslation, vocabularyNativeLocale } from '@/lib/vocabulary-languages'
+import { resolveVocabularyTranslation, vocabularyNativeLocale, type VocabularySourceLanguage } from '@/lib/vocabulary-languages'
 
 export type VocabularyDirection = 'de_to_native' | 'native_to_de'
 export type VocabularyFormat = 'word' | 'sentence'
@@ -52,7 +52,17 @@ export interface VocabularySession {
 
 export interface VocabularyAssessmentSession {
   learnerId: string | null
-  cards: Array<Pick<LessonCardView, 'id' | 'word_de' | 'article'>>
+  cards: VocabularyAssessmentCard[]
+}
+
+/** One uninitialized direction, so interrupted assessments resume precisely. */
+export interface VocabularyAssessmentCard {
+  id: string
+  word_de: string
+  article: string | null
+  translation: string
+  translationLanguage: VocabularySourceLanguage
+  direction: VocabularyDirection
 }
 
 /** Lernstand einer Lektion für die Übersichtsseite. */
@@ -125,6 +135,8 @@ export interface AddCardsResult {
 export interface AssessmentDecision {
   cardId: string
   alreadyKnown: boolean
+  /** Explicit in assessments; omitted only when manually adding both directions. */
+  direction?: VocabularyDirection
 }
 
 export interface SubmitAssessmentResult {

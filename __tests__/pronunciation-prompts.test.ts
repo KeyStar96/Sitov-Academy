@@ -82,7 +82,7 @@ describe('mergePronunciationPrompts', () => {
       sentenceDe: 'Das ist ein zusätzlicher Lehrersatz.',
       focus: 'z',
       audioUrl: null,
-      sortOrder: 99,
+      sortOrder: 99, lesson: 'Lektion 1',
     }
     const merged = mergePronunciationPrompts(catalog, [extra])
     expect(merged.some((prompt) => prompt.id === 'db-extra')).toBe(true)

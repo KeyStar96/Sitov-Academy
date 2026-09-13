@@ -1,4 +1,4 @@
-import { resolveVocabularySentenceSource, resolveVocabularyTranslation, vocabularyNativeLocale } from '@/lib/vocabulary-languages'
+import { resolveVocabularySentenceSource, resolveVocabularyTranslation, resolveVocabularyInterfaceTranslation, vocabularyNativeLocale } from '@/lib/vocabulary-languages'
 
 const contexts = {
   context_sentence_de: 'Ich öffne die Tür.',
@@ -16,33 +16,24 @@ describe('sentence source language matrix', () => {
       })
     }
   })
-  it.each([
-    ['Russisch', 'ru'], ['ru', 'ru'], ['Türkisch', 'tr'], ['tr', 'tr'],
-    ['Ukrainisch', 'uk'], ['uk', 'uk'], ['Englisch', 'en'], ['en', 'en'],
-  ] as const)('uses foreign native language %s for German UI', (native, language) => {
-    expect(resolveVocabularySentenceSource(contexts, 'de', native)).toEqual({
-      language, text: contexts[`context_sentence_${language}`],
-    })
+  it.each(['Deutsch', 'de', 'Russisch', 'Türkisch', 'Ukrainisch', 'Englisch', null])('blocks German UI regardless of native language %s', native => {
+    expect(resolveVocabularySentenceSource(contexts, 'de', native)).toBeNull()
   })
-  it.each(['Deutsch', 'de', 'Andere', 'Polnisch', null])('defaults German UI / %s to Russian', native => {
-    expect(resolveVocabularySentenceSource(contexts, 'de', native)).toEqual({ language: 'ru', text: contexts.context_sentence_ru })
-  })
-  it('uses available foreign fallbacks only for German UI', () => {
+  it('does not substitute a different language when the UI translation is missing', () => {
     const partial = { ...contexts, context_sentence_tr: null, context_sentence_ru: '  ' }
-    expect(resolveVocabularySentenceSource(partial, 'de', 'Türkisch')).toEqual({ language: 'en', text: contexts.context_sentence_en })
     expect(resolveVocabularySentenceSource(partial, 'tr', 'Englisch')).toBeNull()
     expect(resolveVocabularySentenceSource(partial, 'ru', 'Englisch')).toBeNull()
   })
   it('never returns the German target as a source, even when copied into a foreign column', () => {
     const copied = { ...contexts, context_sentence_ru: ` ${contexts.context_sentence_de} ` }
-    expect(resolveVocabularySentenceSource(copied, 'de', 'Russisch')?.language).toBe('en')
+    expect(resolveVocabularySentenceSource(copied, 'de', 'Russisch')).toBeNull()
     expect(resolveVocabularySentenceSource(copied, 'ru', 'Russisch')).toBeNull()
     expect(resolveVocabularySentenceSource({ ...copied, context_sentence_en: null, context_sentence_tr: null, context_sentence_uk: null }, 'de', null)).toBeNull()
   })
   it('requires the German target but preserves all original source bytes', () => {
     expect(resolveVocabularySentenceSource({ ...contexts, context_sentence_de: ' ' }, 'ru', null)).toBeNull()
     const source = '  Я открываю дверь.\n'
-    expect(resolveVocabularySentenceSource({ ...contexts, context_sentence_ru: source }, 'de', null)?.text).toBe(source)
+    expect(resolveVocabularySentenceSource({ ...contexts, context_sentence_ru: source }, 'ru', null)?.text).toBe(source)
   })
 })
 
@@ -51,4 +42,11 @@ it('reports the real word translation language, including missing native transla
   expect(resolveVocabularyTranslation(card, 'tr')).toEqual({ language: 'tr', text: 'kapı' })
   expect(resolveVocabularyTranslation({ ...card, translation_tr: '' }, 'Türkisch')).toEqual({ language: 'en', text: 'door' })
   expect(vocabularyNativeLocale(' УКРАЇНСЬКА ')).toBe('uk')
+})
+
+it.each(['en', 'ru', 'uk', 'tr'] as const)('uses %s UI for word prompts as well as sentences', language => {
+  const card = { translation_en: 'door', translation_ru: 'дверь', translation_tr: 'kapı', translation_uk: 'двері' }
+  expect(resolveVocabularyInterfaceTranslation(card, language)).toEqual({ language, text: card[`translation_${language}`] })
+  expect(resolveVocabularyInterfaceTranslation({ ...card, [`translation_${language}`]: '' }, language)).toBeNull()
+  expect(resolveVocabularyInterfaceTranslation(card, 'de')).toBeNull()
 })
