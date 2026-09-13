@@ -16,7 +16,7 @@ export default async function DashboardPage({ params }: { params: Promise<{ lang
     supabase.auth.getUser(), getAllLevelsProgress(), getUnseenFeedbackSummary(), getDictionary(lang),
   ])
   const { data: accessProfile } = user
-    ? await supabase.from('profiles').select('role, allowed_levels').eq('id', user.id).single()
+    ? await supabase.from('profile_details').select('role, allowed_levels').eq('id', user.id).single()
     : { data: null }
   const t = createDashboardTranslator(dict.dashboard as DashboardTranslations)
   const copy = dict.academy

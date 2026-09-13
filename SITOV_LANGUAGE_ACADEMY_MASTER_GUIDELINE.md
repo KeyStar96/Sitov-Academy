@@ -1,5 +1,21 @@
 # Sitov Academy — Pedagogy & UI/UX Research
 
+## Aktuelle verbindliche Leitlinien — VPS-Umbau vom 13. September 2026
+
+**Diese Ergänzung beschreibt den freigegebenen und isoliert geprüften Umbau; das Live-Deployment ist noch nicht abgeschlossen.** Der Markenname bleibt überall **Sitov Academy**. Das bestehende ruhige Design, gut lesbare Lerntexte, große Bedienflächen, Waveforms sowie Hell/Dunkel mit unabhängigem Hochkontrastmodus bleiben erhalten.
+
+- Freigaben bestehen aus Niveau, Trainer und bei Bedarf einzelnen UUID-Einheiten. Eine Trainerfreigabe öffnet kein gesperrtes Niveau. „Alle Inhalte“ und „Ausgewählte Inhalte: keine“ sind unterschiedliche Zustände. Gesperrte Angebote zeigen Schloss und verständliche Erklärung; direkte Zugriffe werden ebenfalls geprüft. Neue Schüler starten ohne Freigaben.
+- Vokabeln werden Deutsch → Interfacesprache und Interfacesprache → Deutsch unabhängig eingestuft und wiederholt. „Bekannt“ beginnt in Phase 6 und bedeutet noch nicht „gelernt“. Ein Wort gilt erst nach erfolgreichem Abschluss der sechsten Phase in beiden Richtungen als gelernt. Deutsch als Schüler-Interfacesprache sperrt die Trainer; Lehrkräfte können die Inhalte weiterhin auf Deutsch verwalten.
+- Grammatiklektionen und Aussprachetexte brauchen klare Namen. Die Freigabeverwaltung öffnet einen begrenzten Dialog und vergrößert keine Schülerzeile. Satzkorrekturen zeigen die vollständige Eingabe und darunter den korrekten Satz; abweichende Zielzeichen sind rot, ohne Durchstreichen.
+- Aussprachetexte bleiben zusammenhängend und niveaugerecht. Aufnahme und Wiedergabe behalten die Waveform; Schüler und Lehrkraft antworten im selben Text-/Audiodialog. Aufnahmen sind privat, nicht öffentlich abrufbar. Lokale Hörvorbilder dürfen nicht als menschliche Lehreraufnahme ausgegeben werden; die türkische eSpeak-Stimme kann hörbar von den Piper-Stimmen abweichen.
+- Verifizierte Identität ist Voraussetzung für vorhandene persönliche Daten und Buchungen. Lehrerfreigabe, Annahme, Rechnungserstellung und Zahlung sind keine austauschbaren Zustände. Ein Lernreset löscht im regulären Betrieb keine Vertragsdaten.
+
+Der Betrieb nutzt den eigenen VPS und lokale Dienste. Cloud-Supabase darf für diesen Umbau nicht angesprochen werden. Neue Betriebsbehauptungen müssen ihren Prüfstand nennen: ein isolierter Test ist kein Live-Nachweis. Katalogbestand, ERD, Migrations- und Wiederherstellungsregeln stehen in [VPS-Refactor 2026-09-13](docs/vps-refactor-2026-09-13.md).
+
+## Historie — frühere Architektur- und Betriebsstände
+
+Die nachfolgenden Einträge bleiben als Audit-Trail erhalten. Aussagen über Cloud-Supabase, Vercel, externe Sprach-/Maildienste, frühere Tabellen oder damalige Live-Tests gelten nur für ihren jeweiligen Zeitpunkt. Bei Abweichungen hat der aktuelle VPS-Abschnitt oben Vorrang; historische Anleitungen dürfen nicht unverändert auf den neuen Betrieb angewendet werden.
+
 ## 2026-09-13 — Gemini-Review, Inhaltsfreigaben und bidirektionales Lernen
 
 Freigaben müssen eindeutige pädagogische Einheiten mit Namen zeigen und dürfen Schülerzeilen nicht vergrößern. Leere Inhaltsauswahl bedeutet gesperrt; einzelne Lesetexte werden über stabile IDs verwaltet. Einstufung und Wiederholung prüfen Deutsch→Interfacesprache und Interfacesprache→Deutsch unabhängig. Deutsch als Interfacesprache sperrt Lerntrainer mit Weg zur Sprachwahl; Lehrkräfte verwalten weiter auf Deutsch. Satzkorrekturen zeigen Originaleingabe und darunter den korrekten Satz mit roten Zielzeichen, ohne Durchstreichen. Gemeinsame Farbvariablen sichern Hell/Dunkel und hohen Kontrast. Audio-Entwürfe bleiben beim Schließen erhalten. [Befunde und Prüfnachweise](docs/gemini-review-2026-09-13.md).

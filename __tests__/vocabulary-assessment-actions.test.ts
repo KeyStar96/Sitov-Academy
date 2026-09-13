@@ -23,7 +23,9 @@ function setup({ directions = [], language = 'ru', content = card }: { direction
   const profile = { select: jest.fn().mockReturnThis(), eq: jest.fn().mockReturnThis(), single: jest.fn().mockResolvedValue({ data: {
     role: 'student', allowed_levels: ['A1.1'], native_language: 'Russisch', ui_language: language, student_trainer_access: [],
   }, error: null }) }
-  const from = jest.fn((table: string) => table === 'profiles' ? profile : table === 'vocabulary_cards' ? cards : progress)
+  const rulesResult = Promise.resolve({ data: [], error: null })
+  const rules = { select: jest.fn().mockReturnThis(), eq: jest.fn().mockReturnThis(), then: rulesResult.then.bind(rulesResult) }
+  const from = jest.fn((table: string) => table === 'profile_details' ? profile : table === 'student_trainer_access' ? rules : table === 'vocabulary_cards' ? cards : progress)
   jest.mocked(createClient).mockResolvedValue({ from, auth: { getUser: jest.fn().mockResolvedValue({ data: { user: { id: userId } }, error: null }) } } as unknown as Awaited<ReturnType<typeof createClient>>)
   return { from, cards, progress }
 }

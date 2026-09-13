@@ -1,85 +1,27 @@
-import { createClient } from '@supabase/supabase-js';
-import { unstable_cache } from 'next/cache';
-import { CourseConfig, CourseSession, CourseType, InstructorKey } from '@/lib/course-config';
+import { unstable_cache } from 'next/cache'
+import { createClient } from '@supabase/supabase-js'
+import { readSupabaseServerConfig } from '@/lib/supabase-env'
+import type { Database } from '@/supabase/database.types'
+import type { CourseConfig } from '@/lib/course-config'
+import { DAYS } from '@/lib/business-courses'
 
-// ─── Stateless Supabase client (no cookies → enables static rendering) ───
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co';
-const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder';
-
-const supabase = createClient(supabaseUrl, supabaseKey);
-
-// ─── Cached data-fetch (revalidates every hour) ───
-export const getCourses = unstable_cache(
-    async (): Promise<CourseConfig[]> => {
-        try {
-            const { data: courses, error } = await supabase
-                .from('courses')
-                .select('*');
-
-            if (error) {
-                console.error('Error fetching courses from Supabase:', error);
-                return [];
-            }
-
-            if (!courses) return [];
-
-            // Map DB snake_case → camelCase
-            const mappedCourses = courses.map((record: any) => ({
-                id: record.id,
-                translationKey: record.translation_key,
-                title: record.title,
-                type: record.type as CourseType,
-                price: Number(record.price),
-                sessions: (typeof record.sessions === 'string' ? JSON.parse(record.sessions) : record.sessions) as CourseSession[],
-                instructor: record.instructor as InstructorKey,
-                unitDuration: record.unit_duration,
-                startDate: record.start_date,
-                endDate: record.end_date,
-                trialLessons: record.trial_lessons !== false, // default to true if null
-                highlight: false,
-                level: undefined
-            }));
-
-            const today = new Date();
-            today.setHours(0, 0, 0, 0);
-
-            // Sort: Intensivkurse first, then Sprechtraining, then by level
-            const getLevelRank = (id: string) => {
-                if (id.includes('a1_1')) return 1;
-                if (id.includes('a1_2')) return 2;
-                if (id.includes('a2')) return 3;
-                if (id.includes('b1')) return 4;
-                if (id.includes('b2')) return 5;
-                if (id.includes('c1')) return 6;
-                return 99;
-            };
-
-            const getTypeRank = (id: string, type: string) => {
-                if (type === 'online') return 1;
-                if (id.includes('speech')) return 2;
-                return 1;
-            };
-
-            return mappedCourses.sort((a, b) => {
-                const typeRankA = getTypeRank(a.id, a.type);
-                const typeRankB = getTypeRank(b.id, b.type);
-                if (typeRankA !== typeRankB) return typeRankA - typeRankB;
-
-                const levelRankA = getLevelRank(a.id);
-                const levelRankB = getLevelRank(b.id);
-                return levelRankA - levelRankB;
-            }).filter((c) => {
-                if (c.endDate) {
-                    const end = new Date(c.endDate);
-                    if (end < today) return false;
-                }
-                return true;
-            });
-        } catch (err) {
-            console.error("Unexpected error in getCourses:", err);
-            return [];
-        }
-    },
-    ['courses_v3'],        // cache key
-    { revalidate: 3600 }   // 1 hour
-);
+export const getCourses = unstable_cache(async ():Promise<CourseConfig[]> => {
+  try {
+    const {url,anonKey}=readSupabaseServerConfig()
+    const supabase=createClient<Database>(url,anonKey,{auth:{persistSession:false,autoRefreshToken:false}})
+    const {data,error}=await supabase.from('courses').select('*, course_schedules(*), course_translations(*)').is('archived_at',null).order('sort_order').order('id')
+    if(error) throw error
+    const today=new Date().toISOString().slice(0,10)
+    return (data??[]).filter(row=>!row.end_date||row.end_date>=today).map(row=>({
+      id:row.id,translationKey:row.translation_key,title:row.title,description:row.description,type:row.type==='online'?'online':'presence',price:Number(row.price),
+      category:row.category==='private'?'private':row.category==='speaking'?'speaking':row.category==='online'?'online':'german',
+      sortOrder:row.sort_order,level:row.level,instructor:row.instructor==='special'?'special':'standard',unitDuration:row.unit_duration,
+      startDate:row.start_date??undefined,endDate:row.end_date??undefined,trialLessons:row.trial_lessons,
+      translations:row.course_translations.map(item=>({locale:item.locale,title:item.title,description:item.description})),
+      sessions:row.course_schedules.sort((a,b)=>a.weekday-b.weekday||a.start_time.localeCompare(b.start_time)).map(item=>({
+        day:DAYS[item.weekday-1],startTime:item.start_time.slice(0,5),endTime:item.end_time.slice(0,5),
+        isAlternating:!!item.alternate_start_time,altStartTime:item.alternate_start_time?.slice(0,5),altEndTime:item.alternate_end_time?.slice(0,5),
+      })),
+    }))
+  }catch {console.error('[courses] Catalog unavailable');return []}
+},['vps-catalog'],{revalidate:300,tags:['courses']})

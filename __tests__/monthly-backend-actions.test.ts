@@ -5,7 +5,7 @@ jest.mock('@/utils/supabase/admin', () => ({ createAdminClient: jest.fn() }))
 
 import { createClient } from '@/utils/supabase/server'
 import { createAdminClient } from '@/utils/supabase/admin'
-import { createMonthlyBooking, updateMonthlyBooking, deleteMonthlyBooking } from '@/app/actions/monthly-bookings'
+import { saveNextMonthBooking } from '@/app/actions/monthly-bookings'
 import { createTeacherNote, getTeacherNotes, updateTeacherNote, saveBlackboardNote } from '@/app/actions/teacher-notes'
 import { getNextMonthStaffOverview } from '@/app/actions/admin-operations'
 import { updateStudentRole } from '@/app/actions/admin'
@@ -15,8 +15,8 @@ import { revalidatePath } from 'next/cache'
 const uid = '00000000-0000-4000-8000-000000000001'
 const other = '00000000-0000-4000-8000-000000000002'
 const course = '00000000-0000-4000-8000-000000000003'
-const bookingInput = { target_month: '2026-10-01', course_ids: [course] }
-const row = { id: other, user_id: uid, ...bookingInput, status: 'pending' }
+const bookingInput = { targetMonth: '2026-10-01', courseIds: [course], paused:false, expected:null }
+const row = { id: other, target_month:bookingInput.targetMonth,booking_items:[{course_id:course}], status: 'pending',revision:1 }
 
 function session(role: string | null = 'student', signedIn = true, queryError: { code: string; message?: string } | null = null) {
   const chain = {
@@ -40,7 +40,7 @@ beforeEach(() => jest.clearAllMocks())
 describe('monthly backend action authorization', () => {
   it('rejects a missing session before accessing tables', async () => {
     const { from } = session('student', false)
-    expect(await createMonthlyBooking(bookingInput)).toEqual({ success: false, error: 'not_authenticated' })
+    expect(await saveNextMonthBooking(bookingInput)).toEqual({ success: false, error: 'not_authenticated' })
     expect(from).not.toHaveBeenCalled()
   })
   it.each(['student', null])('denies note reads to %s', async role => {
@@ -48,35 +48,30 @@ describe('monthly backend action authorization', () => {
     expect(await getTeacherNotes()).toEqual({ success: false, error: 'not_authorized' })
     expect(from).not.toHaveBeenCalledWith('teacher_student_notes')
   })
-  it('takes the booking owner from the validated session', async () => {
-    const { chain } = session()
-    expect(await createMonthlyBooking(bookingInput)).toEqual({ success: true, data: row })
-    expect(chain.insert).toHaveBeenCalledWith({ ...bookingInput, user_id: uid, status: 'pending' })
-    expect(createAdminClient).not.toHaveBeenCalled()
-    expect(revalidatePath).toHaveBeenCalledWith('/[lang]/dashboard', 'layout')
-  })
-  it('rejects a forged owner and self-confirmation', async () => {
-    const { chain } = session()
-    expect(await createMonthlyBooking({ ...bookingInput, user_id: other })).toEqual({ success: false, error: 'not_authorized' })
-    expect(await updateMonthlyBooking({ id: other, status: 'confirmed' })).toEqual({ success: false, error: 'not_authorized' })
+  it('derives ownership from the RPC session and reloads the acknowledged revision', async () => {
+    const { chain,rpc } = session()
+    rpc.mockResolvedValue({data:other,error:null})
+    expect(await saveNextMonthBooking(bookingInput)).toEqual({success:true,data:{id:other,user_id:uid,target_month:bookingInput.targetMonth,course_ids:[course],status:'pending',revision:1}})
+    expect(rpc).toHaveBeenCalledWith('save_business_month',{p_month:bookingInput.targetMonth,p_courses:[course],p_paused:false,p_expected:undefined,p_revision:undefined})
     expect(chain.insert).not.toHaveBeenCalled()
-    expect(chain.update).not.toHaveBeenCalled()
-  })
-  it('allows an admin to book for another profile with the RLS client', async () => {
-    const { chain } = session('admin')
-    await createMonthlyBooking({ ...bookingInput, user_id: other })
-    expect(chain.insert).toHaveBeenCalledWith({ ...bookingInput, user_id: other, status: 'pending' })
     expect(createAdminClient).not.toHaveBeenCalled()
+    expect(revalidatePath).toHaveBeenCalledWith('/[lang]/dashboard','layout')
   })
-  it('reports an invisible/missing mutation target as failure', async () => {
-    const { chain } = session('student', true, { code: 'PGRST116', message: 'Private data' })
-    expect(await deleteMonthlyBooking(other)).toEqual({ success: false, error: 'not_found' })
-    expect(chain.eq).toHaveBeenCalledWith('user_id', uid)
-    expect(revalidatePath).not.toHaveBeenCalled()
+  it('rejects forged ownership and status before sending a mutation',async()=>{
+    const {rpc}=session()
+    expect(await saveNextMonthBooking({...bookingInput,user_id:other})).toEqual({success:false,error:'invalid_input'})
+    expect(await saveNextMonthBooking({...bookingInput,status:'confirmed'})).toEqual({success:false,error:'invalid_input'})
+    expect(rpc).not.toHaveBeenCalled()
   })
-  it('does not leak raw DB errors', async () => {
-    session('student', true, { code: '23505', message: 'Private email and SQL detail' })
-    expect(await createMonthlyBooking(bookingInput)).toEqual({ success: false, error: 'conflict' })
+  it('maps a stale monthly revision to a safe conflict',async()=>{
+    const {rpc}=session()
+    rpc.mockResolvedValue({data:null,error:{code:'40001',message:'Private data'}})
+    expect(await saveNextMonthBooking(bookingInput)).toEqual({success:false,error:'conflict'})
+  })
+  it('reports invisible acknowledgement targets as failures',async()=>{
+    const {rpc,chain}=session()
+    rpc.mockResolvedValue({data:other,error:null});chain.single.mockResolvedValue({data:null,error:{code:'PGRST116'}})
+    expect(await saveNextMonthBooking(bookingInput)).toEqual({success:false,error:'not_found'})
   })
   it('derives note author from session and sanitizes text', async () => {
     const { chain } = session('teacher')

@@ -1,0 +1,46 @@
+http:
+  routers:
+    sitov-acme:
+      rule: Host(`217.154.228.254`) && PathPrefix(`/.well-known/acme-challenge/`)
+      entryPoints: [http]
+      service: sitov-native
+      priority: 10000
+    sitov-http:
+      rule: Host(`217.154.228.254`)
+      entryPoints: [http]
+      service: sitov-native
+      middlewares: [sitov-https]
+      priority: 100
+    sitov-https:
+      rule: Host(`217.154.228.254`)
+      entryPoints: [https]
+      service: sitov-native
+      middlewares: [sitov-security]
+      priority: 100
+      tls: {}
+  services:
+    sitov-native:
+      loadBalancer:
+        servers:
+          - url: http://host.docker.internal:8088
+  middlewares:
+    sitov-https:
+      redirectScheme:
+        scheme: https
+        permanent: true
+    sitov-security:
+      headers:
+        contentTypeNosniff: true
+        referrerPolicy: strict-origin-when-cross-origin
+        customResponseHeaders:
+          Permissions-Policy: "camera=(), microphone=(self), geolocation=()"
+
+tls:
+  stores:
+    default:
+      defaultCertificate:
+        certFile: /traefik/certs/sitov-ip/fullchain.pem
+        keyFile: /traefik/certs/sitov-ip/privkey.pem
+  certificates:
+    - certFile: /traefik/certs/sitov-ip/fullchain.pem
+      keyFile: /traefik/certs/sitov-ip/privkey.pem

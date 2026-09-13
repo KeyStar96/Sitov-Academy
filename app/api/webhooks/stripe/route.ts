@@ -1,63 +1,68 @@
 import { NextResponse } from 'next/server'
 import { stripe } from '@/utils/stripe/server'
 import Stripe from 'stripe'
-import { createClient } from '@supabase/supabase-js'
+import { createAdminClient } from '@/utils/supabase/admin'
 
 export async function POST(req: Request) {
-  // Wir brauchen den Service Role Key, da der Webhook ohne User-Session (Authentication) kommt
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co'
-  const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || 'placeholder'
-  const supabaseAdmin = createClient(supabaseUrl, supabaseKey)
-
-  const body = await req.text()
-  const signature = req.headers.get('Stripe-Signature') as string
+  if (!process.env.STRIPE_SECRET_KEY?.trim() || !process.env.STRIPE_WEBHOOK_SECRET?.trim()) {
+    return NextResponse.json({ error: 'Online payments are not configured' }, { status: 503 })
+  }
+  const signature = req.headers.get('Stripe-Signature')
+  if (!signature) return new NextResponse('Missing signature', { status: 400 })
 
   let event: Stripe.Event
 
   try {
     event = stripe.webhooks.constructEvent(
-      body,
+      await req.text(),
       signature,
       process.env.STRIPE_WEBHOOK_SECRET!
     )
-  } catch (error: any) {
-    return new NextResponse(`Webhook Error: ${error.message}`, { status: 400 })
+  } catch {
+    return new NextResponse('Invalid webhook signature', { status: 400 })
   }
 
   const session = event.data.object as Stripe.Checkout.Session
   const subscription = event.data.object as Stripe.Subscription
 
   try {
+    // Only a verified event may create a privileged database client.
+    const supabaseAdmin = createAdminClient()
     switch (event.type) {
       case 'checkout.session.completed':
-        // Neuer Kauf abgeschlossen
-        if (session.metadata?.supabase_user_id) {
-          await supabaseAdmin
+        if (session.mode === 'subscription' && session.subscription && session.metadata?.supabase_user_id) {
+          const subscriptionId = typeof session.subscription === 'string' ? session.subscription : session.subscription.id
+          // Read current state: webhooks may arrive late or in a different order.
+          const current = await stripe.subscriptions.retrieve(subscriptionId)
+          const customerId = typeof current.customer === 'string' ? current.customer : current.customer.id
+          const { error } = await supabaseAdmin
             .from('profiles')
             .update({
-              subscription_status: 'aktiv',
-              stripe_customer_id: session.customer as string,
-              stripe_subscription_id: session.subscription as string,
+              subscription_status: current.status === 'active' || current.status === 'trialing' ? 'aktiv' : 'kostenlos',
+              stripe_customer_id: customerId,
+              stripe_subscription_id: current.id,
               updated_at: new Date().toISOString()
             })
             .eq('id', session.metadata.supabase_user_id)
+          if (error) throw error
         }
         break
 
       case 'customer.subscription.updated':
-      case 'customer.subscription.deleted':
-        // Abo Status geändert oder gelöscht
-        const status = subscription.status
+      case 'customer.subscription.deleted': {
+        const { status } = await stripe.subscriptions.retrieve(subscription.id)
         const isActive = status === 'active' || status === 'trialing'
         
-        await supabaseAdmin
+        const { error } = await supabaseAdmin
           .from('profiles')
           .update({
             subscription_status: isActive ? 'aktiv' : 'kostenlos',
             updated_at: new Date().toISOString()
           })
           .eq('stripe_subscription_id', subscription.id)
+        if (error) throw error
         break
+      }
         
       default:
         console.log(`Unhandled event type ${event.type}`)

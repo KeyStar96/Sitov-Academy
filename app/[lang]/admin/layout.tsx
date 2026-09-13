@@ -30,7 +30,7 @@ export default async function AdminLayout({
   }
 
   const [{ data: profile }, dict] = await Promise.all([
-    supabase.from('profiles').select('*').eq('id', user.id).single(),
+    supabase.from('profile_details').select('*').eq('id', user.id).single(),
     getDictionary(lang),
   ])
 

@@ -1,94 +1,17 @@
-'use server';
-
-import { createCancellationSchema, CancellationFormData } from "@/lib/cancellation-schema";
-import { createAdminClient } from '@/utils/supabase/admin';
-import { getDictionary } from "@/lib/dictionary";
-import { headers } from "next/headers";
-import { rateLimit } from "@/lib/ratelimit";
-
-interface SubmitCancellationResult {
-    success: boolean;
-    message?: string;
-    errors?: any;
-}
-
-export async function submitCancellation(data: CancellationFormData, lang: string): Promise<SubmitCancellationResult> {
-    const headersList = await headers();
-    const ip = headersList.get("x-forwarded-for") ?? "127.0.0.1";
-
-    // Rate Limit: 3 requests per 60 minutes
-    const { success: rateLimitSuccess } = await rateLimit(ip, 3, "60 m");
-
-    if (!rateLimitSuccess) {
-        return {
-            success: false,
-            message: "Too many requests. Please try again later."
-        };
-    }
-
-    const dictionary = await getDictionary(lang);
-    const schema = createCancellationSchema(dictionary);
-    const result = await schema.safeParseAsync(data);
-
-    if (!result.success) {
-        return {
-            success: false,
-            message: dictionary.cancellation.errors.server_error || "Validation failed",
-            errors: result.error.flatten().fieldErrors,
-        };
-    }
-
-    const { fullName, email, courseName, terminationDate, specificDate } = result.data;
-
-    // Transform DD.MM.YYYY to YYYY-MM-DD for database if specificDate exists
-    let dbDate = null;
-    if (terminationDate === 'specific_date' && specificDate) {
-        const [d, m, y] = specificDate.split('.');
-        if (d && m && y) {
-            dbDate = `${y}-${m}-${d}`;
-        }
-    }
-
-    try {
-        const supabase = createAdminClient();
-
-        const { error } = await supabase
-            .from('cancellations')
-            .insert({
-                full_name: fullName,
-                email: email,
-                course_name: courseName || null,
-                termination_type: terminationDate,
-                termination_date: dbDate,
-            });
-
-        if (error) {
-            console.error("Supabase Cancellation Error:", error);
-            return { success: false, message: dictionary.cancellation.errors.generic_error || "Database error" };
-        }
-
-        // Logic to send email
-        console.log("Cancellation Submitted & Saved:", result.data);
-
-        // Invoke Edge Function
-        // Note: Edge Functions internal URL usually available via environment or constructed.
-        // For server actions, we can use fetch to the project's functions endpoint.
-        // Ideally we use the supabase client's invoke if available, but admin client might not have it configured same way.
-        // Let's use simple fetch for now if we know the URL, OR just rely on the cron/scheduled invocation if that's the plan.
-        // But implementation plan said "Trigger the email".
-        // A robust way in Supabase is using `functions.invoke`.
-
-        const { error: funcError } = await supabase.functions.invoke('send-cancellation-confirmation');
-
-        if (funcError) {
-            console.warn("Failed to trigger send-cancellation-email function directly:", funcError);
-            // Non-blocking error, we still return success to user as DB insert worked.
-        }
-
-        return { success: true };
-
-    } catch (err) {
-        console.error("Unexpected Error in submitCancellation:", err);
-        return { success: false, message: dictionary.cancellation.errors.generic_error || "Internal Server Error" };
-    }
+'use server'
+import {createAdminClient} from '@/utils/supabase/admin'
+import {headers} from 'next/headers'
+import {rateLimit} from '@/lib/ratelimit'
+import {z} from 'zod'
+import type {CancellationFormData} from '@/lib/cancellation-schema'
+const schema=z.object({fullName:z.string().trim().min(2).max(160),email:z.string().trim().email().max(254),courseName:z.string().trim().max(200).optional(),terminationDate:z.enum(['asap','specific_date']),specificDate:z.string().regex(/^\d{2}\.\d{2}\.\d{4}$/).optional()})
+export async function submitCancellation(input:CancellationFormData,lang:string):Promise<{success:boolean;message?:string}> {
+ try {
+  const data=schema.parse(input),h=await headers();const limit=await rateLimit(`cancel:${h.get('x-forwarded-for')?.split(',')[0]??'unknown'}`,3,'60 m')
+  if(!limit.success)return {success:false,message:'generic_error'}
+  const client=createAdminClient()
+  const {error}=await client.rpc('submit_business_cancellation',{p_name:data.fullName,p_email:data.email,p_course:data.courseName??'',p_type:data.terminationDate,p_date:data.terminationDate==='specific_date'?data.specificDate?.split('.').reverse().join('-'):undefined,p_locale:lang})
+  if(error)throw error
+  return {success:true}
+ }catch{console.error('[cancellation] Request failed');return {success:false,message:'generic_error'}}
 }

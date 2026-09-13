@@ -6,7 +6,8 @@ import type { AddExerciseInput } from '@/lib/types/exercise'
 import { grammarWriteSchema } from '@/lib/grammar-validation'
 import { getGrammarExercises, saveGrammarExercise, removeGrammarExercise } from '@/app/actions/grammar-cms'
 import { z } from 'zod'
-import { videoInputSchema, type VideoWriteInput, type VideoWriteResult, type VideoDeleteResult, type VideoRecord } from '@/lib/video-links'
+import { videoInputSchema, videoRecordSchema, type VideoWriteInput, type VideoWriteResult, type VideoDeleteResult, type VideoRecord } from '@/lib/video-links'
+import { saveLearningContent, deleteLearningContent } from '@/lib/learning-content'
 import { vocabWriteSchema, type VocabWriteInput, type VocabSaveResult } from '@/lib/types/vocabulary-admin'
 import { readAdminVocabulary, writeAdminVocabulary, removeAdminVocabulary } from '@/lib/admin-vocabulary'
 
@@ -77,7 +78,7 @@ export async function getVideos(): Promise<VideoRecord[]> {
     const supabase = await requireAdmin()
     const { data, error } = await supabase.from('videos').select('*').order('created_at', { ascending: false })
     if (error) throw error
-    return data ?? []
+    return (data ?? []).map(row => videoRecordSchema.parse(row))
   } catch (error) {
     console.error('Teacher video library unavailable:', error instanceof Error ? error.name : 'database_error')
     throw new Error('video_load_failed')
@@ -95,9 +96,7 @@ async function saveVideo(payload: VideoWriteInput, id?: string): Promise<VideoWr
   try {
     const supabase = await requireAdmin()
     const record = { ...parsed.data, is_external: true, video_url: null }
-    const query = id ? supabase.from('videos').update(record).eq('id', id) : supabase.from('videos').insert(record)
-    const { data, error } = await query.select().single()
-    if (error) throw error
+    const data = videoRecordSchema.parse(await saveLearningContent(supabase, 'videos', record, id))
     revalidatePath('/[lang]/admin/content/videos', 'page')
     revalidatePath('/[lang]/dashboard/level/[level]/videos', 'page')
     return { success: true, data }
@@ -110,8 +109,7 @@ export async function deleteVideo(id: string): Promise<VideoDeleteResult> {
   if (!z.uuid().safeParse(id).success) return { success: false, error: 'invalid_input' }
   try {
     const supabase = await requireAdmin()
-    const { error } = await supabase.from('videos').delete().eq('id', id)
-    if (error) throw error
+    await deleteLearningContent(supabase, 'videos', id)
     revalidatePath('/[lang]/admin/content/videos', 'page')
     revalidatePath('/[lang]/dashboard/level/[level]/videos', 'page')
     return { success: true }

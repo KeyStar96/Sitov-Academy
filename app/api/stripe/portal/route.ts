@@ -4,6 +4,7 @@ import { createClient } from '@/utils/supabase/server'
 import { buildSiteUrl, getSiteUrl } from '@/lib/site-url'
 
 export async function POST(req: Request) {
+  if (!process.env.STRIPE_SECRET_KEY) return NextResponse.json({ error: 'Online payments are not configured' }, { status: 503 })
   try {
     const supabase = await createClient()
     const { data: { user } } = await supabase.auth.getUser()

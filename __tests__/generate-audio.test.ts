@@ -32,7 +32,9 @@ function session(options: {
     select: jest.fn().mockReturnThis(), eq: jest.fn().mockReturnThis(),
     maybeSingle: jest.fn().mockResolvedValue({ data: options.card === undefined ? baseCard : options.card, error: options.cardError ? { message: 'hidden' } : null }),
   }
-  const from = jest.fn((table: string) => table === 'profiles' ? profileChain : cardChain)
+  const rulesResult = Promise.resolve({ data: [], error: null })
+  const rules = { select: jest.fn().mockReturnThis(), eq: jest.fn().mockReturnThis(), then: rulesResult.then.bind(rulesResult) }
+  const from = jest.fn((table: string) => table === 'profile_details' ? profileChain : table === 'student_trainer_access' ? rules : cardChain)
   const client = {
     from, auth: { getUser: jest.fn().mockResolvedValue({ data: { user: options.signedIn === false ? null : { id: userId } }, error: options.authError ? new Error('Expired') : null }) },
   }

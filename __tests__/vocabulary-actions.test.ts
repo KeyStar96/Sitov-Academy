@@ -31,7 +31,7 @@ function session(options: {
     ui_language: options.uiLanguage ?? 'ru',
   }
   const rows = [{
-    id: progressId, user_id: userId, vocabulary_cards: options.card ?? card,
+    id: progressId, user_id: userId, card_id: (options.card ?? card).id,
     direction: options.direction ?? 'native_to_de', box_number: 1,
   }]
   const progress = {
@@ -46,7 +46,10 @@ function session(options: {
     select: jest.fn().mockReturnThis(), eq: jest.fn().mockReturnThis(),
     maybeSingle: jest.fn().mockResolvedValue({ data: { last_card_id: options.previousCardId ?? null }, error: null }),
   }
-  const from = jest.fn((table: string) => table === 'profiles' ? profileChain : table === 'vocabulary_learning_state' ? cursor : progress)
+  const cards = { select: jest.fn().mockReturnThis(), order: jest.fn().mockReturnThis(), eq: jest.fn().mockReturnThis(), range: jest.fn().mockResolvedValue({ data: [options.card ?? card], error: null }) }
+  const rulesResult = Promise.resolve({ data: [], error: null })
+  const rules = { select: jest.fn().mockReturnThis(), eq: jest.fn().mockReturnThis(), then: rulesResult.then.bind(rulesResult) }
+  const from = jest.fn((table: string) => table === 'profile_details' ? profileChain : table === 'student_trainer_access' ? rules : table === 'vocabulary_cards' ? cards : table === 'vocabulary_learning_state' ? cursor : progress)
   const rpc = jest.fn().mockResolvedValue({ data: review, error: null })
   const client = {
     from, rpc, auth: { getUser: jest.fn().mockResolvedValue({ data: { user: options.signedIn === false ? null : { id: options.actorId ?? userId } }, error: null }) },

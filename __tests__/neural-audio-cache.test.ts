@@ -23,11 +23,11 @@ beforeEach(() => jest.clearAllMocks())
 
 describe('neural speech language and content keys', () => {
   it.each([
-    ['de', 'de-DE-KatjaNeural', 'de-DE'], ['ru', 'ru-RU-SvetlanaNeural', 'ru-RU'],
-    ['uk', 'uk-UA-PolinaNeural', 'uk-UA'], ['en', 'en-US-AriaNeural', 'en-US'], ['tr', 'tr-TR-EmelNeural', 'tr-TR'],
-  ] as const)('uses the configured %s neural voice and locale', (language, voice, locale) => {
+    ['de', 'de_DE-thorsten-high', 'de-DE'], ['ru', 'ru_RU-denis-medium', 'ru-RU'],
+    ['uk', 'uk_UA-ukrainian_tts-medium-speaker2', 'uk-UA'], ['en', 'en_US-ljspeech-high', 'en-US'], ['tr', 'espeak-ng-tr', 'tr-TR'],
+  ] as const)('uses the configured %s local voice and locale', (language, voice, locale) => {
     expect(NEURAL_VOICES[language]).toEqual({ voice, locale })
-    expect(neuralAudioPath('Guten Tag.', language)).toMatch(new RegExp(`^edge-v1/${language}/[a-f0-9]{64}\\.mp3$`))
+    expect(neuralAudioPath('Guten Tag.', language)).toMatch(new RegExp(`^piper-local-v1/${language}/[a-f0-9]{64}\\.mp3$`))
   })
   it('shares keys for Unicode/whitespace equivalents while preserving text and language distinctions', () => {
     expect(neuralAudioPath('  Ich öffne\n die Tür. ', 'de')).toBe(neuralAudioPath('Ich öffne die Tür.'.normalize('NFD'), 'de'))
@@ -46,9 +46,9 @@ describe('neural speech language and content keys', () => {
 describe('immutable Storage cache', () => {
   it('looks up the dedicated bucket without generating on a hit', async () => {
     const { storage, from } = storageClient()
-    expect(await findCachedAudio('edge-v1/de/hash.mp3')).toBe(audioUrl)
+    expect(await findCachedAudio('piper-local-v1/de/hash.mp3')).toBe(audioUrl)
     expect(from).toHaveBeenCalledWith(AUDIO_CACHE_BUCKET)
-    expect(storage.info).toHaveBeenCalledWith('edge-v1/de/hash.mp3')
+    expect(storage.info).toHaveBeenCalledWith('piper-local-v1/de/hash.mp3')
     expect(synthesizeNeuralAudio).not.toHaveBeenCalled()
   })
   it.each(['400', '404', 404])('treats missing object status %s as a miss', async statusCode => {

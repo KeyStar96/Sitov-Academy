@@ -1,0 +1,67 @@
+{{ $lang := "de" }}{{ $candidate := .Data.ui_language }}{{ if not $candidate }}{{ $candidate = .Data.native_language }}{{ end }}{{ if eq $candidate "en" }}{{ $lang = "en" }}{{ else if eq $candidate "ru" }}{{ $lang = "ru" }}{{ else if eq $candidate "uk" }}{{ $lang = "uk" }}{{ else if eq $candidate "tr" }}{{ $lang = "tr" }}{{ end }}
+{{ $hello := "Hallo!" }}
+{{ $eyebrow := "DEIN LERNRAUM" }}
+{{ $ignore := "Wenn du diese E-Mail nicht angefordert hast, kannst du sie ignorieren." }}
+{{ $fallback := "Falls der Button nicht funktioniert, öffne diesen Link:" }}
+{{ $office := "Sitz der Sprachschule" }}
+{{ $classroom := "Präsenzunterricht" }}
+{{ $imprint := "Impressum" }}
+{{ $privacy := "Datenschutz" }}
+{{ $terms := "AGB" }}
+{{ $title := "Dein Lernraum wartet auf dich." }}
+{{ $description := "Du wurdest zu Sitov Academy eingeladen. Nimm die Einladung an und öffne deinen persönlichen Lernraum." }}
+{{ $button := "Einladung annehmen" }}
+{{ if eq $lang "en" }}
+{{ $hello = "Hello!" }}
+{{ $eyebrow = "YOUR LEARNING SPACE" }}
+{{ $ignore = "If you did not request this email, you can ignore it." }}
+{{ $fallback = "If the button does not work, open this link:" }}
+{{ $office = "School office" }}
+{{ $classroom = "In-person lessons" }}
+{{ $imprint = "Legal notice" }}
+{{ $privacy = "Privacy" }}
+{{ $terms = "Terms" }}
+{{ $title = "Your learning space is waiting." }}
+{{ $description = "You have been invited to Sitov Academy. Accept the invitation and open your personal learning space." }}
+{{ $button = "Accept invitation" }}
+{{ else if eq $lang "ru" }}
+{{ $hello = "Здравствуйте!" }}
+{{ $eyebrow = "ВАШ УЧЕБНЫЙ КАБИНЕТ" }}
+{{ $ignore = "Если вы не запрашивали это письмо, просто проигнорируйте его." }}
+{{ $fallback = "Если кнопка не работает, откройте эту ссылку:" }}
+{{ $office = "Адрес школы" }}
+{{ $classroom = "Очные занятия" }}
+{{ $imprint = "Реквизиты" }}
+{{ $privacy = "Конфиденциальность" }}
+{{ $terms = "Условия" }}
+{{ $title = "Ваш учебный кабинет ждёт вас." }}
+{{ $description = "Вас пригласили в Sitov Academy. Примите приглашение и откройте свой учебный кабинет." }}
+{{ $button = "Принять приглашение" }}
+{{ else if eq $lang "uk" }}
+{{ $hello = "Вітаємо!" }}
+{{ $eyebrow = "ВАШ НАВЧАЛЬНИЙ КАБІНЕТ" }}
+{{ $ignore = "Якщо ви не запитували цей лист, просто проігноруйте його." }}
+{{ $fallback = "Якщо кнопка не працює, відкрийте це посилання:" }}
+{{ $office = "Адреса школи" }}
+{{ $classroom = "Очні заняття" }}
+{{ $imprint = "Реквізити" }}
+{{ $privacy = "Конфіденційність" }}
+{{ $terms = "Умови" }}
+{{ $title = "Ваш навчальний кабінет чекає на вас." }}
+{{ $description = "Вас запросили до Sitov Academy. Прийміть запрошення та відкрийте свій навчальний кабінет." }}
+{{ $button = "Прийняти запрошення" }}
+{{ else if eq $lang "tr" }}
+{{ $hello = "Merhaba!" }}
+{{ $eyebrow = "ÖĞRENME ALANINIZ" }}
+{{ $ignore = "Bu e-postayı siz istemediyseniz dikkate almayabilirsiniz." }}
+{{ $fallback = "Düğme çalışmazsa bu bağlantıyı açın:" }}
+{{ $office = "Okulun resmî adresi" }}
+{{ $classroom = "Yüz yüze dersler" }}
+{{ $imprint = "Yasal bilgiler" }}
+{{ $privacy = "Gizlilik" }}
+{{ $terms = "Koşullar" }}
+{{ $title = "Öğrenme alanınız sizi bekliyor." }}
+{{ $description = "Sitov Academy’ye davet edildiniz. Daveti kabul edin ve kişisel öğrenme alanınızı açın." }}
+{{ $button = "Daveti kabul et" }}
+{{ end }}
+<!DOCTYPE html><html lang="{{ $lang }}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{{ $title }} · Sitov Academy</title></head><body style="margin:0;background:#f7f5ef;color:#24272b;font-family:Arial,Helvetica,sans-serif"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f7f5ef;padding:28px 12px"><tr><td align="center"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:640px;background:#fffefa;border:1px solid #d7d6ce;border-radius:24px"><tr><td style="padding:32px 28px;border-bottom:1px solid #d7d6ce"><img src="{{ .SiteURL }}/Bilder/favicon.png" alt="" width="48" height="48" style="vertical-align:middle;border-radius:12px;margin-right:12px"><span style="font-size:25px;font-weight:bold;vertical-align:middle">Sitov Academy</span></td></tr><tr><td style="padding:32px 28px;font-size:18px;line-height:1.7"><p style="margin:0 0 12px;color:#6942a0;font-size:14px;font-weight:bold;letter-spacing:1px">{{ $eyebrow }}</p><h1 style="font-size:30px;line-height:1.25;margin:0 0 24px">{{ $title }}</h1><p>{{ $hello }}</p><p>{{ $description }}</p><p style="margin:28px 0"><a href="{{ .SiteURL }}/auth/confirm?token_hash={{ .TokenHash }}&amp;type=invite&amp;lang={{ $lang }}" style="display:inline-block;min-height:48px;line-height:1.5;padding:14px 26px;background:#bd3510;border-radius:999px;color:#fffefa;text-decoration:none;font-size:18px;font-weight:bold">{{ $button }}</a></p><p style="padding:20px;background:#ece9e1;border-radius:16px;font-size:16px">{{ $ignore }}</p><p style="font-size:15px;color:#62645f;margin-top:28px">{{ $fallback }}<br><a href="{{ .SiteURL }}/auth/confirm?token_hash={{ .TokenHash }}&amp;type=invite&amp;lang={{ $lang }}" style="color:#6942a0;word-break:break-all">{{ .SiteURL }}/auth/confirm?token_hash={{ .TokenHash }}&amp;type=invite&amp;lang={{ $lang }}</a></p></td></tr></table><div style="max-width:600px;margin:24px auto;font-size:15px;line-height:1.7;color:#62645f;text-align:left"><strong>Sitov Academy</strong><p><strong>{{ $office }}</strong><br>Hüttenstraße 24a · 30165 Hannover</p><p><strong>{{ $classroom }}</strong><br>Freizeitheim Vahrenwald<br>Vahrenwalder Str. 92 · 30165 Hannover</p><p><a href="mailto:info@sitov-academy.com" style="color:#62645f">info@sitov-academy.com</a><br><a href="tel:+491714758620" style="color:#62645f">+49 171 4758620</a></p><p><a href="{{ .SiteURL }}/{{ $lang }}/imprint" style="color:#6942a0">{{ $imprint }}</a> · <a href="{{ .SiteURL }}/{{ $lang }}/privacy" style="color:#6942a0">{{ $privacy }}</a> · <a href="{{ .SiteURL }}/{{ $lang }}/agb" style="color:#6942a0">{{ $terms }}</a></p></div></td></tr></table></body></html>

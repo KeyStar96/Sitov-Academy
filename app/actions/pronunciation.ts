@@ -5,14 +5,14 @@ import { z } from 'zod'
 import { createClient } from '@/utils/supabase/server'
 import { currentUserHasTrainerAccess, loadLevelAccessProfile } from '@/lib/access/server'
 import { ACCESS_LEVELS, getAllowedLessons } from '@/lib/access/levels'
-import { getCatalogPrompts } from '@/lib/pronunciation-catalog'
+import { saveLearningContent } from '@/lib/learning-content'
 import { cefrFamilyFromLevel, isCefrFamily, type PronunciationPrompt } from '@/lib/pronunciation-prompts'
 import type { PronunciationMutationResult } from '@/lib/pronunciation-conversations'
-import type { Database } from '@/supabase/database.types'
+import type { Tables } from '@/supabase/database.types'
 
-type PromptRow = Database['public']['Tables']['pronunciation_prompts']['Row']
+type PromptRow = Tables<'pronunciation_prompts'>
 function mapPrompt(row: PromptRow): PronunciationPrompt | null {
- if (!isCefrFamily(row.cefr_level)) return null
+ if (!row.id || !row.sentence_de || !isCefrFamily(row.cefr_level)) return null
  return { id: row.id, cefrLevel: row.cefr_level, level: row.level ?? undefined, lesson: row.lesson, title: row.title ?? undefined, sentenceDe: row.sentence_de, focus: row.focus, audioUrl: row.audio_url, sortOrder: row.sort_order, isActive: row.is_active }
 }
 export async function getPronunciationPrompts(level: string): Promise<PronunciationPrompt[]> {
@@ -25,7 +25,7 @@ export async function getPronunciationPrompts(level: string): Promise<Pronunciat
   const allowedLessons = getAllowedLessons(accessProfile, level, 'pronunciation')
 
   const { data, error } = await supabase.from('pronunciation_prompts').select('*').eq('level', level).eq('is_active', true).order('sort_order')
-  if (error) { console.error('Loading pronunciation texts failed', { level, message: error.message }); return getCatalogPrompts(level) }
+  if (error) { console.error('Loading pronunciation texts failed', { level, message: error.message }); return [] }
   return (data ?? []).map(mapPrompt).filter((prompt): prompt is PronunciationPrompt => prompt !== null && (!allowedLessons || allowedLessons.includes(prompt.id)))
  } catch (error) { console.error('Loading pronunciation texts failed', error); return [] }
 }
@@ -55,9 +55,7 @@ export async function savePronunciationPrompt(input: SavePronunciationPromptInpu
   if (!supabase) return { success: false, reason: 'not_authenticated' }
   const value = parsed.data
   const payload = { level: value.level, ...(value.lesson ? { lesson: value.lesson } : {}), cefr_level: cefrFamilyFromLevel(value.level)!, title: value.title, sentence_de: value.text, focus: value.focus || null, is_active: value.isActive }
-  const query = value.id ? supabase.from('pronunciation_prompts').update(payload).eq('id', value.id) : supabase.from('pronunciation_prompts').insert({ ...payload, sort_order: 100 })
-  const { data, error } = await query.select('id').single()
-  if (error) { console.error('Saving pronunciation text failed', error.message); return { success: false, reason: 'save_failed' } }
+  const data = z.object({ id: z.string() }).parse(await saveLearningContent(supabase, 'pronunciation', payload, value.id))
   revalidatePath('/[lang]/admin/content/pronunciation', 'page'); revalidatePath('/[lang]/dashboard/level/[level]/pronunciation', 'page')
   return { success: true, id: data.id }
  } catch (error) { console.error('Saving pronunciation text failed', error); return { success: false, reason: 'save_failed' } }

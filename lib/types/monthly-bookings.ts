@@ -1,21 +1,16 @@
 import { z } from 'zod'
-import type { Tables, TablesInsert, TablesUpdate } from '@/supabase/database.types'
 import { uuidSchema } from './backend'
 
 export const monthlyBookingStatusSchema = z.enum(['pending', 'confirmed', 'cancelled'])
 export type MonthlyBookingStatus = z.infer<typeof monthlyBookingStatusSchema>
-export type MonthlyCourseBooking = Omit<Tables<'monthly_course_bookings'>, 'status'> & {
-  status: MonthlyBookingStatus
+export interface MonthlyCourseBooking {
+  id:string;user_id:string;target_month:string;course_ids:string[];status:MonthlyBookingStatus;revision?:number
 }
-export type MonthlyCourseBookingInsert = Omit<TablesInsert<'monthly_course_bookings'>, 'status'> & {
-  status?: MonthlyBookingStatus
-}
-export type MonthlyCourseBookingUpdate = Omit<TablesUpdate<'monthly_course_bookings'>, 'status'> & {
-  status?: MonthlyBookingStatus
-}
+export type MonthlyCourseBookingInsert = Omit<MonthlyCourseBooking,'id'>
+export type MonthlyCourseBookingUpdate = Partial<MonthlyCourseBooking>
 /** A calendar month, represented by its first day; no timezone conversion. */
 export const targetMonthSchema = z.string().regex(/^(?!0000)\d{4}-(0[1-9]|1[0-2])-01$/)
-/** UUIDs from courses.booking_id, never the legacy text courses.id. */
+/** Canonical course UUIDs; all public booking flows use the same identity. */
 const courseIdsSchema = z.array(uuidSchema).min(1).max(100)
   .refine(ids => new Set(ids).size === ids.length)
 export const createMonthlyBookingSchema = z.object({
@@ -66,5 +61,6 @@ export const saveNextMonthSchema = z.object({
     id: uuidSchema,
     course_ids: z.array(uuidSchema).max(100),
     status: monthlyBookingStatusSchema,
+    revision:z.number().int().positive().optional(),
   }).strict().nullable(),
 }).strict().refine(value => value.paused || value.courseIds.length > 0)

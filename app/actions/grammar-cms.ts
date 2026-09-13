@@ -5,6 +5,7 @@ import { revalidatePath } from 'next/cache'
 import { createClient } from '@/utils/supabase/server'
 import type { Database } from '@/supabase/database.types'
 import { toJsonContent } from '@/lib/types/exercise'
+import { grammarExerciseSchema, saveLearningContent, deleteLearningContent } from '@/lib/learning-content'
 import {
   grammarWriteSchema, type GrammarWriteInput, type GrammarSaveResult,
   type GrammarDeleteResult, type GrammarLoadResult, type GrammarExerciseRow,
@@ -28,7 +29,7 @@ export async function getGrammarExercises(): Promise<GrammarLoadResult> {
       const { data, error } = await supabase.from('exercises').select('*')
         .order('level').order('lesson').order('id').range(offset, offset + 999)
       if (error) throw error
-      rows.push(...data)
+      rows.push(...data.map(row => grammarExerciseSchema.parse(row)))
       if (data.length < 1000) break
       offset += 1000
     }
@@ -44,12 +45,10 @@ export async function saveGrammarExercise(input: GrammarWriteInput, id?: string)
   if (!parsed.success || (id !== undefined && !z.uuid().safeParse(id).success)) return { success: false, error: 'invalid' }
   try {
     const supabase = await requireGrammarTeacher()
-    const payload: Database['public']['Tables']['exercises']['Insert'] = {
+    const payload = {
       ...parsed.data, content: toJsonContent(parsed.data.content),
     }
-    const query = id ? supabase.from('exercises').update(payload).eq('id', id) : supabase.from('exercises').insert(payload)
-    const { data, error } = await query.select('*').single()
-    if (error || !data) throw error ?? new Error('exercise_unavailable')
+    const data = grammarExerciseSchema.parse(await saveLearningContent(supabase, 'exercises', payload, id))
     revalidatePath('/[lang]/admin/content/exercises', 'page')
     revalidatePath('/[lang]/dashboard/level/[level]/exercises', 'page')
     return { success: true, data }
@@ -63,8 +62,7 @@ export async function removeGrammarExercise(id: string): Promise<GrammarDeleteRe
   if (!z.uuid().safeParse(id).success) return { success: false }
   try {
     const supabase = await requireGrammarTeacher()
-    const { data, error } = await supabase.from('exercises').delete().eq('id', id).select('id').single()
-    if (error || !data) throw error ?? new Error('exercise_unavailable')
+    await deleteLearningContent(supabase, 'exercises', id)
     revalidatePath('/[lang]/admin/content/exercises', 'page')
     revalidatePath('/[lang]/dashboard/level/[level]/exercises', 'page')
     return { success: true }

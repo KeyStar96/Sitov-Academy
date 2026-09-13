@@ -1,0 +1,36 @@
+[Unit]
+Description=Sitov Academy local speech synthesis (Piper / eSpeak-NG)
+After=network.target
+
+[Service]
+Type=simple
+# Replace these placeholders during installation; this user only needs model read access.
+User=sitov
+Group=sitov
+WorkingDirectory=/opt/sitov-tts
+EnvironmentFile=-/etc/sitov-academy/tts.env
+Environment=TTS_MODEL_DIR=/opt/sitov-tts/models
+Environment=OMP_NUM_THREADS=1
+Environment=OPENBLAS_NUM_THREADS=1
+Environment=MKL_NUM_THREADS=1
+ExecStart=/opt/sitov-tts/venv/bin/python /opt/sitov-tts/tts_server.py
+Restart=on-failure
+RestartSec=3
+TimeoutStartSec=90
+TimeoutStopSec=10
+KillMode=control-group
+MemoryMax=2G
+CPUQuota=125%
+TasksMax=32
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectControlGroups=true
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+IPAddressDeny=any
+IPAddressAllow=localhost
+
+[Install]
+WantedBy=multi-user.target

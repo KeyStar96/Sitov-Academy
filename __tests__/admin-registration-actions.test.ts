@@ -25,12 +25,12 @@ it('denies students and signed-out callers before any privileged read or write',
 it('teacher role comes from the profile, and accepted mutation has only source and ID',async()=>{
  const db=setup('teacher')
  expect(await confirmRegistration({source:'registration',id})).toEqual({success:true,data:{status:'confirmed'}})
- expect(db.rpc).toHaveBeenCalledWith('confirm_staff_registration',{p_source:'registration',p_id:id})
+ expect(db.rpc).toHaveBeenCalledWith('confirm_business_booking',{p_id:id})
 })
 it('invoice status uses a separate per-month RPC and never changes payment or registration status',async()=>{
  const db=setup('admin')
  expect(await saveManualInvoiceStatus({source:'registration',id,month:'2026-10-01',created:true,reference:' RE1 '})).toEqual({success:true,data:{saved:true}})
- expect(db.rpc).toHaveBeenCalledWith('set_manual_invoice_status',{p_source:'registration',p_id:id,p_month:'2026-10-01',p_created:true,p_reference:'RE1'})
+ expect(db.rpc).toHaveBeenCalledWith('mark_business_invoice',{p_booking:id,p_month:'2026-10-01',p_created:true,p_reference:'RE1'})
 })
 it('maps stale cancelled registrations to conflict without returning SQL errors',async()=>{
  const db=setup('teacher');db.rpc.mockResolvedValue({data:null,error:{code:'40001'}})

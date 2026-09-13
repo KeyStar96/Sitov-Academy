@@ -16,6 +16,7 @@ function setup(role: string) {
   const profile = { select: jest.fn().mockReturnThis(), eq: jest.fn().mockReturnThis(), single: jest.fn().mockResolvedValue({ data: { role }, error: null }) }
   const write = { insert: jest.fn().mockReturnThis(), update: jest.fn().mockReturnThis(), eq: jest.fn().mockReturnThis(), select: jest.fn().mockReturnThis(), single: jest.fn().mockResolvedValue({ data: { id, ...input, created_at: null }, error: null }) }
   const client = {
+    rpc: jest.fn().mockResolvedValue({ data: { id, ...input, created_at: null }, error: null }),
     auth: { getUser: jest.fn().mockResolvedValue({ data: { user: { id } }, error: null }) },
     from: jest.fn((table: string) => table === 'profiles' ? profile : write),
   }
@@ -25,13 +26,11 @@ function setup(role: string) {
 
 beforeEach(() => jest.clearAllMocks())
 
-test('teacher updates use the existing JSONB columns and preserve localized hints plus accepted alternatives', async () => {
-  const { write } = setup('teacher')
+test('teacher updates preserve localized hints and alternatives through the normalized writer', async () => {
+  const { client, write } = setup('teacher')
   expect(await saveGrammarExercise(input, id)).toMatchObject({ success: true })
-  expect(write.update).toHaveBeenCalledWith(expect.objectContaining({ hint: input.hint, content: input.content }))
-  expect(write.update.mock.calls[0][0]).not.toHaveProperty('hint_ru')
-  expect(write.update.mock.calls[0][0]).not.toHaveProperty('hint_tr')
-  expect(write.eq).toHaveBeenCalledWith('id', id)
+  expect(client.rpc).toHaveBeenCalledWith('save_learning_content', { p_trainer: 'exercises', p_id: id, p_payload: expect.objectContaining({ hint: input.hint, content: input.content }) })
+  expect(write.update).not.toHaveBeenCalled()
 })
 
 test('students cannot write authored grammar content', async () => {

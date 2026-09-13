@@ -1,4 +1,5 @@
 /** @jest-environment node */
+import { queueTransactionalEmail } from '@/lib/mail'
 import { createPronunciationSubmission, getPronunciationConversations, sendPronunciationMessage } from '@/app/actions/pronunciation-conversations'
 
 const owner = '6aab2f11-3456-4234-8234-123456789012'
@@ -11,12 +12,14 @@ const mockFrom = jest.fn()
 const mockSignedUrl = jest.fn()
 const mockClient = { auth:{getUser:mockGetUser}, rpc:mockRpc, from:mockFrom, storage:{from:jest.fn(() => ({createSignedUrl:mockSignedUrl}))} }
 jest.mock('@/utils/supabase/server', () => ({createClient:jest.fn(async () => mockClient)}))
+jest.mock('@/lib/mail', () => ({ queueTransactionalEmail: jest.fn().mockResolvedValue({success:true}) }))
 jest.mock('next/cache', () => ({revalidatePath:jest.fn()}))
 function query(data: unknown) {
  const result = {
-  select:jest.fn(), eq:jest.fn(), order:jest.fn(), insert:jest.fn(), single:jest.fn(),
+  select:jest.fn(), eq:jest.fn(), in:jest.fn(), order:jest.fn(), insert:jest.fn(), single:jest.fn(),
  }
  result.select.mockReturnValue(result); result.eq.mockReturnValue(result); result.insert.mockReturnValue(result)
+ result.in.mockResolvedValue({data,error:null})
  result.order.mockResolvedValue({data,error:null}); result.single.mockResolvedValue({data,error:null})
  return result
 }
@@ -48,27 +51,44 @@ describe('authenticated pronunciation writes', () => {
   expect(messages.insert).toHaveBeenCalledWith({submission_id:promptId,sender_id:owner,text_content:'Danke!',audio_path:null})
  })
 })
-describe('legacy and new conversation history', () => {
+describe('durable teacher feedback notifications', () => {
+ function staffMessage() {
+  mockFrom.mockImplementation((table:string) => table === 'profiles' ? query({role:'teacher'}) : table === 'submissions' ? query({user_id:other,level:'A1.1'}) : table === 'profile_details' ? query({name:'Lernende',email:'student@example.invalid',ui_language:'uk'}) : query({id:promptId}))
+ }
+ it('queues one localized event using the committed message identity', async () => {
+  staffMessage()
+  expect(await sendPronunciationMessage({submissionId:promptId,text:'Gut gelesen!',audioPath:null})).toEqual({success:true,id:promptId})
+  expect(queueTransactionalEmail).toHaveBeenCalledWith({dedupeKey:`pronunciation-message:${promptId}`,kind:'feedback_available',to:'student@example.invalid',locale:'uk',payload:{name:'Lernende',path:'/uk/dashboard/level/A1.1/pronunciation'}})
+ })
+ it('keeps a committed message successful when queuing notification fails', async () => {
+  staffMessage()
+  jest.mocked(queueTransactionalEmail).mockRejectedValueOnce(new Error('Outbox unavailable'))
+  const log=jest.spyOn(console,'error').mockImplementation(()=>{})
+  try { expect(await sendPronunciationMessage({submissionId:promptId,text:'Gut gelesen!',audioPath:null})).toEqual({success:true,id:promptId}) }
+  finally {log.mockRestore()}
+ })
+})
+describe('canonical conversation history', () => {
  const row = {
   id:promptId,user_id:owner,level:'A1.1',prompt_title:null,text_content:'Mein alter Lesetext.',content_url:'https://legacy.example/recording.webm',status:'reviewed',created_at:'2026-08-01T10:00:00Z',profiles:{name:'Test Student',email:'student@example.invalid'},
   teacher_feedback:[{id:'old-feedback-1',feedback_text:'Bitte langsamer.',feedback_audio_url:null,created_at:'2026-08-02T10:00:00Z',seen_at:null},{id:'old-feedback-2',feedback_text:'Schon besser!',feedback_audio_url:'https://legacy.example/feedback.webm',created_at:'2026-08-03T10:00:00Z',seen_at:null}],
   pronunciation_messages:[{id:'new-message',sender_role:'student',text_content:'Meine neue Aufnahme.',audio_path:path,created_at:'2026-08-04T10:00:00Z',seen_at:null}],
  }
- it('enforces the student owner filter, retains every legacy feedback and signs only private references', async () => {
+ it('enforces ownership, ignores duplicate compatibility feedback and signs only private references', async () => {
   const profiles = query({role:'student'}), submissions = query([row])
-  mockFrom.mockImplementation((table:string) => table === 'profiles' ? profiles : submissions)
+  mockFrom.mockImplementation((table:string) => table === 'profiles' ? profiles : table === 'profile_details' ? query([{id:owner,name:'Test Student',email:'student@example.invalid'}]) : submissions)
   const result = await getPronunciationConversations('A1.1')
   expect(submissions.eq).toHaveBeenCalledWith('user_id',owner)
   expect(submissions.eq).toHaveBeenCalledWith('level','A1.1')
-  expect(result[0].messages.map((item) => item.id)).toEqual([`recording-${promptId}`,'old-feedback-1','old-feedback-2','new-message'])
-  expect(result[0].messages[0].audioUrl).toBe(row.content_url)
+  expect(result[0].messages.map((item) => item.id)).toEqual([`recording-${promptId}`,'new-message'])
+  expect(result[0].messages[0].audioUrl).toBeNull()
   expect(result[0].messages.at(-1)?.audioUrl).toBe('https://signed.example/recording')
   expect(mockSignedUrl).toHaveBeenCalledWith(`${owner}/2aab2f11-3456-4234-8234-123456789012.webm`,3600)
   expect(result[0].studentEmail).toBeNull()
  })
  it('allows a server-verified teacher to load the queue and student contact', async () => {
   const profiles = query({role:'teacher'}), submissions = query([row])
-  mockFrom.mockImplementation((table:string) => table === 'profiles' ? profiles : submissions)
+  mockFrom.mockImplementation((table:string) => table === 'profiles' ? profiles : table === 'profile_details' ? query([{id:owner,name:'Test Student',email:'student@example.invalid'}]) : submissions)
   const result = await getPronunciationConversations()
   expect(submissions.eq).not.toHaveBeenCalledWith('user_id',owner)
   expect(result[0].studentEmail).toBe('student@example.invalid')

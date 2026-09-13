@@ -20,10 +20,32 @@ function setup(signedIn = true, updateError: { code: string } | null = null) {
   // Stripe's real return types include Response metadata irrelevant to this boundary test.
   jest.mocked(stripe.customers.create).mockResolvedValue({ id: 'cus_server_generated' } as unknown as Awaited<ReturnType<typeof stripe.customers.create>>)
   jest.mocked(stripe.checkout.sessions.create).mockResolvedValue({ url: 'https://checkout.stripe.com/test' } as unknown as Awaited<ReturnType<typeof stripe.checkout.sessions.create>>)
-  return { billing }
+  return { billing, profile }
 }
 const request = () => new Request('https://example.invalid/api/stripe/checkout', { method: 'POST' })
-beforeEach(() => jest.clearAllMocks())
+const originalSecret = process.env.STRIPE_SECRET_KEY
+const originalPrice = process.env.STRIPE_PRICE_ID
+beforeEach(() => {
+  jest.clearAllMocks()
+  process.env.STRIPE_SECRET_KEY = 'test-only-secret'
+  process.env.STRIPE_PRICE_ID = 'price_test_only'
+})
+afterEach(() => {
+  if (originalSecret === undefined) delete process.env.STRIPE_SECRET_KEY
+  else process.env.STRIPE_SECRET_KEY = originalSecret
+  if (originalPrice === undefined) delete process.env.STRIPE_PRICE_ID
+  else process.env.STRIPE_PRICE_ID = originalPrice
+})
+
+it.each(['STRIPE_SECRET_KEY', 'STRIPE_PRICE_ID'])('disables checkout without %s before any auth, database, or payment call', async name => {
+  setup()
+  delete process.env[name]
+  expect((await POST(request())).status).toBe(503)
+  expect(createClient).not.toHaveBeenCalled()
+  expect(createAdminClient).not.toHaveBeenCalled()
+  expect(stripe.customers.create).not.toHaveBeenCalled()
+  expect(stripe.checkout.sessions.create).not.toHaveBeenCalled()
+})
 
 it('does not invoke privileged writes without a session', async () => {
   setup(false)
@@ -42,6 +64,16 @@ it('does not create a checkout session if the billing profile write fails', asyn
   const log = jest.spyOn(console, 'error').mockImplementation(() => {})
   try {
     expect((await POST(request())).status).toBe(500)
+    expect(stripe.checkout.sessions.create).not.toHaveBeenCalled()
+  } finally { log.mockRestore() }
+})
+it('does not create a Stripe customer if the canonical profile cannot be read', async () => {
+  const { profile } = setup()
+  profile.single.mockResolvedValueOnce({ data: null, error: { code: '42501' } } as never)
+  const log = jest.spyOn(console, 'error').mockImplementation(() => {})
+  try {
+    expect((await POST(request())).status).toBe(500)
+    expect(stripe.customers.create).not.toHaveBeenCalled()
     expect(stripe.checkout.sessions.create).not.toHaveBeenCalled()
   } finally { log.mockRestore() }
 })

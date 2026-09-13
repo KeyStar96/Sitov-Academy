@@ -18,7 +18,7 @@ const enrollmentSchema = z.object({
     email: z.string().trim().email().max(100).transform(value => value.toLowerCase()),
     phone: z.string().trim().max(50).optional(), street: field(100), zip: z.string().regex(/^\d{5}$/), city: field(100),
   }).strict(),
-  selectedCourseIds: z.array(field(100)).min(1).max(100).refine(ids => new Set(ids).size === ids.length),
+  selectedCourseIds: z.array(z.string().uuid()).min(1).max(100).refine(ids => new Set(ids).size === ids.length),
   startDate: dateSchema, totalPrice: z.number().finite().min(0).max(100000),
   consents: z.object({ privacy: z.literal(true), agb: z.literal(true), revocation: z.boolean(), videoRecording: z.boolean().optional() }).strict(),
   coursePrices: z.record(z.string(), z.number().finite().min(0).max(100000)),
@@ -30,7 +30,7 @@ const enrollmentSchema = z.object({
 export async function submitEnrollment(
   formData: EnrollmentFormData, selectedCourseIds: string[], startDateRaw: string, totalPrice: number,
   consents: { privacy: boolean; agb: boolean; revocation: boolean; videoRecording?: boolean },
-  coursePrices: Record<string, number>,
+  coursePrices: Record<string, number>, locale: string = 'de',
 ): Promise<SubmitEnrollmentResult> {
   try {
     const input = enrollmentSchema.safeParse({ ...formData, selectedCourseIds, startDate: startDateRaw, totalPrice, consents, coursePrices })
@@ -41,36 +41,12 @@ export async function submitEnrollment(
     if (!limit.success) return { success: false, message: 'generic_error' }
     const admin = createAdminClient()
     const { personal, selectedCourseIds: ids, consents: accepted } = input.data
-    const catalog = await admin.from('courses').select('id').in('id', ids)
-    if (catalog.error || catalog.data?.length !== ids.length) return { success: false, message: 'generic_error' }
-    // Equality on all identity fields avoids changing another person's record.
-    // Different details create a separate reviewable request; shared emails are
-    // never automatically resolved by taking the first match.
-    const existing = await admin.from('users').select('id').eq('first_name', personal.firstName)
-      .eq('last_name', personal.lastName).eq('birth_date', personal.birthDate)
-      .ilike('email', personal.email.replace(/[\\%_]/g, value => `\\${value}`)).limit(2)
-    if (existing.error) throw new Error('person_lookup_failed')
-    let personId = existing.data?.length === 1 ? existing.data[0].id : null
-    if (!personId) {
-      const created = await admin.from('users').insert({
-        first_name: personal.firstName, last_name: personal.lastName, birth_date: personal.birthDate,
-        email: personal.email, phone: personal.phone || null, street: personal.street, zip: personal.zip, city: personal.city,
-      }).select('id').single()
-      if (created.error || !created.data) throw new Error('person_create_failed')
-      personId = created.data.id
-    }
-    const [day, month, year] = input.data.startDate.split('.')
-    const registration = await admin.from('registrations').insert({
-      user_id: personId, start_date: `${year}-${month}-${day}`, total_price: input.data.totalPrice,
-      privacy_accepted: accepted.privacy, agb_accepted: accepted.agb,
-      revocation_waiver_accepted: accepted.revocation, video_recording_accepted: accepted.videoRecording ?? null,
-      status: 'pending', course_ids: ids, course_prices: Object.fromEntries(ids.map(id => [id, input.data.coursePrices[id] ?? 0])),
-      contact_snapshot: {
-        first_name: personal.firstName, last_name: personal.lastName, birth_date: personal.birthDate,
-        email: personal.email, phone: personal.phone || null, street: personal.street, zip: personal.zip, city: personal.city,
-      },
+    const iso=(value:string)=>value.split('.').reverse().join('-')
+    const {error}=await admin.rpc('submit_business_registration',{
+      p_contact:{name:`${personal.firstName} ${personal.lastName}`,email:personal.email,birth_date:iso(personal.birthDate),phone:personal.phone||null,street:personal.street,postal_code:personal.zip,city:personal.city},
+      p_course_ids:ids,p_start:iso(input.data.startDate),p_consents:{privacy:accepted.privacy,agb:accepted.agb,revocation:accepted.revocation,recording:accepted.videoRecording??null},p_locale:locale,p_trial:false,
     })
-    if (registration.error) throw new Error('registration_create_failed')
+    if(error)throw new Error('registration_failed')
     return { success: true, message: 'registration_success' }
   } catch {
     // Never return DB errors or log submitted personal information.

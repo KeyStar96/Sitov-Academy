@@ -74,6 +74,7 @@ export interface UnseenFeedbackSummary {
 export interface SubmitAudioInput {
   url: string
   parentId?: string
+  promptId?: string
   attemptNumber?: number
   level?: string
 }

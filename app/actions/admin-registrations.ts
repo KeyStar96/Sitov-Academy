@@ -12,7 +12,7 @@ export async function getRegistrationOverview(month?: string): Promise<BackendAc
 export async function confirmRegistration(input: unknown): Promise<BackendActionResult<{status:'confirmed'}>> {
   return withBackendSession(async({supabase})=>{
     const data = staffConfirmationSchema.parse(input)
-    const result = await supabase.rpc('confirm_staff_registration',{p_source:data.source,p_id:data.id})
+    const result = await supabase.rpc('confirm_business_booking',{p_id:data.id})
     checkDatabaseError(result.error)
     revalidateBackendPages()
     return {status:'confirmed' as const}
@@ -21,7 +21,7 @@ export async function confirmRegistration(input: unknown): Promise<BackendAction
 export async function saveManualInvoiceStatus(input: unknown): Promise<BackendActionResult<{saved:true}>> {
   return withBackendSession(async({supabase})=>{
     const data = invoiceStatusInputSchema.parse(input)
-    const result = await supabase.rpc('set_manual_invoice_status',{p_source:data.source,p_id:data.id,p_month:data.month,p_created:data.created,p_reference:data.reference})
+    const result = await supabase.rpc('mark_business_invoice',{p_booking:data.id,p_month:data.month,p_created:data.created,p_reference:data.reference})
     checkDatabaseError(result.error)
     revalidateBackendPages()
     return {saved:true as const}

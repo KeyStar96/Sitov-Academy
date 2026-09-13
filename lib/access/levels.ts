@@ -55,6 +55,7 @@ export function sanitizeAllowedLevels(input: readonly unknown[] | null | undefin
 /** Minimale Profilform, die für die Zugriffsentscheidung nötig ist. */
 export interface LevelAccessProfile {
   role: string | null
+  native_language?: string | null
   ui_language?: string | null
   allowed_levels: string[] | null
   student_trainer_access?: readonly TrainerAccessRule[] | null

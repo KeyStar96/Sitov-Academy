@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { courseText } from "@/lib/business-courses";
 import { motion, AnimatePresence } from "framer-motion";
 import { JetBrains_Mono } from "next/font/google";
 import { User, Clock, Gift, ArrowRight } from "lucide-react";
@@ -122,9 +123,7 @@ export default function Courses({ dictionary, courses }: CoursesProps) {
         return true;
       })
       .sort((a, b) => {
-        if (a.translationKey === 'private_lesson' && b.translationKey !== 'private_lesson') return 1;
-        if (b.translationKey === 'private_lesson' && a.translationKey !== 'private_lesson') return -1;
-        return 0;
+        return (a.sortOrder ?? 100) - (b.sortOrder ?? 100);
       })
       .map((course) => {
       // Pre-calculate derived data here to keep props stable
@@ -233,7 +232,7 @@ export default function Courses({ dictionary, courses }: CoursesProps) {
               className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pl-px pt-px"
             >
               {displayedCourses.map((courseConfig) => {
-                const dictTextData = courseTexts?.[courseConfig.translationKey] || courseTexts?.[courseConfig.id.replace('c_', '')];
+                const dictTextData = {...courseText(courseConfig,lang),level:courseConfig.level??'',location:''};
                 // Fallback struct so we don't break if neither exists (though we shouldn't render null entirely if possible)
                 if (!dictTextData && !courseConfig.title) return null;
 
@@ -288,7 +287,7 @@ interface CourseCardProps {
 const CourseCard = React.memo(({ config, text, formattedSchedule, formattedPrice, educatorName, dictionary }: CourseCardProps) => {
   const params = useParams();
   const lang = (params?.lang as string) || "de";
-  const isPrivate = config.translationKey === 'private_lesson';
+  const isPrivate = config.category === 'private';
 
   // Infer unit based on price/duration or fallback
   // Strictly use config duration

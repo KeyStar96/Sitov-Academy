@@ -42,7 +42,7 @@ export function useMonthlySelection(initial: ProfileMonthlyState) {
           const result = await saveNextMonthBooking({
             targetMonth: previous.targetMonth, ...selection,
             expected: previous.booking ? {
-              id: previous.booking.id, course_ids: previous.booking.course_ids, status: previous.booking.status,
+              id: previous.booking.id, course_ids: previous.booking.course_ids, status: previous.booking.status, revision: previous.booking.revision,
             } : null,
           })
           if (result.success === false) {

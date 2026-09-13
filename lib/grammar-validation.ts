@@ -50,7 +50,7 @@ export const grammarWriteSchema = z.discriminatedUnion('type', [
   }
 })
 export type GrammarWriteInput = z.infer<typeof grammarWriteSchema>
-export type GrammarExerciseRow = Database['public']['Tables']['exercises']['Row']
+export type GrammarExerciseRow = import('@/lib/learning-content').GrammarContentRow
 export type GrammarSaveResult = { success: true; data: GrammarExerciseRow } | { success: false; error: 'invalid' | 'failed' }
 export interface GrammarDeleteResult { success: boolean }
 export interface GrammarLoadResult { data: GrammarExerciseRow[]; failed: boolean }

@@ -1,7 +1,7 @@
 import { CourseConfig, Day, CourseException } from "@/lib/course-config";
 
 export const DAY_MAP: Record<Day, number> = {
-    "Mo": 1, "Di": 2, "Mi": 3, "Do": 4, "Fr": 5
+    "Mo": 1, "Di": 2, "Mi": 3, "Do": 4, "Fr": 5, "Sa": 6, "So": 0
 };
 
 // Helper: Minuten berechnen
@@ -63,6 +63,8 @@ export const calculateMonthlyStats = (
         // padStart guarantees 2 digits.
         const dateStr = `${targetYear}-${String(targetMonth + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
         const dayOfWeek = date.getDay();
+
+        if ((course.startDate && dateStr < course.startDate) || (course.endDate && dateStr > course.endDate)) continue;
 
         const sessionsToday = sessionsByDay.get(dayOfWeek);
         if (sessionsToday) {

@@ -190,6 +190,7 @@ export async function signup(formData: FormData) {
             name: parsed.data.name,
             // Wird vom Trigger `handle_new_user` in `profiles` übernommen.
             native_language: parsed.data.native_language,
+            ui_language: lang,
           },
         },
       })

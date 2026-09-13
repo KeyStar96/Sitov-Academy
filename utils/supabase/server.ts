@@ -1,16 +1,17 @@
 import { createServerClient } from '@supabase/ssr'
 import { cookies } from 'next/headers'
 import type { Database } from '@/supabase/database.types'
-import { readSupabasePublicConfig } from '@/lib/supabase-env'
+import { readSupabaseServerConfig, SUPABASE_COOKIE_NAME } from '@/lib/supabase-env'
 
 export async function createClient() {
     const cookieStore = await cookies()
-    const { url, anonKey } = readSupabasePublicConfig()
+    const { url, anonKey } = readSupabaseServerConfig()
 
     return createServerClient<Database>(
         url,
         anonKey,
         {
+            cookieOptions: { name: SUPABASE_COOKIE_NAME, secure: process.env.NODE_ENV === 'production' },
             cookies: {
                 getAll() {
                     return cookieStore.getAll()

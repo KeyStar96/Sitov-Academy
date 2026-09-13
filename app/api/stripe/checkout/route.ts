@@ -3,8 +3,11 @@ import { stripe } from '@/utils/stripe/server'
 import { createClient } from '@/utils/supabase/server'
 import { createAdminClient } from '@/utils/supabase/admin'
 import { buildSiteUrl, getSiteUrl } from '@/lib/site-url'
+import { toUiLocale } from '@/lib/locale-routing'
 
-export async function POST(req: Request) {
+export async function POST(_req: Request) {
+  const priceId = process.env.STRIPE_PRICE_ID?.trim()
+  if (!process.env.STRIPE_SECRET_KEY?.trim() || !priceId) return NextResponse.json({ error: 'Online payments are not configured' }, { status: 503 })
   try {
     const supabase = await createClient()
     const { data: { user } } = await supabase.auth.getUser()
@@ -13,17 +16,15 @@ export async function POST(req: Request) {
       return new NextResponse('Unauthorized', { status: 401 })
     }
 
-    const { data: profile } = await supabase
-      .from('profiles')
-      .select('stripe_customer_id, email')
+    const { data: profile, error: profileError } = await supabase
+      .from('profile_details')
+      .select('stripe_customer_id, email, ui_language')
       .eq('id', user.id)
       .single()
+    if (profileError || !profile?.email) throw new Error('Billing profile unavailable')
 
     const siteUrl = await getSiteUrl()
-    const lang = req.headers.get('referer')?.includes('/tr/') ? 'tr' : req.headers.get('referer')?.includes('/ru/') ? 'ru' : 'de'
-
-    // Hier sollte später die echte Price ID aus dem Stripe Dashboard eingesetzt werden
-    const priceId = process.env.STRIPE_PRICE_ID || 'price_placeholder' 
+    const lang = toUiLocale(profile.ui_language)
     
     let stripeCustomerId = profile?.stripe_customer_id
 
@@ -63,7 +64,7 @@ export async function POST(req: Request) {
       metadata: {
         supabase_user_id: user.id
       },
-      locale: 'de', // Fokus auf deutsche Sprache für das Zielpublikum
+      locale: 'auto',
     })
 
     return NextResponse.json({ url: session.url })

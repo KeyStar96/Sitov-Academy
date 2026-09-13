@@ -768,7 +768,7 @@
       "whatsapp": "WhatsApp"
     },
     "legal": {
-      "privacy": "Verilerimin Gizlilik Politikasına uygun olarak talebimi işleme koymak amacıyla saklanacağını ve kullanılacağını kabul ediyorum. Veriler, AB hizmet sağlayıcımız Supabase (Frankfurt) nezdinde saklanmaktadır.*",
+      "privacy": "Verilerimin Gizlilik Politikasına uygun olarak talebimi işleme koymak amacıyla saklanacağını ve kullanılacağını kabul ediyorum. Kurs yönetimi kendi yönettiğimiz sunucuda yürütülür.*",
       "agb": "Genel İşletme Şartlarını (AGB) okudum ve kabul ediyorum.*",
       "revocation": "Hizmetin ifasına (kurs başlangıcı) cayma süresi dolmadan önce başlamanızı açıkça talep ediyor ve kabul ediyorum. Sözleşmenin tam olarak ifa edilmesiyle cayma hakkımı kaybedeceğimi ve kurs başladıktan sonra cayma durumunda, halihazırda sunulan hizmetler için tazminat ödemem gerektiğini biliyorum.*",
       "video_recording": "Microsoft Teams üzerinden yapılan çevrimiçi derslerin dahili eğitim amaçlı olarak kaydedilmesine (ses ve video) onay veriyorum.*"
@@ -999,7 +999,7 @@
   },
   "privacy": {
     "title": "Gizlilik Politikası",
-    "status": "Güncelleme: 10 Eylül 2026",
+    "status": "Son güncelleme: 13 Eylül 2026",
     "intro": "Dil okulumuza gösterdiğiniz ilgiden dolayı mutluyuz. Gizliliğinizin korunması bizim için son derece önemlidir. Aşağıda verilerinizin işlenmesi hakkında sizi ayrıntılı olarak bilgilendiriyoruz.",
     "sections": [
       {
@@ -1018,8 +1018,8 @@
       {
         "title": "2. Barındırma ve Sunucu Günlük Dosyaları",
         "content": [
-          "Web sitesi ve öğrenme platformu Netlify, Inc. (ABD) üzerinden sunulur. IP adresi, istenen sayfa, zaman, tarayıcı, yönlendiren sayfa ve hata durumu gibi gerekli bağlantı bilgileri, hizmetin sunulması ve korunması için GDPR Madde 6(1)(f) kapsamında işlenir.",
-          "İşleme AB dışında gerçekleşebilir. Netlify’ın işleme ve aktarım koşulları: https://www.netlify.com/pdf/netlify-dpa.pdf. Teknik kayıtlar işletim ve güvenlik olayları için gerekli sürenin ardından silinir; yasal kayıt yükümlülükleri daha uzun saklama gerektirebilir."
+          "Web sitemiz ve öğrenme platformumuz, IONOS bünyesinde kendimizin yönettiği bir sanal sunucu (VPS) üzerinde çalışır. Hizmeti sunmak ve korumak için IP adresi, istenen sayfa, zaman, tarayıcı, yönlendiren sayfa ve hata durumu gibi gerekli bağlantı verileri işlenir. Hukuki dayanak GDPR Madde 6(1)(f) hükmüdür.",
+          "Uygulamayı, veritabanını, kimlik doğrulamayı ve dosya depolamasını bu sunucuda yönetiriz. Teknik kayıtlar yalnızca işletim, sorun giderme, güvenlik olayları veya yasal kayıt yükümlülükleri için gereken süre boyunca saklanır. Barındırma sağlayıcısının bilgileri: https://www.ionos.de/terms-gtc/datenschutzerklaerung/"
         ]
       },
       {
@@ -1030,10 +1030,9 @@
         ]
       },
       {
-        "title": "4. Kurs Kaydı ve Katılımcı Yönetimi (Supabase)",
+        "title": "4. Kurs Kaydı ve Katılımcı Yönetimi",
         "content": [
-          "Kurs kayıtlarının, bekleme listelerinin ve katılımcı verilerinin yönetimi için bir veritabanı hizmet sağlayıcısı olan Supabase kullanıyoruz. Veri işleme AB'de (Frankfurt) gerçekleşir.",
-          "Sağlayıcı: Supabase Inc. / Supabase Germany GmbH",
+          "Kurs kayıtları, bekleme listeleri ve katılımcı bilgileri kendi yönettiğimiz veritabanında işlenir. Kimlik doğrulama ve erişim denetimleri de Bölüm 2’de açıklanan VPS üzerinde yürütülür. Yetkili öğretmen ve yöneticiler, yönetim ve öğrenme desteği için gerekli olduğu ölçüde erişebilir.",
           "İşlenen veriler:",
           "- Soyadı, Adı",
           "- Adres (Sokak, Posta Kodu, Şehir)",
@@ -1043,8 +1042,7 @@
           "- Kayıt tarihi",
           "Amaç: Kurs kayıtlarının, bekleme listelerinin yönetimi, katılımcılarla iletişim, derslerin organizasyonu.",
           "Yasal dayanak: DSGVO Madde 6 Fıkra 1 bent b (sözleşmenin başlatılması ve ifası) ve DSGVO Madde 6 Fıkra 1 bent f (verimli kurs yönetimindeki meşru menfaat).",
-          "Fatura ve muhasebe belgeleri genellikle oluşturuldukları yılın sonundan itibaren sekiz yıl saklanır (§ 147 AO ve uygulanıyorsa § 257 HGB); diğer belgeler için altı veya on yıl gerekebilir. Devam eden vergi işlemleri süreyi uzatabilir.",
-          "Supabase ile DSGVO Madde 28 uyarınca bir veri işleme sözleşmesi mevcuttur."
+          "Fatura ve muhasebe belgeleri genellikle oluşturuldukları yılın sonundan itibaren sekiz yıl saklanır (§ 147 AO ve uygulanıyorsa § 257 HGB); diğer belgeler için altı veya on yıl gerekebilir. Devam eden vergi işlemleri süreyi uzatabilir."
         ]
       },
       {
@@ -1065,20 +1063,12 @@
         ]
       },
       {
-        "title": "6. E-Posta Gönderimi (Resend API)",
+        "title": "6. E-posta Gönderimi",
         "content": [
-          "Onay e-postalarının ve diğer bildirimlerin otomatik olarak gönderilmesi için Resend API kullanıyoruz.",
-          "Sağlayıcı: Resend Inc., ABD (veri merkezi AB'de mevcuttur)",
-          "İşlenen veriler:",
-          "- Alıcının e-posta adresi",
-          "- Alıcının adı",
-          "- E-posta içeriği",
-          "- Gönderim zamanı",
-          "- Teslimat durumu",
-          "Amaç: Sözleşmenin ifası kapsamında kurs onayları, hatırlatmalar, faturalar ve diğer işlemsel e-postaların gönderilmesi.",
-          "Yasal dayanak: DSGVO Madde 6 Fıkra 1 bent b (sözleşmenin ifası) ve DSGVO Madde 6 Fıkra 1 bent f (güvenilir e-posta gönderimindeki meşru menfaat).",
-          "Saklama süresi: E-posta günlükleri Resend'de en fazla 30 gün saklanır.",
-          "Resend ile DSGVO Madde 28 uyarınca bir veri işleme sözleşmesi mevcuttur. Daha fazla bilgi: https://resend.com/legal/privacy-policy"
+          "Kayıt ve kurs onayları, iptal talepleri, hesap işlemleri ve geri bildirim bildirimleri VPS sunucumuzdaki posta sunucusu üzerinden gönderilir. Gönderim işleri korumalı bir kuyrukta tutulur ve geçici teslimat hatalarından sonra yeniden işlenir.",
+          "Alıcının e-posta adresi ve gerektiğinde adı, mesaj içeriği, gönderim zamanı, teknik teslimat bilgileri ve işlem durumu işlenir. Teslimat için gerekli veriler alıcının e-posta sağlayıcısının posta sunucularına iletilir.",
+          "Amaç kayıt, sözleşmenin yerine getirilmesi ve öğrenme desteğiyle ilgili iletişimdir. Hukuki dayanak GDPR Madde 6(1)(b) ve güvenilir, güvenli e-posta işletimi için Madde 6(1)(f) hükümleridir.",
+          "Gönderim işleri, mesajlar ve teknik kayıtlar iletişim amacına, sorun giderme gereksinimlerine ve yasal saklama yükümlülüklerine göre tutulur. Artık gerekli olmayan veriler silinir. Fatura ve muhasebe belgeleri için Bölüm 5 geçerlidir."
         ]
       },
       {
@@ -1118,7 +1108,7 @@
           "- Adres bilgileri",
           "- Rezervasyon yapılan kurs verileri",
           "- Bize sağladığınız diğer gönüllü bilgiler",
-          "Çevrimdışı kayıtlar için: İmzalı kağıt formdaki veriler tarafımızca manuel olarak kurs yönetim sistemimize (Supabase, Frankfurt) girilir. Orijinal form, yasal saklama sürelerine uygun olarak tarafımızca saklanır. Çevrimdışı kayıt için ayrıca kayıt formunda el yazısı imzanızı topluyoruz.",
+          "Çevrimdışı kayıtlar için: İmzalı kağıt formdaki veriler tarafımızca manuel olarak kurs yönetim sistemimize (kendi yönettiğimiz VPS üzerinde) girilir. Orijinal form, yasal saklama sürelerine uygun olarak tarafımızca saklanır. Çevrimdışı kayıt için ayrıca kayıt formunda el yazısı imzanızı topluyoruz.",
           "Yasal dayanak: Bu verilerin işlenmesi, sözleşme öncesi önlemlerin uygulanması ve bir sözleşmenin yerine getirilmesi için gerçekleşir (DSGVO Madde 6 Fıkra 1 bent b).",
           "Fatura ve muhasebe belgeleri genellikle oluşturuldukları yılın sonundan itibaren sekiz yıl saklanır (§ 147 AO ve uygulanıyorsa § 257 HGB); diğer belgeler için altı veya on yıl gerekebilir. Devam eden vergi işlemleri süreyi uzatabilir.",
           "8.4 Kurs Desteği ve Ödevler (Telegram)",
@@ -1195,8 +1185,8 @@
         "title": "12. Telaffuz çalışmaları, kayıtlar ve mesajlar",
         "content": [
           "Okuma metnini seçer ve mikrofon kaydını kendiniz başlatırsınız. Göndermeden önce kayıt tarayıcıda kalır. Gönderimle birlikte sesiniz, seçilen metin, seviye, zaman bilgileri ve sonraki yazılı veya sesli mesajlar bireysel geri bildirim için GDPR Madde 6(1)(b) kapsamında saklanır. Tarayıcının mikrofon iznini istediğiniz zaman kaldırabilirsiniz.",
-          "Yeni alıştırma kayıtları özel Supabase depolamasında saklanır. İlgili öğrenci ile yetkili öğretmen ve yöneticiler erişebilir. Görüşmeler tekrar yanıtlanabilir; zaman ve okunma bilgileri desteği kolaylaştırır. Kayıtlar otomatik yayınlanmaz veya YouTube’a yüklenmez. Biyometrik kimlik tespiti veya otomatik ses değerlendirmesi yapılmaz. Kayıt ve mesajlar öğrenme hesabının desteği için saklanır; önceki bölümdeki saklama ve silme ölçütleri geçerlidir.",
-          "Sesli okuma için öğrenme kelimeleri ve örnek metinler sunucumuzdan Microsoft’un konuşma hizmetine iletilir ve oluşturulan sesler önbelleğe alınır. Öğrenci kayıtları analiz için bu hizmete gönderilmez. Microsoft AB dışında da veri işleyebilir: https://privacy.microsoft.com/tr-tr/privacystatement. Öğrenme metinlerine gizli kişisel bilgiler eklemeyin."
+          "Alıştırma kayıtları, VPS sunucumuzdaki erişim kontrollü dosya depolamasında saklanır. İlgili öğrenci ile yetkili öğretmen ve yöneticiler erişebilir. Görüşmeler tekrar yanıtlanabilir; zaman ve okunma bilgileri desteği kolaylaştırır. Kayıtlar otomatik yayınlanmaz veya YouTube’a yüklenmez. Biyometrik kimlik tespiti veya otomatik ses değerlendirmesi yapılmaz. Kayıt ve mesajlar öğrenme hesabının desteği için saklanır; önceki bölümdeki saklama ve silme ölçütleri geçerlidir.",
+          "Sesli okuma, öğrenme kelimelerini ve örnek metinleri doğrudan VPS sunucumuzda işler. Yerel olarak kurulu konuşma yazılımı sesi üretir ve daha hızlı tekrar oynatma için önbelleğe alır. Bu amaçla metinler ve öğrenci kayıtları harici bir konuşma hizmetine gönderilmez. Öğrenci kayıtları otomatik olarak analiz edilmez. Öğrenme metinlerine gizli kişisel bilgiler eklemeyin."
         ]
       },
       {
@@ -1208,7 +1198,7 @@
       {
         "title": "14. Bu gizlilik bildirimindeki güncellemeler",
         "content": [
-          "Bu bildirim, öğrenme platformunun 10 Eylül 2026 tarihindeki işlevlerini kapsar. Veri işleme değiştiğinde bilgiler güncellenir."
+          "Bu Gizlilik Politikası, öğrenme platformunun işlevlerini ve kendi yönettiğimiz VPS üzerindeki işletimini 13 Eylül 2026 itibarıyla yansıtır. Veri işleme değiştiğinde bu bilgileri güncelleriz."
         ]
       }
     ]

@@ -1,5 +1,21 @@
 # Architecture Masterplan
 
+## Aktueller Architekturstand — VPS-Umbau vom 13. September 2026
+
+**Verbindliche Zielarchitektur, isoliert geprüft; die Live-Bereitstellung läuft noch.** Die Anwendung und ihr Supabase-Backend werden ausschließlich auf dem eigenen VPS `217.154.228.254` betrieben. Cloud-Supabase, frühere Vercel-Bereitstellungen und externe Mail-/Sprachdienste sind kein Bestandteil dieses Betriebswegs. DNS-Einträge bleiben unverändert. Der temporäre öffentliche Einstieg ist `https://217.154.228.254` mit kurzlebigem Let's-Encrypt-IP-Zertifikat und automatischer Erneuerungsprüfung alle zwölf Stunden.
+
+Next.js läuft unter systemd auf `127.0.0.1:3000`; der Reverse Proxy übernimmt HTTPS. Supabase Auth, PostgREST, PostgreSQL und Storage laufen im lokalen Docker-Stack. Personenstammdaten liegen in `people`, Rollen und Sprachpräferenzen in `profiles`; `profile_details` ist eine RLS-beachtende Lesesicht. `bookings`, `booking_items` und `invoice_cases` ersetzen die mehrfach geführten Buchungs-/Rechnungstabellen. Kurszeiten und Übersetzungen sind eigene Relationen.
+
+Lerninhalte gehören zu stabilen UUIDs in `learning_units`. Niveauzugang, Trainerwahl und Einzelauswahl liegen relational in `student_level_access`, `learning_trainer_grants` und `learning_unit_grants`. Übersetzungen sind aus den Inhaltszeilen ausgelagert. `vocabulary_direction_progress` ist die einzige gespeicherte Vokabelhistorie; jede Richtung behält ihren eigenen Sechs-Phasen-Zustand. Lehrerfeedback liegt ausschließlich in `pronunciation_messages`. Die bisherigen Inhaltsnamen und `teacher_feedback` bleiben als `security_invoker`-Lesesichten verfügbar; Schreibvorgänge laufen über die normalisierten RPCs.
+
+Aufnahmen liegen im privaten Bucket `pronunciation_audio`; signierte URLs prüfen Gespräch, Niveau und Einheit. Der alte öffentliche Aufnahme-Bucket ist gesperrt. E-Mails werden in einer lokalen Outbox mit Deduplizierung, Lease und begrenztem Backoff gespeichert und über Postfix versendet. Auth nutzt den lokalen SMTP-Zugang aus Docker. Piper erzeugt Deutsch, Englisch, Russisch und Ukrainisch lokal; Türkisch nutzt eSpeak-NG. Frühere Cloud-HTTP-Jobs werden entfernt.
+
+Die versionierten VPS-SQL-Dateien, fachlichen Beziehungen, Bestandszahlen, Backup-/Restore-Voraussetzungen und getrennten Prüfstände stehen in [VPS-Refactor 2026-09-13](docs/vps-refactor-2026-09-13.md). Änderungen an der Cloud-Instanz sind für diesen Umbau ausdrücklich ausgeschlossen. Frühere Cloud-Projektbindungen und Deployment-Anweisungen sind für diesen Betriebsweg abgelöst.
+
+## Historie — frühere Architektur- und Betriebsstände
+
+Die nachfolgenden Einträge bleiben als Audit-Trail erhalten. Aussagen über Cloud-Supabase, Vercel, externe Sprach-/Maildienste, frühere Tabellen oder damalige Live-Tests gelten nur für ihren jeweiligen Zeitpunkt. Bei Abweichungen hat der aktuelle VPS-Abschnitt oben Vorrang; historische Anleitungen dürfen nicht unverändert auf den neuen Betrieb angewendet werden.
+
 ## 2026-09-13 — Gemini-Review, Inhaltsfreigaben und bidirektionales Lernen
 
 `trainer_access_private.unit_allowed` ergänzt Trainerrechte um Lektion bzw. Aussprache-Prompt-UUID; restriktive RLS-Policies und sämtliche Lern-/Dialog-RPCs prüfen denselben Umfang. `null` bedeutet alle Inhalte, `[]` keine. Lehrer-Konfiguration ist von der studentischen Sprachwahl getrennt. Explizite Einstufungsrichtungen werden unabhängig initialisiert, ohne implizite Gegenrichtung durch den Legacy-Mirror. Wortlisten und Sessions erhalten die aktuelle Interfacesprache. Grammatik-CMS nutzt `hint`-JSONB und erhält Inhaltsübersetzungen sowie Alternativen. Native Dialoge kapseln Freigaben und Audio-Unterhaltungen. `teacher_student_notes.is_blackboard` und ein partieller Unique-Index markieren die stabile zentrale Notiz; `save_student_blackboard` speichert als Staff-geprüfte Invoker-RPC mit Advisory-Lock und erhält Historie/Rabattwerte. [Befunde und Prüfnachweise](docs/gemini-review-2026-09-13.md).

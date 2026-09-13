@@ -6,7 +6,7 @@ import { resolveVocabularyTranslation, vocabularyNativeLocale, type VocabularySo
 export type VocabularyDirection = 'de_to_native' | 'native_to_de'
 export type VocabularyFormat = 'word' | 'sentence'
 
-export type VocabularyCardRow = Database['public']['Tables']['vocabulary_cards']['Row']
+export type VocabularyCardRow = import('@/lib/learning-content').VocabularyContentRow
 
 /** Felder der Vokabelkarte, die der Trainer tatsächlich benötigt. */
 export interface VocabularyCardView {

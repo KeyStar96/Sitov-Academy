@@ -37,7 +37,9 @@ export async function middleware(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams
 
   // 1. Supabase-Session aktualisieren (setzt ggf. neue Cookies)
-  const { supabaseResponse, user } = await updateSession(request)
+  const { supabaseResponse, user } = isProtectedPath(pathname) || isAuthPath(pathname)
+    ? await updateSession(request)
+    : { supabaseResponse: NextResponse.next({ request }), user: null }
 
   // 2. Auth- und API-Routen unverändert durchlassen: Ihre Query-Parameter
   //    tragen Einmal-Token, die keine Weiterleitung überleben würden.

@@ -764,7 +764,7 @@
       "whatsapp": "WhatsApp"
     },
     "legal": {
-      "privacy": "I agree that my data will be stored and used to process my request in accordance with the Privacy Policy. The data is stored with our EU service provider Supabase (Frankfurt).*",
+      "privacy": "I agree that my data will be stored and used to process my request in accordance with the Privacy Policy. Course administration runs on our self-managed server.*",
       "agb": "I have read and accept the General Terms and Conditions (AGB).*",
       "revocation": "I expressly request and agree that you begin the execution of the service (start of the course) before the end of the withdrawal period. I am aware that I lose my right of withdrawal upon complete performance of the contract and that I must pay compensation for the services already rendered if I withdraw after the course has started.*",
       "video_recording": "I consent to the recording of online sessions via Microsoft Teams (audio and video) exclusively for internal teaching purposes.*"
@@ -998,7 +998,7 @@
   },
   "privacy": {
     "title": "Privacy Policy",
-    "status": "Updated: 10 September 2026",
+    "status": "Last updated: 13 September 2026",
     "intro": "We are pleased about your interest in our language school. The protection of your privacy is of the utmost importance to us. Below we inform you in detail about the handling of your data.",
     "sections": [
       {
@@ -1017,8 +1017,8 @@
       {
         "title": "2. Hosting and Server Log Files",
         "content": [
-          "Our website and learning platform are delivered through Netlify, Inc. (USA). This involves necessary connection data such as IP address, page requested, time, browser, referrer and error status, to deliver and secure the service under Article 6(1)(f) GDPR.",
-          "Processing may take place outside the EU. Netlify provides its processing and transfer terms at https://www.netlify.com/pdf/netlify-dpa.pdf. Technical logs are deleted after the period necessary for operation and security incidents; statutory record-keeping duties may require longer retention."
+          "Our website and learning platform run on a virtual server (VPS) at IONOS that we administer. Necessary connection data such as IP address, requested page, time, browser, referrer and error status are processed to deliver and secure the service under Article 6(1)(f) GDPR.",
+          "We manage the application, database, authentication and file storage on this server. Technical logs are retained only as long as needed for operation, troubleshooting, security incidents or statutory record-keeping duties. Hosting provider information: https://www.ionos.de/terms-gtc/datenschutzerklaerung/"
         ]
       },
       {
@@ -1029,10 +1029,9 @@
         ]
       },
       {
-        "title": "4. Course Registration and Participant Management (Supabase)",
+        "title": "4. Course Registration and Participant Management",
         "content": [
-          "For the management of course registrations, waiting lists and participant data, we use Supabase, a database service provider. Data processing takes place in the EU (Frankfurt).",
-          "Provider: Supabase Inc. / Supabase Germany GmbH",
+          "Course registrations, waiting lists and participant details are processed in our self-managed database. Authentication and access checks also run on the VPS described in Section 2. Authorized teachers and administrators have access where needed for administration and learning support.",
           "Processed data:",
           "- Name, First Name",
           "- Address (Street, ZIP, City)",
@@ -1042,8 +1041,7 @@
           "- Registration date",
           "Purpose: Management of course registrations, waiting lists, communication with participants, organization of lessons.",
           "Legal basis: Art. 6 Para. 1 lit. b GDPR (contract initiation and execution) and Art. 6 Para. 1 lit. f GDPR (legitimate interest in efficient course management).",
-          "Invoices and accounting vouchers are generally retained for eight years from the end of the year of creation (§ 147 AO and, where applicable, § 257 HGB); other records may require six or ten years. Ongoing tax proceedings can extend retention.",
-          "A data processing agreement pursuant to Art. 28 GDPR exists with Supabase."
+          "Invoices and accounting vouchers are generally retained for eight years from the end of the year of creation (§ 147 AO and, where applicable, § 257 HGB); other records may require six or ten years. Ongoing tax proceedings can extend retention."
         ]
       },
       {
@@ -1064,20 +1062,12 @@
         ]
       },
       {
-        "title": "6. E-Mail Sending (Resend API)",
+        "title": "6. Email Delivery",
         "content": [
-          "We use the Resend API for the automated sending of confirmation e-mails and other notifications.",
-          "Provider: Resend Inc., USA (data center available in the EU)",
-          "Processed data:",
-          "- E-Mail address of the recipient",
-          "- Name of the recipient",
-          "- E-Mail content",
-          "- Time of sending",
-          "- Delivery status",
-          "Purpose: Sending course confirmations, reminders, invoices and other transactional e-mails within the scope of contract fulfillment.",
-          "Legal basis: Art. 6 Para. 1 lit. b GDPR (performance of contract) and Art. 6 Para. 1 lit. f GDPR (legitimate interest in reliable e-mail sending).",
-          "Storage period: E-Mail logs are stored at Resend for a maximum of 30 days.",
-          "A data processing agreement pursuant to Art. 28 GDPR exists with Resend. Further information: https://resend.com/legal/privacy-policy"
+          "Registration and course confirmations, cancellation requests, account functions and feedback notifications are sent through the mail server running on our VPS. Delivery jobs are held in a protected queue and retried after temporary delivery failures.",
+          "We process the recipient’s email address and, where applicable, name, message content, sending time, technical delivery information and processing status. Data required for delivery are passed to the mail servers of the recipient’s email provider.",
+          "The purpose is communication relating to registration, contract performance and learning support. The legal basis is Article 6(1)(b) GDPR and Article 6(1)(f) GDPR for reliable and secure email operation.",
+          "Delivery jobs, messages and technical logs are retained according to their communication purpose, troubleshooting needs and statutory retention duties. Data that are no longer needed are deleted. Section 5 applies to invoices and accounting records."
         ]
       },
       {
@@ -1117,7 +1107,7 @@
           "- Address details",
           "- Booked course data",
           "- Further voluntary information that you have provided to us",
-          "For offline registrations: The data from the signed paper form are manually entered by us into our course management system (Supabase, Frankfurt). The original form is kept by us in accordance with the statutory retention periods. For offline registration, we additionally collect your handwritten signature on the registration form.",
+          "For offline registrations: The data from the signed paper form are manually entered by us into our course management system (on our self-managed VPS). The original form is kept by us in accordance with the statutory retention periods. For offline registration, we additionally collect your handwritten signature on the registration form.",
           "Legal basis: The processing of this data takes place for the implementation of pre-contractual measures and for the fulfillment of a contract (Art. 6 Para. 1 lit. b GDPR).",
           "Invoices and accounting vouchers are generally retained for eight years from the end of the year of creation (§ 147 AO and, where applicable, § 257 HGB); other records may require six or ten years. Ongoing tax proceedings can extend retention.",
           "8.4 Course Support and Homework (Telegram)",
@@ -1194,8 +1184,8 @@
         "title": "12. Pronunciation practice, recordings and messages",
         "content": [
           "You choose a reading text and start microphone recording yourself. Before submission, the recording stays in your browser. Submitting stores your voice, selected text, level, timestamps and subsequent text or voice messages for personal feedback under Article 6(1)(b) GDPR. You can revoke browser microphone permission at any time.",
-          "New trainer recordings use private Supabase storage. The relevant student and authorized teachers and administrators have access. Conversations allow repeated replies and use timestamps and read status. Recordings are not automatically published or uploaded to YouTube. We do not use voice recordings for biometric identification or automated voice assessment. Recordings and messages remain for support of the learning account; the retention and deletion criteria in the preceding section apply.",
-          "Text-to-speech sends learning words and reference texts from our server to Microsoft’s speech service and caches generated audio. Student recordings are not sent to that service for analysis. Microsoft may also process data outside the EU; see https://privacy.microsoft.com/en-us/privacystatement. Please do not include confidential personal details in learning texts."
+          "Trainer recordings are stored in access-controlled file storage on our VPS. The relevant student and authorized teachers and administrators have access. Conversations allow repeated replies and use timestamps and read status. Recordings are not automatically published or uploaded to YouTube. We do not use voice recordings for biometric identification or automated voice assessment. Recordings and messages remain for support of the learning account; the retention and deletion criteria in the preceding section apply.",
+          "Text-to-speech processes learning words and reference texts directly on our VPS. Locally installed speech software generates audio, which is cached for faster repeat playback. Texts and student recordings are not sent to an external speech service for this purpose. Student recordings are not automatically analyzed. Please do not include confidential personal details in learning texts."
         ]
       },
       {
@@ -1207,7 +1197,7 @@
       {
         "title": "14. Updates to this privacy notice",
         "content": [
-          "This notice reflects the learning platform’s functions as of 10 September 2026. We update it when processing changes."
+          "This Privacy Policy reflects the learning platform’s features and operation on a self-managed VPS as of 13 September 2026. We update this information when processing changes."
         ]
       }
     ]

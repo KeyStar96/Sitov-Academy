@@ -1,33 +1,13 @@
-/**
- * Ermittelt die öffentliche Basis-URL der Anwendung.
- *
- * Hintergrund: Bestätigungs- und Passwort-Links in E-Mails werden serverseitig
- * erzeugt. Fehlt dabei die echte Domain, verschickt die Anwendung Links auf
- * `http://localhost:3000` – für den Empfänger tote Links. Deshalb liegt die
- * Auflösung an genau einer Stelle und fällt in Produktion niemals auf localhost
- * zurück.
- *
- * Reihenfolge der Quellen (bewusst so):
- *  1. `NEXT_PUBLIC_SITE_URL` – explizit gesetzt, gewinnt immer.
- *  2. Plattform-Variablen von Netlify bzw. Vercel. Sie stammen vom Hoster und
- *     sind nicht vom Aufrufer manipulierbar; Preview-Deploys erhalten so
- *     automatisch ihre eigene Domain.
- *  3. Die Host-Header des Requests – letzter Ausweg für eigenes Hosting.
- *  4. `http://localhost:3000` nur außerhalb von Produktion.
- *
- * Der Host-Header steht bewusst hinter den Plattform-Variablen: Ein
- * untergeschobener `Host`-Header könnte sonst den Link in einer E-Mail auf eine
- * fremde Domain umlenken.
- */
-
+/** Explicit deployment origins prevent email links from depending on request headers. */
 export const DEV_FALLBACK_SITE_URL = 'http://localhost:3000'
 
-/** Kanonische öffentliche Domain. Auth-Mails fallen hierauf zurück, nie auf localhost. */
-export const CANONICAL_SITE_URL = 'https://www.sitov-academy.com'
+/** Deployment origin for static metadata; development stays on localhost. */
+export const CANONICAL_SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || DEV_FALLBACK_SITE_URL
 
 /** Nur die Variablen, die für die Auflösung gelesen werden. */
 export interface SiteUrlEnv {
   NEXT_PUBLIC_SITE_URL?: string
+  SITE_URL?: string
   /** Netlify: Kontext des Deploys (`production`, `deploy-preview`, `branch-deploy`). */
   CONTEXT?: string
   /** Netlify: Haupt-URL der Site. */
@@ -62,7 +42,7 @@ export function normalizeOrigin(raw: string | undefined | null): string | null {
   try {
     const url = new URL(withProtocol)
     if (url.protocol !== 'http:' && url.protocol !== 'https:') return null
-    if (url.hostname.length === 0) return null
+    if (url.hostname.length === 0 || url.username || url.password) return null
     return `${url.protocol}//${url.host}`
   } catch {
     return null
@@ -105,79 +85,19 @@ export function isLocalhostOrigin(origin: string | null): boolean {
  * @param headerOrigin Origin aus den Request-Headern, falls vorhanden.
  */
 export function resolveSiteUrl(env: SiteUrlEnv, headerOrigin: string | null = null): string {
-  const explicit = normalizeOrigin(env.NEXT_PUBLIC_SITE_URL)
+  const explicit = normalizeOrigin(env.NEXT_PUBLIC_SITE_URL || env.SITE_URL)
   if (explicit) return explicit
 
-  // Netlify: Im Produktionskontext ist `URL` die kanonische Domain, in
-  // Previews zeigt `DEPLOY_PRIME_URL` auf den konkreten Deploy.
-  if (env.CONTEXT === 'production') {
-    const netlifyProduction = normalizeOrigin(env.URL)
-    if (netlifyProduction) return netlifyProduction
-  }
-
-  const netlifyPreview = normalizeOrigin(env.DEPLOY_PRIME_URL)
-  if (netlifyPreview) return netlifyPreview
-
-  const netlifyFallback = normalizeOrigin(env.URL)
-  if (netlifyFallback) return netlifyFallback
-
-  if (env.VERCEL_ENV === 'production') {
-    const vercelProduction = normalizeOrigin(env.VERCEL_PROJECT_PRODUCTION_URL)
-    if (vercelProduction) return vercelProduction
-  }
-
-  const vercelDeployment = normalizeOrigin(env.VERCEL_URL)
-  if (vercelDeployment) return vercelDeployment
-
-  if (headerOrigin) return headerOrigin
-
-  // Die öffentliche Domain ist bekannt. Lieber dorthin als auf localhost oder
-  // in einen Abbruch, der die Registrierung mitten im Formular scheitern lässt.
-  if (env.NODE_ENV === 'production') return CANONICAL_SITE_URL
-
-  return DEV_FALLBACK_SITE_URL
+  if (env.NODE_ENV === 'production') throw new Error('NEXT_PUBLIC_SITE_URL must identify this VPS deployment')
+  return headerOrigin || DEV_FALLBACK_SITE_URL
 }
 
-/**
- * Basis-URL für Links, die die Anwendung verlassen (Bestätigungs-Mails,
- * Passwort-Reset, Lehrer-Benachrichtigungen).
- *
- * Unterschied zu `resolveSiteUrl`: Ein localhost-Wert wird übersprungen, auch
- * wenn er in `NEXT_PUBLIC_SITE_URL` oder im Host-Header steht. Sonst landet
- * genau das in der Post, was die Nutzerin gerade gemeldet hat.
- *
- * Reihenfolge: öffentliche Env- und Plattform-Werte, dann der Host-Header
- * (sofern nicht localhost), zuletzt die kanonische Domain.
- *
- * Localhost kommt hier nie heraus – auch nicht in der lokalen Entwicklung.
- * Die Live-Datenbank verschickt sonst Bestätigungslinks, die nur auf dem
- * Rechner der Lehrkraft funktionieren. Der Confirm-Flow wird gegen die
- * Produktionsdomain getestet, nicht gegen Loopback.
- */
-export function resolveOutboundSiteUrl(
-  env: SiteUrlEnv,
-  headerOrigin: string | null = null
-): string {
-  const explicit = normalizeOrigin(env.NEXT_PUBLIC_SITE_URL)
-  const candidates: Array<string | null> = [explicit]
-
-  if (env.CONTEXT === 'production') {
-    candidates.push(normalizeOrigin(env.URL))
-  }
-  candidates.push(normalizeOrigin(env.DEPLOY_PRIME_URL))
-  candidates.push(normalizeOrigin(env.URL))
-
-  if (env.VERCEL_ENV === 'production') {
-    candidates.push(normalizeOrigin(env.VERCEL_PROJECT_PRODUCTION_URL))
-  }
-  candidates.push(normalizeOrigin(env.VERCEL_URL))
-  candidates.push(headerOrigin)
-
-  for (const candidate of candidates) {
-    if (candidate && !isLocalhostOrigin(candidate)) return candidate
-  }
-
-  return CANONICAL_SITE_URL
+/** Transactional links require a configured origin; request headers cannot supply it. */
+export function resolveOutboundSiteUrl(env: SiteUrlEnv, _headerOrigin: string | null = null): string {
+  const explicit = normalizeOrigin(env.NEXT_PUBLIC_SITE_URL || env.SITE_URL)
+  if (explicit) return explicit
+  if (env.NODE_ENV === 'production') throw new Error('SITE_URL is required for transactional email links')
+  return DEV_FALLBACK_SITE_URL
 }
 
 /**
@@ -191,7 +111,9 @@ export function buildSiteUrl(
   path: string,
   params: Readonly<Record<string, string>> = {}
 ): string {
+  const base = new URL(baseUrl)
   const url = new URL(path.startsWith('/') ? path : `/${path}`, `${baseUrl}/`)
+  if (url.origin !== base.origin) throw new Error('Site links must remain on the configured origin')
   for (const [key, value] of Object.entries(params)) {
     url.searchParams.set(key, value)
   }
@@ -210,7 +132,7 @@ export function resolveAuthRedirectOrigin(
   env: SiteUrlEnv,
   requestOrigin: string | null
 ): string {
-  if (requestOrigin && isLocalhostOrigin(requestOrigin)) {
+  if (env.NODE_ENV !== 'production' && requestOrigin && isLocalhostOrigin(requestOrigin)) {
     return requestOrigin
   }
   return resolveSiteUrl(env, requestOrigin)

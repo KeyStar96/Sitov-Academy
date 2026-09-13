@@ -1,52 +1,67 @@
-<!DOCTYPE html>
-<html lang="de">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>E-Mail-Adresse bestätigen</title>
-  </head>
-  <body style="margin:0;padding:0;background:#f7f5ef;font-family:Arial,Helvetica,sans-serif;color:#24272b;">
-    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#f7f5ef;padding:24px 12px;">
-      <tr>
-        <td align="center">
-          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:600px;background:#fffefa;border-radius:24px;padding:32px 28px;">
-            <tr>
-              <td align="center" style="padding-bottom:24px;">
-                <img src="https://www.sitov-academy.com/Bilder/favicon.png" alt="" width="56" height="56" style="display:block;width:56px;height:56px;margin:0 auto 12px;" />
-                <div style="font-size:26px;line-height:1.2;font-weight:bold;color:#24272b;">Sitov Academy</div>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <h1 style="font-size:24px;line-height:1.3;margin:0 0 16px 0;">E-Mail-Adresse bestätigen</h1>
-                <p style="font-size:18px;line-height:1.6;margin:0 0 16px 0;">Hallo!</p>
-                <p style="font-size:18px;line-height:1.6;margin:0 0 24px 0;">
-                  vielen Dank für deine Registrierung bei der Sitov Academy. Bitte bestätige deine E-Mail-Adresse, um dein Konto zu aktivieren und dich anzumelden.
-                </p>
-                <p style="margin:0 0 24px 0;">
-                  <a href="{{ if .RedirectTo }}{{ .RedirectTo }}&amp;token_hash={{ .TokenHash }}&amp;type=signup{{ else }}{{ .SiteURL }}/auth/confirm?token_hash={{ .TokenHash }}&amp;type=signup&amp;lang=de{{ end }}" style="display:inline-block;min-height:48px;line-height:48px;padding:0 28px;background:#bd3510;color:#fffefa;text-decoration:none;border-radius:999px;font-size:18px;font-weight:bold;">
-                    E-Mail-Adresse bestätigen
-                  </a>
-                </p>
-                <p style="font-size:18px;line-height:1.6;margin:0 0 24px 0;">
-                  Falls du dieses Konto nicht erstellt hast, kannst du diese E-Mail einfach ignorieren.
-                </p>
-                <p style="font-size:16px;line-height:1.6;margin:0 0 8px 0;color:#62645f;">PROBLEME MIT DEM BUTTON?</p>
-                <p style="font-size:16px;line-height:1.6;margin:0 0 8px 0;color:#62645f;">Kopiere folgenden Link direkt in deinen Browser:</p>
-                <p style="font-size:14px;line-height:1.6;margin:0;word-break:break-all;color:#62645f;">
-                  {{ if .RedirectTo }}{{ .RedirectTo }}&amp;token_hash={{ .TokenHash }}&amp;type=signup{{ else }}{{ .SiteURL }}/auth/confirm?token_hash={{ .TokenHash }}&amp;type=signup&amp;lang=de{{ end }}
-                </p>
-              </td>
-            </tr>
-          </table>
-          <p style="font-size:14px;line-height:1.6;color:#62645f;margin:24px 0 0 0;max-width:600px;">
-            Sitov Academy<br />
-            Sitz der Sprachschule: Hüttenstraße 24a • 30165 Hannover<br />
-            <a href="mailto:info@sitov-academy.com" style="color:#62645f;">info@sitov-academy.com</a> • <a href="tel:+491714758620" style="color:#62645f;">+49 171 4758620</a><br />
-            <a href="https://www.sitov-academy.com/de/imprint" style="color:#62645f;">Impressum</a> • <a href="https://www.sitov-academy.com/de/privacy" style="color:#62645f;">Datenschutz</a> • <a href="https://www.sitov-academy.com/de/agb" style="color:#62645f;">AGB</a>
-          </p>
-        </td>
-      </tr>
-    </table>
-  </body>
-</html>
+{{ $lang := "de" }}{{ $candidate := .Data.ui_language }}{{ if not $candidate }}{{ $candidate = .Data.native_language }}{{ end }}{{ if eq $candidate "en" }}{{ $lang = "en" }}{{ else if eq $candidate "ru" }}{{ $lang = "ru" }}{{ else if eq $candidate "uk" }}{{ $lang = "uk" }}{{ else if eq $candidate "tr" }}{{ $lang = "tr" }}{{ end }}
+{{ $hello := "Hallo!" }}
+{{ $eyebrow := "DEIN LERNRAUM" }}
+{{ $ignore := "Wenn du diese E-Mail nicht angefordert hast, kannst du sie ignorieren." }}
+{{ $fallback := "Falls der Button nicht funktioniert, öffne diesen Link:" }}
+{{ $office := "Sitz der Sprachschule" }}
+{{ $classroom := "Präsenzunterricht" }}
+{{ $imprint := "Impressum" }}
+{{ $privacy := "Datenschutz" }}
+{{ $terms := "AGB" }}
+{{ $title := "Bestätige deine E-Mail-Adresse." }}
+{{ $description := "Willkommen bei Sitov Academy. Bestätige deine E-Mail-Adresse, um dein Konto zu aktivieren. Erst danach kannst du auf deine persönlichen Daten und deinen Lernraum zugreifen." }}
+{{ $button := "E-Mail-Adresse bestätigen" }}
+{{ if eq $lang "en" }}
+{{ $hello = "Hello!" }}
+{{ $eyebrow = "YOUR LEARNING SPACE" }}
+{{ $ignore = "If you did not request this email, you can ignore it." }}
+{{ $fallback = "If the button does not work, open this link:" }}
+{{ $office = "School office" }}
+{{ $classroom = "In-person lessons" }}
+{{ $imprint = "Legal notice" }}
+{{ $privacy = "Privacy" }}
+{{ $terms = "Terms" }}
+{{ $title = "Confirm your email address." }}
+{{ $description = "Welcome to Sitov Academy. Confirm your email address to activate your account. Only then can you access your personal details and learning space." }}
+{{ $button = "Confirm email address" }}
+{{ else if eq $lang "ru" }}
+{{ $hello = "Здравствуйте!" }}
+{{ $eyebrow = "ВАШ УЧЕБНЫЙ КАБИНЕТ" }}
+{{ $ignore = "Если вы не запрашивали это письмо, просто проигнорируйте его." }}
+{{ $fallback = "Если кнопка не работает, откройте эту ссылку:" }}
+{{ $office = "Адрес школы" }}
+{{ $classroom = "Очные занятия" }}
+{{ $imprint = "Реквизиты" }}
+{{ $privacy = "Конфиденциальность" }}
+{{ $terms = "Условия" }}
+{{ $title = "Подтвердите адрес электронной почты." }}
+{{ $description = "Добро пожаловать в Sitov Academy. Подтвердите адрес электронной почты, чтобы активировать аккаунт. Только после этого вы получите доступ к личным данным и учебному кабинету." }}
+{{ $button = "Подтвердить адрес" }}
+{{ else if eq $lang "uk" }}
+{{ $hello = "Вітаємо!" }}
+{{ $eyebrow = "ВАШ НАВЧАЛЬНИЙ КАБІНЕТ" }}
+{{ $ignore = "Якщо ви не запитували цей лист, просто проігноруйте його." }}
+{{ $fallback = "Якщо кнопка не працює, відкрийте це посилання:" }}
+{{ $office = "Адреса школи" }}
+{{ $classroom = "Очні заняття" }}
+{{ $imprint = "Реквізити" }}
+{{ $privacy = "Конфіденційність" }}
+{{ $terms = "Умови" }}
+{{ $title = "Підтвердьте адресу електронної пошти." }}
+{{ $description = "Ласкаво просимо до Sitov Academy. Підтвердьте адресу електронної пошти, щоб активувати обліковий запис. Лише після цього ви отримаєте доступ до особистих даних і навчального кабінету." }}
+{{ $button = "Підтвердити адресу" }}
+{{ else if eq $lang "tr" }}
+{{ $hello = "Merhaba!" }}
+{{ $eyebrow = "ÖĞRENME ALANINIZ" }}
+{{ $ignore = "Bu e-postayı siz istemediyseniz dikkate almayabilirsiniz." }}
+{{ $fallback = "Düğme çalışmazsa bu bağlantıyı açın:" }}
+{{ $office = "Okulun resmî adresi" }}
+{{ $classroom = "Yüz yüze dersler" }}
+{{ $imprint = "Yasal bilgiler" }}
+{{ $privacy = "Gizlilik" }}
+{{ $terms = "Koşullar" }}
+{{ $title = "E-posta adresinizi doğrulayın." }}
+{{ $description = "Sitov Academy’ye hoş geldiniz. Hesabınızı etkinleştirmek için e-posta adresinizi doğrulayın. Ancak bundan sonra kişisel bilgilerinize ve öğrenme alanınıza erişebilirsiniz." }}
+{{ $button = "E-posta adresini doğrula" }}
+{{ end }}
+<!DOCTYPE html><html lang="{{ $lang }}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{{ $title }} · Sitov Academy</title></head><body style="margin:0;background:#f7f5ef;color:#24272b;font-family:Arial,Helvetica,sans-serif"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f7f5ef;padding:28px 12px"><tr><td align="center"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:640px;background:#fffefa;border:1px solid #d7d6ce;border-radius:24px"><tr><td style="padding:32px 28px;border-bottom:1px solid #d7d6ce"><img src="{{ .SiteURL }}/Bilder/favicon.png" alt="" width="48" height="48" style="vertical-align:middle;border-radius:12px;margin-right:12px"><span style="font-size:25px;font-weight:bold;vertical-align:middle">Sitov Academy</span></td></tr><tr><td style="padding:32px 28px;font-size:18px;line-height:1.7"><p style="margin:0 0 12px;color:#6942a0;font-size:14px;font-weight:bold;letter-spacing:1px">{{ $eyebrow }}</p><h1 style="font-size:30px;line-height:1.25;margin:0 0 24px">{{ $title }}</h1><p>{{ $hello }}</p><p>{{ $description }}</p><p style="margin:28px 0"><a href="{{ .SiteURL }}/auth/confirm?token_hash={{ .TokenHash }}&amp;type=signup&amp;lang={{ $lang }}" style="display:inline-block;min-height:48px;line-height:1.5;padding:14px 26px;background:#bd3510;border-radius:999px;color:#fffefa;text-decoration:none;font-size:18px;font-weight:bold">{{ $button }}</a></p><p style="padding:20px;background:#ece9e1;border-radius:16px;font-size:16px">{{ $ignore }}</p><p style="font-size:15px;color:#62645f;margin-top:28px">{{ $fallback }}<br><a href="{{ .SiteURL }}/auth/confirm?token_hash={{ .TokenHash }}&amp;type=signup&amp;lang={{ $lang }}" style="color:#6942a0;word-break:break-all">{{ .SiteURL }}/auth/confirm?token_hash={{ .TokenHash }}&amp;type=signup&amp;lang={{ $lang }}</a></p></td></tr></table><div style="max-width:600px;margin:24px auto;font-size:15px;line-height:1.7;color:#62645f;text-align:left"><strong>Sitov Academy</strong><p><strong>{{ $office }}</strong><br>Hüttenstraße 24a · 30165 Hannover</p><p><strong>{{ $classroom }}</strong><br>Freizeitheim Vahrenwald<br>Vahrenwalder Str. 92 · 30165 Hannover</p><p><a href="mailto:info@sitov-academy.com" style="color:#62645f">info@sitov-academy.com</a><br><a href="tel:+491714758620" style="color:#62645f">+49 171 4758620</a></p><p><a href="{{ .SiteURL }}/{{ $lang }}/imprint" style="color:#6942a0">{{ $imprint }}</a> · <a href="{{ .SiteURL }}/{{ $lang }}/privacy" style="color:#6942a0">{{ $privacy }}</a> · <a href="{{ .SiteURL }}/{{ $lang }}/agb" style="color:#6942a0">{{ $terms }}</a></p></div></td></tr></table></body></html>

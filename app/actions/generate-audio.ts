@@ -46,7 +46,7 @@ export async function generateAudio(input: GenerateAudioInput): Promise<Generate
     }
     if (card && language === 'de' && !card.audio_url) {
       // Guard against a concurrent content edit or teacher-supplied recording. Never overwrite either.
-      let update = createAdminClient().from('vocabulary_cards').update({ audio_url: audioUrl })
+      let update = createAdminClient().from('learning_vocabulary_cards').update({ audio_url: audioUrl })
         .eq('id', card.id).eq('word_de', card.word_de).is('audio_url', null)
       update = card.article === null ? update.is('article', null) : update.eq('article', card.article)
       const { error } = await update

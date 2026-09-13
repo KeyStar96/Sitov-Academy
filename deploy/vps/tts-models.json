@@ -1,0 +1,62 @@
+{
+  "repository": "rhasspy/piper-voices",
+  "revision": "1162a9173d0ce503555aed757976b7a9912eae4c",
+  "voices": {
+    "de_DE-thorsten-high": {
+      "de/de_DE/thorsten/high/de_DE-thorsten-high.onnx": {
+        "size_bytes": 113895201,
+        "md5_digest": "256505fe58fb8b9d6ed78b83f6b8a9d2"
+      },
+      "de/de_DE/thorsten/high/de_DE-thorsten-high.onnx.json": {
+        "size_bytes": 4875,
+        "md5_digest": "e81686e00a9d825e2488ead660bec6fd"
+      },
+      "de/de_DE/thorsten/high/MODEL_CARD": {
+        "size_bytes": 279,
+        "md5_digest": "19da09a2681bb31bce0f12fc16bd7033"
+      }
+    },
+    "en_US-ljspeech-high": {
+      "en/en_US/ljspeech/high/en_US-ljspeech-high.onnx": {
+        "size_bytes": 114199011,
+        "md5_digest": "dad093b5d2cff6a5fda99883ceda09d1"
+      },
+      "en/en_US/ljspeech/high/en_US-ljspeech-high.onnx.json": {
+        "size_bytes": 4970,
+        "md5_digest": "de98fc398ddead60fb82d93bfafb3ad1"
+      },
+      "en/en_US/ljspeech/high/MODEL_CARD": {
+        "size_bytes": 513,
+        "md5_digest": "bc3fe20b3e3f359ec423b98c1b6ed32e"
+      }
+    },
+    "ru_RU-denis-medium": {
+      "ru/ru_RU/denis/medium/ru_RU-denis-medium.onnx": {
+        "size_bytes": 63201294,
+        "md5_digest": "76c2f14e521fef3ed574f97ad492728e"
+      },
+      "ru/ru_RU/denis/medium/ru_RU-denis-medium.onnx.json": {
+        "size_bytes": 4823,
+        "md5_digest": "e3df5957c07647cab05cf9910ef3ede0"
+      },
+      "ru/ru_RU/denis/medium/MODEL_CARD": {
+        "size_bytes": 276,
+        "md5_digest": "baa1911124846d4474ef1e4536158cee"
+      }
+    },
+    "uk_UA-ukrainian_tts-medium": {
+      "uk/uk_UA/ukrainian_tts/medium/uk_UA-ukrainian_tts-medium.onnx": {
+        "size_bytes": 76735663,
+        "md5_digest": "3366c3d4f31cb77966fb14d042956b4f"
+      },
+      "uk/uk_UA/ukrainian_tts/medium/uk_UA-ukrainian_tts-medium.onnx.json": {
+        "size_bytes": 2002,
+        "md5_digest": "3bf9b2b1fcc8e599947cdda4af130498"
+      },
+      "uk/uk_UA/ukrainian_tts/medium/MODEL_CARD": {
+        "size_bytes": 267,
+        "md5_digest": "ec29babff51fdd0e2c640d371800ee3d"
+      }
+    }
+  }
+}

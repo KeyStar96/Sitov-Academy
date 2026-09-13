@@ -2,7 +2,12 @@ import { z } from 'zod'
 import { ACCESS_LEVELS } from '@/lib/access/levels'
 import type { Database } from '@/supabase/database.types'
 
-export type VideoRecord = Database['public']['Tables']['videos']['Row']
+export const videoRecordSchema = z.object({
+  id: z.string(), title: z.string(), lesson: z.string(), level: z.string(), unit_id: z.string().optional(),
+  description: z.string().nullable(), video_url: z.string().nullable(), external_url: z.string().nullable(),
+  is_external: z.boolean().nullable(), created_at: z.string().nullable(),
+})
+export type VideoRecord = z.infer<typeof videoRecordSchema>
 
 /** Canonical watch links only: no embeds, trackers, open redirects or arbitrary hosts. */
 export function youtubeWatchUrl(input: string | null | undefined): string | null {

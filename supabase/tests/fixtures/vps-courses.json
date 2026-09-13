@@ -1,0 +1,272 @@
+[
+  {
+    "id": "c_private_presence",
+    "type": "presence",
+    "price": 25,
+    "title": "Privatunterricht",
+    "end_date": null,
+    "sessions": [],
+    "booking_id": "6eccd753-2182-4b6a-9700-c6340d9302e3",
+    "created_at": "2026-07-18T09:43:40.516321+00:00",
+    "instructor": "standard",
+    "start_date": "2026-02-03",
+    "trial_lessons": false,
+    "unit_duration": 45,
+    "translation_key": "private_lesson"
+  },
+  {
+    "id": "c_private_online",
+    "type": "online",
+    "price": 25,
+    "title": "Privatunterricht",
+    "end_date": null,
+    "sessions": [],
+    "booking_id": "2d4bf352-4840-4213-8cfc-6a6ed6aa1e1d",
+    "created_at": "2026-07-18T09:43:40.516321+00:00",
+    "instructor": "standard",
+    "start_date": "2026-02-03",
+    "trial_lessons": false,
+    "unit_duration": 45,
+    "translation_key": "private_lesson"
+  },
+  {
+    "id": "c_de50_a1_1_2026h2",
+    "type": "presence",
+    "price": 2.5,
+    "title": "Deutsch Level 1",
+    "end_date": null,
+    "sessions": [
+      {
+        "day": "Mo",
+        "endTime": "12:00",
+        "startTime": "10:30"
+      },
+      {
+        "day": "Mi",
+        "endTime": "10:30",
+        "startTime": "09:00"
+      }
+    ],
+    "booking_id": "901248ac-2816-4e93-be2e-5de7a9faa343",
+    "created_at": "2026-05-25T12:09:18.920048+00:00",
+    "instructor": "standard",
+    "start_date": "2026-07-27",
+    "trial_lessons": true,
+    "unit_duration": 45,
+    "translation_key": "de50_a1_1_replacement_2026_07"
+  },
+  {
+    "id": "c_a2_50plus",
+    "type": "presence",
+    "price": 2.5,
+    "title": "Deutsch A2.2",
+    "end_date": "2026-06-30",
+    "sessions": [
+      {
+        "day": "Mo",
+        "endTime": "12:00",
+        "startTime": "10:30"
+      },
+      {
+        "day": "Mi",
+        "endTime": "10:30",
+        "startTime": "09:00"
+      }
+    ],
+    "booking_id": "614bba65-9154-4acc-90c3-4a81dfcb26b4",
+    "created_at": "2026-02-01T14:52:50.777083+00:00",
+    "instructor": "standard",
+    "start_date": "2026-02-03",
+    "trial_lessons": false,
+    "unit_duration": 45,
+    "translation_key": "de50_a2"
+  },
+  {
+    "id": "c_a1_1_50plus",
+    "type": "presence",
+    "price": 2.5,
+    "title": "Deutsch Level 2",
+    "end_date": null,
+    "sessions": [
+      {
+        "day": "Mo",
+        "endTime": "10:30",
+        "startTime": "09:00"
+      },
+      {
+        "day": "Di",
+        "endTime": "12:00",
+        "startTime": "10:30"
+      }
+    ],
+    "booking_id": "05cdec9b-9da7-43fb-b3b0-109515207789",
+    "created_at": "2026-02-01T14:52:50.777083+00:00",
+    "instructor": "standard",
+    "start_date": "2026-02-03",
+    "trial_lessons": true,
+    "unit_duration": 45,
+    "translation_key": "de50_a1_1"
+  },
+  {
+    "id": "c_online_b1",
+    "type": "online",
+    "price": 10,
+    "title": "Deutsch B1 (Online)",
+    "end_date": null,
+    "sessions": [
+      {
+        "day": "Mo",
+        "endTime": "15:30",
+        "startTime": "14:30"
+      },
+      {
+        "day": "Di",
+        "endTime": "15:30",
+        "startTime": "14:30"
+      }
+    ],
+    "booking_id": "33061240-08d7-45b9-aa6a-c06c7b63ac9b",
+    "created_at": "2026-02-01T14:52:50.777083+00:00",
+    "instructor": "standard",
+    "start_date": "2026-02-03",
+    "trial_lessons": true,
+    "unit_duration": 60,
+    "translation_key": "online_b1"
+  },
+  {
+    "id": "c_online_a1_1_2026_09",
+    "type": "online",
+    "price": 10,
+    "title": "Deutsch A1.1 (Online)",
+    "end_date": null,
+    "sessions": [
+      {
+        "day": "Do",
+        "endTime": "20:30",
+        "startTime": "19:30"
+      },
+      {
+        "day": "Fr",
+        "endTime": "20:30",
+        "startTime": "19:30"
+      }
+    ],
+    "booking_id": "a8aca737-634b-4abb-8c81-e779ae81a5db",
+    "created_at": "2026-05-25T12:09:18.920048+00:00",
+    "instructor": "standard",
+    "start_date": "2026-09-01",
+    "trial_lessons": true,
+    "unit_duration": 60,
+    "translation_key": "online_a1_1_2026_09"
+  },
+  {
+    "id": "c_speech_a1_1",
+    "type": "presence",
+    "price": 3.5,
+    "title": "Sprechtraining A1-B2",
+    "end_date": null,
+    "sessions": [
+      {
+        "day": "Di",
+        "endTime": "13:00",
+        "startTime": "12:00"
+      }
+    ],
+    "booking_id": "ec33a7aa-86d8-4072-bde2-aed5b40be25e",
+    "created_at": "2026-02-01T14:52:50.777083+00:00",
+    "instructor": "standard",
+    "start_date": "2026-02-03",
+    "trial_lessons": true,
+    "unit_duration": 60,
+    "translation_key": "speech_a1_1"
+  },
+  {
+    "id": "c_speech_a2",
+    "type": "presence",
+    "price": 3.5,
+    "title": "Sprechtraining A2.2",
+    "end_date": "2026-06-30",
+    "sessions": [
+      {
+        "day": "Mo",
+        "endTime": "13:00",
+        "startTime": "12:00"
+      }
+    ],
+    "booking_id": "6dda9c76-37eb-4803-ba83-ccdf74005295",
+    "created_at": "2026-02-01T14:52:50.777083+00:00",
+    "instructor": "standard",
+    "start_date": "2026-02-03",
+    "trial_lessons": false,
+    "unit_duration": 60,
+    "translation_key": "speech_a2"
+  },
+  {
+    "id": "c_speech_a1_1_2026h2",
+    "type": "presence",
+    "price": 3.5,
+    "title": "Sprechtraining A1-B2",
+    "end_date": null,
+    "sessions": [
+      {
+        "day": "Mo",
+        "endTime": "13:00",
+        "startTime": "12:00"
+      }
+    ],
+    "booking_id": "cfc5f41f-0bf9-4295-aeaf-614afd0dba07",
+    "created_at": "2026-05-25T12:09:18.920048+00:00",
+    "instructor": "standard",
+    "start_date": "2026-07-27",
+    "trial_lessons": true,
+    "unit_duration": 60,
+    "translation_key": "speech_a1_1_replacement_2026_07"
+  },
+  {
+    "id": "c_speech_a1_2",
+    "type": "presence",
+    "price": 3.5,
+    "title": "Sprechtraining A1-B2",
+    "end_date": null,
+    "sessions": [
+      {
+        "day": "Mi",
+        "endTime": "13:00",
+        "startTime": "12:00"
+      }
+    ],
+    "booking_id": "4f5da1ab-80c5-49d6-877e-e0c851698bd1",
+    "created_at": "2026-02-01T14:52:50.777083+00:00",
+    "instructor": "standard",
+    "start_date": "2026-02-03",
+    "trial_lessons": true,
+    "unit_duration": 60,
+    "translation_key": "speech_a1_2"
+  },
+  {
+    "id": "c_a1_2_50plus",
+    "type": "presence",
+    "price": 2.5,
+    "title": "Deutsch Level 3",
+    "end_date": null,
+    "sessions": [
+      {
+        "day": "Di",
+        "endTime": "10:30",
+        "startTime": "09:00"
+      },
+      {
+        "day": "Mi",
+        "endTime": "12:00",
+        "startTime": "10:30"
+      }
+    ],
+    "booking_id": "a2602f45-acdb-42b2-b587-8aebabfdd218",
+    "created_at": "2026-02-01T14:52:50.777083+00:00",
+    "instructor": "standard",
+    "start_date": "2026-02-03",
+    "trial_lessons": true,
+    "unit_duration": 45,
+    "translation_key": "de50_a1_2"
+  }
+]

@@ -1,145 +1,56 @@
+/** @jest-environment node */
 jest.mock('server-only', () => ({}), { virtual: true })
-jest.mock('ws', () => ({
-  __esModule: true,
-  default: jest.fn().mockImplementation((url: URL, options: unknown) => mockSocketFactory(url, options)),
-}))
-jest.mock('node-edge-tts/dist/drm', () => ({
-  CHROMIUM_FULL_VERSION: '140.0.0.0', TRUSTED_CLIENT_TOKEN: 'test-token', generateSecMsGecToken: () => 'test-gec',
-}))
-
-import { EventEmitter } from 'node:events'
 import { synthesizeNeuralAudio } from '@/lib/audio/edge-tts'
-import { AUDIO_MAX_BYTES, AUDIO_FORMAT, AUDIO_RATE } from '@/lib/audio/neural-config'
+import { AUDIO_MAX_BYTES, AUDIO_MAX_TEXT_LENGTH } from '@/lib/audio/neural-config'
+const fetchMock = jest.fn<ReturnType<typeof fetch>, Parameters<typeof fetch>>()
+const originalFetch = global.fetch
+function mp3(length=128) { const result=Buffer.alloc(length,1); result.write('ID3'); return result }
+function audioResponse(audio=mp3()) { return new Response(audio,{headers:{'Content-Type':'audio/mpeg'}}) }
+beforeEach(()=>{ global.fetch=fetchMock; fetchMock.mockReset(); delete process.env.LOCAL_TTS_URL; delete process.env.LOCAL_TTS_TOKEN })
+afterAll(()=>{global.fetch=originalFetch})
 
-class FakeSocket extends EventEmitter {
-  send = jest.fn()
-  terminate = jest.fn(() => { this.emit('close') })
-}
-const mockSocketFactory = jest.fn((_url: URL, _options: unknown) => new FakeSocket())
-
-function start(text = 'Hallo', language: Parameters<typeof synthesizeNeuralAudio>[1] = 'de') {
-  const promise = synthesizeNeuralAudio(text, language)
-  const socket = mockSocketFactory.mock.results.at(-1)?.value as FakeSocket
-  return { socket, promise }
-}
-function mp3(length = 128) {
-  const result = Buffer.alloc(length, 1)
-  result.write('ID3', 0, 'ascii')
-  return result
-}
-function frame(bytes: Buffer, path = 'audio') {
-  const header = Buffer.from(`Path:${path}\r\nContent-Type:audio/mpeg\r\n`)
-  const prefix = Buffer.alloc(2)
-  prefix.writeUInt16BE(header.length)
-  return Buffer.concat([prefix, header, bytes])
-}
-function end(socket: FakeSocket) {
-  socket.emit('message', Buffer.from('X-RequestId:test\r\nPath:turn.end\r\n\r\n'), false)
-}
-beforeEach(() => { jest.clearAllMocks(); jest.useFakeTimers() })
-afterEach(() => { jest.clearAllTimers(); jest.useRealTimers() })
-
-it('bounds the handshake and payload and sends escaped SSML using the chosen voice', async () => {
-  const { socket, promise } = start('<Hallo> & "Tür" \'offen\'', 'tr')
-  const [url, options] = mockSocketFactory.mock.calls[0]
-  expect(url.protocol).toBe('wss:')
-  expect(url.hostname).toBe('speech.platform.bing.com')
-  expect(url.searchParams.get('Sec-MS-GEC')).toBe('test-gec')
-  expect(options).toMatchObject({ handshakeTimeout: 8000, maxPayload: AUDIO_MAX_BYTES })
-  socket.emit('open')
-  expect(socket.send).toHaveBeenCalledTimes(2)
-  const config = socket.send.mock.calls[0][0] as string
-  const ssml = socket.send.mock.calls[1][0] as string
-  expect(config).toContain(AUDIO_FORMAT)
-  expect(ssml).toContain('xml:lang="tr-TR"')
-  expect(ssml).toContain('name="tr-TR-EmelNeural"')
-  expect(ssml).toContain(`rate="${AUDIO_RATE}"`)
-  expect(ssml).toContain('&lt;Hallo&gt; &amp; &quot;Tür&quot; &apos;offen&apos;')
-  expect(ssml).not.toContain('<Hallo>')
-  socket.emit('message', frame(mp3()), true); end(socket)
-  await expect(promise).resolves.toEqual(mp3())
-  expect(socket.terminate).toHaveBeenCalledTimes(1)
-  expect(jest.getTimerCount()).toBe(0)
+it('sends plaintext and language only to loopback and assembles valid MP3',async()=>{
+  fetchMock.mockResolvedValue(audioResponse())
+  await expect(synthesizeNeuralAudio('  Guten   Tag.  ','de')).resolves.toEqual(mp3())
+  const [url,options]=fetchMock.mock.calls[0]
+  expect(String(url)).toBe('http://127.0.0.1:9070/synthesize')
+  expect(options).toMatchObject({method:'POST',cache:'no-store',redirect:'error',body:JSON.stringify({text:'Guten Tag.',language:'de'})})
 })
-
-it('assembles binary chunks without retaining headers or metadata and handles buffer arrays', async () => {
-  const { socket, promise } = start()
-  const audio = mp3(240)
-  socket.emit('message', frame(Buffer.from('ignore'), 'metadata'), true)
-  const first = frame(audio.subarray(0, 120))
-  socket.emit('message', [first.subarray(0, 6), first.subarray(6)], true)
-  socket.emit('message', frame(audio.subarray(120)), true)
-  end(socket)
-  await expect(promise).resolves.toEqual(audio)
+it('uses the optional server-only token',async()=>{
+  process.env.LOCAL_TTS_TOKEN='local-only'
+  fetchMock.mockResolvedValue(audioResponse())
+  await synthesizeNeuralAudio('Merhaba','tr')
+  expect(fetchMock.mock.calls[0][1]?.headers).toMatchObject({Authorization:'Bearer local-only'})
 })
-
-it('accepts a raw MPEG sync header as well as ID3', async () => {
-  const { socket, promise } = start()
-  const audio = Buffer.alloc(128, 0)
-  audio[0] = 0xff; audio[1] = 0xfb
-  socket.emit('message', frame(audio), true); end(socket)
-  await expect(promise).resolves.toEqual(audio)
+it.each(['https://remote.example','http://127.0.0.1@remote.example','http://127.0.0.1/other','http://127.0.0.1?redirect=remote'])('refuses a nonlocal or misleading endpoint %s',async url=>{
+  process.env.LOCAL_TTS_URL=url
+  await expect(synthesizeNeuralAudio('Hallo','de')).rejects.toThrow('must be local')
+  expect(fetchMock).not.toHaveBeenCalled()
 })
-
-it.each([
-  { name: 'missing header length', data: Buffer.from([1]) },
-  { name: 'truncated header', data: Buffer.from([0, 12, 3]) },
-])('rejects $name and closes the socket immediately', async ({ data }) => {
-  const { socket, promise } = start()
-  const rejected = expect(promise).rejects.toThrow('Invalid audio frame')
-  socket.emit('message', data, true)
-  await rejected
-  expect(socket.terminate).toHaveBeenCalledTimes(1)
-  expect(jest.getTimerCount()).toBe(0)
+it('validates text length before doing work',async()=>{
+  await expect(synthesizeNeuralAudio(' ','de')).rejects.toThrow('Invalid synthesis input')
+  await expect(synthesizeNeuralAudio('x'.repeat(AUDIO_MAX_TEXT_LENGTH+1),'de')).rejects.toThrow('Invalid synthesis input')
+  expect(fetchMock).not.toHaveBeenCalled()
 })
-
-it.each([
-  { name: 'empty audio', data: Buffer.alloc(0) },
-  { name: 'too-short MP3', data: mp3(99) },
-  { name: 'non-MP3 data', data: Buffer.alloc(128) },
-])('rejects completion containing $name', async ({ data }) => {
-  const { socket, promise } = start()
-  const rejected = expect(promise).rejects.toThrow('Invalid MP3 response')
-  socket.emit('message', frame(data), true); end(socket)
-  await rejected
-  expect(socket.terminate).toHaveBeenCalledTimes(1)
+it('waits for a busy prefetch worker without requiring another user click',async()=>{
+  fetchMock.mockResolvedValueOnce(new Response(JSON.stringify({error:'busy'}),{status:503,headers:{'Content-Type':'application/json'}})).mockResolvedValueOnce(audioResponse())
+  await expect(synthesizeNeuralAudio('Hallo','de')).resolves.toEqual(mp3())
+  expect(fetchMock).toHaveBeenCalledTimes(2)
 })
-
-it('enforces the aggregate byte limit even when every individual frame is below it', async () => {
-  const { socket, promise } = start()
-  const rejected = expect(promise).rejects.toThrow('Audio response exceeded the cache limit')
-  socket.emit('message', frame(mp3(AUDIO_MAX_BYTES / 2)), true)
-  socket.emit('message', frame(Buffer.alloc(AUDIO_MAX_BYTES / 2 + 1)), true)
-  await rejected
-  expect(socket.terminate).toHaveBeenCalledTimes(1)
-  expect(jest.getTimerCount()).toBe(0)
+it('does not retry a real synthesis failure as a busy queue',async()=>{
+  fetchMock.mockResolvedValue(new Response(JSON.stringify({error:'synthesis_unavailable'}),{status:503}))
+  await expect(synthesizeNeuralAudio('Hallo','de')).rejects.toThrow('Local speech service unavailable')
+  expect(fetchMock).toHaveBeenCalledTimes(1)
 })
-
-it('times out a stalled provider and closes the connection exactly once', async () => {
-  const { socket, promise } = start()
-  const rejected = expect(promise).rejects.toThrow('Audio synthesis timed out')
-  jest.advanceTimersByTime(15_000)
-  await rejected
-  expect(socket.terminate).toHaveBeenCalledTimes(1)
-  socket.emit('message', frame(mp3()), true); end(socket)
-  expect(socket.terminate).toHaveBeenCalledTimes(1)
-  expect(jest.getTimerCount()).toBe(0)
+it('rejects misleading content types, truncated data, and excessive response sizes',async()=>{
+  fetchMock.mockResolvedValueOnce(new Response('<html>error</html>',{headers:{'Content-Type':'text/html'}}))
+  await expect(synthesizeNeuralAudio('Hallo','de')).rejects.toThrow('unavailable')
+  fetchMock.mockResolvedValueOnce(audioResponse(Buffer.alloc(128)))
+  await expect(synthesizeNeuralAudio('Hallo','de')).rejects.toThrow('Invalid MP3')
+  fetchMock.mockResolvedValueOnce(audioResponse(mp3(AUDIO_MAX_BYTES+1)))
+  await expect(synthesizeNeuralAudio('Hallo','de')).rejects.toThrow('exceeded')
 })
-
-it('rejects provider close before the completion marker even after valid partial audio', async () => {
-  const { socket, promise } = start()
-  const rejected = expect(promise).rejects.toThrow('Audio provider closed before completion')
-  socket.emit('message', frame(mp3()), true); socket.emit('close')
-  await rejected
-  expect(socket.terminate).toHaveBeenCalledTimes(1)
-  expect(jest.getTimerCount()).toBe(0)
-})
-
-it('handles transport/handshake errors without disclosing their raw diagnostic', async () => {
-  const { socket, promise } = start()
-  const rejected = expect(promise).rejects.toThrow('Audio provider connection failed')
-  socket.emit('error', new Error('private provider diagnostic'))
-  await rejected
-  expect(socket.terminate).toHaveBeenCalledTimes(1)
-  expect(jest.getTimerCount()).toBe(0)
+it('returns a safe error when the local service cannot be reached',async()=>{
+  fetchMock.mockRejectedValue(new Error('private diagnostic'))
+  await expect(synthesizeNeuralAudio('Hallo','de')).rejects.toThrow('Local speech service unavailable')
 })

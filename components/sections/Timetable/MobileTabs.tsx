@@ -1,4 +1,6 @@
 "use client";
+import { useParams } from "next/navigation";
+import { courseText } from "@/lib/business-courses";
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
@@ -15,6 +17,8 @@ interface MobileTabsProps {
 }
 
 export default function MobileTabs({ dictionary, courses }: MobileTabsProps) {
+    const params=useParams();
+    const lang=typeof params?.lang==='string'?params.lang:'de';
     const t = dictionary?.timetable || {};
     const dayNames = t.days || {};
     const courseTexts = dictionary?.CourseData || {};
@@ -51,7 +55,7 @@ export default function MobileTabs({ dictionary, courses }: MobileTabsProps) {
                         id: `${course.id}-${session.day}-${session.startTime}`,
                         startTime: session.startTime,
                         endTime: session.endTime,
-                        title: courseTexts[course.translationKey]?.title || courseTexts[course.id.replace('c_', '')]?.title || course.title || course.id,
+                        title: courseText(course,lang).title,
                         instructorKey: course.instructor,
                         locationKey: course.type,
                         isAlternating: session.isAlternating,
@@ -63,7 +67,7 @@ export default function MobileTabs({ dictionary, courses }: MobileTabsProps) {
                             id: `${course.id}-${session.day}-${session.altStartTime}-alt`,
                             startTime: session.altStartTime,
                             endTime: session.altEndTime,
-                            title: courseTexts[course.translationKey]?.title || courseTexts[course.id.replace('c_', '')]?.title || course.title || course.id,
+                            title: courseText(course,lang).title,
                             instructorKey: course.instructor,
                             locationKey: course.type,
                             isAlternating: true,

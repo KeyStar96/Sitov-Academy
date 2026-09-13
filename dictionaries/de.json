@@ -766,7 +766,7 @@
       "whatsapp": "WhatsApp"
     },
     "legal": {
-      "privacy": "Ich stimme zu, dass meine Daten gemäß der Datenschutzerklärung zur Bearbeitung meiner Anfrage gespeichert und verwendet werden. Die Daten werden bei unserem EU-Dienstleister Supabase (Frankfurt) gespeichert.*",
+      "privacy": "Ich stimme zu, dass meine Daten gemäß der Datenschutzerklärung zur Bearbeitung meiner Anfrage gespeichert und verwendet werden. Die Kursverwaltung erfolgt auf unserem eigenverwalteten Server.*",
       "agb": "Ich habe die AGB gelesen und akzeptiere diese.*",
       "revocation": "Ich verlange ausdrücklich und stimme zu, dass Sie mit der Ausführung der Dienstleistung (Kursbeginn) vor Ablauf der Widerrufsfrist beginnen. Mir ist bekannt, dass ich bei vollständiger Vertragserfüllung mein Widerrufsrecht verliere und bei einem Widerruf nach Kursbeginn Wertersatz für die bereits erbrachten Leistungen zahlen muss.*",
       "video_recording": "Ich willige in die Aufzeichnung der Online-Sitzungen via Microsoft Teams (Audio und Video) ausschließlich zu internen Lehrzwecken ein.*"
@@ -997,7 +997,7 @@
   },
   "privacy": {
     "title": "Datenschutzerklärung",
-    "status": "Stand: 10. September 2026",
+    "status": "Stand: 13. September 2026",
     "intro": "Wir freuen uns über Ihr Interesse an unserer Sprachschule. Der Schutz Ihrer Privatsphäre ist für uns von höchster Bedeutung. Nachfolgend informieren wir Sie ausführlich über den Umgang mit Ihren Daten.",
     "sections": [
       {
@@ -1016,8 +1016,8 @@
       {
         "title": "2. Hosting und Server-Logfiles",
         "content": [
-          "Unsere Website und Lernplattform werden über Netlify, Inc. (USA) bereitgestellt. Dabei werden technisch erforderliche Verbindungsdaten wie IP-Adresse, aufgerufene Seite, Zeitpunkt, Browser, Referrer und Fehlerstatus verarbeitet. Zweck ist die Auslieferung und Absicherung des Angebots; Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO.",
-          "Die Verarbeitung kann außerhalb der EU stattfinden. Angaben zu Auftragsverarbeitung und Übermittlungsgrundlagen stellt Netlify unter https://www.netlify.com/pdf/netlify-dpa.pdf bereit. Technische Protokolle werden nach dem für Betrieb und Sicherheitsvorfälle erforderlichen Zeitraum gelöscht; gesetzliche Nachweispflichten können eine längere Speicherung erfordern."
+          "Unsere Website und Lernplattform werden auf einem von uns administrierten virtuellen Server (VPS) bei IONOS betrieben. Dabei werden technisch erforderliche Verbindungsdaten wie IP-Adresse, aufgerufene Seite, Zeitpunkt, Browser, Referrer und Fehlerstatus verarbeitet. Zweck ist die Auslieferung und Absicherung des Angebots; Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO.",
+          "Wir verwalten die Anwendung, Datenbank, Anmeldung und Dateispeicherung auf diesem Server. Technische Protokolle werden nur so lange aufbewahrt, wie sie für den Betrieb, die Bearbeitung von Fehlern und Sicherheitsvorfällen oder gesetzliche Nachweispflichten benötigt werden. Informationen des Hostinganbieters: https://www.ionos.de/terms-gtc/datenschutzerklaerung/"
         ]
       },
       {
@@ -1028,10 +1028,9 @@
         ]
       },
       {
-        "title": "4. Kursanmeldungen und Teilnehmerverwaltung (Supabase)",
+        "title": "4. Kursanmeldungen und Teilnehmerverwaltung",
         "content": [
-          "Für die Verwaltung von Kursanmeldungen, Wartelisten und Teilnehmerdaten nutzen wir Supabase, einen Datenbank-Dienstleister. Die Datenverarbeitung erfolgt in der EU (Frankfurt).",
-          "Anbieter: Supabase Inc. / Supabase Germany GmbH",
+          "Kursanmeldungen, Wartelisten und Teilnehmerdaten werden in unserer selbstverwalteten Datenbank verarbeitet. Anmeldung und Zugriffsprüfung erfolgen ebenfalls auf dem in Abschnitt 2 beschriebenen VPS. Berechtigte Lehrkräfte und Administratoren erhalten Zugriff, soweit dies für Verwaltung und Betreuung erforderlich ist.",
           "Verarbeitete Daten:",
           "- Name, Vorname",
           "- Adresse (Straße, PLZ, Stadt)",
@@ -1041,8 +1040,7 @@
           "- Anmeldedatum",
           "Zweck: Verwaltung von Kursanmeldungen, Wartelisten, Kommunikation mit Teilnehmern, Organisation des Unterrichts.",
           "Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Vertragsanbahnung und -durchführung) sowie Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an effizienter Kursverwaltung).",
-          "Rechnungs- und Buchungsbelege werden grundsätzlich acht Jahre ab Ende des Entstehungsjahres aufbewahrt (§ 147 AO, gegebenenfalls § 257 HGB); für andere Unterlagen können sechs- oder zehnjährige Fristen gelten. Laufende steuerliche Verfahren können die Aufbewahrung verlängern.",
-          "Mit Supabase besteht ein Auftragsverarbeitungsvertrag gemäß Art. 28 DSGVO."
+          "Rechnungs- und Buchungsbelege werden grundsätzlich acht Jahre ab Ende des Entstehungsjahres aufbewahrt (§ 147 AO, gegebenenfalls § 257 HGB); für andere Unterlagen können sechs- oder zehnjährige Fristen gelten. Laufende steuerliche Verfahren können die Aufbewahrung verlängern."
         ]
       },
       {
@@ -1063,20 +1061,12 @@
         ]
       },
       {
-        "title": "6. E-Mail-Versand (Resend API)",
+        "title": "6. E-Mail-Versand",
         "content": [
-          "Für den automatisierten Versand von Bestätigungs-E-Mails und sonstigen Benachrichtigungen nutzen wir die Resend API.",
-          "Anbieter: Resend Inc., USA (Rechenzentrum in der EU verfügbar)",
-          "Verarbeitete Daten:",
-          "- E-Mail-Adresse des Empfängers",
-          "- Name des Empfängers",
-          "- E-Mail-Inhalt",
-          "- Versandzeitpunkt",
-          "- Zustellstatus",
-          "Zweck: Versand von Kursbestätigungen, Erinnerungen, Rechnungen und anderen transaktionalen E-Mails im Rahmen der Vertragserfüllung.",
-          "Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung) sowie Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an zuverlässigem E-Mail-Versand).",
-          "Speicherdauer: E-Mail-Logs werden bei Resend für maximal 30 Tage gespeichert.",
-          "Mit Resend besteht ein Auftragsverarbeitungsvertrag gemäß Art. 28 DSGVO. Weitere Informationen: https://resend.com/legal/privacy-policy"
+          "Bestätigungen zu Anmeldung und Kursbuchung, Kündigungsanfragen, Kontofunktionen sowie Feedback-Benachrichtigungen werden über den auf unserem VPS betriebenen Mailserver versandt. Versandaufträge werden in einer geschützten Warteschlange gespeichert und bei vorübergehenden Zustellfehlern erneut bearbeitet.",
+          "Verarbeitet werden die E-Mail-Adresse und gegebenenfalls der Name des Empfängers, der Nachrichteninhalt sowie Versandzeitpunkt, technische Zustellinformationen und Bearbeitungsstatus. Für die Zustellung werden die erforderlichen Daten an die Mailserver des jeweiligen Empfängeranbieters weitergegeben.",
+          "Zweck ist die Kommunikation zur Anmeldung, Vertragsdurchführung und Lernbetreuung. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO sowie Art. 6 Abs. 1 lit. f DSGVO für den zuverlässigen und sicheren Betrieb des E-Mail-Versands.",
+          "Versandaufträge, Nachrichten und technische Protokolle werden nach ihrem jeweiligen Kommunikationszweck sowie den Erfordernissen der Fehlerbehebung und gesetzlichen Aufbewahrungspflichten aufbewahrt. Nicht mehr erforderliche Daten werden gelöscht. Für Rechnungen und Buchhaltungsunterlagen gelten die Angaben in Abschnitt 5."
         ]
       },
       {
@@ -1116,7 +1106,7 @@
           "- Adressdaten",
           "- Gebuchte Kursdaten",
           "- Weitere freiwillige Informationen, die Sie uns zur Verfügung gestellt haben",
-          "Bei Offline-Anmeldungen: Die Daten aus dem unterschriebenen Papierformular werden manuell von uns in unser Kursverwaltungssystem (Supabase, Frankfurt) eingegeben. Das Original-Formular wird gemäß den gesetzlichen Aufbewahrungsfristen bei uns aufbewahrt. Bei Offline-Anmeldung erheben wir zusätzlich Ihre handschriftliche Unterschrift auf dem Anmeldeformular.",
+          "Bei Offline-Anmeldungen: Die Daten aus dem unterschriebenen Papierformular werden manuell von uns in unser Kursverwaltungssystem (auf unserem eigenverwalteten VPS) eingegeben. Das Original-Formular wird gemäß den gesetzlichen Aufbewahrungsfristen bei uns aufbewahrt. Bei Offline-Anmeldung erheben wir zusätzlich Ihre handschriftliche Unterschrift auf dem Anmeldeformular.",
           "Rechtsgrundlage: Die Verarbeitung dieser Daten erfolgt zur Durchführung vorvertraglicher Maßnahmen und zur Erfüllung eines Vertrages (Art. 6 Abs. 1 lit. b DSGVO).",
           "Rechnungs- und Buchungsbelege werden grundsätzlich acht Jahre ab Ende des Entstehungsjahres aufbewahrt (§ 147 AO, gegebenenfalls § 257 HGB); für andere Unterlagen können sechs- oder zehnjährige Fristen gelten. Laufende steuerliche Verfahren können die Aufbewahrung verlängern.",
           "8.4 Kursbetreuung und Hausaufgaben (Telegram)",
@@ -1193,8 +1183,8 @@
         "title": "12. Ausspracheübungen, Aufnahmen und Nachrichten",
         "content": [
           "Im Aussprache-Trainer wählst du einen Lesetext und startest die Mikrofonaufnahme selbst. Vor dem Absenden bleibt die Aufnahme im Browser. Mit dem Absenden werden Stimme, ausgewählter Text, Niveau, Zeitstempel sowie anschließend ausgetauschte Text- und Sprachnachrichten zur individuellen Rückmeldung gespeichert. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO für die von dir angeforderte Lernbetreuung. Die Mikrofonberechtigung des Browsers kann jederzeit entzogen werden.",
-          "Neue Traineraufnahmen werden in einem privaten Supabase-Speicher abgelegt. Zugriff erhalten der betreffende Schüler sowie berechtigte Lehrkräfte und Administratoren. Rückmeldungen können mehrfach beantwortet werden; Zeitstempel und Gelesen-Status erleichtern die Betreuung. Diese Aufnahmen werden nicht automatisch veröffentlicht oder auf YouTube hochgeladen. Es erfolgt keine biometrische Identifizierung und keine automatische Bewertung der Stimme. Aufnahmen und Nachrichten werden für die Betreuung im Lernkonto gespeichert; für ihre Löschung gelten die im vorherigen Abschnitt beschriebenen Kriterien.",
-          "Für die Vorlesefunktion werden Lernwörter und Referenztexte serverseitig an den Microsoft-Sprachdienst übermittelt und erzeugte Audiodateien zwischengespeichert. Schüleraufnahmen werden diesem Dienst nicht zur Analyse übermittelt. Microsoft kann Daten auch außerhalb der EU verarbeiten; nähere Informationen: https://privacy.microsoft.com/de-de/privacystatement. Bitte trage keine vertraulichen personenbezogenen Angaben in Lerntexte ein."
+          "Traineraufnahmen werden in einem zugriffsgeschützten Dateispeicher auf unserem VPS abgelegt. Zugriff erhalten der betreffende Schüler sowie berechtigte Lehrkräfte und Administratoren. Rückmeldungen können mehrfach beantwortet werden; Zeitstempel und Gelesen-Status erleichtern die Betreuung. Diese Aufnahmen werden nicht automatisch veröffentlicht oder auf YouTube hochgeladen. Es erfolgt keine biometrische Identifizierung und keine automatische Bewertung der Stimme. Aufnahmen und Nachrichten werden für die Betreuung im Lernkonto gespeichert; für ihre Löschung gelten die im vorherigen Abschnitt beschriebenen Kriterien.",
+          "Die Vorlesefunktion verarbeitet Lernwörter und Referenztexte unmittelbar auf unserem VPS. Die Sprachausgabe wird dort mit lokal installierter Sprachsoftware erzeugt und zur schnelleren erneuten Wiedergabe zwischengespeichert. Die Texte und Schüleraufnahmen werden dafür nicht an einen externen Sprachdienst übermittelt. Schüleraufnahmen werden nicht automatisch analysiert. Bitte trage keine vertraulichen personenbezogenen Angaben in Lerntexte ein."
         ]
       },
       {
@@ -1206,7 +1196,7 @@
       {
         "title": "14. Aktualität dieser Datenschutzerklärung",
         "content": [
-          "Diese Datenschutzerklärung berücksichtigt den Funktionsumfang der Lernplattform am 10. September 2026. Bei Änderungen der Verarbeitung passen wir die Informationen an."
+          "Diese Datenschutzerklärung berücksichtigt den Funktionsumfang und den Betrieb der Lernplattform auf einem eigenverwalteten VPS am 13. September 2026. Bei Änderungen der Verarbeitung passen wir die Informationen an."
         ]
       }
     ]

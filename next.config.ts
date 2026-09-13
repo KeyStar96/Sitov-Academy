@@ -30,6 +30,7 @@ const nextConfig: NextConfig = {
 
   // PERFORMANCE: Experimentelle Optimierungen
   experimental: {
+    cpus: 2,
     // Optimized Package Imports - reduziert Bundle-Größe drastisch
     optimizePackageImports: [
       "lucide-react",

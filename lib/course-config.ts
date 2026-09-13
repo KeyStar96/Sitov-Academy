@@ -1,5 +1,5 @@
 
-export type Day = "Mo" | "Di" | "Mi" | "Do" | "Fr";
+export type Day = "Mo" | "Di" | "Mi" | "Do" | "Fr" | "Sa" | "So";
 export type CourseType = "presence" | "online";
 export type InstructorKey = "standard" | "special";
 
@@ -16,6 +16,10 @@ export interface CourseConfig {
     id: string;
     translationKey: string;
     title?: string;
+    description?: string;
+    category?: 'german' | 'speaking' | 'online' | 'private';
+    sortOrder?: number;
+    translations?: {locale:string;title:string;description:string}[];
     type: CourseType;
     price: number;
     highlight?: boolean;

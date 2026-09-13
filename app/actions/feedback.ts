@@ -1,438 +1,128 @@
 'use server'
 
-import { revalidatePath } from 'next/cache'
-import { getOutboundSiteUrl } from '@/lib/site-url'
-import { sendEmail } from '@/lib/mail'
-import { renderFeedbackNotificationEmail } from '@/lib/feedback-email'
 import { createClient } from '@/utils/supabase/server'
-import { currentUserHasTrainerAccess } from '@/lib/access/server'
 import { z } from 'zod'
-import type {
-  FeedbackActionResult,
-  StudentSubmission,
-  SubmissionParent,
-  SubmitAudioInput,
-  SubmitTeacherFeedbackInput,
-  TeacherSubmission,
-  UnseenFeedbackSummary,
-} from '@/lib/types/feedback'
+import { createPronunciationSubmission, markPronunciationSeen, sendPronunciationMessage } from './pronunciation-conversations'
+import { pronunciationAudioObjectPath, PRIVATE_PRONUNCIATION_BUCKET } from '@/lib/pronunciation-conversations'
+import type { FeedbackActionResult, StudentSubmission, SubmissionParent, SubmitAudioInput,
+  SubmitTeacherFeedbackInput, TeacherSubmission, TeacherFeedbackEntry, UnseenFeedbackSummary } from '@/lib/types/feedback'
 
-type SupabaseServerClient = Awaited<ReturnType<typeof createClient>>
+type Client = Awaited<ReturnType<typeof createClient>>
 
-/** Die Aussprache-Seite hängt am Sprachniveau, deshalb beide Segmente. */
-const PRONUNCIATION_PATH = '/[lang]/dashboard/level/[level]/pronunciation'
-const DASHBOARD_PATH = '/[lang]/dashboard'
-
+/** Compatibility endpoint for the earlier recorder: replies belong to their existing conversation. */
 export async function submitAudioUrl(input: SubmitAudioInput): Promise<FeedbackActionResult> {
-  try {
-    if (!input.url) return { success: false, reason: 'invalid_input' }
-
-    const supabase = await createClient()
-    const {
-      data: { user },
-    } = await supabase.auth.getUser()
-
-    if (!user) return { success: false, reason: 'not_authenticated' }
-    const level = input.level ?? 'A1.1'
-    if (!(await currentUserHasTrainerAccess(level, 'pronunciation'))) return { success: false, reason: 'invalid_input' }
-    const legacyPrefix = `https://wcaslabeiwtvygxtzcio.supabase.co/storage/v1/object/public/audio_submissions/${user.id}-`
-    if (!input.url.startsWith(legacyPrefix) || !/^\d+\.(webm|mp4|wav|ogg)$/.test(input.url.slice(legacyPrefix.length))) return { success: false, reason: 'invalid_input' }
-    let attemptNumber = 1
-    if (input.parentId) {
-      if (!z.uuid().safeParse(input.parentId).success) return { success: false, reason: 'invalid_input' }
-      const { data: parent } = await supabase.from('submissions').select('user_id,level,attempt_number').eq('id', input.parentId).single()
-      if (!parent || parent.user_id !== user.id || parent.level !== level) return { success: false, reason: 'invalid_input' }
-      attemptNumber = (parent.attempt_number ?? 1) + 1
-    }
-    const { error } = await supabase.from('submissions').insert({
-      user_id: user.id,
-      type: 'audio',
-      content_url: input.url,
-      status: 'pending',
-      parent_id: input.parentId ?? null,
-      attempt_number: attemptNumber,
-      level,
-    })
-
-    if (error) {
-      console.error(`Einreichung für Nutzer ${user.id} fehlgeschlagen:`, error.message)
-      return { success: false, reason: 'save_failed' }
-    }
-
-    revalidatePath(PRONUNCIATION_PATH, 'page')
-    revalidatePath(DASHBOARD_PATH, 'page')
-    return { success: true }
-  } catch (err) {
-    console.error('Unerwarteter Fehler in submitAudioUrl:', err)
-    return { success: false, reason: 'save_failed' }
+  if (input.parentId) {
+    return sendPronunciationMessage({ submissionId: input.parentId, text: '', audioPath: input.url })
   }
+  if (!input.promptId) return { success: false, reason: 'invalid_input' }
+  return createPronunciationSubmission({ promptId: input.promptId, audioPath: input.url })
+}
+
+async function signRecording(client: Client, reference: string | null): Promise<string | null> {
+  if (!reference) return null
+  const path = pronunciationAudioObjectPath(reference)
+  if (!path) return null
+  const { data, error } = await client.storage.from(PRIVATE_PRONUNCIATION_BUCKET).createSignedUrl(path, 3600)
+  return error ? null : data.signedUrl
+}
+
+/** The chat message is the only stored feedback; the older cards receive a mapped DTO. */
+async function loadFeedback(client: Client, submissionIds: string[]): Promise<Map<string, TeacherFeedbackEntry[]>> {
+  const result = new Map<string, TeacherFeedbackEntry[]>()
+  if (!submissionIds.length) return result
+  const { data, error } = await client.from('pronunciation_messages')
+    .select('submission_id,text_content,audio_path,created_at,seen_at')
+    .in('submission_id', submissionIds).in('sender_role', ['teacher', 'admin']).order('created_at', { ascending: false })
+  if (error) throw error
+  for (const row of data ?? []) {
+    const entries = result.get(row.submission_id) ?? []
+    entries.push({ feedback_text: row.text_content, feedback_audio_url: await signRecording(client, row.audio_path), created_at: row.created_at, seen_at: row.seen_at })
+    result.set(row.submission_id, entries)
+  }
+  return result
 }
 
 export async function getStudentSubmissions(level?: string): Promise<StudentSubmission[]> {
   try {
-    const supabase = await createClient()
-    const {
-      data: { user },
-    } = await supabase.auth.getUser()
-
+    const client = await createClient()
+    const { data: { user } } = await client.auth.getUser()
     if (!user) return []
-
-    let query = supabase
-      .from('submissions')
-      .select(
-        `
-        id,
-        content_url,
-        text_content,
-        status,
-        created_at,
-        level,
-        attempt_number,
-        teacher_feedback (
-          feedback_text,
-          feedback_audio_url,
-          created_at,
-          seen_at
-        ),
-        children:submissions!parent_id (id)
-      `
-      )
-      .eq('user_id', user.id)
-
+    let query = client.from('submissions').select('id,content_url,text_content,status,created_at,level,attempt_number,parent_id').eq('user_id', user.id)
     if (level) query = query.eq('level', level)
-
     const { data, error } = await query.order('created_at', { ascending: false })
-
-    if (error) {
-      console.error(`Einreichungen von Nutzer ${user.id} nicht ladbar:`, error.message)
-      return []
-    }
-
-    return (data ?? []).map((row) => {
-      const feedback = row.teacher_feedback ?? []
-      // Supabase typisiert das selbstreferenzierende `children`-Embed je nach
-      // Kardinalität als Objekt oder Array – deshalb der explizite Check.
-      const children = Array.isArray(row.children) ? row.children : row.children ? [row.children] : []
-
-      return {
-        id: row.id,
-        content_url: row.content_url,
-        text_content: row.text_content,
-        status: row.status,
-        created_at: row.created_at,
-        level: row.level,
-        attempt_number: row.attempt_number ?? 1,
-        teacher_feedback: feedback,
-        hasResubmission: children.length > 0,
-        hasUnseenFeedback: feedback.some((entry) => entry.seen_at === null),
-      }
-    })
-  } catch (err) {
-    console.error('Unerwarteter Fehler in getStudentSubmissions:', err)
-    return []
-  }
+    if (error) throw error
+    const rows = data ?? []
+    const feedback = await loadFeedback(client, rows.map(row => row.id))
+    const parentIds = new Set(rows.flatMap(row => row.parent_id ? [row.parent_id] : []))
+    return Promise.all(rows.map(async row => ({ ...row, content_url: await signRecording(client, row.content_url),
+      attempt_number: row.attempt_number ?? 1, teacher_feedback: feedback.get(row.id) ?? [],
+      hasResubmission: parentIds.has(row.id), hasUnseenFeedback: (feedback.get(row.id) ?? []).some(entry => entry.seen_at === null) })))
+  } catch (error) { console.error('Student recordings unavailable', error); return [] }
 }
 
-/**
- * Zählt Rückmeldungen, die der Schüler noch nicht geöffnet hat.
- * Speist die Dashboard-Karte „Du hast eine neue Sprachnachricht erhalten".
- */
+/** Counts each teacher chat message once, irrespective of the compatibility feedback view. */
 export async function getUnseenFeedbackSummary(): Promise<UnseenFeedbackSummary> {
   const empty: UnseenFeedbackSummary = { count: 0, latestLevel: null }
-
   try {
-    const supabase = await createClient()
-    const {
-      data: { user },
-    } = await supabase.auth.getUser()
-
+    const client = await createClient()
+    const { data: { user } } = await client.auth.getUser()
     if (!user) return empty
-
-    // RLS beschränkt teacher_feedback bereits auf eigene Einreichungen;
-    // der Join auf submissions liefert zusätzlich das Sprachniveau.
-    const { data, error } = await supabase
-      .from('teacher_feedback')
-      .select('created_at, submissions!inner (level, user_id)')
-      .is('seen_at', null)
-      .eq('submissions.user_id', user.id)
-      .order('created_at', { ascending: false })
-
-    if (error) {
-      console.error(`Ungelesenes Feedback für ${user.id} nicht ladbar:`, error.message)
-      return empty
-    }
-
-    const { data: messages, error: messageError } = await supabase
-      .from('pronunciation_messages')
+    const { data, error } = await client.from('pronunciation_messages')
       .select('created_at, submissions!inner(level,user_id)')
-      .is('seen_at', null)
-      .in('sender_role', ['teacher', 'admin'])
-      .eq('submissions.user_id', user.id)
+      .is('seen_at', null).in('sender_role', ['teacher', 'admin']).eq('submissions.user_id', user.id)
       .order('created_at', { ascending: false })
-    if (messageError) console.error('Unread pronunciation messages unavailable', messageError.message)
-    const rows = [...(data ?? []), ...(messages ?? [])]
-      .sort((a, b) => (b.created_at ?? '').localeCompare(a.created_at ?? ''))
-    return { count: rows.length, latestLevel: rows[0]?.submissions?.level ?? null }
-
-  } catch (err) {
-    console.error('Unerwarteter Fehler in getUnseenFeedbackSummary:', err)
-    return empty
-  }
+    if (error) throw error
+    return { count: data?.length ?? 0, latestLevel: data?.[0]?.submissions?.level ?? null }
+  } catch (error) { console.error('Unread feedback unavailable', error); return empty }
 }
 
-/**
- * Markiert das Feedback einer eigenen Einreichung als gelesen.
- *
- * Läuft über die SECURITY-DEFINER-Funktion `mark_feedback_seen`, damit der
- * Schüler keine UPDATE-Rechte auf `teacher_feedback` benötigt und den
- * Feedback-Text nicht verändern kann.
- */
 export async function markFeedbackSeen(submissionId: string): Promise<FeedbackActionResult> {
-  try {
-    if (!submissionId) return { success: false, reason: 'invalid_input' }
-
-    const supabase = await createClient()
-    const { error } = await supabase.rpc('mark_feedback_seen', {
-      p_submission_id: submissionId,
-    })
-
-    if (error) {
-      console.error(`Feedback ${submissionId} nicht als gelesen markierbar:`, error.message)
-      return { success: false, reason: 'save_failed' }
-    }
-
-    revalidatePath(DASHBOARD_PATH, 'page')
-    return { success: true }
-  } catch (err) {
-    console.error('Unerwarteter Fehler in markFeedbackSeen:', err)
-    return { success: false, reason: 'save_failed' }
-  }
+  return markPronunciationSeen(submissionId)
 }
 
-const TEACHER_SUBMISSION_SELECT = `
-  id,
-  user_id,
-  type,
-  content_url,
-  text_content,
-  status,
-  created_at,
-  level,
-  parent_id,
-  attempt_number,
-  profiles:user_id (
-    name,
-    email,
-    native_language
-  ),
-  teacher_feedback (
-    feedback_text,
-    feedback_audio_url,
-    created_at,
-    seen_at
-  )
-`
-
-/**
- * Lädt die Vorgänger-Einreichungen inklusive ihres Feedbacks.
- *
- * Separate Abfrage, weil Supabase `teacher_feedback` innerhalb des
- * selbstreferenzierenden `parent`-Embeds nicht typisieren kann.
- */
-async function loadSubmissionParents(
-  supabase: SupabaseServerClient,
-  parentIds: readonly string[]
-): Promise<Map<string, SubmissionParent>> {
-  const parents = new Map<string, SubmissionParent>()
-  if (parentIds.length === 0) return parents
-
-  const { data, error } = await supabase
-    .from('submissions')
-    .select(
-      `
-      id,
-      content_url,
-      created_at,
-      attempt_number,
-      teacher_feedback (
-        feedback_text,
-        feedback_audio_url,
-        created_at,
-        seen_at
-      )
-    `
-    )
-    .in('id', [...parentIds])
-
-  if (error) {
-    console.error('Fehler beim Laden der vorherigen Einreichungen:', error.message)
-    return parents
-  }
-
-  for (const row of data ?? []) {
-    parents.set(row.id, {
-      id: row.id,
-      content_url: row.content_url,
-      created_at: row.created_at,
-      attempt_number: row.attempt_number,
-      teacher_feedback: row.teacher_feedback ?? [],
-    })
-  }
-
-  return parents
-}
-
-async function loadTeacherSubmissions(
-  status: 'pending' | 'reviewed'
-): Promise<TeacherSubmission[]> {
+async function loadTeacherSubmissions(status: 'pending' | 'reviewed'): Promise<TeacherSubmission[]> {
   try {
-    const supabase = await createClient()
-    const {
-      data: { user },
-    } = await supabase.auth.getUser()
-
+    const client = await createClient()
+    const { data: { user } } = await client.auth.getUser()
     if (!user) return []
-
-    // RLS (Lehrer) greift automatisch, zusätzlich filtern wir nach Status.
-    const { data, error } = await supabase
-      .from('submissions')
-      .select(TEACHER_SUBMISSION_SELECT)
-      .eq('status', status)
-      .order('created_at', { ascending: status === 'pending' })
-
-    if (error) {
-      console.error(`Fehler beim Laden der Einreichungen (${status}):`, error.message)
-      return []
-    }
-
+    const { data: actor } = await client.from('profiles').select('role').eq('id', user.id).single()
+    if (actor?.role !== 'teacher' && actor?.role !== 'admin') return []
+    const { data, error } = await client.from('submissions')
+      .select('id,user_id,type,content_url,text_content,status,created_at,level,parent_id,attempt_number')
+      .eq('status', status).order('created_at', { ascending: status === 'pending' })
+    if (error) throw error
     const rows = data ?? []
-    const parentIds = rows
-      .map((row) => row.parent_id)
-      .filter((parentId): parentId is string => typeof parentId === 'string')
-
-    const parents = await loadSubmissionParents(supabase, parentIds)
-
-    return rows.map((row) => ({
-      id: row.id,
-      user_id: row.user_id,
-      type: row.type,
-      content_url: row.content_url,
-      text_content: row.text_content,
-      status: row.status,
-      created_at: row.created_at,
-      level: row.level,
-      parent_id: row.parent_id,
-      attempt_number: row.attempt_number,
-      profiles: row.profiles,
-      teacher_feedback: row.teacher_feedback ?? [],
-      parent: row.parent_id ? parents.get(row.parent_id) ?? null : null,
+    const userIds = [...new Set(rows.map(row => row.user_id))]
+    const parentIds = [...new Set(rows.flatMap(row => row.parent_id ? [row.parent_id] : []))]
+    const [{ data: profiles, error: profilesError }, { data: parentRows, error: parentsError }, feedback] = await Promise.all([
+      userIds.length ? client.from('profile_details').select('id,name,email,native_language').in('id', userIds) : { data: [], error: null },
+      parentIds.length ? client.from('submissions').select('id,content_url,created_at,attempt_number').in('id', parentIds) : { data: [], error: null },
+      loadFeedback(client, [...rows.map(row => row.id), ...parentIds]),
+    ])
+    if (profilesError || parentsError) throw profilesError ?? parentsError
+    const people = new Map((profiles ?? []).map(profile => [profile.id, profile]))
+    const parents = new Map<string, SubmissionParent>()
+    for (const parent of parentRows ?? []) parents.set(parent.id, { ...parent, content_url: await signRecording(client, parent.content_url), teacher_feedback: feedback.get(parent.id) ?? [] })
+    return Promise.all(rows.map(async row => {
+      const person = people.get(row.user_id)
+      return { ...row, content_url: await signRecording(client, row.content_url),
+        profiles: person ? { name: person.name, email: person.email ?? '', native_language: person.native_language } : null,
+        teacher_feedback: feedback.get(row.id) ?? [], parent: row.parent_id ? parents.get(row.parent_id) ?? null : null }
     }))
-  } catch (err) {
-    console.error(`Unerwarteter Fehler beim Laden der Einreichungen (${status}):`, err)
-    return []
-  }
+  } catch (error) { console.error('Teacher recordings unavailable', error); return [] }
 }
 
-export async function getPendingSubmissions(): Promise<TeacherSubmission[]> {
-  return loadTeacherSubmissions('pending')
-}
+export async function getPendingSubmissions(): Promise<TeacherSubmission[]> { return loadTeacherSubmissions('pending') }
+export async function getCompletedSubmissions(): Promise<TeacherSubmission[]> { return loadTeacherSubmissions('reviewed') }
 
-export async function getCompletedSubmissions(): Promise<TeacherSubmission[]> {
-  return loadTeacherSubmissions('reviewed')
-}
-
-/**
- * Benachrichtigt den Schüler per E-Mail. Fehler hier dürfen die Freigabe des
- * Feedbacks nicht verhindern – die Dashboard-Karte greift ohnehin.
- */
-async function notifyStudentByEmail(
-  supabase: SupabaseServerClient,
-  submissionId: string
-): Promise<void> {
+export async function submitTeacherFeedback(input: SubmitTeacherFeedbackInput): Promise<FeedbackActionResult> {
   try {
-    const { data, error } = await supabase
-      .from('submissions')
-      .select('level, profiles:user_id (email, name)')
-      .eq('id', submissionId)
-      .single()
-
-    if (error || !data?.profiles?.email) return
-
-    const studentEmail = data.profiles.email
-    const studentName = data.profiles.name ?? 'Schüler'
-
-    const siteUrl = await getOutboundSiteUrl()
-    const dashUrl = `${siteUrl}/de/dashboard/level/${encodeURIComponent(data.level)}/pronunciation`
-
-    await sendEmail({
-      to: studentEmail,
-      subject: 'Du hast eine neue Sprachnachricht erhalten',
-      html: renderFeedbackNotificationEmail({ studentName, feedbackUrl: dashUrl, siteUrl }),
-    })
-  } catch (err) {
-    console.error(`E-Mail-Benachrichtigung zu Einreichung ${submissionId} fehlgeschlagen:`, err)
-  }
-}
-
-export async function submitTeacherFeedback(
-  input: SubmitTeacherFeedbackInput
-): Promise<FeedbackActionResult> {
-  try {
-    const feedbackText = input.feedbackText.trim()
-    if (!input.submissionId || (!feedbackText && !input.feedbackAudioUrl)) {
-      return { success: false, reason: 'invalid_input' }
-    }
-
-    const supabase = await createClient()
-    const {
-      data: { user },
-    } = await supabase.auth.getUser()
-
+    if (!z.uuid().safeParse(input.submissionId).success) return { success: false, reason: 'invalid_input' }
+    const client = await createClient()
+    const { data: { user } } = await client.auth.getUser()
     if (!user) return { success: false, reason: 'not_authenticated' }
-
-    const { data: roleProfile } = await supabase.from('profiles').select('role').eq('id', user.id).single()
-    if (roleProfile?.role !== 'teacher' && roleProfile?.role !== 'admin') return { success: false, reason: 'not_authenticated' }
-    if (!z.uuid().safeParse(input.submissionId).success || feedbackText.length > 5000) return { success: false, reason: 'invalid_input' }
-    if (input.feedbackAudioUrl) {
-      const prefix = `https://wcaslabeiwtvygxtzcio.supabase.co/storage/v1/object/public/audio_submissions/feedback/${input.submissionId}_`
-      if (!input.feedbackAudioUrl.startsWith(prefix) || !/^\d+\.(webm|mp4|wav|ogg)$/.test(input.feedbackAudioUrl.slice(prefix.length))) return { success: false, reason: 'invalid_input' }
-    }
-    const { error: insertError } = await supabase.from('teacher_feedback').insert({
-      submission_id: input.submissionId,
-      teacher_id: user.id,
-      feedback_text: feedbackText,
-      feedback_audio_url: input.feedbackAudioUrl ?? null,
-    })
-
-    if (insertError) {
-      console.error(
-        `Feedback zu Einreichung ${input.submissionId} nicht gespeichert:`,
-        insertError.message
-      )
-      return { success: false, reason: 'save_failed' }
-    }
-
-    const { error: updateError } = await supabase
-      .from('submissions')
-      .update({ status: 'reviewed' })
-      .eq('id', input.submissionId)
-
-    if (updateError) {
-      console.error(
-        `Status von Einreichung ${input.submissionId} nicht aktualisiert:`,
-        updateError.message
-      )
-      return { success: false, reason: 'save_failed' }
-    }
-
-    await notifyStudentByEmail(supabase, input.submissionId)
-
-    revalidatePath('/[lang]/admin/submissions', 'page')
-    revalidatePath(PRONUNCIATION_PATH, 'page')
-    revalidatePath(DASHBOARD_PATH, 'page')
-    return { success: true }
-  } catch (err) {
-    console.error('Unerwarteter Fehler in submitTeacherFeedback:', err)
-    return { success: false, reason: 'save_failed' }
-  }
+    const { data: actor } = await client.from('profiles').select('role').eq('id', user.id).single()
+    if (actor?.role !== 'teacher' && actor?.role !== 'admin') return { success: false, reason: 'not_authenticated' }
+    return sendPronunciationMessage({ submissionId: input.submissionId, text: input.feedbackText, audioPath: input.feedbackAudioUrl ?? null })
+  } catch (error) { console.error('Teacher feedback could not be saved', error); return { success: false, reason: 'save_failed' } }
 }

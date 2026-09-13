@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import {courseCmsCopy} from '@/lib/course-cms-i18n'
 import { usePathname } from 'next/navigation'
 import { useAdminTranslator } from './AdminI18nProvider'
 
@@ -12,6 +13,7 @@ export default function AdminNav({ lang }: { lang: string }) {
     { name: t('nav_overview'), href: `/${lang}/admin`, exact: true },
     { name: t('nav_registrations'), href: `/${lang}/admin/registrations` },
     { name: t('nav_invoices'), href: `/${lang}/admin/invoices` },
+    { name: courseCmsCopy(lang).title, href: `/${lang}/admin/courses` },
     { name: t('nav_students'), href: `/${lang}/admin/students` },
     { name: t('nav_bookings'), href: `/${lang}/admin/bookings` },
     { name: t('nav_feedback'), href: `/${lang}/admin/submissions` },

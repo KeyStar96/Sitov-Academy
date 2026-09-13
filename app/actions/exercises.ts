@@ -13,9 +13,10 @@ import {
   type RecordExerciseAttemptResult,
   type StudentExercise,
 } from '@/lib/types/exercise'
-import type { Database } from '@/supabase/database.types'
+import { readAllRows } from '@/lib/supabase-read'
+import { grammarExerciseSchema, type GrammarContentRow } from '@/lib/learning-content'
 
-type ExerciseRow = Database['public']['Tables']['exercises']['Row']
+type ExerciseRow = GrammarContentRow
 
 interface EmbeddedProgress {
   completed: boolean | null
@@ -82,6 +83,7 @@ async function loadVocabularyMatches(
   }
 
   for (const card of data ?? []) {
+    if (!card.word_de) continue
     matches.set(normalizeWord(card.word_de), {
       article: card.article,
       audioUrl: card.audio_url,
@@ -111,8 +113,7 @@ export async function getExercises(level?: string): Promise<StudentExercise[]> {
 
     let query = supabase
       .from('exercises')
-      .select('*, user_exercise_progress (completed, score, attempts)')
-      .eq('user_exercise_progress.user_id', user.id)
+      .select('*')
       .order('lesson', { ascending: true })
       .order('id', { ascending: true })
 
@@ -122,16 +123,19 @@ export async function getExercises(level?: string): Promise<StudentExercise[]> {
       query = query.in('level', (accessProfile?.allowed_levels ?? []).filter(item => hasTrainerAccess(accessProfile, item, 'exercises')))
     }
 
-    const { data, error } = await query
+    const [data, progress] = await Promise.all([
+      readAllRows((from, to) => query.range(from, to)),
+      readAllRows((from, to) => supabase.from('user_exercise_progress').select('exercise_id,completed,score,attempts').eq('user_id', user.id).order('id').range(from, to)),
+    ])
+    const progressById = new Map(progress.map(row => [row.exercise_id, row]))
 
-    if (error) {
-      console.error('Fehler beim Abrufen der Übungen:', error.message)
-      return []
-    }
-
-    const rows = ((data ?? []) as ExerciseWithProgress[]).filter(row => {
+    const rows: ExerciseWithProgress[] = (data ?? []).flatMap(row => {
+      const parsed = grammarExerciseSchema.safeParse(row)
+      if (!parsed.success) return []
+      return [{ ...parsed.data, user_exercise_progress: progressById.has(parsed.data.id) ? [progressById.get(parsed.data.id)!] : [] }]
+    }).filter(row => {
       const allowedLessons = getAllowedLessons(accessProfile, row.level, 'exercises')
-      return !allowedLessons || allowedLessons.includes(row.lesson)
+      return !allowedLessons || allowedLessons.includes(row.unit_id ?? row.lesson)
     })
 
     // Lösungen der Lückentexte vorab sammeln: für Geschwister-Distraktoren

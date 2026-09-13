@@ -1,4 +1,5 @@
 "use client";
+import { courseText } from '@/lib/business-courses';
 
 import React, { useState, useEffect, useRef } from "react";
 import { useForm } from "react-hook-form";
@@ -220,7 +221,7 @@ const CourseRow = React.memo(({ course, selected, onToggle, title, priceFormatte
     const t = dictionary?.registration?.course_card;
     const daysDict = dictionary?.timetable?.days;
     const timetableLabels = dictionary?.timetable?.labels;
-    const isPrivate = course.translationKey === 'private_lesson';
+    const isPrivate = course.category === 'private';
 
     return (
         <motion.div
@@ -649,15 +650,11 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
     // Grouping Logic - MEMOIZED
     const { presenceCourses, onlineCourses, speechCourses } = React.useMemo(() => {
         const sourceData = courses || [];
-        const filteredData = (isTrialMode ? sourceData.filter(c => c.trialLessons !== false) : sourceData).sort((a, b) => {
-            if (a.translationKey === 'private_lesson' && b.translationKey !== 'private_lesson') return 1;
-            if (b.translationKey === 'private_lesson' && a.translationKey !== 'private_lesson') return -1;
-            return 0;
-        });
+        const filteredData = [...(isTrialMode ? sourceData.filter(c => c.trialLessons !== false) : sourceData)].sort((a,b)=>(a.sortOrder??100)-(b.sortOrder??100));
         return {
-            presenceCourses: filteredData.filter(c => c.type === 'presence' && !c.id.includes('speech')),
+            presenceCourses: filteredData.filter(c => c.type === 'presence' && c.category !== 'speaking'),
             onlineCourses: filteredData.filter(c => c.type === 'online'),
-            speechCourses: filteredData.filter(c => c.id.includes('speech'))
+            speechCourses: filteredData.filter(c => c.category === 'speaking')
         };
     }, [courses, isTrialMode]);
 
@@ -729,9 +726,9 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
         // Note: For the CARD DISPLAY, user wants "Price per Unit".
         // The Monthly Total is calculated separately in `totalMonthlyPrice`.
         return {
-            title: dictionary?.CourseData?.[c.translationKey]?.title || dictionary?.CourseData?.[c.id.replace('c_', '')]?.title || c.title || c.translationKey,
+            title: courseText(c, lang).title,
             priceFormatted: isTrialMode ? (trialT?.price_label || germanDictionary.registration.trial.price_label) : new Intl.NumberFormat(lang === 'en' ? 'de-DE' : 'de-DE', { style: 'currency', currency: 'EUR' }).format(c.price),
-            level: dictionary?.CourseData?.[c.translationKey]?.level,
+            level: c.level,
             dictionary // Pass dictionary down
         };
     }, [dictionary, lang, isTrialMode, trialT]);
@@ -923,6 +920,7 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                 courseId: courseId,
                 trialDate: trialDate,
                 videoRecordingAccepted: hasOnlineCourse ? consents.videoRecording : undefined,
+                privacyAccepted: consents.privacy, agbAccepted: consents.agb, locale: lang,
             });
 
             if (result.success) {
@@ -972,7 +970,7 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
         });
 
         try {
-            const result = await submitEnrollment(data, selectedCourseIds, startDate, totalMonthlyPrice, consents, coursePrices);
+            const result = await submitEnrollment(data, selectedCourseIds, startDate, totalMonthlyPrice, consents, coursePrices, lang);
 
             if (result.success) {
                 console.log("Enrollment success:", result);
@@ -1645,7 +1643,7 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                                                 const netPrice = c.price * totalUnits;
                                                 return (
                                                     <div key={c.id} className="flex justify-between items-center text-sm">
-                                                        <span className="font-semibold text-[var(--foreground)]">{dictionary?.CourseData?.[c.translationKey]?.title || dictionary?.CourseData?.[c.id.replace('c_', '')]?.title || c.translationKey}</span>
+                                                        <span className="font-semibold text-[var(--foreground)]">{courseText(c, lang).title}</span>
                                                         <div className="text-right">
                                                             <span className="font-sans tabular-nums text-[var(--foreground)]">{formatPrice(netPrice)}</span>
                                                             {deductions.length > 0 && (
@@ -1699,7 +1697,7 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                             <div className="font-sans tabular-nums text-sm border-b border-white/5 pb-4">
                                 <div className="flex justify-between items-start mb-1 gap-4">
                                     <span className="text-gray-200 font-semibold flex-1 break-words">
-                                        {dictionary?.CourseData?.[trialCourse.translationKey]?.title || trialCourse.translationKey}
+                                        {courseText(trialCourse, lang).title}
                                     </span>
                                     <span className="text-green-400 font-semibold whitespace-nowrap">{trialT?.price_label || germanDictionary.registration.trial.price_label}</span>
                                 </div>
@@ -1748,7 +1746,7 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                                             className="font-sans tabular-nums text-sm border-b border-white/5 pb-3 last:border-0"
                                         >
                                             <div className="flex justify-between items-start mb-1 gap-4">
-                                                <span className="text-gray-200 font-semibold flex-1 break-words">{dictionary?.CourseData?.[c.translationKey]?.title || dictionary?.CourseData?.[c.id.replace('c_', '')]?.title || c.translationKey}</span>
+                                                <span className="text-gray-200 font-semibold flex-1 break-words">{courseText(c, lang).title}</span>
                                                 <span className="text-white whitespace-nowrap">{formatPrice(grossPrice)}</span>
                                             </div>
 

@@ -15,12 +15,12 @@ export async function updatePersonalDetails(input: unknown): Promise<BackendActi
   return withBackendSession(async ({ supabase, userId, user }) => {
     const { email, lang, ...details } = personalDetailsSchema.parse(input)
     if (email !== user.email?.toLowerCase()) await resolveLegacyProfile(user, true)
-    const { data, error } = await supabase.from('profiles').update(details).eq('id', userId)
-      .select('name, email, phone, street, zip_code, city').single()
+    const { data, error } = await supabase.from('people').update({display_name:details.name,phone:details.phone,street:details.street,postal_code:details.zip_code,city:details.city}).eq('auth_user_id', userId)
+      .select('display_name, email, phone, street, postal_code, city').single()
     checkDatabaseError(error)
     if (!data) throw new BackendError('not_found')
     const result: PersonalDetailsResult = {
-      profile: { ...data, name: data.name ?? '' },
+      profile: { name:data.display_name,email:data.email,phone:data.phone,street:data.street,zip_code:data.postal_code,city:data.city },
       pendingEmail: user.new_email || null,
       emailChange: user.new_email ? 'pending' : 'unchanged',
     }
@@ -49,12 +49,12 @@ export async function updatePersonalDetails(input: unknown): Promise<BackendActi
 export async function updateProfileContact(input: unknown): Promise<BackendActionResult<ProfileContact>> {
   return withBackendSession(async ({ supabase, userId }) => {
     const fields = profileContactSchema.parse(input)
-    const { data, error } = await supabase.from('profiles').update(fields)
-      .eq('id', userId).select('phone, street, zip_code, city').single()
+    const { data, error } = await supabase.from('people').update({phone:fields.phone,street:fields.street,postal_code:fields.zip_code,city:fields.city})
+      .eq('auth_user_id', userId).select('phone, street, postal_code, city').single()
     checkDatabaseError(error)
     if (!data) throw new BackendError('not_found')
     revalidateBackendPages()
-    return data
+    return {phone:data.phone,street:data.street,zip_code:data.postal_code,city:data.city}
   })
 }
 

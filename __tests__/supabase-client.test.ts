@@ -9,10 +9,10 @@
  * Bugreport: "Your project's URL and API key are required...").
  */
 
-const createBrowserClientMock = jest.fn((_url: string, _anonKey: string) => ({ mocked: true }))
+const createBrowserClientMock = jest.fn((_url: string, _anonKey: string, _options: unknown) => ({ mocked: true }))
 
 jest.mock('@supabase/ssr', () => ({
-  createBrowserClient: (url: string, anonKey: string) => createBrowserClientMock(url, anonKey),
+  createBrowserClient: (url: string, anonKey: string, options: unknown) => createBrowserClientMock(url, anonKey, options),
 }))
 
 describe('utils/supabase/client createClient', () => {
@@ -27,8 +27,10 @@ describe('utils/supabase/client createClient', () => {
   })
 
   afterEach(() => {
-    process.env.NEXT_PUBLIC_SUPABASE_URL = originalUrl
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY = originalAnonKey
+    if (originalUrl === undefined) delete process.env.NEXT_PUBLIC_SUPABASE_URL
+    else process.env.NEXT_PUBLIC_SUPABASE_URL = originalUrl
+    if (originalAnonKey === undefined) delete process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+    else process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY = originalAnonKey
     consoleErrorSpy.mockRestore()
   })
 
@@ -47,7 +49,7 @@ describe('utils/supabase/client createClient', () => {
   })
 
   it('wirft ebenfalls, wenn nur der Anon-Key fehlt', () => {
-    process.env.NEXT_PUBLIC_SUPABASE_URL = 'https://wcaslabeiwtvygxtzcio.supabase.co'
+    process.env.NEXT_PUBLIC_SUPABASE_URL = 'https://217.154.228.254/supabase'
     delete process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
 
     const { createClient, SupabaseConfigError } = require('@/utils/supabase/client')
@@ -56,7 +58,7 @@ describe('utils/supabase/client createClient', () => {
   })
 
   it('erstellt den Client, wenn beide Variablen gesetzt sind', () => {
-    process.env.NEXT_PUBLIC_SUPABASE_URL = 'https://wcaslabeiwtvygxtzcio.supabase.co'
+    process.env.NEXT_PUBLIC_SUPABASE_URL = 'https://217.154.228.254/supabase'
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY = 'anon-key-123'
 
     const { createClient } = require('@/utils/supabase/client')
@@ -65,9 +67,18 @@ describe('utils/supabase/client createClient', () => {
 
     expect(client).toEqual({ mocked: true })
     expect(createBrowserClientMock).toHaveBeenCalledWith(
-      'https://wcaslabeiwtvygxtzcio.supabase.co',
-      'anon-key-123'
+      'https://217.154.228.254/supabase',
+      'anon-key-123',
+      { cookieOptions: { name: 'sb-sitov-auth-token', secure: false } }
     )
     expect(consoleErrorSpy).not.toHaveBeenCalled()
+  })
+
+  it.each(['https://old.supabase.co.', 'ftp://localhost:8000', 'https://user:password@school.test', 'not a URL'])('uses the same API validation before making a browser client for %s', url => {
+    process.env.NEXT_PUBLIC_SUPABASE_URL = url
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY = 'test-key'
+    const { createClient, SupabaseConfigError } = require('@/utils/supabase/client')
+    expect(() => createClient()).toThrow(SupabaseConfigError)
+    expect(createBrowserClientMock).not.toHaveBeenCalled()
   })
 })

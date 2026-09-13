@@ -1,5 +1,21 @@
 # Current State Analysis (Ist-Zustand)
 
+## Aktueller Stand — VPS-Umbau vom 13. September 2026
+
+**Die Migration wurde in einer isolierten Wiederherstellung geprüft. Das Live-Deployment läuft noch und ist hier nicht als abgeschlossen dokumentiert.** Der neue Betriebsweg nutzt ausschließlich den eigenen VPS `217.154.228.254`; DNS bleibt unverändert. Der vorgesehene Einstieg ist `https://217.154.228.254`. Das IP-Zertifikat ist kurzlebig (etwa sieben Tage); der systemd-Timer prüft die Erneuerung alle zwölf Stunden.
+
+Der vollständige Sicherungssatz liegt auf dem VPS unter `/root/backups/sitov-before-refactor-20260913T130956Z` und enthält Datenbankdump, Rollen, Konfiguration und Proxy-Konfiguration. Ein Restore wurde getestet. Ein verwaistes Altprofil wurde ausschließlich in der isolierten Testkopie behandelt. Der freigegebene Neustart der Schülerdaten erfolgt nach dem Backup; zwei Staff-Konten bleiben erhalten. Das ist von der späteren individuellen Funktion „Lernfortschritt zurücksetzen“ zu unterscheiden, die keine Vertragsdaten oder Profile löscht.
+
+Erhaltener Katalog: **512 Vokabelkarten, 604 Grammatikübungen, 149 Aussprachetexte davon 60 aktiv, zehn aktive Kurse und zwei archivierte Kurse**. Die Trainer umfassen weiterhin A1.1, A1.2, A2.1, A2.2, B1.1 und B1.2. Datenmodell und Anwendung nutzen UUID-Lerneinheiten, relationale Freigaben, eine Vokabelfortschrittstabelle für beide Richtungen und einen gemeinsamen Audio-/Feedback-Dialogspeicher. Neue Schüler beginnen ohne Niveauzugang.
+
+Für den Lernbereich bestehen 307 Jest-Tests in 30 Suites sowie elf isolierte PostgreSQL-Tests; keine TypeScript-Fehler im geprüften Lernbereich. Die SQL-Prüfung umfasst Inhalts-/Übersetzungserhalt, Freigaben, private Wiedergabe, beide Lernrichtungen und wiederaufnehmbaren Reset einschließlich Lehreraufnahmen. Diese Ergebnisse ersetzen keine abschließende Prüfung des Live-Deployments, der echten Mailzustellung oder des Browserablaufs.
+
+Betriebsaufbau: Next.js als systemd-Dienst auf Loopback-Port 3000, eigener Supabase-Docker-Stack, Postfix lokal, robuste Mail-Outbox und lokale Sprachausgabe. [Modell, Migrationsreihenfolge, Prüfstand und noch offene Deployment-Nachweise](docs/vps-refactor-2026-09-13.md).
+
+## Historie — frühere Architektur- und Betriebsstände
+
+Die nachfolgenden Einträge bleiben als Audit-Trail erhalten. Aussagen über Cloud-Supabase, Vercel, externe Sprach-/Maildienste, frühere Tabellen oder damalige Live-Tests gelten nur für ihren jeweiligen Zeitpunkt. Bei Abweichungen hat der aktuelle VPS-Abschnitt oben Vorrang; historische Anleitungen dürfen nicht unverändert auf den neuen Betrieb angewendet werden.
+
 ## 2026-09-13 — Gemini-Review, Inhaltsfreigaben und bidirektionales Lernen
 
 Die zehn Gemini-Commits bis `cd7d6f7` wurden geprüft und korrigiert. Schüler-Freigaben liegen in einem kompakten Dialog; Grammatiklektionen sind eindeutig benannt, Aussprachetexte einzeln auswählbar. Die Datenbank schützt die Auswahl auch bei direkten Aufrufen. Vokabeln werden in beiden Richtungen separat eingestuft; alle Trainer verlangen eine fremdsprachige Oberfläche. 512 ukrainische Wortübersetzungen ergänzt. Satzkorrektur, Hinweise, Audio-Dialoge und Hochkontrastdarstellung überarbeitet. Zentrale Notizen ersetzen die Rabatt-Eingabe; doppelte erste Speicherungen und wiederauftauchende alte Notizen beim Leeren werden verhindert. Alle vier Migrationen sind im gebundenen Supabase-Projekt angewendet; 1.040 Anwendungstests, 148 SQL-Tests, TypeScript und Produktionsbuild bestehen. [Befunde und Prüfnachweise](docs/gemini-review-2026-09-13.md).

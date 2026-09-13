@@ -140,6 +140,6 @@ export function safeInternalPath(value: string | null, fallback: string): string
   if (!value) return fallback
   if (!value.startsWith('/')) return fallback
   // `//host` und `/\host` werden vom Browser als absolute Adresse gelesen.
-  if (value.startsWith('//') || value.startsWith('/\\')) return fallback
+  if (value.startsWith('//') || /[\u0000-\u001f\u007f\\]/.test(value)) return fallback
   return value
 }

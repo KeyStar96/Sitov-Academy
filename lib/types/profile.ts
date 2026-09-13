@@ -2,7 +2,7 @@ import { z } from 'zod'
 import type { Tables } from '@/supabase/database.types'
 import { plainTextSchema, type ProfileRole } from './backend'
 
-export type Profile = Omit<Tables<'profiles'>, 'role'> & { role: ProfileRole | null }
+export type Profile = Omit<Tables<'profile_details'>, 'role'> & { role: ProfileRole | null }
 export type ProfileContact = Pick<Profile, 'phone' | 'street' | 'zip_code' | 'city'>
 const contactField = (max: number) => plainTextSchema(max)
   .refine(value => !value.includes('\n')).nullable()

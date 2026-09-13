@@ -3,6 +3,11 @@ import {
   parseOtpType,
   readAuthCallbackSearch,
 } from '@/lib/auth-callback'
+import { safeInternalPath } from '@/lib/types/auth'
+
+it.each(['/\n/attacker.example', '/\t/attacker.example', '/\\attacker.example', '//attacker.example'])('rejects URL parser redirect bypass %j', next => {
+  expect(safeInternalPath(next, '/de/dashboard')).toBe('/de/dashboard')
+})
 
 describe('parseOtpType', () => {
   it('erkennt gültige GoTrue-Typen', () => {

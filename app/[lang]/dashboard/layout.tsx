@@ -18,7 +18,7 @@ export default async function DashboardLayout({ children, params }: { children: 
   const { data: { user } } = await supabase.auth.getUser()
   if (!user) redirect(`/${lang}/login`)
   const [{ data: profile }, dict] = await Promise.all([
-    supabase.from('profiles').select('name, role').eq('id', user.id).single(), getDictionary(lang),
+    supabase.from('profile_details').select('name, role').eq('id', user.id).single(), getDictionary(lang),
   ])
   if (profile?.role === 'teacher' || profile?.role === 'admin') redirect(`/${lang}/admin`)
   const translations = dict.dashboard as DashboardTranslations

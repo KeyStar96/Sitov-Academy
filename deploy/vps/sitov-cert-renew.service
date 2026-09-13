@@ -1,0 +1,7 @@
+[Unit]
+Description=Renew Sitov Academy IP certificate
+After=network-online.target docker.service
+
+[Service]
+Type=oneshot
+ExecStart=/opt/sitov-certbot/bin/certbot renew --quiet --deploy-hook /usr/local/sbin/sitov-renew-ip-certificate

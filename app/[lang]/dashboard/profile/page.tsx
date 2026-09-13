@@ -23,7 +23,7 @@ export default async function ProfilePage({ params }: { params: Promise<{ lang: 
   try { await resolveLegacyProfile(user) }
   catch { console.error('[profile] Verified legacy association could not be loaded') }
   const [dict, profileResult] = await Promise.all([
-    getDictionary(lang), supabase.from('profiles').select('*').eq('id', user.id).single(),
+    getDictionary(lang), supabase.from('profile_details').select('*').eq('id', user.id).single(),
   ])
   if (profileResult.error || !profileResult.data) throw new Error('profile_load_failed')
   const profile = profileResult.data
@@ -45,7 +45,7 @@ export default async function ProfilePage({ params }: { params: Promise<{ lang: 
       <div className="grid min-w-0 grid-cols-1 items-start gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
         <div className="flex min-w-0 flex-col gap-6">
           <ProfileDetailsForm lang={lang} translations={dict.profile} pendingEmail={user.new_email || null} birthDate={courseHistory?.birthDate}
-            initial={{ name: profile.name ?? '', email: profile.email, phone: profile.phone, street: profile.street, zip_code: profile.zip_code, city: profile.city }} />
+            initial={{ name: profile.name ?? '', email: profile.email ?? user.email ?? '', phone: profile.phone, street: profile.street, zip_code: profile.zip_code, city: profile.city }} />
           <section id="language-settings" className="scroll-mt-28 min-w-0 rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-4 shadow-sm sm:p-5">
             <div className="flex min-w-0 items-start gap-3">
               <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-blue-50 text-blue-700 dark:bg-blue-950 dark:text-blue-300">

@@ -1,4 +1,20 @@
-# Monetization Strategy (Stripe Integration)
+# Kursbuchungen, Rechnungen und Zugangsmodell
+
+## Aktueller Abrechnungsstand — VPS-Umbau vom 13. September 2026
+
+**Fachlich umgesetzt und isoliert geprüft; die Live-Bereitstellung läuft noch.** Kursbuchung, manuelle Rechnungsarbeit und pädagogische Freigaben bleiben getrennte Entscheidungen. Es gibt keine In-App-Free/Premium-Sperre und keinen automatischen Trainerzugang durch einen Zahlungsstatus. Lehrkräfte vergeben Niveau, Trainer und einzelne UUID-Lerneinheiten ausdrücklich.
+
+`people` führt die Person, `bookings` den Monats-/Anmeldevorgang und `booking_items` die tatsächlich gebuchten Kurse mit Preis- und Titel-Snapshot. `invoice_cases` führt pro Person und Monat die Arbeitsliste „Rechnung offen“ bzw. „Rechnung erstellt“. Rechnungen werden weiterhin zum Monatsende für den Folgemonat in Vorkasse manuell über papierkram.de erstellt. Das Kennzeichen dokumentiert die Erstellung, weder Zustellung noch Zahlung. Die Annahme einer Buchung (`pending` → `confirmed`) und das Rechnungskennzeichen sind getrennte Vorgänge.
+
+Der Kurskatalog bleibt mit zehn aktiven und zwei archivierten Kursen erhalten; der technische Umbau führt kein neues Tarifmodell ein. Ein zentrales schwarzes Brett dient der Betreuung. Ein öffentlich eingegebener E-Mail-Wert berechtigt niemals zur Anzeige bestehender Personen- oder Buchungsdaten; eine Zusammenführung setzt eine verifizierte Auth-Identität und eindeutige Zuordnung voraus.
+
+Anwendung, Datenbank, Storage, Mail-Outbox und Sprachsynthese werden auf dem eigenen VPS betrieben. Damit ist für die neuen Lern-/Buchungsabläufe kein Cloud-Supabase-, Resend-, Upstash- oder externer Sprachdienst erforderlich. Es werden keine Einsparbeträge oder Zustellgarantien aus diesem Architekturwechsel abgeleitet. Stripe-Beschreibungen im historischen Teil sind kein aktiver Abrechnungs- oder Freigabevertrag des neuen Systems.
+
+Der freigegebene Schüler-Neustart nach vollständigem Backup ist eine einmalige Migration; der reguläre Lernreset lässt Personen, Buchungen und Rechnungsvorgänge bestehen. [Fachliches Modell, Sicherung und aktueller Prüfstand](docs/vps-refactor-2026-09-13.md).
+
+## Historie — frühere Architektur- und Betriebsstände
+
+Die nachfolgenden Einträge bleiben als Audit-Trail erhalten. Aussagen über Cloud-Supabase, Vercel, externe Sprach-/Maildienste, frühere Tabellen oder damalige Live-Tests gelten nur für ihren jeweiligen Zeitpunkt. Bei Abweichungen hat der aktuelle VPS-Abschnitt oben Vorrang; historische Anleitungen dürfen nicht unverändert auf den neuen Betrieb angewendet werden.
 
 ## 2026-09-13 — Gemini-Review, Inhaltsfreigaben und bidirektionales Lernen
 

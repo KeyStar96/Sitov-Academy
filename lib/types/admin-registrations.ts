@@ -27,6 +27,7 @@ export interface RegistrationCourse {
   endDate: string | null
 }
 export interface StaffRegistration {
+  isTrial?: boolean
   id: string
   source: RegistrationSource
   personId: string
