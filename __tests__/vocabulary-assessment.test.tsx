@@ -76,34 +76,23 @@ it.each([
   }
 })
 
-it('zeigt nur das Lernwort und beide Entscheidungen ohne Lösungsschritt', () => {
+it('shows the interface word, then German article and plural before the phase decision', async () => {
   renderAssess()
-  expect(screen.queryByText('дом')).not.toBeInTheDocument()
+  expect(screen.getByText('дом')).toBeInTheDocument()
+  expect(screen.queryByText('das Haus')).not.toBeInTheDocument()
+  expect(screen.queryByText(translations.already_know)).not.toBeInTheDocument()
+  fireEvent.click(screen.getByRole('button', { name: translations.reveal_solution }))
   expect(screen.getByText('das Haus')).toBeInTheDocument()
-  expect(screen.queryByRole('button', { name: translations.reveal_solution })).not.toBeInTheDocument()
-  expect(screen.getByText(translations.already_know)).toBeInTheDocument()
-  expect(screen.getByText(translations.add_to_box)).toBeInTheDocument()
-})
-
-it('lässt unmittelbar über Stufe 1 oder Stufe 6 entscheiden', async () => {
-  renderAssess()
-
-  expect(screen.getByText('das Haus')).toBeInTheDocument()
-  expect(screen.queryByText(translations.plural_label.replace('{plural}', 'Häuser'))).not.toBeInTheDocument()
-  expect(screen.getByText(translations.already_know)).toBeInTheDocument()
-  expect(screen.getByText(translations.add_to_box)).toBeInTheDocument()
-
+  expect(screen.getByText(translations.plural_label.replace('{plural}', 'Häuser'))).toBeInTheDocument()
   fireEvent.click(screen.getByText(translations.already_know))
-  await waitFor(() => {
-    expect(submitLessonAssessment).toHaveBeenCalledWith([{ cardId: 'card-house', alreadyKnown: true, direction: 'de_to_native' }], learnerId)
-  })
+  await waitFor(() => expect(submitLessonAssessment).toHaveBeenCalledWith([{ cardId: 'card-house', alreadyKnown: true }], learnerId))
+  expect(screen.getByText('дерево')).toBeInTheDocument()
+  expect(screen.queryByText('der Baum')).not.toBeInTheDocument()
 })
 
-it('nimmt unbekannte Wörter ohne Aufdecken in den Lernkasten auf', async () => {
-  jest.mocked(submitLessonAssessment).mockResolvedValue({ success: true, addedKnown: 0, addedNew: 1 })
+it('adds unknown words only after revealing the translation', async () => {
   renderAssess()
+  fireEvent.click(screen.getByRole('button', { name: translations.reveal_solution }))
   fireEvent.click(screen.getByText(translations.add_to_box))
-  await waitFor(() => {
-    expect(submitLessonAssessment).toHaveBeenCalledWith([{ cardId: 'card-house', alreadyKnown: false, direction: 'de_to_native' }], learnerId)
-  })
+  await waitFor(() => expect(submitLessonAssessment).toHaveBeenCalledWith([{ cardId: 'card-house', alreadyKnown: false }], learnerId))
 })

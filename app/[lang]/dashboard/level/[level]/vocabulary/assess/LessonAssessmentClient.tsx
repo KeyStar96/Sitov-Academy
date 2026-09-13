@@ -6,7 +6,7 @@ import { submitLessonAssessment, skipVocabularyAssessment } from '@/app/actions/
 import { loadLernkastenSelection, saveLernkastenSelection } from '@/lib/vocabulary-lernkasten'
 import { createVocabularyTranslator, type VocabularyTranslations } from '@/lib/vocabulary-i18n'
 import { articleColorClass } from '@/lib/vocabulary-ui'
-import type { VocabularyAssessmentCard, VocabularyDirection } from '@/lib/types/vocabulary'
+import type { VocabularyAssessmentCard } from '@/lib/types/vocabulary'
 import { createOrderedWriteQueue, type OrderedWriteQueue } from '@/lib/vocabulary-write-queue'
 import { cn, stripLessonPrefix } from '@/lib/utils'
 import LearningScreen from '@/components/vocabulary/LearningScreen'
@@ -26,11 +26,9 @@ export default function LessonAssessmentClient({ learnerId, cards, lessonName, l
   const actorId = useRef(learnerId).current
   const mounted = useRef(true)
   useEffect(() => { mounted.current = true; return () => { mounted.current = false } }, [])
-  // Separate directions into two passes instead of showing a word's inverse next.
-  const [session] = useState(() => [
-    ...cards.filter(card => card.direction === 'de_to_native'),
-    ...cards.filter(card => card.direction === 'native_to_de'),
-  ])
+  // One decision per word initializes the still-missing learning directions.
+  const [session] = useState(() => [...new Map(cards.map(card => [card.id, card])).values()])
+  const [revealed, setRevealed] = useState(false)
   const [index, setIndex] = useState(0)
   const indexRef = useRef(0)
   const resumeIndex = useRef(0)
@@ -45,7 +43,7 @@ export default function LessonAssessmentClient({ learnerId, cards, lessonName, l
   const t = useMemo(() => createVocabularyTranslator(translations), [translations])
   const overview = `/${lang}/dashboard/level/${encodeURIComponent(level)}/vocabulary`
   const current = session[index]
-  type AssessmentIntent = { kind: 'decision'; index: number; cardId: string; alreadyKnown: boolean; direction: VocabularyDirection } | { kind: 'skip' }
+  type AssessmentIntent = { kind: 'decision'; index: number; cardId: string; alreadyKnown: boolean } | { kind: 'skip' }
   type AssessmentResult = { success: boolean; lesson?: string }
   const writes = useRef<OrderedWriteQueue<AssessmentIntent> | null>(null)
 
@@ -65,7 +63,7 @@ export default function LessonAssessmentClient({ learnerId, cards, lessonName, l
 
   if (!writes.current) writes.current = createOrderedWriteQueue<AssessmentIntent, AssessmentResult>({
     write: item => !actorId ? Promise.resolve({ success: false }) : item.kind === 'skip' ? skipVocabularyAssessment(level, actorId)
-      : submitLessonAssessment([{ cardId: item.cardId, alreadyKnown: item.alreadyKnown, direction: item.direction }], actorId),
+      : submitLessonAssessment([{ cardId: item.cardId, alreadyKnown: item.alreadyKnown }], actorId),
     accepted: (result, item) => result.success && (item.kind !== 'skip' || !!result.lesson),
     onAccepted: (item, result) => {
       if (item.kind === 'skip') {
@@ -104,11 +102,12 @@ export default function LessonAssessmentClient({ learnerId, cards, lessonName, l
   }
 
   function decide(alreadyKnown: boolean) {
-    if (!actorId || !current || index !== indexRef.current || writes.current?.blocked || skipRequested.current) return
-    const item: AssessmentIntent = { kind: 'decision', index, cardId: current.id, alreadyKnown, direction: current.direction }
+    if (!actorId || !current || !revealed || index !== indexRef.current || writes.current?.blocked || skipRequested.current) return
+    const item: AssessmentIntent = { kind: 'decision', index, cardId: current.id, alreadyKnown }
     indexRef.current += 1
     resumeIndex.current = indexRef.current
     setIndex(indexRef.current)
+    setRevealed(false)
     optimisticCounts.current = { known: optimisticCounts.current.known + Number(alreadyKnown), fresh: optimisticCounts.current.fresh + Number(!alreadyKnown) }
     setCounts(optimisticCounts.current)
     // The UI continues instantly; the queue preserves network ordering and retry intent.
@@ -141,16 +140,21 @@ export default function LessonAssessmentClient({ learnerId, cards, lessonName, l
     <LearningScreen title={t('assess_title')} subtitle={t('lesson_label', { lesson: stripLessonPrefix(lessonName) })}
       progress={session.length ? index / session.length * 100 : 100} onExit={goBack} t={t}>
       {current ? <>
-        <div className="learning-meta"><span className="learning-pill">{t(current.direction === 'native_to_de' ? 'direction_to_de' : 'direction_from_de')}</span><span>{t('card_progress_compact', { current: index + 1, total: session.length })}</span></div>
+        <div className="learning-meta"><span className="learning-pill">{t('direction_to_de')}</span><span>{t('card_progress_compact', { current: index + 1, total: session.length })}</span></div>
         <div className="learning-card">
           <div className="learning-card-content" aria-live="polite" aria-atomic="true">
             <span className="learning-eyebrow">{t('assessment_word_label')}</span>
-            <h2 lang={current.direction === 'native_to_de' ? current.translationLanguage : 'de'} className={cn('learning-word', current.direction === 'de_to_native' && articleColorClass(current.article))}>
-              {current.direction === 'native_to_de' ? current.translation : current.article && current.article !== 'none' ? `${current.article} ${current.word_de}` : current.word_de}
-            </h2>
+            <h2 lang={current.translationLanguage} className="learning-word">{current.translation}</h2>
+            {revealed && <>
+              <div className="learning-divider" />
+              <p lang="de" className={cn('learning-solution', articleColorClass(current.article))}>
+                {current.article && current.article !== 'none' ? `${current.article} ${current.word_de}` : current.word_de}
+              </p>
+              {current.plural && <p lang="de" className="learning-context">{t('plural_label', { plural: current.plural })}</p>}
+            </>}
           </div>
         </div>
-        {saveFailed ? <button className="learning-button learning-button-primary learning-button-wide" onClick={retry}>{t('error_retry')}</button> : <div className="learning-actions">
+        {saveFailed ? <button className="learning-button learning-button-primary learning-button-wide" onClick={retry}>{t('error_retry')}</button> : !revealed ? <button type="button" className="learning-button learning-button-primary learning-button-wide" onClick={() => setRevealed(true)}>{t('reveal_solution')}</button> : <div className="learning-actions">
           <button className="learning-button" onClick={() => decide(false)}>
             <span>{t('add_to_box')}</span><small>{t('add_to_box_hint')}</small>
           </button>

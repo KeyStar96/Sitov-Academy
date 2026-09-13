@@ -121,7 +121,7 @@ export async function getVocabularyAssessment(lessonName: string, level: string,
         if (allowed !== null && !allowed.includes(card.unit_id)) return []
         const translation = resolveVocabularyInterfaceTranslation(card, language)
         if (!translation || assessed.has(`${card.id}:${direction}`)) return []
-        return [{ id: card.id, word_de: card.word_de, article: card.article,
+        return [{ id: card.id, word_de: card.word_de, article: card.article, plural: card.plural,
           translation: translation.text, translationLanguage: translation.language, direction }]
       })),
     }
@@ -130,7 +130,7 @@ export async function getVocabularyAssessment(lessonName: string, level: string,
   }
 }
 
-/** Explicit directions are assessed separately; legacy bulk-add initializes both. */
+/** A word-level decision initializes missing directions; existing progress is preserved. */
 export async function submitLessonAssessment(decisions: AssessmentDecision[], expectedLearnerId?: string): Promise<SubmitAssessmentResult> {
   const failed: SubmitAssessmentResult = { success: false, addedKnown: 0, addedNew: 0 }
   const parsed = decisionSchema.safeParse(decisions)

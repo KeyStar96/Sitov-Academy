@@ -57,6 +57,7 @@ export interface VocabularyAssessmentSession {
 
 /** One uninitialized direction, so interrupted assessments resume precisely. */
 export interface VocabularyAssessmentCard {
+  plural: string | null
   id: string
   word_de: string
   article: string | null

@@ -36,8 +36,8 @@ it('returns both distinct directions, translated in the current interface langua
   setup()
   const result = await getVocabularyAssessment('Lektion 1', 'A1.1', 'en')
   expect(result).toEqual({ learnerId: userId, cards: [
-    { id: card.id, word_de: 'Tür', article: 'die', translation: 'door', translationLanguage: 'en', direction: 'de_to_native' },
-    { id: card.id, word_de: 'Tür', article: 'die', translation: 'door', translationLanguage: 'en', direction: 'native_to_de' },
+    { id: card.id, word_de: 'Tür', article: 'die', plural: 'Türen', translation: 'door', translationLanguage: 'en', direction: 'de_to_native' },
+    { id: card.id, word_de: 'Tür', article: 'die', plural: 'Türen', translation: 'door', translationLanguage: 'en', direction: 'native_to_de' },
   ] })
 })
 it.each(['de_to_native', 'native_to_de'] as const)('does not reassess the existing %s direction', async direction => {

@@ -15,7 +15,7 @@ const mockReplace = jest.fn()
 jest.mock('next/navigation', () => ({ useRouter: () => ({ push: jest.fn(), replace: mockReplace }) }))
 jest.mock('@/app/actions/vocabulary', () => ({ submitLessonAssessment: jest.fn(), skipVocabularyAssessment: jest.fn() }))
 jest.mock('@/components/layout/ThemeToggle', () => ({ __esModule: true, default: () => null }))
-const cards: AssessmentCard[] = [{ id: 'word-1', article: 'das', word_de: 'Haus', translation: 'house', translationLanguage: 'en', direction: 'de_to_native' }, { id: 'word-2', article: null, word_de: 'lernen', translation: 'learn', translationLanguage: 'en', direction: 'de_to_native' }]
+const cards: AssessmentCard[] = [{ id: 'word-1', article: 'das', plural: 'Häuser', word_de: 'Haus', translation: 'house', translationLanguage: 'en', direction: 'de_to_native' }, { id: 'word-2', article: null, plural: null, word_de: 'lernen', translation: 'learn', translationLanguage: 'en', direction: 'de_to_native' }]
 function renderAssessment(locale = de.vocabulary, lang = 'de') {
   return render(<LessonAssessmentClient learnerId={learnerId} cards={cards} lessonName="Lektion 2" level="A1.1" lang={lang} translations={locale} />)
 }
@@ -24,27 +24,40 @@ beforeEach(() => {
   localStorage.clear()
   jest.mocked(submitLessonAssessment).mockResolvedValue({ success: true, addedKnown: 0, addedNew: 1 })
 })
-it.each([['de', de], ['en', en], ['ru', ru], ['uk', uk], ['tr', tr]] as const)('shows only the target word and direct choices in %s', (lang, dict) => {
+it.each([['de', de], ['en', en], ['ru', ru], ['uk', uk], ['tr', tr]] as const)('requires revealing the German solution before grading with %s labels', (lang, dict) => {
   renderAssessment(dict.vocabulary, lang)
-  expect(screen.getByRole('heading', { name: 'das Haus' })).toBeVisible()
-  expect(screen.queryByRole('button', { name: dict.vocabulary.reveal_solution })).not.toBeInTheDocument()
-  expect(screen.getByRole('button', { name: `${dict.vocabulary.already_know} ${dict.vocabulary.already_know_hint}` })).toBeVisible()
-  expect(screen.getByRole('button', { name: `${dict.vocabulary.add_to_box} ${dict.vocabulary.add_to_box_hint}` })).toBeVisible()
+  expect(screen.getByRole('heading', { name: 'house' })).toHaveAttribute('lang', 'en')
+  expect(screen.queryByText('das Haus')).not.toBeInTheDocument()
+  expect(screen.queryByText('Plural: Häuser')).not.toBeInTheDocument()
+  expect(screen.queryByText(dict.vocabulary.already_know)).not.toBeInTheDocument()
+  expect(screen.queryByText(dict.vocabulary.add_to_box)).not.toBeInTheDocument()
+  fireEvent.click(screen.getByRole('button', { name: dict.vocabulary.reveal_solution }))
+  expect(screen.getByText('das Haus')).toHaveAttribute('lang', 'de')
+  expect(screen.getByText(dict.vocabulary.plural_label.replace('{plural}', 'Häuser'))).toBeVisible()
+  expect(screen.getByText(dict.vocabulary.already_know)).toBeVisible()
+  expect(submitLessonAssessment).not.toHaveBeenCalled()
 })
+function choose(known: boolean) {
+  fireEvent.click(screen.getByRole('button', { name: de.vocabulary.reveal_solution }))
+  fireEvent.click(screen.getByRole('button', { name: known ? /Kenne ich bereits/ : /Kenne ich nicht/ }))
+}
 it('stores an unknown word immediately, selects its lesson, and starts learning after assessment', async () => {
   renderAssessment()
-  await act(async () => fireEvent.click(screen.getByRole('button', { name: /Kenne ich nicht/ })))
-  expect(submitLessonAssessment).toHaveBeenCalledWith([{ cardId: 'word-1', alreadyKnown: false, direction: 'de_to_native' }], learnerId)
+  choose(false)
+  await act(async () => undefined)
+  expect(submitLessonAssessment).toHaveBeenCalledWith([{ cardId: 'word-1', alreadyKnown: false }], learnerId)
   expect(loadLernkastenSelection('A1.1')).toEqual(['Lektion 2'])
-  expect(screen.getByRole('heading', { name: 'lernen' })).toBeVisible()
-  await act(async () => fireEvent.click(screen.getByRole('button', { name: /Kenne ich bereits/ })))
+  expect(screen.getByRole('heading', { name: 'learn' })).toBeVisible()
+  choose(true)
+  await act(async () => undefined)
   expect(mockReplace).toHaveBeenCalledWith('/de/dashboard/level/A1.1/vocabulary/train?lesson=Lektion%202')
 })
 it('restores the current word after a rejected save and does not select or navigate', async () => {
   jest.mocked(submitLessonAssessment).mockResolvedValue({ success: false, addedKnown: 0, addedNew: 0 })
   renderAssessment()
-  await act(async () => fireEvent.click(screen.getByRole('button', { name: /Kenne ich nicht/ })))
-  expect(screen.getByRole('heading', { name: 'das Haus' })).toBeVisible()
+  choose(false)
+  await act(async () => undefined)
+  expect(screen.getByRole('heading', { name: 'house' })).toBeVisible()
   expect(screen.getByRole('status')).toHaveTextContent(de.vocabulary.assess_save_failed)
   expect(loadLernkastenSelection('A1.1')).toBeNull()
   expect(mockReplace).not.toHaveBeenCalled()
@@ -68,10 +81,10 @@ it('accepts rapid assessment clicks without save labels and navigates only after
   const last = deferred<{ success: boolean; addedKnown: number; addedNew: number }>()
   jest.mocked(submitLessonAssessment).mockReturnValueOnce(first.promise).mockReturnValueOnce(last.promise)
   renderAssessment()
-  fireEvent.click(screen.getByRole('button', { name: /Kenne ich nicht/ }))
-  expect(screen.getByRole('heading', { name: 'lernen' })).toBeVisible()
-  expect(screen.getByRole('button', { name: /Kenne ich bereits/ })).toBeEnabled()
-  fireEvent.click(screen.getByRole('button', { name: /Kenne ich bereits/ }))
+  choose(false)
+  expect(screen.getByRole('heading', { name: 'learn' })).toBeVisible()
+  expect(screen.getByRole('button', { name: de.vocabulary.reveal_solution })).toBeEnabled()
+  choose(true)
   expect(screen.getByText(de.vocabulary.assess_done_title)).toBeVisible()
   expect(screen.queryByText(de.vocabulary.saving_progress)).not.toBeInTheDocument()
   expect(screen.queryByText(de.vocabulary.assessment_auto_save)).not.toBeInTheDocument()
@@ -88,14 +101,14 @@ it('keeps all rapid assessment decisions after an early failure and retries them
   jest.mocked(submitLessonAssessment).mockReturnValueOnce(first.promise)
     .mockResolvedValueOnce({ success: true, addedKnown: 0, addedNew: 1 }).mockResolvedValueOnce({ success: true, addedKnown: 1, addedNew: 0 })
   renderAssessment()
-  fireEvent.click(screen.getByRole('button', { name: /Kenne ich nicht/ }))
-  fireEvent.click(screen.getByRole('button', { name: /Kenne ich bereits/ }))
+  choose(false)
+  choose(true)
   await act(async () => first.resolve({ success: false, addedKnown: 0, addedNew: 0 }))
-  expect(screen.getByRole('heading', { name: 'das Haus' })).toBeVisible()
+  expect(screen.getByRole('heading', { name: 'house' })).toBeVisible()
   expect(loadLernkastenSelection('A1.1')).toBeNull()
   await act(async () => fireEvent.click(screen.getByRole('button', { name: de.vocabulary.error_retry })))
   expect(jest.mocked(submitLessonAssessment).mock.calls.map(([decision]) => decision)).toEqual([
-    [{ cardId: 'word-1', alreadyKnown: false, direction: 'de_to_native' }], [{ cardId: 'word-1', alreadyKnown: false, direction: 'de_to_native' }], [{ cardId: 'word-2', alreadyKnown: true, direction: 'de_to_native' }],
+    [{ cardId: 'word-1', alreadyKnown: false }], [{ cardId: 'word-1', alreadyKnown: false }], [{ cardId: 'word-2', alreadyKnown: true }],
   ])
   expect(mockReplace).toHaveBeenCalledTimes(1)
 })
@@ -104,7 +117,7 @@ it('queues skip behind pending decisions instead of dropping them', async () => 
   jest.mocked(submitLessonAssessment).mockReturnValueOnce(first.promise)
   jest.mocked(skipVocabularyAssessment).mockResolvedValueOnce({ success: true, lesson: 'Lektion 1', added: 1 })
   renderAssessment()
-  fireEvent.click(screen.getByRole('button', { name: /Kenne ich nicht/ }))
+  choose(false)
   fireEvent.click(screen.getByRole('button', { name: de.vocabulary.skip_assessment }))
   expect(skipVocabularyAssessment).not.toHaveBeenCalled()
   await act(async () => first.resolve({ success: true, addedKnown: 0, addedNew: 1 }))
@@ -115,9 +128,9 @@ it('never rebinds buffered assessment choices to a different incoming learner', 
   const first = deferred<{ success: boolean; addedKnown: number; addedNew: number }>()
   jest.mocked(submitLessonAssessment).mockReturnValueOnce(first.promise).mockResolvedValueOnce({ success: true, addedKnown: 1, addedNew: 0 })
   const { rerender } = renderAssessment()
-  fireEvent.click(screen.getByRole('button', { name: /Kenne ich nicht/ }))
+  choose(false)
   rerender(<LessonAssessmentClient learnerId="00000000-0000-4000-8000-000000000002" cards={cards} lessonName="Lektion 2" level="A1.1" lang="de" translations={de.vocabulary} />)
-  fireEvent.click(screen.getByRole('button', { name: /Kenne ich bereits/ }))
+  choose(true)
   await act(async () => first.resolve({ success: true, addedKnown: 0, addedNew: 1 }))
   expect(jest.mocked(submitLessonAssessment).mock.calls.map(([, actor]) => actor)).toEqual([learnerId, learnerId])
 })
@@ -130,11 +143,11 @@ it('flushes rapid decisions and starts learning when the browser blocks the stor
   })
   try {
     renderAssessment()
-    fireEvent.click(screen.getByRole('button', { name: /Kenne ich nicht/ }))
-    fireEvent.click(screen.getByRole('button', { name: /Kenne ich bereits/ }))
+    choose(false)
+    choose(true)
     await act(async () => first.resolve({ success: true, addedKnown: 0, addedNew: 1 }))
     expect(jest.mocked(submitLessonAssessment).mock.calls.map(([decision]) => decision)).toEqual([
-      [{ cardId: 'word-1', alreadyKnown: false, direction: 'de_to_native' }], [{ cardId: 'word-2', alreadyKnown: true, direction: 'de_to_native' }],
+      [{ cardId: 'word-1', alreadyKnown: false }], [{ cardId: 'word-2', alreadyKnown: true }],
     ])
     expect(mockReplace).toHaveBeenCalledTimes(1)
     expect(mockReplace).toHaveBeenCalledWith('/de/dashboard/level/A1.1/vocabulary/train?lesson=Lektion%202')
@@ -144,31 +157,26 @@ it('flushes rapid decisions and starts learning when the browser blocks the stor
   }
 })
 
-it('assesses both directions in separate passes and saves each answer independently', async () => {
+it('shows each word once in the interface language and initializes both directions with one decision', async () => {
   const both: AssessmentCard[] = cards.flatMap(card => [card, { ...card, direction: 'native_to_de' }])
   render(<LessonAssessmentClient learnerId={learnerId} cards={both} lessonName="Lektion 2" level="A1.1" lang="en" translations={de.vocabulary} />)
-  expect(screen.getByRole('heading', { name: 'das Haus' })).toHaveAttribute('lang', 'de')
-  fireEvent.click(screen.getByRole('button', { name: /Kenne ich bereits/ }))
-  expect(screen.getByRole('heading', { name: 'lernen' })).toBeVisible()
-  fireEvent.click(screen.getByRole('button', { name: /Kenne ich bereits/ }))
   expect(screen.getByRole('heading', { name: 'house' })).toHaveAttribute('lang', 'en')
-  expect(screen.getByText(de.vocabulary.direction_to_de)).toBeVisible()
-  fireEvent.click(screen.getByRole('button', { name: /Kenne ich nicht/ }))
+  choose(false)
   expect(screen.getByRole('heading', { name: 'learn' })).toBeVisible()
-  fireEvent.click(screen.getByRole('button', { name: /Kenne ich bereits/ }))
+  expect(screen.queryByText('lernen')).not.toBeInTheDocument()
+  choose(true)
   await act(async () => undefined)
-  expect(jest.mocked(submitLessonAssessment).mock.calls.map(([decisions]) => decisions[0])).toEqual([
-    { cardId: 'word-1', alreadyKnown: true, direction: 'de_to_native' },
-    { cardId: 'word-2', alreadyKnown: true, direction: 'de_to_native' },
-    { cardId: 'word-1', alreadyKnown: false, direction: 'native_to_de' },
-    { cardId: 'word-2', alreadyKnown: true, direction: 'native_to_de' },
+  expect(jest.mocked(submitLessonAssessment).mock.calls.map(([decisions]) => decisions)).toEqual([
+    [{ cardId: 'word-1', alreadyKnown: false }],
+    [{ cardId: 'word-2', alreadyKnown: true }],
   ])
 })
 
 it('resumes only the missing assessment direction after a partial earlier assessment', async () => {
   render(<LessonAssessmentClient learnerId={learnerId} cards={[{ ...cards[0], direction: 'native_to_de' }]} lessonName="Lektion 2" level="A1.1" lang="en" translations={de.vocabulary} />)
   expect(screen.getByRole('heading', { name: 'house' })).toBeVisible()
-  await act(async () => fireEvent.click(screen.getByRole('button', { name: /Kenne ich nicht/ })))
-  expect(submitLessonAssessment).toHaveBeenCalledWith([{ cardId: 'word-1', alreadyKnown: false, direction: 'native_to_de' }], learnerId)
+  choose(false)
+  await act(async () => undefined)
+  expect(submitLessonAssessment).toHaveBeenCalledWith([{ cardId: 'word-1', alreadyKnown: false }], learnerId)
   expect(submitLessonAssessment).toHaveBeenCalledTimes(1)
 })
