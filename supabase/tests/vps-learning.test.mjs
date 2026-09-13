@@ -20,6 +20,10 @@ await test('VPS normalized learning catalog and permissions (isolated PostgreSQL
   await db.exec('DROP SCHEMA learning_reset_private CASCADE; GRANT DELETE,UPDATE ON storage.objects TO authenticated;')
   await db.exec(await read('../migrations/20260910195205_complete_learning_reset.sql'))
   await db.exec(await read('../vps/learning.sql'))
+  // This migration also replaces the note RPC; its composite type belongs to
+  // the business baseline, whereas this fixture focuses on learning tables.
+  await db.exec('CREATE TABLE teacher_student_notes(id uuid,student_id uuid,teacher_id uuid,note_text text,discount_percent numeric,is_blackboard boolean);')
+  await db.exec(await read('../migrations/20260913144640_application_conflict_responses.sql'))
   const actor=async(person,role='authenticated')=>{await db.exec('RESET ROLE');await db.query("SELECT set_config('request.jwt.claim.sub',$1,false)",[person??'']);await db.exec(`SET ROLE ${role}`)}
   await actor(teacher)
   const vocabUnit=(await db.query('SELECT unit_id FROM vocabulary_cards WHERE id=$1',[card])).rows[0].unit_id
@@ -58,6 +62,20 @@ await test('VPS normalized learning catalog and permissions (isolated PostgreSQL
    assert.equal(result.newPhase,2)
    assert.equal((await db.query('SELECT box_number FROM user_vocabulary_progress')).rows[0].box_number,2)
    assert.equal((await db.query("SELECT box_number FROM vocabulary_direction_progress WHERE direction='native_to_de'")).rows[0].box_number,6)
+  })
+  await t.test('due-date and spacing conflicts use PT409 without progress or receipt writes',async()=>{
+   await actor(student)
+   const forward=(await db.query("SELECT * FROM vocabulary_direction_progress WHERE direction='de_to_native'")).rows[0]
+   await assert.rejects(db.query("SELECT submit_vocabulary_answer_once($1,$2,true,NULL,'ru')",[uid(41),forward.id]),e=>e.code==='PT409'&&e.message==='review_not_due')
+   assert.deepEqual((await db.query('SELECT * FROM vocabulary_direction_progress WHERE id=$1',[forward.id])).rows[0],forward)
+   await db.exec('RESET ROLE')
+   const reverse=(await db.query("UPDATE vocabulary_direction_progress SET next_review_date='2020-01-01' WHERE user_id=$1 AND direction='native_to_de' RETURNING *",[student])).rows[0]
+   await actor(student)
+   await assert.rejects(db.query("SELECT submit_vocabulary_answer_once($1,$2,true,NULL,'ru')",[uid(42),reverse.id]),e=>e.code==='PT409'&&e.message==='vocabulary_spacing_required')
+   assert.deepEqual((await db.query('SELECT * FROM vocabulary_direction_progress WHERE id=$1',[reverse.id])).rows[0],reverse)
+   await db.exec('RESET ROLE')
+   assert.equal((await db.query('SELECT count(*)::int n FROM vocabulary_private.answer_receipts WHERE request_id=ANY($1)',[[uid(41),uid(42)]])).rows[0].n,0)
+   await actor(student)
   })
   await t.test('CMS updates translations and lesson placement without changing existing content IDs',async()=>{
    await actor(teacher)

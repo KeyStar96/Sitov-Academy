@@ -105,9 +105,9 @@ describe('monthly backend action authorization', () => {
       .toEqual({ success: true, data: cleared })
     expect(chain.delete).not.toHaveBeenCalled()
   })
-  it('reports a stale or foreign note ID as a safe conflict', async () => {
+  it.each(['40001','PT409'])('reports a stale or foreign note ID %s as a safe conflict', async code => {
     const { rpc } = session('teacher')
-    rpc.mockResolvedValue({ data: null, error: { code: '40001', message: 'Private note details' } })
+    rpc.mockResolvedValue({ data: null, error: { code, message: 'Private note details' } })
     expect(await saveBlackboardNote({ student_id: other, note_id: course, note_text: 'Retain draft', discount_percent: 0 }))
       .toEqual({ success: false, error: 'conflict' })
     expect(revalidatePath).not.toHaveBeenCalled()

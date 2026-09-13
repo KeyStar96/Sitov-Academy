@@ -55,6 +55,37 @@ await test('VPS business model uses local PostgreSQL only',async t=>{
   await actor(other);assert.equal((await db.query('SELECT count(*)::int n FROM bookings')).rows[0].n,0)
   await assert.rejects(db.query('SELECT confirm_business_booking($1)',[booking]),e=>e.code==='42501')
  })
+ await t.test('null required inputs cannot erase items or change an existing booking',async()=>{
+  await actor(student)
+  const before=(await db.query('SELECT id,status,revision FROM bookings WHERE id=$1',[booking])).rows[0]
+  const items=(await db.query('SELECT course_id,amount FROM booking_items WHERE booking_id=$1 ORDER BY id',[booking])).rows
+  const cases=[
+   {month:start,courses:null,paused:false,revision:before.revision,code:'23514'},
+   {month:start,courses:null,paused:true,revision:before.revision,code:'23514'},
+   {month:start,courses:[course],paused:null,revision:before.revision,code:'23514'},
+   {month:null,courses:[course],paused:false,revision:before.revision,code:'22008'},
+   {month:start,courses:[course],paused:false,revision:null,code:'PT409'},
+  ]
+  for(const value of cases){
+   await assert.rejects(db.query('SELECT save_business_month($1,$2,$3,$4,$5)',[value.month,value.courses,value.paused,booking,value.revision]),e=>e.code===value.code)
+   assert.deepEqual((await db.query('SELECT id,status,revision FROM bookings WHERE id=$1',[booking])).rows[0],before)
+   assert.deepEqual((await db.query('SELECT course_id,amount FROM booking_items WHERE booking_id=$1 ORDER BY id',[booking])).rows,items)
+  }
+ })
+ await t.test('null course registration rolls back its person and booking atomically',async()=>{
+  await actor(null,'service_role')
+  const before=(await db.query('SELECT count(*)::int n FROM people')).rows[0].n
+  await assert.rejects(db.query('SELECT submit_business_registration($1,NULL,$2,$3)',[JSON.stringify({name:'No courses',email:'null-courses@example.test'}),start,JSON.stringify({privacy:true,agb:true})]),e=>e.code==='23514')
+  assert.equal((await db.query('SELECT count(*)::int n FROM people')).rows[0].n,before)
+ })
+ await t.test('initial creation accepts null expected revision and a pause accepts an empty selection',async()=>{
+  await actor(other)
+  const id=(await db.query('SELECT save_business_month($1,$2,false,NULL,NULL) id',[start,[course]])).rows[0].id
+  const before=(await db.query('SELECT revision FROM bookings WHERE id=$1',[id])).rows[0]
+  await db.query('SELECT save_business_month($1,$2,true,$3,$4)',[start,[],id,before.revision])
+  assert.equal((await db.query('SELECT status FROM bookings WHERE id=$1',[id])).rows[0].status,'cancelled')
+  assert.equal((await db.query('SELECT count(*)::int n FROM booking_items WHERE booking_id=$1',[id])).rows[0].n,0)
+ })
  await t.test('stale revisions return a business conflict without changing the booking',async()=>{
   await actor(student)
   const before=(await db.query('SELECT revision FROM bookings WHERE id=$1',[booking])).rows[0].revision

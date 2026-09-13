@@ -91,6 +91,15 @@ describe('session DTO source language', () => {
 })
 
 describe('answer request routing', () => {
+  it.each([
+    ['vocabulary_spacing_required','spacing_required'],
+    ['review_not_due','save_failed'],
+  ])('preserves the application mapping for PT409 %s without retrying a write', async (message, expected) => {
+    const { rpc } = session()
+    rpc.mockResolvedValue({data:null,error:{code:'PT409',message}})
+    expect(await submitVocabularyAnswer({requestId,progressId,isCorrect:true})).toEqual({success:false,error:expected})
+    expect(rpc).toHaveBeenCalledTimes(1)
+  })
   it('uses the receipt RPC and sends every answer byte unchanged', async () => {
     const { rpc } = session()
     const typedAnswer = ` ${card.context_sentence_de.normalize('NFD')}\n`

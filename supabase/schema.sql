@@ -1,4 +1,4 @@
--- VPS application schema reference. Auth/Storage bootstrap belongs to Supabase; apply the reviewed migration for deployment.
+-- VPS application schema reference. Auth/Storage bootstrap belongs to Supabase; apply the reviewed migrations for deployment.
 --
 -- PostgreSQL database dump
 --
@@ -262,7 +262,7 @@ CREATE FUNCTION business_private.replace_items(p_booking uuid, p_courses uuid[])
 declare b public.bookings;
 begin
  select * into strict b from public.bookings where id=p_booking;
- if cardinality(p_courses) not between 1 and 100 or cardinality(p_courses)<>(select count(distinct id) from unnest(p_courses) id)
+ if p_courses is null or cardinality(p_courses) not between 1 and 100 or cardinality(p_courses)<>(select count(distinct id) from unnest(p_courses) id)
  or (select count(*) from public.courses where id=any(p_courses) and archived_at is null and (end_date is null or end_date>=b.start_date))<>cardinality(p_courses) then
   raise check_violation using message='Invalid course selection';
  end if;
@@ -324,7 +324,8 @@ begin
  perform business_private.claim_person();
  select * into strict p from public.people where auth_user_id=auth.uid() for update;
  v_next:=(date_trunc('month',now() at time zone 'Europe/Berlin')+interval '1 month')::date;
- if p_month<>v_next then raise sqlstate '22008';end if;
+ if p_month is null or p_month<>v_next then raise sqlstate '22008';end if;
+ if p_courses is null or p_paused is null then raise check_violation using message='Courses and pause choice are required';end if;
  select * into b from public.bookings where person_id=p.id and target_month=p_month and kind<>'trial' for update;
  if b.id is distinct from p_expected or (b.id is not null and b.revision is distinct from p_revision) then raise exception 'Booking revision changed' using errcode='PT409';end if;
  if exists(select 1 from public.invoice_cases where person_id=p.id and target_month=p_month and status='created') then raise check_violation using message='Invoice already created';end if;
@@ -1401,7 +1402,7 @@ BEGIN
   -- A stale/foreign note ID must never update another student's note or silently
   -- switch the central board. Null IDs from simultaneous first saves are safe.
   IF p_expected_note_id IS NOT NULL AND p_expected_note_id IS DISTINCT FROM board.id THEN
-    RAISE EXCEPTION 'The central note changed; reload and retry' USING ERRCODE = '40001';
+    RAISE EXCEPTION 'The central note changed; reload and retry' USING ERRCODE = 'PT409';
   END IF;
   IF board.id IS NULL THEN
     IF prose = '' THEN RETURN; END IF;
@@ -1749,11 +1750,11 @@ BEGIN
     RAISE EXCEPTION 'trainer_access_denied' USING ERRCODE='42501';
   END IF;
   IF progress.box_number = 7 OR progress.next_review_date > now() THEN
-    RAISE EXCEPTION 'review_not_due' USING ERRCODE = '40001';
+    RAISE EXCEPTION 'review_not_due' USING ERRCODE = 'PT409';
   END IF;
   SELECT last_card_id INTO previous_card FROM public.vocabulary_learning_state WHERE user_id = actor;
   IF previous_card = progress.card_id THEN
-    RAISE EXCEPTION 'vocabulary_spacing_required' USING ERRCODE = '40001';
+    RAISE EXCEPTION 'vocabulary_spacing_required' USING ERRCODE = 'PT409';
   END IF;
   prompt := CASE p_ui_language WHEN 'de' THEN card.context_sentence_de WHEN 'en' THEN card.context_sentence_en
     WHEN 'ru' THEN card.context_sentence_ru WHEN 'uk' THEN card.context_sentence_uk WHEN 'tr' THEN card.context_sentence_tr END;

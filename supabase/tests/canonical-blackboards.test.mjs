@@ -23,6 +23,10 @@ await test('Canonical student blackboards in isolated PostgreSQL', async t => {
     [canonical, student, teacher, history, otherNote, other])
     const before = (await db.query('SELECT * FROM teacher_student_notes ORDER BY id')).rows
     await db.exec(await read('../migrations/20260913110912_canonical_student_blackboards.sql'))
+    // The combined conflict migration also contains a vocabulary RPC, which
+    // has its own complete fixture in vps-learning.test.mjs.
+    const conflictMigration = await read('../migrations/20260913144640_application_conflict_responses.sql')
+    await db.exec('BEGIN;\n'+conflictMigration.slice(conflictMigration.indexOf('CREATE OR REPLACE FUNCTION public.save_student_blackboard')))
     const actor = async (person, role = 'authenticated') => {
       await db.exec('RESET ROLE')
       await db.query("SELECT set_config('request.jwt.claim.sub',$1,false)", [person ?? ''])
@@ -52,8 +56,8 @@ await test('Canonical student blackboards in isolated PostgreSQL', async t => {
       assert.equal((await db.query('SELECT note_text FROM teacher_student_notes WHERE id=$1', [history])).rows[0].note_text, 'Retained history')
     })
     await t.test('stale and foreign expected IDs fail before changing either student', async () => {
-      await assert.rejects(save(student, 'Wrong target', otherNote), error => error.code === '40001')
-      await assert.rejects(save(student, 'Wrong legacy row', history), error => error.code === '40001')
+      await assert.rejects(save(student, 'Wrong target', otherNote), error => error.code === 'PT409')
+      await assert.rejects(save(student, 'Wrong legacy row', history), error => error.code === 'PT409')
       assert.equal((await db.query('SELECT note_text FROM teacher_student_notes WHERE id=$1', [canonical])).rows[0].note_text, 'Updated centrally')
       assert.equal((await db.query('SELECT note_text FROM teacher_student_notes WHERE id=$1', [otherNote])).rows[0].note_text, 'Other student')
     })

@@ -620,11 +620,11 @@ BEGIN
     RAISE EXCEPTION 'trainer_access_denied' USING ERRCODE='42501';
   END IF;
   IF progress.box_number = 7 OR progress.next_review_date > now() THEN
-    RAISE EXCEPTION 'review_not_due' USING ERRCODE = '40001';
+    RAISE EXCEPTION 'review_not_due' USING ERRCODE = 'PT409';
   END IF;
   SELECT last_card_id INTO previous_card FROM public.vocabulary_learning_state WHERE user_id = actor;
   IF previous_card = progress.card_id THEN
-    RAISE EXCEPTION 'vocabulary_spacing_required' USING ERRCODE = '40001';
+    RAISE EXCEPTION 'vocabulary_spacing_required' USING ERRCODE = 'PT409';
   END IF;
   prompt := CASE p_ui_language WHEN 'de' THEN card.context_sentence_de WHEN 'en' THEN card.context_sentence_en
     WHEN 'ru' THEN card.context_sentence_ru WHEN 'uk' THEN card.context_sentence_uk WHEN 'tr' THEN card.context_sentence_tr END;

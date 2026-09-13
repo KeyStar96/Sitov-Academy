@@ -250,7 +250,7 @@ language plpgsql set search_path='' as $$
 declare b public.bookings;
 begin
  select * into strict b from public.bookings where id=p_booking;
- if cardinality(p_courses) not between 1 and 100 or cardinality(p_courses)<>(select count(distinct id) from unnest(p_courses) id)
+ if p_courses is null or cardinality(p_courses) not between 1 and 100 or cardinality(p_courses)<>(select count(distinct id) from unnest(p_courses) id)
  or (select count(*) from public.courses where id=any(p_courses) and archived_at is null and (end_date is null or end_date>=b.start_date))<>cardinality(p_courses) then
   raise check_violation using message='Invalid course selection';
  end if;
@@ -338,7 +338,8 @@ begin
  perform business_private.claim_person();
  select * into strict p from public.people where auth_user_id=auth.uid() for update;
  v_next:=(date_trunc('month',now() at time zone 'Europe/Berlin')+interval '1 month')::date;
- if p_month<>v_next then raise sqlstate '22008';end if;
+ if p_month is null or p_month<>v_next then raise sqlstate '22008';end if;
+ if p_courses is null or p_paused is null then raise check_violation using message='Courses and pause choice are required';end if;
  select * into b from public.bookings where person_id=p.id and target_month=p_month and kind<>'trial' for update;
  if b.id is distinct from p_expected or (b.id is not null and b.revision is distinct from p_revision) then raise exception 'Booking revision changed' using errcode='PT409';end if;
  if exists(select 1 from public.invoice_cases where person_id=p.id and target_month=p_month and status='created') then raise check_violation using message='Invoice already created';end if;
