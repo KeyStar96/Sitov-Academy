@@ -169,3 +169,7 @@ Beim späteren **individuellen Lernreset** bleibt die Person samt Kurs- und Rech
 | Live-HTTPS und Zertifikats-Erneuerung | Konfiguration vorhanden; abschließender Betriebsnachweis noch offen |
 
 Die Details zum späteren Live-Abschluss sollen als eigener datierter Abschnitt ergänzt werden. Frühere Testzahlen aus der Cloud-Architektur sind kein Prüfnachweis dieses Deployments.
+
+## Nachtrag: öffentliche Storage-URLs bei interner Serververbindung
+
+`lib/storage-public-url.ts` trennt die interne API-Verbindung von der im Browser verwendeten Datei-Adresse. Aus `http://127.0.0.1:9080/storage/v1/object/...` wird anhand der Konfiguration `https://217.154.228.254/supabase/storage/v1/object/...`. Es erfolgt keine freie URL-Weiterleitung: Origin und Storage-Pfadgrenze müssen exakt zum konfigurierten Backend gehören. Kodierte Dateinamen und sämtliche Signatur-/Query-Bytes bleiben unverändert. Cache-Treffer, neue Referenzaufnahmen und beide serverseitigen Signierstellen verwenden diesen Adapter. 39 gezielte Tests prüfen Mapping, Signaturerhalt und Ablehnung fremder/manipulierter URLs. Die Prüfung der tatsächlichen Wiedergabe nach dem VPS-Build bleibt Teil des Live-Abschlussnachweises.

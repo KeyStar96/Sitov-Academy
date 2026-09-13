@@ -1,3 +1,4 @@
+import { publicStorageUrl } from '@/lib/storage-public-url'
 import 'server-only'
 
 import { createHash } from 'node:crypto'
@@ -21,7 +22,7 @@ export async function findCachedAudio(path: string): Promise<string | null> {
     throw error
   }
   if (!data) return null
-  return storage.getPublicUrl(path).data.publicUrl
+  return publicStorageUrl(storage.getPublicUrl(path).data.publicUrl)
 }
 
 // Deduplicate simultaneous requests in one worker; immutable paths handle cross-worker races.
@@ -42,7 +43,7 @@ export function generateCachedAudio(text: string, language: NeuralAudioLanguage,
       if (winner) return winner
       throw error
     }
-    return storage.getPublicUrl(path).data.publicUrl
+    return publicStorageUrl(storage.getPublicUrl(path).data.publicUrl)
   })().finally(() => { inFlight.delete(path) })
   inFlight.set(path, work)
   return work

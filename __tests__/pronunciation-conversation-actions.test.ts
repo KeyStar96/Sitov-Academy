@@ -11,6 +11,7 @@ const mockRpc = jest.fn()
 const mockFrom = jest.fn()
 const mockSignedUrl = jest.fn()
 const mockClient = { auth:{getUser:mockGetUser}, rpc:mockRpc, from:mockFrom, storage:{from:jest.fn(() => ({createSignedUrl:mockSignedUrl}))} }
+jest.mock('server-only', () => ({}), {virtual:true})
 jest.mock('@/utils/supabase/server', () => ({createClient:jest.fn(async () => mockClient)}))
 jest.mock('@/lib/mail', () => ({ queueTransactionalEmail: jest.fn().mockResolvedValue({success:true}) }))
 jest.mock('next/cache', () => ({revalidatePath:jest.fn()}))
@@ -23,11 +24,19 @@ function query(data: unknown) {
  result.order.mockResolvedValue({data,error:null}); result.single.mockResolvedValue({data,error:null})
  return result
 }
+const previousPublicUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+const previousInternalUrl = process.env.SUPABASE_INTERNAL_URL
+afterAll(() => {
+ if (previousPublicUrl === undefined) delete process.env.NEXT_PUBLIC_SUPABASE_URL; else process.env.NEXT_PUBLIC_SUPABASE_URL = previousPublicUrl
+ if (previousInternalUrl === undefined) delete process.env.SUPABASE_INTERNAL_URL; else process.env.SUPABASE_INTERNAL_URL = previousInternalUrl
+})
 beforeEach(() => {
+ process.env.NEXT_PUBLIC_SUPABASE_URL = 'https://217.154.228.254/supabase'
+ process.env.SUPABASE_INTERNAL_URL = 'http://127.0.0.1:9080'
  jest.clearAllMocks()
  mockGetUser.mockResolvedValue({data:{user:{id:owner}}})
  mockRpc.mockResolvedValue({data:promptId,error:null})
- mockSignedUrl.mockResolvedValue({data:{signedUrl:'https://signed.example/recording'},error:null})
+ mockSignedUrl.mockResolvedValue({data:{signedUrl:`http://127.0.0.1:9080/storage/v1/object/sign/pronunciation_audio/${owner}/recording.webm?token=a%2Bb%3D`},error:null})
 })
 describe('authenticated pronunciation writes', () => {
  it('does not create a submission without a verified server session', async () => {
@@ -82,7 +91,7 @@ describe('canonical conversation history', () => {
   expect(submissions.eq).toHaveBeenCalledWith('level','A1.1')
   expect(result[0].messages.map((item) => item.id)).toEqual([`recording-${promptId}`,'new-message'])
   expect(result[0].messages[0].audioUrl).toBeNull()
-  expect(result[0].messages.at(-1)?.audioUrl).toBe('https://signed.example/recording')
+  expect(result[0].messages.at(-1)?.audioUrl).toBe(`https://217.154.228.254/supabase/storage/v1/object/sign/pronunciation_audio/${owner}/recording.webm?token=a%2Bb%3D`)
   expect(mockSignedUrl).toHaveBeenCalledWith(`${owner}/2aab2f11-3456-4234-8234-123456789012.webm`,3600)
   expect(result[0].studentEmail).toBeNull()
  })

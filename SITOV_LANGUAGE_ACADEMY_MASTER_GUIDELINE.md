@@ -12,6 +12,8 @@
 
 Der Betrieb nutzt den eigenen VPS und lokale Dienste. Cloud-Supabase darf für diesen Umbau nicht angesprochen werden. Neue Betriebsbehauptungen müssen ihren Prüfstand nennen: ein isolierter Test ist kein Live-Nachweis. Katalogbestand, ERD, Migrations- und Wiederherstellungsregeln stehen in [VPS-Refactor 2026-09-13](docs/vps-refactor-2026-09-13.md).
 
+**Nachtrag Storage-URLs:** Serverzugriffe verwenden die interne Supabase-Adresse; Audio-URLs für den Browser werden ausschließlich vom konfigurierten internen Storage-Präfix auf die öffentliche HTTPS-API umgeschrieben. Kodierte Dateipfade und Signaturparameter bleiben bytegetreu erhalten; fremde oder manipulierte Ursprünge werden abgewiesen. Der gemeinsame Adapter ist für Cache-Audio und private signierte Aufnahmen mit 39 Tests geprüft. Dies ist kein zusätzlicher Live-Abschlussnachweis.
+
 ## Historie — frühere Architektur- und Betriebsstände
 
 Die nachfolgenden Einträge bleiben als Audit-Trail erhalten. Aussagen über Cloud-Supabase, Vercel, externe Sprach-/Maildienste, frühere Tabellen oder damalige Live-Tests gelten nur für ihren jeweiligen Zeitpunkt. Bei Abweichungen hat der aktuelle VPS-Abschnitt oben Vorrang; historische Anleitungen dürfen nicht unverändert auf den neuen Betrieb angewendet werden.

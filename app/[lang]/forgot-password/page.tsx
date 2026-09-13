@@ -53,7 +53,7 @@ export default async function ForgotPasswordPage({
       <div className="border-t-2 border-slate-200 pt-4 dark:border-slate-800">
         <Link
           href={`/${lang}/login`}
-          className="inline-flex min-h-14 items-center text-lg font-semibold text-[#FF5C00] underline decoration-2 underline-offset-4 hover:text-[#e05200] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#FF5C00]"
+          className="inline-flex min-h-14 items-center text-lg font-semibold text-[var(--accent)] underline decoration-2 underline-offset-4 hover:text-[var(--foreground)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
         >
           {t('forgot_back_to_login')}
         </Link>

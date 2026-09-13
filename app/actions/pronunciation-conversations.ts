@@ -1,5 +1,6 @@
 'use server'
 
+import { publicStorageUrl } from '@/lib/storage-public-url'
 import { revalidatePath } from 'next/cache'
 import { z } from 'zod'
 import { createClient } from '@/utils/supabase/server'
@@ -24,7 +25,7 @@ async function playbackUrl(client: Client, reference: string | null): Promise<st
   try {
     const { data, error } = await client.storage.from(PRIVATE_PRONUNCIATION_BUCKET).createSignedUrl(path, 3600)
     if (error) { console.error('Signing pronunciation recording failed', error.message); return null }
-    return data.signedUrl
+    return publicStorageUrl(data.signedUrl)
   } catch (error) { console.error('Signing pronunciation recording failed', error); return null }
 }
 export async function createPronunciationSubmission(input: CreatePronunciationSubmissionInput): Promise<PronunciationMutationResult> {

@@ -92,14 +92,14 @@ export default async function ResetPasswordPage({
 
           <Link
             href={`/${lang}/forgot-password`}
-            className="flex min-h-14 w-full items-center justify-center rounded-2xl bg-[#FF5C00] px-6 text-xl font-bold text-white shadow-md transition-colors hover:bg-[#e05200] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-slate-900 dark:focus-visible:outline-white"
+            className="flex min-h-14 w-full items-center justify-center rounded-2xl bg-[var(--accent)] px-6 text-xl font-bold text-[var(--accent-foreground)] shadow-md transition-colors hover:opacity-90 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)]"
           >
             {t('forgot_submit')}
           </Link>
 
           <Link
             href={`/${lang}/login`}
-            className="inline-flex min-h-14 items-center text-lg font-semibold text-[#FF5C00] underline decoration-2 underline-offset-4 hover:text-[#e05200] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#FF5C00]"
+            className="inline-flex min-h-14 items-center text-lg font-semibold text-[var(--accent)] underline decoration-2 underline-offset-4 hover:text-[var(--foreground)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
           >
             {t('forgot_back_to_login')}
           </Link>

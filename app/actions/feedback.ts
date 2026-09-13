@@ -1,5 +1,6 @@
 'use server'
 
+import { publicStorageUrl } from '@/lib/storage-public-url'
 import { createClient } from '@/utils/supabase/server'
 import { z } from 'zod'
 import { createPronunciationSubmission, markPronunciationSeen, sendPronunciationMessage } from './pronunciation-conversations'
@@ -23,7 +24,7 @@ async function signRecording(client: Client, reference: string | null): Promise<
   const path = pronunciationAudioObjectPath(reference)
   if (!path) return null
   const { data, error } = await client.storage.from(PRIVATE_PRONUNCIATION_BUCKET).createSignedUrl(path, 3600)
-  return error ? null : data.signedUrl
+  return error ? null : publicStorageUrl(data.signedUrl)
 }
 
 /** The chat message is the only stored feedback; the older cards receive a mapped DTO. */

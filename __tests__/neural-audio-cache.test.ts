@@ -7,19 +7,30 @@ import { synthesizeNeuralAudio } from '@/lib/audio/edge-tts'
 import { findCachedAudio, generateCachedAudio, neuralAudioPath } from '@/lib/audio/neural-cache'
 import { AUDIO_CACHE_BUCKET, NEURAL_VOICES, normalizeAudioText, vocabularyAudioText } from '@/lib/audio/neural-config'
 
-const audioUrl = 'https://project.supabase.co/storage/v1/object/public/audio_cache/cached.mp3'
+const internalAudioUrl = 'http://127.0.0.1:9080/storage/v1/object/public/audio_cache/cached.mp3'
+const audioUrl = 'https://217.154.228.254/supabase/storage/v1/object/public/audio_cache/cached.mp3'
 function storageClient() {
   const storage = {
     info: jest.fn().mockResolvedValue({ data: { id: 'object' }, error: null }),
     upload: jest.fn().mockResolvedValue({ data: { path: 'cached.mp3' }, error: null }),
-    getPublicUrl: jest.fn().mockReturnValue({ data: { publicUrl: audioUrl } }),
+    getPublicUrl: jest.fn().mockReturnValue({ data: { publicUrl: internalAudioUrl } }),
   }
   const from = jest.fn().mockReturnValue(storage)
   jest.mocked(createAdminClient).mockReturnValue({ storage: { from } } as unknown as ReturnType<typeof createAdminClient>)
   jest.mocked(synthesizeNeuralAudio).mockResolvedValue(Buffer.from('test audio'))
   return { storage, from }
 }
-beforeEach(() => jest.clearAllMocks())
+const previousPublicUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+const previousInternalUrl = process.env.SUPABASE_INTERNAL_URL
+beforeEach(() => {
+  jest.clearAllMocks()
+  process.env.NEXT_PUBLIC_SUPABASE_URL = 'https://217.154.228.254/supabase'
+  process.env.SUPABASE_INTERNAL_URL = 'http://127.0.0.1:9080'
+})
+afterAll(() => {
+  if (previousPublicUrl === undefined) delete process.env.NEXT_PUBLIC_SUPABASE_URL; else process.env.NEXT_PUBLIC_SUPABASE_URL = previousPublicUrl
+  if (previousInternalUrl === undefined) delete process.env.SUPABASE_INTERNAL_URL; else process.env.SUPABASE_INTERNAL_URL = previousInternalUrl
+})
 
 describe('neural speech language and content keys', () => {
   it.each([

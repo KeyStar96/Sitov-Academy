@@ -61,3 +61,17 @@ r=subprocess.run(DOCKER+['exec','-i',DB,'psql','-X','-U','supabase_admin','-d','
 (backup/'migration.log').write_text(r.stdout+'\n'+r.stderr);os.chmod(backup/'migration.log',0o600)
 if r.returncode:raise RuntimeError('Migration rolled back. See protected migration.log.')
 print('Local migration committed.',flush=True)
+
+# The normalized schema supersedes older incremental migrations. Record missing
+# historical versions as baseline entries so a future CLI push cannot replay
+# old Cloud webhook definitions. This records a baseline, not their execution.
+import base64
+entries=[]
+for path in sorted((BASE/'supabase/migrations').glob('*.sql')):
+    version,_,name=path.stem.partition('_')
+    if not version.isdigit() or version>'20260913131152':continue
+    statement=path.read_bytes() if version=='20260913131152' else b'-- Baseline: superseded by the verified VPS normalization 20260913131152; not executed separately.'
+    encoded=base64.b64encode(statement).decode()
+    entries.append("INSERT INTO supabase_migrations.schema_migrations(version,name,statements) VALUES('"+version+"','"+name.replace("'","''")+"',ARRAY[convert_from(decode('"+encoded+"','base64'),'UTF8')]) ON CONFLICT(version) DO NOTHING;")
+invoke(DOCKER+['exec','-i',DB,'psql','-X','-U','supabase_admin','-d','postgres','-v','ON_ERROR_STOP=1'],input='\n'.join(entries),text=True)
+print('Migration baseline recorded; retired migrations will not be replayed.')
