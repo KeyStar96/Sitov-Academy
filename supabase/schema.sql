@@ -326,7 +326,7 @@ begin
  v_next:=(date_trunc('month',now() at time zone 'Europe/Berlin')+interval '1 month')::date;
  if p_month<>v_next then raise sqlstate '22008';end if;
  select * into b from public.bookings where person_id=p.id and target_month=p_month and kind<>'trial' for update;
- if b.id is distinct from p_expected or (b.id is not null and b.revision is distinct from p_revision) then raise serialization_failure;end if;
+ if b.id is distinct from p_expected or (b.id is not null and b.revision is distinct from p_revision) then raise exception 'Booking revision changed' using errcode='PT409';end if;
  if exists(select 1 from public.invoice_cases where person_id=p.id and target_month=p_month and status='created') then raise check_violation using message='Invoice already created';end if;
  if b.id is null then
   insert into public.bookings(person_id,target_month,start_date,kind,status,contact_name,contact_email,contact_birth_date,contact_phone,contact_street,contact_postal_code,contact_city,privacy_accepted,agb_accepted)

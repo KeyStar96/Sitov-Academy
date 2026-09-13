@@ -52,7 +52,7 @@ export function checkDatabaseError(error: { code: string } | null): void {
   const codes: Record<string, BackendActionError> = {
     '23505': 'conflict', '23503': 'invalid_input', '23514': 'invalid_input',
     '23502': 'invalid_input', '42501': 'not_authorized', PGRST116: 'not_found',
-    '40001': 'conflict', '22008': 'month_changed',
+    '40001': 'conflict', PT409: 'conflict', '22008': 'month_changed',
   }
   throw new BackendError(codes[error.code] ?? 'request_failed')
 }

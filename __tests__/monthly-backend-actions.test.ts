@@ -63,9 +63,9 @@ describe('monthly backend action authorization', () => {
     expect(await saveNextMonthBooking({...bookingInput,status:'confirmed'})).toEqual({success:false,error:'invalid_input'})
     expect(rpc).not.toHaveBeenCalled()
   })
-  it('maps a stale monthly revision to a safe conflict',async()=>{
+  it.each(['40001','PT409'])('maps a stale monthly revision %s to a safe conflict',async code=>{
     const {rpc}=session()
-    rpc.mockResolvedValue({data:null,error:{code:'40001',message:'Private data'}})
+    rpc.mockResolvedValue({data:null,error:{code,message:'Private data'}})
     expect(await saveNextMonthBooking(bookingInput)).toEqual({success:false,error:'conflict'})
   })
   it('reports invisible acknowledgement targets as failures',async()=>{

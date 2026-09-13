@@ -7,7 +7,7 @@ Wants=docker.service postfix.service
 Type=simple
 User=sitov
 Group=sitov
-WorkingDirectory=/var/www/sitov-academy
+WorkingDirectory=/var/www/sitov-current
 EnvironmentFile=/etc/sitov-academy/app.env
 Environment=NODE_OPTIONS=--max-old-space-size=128
 ExecStart=/usr/bin/node scripts/mail-worker.mjs

@@ -55,6 +55,12 @@ await test('VPS business model uses local PostgreSQL only',async t=>{
   await actor(other);assert.equal((await db.query('SELECT count(*)::int n FROM bookings')).rows[0].n,0)
   await assert.rejects(db.query('SELECT confirm_business_booking($1)',[booking]),e=>e.code==='42501')
  })
+ await t.test('stale revisions return a business conflict without changing the booking',async()=>{
+  await actor(student)
+  const before=(await db.query('SELECT revision FROM bookings WHERE id=$1',[booking])).rows[0].revision
+  await assert.rejects(db.query('SELECT save_business_month($1,$2,false,$3,$4)',[start,[course],booking,before-1]),e=>e.code==='PT409')
+  assert.equal((await db.query('SELECT revision FROM bookings WHERE id=$1',[booking])).rows[0].revision,before)
+ })
  await t.test('confirmation and invoice status are idempotent and block later learner edits',async()=>{
   await actor(teacher);await db.query('SELECT confirm_business_booking($1)',[booking]);await db.query('SELECT confirm_business_booking($1)',[booking])
   assert.equal((await db.query('SELECT count(*)::int n FROM invoice_cases')).rows[0].n,1)
