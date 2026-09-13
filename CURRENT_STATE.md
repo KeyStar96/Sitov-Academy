@@ -2,7 +2,7 @@
 
 ## Stand dieses Releases — kanonisches VPS-Schema, 13. September 2026
 
-Die bisherige Kompatibilitätsschicht ist aus Code und Schema entfernt. Der Kurskatalog enthält neun physische Datensätze, alle Trainerinhalte bleiben erhalten. Privatunterricht Online unterstützt eine eingetippte oder per Plus/Minus gewählte Anzahl von 1–1.000 Einheiten zu 25 € je 45 Minuten. Vier Einheiten ergeben 100 €; Registrierung, Folgemonate, Lehreransicht und E-Mails verwenden dieselbe gespeicherte Mengen-/Preisgrundlage.
+**Live auf [https://217.154.228.254](https://217.154.228.254), Release `0b9a5e2dfdd6`.** Die bisherige Kompatibilitätsschicht ist aus Code und Schema entfernt. Der Kurskatalog enthält neun physische Datensätze, alle Trainerinhalte bleiben erhalten. Privatunterricht Online unterstützt eine eingetippte oder per Plus/Minus gewählte Anzahl von 1–1.000 Einheiten zu 25 € je 45 Minuten. Vier Einheiten ergeben 100 €; Registrierung, Folgemonate, Lehreransicht und E-Mails verwenden dieselbe gespeicherte Mengen-/Preisgrundlage.
 
 Vor den Änderungen wurde die lokale Instanz vollständig gesichert. Der Dump wurde isoliert unter PostgreSQL 15.8 wiederhergestellt; die endgültige Gesamtmigration bestand zusätzlich einen frischen Wiederholungslauf. TypeScript, die komplette Jest-Suite und elf echte REST-Testgruppen gegen den isolierten Clone sind geprüft. Kein Cloud-Zugriff, kein externer Testmailversand und keine DNS-Änderung.
 
