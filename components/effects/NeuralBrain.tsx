@@ -6,9 +6,9 @@ import { AdditiveBlending, Color, DoubleSide, Group, Mesh, NormalBlending, Shade
 import { createNeuralGeometry } from './neural-brain-geometry'
 import { cometFragment, cometVertex, cortexFragment, cortexVertex, fiberFragment, fiberVertex, nodeFragment, nodeVertex } from './neural-brain-shaders'
 
-const MAX_COMETS = 3
+const MAX_COMETS = 5
 const TAIL_LENGTH = 0.3
-const BURST_COUNTS = [1, 2, 1, 3, 1, 2] as const
+const BURST_COUNTS = [3, 4, 5, 4, 3, 5] as const
 
 interface ImpulseSlot {
   start: number
@@ -55,7 +55,7 @@ function BrainScene({ dark, reducedMotion, onContextLost }: {
   const group = useRef<Group>(null)
   const comets = useRef<(Mesh | null)[]>([])
   const time = useRef(0)
-  const nextBurst = useRef(2.4)
+  const nextBurst = useRef(0.6)
   const burstIndex = useRef(0)
   const slots = useRef<ImpulseSlot[]>(Array.from({ length: MAX_COMETS }, () => ({ start: -1, duration: 1 })))
   const { gl, invalidate, size, viewport } = useThree()
@@ -107,7 +107,7 @@ function BrainScene({ dark, reducedMotion, onContextLost }: {
       slots.current[index].start = -1
       if (comets.current[index]) comets.current[index].visible = false
     }
-    nextBurst.current = time.current + 2.4
+    nextBurst.current = time.current + 0.6
     invalidate()
   }, [reducedMotion, invalidate])
 
@@ -145,8 +145,8 @@ function BrainScene({ dark, reducedMotion, onContextLost }: {
         slots.current[index].start = now + index * 0.16
         slots.current[index].duration = 1.7 + variation(burst * 3 + index) * 0.4
       }
-      // Entire bursts finish in <=3.05 s, leaving at least 2.95 s of silence.
-      nextBurst.current = now + 6 + variation(burst + 41) * 2
+      // Five staggered tails finish within 3.37 s before these slots are reused.
+      nextBurst.current = now + 3.5 + variation(burst + 41) * 0.7
     }
 
     for (let index = 0; index < MAX_COMETS; index++) {
