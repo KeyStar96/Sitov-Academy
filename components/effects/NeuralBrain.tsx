@@ -6,13 +6,14 @@ import { AdditiveBlending, Color, DoubleSide, Group, Mesh, NormalBlending, Shade
 import { createNeuralGeometry } from './neural-brain-geometry'
 import { cometFragment, cometVertex, cortexFragment, cortexVertex, fiberFragment, fiberVertex, nodeFragment, nodeVertex } from './neural-brain-shaders'
 
-const MAX_COMETS = 5
+const MAX_COMETS = 18
 const TAIL_LENGTH = 0.3
-const BURST_COUNTS = [3, 4, 5, 4, 3, 5] as const
 
 interface ImpulseSlot {
   start: number
   duration: number
+  nextStart: number
+  cycle: number
 }
 
 function variation(seed: number) {
@@ -55,9 +56,7 @@ function BrainScene({ dark, reducedMotion, onContextLost }: {
   const group = useRef<Group>(null)
   const comets = useRef<(Mesh | null)[]>([])
   const time = useRef(0)
-  const nextBurst = useRef(0.6)
-  const burstIndex = useRef(0)
-  const slots = useRef<ImpulseSlot[]>(Array.from({ length: MAX_COMETS }, () => ({ start: -1, duration: 1 })))
+  const slots = useRef<ImpulseSlot[]>(Array.from({ length: MAX_COMETS }, () => ({ start: -1, duration: 1, nextStart: 0, cycle: 0 })))
   const { gl, invalidate, size, viewport } = useThree()
   const geometry = useMemo(createNeuralGeometry, [])
   const materials = useMemo(() => {
@@ -105,9 +104,9 @@ function BrainScene({ dark, reducedMotion, onContextLost }: {
   useEffect(() => {
     for (let index = 0; index < MAX_COMETS; index++) {
       slots.current[index].start = -1
+      slots.current[index].nextStart = time.current + 0.08 + variation(index + 71) * 2.4
       if (comets.current[index]) comets.current[index].visible = false
     }
-    nextBurst.current = time.current + 0.6
     invalidate()
   }, [reducedMotion, invalidate])
 
@@ -134,25 +133,20 @@ function BrainScene({ dark, reducedMotion, onContextLost }: {
     for (const material of materialList) material.uniforms.uTime.value = now
     materials.nodes.uniforms.uPixelRatio.value = gl.getPixelRatio()
 
-    if (now >= nextBurst.current && geometry.pathways.length > 0) {
-      const burst = burstIndex.current++
-      const count = Math.min(BURST_COUNTS[burst % BURST_COUNTS.length], geometry.pathways.length)
-      const firstPath = Math.floor(variation(burst + 19) * geometry.pathways.length)
-      for (let index = 0; index < count; index++) {
-        const mesh = comets.current[index]
-        if (!mesh) continue
-        mesh.geometry = geometry.pathways[(firstPath + index) % geometry.pathways.length]
-        slots.current[index].start = now + index * 0.16
-        slots.current[index].duration = 1.7 + variation(burst * 3 + index) * 0.4
-      }
-      // Five staggered tails finish within 3.37 s before these slots are reused.
-      nextBurst.current = now + 3.5 + variation(burst + 41) * 0.7
-    }
-
+    // Each reusable slot has its own clock: no shared burst or periodic reset.
     for (let index = 0; index < MAX_COMETS; index++) {
       const mesh = comets.current[index]
       const slot = slots.current[index]
-      if (!mesh || slot.start < 0) continue
+      if (!mesh) continue
+      if (slot.start < 0 && now >= slot.nextStart && geometry.pathways.length > 0) {
+        const seed = index * 101 + slot.cycle++ * 37
+        mesh.geometry = geometry.pathways[Math.floor(variation(seed + 19) * geometry.pathways.length)]
+        slot.start = now
+        slot.duration = 0.95 + variation(seed + 43) * 1.55
+        // Let the complete tail fade before a separately varied idle period.
+        slot.nextStart = now + slot.duration * (1 + TAIL_LENGTH) + 0.12 + variation(seed + 89) * 1.3
+      }
+      if (slot.start < 0) continue
       const progress = (now - slot.start) / slot.duration
       mesh.visible = progress >= 0 && progress <= 1 + TAIL_LENGTH
       if (progress > 1 + TAIL_LENGTH) { slot.start = -1; continue }
