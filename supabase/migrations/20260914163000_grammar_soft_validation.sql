@@ -52,12 +52,14 @@ BEGIN
   ON CONFLICT (user_id, exercise_id) DO UPDATE SET
     attempts = progress.attempts + 1,
     completed = coalesce(progress.completed, false) OR correct,
-    score = GREATEST(progress.score, CASE WHEN correct THEN 100 ELSE 0 END),
+    score = greatest(coalesce(progress.score, 0), CASE WHEN correct THEN
+      CASE WHEN progress.attempts + 1 <= 1 THEN 100 WHEN progress.attempts + 1 = 2 THEN 80
+        WHEN progress.attempts + 1 = 3 THEN 60 ELSE 40 END ELSE 0 END),
     hint_shown = progress.hint_shown OR coalesce(p_hint_shown,false),
     updated_at = now()
   RETURNING attempts INTO attempt_count;
 
-  RETURN jsonb_build_object('success', true, 'correct', correct);
+  RETURN jsonb_build_object('success', true, 'attempts', attempt_count, 'isCorrect', correct);
 END;
 $$;
 
