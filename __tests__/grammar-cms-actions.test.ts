@@ -51,7 +51,7 @@ test('students cannot write authored grammar content', async () => {
 })
 
 test('invalid alternate answers are rejected before any database request', async () => {
-  const invalid = { ...input, type: 'fill_in_blank' as const, content: { text_before: '', text_after: ' Tisch.', correct_answer: 'Der', options: ['Der', 'Die'], alternative_answers: [' DER '] } }
+  const invalid = { ...input, type: 'fill_in_blank' as const, content: { text_before: '', text_after: ' Tisch.', correct_answer: 'Der', options: ['Der', 'Die'], accepted_answers: ['Der', ' DER '] } }
   expect(await saveGrammarExercise(invalid, id)).toEqual({ success: false, error: 'invalid' })
   expect(createClient).not.toHaveBeenCalled()
 })
