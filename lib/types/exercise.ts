@@ -24,8 +24,10 @@ export interface FillInBlankContent {
   correct_answer: string
   /** Von der Lehrkraft gepflegte Auswahl-Chips. Fehlt sie, werden Chips generiert. */
   options?: string[]
-  /** Optionale korrekte alternative Antworten / Synonyme. */
-  alternative_answers?: string[]
+  /** Liste aller als korrekt gewerteten Antworten. */
+  accepted_answers?: string[]
+  /** Optionaler Hinweis (z.B. Stammformen), der direkt bei der Lücke angezeigt wird. */
+  gap_hint?: string
   /** Überschreibt den automatisch abgeleiteten Smart Hint. */
   smart_hint?: LocalizedText | string
 }
@@ -146,7 +148,8 @@ export function parseFillInBlankContent(value: Json): FillInBlankContent | null 
     text_after: asString(value.text_after) ?? '',
     correct_answer: correctAnswer,
     ...(options && options.length > 0 ? { options } : {}),
-    ...(value.alternative_answers && asStringArray(value.alternative_answers) ? { alternative_answers: asStringArray(value.alternative_answers)! } : {}),
+    ...(value.accepted_answers && asStringArray(value.accepted_answers) ? { accepted_answers: asStringArray(value.accepted_answers)! } : {}),
+    ...(asString(value.gap_hint) ? { gap_hint: asString(value.gap_hint)! } : {}),
     ...(smartHint ? { smart_hint: smartHint } : {}),
   }
 }

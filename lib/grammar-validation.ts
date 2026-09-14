@@ -22,7 +22,8 @@ export const grammarWriteSchema = z.discriminatedUnion('type', [
       instruction: z.string().trim().max(500).optional(),
       text_before: z.string().max(2000), text_after: z.string().max(2000),
       correct_answer: answer, options, smart_hint: contentHintSchema,
-      alternative_answers: z.array(answer).max(20).optional(),
+      accepted_answers: z.array(z.string().trim().min(1)).min(1),
+      gap_hint: z.string().trim().max(100).optional(),
     }).refine(content => `${content.text_before}${content.text_after}`.trim().length > 0),
   }),
   z.object({
@@ -42,10 +43,10 @@ export const grammarWriteSchema = z.discriminatedUnion('type', [
   if (!normalized.includes(normalizeGrammarAnswer(value.content.correct_answer))) {
     context.addIssue({ code: 'custom', message: 'Correct answer must be available', path: ['content', 'correct_answer'] })
   }
-  if (value.type === 'fill_in_blank' && value.content.alternative_answers) {
-    const answers = [value.content.correct_answer, ...value.content.alternative_answers].map(normalizeGrammarAnswer)
+  if (value.type === 'fill_in_blank') {
+    const answers = [value.content.correct_answer, ...value.content.accepted_answers].map(normalizeGrammarAnswer)
     if (new Set(answers).size !== answers.length) {
-      context.addIssue({ code: 'custom', message: 'Alternative answers must be distinct', path: ['content', 'alternative_answers'] })
+      context.addIssue({ code: 'custom', message: 'Accepted answers must be distinct', path: ['content', 'accepted_answers'] })
     }
   }
 })
@@ -57,4 +58,93 @@ export interface GrammarLoadResult { data: GrammarExerciseRow[]; failed: boolean
 
 export function normalizeGrammarAnswer(value: string): string {
   return value.trim().replace(/\s+/g, ' ').toLocaleLowerCase('de-DE')
+}
+
+export interface ValidationResult {
+  status: 'EXACT' | 'SOFT_ERROR' | 'INCORRECT'
+  warnings: string[]
+  matchedAnswer: string | null
+}
+
+function normalizeForSoftMatch(text: string): string {
+  // Remove all punctuation and normalize spaces, lowercase.
+  return text
+    .replace(/[.,?!;:()'"]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .toLocaleLowerCase('de-DE')
+}
+
+function replaceUmlauteWithBase(text: string): string {
+  return text
+    .replace(/ä/g, 'ae')
+    .replace(/ö/g, 'oe')
+    .replace(/ü/g, 'ue')
+    .replace(/ß/g, 'ss')
+}
+
+export function validateUserAnswer(userAnswer: string, acceptedAnswers: string[]): ValidationResult {
+  const trimmed = userAnswer.trim()
+  
+  // 1. EXACT match
+  if (acceptedAnswers.includes(trimmed)) {
+    return { status: 'EXACT', warnings: [], matchedAnswer: trimmed }
+  }
+  
+  // 2. SOFT_ERROR match
+  const userNormalized = normalizeForSoftMatch(trimmed)
+  let bestMatch: string | null = null
+  
+  for (const answer of acceptedAnswers) {
+    const answerNormalized = normalizeForSoftMatch(answer)
+    if (userNormalized === answerNormalized) {
+      bestMatch = answer
+      break
+    }
+    
+    // Check umlaut replacements
+    if (replaceUmlauteWithBase(userNormalized) === replaceUmlauteWithBase(answerNormalized)) {
+       bestMatch = answer
+       break
+    }
+  }
+  
+  if (bestMatch) {
+    const warnings: string[] = []
+    
+    // Determine specific warnings
+    if (trimmed.toLocaleLowerCase('de-DE') !== bestMatch.toLocaleLowerCase('de-DE')) {
+      // It's not just a case difference, could be punctuation or umlaute
+      
+      const userNoPunctEnd = trimmed.replace(/[.,?!]+$/, '')
+      const matchNoPunctEnd = bestMatch.replace(/[.,?!]+$/, '')
+      
+      if (userNoPunctEnd === matchNoPunctEnd && trimmed !== bestMatch) {
+        warnings.push('Achte auf das korrekte Satzzeichen am Ende des Satzes.')
+      } 
+      
+      const userNoPunct = trimmed.replace(/[.,?!;:]/g, '')
+      const matchNoPunct = bestMatch.replace(/[.,?!;:]/g, '')
+      if (userNoPunct === matchNoPunct && userNoPunctEnd !== matchNoPunctEnd) {
+         warnings.push('Achte auf die korrekte Kommasetzung im Satz.')
+      }
+      
+      if (replaceUmlauteWithBase(userNormalized) === replaceUmlauteWithBase(normalizeForSoftMatch(bestMatch)) && userNormalized !== normalizeForSoftMatch(bestMatch)) {
+         warnings.push('Nutze bitte echte deutsche Umlaute (ä, ö, ü, ß) statt Ersatzschreibweisen.')
+      }
+    }
+    
+    // Case warning
+    if (trimmed.toLocaleLowerCase('de-DE') === bestMatch.toLocaleLowerCase('de-DE') && trimmed !== bestMatch) {
+      warnings.push('Achte auf die Groß- und Kleinschreibung (z. B. Substantive und Satzanfänge groß schreiben).')
+    } else if (warnings.length === 0) {
+      // If we found a soft match but didn't catch the exact reason above, just add a generic case/punct warning
+      warnings.push('Achte auf die genaue Schreibweise, Groß-/Kleinschreibung und Satzzeichen.')
+    }
+
+    return { status: 'SOFT_ERROR', warnings, matchedAnswer: bestMatch }
+  }
+  
+  // 3. INCORRECT
+  return { status: 'INCORRECT', warnings: [], matchedAnswer: null }
 }

@@ -28,11 +28,12 @@ interface EditorState {
   hintTr: string
   contentHints: Record<string, string>
   metadataHints: Record<string, string>
-  alternativeAnswers: string
+  acceptedAnswers: string
+  gapHint: string
 }
 const emptyEditor = (): EditorState => ({
   level: 'A1.1', lesson: '', topic: '', type: 'fill_in_blank', textBefore: '', textAfter: '',
-  question: '', instruction: '', answer: '', options: '', hint: '', audio: '', hintRu: '', hintTr: '', contentHints: {}, metadataHints: {}, alternativeAnswers: '',
+  question: '', instruction: '', answer: '', options: '', hint: '', audio: '', hintRu: '', hintTr: '', contentHints: {}, metadataHints: {}, acceptedAnswers: '', gapHint: '',
 })
 function localizedHints(value: Json | undefined): Record<string, string> {
   if (typeof value === 'string') return { de: value }
@@ -84,7 +85,8 @@ export default function ExerciseCMS({ initialData, lang = 'de', loadFailed = fal
         question: choice?.question ?? '', instruction: fill?.instruction ?? choice?.instruction ?? '', answer: fill?.correct_answer ?? choice?.correct_answer ?? '',
         options: (fill?.options ?? choice?.options ?? []).join('\n'),
         hint: contentHints.de ?? '', contentHints, metadataHints,
-        alternativeAnswers: (fill?.alternative_answers ?? []).join('\n'),
+        acceptedAnswers: (fill?.accepted_answers ?? []).join('\n'),
+        gapHint: fill?.gap_hint ?? '',
         audio: row.solution_audio_url ?? '',
         hintRu: metadataHints.ru ?? '',
         hintTr: metadataHints.tr ?? '',
@@ -104,13 +106,13 @@ export default function ExerciseCMS({ initialData, lang = 'de', loadFailed = fal
     const metadataHints = editHint(editHint(editor.metadataHints, 'ru', editor.hintRu), 'tr', editor.hintTr)
     const contentHints = editHint(editor.contentHints, 'de', editor.hint)
     const smartHintOrExplanation = Object.keys(contentHints).length ? contentHints : null
-    const alternativeAnswers = editor.alternativeAnswers.split('\n').map(value => value.trim()).filter(Boolean)
+    const acceptedAnswers = editor.acceptedAnswers.split('\n').map(value => value.trim()).filter(Boolean)
 
     const parsed = grammarWriteSchema.safeParse({
       level: editor.level, lesson: editor.lesson, topic: editor.topic, type: editor.type,
       hint: Object.keys(metadataHints).length ? metadataHints : null, solution_audio_url: editor.audio.trim() || null,
       content: editor.type === 'fill_in_blank'
-        ? { instruction: editor.instruction, text_before: editor.textBefore, text_after: editor.textAfter, correct_answer: editor.answer, options, alternative_answers: alternativeAnswers, smart_hint: smartHintOrExplanation }
+        ? { instruction: editor.instruction, text_before: editor.textBefore, text_after: editor.textAfter, correct_answer: editor.answer, options, accepted_answers: acceptedAnswers.length > 0 ? acceptedAnswers : [editor.answer], gap_hint: editor.gapHint.trim() || undefined, smart_hint: smartHintOrExplanation }
         : { instruction: editor.instruction, question: editor.question, correct_answer: editor.answer, options, explanation: smartHintOrExplanation },
     })
     if (!parsed.success) { setMessage('invalid'); return }
@@ -154,8 +156,10 @@ export default function ExerciseCMS({ initialData, lang = 'de', loadFailed = fal
           <label className={styles.field}>{g('before')}<textarea maxLength={2000} rows={3} value={editor.textBefore} onChange={event => set('textBefore', event.target.value)} /></label>
           <label className={styles.field}>{g('after')}<textarea maxLength={2000} rows={3} value={editor.textAfter} onChange={event => set('textAfter', event.target.value)} /></label>
         </> : <label className={`${styles.field} ${styles.wide}`}>{g('question')}<textarea required maxLength={4000} rows={3} value={editor.question} onChange={event => set('question', event.target.value)} /></label>}
-        <label className={styles.field}>{g('answer')}<input required maxLength={1000} value={editor.answer} onChange={event => set('answer', event.target.value)} /></label>
-        {editor.type === 'fill_in_blank' && <label className={`${styles.field} ${styles.wide}`}>{g('alternativeAnswers')}<textarea rows={2} value={editor.alternativeAnswers} onChange={event => set('alternativeAnswers', event.target.value)} /></label>}
+        {editor.type === 'fill_in_blank' && <>
+          <label className={`${styles.field} ${styles.wide}`}>{g('alternativeAnswers')} (Ein pro Zeile. Muss die richtige Lösung enthalten!)<textarea rows={3} required value={editor.acceptedAnswers} onChange={event => set('acceptedAnswers', event.target.value)} /></label>
+          <label className={`${styles.field} ${styles.wide}`}>Lücken-Hinweis (z.B. (morgen / arbeiten / müssen))<input maxLength={100} value={editor.gapHint} onChange={event => set('gapHint', event.target.value)} /></label>
+        </>}
         <label className={styles.field}>{g('options')}<textarea required rows={3} value={editor.options} onChange={event => set('options', event.target.value)} /></label>
         <label className={`${styles.field} ${styles.wide}`}>{g('hint')}<textarea rows={2} maxLength={2000} value={editor.hint} onChange={event => set('hint', event.target.value)} /></label>
         <label className={`${styles.field} ${styles.wide}`}>{g('audio')}<input type="url" value={editor.audio} onChange={event => set('audio', event.target.value)} /></label>
