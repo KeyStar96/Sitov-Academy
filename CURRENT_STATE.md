@@ -1,5 +1,9 @@
 # Current State Analysis (Ist-Zustand)
 
+## 2026-09-16 — Querschnittsanalyse des Repositories
+
+Vollständige Bestandsaufnahme von App, Supabase-Livebestand, Tests und Dokumentation: Stärken im Zugriffs- und Lernkern, tote Marketing-/Stripe-Schichten, Dual-Write der Vokabelstände, Inhaltslücke (Wortschatz nur A1.1), Sicherheitsbefunde (`course_exceptions`-INSERT, PII in Edge-Logs, Rate-Limit-Lücken) und priorisierte Ausbauliste. Kein Code-, Schema- oder Deploy-Change. [Analyse](docs/codebase-analysis-2026-09-16.md).
+
 ## 2026-09-13 — Gemini-Review, Inhaltsfreigaben und bidirektionales Lernen
 
 Die zehn Gemini-Commits bis `cd7d6f7` wurden geprüft und korrigiert. Schüler-Freigaben liegen in einem kompakten Dialog; Grammatiklektionen sind eindeutig benannt, Aussprachetexte einzeln auswählbar. Die Datenbank schützt die Auswahl auch bei direkten Aufrufen. Vokabeln werden in beiden Richtungen separat eingestuft; alle Trainer verlangen eine fremdsprachige Oberfläche. 512 ukrainische Wortübersetzungen ergänzt. Satzkorrektur, Hinweise, Audio-Dialoge und Hochkontrastdarstellung überarbeitet. Zentrale Notizen ersetzen die Rabatt-Eingabe; doppelte erste Speicherungen und wiederauftauchende alte Notizen beim Leeren werden verhindert. Alle vier Migrationen sind im gebundenen Supabase-Projekt angewendet; 1.040 Anwendungstests, 148 SQL-Tests, TypeScript und Produktionsbuild bestehen. [Befunde und Prüfnachweise](docs/gemini-review-2026-09-13.md).

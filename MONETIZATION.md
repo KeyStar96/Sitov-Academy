@@ -1,5 +1,9 @@
 # Monetization Strategy (Stripe Integration)
 
+## 2026-09-16 — Abgleich Code vs. Abrechnung
+
+Die öffentliche Kursanmeldung bleibt manuell (Überweisung/Papierkram). `app/api/stripe/checkout` und `portal` haben keinen UI-Caller; der Webhook schreibt nur Legacy-`subscription_status` ohne Gating. Alle 18 Profile stehen auf `kostenlos`. `manual_invoice_status` ist leer. Keine Preis- oder Zahlungsänderung. [Analyse](docs/codebase-analysis-2026-09-16.md).
+
 ## 2026-09-13 — Gemini-Review, Inhaltsfreigaben und bidirektionales Lernen
 
 Lehrkräfte können Kurszugang innerhalb eines Niveaus bis auf einzelne Grammatik-/Vokabellektionsgruppen und Aussprachetexte eingrenzen. Änderungen an Freigaben löschen keine Fortschritte oder Aufnahmen. Die sichtbare Rabatt-Eingabe entfällt zugunsten einer gemeinsamen Notiz; bestehende Rabattwerte werden erhalten. Kursbuchungen, Preise, Rechnungen und Zahlungsflows bleiben unverändert. [Befunde und Prüfnachweise](docs/gemini-review-2026-09-13.md).

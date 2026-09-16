@@ -1,5 +1,9 @@
 # Sitov Academy — Pedagogy & UI/UX Research
 
+## 2026-09-16 — Abgleich Anspruch vs. Bestand
+
+Die Oberfläche verspricht sechs Niveaus; der Wortschatz ist live nur A1.1 (512 Karten, keine Bilder, 117 ohne Audio), Videos nur drei Links in A1.1. Grammatik ist über A1.1–B1.2 gleichmäßig gefüllt. Lehrer-Fortschrittsanzeige und Lehrer-Reset lesen noch die Legacy-Vokabeltabelle und widersprechen dem bidirektionalen Modell. `PEDAGOGY_AND_RESEARCH.md` beschreibt veraltete Phasen/Intervalle; verbindlich bleiben `lib/leitner.ts` und diese Guideline. [Analyse](docs/codebase-analysis-2026-09-16.md).
+
 ## 2026-09-13 — Gemini-Review, Inhaltsfreigaben und bidirektionales Lernen
 
 Freigaben müssen eindeutige pädagogische Einheiten mit Namen zeigen und dürfen Schülerzeilen nicht vergrößern. Leere Inhaltsauswahl bedeutet gesperrt; einzelne Lesetexte werden über stabile IDs verwaltet. Einstufung und Wiederholung prüfen Deutsch→Interfacesprache und Interfacesprache→Deutsch unabhängig. Deutsch als Interfacesprache sperrt Lerntrainer mit Weg zur Sprachwahl; Lehrkräfte verwalten weiter auf Deutsch. Satzkorrekturen zeigen Originaleingabe und darunter den korrekten Satz mit roten Zielzeichen, ohne Durchstreichen. Gemeinsame Farbvariablen sichern Hell/Dunkel und hohen Kontrast. Audio-Entwürfe bleiben beim Schließen erhalten. [Befunde und Prüfnachweise](docs/gemini-review-2026-09-13.md).

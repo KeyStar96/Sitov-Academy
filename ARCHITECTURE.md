@@ -1,5 +1,9 @@
 # Architecture Masterplan
 
+## 2026-09-16 — Ist-Querschnitt (Analyse, keine Strukturänderung)
+
+Drei überlagerte Generationen bleiben im Baum: Marketing/CRM (`public.users`, Registrierung), Freemium-Reste (Stripe-Routen, `subscription_status`, `user_vocabulary_progress`) und das aktuelle Freigaben-/RPC-Modell (`allowed_levels`, `vocabulary_direction_progress`). Der Soll-Schnitt ist unverändert; der Befundkatalog einschließlich toter Module und Live-Zählungen steht in [docs/codebase-analysis-2026-09-16.md](docs/codebase-analysis-2026-09-16.md).
+
 ## 2026-09-13 — Gemini-Review, Inhaltsfreigaben und bidirektionales Lernen
 
 `trainer_access_private.unit_allowed` ergänzt Trainerrechte um Lektion bzw. Aussprache-Prompt-UUID; restriktive RLS-Policies und sämtliche Lern-/Dialog-RPCs prüfen denselben Umfang. `null` bedeutet alle Inhalte, `[]` keine. Lehrer-Konfiguration ist von der studentischen Sprachwahl getrennt. Explizite Einstufungsrichtungen werden unabhängig initialisiert, ohne implizite Gegenrichtung durch den Legacy-Mirror. Wortlisten und Sessions erhalten die aktuelle Interfacesprache. Grammatik-CMS nutzt `hint`-JSONB und erhält Inhaltsübersetzungen sowie Alternativen. Native Dialoge kapseln Freigaben und Audio-Unterhaltungen. `teacher_student_notes.is_blackboard` und ein partieller Unique-Index markieren die stabile zentrale Notiz; `save_student_blackboard` speichert als Staff-geprüfte Invoker-RPC mit Advisory-Lock und erhält Historie/Rabattwerte. [Befunde und Prüfnachweise](docs/gemini-review-2026-09-13.md).
