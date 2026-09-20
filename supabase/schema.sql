@@ -3702,7 +3702,8 @@ CREATE TABLE learning_reset_private.audio_objects (
     auth_user_id uuid NOT NULL,
     object_id uuid NOT NULL,
     bucket_id text NOT NULL,
-    object_name text NOT NULL
+    object_name text NOT NULL,
+    CONSTRAINT audio_objects_bucket_id_check CHECK ((bucket_id = 'pronunciation_audio'::text))
 );
 
 
@@ -7414,9 +7415,9 @@ GRANT ALL ON TABLE public.cefr_levels TO service_role;
 -- Name: TABLE course_audiences; Type: ACL; Schema: public; Owner: -
 --
 
-GRANT ALL ON TABLE public.course_audiences TO service_role;
 GRANT SELECT ON TABLE public.course_audiences TO anon;
 GRANT SELECT ON TABLE public.course_audiences TO authenticated;
+GRANT ALL ON TABLE public.course_audiences TO service_role;
 
 
 --

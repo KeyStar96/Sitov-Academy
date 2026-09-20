@@ -1,6 +1,6 @@
 # Phase 3.1–3.3 — Didaktik und Soft-Errors
 
-Stand: 20.09.2026. Freigegebener Umfang: ausschließlich 3.1–3.3 einschließlich R5-Korrektur. 3.4 und 3.5 bleiben offen. Implementierung und Klon-Abnahme abgeschlossen; Produktionsnachweise folgen vor Abschluss.
+Stand: 20.09.2026. Freigegebener Umfang: ausschließlich 3.1–3.3 einschließlich R5-Korrektur. 3.4 und 3.5 bleiben offen. Implementierung, Abnahme und produktive Aktivierung abgeschlossen. Aktiver App-Release: `0d4eba213834` auf `codex/vps-self-hosted`.
 
 ## Verhalten und Checkliste
 
@@ -20,7 +20,9 @@ Stand: 20.09.2026. Freigegebener Umfang: ausschließlich 3.1–3.3 einschließli
 | Echt-PostgreSQL-Katalog | `deploy/vps/tests/phase3-catalog.sql`: Status/Gründe, Unicode, Kurzwortschutz, Enum-Contract, ACLs, `SECURITY DEFINER`, leerer `search_path`, kanonische Inhalte und öffentliche JSONB-Fehler. |
 | Vollständiger Migrations-Replay im Klon | `02 → 03 → 01 → 04 → 05 → 06` in einer Transaktion erfolgreich; separate Migration 06 zuvor ebenfalls erfolgreich. |
 | Browsergesamtsuite auf gebauter Anwendung | **9/9 bestanden** via `e2e/phase3.config.ts`: echte Auth/RPC/DB, kanonische Alternative, Eingabe-Reset, russischer Warnbadge, Score 90, Wort-Tippfehler, Boxaufstieg, altes Intervall und unveränderte Lapses. `/tmp/sitov-phase3-browser-final.log`. |
-| Typen / Build | `npx tsc --noEmit --incremental false` und `npm run build` bestanden. |
+| Typen / Build | `npx tsc --noEmit --incremental false`, lokaler Produktionsbuild und VPS-Releasebuild bestanden. `/root/backups/phase3-production-build.log`. |
+| Produktion | Migration 06 erfolgreich; produktiver Katalogtest bestanden; App, Mailworker und nginx aktiv; `/api/health` meldet `ready`. |
+| Test-Cleanup | 0 Phase-3-Testkonten und 0 Testlektionen im Klon; isolierte Auth/REST/SMTP-/Next-Prozesse und SSH-Tunnel beendet, temporäre Testzugangsdaten entfernt. |
 | Migrations-/Deploy-/Storage-Runner | **20 Python-Tests bestanden**, einschließlich Phase-3-Freigabe im Runner und Ablehnung eigener SQL-Transaktionsklammern. |
 | Dictionaries / Warnkontrast | Exakte Strukturparität; alle vier Warntexte in jeder Sprache gerendert, beide Warnpaletten ≥4,5:1 Textkontrast. |
 | R6 | Bestehenden Kontrast-Ausnahmefilter entfernt. Aufgedeckte Grautextfehler auf der Kündigungsseite durch vorhandenes `--muted` ersetzt. Die drei Browser-Kontrasttests bestehen ohne Ausnahmen. |
@@ -29,7 +31,7 @@ Die aus Phase 1 bekannten zwölf Grammatikfehler sind im vollständigen Lauf ent
 
 ## R7 — Schema und Typen
 
-Migration: `supabase/vps/06_soft_errors.sql`; Transaktion und PostgREST-Reload durch `deploy/vps/migrate-local.py`. `supabase/schema.sql` wird als vollständiger Schema-Dump exportiert. `supabase/database.types.ts` wird mit dem laufenden postgres-meta-Generator neu erzeugt; der öffentliche Typenvertrag bleibt unverändert, da neue Enums/Helper privat und RPC-Ergebnisse bereits JSONB sind.
+Migration: `supabase/vps/06_soft_errors.sql`; Transaktion und PostgREST-Reload durch `deploy/vps/migrate-local.py`. `supabase/schema.sql` wurde nach Migration direkt aus Produktion exportiert. `supabase/database.types.ts` wurde mit dem laufenden postgres-meta-Generator neu erzeugt; der öffentliche Typenvertrag bleibt unverändert, da neue Enums/Helper privat und RPC-Ergebnisse bereits JSONB sind.
 
 Exakter Produktions-Dump-Befehl:
 
@@ -43,6 +45,15 @@ Exporter: `deploy/vps/export-phase2-schema.py`. Nicht im App-Dump: Supabase-verw
 
 Vor der ersten DB-Teständerung: `python3 deploy/vps/migrate-local.py --backup-only` auf dem VPS. Backup `/root/backups/sitov-phase2-20260920T122117655516Z`; PostgreSQL SHA256 `63e3ac3c1396d01d120af4d6d1e3cf07c1ed0be010fd4c81bec0b0e0474437f1`; 392 Storage-Objekte gesichert. Weitere Runner-Backups vor jedem Migrationslauf.
 
-Unmittelbares Produktionsbackup und aktivierte Revision werden nach dem Rollout ergänzt.
+Unmittelbar vor der Produktionsmigration, nach Stop von App und Mailworker:
 
-Geschützter funktionaler Rollback: aus den vier ursprünglichen Produktionsdefinitionen erzeugtes `pre-06-rollback.sql`, SHA256 `ceffe7c71c137bd56faf4bbd56a05797e4bafc7d927b834887e4ae09e93bf110`. Es restauriert die drei Bewertungs-/Receipt-Funktionen und den Content-Validator, revalidiert den CHECK und entfernt vier neue Helper und zwei Enums mit `RESTRICT`. App und Mailworker vorher stoppen; danach passenden vorherigen Release aktivieren. Neue Receipt-Felder können beim funktionalen Rückweg verbleiben; bestehender Lernfortschritt bleibt erhalten. Für einen bytegleichen Datenrückweg vollständiges R8-Backup samt passender App wiederherstellen. Kein automatischer Rückwechsel auf eine alte App nach unklarem Migrations-Commit.
+- Backup: `/root/backups/sitov-migration-20260920T124358720055Z`.
+- PostgreSQL SHA256: `0e9763ab6178108f4c785d299d67e7eb545a1ce19e78d10aa3f7496fa839cfd7`.
+- Storage-Manifest SHA256: `0c1745b09505bab01a1b28fb184488ba44d52af9331a1f61f1976bbb1a6331c2`.
+- Alle **396 Manifest-Dateien** nach Aktivierung erneut SHA256-geprüft; Verzeichnis 0700 und Dateien ausschließlich root-lesbar. Alle 392 ursprünglichen Storage-Objekte unverändert gesichert.
+- Migration: `python3 deploy/vps/migrate-local.py --apply 06_soft_errors.sql --keep-stopped`.
+- Danach produktiver `phase3-catalog.sql` und `bash deploy/vps/deploy-release.sh --activate 0d4eba213834 --schema-changed` erfolgreich.
+- Geschützte Migrationsprotokolle: `migration.log` und `applied.json` im Backup-Verzeichnis; produktiver Export unter `production-schema/`.
+- Vorheriger aktiver App-Release: `2e2157cf881f`; Runtime-RAM-/CPU-Limits unverändert.
+
+Geschützter funktionaler Rollback: aus den vier ursprünglichen Produktionsdefinitionen erzeugtes `/root/backups/sitov-migration-20260920T124358720055Z/pre-06-rollback.sql`, SHA256 `ceffe7c71c137bd56faf4bbd56a05797e4bafc7d927b834887e4ae09e93bf110`. Es restauriert die drei Bewertungs-/Receipt-Funktionen und den Content-Validator, revalidiert den CHECK und entfernt vier neue Helper und zwei Enums mit `RESTRICT`. App und Mailworker vorher stoppen; danach passenden vorherigen Release aktivieren. Neue Receipt-Felder können beim funktionalen Rückweg verbleiben; bestehender Lernfortschritt bleibt erhalten. Für einen bytegleichen Datenrückweg vollständiges R8-Backup samt passender App wiederherstellen. Kein automatischer Rückwechsel auf eine alte App nach unklarem Migrations-Commit.

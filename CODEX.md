@@ -274,7 +274,7 @@ Befund: `vocabulary_private.submit_answer` prüft Byte-exakt. Ein Leerzeichen am
 
 #### S4 — Abnahmenachweise Phase 3.1–3.3 (20.09.2026)
 
-Implementierung und Abnahme im isolierten VPS-Klon abgeschlossen. Produktionsaktivierung wird im Bericht nachgetragen. Phase 3.4–3.5 bleiben außerhalb dieser Freigabe offen.
+Implementierung, Klon-Abnahme und produktive Aktivierung abgeschlossen; Release `0d4eba213834` aktiv. App, Mailworker und nginx aktiv; Health `ready`. Phase 3.4–3.5 bleiben außerhalb dieser Freigabe offen.
 
 | Prüfung | Ergebnis |
 |---|---|
@@ -284,7 +284,8 @@ Implementierung und Abnahme im isolierten VPS-Klon abgeschlossen. Produktionsakt
 | R5 | Auch Wortkarten beider Richtungen verlangen getippte Antworten. `p_is_correct` entscheidet niemals die Bewertung; Karte und Weiter warten auf den Server. |
 | R7 / R9 / R10 | `06_soft_errors.sql` idempotent, vollständiger Replay `02 → 03 → 01 → 04 → 05 → 06` im echten PostgreSQL-Klon erfolgreich. Rollback dokumentiert; JSONB-Fehler und atomarer Fortschritt/Cursor/Receipt geprüft. |
 | UI / Dictionaries | Vier Soft-Error-Gründe in de/en/ru/uk/tr; gelbe Warn-Tokens mit Textkontrast ≥4,5:1. Für R6 Kontrast-Ausnahmefilter entfernt; drei aufgedeckte alte Grautext-Kontraste gezielt korrigiert. |
-| Zusatzprüfungen | TypeScript und Produktionsbuild bestanden; 20 Python-Tests für Migrationsrunner/Deployment/Storage bestanden. |
+| Zusatzprüfungen | TypeScript sowie lokaler und VPS-Produktionsbuild bestanden; 20 Python-Tests für Migrationsrunner/Deployment/Storage bestanden. |
+| R8 / Produktion | Backup `/root/backups/sitov-migration-20260920T124358720055Z`; PostgreSQL SHA256 `0e9763ab6178108f4c785d299d67e7eb545a1ce19e78d10aa3f7496fa839cfd7`; 396 Manifest-Dateien geprüft, einschließlich 392 Storage-Objekte. Produktions-Dump und generierte Typen übernommen. |
 
 Details und Betriebsnachweise: [docs/phase-3-verification.md](docs/phase-3-verification.md).
 
