@@ -10,7 +10,7 @@ from pathlib import Path
 DB='supabase-db-eknmzxvqilojjicinatnllbt'
 STORAGE='supabase-storage-eknmzxvqilojjicinatnllbt'
 BASE=Path('/var/www/sitov-academy')
-ORDER=['02_identity_alignment.sql','03_registration_identity.sql','01_critical_fixes.sql','04_normalization.sql','05_rpc_errors.sql','06_soft_errors.sql','07_content_quality.sql','08_performance_indexes.sql','09_progress_aggregate.sql','10_rls_performance.sql','11_teacher_analytics.sql','12_media_upload.sql','13_mail_exception_kind.sql','14_mail_exceptions.sql']
+ORDER=['02_identity_alignment.sql','03_registration_identity.sql','01_critical_fixes.sql','04_normalization.sql','05_rpc_errors.sql','06_soft_errors.sql','07_content_quality.sql','08_performance_indexes.sql','09_progress_aggregate.sql','10_rls_performance.sql','11_teacher_analytics.sql','12_media_upload.sql','13_mail_exception_kind.sql','14_mail_exceptions.sql','15_grading_helper_permissions.sql']
 # Explicit file metadata: comments/string literals must never disable transactions.
 AUTOCOMMIT={'08_performance_indexes.sql'}
 
