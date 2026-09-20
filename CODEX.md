@@ -386,6 +386,7 @@ Befund: `e2e/accessibility.spec.ts` enthält einen expliziten Whitelist-Block, d
 * [x] Video-Upload (MP4/WebM) und Präsentations-Upload (.pptx, .key, .pdf) im selben Ordner in getrennten Bereichen implementieren.
 * [x] ⚠️ Upload muss resumable erfolgen (Supabase Storage TUS-Endpoint). Fortschrittsbalken und Retry vorsehen.
 * [x] Client-seitige Vorprüfung von MIME-Type und Größe einbauen.
+* [x] Nachtrag 20.09.2026: MP4/WebM auch unter „Lernvideos“ mit Player anzeigen; direkte Sichtbarkeitsschalter in Medien- und Videoverwaltung. Upload-Zugriff über Niveau plus Veröffentlichung; drei benannte Platzhalter einschließlich Seeds entfernt. 335 DB-Tests, 87 gezielte Jest-Tests und authentifizierte produktive HTTP-Prüfung bestanden: [Nachweis](docs/uploaded-video-visibility.md).
 
 #### 5.4 Schüler-Ansicht für Medien (Gated Access)
 * [x] Im Kursbereich alle Ordner des freigeschalteten Levels darstellen; Videos im integrierten Player, Präsentationen als Viewer/Download.
