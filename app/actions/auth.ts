@@ -86,7 +86,7 @@ export async function login(formData: FormData) {
   const lang = readLanguage(formData)
   let status: AuthStatusCode | null = null
   // Nach erfolgreichem Login wird die Oberfläche auf die im Profil gespeicherte
-  // Sprache (`ui_language`, initial aus der Erstsprache abgeleitet) umgestellt.
+  // Sprache (`ui_language`, initial aus der Registrierungssprache) umgestellt.
   // Fällt auf die Formularsprache zurück, falls das Profil nicht lesbar ist.
   let targetLang = lang
 

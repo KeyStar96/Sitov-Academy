@@ -2,6 +2,7 @@ import { createServerClient } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
 import type { Database } from '@/supabase/database.types'
 import { readSupabaseServerConfig, SUPABASE_COOKIE_NAME } from '@/lib/supabase-env'
+import { LOCALES, type UiLocale } from '@/lib/locale-routing'
 
 export async function updateSession(request: NextRequest) {
   let supabaseResponse = NextResponse.next({
@@ -37,5 +38,16 @@ export async function updateSession(request: NextRequest) {
   // https://supabase.com/docs/guides/auth/server-side/nextjs
   const { data: { user } } = await supabase.auth.getUser()
 
-  return { supabaseResponse, user }
+  // Navigation follows the saved preference, including entry from marketing.
+  // Do not redirect POST actions before they can save a new language.
+  let uiLanguage: UiLocale | null = null
+  if (user && (request.method === 'GET' || request.method === 'HEAD')) {
+    const { data: profile, error } = await supabase.from('profiles')
+      .select('ui_language').eq('id', user.id).maybeSingle()
+    if (error) throw new Error('Interface language could not be loaded')
+    uiLanguage = LOCALES.find(locale => locale === profile?.ui_language) ?? null
+  }
+  if (user) supabaseResponse.headers.set('Cache-Control', 'private, no-store')
+
+  return { supabaseResponse, user, uiLanguage }
 }

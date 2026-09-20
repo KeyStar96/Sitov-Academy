@@ -22,7 +22,7 @@ it('preserves every refreshed cookie and uses the same secure cookie name over i
       config.cookies.setAll([{ name: 'sb-sitov-auth-token.0', value: 'refreshed', options: { httpOnly: false, sameSite: 'lax', path: '/', secure: true } }])
       expect(config.cookies.getAll()).toContainEqual({ name: 'sb-sitov-auth-token.0', value: 'refreshed' })
       return { data: { user: { id: 'signed-in' } } }
-    } } }))
+    } }, from: () => ({ select: () => ({ eq: () => ({ maybeSingle: async () => ({ data: { ui_language: 'ru' }, error: null }) }) }) }) }))
     const { supabaseResponse, user } = await updateSession(new NextRequest('https://school.example/ru/dashboard'))
     expect(user?.id).toBe('signed-in')
     expect(supabaseResponse.cookies.get('sb-sitov-auth-token.1')).toMatchObject({ maxAge: 0, value: '', secure: true })

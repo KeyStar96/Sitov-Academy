@@ -8,6 +8,7 @@ import {
   localeFromPathname,
   mapLegacyLang,
   shouldApplyLegacyLangRedirect,
+  withUiLocale,
 } from '@/lib/locale-routing'
 import { updateSession } from './utils/supabase/middleware'
 
@@ -28,6 +29,10 @@ function redirectPreservingSession(
   sessionResponse.cookies.getAll().forEach(cookie => {
     response.cookies.set(cookie)
   })
+  for (const header of ['cache-control', 'expires', 'pragma']) {
+    const value = sessionResponse.headers.get(header)
+    if (value) response.headers.set(header, value)
+  }
 
   return response
 }
@@ -37,9 +42,9 @@ export async function middleware(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams
 
   // 1. Supabase-Session aktualisieren (setzt ggf. neue Cookies)
-  const { supabaseResponse, user } = isProtectedPath(pathname) || isAuthPath(pathname)
+  const { supabaseResponse, user, uiLanguage } = isProtectedPath(pathname) || isAuthPath(pathname)
     ? await updateSession(request)
-    : { supabaseResponse: NextResponse.next({ request }), user: null }
+    : { supabaseResponse: NextResponse.next({ request }), user: null, uiLanguage: null }
 
   // 2. Auth- und API-Routen unverändert durchlassen: Ihre Query-Parameter
   //    tragen Einmal-Token, die keine Weiterleitung überleben würden.
@@ -75,11 +80,11 @@ export async function middleware(request: NextRequest) {
   //    bleiben erhalten, damit Kampagnen- und Rückkehr-Links nicht abbrechen.
   if (!currentLocale) {
     const target = new URL(
-      `/${DEFAULT_LOCALE}${pathname.startsWith('/') ? '' : '/'}${pathname}`,
+      `/${uiLanguage ?? DEFAULT_LOCALE}${pathname.startsWith('/') ? '' : '/'}${pathname}`,
       request.url
     )
     target.search = request.nextUrl.search
-    return redirectPreservingSession(target, supabaseResponse, 301)
+    return redirectPreservingSession(target, supabaseResponse, uiLanguage ? 307 : 301)
   }
 
   // 6. Routenschutz
@@ -92,9 +97,15 @@ export async function middleware(request: NextRequest) {
 
   if (isAuthPath(pathname) && user) {
     return redirectPreservingSession(
-      new URL(`/${currentLocale}/dashboard`, request.url),
+      new URL(`/${uiLanguage ?? currentLocale}/dashboard`, request.url),
       supabaseResponse
     )
+  }
+
+  if (isProtectedPath(pathname) && user && uiLanguage && uiLanguage !== currentLocale) {
+    const target = request.nextUrl.clone()
+    target.pathname = withUiLocale(pathname, uiLanguage)
+    return redirectPreservingSession(target, supabaseResponse)
   }
 
   return supabaseResponse
