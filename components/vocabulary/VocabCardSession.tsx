@@ -3,13 +3,13 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { Info } from 'lucide-react'
-import { finishVocabularySession, submitVocabularyAnswer } from '@/app/actions/vocabulary'
+import { finishVocabularySession, submitVocabularyAnswer, submitVocabularySelfRating } from '@/app/actions/vocabulary'
 import SolutionAudioButton from '@/components/exercises/SolutionAudioButton'
 import LearningScreen from './LearningScreen'
 import { createVocabularyTranslator, type VocabularyTranslations } from '@/lib/vocabulary-i18n'
 import { scheduleVocabularyCards } from '@/lib/vocabulary-scheduler'
 import { articleColorClass } from '@/lib/vocabulary-ui'
-import type { DueVocabularyCard, SubmitVocabularyAnswerInput, SubmitVocabularyAnswerResult } from '@/lib/types/vocabulary'
+import type { DueVocabularyCard, SubmitVocabularyAnswerInput, SubmitVocabularyAnswerResult, SubmitVocabularySelfRatingInput } from '@/lib/types/vocabulary'
 import { createOrderedWriteQueue, type OrderedWriteQueue } from '@/lib/vocabulary-write-queue'
 import { prefetchNeuralAudio } from '@/lib/audio/neural-client'
 import { vocabularyAudioText } from '@/lib/audio/neural-config'
@@ -44,6 +44,8 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
   const lastAnswered = useRef<string | null>(previousCardId)
   const [saveFailed, setSaveFailed] = useState(false)
   const [answer, setAnswer] = useState('')
+  // Flashcard-Modus: erst Lösung aufdecken, dann selbst einschätzen.
+  const [revealed, setRevealed] = useState(false)
   const drafts = useRef(new Map<string, string>())
   const [answerResult, setAnswerResult] = useState<{ correct: boolean; solution: string; isAlternative: boolean; softError: SoftErrorReason | null } | null>(null)
   const exitRequested = useRef(false)
@@ -53,7 +55,9 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
   useEffect(() => prefetchNeuralAudio(session.slice(index, index + 2)
     .filter(item => item.format === 'word')
     .map(item => ({ text: vocabularyAudioText(item.card), language: 'de', cardId: item.card.id, audioUrl: item.card.audio_url }))), [index, session])
-  type ReviewIntent = { index: number; card: DueVocabularyCard; input: SubmitVocabularyAnswerInput }
+  type ReviewIntent =
+    | { kind: 'typed'; index: number; card: DueVocabularyCard; input: SubmitVocabularyAnswerInput }
+    | { kind: 'self'; index: number; card: DueVocabularyCard; input: SubmitVocabularySelfRatingInput }
   const writes = useRef<OrderedWriteQueue<ReviewIntent> | null>(null)
 
   function navigateBack() {
@@ -70,7 +74,7 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
   }
 
   if (!writes.current) writes.current = createOrderedWriteQueue<ReviewIntent, SubmitVocabularyAnswerResult>({
-    write: item => submitVocabularyAnswer(item.input),
+    write: item => item.kind === 'typed' ? submitVocabularyAnswer(item.input) : submitVocabularySelfRating(item.input),
     accepted: result => result.success && typeof result.isCorrect === 'boolean' && typeof result.correctAnswer === 'string'
       && typeof result.isAlternative === 'boolean' && result.softError !== undefined,
     onAccepted: (item, result) => {
@@ -88,7 +92,8 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
       // Keep the exact answer and request ID until the server acknowledges it.
       indexRef.current = failed.index
       setIndex(failed.index)
-      setAnswer(failed.input.typedAnswer)
+      if (failed.kind === 'typed') setAnswer(failed.input.typedAnswer)
+      else setRevealed(true)
       setAnswerResult(null)
       reviewBusy.current = false
       setReviewPending(false)
@@ -106,7 +111,8 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
     if (!queue || !last) return
     indexRef.current = last.index
     setIndex(last.index)
-    setAnswer(last.input.typedAnswer)
+    if (last.kind === 'typed') setAnswer(last.input.typedAnswer)
+    else setRevealed(true)
     setAnswerResult(null)
     reviewBusy.current = true
     setReviewPending(true)
@@ -130,6 +136,7 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
     setIndex(indexRef.current)
     setAnswer(drafts.current.get(session[indexRef.current]?.progressId) ?? '')
     setAnswerResult(null)
+    setRevealed(false)
     finishIfReady()
   }
 
@@ -139,8 +146,19 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
     reviewBusy.current = true
     setReviewPending(true)
     setSaveFailed(false)
-    writes.current?.enqueue({ index, card: current, input: {
+    writes.current?.enqueue({ kind: 'typed', index, card: current, input: {
       progressId: current.progressId, expectedLearnerId: actorId, typedAnswer: answer, uiLanguage, requestId: crypto.randomUUID(),
+    } })
+  }
+
+  /** Karteikarten-Selbsteinschätzung; die DB entscheidet den Lernstand (R5). */
+  function submitSelfRating(known: boolean) {
+    if (!actorId || !current || answerResult || reviewBusy.current || index !== indexRef.current || writes.current?.blocked) return
+    reviewBusy.current = true
+    setReviewPending(true)
+    setSaveFailed(false)
+    writes.current?.enqueue({ kind: 'self', index, card: current, input: {
+      progressId: current.progressId, expectedLearnerId: actorId, known, uiLanguage, requestId: crypto.randomUUID(),
     } })
   }
 
@@ -153,6 +171,10 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
     : !isSentence && current?.card.article && current.card.article !== 'none' ? 'type_german_with_article' : 'type_german'
   const prompt = (!isSentence && !isToGerman ? targetWord : current?.prompt) || current?.translation || t('no_translation')
   const denseCard = prompt.length + (answerResult ? answerResult.solution.length + (current?.contextSentence?.length ?? 0) : 0) > 160
+  const isFlashcard = current?.mode === 'flashcard'
+  // Bei Wörtern liegt die Lösung schon im Payload (kein Satz-Geheimnis wie bei
+  // getippten Sätzen); der Server bleibt trotzdem die Instanz für den Lernstand.
+  const flashcardSolution = current ? (isToGerman ? (targetWord ?? '') : current.translation) : ''
 
   return (
     <LearningScreen title={t('title')}
@@ -174,6 +196,13 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
             {!isSentence && !answerResult && current.card.image_url && <img className="learning-card-image" src={current.card.image_url} alt={t('image_alt')} />}
             <span className="learning-eyebrow">{t(isSentence ? 'sentence_format' : 'word_format')}</span>
             <h2 lang={current.promptLanguage} className={cn(isSentence ? 'learning-sentence' : 'learning-word', !isToGerman && articleColorClass(current.card.article))}>{prompt}</h2>
+            {isFlashcard && revealed && !answerResult && <>
+              <div className="learning-divider" />
+              <span className="learning-eyebrow">{t('correct_sentence_label')}</span>
+              <p className={cn('learning-solution', isToGerman && articleColorClass(current.card.article))} lang={answerLanguage}>{flashcardSolution}</p>
+              {current.contextSentence && <p className="learning-context" lang="de"><span className="sr-only">{t('context_label')}: </span>{current.contextSentence}</p>}
+              <SolutionAudioButton cardId={current.card.id} language="de" text={targetWord ?? ''} audioUrl={current.card.audio_url} label={t('listen_word')} ariaLabel={t('listen_word_aria', { word: current.card.word_de })} variant="secondary" />
+            </>}
             {answerResult && <>
               <div className="learning-divider" />
               {answerResult.softError
@@ -208,6 +237,13 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
         </article>
         {saveFailed ? <button type="button" className="learning-button learning-button-primary learning-button-wide" onClick={retry}>{t('error_retry')}</button> : answerResult
           ? <button type="button" className="learning-button learning-button-primary learning-button-wide" onClick={() => advance()}>{t(index + 1 === session.length ? 'finish_session' : 'next_card')}</button>
+          : isFlashcard
+          ? revealed
+            ? <div className="learning-flashcard-actions">
+                <button type="button" className="learning-button learning-button-primary" disabled={reviewPending} onClick={() => submitSelfRating(true)}>{t('knew_it')}</button>
+                <button type="button" className="learning-button learning-button-secondary" disabled={reviewPending} onClick={() => submitSelfRating(false)}>{t('didnt_know')}</button>
+              </div>
+            : <button type="button" className="learning-button learning-button-primary learning-button-wide" onClick={() => setRevealed(true)}>{t('reveal_solution')}</button>
           : <form className="learning-typing" onSubmit={submitAnswer}>
             <label htmlFor="vocabulary-answer">{t(answerLabel)}</label>
             <textarea id="vocabulary-answer" lang={answerLanguage} value={answer} onChange={event => { drafts.current.set(current.progressId, event.target.value); setAnswer(event.target.value) }} rows={isSentence ? 2 : 1} maxLength={4000} autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck={false} disabled={reviewPending} />

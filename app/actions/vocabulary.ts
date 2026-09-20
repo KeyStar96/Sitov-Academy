@@ -7,7 +7,7 @@ import { getRpcError } from '@/lib/rpc-errors'
 import { createClient } from '@/utils/supabase/server'
 import { requestSession } from '@/lib/request-session'
 import { hasTrainerAccess, isAccessLevel, getAllowedLessons } from '@/lib/access/levels'
-import { LEITNER_LEARNED_BOX, normalizeBox, pickWeightedRandomOrder, selectionWeightForBox, type LeitnerPhase } from '@/lib/leitner'
+import { LEITNER_LEARNED_BOX, normalizeBox, pickWeightedRandomOrder, selectionWeightForBox, vocabularyReviewMode, type LeitnerPhase } from '@/lib/leitner'
 import { scheduleVocabularyCards } from '@/lib/vocabulary-scheduler'
 import { readVocabularyProgress } from '@/lib/vocabulary-queries'
 import { loadLevelAccessProfile } from '@/lib/access/server'
@@ -19,6 +19,7 @@ import {
   type AddCardsResult, type AssessmentDecision, type DueVocabularyCard,
   type InitializeLessonResult, type LessonCardView, type LessonStat,
   type SubmitAssessmentResult, type SubmitVocabularyAnswerInput, type SubmitVocabularyAnswerResult,
+  type SubmitVocabularySelfRatingInput,
   type VocabularySession, type VocabularyAssessmentSession,
 } from '@/lib/types/vocabulary'
 
@@ -90,6 +91,9 @@ export async function getVocabularySession(level?: string, uiLanguage?: string):
       const translation = translatedWord?.text ?? ''
       return [{
         progressId: row.id, direction, format: sentence ? 'sentence' : 'word',
+        // Der Server legt den Abfragemodus fest; die Bewertungs-RPC leitet ihn
+        // aus derselben Box erneut ab und lehnt eine Fehlnutzung ab (R5).
+        mode: vocabularyReviewMode(box, sentence ? 'sentence' : 'word'),
         prompt: source ? source.text : direction === 'native_to_de' ? translation : card.word_de,
         promptLanguage: source ? source.language : direction === 'native_to_de' ? translatedWord!.language : 'de',
         // Never send the exact German sentence before a typing answer is submitted.
@@ -238,6 +242,34 @@ export async function submitVocabularyAnswer(input: SubmitVocabularyAnswerInput)
       ? await learner.supabase.rpc('submit_vocabulary_answer_once', { ...payload, p_request_id: parsed.data.requestId })
       : await learner.supabase.rpc('submit_vocabulary_answer', payload)
     if (error) return { success: false, error: error.message.includes('vocabulary_spacing_required') ? 'spacing_required' : 'save_failed' }
+    const failure = getRpcError(data)
+    if (failure) return { success: false, error: failure.error === 'vocabulary_spacing_required' ? 'spacing_required' : 'save_failed' }
+    const result = reviewResultSchema.safeParse(data)
+    if (!result.success) return { success: false, error: 'save_failed' }
+    return { ...result.data, previousPhase: result.data.previousPhase as LeitnerPhase, newPhase: result.data.newPhase as LeitnerPhase }
+  } catch {
+    return { success: false, error: 'save_failed' }
+  }
+}
+
+/**
+ * Karteikarten-Selbsteinschätzung. Die Bewertung bleibt in PostgreSQL: Der
+ * Server leitet den erlaubten Modus aus der aktuellen Box neu ab und lehnt eine
+ * Selbsteinschätzung für Tipp-Karten ab (R5). Der `requestId` macht den Schritt
+ * idempotent – ein wiederholter Versuch liefert dieselbe Quittung.
+ */
+export async function submitVocabularySelfRating(input: SubmitVocabularySelfRatingInput): Promise<SubmitVocabularyAnswerResult> {
+  const parsed = z.object({ progressId: z.string().uuid(), expectedLearnerId: z.string().uuid().optional(),
+    requestId: z.string().uuid(), known: z.boolean(), uiLanguage: languageSchema.optional() }).safeParse(input)
+  if (!parsed.success) return { success: false, error: 'invalid_input' }
+  try {
+    const learner = await loadLearner(parsed.data.expectedLearnerId)
+    if (!learner) return { success: false, error: 'save_failed' }
+    const { data, error } = await learner.supabase.rpc('submit_vocabulary_self_rating_once', {
+      p_request_id: parsed.data.requestId, p_progress_id: parsed.data.progressId, p_known: parsed.data.known,
+      p_ui_language: parsed.data.uiLanguage ?? languageSchema.catch('de').parse(learner.profile.ui_language),
+    })
+    if (error) return { success: false, error: 'save_failed' }
     const failure = getRpcError(data)
     if (failure) return { success: false, error: failure.error === 'vocabulary_spacing_required' ? 'spacing_required' : 'save_failed' }
     const result = reviewResultSchema.safeParse(data)

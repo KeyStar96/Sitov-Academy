@@ -1652,6 +1652,15 @@ export type Database = {
         }
         Returns: Json
       }
+      submit_vocabulary_self_rating_once: {
+        Args: {
+          p_known: boolean
+          p_progress_id: string
+          p_request_id: string
+          p_ui_language?: string
+        }
+        Returns: Json
+      }
     }
     Enums: {
       booking_kind: "registration" | "monthly" | "trial"

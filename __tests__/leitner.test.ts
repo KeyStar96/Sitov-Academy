@@ -13,6 +13,8 @@ import {
   phaseProgressPercent,
   pickWeightedRandomOrder,
   selectionWeightForBox,
+  vocabularyReviewMode,
+  FLASHCARD_MAX_PHASE,
 } from '@/lib/leitner'
 
 const NOW = new Date('2026-03-01T09:00:00.000Z')
@@ -202,5 +204,31 @@ describe('Gewichtete Zufallsauswahl', () => {
     ]
     const ordered = pickWeightedRandomOrder(items, (item) => item.weight, () => 0.5)
     expect(ordered.map((item) => item.id)).toEqual(['active', 'zero'])
+  })
+})
+
+describe('vocabularyReviewMode', () => {
+  it('rated Sätze niemals selbst ein – immer Texteingabe', () => {
+    for (const box of [1, 2, 3, 4, 5, 6, 7]) {
+      expect(vocabularyReviewMode(box, 'sentence')).toBe('typed')
+    }
+  })
+
+  it('nutzt für frische Wörter (Phase 1–2) den Karteikarten-Modus', () => {
+    expect(vocabularyReviewMode(1, 'word')).toBe('flashcard')
+    expect(vocabularyReviewMode(FLASHCARD_MAX_PHASE, 'word')).toBe('flashcard')
+  })
+
+  it('wechselt ab Phase 3 auf aktiven Abruf per Texteingabe', () => {
+    for (const box of [3, 4, 5, 6]) {
+      expect(vocabularyReviewMode(box, 'word')).toBe('typed')
+    }
+  })
+
+  it('behandelt gelernte oder ungültige Boxen robust', () => {
+    expect(vocabularyReviewMode(7, 'word')).toBe('typed')
+    expect(vocabularyReviewMode(null, 'word')).toBe('flashcard')
+    expect(vocabularyReviewMode(undefined, 'word')).toBe('flashcard')
+    expect(vocabularyReviewMode(0, 'word')).toBe('flashcard')
   })
 })

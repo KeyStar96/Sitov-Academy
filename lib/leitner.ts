@@ -38,6 +38,38 @@ export function isLeitnerPhase(value: number): value is LeitnerPhase {
   return Number.isInteger(value) && value >= 1 && value <= 6
 }
 
+/** Abfragemodus einer Karte: getippter Abruf oder Karteikarten-Selbsteinschätzung. */
+export type VocabularyReviewMode = 'typed' | 'flashcard'
+
+/**
+ * Höchste Leitner-Phase, die noch im Karteikarten-Modus (Wiedererkennung)
+ * abgefragt wird. Darüber wird getippt (aktiver Abruf).
+ */
+export const FLASHCARD_MAX_PHASE: LeitnerPhase = 2
+
+/**
+ * Legt den Abfragemodus einer fälligen Karte fest. Der Modus ist bewusst
+ * deterministisch aus dem Lernstand ableitbar, damit der Server ihn beim
+ * Bewerten identisch neu berechnen kann (R5): Ein Client kann keine Tipp-Karte
+ * als Karteikarte selbst bewerten.
+ *
+ * Sätze werden immer getippt – ihre exakte Schreibweise ist der Lerninhalt und
+ * darf nie zur Selbsteinschätzung herabgestuft werden. Frisch gelernte Wörter
+ * (Phase 1–2) laufen zur Wiedererkennung als Karteikarte, reifere Wörter zum
+ * aktiven Abruf als Texteingabe.
+ *
+ * Muss identisch zu `vocabulary_private.self_rating_allowed` in
+ * `supabase/vps/18_vocabulary_self_rating.sql` bleiben.
+ */
+export function vocabularyReviewMode(
+  box: number | null | undefined,
+  format: 'word' | 'sentence'
+): VocabularyReviewMode {
+  if (format === 'sentence') return 'typed'
+  const phase = Math.min(6, Math.max(1, Math.round(box ?? 1)))
+  return phase <= FLASHCARD_MAX_PHASE ? 'flashcard' : 'typed'
+}
+
 /**
  * Bringt einen beliebigen Datenbankwert in einen gültigen Zustand.
  * Schützt vor Altbeständen und manuellen Eingriffen in der Live-Datenbank.

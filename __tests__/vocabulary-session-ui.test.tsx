@@ -2,7 +2,7 @@ import React from 'react'
 import { randomUUID } from 'node:crypto'
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import VocabCardSession from '@/components/vocabulary/VocabCardSession'
-import { finishVocabularySession, submitVocabularyAnswer } from '@/app/actions/vocabulary'
+import { finishVocabularySession, submitVocabularyAnswer, submitVocabularySelfRating } from '@/app/actions/vocabulary'
 import type { DueVocabularyCard, SubmitVocabularyAnswerResult } from '@/lib/types/vocabulary'
 import de from '@/dictionaries/de.json'
 import ru from '@/dictionaries/ru.json'
@@ -10,13 +10,13 @@ import { prefetchNeuralAudio } from '@/lib/audio/neural-client'
 
 jest.unmock('lucide-react')
 jest.unmock('framer-motion')
-jest.mock('@/app/actions/vocabulary', () => ({ submitVocabularyAnswer: jest.fn(), finishVocabularySession: jest.fn().mockResolvedValue({ success: true }) }))
+jest.mock('@/app/actions/vocabulary', () => ({ submitVocabularyAnswer: jest.fn(), submitVocabularySelfRating: jest.fn(), finishVocabularySession: jest.fn().mockResolvedValue({ success: true }) }))
 jest.mock('@/components/layout/ThemeToggle', () => ({ __esModule: true, default: () => null }))
 jest.mock('@/components/exercises/SolutionAudioButton', () => ({ __esModule: true, default: ({ label }: { label: string }) => <button>{label}</button> }))
 jest.mock('@/lib/audio/neural-client', () => ({ prefetchNeuralAudio: jest.fn().mockReturnValue(jest.fn()) }))
 const learnerId = '00000000-0000-4000-8000-000000000001'
 const word: DueVocabularyCard = {
-  progressId: 'progress-1', box: 1, phase: 1, promptLanguage: 'ru', direction: 'native_to_de', format: 'word', prompt: 'дом',
+  progressId: 'progress-1', box: 1, phase: 1, mode: 'typed', promptLanguage: 'ru', direction: 'native_to_de', format: 'word', prompt: 'дом',
   contextSentence: 'Wir wohnen in einem Haus mit Garten.', translation: 'дом', isHardForNativeLanguage: false,
   card: { id: 'word-1', word_de: 'Haus', article: 'das', plural: 'Häuser', level: 'A1.1', lesson: 'Lektion 1', image_url: null, audio_url: null },
 }
@@ -30,6 +30,7 @@ function result(overrides: Partial<SubmitVocabularyAnswerResult> = {}): SubmitVo
 beforeEach(() => {
   jest.clearAllMocks()
   jest.mocked(submitVocabularyAnswer).mockReset().mockResolvedValue(result())
+  jest.mocked(submitVocabularySelfRating).mockReset().mockResolvedValue(result())
   Object.defineProperty(crypto, 'randomUUID', { configurable: true, value: randomUUID })
 })
 function mount(cards: DueVocabularyCard[]) { return render(<VocabCardSession learnerId={learnerId} cards={cards} translations={de.vocabulary} uiLanguage="ru" overviewHref="/ru/dashboard" />) }
@@ -228,4 +229,32 @@ it('accepts an alternative without presenting it as a spelling error', async () 
   expect(screen.getByText(de.vocabulary.alternative_answer_hint)).toBeVisible()
   expect(screen.getAllByText('Ich lerne Deutsch.')).toHaveLength(1)
   expect(container.querySelector('[class*=danger]')).toBeNull()
+})
+
+const flashcard: DueVocabularyCard = { ...word, mode: 'flashcard', progressId: 'flash-1' }
+
+it('reicht eine Karteikarte über Aufdecken und Selbsteinschätzung an den Server – keine getippte Bewertung', async () => {
+  mount([flashcard])
+  // Vor dem Aufdecken: weder Textfeld noch Lösung.
+  expect(screen.queryByRole('textbox')).not.toBeInTheDocument()
+  expect(screen.queryByText('das Haus')).not.toBeInTheDocument()
+  expect(screen.queryByRole('button', { name: de.vocabulary.knew_it })).not.toBeInTheDocument()
+
+  fireEvent.click(screen.getByRole('button', { name: de.vocabulary.reveal_solution }))
+  expect(screen.getByText('das Haus')).toBeInTheDocument()
+
+  await act(async () => { fireEvent.click(screen.getByRole('button', { name: de.vocabulary.knew_it })) })
+
+  expect(submitVocabularySelfRating).toHaveBeenCalledWith(
+    expect.objectContaining({ progressId: 'flash-1', known: true, expectedLearnerId: learnerId, requestId: expect.any(String) }),
+  )
+  expect(submitVocabularyAnswer).not.toHaveBeenCalled()
+  await waitFor(() => expect(screen.getByRole('button', { name: de.vocabulary.finish_session })).toBeInTheDocument())
+})
+
+it('meldet „Wusste ich nicht" als known:false und bewertet weiterhin serverseitig', async () => {
+  mount([flashcard])
+  fireEvent.click(screen.getByRole('button', { name: de.vocabulary.reveal_solution }))
+  await act(async () => { fireEvent.click(screen.getByRole('button', { name: de.vocabulary.didnt_know })) })
+  expect(submitVocabularySelfRating).toHaveBeenCalledWith(expect.objectContaining({ known: false }))
 })

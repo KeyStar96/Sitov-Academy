@@ -16,7 +16,7 @@ jest.mock('@/components/vocabulary/LessonCardsModal', () => ({ __esModule: true,
 
 const card: DueVocabularyCard = {
   progressId: 'progress-1', direction: 'native_to_de', format: 'word', prompt: 'дом', promptLanguage: 'ru',
-  contextSentence: null, box: 1, phase: 1, translation: 'дом', isHardForNativeLanguage: false,
+  contextSentence: null, box: 1, phase: 1, mode: 'typed', translation: 'дом', isHardForNativeLanguage: false,
   card: { id: 'card-1', lesson: 'Lektion 1', level: 'A1.1', word_de: 'Haus', article: 'das', plural: 'Häuser', image_url: null, audio_url: null },
 }
 beforeEach(() => {

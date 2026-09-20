@@ -35,6 +35,10 @@
 .learning-button-primary { background: var(--learn-accent); border-color: var(--learn-accent); color: var(--learn-on-accent); }
 .learning-button-primary small { color: inherit; }
 .learning-button-wide { width: 100%; }
+/* Flashcard-Selbsteinschätzung: zwei gleich breite Tasten nebeneinander. */
+.learning-flashcard-actions { display: flex; gap: 10px; width: 100%; }
+.learning-flashcard-actions .learning-button { flex: 1; }
+.learning-button-secondary { background: var(--learn-surface); color: var(--learn-text); border-color: var(--learn-border); }
 .learning-button:disabled { opacity: .6; cursor: wait; }
 .learning-exit:disabled { opacity: .6; cursor: wait; }
 .learning-button:not(:disabled):active { transform: scale(.985); }

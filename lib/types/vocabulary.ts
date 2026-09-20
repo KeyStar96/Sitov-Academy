@@ -1,4 +1,4 @@
-import type { LeitnerBox, LeitnerPhase } from '@/lib/leitner'
+import type { LeitnerBox, LeitnerPhase, VocabularyReviewMode } from '@/lib/leitner'
 import type { SoftErrorReason } from '@/lib/answer-grading'
 import type { Database } from '@/supabase/database.types'
 import type { UiLocale } from '@/lib/locale-routing'
@@ -26,6 +26,11 @@ export interface DueVocabularyCard {
   progressId: string
   direction: VocabularyDirection
   format: VocabularyFormat
+  /**
+   * Serverseitig aus dem Lernstand festgelegter Abfragemodus. `flashcard` zeigt
+   * die „Kenn ich / Kenn ich nicht"-Selbsteinschätzung, `typed` die Texteingabe.
+   */
+  mode: VocabularyReviewMode
   prompt: string
   /** Actual language of the prompt, including an explicitly selected fallback. */
   promptLanguage: UiLocale
@@ -88,6 +93,18 @@ export interface SubmitVocabularyAnswerInput {
   /** Reuse this UUID with an identical payload when retrying a queued answer. */
   requestId?: string
   typedAnswer: string
+  uiLanguage?: string
+}
+
+/** Selbsteinschätzung im Karteikarten-Modus; der Server entscheidet den Lernstand. */
+export interface SubmitVocabularySelfRatingInput {
+  progressId: string
+  /** Authenticated identity captured when the learning screen was loaded. */
+  expectedLearnerId?: string
+  /** Reuse this UUID with an identical payload when retrying a queued rating. */
+  requestId?: string
+  /** Die Selbsteinschätzung des Lernenden: „Kenn ich" = true. */
+  known: boolean
   uiLanguage?: string
 }
 
