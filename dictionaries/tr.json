@@ -234,14 +234,6 @@
       }
     }
   },
-  "features": {
-    "native_support": "Ana Dili Öğretmenler",
-    "native_desc": "Nitelikli ana dili öğretmenlerimiz, otantik bir öğrenme deneyimi için profesyonel öğretim deneyimini kültürlerarası yeterlilikle birleştirir.",
-    "central_location": "Esnek Kurs Saatleri",
-    "location_desc": "Programınıza uyum sağlayan, günün farklı saatlerinde kurslar sunuyoruz - akşam saatleri dahil.",
-    "modern_learning": "Pratik Yöntemler",
-    "modern_desc": "Etkileşimli ve iletişimsel öğretim yöntemlerimiz, hızlı ve sürdürülebilir öğrenme başarısı için günlük durumlara odaklanır."
-  },
   "courses": {
     "title": "Kurslarımız",
     "subtitle": "Başlangıçtan profesyonele – sizin için doğru kursa sahibiz.",
@@ -280,25 +272,6 @@
     "trial_cta": "★ Ücretsiz Deneme Dersi",
     "start_prefix": "Başlangıç"
   },
-  "schedule": {
-    "title": "Başarıya Giden Yolunuz – Haftalık Program",
-    "subtitle": "Kursları görmek için bir gün seçin",
-    "open_button": "Haftalık Programı Aç",
-    "filter_all": "Tümü",
-    "filter_seniors": "Yaşlılar",
-    "instructor": "Eğitmen",
-    "no_courses": "Bu günde kurs yok",
-    "print_button": "Yazdırma Görünümü / PDF",
-    "view_day": "Gün Görünümü",
-    "view_grid": "Izgara Görünümü",
-    "switch_view": "Görünümü Değiştir",
-    "time": "Saat",
-    "monday": "Pazartesi",
-    "tuesday": "Salı",
-    "wednesday": "Çarşamba",
-    "thursday": "Perşembe",
-    "friday": "Cuma"
-  },
   "timetable": {
     "title_line1": "GÜNCEL",
     "title_line2": "DERS PROGRAMI",
@@ -321,10 +294,6 @@
       "presence": "Yüz Yüze",
       "online": "Çevrimiçi"
     },
-    "locations": {
-      "presence": "Freizeitheim Vahrenwald",
-      "online": "Microsoft Teams"
-    },
     "instructors": {
       "standard": "Anastasia Sitov",
       "special": "Lisa Kahl"
@@ -335,149 +304,6 @@
       "room": "Oda",
       "alternating": "dönüşümlü",
       "no_courses_scheduled": "Planlanmış kurs yok"
-    }
-  },
-  "location": {
-    "label": "KONUM",
-    "title": "Konum",
-    "subtitle": "Hannover'in Kalbinde",
-    "description": "Kurslarımız, mükemmel ulaşım imkanlarına sahip modern bir kültür merkezi olan Freizeitheim Vahrenwald'da gerçekleşmektedir. Ana istasyondan sadece 10 dakika uzaklıkta.",
-    "address_label": "Adres",
-    "get_directions": "Haritayı Yükle",
-    "privacy_title": "Haritayı Etkinleştir",
-    "privacy_text": "Haritayı yükleyerek IP adresiniz Google'a (ABD) iletilecektir. Daha fazla bilgiyi gizlilik politikamızda bulabilirsiniz.",
-    "load_map": "Haritayı Yükle"
-  },
-  "science": {
-    "protocol": "Bilimsel Temel",
-    "title_part1": "NEDEN DİL ÖĞRENİMİ",
-    "title_part2": "EN İYİ YAŞTA FARKLI ÇALIŞIR.",
-    "description_1": "Bilimsel olarak kanıtlanmış: Beyniniz yaşam boyu öğrenir. Eskimiş mitlerin aksine, olgun beyin daha az yetenekli değildir — daha uzmanlaşmıştır. Geleneksel yöntemler genellikle genç beyinlerin hızlı işlemlemesine dayanırken, en büyük gücünüzü kullanıyorum: kristalize zekanız ve yaşam boyu birikmiş bilginiz.",
-    "description_2": "İleri yaşta başarılı öğrenme, doğal uyum yeteneğini (nöroplastisite) kullanan yöntemler gerektirir. Yeni kelimeleri doğrudan değerli yaşam deneyimlerinizle ilişkilendirerek yeni nöronal bağlantılar oluşturuyorum. Böylece öğrenilenler sadece kafanızda kalmaz, günlük yaşamınızın bir parçası olur.",
-    "layer_active": "Nöronal Plastisite",
-    "data_points": {
-      "data_stream_label": "VERİ_AKIŞI",
-      "data_stream_value": "AKTİF",
-      "neuron_count_label": "NÖRON_SAYISI",
-      "neuron_count_value": "86.4 MLYR",
-      "signal_speed_label": "SİNYAL_HIZI",
-      "signal_speed_value": "110 m/sn",
-      "synapse_firing_label": "SİNAPS_ATEŞLEME",
-      "synapse_firing_value": "40Hz (GAMA)",
-      "hemisphere_label": "YARIMKÜRE",
-      "hemisphere_value": "UYUMLULUK 0.88",
-      "plasticity_label": "PLASTİSİTE",
-      "plasticity_value": "0.94 İNDEKS"
-    }
-  },
-  "footer": {
-    "rights": "© 2026 Sitov Academy Hannover. Tüm hakları saklıdır.",
-    "links": {
-      "imprint": "İçindekiler",
-      "privacy": "Gizlilik",
-      "agb": "Şartlar",
-      "cancellation": "Sözleşme İptali"
-    }
-  },
-  "WhyUs": {
-    "header": {
-      "label": "Nitelikler ve Arka Plan",
-      "title_Line1": "Bilimsel",
-      "title_Line2": "Temel."
-    },
-    "card1": {
-      "category": "Üniversite Araştırması",
-      "title": "Baskısız Öğrenme: Uzmanlığımız Neden Fark Yaratıyor.",
-      "text": "Devlet standart kursları genellikle geniş bir öğrenci yelpazesi için tasarlanmıştır, ancak nadiren yetişkinlerin değişen algı kanallarını ve bireysel öğrenme hızını dikkate alır. Gürültülü sınıflarda azalan işitme yeteneğinin veya öğretmenlerin çok hızlı konuşma temposunun stres tetikleyebileceğini biliyorum. Benim yöntemim diğerlerinin durduğu yerde başlar: Net yapılar ve tekrar için bolca alan ile sakin, engelsiz bir öğrenme ortamı yaratıyorum. Sadece Almanca öğrenmenizi değil, aynı zamanda ilerlemeden keyif almanızı sağlamak için modern geragoji (yaşlılık didaktiği) kullanıyorum — tamamen performans baskısı olmadan.",
-      "specialization": "Uzmanlık: DaF / DaZ & Biyoloji"
-    },
-    "card2": {
-      "category": "Akademik Uzmanlık",
-      "title": "Üniversiteden sağlam bilgi.",
-      "items": [
-        {
-          "name": "TU Braunschweig",
-          "desc": "DaF/DaZ Eğitimi (Yabancı/İkinci Dil Olarak Almanca)"
-        },
-        {
-          "name": "Leibniz Üniversitesi Hannover",
-          "desc": "M.Ed. Öğretmenlik Biyoloji ve Almanca & B.Sc. Biyoloji ve Almanca"
-        },
-        {
-          "name": "Uzmanlık",
-          "desc": "Çok dilli ve kültürlerarası eğitimde sertifikalı yetkinlik"
-        }
-      ]
-    },
-    "card3": {
-      "category": "Deneyim",
-      "title": "Pratikte kanıtlanmış.",
-      "text": "2 yıl boyunca Aşağı Saksonya Ukrayna Derneği e.V. için Almanca kursları yönettim. Karşılama sınıflarındaki çalışmalarım ve Hannover Üniversitesi'nde İkinci Dil Olarak Almanca alanındaki öğrenci asistanlığım sayesinde, karşılaştığınız gerçek engelleri biliyorum."
-    },
-    "card4": {
-      "category": "İki Dillilik",
-      "title": "İki ana dil: Almanca & Rusça.",
-      "text": "Tamamen iki dilli olarak büyüdüm. Bu, karmaşık kuralları doğrudan ana dilinizde açıklamama olanak tanır. Öğrenci olarak bakış açınızı daha iyi anlamak için şu anda kendim Türkçe öğreniyorum - bu yüzden her şeye yeniden başlamanın nasıl bir his olduğunu tam olarak biliyorum."
-    }
-  },
-  "about_v2": {
-    "header": {
-      "label": "Arka Plan ve Profil",
-      "title_Line1": "Yeni Dile Giden Yolda Yol Arkadaşınız:",
-      "title_Line2": "Anastasia Sitov"
-    },
-    "headline": "Anastasia Sitov - Kurucu ve Eğitmen",
-    "subline": "İleri yaşta dil edinimi uzmanı ve M.Ed. Öğretmenlik Biyoloji ve Almanca olarak biliyorum ki: Her insan kendi parmak izi kadar bireysel öğrenir. Kendim tamamen iki dilli (Almanca ve Rusça) büyüdüğüm için, iki dünya arasında geçiş yapmanın zorluklarını ilk elden biliyorum. Yaklaşımım, nöroplastisite üzerine güncel araştırmaları göz hizasında empatik öğrenme desteğiyle birleştiriyor.",
-    "body": "Karmaşık kuralları doğrudan ana dilinizde açıklıyorum, böylece başlangıçtan itibaren kendinizi güvende hissedersiniz. Şu anda kendim Türkçe öğreniyorum — böylece keşif yolculuğunda sizinle kalıyorum ve yeniden başlamanın nasıl bir his olduğunu tam olarak biliyorum.",
-    "timeline": {
-      "title": "Akademik Geçmiş",
-      "items": [
-        {
-          "year": "2024",
-          "title": "DaF/DaZ Sertifikası",
-          "institution": "TU Braunschweig"
-        },
-        {
-          "year": "2022",
-          "title": "M.Ed. Öğretmenlik Biyoloji ve Almanca",
-          "institution": "Leibniz Üniversitesi Hannover"
-        },
-        {
-          "year": "2018",
-          "title": "B.Sc. Biyoloji ve Almanca",
-          "institution": "Leibniz Üniversitesi Hannover"
-        },
-        {
-          "year": "2010-2018",
-          "title": "Lise (Abitur)",
-          "institution": "Gymnasium Stolzenau"
-        }
-      ]
-    },
-    "languages": {
-      "title": "Dil Yetkinliği",
-      "items": [
-        {
-          "code": "DE",
-          "name": "Almanca",
-          "level": "Ana Dil"
-        },
-        {
-          "code": "RU",
-          "name": "Rusça",
-          "level": "Ana Dil"
-        },
-        {
-          "code": "EN",
-          "name": "İngilizce",
-          "level": "Akıcı"
-        },
-        {
-          "code": "TR",
-          "name": "Türkçe",
-          "level": "Temel Bilgi"
-        }
-      ]
     }
   },
   "Footer": {
@@ -1125,59 +951,6 @@
       }
     ]
   },
-  "reviews_title": "Öğrencilerimizin Deneyimleri",
-  "reviews_excellent": "MÜKEMMEL",
-  "reviews_subtitle": "Google Yorumlarına göre 5 üzerinden 5,0",
-  "reviews_data": [
-    {
-      "id": 1,
-      "author": "Vitalii Raevskii",
-      "rating": 5,
-      "text": "Smart German'ı bulduğuma çok sevindim. Birkaç başarısız Almanca öğrenme girişiminden sonra kendime olan inancımı ve motivasyonumu neredeyse kaybetmiştim. Ancak öğretmenin yaklaşımı sayesinde her şey değişti: öğrenmek anlaşılır, rahat bir tempoda ve gerçekten çok ilginç hale geldi.",
-      "date": "5 gün önce",
-      "avatar": "V"
-    },
-    {
-      "id": 2,
-      "author": "Viktoriia Viktoriia",
-      "rating": 5,
-      "text": "Anastasia çok iyi ve dikkatli bir Almanca öğretmeni. Dersler her zaman ilginç ve asla sıkıcı değil, materyal sakin ve anlaşılır bir şekilde açıklanıyor. Almanca becerilerini geliştirmek isteyen herkese bu kursu tavsiye ederim.",
-      "date": "7 gün önce",
-      "avatar": "V"
-    },
-    {
-      "id": 3,
-      "author": "Valeriia Varych",
-      "rating": 5,
-      "text": "Mükemmel bir Almanca öğretmeni tarafından açılan mükemmel bir okul! Onun ve yaklaşımı sayesinde Almanca bambaşka bir yönünden açılıyor. Dilin mantığını ve yapısını açıklıyor. B2 seviyesinde çalışıyorum ve dilbilgisi açıklamalarında bile hiç sıkılmadım.",
-      "date": "1 hafta önce",
-      "avatar": "V"
-    },
-    {
-      "id": 4,
-      "author": "Оксана Абрамович",
-      "rating": 5,
-      "text": "Sadece 4 aylık derslerde Almanca dilinde büyük bir ilerleme fark ettim. Benim için en şaşırtıcı şey, kelimelerin sonsuz ezberlemeler olmadan doğal bir şekilde hafızada kalması. Sabrınız, desteğiniz ve harika öğretim yönteminiz için teşekkür ederim!",
-      "date": "7 gün önce",
-      "avatar": "О"
-    },
-    {
-      "id": 5,
-      "author": "Maksym",
-      "rating": 5,
-      "text": "Bu harika dil eğitimi için Anastasia'ya kocaman bir teşekkürler! Nastia sizi sohbete dahil etme konusunda harika bir iş çıkarıyor ve Almanca konuşmanız için tamamen motive ediyor. Her buluşmadan sonra sadece olumlu duygular yaşar ve özgüven kazanırsınız.",
-      "date": "7 gün önce",
-      "avatar": "M"
-    },
-    {
-      "id": 6,
-      "author": "Андрей Иванов",
-      "rating": 5,
-      "text": "Bu kurslardan çok memnunum! Materyal basit ve anlaşılır bir şekilde açıklanıyor ve dersler ülkeye daha hızlı adapte olmaya yardımcı oluyor. Almanca öğrenmede gözle görülür bir ilerleme var. Şiddetle tavsiye edilir.",
-      "date": "6 gün önce",
-      "avatar": "А"
-    }
-  ],
   "dashboard": {
     "title_before": "Öğrenme seviyenizi",
     "title_highlight": "seçin",

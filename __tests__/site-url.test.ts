@@ -21,18 +21,39 @@ describe('self-hosted origins', () => {
     expect(resolveOutboundSiteUrl(production, 'https://attacker.example')).toBe(production.NEXT_PUBLIC_SITE_URL)
     expect(resolveAuthRedirectOrigin(production, 'http://localhost:3000')).toBe(production.NEXT_PUBLIC_SITE_URL)
   })
-  it('fails closed when production origin is absent, regardless of request headers', () => {
-    expect(() => resolveSiteUrl({ NODE_ENV:'production' }, 'https://attacker.example')).toThrow()
-    expect(() => resolveOutboundSiteUrl({ NODE_ENV:'production' }, 'https://attacker.example')).toThrow()
+  it.each([undefined, '', '   ', 'javascript:alert(1)', 'https://user:password@host.test'])('fails closed when production origin is absent or unsafe: %j', value => {
+    const env = { NODE_ENV: 'production', NEXT_PUBLIC_SITE_URL: value, SITE_URL: value }
+    expect(() => resolveSiteUrl(env, 'https://attacker.example')).toThrow()
+    expect(() => resolveOutboundSiteUrl(env, 'https://attacker.example')).toThrow()
+    expect(() => resolveAuthRedirectOrigin(env, 'http://localhost:3002')).toThrow()
   })
-  it('supports an explicit private SITE_URL alias', () => {
-    expect(resolveOutboundSiteUrl({ SITE_URL:production.NEXT_PUBLIC_SITE_URL })).toBe(production.NEXT_PUBLIC_SITE_URL)
+  it.each(['production', 'development'])('prefers NEXT_PUBLIC_SITE_URL over SITE_URL in %s', NODE_ENV => {
+    const env = { NODE_ENV, NEXT_PUBLIC_SITE_URL: ' https://public.example/de/ ', SITE_URL: 'https://private.example' }
+    expect(resolveSiteUrl(env)).toBe('https://public.example')
+    expect(resolveOutboundSiteUrl(env)).toBe('https://public.example')
+    expect(resolveAuthRedirectOrigin(env, 'https://attacker.example')).toBe('https://public.example')
+  })
+  it.each([undefined, '', '   ', 'ftp://invalid.example'])('uses SITE_URL when the public origin is unavailable: %j', NEXT_PUBLIC_SITE_URL => {
+    const env = { NODE_ENV: 'production', NEXT_PUBLIC_SITE_URL, SITE_URL: ' https://private.example/de/ ' }
+    expect(resolveSiteUrl(env)).toBe('https://private.example')
+    expect(resolveOutboundSiteUrl(env)).toBe('https://private.example')
+    expect(resolveAuthRedirectOrigin(env, 'http://localhost:3002')).toBe('https://private.example')
   })
   it('keeps development on loopback and never derives outbound mail URLs from headers', () => {
     expect(resolveSiteUrl({})).toBe('http://localhost:3000')
+    expect(resolveSiteUrl({}, 'https://attacker.example')).toBe('http://localhost:3000')
+    expect(resolveSiteUrl({}, 'http://localhost:3002')).toBe('http://localhost:3000')
     expect(resolveOutboundSiteUrl({}, 'https://attacker.example')).toBe('http://localhost:3000')
-    expect(resolveAuthRedirectOrigin({}, 'http://localhost:3002')).toBe('http://localhost:3002')
+    expect(resolveAuthRedirectOrigin({}, 'https://attacker.example')).toBe('http://localhost:3000')
     expect(isLocalhostOrigin('http://[::1]:3000')).toBe(true)
+  })
+  it.each(['http://localhost:3002', 'http://127.0.0.1:3002', 'http://[::1]:3002'])('preserves the local auth callback origin outside production: %s', origin => {
+    const env = { NODE_ENV: 'development', NEXT_PUBLIC_SITE_URL: production.NEXT_PUBLIC_SITE_URL }
+    expect(resolveAuthRedirectOrigin(env, origin)).toBe(origin)
+  })
+  it.each(['https://localhost.attacker.example', 'https://127.0.0.1.attacker.example'])('rejects a lookalike localhost origin for auth redirects: %s', origin => {
+    expect(isLocalhostOrigin(origin)).toBe(false)
+    expect(resolveAuthRedirectOrigin({}, origin)).toBe('http://localhost:3000')
   })
   it('encodes redirect parameters', () => {
     const result = new URL(buildSiteUrl(production.NEXT_PUBLIC_SITE_URL, '/auth/confirm', { next:'/ru/dashboard?lesson=1', token_hash:'a+b' }))
@@ -42,5 +63,30 @@ describe('self-hosted origins', () => {
   })
   it.each(['//attacker.example/path', '/\n/attacker.example/path', '/\\attacker.example/path'])('refuses paths normalized to an external origin: %j', path => {
     expect(() => buildSiteUrl(production.NEXT_PUBLIC_SITE_URL, path)).toThrow('configured origin')
+  })
+})
+
+describe('canonical deployment origin', () => {
+  function readCanonicalOrigin(env: NodeJS.ProcessEnv): string {
+    const originalEnv = process.env
+    process.env = { ...env }
+    try {
+      let origin = ''
+      jest.isolateModules(() => {
+        origin = (require('@/lib/site-url') as typeof import('@/lib/site-url')).CANONICAL_SITE_URL
+      })
+      return origin
+    } finally {
+      process.env = originalEnv
+    }
+  }
+
+  it('uses the same normalized public/private precedence as runtime links', () => {
+    expect(readCanonicalOrigin({ NODE_ENV: 'production', NEXT_PUBLIC_SITE_URL: ' https://public.example/de/ ', SITE_URL: 'https://private.example' })).toBe('https://public.example')
+    expect(readCanonicalOrigin({ NODE_ENV: 'production', SITE_URL: ' https://private.example/de/ ' })).toBe('https://private.example')
+  })
+  it('allows the development fallback but fails closed without a production origin', () => {
+    expect(readCanonicalOrigin({ NODE_ENV: 'development' })).toBe('http://localhost:3000')
+    expect(() => readCanonicalOrigin({ NODE_ENV: 'production' })).toThrow()
   })
 })

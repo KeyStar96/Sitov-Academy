@@ -237,14 +237,6 @@
       }
     }
   },
-  "features": {
-    "native_support": "Muttersprachliche Lehrer",
-    "native_desc": "Unsere qualifizierten Muttersprachler kombinieren professionelle Lehrerfahrung mit interkultureller Kompetenz für ein authentisches Lernerlebnis.",
-    "central_location": "Flexible Kurszeiten",
-    "location_desc": "Wir bieten Kurse zu verschiedenen Tageszeiten an, die sich Ihrem Zeitplan anpassen - auch abends.",
-    "modern_learning": "Praxisnahe Methoden",
-    "modern_desc": "Unsere interaktiven und kommunikativen Lehrmethoden fokussieren sich auf Alltagssituationen für einen schnellen und nachhaltigen Lernerfolg."
-  },
   "courses": {
     "title": "Unsere Kurse",
     "subtitle": "Vom Anfänger bis zum Profi – wir haben den richtigen Kurs für dich.",
@@ -283,25 +275,6 @@
     "trial_cta": "★ Kostenlose Probestunde",
     "start_prefix": "Start"
   },
-  "schedule": {
-    "title": "Dein Weg zum Erfolg – Der Wochenplan",
-    "subtitle": "Wähle einen Tag aus, um die Kurse zu sehen",
-    "open_button": "Wochenplan öffnen",
-    "filter_all": "Alle",
-    "filter_seniors": "Senioren",
-    "instructor": "Dozentin",
-    "no_courses": "Keine Kurse an diesem Tag",
-    "print_button": "Druckansicht / PDF",
-    "view_day": "Tagesansicht",
-    "view_grid": "Rasteransicht",
-    "switch_view": "Ansicht wechseln",
-    "time": "Uhrzeit",
-    "monday": "Montag",
-    "tuesday": "Dienstag",
-    "wednesday": "Mittwoch",
-    "thursday": "Donnerstag",
-    "friday": "Freitag"
-  },
   "timetable": {
     "title_line1": "DER AKTUELLE",
     "title_line2": "STUNDENPLAN",
@@ -324,10 +297,6 @@
       "presence": "Präsenz",
       "online": "Online"
     },
-    "locations": {
-      "presence": "Freizeitheim Vahrenwald",
-      "online": "Microsoft Teams"
-    },
     "instructors": {
       "standard": "Anastasia Sitov",
       "special": "Lisa Kahl"
@@ -338,148 +307,6 @@
       "room": "Raum",
       "alternating": "im Wechsel",
       "no_courses_scheduled": "Keine Kurse geplant"
-    }
-  },
-  "science": {
-    "protocol": "Wissenschaftliches Fundament",
-    "title_part1": "WARUM SPRACHENLERNEN",
-    "title_part2": "IM BESTEN ALTER ANDERS FUNKTIONIERT.",
-    "description_1": "Wissenschaftlich belegt: Ihr Gehirn lernt lebenslang. Entgegen veralteter Mythen ist das Gehirn im reiferen Alter keineswegs weniger leistungsfähig – es ist spezialisierter. Während herkömmliche Methoden oft auf die schnelle Verarbeitung junger Gehirne setzen, nutze ich Ihre größte Stärke: Ihre kristalline Intelligenz und Ihr lebenslang aufgebautes Wissen.",
-    "description_2": "Erfolgreiches Lernen im Alter erfordert Methoden, die die natürliche Anpassungsfähigkeit (Neuroplastizität) Ihres Gehirns nutzen. Ich schaffe neue neuronale Verbindungen, indem ich neue Wörter direkt mit Ihren wertvollen Lebenserfahrungen verknüpfe. So bleibt das Gelernte nicht nur im Kopf, sondern wird Teil Ihres Alltags.",
-    "layer_active": "Neuronale Plastizität",
-    "data_points": {
-      "data_stream_label": "DATENSTROM",
-      "data_stream_value": "AKTIV",
-      "neuron_count_label": "NEURONENZAHL",
-      "neuron_count_value": "86.4 MRD",
-      "signal_speed_label": "SIGNALGESCHW.",
-      "signal_speed_value": "110 m/s",
-      "synapse_firing_label": "SYNAPSENFEUER",
-      "synapse_firing_value": "40Hz (GAMMA)",
-      "hemisphere_label": "HEMISPHÄRE",
-      "hemisphere_value": "KOHÄRENZ 0.88",
-      "plasticity_label": "PLASTIZITÄT",
-      "plasticity_value": "0.94 INDEX"
-    }
-  },
-  "location": {
-    "label": "STANDORT",
-    "title": "Standort",
-    "subtitle": "Im Herzen von Hannover",
-    "address_label": "Adresse",
-    "description": "Unsere Kurse finden im Freizeitheim Vahrenwald statt – ein moderner, kultureller Treffpunkt mit bester Erreichbarkeit. Nur 10 Minuten vom Hauptbahnhof entfernt.",
-    "get_directions": "Karte laden",
-    "privacy_title": "Karte Aktivieren",
-    "privacy_text": "Mit dem Laden der Karte wird Ihre IP-Adresse an Google (USA) übermittelt. Mehr erfahren Sie in unserer Datenschutzerklärung.",
-    "load_map": "Karte laden"
-  },
-  "footer": {
-    "rights": "© 2026 Sitov Academy Hannover. Alle Rechte vorbehalten.",
-    "links": {
-      "imprint": "Impressum",
-      "privacy": "Datenschutz",
-      "agb": "AGB"
-    }
-  },
-  "WhyUs": {
-    "header": {
-      "label": "Qualifikation & Hintergrund",
-      "title_Line1": "Wissenschaftliche",
-      "title_Line2": "Fundierung."
-    },
-    "card1": {
-      "category": "Universitäre Forschung",
-      "title": "Lernen ohne Druck: Warum unsere Spezialisierung den Unterschied macht.",
-      "text": "Staatliche Standard-Kurse sind oft für ein breites Spektrum an Lernenden konzipiert, nehmen aber selten Rücksicht auf die veränderten Wahrnehmungskanäle und das individuelle Lerntempo lebenserfahrener Lernender. Ich weiß, dass ein nachlassendes Hörvermögen in lauten Klassenräumen oder zu schnelles Sprechtempo von Lehrkräften Stress auslösen können. Meine Methode setzt dort an, wo andere aufhören: Ich schaffe eine ruhige, barrierefreie Lernumgebung mit klaren Strukturen und viel Raum für Wiederholung. Ich nutze moderne Geragogik (Altersdidaktik), um sicherzustellen, dass Sie nicht nur Deutsch lernen, sondern Freude am Fortschritt empfinden – ganz ohne Leistungsdruck.",
-      "specialization": "Spezialisierung: DaF / DaZ & Biologie"
-    },
-    "card2": {
-      "category": "Akademische Expertise",
-      "title": "Fundiertes Wissen von der Universität.",
-      "items": [
-        {
-          "name": "TU Braunschweig",
-          "desc": "Studium DaF/DaZ (Deutsch als Fremdsprache/Zweitsprache)"
-        },
-        {
-          "name": "Leibniz Universität Hannover",
-          "desc": "M.Ed. Lehramt Biologie & Deutsch & B.Sc. Biologie & Deutsch"
-        },
-        {
-          "name": "Spezialisierung",
-          "desc": "Zertifizierte Kompetenz in Mehrsprachigkeit und interkultureller Bildung"
-        }
-      ]
-    },
-    "card3": {
-      "category": "Erfahrung",
-      "title": "Erprobt in der Praxis.",
-      "text": "2 Jahre lang leitete ich Deutschkurse für den Ukrainischen Verein in Niedersachsen e.V. Durch meine Arbeit in Willkommensklassen und als studentische Hilfskraft im Bereich Deutsch als Zweitsprache an der Universität Hannover kenne ich die realen Hürden, vor denen Sie stehen."
-    },
-    "card4": {
-      "category": "Bilingualität",
-      "title": "Zwei Muttersprachen: Deutsch & Russisch.",
-      "text": "Ich bin vollständig zweisprachig aufgewachsen. Das erlaubt es mir, komplexe Regeln direkt in Ihrer Muttersprache zu erklären. Um Ihre Perspektive als Lernende noch besser zu verstehen, lerne ich aktuell selbst Türkisch – ich weiß also genau, wie es sich anfühlt, noch einmal neu anzufangen."
-    }
-  },
-  "about_v2": {
-    "header": {
-      "label": "Hintergrund & Profil",
-      "title_Line1": "Ihre Begleiterin auf dem Weg zur neuen Sprache:",
-      "title_Line2": "Anastasia Sitov"
-    },
-    "headline": "Anastasia Sitov - Gründerin & Lehrkraft",
-    "subline": "Als Expertin für Spracherwerb im Alter und M.Ed. Lehramt Biologie & Deutsch weiß ich: Jeder Mensch lernt so individuell wie sein eigener Fingerabdruck. Da ich selbst vollständig zweisprachig (Deutsch & Russisch) aufgewachsen bin, kenne ich die Hürden beim Wechsel zwischen zwei Welten aus erster Hand. Mein Ansatz verbindet aktuelle Forschung zur Neuroplastizität mit einer empathischen Lernbegleitung auf Augenhöhe.",
-    "body": "Ich erkläre komplexe Regeln direkt in Ihrer Muttersprache, damit Sie sich von Anfang an sicher fühlen. Aktuell lerne ich selbst Türkisch – so bleibe ich mit Ihnen gemeinsam auf der Reise des Entdeckens und weiß genau, wie es sich anfühlt, noch einmal neu anzufangen.",
-    "timeline": {
-      "title": "Akademischer Werdegang",
-      "items": [
-        {
-          "year": "2024",
-          "title": "DaF/DaZ Zertifizierung",
-          "institution": "TU Braunschweig"
-        },
-        {
-          "year": "2022",
-          "title": "M.Ed. Lehramt Biologie & Deutsch",
-          "institution": "Leibniz Uni Hannover"
-        },
-        {
-          "year": "2018",
-          "title": "B.Sc. Biologie & Deutsch",
-          "institution": "Leibniz Uni Hannover"
-        },
-        {
-          "year": "2010-2018",
-          "title": "Abitur",
-          "institution": "Gymnasium Stolzenau"
-        }
-      ]
-    },
-    "languages": {
-      "title": "Sprachkompetenz",
-      "items": [
-        {
-          "code": "DE",
-          "name": "Deutsch",
-          "level": "Muttersprache"
-        },
-        {
-          "code": "RU",
-          "name": "Russisch",
-          "level": "Muttersprache"
-        },
-        {
-          "code": "EN",
-          "name": "Englisch",
-          "level": "Fließend"
-        },
-        {
-          "code": "TR",
-          "name": "Türkisch",
-          "level": "Grundkenntnisse"
-        }
-      ]
     }
   },
   "Footer": {
@@ -1127,59 +954,6 @@
       }
     ]
   },
-  "reviews_title": "Erfahrungen unserer Schüler",
-  "reviews_excellent": "HERVORRAGEND",
-  "reviews_subtitle": "5,0 von 5 basierend auf Google Rezensionen",
-  "reviews_data": [
-    {
-      "id": 1,
-      "author": "Vitalii Raevskii",
-      "rating": 5,
-      "text": "Ich bin sehr froh, Smart German gefunden zu haben. Nach mehreren erfolglosen Versuchen, Deutsch zu lernen, hatte ich den Glauben an mich selbst und die Motivation fast verloren. Aber dank des Ansatzes der Lehrerin hat sich alles geändert: Das Lernen wurde verständlich, in einem angenehmen Tempo und wirklich sehr interessant.",
-      "date": "Vor 5 Tagen",
-      "avatar": "V"
-    },
-    {
-      "id": 2,
-      "author": "Viktoriia Viktoriia",
-      "rating": 5,
-      "text": "Anastasia ist eine sehr gute und aufmerksame Deutschlehrerin. Der Unterricht ist immer interessant und nie langweilig, der Stoff wird ruhig und verständlich erklärt. Ich empfehle den Kurs allen, die ihre Deutschkenntnisse verbessern möchten.",
-      "date": "Vor 7 Tagen",
-      "avatar": "V"
-    },
-    {
-      "id": 3,
-      "author": "Valeriia Varych",
-      "rating": 5,
-      "text": "Eine ausgezeichnete Schule, eröffnet von einer exzellenten Deutschlehrerin! Dank ihr und ihrem Ansatz zeigt sich Deutsch von einer ganz anderen Seite. Sie erklärt die Logik und Struktur der Sprache und nutzt einprägsame Assoziationen. Ich lerne auf B2-Niveau und selbst bei Grammatik war mir nie langweilig.",
-      "date": "Vor 1 Woche",
-      "avatar": "V"
-    },
-    {
-      "id": 4,
-      "author": "Оксана Абрамович",
-      "rating": 5,
-      "text": "In nur 4 Monaten Unterricht habe ich einen großen Fortschritt in der deutschen Sprache bemerkt. Das Erstaunlichste für mich ist, dass sich die Wörter ganz natürlich einprägen, ohne endloses Auswendiglernen. Vielen Dank für die Geduld, die Unterstützung und die großartige Unterrichtsmethode!",
-      "date": "Vor 7 Tagen",
-      "avatar": "О"
-    },
-    {
-      "id": 5,
-      "author": "Maksym",
-      "rating": 5,
-      "text": "Ein riesiges Dankeschön an Anastasia für dieses fantastische Sprachtraining! Nastia schafft es super, einen in die Konversation einzubinden und motiviert total dazu, auf Deutsch zu sprechen. Nach jedem Treffen hat man einfach nur positive Emotionen und gewinnt an Selbstvertrauen.",
-      "date": "Vor 7 Tagen",
-      "avatar": "M"
-    },
-    {
-      "id": 6,
-      "author": "Андрей Иванов",
-      "rating": 5,
-      "text": "Ich bin sehr zufrieden mit diesen Kursen! Das Material wird einfach und zugänglich erklärt, und die Lektionen helfen, sich schneller im Land zu integrieren. Es gibt sichtbare Fortschritte beim Erlernen der deutschen Sprache. Sehr empfehlenswert.",
-      "date": "Vor 6 Tagen",
-      "avatar": "А"
-    }
-  ],
   "dashboard": {
     "title_before": "Wähle dein",
     "title_highlight": "Sprachniveau",

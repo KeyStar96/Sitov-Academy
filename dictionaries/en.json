@@ -235,14 +235,6 @@
       }
     }
   },
-  "features": {
-    "native_support": "Native Teachers",
-    "native_desc": "Our qualified native speakers combine professional teaching experience with intercultural competence for an authentic learning experience.",
-    "central_location": "Flexible Course Times",
-    "location_desc": "We offer courses at various times of day that adapt to your schedule - including evenings.",
-    "modern_learning": "Practical Methods",
-    "modern_desc": "Our interactive and communicative teaching methods focus on everyday situations for quick and sustainable learning success."
-  },
   "courses": {
     "title": "Our Courses",
     "subtitle": "From beginner to pro – we have the right course for you.",
@@ -267,25 +259,6 @@
       "desc": "The ideal start without prior knowledge."
     }
   },
-  "schedule": {
-    "title": "Your Path to Success – The Weekly Schedule",
-    "subtitle": "Select a day to view the courses",
-    "open_button": "Open Weekly Schedule",
-    "filter_all": "All",
-    "filter_seniors": "Seniors",
-    "instructor": "Instructor",
-    "no_courses": "No courses on this day",
-    "print_button": "Print View / PDF",
-    "view_day": "Day View",
-    "view_grid": "Grid View",
-    "switch_view": "Switch View",
-    "time": "Time",
-    "monday": "Monday",
-    "tuesday": "Tuesday",
-    "wednesday": "Wednesday",
-    "thursday": "Thursday",
-    "friday": "Friday"
-  },
   "timetable": {
     "title_line1": "THE CURRENT",
     "title_line2": "TIMETABLE",
@@ -308,10 +281,6 @@
       "presence": "In-Person",
       "online": "Online Class"
     },
-    "locations": {
-      "presence": "Freizeitheim Vahrenwald",
-      "online": "Microsoft Teams"
-    },
     "instructors": {
       "standard": "Anastasia Sitov",
       "special": "Lisa Kahl"
@@ -322,148 +291,6 @@
       "room": "Room",
       "alternating": "alternating",
       "no_courses_scheduled": "No courses scheduled"
-    }
-  },
-  "science": {
-    "protocol": "Scientific Foundation",
-    "title_part1": "WHY LANGUAGE LEARNING",
-    "title_part2": "Works Differently at the Best Age.",
-    "description_1": "Scientifically proven: Your brain learns lifelong. Contrary to outdated myths, the mature brain is by no means less capable – it is more specialized. While conventional methods often rely on the fast processing of young brains, I use your greatest strength: your crystalline intelligence and your lifelong accumulated knowledge.",
-    "description_2": "Successful learning in old age requires methods that use the natural adaptability (neuroplasticity) of your brain. I create new neural connections by linking new words directly with your valuable life experiences. This way, what is learned stays not only in your head but becomes part of your everyday life.",
-    "layer_active": "Neural Plasticity",
-    "data_points": {
-      "data_stream_label": "DATA_STREAM",
-      "data_stream_value": "ACTIVE",
-      "neuron_count_label": "NEURON_COUNT",
-      "neuron_count_value": "86.4 B",
-      "signal_speed_label": "SIGNAL_SPEED",
-      "signal_speed_value": "110 m/s",
-      "synapse_firing_label": "SYNAPSE_FIRING",
-      "synapse_firing_value": "40Hz (GAMMA)",
-      "hemisphere_label": "HEMISPHERE",
-      "hemisphere_value": "COHERENCE 0.88",
-      "plasticity_label": "PLASTICITY",
-      "plasticity_value": "0.94 INDEX"
-    }
-  },
-  "location": {
-    "label": "LOCATION",
-    "title": "Location",
-    "subtitle": "In the Heart of Hanover",
-    "address_label": "Address",
-    "description": "Our courses take place at leisure center Vahrenwald – a modern, cultural meeting point with excellent accessibility. Only 10 minutes from the main station.",
-    "get_directions": "Load Map",
-    "privacy_title": "Activate Map",
-    "privacy_text": "By loading the map, your IP address will be transmitted to Google (USA). You can find more information in our privacy policy.",
-    "load_map": "Load Map"
-  },
-  "footer": {
-    "rights": "© 2026 Sitov Academy Hannover. All rights reserved.",
-    "links": {
-      "imprint": "Imprint",
-      "privacy": "Privacy",
-      "agb": "Terms"
-    }
-  },
-  "WhyUs": {
-    "header": {
-      "label": "Qualifications & Background",
-      "title_Line1": "Scientific",
-      "title_Line2": "Foundation."
-    },
-    "card1": {
-      "category": "University Research",
-      "title": "Learning Without Pressure: Why Our Specialization Makes the Difference.",
-      "text": "State standard courses are often designed for a broad spectrum of learners but rarely take into account the changed perception channels and the individual learning pace of the mature learners. I know that diminishing hearing in loud classrooms or too fast speaking tempo of teachers can trigger stress. My method starts where others stop: I create a quiet, barrier-free learning environment with clear structures and plenty of room for repetition. I use modern geragogy (age didactics) to ensure that you not only learn German but also find joy in progress – completely without performance pressure.",
-      "specialization": "Specialization: GFL / GSL & Biology"
-    },
-    "card2": {
-      "category": "Academic Expertise",
-      "title": "Solid knowledge from the university.",
-      "items": [
-        {
-          "name": "TU Braunschweig",
-          "desc": "Studies GFL/GSL (German as a Foreign/Second Language)"
-        },
-        {
-          "name": "Leibniz University Hannover",
-          "desc": "M.Ed. Teaching Biology & German & B.Sc. Biology & German"
-        },
-        {
-          "name": "Specialization",
-          "desc": "Certified competence in multilingualism and intercultural education"
-        }
-      ]
-    },
-    "card3": {
-      "category": "Experience",
-      "title": "Proven in practice.",
-      "text": "For 2 years, I led German courses for the Ukrainian Association in Lower Saxony e.V. Through my work in welcome classes and as a student assistant in the field of German as a Second Language at the University of Hannover, I know the real hurdles you face."
-    },
-    "card4": {
-      "category": "Bilingualism",
-      "title": "Two mother tongues: German & Russian.",
-      "text": "I grew up completely bilingual. This allows me to explain complex rules directly in your native language. To understand your perspective as a learner even better, I am currently learning Turkish myself – so I know exactly how it feels to start all over again."
-    }
-  },
-  "about_v2": {
-    "header": {
-      "label": "Background & Profile",
-      "title_Line1": "Personality",
-      "title_Line2": "meets Expertise."
-    },
-    "headline": "Anastasia Sitov - Founder & Teacher",
-    "subline": "As an expert in language acquisition in old age and M.Ed. Teaching Biology & German, I know: Every person learns as individually as their own fingerprint. Since I grew up fully bilingual (German & Russian), I know the hurdles of switching between two worlds first-hand. My approach combines current research on neuroplasticity with empathic learning support at eye level.",
-    "body": "I explain complex rules directly in your native language so that you feel secure from the beginning. Currently, I am learning Turkish myself – so I remain with you on the journey of discovery and know exactly how it feels to start anew.",
-    "timeline": {
-      "title": "Academic Background",
-      "items": [
-        {
-          "year": "2024",
-          "title": "GFL/GSL Certification",
-          "institution": "TU Braunschweig"
-        },
-        {
-          "year": "2022",
-          "title": "M.Ed. Teaching Biology & German",
-          "institution": "Leibniz Uni Hannover"
-        },
-        {
-          "year": "2018",
-          "title": "B.Sc. Biology & German",
-          "institution": "Leibniz Uni Hannover"
-        },
-        {
-          "year": "2010-2018",
-          "title": "A-Levels (Abitur)",
-          "institution": "Gymnasium Stolzenau"
-        }
-      ]
-    },
-    "languages": {
-      "title": "Language Proficiency",
-      "items": [
-        {
-          "code": "DE",
-          "name": "German",
-          "level": "Native Speaker"
-        },
-        {
-          "code": "RU",
-          "name": "Russian",
-          "level": "Native Speaker"
-        },
-        {
-          "code": "EN",
-          "name": "English",
-          "level": "Fluent"
-        },
-        {
-          "code": "TR",
-          "name": "Turkish",
-          "level": "Basic Knowledge"
-        }
-      ]
     }
   },
   "Footer": {
@@ -1128,59 +955,6 @@
       }
     ]
   },
-  "reviews_title": "Our Students' Experiences",
-  "reviews_excellent": "EXCELLENT",
-  "reviews_subtitle": "5.0 out of 5 based on Google Reviews",
-  "reviews_data": [
-    {
-      "id": 1,
-      "author": "Vitalii Raevskii",
-      "rating": 5,
-      "text": "I am very glad I found Smart German. After several unsuccessful attempts to learn German, I had almost lost faith in myself and my motivation. But thanks to the teacher's approach, everything changed: learning became understandable, at a comfortable pace, and really very interesting.",
-      "date": "5 days ago",
-      "avatar": "V"
-    },
-    {
-      "id": 2,
-      "author": "Viktoriia Viktoriia",
-      "rating": 5,
-      "text": "Anastasia is a very good and attentive German teacher. The lessons are always interesting and never boring, the material is explained calmly and understandably. I recommend the course to everyone who wants to improve their German skills.",
-      "date": "7 days ago",
-      "avatar": "V"
-    },
-    {
-      "id": 3,
-      "author": "Valeriia Varych",
-      "rating": 5,
-      "text": "An excellent school opened by an excellent German teacher! Thanks to her and her approach, German opens up from a completely different side. She explains the logic and structure of the language. I am studying at the B2 level, and even during grammar explanations, I was not bored at all.",
-      "date": "1 week ago",
-      "avatar": "V"
-    },
-    {
-      "id": 4,
-      "author": "Оксана Абрамович",
-      "rating": 5,
-      "text": "In just 4 months of lessons, I have noticed great progress in the German language. The most amazing thing for me is that the words are memorized naturally, without endless rote learning. Thank you for the patience, support, and the great teaching method!",
-      "date": "7 days ago",
-      "avatar": "О"
-    },
-    {
-      "id": 5,
-      "author": "Maksym",
-      "rating": 5,
-      "text": "A huge thank you to Anastasia for this fantastic language training! Nastia does a great job of involving you in the conversation and totally motivates you to speak in German. After every meeting, you just have positive emotions and gain self-confidence.",
-      "date": "7 days ago",
-      "avatar": "M"
-    },
-    {
-      "id": 6,
-      "author": "Андрей Иванов",
-      "rating": 5,
-      "text": "I am very satisfied with these courses! The material is explained simply and accessibly, and the lessons help to adapt faster in the country. There is noticeable progress in learning the German language. Highly recommended.",
-      "date": "6 days ago",
-      "avatar": "А"
-    }
-  ],
   "dashboard": {
     "title_before": "Choose your",
     "title_highlight": "language level",

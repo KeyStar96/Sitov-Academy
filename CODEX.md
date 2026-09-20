@@ -39,78 +39,90 @@ Ziel ist ein visuell beeindruckendes, barrierefreies Web- und App-Erlebnis mit e
 
 ### PHASE 1 — REPOSITORY-CLEANUP
 
+Stand 20.09.2026: Phase 1 (1.1–1.6) abgeschlossen; phasenspezifische Abnahme bestanden. Der vollständige Jest-Lauf enthält bereits im Ausgangsstand vorhandene Grammatikfehler (Nachweis unten). Der Nutzer hat ausdrücklich entschieden, diese bis Phase 3 zurückzustellen; sie blockieren den Abschluss von Phase 1 nicht. Keine Datenbank- oder Deployment-Änderungen.
+
 #### 1.1 Netlify-Eliminierung — die echten Fundorte
-* [ ] `netlify.toml` löschen.
-* [ ] `lib/site-url.ts`: Felder `CONTEXT`, `URL`, `DEPLOY_PRIME_URL` (Netlify) und `VERCEL_ENV`, `VERCEL_PROJECT_PRODUCTION_URL`, `VERCEL_URL` aus dem Interface `SiteUrlEnv` und der Auflösungslogik entfernen. Übrig bleibt: `NEXT_PUBLIC_SITE_URL` → `SITE_URL` → Dev-Fallback `http://localhost:3000`.
-* [ ] `__tests__/site-url.test.ts` entsprechend anpassen.
-* [ ] `[N/A]` `@netlify/plugin-nextjs` steht nicht in `package.json`. Nicht suchen.
+* [x] `netlify.toml` gelöscht.
+* [x] `lib/site-url.ts`: `CONTEXT`, `URL`, `DEPLOY_PRIME_URL`, `VERCEL_ENV`, `VERCEL_PROJECT_PRODUCTION_URL`, `VERCEL_URL` aus `SiteUrlEnv` entfernt. Auflösung einschließlich `CANONICAL_SITE_URL`: normalisierte `NEXT_PUBLIC_SITE_URL` → normalisierte `SITE_URL` → Dev-Fallback `http://localhost:3000`. Produktion bleibt ohne gültige explizite URL fail-closed. Request-Header liefern keine allgemeine Site-Origin; lokale Auth-Redirects behalten ausschließlich außerhalb Produktion ihren Loopback-Port.
+* [x] `__tests__/site-url.test.ts` angepasst; Priorität, Normalisierung, Fallbacks, Produktionsfehler und Redirect-Sicherheit automatisiert geprüft.
+* [N/A — laut Vorgabe nicht vorhanden] `@netlify/plugin-nextjs` ist keine Dependency in `package.json`; nicht erneut gesucht.
 
-#### 1.2 Verifizierte tote Dateien löschen (21 Stück, Reachability-geprüft)
-Lösche folgende Dateien:
-* `components/dashboard/VideoPlayer.tsx`
-* `components/footer/TimeStatus.tsx`
-* `components/sections/About/AboutContainer.tsx`
-* `components/sections/About/BioReveal.tsx`
-* `components/sections/About/LanguageMatrix.tsx`
-* `components/sections/About/TimelineCV.tsx`
-* `components/sections/GoogleReviews.tsx`
-* `components/sections/Location/LocationSection.tsx`
-* `components/sections/Location/MapComponent.tsx`
-* `components/sections/ScienceSection.tsx`
-* `components/sections/WhyUsBento.tsx`
-* `components/sections/WhyUsHorizontal.tsx`
-* `components/ui/CustomSelect.tsx`
-* `components/ui/Marquee.tsx`
-* `components/ui/MouseGlow.tsx`
-* `components/ui/SiriProgressOrb.tsx`
-* `lib/config/app-config.ts`
-* `lib/feedback-email.ts`
-* `lib/lenis.ts`
-* `lib/time-utils.ts`
-* `lib/useScrollReveal3D.ts`
+#### 1.2 Verifizierte tote Dateien gelöscht (21 Stück, Reachability-geprüft)
+* [x] `components/dashboard/VideoPlayer.tsx`
+* [x] `components/footer/TimeStatus.tsx`
+* [x] `components/sections/About/AboutContainer.tsx`
+* [x] `components/sections/About/BioReveal.tsx`
+* [x] `components/sections/About/LanguageMatrix.tsx`
+* [x] `components/sections/About/TimelineCV.tsx`
+* [x] `components/sections/GoogleReviews.tsx`
+* [x] `components/sections/Location/LocationSection.tsx`
+* [x] `components/sections/Location/MapComponent.tsx`
+* [x] `components/sections/ScienceSection.tsx`
+* [x] `components/sections/WhyUsBento.tsx`
+* [x] `components/sections/WhyUsHorizontal.tsx`
+* [x] `components/ui/CustomSelect.tsx`
+* [x] `components/ui/Marquee.tsx`
+* [x] `components/ui/MouseGlow.tsx`
+* [x] `components/ui/SiriProgressOrb.tsx`
+* [x] `lib/config/app-config.ts`
+* [x] `lib/feedback-email.ts`
+* [x] `lib/lenis.ts`
+* [x] `lib/time-utils.ts`
+* [x] `lib/useScrollReveal3D.ts`
 
-* [ ] ⛔ NICHT löschen: `components/effects/NeuralBrain.tsx`, `neural-brain-geometry.ts`, `neural-brain-shaders.ts` — via `dynamic()` aktiv. `three` und `@react-three/fiber` bleiben in den Dependencies.
-* [ ] Nach dem Löschen: `npm run build` muss ohne verwaiste Imports durchlaufen.
+* [x] ⛔ Geschützt und unverändert: `components/effects/NeuralBrain.tsx`, `neural-brain-geometry.ts`, `neural-brain-shaders.ts` — über `Hero.tsx:11` via `dynamic()` erreichbar. `three` und `@react-three/fiber` bleiben in den unveränderten Dependencies.
+* [x] `npm run build` nach den Löschungen erfolgreich; zusätzliche AST-/Modulauflösungsprüfung meldet keine verwaisten lokalen Code-Imports.
 
-#### 1.3 Tote Supabase Edge Functions löschen
-Diese sechs Funktionen werden nirgends per `functions.invoke` aufgerufen. Der aktive Mailweg ist `public.queue_transactional_email()` → `private.mail_outbox` → `lib/mail/worker.mjs` → `sitov-mail.service`.
-* [ ] `supabase/functions/notify-new-enrollment/`
-* [ ] `supabase/functions/send-confirmation-email/`
-* [ ] `supabase/functions/send-cancellation-email/`
-* [ ] `supabase/functions/send-cancellation-confirmation/`
-* [ ] `supabase/functions/send-trial-confirmation-email/`
-* [ ] `supabase/functions/send-trial-cancellation-email/`
+#### 1.3 Tote Supabase Edge Functions gelöscht
+Die sechs stillgelegten HTTP-410-Stubs hatten keine Aufrufreferenzen im Repository. Der aktive Mailweg bleibt unverändert: `public.queue_transactional_email()` → `private.mail_outbox` → `lib/mail/worker.mjs` (über `scripts/mail-worker.mjs`) → `sitov-mail.service`.
+* [x] `supabase/functions/notify-new-enrollment/`
+* [x] `supabase/functions/send-confirmation-email/`
+* [x] `supabase/functions/send-cancellation-email/`
+* [x] `supabase/functions/send-cancellation-confirmation/`
+* [x] `supabase/functions/send-trial-confirmation-email/`
+* [x] `supabase/functions/send-trial-cancellation-email/`
 
 #### 1.4 Konfig- und Skript-Altlasten (inkl. Befunde N1–N4)
-* [ ] `skills-lock.json` löschen — null Referenzen.
-* [ ] `dictionaries/translation-blacklist.json` löschen — null Referenzen.
-* [ ] `[N1]` `lib/lenis.ts` löschen — die Datei ist 2 Bytes groß und leer. ⛔ Das npm-Paket `lenis` BLEIBT: `components/effects/SmoothScroll.tsx:5` importiert `ReactLenis` aus `lenis/react`, und `AdminDialog.tsx`, `LessonAccessModal.tsx`, `StudentDetailModal.tsx` nutzen `data-lenis-prevent`.
-* [ ] `[N2]` `validate_json.js` löschen. Es enthält einen Tippfehler — `const files = ['de','en','ru','uk','tu']` mit `'tu'` statt `'tr'` — und hat deshalb niemals `tr.json` validiert. Die Aufgabe deckt `__tests__/translation-integrity.test.ts` vollständig ab.
-* [ ] `[N3]` `resize-images.mjs` löschen. Importiert `sharp`; `sharp` steht weder in `dependencies` noch in `devDependencies`. Nicht lauffähig.
-* [ ] `[N4]` Build-Artefakte aus Git entfernen. `.gitignore` enthält aktuell weder `playwright-report/` noch `test-results/`; die 527 KB große `playwright-report/index.html` liegt eingecheckt im Repo. Führe aus: `printf 'playwright-report/\ntest-results/\n' >> .gitignore` und `git rm -r --cached playwright-report test-results`.
+* [x] `skills-lock.json` gelöscht — keine Referenzen außerhalb dieser Checkliste.
+* [x] `dictionaries/translation-blacklist.json` gelöscht — keine Referenzen außerhalb dieser Checkliste.
+* [x] `[N1]` `lib/lenis.ts` gelöscht — vor der Löschung leer, tatsächlich 0 Bytes. ⛔ Das npm-Paket `lenis` bleibt: `components/effects/SmoothScroll.tsx:4` importiert `ReactLenis` aus `lenis/react`; `AdminDialog.tsx`, `LessonAccessModal.tsx`, `StudentDetailModal.tsx` behalten `data-lenis-prevent`.
+* [x] `[N2]` `validate_json.js` gelöscht. Der Tippfehler `'tu'` statt `'tr'` war vorhanden. `__tests__/translation-integrity.test.ts` lädt und validiert alle fünf JSON-Dateien.
+* [x] `[N3]` `resize-images.mjs` gelöscht. `sharp` war nicht direkt deklariert, aber transitiv über Next.js lokal ladbar; die frühere Begründung „nicht lauffähig“ war nicht belegt. Löschung als Altlast gemäß Freigabe durchgeführt.
+* [x] `[N4]` `.gitignore` um `playwright-report/` und `test-results/` ergänzt; `git rm -r --cached playwright-report test-results` ausgeführt. Beide lokalen Artefakte bleiben vorhanden, sind ignoriert und nicht mehr im Git-Index.
 
-#### 1.5 Verwaiste Dictionary-Keys entfernen (alle 5 Sprachen synchron) — [N5]
-Vollständig verwaist — Top-Level-Key ersatzlos löschen (kein Treffer außerhalb der in 1.2 gelöschten Dateien): `features`, `WhyUs`, `about_v2`, `science`, `location`, `footer`, `schedule`, `reviews_title`, `reviews_excellent`, `reviews_subtitle`, `reviews_data`. Das entspricht ~8,8 % jeder Dictionary-Datei, in Summe ca. 44 KB über `de/en/ru/uk/tr`.
+#### 1.5 Verwaiste Dictionary-Keys entfernt (alle 5 Sprachen synchron) — [N5]
+* [x] In `de/en/ru/uk/tr` die elf verwaisten Top-Level-Keys entfernt: `features`, `WhyUs`, `about_v2`, `science`, `location`, `footer`, `schedule`, `reviews_title`, `reviews_excellent`, `reviews_subtitle`, `reviews_data`.
+* [x] Nur `timetable.locations` innerhalb von `timetable` gelöscht.
+* [x] ⛔ `timetable.days.{mo,di,mi,do,fr,sa,so}` einschließlich aller Werte unverändert erhalten. Nutzung in `EnrollmentTerminal.tsx` einschließlich deutscher Fallbacks sowie in `AcademyCourses.tsx` bestätigt.
+* [x] Geschützt und unverändert: `hero`, `sections` und das aktive `Footer` (großes F). Die frühere Aussage, die Top-Level-Keys `hero` und `sections` seien aktuell live, war in S2 nicht bestätigt; ihre Schutzvorgabe bleibt verbindlich.
+* [x] `ru`: `cancellation.form.success_message` und `cancellation.form.success_title` entfernt.
+* [x] `uk`: `footer.links.cancellation` mit dem verwaisten `footer` entfernt.
+* [x] `tr`: `footer.links.cancellation` mit dem verwaisten `footer` entfernt.
+* [x] `__tests__/translation-integrity.test.ts` prüft exakte rekursive Objektstruktur einschließlich zusätzlicher/fehlender Keys, leerer Objekte und Werttypen ohne Whitelist. Arrays zählen als Listenwerte; unterschiedliche Inhaltslängen sind keine Dictionary-Keys. Die frühere Werteidentitätsheuristik ohne Assertion wurde entfernt: identische Eigennamen/Adressen belegen keinen Übersetzungsfehler und die Heuristik war kein wirksamer Test.
 
-Teilweise verwaist — NUR den Sub-Key löschen:
-* [ ] `timetable.locations` löschen.
-* [ ] ⛔ `timetable.days.{mo,di,mi,do,fr,sa,so}` MUSS bleiben. `components/registration/EnrollmentTerminal.tsx` nutzt sie an neun Stellen (Zeilen 226–227, 328–334, 589–592), teils als Fallback über `germanDictionary.timetable.days`.
-
-Nicht anfassen: `hero`, `sections` — beide live.
-
-Paritätsabweichungen mitbereinigen (aktuell de=1203, en=1203, ru=1205, uk=1204, tr=1204):
-* [ ] `ru`: `.cancellation.form.success_message`, `.cancellation.form.success_title`
-* [ ] `uk`: `.footer.links.cancellation`
-* [ ] `tr`: `.footer.links.cancellation`
-
-Abnahme: `__tests__/translation-integrity.test.ts` grün und Key-Anzahl in allen fünf Dateien exakt identisch.
+Abnahme: in allen fünf Dateien exakt **1.117 Blattpfade** (vorher 1.203 / 1.203 / 1.205 / 1.204 / 1.204). Automatisierter Vergleich gegen die Ausgangsdateien bestätigt ausschließlich die beauftragten Löschungen; alle verbleibenden Werte unverändert. Keine Neuformatierung der Dictionaries.
 
 #### 1.6 [N/A]-Liste — erledigt oder gegenstandslos, nicht bearbeiten
-* `agents/`-Ordner löschen: existiert nicht.
-* `CourseDataWrapper.tsx`, `Courses.tsx`, `Timetable/*` löschen: existieren nicht.
-* `generate_sql_direct.*`, `seed-courses.ts` löschen: existieren nicht.
-* `app/api/stripe/checkout`, `portal` löschen: existieren nicht, kein Stripe-Dependency.
-* `schema.sql` auf DDL reduzieren, Curriculum-Dumps auslagern: bereits erledigt — `schema.sql` ist reiner `pg_dump` mit 0 `INSERT`-Statements, Seeds liegen in `supabase/seeds/`.
+* [N/A — nicht vorhanden] `agents/`-Ordner.
+* [N/A — keine Dateien vorhanden] `CourseDataWrapper.tsx`, `Courses.tsx`, `Timetable/*`. `components/sections/Timetable/` existiert leer und bleibt unberührt.
+* [N/A — nicht vorhanden] `generate_sql_direct.*`, `seed-courses.ts`.
+* [N/A — keine Routendateien vorhanden] `app/api/stripe/checkout/`, `app/api/stripe/portal/`: beide Verzeichnisse existieren leer und bleiben unberührt; keine Stripe-Dependency.
+* [N/A — bereits erledigt] `supabase/schema.sql` ist ein Schema-Dump ohne eigenständige Daten-INSERTs oder COPY-Blöcke. Die enthaltenen `INSERT INTO` gehören zu Funktionsdefinitionen. Sechs Seed-/Curriculum-Dateien liegen in `supabase/seeds/`; Schema und Seeds unverändert.
+
+#### S4 — Abnahmenachweise Phase 1 (20.09.2026)
+
+| Prüfung | Ergebnis |
+|---|---|
+| `npm run build` | Bestanden, einschließlich TypeScript und 131 statischer Seiten. Lokaler Verifikationsbuild; kein Deployment. |
+| `npm test -- --runInBand --runTestsByPath __tests__/site-url.test.ts __tests__/translation-integrity.test.ts` | 2 Suites, 39 Tests bestanden. |
+| Automatisierte Dateisystem-/Git-Assertions | 26 Altdateien und sechs Edge-Ordner entfernt; 14 geschützte Dateien bytegleich zum Ausgangsstand; Testartefakte nicht im Index und durch Git ignoriert. |
+| TypeScript-AST und echte Modulauflösung | 86 App-Einstiegspunkte, 297 erreichbare Module, 0 unaufgelöste lokale Code-Imports; dynamische Imports berücksichtigt, geschützte Effekte erreichbar. |
+| Automatisierter Dictionary-Vergleich | Exakt die beauftragten Löschungen, je 1.117 identische Blattpfade, alle geschützten und übrigen verbleibenden Werte unverändert. |
+| Automatisierte N/A-Prüfung | Fehlende Dateien, leere Verzeichnisse, fehlende Stripe-Dependency, Schema-only-Dump und sechs Seed-Dateien bestätigt. |
+| `npm test -- --runInBand` | **Nicht grün:** 82 Suites bestanden, 3 fehlgeschlagen, 1 bereits optional übersprungene Live-Integrationssuite; 1.082 Tests bestanden, 12 fehlgeschlagen, 1 übersprungen. |
+| Baseline-Reproduktion auf unverändertem `c980f95` | Dieselben 3 Grammatik-Suites und 12 Fehler in einer temporären Kopie von `git archive HEAD` reproduziert; keine durch Phase 1 eingeführten Grammatikfehler. |
+
+Gemäß Nutzerentscheidung bis Phase 3 zurückgestellt: `grammar-curriculum.test.ts`, `grammar-cms-actions.test.ts` und `grammar-cms-roundtrip.test.tsx` scheitern bereits vor Phase 1. Seeds/Testdaten und CMS-Tests passen nicht zum aktuellen `accepted_answers`-Vertrag; der CMS-Fallback nimmt zudem die Hauptantwort in die Liste auf, während die Validierung diese Kombination als Duplikat ablehnt. Keine Tests deaktiviert oder Anforderungen ausgefiltert. Die Grammatik-Korrektur bleibt für Phase 3 offen; der Gesamt-Testlauf wird ausdrücklich nicht als grün ausgewiesen.
 
 ---
 

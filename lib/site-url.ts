@@ -2,21 +2,12 @@
 export const DEV_FALLBACK_SITE_URL = 'http://localhost:3000'
 
 /** Deployment origin for static metadata; development stays on localhost. */
-export const CANONICAL_SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || DEV_FALLBACK_SITE_URL
+export const CANONICAL_SITE_URL = resolveSiteUrl(process.env as SiteUrlEnv)
 
 /** Nur die Variablen, die für die Auflösung gelesen werden. */
 export interface SiteUrlEnv {
   NEXT_PUBLIC_SITE_URL?: string
   SITE_URL?: string
-  /** Netlify: Kontext des Deploys (`production`, `deploy-preview`, `branch-deploy`). */
-  CONTEXT?: string
-  /** Netlify: Haupt-URL der Site. */
-  URL?: string
-  /** Netlify: URL des konkreten Preview- oder Branch-Deploys. */
-  DEPLOY_PRIME_URL?: string
-  VERCEL_ENV?: string
-  VERCEL_PROJECT_PRODUCTION_URL?: string
-  VERCEL_URL?: string
   NODE_ENV?: string
 }
 
@@ -36,7 +27,7 @@ export function normalizeOrigin(raw: string | undefined | null): string | null {
   const scheme = /^([a-z][a-z0-9+.-]*):/i.exec(trimmed)?.[1]?.toLowerCase()
   if (scheme && scheme !== 'http' && scheme !== 'https') return null
 
-  // Plattformen liefern teils nur den Host (`my-site.netlify.app`).
+  // Auch explizit konfigurierte Hostnamen ohne Schema unterstützen.
   const withProtocol = scheme ? trimmed : `https://${trimmed}`
 
   try {
@@ -80,21 +71,19 @@ export function isLocalhostOrigin(origin: string | null): boolean {
 }
 
 /**
- * Reine Auflösung – ohne Zugriff auf `next/headers`, damit testbar.
- *
- * @param headerOrigin Origin aus den Request-Headern, falls vorhanden.
+ * Explizite Deployment-Origin; Request-Header sind keine Konfigurationsquelle.
  */
-export function resolveSiteUrl(env: SiteUrlEnv, headerOrigin: string | null = null): string {
-  const explicit = normalizeOrigin(env.NEXT_PUBLIC_SITE_URL || env.SITE_URL)
+export function resolveSiteUrl(env: SiteUrlEnv, _headerOrigin: string | null = null): string {
+  const explicit = normalizeOrigin(env.NEXT_PUBLIC_SITE_URL) ?? normalizeOrigin(env.SITE_URL)
   if (explicit) return explicit
 
   if (env.NODE_ENV === 'production') throw new Error('NEXT_PUBLIC_SITE_URL must identify this VPS deployment')
-  return headerOrigin || DEV_FALLBACK_SITE_URL
+  return DEV_FALLBACK_SITE_URL
 }
 
 /** Transactional links require a configured origin; request headers cannot supply it. */
 export function resolveOutboundSiteUrl(env: SiteUrlEnv, _headerOrigin: string | null = null): string {
-  const explicit = normalizeOrigin(env.NEXT_PUBLIC_SITE_URL || env.SITE_URL)
+  const explicit = normalizeOrigin(env.NEXT_PUBLIC_SITE_URL) ?? normalizeOrigin(env.SITE_URL)
   if (explicit) return explicit
   if (env.NODE_ENV === 'production') throw new Error('SITE_URL is required for transactional email links')
   return DEV_FALLBACK_SITE_URL
@@ -121,7 +110,7 @@ export function buildSiteUrl(
 }
 
 /**
- * Basis für Redirects nach Auth-Callbacks (Confirm, Stripe-Return).
+ * Basis für Redirects nach Auth-Callbacks.
  *
  * `NEXT_PUBLIC_SITE_URL` gewinnt in Produktion. Kommt die Anfrage von
  * localhost (Entwicklung, Playwright), bleibt der Redirect auf diesem Host –
@@ -135,37 +124,17 @@ export function resolveAuthRedirectOrigin(
   if (env.NODE_ENV !== 'production' && requestOrigin && isLocalhostOrigin(requestOrigin)) {
     return requestOrigin
   }
-  return resolveSiteUrl(env, requestOrigin)
+  return resolveSiteUrl(env)
 }
 
-/**
- * Basis-URL im Request-Kontext (Server Action, Route Handler, Server Component).
- *
- * `next/headers` wird dynamisch importiert, damit die reinen Funktionen dieses
- * Moduls auch im Unit-Test ohne Next-Laufzeit nutzbar bleiben.
- */
-async function readHeaderOrigin(): Promise<string | null> {
-  try {
-    const { headers } = await import('next/headers')
-    const headerList = await headers()
-    return originFromHeaders(
-      headerList.get('x-forwarded-host'),
-      headerList.get('x-forwarded-proto'),
-      headerList.get('host')
-    )
-  } catch {
-    // Außerhalb eines Requests (z. B. Build-Zeit) bleibt es bei den Env-Quellen.
-    return null
-  }
-}
-
+/** Basis-URL aus der Deployment-Konfiguration. */
 export async function getSiteUrl(): Promise<string> {
-  return resolveSiteUrl(process.env as SiteUrlEnv, await readHeaderOrigin())
+  return resolveSiteUrl(process.env as SiteUrlEnv)
 }
 
-/** Wie `getSiteUrl`, aber niemals mit einem localhost-Link in einer E-Mail. */
+/** Explizit konfigurierte E-Mail-Origin; nur Entwicklung erlaubt den Dev-Fallback. */
 export async function getOutboundSiteUrl(): Promise<string> {
-  return resolveOutboundSiteUrl(process.env as SiteUrlEnv, await readHeaderOrigin())
+  return resolveOutboundSiteUrl(process.env as SiteUrlEnv)
 }
 
 /**
