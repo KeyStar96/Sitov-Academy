@@ -358,44 +358,46 @@ Befund: `h.get('x-forwarded-for')?.split(',')[0]` ist client-kontrolliert und fr
 
 ### PHASE 5 — UI/UX, KONTRAST, MEDIEN-HUB & DASHBOARD
 
+Stand 20.09.2026: Phase 5.1–5.6 umgesetzt und automatisiert geprüft. Vollständiger Bericht: [docs/phase-5-verification.md](docs/phase-5-verification.md). Phase 5.7 bleibt außerhalb dieser Freigabe offen.
+
 #### 5.1 Kontrast — zuerst den Test entschärfen, der die Verletzung versteckt
 Befund: `e2e/accessibility.spec.ts` enthält einen expliziten Whitelist-Block, der Kontrastverletzungen ignoriert.
 
-* [x] Diesen Filterblock ersatzlos löschen (R6). In Phase 3 zur ungefilterten Gesamtabnahme umgesetzt; drei Browser-Kontrasttests bestanden. Weitere Phase-5-Kontrastarbeit bleibt offen.
-* [ ] Konkrete Fails beheben: `bg-[var(--accent)] text-white hover:bg-[#FF7A33]` muss korrigiert werden, sodass die Hover-Farbe abdunkelt und mindestens 4,5:1 Kontrast erreicht. Ebenso `text-gray-500` auf hellem Chip zu `text-[var(--foreground)]` ändern.
-* [ ] Alle hartcodierten `#FF5C00`, `#FF7A33`, `#FFF4EC` durch Tokens ersetzen.
-* [ ] Regel: Auf orangem Grund ist Text entweder `#FFFFFF` oder `#0F172A` — niemals ein Grau-, Slate-, Zinc- oder Neutral-Ton. Ergänze ESLint-Regel oder Jest-Test dafür.
-* [ ] `__tests__/appearance-contrast.test.ts` erweitern: `:root` (light) und `html.dark` mit Schwelle 4,5:1 für Text und 3:1 für Borders hinzufügen.
+* [x] Diesen Filterblock ersatzlos löschen (R6). In Phase 3 zur ungefilterten Gesamtabnahme umgesetzt; drei Browser-Kontrasttests bestanden. Phase 5 prüft jetzt alle Axe-Verstöße ungefiltert.
+* [x] Konkrete Fails beheben: `bg-[var(--accent)] text-white hover:bg-[#FF7A33]` muss korrigiert werden, sodass die Hover-Farbe abdunkelt und mindestens 4,5:1 Kontrast erreicht. Ebenso `text-gray-500` auf hellem Chip zu `text-[var(--foreground)]` ändern.
+* [x] Alle hartcodierten `#FF5C00`, `#FF7A33`, `#FFF4EC` durch Tokens ersetzen.
+* [x] Regel: Auf orangem Grund ist Text entweder `#FFFFFF` oder `#0F172A` — niemals ein Grau-, Slate-, Zinc- oder Neutral-Ton. Ergänze ESLint-Regel oder Jest-Test dafür.
+* [x] `__tests__/appearance-contrast.test.ts` erweitern: `:root` (light) und `html.dark` mit Schwelle 4,5:1 für Text und 3:1 für Borders hinzufügen.
 * [x] Neues Token-Paar `--warning` / `--warning-foreground` für die Soft-Error-Badges anlegen. Als Voraussetzung für Phase 3 umgesetzt und in beiden Themes auf Textkontrast ≥4,5:1 getestet.
 
 #### 5.2 Fixierter Aufnahme-Button im Aussprache-Trainer
-* [ ] Auf Viewports < 1024 px wird der Aufnahmebereich als Sticky-Bottom-Bar gerendert (`sticky bottom-0 z-40`), mit Padding für den iOS-Home-Indicator.
-* [ ] Dem Textcontainer entsprechendes `padding-bottom` geben.
-* [ ] Mindest-Touchziel 56 × 56 px.
-* [ ] Playwright auf Pixel-7- und iPhone-14-Viewport: nach `scrollIntoView` des Textendes ist der Button weiterhin `toBeInViewport()` und klickbar.
+* [x] Auf Viewports < 1024 px wird der Aufnahmebereich als Sticky-Bottom-Bar gerendert (`sticky bottom-0 z-40`), mit Padding für den iOS-Home-Indicator.
+* [x] Dem Textcontainer entsprechendes `padding-bottom` geben.
+* [x] Mindest-Touchziel 56 × 56 px.
+* [x] Playwright auf Pixel-7- und iPhone-14-Viewport: nach `scrollIntoView` des Textendes ist der Button weiterhin `toBeInViewport()` und klickbar.
 
 #### 5.3 Lehrer-Dashboard: Medienverwaltung
-* [ ] Neue Route `app/[lang]/admin/content/media/page.tsx` + Komponente `components/admin/MediaFolderCMS.tsx`.
-* [ ] Ordner anlegen, umbenennen, sortieren (`lms_media_folder`), gebunden an Kurs und Level.
-* [ ] Video-Upload (MP4/WebM) und Präsentations-Upload (.pptx, .key, .pdf) im selben Ordner in getrennten Bereichen implementieren.
-* [ ] ⚠️ Upload muss resumable erfolgen (Supabase Storage TUS-Endpoint). Fortschrittsbalken und Retry vorsehen.
-* [ ] Client-seitige Vorprüfung von MIME-Type und Größe einbauen.
+* [x] Neue Route `app/[lang]/admin/content/media/page.tsx` + Komponente `components/admin/MediaFolderCMS.tsx`.
+* [x] Ordner anlegen, umbenennen, sortieren (`lms_media_folder`), gebunden an Kurs und Level.
+* [x] Video-Upload (MP4/WebM) und Präsentations-Upload (.pptx, .key, .pdf) im selben Ordner in getrennten Bereichen implementieren.
+* [x] ⚠️ Upload muss resumable erfolgen (Supabase Storage TUS-Endpoint). Fortschrittsbalken und Retry vorsehen.
+* [x] Client-seitige Vorprüfung von MIME-Type und Größe einbauen.
 
 #### 5.4 Schüler-Ansicht für Medien (Gated Access)
-* [ ] Im Kursbereich alle Ordner des freigeschalteten Levels darstellen; Videos im integrierten Player, Präsentationen als Viewer/Download.
-* [ ] Zugriff ausschließlich über signierte URLs mit kurzer Gültigkeit verwalten.
-* [ ] Gesperrte Level dürfen nicht einmal die Ordnernamen sehen.
+* [x] Im Kursbereich alle Ordner des freigeschalteten Levels darstellen; Videos im integrierten Player, Präsentationen als Viewer/Download.
+* [x] Zugriff ausschließlich über signierte URLs mit kurzer Gültigkeit verwalten.
+* [x] Gesperrte Level dürfen nicht einmal die Ordnernamen sehen.
 
 #### 5.5 Lehrer-Dashboard: Analytics
-* [ ] Leitner-Verteilung Phase 1–7 pro Schüler und Kurs via `components/vocabulary/PhaseDistributionChart.tsx` (wiederverwenden).
-* [ ] Datenquelle: die SQL-Aggregatfunktion aus 4.2.
-* [ ] Lernverlauf-Diagramm über die Zeit implementieren.
-* [ ] Formular/Modal für Kurse und Kursausfälle bereitstellen.
+* [x] Leitner-Verteilung Phase 1–7 pro Schüler und Kurs via `components/vocabulary/PhaseDistributionChart.tsx` (wiederverwenden).
+* [x] Datenquelle: die SQL-Aggregatfunktion aus 4.2.
+* [x] Lernverlauf-Diagramm über die Zeit implementieren.
+* [x] Formular/Modal für Kurse und Kursausfälle bereitstellen.
 
 #### 5.6 Interaktiver Schüler-Kalender
-* [ ] Gebuchte Kurse und eingetragene Ausfälle für laufenden und folgenden Monat anzeigen.
-* [ ] Datenquellen: `course_schedules`, `course_exceptions`, `booking_items`. `components/dashboard/ProfileMonthlyCourses.tsx` wiederverwenden.
-* [ ] Zeitzone explizit `Europe/Berlin`; keine UTC-Verschiebung am Monatsrand.
+* [x] Gebuchte Kurse und eingetragene Ausfälle für laufenden und folgenden Monat anzeigen.
+* [x] Datenquellen: `course_schedules`, `course_exceptions`, `booking_items`. `components/dashboard/ProfileMonthlyCourses.tsx` wiederverwenden.
+* [x] Zeitzone explizit `Europe/Berlin`; keine UTC-Verschiebung am Monatsrand.
 
 #### 5.7 KI-Design-Autonomie & "Subtle Luxury" UI/UX
 * [ ] Vollständige Design-Regie durch die KI als Senior UI/UX Designer unter Verwendung von Tailwind CSS, shadcn/ui, Lucide Icons und Framer Motion.

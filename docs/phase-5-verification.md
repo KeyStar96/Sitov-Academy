@@ -1,6 +1,6 @@
 # Phase 5.1–5.6 — UI, Medien, Analytics und Kalender
 
-Stand: 20.09.2026. Umsetzung und Abnahme laufen. Phase 5.7 gehört nicht zur aktuellen Freigabe.
+Stand: 20.09.2026. Phase 5.1–5.6 umgesetzt und automatisiert geprüft. Phase 5.7 gehört nicht zur aktuellen Freigabe.
 
 ## Bestandsprüfung vor Änderungen
 
@@ -28,21 +28,29 @@ Stand: 20.09.2026. Umsetzung und Abnahme laufen. Phase 5.7 gehört nicht zur akt
 - Analytics: bestehende Phase-4-RPC bleibt erhalten; zusätzliche Überladung für Schüler/Kurs. Leitner-Phasen aus SQL, ein Wort ist erst bei Phase 7 in beiden Richtungen gelernt. Die Zeitreihe zeigt tatsächliche Vokabel-Antwortbelege der letzten 30 Berliner Kalendertage, einschließlich serverseitiger Bewertung. Sie ist ausdrücklich keine erfundene historische Phasenentwicklung. Kurse desselben Niveaus teilen den Lernstand; Kurse ohne Lernniveau erhalten einen erklärten Leerzustand.
 - Kalender: aktueller und folgender Monat, Buchungen, echte Wochentermine, Probeunterricht und Ausfälle mit Gründen; Tagesfilter und Monatswahl. Alle fünf Sprachen, Eigentümerabfragen, paginierte Daten, explizite `Europe/Berlin`-Berechnung einschließlich Sommerzeit und Monatswechsel.
 
-## Bisherige automatisierte Nachweise
+## Automatisierte Nachweise
 
 | Prüfung | Ergebnis |
 |---|---|
 | Vollständige Jest-Reihe mit aktivierter Live-Integration | 111 Suites / 1.356 Tests bestanden; einschließlich sechs Viewer-Regressionen |
+| Zusätzliche Cleanup-Sicherheitsprüfungen | 5/5 bestanden; begrenzte S3-Präfixe, vollständige Validierung vor Löschung, Multipart-Reihenfolge und unveränderliche Löschliste |
 | Vollständige Datenbank-Testreihe auf VPS | 314/314 bestanden, keine übersprungen; `/root/phase5-db-tests.log` |
 | Deployment-/Migrationsrunner-Tests | 34/34 bestanden |
 | TypeScript und lokaler Produktionsbuild | Bestanden |
 | PostgreSQL-15.8-Klon | Migrationen 11/12 wiederholt ausgeführt; inverse Drops in einer zurückgerollten Transaktion geprüft, bestehende No-Arg-RPC erhalten |
 | Browser | 34 eindeutige Fälle bestanden: 18 öffentliche Axe-Prüfungen, 6 Analytics, 6 Kalender, 4 mobile Aufnahmefälle; Desktop Chrome, Pixel 7 und iPhone 14, Light/Dark |
-| Produktiver Browser-TUS-Test | Vorbereitet: 35 MiB, Pause/Reload/HEAD-Fortsetzung, Netzwerkabbruch/Retry, Download-Hash und Gated Access |
+| Produktiver Browser-TUS-Test | 1/1 bestanden: 36.700.348 Bytes, Pause/Reload/HEAD-Fortsetzung ab 6.291.456 Bytes, genau eine Upload-Erzeugung und ein zusätzlicher Netzwerkabbruch mit erfolgreichem Retry |
+| Medien-Viewer und Zugriff | Echtes WebM abgespielt, PDF geladen, PDF/PPTX mit identischen SHA256 heruntergeladen; 60-Sekunden-Signatur, gesperrtes HTML ohne Ordnernamen und API HTTP 403 |
+| Medien-Kontrast | Ungefiltertes Axe auf Lehrer-/Schüleransicht jeweils Light/Dark ohne Verstöße; Screenshots visuell geprüft |
+| Finale Navigation | Lokalisierter Medien-Breadcrumb im aktivierten Release geprüft; ungefiltertes Axe Light/Dark erneut ohne Verstöße |
 
 Der vorhandene Testklon hatte die Phase-4-Migrationen zunächst noch nicht. Vor der endgültigen Analytics-Browserprüfung wurden 08–10 nachgezogen und der isolierte PostgREST-Schemacache aktualisiert. Dies war ein Testinfrastruktur-Befund; Produktion besaß die ursprüngliche Aggregate-RPC bereits.
 
 Der vollständige Browserlauf bestand zunächst mit 32/34 Fällen. In den zwei WebKit-Aufnahmefällen wurde der Mikrofon-Mock vom nativen MediaDevices-Wrapper verworfen. Nach Korrektur des Mocks am Prototyp bestanden alle vier mobilen Aufnahmefälle erneut; Anforderungen und Assertions blieben unverändert. Logs: `/tmp/sitov-phase5/browser-final.log` und `/tmp/sitov-phase5/browser-recording-final.log`.
+
+Der separate produktive Medienlauf verwendet eindeutige Testordner und prüft Anlegen, Umbenennen, Kursbindung und gespeicherte Reihenfolge. Native Selects werden über ihre zugängliche Rolle angesprochen; Interaktionen warten auf die geladene Oberfläche und nach Ordnerwechsel auf deren tatsächlichen Inhalt. Theme-Prüfungen laden das gespeicherte Theme neu, statt mitten in einer CSS-Farbtransition zu messen. Es werden keine Axe-Regeln oder Verstöße ausgefiltert.
+
+SHA256 der 35-MiB-PDF vor und nach Download: `e8eeed0712c5afae81c34764f1fb53249a100a23d4faa64fac03e2a1069cb3c3`. Screenshots: `test-results/phase5-media/phase5-media.live.ts-live--7d3de-s-access-gates-and-contrast/teacher-media-dark.png` und `student-media-dark.png`. Die abschließende Sichtprüfung ergänzte die lokalisierte Bezeichnung der neuen Medienroute in der Schülernavigation.
 
 ## R7–R9 / Backups und Rückweg
 
@@ -51,14 +59,28 @@ Vor der ersten Teständerung auf dem VPS:
 - Backup `/root/backups/sitov-migration-20260920T160858810874Z`.
 - PostgreSQL-SHA256 `3cddcc9c3285da67fea92ff2428f5dc20877f4b18491feb01831effa2fe8e2cd`.
 - Storage-Manifest-SHA256 `0c1745b09505bab01a1b28fb184488ba44d52af9331a1f61f1976bbb1a6331c2`; alle 392 Objekte gesichert.
-- Weitere Runner-Backups unmittelbar vor den Klonmigrationen: `161604397159Z`, `162658425058Z`, `162800009428Z`.
+- Weitere Runner-Backups unmittelbar vor den Klonmigrationen (jeweils `/root/backups/sitov-migration-20260920T<Zeit>`, identisches Storage-Manifest):
+  - `161604397159Z`: PostgreSQL `d3d4f9a007a194d0a537f8df1f489ef385317e4cd4f4808b40f9a714e352896f`.
+  - `162658425058Z`: PostgreSQL `4f665f2740f10da5ec507219eee424aeee556fe3134cb096ae0713426a6f8703`.
+  - `162800009428Z`: PostgreSQL `d53a0484007fa5c29bd17dcd8e1fc2f9eec513ce3f2f64455daba1926fa8bdf3`.
+
+Produktivmigration am 20.09.2026:
+
+- Release `d17a4d20eeec` auf dem VPS gebaut und vorbereitet, anschließend Migrationen 11/12 angewendet und Release aktiviert. App, Mailworker und nginx aktiv; `/api/health` meldet `ready`.
+- Final aktives Release `d9370d06de3b` ergänzt die lokalisierte Medien-Navigation; Produktionsbuild, Aktivierung und Browser-Nachprüfung bestanden. Die anschließenden Commits betreffen ausschließlich Cleanup-Testwerkzeuge und Dokumentation.
+- Unmittelbares Migrationsbackup `/root/backups/sitov-migration-20260920T163939798170Z`: PostgreSQL `9235d22067dae270b7c53bc5f3b82d87a0d0ff3509168b7460f53ec55a3e30e5`, Storage-Manifest unverändert, 392 Objekte.
+- Vor produktiven Medien-Testfixtures: `/root/backups/sitov-migration-20260920T164002887452Z`, PostgreSQL `a590d520bb1157c6270f0cd02efc1bbeae13beb6c204da713a30aadf7c486fb4`, Storage-Manifest unverändert, 392 Objekte.
+- Vor Test-Cleanup: `/root/backups/sitov-migration-20260920T165609708471Z`, PostgreSQL `b0d67c3e90d474dc63b7af9de274d26164315ede11616e3c42f0db5586661d59`, Storage-Manifest `cac6089ae9eaed9e8de73d7af8a11f2d1b954fc7ceaf1351b209764432131ced`, 404 Objekte einschließlich 12 Testmedien.
+- Nach Cleanup: `/root/backups/sitov-migration-20260920T165656904496Z`, PostgreSQL `a743d42d81f9559108dedb285deeba6df1f96855426fc3b7c4913bbcf49b1f11`. Wieder genau 392 Storage-Objekte; Manifest-SHA256 `0c1745b09505bab01a1b28fb184488ba44d52af9331a1f61f1976bbb1a6331c2` ist identisch zum Ausgangsbestand, einschließlich Datei-Hashes.
 
 Neue idempotente DDL: `11_teacher_analytics.sql`, `12_media_upload.sql`; der Runner übernimmt Transaktionen. Beide APIs besitzen Staff-Prüfung, leeren `search_path`, eingeschränkte EXECUTE-Rechte und strukturierte JSONB-Fehler. Keine neuen Wertemengen-Constraints, keine Änderung der Bewertungslogik.
 
 Rollback: vorherige App aktivieren und ausschließlich die beiden additiven Funktionssignaturen wie am Ende der Migrationen dokumentiert entfernen. Bestehende RPCs, Medienmetadaten, Storage-Objekte und Lernstände bleiben erhalten. Die inverse DDL wurde im echten Klon geprüft.
 
-Produktionsbackup, Release-ID sowie finaler Produktionsdump/Typenexport werden nach dem Rollout hier ergänzt. Schema-Ausschlüsse: Supabase-verwaltete `auth`, `storage`, `realtime`, `extensions`, `graphql`, `vault`, `cron`, `net` und Migrationshistorie. Exporter: `deploy/vps/export-phase2-schema.py`.
+`supabase/schema.sql` stammt aus dem produktiven `pg_dump`; `supabase/database.types.ts` wurde über das dortige Postgres-Meta neu generiert. Dump-Delta ausschließlich die beiden neuen Funktionssignaturen und ihre ACLs. Export: `python3 deploy/vps/export-phase2-schema.py --database postgres --output /root/backups/phase5-production-schema`. Schema-Ausschlüsse: Supabase-verwaltete `auth`, `storage`, `realtime`, `extensions`, `graphql`, `vault`, `cron`, `net` und Migrationshistorie.
 
-Ressourcen: keine Änderungen an RAM-/CPU-/Heap-Grenzen, keine neuen Laufzeitdienste. Temporäre Browser-/Auth-/REST-Prüfungen verwenden ausschließlich den eigenen VPS bzw. lokale Browser. Backups bleiben rootgeschützt; Testkonten und Testdateien werden entfernt.
+Aufräumen: drei Testkonten, zugehörige Personen, Testkurs, Ordner, Lernlektionen und alle zwölf veröffentlichten Testmedien entfernt. Zusätzlich wurden zwei verwaiste TUS-S3-Dateien (`.info`/`.part`) ausschließlich unter den erfassten Fixture-Ordnerpräfixen entfernt; danach null Objekte und null offene Multipart-Uploads in diesen Präfixen. Die komplette Löschliste wurde vor der ersten S3-Mutation validiert. Temporäre Auth-/REST-/Gateway-Prozesse, SSH-Tunnel und lokaler Testserver beendet; generierte Zugangsdaten entfernt. Die aufgeräumte Prüf-Datenbank bleibt als vorhandener Testklon erhalten.
+
+Ressourcen: keine Änderungen an RAM-/CPU-/Heap-Grenzen, keine neuen Laufzeitdienste. Temporäre Browser-/Auth-/REST-Prüfungen verwenden ausschließlich den eigenen VPS bzw. lokale Browser. Backups bleiben rootgeschützt; die ausgehende App-Netzwerksperre bleibt aktiv.
 
 Implementierungsreferenz: [Supabase TUS-Dokumentation](https://supabase.com/docs/guides/storage/uploads/resumable-uploads); eigene geprüfte Storage-Installation statt Cloud-Endpunkt.
