@@ -29,7 +29,7 @@ async function sessionContext(browser: Browser, fixture: Fixture, role: keyof Fi
     const url = new URL(route.request().url())
     return allowed.has(url.origin) || ['blob:', 'data:'].includes(url.protocol) ? route.continue() : route.abort()
   })
-  await context.addInitScript(() => { localStorage.setItem('theme', 'light'); localStorage.setItem('academy-contrast', 'standard') })
+  await context.addInitScript(() => { if (!localStorage.getItem('theme')) localStorage.setItem('theme', 'light'); localStorage.setItem('academy-contrast', 'standard') })
   return context
 }
 
@@ -103,7 +103,7 @@ test('live self-hosted media: resumed 35 MiB TUS, viewers, downloads, access gat
   if (!source) throw new Error('Root must provision temporary live media fixtures and explicitly enable this test.')
   const fixture = JSON.parse(await readFile(source, 'utf8')) as Fixture
   if (!fixture.sessions?.teacher?.access_token || !fixture.sessions.student?.access_token || !fixture.sessions.locked?.access_token || !/^[0-9a-f-]{36}$/.test(fixture.token)) throw new Error('Invalid private media fixture file')
-  const origin = new URL(fixture.baseURL).origin, t = mediaCopy('ru'), folderTitle = `Phase5 ${fixture.token}`
+  const origin = new URL(fixture.baseURL).origin, t = mediaCopy('ru'), folderTitle = `Phase5 ${fixture.token} ${Date.now()}`
   const contexts: BrowserContext[] = []
   const directory = join(tmpdir(), 'sitov-phase5-media', fixture.token); await mkdir(directory, { recursive: true, mode: 0o700 })
   const largePath = join(directory, `phase5-large-${fixture.token}.pdf`), smallPdf = join(directory, `phase5-small-${fixture.token}.pdf`), presentation = join(directory, `phase5-deck-${fixture.token}.pptx`)
@@ -112,8 +112,13 @@ test('live self-hosted media: resumed 35 MiB TUS, viewers, downloads, access gat
   const assetPaths: string[] = [], requests: { method: string; offset: number; path: string }[] = []
   let folderId = '', releasePatch: (() => void) | undefined
   try {
+    console.info('[media-live] Authenticating the provided teacher session')
     const teacher = await sessionContext(browser, fixture, 'teacher'); contexts.push(teacher)
     const page = await teacher.newPage()
+    page.setDefaultTimeout(20000); page.setDefaultNavigationTimeout(30000)
+    page.on('pageerror', () => console.info('[media-live] Browser reported a JavaScript error'))
+    page.on('response', response => { if (new URL(response.url()).pathname.endsWith('.js') && !response.ok()) console.info(`[media-live] JavaScript resource returned HTTP ${response.status()}`) })
+    page.on('requestfailed', request => { const url = new URL(request.url()); if (url.pathname.endsWith('.js')) console.info(`[media-live] JavaScript resource request failed: ${url.origin}${url.pathname}`) })
     page.on('request', request => {
       if (!/\/storage\/v1\/upload\/resumable(?:[/?]|$)/.test(request.url())) return
       const headers = request.headers(), method = request.method()
@@ -121,21 +126,33 @@ test('live self-hosted media: resumed 35 MiB TUS, viewers, downloads, access gat
       const object = (headers['upload-metadata'] ?? '').split(',').map(value => value.trim().split(' ')).find(([name]) => name === 'objectName')?.[1]
       if (object) assetPaths.push(Buffer.from(object, 'base64').toString())
     })
-    await page.goto(`${origin}/ru/admin/content/media`)
+    await page.goto(`${origin}/ru/admin/content/media`, { waitUntil: 'domcontentloaded', timeout: 30000 })
+    console.info('[media-live] Teacher page DOM loaded')
+    await page.waitForLoadState('load', { timeout: 30000 })
     await expect(page.getByRole('heading', { name: t.title, exact: true })).toBeVisible()
-    await page.getByLabel(t.name, { exact: true }).fill(folderTitle)
-    await page.getByLabel(t.level, { exact: true }).selectOption('A1.1')
-    await page.getByLabel(t.course, { exact: true }).selectOption(fixture.courseId)
+    await expect(page.getByRole('heading', { name: folderTitle, exact: true })).not.toBeVisible()
+    const previousFolderId = await page.getByRole('combobox', { name: t.selectFolder, exact: true }).inputValue()
+    await page.getByRole('combobox', { name: t.level, exact: true }).selectOption('A1.1')
+    await page.getByRole('combobox', { name: t.course, exact: true }).selectOption(fixture.courseId)
     await page.getByLabel(t.order, { exact: true }).fill('7')
+    await page.getByLabel(t.name, { exact: true }).fill(folderTitle)
+    await expect(page.getByRole('combobox', { name: t.course, exact: true })).toHaveValue(fixture.courseId)
+    await expect(page.getByLabel(t.name, { exact: true })).toHaveValue(folderTitle)
+    await expect(page.getByLabel(t.order, { exact: true })).toHaveValue('7')
     await page.getByRole('button', { name: t.save, exact: true }).click()
+    await expect(page.getByRole('status').filter({ hasText: t.saved })).toBeVisible()
+    await expect(page.getByRole('combobox', { name: t.selectFolder, exact: true })).not.toHaveValue(previousFolderId)
     await expect(page.getByRole('heading', { name: folderTitle, exact: true })).toBeVisible()
-    folderId = await page.getByLabel(t.selectFolder, { exact: true }).inputValue()
+    console.info('[media-live] Folder created; checking rename and ordering')
+    folderId = await page.getByRole('combobox', { name: t.selectFolder, exact: true }).inputValue()
     await page.getByRole('button', { name: t.edit, exact: true }).click()
     await page.getByLabel(t.name, { exact: true }).fill(`${folderTitle} edited`)
     await page.getByLabel(t.order, { exact: true }).fill('9')
     await page.getByRole('button', { name: t.save, exact: true }).click()
     await expect(page.getByRole('heading', { name: `${folderTitle} edited`, exact: true })).toBeVisible()
     await page.getByRole('button', { name: t.edit, exact: true }).click()
+    await expect(page.getByLabel(t.order, { exact: true })).toHaveValue('9')
+    await expect(page.getByRole('combobox', { name: t.course, exact: true })).toHaveValue(fixture.courseId)
     await page.getByLabel(t.name, { exact: true }).fill(folderTitle)
     await page.getByRole('button', { name: t.save, exact: true }).click()
     await expect(page.getByRole('heading', { name: folderTitle, exact: true })).toBeVisible()
@@ -154,27 +171,34 @@ test('live self-hosted media: resumed 35 MiB TUS, viewers, downloads, access gat
     })
     await page.getByLabel(t.choose, { exact: true }).setInputFiles(largePath)
     await page.getByRole('button', { name: t.start, exact: true }).click()
+    console.info('[media-live] Upload started; waiting for the first persisted TUS chunk')
     await expect.poll(() => hold, { timeout: 60000, message: 'Storage must accept the first chunk and reach a resumable PATCH' }).toBe(false)
     const pausedOffset = requests.find(request => request.method === 'PATCH')!.offset
     expect(pausedOffset).toBeGreaterThan(0)
+    console.info(`[media-live] First TUS chunk persisted (${pausedOffset} bytes); pausing and reloading`)
     await page.getByRole('button', { name: t.pause, exact: true }).click()
     await expect(page.getByRole('status').filter({ hasText: t.paused })).toBeVisible()
     releasePatch(); releasePatch = undefined
-    await page.reload()
-    await page.getByLabel(t.selectFolder, { exact: true }).selectOption(folderId)
+    await page.reload({ waitUntil: 'domcontentloaded', timeout: 30000 })
+    await page.waitForLoadState('load', { timeout: 30000 })
+    await page.getByRole('combobox', { name: t.selectFolder, exact: true }).selectOption(folderId)
+    await expect(page.getByRole('heading', { name: folderTitle, exact: true })).toBeVisible()
     await page.getByLabel(t.choose, { exact: true }).setInputFiles(largePath)
+    await expect(page.getByRole('button', { name: t.start, exact: true })).toBeEnabled()
     interruptResumedPatch = true
     const resumed = page.waitForResponse(response => response.request().method() === 'HEAD' && /\/storage\/v1\/upload\/resumable\//.test(response.url()))
     await page.getByRole('button', { name: t.start, exact: true }).click()
     const resumedResponse = await resumed
     expect(resumedResponse.status()).toBe(200)
     expect(Number(resumedResponse.headers()['upload-offset'])).toBeGreaterThan(0)
+    console.info(`[media-live] TUS resumed after reload (${Number(resumedResponse.headers()['upload-offset'])} bytes); testing transient network failure and completion`)
     await expect(page.getByRole('heading', { name: basename(largePath), exact: true })).toBeVisible({ timeout: 120000 })
     const largeRequests = [...requests]
     expect(transientFailures).toBe(1)
     expect(largeRequests.filter(request => request.method === 'POST')).toHaveLength(1)
     const largeRemotePath = assetPaths[0]
     expect(largeRemotePath.startsWith(`A1.1/${folderId}/presentations/`)).toBe(true)
+    console.info('[media-live] Large resumed upload published; uploading real WebM, small PDF and PPTX')
 
     const videoPath = join(directory, `phase5-video-${fixture.token}.webm`)
     await writeFile(videoPath, await canvasVideo(page), { mode: 0o600 })
@@ -186,10 +210,13 @@ test('live self-hosted media: resumed 35 MiB TUS, viewers, downloads, access gat
     }
 
     const student = await sessionContext(browser, fixture, 'student'); contexts.push(student)
+    console.info('[media-live] All uploads published; checking student viewers and downloads')
     const studentPage = await student.newPage()
-    await studentPage.goto(`${origin}/ru/dashboard/level/A1.1/media`)
+    await studentPage.goto(`${origin}/ru/dashboard/level/A1.1/media`, { waitUntil: 'domcontentloaded', timeout: 30000 })
+    await studentPage.waitForLoadState('load', { timeout: 30000 })
     await expect(studentPage.getByRole('heading', { name: folderTitle, exact: true })).toBeVisible()
-    const videoArticle = studentPage.getByRole('article').filter({ has: studentPage.getByRole('heading', { name: basename(videoPath, '.webm'), exact: true }) })
+    const studentFolder = studentPage.locator('section').filter({ has: studentPage.getByRole('heading', { name: folderTitle, exact: true }) })
+    const videoArticle = studentFolder.getByRole('article').filter({ has: studentPage.getByRole('heading', { name: basename(videoPath, '.webm'), exact: true }) })
     await videoArticle.getByRole('button', { name: t.open, exact: true }).click()
     const video = videoArticle.locator('video')
     await expect(video).toBeVisible()
@@ -197,13 +224,13 @@ test('live self-hosted media: resumed 35 MiB TUS, viewers, downloads, access gat
     await video.evaluate((element: HTMLVideoElement) => element.play())
     await expect.poll(() => video.evaluate((element: HTMLVideoElement) => element.currentTime)).toBeGreaterThan(0)
     await videoArticle.getByRole('button', { name: t.close, exact: true }).click()
-    const pdfArticle = studentPage.getByRole('article').filter({ has: studentPage.getByRole('heading', { name: basename(smallPdf), exact: true }) })
+    const pdfArticle = studentFolder.getByRole('article').filter({ has: studentPage.getByRole('heading', { name: basename(smallPdf), exact: true }) })
     const pdfLoaded = studentPage.waitForResponse(response => response.request().method() === 'GET' && new URL(response.url()).pathname.endsWith('.pdf'))
     await pdfArticle.getByRole('button', { name: t.open, exact: true }).click()
     await expect(pdfArticle.locator('iframe')).toBeVisible()
     expect([200, 206].includes((await pdfLoaded).status())).toBe(true)
     await pdfArticle.getByRole('button', { name: t.close, exact: true }).click()
-    const largeArticle = studentPage.getByRole('article').filter({ has: studentPage.getByRole('heading', { name: basename(largePath), exact: true }) })
+    const largeArticle = studentFolder.getByRole('article').filter({ has: studentPage.getByRole('heading', { name: basename(largePath), exact: true }) })
     const downloadEvent = studentPage.waitForEvent('download')
     await largeArticle.getByRole('button', { name: t.download, exact: true }).click()
     const download = await downloadEvent, downloadedPath = join(directory, 'downloaded-large.pdf')
@@ -223,7 +250,7 @@ test('live self-hosted media: resumed 35 MiB TUS, viewers, downloads, access gat
     const remainingSeconds = signedClaims.exp - Math.floor(Date.now() / 1000)
     expect(remainingSeconds).toBeGreaterThan(0)
     expect(remainingSeconds).toBeLessThanOrEqual(61)
-    const deckArticle = studentPage.getByRole('article').filter({ has: studentPage.getByRole('heading', { name: basename(presentation), exact: true }) })
+    const deckArticle = studentFolder.getByRole('article').filter({ has: studentPage.getByRole('heading', { name: basename(presentation), exact: true }) })
     const deckDownload = studentPage.waitForEvent('download')
     await deckArticle.getByRole('button', { name: t.download, exact: true }).click()
     const downloadedDeck = join(directory, 'downloaded-deck.pptx')
@@ -231,22 +258,34 @@ test('live self-hosted media: resumed 35 MiB TUS, viewers, downloads, access gat
     expect(createHash('sha256').update(await readFile(downloadedDeck)).digest('hex')).toBe(createHash('sha256').update(await readFile(presentation)).digest('hex'))
 
     const locked = await sessionContext(browser, fixture, 'locked'); contexts.push(locked)
+    console.info('[media-live] Download hashes and signed expiry verified; checking locked access and both themes')
     const lockedPage = await locked.newPage()
-    await lockedPage.goto(`${origin}/ru/dashboard/level/A1.1/media`)
+    await lockedPage.goto(`${origin}/ru/dashboard/level/A1.1/media`, { waitUntil: 'domcontentloaded', timeout: 30000 })
+    await lockedPage.waitForLoadState('load', { timeout: 30000 })
     expect((await lockedPage.content()).includes(folderTitle)).toBe(false)
     expect((await locked.request.post(`${origin}/api/course-assets`, { data: { path: largeRemotePath } })).status()).toBe(403)
     for (const theme of ['light', 'dark']) {
       for (const target of [page, studentPage]) {
-        await target.evaluate(value => { document.documentElement.classList.toggle('dark', value === 'dark'); document.documentElement.style.colorScheme = value; localStorage.setItem('theme', value) }, theme)
+        await target.evaluate(value => { localStorage.setItem('theme', value) }, theme)
+        await target.reload({ waitUntil: 'load', timeout: 30000 })
+        if (target === page) {
+          await target.getByRole('combobox', { name: t.selectFolder, exact: true }).selectOption(folderId)
+          await expect(target.getByRole('heading', { name: folderTitle, exact: true })).toBeVisible()
+        }
+        if (theme === 'dark') await expect(target.locator('html')).toHaveClass(/dark/)
+        else await expect(target.locator('html')).not.toHaveClass(/dark/)
         expect((await new AxeBuilder({ page: target }).analyze()).violations).toEqual([])
+        console.info(`[media-live] Unfiltered axe passed: ${target === page ? 'teacher' : 'student'} ${theme}`)
       }
     }
-    await testInfo.attach('media-verification', { contentType: 'application/json', body: Buffer.from(JSON.stringify({
+    const evidencePath = testInfo.outputPath('media-verification.json')
+    await writeFile(evidencePath, JSON.stringify({
       origin, folderId, fixtureToken: fixture.token, assets: assetPaths, largeBytes: largeBytes.length,
       sha256: expectedHash, pausedOffset, resumedOffset: Number(resumedResponse.headers()['upload-offset']),
       tusCreationsForLargeFile: largeRequests.filter(request => request.method === 'POST').length, transientFailures,
       signedExpiresIn: signedBody.expiresIn, lockedStatus: 403, axeThemes: ['light', 'dark'],
-    }, null, 2)) })
+    }, null, 2), { mode: 0o600 })
+    await testInfo.attach('media-verification', { contentType: 'application/json', path: evidencePath })
     await page.screenshot({ path: testInfo.outputPath('teacher-media-dark.png') })
     await studentPage.screenshot({ path: testInfo.outputPath('student-media-dark.png') })
   } finally {

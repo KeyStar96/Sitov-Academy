@@ -3,6 +3,7 @@
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import { ChevronRight, ArrowLeft } from 'lucide-react'
+import { mediaCopy } from '@/lib/media-i18n'
 import {
   createDashboardTranslator,
   DASHBOARD_ROUTE_KEYS,
@@ -39,7 +40,7 @@ export default function DashboardHeader({
 
     const decodedSegment = decodeURIComponent(segment)
     const routeKey = DASHBOARD_ROUTE_KEYS[segment as DashboardRouteSegment]
-    const displayName = routeKey ? t(routeKey) : decodedSegment
+    const displayName = segment === 'media' ? mediaCopy(lang).title : routeKey ? t(routeKey) : decodedSegment
 
     breadcrumbs.push({
       name: displayName,

@@ -1963,6 +1963,68 @@ $$;
 
 
 --
+-- Name: complete_media_upload(jsonb); Type: FUNCTION; Schema: public; Owner: -
+--
+
+CREATE FUNCTION public.complete_media_upload(p_payload jsonb) RETURNS jsonb
+    LANGUAGE plpgsql SECURITY DEFINER
+    SET search_path TO ''
+    AS $$
+DECLARE asset uuid; folder uuid; path text; mime text; size bigint; title text; filename text;
+  target public.lms_media_folder; old_video public.learning_videos; old_presentation public.lms_presentation_asset;
+BEGIN
+ IF NOT business_private.is_staff() THEN
+  RETURN jsonb_build_object('error','not_authorized','message','Staff access required.');
+ END IF;
+ asset:=(p_payload->>'asset_id')::uuid; folder:=(p_payload->>'folder_id')::uuid;
+ path:=p_payload->>'storage_path'; mime:=p_payload->>'mime_type'; size:=(p_payload->>'file_size')::bigint;
+ title:=btrim(p_payload->>'title'); filename:=btrim(p_payload->>'file_name');
+ IF asset IS NULL OR folder IS NULL OR path IS NULL OR mime IS NULL OR size IS NULL OR size<=0 OR size>536870912
+ OR title IS NULL OR length(title) NOT BETWEEN 1 AND 180 OR filename IS NULL OR length(filename) NOT BETWEEN 1 AND 255 THEN
+  RETURN jsonb_build_object('error','invalid_input','message','Valid file metadata is required.');
+ END IF;
+ PERFORM pg_advisory_xact_lock(hashtextextended('media-asset:'||asset::text,0));
+ SELECT * INTO target FROM public.lms_media_folder WHERE folder_id=folder FOR SHARE;
+ IF NOT FOUND THEN RETURN jsonb_build_object('error','not_found','message','Folder is unavailable.'); END IF;
+ IF NOT EXISTS(SELECT 1 FROM storage.objects WHERE bucket_id='course-assets' AND name=path
+   AND (metadata->>'size')::bigint=size AND metadata->>'mimetype'=mime) THEN
+  RETURN jsonb_build_object('error','invalid_input','message','The completed upload does not match its metadata.');
+ END IF;
+ -- Exact filename, MIME, path, object ID and size are also verified by the existing asset trigger.
+ IF mime IN('video/mp4','video/webm') THEN
+  SELECT * INTO old_video FROM public.learning_videos WHERE id=asset;
+  IF FOUND THEN
+   IF old_video.folder_id IS DISTINCT FROM folder OR old_video.storage_path IS DISTINCT FROM path OR old_video.file_size IS DISTINCT FROM size THEN
+    RETURN jsonb_build_object('error','conflict','message','File identifier already exists.');
+   END IF;
+  ELSE
+   INSERT INTO public.learning_units(id,level,trainer,label,is_active) VALUES(asset,target.level,'videos',title,true);
+   INSERT INTO public.learning_videos(id,unit_id,folder_id,title,storage_path,file_size)
+    VALUES(asset,asset,folder,title,path,size);
+  END IF;
+ ELSIF mime IN('application/pdf','application/vnd.openxmlformats-officedocument.presentationml.presentation','application/vnd.apple.keynote') THEN
+  SELECT * INTO old_presentation FROM public.lms_presentation_asset WHERE asset_id=asset;
+  IF FOUND THEN
+   IF old_presentation.folder_id IS DISTINCT FROM folder OR old_presentation.storage_path IS DISTINCT FROM path
+     OR old_presentation.file_size IS DISTINCT FROM size OR old_presentation.mime_type IS DISTINCT FROM mime THEN
+    RETURN jsonb_build_object('error','conflict','message','File identifier already exists.');
+   END IF;
+  ELSE
+   INSERT INTO public.lms_presentation_asset(asset_id,folder_id,file_name,storage_path,mime_type,file_size)
+    VALUES(asset,folder,filename,path,mime,size);
+  END IF;
+ ELSE RETURN jsonb_build_object('error','invalid_input','message','Unsupported media format.');
+ END IF;
+ RETURN jsonb_build_object('asset_id',asset);
+EXCEPTION
+ WHEN invalid_text_representation OR check_violation OR not_null_violation OR foreign_key_violation THEN
+  RETURN jsonb_build_object('error','invalid_input','message','The completed upload does not match its metadata.');
+ WHEN unique_violation THEN RETURN jsonb_build_object('error','conflict','message','File identifier already exists.');
+ WHEN OTHERS THEN RETURN jsonb_build_object('error','request_failed','message','The upload could not be published.');
+END $$;
+
+
+--
 -- Name: confirm_business_booking(uuid); Type: FUNCTION; Schema: public; Owner: -
 --
 
@@ -2441,6 +2503,87 @@ EXCEPTION WHEN OTHERS THEN
         'message', 'Progress could not be loaded.', 'sqlstate', SQLSTATE);
 END;
 $$;
+
+
+--
+-- Name: get_all_students_progress_data(uuid, uuid); Type: FUNCTION; Schema: public; Owner: -
+--
+
+CREATE FUNCTION public.get_all_students_progress_data(p_student_id uuid, p_course_id uuid) RETURNS jsonb
+    LANGUAGE plpgsql SECURITY DEFINER
+    SET search_path TO ''
+    AS $$
+DECLARE
+ selected_level text;
+ percentages jsonb;
+ distribution jsonb;
+ history jsonb;
+ today date := (now() AT TIME ZONE 'Europe/Berlin')::date;
+BEGIN
+ IF NOT business_private.is_staff() THEN
+  RETURN jsonb_build_object('error','not_authorized','message','Staff access required.');
+ END IF;
+ IF p_student_id IS NULL THEN
+  RETURN jsonb_build_object('error','invalid_input','message','A student is required.');
+ END IF;
+ IF NOT EXISTS(SELECT 1 FROM public.profiles WHERE id=p_student_id AND role='student') THEN
+  RETURN jsonb_build_object('error','not_found','message','Student not found.');
+ END IF;
+ IF p_course_id IS NOT NULL THEN
+  SELECT level INTO selected_level FROM public.courses WHERE id=p_course_id;
+  IF NOT FOUND THEN
+   RETURN jsonb_build_object('error','not_found','message','Course not found.');
+  END IF;
+ END IF;
+ percentages := public.get_all_students_progress_data();
+ IF percentages ? 'error' THEN RETURN percentages; END IF;
+
+ -- A word is learned only when both directions reached box 7. Incomplete
+ -- direction pairs retain their lowest active phase, as in the student UI.
+ WITH cards AS (
+  SELECT c.id, CASE WHEN count(p.id)=0 THEN NULL
+   WHEN count(p.id)=2 AND bool_and(p.box_number=7) THEN 7
+   ELSE least(6,min(p.box_number)) END AS phase
+  FROM public.learning_vocabulary_cards c
+  JOIN public.learning_units u ON u.id=c.unit_id
+  LEFT JOIN public.vocabulary_direction_progress p ON p.card_id=c.id AND p.auth_user_id=p_student_id
+  WHERE p_course_id IS NULL OR u.level=selected_level
+  GROUP BY c.id
+ ), buckets AS (
+  SELECT phase_number, count(c.id) AS count
+  FROM generate_series(1,7) phase_number LEFT JOIN cards c ON c.phase=phase_number
+  GROUP BY phase_number
+ ) SELECT jsonb_build_object(
+  'buckets',(SELECT jsonb_agg(jsonb_build_object('key',CASE WHEN phase_number=7 THEN to_jsonb('learned'::text) ELSE to_jsonb(phase_number) END,'count',count) ORDER BY phase_number) FROM buckets),
+  'totalCards',count(*),'totalInBox',count(phase),
+  'overallPercent',CASE WHEN count(*)=0 THEN 0 ELSE round(coalesce(sum(phase),0)::numeric/(count(*)*7)*100) END
+ ) INTO distribution FROM cards;
+
+ -- Receipts are actual persisted answer events; never infer old phases from
+ -- updated_at or generate synthetic progress snapshots. Grade from response,
+ -- not the obsolete, client-supplied is_correct receipt field (R5).
+ WITH days AS (SELECT today-29+n AS day FROM generate_series(0,29) n),
+ events AS (
+  SELECT (r.created_at AT TIME ZONE 'Europe/Berlin')::date AS day,
+   count(*) AS answers, count(*) FILTER(WHERE r.response->>'isCorrect'='true') AS correct
+  FROM vocabulary_private.answer_receipts r
+  JOIN public.vocabulary_direction_progress p ON p.id=r.progress_id AND p.auth_user_id=r.auth_user_id
+  JOIN public.learning_vocabulary_cards c ON c.id=p.card_id
+  JOIN public.learning_units u ON u.id=c.unit_id
+  WHERE r.auth_user_id=p_student_id
+   AND r.created_at>=((today-29)::timestamp AT TIME ZONE 'Europe/Berlin')
+   AND r.created_at<((today+1)::timestamp AT TIME ZONE 'Europe/Berlin')
+   AND (p_course_id IS NULL OR u.level=selected_level)
+  GROUP BY (r.created_at AT TIME ZONE 'Europe/Berlin')::date
+ ) SELECT jsonb_agg(jsonb_build_object('date',d.day,'answers',coalesce(e.answers,0),'correct',coalesce(e.correct,0)) ORDER BY d.day)
+ INTO history FROM days d LEFT JOIN events e USING(day);
+
+ RETURN jsonb_build_object('studentId',p_student_id,'courseId',p_course_id,'level',selected_level,
+  'completionByLevel',coalesce(percentages->p_student_id::text,'{}'::jsonb),
+  'distribution',distribution,'history',history,'timezone','Europe/Berlin');
+EXCEPTION WHEN OTHERS THEN
+ RETURN jsonb_build_object('error','request_failed','message','Learning analytics could not be loaded.','sqlstate',SQLSTATE);
+END $$;
 
 
 --
@@ -7415,6 +7558,14 @@ GRANT ALL ON FUNCTION public.complete_mail_job(p_id uuid, p_lease_token uuid, p_
 
 
 --
+-- Name: FUNCTION complete_media_upload(p_payload jsonb); Type: ACL; Schema: public; Owner: -
+--
+
+REVOKE ALL ON FUNCTION public.complete_media_upload(p_payload jsonb) FROM PUBLIC;
+GRANT ALL ON FUNCTION public.complete_media_upload(p_payload jsonb) TO authenticated;
+
+
+--
 -- Name: FUNCTION confirm_business_booking(p_id uuid); Type: ACL; Schema: public; Owner: -
 --
 
@@ -7486,6 +7637,14 @@ GRANT ALL ON FUNCTION public.finish_learning_reset(p_token uuid) TO service_role
 
 REVOKE ALL ON FUNCTION public.get_all_students_progress_data() FROM PUBLIC;
 GRANT ALL ON FUNCTION public.get_all_students_progress_data() TO authenticated;
+
+
+--
+-- Name: FUNCTION get_all_students_progress_data(p_student_id uuid, p_course_id uuid); Type: ACL; Schema: public; Owner: -
+--
+
+REVOKE ALL ON FUNCTION public.get_all_students_progress_data(p_student_id uuid, p_course_id uuid) FROM PUBLIC;
+GRANT ALL ON FUNCTION public.get_all_students_progress_data(p_student_id uuid, p_course_id uuid) TO authenticated;
 
 
 --
