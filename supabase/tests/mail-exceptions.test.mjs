@@ -14,8 +14,8 @@ await test('Phase 6 exception snapshots and independent transactional notices', 
   await apply(db,['14_mail_exceptions.sql'])
   await db.query("INSERT INTO courses(id,slug,title,type,category,level,audience_code,unit_price) VALUES($1,'mail-a1','Deutsch <A1>','presence','german','A1.1','A1.1',5),($2,'mail-other','Other','presence','german','A1.1','A1.1',5)",[course,unrelated])
   for(const cid of [course,unrelated]) await db.query("INSERT INTO course_schedules(course_id,weekday,start_time,end_time) VALUES($1,1,'09:00','10:00')",[cid])
-  const start=(await db.query("SELECT (d+((8-extract(isodow FROM d)::int)%7))::text day FROM (SELECT (date_trunc('month',now())+interval '1 month')::date d) x")).rows[0].day
-  const date=async n=>(await db.query('SELECT ($1::date+$2::integer)::text day',[start,n])).rows[0].day
+  const start=(await db.query("SELECT (d+((8-extract(isodow FROM d)::int)%7))::text AS value FROM (SELECT (date_trunc('month',now())+interval '1 month')::date d) x")).rows[0].value
+  const date=async n=>(await db.query('SELECT ($1::date+$2::integer)::text AS value',[start,n])).rows[0].value
   const known=await date(7), global=await date(14), late=await date(21)
   for(const [cid,offset,reason] of [[course,7,'Ferien'],[null,14,'Feiertag'],[unrelated,21,'Fremder Kurs'],[course,1,'Kein Unterrichtstag'],[course,35,'Anderer Monat']])
    await db.query('INSERT INTO course_exceptions(course_id,date,reason) VALUES($1,$2,$3)',[cid,await date(offset),reason])
