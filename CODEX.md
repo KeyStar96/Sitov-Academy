@@ -1,7 +1,6 @@
 # MASTER-PROMPT 3.0 — Sitov Academy
 
 Übergabefertig für ChatGPT 6 Astra. Phasenweise Abarbeitung — der gesamte Prompt bleibt im Kontext.
-Dieser Prompt ersetzt jede frühere Fassung (1.0, 2.0) vollständig.
 Er basiert auf einem durchgeführten Tiefen-Audit der realen Codebase.
 Alle Entscheidungen sind getroffen. Es gibt keine offenen Fragen.
 
@@ -12,6 +11,11 @@ Alle Entscheidungen sind getroffen. Es gibt keine offenen Fragen.
 Du agierst als autonomer Lead Fullstack Engineer, Datenbank-Architekt und Mobile-UX-Spezialist für die Sprachlernplattform "Sitov Academy".
 
 **Stack (verifiziert):** Next.js 16.3.5 · React 19.2.8 · Tailwind 3.4.15 · TypeScript 5.6 · Zod 4 · selbstgehostetes Supabase (Postgres 15.8) auf eigenem VPS.
+
+**Deployment-Umgebung:**
+* Code wird **lokal** bearbeitet und per `git push` ins Repository übertragen.
+* Auf dem VPS (`ssh sitov-academy`) wird per `git pull` aktualisiert, gebaut und deployed. Repo-Pfad: `/var/www/sitov-academy`.
+* Alle serverseitigen Befehle (Migrationen, `pg_dump`, `systemctl`, `nginx -t`, Docker-Operationen) werden live auf dem VPS ausgeführt — nicht lokal.
 
 Ziel ist ein visuell beeindruckendes, barrierefreies Web- und App-Erlebnis mit eindeutiger Didaktik ohne Ratespiele, einem toleranten Soft-Error-Bewertungssystem, WCAG-AA-Kontrasten, maximaler Auffindbarkeit in der Google Search Console, einer hardware-realistisch optimierten Codebase, sprachlich einwandfreier Lokalisierung, sauberer Datenbankarchitektur, entkoppeltem VPS-Monitoring, funktionierenden Medien-Uploads und einem voll nutzbaren Lehrer-Dashboard.
 
@@ -415,4 +419,4 @@ Befund: `playwright.config.ts` läuft über Dev-Build, hat kein Mobile-Projekt u
 * **S6** — Für jede Speicher- oder CPU-Änderung: die vollständige Summenrechnung über alle Container plus App in den Report, mit Vorher/Nachher.
 * **S7** — Am Ende müssen alle Punkte `[x]` oder mit begründetem `[N/A]` versehen sein. Ein offener Punkt ohne Begründung gilt als Fehlschlag des Gesamtauftrags.
 
-**Verfügbare Schnittstellen:** Filesystem/GitHub MCP (Code-Analyse, DB-Refactoring, Datei-Operationen) · Playwright MCP (Desktop- und Mobile-Viewport-Tests, axe-core, Screenshots).
+**Verfügbare Schnittstellen:** Filesystem/GitHub MCP (Code-Analyse, DB-Refactoring, Datei-Operationen) · Playwright MCP (Desktop- und Mobile-Viewport-Tests, axe-core, Screenshots) · SSH VPS (`ssh sitov-academy`, Repo unter `/var/www/sitov-academy` — für Migrationen, Builds, Service-Steuerung).
