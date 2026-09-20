@@ -36,7 +36,7 @@ Aufgaben aus Phase 3 gehören nicht zu dieser Freigabe.
 | Quota-Race auf echtem PostgreSQL | Zwei konkurrierende Upload-Transaktionen; Advisory-Lock-Wartezustand beobachtet. Exakt einer erfolgreich, zweiter `PT413`; Endstand exakt 21.474.836.480 Bytes. Eigene Testdaten entfernt. |
 | Mailworker | 7/7 Tests bestanden, darunter fehlgeschlagene JSONB-Bestätigungen. |
 | Rollout-/Backupsteuerung | 7 Release- und 5 Migrationsrunner-Tests bestanden; unklarer Commitstatus aktiviert niemals automatisch die alte App. |
-| Storage-Konfiguration | 6 Tests bestanden; nur die beiden Dateigrößenwerte werden geändert, RAM-/CPU-Konfiguration bleibt bytegleich. |
+| Storage-Konfiguration | 6 Tests bestanden; zwei Dateigrößenwerte angepasst und vorhandenes Live-Swap-Limit in Compose persistiert. RAM-/CPU-Konfiguration bleibt bytegleich. |
 | Signierte URLs | 18 gezielte Tests für HTTP-Zugriff und öffentliche Storage-URL-Abbildung bestanden. |
 | Produktiver Build und Betrieb | VPS-Build bestanden; App, Mailworker und nginx aktiv. `/api/health`: `ready`; produktiver Katalogcheck bestanden. |
 | Produktiver Standardupload | 35.651.584 Bytes durch nginx und Storage erfolgreich; damit über der bisherigen 32-MiB-Grenze. |
@@ -96,6 +96,12 @@ Vor Aktivierung der App wurde der vorherige Wert 402.653.184 Bytes wiederhergest
 (RAM ebenfalls 384 MiB, damit weiterhin kein zusätzlicher Swap). Der Host hat
 keinen Swap. Alle laufenden Ressourcenlimits stimmen abschließend mit dem
 gesicherten Ausgangszustand überein.
+Das vorhandene Swap-Limit ist inzwischen zusätzlich in Compose festgeschrieben;
+erneuter Patch-Dryrun meldet `changed: false`, `docker compose config --quiet`
+ist erfolgreich. Dadurch bleibt dieser Wert auch bei künftigen Storage-Neustarts
+erhalten. Konfigurationsbackup davor:
+`/root/backups/sitov-storage-upload-limit/20260920T120713436327Z-docker-compose.yml`,
+SHA256 `0f1793879fa58f78f8d4c6ff6650e1173a8f10709cb39e1f6416ff4623cec247`.
 
 RPC-Grenze: Fehler vor Funktionseintritt (z. B. ungültig kodierte UUID,
 fehlendes EXECUTE-Recht oder Datenbankausfall) bleiben PostgREST-/Transportfehler.
