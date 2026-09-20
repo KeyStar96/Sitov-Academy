@@ -362,6 +362,8 @@ Befund: `h.get('x-forwarded-for')?.split(',')[0]` ist client-kontrolliert und fr
 
 Stand 20.09.2026: Phase 5.1–5.6 umgesetzt und automatisiert geprüft. Vollständiger Bericht: [docs/phase-5-verification.md](docs/phase-5-verification.md). Phase 5.7 bleibt außerhalb dieser Freigabe offen.
 
+* [x] Nachtrag 20.09.2026: Lernraum-/Admin-Einstieg verwendet bei bestehenden Sitzungen die gespeicherte Interface-Sprache, einschließlich Rückkehr von der Homepage. 84 gezielte Tests und VPS-Build bestanden; [Nachweis](docs/learning-language-fix.md).
+
 #### 5.1 Kontrast — zuerst den Test entschärfen, der die Verletzung versteckt
 Befund: `e2e/accessibility.spec.ts` enthält einen expliziten Whitelist-Block, der Kontrastverletzungen ignoriert.
 
