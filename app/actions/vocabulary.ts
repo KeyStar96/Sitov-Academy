@@ -5,6 +5,7 @@ import { z } from 'zod'
 import { SOFT_ERROR_REASONS } from '@/lib/answer-grading'
 import { getRpcError } from '@/lib/rpc-errors'
 import { createClient } from '@/utils/supabase/server'
+import { requestSession } from '@/lib/request-session'
 import { hasTrainerAccess, isAccessLevel, getAllowedLessons } from '@/lib/access/levels'
 import { LEITNER_LEARNED_BOX, normalizeBox, pickWeightedRandomOrder, selectionWeightForBox, type LeitnerPhase } from '@/lib/leitner'
 import { scheduleVocabularyCards } from '@/lib/vocabulary-scheduler'
@@ -32,8 +33,7 @@ const reviewResultSchema = z.object({
 })
 
 async function loadLearner(expectedLearnerId?: string) {
-  const supabase = await createClient()
-  const { data: { user } } = await supabase.auth.getUser()
+  const { supabase, user } = await requestSession()
   if (!user || (expectedLearnerId !== undefined &&
     (!z.string().uuid().safeParse(expectedLearnerId).success || user.id !== expectedLearnerId))) return null
   const access = await loadLevelAccessProfile(supabase, user.id)

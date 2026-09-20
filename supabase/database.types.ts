@@ -1478,7 +1478,6 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      get_all_students_progress_data: { Args: never; Returns: Json }
       begin_learning_reset: { Args: { p_confirmation: string }; Returns: Json }
       claim_mail_jobs: {
         Args: { p_limit?: number; p_worker_id: string }
@@ -1514,6 +1513,7 @@ export type Database = {
         Returns: Json
       }
       finish_learning_reset: { Args: { p_token: string }; Returns: Json }
+      get_all_students_progress_data: { Args: never; Returns: Json }
       initialize_vocabulary_cards: {
         Args: { p_decisions: Json }
         Returns: Json

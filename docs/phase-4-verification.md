@@ -22,7 +22,7 @@ Stand 20.09.2026. Korrekturen zu `72659fd`; produktive Abnahme wird nach Aktivie
 | Summe inklusive Monitoring | 8324 | 7808 |
 
 Next.js Heap: 1536 MiB; Build-Heap bleibt 3072 MiB; CPUQuota 350 %, Build cpus 4.
-Die gegenüber CODEX zusätzlich reduzierten Limits für Meta (−128), Realtime (−256) und Supavisor (−128) erklären 7680 statt 8192 MiB. Studio/Meta erhalten explizite V8-Heaps; Erlang-Dienste zwei Scheduler und je einen Dirty-CPU-/IO-Scheduler, um Runtime-Overhead innerhalb ihrer Grenzen zu halten.
+Die gegenüber CODEX zusätzlich reduzierten Limits für Meta (−128), Realtime (−256) und Supavisor (−128) erklären 7680 statt 8192 MiB. Analytics benötigt nach dem Live-Anlauf 640 statt 512 MiB; dafür sinkt der ungenutzte Edge-Functions-Dienst von 256 auf 128 MiB. Diese zusätzliche Verschiebung ändert die Summe nicht. Studio/Meta erhalten explizite V8-Heaps; Erlang-Dienste zwei Scheduler und je einen Dirty-CPU-/IO-Scheduler, um Runtime-Overhead innerhalb ihrer Grenzen zu halten.
 
 Diese Limit-Tranche ist **keine vollständige Host-RAM-Reservierung**: der VPS meldet 7884 MiB physischen RAM; Coolify, Nginx, Kernel, TTS und Mail laufen zusätzlich. TTS hat unverändert 2048 MiB, Mail 256 MiB als Obergrenze; mehrere Coolify-Container besitzen keine eigene Grenze. Deshalb wäre die Behauptung „7808 MiB garantiert hostweit kein OOM“ falsch. Die Änderung senkt die bisherige Überbuchung; Host-MemAvailable, alle Container und App-OOM-Zähler müssen unter Last separat nachgewiesen werden. Der Monitoring-Platz ist ein Budget für Phase 8, kein hier neu gestarteter Dienst.
 
@@ -40,5 +40,11 @@ Jede Migration enthält ihren Rückweg. Reihenfolge: frisches Backup; passende V
 - 302/302 DB-Tests seriell auf dem VPS bestanden, einschließlich neuer Aggregations-, Fehler-, Rollen-, RLS-Paritäts- und Wiederholungstests.
 - Echter PostgreSQL-Test: Concurrent-Erstellung, Wiederholung ohne Austausch gültiger Indizes, INVALID-Reparatur, Schutz gültiger Nachbarindizes und Ablehnung kollidierender Definitionen bestanden. Isolierte Testdatenbank anschließend gelöscht.
 - TypeScript ohne Fehler.
+- Vollständiger Jest-Lauf auf dem VPS mit aktivierter Loopback-Integration: 101 Suites, 1270 Tests, keine übersprungen.
+- Produktions-RLS nach Migration: Fortschritt 6,696 ms, Einstufungsfortschritt 8,455 ms, Katalog 14,757 ms; siehe `phase4/explain-after.txt`.
+- Öffentlicher HTTPS-Login: Zwei echte Server Actions verwenden trotz gefälschtem XFF/Real-IP/Netlify-Header denselben echten Client-Bucket; kein Unknown-/Proxy-Bucket. Direkter Nginx-Zugriff liefert 403.
+- Erster 15-Sekunden-SSR-Probelauf (vier gleichzeitige Leser, 1024 Richtungen): keine Fehler, aber TTFB p95 696 ms. Daher zusätzliche React-Anfrage-Memoisierung für verifizierte Auth- und Profilabfragen; kein prozessweiter Cache. Der abschließende Lastlauf erfolgt erst mit dieser Korrektur.
 
-Produktionsmigration, Schema-/Typenexport, Proxy-End-to-End-Test, Session-Latenz und 30-Minuten-Lasttest: noch ausstehend.
+Produktionsmigration 08/09/10 und Schema-/Typenexport abgeschlossen. Vor Migration: Backup `/root/backups/sitov-migration-20260920T152953707620Z`, PostgreSQL-SHA256 `08ca3ac20c3b53c195b884aaab40ac32b2f330247d87e788b3d7886cf92af298`, 392 Storage-Objekte. Konfigurationsbackup: `/root/backups/phase4-config-20260920T152736Z`.
+
+Abschließender 30-Minuten-Lasttest mit der Anfrage-Memoisierung: noch ausstehend.

@@ -41,17 +41,18 @@ env_set('supabase-meta', {'NODE_OPTIONS':'--max-old-space-size=128'})
 for service in ('supabase-analytics','realtime-dev','supabase-supavisor'):
     env_set(service, {'ERL_AFLAGS':'+S 2:2 +SDcpu 1 +SDio 1'})
 # Caps bound exceptional load; they do not reserve memory.
+# Analytics needs 640 MiB for reliable startup; unused edge-functions lends 128.
 # Supabase 5632 MiB + Next.js 2048 MiB + monitoring allowance 128 = 7808 MiB.
 # This tranche excludes unchanged host/Coolify/TTS/mail processes; the Phase-4
 # report includes their measured use. Validate host MemAvailable under load.
 
-limits={'supabase-db':('1728m',2),'supabase-analytics':('512m',0.75),
+limits={'supabase-db':('1728m',2),'supabase-analytics':('640m',0.75),
  'supabase-studio':('192m',0.5),'supabase-vector':('128m',0.25),
  'supabase-kong':('512m',1),'supabase-meta':('256m',0.5),
  'supabase-auth':('256m',0.5),'supabase-rest':('192m',1),
  'realtime-dev':('256m',0.75),'supabase-minio':('512m',1),
  'supabase-storage':('384m',1),'imgproxy':('192m',0.5),
- 'supabase-supavisor':('256m',0.5),'supabase-edge-functions':('256m',0.5)}
+ 'supabase-supavisor':('256m',0.5),'supabase-edge-functions':('128m',0.5)}
 for name,(memory,cpu) in limits.items():
     if name in services:
         services[name]['mem_limit']=memory; services[name]['cpus']=cpu

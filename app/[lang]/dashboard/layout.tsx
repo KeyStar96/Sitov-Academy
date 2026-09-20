@@ -1,4 +1,4 @@
-import { createClient } from '@/utils/supabase/server'
+import { requestSession } from '@/lib/request-session'
 import { logout } from '@/app/actions/auth'
 import Link from 'next/link'
 import { redirect } from 'next/navigation'
@@ -14,8 +14,7 @@ export const dynamic = 'force-dynamic'
 
 export default async function DashboardLayout({ children, params }: { children: React.ReactNode; params: Promise<{ lang: string }> }) {
   const { lang } = await params
-  const supabase = await createClient()
-  const { data: { user } } = await supabase.auth.getUser()
+  const { supabase, user } = await requestSession()
   if (!user) redirect(`/${lang}/login`)
   const [{ data: profile }, dict] = await Promise.all([
     supabase.from('profiles').select('role,person:people(display_name)').eq('id', user.id).single(), getDictionary(lang),

@@ -1,0 +1,196 @@
+## due_session
+BEGIN
+DO
+SET
+SET
+Limit  (cost=215.82..215.83 rows=1 width=92) (actual time=6.467..6.533 rows=500 loops=1)
+  Buffers: shared hit=987
+  InitPlan 1 (returns $0)
+    ->  Result  (cost=0.00..0.26 rows=1 width=32) (actual time=0.572..0.572 rows=1 loops=1)
+          Buffers: shared hit=77
+  InitPlan 2 (returns $1)
+    ->  Result  (cost=0.00..0.03 rows=1 width=16) (actual time=0.002..0.002 rows=1 loops=1)
+  ->  Sort  (cost=215.53..215.53 rows=1 width=92) (actual time=6.466..6.492 rows=500 loops=1)
+        Sort Key: vocabulary_direction_progress.id
+        Sort Method: top-N heapsort  Memory: 144kB
+        Buffers: shared hit=987
+        ->  Bitmap Heap Scan on vocabulary_direction_progress  (cost=94.82..215.52 rows=1 width=92) (actual time=5.253..6.087 rows=1024 loops=1)
+              Recheck Cond: ((next_review_date <= now()) AND (box_number < 7))
+              Filter: ((($0 = ANY ('{teacher,admin}'::text[])) OR ((auth_user_id = $1) AND (hashed SubPlan 6))) AND (auth_user_id = (COALESCE(NULLIF(current_setting('request.jwt.claim.sub'::text, true), ''::text), ((NULLIF(current_setting('request.jwt.claims'::text, true), ''::text))::jsonb ->> 'sub'::text)))::uuid))
+              Rows Removed by Filter: 949
+              Heap Blocks: exact=47
+              Buffers: shared hit=984
+              ->  Bitmap Index Scan on vocabulary_direction_due_idx  (cost=0.00..64.05 rows=1434 width=0) (actual time=0.104..0.104 rows=1973 loops=1)
+                    Index Cond: (next_review_date <= now())
+                    Buffers: shared hit=10
+              SubPlan 6
+                ->  Seq Scan on learning_vocabulary_cards c  (cost=0.78..29.98 rows=317 width=16) (actual time=3.985..4.141 rows=512 loops=1)
+                      Filter: ((unit_id = ANY ($2)) AND (($3 = ANY ('{teacher,admin}'::text[])) OR (unit_id = ANY ($4))))
+                      Buffers: shared hit=850
+                      InitPlan 3 (returns $2)
+                        ->  Result  (cost=0.00..0.26 rows=1 width=32) (actual time=2.689..2.689 rows=1 loops=1)
+                              Buffers: shared hit=826
+                      InitPlan 4 (returns $3)
+                        ->  Result  (cost=0.00..0.26 rows=1 width=32) (actual time=0.261..0.261 rows=1 loops=1)
+                              Buffers: shared hit=1
+                      InitPlan 5 (returns $4)
+                        ->  Result  (cost=0.00..0.26 rows=1 width=32) (actual time=1.014..1.014 rows=1 loops=1)
+                              Buffers: shared hit=13
+Planning:
+  Buffers: shared hit=238
+Planning Time: 0.970 ms
+Execution Time: 6.696 ms
+ROLLBACK
+
+## assessment_progress
+BEGIN
+DO
+SET
+SET
+Limit  (cost=213.10..213.10 rows=1 width=48) (actual time=8.154..8.272 rows=500 loops=1)
+  Buffers: shared hit=975
+  InitPlan 1 (returns $0)
+    ->  Result  (cost=0.00..0.26 rows=1 width=32) (actual time=0.533..0.533 rows=1 loops=1)
+          Buffers: shared hit=77
+  InitPlan 2 (returns $1)
+    ->  Result  (cost=0.00..0.03 rows=1 width=16) (actual time=0.002..0.002 rows=1 loops=1)
+  ->  Sort  (cost=212.81..212.81 rows=1 width=48) (actual time=8.153..8.192 rows=500 loops=1)
+        Sort Key: vocabulary_direction_progress.id
+        Sort Method: top-N heapsort  Memory: 91kB
+        Buffers: shared hit=975
+        ->  Seq Scan on vocabulary_direction_progress  (cost=30.77..212.80 rows=1 width=48) (actual time=6.007..7.558 rows=1024 loops=1)
+              Filter: ((($0 = ANY ('{teacher,admin}'::text[])) OR ((auth_user_id = $1) AND (hashed SubPlan 6))) AND (auth_user_id = (COALESCE(NULLIF(current_setting('request.jwt.claim.sub'::text, true), ''::text), ((NULLIF(current_setting('request.jwt.claims'::text, true), ''::text))::jsonb ->> 'sub'::text)))::uuid))
+              Rows Removed by Filter: 2108
+              Buffers: shared hit=972
+              SubPlan 6
+                ->  Seq Scan on learning_vocabulary_cards c  (cost=0.78..29.98 rows=317 width=16) (actual time=4.635..4.976 rows=512 loops=1)
+                      Filter: ((unit_id = ANY ($2)) AND (($3 = ANY ('{teacher,admin}'::text[])) OR (unit_id = ANY ($4))))
+                      Buffers: shared hit=846
+                      InitPlan 3 (returns $2)
+                        ->  Result  (cost=0.00..0.26 rows=1 width=32) (actual time=3.116..3.116 rows=1 loops=1)
+                              Buffers: shared hit=822
+                      InitPlan 4 (returns $3)
+                        ->  Result  (cost=0.00..0.26 rows=1 width=32) (actual time=0.267..0.267 rows=1 loops=1)
+                              Buffers: shared hit=1
+                      InitPlan 5 (returns $4)
+                        ->  Result  (cost=0.00..0.26 rows=1 width=32) (actual time=1.232..1.232 rows=1 loops=1)
+                              Buffers: shared hit=13
+Planning:
+  Buffers: shared hit=206
+Planning Time: 0.756 ms
+Execution Time: 8.455 ms
+ROLLBACK
+
+## learned_directions
+BEGIN
+DO
+SET
+SET
+Index Scan using vocabulary_direction_user_box_idx on vocabulary_direction_progress  (cost=31.35..86.86 rows=1 width=20) (actual time=0.058..0.059 rows=0 loops=1)
+  Index Cond: (box_number = 7)
+  Filter: ((($0 = ANY ('{teacher,admin}'::text[])) OR ((auth_user_id = $1) AND (hashed SubPlan 6))) AND (auth_user_id = (COALESCE(NULLIF(current_setting('request.jwt.claim.sub'::text, true), ''::text), ((NULLIF(current_setting('request.jwt.claims'::text, true), ''::text))::jsonb ->> 'sub'::text)))::uuid))
+  Buffers: shared hit=6
+  InitPlan 1 (returns $0)
+    ->  Result  (cost=0.00..0.26 rows=1 width=32) (never executed)
+  InitPlan 2 (returns $1)
+    ->  Result  (cost=0.00..0.03 rows=1 width=16) (never executed)
+  SubPlan 6
+    ->  Seq Scan on learning_vocabulary_cards c  (cost=0.78..29.98 rows=317 width=16) (never executed)
+          Filter: ((unit_id = ANY ($2)) AND (($3 = ANY ('{teacher,admin}'::text[])) OR (unit_id = ANY ($4))))
+          InitPlan 3 (returns $2)
+            ->  Result  (cost=0.00..0.26 rows=1 width=32) (never executed)
+          InitPlan 4 (returns $3)
+            ->  Result  (cost=0.00..0.26 rows=1 width=32) (never executed)
+          InitPlan 5 (returns $4)
+            ->  Result  (cost=0.00..0.26 rows=1 width=32) (never executed)
+Planning:
+  Buffers: shared hit=213
+Planning Time: 0.919 ms
+Execution Time: 0.119 ms
+ROLLBACK
+
+## session_cursor
+BEGIN
+DO
+SET
+SET
+Seq Scan on vocabulary_learning_state  (cost=0.03..1.29 rows=1 width=16) (actual time=0.012..0.012 rows=0 loops=1)
+  Filter: ((auth_user_id = $0) AND (auth_user_id = (COALESCE(NULLIF(current_setting('request.jwt.claim.sub'::text, true), ''::text), ((NULLIF(current_setting('request.jwt.claims'::text, true), ''::text))::jsonb ->> 'sub'::text)))::uuid))
+  Rows Removed by Filter: 7
+  Buffers: shared hit=1
+  InitPlan 1 (returns $0)
+    ->  Result  (cost=0.00..0.03 rows=1 width=16) (actual time=0.002..0.002 rows=1 loops=1)
+Planning:
+  Buffers: shared hit=92
+Planning Time: 0.421 ms
+Execution Time: 0.031 ms
+ROLLBACK
+
+## session_catalog
+BEGIN
+DO
+SET
+SET
+Limit  (cost=34.07..405.87 rows=6 width=208) (actual time=7.245..14.455 rows=500 loops=1)
+  Buffers: shared hit=2361
+  InitPlan 9 (returns $8)
+    ->  Result  (cost=0.00..0.26 rows=1 width=32) (actual time=0.669..0.670 rows=1 loops=1)
+          Buffers: shared hit=121
+  InitPlan 10 (returns $9)
+    ->  Result  (cost=0.00..0.26 rows=1 width=32) (actual time=2.138..2.138 rows=1 loops=1)
+          Buffers: shared hit=664
+  InitPlan 11 (returns $10)
+    ->  Result  (cost=0.00..0.26 rows=1 width=32) (actual time=0.250..0.251 rows=1 loops=1)
+          Buffers: shared hit=1
+  InitPlan 12 (returns $11)
+    ->  Result  (cost=0.00..0.26 rows=1 width=32) (actual time=0.925..0.925 rows=1 loops=1)
+          Buffers: shared hit=13
+  ->  Result  (cost=33.03..404.83 rows=6 width=208) (actual time=7.244..14.390 rows=500 loops=1)
+        Buffers: shared hit=2361
+        ->  Sort  (cost=33.03..33.05 rows=6 width=176) (actual time=5.642..5.700 rows=500 loops=1)
+              Sort Key: v.id
+              Sort Method: quicksort  Memory: 197kB
+              Buffers: shared hit=816
+              ->  Hash Join  (cost=9.06..32.96 rows=6 width=176) (actual time=4.072..5.296 rows=512 loops=1)
+                    Hash Cond: (v.unit_id = u.id)
+                    Buffers: shared hit=813
+                    ->  Seq Scan on learning_vocabulary_cards v  (cost=0.00..22.80 rows=403 width=144) (actual time=2.827..3.023 rows=512 loops=1)
+                          Filter: (($8 = ANY ('{teacher,admin}'::text[])) OR (unit_id = ANY ($9)))
+                          Buffers: shared hit=795
+                    ->  Hash  (cost=9.02..9.02 rows=3 width=94) (actual time=1.227..1.228 rows=29 loops=1)
+                          Buckets: 1024  Batches: 1  Memory Usage: 12kB
+                          Buffers: shared hit=17
+                          ->  Seq Scan on learning_units u  (cost=0.00..9.02 rows=3 width=94) (actual time=1.187..1.219 rows=29 loops=1)
+                                Filter: ((level = 'A1.1'::text) AND (($10 = ANY ('{teacher,admin}'::text[])) OR (id = ANY ($11))))
+                                Rows Removed by Filter: 190
+                                Buffers: shared hit=17
+        SubPlan 8
+          ->  Aggregate  (cost=61.94..61.95 rows=1 width=32) (actual time=0.017..0.017 rows=1 loops=500)
+                Buffers: shared hit=1545
+                InitPlan 1 (returns $1)
+                  ->  Result  (cost=0.00..0.26 rows=1 width=32) (actual time=0.196..0.196 rows=1 loops=1)
+                        Buffers: shared hit=1
+                ->  Bitmap Heap Scan on vocabulary_translations t  (cost=4.32..61.67 rows=3 width=90) (actual time=0.006..0.008 rows=5 loops=500)
+                      Recheck Cond: (card_id = v.id)
+                      Filter: (($1 = ANY ('{teacher,admin}'::text[])) OR (hashed SubPlan 7))
+                      Heap Blocks: exact=520
+                      Buffers: shared hit=1545
+                      ->  Bitmap Index Scan on vocabulary_translations_pkey  (cost=0.00..4.32 rows=5 width=0) (actual time=0.001..0.001 rows=5 loops=500)
+                            Index Cond: (card_id = v.id)
+                            Buffers: shared hit=1000
+                      SubPlan 7
+                        ->  Seq Scan on learning_vocabulary_cards c  (cost=0.52..23.32 rows=403 width=16) (actual time=1.091..1.215 rows=512 loops=1)
+                              Filter: (($6 = ANY ('{teacher,admin}'::text[])) OR (unit_id = ANY ($7)))
+                              Buffers: shared hit=24
+                              InitPlan 5 (returns $6)
+                                ->  Result  (cost=0.00..0.26 rows=1 width=32) (actual time=0.162..0.162 rows=1 loops=1)
+                                      Buffers: shared hit=1
+                              InitPlan 6 (returns $7)
+                                ->  Result  (cost=0.00..0.26 rows=1 width=32) (actual time=0.924..0.924 rows=1 loops=1)
+                                      Buffers: shared hit=13
+Planning:
+  Buffers: shared hit=380
+Planning Time: 1.700 ms
+Execution Time: 14.757 ms
+ROLLBACK
+

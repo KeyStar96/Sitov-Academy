@@ -1,4 +1,5 @@
 import 'server-only'
+import { cache } from 'react'
 
 import { createClient } from '@/utils/supabase/server'
 import {
@@ -14,7 +15,7 @@ import {
  */
 
 /** Lädt die für die Zugriffsentscheidung nötigen Profilfelder. */
-export async function loadLevelAccessProfile(
+export const loadLevelAccessProfile = cache(async function loadLevelAccessProfile(
   supabase: Awaited<ReturnType<typeof createClient>>,
   userId: string
 ): Promise<LevelAccessProfile | null> {
@@ -35,7 +36,7 @@ export async function loadLevelAccessProfile(
     console.error("Unerwarteter Fehler beim Laden des Zugriffsprofils:")
     return null
   }
-}
+})
 
 /**
  * Prüft anhand der aktuellen Session, ob auf ein Niveau zugegriffen werden darf.

@@ -1051,6 +1051,29 @@ END $$;
 
 
 --
+-- Name: allowed_unit_ids(); Type: FUNCTION; Schema: learning_private; Owner: -
+--
+
+CREATE FUNCTION learning_private.allowed_unit_ids() RETURNS uuid[]
+    LANGUAGE sql STABLE SECURITY DEFINER
+    SET search_path TO ''
+    AS $$
+ SELECT COALESCE(array_agg(u.id), ARRAY[]::uuid[])
+ FROM public.profiles p
+ CROSS JOIN public.learning_units u
+ LEFT JOIN public.student_level_access l ON l.auth_user_id=p.id AND l.level=u.level
+ LEFT JOIN public.learning_trainer_grants a
+   ON a.auth_user_id=p.id AND a.level=u.level AND a.trainer=u.trainer
+ WHERE p.id=(SELECT auth.uid()) AND (p.role IN ('teacher','admin') OR (
+   p.ui_language<>'de' AND u.is_active AND l.auth_user_id IS NOT NULL
+   AND u.trainer::text IN ('vocabulary','exercises','pronunciation','videos')
+   AND COALESCE(a.enabled,true) AND (a.unit_mode IS DISTINCT FROM 'selected' OR EXISTS (
+     SELECT 1 FROM public.learning_unit_grants g WHERE g.auth_user_id=p.id
+       AND g.level=u.level AND g.trainer=u.trainer AND g.unit_id=u.id))));
+$$;
+
+
+--
 -- Name: audio_readable(text); Type: FUNCTION; Schema: learning_private; Owner: -
 --
 
@@ -2312,6 +2335,110 @@ RETURN to_jsonb((SELECT learning_reset_private.finish_reset(p_token)));
    WHEN boundary_code IN('conflict','retry_required') THEN 'Reload and retry the request.'
    WHEN boundary_code='invalid_input' THEN 'The request contains invalid data.'
    ELSE 'The request could not be completed.' END,'sqlstate',boundary_state);
+END;
+$$;
+
+
+--
+-- Name: get_all_students_progress_data(); Type: FUNCTION; Schema: public; Owner: -
+--
+
+CREATE FUNCTION public.get_all_students_progress_data() RETURNS jsonb
+    LANGUAGE plpgsql SECURITY DEFINER
+    SET search_path TO ''
+    AS $$
+DECLARE
+    result jsonb := '{}'::jsonb;
+BEGIN
+    -- Authorization Check
+    IF NOT business_private.is_staff() THEN
+        RETURN jsonb_build_object('error', 'not_authorized', 'message', 'Staff access required.');
+    END IF;
+
+    -- The aggregation matches the TS logic:
+    -- 1. Total exercises and vocab per level
+    -- 2. Completed exercises per user per level
+    -- 3. Completed vocab per user per level (both directions box=7)
+    -- 4. Math.round((completed / total) * 100)
+
+    WITH totals AS (
+        SELECT u.level, COUNT(e.id) as total_items
+        FROM public.learning_units u
+        JOIN public.learning_exercises e ON e.unit_id = u.id
+        GROUP BY u.level
+        UNION ALL
+        SELECT u.level, COUNT(v.id) as total_items
+        FROM public.learning_units u
+        JOIN public.learning_vocabulary_cards v ON v.unit_id = u.id
+        GROUP BY u.level
+    ),
+    level_totals AS (
+        SELECT level, SUM(total_items) as total_items
+        FROM totals
+        GROUP BY level
+    ),
+    completed_exercises AS (
+        SELECT p.auth_user_id, u.level, COUNT(p.exercise_id) as completed_items
+        FROM public.user_exercise_progress p
+        JOIN public.learning_exercises e ON e.id = p.exercise_id
+        JOIN public.learning_units u ON u.id = e.unit_id
+        WHERE p.completed = true
+        GROUP BY p.auth_user_id, u.level
+    ),
+    learned_vocab AS (
+        SELECT p1.auth_user_id, p1.card_id
+        FROM public.vocabulary_direction_progress p1
+        JOIN public.vocabulary_direction_progress p2
+          ON p1.auth_user_id = p2.auth_user_id AND p1.card_id = p2.card_id
+        WHERE p1.direction = 'de_to_native' AND p1.box_number = 7
+          AND p2.direction = 'native_to_de' AND p2.box_number = 7
+    ),
+    completed_vocab AS (
+        SELECT lv.auth_user_id, u.level, COUNT(lv.card_id) as completed_items
+        FROM learned_vocab lv
+        JOIN public.learning_vocabulary_cards v ON v.id = lv.card_id
+        JOIN public.learning_units u ON u.id = v.unit_id
+        GROUP BY lv.auth_user_id, u.level
+    ),
+    user_level_completed AS (
+        SELECT auth_user_id, level, SUM(completed_items) as total_completed
+        FROM (
+            SELECT * FROM completed_exercises
+            UNION ALL
+            SELECT * FROM completed_vocab
+        ) sub
+        GROUP BY auth_user_id, level
+    ),
+    user_percentages AS (
+        SELECT
+            users.auth_user_id,
+            t.level,
+            ROUND((COALESCE(c.total_completed, 0)::numeric / t.total_items) * 100) as percentage
+        FROM (SELECT DISTINCT auth_user_id FROM user_level_completed) users
+        CROSS JOIN level_totals t
+        LEFT JOIN user_level_completed c ON c.auth_user_id = users.auth_user_id AND c.level = t.level
+        WHERE t.total_items > 0
+    )
+    SELECT COALESCE(
+        jsonb_object_agg(
+            agg.auth_user_id::text,
+            agg.levels_obj
+        ),
+        '{}'::jsonb
+    ) INTO result
+    FROM (
+        SELECT
+            auth_user_id,
+            jsonb_object_agg(level, percentage) as levels_obj
+        FROM user_percentages
+        GROUP BY auth_user_id
+    ) agg;
+
+    RETURN result;
+EXCEPTION WHEN OTHERS THEN
+    -- R10: expose stable codes, never SQLERRM, queries or customer data.
+    RETURN jsonb_build_object('error', 'request_failed',
+        'message', 'Progress could not be loaded.', 'sqlstate', SQLSTATE);
 END;
 $$;
 
@@ -5242,6 +5369,20 @@ CREATE INDEX vocabulary_direction_due_idx ON public.vocabulary_direction_progres
 
 
 --
+-- Name: vocabulary_direction_user_box_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX vocabulary_direction_user_box_idx ON public.vocabulary_direction_progress USING btree (auth_user_id, box_number);
+
+
+--
+-- Name: vocabulary_direction_user_order_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX vocabulary_direction_user_order_idx ON public.vocabulary_direction_progress USING btree (auth_user_id, id);
+
+
+--
 -- Name: vocabulary_learning_last_card_idx; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -6435,7 +6576,7 @@ CREATE POLICY released_content_read ON public.learning_videos FOR SELECT TO auth
 -- Name: learning_vocabulary_cards released_content_read; Type: POLICY; Schema: public; Owner: -
 --
 
-CREATE POLICY released_content_read ON public.learning_vocabulary_cards FOR SELECT TO authenticated USING (learning_private.unit_allowed(unit_id));
+CREATE POLICY released_content_read ON public.learning_vocabulary_cards FOR SELECT TO authenticated USING ((unit_id = ANY (( SELECT learning_private.allowed_unit_ids() AS allowed_unit_ids)::uuid[])));
 
 
 --
@@ -6460,7 +6601,7 @@ CREATE POLICY released_translations ON public.vocabulary_translations FOR SELECT
 -- Name: learning_units released_units; Type: POLICY; Schema: public; Owner: -
 --
 
-CREATE POLICY released_units ON public.learning_units FOR SELECT TO authenticated USING (learning_private.unit_allowed(id));
+CREATE POLICY released_units ON public.learning_units FOR SELECT TO authenticated USING ((id = ANY (( SELECT learning_private.allowed_unit_ids() AS allowed_unit_ids)::uuid[])));
 
 
 --
@@ -6653,9 +6794,9 @@ CREATE POLICY vocabulary_onboarding_read ON public.vocabulary_onboarding FOR SEL
 -- Name: vocabulary_direction_progress vocabulary_progress_read; Type: POLICY; Schema: public; Owner: -
 --
 
-CREATE POLICY vocabulary_progress_read ON public.vocabulary_direction_progress FOR SELECT TO authenticated USING (((( SELECT identity_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text])) OR ((auth_user_id = ( SELECT auth.uid() AS uid)) AND (EXISTS ( SELECT 1
+CREATE POLICY vocabulary_progress_read ON public.vocabulary_direction_progress FOR SELECT TO authenticated USING (((( SELECT identity_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text])) OR ((auth_user_id = ( SELECT auth.uid() AS uid)) AND (card_id IN ( SELECT c.id
    FROM public.learning_vocabulary_cards c
-  WHERE ((c.id = vocabulary_direction_progress.card_id) AND learning_private.unit_allowed(c.unit_id)))))));
+  WHERE (c.unit_id = ANY (( SELECT learning_private.allowed_unit_ids() AS allowed_unit_ids)::uuid[])))))));
 
 
 --
@@ -6977,6 +7118,15 @@ GRANT ALL ON FUNCTION identity_private.current_profile_role() TO service_role;
 --
 
 REVOKE ALL ON FUNCTION identity_private.validate_teacher_note() FROM PUBLIC;
+
+
+--
+-- Name: FUNCTION allowed_unit_ids(); Type: ACL; Schema: learning_private; Owner: -
+--
+
+REVOKE ALL ON FUNCTION learning_private.allowed_unit_ids() FROM PUBLIC;
+GRANT ALL ON FUNCTION learning_private.allowed_unit_ids() TO authenticated;
+GRANT ALL ON FUNCTION learning_private.allowed_unit_ids() TO service_role;
 
 
 --
@@ -7328,6 +7478,14 @@ GRANT ALL ON FUNCTION public.fail_mail_job(p_id uuid, p_lease_token uuid, p_erro
 REVOKE ALL ON FUNCTION public.finish_learning_reset(p_token uuid) FROM PUBLIC;
 GRANT ALL ON FUNCTION public.finish_learning_reset(p_token uuid) TO authenticated;
 GRANT ALL ON FUNCTION public.finish_learning_reset(p_token uuid) TO service_role;
+
+
+--
+-- Name: FUNCTION get_all_students_progress_data(); Type: ACL; Schema: public; Owner: -
+--
+
+REVOKE ALL ON FUNCTION public.get_all_students_progress_data() FROM PUBLIC;
+GRANT ALL ON FUNCTION public.get_all_students_progress_data() TO authenticated;
 
 
 --

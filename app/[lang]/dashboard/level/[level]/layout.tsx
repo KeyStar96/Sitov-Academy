@@ -1,5 +1,5 @@
 import { redirect } from 'next/navigation'
-import { createClient } from '@/utils/supabase/server'
+import { requestSession } from '@/lib/request-session'
 import { getDictionary } from '@/lib/dictionary'
 import type { DashboardTranslations } from '@/lib/dashboard-i18n'
 import { hasLevelAccess } from '@/lib/access/levels'
@@ -27,10 +27,7 @@ export default async function LevelAccessLayout({
   const { lang, level } = await params
   const decodedLevel = decodeURIComponent(level)
 
-  const supabase = await createClient()
-  const {
-    data: { user },
-  } = await supabase.auth.getUser()
+  const { supabase, user } = await requestSession()
 
   if (!user) {
     redirect(`/${lang}/login`)
