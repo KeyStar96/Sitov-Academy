@@ -289,6 +289,8 @@ Implementierung, Klon-Abnahme und produktive Aktivierung abgeschlossen; Release 
 
 Details und Betriebsnachweise: [docs/phase-3-verification.md](docs/phase-3-verification.md).
 
+Nachtrag 20.09.2026: Migration 15 behebt fehlende Helferrechte bei unterschiedlichen Funktions-Ownern im Produktivsystem. Bestehende Profile und Lernstände bleiben erhalten; **328/328 DB-Tests** sowie produktive, zurückgerollte Speichertests in beiden Lernrichtungen bestanden. Ursache, Backup und Rollback: [docs/vocabulary-save-fix.md](docs/vocabulary-save-fix.md).
+
 #### 3.4 Eindeutige Zielwert-Führung (No-Guessing)
 * [x] `grammarWriteSchema` in `lib/grammar-validation.ts` um ein Pflichtfeld `target_form: z.array(z.string().trim().min(1)).min(1)` erweitern.
 * [x] Bei Übersetzungsaufgaben rendert die UI den Prompt als `Как вас зовут? [heißen]`.

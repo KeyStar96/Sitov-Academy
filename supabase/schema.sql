@@ -7460,6 +7460,7 @@ GRANT ALL ON FUNCTION learning_private.german_text_allowed(p_text text) TO servi
 --
 
 REVOKE ALL ON FUNCTION learning_private.grade_answer(p_input text, p_accepted text[]) FROM PUBLIC;
+GRANT ALL ON FUNCTION learning_private.grade_answer(p_input text, p_accepted text[]) TO postgres;
 
 
 --
@@ -7481,6 +7482,7 @@ REVOKE ALL ON FUNCTION learning_private.levenshtein_at_most_one(p_left text, p_r
 --
 
 REVOKE ALL ON FUNCTION learning_private.normalize_answer(p_value text) FROM PUBLIC;
+GRANT ALL ON FUNCTION learning_private.normalize_answer(p_value text) TO postgres;
 
 
 --
