@@ -62,7 +62,7 @@ export default function HeaderLanguageSwitcher({
           aria-controls={listId}
           disabled={isPending}
           onClick={() => setOpen(value => !value)}
-          className="inline-flex h-12 min-w-12 items-center justify-center rounded-2xl border border-slate-200 bg-white px-3 text-sm font-bold text-slate-900 shadow-sm transition-colors hover:bg-slate-50 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#FF5C00] disabled:opacity-70 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-700"
+          className="inline-flex h-12 min-w-12 items-center justify-center rounded-2xl border border-slate-200 bg-white px-3 text-sm font-bold text-slate-900 shadow-sm transition-colors hover:bg-slate-50 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] disabled:opacity-70 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-700"
         >
           {isPending ? <Loader2 size={18} className="animate-spin" aria-hidden="true" /> : currentLocale.toUpperCase()}
         </button>
@@ -81,9 +81,9 @@ export default function HeaderLanguageSwitcher({
                   value={locale}
                   role="option"
                   aria-selected={locale === currentLocale}
-                  className={`flex min-h-12 w-full items-center px-4 text-left text-sm font-bold focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-[-2px] focus-visible:outline-[#FF5C00] ${
+                  className={`flex min-h-12 w-full items-center px-4 text-left text-sm font-bold focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-[-2px] focus-visible:outline-[var(--accent)] ${
                     locale === currentLocale
-                      ? 'bg-[#FF5C00]/10 text-[#FF5C00]'
+                      ? 'bg-[var(--accent)]/10 text-[var(--accent)]'
                       : 'text-slate-800 hover:bg-slate-50 dark:text-slate-100 dark:hover:bg-slate-800'
                   }`}
                 >

@@ -8,9 +8,12 @@ import { formatProfileMonth, profileMonthWindow } from '@/lib/profile-month'
 import type { ProfileMonthlyState } from '@/lib/types/monthly-bookings'
 import CourseQuantityInput from '@/components/registration/CourseQuantityInput'
 import { useMonthlySelection } from './useMonthlySelection'
+import ProfileCourseCalendar from './ProfileCourseCalendar'
+import type { ProfileCourseCalendarState } from '@/lib/profile-course-calendar'
 
-export default function ProfileMonthlyCourses({ initial, lang, translations, courseTitles }: {
+export default function ProfileMonthlyCourses({ initial, lang, translations, courseTitles, calendar }: {
   initial: ProfileMonthlyState; lang: string; translations: ProfileTranslations; courseTitles: Record<string, string>
+  calendar?: ProfileCourseCalendarState | null
 }) {
   const t = createProfileTranslator(translations)
   const router = useRouter()
@@ -46,9 +49,11 @@ export default function ProfileMonthlyCourses({ initial, lang, translations, cou
   }
 
   return (
+    <div className="min-w-0 space-y-6">
+    {calendar !== undefined && <ProfileCourseCalendar initial={calendar} lang={lang} bookingRevision={`${state.booking?.id ?? ''}:${state.booking?.revision ?? ''}`} />}
     <section aria-labelledby="monthly-title" className="min-w-0 rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-4 shadow-sm sm:p-7">
       <div className="flex min-w-0 items-start gap-3">
-        <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-orange-50 text-orange-700 dark:bg-orange-950 dark:text-orange-300"><CalendarDays size={24} aria-hidden="true" /></span>
+        <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[var(--accent)] text-[var(--accent-foreground)]"><CalendarDays size={24} aria-hidden="true" /></span>
         <div className="min-w-0">
           <p className="mb-1 break-words text-base font-bold text-orange-800 dark:text-orange-300">{month}</p>
           <h2 id="monthly-title" className="break-words text-xl font-bold text-[var(--foreground)]">{t('next_month_title')}</h2>
@@ -112,5 +117,6 @@ export default function ProfileMonthlyCourses({ initial, lang, translations, cou
         {(hasError || monthExpired) && <button type="button" onClick={() => router.refresh()} className="mt-2 min-h-12 min-w-12 rounded-xl border border-[var(--border)] px-4 py-2 font-bold text-[var(--foreground)]">{t('reload')}</button>}
       </div>
     </section>
+    </div>
   )
 }

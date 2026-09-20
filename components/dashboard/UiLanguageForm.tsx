@@ -53,7 +53,7 @@ export default function UiLanguageForm({
         aria-label={ariaLabel}
         disabled={isPending}
         onChange={() => formRef.current?.requestSubmit()}
-        className="block min-h-14 w-full rounded-2xl border-2 border-[var(--border)] bg-[var(--surface)] px-4 py-3 text-lg text-[var(--foreground)] focus:border-[#FF5C00] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)] disabled:opacity-70"
+        className="block min-h-14 w-full rounded-2xl border-2 border-[var(--border)] bg-[var(--surface)] px-4 py-3 text-lg text-[var(--foreground)] focus:border-[var(--accent)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)] disabled:opacity-70"
       >
         {options.map(option => (
           <option key={option.value} value={option.value}>

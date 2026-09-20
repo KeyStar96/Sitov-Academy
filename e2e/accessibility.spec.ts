@@ -1,53 +1,26 @@
-import { test, expect } from '@playwright/test';
-import AxeBuilder from '@axe-core/playwright';
+import { test, expect } from '@playwright/test'
+import AxeBuilder from '@axe-core/playwright'
 
-// Helper function to scan a page for specific accessibility violations
-async function checkAccessibility(page, pageName, rules = ['color-contrast']) {
-    const results = await new AxeBuilder({ page })
-        .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
-        .analyze();
-
-    // If specific rules are provided, filter violations by those rules
-    // Otherwise check all
-    const contrastViolations = results.violations.filter(violation =>
-        rules.includes(violation.id) || rules.length === 0
-    );
-
-    if (contrastViolations.length > 0) {
-        console.log(`Accessibility violations found on ${pageName}:`);
-        contrastViolations.forEach(violation => {
-            console.log(`\nRule: ${violation.id} - ${violation.help}`);
-            violation.nodes.forEach(node => {
-                console.log(`  Target: ${node.target}`);
-                console.log(`  Failure: ${node.failureSummary}`);
-            });
-        });
-    }
-
-    expect(contrastViolations, `Accessibility check failed for ${pageName}: Found ${contrastViolations.length} violations`).toEqual([]);
+for (const theme of ['light', 'dark'] as const) {
+  for (const [name, path] of [['Home', '/de'], ['Registration', '/de/registration'], ['Cancellation', '/de/cancellation']] as const) {
+    test(`${name} has no accessibility violations (${theme})`, async ({ page }) => {
+      await page.route('**/*', route => ['127.0.0.1', 'localhost'].includes(new URL(route.request().url()).hostname) ? route.continue() : route.abort())
+      await page.addInitScript(value => {
+        localStorage.setItem('theme', value)
+        localStorage.setItem('academy-contrast', 'standard')
+      }, theme)
+      await page.goto(path)
+      await expect(page.locator('html')).toHaveAttribute('data-theme', theme)
+      await expect(page.locator('.academy-preloader')).toHaveCount(0)
+      await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
+      // Wait for the registration step's entrance animation, without excluding its nodes.
+      if (path.endsWith('/registration')) {
+        await expect(page.locator('.enrollment-control-grid').locator('..')).toHaveCSS('opacity', '1')
+        await expect(page.locator('.enrollment-control-grid').locator('..')).toHaveCSS('filter', 'blur(0px)')
+      }
+      // Assert the complete axe result. No rule, node, impact or tag exclusions.
+      const results = await new AxeBuilder({ page }).analyze()
+      expect(results.violations).toEqual([])
+    })
+  }
 }
-
-test.describe('Accessibility & Contrast Checks', () => {
-
-    test('Home Page (Desktop) should have good contrast', async ({ page }) => {
-        await page.goto('/de');
-        // Wait for hydration or content load if necessary
-        await page.waitForTimeout(1000);
-        await checkAccessibility(page, 'Home Page');
-    });
-
-    test('Registration Page (Desktop) should have good contrast', async ({ page }) => {
-        await page.goto('/de/registration');
-        await page.waitForTimeout(1000);
-        await checkAccessibility(page, 'Registration Page');
-    });
-
-    test('Cancellation Page (Desktop) should have good contrast', async ({ page }) => {
-        await page.goto('/de/cancellation');
-        await page.waitForTimeout(1000);
-        // Wait for possible animations
-        await page.waitForTimeout(500);
-        await checkAccessibility(page, 'Cancellation Page');
-    });
-
-});

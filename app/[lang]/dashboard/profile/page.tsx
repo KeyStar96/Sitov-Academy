@@ -13,6 +13,7 @@ import { loadVerifiedCourseHistory } from '@/lib/profile-course-history'
 import ProfileCourseHistory from '@/components/dashboard/ProfileCourseHistory'
 import ProfileAppearanceSettings from '@/components/dashboard/ProfileAppearanceSettings'
 import ProfileProgressReset from '@/components/dashboard/ProfileProgressReset'
+import { loadProfileCourseCalendar } from '@/lib/profile-course-calendar-server'
 
 export default async function ProfilePage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang: requestedLang } = await params
@@ -32,6 +33,9 @@ export default async function ProfilePage({ params }: { params: Promise<{ lang: 
   let monthly: Awaited<ReturnType<typeof loadProfileMonthlyState>> | null = null
   try { monthly = await loadProfileMonthlyState(supabase, user) }
   catch { console.error('[profile] Course plan could not be loaded') }
+  let calendar: Awaited<ReturnType<typeof loadProfileCourseCalendar>> | null = null
+  try { calendar = await loadProfileCourseCalendar(supabase, user) }
+  catch { console.error('[profile] Course calendar could not be loaded') }
   const titles = Object.fromEntries((monthly?.courses ?? []).map(course => [
     course.id, course.translations.find(item=>item.locale===lang)?.title || course.title || t('course_fallback'),
   ]))
@@ -68,7 +72,7 @@ export default async function ProfilePage({ params }: { params: Promise<{ lang: 
           <ProfileAppearanceSettings />
           <ProfileProgressReset translations={dict.progress_reset} userId={user.id} />
         </div>
-        {monthly ? <ProfileMonthlyCourses key={`${user.id}:${monthly.targetMonth}`} initial={monthly} lang={lang} translations={dict.profile} courseTitles={titles} />
+        {monthly ? <ProfileMonthlyCourses key={`${user.id}:${monthly.targetMonth}`} initial={monthly} lang={lang} translations={dict.profile} courseTitles={titles} calendar={calendar} />
           : <section className="min-w-0 rounded-3xl border border-amber-200 bg-amber-50 p-5 dark:border-amber-800 dark:bg-amber-950">
             <h2 className="text-xl font-bold text-[var(--foreground)]">{t('next_month_title')}</h2>
             <p role="alert" className="mt-3 text-amber-900 dark:text-amber-200">{t('booking_load_failed')}</p>

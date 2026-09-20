@@ -27,7 +27,7 @@ export default function VocabularyAssessError({
       <button
         type="button"
         onClick={reset}
-        className="mt-8 inline-flex min-h-16 items-center justify-center gap-3 rounded-2xl bg-[var(--accent)] px-5 py-4 text-base sm:text-xl font-bold text-[var(--accent-foreground)] shadow-md transition-colors hover:opacity-90 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)]"
+        className="mt-8 inline-flex min-h-16 items-center justify-center gap-3 rounded-2xl bg-[var(--accent)] px-5 py-4 text-base sm:text-xl font-bold text-[var(--accent-foreground)] shadow-md transition-colors hover:bg-[var(--accent-hover)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)]"
       >
         <RefreshCw size={28} aria-hidden="true" />
         {copy.error_retry}

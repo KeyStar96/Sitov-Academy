@@ -235,7 +235,7 @@ export const PremiumDatePicker = ({
                     "text-xs uppercase tracking-widest text-gray-500 mb-6 block",
                     jetbrainsMono.className
                 )}>
-                    {label} {required && <span className="text-[#FF5C00]">*</span>}
+                    {label} {required && <span className="text-[var(--accent)]">*</span>}
                 </span>
             )}
             
@@ -252,13 +252,13 @@ export const PremiumDatePicker = ({
                             onClick={() => handleMonthSelect(m.month, m.year)}
                             className={cn(
                                 "relative px-5 py-2.5 rounded-full text-sm font-semibold transition-colors whitespace-nowrap",
-                                isActive ? "text-white" : "text-gray-500 hover:text-gray-900 dark:hover:text-gray-200 bg-gray-100/50 dark:bg-white/5"
+                                isActive ? "text-[var(--accent-foreground)]" : "text-gray-500 hover:text-gray-900 dark:hover:text-gray-200 bg-gray-100/50 dark:bg-white/5"
                             )}
                         >
                             {isActive && (
                                 <motion.div
                                     layoutId="activeMonth"
-                                    className="absolute inset-0 bg-[#FF5C00] rounded-full shadow-md shadow-[#FF5C00]/20"
+                                    className="absolute inset-0 bg-[var(--accent)] rounded-full shadow-md shadow-[var(--accent)]/20"
                                     transition={{ type: "spring", stiffness: 350, damping: 30 }}
                                 />
                             )}
@@ -307,7 +307,7 @@ export const PremiumDatePicker = ({
                             </span>
                             {/* Orange dot indicator for active day */}
                             {isActive && (
-                                <div className="absolute bottom-2 w-1.5 h-1.5 rounded-full bg-[#FF5C00]" />
+                                <div className="absolute bottom-2 w-1.5 h-1.5 rounded-full bg-[var(--accent)]" />
                             )}
                         </button>
                     );

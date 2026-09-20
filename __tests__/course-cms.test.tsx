@@ -30,6 +30,15 @@ it('retains unsaved work and reports server failures inside the editor',async()=
  expect(await screen.findByRole('alert')).toHaveTextContent('Der Kurs konnte nicht gespeichert werden')
  expect(screen.getByLabelText('Kurstitel')).toHaveValue('Entwurf behalten');expect(refresh).not.toHaveBeenCalled()
 })
+it('edits course cancellations in the existing accessible course modal',async()=>{
+ render(<CourseCMS initial={[course]} lang="de" failed={false}/>);fireEvent.click(screen.getByRole('button',{name:'Bearbeiten'}))
+ fireEvent.click(screen.getByRole('button',{name:'Ausnahme hinzufügen'}))
+ fireEvent.change(screen.getByLabelText('Datum'),{target:{value:'2026-10-10'}})
+ fireEvent.change(screen.getByLabelText('Grund'),{target:{value:'Fortbildung'}})
+ fireEvent.click(screen.getByRole('button',{name:'Speichern'}))
+ await waitFor(()=>expect(saveCourse).toHaveBeenCalledWith(expect.objectContaining({id:course.id,exceptions:[{date:'2026-10-10',reason:'Fortbildung'}]})))
+ await waitFor(()=>expect(screen.queryByRole('dialog')).not.toBeInTheDocument())
+})
 it('validates schedule duration, prices, duplicate locales and unsafe titles',()=>{
  expect(courseEditorSchema.safeParse(course).success).toBe(true)
  expect(courseEditorSchema.safeParse({...course,unit_price:-1}).success).toBe(false)

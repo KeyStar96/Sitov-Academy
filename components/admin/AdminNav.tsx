@@ -2,6 +2,8 @@
 
 import Link from 'next/link'
 import {courseCmsCopy} from '@/lib/course-cms-i18n'
+import { mediaCopy } from '@/lib/media-i18n'
+import { teacherAnalyticsCopy } from '@/lib/teacher-analytics-i18n'
 import { usePathname } from 'next/navigation'
 import { useAdminTranslator } from './AdminI18nProvider'
 
@@ -15,6 +17,7 @@ export default function AdminNav({ lang }: { lang: string }) {
     { name: t('nav_invoices'), href: `/${lang}/admin/invoices` },
     { name: courseCmsCopy(lang).title, href: `/${lang}/admin/courses` },
     { name: t('nav_students'), href: `/${lang}/admin/students` },
+    { name: teacherAnalyticsCopy(lang).title, href: `/${lang}/admin/analytics` },
     { name: t('nav_bookings'), href: `/${lang}/admin/bookings` },
     { name: t('nav_feedback'), href: `/${lang}/admin/submissions` },
     { divider: true },
@@ -22,6 +25,7 @@ export default function AdminNav({ lang }: { lang: string }) {
     { name: t('nav_exercises'), href: `/${lang}/admin/content/exercises` },
     { name: t('nav_pronunciation'), href: `/${lang}/admin/content/pronunciation` },
     { name: t('nav_videos'), href: `/${lang}/admin/content/videos` },
+    { name: mediaCopy(lang).title, href: `/${lang}/admin/content/media` },
   ]
 
   return (
@@ -36,7 +40,7 @@ export default function AdminNav({ lang }: { lang: string }) {
             key={item.href}
             href={item.href}
             aria-current={isActive ? 'page' : undefined}
-            className={`inline-flex min-h-12 min-w-0 items-center rounded-md px-3 py-1.5 text-sm font-medium transition-colors focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#FF5C00] ${
+            className={`inline-flex min-h-12 min-w-0 items-center rounded-md px-3 py-1.5 text-sm font-medium transition-colors focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] ${
               isActive
                 ? 'bg-[var(--foreground)] text-[var(--surface)]'
                 : 'text-[var(--muted)] hover:bg-[var(--surface-muted)] hover:text-[var(--foreground)]'

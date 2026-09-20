@@ -1,6 +1,6 @@
 /* Registration owns its presentation; pricing, calendar and submission logic stay shared. */
 .registration-flow {
-  --registration-on-accent: #fff;
+  --registration-on-accent: var(--accent-foreground);
   background: var(--canvas);
   color: var(--foreground);
   min-width: 0;
@@ -10,7 +10,7 @@
   /* Do not create a scroll container around the CSS-sticky receipt. */
   overflow: visible;
 }
-.dark .registration-flow { --registration-on-accent: #23150e; }
+
 .registration-flow :is(button, input, select, textarea, [role="checkbox"]) { touch-action: manipulation; }
 .registration-flow :is(button, a, input, select, textarea, [role="checkbox"]):focus-visible {
   outline: 3px solid var(--violet);
@@ -92,8 +92,8 @@
 .registration-flow .enrollment-control-grid .premium-scrollbar > button.flex-col .bg-gray-900 { background: var(--foreground); }
 .registration-flow .enrollment-control-grid .premium-scrollbar > button.flex-col.text-white > span { color: var(--surface); }
 .registration-flow .enrollment-control-grid .premium-scrollbar > button:not(.flex-col) { color: var(--muted); background: var(--surface-muted); }
-.registration-flow .enrollment-control-grid .premium-scrollbar > button:not(.flex-col).text-white { color: var(--registration-on-accent); }
-.registration-flow .enrollment-control-grid .premium-scrollbar > button:not(.flex-col) > .bg-\[\#FF5C00\] { background: var(--accent); box-shadow: none; }
+.registration-flow .enrollment-control-grid .premium-scrollbar > button:not(.flex-col).text-\[var\(--accent-foreground\)\] { color: var(--registration-on-accent); }
+.registration-flow .enrollment-control-grid .premium-scrollbar > button:not(.flex-col) > .bg-\[var\(--accent\)\] { background: var(--accent); box-shadow: none; }
 
 /* A calm invoice preview shares the same light/dark system as the form. */
 .registration-flow .enrollment-receipt { background: var(--surface); border-top: 1px solid var(--border); color: var(--foreground); }
@@ -173,4 +173,9 @@
   border: 1px solid var(--border); border-radius: 12px;
   padding: 12px 8px; background: var(--surface); color: var(--foreground);
   font-family: inherit; font-size: 16px; line-height: 1.45;
+}
+
+@media (hover: hover) {
+  .registration-flow .enrollment-receipt .enrollment-submit:not(:disabled):hover,
+  .registration-flow :is(.enrollment-scroll-link, .enrollment-home-button):hover { background: var(--accent-hover); }
 }

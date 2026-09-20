@@ -6,6 +6,8 @@ import { getTrainerLanguageCopy } from '@/lib/trainer-language-i18n'
 import { BookOpen, Video, Mic, PenTool, Lock } from 'lucide-react'
 import { hasTrainerAccess, type LevelAccessProfile } from '@/lib/access/levels'
 import { createDashboardTranslator, type DashboardTranslations } from '@/lib/dashboard-i18n'
+import { hasLevelAccess } from '@/lib/access/levels'
+import { mediaCopy } from '@/lib/media-i18n'
 
 const CATEGORIES = [
   {
@@ -51,6 +53,7 @@ export default function LevelTrainerCards({ lang, level, profile, translations }
   return (
     <div className="space-y-8">
       {languageLocked && <TrainerLanguageRequired lang={lang} />}
+      {hasLevelAccess(profile, decodeURIComponent(level)) && <Link href={`/${lang}/dashboard/level/${level}/media`} className="flex min-h-16 flex-col justify-center gap-2 rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-5 hover:bg-[var(--surface-muted)]"><span className="text-xl font-semibold">{mediaCopy(lang).title}</span><span className="text-[var(--muted)]">{mediaCopy(lang).intro}</span></Link>}
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-6">
         {CATEGORIES.map((cat) => {
           const locked = languageLocked || !hasTrainerAccess(profile, decodeURIComponent(level), cat.id)

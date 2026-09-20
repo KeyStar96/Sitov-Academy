@@ -87,7 +87,7 @@ export default function CancellationForm({ dictionary, lang, courses }: Cancella
                 <p className="text-gray-500 dark:text-gray-400 max-w-md mb-8">
                     {t.success.message}
                 </p>
-                <Link href={`/${lang}`} className="bg-[#FF5C00] text-white px-8 py-4 rounded font-bold uppercase tracking-widest hover:bg-[#FF7A33] transition-colors">
+                <Link href={`/${lang}`} className="bg-[var(--accent)] text-[var(--accent-foreground)] px-8 py-4 rounded font-bold uppercase tracking-widest hover:bg-[var(--accent-hover)] transition-colors">
                     {t.back_home}
                 </Link>
             </motion.div>
@@ -112,7 +112,7 @@ export default function CancellationForm({ dictionary, lang, courses }: Cancella
                         id="fullName"
                         placeholder=" "
                         className={cn(
-                            "block w-full bg-transparent border-b border-gray-500 dark:border-white/10 py-3 text-lg font-sans text-gray-900 dark:text-white focus:outline-none focus:border-[#FF5C00] dark:focus:border-[#FF5C00] transition-colors peer placeholder-transparent",
+                            "block w-full bg-transparent border-b border-gray-500 dark:border-white/10 py-3 text-lg font-sans text-gray-900 dark:text-white focus:outline-none focus:border-[var(--accent)] dark:focus:border-[var(--accent)] transition-colors peer placeholder-transparent",
                             errors.fullName && "border-red-500 dark:border-red-400"
                         )}
                     />
@@ -121,10 +121,10 @@ export default function CancellationForm({ dictionary, lang, courses }: Cancella
                         className={cn(
                             "absolute left-0 top-0 text-xs font-mono uppercase tracking-widest text-gray-600 dark:text-gray-400 transition-all pointer-events-none",
                             "peer-placeholder-shown:top-3 peer-placeholder-shown:text-lg peer-placeholder-shown:normal-case peer-placeholder-shown:font-sans peer-placeholder-shown:text-[var(--muted)]",
-                            "peer-focus:top-0 peer-focus:text-xs peer-focus:uppercase peer-focus:tracking-widest peer-focus:text-[#FF5C00]"
+                            "peer-focus:top-0 peer-focus:text-xs peer-focus:uppercase peer-focus:tracking-widest peer-focus:text-[var(--accent)]"
                         )}
                     >
-                        {t.form.full_name} <span className="text-[#FF5C00]">*</span>
+                        {t.form.full_name} <span className="text-[var(--accent)]">*</span>
                     </label>
                     {errors.fullName && (
                         <span className="text-red-500 text-xs mt-1 block font-mono">{errors.fullName.message}</span>
@@ -141,7 +141,7 @@ export default function CancellationForm({ dictionary, lang, courses }: Cancella
                         type="email"
                         placeholder=" "
                         className={cn(
-                            "block w-full bg-transparent border-b border-gray-500 dark:border-white/10 py-3 text-lg font-sans text-gray-900 dark:text-white focus:outline-none focus:border-[#FF5C00] dark:focus:border-[#FF5C00] transition-colors peer placeholder-transparent",
+                            "block w-full bg-transparent border-b border-gray-500 dark:border-white/10 py-3 text-lg font-sans text-gray-900 dark:text-white focus:outline-none focus:border-[var(--accent)] dark:focus:border-[var(--accent)] transition-colors peer placeholder-transparent",
                             errors.email && "border-red-500 dark:border-red-400"
                         )}
                     />
@@ -150,10 +150,10 @@ export default function CancellationForm({ dictionary, lang, courses }: Cancella
                         className={cn(
                             "absolute left-0 top-0 text-xs font-mono uppercase tracking-widest text-gray-600 dark:text-gray-400 transition-all pointer-events-none",
                             "peer-placeholder-shown:top-3 peer-placeholder-shown:text-lg peer-placeholder-shown:normal-case peer-placeholder-shown:font-sans peer-placeholder-shown:text-[var(--muted)]",
-                            "peer-focus:top-0 peer-focus:text-xs peer-focus:uppercase peer-focus:tracking-widest peer-focus:text-[#FF5C00]"
+                            "peer-focus:top-0 peer-focus:text-xs peer-focus:uppercase peer-focus:tracking-widest peer-focus:text-[var(--accent)]"
                         )}
                     >
-                        {t.form.email} <span className="text-[#FF5C00]">*</span>
+                        {t.form.email} <span className="text-[var(--accent)]">*</span>
                     </label>
                     {errors.email && (
                         <span className="text-red-500 text-xs mt-1 block font-mono">{errors.email.message}</span>
@@ -168,7 +168,7 @@ export default function CancellationForm({ dictionary, lang, courses }: Cancella
                         {t.form.course_name}
                     </label>
                     <select {...register("courseId")} id="courseId" defaultValue=""
-                        className="block w-full bg-transparent border-b border-gray-500 dark:border-white/10 py-3 text-lg text-gray-900 dark:text-white focus:outline-none focus:border-[#FF5C00]">
+                        className="block w-full bg-transparent border-b border-gray-500 dark:border-white/10 py-3 text-lg text-gray-900 dark:text-white focus:outline-none focus:border-[var(--accent)]">
                         <option value="">—</option>
                         {courses.map(course => <option key={course.id} value={course.id}>{course.title}</option>)}
                     </select>
@@ -182,14 +182,14 @@ export default function CancellationForm({ dictionary, lang, courses }: Cancella
                 </span>
                 <div className="space-y-3">
                     <label className="flex items-center gap-3 cursor-pointer group">
-                        <div className="relative flex items-center justify-center w-5 h-5 border border-gray-500 dark:border-white/20 rounded-full transition-colors group-hover:border-[#FF5C00]">
+                        <div className="relative flex items-center justify-center w-5 h-5 border border-gray-500 dark:border-white/20 rounded-full transition-colors group-hover:border-[var(--accent)]">
                             <input
                                 {...register("terminationDate")}
                                 type="radio"
                                 value="asap"
                                 className="peer appearance-none w-full h-full absolute inset-0 cursor-pointer"
                             />
-                            <div className="w-2.5 h-2.5 bg-[#FF5C00] rounded-full scale-0 peer-checked:scale-100 transition-transform" />
+                            <div className="w-2.5 h-2.5 bg-[var(--accent)] rounded-full scale-0 peer-checked:scale-100 transition-transform" />
                         </div>
                         <span className="text-gray-800 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white transition-colors">
                             {t.form.asap_option}
@@ -197,14 +197,14 @@ export default function CancellationForm({ dictionary, lang, courses }: Cancella
                     </label>
 
                     <label className="flex items-center gap-3 cursor-pointer group">
-                        <div className="relative flex items-center justify-center w-5 h-5 border border-gray-500 dark:border-white/20 rounded-full transition-colors group-hover:border-[#FF5C00]">
+                        <div className="relative flex items-center justify-center w-5 h-5 border border-gray-500 dark:border-white/20 rounded-full transition-colors group-hover:border-[var(--accent)]">
                             <input
                                 {...register("terminationDate")}
                                 type="radio"
                                 value="specific_date"
                                 className="peer appearance-none w-full h-full absolute inset-0 cursor-pointer"
                             />
-                            <div className="w-2.5 h-2.5 bg-[#FF5C00] rounded-full scale-0 peer-checked:scale-100 transition-transform" />
+                            <div className="w-2.5 h-2.5 bg-[var(--accent)] rounded-full scale-0 peer-checked:scale-100 transition-transform" />
                         </div>
                         <span className="text-gray-800 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white transition-colors">
                             {t.form.specific_date_option}
@@ -248,7 +248,7 @@ export default function CancellationForm({ dictionary, lang, courses }: Cancella
                 <button
                     type="submit"
                     disabled={isSubmitting || !isValid || isValidating}
-                    className="w-full bg-[#FF5C00] hover:bg-[#E05000] text-white font-bold py-4 rounded-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                    className="w-full bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-[var(--accent-foreground)] font-bold py-4 rounded-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
                     {isSubmitting || isValidating ? (
                         <>

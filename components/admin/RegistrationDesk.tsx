@@ -12,7 +12,7 @@ import { formatProfileMonth } from '@/lib/profile-month'
 import type { RegistrationOverview, StaffRegistration, StaffInvoice } from '@/lib/types/admin-registrations'
 
 const control = 'min-h-12 min-w-12 rounded-xl border border-[var(--border)] bg-[var(--surface)] px-4 py-3 text-base text-[var(--foreground)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]'
-const primary = 'inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-5 py-3 font-semibold text-[var(--accent-foreground)] transition-opacity hover:opacity-85 disabled:opacity-50'
+const primary = 'inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-5 py-3 font-semibold text-[var(--accent-foreground)] transition-opacity hover:bg-[var(--accent-hover)] disabled:opacity-50'
 const declineControl = 'inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-red-300 bg-[var(--surface)] px-5 py-3 font-semibold text-red-700 hover:bg-red-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] disabled:opacity-50 dark:border-red-800 dark:text-red-300 dark:hover:bg-red-950'
 function displayDate(value: string|null, lang:string) {if(!value)return '—'; const date = new Date(value.includes('T')?value:`${value}T12:00:00Z`);return Number.isNaN(date.getTime())?value:new Intl.DateTimeFormat(lang,{dateStyle:'medium',timeZone:'Europe/Berlin'}).format(date)}
 

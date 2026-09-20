@@ -16,6 +16,7 @@ import tr from '@/dictionaries/tr.json'
 jest.unmock('lucide-react')
 jest.mock('@/app/actions/monthly-bookings',()=>({saveNextMonthBooking:jest.fn(),getProfileMonthlyState:jest.fn()}))
 jest.mock('@/app/actions/profile',()=>({updatePersonalDetails:jest.fn()}))
+jest.mock('@/app/actions/profile-calendar',()=>({getProfileCourseCalendar:jest.fn()}))
 
 const one='00000000-0000-4000-8000-000000000001',two='00000000-0000-4000-8000-000000000002'
 const initial: ProfileMonthlyState = {

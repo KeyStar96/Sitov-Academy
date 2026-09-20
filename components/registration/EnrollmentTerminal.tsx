@@ -255,7 +255,7 @@ const CourseRow = React.memo(({ course, selected, onToggle, title, priceFormatte
                                 ? "bg-[var(--accent)] border-[var(--accent)]"
                                 : "bg-transparent border-black/20 dark:border-white/20 group-hover:border-black/40 dark:group-hover:border-white/40"
                         )}>
-                            {selected && <Check size={12} className="text-white" strokeWidth={3} />}
+                            {selected && <Check size={12} className="text-[var(--accent-foreground)]" strokeWidth={3} />}
                         </div>
 
                         {/* Title & Metadata Container */}
@@ -271,7 +271,7 @@ const CourseRow = React.memo(({ course, selected, onToggle, title, priceFormatte
                             {/* Mobile: Metadata Row (Left Aligned under title) */}
                             <div className="flex flex-wrap items-center gap-2 md:hidden">
                                 {level && (
-                                    <span className="text-xs font-sans tabular-nums bg-white dark:bg-[var(--accent)] border border-black/10 dark:border-[var(--accent)] px-1.5 py-0.5 rounded text-gray-500 dark:text-white">
+                                    <span className="text-xs font-sans tabular-nums bg-white dark:bg-[var(--accent)] border border-black/10 dark:border-[var(--accent)] px-1.5 py-0.5 rounded text-[var(--foreground)] dark:text-[var(--accent-foreground)]">
                                         {level}
                                     </span>
                                 )}
@@ -298,7 +298,7 @@ const CourseRow = React.memo(({ course, selected, onToggle, title, priceFormatte
                     {/* Badge */}
                     <div className="w-[60px] flex items-center shrink-0">
                         {level && (
-                            <span className="text-xs font-sans tabular-nums bg-white dark:bg-[var(--accent)] border border-black/10 dark:border-[var(--accent)] px-1.5 py-0.5 rounded text-gray-500 dark:text-white">
+                            <span className="text-xs font-sans tabular-nums bg-white dark:bg-[var(--accent)] border border-black/10 dark:border-[var(--accent)] px-1.5 py-0.5 rounded text-[var(--foreground)] dark:text-[var(--accent-foreground)]">
                                 {level}
                             </span>
                         )}
@@ -875,7 +875,7 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                     onChange={(e) => onChange(e.target.checked)}
                     className="appearance-none h-5 w-5 bg-transparent border border-gray-400 dark:border-white/30 rounded-sm checked:bg-[var(--accent)] checked:border-[var(--accent)] transition-colors"
                 />
-                {checked && <Check size={12} className="text-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none" strokeWidth={3} />}
+                {checked && <Check size={12} className="text-[var(--accent-foreground)] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none" strokeWidth={3} />}
             </div>
             <span className="text-xs md:text-sm font-medium text-[var(--foreground)] leading-normal select-none transition-colors">
                 {label}
@@ -1384,7 +1384,7 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                                                                     className={cn(
                                                                         "min-h-11 text-left px-4 py-3 rounded-xl border transition-colors duration-200 font-sans tabular-nums text-sm",
                                                                         trialDate === d.iso
-                                                                            ? "bg-[#FFF4EC] dark:bg-[var(--accent)]/10 border-[var(--accent)] text-[var(--accent)] font-semibold shadow-sm"
+                                                                            ? "bg-[var(--accent-soft)] dark:bg-[var(--accent)]/10 border-[var(--accent)] text-[var(--accent)] font-semibold shadow-sm"
                                                                             : "border-black/5 dark:border-white/5 text-gray-700 dark:text-gray-300 hover:border-[var(--accent)] dark:hover:border-[var(--accent)]"
                                                                     )}
                                                                 >
@@ -1799,7 +1799,7 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                                     trialEligible === false
                                 )
                                     ? "bg-gray-700 text-gray-500 cursor-not-allowed"
-                                    : "bg-[var(--accent)] text-white hover:bg-[#FF7A33]"
+                                    : "bg-[var(--accent)] text-[var(--accent-foreground)] hover:bg-[var(--accent-hover)]"
                             )}
                         >
                             <span className="flex flex-col items-start gap-1">
@@ -1830,7 +1830,7 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                                 "enrollment-submit w-full min-h-16 font-semibold text-sm flex items-center justify-between gap-3 px-5 py-4 transition-colors duration-200 group z-10 relative",
                                 ((step === 1 && selectedCourseIds.length === 0) || (step === 2 && !isValid) || (step === 3 && !isLegalValid))
                                     ? "bg-gray-700 text-gray-500 cursor-not-allowed"
-                                    : "bg-[var(--accent)] text-white hover:bg-[#FF7A33]"
+                                    : "bg-[var(--accent)] text-[var(--accent-foreground)] hover:bg-[var(--accent-hover)]"
                             )}
                         >
                             <span className="flex flex-col items-start gap-1">

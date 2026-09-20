@@ -1,21 +1,22 @@
 'use client'
 
 import { createVocabularyTranslator, type VocabularyTranslations } from '@/lib/vocabulary-i18n'
-import { computePhaseDistribution, phaseBarClasses, type PhaseBucketKey, type PhaseCountCard } from '@/lib/vocabulary-ui'
+import { computePhaseDistribution, phaseBarClasses, type PhaseBucketKey, type PhaseCountCard, type PhaseDistribution } from '@/lib/vocabulary-ui'
 
-interface PhaseDistributionChartProps {
-  cards: readonly PhaseCountCard[]
+type PhaseDistributionChartProps = {
   translations?: VocabularyTranslations
-}
+} & ({ cards: readonly PhaseCountCard[]; distribution?: never } | { cards?: never; distribution: PhaseDistribution })
 
 function bucketLabel(key: PhaseBucketKey, t: ReturnType<typeof createVocabularyTranslator>): string {
   return key === 'learned' ? t('phase_chart_learned_label') : t('phase_chart_phase_label', { phase: key })
 }
 
 /** Labelled horizontal bars preserve readable phase names at 320px without scrolling. */
-export default function PhaseDistributionChart({ cards, translations = {} }: PhaseDistributionChartProps) {
+export default function PhaseDistributionChart({ cards, distribution: aggregate, translations = {} }: PhaseDistributionChartProps) {
   const t = createVocabularyTranslator(translations)
-  const distribution = computePhaseDistribution(cards)
+  // Teacher analytics passes the already computed SQL aggregate. Never expand
+  // bucket counts back into thousands of synthetic cards in the browser.
+  const distribution = aggregate ?? computePhaseDistribution(cards ?? [])
   const maxCount = Math.max(1, ...distribution.buckets.map(bucket => bucket.count))
 
   return <div className="min-w-0 space-y-6">

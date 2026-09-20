@@ -52,10 +52,10 @@ export function levelVisual(levelId: string): LevelVisual {
       }
     case 'B1':
       return {
-        gradient: 'from-orange-400 to-[#FF5C00]',
-        bar: 'from-orange-400 to-[#FF5C00]',
-        soft: 'bg-orange-50 dark:bg-orange-950/40',
-        text: 'text-[#CC4700] dark:text-orange-300',
+        gradient: 'from-[var(--accent-hover)] to-[var(--accent)]',
+        bar: 'from-[var(--accent-hover)] to-[var(--accent)]',
+        soft: 'bg-[var(--accent-soft)]',
+        text: 'text-[var(--accent)]',
       }
     case 'B2':
       return {

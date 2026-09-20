@@ -11,6 +11,7 @@ import en from '@/dictionaries/en.json'
 import ru from '@/dictionaries/ru.json'
 import uk from '@/dictionaries/uk.json'
 import tr from '@/dictionaries/tr.json'
+import { mediaCopy } from '@/lib/media-i18n'
 
 jest.unmock('lucide-react')
 jest.mock('@/app/actions/admin', () => ({ getAvailableLessons: jest.fn(), updateStudentTrainerAccess: jest.fn(), updateStudentRole: jest.fn(), updateStudentAllowedLevels: jest.fn() }))
@@ -50,7 +51,8 @@ describe('Student trainer cards', () => {
   expect(within(locked).getByText(dict.dashboard.trainer_locked_badge)).toBeVisible()
   expect(within(locked).queryByRole('link')).toBeNull()
   expect(locked.querySelector('svg')).not.toBeNull()
-  expect(screen.getAllByRole('link')).toHaveLength(lang === 'de' ? 1 : 3)
+  expect(screen.getAllByRole('link')).toHaveLength(lang === 'de' ? 2 : 4)
+  expect(screen.getByRole('link', { name: `${mediaCopy(lang).title} ${mediaCopy(lang).intro}` })).toHaveAttribute('href', `/${lang}/dashboard/level/A1.1/media`)
  })
 })
 describe('Teacher trainer controls', () => {

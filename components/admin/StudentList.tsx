@@ -242,7 +242,7 @@ function ResetControls({
   return (
     <div className="flex flex-col gap-2">
       <select
-        className="h-12 rounded-lg border border-[var(--border)] bg-[var(--surface)] px-2 text-base font-semibold text-[var(--foreground)] focus:outline-none focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#FF5C00] "
+        className="h-12 rounded-lg border border-[var(--border)] bg-[var(--surface)] px-2 text-base font-semibold text-[var(--foreground)] focus:outline-none focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] "
         value={level}
         onChange={event => onLevelChange(event.target.value)}
         disabled={loading}

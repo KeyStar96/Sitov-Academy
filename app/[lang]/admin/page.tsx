@@ -4,6 +4,8 @@ import Link from 'next/link'
 import { ArrowRight, CalendarDays, Users, BookOpen, Mic, FileText } from 'lucide-react'
 import { getDictionary } from '@/lib/dictionary'
 import { createAdminTranslator } from '@/lib/admin-i18n'
+import { mediaCopy } from '@/lib/media-i18n'
+import { teacherAnalyticsCopy } from '@/lib/teacher-analytics-i18n'
 
 export default async function AdminDashboardPage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params
@@ -15,6 +17,8 @@ export default async function AdminDashboardPage({ params }: { params: Promise<{
     { label: t('kpi_pending'), value: stats.pendingSubmissions, href: `/${lang}/admin/submissions` },
   ]
   const links = [
+    { href: 'content/media', title: mediaCopy(lang).title, description: mediaCopy(lang).intro, Icon: FileText },
+    { href: 'analytics', title: teacherAnalyticsCopy(lang).title, description: teacherAnalyticsCopy(lang).intro, Icon: Users },
     { href: 'bookings', title: t('quick_bookings_title'), description: t('quick_bookings_desc'), Icon: CalendarDays },
     { href: 'students', title: t('quick_students_title'), description: t('quick_students_desc'), Icon: Users },
     { href: 'content/vocabulary', title: t('quick_vocab_title'), description: t('quick_vocab_desc'), Icon: BookOpen },

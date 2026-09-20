@@ -56,7 +56,7 @@ export const DateDropdowns = ({
                 placeholder="DD.MM.YYYY"
                 maxLength={10}
                 className={cn(
-                    "block w-full bg-transparent border-b border-gray-400/30 dark:border-white/20 py-4 pt-6 text-lg font-sans text-gray-900 dark:text-[#E2D7CE] focus:outline-none focus:border-[#FF5C00] dark:focus:border-[#FF5C00] transition-colors peer placeholder-transparent focus:placeholder-gray-400 dark:focus:placeholder-gray-600 autofill:bg-transparent",
+                    "block w-full bg-transparent border-b border-gray-400/30 dark:border-white/20 py-4 pt-6 text-lg font-sans text-gray-900 dark:text-[#E2D7CE] focus:outline-none focus:border-[var(--accent)] dark:focus:border-[var(--accent)] transition-colors peer placeholder-transparent focus:placeholder-gray-400 dark:focus:placeholder-gray-600 autofill:bg-transparent",
                     "[&:-webkit-autofill]:bg-transparent [&:-webkit-autofill]:shadow-[0_0_0_100px_#FCF4E6_inset] dark:[&:-webkit-autofill]:shadow-[0_0_0_100px_#1A1C1E_inset]",
                     "[&:-webkit-autofill]:[-webkit-text-fill-color:#111827] dark:[&:-webkit-autofill]:[-webkit-text-fill-color:#E2D7CE]",
                     error && "border-red-500 dark:border-red-400"
@@ -68,9 +68,9 @@ export const DateDropdowns = ({
                     "absolute left-0 top-0 text-xs uppercase tracking-widest text-gray-500 dark:text-gray-400 transition-all pointer-events-none",
                     jetbrainsMono.className,
                     "peer-placeholder-shown:top-5 peer-placeholder-shown:text-lg peer-placeholder-shown:normal-case peer-placeholder-shown:font-sans peer-placeholder-shown:text-gray-500 dark:peer-placeholder-shown:text-gray-500",
-                    "peer-focus:top-0 peer-focus:text-xs peer-focus:uppercase peer-focus:tracking-widest peer-focus:text-[#FF5C00]"
+                    "peer-focus:top-0 peer-focus:text-xs peer-focus:uppercase peer-focus:tracking-widest peer-focus:text-[var(--accent)]"
                 )}>
-                {label} {required && <span className="text-[#FF5C00]">*</span>}
+                {label} {required && <span className="text-[var(--accent)]">*</span>}
             </label>
             {error && <span className={cn("text-red-500 dark:text-red-400 text-[10px] absolute right-0 top-2", jetbrainsMono.className)}>{error}</span>}
         </div>

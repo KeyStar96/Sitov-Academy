@@ -34,7 +34,7 @@ export default async function VocabularyAssessPage({
           <p className="mx-auto mt-2 max-w-md text-lg text-[var(--muted)]">{t('assess_empty_text')}</p>
           <Link
             href={overviewHref}
-            className="mt-8 inline-flex min-h-16 items-center justify-center rounded-2xl bg-[var(--accent)] px-8 py-4 text-xl font-bold text-white dark:text-[#23150e] shadow-md transition-colors hover:opacity-90 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)]"
+            className="mt-8 inline-flex min-h-16 items-center justify-center rounded-2xl bg-[var(--accent)] px-8 py-4 text-xl font-bold text-[var(--accent-foreground)] shadow-md transition-colors hover:bg-[var(--accent-hover)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)]"
           >
             {t('back_to_overview')}
           </Link>

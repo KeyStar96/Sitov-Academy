@@ -54,7 +54,7 @@ export default async function CancellationPage({
         <>
             <Header lang={lang} dictionary={dictionary} />
 
-            <main className="min-h-screen w-full flex items-center justify-center p-4 md:p-8 pt-28 md:pt-32">
+            <div className="min-h-screen w-full flex items-center justify-center p-4 md:p-8 pt-28 md:pt-32">
                 <div className="w-full max-w-lg">
                     {/* Glass Card */}
                     <div className="bg-white/60 dark:bg-[#1a1a1a]/60 backdrop-blur-md border border-white/40 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.1)] rounded-3xl p-6 md:p-10 relative overflow-hidden">
@@ -63,7 +63,7 @@ export default async function CancellationPage({
 
                         {/* Back Button */}
                         <div className="relative z-10 mb-8">
-                            <Link href={`/${lang}`} className="inline-flex items-center px-4 py-2 bg-white/60 dark:bg-[#1a1a1a]/60 backdrop-blur-md border border-white/40 dark:border-white/10 rounded-full text-foreground/60 hover:text-[#FF5C00] hover:shadow-lg transition-all duration-300 gap-2 group">
+                            <Link href={`/${lang}`} className="inline-flex items-center px-4 py-2 bg-white/60 dark:bg-[#1a1a1a]/60 backdrop-blur-md border border-white/40 dark:border-white/10 rounded-full text-foreground/60 hover:text-[var(--accent)] hover:shadow-lg transition-all duration-300 gap-2 group">
                                 <span className="text-xl group-hover:-translate-x-1 transition-transform">←</span>
                                 <span className="text-[10px] font-bold tracking-widest uppercase font-mono">{dictionary.cancellation.back_home || "Back"}</span>
                             </Link>
@@ -89,7 +89,7 @@ export default async function CancellationPage({
 
                     </div>
                 </div>
-            </main>
+            </div>
         </>
     );
 }

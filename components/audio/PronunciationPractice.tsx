@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { prefetchNeuralAudio } from '@/lib/audio/neural-client'
 import { BookOpen, Check, Headphones, Mic, MessageCircle } from 'lucide-react'
 import AudioRecorder from '@/components/audio/AudioRecorder'
@@ -13,6 +13,18 @@ export default function PronunciationPractice({ prompts, level, translations }: 
   const t = createPronunciationTranslator(translations ?? {})
   const [selectedId, setSelectedId] = useState(prompts[0]?.id)
   const [recordingBusy, setRecordingBusy] = useState(false)
+  const practiceRef = useRef<HTMLDivElement>(null)
+  const recordingBarRef = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    const bar = recordingBarRef.current
+    if (!bar) return
+    // Playback, validation messages and translated labels can change the bar height.
+    const updateClearance = () => practiceRef.current?.style.setProperty('--recording-bar-height', `${bar.getBoundingClientRect().height}px`)
+    updateClearance()
+    const observer = new ResizeObserver(updateClearance)
+    observer.observe(bar)
+    return () => observer.disconnect()
+  }, [prompts.length])
   const selected = prompts.find((prompt) => prompt.id === selectedId) ?? prompts[0]
   useEffect(() => {
     if (!selected) return
@@ -20,7 +32,7 @@ export default function PronunciationPractice({ prompts, level, translations }: 
   }, [selected?.sentenceDe, selected?.audioUrl])
   if (!selected) return <section className="rounded-[2rem] border border-dashed border-[var(--border)] p-10 text-center"><BookOpen className="mx-auto mb-4 text-[var(--accent)]" size={32} /><h2 className="text-xl font-semibold">{t('prompts_empty')}</h2><p className="mt-3 text-[var(--muted)]">{t('prompts_empty_hint')}</p></section>
   const wordCount = selected.sentenceDe.split(/\s+/).length
-  return <div className="space-y-6">
+  return <div ref={practiceRef} className="pronunciation-practice space-y-6">
     <ol className="grid gap-3 sm:grid-cols-3">
       {([{ icon: BookOpen, key: 'step_read' }, { icon: Mic, key: 'step_record' }, { icon: MessageCircle, key: 'step_feedback' }] as const).map(({ icon: Icon, key }, index) => <li key={key} className="flex items-center gap-3 rounded-2xl border border-[var(--border)] bg-[var(--surface)] px-4 py-4"><span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[var(--surface-muted)] text-[var(--accent)]"><Icon size={20} /></span><span className="text-base font-semibold"><span className="mr-2 text-[var(--muted)]">0{index + 1}</span>{t(key)}</span></li>)}
     </ol>
@@ -34,10 +46,12 @@ export default function PronunciationPractice({ prompts, level, translations }: 
       <div className="min-w-0 space-y-5">
         <article className="overflow-hidden rounded-[2rem] border border-[var(--border)] bg-[var(--surface)] shadow-sm">
           <header className="border-b border-[var(--border)] p-6 sm:p-8"><div className="mb-4 flex flex-wrap gap-2 text-base font-semibold text-[var(--muted)]"><span className="rounded-full bg-[var(--surface-muted)] px-3 py-1.5">{level}</span><span className="rounded-full bg-[var(--surface-muted)] px-3 py-1.5">{t('words', { count: wordCount })}</span><span className="rounded-full bg-[var(--surface-muted)] px-3 py-1.5">{t('reading_time', { minutes: Math.max(1, Math.ceil(wordCount / 70)) })}</span></div><h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">{selected.title ?? t('reference_label')}</h2>{selected.focus && <p className="mt-3 text-base leading-relaxed text-[var(--muted)]">{t('prompt_focus', { focus: selected.focus })}</p>}</header>
-          <div className="p-6 sm:p-8"><p lang="de" className="whitespace-pre-line text-lg leading-[1.95] text-[var(--foreground)] sm:text-xl">{selected.sentenceDe}</p><div className="mt-7 border-t border-[var(--border)] pt-6">{selected.audioUrl ? <WaveformPlayer src={selected.audioUrl} t={t} label={t('reference_listen')} /> : <SolutionAudioButton text={selected.sentenceDe} language="de" label={t('reference_listen')} ariaLabel={t('reference_listen_aria')} />}</div></div>
+          <div className="pronunciation-reading-text p-6 sm:p-8"><p data-testid="pronunciation-reading-text" lang="de" className="whitespace-pre-line text-lg leading-[1.95] text-[var(--foreground)] sm:text-xl">{selected.sentenceDe}<span data-testid="pronunciation-text-end" className="pronunciation-text-end block h-px" aria-hidden="true" /></p><div className="mt-7 border-t border-[var(--border)] pt-6">{selected.audioUrl ? <WaveformPlayer src={selected.audioUrl} t={t} label={t('reference_listen')} /> : <SolutionAudioButton text={selected.sentenceDe} language="de" label={t('reference_listen')} ariaLabel={t('reference_listen_aria')} />}</div></div>
         </article>
         <p className="flex items-start gap-3 px-2 text-base leading-relaxed text-[var(--muted)]"><Headphones size={20} className="mt-0.5 shrink-0 text-[var(--accent)]" />{t('reading_tip')}</p>
-        <AudioRecorder key={selected.id} promptId={selected.id} level={level} translations={translations} onRecordingStateChange={setRecordingBusy} />
+        <div ref={recordingBarRef} data-testid="pronunciation-recording-bar" className="pronunciation-recording-bar sticky bottom-0 z-40 lg:static lg:z-auto">
+          <AudioRecorder key={selected.id} promptId={selected.id} level={level} translations={translations} onRecordingStateChange={setRecordingBusy} mobileSticky />
+        </div>
         <p className="px-3 text-center text-base leading-relaxed text-[var(--muted)]">{t('recording_privacy')}</p>
       </div>
     </div>

@@ -34,7 +34,7 @@
   --lm-text-espresso: #2D3436;
 }
 
-.dark {
+html.dark {
   /* Darkmode — dieselbe Leinwand wie der Preloader */
   --canvas: #050505;
   --background: #050505;
@@ -173,11 +173,11 @@ html {
 
 .animate-laser-scan {
   background: linear-gradient(90deg,
-      #FF5C00 0%,
-      #FF5C00 45%,
+      var(--accent) 0%,
+      var(--accent) 45%,
       #FFFFFF 50%,
-      #FF5C00 55%,
-      #FF5C00 100%);
+      var(--accent) 55%,
+      var(--accent) 100%);
   background-size: 200% auto;
   background-clip: text;
   -webkit-background-clip: text;
@@ -617,10 +617,10 @@ html {
 
   /* Hover-Effekt für Glass Card - Subtiler Border-Glow */
   .group\/card:hover .glass-card-bg {
-    border-color: var(--accent-color, #FF5C00);
+    border-color: var(--accent-color, var(--accent));
     box-shadow:
       0 20px 40px -15px rgba(0, 0, 0, 0.5),
-      0 0 20px -8px var(--accent-color, #FF5C00),
+      0 0 20px -8px var(--accent-color, var(--accent)),
       inset 0 1px 0 rgba(255, 255, 255, 0.05);
   }
 
@@ -1053,8 +1053,10 @@ p {
   --surface-muted: #ece9e1;
   --foreground: #24272b;
   --muted: #62645f;
-  --border: #d7d6ce;
+  --border: #82847c;
   --accent: #bd3510;
+  --accent-hover: #a52b0a;
+  --accent-soft: #fbece4;
   --accent-foreground: #ffffff;
   --violet: #6942a0;
   --success: #246642;
@@ -1065,7 +1067,7 @@ p {
   --accent-cyan: var(--violet);
   --accent-lime: var(--accent);
 }
-.dark {
+html.dark {
   color-scheme: dark;
   --canvas: #121417;
   --background: var(--canvas);
@@ -1073,9 +1075,11 @@ p {
   --surface-muted: #252830;
   --foreground: #f4f0e8;
   --muted: #b4b5b9;
-  --border: #42454c;
+  --border: #787d88;
   --accent: #ff946b;
-  --accent-foreground: #24150f;
+  --accent-hover: #f58254;
+  --accent-soft: #38271f;
+  --accent-foreground: #0f172a;
   --violet: #c2a7ff;
   --success: #8bdaad;
   --danger: #ff9ca5;
@@ -1094,6 +1098,8 @@ html.high-contrast {
   --muted: #333333;
   --border: #555555;
   --accent: #8f2500;
+  --accent-hover: #761e00;
+  --accent-soft: #f7ebe7;
   --accent-foreground: #ffffff;
   --violet: #4b247f;
   --success: #13542b;
@@ -1107,7 +1113,9 @@ html.dark.high-contrast {
   --muted: #e5e5e5;
   --border: #aaaaaa;
   --accent: #ffba8f;
-  --accent-foreground: #100b06;
+  --accent-hover: #ffad7c;
+  --accent-soft: #251912;
+  --accent-foreground: #0f172a;
   --violet: #d6c1ff;
   --success: #9ff2b7;
   --danger: #ffb9c2;
@@ -1270,6 +1278,7 @@ html:has(.academy-header) { scroll-padding-top: 9rem; }
 body:has(.learning-screen) .academy-student-header, body:has(.learning-screen) .academy-app-background { visibility: hidden; }
 @media (hover: hover) {
   .academy-button:hover { transform: translateY(-2px); }
+  .academy-button-primary:hover { background: var(--accent-hover); }
   .academy-button-outline:hover, .academy-icon-button:hover { background: var(--surface-muted); }
   a.academy-level-card:hover { border-color: var(--violet); transform: translateY(-3px); }
 }
@@ -1364,3 +1373,11 @@ body:has(.learning-screen) .academy-support { display: none; }
 .vocabulary-phase-learned { background: var(--success); color: var(--surface); }
 .academy-skeleton { background: var(--surface-muted); animation: pulse 2s cubic-bezier(.4, 0, .6, 1) infinite; }
 @media (prefers-reduced-motion: reduce) { .academy-skeleton { animation: none; } }
+
+/* A single recorder stays within its reading column and clears the iOS home indicator. */
+@media (max-width: 1023px) {
+  .pronunciation-reading-text { padding-bottom: calc(var(--recording-bar-height, 6rem) + 1.5rem); }
+  .pronunciation-text-end { scroll-margin-bottom: calc(var(--recording-bar-height, 6rem) + 1rem); }
+  .pronunciation-recording-bar { padding-bottom: env(safe-area-inset-bottom, 0px); background: var(--canvas); }
+  .pronunciation-recording-bar > div { max-height: 55dvh; overflow-y: auto; overscroll-behavior: contain; }
+}

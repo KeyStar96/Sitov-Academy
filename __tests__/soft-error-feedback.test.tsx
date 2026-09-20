@@ -30,7 +30,7 @@ describe.each(Object.entries({ de, en, ru, uk, tr }))('%s soft-error feedback', 
   })
 })
 
-it.each([':root', '.dark'])('warning text meets WCAG AA in %s', selector => {
+it.each([':root', 'html.dark'])('warning text meets WCAG AA in %s', selector => {
   const css = readFileSync(resolve(process.cwd(), 'app/globals.css'), 'utf8')
   // Resolve the cascade, so a later override cannot silently bypass this test.
   const escaped = selector.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')

@@ -38,7 +38,7 @@ export default function FeedbackNotificationCard({
   return (
     <section
       aria-label={t('notification_title')}
-      className="rounded-3xl border-2 border-[#FF5C00] bg-orange-50 p-6 shadow-sm dark:border-[#FF5C00] dark:bg-orange-950/20"
+      className="rounded-3xl border-2 border-[var(--accent)] bg-[var(--accent-soft)] p-6 shadow-sm"
     >
       <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
         <div className="flex items-start gap-4">
@@ -55,7 +55,7 @@ export default function FeedbackNotificationCard({
 
         <Link
           href={href}
-          className="flex min-h-16 w-full shrink-0 items-center justify-center gap-3 rounded-2xl bg-[var(--accent)] px-8 text-xl font-bold text-[var(--accent-foreground)] shadow-md transition-colors hover:opacity-90 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-slate-900 md:w-auto"
+          className="flex min-h-16 w-full shrink-0 items-center justify-center gap-3 rounded-2xl bg-[var(--accent)] px-8 text-xl font-bold text-[var(--accent-foreground)] shadow-md transition-colors hover:bg-[var(--accent-hover)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-slate-900 md:w-auto"
         >
           {t('notification_cta')}
           <ChevronRight size={26} aria-hidden="true" />

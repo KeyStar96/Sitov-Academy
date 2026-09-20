@@ -7,7 +7,8 @@ import { isCefrFamily, type PronunciationPrompt } from './pronunciation-prompts'
 /** Foreign-key embeds keep content, translations and unit metadata authoritative. */
 export const vocabularySelection = '*,unit:learning_units!inner(id,level,label,sort_order,is_active),translations:vocabulary_translations(*)' as const
 export const grammarSelection = '*,unit:learning_units!inner(id,level,label,sort_order,is_active),translations:grammar_translations(*)' as const
-export const readingSelection = '*,unit:learning_units!inner(id,level,label,sort_order,is_active,learning_levels!inner(cefr_level))' as const
+// The grants table creates a second PostgREST path to levels; select the unit FK explicitly.
+export const readingSelection = '*,unit:learning_units!inner(id,level,label,sort_order,is_active,learning_levels!learning_units_level_fkey!inner(cefr_level))' as const
 export const videoSelection = '*,unit:learning_units!inner(id,level,label,sort_order,is_active)' as const
 export const vocabularyQuery = (client: SupabaseClient<Database>) => client.from('learning_vocabulary_cards').select(vocabularySelection)
 export const grammarQuery = (client: SupabaseClient<Database>) => client.from('learning_exercises').select(grammarSelection)

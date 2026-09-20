@@ -107,7 +107,7 @@ export default function LessonAccessModal({ studentId, level, trainer, rule, onC
       </div>
       <footer className="flex shrink-0 flex-wrap justify-end gap-3 border-t border-[var(--border)] px-5 py-4 sm:px-6">
         <button type="button" onClick={onClose} disabled={saving} className="min-h-12 rounded-xl border border-[var(--border)] px-5 font-semibold disabled:opacity-50">{t('cancel')}</button>
-        <button type="button" onClick={handleSave} disabled={saving || loading || loadFailed || lessons.length === 0} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-6 font-bold text-white hover:bg-[var(--accent-hover)] disabled:opacity-50">
+        <button type="button" onClick={handleSave} disabled={saving || loading || loadFailed || lessons.length === 0} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-6 font-bold text-[var(--accent-foreground)] hover:bg-[var(--accent-hover)] disabled:opacity-50">
           {saving && <Loader2 size={20} className="animate-spin" aria-hidden="true" />}{t('save')}
         </button>
       </footer>

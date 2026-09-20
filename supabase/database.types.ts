@@ -1488,6 +1488,7 @@ export type Database = {
         Args: { p_id: string; p_lease_token: string; p_message_id: string }
         Returns: Json
       }
+      complete_media_upload: { Args: { p_payload: Json }; Returns: Json }
       confirm_business_booking: { Args: { p_id: string }; Returns: Json }
       consume_rate_limit: {
         Args: { p_key: string; p_limit: number; p_window_seconds: number }
@@ -1513,7 +1514,9 @@ export type Database = {
         Returns: Json
       }
       finish_learning_reset: { Args: { p_token: string }; Returns: Json }
-      get_all_students_progress_data: { Args: never; Returns: Json }
+      get_all_students_progress_data:
+        | { Args: never; Returns: Json }
+        | { Args: { p_course_id: string; p_student_id: string }; Returns: Json }
       initialize_vocabulary_cards: {
         Args: { p_decisions: Json }
         Returns: Json

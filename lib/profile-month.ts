@@ -9,6 +9,6 @@ export function profileMonthWindow(now = new Date()) {
   return { current: date(0), next: date(1), afterNext: date(2) }
 }
 export function formatProfileMonth(month: string, locale: string): string {
-  return new Intl.DateTimeFormat(locale, { month: 'long', year: 'numeric', timeZone: 'UTC' })
+  return new Intl.DateTimeFormat(locale, { month: 'long', year: 'numeric', timeZone: 'Europe/Berlin' })
     .format(new Date(`${month}T12:00:00Z`))
 }

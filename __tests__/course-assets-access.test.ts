@@ -28,3 +28,9 @@ it('requires a verified auth session before accessing Storage', async () => {
   expect((await POST(request())).status).toBe(401)
   expect(createSignedUrl).not.toHaveBeenCalled()
 })
+it('requests an attachment from Storage for reliable cross-origin downloads', async () => {
+  createSignedUrl.mockResolvedValue({ data: { signedUrl: 'http://127.0.0.1:9080/storage/v1/object/sign/course-assets/x.pdf?token=test&download=' }, error: null })
+  const response = await POST(new Request('http://localhost/api/course-assets', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ path: 'A1.1/folder/presentations/asset.pdf', download: true }) }))
+  expect(response.status).toBe(200)
+  expect(createSignedUrl).toHaveBeenCalledWith('A1.1/folder/presentations/asset.pdf', 60, { download: true })
+})

@@ -51,7 +51,7 @@ export default async function AdminLayout({
             <div className="flex min-h-16 w-full flex-wrap items-center justify-between gap-2 py-2">
               <Link
                 href={`/${lang}/admin`}
-                className="flex h-12 shrink-0 items-center rounded-xl px-1 transition-opacity hover:opacity-80 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#FF5C00]"
+                className="flex h-12 shrink-0 items-center rounded-xl px-1 transition-opacity hover:opacity-80 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
               >
                 <BrandLogo name={t('brand_name')} />
               </Link>
@@ -70,7 +70,7 @@ export default async function AdminLayout({
                 }}>
                   <button
                     type="submit"
-                    className="inline-flex h-12 min-w-12 items-center justify-center gap-2 rounded-md border border-slate-200 bg-white px-3 text-sm font-bold text-slate-900 shadow-sm transition-colors hover:bg-slate-50 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[#FF5C00] dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-700"
+                    className="inline-flex h-12 min-w-12 items-center justify-center gap-2 rounded-md border border-slate-200 bg-white px-3 text-sm font-bold text-slate-900 shadow-sm transition-colors hover:bg-slate-50 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-700"
                     aria-label={t('logout_aria')}
                   >
                     <LogOut size={18} aria-hidden="true" />
@@ -84,11 +84,11 @@ export default async function AdminLayout({
             </div>
           </div>
         </header>
-        <main className="min-w-0 flex-1">
+        <div className="min-w-0 flex-1">
           <div className="mx-auto max-w-[1440px] px-4 py-6 sm:px-6 lg:px-8 pb-[max(1.5rem,env(safe-area-inset-bottom))]">
             {children}
           </div>
-        </main>
+        </div>
       </div>
     </AdminI18nProvider>
   )
