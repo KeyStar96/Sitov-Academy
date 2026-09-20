@@ -3,7 +3,7 @@ jest.mock('server-only', () => ({}), { virtual: true })
 jest.mock('next/cache', () => ({ revalidatePath: jest.fn() }))
 jest.mock('@/utils/supabase/server', () => ({ createClient: jest.fn() }))
 import { createClient } from '@/utils/supabase/server'
-import { completeMediaUpload, getMediaCourses, getMediaFolders, saveMediaFolder } from '@/app/actions/media'
+import { completeMediaUpload, getMediaFolders, saveMediaFolder } from '@/app/actions/media'
 
 const id = (n: number) => `00000000-0000-4000-8000-${String(n).padStart(12, '0')}`
 const folder = { folder_id: id(1), title: 'Lessons', level: 'A1.1', course_id: null, sort_order: 0 }
@@ -39,11 +39,10 @@ it('does not request asset names when RLS exposes no folders', async () => {
   expect(await getMediaFolders('B1.1')).toEqual({ success: true, data: [] })
   expect(tables.learning_videos.select).not.toHaveBeenCalled(); expect(tables.lms_presentation_asset.select).not.toHaveBeenCalled()
 })
-it('requires staff access to upload, edit folders, and read admin course choices', async () => {
+it('requires staff access to upload and edit folders', async () => {
   const tables = session('student')
   expect(await completeMediaUpload({})).toEqual({ success: false, error: 'not_authorized' })
   expect(await saveMediaFolder({})).toEqual({ success: false, error: 'not_authorized' })
-  expect(await getMediaCourses()).toEqual({ success: false, error: 'not_authorized' })
   expect(rpc).not.toHaveBeenCalled(); expect(tables.courses.select).not.toHaveBeenCalled()
 })
 it('derives storage paths from the persisted folder and rejects forged paths', async () => {
@@ -56,8 +55,16 @@ it('derives storage paths from the persisted folder and rejects forged paths', a
     asset_id: id(2), folder_id: folder.folder_id, title: 'Lecture', file_name: 'lecture.pdf', file_size: 2048, mime_type: 'application/pdf', storage_path: `A1.1/${folder.folder_id}/presentations/${id(2)}.pdf`,
   } })
 })
-it('rejects binding a folder to a course from a different learning level', async () => {
-  const tables = session(); tables.courses.single.mockResolvedValue({ data: { level: 'A1.2' }, error: null })
+it('rejects course bindings in level-only folder input', async () => {
+  const tables = session()
   expect(await saveMediaFolder({ ...folder, course_id: id(3) })).toEqual({ success: false, error: 'invalid_input' })
   expect(tables.lms_media_folder.update).not.toHaveBeenCalled()
+})
+
+it('saves a folder using its level without any course lookup', async () => {
+  const tables = session()
+  const input = { folder_id: folder.folder_id, title: folder.title, level: folder.level, sort_order: folder.sort_order }
+  expect(await saveMediaFolder(input)).toEqual({ success: true, data: folder })
+  expect(tables.lms_media_folder.update).toHaveBeenCalledWith({ title: folder.title, level: 'A1.1', sort_order: 0 })
+  expect(tables.courses.select).not.toHaveBeenCalled()
 })

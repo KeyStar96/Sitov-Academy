@@ -25,7 +25,7 @@ export const mediaFileSchema = z.object({
 })
 export const folderWriteSchema = z.object({
   folder_id: z.string().uuid().optional(), level: z.enum(ACCESS_LEVELS),
-  course_id: z.string().uuid().nullable(), title: z.string().trim().min(1).max(180),
+  title: z.string().trim().min(1).max(180),
   sort_order: z.number().int().min(0).max(100000),
 }).strict()
 export const completeUploadSchema = z.object({
@@ -34,7 +34,6 @@ export const completeUploadSchema = z.object({
 }).strict()
 export interface MediaAsset { id: string; title: string; path: string; mime: string; bytes: number; kind: 'videos' | 'presentations' }
 export interface MediaFolder { folder_id: string; level: string; course_id: string | null; title: string; sort_order: number; assets: MediaAsset[] }
-export interface MediaCourse { id: string; title: string; level: string | null }
 export function mediaPath(level: string, folderId: string, assetId: string, format: MediaFormat) {
   return `${level}/${folderId}/${format === 'mp4' || format === 'webm' ? 'videos' : 'presentations'}/${assetId}.${format}`
 }

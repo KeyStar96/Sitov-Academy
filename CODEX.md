@@ -380,7 +380,7 @@ Befund: `e2e/accessibility.spec.ts` enthält einen expliziten Whitelist-Block, d
 
 #### 5.3 Lehrer-Dashboard: Medienverwaltung
 * [x] Neue Route `app/[lang]/admin/content/media/page.tsx` + Komponente `components/admin/MediaFolderCMS.tsx`.
-* [x] Ordner anlegen, umbenennen, sortieren (`lms_media_folder`), gebunden an Kurs und Level.
+* [x] Ordner anlegen, umbenennen, sortieren (`lms_media_folder`), ausschließlich nach Niveau. Nutzerkorrektur 20.09.2026: Kursauswahl entfernt; Zugriff über die vorhandene Niveau-Freigabe.
 * [x] Video-Upload (MP4/WebM) und Präsentations-Upload (.pptx, .key, .pdf) im selben Ordner in getrennten Bereichen implementieren.
 * [x] ⚠️ Upload muss resumable erfolgen (Supabase Storage TUS-Endpoint). Fortschrittsbalken und Retry vorsehen.
 * [x] Client-seitige Vorprüfung von MIME-Type und Größe einbauen.

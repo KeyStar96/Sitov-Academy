@@ -10,7 +10,6 @@ import { mediaCopy } from '../lib/media-i18n'
 interface Fixture {
   baseURL: string
   token: string
-  courseId: string
   allowedOrigins?: string[]
   sessions: { teacher: Session; student: Session; locked: Session }
 }
@@ -133,10 +132,9 @@ test('live self-hosted media: resumed 35 MiB TUS, viewers, downloads, access gat
     await expect(page.getByRole('heading', { name: folderTitle, exact: true })).not.toBeVisible()
     const previousFolderId = await page.getByRole('combobox', { name: t.selectFolder, exact: true }).inputValue()
     await page.getByRole('combobox', { name: t.level, exact: true }).selectOption('A1.1')
-    await page.getByRole('combobox', { name: t.course, exact: true }).selectOption(fixture.courseId)
     await page.getByLabel(t.order, { exact: true }).fill('7')
     await page.getByLabel(t.name, { exact: true }).fill(folderTitle)
-    await expect(page.getByRole('combobox', { name: t.course, exact: true })).toHaveValue(fixture.courseId)
+    await expect(page.getByRole('combobox', { name: t.level, exact: true })).toHaveValue('A1.1')
     await expect(page.getByLabel(t.name, { exact: true })).toHaveValue(folderTitle)
     await expect(page.getByLabel(t.order, { exact: true })).toHaveValue('7')
     await page.getByRole('button', { name: t.save, exact: true }).click()
@@ -152,7 +150,7 @@ test('live self-hosted media: resumed 35 MiB TUS, viewers, downloads, access gat
     await expect(page.getByRole('heading', { name: `${folderTitle} edited`, exact: true })).toBeVisible()
     await page.getByRole('button', { name: t.edit, exact: true }).click()
     await expect(page.getByLabel(t.order, { exact: true })).toHaveValue('9')
-    await expect(page.getByRole('combobox', { name: t.course, exact: true })).toHaveValue(fixture.courseId)
+    await expect(page.getByRole('combobox', { name: t.level, exact: true })).toHaveValue('A1.1')
     await page.getByLabel(t.name, { exact: true }).fill(folderTitle)
     await page.getByRole('button', { name: t.save, exact: true }).click()
     await expect(page.getByRole('heading', { name: folderTitle, exact: true })).toBeVisible()

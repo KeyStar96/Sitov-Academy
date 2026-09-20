@@ -1,7 +1,7 @@
 'use server'
 
 import { z } from 'zod'
-import { withBackendSession, checkDatabaseError, checkRpcError, BackendError, revalidateBackendPages } from '@/lib/actions/backend'
+import { withBackendSession, checkDatabaseError, checkRpcError, revalidateBackendPages } from '@/lib/actions/backend'
 import { folderWriteSchema, completeUploadSchema, mediaPath, type MediaFolder } from '@/lib/media'
 import { readAllRows } from '@/lib/supabase-read'
 
@@ -32,20 +32,9 @@ export async function getMediaFolders(level?: string) {
   })
 }
 
-export async function getMediaCourses() {
-  return withBackendSession(async ({ supabase }) => {
-    return readAllRows((from, to) => supabase.from('courses').select('id,title,level').is('archived_at', null).order('title').order('id').range(from, to))
-  }, 'staff')
-}
-
 export async function saveMediaFolder(input: unknown) {
   return withBackendSession(async ({ supabase }) => {
     const { folder_id, ...fields } = folderWriteSchema.parse(input)
-    if (fields.course_id) {
-      const course = await supabase.from('courses').select('level').eq('id', fields.course_id).single()
-      checkDatabaseError(course.error)
-      if (course.data?.level !== fields.level) throw new BackendError('invalid_input')
-    }
     const query = folder_id ? supabase.from('lms_media_folder').update(fields).eq('folder_id', folder_id) : supabase.from('lms_media_folder').insert(fields)
     const { data, error } = await query.select('folder_id,level,course_id,title,sort_order').single()
     checkDatabaseError(error); revalidateBackendPages(); return data!
