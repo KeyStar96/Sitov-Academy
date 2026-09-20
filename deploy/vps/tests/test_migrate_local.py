@@ -101,7 +101,7 @@ class MigrationFailureTests(unittest.TestCase):
         self.assertIn('06_soft_errors.sql', (self.backup / 'applied.json').read_text())
 
     def test_content_quality_migration_precedes_phase4_and_waits_for_matching_app(self):
-        self.assertEqual(MIGRATION.ORDER[-12:], ['06_soft_errors.sql', '07_content_quality.sql', '08_performance_indexes.sql', '09_progress_aggregate.sql', '10_rls_performance.sql', '11_teacher_analytics.sql', '12_media_upload.sql', '13_mail_exception_kind.sql', '14_mail_exceptions.sql', '15_grading_helper_permissions.sql','16_uploaded_video_visibility.sql','17_remove_video_placeholders.sql'])
+        self.assertEqual(MIGRATION.ORDER[-13:], ['06_soft_errors.sql', '07_content_quality.sql', '08_performance_indexes.sql', '09_progress_aggregate.sql', '10_rls_performance.sql', '11_teacher_analytics.sql', '12_media_upload.sql', '13_mail_exception_kind.sql', '14_mail_exceptions.sql', '15_grading_helper_permissions.sql','16_uploaded_video_visibility.sql','17_remove_video_placeholders.sql','18_vocabulary_self_rating.sql'])
         (self.root / '07_content_quality.sql').write_text('SELECT 1;\n')
         with patch('sys.argv', [str(SCRIPT), '--apply', '07_content_quality.sql',
                    '--sql-dir', str(self.root), '--keep-stopped']):
