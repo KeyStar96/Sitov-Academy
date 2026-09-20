@@ -1,6 +1,6 @@
 # Inhaltslektorat — Phase 3.4/3.5
 
-Stand: **2026-09-20T13:02:59.086284+00:00** · Datenbank `postgres` · konsistenter Snapshot (`REPEATABLE READ`, `READ ONLY`).
+Stand: **2026-09-20T13:13:36.02016+00:00** · Datenbank `postgres` · konsistenter Snapshot (`REPEATABLE READ`, `READ ONLY`).
 Der Audit liest ausschließlich Inhaltsdaten. Er ändert weder Datenbank noch Dienste; die Dateien dokumentieren den Prüfzeitpunkt.
 
 ## Übersetzungen
@@ -12,11 +12,11 @@ Der Audit liest ausschließlich Inhaltsdaten. Er ändert weder Datenbank noch Di
 | `vocabulary_translations` | ru | 512 / 512 | 0 | 0 | translation: 0, context_sentence: 486 | 0 | 486 | 0 | 0 / 0 |
 | `vocabulary_translations` | uk | 512 / 512 | 0 | 0 | translation: 0, context_sentence: 486 | 0 | 486 | 0 | 0 / 0 |
 | `vocabulary_translations` | tr | 512 / 512 | 0 | 0 | translation: 0, context_sentence: 486 | 0 | 486 | 0 | 0 / 0 |
-| `grammar_translations` | de | 604 / 600 | 4 | 0 | hint: 600, smart_hint: 120, explanation: 480; prompt: N/A (Spalte fehlt) | 0 | 0 | 0 | 0 / 0 |
-| `grammar_translations` | en | 604 / 99 | 505 | 0 | hint: 99, smart_hint: 19, explanation: 80; prompt: N/A (Spalte fehlt) | 0 | 501 | 0 | 0 / 0 |
-| `grammar_translations` | ru | 604 / 103 | 501 | 2 | hint: 101, smart_hint: 23, explanation: 84; prompt: N/A (Spalte fehlt) | 0 | 501 | 2 | 0 / 0 |
-| `grammar_translations` | uk | 604 / 99 | 505 | 0 | hint: 99, smart_hint: 19, explanation: 80; prompt: N/A (Spalte fehlt) | 0 | 501 | 0 | 0 / 0 |
-| `grammar_translations` | tr | 604 / 103 | 501 | 2 | hint: 101, smart_hint: 23, explanation: 84; prompt: N/A (Spalte fehlt) | 0 | 501 | 0 | 0 / 0 |
+| `grammar_translations` | de | 604 / 600 | 4 | 0 | hint: 600, smart_hint: 120, explanation: 480, prompt: 600 | 0 | 0 | 0 | 0 / 0 |
+| `grammar_translations` | en | 604 / 99 | 505 | 0 | hint: 99, smart_hint: 19, explanation: 80, prompt: 99 | 0 | 501 | 0 | 0 / 0 |
+| `grammar_translations` | ru | 604 / 103 | 501 | 2 | hint: 101, smart_hint: 23, explanation: 84, prompt: 103 | 0 | 501 | 2 | 0 / 0 |
+| `grammar_translations` | uk | 604 / 99 | 505 | 0 | hint: 99, smart_hint: 19, explanation: 80, prompt: 99 | 0 | 501 | 0 | 0 / 0 |
+| `grammar_translations` | tr | 604 / 103 | 501 | 2 | hint: 101, smart_hint: 23, explanation: 84, prompt: 103 | 0 | 501 | 0 | 0 / 0 |
 | `course_translations` | de | 9 / 0 | 9 | 0 | title: 0, description: 0 | 0 | 0 | 0 | 0 / 0 |
 | `course_translations` | en | 9 / 9 | 0 | 0 | title: 0, description: 0 | 0 | 0 | 0 | 0 / 0 |
 | `course_translations` | ru | 9 / 9 | 0 | 0 | title: 0, description: 0 | 0 | 0 | 0 | 0 / 0 |
@@ -72,4 +72,4 @@ python3 deploy/vps/audit-content.py --ssh-host sitov-academy --container supabas
 
 Maschinenlesbar: [content-lektorat.json](content-lektorat.json). Enthält alle betroffenen IDs, Locales, Prüfarten und Feldpfade sowie Werte bei Sprachauffälligkeiten, Schemainventar und Zähldefinitionen.
 
-Snapshot-SHA256: `061ec025da7dd1ab1faa73a173952e788afc42cb9e870c10111b552f75193572`. Die Prüfsumme bezieht sich auf den vollständig gelesenen Inhaltssnapshot; der Bericht enthält nur Auditbefunde, keine Lernenden- oder Kontodaten.
+Snapshot-SHA256: `a91469fdd0b64210d0994c32abd1b10c1e5b79edce306170432a0eaed1dfd9ec`. Die Prüfsumme bezieht sich auf den vollständig gelesenen Inhaltssnapshot; der Bericht enthält nur Auditbefunde, keine Lernenden- oder Kontodaten.

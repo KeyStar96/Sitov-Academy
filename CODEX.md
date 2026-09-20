@@ -302,6 +302,21 @@ Befund-Korrektur: Die Dictionaries sind in gutem Zustand (Tippfehler sind bereit
 * [x] `learning_exercises` und `learning_reading_texts` müssen ausschließlich deutsche Sätze enthalten. CHECK/Trigger ergänzen, der kyrillische Zeichen sowie `ı ğ ş İ Ğ Ş` im deutschen Aufgabentext ablehnt.
 * [x] Report als `docs/audit/content-lektorat.md` mit Zeilenzahlen je Tabelle und Locale.
 
+
+#### S4 — Abnahmenachweise Phase 3.4–3.5 (20.09.2026)
+
+**Phase 3.1–3.5 abgeschlossen und produktiv.** Release `5d2f6f330348` aktiv; App, Mailworker und nginx aktiv, Health `ready`. Vollständiger Bericht: [docs/phase-3-content-verification.md](docs/phase-3-content-verification.md).
+
+| Prüfung | Ergebnis |
+|---|---|
+| 3.4 Zielwerte / CMS | Pflichtarray mit Zod und SQL geprüft; Eingabe und Unvollständig-Badge in fünf Sprachen. Echter Browserlauf CMS → Datenbank → russischer Schüler-Prompt `Как вас зовут? [heißen]` → Score 100 bestanden. |
+| 3.4 Altdaten / R5 | Alle **604** bisherigen Aufgaben unverändert und als `incomplete` für Schüler gesperrt, einschließlich direkter REST-/Bewertungszugriffe. Zielwerte müssen redaktionell ergänzt werden; keine automatisch erfundenen Werte. |
+| 3.5 Live-Audit | Alle drei Übersetzungstabellen in de/en/ru/uk/tr geprüft; [Lektoratsbericht](docs/audit/content-lektorat.md) mit Zählungen, Grenzen der Heuristik und vollständigen IDs/Feldpfaden. Zwei deutsche russische Hinweise sowie optionale Übersetzungslücken dokumentiert. |
+| 3.5 Sprachschutz | Zwei Trigger; deutsche Feldprüfung einschließlich NFC, kyrillischer Erweiterungsblöcke und sechs türkischer Zeichen. Bestehende **604 Aufgaben / 149 Lesetexte ohne Sperrzeichen**. Lokalisierte Prompts getrennt gespeichert. |
+| Vollständige Tests | **97 Jest-Suites / 1.241 Tests**, **297 VPS-Datenbanktests**, **10 Browsertests**, **32 Python-Tests** bestanden; keine übersprungenen Anforderungen. TypeScript, lokaler und VPS-Build bestanden. |
+| R7 / R9 / R10 | Idempotente Migration 07 plus vollständiger Replay 02→03→01→04→05→06→07 im echten Klon. Exakter Rollback erfolgreich im Klon erprobt; atomare JSONB-Fehler geprüft. Produktions-Dump und generierte Typen übernommen. |
+| R8 / Produktion | Backup `/root/backups/sitov-migration-20260920T131302529306Z`; DB-SHA256 `b3392328a121bde2d14ab61f15275957f8401b6443a08931e45a4cfd876332dd`; **396 Dateien / 392 Storage-Objekte** geprüft. Runtime-RAM-/CPU-Limits unverändert; Testkonten/-lektionen und temporäre Testdienste entfernt. |
+
 ---
 
 ### PHASE 4 — VPS-HARDWARE, PERFORMANCE & API-SICHERHEIT
