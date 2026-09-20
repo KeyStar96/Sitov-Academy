@@ -18,6 +18,8 @@ const sql=query=>execFileSync('docker',['exec','-i','supabase-db-eknmzxvqilojjic
 const sleep=ms=>new Promise(resolve=>setTimeout(resolve,ms))
 const report={startedAt:new Date().toISOString(),durationSeconds:duration,workers:4,requests:0,failures:0,ttfbMs:[],completeMs:[],resources:[],status:'running'}
 let userId,cookie,accessToken,stop=false
+process.on('SIGTERM',()=>{stop=true})
+process.on('SIGINT',()=>{stop=true})
 function sample(){
  const fields=Object.fromEntries(readFileSync('/sys/fs/cgroup/system.slice/sitov-app.service/memory.events','utf8').trim().split('\n').map(line=>{const [k,v]=line.split(' ');return[k,Number(v)]}))
  const memory=Number(readFileSync('/sys/fs/cgroup/system.slice/sitov-app.service/memory.current','utf8'))

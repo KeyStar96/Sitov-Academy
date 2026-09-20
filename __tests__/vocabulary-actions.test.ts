@@ -48,7 +48,12 @@ function session(options: {
     select: jest.fn().mockReturnThis(), eq: jest.fn().mockReturnThis(),
     maybeSingle: jest.fn().mockResolvedValue({ data: { last_card_id: options.previousCardId ?? null }, error: null }),
   }
-  const cards = { select: jest.fn().mockReturnThis(), order: jest.fn().mockReturnThis(), eq: jest.fn().mockReturnThis(), range: jest.fn().mockResolvedValue({ data: [vocabularyDatabaseRow(options.card ?? card)], error: null }) }
+  let locales: string[] | undefined
+  const cards = { select: jest.fn().mockReturnThis(), in: jest.fn().mockReturnThis(), order: jest.fn().mockReturnThis(), eq: jest.fn().mockReturnThis(), range: jest.fn(async () => {
+    const row = vocabularyDatabaseRow(options.card ?? card)
+    return { data: [{ ...row, translations: row.translations.filter(item => !locales || locales.includes(item.locale)) }], error: null }
+  }) }
+  cards.in.mockImplementation((_column: string, values: string[]) => { locales = values; return cards })
   const rulesResult = Promise.resolve({ data: [], error: null })
   const rules = { select: jest.fn().mockReturnThis(), eq: jest.fn().mockReturnThis(), then: rulesResult.then.bind(rulesResult) }
   const from = jest.fn((table: string) => table === 'profiles' ? profileChain : table === 'learning_trainer_grants' ? rules : table === 'learning_vocabulary_cards' ? cards : table === 'vocabulary_learning_state' ? cursor : progress)
@@ -57,12 +62,18 @@ function session(options: {
     from, rpc, auth: { getUser: jest.fn().mockResolvedValue({ data: { user: options.signedIn === false ? null : { id: options.actorId ?? userId } }, error: null }) },
   }
   jest.mocked(createClient).mockResolvedValue(client as unknown as Awaited<ReturnType<typeof createClient>>)
-  return { from, rpc, progress, cursor }
+  return { from, rpc, progress, cursor, cards }
 }
 
 beforeEach(() => jest.clearAllMocks())
 
 describe('session DTO source language', () => {
+  it('keeps native-language difficulty and UI sentences after limiting embedded translations', async () => {
+    const { cards } = session({ nativeLanguage: 'tr', uiLanguage: 'ru', card: { ...card, is_hard_for_tr: true } })
+    const result = await getVocabularySession('A1.1', 'ru')
+    expect(cards.in).toHaveBeenCalledWith('translations.locale', ['de', 'ru', 'tr'])
+    expect(result.cards[0]).toMatchObject({ promptLanguage: 'ru', prompt: card.context_sentence_ru, isHardForNativeLanguage: true })
+  })
   it('blocks German UI instead of silently substituting the native language', async () => {
     const { progress } = session({ nativeLanguage: 'tr', uiLanguage: 'de' })
     expect((await getVocabularySession('A1.1', 'de')).cards).toEqual([])

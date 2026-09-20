@@ -56,17 +56,25 @@ export async function getVocabularySession(level?: string, uiLanguage?: string):
     const { supabase, user, profile } = learner
     const language = languageSchema.catch('de').parse(uiLanguage ?? profile.ui_language)
     if (language === 'de') return { learnerId: null, cards: [], deferredCount: 0, previousCardId: null }
-    let catalogQuery = vocabularyQuery(supabase).order('id')
+    // Session display needs only the interface/native sentence sources and German.
+    // Keep the complete catalog shape for other callers; filter this embedded read.
+    const locales = [...new Set(['de', language, profile.native_language].filter((value): value is string => !!value))]
+    let catalogQuery = vocabularyQuery(supabase).in('translations.locale', locales).order('id')
     if (level) catalogQuery = catalogQuery.eq('unit.level', level)
     const [catalog, progress, { data: cursor, error: cursorError }] = await Promise.all([
       readAllRows((from, to) => catalogQuery.range(from, to)),
-      readAllRows((from, to) => supabase.from('vocabulary_direction_progress').select('*')
+      readAllRows((from, to) => supabase.from('vocabulary_direction_progress').select('id,card_id,direction,box_number')
         .eq('auth_user_id', user.id).lte('next_review_date', new Date().toISOString()).lt('box_number', LEITNER_LEARNED_BOX)
         .order('id').range(from, to)),
       supabase.from('vocabulary_learning_state').select('last_card_id').eq('auth_user_id', user.id).maybeSingle(),
     ])
     if (cursorError) return { learnerId: null, cards: [], deferredCount: 0, previousCardId: null }
     const catalogById = new Map(catalog.map(row => mapVocabularyCard(row)).map(card => [card.id, card]))
+    // Reuse one display object per card in both directions (Flight can reference it).
+    const displayCards = new Map([...catalogById].map(([id, card]) => [id, {
+      id: card.id, level: card.level, lesson: card.lesson, word_de: card.word_de,
+      article: card.article, plural: card.plural, image_url: card.image_url, audio_url: card.audio_url,
+    }]))
     const cards: DueVocabularyCard[] = progress.flatMap(row => {
       const card = catalogById.get(row.card_id)
       if (!card || !hasTrainerAccess(profile, card.level, 'vocabulary')) return []
@@ -87,8 +95,7 @@ export async function getVocabularySession(level?: string, uiLanguage?: string):
         // Never send the exact German sentence before a typing answer is submitted.
         contextSentence: sentence ? null : card.context_sentence_de,
         box, phase: (box === LEITNER_LEARNED_BOX ? 6 : box) as LeitnerPhase,
-        card: { id: card.id, level: card.level, lesson: card.lesson, word_de: card.word_de,
-          article: card.article, plural: card.plural, image_url: card.image_url, audio_url: card.audio_url },
+        card: displayCards.get(card.id)!,
         translation, isHardForNativeLanguage: isHardForNativeLanguage(card, profile.native_language),
       } satisfies DueVocabularyCard]
     })
