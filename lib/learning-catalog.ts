@@ -59,5 +59,5 @@ export function mapReadingText(row: ReadingRow): PronunciationPrompt {
 
 export function mapVideo(row: VideoRow) {
   return videoRecordSchema.parse({ ...row, unit_id: row.unit.id, level: row.unit.level,
-    title: row.unit.label, is_active: row.unit.is_active })
+    title: row.title ?? row.unit.label, is_active: row.unit.is_active })
 }

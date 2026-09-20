@@ -30,7 +30,17 @@ it('hides database errors without falsely acknowledging a registration',async()=
  rpc.mockResolvedValue({data:null,error:{code:'23505',message:'Private identity'}})
  expect(await submitEnrollment(form,[{courseId:id}],'01.10.2026',consents)).toEqual({success:false,message:'generic_error'})
 })
+it('does not acknowledge an HTTP-successful JSON registration error',async()=>{
+ rpc.mockResolvedValue({data:{error:'invalid_input',message:'The request contains invalid data.',sqlstate:'23514'},error:null})
+ expect(await submitEnrollment(form,[{courseId:id}],'01.10.2026',consents)).toEqual({success:false,message:'generic_error'})
+})
 it('maps relational schedules and database translations for previously unknown courses',async()=>{
  const chain={select:jest.fn().mockReturnThis(),is:jest.fn().mockReturnThis(),order:jest.fn()};chain.order.mockReturnValueOnce(chain).mockResolvedValueOnce({error:null,data:[{id,slug:'new-c2',title:'Neuer C2-Kurs',description:'Individuell',type:'online',category:'speaking',unit_price:15,sort_order:125,level:'C2',unit_minutes:60,start_date:null,end_date:null,trial_lessons:false,course_translations:[{locale:'uk',title:'Новий курс',description:'Опис'}],course_schedules:[{weekday:6,start_time:'10:00:00',end_time:'11:00:00'}]}]});mockCatalog.from.mockReturnValue(chain)
  const result=await getCourses();expect(result[0]).toEqual(expect.objectContaining({id,title:'Neuer C2-Kurs',sortOrder:125,category:'speaking',translations:[{locale:'uk',title:'Новий курс',description:'Опис'}],sessions:[{day:'Sa',startTime:'10:00',endTime:'11:00'}]}))
+})
+it('displays a preserved marketing range without fabricating an authorization level',async()=>{
+ const chain={select:jest.fn().mockReturnThis(),is:jest.fn().mockReturnThis(),order:jest.fn()}
+ chain.order.mockReturnValueOnce(chain).mockResolvedValueOnce({error:null,data:[{id,slug:'wide',title:'All levels',description:'',type:'online',category:'private',unit_price:25,sort_order:1,level:null,audience_code:'A1-C2',unit_minutes:45,start_date:null,end_date:null,trial_lessons:false,course_translations:[],course_schedules:[]}]})
+ mockCatalog.from.mockReturnValue(chain)
+ expect((await getCourses())[0].level).toBe('A1-C2')
 })

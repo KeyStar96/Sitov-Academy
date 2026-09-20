@@ -3,7 +3,7 @@
 import { useMemo, useRef, useState, type FormEvent } from 'react'
 import { BookOpenCheck, CheckCircle2, Loader2, Pencil, Plus, Search, Trash2, X } from 'lucide-react'
 import { saveGrammarExercise, removeGrammarExercise } from '@/app/actions/grammar-cms'
-import { grammarWriteSchema, type GrammarExerciseRow } from '@/lib/grammar-validation'
+import { grammarWriteSchema, normalizeGrammarAnswer, type GrammarExerciseRow } from '@/lib/grammar-validation'
 import { parseFillInBlankContent, parseMultipleChoiceContent } from '@/lib/types/exercise'
 import { grammarTranslator } from '@/lib/grammar-i18n'
 import { ACCESS_LEVELS } from '@/lib/access/levels'
@@ -85,7 +85,7 @@ export default function ExerciseCMS({ initialData, lang = 'de', loadFailed = fal
         question: choice?.question ?? '', instruction: fill?.instruction ?? choice?.instruction ?? '', answer: fill?.correct_answer ?? choice?.correct_answer ?? '',
         options: (fill?.options ?? choice?.options ?? []).join('\n'),
         hint: contentHints.de ?? '', contentHints, metadataHints,
-        acceptedAnswers: (fill?.accepted_answers ?? []).join('\n'),
+        acceptedAnswers: (fill?.accepted_answers ?? []).filter(answer => normalizeGrammarAnswer(answer) !== normalizeGrammarAnswer(fill?.correct_answer ?? '')).join('\n'),
         gapHint: fill?.gap_hint ?? '',
         audio: row.solution_audio_url ?? '',
         hintRu: metadataHints.ru ?? '',
@@ -112,7 +112,7 @@ export default function ExerciseCMS({ initialData, lang = 'de', loadFailed = fal
       level: editor.level, lesson: editor.lesson, topic: editor.topic, type: editor.type,
       hint: Object.keys(metadataHints).length ? metadataHints : null, solution_audio_url: editor.audio.trim() || null,
       content: editor.type === 'fill_in_blank'
-        ? { instruction: editor.instruction, text_before: editor.textBefore, text_after: editor.textAfter, correct_answer: editor.answer, options, accepted_answers: acceptedAnswers.length > 0 ? acceptedAnswers : [editor.answer], gap_hint: editor.gapHint.trim() || undefined, smart_hint: smartHintOrExplanation }
+        ? { instruction: editor.instruction, text_before: editor.textBefore, text_after: editor.textAfter, correct_answer: editor.answer, options, accepted_answers: [editor.answer, ...acceptedAnswers], gap_hint: editor.gapHint.trim() || undefined, smart_hint: smartHintOrExplanation }
         : { instruction: editor.instruction, question: editor.question, correct_answer: editor.answer, options, explanation: smartHintOrExplanation },
     })
     if (!parsed.success) { setMessage('invalid'); return }
@@ -157,9 +157,10 @@ export default function ExerciseCMS({ initialData, lang = 'de', loadFailed = fal
           <label className={styles.field}>{g('after')}<textarea maxLength={2000} rows={3} value={editor.textAfter} onChange={event => set('textAfter', event.target.value)} /></label>
         </> : <label className={`${styles.field} ${styles.wide}`}>{g('question')}<textarea required maxLength={4000} rows={3} value={editor.question} onChange={event => set('question', event.target.value)} /></label>}
         {editor.type === 'fill_in_blank' && <>
-          <label className={`${styles.field} ${styles.wide}`}>{g('alternativeAnswers')} (Ein pro Zeile. Muss die richtige Lösung enthalten!)<textarea rows={3} required value={editor.acceptedAnswers} onChange={event => set('acceptedAnswers', event.target.value)} /></label>
+          <label className={`${styles.field} ${styles.wide}`}>{g('alternativeAnswers')}<textarea rows={3} value={editor.acceptedAnswers} onChange={event => set('acceptedAnswers', event.target.value)} /></label>
           <label className={`${styles.field} ${styles.wide}`}>Lücken-Hinweis (z.B. (morgen / arbeiten / müssen))<input maxLength={100} value={editor.gapHint} onChange={event => set('gapHint', event.target.value)} /></label>
         </>}
+        <label className={styles.field}>{g('answer')}<input required maxLength={1000} value={editor.answer} onChange={event => set('answer', event.target.value)} /></label>
         <label className={styles.field}>{g('options')}<textarea required rows={3} value={editor.options} onChange={event => set('options', event.target.value)} /></label>
         <label className={`${styles.field} ${styles.wide}`}>{g('hint')}<textarea rows={2} maxLength={2000} value={editor.hint} onChange={event => set('hint', event.target.value)} /></label>
         <label className={`${styles.field} ${styles.wide}`}>{g('audio')}<input type="url" value={editor.audio} onChange={event => set('audio', event.target.value)} /></label>

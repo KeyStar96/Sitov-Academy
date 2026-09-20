@@ -13,7 +13,8 @@ export function grammarSeedSql(records) {
   const units = [...new Map(records.map(row => [`${row.level}:${row.lesson}`, row])).values()]
   const unitValues = units.map((row, index) => `(${[stableId(`sitov-grammar-unit:${row.level}:${row.lesson}`), row.level, 'exercises', row.lesson].map(quote).join(',')},${index + 1})`)
   const values = records.map(row => {
-    const { smart_hint, explanation, ...content } = row.content
+    const { smart_hint, explanation, alternative_answers, ...authored } = row.content
+    const content = { ...authored, accepted_answers: authored.accepted_answers ?? [authored.correct_answer, ...(alternative_answers ?? [])] }
     return `(${[row.id, row.level, row.lesson, row.topic, row.type, JSON.stringify(content), german(smart_hint), german(explanation)].map(quote).join(',')})`
   })
   return `-- Generated from the original author manuscript; canonical tables only.
@@ -26,7 +27,7 @@ WITH source(id,level,lesson,topic,type,content,smart_hint,explanation) AS (VALUE
 ${values.join(',\n')}
 ), inserted AS (
  INSERT INTO public.learning_exercises(id,unit_id,topic,type,content)
- SELECT s.id::uuid,(SELECT u.id FROM public.learning_units u WHERE u.level=s.level AND u.trainer='exercises' AND u.label=s.lesson),s.topic,s.type,s.content::jsonb
+ SELECT s.id::uuid,(SELECT u.id FROM public.learning_units u WHERE u.level=s.level AND u.trainer='exercises' AND u.label=s.lesson),s.topic,(jsonb_populate_record(NULL::public.learning_exercises,jsonb_build_object('type',s.type))).type,s.content::jsonb
  FROM source s ON CONFLICT(id) DO NOTHING RETURNING id
 )
 INSERT INTO public.grammar_translations(exercise_id,locale,smart_hint,explanation)

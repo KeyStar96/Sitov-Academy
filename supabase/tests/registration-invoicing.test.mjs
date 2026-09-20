@@ -6,9 +6,9 @@ const read = path => readFile(new URL(path,import.meta.url),'utf8')
 const uid=n=>`10000000-0000-4000-8000-${String(n).padStart(12,'0')}`
 const learner=uid(1), outsider=uid(2), unverified=uid(3), shared=uid(4), teacher=uid(5), legacy=uid(10)
 const baseline=await read('./fixtures/monthly-bookings-baseline.sql')
-const monthly=await read('../migrations/20260909155919_monthly_bookings_teacher_notes.sql')
-const profile=await read('../migrations/20260909165848_profile_dashboard_workflow.sql')
-const migration=await read('../migrations/20260910184129_secure_registration_manual_invoicing.sql')
+const monthly=await read('./fixtures/history/migrations/20260909155919_monthly_bookings_teacher_notes.sql')
+const profile=await read('./fixtures/history/migrations/20260909165848_profile_dashboard_workflow.sql')
+const migration=await read('./fixtures/history/migrations/20260910184129_secure_registration_manual_invoicing.sql')
 await test('Verified student identity, staff acceptance and monthly invoice tracking in isolated PostgreSQL',async t=>{
  const db=new PGlite()
  try {
@@ -23,10 +23,10 @@ await test('Verified student identity, staff acceptance and monthly invoice trac
    grant all on registrations,enrollments to anon,authenticated,service_role;
    create policy "Anyone can insert registration" on registrations for insert with check(true);
    create policy "Anyone can insert enrollments" on enrollments for insert with check(true);`)
-  await db.exec(await read('../migrations/add_dynamic_pricing.sql').then(text=>text.slice(text.indexOf('CREATE OR REPLACE FUNCTION'))))
+  await db.exec(await read('./fixtures/history/migrations/add_dynamic_pricing.sql').then(text=>text.slice(text.indexOf('CREATE OR REPLACE FUNCTION'))))
   await db.exec('create trigger on_registration_confirmed after update of status on registrations for each row execute function handle_registration_confirmation()')
   await db.exec(migration)
-  await db.exec(await read('../migrations/20260910185640_guard_duplicate_manual_invoices.sql'))
+  await db.exec(await read('./fixtures/history/migrations/20260910185640_guard_duplicate_manual_invoices.sql'))
   for(const [id,email,confirmed,role] of [[learner,'owner@test.invalid',true,'student'],[outsider,'other@test.invalid',true,'student'],[unverified,'unverified@test.invalid',false,'student'],[shared,'shared@test.invalid',true,'student'],[teacher,'teacher@test.invalid',true,'teacher']]){
    await db.query('insert into auth.users values($1,$2,$3)',[id,email,confirmed?new Date():null])
    await db.query('insert into profiles(id,email,role) values($1,$2,$3)',[id,email,role])

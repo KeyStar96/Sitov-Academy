@@ -26,7 +26,9 @@ describe('monthly backend validation', () => {
   })
   it('rejects forged status and immutable update fields', () => {
     expect(saveNextMonthSchema.safeParse({ targetMonth: '2026-09-01', courseSelections: [{courseId:course}], paused:false, expected:null, status: 'confirmed' }).success).toBe(false)
-    expect(saveNextMonthSchema.safeParse({ targetMonth:'2026-09-01',courseSelections:[],paused:true,expected:null,user_id:course }).success).toBe(false)
+    for (const field of ['user_id','auth_user_id']) {
+      expect(saveNextMonthSchema.safeParse({ targetMonth:'2026-09-01',courseSelections:[],paused:true,expected:null,[field]:course }).success).toBe(false)
+    }
     expect(saveNextMonthSchema.safeParse({ id: course }).success).toBe(false)
   })
   it('normalizes note line endings and preserves canonical empty notes', () => {

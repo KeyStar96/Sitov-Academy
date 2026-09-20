@@ -1469,6 +1469,12 @@
     "loading": "Завантаження …"
   },
   "admin": {
+    "storage_title": "Сховище медіафайлів",
+    "storage_used": "Зайнято",
+    "storage_level_limit": "Ліміт на рівень",
+    "storage_disk": "Сховище VPS",
+    "storage_warning": "Зайнято понад 80 % сховища. Звільніть місце.",
+    "storage_unavailable": "Інформація про заповнення сховища тимчасово недоступна",
     "nav_overview": "Огляд",
     "nav_students": "Студенти",
     "nav_bookings": "Записи на наступний місяць",

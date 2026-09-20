@@ -4,8 +4,8 @@ import assert from 'node:assert/strict'
 import { test } from 'node:test'
 const read = path => readFile(new URL(path, import.meta.url), 'utf8')
 const baseline = await read('./fixtures/monthly-bookings-baseline.sql')
-const baseMigration = await read('../migrations/20260909155919_monthly_bookings_teacher_notes.sql')
-const migration = await read('../migrations/20260909165848_profile_dashboard_workflow.sql')
+const baseMigration = await read('./fixtures/history/migrations/20260909155919_monthly_bookings_teacher_notes.sql')
+const migration = await read('./fixtures/history/migrations/20260909165848_profile_dashboard_workflow.sql')
 const user = '00000000-0000-4000-8000-000000000001'
 const other = '00000000-0000-4000-8000-000000000002'
 

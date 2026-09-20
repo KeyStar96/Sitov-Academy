@@ -1,4 +1,4 @@
--- Canonical VPS application schema. Apply reviewed migrations; Supabase Auth/Storage bootstrap is managed separately.
+-- Canonical VPS application schema. Auth/Storage bootstrap is managed separately.
 --
 -- PostgreSQL database dump
 --
@@ -53,6 +53,13 @@ CREATE SCHEMA learning_reset_private;
 
 
 --
+-- Name: media_private; Type: SCHEMA; Schema: -; Owner: -
+--
+
+CREATE SCHEMA media_private;
+
+
+--
 -- Name: platform_private; Type: SCHEMA; Schema: -; Owner: -
 --
 
@@ -102,6 +109,223 @@ CREATE SCHEMA vocabulary_private;
 
 
 --
+-- Name: booking_kind; Type: TYPE; Schema: public; Owner: -
+--
+
+CREATE TYPE public.booking_kind AS ENUM (
+    'registration',
+    'monthly',
+    'trial'
+);
+
+
+--
+-- Name: booking_status; Type: TYPE; Schema: public; Owner: -
+--
+
+CREATE TYPE public.booking_status AS ENUM (
+    'pending',
+    'confirmed',
+    'cancelled',
+    'rejected'
+);
+
+
+--
+-- Name: cancellation_type; Type: TYPE; Schema: public; Owner: -
+--
+
+CREATE TYPE public.cancellation_type AS ENUM (
+    'asap',
+    'specific_date'
+);
+
+
+--
+-- Name: cefr_code; Type: TYPE; Schema: public; Owner: -
+--
+
+CREATE TYPE public.cefr_code AS ENUM (
+    'A1',
+    'A2',
+    'B1',
+    'B2',
+    'C1',
+    'C2'
+);
+
+
+--
+-- Name: course_category; Type: TYPE; Schema: public; Owner: -
+--
+
+CREATE TYPE public.course_category AS ENUM (
+    'german',
+    'speaking',
+    'online',
+    'private'
+);
+
+
+--
+-- Name: course_type; Type: TYPE; Schema: public; Owner: -
+--
+
+CREATE TYPE public.course_type AS ENUM (
+    'presence',
+    'online'
+);
+
+
+--
+-- Name: exercise_type; Type: TYPE; Schema: public; Owner: -
+--
+
+CREATE TYPE public.exercise_type AS ENUM (
+    'fill_in_blank',
+    'multiple_choice',
+    'sentence_building'
+);
+
+
+--
+-- Name: grammatical_article; Type: TYPE; Schema: public; Owner: -
+--
+
+CREATE TYPE public.grammatical_article AS ENUM (
+    'der',
+    'die',
+    'das',
+    'none'
+);
+
+
+--
+-- Name: invoice_status; Type: TYPE; Schema: public; Owner: -
+--
+
+CREATE TYPE public.invoice_status AS ENUM (
+    'outstanding',
+    'created'
+);
+
+
+--
+-- Name: mail_kind; Type: TYPE; Schema: public; Owner: -
+--
+
+CREATE TYPE public.mail_kind AS ENUM (
+    'registration_received',
+    'registration_confirmed',
+    'booking_cancelled',
+    'cancellation_requested',
+    'trial_confirmed',
+    'trial_cancelled',
+    'new_enrollment',
+    'feedback_available',
+    'raw'
+);
+
+
+--
+-- Name: mail_status; Type: TYPE; Schema: public; Owner: -
+--
+
+CREATE TYPE public.mail_status AS ENUM (
+    'pending',
+    'processing',
+    'sent',
+    'failed'
+);
+
+
+--
+-- Name: media_format; Type: TYPE; Schema: public; Owner: -
+--
+
+CREATE TYPE public.media_format AS ENUM (
+    'mp4',
+    'webm',
+    'pdf',
+    'pptx',
+    'key'
+);
+
+
+--
+-- Name: onboarding_status; Type: TYPE; Schema: public; Owner: -
+--
+
+CREATE TYPE public.onboarding_status AS ENUM (
+    'skipped',
+    'completed'
+);
+
+
+--
+-- Name: profile_role; Type: TYPE; Schema: public; Owner: -
+--
+
+CREATE TYPE public.profile_role AS ENUM (
+    'student',
+    'teacher',
+    'admin'
+);
+
+
+--
+-- Name: submission_status; Type: TYPE; Schema: public; Owner: -
+--
+
+CREATE TYPE public.submission_status AS ENUM (
+    'pending',
+    'reviewed'
+);
+
+
+--
+-- Name: submission_type; Type: TYPE; Schema: public; Owner: -
+--
+
+CREATE TYPE public.submission_type AS ENUM (
+    'audio',
+    'text'
+);
+
+
+--
+-- Name: trainer_code; Type: TYPE; Schema: public; Owner: -
+--
+
+CREATE TYPE public.trainer_code AS ENUM (
+    'vocabulary',
+    'exercises',
+    'pronunciation',
+    'videos'
+);
+
+
+--
+-- Name: unit_access_mode; Type: TYPE; Schema: public; Owner: -
+--
+
+CREATE TYPE public.unit_access_mode AS ENUM (
+    'all',
+    'selected'
+);
+
+
+--
+-- Name: vocabulary_direction; Type: TYPE; Schema: public; Owner: -
+--
+
+CREATE TYPE public.vocabulary_direction AS ENUM (
+    'de_to_native',
+    'native_to_de'
+);
+
+
+--
 -- Name: claim_person(); Type: FUNCTION; Schema: business_private; Owner: -
 --
 
@@ -109,25 +333,48 @@ CREATE FUNCTION business_private.claim_person() RETURNS jsonb
     LANGUAGE plpgsql SECURITY DEFINER
     SET search_path TO ''
     AS $$
-declare v_user auth.users;v_person public.people;v_candidate uuid;v_count integer;
-begin
- select * into v_user from auth.users where id=(select auth.uid());
- if v_user.id is null or v_user.email_confirmed_at is null then raise insufficient_privilege; end if;
- perform pg_advisory_xact_lock(hashtextextended('claim-person:'||lower(v_user.email),0));
- select * into v_person from public.people where auth_user_id=v_user.id for update;
- if v_person.id is null then raise exception 'Missing profile identity';end if;
- -- Only one unclaimed record and exact verified email may be associated.
- -- Shared emails require staff resolution; never choose the first relative.
- select count(*),(array_agg(id))[1] into v_count,v_candidate from public.people where auth_user_id is null and lower(email)=lower(v_user.email);
- if v_count=1 and not exists(select 1 from public.bookings where person_id=v_person.id) then
-  update public.people set auth_user_id=null where id=v_person.id;
-  update public.people set auth_user_id=v_user.id,email=v_user.email where id=v_candidate;
-  delete from public.people where id=v_person.id;
-  v_person.id:=v_candidate;
- end if;
- update public.people set email=v_user.email,updated_at=now() where id=v_person.id;
- return jsonb_build_object('id',v_person.id,'unresolved',v_count>1);
-end $$;
+DECLARE v_user auth.users; v_person public.people; v_candidate uuid; v_count integer;
+BEGIN
+  SELECT * INTO v_user FROM auth.users WHERE id=(SELECT auth.uid()) FOR SHARE;
+  IF v_user.id IS NULL OR v_user.email_confirmed_at IS NULL OR nullif(v_user.email,'') IS NULL THEN
+    RETURN jsonb_build_object('error','not_authenticated','message','A verified account is required.');
+  END IF;
+  PERFORM pg_advisory_xact_lock(hashtextextended('claim-person:'||lower(v_user.email),0));
+  -- Lock all matching business identities in stable order. FK inserts cannot
+  -- race the booking-free check while the current person is locked FOR UPDATE.
+  PERFORM 1 FROM public.people WHERE auth_user_id=v_user.id
+    OR (auth_user_id IS NULL AND lower(email)=lower(v_user.email)) ORDER BY id FOR UPDATE;
+  SELECT * INTO v_person FROM public.people WHERE auth_user_id=v_user.id;
+  IF v_person.id IS NULL THEN
+    RETURN jsonb_build_object('error','identity_missing','message','The account identity is missing.');
+  END IF;
+  -- A deliberate association must survive a later sibling registration using
+  -- the same family email. It never authorizes another unclaimed person.
+  IF EXISTS(SELECT 1 FROM business_private.registration_identity_resolutions
+    WHERE auth_user_id=v_user.id AND person_id=v_person.id) THEN
+    UPDATE public.people SET email=v_user.email,updated_at=now() WHERE id=v_person.id;
+    RETURN jsonb_build_object('id',v_person.id,'unresolved',false);
+  END IF;
+  SELECT count(*),(array_agg(id ORDER BY id))[1] INTO v_count,v_candidate
+    FROM public.people WHERE auth_user_id IS NULL AND lower(email)=lower(v_user.email);
+  -- The anonymous candidate MAY have bookings: those are precisely what the
+  -- verified learner is claiming. Only their fresh account person must be empty.
+  IF v_count=1 AND NOT EXISTS(SELECT 1 FROM public.bookings WHERE person_id=v_person.id)
+    AND NOT EXISTS(SELECT 1 FROM public.invoice_cases WHERE person_id=v_person.id) THEN
+    UPDATE public.people SET auth_user_id=NULL WHERE id=v_person.id;
+    UPDATE public.people SET auth_user_id=v_user.id,email=v_user.email,updated_at=now() WHERE id=v_candidate;
+    DELETE FROM public.people WHERE id=v_person.id;
+    v_person.id:=v_candidate;
+    INSERT INTO business_private.registration_identity_resolutions(auth_user_id,person_id)
+      VALUES(v_user.id,v_person.id) ON CONFLICT(auth_user_id) DO UPDATE
+      SET person_id=excluded.person_id,resolved_by=NULL,resolved_at=now();
+    v_count:=0;
+  END IF;
+  UPDATE public.people SET email=v_user.email,updated_at=now() WHERE id=v_person.id;
+  RETURN jsonb_build_object('id',v_person.id,'unresolved',v_count>0);
+EXCEPTION WHEN OTHERS THEN
+  RETURN jsonb_build_object('error',SQLSTATE,'message','The account association could not be verified.');
+END $$;
 
 
 --
@@ -148,8 +395,8 @@ begin
  update public.bookings set status='confirmed',confirmed_at=now(),confirmed_by=auth.uid(),updated_at=now(),revision=revision+1 where id=b.id;
  if b.kind<>'trial' then insert into public.invoice_cases(person_id,target_month,booking_id) values(b.person_id,b.target_month,b.id) on conflict(person_id,target_month) do nothing;end if;
  select * into strict p from public.people where id=b.person_id;
- perform public.queue_transactional_email('confirmed:'||b.id,case when b.kind='trial' then 'trial_confirmed' else 'registration_confirmed' end,b.contact_email,p.preferred_locale,
- jsonb_build_object('name',b.contact_name,'startDate',b.start_date,'courses',(select jsonb_agg(jsonb_build_object('title',title_snapshot,'units',units,'unitPrice',unit_price,'unitMinutes',unit_minutes,'price',amount)) from public.booking_items where booking_id=b.id)));
+ perform platform_private.require_rpc_success(public.queue_transactional_email('confirmed:'||b.id,case when b.kind='trial' then 'trial_confirmed' else 'registration_confirmed' end,b.contact_email,p.preferred_locale,
+ jsonb_build_object('name',b.contact_name,'startDate',b.start_date,'courses',(select jsonb_agg(jsonb_build_object('title',title_snapshot,'units',units,'unitPrice',unit_price,'unitMinutes',unit_minutes,'price',amount)) from public.booking_items where booking_id=b.id))));
 end $$;
 
 
@@ -195,10 +442,27 @@ BEGIN
  SELECT preferred_locale INTO v_locale FROM public.people WHERE id=b.person_id;
  UPDATE public.bookings SET status='cancelled',revision=revision+1,updated_at=now() WHERE id=b.id;
  -- A later, deliberately resubmitted request is a new revision and can receive a new reply.
- PERFORM public.queue_transactional_email('declined:'||b.id||':'||(b.revision+1),
+ PERFORM platform_private.require_rpc_success(public.queue_transactional_email('declined:'||b.id||':'||(b.revision+1),
    CASE WHEN b.kind='trial' THEN 'trial_cancelled' ELSE 'booking_cancelled' END,
    b.contact_email,v_locale,jsonb_build_object('name',b.contact_name,'startDate',b.start_date,
-     'courses',(SELECT jsonb_agg(jsonb_build_object('title',title_snapshot)) FROM public.booking_items WHERE booking_id=b.id)));
+     'courses',(SELECT jsonb_agg(jsonb_build_object('title',title_snapshot)) FROM public.booking_items WHERE booking_id=b.id))));
+END $$;
+
+
+--
+-- Name: delete_course_exception(uuid); Type: FUNCTION; Schema: business_private; Owner: -
+--
+
+CREATE FUNCTION business_private.delete_course_exception(p_id uuid) RETURNS jsonb
+    LANGUAGE plpgsql SECURITY DEFINER
+    SET search_path TO ''
+    AS $$
+BEGIN
+ IF NOT business_private.is_staff() THEN RETURN jsonb_build_object('error','not_authorized','message','Staff access required.'); END IF;
+ DELETE FROM public.course_exceptions WHERE id=p_id;
+ IF NOT FOUND THEN RETURN jsonb_build_object('error','not_found','message','Course exception not found.'); END IF;
+ RETURN jsonb_build_object('deleted',true);
+EXCEPTION WHEN OTHERS THEN RETURN jsonb_build_object('error','delete_failed','message','Course exception could not be deleted.');
 END $$;
 
 
@@ -215,6 +479,38 @@ $$;
 
 
 --
+-- Name: list_registration_identity_conflicts(); Type: FUNCTION; Schema: business_private; Owner: -
+--
+
+CREATE FUNCTION business_private.list_registration_identity_conflicts() RETURNS jsonb
+    LANGUAGE plpgsql STABLE SECURITY DEFINER
+    SET search_path TO ''
+    AS $$
+DECLARE result jsonb;
+BEGIN
+  IF NOT business_private.is_staff() THEN
+    RETURN jsonb_build_object('error','not_authorized','message','Staff access is required.');
+  END IF;
+  SELECT coalesce(jsonb_agg(jsonb_build_object(
+    'person_id',p.id,'display_name',p.display_name,'email',p.email,
+    'booking_count',(SELECT count(*) FROM public.bookings b WHERE b.person_id=p.id),
+    'candidates',(SELECT coalesce(jsonb_agg(jsonb_build_object('auth_user_id',u.id,
+      'display_name',account.display_name,'email',u.email,
+      'can_assign',NOT EXISTS(SELECT 1 FROM public.bookings b WHERE b.person_id=account.id)
+        AND NOT EXISTS(SELECT 1 FROM public.invoice_cases i WHERE i.person_id=account.id)
+        AND NOT EXISTS(SELECT 1 FROM business_private.registration_identity_resolutions r WHERE r.auth_user_id=u.id)) ORDER BY u.id),'[]'::jsonb)
+      FROM auth.users u JOIN public.people account ON account.auth_user_id=u.id
+      WHERE u.email_confirmed_at IS NOT NULL AND lower(u.email)=lower(p.email)))
+    ORDER BY lower(p.email),p.created_at,p.id),'[]'::jsonb) INTO result
+  FROM public.people p WHERE p.auth_user_id IS NULL AND EXISTS(
+    SELECT 1 FROM auth.users u WHERE u.email_confirmed_at IS NOT NULL AND lower(u.email)=lower(p.email));
+  RETURN jsonb_build_object('conflicts',result);
+EXCEPTION WHEN OTHERS THEN
+  RETURN jsonb_build_object('error',SQLSTATE,'message','The unresolved registrations could not be loaded.');
+END $$;
+
+
+--
 -- Name: mark_invoice(uuid, date, boolean, text); Type: FUNCTION; Schema: business_private; Owner: -
 --
 
@@ -228,7 +524,7 @@ begin
  select * into strict b from public.bookings where id=p_booking for update;
  if b.target_month<>p_month or b.kind='trial' or (p_created and b.status<>'confirmed') or length(coalesce(p_reference,''))>120 then raise check_violation;end if;
  insert into public.invoice_cases(person_id,target_month,booking_id) values(b.person_id,b.target_month,b.id) on conflict(person_id,target_month) do nothing;
- update public.invoice_cases set status=case when p_created then 'created' else 'outstanding' end,invoice_reference=nullif(btrim(p_reference),''),
+ update public.invoice_cases set status=(case when p_created then 'created' else 'outstanding' end)::public.invoice_status,invoice_reference=nullif(btrim(p_reference),''),
  invoice_created_at=case when p_created then coalesce(invoice_created_at,now()) else null end,created_by=auth.uid(),updated_at=now() where person_id=b.person_id and target_month=p_month;
 end $$;
 
@@ -305,6 +601,56 @@ END $$;
 
 
 --
+-- Name: resolve_registration_identity(uuid, uuid); Type: FUNCTION; Schema: business_private; Owner: -
+--
+
+CREATE FUNCTION business_private.resolve_registration_identity(p_person_id uuid, p_auth_user_id uuid) RETURNS jsonb
+    LANGUAGE plpgsql SECURITY DEFINER
+    SET search_path TO ''
+    AS $$
+DECLARE target_user auth.users; current_person public.people; candidate public.people;
+BEGIN
+  IF NOT business_private.is_staff() THEN
+    RETURN jsonb_build_object('error','not_authorized','message','Staff access is required.');
+  END IF;
+  IF p_person_id IS NULL OR p_auth_user_id IS NULL THEN
+    RETURN jsonb_build_object('error','invalid_input','message','Choose both a registration and a verified account.');
+  END IF;
+  SELECT * INTO target_user FROM auth.users WHERE id=p_auth_user_id FOR SHARE;
+  IF target_user.id IS NULL OR target_user.email_confirmed_at IS NULL OR nullif(target_user.email,'') IS NULL THEN
+    RETURN jsonb_build_object('error','invalid_input','message','The selected account has no verified email.');
+  END IF;
+  PERFORM pg_advisory_xact_lock(hashtextextended('claim-person:'||lower(target_user.email),0));
+  PERFORM 1 FROM public.people WHERE id=p_person_id OR auth_user_id=p_auth_user_id ORDER BY id FOR UPDATE;
+  SELECT * INTO candidate FROM public.people WHERE id=p_person_id;
+  SELECT * INTO current_person FROM public.people WHERE auth_user_id=p_auth_user_id;
+  IF candidate.id IS NULL OR current_person.id IS NULL THEN
+    RETURN jsonb_build_object('error','not_found','message','The selected identity is no longer available.');
+  END IF;
+  IF candidate.auth_user_id=p_auth_user_id AND EXISTS(
+    SELECT 1 FROM business_private.registration_identity_resolutions WHERE auth_user_id=p_auth_user_id AND person_id=p_person_id) THEN
+    RETURN jsonb_build_object('person_id',p_person_id,'auth_user_id',p_auth_user_id,'resolved',true);
+  END IF;
+  IF candidate.auth_user_id IS NOT NULL OR lower(candidate.email) IS DISTINCT FROM lower(target_user.email) THEN
+    RETURN jsonb_build_object('error','conflict','message','The registration is already assigned or its email does not match.');
+  END IF;
+  IF EXISTS(SELECT 1 FROM public.bookings WHERE person_id=current_person.id)
+    OR EXISTS(SELECT 1 FROM public.invoice_cases WHERE person_id=current_person.id)
+    OR EXISTS(SELECT 1 FROM business_private.registration_identity_resolutions WHERE auth_user_id=p_auth_user_id) THEN
+    RETURN jsonb_build_object('error','conflict','message','This account already has a business identity. Existing identities cannot be merged.');
+  END IF;
+  UPDATE public.people SET auth_user_id=NULL WHERE id=current_person.id;
+  UPDATE public.people SET auth_user_id=p_auth_user_id,email=target_user.email,updated_at=now() WHERE id=p_person_id;
+  DELETE FROM public.people WHERE id=current_person.id;
+  INSERT INTO business_private.registration_identity_resolutions(auth_user_id,person_id,resolved_by)
+    VALUES(p_auth_user_id,p_person_id,auth.uid());
+  RETURN jsonb_build_object('person_id',p_person_id,'auth_user_id',p_auth_user_id,'resolved',true);
+EXCEPTION WHEN OTHERS THEN
+  RETURN jsonb_build_object('error',SQLSTATE,'message','The registration could not be assigned. Please reload and try again.');
+END $$;
+
+
+--
 -- Name: save_course(jsonb); Type: FUNCTION; Schema: business_private; Owner: -
 --
 
@@ -317,6 +663,7 @@ begin
  if not business_private.is_staff() then raise insufficient_privilege;end if;
  if jsonb_typeof(p_data) is distinct from 'object' or jsonb_typeof(p_data->'schedules') is distinct from 'array' or jsonb_typeof(p_data->'translations') is distinct from 'array' or jsonb_typeof(p_data->'exceptions') is distinct from 'array' then raise check_violation;end if;
  if p_data->>'category'='private' and ((p_data->'schedules')<>'[]'::jsonb or coalesce((p_data->>'trial_lessons')::boolean,true)) then raise check_violation using message='Private lessons use requested units and have no fixed schedule or trial';end if;
+ IF nullif(p_data->>'level','') IS NOT NULL AND NOT EXISTS(SELECT 1 FROM public.course_audiences WHERE code=p_data->>'level') THEN RAISE EXCEPTION USING ERRCODE='23514',MESSAGE='unknown_course_audience'; END IF;
  v_id:=coalesce(nullif(p_data->>'id','')::uuid,gen_random_uuid());
  -- Hold the course row while checking its booking references. A scheduled
  -- booking has no requested quantity and cannot become a private renewal.
@@ -327,11 +674,11 @@ begin
    and exists(select 1 from public.booking_items i where i.course_id=c.id)) then
   raise check_violation using message='The pricing model of a booked course cannot be changed';
  end if;
- insert into public.courses(id,slug,title,description,type,category,level,unit_price,unit_minutes,start_date,end_date,trial_lessons,sort_order,archived_at)
- values(v_id,p_data->>'slug',p_data->>'title',coalesce(p_data->>'description',''),p_data->>'type',p_data->>'category',coalesce(p_data->>'level',''),(p_data->>'unit_price')::numeric,
+ insert into public.courses(id,slug,title,description,type,category,level,audience_code,unit_price,unit_minutes,start_date,end_date,trial_lessons,sort_order,archived_at)
+ values(v_id,p_data->>'slug',p_data->>'title',coalesce(p_data->>'description',''),(p_data->>'type')::public.course_type,(p_data->>'category')::public.course_category,(SELECT code FROM public.learning_levels WHERE code=nullif(p_data->>'level','')),nullif(p_data->>'level',''),(p_data->>'unit_price')::numeric,
  (p_data->>'unit_minutes')::integer,nullif(p_data->>'start_date','')::date,nullif(p_data->>'end_date','')::date,(p_data->>'trial_lessons')::boolean,(p_data->>'sort_order')::integer,
  case when (p_data->>'archived')::boolean then now() else null end)
- on conflict(id) do update set slug=excluded.slug,title=excluded.title,description=excluded.description,type=excluded.type,category=excluded.category,level=excluded.level,
+ on conflict(id) do update set slug=excluded.slug,title=excluded.title,description=excluded.description,type=excluded.type,category=excluded.category,level=excluded.level,audience_code=excluded.audience_code,
  unit_price=excluded.unit_price,unit_minutes=excluded.unit_minutes,start_date=excluded.start_date,end_date=excluded.end_date,trial_lessons=excluded.trial_lessons,
  sort_order=excluded.sort_order,archived_at=excluded.archived_at,updated_at=now();
  delete from public.course_schedules where course_id=v_id;
@@ -352,6 +699,28 @@ end $$;
 
 
 --
+-- Name: save_course_exception(uuid, date, text); Type: FUNCTION; Schema: business_private; Owner: -
+--
+
+CREATE FUNCTION business_private.save_course_exception(p_course_id uuid, p_date date, p_reason text) RETURNS jsonb
+    LANGUAGE plpgsql SECURITY DEFINER
+    SET search_path TO ''
+    AS $$
+DECLARE result_id uuid;
+BEGIN
+ IF NOT business_private.is_staff() THEN RETURN jsonb_build_object('error','not_authorized','message','Staff access required.'); END IF;
+ IF p_course_id IS NULL OR p_date IS NULL OR p_reason IS NULL OR length(btrim(p_reason)) NOT BETWEEN 1 AND 250 THEN RETURN jsonb_build_object('error','invalid_input','message','Course, date and reason are required.'); END IF;
+ IF NOT EXISTS(SELECT 1 FROM public.courses WHERE id=p_course_id) THEN RETURN jsonb_build_object('error','not_found','message','Course not found.'); END IF;
+ PERFORM pg_advisory_xact_lock(hashtextextended('exception:'||p_course_id||':'||p_date,0));
+ SELECT id INTO result_id FROM public.course_exceptions WHERE course_id=p_course_id AND date=p_date ORDER BY id LIMIT 1;
+ IF result_id IS NULL THEN INSERT INTO public.course_exceptions(course_id,date,reason) VALUES(p_course_id,p_date,btrim(p_reason)) RETURNING id INTO result_id;
+ ELSE UPDATE public.course_exceptions SET reason=btrim(p_reason) WHERE id=result_id; END IF;
+ RETURN jsonb_build_object('id',result_id);
+EXCEPTION WHEN OTHERS THEN RETURN jsonb_build_object('error','save_failed','message','Course exception could not be saved.');
+END $$;
+
+
+--
 -- Name: save_month(date, jsonb, boolean, uuid, integer); Type: FUNCTION; Schema: business_private; Owner: -
 --
 
@@ -361,7 +730,7 @@ CREATE FUNCTION business_private.save_month(p_month date, p_course_selections js
     AS $$
 declare p public.people;b public.bookings;v_next date;
 begin
- perform business_private.claim_person();
+ IF business_private.claim_person() ? 'error' THEN RAISE EXCEPTION USING ERRCODE='42501',MESSAGE='identity_verification_failed'; END IF;
  select * into strict p from public.people where auth_user_id=auth.uid() for update;
  v_next:=(date_trunc('month',now() at time zone 'Europe/Berlin')+interval '1 month')::date;
  if p_month is null or p_month<>v_next then raise sqlstate '22008';end if;
@@ -372,14 +741,44 @@ begin
  if exists(select 1 from public.invoice_cases where person_id=p.id and target_month=p_month and status='created') then raise check_violation using message='Invoice already created';end if;
  if b.id is null then
   insert into public.bookings(person_id,target_month,start_date,kind,status,contact_name,contact_email,contact_birth_date,contact_phone,contact_street,contact_postal_code,contact_city,privacy_accepted,agb_accepted)
-  values(p.id,p_month,p_month,'monthly',case when p_paused then 'cancelled' else 'pending' end,p.display_name,p.email,p.birth_date,p.phone,p.street,p.postal_code,p.city,true,true) returning * into b;
+  values(p.id,p_month,p_month,'monthly',(case when p_paused then 'cancelled' else 'pending' end)::public.booking_status,p.display_name,p.email,p.birth_date,p.phone,p.street,p.postal_code,p.city,true,true) returning * into b;
  else
-  update public.bookings set status=case when p_paused then 'cancelled' else 'pending' end,updated_at=now(),revision=revision+1 where id=b.id;
+  update public.bookings set status=(case when p_paused then 'cancelled' else 'pending' end)::public.booking_status,updated_at=now(),revision=revision+1 where id=b.id;
  end if;
  if p_paused then delete from public.booking_items where booking_id=b.id;
  else perform business_private.replace_items(b.id,p_course_selections);end if;
  return b.id;
 end $$;
+
+
+--
+-- Name: submit_cancellation(text, text, uuid, text, date, text); Type: FUNCTION; Schema: business_private; Owner: -
+--
+
+CREATE FUNCTION business_private.submit_cancellation(p_name text, p_email text, p_course_id uuid DEFAULT NULL::uuid, p_type text DEFAULT 'asap'::text, p_date date DEFAULT NULL::date, p_locale text DEFAULT 'de'::text) RETURNS jsonb
+    LANGUAGE plpgsql SECURITY DEFINER
+    SET search_path TO ''
+    AS $_$
+DECLARE request_id uuid; course_title text;
+BEGIN
+ IF p_name IS NULL OR length(btrim(p_name)) NOT BETWEEN 2 AND 160 OR p_email IS NULL
+  OR length(btrim(p_email)) NOT BETWEEN 3 AND 254 OR p_email !~ '^[^[:space:]<>@,;]+@[^[:space:]<>@,;]+\.[^[:space:]<>@,;]+$'
+  OR p_type IS NULL OR p_type NOT IN ('asap','specific_date') OR (p_type='specific_date' AND p_date IS NULL)
+  OR NOT EXISTS(SELECT 1 FROM public.locales WHERE code=p_locale) THEN
+  RETURN jsonb_build_object('error','invalid_input','message','Invalid cancellation request.');
+ END IF;
+ IF p_course_id IS NOT NULL THEN
+  SELECT title INTO course_title FROM public.courses WHERE id=p_course_id;
+  IF NOT FOUND THEN RETURN jsonb_build_object('error','course_not_found','message','The selected course does not exist.'); END IF;
+ END IF;
+ INSERT INTO public.cancellation_requests(full_name,email,course_id,termination_type,termination_date)
+ VALUES(btrim(p_name),lower(btrim(p_email)),p_course_id,p_type::public.cancellation_type,CASE WHEN p_type='specific_date' THEN p_date END) RETURNING id INTO request_id;
+ PERFORM platform_private.require_rpc_success(public.queue_transactional_email('cancellation:'||request_id,'cancellation_requested',lower(btrim(p_email)),p_locale,
+  jsonb_build_object('name',btrim(p_name),'endDate',p_date,'message',coalesce(course_title,''))));
+ RETURN jsonb_build_object('id',request_id);
+EXCEPTION WHEN OTHERS THEN
+ RETURN jsonb_build_object('error',SQLSTATE,'message','The cancellation request could not be saved.');
+END $_$;
 
 
 --
@@ -464,29 +863,51 @@ BEGIN
   IF coalesce(target.content->>'correct_answer', '') = '' THEN
     RAISE EXCEPTION 'exercise_unavailable' USING ERRCODE = '22023';
   END IF;
-  answer_normalized := lower(regexp_replace(btrim(p_answer), '\s+', ' ', 'g'));
-  correct := answer_normalized = lower(regexp_replace(btrim(target.content->>'correct_answer'), '\s+', ' ', 'g'));
 
-  IF NOT correct AND target.type='fill_in_blank' AND jsonb_typeof(target.content->'alternative_answers')='array' THEN
-    correct := EXISTS(SELECT 1 FROM jsonb_array_elements_text(target.content->'alternative_answers') alt
-      WHERE answer_normalized=lower(regexp_replace(btrim(alt), '\s+', ' ', 'g')));
+  answer_normalized := lower(regexp_replace(btrim(p_answer), '[.,?!;:()''"\s]+', '', 'g'));
+  correct := answer_normalized = lower(regexp_replace(btrim(target.content->>'correct_answer'), '[.,?!;:()''"\s]+', '', 'g'));
+
+  IF NOT correct AND target.type='fill_in_blank' AND jsonb_typeof(target.content->'accepted_answers')='array' THEN
+    correct := EXISTS(SELECT 1 FROM jsonb_array_elements_text(target.content->'accepted_answers') alt
+      WHERE answer_normalized=lower(regexp_replace(btrim(alt), '[.,?!;:()''"\s]+', '', 'g')));
   END IF;
 
   INSERT INTO public.user_exercise_progress AS progress
-    (user_id, exercise_id, attempts, completed, score, hint_shown, updated_at)
+    (auth_user_id, exercise_id, attempts, completed, score, hint_shown, updated_at)
   VALUES (actor, p_exercise_id, 1, correct, CASE WHEN correct THEN 100 ELSE 0 END, coalesce(p_hint_shown,false), now())
-  ON CONFLICT (user_id, exercise_id) DO UPDATE SET
+  ON CONFLICT (auth_user_id, exercise_id) DO UPDATE SET
     attempts = progress.attempts + 1,
     completed = coalesce(progress.completed, false) OR correct,
-    hint_shown = progress.hint_shown OR coalesce(p_hint_shown, false),
     score = greatest(coalesce(progress.score, 0), CASE WHEN correct THEN
       CASE WHEN progress.attempts + 1 <= 1 THEN 100 WHEN progress.attempts + 1 = 2 THEN 80
         WHEN progress.attempts + 1 = 3 THEN 60 ELSE 40 END ELSE 0 END),
+    hint_shown = progress.hint_shown OR coalesce(p_hint_shown,false),
     updated_at = now()
   RETURNING attempts INTO attempt_count;
+
   RETURN jsonb_build_object('success', true, 'attempts', attempt_count, 'isCorrect', correct);
 END;
 $$;
+
+
+--
+-- Name: valid_accepted_answers(jsonb, public.exercise_type); Type: FUNCTION; Schema: grammar_private; Owner: -
+--
+
+CREATE FUNCTION grammar_private.valid_accepted_answers(p_content jsonb, p_type public.exercise_type) RETURNS boolean
+    LANGUAGE plpgsql IMMUTABLE
+    SET search_path TO ''
+    AS $$
+DECLARE answers jsonb:=p_content->'accepted_answers';
+BEGIN
+ IF jsonb_typeof(p_content) IS DISTINCT FROM 'object' OR jsonb_typeof(answers) IS DISTINCT FROM 'array' THEN RETURN false; END IF;
+ IF jsonb_array_length(answers)>21 OR EXISTS(SELECT 1 FROM jsonb_array_elements(answers) a WHERE jsonb_typeof(a) IS DISTINCT FROM 'string' OR length(btrim(a#>>'{}')) NOT BETWEEN 1 AND 1000) THEN RETURN false; END IF;
+ IF p_type='multiple_choice' AND jsonb_array_length(answers)<>1 THEN RETURN false; END IF;
+ IF (SELECT count(*) FROM jsonb_array_elements_text(answers))<>(SELECT count(DISTINCT lower(regexp_replace(btrim(a),'\s+',' ','g'))) FROM jsonb_array_elements_text(answers) a) THEN RETURN false; END IF;
+ RETURN p_type='sentence_building' OR (nullif(btrim(p_content->>'correct_answer'),'') IS NOT NULL AND EXISTS(
+  SELECT 1 FROM jsonb_array_elements_text(answers) a WHERE lower(regexp_replace(btrim(a),'\s+',' ','g'))=
+   lower(regexp_replace(btrim(p_content->>'correct_answer'),'\s+',' ','g'))));
+END $$;
 
 
 --
@@ -497,7 +918,7 @@ CREATE FUNCTION identity_private.current_profile_role() RETURNS text
     LANGUAGE sql STABLE SECURITY DEFINER
     SET search_path TO ''
     AS $$
- SELECT role FROM public.profiles WHERE id=(SELECT auth.uid()) AND (SELECT auth.uid()) IS NOT NULL
+ SELECT role::text FROM public.profiles WHERE id=(SELECT auth.uid()) AND (SELECT auth.uid()) IS NOT NULL
 $$;
 
 
@@ -554,16 +975,16 @@ CREATE FUNCTION learning_private.ensure_unit(p_id uuid, p_level text, p_trainer 
  IF p_id IS NOT NULL THEN
   DELETE FROM public.learning_unit_grants WHERE unit_id=p_id AND level<>p_level;
   UPDATE public.learning_units SET level=p_level,label=p_label,is_active=p_active,sort_order=p_sort
-  WHERE id=p_id AND trainer=p_trainer RETURNING id INTO result;
+  WHERE id=p_id AND trainer::text=p_trainer RETURNING id INTO result;
   IF result IS NULL THEN INSERT INTO public.learning_units(id,level,trainer,label,is_active,sort_order)
-   VALUES(p_id,p_level,p_trainer,p_label,p_active,p_sort) RETURNING id INTO result; END IF;
+   VALUES(p_id,p_level,p_trainer::public.trainer_code,p_label,p_active,p_sort) RETURNING id INTO result; END IF;
  ELSE
   PERFORM pg_advisory_xact_lock(hashtextextended('learning-unit:'||p_level||':'||p_trainer||':'||p_label,0));
   IF p_trainer IN('vocabulary','exercises') THEN
-   SELECT id INTO result FROM public.learning_units WHERE level=p_level AND trainer=p_trainer AND label=p_label;
+   SELECT id INTO result FROM public.learning_units WHERE level=p_level AND trainer::text=p_trainer AND label=p_label;
   END IF;
   IF result IS NULL THEN INSERT INTO public.learning_units(level,trainer,label,is_active,sort_order)
-   VALUES(p_level,p_trainer,p_label,p_active,p_sort) RETURNING id INTO result; END IF;
+   VALUES(p_level,p_trainer::public.trainer_code,p_label,p_active,p_sort) RETURNING id INTO result; END IF;
  END IF;
  IF result IS NULL THEN RAISE EXCEPTION 'Unit unavailable' USING ERRCODE='23514'; END IF;
  RETURN result;
@@ -581,10 +1002,10 @@ CREATE FUNCTION learning_private.reset_student_level(p_student_id uuid, p_level 
  IF auth.uid() IS NULL OR coalesce(identity_private.current_profile_role(),'') NOT IN('teacher','admin') THEN RAISE EXCEPTION 'Staff required' USING ERRCODE='42501'; END IF;
  IF NOT EXISTS(SELECT 1 FROM public.learning_levels WHERE code=p_level) OR NOT EXISTS(SELECT 1 FROM public.profiles WHERE id=p_student_id) THEN RAISE EXCEPTION 'Invalid learner/level' USING ERRCODE='23514'; END IF;
  PERFORM pg_advisory_xact_lock(hashtextextended('vocabulary:'||p_student_id::text,0));
- DELETE FROM public.vocabulary_direction_progress p USING public.learning_vocabulary_cards c,public.learning_units u WHERE u.id=c.unit_id AND p.card_id=c.id AND p.user_id=p_student_id AND u.level=p_level;
- DELETE FROM public.user_exercise_progress p USING public.learning_exercises e,public.learning_units u WHERE u.id=e.unit_id AND p.exercise_id=e.id AND p.user_id=p_student_id AND u.level=p_level;
- DELETE FROM public.vocabulary_onboarding WHERE user_id=p_student_id AND level=p_level;
- UPDATE public.vocabulary_learning_state SET last_card_id=NULL WHERE user_id=p_student_id AND last_card_id IN(SELECT c.id FROM public.learning_vocabulary_cards c JOIN public.learning_units u ON u.id=c.unit_id WHERE u.level=p_level);
+ DELETE FROM public.vocabulary_direction_progress p USING public.learning_vocabulary_cards c,public.learning_units u WHERE u.id=c.unit_id AND p.card_id=c.id AND p.auth_user_id=p_student_id AND u.level=p_level;
+ DELETE FROM public.user_exercise_progress p USING public.learning_exercises e,public.learning_units u WHERE u.id=e.unit_id AND p.exercise_id=e.id AND p.auth_user_id=p_student_id AND u.level=p_level;
+ DELETE FROM public.vocabulary_onboarding WHERE auth_user_id=p_student_id AND level=p_level;
+ UPDATE public.vocabulary_learning_state SET last_card_id=NULL WHERE auth_user_id=p_student_id AND last_card_id IN(SELECT c.id FROM public.learning_vocabulary_cards c JOIN public.learning_units u ON u.id=c.unit_id WHERE u.level=p_level);
 END $$;
 
 
@@ -597,7 +1018,7 @@ CREATE FUNCTION learning_private.unit_allowed(p_unit_id uuid) RETURNS boolean
     SET search_path TO ''
     AS $$
  SELECT EXISTS(SELECT 1 FROM public.learning_units u WHERE u.id=p_unit_id
- AND trainer_access_private.unit_allowed(u.level,u.trainer,u.id::text));
+ AND trainer_access_private.unit_allowed(u.level,u.trainer::text,u.id::text));
 $$;
 
 
@@ -610,7 +1031,7 @@ CREATE FUNCTION learning_private.validate_content_unit() RETURNS trigger
     SET search_path TO ''
     AS $$
 BEGIN
- IF NEW.unit_id IS NOT NULL AND NOT EXISTS(SELECT 1 FROM public.learning_units WHERE id=NEW.unit_id AND trainer=TG_ARGV[0]) THEN
+ IF NEW.unit_id IS NOT NULL AND NOT EXISTS(SELECT 1 FROM public.learning_units WHERE id=NEW.unit_id AND trainer::text=TG_ARGV[0]) THEN
   RAISE EXCEPTION 'Content unit has the wrong trainer' USING ERRCODE='23514'; END IF;
  RETURN NEW;
 END $$;
@@ -640,9 +1061,10 @@ CREATE FUNCTION learning_private.validate_video_publication() RETURNS trigger
     AS $$
 BEGIN
  IF EXISTS(SELECT 1 FROM public.learning_videos v JOIN public.learning_units u ON u.id=v.unit_id
-  WHERE v.source_url IS NULL AND u.is_active
-  AND ((TG_TABLE_NAME='learning_videos' AND v.id=NEW.id) OR (TG_TABLE_NAME='learning_units' AND u.id=NEW.id)))
- THEN RAISE EXCEPTION 'Published learning resources require a source URL' USING ERRCODE='23514'; END IF;
+  WHERE v.source_url IS NULL AND v.storage_path IS NULL AND u.is_active
+  AND ((TG_TABLE_NAME='learning_videos' AND v.id=NEW.id) OR (TG_TABLE_NAME='learning_units' AND u.id=NEW.id))) THEN
+  RAISE EXCEPTION USING ERRCODE='23514',MESSAGE='missing_video_source',DETAIL='{"error":"missing_video_source","message":"Published videos need a URL or uploaded file."}';
+ END IF;
  RETURN NULL;
 END $$;
 
@@ -658,9 +1080,9 @@ CREATE FUNCTION learning_reset_private.assert_writable(p_user uuid) RETURNS void
 DECLARE was_active boolean;
 BEGIN
  IF p_user IS NULL THEN RAISE EXCEPTION 'authentication_required' USING ERRCODE='42501'; END IF;
- SELECT active INTO was_active FROM learning_reset_private.jobs WHERE user_id=p_user;
+ SELECT active INTO was_active FROM learning_reset_private.jobs WHERE auth_user_id=p_user;
  PERFORM pg_advisory_xact_lock(hashtextextended('learning-reset:' || p_user::text,0));
- IF coalesce(was_active,false) OR EXISTS(SELECT 1 FROM learning_reset_private.jobs WHERE user_id=p_user AND
+ IF coalesce(was_active,false) OR EXISTS(SELECT 1 FROM learning_reset_private.jobs WHERE auth_user_id=p_user AND
    (active OR completed_at > transaction_timestamp())) THEN
   RAISE EXCEPTION 'learning_reset_in_progress' USING ERRCODE='55000';
  END IF;
@@ -678,13 +1100,13 @@ CREATE FUNCTION learning_reset_private.audio_batch(p_token uuid) RETURNS TABLE(b
     AS $$
 DECLARE actor uuid:=(SELECT auth.uid());
 BEGIN
- IF actor IS NULL OR NOT EXISTS(SELECT 1 FROM learning_reset_private.jobs WHERE user_id=actor AND token=p_token) THEN
+ IF actor IS NULL OR NOT EXISTS(SELECT 1 FROM learning_reset_private.jobs WHERE auth_user_id=actor AND token=p_token) THEN
   RAISE EXCEPTION 'reset_owner_required' USING ERRCODE='42501';
  END IF;
  RETURN QUERY SELECT a.bucket_id,a.object_name FROM learning_reset_private.audio_objects a
  JOIN storage.objects o ON o.id=a.object_id AND o.bucket_id=a.bucket_id AND o.name=a.object_name
- JOIN learning_reset_private.jobs j ON j.user_id=a.user_id
- WHERE a.user_id=actor AND j.active ORDER BY a.bucket_id,a.object_name LIMIT 500;
+ JOIN learning_reset_private.jobs j ON j.auth_user_id=a.auth_user_id
+ WHERE a.auth_user_id=actor AND j.active ORDER BY a.bucket_id,a.object_name LIMIT 500;
 END;
 $$;
 
@@ -704,19 +1126,19 @@ BEGIN
  PERFORM pg_advisory_xact_lock(hashtextextended('vocabulary:'||actor::text,0));
  PERFORM pg_advisory_xact_lock(hashtextextended('learning-reset:audio-catalog',0));
  PERFORM pg_advisory_xact_lock(hashtextextended('learning-reset:'||actor::text,0));
- SELECT * INTO job FROM learning_reset_private.jobs WHERE user_id=actor FOR UPDATE;
+ SELECT * INTO job FROM learning_reset_private.jobs WHERE auth_user_id=actor FOR UPDATE;
  IF FOUND AND job.active THEN RETURN job.token; END IF;
- INSERT INTO learning_reset_private.jobs(user_id) VALUES(actor)
- ON CONFLICT(user_id) DO UPDATE SET token=gen_random_uuid(),active=true,requested_at=clock_timestamp(),completed_at=NULL RETURNING * INTO job;
- DELETE FROM learning_reset_private.audio_objects WHERE user_id=actor;
- INSERT INTO learning_reset_private.audio_objects(user_id,object_id,bucket_id,object_name)
+ INSERT INTO learning_reset_private.jobs(auth_user_id) VALUES(actor)
+ ON CONFLICT(auth_user_id) DO UPDATE SET token=gen_random_uuid(),active=true,requested_at=clock_timestamp(),completed_at=NULL RETURNING * INTO job;
+ DELETE FROM learning_reset_private.audio_objects WHERE auth_user_id=actor;
+ INSERT INTO learning_reset_private.audio_objects(auth_user_id,object_id,bucket_id,object_name)
  SELECT actor,o.id,o.bucket_id,o.name FROM storage.objects o WHERE o.bucket_id='pronunciation_audio' AND (
    o.owner_id=actor::text OR(o.owner_id IS NULL AND split_part(o.name,'/',1)=actor::text)
-   OR EXISTS(SELECT 1 FROM public.pronunciation_messages m JOIN public.submissions s ON s.id=m.submission_id WHERE s.user_id=actor
+   OR EXISTS(SELECT 1 FROM public.pronunciation_messages m JOIN public.submissions s ON s.id=m.submission_id WHERE s.auth_user_id=actor
     AND (o.owner_id=m.sender_id::text OR(o.owner_id IS NULL AND split_part(o.name,'/',1)=m.sender_id::text))
     AND learning_reset_private.matches_audio(m.audio_path,o.bucket_id,o.name)))
- AND NOT EXISTS(SELECT 1 FROM public.submissions s WHERE s.user_id<>actor AND learning_reset_private.matches_audio(s.content_url,o.bucket_id,o.name))
- AND NOT EXISTS(SELECT 1 FROM public.pronunciation_messages m JOIN public.submissions s ON s.id=m.submission_id WHERE s.user_id<>actor AND learning_reset_private.matches_audio(m.audio_path,o.bucket_id,o.name));
+ AND NOT EXISTS(SELECT 1 FROM public.submissions s WHERE s.auth_user_id<>actor AND learning_reset_private.matches_audio(s.content_url,o.bucket_id,o.name))
+ AND NOT EXISTS(SELECT 1 FROM public.pronunciation_messages m JOIN public.submissions s ON s.id=m.submission_id WHERE s.auth_user_id<>actor AND learning_reset_private.matches_audio(m.audio_path,o.bucket_id,o.name));
  RETURN job.token;
 END $$;
 
@@ -730,8 +1152,8 @@ CREATE FUNCTION learning_reset_private.can_remove_audio(p_id uuid) RETURNS boole
     SET search_path TO ''
     AS $$
  SELECT (SELECT auth.uid()) IS NOT NULL AND EXISTS(
- SELECT 1 FROM learning_reset_private.audio_objects a JOIN learning_reset_private.jobs j USING(user_id)
- WHERE a.user_id=(SELECT auth.uid()) AND a.object_id=p_id AND j.active);
+ SELECT 1 FROM learning_reset_private.audio_objects a JOIN learning_reset_private.jobs j USING(auth_user_id)
+ WHERE a.auth_user_id=(SELECT auth.uid()) AND a.object_id=p_id AND j.active);
 $$;
 
 
@@ -749,20 +1171,20 @@ BEGIN
  PERFORM pg_advisory_xact_lock(hashtextextended('vocabulary:'||actor::text,0));
  PERFORM pg_advisory_xact_lock(hashtextextended('learning-reset:audio-catalog',0));
  PERFORM pg_advisory_xact_lock(hashtextextended('learning-reset:'||actor::text,0));
- SELECT * INTO job FROM learning_reset_private.jobs WHERE user_id=actor AND token=p_token FOR UPDATE;
+ SELECT * INTO job FROM learning_reset_private.jobs WHERE auth_user_id=actor AND token=p_token FOR UPDATE;
  IF NOT FOUND THEN RAISE EXCEPTION 'reset_owner_required' USING ERRCODE='42501'; END IF;
  IF NOT job.active THEN RETURN true; END IF;
- IF EXISTS(SELECT 1 FROM learning_reset_private.audio_objects a JOIN storage.objects o ON o.id=a.object_id WHERE a.user_id=actor) THEN
+ IF EXISTS(SELECT 1 FROM learning_reset_private.audio_objects a JOIN storage.objects o ON o.id=a.object_id WHERE a.auth_user_id=actor) THEN
   RAISE EXCEPTION 'audio_removal_incomplete' USING ERRCODE='55000'; END IF;
- DELETE FROM public.pronunciation_messages WHERE submission_id IN(SELECT id FROM public.submissions WHERE user_id=actor);
- DELETE FROM public.submissions WHERE user_id=actor;
- DELETE FROM vocabulary_private.answer_receipts WHERE user_id=actor;
- DELETE FROM public.vocabulary_direction_progress WHERE user_id=actor;
- DELETE FROM public.vocabulary_learning_state WHERE user_id=actor;
- DELETE FROM public.vocabulary_onboarding WHERE user_id=actor;
- DELETE FROM public.user_exercise_progress WHERE user_id=actor;
- DELETE FROM learning_reset_private.audio_objects WHERE user_id=actor;
- UPDATE learning_reset_private.jobs SET active=false,completed_at=clock_timestamp() WHERE user_id=actor;
+ DELETE FROM public.pronunciation_messages WHERE submission_id IN(SELECT id FROM public.submissions WHERE auth_user_id=actor);
+ DELETE FROM public.submissions WHERE auth_user_id=actor;
+ DELETE FROM vocabulary_private.answer_receipts WHERE auth_user_id=actor;
+ DELETE FROM public.vocabulary_direction_progress WHERE auth_user_id=actor;
+ DELETE FROM public.vocabulary_learning_state WHERE auth_user_id=actor;
+ DELETE FROM public.vocabulary_onboarding WHERE auth_user_id=actor;
+ DELETE FROM public.user_exercise_progress WHERE auth_user_id=actor;
+ DELETE FROM learning_reset_private.audio_objects WHERE auth_user_id=actor;
+ UPDATE learning_reset_private.jobs SET active=false,completed_at=clock_timestamp() WHERE auth_user_id=actor;
  RETURN true;
 END $$;
 
@@ -780,12 +1202,12 @@ BEGIN
  IF TG_TABLE_NAME IN('submissions','pronunciation_messages') THEN
   PERFORM pg_advisory_xact_lock(hashtextextended('learning-reset:audio-catalog',0));
   reference:=CASE WHEN TG_TABLE_NAME='submissions' THEN to_jsonb(NEW)->>'content_url' ELSE to_jsonb(NEW)->>'audio_path' END;
-  IF EXISTS(SELECT 1 FROM learning_reset_private.audio_objects a JOIN learning_reset_private.jobs j USING(user_id)
+  IF EXISTS(SELECT 1 FROM learning_reset_private.audio_objects a JOIN learning_reset_private.jobs j USING(auth_user_id)
    WHERE j.active AND learning_reset_private.matches_audio(reference,a.bucket_id,a.object_name)) THEN
    RAISE EXCEPTION 'learning_reset_in_progress' USING ERRCODE='55000'; END IF;
  END IF;
- IF TG_TABLE_NAME='pronunciation_messages' THEN SELECT user_id INTO learner FROM public.submissions WHERE id=NEW.submission_id;
- ELSE learner:=NEW.user_id; END IF;
+ IF TG_TABLE_NAME='pronunciation_messages' THEN SELECT auth_user_id INTO learner FROM public.submissions WHERE id=NEW.submission_id;
+ ELSE learner:=NEW.auth_user_id; END IF;
  IF learner IS NOT NULL THEN PERFORM learning_reset_private.assert_writable(learner); END IF;
  RETURN NEW;
 END $$;
@@ -814,10 +1236,160 @@ CREATE FUNCTION learning_reset_private.storage_writable(p_bucket text, p_id uuid
 BEGIN
  IF p_bucket<>'pronunciation_audio' THEN RETURN true; END IF;
  PERFORM pg_advisory_xact_lock(hashtextextended('learning-reset:audio-catalog',0));
- IF EXISTS(SELECT 1 FROM learning_reset_private.audio_objects a JOIN learning_reset_private.jobs j USING(user_id)
+ IF EXISTS(SELECT 1 FROM learning_reset_private.audio_objects a JOIN learning_reset_private.jobs j USING(auth_user_id)
   WHERE a.object_id=p_id AND j.active) THEN RAISE EXCEPTION 'learning_reset_in_progress' USING ERRCODE='55000'; END IF;
  PERFORM learning_reset_private.assert_writable((SELECT auth.uid()));
  RETURN true;
+END $$;
+
+
+--
+-- Name: enforce_storage_quota(); Type: FUNCTION; Schema: media_private; Owner: -
+--
+
+CREATE FUNCTION media_private.enforce_storage_quota() RETURNS trigger
+    LANGUAGE plpgsql SECURITY DEFINER
+    SET search_path TO ''
+    AS $$
+DECLARE level_code text; total bigint; incoming bigint;
+BEGIN
+ IF NEW.bucket_id<>'course-assets' THEN RETURN NEW; END IF;
+ level_code:=split_part(NEW.name,'/',1);
+ IF NOT EXISTS(SELECT 1 FROM public.learning_levels WHERE code=level_code) THEN RAISE EXCEPTION USING ERRCODE='23514',MESSAGE='invalid_media_level'; END IF;
+ PERFORM pg_advisory_xact_lock(hashtextextended('media-quota:'||level_code,0));
+ incoming:=coalesce((NEW.metadata->>'size')::bigint,0);
+ IF incoming<0 OR incoming>536870912 THEN RAISE EXCEPTION USING ERRCODE='PT413',MESSAGE='{"error":"file_too_large","message":"Maximum file size is 512 MiB."}'; END IF;
+ SELECT coalesce(sum(coalesce((metadata->>'size')::bigint,0)),0) INTO total FROM storage.objects
+ WHERE bucket_id='course-assets' AND split_part(name,'/',1)=level_code AND id<>NEW.id;
+ IF total+incoming>21474836480 THEN RAISE EXCEPTION USING ERRCODE='PT413',MESSAGE='{"error":"level_quota_exceeded","message":"The level storage limit is 20 GiB."}'; END IF;
+ RETURN NEW;
+END $$;
+
+
+--
+-- Name: folder_allowed(uuid); Type: FUNCTION; Schema: media_private; Owner: -
+--
+
+CREATE FUNCTION media_private.folder_allowed(p_folder_id uuid) RETURNS boolean
+    LANGUAGE sql STABLE SECURITY DEFINER
+    SET search_path TO ''
+    AS $$
+ SELECT EXISTS(SELECT 1 FROM public.lms_media_folder f WHERE f.folder_id=p_folder_id AND
+  (identity_private.current_profile_role() IN('teacher','admin') OR EXISTS(
+    SELECT 1 FROM public.student_level_access a WHERE a.auth_user_id=auth.uid() AND a.level=f.level)))
+$$;
+
+
+--
+-- Name: guard_folder_change(); Type: FUNCTION; Schema: media_private; Owner: -
+--
+
+CREATE FUNCTION media_private.guard_folder_change() RETURNS trigger
+    LANGUAGE plpgsql SECURITY DEFINER
+    SET search_path TO ''
+    AS $$
+BEGIN
+ IF TG_OP='DELETE' OR NEW.level IS DISTINCT FROM OLD.level OR NEW.folder_id IS DISTINCT FROM OLD.folder_id THEN
+  IF EXISTS(SELECT 1 FROM storage.objects WHERE bucket_id='course-assets' AND split_part(name,'/',2)=OLD.folder_id::text) THEN
+   RAISE EXCEPTION USING ERRCODE='23503',MESSAGE='media_folder_has_files',DETAIL='{"error":"media_folder_has_files","message":"Delete folder files through Storage API before removing or moving this folder."}';
+  END IF;
+ END IF;
+ IF TG_OP='DELETE' THEN RETURN OLD; END IF; RETURN NEW;
+END $$;
+
+
+--
+-- Name: path_allowed(text, boolean); Type: FUNCTION; Schema: media_private; Owner: -
+--
+
+CREATE FUNCTION media_private.path_allowed(p_name text, p_write boolean DEFAULT false) RETURNS boolean
+    LANGUAGE plpgsql STABLE SECURITY DEFINER
+    SET search_path TO ''
+    AS $_$
+DECLARE parts text[]:=string_to_array(p_name,'/'); folder uuid;
+BEGIN
+ IF cardinality(parts)<>4 OR parts[2]!~'^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$'
+ OR parts[4]!~'^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\.(mp4|webm|pdf|pptx|key)$'
+ OR NOT ((parts[3]='videos' AND parts[4]~'\.(mp4|webm)$') OR (parts[3]='presentations' AND parts[4]~'\.(pdf|pptx|key)$')) THEN RETURN false; END IF;
+ folder:=parts[2]::uuid;
+ IF NOT EXISTS(SELECT 1 FROM public.lms_media_folder f WHERE f.folder_id=folder AND f.level=parts[1]) THEN RETURN false; END IF;
+ IF identity_private.current_profile_role() IN('teacher','admin') THEN RETURN true; END IF;
+ IF p_write OR NOT media_private.folder_allowed(folder) THEN RETURN false; END IF;
+ RETURN (parts[3]='presentations' AND EXISTS(SELECT 1 FROM public.lms_presentation_asset a WHERE a.folder_id=folder AND a.storage_path=p_name))
+ OR (parts[3]='videos' AND EXISTS(SELECT 1 FROM public.learning_videos v WHERE v.folder_id=folder AND v.storage_path=p_name AND learning_private.unit_allowed(v.unit_id)));
+END $_$;
+
+
+--
+-- Name: validate_asset(); Type: FUNCTION; Schema: media_private; Owner: -
+--
+
+CREATE FUNCTION media_private.validate_asset() RETURNS trigger
+    LANGUAGE plpgsql SECURITY DEFINER
+    SET search_path TO ''
+    AS $_$
+DECLARE folder_level text; expected_category text; object_id uuid; expected_size bigint;
+BEGIN
+ IF NEW.storage_path IS NULL THEN RETURN NEW; END IF;
+ SELECT level INTO folder_level FROM public.lms_media_folder WHERE folder_id=NEW.folder_id;
+ IF TG_TABLE_NAME='learning_videos' THEN
+  IF NOT EXISTS(SELECT 1 FROM public.learning_units u WHERE u.id=NEW.unit_id AND u.level=folder_level) THEN RAISE EXCEPTION USING ERRCODE='23514',MESSAGE='media_level_mismatch'; END IF;
+  expected_category:='videos';object_id:=NEW.id;
+ ELSE expected_category:='presentations';object_id:=NEW.asset_id; END IF;
+ IF NEW.storage_path !~ ('^'||replace(folder_level,'.','\.')||'/'||NEW.folder_id||'/'||expected_category||'/'||object_id||'\.(mp4|webm|pdf|pptx|key)$')
+ OR NOT media_private.path_allowed(NEW.storage_path,true) THEN
+  RAISE EXCEPTION USING ERRCODE='23514',MESSAGE='invalid_storage_path',DETAIL='{"error":"invalid_storage_path","message":"Asset path must match its level, folder and identifier."}';
+ END IF;
+ SELECT (metadata->>'size')::bigint INTO expected_size FROM storage.objects WHERE bucket_id='course-assets' AND name=NEW.storage_path;
+ IF NEW.file_size IS NULL OR expected_size IS NULL OR expected_size<>NEW.file_size THEN
+  RAISE EXCEPTION USING ERRCODE='23514',MESSAGE='invalid_storage_size',DETAIL='{"error":"invalid_storage_size","message":"Upload must exist with the declared file size."}';
+ END IF;
+ IF TG_TABLE_NAME='lms_presentation_asset' THEN
+ IF NOT EXISTS(SELECT 1 FROM storage.objects o WHERE o.bucket_id='course-assets' AND o.name=NEW.storage_path
+ AND o.metadata->>'mimetype'=NEW.mime_type::text AND
+ ((NEW.storage_path~'\.pdf$' AND NEW.mime_type::text='application/pdf') OR
+ (NEW.storage_path~'\.pptx$' AND NEW.mime_type::text='application/vnd.openxmlformats-officedocument.presentationml.presentation') OR
+ (NEW.storage_path~'\.key$' AND NEW.mime_type::text='application/vnd.apple.keynote'))) THEN
+ RAISE EXCEPTION USING ERRCODE='23514',MESSAGE='media_mime_mismatch'; END IF;
+ ELSE
+ IF NOT EXISTS(SELECT 1 FROM storage.objects o WHERE o.bucket_id='course-assets' AND o.name=NEW.storage_path
+ AND ((NEW.storage_path~'\.mp4$' AND o.metadata->>'mimetype'='video/mp4') OR
+ (NEW.storage_path~'\.webm$' AND o.metadata->>'mimetype'='video/webm'))) THEN
+ RAISE EXCEPTION USING ERRCODE='23514',MESSAGE='media_mime_mismatch',
+  DETAIL='{"error":"media_mime_mismatch","message":"Video extension and uploaded MIME type must match."}'; END IF;
+ END IF;
+ RETURN NEW;
+END $_$;
+
+
+--
+-- Name: require_rpc_success(jsonb); Type: FUNCTION; Schema: platform_private; Owner: -
+--
+
+CREATE FUNCTION platform_private.require_rpc_success(p_result jsonb) RETURNS void
+    LANGUAGE plpgsql
+    SET search_path TO ''
+    AS $_$
+BEGIN
+ IF jsonb_typeof(p_result)='object' AND p_result ? 'error' THEN
+  RAISE EXCEPTION USING ERRCODE=CASE WHEN p_result->>'sqlstate' ~ '^[A-Z0-9]{5}$'
+    AND p_result->>'sqlstate'<>'00000' THEN p_result->>'sqlstate' ELSE 'P0001' END,
+   MESSAGE=coalesce(p_result->>'error','request_failed'),DETAIL=p_result::text;
+ END IF;
+END $_$;
+
+
+--
+-- Name: touch_updated_at(); Type: FUNCTION; Schema: platform_private; Owner: -
+--
+
+CREATE FUNCTION platform_private.touch_updated_at() RETURNS trigger
+    LANGUAGE plpgsql
+    SET search_path TO ''
+    AS $$
+BEGIN
+ NEW.updated_at := now();
+ RETURN NEW;
 END $$;
 
 
@@ -832,7 +1404,7 @@ CREATE FUNCTION pronunciation_private.can_access_submission(p_id uuid) RETURNS b
  SELECT (SELECT auth.uid()) IS NOT NULL AND EXISTS (
    SELECT 1 FROM public.submissions s WHERE s.id=p_id AND
    ((SELECT identity_private.current_profile_role()) IN ('teacher','admin') OR
-    (s.user_id=(SELECT auth.uid()) AND EXISTS(SELECT 1 FROM public.learning_reading_texts r WHERE r.id=s.prompt_id AND learning_private.unit_allowed(r.unit_id))))
+    (s.auth_user_id=(SELECT auth.uid()) AND EXISTS(SELECT 1 FROM public.learning_reading_texts r WHERE r.id=s.prompt_id AND learning_private.unit_allowed(r.unit_id))))
  );
 $$;
 
@@ -855,8 +1427,8 @@ BEGIN
  IF p_audio_path NOT LIKE 'storage://pronunciation_audio/' || actor::text || '/%' OR NOT EXISTS(
  SELECT 1 FROM storage.objects o WHERE o.bucket_id = 'pronunciation_audio' AND 'storage://pronunciation_audio/' || o.name = p_audio_path)
  THEN RAISE EXCEPTION 'Invalid recording'; END IF;
- INSERT INTO public.submissions(user_id,type,content_url,text_content,status,level,prompt_id,prompt_title)
- VALUES(actor,'audio',p_audio_path,prompt.sentence_de,'pending',unit.level,prompt.id,unit.label) RETURNING id INTO result;
+ INSERT INTO public.submissions(auth_user_id,type,content_url,text_content,status,level,prompt_id)
+ VALUES(actor,'audio',p_audio_path,prompt.sentence_de,'pending',unit.level,prompt.id) RETURNING id INTO result;
  RETURN result;
 END;
 $$;
@@ -889,7 +1461,7 @@ CREATE FUNCTION pronunciation_private.update_conversation_status() RETURNS trigg
     AS $$
 BEGIN
  IF (SELECT auth.uid()) IS NULL OR NEW.sender_id <> (SELECT auth.uid()) THEN RAISE EXCEPTION 'Not authorized'; END IF;
- UPDATE public.submissions SET status = CASE WHEN NEW.sender_role IN ('teacher','admin') THEN 'reviewed' ELSE 'pending' END WHERE id = NEW.submission_id;
+ UPDATE public.submissions SET status = (CASE WHEN NEW.sender_role IN ('teacher','admin') THEN 'reviewed' ELSE 'pending' END)::public.submission_status WHERE id = NEW.submission_id;
  RETURN NEW;
 END;
 $$;
@@ -924,75 +1496,98 @@ $$;
 -- Name: begin_learning_reset(text); Type: FUNCTION; Schema: public; Owner: -
 --
 
-CREATE FUNCTION public.begin_learning_reset(p_confirmation text) RETURNS uuid
-    LANGUAGE sql
+CREATE FUNCTION public.begin_learning_reset(p_confirmation text) RETURNS jsonb
+    LANGUAGE plpgsql
     SET search_path TO ''
-    AS $$ SELECT learning_reset_private.begin_reset(p_confirmation); $$;
-
-
-SET default_tablespace = '';
-
-SET default_table_access_method = heap;
-
---
--- Name: mail_outbox; Type: TABLE; Schema: private; Owner: -
---
-
-CREATE TABLE private.mail_outbox (
-    id uuid DEFAULT gen_random_uuid() NOT NULL,
-    dedupe_key text NOT NULL,
-    kind text NOT NULL,
-    recipient text NOT NULL,
-    locale text DEFAULT 'de'::text NOT NULL,
-    payload jsonb DEFAULT '{}'::jsonb NOT NULL,
-    status text DEFAULT 'pending'::text NOT NULL,
-    attempts integer DEFAULT 0 NOT NULL,
-    available_at timestamp with time zone DEFAULT now() NOT NULL,
-    lease_until timestamp with time zone,
-    lease_token uuid,
-    worker_id uuid,
-    last_error text,
-    message_id text,
-    created_at timestamp with time zone DEFAULT now() NOT NULL,
-    sent_at timestamp with time zone,
-    CONSTRAINT mail_outbox_attempts_check CHECK (((attempts >= 0) AND (attempts <= 8))),
-    CONSTRAINT mail_outbox_check CHECK (((status = 'processing'::text) = ((lease_token IS NOT NULL) AND (lease_until IS NOT NULL)))),
-    CONSTRAINT mail_outbox_dedupe_key_check CHECK (((length(dedupe_key) >= 1) AND (length(dedupe_key) <= 240))),
-    CONSTRAINT mail_outbox_kind_check CHECK ((kind = ANY (ARRAY['registration_received'::text, 'registration_confirmed'::text, 'booking_cancelled'::text, 'cancellation_requested'::text, 'trial_confirmed'::text, 'trial_cancelled'::text, 'new_enrollment'::text, 'feedback_available'::text, 'raw'::text]))),
-    CONSTRAINT mail_outbox_locale_check CHECK ((locale = ANY (ARRAY['de'::text, 'en'::text, 'ru'::text, 'uk'::text, 'tr'::text]))),
-    CONSTRAINT mail_outbox_payload_check CHECK (((jsonb_typeof(payload) = 'object'::text) AND (octet_length((payload)::text) <= 262144))),
-    CONSTRAINT mail_outbox_recipient_check CHECK (((length(recipient) <= 254) AND (recipient ~ '^[^[:space:]<>@,;]+@[^[:space:]<>@,;]+\.[^[:space:]<>@,;]+$'::text))),
-    CONSTRAINT mail_outbox_status_check CHECK ((status = ANY (ARRAY['pending'::text, 'processing'::text, 'sent'::text, 'failed'::text])))
-);
-
-
---
--- Name: TABLE mail_outbox; Type: COMMENT; Schema: private; Owner: -
---
-
-COMMENT ON TABLE private.mail_outbox IS 'Transactional native SMTP outbox. Stable dedupe key and Message-ID; at-least-once delivery after SMTP/DB crash. Failed jobs require operator inspection. Contains private mail payloads.';
+    AS $$
+-- phase2-rpc-error-boundary-v1
+DECLARE boundary_state text; boundary_message text; boundary_code text; boundary_result jsonb;
+BEGIN
+RETURN to_jsonb((SELECT learning_reset_private.begin_reset(p_confirmation)));
+ EXCEPTION WHEN OTHERS THEN
+  GET STACKED DIAGNOSTICS boundary_state=RETURNED_SQLSTATE,boundary_message=MESSAGE_TEXT;
+  -- Preserve stable domain codes, never include arbitrary SQL text or row data.
+  boundary_code:=CASE WHEN boundary_message=ANY(ARRAY[
+   'authentication_required','invalid_answer','exercise_unavailable','trainer_access_denied',
+   'learning_reset_in_progress','reset_owner_required','confirmation_required','audio_removal_incomplete',
+   'inactive_content','invalid_decisions','invalid_decision','invalid_direction','level_access_denied',
+   'lesson_not_found','invalid_language','answer_too_long','progress_not_found','review_not_due',
+   'vocabulary_spacing_required','sentence_content_missing','answer_required','invalid_answer_request',
+   'invalid_learning_language','vocabulary_request_conflict','unknown_course_audience',
+   'not_authorized','not_authenticated','invalid_input','request_failed','conflict','not_found',
+   'email_unverified','identity_conflict','identity_already_linked','person_not_found','auth_user_not_found'
+  ]) THEN boundary_message
+  WHEN boundary_state='42501' THEN 'not_authorized'
+  WHEN boundary_state IN('23502','23503','23514','22P02','22023','22007') THEN 'invalid_input'
+  WHEN boundary_state IN('23505','PT409','40001') THEN 'conflict'
+  WHEN boundary_state='40P01' THEN 'retry_required'
+  WHEN boundary_state IN('P0002','02000') THEN 'not_found'
+  WHEN boundary_state='22008' THEN 'month_changed'
+  ELSE 'request_failed' END;
+  RETURN jsonb_build_object('error',boundary_code,'message',CASE
+   WHEN boundary_code='vocabulary_spacing_required' THEN 'Review another card before this card.'
+   WHEN boundary_code='review_not_due' THEN 'This review is not due yet.'
+   WHEN boundary_state='42501' THEN 'The request is not authorized.'
+   WHEN boundary_code IN('conflict','retry_required') THEN 'Reload and retry the request.'
+   WHEN boundary_code='invalid_input' THEN 'The request contains invalid data.'
+   ELSE 'The request could not be completed.' END,'sqlstate',boundary_state);
+END;
+$$;
 
 
 --
 -- Name: claim_mail_jobs(uuid, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
-CREATE FUNCTION public.claim_mail_jobs(p_worker_id uuid, p_limit integer DEFAULT 5) RETURNS SETOF private.mail_outbox
+CREATE FUNCTION public.claim_mail_jobs(p_worker_id uuid, p_limit integer DEFAULT 5) RETURNS jsonb
     LANGUAGE plpgsql
     SET search_path TO ''
     AS $$
+-- phase2-rpc-error-boundary-v1
+DECLARE boundary_state text; boundary_message text; boundary_code text; boundary_result jsonb;
+BEGIN
+
 BEGIN
   -- Exhausted crashed deliveries are quarantined instead of being retried forever.
   UPDATE private.mail_outbox SET status='failed',lease_until=NULL,lease_token=NULL,worker_id=NULL,last_error='lease_expired_at_attempt_limit'
     WHERE status='processing' AND lease_until<now() AND attempts>=8;
-  RETURN QUERY WITH picked AS (
+  WITH picked AS (
     SELECT id FROM private.mail_outbox
     WHERE attempts<8 AND ((status='pending' AND available_at<=now()) OR (status='processing' AND lease_until<now()))
     ORDER BY available_at,created_at LIMIT greatest(1,least(coalesce(p_limit,5),20)) FOR UPDATE SKIP LOCKED
-  ) UPDATE private.mail_outbox j SET status='processing',attempts=j.attempts+1,
+  ), claimed AS (UPDATE private.mail_outbox j SET status='processing',attempts=j.attempts+1,
       worker_id=p_worker_id,lease_token=gen_random_uuid(),lease_until=now()+interval '5 minutes'
-    FROM picked WHERE j.id=picked.id RETURNING j.*;
-END $$;
+    FROM picked WHERE j.id=picked.id RETURNING j.*) SELECT coalesce(jsonb_agg(to_jsonb(claimed)),'[]'::jsonb) INTO boundary_result FROM claimed; RETURN boundary_result;
+END;
+ EXCEPTION WHEN OTHERS THEN
+  GET STACKED DIAGNOSTICS boundary_state=RETURNED_SQLSTATE,boundary_message=MESSAGE_TEXT;
+  -- Preserve stable domain codes, never include arbitrary SQL text or row data.
+  boundary_code:=CASE WHEN boundary_message=ANY(ARRAY[
+   'authentication_required','invalid_answer','exercise_unavailable','trainer_access_denied',
+   'learning_reset_in_progress','reset_owner_required','confirmation_required','audio_removal_incomplete',
+   'inactive_content','invalid_decisions','invalid_decision','invalid_direction','level_access_denied',
+   'lesson_not_found','invalid_language','answer_too_long','progress_not_found','review_not_due',
+   'vocabulary_spacing_required','sentence_content_missing','answer_required','invalid_answer_request',
+   'invalid_learning_language','vocabulary_request_conflict','unknown_course_audience',
+   'not_authorized','not_authenticated','invalid_input','request_failed','conflict','not_found',
+   'email_unverified','identity_conflict','identity_already_linked','person_not_found','auth_user_not_found'
+  ]) THEN boundary_message
+  WHEN boundary_state='42501' THEN 'not_authorized'
+  WHEN boundary_state IN('23502','23503','23514','22P02','22023','22007') THEN 'invalid_input'
+  WHEN boundary_state IN('23505','PT409','40001') THEN 'conflict'
+  WHEN boundary_state='40P01' THEN 'retry_required'
+  WHEN boundary_state IN('P0002','02000') THEN 'not_found'
+  WHEN boundary_state='22008' THEN 'month_changed'
+  ELSE 'request_failed' END;
+  RETURN jsonb_build_object('error',boundary_code,'message',CASE
+   WHEN boundary_code='vocabulary_spacing_required' THEN 'Review another card before this card.'
+   WHEN boundary_code='review_not_due' THEN 'This review is not due yet.'
+   WHEN boundary_state='42501' THEN 'The request is not authorized.'
+   WHEN boundary_code IN('conflict','retry_required') THEN 'Reload and retry the request.'
+   WHEN boundary_code='invalid_input' THEN 'The request contains invalid data.'
+   ELSE 'The request could not be completed.' END,'sqlstate',boundary_state);
+END;
+$$;
 
 
 --
@@ -1000,46 +1595,150 @@ END $$;
 --
 
 CREATE FUNCTION public.claim_verified_person() RETURNS jsonb
-    LANGUAGE sql
+    LANGUAGE plpgsql
     SET search_path TO ''
-    AS $$SELECT business_private.claim_person()$$;
+    AS $$
+-- phase2-rpc-error-boundary-v1
+DECLARE boundary_state text; boundary_message text; boundary_code text; boundary_result jsonb;
+BEGIN
+RETURN to_jsonb((SELECT business_private.claim_person()));
+ EXCEPTION WHEN OTHERS THEN
+  GET STACKED DIAGNOSTICS boundary_state=RETURNED_SQLSTATE,boundary_message=MESSAGE_TEXT;
+  -- Preserve stable domain codes, never include arbitrary SQL text or row data.
+  boundary_code:=CASE WHEN boundary_message=ANY(ARRAY[
+   'authentication_required','invalid_answer','exercise_unavailable','trainer_access_denied',
+   'learning_reset_in_progress','reset_owner_required','confirmation_required','audio_removal_incomplete',
+   'inactive_content','invalid_decisions','invalid_decision','invalid_direction','level_access_denied',
+   'lesson_not_found','invalid_language','answer_too_long','progress_not_found','review_not_due',
+   'vocabulary_spacing_required','sentence_content_missing','answer_required','invalid_answer_request',
+   'invalid_learning_language','vocabulary_request_conflict','unknown_course_audience',
+   'not_authorized','not_authenticated','invalid_input','request_failed','conflict','not_found',
+   'email_unverified','identity_conflict','identity_already_linked','person_not_found','auth_user_not_found'
+  ]) THEN boundary_message
+  WHEN boundary_state='42501' THEN 'not_authorized'
+  WHEN boundary_state IN('23502','23503','23514','22P02','22023','22007') THEN 'invalid_input'
+  WHEN boundary_state IN('23505','PT409','40001') THEN 'conflict'
+  WHEN boundary_state='40P01' THEN 'retry_required'
+  WHEN boundary_state IN('P0002','02000') THEN 'not_found'
+  WHEN boundary_state='22008' THEN 'month_changed'
+  ELSE 'request_failed' END;
+  RETURN jsonb_build_object('error',boundary_code,'message',CASE
+   WHEN boundary_code='vocabulary_spacing_required' THEN 'Review another card before this card.'
+   WHEN boundary_code='review_not_due' THEN 'This review is not due yet.'
+   WHEN boundary_state='42501' THEN 'The request is not authorized.'
+   WHEN boundary_code IN('conflict','retry_required') THEN 'Reload and retry the request.'
+   WHEN boundary_code='invalid_input' THEN 'The request contains invalid data.'
+   ELSE 'The request could not be completed.' END,'sqlstate',boundary_state);
+END;
+$$;
 
 
 --
 -- Name: complete_mail_job(uuid, uuid, text); Type: FUNCTION; Schema: public; Owner: -
 --
 
-CREATE FUNCTION public.complete_mail_job(p_id uuid, p_lease_token uuid, p_message_id text) RETURNS boolean
+CREATE FUNCTION public.complete_mail_job(p_id uuid, p_lease_token uuid, p_message_id text) RETURNS jsonb
     LANGUAGE plpgsql
     SET search_path TO ''
     AS $$
+-- phase2-rpc-error-boundary-v1
+DECLARE boundary_state text; boundary_message text; boundary_code text; boundary_result jsonb;
+BEGIN
+
 DECLARE n integer;
 BEGIN
   UPDATE private.mail_outbox SET status='sent',sent_at=now(),message_id=left(p_message_id,300),
     lease_token=NULL,lease_until=NULL,worker_id=NULL,last_error=NULL
     WHERE id=p_id AND status='processing' AND lease_token=p_lease_token AND lease_until>now();
-  GET DIAGNOSTICS n=ROW_COUNT; RETURN n=1;
-END $$;
+  GET DIAGNOSTICS n=ROW_COUNT; RETURN to_jsonb(n=1);
+END;
+ EXCEPTION WHEN OTHERS THEN
+  GET STACKED DIAGNOSTICS boundary_state=RETURNED_SQLSTATE,boundary_message=MESSAGE_TEXT;
+  -- Preserve stable domain codes, never include arbitrary SQL text or row data.
+  boundary_code:=CASE WHEN boundary_message=ANY(ARRAY[
+   'authentication_required','invalid_answer','exercise_unavailable','trainer_access_denied',
+   'learning_reset_in_progress','reset_owner_required','confirmation_required','audio_removal_incomplete',
+   'inactive_content','invalid_decisions','invalid_decision','invalid_direction','level_access_denied',
+   'lesson_not_found','invalid_language','answer_too_long','progress_not_found','review_not_due',
+   'vocabulary_spacing_required','sentence_content_missing','answer_required','invalid_answer_request',
+   'invalid_learning_language','vocabulary_request_conflict','unknown_course_audience',
+   'not_authorized','not_authenticated','invalid_input','request_failed','conflict','not_found',
+   'email_unverified','identity_conflict','identity_already_linked','person_not_found','auth_user_not_found'
+  ]) THEN boundary_message
+  WHEN boundary_state='42501' THEN 'not_authorized'
+  WHEN boundary_state IN('23502','23503','23514','22P02','22023','22007') THEN 'invalid_input'
+  WHEN boundary_state IN('23505','PT409','40001') THEN 'conflict'
+  WHEN boundary_state='40P01' THEN 'retry_required'
+  WHEN boundary_state IN('P0002','02000') THEN 'not_found'
+  WHEN boundary_state='22008' THEN 'month_changed'
+  ELSE 'request_failed' END;
+  RETURN jsonb_build_object('error',boundary_code,'message',CASE
+   WHEN boundary_code='vocabulary_spacing_required' THEN 'Review another card before this card.'
+   WHEN boundary_code='review_not_due' THEN 'This review is not due yet.'
+   WHEN boundary_state='42501' THEN 'The request is not authorized.'
+   WHEN boundary_code IN('conflict','retry_required') THEN 'Reload and retry the request.'
+   WHEN boundary_code='invalid_input' THEN 'The request contains invalid data.'
+   ELSE 'The request could not be completed.' END,'sqlstate',boundary_state);
+END;
+$$;
 
 
 --
 -- Name: confirm_business_booking(uuid); Type: FUNCTION; Schema: public; Owner: -
 --
 
-CREATE FUNCTION public.confirm_business_booking(p_id uuid) RETURNS void
-    LANGUAGE sql
+CREATE FUNCTION public.confirm_business_booking(p_id uuid) RETURNS jsonb
+    LANGUAGE plpgsql
     SET search_path TO ''
-    AS $$select business_private.confirm_booking(p_id);$$;
+    AS $$
+-- phase2-rpc-error-boundary-v1
+DECLARE boundary_state text; boundary_message text; boundary_code text; boundary_result jsonb;
+BEGIN
+PERFORM business_private.confirm_booking(p_id);
+ RETURN 'null'::jsonb;
+ EXCEPTION WHEN OTHERS THEN
+  GET STACKED DIAGNOSTICS boundary_state=RETURNED_SQLSTATE,boundary_message=MESSAGE_TEXT;
+  -- Preserve stable domain codes, never include arbitrary SQL text or row data.
+  boundary_code:=CASE WHEN boundary_message=ANY(ARRAY[
+   'authentication_required','invalid_answer','exercise_unavailable','trainer_access_denied',
+   'learning_reset_in_progress','reset_owner_required','confirmation_required','audio_removal_incomplete',
+   'inactive_content','invalid_decisions','invalid_decision','invalid_direction','level_access_denied',
+   'lesson_not_found','invalid_language','answer_too_long','progress_not_found','review_not_due',
+   'vocabulary_spacing_required','sentence_content_missing','answer_required','invalid_answer_request',
+   'invalid_learning_language','vocabulary_request_conflict','unknown_course_audience',
+   'not_authorized','not_authenticated','invalid_input','request_failed','conflict','not_found',
+   'email_unverified','identity_conflict','identity_already_linked','person_not_found','auth_user_not_found'
+  ]) THEN boundary_message
+  WHEN boundary_state='42501' THEN 'not_authorized'
+  WHEN boundary_state IN('23502','23503','23514','22P02','22023','22007') THEN 'invalid_input'
+  WHEN boundary_state IN('23505','PT409','40001') THEN 'conflict'
+  WHEN boundary_state='40P01' THEN 'retry_required'
+  WHEN boundary_state IN('P0002','02000') THEN 'not_found'
+  WHEN boundary_state='22008' THEN 'month_changed'
+  ELSE 'request_failed' END;
+  RETURN jsonb_build_object('error',boundary_code,'message',CASE
+   WHEN boundary_code='vocabulary_spacing_required' THEN 'Review another card before this card.'
+   WHEN boundary_code='review_not_due' THEN 'This review is not due yet.'
+   WHEN boundary_state='42501' THEN 'The request is not authorized.'
+   WHEN boundary_code IN('conflict','retry_required') THEN 'Reload and retry the request.'
+   WHEN boundary_code='invalid_input' THEN 'The request contains invalid data.'
+   ELSE 'The request could not be completed.' END,'sqlstate',boundary_state);
+END;
+$$;
 
 
 --
 -- Name: consume_rate_limit(text, integer, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
-CREATE FUNCTION public.consume_rate_limit(p_key text, p_limit integer, p_window_seconds integer) RETURNS TABLE(success boolean, remaining integer, reset_at timestamp with time zone)
+CREATE FUNCTION public.consume_rate_limit(p_key text, p_limit integer, p_window_seconds integer) RETURNS jsonb
     LANGUAGE plpgsql
     SET search_path TO ''
     AS $_$
+-- phase2-rpc-error-boundary-v1
+DECLARE boundary_state text; boundary_message text; boundary_code text; boundary_result jsonb;
+BEGIN
+
 DECLARE v_count integer; v_reset timestamptz; v_now timestamptz:=clock_timestamp();
 BEGIN
   IF p_key IS NULL OR p_key !~ '^[a-f0-9]{64}$'
@@ -1053,7 +1752,35 @@ BEGIN
     count=CASE WHEN r.expires_at<=v_now THEN 1 ELSE LEAST(r.count+1,p_limit+1) END,
     expires_at=CASE WHEN r.expires_at<=v_now THEN excluded.expires_at ELSE r.expires_at END
   RETURNING r.count,r.expires_at INTO v_count,v_reset;
-  RETURN QUERY SELECT v_count<=p_limit,GREATEST(0,p_limit-v_count),v_reset;
+  RETURN jsonb_build_array(jsonb_build_object('success',v_count<=p_limit,'remaining',GREATEST(0,p_limit-v_count),'reset_at',v_reset));
+END;
+ EXCEPTION WHEN OTHERS THEN
+  GET STACKED DIAGNOSTICS boundary_state=RETURNED_SQLSTATE,boundary_message=MESSAGE_TEXT;
+  -- Preserve stable domain codes, never include arbitrary SQL text or row data.
+  boundary_code:=CASE WHEN boundary_message=ANY(ARRAY[
+   'authentication_required','invalid_answer','exercise_unavailable','trainer_access_denied',
+   'learning_reset_in_progress','reset_owner_required','confirmation_required','audio_removal_incomplete',
+   'inactive_content','invalid_decisions','invalid_decision','invalid_direction','level_access_denied',
+   'lesson_not_found','invalid_language','answer_too_long','progress_not_found','review_not_due',
+   'vocabulary_spacing_required','sentence_content_missing','answer_required','invalid_answer_request',
+   'invalid_learning_language','vocabulary_request_conflict','unknown_course_audience',
+   'not_authorized','not_authenticated','invalid_input','request_failed','conflict','not_found',
+   'email_unverified','identity_conflict','identity_already_linked','person_not_found','auth_user_not_found'
+  ]) THEN boundary_message
+  WHEN boundary_state='42501' THEN 'not_authorized'
+  WHEN boundary_state IN('23502','23503','23514','22P02','22023','22007') THEN 'invalid_input'
+  WHEN boundary_state IN('23505','PT409','40001') THEN 'conflict'
+  WHEN boundary_state='40P01' THEN 'retry_required'
+  WHEN boundary_state IN('P0002','02000') THEN 'not_found'
+  WHEN boundary_state='22008' THEN 'month_changed'
+  ELSE 'request_failed' END;
+  RETURN jsonb_build_object('error',boundary_code,'message',CASE
+   WHEN boundary_code='vocabulary_spacing_required' THEN 'Review another card before this card.'
+   WHEN boundary_code='review_not_due' THEN 'This review is not due yet.'
+   WHEN boundary_state='42501' THEN 'The request is not authorized.'
+   WHEN boundary_code IN('conflict','retry_required') THEN 'Reload and retry the request.'
+   WHEN boundary_code='invalid_input' THEN 'The request contains invalid data.'
+   ELSE 'The request could not be completed.' END,'sqlstate',boundary_state);
 END;
 $_$;
 
@@ -1062,65 +1789,275 @@ $_$;
 -- Name: create_pronunciation_submission(uuid, text); Type: FUNCTION; Schema: public; Owner: -
 --
 
-CREATE FUNCTION public.create_pronunciation_submission(p_prompt_id uuid, p_audio_path text) RETURNS uuid
-    LANGUAGE sql
+CREATE FUNCTION public.create_pronunciation_submission(p_prompt_id uuid, p_audio_path text) RETURNS jsonb
+    LANGUAGE plpgsql
     SET search_path TO ''
-    AS $$ SELECT pronunciation_private.create_submission(p_prompt_id,p_audio_path); $$;
+    AS $$
+-- phase2-rpc-error-boundary-v1
+DECLARE boundary_state text; boundary_message text; boundary_code text; boundary_result jsonb;
+BEGIN
+RETURN to_jsonb((SELECT pronunciation_private.create_submission(p_prompt_id,p_audio_path)));
+ EXCEPTION WHEN OTHERS THEN
+  GET STACKED DIAGNOSTICS boundary_state=RETURNED_SQLSTATE,boundary_message=MESSAGE_TEXT;
+  -- Preserve stable domain codes, never include arbitrary SQL text or row data.
+  boundary_code:=CASE WHEN boundary_message=ANY(ARRAY[
+   'authentication_required','invalid_answer','exercise_unavailable','trainer_access_denied',
+   'learning_reset_in_progress','reset_owner_required','confirmation_required','audio_removal_incomplete',
+   'inactive_content','invalid_decisions','invalid_decision','invalid_direction','level_access_denied',
+   'lesson_not_found','invalid_language','answer_too_long','progress_not_found','review_not_due',
+   'vocabulary_spacing_required','sentence_content_missing','answer_required','invalid_answer_request',
+   'invalid_learning_language','vocabulary_request_conflict','unknown_course_audience',
+   'not_authorized','not_authenticated','invalid_input','request_failed','conflict','not_found',
+   'email_unverified','identity_conflict','identity_already_linked','person_not_found','auth_user_not_found'
+  ]) THEN boundary_message
+  WHEN boundary_state='42501' THEN 'not_authorized'
+  WHEN boundary_state IN('23502','23503','23514','22P02','22023','22007') THEN 'invalid_input'
+  WHEN boundary_state IN('23505','PT409','40001') THEN 'conflict'
+  WHEN boundary_state='40P01' THEN 'retry_required'
+  WHEN boundary_state IN('P0002','02000') THEN 'not_found'
+  WHEN boundary_state='22008' THEN 'month_changed'
+  ELSE 'request_failed' END;
+  RETURN jsonb_build_object('error',boundary_code,'message',CASE
+   WHEN boundary_code='vocabulary_spacing_required' THEN 'Review another card before this card.'
+   WHEN boundary_code='review_not_due' THEN 'This review is not due yet.'
+   WHEN boundary_state='42501' THEN 'The request is not authorized.'
+   WHEN boundary_code IN('conflict','retry_required') THEN 'Reload and retry the request.'
+   WHEN boundary_code='invalid_input' THEN 'The request contains invalid data.'
+   ELSE 'The request could not be completed.' END,'sqlstate',boundary_state);
+END;
+$$;
 
 
 --
 -- Name: decline_business_booking(uuid); Type: FUNCTION; Schema: public; Owner: -
 --
 
-CREATE FUNCTION public.decline_business_booking(p_id uuid) RETURNS void
-    LANGUAGE sql
+CREATE FUNCTION public.decline_business_booking(p_id uuid) RETURNS jsonb
+    LANGUAGE plpgsql
     SET search_path TO ''
-    AS $$ SELECT business_private.decline_booking(p_id); $$;
+    AS $$
+-- phase2-rpc-error-boundary-v1
+DECLARE boundary_state text; boundary_message text; boundary_code text; boundary_result jsonb;
+BEGIN
+PERFORM business_private.decline_booking(p_id);
+ RETURN 'null'::jsonb;
+ EXCEPTION WHEN OTHERS THEN
+  GET STACKED DIAGNOSTICS boundary_state=RETURNED_SQLSTATE,boundary_message=MESSAGE_TEXT;
+  -- Preserve stable domain codes, never include arbitrary SQL text or row data.
+  boundary_code:=CASE WHEN boundary_message=ANY(ARRAY[
+   'authentication_required','invalid_answer','exercise_unavailable','trainer_access_denied',
+   'learning_reset_in_progress','reset_owner_required','confirmation_required','audio_removal_incomplete',
+   'inactive_content','invalid_decisions','invalid_decision','invalid_direction','level_access_denied',
+   'lesson_not_found','invalid_language','answer_too_long','progress_not_found','review_not_due',
+   'vocabulary_spacing_required','sentence_content_missing','answer_required','invalid_answer_request',
+   'invalid_learning_language','vocabulary_request_conflict','unknown_course_audience',
+   'not_authorized','not_authenticated','invalid_input','request_failed','conflict','not_found',
+   'email_unverified','identity_conflict','identity_already_linked','person_not_found','auth_user_not_found'
+  ]) THEN boundary_message
+  WHEN boundary_state='42501' THEN 'not_authorized'
+  WHEN boundary_state IN('23502','23503','23514','22P02','22023','22007') THEN 'invalid_input'
+  WHEN boundary_state IN('23505','PT409','40001') THEN 'conflict'
+  WHEN boundary_state='40P01' THEN 'retry_required'
+  WHEN boundary_state IN('P0002','02000') THEN 'not_found'
+  WHEN boundary_state='22008' THEN 'month_changed'
+  ELSE 'request_failed' END;
+  RETURN jsonb_build_object('error',boundary_code,'message',CASE
+   WHEN boundary_code='vocabulary_spacing_required' THEN 'Review another card before this card.'
+   WHEN boundary_code='review_not_due' THEN 'This review is not due yet.'
+   WHEN boundary_state='42501' THEN 'The request is not authorized.'
+   WHEN boundary_code IN('conflict','retry_required') THEN 'Reload and retry the request.'
+   WHEN boundary_code='invalid_input' THEN 'The request contains invalid data.'
+   ELSE 'The request could not be completed.' END,'sqlstate',boundary_state);
+END;
+$$;
+
+
+--
+-- Name: delete_course_exception(uuid); Type: FUNCTION; Schema: public; Owner: -
+--
+
+CREATE FUNCTION public.delete_course_exception(p_id uuid) RETURNS jsonb
+    LANGUAGE plpgsql SECURITY DEFINER
+    SET search_path TO ''
+    AS $$
+-- phase2-rpc-error-boundary-v1
+DECLARE boundary_state text; boundary_message text; boundary_code text; boundary_result jsonb;
+BEGIN
+RETURN to_jsonb((SELECT business_private.delete_course_exception(p_id)));
+ EXCEPTION WHEN OTHERS THEN
+  GET STACKED DIAGNOSTICS boundary_state=RETURNED_SQLSTATE,boundary_message=MESSAGE_TEXT;
+  -- Preserve stable domain codes, never include arbitrary SQL text or row data.
+  boundary_code:=CASE WHEN boundary_message=ANY(ARRAY[
+   'authentication_required','invalid_answer','exercise_unavailable','trainer_access_denied',
+   'learning_reset_in_progress','reset_owner_required','confirmation_required','audio_removal_incomplete',
+   'inactive_content','invalid_decisions','invalid_decision','invalid_direction','level_access_denied',
+   'lesson_not_found','invalid_language','answer_too_long','progress_not_found','review_not_due',
+   'vocabulary_spacing_required','sentence_content_missing','answer_required','invalid_answer_request',
+   'invalid_learning_language','vocabulary_request_conflict','unknown_course_audience',
+   'not_authorized','not_authenticated','invalid_input','request_failed','conflict','not_found',
+   'email_unverified','identity_conflict','identity_already_linked','person_not_found','auth_user_not_found'
+  ]) THEN boundary_message
+  WHEN boundary_state='42501' THEN 'not_authorized'
+  WHEN boundary_state IN('23502','23503','23514','22P02','22023','22007') THEN 'invalid_input'
+  WHEN boundary_state IN('23505','PT409','40001') THEN 'conflict'
+  WHEN boundary_state='40P01' THEN 'retry_required'
+  WHEN boundary_state IN('P0002','02000') THEN 'not_found'
+  WHEN boundary_state='22008' THEN 'month_changed'
+  ELSE 'request_failed' END;
+  RETURN jsonb_build_object('error',boundary_code,'message',CASE
+   WHEN boundary_code='vocabulary_spacing_required' THEN 'Review another card before this card.'
+   WHEN boundary_code='review_not_due' THEN 'This review is not due yet.'
+   WHEN boundary_state='42501' THEN 'The request is not authorized.'
+   WHEN boundary_code IN('conflict','retry_required') THEN 'Reload and retry the request.'
+   WHEN boundary_code='invalid_input' THEN 'The request contains invalid data.'
+   ELSE 'The request could not be completed.' END,'sqlstate',boundary_state);
+END;
+$$;
 
 
 --
 -- Name: delete_learning_content(text, uuid); Type: FUNCTION; Schema: public; Owner: -
 --
 
-CREATE FUNCTION public.delete_learning_content(p_trainer text, p_id uuid) RETURNS void
+CREATE FUNCTION public.delete_learning_content(p_trainer text, p_id uuid) RETURNS jsonb
     LANGUAGE plpgsql
     SET search_path TO ''
-    AS $$ BEGIN
+    AS $$
+-- phase2-rpc-error-boundary-v1
+DECLARE boundary_state text; boundary_message text; boundary_code text; boundary_result jsonb;
+BEGIN
+BEGIN
  IF coalesce((SELECT identity_private.current_profile_role()),'') NOT IN('teacher','admin') THEN RAISE EXCEPTION 'Staff required' USING ERRCODE='42501'; END IF;
  IF p_trainer='vocabulary' THEN DELETE FROM public.learning_vocabulary_cards WHERE id=p_id;
  ELSIF p_trainer='exercises' THEN DELETE FROM public.learning_exercises WHERE id=p_id;
  ELSIF p_trainer='pronunciation' THEN UPDATE public.learning_units SET is_active=false WHERE id=(SELECT unit_id FROM public.learning_reading_texts WHERE id=p_id);
  ELSIF p_trainer='videos' THEN DELETE FROM public.learning_videos WHERE id=p_id;
  ELSE RAISE EXCEPTION 'Invalid trainer' USING ERRCODE='23514'; END IF;
-END $$;
+END;
+ RETURN 'null'::jsonb;
+ EXCEPTION WHEN OTHERS THEN
+  GET STACKED DIAGNOSTICS boundary_state=RETURNED_SQLSTATE,boundary_message=MESSAGE_TEXT;
+  -- Preserve stable domain codes, never include arbitrary SQL text or row data.
+  boundary_code:=CASE WHEN boundary_message=ANY(ARRAY[
+   'authentication_required','invalid_answer','exercise_unavailable','trainer_access_denied',
+   'learning_reset_in_progress','reset_owner_required','confirmation_required','audio_removal_incomplete',
+   'inactive_content','invalid_decisions','invalid_decision','invalid_direction','level_access_denied',
+   'lesson_not_found','invalid_language','answer_too_long','progress_not_found','review_not_due',
+   'vocabulary_spacing_required','sentence_content_missing','answer_required','invalid_answer_request',
+   'invalid_learning_language','vocabulary_request_conflict','unknown_course_audience',
+   'not_authorized','not_authenticated','invalid_input','request_failed','conflict','not_found',
+   'email_unverified','identity_conflict','identity_already_linked','person_not_found','auth_user_not_found'
+  ]) THEN boundary_message
+  WHEN boundary_state='42501' THEN 'not_authorized'
+  WHEN boundary_state IN('23502','23503','23514','22P02','22023','22007') THEN 'invalid_input'
+  WHEN boundary_state IN('23505','PT409','40001') THEN 'conflict'
+  WHEN boundary_state='40P01' THEN 'retry_required'
+  WHEN boundary_state IN('P0002','02000') THEN 'not_found'
+  WHEN boundary_state='22008' THEN 'month_changed'
+  ELSE 'request_failed' END;
+  RETURN jsonb_build_object('error',boundary_code,'message',CASE
+   WHEN boundary_code='vocabulary_spacing_required' THEN 'Review another card before this card.'
+   WHEN boundary_code='review_not_due' THEN 'This review is not due yet.'
+   WHEN boundary_state='42501' THEN 'The request is not authorized.'
+   WHEN boundary_code IN('conflict','retry_required') THEN 'Reload and retry the request.'
+   WHEN boundary_code='invalid_input' THEN 'The request contains invalid data.'
+   ELSE 'The request could not be completed.' END,'sqlstate',boundary_state);
+END;
+$$;
 
 
 --
 -- Name: fail_mail_job(uuid, uuid, text, boolean); Type: FUNCTION; Schema: public; Owner: -
 --
 
-CREATE FUNCTION public.fail_mail_job(p_id uuid, p_lease_token uuid, p_error text, p_permanent boolean DEFAULT false) RETURNS boolean
+CREATE FUNCTION public.fail_mail_job(p_id uuid, p_lease_token uuid, p_error text, p_permanent boolean DEFAULT false) RETURNS jsonb
     LANGUAGE plpgsql
     SET search_path TO ''
     AS $$
+-- phase2-rpc-error-boundary-v1
+DECLARE boundary_state text; boundary_message text; boundary_code text; boundary_result jsonb;
+BEGIN
+
 DECLARE n integer;
 BEGIN
-  UPDATE private.mail_outbox SET status=CASE WHEN p_permanent OR attempts>=8 THEN 'failed' ELSE 'pending' END,
+  UPDATE private.mail_outbox SET status=(CASE WHEN p_permanent OR attempts>=8 THEN 'failed' ELSE 'pending' END)::public.mail_status,
     available_at=now()+make_interval(secs=>least(21600,(30*power(2,greatest(attempts-1,0)))::integer)),
     last_error=left(p_error,200),lease_token=NULL,lease_until=NULL,worker_id=NULL
     WHERE id=p_id AND status='processing' AND lease_token=p_lease_token AND lease_until>now();
-  GET DIAGNOSTICS n=ROW_COUNT; RETURN n=1;
-END $$;
+  GET DIAGNOSTICS n=ROW_COUNT; RETURN to_jsonb(n=1);
+END;
+ EXCEPTION WHEN OTHERS THEN
+  GET STACKED DIAGNOSTICS boundary_state=RETURNED_SQLSTATE,boundary_message=MESSAGE_TEXT;
+  -- Preserve stable domain codes, never include arbitrary SQL text or row data.
+  boundary_code:=CASE WHEN boundary_message=ANY(ARRAY[
+   'authentication_required','invalid_answer','exercise_unavailable','trainer_access_denied',
+   'learning_reset_in_progress','reset_owner_required','confirmation_required','audio_removal_incomplete',
+   'inactive_content','invalid_decisions','invalid_decision','invalid_direction','level_access_denied',
+   'lesson_not_found','invalid_language','answer_too_long','progress_not_found','review_not_due',
+   'vocabulary_spacing_required','sentence_content_missing','answer_required','invalid_answer_request',
+   'invalid_learning_language','vocabulary_request_conflict','unknown_course_audience',
+   'not_authorized','not_authenticated','invalid_input','request_failed','conflict','not_found',
+   'email_unverified','identity_conflict','identity_already_linked','person_not_found','auth_user_not_found'
+  ]) THEN boundary_message
+  WHEN boundary_state='42501' THEN 'not_authorized'
+  WHEN boundary_state IN('23502','23503','23514','22P02','22023','22007') THEN 'invalid_input'
+  WHEN boundary_state IN('23505','PT409','40001') THEN 'conflict'
+  WHEN boundary_state='40P01' THEN 'retry_required'
+  WHEN boundary_state IN('P0002','02000') THEN 'not_found'
+  WHEN boundary_state='22008' THEN 'month_changed'
+  ELSE 'request_failed' END;
+  RETURN jsonb_build_object('error',boundary_code,'message',CASE
+   WHEN boundary_code='vocabulary_spacing_required' THEN 'Review another card before this card.'
+   WHEN boundary_code='review_not_due' THEN 'This review is not due yet.'
+   WHEN boundary_state='42501' THEN 'The request is not authorized.'
+   WHEN boundary_code IN('conflict','retry_required') THEN 'Reload and retry the request.'
+   WHEN boundary_code='invalid_input' THEN 'The request contains invalid data.'
+   ELSE 'The request could not be completed.' END,'sqlstate',boundary_state);
+END;
+$$;
 
 
 --
 -- Name: finish_learning_reset(uuid); Type: FUNCTION; Schema: public; Owner: -
 --
 
-CREATE FUNCTION public.finish_learning_reset(p_token uuid) RETURNS boolean
-    LANGUAGE sql
+CREATE FUNCTION public.finish_learning_reset(p_token uuid) RETURNS jsonb
+    LANGUAGE plpgsql
     SET search_path TO ''
-    AS $$ SELECT learning_reset_private.finish_reset(p_token); $$;
+    AS $$
+-- phase2-rpc-error-boundary-v1
+DECLARE boundary_state text; boundary_message text; boundary_code text; boundary_result jsonb;
+BEGIN
+RETURN to_jsonb((SELECT learning_reset_private.finish_reset(p_token)));
+ EXCEPTION WHEN OTHERS THEN
+  GET STACKED DIAGNOSTICS boundary_state=RETURNED_SQLSTATE,boundary_message=MESSAGE_TEXT;
+  -- Preserve stable domain codes, never include arbitrary SQL text or row data.
+  boundary_code:=CASE WHEN boundary_message=ANY(ARRAY[
+   'authentication_required','invalid_answer','exercise_unavailable','trainer_access_denied',
+   'learning_reset_in_progress','reset_owner_required','confirmation_required','audio_removal_incomplete',
+   'inactive_content','invalid_decisions','invalid_decision','invalid_direction','level_access_denied',
+   'lesson_not_found','invalid_language','answer_too_long','progress_not_found','review_not_due',
+   'vocabulary_spacing_required','sentence_content_missing','answer_required','invalid_answer_request',
+   'invalid_learning_language','vocabulary_request_conflict','unknown_course_audience',
+   'not_authorized','not_authenticated','invalid_input','request_failed','conflict','not_found',
+   'email_unverified','identity_conflict','identity_already_linked','person_not_found','auth_user_not_found'
+  ]) THEN boundary_message
+  WHEN boundary_state='42501' THEN 'not_authorized'
+  WHEN boundary_state IN('23502','23503','23514','22P02','22023','22007') THEN 'invalid_input'
+  WHEN boundary_state IN('23505','PT409','40001') THEN 'conflict'
+  WHEN boundary_state='40P01' THEN 'retry_required'
+  WHEN boundary_state IN('P0002','02000') THEN 'not_found'
+  WHEN boundary_state='22008' THEN 'month_changed'
+  ELSE 'request_failed' END;
+  RETURN jsonb_build_object('error',boundary_code,'message',CASE
+   WHEN boundary_code='vocabulary_spacing_required' THEN 'Review another card before this card.'
+   WHEN boundary_code='review_not_due' THEN 'This review is not due yet.'
+   WHEN boundary_state='42501' THEN 'The request is not authorized.'
+   WHEN boundary_code IN('conflict','retry_required') THEN 'Reload and retry the request.'
+   WHEN boundary_code='invalid_input' THEN 'The request contains invalid data.'
+   ELSE 'The request could not be completed.' END,'sqlstate',boundary_state);
+END;
+$$;
 
 
 --
@@ -1128,10 +2065,42 @@ CREATE FUNCTION public.finish_learning_reset(p_token uuid) RETURNS boolean
 --
 
 CREATE FUNCTION public.initialize_vocabulary_cards(p_decisions jsonb) RETURNS jsonb
-    LANGUAGE sql
+    LANGUAGE plpgsql
     SET search_path TO ''
     AS $$
-  SELECT vocabulary_private.initialize_cards(p_decisions);
+-- phase2-rpc-error-boundary-v1
+DECLARE boundary_state text; boundary_message text; boundary_code text; boundary_result jsonb;
+BEGIN
+RETURN to_jsonb((
+  SELECT vocabulary_private.initialize_cards(p_decisions)));
+ EXCEPTION WHEN OTHERS THEN
+  GET STACKED DIAGNOSTICS boundary_state=RETURNED_SQLSTATE,boundary_message=MESSAGE_TEXT;
+  -- Preserve stable domain codes, never include arbitrary SQL text or row data.
+  boundary_code:=CASE WHEN boundary_message=ANY(ARRAY[
+   'authentication_required','invalid_answer','exercise_unavailable','trainer_access_denied',
+   'learning_reset_in_progress','reset_owner_required','confirmation_required','audio_removal_incomplete',
+   'inactive_content','invalid_decisions','invalid_decision','invalid_direction','level_access_denied',
+   'lesson_not_found','invalid_language','answer_too_long','progress_not_found','review_not_due',
+   'vocabulary_spacing_required','sentence_content_missing','answer_required','invalid_answer_request',
+   'invalid_learning_language','vocabulary_request_conflict','unknown_course_audience',
+   'not_authorized','not_authenticated','invalid_input','request_failed','conflict','not_found',
+   'email_unverified','identity_conflict','identity_already_linked','person_not_found','auth_user_not_found'
+  ]) THEN boundary_message
+  WHEN boundary_state='42501' THEN 'not_authorized'
+  WHEN boundary_state IN('23502','23503','23514','22P02','22023','22007') THEN 'invalid_input'
+  WHEN boundary_state IN('23505','PT409','40001') THEN 'conflict'
+  WHEN boundary_state='40P01' THEN 'retry_required'
+  WHEN boundary_state IN('P0002','02000') THEN 'not_found'
+  WHEN boundary_state='22008' THEN 'month_changed'
+  ELSE 'request_failed' END;
+  RETURN jsonb_build_object('error',boundary_code,'message',CASE
+   WHEN boundary_code='vocabulary_spacing_required' THEN 'Review another card before this card.'
+   WHEN boundary_code='review_not_due' THEN 'This review is not due yet.'
+   WHEN boundary_state='42501' THEN 'The request is not authorized.'
+   WHEN boundary_code IN('conflict','retry_required') THEN 'Reload and retry the request.'
+   WHEN boundary_code='invalid_input' THEN 'The request contains invalid data.'
+   ELSE 'The request could not be completed.' END,'sqlstate',boundary_state);
+END;
 $$;
 
 
@@ -1139,11 +2108,86 @@ $$;
 -- Name: learning_reset_audio_batch(uuid); Type: FUNCTION; Schema: public; Owner: -
 --
 
-CREATE FUNCTION public.learning_reset_audio_batch(p_token uuid) RETURNS TABLE(bucket_id text, object_name text)
-    LANGUAGE sql
+CREATE FUNCTION public.learning_reset_audio_batch(p_token uuid) RETURNS jsonb
+    LANGUAGE plpgsql
     SET search_path TO ''
     AS $$
- SELECT * FROM learning_reset_private.audio_batch(p_token);
+-- phase2-rpc-error-boundary-v1
+DECLARE boundary_state text; boundary_message text; boundary_code text; boundary_result jsonb;
+BEGIN
+RETURN (SELECT coalesce(jsonb_agg(to_jsonb(rpc_row)),'[]'::jsonb) FROM (
+ SELECT * FROM learning_reset_private.audio_batch(p_token)) rpc_row);
+ EXCEPTION WHEN OTHERS THEN
+  GET STACKED DIAGNOSTICS boundary_state=RETURNED_SQLSTATE,boundary_message=MESSAGE_TEXT;
+  -- Preserve stable domain codes, never include arbitrary SQL text or row data.
+  boundary_code:=CASE WHEN boundary_message=ANY(ARRAY[
+   'authentication_required','invalid_answer','exercise_unavailable','trainer_access_denied',
+   'learning_reset_in_progress','reset_owner_required','confirmation_required','audio_removal_incomplete',
+   'inactive_content','invalid_decisions','invalid_decision','invalid_direction','level_access_denied',
+   'lesson_not_found','invalid_language','answer_too_long','progress_not_found','review_not_due',
+   'vocabulary_spacing_required','sentence_content_missing','answer_required','invalid_answer_request',
+   'invalid_learning_language','vocabulary_request_conflict','unknown_course_audience',
+   'not_authorized','not_authenticated','invalid_input','request_failed','conflict','not_found',
+   'email_unverified','identity_conflict','identity_already_linked','person_not_found','auth_user_not_found'
+  ]) THEN boundary_message
+  WHEN boundary_state='42501' THEN 'not_authorized'
+  WHEN boundary_state IN('23502','23503','23514','22P02','22023','22007') THEN 'invalid_input'
+  WHEN boundary_state IN('23505','PT409','40001') THEN 'conflict'
+  WHEN boundary_state='40P01' THEN 'retry_required'
+  WHEN boundary_state IN('P0002','02000') THEN 'not_found'
+  WHEN boundary_state='22008' THEN 'month_changed'
+  ELSE 'request_failed' END;
+  RETURN jsonb_build_object('error',boundary_code,'message',CASE
+   WHEN boundary_code='vocabulary_spacing_required' THEN 'Review another card before this card.'
+   WHEN boundary_code='review_not_due' THEN 'This review is not due yet.'
+   WHEN boundary_state='42501' THEN 'The request is not authorized.'
+   WHEN boundary_code IN('conflict','retry_required') THEN 'Reload and retry the request.'
+   WHEN boundary_code='invalid_input' THEN 'The request contains invalid data.'
+   ELSE 'The request could not be completed.' END,'sqlstate',boundary_state);
+END;
+$$;
+
+
+--
+-- Name: list_registration_identity_conflicts(); Type: FUNCTION; Schema: public; Owner: -
+--
+
+CREATE FUNCTION public.list_registration_identity_conflicts() RETURNS jsonb
+    LANGUAGE plpgsql
+    SET search_path TO ''
+    AS $$
+-- phase2-rpc-error-boundary-v1
+DECLARE boundary_state text; boundary_message text; boundary_code text; boundary_result jsonb;
+BEGIN
+RETURN to_jsonb((SELECT business_private.list_registration_identity_conflicts()));
+ EXCEPTION WHEN OTHERS THEN
+  GET STACKED DIAGNOSTICS boundary_state=RETURNED_SQLSTATE,boundary_message=MESSAGE_TEXT;
+  -- Preserve stable domain codes, never include arbitrary SQL text or row data.
+  boundary_code:=CASE WHEN boundary_message=ANY(ARRAY[
+   'authentication_required','invalid_answer','exercise_unavailable','trainer_access_denied',
+   'learning_reset_in_progress','reset_owner_required','confirmation_required','audio_removal_incomplete',
+   'inactive_content','invalid_decisions','invalid_decision','invalid_direction','level_access_denied',
+   'lesson_not_found','invalid_language','answer_too_long','progress_not_found','review_not_due',
+   'vocabulary_spacing_required','sentence_content_missing','answer_required','invalid_answer_request',
+   'invalid_learning_language','vocabulary_request_conflict','unknown_course_audience',
+   'not_authorized','not_authenticated','invalid_input','request_failed','conflict','not_found',
+   'email_unverified','identity_conflict','identity_already_linked','person_not_found','auth_user_not_found'
+  ]) THEN boundary_message
+  WHEN boundary_state='42501' THEN 'not_authorized'
+  WHEN boundary_state IN('23502','23503','23514','22P02','22023','22007') THEN 'invalid_input'
+  WHEN boundary_state IN('23505','PT409','40001') THEN 'conflict'
+  WHEN boundary_state='40P01' THEN 'retry_required'
+  WHEN boundary_state IN('P0002','02000') THEN 'not_found'
+  WHEN boundary_state='22008' THEN 'month_changed'
+  ELSE 'request_failed' END;
+  RETURN jsonb_build_object('error',boundary_code,'message',CASE
+   WHEN boundary_code='vocabulary_spacing_required' THEN 'Review another card before this card.'
+   WHEN boundary_code='review_not_due' THEN 'This review is not due yet.'
+   WHEN boundary_state='42501' THEN 'The request is not authorized.'
+   WHEN boundary_code IN('conflict','retry_required') THEN 'Reload and retry the request.'
+   WHEN boundary_code='invalid_input' THEN 'The request contains invalid data.'
+   ELSE 'The request could not be completed.' END,'sqlstate',boundary_state);
+END;
 $$;
 
 
@@ -1151,48 +2195,232 @@ $$;
 -- Name: mark_business_invoice(uuid, date, boolean, text); Type: FUNCTION; Schema: public; Owner: -
 --
 
-CREATE FUNCTION public.mark_business_invoice(p_booking uuid, p_month date, p_created boolean, p_reference text DEFAULT ''::text) RETURNS void
-    LANGUAGE sql
+CREATE FUNCTION public.mark_business_invoice(p_booking uuid, p_month date, p_created boolean, p_reference text DEFAULT ''::text) RETURNS jsonb
+    LANGUAGE plpgsql
     SET search_path TO ''
-    AS $$select business_private.mark_invoice(p_booking,p_month,p_created,p_reference);$$;
+    AS $$
+-- phase2-rpc-error-boundary-v1
+DECLARE boundary_state text; boundary_message text; boundary_code text; boundary_result jsonb;
+BEGIN
+PERFORM business_private.mark_invoice(p_booking,p_month,p_created,p_reference);
+ RETURN 'null'::jsonb;
+ EXCEPTION WHEN OTHERS THEN
+  GET STACKED DIAGNOSTICS boundary_state=RETURNED_SQLSTATE,boundary_message=MESSAGE_TEXT;
+  -- Preserve stable domain codes, never include arbitrary SQL text or row data.
+  boundary_code:=CASE WHEN boundary_message=ANY(ARRAY[
+   'authentication_required','invalid_answer','exercise_unavailable','trainer_access_denied',
+   'learning_reset_in_progress','reset_owner_required','confirmation_required','audio_removal_incomplete',
+   'inactive_content','invalid_decisions','invalid_decision','invalid_direction','level_access_denied',
+   'lesson_not_found','invalid_language','answer_too_long','progress_not_found','review_not_due',
+   'vocabulary_spacing_required','sentence_content_missing','answer_required','invalid_answer_request',
+   'invalid_learning_language','vocabulary_request_conflict','unknown_course_audience',
+   'not_authorized','not_authenticated','invalid_input','request_failed','conflict','not_found',
+   'email_unverified','identity_conflict','identity_already_linked','person_not_found','auth_user_not_found'
+  ]) THEN boundary_message
+  WHEN boundary_state='42501' THEN 'not_authorized'
+  WHEN boundary_state IN('23502','23503','23514','22P02','22023','22007') THEN 'invalid_input'
+  WHEN boundary_state IN('23505','PT409','40001') THEN 'conflict'
+  WHEN boundary_state='40P01' THEN 'retry_required'
+  WHEN boundary_state IN('P0002','02000') THEN 'not_found'
+  WHEN boundary_state='22008' THEN 'month_changed'
+  ELSE 'request_failed' END;
+  RETURN jsonb_build_object('error',boundary_code,'message',CASE
+   WHEN boundary_code='vocabulary_spacing_required' THEN 'Review another card before this card.'
+   WHEN boundary_code='review_not_due' THEN 'This review is not due yet.'
+   WHEN boundary_state='42501' THEN 'The request is not authorized.'
+   WHEN boundary_code IN('conflict','retry_required') THEN 'Reload and retry the request.'
+   WHEN boundary_code='invalid_input' THEN 'The request contains invalid data.'
+   ELSE 'The request could not be completed.' END,'sqlstate',boundary_state);
+END;
+$$;
 
 
 --
 -- Name: mark_pronunciation_seen(uuid); Type: FUNCTION; Schema: public; Owner: -
 --
 
-CREATE FUNCTION public.mark_pronunciation_seen(p_submission_id uuid) RETURNS void
-    LANGUAGE sql
+CREATE FUNCTION public.mark_pronunciation_seen(p_submission_id uuid) RETURNS jsonb
+    LANGUAGE plpgsql
     SET search_path TO ''
-    AS $$ SELECT pronunciation_private.mark_seen(p_submission_id); $$;
+    AS $$
+-- phase2-rpc-error-boundary-v1
+DECLARE boundary_state text; boundary_message text; boundary_code text; boundary_result jsonb;
+BEGIN
+PERFORM pronunciation_private.mark_seen(p_submission_id);
+ RETURN 'null'::jsonb;
+ EXCEPTION WHEN OTHERS THEN
+  GET STACKED DIAGNOSTICS boundary_state=RETURNED_SQLSTATE,boundary_message=MESSAGE_TEXT;
+  -- Preserve stable domain codes, never include arbitrary SQL text or row data.
+  boundary_code:=CASE WHEN boundary_message=ANY(ARRAY[
+   'authentication_required','invalid_answer','exercise_unavailable','trainer_access_denied',
+   'learning_reset_in_progress','reset_owner_required','confirmation_required','audio_removal_incomplete',
+   'inactive_content','invalid_decisions','invalid_decision','invalid_direction','level_access_denied',
+   'lesson_not_found','invalid_language','answer_too_long','progress_not_found','review_not_due',
+   'vocabulary_spacing_required','sentence_content_missing','answer_required','invalid_answer_request',
+   'invalid_learning_language','vocabulary_request_conflict','unknown_course_audience',
+   'not_authorized','not_authenticated','invalid_input','request_failed','conflict','not_found',
+   'email_unverified','identity_conflict','identity_already_linked','person_not_found','auth_user_not_found'
+  ]) THEN boundary_message
+  WHEN boundary_state='42501' THEN 'not_authorized'
+  WHEN boundary_state IN('23502','23503','23514','22P02','22023','22007') THEN 'invalid_input'
+  WHEN boundary_state IN('23505','PT409','40001') THEN 'conflict'
+  WHEN boundary_state='40P01' THEN 'retry_required'
+  WHEN boundary_state IN('P0002','02000') THEN 'not_found'
+  WHEN boundary_state='22008' THEN 'month_changed'
+  ELSE 'request_failed' END;
+  RETURN jsonb_build_object('error',boundary_code,'message',CASE
+   WHEN boundary_code='vocabulary_spacing_required' THEN 'Review another card before this card.'
+   WHEN boundary_code='review_not_due' THEN 'This review is not due yet.'
+   WHEN boundary_state='42501' THEN 'The request is not authorized.'
+   WHEN boundary_code IN('conflict','retry_required') THEN 'Reload and retry the request.'
+   WHEN boundary_code='invalid_input' THEN 'The request contains invalid data.'
+   ELSE 'The request could not be completed.' END,'sqlstate',boundary_state);
+END;
+$$;
+
+
+--
+-- Name: media_storage_usage(); Type: FUNCTION; Schema: public; Owner: -
+--
+
+CREATE FUNCTION public.media_storage_usage() RETURNS jsonb
+    LANGUAGE plpgsql SECURITY DEFINER
+    SET search_path TO ''
+    AS $$
+-- phase2-rpc-error-boundary-v1
+DECLARE boundary_state text; boundary_message text; boundary_code text; boundary_result jsonb;
+BEGIN
+
+BEGIN
+ IF NOT business_private.is_staff() THEN RETURN jsonb_build_object('error','not_authorized','message','Staff access required.'); END IF;
+ RETURN jsonb_build_object('levels',(SELECT jsonb_agg(jsonb_build_object('level',l.code,'bytes',coalesce(u.bytes,0),'limit_bytes',21474836480) ORDER BY l.code)
+  FROM public.learning_levels l LEFT JOIN (SELECT split_part(name,'/',1) level,sum(coalesce((metadata->>'size')::bigint,0)) bytes FROM storage.objects WHERE bucket_id='course-assets' GROUP BY 1) u ON u.level=l.code),
+  'total_bytes',(SELECT coalesce(sum(coalesce((metadata->>'size')::bigint,0)),0) FROM storage.objects WHERE bucket_id='course-assets'));
+EXCEPTION WHEN OTHERS THEN RETURN jsonb_build_object('error','storage_usage_failed','message','Storage usage could not be read.');
+END;
+ EXCEPTION WHEN OTHERS THEN
+  GET STACKED DIAGNOSTICS boundary_state=RETURNED_SQLSTATE,boundary_message=MESSAGE_TEXT;
+  -- Preserve stable domain codes, never include arbitrary SQL text or row data.
+  boundary_code:=CASE WHEN boundary_message=ANY(ARRAY[
+   'authentication_required','invalid_answer','exercise_unavailable','trainer_access_denied',
+   'learning_reset_in_progress','reset_owner_required','confirmation_required','audio_removal_incomplete',
+   'inactive_content','invalid_decisions','invalid_decision','invalid_direction','level_access_denied',
+   'lesson_not_found','invalid_language','answer_too_long','progress_not_found','review_not_due',
+   'vocabulary_spacing_required','sentence_content_missing','answer_required','invalid_answer_request',
+   'invalid_learning_language','vocabulary_request_conflict','unknown_course_audience',
+   'not_authorized','not_authenticated','invalid_input','request_failed','conflict','not_found',
+   'email_unverified','identity_conflict','identity_already_linked','person_not_found','auth_user_not_found'
+  ]) THEN boundary_message
+  WHEN boundary_state='42501' THEN 'not_authorized'
+  WHEN boundary_state IN('23502','23503','23514','22P02','22023','22007') THEN 'invalid_input'
+  WHEN boundary_state IN('23505','PT409','40001') THEN 'conflict'
+  WHEN boundary_state='40P01' THEN 'retry_required'
+  WHEN boundary_state IN('P0002','02000') THEN 'not_found'
+  WHEN boundary_state='22008' THEN 'month_changed'
+  ELSE 'request_failed' END;
+  RETURN jsonb_build_object('error',boundary_code,'message',CASE
+   WHEN boundary_code='vocabulary_spacing_required' THEN 'Review another card before this card.'
+   WHEN boundary_code='review_not_due' THEN 'This review is not due yet.'
+   WHEN boundary_state='42501' THEN 'The request is not authorized.'
+   WHEN boundary_code IN('conflict','retry_required') THEN 'Reload and retry the request.'
+   WHEN boundary_code='invalid_input' THEN 'The request contains invalid data.'
+   ELSE 'The request could not be completed.' END,'sqlstate',boundary_state);
+END;
+$$;
 
 
 --
 -- Name: prepare_business_month(date); Type: FUNCTION; Schema: public; Owner: -
 --
 
-CREATE FUNCTION public.prepare_business_month(p_month date) RETURNS integer
-    LANGUAGE sql
+CREATE FUNCTION public.prepare_business_month(p_month date) RETURNS jsonb
+    LANGUAGE plpgsql
     SET search_path TO ''
-    AS $$select business_private.prepare_month(p_month);$$;
+    AS $$
+-- phase2-rpc-error-boundary-v1
+DECLARE boundary_state text; boundary_message text; boundary_code text; boundary_result jsonb;
+BEGIN
+RETURN to_jsonb((select business_private.prepare_month(p_month)));
+ EXCEPTION WHEN OTHERS THEN
+  GET STACKED DIAGNOSTICS boundary_state=RETURNED_SQLSTATE,boundary_message=MESSAGE_TEXT;
+  -- Preserve stable domain codes, never include arbitrary SQL text or row data.
+  boundary_code:=CASE WHEN boundary_message=ANY(ARRAY[
+   'authentication_required','invalid_answer','exercise_unavailable','trainer_access_denied',
+   'learning_reset_in_progress','reset_owner_required','confirmation_required','audio_removal_incomplete',
+   'inactive_content','invalid_decisions','invalid_decision','invalid_direction','level_access_denied',
+   'lesson_not_found','invalid_language','answer_too_long','progress_not_found','review_not_due',
+   'vocabulary_spacing_required','sentence_content_missing','answer_required','invalid_answer_request',
+   'invalid_learning_language','vocabulary_request_conflict','unknown_course_audience',
+   'not_authorized','not_authenticated','invalid_input','request_failed','conflict','not_found',
+   'email_unverified','identity_conflict','identity_already_linked','person_not_found','auth_user_not_found'
+  ]) THEN boundary_message
+  WHEN boundary_state='42501' THEN 'not_authorized'
+  WHEN boundary_state IN('23502','23503','23514','22P02','22023','22007') THEN 'invalid_input'
+  WHEN boundary_state IN('23505','PT409','40001') THEN 'conflict'
+  WHEN boundary_state='40P01' THEN 'retry_required'
+  WHEN boundary_state IN('P0002','02000') THEN 'not_found'
+  WHEN boundary_state='22008' THEN 'month_changed'
+  ELSE 'request_failed' END;
+  RETURN jsonb_build_object('error',boundary_code,'message',CASE
+   WHEN boundary_code='vocabulary_spacing_required' THEN 'Review another card before this card.'
+   WHEN boundary_code='review_not_due' THEN 'This review is not due yet.'
+   WHEN boundary_state='42501' THEN 'The request is not authorized.'
+   WHEN boundary_code IN('conflict','retry_required') THEN 'Reload and retry the request.'
+   WHEN boundary_code='invalid_input' THEN 'The request contains invalid data.'
+   ELSE 'The request could not be completed.' END,'sqlstate',boundary_state);
+END;
+$$;
 
 
 --
 -- Name: queue_transactional_email(text, text, text, text, jsonb); Type: FUNCTION; Schema: public; Owner: -
 --
 
-CREATE FUNCTION public.queue_transactional_email(p_dedupe_key text, p_kind text, p_recipient text, p_locale text, p_payload jsonb) RETURNS uuid
+CREATE FUNCTION public.queue_transactional_email(p_dedupe_key text, p_kind text, p_recipient text, p_locale text, p_payload jsonb) RETURNS jsonb
     LANGUAGE plpgsql
     SET search_path TO ''
     AS $$
+-- phase2-rpc-error-boundary-v1
+DECLARE boundary_state text; boundary_message text; boundary_code text; boundary_result jsonb;
+BEGIN
+
 DECLARE v_id uuid;
 BEGIN
   INSERT INTO private.mail_outbox(dedupe_key,kind,recipient,locale,payload)
-  VALUES(p_dedupe_key,p_kind,lower(trim(p_recipient)),CASE WHEN p_locale IN ('de','en','ru','uk','tr') THEN p_locale ELSE 'de' END,p_payload)
+  VALUES(p_dedupe_key,p_kind::public.mail_kind,lower(trim(p_recipient)),CASE WHEN p_locale IN ('de','en','ru','uk','tr') THEN p_locale ELSE 'de' END,p_payload)
   ON CONFLICT(dedupe_key) DO NOTHING RETURNING id INTO v_id;
   IF v_id IS NULL THEN SELECT id INTO v_id FROM private.mail_outbox WHERE dedupe_key=p_dedupe_key; END IF;
-  RETURN v_id;
-END $$;
+  RETURN to_jsonb(v_id);
+END;
+ EXCEPTION WHEN OTHERS THEN
+  GET STACKED DIAGNOSTICS boundary_state=RETURNED_SQLSTATE,boundary_message=MESSAGE_TEXT;
+  -- Preserve stable domain codes, never include arbitrary SQL text or row data.
+  boundary_code:=CASE WHEN boundary_message=ANY(ARRAY[
+   'authentication_required','invalid_answer','exercise_unavailable','trainer_access_denied',
+   'learning_reset_in_progress','reset_owner_required','confirmation_required','audio_removal_incomplete',
+   'inactive_content','invalid_decisions','invalid_decision','invalid_direction','level_access_denied',
+   'lesson_not_found','invalid_language','answer_too_long','progress_not_found','review_not_due',
+   'vocabulary_spacing_required','sentence_content_missing','answer_required','invalid_answer_request',
+   'invalid_learning_language','vocabulary_request_conflict','unknown_course_audience',
+   'not_authorized','not_authenticated','invalid_input','request_failed','conflict','not_found',
+   'email_unverified','identity_conflict','identity_already_linked','person_not_found','auth_user_not_found'
+  ]) THEN boundary_message
+  WHEN boundary_state='42501' THEN 'not_authorized'
+  WHEN boundary_state IN('23502','23503','23514','22P02','22023','22007') THEN 'invalid_input'
+  WHEN boundary_state IN('23505','PT409','40001') THEN 'conflict'
+  WHEN boundary_state='40P01' THEN 'retry_required'
+  WHEN boundary_state IN('P0002','02000') THEN 'not_found'
+  WHEN boundary_state='22008' THEN 'month_changed'
+  ELSE 'request_failed' END;
+  RETURN jsonb_build_object('error',boundary_code,'message',CASE
+   WHEN boundary_code='vocabulary_spacing_required' THEN 'Review another card before this card.'
+   WHEN boundary_code='review_not_due' THEN 'This review is not due yet.'
+   WHEN boundary_state='42501' THEN 'The request is not authorized.'
+   WHEN boundary_code IN('conflict','retry_required') THEN 'Reload and retry the request.'
+   WHEN boundary_code='invalid_input' THEN 'The request contains invalid data.'
+   ELSE 'The request could not be completed.' END,'sqlstate',boundary_state);
+END;
+$$;
 
 
 --
@@ -1200,10 +2428,42 @@ END $$;
 --
 
 CREATE FUNCTION public.record_grammar_attempt(p_exercise_id uuid, p_answer text, p_hint_shown boolean DEFAULT false) RETURNS jsonb
-    LANGUAGE sql
+    LANGUAGE plpgsql
     SET search_path TO ''
     AS $$
-  SELECT grammar_private.record_attempt(p_exercise_id, p_answer, p_hint_shown);
+-- phase2-rpc-error-boundary-v1
+DECLARE boundary_state text; boundary_message text; boundary_code text; boundary_result jsonb;
+BEGIN
+RETURN to_jsonb((
+  SELECT grammar_private.record_attempt(p_exercise_id, p_answer, p_hint_shown)));
+ EXCEPTION WHEN OTHERS THEN
+  GET STACKED DIAGNOSTICS boundary_state=RETURNED_SQLSTATE,boundary_message=MESSAGE_TEXT;
+  -- Preserve stable domain codes, never include arbitrary SQL text or row data.
+  boundary_code:=CASE WHEN boundary_message=ANY(ARRAY[
+   'authentication_required','invalid_answer','exercise_unavailable','trainer_access_denied',
+   'learning_reset_in_progress','reset_owner_required','confirmation_required','audio_removal_incomplete',
+   'inactive_content','invalid_decisions','invalid_decision','invalid_direction','level_access_denied',
+   'lesson_not_found','invalid_language','answer_too_long','progress_not_found','review_not_due',
+   'vocabulary_spacing_required','sentence_content_missing','answer_required','invalid_answer_request',
+   'invalid_learning_language','vocabulary_request_conflict','unknown_course_audience',
+   'not_authorized','not_authenticated','invalid_input','request_failed','conflict','not_found',
+   'email_unverified','identity_conflict','identity_already_linked','person_not_found','auth_user_not_found'
+  ]) THEN boundary_message
+  WHEN boundary_state='42501' THEN 'not_authorized'
+  WHEN boundary_state IN('23502','23503','23514','22P02','22023','22007') THEN 'invalid_input'
+  WHEN boundary_state IN('23505','PT409','40001') THEN 'conflict'
+  WHEN boundary_state='40P01' THEN 'retry_required'
+  WHEN boundary_state IN('P0002','02000') THEN 'not_found'
+  WHEN boundary_state='22008' THEN 'month_changed'
+  ELSE 'request_failed' END;
+  RETURN jsonb_build_object('error',boundary_code,'message',CASE
+   WHEN boundary_code='vocabulary_spacing_required' THEN 'Review another card before this card.'
+   WHEN boundary_code='review_not_due' THEN 'This review is not due yet.'
+   WHEN boundary_state='42501' THEN 'The request is not authorized.'
+   WHEN boundary_code IN('conflict','retry_required') THEN 'Reload and retry the request.'
+   WHEN boundary_code='invalid_input' THEN 'The request contains invalid data.'
+   ELSE 'The request could not be completed.' END,'sqlstate',boundary_state);
+END;
 $$;
 
 
@@ -1211,40 +2471,260 @@ $$;
 -- Name: reset_student_level_progress(uuid, text); Type: FUNCTION; Schema: public; Owner: -
 --
 
-CREATE FUNCTION public.reset_student_level_progress(p_student_id uuid, p_level text) RETURNS void
-    LANGUAGE sql
+CREATE FUNCTION public.reset_student_level_progress(p_student_id uuid, p_level text) RETURNS jsonb
+    LANGUAGE plpgsql
     SET search_path TO ''
-    AS $$ SELECT learning_private.reset_student_level(p_student_id,p_level); $$;
+    AS $$
+-- phase2-rpc-error-boundary-v1
+DECLARE boundary_state text; boundary_message text; boundary_code text; boundary_result jsonb;
+BEGIN
+PERFORM learning_private.reset_student_level(p_student_id,p_level);
+ RETURN 'null'::jsonb;
+ EXCEPTION WHEN OTHERS THEN
+  GET STACKED DIAGNOSTICS boundary_state=RETURNED_SQLSTATE,boundary_message=MESSAGE_TEXT;
+  -- Preserve stable domain codes, never include arbitrary SQL text or row data.
+  boundary_code:=CASE WHEN boundary_message=ANY(ARRAY[
+   'authentication_required','invalid_answer','exercise_unavailable','trainer_access_denied',
+   'learning_reset_in_progress','reset_owner_required','confirmation_required','audio_removal_incomplete',
+   'inactive_content','invalid_decisions','invalid_decision','invalid_direction','level_access_denied',
+   'lesson_not_found','invalid_language','answer_too_long','progress_not_found','review_not_due',
+   'vocabulary_spacing_required','sentence_content_missing','answer_required','invalid_answer_request',
+   'invalid_learning_language','vocabulary_request_conflict','unknown_course_audience',
+   'not_authorized','not_authenticated','invalid_input','request_failed','conflict','not_found',
+   'email_unverified','identity_conflict','identity_already_linked','person_not_found','auth_user_not_found'
+  ]) THEN boundary_message
+  WHEN boundary_state='42501' THEN 'not_authorized'
+  WHEN boundary_state IN('23502','23503','23514','22P02','22023','22007') THEN 'invalid_input'
+  WHEN boundary_state IN('23505','PT409','40001') THEN 'conflict'
+  WHEN boundary_state='40P01' THEN 'retry_required'
+  WHEN boundary_state IN('P0002','02000') THEN 'not_found'
+  WHEN boundary_state='22008' THEN 'month_changed'
+  ELSE 'request_failed' END;
+  RETURN jsonb_build_object('error',boundary_code,'message',CASE
+   WHEN boundary_code='vocabulary_spacing_required' THEN 'Review another card before this card.'
+   WHEN boundary_code='review_not_due' THEN 'This review is not due yet.'
+   WHEN boundary_state='42501' THEN 'The request is not authorized.'
+   WHEN boundary_code IN('conflict','retry_required') THEN 'Reload and retry the request.'
+   WHEN boundary_code='invalid_input' THEN 'The request contains invalid data.'
+   ELSE 'The request could not be completed.' END,'sqlstate',boundary_state);
+END;
+$$;
 
 
 --
 -- Name: reset_vocabulary_lesson_progress(uuid); Type: FUNCTION; Schema: public; Owner: -
 --
 
-CREATE FUNCTION public.reset_vocabulary_lesson_progress(p_unit_id uuid) RETURNS void
-    LANGUAGE sql
+CREATE FUNCTION public.reset_vocabulary_lesson_progress(p_unit_id uuid) RETURNS jsonb
+    LANGUAGE plpgsql
     SET search_path TO ''
-    AS $$ SELECT vocabulary_private.reset_lesson(p_unit_id); $$;
+    AS $$
+-- phase2-rpc-error-boundary-v1
+DECLARE boundary_state text; boundary_message text; boundary_code text; boundary_result jsonb;
+BEGIN
+PERFORM vocabulary_private.reset_lesson(p_unit_id);
+ RETURN 'null'::jsonb;
+ EXCEPTION WHEN OTHERS THEN
+  GET STACKED DIAGNOSTICS boundary_state=RETURNED_SQLSTATE,boundary_message=MESSAGE_TEXT;
+  -- Preserve stable domain codes, never include arbitrary SQL text or row data.
+  boundary_code:=CASE WHEN boundary_message=ANY(ARRAY[
+   'authentication_required','invalid_answer','exercise_unavailable','trainer_access_denied',
+   'learning_reset_in_progress','reset_owner_required','confirmation_required','audio_removal_incomplete',
+   'inactive_content','invalid_decisions','invalid_decision','invalid_direction','level_access_denied',
+   'lesson_not_found','invalid_language','answer_too_long','progress_not_found','review_not_due',
+   'vocabulary_spacing_required','sentence_content_missing','answer_required','invalid_answer_request',
+   'invalid_learning_language','vocabulary_request_conflict','unknown_course_audience',
+   'not_authorized','not_authenticated','invalid_input','request_failed','conflict','not_found',
+   'email_unverified','identity_conflict','identity_already_linked','person_not_found','auth_user_not_found'
+  ]) THEN boundary_message
+  WHEN boundary_state='42501' THEN 'not_authorized'
+  WHEN boundary_state IN('23502','23503','23514','22P02','22023','22007') THEN 'invalid_input'
+  WHEN boundary_state IN('23505','PT409','40001') THEN 'conflict'
+  WHEN boundary_state='40P01' THEN 'retry_required'
+  WHEN boundary_state IN('P0002','02000') THEN 'not_found'
+  WHEN boundary_state='22008' THEN 'month_changed'
+  ELSE 'request_failed' END;
+  RETURN jsonb_build_object('error',boundary_code,'message',CASE
+   WHEN boundary_code='vocabulary_spacing_required' THEN 'Review another card before this card.'
+   WHEN boundary_code='review_not_due' THEN 'This review is not due yet.'
+   WHEN boundary_state='42501' THEN 'The request is not authorized.'
+   WHEN boundary_code IN('conflict','retry_required') THEN 'Reload and retry the request.'
+   WHEN boundary_code='invalid_input' THEN 'The request contains invalid data.'
+   ELSE 'The request could not be completed.' END,'sqlstate',boundary_state);
+END;
+$$;
+
+
+--
+-- Name: resolve_registration_identity(uuid, uuid); Type: FUNCTION; Schema: public; Owner: -
+--
+
+CREATE FUNCTION public.resolve_registration_identity(p_person_id uuid, p_auth_user_id uuid) RETURNS jsonb
+    LANGUAGE plpgsql
+    SET search_path TO ''
+    AS $$
+-- phase2-rpc-error-boundary-v1
+DECLARE boundary_state text; boundary_message text; boundary_code text; boundary_result jsonb;
+BEGIN
+RETURN to_jsonb((SELECT business_private.resolve_registration_identity(p_person_id,p_auth_user_id)));
+ EXCEPTION WHEN OTHERS THEN
+  GET STACKED DIAGNOSTICS boundary_state=RETURNED_SQLSTATE,boundary_message=MESSAGE_TEXT;
+  -- Preserve stable domain codes, never include arbitrary SQL text or row data.
+  boundary_code:=CASE WHEN boundary_message=ANY(ARRAY[
+   'authentication_required','invalid_answer','exercise_unavailable','trainer_access_denied',
+   'learning_reset_in_progress','reset_owner_required','confirmation_required','audio_removal_incomplete',
+   'inactive_content','invalid_decisions','invalid_decision','invalid_direction','level_access_denied',
+   'lesson_not_found','invalid_language','answer_too_long','progress_not_found','review_not_due',
+   'vocabulary_spacing_required','sentence_content_missing','answer_required','invalid_answer_request',
+   'invalid_learning_language','vocabulary_request_conflict','unknown_course_audience',
+   'not_authorized','not_authenticated','invalid_input','request_failed','conflict','not_found',
+   'email_unverified','identity_conflict','identity_already_linked','person_not_found','auth_user_not_found'
+  ]) THEN boundary_message
+  WHEN boundary_state='42501' THEN 'not_authorized'
+  WHEN boundary_state IN('23502','23503','23514','22P02','22023','22007') THEN 'invalid_input'
+  WHEN boundary_state IN('23505','PT409','40001') THEN 'conflict'
+  WHEN boundary_state='40P01' THEN 'retry_required'
+  WHEN boundary_state IN('P0002','02000') THEN 'not_found'
+  WHEN boundary_state='22008' THEN 'month_changed'
+  ELSE 'request_failed' END;
+  RETURN jsonb_build_object('error',boundary_code,'message',CASE
+   WHEN boundary_code='vocabulary_spacing_required' THEN 'Review another card before this card.'
+   WHEN boundary_code='review_not_due' THEN 'This review is not due yet.'
+   WHEN boundary_state='42501' THEN 'The request is not authorized.'
+   WHEN boundary_code IN('conflict','retry_required') THEN 'Reload and retry the request.'
+   WHEN boundary_code='invalid_input' THEN 'The request contains invalid data.'
+   ELSE 'The request could not be completed.' END,'sqlstate',boundary_state);
+END;
+$$;
 
 
 --
 -- Name: save_business_course(jsonb); Type: FUNCTION; Schema: public; Owner: -
 --
 
-CREATE FUNCTION public.save_business_course(p_data jsonb) RETURNS uuid
-    LANGUAGE sql
+CREATE FUNCTION public.save_business_course(p_data jsonb) RETURNS jsonb
+    LANGUAGE plpgsql
     SET search_path TO ''
-    AS $$select business_private.save_course(p_data);$$;
+    AS $$
+-- phase2-rpc-error-boundary-v1
+DECLARE boundary_state text; boundary_message text; boundary_code text; boundary_result jsonb;
+BEGIN
+RETURN to_jsonb((select business_private.save_course(p_data)));
+ EXCEPTION WHEN OTHERS THEN
+  GET STACKED DIAGNOSTICS boundary_state=RETURNED_SQLSTATE,boundary_message=MESSAGE_TEXT;
+  -- Preserve stable domain codes, never include arbitrary SQL text or row data.
+  boundary_code:=CASE WHEN boundary_message=ANY(ARRAY[
+   'authentication_required','invalid_answer','exercise_unavailable','trainer_access_denied',
+   'learning_reset_in_progress','reset_owner_required','confirmation_required','audio_removal_incomplete',
+   'inactive_content','invalid_decisions','invalid_decision','invalid_direction','level_access_denied',
+   'lesson_not_found','invalid_language','answer_too_long','progress_not_found','review_not_due',
+   'vocabulary_spacing_required','sentence_content_missing','answer_required','invalid_answer_request',
+   'invalid_learning_language','vocabulary_request_conflict','unknown_course_audience',
+   'not_authorized','not_authenticated','invalid_input','request_failed','conflict','not_found',
+   'email_unverified','identity_conflict','identity_already_linked','person_not_found','auth_user_not_found'
+  ]) THEN boundary_message
+  WHEN boundary_state='42501' THEN 'not_authorized'
+  WHEN boundary_state IN('23502','23503','23514','22P02','22023','22007') THEN 'invalid_input'
+  WHEN boundary_state IN('23505','PT409','40001') THEN 'conflict'
+  WHEN boundary_state='40P01' THEN 'retry_required'
+  WHEN boundary_state IN('P0002','02000') THEN 'not_found'
+  WHEN boundary_state='22008' THEN 'month_changed'
+  ELSE 'request_failed' END;
+  RETURN jsonb_build_object('error',boundary_code,'message',CASE
+   WHEN boundary_code='vocabulary_spacing_required' THEN 'Review another card before this card.'
+   WHEN boundary_code='review_not_due' THEN 'This review is not due yet.'
+   WHEN boundary_state='42501' THEN 'The request is not authorized.'
+   WHEN boundary_code IN('conflict','retry_required') THEN 'Reload and retry the request.'
+   WHEN boundary_code='invalid_input' THEN 'The request contains invalid data.'
+   ELSE 'The request could not be completed.' END,'sqlstate',boundary_state);
+END;
+$$;
 
 
 --
 -- Name: save_business_month(date, jsonb, boolean, uuid, integer); Type: FUNCTION; Schema: public; Owner: -
 --
 
-CREATE FUNCTION public.save_business_month(p_month date, p_course_selections jsonb, p_paused boolean, p_expected uuid DEFAULT NULL::uuid, p_revision integer DEFAULT NULL::integer) RETURNS uuid
-    LANGUAGE sql
+CREATE FUNCTION public.save_business_month(p_month date, p_course_selections jsonb, p_paused boolean, p_expected uuid DEFAULT NULL::uuid, p_revision integer DEFAULT NULL::integer) RETURNS jsonb
+    LANGUAGE plpgsql
     SET search_path TO ''
-    AS $$select business_private.save_month(p_month,p_course_selections,p_paused,p_expected,p_revision);$$;
+    AS $$
+-- phase2-rpc-error-boundary-v1
+DECLARE boundary_state text; boundary_message text; boundary_code text; boundary_result jsonb;
+BEGIN
+RETURN to_jsonb((select business_private.save_month(p_month,p_course_selections,p_paused,p_expected,p_revision)));
+ EXCEPTION WHEN OTHERS THEN
+  GET STACKED DIAGNOSTICS boundary_state=RETURNED_SQLSTATE,boundary_message=MESSAGE_TEXT;
+  -- Preserve stable domain codes, never include arbitrary SQL text or row data.
+  boundary_code:=CASE WHEN boundary_message=ANY(ARRAY[
+   'authentication_required','invalid_answer','exercise_unavailable','trainer_access_denied',
+   'learning_reset_in_progress','reset_owner_required','confirmation_required','audio_removal_incomplete',
+   'inactive_content','invalid_decisions','invalid_decision','invalid_direction','level_access_denied',
+   'lesson_not_found','invalid_language','answer_too_long','progress_not_found','review_not_due',
+   'vocabulary_spacing_required','sentence_content_missing','answer_required','invalid_answer_request',
+   'invalid_learning_language','vocabulary_request_conflict','unknown_course_audience',
+   'not_authorized','not_authenticated','invalid_input','request_failed','conflict','not_found',
+   'email_unverified','identity_conflict','identity_already_linked','person_not_found','auth_user_not_found'
+  ]) THEN boundary_message
+  WHEN boundary_state='42501' THEN 'not_authorized'
+  WHEN boundary_state IN('23502','23503','23514','22P02','22023','22007') THEN 'invalid_input'
+  WHEN boundary_state IN('23505','PT409','40001') THEN 'conflict'
+  WHEN boundary_state='40P01' THEN 'retry_required'
+  WHEN boundary_state IN('P0002','02000') THEN 'not_found'
+  WHEN boundary_state='22008' THEN 'month_changed'
+  ELSE 'request_failed' END;
+  RETURN jsonb_build_object('error',boundary_code,'message',CASE
+   WHEN boundary_code='vocabulary_spacing_required' THEN 'Review another card before this card.'
+   WHEN boundary_code='review_not_due' THEN 'This review is not due yet.'
+   WHEN boundary_state='42501' THEN 'The request is not authorized.'
+   WHEN boundary_code IN('conflict','retry_required') THEN 'Reload and retry the request.'
+   WHEN boundary_code='invalid_input' THEN 'The request contains invalid data.'
+   ELSE 'The request could not be completed.' END,'sqlstate',boundary_state);
+END;
+$$;
+
+
+--
+-- Name: save_course_exception(uuid, date, text); Type: FUNCTION; Schema: public; Owner: -
+--
+
+CREATE FUNCTION public.save_course_exception(p_course_id uuid, p_date date, p_reason text) RETURNS jsonb
+    LANGUAGE plpgsql SECURITY DEFINER
+    SET search_path TO ''
+    AS $$
+-- phase2-rpc-error-boundary-v1
+DECLARE boundary_state text; boundary_message text; boundary_code text; boundary_result jsonb;
+BEGIN
+RETURN to_jsonb((SELECT business_private.save_course_exception(p_course_id,p_date,p_reason)));
+ EXCEPTION WHEN OTHERS THEN
+  GET STACKED DIAGNOSTICS boundary_state=RETURNED_SQLSTATE,boundary_message=MESSAGE_TEXT;
+  -- Preserve stable domain codes, never include arbitrary SQL text or row data.
+  boundary_code:=CASE WHEN boundary_message=ANY(ARRAY[
+   'authentication_required','invalid_answer','exercise_unavailable','trainer_access_denied',
+   'learning_reset_in_progress','reset_owner_required','confirmation_required','audio_removal_incomplete',
+   'inactive_content','invalid_decisions','invalid_decision','invalid_direction','level_access_denied',
+   'lesson_not_found','invalid_language','answer_too_long','progress_not_found','review_not_due',
+   'vocabulary_spacing_required','sentence_content_missing','answer_required','invalid_answer_request',
+   'invalid_learning_language','vocabulary_request_conflict','unknown_course_audience',
+   'not_authorized','not_authenticated','invalid_input','request_failed','conflict','not_found',
+   'email_unverified','identity_conflict','identity_already_linked','person_not_found','auth_user_not_found'
+  ]) THEN boundary_message
+  WHEN boundary_state='42501' THEN 'not_authorized'
+  WHEN boundary_state IN('23502','23503','23514','22P02','22023','22007') THEN 'invalid_input'
+  WHEN boundary_state IN('23505','PT409','40001') THEN 'conflict'
+  WHEN boundary_state='40P01' THEN 'retry_required'
+  WHEN boundary_state IN('P0002','02000') THEN 'not_found'
+  WHEN boundary_state='22008' THEN 'month_changed'
+  ELSE 'request_failed' END;
+  RETURN jsonb_build_object('error',boundary_code,'message',CASE
+   WHEN boundary_code='vocabulary_spacing_required' THEN 'Review another card before this card.'
+   WHEN boundary_code='review_not_due' THEN 'This review is not due yet.'
+   WHEN boundary_state='42501' THEN 'The request is not authorized.'
+   WHEN boundary_code IN('conflict','retry_required') THEN 'Reload and retry the request.'
+   WHEN boundary_code='invalid_input' THEN 'The request contains invalid data.'
+   ELSE 'The request could not be completed.' END,'sqlstate',boundary_state);
+END;
+$$;
 
 
 --
@@ -1255,11 +2735,15 @@ CREATE FUNCTION public.save_learning_content(p_trainer text, p_payload jsonb, p_
     LANGUAGE plpgsql
     SET search_path TO ''
     AS $$
+-- phase2-rpc-error-boundary-v1
+DECLARE boundary_state text; boundary_message text; boundary_code text; boundary_result jsonb;
+BEGIN
+
 DECLARE old_fields jsonb; fields jsonb; unit_data jsonb:=p_payload->'unit'; translations jsonb:=p_payload->'translations';
  item uuid:=coalesce(p_id,gen_random_uuid()); old_unit uuid; target_unit uuid; old_meta public.learning_units; translation_row jsonb;
 BEGIN
  IF current_user NOT IN('service_role','postgres') AND coalesce(identity_private.current_profile_role(),'') NOT IN('teacher','admin') THEN RAISE EXCEPTION 'Staff required' USING ERRCODE='42501'; END IF;
- IF p_trainer IS NULL OR NOT EXISTS(SELECT 1 FROM public.learning_trainers WHERE code=p_trainer)
+ IF p_trainer IS NULL OR NOT EXISTS(SELECT 1 FROM public.learning_trainers WHERE code::text=p_trainer)
  OR jsonb_typeof(unit_data) IS DISTINCT FROM 'object' OR jsonb_typeof(p_payload->'fields') IS DISTINCT FROM 'object'
  OR nullif(btrim(unit_data->>'label'),'') IS NULL OR NOT EXISTS(SELECT 1 FROM public.learning_levels WHERE code=unit_data->>'level') THEN
  RAISE EXCEPTION 'Invalid content' USING ERRCODE='23514'; END IF;
@@ -1290,7 +2774,7 @@ BEGIN
    SELECT 1 FROM jsonb_array_elements(translations) t WHERE t->>'locale'=l.code AND nullif(btrim(t->>'context_sentence'),'') IS NOT NULL)) THEN
   RAISE EXCEPTION 'Sentence translations required' USING ERRCODE='23514'; END IF;
   INSERT INTO public.learning_vocabulary_cards(id,unit_id,word_de,article,plural,image_url,audio_url,sentence_practice,alternative_answers_de)
-  VALUES(item,target_unit,fields->>'word_de',fields->>'article',fields->>'plural',fields->>'image_url',fields->>'audio_url',coalesce((fields->>'sentence_practice')::boolean,false),
+  VALUES(item,target_unit,fields->>'word_de',(fields->>'article')::public.grammatical_article,fields->>'plural',fields->>'image_url',fields->>'audio_url',coalesce((fields->>'sentence_practice')::boolean,false),
   ARRAY(SELECT jsonb_array_elements_text(coalesce(fields->'alternative_answers_de','[]'::jsonb))))
   ON CONFLICT(id) DO UPDATE SET unit_id=excluded.unit_id,word_de=excluded.word_de,article=excluded.article,plural=excluded.plural,
   image_url=excluded.image_url,audio_url=excluded.audio_url,sentence_practice=excluded.sentence_practice,alternative_answers_de=excluded.alternative_answers_de;
@@ -1304,7 +2788,7 @@ BEGIN
   OR nullif(btrim(fields->'content'->>'correct_answer'),'') IS NULL OR (fields->'content') ?| ARRAY['smart_hint','explanation'] THEN
   RAISE EXCEPTION 'Invalid exercise' USING ERRCODE='23514'; END IF;
   INSERT INTO public.learning_exercises(id,unit_id,topic,type,content,solution_audio_url)
-  VALUES(item,target_unit,fields->>'topic',fields->>'type',fields->'content',fields->>'solution_audio_url')
+  VALUES(item,target_unit,fields->>'topic',(fields->>'type')::public.exercise_type,fields->'content',fields->>'solution_audio_url')
   ON CONFLICT(id) DO UPDATE SET unit_id=excluded.unit_id,topic=excluded.topic,type=excluded.type,content=excluded.content,solution_audio_url=excluded.solution_audio_url;
   DELETE FROM public.grammar_translations WHERE exercise_id=item;
   FOR translation_row IN SELECT value FROM jsonb_array_elements(translations) LOOP
@@ -1316,9 +2800,11 @@ BEGIN
   VALUES(item,target_unit,fields->>'sentence_de',fields->>'focus',fields->>'audio_url')
   ON CONFLICT(id) DO UPDATE SET unit_id=excluded.unit_id,sentence_de=excluded.sentence_de,focus=excluded.focus,audio_url=excluded.audio_url;
  ELSE
-  INSERT INTO public.learning_videos(id,unit_id,description,source_url)
-  VALUES(item,target_unit,fields->>'description',nullif(btrim(fields->>'source_url'),''))
-  ON CONFLICT(id) DO UPDATE SET unit_id=excluded.unit_id,description=excluded.description,source_url=excluded.source_url;
+  INSERT INTO public.learning_videos(id,unit_id,description,source_url,title,folder_id,storage_path,file_size)
+  VALUES(item,target_unit,fields->>'description',nullif(btrim(fields->>'source_url'),''),coalesce(nullif(fields->>'title',''),unit_data->>'label'),
+   (fields->>'folder_id')::uuid,fields->>'storage_path',(fields->>'file_size')::bigint)
+  ON CONFLICT(id) DO UPDATE SET unit_id=excluded.unit_id,description=excluded.description,source_url=excluded.source_url,
+   title=excluded.title,folder_id=excluded.folder_id,storage_path=excluded.storage_path,file_size=excluded.file_size;
  END IF;
  IF old_unit IS NOT NULL AND old_unit<>target_unit THEN
   DELETE FROM public.learning_units u WHERE u.id=old_unit
@@ -1328,32 +2814,54 @@ BEGIN
   AND NOT EXISTS(SELECT 1 FROM public.learning_videos c WHERE c.unit_id=u.id);
  END IF;
  RETURN jsonb_build_object('id',item);
-END $$;
-
-
---
--- Name: teacher_student_notes; Type: TABLE; Schema: public; Owner: -
---
-
-CREATE TABLE public.teacher_student_notes (
-    id uuid DEFAULT gen_random_uuid() NOT NULL,
-    student_id uuid NOT NULL,
-    teacher_id uuid DEFAULT auth.uid() NOT NULL,
-    note_text text NOT NULL,
-    created_at timestamp with time zone DEFAULT now() NOT NULL,
-    updated_at timestamp with time zone DEFAULT now() NOT NULL,
-    CONSTRAINT teacher_student_notes_text_length CHECK ((length(note_text) <= 5000))
-);
+EXCEPTION WHEN insufficient_privilege THEN RETURN jsonb_build_object('error','not_authorized','message','Staff access required.');
+ WHEN check_violation OR foreign_key_violation OR invalid_text_representation OR not_null_violation THEN RETURN jsonb_build_object('error','invalid_input','message','Content fields or uploaded file are invalid.');
+ WHEN unique_violation THEN RETURN jsonb_build_object('error','conflict','message','Content already exists.');
+ WHEN OTHERS THEN RETURN jsonb_build_object('error','save_failed','message','Content could not be saved.');
+END;
+ EXCEPTION WHEN OTHERS THEN
+  GET STACKED DIAGNOSTICS boundary_state=RETURNED_SQLSTATE,boundary_message=MESSAGE_TEXT;
+  -- Preserve stable domain codes, never include arbitrary SQL text or row data.
+  boundary_code:=CASE WHEN boundary_message=ANY(ARRAY[
+   'authentication_required','invalid_answer','exercise_unavailable','trainer_access_denied',
+   'learning_reset_in_progress','reset_owner_required','confirmation_required','audio_removal_incomplete',
+   'inactive_content','invalid_decisions','invalid_decision','invalid_direction','level_access_denied',
+   'lesson_not_found','invalid_language','answer_too_long','progress_not_found','review_not_due',
+   'vocabulary_spacing_required','sentence_content_missing','answer_required','invalid_answer_request',
+   'invalid_learning_language','vocabulary_request_conflict','unknown_course_audience',
+   'not_authorized','not_authenticated','invalid_input','request_failed','conflict','not_found',
+   'email_unverified','identity_conflict','identity_already_linked','person_not_found','auth_user_not_found'
+  ]) THEN boundary_message
+  WHEN boundary_state='42501' THEN 'not_authorized'
+  WHEN boundary_state IN('23502','23503','23514','22P02','22023','22007') THEN 'invalid_input'
+  WHEN boundary_state IN('23505','PT409','40001') THEN 'conflict'
+  WHEN boundary_state='40P01' THEN 'retry_required'
+  WHEN boundary_state IN('P0002','02000') THEN 'not_found'
+  WHEN boundary_state='22008' THEN 'month_changed'
+  ELSE 'request_failed' END;
+  RETURN jsonb_build_object('error',boundary_code,'message',CASE
+   WHEN boundary_code='vocabulary_spacing_required' THEN 'Review another card before this card.'
+   WHEN boundary_code='review_not_due' THEN 'This review is not due yet.'
+   WHEN boundary_state='42501' THEN 'The request is not authorized.'
+   WHEN boundary_code IN('conflict','retry_required') THEN 'Reload and retry the request.'
+   WHEN boundary_code='invalid_input' THEN 'The request contains invalid data.'
+   ELSE 'The request could not be completed.' END,'sqlstate',boundary_state);
+END;
+$$;
 
 
 --
 -- Name: save_student_blackboard(uuid, text, uuid); Type: FUNCTION; Schema: public; Owner: -
 --
 
-CREATE FUNCTION public.save_student_blackboard(p_student_id uuid, p_note_text text, p_expected_note_id uuid DEFAULT NULL::uuid) RETURNS SETOF public.teacher_student_notes
+CREATE FUNCTION public.save_student_blackboard(p_student_id uuid, p_note_text text, p_expected_note_id uuid DEFAULT NULL::uuid) RETURNS jsonb
     LANGUAGE plpgsql
     SET search_path TO ''
     AS $$
+-- phase2-rpc-error-boundary-v1
+DECLARE boundary_state text; boundary_message text; boundary_code text; boundary_result jsonb;
+BEGIN
+
 DECLARE actor uuid:=(SELECT auth.uid()); board public.teacher_student_notes; prose text;
 BEGIN
  IF actor IS NULL OR coalesce(identity_private.current_profile_role(),'') NOT IN('teacher','admin') THEN RAISE insufficient_privilege; END IF;
@@ -1367,55 +2875,152 @@ BEGIN
   RAISE EXCEPTION 'The note changed; reload and retry' USING ERRCODE='PT409';
  END IF;
  IF board.id IS NULL THEN
-  IF prose='' THEN RETURN; END IF;
-  RETURN QUERY INSERT INTO public.teacher_student_notes(student_id,teacher_id,note_text) VALUES(p_student_id,actor,prose) RETURNING *;
+  IF prose='' THEN RETURN '[]'::jsonb; END IF;
+  WITH written AS (INSERT INTO public.teacher_student_notes(student_id,teacher_id,note_text) VALUES(p_student_id,actor,prose) RETURNING *) SELECT coalesce(jsonb_agg(to_jsonb(written)),'[]'::jsonb) INTO boundary_result FROM written; RETURN boundary_result;
  ELSE
-  RETURN QUERY UPDATE public.teacher_student_notes SET note_text=prose WHERE id=board.id AND student_id=p_student_id RETURNING *;
+  WITH written AS (UPDATE public.teacher_student_notes SET note_text=prose WHERE id=board.id AND student_id=p_student_id RETURNING *) SELECT coalesce(jsonb_agg(to_jsonb(written)),'[]'::jsonb) INTO boundary_result FROM written; RETURN boundary_result;
  END IF;
-END $$;
+END;
+ EXCEPTION WHEN OTHERS THEN
+  GET STACKED DIAGNOSTICS boundary_state=RETURNED_SQLSTATE,boundary_message=MESSAGE_TEXT;
+  -- Preserve stable domain codes, never include arbitrary SQL text or row data.
+  boundary_code:=CASE WHEN boundary_message=ANY(ARRAY[
+   'authentication_required','invalid_answer','exercise_unavailable','trainer_access_denied',
+   'learning_reset_in_progress','reset_owner_required','confirmation_required','audio_removal_incomplete',
+   'inactive_content','invalid_decisions','invalid_decision','invalid_direction','level_access_denied',
+   'lesson_not_found','invalid_language','answer_too_long','progress_not_found','review_not_due',
+   'vocabulary_spacing_required','sentence_content_missing','answer_required','invalid_answer_request',
+   'invalid_learning_language','vocabulary_request_conflict','unknown_course_audience',
+   'not_authorized','not_authenticated','invalid_input','request_failed','conflict','not_found',
+   'email_unverified','identity_conflict','identity_already_linked','person_not_found','auth_user_not_found'
+  ]) THEN boundary_message
+  WHEN boundary_state='42501' THEN 'not_authorized'
+  WHEN boundary_state IN('23502','23503','23514','22P02','22023','22007') THEN 'invalid_input'
+  WHEN boundary_state IN('23505','PT409','40001') THEN 'conflict'
+  WHEN boundary_state='40P01' THEN 'retry_required'
+  WHEN boundary_state IN('P0002','02000') THEN 'not_found'
+  WHEN boundary_state='22008' THEN 'month_changed'
+  ELSE 'request_failed' END;
+  RETURN jsonb_build_object('error',boundary_code,'message',CASE
+   WHEN boundary_code='vocabulary_spacing_required' THEN 'Review another card before this card.'
+   WHEN boundary_code='review_not_due' THEN 'This review is not due yet.'
+   WHEN boundary_state='42501' THEN 'The request is not authorized.'
+   WHEN boundary_code IN('conflict','retry_required') THEN 'Reload and retry the request.'
+   WHEN boundary_code='invalid_input' THEN 'The request contains invalid data.'
+   ELSE 'The request could not be completed.' END,'sqlstate',boundary_state);
+END;
+$$;
 
 
 --
 -- Name: set_student_level_access(uuid, text[]); Type: FUNCTION; Schema: public; Owner: -
 --
 
-CREATE FUNCTION public.set_student_level_access(p_user_id uuid, p_levels text[]) RETURNS void
+CREATE FUNCTION public.set_student_level_access(p_user_id uuid, p_levels text[]) RETURNS jsonb
     LANGUAGE plpgsql
     SET search_path TO ''
-    AS $$ BEGIN
+    AS $$
+-- phase2-rpc-error-boundary-v1
+DECLARE boundary_state text; boundary_message text; boundary_code text; boundary_result jsonb;
+BEGIN
+BEGIN
  IF (SELECT identity_private.current_profile_role()) NOT IN('teacher','admin') OR auth.uid() IS NULL THEN
   RAISE EXCEPTION 'Staff required' USING ERRCODE='42501'; END IF;
  IF p_levels IS NULL OR EXISTS(SELECT 1 FROM unnest(p_levels) l WHERE l IS NULL OR NOT EXISTS(SELECT 1 FROM public.learning_levels WHERE code=l)) THEN
   RAISE EXCEPTION 'Invalid levels' USING ERRCODE='23514'; END IF;
  PERFORM pg_advisory_xact_lock(hashtextextended('learning-access:'||p_user_id::text,0));
- DELETE FROM public.student_level_access WHERE user_id=p_user_id AND NOT(level=ANY(p_levels));
+ DELETE FROM public.student_level_access WHERE auth_user_id=p_user_id AND NOT(level=ANY(p_levels));
  INSERT INTO public.student_level_access SELECT p_user_id,l FROM unnest(p_levels) l ON CONFLICT DO NOTHING;
-END $$;
+END;
+ RETURN 'null'::jsonb;
+ EXCEPTION WHEN OTHERS THEN
+  GET STACKED DIAGNOSTICS boundary_state=RETURNED_SQLSTATE,boundary_message=MESSAGE_TEXT;
+  -- Preserve stable domain codes, never include arbitrary SQL text or row data.
+  boundary_code:=CASE WHEN boundary_message=ANY(ARRAY[
+   'authentication_required','invalid_answer','exercise_unavailable','trainer_access_denied',
+   'learning_reset_in_progress','reset_owner_required','confirmation_required','audio_removal_incomplete',
+   'inactive_content','invalid_decisions','invalid_decision','invalid_direction','level_access_denied',
+   'lesson_not_found','invalid_language','answer_too_long','progress_not_found','review_not_due',
+   'vocabulary_spacing_required','sentence_content_missing','answer_required','invalid_answer_request',
+   'invalid_learning_language','vocabulary_request_conflict','unknown_course_audience',
+   'not_authorized','not_authenticated','invalid_input','request_failed','conflict','not_found',
+   'email_unverified','identity_conflict','identity_already_linked','person_not_found','auth_user_not_found'
+  ]) THEN boundary_message
+  WHEN boundary_state='42501' THEN 'not_authorized'
+  WHEN boundary_state IN('23502','23503','23514','22P02','22023','22007') THEN 'invalid_input'
+  WHEN boundary_state IN('23505','PT409','40001') THEN 'conflict'
+  WHEN boundary_state='40P01' THEN 'retry_required'
+  WHEN boundary_state IN('P0002','02000') THEN 'not_found'
+  WHEN boundary_state='22008' THEN 'month_changed'
+  ELSE 'request_failed' END;
+  RETURN jsonb_build_object('error',boundary_code,'message',CASE
+   WHEN boundary_code='vocabulary_spacing_required' THEN 'Review another card before this card.'
+   WHEN boundary_code='review_not_due' THEN 'This review is not due yet.'
+   WHEN boundary_state='42501' THEN 'The request is not authorized.'
+   WHEN boundary_code IN('conflict','retry_required') THEN 'Reload and retry the request.'
+   WHEN boundary_code='invalid_input' THEN 'The request contains invalid data.'
+   ELSE 'The request could not be completed.' END,'sqlstate',boundary_state);
+END;
+$$;
 
 
 --
 -- Name: set_student_trainer_access(uuid, text, text, boolean, uuid[], boolean); Type: FUNCTION; Schema: public; Owner: -
 --
 
-CREATE FUNCTION public.set_student_trainer_access(p_user_id uuid, p_level text, p_trainer text, p_enabled boolean, p_unit_ids uuid[] DEFAULT NULL::uuid[], p_replace_units boolean DEFAULT false) RETURNS void
+CREATE FUNCTION public.set_student_trainer_access(p_user_id uuid, p_level text, p_trainer text, p_enabled boolean, p_unit_ids uuid[] DEFAULT NULL::uuid[], p_replace_units boolean DEFAULT false) RETURNS jsonb
     LANGUAGE plpgsql
     SET search_path TO ''
-    AS $$ BEGIN
+    AS $$
+-- phase2-rpc-error-boundary-v1
+DECLARE boundary_state text; boundary_message text; boundary_code text; boundary_result jsonb;
+BEGIN
+BEGIN
  IF (SELECT identity_private.current_profile_role()) NOT IN('teacher','admin') OR auth.uid() IS NULL THEN
   RAISE EXCEPTION 'Staff required' USING ERRCODE='42501'; END IF;
  IF p_replace_units AND p_unit_ids IS NOT NULL AND EXISTS(SELECT 1 FROM unnest(p_unit_ids) item WHERE NOT EXISTS(
- SELECT 1 FROM public.learning_units u WHERE u.id=item AND u.level=p_level AND u.trainer=p_trainer)) THEN
+ SELECT 1 FROM public.learning_units u WHERE u.id=item AND u.level=p_level AND u.trainer::text=p_trainer)) THEN
   RAISE EXCEPTION 'Unit outside trainer' USING ERRCODE='23514'; END IF;
  PERFORM pg_advisory_xact_lock(hashtextextended('learning-access:'||p_user_id::text,0));
- INSERT INTO public.learning_trainer_grants(user_id,level,trainer,enabled,unit_mode)
- VALUES(p_user_id,p_level,p_trainer,p_enabled,CASE WHEN p_replace_units AND p_unit_ids IS NOT NULL THEN 'selected' ELSE 'all' END)
- ON CONFLICT(user_id,level,trainer) DO UPDATE SET enabled=excluded.enabled,
+ INSERT INTO public.learning_trainer_grants(auth_user_id,level,trainer,enabled,unit_mode)
+ VALUES(p_user_id,p_level,p_trainer::public.trainer_code,p_enabled,(CASE WHEN p_replace_units AND p_unit_ids IS NOT NULL THEN 'selected' ELSE 'all' END)::public.unit_access_mode)
+ ON CONFLICT(auth_user_id,level,trainer) DO UPDATE SET enabled=excluded.enabled,
  unit_mode=CASE WHEN p_replace_units THEN excluded.unit_mode ELSE public.learning_trainer_grants.unit_mode END;
  IF p_replace_units THEN
-  DELETE FROM public.learning_unit_grants WHERE user_id=p_user_id AND level=p_level AND trainer=p_trainer;
-  INSERT INTO public.learning_unit_grants SELECT DISTINCT p_user_id,p_level,p_trainer,item FROM unnest(p_unit_ids) item;
+  DELETE FROM public.learning_unit_grants WHERE auth_user_id=p_user_id AND level=p_level AND trainer::text=p_trainer;
+  INSERT INTO public.learning_unit_grants SELECT DISTINCT p_user_id,p_level,p_trainer::public.trainer_code,item FROM unnest(p_unit_ids) item;
  END IF;
-END $$;
+END;
+ RETURN 'null'::jsonb;
+ EXCEPTION WHEN OTHERS THEN
+  GET STACKED DIAGNOSTICS boundary_state=RETURNED_SQLSTATE,boundary_message=MESSAGE_TEXT;
+  -- Preserve stable domain codes, never include arbitrary SQL text or row data.
+  boundary_code:=CASE WHEN boundary_message=ANY(ARRAY[
+   'authentication_required','invalid_answer','exercise_unavailable','trainer_access_denied',
+   'learning_reset_in_progress','reset_owner_required','confirmation_required','audio_removal_incomplete',
+   'inactive_content','invalid_decisions','invalid_decision','invalid_direction','level_access_denied',
+   'lesson_not_found','invalid_language','answer_too_long','progress_not_found','review_not_due',
+   'vocabulary_spacing_required','sentence_content_missing','answer_required','invalid_answer_request',
+   'invalid_learning_language','vocabulary_request_conflict','unknown_course_audience',
+   'not_authorized','not_authenticated','invalid_input','request_failed','conflict','not_found',
+   'email_unverified','identity_conflict','identity_already_linked','person_not_found','auth_user_not_found'
+  ]) THEN boundary_message
+  WHEN boundary_state='42501' THEN 'not_authorized'
+  WHEN boundary_state IN('23502','23503','23514','22P02','22023','22007') THEN 'invalid_input'
+  WHEN boundary_state IN('23505','PT409','40001') THEN 'conflict'
+  WHEN boundary_state='40P01' THEN 'retry_required'
+  WHEN boundary_state IN('P0002','02000') THEN 'not_found'
+  WHEN boundary_state='22008' THEN 'month_changed'
+  ELSE 'request_failed' END;
+  RETURN jsonb_build_object('error',boundary_code,'message',CASE
+   WHEN boundary_code='vocabulary_spacing_required' THEN 'Review another card before this card.'
+   WHEN boundary_code='review_not_due' THEN 'This review is not due yet.'
+   WHEN boundary_state='42501' THEN 'The request is not authorized.'
+   WHEN boundary_code IN('conflict','retry_required') THEN 'Reload and retry the request.'
+   WHEN boundary_code='invalid_input' THEN 'The request contains invalid data.'
+   ELSE 'The request could not be completed.' END,'sqlstate',boundary_state);
+END;
+$$;
 
 
 --
@@ -1423,38 +3028,101 @@ END $$;
 --
 
 CREATE FUNCTION public.skip_vocabulary_assessment(p_level text) RETURNS jsonb
-    LANGUAGE sql
+    LANGUAGE plpgsql
     SET search_path TO ''
     AS $$
-  SELECT vocabulary_private.skip_assessment(p_level);
+-- phase2-rpc-error-boundary-v1
+DECLARE boundary_state text; boundary_message text; boundary_code text; boundary_result jsonb;
+BEGIN
+RETURN to_jsonb((
+  SELECT vocabulary_private.skip_assessment(p_level)));
+ EXCEPTION WHEN OTHERS THEN
+  GET STACKED DIAGNOSTICS boundary_state=RETURNED_SQLSTATE,boundary_message=MESSAGE_TEXT;
+  -- Preserve stable domain codes, never include arbitrary SQL text or row data.
+  boundary_code:=CASE WHEN boundary_message=ANY(ARRAY[
+   'authentication_required','invalid_answer','exercise_unavailable','trainer_access_denied',
+   'learning_reset_in_progress','reset_owner_required','confirmation_required','audio_removal_incomplete',
+   'inactive_content','invalid_decisions','invalid_decision','invalid_direction','level_access_denied',
+   'lesson_not_found','invalid_language','answer_too_long','progress_not_found','review_not_due',
+   'vocabulary_spacing_required','sentence_content_missing','answer_required','invalid_answer_request',
+   'invalid_learning_language','vocabulary_request_conflict','unknown_course_audience',
+   'not_authorized','not_authenticated','invalid_input','request_failed','conflict','not_found',
+   'email_unverified','identity_conflict','identity_already_linked','person_not_found','auth_user_not_found'
+  ]) THEN boundary_message
+  WHEN boundary_state='42501' THEN 'not_authorized'
+  WHEN boundary_state IN('23502','23503','23514','22P02','22023','22007') THEN 'invalid_input'
+  WHEN boundary_state IN('23505','PT409','40001') THEN 'conflict'
+  WHEN boundary_state='40P01' THEN 'retry_required'
+  WHEN boundary_state IN('P0002','02000') THEN 'not_found'
+  WHEN boundary_state='22008' THEN 'month_changed'
+  ELSE 'request_failed' END;
+  RETURN jsonb_build_object('error',boundary_code,'message',CASE
+   WHEN boundary_code='vocabulary_spacing_required' THEN 'Review another card before this card.'
+   WHEN boundary_code='review_not_due' THEN 'This review is not due yet.'
+   WHEN boundary_state='42501' THEN 'The request is not authorized.'
+   WHEN boundary_code IN('conflict','retry_required') THEN 'Reload and retry the request.'
+   WHEN boundary_code='invalid_input' THEN 'The request contains invalid data.'
+   ELSE 'The request could not be completed.' END,'sqlstate',boundary_state);
+END;
 $$;
 
 
 --
--- Name: submit_business_cancellation(text, text, text, text, date, text); Type: FUNCTION; Schema: public; Owner: -
+-- Name: submit_business_cancellation(text, text, uuid, text, date, text); Type: FUNCTION; Schema: public; Owner: -
 --
 
-CREATE FUNCTION public.submit_business_cancellation(p_name text, p_email text, p_course text, p_type text, p_date date DEFAULT NULL::date, p_locale text DEFAULT 'de'::text) RETURNS uuid
+CREATE FUNCTION public.submit_business_cancellation(p_name text, p_email text, p_course_id uuid DEFAULT NULL::uuid, p_type text DEFAULT 'asap'::text, p_date date DEFAULT NULL::date, p_locale text DEFAULT 'de'::text) RETURNS jsonb
     LANGUAGE plpgsql
     SET search_path TO ''
     AS $$
-declare v_id uuid;
-begin
- if length(p_name) not between 2 and 160 or length(p_email) not between 3 and 254 or (p_type='specific_date' and p_date is null) then raise check_violation;end if;
- insert into public.cancellation_requests(full_name,email,course_name,termination_type,termination_date) values(p_name,lower(p_email),p_course,p_type,p_date) returning id into v_id;
- perform public.queue_transactional_email('cancellation:'||v_id,'cancellation_requested',lower(p_email),p_locale,jsonb_build_object('name',p_name,'endDate',p_date,'message',p_course));
- return v_id;
-end $$;
+-- phase2-rpc-error-boundary-v1
+DECLARE boundary_state text; boundary_message text; boundary_code text; boundary_result jsonb;
+BEGIN
+RETURN to_jsonb((
+ SELECT business_private.submit_cancellation(p_name,p_email,p_course_id,p_type,p_date,p_locale)));
+ EXCEPTION WHEN OTHERS THEN
+  GET STACKED DIAGNOSTICS boundary_state=RETURNED_SQLSTATE,boundary_message=MESSAGE_TEXT;
+  -- Preserve stable domain codes, never include arbitrary SQL text or row data.
+  boundary_code:=CASE WHEN boundary_message=ANY(ARRAY[
+   'authentication_required','invalid_answer','exercise_unavailable','trainer_access_denied',
+   'learning_reset_in_progress','reset_owner_required','confirmation_required','audio_removal_incomplete',
+   'inactive_content','invalid_decisions','invalid_decision','invalid_direction','level_access_denied',
+   'lesson_not_found','invalid_language','answer_too_long','progress_not_found','review_not_due',
+   'vocabulary_spacing_required','sentence_content_missing','answer_required','invalid_answer_request',
+   'invalid_learning_language','vocabulary_request_conflict','unknown_course_audience',
+   'not_authorized','not_authenticated','invalid_input','request_failed','conflict','not_found',
+   'email_unverified','identity_conflict','identity_already_linked','person_not_found','auth_user_not_found'
+  ]) THEN boundary_message
+  WHEN boundary_state='42501' THEN 'not_authorized'
+  WHEN boundary_state IN('23502','23503','23514','22P02','22023','22007') THEN 'invalid_input'
+  WHEN boundary_state IN('23505','PT409','40001') THEN 'conflict'
+  WHEN boundary_state='40P01' THEN 'retry_required'
+  WHEN boundary_state IN('P0002','02000') THEN 'not_found'
+  WHEN boundary_state='22008' THEN 'month_changed'
+  ELSE 'request_failed' END;
+  RETURN jsonb_build_object('error',boundary_code,'message',CASE
+   WHEN boundary_code='vocabulary_spacing_required' THEN 'Review another card before this card.'
+   WHEN boundary_code='review_not_due' THEN 'This review is not due yet.'
+   WHEN boundary_state='42501' THEN 'The request is not authorized.'
+   WHEN boundary_code IN('conflict','retry_required') THEN 'Reload and retry the request.'
+   WHEN boundary_code='invalid_input' THEN 'The request contains invalid data.'
+   ELSE 'The request could not be completed.' END,'sqlstate',boundary_state);
+END;
+$$;
 
 
 --
 -- Name: submit_business_registration(jsonb, jsonb, date, jsonb, text, boolean); Type: FUNCTION; Schema: public; Owner: -
 --
 
-CREATE FUNCTION public.submit_business_registration(p_contact jsonb, p_course_selections jsonb, p_start date, p_consents jsonb, p_locale text DEFAULT 'de'::text, p_trial boolean DEFAULT false) RETURNS uuid
+CREATE FUNCTION public.submit_business_registration(p_contact jsonb, p_course_selections jsonb, p_start date, p_consents jsonb, p_locale text DEFAULT 'de'::text, p_trial boolean DEFAULT false) RETURNS jsonb
     LANGUAGE plpgsql
     SET search_path TO ''
     AS $$
+-- phase2-rpc-error-boundary-v1
+DECLARE boundary_state text; boundary_message text; boundary_code text; boundary_result jsonb;
+BEGIN
+
 declare v_person uuid;v_booking uuid;v_email text;v_name text;v_matches integer;
 begin
  if p_start is null or p_trial is null or p_start<(now() at time zone 'Europe/Berlin')::date or p_start>(now() at time zone 'Europe/Berlin')::date+366 or coalesce((p_consents->>'privacy')::boolean,false)=false or coalesce((p_consents->>'agb')::boolean,false)=false then raise check_violation;end if;
@@ -1480,12 +3148,41 @@ begin
   values(v_name,v_email,(p_contact->>'birth_date')::date,p_contact->>'phone',p_contact->>'street',p_contact->>'postal_code',p_contact->>'city',p_locale) returning id into v_person;
  end if;
  insert into public.bookings(person_id,target_month,start_date,kind,contact_name,contact_email,contact_birth_date,contact_phone,contact_street,contact_postal_code,contact_city,privacy_accepted,agb_accepted,revocation_accepted,recording_accepted)
- values(v_person,date_trunc('month',p_start)::date,p_start,case when p_trial then 'trial' else 'registration' end,v_name,v_email,(p_contact->>'birth_date')::date,p_contact->>'phone',p_contact->>'street',p_contact->>'postal_code',p_contact->>'city',true,true,coalesce((p_consents->>'revocation')::boolean,false),(p_consents->>'recording')::boolean) returning id into v_booking;
+ values(v_person,date_trunc('month',p_start)::date,p_start,(case when p_trial then 'trial' else 'registration' end)::public.booking_kind,v_name,v_email,(p_contact->>'birth_date')::date,p_contact->>'phone',p_contact->>'street',p_contact->>'postal_code',p_contact->>'city',true,true,coalesce((p_consents->>'revocation')::boolean,false),(p_consents->>'recording')::boolean) returning id into v_booking;
  perform business_private.replace_items(v_booking,p_course_selections);
- perform public.queue_transactional_email('registration:'||v_booking,'registration_received',v_email,p_locale,jsonb_build_object('name',v_name,'startDate',p_start,'courses',(select jsonb_agg(jsonb_build_object('title',title_snapshot,'units',units,'unitPrice',unit_price,'unitMinutes',unit_minutes,'price',amount)) from public.booking_items where booking_id=v_booking)));
- perform public.queue_transactional_email('staff-registration:'||v_booking,'new_enrollment','info@sitov-academy.com','de',jsonb_build_object('name',v_name,'path','/de/admin/registrations'));
- return v_booking;
-end $$;
+ perform platform_private.require_rpc_success(public.queue_transactional_email('registration:'||v_booking,'registration_received',v_email,p_locale,jsonb_build_object('name',v_name,'startDate',p_start,'courses',(select jsonb_agg(jsonb_build_object('title',title_snapshot,'units',units,'unitPrice',unit_price,'unitMinutes',unit_minutes,'price',amount)) from public.booking_items where booking_id=v_booking))));
+ perform platform_private.require_rpc_success(public.queue_transactional_email('staff-registration:'||v_booking,'new_enrollment','info@sitov-academy.com','de',jsonb_build_object('name',v_name,'path','/de/admin/registrations')));
+ RETURN to_jsonb(v_booking);
+end;
+ EXCEPTION WHEN OTHERS THEN
+  GET STACKED DIAGNOSTICS boundary_state=RETURNED_SQLSTATE,boundary_message=MESSAGE_TEXT;
+  -- Preserve stable domain codes, never include arbitrary SQL text or row data.
+  boundary_code:=CASE WHEN boundary_message=ANY(ARRAY[
+   'authentication_required','invalid_answer','exercise_unavailable','trainer_access_denied',
+   'learning_reset_in_progress','reset_owner_required','confirmation_required','audio_removal_incomplete',
+   'inactive_content','invalid_decisions','invalid_decision','invalid_direction','level_access_denied',
+   'lesson_not_found','invalid_language','answer_too_long','progress_not_found','review_not_due',
+   'vocabulary_spacing_required','sentence_content_missing','answer_required','invalid_answer_request',
+   'invalid_learning_language','vocabulary_request_conflict','unknown_course_audience',
+   'not_authorized','not_authenticated','invalid_input','request_failed','conflict','not_found',
+   'email_unverified','identity_conflict','identity_already_linked','person_not_found','auth_user_not_found'
+  ]) THEN boundary_message
+  WHEN boundary_state='42501' THEN 'not_authorized'
+  WHEN boundary_state IN('23502','23503','23514','22P02','22023','22007') THEN 'invalid_input'
+  WHEN boundary_state IN('23505','PT409','40001') THEN 'conflict'
+  WHEN boundary_state='40P01' THEN 'retry_required'
+  WHEN boundary_state IN('P0002','02000') THEN 'not_found'
+  WHEN boundary_state='22008' THEN 'month_changed'
+  ELSE 'request_failed' END;
+  RETURN jsonb_build_object('error',boundary_code,'message',CASE
+   WHEN boundary_code='vocabulary_spacing_required' THEN 'Review another card before this card.'
+   WHEN boundary_code='review_not_due' THEN 'This review is not due yet.'
+   WHEN boundary_state='42501' THEN 'The request is not authorized.'
+   WHEN boundary_code IN('conflict','retry_required') THEN 'Reload and retry the request.'
+   WHEN boundary_code='invalid_input' THEN 'The request contains invalid data.'
+   ELSE 'The request could not be completed.' END,'sqlstate',boundary_state);
+END;
+$$;
 
 
 --
@@ -1493,10 +3190,42 @@ end $$;
 --
 
 CREATE FUNCTION public.submit_vocabulary_answer(p_progress_id uuid, p_is_correct boolean DEFAULT NULL::boolean, p_typed_answer text DEFAULT NULL::text, p_ui_language text DEFAULT 'de'::text) RETURNS jsonb
-    LANGUAGE sql
+    LANGUAGE plpgsql
     SET search_path TO ''
     AS $$
-  SELECT vocabulary_private.submit_answer(p_progress_id,p_is_correct,p_typed_answer,p_ui_language);
+-- phase2-rpc-error-boundary-v1
+DECLARE boundary_state text; boundary_message text; boundary_code text; boundary_result jsonb;
+BEGIN
+RETURN to_jsonb((
+  SELECT vocabulary_private.submit_answer(p_progress_id,p_is_correct,p_typed_answer,p_ui_language)));
+ EXCEPTION WHEN OTHERS THEN
+  GET STACKED DIAGNOSTICS boundary_state=RETURNED_SQLSTATE,boundary_message=MESSAGE_TEXT;
+  -- Preserve stable domain codes, never include arbitrary SQL text or row data.
+  boundary_code:=CASE WHEN boundary_message=ANY(ARRAY[
+   'authentication_required','invalid_answer','exercise_unavailable','trainer_access_denied',
+   'learning_reset_in_progress','reset_owner_required','confirmation_required','audio_removal_incomplete',
+   'inactive_content','invalid_decisions','invalid_decision','invalid_direction','level_access_denied',
+   'lesson_not_found','invalid_language','answer_too_long','progress_not_found','review_not_due',
+   'vocabulary_spacing_required','sentence_content_missing','answer_required','invalid_answer_request',
+   'invalid_learning_language','vocabulary_request_conflict','unknown_course_audience',
+   'not_authorized','not_authenticated','invalid_input','request_failed','conflict','not_found',
+   'email_unverified','identity_conflict','identity_already_linked','person_not_found','auth_user_not_found'
+  ]) THEN boundary_message
+  WHEN boundary_state='42501' THEN 'not_authorized'
+  WHEN boundary_state IN('23502','23503','23514','22P02','22023','22007') THEN 'invalid_input'
+  WHEN boundary_state IN('23505','PT409','40001') THEN 'conflict'
+  WHEN boundary_state='40P01' THEN 'retry_required'
+  WHEN boundary_state IN('P0002','02000') THEN 'not_found'
+  WHEN boundary_state='22008' THEN 'month_changed'
+  ELSE 'request_failed' END;
+  RETURN jsonb_build_object('error',boundary_code,'message',CASE
+   WHEN boundary_code='vocabulary_spacing_required' THEN 'Review another card before this card.'
+   WHEN boundary_code='review_not_due' THEN 'This review is not due yet.'
+   WHEN boundary_state='42501' THEN 'The request is not authorized.'
+   WHEN boundary_code IN('conflict','retry_required') THEN 'Reload and retry the request.'
+   WHEN boundary_code='invalid_input' THEN 'The request contains invalid data.'
+   ELSE 'The request could not be completed.' END,'sqlstate',boundary_state);
+END;
 $$;
 
 
@@ -1505,10 +3234,42 @@ $$;
 --
 
 CREATE FUNCTION public.submit_vocabulary_answer_once(p_request_id uuid, p_progress_id uuid, p_is_correct boolean DEFAULT NULL::boolean, p_typed_answer text DEFAULT NULL::text, p_ui_language text DEFAULT 'de'::text) RETURNS jsonb
-    LANGUAGE sql
+    LANGUAGE plpgsql
     SET search_path TO ''
     AS $$
-  SELECT vocabulary_private.submit_answer_once(p_request_id, p_progress_id, p_is_correct, p_typed_answer, p_ui_language);
+-- phase2-rpc-error-boundary-v1
+DECLARE boundary_state text; boundary_message text; boundary_code text; boundary_result jsonb;
+BEGIN
+RETURN to_jsonb((
+  SELECT vocabulary_private.submit_answer_once(p_request_id, p_progress_id, p_is_correct, p_typed_answer, p_ui_language)));
+ EXCEPTION WHEN OTHERS THEN
+  GET STACKED DIAGNOSTICS boundary_state=RETURNED_SQLSTATE,boundary_message=MESSAGE_TEXT;
+  -- Preserve stable domain codes, never include arbitrary SQL text or row data.
+  boundary_code:=CASE WHEN boundary_message=ANY(ARRAY[
+   'authentication_required','invalid_answer','exercise_unavailable','trainer_access_denied',
+   'learning_reset_in_progress','reset_owner_required','confirmation_required','audio_removal_incomplete',
+   'inactive_content','invalid_decisions','invalid_decision','invalid_direction','level_access_denied',
+   'lesson_not_found','invalid_language','answer_too_long','progress_not_found','review_not_due',
+   'vocabulary_spacing_required','sentence_content_missing','answer_required','invalid_answer_request',
+   'invalid_learning_language','vocabulary_request_conflict','unknown_course_audience',
+   'not_authorized','not_authenticated','invalid_input','request_failed','conflict','not_found',
+   'email_unverified','identity_conflict','identity_already_linked','person_not_found','auth_user_not_found'
+  ]) THEN boundary_message
+  WHEN boundary_state='42501' THEN 'not_authorized'
+  WHEN boundary_state IN('23502','23503','23514','22P02','22023','22007') THEN 'invalid_input'
+  WHEN boundary_state IN('23505','PT409','40001') THEN 'conflict'
+  WHEN boundary_state='40P01' THEN 'retry_required'
+  WHEN boundary_state IN('P0002','02000') THEN 'not_found'
+  WHEN boundary_state='22008' THEN 'month_changed'
+  ELSE 'request_failed' END;
+  RETURN jsonb_build_object('error',boundary_code,'message',CASE
+   WHEN boundary_code='vocabulary_spacing_required' THEN 'Review another card before this card.'
+   WHEN boundary_code='review_not_due' THEN 'This review is not due yet.'
+   WHEN boundary_state='42501' THEN 'The request is not authorized.'
+   WHEN boundary_code IN('conflict','retry_required') THEN 'Reload and retry the request.'
+   WHEN boundary_code='invalid_input' THEN 'The request contains invalid data.'
+   ELSE 'The request could not be completed.' END,'sqlstate',boundary_state);
+END;
 $$;
 
 
@@ -1522,8 +3283,8 @@ CREATE FUNCTION trainer_access_private.allowed(p_level text, p_trainer text) RET
     AS $$
  SELECT EXISTS(SELECT 1 FROM public.profiles p WHERE p.id=(SELECT auth.uid()) AND(
  p.role IN('teacher','admin') OR(p.ui_language<>'de' AND p_trainer IN('vocabulary','exercises','pronunciation','videos')
- AND EXISTS(SELECT 1 FROM public.student_level_access l WHERE l.user_id=p.id AND l.level=p_level)
- AND coalesce((SELECT a.enabled FROM public.learning_trainer_grants a WHERE a.user_id=p.id AND a.level=p_level AND a.trainer=p_trainer),true))));
+ AND EXISTS(SELECT 1 FROM public.student_level_access l WHERE l.auth_user_id=p.id AND l.level=p_level)
+ AND coalesce((SELECT a.enabled FROM public.learning_trainer_grants a WHERE a.auth_user_id=p.id AND a.level=p_level AND a.trainer::text=p_trainer),true))));
 $$;
 
 
@@ -1555,7 +3316,7 @@ CREATE FUNCTION trainer_access_private.can_record() RETURNS boolean
     AS $$
  SELECT EXISTS(SELECT 1 FROM public.profiles p WHERE p.id=(SELECT auth.uid()) AND
  (p.role IN('teacher','admin') OR EXISTS(SELECT 1 FROM public.learning_units u WHERE u.trainer='pronunciation'
- AND trainer_access_private.unit_allowed(u.level,u.trainer,u.id::text))));
+ AND trainer_access_private.unit_allowed(u.level,u.trainer::text,u.id::text))));
 $$;
 
 
@@ -1568,11 +3329,11 @@ CREATE FUNCTION trainer_access_private.unit_allowed(p_level text, p_trainer text
     SET search_path TO ''
     AS $$
  SELECT trainer_access_private.allowed(p_level,p_trainer) AND EXISTS(SELECT 1 FROM public.learning_units u
- WHERE u.level=p_level AND u.trainer=p_trainer AND u.id::text=p_unit AND(
+ WHERE u.level=p_level AND u.trainer::text=p_trainer AND u.id::text=p_unit AND(
  (SELECT identity_private.current_profile_role()) IN('teacher','admin') OR(u.is_active AND NOT EXISTS(
- SELECT 1 FROM public.learning_trainer_grants a WHERE a.user_id=(SELECT auth.uid()) AND a.level=p_level AND a.trainer=p_trainer
+ SELECT 1 FROM public.learning_trainer_grants a WHERE a.auth_user_id=(SELECT auth.uid()) AND a.level=p_level AND a.trainer::text=p_trainer
  AND a.unit_mode='selected' AND NOT EXISTS(SELECT 1 FROM public.learning_unit_grants g
- WHERE g.user_id=a.user_id AND g.level=a.level AND g.trainer=a.trainer AND g.unit_id=u.id)))));
+ WHERE g.auth_user_id=a.auth_user_id AND g.level=a.level AND g.trainer=a.trainer AND g.unit_id=u.id)))));
 $$;
 
 
@@ -1612,11 +3373,11 @@ BEGIN
     IF NOT EXISTS (
       SELECT 1 FROM public.learning_vocabulary_cards c WHERE c.id=target AND learning_private.unit_allowed(c.unit_id)
     ) THEN RAISE EXCEPTION 'level_access_denied' USING ERRCODE = '42501'; END IF;
-    INSERT INTO public.vocabulary_direction_progress(user_id, card_id, direction, box_number, next_review_date)
-      SELECT actor, target, d, CASE WHEN known THEN 6 ELSE 1 END,
+    INSERT INTO public.vocabulary_direction_progress(auth_user_id, card_id, direction, box_number, next_review_date)
+      SELECT actor, target, d::public.vocabulary_direction, CASE WHEN known THEN 6 ELSE 1 END,
         CASE WHEN known THEN now() + interval '90 days' ELSE now() END
       FROM unnest(CASE WHEN selected_direction IS NULL THEN ARRAY['de_to_native','native_to_de'] ELSE ARRAY[selected_direction] END) d
-      ON CONFLICT (user_id, card_id, direction) DO NOTHING;
+      ON CONFLICT (auth_user_id, card_id, direction) DO NOTHING;
     GET DIAGNOSTICS touched = ROW_COUNT;
     -- The UI reports words, while each word has two independent records.
     IF touched > 0 THEN
@@ -1640,7 +3401,7 @@ DECLARE actor uuid:=auth.uid(); BEGIN
  IF actor IS NULL OR NOT learning_private.unit_allowed(p_unit_id)
  OR NOT EXISTS(SELECT 1 FROM public.learning_units WHERE id=p_unit_id AND trainer='vocabulary') THEN RAISE EXCEPTION 'trainer_access_denied' USING ERRCODE='42501'; END IF;
  PERFORM pg_advisory_xact_lock(hashtextextended('vocabulary:'||actor::text,0));
- DELETE FROM public.vocabulary_direction_progress v USING public.learning_vocabulary_cards c WHERE v.user_id=actor AND v.card_id=c.id AND c.unit_id=p_unit_id;
+ DELETE FROM public.vocabulary_direction_progress v USING public.learning_vocabulary_cards c WHERE v.auth_user_id=actor AND v.card_id=c.id AND c.unit_id=p_unit_id;
 END $$;
 
 
@@ -1661,8 +3422,8 @@ BEGIN
  IF NOT FOUND THEN RAISE EXCEPTION 'lesson_not_found' USING ERRCODE='22023'; END IF;
  SELECT jsonb_agg(jsonb_build_object('cardId',id,'alreadyKnown',false)) INTO decisions FROM public.learning_vocabulary_cards WHERE unit_id=first_unit.id;
  result:=vocabulary_private.initialize_cards(decisions);
- INSERT INTO public.vocabulary_onboarding(user_id,level,status,started_unit_id) VALUES(actor,p_level,'skipped',first_unit.id)
- ON CONFLICT(user_id,level) DO UPDATE SET status='skipped',started_unit_id=excluded.started_unit_id,updated_at=now();
+ INSERT INTO public.vocabulary_onboarding(auth_user_id,level,status,started_unit_id) VALUES(actor,p_level,'skipped',first_unit.id)
+ ON CONFLICT(auth_user_id,level) DO UPDATE SET status='skipped',started_unit_id=excluded.started_unit_id,updated_at=now();
  RETURN result||jsonb_build_object('lesson',first_unit.label);
 END $$;
 
@@ -1687,7 +3448,7 @@ BEGIN
   END IF;
   IF length(p_typed_answer) > 4000 THEN RAISE EXCEPTION 'answer_too_long' USING ERRCODE = '22023'; END IF;
   PERFORM pg_advisory_xact_lock(hashtextextended('vocabulary:' || actor::text, 0));
-  SELECT * INTO progress FROM public.vocabulary_direction_progress WHERE id = p_progress_id AND user_id = actor FOR UPDATE;
+  SELECT * INTO progress FROM public.vocabulary_direction_progress WHERE id = p_progress_id AND auth_user_id = actor FOR UPDATE;
   IF NOT FOUND THEN RAISE EXCEPTION 'progress_not_found' USING ERRCODE = '42501'; END IF;
   SELECT * INTO card FROM public.learning_vocabulary_cards WHERE id = progress.card_id;
   SELECT * INTO profile FROM public.profiles WHERE id = actor;
@@ -1697,7 +3458,7 @@ BEGIN
   IF progress.box_number = 7 OR progress.next_review_date > now() THEN
     RAISE EXCEPTION 'review_not_due' USING ERRCODE = 'PT409';
   END IF;
-  SELECT last_card_id INTO previous_card FROM public.vocabulary_learning_state WHERE user_id = actor;
+  SELECT last_card_id INTO previous_card FROM public.vocabulary_learning_state WHERE auth_user_id = actor;
   IF previous_card = progress.card_id THEN
     RAISE EXCEPTION 'vocabulary_spacing_required' USING ERRCODE = 'PT409';
   END IF;
@@ -1731,8 +3492,8 @@ BEGIN
   UPDATE public.vocabulary_direction_progress SET box_number=new_box,next_review_date=now()+make_interval(days=>days),
     lapses=lapses+CASE WHEN NOT correct THEN 1 ELSE 0 END,last_answered_at=now(),updated_at=now()
     WHERE id = progress.id;
-  INSERT INTO public.vocabulary_learning_state(user_id,last_card_id,last_reviewed_at)
-    VALUES(actor,progress.card_id,now()) ON CONFLICT(user_id) DO UPDATE
+  INSERT INTO public.vocabulary_learning_state(auth_user_id,last_card_id,last_reviewed_at)
+    VALUES(actor,progress.card_id,now()) ON CONFLICT(auth_user_id) DO UPDATE
     SET last_card_id=excluded.last_card_id,last_reviewed_at=excluded.last_reviewed_at;
   RETURN jsonb_build_object('success',true,'isCorrect',correct,'previousPhase',old_phase,'newPhase',new_phase,
     'becameLearned',new_box=7,'movedBack',new_phase<old_phase,'intervalInDays',days)
@@ -1768,14 +3529,14 @@ BEGIN
   -- Serialize lookup + grade + receipt together, including concurrent retries.
   PERFORM pg_advisory_xact_lock(hashtextextended('vocabulary:' || actor::text, 0));
   IF NOT EXISTS (SELECT 1 FROM public.vocabulary_direction_progress v JOIN public.learning_vocabulary_cards c ON c.id=v.card_id
-    WHERE v.id=p_progress_id AND v.user_id=actor AND learning_private.unit_allowed(c.unit_id)) THEN
+    WHERE v.id=p_progress_id AND v.auth_user_id=actor AND learning_private.unit_allowed(c.unit_id)) THEN
     RAISE EXCEPTION 'trainer_access_denied' USING ERRCODE='42501';
   END IF;
   IF p_ui_language='de' THEN
     RAISE EXCEPTION 'invalid_learning_language' USING ERRCODE='42501';
   END IF;
   SELECT * INTO receipt FROM vocabulary_private.answer_receipts
-    WHERE user_id = actor AND request_id = p_request_id;
+    WHERE auth_user_id = actor AND request_id = p_request_id;
   IF FOUND THEN
     IF receipt.progress_id IS DISTINCT FROM p_progress_id
       OR receipt.is_correct IS DISTINCT FROM p_is_correct
@@ -1790,7 +3551,7 @@ BEGIN
 
   result := vocabulary_private.submit_answer(p_progress_id, p_is_correct, p_typed_answer, p_ui_language);
   INSERT INTO vocabulary_private.answer_receipts(
-    user_id, request_id, progress_id, is_correct, typed_answer, ui_language, response
+    auth_user_id, request_id, progress_id, is_correct, typed_answer, ui_language, response
   ) VALUES (actor, p_request_id, p_progress_id, p_is_correct, p_typed_answer, p_ui_language, result);
   -- Both grading and receipt commit with this RPC; any exception rolls back both.
   RETURN result;
@@ -1798,16 +3559,31 @@ END;
 $$;
 
 
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- Name: registration_identity_resolutions; Type: TABLE; Schema: business_private; Owner: -
+--
+
+CREATE TABLE business_private.registration_identity_resolutions (
+    auth_user_id uuid NOT NULL,
+    person_id uuid NOT NULL,
+    resolved_by uuid,
+    resolved_at timestamp with time zone DEFAULT now() NOT NULL
+);
+
+
 --
 -- Name: audio_objects; Type: TABLE; Schema: learning_reset_private; Owner: -
 --
 
 CREATE TABLE learning_reset_private.audio_objects (
-    user_id uuid NOT NULL,
+    auth_user_id uuid NOT NULL,
     object_id uuid NOT NULL,
     bucket_id text NOT NULL,
-    object_name text NOT NULL,
-    CONSTRAINT audio_objects_bucket_id_check CHECK ((bucket_id = 'pronunciation_audio'::text))
+    object_name text NOT NULL
 );
 
 
@@ -1816,7 +3592,7 @@ CREATE TABLE learning_reset_private.audio_objects (
 --
 
 CREATE TABLE learning_reset_private.jobs (
-    user_id uuid NOT NULL,
+    auth_user_id uuid NOT NULL,
     token uuid DEFAULT gen_random_uuid() NOT NULL,
     active boolean DEFAULT true NOT NULL,
     requested_at timestamp with time zone DEFAULT clock_timestamp() NOT NULL,
@@ -1835,6 +3611,42 @@ CREATE TABLE platform_private.rate_limits (
     CONSTRAINT rate_limits_count_check CHECK ((count > 0)),
     CONSTRAINT rate_limits_key_hash_check CHECK ((length(key_hash) = 64))
 );
+
+
+--
+-- Name: mail_outbox; Type: TABLE; Schema: private; Owner: -
+--
+
+CREATE TABLE private.mail_outbox (
+    id uuid DEFAULT gen_random_uuid() NOT NULL,
+    dedupe_key text NOT NULL,
+    kind public.mail_kind NOT NULL,
+    recipient text NOT NULL,
+    locale text DEFAULT 'de'::text NOT NULL,
+    payload jsonb DEFAULT '{}'::jsonb NOT NULL,
+    status public.mail_status DEFAULT 'pending'::public.mail_status NOT NULL,
+    attempts integer DEFAULT 0 NOT NULL,
+    available_at timestamp with time zone DEFAULT now() NOT NULL,
+    lease_until timestamp with time zone,
+    lease_token uuid,
+    worker_id uuid,
+    last_error text,
+    message_id text,
+    created_at timestamp with time zone DEFAULT now() NOT NULL,
+    sent_at timestamp with time zone,
+    CONSTRAINT mail_outbox_attempts_check CHECK (((attempts >= 0) AND (attempts <= 8))),
+    CONSTRAINT mail_outbox_check CHECK (((status = 'processing'::public.mail_status) = ((lease_token IS NOT NULL) AND (lease_until IS NOT NULL)))),
+    CONSTRAINT mail_outbox_dedupe_key_check CHECK (((length(dedupe_key) >= 1) AND (length(dedupe_key) <= 240))),
+    CONSTRAINT mail_outbox_payload_check CHECK (((jsonb_typeof(payload) = 'object'::text) AND (octet_length((payload)::text) <= 262144))),
+    CONSTRAINT mail_outbox_recipient_check CHECK (((length(recipient) <= 254) AND (recipient ~ '^[^[:space:]<>@,;]+@[^[:space:]<>@,;]+\.[^[:space:]<>@,;]+$'::text)))
+);
+
+
+--
+-- Name: TABLE mail_outbox; Type: COMMENT; Schema: private; Owner: -
+--
+
+COMMENT ON TABLE private.mail_outbox IS 'Transactional native SMTP outbox. Stable dedupe key and Message-ID; at-least-once delivery after SMTP/DB crash. Failed jobs require operator inspection. Contains private mail payloads.';
 
 
 --
@@ -1868,8 +3680,8 @@ CREATE TABLE public.bookings (
     person_id uuid NOT NULL,
     target_month date NOT NULL,
     start_date date NOT NULL,
-    kind text DEFAULT 'registration'::text NOT NULL,
-    status text DEFAULT 'pending'::text NOT NULL,
+    kind public.booking_kind DEFAULT 'registration'::public.booking_kind NOT NULL,
+    status public.booking_status DEFAULT 'pending'::public.booking_status NOT NULL,
     contact_name text NOT NULL,
     contact_email text NOT NULL,
     contact_phone text,
@@ -1886,8 +3698,6 @@ CREATE TABLE public.bookings (
     confirmed_at timestamp with time zone,
     confirmed_by uuid,
     revision integer DEFAULT 1 NOT NULL,
-    CONSTRAINT bookings_kind_check CHECK ((kind = ANY (ARRAY['registration'::text, 'monthly'::text, 'trial'::text]))),
-    CONSTRAINT bookings_status_check CHECK ((status = ANY (ARRAY['pending'::text, 'confirmed'::text, 'cancelled'::text, 'rejected'::text]))),
     CONSTRAINT bookings_target_month_check CHECK ((EXTRACT(day FROM target_month) = (1)::numeric))
 );
 
@@ -1900,12 +3710,11 @@ CREATE TABLE public.cancellation_requests (
     id uuid DEFAULT gen_random_uuid() NOT NULL,
     full_name text NOT NULL,
     email text NOT NULL,
-    course_name text,
-    termination_type text NOT NULL,
+    termination_type public.cancellation_type NOT NULL,
     termination_date date,
     created_at timestamp with time zone DEFAULT now() NOT NULL,
     processed_at timestamp with time zone,
-    CONSTRAINT cancellation_requests_termination_type_check CHECK ((termination_type = ANY (ARRAY['asap'::text, 'specific_date'::text])))
+    course_id uuid
 );
 
 
@@ -1914,8 +3723,17 @@ CREATE TABLE public.cancellation_requests (
 --
 
 CREATE TABLE public.cefr_levels (
+    code public.cefr_code NOT NULL
+);
+
+
+--
+-- Name: course_audiences; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.course_audiences (
     code text NOT NULL,
-    CONSTRAINT cefr_levels_code_check CHECK ((code = ANY (ARRAY['A1'::text, 'A2'::text, 'B1'::text, 'B2'::text, 'C1'::text, 'C2'::text])))
+    CONSTRAINT course_audiences_code_length CHECK (((length(btrim(code)) >= 1) AND (length(btrim(code)) <= 30)))
 );
 
 
@@ -1956,7 +3774,6 @@ CREATE TABLE public.course_translations (
     locale text NOT NULL,
     title text NOT NULL,
     description text DEFAULT ''::text NOT NULL,
-    CONSTRAINT course_translations_non_source_locale CHECK ((locale <> 'de'::text)),
     CONSTRAINT course_translations_title_check CHECK (((length(title) >= 1) AND (length(title) <= 180)))
 );
 
@@ -1970,9 +3787,9 @@ CREATE TABLE public.courses (
     slug text NOT NULL,
     title text NOT NULL,
     description text DEFAULT ''::text NOT NULL,
-    type text NOT NULL,
-    category text NOT NULL,
-    level text DEFAULT ''::text NOT NULL,
+    type public.course_type NOT NULL,
+    category public.course_category NOT NULL,
+    level text,
     unit_price numeric(10,2) NOT NULL,
     unit_minutes integer DEFAULT 45 NOT NULL,
     start_date date,
@@ -1982,11 +3799,10 @@ CREATE TABLE public.courses (
     archived_at timestamp with time zone,
     created_at timestamp with time zone DEFAULT now() NOT NULL,
     updated_at timestamp with time zone DEFAULT now() NOT NULL,
-    CONSTRAINT courses_category_check CHECK ((category = ANY (ARRAY['german'::text, 'speaking'::text, 'online'::text, 'private'::text]))),
+    audience_code text,
     CONSTRAINT courses_check CHECK (((end_date IS NULL) OR (start_date IS NULL) OR (end_date >= start_date))),
     CONSTRAINT courses_slug_check CHECK ((slug ~ '^[a-z0-9][a-z0-9_-]{1,99}$'::text)),
     CONSTRAINT courses_title_check CHECK (((length(title) >= 1) AND (length(title) <= 180))),
-    CONSTRAINT courses_type_check CHECK ((type = ANY (ARRAY['presence'::text, 'online'::text]))),
     CONSTRAINT courses_unit_minutes_check CHECK (((unit_minutes >= 15) AND (unit_minutes <= 180))),
     CONSTRAINT courses_unit_price_check CHECK ((unit_price >= (0)::numeric))
 );
@@ -2001,8 +3817,7 @@ CREATE TABLE public.grammar_translations (
     locale text NOT NULL,
     hint text,
     smart_hint text,
-    explanation text,
-    CONSTRAINT grammar_translations_locale_check CHECK (((length(locale) >= 2) AND (length(locale) <= 20)))
+    explanation text
 );
 
 
@@ -2015,13 +3830,12 @@ CREATE TABLE public.invoice_cases (
     person_id uuid NOT NULL,
     target_month date NOT NULL,
     booking_id uuid NOT NULL,
-    status text DEFAULT 'outstanding'::text NOT NULL,
+    status public.invoice_status DEFAULT 'outstanding'::public.invoice_status NOT NULL,
     invoice_reference text,
     invoice_created_at timestamp with time zone,
     created_by uuid,
     updated_at timestamp with time zone DEFAULT now() NOT NULL,
-    CONSTRAINT invoice_cases_check CHECK (((status = 'created'::text) = (invoice_created_at IS NOT NULL))),
-    CONSTRAINT invoice_cases_status_check CHECK ((status = ANY (ARRAY['outstanding'::text, 'created'::text]))),
+    CONSTRAINT invoice_cases_check CHECK (((status = 'created'::public.invoice_status) = (invoice_created_at IS NOT NULL))),
     CONSTRAINT invoice_cases_target_month_check CHECK ((EXTRACT(day FROM target_month) = (1)::numeric))
 );
 
@@ -2033,14 +3847,14 @@ CREATE TABLE public.invoice_cases (
 CREATE TABLE public.learning_exercises (
     id uuid DEFAULT gen_random_uuid() NOT NULL,
     topic text NOT NULL,
-    type text NOT NULL,
+    type public.exercise_type NOT NULL,
     content jsonb NOT NULL,
     created_at timestamp with time zone DEFAULT now(),
     solution_audio_url text,
     unit_id uuid NOT NULL,
     content_version smallint DEFAULT 1 NOT NULL,
-    CONSTRAINT exercises_type_check CHECK ((type = ANY (ARRAY['fill_in_blank'::text, 'multiple_choice'::text, 'sentence_building'::text]))),
     CONSTRAINT grammar_content_object CHECK ((jsonb_typeof(content) = 'object'::text)),
+    CONSTRAINT learning_exercises_accepted_answers_check CHECK (grammar_private.valid_accepted_answers(content, type)),
     CONSTRAINT learning_exercises_content_version_check CHECK ((content_version = 1))
 );
 
@@ -2058,10 +3872,9 @@ COMMENT ON COLUMN public.learning_exercises.solution_audio_url IS 'Optionale MP3
 
 CREATE TABLE public.learning_levels (
     code text NOT NULL,
-    cefr_level text NOT NULL,
+    cefr_level public.cefr_code NOT NULL,
     sort_order smallint NOT NULL,
     is_active boolean DEFAULT true NOT NULL,
-    CONSTRAINT learning_levels_cefr_level_check CHECK ((cefr_level = ANY (ARRAY['A1'::text, 'A2'::text, 'B1'::text, 'B2'::text, 'C1'::text, 'C2'::text]))),
     CONSTRAINT learning_levels_sort_order_check CHECK ((sort_order > 0))
 );
 
@@ -2085,13 +3898,11 @@ CREATE TABLE public.learning_reading_texts (
 --
 
 CREATE TABLE public.learning_trainer_grants (
-    user_id uuid NOT NULL,
+    auth_user_id uuid NOT NULL,
     level text NOT NULL,
-    trainer text NOT NULL,
+    trainer public.trainer_code NOT NULL,
     enabled boolean NOT NULL,
-    unit_mode text DEFAULT 'all'::text NOT NULL,
-    CONSTRAINT learning_trainer_grants_trainer_check CHECK ((trainer = ANY (ARRAY['vocabulary'::text, 'exercises'::text, 'pronunciation'::text, 'videos'::text]))),
-    CONSTRAINT learning_trainer_grants_unit_mode_check CHECK ((unit_mode = ANY (ARRAY['all'::text, 'selected'::text])))
+    unit_mode public.unit_access_mode DEFAULT 'all'::public.unit_access_mode NOT NULL
 );
 
 
@@ -2100,8 +3911,7 @@ CREATE TABLE public.learning_trainer_grants (
 --
 
 CREATE TABLE public.learning_trainers (
-    code text NOT NULL,
-    CONSTRAINT learning_trainers_code_check CHECK ((code = ANY (ARRAY['vocabulary'::text, 'exercises'::text, 'pronunciation'::text, 'videos'::text])))
+    code public.trainer_code NOT NULL
 );
 
 
@@ -2110,9 +3920,9 @@ CREATE TABLE public.learning_trainers (
 --
 
 CREATE TABLE public.learning_unit_grants (
-    user_id uuid NOT NULL,
+    auth_user_id uuid NOT NULL,
     level text NOT NULL,
-    trainer text NOT NULL,
+    trainer public.trainer_code NOT NULL,
     unit_id uuid NOT NULL
 );
 
@@ -2124,12 +3934,11 @@ CREATE TABLE public.learning_unit_grants (
 CREATE TABLE public.learning_units (
     id uuid DEFAULT gen_random_uuid() NOT NULL,
     level text NOT NULL,
-    trainer text NOT NULL,
+    trainer public.trainer_code NOT NULL,
     label text NOT NULL,
     sort_order integer DEFAULT 0 NOT NULL,
     is_active boolean DEFAULT true NOT NULL,
-    CONSTRAINT learning_units_label_check CHECK (((length(btrim(label)) >= 1) AND (length(btrim(label)) <= 160))),
-    CONSTRAINT learning_units_trainer_check CHECK ((trainer = ANY (ARRAY['vocabulary'::text, 'exercises'::text, 'pronunciation'::text, 'videos'::text])))
+    CONSTRAINT learning_units_label_check CHECK (((length(btrim(label)) >= 1) AND (length(btrim(label)) <= 160)))
 );
 
 
@@ -2143,7 +3952,12 @@ CREATE TABLE public.learning_videos (
     created_at timestamp with time zone DEFAULT now(),
     unit_id uuid NOT NULL,
     source_url text,
-    CONSTRAINT learning_videos_source_url_check CHECK (((source_url IS NULL) OR (source_url ~* '^https?://[^[:space:]/?#@]+([/?#][^[:space:]]*)?$'::text)))
+    folder_id uuid,
+    title text,
+    storage_path text,
+    file_size bigint,
+    CONSTRAINT learning_videos_source_url_check CHECK (((source_url IS NULL) OR (source_url ~* '^https?://[^[:space:]/?#@]+([/?#][^[:space:]]*)?$'::text))),
+    CONSTRAINT learning_videos_upload_check CHECK ((((title IS NULL) OR ((length(btrim(title)) >= 1) AND (length(btrim(title)) <= 180))) AND (((storage_path IS NULL) AND (file_size IS NULL)) OR ((storage_path IS NOT NULL) AND (folder_id IS NOT NULL) AND (title IS NOT NULL) AND (file_size IS NOT NULL) AND (file_size > 0) AND (file_size <= 536870912)))))
 );
 
 
@@ -2154,15 +3968,49 @@ CREATE TABLE public.learning_videos (
 CREATE TABLE public.learning_vocabulary_cards (
     id uuid DEFAULT gen_random_uuid() NOT NULL,
     word_de text NOT NULL,
-    article text,
+    article public.grammatical_article,
     plural text,
     image_url text,
     audio_url text,
     created_at timestamp with time zone DEFAULT now(),
     sentence_practice boolean DEFAULT false NOT NULL,
     alternative_answers_de text[] DEFAULT '{}'::text[] NOT NULL,
-    unit_id uuid NOT NULL,
-    CONSTRAINT vocabulary_cards_article_check CHECK ((article = ANY (ARRAY['der'::text, 'die'::text, 'das'::text, 'none'::text])))
+    unit_id uuid NOT NULL
+);
+
+
+--
+-- Name: lms_media_folder; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.lms_media_folder (
+    folder_id uuid DEFAULT gen_random_uuid() NOT NULL,
+    level text NOT NULL,
+    course_id uuid,
+    title text NOT NULL,
+    sort_order integer DEFAULT 0 NOT NULL,
+    created_at timestamp with time zone DEFAULT now() NOT NULL,
+    updated_at timestamp with time zone DEFAULT now() NOT NULL,
+    CONSTRAINT lms_media_folder_title_check CHECK (((length(btrim(title)) >= 1) AND (length(btrim(title)) <= 180)))
+);
+
+
+--
+-- Name: lms_presentation_asset; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.lms_presentation_asset (
+    asset_id uuid DEFAULT gen_random_uuid() NOT NULL,
+    folder_id uuid NOT NULL,
+    file_name text NOT NULL,
+    storage_path text NOT NULL,
+    mime_type text NOT NULL,
+    file_size bigint NOT NULL,
+    sort_order integer DEFAULT 0 NOT NULL,
+    created_at timestamp with time zone DEFAULT now() NOT NULL,
+    updated_at timestamp with time zone DEFAULT now() NOT NULL,
+    CONSTRAINT lms_presentation_asset_file_name_check CHECK (((length(btrim(file_name)) >= 1) AND (length(btrim(file_name)) <= 255))),
+    CONSTRAINT lms_presentation_asset_file_size_check CHECK (((file_size > 0) AND (file_size <= 536870912)))
 );
 
 
@@ -2173,6 +4021,16 @@ CREATE TABLE public.learning_vocabulary_cards (
 CREATE TABLE public.locales (
     code text NOT NULL,
     CONSTRAINT locales_code_check CHECK ((code ~ '^[a-z]{2}$'::text))
+);
+
+
+--
+-- Name: media_mime_types; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.media_mime_types (
+    mime_type text NOT NULL,
+    format public.media_format NOT NULL
 );
 
 
@@ -2207,9 +4065,8 @@ CREATE TABLE public.profiles (
     native_language text,
     created_at timestamp with time zone DEFAULT now(),
     updated_at timestamp with time zone DEFAULT now(),
-    role text DEFAULT 'student'::text,
-    ui_language text DEFAULT 'de'::text NOT NULL,
-    CONSTRAINT profiles_role_check CHECK ((role = ANY (ARRAY['student'::text, 'teacher'::text, 'admin'::text])))
+    role public.profile_role DEFAULT 'student'::public.profile_role,
+    ui_language text DEFAULT 'de'::text NOT NULL
 );
 
 
@@ -2221,13 +4078,12 @@ CREATE TABLE public.pronunciation_messages (
     id uuid DEFAULT gen_random_uuid() NOT NULL,
     submission_id uuid NOT NULL,
     sender_id uuid NOT NULL,
-    sender_role text DEFAULT 'student'::text NOT NULL,
+    sender_role public.profile_role DEFAULT 'student'::public.profile_role NOT NULL,
     text_content text DEFAULT ''::text NOT NULL,
     audio_path text,
     created_at timestamp with time zone DEFAULT now() NOT NULL,
     seen_at timestamp with time zone,
     CONSTRAINT pronunciation_message_not_empty CHECK (((length(btrim(text_content)) > 0) OR (audio_path IS NOT NULL))),
-    CONSTRAINT pronunciation_messages_sender_role_check CHECK ((sender_role = ANY (ARRAY['student'::text, 'teacher'::text, 'admin'::text]))),
     CONSTRAINT pronunciation_messages_text_content_check CHECK ((char_length(text_content) <= 5000))
 );
 
@@ -2237,7 +4093,7 @@ CREATE TABLE public.pronunciation_messages (
 --
 
 CREATE TABLE public.student_level_access (
-    user_id uuid NOT NULL,
+    auth_user_id uuid NOT NULL,
     level text NOT NULL
 );
 
@@ -2248,18 +4104,29 @@ CREATE TABLE public.student_level_access (
 
 CREATE TABLE public.submissions (
     id uuid DEFAULT gen_random_uuid() NOT NULL,
-    user_id uuid NOT NULL,
-    type text NOT NULL,
+    auth_user_id uuid NOT NULL,
+    type public.submission_type NOT NULL,
     content_url text,
     text_content text,
-    status text DEFAULT 'pending'::text,
+    status public.submission_status DEFAULT 'pending'::public.submission_status,
     created_at timestamp with time zone DEFAULT now(),
     level text DEFAULT 'A1.1'::text NOT NULL,
-    prompt_id uuid,
-    prompt_title text,
-    CONSTRAINT submissions_level_check CHECK ((level = ANY (ARRAY['A1.1'::text, 'A1.2'::text, 'A2.1'::text, 'A2.2'::text, 'B1.1'::text, 'B1.2'::text]))),
-    CONSTRAINT submissions_status_check CHECK ((status = ANY (ARRAY['pending'::text, 'reviewed'::text]))),
-    CONSTRAINT submissions_type_check CHECK ((type = ANY (ARRAY['audio'::text, 'text'::text])))
+    prompt_id uuid
+);
+
+
+--
+-- Name: teacher_student_notes; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.teacher_student_notes (
+    id uuid DEFAULT gen_random_uuid() NOT NULL,
+    student_id uuid NOT NULL,
+    teacher_id uuid DEFAULT auth.uid() NOT NULL,
+    note_text text NOT NULL,
+    created_at timestamp with time zone DEFAULT now() NOT NULL,
+    updated_at timestamp with time zone DEFAULT now() NOT NULL,
+    CONSTRAINT teacher_student_notes_text_length CHECK ((length(note_text) <= 5000))
 );
 
 
@@ -2269,7 +4136,7 @@ CREATE TABLE public.submissions (
 
 CREATE TABLE public.user_exercise_progress (
     id uuid DEFAULT gen_random_uuid() NOT NULL,
-    user_id uuid NOT NULL,
+    auth_user_id uuid NOT NULL,
     exercise_id uuid NOT NULL,
     completed boolean DEFAULT false,
     score integer,
@@ -2301,17 +4168,16 @@ COMMENT ON COLUMN public.user_exercise_progress.hint_shown IS 'True, sobald dem 
 
 CREATE TABLE public.vocabulary_direction_progress (
     id uuid DEFAULT gen_random_uuid() NOT NULL,
-    user_id uuid NOT NULL,
+    auth_user_id uuid NOT NULL,
     card_id uuid NOT NULL,
-    direction text NOT NULL,
+    direction public.vocabulary_direction NOT NULL,
     box_number integer DEFAULT 1 NOT NULL,
     next_review_date timestamp with time zone DEFAULT now() NOT NULL,
     created_at timestamp with time zone DEFAULT now(),
     updated_at timestamp with time zone DEFAULT now(),
     lapses integer DEFAULT 0 NOT NULL,
     last_answered_at timestamp with time zone,
-    CONSTRAINT vocabulary_direction_progress_box_number_check CHECK (((box_number >= 1) AND (box_number <= 7))),
-    CONSTRAINT vocabulary_direction_progress_direction_check CHECK ((direction = ANY (ARRAY['de_to_native'::text, 'native_to_de'::text])))
+    CONSTRAINT vocabulary_direction_progress_box_number_check CHECK (((box_number >= 1) AND (box_number <= 7)))
 );
 
 
@@ -2320,7 +4186,7 @@ CREATE TABLE public.vocabulary_direction_progress (
 --
 
 CREATE TABLE public.vocabulary_learning_state (
-    user_id uuid NOT NULL,
+    auth_user_id uuid NOT NULL,
     last_card_id uuid,
     last_reviewed_at timestamp with time zone
 );
@@ -2331,13 +4197,11 @@ CREATE TABLE public.vocabulary_learning_state (
 --
 
 CREATE TABLE public.vocabulary_onboarding (
-    user_id uuid NOT NULL,
+    auth_user_id uuid NOT NULL,
     level text NOT NULL,
-    status text NOT NULL,
+    status public.onboarding_status NOT NULL,
     updated_at timestamp with time zone DEFAULT now() NOT NULL,
-    started_unit_id uuid NOT NULL,
-    CONSTRAINT vocabulary_onboarding_level_check CHECK ((level = ANY (ARRAY['A1.1'::text, 'A1.2'::text, 'A2.1'::text, 'A2.2'::text, 'B1.1'::text, 'B1.2'::text]))),
-    CONSTRAINT vocabulary_onboarding_status_check CHECK ((status = ANY (ARRAY['skipped'::text, 'completed'::text])))
+    started_unit_id uuid NOT NULL
 );
 
 
@@ -2350,8 +4214,7 @@ CREATE TABLE public.vocabulary_translations (
     locale text NOT NULL,
     translation text,
     context_sentence text,
-    is_difficult boolean DEFAULT false NOT NULL,
-    CONSTRAINT vocabulary_translations_locale_check CHECK ((locale = ANY (ARRAY['de'::text, 'en'::text, 'ru'::text, 'uk'::text, 'tr'::text])))
+    is_difficult boolean DEFAULT false NOT NULL
 );
 
 
@@ -2360,7 +4223,7 @@ CREATE TABLE public.vocabulary_translations (
 --
 
 CREATE TABLE vocabulary_private.answer_receipts (
-    user_id uuid NOT NULL,
+    auth_user_id uuid NOT NULL,
     request_id uuid NOT NULL,
     progress_id uuid NOT NULL,
     is_correct boolean,
@@ -2369,9 +4232,16 @@ CREATE TABLE vocabulary_private.answer_receipts (
     response jsonb NOT NULL,
     created_at timestamp with time zone DEFAULT now() NOT NULL,
     CONSTRAINT answer_receipts_response_check CHECK ((jsonb_typeof(response) = 'object'::text)),
-    CONSTRAINT answer_receipts_typed_answer_check CHECK ((length(typed_answer) <= 4000)),
-    CONSTRAINT answer_receipts_ui_language_check CHECK ((ui_language = ANY (ARRAY['de'::text, 'en'::text, 'ru'::text, 'uk'::text, 'tr'::text])))
+    CONSTRAINT answer_receipts_typed_answer_check CHECK ((length(typed_answer) <= 4000))
 );
+
+
+--
+-- Name: registration_identity_resolutions registration_identity_resolutions_pkey; Type: CONSTRAINT; Schema: business_private; Owner: -
+--
+
+ALTER TABLE ONLY business_private.registration_identity_resolutions
+    ADD CONSTRAINT registration_identity_resolutions_pkey PRIMARY KEY (auth_user_id);
 
 
 --
@@ -2379,7 +4249,7 @@ CREATE TABLE vocabulary_private.answer_receipts (
 --
 
 ALTER TABLE ONLY learning_reset_private.audio_objects
-    ADD CONSTRAINT audio_objects_pkey PRIMARY KEY (user_id, object_id);
+    ADD CONSTRAINT audio_objects_pkey PRIMARY KEY (auth_user_id, object_id);
 
 
 --
@@ -2387,7 +4257,7 @@ ALTER TABLE ONLY learning_reset_private.audio_objects
 --
 
 ALTER TABLE ONLY learning_reset_private.jobs
-    ADD CONSTRAINT jobs_pkey PRIMARY KEY (user_id);
+    ADD CONSTRAINT jobs_pkey PRIMARY KEY (auth_user_id);
 
 
 --
@@ -2460,6 +4330,14 @@ ALTER TABLE ONLY public.cancellation_requests
 
 ALTER TABLE ONLY public.cefr_levels
     ADD CONSTRAINT cefr_levels_pkey PRIMARY KEY (code);
+
+
+--
+-- Name: course_audiences course_audiences_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.course_audiences
+    ADD CONSTRAINT course_audiences_pkey PRIMARY KEY (code);
 
 
 --
@@ -2579,7 +4457,7 @@ ALTER TABLE ONLY public.learning_reading_texts
 --
 
 ALTER TABLE ONLY public.learning_trainer_grants
-    ADD CONSTRAINT learning_trainer_grants_pkey PRIMARY KEY (user_id, level, trainer);
+    ADD CONSTRAINT learning_trainer_grants_pkey PRIMARY KEY (auth_user_id, level, trainer);
 
 
 --
@@ -2595,7 +4473,7 @@ ALTER TABLE ONLY public.learning_trainers
 --
 
 ALTER TABLE ONLY public.learning_unit_grants
-    ADD CONSTRAINT learning_unit_grants_pkey PRIMARY KEY (user_id, level, trainer, unit_id);
+    ADD CONSTRAINT learning_unit_grants_pkey PRIMARY KEY (auth_user_id, level, trainer, unit_id);
 
 
 --
@@ -2615,11 +4493,35 @@ ALTER TABLE ONLY public.learning_units
 
 
 --
--- Name: learning_videos learning_videos_unit_id_key; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: lms_media_folder lms_media_folder_level_title_key; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY public.learning_videos
-    ADD CONSTRAINT learning_videos_unit_id_key UNIQUE (unit_id);
+ALTER TABLE ONLY public.lms_media_folder
+    ADD CONSTRAINT lms_media_folder_level_title_key UNIQUE (level, title);
+
+
+--
+-- Name: lms_media_folder lms_media_folder_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.lms_media_folder
+    ADD CONSTRAINT lms_media_folder_pkey PRIMARY KEY (folder_id);
+
+
+--
+-- Name: lms_presentation_asset lms_presentation_asset_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.lms_presentation_asset
+    ADD CONSTRAINT lms_presentation_asset_pkey PRIMARY KEY (asset_id);
+
+
+--
+-- Name: lms_presentation_asset lms_presentation_asset_storage_path_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.lms_presentation_asset
+    ADD CONSTRAINT lms_presentation_asset_storage_path_key UNIQUE (storage_path);
 
 
 --
@@ -2628,6 +4530,22 @@ ALTER TABLE ONLY public.learning_videos
 
 ALTER TABLE ONLY public.locales
     ADD CONSTRAINT locales_pkey PRIMARY KEY (code);
+
+
+--
+-- Name: media_mime_types media_mime_types_format_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.media_mime_types
+    ADD CONSTRAINT media_mime_types_format_key UNIQUE (format);
+
+
+--
+-- Name: media_mime_types media_mime_types_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.media_mime_types
+    ADD CONSTRAINT media_mime_types_pkey PRIMARY KEY (mime_type);
 
 
 --
@@ -2675,7 +4593,7 @@ ALTER TABLE ONLY public.learning_reading_texts
 --
 
 ALTER TABLE ONLY public.student_level_access
-    ADD CONSTRAINT student_level_access_pkey PRIMARY KEY (user_id, level);
+    ADD CONSTRAINT student_level_access_pkey PRIMARY KEY (auth_user_id, level);
 
 
 --
@@ -2715,7 +4633,7 @@ ALTER TABLE ONLY public.user_exercise_progress
 --
 
 ALTER TABLE ONLY public.user_exercise_progress
-    ADD CONSTRAINT user_exercise_progress_user_id_exercise_id_key UNIQUE (user_id, exercise_id);
+    ADD CONSTRAINT user_exercise_progress_user_id_exercise_id_key UNIQUE (auth_user_id, exercise_id);
 
 
 --
@@ -2747,7 +4665,7 @@ ALTER TABLE ONLY public.vocabulary_direction_progress
 --
 
 ALTER TABLE ONLY public.vocabulary_direction_progress
-    ADD CONSTRAINT vocabulary_direction_progress_user_id_card_id_direction_key UNIQUE (user_id, card_id, direction);
+    ADD CONSTRAINT vocabulary_direction_progress_user_id_card_id_direction_key UNIQUE (auth_user_id, card_id, direction);
 
 
 --
@@ -2755,7 +4673,7 @@ ALTER TABLE ONLY public.vocabulary_direction_progress
 --
 
 ALTER TABLE ONLY public.vocabulary_learning_state
-    ADD CONSTRAINT vocabulary_learning_state_pkey PRIMARY KEY (user_id);
+    ADD CONSTRAINT vocabulary_learning_state_pkey PRIMARY KEY (auth_user_id);
 
 
 --
@@ -2763,7 +4681,7 @@ ALTER TABLE ONLY public.vocabulary_learning_state
 --
 
 ALTER TABLE ONLY public.vocabulary_onboarding
-    ADD CONSTRAINT vocabulary_onboarding_pkey PRIMARY KEY (user_id, level);
+    ADD CONSTRAINT vocabulary_onboarding_pkey PRIMARY KEY (auth_user_id, level);
 
 
 --
@@ -2779,7 +4697,14 @@ ALTER TABLE ONLY public.vocabulary_translations
 --
 
 ALTER TABLE ONLY vocabulary_private.answer_receipts
-    ADD CONSTRAINT answer_receipts_pkey PRIMARY KEY (user_id, request_id);
+    ADD CONSTRAINT answer_receipts_pkey PRIMARY KEY (auth_user_id, request_id);
+
+
+--
+-- Name: audio_objects_bucket_id_idx; Type: INDEX; Schema: learning_reset_private; Owner: -
+--
+
+CREATE INDEX audio_objects_bucket_id_idx ON learning_reset_private.audio_objects USING btree (bucket_id);
 
 
 --
@@ -2793,14 +4718,14 @@ CREATE INDEX rate_limits_expiration_idx ON platform_private.rate_limits USING bt
 -- Name: mail_outbox_due_idx; Type: INDEX; Schema: private; Owner: -
 --
 
-CREATE INDEX mail_outbox_due_idx ON private.mail_outbox USING btree (available_at, created_at) WHERE (status = 'pending'::text);
+CREATE INDEX mail_outbox_due_idx ON private.mail_outbox USING btree (available_at, created_at) WHERE (status = 'pending'::public.mail_status);
 
 
 --
 -- Name: mail_outbox_lease_idx; Type: INDEX; Schema: private; Owner: -
 --
 
-CREATE INDEX mail_outbox_lease_idx ON private.mail_outbox USING btree (lease_until) WHERE (status = 'processing'::text);
+CREATE INDEX mail_outbox_lease_idx ON private.mail_outbox USING btree (lease_until) WHERE (status = 'processing'::public.mail_status);
 
 
 --
@@ -2828,7 +4753,7 @@ CREATE INDEX bookings_confirmed_by ON public.bookings USING btree (confirmed_by)
 -- Name: bookings_person_month; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE UNIQUE INDEX bookings_person_month ON public.bookings USING btree (person_id, target_month) WHERE (kind <> 'trial'::text);
+CREATE UNIQUE INDEX bookings_person_month ON public.bookings USING btree (person_id, target_month) WHERE (kind <> 'trial'::public.booking_kind);
 
 
 --
@@ -2836,6 +4761,13 @@ CREATE UNIQUE INDEX bookings_person_month ON public.bookings USING btree (person
 --
 
 CREATE INDEX bookings_status_month ON public.bookings USING btree (status, target_month, id);
+
+
+--
+-- Name: cancellation_requests_course_id_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX cancellation_requests_course_id_idx ON public.cancellation_requests USING btree (course_id);
 
 
 --
@@ -2867,6 +4799,20 @@ CREATE INDEX courses_active_order ON public.courses USING btree (sort_order, id)
 
 
 --
+-- Name: courses_audience_code_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX courses_audience_code_idx ON public.courses USING btree (audience_code);
+
+
+--
+-- Name: courses_level_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX courses_level_idx ON public.courses USING btree (level);
+
+
+--
 -- Name: grammar_translations_locale_idx; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -2877,14 +4823,14 @@ CREATE INDEX grammar_translations_locale_idx ON public.grammar_translations USIN
 -- Name: idx_submissions_user_level_created; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX idx_submissions_user_level_created ON public.submissions USING btree (user_id, level, created_at DESC);
+CREATE INDEX idx_submissions_user_level_created ON public.submissions USING btree (auth_user_id, level, created_at DESC);
 
 
 --
 -- Name: idx_user_exercise_progress_user_completed; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX idx_user_exercise_progress_user_completed ON public.user_exercise_progress USING btree (user_id, completed);
+CREATE INDEX idx_user_exercise_progress_user_completed ON public.user_exercise_progress USING btree (auth_user_id, completed);
 
 
 --
@@ -2909,6 +4855,13 @@ CREATE INDEX learning_exercises_unit_idx ON public.learning_exercises USING btre
 
 
 --
+-- Name: learning_unit_grants_level_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX learning_unit_grants_level_idx ON public.learning_unit_grants USING btree (level);
+
+
+--
 -- Name: learning_unit_grants_unit_idx; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -2926,7 +4879,28 @@ CREATE INDEX learning_units_catalog_idx ON public.learning_units USING btree (le
 -- Name: learning_units_named_lesson_idx; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE UNIQUE INDEX learning_units_named_lesson_idx ON public.learning_units USING btree (level, trainer, label) WHERE (trainer = ANY (ARRAY['vocabulary'::text, 'exercises'::text]));
+CREATE UNIQUE INDEX learning_units_named_lesson_idx ON public.learning_units USING btree (level, trainer, label) WHERE (trainer = ANY (ARRAY['vocabulary'::public.trainer_code, 'exercises'::public.trainer_code]));
+
+
+--
+-- Name: learning_videos_folder_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX learning_videos_folder_idx ON public.learning_videos USING btree (folder_id);
+
+
+--
+-- Name: learning_videos_storage_path_key; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX learning_videos_storage_path_key ON public.learning_videos USING btree (storage_path) WHERE (storage_path IS NOT NULL);
+
+
+--
+-- Name: learning_videos_unit_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX learning_videos_unit_idx ON public.learning_videos USING btree (unit_id);
 
 
 --
@@ -2934,6 +4908,20 @@ CREATE UNIQUE INDEX learning_units_named_lesson_idx ON public.learning_units USI
 --
 
 CREATE INDEX learning_vocabulary_unit_idx ON public.learning_vocabulary_cards USING btree (unit_id);
+
+
+--
+-- Name: lms_media_folder_course_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX lms_media_folder_course_idx ON public.lms_media_folder USING btree (course_id);
+
+
+--
+-- Name: lms_presentation_asset_folder_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX lms_presentation_asset_folder_idx ON public.lms_presentation_asset USING btree (folder_id, sort_order);
 
 
 --
@@ -2989,7 +4977,7 @@ CREATE INDEX vocabulary_direction_card_idx ON public.vocabulary_direction_progre
 -- Name: vocabulary_direction_due_idx; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX vocabulary_direction_due_idx ON public.vocabulary_direction_progress USING btree (user_id, next_review_date) WHERE (box_number < 7);
+CREATE INDEX vocabulary_direction_due_idx ON public.vocabulary_direction_progress USING btree (auth_user_id, next_review_date) WHERE (box_number < 7);
 
 
 --
@@ -3011,6 +4999,20 @@ CREATE INDEX vocabulary_onboarding_unit_idx ON public.vocabulary_onboarding USIN
 --
 
 CREATE INDEX vocabulary_translations_locale_idx ON public.vocabulary_translations USING btree (locale);
+
+
+--
+-- Name: answer_receipts_ui_language_idx; Type: INDEX; Schema: vocabulary_private; Owner: -
+--
+
+CREATE INDEX answer_receipts_ui_language_idx ON vocabulary_private.answer_receipts USING btree (ui_language);
+
+
+--
+-- Name: lms_media_folder guard_media_folder_change; Type: TRIGGER; Schema: public; Owner: -
+--
+
+CREATE TRIGGER guard_media_folder_change BEFORE DELETE OR UPDATE OF level, folder_id ON public.lms_media_folder FOR EACH ROW EXECUTE FUNCTION media_private.guard_folder_change();
 
 
 --
@@ -3067,6 +5069,97 @@ CREATE TRIGGER pronunciation_message_status AFTER INSERT ON public.pronunciation
 --
 
 CREATE TRIGGER pronunciation_message_validate BEFORE INSERT ON public.pronunciation_messages FOR EACH ROW EXECUTE FUNCTION pronunciation_private.validate_message();
+
+
+--
+-- Name: bookings set_updated_at; Type: TRIGGER; Schema: public; Owner: -
+--
+
+CREATE TRIGGER set_updated_at BEFORE UPDATE ON public.bookings FOR EACH ROW EXECUTE FUNCTION platform_private.touch_updated_at();
+
+
+--
+-- Name: courses set_updated_at; Type: TRIGGER; Schema: public; Owner: -
+--
+
+CREATE TRIGGER set_updated_at BEFORE UPDATE ON public.courses FOR EACH ROW EXECUTE FUNCTION platform_private.touch_updated_at();
+
+
+--
+-- Name: invoice_cases set_updated_at; Type: TRIGGER; Schema: public; Owner: -
+--
+
+CREATE TRIGGER set_updated_at BEFORE UPDATE ON public.invoice_cases FOR EACH ROW EXECUTE FUNCTION platform_private.touch_updated_at();
+
+
+--
+-- Name: lms_media_folder set_updated_at; Type: TRIGGER; Schema: public; Owner: -
+--
+
+CREATE TRIGGER set_updated_at BEFORE UPDATE ON public.lms_media_folder FOR EACH ROW EXECUTE FUNCTION platform_private.touch_updated_at();
+
+
+--
+-- Name: lms_presentation_asset set_updated_at; Type: TRIGGER; Schema: public; Owner: -
+--
+
+CREATE TRIGGER set_updated_at BEFORE UPDATE ON public.lms_presentation_asset FOR EACH ROW EXECUTE FUNCTION platform_private.touch_updated_at();
+
+
+--
+-- Name: people set_updated_at; Type: TRIGGER; Schema: public; Owner: -
+--
+
+CREATE TRIGGER set_updated_at BEFORE UPDATE ON public.people FOR EACH ROW EXECUTE FUNCTION platform_private.touch_updated_at();
+
+
+--
+-- Name: profiles set_updated_at; Type: TRIGGER; Schema: public; Owner: -
+--
+
+CREATE TRIGGER set_updated_at BEFORE UPDATE ON public.profiles FOR EACH ROW EXECUTE FUNCTION platform_private.touch_updated_at();
+
+
+--
+-- Name: teacher_student_notes set_updated_at; Type: TRIGGER; Schema: public; Owner: -
+--
+
+CREATE TRIGGER set_updated_at BEFORE UPDATE ON public.teacher_student_notes FOR EACH ROW EXECUTE FUNCTION platform_private.touch_updated_at();
+
+
+--
+-- Name: user_exercise_progress set_updated_at; Type: TRIGGER; Schema: public; Owner: -
+--
+
+CREATE TRIGGER set_updated_at BEFORE UPDATE ON public.user_exercise_progress FOR EACH ROW EXECUTE FUNCTION platform_private.touch_updated_at();
+
+
+--
+-- Name: vocabulary_direction_progress set_updated_at; Type: TRIGGER; Schema: public; Owner: -
+--
+
+CREATE TRIGGER set_updated_at BEFORE UPDATE ON public.vocabulary_direction_progress FOR EACH ROW EXECUTE FUNCTION platform_private.touch_updated_at();
+
+
+--
+-- Name: vocabulary_onboarding set_updated_at; Type: TRIGGER; Schema: public; Owner: -
+--
+
+CREATE TRIGGER set_updated_at BEFORE UPDATE ON public.vocabulary_onboarding FOR EACH ROW EXECUTE FUNCTION platform_private.touch_updated_at();
+
+
+--
+-- Name: learning_videos validate_media_asset; Type: TRIGGER; Schema: public; Owner: -
+--
+
+CREATE TRIGGER validate_media_asset BEFORE INSERT OR UPDATE ON public.learning_videos FOR EACH ROW EXECUTE FUNCTION media_private.validate_asset();
+
+
+--
+-- Name: lms_presentation_asset validate_media_asset; Type: TRIGGER; Schema: public; Owner: -
+--
+
+CREATE TRIGGER validate_media_asset BEFORE INSERT OR UPDATE ON public.lms_presentation_asset FOR EACH ROW EXECUTE FUNCTION media_private.validate_asset();
 
 
 --
@@ -3133,11 +5226,43 @@ CREATE TRIGGER learning_reset_guard BEFORE INSERT OR UPDATE ON vocabulary_privat
 
 
 --
+-- Name: registration_identity_resolutions registration_identity_resolutions_auth_user_id_fkey; Type: FK CONSTRAINT; Schema: business_private; Owner: -
+--
+
+ALTER TABLE ONLY business_private.registration_identity_resolutions
+    ADD CONSTRAINT registration_identity_resolutions_auth_user_id_fkey FOREIGN KEY (auth_user_id) REFERENCES public.profiles(id) ON DELETE CASCADE;
+
+
+--
+-- Name: registration_identity_resolutions registration_identity_resolutions_person_id_fkey; Type: FK CONSTRAINT; Schema: business_private; Owner: -
+--
+
+ALTER TABLE ONLY business_private.registration_identity_resolutions
+    ADD CONSTRAINT registration_identity_resolutions_person_id_fkey FOREIGN KEY (person_id) REFERENCES public.people(id) ON DELETE CASCADE;
+
+
+--
+-- Name: registration_identity_resolutions registration_identity_resolutions_resolved_by_fkey; Type: FK CONSTRAINT; Schema: business_private; Owner: -
+--
+
+ALTER TABLE ONLY business_private.registration_identity_resolutions
+    ADD CONSTRAINT registration_identity_resolutions_resolved_by_fkey FOREIGN KEY (resolved_by) REFERENCES public.profiles(id) ON DELETE SET NULL;
+
+
+--
+-- Name: audio_objects audio_objects_bucket_id_fkey; Type: FK CONSTRAINT; Schema: learning_reset_private; Owner: -
+--
+
+ALTER TABLE ONLY learning_reset_private.audio_objects
+    ADD CONSTRAINT audio_objects_bucket_id_fkey FOREIGN KEY (bucket_id) REFERENCES storage.buckets(id);
+
+
+--
 -- Name: audio_objects audio_objects_user_id_fkey; Type: FK CONSTRAINT; Schema: learning_reset_private; Owner: -
 --
 
 ALTER TABLE ONLY learning_reset_private.audio_objects
-    ADD CONSTRAINT audio_objects_user_id_fkey FOREIGN KEY (user_id) REFERENCES learning_reset_private.jobs(user_id) ON DELETE CASCADE;
+    ADD CONSTRAINT audio_objects_user_id_fkey FOREIGN KEY (auth_user_id) REFERENCES learning_reset_private.jobs(auth_user_id) ON DELETE CASCADE;
 
 
 --
@@ -3181,6 +5306,14 @@ ALTER TABLE ONLY public.bookings
 
 
 --
+-- Name: cancellation_requests cancellation_requests_course_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.cancellation_requests
+    ADD CONSTRAINT cancellation_requests_course_id_fkey FOREIGN KEY (course_id) REFERENCES public.courses(id);
+
+
+--
 -- Name: course_exceptions course_exceptions_course_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -3210,6 +5343,22 @@ ALTER TABLE ONLY public.course_translations
 
 ALTER TABLE ONLY public.course_translations
     ADD CONSTRAINT course_translations_locale_fkey FOREIGN KEY (locale) REFERENCES public.locales(code);
+
+
+--
+-- Name: courses courses_audience_code_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.courses
+    ADD CONSTRAINT courses_audience_code_fkey FOREIGN KEY (audience_code) REFERENCES public.course_audiences(code);
+
+
+--
+-- Name: courses courses_level_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.courses
+    ADD CONSTRAINT courses_level_fkey FOREIGN KEY (level) REFERENCES public.learning_levels(code);
 
 
 --
@@ -3297,7 +5446,15 @@ ALTER TABLE ONLY public.learning_trainer_grants
 --
 
 ALTER TABLE ONLY public.learning_trainer_grants
-    ADD CONSTRAINT learning_trainer_grants_user_id_fkey FOREIGN KEY (user_id) REFERENCES public.profiles(id) ON DELETE CASCADE;
+    ADD CONSTRAINT learning_trainer_grants_user_id_fkey FOREIGN KEY (auth_user_id) REFERENCES public.profiles(id) ON DELETE CASCADE;
+
+
+--
+-- Name: learning_unit_grants learning_unit_grants_level_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.learning_unit_grants
+    ADD CONSTRAINT learning_unit_grants_level_fkey FOREIGN KEY (level) REFERENCES public.learning_levels(code);
 
 
 --
@@ -3313,7 +5470,7 @@ ALTER TABLE ONLY public.learning_unit_grants
 --
 
 ALTER TABLE ONLY public.learning_unit_grants
-    ADD CONSTRAINT learning_unit_grants_user_id_level_trainer_fkey FOREIGN KEY (user_id, level, trainer) REFERENCES public.learning_trainer_grants(user_id, level, trainer) ON DELETE CASCADE;
+    ADD CONSTRAINT learning_unit_grants_user_id_level_trainer_fkey FOREIGN KEY (auth_user_id, level, trainer) REFERENCES public.learning_trainer_grants(auth_user_id, level, trainer) ON DELETE CASCADE;
 
 
 --
@@ -3333,6 +5490,14 @@ ALTER TABLE ONLY public.learning_units
 
 
 --
+-- Name: learning_videos learning_videos_folder_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.learning_videos
+    ADD CONSTRAINT learning_videos_folder_id_fkey FOREIGN KEY (folder_id) REFERENCES public.lms_media_folder(folder_id) ON DELETE RESTRICT;
+
+
+--
 -- Name: learning_videos learning_videos_unit_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -3346,6 +5511,38 @@ ALTER TABLE ONLY public.learning_videos
 
 ALTER TABLE ONLY public.learning_vocabulary_cards
     ADD CONSTRAINT learning_vocabulary_cards_unit_id_fkey FOREIGN KEY (unit_id) REFERENCES public.learning_units(id);
+
+
+--
+-- Name: lms_media_folder lms_media_folder_course_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.lms_media_folder
+    ADD CONSTRAINT lms_media_folder_course_id_fkey FOREIGN KEY (course_id) REFERENCES public.courses(id) ON DELETE SET NULL;
+
+
+--
+-- Name: lms_media_folder lms_media_folder_level_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.lms_media_folder
+    ADD CONSTRAINT lms_media_folder_level_fkey FOREIGN KEY (level) REFERENCES public.learning_levels(code);
+
+
+--
+-- Name: lms_presentation_asset lms_presentation_asset_folder_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.lms_presentation_asset
+    ADD CONSTRAINT lms_presentation_asset_folder_id_fkey FOREIGN KEY (folder_id) REFERENCES public.lms_media_folder(folder_id) ON DELETE CASCADE;
+
+
+--
+-- Name: lms_presentation_asset lms_presentation_asset_mime_type_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.lms_presentation_asset
+    ADD CONSTRAINT lms_presentation_asset_mime_type_fkey FOREIGN KEY (mime_type) REFERENCES public.media_mime_types(mime_type);
 
 
 --
@@ -3417,7 +5614,7 @@ ALTER TABLE ONLY public.student_level_access
 --
 
 ALTER TABLE ONLY public.student_level_access
-    ADD CONSTRAINT student_level_access_user_id_fkey FOREIGN KEY (user_id) REFERENCES public.profiles(id) ON DELETE CASCADE;
+    ADD CONSTRAINT student_level_access_user_id_fkey FOREIGN KEY (auth_user_id) REFERENCES public.profiles(id) ON DELETE CASCADE;
 
 
 --
@@ -3441,7 +5638,7 @@ ALTER TABLE ONLY public.submissions
 --
 
 ALTER TABLE ONLY public.submissions
-    ADD CONSTRAINT submissions_user_id_fkey FOREIGN KEY (user_id) REFERENCES public.profiles(id) ON DELETE CASCADE;
+    ADD CONSTRAINT submissions_user_id_fkey FOREIGN KEY (auth_user_id) REFERENCES public.profiles(id) ON DELETE CASCADE;
 
 
 --
@@ -3473,7 +5670,7 @@ ALTER TABLE ONLY public.user_exercise_progress
 --
 
 ALTER TABLE ONLY public.user_exercise_progress
-    ADD CONSTRAINT user_exercise_progress_user_id_fkey FOREIGN KEY (user_id) REFERENCES public.profiles(id) ON DELETE CASCADE;
+    ADD CONSTRAINT user_exercise_progress_user_id_fkey FOREIGN KEY (auth_user_id) REFERENCES public.profiles(id) ON DELETE CASCADE;
 
 
 --
@@ -3489,7 +5686,7 @@ ALTER TABLE ONLY public.vocabulary_direction_progress
 --
 
 ALTER TABLE ONLY public.vocabulary_direction_progress
-    ADD CONSTRAINT vocabulary_direction_progress_user_id_fkey FOREIGN KEY (user_id) REFERENCES public.profiles(id) ON DELETE CASCADE;
+    ADD CONSTRAINT vocabulary_direction_progress_user_id_fkey FOREIGN KEY (auth_user_id) REFERENCES public.profiles(id) ON DELETE CASCADE;
 
 
 --
@@ -3505,7 +5702,7 @@ ALTER TABLE ONLY public.vocabulary_learning_state
 --
 
 ALTER TABLE ONLY public.vocabulary_learning_state
-    ADD CONSTRAINT vocabulary_learning_state_user_id_fkey FOREIGN KEY (user_id) REFERENCES public.profiles(id) ON DELETE CASCADE;
+    ADD CONSTRAINT vocabulary_learning_state_user_id_fkey FOREIGN KEY (auth_user_id) REFERENCES public.profiles(id) ON DELETE CASCADE;
 
 
 --
@@ -3537,7 +5734,7 @@ ALTER TABLE ONLY public.vocabulary_onboarding
 --
 
 ALTER TABLE ONLY public.vocabulary_onboarding
-    ADD CONSTRAINT vocabulary_onboarding_user_id_fkey FOREIGN KEY (user_id) REFERENCES public.profiles(id) ON DELETE CASCADE;
+    ADD CONSTRAINT vocabulary_onboarding_user_id_fkey FOREIGN KEY (auth_user_id) REFERENCES public.profiles(id) ON DELETE CASCADE;
 
 
 --
@@ -3547,6 +5744,20 @@ ALTER TABLE ONLY public.vocabulary_onboarding
 ALTER TABLE ONLY public.vocabulary_translations
     ADD CONSTRAINT vocabulary_translations_card_id_fkey FOREIGN KEY (card_id) REFERENCES public.learning_vocabulary_cards(id) ON DELETE CASCADE;
 
+
+--
+-- Name: answer_receipts answer_receipts_ui_language_fkey; Type: FK CONSTRAINT; Schema: vocabulary_private; Owner: -
+--
+
+ALTER TABLE ONLY vocabulary_private.answer_receipts
+    ADD CONSTRAINT answer_receipts_ui_language_fkey FOREIGN KEY (ui_language) REFERENCES public.locales(code);
+
+
+--
+-- Name: registration_identity_resolutions; Type: ROW SECURITY; Schema: business_private; Owner: -
+--
+
+ALTER TABLE business_private.registration_identity_resolutions ENABLE ROW LEVEL SECURITY;
 
 --
 -- Name: audio_objects; Type: ROW SECURITY; Schema: learning_reset_private; Owner: -
@@ -3621,10 +5832,17 @@ CREATE POLICY catalog_read ON public.cefr_levels FOR SELECT TO authenticated USI
 
 
 --
+-- Name: course_audiences catalog_read; Type: POLICY; Schema: public; Owner: -
+--
+
+CREATE POLICY catalog_read ON public.course_audiences FOR SELECT TO authenticated, anon USING (true);
+
+
+--
 -- Name: courses catalog_read; Type: POLICY; Schema: public; Owner: -
 --
 
-CREATE POLICY catalog_read ON public.courses FOR SELECT TO anon, authenticated USING ((archived_at IS NULL));
+CREATE POLICY catalog_read ON public.courses FOR SELECT TO authenticated, anon USING ((archived_at IS NULL));
 
 
 --
@@ -3646,6 +5864,12 @@ CREATE POLICY catalog_staff ON public.courses FOR SELECT TO authenticated USING 
 --
 
 ALTER TABLE public.cefr_levels ENABLE ROW LEVEL SECURITY;
+
+--
+-- Name: course_audiences; Type: ROW SECURITY; Schema: public; Owner: -
+--
+
+ALTER TABLE public.course_audiences ENABLE ROW LEVEL SECURITY;
 
 --
 -- Name: course_exceptions; Type: ROW SECURITY; Schema: public; Owner: -
@@ -3675,7 +5899,7 @@ ALTER TABLE public.courses ENABLE ROW LEVEL SECURITY;
 -- Name: course_exceptions exception_read; Type: POLICY; Schema: public; Owner: -
 --
 
-CREATE POLICY exception_read ON public.course_exceptions FOR SELECT TO anon, authenticated USING (((course_id IS NULL) OR (EXISTS ( SELECT 1
+CREATE POLICY exception_read ON public.course_exceptions FOR SELECT TO authenticated, anon USING (((course_id IS NULL) OR (EXISTS ( SELECT 1
    FROM public.courses c
   WHERE (c.id = course_exceptions.course_id)))));
 
@@ -3684,7 +5908,7 @@ CREATE POLICY exception_read ON public.course_exceptions FOR SELECT TO anon, aut
 -- Name: user_exercise_progress grammar_progress_read; Type: POLICY; Schema: public; Owner: -
 --
 
-CREATE POLICY grammar_progress_read ON public.user_exercise_progress FOR SELECT TO authenticated USING (((( SELECT identity_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text])) OR ((user_id = ( SELECT auth.uid() AS uid)) AND (EXISTS ( SELECT 1
+CREATE POLICY grammar_progress_read ON public.user_exercise_progress FOR SELECT TO authenticated USING (((( SELECT identity_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text])) OR ((auth_user_id = ( SELECT auth.uid() AS uid)) AND (EXISTS ( SELECT 1
    FROM public.learning_exercises e
   WHERE ((e.id = user_exercise_progress.exercise_id) AND learning_private.unit_allowed(e.unit_id)))))));
 
@@ -3772,6 +5996,18 @@ ALTER TABLE public.learning_videos ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.learning_vocabulary_cards ENABLE ROW LEVEL SECURITY;
 
 --
+-- Name: lms_media_folder; Type: ROW SECURITY; Schema: public; Owner: -
+--
+
+ALTER TABLE public.lms_media_folder ENABLE ROW LEVEL SECURITY;
+
+--
+-- Name: lms_presentation_asset; Type: ROW SECURITY; Schema: public; Owner: -
+--
+
+ALTER TABLE public.lms_presentation_asset ENABLE ROW LEVEL SECURITY;
+
+--
 -- Name: locales; Type: ROW SECURITY; Schema: public; Owner: -
 --
 
@@ -3781,28 +6017,55 @@ ALTER TABLE public.locales ENABLE ROW LEVEL SECURITY;
 -- Name: locales locales_read; Type: POLICY; Schema: public; Owner: -
 --
 
-CREATE POLICY locales_read ON public.locales FOR SELECT TO anon, authenticated USING (true);
+CREATE POLICY locales_read ON public.locales FOR SELECT TO authenticated, anon USING (true);
+
+
+--
+-- Name: lms_media_folder media_folder_read; Type: POLICY; Schema: public; Owner: -
+--
+
+CREATE POLICY media_folder_read ON public.lms_media_folder FOR SELECT TO authenticated USING (media_private.folder_allowed(folder_id));
+
+
+--
+-- Name: media_mime_types; Type: ROW SECURITY; Schema: public; Owner: -
+--
+
+ALTER TABLE public.media_mime_types ENABLE ROW LEVEL SECURITY;
+
+--
+-- Name: lms_presentation_asset media_presentation_read; Type: POLICY; Schema: public; Owner: -
+--
+
+CREATE POLICY media_presentation_read ON public.lms_presentation_asset FOR SELECT TO authenticated USING (media_private.folder_allowed(folder_id));
+
+
+--
+-- Name: media_mime_types mime_catalog_read; Type: POLICY; Schema: public; Owner: -
+--
+
+CREATE POLICY mime_catalog_read ON public.media_mime_types FOR SELECT TO authenticated USING (true);
 
 
 --
 -- Name: learning_trainer_grants own_access_read; Type: POLICY; Schema: public; Owner: -
 --
 
-CREATE POLICY own_access_read ON public.learning_trainer_grants FOR SELECT TO authenticated USING ((user_id = ( SELECT auth.uid() AS uid)));
+CREATE POLICY own_access_read ON public.learning_trainer_grants FOR SELECT TO authenticated USING ((auth_user_id = ( SELECT auth.uid() AS uid)));
 
 
 --
 -- Name: learning_unit_grants own_access_read; Type: POLICY; Schema: public; Owner: -
 --
 
-CREATE POLICY own_access_read ON public.learning_unit_grants FOR SELECT TO authenticated USING ((user_id = ( SELECT auth.uid() AS uid)));
+CREATE POLICY own_access_read ON public.learning_unit_grants FOR SELECT TO authenticated USING ((auth_user_id = ( SELECT auth.uid() AS uid)));
 
 
 --
 -- Name: student_level_access own_access_read; Type: POLICY; Schema: public; Owner: -
 --
 
-CREATE POLICY own_access_read ON public.student_level_access FOR SELECT TO authenticated USING ((user_id = ( SELECT auth.uid() AS uid)));
+CREATE POLICY own_access_read ON public.student_level_access FOR SELECT TO authenticated USING ((auth_user_id = ( SELECT auth.uid() AS uid)));
 
 
 --
@@ -3890,7 +6153,7 @@ CREATE POLICY released_content_read ON public.learning_reading_texts FOR SELECT 
 -- Name: learning_videos released_content_read; Type: POLICY; Schema: public; Owner: -
 --
 
-CREATE POLICY released_content_read ON public.learning_videos FOR SELECT TO authenticated USING (learning_private.unit_allowed(unit_id));
+CREATE POLICY released_content_read ON public.learning_videos FOR SELECT TO authenticated USING ((learning_private.unit_allowed(unit_id) AND ((folder_id IS NULL) OR media_private.folder_allowed(folder_id))));
 
 
 --
@@ -3929,7 +6192,7 @@ CREATE POLICY released_units ON public.learning_units FOR SELECT TO authenticate
 -- Name: course_schedules schedule_read; Type: POLICY; Schema: public; Owner: -
 --
 
-CREATE POLICY schedule_read ON public.course_schedules FOR SELECT TO anon, authenticated USING ((EXISTS ( SELECT 1
+CREATE POLICY schedule_read ON public.course_schedules FOR SELECT TO authenticated, anon USING ((EXISTS ( SELECT 1
    FROM public.courses c
   WHERE (c.id = course_schedules.course_id))));
 
@@ -3998,6 +6261,20 @@ CREATE POLICY staff_manage ON public.learning_vocabulary_cards TO authenticated 
 
 
 --
+-- Name: lms_media_folder staff_manage; Type: POLICY; Schema: public; Owner: -
+--
+
+CREATE POLICY staff_manage ON public.lms_media_folder TO authenticated USING ((( SELECT identity_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text]))) WITH CHECK ((( SELECT identity_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text])));
+
+
+--
+-- Name: lms_presentation_asset staff_manage; Type: POLICY; Schema: public; Owner: -
+--
+
+CREATE POLICY staff_manage ON public.lms_presentation_asset TO authenticated USING ((( SELECT identity_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text]))) WITH CHECK ((( SELECT identity_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text])));
+
+
+--
 -- Name: student_level_access staff_manage; Type: POLICY; Schema: public; Owner: -
 --
 
@@ -4061,7 +6338,7 @@ ALTER TABLE public.teacher_student_notes ENABLE ROW LEVEL SECURITY;
 -- Name: course_translations translation_read; Type: POLICY; Schema: public; Owner: -
 --
 
-CREATE POLICY translation_read ON public.course_translations FOR SELECT TO anon, authenticated USING ((EXISTS ( SELECT 1
+CREATE POLICY translation_read ON public.course_translations FOR SELECT TO authenticated, anon USING ((EXISTS ( SELECT 1
    FROM public.courses c
   WHERE (c.id = course_translations.course_id))));
 
@@ -4094,14 +6371,14 @@ ALTER TABLE public.vocabulary_onboarding ENABLE ROW LEVEL SECURITY;
 -- Name: vocabulary_onboarding vocabulary_onboarding_read; Type: POLICY; Schema: public; Owner: -
 --
 
-CREATE POLICY vocabulary_onboarding_read ON public.vocabulary_onboarding FOR SELECT TO authenticated USING ((user_id = ( SELECT auth.uid() AS uid)));
+CREATE POLICY vocabulary_onboarding_read ON public.vocabulary_onboarding FOR SELECT TO authenticated USING ((auth_user_id = ( SELECT auth.uid() AS uid)));
 
 
 --
 -- Name: vocabulary_direction_progress vocabulary_progress_read; Type: POLICY; Schema: public; Owner: -
 --
 
-CREATE POLICY vocabulary_progress_read ON public.vocabulary_direction_progress FOR SELECT TO authenticated USING (((( SELECT identity_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text])) OR ((user_id = ( SELECT auth.uid() AS uid)) AND (EXISTS ( SELECT 1
+CREATE POLICY vocabulary_progress_read ON public.vocabulary_direction_progress FOR SELECT TO authenticated USING (((( SELECT identity_private.current_profile_role() AS current_profile_role) = ANY (ARRAY['teacher'::text, 'admin'::text])) OR ((auth_user_id = ( SELECT auth.uid() AS uid)) AND (EXISTS ( SELECT 1
    FROM public.learning_vocabulary_cards c
   WHERE ((c.id = vocabulary_direction_progress.card_id) AND learning_private.unit_allowed(c.unit_id)))))));
 
@@ -4110,7 +6387,7 @@ CREATE POLICY vocabulary_progress_read ON public.vocabulary_direction_progress F
 -- Name: vocabulary_learning_state vocabulary_state_read; Type: POLICY; Schema: public; Owner: -
 --
 
-CREATE POLICY vocabulary_state_read ON public.vocabulary_learning_state FOR SELECT TO authenticated USING ((user_id = ( SELECT auth.uid() AS uid)));
+CREATE POLICY vocabulary_state_read ON public.vocabulary_learning_state FOR SELECT TO authenticated USING ((auth_user_id = ( SELECT auth.uid() AS uid)));
 
 
 --
@@ -4161,6 +6438,14 @@ GRANT USAGE ON SCHEMA learning_private TO service_role;
 --
 
 GRANT USAGE ON SCHEMA learning_reset_private TO authenticated;
+
+
+--
+-- Name: SCHEMA media_private; Type: ACL; Schema: -; Owner: -
+--
+
+GRANT USAGE ON SCHEMA media_private TO authenticated;
+GRANT USAGE ON SCHEMA media_private TO service_role;
 
 
 --
@@ -4238,12 +6523,27 @@ GRANT ALL ON FUNCTION business_private.decline_booking(p_id uuid) TO authenticat
 
 
 --
+-- Name: FUNCTION delete_course_exception(p_id uuid); Type: ACL; Schema: business_private; Owner: -
+--
+
+REVOKE ALL ON FUNCTION business_private.delete_course_exception(p_id uuid) FROM PUBLIC;
+
+
+--
 -- Name: FUNCTION is_staff(); Type: ACL; Schema: business_private; Owner: -
 --
 
 REVOKE ALL ON FUNCTION business_private.is_staff() FROM PUBLIC;
 GRANT ALL ON FUNCTION business_private.is_staff() TO authenticated;
 GRANT ALL ON FUNCTION business_private.is_staff() TO service_role;
+
+
+--
+-- Name: FUNCTION list_registration_identity_conflicts(); Type: ACL; Schema: business_private; Owner: -
+--
+
+REVOKE ALL ON FUNCTION business_private.list_registration_identity_conflicts() FROM PUBLIC;
+GRANT ALL ON FUNCTION business_private.list_registration_identity_conflicts() TO authenticated;
 
 
 --
@@ -4281,6 +6581,14 @@ GRANT ALL ON FUNCTION business_private.replace_items(p_booking uuid, p_course_se
 
 
 --
+-- Name: FUNCTION resolve_registration_identity(p_person_id uuid, p_auth_user_id uuid); Type: ACL; Schema: business_private; Owner: -
+--
+
+REVOKE ALL ON FUNCTION business_private.resolve_registration_identity(p_person_id uuid, p_auth_user_id uuid) FROM PUBLIC;
+GRANT ALL ON FUNCTION business_private.resolve_registration_identity(p_person_id uuid, p_auth_user_id uuid) TO authenticated;
+
+
+--
 -- Name: FUNCTION save_course(p_data jsonb); Type: ACL; Schema: business_private; Owner: -
 --
 
@@ -4290,11 +6598,26 @@ GRANT ALL ON FUNCTION business_private.save_course(p_data jsonb) TO service_role
 
 
 --
+-- Name: FUNCTION save_course_exception(p_course_id uuid, p_date date, p_reason text); Type: ACL; Schema: business_private; Owner: -
+--
+
+REVOKE ALL ON FUNCTION business_private.save_course_exception(p_course_id uuid, p_date date, p_reason text) FROM PUBLIC;
+
+
+--
 -- Name: FUNCTION save_month(p_month date, p_course_selections jsonb, p_paused boolean, p_expected uuid, p_revision integer); Type: ACL; Schema: business_private; Owner: -
 --
 
 REVOKE ALL ON FUNCTION business_private.save_month(p_month date, p_course_selections jsonb, p_paused boolean, p_expected uuid, p_revision integer) FROM PUBLIC;
 GRANT ALL ON FUNCTION business_private.save_month(p_month date, p_course_selections jsonb, p_paused boolean, p_expected uuid, p_revision integer) TO authenticated;
+
+
+--
+-- Name: FUNCTION submit_cancellation(p_name text, p_email text, p_course_id uuid, p_type text, p_date date, p_locale text); Type: ACL; Schema: business_private; Owner: -
+--
+
+REVOKE ALL ON FUNCTION business_private.submit_cancellation(p_name text, p_email text, p_course_id uuid, p_type text, p_date date, p_locale text) FROM PUBLIC;
+GRANT ALL ON FUNCTION business_private.submit_cancellation(p_name text, p_email text, p_course_id uuid, p_type text, p_date date, p_locale text) TO service_role;
 
 
 --
@@ -4319,6 +6642,15 @@ GRANT ALL ON FUNCTION business_private.validate_course_selections(p_selections j
 
 REVOKE ALL ON FUNCTION grammar_private.record_attempt(p_exercise_id uuid, p_answer text, p_hint_shown boolean) FROM PUBLIC;
 GRANT ALL ON FUNCTION grammar_private.record_attempt(p_exercise_id uuid, p_answer text, p_hint_shown boolean) TO authenticated;
+
+
+--
+-- Name: FUNCTION valid_accepted_answers(p_content jsonb, p_type public.exercise_type); Type: ACL; Schema: grammar_private; Owner: -
+--
+
+REVOKE ALL ON FUNCTION grammar_private.valid_accepted_answers(p_content jsonb, p_type public.exercise_type) FROM PUBLIC;
+GRANT ALL ON FUNCTION grammar_private.valid_accepted_answers(p_content jsonb, p_type public.exercise_type) TO authenticated;
+GRANT ALL ON FUNCTION grammar_private.valid_accepted_answers(p_content jsonb, p_type public.exercise_type) TO service_role;
 
 
 --
@@ -4454,6 +6786,60 @@ GRANT ALL ON FUNCTION learning_reset_private.storage_writable(p_bucket text, p_i
 
 
 --
+-- Name: FUNCTION enforce_storage_quota(); Type: ACL; Schema: media_private; Owner: -
+--
+
+REVOKE ALL ON FUNCTION media_private.enforce_storage_quota() FROM PUBLIC;
+
+
+--
+-- Name: FUNCTION folder_allowed(p_folder_id uuid); Type: ACL; Schema: media_private; Owner: -
+--
+
+REVOKE ALL ON FUNCTION media_private.folder_allowed(p_folder_id uuid) FROM PUBLIC;
+GRANT ALL ON FUNCTION media_private.folder_allowed(p_folder_id uuid) TO authenticated;
+GRANT ALL ON FUNCTION media_private.folder_allowed(p_folder_id uuid) TO service_role;
+
+
+--
+-- Name: FUNCTION guard_folder_change(); Type: ACL; Schema: media_private; Owner: -
+--
+
+REVOKE ALL ON FUNCTION media_private.guard_folder_change() FROM PUBLIC;
+
+
+--
+-- Name: FUNCTION path_allowed(p_name text, p_write boolean); Type: ACL; Schema: media_private; Owner: -
+--
+
+REVOKE ALL ON FUNCTION media_private.path_allowed(p_name text, p_write boolean) FROM PUBLIC;
+GRANT ALL ON FUNCTION media_private.path_allowed(p_name text, p_write boolean) TO authenticated;
+GRANT ALL ON FUNCTION media_private.path_allowed(p_name text, p_write boolean) TO service_role;
+
+
+--
+-- Name: FUNCTION validate_asset(); Type: ACL; Schema: media_private; Owner: -
+--
+
+REVOKE ALL ON FUNCTION media_private.validate_asset() FROM PUBLIC;
+
+
+--
+-- Name: FUNCTION require_rpc_success(p_result jsonb); Type: ACL; Schema: platform_private; Owner: -
+--
+
+REVOKE ALL ON FUNCTION platform_private.require_rpc_success(p_result jsonb) FROM PUBLIC;
+GRANT ALL ON FUNCTION platform_private.require_rpc_success(p_result jsonb) TO service_role;
+
+
+--
+-- Name: FUNCTION touch_updated_at(); Type: ACL; Schema: platform_private; Owner: -
+--
+
+REVOKE ALL ON FUNCTION platform_private.touch_updated_at() FROM PUBLIC;
+
+
+--
 -- Name: FUNCTION can_access_submission(p_id uuid); Type: ACL; Schema: pronunciation_private; Owner: -
 --
 
@@ -4498,13 +6884,6 @@ REVOKE ALL ON FUNCTION pronunciation_private.validate_message() FROM PUBLIC;
 REVOKE ALL ON FUNCTION public.begin_learning_reset(p_confirmation text) FROM PUBLIC;
 GRANT ALL ON FUNCTION public.begin_learning_reset(p_confirmation text) TO authenticated;
 GRANT ALL ON FUNCTION public.begin_learning_reset(p_confirmation text) TO service_role;
-
-
---
--- Name: TABLE mail_outbox; Type: ACL; Schema: private; Owner: -
---
-
-GRANT SELECT,INSERT,UPDATE ON TABLE private.mail_outbox TO service_role;
 
 
 --
@@ -4565,6 +6944,14 @@ GRANT ALL ON FUNCTION public.decline_business_booking(p_id uuid) TO authenticate
 
 
 --
+-- Name: FUNCTION delete_course_exception(p_id uuid); Type: ACL; Schema: public; Owner: -
+--
+
+REVOKE ALL ON FUNCTION public.delete_course_exception(p_id uuid) FROM PUBLIC;
+GRANT ALL ON FUNCTION public.delete_course_exception(p_id uuid) TO authenticated;
+
+
+--
 -- Name: FUNCTION delete_learning_content(p_trainer text, p_id uuid); Type: ACL; Schema: public; Owner: -
 --
 
@@ -4608,6 +6995,14 @@ GRANT ALL ON FUNCTION public.learning_reset_audio_batch(p_token uuid) TO service
 
 
 --
+-- Name: FUNCTION list_registration_identity_conflicts(); Type: ACL; Schema: public; Owner: -
+--
+
+REVOKE ALL ON FUNCTION public.list_registration_identity_conflicts() FROM PUBLIC;
+GRANT ALL ON FUNCTION public.list_registration_identity_conflicts() TO authenticated;
+
+
+--
 -- Name: FUNCTION mark_business_invoice(p_booking uuid, p_month date, p_created boolean, p_reference text); Type: ACL; Schema: public; Owner: -
 --
 
@@ -4622,6 +7017,14 @@ GRANT ALL ON FUNCTION public.mark_business_invoice(p_booking uuid, p_month date,
 REVOKE ALL ON FUNCTION public.mark_pronunciation_seen(p_submission_id uuid) FROM PUBLIC;
 GRANT ALL ON FUNCTION public.mark_pronunciation_seen(p_submission_id uuid) TO authenticated;
 GRANT ALL ON FUNCTION public.mark_pronunciation_seen(p_submission_id uuid) TO service_role;
+
+
+--
+-- Name: FUNCTION media_storage_usage(); Type: ACL; Schema: public; Owner: -
+--
+
+REVOKE ALL ON FUNCTION public.media_storage_usage() FROM PUBLIC;
+GRANT ALL ON FUNCTION public.media_storage_usage() TO authenticated;
 
 
 --
@@ -4666,6 +7069,14 @@ GRANT ALL ON FUNCTION public.reset_vocabulary_lesson_progress(p_unit_id uuid) TO
 
 
 --
+-- Name: FUNCTION resolve_registration_identity(p_person_id uuid, p_auth_user_id uuid); Type: ACL; Schema: public; Owner: -
+--
+
+REVOKE ALL ON FUNCTION public.resolve_registration_identity(p_person_id uuid, p_auth_user_id uuid) FROM PUBLIC;
+GRANT ALL ON FUNCTION public.resolve_registration_identity(p_person_id uuid, p_auth_user_id uuid) TO authenticated;
+
+
+--
 -- Name: FUNCTION save_business_course(p_data jsonb); Type: ACL; Schema: public; Owner: -
 --
 
@@ -4682,41 +7093,20 @@ GRANT ALL ON FUNCTION public.save_business_month(p_month date, p_course_selectio
 
 
 --
+-- Name: FUNCTION save_course_exception(p_course_id uuid, p_date date, p_reason text); Type: ACL; Schema: public; Owner: -
+--
+
+REVOKE ALL ON FUNCTION public.save_course_exception(p_course_id uuid, p_date date, p_reason text) FROM PUBLIC;
+GRANT ALL ON FUNCTION public.save_course_exception(p_course_id uuid, p_date date, p_reason text) TO authenticated;
+
+
+--
 -- Name: FUNCTION save_learning_content(p_trainer text, p_payload jsonb, p_id uuid); Type: ACL; Schema: public; Owner: -
 --
 
 REVOKE ALL ON FUNCTION public.save_learning_content(p_trainer text, p_payload jsonb, p_id uuid) FROM PUBLIC;
 GRANT ALL ON FUNCTION public.save_learning_content(p_trainer text, p_payload jsonb, p_id uuid) TO authenticated;
 GRANT ALL ON FUNCTION public.save_learning_content(p_trainer text, p_payload jsonb, p_id uuid) TO service_role;
-
-
---
--- Name: TABLE teacher_student_notes; Type: ACL; Schema: public; Owner: -
---
-
-GRANT ALL ON TABLE public.teacher_student_notes TO service_role;
-GRANT SELECT,DELETE ON TABLE public.teacher_student_notes TO authenticated;
-
-
---
--- Name: COLUMN teacher_student_notes.student_id; Type: ACL; Schema: public; Owner: -
---
-
-GRANT INSERT(student_id) ON TABLE public.teacher_student_notes TO authenticated;
-
-
---
--- Name: COLUMN teacher_student_notes.teacher_id; Type: ACL; Schema: public; Owner: -
---
-
-GRANT INSERT(teacher_id) ON TABLE public.teacher_student_notes TO authenticated;
-
-
---
--- Name: COLUMN teacher_student_notes.note_text; Type: ACL; Schema: public; Owner: -
---
-
-GRANT INSERT(note_text),UPDATE(note_text) ON TABLE public.teacher_student_notes TO authenticated;
 
 
 --
@@ -4754,11 +7144,11 @@ GRANT ALL ON FUNCTION public.skip_vocabulary_assessment(p_level text) TO service
 
 
 --
--- Name: FUNCTION submit_business_cancellation(p_name text, p_email text, p_course text, p_type text, p_date date, p_locale text); Type: ACL; Schema: public; Owner: -
+-- Name: FUNCTION submit_business_cancellation(p_name text, p_email text, p_course_id uuid, p_type text, p_date date, p_locale text); Type: ACL; Schema: public; Owner: -
 --
 
-REVOKE ALL ON FUNCTION public.submit_business_cancellation(p_name text, p_email text, p_course text, p_type text, p_date date, p_locale text) FROM PUBLIC;
-GRANT ALL ON FUNCTION public.submit_business_cancellation(p_name text, p_email text, p_course text, p_type text, p_date date, p_locale text) TO service_role;
+REVOKE ALL ON FUNCTION public.submit_business_cancellation(p_name text, p_email text, p_course_id uuid, p_type text, p_date date, p_locale text) FROM PUBLIC;
+GRANT ALL ON FUNCTION public.submit_business_cancellation(p_name text, p_email text, p_course_id uuid, p_type text, p_date date, p_locale text) TO service_role;
 
 
 --
@@ -4835,6 +7225,13 @@ GRANT SELECT,INSERT,DELETE,UPDATE ON TABLE platform_private.rate_limits TO servi
 
 
 --
+-- Name: TABLE mail_outbox; Type: ACL; Schema: private; Owner: -
+--
+
+GRANT SELECT,INSERT,UPDATE ON TABLE private.mail_outbox TO service_role;
+
+
+--
 -- Name: TABLE booking_items; Type: ACL; Schema: public; Owner: -
 --
 
@@ -4864,6 +7261,15 @@ GRANT ALL ON TABLE public.cancellation_requests TO service_role;
 
 GRANT SELECT ON TABLE public.cefr_levels TO authenticated;
 GRANT ALL ON TABLE public.cefr_levels TO service_role;
+
+
+--
+-- Name: TABLE course_audiences; Type: ACL; Schema: public; Owner: -
+--
+
+GRANT ALL ON TABLE public.course_audiences TO service_role;
+GRANT SELECT ON TABLE public.course_audiences TO anon;
+GRANT SELECT ON TABLE public.course_audiences TO authenticated;
 
 
 --
@@ -4991,12 +7397,36 @@ GRANT SELECT,INSERT,DELETE,UPDATE ON TABLE public.learning_vocabulary_cards TO a
 
 
 --
+-- Name: TABLE lms_media_folder; Type: ACL; Schema: public; Owner: -
+--
+
+GRANT SELECT,INSERT,DELETE,UPDATE ON TABLE public.lms_media_folder TO authenticated;
+GRANT ALL ON TABLE public.lms_media_folder TO service_role;
+
+
+--
+-- Name: TABLE lms_presentation_asset; Type: ACL; Schema: public; Owner: -
+--
+
+GRANT SELECT,INSERT,DELETE,UPDATE ON TABLE public.lms_presentation_asset TO authenticated;
+GRANT ALL ON TABLE public.lms_presentation_asset TO service_role;
+
+
+--
 -- Name: TABLE locales; Type: ACL; Schema: public; Owner: -
 --
 
 GRANT SELECT ON TABLE public.locales TO anon;
 GRANT SELECT ON TABLE public.locales TO authenticated;
 GRANT ALL ON TABLE public.locales TO service_role;
+
+
+--
+-- Name: TABLE media_mime_types; Type: ACL; Schema: public; Owner: -
+--
+
+GRANT SELECT ON TABLE public.media_mime_types TO authenticated;
+GRANT ALL ON TABLE public.media_mime_types TO service_role;
 
 
 --
@@ -5093,6 +7523,35 @@ GRANT ALL ON TABLE public.student_level_access TO service_role;
 
 GRANT ALL ON TABLE public.submissions TO service_role;
 GRANT SELECT ON TABLE public.submissions TO authenticated;
+
+
+--
+-- Name: TABLE teacher_student_notes; Type: ACL; Schema: public; Owner: -
+--
+
+GRANT ALL ON TABLE public.teacher_student_notes TO service_role;
+GRANT SELECT,DELETE ON TABLE public.teacher_student_notes TO authenticated;
+
+
+--
+-- Name: COLUMN teacher_student_notes.student_id; Type: ACL; Schema: public; Owner: -
+--
+
+GRANT INSERT(student_id) ON TABLE public.teacher_student_notes TO authenticated;
+
+
+--
+-- Name: COLUMN teacher_student_notes.teacher_id; Type: ACL; Schema: public; Owner: -
+--
+
+GRANT INSERT(teacher_id) ON TABLE public.teacher_student_notes TO authenticated;
+
+
+--
+-- Name: COLUMN teacher_student_notes.note_text; Type: ACL; Schema: public; Owner: -
+--
+
+GRANT INSERT(note_text),UPDATE(note_text) ON TABLE public.teacher_student_notes TO authenticated;
 
 
 --

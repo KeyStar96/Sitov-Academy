@@ -2,6 +2,7 @@
 
 import { revalidatePath } from 'next/cache'
 import { z } from 'zod'
+import { getRpcError } from '@/lib/rpc-errors'
 import { createClient } from '@/utils/supabase/server'
 import { hasTrainerAccess, isAccessLevel, getAllowedLessons } from '@/lib/access/levels'
 import { LEITNER_LEARNED_BOX, normalizeBox, pickWeightedRandomOrder, selectionWeightForBox, type LeitnerPhase } from '@/lib/leitner'
@@ -58,9 +59,9 @@ export async function getVocabularySession(level?: string, uiLanguage?: string):
     const [catalog, progress, { data: cursor, error: cursorError }] = await Promise.all([
       readAllRows((from, to) => catalogQuery.range(from, to)),
       readAllRows((from, to) => supabase.from('vocabulary_direction_progress').select('*')
-        .eq('user_id', user.id).lte('next_review_date', new Date().toISOString()).lt('box_number', LEITNER_LEARNED_BOX)
+        .eq('auth_user_id', user.id).lte('next_review_date', new Date().toISOString()).lt('box_number', LEITNER_LEARNED_BOX)
         .order('id').range(from, to)),
-      supabase.from('vocabulary_learning_state').select('last_card_id').eq('user_id', user.id).maybeSingle(),
+      supabase.from('vocabulary_learning_state').select('last_card_id').eq('auth_user_id', user.id).maybeSingle(),
     ])
     if (cursorError) return { learnerId: null, cards: [], deferredCount: 0, previousCardId: null }
     const catalogById = new Map(catalog.map(row => mapVocabularyCard(row)).map(card => [card.id, card]))
@@ -149,8 +150,8 @@ export async function submitLessonAssessment(decisions: AssessmentDecision[], ex
       }
     }
     const { data, error } = await learner.supabase.rpc('initialize_vocabulary_cards', { p_decisions: parsed.data })
-    if (error) {
-      console.error('Vocabulary assessment failed:', error.code)
+    if (error || getRpcError(data)) {
+      console.error('Vocabulary assessment failed:', error?.code ?? getRpcError(data)?.error)
       return failed
     }
     const result = initializationResultSchema.safeParse(data)
@@ -194,7 +195,7 @@ export async function skipVocabularyAssessment(level: string, expectedLearnerId?
     if (!learner || !hasTrainerAccess(learner.profile, level, 'vocabulary')) return { success: false, added: 0 }
     const { data, error } = await learner.supabase.rpc('skip_vocabulary_assessment', { p_level: level })
     const result = initializationResultSchema.extend({ lesson: z.string().min(1) }).safeParse(data)
-    if (error || !result.success) return { success: false, added: 0 }
+    if (error || getRpcError(data) || !result.success) return { success: false, added: 0 }
     refreshVocabulary()
     return { success: true, added: result.data.addedNew, lesson: result.data.lesson }
   } catch {
@@ -206,7 +207,7 @@ export async function getVocabularyOnboarding(level: string): Promise<{ status: 
   const learner = await loadLearner()
   if (!learner || !hasTrainerAccess(learner.profile, level, 'vocabulary')) return null
   const { data, error } = await learner.supabase.from('vocabulary_onboarding').select('status,unit:learning_units!inner(label)')
-    .eq('user_id', learner.user.id).eq('level', level).maybeSingle()
+    .eq('auth_user_id', learner.user.id).eq('level', level).maybeSingle()
   if (error || !data || (data.status !== 'skipped' && data.status !== 'completed')) return null
   return { status: data.status, lesson: data.unit.label }
 }
@@ -228,6 +229,8 @@ export async function submitVocabularyAnswer(input: SubmitVocabularyAnswerInput)
       ? await learner.supabase.rpc('submit_vocabulary_answer_once', { ...payload, p_request_id: parsed.data.requestId })
       : await learner.supabase.rpc('submit_vocabulary_answer', payload)
     if (error) return { success: false, error: error.message.includes('vocabulary_spacing_required') ? 'spacing_required' : 'save_failed' }
+    const failure = getRpcError(data)
+    if (failure) return { success: false, error: failure.error === 'vocabulary_spacing_required' ? 'spacing_required' : 'save_failed' }
     const result = reviewResultSchema.safeParse(data)
     if (!result.success) return { success: false, error: 'save_failed' }
     return { ...result.data, previousPhase: result.data.previousPhase as LeitnerPhase, newPhase: result.data.newPhase as LeitnerPhase }
@@ -312,8 +315,8 @@ export async function resetLessonProgress(lessonName: string, level?: string): P
   })
   if (error || !allowed.length) return { success: false }
   for (const unitId of new Set(allowed.map(card => card.unit_id))) {
-    const { error: deleteError } = await learner.supabase.rpc('reset_vocabulary_lesson_progress', { p_unit_id: z.string().uuid().parse(unitId) })
-    if (deleteError) return { success: false }
+    const { data: resetResult, error: deleteError } = await learner.supabase.rpc('reset_vocabulary_lesson_progress', { p_unit_id: z.string().uuid().parse(unitId) })
+    if (deleteError || getRpcError(resetResult)) return { success: false }
   }
   refreshVocabulary()
   return { success: true }

@@ -21,7 +21,7 @@ export async function loadLevelAccessProfile(
   try {
     const [{ data, error }, rules] = await Promise.all([
       supabase.from('profiles').select('role,native_language,ui_language,level_access:student_level_access(level)').eq('id', userId).single(),
-      supabase.from('learning_trainer_grants').select('level,trainer,enabled,unit_mode,units:learning_unit_grants(unit_id)').eq('user_id', userId),
+      supabase.from('learning_trainer_grants').select('level,trainer,enabled,unit_mode,units:learning_unit_grants(unit_id)').eq('auth_user_id', userId),
     ])
     if (error || rules.error || !data) {
       console.error(`Zugriffsprofil für Nutzer ${userId} nicht ladbar:`, error?.code ?? rules.error?.code)

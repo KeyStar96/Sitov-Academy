@@ -2,6 +2,7 @@
 
 import { revalidatePath } from 'next/cache'
 import { z } from 'zod'
+import { getRpcError } from '@/lib/rpc-errors'
 import { grammarQuery, mapGrammarExercise } from '@/lib/learning-catalog'
 import { createClient } from '@/utils/supabase/server'
 import { hasTrainerAccess, getAllowedLessons } from '@/lib/access/levels'
@@ -124,7 +125,7 @@ export async function getExercises(level?: string): Promise<StudentExercise[]> {
 
     const [data, progress] = await Promise.all([
       readAllRows((from, to) => query.range(from, to)),
-      readAllRows((from, to) => supabase.from('user_exercise_progress').select('exercise_id,completed,score,attempts').eq('user_id', user.id).order('id').range(from, to)),
+      readAllRows((from, to) => supabase.from('user_exercise_progress').select('exercise_id,completed,score,attempts').eq('auth_user_id', user.id).order('id').range(from, to)),
     ])
     const progressById = new Map(progress.map(row => [row.exercise_id, row]))
 
@@ -269,8 +270,8 @@ export async function recordExerciseAttempt(
       p_answer: parsed.data.answer,
       p_hint_shown: parsed.data.hintShown,
     })
-    if (error) {
-      console.error('Grammar attempt could not be saved:', { userId: user.id, exerciseId: input.exerciseId, code: error.code })
+    if (error || getRpcError(data)) {
+      console.error('Grammar attempt could not be saved:', { code: error?.code ?? getRpcError(data)?.error })
       return { success: false, attempts: 0 }
     }
     const result = z.object({ success: z.boolean(), attempts: z.number().int(), isCorrect: z.boolean() }).safeParse(data)

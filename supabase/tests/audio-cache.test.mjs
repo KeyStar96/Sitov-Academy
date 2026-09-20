@@ -3,7 +3,7 @@ import { readFile } from 'node:fs/promises'
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
 
-const migration = await readFile(new URL('../migrations/20260910151457_neural_audio_cache.sql', import.meta.url), 'utf8')
+const migration = await readFile(new URL('./fixtures/history/migrations/20260910151457_neural_audio_cache.sql', import.meta.url), 'utf8')
 await test('audio cache migration preserves existing buckets and rejects incompatible state', async () => {
   const db = new PGlite()
   try {

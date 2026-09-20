@@ -14,7 +14,7 @@ export const createCancellationSchema = (t: any) => z.object({
             const { isValid } = await validateEmail(email);
             return isValid;
         }, t?.cancellation?.errors?.email_invalid || "Invalid Domain"),
-    courseName: z.string().optional(),
+    courseId: z.string().uuid().or(z.literal('')).optional(),
     terminationDate: z.enum(["asap", "specific_date"]),
     specificDate: z.string().optional(), // In case they pick a date
 }).refine((data) => {

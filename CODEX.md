@@ -30,7 +30,7 @@ Ziel ist ein visuell beeindruckendes, barrierefreies Web- und App-Erlebnis mit e
 * **R5 — KEINE CLIENT-BEWERTUNG.** Lernfortschritt wird ausschließlich in PostgreSQL entschieden (`SECURITY DEFINER`, `SET search_path TO ''`). Der Client darf Ergebnisse darstellen, niemals bestimmen. Das gilt auch für Soft-Errors.
 * **R6 — TESTS DÜRFEN VERLETZUNGEN NICHT AUSBLENDEN.** Ein Test, der eine Anforderung per Whitelist oder Filter umgeht, ist ein Bug im Test. Entferne den Filter, statt ihn zu erweitern.
 * **R7 — JEDE DDL-ÄNDERUNG IST IDEMPOTENT.** Neue DDL landet in `supabase/vps/<nn>_<modul>.sql`, ohne `BEGIN;`/`COMMIT;` (`deploy/vps/migrate-local.py` klammert alle Dateien selbst in eine Transaktion). Anschließend zwingend `supabase/schema.sql` (`pg_dump`) und `supabase/database.types.ts` aktualisieren.
-* **R8 — BACKUP VOR JEDER DB-ÄNDERUNG.** `python3 deploy/vps/migrate-local.py --backup-only`, SHA256 im Report protokollieren. ⚠️ Einmalige Warnung: Dieses Skript bricht bei nicht-leerem MinIO-Bucket bewusst ab. Nach dem ersten Medien-Upload (Phase 2.2/5.3) ist es nicht mehr ausführbar. Setze deshalb vor Phase 5 einen Kommentar an den Skriptkopf und etabliere ein alternatives Backup-Verfahren (`pg_dump` + Storage-API-Dump).
+* **R8 — BACKUP VOR JEDER DB-ÄNDERUNG.** `python3 deploy/vps/migrate-local.py --backup-only`, SHA256 im Report protokollieren. ⚠️ MinIO ist bereits befüllt. Das frühere Cleanup-Skript mit Abbruch bei nicht-leeren Buckets wurde in Phase 2 ersetzt: Der Runner sichert `pg_dump`, Rollen, Bucket-Metadaten und sämtliche Dateien über die Storage-API, prüft Dateigrößen sowie stabile Inventare und erstellt ein SHA256-Manifest. Backups bleiben ausschließlich root-lesbar auf dem VPS; Legacy-Cleanup-Dateien dürfen nicht erneut ausgeführt werden. Der Hinweis steht am Skriptkopf.
 * **R9 — ROLLBACK-PLAN.** Jede Migration muss einen dokumentierten Rollback-Pfad haben. Bei `RENAME COLUMN`: das inverse `RENAME` als kommentiertes SQL am Ende der Migrationsdatei. Kein Breaking-Change ohne Rückweg.
 * **R10 — ERRORS SIND EXPLIZIT.** Jede RPC gibt bei Fehler ein strukturiertes JSONB zurück mit mindestens `{"error": "<code>", "message": "<text>"}`. Kein `RAISE EXCEPTION` ohne maschinenlesbaren Code. Kein stilles Verschlucken.
 * **R11 — ENUM STATT CHECK.** Wiederkehrende Wertemengen (Status, Rollen, Typen, Trainer-Codes) werden als `CREATE TYPE … AS ENUM` definiert — nicht als `CHECK`-Constraint. Bestehende `CHECK`-Constraints auf Wertemengen werden im Zuge der jeweiligen Phase durch Enum-Types ersetzt.
@@ -136,7 +136,7 @@ Festlegung (verbindlich, nicht verhandelbar):
 * In allen Lerntabellen wird die Referenz auf `auth.users.id` / `profiles.id` einheitlich `auth_user_id` genannt — statt des zweideutigen `user_id`.
 * Die Migration ist strikt idempotent und erfolgt ausschließlich per `ALTER TABLE … RENAME COLUMN`. Kein Drop-and-Recreate von Tabellen. Keine Datenmigration. Kein ID-Merge.
 
-Betroffene Spalten (13 Stück, vollständige Liste):
+Betroffene Spalten (11 umzubenennende Spalten; zusätzlich die bereits korrekte Referenz in `people`):
 * `public.student_level_access.user_id`
 * `public.learning_trainer_grants.user_id`
 * `public.learning_unit_grants.user_id`
@@ -154,7 +154,7 @@ Vorgehen:
 * [ ] ADR anlegen: `docs/adr/001-identity-model.md` mit dieser Festlegung und der Begründung.
 * [ ] Backup nach R8.
 * [ ] Migration `supabase/vps/02_identity_alignment.sql` selbstständig erstellen und ausführen (strikt idempotent mittels `ALTER TABLE ... RENAME COLUMN` für alle betroffenen Spalten).
-* [ ] ⚠️ ACHTUNG: `ALTER TABLE … RENAME COLUMN` aktualisiert RLS-Policies, Views und PL/pgSQL-Funktionsbodies NICHT automatisch — diese sind gespeicherter SQL-Text. Nach der Migration müssen ALLE Objekte, die `user_id` in den betroffenen Schemata referenzieren, identifiziert und auf `auth_user_id` korrigiert werden. Messbares Ziel: Kein RLS-Policy-Body, kein View und keine Funktion auf den betroffenen Tabellen referenziert nach Abschluss noch `user_id`. Dynamisches SQL in PL/pgSQL ist ebenfalls betroffen.
+* [ ] ⚠️ ACHTUNG: `ALTER TABLE … RENAME COLUMN` erfordert manuelle Nacharbeiten. Zwar werden RLS-Ausdrücke und View-Regeln als geparste Bäume gespeichert, aber PL/pgSQL-Funktionskörper und dynamisches SQL sind reiner Text. Nach der Migration müssen ALLE Objekte, die `user_id` in den betroffenen Schemata referenzieren, identifiziert und auf `auth_user_id` korrigiert werden. Messbares Ziel: Kein RLS-Policy-Body, kein View und keine Funktion auf den betroffenen Tabellen referenziert nach Abschluss noch `user_id`.
 * [ ] App-Code: 44 Treffer in `app/`, `lib/`, `components/` anpassen. Schwerpunkte: `app/actions/admin.ts`, `lib/vocabulary-queries.ts`, `lib/profile-dashboard-server.ts`, `lib/reset-user-progress.ts`.
 * [ ] RPC-Parameter (`p_user_id`, `p_student_id`) bleiben unverändert — sie sind Teil der öffentlichen API und nicht mehrdeutig.
 * [ ] `supabase/database.types.ts` neu generieren, `supabase/schema.sql` neu dumpen.
@@ -205,9 +205,9 @@ Befund-Korrektur: `public.course_exceptions` hat kein Schreibloch. Es existiert 
 
 Abwärtskompatibilität zur bestehenden Datenbankstruktur ist NICHT erforderlich. Zielnormalform: **3. Normalform (3NF)**. Intentionale Snapshots (`bookings.contact_*`, `booking_items.title_snapshot`) werden NICHT normalisiert — das sind historische Audit-Daten und bleiben bewusst denormalisiert.
 
-* [ ] **Transitive Abhängigkeiten eliminieren:** `submissions.prompt_title` entfernen (Titel über `prompt_id` per JOIN erreichbar). `cancellation_requests.course_name` durch FK-Referenz auf `courses` ersetzen. Bestehende Zeilen migrieren. App-Code anpassen.
-* [ ] **Fehlende Fremdschlüssel nachrüsten:** Alle `level`-Spalten in `student_level_access`, `learning_trainer_grants`, `learning_unit_grants`, `vocabulary_onboarding`, `learning_units` und `courses` müssen FK-Constraints auf `learning_levels.code` erhalten. Ebenso `learning_levels.cefr_level` → FK auf `cefr_levels.code`.
-* [ ] **Locale-Referenzen absichern:** `vocabulary_translations.locale`, `course_translations.locale` und `grammar_translations.locale` erhalten FK-Constraints auf `locales.code` statt der aktuellen CHECK-Constraints.
+* [ ] **Transitive Abhängigkeiten eliminieren:** `submissions.prompt_title` entfernen (Titel ist über `prompt_id` per JOIN erreichbar; bei gelöschten Prompts nehmen wir den Verlust des alten Titels bewusst in Kauf). `cancellation_requests.course_name` durch FK-Referenz auf `courses` ersetzen. Bestehende Zeilen migrieren. App-Code anpassen.
+* [ ] **Fehlende Fremdschlüssel nachrüsten:** `courses.level` muss einen FK auf `learning_levels.code` erhalten. Für `learning_unit_grants.level` den direkten FK nachrüsten (statt nur Composite). (Hinweis: Die anderen level-Spalten sowie `cefr_level` haben den FK bereits).
+* [ ] **Locale-Referenzen bereinigen:** `vocabulary_translations.locale`, `course_translations.locale` und `grammar_translations.locale` haben den FK auf `locales.code` bereits. Entferne stattdessen die dort redundanten CHECK-Constraints.
 * [ ] **Enum-Types einführen (R11):** Wiederkehrende Wertemengen aus CHECK-Constraints in Enum-Types überführen. Betrifft mindestens: Booking-Status, Booking-Kind, Trainer-Codes, Profil-Rollen, Submission-Typen, Kurs-Kategorien, Kurs-Typen, Submission-Status.
 * [ ] **`updated_at`-Trigger:** Alle Tabellen mit `updated_at`-Spalte erhalten einen generischen Trigger, der `updated_at = now()` bei jedem `UPDATE` setzt. Betrifft mindestens: `bookings`, `people`, `profiles`, `user_exercise_progress`, `vocabulary_direction_progress`, `invoice_cases` und alle neuen Tabellen aus 2.2.
 * [ ] **JSONB-Schema-Constraint:** `learning_exercises.content` erhält einen Constraint, der das Feld `accepted_answers` erzwingt. Kein `alternative_answers` nach Abschluss von Phase 3.1.

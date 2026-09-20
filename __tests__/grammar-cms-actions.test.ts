@@ -9,7 +9,7 @@ const id = '00000000-0000-4000-8000-000000000001'
 const input = grammarWriteSchema.parse({
   level: 'A1.1', lesson: 'A1.1 · 01', topic: 'Artikel', type: 'fill_in_blank', solution_audio_url: null,
   hint: { ru: 'Vergleich Russisch', uk: 'Vergleich Ukrainisch' },
-  content: { text_before: '', text_after: ' Tisch.', correct_answer: 'Der', options: ['Der', 'Die', 'Das'], alternative_answers: ['Dieser'], smart_hint: { de: 'Erklärung', en: 'Explanation', ru: 'Объяснение' } },
+  content: { text_before: '', text_after: ' Tisch.', correct_answer: 'Der', options: ['Der', 'Die', 'Das'], accepted_answers: ['Der', 'Dieser'], smart_hint: { de: 'Erklärung', en: 'Explanation', ru: 'Объяснение' } },
 })
 
 function setup(role: string) {
@@ -34,7 +34,7 @@ beforeEach(() => jest.clearAllMocks())
 test('teacher updates preserve localized hints and alternatives through the normalized writer', async () => {
   const { client, write } = setup('teacher')
   expect(await saveGrammarExercise(input, id)).toMatchObject({ success: true, data: { hint: input.hint, content: input.content } })
-  expect(client.rpc).toHaveBeenCalledWith('save_learning_content', { p_trainer: 'exercises', p_id: id, p_payload: { unit: { level: input.level, label: input.lesson }, fields: expect.objectContaining({ content: expect.objectContaining({ correct_answer: 'Der', alternative_answers: ['Dieser'] }) }), translations: expect.arrayContaining([{ locale: 'ru', hint: 'Vergleich Russisch', smart_hint: 'Объяснение', explanation: null }, { locale: 'uk', hint: 'Vergleich Ukrainisch', smart_hint: null, explanation: null }]) } })
+  expect(client.rpc).toHaveBeenCalledWith('save_learning_content', { p_trainer: 'exercises', p_id: id, p_payload: { unit: { level: input.level, label: input.lesson }, fields: expect.objectContaining({ content: expect.objectContaining({ correct_answer: 'Der', accepted_answers: ['Der', 'Dieser'] }) }), translations: expect.arrayContaining([{ locale: 'ru', hint: 'Vergleich Russisch', smart_hint: 'Объяснение', explanation: null }, { locale: 'uk', hint: 'Vergleich Ukrainisch', smart_hint: null, explanation: null }]) } })
   expect(client.rpc.mock.calls[0][1].p_payload.fields.content).not.toHaveProperty('smart_hint')
   expect(client.from).toHaveBeenCalledWith('learning_exercises')
   expect(write.update).not.toHaveBeenCalled()

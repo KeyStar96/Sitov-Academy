@@ -1466,6 +1466,12 @@
     "loading": "Yükleniyor …"
   },
   "admin": {
+    "storage_title": "Medya depolama alanı",
+    "storage_used": "Kullanılan",
+    "storage_level_limit": "Seviye başına sınır",
+    "storage_disk": "VPS depolama alanı",
+    "storage_warning": "Depolama alanının %80’inden fazlası dolu. Lütfen yer açın.",
+    "storage_unavailable": "Depolama kullanımı şu anda görüntülenemiyor",
     "nav_overview": "Genel bakış",
     "nav_students": "Öğrenciler",
     "nav_bookings": "Sonraki ay kayıtları",

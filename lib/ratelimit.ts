@@ -1,6 +1,7 @@
 import 'server-only'
 import { createHash } from 'node:crypto'
 import { createAdminClient } from '@/utils/supabase/admin'
+import { getRpcError } from '@/lib/rpc-errors'
 
 export type RateLimitResult = { success: boolean; limit: number; remaining: number; reset: number }
 
@@ -24,9 +25,10 @@ export async function rateLimit(identifier: string, limit = 10, window = '60 s')
     const { data, error } = await createAdminClient().rpc('consume_rate_limit', {
       p_key: key, p_limit: limit, p_window_seconds: Math.ceil(windowMs / 1000),
     })
-    const result = data?.[0]
-    const reset = result?.reset_at ? new Date(result.reset_at).getTime() : NaN
-    if (error || !result || typeof result.success !== 'boolean' || !Number.isInteger(result.remaining)
+    const row = Array.isArray(data) ? data[0] : null
+    const result = row && typeof row === 'object' && !Array.isArray(row) ? row : null
+    const reset = typeof result?.reset_at === 'string' ? new Date(result.reset_at).getTime() : NaN
+    if (error || getRpcError(data) || !result || typeof result.success !== 'boolean' || typeof result.remaining !== 'number' || !Number.isInteger(result.remaining)
       || result.remaining < 0 || result.remaining > limit || !Number.isFinite(reset)) {
       throw new Error('Local rate limit store unavailable')
     }

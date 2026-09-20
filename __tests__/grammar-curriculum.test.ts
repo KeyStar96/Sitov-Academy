@@ -80,4 +80,13 @@ describe('Grammar CMS authored data validation', () => {
       expect(grammarWriteSchema.safeParse({ ...first, content: { ...first.content, alternative_answers: alternatives } }).success).toBe(false)
     }
   })
+  it('emits one canonical accepted_answers array, including the principal answer', () => {
+    const first=curriculum[0]
+    const legacy=grammarWriteSchema.parse({...first,content:{...first.content,alternative_answers:['werde sein']}})
+    expect(legacy.content.accepted_answers).toEqual([first.content.correct_answer,'werde sein'])
+    expect(legacy.content).not.toHaveProperty('alternative_answers')
+    const canonical=grammarWriteSchema.parse({...first,content:{...first.content,accepted_answers:[first.content.correct_answer]}})
+    expect(canonical.content.accepted_answers).toEqual([first.content.correct_answer])
+    expect(grammarWriteSchema.safeParse({...first,content:{...first.content,accepted_answers:['unrelated']}}).success).toBe(false)
+  })
 })

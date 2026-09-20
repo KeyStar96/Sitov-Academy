@@ -1,4 +1,5 @@
 import { z } from 'zod'
+import { getRpcError } from './rpc-errors'
 import type { Json, Database } from '@/supabase/database.types'
 import type { SupabaseClient } from '@supabase/supabase-js'
 import type { Trainer } from './access/levels'
@@ -23,7 +24,7 @@ export function learningWritePayload(trainer: Trainer, input: Json): Json {
   const fieldNames: Record<Trainer, string[]> = {
     vocabulary: ['word_de', 'article', 'plural', 'image_url', 'audio_url', 'sentence_practice', 'alternative_answers_de'],
     exercises: ['topic', 'type', 'content', 'solution_audio_url'], pronunciation: ['sentence_de', 'focus', 'audio_url'],
-    videos: ['description', 'source_url'],
+    videos: ['description', 'source_url', 'title', 'folder_id', 'storage_path', 'file_size'],
   }
   const fields: Record<string, Json> = {}
   for (const key of fieldNames[trainer]) if (form[key] !== undefined) fields[key] = form[key]
@@ -43,6 +44,8 @@ export function learningWritePayload(trainer: Trainer, input: Json): Json {
 export async function saveLearningContent(client: SupabaseClient<Database>, trainer: Trainer, payload: Json, id?: string): Promise<Json> {
   const { data, error } = await client.rpc('save_learning_content', { p_trainer: trainer, p_payload: learningWritePayload(trainer, payload), p_id: id })
   if (error) throw new Error(`Content save failed: ${error.code}`)
+  const failure = getRpcError(data)
+  if (failure) throw new Error(`Content save failed: ${failure.error}`)
   const saved = z.object({ id: z.string().uuid() }).parse(data)
   if (trainer === 'vocabulary') {
     const row = await vocabularyQuery(client).eq('id', saved.id).single()
@@ -66,6 +69,8 @@ export async function saveLearningContent(client: SupabaseClient<Database>, trai
 }
 
 export async function deleteLearningContent(client: SupabaseClient<Database>, trainer: Trainer, id: string): Promise<void> {
-  const { error } = await client.rpc('delete_learning_content', { p_trainer: trainer, p_id: id })
+  const { data, error } = await client.rpc('delete_learning_content', { p_trainer: trainer, p_id: id })
   if (error) throw new Error(`Content deletion failed: ${error.code}`)
+  const failure = getRpcError(data)
+  if (failure) throw new Error(`Content deletion failed: ${failure.error}`)
 }

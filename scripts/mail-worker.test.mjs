@@ -94,6 +94,24 @@ test('SMTP timeout retries; hard bounce stops; DB acknowledgement failure never 
   assert.throws(()=>createLocalSmtpTransport({SMTP_HOST:'smtp.resend.com'}),/local_postfix/)
 })
 
+test('JSON RPC failures never send unclaimed jobs or falsely acknowledge deliveries',async()=>{
+  const errors=[],infos=[],sent=[]
+  const logger={error(message){errors.push(message)},info(message){infos.push(message)}}
+  const failure={data:{error:'request_failed',message:'The request could not be completed.'},error:null}
+  const transport={async sendMail(mail){sent.push(mail);return {accepted:[job.recipient],rejected:[]}}}
+  assert.equal(await runMailBatch({client:{async rpc(){return failure}},transport,env:{SITE_URL:site},logger}),0)
+  assert.equal(sent.length,0);assert.deepEqual(errors,['[mail-worker] claim_failed'])
+  errors.length=0
+  const client={async rpc(name){return name==='claim_mail_jobs'?{data:[job],error:null}:failure}}
+  await runMailBatch({client,transport,env:{SITE_URL:site},logger})
+  assert.equal(sent.length,1);assert.deepEqual(infos,[])
+  assert.deepEqual(errors,['[mail-worker] smtp_accepted_ack_failed'])
+  errors.length=0
+  const invalid={async rpc(name){return name==='claim_mail_jobs'?{data:[{...job,kind:'raw',payload:{}}],error:null}:failure}}
+  await runMailBatch({client:invalid,transport,env:{SITE_URL:site},logger})
+  assert.equal(sent.length,1);assert.deepEqual(errors,['[mail-worker] failure_write_failed'])
+})
+
 test('auth templates contain all locales and token-hash links based only on SiteURL',async()=>{
   for(const template of ['confirmation','recovery','invite','magic_link','email_change']) {
     const content=await readFile(new URL(`../supabase/templates/${template}.html`,import.meta.url),'utf8')

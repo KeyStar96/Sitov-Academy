@@ -4,6 +4,7 @@ import { revalidatePath } from 'next/cache'
 import { z } from 'zod'
 import type { User } from '@supabase/supabase-js'
 import { createClient } from '@/utils/supabase/server'
+import { getRpcError } from '@/lib/rpc-errors'
 import {
   profileRoleSchema,
   type ProfileRole, type BackendActionError, type BackendActionResult,
@@ -55,6 +56,14 @@ export function checkDatabaseError(error: { code: string } | null): void {
     '40001': 'conflict', PT409: 'conflict', '22008': 'month_changed',
   }
   throw new BackendError(codes[error.code] ?? 'request_failed')
+}
+/** PostgreSQL RPC failures use JSON even when the HTTP request succeeded. */
+export function checkRpcError(value: unknown): void {
+  const failure = getRpcError(value)
+  if (!failure) return
+  const known: BackendActionError[] = ['not_authenticated', 'not_authorized', 'invalid_input', 'not_found', 'conflict', 'request_failed', 'month_changed']
+  if (known.includes(failure.error as BackendActionError)) throw new BackendError(failure.error as BackendActionError)
+  checkDatabaseError({ code: failure.sqlstate ?? failure.error })
 }
 export function revalidateBackendPages(): void {
   revalidatePath('/[lang]/dashboard', 'layout')

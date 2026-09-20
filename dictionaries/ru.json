@@ -1469,6 +1469,12 @@
     "loading": "Загрузка …"
   },
   "admin": {
+    "storage_title": "Хранилище медиафайлов",
+    "storage_used": "Занято",
+    "storage_level_limit": "Лимит на уровень",
+    "storage_disk": "Хранилище VPS",
+    "storage_warning": "Занято более 80 % хранилища. Освободите место.",
+    "storage_unavailable": "Информация о заполнении хранилища временно недоступна",
     "nav_overview": "Обзор",
     "nav_students": "Студенты",
     "nav_bookings": "Записи на следующий месяц",

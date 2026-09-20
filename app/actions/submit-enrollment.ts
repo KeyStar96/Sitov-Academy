@@ -6,6 +6,7 @@ import { headers } from 'next/headers'
 import { createAdminClient } from '@/utils/supabase/admin'
 import { type EnrollmentFormData } from '@/lib/registration-schema'
 import { rateLimit } from '@/lib/ratelimit'
+import { getRpcError } from '@/lib/rpc-errors'
 
 export interface SubmitEnrollmentResult { success: boolean; message: string; error?: 'generic_error' }
 const field = (max: number) => z.string().trim().min(1).max(max).refine(value => !/[<>\u0000-\u001f]/.test(value))
@@ -42,11 +43,11 @@ export async function submitEnrollment(
     const admin = createAdminClient()
     const { personal, courseSelections: selections, consents: accepted } = input.data
     const iso=(value:string)=>value.split('.').reverse().join('-')
-    const {error}=await admin.rpc('submit_business_registration',{
+    const {data:result,error}=await admin.rpc('submit_business_registration',{
       p_contact:{name:`${personal.firstName} ${personal.lastName}`,email:personal.email,birth_date:iso(personal.birthDate),phone:personal.phone||null,street:personal.street,postal_code:personal.zip,city:personal.city},
       p_course_selections:courseSelectionsForRpc(selections),p_start:iso(input.data.startDate),p_consents:{privacy:accepted.privacy,agb:accepted.agb,revocation:accepted.revocation,recording:accepted.videoRecording??null},p_locale:locale,p_trial:false,
     })
-    if(error)throw new Error('registration_failed')
+    if(error || getRpcError(result) || !z.uuid().safeParse(result).success)throw new Error('registration_failed')
     return { success: true, message: 'registration_success' }
   } catch {
     // Never return DB errors or log submitted personal information.

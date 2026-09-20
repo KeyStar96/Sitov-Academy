@@ -19,7 +19,7 @@ export async function getAllLevelsProgress() {
   const { data: exerciseProgress } = await supabase
     .from('user_exercise_progress')
     .select('exercise_id')
-    .eq('user_id', user.id)
+    .eq('auth_user_id', user.id)
     .eq('completed', true)
 
   // 4. Hole den Fortschritt des Users für Vokabeln (Box 7 = gemeistert)

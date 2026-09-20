@@ -46,7 +46,7 @@ export default function VideoCMS({ initialData, translations = {} }: Props) {
   }
   function edit(item: VideoRecord) {
     setEditing(item.id); setNotice(null)
-    setForm({ level: item.level, title: item.title, description: item.description ?? '', source_url: item.source_url ?? '', is_active: item.is_active })
+    setForm({ level: item.level, title: item.title, description: item.description ?? '', source_url: item.source_url ?? '', is_active: item.is_active, folder_id: item.folder_id, storage_path: item.storage_path, file_size: item.file_size })
     formRef.current?.scrollIntoView({ block: 'start', behavior: 'smooth' })
     formRef.current?.querySelector<HTMLInputElement>('input')?.focus({ preventScroll: true })
   }
@@ -70,7 +70,7 @@ export default function VideoCMS({ initialData, translations = {} }: Props) {
       <h2 className="flex items-center gap-2 text-xl font-semibold"><Plus size={20} aria-hidden="true" />{t(editing ? 'cms_edit' : 'cms_new')}</h2>
       <label className="block space-y-2 text-sm font-medium"><span>{t('cms_title_field')}</span><input required maxLength={180} className={fieldClass} value={form.title} onChange={event => setForm({ ...form, title: event.target.value })} /></label>
       <label className="block space-y-2 text-sm font-medium"><span>{t('cms_level')}</span><select className={fieldClass} value={form.level} onChange={event => setForm({ ...form, level: event.target.value })}>{ACCESS_LEVELS.map(level => <option key={level}>{level}</option>)}</select></label>
-      <label className="block space-y-2 text-sm font-medium"><span>{t('cms_url')}</span><input required={form.is_active} type="url" className={fieldClass} placeholder="https://www.youtube.com/watch?v=…" value={form.source_url} onChange={event => setForm({ ...form, source_url: event.target.value })} /></label>
+      <label className="block space-y-2 text-sm font-medium"><span>{t('cms_url')}</span><input required={form.is_active && !form.storage_path} type="url" className={fieldClass} placeholder="https://www.youtube.com/watch?v=…" value={form.source_url} onChange={event => setForm({ ...form, source_url: event.target.value })} /></label>
       <label className="flex min-h-12 items-center gap-3 text-base font-medium"><input type="checkbox" checked={form.is_active} onChange={event => setForm({ ...form, is_active: event.target.checked })} className="h-5 w-5 accent-[var(--accent)]" />{t('cms_active')}</label>
       <label className="block space-y-2 text-sm font-medium"><span>{t('cms_description')}</span><textarea rows={3} maxLength={1200} className={fieldClass} value={form.description} onChange={event => setForm({ ...form, description: event.target.value })} /></label>
       <div className="flex flex-wrap gap-3"><button disabled={!!busy} className="inline-flex min-h-12 flex-1 items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-5 font-semibold text-[var(--accent-foreground)] disabled:opacity-50">{busy === 'save' ? <Loader2 size={18} className="animate-spin" aria-hidden="true" /> : <Check size={18} aria-hidden="true" />}{t('cms_save')}</button>{editing && <button type="button" disabled={!!busy} onClick={() => { setEditing(null); setForm(empty) }} className="min-h-12 rounded-xl border border-[var(--border)] px-4">{t('cms_cancel')}</button>}</div>

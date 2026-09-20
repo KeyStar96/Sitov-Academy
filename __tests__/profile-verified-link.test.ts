@@ -21,3 +21,8 @@ it('does not turn a failed identity lookup into a match',async()=>{
  jest.mocked(createClient).mockResolvedValue({rpc} as unknown as Awaited<ReturnType<typeof createClient>>)
  await expect(resolveVerifiedPerson(user)).rejects.toThrow('not_authorized')
 })
+it('fails closed on a structured claim error rather than guessing a matching person',async()=>{
+ const rpc=jest.fn().mockResolvedValue({data:{error:'identity_missing',message:'Private details'},error:null})
+ jest.mocked(createClient).mockResolvedValue({rpc} as unknown as Awaited<ReturnType<typeof createClient>>)
+ await expect(resolveVerifiedPerson(user)).rejects.toThrow('request_failed')
+})

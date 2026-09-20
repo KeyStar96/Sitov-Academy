@@ -33,7 +33,7 @@ function session(options: {
     ui_language: options.uiLanguage ?? 'ru',
   }
   const rows = [{
-    id: progressId, user_id: userId, card_id: (options.card ?? card).id,
+    id: progressId, auth_user_id: userId, card_id: (options.card ?? card).id,
     direction: options.direction ?? 'native_to_de', box_number: 1,
   }]
   const progress = {
@@ -93,6 +93,15 @@ describe('session DTO source language', () => {
 })
 
 describe('answer request routing', () => {
+  it.each([
+    ['vocabulary_spacing_required','spacing_required'],
+    ['review_not_due','save_failed'],
+  ])('handles JSONB domain failure %s without retrying a write', async (error, expected) => {
+    const { rpc } = session()
+    rpc.mockResolvedValue({ data: { error, message: 'Review could not be saved.', sqlstate: 'PT409' }, error: null })
+    expect(await submitVocabularyAnswer({ requestId, progressId, isCorrect: true })).toEqual({ success: false, error: expected })
+    expect(rpc).toHaveBeenCalledTimes(1)
+  })
   it.each([
     ['vocabulary_spacing_required','spacing_required'],
     ['review_not_due','save_failed'],

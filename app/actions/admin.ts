@@ -7,7 +7,7 @@ import { createClient } from '@/utils/supabase/server'
 import { createAdminClient } from '@/utils/supabase/admin'
 import { revalidatePath } from 'next/cache'
 import { sanitizeAllowedLevels, ACCESS_LEVELS, TRAINERS } from '@/lib/access/levels'
-import { withBackendSession, checkDatabaseError, revalidateBackendPages } from '@/lib/actions/backend'
+import { withBackendSession, checkDatabaseError, checkRpcError, revalidateBackendPages } from '@/lib/actions/backend'
 import { profileRoleSchema, uuidSchema } from '@/lib/types/backend'
 
 // Helper to check if current user is admin/teacher
@@ -41,7 +41,7 @@ export async function getAdminStats() {
     // Freigeschaltete Nutzer: mind. ein Sprachniveau freigegeben.
     const { count: activatedCount } = await supabase
       .from('profiles')
-      .select('id,student_level_access!inner(user_id)', { count: 'exact', head: true })
+      .select('id,student_level_access!inner(auth_user_id)', { count: 'exact', head: true })
 
     // Get pending submissions
     const { count: pendingSubmissions } = await supabase
@@ -71,9 +71,9 @@ export async function getStudents() {
       .order('created_at', { ascending: false })
       
     if (error) throw error
-    const { data: rules, error: rulesError } = await supabase.from('learning_trainer_grants').select('user_id,level,trainer,enabled,unit_mode,units:learning_unit_grants(unit_id)')
+    const { data: rules, error: rulesError } = await supabase.from('learning_trainer_grants').select('auth_user_id,level,trainer,enabled,unit_mode,units:learning_unit_grants(unit_id)')
     if (rulesError) throw rulesError
-    return (data ?? []).map(student => ({ ...student, role: profileRoleSchema.nullable().parse(student.role), allowed_levels: student.level_access.map(access => access.level), trainer_grants: (rules ?? []).filter(rule => rule.user_id === student.id).map(rule => ({ level: rule.level, trainer: rule.trainer, enabled: rule.enabled, unit_ids: rule.unit_mode === 'all' ? null : rule.units.map(item => item.unit_id) })) }))
+    return (data ?? []).map(student => ({ ...student, role: profileRoleSchema.nullable().parse(student.role), allowed_levels: student.level_access.map(access => access.level), trainer_grants: (rules ?? []).filter(rule => rule.auth_user_id === student.id).map(rule => ({ level: rule.level, trainer: rule.trainer, enabled: rule.enabled, unit_ids: rule.unit_mode === 'all' ? null : rule.units.map(item => item.unit_id) })) }))
   } catch (error) {
     console.error('Error fetching students', error)
     return []
@@ -107,10 +107,10 @@ export async function updateStudentAllowedLevels(userId: string, levels: string[
 
     const allowedLevels = sanitizeAllowedLevels(levels)
 
-    const { error } = await supabase.rpc('set_student_level_access', { p_user_id: uuidSchema.parse(userId), p_levels: allowedLevels })
+    const { data, error } = await supabase.rpc('set_student_level_access', { p_user_id: uuidSchema.parse(userId), p_levels: allowedLevels })
 
     if (error) throw error
-
+    checkRpcError(data)
     revalidatePath('/[lang]/admin/students', 'page')
     return { success: true, allowedLevels }
   } catch (error) {
@@ -128,8 +128,8 @@ export async function getAllStudentsProgressData() {
     const [exercises, vocabCards, exerciseProgress, vocabProgress] = await Promise.all([
       readAllRows((from, to) => supabase.from('learning_exercises').select('id,unit:learning_units!inner(level)').order('id').range(from, to)),
       readAllRows((from, to) => supabase.from('learning_vocabulary_cards').select('id,unit:learning_units!inner(level)').order('id').range(from, to)),
-      readAllRows((from, to) => supabase.from('user_exercise_progress').select('user_id,exercise_id').eq('completed', true).order('id').range(from, to)),
-      readAllRows((from, to) => supabase.from('vocabulary_direction_progress').select('user_id,card_id,direction').eq('box_number', 7).order('id').range(from, to)),
+      readAllRows((from, to) => supabase.from('user_exercise_progress').select('auth_user_id,exercise_id').eq('completed', true).order('id').range(from, to)),
+      readAllRows((from, to) => supabase.from('vocabulary_direction_progress').select('auth_user_id,card_id,direction').eq('box_number', 7).order('id').range(from, to)),
     ])
 
     // Maps
@@ -145,26 +145,26 @@ export async function getAllStudentsProgressData() {
     const userCompletedPerLevel: Record<string, Record<string, number>> = {}
     
     exerciseProgress?.forEach(p => {
-      if (!p.user_id || !p.exercise_id) return
+      if (!p.auth_user_id || !p.exercise_id) return
       const level = exerciseLevelMap.get(p.exercise_id)
       if (level) {
-        if (!userCompletedPerLevel[p.user_id]) userCompletedPerLevel[p.user_id] = {}
-        userCompletedPerLevel[p.user_id][level] = (userCompletedPerLevel[p.user_id][level] || 0) + 1
+        if (!userCompletedPerLevel[p.auth_user_id]) userCompletedPerLevel[p.auth_user_id] = {}
+        userCompletedPerLevel[p.auth_user_id][level] = (userCompletedPerLevel[p.auth_user_id][level] || 0) + 1
       }
     })
 
     const learnedDirections = new Map<string, Set<string>>()
     for (const progress of vocabProgress ?? []) {
-      const key = `${progress.user_id}:${progress.card_id}`
+      const key = `${progress.auth_user_id}:${progress.card_id}`
       const directions = learnedDirections.get(key) ?? new Set<string>()
       directions.add(progress.direction)
       learnedDirections.set(key, directions)
     }
-    vocabProgress?.filter(p => p.direction === 'de_to_native' && learnedDirections.get(`${p.user_id}:${p.card_id}`)?.has('native_to_de')).forEach(p => {
+    vocabProgress?.filter(p => p.direction === 'de_to_native' && learnedDirections.get(`${p.auth_user_id}:${p.card_id}`)?.has('native_to_de')).forEach(p => {
       const level = vocabLevelMap.get(p.card_id)
       if (level) {
-        if (!userCompletedPerLevel[p.user_id]) userCompletedPerLevel[p.user_id] = {}
-        userCompletedPerLevel[p.user_id][level] = (userCompletedPerLevel[p.user_id][level] || 0) + 1
+        if (!userCompletedPerLevel[p.auth_user_id]) userCompletedPerLevel[p.auth_user_id] = {}
+        userCompletedPerLevel[p.auth_user_id][level] = (userCompletedPerLevel[p.auth_user_id][level] || 0) + 1
       }
     })
 
@@ -192,11 +192,11 @@ export async function resetStudentProgress(userId: string, level: string) {
   try {
     await requireAdmin()
     const supabase = await createClient()
-    const { error } = await supabase.rpc('reset_student_level_progress', {
+    const { data, error } = await supabase.rpc('reset_student_level_progress', {
       p_student_id: uuidSchema.parse(userId), p_level: z.enum(ACCESS_LEVELS).parse(level),
     })
     if (error) throw error
-
+    checkRpcError(data)
     revalidatePath('/[lang]/admin/students', 'page')
     return { success: true }
   } catch (error) {
@@ -216,12 +216,13 @@ export async function updateStudentTrainerAccess(input: z.infer<typeof trainerAc
       if (!catalog.success || parsed.allowedLessons.some(id => !catalog.lessons.some(unit => unit.id === id))) return { success: false }
     }
     const supabase = await createClient()
-    const { error } = await supabase.rpc('set_student_trainer_access', {
+    const { data, error } = await supabase.rpc('set_student_trainer_access', {
       p_user_id: parsed.userId, p_level: parsed.level, p_trainer: parsed.trainer, p_enabled: parsed.enabled,
       p_unit_ids: parsed.allowedLessons === undefined ? null : parsed.allowedLessons,
       p_replace_units: parsed.allowedLessons !== undefined,
     })
     if (error) throw error
+    checkRpcError(data)
     revalidatePath('/[lang]/admin/students', 'page')
     revalidatePath('/[lang]/dashboard', 'layout')
     return { success: true }

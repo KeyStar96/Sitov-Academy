@@ -23,6 +23,13 @@ it('maps the atomic duplicate-trial constraint without leaking the existing reco
  rpc.mockResolvedValue({data:null,error:{code:'23505',message:'Private record'}})
  expect(await submitTrialLesson(input)).toEqual({success:false,message:'trial_already_used'})
 })
+it.each([
+ ['conflict','23505','trial_already_used'],
+ ['invalid_input','23514','generic_error'],
+])('does not acknowledge JSON trial errors: %s',async(error,sqlstate,message)=>{
+ rpc.mockResolvedValue({data:{error,message:'The request could not be completed.',sqlstate},error:null})
+ expect(await submitTrialLesson(input)).toEqual({success:false,message})
+})
 it('blocks rate-limited requests and catches storage failures',async()=>{
  jest.mocked(rateLimit).mockResolvedValueOnce({success:false,limit:3,remaining:0,reset:0})
  expect((await submitTrialLesson(input)).success).toBe(false);expect(createAdminClient).not.toHaveBeenCalled()

@@ -17,14 +17,14 @@ await test('canonical learning tables without compatibility views (isolated Post
    GRANT SELECT ON people TO authenticated; CREATE VIEW profile_details WITH(security_invoker=true) AS SELECT * FROM profiles;`)
   await db.query("INSERT INTO profiles VALUES($1,'student',ARRAY['A1.1','A1.2'],'Russisch','ru'),($2,'student',ARRAY['A1.1'],'Russisch','ru'),($3,'teacher',ARRAY[]::text[],'Deutsch','de')",[student,other,teacher])
   await db.query("INSERT INTO vocabulary_cards(id,word_de,lesson,level,translation_ru,translation_en) VALUES($1,'Haus','Lektion 1','A1.1','дом','house')",[card])
-  for(const migration of ['20260910133125_vocabulary_bidirectional_learning.sql','20260910151533_vocabulary_answer_receipts.sql','20260910184438_pronunciation_reading_conversations.sql','20260910184937_grammar_curriculum_and_progress.sql','20260910213453_student_trainer_access.sql','20260910214425_trainer_access_policy_commands.sql','20260911000000_localize_grammar_hints.sql','20260912102100_vocabulary_alternative_answers.sql','20260912112100_lesson_trainer_access.sql','20260913104728_repair_learning_unit_permissions.sql']) await db.exec(await read('../migrations/'+migration))
+  for(const migration of ['20260910133125_vocabulary_bidirectional_learning.sql','20260910151533_vocabulary_answer_receipts.sql','20260910184438_pronunciation_reading_conversations.sql','20260910184937_grammar_curriculum_and_progress.sql','20260910213453_student_trainer_access.sql','20260910214425_trainer_access_policy_commands.sql','20260911000000_localize_grammar_hints.sql','20260912102100_vocabulary_alternative_answers.sql','20260912112100_lesson_trainer_access.sql','20260913104728_repair_learning_unit_permissions.sql']) await db.exec(await read('./fixtures/history/migrations/'+migration))
   await db.exec('DROP SCHEMA learning_reset_private CASCADE; GRANT DELETE,UPDATE ON storage.objects TO authenticated;')
-  await db.exec(await read('../migrations/20260910195205_complete_learning_reset.sql'))
+  await db.exec(await read('./fixtures/history/migrations/20260910195205_complete_learning_reset.sql'))
   await db.exec(await read('../vps/learning.sql'))
   // This migration also replaces the note RPC; its composite type belongs to
   // the business baseline, whereas this fixture focuses on learning tables.
   await db.exec('CREATE TABLE teacher_student_notes(id uuid,student_id uuid,teacher_id uuid,note_text text,discount_percent numeric,is_blackboard boolean);')
-  await db.exec(await read('../migrations/20260913144640_application_conflict_responses.sql'))
+  await db.exec(await read('./fixtures/history/migrations/20260913144640_application_conflict_responses.sql'))
   await db.exec(`CREATE SCHEMA identity_private;
     CREATE FUNCTION identity_private.current_profile_role() RETURNS text LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$ SELECT role FROM public.profiles WHERE id=(SELECT auth.uid()) $$;
     GRANT USAGE ON SCHEMA identity_private TO authenticated,service_role;

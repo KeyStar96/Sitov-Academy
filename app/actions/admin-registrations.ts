@@ -1,5 +1,5 @@
 'use server'
-import { withBackendSession, checkDatabaseError, revalidateBackendPages } from '@/lib/actions/backend'
+import { withBackendSession, checkDatabaseError, checkRpcError, revalidateBackendPages } from '@/lib/actions/backend'
 import { loadRegistrationOverview } from '@/lib/admin-registration-data'
 import { staffConfirmationSchema, invoiceStatusInputSchema, type RegistrationOverview } from '@/lib/types/admin-registrations'
 import { targetMonthSchema } from '@/lib/types/monthly-bookings'
@@ -14,6 +14,7 @@ export async function confirmRegistration(input: unknown): Promise<BackendAction
     const data = staffConfirmationSchema.parse(input)
     const result = await supabase.rpc('confirm_business_booking',{p_id:data.id})
     checkDatabaseError(result.error)
+    checkRpcError(result.data)
     revalidateBackendPages()
     return {status:'confirmed' as const}
   },'staff')
@@ -23,6 +24,7 @@ export async function declineRegistration(input: unknown): Promise<BackendAction
     const data = staffConfirmationSchema.parse(input)
     const result = await supabase.rpc('decline_business_booking',{p_id:data.id})
     checkDatabaseError(result.error)
+    checkRpcError(result.data)
     revalidateBackendPages()
     return {status:'cancelled' as const}
   },'staff')
@@ -32,6 +34,7 @@ export async function saveManualInvoiceStatus(input: unknown): Promise<BackendAc
     const data = invoiceStatusInputSchema.parse(input)
     const result = await supabase.rpc('mark_business_invoice',{p_booking:data.id,p_month:data.month,p_created:data.created,p_reference:data.reference})
     checkDatabaseError(result.error)
+    checkRpcError(result.data)
     revalidateBackendPages()
     return {saved:true as const}
   },'staff')

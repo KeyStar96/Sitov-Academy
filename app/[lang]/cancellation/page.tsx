@@ -6,6 +6,8 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { getCourses } from '@/app/actions/get-courses';
+import { courseText } from '@/lib/business-courses';
 
 export async function generateStaticParams() {
     return [
@@ -46,6 +48,7 @@ export default async function CancellationPage({
     const { lang } = await params;
     const dictionary = await getDictionary(lang);
     const t = dictionary.cancellation;
+    const courses = (await getCourses()).map(course => ({ id: course.id, title: courseText(course, lang).title }));
 
     return (
         <>
@@ -81,7 +84,7 @@ export default async function CancellationPage({
 
                         {/* Form Component */}
                         <div className="relative z-10">
-                            <CancellationForm dictionary={dictionary} lang={lang} />
+                            <CancellationForm dictionary={dictionary} lang={lang} courses={courses} />
                         </div>
 
                     </div>

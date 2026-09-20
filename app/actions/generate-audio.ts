@@ -1,5 +1,7 @@
 'use server'
 
+import type { Tables } from '@/supabase/database.types'
+
 import { z } from 'zod'
 import { createClient } from '@/utils/supabase/server'
 import { createAdminClient } from '@/utils/supabase/admin'
@@ -28,7 +30,7 @@ export async function generateAudio(input: GenerateAudioInput): Promise<Generate
 
     const { language, cardId } = parsed.data
     const text = normalizeAudioText(parsed.data.text)
-    let card: { id: string; word_de: string; article: string | null; level: string; audio_url: string | null } | null = null
+    let card: { id: string; word_de: string; article: Tables<'learning_vocabulary_cards'>['article']; level: string; audio_url: string | null } | null = null
     if (cardId) {
       const result = await supabase.from('learning_vocabulary_cards').select('id,word_de,article,audio_url,unit:learning_units!inner(level)').eq('id', cardId).maybeSingle()
       if (result.error || !result.data || !hasTrainerAccess(profile, result.data.unit.level, 'vocabulary')) return { success: false, error: 'forbidden' }

@@ -1469,6 +1469,12 @@
     "loading": "Wird geladen …"
   },
   "admin": {
+    "storage_title": "Medienspeicher",
+    "storage_used": "Belegt",
+    "storage_level_limit": "Limit pro Level",
+    "storage_disk": "VPS-Speicher",
+    "storage_warning": "Speicherbelegung über 80 %. Bitte Speicher freigeben.",
+    "storage_unavailable": "Speicherbelegung derzeit nicht verfügbar",
     "nav_overview": "Übersicht",
     "nav_students": "Studenten",
     "nav_bookings": "Folgemonat-Buchungen",

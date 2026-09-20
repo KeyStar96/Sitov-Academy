@@ -1,12 +1,12 @@
 import 'server-only'
 import {createClient} from '@/utils/supabase/server'
-import {checkDatabaseError} from './actions/backend'
+import {checkDatabaseError,checkRpcError} from './actions/backend'
 import type {StaffRegistration,RegistrationOverview} from './types/admin-registrations'
 import {z} from 'zod'
 /** Caller is staff-checked; RLS independently restricts all business data. */
 export async function loadRegistrationOverview(month:string):Promise<RegistrationOverview> {
  const client=await createClient()
- const prepared=await client.rpc('prepare_business_month',{p_month:month});checkDatabaseError(prepared.error)
+ const prepared=await client.rpc('prepare_business_month',{p_month:month});checkDatabaseError(prepared.error);checkRpcError(prepared.data)
  const [bookings,invoices]=await Promise.all([
   client.from('bookings').select('*,people(auth_user_id),booking_items(*)').order('created_at',{ascending:false}),
   client.from('invoice_cases').select('*').eq('target_month',month),

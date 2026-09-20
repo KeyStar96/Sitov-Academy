@@ -15,7 +15,7 @@ export const getCourses = unstable_cache(async ():Promise<CourseConfig[]> => {
     return (data??[]).filter(row=>!row.end_date||row.end_date>=today).map(row=>({
       id:row.id,slug:row.slug,title:row.title,description:row.description,type:row.type==='online'?'online':'presence',unitPrice:Number(row.unit_price),
       category:row.category==='private'?'private':row.category==='speaking'?'speaking':row.category==='online'?'online':'german',
-      sortOrder:row.sort_order,level:row.level,unitMinutes:row.unit_minutes,
+      sortOrder:row.sort_order,level:row.audience_code??row.level??undefined,unitMinutes:row.unit_minutes,
       startDate:row.start_date??undefined,endDate:row.end_date??undefined,trialLessons:row.trial_lessons,
       translations:row.course_translations.map(item=>({locale:item.locale,title:item.title,description:item.description})),
       sessions:row.course_schedules.sort((a,b)=>a.weekday-b.weekday||a.start_time.localeCompare(b.start_time)).map(item=>({

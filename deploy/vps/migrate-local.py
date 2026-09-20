@@ -1,77 +1,108 @@
 #!/usr/bin/env python3
-"""One-time approved VPS migration. Never connects to any external database."""
-import datetime,hashlib,hmac,json,os,subprocess,sys,urllib.request,xml.etree.ElementTree as ET
+"""Explicit VPS migrations with PostgreSQL + Storage API file backups.
+The retired cleanup aborted on nonempty MinIO and stopped services even for
+--backup-only. Storage is populated: never replay the legacy cleanup files.
+This alternative preserves all files and metadata and checks SHA256 digests.
+Backups contain private data, remain root-only, and must never enter Git.
+"""
+import argparse, datetime, hashlib, json, os, re, subprocess, urllib.parse, urllib.request
 from pathlib import Path
-DOCKER=['docker','-H','unix:///var/run/docker.sock']
 DB='supabase-db-eknmzxvqilojjicinatnllbt'
+STORAGE='supabase-storage-eknmzxvqilojjicinatnllbt'
 BASE=Path('/var/www/sitov-academy')
+ORDER=['02_identity_alignment.sql','03_registration_identity.sql','01_critical_fixes.sql','04_normalization.sql','05_rpc_errors.sql']
 
-def invoke(args,**kw):
- r=subprocess.run(args,capture_output=True,**kw)
- if r.returncode: raise RuntimeError('Command failed: '+str(args[:3])+' (private logs retained)')
- return r.stdout
+def run(args,**kwargs):
+    return subprocess.run(args,check=True,capture_output=True,**kwargs).stdout
 
-def inspect(name):return json.loads(invoke(DOCKER+['inspect',name],text=True))[0]
-def environment(name):return dict(x.split('=',1) for x in inspect(name)['Config']['Env'])
+def sql(query,database='postgres'):
+    return run(['docker','exec','-i',DB,'psql','-X','-U','supabase_admin','-d',database,'-v','ON_ERROR_STOP=1','-At'],input=query,text=True).strip()
 
-# Current storage has orphaned cloud metadata, but no actual files. Refuse the
-# cleanup if somebody has uploaded anything since the reviewed preflight.
-storage=environment('supabase-storage-eknmzxvqilojjicinatnllbt')
-minio=inspect('supabase-minio-eknmzxvqilojjicinatnllbt')
-ip=minio['NetworkSettings']['Networks']['eknmzxvqilojjicinatnllbt']['IPAddress']
-bucket=storage['STORAGE_S3_BUCKET'];region=storage.get('STORAGE_S3_REGION','us-east-1')
-access=storage['AWS_ACCESS_KEY_ID'];secret=storage['AWS_SECRET_ACCESS_KEY']
-host=ip+':9000';path='/'+bucket;query='list-type=2&max-keys=1'
-now=datetime.datetime.now(datetime.timezone.utc);stamp=now.strftime('%Y%m%dT%H%M%SZ');date=stamp[:8]
-empty=hashlib.sha256(b'').hexdigest();headers=f'host:{host}\nx-amz-content-sha256:{empty}\nx-amz-date:{stamp}\n';signed='host;x-amz-content-sha256;x-amz-date'
-canonical='\n'.join(['GET',path,query,headers,signed,empty]);scope=f'{date}/{region}/s3/aws4_request'
-string='\n'.join(['AWS4-HMAC-SHA256',stamp,scope,hashlib.sha256(canonical.encode()).hexdigest()])
-def mac(key,msg):return hmac.new(key,msg.encode(),hashlib.sha256).digest()
-key=mac(mac(mac(mac(('AWS4'+secret).encode(),date),region),'s3'),'aws4_request')
-signature=hmac.new(key,string.encode(),hashlib.sha256).hexdigest()
-req=urllib.request.Request(f'http://{host}{path}?{query}',headers={'x-amz-content-sha256':empty,'x-amz-date':stamp,'Authorization':f'AWS4-HMAC-SHA256 Credential={access}/{scope}, SignedHeaders={signed}, Signature={signature}'})
-with urllib.request.urlopen(req,timeout=15) as response:root=ET.fromstring(response.read())
-if any(el.tag.endswith('Contents') for el in root.iter()):raise RuntimeError('Storage is not empty: abort; use Storage API and a file backup instead.')
-print('Verified: local MinIO bucket has no objects.',flush=True)
+def digest(path):
+    value=hashlib.sha256()
+    with path.open('rb') as source:
+        for chunk in iter(lambda:source.read(1024*1024),b''): value.update(chunk)
+    return value.hexdigest()
 
-# Stop the old application before the consistent dump and destructive cleanup.
-apps=json.loads(invoke(['pm2','jlist'],text=True))
-for app in apps:
- if app.get('pm2_env',{}).get('pm_cwd')==str(BASE):invoke(['pm2','stop',str(app['pm_id'])],text=True)
-subprocess.run(['systemctl','stop','sitov-app','sitov-mail'],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
-backup=Path('/root/backups')/('sitov-migration-'+stamp);backup.mkdir(mode=0o700)
-with (backup/'postgres.dump').open('wb') as f:
- r=subprocess.run(DOCKER+['exec',DB,'pg_dump','-U','supabase_admin','-d','postgres','-Fc'],stdout=f,stderr=subprocess.PIPE)
- if r.returncode:raise RuntimeError('Backup failed; database unchanged.')
-os.chmod(backup/'postgres.dump',0o600)
-with (backup/'roles.sql').open('wb') as f:
- subprocess.run(DOCKER+['exec',DB,'pg_dumpall','-U','supabase_admin','--roles-only'],stdout=f,stderr=subprocess.PIPE,check=True)
-os.chmod(backup/'roles.sql',0o600)
-sha=hashlib.sha256((backup/'postgres.dump').read_bytes()).hexdigest();(backup/'sha256.txt').write_text(sha+'  postgres.dump\n')
-print('Backup:',backup,'SHA256:',sha,flush=True)
-if '--backup-only' in sys.argv:sys.exit(0)
+def inventory():
+    return json.loads(sql("SELECT coalesce(json_agg(x ORDER BY x.bucket_id,x.name),'[]') FROM (SELECT bucket_id,name,id,version,updated_at,metadata FROM storage.objects) x"))
 
-# All schema/data changes commit together. A failure leaves the old DB intact.
-parts=[]
-for name in ['prepare','mail','business','learning','platform']:
- source=(Path(os.environ.get('SITOV_MIGRATION_SQL_DIR',str(BASE/'supabase/vps')))/f'{name}.sql').read_text()
- parts.append('\n'.join(line for line in source.splitlines() if line.strip().upper() not in ['BEGIN;','COMMIT;']))
-sql='BEGIN;\n'+ '\n\n'.join(parts)+'\nALTER TABLE public.profiles VALIDATE CONSTRAINT profiles_id_fkey;\nCOMMIT;\n'
-r=subprocess.run(DOCKER+['exec','-i',DB,'psql','-X','-U','supabase_admin','-d','postgres','-v','ON_ERROR_STOP=1'],input=sql,text=True,capture_output=True)
-(backup/'migration.log').write_text(r.stdout+'\n'+r.stderr);os.chmod(backup/'migration.log',0o600)
-if r.returncode:raise RuntimeError('Migration rolled back. See protected migration.log.')
-print('Local migration committed.',flush=True)
+def backup():
+    stamp=datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')
+    target=Path('/root/backups')/('sitov-phase2-'+stamp)
+    target.mkdir(mode=0o700,parents=True)
+    before=inventory()
+    for filename,command in [('postgres.dump',['pg_dump','-d','postgres','-Fc']),('roles.sql',['pg_dumpall','--roles-only'])]:
+        with (target/filename).open('wb') as output:
+            subprocess.run(['docker','exec',DB,*command,'-U','supabase_admin'],stdout=output,stderr=subprocess.PIPE,check=True)
+    configuration=json.loads(run(['docker','inspect',STORAGE],text=True))[0]
+    environment=dict(entry.split('=',1) for entry in configuration['Config']['Env'])
+    key=environment['SERVICE_KEY']
+    headers={'Authorization':'Bearer '+key,'apikey':key}
+    request=urllib.request.Request('http://127.0.0.1:9080/storage/v1/bucket',headers=headers)
+    with urllib.request.urlopen(request,timeout=30) as response:
+        (target/'buckets.json').write_bytes(response.read())
+    manifest=[]
+    (target/'objects').mkdir(mode=0o700)
+    for item in before:
+        # UUID backup filenames prevent traversal by user-controlled object paths.
+        destination=target/'objects'/item['id']
+        path='/'.join(urllib.parse.quote(part,safe='') for part in [item['bucket_id'],*item['name'].split('/')])
+        request=urllib.request.Request('http://127.0.0.1:9080/storage/v1/object/authenticated/'+path,headers=headers)
+        with urllib.request.urlopen(request,timeout=120) as response,destination.open('wb') as output:
+            for chunk in iter(lambda:response.read(1024*1024),b''): output.write(chunk)
+        expected=(item.get('metadata') or {}).get('size')
+        if expected is not None and destination.stat().st_size!=int(expected):
+            raise RuntimeError('Storage size mismatch; backup invalid')
+        manifest.append({**item,'backup_file':str(destination.relative_to(target)),'sha256':digest(destination)})
+    if before!=inventory(): raise RuntimeError('Storage changed during backup; retry before migration')
+    (target/'storage-manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
+    hashes={str(p.relative_to(target)):digest(p) for p in sorted(target.rglob('*')) if p.is_file()}
+    (target/'sha256.json').write_text(json.dumps(hashes,indent=2)+'\n')
+    (target/'COMPLETE').write_text(stamp+'\n')
+    print(json.dumps({'backup':str(target),'postgres_sha256':hashes['postgres.dump'],'storage_manifest_sha256':hashes['storage-manifest.json'],'objects':len(manifest)}),flush=True)
+    return target
 
-# The normalized schema supersedes older incremental migrations. Record missing
-# historical versions as baseline entries so a future CLI push cannot replay
-# old Cloud webhook definitions. This records a baseline, not their execution.
-import base64
-entries=[]
-for path in sorted((BASE/'supabase/migrations').glob('*.sql')):
-    version,_,name=path.stem.partition('_')
-    if not version.isdigit() or version>'20260913131152':continue
-    statement=path.read_bytes() if version=='20260913131152' else b'-- Baseline: superseded by the verified VPS normalization 20260913131152; not executed separately.'
-    encoded=base64.b64encode(statement).decode()
-    entries.append("INSERT INTO supabase_migrations.schema_migrations(version,name,statements) VALUES('"+version+"','"+name.replace("'","''")+"',ARRAY[convert_from(decode('"+encoded+"','base64'),'UTF8')]) ON CONFLICT(version) DO NOTHING;")
-invoke(DOCKER+['exec','-i',DB,'psql','-X','-U','supabase_admin','-d','postgres','-v','ON_ERROR_STOP=1'],input='\n'.join(entries),text=True)
-print('Migration baseline recorded; retired migrations will not be replayed.')
+def main():
+    os.umask(0o077)
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--backup-only',action='store_true')
+    parser.add_argument('--apply',nargs='+',choices=ORDER)
+    parser.add_argument('--sql-dir',type=Path,default=BASE/'supabase/vps')
+    parser.add_argument('--database',default='postgres')
+    parser.add_argument('--keep-stopped',action='store_true',help='Keep services stopped after successful production migration until matching release is ready')
+    args=parser.parse_args()
+    if not args.backup_only and not args.apply: parser.error('Specify --backup-only or exact --apply files; legacy cleanup disabled')
+    if args.backup_only and args.apply: parser.error('Choose backup or apply')
+    if args.apply and args.apply!=sorted(set(args.apply),key=ORDER.index): parser.error('Follow identity, registration, media, normalization order')
+    if args.apply and args.database=='postgres' and not args.keep_stopped: parser.error('Production schema changes require --keep-stopped until the matching release is activated')
+    sources=[]
+    for name in args.apply or []:
+        content=(args.sql_dir/name).read_text()
+        if re.search(r'^\s*(BEGIN|COMMIT)\s*;',content,re.M|re.I): raise RuntimeError('Own transaction boundary in '+name)
+        sources.append(content)
+    running=[]
+    sql_started=False
+    try:
+        if args.apply and args.database=='postgres':
+            for service in ['sitov-app','sitov-mail']:
+                if subprocess.run(['systemctl','is-active','--quiet',service]).returncode==0:
+                    running.append(service)
+                    run(['systemctl','stop',service])
+        target=backup()
+        if args.apply:
+            command="BEGIN;\nSET LOCAL lock_timeout='10s';\nSET LOCAL statement_timeout='180s';\n"+'\n'.join(sources)+"\nNOTIFY pgrst, 'reload schema';\nCOMMIT;\n"
+            # A lost connection or a local logging failure can follow a successful
+            # COMMIT. From this point onward only a verified matching release may
+            # restart production; a client error does not prove a rollback.
+            sql_started=True
+            result=subprocess.run(['docker','exec','-i',DB,'psql','-X','-U','supabase_admin','-d',args.database,'-v','ON_ERROR_STOP=1'],input=command,text=True,capture_output=True)
+            (target/'migration.log').write_text(result.stdout+result.stderr)
+            if result.returncode: raise RuntimeError('Migration failed; commit status is unverified. Inspect protected log before activating a matching release: '+str(target/'migration.log'))
+            (target/'applied.json').write_text(json.dumps({'database':args.database,'files':args.apply,'sha256':[hashlib.sha256(s.encode()).hexdigest() for s in sources]}))
+            print('Committed: '+', '.join(args.apply),flush=True)
+    finally:
+        if not(sql_started and args.keep_stopped):
+            for service in running: run(['systemctl','start',service])
+
+if __name__=='__main__': main()

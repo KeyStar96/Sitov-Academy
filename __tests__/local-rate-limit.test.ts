@@ -30,3 +30,10 @@ it('rejects invalid thresholds and duration before RPC', async () => {
   for (const window of ['0 s', '25 h', '99999999999999999999 h', '-1 m']) expect(() => parseWindowToMs(window)).toThrow()
   expect(rpc).not.toHaveBeenCalled()
 })
+it('fails closed for a structured database failure', async () => {
+ const log = jest.spyOn(console, 'error').mockImplementation(() => {})
+ try {
+  rpc.mockResolvedValue({ data: { error: 'retry_required', message: 'Reload and retry the request.', sqlstate: '40P01' }, error: null })
+  expect(await rateLimit('login:test', 3)).toEqual({ success: false, limit: 3, remaining: 0, reset: expect.any(Number) })
+ } finally { log.mockRestore() }
+})

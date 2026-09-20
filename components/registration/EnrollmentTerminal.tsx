@@ -26,6 +26,7 @@ import { submitEnrollment } from "@/app/actions/submit-enrollment";
 import { submitTrialLesson } from "@/app/actions/submit-trial";
 import { checkTrialEligibility } from "@/app/actions/check-trial-eligibility";
 import { trackMetaEvent } from "@/lib/analytics/meta-pixel";
+import EnrollmentSignup from './EnrollmentSignup';
 
 // Use the CSS variable --font-sans tabular-nums from layout.tsx instead of re-instantiating
 const monoClassName = "font-sans tabular-nums";
@@ -1035,6 +1036,7 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                         <CalendarDays size={18} className="inline mr-2" />
                         {selectedDateLabel}
                     </p>
+                    <EnrollmentSignup lang={lang} name={`${formData?.firstName ?? ''} ${formData?.lastName ?? ''}`} email={formData?.email ?? ''} />
                     <Link href={`/${lang}`} className="enrollment-home-button inline-flex min-h-12 items-center rounded-2xl px-6 py-3 font-semibold transition-colors">
                         {t?.back_home}
                     </Link>
@@ -1049,6 +1051,7 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                 </div>
                 <h3 className="text-3xl font-semibold mb-4 tracking-tight">{success?.title || germanDictionary.registration.success.title}</h3>
                 <p className="text-gray-400 text-lg mb-12 max-w-md">{success?.message} <strong>{formData?.email}</strong>.</p>
+                <EnrollmentSignup lang={lang} name={`${formData?.firstName ?? ''} ${formData?.lastName ?? ''}`} email={formData?.email ?? ''} />
                 <Link href={`/${lang}`} className="enrollment-home-button inline-flex min-h-12 items-center rounded-2xl px-6 py-3 font-semibold transition-colors">
                     {t?.back_home}
                 </Link>

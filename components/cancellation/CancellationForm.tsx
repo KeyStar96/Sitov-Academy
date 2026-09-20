@@ -16,9 +16,10 @@ import { DateDropdowns } from "@/components/ui/DateDropdowns";
 interface CancellationFormProps {
     dictionary: any;
     lang: string;
+    courses: { id: string; title: string }[];
 }
 
-export default function CancellationForm({ dictionary, lang }: CancellationFormProps) {
+export default function CancellationForm({ dictionary, lang, courses }: CancellationFormProps) {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
     const [serverError, setServerError] = useState<string | null>(null);
@@ -160,27 +161,17 @@ export default function CancellationForm({ dictionary, lang }: CancellationFormP
                 </div>
             </div>
 
-            {/* Course Name (Optional) */}
+            {/* Course reference (optional) */}
             <div className="space-y-2">
-                <div className="relative group">
-                    <input
-                        {...register("courseName")}
-                        id="courseName"
-                        placeholder=" "
-                        className={cn(
-                            "block w-full bg-transparent border-b border-gray-500 dark:border-white/10 py-3 text-lg font-sans text-gray-900 dark:text-white focus:outline-none focus:border-[#FF5C00] dark:focus:border-[#FF5C00] transition-colors peer placeholder-transparent"
-                        )}
-                    />
-                    <label
-                        htmlFor="courseName"
-                        className={cn(
-                            "absolute left-0 top-0 text-xs font-mono uppercase tracking-widest text-gray-600 dark:text-gray-400 transition-all pointer-events-none",
-                            "peer-placeholder-shown:top-3 peer-placeholder-shown:text-lg peer-placeholder-shown:normal-case peer-placeholder-shown:font-sans peer-placeholder-shown:text-gray-500",
-                            "peer-focus:top-0 peer-focus:text-xs peer-focus:uppercase peer-focus:tracking-widest peer-focus:text-[#FF5C00]"
-                        )}
-                    >
+                <div className="space-y-1">
+                    <label htmlFor="courseId" className="block text-xs font-mono uppercase tracking-widest text-gray-600 dark:text-gray-400">
                         {t.form.course_name}
                     </label>
+                    <select {...register("courseId")} id="courseId" defaultValue=""
+                        className="block w-full bg-transparent border-b border-gray-500 dark:border-white/10 py-3 text-lg text-gray-900 dark:text-white focus:outline-none focus:border-[#FF5C00]">
+                        <option value="">—</option>
+                        {courses.map(course => <option key={course.id} value={course.id}>{course.title}</option>)}
+                    </select>
                 </div>
             </div>
 

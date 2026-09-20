@@ -3,8 +3,8 @@ import { readFile } from 'node:fs/promises'
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
 
-const security = await readFile(new URL('../history/seeds/grammar-progress-security.sql', import.meta.url), 'utf8')
-const seed = await readFile(new URL('../history/seeds/grammar-curriculum-2026.sql', import.meta.url), 'utf8')
+const security = await readFile(new URL('./fixtures/history/seeds/grammar-progress-security.sql', import.meta.url), 'utf8')
+const seed = await readFile(new URL('./fixtures/history/seeds/grammar-curriculum-2026.sql', import.meta.url), 'utf8')
 const student = '00000000-0000-4000-8000-000000000001'
 const other = '00000000-0000-4000-8000-000000000002'
 const teacher = '00000000-0000-4000-8000-000000000003'

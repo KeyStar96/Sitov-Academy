@@ -16,16 +16,16 @@ await test('Canonical student blackboards in isolated PostgreSQL', async t => {
       await db.query('INSERT INTO auth.users VALUES($1,$2,now())', [person, `${person}@test.invalid`])
       await db.query('INSERT INTO profiles(id,email,role) VALUES($1,$2,$3)', [person, `${person}@test.invalid`, role])
     }
-    await db.exec(await read('../migrations/20260909155919_monthly_bookings_teacher_notes.sql'))
+    await db.exec(await read('./fixtures/history/migrations/20260909155919_monthly_bookings_teacher_notes.sql'))
     await db.query("UPDATE profiles SET role='admin' WHERE id=$1", [admin])
     await db.query(`INSERT INTO teacher_student_notes(id,student_id,teacher_id,note_text,discount_percent)
       VALUES($1,$2,$3,'Visible before migration',12.5),($4,$2,$3,'Retained history',7),($5,$6,$3,'Other student',3)`,
     [canonical, student, teacher, history, otherNote, other])
     const before = (await db.query('SELECT * FROM teacher_student_notes ORDER BY id')).rows
-    await db.exec(await read('../migrations/20260913110912_canonical_student_blackboards.sql'))
+    await db.exec(await read('./fixtures/history/migrations/20260913110912_canonical_student_blackboards.sql'))
     // The combined conflict migration also contains a vocabulary RPC, which
     // has its own complete fixture in vps-learning.test.mjs.
-    const conflictMigration = await read('../migrations/20260913144640_application_conflict_responses.sql')
+    const conflictMigration = await read('./fixtures/history/migrations/20260913144640_application_conflict_responses.sql')
     await db.exec('BEGIN;\n'+conflictMigration.slice(conflictMigration.indexOf('CREATE OR REPLACE FUNCTION public.save_student_blackboard')))
     const actor = async (person, role = 'authenticated') => {
       await db.exec('RESET ROLE')

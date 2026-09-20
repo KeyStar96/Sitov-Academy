@@ -5,6 +5,7 @@ export const videoRecordSchema = z.object({
   id: z.string(), title: z.string(), level: z.string(), unit_id: z.string().uuid(),
   description: z.string().nullable(), source_url: z.string().nullable(),
   is_active: z.boolean(), created_at: z.string().nullable(),
+  folder_id: z.string().uuid().nullable().optional(), storage_path: z.string().nullable().optional(), file_size: z.number().nullable().optional(),
 })
 export type VideoRecord = z.infer<typeof videoRecordSchema>
 
@@ -42,7 +43,11 @@ export const videoInputSchema = z.object({
   description: z.string().trim().max(1200).default(''),
   source_url: z.string().trim().refine(value => value === '' || learningResourceUrl(value) !== null).transform(learningResourceUrl),
   is_active: z.boolean(),
-}).refine(value => !value.is_active || value.source_url !== null, { path: ['source_url'], message: 'Published resources require a URL' })
-export interface VideoWriteInput { level: string; title: string; description: string; source_url: string; is_active: boolean }
+  folder_id: z.string().uuid().nullable().optional(),
+  storage_path: z.string().min(1).nullable().optional(),
+  file_size: z.number().int().positive().max(536870912).nullable().optional(),
+}).refine(value => !value.storage_path || (!!value.folder_id && !!value.file_size), { message: 'Uploaded files require a folder and size' })
+.refine(value => !value.is_active || value.source_url !== null || !!value.storage_path, { path: ['source_url'], message: 'Published resources require a URL' })
+export interface VideoWriteInput { level: string; title: string; description: string; source_url: string; is_active: boolean; folder_id?: string | null; storage_path?: string | null; file_size?: number | null }
 export interface VideoWriteResult { success: boolean; data?: VideoRecord; error?: 'invalid_input' | 'save_failed' }
 export interface VideoDeleteResult { success: boolean; error?: 'invalid_input' | 'delete_failed' }

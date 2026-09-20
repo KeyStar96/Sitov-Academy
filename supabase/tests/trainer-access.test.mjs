@@ -11,15 +11,15 @@ await test('Per-student, per-level trainer access in isolated PostgreSQL', async
   await db.exec(await read('./fixtures/trainer-access-baseline.sql'))
   await db.query("INSERT INTO profiles VALUES($1,'student',ARRAY['A1.1','A1.2'],'Russisch','ru'),($2,'student',ARRAY['A1.1'],'Russisch','ru'),($3,'teacher',ARRAY[]::text[],NULL,'de')",[student,other,teacher])
   await db.query("INSERT INTO vocabulary_cards(id,word_de,lesson,level) VALUES($1,'Haus','Lektion 1','A1.1')",[card])
-  for (const migration of ['20260910133125_vocabulary_bidirectional_learning.sql','20260910151533_vocabulary_answer_receipts.sql','20260910184438_pronunciation_reading_conversations.sql','20260910184937_grammar_curriculum_and_progress.sql']) await db.exec(await read('../migrations/'+migration))
+  for (const migration of ['20260910133125_vocabulary_bidirectional_learning.sql','20260910151533_vocabulary_answer_receipts.sql','20260910184438_pronunciation_reading_conversations.sql','20260910184937_grammar_curriculum_and_progress.sql']) await db.exec(await read('./fixtures/history/migrations/'+migration))
   await db.exec("INSERT INTO videos(level) VALUES('A1.1'),('A1.2')")
   const exercise=(await db.query("SELECT id FROM exercises WHERE level='A1.1' LIMIT 1")).rows[0].id
   const prompt=(await db.query("SELECT id FROM pronunciation_prompts WHERE level='A1.1' LIMIT 1")).rows[0].id
-  await db.exec(await read('../migrations/20260910213453_student_trainer_access.sql'))
-  await db.exec(await read('../migrations/20260910214425_trainer_access_policy_commands.sql'))
-  await db.exec(await read('../migrations/20260912102100_vocabulary_alternative_answers.sql'))
-  await db.exec(await read('../migrations/20260912112100_lesson_trainer_access.sql'))
-  await db.exec(await read('../migrations/20260913104728_repair_learning_unit_permissions.sql'))
+  await db.exec(await read('./fixtures/history/migrations/20260910213453_student_trainer_access.sql'))
+  await db.exec(await read('./fixtures/history/migrations/20260910214425_trainer_access_policy_commands.sql'))
+  await db.exec(await read('./fixtures/history/migrations/20260912102100_vocabulary_alternative_answers.sql'))
+  await db.exec(await read('./fixtures/history/migrations/20260912112100_lesson_trainer_access.sql'))
+  await db.exec(await read('./fixtures/history/migrations/20260913104728_repair_learning_unit_permissions.sql'))
   const actor=async(id,role='authenticated')=>{await db.exec('RESET ROLE'); await db.query("SELECT set_config('request.jwt.claim.sub',$1,false)",[id??'']); await db.exec(`SET ROLE ${role}`)}
   const allowed=async(level,trainer)=>(await db.query('SELECT trainer_access_private.allowed($1,$2) ok',[level,trainer])).rows[0].ok
   const override=async(level,trainer,enabled)=>{await actor(teacher);await db.query('INSERT INTO student_trainer_access (user_id,level,trainer,enabled) VALUES($1,$2,$3,$4) ON CONFLICT(user_id,level,trainer) DO UPDATE SET enabled=excluded.enabled',[student,level,trainer,enabled]);await actor(student)}

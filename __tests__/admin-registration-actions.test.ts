@@ -38,6 +38,16 @@ it('maps stale cancelled registrations to conflict without returning SQL errors'
  const db=setup('teacher');db.rpc.mockResolvedValue({data:null,error:{code:'40001'}})
  expect(await confirmRegistration({source:'registration',id})).toEqual({success:false,error:'conflict'})
 })
+it('does not acknowledge JSON failures from any registration mutation',async()=>{
+ const db=setup('teacher')
+ db.rpc.mockResolvedValue({data:{error:'conflict',message:'Reload and retry the request.',sqlstate:'40001'},error:null})
+ for(const action of [
+  ()=>confirmRegistration({source:'registration',id}),
+  ()=>declineRegistration({source:'registration',id}),
+  ()=>saveManualInvoiceStatus({source:'registration',id,month:'2026-10-01',created:true,reference:'RE1'}),
+ ]) expect(await action()).toEqual({success:false,error:'conflict'})
+ expect(revalidatePath).not.toHaveBeenCalled()
+})
 it.each(['registration','monthly_booking'] as const)('staff can decline a %s using only its database ID',async(source)=>{
  const db=setup('teacher')
  expect(await declineRegistration({source,id})).toEqual({success:true,data:{status:'cancelled'}})

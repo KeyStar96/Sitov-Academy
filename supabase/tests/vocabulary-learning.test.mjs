@@ -4,9 +4,9 @@ import assert from 'node:assert/strict'
 import { test } from 'node:test'
 
 const read = path => readFile(new URL(path, import.meta.url), 'utf8')
-const migration = await read('../migrations/20260910133125_vocabulary_bidirectional_learning.sql')
-const contexts = await read('../migrations/20260910135831_vocabulary_context_content.sql')
-const receipts = await read('../migrations/20260910151533_vocabulary_answer_receipts.sql')
+const migration = await read('./fixtures/history/migrations/20260910133125_vocabulary_bidirectional_learning.sql')
+const contexts = await read('./fixtures/history/migrations/20260910135831_vocabulary_context_content.sql')
+const receipts = await read('./fixtures/history/migrations/20260910151533_vocabulary_answer_receipts.sql')
 const user = '00000000-0000-4000-8000-000000000001'
 const other = '00000000-0000-4000-8000-000000000002'
 const teacher = '00000000-0000-4000-8000-000000000003'

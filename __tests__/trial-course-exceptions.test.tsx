@@ -47,3 +47,4 @@ it('respects the course period and clears a selected trial when its date becomes
  expect(receipt.textContent).not.toContain('21.09.2026')
  expect(screen.getByRole('button',{name:/28\.09\.2026/})).toBeInTheDocument()
 })
+jest.mock('@/app/actions/auth',()=>({signup:jest.fn()}))

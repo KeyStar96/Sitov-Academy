@@ -1470,6 +1470,12 @@
     "loading": "Loading …"
   },
   "admin": {
+    "storage_title": "Media storage",
+    "storage_used": "Used",
+    "storage_level_limit": "Limit per level",
+    "storage_disk": "VPS storage",
+    "storage_warning": "Storage usage exceeds 80%. Please free up space.",
+    "storage_unavailable": "Storage usage is currently unavailable",
     "nav_overview": "Overview",
     "nav_students": "Students",
     "nav_bookings": "Next-month bookings",

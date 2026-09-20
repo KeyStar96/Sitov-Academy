@@ -10,7 +10,7 @@ jest.mock('@/app/actions/grammar-cms', () => ({ saveGrammarExercise: jest.fn(), 
 
 const row: GrammarExerciseRow = {
   unit_id: '00000000-0000-4000-8000-000000000099', id: '00000000-0000-4000-8000-000000000001', level: 'A1.1', lesson: 'A1.1 · 01', topic: 'Artikel', type: 'fill_in_blank',
-  content: { text_before: '', text_after: ' Tisch ist groß.', correct_answer: 'Der', options: ['Der', 'Die', 'Das'], alternative_answers: ['Dieser'], smart_hint: { de: 'Erklärung', en: 'Explanation', ru: 'Объяснение', uk: 'Пояснення', tr: 'Açıklama' } },
+  content: { text_before: '', text_after: ' Tisch ist groß.', correct_answer: 'Der', options: ['Der', 'Die', 'Das'], accepted_answers: ['Der', 'Dieser'], smart_hint: { de: 'Erklärung', en: 'Explanation', ru: 'Объяснение', uk: 'Пояснення', tr: 'Açıklama' } },
   hint: { en: 'Contrastive English', ru: 'Vergleich Russisch', tr: 'Vergleich Türkisch', uk: 'Contrastive Ukrainian' },
   solution_audio_url: null, created_at: null,
 }
@@ -30,7 +30,7 @@ it('editing a topic preserves all translations, separate contrastive metadata an
   await act(async () => fireEvent.click(screen.getByRole('button', { name: 'Übung speichern' })))
   expect(saveGrammarExercise).toHaveBeenCalledWith(expect.objectContaining({
     topic: 'Artikel im Alltag', hint: row.hint,
-    content: expect.objectContaining({ alternative_answers: ['Dieser'], smart_hint: { de: 'Erklärung', en: 'Explanation', ru: 'Объяснение', uk: 'Пояснення', tr: 'Açıklama' } }),
+    content: expect.objectContaining({ accepted_answers: ['Der', 'Dieser'], smart_hint: { de: 'Erklärung', en: 'Explanation', ru: 'Объяснение', uk: 'Пояснення', tr: 'Açıklama' } }),
   }), row.id)
 })
 
@@ -64,5 +64,5 @@ it('teachers can extend accepted answers, and invalid duplicate answers do not s
   expect(screen.getByRole('alert')).toBeVisible()
   fireEvent.change(alternatives, { target: { value: 'Dieser\nJener' } })
   await act(async () => fireEvent.click(screen.getByRole('button', { name: 'Übung speichern' })))
-  expect(saveGrammarExercise).toHaveBeenCalledWith(expect.objectContaining({ content: expect.objectContaining({ alternative_answers: ['Dieser', 'Jener'] }) }), row.id)
+  expect(saveGrammarExercise).toHaveBeenCalledWith(expect.objectContaining({ content: expect.objectContaining({ accepted_answers: ['Der', 'Dieser', 'Jener'] }) }), row.id)
 })

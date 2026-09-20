@@ -2,7 +2,7 @@ import {PGlite} from '@electric-sql/pglite'
 import {readFile} from 'node:fs/promises'
 import {test} from 'node:test'
 import assert from 'node:assert/strict'
-const sql=await readFile(new URL('../migrations/20260910195205_complete_learning_reset.sql',import.meta.url),'utf8')
+const sql=await readFile(new URL('./fixtures/history/migrations/20260910195205_complete_learning_reset.sql',import.meta.url),'utf8')
 const uid=n=>`00000000-0000-4000-8000-${String(n).padStart(12,'0')}`
 const learner=uid(1),other=uid(2),teacher=uid(3),thread=uid(10),otherThread=uid(11)
 const progressTables=['user_vocabulary_progress','vocabulary_direction_progress','vocabulary_learning_state','vocabulary_onboarding','user_exercise_progress','vocabulary_private.answer_receipts']

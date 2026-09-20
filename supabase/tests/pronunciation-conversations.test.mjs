@@ -2,7 +2,7 @@ import { PGlite } from '@electric-sql/pglite'
 import { readFile } from 'node:fs/promises'
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
-const migration = await readFile(new URL('../migrations/20260910184438_pronunciation_reading_conversations.sql',import.meta.url),'utf8')
+const migration = await readFile(new URL('./fixtures/history/migrations/20260910184438_pronunciation_reading_conversations.sql',import.meta.url),'utf8')
 const student='00000000-0000-4000-8000-000000000001', other='00000000-0000-4000-8000-000000000002', teacher='00000000-0000-4000-8000-000000000003'
 const legacy='00000000-0000-4000-8000-000000000004'
 const studentObject=`${student}/00000000-0000-4000-8000-000000000011.webm`

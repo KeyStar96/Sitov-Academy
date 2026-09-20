@@ -11,7 +11,7 @@ export async function readVocabularyProgress(supabase: SupabaseClient<Database>,
   const rows: ProgressSummary[] = []
   for (let offset = 0; ; offset += 500) {
     const { data, error } = await supabase.from('vocabulary_direction_progress')
-      .select('card_id,box_number,direction,next_review_date').eq('user_id', userId)
+      .select('card_id,box_number,direction,next_review_date').eq('auth_user_id', userId)
       .order('id').range(offset, offset + 499)
     if (error) throw new Error(`Vocabulary progress read failed: ${error.code}`)
     rows.push(...(data ?? []))

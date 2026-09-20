@@ -54,7 +54,9 @@ describe('monthly backend action authorization', () => {
   })
   it('rejects forged ownership and status before sending a mutation',async()=>{
     const {rpc}=session()
-    expect(await saveNextMonthBooking({...bookingInput,user_id:other})).toEqual({success:false,error:'invalid_input'})
+    for (const field of ['user_id','auth_user_id']) {
+      expect(await saveNextMonthBooking({...bookingInput,[field]:other})).toEqual({success:false,error:'invalid_input'})
+    }
     expect(await saveNextMonthBooking({...bookingInput,status:'confirmed'})).toEqual({success:false,error:'invalid_input'})
     expect(rpc).not.toHaveBeenCalled()
   })
@@ -89,7 +91,7 @@ describe('monthly backend action authorization', () => {
   })
   it('keeps the canonical ID when clearing a board instead of deleting the row', async () => {
     const { chain, rpc } = session('teacher')
-    const cleared = { id: other, student_id: other, teacher_id: uid, note_text: '' }
+    const cleared = { id: other, student_id: other, teacher_id: uid, note_text: '', created_at: '2026-01-01', updated_at: '2026-01-01' }
     rpc.mockResolvedValue({ data: [cleared], error: null })
     expect(await saveBlackboardNote({ student_id: other, note_id: other, note_text: '' }))
       .toEqual({ success: true, data: cleared })
@@ -98,6 +100,15 @@ describe('monthly backend action authorization', () => {
   it.each(['40001','PT409'])('reports a stale or foreign note ID %s as a safe conflict', async code => {
     const { rpc } = session('teacher')
     rpc.mockResolvedValue({ data: null, error: { code, message: 'Private note details' } })
+    expect(await saveBlackboardNote({ student_id: other, note_id: course, note_text: 'Retain draft' }))
+      .toEqual({ success: false, error: 'conflict' })
+    expect(revalidatePath).not.toHaveBeenCalled()
+  })
+  it('rejects JSON errors before reloading a booking or acknowledging a note', async () => {
+    const { rpc, chain } = session('teacher')
+    rpc.mockResolvedValue({ data: { error: 'conflict', message: 'Reload and retry the request.', sqlstate: '40001' }, error: null })
+    expect(await saveNextMonthBooking(bookingInput)).toEqual({ success: false, error: 'conflict' })
+    expect(chain.single).not.toHaveBeenCalled()
     expect(await saveBlackboardNote({ student_id: other, note_id: course, note_text: 'Retain draft' }))
       .toEqual({ success: false, error: 'conflict' })
     expect(revalidatePath).not.toHaveBeenCalled()

@@ -4,7 +4,7 @@ import assert from 'node:assert/strict'
 import { test } from 'node:test'
 
 const baseline = await readFile(new URL('./fixtures/monthly-bookings-baseline.sql', import.meta.url), 'utf8')
-const migration = await readFile(new URL('../migrations/20260909155919_monthly_bookings_teacher_notes.sql', import.meta.url), 'utf8')
+const migration = await readFile(new URL('./fixtures/history/migrations/20260909155919_monthly_bookings_teacher_notes.sql', import.meta.url), 'utf8')
 const id = n => `00000000-0000-4000-8000-${String(n).padStart(12, '0')}`
 const student = id(1), other = id(2), teacher = id(3), admin = id(4)
 

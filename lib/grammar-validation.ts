@@ -22,9 +22,12 @@ export const grammarWriteSchema = z.discriminatedUnion('type', [
       instruction: z.string().trim().max(500).optional(),
       text_before: z.string().max(2000), text_after: z.string().max(2000),
       correct_answer: answer, options, smart_hint: contentHintSchema,
-      accepted_answers: z.array(z.string().trim().min(1)).min(1),
+      accepted_answers: z.array(answer).min(1).max(21).optional(),
+      alternative_answers: z.array(answer).max(20).optional(),
       gap_hint: z.string().trim().max(100).optional(),
-    }).refine(content => `${content.text_before}${content.text_after}`.trim().length > 0),
+    }).refine(content => `${content.text_before}${content.text_after}`.trim().length > 0)
+      .transform(({ alternative_answers, ...content }) => ({ ...content,
+        accepted_answers: content.accepted_answers ?? [content.correct_answer, ...(alternative_answers ?? [])] })),
   }),
   z.object({
     ...metadata,
@@ -32,8 +35,9 @@ export const grammarWriteSchema = z.discriminatedUnion('type', [
     content: z.object({
       instruction: z.string().trim().max(500).optional(),
       question: z.string().trim().min(1).max(4000), correct_answer: answer, options,
+      accepted_answers: z.array(answer).min(1).max(1).optional(),
       explanation: contentHintSchema,
-    }),
+    }).transform(content => ({ ...content, accepted_answers: content.accepted_answers ?? [content.correct_answer] })),
   }),
 ]).superRefine((value, context) => {
   const normalized = value.content.options.map(normalizeGrammarAnswer)
@@ -43,10 +47,13 @@ export const grammarWriteSchema = z.discriminatedUnion('type', [
   if (!normalized.includes(normalizeGrammarAnswer(value.content.correct_answer))) {
     context.addIssue({ code: 'custom', message: 'Correct answer must be available', path: ['content', 'correct_answer'] })
   }
-  if (value.type === 'fill_in_blank') {
-    const answers = [value.content.correct_answer, ...value.content.accepted_answers].map(normalizeGrammarAnswer)
+  if (value.content.accepted_answers) {
+    const answers = value.content.accepted_answers.map(normalizeGrammarAnswer)
     if (new Set(answers).size !== answers.length) {
       context.addIssue({ code: 'custom', message: 'Accepted answers must be distinct', path: ['content', 'accepted_answers'] })
+    }
+    if (!answers.includes(normalizeGrammarAnswer(value.content.correct_answer))) {
+      context.addIssue({ code: 'custom', message: 'Accepted answers must include the correct answer', path: ['content', 'accepted_answers'] })
     }
   }
 })
