@@ -2,7 +2,7 @@
 
 import { z } from 'zod'
 import { courseSelectionsSchema, courseSelectionsForRpc, type CourseSelection } from '@/lib/course-selection'
-import { headers } from 'next/headers'
+import { getClientIp } from '@/lib/client-ip'
 import { createAdminClient } from '@/utils/supabase/admin'
 import { type EnrollmentFormData } from '@/lib/registration-schema'
 import { rateLimit } from '@/lib/ratelimit'
@@ -36,8 +36,7 @@ export async function submitEnrollment(
   try {
     const input = enrollmentSchema.safeParse({ ...formData, courseSelections, startDate: startDateRaw, consents })
     if (!input.success) return { success: false, message: 'generic_error' }
-    const headerList = await headers()
-    const ip = headerList.get('x-nf-client-connection-ip') ?? headerList.get('x-forwarded-for')?.split(',')[0]?.trim() ?? 'unknown'
+    const ip = await getClientIp()
     const limit = await rateLimit(`enrollment:${ip}`, 3, '60 m')
     if (!limit.success) return { success: false, message: 'generic_error' }
     const admin = createAdminClient()

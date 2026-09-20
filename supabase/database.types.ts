@@ -1478,6 +1478,7 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      get_all_students_progress_data: { Args: never; Returns: Json }
       begin_learning_reset: { Args: { p_confirmation: string }; Returns: Json }
       claim_mail_jobs: {
         Args: { p_limit?: number; p_worker_id: string }

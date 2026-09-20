@@ -24,7 +24,7 @@ import { DateDropdowns } from "@/components/ui/DateDropdowns";
 import { PremiumDatePicker } from "@/components/ui/PremiumDatePicker";
 import { submitEnrollment } from "@/app/actions/submit-enrollment";
 import { submitTrialLesson } from "@/app/actions/submit-trial";
-import { checkTrialEligibility } from "@/app/actions/check-trial-eligibility";
+import { trialEligibilityHint } from "@/app/actions/trialEligibilityHint";
 import { trackMetaEvent } from "@/lib/analytics/meta-pixel";
 import EnrollmentSignup from './EnrollmentSignup';
 
@@ -982,7 +982,7 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
             if (isTrialMode) {
                 const formVals = getValues();
                 setTrialCheckLoading(true);
-                const { eligible } = await checkTrialEligibility(
+                const { eligible } = await trialEligibilityHint(
                     formVals.personal.email,
                     formVals.personal.firstName,
                     formVals.personal.lastName

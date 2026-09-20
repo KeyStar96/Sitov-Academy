@@ -1,5 +1,5 @@
 import {submitTrialLesson} from '@/app/actions/submit-trial'
-import {checkTrialEligibility} from '@/app/actions/check-trial-eligibility'
+import {trialEligibilityHint} from '@/app/actions/trialEligibilityHint'
 import {createAdminClient} from '@/utils/supabase/admin'
 import {rateLimit} from '@/lib/ratelimit'
 jest.mock('@/utils/supabase/admin',()=>({createAdminClient:jest.fn()}))
@@ -8,9 +8,9 @@ jest.mock('next/headers',()=>({headers:async()=>({get:()=>null})}))
 const id='00000000-0000-4000-8000-000000000001',rpc=jest.fn()
 const input={firstName:'Anna',lastName:'Test',email:'anna@example.test',courseId:id,trialDate:'2026-10-05',privacyAccepted:true,agbAccepted:true,locale:'uk'}
 beforeEach(()=>{jest.clearAllMocks();jest.mocked(rateLimit).mockResolvedValue({success:true,limit:3,remaining:2,reset:0});rpc.mockResolvedValue({data:id,error:null});jest.mocked(createAdminClient).mockReturnValue({rpc} as unknown as ReturnType<typeof createAdminClient>)})
-it('does not expose existing pupils through public eligibility probes',async()=>{
- expect(await checkTrialEligibility('victim@example.test','Anna','Test')).toEqual({eligible:true});expect(createAdminClient).not.toHaveBeenCalled()
-})
+ it('does not expose existing pupils through public eligibility probes',async()=>{
+  expect(await trialEligibilityHint('victim@example.test','Anna','Test')).toEqual({eligible:true});expect(createAdminClient).not.toHaveBeenCalled()
+ })
 it('stores trials through the atomic business RPC with explicit consents',async()=>{
  expect(await submitTrialLesson(input)).toEqual({success:true,message:'trial_success'})
  expect(rpc).toHaveBeenCalledWith('submit_business_registration',expect.objectContaining({p_course_selections:[{course_id:id}],p_start:'2026-10-05',p_trial:true,p_locale:'uk',p_consents:{privacy:true,agb:true,recording:null}}))

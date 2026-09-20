@@ -35,13 +35,13 @@ services['supabase-kong']['ports']=['127.0.0.1:9080:8000']
 services['supabase-db']['ports']=['127.0.0.1:5432:5432']
 services['supabase-db']['command']=['postgres','-c','config_file=/etc/postgresql/postgresql.conf','-c','log_min_messages=warning','-c','shared_buffers=512MB','-c','effective_cache_size=3GB','-c','work_mem=8MB','-c','maintenance_work_mem=128MB','-c','max_connections=100']
 # Caps bound exceptional load; they do not reserve memory.
-limits={'supabase-db':('1536m',2),'supabase-analytics':('900m',0.75),
- 'supabase-studio':('384m',0.5),'supabase-vector':('256m',0.25),
- 'supabase-kong':('512m',1),'supabase-meta':('384m',0.5),
+limits={'supabase-db':('1728m',2),'supabase-analytics':('512m',0.75),
+ 'supabase-studio':('192m',0.5),'supabase-vector':('128m',0.25),
+ 'supabase-kong':('512m',1),'supabase-meta':('256m',0.5),
  'supabase-auth':('256m',0.5),'supabase-rest':('192m',1),
- 'realtime-dev':('512m',0.75),'supabase-minio':('512m',1),
+ 'realtime-dev':('256m',0.75),'supabase-minio':('512m',1),
  'supabase-storage':('384m',1),'imgproxy':('192m',0.5),
- 'supabase-supavisor':('384m',0.5),'supabase-edge-functions':('256m',0.5)}
+ 'supabase-supavisor':('256m',0.5),'supabase-edge-functions':('256m',0.5)}
 for name,(memory,cpu) in limits.items():
     if name in services:
         services[name]['mem_limit']=memory; services[name]['cpus']=cpu

@@ -41,18 +41,14 @@ function readLanguage(formData: FormData): string {
   return uiLanguageSchema.parse(formData.get('lang') ?? undefined)
 }
 
+import { getClientIp } from '@/lib/client-ip'
+
 /**
- * Kennung für die Ratenbegrenzung. Netlify liefert die echte Client-IP in
- * `x-nf-client-connection-ip`; `x-forwarded-for` ist der allgemeine Fallback.
+ * Kennung für die Ratenbegrenzung.
  */
 async function requestIdentifier(scope: keyof typeof RATE_LIMITS): Promise<string> {
   try {
-    const headerList = await headers()
-    const ip =
-      headerList.get('x-nf-client-connection-ip') ??
-      headerList.get('x-forwarded-for')?.split(',')[0]?.trim() ??
-      headerList.get('x-real-ip') ??
-      'unbekannt'
+    const ip = await getClientIp()
     return `auth:${scope}:${ip}`
   } catch {
     return `auth:${scope}:unbekannt`
@@ -66,12 +62,13 @@ async function isRateLimited(scope: keyof typeof RATE_LIMITS): Promise<boolean> 
     const result = await rateLimit(identifier, limit, window)
     return !result.success
   } catch (error) {
-    // Eine gestörte Ratenbegrenzung darf niemanden aussperren.
-    console.error('[auth] Ratenbegrenzung nicht verfügbar', {
+    // SECURITY: Fail-Closed. Wenn der Rate-Limiter (PostgreSQL) ausfällt,
+    // dürfen keine Authentifizierungsanfragen (Brute-Force) durchgehen.
+    console.error('[auth] Ratenbegrenzung nicht verfügbar, Anfragen werden blockiert', {
       scope,
       error: error instanceof Error ? error.message : 'unbekannt',
     })
-    return false
+    return true
   }
 }
 

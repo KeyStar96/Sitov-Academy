@@ -9,7 +9,7 @@ jest.mock('next/navigation',()=>({useSearchParams:()=>({get:(name:string)=>name=
 jest.mock('@/app/actions/validate-email',()=>({validateEmail:jest.fn().mockResolvedValue({isValid:true})}))
 jest.mock('@/app/actions/submit-enrollment',()=>({submitEnrollment:jest.fn()}))
 jest.mock('@/app/actions/submit-trial',()=>({submitTrialLesson:jest.fn()}))
-jest.mock('@/app/actions/check-trial-eligibility',()=>({checkTrialEligibility:jest.fn()}))
+jest.mock('@/app/actions/trialEligibilityHint',()=>({trialEligibilityHint:jest.fn()}))
 jest.mock('@/lib/analytics/meta-pixel',()=>({trackMetaEvent:jest.fn()}))
 jest.mock('framer-motion',()=>{
  const React=jest.requireActual<typeof import('react')>('react')

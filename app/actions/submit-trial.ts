@@ -1,6 +1,6 @@
 'use server'
 import {createAdminClient} from '@/utils/supabase/admin'
-import {headers} from 'next/headers'
+import {getClientIp} from '@/lib/client-ip'
 import {rateLimit} from '@/lib/ratelimit'
 import {z} from 'zod'
 import {getRpcError} from '@/lib/rpc-errors'
@@ -8,7 +8,7 @@ const schema=z.object({firstName:z.string().trim().min(1).max(80),lastName:z.str
 export interface SubmitTrialResult {success:boolean;message:string}
 export async function submitTrialLesson(input:unknown):Promise<SubmitTrialResult> {
  try {
-  const data=schema.parse(input);const h=await headers();const limit=await rateLimit(`trial:${h.get('x-forwarded-for')?.split(',')[0]??'unknown'}`,3,'60 m')
+  const data=schema.parse(input);const limit=await rateLimit(`trial:${await getClientIp()}`,3,'60 m')
   if(!limit.success)return {success:false,message:'generic_error'}
   const client=createAdminClient();const {data:result,error}=await client.rpc('submit_business_registration',{
    p_contact:{name:`${data.firstName} ${data.lastName}`,email:data.email,birth_date:data.birthDate?.split('.').reverse().join('-')??null,phone:data.phone??null,street:data.street??null,postal_code:data.zip??null,city:data.city??null},

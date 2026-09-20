@@ -123,65 +123,12 @@ export async function updateStudentAllowedLevels(userId: string, levels: string[
 export async function getAllStudentsProgressData() {
   try {
     await requireAdmin()
-    const supabase = createAdminClient()
+    const supabase = await createClient()
     
-    const [exercises, vocabCards, exerciseProgress, vocabProgress] = await Promise.all([
-      readAllRows((from, to) => supabase.from('learning_exercises').select('id,unit:learning_units!inner(level)').order('id').range(from, to)),
-      readAllRows((from, to) => supabase.from('learning_vocabulary_cards').select('id,unit:learning_units!inner(level)').order('id').range(from, to)),
-      readAllRows((from, to) => supabase.from('user_exercise_progress').select('auth_user_id,exercise_id').eq('completed', true).order('id').range(from, to)),
-      readAllRows((from, to) => supabase.from('vocabulary_direction_progress').select('auth_user_id,card_id,direction').eq('box_number', 7).order('id').range(from, to)),
-    ])
+    const { data, error } = await supabase.rpc('get_all_students_progress_data')
+    if (error) throw error
 
-    // Maps
-    const exerciseLevelMap = new Map((exercises || []).map(e => [e.id, e.unit.level]))
-    const vocabLevelMap = new Map((vocabCards || []).map(v => [v.id, v.unit.level]))
-
-    // Total per level
-    const totalPerLevel: Record<string, number> = {}
-    exercises?.forEach(e => { if (!e.unit.level) return; totalPerLevel[e.unit.level] = (totalPerLevel[e.unit.level] || 0) + 1 })
-    vocabCards?.forEach(v => { if (!v.unit.level) return; totalPerLevel[v.unit.level] = (totalPerLevel[v.unit.level] || 0) + 1 })
-
-    // Completed per user per level
-    const userCompletedPerLevel: Record<string, Record<string, number>> = {}
-    
-    exerciseProgress?.forEach(p => {
-      if (!p.auth_user_id || !p.exercise_id) return
-      const level = exerciseLevelMap.get(p.exercise_id)
-      if (level) {
-        if (!userCompletedPerLevel[p.auth_user_id]) userCompletedPerLevel[p.auth_user_id] = {}
-        userCompletedPerLevel[p.auth_user_id][level] = (userCompletedPerLevel[p.auth_user_id][level] || 0) + 1
-      }
-    })
-
-    const learnedDirections = new Map<string, Set<string>>()
-    for (const progress of vocabProgress ?? []) {
-      const key = `${progress.auth_user_id}:${progress.card_id}`
-      const directions = learnedDirections.get(key) ?? new Set<string>()
-      directions.add(progress.direction)
-      learnedDirections.set(key, directions)
-    }
-    vocabProgress?.filter(p => p.direction === 'de_to_native' && learnedDirections.get(`${p.auth_user_id}:${p.card_id}`)?.has('native_to_de')).forEach(p => {
-      const level = vocabLevelMap.get(p.card_id)
-      if (level) {
-        if (!userCompletedPerLevel[p.auth_user_id]) userCompletedPerLevel[p.auth_user_id] = {}
-        userCompletedPerLevel[p.auth_user_id][level] = (userCompletedPerLevel[p.auth_user_id][level] || 0) + 1
-      }
-    })
-
-    // Compute percentages
-    const result: Record<string, Record<string, number>> = {}
-    Object.keys(userCompletedPerLevel).forEach(userId => {
-      result[userId] = {}
-      Object.keys(totalPerLevel).forEach(level => {
-        const total = totalPerLevel[level] || 0
-        if (total > 0) {
-          const completed = userCompletedPerLevel[userId][level] || 0
-          result[userId][level] = Math.round((completed / total) * 100)
-        }
-      })
-    })
-
-    return result
+    return data as Record<string, Record<string, number>>
   } catch (error) {
     console.error('Error fetching progress data for all students', error)
     return {}

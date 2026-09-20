@@ -10,7 +10,7 @@ from pathlib import Path
 DB='supabase-db-eknmzxvqilojjicinatnllbt'
 STORAGE='supabase-storage-eknmzxvqilojjicinatnllbt'
 BASE=Path('/var/www/sitov-academy')
-ORDER=['02_identity_alignment.sql','03_registration_identity.sql','01_critical_fixes.sql','04_normalization.sql','05_rpc_errors.sql','06_soft_errors.sql','07_content_quality.sql']
+ORDER=['02_identity_alignment.sql','03_registration_identity.sql','01_critical_fixes.sql','04_normalization.sql','05_rpc_errors.sql','06_soft_errors.sql','07_content_quality.sql','08_performance_indexes.sql','09_progress_aggregate.sql']
 
 def run(args,**kwargs):
     return subprocess.run(args,check=True,capture_output=True,**kwargs).stdout
@@ -91,7 +91,13 @@ def main():
                     run(['systemctl','stop',service])
         target=backup()
         if args.apply:
-            command="BEGIN;\nSET LOCAL lock_timeout='10s';\nSET LOCAL statement_timeout='180s';\n"+'\n'.join(sources)+"\nNOTIFY pgrst, 'reload schema';\nCOMMIT;\n"
+            command=""
+            for name,source in zip(args.apply,sources):
+                if "CONCURRENTLY" in source.upper():
+                    command+=source+"\n"
+                else:
+                    command+="BEGIN;\nSET LOCAL lock_timeout='10s';\nSET LOCAL statement_timeout='180s';\n"+source+"\nCOMMIT;\n"
+            command+="NOTIFY pgrst, 'reload schema';\n"
             # A lost connection or a local logging failure can follow a successful
             # COMMIT. From this point onward only a verified matching release may
             # restart production; a client error does not prove a rollback.
