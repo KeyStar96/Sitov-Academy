@@ -1674,6 +1674,7 @@ export type Database = {
         | "new_enrollment"
         | "feedback_available"
         | "raw"
+        | "course_exception_added"
       mail_status: "pending" | "processing" | "sent" | "failed"
       media_format: "mp4" | "webm" | "pdf" | "pptx" | "key"
       onboarding_status: "skipped" | "completed"
@@ -1830,6 +1831,7 @@ export const Constants = {
         "new_enrollment",
         "feedback_available",
         "raw",
+        "course_exception_added",
       ],
       mail_status: ["pending", "processing", "sent", "failed"],
       media_format: ["mp4", "webm", "pdf", "pptx", "key"],

@@ -256,7 +256,8 @@ CREATE TYPE public.mail_kind AS ENUM (
     'trial_cancelled',
     'new_enrollment',
     'feedback_available',
-    'raw'
+    'raw',
+    'course_exception_added'
 );
 
 
@@ -359,6 +360,46 @@ CREATE TYPE public.vocabulary_direction AS ENUM (
 
 
 --
+-- Name: booking_exception_rows(uuid); Type: FUNCTION; Schema: business_private; Owner: -
+--
+
+CREATE FUNCTION business_private.booking_exception_rows(p_booking uuid) RETURNS TABLE(course_id uuid, title text, date date, reason text)
+    LANGUAGE sql STABLE
+    SET search_path TO ''
+    AS $$
+ SELECT DISTINCT i.course_id,i.title_snapshot,e.date,e.reason
+ FROM public.bookings b JOIN public.booking_items i ON i.booking_id=b.id
+ JOIN public.courses c ON c.id=i.course_id
+ JOIN public.course_exceptions e ON e.course_id IS NULL OR e.course_id=c.id
+ WHERE b.id=p_booking AND e.date>=b.start_date
+ AND e.date<(b.target_month+interval '1 month')::date
+ AND (b.kind<>'trial' OR e.date=b.start_date)
+ AND (c.start_date IS NULL OR e.date>=c.start_date)
+ AND (c.end_date IS NULL OR e.date<=c.end_date)
+ AND EXISTS(SELECT 1 FROM public.course_schedules s WHERE s.course_id=c.id AND s.weekday=extract(isodow FROM e.date))
+$$;
+
+
+--
+-- Name: booking_mail_exceptions(uuid); Type: FUNCTION; Schema: business_private; Owner: -
+--
+
+CREATE FUNCTION business_private.booking_mail_exceptions(p_booking uuid) RETURNS jsonb
+    LANGUAGE plpgsql SECURITY DEFINER
+    SET search_path TO ''
+    AS $$
+DECLARE result jsonb;
+BEGIN
+ SELECT coalesce(jsonb_agg(jsonb_build_object('courseId',course_id,'title',title,'date',date,'reason',reason) ORDER BY date,course_id,reason),'[]'::jsonb)
+ INTO result FROM business_private.booking_exception_rows(p_booking);
+ INSERT INTO private.mail_exception_deliveries(booking_id,course_id,date)
+ SELECT p_booking,course_id,date FROM business_private.booking_exception_rows(p_booking)
+ ON CONFLICT DO NOTHING;
+ RETURN result;
+END $$;
+
+
+--
 -- Name: claim_person(); Type: FUNCTION; Schema: business_private; Owner: -
 --
 
@@ -428,8 +469,8 @@ begin
  update public.bookings set status='confirmed',confirmed_at=now(),confirmed_by=auth.uid(),updated_at=now(),revision=revision+1 where id=b.id;
  if b.kind<>'trial' then insert into public.invoice_cases(person_id,target_month,booking_id) values(b.person_id,b.target_month,b.id) on conflict(person_id,target_month) do nothing;end if;
  select * into strict p from public.people where id=b.person_id;
- perform platform_private.require_rpc_success(public.queue_transactional_email('confirmed:'||b.id,case when b.kind='trial' then 'trial_confirmed' else 'registration_confirmed' end,b.contact_email,p.preferred_locale,
- jsonb_build_object('name',b.contact_name,'startDate',b.start_date,'courses',(select jsonb_agg(jsonb_build_object('title',title_snapshot,'units',units,'unitPrice',unit_price,'unitMinutes',unit_minutes,'price',amount)) from public.booking_items where booking_id=b.id))));
+ perform platform_private.require_rpc_success(public.queue_transactional_email('confirmed:'||b.id,case when b.kind='trial' then 'trial_confirmed' else 'registration_confirmed' end,b.contact_email,coalesce((SELECT locale FROM private.mail_outbox WHERE dedupe_key='registration:'||b.id),p.preferred_locale),
+ jsonb_build_object('name',b.contact_name,'startDate',b.start_date,'exceptions',business_private.booking_mail_exceptions(b.id),'courses',(select jsonb_agg(jsonb_build_object('title',title_snapshot,'units',units,'unitPrice',unit_price,'unitMinutes',unit_minutes,'price',amount)) from public.booking_items where booking_id=b.id))));
 end $$;
 
 
@@ -560,6 +601,45 @@ begin
  update public.invoice_cases set status=(case when p_created then 'created' else 'outstanding' end)::public.invoice_status,invoice_reference=nullif(btrim(p_reference),''),
  invoice_created_at=case when p_created then coalesce(invoice_created_at,now()) else null end,created_by=auth.uid(),updated_at=now() where person_id=b.person_id and target_month=p_month;
 end $$;
+
+
+--
+-- Name: notify_course_exception(); Type: FUNCTION; Schema: business_private; Owner: -
+--
+
+CREATE FUNCTION business_private.notify_course_exception() RETURNS trigger
+    LANGUAGE plpgsql SECURITY DEFINER
+    SET search_path TO ''
+    AS $$
+DECLARE b record; e record; inserted integer;
+BEGIN
+ -- Ignore irrelevant or stale events; enqueue atomically inside the RPC boundary.
+ IF NOT EXISTS(SELECT 1 FROM public.course_exceptions WHERE id=NEW.id AND date=NEW.date AND course_id IS NOT DISTINCT FROM NEW.course_id) THEN RETURN NULL; END IF;
+ IF NEW.date<(now() AT TIME ZONE 'Europe/Berlin')::date THEN RETURN NULL; END IF;
+ FOR b IN SELECT x.id,x.contact_name,x.contact_email,
+  coalesce((SELECT m.locale FROM private.mail_outbox m WHERE m.dedupe_key='registration:'||x.id),p.preferred_locale) preferred_locale
+  FROM public.bookings x JOIN public.people p ON p.id=x.person_id
+  WHERE x.status IN ('pending','confirmed') AND x.start_date<=NEW.date
+   AND NEW.date<(x.target_month+interval '1 month')::date
+ LOOP
+  FOR e IN SELECT r.course_id,r.title,r.date,string_agg(DISTINCT r.reason,'; ' ORDER BY r.reason) reason
+   FROM business_private.booking_exception_rows(b.id) r
+   WHERE r.date=NEW.date AND (NEW.course_id IS NULL OR r.course_id=NEW.course_id)
+   GROUP BY r.course_id,r.title,r.date
+  LOOP
+   INSERT INTO private.mail_exception_deliveries VALUES(b.id,e.course_id,e.date) ON CONFLICT DO NOTHING;
+   GET DIAGNOSTICS inserted=ROW_COUNT;
+   IF inserted=1 THEN
+    PERFORM platform_private.require_rpc_success(public.queue_transactional_email(
+     'course-exception:'||b.id||':'||e.course_id||':'||e.date,
+     'course_exception_added',b.contact_email,b.preferred_locale,
+     jsonb_build_object('name',b.contact_name,'exceptions',jsonb_build_array(jsonb_build_object(
+      'courseId',e.course_id,'title',e.title,'date',e.date,'reason',e.reason)))));
+   END IF;
+  END LOOP;
+ END LOOP;
+ RETURN NULL;
+END $$;
 
 
 --
@@ -3682,7 +3762,7 @@ begin
  insert into public.bookings(person_id,target_month,start_date,kind,contact_name,contact_email,contact_birth_date,contact_phone,contact_street,contact_postal_code,contact_city,privacy_accepted,agb_accepted,revocation_accepted,recording_accepted)
  values(v_person,date_trunc('month',p_start)::date,p_start,(case when p_trial then 'trial' else 'registration' end)::public.booking_kind,v_name,v_email,(p_contact->>'birth_date')::date,p_contact->>'phone',p_contact->>'street',p_contact->>'postal_code',p_contact->>'city',true,true,coalesce((p_consents->>'revocation')::boolean,false),(p_consents->>'recording')::boolean) returning id into v_booking;
  perform business_private.replace_items(v_booking,p_course_selections);
- perform platform_private.require_rpc_success(public.queue_transactional_email('registration:'||v_booking,'registration_received',v_email,p_locale,jsonb_build_object('name',v_name,'startDate',p_start,'courses',(select jsonb_agg(jsonb_build_object('title',title_snapshot,'units',units,'unitPrice',unit_price,'unitMinutes',unit_minutes,'price',amount)) from public.booking_items where booking_id=v_booking))));
+ perform platform_private.require_rpc_success(public.queue_transactional_email('registration:'||v_booking,'registration_received',v_email,p_locale,jsonb_build_object('name',v_name,'startDate',p_start,'exceptions',business_private.booking_mail_exceptions(v_booking),'courses',(select jsonb_agg(jsonb_build_object('title',title_snapshot,'units',units,'unitPrice',unit_price,'unitMinutes',unit_minutes,'price',amount)) from public.booking_items where booking_id=v_booking))));
  perform platform_private.require_rpc_success(public.queue_transactional_email('staff-registration:'||v_booking,'new_enrollment','info@sitov-academy.com','de',jsonb_build_object('name',v_name,'path','/de/admin/registrations')));
  RETURN to_jsonb(v_booking);
 end;
@@ -4121,6 +4201,17 @@ CREATE TABLE platform_private.rate_limits (
     expires_at timestamp with time zone NOT NULL,
     CONSTRAINT rate_limits_count_check CHECK ((count > 0)),
     CONSTRAINT rate_limits_key_hash_check CHECK ((length(key_hash) = 64))
+);
+
+
+--
+-- Name: mail_exception_deliveries; Type: TABLE; Schema: private; Owner: -
+--
+
+CREATE TABLE private.mail_exception_deliveries (
+    booking_id uuid NOT NULL,
+    course_id uuid NOT NULL,
+    date date NOT NULL
 );
 
 
@@ -4805,6 +4896,14 @@ ALTER TABLE ONLY learning_reset_private.jobs
 
 ALTER TABLE ONLY platform_private.rate_limits
     ADD CONSTRAINT rate_limits_pkey PRIMARY KEY (key_hash);
+
+
+--
+-- Name: mail_exception_deliveries mail_exception_deliveries_pkey; Type: CONSTRAINT; Schema: private; Owner: -
+--
+
+ALTER TABLE ONLY private.mail_exception_deliveries
+    ADD CONSTRAINT mail_exception_deliveries_pkey PRIMARY KEY (booking_id, course_id, date);
 
 
 --
@@ -5554,6 +5653,13 @@ CREATE INDEX answer_receipts_ui_language_idx ON vocabulary_private.answer_receip
 
 
 --
+-- Name: course_exceptions course_exception_mail; Type: TRIGGER; Schema: public; Owner: -
+--
+
+CREATE TRIGGER course_exception_mail AFTER INSERT OR UPDATE ON public.course_exceptions FOR EACH ROW EXECUTE FUNCTION business_private.notify_course_exception();
+
+
+--
 -- Name: learning_exercises guard_exercise_quality; Type: TRIGGER; Schema: public; Owner: -
 --
 
@@ -5822,6 +5928,22 @@ ALTER TABLE ONLY learning_reset_private.audio_objects
 
 ALTER TABLE ONLY learning_reset_private.audio_objects
     ADD CONSTRAINT audio_objects_user_id_fkey FOREIGN KEY (auth_user_id) REFERENCES learning_reset_private.jobs(auth_user_id) ON DELETE CASCADE;
+
+
+--
+-- Name: mail_exception_deliveries mail_exception_deliveries_booking_id_fkey; Type: FK CONSTRAINT; Schema: private; Owner: -
+--
+
+ALTER TABLE ONLY private.mail_exception_deliveries
+    ADD CONSTRAINT mail_exception_deliveries_booking_id_fkey FOREIGN KEY (booking_id) REFERENCES public.bookings(id) ON DELETE CASCADE;
+
+
+--
+-- Name: mail_exception_deliveries mail_exception_deliveries_course_id_fkey; Type: FK CONSTRAINT; Schema: private; Owner: -
+--
+
+ALTER TABLE ONLY private.mail_exception_deliveries
+    ADD CONSTRAINT mail_exception_deliveries_course_id_fkey FOREIGN KEY (course_id) REFERENCES public.courses(id) ON DELETE CASCADE;
 
 
 --
@@ -6335,6 +6457,12 @@ ALTER TABLE learning_reset_private.jobs ENABLE ROW LEVEL SECURITY;
 --
 
 ALTER TABLE platform_private.rate_limits ENABLE ROW LEVEL SECURITY;
+
+--
+-- Name: mail_exception_deliveries; Type: ROW SECURITY; Schema: private; Owner: -
+--
+
+ALTER TABLE private.mail_exception_deliveries ENABLE ROW LEVEL SECURITY;
 
 --
 -- Name: mail_outbox; Type: ROW SECURITY; Schema: private; Owner: -
@@ -7049,6 +7177,21 @@ GRANT USAGE ON SCHEMA vocabulary_private TO service_role;
 
 
 --
+-- Name: FUNCTION booking_exception_rows(p_booking uuid); Type: ACL; Schema: business_private; Owner: -
+--
+
+REVOKE ALL ON FUNCTION business_private.booking_exception_rows(p_booking uuid) FROM PUBLIC;
+
+
+--
+-- Name: FUNCTION booking_mail_exceptions(p_booking uuid); Type: ACL; Schema: business_private; Owner: -
+--
+
+REVOKE ALL ON FUNCTION business_private.booking_mail_exceptions(p_booking uuid) FROM PUBLIC;
+GRANT ALL ON FUNCTION business_private.booking_mail_exceptions(p_booking uuid) TO service_role;
+
+
+--
 -- Name: FUNCTION claim_person(); Type: ACL; Schema: business_private; Owner: -
 --
 
@@ -7113,6 +7256,13 @@ GRANT ALL ON FUNCTION business_private.list_registration_identity_conflicts() TO
 REVOKE ALL ON FUNCTION business_private.mark_invoice(p_booking uuid, p_month date, p_created boolean, p_reference text) FROM PUBLIC;
 GRANT ALL ON FUNCTION business_private.mark_invoice(p_booking uuid, p_month date, p_created boolean, p_reference text) TO authenticated;
 GRANT ALL ON FUNCTION business_private.mark_invoice(p_booking uuid, p_month date, p_created boolean, p_reference text) TO service_role;
+
+
+--
+-- Name: FUNCTION notify_course_exception(); Type: ACL; Schema: business_private; Owner: -
+--
+
+REVOKE ALL ON FUNCTION business_private.notify_course_exception() FROM PUBLIC;
 
 
 --

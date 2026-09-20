@@ -410,13 +410,15 @@ Befund: `e2e/accessibility.spec.ts` enthält einen expliziten Whitelist-Block, d
 
 ### PHASE 6 — E-MAIL MIT AUSFALLTAGEN & MONITORING
 
-#### 6.1 Ausfalltermine in Bestätigungsmails
-Befund: `lib/mail/templates.mjs` enthält kein Wort zu Ausfällen.
+Stand 20.09.2026: **6.1 produktiv umgesetzt und automatisiert geprüft. 6.2 auf ausdrücklichen Nutzerwunsch gestrichen.** Bericht: [docs/phase-6-verification.md](docs/phase-6-verification.md). Aktiver Mail-/App-Release `b7597c37b742`; keine neuen Monitoring-Dienste oder Ressourcenänderungen.
 
-* [ ] In `schema.sql:1486` und `:152` das Payload-JSONB um `exceptions` aus `public.course_exceptions` erweitern.
-* [ ] `lib/mail/templates.mjs`: Abschnitt „Feststehende Ausfalltermine" in allen fünf Locales integrieren. Leere Liste ⇒ Abschnitt wird ausgelassen.
-* [ ] Staff-Mail prüfen, nicht neu bauen.
-* [ ] Dedupe-Key `registration:<booking_id>` beibehalten. Bei nachträglich eingetragenem Ausfall keine erneute Bestätigungsmail, sondern eine eigene Benachrichtigung.
+#### 6.1 Ausfalltermine in Bestätigungsmails
+Ausgangsbefund: `lib/mail/templates.mjs` enthielt keinen Ausfallabschnitt.
+
+* [x] Payloads in `public.submit_business_registration` und `business_private.confirm_booking` um `exceptions` aus `public.course_exceptions` erweitert (Migrationen 13/14; alte Zeilenangaben überholt).
+* [x] `lib/mail/templates.mjs`: Abschnitt „Feststehende Ausfalltermine" in allen fünf Locales integrieren. Leere Liste ⇒ Abschnitt wird ausgelassen.
+* [x] Staff-Mail prüfen, nicht neu bauen.
+* [x] Dedupe-Key `registration:<booking_id>` beibehalten. Bei nachträglich eingetragenem Ausfall keine erneute Bestätigungsmail, sondern eine eigene Benachrichtigung.
 
 #### 6.2 Entkoppeltes Status-Monitoring
 * [N/A — auf ausdrücklichen Nutzerwunsch vom 20.09.2026 gestrichen] Eigener Docker-Container (max. 128 MB) für Status-Monitoring (z.B. Uptime-Kuma), nicht im Next.js-Prozess.
@@ -473,7 +475,7 @@ Befund: `playwright.config.ts` läuft über Dev-Build, hat kein Mobile-Projekt u
 * [ ] **Phase 3:** `accepted_answers`-Alternative ⇒ `completed = true` in DB · Tippfehler, fehlender Punkt und Kleinschreibung ⇒ `SOFT_ERROR` mit korrektem `reason` · Warntext auf Russisch bei ru-Interface · `der` → `den` wird nicht als Tippfehler toleriert.
 * [x] **Phase 4 — mit ausdrücklich freigegebener verkürzter Laufzeit:** Gefälschter `X-Forwarded-For` ändert Rate-Limit-Key nicht · Vokabel-Session TTFB p95 495,7 ms · 3292 Anfragen ohne Fehler, OOM oder zusätzliche Neustarts. Lasttest auf Nutzerwunsch nach 13 min 44 s statt 30 min beendet; Phase 4 abgenommen. Nachweis: [docs/phase-4-verification.md](docs/phase-4-verification.md).
 * [ ] **Phase 5:** axe-core ohne jeden Filter, 0 color-contrast-Verstöße auf den relevanten Routen · Aufnahmebutton nach Scroll zum Textende `toBeInViewport()` auf Mobile.
-* [ ] **Phase 6:** Registrierung für Kurs mit Ausfall ⇒ Payload enthält Datum und Template zeigt es in allen fünf Locales.
+* [x] **Phase 6:** Registrierung für Kurs mit Ausfall ⇒ Payload enthält Datum und Template zeigt es in allen fünf Locales; eigene spätere Benachrichtigungen, Dedupe und Sprachbeibehaltung geprüft. Monitoring auf Nutzerwunsch gestrichen.
 * [ ] **Phase 7:** `sitemap.xml` valide inkl. `x-default` · `robots.txt` erreichbar · JSON-LD Schema.org-valide · OG-Image liefert HTTP 200 · ohne Consent kein Request an Meta.
 * [ ] **Phase 8:** `npm test`, `npm run test:e2e` und alle `supabase/tests/*.test.mjs` grün.
 
