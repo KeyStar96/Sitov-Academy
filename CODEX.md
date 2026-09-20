@@ -128,6 +128,8 @@ Gemäß Nutzerentscheidung bis Phase 3 zurückgestellt: `grammar-curriculum.test
 
 ### PHASE 2 — DATENBANK, MEDIEN & IDENTITÄT
 
+Stand 20.09.2026: Phase 2.0–2.6 produktiv umgesetzt und automatisiert abgenommen. Vollständiger Bericht: [docs/phase-2-verification.md](docs/phase-2-verification.md).
+
 #### 2.0 Identitätsmodell — ENTSCHEIDUNG GETROFFEN: OPTION A
 Befund: Es existieren zwei getrennte Identitäten: `public.people` (`people.id` referenziert als `person_id` in `bookings`, `invoice_cases` für die Geschäftsidentität) und `public.profiles` (`profiles.id` = `auth.users.id` referenziert als `user_id` in allen Lerntabellen für die Lern-/Auth-Identität). Ein pauschales `user_id` → `person_id` würde Spalten, die auf `auth.uid()` zeigen, wie Fremdschlüssel auf `people.id` aussehen lassen. Das ist verboten.
 
@@ -151,31 +153,31 @@ Betroffene Spalten (11 umzubenennende Spalten; zusätzlich die bereits korrekte 
 * `public.people.auth_user_id` heißt bereits korrekt — nicht anfassen.
 
 Vorgehen:
-* [ ] ADR anlegen: `docs/adr/001-identity-model.md` mit dieser Festlegung und der Begründung.
-* [ ] Backup nach R8.
-* [ ] Migration `supabase/vps/02_identity_alignment.sql` selbstständig erstellen und ausführen (strikt idempotent mittels `ALTER TABLE ... RENAME COLUMN` für alle betroffenen Spalten).
-* [ ] ⚠️ ACHTUNG: `ALTER TABLE … RENAME COLUMN` erfordert manuelle Nacharbeiten. Zwar werden RLS-Ausdrücke und View-Regeln als geparste Bäume gespeichert, aber PL/pgSQL-Funktionskörper und dynamisches SQL sind reiner Text. Nach der Migration müssen ALLE Objekte, die `user_id` in den betroffenen Schemata referenzieren, identifiziert und auf `auth_user_id` korrigiert werden. Messbares Ziel: Kein RLS-Policy-Body, kein View und keine Funktion auf den betroffenen Tabellen referenziert nach Abschluss noch `user_id`.
-* [ ] App-Code: tatsächliche Spaltenzugriffe in `app/`, `lib/`, `components/` anpassen; RPC-Parameter nicht pauschal ersetzen. Verifizierte Schwerpunkte: `app/actions/admin.ts`, `lib/vocabulary-queries.ts`, `lib/profile-dashboard-server.ts`, `lib/reset-user-progress.ts`.
-* [ ] RPC-Parameter (`p_user_id`, `p_student_id`) bleiben unverändert — sie sind Teil der öffentlichen API und nicht mehrdeutig.
-* [ ] `supabase/database.types.ts` neu generieren, `supabase/schema.sql` neu dumpen.
-* [ ] Alle `supabase/tests/*.test.mjs` und `__tests__/*` anpassen und grün bekommen.
+* [x] ADR anlegen: `docs/adr/001-identity-model.md` mit dieser Festlegung und der Begründung.
+* [x] Backup nach R8.
+* [x] Migration `supabase/vps/02_identity_alignment.sql` selbstständig erstellen und ausführen (strikt idempotent mittels `ALTER TABLE ... RENAME COLUMN` für alle betroffenen Spalten).
+* [x] ⚠️ ACHTUNG: `ALTER TABLE … RENAME COLUMN` erfordert manuelle Nacharbeiten. Zwar werden RLS-Ausdrücke und View-Regeln als geparste Bäume gespeichert, aber PL/pgSQL-Funktionskörper und dynamisches SQL sind reiner Text. Nach der Migration müssen ALLE Objekte, die `user_id` in den betroffenen Schemata referenzieren, identifiziert und auf `auth_user_id` korrigiert werden. Messbares Ziel: Kein RLS-Policy-Body, kein View und keine Funktion auf den betroffenen Tabellen referenziert nach Abschluss noch `user_id`.
+* [x] App-Code: tatsächliche Spaltenzugriffe in `app/`, `lib/`, `components/` anpassen; RPC-Parameter nicht pauschal ersetzen. Verifizierte Schwerpunkte: `app/actions/admin.ts`, `lib/vocabulary-queries.ts`, `lib/profile-dashboard-server.ts`, `lib/reset-user-progress.ts`.
+* [x] RPC-Parameter (`p_user_id`, `p_student_id`) bleiben unverändert — sie sind Teil der öffentlichen API und nicht mehrdeutig.
+* [x] `supabase/database.types.ts` neu generieren, `supabase/schema.sql` neu dumpen.
+* [x] Alle `supabase/tests/*.test.mjs` und `__tests__/*` anpassen und grün bekommen.
 
 #### 2.1 Kombinierte Registrierung — gezielte Lückenschließung, kein Neubau
 Befund: Zu ~90 % vorhanden: `business_private.provision_profile()` legt `profiles` und `people` gemeinsam an. `business_private.claim_person()` verschmilzt eine anonyme Kursanmeldung mit dem verifizierten Account.
 ⛔ Sicherheitsbremse bleibt erhalten: Automatische Zuordnung nur bei genau einem unbeanspruchten `people`-Kandidaten und exakt übereinstimmender, verifizierter E-Mail. Die frische, bereits dem Konto zugeordnete Person darf keine Buchungen oder Rechnungsfälle besitzen. Der anonyme Kandidat darf Buchungen besitzen — genau diese werden sichtbar. Bei Mehrdeutigkeit bleibt `unresolved: true`; bestehende Geschäftshistorien werden nicht zusammengeführt. Eine bereits bestätigte Zuordnung bleibt dauerhaft bestehen.
 
-* [ ] Admin-UI für den unresolved-Fall (z. B. Familien mit geteilter E-Mail): Liste aller `people` mit `auth_user_id IS NULL` und kollidierender E-Mail, manuelle Zuordnung durch Staff in der bereits vorhandenen Route `app/[lang]/admin/registrations/` mit neuem Konfliktbereich.
-* [ ] In `components/registration/EnrollmentTerminal.tsx` einen optionalen Schritt „Konto anlegen" ergänzen, der denselben Supabase-Signup auslöst — damit greifen `provision_profile` + `claim_person` automatisch.
-* [ ] E2E-Beleg: Kursanmeldung ohne Konto → späterer Signup mit gleicher Mail → Buchung erscheint im Dashboard.
+* [x] Admin-UI für den unresolved-Fall (z. B. Familien mit geteilter E-Mail): Liste aller `people` mit `auth_user_id IS NULL` und kollidierender E-Mail, manuelle Zuordnung durch Staff in der bereits vorhandenen Route `app/[lang]/admin/registrations/` mit neuem Konfliktbereich.
+* [x] In `components/registration/EnrollmentTerminal.tsx` einen optionalen Schritt „Konto anlegen" ergänzen, der denselben Supabase-Signup auslöst — damit greifen `provision_profile` + `claim_person` automatisch.
+* [x] E2E-Beleg: Kursanmeldung ohne Konto → späterer Signup mit gleicher Mail → Buchung erscheint im Dashboard.
 
 #### 2.2 Medien- & Lektionsstruktur — Breaking Change erforderlich
 Befund: `public.learning_videos` trägt `CONSTRAINT learning_videos_unit_id_key UNIQUE (unit_id)` ⇒ strukturell ein Video pro Lektion. Keine `title`-Spalte. `source_url` per CHECK auf `^https?://` ⇒ das Modell zielt auf externe YouTube-Links (`lib/video-links.ts`), nicht auf Uploads.
 
-* [ ] Migration `supabase/vps/01_critical_fixes.sql` selbstständig erstellen und ausführen, um den UNIQUE-Constraint aufzuheben und die erforderlichen Tabellen/Strukturen anzulegen.
-* [ ] Namenskonvention für die neuen Tabellen strikt: `folder_id`, `asset_id`, `course_id` — niemals nur `id`.
-* [ ] Storage-Bucket `course-assets`, privat. Pfadschema: `/{level}/{folder_id}/videos/{video_id}.{ext}` · `/{level}/{folder_id}/presentations/{asset_id}.{ext}`
-* [ ] `supabase/database.types.ts` um `lms_media_folder`, `lms_presentation_asset` und die neuen `learning_videos`-Spalten erweitern.
-* [ ] Messbare Akzeptanzkriterien für die neuen Tabellen:
+* [x] Migration `supabase/vps/01_critical_fixes.sql` selbstständig erstellen und ausführen, um den UNIQUE-Constraint aufzuheben und die erforderlichen Tabellen/Strukturen anzulegen.
+* [x] Namenskonvention für die neuen Tabellen strikt: `folder_id`, `asset_id`, `course_id` — niemals nur `id`.
+* [x] Storage-Bucket `course-assets`, privat. Pfadschema: `/{level}/{folder_id}/videos/{video_id}.{ext}` · `/{level}/{folder_id}/presentations/{asset_id}.{ext}`
+* [x] `supabase/database.types.ts` um `lms_media_folder`, `lms_presentation_asset` und die neuen `learning_videos`-Spalten erweitern.
+* [x] Messbare Akzeptanzkriterien für die neuen Tabellen:
   - `lms_media_folder` muss mindestens enthalten: Primärschlüssel, FK auf Level, FK auf Kurs (nullable), Titel mit Längen-Constraint, Sortierung, Timestamps. UNIQUE über (level, title).
   - `lms_presentation_asset` muss mindestens enthalten: Primärschlüssel, FK auf Ordner mit `ON DELETE CASCADE`, Dateiname, Storage-Pfad, MIME-Type, Dateigröße, Sortierung, Timestamp.
   - `learning_videos` erweitert um: FK auf Ordner (nullable für Altdaten), Titel, Storage-Pfad (für Uploads), Dateigröße. `UNIQUE(unit_id)` entfernt.
@@ -183,17 +185,17 @@ Befund: `public.learning_videos` trägt `CONSTRAINT learning_videos_unit_id_key 
   - Alle `updated_at`-Spalten haben einen automatischen Trigger.
 
 #### 2.3 Upload-Pfad tatsächlich befahrbar machen
-* [ ] `deploy/vps/nginx.conf`: `client_max_body_size 32m` → `512m` nur in der Location `/supabase/`. Die App-Location `/` bleibt bei `32m`.
-* [ ] In derselben Location `proxy_request_buffering off;` setzen.
-* [ ] `nginx -t` vor `systemctl reload nginx`.
-* [ ] Speicher-Governance auf 240 GB: belegter Platz im Lehrer-Dashboard anzeigen, harte Obergrenze pro Level (20 GB), Alarm ab 80 % Gesamtbelegung.
+* [x] `deploy/vps/nginx.conf`: `client_max_body_size 32m` → `512m` nur in der Location `/supabase/`. Die App-Location `/` bleibt bei `32m`.
+* [x] In derselben Location `proxy_request_buffering off;` setzen.
+* [x] `nginx -t` vor `systemctl reload nginx`.
+* [x] Speicher-Governance auf 240 GB: belegter Platz im Lehrer-Dashboard anzeigen, harte Obergrenze pro Level (20 GB), Alarm ab 80 % Gesamtbelegung.
 
 #### 2.4 RLS & Schreibrechte für Medien und Kursausfälle
 Befund-Korrektur: `public.course_exceptions` hat kein Schreibloch. Es existiert nur `exception_read` (`SELECT`, anon + authenticated); die GRANTs umfassen ausschließlich `SELECT`. Geschrieben wird heute nur über `business_private.save_course`. Es fehlt also eine Schreibfähigkeit, kein Fix.
 
-* [ ] Neue SECURITY-DEFINER-RPCs `public.save_course_exception(p_course_id uuid, p_date date, p_reason text)` und `public.delete_course_exception(p_id uuid)` anlegen, Implementierung in `business_private`, Guard über `business_private.is_staff()`. Kein direkter `INSERT`-GRANT auf die Tabelle.
-* [ ] RLS für `lms_media_folder`, `learning_videos`, `lms_presentation_asset` umsetzen: `SELECT` über Level-Freigabe (`student_level_access` bzw. `learning_private.unit_allowed(...)`) und `INSERT`/`UPDATE`/`DELETE` ausschließlich für `identity_private.current_profile_role() IN ('teacher','admin')`.
-* [ ] Storage-Policies auf `storage.objects` für Bucket `course-assets` analog aufbauen.
+* [x] Neue SECURITY-DEFINER-RPCs `public.save_course_exception(p_course_id uuid, p_date date, p_reason text)` und `public.delete_course_exception(p_id uuid)` anlegen, Implementierung in `business_private`, Guard über `business_private.is_staff()`. Kein direkter `INSERT`-GRANT auf die Tabelle.
+* [x] RLS für `lms_media_folder`, `learning_videos`, `lms_presentation_asset` umsetzen: `SELECT` über Level-Freigabe (`student_level_access` bzw. `learning_private.unit_allowed(...)`) und `INSERT`/`UPDATE`/`DELETE` ausschließlich für `identity_private.current_profile_role() IN ('teacher','admin')`.
+* [x] Storage-Policies auf `storage.objects` für Bucket `course-assets` analog aufbauen.
 
 #### 2.5 [N/A]-Liste — bereits erledigt, nicht anfassen
 * `import 'server-only'` in `utils/supabase/admin.ts` ergänzen: steht bereits in Zeile 2.
@@ -205,13 +207,32 @@ Befund-Korrektur: `public.course_exceptions` hat kein Schreibloch. Es existiert 
 
 Abwärtskompatibilität zur bestehenden Datenbankstruktur ist NICHT erforderlich. Zielnormalform: **3. Normalform (3NF)**. Intentionale Snapshots (`bookings.contact_*`, `booking_items.title_snapshot`) werden NICHT normalisiert — das sind historische Audit-Daten und bleiben bewusst denormalisiert.
 
-* [ ] **Transitive Abhängigkeiten eliminieren:** `submissions.prompt_title` entfernen (Titel ist über `prompt_id` per JOIN erreichbar; bei gelöschten Prompts nehmen wir den Verlust des alten Titels bewusst in Kauf). `cancellation_requests.course_name` durch FK-Referenz auf `courses` ersetzen. Bestehende Zeilen migrieren. App-Code anpassen.
-* [ ] **Fehlende Fremdschlüssel nachrüsten:** `courses.level` muss einen FK auf `learning_levels.code` erhalten. Für `learning_unit_grants.level` den direkten FK nachrüsten (statt nur Composite). (Hinweis: Die anderen level-Spalten sowie `cefr_level` haben den FK bereits).
-* [ ] **Locale-Referenzen bereinigen:** `vocabulary_translations.locale`, `course_translations.locale` und `grammar_translations.locale` haben den FK auf `locales.code` bereits. Entferne stattdessen die dort redundanten CHECK-Constraints.
-* [ ] **Enum-Types einführen (R11):** Wiederkehrende Wertemengen aus CHECK-Constraints in Enum-Types überführen. Betrifft mindestens: Booking-Status, Booking-Kind, Trainer-Codes, Profil-Rollen, Submission-Typen, Kurs-Kategorien, Kurs-Typen, Submission-Status.
-* [ ] **`updated_at`-Trigger:** Alle Tabellen mit `updated_at`-Spalte erhalten einen generischen Trigger, der `updated_at = now()` bei jedem `UPDATE` setzt. Betrifft mindestens: `bookings`, `people`, `profiles`, `user_exercise_progress`, `vocabulary_direction_progress`, `invoice_cases` und alle neuen Tabellen aus 2.2.
-* [ ] **JSONB-Schema-Constraint:** `learning_exercises.content` erhält einen Constraint, der das Feld `accepted_answers` erzwingt. Kein `alternative_answers` nach Abschluss von Phase 3.1.
-* [ ] Messbares Gesamtziel: Nach Abschluss darf keine `text`-Spalte mit Wertemenge ohne FK oder Enum-Constraint existieren. Prüfung über `information_schema`.
+* [x] **Transitive Abhängigkeiten eliminieren:** `submissions.prompt_title` entfernen (Titel ist über `prompt_id` per JOIN erreichbar; bei gelöschten Prompts nehmen wir den Verlust des alten Titels bewusst in Kauf). `cancellation_requests.course_name` durch FK-Referenz auf `courses` ersetzen. Bestehende Zeilen migrieren. App-Code anpassen.
+* [x] **Fehlende Fremdschlüssel nachrüsten:** `courses.level` muss einen FK auf `learning_levels.code` erhalten. Für `learning_unit_grants.level` den direkten FK nachrüsten (statt nur Composite). (Hinweis: Die anderen level-Spalten sowie `cefr_level` haben den FK bereits).
+* [x] **Locale-Referenzen bereinigen:** `vocabulary_translations.locale`, `course_translations.locale` und `grammar_translations.locale` haben den FK auf `locales.code` bereits. Entferne stattdessen die dort redundanten CHECK-Constraints.
+* [x] **Enum-Types einführen (R11):** Wiederkehrende Wertemengen aus CHECK-Constraints in Enum-Types überführen. Betrifft mindestens: Booking-Status, Booking-Kind, Trainer-Codes, Profil-Rollen, Submission-Typen, Kurs-Kategorien, Kurs-Typen, Submission-Status.
+* [x] **`updated_at`-Trigger:** Alle Tabellen mit `updated_at`-Spalte erhalten einen generischen Trigger, der `updated_at = now()` bei jedem `UPDATE` setzt. Betrifft mindestens: `bookings`, `people`, `profiles`, `user_exercise_progress`, `vocabulary_direction_progress`, `invoice_cases` und alle neuen Tabellen aus 2.2.
+* [x] **JSONB-Schema-Constraint:** `learning_exercises.content` erhält einen Constraint, der das Feld `accepted_answers` erzwingt. Kein `alternative_answers` nach Abschluss von Phase 3.1.
+* [x] Messbares Gesamtziel: Nach Abschluss darf keine `text`-Spalte mit Wertemenge ohne FK oder Enum-Constraint existieren. Prüfung über `information_schema`.
+
+
+#### S4 — Abnahmenachweise Phase 2 (20.09.2026)
+
+| Prüfung | Ergebnis |
+|---|---|
+| VPS-Datenbanktests | **258/258 bestanden**, keine übersprungen. Einschließlich RLS, Identität, Normalisierung, Medien, RPC-Atomizität und vollständiger Wiederholung der Migrationen. |
+| App-Tests und Typen | **90 Jest-Suites / 1.137 Tests bestanden**, `tsc --noEmit` bestanden. Optionale Live-Integration separat aktiviert: **1/1 bestanden**. Zusätzlich 18 gezielte Tests für signierte HTTP-Zugriffe/öffentliche Storage-URLs. |
+| Registrierung im Browser | **1/1 bestanden**: anonyme Anmeldung per echter RPC, späterer Browser-Signup/Login nach Verifikation, ursprüngliche Buchung im Dashboard; IDs und Snapshots erhalten. |
+| Produktionsbuild/-betrieb | VPS-Build erfolgreich; Release `2e2157cf881f` aktiv; App, Mailworker und nginx aktiv; `/api/health` meldet `ready`. |
+| R7 / produktive Migration | Reihenfolge **02 → 03 → 01 → 04 → 05** in einer Transaktion angewendet. Vorher zweimal im Datenbankklon getestet. Produktiver Katalogcheck bestanden; Produktions-Dump und generierte Typen übernommen. |
+| R8 / vollständiges Backup | `/root/backups/sitov-phase2-20260920T120029922708Z`; alle **396 Dateien** SHA256-geprüft, einschließlich **392 Storage-Objekte**. PostgreSQL: `3a9041aadc5eae5630129115ff24d4d8873c047089d72a9d9e320fe8f97f6248`; Storage-Manifest: `0c1745b09505bab01a1b28fb184488ba44d52af9331a1f61f1976bbb1a6331c2`. |
+| R9 / Deployment-Rückweg | Rollback in allen fünf SQL-Dateien dokumentiert; elf inverse RENAMEs in 02. 7 Release- und 5 Runner-Tests schützen vor Aktivierung einer alten App bei migriertem/unklarem Schema. |
+| R10 / strukturierte Fehler | **36/36 öffentliche RPCs** mit JSONB-Fehlergrenze; Erfolgsform, Parameter, Owner und ACLs erhalten. Atomarer Rollback nach injizierten Outbox-/Gradingfehlern getestet. Transportfehler vor Funktionseintritt werden zusätzlich abgefangen. |
+| Upload über produktiven nginx | Standardupload **35.651.584 Bytes**, TUS **35.651.584 Bytes**, Unterbrechung/HEAD-Resume geprüft. `nginx -t` vor Reload erfolgreich; `/supabase/` 512 MiB, App 32 MiB; Storage-Limits ebenfalls 512 MiB. |
+| Medienzugriff / Aufräumen | Gesperrter Schüler **HTTP 403**, keine Ordnernamen sichtbar; nach Freigabe signierter Download mit korrekten Bytes erfolgreich. Alle temporären Dateien, Ordner und Konten entfernt; ursprüngliche 392 Storage-Objekte erhalten. |
+| Speicher-Governance | Echter paralleler PostgreSQL-Test: exakt ein Upload gewinnt, anderer `PT413`, exakt **20 GiB** erreicht. 80-%-Warnschwelle und Staff-Zugriff automatisiert geprüft. Runtime-RAM-/CPU-Limits unverändert. |
+
+Die Grammatik-Altfehler aus Phase 1 sind durch die notwendige `accepted_answers`-Vereinheitlichung für 2.6 behoben; der damalige historische Abnahmebericht bleibt erhalten. Phase 3 ist damit nicht pauschal abgehakt. Die separate Upload-Oberfläche folgt weiterhin in der dafür vorgesehenen Phase 5.
 
 ---
 

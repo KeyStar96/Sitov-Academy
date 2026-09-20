@@ -50,6 +50,8 @@ await test('R10 public JSONB errors preserve success, authorization, and atomici
    assert.deepEqual((await catalog()).map(({args,...row})=>row),beforeAcl)
    assert.deepEqual((await db.query('SELECT id,auth_user_id,email FROM people ORDER BY id')).rows,rows)
    assert.equal((await db.query("SELECT count(*)::int n FROM pg_proc p JOIN pg_namespace n ON n.oid=p.pronamespace WHERE n.nspname='public' AND p.prokind='f' AND p.prorettype<>'jsonb'::regtype")).rows[0].n,0)
+   const bucketCheck=(await db.query("SELECT pg_get_constraintdef(oid) definition FROM pg_constraint WHERE conrelid='learning_reset_private.audio_objects'::regclass AND conname='audio_objects_bucket_id_check' AND contype='c' AND convalidated")).rows
+   assert.deepEqual(bucketCheck,[{definition:"CHECK ((bucket_id = 'pronunciation_audio'::text))"}])
   })
   await t.test('void/UUID/boolean/table calls retain their wire shapes and explicit authorization errors',async()=>{
    await phase2Actor(db,student)
