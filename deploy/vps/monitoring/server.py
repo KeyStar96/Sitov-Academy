@@ -19,7 +19,7 @@ class Handler(BaseHTTPRequestHandler):
         if self.path == '/':
             mime = 'text/html; charset=utf-8'
             alarms = ', '.join(status['alarms']) or 'Keine Alarme'
-            body = '<!doctype html><html lang="de"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><meta http-equiv="refresh" content="60"><title>Sitov Status</title><style>body{max-width:900px;margin:3rem auto;padding:0 1rem;background:#f8fafc;color:#0f172a;font:18px/1.6 system-ui}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:15px;padding:1rem;background:#e2e8f0}a{color:#075985}</style><h1>Sitov Status</h1><p>' + html.escape(alarms) + '</p><p>Messintervall: 60 Sekunden · Verlauf: maximal 24 Stunden</p><pre>' + html.escape(json.dumps(status, ensure_ascii=False, indent=2)) + '</pre><p><a href="history.json">Messverlauf (JSON)</a></p></html>'
+            body = '<!doctype html><html lang="de"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><meta http-equiv="refresh" content="60"><title>Sitov Status</title><style>body{max-width:900px;margin:3rem auto;padding:0 1rem;background:#f8fafc;color:#0f172a;font:18px/1.6 system-ui}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:15px;padding:1rem;background:#e2e8f0}a{color:#075985}</style><h1>Sitov Status</h1><p>' + html.escape(alarms) + '</p><p>Messintervall: 60 Sekunden · Verlauf: maximal 24 Stunden</p><pre>' + html.escape(json.dumps(status, ensure_ascii=False, indent=2)) + '</pre><p><a href="/status/history.json">Messverlauf (JSON)</a></p></html>'
         elif self.path == '/history.json':
             try:
                 body = (DATA / 'history.json').read_text()
