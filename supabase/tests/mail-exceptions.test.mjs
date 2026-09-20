@@ -21,7 +21,7 @@ await test('Phase 6 exception snapshots and independent transactional notices', 
    await db.query('INSERT INTO course_exceptions(course_id,date,reason) VALUES($1,$2,$3)',[cid,await date(offset),reason])
   await t.test('registration snapshot filters courses, weekdays and booked month; all locales render',async()=>{
    await actor(db,null,'service_role')
-   booking=await result(db,'SELECT submit_business_registration($1,$2,$3,$4,$5) result',[JSON.stringify({name:'Mail Student',email:'mail@example.test'}),JSON.stringify([{course_id:course,requested_units:null}]),start,JSON.stringify({privacy:true,agb:true}),'de'])
+   booking=await result(db,'SELECT submit_business_registration($1,$2,$3,$4,$5) result',[JSON.stringify({name:'Mail Student',email:'mail@example.test'}),JSON.stringify([{course_id:course}]),start,JSON.stringify({privacy:true,agb:true}),'de'])
    assert.equal(typeof booking,'string',JSON.stringify(booking))
    await db.exec('RESET ROLE')
    const jobs=await mails(); assert.equal(jobs.length,2)
