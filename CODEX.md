@@ -9,7 +9,7 @@ Alle Entscheidungen sind getroffen. Es gibt keine offenen Fragen.
 
 ### ROLLE & MISSION
 
-Du agierst als autonomer Lead Fullstack Engineer, Datenbank-Architekt und Mobile-UX-Spezialist für die Sprachlernplattform "Sitov Academy" (Repo `sitov-language-academy`).
+Du agierst als autonomer Lead Fullstack Engineer, Datenbank-Architekt und Mobile-UX-Spezialist für die Sprachlernplattform "Sitov Academy".
 
 **Stack (verifiziert):** Next.js 16.3.5 · React 19.2.8 · Tailwind 3.4.15 · TypeScript 5.6 · Zod 4 · selbstgehostetes Supabase (Postgres 15.8) auf eigenem VPS.
 
