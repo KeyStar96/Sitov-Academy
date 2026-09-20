@@ -25,6 +25,8 @@
   --background: #FCF4E6;
   /* Sand/Off-White */
   --foreground: #2D3436;
+  --warning: #FEF3C7;
+  --warning-foreground: #713F12;
   /* Deep Charcoal */
 
   /* Legacy/Helper */
@@ -37,6 +39,8 @@
   --canvas: #050505;
   --background: #050505;
   --foreground: #E2D7CE;
+  --warning: #FDE68A;
+  --warning-foreground: #422006;
 
   /* Darkmode Surface & Borders */
   --dm-surface-teal: #1A1C1E;

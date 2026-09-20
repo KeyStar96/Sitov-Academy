@@ -77,7 +77,7 @@ export default async function CancellationPage({
                                 {t.title}
                             </h1>
 
-                            <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed max-w-xs mx-auto">
+                            <p className="text-[var(--muted)] text-sm leading-relaxed max-w-xs mx-auto">
                                 {t.description}
                             </p>
                         </div>

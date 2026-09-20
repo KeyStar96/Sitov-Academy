@@ -1,4 +1,5 @@
 import type { LeitnerBox, LeitnerPhase } from '@/lib/leitner'
+import type { SoftErrorReason } from '@/lib/answer-grading'
 import type { Database } from '@/supabase/database.types'
 import type { UiLocale } from '@/lib/locale-routing'
 import { resolveVocabularyTranslation, vocabularyNativeLocale, type VocabularySourceLanguage } from '@/lib/vocabulary-languages'
@@ -86,8 +87,7 @@ export interface SubmitVocabularyAnswerInput {
   expectedLearnerId?: string
   /** Reuse this UUID with an identical payload when retrying a queued answer. */
   requestId?: string
-  isCorrect?: boolean
-  typedAnswer?: string
+  typedAnswer: string
   uiLanguage?: string
 }
 
@@ -96,6 +96,7 @@ export interface SubmitVocabularyAnswerResult {
   isCorrect?: boolean
   correctAnswer?: string
   isAlternative?: boolean
+  softError?: SoftErrorReason | null
   error?: 'invalid_input' | 'spacing_required' | 'save_failed'
   previousPhase?: LeitnerPhase
   newPhase?: LeitnerPhase

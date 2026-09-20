@@ -239,38 +239,54 @@ Die Grammatik-Altfehler aus Phase 1 sind durch die notwendige `accepted_answers`
 ### PHASE 3 — DIDAKTIK & SOFT-ERROR-SYSTEM
 
 #### 3.1 KRITISCHER BUG ZUERST: Feldnamen-Drift
-Befund: Client und Server lesen verschiedene JSONB-Felder (Client: `content.accepted_answers`, Server: `content->'alternative_answers'`). Serverseitige Alternativantworten feuern nie.
+S2-Korrektur: Der ursprüngliche Feldnamen-Drift war bereits in Phase 2 behoben. Phase 3 ergänzt den Übergangs-Fallback, verhindert neue Legacy-Keys und prüft kanonische Alternativen separat.
 
-* [ ] Kanonisch ist `accepted_answers`.
-* [ ] `grammar_private.record_attempt` umstellen, mit Übergangs-Fallback auf `alternative_answers` für Altdaten.
-* [ ] Datenmigration: alle `learning_exercises` mit `content->'alternative_answers'` auf `accepted_answers` vereinheitlichen, danach den Fallback in einer Folge-Release entfernen.
-* [ ] Regressionstest: Aufgabe mit `accepted_answers` anlegen, eine Alternative einreichen, `completed = true` in `user_exercise_progress` verifizieren.
+* [x] Kanonisch ist `accepted_answers`.
+* [x] `grammar_private.record_attempt` umstellen, mit Übergangs-Fallback auf `alternative_answers` für Altdaten.
+* [x] Datenmigration: alle `learning_exercises` mit `content->'alternative_answers'` auf `accepted_answers` vereinheitlichen, Übergangs-Fallback beibehalten; seine Entfernung bleibt ausdrücklich einem Folge-Release vorbehalten.
+* [x] Regressionstest: Aufgabe mit `accepted_answers` anlegen, eine Alternative einreichen, `completed = true` in `user_exercise_progress` verifizieren.
 
 #### 3.2 Soft-Error — serverseitig, mehrsprachig, mit Levenshtein
 Befund: `validateUserAnswer()` mit `EXACT` | `SOFT_ERROR` | `INCORRECT` existiert bereits, hat aber keine Levenshtein-Distanz und liefert hartcodierte deutsche Warntexte.
 
-* [ ] `learning_private.grade_answer(p_input text, p_accepted text[]) RETURNS jsonb` anlegen. Verbindlicher Rückgabe-Contract:
+* [x] `learning_private.grade_answer(p_input text, p_accepted text[]) RETURNS jsonb` anlegen. Verbindlicher Rückgabe-Contract:
   - `status`: `"EXACT"` | `"SOFT_ERROR"` | `"INCORRECT"` — genau diese drei Werte, keine anderen.
   - `matched`: `text | null` — die Akzeptanzantwort, die gematcht hat. `null` bei `INCORRECT`.
   - `reason`: `text | null` — Grund des Soft-Errors. `null` bei `EXACT` und `INCORRECT`. Erlaubte Werte: `"punctuation"` | `"capitalization"` | `"umlaut"` | `"typo"`.
-* [ ] Prüfreihenfolge und reason-Priorität:
+* [x] Prüfreihenfolge und reason-Priorität:
   1. `punctuation` (nur Satzzeichen differieren)
   2. `capitalization` (nur Groß-/Kleinschreibung)
   3. `umlaut` (ae/oe/ue/ss statt ä/ö/ü/ß)
   4. `typo` (wortweise Levenshtein-Summe ≤ 1)
-* [ ] Levenshtein wortweise, nicht satzweise. Zusätzliche Schranke: Tippfehlertoleranz gilt erst ab Wortlänge ≥ 4, damit `der`/`den`, `ihm`/`ihn`, `am`/`an` nicht verschluckt werden.
-* [ ] `SOFT_ERROR` zählt als richtig für den Fortschritt (`completed = true`, Leitner-Box steigt), aber: `user_exercise_progress.score` wird auf max. 90 gedeckelt, und das Rückgabe-JSON trägt `reason`, damit die UI badgen kann.
-* [ ] `lib/grammar-validation.ts`: `validateUserAnswer()` auf die Rolle „optimistische Sofort-Vorschau" reduzieren. Verbindlich ist der Server (R5).
-* [ ] Die deutschen Warnstrings aus `lib/grammar-validation.ts` entfernen. Neue Keys in allen fünf Dictionaries: `exercises.soft_error.punctuation` · `.capitalization` · `.umlaut` · `.typo`. Die UI mappt `reason` → Dictionary-Key. Gelber Badge über das Token `--warning`, niemals rot.
+* [x] Levenshtein wortweise, nicht satzweise. Zusätzliche Schranke: Tippfehlertoleranz gilt erst ab Wortlänge ≥ 4, damit `der`/`den`, `ihm`/`ihn`, `am`/`an` nicht verschluckt werden.
+* [x] `SOFT_ERROR` zählt als richtig für den Fortschritt (`completed = true`, Leitner-Box steigt), aber: `user_exercise_progress.score` wird auf max. 90 gedeckelt, und das Rückgabe-JSON trägt `reason`, damit die UI badgen kann.
+* [x] `lib/grammar-validation.ts`: `validateUserAnswer()` auf die Rolle „optimistische Sofort-Vorschau" reduzieren. Verbindlich ist der Server (R5).
+* [x] Die deutschen Warnstrings aus `lib/grammar-validation.ts` entfernen. Neue Keys in allen fünf Dictionaries: `exercises.soft_error.punctuation` · `.capitalization` · `.umlaut` · `.typo`. Die UI mappt `reason` → Dictionary-Key. Gelber Badge über das Token `--warning`, niemals rot.
 
 #### 3.3 Vokabeltrainer — Byte-Exaktheit kontrolliert aufweichen
 Befund: `vocabulary_private.submit_answer` prüft Byte-exakt. Ein Leerzeichen am Satzende ⇒ falsch ⇒ Leitner-Box fällt zurück.
 
-* [ ] Innerhalb dieser Funktion den Vergleich durch `learning_private.grade_answer(...)` ersetzen.
-* [ ] Leitner-Logik bei `SOFT_ERROR`: Box steigt wie bei `EXACT`, aber `lapses` wird nicht erhöht und das Intervall wird auf den Wert der vorherigen Phase gedeckelt (sanfte Wiederholung).
-* [ ] Rückgabe-JSON um `"softError": <reason|null>` erweitern. `app/actions/vocabulary.ts:27` und `components/vocabulary/VocabCardSession.tsx` entsprechend erweitern.
-* [ ] Den irreführenden Kommentar in der Funktion aktualisieren.
-* [ ] `supabase/tests/vocabulary-learning.test.mjs` erweitern: Tippfehler · fehlender Punkt · Kleinschreibung · echter Fehler.
+* [x] Innerhalb dieser Funktion den Vergleich durch `learning_private.grade_answer(...)` ersetzen.
+* [x] Leitner-Logik bei `SOFT_ERROR`: Box steigt wie bei `EXACT`, aber `lapses` wird nicht erhöht und das Intervall wird auf den Wert der vorherigen Phase gedeckelt (sanfte Wiederholung).
+* [x] Rückgabe-JSON um `"softError": <reason|null>` erweitern. `app/actions/vocabulary.ts:27` und `components/vocabulary/VocabCardSession.tsx` entsprechend erweitern.
+* [x] Den irreführenden Kommentar in der Funktion aktualisieren.
+* [x] `supabase/tests/vocabulary-learning.test.mjs` erweitern: Tippfehler · fehlender Punkt · Kleinschreibung · echter Fehler.
+
+#### S4 — Abnahmenachweise Phase 3.1–3.3 (20.09.2026)
+
+Implementierung und Abnahme im isolierten VPS-Klon abgeschlossen. Produktionsaktivierung wird im Bericht nachgetragen. Phase 3.4–3.5 bleiben außerhalb dieser Freigabe offen.
+
+| Prüfung | Ergebnis |
+|---|---|
+| Vollständiger Jest-Lauf mit aktivierter Live-Integration | **95 Suites / 1.220 Tests bestanden**, keine übersprungen. Die zwölf historischen Grammatikfehler sind behoben. |
+| VPS-Datenbanktests | **285/285 bestanden**, keine übersprungen; historische Vokabeltests unverändert als `vocabulary-history.test.mjs` erhalten. |
+| Browser gegen Produktionsbuild / isolierte echte DB | **9/9 bestanden**, einschließlich kanonischer Alternative, Eingabe-Reset, russischem Warnbadge, Score 90 und Vokabelaufstieg mit altem Intervall ohne Lapse. |
+| R5 | Auch Wortkarten beider Richtungen verlangen getippte Antworten. `p_is_correct` entscheidet niemals die Bewertung; Karte und Weiter warten auf den Server. |
+| R7 / R9 / R10 | `06_soft_errors.sql` idempotent, vollständiger Replay `02 → 03 → 01 → 04 → 05 → 06` im echten PostgreSQL-Klon erfolgreich. Rollback dokumentiert; JSONB-Fehler und atomarer Fortschritt/Cursor/Receipt geprüft. |
+| UI / Dictionaries | Vier Soft-Error-Gründe in de/en/ru/uk/tr; gelbe Warn-Tokens mit Textkontrast ≥4,5:1. Für R6 Kontrast-Ausnahmefilter entfernt; drei aufgedeckte alte Grautext-Kontraste gezielt korrigiert. |
+| Zusatzprüfungen | TypeScript und Produktionsbuild bestanden; 20 Python-Tests für Migrationsrunner/Deployment/Storage bestanden. |
+
+Details und Betriebsnachweise: [docs/phase-3-verification.md](docs/phase-3-verification.md).
 
 #### 3.4 Eindeutige Zielwert-Führung (No-Guessing)
 * [ ] `grammarWriteSchema` in `lib/grammar-validation.ts` um ein Pflichtfeld `target_form: z.array(z.string().trim().min(1)).min(1)` erweitern.
@@ -325,12 +341,12 @@ Befund: `h.get('x-forwarded-for')?.split(',')[0]` ist client-kontrolliert und fr
 #### 5.1 Kontrast — zuerst den Test entschärfen, der die Verletzung versteckt
 Befund: `e2e/accessibility.spec.ts` enthält einen expliziten Whitelist-Block, der Kontrastverletzungen ignoriert.
 
-* [ ] Diesen Filterblock ersatzlos löschen (R6). Erst danach ist die Kontrastarbeit messbar.
+* [x] Diesen Filterblock ersatzlos löschen (R6). In Phase 3 zur ungefilterten Gesamtabnahme umgesetzt; drei Browser-Kontrasttests bestanden. Weitere Phase-5-Kontrastarbeit bleibt offen.
 * [ ] Konkrete Fails beheben: `bg-[var(--accent)] text-white hover:bg-[#FF7A33]` muss korrigiert werden, sodass die Hover-Farbe abdunkelt und mindestens 4,5:1 Kontrast erreicht. Ebenso `text-gray-500` auf hellem Chip zu `text-[var(--foreground)]` ändern.
 * [ ] Alle hartcodierten `#FF5C00`, `#FF7A33`, `#FFF4EC` durch Tokens ersetzen.
 * [ ] Regel: Auf orangem Grund ist Text entweder `#FFFFFF` oder `#0F172A` — niemals ein Grau-, Slate-, Zinc- oder Neutral-Ton. Ergänze ESLint-Regel oder Jest-Test dafür.
 * [ ] `__tests__/appearance-contrast.test.ts` erweitern: `:root` (light) und `html.dark` mit Schwelle 4,5:1 für Text und 3:1 für Borders hinzufügen.
-* [ ] Neues Token-Paar `--warning` / `--warning-foreground` für die Soft-Error-Badges anlegen.
+* [x] Neues Token-Paar `--warning` / `--warning-foreground` für die Soft-Error-Badges anlegen. Als Voraussetzung für Phase 3 umgesetzt und in beiden Themes auf Textkontrast ≥4,5:1 getestet.
 
 #### 5.2 Fixierter Aufnahme-Button im Aussprache-Trainer
 * [ ] Auf Viewports < 1024 px wird der Aufnahmebereich als Sticky-Bottom-Bar gerendert (`sticky bottom-0 z-40`), mit Padding für den iOS-Home-Indicator.

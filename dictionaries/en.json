@@ -1209,6 +1209,10 @@
     "refresh_failed": "Messages could not be refreshed. Please try again."
   },
   "vocabulary": {
+    "type_german_with_article": "Your German translation with the article",
+    "type_answer": "Your translation",
+    "answer_correct": "Correct!",
+    "answer_incorrect": "That was not quite right.",
     "title": "Vocabulary Trainer",
     "subtitle": "Learn vocabulary with the proven Phase 6 flashcard system.",
     "due_count": "words due",
@@ -1356,6 +1360,12 @@
     "alternative_answer_hint": "Correct! This form is also commonly used:"
   },
   "exercises": {
+    "soft_error": {
+      "punctuation": "Correct — check the punctuation.",
+      "capitalization": "Correct — check the capitalization.",
+      "umlaut": "Correct — use ä, ö, ü and ß instead of replacement spellings.",
+      "typo": "Correct — fix the small typo."
+    },
     "no_exercises": "No exercises are available right now.",
     "no_exercises_hint": "Your teacher will add new tasks for you here soon.",
     "great": "Great!",

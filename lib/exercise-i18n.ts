@@ -1,4 +1,5 @@
 import { createTranslator, type Translations, type Translator } from '@/lib/i18n-runtime'
+import type { SoftErrorReason } from '@/lib/answer-grading'
 
 /**
  * Zentrale Textbausteine des Übungsmoduls. Die Werte hier sind ausschließlich
@@ -52,10 +53,15 @@ export const EXERCISE_FALLBACKS = {
 
 export type ExerciseTranslationKey = Extract<keyof typeof EXERCISE_FALLBACKS, string>
 
-export type ExerciseTranslations = Translations
+export type ExerciseTranslations = Readonly<Record<string, string | Partial<Record<SoftErrorReason, string>>>> & {
+  soft_error?: Partial<Record<SoftErrorReason, string>>
+}
 
 export type ExerciseTranslator = Translator<ExerciseTranslationKey>
 
 export function createExerciseTranslator(translations: ExerciseTranslations): ExerciseTranslator {
-  return createTranslator(EXERCISE_FALLBACKS, translations)
+  const text: Translations = Object.fromEntries(Object.entries(translations).filter(
+    (entry): entry is [string, string] => typeof entry[1] === 'string'
+  ))
+  return createTranslator(EXERCISE_FALLBACKS, text)
 }

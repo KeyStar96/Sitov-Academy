@@ -17,6 +17,7 @@ import {
 } from '@/lib/types/exercise'
 import { readAllRows } from '@/lib/supabase-read'
 import { grammarExerciseSchema, type GrammarContentRow } from '@/lib/learning-content'
+import { answerGradeSchema } from '@/lib/answer-grading'
 
 type ExerciseRow = GrammarContentRow
 
@@ -274,7 +275,11 @@ export async function recordExerciseAttempt(
       console.error('Grammar attempt could not be saved:', { code: error?.code ?? getRpcError(data)?.error })
       return { success: false, attempts: 0 }
     }
-    const result = z.object({ success: z.boolean(), attempts: z.number().int(), isCorrect: z.boolean() }).safeParse(data)
+    const result = z.intersection(answerGradeSchema, z.object({
+      success: z.literal(true), attempts: z.number().int().nonnegative(), isCorrect: z.boolean(),
+      score: z.number().min(0).max(100),
+    })).refine(value => value.isCorrect === (value.status !== 'INCORRECT'))
+      .refine(value => value.status !== 'SOFT_ERROR' || value.score <= 90).safeParse(data)
     return result.success ? result.data : { success: false, attempts: 0 }
   } catch (err) {
     console.error('Unerwarteter Fehler in recordExerciseAttempt:', err)

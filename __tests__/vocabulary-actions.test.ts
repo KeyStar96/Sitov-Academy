@@ -5,7 +5,7 @@ jest.mock('@/utils/supabase/server', () => ({ createClient: jest.fn() }))
 
 import { createClient } from '@/utils/supabase/server'
 import { getVocabularySession, submitVocabularyAnswer, submitLessonAssessment, skipVocabularyAssessment } from '@/app/actions/vocabulary'
-import type { VocabularyCardRow } from '@/lib/types/vocabulary'
+import type { SubmitVocabularyAnswerInput, VocabularyCardRow } from '@/lib/types/vocabulary'
 
 const userId = '00000000-0000-4000-8000-000000000001'
 const progressId = '10000000-0000-4000-8000-000000000001'
@@ -20,7 +20,7 @@ const card: VocabularyCardRow = {
   context_sentence_ru: 'Я открываю дверь.', context_sentence_uk: 'Я відчиняю двері.', context_sentence_tr: 'Kapıyı açıyorum.',
 }
 const review = {
-  success: true, isCorrect: true, correctAnswer: card.context_sentence_de,
+  success: true, isCorrect: true, correctAnswer: card.context_sentence_de, isAlternative: false, softError: null,
   previousPhase: 1, newPhase: 2, becameLearned: false, movedBack: false, intervalInDays: 1,
 }
 
@@ -93,13 +93,36 @@ describe('session DTO source language', () => {
 })
 
 describe('answer request routing', () => {
+  it.each([undefined, '', ' \n '])('requires a nonempty typed answer, rejecting self-rating alone (%s)', async typedAnswer => {
+    const { rpc } = session()
+    expect(await submitVocabularyAnswer({ progressId, isCorrect: true, typedAnswer } as unknown as SubmitVocabularyAnswerInput)).toEqual({ success: false, error: 'invalid_input' })
+    expect(rpc).not.toHaveBeenCalled()
+  })
+  it('ignores forged correctness and returns only the server grade', async () => {
+    const { rpc } = session()
+    rpc.mockResolvedValue({ data: { ...review, isCorrect: false }, error: null })
+    expect(await submitVocabularyAnswer({ progressId, typedAnswer: 'wrong', isCorrect: true } as SubmitVocabularyAnswerInput)).toMatchObject({ success: true, isCorrect: false })
+    expect(rpc).toHaveBeenCalledWith('submit_vocabulary_answer', expect.objectContaining({ p_is_correct: null, p_typed_answer: 'wrong' }))
+  })
+  it.each(['punctuation', 'capitalization', 'umlaut', 'typo'])('preserves the authoritative soft-error reason %s', async softError => {
+    const { rpc } = session()
+    rpc.mockResolvedValue({ data: { ...review, softError }, error: null })
+    expect(await submitVocabularyAnswer({ progressId, typedAnswer: 'die Tur' })).toMatchObject({ success: true, softError })
+  })
+  it.each([
+    { softError: 'unknown' }, { softError: undefined }, { isAlternative: undefined }, { correctAnswer: undefined },
+  ])('rejects an incomplete or invalid server grade %j', async invalid => {
+    const { rpc } = session()
+    rpc.mockResolvedValue({ data: { ...review, ...invalid }, error: null })
+    expect(await submitVocabularyAnswer({ progressId, typedAnswer: 'die Tür' })).toEqual({ success: false, error: 'save_failed' })
+  })
   it.each([
     ['vocabulary_spacing_required','spacing_required'],
     ['review_not_due','save_failed'],
   ])('handles JSONB domain failure %s without retrying a write', async (error, expected) => {
     const { rpc } = session()
     rpc.mockResolvedValue({ data: { error, message: 'Review could not be saved.', sqlstate: 'PT409' }, error: null })
-    expect(await submitVocabularyAnswer({ requestId, progressId, isCorrect: true })).toEqual({ success: false, error: expected })
+    expect(await submitVocabularyAnswer({ requestId, progressId, typedAnswer: 'die Tür' })).toEqual({ success: false, error: expected })
     expect(rpc).toHaveBeenCalledTimes(1)
   })
   it.each([
@@ -108,7 +131,7 @@ describe('answer request routing', () => {
   ])('preserves the application mapping for PT409 %s without retrying a write', async (message, expected) => {
     const { rpc } = session()
     rpc.mockResolvedValue({data:null,error:{code:'PT409',message}})
-    expect(await submitVocabularyAnswer({requestId,progressId,isCorrect:true})).toEqual({success:false,error:expected})
+    expect(await submitVocabularyAnswer({requestId,progressId,typedAnswer:'die Tür'})).toEqual({success:false,error:expected})
     expect(rpc).toHaveBeenCalledTimes(1)
   })
   it('uses the receipt RPC and sends every answer byte unchanged', async () => {
@@ -119,25 +142,25 @@ describe('answer request routing', () => {
       p_request_id: requestId, p_progress_id: progressId, p_is_correct: null, p_typed_answer: typedAnswer, p_ui_language: 'tr',
     })
   })
-  it('preserves the old RPC contract for clients without request IDs', async () => {
+  it('routes typed answers through the non-receipt RPC for clients without request IDs', async () => {
     const { rpc } = session({ uiLanguage: 'uk' })
-    await submitVocabularyAnswer({ progressId, isCorrect: false })
+    await submitVocabularyAnswer({ progressId, typedAnswer: 'die Tür' })
     expect(rpc).toHaveBeenCalledWith('submit_vocabulary_answer', {
-      p_progress_id: progressId, p_is_correct: false, p_typed_answer: null, p_ui_language: 'uk',
+      p_progress_id: progressId, p_is_correct: null, p_typed_answer: 'die Tür', p_ui_language: 'uk',
     })
   })
   it('rejects invalid request IDs and anonymous writes before invoking either RPC', async () => {
     const { rpc } = session()
-    expect(await submitVocabularyAnswer({ requestId: 'not-a-uuid', progressId, isCorrect: true })).toEqual({ success: false, error: 'invalid_input' })
+    expect(await submitVocabularyAnswer({ requestId: 'not-a-uuid', progressId, typedAnswer: 'die Tür' })).toEqual({ success: false, error: 'invalid_input' })
     expect(rpc).not.toHaveBeenCalled()
     const anonymous = session({ signedIn: false })
-    expect(await submitVocabularyAnswer({ requestId, progressId, isCorrect: true })).toEqual({ success: false, error: 'save_failed' })
+    expect(await submitVocabularyAnswer({ requestId, progressId, typedAnswer: 'die Tür' })).toEqual({ success: false, error: 'save_failed' })
     expect(anonymous.rpc).not.toHaveBeenCalled()
   })
   it('never falls back to non-idempotent grading when the receipt RPC fails', async () => {
     const { rpc } = session()
     rpc.mockResolvedValue({ data: null, error: { message: 'transport error' } })
-    expect(await submitVocabularyAnswer({ requestId, progressId, isCorrect: true })).toEqual({ success: false, error: 'save_failed' })
+    expect(await submitVocabularyAnswer({ requestId, progressId, typedAnswer: 'die Tür' })).toEqual({ success: false, error: 'save_failed' })
     expect(rpc).toHaveBeenCalledTimes(1)
     expect(rpc.mock.calls[0][0]).toBe('submit_vocabulary_answer_once')
   })
@@ -152,7 +175,7 @@ describe('queued action actor binding', () => {
   })
   it('refuses a buffered review after logout/login as another user before invoking any RPC', async () => {
     const { rpc, from } = session({ actorId: otherId })
-    expect(await submitVocabularyAnswer({ progressId, requestId, isCorrect: true, expectedLearnerId: userId })).toMatchObject({ success: false })
+    expect(await submitVocabularyAnswer({ progressId, requestId, typedAnswer: 'die Tür', expectedLearnerId: userId })).toMatchObject({ success: false })
     expect(rpc).not.toHaveBeenCalled()
     expect(from).not.toHaveBeenCalled()
   })
@@ -183,7 +206,7 @@ describe('queued action actor binding', () => {
   })
   it('allows a same-actor idempotent review, with the actor still derived from the authenticated RPC session', async () => {
     const { rpc } = session()
-    expect(await submitVocabularyAnswer({ progressId, requestId, isCorrect: true, expectedLearnerId: userId })).toMatchObject({ success: true })
+    expect(await submitVocabularyAnswer({ progressId, requestId, typedAnswer: 'die Tür', expectedLearnerId: userId })).toMatchObject({ success: true })
     expect(rpc).toHaveBeenCalledWith('submit_vocabulary_answer_once', expect.not.objectContaining({ p_user_id: userId }))
   })
 })

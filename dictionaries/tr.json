@@ -1205,6 +1205,10 @@
     "refresh_failed": "Mesajlar yenilenemedi. Lütfen yeniden deneyin."
   },
   "vocabulary": {
+    "type_german_with_article": "Artikel ile Almanca çevirin",
+    "type_answer": "Çevirin",
+    "answer_correct": "Doğru!",
+    "answer_incorrect": "Henüz tam olarak doğru değil.",
     "title": "Kelime Antrenörü",
     "subtitle": "Kelimeleri kanıtlanmış Faz 6 kart sistemiyle öğrenin.",
     "due_count": "kelime tekrar zamanı geldi",
@@ -1352,6 +1356,12 @@
     "alternative_answer_hint": "Doğru! Bu biçim de sık kullanılır:"
   },
   "exercises": {
+    "soft_error": {
+      "punctuation": "Doğru — noktalama işaretlerine dikkat et.",
+      "capitalization": "Doğru — büyük ve küçük harflere dikkat et.",
+      "umlaut": "Doğru — harflerin yerine başka yazımlar kullanmak yerine ä, ö, ü ve ß kullan.",
+      "typo": "Doğru — küçük yazım hatasını düzelt."
+    },
     "no_exercises": "Şu anda mevcut egzersiz yok.",
     "no_exercises_hint": "Öğretmeniniz yakında buraya yeni alıştırmalar ekleyecek.",
     "great": "Harika!",

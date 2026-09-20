@@ -1,4 +1,5 @@
 import type { Json } from '@/supabase/database.types'
+import type { AnswerGrade } from '@/lib/answer-grading'
 
 export const EXERCISE_TYPES = ['fill_in_blank', 'multiple_choice', 'sentence_building'] as const
 export type ExerciseType = (typeof EXERCISE_TYPES)[number]
@@ -88,11 +89,17 @@ export interface RecordExerciseAttemptInput {
   hintShown: boolean
 }
 
-export interface RecordExerciseAttemptResult {
-  success: boolean
-  isCorrect?: boolean
+export type RecordExerciseAttemptResult = ({
+  success: true
+  isCorrect: boolean
+  score: number
   /** Gesamtzahl der Versuche nach dieser Antwort. */
   attempts: number
+} & AnswerGrade) | { success: false; attempts: number }
+
+export interface ConfirmedExerciseAttempt {
+  answer: string
+  result: Extract<RecordExerciseAttemptResult, { success: true }>
 }
 
 /**

@@ -5,8 +5,9 @@ import ExerciseClient from '@/components/exercises/ExerciseClient'
 import ExerciseCMS from '@/components/admin/ExerciseCMS'
 import { recordExerciseAttempt, finishExerciseSession } from '@/app/actions/exercises'
 import { saveGrammarExercise, removeGrammarExercise } from '@/app/actions/grammar-cms'
-import type { StudentExercise } from '@/lib/types/exercise'
+import type { RecordExerciseAttemptResult, StudentExercise } from '@/lib/types/exercise'
 import type { GrammarExerciseRow } from '@/lib/grammar-validation'
+import russian from '@/dictionaries/ru.json'
 
 jest.unmock('lucide-react')
 jest.mock('@/components/exercises/GrammarStudio.module.css', () => ({}))
@@ -32,7 +33,9 @@ const authored: GrammarExerciseRow = {
 beforeEach(() => {
   jest.restoreAllMocks()
   jest.clearAllMocks()
-  jest.mocked(recordExerciseAttempt).mockReset().mockResolvedValue({ success: true, attempts: 1, isCorrect: true })
+  jest.mocked(recordExerciseAttempt).mockReset().mockImplementation(async input => ({
+    success: true, attempts: 1, isCorrect: true, status: 'EXACT', reason: null, matched: input.answer, score: 100,
+  }))
   jest.mocked(finishExerciseSession).mockResolvedValue({ success: true })
   HTMLElement.prototype.scrollIntoView = jest.fn()
 })
@@ -87,7 +90,7 @@ it.each([
   const user = userEvent.setup()
   const media = window.matchMedia('(prefers-reduced-motion: reduce)')
   jest.spyOn(window, 'matchMedia').mockReturnValue({ ...media, matches: reduced })
-  jest.mocked(recordExerciseAttempt).mockResolvedValueOnce({ success: true, attempts: 1, isCorrect: false })
+  jest.mocked(recordExerciseAttempt).mockResolvedValueOnce({ success: true, attempts: 1, isCorrect: false, status: 'INCORRECT', reason: null, matched: null, score: 0 })
   render(<ExerciseClient exercises={[exercise]} lang="de" level="A1.1" />)
   await user.click(screen.getByRole('button', { name: 'Mit offenen Aufgaben starten' }))
   if (exercise.type === 'fill_in_blank') await user.type(screen.getByRole('textbox', { name: 'Lücke' }), wrong)
@@ -127,9 +130,46 @@ it('a failed save remains retryable and does not count as persisted completion',
   fireEvent.click(screen.getByRole('button', { name: /Wort .Der. auswählen/ }))
   await act(async () => fireEvent.click(screen.getByRole('button', { name: 'Antwort prüfen' })))
   expect(screen.getByText('Dein Fortschritt konnte nicht gespeichert werden. Bitte versuche es erneut.')).toBeVisible()
+  expect(screen.queryByRole('button', { name: 'Lerneinheit abschließen' })).not.toBeInTheDocument()
   await act(async () => fireEvent.click(screen.getByRole('button', { name: 'Nochmal versuchen' })))
   expect(recordExerciseAttempt).toHaveBeenCalledTimes(2)
   expect(screen.queryByText('Dein Fortschritt konnte nicht gespeichert werden. Bitte versuche es erneut.')).not.toBeInTheDocument()
+  expect(screen.getByRole('button', { name: 'Lerneinheit abschließen' })).toBeVisible()
+})
+
+it.each([
+  { name: 'fill-in-blank', exercise: fill, answer: 'ein Tisch' },
+  { name: 'multiple-choice', exercise: item, answer: 'Der' },
+])('waits for the server and respects rejection of a locally correct $name answer', async ({ exercise, answer }) => {
+  let finish!: (result: RecordExerciseAttemptResult) => void
+  jest.mocked(recordExerciseAttempt).mockReturnValueOnce(new Promise(resolve => { finish = resolve }))
+  render(<ExerciseClient exercises={[exercise]} lang="de" level="A1.1" />)
+  fireEvent.click(screen.getByRole('button', { name: 'Mit offenen Aufgaben starten' }))
+  if (exercise.type === 'fill_in_blank') fireEvent.change(screen.getByRole('textbox', { name: 'Lücke' }), { target: { value: answer } })
+  else fireEvent.click(screen.getByRole('button', { name: /Wort .Der. auswählen/ }))
+  fireEvent.click(screen.getByRole('button', { name: 'Antwort prüfen' }))
+  expect(screen.getByRole('button', { name: 'Antwort prüfen' })).toBeDisabled()
+  expect(screen.queryByRole('button', { name: 'Lerneinheit abschließen' })).not.toBeInTheDocument()
+  expect(screen.queryByText('Richtig! Gut gemacht.')).not.toBeInTheDocument()
+  await act(async () => finish({ success: true, attempts: 1, isCorrect: false, status: 'INCORRECT', matched: null, reason: null, score: 0 }))
+  expect(screen.queryByRole('button', { name: 'Lerneinheit abschließen' })).not.toBeInTheDocument()
+  expect(screen.getByText('Fast! Versuche es noch einmal.')).toBeVisible()
+  fireEvent.click(screen.getByRole('button', { name: 'Zur Themenübersicht' }))
+  expect(screen.getByRole('button', { name: 'Mit offenen Aufgaben starten' })).toBeVisible()
+})
+
+it('renders the confirmed soft-error reason in Russian', async () => {
+  jest.mocked(recordExerciseAttempt).mockResolvedValueOnce({
+    success: true, attempts: 1, isCorrect: true, status: 'SOFT_ERROR', matched: 'ein Tisch', reason: 'typo', score: 90,
+  })
+  render(<ExerciseClient exercises={[fill]} lang="ru" level="A1.1" translations={russian.exercises} />)
+  fireEvent.click(screen.getByRole('button', { name: 'Начать нерешённые задания' }))
+  fireEvent.change(screen.getByRole('textbox', { name: russian.exercises.blank_label }), { target: { value: 'ein Tish' } })
+  await act(async () => fireEvent.click(screen.getByRole('button', { name: russian.exercises.check_answer })))
+  expect(screen.getByText(russian.exercises.soft_error.typo)).toBeVisible()
+  expect(screen.queryByText('Fast richtig!')).not.toBeInTheDocument()
+  expect(screen.getByText(russian.exercises.soft_error.typo).closest('p')).toHaveClass('bg-[var(--warning)]')
+  expect(screen.getByRole('button', { name: 'Завершить занятие' })).toBeVisible()
 })
 it('allows teachers to edit existing exercises while preserving authored instructions', async () => {
   jest.mocked(saveGrammarExercise).mockResolvedValue({ success: true, data: { ...authored, topic: 'Artikel im Alltag' } })

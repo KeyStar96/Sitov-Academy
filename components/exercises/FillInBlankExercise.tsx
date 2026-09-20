@@ -1,28 +1,31 @@
 'use client'
 
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { AlertCircle, ArrowRight, CheckCircle2, Info } from 'lucide-react'
 import SmartHintPanel from '@/components/exercises/SmartHintPanel'
 import SolutionAudioButton from '@/components/exercises/SolutionAudioButton'
 import { useSolvedActionFocus } from '@/components/exercises/useSolvedActionFocus'
 import { buildSmartHint } from '@/lib/exercise-chips'
 import type { ExerciseTranslator } from '@/lib/exercise-i18n'
-import type { FillInBlankExercise as FillInBlankExerciseData } from '@/lib/types/exercise'
+import type { ConfirmedExerciseAttempt, FillInBlankExercise as FillInBlankExerciseData } from '@/lib/types/exercise'
 import { cn } from '@/lib/utils'
 import VisualDiff from '@/components/exercises/VisualDiff'
-import { validateUserAnswer, type ValidationResult } from '@/lib/grammar-validation'
+import type { SoftErrorReason } from '@/lib/answer-grading'
+import SoftErrorBadge from '@/components/exercises/SoftErrorBadge'
 
 interface FillInBlankExerciseProps {
   exercise: FillInBlankExerciseData
   t: ExerciseTranslator
-  /** Persistiert den Versuch. Der Aufrufer entscheidet über die Speicherung. */
-  onAttempt: (isCorrect: boolean, hintShown: boolean, answer: string) => void
+  onAttempt: (hintShown: boolean, answer: string) => void
+  attempt?: ConfirmedExerciseAttempt
+  submitting: boolean
+  softErrorTranslations?: Partial<Record<SoftErrorReason, string>>
   onNext: () => void
   nextLabel: string
   lang: string
 }
 
-/** Free typing uses the same normalization as the server-side grammar scorer. */
+/** Only a confirmed server result unlocks completion and final feedback. */
 export default function FillInBlankExerciseCard({
   exercise,
   t,
@@ -30,15 +33,22 @@ export default function FillInBlankExerciseCard({
   onNext,
   nextLabel,
   lang,
+  attempt,
+  submitting,
+  softErrorTranslations,
 }: FillInBlankExerciseProps) {
   const [inputValue, setInputValue] = useState('')
-  const [hasError, setHasError] = useState(false)
-  const [validationResult, setValidationResult] = useState<ValidationResult | null>(null)
+  const validationResult = attempt?.result
+  const isSolved = validationResult?.isCorrect === true
+  const hasError = validationResult?.status === 'INCORRECT' && attempt?.answer === inputValue
   const [failedAttempts, setFailedAttempts] = useState(exercise.attempts)
-  const [isSolved, setIsSolved] = useState(false)
-  const [showRetryNotice, setShowRetryNotice] = useState(false)
+  const showRetryNotice = hasError
   const [audioUnsupported, setAudioUnsupported] = useState(false)
   const nextButtonRef = useSolvedActionFocus(isSolved)
+
+  useEffect(() => {
+    if (attempt) setFailedAttempts(attempt.result.attempts)
+  }, [attempt])
 
   const localizedHint = exercise.hint ? (typeof exercise.hint === 'string' ? exercise.hint : (exercise.hint[lang] ?? exercise.hint.de)) : null
   const smartHintObj = exercise.content.smart_hint
@@ -64,33 +74,13 @@ export default function FillInBlankExerciseCard({
   )
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (isSolved) return
+    if (isSolved || submitting) return
     setInputValue(e.target.value)
-    setShowRetryNotice(false)
-    setHasError(false)
-    setValidationResult(null)
   }
 
   const handleCheck = (): void => {
-    if (!inputValue || isSolved) return
-
-    const result = validateUserAnswer(inputValue, exercise.content.accepted_answers || [exercise.content.correct_answer])
-    setValidationResult(result)
-
-    const isCorrect = result.status === 'EXACT' || result.status === 'SOFT_ERROR'
-
-    onAttempt(isCorrect, smartHint !== null, inputValue)
-
-    if (isCorrect) {
-      setIsSolved(true)
-      setShowRetryNotice(false)
-      setHasError(false)
-      return
-    }
-
-    setHasError(true)
-    setFailedAttempts((current) => current + 1)
-    setShowRetryNotice(true)
+    if (!inputValue.trim() || isSolved || submitting) return
+    onAttempt(smartHint !== null, inputValue)
   }
 
 
@@ -107,6 +97,7 @@ export default function FillInBlankExerciseCard({
             autoComplete="off"
             spellCheck={false}
             value={inputValue}
+            disabled={submitting}
             onChange={handleChange}
             placeholder={t('blank_label')}
             className={cn(
@@ -183,23 +174,16 @@ export default function FillInBlankExerciseCard({
           aria-live="polite"
           className={cn(
             'mt-10 rounded-2xl border-2 p-6',
-            validationResult?.status === 'SOFT_ERROR' ? 'border-amber-500 bg-amber-500/10' : 'border-[var(--violet)] bg-[var(--surface-muted)]'
+            validationResult?.status === 'SOFT_ERROR' ? 'border-[var(--warning)] bg-[var(--surface-muted)]' : 'border-[var(--violet)] bg-[var(--surface-muted)]'
           )}
         >
           <div className="flex items-center gap-4">
-            <CheckCircle2 className={cn('h-9 w-9 shrink-0', validationResult?.status === 'SOFT_ERROR' ? 'text-amber-600' : 'text-[var(--violet)]')} aria-hidden="true" />
-            <p className="text-2xl font-bold text-[var(--foreground)]">{validationResult?.status === 'SOFT_ERROR' ? 'Fast richtig!' : t('correct_well_done')}</p>
+            <CheckCircle2 className="h-9 w-9 shrink-0 text-[var(--violet)]" aria-hidden="true" />
+            <p className="text-2xl font-bold text-[var(--foreground)]">{t('correct_well_done')}</p>
           </div>
 
-          {validationResult?.status === 'SOFT_ERROR' && validationResult.warnings.length > 0 && (
-            <div className="mt-4 flex items-start gap-3 rounded-xl border border-amber-200 bg-[var(--surface)] p-4 text-[var(--foreground)]">
-              <Info className="mt-0.5 h-5 w-5 shrink-0 text-amber-600" aria-hidden="true" />
-              <ul className="list-disc pl-5 space-y-1">
-                {validationResult.warnings.map((warning, i) => (
-                  <li key={i}>{warning}</li>
-                ))}
-              </ul>
-            </div>
+          {validationResult?.status === 'SOFT_ERROR' && (
+            <SoftErrorBadge reason={validationResult.reason} translations={softErrorTranslations} />
           )}
 
           {localizedSmartHint && <p className="mt-4 text-lg leading-relaxed text-[var(--foreground)]">{localizedSmartHint}</p>}
@@ -242,7 +226,7 @@ export default function FillInBlankExerciseCard({
           <button
             type="button"
             onClick={handleCheck}
-            disabled={!inputValue}
+            disabled={!inputValue.trim() || submitting}
             className="min-h-16 w-full rounded-full bg-[var(--violet)] px-8 py-4 text-xl font-bold text-[var(--surface)] shadow-md transition-colors hover:bg-[var(--violet)] disabled:cursor-not-allowed disabled:opacity-50 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)] sm:w-auto"
           >
             {t('check_answer')}

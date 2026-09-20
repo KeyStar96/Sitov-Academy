@@ -9,43 +9,9 @@ async function checkAccessibility(page, pageName, rules = ['color-contrast']) {
 
     // If specific rules are provided, filter violations by those rules
     // Otherwise check all
-    let contrastViolations = results.violations.filter(violation =>
+    const contrastViolations = results.violations.filter(violation =>
         rules.includes(violation.id) || rules.length === 0
     );
-
-    // ---------------------------------------------------------------------------
-    // EXCEPTION: User explicitly requested to keep the "Anmelden" button Orange
-    // despite WCAG contrast warning. We filter out this specific node.
-    // ---------------------------------------------------------------------------
-    if (rules.includes('color-contrast') || rules.length === 0) {
-        contrastViolations = contrastViolations.map(violation => {
-            if (violation.id === 'color-contrast') {
-                // Filter out nodes that are the orange enroll button
-                const realNodes = violation.nodes.filter(node => {
-                    const html = node.html || '';
-                    console.log(`[DEBUG] Contrast Node: ${html}`);
-                    // Check for class, href, or text content to identify the button
-                    const isOrangeButton =
-                        html.includes('bg-primary-orange') ||
-                        html.includes('/registration') ||
-                        html.includes('Anmelden') ||
-                        html.includes('Enroll');
-
-                    return !isOrangeButton;
-                });
-
-                // If we filtered out all nodes, this violation is resolved
-                if (realNodes.length === 0) return null;
-
-                // Otherwise return violation with remaining nodes
-                return {
-                    ...violation,
-                    nodes: realNodes
-                };
-            }
-            return violation;
-        }).filter(v => v !== null) as any;
-    }
 
     if (contrastViolations.length > 0) {
         console.log(`Accessibility violations found on ${pageName}:`);

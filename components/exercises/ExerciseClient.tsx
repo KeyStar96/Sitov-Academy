@@ -8,7 +8,7 @@ import { finishExerciseSession, recordExerciseAttempt } from '@/app/actions/exer
 import { createExerciseTranslator, type ExerciseTranslations } from '@/lib/exercise-i18n'
 import { grammarTranslator } from '@/lib/grammar-i18n'
 import { createGrammarSession, groupGrammarTopics } from '@/lib/grammar-session'
-import type { StudentExercise } from '@/lib/types/exercise'
+import type { ConfirmedExerciseAttempt, RecordExerciseAttemptInput, StudentExercise } from '@/lib/types/exercise'
 import styles from './GrammarStudio.module.css'
 
 interface ExerciseClientProps {
@@ -24,7 +24,9 @@ export default function ExerciseClient({ exercises, translations = {}, lang, lev
   const [currentIndex, setCurrentIndex] = useState(0)
   const [saveFailed, setSaveFailed] = useState(false)
   const [saving, setSaving] = useState(false)
-  const [pendingAttempts, setPendingAttempts] = useState<Array<{ exerciseId: string; answer: string; hintShown: boolean }>>([])
+  const [pendingAttempt, setPendingAttempt] = useState<RecordExerciseAttemptInput | null>(null)
+  const [confirmedAttempt, setConfirmedAttempt] = useState<(ConfirmedExerciseAttempt & { exerciseId: string }) | null>(null)
+  const savingRef = useRef(false)
   const saveQueue = useRef<Promise<void>>(Promise.resolve())
   const t = useMemo(() => createExerciseTranslator(translations), [translations])
   const g = useMemo(() => grammarTranslator(lang), [lang])
@@ -52,48 +54,58 @@ export default function ExerciseClient({ exercises, translations = {}, lang, lev
     const next = createGrammarSession(library, { topic, review })
     setSession(next)
     setCurrentIndex(0)
+    setConfirmedAttempt(null)
+    setPendingAttempt(null)
+    setSaveFailed(false)
   }, [library])
 
-  const saveAttempt = useCallback((input: { exerciseId: string; answer: string; hintShown: boolean }) => {
+  const saveAttempt = useCallback((input: RecordExerciseAttemptInput) => {
+    if (savingRef.current) return
+    savingRef.current = true
     setSaving(true)
-    saveQueue.current = saveQueue.current.then(async () => {
+    setSaveFailed(false)
+    setPendingAttempt(null)
+    setConfirmedAttempt(null)
+    saveQueue.current = (async () => {
       try {
         const result = await recordExerciseAttempt(input)
         if (!result.success) {
           setSaveFailed(true)
-          setPendingAttempts(previous => [...previous, input])
+          setPendingAttempt(input)
           return
         }
-        if (result.isCorrect) setLibrary(previous => previous.map(exercise => exercise.id === input.exerciseId
-          ? { ...exercise, completed: true, attempts: result.attempts } : exercise))
+        setConfirmedAttempt({ exerciseId: input.exerciseId, answer: input.answer, result })
+        setLibrary(previous => previous.map(exercise => exercise.id === input.exerciseId
+          ? { ...exercise, completed: exercise.completed || result.isCorrect, attempts: result.attempts, score: result.score } : exercise))
       } catch {
         setSaveFailed(true)
-        setPendingAttempts(previous => [...previous, input])
+        setPendingAttempt(input)
+      } finally {
+        savingRef.current = false
+        setSaving(false)
       }
-    })
-    const currentQueue = saveQueue.current
-    void currentQueue.finally(() => { if (saveQueue.current === currentQueue) setSaving(false) })
+    })()
   }, [])
 
-  const handleAttempt = useCallback((exerciseId: string, _isCorrect: boolean, hintShown: boolean, answer: string) => {
+  const handleAttempt = useCallback((exerciseId: string, hintShown: boolean, answer: string) => {
     saveAttempt({ exerciseId, answer, hintShown })
   }, [saveAttempt])
 
   const retrySave = () => {
-    setPendingAttempts([])
-    setSaveFailed(false)
-    for (const input of pendingAttempts) saveAttempt(input)
+    if (pendingAttempt) saveAttempt(pendingAttempt)
   }
 
   const handleNext = useCallback(() => {
+    if (savingRef.current || !confirmedAttempt?.result.isCorrect || confirmedAttempt.exerciseId !== currentExercise?.id) return
     const nextIndex = currentIndex + 1
     setCurrentIndex(nextIndex)
+    setConfirmedAttempt(null)
     if (session && nextIndex >= session.length) {
       void saveQueue.current.then(async () => {
         try { await finishExerciseSession(level) } catch { setSaveFailed(true) }
       })
     }
-  }, [currentIndex, level, session])
+  }, [confirmedAttempt, currentExercise?.id, currentIndex, level, session])
 
   return (
     <section className={styles.shell}>
@@ -130,25 +142,27 @@ export default function ExerciseClient({ exercises, translations = {}, lang, lev
         <h2 ref={headingRef} tabIndex={-1}>{g('finished')}</h2><p>{g('finishedHint', { count: session.length })}</p>
         <button type="button" onClick={() => setSession(null)} className="academy-button academy-button-primary">{g('back')}<ArrowRight size={18} aria-hidden="true" /></button>
       </div> : <>
-        <button type="button" onClick={() => setSession(null)} className="academy-button academy-button-secondary mb-4"><ArrowLeft size={18} aria-hidden="true" />{g('back')}</button>
+        <button type="button" disabled={saving} onClick={() => setSession(null)} className="academy-button academy-button-secondary mb-4"><ArrowLeft size={18} aria-hidden="true" />{g('back')}</button>
         <div className={styles.practice}>
           <header className={styles.practiceHeader}>
             <div className={styles.practiceMeta}><h2 ref={headingRef} tabIndex={-1} className="font-medium">{currentExercise.topic}</h2><span>{t('progress_label', { current: currentIndex + 1, total: session.length })}</span></div>
             <div className={styles.progress} role="progressbar" aria-valuenow={currentIndex} aria-valuemin={0} aria-valuemax={session.length} aria-label={t('completed_count')}><span style={{ width: `${currentIndex / session.length * 100}%` }} /></div>
           </header>
           {currentExercise.type === 'fill_in_blank' ? <FillInBlankExerciseCard key={currentExercise.id} exercise={currentExercise} t={t} lang={lang}
+            attempt={confirmedAttempt?.exerciseId === currentExercise.id ? confirmedAttempt : undefined} submitting={saving} softErrorTranslations={translations.soft_error}
             nextLabel={currentIndex + 1 >= session.length ? g('finish') : t('next_exercise')}
-            onAttempt={(correct, hint, answer) => handleAttempt(currentExercise.id, correct, hint, answer)} onNext={handleNext} />
+            onAttempt={(hint, answer) => handleAttempt(currentExercise.id, hint, answer)} onNext={handleNext} />
             : <MultipleChoiceExerciseCard key={currentExercise.id} exercise={currentExercise} t={t} lang={lang}
+              attempt={confirmedAttempt?.exerciseId === currentExercise.id ? confirmedAttempt : undefined} submitting={saving} softErrorTranslations={translations.soft_error}
               nextLabel={currentIndex + 1 >= session.length ? g('finish') : t('next_exercise')}
-              onAttempt={(correct, hint, answer) => handleAttempt(currentExercise.id, correct, hint, answer)} onNext={handleNext} />}
+              onAttempt={(hint, answer) => handleAttempt(currentExercise.id, hint, answer)} onNext={handleNext} />}
         </div>
       </>}
       {/* Async save updates must not move the exercise while it is being read. */}
       {saveFailed && <div role="status" className={styles.notice}>
         <CloudOff className="shrink-0" size={20} aria-hidden="true" />
         <span>{g('saveFailed')}</span>
-        {pendingAttempts.length > 0 && <button type="button" disabled={saving} onClick={retrySave} className="academy-button academy-button-secondary">{t('error_retry')}</button>}
+        {pendingAttempt && <button type="button" disabled={saving} onClick={retrySave} className="academy-button academy-button-secondary">{t('error_retry')}</button>}
       </div>}
       {saving && <p role="status" className={styles.notice}><Loader2 size={18} className="animate-spin" aria-hidden="true" />{g('saving')}</p>}
     </section>

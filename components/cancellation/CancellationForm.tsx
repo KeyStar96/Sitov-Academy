@@ -120,7 +120,7 @@ export default function CancellationForm({ dictionary, lang, courses }: Cancella
                         htmlFor="fullName"
                         className={cn(
                             "absolute left-0 top-0 text-xs font-mono uppercase tracking-widest text-gray-600 dark:text-gray-400 transition-all pointer-events-none",
-                            "peer-placeholder-shown:top-3 peer-placeholder-shown:text-lg peer-placeholder-shown:normal-case peer-placeholder-shown:font-sans peer-placeholder-shown:text-gray-500",
+                            "peer-placeholder-shown:top-3 peer-placeholder-shown:text-lg peer-placeholder-shown:normal-case peer-placeholder-shown:font-sans peer-placeholder-shown:text-[var(--muted)]",
                             "peer-focus:top-0 peer-focus:text-xs peer-focus:uppercase peer-focus:tracking-widest peer-focus:text-[#FF5C00]"
                         )}
                     >
@@ -149,7 +149,7 @@ export default function CancellationForm({ dictionary, lang, courses }: Cancella
                         htmlFor="email"
                         className={cn(
                             "absolute left-0 top-0 text-xs font-mono uppercase tracking-widest text-gray-600 dark:text-gray-400 transition-all pointer-events-none",
-                            "peer-placeholder-shown:top-3 peer-placeholder-shown:text-lg peer-placeholder-shown:normal-case peer-placeholder-shown:font-sans peer-placeholder-shown:text-gray-500",
+                            "peer-placeholder-shown:top-3 peer-placeholder-shown:text-lg peer-placeholder-shown:normal-case peer-placeholder-shown:font-sans peer-placeholder-shown:text-[var(--muted)]",
                             "peer-focus:top-0 peer-focus:text-xs peer-focus:uppercase peer-focus:tracking-widest peer-focus:text-[#FF5C00]"
                         )}
                     >

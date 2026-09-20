@@ -133,6 +133,7 @@ jest.mock('lucide-react', () => ({
     X: (props: any) => React.createElement('svg', props),
     ArrowRight: (props: any) => React.createElement('svg', props),
     Loader2: (props: any) => React.createElement('svg', props),
+    Info: (props: any) => React.createElement('svg', props),
     MapPin: (props: any) => React.createElement('svg', props),
     Monitor: (props: any) => React.createElement('svg', props),
     User: (props: any) => React.createElement('svg', props),

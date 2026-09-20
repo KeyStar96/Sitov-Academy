@@ -2,6 +2,7 @@
 
 import { revalidatePath } from 'next/cache'
 import { z } from 'zod'
+import { SOFT_ERROR_REASONS } from '@/lib/answer-grading'
 import { getRpcError } from '@/lib/rpc-errors'
 import { createClient } from '@/utils/supabase/server'
 import { hasTrainerAccess, isAccessLevel, getAllowedLessons } from '@/lib/access/levels'
@@ -24,7 +25,8 @@ const languageSchema = z.enum(['de', 'en', 'ru', 'uk', 'tr'])
 const decisionSchema = z.array(z.object({ cardId: z.string().uuid(), alreadyKnown: z.boolean(), direction: z.enum(['de_to_native', 'native_to_de']).optional() })).max(1000)
 const initializationResultSchema = z.object({ addedKnown: z.number().int().nonnegative(), addedNew: z.number().int().nonnegative() })
 const reviewResultSchema = z.object({
-  success: z.literal(true), isCorrect: z.boolean(), correctAnswer: z.string().optional(), isAlternative: z.boolean().optional(),
+  success: z.literal(true), isCorrect: z.boolean(), correctAnswer: z.string(), isAlternative: z.boolean(),
+  softError: z.enum(SOFT_ERROR_REASONS).nullable(),
   previousPhase: z.number().int().min(1).max(6), newPhase: z.number().int().min(1).max(6),
   becameLearned: z.boolean(), movedBack: z.boolean(), intervalInDays: z.number().int().positive(),
 })
@@ -212,17 +214,17 @@ export async function getVocabularyOnboarding(level: string): Promise<{ status: 
   return { status: data.status, lesson: data.unit.label }
 }
 
-/** Word self-rating is accepted; sentence correctness is computed inside PostgreSQL. */
+/** Every review is graded from the learner's typed answer inside PostgreSQL. */
 export async function submitVocabularyAnswer(input: SubmitVocabularyAnswerInput): Promise<SubmitVocabularyAnswerResult> {
-  const parsed = z.object({ progressId: z.string().uuid(), expectedLearnerId: z.string().uuid().optional(), requestId: z.string().uuid().optional(), isCorrect: z.boolean().optional(),
-    typedAnswer: z.string().max(4000).optional(), uiLanguage: languageSchema.optional() }).safeParse(input)
+  const parsed = z.object({ progressId: z.string().uuid(), expectedLearnerId: z.string().uuid().optional(), requestId: z.string().uuid().optional(),
+    typedAnswer: z.string().min(1).max(4000).refine(value => value.trim().length > 0), uiLanguage: languageSchema.optional() }).safeParse(input)
   if (!parsed.success) return { success: false, error: 'invalid_input' }
   try {
     const learner = await loadLearner(parsed.data.expectedLearnerId)
     if (!learner) return { success: false, error: 'save_failed' }
     const payload = {
-      p_progress_id: parsed.data.progressId, p_is_correct: parsed.data.isCorrect ?? null,
-      p_typed_answer: parsed.data.typedAnswer ?? null,
+      p_progress_id: parsed.data.progressId, p_is_correct: null,
+      p_typed_answer: parsed.data.typedAnswer,
       p_ui_language: parsed.data.uiLanguage ?? languageSchema.catch('de').parse(learner.profile.ui_language),
     }
     const { data, error } = parsed.data.requestId

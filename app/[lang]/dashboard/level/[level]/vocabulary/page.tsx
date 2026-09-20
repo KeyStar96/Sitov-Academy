@@ -29,6 +29,7 @@ export default async function VocabularyOverviewPage({
       initialPreviousCardId={session.previousCardId}
       lessonStats={stats}
       translations={translations}
+      softErrorTranslations={dict.exercises?.soft_error}
       lang={lang}
       level={decodedLevel}
     />

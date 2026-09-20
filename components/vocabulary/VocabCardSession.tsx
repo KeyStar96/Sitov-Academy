@@ -15,11 +15,14 @@ import { prefetchNeuralAudio } from '@/lib/audio/neural-client'
 import { vocabularyAudioText } from '@/lib/audio/neural-config'
 import { cn, stripLessonPrefix } from '@/lib/utils'
 import VisualDiff from '@/components/exercises/VisualDiff'
+import SoftErrorBadge from '@/components/exercises/SoftErrorBadge'
+import type { SoftErrorReason } from '@/lib/answer-grading'
 
 interface VocabCardSessionProps {
   learnerId: string | null
   cards: DueVocabularyCard[]
   translations?: VocabularyTranslations
+  softErrorTranslations?: Partial<Record<SoftErrorReason, string>>
   overviewHref: string
   uiLanguage?: string
   previousCardId?: string | null
@@ -27,7 +30,7 @@ interface VocabCardSessionProps {
   onBackToLernkasten?: (lastAnsweredCardId: string | null) => void
 }
 
-export default function VocabCardSession({ learnerId, cards, translations = {}, overviewHref, uiLanguage = 'de', previousCardId = null, initialDeferredCount = 0, onBackToLernkasten }: VocabCardSessionProps) {
+export default function VocabCardSession({ learnerId, cards, translations = {}, softErrorTranslations, overviewHref, uiLanguage = 'de', previousCardId = null, initialDeferredCount = 0, onBackToLernkasten }: VocabCardSessionProps) {
   const router = useRouter()
   const actorId = useRef(learnerId).current
   const mounted = useRef(true)
@@ -36,14 +39,13 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
   const session = plan.cards
   const [index, setIndex] = useState(0)
   const indexRef = useRef(0)
-  const [revealed, setRevealed] = useState(false)
-  const [sentencePending, setSentencePending] = useState(false)
-  const sentenceBusy = useRef(false)
+  const [reviewPending, setReviewPending] = useState(false)
+  const reviewBusy = useRef(false)
   const lastAnswered = useRef<string | null>(previousCardId)
   const [saveFailed, setSaveFailed] = useState(false)
   const [answer, setAnswer] = useState('')
   const drafts = useRef(new Map<string, string>())
-  const [sentenceResult, setSentenceResult] = useState<{ correct: boolean; solution: string; isAlternative?: boolean } | null>(null)
+  const [answerResult, setAnswerResult] = useState<{ correct: boolean; solution: string; isAlternative: boolean; softError: SoftErrorReason | null } | null>(null)
   const exitRequested = useRef(false)
   const finalized = useRef(false)
   const t = useMemo(() => createVocabularyTranslator(translations), [translations])
@@ -69,27 +71,27 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
 
   if (!writes.current) writes.current = createOrderedWriteQueue<ReviewIntent, SubmitVocabularyAnswerResult>({
     write: item => submitVocabularyAnswer(item.input),
-    accepted: (result, item) => result.success && (item.card.format !== 'sentence' || (typeof result.isCorrect === 'boolean' && typeof result.correctAnswer === 'string')),
+    accepted: result => result.success && typeof result.isCorrect === 'boolean' && typeof result.correctAnswer === 'string'
+      && typeof result.isAlternative === 'boolean' && result.softError !== undefined,
     onAccepted: (item, result) => {
       lastAnswered.current = item.card.card.id
-      if (mounted.current && item.card.format === 'sentence') {
-        sentenceBusy.current = false
-        setSentencePending(false)
-        setSentenceResult({ correct: result.isCorrect === true, solution: result.correctAnswer ?? '', isAlternative: result.isAlternative })
+      if (mounted.current) {
+        reviewBusy.current = false
+        setReviewPending(false)
+        setAnswerResult({ correct: result.isCorrect === true, solution: result.correctAnswer ?? '', isAlternative: result.isAlternative === true, softError: result.softError ?? null })
       }
     },
     onBlocked: pending => {
       if (!mounted.current) return
       const failed = pending[0]
       if (!failed) return
-      // Restore the failed card; later clicks stay in the queue, never discarded.
+      // Keep the exact answer and request ID until the server acknowledges it.
       indexRef.current = failed.index
       setIndex(failed.index)
-      setRevealed(failed.card.format === 'word')
-      setAnswer(failed.input.typedAnswer ?? '')
-      setSentenceResult(null)
-      sentenceBusy.current = false
-      setSentencePending(false)
+      setAnswer(failed.input.typedAnswer)
+      setAnswerResult(null)
+      reviewBusy.current = false
+      setReviewPending(false)
       setSaveFailed(true)
     },
     onDrained: () => {
@@ -102,21 +104,19 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
     const queue = writes.current
     const last = queue?.pending.at(-1)
     if (!queue || !last) return
-    const nextIndex = last.index + Number(last.card.format !== 'sentence')
-    indexRef.current = nextIndex
-    setIndex(nextIndex)
-    setRevealed(false)
-    setAnswer(last.card.format === 'sentence' ? last.input.typedAnswer ?? '' : drafts.current.get(session[nextIndex]?.progressId) ?? '')
-    setSentenceResult(null)
-    sentenceBusy.current = last.card.format === 'sentence'
-    setSentencePending(sentenceBusy.current)
+    indexRef.current = last.index
+    setIndex(last.index)
+    setAnswer(last.input.typedAnswer)
+    setAnswerResult(null)
+    reviewBusy.current = true
+    setReviewPending(true)
     setSaveFailed(false)
     queue.retry()
   }
 
   function goBack() {
     if (writes.current?.pending.length) {
-      // Leaving waits for acknowledged writes, without disabling learning controls.
+      // Leaving waits for an acknowledged write; retry preserves its request ID.
       exitRequested.current = true
       if (writes.current.blocked) retry()
       return
@@ -124,29 +124,20 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
     navigateBack()
   }
 
-  function advance(checkFinish = true) {
-    if (index !== indexRef.current) return
+  function advance() {
+    if (!answerResult || reviewBusy.current || index !== indexRef.current) return
     indexRef.current += 1
     setIndex(indexRef.current)
-    setRevealed(false)
     setAnswer(drafts.current.get(session[indexRef.current]?.progressId) ?? '')
-    setSentenceResult(null)
-    if (checkFinish) finishIfReady()
+    setAnswerResult(null)
+    finishIfReady()
   }
 
-  function submitWord(isCorrect: boolean) {
-    if (!actorId || !current || !revealed || index !== indexRef.current || writes.current?.blocked) return
-    const item = { index, card: current, input: { progressId: current.progressId, expectedLearnerId: actorId, isCorrect, uiLanguage, requestId: crypto.randomUUID() } }
-    // Advance synchronously; ordered background writes never lock the next word.
-    advance(false)
-    writes.current?.enqueue(item)
-  }
-
-  function submitSentence(event: React.FormEvent<HTMLFormElement>) {
+  function submitAnswer(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
-    if (!actorId || !current || sentenceBusy.current || !answer.length || index !== indexRef.current || writes.current?.blocked) return
-    sentenceBusy.current = true
-    setSentencePending(true)
+    if (!actorId || !current || answerResult || reviewBusy.current || !answer.trim().length || index !== indexRef.current || writes.current?.blocked) return
+    reviewBusy.current = true
+    setReviewPending(true)
     setSaveFailed(false)
     writes.current?.enqueue({ index, card: current, input: {
       progressId: current.progressId, expectedLearnerId: actorId, typedAnswer: answer, uiLanguage, requestId: crypto.randomUUID(),
@@ -157,8 +148,11 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
     ? `${current.card.article} ${current.card.word_de}` : current.card.word_de)
   const isSentence = current?.format === 'sentence'
   const isToGerman = current?.direction === 'native_to_de'
+  const answerLanguage = isSentence || isToGerman ? 'de' : uiLanguage
+  const answerLabel = answerLanguage !== 'de' ? 'type_answer'
+    : !isSentence && current?.card.article && current.card.article !== 'none' ? 'type_german_with_article' : 'type_german'
   const prompt = (!isSentence && !isToGerman ? targetWord : current?.prompt) || current?.translation || t('no_translation')
-  const denseCard = prompt.length + (revealed ? (targetWord?.length ?? 0) + (current?.translation.length ?? 0) + (current?.contextSentence?.length ?? 0) : 0) > 160
+  const denseCard = prompt.length + (answerResult ? answerResult.solution.length + (current?.contextSentence?.length ?? 0) : 0) > 160
 
   return (
     <LearningScreen title={t('title')}
@@ -177,13 +171,15 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
         </div>
         <article className="learning-card">
           <div key={current.progressId} tabIndex={0} className={cn('learning-card-content', denseCard && 'learning-card-content-dense')}>
-            {!isSentence && !revealed && current.card.image_url && <img className="learning-card-image" src={current.card.image_url} alt={t('image_alt')} />}
+            {!isSentence && !answerResult && current.card.image_url && <img className="learning-card-image" src={current.card.image_url} alt={t('image_alt')} />}
             <span className="learning-eyebrow">{t(isSentence ? 'sentence_format' : 'word_format')}</span>
             <h2 lang={current.promptLanguage} className={cn(isSentence ? 'learning-sentence' : 'learning-word', !isToGerman && articleColorClass(current.card.article))}>{prompt}</h2>
-            {isSentence ? sentenceResult && <>
+            {answerResult && <>
               <div className="learning-divider" />
-              <p className={sentenceResult.correct ? 'learning-success' : 'learning-error'} role="status">{t(sentenceResult.correct ? 'sentence_correct' : 'sentence_incorrect')}</p>
-              {sentenceResult.isAlternative && (
+              {answerResult.softError
+                ? <SoftErrorBadge reason={answerResult.softError} translations={softErrorTranslations} />
+                : <p className={answerResult.correct ? 'learning-success' : 'learning-error'} role="status">{t(isSentence ? answerResult.correct ? 'sentence_correct' : 'sentence_incorrect' : answerResult.correct ? 'answer_correct' : 'answer_incorrect')}</p>}
+              {answerResult.isAlternative && (
                 <div className="mt-3 flex items-start gap-3 rounded-xl border border-[var(--border)] bg-[var(--surface-muted)] p-4 text-[var(--foreground)]">
                   <Info className="mt-0.5 h-5 w-5 shrink-0 text-[var(--violet)]" aria-hidden="true" />
                   <p>
@@ -191,40 +187,34 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
                   </p>
                 </div>
               )}
-              {!sentenceResult.correct && (
-                <div className="my-4 w-full rounded-2xl border border-[var(--border)] bg-[var(--surface-muted)] p-4 text-left" lang="de">
+              {!answerResult.correct && (
+                <div className="my-4 w-full rounded-2xl border border-[var(--border)] bg-[var(--surface-muted)] p-4 text-left" lang={answerLanguage}>
                   <span className="learning-eyebrow mb-2 block">{t('your_answer_label')}</span>
                   <p className="learning-sentence whitespace-pre-wrap break-words">{answer}</p>
                   <span className="learning-eyebrow mb-2 mt-5 block">{t('correct_sentence_label')}</span>
-                  <VisualDiff actual={answer} expected={sentenceResult.solution} className="learning-sentence" />
+                  <VisualDiff actual={answer} expected={answerResult.solution} className="learning-sentence" />
                 </div>
               )}
-              {sentenceResult.correct && <>
+              {answerResult.correct && <>
                 <span className="learning-eyebrow">{t('correct_sentence_label')}</span>
-                <p className="learning-sentence" lang="de">{sentenceResult.solution}</p>
+                <p className={cn(isSentence ? 'learning-sentence' : 'learning-solution', !isSentence && isToGerman && articleColorClass(current.card.article))} lang={answerLanguage}>{answerResult.solution}</p>
               </>}
-            </> : revealed && <>
-              <div className="learning-divider" />
-              <p className={cn('learning-solution', isToGerman && articleColorClass(current.card.article))}>{isToGerman ? targetWord : current.translation || t('no_translation')}</p>
-              {current.contextSentence && <p className="learning-context" lang="de"><span className="sr-only">{t('context_label')}: </span>{current.contextSentence}</p>}
-              <SolutionAudioButton cardId={current.card.id} language="de" text={targetWord ?? ''} audioUrl={current.card.audio_url} label={t('listen_word')} ariaLabel={t('listen_word_aria', { word: current.card.word_de })} variant="secondary" />
+              {!isSentence && <>
+                {current.contextSentence && <p className="learning-context" lang="de"><span className="sr-only">{t('context_label')}: </span>{current.contextSentence}</p>}
+                <SolutionAudioButton cardId={current.card.id} language="de" text={targetWord ?? ''} audioUrl={current.card.audio_url} label={t('listen_word')} ariaLabel={t('listen_word_aria', { word: current.card.word_de })} variant="secondary" />
+              </>}
             </>}
           </div>
         </article>
-        {saveFailed ? <button type="button" className="learning-button learning-button-primary learning-button-wide" onClick={retry}>{t('error_retry')}</button> : isSentence ? sentenceResult
+        {saveFailed ? <button type="button" className="learning-button learning-button-primary learning-button-wide" onClick={retry}>{t('error_retry')}</button> : answerResult
           ? <button type="button" className="learning-button learning-button-primary learning-button-wide" onClick={() => advance()}>{t(index + 1 === session.length ? 'finish_session' : 'next_card')}</button>
-          : <form className="learning-typing" onSubmit={submitSentence}>
-            <label htmlFor="german-sentence">{t('type_german')}</label>
-            <textarea id="german-sentence" lang="de" value={answer} onChange={event => { drafts.current.set(current.progressId, event.target.value); setAnswer(event.target.value) }} rows={2} maxLength={1000} autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck={false} aria-describedby="exact-spelling" disabled={sentencePending} />
-            <button className="learning-button learning-button-primary" disabled={sentencePending || !answer.length}>{t('check_sentence')}</button>
-          </form>
-          : revealed ? <div className="learning-actions">
-            <button type="button" className="learning-button" onClick={() => submitWord(false)}><span>{t('didnt_know')}</span><small>{t('didnt_know_hint')}</small></button>
-            <button type="button" className="learning-button learning-button-primary" onClick={() => submitWord(true)}><span>{t('knew_it')}</span><small>{t('knew_it_hint')}</small></button>
-          </div> : <button type="button" className="learning-button learning-button-primary learning-button-wide" onClick={() => setRevealed(true)}>{t('reveal_solution')}</button>}
+          : <form className="learning-typing" onSubmit={submitAnswer}>
+            <label htmlFor="vocabulary-answer">{t(answerLabel)}</label>
+            <textarea id="vocabulary-answer" lang={answerLanguage} value={answer} onChange={event => { drafts.current.set(current.progressId, event.target.value); setAnswer(event.target.value) }} rows={isSentence ? 2 : 1} maxLength={4000} autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck={false} disabled={reviewPending} />
+            <button className="learning-button learning-button-primary" disabled={reviewPending || !answer.trim().length}>{t('check_sentence')}</button>
+          </form>}
       </>}
       {saveFailed && <p role="status" className="learning-status learning-error">{t('save_failed')}</p>}
-      {!saveFailed && isSentence && !sentenceResult && <p id="exact-spelling" className="learning-status">{t('exact_spelling_hint')}</p>}
     </LearningScreen>
   )
 }

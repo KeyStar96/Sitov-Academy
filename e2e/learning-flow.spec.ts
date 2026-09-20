@@ -1,44 +1,93 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, type Page, type APIRequestContext } from '@playwright/test'
+import { createClient } from '@supabase/supabase-js'
+import { randomUUID } from 'node:crypto'
+import ru from '../dictionaries/ru.json'
 
-test.describe('Learning Flow & Bug Prevention', () => {
-  // Hinweis: Dieser Test ist aktuell ein Mock-Test, da für echte Datenbank-Interaktionen
-  // Seed-Daten oder Supabase-Mocking nötig wären. Wir überprüfen hier aber grundlegend
-  // das Routing und die Existenz der Hauptkomponenten, falls Daten vorhanden sind.
+/** Real UI + RPC + persisted progress; the marker prevents production writes. */
+async function learner(page: Page, request: APIRequestContext, trainer: 'exercises' | 'vocabulary') {
+  const api = process.env.E2E_SUPABASE_URL
+  const key = process.env.E2E_SUPABASE_SERVICE_ROLE_KEY
+  expect(api, 'Start the isolated VPS test gateway and load its private env').toBeTruthy()
+  expect(key).toBeTruthy()
+  const marker = await request.get(`${api}/__phase2/health`)
+  expect(await marker.json()).toEqual({ database: 'sitov_phase2_verify', mail: 'discard', isolated: true })
+  expect(marker.headers()['x-sitov-test-database']).toBe('sitov_phase2_verify')
+  await page.route('**/*', route => ['127.0.0.1', 'localhost'].includes(new URL(route.request().url()).hostname) ? route.continue() : route.abort())
+  const admin = createClient(api!, key!, { auth: { persistSession: false, autoRefreshToken: false } })
+  const token = randomUUID(), unitId = randomUUID()
+  const email = `phase3-${token}@test.invalid`, password = `Test-${token}!`
+  const created = await admin.auth.admin.createUser({ email, password, email_confirm: true, user_metadata: { display_name: 'Lerntest', native_language: 'ru', ui_language: 'ru' } })
+  expect(created.error).toBeNull()
+  const userId = created.data.user!.id
+  const people = await admin.from('people').select('id').eq('auth_user_id', userId)
+  expect(people.error).toBeNull()
+  const cleanup = async () => {
+    expect((await admin.auth.admin.deleteUser(userId)).error).toBeNull()
+    expect((await admin.from('learning_exercises').delete().eq('unit_id', unitId)).error).toBeNull()
+    expect((await admin.from('learning_vocabulary_cards').delete().eq('unit_id', unitId)).error).toBeNull()
+    expect((await admin.from('learning_units').delete().eq('id', unitId)).error).toBeNull()
+    for (const person of people.data ?? []) expect((await admin.from('people').delete().eq('id', person.id)).error).toBeNull()
+  }
+  try {
+    expect((await admin.from('profiles').update({ native_language: 'ru', ui_language: 'ru' }).eq('id', userId)).error).toBeNull()
+    expect((await admin.from('learning_units').insert({ id: unitId, level: 'A1.1', trainer, label: `Lerntest ${token}` })).error).toBeNull()
+    expect((await admin.from('student_level_access').insert({ auth_user_id: userId, level: 'A1.1' })).error).toBeNull()
+    expect((await admin.from('learning_trainer_grants').upsert({ auth_user_id: userId, level: 'A1.1', trainer, enabled: true, unit_mode: 'selected' })).error).toBeNull()
+    expect((await admin.from('learning_unit_grants').insert({ auth_user_id: userId, level: 'A1.1', trainer, unit_id: unitId })).error).toBeNull()
+    await page.goto('/ru/login')
+    await page.locator('input[name="email"]').fill(email)
+    await page.locator('input[name="password"]').fill(password)
+    await page.locator('button[type="submit"]').click()
+    await expect(page).toHaveURL(/\/ru\/dashboard$/, { timeout: 30000 })
+    return { admin, userId, unitId, cleanup }
+  } catch (error) { await cleanup(); throw error }
+}
 
-  test('should navigate to dashboard and show levels', async ({ page }) => {
-    // Wir setzen voraus, dass man eingeloggt ist (oder mocken es). 
-    // Da dies ein E2E Setup ohne Live-DB-Seeds ist, überprüfen wir primär 
-    // die Login-Redirection.
-    // Wenn der User eingeloggt WÄRE, würden wir folgendes testen:
-    
-    // await page.goto('/de/dashboard');
-    // await expect(page.locator('text=Sprachniveau wählen')).toBeVisible();
-    // await page.click('text=A1.1');
-    // await expect(page).toHaveURL(/.*\/dashboard\/level\/A1.1/);
-    
-    // Breadcrumb-Check (Der neue Header sollte existieren):
-    // await expect(page.locator('nav[aria-label="Breadcrumb"]')).toContainText('A1.1');
-  });
+test('canonical alternatives persist and a new grammar card clears input before Russian soft feedback', async ({ page, request }) => {
+  const fixture = await learner(page, request, 'exercises')
+  const { admin, userId, unitId } = fixture
+  const [first, second] = [randomUUID(), randomUUID()].sort()
+  try {
+    expect((await admin.from('learning_exercises').insert([
+      { id: first, unit_id: unitId, topic: 'Begrüßung', type: 'fill_in_blank', content: { text_before: 'Begrüßung: ', text_after: '', correct_answer: 'Guten Tag.', accepted_answers: ['Guten Tag.', 'Hallo.'], options: ['Guten Tag.', 'Danke.'] } },
+      { id: second, unit_id: unitId, topic: 'Begrüßung', type: 'fill_in_blank', content: { text_before: 'Bedanke dich: ', text_after: '', correct_answer: 'Danke.', accepted_answers: ['Danke.'], options: ['Danke.', 'Bitte.'] } },
+    ])).error).toBeNull()
+    await page.goto('/ru/dashboard/level/A1.1/exercises')
+    await page.getByRole('button', { name: /^Begrüßung:/ }).click()
+    await page.getByRole('textbox').fill('Hallo.')
+    await page.getByRole('button', { name: ru.exercises.check_answer, exact: true }).click()
+    await expect(page.getByRole('button', { name: ru.exercises.next_exercise, exact: true })).toBeVisible()
+    const firstProgress = await admin.from('user_exercise_progress').select('completed,score').eq('auth_user_id', userId).eq('exercise_id', first).single()
+    expect(firstProgress.error).toBeNull()
+    expect(firstProgress.data).toEqual({ completed: true, score: 100 })
+    await page.getByRole('button', { name: ru.exercises.next_exercise, exact: true }).click()
+    await expect(page.getByRole('textbox')).toHaveValue('')
+    await page.getByRole('textbox').fill('Danke')
+    await page.getByRole('button', { name: ru.exercises.check_answer, exact: true }).click()
+    const badge = page.getByText(ru.exercises.soft_error.punctuation, { exact: true })
+    await expect(badge).toBeVisible()
+    await expect(badge.locator('..')).toHaveClass(/bg-\[var\(--warning\)\]/)
+    const secondProgress = await admin.from('user_exercise_progress').select('completed,score').eq('auth_user_id', userId).eq('exercise_id', second).single()
+    expect(secondProgress.error).toBeNull()
+    expect(secondProgress.data).toEqual({ completed: true, score: 90 })
+  } finally { await fixture.cleanup() }
+})
 
-  test('exercise component should not leak state', async ({ page }) => {
-    // Dies testet explizit den behobenen "State Leak" Bug.
-    // Ablauf in einem voll gemockten E2E Test:
-    
-    // 1. Gehe zu Übungen:
-    // await page.goto('/de/dashboard/level/A1.1/exercises');
-    
-    // 2. Fülle Lücke 1 aus:
-    // const input = page.locator('input[placeholder="Lücke ausfüllen"]');
-    // await input.fill('das');
-    // await page.click('button:has-text("Antwort prüfen")');
-    
-    // 3. Gehe zur nächsten Übung:
-    // await page.click('button:has-text("Nächste Übung")');
-    
-    // 4. VERIFIKATION (Anti-Bug Check):
-    // Das Eingabefeld muss komplett LEER sein, "das" darf nicht mehr drinstehen.
-    // await expect(input).toHaveValue('');
-    
-    // Bestanden, da wir den `key={exercise.id}` Fix angewendet haben.
-  });
-});
+test('typed vocabulary answer earns a soft ascent with the previous interval and no lapse', async ({ page, request }) => {
+  const fixture = await learner(page, request, 'vocabulary')
+  const { admin, userId, unitId } = fixture
+  const cardId = randomUUID(), progressId = randomUUID()
+  try {
+    expect((await admin.from('learning_vocabulary_cards').insert({ id: cardId, unit_id: unitId, word_de: 'Haus', article: 'das', sentence_practice: false })).error).toBeNull()
+    expect((await admin.from('vocabulary_translations').insert({ card_id: cardId, locale: 'ru', translation: 'дом' })).error).toBeNull()
+    expect((await admin.from('vocabulary_direction_progress').insert({ id: progressId, auth_user_id: userId, card_id: cardId, direction: 'native_to_de', box_number: 3, next_review_date: '2020-01-01', lapses: 0 })).error).toBeNull()
+    await page.goto('/ru/dashboard/level/A1.1/vocabulary/train')
+    await page.getByRole('textbox').fill('das Hauss')
+    await page.getByRole('button', { name: ru.vocabulary.check_sentence, exact: true }).click()
+    await expect(page.getByText(ru.exercises.soft_error.typo, { exact: true })).toBeVisible()
+    const result = await admin.from('vocabulary_direction_progress').select('box_number,lapses,next_review_date,last_answered_at').eq('id', progressId).single()
+    expect(result.error).toBeNull()
+    expect(result.data).toMatchObject({ box_number: 4, lapses: 0 })
+    expect(new Date(result.data!.next_review_date).getTime() - new Date(result.data!.last_answered_at).getTime()).toBe(3 * 86400000)
+  } finally { await fixture.cleanup() }
+})

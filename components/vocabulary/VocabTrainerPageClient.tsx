@@ -9,6 +9,7 @@ import { createVocabularyTranslator, type VocabularyTranslations } from '@/lib/v
 import { loadLernkastenSelection, saveLernkastenSelection } from '@/lib/vocabulary-lernkasten'
 import type { DueVocabularyCard, LessonStat } from '@/lib/types/vocabulary'
 import { stripLessonPrefix } from '@/lib/utils'
+import type { SoftErrorReason } from '@/lib/answer-grading'
 import VocabCardSession from './VocabCardSession'
 import LessonCardsModal from './LessonCardsModal'
 
@@ -17,13 +18,14 @@ interface Props {
   initialCards: DueVocabularyCard[]
   lessonStats: LessonStat[]
   translations?: VocabularyTranslations
+  softErrorTranslations?: Partial<Record<SoftErrorReason, string>>
   lang: string
   level: string
   initialDeferredCount?: number
   initialPreviousCardId?: string | null
 }
 
-export default function VocabTrainerPageClient({ learnerId, initialCards, lessonStats, translations = {}, lang, level, initialDeferredCount = 0, initialPreviousCardId = null }: Props) {
+export default function VocabTrainerPageClient({ learnerId, initialCards, lessonStats, translations = {}, softErrorTranslations, lang, level, initialDeferredCount = 0, initialPreviousCardId = null }: Props) {
   const router = useRouter()
   const [refreshing, startRefresh] = useTransition()
   const t = useMemo(() => createVocabularyTranslator(translations), [translations])
@@ -74,7 +76,7 @@ export default function VocabTrainerPageClient({ learnerId, initialCards, lesson
     } finally { setPending(false) }
   }
 
-  if (session) return <VocabCardSession key={learnerId} learnerId={learnerId} cards={session} translations={translations} uiLanguage={lang} previousCardId={previousCardId} initialDeferredCount={initialDeferredCount} overviewHref={overview}
+  if (session) return <VocabCardSession key={learnerId} learnerId={learnerId} cards={session} translations={translations} softErrorTranslations={softErrorTranslations} uiLanguage={lang} previousCardId={previousCardId} initialDeferredCount={initialDeferredCount} overviewHref={overview}
     onBackToLernkasten={lastId => { setPreviousCardId(lastId); setSession(null); startRefresh(() => router.refresh()) }} />
 
   return <div className="mx-auto w-full max-w-5xl space-y-8 text-[var(--foreground)]">

@@ -10,7 +10,7 @@ from pathlib import Path
 DB='supabase-db-eknmzxvqilojjicinatnllbt'
 STORAGE='supabase-storage-eknmzxvqilojjicinatnllbt'
 BASE=Path('/var/www/sitov-academy')
-ORDER=['02_identity_alignment.sql','03_registration_identity.sql','01_critical_fixes.sql','04_normalization.sql','05_rpc_errors.sql']
+ORDER=['02_identity_alignment.sql','03_registration_identity.sql','01_critical_fixes.sql','04_normalization.sql','05_rpc_errors.sql','06_soft_errors.sql']
 
 def run(args,**kwargs):
     return subprocess.run(args,check=True,capture_output=True,**kwargs).stdout
@@ -29,7 +29,7 @@ def inventory():
 
 def backup():
     stamp=datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')
-    target=Path('/root/backups')/('sitov-phase2-'+stamp)
+    target=Path('/root/backups')/('sitov-migration-'+stamp)
     target.mkdir(mode=0o700,parents=True)
     before=inventory()
     for filename,command in [('postgres.dump',['pg_dump','-d','postgres','-Fc']),('roles.sql',['pg_dumpall','--roles-only'])]:

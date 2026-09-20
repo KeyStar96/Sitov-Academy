@@ -1,6 +1,7 @@
 import { z } from 'zod'
 import { ACCESS_LEVELS } from '@/lib/access/levels'
 import type { Database } from '@/supabase/database.types'
+import type { AnswerGrade, SoftErrorReason } from '@/lib/answer-grading'
 
 const answer = z.string().trim().min(1).max(1000)
 const options = z.array(answer).min(2).max(8)
@@ -67,91 +68,63 @@ export function normalizeGrammarAnswer(value: string): string {
   return value.trim().replace(/\s+/g, ' ').toLocaleLowerCase('de-DE')
 }
 
-export interface ValidationResult {
-  status: 'EXACT' | 'SOFT_ERROR' | 'INCORRECT'
-  warnings: string[]
-  matchedAnswer: string | null
+export type ValidationResult = AnswerGrade
+
+const normalizeSpacing = (value: string) => value.trim().replace(/\s+/g, ' ')
+const withoutPunctuation = (value: string) => normalizeSpacing(value.replace(/[\p{P}\p{S}]/gu, ''))
+const foldCase = (value: string) => value.toLocaleLowerCase('de-DE')
+const expandUmlauts = (value: string) => value.replace(/[äöüßÄÖÜẞ]/g, letter => ({
+  ä: 'ae', ö: 'oe', ü: 'ue', ß: 'ss', Ä: 'Ae', Ö: 'Oe', Ü: 'Ue', ẞ: 'SS',
+})[letter]!)
+
+function oneWordEdit(left: string, right: string): boolean {
+  const a = Array.from(left)
+  const b = Array.from(right)
+  if (Math.min(a.length, b.length) < 4 || Math.abs(a.length - b.length) > 1) return false
+  let i = 0
+  let j = 0
+  let edits = 0
+  while (i < a.length && j < b.length) {
+    if (a[i] === b[j]) { i++; j++; continue }
+    if (++edits > 1) return false
+    if (a.length >= b.length) i++
+    if (b.length >= a.length) j++
+  }
+  return edits + (a.length - i) + (b.length - j) === 1
 }
 
-function normalizeForSoftMatch(text: string): string {
-  // Remove all punctuation and normalize spaces, lowercase.
-  return text
-    .replace(/[.,?!;:()'"]/g, '')
-    .replace(/\s+/g, ' ')
-    .trim()
-    .toLocaleLowerCase('de-DE')
+function isSingleWordTypo(input: string, accepted: string): boolean {
+  // Keep punctuation and spacing identical; other soft differences cannot be combined.
+  const wordPattern = /[\p{L}\p{N}]+/gu
+  if (input.replace(wordPattern, '#') !== accepted.replace(wordPattern, '#')) return false
+  const inputWords = input.match(wordPattern) ?? []
+  const acceptedWords = accepted.match(wordPattern) ?? []
+  if (inputWords.length !== acceptedWords.length) return false
+  let changedWords = 0
+  return inputWords.every((word, index) => {
+    const target = acceptedWords[index]
+    if (word === target) return true
+    if (++changedWords > 1 || foldCase(word) === foldCase(target) || expandUmlauts(word) === expandUmlauts(target)) return false
+    return oneWordEdit(word, target)
+  }) && changedWords === 1
 }
 
-function replaceUmlauteWithBase(text: string): string {
-  return text
-    .replace(/ä/g, 'ae')
-    .replace(/ö/g, 'oe')
-    .replace(/ü/g, 'ue')
-    .replace(/ß/g, 'ss')
-}
-
+/** Non-authoritative preview only. Completion, scores and final feedback come from PostgreSQL. */
 export function validateUserAnswer(userAnswer: string, acceptedAnswers: string[]): ValidationResult {
-  const trimmed = userAnswer.trim()
-  
-  // 1. EXACT match
-  if (acceptedAnswers.includes(trimmed)) {
-    return { status: 'EXACT', warnings: [], matchedAnswer: trimmed }
+  const input = normalizeSpacing(userAnswer)
+  if (!input) return { status: 'INCORRECT', matched: null, reason: null }
+  const candidates = acceptedAnswers.map(matched => ({ matched, normalized: normalizeSpacing(matched) })).filter(answer => answer.normalized.length > 0)
+  const exact = candidates.find(answer => answer.normalized === input)
+  if (exact) return { status: 'EXACT', matched: exact.matched, reason: null }
+  const rules: Array<[SoftErrorReason, (left: string, right: string) => boolean]> = [
+    ['punctuation', (left, right) => withoutPunctuation(left) === withoutPunctuation(right)],
+    ['capitalization', (left, right) => foldCase(left) === foldCase(right)],
+    ['umlaut', (left, right) => expandUmlauts(left) === expandUmlauts(right)],
+    ['typo', isSingleWordTypo],
+  ]
+  for (const [reason, matches] of rules) {
+    const candidate = candidates.find(answer => input.length > 0 && matches(input, answer.normalized))
+    if (candidate) return { status: 'SOFT_ERROR', matched: candidate.matched, reason }
   }
-  
-  // 2. SOFT_ERROR match
-  const userNormalized = normalizeForSoftMatch(trimmed)
-  let bestMatch: string | null = null
-  
-  for (const answer of acceptedAnswers) {
-    const answerNormalized = normalizeForSoftMatch(answer)
-    if (userNormalized === answerNormalized) {
-      bestMatch = answer
-      break
-    }
-    
-    // Check umlaut replacements
-    if (replaceUmlauteWithBase(userNormalized) === replaceUmlauteWithBase(answerNormalized)) {
-       bestMatch = answer
-       break
-    }
-  }
-  
-  if (bestMatch) {
-    const warnings: string[] = []
-    
-    // Determine specific warnings
-    if (trimmed.toLocaleLowerCase('de-DE') !== bestMatch.toLocaleLowerCase('de-DE')) {
-      // It's not just a case difference, could be punctuation or umlaute
-      
-      const userNoPunctEnd = trimmed.replace(/[.,?!]+$/, '')
-      const matchNoPunctEnd = bestMatch.replace(/[.,?!]+$/, '')
-      
-      if (userNoPunctEnd === matchNoPunctEnd && trimmed !== bestMatch) {
-        warnings.push('Achte auf das korrekte Satzzeichen am Ende des Satzes.')
-      } 
-      
-      const userNoPunct = trimmed.replace(/[.,?!;:]/g, '')
-      const matchNoPunct = bestMatch.replace(/[.,?!;:]/g, '')
-      if (userNoPunct === matchNoPunct && userNoPunctEnd !== matchNoPunctEnd) {
-         warnings.push('Achte auf die korrekte Kommasetzung im Satz.')
-      }
-      
-      if (replaceUmlauteWithBase(userNormalized) === replaceUmlauteWithBase(normalizeForSoftMatch(bestMatch)) && userNormalized !== normalizeForSoftMatch(bestMatch)) {
-         warnings.push('Nutze bitte echte deutsche Umlaute (ä, ö, ü, ß) statt Ersatzschreibweisen.')
-      }
-    }
-    
-    // Case warning
-    if (trimmed.toLocaleLowerCase('de-DE') === bestMatch.toLocaleLowerCase('de-DE') && trimmed !== bestMatch) {
-      warnings.push('Achte auf die Groß- und Kleinschreibung (z. B. Substantive und Satzanfänge groß schreiben).')
-    } else if (warnings.length === 0) {
-      // If we found a soft match but didn't catch the exact reason above, just add a generic case/punct warning
-      warnings.push('Achte auf die genaue Schreibweise, Groß-/Kleinschreibung und Satzzeichen.')
-    }
-
-    return { status: 'SOFT_ERROR', warnings, matchedAnswer: bestMatch }
-  }
-  
-  // 3. INCORRECT
-  return { status: 'INCORRECT', warnings: [], matchedAnswer: null }
+  return { status: 'INCORRECT', matched: null, reason: null }
 }

@@ -1,24 +1,25 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { AlertCircle, ArrowRight, CheckCircle2, Info } from 'lucide-react'
 import { useSolvedActionFocus } from '@/components/exercises/useSolvedActionFocus'
 import SolutionAudioButton from '@/components/exercises/SolutionAudioButton'
 import type { ExerciseTranslator } from '@/lib/exercise-i18n'
-import type { MultipleChoiceExercise as MultipleChoiceExerciseData } from '@/lib/types/exercise'
+import type { ConfirmedExerciseAttempt, MultipleChoiceExercise as MultipleChoiceExerciseData } from '@/lib/types/exercise'
 import { cn } from '@/lib/utils'
+import type { SoftErrorReason } from '@/lib/answer-grading'
+import SoftErrorBadge from '@/components/exercises/SoftErrorBadge'
 
 interface MultipleChoiceExerciseProps {
   exercise: MultipleChoiceExerciseData
   t: ExerciseTranslator
-  onAttempt: (isCorrect: boolean, hintShown: boolean, answer: string) => void
+  onAttempt: (hintShown: boolean, answer: string) => void
+  attempt?: ConfirmedExerciseAttempt
+  submitting: boolean
+  softErrorTranslations?: Partial<Record<SoftErrorReason, string>>
   onNext: () => void
   nextLabel: string
   lang: string
-}
-
-function isSameOption(left: string, right: string): boolean {
-  return left.trim().replace(/\s+/g, ' ').toLocaleLowerCase('de-DE') === right.trim().replace(/\s+/g, ' ').toLocaleLowerCase('de-DE')
 }
 
 /**
@@ -32,42 +33,38 @@ export default function MultipleChoiceExerciseCard({
   onNext,
   nextLabel,
   lang,
+  attempt,
+  submitting,
+  softErrorTranslations,
 }: MultipleChoiceExerciseProps) {
   const [selectedOption, setSelectedOption] = useState<string | null>(null)
   const [excludedOptions, setExcludedOptions] = useState<readonly string[]>([])
   const [failedAttempts, setFailedAttempts] = useState(exercise.attempts)
-  const [isSolved, setIsSolved] = useState(false)
-  const [showRetryNotice, setShowRetryNotice] = useState(false)
+  const isSolved = attempt?.result.isCorrect === true
+  const showRetryNotice = attempt?.result.status === 'INCORRECT' && selectedOption === null
   const [showHint, setShowHint] = useState(false)
   const [audioUnsupported, setAudioUnsupported] = useState(false)
   const nextButtonRef = useSolvedActionFocus(isSolved)
+
+  useEffect(() => {
+    if (attempt) setFailedAttempts(attempt.result.attempts)
+    if (attempt?.result.status !== 'INCORRECT') return
+    setExcludedOptions(current => current.includes(attempt.answer) ? current : [...current, attempt.answer])
+    setSelectedOption(null)
+  }, [attempt])
 
   const localizedHint = exercise.hint ? (typeof exercise.hint === 'string' ? exercise.hint : (exercise.hint[lang] ?? exercise.hint.de)) : null
   const explanationObj = exercise.content.explanation
   const localizedExplanation = explanationObj ? (typeof explanationObj === 'string' ? explanationObj : (explanationObj[lang] ?? explanationObj.de)) : null
 
   const handleSelect = (option: string): void => {
-    if (isSolved || excludedOptions.includes(option)) return
-    setShowRetryNotice(false)
+    if (isSolved || submitting || excludedOptions.includes(option)) return
     setSelectedOption((current) => (current === option ? null : option))
   }
 
   const handleCheck = (): void => {
-    if (!selectedOption || isSolved) return
-
-    const isCorrect = isSameOption(selectedOption, exercise.content.correct_answer)
-    onAttempt(isCorrect, Boolean(exercise.content.explanation && failedAttempts >= 2), selectedOption)
-
-    if (isCorrect) {
-      setIsSolved(true)
-      setShowRetryNotice(false)
-      return
-    }
-
-    setExcludedOptions((current) => [...current, selectedOption])
-    setSelectedOption(null)
-    setFailedAttempts((current) => current + 1)
-    setShowRetryNotice(true)
+    if (!selectedOption || isSolved || submitting) return
+    onAttempt(Boolean(exercise.content.explanation && failedAttempts >= 2), selectedOption)
   }
 
   return (
@@ -79,14 +76,14 @@ export default function MultipleChoiceExerciseCard({
         {exercise.content.options.map((option) => {
           const isExcluded = excludedOptions.includes(option)
           const isSelected = selectedOption === option
-          const isCorrectAndSolved = isSolved && isSameOption(option, exercise.content.correct_answer)
+          const isCorrectAndSolved = isSolved && option === attempt?.answer
 
           return (
             <button
               key={option}
               type="button"
               onClick={() => handleSelect(option)}
-              disabled={isExcluded || isSolved}
+              disabled={isExcluded || isSolved || submitting}
               aria-pressed={isSelected}
               aria-label={isExcluded ? t('chip_wrong_aria', { word: option }) : t('choose_word_aria', { word: option })}
               className={cn(
@@ -148,6 +145,7 @@ export default function MultipleChoiceExerciseCard({
             <CheckCircle2 className="h-9 w-9 shrink-0 text-[var(--violet)]" aria-hidden="true" />
             <p className="text-2xl font-bold text-[var(--foreground)]">{t('correct_well_done')}</p>
           </div>
+          {attempt?.result.status === 'SOFT_ERROR' && <SoftErrorBadge reason={attempt.result.reason} translations={softErrorTranslations} />}
           
           <div className="mt-6 flex w-full flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
             <SolutionAudioButton
@@ -182,7 +180,7 @@ export default function MultipleChoiceExerciseCard({
           <button
             type="button"
             onClick={handleCheck}
-            disabled={!selectedOption}
+            disabled={!selectedOption || submitting}
             className="min-h-16 w-full rounded-full bg-[var(--violet)] px-8 py-4 text-xl font-bold text-[var(--surface)] shadow-md transition-colors hover:bg-[var(--violet)] disabled:cursor-not-allowed disabled:opacity-50 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)] sm:w-auto"
           >
             {t('check_answer')}

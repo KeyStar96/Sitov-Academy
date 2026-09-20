@@ -90,6 +90,21 @@ class MigrationFailureTests(unittest.TestCase):
         self.assert_services_stopped()
         self.assertTrue((self.backup / 'applied.json').is_file())
 
+    def test_phase3_migration_is_accepted_and_waits_for_matching_app(self):
+        (self.root / '06_soft_errors.sql').write_text('SELECT 1;\n')
+        with patch('sys.argv', [str(SCRIPT), '--apply', '06_soft_errors.sql',
+                   '--sql-dir', str(self.root), '--keep-stopped']):
+            MIGRATION.main()
+        self.assert_services_stopped()
+        self.assertIn('06_soft_errors.sql', (self.backup / 'applied.json').read_text())
+
+    def test_migration_with_own_transaction_is_rejected_before_services_stop(self):
+        (self.root / '06_soft_errors.sql').write_text('BEGIN;\nSELECT 1;\nCOMMIT;\n')
+        with patch('sys.argv', [str(SCRIPT), '--apply', '06_soft_errors.sql',
+                   '--sql-dir', str(self.root), '--keep-stopped']), self.assertRaisesRegex(RuntimeError, 'Own transaction boundary'):
+            MIGRATION.main()
+        self.assertEqual(self.commands, [])
+
 
 if __name__ == '__main__':
     unittest.main()
