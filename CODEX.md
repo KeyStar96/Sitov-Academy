@@ -419,10 +419,10 @@ Befund: `lib/mail/templates.mjs` enthält kein Wort zu Ausfällen.
 * [ ] Dedupe-Key `registration:<booking_id>` beibehalten. Bei nachträglich eingetragenem Ausfall keine erneute Bestätigungsmail, sondern eine eigene Benachrichtigung.
 
 #### 6.2 Entkoppeltes Status-Monitoring
-* [ ] Eigener Docker-Container (max. 128 MB) für Status-Monitoring (z.B. Uptime-Kuma), nicht im Next.js-Prozess.
-* [ ] Überwacht Health-Check, Supabase-Container, CPU, RAM, Disk der 240 GB, Mail-Service und Outbox-Rückstau.
-* [ ] Zugriff nur über nginx mit Basic-Auth; nicht öffentlich erreichbar.
-* [ ] Alarm bei Disk > 80 %, RAM > 90 %, Health-Check-Fehler > 3 in Folge.
+* [N/A — auf ausdrücklichen Nutzerwunsch vom 20.09.2026 gestrichen] Eigener Docker-Container (max. 128 MB) für Status-Monitoring (z.B. Uptime-Kuma), nicht im Next.js-Prozess.
+* [N/A — auf ausdrücklichen Nutzerwunsch vom 20.09.2026 gestrichen] Überwacht Health-Check, Supabase-Container, CPU, RAM, Disk der 240 GB, Mail-Service und Outbox-Rückstau.
+* [N/A — auf ausdrücklichen Nutzerwunsch vom 20.09.2026 gestrichen] Zugriff nur über nginx mit Basic-Auth; nicht öffentlich erreichbar.
+* [N/A — auf ausdrücklichen Nutzerwunsch vom 20.09.2026 gestrichen] Alarm bei Disk > 80 %, RAM > 90 %, Health-Check-Fehler > 3 in Folge.
 
 ---
 
