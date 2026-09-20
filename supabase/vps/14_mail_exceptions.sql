@@ -64,7 +64,7 @@ begin
  update public.bookings set status='confirmed',confirmed_at=now(),confirmed_by=auth.uid(),updated_at=now(),revision=revision+1 where id=b.id;
  if b.kind<>'trial' then insert into public.invoice_cases(person_id,target_month,booking_id) values(b.person_id,b.target_month,b.id) on conflict(person_id,target_month) do nothing;end if;
  select * into strict p from public.people where id=b.person_id;
- perform platform_private.require_rpc_success(public.queue_transactional_email('confirmed:'||b.id,case when b.kind='trial' then 'trial_confirmed' else 'registration_confirmed' end,b.contact_email,p.preferred_locale,
+ perform platform_private.require_rpc_success(public.queue_transactional_email('confirmed:'||b.id,case when b.kind='trial' then 'trial_confirmed' else 'registration_confirmed' end,b.contact_email,coalesce((SELECT locale FROM private.mail_outbox WHERE dedupe_key='registration:'||b.id),p.preferred_locale),
  jsonb_build_object('name',b.contact_name,'startDate',b.start_date,'exceptions',business_private.booking_mail_exceptions(b.id),'courses',(select jsonb_agg(jsonb_build_object('title',title_snapshot,'units',units,'unitPrice',unit_price,'unitMinutes',unit_minutes,'price',amount)) from public.booking_items where booking_id=b.id))));
 end $$;
 
@@ -144,7 +144,8 @@ BEGIN
  -- Ignore irrelevant or stale events; enqueue atomically inside the RPC boundary.
  IF NOT EXISTS(SELECT 1 FROM public.course_exceptions WHERE id=NEW.id AND date=NEW.date AND course_id IS NOT DISTINCT FROM NEW.course_id) THEN RETURN NULL; END IF;
  IF NEW.date<(now() AT TIME ZONE 'Europe/Berlin')::date THEN RETURN NULL; END IF;
- FOR b IN SELECT x.id,x.contact_name,x.contact_email,p.preferred_locale
+ FOR b IN SELECT x.id,x.contact_name,x.contact_email,
+  coalesce((SELECT m.locale FROM private.mail_outbox m WHERE m.dedupe_key='registration:'||x.id),p.preferred_locale) preferred_locale
   FROM public.bookings x JOIN public.people p ON p.id=x.person_id
   WHERE x.status IN ('pending','confirmed') AND x.start_date<=NEW.date
    AND NEW.date<(x.target_month+interval '1 month')::date

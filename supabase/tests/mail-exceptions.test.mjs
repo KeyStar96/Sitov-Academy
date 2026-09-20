@@ -7,7 +7,7 @@ import { renderTransactionalEmail, MAIL_LOCALES } from '../../lib/mail/templates
 await test('Phase 6 exception snapshots and independent transactional notices', async t => {
  const db = await createPhase3Database(), course=id(660), unrelated=id(661)
  let booking
- const mails=async()=> (await db.query('SELECT dedupe_key,kind::text,payload FROM private.mail_outbox ORDER BY created_at,id')).rows
+ const mails=async()=> (await db.query('SELECT dedupe_key,kind::text,locale,payload FROM private.mail_outbox ORDER BY created_at,id')).rows
  try {
   // Separate commits are required by PostgreSQL when adding an enum label.
   await apply(db,['13_mail_exception_kind.sql'])
@@ -93,7 +93,11 @@ await test('Phase 6 exception snapshots and independent transactional notices', 
    await db.query("INSERT INTO course_exceptions(course_id,date,reason) VALUES(NULL,$1,'Global first day')",[start])
    const notices=(await mails()).filter(x=>x.kind==='course_exception_added'&&x.payload.exceptions[0].date===start)
    assert.equal(notices.length,2)
-   assert.ok(notices.some(x=>x.dedupe_key===`course-exception:${trial}:${unrelated}:${start}`))
+   assert.equal(notices.find(x=>x.dedupe_key===`course-exception:${trial}:${unrelated}:${start}`).locale,'tr')
+   await actor(db,teacher)
+   assert.equal(await result(db,'SELECT confirm_business_booking($1) result',[trial]),null)
+   await db.exec('RESET ROLE')
+   assert.equal((await mails()).find(x=>x.dedupe_key===`confirmed:${trial}`).locale,'tr')
    await db.query("UPDATE bookings SET status='cancelled' WHERE id=$1",[booking])
    count=(await mails()).length
    await db.query("DELETE FROM private.mail_exception_deliveries WHERE booking_id=$1 AND date=$2",[booking,known])
