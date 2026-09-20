@@ -23,7 +23,7 @@ BEGIN
  response:=public.confirm_business_booking(booking);
  IF response IS DISTINCT FROM 'null'::jsonb THEN RAISE EXCEPTION 'confirm_failed %',response; END IF;
  response:=public.save_course_exception(course,start_day+2,'Phase6 later');
- IF jsonb_typeof(response)<>'string' THEN RAISE EXCEPTION 'exception_failed %',response; END IF;
+ IF NOT response ? 'id' OR response ? 'error' THEN RAISE EXCEPTION 'exception_failed %',response; END IF;
  IF (SELECT count(*) FROM private.mail_outbox WHERE dedupe_key='course-exception:'||booking||':'||course||':'||(start_day+2))<>1 THEN RAISE EXCEPTION 'notice_missing'; END IF;
  SELECT count(*) INTO total FROM private.mail_outbox;
  DELETE FROM public.course_exceptions WHERE course_id=course AND date=start_day+2;

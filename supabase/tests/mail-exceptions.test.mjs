@@ -80,6 +80,25 @@ await test('Phase 6 exception snapshots and independent transactional notices', 
    assert.equal(failure.error,'not_authorized'); assert.equal(typeof failure.message,'string')
    await db.exec('RESET ROLE')
   })
+  await t.test('trial payload has no unrelated dates; new global outage notifies only the booked trial day',async()=>{
+   await actor(db,null,'service_role')
+   const trial=await result(db,'SELECT submit_business_registration($1,$2,$3,$4,$5,true) result',[JSON.stringify({name:'Trial Student',email:'trial@example.test'}),JSON.stringify([{course_id:unrelated}]),start,JSON.stringify({privacy:true,agb:true}),'tr'])
+   assert.equal(typeof trial,'string',JSON.stringify(trial))
+   await db.exec('RESET ROLE')
+   assert.deepEqual((await mails()).find(x=>x.dedupe_key===`registration:${trial}`).payload.exceptions,[])
+   let count=(await mails()).length
+   await db.query("INSERT INTO course_exceptions(course_id,date,reason) VALUES(NULL,$1,'Global later')",[await date(2)])
+   assert.equal((await mails()).length,count)
+   await db.query("INSERT INTO course_exceptions(course_id,date,reason) VALUES(NULL,$1,'Global first day')",[start])
+   const notices=(await mails()).filter(x=>x.kind==='course_exception_added'&&x.payload.exceptions[0].date===start)
+   assert.equal(notices.length,2)
+   assert.ok(notices.some(x=>x.dedupe_key===`course-exception:${trial}:${unrelated}:${start}`))
+   await db.query("UPDATE bookings SET status='cancelled' WHERE id=$1",[booking])
+   count=(await mails()).length
+   await db.query("DELETE FROM private.mail_exception_deliveries WHERE booking_id=$1 AND date=$2",[booking,known])
+   await db.query("UPDATE course_exceptions SET reason='Cancelled booking' WHERE course_id=$1 AND date=$2",[course,known])
+   assert.equal((await mails()).length,count)
+  })
   await t.test('rollback restores original functions and preserves outbox history',async()=>{
    const before=await mails()
    await db.exec('BEGIN;'+await readFile(new URL('../vps/rollback/14_mail_exceptions.sql',import.meta.url),'utf8')+'COMMIT;')
