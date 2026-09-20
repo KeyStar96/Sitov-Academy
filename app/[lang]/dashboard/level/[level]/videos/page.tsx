@@ -11,12 +11,10 @@ export default async function VideosOverviewPage({ params }: { params: Promise<{
   let videos: VideoRecord[] = []
   let failed = false
   try {
-    {
-      const supabase = await createClient()
-      const { data, error } = await videoQuery(supabase).eq('unit.level', decodedLevel).order('created_at')
-      if (error) throw error
-      videos = (data ?? []).map(mapVideo)
-    }
+    const supabase = await createClient()
+    const { data, error } = await videoQuery(supabase).eq('unit.level', decodedLevel).order('created_at')
+    if (error) throw error
+    videos = (data ?? []).map(mapVideo)
   } catch (error) {
     failed = true
     console.error("Video library unavailable:")
