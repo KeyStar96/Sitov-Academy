@@ -54,7 +54,7 @@ await test('uploaded videos use level publication across metadata, unit joins an
   await t.test('placeholder cleanup is exact, replayable and preserves real uploads',async()=>{
    const seeds=[['133379c3-b347-4226-bd70-b6c530e2c849','Nicos Weg - Folge 1: Hallo!','https://learngerman.dw.com/de/hallo/l-37250531'],['b3034c99-e5c4-4214-845a-5a9fe0e0a518','Nicos Weg - Folge 2: Wie heißt du?','https://learngerman.dw.com/de/wie-heißt-du/l-37250532'],['22b3247e-f35d-4f26-ac8a-031c6177dce7','Aussprache: Umlaute (In Vorbereitung)',null]]
    for(const [uid,label,url] of seeds){
-    await db.query("INSERT INTO learning_units(id,level,trainer,label) VALUES($1,'A1.1','videos',$2)",[uid,label])
+    await db.query("INSERT INTO learning_units(id,level,trainer,label,is_active) VALUES($1,'A1.1','videos',$2,$3)",[uid,label,url!==null])
     await db.query('INSERT INTO learning_videos(id,unit_id,source_url) VALUES($1,$1,$2)',[uid,url])
    }
    await apply(db,['17_remove_video_placeholders.sql']);await apply(db,['17_remove_video_placeholders.sql'])
@@ -62,7 +62,7 @@ await test('uploaded videos use level publication across metadata, unit joins an
    assert.equal((await read('learning_videos')).length,1)
    assert.equal((await db.query('SELECT id FROM learning_units WHERE id=ANY($1::uuid[])',[seeds.map(x=>x[0])])).rows.length,0)
    const [uid,label,url]=seeds[0]
-   await db.query("INSERT INTO learning_units(id,level,trainer,label) VALUES($1,'A1.1','videos',$2)",[uid,label])
+   await db.query("INSERT INTO learning_units(id,level,trainer,label,is_active) VALUES($1,'A1.1','videos',$2,$3)",[uid,label,url!==null])
    await db.query("INSERT INTO learning_videos(id,unit_id,title,source_url) VALUES($1,$1,'Replaced by teacher',$2)",[uid,url])
    await apply(db,['17_remove_video_placeholders.sql'])
    assert.equal((await db.query('SELECT id FROM learning_videos WHERE id=$1',[uid])).rows.length,1)
