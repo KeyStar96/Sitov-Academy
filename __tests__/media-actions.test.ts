@@ -3,7 +3,7 @@ jest.mock('server-only', () => ({}), { virtual: true })
 jest.mock('next/cache', () => ({ revalidatePath: jest.fn() }))
 jest.mock('@/utils/supabase/server', () => ({ createClient: jest.fn() }))
 import { createClient } from '@/utils/supabase/server'
-import { completeMediaUpload, getMediaFolders, saveMediaFolder } from '@/app/actions/media'
+import { completeMediaUpload, getMediaFolders, saveMediaFolder, setVideoVisibility } from '@/app/actions/media'
 
 const id = (n: number) => `00000000-0000-4000-8000-${String(n).padStart(12, '0')}`
 const folder = { folder_id: id(1), title: 'Lessons', level: 'A1.1', course_id: null, sort_order: 0 }
@@ -16,7 +16,7 @@ const chain = () => ({
   single: jest.fn().mockResolvedValue({ data: folder, error: null }),
 })
 function session(role = 'teacher') {
-  const tables = { profiles: chain(), lms_media_folder: chain(), learning_videos: chain(), lms_presentation_asset: chain(), courses: chain() }
+  const tables = { profiles: chain(), lms_media_folder: chain(), learning_videos: chain(), lms_presentation_asset: chain(), courses: chain(), learning_units: chain() }
   tables.profiles.single.mockResolvedValue({ data: { role }, error: null })
   const from = jest.fn((table: keyof typeof tables) => tables[table])
   jest.mocked(createClient).mockResolvedValue({ auth: { getUser: async () => ({ data: { user: { id: id(90) } } }) }, from, rpc } as never)
@@ -25,7 +25,7 @@ function session(role = 'teacher') {
 beforeEach(() => jest.clearAllMocks())
 it('never truncates a large folder at the PostgREST row limit', async () => {
   const tables = session()
-  const videos = Array.from({ length: 500 }, (_, i) => ({ id: id(i + 100), folder_id: folder.folder_id, title: `Video ${i}`, storage_path: `A1.1/${folder.folder_id}/videos/${id(i + 100)}.mp4`, file_size: 100 }))
+  const videos = Array.from({ length: 500 }, (_, i) => ({ id: id(i + 100), folder_id: folder.folder_id, title: `Video ${i}`, storage_path: `A1.1/${folder.folder_id}/videos/${id(i + 100)}.mp4`, file_size: 100, unit: { is_active: true } }))
   tables.lms_media_folder.range.mockResolvedValue({ data: [folder], error: null })
   tables.learning_videos.range.mockResolvedValueOnce({ data: videos, error: null }).mockResolvedValueOnce({ data: [{ ...videos[0], id: id(1000), title: 'Last video' }], error: null })
   const result = await getMediaFolders('A1.1')
@@ -67,4 +67,18 @@ it('saves a folder using its level without any course lookup', async () => {
   expect(await saveMediaFolder(input)).toEqual({ success: true, data: folder })
   expect(tables.lms_media_folder.update).toHaveBeenCalledWith({ title: folder.title, level: 'A1.1', sort_order: 0 })
   expect(tables.courses.select).not.toHaveBeenCalled()
+})
+
+it('only staff can switch video publication and source-less drafts stay hidden', async () => {
+  session('student')
+  expect(await setVideoVisibility({ video_id: id(2), is_active: true })).toEqual({ success: false, error: 'not_authorized' })
+  const tables = session()
+  tables.learning_videos.single.mockResolvedValue({ data: { unit_id: id(2), source_url: null, storage_path: null }, error: null })
+  expect(await setVideoVisibility({ video_id: id(2), is_active: true })).toEqual({ success: false, error: 'invalid_input' })
+  expect(tables.learning_units.update).not.toHaveBeenCalled()
+  tables.learning_videos.single.mockResolvedValue({ data: { unit_id: id(2), source_url: null, storage_path: 'A1.1/upload.mp4' }, error: null })
+  tables.learning_units.single.mockResolvedValue({ data: { is_active: false }, error: null })
+  expect(await setVideoVisibility({ video_id: id(2), is_active: false })).toEqual({ success: true, data: { video_id: id(2), is_active: false } })
+  expect(tables.learning_units.update).toHaveBeenCalledWith({ is_active: false })
+  expect(tables.learning_units.eq).toHaveBeenCalledWith('id', id(2))
 })

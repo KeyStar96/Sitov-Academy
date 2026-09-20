@@ -454,8 +454,6 @@ INSERT INTO public.learning_units (id, level, trainer, label, sort_order, is_act
 INSERT INTO public.learning_units (id, level, trainer, label, sort_order, is_active) VALUES ('8cf5b45f-da02-4445-aa73-e05e7ec32d75', 'B1.1', 'pronunciation', 'Manchmal fällt es mir schwer, ruhig zu bleiben.', 10, false) ON CONFLICT DO NOTHING;
 INSERT INTO public.learning_units (id, level, trainer, label, sort_order, is_active) VALUES ('933fdedf-8855-48c8-8d51-5177f96dbbab', 'B1.1', 'pronunciation', 'Ich versuche, jeden Tag ein bisschen Deutsch zu sprechen.', 12, false) ON CONFLICT DO NOTHING;
 INSERT INTO public.learning_units (id, level, trainer, label, sort_order, is_active) VALUES ('a32ba623-4578-55b4-9b44-b717c857a46c', 'B1.1', 'pronunciation', 'Eine faire Aufgabenverteilung', 4, true) ON CONFLICT DO NOTHING;
-INSERT INTO public.learning_units (id, level, trainer, label, sort_order, is_active) VALUES ('133379c3-b347-4226-bd70-b6c530e2c849', 'A1.1', 'videos', 'Nicos Weg - Folge 1: Hallo!', 1, true) ON CONFLICT DO NOTHING;
-INSERT INTO public.learning_units (id, level, trainer, label, sort_order, is_active) VALUES ('b3034c99-e5c4-4214-845a-5a9fe0e0a518', 'A1.1', 'videos', 'Nicos Weg - Folge 2: Wie heißt du?', 3, true) ON CONFLICT DO NOTHING;
 INSERT INTO public.learning_units (id, level, trainer, label, sort_order, is_active) VALUES ('2ce832d8-6380-4de4-a890-854fa8ea4ede', 'B2', 'pronunciation', 'Die Diskussion hat gezeigt, dass beide Seiten berechtigte Einwände haben.', 1, false) ON CONFLICT DO NOTHING;
 INSERT INTO public.learning_units (id, level, trainer, label, sort_order, is_active) VALUES ('456ac6dd-0a9a-4549-a5ae-9472d49166d0', 'B2', 'pronunciation', 'Der Vortrag war zwar anspruchsvoll, aber äußerst lehrreich.', 2, false) ON CONFLICT DO NOTHING;
 INSERT INTO public.learning_units (id, level, trainer, label, sort_order, is_active) VALUES ('5ed1b469-33a6-40e6-ac9c-db6fa54eaf07', 'B2', 'pronunciation', 'Es kommt darauf an, wie gründlich man sich vorbereitet.', 3, false) ON CONFLICT DO NOTHING;
@@ -486,7 +484,6 @@ INSERT INTO public.learning_units (id, level, trainer, label, sort_order, is_act
 INSERT INTO public.learning_units (id, level, trainer, label, sort_order, is_active) VALUES ('f26bbe79-3ba6-421d-ada2-14f03e3e45ce', 'C2', 'pronunciation', 'Sprachliche Eleganz entsteht, wo Präzision und Rhythmus einander tragen.', 8, false) ON CONFLICT DO NOTHING;
 INSERT INTO public.learning_units (id, level, trainer, label, sort_order, is_active) VALUES ('6f6d08ed-0452-43e5-ba44-70c8cae98fb3', 'C2', 'pronunciation', 'Nur wer die Satzmelodie beherrscht, klingt wirklich idiomatisch.', 9, false) ON CONFLICT DO NOTHING;
 INSERT INTO public.learning_units (id, level, trainer, label, sort_order, is_active) VALUES ('a71b44a1-cb3a-4f52-b4eb-07473e63899b', 'C2', 'pronunciation', 'Die Kunst liegt darin, schwere Laute leicht und leichte Laute gewichtig zu sprechen.', 10, false) ON CONFLICT DO NOTHING;
-INSERT INTO public.learning_units (id, level, trainer, label, sort_order, is_active) VALUES ('22b3247e-f35d-4f26-ac8a-031c6177dce7', 'A1.1', 'videos', 'Aussprache: Umlaute (In Vorbereitung)', 2, false) ON CONFLICT DO NOTHING;
 
 
 --
@@ -2268,9 +2265,6 @@ INSERT INTO public.learning_reading_texts (id, sentence_de, focus, audio_url, cr
 -- Data for Name: learning_videos; Type: TABLE DATA; Schema: public; Owner: -
 --
 
-INSERT INTO public.learning_videos (id, description, created_at, unit_id, source_url) VALUES ('133379c3-b347-4226-bd70-b6c530e2c849', 'Lerne Begrüßungen auf Deutsch.', '2026-08-08 08:38:59.596599+00', '133379c3-b347-4226-bd70-b6c530e2c849', 'https://learngerman.dw.com/de/hallo/l-37250531') ON CONFLICT DO NOTHING;
-INSERT INTO public.learning_videos (id, description, created_at, unit_id, source_url) VALUES ('b3034c99-e5c4-4214-845a-5a9fe0e0a518', 'Sich vorstellen und Namen erfragen.', '2026-08-08 08:38:59.596599+00', 'b3034c99-e5c4-4214-845a-5a9fe0e0a518', 'https://learngerman.dw.com/de/wie-heißt-du/l-37250532') ON CONFLICT DO NOTHING;
-INSERT INTO public.learning_videos (id, description, created_at, unit_id, source_url) VALUES ('22b3247e-f35d-4f26-ac8a-031c6177dce7', 'So sprichst du Ä, Ö und Ü richtig aus.', '2026-08-08 08:38:59.596599+00', '22b3247e-f35d-4f26-ac8a-031c6177dce7', NULL) ON CONFLICT DO NOTHING;
 
 
 --

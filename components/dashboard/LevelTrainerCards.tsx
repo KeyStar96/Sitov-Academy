@@ -56,14 +56,14 @@ export default function LevelTrainerCards({ lang, level, profile, translations }
       {hasLevelAccess(profile, decodeURIComponent(level)) && <Link href={`/${lang}/dashboard/level/${level}/media`} className="flex min-h-16 flex-col justify-center gap-2 rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-5 hover:bg-[var(--surface-muted)]"><span className="text-xl font-semibold">{mediaCopy(lang).title}</span><span className="text-[var(--muted)]">{mediaCopy(lang).intro}</span></Link>}
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-6">
         {CATEGORIES.map((cat) => {
-          const locked = languageLocked || !hasTrainerAccess(profile, decodeURIComponent(level), cat.id)
+          const locked = cat.id === 'videos' ? !hasLevelAccess(profile, decodeURIComponent(level)) : languageLocked || !hasTrainerAccess(profile, decodeURIComponent(level), cat.id)
           const content = <>
             <div className={`flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl ${locked ? 'bg-[var(--surface-muted)] text-[var(--muted)]' : cat.color}`}>
               {locked ? <Lock size={32} aria-hidden="true" /> : <cat.icon size={32} aria-hidden="true" />}
             </div>
             <div className="min-w-0">
               <h2 className="mb-2 break-words text-xl font-bold text-[var(--foreground)] sm:text-2xl">{t(cat.titleKey)}</h2>
-              <p className="text-base leading-relaxed text-[var(--muted)] sm:text-lg">{languageLocked ? languageCopy.locked : locked ? t('trainer_locked_text', { level: decodeURIComponent(level) }) : t(cat.descKey)}</p>
+              <p className="text-base leading-relaxed text-[var(--muted)] sm:text-lg">{languageLocked && cat.id !== 'videos' ? languageCopy.locked : locked ? t('trainer_locked_text', { level: decodeURIComponent(level) }) : t(cat.descKey)}</p>
               {locked && <span className="mt-4 inline-flex items-center gap-2 rounded-full border border-[var(--border)] px-3 py-1 font-semibold text-[var(--foreground)]"><Lock size={16} aria-hidden="true" />{t('trainer_locked_badge')}</span>}
             </div>
           </>

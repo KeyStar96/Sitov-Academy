@@ -1,20 +1,17 @@
-import TrainerLanguageRequired from '@/components/dashboard/TrainerLanguageRequired'
 import { createClient } from '@/utils/supabase/server'
 import { getDictionary } from '@/lib/dictionary'
-import { currentUserHasTrainerAccess } from '@/lib/access/server'
 import { videoQuery, mapVideo } from '@/lib/learning-catalog'
 import VideoLibrary from '@/components/dashboard/VideoLibrary'
 import type { VideoRecord } from '@/lib/video-links'
 
 export default async function VideosOverviewPage({ params }: { params: Promise<{ lang: string; level: string }> }) {
   const { lang, level } = await params
-  if (lang === 'de') return <TrainerLanguageRequired lang={lang} />
   const decodedLevel = decodeURIComponent(level)
   const dict = await getDictionary(lang)
   let videos: VideoRecord[] = []
   let failed = false
   try {
-    if (await currentUserHasTrainerAccess(decodedLevel, 'videos')) {
+    {
       const supabase = await createClient()
       const { data, error } = await videoQuery(supabase).eq('unit.level', decodedLevel).order('created_at')
       if (error) throw error

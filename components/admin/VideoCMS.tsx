@@ -1,6 +1,7 @@
 'use client'
 
 import { useRef, useState } from 'react'
+import VideoVisibilityToggle from './VideoVisibilityToggle'
 import { addVideo, updateVideo, deleteVideo } from '@/app/actions/cms'
 import { ArrowUpRight, Check, Loader2, Pencil, Plus, Search, Trash2 } from 'lucide-react'
 import { ACCESS_LEVELS } from '@/lib/access/levels'
@@ -9,9 +10,9 @@ import { learningResourceUrl, type VideoRecord, type VideoWriteInput } from '@/l
 
 const empty: VideoWriteInput = { level: 'A1.1', title: '', description: '', source_url: '', is_active: false }
 const fieldClass = 'min-h-12 w-full rounded-xl border border-[var(--border)] bg-[var(--canvas)] px-4 py-3 text-[var(--foreground)] focus-visible:outline-2 focus-visible:outline-[var(--violet)]'
-interface Props { initialData: VideoRecord[]; translations?: VideoTranslations }
+interface Props { initialData: VideoRecord[]; translations?: VideoTranslations; lang?: string }
 
-export default function VideoCMS({ initialData, translations = {} }: Props) {
+export default function VideoCMS({ initialData, translations = {}, lang = 'de' }: Props) {
   const t = createVideoTranslator(translations)
   const [items, setItems] = useState(initialData)
   const [form, setForm] = useState<VideoWriteInput>(empty)
@@ -57,6 +58,7 @@ export default function VideoCMS({ initialData, translations = {} }: Props) {
         <div className="flex flex-wrap items-center gap-2 text-xs text-[var(--muted)]"><span className="rounded-full border border-[var(--border)] px-2 py-1 font-semibold">{item.level}</span></div>
         <h2 className="mt-3 break-words text-lg font-semibold">{item.title}</h2>
         {item.description && <p className="mt-2 break-words text-sm text-[var(--muted)]">{item.description}</p>}
+        <VideoVisibilityToggle id={item.id} title={item.title} isActive={item.is_active} lang={lang} onChanged={value => setItems(previous => previous.map(video => video.id === item.id ? { ...video, is_active: value } : video))} />
         {!item.is_active && <p className="mt-3 text-sm text-[var(--muted)]">{t('cms_draft')}</p>}
         <div className="mt-4 flex flex-wrap gap-2">
           <button type="button" disabled={!!busy} onClick={() => edit(item)} className="inline-flex min-h-12 items-center gap-2 rounded-xl border border-[var(--border)] px-3 text-sm disabled:opacity-50"><Pencil size={16} aria-hidden="true" />{t('cms_edit')}</button>

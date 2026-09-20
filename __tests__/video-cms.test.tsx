@@ -3,10 +3,12 @@ import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import VideoCMS from '@/components/admin/VideoCMS'
 import VideoLibrary from '@/components/dashboard/VideoLibrary'
+import { setVideoVisibility } from '@/app/actions/media'
 import { addVideo, updateVideo } from '@/app/actions/cms'
 import { VIDEO_FALLBACKS as copy } from '@/lib/videos-i18n'
 import type { VideoRecord } from '@/lib/video-links'
 
+jest.mock('@/app/actions/media', () => ({ setVideoVisibility: jest.fn() }))
 jest.unmock('lucide-react')
 jest.mock('@/app/actions/cms', () => ({ addVideo: jest.fn(), updateVideo: jest.fn(), deleteVideo: jest.fn() }))
 const item: VideoRecord = {
@@ -58,4 +60,26 @@ it('shows an active DW resource as an outbound link and keeps empty drafts out o
   expect(link).toHaveAttribute('rel', 'noopener noreferrer')
   expect(screen.getByText(copy.watch_resource)).toBeInTheDocument()
   expect(screen.queryByText('Unfertig')).not.toBeInTheDocument()
+})
+
+it('shows published MP4 uploads without an external URL and hides unpublished uploads', () => {
+  const uploaded = { ...item, source_url: null, storage_path: 'A1.1/folder/videos/video.mp4', file_size: 1024 }
+  render(<VideoLibrary videos={[uploaded, { ...uploaded, id: 'hidden', title: 'Hidden upload', is_active: false }]} lang="en" level="A1.1" translations={{}} />)
+  expect(screen.getByText('Hallo')).toBeInTheDocument()
+  expect(screen.getByRole('button', { name: 'Open' })).toBeInTheDocument()
+  expect(screen.queryByText('Hidden upload')).not.toBeInTheDocument()
+  expect(screen.queryByText(copy.empty_internal)).not.toBeInTheDocument()
+})
+it('switches publication directly and keeps the previous state if saving fails', async () => {
+  const user = userEvent.setup()
+  jest.mocked(setVideoVisibility).mockResolvedValueOnce({ success: false, error: 'request_failed' })
+    .mockResolvedValueOnce({ success: true, data: { video_id: item.id, is_active: false } })
+  render(<VideoCMS initialData={[item]} lang="en" />)
+  const toggle = screen.getByRole('switch', { name: 'Visible to students: Hallo' })
+  await user.click(toggle)
+  expect(await screen.findByRole('alert')).toBeInTheDocument()
+  expect(toggle).toHaveAttribute('aria-checked', 'true')
+  await user.click(toggle)
+  await waitFor(() => expect(toggle).toHaveAttribute('aria-checked', 'false'))
+  expect(setVideoVisibility).toHaveBeenLastCalledWith({ video_id: item.id, is_active: false })
 })

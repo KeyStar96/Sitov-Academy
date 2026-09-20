@@ -43,5 +43,5 @@ export default function MediaFolderCMS({ initial, lang }: { initial: MediaFolder
       {form.folder_id && <button type="button" onClick={() => setForm(empty)} className="ml-3 min-h-12 px-3">{t.newFolder}</button>}
       <p role={notice === 'failed' ? 'alert' : 'status'} className="min-h-6 text-sm">{notice ? t[notice] : ''}</p>
     </form>
-  </aside><div className="min-w-0 space-y-6">{folder ? <><MediaUpload key={folder.folder_id} folder={folder} lang={lang} onSaved={refresh} /><MediaFolders folders={[folder]} lang={lang} /></> : <p>{t.noFolders}</p>}</div></div>
+  </aside><div className="min-w-0 space-y-6">{folder ? <><MediaUpload key={folder.folder_id} folder={folder} lang={lang} onSaved={refresh} /><MediaFolders folders={[folder]} lang={lang} onVisibilityChanged={refresh} /></> : <p>{t.noFolders}</p>}</div></div>
 }

@@ -9,6 +9,6 @@ export default async function AdminVideosPage({ params }: { params: Promise<{ la
   const t = createVideoTranslator(dict.videos ?? {})
   return <div className="space-y-8 text-[var(--foreground)]">
     <header><h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">{t('cms_title')}</h1><p className="mt-3 max-w-2xl leading-relaxed text-[var(--muted)]">{t('cms_subtitle')}</p></header>
-    <VideoCMS initialData={items} translations={dict.videos ?? {}} />
+    <VideoCMS lang={lang} initialData={items} translations={dict.videos ?? {}} />
   </div>
 }

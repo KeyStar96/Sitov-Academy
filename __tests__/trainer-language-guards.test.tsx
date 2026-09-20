@@ -37,7 +37,6 @@ const cases = [
   ['learning box', () => TrainPage({ params, searchParams: Promise.resolve({}) })],
   ['grammar', () => ExercisesPage({ params })],
   ['pronunciation', () => PronunciationPage({ params })],
-  ['videos', () => VideosPage({ params })],
   ['video deep link', () => VideoPage({ params })],
   ['trainer guard', () => TrainerAccessGuard({ params, trainer: 'vocabulary', children: <p>Hidden trainer</p> })],
 ] as const
@@ -55,4 +54,14 @@ test.each(['de', 'en', 'ru', 'uk', 'tr'])('language notice has a usable localize
   render(<TrainerLanguageRequired lang={lang} />)
   expect(screen.getByRole('heading')).toHaveTextContent(/./)
   expect(screen.getByRole('link')).toHaveAttribute('href', `/${lang}/dashboard/profile#language-settings`)
+})
+
+test('uploaded videos remain reachable by level even with a German interface', async () => {
+  jest.mocked(getDictionary).mockResolvedValue({ videos: {} } as never)
+  const order = jest.fn().mockResolvedValue({ data: [], error: null })
+  jest.mocked(createClient).mockResolvedValue({ from: () => ({ select: () => ({ eq: () => ({ order }) }) }) } as never)
+  render(await VideosPage({ params }))
+  expect(order).toHaveBeenCalled()
+  expect(currentUserHasTrainerAccess).not.toHaveBeenCalled()
+  expect(screen.queryByRole('link', { name: 'Sprache im Profil auswählen' })).not.toBeInTheDocument()
 })
