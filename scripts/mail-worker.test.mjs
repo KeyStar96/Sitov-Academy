@@ -120,3 +120,24 @@ test('auth templates contain all locales and token-hash links based only on Site
     assert.match(content,/Hüttenstraße 24a/)
   }
 })
+
+test('outage sections are localized, escaped, complete and absent for empty lists',()=>{
+  const headings = ['Feststehende Ausfalltermine','Scheduled class cancellations','Даты отмены занятий','Дати скасування занять','Ders yapılmayacak tarihler']
+  for (const [index,locale] of MAIL_LOCALES.entries()) {
+    for (const kind of ['registration_received','registration_confirmed','course_exception_added']) {
+      const payload = {exceptions:[{courseId:'1',title:'Deutsch <A1>',date:'2026-10-25',reason:'<img src=x> & Ferien'},{courseId:'1',title:'Deutsch',date:'2026-11-01',reason:'Feiertag'}]}
+      const mail = renderTransactionalEmail(kind,locale,payload,site)
+      const date = new Intl.DateTimeFormat(locale,{dateStyle:'long',timeZone:'Europe/Berlin'}).format(new Date('2026-10-25T12:00:00Z'))
+      for(const content of [mail.text,mail.html]) { assert.ok(content.includes(headings[index])); assert.ok(content.includes(date)) }
+      assert.match(mail.html,/&lt;img src=x&gt; &amp; Ferien/)
+      assert.match(mail.html,/Deutsch &lt;A1&gt;/)
+      assert.match(mail.text,/<img src=x> & Ferien/)
+    }
+    for(const exceptions of [undefined,[]]) {
+      const mail=renderTransactionalEmail('registration_received',locale,{exceptions},site)
+      assert.ok(!mail.text.includes(headings[index])); assert.ok(!mail.html.includes(headings[index]))
+    }
+  }
+  for(const date of ['2026-02-30','2026-01-01T00:00:00Z','bad'])
+    assert.throws(()=>renderTransactionalEmail('registration_received','de',{exceptions:[{date}]},site),/invalid_exception_date/)
+})

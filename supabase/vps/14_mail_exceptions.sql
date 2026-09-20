@@ -1,0 +1,173 @@
+-- Phase 6.1. Backup with migrate-local.py before applying. No mail is sent by SQL.
+-- 13 must have committed first. Rollback: supabase/vps/rollback/14_mail_exceptions.sql.
+CREATE TABLE IF NOT EXISTS private.mail_exception_deliveries (
+ booking_id uuid NOT NULL REFERENCES public.bookings(id) ON DELETE CASCADE,
+ course_id uuid NOT NULL REFERENCES public.courses(id) ON DELETE CASCADE,
+ date date NOT NULL,
+ PRIMARY KEY(booking_id,course_id,date)
+);
+ALTER TABLE private.mail_exception_deliveries ENABLE ROW LEVEL SECURITY;
+REVOKE ALL ON private.mail_exception_deliveries FROM PUBLIC,anon,authenticated,service_role;
+
+-- Match the booked month, course range, actual weekdays and single trial date.
+-- Global and course-specific reasons remain visible; delivery identity is one
+-- affected lesson day per booked course, independent of delete/reinsert in CMS.
+CREATE OR REPLACE FUNCTION business_private.booking_exception_rows(p_booking uuid)
+RETURNS TABLE(course_id uuid, title text, date date, reason text)
+LANGUAGE sql STABLE SET search_path TO '' AS $$
+ SELECT DISTINCT i.course_id,i.title_snapshot,e.date,e.reason
+ FROM public.bookings b JOIN public.booking_items i ON i.booking_id=b.id
+ JOIN public.courses c ON c.id=i.course_id
+ JOIN public.course_exceptions e ON e.course_id IS NULL OR e.course_id=c.id
+ WHERE b.id=p_booking AND e.date>=b.start_date
+ AND e.date<(b.target_month+interval '1 month')::date
+ AND (b.kind<>'trial' OR e.date=b.start_date)
+ AND (c.start_date IS NULL OR e.date>=c.start_date)
+ AND (c.end_date IS NULL OR e.date<=c.end_date)
+ AND EXISTS(SELECT 1 FROM public.course_schedules s WHERE s.course_id=c.id AND s.weekday=extract(isodow FROM e.date))
+$$;
+REVOKE ALL ON FUNCTION business_private.booking_exception_rows(uuid) FROM PUBLIC,anon,authenticated;
+
+CREATE OR REPLACE FUNCTION business_private.booking_mail_exceptions(p_booking uuid)
+RETURNS jsonb LANGUAGE plpgsql SECURITY DEFINER SET search_path TO '' AS $$
+DECLARE result jsonb;
+BEGIN
+ SELECT coalesce(jsonb_agg(jsonb_build_object('courseId',course_id,'title',title,'date',date,'reason',reason) ORDER BY date,course_id,reason),'[]'::jsonb)
+ INTO result FROM business_private.booking_exception_rows(p_booking);
+ INSERT INTO private.mail_exception_deliveries(booking_id,course_id,date)
+ SELECT p_booking,course_id,date FROM business_private.booking_exception_rows(p_booking)
+ ON CONFLICT DO NOTHING;
+ RETURN result;
+END $$;
+REVOKE ALL ON FUNCTION business_private.booking_mail_exceptions(uuid) FROM PUBLIC,anon,authenticated;
+GRANT EXECUTE ON FUNCTION business_private.booking_mail_exceptions(uuid) TO service_role;
+
+-- Baseline existing bookings once, so ordinary CMS save/reinsert of an already
+-- known outage cannot generate retroactive mail after deployment or replay.
+INSERT INTO private.mail_exception_deliveries(booking_id,course_id,date)
+SELECT b.id,e.course_id,e.date FROM public.bookings b
+CROSS JOIN LATERAL business_private.booking_exception_rows(b.id) e
+WHERE b.status IN ('pending','confirmed')
+ON CONFLICT DO NOTHING;
+
+CREATE OR REPLACE FUNCTION business_private.confirm_booking(p_id uuid) RETURNS void
+    LANGUAGE plpgsql SECURITY DEFINER
+    SET search_path TO ''
+    AS $$
+declare b public.bookings;p public.people;
+begin
+ if not business_private.is_staff() then raise insufficient_privilege;end if;
+ select * into strict b from public.bookings where id=p_id for update;
+ if b.status='confirmed' then return;end if;
+ if b.status<>'pending' then raise check_violation;end if;
+ if not exists(select 1 from public.booking_items where booking_id=b.id) then raise check_violation;end if;
+ update public.bookings set status='confirmed',confirmed_at=now(),confirmed_by=auth.uid(),updated_at=now(),revision=revision+1 where id=b.id;
+ if b.kind<>'trial' then insert into public.invoice_cases(person_id,target_month,booking_id) values(b.person_id,b.target_month,b.id) on conflict(person_id,target_month) do nothing;end if;
+ select * into strict p from public.people where id=b.person_id;
+ perform platform_private.require_rpc_success(public.queue_transactional_email('confirmed:'||b.id,case when b.kind='trial' then 'trial_confirmed' else 'registration_confirmed' end,b.contact_email,p.preferred_locale,
+ jsonb_build_object('name',b.contact_name,'startDate',b.start_date,'exceptions',business_private.booking_mail_exceptions(b.id),'courses',(select jsonb_agg(jsonb_build_object('title',title_snapshot,'units',units,'unitPrice',unit_price,'unitMinutes',unit_minutes,'price',amount)) from public.booking_items where booking_id=b.id))));
+end $$;
+
+CREATE OR REPLACE FUNCTION public.submit_business_registration(p_contact jsonb, p_course_selections jsonb, p_start date, p_consents jsonb, p_locale text DEFAULT 'de'::text, p_trial boolean DEFAULT false) RETURNS jsonb
+    LANGUAGE plpgsql
+    SET search_path TO ''
+    AS $$
+-- phase2-rpc-error-boundary-v1
+DECLARE boundary_state text; boundary_message text; boundary_code text; boundary_result jsonb;
+BEGIN
+
+declare v_person uuid;v_booking uuid;v_email text;v_name text;v_matches integer;
+begin
+ if p_start is null or p_trial is null or p_start<(now() at time zone 'Europe/Berlin')::date or p_start>(now() at time zone 'Europe/Berlin')::date+366 or coalesce((p_consents->>'privacy')::boolean,false)=false or coalesce((p_consents->>'agb')::boolean,false)=false then raise check_violation;end if;
+ perform * from business_private.validate_course_selections(p_course_selections,p_start);
+ if not exists(select 1 from public.locales where code=p_locale) then raise check_violation;end if;
+ v_email:=lower(btrim(p_contact->>'email'));v_name:=btrim(p_contact->>'name');
+ if v_email is null or length(v_email) not between 3 and 254 or v_name is null or length(v_name) not between 1 and 160 then raise check_violation;end if;
+ if p_trial then
+  perform pg_advisory_xact_lock(hashtextextended(v_email||':'||lower(v_name),0));
+  if exists(select 1 from public.bookings where kind='trial' and lower(contact_email)=v_email and lower(contact_name)=lower(v_name)) then raise unique_violation;end if;
+  if jsonb_array_length(p_course_selections)<>1 or not exists(select 1 from public.courses c join public.course_schedules s on s.course_id=c.id
+   where c.id=(p_course_selections->0->>'course_id')::uuid and c.category<>'private' and c.trial_lessons and c.archived_at is null and s.weekday=extract(isodow from p_start)
+   and (c.start_date is null or p_start>=c.start_date) and (c.end_date is null or p_start<=c.end_date)
+   and not exists(select 1 from public.course_exceptions e where e.date=p_start and (e.course_id is null or e.course_id=c.id))) then raise check_violation;end if;
+ end if;
+ -- Submitted details never update an existing identity. Exact identity reuse
+ -- only attaches a pending application, exposing no personal data to the caller.
+ perform pg_advisory_xact_lock(hashtextextended('application-person:'||v_email||':'||lower(v_name),0));
+ select count(*),(array_agg(id))[1] into v_matches,v_person from public.people where lower(email)=v_email and lower(display_name)=lower(v_name)
+ and birth_date is not distinct from (p_contact->>'birth_date')::date;
+ if v_matches<>1 then
+  insert into public.people(display_name,email,birth_date,phone,street,postal_code,city,preferred_locale)
+  values(v_name,v_email,(p_contact->>'birth_date')::date,p_contact->>'phone',p_contact->>'street',p_contact->>'postal_code',p_contact->>'city',p_locale) returning id into v_person;
+ end if;
+ insert into public.bookings(person_id,target_month,start_date,kind,contact_name,contact_email,contact_birth_date,contact_phone,contact_street,contact_postal_code,contact_city,privacy_accepted,agb_accepted,revocation_accepted,recording_accepted)
+ values(v_person,date_trunc('month',p_start)::date,p_start,(case when p_trial then 'trial' else 'registration' end)::public.booking_kind,v_name,v_email,(p_contact->>'birth_date')::date,p_contact->>'phone',p_contact->>'street',p_contact->>'postal_code',p_contact->>'city',true,true,coalesce((p_consents->>'revocation')::boolean,false),(p_consents->>'recording')::boolean) returning id into v_booking;
+ perform business_private.replace_items(v_booking,p_course_selections);
+ perform platform_private.require_rpc_success(public.queue_transactional_email('registration:'||v_booking,'registration_received',v_email,p_locale,jsonb_build_object('name',v_name,'startDate',p_start,'exceptions',business_private.booking_mail_exceptions(v_booking),'courses',(select jsonb_agg(jsonb_build_object('title',title_snapshot,'units',units,'unitPrice',unit_price,'unitMinutes',unit_minutes,'price',amount)) from public.booking_items where booking_id=v_booking))));
+ perform platform_private.require_rpc_success(public.queue_transactional_email('staff-registration:'||v_booking,'new_enrollment','info@sitov-academy.com','de',jsonb_build_object('name',v_name,'path','/de/admin/registrations')));
+ RETURN to_jsonb(v_booking);
+end;
+ EXCEPTION WHEN OTHERS THEN
+  GET STACKED DIAGNOSTICS boundary_state=RETURNED_SQLSTATE,boundary_message=MESSAGE_TEXT;
+  -- Preserve stable domain codes, never include arbitrary SQL text or row data.
+  boundary_code:=CASE WHEN boundary_message=ANY(ARRAY[
+   'authentication_required','invalid_answer','exercise_unavailable','trainer_access_denied',
+   'learning_reset_in_progress','reset_owner_required','confirmation_required','audio_removal_incomplete',
+   'inactive_content','invalid_decisions','invalid_decision','invalid_direction','level_access_denied',
+   'lesson_not_found','invalid_language','answer_too_long','progress_not_found','review_not_due',
+   'vocabulary_spacing_required','sentence_content_missing','answer_required','invalid_answer_request',
+   'invalid_learning_language','vocabulary_request_conflict','unknown_course_audience',
+   'not_authorized','not_authenticated','invalid_input','request_failed','conflict','not_found',
+   'email_unverified','identity_conflict','identity_already_linked','person_not_found','auth_user_not_found'
+  ]) THEN boundary_message
+  WHEN boundary_state='42501' THEN 'not_authorized'
+  WHEN boundary_state IN('23502','23503','23514','22P02','22023','22007') THEN 'invalid_input'
+  WHEN boundary_state IN('23505','PT409','40001') THEN 'conflict'
+  WHEN boundary_state='40P01' THEN 'retry_required'
+  WHEN boundary_state IN('P0002','02000') THEN 'not_found'
+  WHEN boundary_state='22008' THEN 'month_changed'
+  ELSE 'request_failed' END;
+  RETURN jsonb_build_object('error',boundary_code,'message',CASE
+   WHEN boundary_code='vocabulary_spacing_required' THEN 'Review another card before this card.'
+   WHEN boundary_code='review_not_due' THEN 'This review is not due yet.'
+   WHEN boundary_state='42501' THEN 'The request is not authorized.'
+   WHEN boundary_code IN('conflict','retry_required') THEN 'Reload and retry the request.'
+   WHEN boundary_code='invalid_input' THEN 'The request contains invalid data.'
+   ELSE 'The request could not be completed.' END,'sqlstate',boundary_state);
+END;
+$$;
+
+CREATE OR REPLACE FUNCTION business_private.notify_course_exception()
+RETURNS trigger LANGUAGE plpgsql SECURITY DEFINER SET search_path TO '' AS $$
+DECLARE b record; e record; inserted integer;
+BEGIN
+ -- Ignore irrelevant or stale events; enqueue atomically inside the RPC boundary.
+ IF NOT EXISTS(SELECT 1 FROM public.course_exceptions WHERE id=NEW.id AND date=NEW.date AND course_id IS NOT DISTINCT FROM NEW.course_id) THEN RETURN NULL; END IF;
+ IF NEW.date<(now() AT TIME ZONE 'Europe/Berlin')::date THEN RETURN NULL; END IF;
+ FOR b IN SELECT x.id,x.contact_name,x.contact_email,p.preferred_locale
+  FROM public.bookings x JOIN public.people p ON p.id=x.person_id
+  WHERE x.status IN ('pending','confirmed') AND x.start_date<=NEW.date
+   AND NEW.date<(x.target_month+interval '1 month')::date
+ LOOP
+  FOR e IN SELECT r.course_id,r.title,r.date,string_agg(DISTINCT r.reason,'; ' ORDER BY r.reason) reason
+   FROM business_private.booking_exception_rows(b.id) r
+   WHERE r.date=NEW.date AND (NEW.course_id IS NULL OR r.course_id=NEW.course_id)
+   GROUP BY r.course_id,r.title,r.date
+  LOOP
+   INSERT INTO private.mail_exception_deliveries VALUES(b.id,e.course_id,e.date) ON CONFLICT DO NOTHING;
+   GET DIAGNOSTICS inserted=ROW_COUNT;
+   IF inserted=1 THEN
+    PERFORM platform_private.require_rpc_success(public.queue_transactional_email(
+     'course-exception:'||b.id||':'||e.course_id||':'||e.date,
+     'course_exception_added',b.contact_email,b.preferred_locale,
+     jsonb_build_object('name',b.contact_name,'exceptions',jsonb_build_array(jsonb_build_object(
+      'courseId',e.course_id,'title',e.title,'date',e.date,'reason',e.reason)))));
+   END IF;
+  END LOOP;
+ END LOOP;
+ RETURN NULL;
+END $$;
+REVOKE ALL ON FUNCTION business_private.notify_course_exception() FROM PUBLIC,anon,authenticated,service_role;
+DROP TRIGGER IF EXISTS course_exception_mail ON public.course_exceptions;
+CREATE TRIGGER course_exception_mail AFTER INSERT OR UPDATE ON public.course_exceptions
+FOR EACH ROW EXECUTE FUNCTION business_private.notify_course_exception();
