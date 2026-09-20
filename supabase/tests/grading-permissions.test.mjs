@@ -4,24 +4,27 @@ import {createPhase3Database,actor,id,student,outsider,vocabularyUnit,exerciseUn
 
 await test('grading crosses migration/legacy owner boundary without granting client access',async t=>{
  const db=await createPhase3Database(), card=id(710), progress=id(711), exercise=id(712), request=id(713)
- const admin=()=>db.exec('SET ROLE grading_migration_admin')
+ const admin=()=>db.exec('RESET ROLE')
  const answer=()=>result(db,"SELECT submit_vocabulary_answer_once($1,$2,NULL,'das Haus','en') result",[request,progress])
  try {
   await db.query("INSERT INTO learning_vocabulary_cards(id,unit_id,word_de,article,sentence_practice) VALUES($1,$2,'Haus','das',false)",[card,vocabularyUnit])
   await db.query("INSERT INTO vocabulary_translations(card_id,locale,translation) VALUES($1,'en','house')",[card])
   await db.query("INSERT INTO vocabulary_direction_progress(id,auth_user_id,card_id,direction,box_number,next_review_date) VALUES($1,$2,$3,'native_to_de',1,now()-interval '1 day')",[progress,student,card])
   await db.query("INSERT INTO learning_exercises(id,unit_id,topic,type,content) VALUES($1,$2,'Artikel','fill_in_blank','{\"correct_answer\":\"das Haus\",\"accepted_answers\":[\"das Haus\"]}')",[exercise,exerciseUnit])
-  // PGlite ordinarily makes every function owner a superuser, hiding the live
-  // VPS boundary. Model postgres as NOSUPERUSER/BYPASSRLS, like production,
-  // with separate ownership for all four newly introduced Phase 3 helpers.
+  // PGlite cannot demote its bootstrap postgres role. A NOSUPERUSER legacy
+  // owner inherits postgres OBJECT privileges; SUPERUSER is not inherited.
+  // Helpers belong to a separate migration admin, exactly the live failure.
   await db.exec(`CREATE ROLE grading_migration_admin SUPERUSER;
-   GRANT grading_migration_admin,authenticated,anon TO postgres;
+   CREATE ROLE legacy_grading_owner NOLOGIN NOSUPERUSER BYPASSRLS;
+   GRANT postgres TO legacy_grading_owner;
    ALTER FUNCTION learning_private.normalize_answer(text) OWNER TO grading_migration_admin;
    ALTER FUNCTION learning_private.grade_answer(text,text[]) OWNER TO grading_migration_admin;
    ALTER FUNCTION learning_private.expand_german_letters(text) OWNER TO grading_migration_admin;
    ALTER FUNCTION learning_private.levenshtein_at_most_one(text,text) OWNER TO grading_migration_admin;
-   SET ROLE grading_migration_admin;
-   ALTER ROLE postgres NOSUPERUSER NOINHERIT BYPASSRLS;`)
+   ALTER FUNCTION vocabulary_private.submit_answer(uuid,boolean,text,text) OWNER TO legacy_grading_owner;
+   ALTER FUNCTION vocabulary_private.submit_answer_once(uuid,uuid,boolean,text,text) OWNER TO legacy_grading_owner;
+   ALTER FUNCTION grammar_private.record_attempt(uuid,text,boolean) OWNER TO legacy_grading_owner;`)
+  assert.equal((await db.query("SELECT rolsuper FROM pg_roles WHERE rolname='legacy_grading_owner'")).rows[0].rolsuper,false)
   const original=(await db.query('SELECT * FROM vocabulary_direction_progress WHERE id=$1',[progress])).rows[0]
   const definitions=(await db.query("SELECT oid,proowner,prosrc,prosecdef,proconfig FROM pg_proc WHERE oid IN ('vocabulary_private.submit_answer(uuid,boolean,text,text)'::regprocedure,'vocabulary_private.submit_answer_once(uuid,uuid,boolean,text,text)'::regprocedure) ORDER BY oid")).rows
   await t.test('reproduces 42501 for an existing progress row and preserves all its state',async()=>{
@@ -60,7 +63,7 @@ await test('grading crosses migration/legacy owner boundary without granting cli
    await actor(db,outsider)
    assert.equal((await answer()).error,'trainer_access_denied')
    await admin()
-   assert.equal((await db.query("SELECT has_function_privilege('postgres','learning_private.expand_german_letters(text)','EXECUTE') allowed")).rows[0].allowed,false)
+   assert.equal((await db.query("SELECT has_function_privilege('legacy_grading_owner','learning_private.expand_german_letters(text)','EXECUTE') allowed")).rows[0].allowed,false)
   })
   await t.test('inverse REVOKE restores the original boundary without deleting progress',async()=>{
    await db.exec('REVOKE EXECUTE ON FUNCTION learning_private.normalize_answer(text),learning_private.grade_answer(text,text[]) FROM postgres')
