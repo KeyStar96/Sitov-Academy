@@ -86,16 +86,11 @@ export async function updateUiLanguage(formData: FormData): Promise<void> {
         .eq('id', user.id)
 
       if (error) {
-        console.error('[profile] Oberflächensprache konnte nicht gespeichert werden', {
-          code: error.code,
-          message: error.message,
-        })
+        console.error("[profile] Oberflächensprache konnte nicht gespeichert werden")
       }
     }
   } catch (error) {
-    console.error('[profile] Oberflächensprache: unerwarteter Fehler', {
-      error: error instanceof Error ? error.message : 'unbekannt',
-    })
+    console.error("[profile] Oberflächensprache: unerwarteter Fehler")
   }
 
   if (!authenticated) {

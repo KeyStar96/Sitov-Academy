@@ -15,5 +15,5 @@ export async function getUnseenFeedbackSummary(): Promise<UnseenFeedbackSummary>
       .order('created_at', { ascending: false })
     if (error) throw error
     return { count: data?.length ?? 0, latestLevel: data?.[0]?.submissions?.level ?? null }
-  } catch (error) { console.error('Unread feedback unavailable', error); return empty }
+  } catch (error) { console.error("Unread feedback unavailable"); return empty }
 }

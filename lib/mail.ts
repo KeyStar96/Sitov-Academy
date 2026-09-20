@@ -32,7 +32,7 @@ async function enqueue(input: QueueInput): Promise<MailSendResult> {
       body:JSON.stringify({p_dedupe_key:input.dedupeKey,p_kind:input.kind,p_recipient:input.to,p_locale:input.locale ?? 'de',p_payload:input.payload}),
       cache:'no-store',signal:AbortSignal.timeout(10000),
     })
-    if (!response.ok) { console.error('[mail-outbox] enqueue_failed',{status:response.status}); return {success:false,error:'mail_queue_failed'} }
+    if (!response.ok) { console.error("[mail-outbox] enqueue_failed"); return {success:false,error:'mail_queue_failed'} }
     const result: unknown = await response.json()
     return typeof result === 'string' ? {success:true,messageId:result} : {success:false,error:'mail_queue_failed'}
   } catch { console.error('[mail-outbox] enqueue_failed'); return {success:false,error:'mail_queue_failed'} }

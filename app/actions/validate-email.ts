@@ -26,7 +26,7 @@ export async function validateEmail(email: string): Promise<{ isValid: boolean }
         return { isValid: false };
 
     } catch (error) {
-        console.error("Validation error:", error);
+        console.error("Validation error:");
         return { isValid: false };
     }
 }

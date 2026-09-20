@@ -105,10 +105,10 @@ export function resumeAudioContextWithoutBlocking(context: AudioContext | null):
   if (!context || context.state === 'closed' || context.state === 'running') return
   try {
     void context.resume().catch((error: unknown) => {
-      console.error('AudioContext konnte nicht fortgesetzt werden:', error)
+      console.error("AudioContext konnte nicht fortgesetzt werden:")
     })
   } catch (error) {
-    console.error('AudioContext konnte nicht fortgesetzt werden:', error)
+    console.error("AudioContext konnte nicht fortgesetzt werden:")
   }
 }
 
@@ -119,7 +119,7 @@ export async function unlockAudioContext(): Promise<AudioContext | null> {
     try {
       await context.resume()
     } catch (err) {
-      console.error('AudioContext konnte nicht fortgesetzt werden:', err)
+      console.error("AudioContext konnte nicht fortgesetzt werden:")
     }
   }
   return context
@@ -219,7 +219,7 @@ export function setAudioSessionType(kind: AudioSessionKind): void {
   try {
     session.type = kind
   } catch (err) {
-    console.error('audioSession konnte nicht gesetzt werden:', { kind, err })
+    console.error("audioSession konnte nicht gesetzt werden:")
   }
 }
 
@@ -261,11 +261,7 @@ export async function requestMicrophoneStream(): Promise<MediaStream> {
       return await navigator.mediaDevices.getUserMedia(constraints)
     } catch (err) {
       lastError = err
-      console.error('getUserMedia fehlgeschlagen:', {
-        constraint: constraints.audio === true ? 'audio:true' : 'audio:processed',
-        name: err && typeof err === 'object' && 'name' in err ? err.name : undefined,
-        message: err instanceof Error ? err.message : String(err),
-      })
+      console.error("getUserMedia fehlgeschlagen:")
       if (isMicrophonePermissionDenied(err)) break
     }
   }

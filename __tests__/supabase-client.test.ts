@@ -42,8 +42,7 @@ describe('utils/supabase/client createClient', () => {
 
     expect(() => createClient()).toThrow(SupabaseConfigError)
     expect(consoleErrorSpy).toHaveBeenCalledWith(
-      expect.stringContaining('NEXT_PUBLIC_SUPABASE_URL'),
-      expect.objectContaining({ hasUrl: false, hasAnonKey: false })
+      expect.stringContaining('NEXT_PUBLIC_SUPABASE_URL')
     )
     expect(createBrowserClientMock).not.toHaveBeenCalled()
   })

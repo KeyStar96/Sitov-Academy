@@ -20,9 +20,9 @@ export async function getPronunciationPrompts(level: string): Promise<Pronunciat
   const allowedLessons = getAllowedLessons(accessProfile, level, 'pronunciation')
 
   const { data, error } = await readingQuery(supabase).eq('unit.level', level).eq('unit.is_active', true).order('sort_order', { referencedTable: 'unit' })
-  if (error) { console.error('Loading pronunciation texts failed', { level, message: error.message }); return [] }
+  if (error) { console.error("Loading pronunciation texts failed"); return [] }
   return (data ?? []).map(mapReadingText).filter((prompt): prompt is PronunciationPrompt => prompt !== null && (!allowedLessons || allowedLessons.includes(prompt.unitId)))
- } catch (error) { console.error('Loading pronunciation texts failed', error); return [] }
+ } catch (error) { console.error("Loading pronunciation texts failed"); return [] }
 }
 export interface SavePronunciationPromptInput { id?: string; level: string; title: string; text: string; focus: string; isActive: boolean }
 const promptSchema = z.object({ id: z.uuid().optional(), level: z.enum([...ACCESS_LEVELS, 'B2', 'C1', 'C2']), title: z.string().trim().min(3).max(120), text: z.string().trim().min(1).max(3000), focus: z.string().trim().max(200), isActive: z.boolean() })
@@ -38,9 +38,9 @@ export async function getAdminPronunciationPrompts(): Promise<PronunciationPromp
   const supabase = await staffClient()
   if (!supabase) return []
   const { data, error } = await readingQuery(supabase).order('id')
-  if (error) { console.error('Loading pronunciation CMS failed', error.message); return [] }
+  if (error) { console.error("Loading pronunciation CMS failed"); return [] }
   return (data ?? []).map(mapReadingText).filter((prompt): prompt is PronunciationPrompt => prompt !== null)
- } catch (error) { console.error('Loading pronunciation CMS failed', error); return [] }
+ } catch (error) { console.error("Loading pronunciation CMS failed"); return [] }
 }
 export async function savePronunciationPrompt(input: SavePronunciationPromptInput): Promise<PronunciationMutationResult> {
  const parsed = promptSchema.safeParse(input)
@@ -53,5 +53,5 @@ export async function savePronunciationPrompt(input: SavePronunciationPromptInpu
   const data = z.object({ id: z.string() }).parse(await saveLearningContent(supabase, 'pronunciation', payload, value.id))
   revalidatePath('/[lang]/admin/content/pronunciation', 'page'); revalidatePath('/[lang]/dashboard/level/[level]/pronunciation', 'page')
   return { success: true, id: data.id }
- } catch (error) { console.error('Saving pronunciation text failed', error); return { success: false, reason: 'save_failed' } }
+ } catch (error) { console.error("Saving pronunciation text failed"); return { success: false, reason: 'save_failed' } }
 }

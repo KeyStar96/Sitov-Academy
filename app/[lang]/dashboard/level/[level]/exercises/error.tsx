@@ -17,7 +17,7 @@ export default function ExercisesError({
 }) {
   const copy = useRouteFeedback('exercises')
   useEffect(() => {
-    console.error('Übungsseite konnte nicht gerendert werden:', error.digest ?? error.message)
+    console.error("Übungsseite konnte nicht gerendert werden:")
   }, [error])
 
   return (

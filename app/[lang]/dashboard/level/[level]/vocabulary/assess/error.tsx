@@ -14,7 +14,7 @@ export default function VocabularyAssessError({
 }) {
   const copy = useRouteFeedback('vocabulary')
   useEffect(() => {
-    console.error('Einstufungs-Durchlauf konnte nicht gerendert werden:', error.digest ?? error.message)
+    console.error("Einstufungs-Durchlauf konnte nicht gerendert werden:")
   }, [error])
 
   return (

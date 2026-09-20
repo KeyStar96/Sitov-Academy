@@ -91,7 +91,7 @@ export function loadCustomVocabulary(level: string, lesson: string): CustomVocab
       return card ? [card] : []
     })
   } catch (err) {
-    console.error(`Eigene Vokabeln für Lektion "${lesson}" konnten nicht geladen werden:`, err)
+    console.error("Eigene Vokabeln für Lektion konnten nicht geladen werden:")
     return []
   }
 }
@@ -102,7 +102,7 @@ function saveCustomVocabulary(level: string, lesson: string, cards: CustomVocabu
   try {
     window.localStorage.setItem(storageKey(level, lesson), JSON.stringify(cards))
   } catch (err) {
-    console.error(`Eigene Vokabeln für Lektion "${lesson}" konnten nicht gespeichert werden:`, err)
+    console.error("Eigene Vokabeln für Lektion konnten nicht gespeichert werden:")
   }
 }
 

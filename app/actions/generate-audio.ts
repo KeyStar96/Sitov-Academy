@@ -56,7 +56,7 @@ export async function generateAudio(input: GenerateAudioInput): Promise<Generate
     }
     return { success: true, audioUrl, cached: Boolean(cachedUrl) }
   } catch (error) {
-    console.error('Neural audio generation failed:', error instanceof Error ? error.message : 'provider or storage error')
+    console.error("Neural audio generation failed:")
     return { success: false, error: 'audio_unavailable' }
   }
 }

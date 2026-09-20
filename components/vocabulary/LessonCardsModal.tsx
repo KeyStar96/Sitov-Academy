@@ -99,7 +99,7 @@ export default function LessonCardsModal({
         if (!cancelled) setCardsState(cards)
       })
       .catch((err) => {
-        console.error(`Vokabeln der Lektion "${lesson}" konnten nicht geladen werden:`, err)
+        console.error("Vokabeln der Lektion konnten nicht geladen werden:")
         if (!cancelled) setCardsState('error')
       })
 
@@ -160,7 +160,7 @@ export default function LessonCardsModal({
         }
         onCardAdded()
       } catch (err) {
-        console.error(`Vokabel ${cardId} konnte nicht manuell übernommen werden:`, err)
+        console.error("Vokabel konnte nicht manuell übernommen werden:")
         setCardsState(previousCards)
         setAddFailed(true)
       } finally {
@@ -188,7 +188,7 @@ export default function LessonCardsModal({
         setCustomError(false)
         setShowCustomForm(false)
       } catch (err) {
-        console.error(`Eigene Vokabel für Lektion "${lesson}" konnte nicht gespeichert werden:`, err)
+        console.error("Eigene Vokabel für Lektion konnte nicht gespeichert werden:")
         setCustomError(true)
       }
     },
@@ -200,7 +200,7 @@ export default function LessonCardsModal({
       try {
         setCustomCards(removeCustomVocabulary(level, lesson, cardId))
       } catch (err) {
-        console.error(`Eigene Vokabel ${cardId} konnte nicht gelöscht werden:`, err)
+        console.error("Eigene Vokabel konnte nicht gelöscht werden:")
       }
     },
     [lesson, level]
@@ -218,7 +218,7 @@ export default function LessonCardsModal({
       setShowResetConfirm(false)
       onCardAdded()
     } catch (err) {
-      console.error('Lernfortschritt konnte nicht zurückgesetzt werden:', err)
+      console.error("Lernfortschritt konnte nicht zurückgesetzt werden:")
       setCardsState(previousCards)
       setResetFailed(true)
     } finally {

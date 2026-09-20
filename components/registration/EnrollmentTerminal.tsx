@@ -924,7 +924,7 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                 alert(result.message || "Something went wrong. Please try again.");
             }
         } catch (error) {
-            console.error("Trial submission error:", error);
+            console.error("Trial submission error:");
             alert("Network error. Please try again.");
         } finally {
             isSubmittingRef.current = false;
@@ -952,11 +952,11 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                 });
                 setIsSuccess(true);
             } else {
-                console.error("Enrollment failed:", result); // Log full result for debugging
+                console.error("Enrollment failed:"); // Log full result for debugging
                 alert(result.message || "Something went wrong. Please try again.");
             }
         } catch (error) {
-            console.error("Submission error details:", error);
+            console.error("Submission error details:");
             alert("Network error. Please try again.");
         } finally {
             isSubmittingRef.current = false;

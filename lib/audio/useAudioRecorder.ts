@@ -163,7 +163,7 @@ export function useAudioRecorder(): UseAudioRecorderResult {
     try {
       resumeAudioContextWithoutBlocking(ensureAudioContext())
     } catch (error) {
-      console.error('Wiedergabe-Context konnte nicht vorbereitet werden:', error)
+      console.error("Wiedergabe-Context konnte nicht vorbereitet werden:")
     }
 
     releaseObjectUrl()
@@ -177,7 +177,7 @@ export function useAudioRecorder(): UseAudioRecorderResult {
     try {
       stream = await requestMicrophoneStream()
     } catch (err) {
-      console.error('Mikrofon-Zugriff nicht möglich:', err)
+      console.error("Mikrofon-Zugriff nicht möglich:")
       if (mountedRef.current && generation === generationRef.current) setStatus(isMicrophonePermissionDenied(err) ? 'denied' : 'failed')
       startPendingRef.current = false
       return
@@ -201,7 +201,7 @@ export function useAudioRecorder(): UseAudioRecorderResult {
       try {
         recordStream = stream.clone()
       } catch (err) {
-        console.error('MediaStream.clone() nicht möglich, nutze denselben Stream:', err)
+        console.error("MediaStream.clone() nicht möglich, nutze denselben Stream:")
       }
       recordStreamRef.current = recordStream
 
@@ -231,7 +231,7 @@ export function useAudioRecorder(): UseAudioRecorderResult {
               if (wav.size > 0) output = wav
             }
           } catch (err) {
-            console.error('Aufnahme konnte nicht nach WAV gewandelt werden:', err)
+            console.error("Aufnahme konnte nicht nach WAV gewandelt werden:")
           }
 
           if (!mountedRef.current || generation !== generationRef.current) return
@@ -271,7 +271,7 @@ export function useAudioRecorder(): UseAudioRecorderResult {
         }
       } catch (error) {
         // A visualizer failure must not discard an otherwise valid microphone recording.
-        console.error('Mikrofon-Waveform konnte nicht verbunden werden:', error)
+        console.error("Mikrofon-Waveform konnte nicht verbunden werden:")
       }
       const buffer = new Uint8Array(analyserRef.current?.fftSize ?? 2048)
       const tick = () => {
@@ -289,7 +289,7 @@ export function useAudioRecorder(): UseAudioRecorderResult {
       }
       frameRef.current = requestAnimationFrame(tick)
     } catch (err) {
-      console.error('Aufnahme konnte nicht gestartet werden:', err)
+      console.error("Aufnahme konnte nicht gestartet werden:")
       teardown()
       if (mountedRef.current && generation === generationRef.current) setStatus('failed')
     } finally {

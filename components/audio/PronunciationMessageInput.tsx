@@ -52,9 +52,9 @@ export default function PronunciationMessageInput({ conversationId, t, onMessage
       setNotice('success')
       // A failed refresh must not turn an already committed message into a failure.
       try { await onMessageSent(); router.refresh() }
-      catch (error) { console.error('Refreshing sent conversation failed', error) }
+      catch (error) { console.error("Refreshing sent conversation failed") }
     } catch (error) {
-      console.error('Sending conversation message failed', error)
+      console.error("Sending conversation message failed")
       setNotice('error')
     } finally {
       sendPending.current = false

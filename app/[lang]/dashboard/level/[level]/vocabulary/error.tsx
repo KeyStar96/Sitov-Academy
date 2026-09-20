@@ -14,7 +14,7 @@ export default function VocabularyError({
 }) {
   const copy = useRouteFeedback('vocabulary')
   useEffect(() => {
-    console.error('Vokabeltrainer konnte nicht gerendert werden:', error.digest ?? error.message)
+    console.error("Vokabeltrainer konnte nicht gerendert werden:")
   }, [error])
 
   return (

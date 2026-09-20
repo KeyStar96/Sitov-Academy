@@ -55,7 +55,7 @@ export async function getAdminStats() {
       pendingSubmissions: pendingSubmissions || 0
     }
   } catch (error) {
-    console.error('Error fetching admin stats', error)
+    console.error("Error fetching admin stats")
     return { studentCount: 0, activatedCount: 0, pendingSubmissions: 0 }
   }
 }
@@ -75,7 +75,7 @@ export async function getStudents() {
     if (rulesError) throw rulesError
     return (data ?? []).map(student => ({ ...student, role: profileRoleSchema.nullable().parse(student.role), allowed_levels: student.level_access.map(access => access.level), trainer_grants: (rules ?? []).filter(rule => rule.auth_user_id === student.id).map(rule => ({ level: rule.level, trainer: rule.trainer, enabled: rule.enabled, unit_ids: rule.unit_mode === 'all' ? null : rule.units.map(item => item.unit_id) })) }))
   } catch (error) {
-    console.error('Error fetching students', error)
+    console.error("Error fetching students")
     return []
   }
 }
@@ -114,7 +114,7 @@ export async function updateStudentAllowedLevels(userId: string, levels: string[
     revalidatePath('/[lang]/admin/students', 'page')
     return { success: true, allowedLevels }
   } catch (error) {
-    console.error('Error updating allowed levels', error)
+    console.error("Error updating allowed levels")
     const message = error instanceof Error ? error.message : 'Unbekannter Fehler'
     return { success: false, error: message }
   }
@@ -128,10 +128,15 @@ export async function getAllStudentsProgressData() {
     const { data, error } = await supabase.rpc('get_all_students_progress_data')
     if (error) throw error
 
-    return data as Record<string, Record<string, number>>
+    checkRpcError(data)
+    return z.record(z.uuid(), z.record(
+      z.string().refine(level => ACCESS_LEVELS.some(allowed => allowed === level)),
+      z.number().int().min(0).max(100),
+    )).parse(data)
   } catch (error) {
-    console.error('Error fetching progress data for all students', error)
-    return {}
+    console.error('Error fetching progress data for all students')
+    // The existing admin error boundary offers a retry. An outage is not 0%.
+    throw new Error('student_progress_unavailable')
   }
 }
 
@@ -147,7 +152,7 @@ export async function resetStudentProgress(userId: string, level: string) {
     revalidatePath('/[lang]/admin/students', 'page')
     return { success: true }
   } catch (error) {
-    console.error('Error resetting student progress', error)
+    console.error("Error resetting student progress")
     const message = error instanceof Error ? error.message : 'Unbekannter Fehler'
     return { success: false, error: message }
   }
@@ -174,7 +179,7 @@ export async function updateStudentTrainerAccess(input: z.infer<typeof trainerAc
     revalidatePath('/[lang]/dashboard', 'layout')
     return { success: true }
   } catch (error) {
-    console.error('Trainer access update failed:', error)
+    console.error("Trainer access update failed:")
     return { success: false }
   }
 }
@@ -204,7 +209,7 @@ export async function getAvailableLessons(level: string, trainer: string): Promi
     })) }
 
   } catch (error) {
-    console.error('Failed to get available lessons:', error)
+    console.error("Failed to get available lessons:")
     return { success: false }
   }
 }

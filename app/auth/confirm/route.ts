@@ -42,13 +42,9 @@ export async function GET(request: NextRequest) {
 
   if (decision.kind === 'reject') {
     if (decision.status === 'confirm_missing_params') {
-      console.error('[auth/confirm] Aufruf ohne Token', { lang: decision.lang })
+      console.error("[auth/confirm] Aufruf ohne Token")
     } else {
-      console.error('[auth/confirm] Anbieter hat den Vorgang abgebrochen', {
-        lang: decision.lang,
-        error: request.nextUrl.searchParams.get('error'),
-        code: request.nextUrl.searchParams.get('error_code'),
-      })
+      console.error("[auth/confirm] Anbieter hat den Vorgang abgebrochen")
     }
     return redirectTo(request, decision.redirectPath, decision.status)
   }
@@ -64,11 +60,7 @@ export async function GET(request: NextRequest) {
           })
 
     if (error) {
-      console.error('[auth/confirm] Verifizierung fehlgeschlagen', {
-        lang: decision.lang,
-        flow: decision.verify.flow,
-        message: error.message,
-      })
+      console.error("[auth/confirm] Verifizierung fehlgeschlagen")
       const failPath = decision.isRecovery
         ? `/${decision.lang}/forgot-password`
         : `/${decision.lang}/login`
@@ -80,11 +72,7 @@ export async function GET(request: NextRequest) {
 
     return redirectTo(request, decision.nextPath)
   } catch (error) {
-    console.error('[auth/confirm] Unerwarteter Fehler', {
-      lang: decision.lang,
-      flow: decision.verify.flow,
-      error: error instanceof Error ? error.message : 'unbekannt',
-    })
+    console.error("[auth/confirm] Unerwarteter Fehler")
     const failPath = decision.isRecovery
       ? `/${decision.lang}/forgot-password`
       : `/${decision.lang}/login`

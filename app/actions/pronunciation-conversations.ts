@@ -25,9 +25,9 @@ async function playbackUrl(client: Client, reference: string | null): Promise<st
   if (!path) return null
   try {
     const { data, error } = await client.storage.from(PRIVATE_PRONUNCIATION_BUCKET).createSignedUrl(path, 3600)
-    if (error) { console.error('Signing pronunciation recording failed', error.message); return null }
+    if (error) { console.error("Signing pronunciation recording failed"); return null }
     return publicStorageUrl(data.signedUrl)
-  } catch (error) { console.error('Signing pronunciation recording failed', error); return null }
+  } catch (error) { console.error("Signing pronunciation recording failed"); return null }
 }
 export async function createPronunciationSubmission(input: CreatePronunciationSubmissionInput): Promise<PronunciationMutationResult> {
   const parsed = createPronunciationSubmissionSchema.safeParse(input)
@@ -38,12 +38,12 @@ export async function createPronunciationSubmission(input: CreatePronunciationSu
     if (!user) return { success: false, reason: 'not_authenticated' }
     if (!isOwnedPronunciationAudio(parsed.data.audioPath, user.id)) return { success: false, reason: 'invalid_input' }
     const { data, error } = await supabase.rpc('create_pronunciation_submission', { p_prompt_id: parsed.data.promptId, p_audio_path: parsed.data.audioPath })
-    if (error) { console.error('Creating pronunciation conversation failed', { userId: user.id, message: error.message }); return { success: false, reason: 'save_failed' } }
+    if (error) { console.error("Creating pronunciation conversation failed"); return { success: false, reason: 'save_failed' } }
     if (getRpcError(data)) return { success: false, reason: 'save_failed' }
     const id = z.uuid().parse(data)
     refreshPronunciation()
     return { success: true, id }
-  } catch (error) { console.error('Creating pronunciation conversation failed', error); return { success: false, reason: 'save_failed' } }
+  } catch (error) { console.error("Creating pronunciation conversation failed"); return { success: false, reason: 'save_failed' } }
 }
 async function notifyPronunciationFeedback(supabase: Client, senderId: string, submissionId: string, messageId: string): Promise<void> {
   try {
@@ -56,8 +56,8 @@ async function notifyPronunciationFeedback(supabase: Client, senderId: string, s
     const locale = z.enum(['de', 'en', 'ru', 'uk', 'tr']).catch('en').parse(learner.ui_language)
     const queued = await queueTransactionalEmail({ dedupeKey: `pronunciation-message:${messageId}`, kind: 'feedback_available', to: learner.person.email, locale,
       payload: { name: learner.person.display_name ?? '', path: `/${locale}/dashboard/level/${encodeURIComponent(thread.level)}/pronunciation` } })
-    if (!queued.success) console.error('Pronunciation notification could not be queued', { messageId })
-  } catch { console.error('Pronunciation notification could not be queued', { messageId }) }
+    if (!queued.success) console.error("Pronunciation notification could not be queued")
+  } catch { console.error("Pronunciation notification could not be queued") }
 }
 export async function sendPronunciationMessage(input: SendPronunciationMessageInput): Promise<PronunciationMutationResult> {
   const parsed = pronunciationMessageSchema.safeParse(input)
@@ -69,24 +69,24 @@ export async function sendPronunciationMessage(input: SendPronunciationMessageIn
     if (parsed.data.audioPath && !isOwnedPronunciationAudio(parsed.data.audioPath, user.id)) return { success: false, reason: 'invalid_input' }
     // Database policies and a trigger validate membership, sender role and immutable recording ownership.
     const { data, error } = await supabase.from('pronunciation_messages').insert({ submission_id: parsed.data.submissionId, sender_id: user.id, text_content: parsed.data.text, audio_path: parsed.data.audioPath ?? null }).select('id').single()
-    if (error) { console.error('Sending pronunciation message failed', { userId: user.id, message: error.message }); return { success: false, reason: 'save_failed' } }
+    if (error) { console.error("Sending pronunciation message failed"); return { success: false, reason: 'save_failed' } }
     // The recording is already committed. Mail failures must not turn a successful
     // send into a retry that creates a second chat message.
     await notifyPronunciationFeedback(supabase, user.id, parsed.data.submissionId, data.id)
     refreshPronunciation()
     return { success: true, id: data.id }
-  } catch (error) { console.error('Sending pronunciation message failed', error); return { success: false, reason: 'save_failed' } }
+  } catch (error) { console.error("Sending pronunciation message failed"); return { success: false, reason: 'save_failed' } }
 }
 export async function markPronunciationSeen(submissionId: string): Promise<PronunciationMutationResult> {
   if (!z.uuid().safeParse(submissionId).success) return { success: false, reason: 'invalid_input' }
   try {
     const supabase = await createClient()
     const { data, error } = await supabase.rpc('mark_pronunciation_seen', { p_submission_id: submissionId })
-    if (error) { console.error('Marking pronunciation messages read failed', error.message); return { success: false, reason: 'save_failed' } }
+    if (error) { console.error("Marking pronunciation messages read failed"); return { success: false, reason: 'save_failed' } }
     if (getRpcError(data)) return { success: false, reason: 'save_failed' }
     revalidatePath('/[lang]/dashboard', 'page')
     return { success: true }
-  } catch (error) { console.error('Marking pronunciation messages read failed', error); return { success: false, reason: 'save_failed' } }
+  } catch (error) { console.error("Marking pronunciation messages read failed"); return { success: false, reason: 'save_failed' } }
 }
 export async function getPronunciationConversations(level?: string, submissionId?: string): Promise<PronunciationConversation[]> {
   try {
@@ -102,7 +102,7 @@ export async function getPronunciationConversations(level?: string, submissionId
     if (level) query = query.eq('level', level)
     if (submissionId) query = query.eq('id', submissionId)
     const { data, error } = await query.order('created_at', { ascending: false })
-    if (error) { console.error('Loading pronunciation conversations failed', { userId: user.id, message: error.message }); return [] }
+    if (error) { console.error("Loading pronunciation conversations failed"); return [] }
     const studentIds = [...new Set((data ?? []).map(row => row.auth_user_id))]
     const { data: profiles } = studentIds.length ? await supabase.from('people').select('auth_user_id,display_name,email').in('auth_user_id', studentIds) : { data: [] }
     const people = new Map((profiles ?? []).map(profile => [profile.auth_user_id, profile]))
@@ -116,5 +116,5 @@ export async function getPronunciationConversations(level?: string, submissionId
       return { id: row.id, level: row.level, title: row.prompt?.unit?.label ?? null, readingText: row.text_content, status: row.status ?? 'pending', studentName: people.get(row.auth_user_id)?.display_name ?? null, studentEmail: staff ? people.get(row.auth_user_id)?.email ?? null : null, createdAt: row.created_at ?? '', messages, hasUnseen: messages.some((message) => message.unseen) }
     }))
     return conversations.sort((a, b) => (b.messages.at(-1)?.createdAt ?? '').localeCompare(a.messages.at(-1)?.createdAt ?? ''))
-  } catch (error) { console.error('Loading pronunciation conversations failed', error); return [] }
+  } catch (error) { console.error("Loading pronunciation conversations failed"); return [] }
 }

@@ -43,7 +43,7 @@ export async function performLearningReset(client: SupabaseClient<Database>): Pr
     }
     return { success: false, reason: 'reset_in_progress' }
   } catch (error) {
-    console.error('[learning-reset] Pending reset retained for retry', { error: error instanceof Error ? error.message : 'backend_error' })
+    console.error("[learning-reset] Pending reset retained for retry")
     return { success: false, reason: 'reset_failed' }
   }
 }

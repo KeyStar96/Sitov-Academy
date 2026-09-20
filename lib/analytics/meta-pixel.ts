@@ -48,6 +48,6 @@ export function trackMetaEvent(
       }
     }
   } catch (err) {
-    console.warn('[Meta Pixel] Tracking failed:', err);
+    console.warn("[Meta Pixel] Tracking failed:");
   }
 }

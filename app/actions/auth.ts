@@ -1,10 +1,10 @@
 'use server'
 
 import { revalidatePath } from 'next/cache'
-import { headers } from 'next/headers'
 import { redirect } from 'next/navigation'
 import { createClient } from '@/utils/supabase/server'
 import { rateLimit } from '@/lib/ratelimit'
+import { getClientIp } from '@/lib/client-ip'
 import { buildSiteUrl, getOutboundSiteUrl } from '@/lib/site-url'
 import { resolveVerifiedPerson } from '@/lib/profile-person'
 import {
@@ -41,7 +41,6 @@ function readLanguage(formData: FormData): string {
   return uiLanguageSchema.parse(formData.get('lang') ?? undefined)
 }
 
-import { getClientIp } from '@/lib/client-ip'
 
 /**
  * Kennung für die Ratenbegrenzung.
@@ -64,10 +63,7 @@ async function isRateLimited(scope: keyof typeof RATE_LIMITS): Promise<boolean> 
   } catch (error) {
     // SECURITY: Fail-Closed. Wenn der Rate-Limiter (PostgreSQL) ausfällt,
     // dürfen keine Authentifizierungsanfragen (Brute-Force) durchgehen.
-    console.error('[auth] Ratenbegrenzung nicht verfügbar, Anfragen werden blockiert', {
-      scope,
-      error: error instanceof Error ? error.message : 'unbekannt',
-    })
+    console.error("[auth] Ratenbegrenzung nicht verfügbar, Anfragen werden blockiert")
     return true
   }
 }
@@ -118,10 +114,7 @@ export async function login(formData: FormData) {
           error.code === 'email_not_confirmed' ? 'login_unconfirmed' : 'login_failed'
 
         if (error.code !== 'email_not_confirmed' && error.code !== 'invalid_credentials') {
-          console.error('[auth] Anmeldung fehlgeschlagen', {
-            code: error.code,
-            message: error.message,
-          })
+          console.error("[auth] Anmeldung fehlgeschlagen")
         }
       } else if (data.user) {
         try { await resolveVerifiedPerson(data.user) }
@@ -139,16 +132,12 @@ export async function login(formData: FormData) {
             targetLang = uiLanguageSchema.parse(profile.ui_language)
           }
         } catch (profileError) {
-          console.error('[auth] Oberflächensprache konnte nicht geladen werden', {
-            error: profileError instanceof Error ? profileError.message : 'unbekannt',
-          })
+          console.error("[auth] Oberflächensprache konnte nicht geladen werden")
         }
       }
     }
   } catch (error) {
-    console.error('[auth] Anmeldung unerwartet abgebrochen', {
-      error: error instanceof Error ? error.message : 'unbekannt',
-    })
+    console.error("[auth] Anmeldung unerwartet abgebrochen")
     status = 'login_failed'
   }
 
@@ -193,10 +182,7 @@ export async function signup(formData: FormData) {
       })
 
       if (error) {
-        console.error('[auth] Registrierung fehlgeschlagen', {
-          code: error.code,
-          message: error.message,
-        })
+        console.error("[auth] Registrierung fehlgeschlagen")
         status = error.code === 'user_already_exists' ? 'signup_email_sent' : 'signup_failed'
       } else if (data.user && data.user.identities?.length === 0) {
         // A public signup form must not disclose existing student addresses.
@@ -204,9 +190,7 @@ export async function signup(formData: FormData) {
       }
     }
   } catch (error) {
-    console.error('[auth] Registrierung unerwartet abgebrochen', {
-      error: error instanceof Error ? error.message : 'unbekannt',
-    })
+    console.error("[auth] Registrierung unerwartet abgebrochen")
     status = 'signup_failed'
   }
 
@@ -221,9 +205,7 @@ export async function logout(lang: string = 'de') {
     const supabase = await createClient()
     await supabase.auth.signOut()
   } catch (error) {
-    console.error('[auth] Abmeldung fehlgeschlagen', {
-      error: error instanceof Error ? error.message : 'unbekannt',
-    })
+    console.error("[auth] Abmeldung fehlgeschlagen")
   }
 
   revalidatePath('/', 'layout')
@@ -248,19 +230,14 @@ export async function resetPassword(formData: FormData) {
       })
 
       if (error) {
-        console.error('[auth] Passwort-Reset konnte nicht angefordert werden', {
-          code: error.code,
-          message: error.message,
-        })
+        console.error("[auth] Passwort-Reset konnte nicht angefordert werden")
       }
       // Die Meldung bleibt in jedem Fall gleich. Ein Unterschied zwischen
       // „gesendet" und „unbekannte Adresse" würde verraten, welche Adressen
       // registriert sind.
     }
   } catch (error) {
-    console.error('[auth] Passwort-Reset unerwartet abgebrochen', {
-      error: error instanceof Error ? error.message : 'unbekannt',
-    })
+    console.error("[auth] Passwort-Reset unerwartet abgebrochen")
   }
 
   redirect(`/${lang}/forgot-password?status=${status}`)
@@ -287,17 +264,12 @@ export async function resendConfirmation(formData: FormData) {
       })
 
       if (error) {
-        console.error('[auth] Bestätigungslink konnte nicht erneut gesendet werden', {
-          code: error.code,
-          message: error.message,
-        })
+        console.error("[auth] Bestätigungslink konnte nicht erneut gesendet werden")
       }
       // Auch hier bewusst dieselbe Meldung für jede Adresse.
     }
   } catch (error) {
-    console.error('[auth] Erneutes Senden unerwartet abgebrochen', {
-      error: error instanceof Error ? error.message : 'unbekannt',
-    })
+    console.error("[auth] Erneutes Senden unerwartet abgebrochen")
   }
 
   redirect(`/${lang}/login?status=${status}`)
@@ -327,18 +299,13 @@ export async function updatePassword(formData: FormData) {
         const { error } = await supabase.auth.updateUser({ password: parsed.data.password })
 
         if (error) {
-          console.error('[auth] Passwort konnte nicht gespeichert werden', {
-            code: error.code,
-            message: error.message,
-          })
+          console.error("[auth] Passwort konnte nicht gespeichert werden")
           status = 'password_failed'
         }
       }
     }
   } catch (error) {
-    console.error('[auth] Passwortänderung unerwartet abgebrochen', {
-      error: error instanceof Error ? error.message : 'unbekannt',
-    })
+    console.error("[auth] Passwortänderung unerwartet abgebrochen")
     status = 'password_failed'
   }
 
@@ -352,9 +319,7 @@ export async function updatePassword(formData: FormData) {
     const supabase = await createClient()
     await supabase.auth.signOut()
   } catch (error) {
-    console.error('[auth] Abmeldung nach Passwortänderung fehlgeschlagen', {
-      error: error instanceof Error ? error.message : 'unbekannt',
-    })
+    console.error("[auth] Abmeldung nach Passwortänderung fehlgeschlagen")
   }
 
   revalidatePath('/', 'layout')

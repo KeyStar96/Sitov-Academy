@@ -9,12 +9,12 @@ User=sitov
 Group=sitov
 WorkingDirectory=/var/www/sitov-current
 EnvironmentFile=/etc/sitov-academy/app.env
-Environment=NODE_OPTIONS=--max-old-space-size=1024
+Environment=NODE_OPTIONS=--max-old-space-size=1536
 ExecStart=/usr/bin/node node_modules/next/dist/bin/next start -H 127.0.0.1 -p 3000
 Restart=on-failure
 RestartSec=3
 TimeoutStopSec=30
-MemoryMax=1536M
+MemoryMax=2048M
 CPUQuota=350%
 TasksMax=128
 UMask=0027

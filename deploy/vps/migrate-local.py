@@ -10,7 +10,9 @@ from pathlib import Path
 DB='supabase-db-eknmzxvqilojjicinatnllbt'
 STORAGE='supabase-storage-eknmzxvqilojjicinatnllbt'
 BASE=Path('/var/www/sitov-academy')
-ORDER=['02_identity_alignment.sql','03_registration_identity.sql','01_critical_fixes.sql','04_normalization.sql','05_rpc_errors.sql','06_soft_errors.sql','07_content_quality.sql','08_performance_indexes.sql','09_progress_aggregate.sql']
+ORDER=['02_identity_alignment.sql','03_registration_identity.sql','01_critical_fixes.sql','04_normalization.sql','05_rpc_errors.sql','06_soft_errors.sql','07_content_quality.sql','08_performance_indexes.sql','09_progress_aggregate.sql','10_rls_performance.sql']
+# Explicit file metadata: comments/string literals must never disable transactions.
+AUTOCOMMIT={'08_performance_indexes.sql'}
 
 def run(args,**kwargs):
     return subprocess.run(args,check=True,capture_output=True,**kwargs).stdout
@@ -93,8 +95,8 @@ def main():
         if args.apply:
             command=""
             for name,source in zip(args.apply,sources):
-                if "CONCURRENTLY" in source.upper():
-                    command+=source+"\n"
+                if name in AUTOCOMMIT:
+                    command+="SET lock_timeout='10s';\nSET statement_timeout='180s';\n"+source+"\nRESET lock_timeout;\nRESET statement_timeout;\n"
                 else:
                     command+="BEGIN;\nSET LOCAL lock_timeout='10s';\nSET LOCAL statement_timeout='180s';\n"+source+"\nCOMMIT;\n"
             command+="NOTIFY pgrst, 'reload schema';\n"

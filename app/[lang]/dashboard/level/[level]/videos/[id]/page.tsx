@@ -17,6 +17,6 @@ export default async function VideoPage({ params }: { params: Promise<{ lang: st
       if (error) throw error
       destination = learningResourceUrl(data?.source_url) ?? destination
     }
-  } catch (error) { console.error('Video link unavailable:', error instanceof Error ? error.name : 'database_error') }
+  } catch (error) { console.error("Video link unavailable:") }
   redirect(destination)
 }

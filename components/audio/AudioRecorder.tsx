@@ -68,10 +68,7 @@ export default function AudioRecorder({
       if (upload.success === false) {
         // Details stehen bereits im Log des privaten Uploads
         // (Bucket, Pfad, MIME-Type, Fehlergrund) – hier nur der Ablaufkontext.
-        console.error('Einreichung abgebrochen: Audio-Upload fehlgeschlagen.', {
-          reason: upload.reason,
-                  level,
-        })
+        console.error("Einreichung abgebrochen: Audio-Upload fehlgeschlagen.")
         setUploadFailed(true)
         return
       }
@@ -79,10 +76,7 @@ export default function AudioRecorder({
       const result = await createPronunciationSubmission({ promptId, audioPath: upload.audioPath })
 
       if (!result.success) {
-        console.error('Einreichung abgebrochen: Speichern in der Datenbank fehlgeschlagen.', {
-          reason: result.reason,
-                  level,
-        })
+        console.error("Einreichung abgebrochen: Speichern in der Datenbank fehlgeschlagen.")
         setUploadFailed(true)
         return
       }
@@ -93,7 +87,7 @@ export default function AudioRecorder({
     } catch (err) {
       // Fängt z.B. Netzwerkabbrüche beim Aufruf der Server Action ab, die
       // sonst als unbehandelte Promise-Rejection verschwinden würden.
-      console.error('Unerwarteter Fehler beim Einreichen der Aufnahme:', err)
+      console.error("Unerwarteter Fehler beim Einreichen der Aufnahme:")
       setUploadFailed(true)
     } finally {
       setIsUploading(false)

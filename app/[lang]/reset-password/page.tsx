@@ -50,9 +50,7 @@ export default async function ResetPasswordPage({
     } = await supabase.auth.getUser()
     hasRecoverySession = user !== null
   } catch (error) {
-    console.error('[reset-password] Sitzung konnte nicht geprüft werden', {
-      error: error instanceof Error ? error.message : 'unbekannt',
-    })
+    console.error("[reset-password] Sitzung konnte nicht geprüft werden")
   }
 
   return (

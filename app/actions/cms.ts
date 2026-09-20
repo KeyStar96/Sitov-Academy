@@ -78,7 +78,7 @@ export async function getVideos(): Promise<VideoRecord[]> {
     if (error) throw error
     return (data ?? []).map(row => mapVideo(row))
   } catch (error) {
-    console.error('Teacher video library unavailable:', error instanceof Error ? error.name : 'database_error')
+    console.error("Teacher video library unavailable:")
     throw new Error('video_load_failed')
   }
 }
@@ -98,7 +98,7 @@ async function saveVideo(payload: VideoWriteInput, id?: string): Promise<VideoWr
     revalidatePath('/[lang]/dashboard/level/[level]/videos', 'page')
     return { success: true, data }
   } catch (error) {
-    console.error('Teacher video save failed:', error instanceof Error ? error.name : 'database_error')
+    console.error("Teacher video save failed:")
     return { success: false, error: 'save_failed' }
   }
 }
@@ -111,7 +111,7 @@ export async function deleteVideo(id: string): Promise<VideoDeleteResult> {
     revalidatePath('/[lang]/dashboard/level/[level]/videos', 'page')
     return { success: true }
   } catch (error) {
-    console.error('Teacher video delete failed:', error instanceof Error ? error.name : 'database_error')
+    console.error("Teacher video delete failed:")
     return { success: false, error: 'delete_failed' }
   }
 }

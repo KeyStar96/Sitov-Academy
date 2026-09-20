@@ -14,7 +14,7 @@ export default function PronunciationError({
 }) {
   const copy = useRouteFeedback('pronunciation')
   useEffect(() => {
-    console.error('Aussprache-Training konnte nicht gerendert werden:', error.digest ?? error.message)
+    console.error("Aussprache-Training konnte nicht gerendert werden:")
   }, [error])
 
   return (

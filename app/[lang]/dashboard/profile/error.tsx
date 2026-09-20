@@ -13,7 +13,7 @@ export default function ProfileError({
 }) {
   const t = useProfileTranslator()
   useEffect(() => {
-    console.error('Profilseite konnte nicht gerendert werden:', error.digest ?? error.message)
+    console.error("Profilseite konnte nicht gerendert werden:")
   }, [error])
 
   return (

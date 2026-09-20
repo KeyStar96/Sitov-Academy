@@ -82,7 +82,7 @@ async function loadVocabularyMatches(
     .in('word_de', [...words])
 
   if (error) {
-    console.error('Fehler beim Abrufen der Vokabel-Metadaten für Übungen:', error.message)
+    console.error("Fehler beim Abrufen der Vokabel-Metadaten für Übungen:")
     return matches
   }
 
@@ -173,7 +173,7 @@ export async function getExercises(level?: string, uiLanguage = 'de'): Promise<S
       if (row.type === 'fill_in_blank') {
         const content = parseFillInBlankContent(row.content)
         if (!content) {
-          console.error(`Übung ${row.id} hat einen ungültigen Lückentext-Inhalt und wird übersprungen.`)
+          console.error("Übung hat einen ungültigen Lückentext-Inhalt und wird übersprungen.")
           continue
         }
 
@@ -189,7 +189,7 @@ export async function getExercises(level?: string, uiLanguage = 'de'): Promise<S
         })
 
         if (chips.length === 0) {
-          console.error(`Übung ${row.id} liefert keine Auswahl-Chips und wird übersprungen.`)
+          console.error("Übung liefert keine Auswahl-Chips und wird übersprungen.")
           continue
         }
 
@@ -217,7 +217,7 @@ export async function getExercises(level?: string, uiLanguage = 'de'): Promise<S
       if (row.type === 'multiple_choice') {
         const content = parseMultipleChoiceContent(row.content)
         if (!content) {
-          console.error(`Übung ${row.id} hat einen ungültigen Multiple-Choice-Inhalt und wird übersprungen.`)
+          console.error("Übung hat einen ungültigen Multiple-Choice-Inhalt und wird übersprungen.")
           continue
         }
 
@@ -238,12 +238,12 @@ export async function getExercises(level?: string, uiLanguage = 'de'): Promise<S
       }
 
       // sentence_building ist im Schema angelegt, aber noch nicht als UI umgesetzt.
-      console.warn(`Übungstyp "${row.type}" wird derzeit nicht dargestellt (Übung ${row.id}).`)
+      console.warn("Übungstyp wird derzeit nicht dargestellt (Übung ).")
     }
 
     return exercises
   } catch (err) {
-    console.error('Unerwarteter Fehler in getExercises:', err)
+    console.error("Unerwarteter Fehler in getExercises:")
     return []
   }
 }
@@ -277,7 +277,7 @@ export async function recordExerciseAttempt(
       p_hint_shown: parsed.data.hintShown,
     })
     if (error || getRpcError(data)) {
-      console.error('Grammar attempt could not be saved:', { code: error?.code ?? getRpcError(data)?.error })
+      console.error("Grammar attempt could not be saved:")
       return { success: false, attempts: 0 }
     }
     const result = z.intersection(answerGradeSchema, z.object({
@@ -287,7 +287,7 @@ export async function recordExerciseAttempt(
       .refine(value => value.status !== 'SOFT_ERROR' || value.score <= 90).safeParse(data)
     return result.success ? result.data : { success: false, attempts: 0 }
   } catch (err) {
-    console.error('Unerwarteter Fehler in recordExerciseAttempt:', err)
+    console.error("Unerwarteter Fehler in recordExerciseAttempt:")
     return { success: false, attempts: 0 }
   }
 }
@@ -303,7 +303,7 @@ export async function finishExerciseSession(level: string): Promise<{ success: b
     revalidatePath('/[lang]/dashboard/level/[level]/exercises', 'page')
     return { success: true }
   } catch (err) {
-    console.error(`Unerwarteter Fehler in finishExerciseSession (Level ${level}):`, err)
+    console.error("Unerwarteter Fehler in finishExerciseSession (Level ):")
     return { success: false }
   }
 }

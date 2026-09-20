@@ -22,7 +22,7 @@ export default async function VideosOverviewPage({ params }: { params: Promise<{
     }
   } catch (error) {
     failed = true
-    console.error('Video library unavailable:', error instanceof Error ? error.name : 'database_error')
+    console.error("Video library unavailable:")
   }
   return <VideoLibrary videos={videos} lang={lang} level={decodedLevel} translations={dict.videos ?? {}} failed={failed} />
 }

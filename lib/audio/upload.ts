@@ -43,13 +43,13 @@ export async function uploadPrivatePronunciationRecording(blob: Blob): Promise<A
     const path = `${user.id}/${crypto.randomUUID()}.${extensionForMimeType(contentType)}`
     const { error: uploadError } = await supabase.storage.from('pronunciation_audio').upload(path, blob, { contentType, upsert: false })
     if (uploadError) {
-      console.error('Private pronunciation upload failed', { userId: user.id, message: uploadError.message })
+      console.error("Private pronunciation upload failed")
       return { success: false, reason: 'upload_failed' }
     }
     return { success: true, audioPath: `storage://pronunciation_audio/${path}` }
   } catch (error) {
     if (error instanceof SupabaseConfigError) return { success: false, reason: 'not_configured' }
-    console.error('Private pronunciation upload failed', error)
+    console.error("Private pronunciation upload failed")
     return { success: false, reason: 'upload_failed' }
   }
 }

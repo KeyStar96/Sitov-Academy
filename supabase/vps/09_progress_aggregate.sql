@@ -2,19 +2,17 @@
 -- SECURITY DEFINER and search_path='' to safely access all user data.
 -- Staff-only authorization enforced internally.
 
-CREATE OR REPLACE FUNCTION get_all_students_progress_data()
+CREATE OR REPLACE FUNCTION public.get_all_students_progress_data()
 RETURNS jsonb
 SECURITY DEFINER SET search_path = ''
 LANGUAGE plpgsql
 AS $$
 DECLARE
-    is_staff boolean;
     result jsonb := '{}'::jsonb;
 BEGIN
     -- Authorization Check
-    SELECT public.business_private.is_staff() INTO is_staff;
-    IF NOT is_staff THEN
-        RETURN jsonb_build_object('error', 'unauthorized', 'message', 'Staff access required.');
+    IF NOT business_private.is_staff() THEN
+        RETURN jsonb_build_object('error', 'not_authorized', 'message', 'Staff access required.');
     END IF;
 
     -- The aggregation matches the TS logic:
@@ -73,11 +71,12 @@ BEGIN
     ),
     user_percentages AS (
         SELECT
-            c.auth_user_id,
-            c.level,
-            ROUND((c.total_completed::numeric / t.total_items) * 100) as percentage
-        FROM user_level_completed c
-        JOIN level_totals t ON t.level = c.level
+            users.auth_user_id,
+            t.level,
+            ROUND((COALESCE(c.total_completed, 0)::numeric / t.total_items) * 100) as percentage
+        FROM (SELECT DISTINCT auth_user_id FROM user_level_completed) users
+        CROSS JOIN level_totals t
+        LEFT JOIN user_level_completed c ON c.auth_user_id = users.auth_user_id AND c.level = t.level
         WHERE t.total_items > 0
     )
     SELECT COALESCE(
@@ -96,8 +95,16 @@ BEGIN
     ) agg;
 
     RETURN result;
+EXCEPTION WHEN OTHERS THEN
+    -- R10: expose stable codes, never SQLERRM, queries or customer data.
+    RETURN jsonb_build_object('error', 'request_failed',
+        'message', 'Progress could not be loaded.', 'sqlstate', SQLSTATE);
 END;
 $$;
 
-REVOKE EXECUTE ON FUNCTION get_all_students_progress_data() FROM PUBLIC, anon;
-GRANT EXECUTE ON FUNCTION get_all_students_progress_data() TO authenticated;
+REVOKE EXECUTE ON FUNCTION public.get_all_students_progress_data() FROM PUBLIC, anon;
+GRANT EXECUTE ON FUNCTION public.get_all_students_progress_data() TO authenticated;
+
+-- Rollback: activate the pre-Phase-4 application (59f18b3) before removing this
+-- additive RPC, then DROP FUNCTION IF EXISTS public.get_all_students_progress_data();
+-- The previous app computes progress from the original, unchanged tables.

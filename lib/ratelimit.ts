@@ -34,7 +34,7 @@ export async function rateLimit(identifier: string, limit = 10, window = '60 s')
     }
     return { success: result.success, limit, remaining: result.remaining, reset }
   } catch (error) {
-    console.error('[ratelimit] Local limiter unavailable', error instanceof Error ? error.message : 'Unknown error')
+    console.error("[ratelimit] Local limiter unavailable")
     return { success: false, limit, remaining: 0, reset: Date.now() + windowMs }
   }
 }

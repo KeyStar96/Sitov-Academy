@@ -96,7 +96,7 @@ export default function PronunciationConversation({ conversation: initial, staff
           setRefreshFailed(false)
         } catch (error) {
           if (!active()) return
-          console.error('Conversation refresh failed', error)
+          console.error("Conversation refresh failed")
           setRefreshFailed(true)
         }
       } while (active() && queuedRefresh.current)
@@ -131,7 +131,7 @@ export default function PronunciationConversation({ conversation: initial, staff
           const messages = previous.messages.map(message => seen.has(message.id) ? { ...message, unseen: false } : message)
           return { ...previous, messages, hasUnseen: messages.some(message => message.unseen) }
         })
-      } catch (error) { console.error('Reading messages failed', error) }
+      } catch (error) { console.error("Reading messages failed") }
     }
     void markRead()
     document.addEventListener('visibilitychange', markRead)

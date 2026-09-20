@@ -30,4 +30,4 @@ async function main() {
     }
   } finally { transport.close(); console.info('[mail-worker] stopped') }
 }
-main().catch(error => { console.error('[mail-worker] startup_failed',error instanceof Error ? error.message : 'unknown'); process.exitCode=1 })
+main().catch(error => { console.error("[mail-worker] startup_failed"); process.exitCode=1 })

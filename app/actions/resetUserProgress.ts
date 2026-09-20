@@ -23,7 +23,7 @@ export async function resetUserProgress(input: ResetUserProgressInput): Promise<
     }
     return result
   } catch (error) {
-    console.error('[learning-reset] Reset could not complete', { error: error instanceof Error ? error.message : 'unexpected_error' })
+    console.error("[learning-reset] Reset could not complete")
     return { success: false, reason: 'reset_failed' }
   }
 }

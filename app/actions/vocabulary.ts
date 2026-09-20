@@ -95,7 +95,7 @@ export async function getVocabularySession(level?: string, uiLanguage?: string):
     const weighted = pickWeightedRandomOrder(cards, card => selectionWeightForBox(card.box))
     return { learnerId: user.id, ...scheduleVocabularyCards(weighted, cursor?.last_card_id), previousCardId: cursor?.last_card_id ?? null }
   } catch (error) {
-    console.error('Vocabulary session failed:', error instanceof Error ? error.name : 'unknown')
+    console.error("Vocabulary session failed:")
     return { learnerId: null, cards: [], deferredCount: 0, previousCardId: null }
   }
 }
@@ -153,7 +153,7 @@ export async function submitLessonAssessment(decisions: AssessmentDecision[], ex
     }
     const { data, error } = await learner.supabase.rpc('initialize_vocabulary_cards', { p_decisions: parsed.data })
     if (error || getRpcError(data)) {
-      console.error('Vocabulary assessment failed:', error?.code ?? getRpcError(data)?.error)
+      console.error("Vocabulary assessment failed:")
       return failed
     }
     const result = initializationResultSchema.safeParse(data)
@@ -161,7 +161,7 @@ export async function submitLessonAssessment(decisions: AssessmentDecision[], ex
     refreshVocabulary()
     return { success: true, ...result.data }
   } catch (error) {
-    console.error('Vocabulary assessment failed:', error instanceof Error ? error.name : 'unknown')
+    console.error("Vocabulary assessment failed:")
     return failed
   }
 }

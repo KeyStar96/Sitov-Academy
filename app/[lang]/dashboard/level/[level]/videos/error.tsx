@@ -13,7 +13,7 @@ export default function VideosError({
 }) {
   const copy = useRouteFeedback('videos')
   useEffect(() => {
-    console.error('Videoseite konnte nicht gerendert werden:', error.digest ?? error.message)
+    console.error("Videoseite konnte nicht gerendert werden:")
   }, [error])
 
   return (

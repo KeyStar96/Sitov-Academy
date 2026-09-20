@@ -38,7 +38,7 @@ export async function getGrammarExercises(): Promise<GrammarLoadResult> {
     }
     return { data: rows, failed: false }
   } catch (error) {
-    console.error('Grammar CMS loading failed:', error)
+    console.error("Grammar CMS loading failed:")
     return { data: [], failed: true }
   }
 }
@@ -56,7 +56,7 @@ export async function saveGrammarExercise(input: GrammarWriteInput, id?: string)
     revalidatePath('/[lang]/dashboard/level/[level]/exercises', 'page')
     return { success: true, data }
   } catch (error) {
-    console.error('Grammar CMS save failed:', { id, error })
+    console.error("Grammar CMS save failed:")
     return { success: false, error: 'failed' }
   }
 }
@@ -70,7 +70,7 @@ export async function removeGrammarExercise(id: string): Promise<GrammarDeleteRe
     revalidatePath('/[lang]/dashboard/level/[level]/exercises', 'page')
     return { success: true }
   } catch (error) {
-    console.error('Grammar CMS delete failed:', { id, error })
+    console.error("Grammar CMS delete failed:")
     return { success: false }
   }
 }

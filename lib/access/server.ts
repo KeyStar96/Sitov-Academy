@@ -24,7 +24,7 @@ export async function loadLevelAccessProfile(
       supabase.from('learning_trainer_grants').select('level,trainer,enabled,unit_mode,units:learning_unit_grants(unit_id)').eq('auth_user_id', userId),
     ])
     if (error || rules.error || !data) {
-      console.error(`Zugriffsprofil für Nutzer ${userId} nicht ladbar:`, error?.code ?? rules.error?.code)
+      console.error("Zugriffsprofil für Nutzer nicht ladbar:")
       return null
     }
     return { role: data.role, native_language: data.native_language, ui_language: data.ui_language,
@@ -32,7 +32,7 @@ export async function loadLevelAccessProfile(
       trainer_grants: (rules.data ?? []).map(rule => ({ level: rule.level, trainer: rule.trainer,
         enabled: rule.enabled, unit_ids: rule.unit_mode === 'all' ? null : rule.units.map(item => item.unit_id) })) }
   } catch (err) {
-    console.error('Unerwarteter Fehler beim Laden des Zugriffsprofils:', err)
+    console.error("Unerwarteter Fehler beim Laden des Zugriffsprofils:")
     return null
   }
 }
@@ -55,7 +55,7 @@ export async function currentUserHasLevelAccess(level: string): Promise<boolean>
     const profile = await loadLevelAccessProfile(supabase, user.id)
     return hasLevelAccess(profile, level)
   } catch (err) {
-    console.error('Unerwarteter Fehler bei der Niveau-Zugriffsprüfung:', err)
+    console.error("Unerwarteter Fehler bei der Niveau-Zugriffsprüfung:")
     return false
   }
 }
@@ -66,7 +66,7 @@ export async function currentUserHasTrainerAccess(level: string, trainer: Traine
     const { data: { user } } = await supabase.auth.getUser()
     return !!user && hasTrainerAccess(await loadLevelAccessProfile(supabase, user.id), level, trainer)
   } catch (error) {
-    console.error('Trainer access check failed:', error)
+    console.error("Trainer access check failed:")
     return false
   }
 }

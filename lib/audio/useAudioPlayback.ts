@@ -142,7 +142,7 @@ export function useAudioPlayback(
         }
         setIsBuffering(false)
       } catch (err) {
-        console.error('Audio konnte nicht in WAV gewandelt werden, Originalquelle wird genutzt:', err)
+        console.error("Audio konnte nicht in WAV gewandelt werden, Originalquelle wird genutzt:")
         if (cancelled) return
         if (formatBlocked) {
           setError('format')
@@ -267,7 +267,7 @@ export function useAudioPlayback(
     try {
       await audio.play()
     } catch (err) {
-      console.error('Wiedergabe nicht möglich:', err)
+      console.error("Wiedergabe nicht möglich:")
       setIsBuffering(false)
       setError('load')
     }

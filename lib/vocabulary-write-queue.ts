@@ -22,7 +22,7 @@ export function createOrderedWriteQueue<Item, Result>(options: {
       callback()
     } catch (error) {
       // UI/storage notifications cannot invalidate or repeat a committed write.
-      console.error('Vocabulary queue callback failed:', error instanceof Error ? error.name : 'unknown')
+      console.error("Vocabulary queue callback failed:")
     }
   }
 

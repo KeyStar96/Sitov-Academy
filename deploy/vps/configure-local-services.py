@@ -34,7 +34,17 @@ services['supabase-auth']['extra_hosts']=['host.docker.internal:host-gateway']
 services['supabase-kong']['ports']=['127.0.0.1:9080:8000']
 services['supabase-db']['ports']=['127.0.0.1:5432:5432']
 services['supabase-db']['command']=['postgres','-c','config_file=/etc/postgresql/postgresql.conf','-c','log_min_messages=warning','-c','shared_buffers=512MB','-c','effective_cache_size=3GB','-c','work_mem=8MB','-c','maintenance_work_mem=128MB','-c','max_connections=100']
+# Keep V8/BEAM overhead inside the reduced cgroups. Scheduler counts must not
+# follow the host's CPU count independently in every Erlang service.
+env_set('supabase-studio', {'NODE_OPTIONS':'--max-old-space-size=128'})
+env_set('supabase-meta', {'NODE_OPTIONS':'--max-old-space-size=128'})
+for service in ('supabase-analytics','realtime-dev','supabase-supavisor'):
+    env_set(service, {'ERL_AFLAGS':'+S 2:2 +SDcpu 1 +SDio 1'})
 # Caps bound exceptional load; they do not reserve memory.
+# Supabase 5632 MiB + Next.js 2048 MiB + monitoring allowance 128 = 7808 MiB.
+# This tranche excludes unchanged host/Coolify/TTS/mail processes; the Phase-4
+# report includes their measured use. Validate host MemAvailable under load.
+
 limits={'supabase-db':('1728m',2),'supabase-analytics':('512m',0.75),
  'supabase-studio':('192m',0.5),'supabase-vector':('128m',0.25),
  'supabase-kong':('512m',1),'supabase-meta':('256m',0.5),

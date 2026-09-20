@@ -28,9 +28,7 @@ export function createClient() {
   }
   const { url, anonKey } = config
   if (!url || !anonKey) {
-    console.error(
-      'NEXT_PUBLIC_SUPABASE_URL und NEXT_PUBLIC_SUPABASE_ANON_KEY müssen beim Build des Browser-Bundles gesetzt sein.',
-      { hasUrl: Boolean(url), hasAnonKey: Boolean(anonKey) }
+    console.error("NEXT_PUBLIC_SUPABASE_URL und NEXT_PUBLIC_SUPABASE_ANON_KEY müssen beim Build des Browser-Bundles gesetzt sein."
     )
     throw new SupabaseConfigError('Supabase-Konfiguration fehlt: NEXT_PUBLIC_SUPABASE_URL / NEXT_PUBLIC_SUPABASE_ANON_KEY sind im Browser nicht gesetzt.')
   }

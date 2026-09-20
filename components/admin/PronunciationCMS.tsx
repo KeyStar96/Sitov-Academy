@@ -24,7 +24,7 @@ export default function PronunciationCMS({ prompts, translations }: { prompts: P
    const result = await savePronunciationPrompt(form)
    if (!result.success) { setNotice('error'); return }
    setForm(null); setNotice('saved'); router.refresh()
-  } catch (error) { console.error('Saving pronunciation form failed', error); setNotice('error') } finally { setBusy(false) }
+  } catch (error) { console.error("Saving pronunciation form failed"); setNotice('error') } finally { setBusy(false) }
  }
  return <section className="space-y-6 text-[var(--foreground)]"><header className="flex flex-wrap items-start justify-between gap-5"><div className="max-w-2xl"><h1 className="text-3xl font-semibold tracking-tight">{t('cms_title')}</h1><p className="mt-3 text-base leading-relaxed text-[var(--muted)]">{t('cms_hint')}</p></div><button className={`${button} bg-[var(--accent)] text-[var(--accent-foreground)]`} onClick={() => { setNotice(null); setForm({ level, title:'', text:'', focus:'', isActive:isAccessLevel(level) }) }}><Plus size={20}/>{t('cms_add')}</button></header>
  <label className="block max-w-xs text-sm font-semibold">{t('cms_level_label')}<select className={field} value={level} onChange={(event) => setLevel(event.target.value)}>{[...ACCESS_LEVELS, 'B2', 'C1', 'C2'].map((value) => <option key={value} value={value}>{value}</option>)}</select></label>

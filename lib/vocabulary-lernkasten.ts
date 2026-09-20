@@ -47,7 +47,7 @@ export function loadLernkastenSelection(level: string): string[] | null {
 
     return parsed.filter((entry): entry is string => typeof entry === 'string')
   } catch (err) {
-    console.error(`Lernkasten-Auswahl für Niveau "${level}" konnte nicht geladen werden:`, err)
+    console.error("Lernkasten-Auswahl für Niveau konnte nicht geladen werden:")
     return null
   }
 }
@@ -59,7 +59,7 @@ export function saveLernkastenSelection(level: string, lessons: string[]): void 
   try {
     window.localStorage.setItem(storageKey(level), JSON.stringify(lessons))
   } catch (err) {
-    console.error(`Lernkasten-Auswahl für Niveau "${level}" konnte nicht gespeichert werden:`, err)
+    console.error("Lernkasten-Auswahl für Niveau konnte nicht gespeichert werden:")
   }
 }
 
@@ -73,7 +73,7 @@ export function markVocabularyAutostart(level: string): void {
   try {
     window.sessionStorage.setItem(AUTOSTART_KEY, level)
   } catch (err) {
-    console.error(`Autostart-Marke für Niveau "${level}" konnte nicht gesetzt werden:`, err)
+    console.error("Autostart-Marke für Niveau konnte nicht gesetzt werden:")
   }
 }
 
@@ -83,7 +83,7 @@ export function hasVocabularyAutostart(level: string): boolean {
   try {
     return window.sessionStorage.getItem(AUTOSTART_KEY) === level
   } catch (err) {
-    console.error(`Autostart-Marke für Niveau "${level}" konnte nicht gelesen werden:`, err)
+    console.error("Autostart-Marke für Niveau konnte nicht gelesen werden:")
     return false
   }
 }
@@ -97,6 +97,6 @@ export function consumeVocabularyAutostart(level: string): void {
       window.sessionStorage.removeItem(AUTOSTART_KEY)
     }
   } catch (err) {
-    console.error(`Autostart-Marke für Niveau "${level}" konnte nicht gelöscht werden:`, err)
+    console.error("Autostart-Marke für Niveau konnte nicht gelöscht werden:")
   }
 }

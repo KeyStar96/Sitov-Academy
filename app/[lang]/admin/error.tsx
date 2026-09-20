@@ -13,7 +13,7 @@ export default function AdminError({
 }) {
   const t = useAdminTranslator()
   useEffect(() => {
-    console.error('Lehrer-Bereich konnte nicht gerendert werden:', error.digest ?? error.message)
+    console.error("Lehrer-Bereich konnte nicht gerendert werden:")
   }, [error])
 
   return (
