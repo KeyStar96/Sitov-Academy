@@ -55,3 +55,13 @@ docker exec supabase-db-eknmzxvqilojjicinatnllbt pg_dump -U supabase_admin -d po
 ```
 
 Supabase-verwaltete Schemas Auth, Storage, Realtime, Extensions, GraphQL, Vault, Cron, Net und Migrationshistorie bleiben ausgeschlossen. Dump-Delta: neuer privater Helfer samt ACL, zwei Policies und Storage-Predicate. Öffentliche TypeScript-Typen über Postgres-Meta neu generiert, bytegleich. Kein manuell bearbeiteter Dump.
+
+## Nachtrag: Video-Downloads für Schüler
+
+Im Schülerplayer entfällt der Download-Button; `controlsList="nodownload"` und ein unterdrücktes Kontextmenü entfernen die normalen Speicheraktionen in unterstützenden Browsern. Die Medienverwaltung für Lehrkräfte/Admins behält den Download. Präsentationen bleiben herunterladbar.
+
+`/api/course-assets` verweigert Video-Anfragen mit `download: true` für Schüler mit HTTP 403. Die Freigabe für Staff wird aus dem authentifizierten Profil gelesen; fehlende oder nicht lesbare Rollen geben keine Freigabe. Nur kanonische Präsentationspfade erlauben Schüler-Anhänge. Wiedergabe-Links bleiben kurzlebig und durch Storage-RLS geprüft.
+
+Dies ist kein vollständiger Kopierschutz: Ein abspielbares Video liefert Daten an den Browser. Technisch versierte Nutzer können weiterhin Wiedergabe-Links bzw. Storage-Zugriff verwenden oder den Bildschirm aufnehmen. `nodownload` ist zudem [nicht in allen Browsern verfügbar](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/controlsList). Keine DRM-Zusage.
+
+Abnahme: 24/24 gezielte Jest-Tests einschließlich Schüler-/Staff-Rollen, fehlender Profile, MP4/WebM, unveränderter Wiedergabe und Präsentationsdownloads. TypeScript nach Erneuerung der veralteten generierten Routentypen erfolgreich. Keine Datenbankänderung, keine Migration, keine neuen Dienste oder Ressourcenlimits. Rückweg: diese App-Änderung zurücknehmen und ein frisches Release bauen; Daten und Uploads bleiben unverändert.

@@ -11,6 +11,15 @@ export async function POST(request: Request) {
   const client = await createClient()
   const { data: { user }, error: authError } = await client.auth.getUser()
   if (authError || !user) return NextResponse.json({ error: 'not_authenticated', message: 'Sign in to access course files.' }, { status: 401 })
+  // Only the canonical presentation paths support student attachments.
+  // The client cannot grant video downloads by claiming a different media kind.
+  const presentation = /^[^/]+\/[^/]+\/presentations\/[^/]+\.(pdf|pptx|key)$/.test(parsed.data.path)
+  if (parsed.data.download && !presentation) {
+    const { data: profile, error } = await client.from('profiles').select('role').eq('id', user.id).single()
+    if (error || !profile || !['teacher', 'admin'].includes(profile.role ?? '')) {
+      return NextResponse.json({ error: 'download_not_allowed', message: 'Video downloads are not available to students.' }, { status: 403, headers: { 'Cache-Control': 'private, no-store' } })
+    }
+  }
   const bucket = client.storage.from('course-assets')
   const { data, error } = parsed.data.download
     ? await bucket.createSignedUrl(parsed.data.path, 60, { download: true })

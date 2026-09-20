@@ -96,3 +96,20 @@ it('ignores a signing response that arrives after unmount instead of scheduling 
   await act(async () => jest.advanceTimersByTime(90000))
   expect(request).toHaveBeenCalledTimes(1)
 })
+
+it('removes student video downloads while keeping playback available', async () => {
+  const { container } = render(<MediaAssetViewer asset={asset} lang="en" />)
+  expect(screen.queryByRole('button', { name: 'Download' })).not.toBeInTheDocument()
+  await click('Open')
+  const video = container.querySelector('video')!
+  expect(video).toHaveAttribute('controls')
+  expect(video).toHaveAttribute('controlslist', 'nodownload')
+  expect(fireEvent.contextMenu(video)).toBe(false)
+  expect(JSON.parse(request.mock.calls[0][1].body).download).toBe(false)
+})
+it('retains the download option in the staff media viewer', async () => {
+  const { container } = render(<MediaAssetViewer asset={asset} lang="en" allowVideoDownload />)
+  expect(screen.getByRole('button', { name: 'Download' })).toBeInTheDocument()
+  await click('Open')
+  expect(container.querySelector('video')).not.toHaveAttribute('controlslist', 'nodownload')
+})

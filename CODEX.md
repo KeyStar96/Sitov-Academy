@@ -390,6 +390,7 @@ Befund: `e2e/accessibility.spec.ts` enthält einen expliziten Whitelist-Block, d
 
 #### 5.4 Schüler-Ansicht für Medien (Gated Access)
 * [x] Im Kursbereich alle Ordner des freigeschalteten Levels darstellen; Videos im integrierten Player, Präsentationen als Viewer/Download.
+* [x] Nachtrag: Video-Download-Button und normale Player-Speicheraktionen für Schüler entfernt; explizite Video-Download-Anfragen prüfen die gespeicherte Staff-Rolle, sonst HTTP 403. Wiedergabe und Präsentationsdownloads bleiben möglich. 24 gezielte Tests; Browser-Wiedergabe ist kein vollständiger Kopierschutz. [Nachweis](docs/uploaded-video-visibility.md).
 * [x] Zugriff ausschließlich über signierte URLs mit kurzer Gültigkeit verwalten.
 * [x] Gesperrte Level dürfen nicht einmal die Ordnernamen sehen.
 
