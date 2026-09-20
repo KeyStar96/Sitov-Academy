@@ -29,7 +29,7 @@ Ziel ist ein visuell beeindruckendes, barrierefreies Web- und App-Erlebnis mit e
 * **R4 — DEAD-CODE NUR MIT DYNAMIC-IMPORT-AUFLÖSUNG.** Eine Datei gilt erst als tot, wenn sie weder über statische `import`-Statements noch über `dynamic(() => import(...))` noch über `React.lazy` von einem `app/**/{page,layout,route,loading,error,template,sitemap,robots}.{ts,tsx}` aus erreichbar ist. Gegenbeispiel: `components/effects/NeuralBrain.tsx` wirkt statisch tot, ist aber über `dynamic()` in `Hero.tsx:12` und `ScienceSection.tsx:9` lebendig.
 * **R5 — KEINE CLIENT-BEWERTUNG.** Lernfortschritt wird ausschließlich in PostgreSQL entschieden (`SECURITY DEFINER`, `SET search_path TO ''`). Der Client darf Ergebnisse darstellen, niemals bestimmen. Das gilt auch für Soft-Errors.
 * **R6 — TESTS DÜRFEN VERLETZUNGEN NICHT AUSBLENDEN.** Ein Test, der eine Anforderung per Whitelist oder Filter umgeht, ist ein Bug im Test. Entferne den Filter, statt ihn zu erweitern.
-* **R7 — JEDE DDL-ÄNDERUNG IST IDEMPOTENT.** Neue DDL landet in `supabase/vps/<nn>_<modul>.sql`, ohne `BEGIN;`/`COMMIT;` (`deploy/vps/migrate-local.py` klammert alle Dateien selbst in eine Transaktion). Anschließend zwingend `supabase/schema.sql` (`pg_dump`) und `supabase/database.types.ts` aktualisieren.
+* **R7 — JEDE DDL-ÄNDERUNG IST IDEMPOTENT.** Neue DDL landet in `supabase/vps/<nn>_<modul>.sql`, ohne `BEGIN;`/`COMMIT;` (`deploy/vps/migrate-local.py` klammert reguläre Dateien selbst in eine Transaktion; die explizit registrierte Index-Migration `08_performance_indexes.sql` läuft wegen `CONCURRENTLY` im Autocommit-Modus mit Timeouts und geprüfter Wiederholbarkeit). Anschließend zwingend `supabase/schema.sql` (`pg_dump`) und `supabase/database.types.ts` aktualisieren.
 * **R8 — BACKUP VOR JEDER DB-ÄNDERUNG.** `python3 deploy/vps/migrate-local.py --backup-only`, SHA256 im Report protokollieren. ⚠️ MinIO ist bereits befüllt. Das frühere Cleanup-Skript mit Abbruch bei nicht-leeren Buckets wurde in Phase 2 ersetzt: Der Runner sichert `pg_dump`, Rollen, Bucket-Metadaten und sämtliche Dateien über die Storage-API, prüft Dateigrößen sowie stabile Inventare und erstellt ein SHA256-Manifest. Backups bleiben ausschließlich root-lesbar auf dem VPS; Legacy-Cleanup-Dateien dürfen nicht erneut ausgeführt werden. Der Hinweis steht am Skriptkopf.
 * **R9 — ROLLBACK-PLAN.** Jede Migration muss einen dokumentierten Rollback-Pfad haben. Bei `RENAME COLUMN`: das inverse `RENAME` als kommentiertes SQL am Ende der Migrationsdatei. Kein Breaking-Change ohne Rückweg.
 * **R10 — ERRORS SIND EXPLIZIT.** Jede RPC gibt bei Fehler ein strukturiertes JSONB zurück mit mindestens `{"error": "<code>", "message": "<text>"}`. Kein `RAISE EXCEPTION` ohne maschinenlesbaren Code. Kein stilles Verschlucken.
@@ -321,34 +321,38 @@ Befund-Korrektur: Die Dictionaries sind in gutem Zustand (Tippfehler sind bereit
 
 ### PHASE 4 — VPS-HARDWARE, PERFORMANCE & API-SICHERHEIT
 
-#### 4.0 IST-ZUSTAND
+Stand 20.09.2026: Phase 4.1–4.3 produktiv umgesetzt und auf ausdrücklichen Nutzerwunsch **abgeschlossen und abgenommen**. Aktives App-Release: `ce3d485b53f2`. Verifikation: 1274/1274 Jest-Tests einschließlich Live-Integration, 302/302 DB-Tests, 34 Python-Tests sowie TypeScript und Produktionsbuild bestanden. Bericht und Messwerte: [docs/phase-4-verification.md](docs/phase-4-verification.md).
+
+Abnahme: 3292 authentifizierte SSR-Anfragen, TTFB p95 **495,7 ms**, keine Fehler, OOM-Ereignisse oder zusätzlichen App-/Container-Neustarts. Der geplante 30-Minuten-Test wurde auf ausdrücklichen Abschlussauftrag nach **13 Minuten 44 Sekunden** beendet; die verkürzte Laufzeit ist freigegeben und wird nicht als vollständiger 30-Minuten-Nachweis ausgegeben. Eine geringfügige Latenzüberschreitung war ebenfalls freigegeben, ist beim gemessenen p95 nicht erforderlich.
+
+#### 4.0 IST-ZUSTAND (Ausgangsbefund vor Phase 4)
 App: systemd (`NODE_OPTIONS=--max-old-space-size=1024`, `MemoryMax=1536M`, `CPUQuota=200%`). Supabase: Coolify-docker-compose. Summe aller Container-Limits: 6.660 MB + App 1.536 MB = 8.196 MB auf 8 GB RAM. BEREITS ÜBERBUCHT.
 ⛔ Verboten, weil sie das System zerstören: `--max-old-space-size=4096` · `shared_buffers=2GB` · `effective_cache_size=6GB` · `work_mem=64MB`.
 
 #### 4.1 Tatsächlich mögliche, sichere Optimierungen
-* [ ] `next.config.ts`: `experimental.cpus: 2` → `4`. Kein Speicherrisiko.
-* [ ] `deploy/vps/sitov-app.service`: `CPUQuota=200%` → `350%`.
-* [ ] Speicher nur verschieben, nicht erhöhen. Verbindliche Zielwerte: Reduktion bei `supabase-studio` (−192 MB), `supabase-analytics` (−388 MB), `supabase-vector` (−128 MB). Erhöhung bei App `MemoryMax` (+512 MB), App `NODE_OPTIONS` Heap (1.536 MB), `supabase-db` `mem_limit` (+192 MB). Neue Summe: 8.192 MB. Diese Rechnung gehört in den Report.
-* [ ] Monitoring-Container (max. 128 MB) in eine erneuerte Rechnung aufnehmen.
-* [ ] `deploy-release.sh`: Build-Heap 3072 beibehalten.
-* [ ] Postgres-Parameter ausschließlich in `deploy/vps/configure-local-services.py` ändern.
+* [x] `next.config.ts`: `experimental.cpus: 2` → `4`. Kein Speicherrisiko.
+* [x] `deploy/vps/sitov-app.service`: `CPUQuota=200%` → `350%`.
+* [x] Speicher nur verschieben, nicht erhöhen. Verbindliche Zielwerte: Reduktion bei `supabase-studio` (−192 MB), `supabase-analytics` (−388 MB), `supabase-vector` (−128 MB). Erhöhung bei App `MemoryMax` (+512 MB), App `NODE_OPTIONS` Heap (1.536 MB), `supabase-db` `mem_limit` (+192 MB). Ursprüngliche Zielsumme: 8.192 MB. Verifizierte Umsetzung: Supabase 5632 MiB + App 2048 MiB = 7680 MiB, inklusive Monitoring-Budget **7808 MiB**. Analytics benötigt nach dem Anlauftest 640 statt 512 MiB; dafür Edge Functions 128 statt 256 MiB. Zusätzliche Reduktionen bei Meta, Realtime und Supavisor. Vollständige Vorher-/Nachher-Rechnung einschließlich unveränderter Zusatzdienste und bestehender Host-Überbuchung im Report.
+* [x] Monitoring-Container (max. 128 MB) in eine erneuerte Rechnung aufnehmen.
+* [x] `deploy-release.sh`: Build-Heap 3072 beibehalten.
+* [x] Postgres-Parameter ausschließlich in `deploy/vps/configure-local-services.py` ändern.
 
 #### 4.2 Vokabeltrainer-Latenz < 500 ms
-* [ ] Vor jeder Optimierung `EXPLAIN (ANALYZE, BUFFERS)` für die Queries in `app/actions/vocabulary.ts` und `lib/vocabulary-queries.ts` protokollieren.
-* [ ] Indizes prüfen/ergänzen für `vocabulary_direction_progress` (Spalten `auth_user_id`, `next_review_date` und `auth_user_id`, `box_number`).
-* [ ] `getAllStudentsProgressData()` in eine SQL-Aggregatfunktion verlagern, um Speicher zu schonen.
-* [ ] Kein prozessweiter In-Memory-Cache ohne Invalidierung — `lib/learning-reset-events.ts` muss ihn leeren können.
+* [x] Vor jeder Optimierung `EXPLAIN (ANALYZE, BUFFERS)` für die Queries in `app/actions/vocabulary.ts` und `lib/vocabulary-queries.ts` protokollieren.
+* [x] Indizes prüfen/ergänzen für `vocabulary_direction_progress` (Spalten `auth_user_id`, `next_review_date` und `auth_user_id`, `box_number`).
+* [x] `getAllStudentsProgressData()` in `public.get_all_students_progress_data()` verlagert: bestehendes `business_private.is_staff()`, leerer `search_path`, eingeschränkte EXECUTE-Rechte, strukturierte Fehler und geprüfte Ergebnisform.
+* [x] Kein prozessweiter In-Memory-Cache ohne Invalidierung — `lib/learning-reset-events.ts` muss ihn leeren können.
 
 #### 4.3 API-Absicherung — Rate-Limit-Bypass schließen
 Befund: `h.get('x-forwarded-for')?.split(',')[0]` ist client-kontrolliert und frei spoofbar ⇒ Limit wertlos.
 
-* [ ] Modul `lib/client-ip.ts` anlegen, das die vertrauenswürdige Client-IP hinter Traefik und Nginx anhand der vorgegebenen `TRUSTED_PROXY_HOPS=1` sicher ermittelt (Proxy-Hops am Ende der Kette ignorieren).
-* [ ] Alle vier Aufrufstellen umstellen (`submit-trial.ts`, `submit-cancellation.ts`, `submit-enrollment.ts`, `app/actions/auth.ts:67`).
-* [ ] Env `TRUSTED_PROXY_HOPS=1` in `.env.example` und `/etc/sitov-academy/app.env` dokumentieren.
-* [ ] Test: gefälschter Header `X-Forwarded-For: 1.2.3.4` ändert den Rate-Limit-Key nicht.
-* [ ] ⛔ Kein Upstash (R3). `lib/ratelimit.ts` ist bereits Postgres-basiert und fail-closed. Nicht ändern.
-* [ ] `app/actions/check-trial-eligibility.ts` gibt konstant `{eligible:true}` zurück. Funktion in `trialEligibilityHint()` umbenennen und den Kommentar schärfen.
-* [ ] PII-Scan über alle `console.error`- und `console.warn`-Aufrufe durchführen.
+* [x] Modul `lib/client-ip.ts` anlegen, das die vertrauenswürdige Client-IP hinter Traefik und Nginx anhand der vorgegebenen `TRUSTED_PROXY_HOPS=1` sicher ermittelt (Proxy-Hops am Ende der Kette ignorieren).
+* [x] Alle vier Aufrufstellen umstellen (`submit-trial.ts`, `submit-cancellation.ts`, `submit-enrollment.ts`, `app/actions/auth.ts:67`).
+* [x] Env `TRUSTED_PROXY_HOPS=1` in `.env.example` und `/etc/sitov-academy/app.env` dokumentieren.
+* [x] Test: gefälschter Header `X-Forwarded-For: 1.2.3.4` ändert den Rate-Limit-Key nicht.
+* [x] ⛔ Kein Upstash (R3). `lib/ratelimit.ts` bleibt Postgres-basiert; Algorithmus unverändert, ausschließlich PII-Logging bereinigt. Fail-Closed auch bei geworfenen Fehlern in `auth.ts` getestet.
+* [x] `app/actions/check-trial-eligibility.ts` gibt konstant `{eligible:true}` zurück. Funktion in `trialEligibilityHint()` umbenennen und den Kommentar schärfen.
+* [x] PII-Scan über alle `console.error`- und `console.warn`-Aufrufe durchführen.
 
 ---
 
@@ -465,7 +469,7 @@ Befund: `playwright.config.ts` läuft über Dev-Build, hat kein Mobile-Projekt u
 * [ ] **Phase 1:** Build grün nach Löschung · keine verwaisten Imports · Dictionary-Parität exakt gleich über alle fünf Sprachen · `playwright-report/` nicht mehr im Git-Index.
 * [ ] **Phase 2:** Zwei Videos im selben Ordner anlegbar · Upload > 32 MB erfolgreich · Schüler ohne Level-Freigabe erhält 403 · keine Spalte namens `user_id` mehr · alle `level`-Spalten haben FK-Constraints · keine text-Wertemenge ohne Enum-Type oder FK · alle `updated_at`-Spalten haben Trigger · kein RLS-Policy-Body referenziert `user_id`.
 * [ ] **Phase 3:** `accepted_answers`-Alternative ⇒ `completed = true` in DB · Tippfehler, fehlender Punkt und Kleinschreibung ⇒ `SOFT_ERROR` mit korrektem `reason` · Warntext auf Russisch bei ru-Interface · `der` → `den` wird nicht als Tippfehler toleriert.
-* [ ] **Phase 4:** Gefälschter `X-Forwarded-For` ändert Rate-Limit-Key nicht · Vokabel-Session TTFB < 500 ms · `systemctl status sitov-app` zeigt keinen OOM nach 30 min Last.
+* [x] **Phase 4 — mit ausdrücklich freigegebener verkürzter Laufzeit:** Gefälschter `X-Forwarded-For` ändert Rate-Limit-Key nicht · Vokabel-Session TTFB p95 495,7 ms · 3292 Anfragen ohne Fehler, OOM oder zusätzliche Neustarts. Lasttest auf Nutzerwunsch nach 13 min 44 s statt 30 min beendet; Phase 4 abgenommen. Nachweis: [docs/phase-4-verification.md](docs/phase-4-verification.md).
 * [ ] **Phase 5:** axe-core ohne jeden Filter, 0 color-contrast-Verstöße auf den relevanten Routen · Aufnahmebutton nach Scroll zum Textende `toBeInViewport()` auf Mobile.
 * [ ] **Phase 6:** Registrierung für Kurs mit Ausfall ⇒ Payload enthält Datum und Template zeigt es in allen fünf Locales.
 * [ ] **Phase 7:** `sitemap.xml` valide inkl. `x-default` · `robots.txt` erreichbar · JSON-LD Schema.org-valide · OG-Image liefert HTTP 200 · ohne Consent kein Request an Meta.

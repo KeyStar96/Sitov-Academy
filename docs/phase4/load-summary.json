@@ -1,0 +1,46 @@
+{
+  "startedAt": "2026-09-20T15:45:00.517Z",
+  "durationSeconds": 1800,
+  "workers": 4,
+  "requests": 3292,
+  "failures": 0,
+  "status": "failed",
+  "fixtureDirections": 1024,
+  "elapsedSeconds": 824.124,
+  "ttfb": {
+    "count": 3292,
+    "min": 153.7232049999875,
+    "p50": 326.5358299999498,
+    "p95": 495.6933790000039,
+    "p99": 718.3633390000323,
+    "max": 1105.9678
+  },
+  "complete": {
+    "count": 3292,
+    "min": 296.8734529999783,
+    "p50": 569.1879839999601,
+    "p95": 745.7501749999356,
+    "p99": 929.9044620000059,
+    "max": 1258.649802
+  },
+  "fixtureRemoved": true,
+  "resourceSummary": {
+    "sampleCount": 29,
+    "appMaxMiB": 363.37,
+    "hostMinAvailableMiB": 2959.7,
+    "appOomEvents": 0,
+    "appOomKills": 0,
+    "appRestartDelta": 0,
+    "containerRestartDelta": 0,
+    "containerOom": false,
+    "unhealthyContainerSamples": 0
+  },
+  "acceptance": {
+    "decision": "accepted_by_user",
+    "date": "2026-09-20",
+    "loadStoppedAtUserRequest": true,
+    "fullThirtyMinutesCompleted": false,
+    "slightLatencyExcessAllowed": true,
+    "note": "User requested immediate completion of Phase 4 and CODEX.md update. Raw benchmark status retained: stopping before 30 minutes is not a complete benchmark pass."
+  }
+}
