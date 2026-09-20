@@ -183,7 +183,17 @@ export async function signup(formData: FormData) {
 
       if (error) {
         console.error("[auth] Registrierung fehlgeschlagen")
-        status = error.code === 'user_already_exists' ? 'signup_email_sent' : 'signup_failed'
+        // Supabase legt den Zugang an und versucht erst danach, die
+        // Bestätigungsmail zu senden. Scheitert nur der Versand
+        // (`unexpected_failure`, z. B. wenn der lokale SMTP-Dienst kurz nicht
+        // erreichbar ist), existiert das Konto bereits – ein erneuter Versuch
+        // liefe in „user_already_exists" und eine Meldung „E-Mail gesendet",
+        // obwohl keine kam. Deshalb ein eigener, handlungsweisender Status, der
+        // zum erneuten Anfordern des Links führt, statt in eine Sackgasse.
+        status =
+          error.code === 'user_already_exists' ? 'signup_email_sent'
+          : error.code === 'unexpected_failure' ? 'signup_email_failed'
+          : 'signup_failed'
       } else if (data.user && data.user.identities?.length === 0) {
         // A public signup form must not disclose existing student addresses.
         status = 'signup_email_sent'
@@ -194,7 +204,9 @@ export async function signup(formData: FormData) {
     status = 'signup_failed'
   }
 
-  const target = status === 'signup_email_sent' ? 'login' : 'register'
+  // Das Konto existiert nach „email_sent" und „email_failed" bereits; beide
+  // gehören zur Anmeldeseite, wo der Bestätigungslink erneut angefordert wird.
+  const target = status === 'signup_email_sent' || status === 'signup_email_failed' ? 'login' : 'register'
   redirect(`/${lang}/${target}?status=${status}`)
 }
 

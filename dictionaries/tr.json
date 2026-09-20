@@ -1450,6 +1450,7 @@
     "status_signup_email_exists": "Bu e-posta adresi için zaten bir hesap var. Lütfen giriş yapın veya şifrenizi sıfırlayın.",
     "status_signup_invalid": "Lütfen girdilerinizi kontrol edin. Şifre en az {min} karakter olmalı.",
     "status_signup_failed": "Kayıt maalesef tamamlanamadı. Lütfen birkaç dakika sonra tekrar deneyin.",
+    "status_signup_email_failed": "Hesabın oluşturuldu, ancak onay e-postası şu anda gönderilemedi. Lütfen aşağıdan yeni bir onay bağlantısı iste.",
     "status_signup_rate_limited": "Kısa sürede çok fazla deneme yapıldı. Lütfen biraz bekleyip tekrar deneyin.",
     "status_confirm_success": "Teşekkürler! E-posta adresiniz onaylandı ve giriş yaptınız.",
     "status_confirm_failed": "Bu onay bağlantısının süresi doldu veya bağlantı daha önce kullanıldı. Aşağıdan yeni bir bağlantı isteyebilirsiniz.",

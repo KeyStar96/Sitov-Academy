@@ -14,6 +14,7 @@ export const AUTH_STATUS_CODES = [
   'signup_email_exists',
   'signup_invalid',
   'signup_failed',
+  'signup_email_failed',
   'signup_rate_limited',
   'confirm_success',
   'confirm_failed',

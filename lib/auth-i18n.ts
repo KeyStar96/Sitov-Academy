@@ -74,6 +74,8 @@ export const AUTH_FALLBACKS = {
     'Bitte prüfe deine Eingaben. Das Passwort braucht mindestens {min} Zeichen.',
   status_signup_failed:
     'Die Registrierung hat leider nicht funktioniert. Bitte versuche es in ein paar Minuten noch einmal.',
+  status_signup_email_failed:
+    'Dein Konto ist angelegt, aber die Bestätigungs-E-Mail konnte gerade nicht gesendet werden. Bitte fordere unten einen neuen Bestätigungslink an.',
   status_signup_rate_limited:
     'Es gab zu viele Versuche in kurzer Zeit. Bitte warte einen Moment und versuche es dann erneut.',
   status_confirm_success:

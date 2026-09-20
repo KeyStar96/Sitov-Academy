@@ -72,6 +72,28 @@ text+='\n'+marker+'''10.0.0.1:2525 inet n - y - - smtpd
   -o smtpd_recipient_restrictions=permit_mynetworks,reject
 '''
 master.write_text(text)
+
+# The listener above binds 10.0.0.1 — the docker0 bridge gateway. On a cold boot
+# Postfix can start before Docker has created docker0, so the bind fails with
+# "Cannot assign requested address"; the master exits and, without a restart
+# policy, stays down until a manual start. While it is down every gotrue
+# confirmation/recovery mail fails and registration returns a generic error.
+# Two idempotent guards remove the race:
+#   1. ip_nonlocal_bind lets Postfix bind 10.0.0.1 before the interface exists.
+#   2. A drop-in orders postfix after docker and restarts it on failure.
+sysctl=Path('/etc/sysctl.d/30-sitov-nonlocal-bind.conf')
+sysctl.write_text('# Sitov: allow Postfix to bind the docker0 gateway before it exists.\nnet.ipv4.ip_nonlocal_bind = 1\n')
+subprocess.run(['sysctl','-w','net.ipv4.ip_nonlocal_bind=1'],check=True)
+
+dropin_dir=Path('/etc/systemd/system/postfix@-.service.d')
+dropin_dir.mkdir(parents=True,exist_ok=True)
+(dropin_dir/'10-sitov-docker.conf').write_text(
+ '# Sitov: the auth SMTP listener binds the docker0 bridge; wait for Docker and\n'
+ '# recover from a transient bind race instead of staying down.\n'
+ '[Unit]\nAfter=docker.service\nWants=docker.service\n\n'
+ '[Service]\nRestart=on-failure\nRestartSec=5\n')
+subprocess.run(['systemctl','daemon-reload'],check=True)
+
 subprocess.run(['postfix','check'],check=True)
 subprocess.run(['systemctl','reload','postfix'],check=True)
 print('Local Supabase ports, Auth mail settings and resource limits configured.')
