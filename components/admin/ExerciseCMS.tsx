@@ -4,7 +4,7 @@ import { useMemo, useRef, useState, type FormEvent } from 'react'
 import { BookOpenCheck, CheckCircle2, Loader2, Pencil, Plus, Search, Trash2, X } from 'lucide-react'
 import { saveGrammarExercise, removeGrammarExercise } from '@/app/actions/grammar-cms'
 import { grammarWriteSchema, normalizeGrammarAnswer, type GrammarExerciseRow } from '@/lib/grammar-validation'
-import { parseFillInBlankContent, parseMultipleChoiceContent } from '@/lib/types/exercise'
+import { parseFillInBlankContent, parseMultipleChoiceContent, readTargetForms } from '@/lib/types/exercise'
 import { grammarTranslator } from '@/lib/grammar-i18n'
 import { ACCESS_LEVELS } from '@/lib/access/levels'
 import type { Json } from '@/supabase/database.types'
@@ -30,10 +30,12 @@ interface EditorState {
   metadataHints: Record<string, string>
   acceptedAnswers: string
   gapHint: string
+  targetForms: string
+  translationPrompts: Record<string, string>
 }
 const emptyEditor = (): EditorState => ({
   level: 'A1.1', lesson: '', topic: '', type: 'fill_in_blank', textBefore: '', textAfter: '',
-  question: '', instruction: '', answer: '', options: '', hint: '', audio: '', hintRu: '', hintTr: '', contentHints: {}, metadataHints: {}, acceptedAnswers: '', gapHint: '',
+  question: '', instruction: '', answer: '', options: '', hint: '', audio: '', hintRu: '', hintTr: '', contentHints: {}, metadataHints: {}, acceptedAnswers: '', gapHint: '', targetForms: '', translationPrompts: {},
 })
 function localizedHints(value: Json | undefined): Record<string, string> {
   if (typeof value === 'string') return { de: value }
@@ -68,7 +70,7 @@ export default function ExerciseCMS({ initialData, lang = 'de', loadFailed = fal
   const editorRef = useRef<HTMLFormElement>(null)
   const g = useMemo(() => grammarTranslator(lang), [lang])
   const filtered = items.filter(row => (!level || row.level === level) && `${row.topic} ${row.lesson} ${previewFor(row)}`.toLocaleLowerCase('de-DE').includes(query.toLocaleLowerCase('de-DE')))
-  const set = (key: Exclude<keyof EditorState, 'contentHints' | 'metadataHints'>, value: string) => setEditor(previous => previous ? { ...previous, [key]: value } : previous)
+  const set = (key: Exclude<keyof EditorState, 'contentHints' | 'metadataHints' | 'translationPrompts'>, value: string) => setEditor(previous => previous ? { ...previous, [key]: value } : previous)
 
   const openEditor = (row?: GrammarExerciseRow) => {
     setMessage(null)
@@ -87,14 +89,19 @@ export default function ExerciseCMS({ initialData, lang = 'de', loadFailed = fal
         hint: contentHints.de ?? '', contentHints, metadataHints,
         acceptedAnswers: (fill?.accepted_answers ?? []).filter(answer => normalizeGrammarAnswer(answer) !== normalizeGrammarAnswer(fill?.correct_answer ?? '')).join('\n'),
         gapHint: fill?.gap_hint ?? '',
+        targetForms: (readTargetForms(row.content) ?? []).join('\n'),
+        translationPrompts: { ...row.translation_prompt },
         audio: row.solution_audio_url ?? '',
         hintRu: metadataHints.ru ?? '',
         hintTr: metadataHints.tr ?? '',
       })
     }
     window.requestAnimationFrame(() => {
-      editorRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-      editorRef.current?.querySelector<HTMLInputElement>('input')?.focus({ preventScroll: true })
+      const form = editorRef.current
+      // A teacher may already have entered another field before this frame runs.
+      if (!form || form.contains(document.activeElement)) return
+      form.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      form.querySelector<HTMLInputElement>('input')?.focus({ preventScroll: true })
     })
   }
 
@@ -107,13 +114,17 @@ export default function ExerciseCMS({ initialData, lang = 'de', loadFailed = fal
     const contentHints = editHint(editor.contentHints, 'de', editor.hint)
     const smartHintOrExplanation = Object.keys(contentHints).length ? contentHints : null
     const acceptedAnswers = editor.acceptedAnswers.split('\n').map(value => value.trim()).filter(Boolean)
+    const targetForms = editor.targetForms.split('\n').map(value => value.trim()).filter(Boolean)
+    const translationPrompts = Object.fromEntries(Object.entries(editor.translationPrompts)
+      .flatMap(([locale, value]) => value.trim() ? [[locale, value.trim()]] : []))
 
     const parsed = grammarWriteSchema.safeParse({
       level: editor.level, lesson: editor.lesson, topic: editor.topic, type: editor.type,
       hint: Object.keys(metadataHints).length ? metadataHints : null, solution_audio_url: editor.audio.trim() || null,
+      translation_prompt: translationPrompts,
       content: editor.type === 'fill_in_blank'
-        ? { instruction: editor.instruction, text_before: editor.textBefore, text_after: editor.textAfter, correct_answer: editor.answer, options, accepted_answers: [editor.answer, ...acceptedAnswers], gap_hint: editor.gapHint.trim() || undefined, smart_hint: smartHintOrExplanation }
-        : { instruction: editor.instruction, question: editor.question, correct_answer: editor.answer, options, explanation: smartHintOrExplanation },
+        ? { target_form: targetForms, instruction: editor.instruction, text_before: editor.textBefore, text_after: editor.textAfter, correct_answer: editor.answer, options, accepted_answers: [editor.answer, ...acceptedAnswers], gap_hint: editor.gapHint.trim() || undefined, smart_hint: smartHintOrExplanation }
+        : { target_form: targetForms, instruction: editor.instruction, question: editor.question, correct_answer: editor.answer, options, explanation: smartHintOrExplanation },
     })
     if (!parsed.success) { setMessage('invalid'); return }
     setBusy(true)
@@ -152,6 +163,9 @@ export default function ExerciseCMS({ initialData, lang = 'de', loadFailed = fal
         <label className={styles.field}>{g('lesson')}<input required maxLength={120} value={editor.lesson} onChange={event => set('lesson', event.target.value)} /></label>
         <label className={styles.field}>{g('topic')}<input required maxLength={160} value={editor.topic} onChange={event => set('topic', event.target.value)} /></label>
         <label className={`${styles.field} ${styles.wide}`}>{g('instruction')}<input maxLength={500} value={editor.instruction} onChange={event => set('instruction', event.target.value)} /></label>
+        <label className={`${styles.field} ${styles.wide}`}>{g('targetForms')}<textarea required rows={2} value={editor.targetForms} onChange={event => set('targetForms', event.target.value)} /></label>
+        <p className={`${styles.wide} text-[var(--muted)]`}>{g('targetFormsHelp')}</p>
+        {(['de', 'en', 'ru', 'uk', 'tr'] as const).map(locale => <label key={locale} className={`${styles.field} ${styles.wide}`}>{g('translationPrompt', { language: locale.toUpperCase() })}<textarea rows={2} maxLength={2000} value={editor.translationPrompts[locale] ?? ''} onChange={event => setEditor(previous => previous ? { ...previous, translationPrompts: { ...previous.translationPrompts, [locale]: event.target.value } } : previous)} /></label>)}
         {editor.type === 'fill_in_blank' ? <>
           <label className={styles.field}>{g('before')}<textarea maxLength={2000} rows={3} value={editor.textBefore} onChange={event => set('textBefore', event.target.value)} /></label>
           <label className={styles.field}>{g('after')}<textarea maxLength={2000} rows={3} value={editor.textAfter} onChange={event => set('textAfter', event.target.value)} /></label>
@@ -167,7 +181,7 @@ export default function ExerciseCMS({ initialData, lang = 'de', loadFailed = fal
         <label className={styles.field}>{g('ruHint')}<textarea rows={2} maxLength={2000} value={editor.hintRu} onChange={event => set('hintRu', event.target.value)} /></label>
         <label className={styles.field}>{g('trHint')}<textarea rows={2} maxLength={2000} value={editor.hintTr} onChange={event => set('hintTr', event.target.value)} /></label>
       </div>
-      <div className={styles.preview}><span className={styles.eyebrow}>{g('preview')}</span><p className="mt-2 text-lg">{editor.type === 'fill_in_blank' ? <>{editor.textBefore}<strong className="text-[var(--violet)]">[{editor.answer || '…'}]</strong>{editor.textAfter}</> : editor.question}</p></div>
+      <div className={styles.preview}><span className={styles.eyebrow}>{g('preview')}</span><p className="mt-2 text-lg">{editor.translationPrompts[lang]?.trim() || (editor.type === 'fill_in_blank' ? <>{editor.textBefore}<strong className="text-[var(--violet)]">[{editor.answer || '…'}]</strong>{editor.textAfter}</> : editor.question)}{editor.targetForms.trim() && <span lang="de"> [{editor.targetForms.split('\n').map(value => value.trim()).filter(Boolean).join(', ')}]</span>}</p></div>
       <button type="submit" disabled={busy} className="academy-button academy-button-primary">{busy ? <Loader2 size={18} className="animate-spin" aria-hidden="true" /> : <CheckCircle2 size={18} aria-hidden="true" />}{g('save')}</button>
     </form>}
     <div className={styles.sectionHeading}>
@@ -179,7 +193,7 @@ export default function ExerciseCMS({ initialData, lang = 'de', loadFailed = fal
     </div>
     <div className={styles.list}>
       {filtered.slice(0, page * 30).map(row => <article key={row.id} className={styles.listCard}>
-        <div className={styles.listContent}><span className={styles.badge}>{row.level} · {row.type === 'fill_in_blank' ? g('fill') : g('choice')}</span><h3 className="mt-3">{row.topic} <span className="font-normal text-[var(--muted)]">· {row.lesson}</span></h3><p>{previewFor(row)}</p>
+        <div className={styles.listContent}><span className={styles.badge}>{row.level} · {row.type === 'fill_in_blank' ? g('fill') : g('choice')}</span>{(row.content_status === 'incomplete' || !readTargetForms(row.content)) && <span className="ml-2 inline-block rounded-full bg-[var(--warning)] px-3 py-1 text-sm font-semibold text-[var(--warning-foreground)]">{g('incomplete')}</span>}<h3 className="mt-3">{row.topic} <span className="font-normal text-[var(--muted)]">· {row.lesson}</span></h3><p>{previewFor(row)}</p>
           {deleteId === row.id && <div role="alert" className="mt-3 rounded-xl border border-[var(--border)] p-3"><p>{g('deleteQuestion')}</p><div className={styles.actions}><button type="button" disabled={busy} onClick={() => handleDelete(row.id)} className="academy-button academy-button-primary">{busy && <Loader2 size={17} className="animate-spin" aria-hidden="true" />}{g('deleteConfirm')}</button><button type="button" disabled={busy} onClick={() => setDeleteId(null)} className="academy-button academy-button-secondary">{g('cancel')}</button></div></div>}
         </div>
         <div className={styles.actions}><button type="button" onClick={() => openEditor(row)} disabled={busy || !['fill_in_blank', 'multiple_choice'].includes(row.type)} className="academy-button academy-button-secondary" aria-label={`${g('edit')}: ${row.topic}`}><Pencil size={17} aria-hidden="true" /><span className="sr-only lg:not-sr-only">{g('edit')}</span></button><button type="button" disabled={busy} onClick={() => setDeleteId(row.id)} className="academy-button academy-button-secondary" aria-label={`${g('remove')}: ${row.topic}`}><Trash2 size={17} aria-hidden="true" /></button></div>

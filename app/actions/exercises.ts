@@ -11,6 +11,7 @@ import { buildFillInBlankChips } from '@/lib/exercise-chips'
 import {
   parseFillInBlankContent,
   parseMultipleChoiceContent,
+  readTargetForms,
   type RecordExerciseAttemptInput,
   type RecordExerciseAttemptResult,
   type StudentExercise,
@@ -102,7 +103,7 @@ async function loadVocabularyMatches(
  * Nicht darstellbare oder fehlerhaft gepflegte Inhalte werden ausgefiltert,
  * damit dem Lernenden niemals eine leere Übungskarte gezeigt wird.
  */
-export async function getExercises(level?: string): Promise<StudentExercise[]> {
+export async function getExercises(level?: string, uiLanguage = 'de'): Promise<StudentExercise[]> {
   try {
     const supabase = await createClient()
     const {
@@ -132,7 +133,9 @@ export async function getExercises(level?: string): Promise<StudentExercise[]> {
 
     const rows: ExerciseWithProgress[] = (data ?? []).flatMap(row => {
       const parsed = grammarExerciseSchema.safeParse(mapGrammarExercise(row))
-      if (!parsed.success) return []
+      if (!parsed.success || parsed.data.content_status === 'incomplete' || !readTargetForms(parsed.data.content)) return []
+      const prompts = parsed.data.translation_prompt
+      if (prompts && Object.keys(prompts).length && !prompts[uiLanguage]?.trim()) return []
       return [{ ...parsed.data, user_exercise_progress: progressById.has(parsed.data.id) ? [progressById.get(parsed.data.id)!] : [] }]
     }).filter(row => {
       const allowedLessons = getAllowedLessons(accessProfile, row.level, 'exercises')
@@ -197,6 +200,7 @@ export async function getExercises(level?: string): Promise<StudentExercise[]> {
           lesson: row.lesson,
           topic: row.topic,
           level: row.level,
+          ...(row.translation_prompt?.[uiLanguage] ? { translationPrompt: row.translation_prompt[uiLanguage], promptLanguage: uiLanguage } : {}),
           type: 'fill_in_blank',
           content,
           chips,
@@ -222,6 +226,7 @@ export async function getExercises(level?: string): Promise<StudentExercise[]> {
           lesson: row.lesson,
           topic: row.topic,
           level: row.level,
+          ...(row.translation_prompt?.[uiLanguage] ? { translationPrompt: row.translation_prompt[uiLanguage], promptLanguage: uiLanguage } : {}),
           type: 'multiple_choice',
           content,
           hint,

@@ -24,6 +24,8 @@ function isJson(value: unknown): value is Json {
 export const grammarExerciseSchema = z.object({
   id: z.string(), unit_id: z.string().uuid(), lesson: z.string(), level: z.string(), topic: z.string(), type: z.string(),
   content: z.custom<Json>(isJson), hint: z.custom<Json>(isJson).nullable(),
+  translation_prompt: z.record(z.string(), z.string()).optional(),
+  content_status: z.enum(['incomplete', 'ready']).optional(),
   created_at: optionalText, solution_audio_url: optionalText,
 })
 export type GrammarContentRow = z.infer<typeof grammarExerciseSchema>

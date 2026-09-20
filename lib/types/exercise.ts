@@ -19,6 +19,8 @@ export const SMART_HINT_LETTER_THRESHOLD = 3
 export type LocalizedText = Partial<Record<string, string>>
 
 export interface FillInBlankContent {
+  /** Missing only in legacy content, which remains editable in the CMS. */
+  target_form?: string[]
   instruction?: string
   text_before: string
   text_after: string
@@ -34,6 +36,7 @@ export interface FillInBlankContent {
 }
 
 export interface MultipleChoiceContent {
+  target_form?: string[]
   instruction?: string
   question: string
   options: string[]
@@ -55,6 +58,8 @@ interface StudentExerciseBase {
   lesson: string
   topic: string
   level: string
+  translationPrompt?: string
+  promptLanguage?: string
   /** Kontrastiver Hinweis als lokalisierbares JSON. */
   hint: LocalizedText | null
   completed: boolean
@@ -139,6 +144,13 @@ function asStringArray(value: Json | undefined): string[] | null {
   return strings.length === value.length ? strings : null
 }
 
+/** No inferred targets: legacy/invalid authored values remain incomplete. */
+export function readTargetForms(content: Json): string[] | null {
+  if (!isRecord(content)) return null
+  const targets = asStringArray(content.target_form)
+  return targets?.length && targets.every(value => value.trim().length > 0) ? targets.map(value => value.trim()) : null
+}
+
 export function parseFillInBlankContent(value: Json): FillInBlankContent | null {
   if (!isRecord(value)) return null
 
@@ -150,6 +162,7 @@ export function parseFillInBlankContent(value: Json): FillInBlankContent | null 
   const instruction = asString(value.instruction)
 
   return {
+    ...(readTargetForms(value) ? { target_form: readTargetForms(value)! } : {}),
     ...(instruction ? { instruction } : {}),
     text_before: asString(value.text_before) ?? '',
     text_after: asString(value.text_after) ?? '',
@@ -192,5 +205,6 @@ export function parseMultipleChoiceContent(value: Json): MultipleChoiceContent |
 
   const explanation = asLocalizedText(value.explanation)
   const instruction = asString(value.instruction)
-  return { question, options, correct_answer: correctAnswer, ...(explanation ? { explanation } : {}), ...(instruction ? { instruction } : {}) }
+  return { question, options, correct_answer: correctAnswer, ...(readTargetForms(value) ? { target_form: readTargetForms(value)! } : {}),
+    ...(explanation ? { explanation } : {}), ...(instruction ? { instruction } : {}) }
 }

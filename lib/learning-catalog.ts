@@ -16,7 +16,7 @@ export const videoQuery = (client: SupabaseClient<Database>) => client.from('lea
 
 type Unit = Pick<Tables<'learning_units'>, 'id' | 'level' | 'label' | 'sort_order' | 'is_active'>
 type VocabularyRow = Tables<'learning_vocabulary_cards'> & { unit: Unit; translations: Tables<'vocabulary_translations'>[] }
-type GrammarRow = Tables<'learning_exercises'> & { unit: Unit; translations: Tables<'grammar_translations'>[] }
+type GrammarRow = Tables<'learning_exercises'> & { unit: Unit; translations: (Tables<'grammar_translations'> & { prompt?: string | null })[] }
 type ReadingRow = Tables<'learning_reading_texts'> & { unit: Unit & { learning_levels: Pick<Tables<'learning_levels'>, 'cefr_level'> } }
 type VideoRow = Tables<'learning_videos'> & { unit: Unit }
 
@@ -34,8 +34,8 @@ export function mapVocabularyCard(row: VocabularyRow) {
 }
 
 export function mapGrammarExercise(row: GrammarRow) {
-  const localized = (field: 'hint' | 'smart_hint' | 'explanation') => Object.fromEntries(
-    row.translations.flatMap(item => item[field] === null ? [] : [[item.locale, item[field]]]),
+  const localized = (field: 'hint' | 'smart_hint' | 'explanation' | 'prompt') => Object.fromEntries(
+    row.translations.flatMap(item => typeof item[field] === 'string' && item[field]!.trim() ? [[item.locale, item[field]!]] : []),
   )
   const content = row.content
   if (!content || typeof content !== 'object' || Array.isArray(content)) throw new Error('Invalid grammar content')
@@ -45,7 +45,9 @@ export function mapGrammarExercise(row: GrammarRow) {
     if (Object.keys(values).length) translated[field] = values
   }
   const hint = localized('hint')
+  const prompts = localized('prompt')
   return grammarExerciseSchema.parse({ ...row, unit_id: row.unit.id, level: row.unit.level, lesson: row.unit.label,
+    ...(Object.keys(prompts).length ? { translation_prompt: prompts } : {}),
     content: { ...content, ...translated }, hint: Object.keys(hint).length ? hint : null })
 }
 

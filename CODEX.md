@@ -274,7 +274,7 @@ Befund: `vocabulary_private.submit_answer` prüft Byte-exakt. Ein Leerzeichen am
 
 #### S4 — Abnahmenachweise Phase 3.1–3.3 (20.09.2026)
 
-Implementierung, Klon-Abnahme und produktive Aktivierung abgeschlossen; Release `0d4eba213834` aktiv. App, Mailworker und nginx aktiv; Health `ready`. Phase 3.4–3.5 bleiben außerhalb dieser Freigabe offen.
+Implementierung, Klon-Abnahme und produktive Aktivierung abgeschlossen; Release `0d4eba213834` aktiv. App, Mailworker und nginx aktiv; Health `ready`. Die anschließende Abnahme von 3.4–3.5 ist unten separat dokumentiert.
 
 | Prüfung | Ergebnis |
 |---|---|
@@ -290,17 +290,17 @@ Implementierung, Klon-Abnahme und produktive Aktivierung abgeschlossen; Release 
 Details und Betriebsnachweise: [docs/phase-3-verification.md](docs/phase-3-verification.md).
 
 #### 3.4 Eindeutige Zielwert-Führung (No-Guessing)
-* [ ] `grammarWriteSchema` in `lib/grammar-validation.ts` um ein Pflichtfeld `target_form: z.array(z.string().trim().min(1)).min(1)` erweitern.
-* [ ] Bei Übersetzungsaufgaben rendert die UI den Prompt als `Как вас зовут? [heißen]`.
-* [ ] `components/admin/ExerciseCMS.tsx` erhält das Eingabefeld; Speichern ohne `target_form` wird per Zod abgelehnt.
-* [ ] Migration: bestehende Aufgaben ohne `target_form` werden im CMS als „unvollständig" markiert und nicht mehr an Schüler ausgeliefert.
+* [x] `grammarWriteSchema` in `lib/grammar-validation.ts` um ein Pflichtfeld `target_form: z.array(z.string().trim().min(1)).min(1)` erweitern.
+* [x] Bei Übersetzungsaufgaben rendert die UI den Prompt als `Как вас зовут? [heißen]`.
+* [x] `components/admin/ExerciseCMS.tsx` erhält das Eingabefeld; Speichern ohne `target_form` wird per Zod abgelehnt.
+* [x] Migration: bestehende Aufgaben ohne `target_form` werden im CMS als „unvollständig" markiert und nicht mehr an Schüler ausgeliefert.
 
 #### 3.5 Sprachkonsistenz & Lektorat — Fokus verschoben
 Befund-Korrektur: Die Dictionaries sind in gutem Zustand (Tippfehler sind bereits korrigiert). Das Risiko liegt in den DB-Inhalten.
 
-* [ ] Audit von `public.vocabulary_translations`, `public.grammar_translations`, `public.course_translations` je Locale (`de`, `en`, `ru`, `uk`, `tr`): Zeilen ohne Übersetzung, `ru`/`uk`-Zeilen ohne kyrillische Zeichen, `de`-Zeilen, die unverändert nach `ru`/`uk`/`tr` kopiert wurden.
-* [ ] `learning_exercises` und `learning_reading_texts` müssen ausschließlich deutsche Sätze enthalten. CHECK/Trigger ergänzen, der kyrillische Zeichen sowie `ı ğ ş İ Ğ Ş` im deutschen Aufgabentext ablehnt.
-* [ ] Report als `docs/audit/content-lektorat.md` mit Zeilenzahlen je Tabelle und Locale.
+* [x] Audit von `public.vocabulary_translations`, `public.grammar_translations`, `public.course_translations` je Locale (`de`, `en`, `ru`, `uk`, `tr`): Zeilen ohne Übersetzung, `ru`/`uk`-Zeilen ohne kyrillische Zeichen, `de`-Zeilen, die unverändert nach `ru`/`uk`/`tr` kopiert wurden.
+* [x] `learning_exercises` und `learning_reading_texts` müssen ausschließlich deutsche Sätze enthalten. CHECK/Trigger ergänzen, der kyrillische Zeichen sowie `ı ğ ş İ Ğ Ş` im deutschen Aufgabentext ablehnt.
+* [x] Report als `docs/audit/content-lektorat.md` mit Zeilenzahlen je Tabelle und Locale.
 
 ---
 

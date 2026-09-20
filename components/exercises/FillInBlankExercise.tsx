@@ -87,6 +87,7 @@ export default function FillInBlankExerciseCard({
   return (
     <div className="p-5 sm:p-10">
       {exercise.content.instruction && <p className="mb-6 text-lg font-semibold leading-relaxed text-[var(--violet)]">{exercise.content.instruction}</p>}
+      {exercise.translationPrompt && <p className="mb-6 text-xl font-medium text-[var(--foreground)] sm:text-3xl"><span lang={exercise.promptLanguage}>{exercise.translationPrompt}</span> <span lang="de" translate="no">[{exercise.content.target_form?.join(', ')}]</span></p>}
       {/* Satz mit Lücke – auf dem Handy 20px, ab Tablet 30px. */}
       <p className="break-words text-center text-xl font-medium leading-relaxed text-[var(--foreground)] sm:text-3xl sm:leading-loose" lang="de" translate="no">
         {exercise.content.text_before}
@@ -122,6 +123,7 @@ export default function FillInBlankExerciseCard({
           </span>
         )}
         {exercise.content.text_after}
+        {!exercise.translationPrompt && exercise.content.target_form && <span className="ml-2">[{exercise.content.target_form.join(', ')}]</span>}
       </p>
       
       {exercise.content.gap_hint && !isSolved && (

@@ -9,6 +9,6 @@ export default async function ExercisesPage({ params }: { params: Promise<{ lang
   if (lang === 'de') return <TrainerLanguageRequired lang={lang} />
   const decodedLevel = decodeURIComponent(level)
   const dict = await getDictionary(lang)
-  const exercises = await getExercises(decodedLevel)
+  const exercises = await getExercises(decodedLevel, lang)
   return <ExerciseClient exercises={exercises} translations={(dict.exercises ?? {}) as ExerciseTranslations} lang={lang} level={decodedLevel} />
 }

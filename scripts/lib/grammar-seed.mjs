@@ -10,6 +10,12 @@ const german = value => typeof value === 'string' ? value : value?.de ?? null
 /** Author-manuscript import. Existing content and translations remain untouched. */
 export function grammarSeedSql(records) {
   if (!records.length || new Set(records.map(row => row.id)).size !== records.length) throw new Error('Unique exercise IDs required')
+  for (const row of records) {
+    const targets = row.content?.target_form
+    if (!Array.isArray(targets) || !targets.length || targets.some(value => typeof value !== 'string' || !value.trim())) {
+      throw new Error(`Exercise ${row.id}: target_form requires explicitly authored, nonempty base forms; legacy manuscripts cannot be imported unchanged.`)
+    }
+  }
   const units = [...new Map(records.map(row => [`${row.level}:${row.lesson}`, row])).values()]
   const unitValues = units.map((row, index) => `(${[stableId(`sitov-grammar-unit:${row.level}:${row.lesson}`), row.level, 'exercises', row.lesson].map(quote).join(',')},${index + 1})`)
   const values = records.map(row => {

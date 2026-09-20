@@ -98,6 +98,15 @@ class MigrationFailureTests(unittest.TestCase):
         self.assert_services_stopped()
         self.assertIn('06_soft_errors.sql', (self.backup / 'applied.json').read_text())
 
+    def test_content_quality_migration_is_last_and_waits_for_matching_app(self):
+        self.assertEqual(MIGRATION.ORDER[-2:], ['06_soft_errors.sql', '07_content_quality.sql'])
+        (self.root / '07_content_quality.sql').write_text('SELECT 1;\n')
+        with patch('sys.argv', [str(SCRIPT), '--apply', '07_content_quality.sql',
+                   '--sql-dir', str(self.root), '--keep-stopped']):
+            MIGRATION.main()
+        self.assert_services_stopped()
+        self.assertIn('07_content_quality.sql', (self.backup / 'applied.json').read_text())
+
     def test_migration_with_own_transaction_is_rejected_before_services_stop(self):
         (self.root / '06_soft_errors.sql').write_text('BEGIN;\nSELECT 1;\nCOMMIT;\n')
         with patch('sys.argv', [str(SCRIPT), '--apply', '06_soft_errors.sql',

@@ -234,6 +234,16 @@ CREATE TYPE public.invoice_status AS ENUM (
 
 
 --
+-- Name: learning_content_status; Type: TYPE; Schema: public; Owner: -
+--
+
+CREATE TYPE public.learning_content_status AS ENUM (
+    'incomplete',
+    'ready'
+);
+
+
+--
 -- Name: mail_kind; Type: TYPE; Schema: public; Owner: -
 --
 
@@ -860,6 +870,60 @@ END $$;
 
 
 --
+-- Name: exercise_is_ready(jsonb, text); Type: FUNCTION; Schema: grammar_private; Owner: -
+--
+
+CREATE FUNCTION grammar_private.exercise_is_ready(p_content jsonb, p_topic text) RETURNS boolean
+    LANGUAGE sql IMMUTABLE
+    SET search_path TO ''
+    AS $$
+ SELECT grammar_private.valid_target_form(p_content) AND grammar_private.german_content_allowed(p_content,p_topic)
+$$;
+
+
+--
+-- Name: german_content_allowed(jsonb, text); Type: FUNCTION; Schema: grammar_private; Owner: -
+--
+
+CREATE FUNCTION grammar_private.german_content_allowed(p_content jsonb, p_topic text) RETURNS boolean
+    LANGUAGE sql IMMUTABLE
+    SET search_path TO ''
+    AS $$
+ -- Localized hint/smart_hint/explanation objects and grammar_translations are
+ -- intentionally excluded. Native-language prompts belong in translations.prompt.
+ SELECT learning_private.german_text_allowed(jsonb_build_array(p_topic,
+  p_content->'instruction',p_content->'text_before',p_content->'text_after',p_content->'question',
+  p_content->'correct_answer',p_content->'gap_hint',p_content->'options',p_content->'accepted_answers',
+  p_content->'parts',p_content->'target_form')::text)
+$$;
+
+
+--
+-- Name: guard_exercise_quality(); Type: FUNCTION; Schema: grammar_private; Owner: -
+--
+
+CREATE FUNCTION grammar_private.guard_exercise_quality() RETURNS trigger
+    LANGUAGE plpgsql
+    SET search_path TO ''
+    AS $$
+BEGIN
+ -- An unchanged legacy payload may receive audio/metadata maintenance. Editing
+ -- the exercise itself must repair the whole payload before it can be saved.
+ IF TG_OP='INSERT' OR NEW.content IS DISTINCT FROM OLD.content OR NEW.topic IS DISTINCT FROM OLD.topic THEN
+  IF NOT grammar_private.valid_target_form(NEW.content) THEN
+   RAISE EXCEPTION USING ERRCODE='23514',MESSAGE='target_form_required',
+    DETAIL='{"error":"target_form_required","message":"Add at least one nonempty target form before saving the exercise."}';
+  END IF;
+  IF NOT grammar_private.german_content_allowed(NEW.content,NEW.topic) THEN
+   RAISE EXCEPTION USING ERRCODE='23514',MESSAGE='german_text_required',
+    DETAIL='{"error":"german_text_required","message":"German exercise fields cannot contain Cyrillic or Turkish-specific letters."}';
+  END IF;
+ END IF;
+ RETURN NEW;
+END $$;
+
+
+--
 -- Name: record_attempt(uuid, text, boolean); Type: FUNCTION; Schema: grammar_private; Owner: -
 --
 
@@ -877,6 +941,8 @@ BEGIN
  IF NOT FOUND OR target.type NOT IN('fill_in_blank','multiple_choice') THEN
   RAISE EXCEPTION 'exercise_unavailable' USING ERRCODE='22023'; END IF;
  IF NOT learning_private.unit_allowed(target.unit_id) THEN RAISE EXCEPTION 'trainer_access_denied' USING ERRCODE='42501'; END IF;
+ -- phase3-content-ready-guard-v1
+ IF target.content_status<>'ready' THEN RAISE EXCEPTION 'exercise_unavailable' USING ERRCODE='22023'; END IF;
  IF nullif(btrim(target.content->>'correct_answer'),'') IS NULL THEN
   RAISE EXCEPTION 'exercise_unavailable' USING ERRCODE='22023'; END IF;
  IF target.type='multiple_choice' THEN
@@ -929,6 +995,22 @@ BEGIN
  RETURN p_type='sentence_building' OR (nullif(btrim(p_content->>'correct_answer'),'') IS NOT NULL AND EXISTS(
   SELECT 1 FROM jsonb_array_elements_text(answers) a WHERE lower(regexp_replace(btrim(a),'\s+',' ','g'))=
    lower(regexp_replace(btrim(p_content->>'correct_answer'),'\s+',' ','g'))));
+END $$;
+
+
+--
+-- Name: valid_target_form(jsonb); Type: FUNCTION; Schema: grammar_private; Owner: -
+--
+
+CREATE FUNCTION grammar_private.valid_target_form(p_content jsonb) RETURNS boolean
+    LANGUAGE plpgsql IMMUTABLE
+    SET search_path TO ''
+    AS $$
+DECLARE target jsonb:=p_content->'target_form';
+BEGIN
+ IF jsonb_typeof(target) IS DISTINCT FROM 'array' THEN RETURN false; END IF;
+ RETURN jsonb_array_length(target)>0 AND NOT EXISTS(SELECT 1 FROM jsonb_array_elements(target) item
+  WHERE jsonb_typeof(item) IS DISTINCT FROM 'string' OR btrim(item#>>'{}',U&'\0009\000A\000B\000C\000D\0020\00A0\1680\2000\2001\2002\2003\2004\2005\2006\2007\2008\2009\200A\2028\2029\202F\205F\3000\FEFF')='');
 END $$;
 
 
@@ -1027,6 +1109,20 @@ $$;
 
 
 --
+-- Name: german_text_allowed(text); Type: FUNCTION; Schema: learning_private; Owner: -
+--
+
+CREATE FUNCTION learning_private.german_text_allowed(p_text text) RETURNS boolean
+    LANGUAGE sql IMMUTABLE
+    SET search_path TO ''
+    AS $$
+ -- NFC closes decomposed forms such as s + combining cedilla. Cyrillic blocks
+ -- include supplements, combining/extended forms and Extended-D above the BMP.
+ SELECT normalize(coalesce(p_text,''),NFC) !~ U&'[\0400-\052F\1C80-\1C8F\1D2B\1D78\2DE0-\2DFF\A640-\A69F\+01E030-\+01E08F\0131\011F\015F\0130\011E\015E]'
+$$;
+
+
+--
 -- Name: grade_answer(text, text[]); Type: FUNCTION; Schema: learning_private; Owner: -
 --
 
@@ -1091,6 +1187,25 @@ BEGIN
   END LOOP;
  END LOOP;
  RETURN jsonb_build_object('status',status,'matched',NULL,'reason',NULL);
+END $$;
+
+
+--
+-- Name: guard_reading_quality(); Type: FUNCTION; Schema: learning_private; Owner: -
+--
+
+CREATE FUNCTION learning_private.guard_reading_quality() RETURNS trigger
+    LANGUAGE plpgsql
+    SET search_path TO ''
+    AS $$
+BEGIN
+ IF TG_OP='INSERT' OR NEW.sentence_de IS DISTINCT FROM OLD.sentence_de OR NEW.focus IS DISTINCT FROM OLD.focus THEN
+  IF NOT learning_private.german_text_allowed(NEW.sentence_de) OR NOT learning_private.german_text_allowed(NEW.focus) THEN
+   RAISE EXCEPTION USING ERRCODE='23514',MESSAGE='german_text_required',
+    DETAIL='{"error":"german_text_required","message":"German reading fields cannot contain Cyrillic or Turkish-specific letters."}';
+  END IF;
+ END IF;
+ RETURN NEW;
 END $$;
 
 
@@ -2933,8 +3048,9 @@ BEGIN
   ON CONFLICT(id) DO UPDATE SET unit_id=excluded.unit_id,topic=excluded.topic,type=excluded.type,content=excluded.content,solution_audio_url=excluded.solution_audio_url;
   DELETE FROM public.grammar_translations WHERE exercise_id=item;
   FOR translation_row IN SELECT value FROM jsonb_array_elements(translations) LOOP
-   INSERT INTO public.grammar_translations(exercise_id,locale,hint,smart_hint,explanation)
-   VALUES(item,translation_row->>'locale',translation_row->>'hint',translation_row->>'smart_hint',translation_row->>'explanation');
+   -- phase3-translation-prompt-v1
+   INSERT INTO public.grammar_translations(exercise_id,locale,hint,smart_hint,explanation,prompt)
+   VALUES(item,translation_row->>'locale',translation_row->>'hint',translation_row->>'smart_hint',translation_row->>'explanation',translation_row->>'prompt');
   END LOOP;
  ELSIF p_trainer='pronunciation' THEN
   INSERT INTO public.learning_reading_texts(id,unit_id,sentence_de,focus,audio_url)
@@ -2956,7 +3072,12 @@ BEGIN
  END IF;
  RETURN jsonb_build_object('id',item);
 EXCEPTION WHEN insufficient_privilege THEN RETURN jsonb_build_object('error','not_authorized','message','Staff access required.');
- WHEN check_violation OR foreign_key_violation OR invalid_text_representation OR not_null_violation THEN RETURN jsonb_build_object('error','invalid_input','message','Content fields or uploaded file are invalid.');
+ -- phase3-content-quality-errors-v1
+ WHEN check_violation OR foreign_key_violation OR invalid_text_representation OR not_null_violation THEN
+  RETURN jsonb_build_object('error',CASE WHEN SQLERRM IN('target_form_required','german_text_required') THEN SQLERRM ELSE 'invalid_input' END,
+   'message',CASE WHEN SQLERRM='target_form_required' THEN 'Add at least one nonempty target form before saving the exercise.'
+    WHEN SQLERRM='german_text_required' THEN 'German learning fields cannot contain Cyrillic or Turkish-specific letters.'
+    ELSE 'Content fields or uploaded file are invalid.' END);
  WHEN unique_violation THEN RETURN jsonb_build_object('error','conflict','message','Content already exists.');
  WHEN OTHERS THEN RETURN jsonb_build_object('error','save_failed','message','Content could not be saved.');
 END;
@@ -3702,8 +3823,7 @@ CREATE TABLE learning_reset_private.audio_objects (
     auth_user_id uuid NOT NULL,
     object_id uuid NOT NULL,
     bucket_id text NOT NULL,
-    object_name text NOT NULL,
-    CONSTRAINT audio_objects_bucket_id_check CHECK ((bucket_id = 'pronunciation_audio'::text))
+    object_name text NOT NULL
 );
 
 
@@ -3937,8 +4057,16 @@ CREATE TABLE public.grammar_translations (
     locale text NOT NULL,
     hint text,
     smart_hint text,
-    explanation text
+    explanation text,
+    prompt text
 );
+
+
+--
+-- Name: COLUMN grammar_translations.prompt; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.grammar_translations.prompt IS 'Optional translation task prompt in this exact interface locale; never copied into German exercise content.';
 
 
 --
@@ -3973,6 +4101,11 @@ CREATE TABLE public.learning_exercises (
     solution_audio_url text,
     unit_id uuid NOT NULL,
     content_version smallint DEFAULT 1 NOT NULL,
+    content_status public.learning_content_status GENERATED ALWAYS AS (
+CASE
+    WHEN grammar_private.exercise_is_ready(content, topic) THEN 'ready'::public.learning_content_status
+    ELSE 'incomplete'::public.learning_content_status
+END) STORED,
     CONSTRAINT grammar_content_object CHECK ((jsonb_typeof(content) = 'object'::text)),
     CONSTRAINT learning_exercises_accepted_answers_check CHECK (grammar_private.valid_accepted_answers(content, type)),
     CONSTRAINT learning_exercises_content_version_check CHECK ((content_version = 1))
@@ -3984,6 +4117,13 @@ CREATE TABLE public.learning_exercises (
 --
 
 COMMENT ON COLUMN public.learning_exercises.solution_audio_url IS 'Optionale MP3-URL für die native Aussprache der Lösung (Tap-to-Listen).';
+
+
+--
+-- Name: COLUMN learning_exercises.content_status; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.learning_exercises.content_status IS 'Derived publication readiness: explicit target forms and German task text; legacy content is preserved for staff review.';
 
 
 --
@@ -5129,10 +5269,24 @@ CREATE INDEX answer_receipts_ui_language_idx ON vocabulary_private.answer_receip
 
 
 --
+-- Name: learning_exercises guard_exercise_quality; Type: TRIGGER; Schema: public; Owner: -
+--
+
+CREATE TRIGGER guard_exercise_quality BEFORE INSERT OR UPDATE ON public.learning_exercises FOR EACH ROW EXECUTE FUNCTION grammar_private.guard_exercise_quality();
+
+
+--
 -- Name: lms_media_folder guard_media_folder_change; Type: TRIGGER; Schema: public; Owner: -
 --
 
 CREATE TRIGGER guard_media_folder_change BEFORE DELETE OR UPDATE OF level, folder_id ON public.lms_media_folder FOR EACH ROW EXECUTE FUNCTION media_private.guard_folder_change();
+
+
+--
+-- Name: learning_reading_texts guard_reading_quality; Type: TRIGGER; Schema: public; Owner: -
+--
+
+CREATE TRIGGER guard_reading_quality BEFORE INSERT OR UPDATE ON public.learning_reading_texts FOR EACH ROW EXECUTE FUNCTION learning_private.guard_reading_quality();
 
 
 --
@@ -6259,14 +6413,14 @@ CREATE POLICY pronunciation_threads_read ON public.submissions FOR SELECT TO aut
 -- Name: learning_exercises released_content_read; Type: POLICY; Schema: public; Owner: -
 --
 
-CREATE POLICY released_content_read ON public.learning_exercises FOR SELECT TO authenticated USING (learning_private.unit_allowed(unit_id));
+CREATE POLICY released_content_read ON public.learning_exercises FOR SELECT TO authenticated USING (((content_status = 'ready'::public.learning_content_status) AND learning_private.unit_allowed(unit_id)));
 
 
 --
 -- Name: learning_reading_texts released_content_read; Type: POLICY; Schema: public; Owner: -
 --
 
-CREATE POLICY released_content_read ON public.learning_reading_texts FOR SELECT TO authenticated USING (learning_private.unit_allowed(unit_id));
+CREATE POLICY released_content_read ON public.learning_reading_texts FOR SELECT TO authenticated USING ((learning_private.german_text_allowed(sentence_de) AND learning_private.german_text_allowed(focus) AND learning_private.unit_allowed(unit_id)));
 
 
 --
@@ -6535,6 +6689,7 @@ GRANT USAGE ON SCHEMA business_private TO service_role;
 --
 
 GRANT USAGE ON SCHEMA grammar_private TO authenticated;
+GRANT USAGE ON SCHEMA grammar_private TO service_role;
 
 
 --
@@ -6757,6 +6912,31 @@ GRANT ALL ON FUNCTION business_private.validate_course_selections(p_selections j
 
 
 --
+-- Name: FUNCTION exercise_is_ready(p_content jsonb, p_topic text); Type: ACL; Schema: grammar_private; Owner: -
+--
+
+REVOKE ALL ON FUNCTION grammar_private.exercise_is_ready(p_content jsonb, p_topic text) FROM PUBLIC;
+GRANT ALL ON FUNCTION grammar_private.exercise_is_ready(p_content jsonb, p_topic text) TO authenticated;
+GRANT ALL ON FUNCTION grammar_private.exercise_is_ready(p_content jsonb, p_topic text) TO service_role;
+
+
+--
+-- Name: FUNCTION german_content_allowed(p_content jsonb, p_topic text); Type: ACL; Schema: grammar_private; Owner: -
+--
+
+REVOKE ALL ON FUNCTION grammar_private.german_content_allowed(p_content jsonb, p_topic text) FROM PUBLIC;
+GRANT ALL ON FUNCTION grammar_private.german_content_allowed(p_content jsonb, p_topic text) TO authenticated;
+GRANT ALL ON FUNCTION grammar_private.german_content_allowed(p_content jsonb, p_topic text) TO service_role;
+
+
+--
+-- Name: FUNCTION guard_exercise_quality(); Type: ACL; Schema: grammar_private; Owner: -
+--
+
+REVOKE ALL ON FUNCTION grammar_private.guard_exercise_quality() FROM PUBLIC;
+
+
+--
 -- Name: FUNCTION record_attempt(p_exercise_id uuid, p_answer text, p_hint_shown boolean); Type: ACL; Schema: grammar_private; Owner: -
 --
 
@@ -6771,6 +6951,15 @@ GRANT ALL ON FUNCTION grammar_private.record_attempt(p_exercise_id uuid, p_answe
 REVOKE ALL ON FUNCTION grammar_private.valid_accepted_answers(p_content jsonb, p_type public.exercise_type) FROM PUBLIC;
 GRANT ALL ON FUNCTION grammar_private.valid_accepted_answers(p_content jsonb, p_type public.exercise_type) TO authenticated;
 GRANT ALL ON FUNCTION grammar_private.valid_accepted_answers(p_content jsonb, p_type public.exercise_type) TO service_role;
+
+
+--
+-- Name: FUNCTION valid_target_form(p_content jsonb); Type: ACL; Schema: grammar_private; Owner: -
+--
+
+REVOKE ALL ON FUNCTION grammar_private.valid_target_form(p_content jsonb) FROM PUBLIC;
+GRANT ALL ON FUNCTION grammar_private.valid_target_form(p_content jsonb) TO authenticated;
+GRANT ALL ON FUNCTION grammar_private.valid_target_form(p_content jsonb) TO service_role;
 
 
 --
@@ -6814,10 +7003,26 @@ REVOKE ALL ON FUNCTION learning_private.expand_german_letters(p_value text) FROM
 
 
 --
+-- Name: FUNCTION german_text_allowed(p_text text); Type: ACL; Schema: learning_private; Owner: -
+--
+
+REVOKE ALL ON FUNCTION learning_private.german_text_allowed(p_text text) FROM PUBLIC;
+GRANT ALL ON FUNCTION learning_private.german_text_allowed(p_text text) TO authenticated;
+GRANT ALL ON FUNCTION learning_private.german_text_allowed(p_text text) TO service_role;
+
+
+--
 -- Name: FUNCTION grade_answer(p_input text, p_accepted text[]); Type: ACL; Schema: learning_private; Owner: -
 --
 
 REVOKE ALL ON FUNCTION learning_private.grade_answer(p_input text, p_accepted text[]) FROM PUBLIC;
+
+
+--
+-- Name: FUNCTION guard_reading_quality(); Type: ACL; Schema: learning_private; Owner: -
+--
+
+REVOKE ALL ON FUNCTION learning_private.guard_reading_quality() FROM PUBLIC;
 
 
 --
@@ -7415,9 +7620,9 @@ GRANT ALL ON TABLE public.cefr_levels TO service_role;
 -- Name: TABLE course_audiences; Type: ACL; Schema: public; Owner: -
 --
 
+GRANT ALL ON TABLE public.course_audiences TO service_role;
 GRANT SELECT ON TABLE public.course_audiences TO anon;
 GRANT SELECT ON TABLE public.course_audiences TO authenticated;
-GRANT ALL ON TABLE public.course_audiences TO service_role;
 
 
 --

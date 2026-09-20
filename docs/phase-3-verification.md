@@ -1,6 +1,6 @@
 # Phase 3.1–3.3 — Didaktik und Soft-Errors
 
-Stand: 20.09.2026. Freigegebener Umfang: ausschließlich 3.1–3.3 einschließlich R5-Korrektur. 3.4 und 3.5 bleiben offen. Implementierung, Abnahme und produktive Aktivierung abgeschlossen. Aktiver App-Release: `0d4eba213834` auf `codex/vps-self-hosted`.
+Stand: 20.09.2026. Dieser Bericht dokumentiert 3.1–3.3 einschließlich R5-Korrektur und die damalige produktive Aktivierung von `0d4eba213834` auf `codex/vps-self-hosted`. Die anschließend freigegebenen Punkte 3.4–3.5 werden in [phase-3-content-verification.md](phase-3-content-verification.md) dokumentiert.
 
 ## Verhalten und Checkliste
 

@@ -7,12 +7,15 @@ const answer = z.string().trim().min(1).max(1000)
 const options = z.array(answer).min(2).max(8)
 const localizedTextSchema = z.record(z.string().min(1).max(20), z.string().trim().min(1).max(2000))
 const contentHintSchema = z.union([z.string().trim().max(2000), localizedTextSchema]).nullable().optional()
+const targetFormSchema = z.array(z.string().trim().min(1)).min(1)
+const translationPromptSchema = z.partialRecord(z.enum(['de', 'en', 'ru', 'uk', 'tr']), z.string().trim().min(1).max(2000))
 
 const metadata = {
   level: z.enum(ACCESS_LEVELS),
   lesson: z.string().trim().min(1).max(120),
   topic: z.string().trim().min(1).max(160),
   hint: localizedTextSchema.nullable().optional(),
+  translation_prompt: translationPromptSchema.optional(),
   solution_audio_url: z.url().max(2000).refine(value => value.startsWith('https://')).nullable(),
 }
 export const grammarWriteSchema = z.discriminatedUnion('type', [
@@ -20,20 +23,21 @@ export const grammarWriteSchema = z.discriminatedUnion('type', [
     ...metadata,
     type: z.literal('fill_in_blank'),
     content: z.object({
+      target_form: targetFormSchema,
       instruction: z.string().trim().max(500).optional(),
       text_before: z.string().max(2000), text_after: z.string().max(2000),
       correct_answer: answer, options, smart_hint: contentHintSchema,
       accepted_answers: z.array(answer).min(1).max(21).optional(),
       alternative_answers: z.array(answer).max(20).optional(),
       gap_hint: z.string().trim().max(100).optional(),
-    }).refine(content => `${content.text_before}${content.text_after}`.trim().length > 0)
-      .transform(({ alternative_answers, ...content }) => ({ ...content,
+    }).transform(({ alternative_answers, ...content }) => ({ ...content,
         accepted_answers: content.accepted_answers ?? [content.correct_answer, ...(alternative_answers ?? [])] })),
   }),
   z.object({
     ...metadata,
     type: z.literal('multiple_choice'),
     content: z.object({
+      target_form: targetFormSchema,
       instruction: z.string().trim().max(500).optional(),
       question: z.string().trim().min(1).max(4000), correct_answer: answer, options,
       accepted_answers: z.array(answer).min(1).max(1).optional(),
@@ -41,6 +45,10 @@ export const grammarWriteSchema = z.discriminatedUnion('type', [
     }).transform(content => ({ ...content, accepted_answers: content.accepted_answers ?? [content.correct_answer] })),
   }),
 ]).superRefine((value, context) => {
+  if (value.type === 'fill_in_blank' && !`${value.content.text_before}${value.content.text_after}`.trim()
+    && !Object.keys(value.translation_prompt ?? {}).length) {
+    context.addIssue({ code: 'custom', message: 'A sentence or translated prompt is required', path: ['content', 'text_before'] })
+  }
   const normalized = value.content.options.map(normalizeGrammarAnswer)
   if (new Set(normalized).size !== normalized.length) {
     context.addIssue({ code: 'custom', message: 'Answers must be distinct', path: ['content', 'options'] })

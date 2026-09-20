@@ -36,6 +36,7 @@ export function learningWritePayload(trainer: Trainer, input: Json): Json {
     const { smart_hint, explanation, ...content } = jsonObject(form.content)
     fields.content = content
     translations = locales.map(locale => ({ locale, hint: localized(form.hint, locale),
+      prompt: localized(form.translation_prompt, locale),
       smart_hint: localized(smart_hint, locale), explanation: localized(explanation, locale) }))
   }
   return { unit, fields, translations }

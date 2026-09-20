@@ -70,7 +70,7 @@ export default function MultipleChoiceExerciseCard({
   return (
     <div className="p-5 sm:p-10">
       {exercise.content.instruction && <p className="mb-6 text-lg font-semibold leading-relaxed text-[var(--violet)]">{exercise.content.instruction}</p>}
-      <h3 className="break-words text-xl font-bold leading-relaxed text-[var(--foreground)] sm:text-2xl">{exercise.content.question}</h3>
+      <h3 className="break-words text-xl font-bold leading-relaxed text-[var(--foreground)] sm:text-2xl"><span lang={exercise.translationPrompt ? exercise.promptLanguage : 'de'}>{exercise.translationPrompt ?? exercise.content.question}</span>{exercise.content.target_form && <span lang="de" translate="no"> [{exercise.content.target_form.join(', ')}]</span>}</h3>
 
       <div className="mt-8 space-y-4">
         {exercise.content.options.map((option) => {

@@ -398,6 +398,7 @@ export type Database = {
           explanation: string | null
           hint: string | null
           locale: string
+          prompt: string | null
           smart_hint: string | null
         }
         Insert: {
@@ -405,6 +406,7 @@ export type Database = {
           explanation?: string | null
           hint?: string | null
           locale: string
+          prompt?: string | null
           smart_hint?: string | null
         }
         Update: {
@@ -412,6 +414,7 @@ export type Database = {
           explanation?: string | null
           hint?: string | null
           locale?: string
+          prompt?: string | null
           smart_hint?: string | null
         }
         Relationships: [
@@ -492,6 +495,9 @@ export type Database = {
       learning_exercises: {
         Row: {
           content: Json
+          content_status:
+            | Database["public"]["Enums"]["learning_content_status"]
+            | null
           content_version: number
           created_at: string | null
           id: string
@@ -502,6 +508,9 @@ export type Database = {
         }
         Insert: {
           content: Json
+          content_status?:
+            | Database["public"]["Enums"]["learning_content_status"]
+            | null
           content_version?: number
           created_at?: string | null
           id?: string
@@ -512,6 +521,9 @@ export type Database = {
         }
         Update: {
           content?: Json
+          content_status?:
+            | Database["public"]["Enums"]["learning_content_status"]
+            | null
           content_version?: number
           created_at?: string | null
           id?: string
@@ -1647,6 +1659,7 @@ export type Database = {
       exercise_type: "fill_in_blank" | "multiple_choice" | "sentence_building"
       grammatical_article: "der" | "die" | "das" | "none"
       invoice_status: "outstanding" | "created"
+      learning_content_status: "incomplete" | "ready"
       mail_kind:
         | "registration_received"
         | "registration_confirmed"
@@ -1802,6 +1815,7 @@ export const Constants = {
       exercise_type: ["fill_in_blank", "multiple_choice", "sentence_building"],
       grammatical_article: ["der", "die", "das", "none"],
       invoice_status: ["outstanding", "created"],
+      learning_content_status: ["incomplete", "ready"],
       mail_kind: [
         "registration_received",
         "registration_confirmed",

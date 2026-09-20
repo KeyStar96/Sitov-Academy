@@ -22,7 +22,10 @@ for (const raw of source.split('\n')) {
     continue
   }
   if (!group) throw new Error('Missing topic heading')
-  const [sentence, firstDistractor, secondDistractor, instruction] = line.split('|').map(value => value.trim())
+  // Column five contains explicitly authored target forms separated by semicolons.
+  // The historic manuscript has none and must fail validation before writing files.
+  const [sentence, firstDistractor, secondDistractor, instruction, authoredTargets] = line.split('|').map(value => value.trim())
+  const targetForm = authoredTargets?.split(';').map(value => value.trim())
   const distractors = [firstDistractor, secondDistractor]
   const match = sentence.match(/^(.*?)\[([^\]]+)\](.*)$/)
   if (!match || sentence.match(/\[/g)?.length !== 1) throw new Error(`Invalid blank: ${sentence}`)
@@ -43,8 +46,8 @@ for (const raw of source.split('\n')) {
     topic: group.topic,
     type: choice ? 'multiple_choice' : 'fill_in_blank',
     content: choice
-      ? { question: `${before}___${after}`, options, correct_answer: answer, explanation: group.hint, ...(instruction ? { instruction } : {}) }
-      : { text_before: before, text_after: after, correct_answer: answer, options, smart_hint: group.hint, ...(instruction ? { instruction } : {}) },
+      ? { target_form: targetForm, question: `${before}___${after}`, options, correct_answer: answer, explanation: group.hint, ...(instruction ? { instruction } : {}) }
+      : { target_form: targetForm, text_before: before, text_after: after, correct_answer: answer, options, smart_hint: group.hint, ...(instruction ? { instruction } : {}) },
     hint_ru: null,
     hint_tr: null,
     solution_audio_url: null,
@@ -55,6 +58,7 @@ for (const level of levels) {
   if (count !== 100) throw new Error(`${level} has ${count}, expected 100`)
 }
 if (new Set(records.map(row => row.id)).size !== 600) throw new Error('Duplicate identifiers')
+const sql = grammarSeedSql(records)
 writeFileSync(`${root}supabase/seeds/grammar-curriculum-2026.json`, `${JSON.stringify(records, null, 2)}\n`)
-writeFileSync(`${root}supabase/seeds/grammar-curriculum-2026.sql`, grammarSeedSql(records))
+writeFileSync(`${root}supabase/seeds/grammar-curriculum-2026.sql`, sql)
 console.log(`Validated and generated ${records.length} grammar exercises (${levels.join(', ')}: 100 each).`)

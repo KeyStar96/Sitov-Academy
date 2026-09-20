@@ -10,7 +10,7 @@ from pathlib import Path
 DB='supabase-db-eknmzxvqilojjicinatnllbt'
 STORAGE='supabase-storage-eknmzxvqilojjicinatnllbt'
 BASE=Path('/var/www/sitov-academy')
-ORDER=['02_identity_alignment.sql','03_registration_identity.sql','01_critical_fixes.sql','04_normalization.sql','05_rpc_errors.sql','06_soft_errors.sql']
+ORDER=['02_identity_alignment.sql','03_registration_identity.sql','01_critical_fixes.sql','04_normalization.sql','05_rpc_errors.sql','06_soft_errors.sql','07_content_quality.sql']
 
 def run(args,**kwargs):
     return subprocess.run(args,check=True,capture_output=True,**kwargs).stdout

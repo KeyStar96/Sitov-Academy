@@ -123,7 +123,7 @@ await test('canonical learning tables without compatibility views (isolated Post
   })
   await t.test('canonical author imports use relational hints and preserve teacher edits on reimport',async()=>{
     await actor(teacher)
-    const records=[{id:uid(999),level:'A1.1',lesson:'Autorenimport',topic:'Artikel',type:'fill_in_blank',content:{text_before:'Das ist ',text_after:' Haus.',correct_answer:'ein',smart_hint:'Ein Haus ist neutral.'}}]
+    const records=[{id:uid(999),level:'A1.1',lesson:'Autorenimport',topic:'Artikel',type:'fill_in_blank',content:{target_form:['unbestimmter Artikel'],text_before:'Das ist ',text_after:' Haus.',correct_answer:'ein',smart_hint:'Ein Haus ist neutral.'}}]
     const sql=grammarSeedSql(records)
     await db.exec(sql)
     const exercise=(await db.query('SELECT unit_id,content FROM learning_exercises WHERE id=$1',[uid(999)])).rows[0]

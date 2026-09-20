@@ -16,12 +16,12 @@ jest.mock('@/app/actions/grammar-cms', () => ({ saveGrammarExercise: jest.fn(), 
 jest.mock('@/components/exercises/SolutionAudioButton', () => ({ __esModule: true, default: () => null }))
 const item: StudentExercise = {
   id: 'a611d604-4b69-4040-a12c-451f8c5e1651', level: 'A1.1', lesson: '01', topic: 'Artikel',
-  type: 'multiple_choice', content: { question: '___ Tisch ist frei.', options: ['Der', 'Die', 'Das'], correct_answer: 'Der', explanation: 'Tisch ist maskulin.' },
+  type: 'multiple_choice', content: { target_form: ['bestimmter Artikel'], question: '___ Tisch ist frei.', options: ['Der', 'Die', 'Das'], correct_answer: 'Der', explanation: 'Tisch ist maskulin.' },
   hint: null, completed: false, attempts: 0, score: 0,
 }
 const fill: StudentExercise = {
   ...item, id: 'a611d604-4b69-4040-a12c-451f8c5e1652', type: 'fill_in_blank',
-  content: { text_before: 'Das ist ', text_after: '.', correct_answer: 'ein Tisch' },
+  content: { target_form: ['Tisch'], text_before: 'Das ist ', text_after: '.', correct_answer: 'ein Tisch' },
   chips: ['ein Tisch', 'eine Tisch'], solutionArticle: 'der', solutionAudioUrl: null,
 }
 const authored: GrammarExerciseRow = {
@@ -170,6 +170,24 @@ it('renders the confirmed soft-error reason in Russian', async () => {
   expect(screen.queryByText('Fast richtig!')).not.toBeInTheDocument()
   expect(screen.getByText(russian.exercises.soft_error.typo).closest('p')).toHaveClass('bg-[var(--warning)]')
   expect(screen.getByRole('button', { name: 'Завершить занятие' })).toBeVisible()
+})
+
+it('shows the translated prompt with the authored German base form before answering', () => {
+  const translated: StudentExercise = { ...fill, translationPrompt: 'Как вас зовут?', promptLanguage: 'ru',
+    content: { target_form: ['heißen'], text_before: '', text_after: '', correct_answer: 'Wie heißen Sie?' } }
+  render(<ExerciseClient exercises={[translated]} lang="ru" level="A1.1" translations={russian.exercises} />)
+  fireEvent.click(screen.getByRole('button', { name: 'Начать нерешённые задания' }))
+  expect(screen.getByText('Как вас зовут?')).toHaveAttribute('lang', 'ru')
+  expect(screen.getByText('[heißen]')).toHaveAttribute('lang', 'de')
+  expect(screen.getByText('Как вас зовут?').closest('p')).toHaveTextContent('Как вас зовут? [heißen]')
+  expect(screen.queryByText('Wie heißen Sie?')).not.toBeInTheDocument()
+  expect(recordExerciseAttempt).not.toHaveBeenCalled()
+})
+
+it('also presents the authored target for multiple-choice grammar', () => {
+  render(<ExerciseClient exercises={[item]} lang="de" level="A1.1" />)
+  fireEvent.click(screen.getByRole('button', { name: 'Mit offenen Aufgaben starten' }))
+  expect(screen.getByRole('heading', { name: '___ Tisch ist frei. [bestimmter Artikel]' })).toBeVisible()
 })
 it('allows teachers to edit existing exercises while preserving authored instructions', async () => {
   jest.mocked(saveGrammarExercise).mockResolvedValue({ success: true, data: { ...authored, topic: 'Artikel im Alltag' } })
