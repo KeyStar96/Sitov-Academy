@@ -84,3 +84,9 @@ Aufräumen: drei Testkonten, zugehörige Personen, Testkurs, Ordner, Lernlektion
 Ressourcen: keine Änderungen an RAM-/CPU-/Heap-Grenzen, keine neuen Laufzeitdienste. Temporäre Browser-/Auth-/REST-Prüfungen verwenden ausschließlich den eigenen VPS bzw. lokale Browser. Backups bleiben rootgeschützt; die ausgehende App-Netzwerksperre bleibt aktiv.
 
 Implementierungsreferenz: [Supabase TUS-Dokumentation](https://supabase.com/docs/guides/storage/uploads/resumable-uploads); eigene geprüfte Storage-Installation statt Cloud-Endpunkt.
+
+## Nutzerkorrektur 20.09.2026: Medien ausschließlich nach Niveau
+
+Die Kursauswahl ist aus der Ordnerverwaltung entfernt. Die Server-Action speichert Name, Niveau und Reihenfolge ohne Kursabfrage; Kurszuordnungen werden als Formulareingabe abgelehnt. Titel und Erklärung sind in de/en/ru/uk/tr angepasst. Die vorhandene Datenbankfreigabe `media_private.folder_allowed` prüft bereits ausschließlich `student_level_access` beziehungsweise die Staff-Rolle. Bestehende Ordner, Dateien und Freigaben bleiben erhalten; keine Migration, Änderung der Geschäftsangebote oder Ressourcenlimits.
+
+Abnahme: **30/30 Medientests** in sechs Jest-Suites bestanden, einschließlich Speichern ohne Kurs und Staff-Zugriffsschutz; `tsc --noEmit --incremental false` und Produktionsbuild auf dem VPS bestanden. Der bestehende Live-E2E-Ablauf wurde auf Niveauauswahl angepasst und typgeprüft, der vollständige Upload-Livetest für diese Formularvereinfachung nicht erneut ausgeführt. Release **`98cf7bbeef30`** über den bestehenden Deployment-Workflow vorbereitet und aktiviert; App, Mail und Nginx aktiv, `/api/health` meldet `ready`.
