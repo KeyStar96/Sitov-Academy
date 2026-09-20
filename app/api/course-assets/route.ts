@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import { z } from 'zod'
 import { createClient } from '@/utils/supabase/server'
+import { publicStorageUrl } from '@/lib/storage-public-url'
 
 const requestSchema = z.object({ path: z.string().min(1).max(500) }).strict()
 /** One-minute signed access; Storage RLS evaluates both level and resource access. */
@@ -13,5 +14,5 @@ export async function POST(request: Request) {
   const { data, error } = await client.storage.from('course-assets').createSignedUrl(parsed.data.path, 60)
   // Same response for unknown and inaccessible paths prevents resource enumeration.
   if (error || !data) return NextResponse.json({ error: 'not_authorized', message: 'This course file is not available to you.' }, { status: 403 })
-  return NextResponse.json({ url: data.signedUrl, expiresIn: 60 }, { headers: { 'Cache-Control': 'private, no-store' } })
+  return NextResponse.json({ url: publicStorageUrl(data.signedUrl), expiresIn: 60 }, { headers: { 'Cache-Control': 'private, no-store' } })
 }

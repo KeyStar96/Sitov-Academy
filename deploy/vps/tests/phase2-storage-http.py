@@ -82,9 +82,16 @@ try:
     status,_,_=api('POST','/rest/v1/lms_presentation_asset',token=staff,data={'asset_id':asset,'folder_id':folder,'file_name':'verification.pdf','storage_path':path2,'mime_type':'application/pdf','file_size':len(payload)})
     expect(status,[201],'presentation metadata')
     query("INSERT INTO public.student_level_access(auth_user_id,level) VALUES('"+users[1]+"','A1.1');")
-    status,_,_=api('POST','/storage/v1/object/sign/course-assets/'+path2,token=student,data={'expiresIn':60})
-    expect(status,[200],'unlocked student signed URL')
-    print(json.dumps({'standard_upload_bytes':len(payload),'tus_upload_bytes':offset,'tus_resume_verified':True,'locked_student_http_status':denied,'locked_folder_names':0,'unlocked_presentation_access':True}))
+    req=urllib.request.Request('http://127.0.0.1:3000/api/course-assets',method='POST',data=json.dumps({'path':path2}).encode(),headers={'Content-Type':'application/json','Cookie':cookie})
+    with urllib.request.urlopen(req,timeout=30) as response:signed=json.loads(response.read())['url']
+    signed_parts=urllib.parse.urlsplit(signed)
+    if signed_parts.scheme!='https' or signed_parts.hostname in ['localhost','127.0.0.1']:
+        raise RuntimeError('Signed URL is not browser-accessible')
+    download=signed_parts.path.removeprefix('/supabase')+'?'+signed_parts.query
+    status,_,downloaded=api('GET',download,token=student,headers={'Range':'bytes=0-1023'})
+    expect(status,[206],'signed file range download')
+    if downloaded!=payload[:1024]:raise RuntimeError('Signed download bytes differ')
+    print(json.dumps({'standard_upload_bytes':len(payload),'tus_upload_bytes':offset,'tus_resume_verified':True,'locked_student_http_status':denied,'locked_folder_names':0,'unlocked_presentation_access':True,'signed_range_bytes':len(downloaded),'browser_url_verified':True}))
 finally:
     if paths:
         status,_,_=api('DELETE','/storage/v1/object/course-assets',data={'prefixes':paths})

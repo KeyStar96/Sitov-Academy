@@ -155,16 +155,16 @@ Vorgehen:
 * [ ] Backup nach R8.
 * [ ] Migration `supabase/vps/02_identity_alignment.sql` selbstständig erstellen und ausführen (strikt idempotent mittels `ALTER TABLE ... RENAME COLUMN` für alle betroffenen Spalten).
 * [ ] ⚠️ ACHTUNG: `ALTER TABLE … RENAME COLUMN` erfordert manuelle Nacharbeiten. Zwar werden RLS-Ausdrücke und View-Regeln als geparste Bäume gespeichert, aber PL/pgSQL-Funktionskörper und dynamisches SQL sind reiner Text. Nach der Migration müssen ALLE Objekte, die `user_id` in den betroffenen Schemata referenzieren, identifiziert und auf `auth_user_id` korrigiert werden. Messbares Ziel: Kein RLS-Policy-Body, kein View und keine Funktion auf den betroffenen Tabellen referenziert nach Abschluss noch `user_id`.
-* [ ] App-Code: 44 Treffer in `app/`, `lib/`, `components/` anpassen. Schwerpunkte: `app/actions/admin.ts`, `lib/vocabulary-queries.ts`, `lib/profile-dashboard-server.ts`, `lib/reset-user-progress.ts`.
+* [ ] App-Code: tatsächliche Spaltenzugriffe in `app/`, `lib/`, `components/` anpassen; RPC-Parameter nicht pauschal ersetzen. Verifizierte Schwerpunkte: `app/actions/admin.ts`, `lib/vocabulary-queries.ts`, `lib/profile-dashboard-server.ts`, `lib/reset-user-progress.ts`.
 * [ ] RPC-Parameter (`p_user_id`, `p_student_id`) bleiben unverändert — sie sind Teil der öffentlichen API und nicht mehrdeutig.
 * [ ] `supabase/database.types.ts` neu generieren, `supabase/schema.sql` neu dumpen.
 * [ ] Alle `supabase/tests/*.test.mjs` und `__tests__/*` anpassen und grün bekommen.
 
 #### 2.1 Kombinierte Registrierung — gezielte Lückenschließung, kein Neubau
 Befund: Zu ~90 % vorhanden: `business_private.provision_profile()` legt `profiles` und `people` gemeinsam an. `business_private.claim_person()` verschmilzt eine anonyme Kursanmeldung mit dem verifizierten Account.
-⛔ Sicherheitsbremse nicht entfernen: `claim_person()` merged nur bei genau einem unbeanspruchten `people`-Datensatz ohne bestehende Buchungen und bei exakt übereinstimmender, verifizierter E-Mail. Sonst `unresolved: true`.
+⛔ Sicherheitsbremse bleibt erhalten: Automatische Zuordnung nur bei genau einem unbeanspruchten `people`-Kandidaten und exakt übereinstimmender, verifizierter E-Mail. Die frische, bereits dem Konto zugeordnete Person darf keine Buchungen oder Rechnungsfälle besitzen. Der anonyme Kandidat darf Buchungen besitzen — genau diese werden sichtbar. Bei Mehrdeutigkeit bleibt `unresolved: true`; bestehende Geschäftshistorien werden nicht zusammengeführt. Eine bereits bestätigte Zuordnung bleibt dauerhaft bestehen.
 
-* [ ] Admin-UI für den unresolved-Fall (z. B. Familien mit geteilter E-Mail): Liste aller `people` mit `auth_user_id IS NULL` und kollidierender E-Mail, manuelle Zuordnung durch Staff in einer neuen Route unter `app/[lang]/admin/registrations/`.
+* [ ] Admin-UI für den unresolved-Fall (z. B. Familien mit geteilter E-Mail): Liste aller `people` mit `auth_user_id IS NULL` und kollidierender E-Mail, manuelle Zuordnung durch Staff in der bereits vorhandenen Route `app/[lang]/admin/registrations/` mit neuem Konfliktbereich.
 * [ ] In `components/registration/EnrollmentTerminal.tsx` einen optionalen Schritt „Konto anlegen" ergänzen, der denselben Supabase-Signup auslöst — damit greifen `provision_profile` + `claim_person` automatisch.
 * [ ] E2E-Beleg: Kursanmeldung ohne Konto → späterer Signup mit gleicher Mail → Buchung erscheint im Dashboard.
 
