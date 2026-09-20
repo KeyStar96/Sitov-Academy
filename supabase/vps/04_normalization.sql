@@ -101,7 +101,10 @@ BEGIN
   ELSE
    SELECT array_agg(e.enumlabel::text ORDER BY e.enumsortorder) INTO existing FROM pg_enum e
     WHERE e.enumtypid=to_regtype('public.'||item.enum_name);
-   IF existing IS DISTINCT FROM item.labels THEN
+   -- Phase 6 appends one explicitly versioned mail event. Preserve strict
+   -- catalog checks for every other enum and any unknown/reordered labels.
+   IF existing IS DISTINCT FROM item.labels AND NOT (item.enum_name='mail_kind'
+    AND existing=item.labels||ARRAY['course_exception_added']::text[]) THEN
     RAISE EXCEPTION USING ERRCODE='23514', MESSAGE='normalization_enum_definition_mismatch', DETAIL=item.enum_name;
    END IF;
   END IF;

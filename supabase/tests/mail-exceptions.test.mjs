@@ -59,7 +59,8 @@ await test('Phase 6 exception snapshots and independent transactional notices', 
    await db.query('DELETE FROM course_exceptions WHERE course_id=$1 AND date=$2',[course,late])
    await db.query("INSERT INTO course_exceptions(course_id,date,reason) VALUES($1,$2,'Neu <Ferien>')",[course,late])
    await db.exec('COMMIT')
-   await apply(db,['13_mail_exception_kind.sql']); await apply(db,['14_mail_exceptions.sql'])
+   await apply(db,['13_mail_exception_kind.sql'])
+   await apply(db,['04_normalization.sql','05_rpc_errors.sql','14_mail_exceptions.sql'])
    assert.equal((await mails()).length,4)
   })
   await t.test('transactions roll back notices; learners cannot access or fabricate history',async()=>{
