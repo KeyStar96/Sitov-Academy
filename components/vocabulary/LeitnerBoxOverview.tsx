@@ -64,7 +64,7 @@ function PhaseTile({ bucket, t, onOpen, delay, reduced }: {
       whileHover={reduced ? undefined : { y: -4 }}
       whileTap={reduced ? undefined : { scale: 0.99 }}
       className={cn(
-        'vocab-glass group relative flex min-h-[10.5rem] w-full flex-col overflow-hidden rounded-2xl p-4 text-left',
+        'sl-glass group relative flex min-h-[10.5rem] w-full flex-col overflow-hidden rounded-2xl p-4 text-left',
         'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)]',
         isArchive && 'sm:col-span-2 lg:col-span-3',
       )}
@@ -140,13 +140,14 @@ export default function LeitnerBoxOverview({ summary, level, uiLanguage, transla
         </p>
       </div>
 
-      <div className="vocab-glass mb-4 rounded-2xl p-4">
+      <div className="sl-glass mb-4 rounded-2xl p-4">
         <div className="flex items-center justify-between gap-3">
           <span className="text-base font-bold text-[var(--foreground)]">{t('box_progress_label')}</span>
           <span className="shrink-0 text-xl font-bold tabular-nums text-[var(--foreground)]">{summary.percent}%</span>
         </div>
         <div
-          className="mt-3 h-2.5 overflow-hidden rounded-full bg-[var(--surface-muted)]"
+          className="sl-bar mt-3 h-2.5"
+          data-tone="success"
           role="progressbar"
           aria-valuemin={0}
           aria-valuemax={100}
@@ -156,7 +157,7 @@ export default function LeitnerBoxOverview({ summary, level, uiLanguage, transla
           {/* Breite als Inline-Style statt als Motion-Ziel: Der Server rendert
               den Balken sonst ohne Breite (also voll) und er springt erst beim
               Hydrieren auf den echten Wert. Die Bewegung macht CSS. */}
-          <span className="vocab-progress-fill" style={{ width: `${summary.percent}%` }} />
+          <span style={{ width: `${summary.percent}%` }} />
         </div>
       </div>
 

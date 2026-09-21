@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ArrowUpRight, ChevronRight, Lock, Sparkles } from 'lucide-react'
+import { ArrowUpRight, Sparkles } from 'lucide-react'
 import { getAllLevelsProgress } from '@/app/actions/progress'
 import { getUnseenFeedbackSummary } from '@/app/actions/feedback'
 import { getDictionary } from '@/lib/dictionary'
@@ -19,6 +19,7 @@ import NextCourseCard from '@/components/dashboard/home/NextCourseCard'
 import CoursePlanner from '@/components/dashboard/home/CoursePlanner'
 import LearningTrainersWidget from '@/components/dashboard/home/LearningTrainersWidget'
 import SupportWidget from '@/components/dashboard/home/SupportWidget'
+import LevelCard from '@/components/dashboard/home/LevelCard'
 
 export default async function DashboardPage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params
@@ -77,14 +78,14 @@ export default async function DashboardPage({ params }: { params: Promise<{ lang
     <GreetingClock name={displayName} lang={lang}><ThemeSwitch /></GreetingClock>
 
     <div className="grid grid-cols-1 gap-5 lg:grid-cols-12">
-      <section className="academy-next-step !rounded-3xl lg:col-span-7">
-        <div>
+      <section className="academy-next-step sl-glass sl-hero lg:col-span-7">
+        <div className="relative">
           <p className="academy-eyebrow"><Sparkles size={16} aria-hidden="true" />{copy.dashboard_recommended}</p>
           <h2>{recommended?.title || copy.learn_title}</h2>
           <p>{recommended?.description || copy.dashboard_no_access}</p>
           {recommended && <Link className="academy-button academy-button-primary" href={`/${lang}/dashboard/level/${recommended.id}`}>{copy.dashboard_cta}<ArrowUpRight size={19} aria-hidden="true" /></Link>}
         </div>
-        <div className="academy-progress-disc" role="img" aria-label={`${copy.dashboard_progress}: ${progress}%`} style={{ '--progress': `${progress * 3.6}deg` } as React.CSSProperties}><span><strong>{progress}%</strong><small>{copy.dashboard_progress}</small></span></div>
+        <div className="academy-progress-disc relative" role="img" aria-label={`${copy.dashboard_progress}: ${progress}%`} style={{ '--progress': `${progress * 3.6}deg` } as React.CSSProperties}><span><strong>{progress}%</strong><small>{copy.dashboard_progress}</small></span></div>
       </section>
 
       <NextCourseCard calendar={calendar} lang={lang} className="lg:col-span-5" />
@@ -104,11 +105,14 @@ export default async function DashboardPage({ params }: { params: Promise<{ lang
       <SupportWidget lang={lang} labels={supportLabels} className="lg:col-span-4" />
     </div>
 
-    <section aria-labelledby="academy-levels-title"><div className="academy-level-heading"><h2 id="academy-levels-title">{copy.dashboard_levels}</h2><span>A1—B1</span></div><div className="academy-level-grid">{levels.map((level, index) => {
-      const locked = !hasLevelAccess(accessProfile, level.id)
-      const value = Math.max(0, Math.min(100, progressMap[level.id] || 0))
-      const content = <><div className="academy-level-top"><span className="academy-level-code">{level.id}</span>{locked ? <Lock size={18} aria-hidden="true" /> : <span className="academy-level-number" aria-hidden="true">0{index + 1}</span>}</div><h3>{level.title}</h3><p>{level.description}</p><div className="academy-level-bottom">{locked ? <span>{t('level_locked_hint')}</span> : <><span>{value > 0 ? t('continue_learning') : t('start')}<ChevronRight size={17} aria-hidden="true" /></span><span>{value}%</span></>}</div>{!locked && <div className="academy-level-track" aria-hidden="true"><span style={{ width: `${value}%` }} /></div>}</>
-      return locked ? <article key={level.id} className="academy-level-card academy-level-locked" aria-disabled="true">{content}</article> : <Link key={level.id} href={`/${lang}/dashboard/level/${level.id}`} className="academy-level-card">{content}</Link>
-    })}</div></section>
+    <section aria-labelledby="academy-levels-title">
+      <div className="academy-level-heading"><h2 id="academy-levels-title">{copy.dashboard_levels}</h2><span>A1—B1</span></div>
+      <div className="academy-level-grid">
+        {levels.map((level, index) => <LevelCard key={level.id} id={level.id} title={level.title} description={level.description}
+          index={index} href={`/${lang}/dashboard/level/${level.id}`} locked={!hasLevelAccess(accessProfile, level.id)}
+          progress={Math.max(0, Math.min(100, progressMap[level.id] || 0))}
+          copy={{ start: t('start'), continueLearning: t('continue_learning'), lockedHint: t('level_locked_hint') }} />)}
+      </div>
+    </section>
   </div>
 }

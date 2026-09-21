@@ -27,15 +27,15 @@ export default function NextCourseCard({ calendar, lang, className = '' }: {
     : null
 
   return (
-    <section className={`flex min-w-0 flex-col rounded-3xl border border-[var(--border)] bg-[var(--accent-soft)] p-6 shadow-md sm:p-7 ${className}`}>
-      <div className="flex items-center gap-3">
-        <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[var(--accent-strong)] text-[var(--accent-foreground)]">
+    <section className={`sl-glass sl-hero flex min-w-0 flex-col p-6 sm:p-7 ${className}`}>
+      <div className="relative flex items-center gap-3">
+        <span className="sl-icon-tile h-12 w-12">
           <CalendarClock size={24} aria-hidden="true" />
         </span>
         <h2 className="text-xl font-bold text-[var(--foreground)]">{t('next_course_title')}</h2>
       </div>
       {event ? (
-        <div className="mt-5 min-w-0">
+        <div className="relative mt-5 min-w-0">
           <p className="break-words text-2xl font-bold leading-snug text-[var(--foreground)]">{title}</p>
           <p className="mt-2 text-lg font-semibold text-[var(--accent-text)]">{when}</p>
           <p className="mt-1 text-base text-[var(--muted)]">
@@ -44,7 +44,7 @@ export default function NextCourseCard({ calendar, lang, className = '' }: {
           </p>
         </div>
       ) : (
-        <p className="mt-5 text-lg leading-relaxed text-[var(--muted)]">{t('next_course_none')}</p>
+        <p className="relative mt-5 text-lg leading-relaxed text-[var(--muted)]">{t('next_course_none')}</p>
       )}
     </section>
   )

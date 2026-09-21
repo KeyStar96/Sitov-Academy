@@ -55,18 +55,18 @@ export default function ProfileMonthlyCourses({ initial, lang, translations, cou
   return (
     <div className="min-w-0 space-y-6">
     {calendar !== undefined && <ProfileCourseCalendar initial={calendar} lang={lang} bookingRevision={bookingRevision} />}
-    <section aria-labelledby="monthly-title" className="min-w-0 rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-4 shadow-sm sm:p-7">
+    <section aria-labelledby="monthly-title" className="sl-glass min-w-0 rounded-3xl p-4 sm:p-7">
       <div className="flex min-w-0 items-start gap-3">
-        <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[var(--accent-strong)] text-[var(--accent-foreground)]"><CalendarDays size={24} aria-hidden="true" /></span>
+        <span className="sl-icon-tile h-12 w-12"><CalendarDays size={24} aria-hidden="true" /></span>
         <div className="min-w-0">
-          <p className="mb-1 break-words text-base font-bold text-orange-800 dark:text-orange-300">{month}</p>
+          <p className="mb-1 break-words text-base font-bold text-[var(--accent-text)]">{month}</p>
           <h2 id="monthly-title" className="break-words text-xl font-bold text-[var(--foreground)]">{t('next_month_title')}</h2>
         </div>
       </div>
       <p className="mt-4 text-base leading-relaxed text-[var(--muted)]">{t('next_month_intro', { month })}</p>
       <div className="mt-4 grid min-h-12">
         {sourceHint.current && <p aria-hidden="true" data-reserve={t(sourceHint.current)} className="invisible rounded-xl p-3 text-base [grid-area:1/1] before:content-[attr(data-reserve)]" />}
-        {(state.source === 'previous') && <p className="rounded-xl bg-[var(--surface-muted)] p-3 text-base text-[var(--violet)] [grid-area:1/1]">{t('inherited_courses')}</p>}
+        {(state.source === 'previous') && <p className="rounded-xl bg-[var(--surface-muted)] p-3 text-base text-[var(--accent-text)] [grid-area:1/1]">{t('inherited_courses')}</p>}
         {state.source === 'unresolved' && <p className="rounded-xl bg-amber-50 p-3 text-base text-amber-900 [grid-area:1/1] dark:bg-amber-950 dark:text-amber-200">{t('unresolved_courses')}</p>}
       </div>
       <button type="button" role="switch" aria-checked={paused} aria-label={t('pause_next_month')}
@@ -92,8 +92,9 @@ export default function ProfileMonthlyCourses({ initial, lang, translations, cou
             <div key={course.id} className="space-y-2"><button type="button" role="checkbox" aria-checked={selected}
               aria-label={title} disabled={monthExpired || (!course.available && !selected)}
               onClick={() => toggleCourse(course.id)}
-              className={`flex min-h-12 w-full min-w-0 items-center gap-2.5 rounded-xl border px-3 py-2 text-left transition-colors focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-orange-500 disabled:opacity-60 ${selected && !paused ? 'border-[var(--violet)] bg-[var(--surface-muted)]  ' : 'border-[var(--border)] bg-[var(--surface)] hover:bg-[var(--surface-muted)]   '}`}>
-              <span aria-hidden="true" className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border ${selected ? 'border-[var(--violet)] bg-[var(--violet)] text-[var(--surface)]' : 'border-[var(--border)] text-[var(--muted)]'}`}>
+              data-selected={selected && !paused}
+              className="sl-card flex min-h-16 w-full items-center gap-2.5 px-3 py-2 pl-4 text-left focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-orange-500 disabled:opacity-60">
+              <span aria-hidden="true" data-selected={selected && !paused} className="sl-chip h-10 min-h-10 w-10 shrink-0 px-0">
                 {selected ? <Check size={18} /> : <Plus size={18} />}
               </span>
               <span className="min-w-0 flex-1">
@@ -101,7 +102,7 @@ export default function ProfileMonthlyCourses({ initial, lang, translations, cou
                 <span className="mt-0.5 block text-base leading-snug text-[var(--muted)]">
                   {t(course.available ? course.type === 'online' ? 'course_online' : 'course_presence' : 'course_unavailable')}
                   {' · '}
-                  <span className="font-bold text-[var(--violet)]">{t(selected ? 'course_remove' : 'course_add')}</span>
+                  <span className="font-bold text-[var(--accent-text)]">{t(selected ? 'course_remove' : 'course_add')}</span>
                 </span>
               </span>
             </button>

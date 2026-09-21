@@ -27,9 +27,9 @@ export default function SupportWidget({ lang, labels, className = '' }: {
     { href: `mailto:${labels.email}`, label: labels.emailLabel, icon: Mail, external: false },
   ]
   return (
-    <section aria-labelledby="dashboard-support-title" className={`flex min-w-0 flex-col rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-6 shadow-md sm:p-7 ${className}`}>
+    <section aria-labelledby="dashboard-support-title" className={`sl-glass flex min-w-0 flex-col rounded-3xl p-6 sm:p-7 ${className}`}>
       <div className="flex items-center gap-3">
-        <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[var(--surface-muted)] text-[var(--violet)]">
+        <span className="sl-icon-tile h-12 w-12">
           <LifeBuoy size={24} aria-hidden="true" />
         </span>
         <h2 id="dashboard-support-title" className="text-xl font-bold text-[var(--foreground)]">{t('support_title')}</h2>
@@ -41,9 +41,9 @@ export default function SupportWidget({ lang, labels, className = '' }: {
             <a
               href={channel.href}
               {...(channel.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-              className="flex min-h-14 w-full min-w-0 items-center gap-3 rounded-2xl border border-[var(--border)] bg-[var(--surface-muted)] px-4 py-3 text-lg font-semibold text-[var(--foreground)] transition-colors hover:border-[var(--violet)] hover:bg-[var(--surface)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)]"
+              className="sl-card flex min-h-14 w-full items-center gap-3 px-4 py-3 pl-5 text-lg font-semibold text-[var(--foreground)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)]"
             >
-              <channel.icon size={22} aria-hidden="true" className="shrink-0 text-[var(--violet)]" />
+              <channel.icon size={22} aria-hidden="true" className="shrink-0 text-[var(--accent-text)]" />
               <span className="min-w-0 break-words">{channel.label}</span>
             </a>
           </li>

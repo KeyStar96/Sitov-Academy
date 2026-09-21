@@ -28,10 +28,10 @@ export default function LearningTrainersWidget({ lang, level, profile, translati
   const languageLocked = lang === 'de'
 
   return (
-    <section aria-labelledby="dashboard-trainers-title" className={`flex min-w-0 flex-col rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-6 shadow-md sm:p-7 ${className}`}>
+    <section aria-labelledby="dashboard-trainers-title" className={`sl-glass flex min-w-0 flex-col rounded-3xl p-6 sm:p-7 ${className}`}>
       <div className="flex flex-wrap items-center justify-between gap-3">
         <h2 id="dashboard-trainers-title" className="text-xl font-bold text-[var(--foreground)]">{home('trainers_title')}</h2>
-        <Link href={`/${lang}/dashboard`} className="inline-flex min-h-11 items-center gap-1.5 rounded-full px-3 text-base font-semibold text-[var(--violet)] underline underline-offset-4 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)]">
+        <Link href={`/${lang}/dashboard`} className="inline-flex min-h-12 items-center gap-2 rounded-full border border-[var(--border)] px-4 text-base font-semibold text-[var(--accent-text)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)]">
           {home('trainers_all')}<ArrowUpRight size={18} aria-hidden="true" />
         </Link>
       </div>
@@ -46,12 +46,12 @@ export default function LearningTrainersWidget({ lang, level, profile, translati
               : languageLocked || !hasTrainerAccess(profile, level, cat.id as Trainer)
             const content = (
               <>
-                <span className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl ${locked ? 'bg-[var(--surface-muted)] text-[var(--muted)]' : 'bg-[var(--surface-muted)] text-[var(--violet)]'}`}>
+                <span className="sl-icon-tile h-14 w-14" data-tone={locked ? 'muted' : undefined}>
                   {locked ? <Lock size={26} aria-hidden="true" /> : <cat.icon size={26} aria-hidden="true" />}
                 </span>
                 <span className="min-w-0 flex-1">
                   <span className="block break-words text-lg font-bold leading-snug text-[var(--foreground)]">{t(cat.titleKey)}</span>
-                  <span className={`mt-1 flex items-center gap-1.5 text-base font-semibold ${locked ? 'text-[var(--muted)]' : 'text-[var(--violet)]'}`}>
+                  <span className={`mt-1 flex items-center gap-1.5 text-base font-semibold ${locked ? 'text-[var(--muted)]' : 'text-[var(--accent-text)]'}`}>
                     {locked ? <><Lock size={15} aria-hidden="true" />{home('trainer_locked')}</> : <>{home('trainer_open')}<ArrowUpRight size={16} aria-hidden="true" /></>}
                   </span>
                 </span>
@@ -59,14 +59,14 @@ export default function LearningTrainersWidget({ lang, level, profile, translati
             )
             if (locked) {
               return (
-                <div key={cat.id} aria-disabled="true" className="flex min-h-20 min-w-0 items-center gap-4 rounded-2xl border-2 border-dashed border-[var(--border)] bg-[var(--surface-muted)] p-4">
+                <div key={cat.id} aria-disabled="true" data-disabled="true" className="sl-card flex min-h-20 items-center gap-4 p-4">
                   {content}
                 </div>
               )
             }
             return (
               <Link key={cat.id} href={`/${lang}/dashboard/level/${level}/${cat.path}`}
-                className="flex min-h-20 min-w-0 items-center gap-4 rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-4 transition-colors hover:border-[var(--violet)] hover:bg-[var(--surface-muted)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)]">
+                className="sl-card flex min-h-20 items-center gap-4 p-4 pl-5 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)]">
                 {content}
               </Link>
             )

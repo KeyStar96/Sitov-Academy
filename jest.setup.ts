@@ -37,10 +37,14 @@ jest.mock('next/image', () => ({
 }));
 
 // Next.js Link Mock
+// Props werden durchgereicht (className, aria-*, data-*): Ein Mock, der sie
+// verschluckt, laesst jede Zusicherung ueber das Aussehen oder den Zustand
+// eines Links stillschweigend ins Leere laufen. Nur die Next-eigenen
+// Steuer-Props werden entfernt, sonst warnt React ueber unbekannte Attribute.
 jest.mock('next/link', () => ({
     __esModule: true,
-    default: ({ children, href }: { children: React.ReactNode; href: string }) => (
-        React.createElement('a', { href }, children)
+    default: ({ children, href, prefetch, replace, scroll, shallow, locale, passHref, legacyBehavior, ...rest }: any) => (
+        React.createElement('a', { href, ...rest }, children)
     ),
 }));
 

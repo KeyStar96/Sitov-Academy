@@ -168,7 +168,7 @@ export default function PhaseInspector({ phase, level, uiLanguage, translations 
             exit={hidden}
             transition={{ duration: 0.42, ease: EASE }}
             className={cn(
-              'vocab-glass relative flex max-h-[88dvh] w-full flex-col rounded-t-3xl p-4 text-[var(--foreground)] sm:max-h-none sm:h-full sm:max-w-md sm:rounded-l-3xl sm:rounded-tr-none sm:p-6',
+              'sl-glass relative flex max-h-[88dvh] w-full flex-col rounded-t-3xl p-4 text-[var(--foreground)] sm:max-h-none sm:h-full sm:max-w-md sm:rounded-l-3xl sm:rounded-tr-none sm:p-6',
             )}
           >
             <div className="flex flex-shrink-0 items-start justify-between gap-3 pb-3">

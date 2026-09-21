@@ -426,6 +426,16 @@ Befund: `e2e/accessibility.spec.ts` enthält einen expliziten Whitelist-Block, d
 * [x] Fortschrittsbalken der Fächer-Übersicht rendert seine Breite serverseitig (Inline-Style plus CSS-Transition statt Motion-Ziel); vorher stand er bis zum Hydrieren auf 100 %.
 * [x] 42 neue Textbausteine in allen fünf Wörterbüchern (de/en/ru/uk/tr); `lernkasten_summary` spricht jetzt von Aufgaben statt Vokabeln, passend zur Zählung. Prüfungen: TypeScript, 1.444 Jest-Tests in 119 Suites, 11 VPS-Datenbanktests für Migration 20, 6 axe-core-Browsertests und Produktionsbuild bestanden; Übersicht in beiden Themes im Browser gegengeprüft.
 
+#### 5.9 Eine Bildsprache für Dashboard und Lernraum
+* [x] Geteilte Flächen in `app/globals.css` statt je Bereich eigener: `.sl-glass` (Glasfläche mit Vollton-Rückfall ohne `backdrop-filter` und im Kontrastmodus), `.sl-card` samt Auswahl-Zustand, `.sl-chip`, `.sl-icon-tile`, `.sl-bar` und `.sl-hero`. `components/vocabulary/lernkasten.css` enthält nur noch, was wirklich zum Karteikasten gehört.
+* [x] Niveau-Kacheln: Glasfläche, Niveau-Kürzel als getöntes Marken-Badge, laufende Nummer als Relief dahinter (wie die Fachnummer im Karteikasten), Fortschrittsband in Markenfarbe an der Unterkante. Gesperrte Niveaus bleiben ruhig gestrichelt.
+* [x] Markup der Niveau-Kachel aus `app/[lang]/dashboard/page.tsx` nach `components/dashboard/home/LevelCard.tsx` gezogen — die Zeile war rund 600 Zeichen lang und damit unlesbar; vier neue Tests decken Link gegen Sackgasse, Fortschritt und Nummerierung ab.
+* [x] „Dein nächster Kurs" und der empfohlene Einstieg tragen denselben warmen Lichtschein wie „Jetzt fällig"; Fortschrittsscheibe von Violett auf Markenfarbe.
+* [x] Lernbereiche, Schnellhilfe, Terminliste und Kurs-Auswahl auf dieselben Kacheln umgestellt. Die Kurs-Auswahl spricht jetzt exakt die Auswahl-Sprache der Lernsets (Spine, getönte Fläche, Pille) — es ist dieselbe Interaktion.
+* [x] Violett als Aktionsfarbe im Lernbereich durch `--accent-text` ersetzt; Violett bleibt laut Palette die sparsame Sekundärfarbe und markiert nur noch die mittleren Lernphasen.
+* [x] `jest.setup.ts`: Der `next/link`-Mock reichte `className` und `data-*` nicht durch — jede Zusicherung über Aussehen oder Zustand eines Links lief still ins Leere. Props werden jetzt weitergegeben, nur die Next-eigenen Steuer-Props entfernt.
+* [x] Prüfungen: TypeScript, 1.448 Jest-Tests in 120 Suites, 6 axe-core-Browsertests und Produktionsbuild bestanden; Dashboard in hell und dunkel im Browser gegengeprüft.
+
 ---
 
 ### PHASE 6 — E-MAIL MIT AUSFALLTAGEN & MONITORING

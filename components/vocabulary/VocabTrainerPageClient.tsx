@@ -88,11 +88,11 @@ export default function VocabTrainerPageClient({ learnerId, initialCards, lesson
     onBackToLernkasten={lastId => { setPreviousCardId(lastId); setSession(null); startRefresh(() => router.refresh()) }} />
 
   return <div className="mx-auto w-full max-w-5xl space-y-8 text-[var(--foreground)]">
-    <section className="vocab-glass vocab-hero p-5 sm:p-7" aria-label={t('lernkasten_title')}>
+    <section className="sl-glass sl-hero p-5 sm:p-7" aria-label={t('lernkasten_title')}>
       <div className="relative flex flex-wrap items-end justify-between gap-x-6 gap-y-5">
         <div className="min-w-0">
           <p className="flex items-center gap-2 text-base font-semibold text-[var(--muted)]">
-            {selectedCards.length > 0 && <span className="vocab-due-dot" aria-hidden="true" />}
+            {selectedCards.length > 0 && <span className="sl-due-dot" aria-hidden="true" />}
             {t('due_now')}
           </p>
           <p className="mt-2 flex flex-wrap items-baseline gap-x-3">
@@ -118,7 +118,7 @@ export default function VocabTrainerPageClient({ learnerId, initialCards, lesson
       {initialDeferredCount > 0 && <p className="relative mt-5 border-t border-[var(--border)] pt-4 text-base text-[var(--muted)]">{t('repetition_gap_hint')}</p>}
     </section>
     <LeitnerBoxOverview summary={boxSummary} level={level} uiLanguage={lang} translations={translations} />
-    <details className="vocab-glass rounded-2xl px-5 sm:px-7">
+    <details className="sl-glass rounded-2xl px-5 sm:px-7">
       <summary className="flex min-h-14 cursor-pointer items-center gap-3 py-3 font-semibold"><BookOpen size={18} aria-hidden="true" className="text-[var(--accent-text)]" />{t('method_title')}</summary>
       <div className="space-y-3 border-t border-[var(--border)] py-5 text-base leading-relaxed text-[var(--muted)]">
         <p>{t('method_progress')}</p><p>{t('method_intervals')}</p><p>{t('method_learned')}</p><p>{t('method_assessment')}</p>
@@ -137,7 +137,7 @@ export default function VocabTrainerPageClient({ learnerId, initialCards, lesson
           const selected = selection.includes(lesson.lesson)
           const due = dueByLesson.get(lesson.lesson) ?? 0
           const learnedPercent = lesson.total ? Math.round(lesson.learned / lesson.total * 100) : 0
-          return <motion.article key={lesson.lesson} data-selected={selected} className="vocab-set-card min-w-0 p-4 pl-5 sm:p-5 sm:pl-6"
+          return <motion.article key={lesson.lesson} data-selected={selected} className="sl-card min-w-0 p-4 pl-5 sm:p-5 sm:pl-6"
             initial={reduced ? false : { opacity: 0, y: 12 }} animate={reduced ? undefined : { opacity: 1, y: 0 }}
             transition={{ duration: 0.4, ease: EASE, delay: reduced ? 0 : Math.min(index, 7) * 0.04 }}>
             <div className="flex flex-wrap items-start justify-between gap-x-3 gap-y-3">
@@ -151,14 +151,14 @@ export default function VocabTrainerPageClient({ learnerId, initialCards, lesson
                     : <span className="text-[var(--muted)]">{t('lernkasten_no_due_badge')} · {t('set_words_total', { count: lesson.total })}</span>}
                 </p>
               </div>
-              <button type="button" onClick={() => toggle(lesson)} data-selected={selected} className="vocab-chip shrink-0"
+              <button type="button" onClick={() => toggle(lesson)} data-selected={selected} className="sl-chip shrink-0"
                 aria-pressed={selected} aria-label={t(selected ? 'lernkasten_remove_aria' : 'lernkasten_add_aria', { lesson: lesson.lesson })}>
                 {selected ? <Check size={18} aria-hidden="true" /> : <Plus size={18} aria-hidden="true" />}
                 {t(selected ? 'lernkasten_in_box' : 'set_add_short')}
               </button>
             </div>
             <div className="mt-4 flex items-center gap-3">
-              <div className="vocab-set-bar min-w-0 flex-1" aria-hidden="true"><span style={{ width: `${learnedPercent}%` }} /></div>
+              <div className="sl-bar min-w-0 flex-1" data-tone="success" aria-hidden="true"><span style={{ width: `${learnedPercent}%` }} /></div>
               <span className="shrink-0 text-sm tabular-nums text-[var(--muted)]">{t('set_learned_share', { percent: learnedPercent })}</span>
             </div>
             <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 border-t border-[var(--border)] pt-3">

@@ -69,9 +69,9 @@ export default function ProfileCourseCalendar({ initial, lang, bookingRevision }
   const fullDate = (date: string) => formatCalendarDate(date, lang, { weekday: 'long', day: 'numeric', month: 'long' })
 
   return (
-    <section aria-labelledby={headingId} className="min-w-0 rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-4 shadow-sm sm:p-7">
+    <section aria-labelledby={headingId} className="sl-glass min-w-0 rounded-3xl p-4 sm:p-7">
       <div className="flex items-center gap-3">
-        <CalendarDays className="shrink-0 text-[var(--foreground)]" aria-hidden="true" size={24} />
+        <span className="sl-icon-tile h-12 w-12"><CalendarDays aria-hidden="true" size={24} /></span>
         <h2 id={headingId} className="text-xl font-bold text-[var(--foreground)]">{messages.title}</h2>
       </div>
       <p className="mt-3 text-sm leading-relaxed text-[var(--muted)]">{messages.intro}</p>
@@ -120,7 +120,7 @@ export default function ProfileCourseCalendar({ initial, lang, bookingRevision }
         <div aria-live="polite" aria-atomic="true">
           {events.length === 0 && <p className="mt-3 text-sm text-[var(--muted)]">{activeDay ? messages.emptyDay : messages.empty}</p>}
           <ul className="mt-3 space-y-3">
-            {events.map(event => <li key={event.id} className="rounded-xl border border-[var(--border)] p-3">
+            {events.map(event => <li key={event.id} className="sl-card p-3 pl-4">
               <p className="text-sm font-semibold text-[var(--muted)]"><time dateTime={event.date}>{fullDate(event.date)}</time> · {event.startTime}–{event.endTime}</p>
               <p className={`mt-1 font-semibold text-[var(--foreground)] ${event.cancelled ? 'line-through' : ''}`}>{title(event)}</p>
               {event.cancelled && <p className="mt-2 rounded-lg bg-[var(--warning)] px-2 py-1 text-sm font-semibold text-[var(--warning-foreground)]">{messages.cancelled}{event.reasons.length > 0 ? `: ${event.reasons.join(' · ')}` : ''}</p>}
