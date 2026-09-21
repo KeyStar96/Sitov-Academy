@@ -23,7 +23,15 @@
 .enrollment-header > div:first-child { min-height: 48px; }
 .enrollment-brand .academy-logo-mark { width: 34px; height: 34px; }
 .enrollment-brand .academy-logo-name { font-size: 15px; }
-.enrollment-panel { box-shadow: 0 4px 24px rgb(24 40 26 / 3%); }
+.enrollment-panel { background: var(--surface); box-shadow: var(--shadow-md); }
+/* Glassmorphism nur auf Desktop — spart GPU auf älteren Mobilgeräten der Zielgruppe. */
+@media (hover: hover) and (min-width: 768px) {
+  .enrollment-panel {
+    background: color-mix(in srgb, var(--surface) 82%, transparent);
+    -webkit-backdrop-filter: blur(14px) saturate(150%);
+    backdrop-filter: blur(14px) saturate(150%);
+  }
+}
 .enrollment-course { background: var(--surface); border-color: var(--border); transition: background 160ms ease, border-color 160ms ease; }
 .enrollment-course:hover { border-color: var(--accent); background: var(--surface-muted); }
 .enrollment-course-selected { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 6%, var(--surface)); }
@@ -100,7 +108,7 @@
 .registration-flow .enrollment-receipt :is(.text-gray-200, .text-gray-300, .text-white) { color: var(--foreground); }
 .registration-flow .enrollment-receipt :is(.text-gray-400, .text-gray-500, .text-gray-600) { color: var(--muted); }
 .registration-flow .enrollment-receipt [class*="border-white"] { border-color: var(--border); }
-.registration-flow .enrollment-receipt :is(.text-green-400, .text-green-500) { color: var(--accent); }
+.registration-flow .enrollment-receipt :is(.text-green-400, .text-green-500) { color: var(--accent-text); }
 .registration-flow .enrollment-receipt [class*="text-red-"] { color: #a32c24; }
 .dark .registration-flow .enrollment-receipt [class*="text-red-"] { color: #ffb4a8; }
 .enrollment-receipt-items { overflow-wrap: anywhere; }
@@ -114,7 +122,7 @@
 }
 .registration-flow .enrollment-receipt .enrollment-submit:not(:disabled),
 .registration-flow :is(.enrollment-scroll-link, .enrollment-home-button) {
-  background: var(--accent); color: var(--registration-on-accent);
+  background: var(--accent-strong); color: var(--registration-on-accent);
 }
 .registration-flow .enrollment-receipt .enrollment-submit:disabled { background: var(--surface-muted); color: var(--muted); }
 .enrollment-submit > span { min-width: 0; overflow-wrap: anywhere; }
@@ -129,7 +137,7 @@
     border: 1px solid var(--border);
     border-radius: 24px;
     overflow: hidden;
-    box-shadow: 0 8px 32px rgb(24 40 26 / 4%);
+    box-shadow: var(--shadow-lg);
   }
   /* Long course selections remain readable without moving the total or action. */
   .registration-flow .enrollment-receipt-items {
@@ -177,5 +185,5 @@
 
 @media (hover: hover) {
   .registration-flow .enrollment-receipt .enrollment-submit:not(:disabled):hover,
-  .registration-flow :is(.enrollment-scroll-link, .enrollment-home-button):hover { background: var(--accent-hover); }
+  .registration-flow :is(.enrollment-scroll-link, .enrollment-home-button):hover { background: var(--accent-strong-hover); }
 }

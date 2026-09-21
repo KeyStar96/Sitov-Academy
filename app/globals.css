@@ -1095,7 +1095,7 @@ html.dark {
   --surface: #1e293b;           /* slate-800 */
   --surface-muted: #334155;     /* slate-700 */
   --foreground: #f8fafc;        /* slate-50 */
-  --muted: #94a3b8;             /* slate-400 — 7.0:1 auf slate-900 */
+  --muted: #a8b4c6;             /* slate-350 — 4.9:1 auf surface-muted (#334155), AA */
   --border: #334155;
   --border-strong: #475569;
   --accent: #f97316;
@@ -1277,18 +1277,25 @@ html:has(.academy-header) { scroll-padding-top: 9rem; }
 .academy-footer::before { content: ""; position: absolute; inset-inline: 0; top: -1px; height: 1px; background: var(--gold); opacity: .5; pointer-events: none; }
 .academy-footer-top { display: flex; flex-direction: column; align-items: start; gap: 1.5rem; padding-bottom: 2.5rem; }
 .academy-footer-top > div { max-width: 38rem; }
-.academy-footer-top p:not(.academy-eyebrow) { color: var(--muted); margin-top: 1rem; font-size: .95rem; }
-.academy-footer-columns { display: grid; align-items: start; gap: 2rem; padding-block: 2.5rem; border-top: 1px solid var(--border); }
+.academy-footer-top p:not(.academy-eyebrow) { color: var(--muted); margin-top: 1rem; font-size: 1rem; line-height: 1.7; }
+/* Sanftere, halbtransparente Trennlinie statt harter Kante. */
+.academy-footer-columns { display: grid; align-items: start; gap: 2rem; padding-block: 2.5rem; border-top: 1px solid color-mix(in srgb, var(--border) 55%, transparent); }
 .academy-footer-columns > * { min-width: 0; }
-.academy-footer-columns h3 { margin-bottom: .75rem; color: var(--foreground); font-size: .875rem; font-weight: 700; line-height: 1.6; }
-.academy-footer-columns address { display: flex; flex-direction: column; gap: .15rem; font-size: .875rem; color: var(--muted); font-style: normal; line-height: 1.8; }
-.academy-footer-contact a { display: flex; align-items: center; gap: .6rem; min-height: 48px; font-size: .875rem; text-decoration: underline; text-underline-offset: 4px; }
+.academy-footer-columns h3 { margin-bottom: .85rem; color: var(--foreground); font-size: .95rem; font-weight: 700; letter-spacing: -.01em; line-height: 1.5; }
+.academy-footer-columns address { display: flex; flex-direction: column; gap: .2rem; font-size: .95rem; color: var(--muted); font-style: normal; line-height: 1.8; }
+.academy-footer-contact a { display: flex; align-items: center; gap: .6rem; min-height: 48px; font-size: .95rem; color: var(--foreground); text-decoration: underline; text-decoration-color: color-mix(in srgb, var(--foreground) 30%, transparent); text-underline-offset: 4px; transition: color .2s, text-decoration-color .2s; }
 .academy-footer-contact a:first-of-type { margin-top: -.5rem; }
 .academy-footer-contact a span { min-width: 0; overflow-wrap: anywhere; }
-.academy-footer-contact svg { flex-shrink: 0; color: var(--muted); }
-.academy-footer-bottom { border-top: 1px solid var(--border); padding-top: 1.4rem; color: var(--muted); font-size: .7rem; }
-.academy-footer-bottom nav { display: flex; flex-wrap: wrap; gap: .2rem 1rem; }
-.academy-footer-bottom a { display: inline-flex; min-height: 48px; align-items: center; }
+/* Warme Accent-Icons als dezenter Marken-Akzent (dekorativ, kein Text). */
+.academy-footer-contact svg { flex-shrink: 0; color: var(--accent); }
+/* Gold-getönte, sanfte Trennlinie über der Legal-Leiste. */
+.academy-footer-bottom { border-top: 1px solid color-mix(in srgb, var(--gold-via) 28%, var(--border)); padding-top: 1.5rem; color: var(--muted); font-size: .82rem; line-height: 1.7; }
+.academy-footer-bottom nav { display: flex; flex-wrap: wrap; gap: .2rem 1.25rem; }
+.academy-footer-bottom a { display: inline-flex; min-height: 48px; align-items: center; color: var(--muted); transition: color .2s; }
+@media (hover: hover) {
+  .academy-footer-contact a:hover { color: var(--accent-text); text-decoration-color: var(--accent-text); }
+  .academy-footer-bottom a:hover { color: var(--accent-text); }
+}
 .academy-student-shell { min-height: 100dvh; background: var(--canvas); }
 .academy-student-header { position: sticky; top: 0; background: var(--canvas); border-bottom: 1px solid var(--border); z-index: 30; padding-top: env(safe-area-inset-top); }
 .academy-student-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 72px; }
