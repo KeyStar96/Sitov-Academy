@@ -1307,7 +1307,7 @@
     "lernkasten_title": "Твоя коробка для навчання",
     "lernkasten_intro": "Поклади в коробку уроки, які хочеш вчити зараз. У заняття увійдуть лише їхні слова.",
     "lernkasten_empty": "Коробка поки порожня. Натисни на урок нижче або перетягни його сюди.",
-    "lernkasten_summary": "Вибрано уроків: {lessons} – {cards} слів",
+    "lernkasten_summary": "Вибрано уроків: {lessons} – {cards} завдань",
     "lernkasten_start": "Вчити вибрані слова",
     "lernkasten_start_hint_empty": "Спочатку поклади в коробку хоча б один урок.",
     "lernkasten_start_hint_nothing_due": "У твоєму виборі сьогодні нічого не заплановано. Вибери інші уроки або повертайся завтра.",
@@ -1394,7 +1394,11 @@
     "mode_flashcard_hint": "Відкрити відповідь і оцінити себе",
     "mode_typing_hint": "Ввести відповідь і перевірити",
     "mode_locked_flashcard": "Цей напрям завжди йде карткою — писати треба лише німецькою.",
-    "mode_locked_typed": "Речення завжди потрібно писати."
+    "mode_locked_typed": "Речення завжди потрібно писати.",
+    "due_tasks_label": "завдань до повтору",
+    "set_learned_share": "{percent} % вивчено",
+    "set_add_short": "Додати",
+    "set_words_total": "{count} слів"
   },
   "exercises": {
     "soft_error": {

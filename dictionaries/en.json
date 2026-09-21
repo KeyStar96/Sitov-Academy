@@ -1308,7 +1308,7 @@
     "lernkasten_title": "Your learning box",
     "lernkasten_intro": "Put the lessons you want to study now into the learning box. Only their words flow into this session.",
     "lernkasten_empty": "Your learning box is empty. Tap a lesson below or drag it here.",
-    "lernkasten_summary": "{lessons} lessons selected – {cards} words",
+    "lernkasten_summary": "{lessons} lessons selected – {cards} tasks",
     "lernkasten_start": "Study selected words",
     "lernkasten_start_hint_empty": "Put at least one lesson into the learning box first.",
     "lernkasten_start_hint_nothing_due": "Nothing is due in your selection today. Pick other lessons or come back tomorrow.",
@@ -1395,7 +1395,11 @@
     "mode_flashcard_hint": "Reveal the answer and rate yourself",
     "mode_typing_hint": "Type the answer and have it checked",
     "mode_locked_flashcard": "This direction always runs as a flashcard — only German is typed out.",
-    "mode_locked_typed": "Sentences are always typed out."
+    "mode_locked_typed": "Sentences are always typed out.",
+    "due_tasks_label": "tasks due",
+    "set_learned_share": "{percent}% learned",
+    "set_add_short": "Add",
+    "set_words_total": "{count} words"
   },
   "exercises": {
     "soft_error": {

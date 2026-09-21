@@ -1304,7 +1304,7 @@
     "lernkasten_title": "Öğrenme kutun",
     "lernkasten_intro": "Şimdi çalışmak istediğin dersleri öğrenme kutusuna koy. Sadece onların kelimeleri bu oturuma dahil olur.",
     "lernkasten_empty": "Öğrenme kutun henüz boş. Aşağıdan bir derse dokun ya da buraya sürükle.",
-    "lernkasten_summary": "{lessons} ders seçildi – {cards} kelime",
+    "lernkasten_summary": "{lessons} ders seçildi – {cards} görev",
     "lernkasten_start": "Seçilen kelimeleri öğren",
     "lernkasten_start_hint_empty": "Önce en az bir dersi öğrenme kutusuna koy.",
     "lernkasten_start_hint_nothing_due": "Seçiminde bugün tekrar edilecek bir şey yok. Başka dersler seç ya da yarın tekrar gel.",
@@ -1391,7 +1391,11 @@
     "mode_flashcard_hint": "Çözümü aç ve kendini değerlendir",
     "mode_typing_hint": "Çözümü yaz ve kontrol ettir",
     "mode_locked_flashcard": "Bu yön her zaman kart olarak çalışır — yalnızca Almanca yazılır.",
-    "mode_locked_typed": "Cümleler her zaman yazılır."
+    "mode_locked_typed": "Cümleler her zaman yazılır.",
+    "due_tasks_label": "görev sırada",
+    "set_learned_share": "%{percent} öğrenildi",
+    "set_add_short": "Ekle",
+    "set_words_total": "{count} kelime"
   },
   "exercises": {
     "soft_error": {

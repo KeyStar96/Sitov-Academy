@@ -421,7 +421,10 @@ Befund: `e2e/accessibility.spec.ts` enthält einen expliziten Whitelist-Block, d
 * [x] Ausschreiben gilt ausschließlich der Richtung eigene Sprache → Deutsch. Deutsch → eigene Sprache läuft immer als Karteikarte, Sätze immer als Texteingabe; fehlt die Wahl, sagt die UI warum.
 * [x] `supabase/vps/20_vocabulary_learner_mode.sql` löst die Selbsteinschätzung aus dem Fach-Band von Migration 18 (vorher ab Phase 3 abgelehnt). R5 bleibt gewahrt: Der Client wählt den Weg, PostgreSQL entscheidet Fach, Intervall und Termin. Sätze bleiben ausgeschlossen. Rollback beiliegend.
 * [x] Lektionsliste und Fächer-Übersicht stammen aus **einem** Lesevorgang (`getVocabularyOverview`) und teilen die Definitionen von „gelernt" und „fällig" — sie können nicht widersprechen.
-* [x] 38 neue Textbausteine in allen fünf Wörterbüchern (de/en/ru/uk/tr). Prüfungen: TypeScript, 1.439 Jest-Tests in 118 Suites, 11 VPS-Datenbanktests für Migration 20, 6 axe-core-Browsertests und Produktionsbuild bestanden.
+* [x] Lernset-Karten: Der Auswahl-Zustand trägt Rand, Akzent-Spine an der Kante, getönte Fläche **und** eine beschriftete Pille („Im Lernkasten" mit Haken statt eines dezenten Icons) — die Auswahl ist auch ohne Farbsehen erkennbar. Fällige Aufgaben in Akzentfarbe, gelernter Anteil als Balken mit Prozentwert.
+* [x] Startfläche „Jetzt fällig" auf dieselbe Bildsprache gebracht: Glasfläche mit warmem Lichtschein, pulsierender Punkt nur bei tatsächlich Fälligem, großer Zähler mit Einheit und hervorgehobener Start-Taste.
+* [x] Fortschrittsbalken der Fächer-Übersicht rendert seine Breite serverseitig (Inline-Style plus CSS-Transition statt Motion-Ziel); vorher stand er bis zum Hydrieren auf 100 %.
+* [x] 42 neue Textbausteine in allen fünf Wörterbüchern (de/en/ru/uk/tr); `lernkasten_summary` spricht jetzt von Aufgaben statt Vokabeln, passend zur Zählung. Prüfungen: TypeScript, 1.444 Jest-Tests in 119 Suites, 11 VPS-Datenbanktests für Migration 20, 6 axe-core-Browsertests und Produktionsbuild bestanden; Übersicht in beiden Themes im Browser gegengeprüft.
 
 ---
 

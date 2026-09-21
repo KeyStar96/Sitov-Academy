@@ -120,7 +120,7 @@ export const VOCABULARY_FALLBACKS = {
   lernkasten_intro:
     'Lege die Lektionen in den Lernkasten, die du jetzt lernen möchtest. Nur deren Vokabeln fließen in die Lerneinheit ein.',
   lernkasten_empty: 'Dein Lernkasten ist noch leer. Tippe unten eine Lektion an oder ziehe sie hierher.',
-  lernkasten_summary: '{lessons} Lektionen ausgewählt – {cards} Vokabeln',
+  lernkasten_summary: '{lessons} Lektionen ausgewählt – {cards} Aufgaben',
   lernkasten_start: 'Ausgewählte Vokabeln lernen',
   lernkasten_start_hint_empty: 'Lege zuerst mindestens eine Lektion in den Lernkasten.',
   lernkasten_start_hint_nothing_due:
@@ -214,6 +214,12 @@ export const VOCABULARY_FALLBACKS = {
   mode_typing_hint: 'Lösung eintippen und prüfen lassen',
   mode_locked_flashcard: 'Diese Richtung läuft immer als Karteikarte — ausgeschrieben wird nur Deutsch.',
   mode_locked_typed: 'Sätze werden immer ausgeschrieben.',
+
+  // Startfläche „Jetzt fällig" und Lernset-Karten
+  due_tasks_label: 'Aufgaben fällig',
+  set_learned_share: '{percent} % gelernt',
+  set_add_short: 'Hinzufügen',
+  set_words_total: '{count} Vokabeln',
 } as const
 
 export type VocabularyTranslationKey = Extract<keyof typeof VOCABULARY_FALLBACKS, string>

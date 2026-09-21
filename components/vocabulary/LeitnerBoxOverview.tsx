@@ -153,12 +153,10 @@ export default function LeitnerBoxOverview({ summary, level, uiLanguage, transla
           aria-valuenow={summary.percent}
           aria-label={t('box_progress_label')}
         >
-          <motion.div
-            className="h-full rounded-full bg-[var(--success)]"
-            initial={reduced ? false : { width: 0 }}
-            animate={{ width: `${summary.percent}%` }}
-            transition={{ duration: 0.7, ease: EASE }}
-          />
+          {/* Breite als Inline-Style statt als Motion-Ziel: Der Server rendert
+              den Balken sonst ohne Breite (also voll) und er springt erst beim
+              Hydrieren auf den echten Wert. Die Bewegung macht CSS. */}
+          <span className="vocab-progress-fill" style={{ width: `${summary.percent}%` }} />
         </div>
       </div>
 
