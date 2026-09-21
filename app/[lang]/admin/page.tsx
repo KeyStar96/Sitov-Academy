@@ -1,10 +1,10 @@
 import { MediaStorageUsage } from '@/components/admin/MediaStorageUsage'
 import { getAdminStats } from '@/app/actions/admin'
 import Link from 'next/link'
-import { ArrowRight, CalendarDays, Users, BookOpen, Mic, FileText } from 'lucide-react'
+import { ArrowRight, BarChart3, BookOpen, LibraryBig, Wallet } from 'lucide-react'
 import { getDictionary } from '@/lib/dictionary'
 import { createAdminTranslator } from '@/lib/admin-i18n'
-import { mediaCopy } from '@/lib/media-i18n'
+import { courseCmsCopy } from '@/lib/course-cms-i18n'
 import { teacherAnalyticsCopy } from '@/lib/teacher-analytics-i18n'
 
 export default async function AdminDashboardPage({ params }: { params: Promise<{ lang: string }> }) {
@@ -17,13 +17,10 @@ export default async function AdminDashboardPage({ params }: { params: Promise<{
     { label: t('kpi_pending'), value: stats.pendingSubmissions, href: `/${lang}/admin/submissions` },
   ]
   const links = [
-    { href: 'content/media', title: mediaCopy(lang).title, description: mediaCopy(lang).intro, Icon: FileText },
-    { href: 'analytics', title: teacherAnalyticsCopy(lang).title, description: teacherAnalyticsCopy(lang).intro, Icon: Users },
-    { href: 'bookings', title: t('quick_bookings_title'), description: t('quick_bookings_desc'), Icon: CalendarDays },
-    { href: 'students', title: t('quick_students_title'), description: t('quick_students_desc'), Icon: Users },
-    { href: 'content/vocabulary', title: t('quick_vocab_title'), description: t('quick_vocab_desc'), Icon: BookOpen },
-    { href: 'content/exercises', title: t('quick_exercises_title'), description: t('quick_exercises_desc'), Icon: FileText },
-    { href: 'content/videos', title: t('quick_videos_title'), description: t('quick_videos_desc'), Icon: Mic },
+    { href: 'finance', title: t('finance_title'), description: t('finance_intro'), Icon: Wallet },
+    { href: 'content', title: t('content_hub_title'), description: t('content_hub_intro'), Icon: LibraryBig },
+    { href: 'courses', title: courseCmsCopy(lang).title, description: courseCmsCopy(lang).intro, Icon: BookOpen },
+    { href: 'analytics', title: t('group_analytics'), description: teacherAnalyticsCopy(lang).intro, Icon: BarChart3 },
   ]
   return (
     <div className="min-w-0 space-y-6 text-[var(--foreground)]">
