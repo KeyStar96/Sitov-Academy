@@ -82,7 +82,16 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
       if (mounted.current) {
         reviewBusy.current = false
         setReviewPending(false)
-        setAnswerResult({ correct: result.isCorrect === true, solution: result.correctAnswer ?? '', isAlternative: result.isAlternative === true, softError: result.softError ?? null })
+        if (item.kind === 'self') {
+          indexRef.current += 1
+          setIndex(indexRef.current)
+          setAnswer(drafts.current.get(session[indexRef.current]?.progressId) ?? '')
+          setAnswerResult(null)
+          setRevealed(false)
+          finishIfReady()
+        } else {
+          setAnswerResult({ correct: result.isCorrect === true, solution: result.correctAnswer ?? '', isAlternative: result.isAlternative === true, softError: result.softError ?? null })
+        }
       }
     },
     onBlocked: pending => {
