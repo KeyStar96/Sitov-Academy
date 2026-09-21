@@ -41,21 +41,27 @@ describe.each([
 ] as const)('%s palette', (selector, threshold) => {
   const colors = palette(selector)
 
-  it.each(['foreground', 'muted', 'accent', 'violet', 'success', 'danger'])('keeps %s text legible on every learning surface', text => {
+  // Subtle Luxury token roles: --accent is a fill/border/icon brand colour, never body
+  // text. Accent-coloured TEXT uses --accent-text; text-bearing FILLS use --accent-strong.
+  it.each(['foreground', 'muted', 'accent-text', 'violet', 'success', 'danger'])('keeps %s text legible on every learning surface', text => {
     for (const surface of ['canvas', 'surface', 'surface-muted']) {
       expect(contrast(colors[text], colors[surface])).toBeGreaterThanOrEqual(threshold)
     }
   })
 
-  it.each(['accent', 'violet', 'success', 'danger'])('keeps %s text legible on tinted selection/status backgrounds', text => {
-    expect(contrast(colors[text], tinted(colors[text], colors.surface))).toBeGreaterThanOrEqual(threshold)
+  // Chips tint the surface with the BRAND colour and print the legible text token on top;
+  // for orange that means an --accent tint carrying --accent-text.
+  it.each([['accent-text', 'accent'], ['violet', 'violet'], ['success', 'success'], ['danger', 'danger']] as const)('keeps %s text legible on tinted selection/status backgrounds', (text, base) => {
+    expect(contrast(colors[text], tinted(colors[base], colors.surface))).toBeGreaterThanOrEqual(threshold)
   })
 
-  it('preserves contrast for filled actions, darkening hover states and visible control borders', () => {
-    expect(contrast(colors['accent-foreground'], colors.accent)).toBeGreaterThanOrEqual(threshold)
-    expect(contrast(colors['accent-foreground'], colors['accent-hover'])).toBeGreaterThanOrEqual(threshold)
-    expect(luminance(colors['accent-hover'])).toBeLessThan(luminance(colors.accent))
-    expect([rgb('ffffff'), rgb('0f172a')]).toContainEqual(colors['accent-foreground'])
+  it('preserves contrast for filled actions and visible control borders', () => {
+    // Filled buttons/tabs use the deeper --accent-strong so white/ink text meets AA in the
+    // resting AND hover state. (Hover luminance direction differs by theme — light darkens,
+    // dark lightens — so legibility, not a fixed direction, is the invariant we assert.)
+    expect(contrast(colors['accent-foreground'], colors['accent-strong'])).toBeGreaterThanOrEqual(threshold)
+    expect(contrast(colors['accent-foreground'], colors['accent-strong-hover'])).toBeGreaterThanOrEqual(threshold)
+    expect([rgb('ffffff'), rgb('0f172a'), rgb('000000')]).toContainEqual(colors['accent-foreground'])
     expect(contrast(colors.surface, colors.violet)).toBeGreaterThanOrEqual(threshold)
     expect(contrast(colors.surface, colors.success)).toBeGreaterThanOrEqual(threshold)
     for (const surface of ['canvas', 'surface', 'surface-muted']) {
@@ -64,7 +70,7 @@ describe.each([
   })
 
   it('keeps accent chips and warning messages readable', () => {
-    expect(contrast(colors.accent, colors['accent-soft'])).toBeGreaterThanOrEqual(threshold)
+    expect(contrast(colors['accent-text'], colors['accent-soft'])).toBeGreaterThanOrEqual(threshold)
     expect(contrast(colors['warning-foreground'], colors.warning)).toBeGreaterThanOrEqual(4.5)
   })
 })

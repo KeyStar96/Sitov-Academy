@@ -1062,8 +1062,8 @@ h1, h2, h3 { text-wrap: balance; }
   --surface-muted: #f1f5f9;     /* slate-100 */
   --foreground: #0f172a;        /* slate-900 — Tinte (16.9:1 auf canvas) */
   --muted: #475569;             /* slate-600 — 7.4:1, sicher für Fließtext */
-  --border: #cbd5e1;            /* slate-300 */
-  --border-strong: #94a3b8;     /* slate-400 */
+  --border: #7c8ba1;            /* slate-450 — sichtbare Control-Kontur (≥3:1 auf Flächen) */
+  --border-strong: #5d6b81;     /* stärker als --border, für Hover/Emphasis */
   --accent: #f97316;            /* orange-500 — Marke: Rahmen, Fokus, Dots, Tints */
   --accent-hover: #ea580c;      /* orange-600 */
   --accent-strong: #c2410c;     /* orange-700 — texttragende Füllungen (Weiß = 5.2:1) */
@@ -1077,7 +1077,7 @@ h1, h2, h3 { text-wrap: balance; }
   --gold-to: #f97316;           /* orange-500 */
   --gold: linear-gradient(135deg, var(--gold-from), var(--gold-via) 55%, var(--gold-to));
   --violet: #4f46e5;            /* indigo-600 — sparsame, kühle Sekundärfarbe */
-  --success: #15803d;
+  --success: #166534;           /* green-800 — legibel auch auf success-Tint */
   --danger: #b91c1c;
   --shadow-sm: 0 1px 2px #0f172a0d;
   --shadow-md: 0 12px 32px -12px #0f172a26;
@@ -1096,8 +1096,8 @@ html.dark {
   --surface-muted: #334155;     /* slate-700 */
   --foreground: #f8fafc;        /* slate-50 */
   --muted: #a8b4c6;             /* slate-350 — 4.9:1 auf surface-muted (#334155), AA */
-  --border: #334155;
-  --border-strong: #475569;
+  --border: #8b99ae;            /* sichtbare Kontur auf dunklen Flächen (≥3:1) */
+  --border-strong: #cbd5e1;     /* stärker als --border, für Hover/Emphasis */
   --accent: #f97316;
   --accent-hover: #fb923c;      /* im Dark aufhellen = spürbares Feedback */
   --accent-strong: #c2410c;     /* orange-700 — texttragende Füllungen (Weiß = 5.2:1) */
@@ -1111,7 +1111,7 @@ html.dark {
   --gold-to: #f97316;
   --violet: #a5b4fc;            /* indigo-300 */
   --success: #4ade80;
-  --danger: #f87171;
+  --danger: #fca5a5;            /* red-300 — legibel auf --surface-muted (slate-700) */
   --shadow-sm: 0 1px 2px #00000040;
   --shadow-md: 0 16px 40px -16px #00000073;
   --shadow-lg: 0 40px 80px -28px #00000099;
@@ -1143,7 +1143,7 @@ html.high-contrast {
   --gold-to: #c2410c;
   --violet: #3730a3;
   --success: #14532d;
-  --danger: #991b1b;
+  --danger: #7f1d1d;            /* red-900 — ≥7:1 auf danger-Tint (High-Contrast) */
 }
 html.dark.high-contrast {
   --canvas: #000000;
