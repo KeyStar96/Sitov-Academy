@@ -7,6 +7,8 @@
   border: 1px solid var(--border);
   border-radius: 1.8rem;
   background: var(--surface);
+  /* Subtle Luxury: weiche, breite Tiefe statt harter Kante. */
+  box-shadow: var(--shadow-lg);
 }
 
 .heading {
