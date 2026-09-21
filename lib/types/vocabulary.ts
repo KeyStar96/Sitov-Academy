@@ -1,4 +1,5 @@
 import type { LeitnerBox, LeitnerPhase, VocabularyReviewMode } from '@/lib/leitner'
+import type { BoxBucketKey, BoxSummary, LessonBoxStat, WordBoxState } from '@/lib/vocabulary-box'
 import type { SoftErrorReason } from '@/lib/answer-grading'
 import type { Database } from '@/supabase/database.types'
 import type { UiLocale } from '@/lib/locale-routing'
@@ -72,19 +73,13 @@ export interface VocabularyAssessmentCard {
   direction: VocabularyDirection
 }
 
-/** Lernstand einer Lektion für die Übersichtsseite. */
-export interface LessonStat {
-  lesson: string
-  total: number
-  /** Karten in den Phasen 1–6. */
-  active: number
-  /** Karten im Zustand „gelernt". */
-  learned: number
-  /** Noch nicht gestartete Karten. */
-  untouched: number
-  /** Aktuell fällige Karten. */
-  due: number
-}
+/**
+ * Lernstand einer Lektion für die Übersichtsseite.
+ *
+ * Die Zählung lebt in `lib/vocabulary-box.ts`, weil sie dieselben Definitionen
+ * von „gelernt" und „fällig" braucht wie die Fächer-Übersicht.
+ */
+export type LessonStat = LessonBoxStat
 
 export interface SubmitVocabularyAnswerInput {
   progressId: string
@@ -149,6 +144,34 @@ export interface AddCardsResult {
   success: boolean
   added: number
 }
+
+/**
+ * Eine Vokabel im Phasen-Inspektor („in ein Fach hineinschauen").
+ *
+ * Trägt den zusammengefassten Wort-Lernstand mit, damit die Liste den
+ * Zwischenschritt „halb gewusst" zeigen kann, ohne ihn im Client erneut aus
+ * Rohwerten abzuleiten.
+ */
+export interface PhaseCardView extends WordBoxState {
+  id: string
+  word_de: string
+  article: string | null
+  translation: string
+  lesson: string
+}
+
+/** Inhalt eines einzelnen Fachs, serverseitig gefiltert und sortiert. */
+export interface PhaseCardsResult {
+  key: BoxBucketKey
+  cards: PhaseCardView[]
+  /** Wie viele Vokabeln das Fach insgesamt enthält (auch über `cards` hinaus). */
+  total: number
+  /** True, wenn die Liste bei `PHASE_INSPECTOR_LIMIT` abgeschnitten wurde. */
+  truncated: boolean
+}
+
+/** Verteilung der Vokabeln eines Sprachniveaus über die sieben Fächer. */
+export type VocabularyBoxSummary = BoxSummary
 
 /** Eine Entscheidung im „Vokabeln einstufen"-Durchlauf (Pre-Assessment). */
 export interface AssessmentDecision {

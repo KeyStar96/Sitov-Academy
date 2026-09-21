@@ -7,16 +7,19 @@ import { ArrowRight, BookOpen, Check, Plus } from 'lucide-react'
 import { initializeLesson } from '@/app/actions/vocabulary'
 import { createVocabularyTranslator, type VocabularyTranslations } from '@/lib/vocabulary-i18n'
 import { loadLernkastenSelection, saveLernkastenSelection } from '@/lib/vocabulary-lernkasten'
-import type { DueVocabularyCard, LessonStat } from '@/lib/types/vocabulary'
+import type { DueVocabularyCard, LessonStat, VocabularyBoxSummary } from '@/lib/types/vocabulary'
 import { stripLessonPrefix } from '@/lib/utils'
 import type { SoftErrorReason } from '@/lib/answer-grading'
 import VocabCardSession from './VocabCardSession'
 import LessonCardsModal from './LessonCardsModal'
+import LeitnerBoxOverview from './LeitnerBoxOverview'
 
 interface Props {
   learnerId: string | null
   initialCards: DueVocabularyCard[]
   lessonStats: LessonStat[]
+  /** Verteilung über die sechs Phasen — serverseitig gezählt, siehe getVocabularyBoxSummary. */
+  boxSummary: VocabularyBoxSummary
   translations?: VocabularyTranslations
   softErrorTranslations?: Partial<Record<SoftErrorReason, string>>
   lang: string
@@ -25,7 +28,7 @@ interface Props {
   initialPreviousCardId?: string | null
 }
 
-export default function VocabTrainerPageClient({ learnerId, initialCards, lessonStats, translations = {}, softErrorTranslations, lang, level, initialDeferredCount = 0, initialPreviousCardId = null }: Props) {
+export default function VocabTrainerPageClient({ learnerId, initialCards, lessonStats, boxSummary, translations = {}, softErrorTranslations, lang, level, initialDeferredCount = 0, initialPreviousCardId = null }: Props) {
   const router = useRouter()
   const [refreshing, startRefresh] = useTransition()
   const t = useMemo(() => createVocabularyTranslator(translations), [translations])
@@ -91,6 +94,7 @@ export default function VocabTrainerPageClient({ learnerId, initialCards, lesson
       <p className="mt-5 border-t border-[var(--border)] pt-4 text-base leading-relaxed text-[var(--muted)]">{selectedCards.length ? t('lernkasten_summary', { lessons: selection.length, cards: selectedCards.length }) : t('lernkasten_start_hint_nothing_due')}</p>
       {initialDeferredCount > 0 && <p className="mt-2 text-base text-[var(--muted)]">{t('repetition_gap_hint')}</p>}
     </section>
+    <LeitnerBoxOverview summary={boxSummary} level={level} uiLanguage={lang} translations={translations} />
     <details className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] px-5 sm:px-7">
       <summary className="flex min-h-14 cursor-pointer items-center gap-3 py-3 font-semibold"><BookOpen size={18} aria-hidden="true" />{t('method_title')}</summary>
       <div className="space-y-3 border-t border-[var(--border)] py-5 text-base leading-relaxed text-[var(--muted)]">

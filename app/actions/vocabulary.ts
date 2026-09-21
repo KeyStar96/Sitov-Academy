@@ -8,6 +8,7 @@ import { createClient } from '@/utils/supabase/server'
 import { requestSession } from '@/lib/request-session'
 import { hasTrainerAccess, isAccessLevel, getAllowedLessons } from '@/lib/access/levels'
 import { LEITNER_LEARNED_BOX, normalizeBox, pickWeightedRandomOrder, selectionWeightForBox, vocabularyReviewMode, type LeitnerPhase } from '@/lib/leitner'
+import { computeWordBoxState, summarizeBox, summarizeLessons, PHASE_INSPECTOR_LIMIT, type BoxBucketKey, type WordBoxState } from '@/lib/vocabulary-box'
 import { scheduleVocabularyCards } from '@/lib/vocabulary-scheduler'
 import { readVocabularyProgress } from '@/lib/vocabulary-queries'
 import { loadLevelAccessProfile } from '@/lib/access/server'
@@ -20,6 +21,7 @@ import {
   type InitializeLessonResult, type LessonCardView, type LessonStat,
   type SubmitAssessmentResult, type SubmitVocabularyAnswerInput, type SubmitVocabularyAnswerResult,
   type SubmitVocabularySelfRatingInput,
+  type PhaseCardView, type PhaseCardsResult, type VocabularyBoxSummary,
   type VocabularySession, type VocabularyAssessmentSession,
 } from '@/lib/types/vocabulary'
 
@@ -94,9 +96,10 @@ export async function getVocabularySession(level?: string, uiLanguage?: string):
       const translation = translatedWord?.text ?? ''
       return [{
         progressId: row.id, direction, format: sentence ? 'sentence' : 'word',
-        // Der Server legt den Abfragemodus fest; die Bewertungs-RPC leitet ihn
-        // aus derselben Box erneut ab und lehnt eine Fehlnutzung ab (R5).
-        mode: vocabularyReviewMode(box, sentence ? 'sentence' : 'word'),
+        // Der Server legt fest, welche Wege erlaubt sind; `learner_choice`
+        // schaltet den Umschalter in der Lern-UI frei. Die Bewertungs-RPC
+        // leitet dieselbe Regel erneut ab und lehnt eine Fehlnutzung ab (R5).
+        mode: vocabularyReviewMode(sentence ? 'sentence' : 'word', direction),
         prompt: source ? source.text : direction === 'native_to_de' ? translation : card.word_de,
         promptLanguage: source ? source.language : direction === 'native_to_de' ? translatedWord!.language : 'de',
         // Never send the exact German sentence before a typing answer is submitted.
@@ -321,36 +324,111 @@ export async function getLessonCards(lessonName: string, level?: string, uiLangu
   }).sort((a, b) => a.word_de.localeCompare(b.word_de, 'de-DE'))
 }
 
+/**
+ * Lernstand je Lektion für die Auswahl-Liste.
+ *
+ * Leitet aus demselben Wort-Lernstand ab wie die Fächer-Übersicht: Eine Vokabel
+ * zählt als „gelernt", wenn beide Richtungen im Archiv sind, und als fällig,
+ * sobald eine Richtung wartet. Beide Ansichten können so nie widersprechen.
+ */
 export async function getLessonStats(level?: string): Promise<LessonStat[]> {
+  return summarizeLessons(lessonEntries(await readWordBox(level, null)))
+}
+
+/**
+ * Lektionsliste und Fächer-Verteilung aus **einem** Lesevorgang.
+ *
+ * Beides braucht denselben vollständigen Katalog samt Lernstand. Zwei
+ * getrennte Aufrufe auf derselben Seite hätten Katalog und Lernstand doppelt
+ * gelesen — bei tausenden Vokabeln pro Niveau lohnt sich der gemeinsame Pass.
+ */
+export async function getVocabularyOverview(level?: string): Promise<{ stats: LessonStat[]; box: VocabularyBoxSummary }> {
+  const words = await readWordBox(level, null)
+  return { stats: summarizeLessons(lessonEntries(words)), box: summarizeBox((words ?? []).map(word => word.state)) }
+}
+
+const bucketKeySchema = z.union([z.literal('learned'), z.number().int().min(1).max(6)])
+
+/**
+ * Liest die Vokabeln eines Niveaus samt Lernstand beider Richtungen und
+ * reduziert sie auf den Wort-Lernstand. Gemeinsame Grundlage der
+ * Fächer-Übersicht und des Inspektors, damit beide nie auseinanderlaufen.
+ */
+interface WordBoxEntry {
+  card: ReturnType<typeof mapVocabularyCard>
+  /** `null`, solange nicht beide Richtungen angelegt sind — dann in keinem Fach. */
+  state: WordBoxState | null
+  /** Leer, wenn der Aufrufer keine Sprache braucht (reines Zählen). */
+  translation: string
+}
+
+function lessonEntries(words: WordBoxEntry[] | null) {
+  return (words ?? []).map(({ card, state }) => ({ lesson: card.lesson, state }))
+}
+
+async function readWordBox(level: string | undefined, language: z.infer<typeof languageSchema> | null): Promise<WordBoxEntry[] | null> {
   const learner = await loadLearner()
-  if (!learner || (level && !hasTrainerAccess(learner.profile, level, 'vocabulary'))) return []
+  if (!learner || (level && !hasTrainerAccess(learner.profile, level, 'vocabulary'))) return null
   let query = vocabularyQuery(learner.supabase)
   if (level) query = query.eq('unit.level', level)
-  // R10: readVocabularyProgress wirft mit Fehlercode. Ein `.catch(() => null)`
-  // hätte diesen Code verworfen und den Ausfall als "leere Lektion" gezeigt.
   const [{ data: cards, error }, progress] = await Promise.all([
     query, readVocabularyProgress(learner.supabase, learner.user.id),
   ])
-  if (error) throw new Error(`vocabulary_lesson_unavailable: ${error.code ?? 'unknown'}`)
-  const stats = new Map<string, LessonStat>()
-  const now = Date.now()
-  for (const card of (cards ?? []).map(mapVocabularyCard)) {
-    if (!card.id || !card.lesson || !card.level) continue
-    if (!hasTrainerAccess(learner.profile, card.level, 'vocabulary')) continue
-    const allowedLessons = getAllowedLessons(learner.profile, card.level, 'vocabulary')
-    if (allowedLessons && !allowedLessons.includes(card.unit_id)) continue
-    const stat = stats.get(card.lesson) ?? { lesson: card.lesson, total: 0, active: 0, learned: 0, untouched: 0, due: 0 }
-    const states = (progress ?? []).filter(row => row.card_id === card.id)
-    stat.total += 1
-    if (states.length < 2) stat.untouched += 1
-    else if (states.length === 2 && states.every(row => normalizeBox(row.box_number) === LEITNER_LEARNED_BOX)) stat.learned += 1
-    else {
-      stat.active += 1
-      if (states.some(row => normalizeBox(row.box_number) < LEITNER_LEARNED_BOX && row.next_review_date && Date.parse(row.next_review_date) <= now)) stat.due += 1
-    }
-    stats.set(card.lesson, stat)
+  // R10: Ein Lesefehler wird geworfen. Eine leere Box hier hätte einen Ausfall
+  // als „du hast noch nichts gelernt" dargestellt.
+  if (error) throw new Error(`vocabulary_box_unavailable: ${error.code ?? 'unknown'}`)
+  const byCard = new Map<string, typeof progress>()
+  for (const row of progress) {
+    const list = byCard.get(row.card_id)
+    if (list) list.push(row)
+    else byCard.set(row.card_id, [row])
   }
-  return [...stats.values()].sort((a, b) => a.lesson.localeCompare(b.lesson, 'de-DE', { numeric: true }))
+  const now = Date.now()
+  return (cards ?? []).map(row => mapVocabularyCard(row)).filter(card => {
+    if (!card.id || !card.lesson || !card.level || !hasTrainerAccess(learner.profile, card.level, 'vocabulary')) return false
+    const allowedLessons = getAllowedLessons(learner.profile, card.level, 'vocabulary')
+    return !allowedLessons || allowedLessons.includes(card.unit_id)
+  }).map(card => ({
+    card,
+    state: computeWordBoxState(byCard.get(card.id) ?? [], now),
+    translation: language ? resolveVocabularyInterfaceTranslation(card, language)?.text ?? '' : '',
+  }))
+}
+
+/**
+ * Inhalt eines einzelnen Fachs für die „Hineinschauen"-Ansicht.
+ *
+ * Sortiert fällige und halb gewusste Wörter nach vorn: Das sind die, wegen
+ * derer man überhaupt in ein Fach schaut.
+ */
+export async function getPhaseCards(key: BoxBucketKey, level?: string, uiLanguage?: string): Promise<PhaseCardsResult> {
+  const parsedKey = bucketKeySchema.safeParse(key)
+  if (!parsedKey.success) return { key: 1, cards: [], total: 0, truncated: false }
+  const bucket = parsedKey.data as BoxBucketKey
+  const learner = await loadLearner()
+  if (!learner) return { key: bucket, cards: [], total: 0, truncated: false }
+  const language = languageSchema.catch('de').parse(uiLanguage ?? learner.profile.ui_language)
+  if (language === 'de') return { key: bucket, cards: [], total: 0, truncated: false }
+  const words = await readWordBox(level, language)
+  if (!words) return { key: bucket, cards: [], total: 0, truncated: false }
+
+  const matching = words.filter((word): word is typeof word & { state: WordBoxState } =>
+    !!word.state && (bucket === 'learned' ? word.state.isLearned : !word.state.isLearned && word.state.phase === bucket))
+  const sorted = matching.sort((a, b) => {
+    if (a.state.isDue !== b.state.isDue) return a.state.isDue ? -1 : 1
+    if (a.state.isHalfKnown !== b.state.isHalfKnown) return a.state.isHalfKnown ? -1 : 1
+    return a.card.word_de.localeCompare(b.card.word_de, 'de-DE')
+  })
+
+  return {
+    key: bucket,
+    total: sorted.length,
+    truncated: sorted.length > PHASE_INSPECTOR_LIMIT,
+    cards: sorted.slice(0, PHASE_INSPECTOR_LIMIT).map(word => ({
+      id: word.card.id, word_de: word.card.word_de, article: word.card.article,
+      translation: word.translation, lesson: word.card.lesson, ...word.state,
+    } satisfies PhaseCardView)),
+  }
 }
 
 export async function resetLessonProgress(lessonName: string, level?: string): Promise<{ success: boolean }> {

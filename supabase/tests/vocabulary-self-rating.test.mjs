@@ -4,16 +4,16 @@ import {readFile} from 'node:fs/promises'
 import {fileURLToPath} from 'node:url'
 import {createPhase3Database,actor,id,student,vocabularyUnit,result,apply} from './helpers/phase3-db.mjs'
 
-// Flashcard self-rating (migration 18) plus the EXECUTE grant it forgot (19).
-// R5 stays intact: the learner's "Kenn ich" is an INPUT; PostgreSQL alone
-// decides box, interval and next review, and refuses the mode where the card
-// must be typed.
+// Flashcard self-rating (migration 18), the EXECUTE grant it forgot (19) and
+// the learner-chosen mode (20). R5 stays intact: the learner's "Kenn ich" is an
+// INPUT; PostgreSQL alone decides box, interval and next review, and still
+// refuses the mode where the card must be typed - a sentence.
 
 const repoFile=async(relative)=>readFile(fileURLToPath(new URL(`../../${relative}`,import.meta.url)),'utf8')
 
-await test('flashcard self-rating: mode band, authorization, idempotency and TS/SQL parity',async t=>{
+await test('flashcard self-rating: learner-chosen mode, authorization, idempotency and TS/SQL parity',async t=>{
  const db=await createPhase3Database()
- await apply(db,['18_vocabulary_self_rating.sql','19_vocabulary_self_rating_fix.sql'])
+ await apply(db,['18_vocabulary_self_rating.sql','19_vocabulary_self_rating_fix.sql','20_vocabulary_learner_mode.sql'])
 
  let sequence=400
  const addCard=async({sentence=false,word='Haus',article='das'}={})=>{
@@ -91,14 +91,18 @@ await test('flashcard self-rating: mode band, authorization, idempotency and TS/
   assert.equal(state.lapses,1)
  })
 
- await t.test('box 3 and above must be typed - self-rating is refused (R5)',async()=>{
+ await t.test('a word may be self-rated in every box - the learner picks the mode (20)',async()=>{
+  // Before migration 20 the box decided the mode and boxes 3..6 were refused.
+  // The UI now carries a toggle, so the database has to honour it in every box
+  // - otherwise every click above phase 2 told the learner his progress was
+  // lost. R5 is untouched: the box still moves by PostgreSQL's own arithmetic.
   const progressId=await progressOf(await addCard({word:'Stuhl',article:'der'}))
   for(const box of [3,4,5,6]) {
    await arm(progressId,box)
    const response=await rate(id(720+box),progressId,true)
-   assert.equal(response.error,'flashcard_not_allowed',`box ${box} must reject a self-rating`)
-   assert.equal(response.message,'This card must be typed, not self-rated.')
-   assert.equal((await stateOf(progressId)).box_number,box,'a refused rating must not move the box')
+   assert.equal(response.success,true,`box ${box} must accept a self-rating`)
+   assert.equal(response.previousPhase,box)
+   assert.equal((await stateOf(progressId)).box_number,box===6?7:box+1,'the server advances the box itself')
   }
  })
 
@@ -158,21 +162,28 @@ await test('flashcard self-rating: mode band, authorization, idempotency and TS/
   assert.ok(!('success' in unknownProgress))
  })
 
- await t.test('the flashcard band is identical in TypeScript and SQL',async()=>{
+ await t.test('the self-rating rule is identical in TypeScript and SQL',async()=>{
   // lib/leitner.ts and vocabulary_private.self_rating_allowed encode the same
   // rule twice. If they drift, the client offers a mode the RPC then rejects
   // and the trainer dies with flashcard_not_allowed - exactly what this asserts.
+  //
+  // Migration 20 moved the choice from the box to the learner: every WORD may
+  // be self-rated in every box, a SENTENCE in none. The TypeScript side says so
+  // in selfRatingAllowed(); assert the literal is still readable there so this
+  // test fails loudly if someone narrows one side only.
   const leitner=await repoFile('lib/leitner.ts')
-  const declared=/FLASHCARD_MAX_PHASE\s*:\s*LeitnerPhase\s*=\s*(\d+)/.exec(leitner)
-  assert.ok(declared,'FLASHCARD_MAX_PHASE must stay a readable literal in lib/leitner.ts')
-  const tsBand=Number(declared[1])
+  assert.match(leitner,/export function selfRatingAllowed\(\s*format: 'word' \| 'sentence'\s*\): boolean \{\s*return format !== 'sentence'/,
+   'lib/leitner.ts:selfRatingAllowed must stay a readable literal rule')
   await db.exec('RESET ROLE')
   for(let box=1;box<=7;box+=1) {
    const sql=(await db.query('SELECT vocabulary_private.self_rating_allowed($1,false) allowed',[box])).rows[0].allowed
-   assert.equal(sql,box<=tsBand,`box ${box}: SQL and lib/leitner.ts disagree about flashcard mode`)
+   assert.equal(sql,true,`box ${box}: SQL refuses a flashcard the UI offers`)
   }
   // A sentence is never a flashcard, whatever the box says.
-  assert.equal((await db.query('SELECT vocabulary_private.self_rating_allowed(1,true) allowed')).rows[0].allowed,false)
+  for(let box=1;box<=7;box+=1) {
+   assert.equal((await db.query('SELECT vocabulary_private.self_rating_allowed($1,true) allowed',[box])).rows[0].allowed,false,
+    `box ${box}: a sentence must always be typed`)
+  }
  })
 
  await db.close()

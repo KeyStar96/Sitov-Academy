@@ -170,6 +170,50 @@ export const VOCABULARY_FALLBACKS = {
   cancel: "Abbrechen",
   your_answer_label: 'Deine Eingabe:',
   alternative_answer_hint: 'Richtig! Oft wird hierfür auch diese Form verwendet:',
+
+  // Karteikasten-Übersicht: die sechs Fächer und das Archiv
+  box_title: 'Dein Karteikasten',
+  box_intro: 'Sechs Fächer, ein Weg: Eine Vokabel rückt erst weiter, wenn du sie in beide Richtungen kannst.',
+  box_progress_label: 'Fortschritt im Karteikasten',
+  box_untouched: '{count} noch nicht aufgenommen',
+  box_phase_name_1: 'Neu',
+  box_phase_name_2: 'Frisch',
+  box_phase_name_3: 'Vertraut',
+  box_phase_name_4: 'Gefestigt',
+  box_phase_name_5: 'Sicher',
+  box_phase_name_6: 'Langzeit',
+  box_phase_learned: 'Gelernt',
+  box_interval_day: 'Wiederholung nach 1 Tag',
+  box_interval_days: 'Wiederholung nach {days} Tagen',
+  box_interval_archive: 'Keine Wiederholung mehr',
+  box_word_count: '{count} Vokabeln',
+  box_word_count_one: '1 Vokabel',
+  box_due_badge: '{count} fällig',
+  box_half_known: '{count} halb gewusst',
+  box_open: 'Hineinschauen',
+  box_open_aria: 'In das Fach „{name}“ hineinschauen',
+
+  // Hineinschauen: die Vokabelliste eines einzelnen Fachs
+  inspector_title: 'Fach {phase}: {name}',
+  inspector_title_learned: 'Archiv: gelernte Vokabeln',
+  inspector_close: 'Fach schließen',
+  inspector_loading: 'Das Fach wird geöffnet …',
+  inspector_failed: 'Das Fach konnte nicht geöffnet werden. Bitte versuche es noch einmal.',
+  inspector_empty: 'In diesem Fach liegt gerade keine Vokabel.',
+  inspector_truncated: 'Gezeigt werden die ersten {count} von {total} Vokabeln.',
+  direction_state_cleared: 'sitzt',
+  direction_state_open: 'fehlt noch',
+  half_known_label: 'Halb gewusst',
+  half_known_hint: 'Eine Vokabel rückt erst weiter, wenn beide Richtungen sitzen. Ist erst eine davon geschafft, gilt sie als halb gewusst.',
+
+  // Lern-Modus: Karteikarte oder Ausschreiben
+  mode_toggle_label: 'Abfragemodus wählen',
+  mode_flashcard: 'Karteikarte',
+  mode_typing: 'Ausschreiben',
+  mode_flashcard_hint: 'Lösung aufdecken und selbst einschätzen',
+  mode_typing_hint: 'Lösung eintippen und prüfen lassen',
+  mode_locked_flashcard: 'Diese Richtung läuft immer als Karteikarte — ausgeschrieben wird nur Deutsch.',
+  mode_locked_typed: 'Sätze werden immer ausgeschrieben.',
 } as const
 
 export type VocabularyTranslationKey = Extract<keyof typeof VOCABULARY_FALLBACKS, string>

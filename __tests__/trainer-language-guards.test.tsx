@@ -9,7 +9,7 @@ import VideoPage from '@/app/[lang]/dashboard/level/[level]/videos/[id]/page'
 import TrainerAccessGuard from '@/components/dashboard/TrainerAccessGuard'
 import TrainerLanguageRequired from '@/components/dashboard/TrainerLanguageRequired'
 import { getDictionary } from '@/lib/dictionary'
-import { getVocabularySession, getLessonStats } from '@/app/actions/vocabulary'
+import { getVocabularySession, getVocabularyOverview } from '@/app/actions/vocabulary'
 import { getExercises } from '@/app/actions/exercises'
 import { getPronunciationPrompts } from '@/app/actions/pronunciation'
 import { getPronunciationConversations } from '@/app/actions/pronunciation-conversations'
@@ -23,7 +23,7 @@ jest.mock('@/components/exercises/ExerciseClient', () => () => null)
 jest.mock('@/components/audio/PronunciationPractice', () => () => null)
 jest.mock('@/components/audio/PronunciationInbox', () => () => null)
 jest.mock('@/components/dashboard/VideoLibrary', () => () => null)
-jest.mock('@/app/actions/vocabulary', () => ({ getVocabularySession: jest.fn(), getLessonStats: jest.fn() }))
+jest.mock('@/app/actions/vocabulary', () => ({ getVocabularySession: jest.fn(), getVocabularyOverview: jest.fn() }))
 jest.mock('@/app/actions/exercises', () => ({ getExercises: jest.fn() }))
 jest.mock('@/app/actions/pronunciation', () => ({ getPronunciationPrompts: jest.fn() }))
 jest.mock('@/app/actions/pronunciation-conversations', () => ({ getPronunciationConversations: jest.fn() }))
@@ -46,7 +46,7 @@ beforeEach(() => jest.clearAllMocks())
 test.each(cases)('German %s shows a language choice before loading learner data', async (_name, page) => {
   render(await page())
   expect(screen.getByRole('link', { name: 'Sprache im Profil auswählen' })).toHaveAttribute('href', '/de/dashboard/profile#language-settings')
-  for (const loader of [getDictionary, getVocabularySession, getLessonStats, getExercises, getPronunciationPrompts, getPronunciationConversations, currentUserHasTrainerAccess, createClient]) expect(loader).not.toHaveBeenCalled()
+  for (const loader of [getDictionary, getVocabularySession, getVocabularyOverview, getExercises, getPronunciationPrompts, getPronunciationConversations, currentUserHasTrainerAccess, createClient]) expect(loader).not.toHaveBeenCalled()
   expect(screen.queryByText('Hidden trainer')).not.toBeInTheDocument()
 })
 

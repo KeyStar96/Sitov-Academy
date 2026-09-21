@@ -14,7 +14,8 @@ import {
   pickWeightedRandomOrder,
   selectionWeightForBox,
   vocabularyReviewMode,
-  FLASHCARD_MAX_PHASE,
+  selfRatingAllowed,
+  typedAnswerAllowed,
 } from '@/lib/leitner'
 
 const NOW = new Date('2026-03-01T09:00:00.000Z')
@@ -208,27 +209,32 @@ describe('Gewichtete Zufallsauswahl', () => {
 })
 
 describe('vocabularyReviewMode', () => {
-  it('rated Sätze niemals selbst ein – immer Texteingabe', () => {
-    for (const box of [1, 2, 3, 4, 5, 6, 7]) {
-      expect(vocabularyReviewMode(box, 'sentence')).toBe('typed')
+  it('bewertet Sätze niemals selbst ein – immer Texteingabe', () => {
+    for (const direction of ['de_to_native', 'native_to_de'] as const) {
+      expect(vocabularyReviewMode('sentence', direction)).toBe('typed')
     }
   })
 
-  it('nutzt für frische Wörter (Phase 1–2) den Karteikarten-Modus', () => {
-    expect(vocabularyReviewMode(1, 'word')).toBe('flashcard')
-    expect(vocabularyReviewMode(FLASHCARD_MAX_PHASE, 'word')).toBe('flashcard')
+  it('fragt Deutsch → eigene Sprache immer als Karteikarte ab', () => {
+    // Ausgeschrieben wird ausschließlich Deutsch. Die Rechtschreibung der
+    // Muttersprache ist nicht der Lerngegenstand.
+    expect(vocabularyReviewMode('word', 'de_to_native')).toBe('flashcard')
   })
 
-  it('wechselt ab Phase 3 auf aktiven Abruf per Texteingabe', () => {
-    for (const box of [3, 4, 5, 6]) {
-      expect(vocabularyReviewMode(box, 'word')).toBe('typed')
-    }
+  it('überlässt eigene Sprache → Deutsch dem Umschalter des Lernenden', () => {
+    expect(vocabularyReviewMode('word', 'native_to_de')).toBe('learner_choice')
   })
 
-  it('behandelt gelernte oder ungültige Boxen robust', () => {
-    expect(vocabularyReviewMode(7, 'word')).toBe('typed')
-    expect(vocabularyReviewMode(null, 'word')).toBe('flashcard')
-    expect(vocabularyReviewMode(undefined, 'word')).toBe('flashcard')
-    expect(vocabularyReviewMode(0, 'word')).toBe('flashcard')
+  it('hält den Modus unabhängig vom Lernstand', () => {
+    // Früher entschied das Fach über den Modus. Jetzt entscheidet der Lernende,
+    // und die Datenbank muss die Selbsteinschätzung in jedem Fach zulassen.
+    expect(selfRatingAllowed('word')).toBe(true)
+    expect(selfRatingAllowed('sentence')).toBe(false)
+  })
+
+  it('erlaubt das Ausschreiben nur für deutschsprachige Antworten', () => {
+    expect(typedAnswerAllowed('word', 'native_to_de')).toBe(true)
+    expect(typedAnswerAllowed('word', 'de_to_native')).toBe(false)
+    expect(typedAnswerAllowed('sentence', 'native_to_de')).toBe(true)
   })
 })

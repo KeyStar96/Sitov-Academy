@@ -1,5 +1,5 @@
 import TrainerLanguageRequired from '@/components/dashboard/TrainerLanguageRequired'
-import { getVocabularySession, getLessonStats } from '@/app/actions/vocabulary'
+import { getVocabularySession, getVocabularyOverview } from '@/app/actions/vocabulary'
 import { getDictionary } from '@/lib/dictionary'
 import { type VocabularyTranslations } from '@/lib/vocabulary-i18n'
 import VocabTrainerPageClient from '@/components/vocabulary/VocabTrainerPageClient'
@@ -15,8 +15,8 @@ export default async function VocabularyOverviewPage({
   const dict = await getDictionary(lang)
   const translations = (dict.vocabulary ?? {}) as VocabularyTranslations
 
-  const [stats, session] = await Promise.all([
-    getLessonStats(decodedLevel),
+  const [overview, session] = await Promise.all([
+    getVocabularyOverview(decodedLevel),
     getVocabularySession(decodedLevel, lang),
   ])
 
@@ -27,7 +27,8 @@ export default async function VocabularyOverviewPage({
       initialCards={session.cards}
       initialDeferredCount={session.deferredCount}
       initialPreviousCardId={session.previousCardId}
-      lessonStats={stats}
+      lessonStats={overview.stats}
+      boxSummary={overview.box}
       translations={translations}
       softErrorTranslations={dict.exercises?.soft_error}
       lang={lang}

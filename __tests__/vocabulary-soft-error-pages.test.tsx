@@ -3,13 +3,14 @@ import VocabularyPage from '@/app/[lang]/dashboard/level/[level]/vocabulary/page
 import TrainPage from '@/app/[lang]/dashboard/level/[level]/vocabulary/train/page'
 import VocabTrainerPageClient from '@/components/vocabulary/VocabTrainerPageClient'
 import VocabCardSession from '@/components/vocabulary/VocabCardSession'
-import { getVocabularySession, getLessonStats } from '@/app/actions/vocabulary'
+import { getVocabularySession, getVocabularyOverview } from '@/app/actions/vocabulary'
 import { getDictionary } from '@/lib/dictionary'
 import ru from '@/dictionaries/ru.json'
 import type { DueVocabularyCard } from '@/lib/types/vocabulary'
+import { summarizeBox } from '@/lib/vocabulary-box'
 
 jest.unmock('lucide-react')
-jest.mock('@/app/actions/vocabulary', () => ({ getVocabularySession: jest.fn(), getLessonStats: jest.fn(), initializeLesson: jest.fn() }))
+jest.mock('@/app/actions/vocabulary', () => ({ getVocabularySession: jest.fn(), getVocabularyOverview: jest.fn(), getPhaseCards: jest.fn(), initializeLesson: jest.fn() }))
 jest.mock('@/lib/dictionary', () => ({ getDictionary: jest.fn() }))
 jest.mock('@/components/vocabulary/VocabCardSession', () => ({ __esModule: true, default: jest.fn(() => null) }))
 jest.mock('@/components/vocabulary/LessonCardsModal', () => ({ __esModule: true, default: () => null }))
@@ -24,7 +25,7 @@ beforeEach(() => {
   localStorage.clear()
   jest.mocked(getDictionary).mockResolvedValue(ru)
   jest.mocked(getVocabularySession).mockResolvedValue({ learnerId: 'learner', cards: [card], deferredCount: 0, previousCardId: null })
-  jest.mocked(getLessonStats).mockResolvedValue([])
+  jest.mocked(getVocabularyOverview).mockResolvedValue({ stats: [], box: summarizeBox([]) })
 })
 it('passes the selected dictionary through the overview and session start', async () => {
   const page = await VocabularyPage({ params: Promise.resolve({ lang: 'ru', level: 'A1.1' }) })

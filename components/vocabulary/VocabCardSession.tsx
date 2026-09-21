@@ -2,10 +2,13 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useRouter } from 'next/navigation'
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { Info } from 'lucide-react'
 import { finishVocabularySession, submitVocabularyAnswer, submitVocabularySelfRating } from '@/app/actions/vocabulary'
 import SolutionAudioButton from '@/components/exercises/SolutionAudioButton'
 import LearningScreen from './LearningScreen'
+import StudyModeToggle, { type StudyMode } from './StudyModeToggle'
+import { loadStudyMode, saveStudyMode } from '@/lib/vocabulary-lernkasten'
 import { createVocabularyTranslator, type VocabularyTranslations } from '@/lib/vocabulary-i18n'
 import { scheduleVocabularyCards } from '@/lib/vocabulary-scheduler'
 import { articleColorClass } from '@/lib/vocabulary-ui'
@@ -46,6 +49,11 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
   const [answer, setAnswer] = useState('')
   // Flashcard-Modus: erst Lösung aufdecken, dann selbst einschätzen.
   const [revealed, setRevealed] = useState(false)
+  // Gewählter Weg für Karten, bei denen beide Wege offenstehen. Der Wert kommt
+  // erst nach dem Mounten aus dem localStorage – Server und erster Client-Render
+  // müssen übereinstimmen.
+  const [preferredMode, setPreferredMode] = useState<StudyMode>('flashcard')
+  useEffect(() => { setPreferredMode(loadStudyMode()) }, [])
   const drafts = useRef(new Map<string, string>())
   const [answerResult, setAnswerResult] = useState<{ correct: boolean; solution: string; isAlternative: boolean; softError: SoftErrorReason | null } | null>(null)
   const exitRequested = useRef(false)
@@ -180,7 +188,19 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
     : !isSentence && current?.card.article && current.card.article !== 'none' ? 'type_german_with_article' : 'type_german'
   const prompt = (!isSentence && !isToGerman ? targetWord : current?.prompt) || current?.translation || t('no_translation')
   const denseCard = prompt.length + (answerResult ? answerResult.solution.length + (current?.contextSentence?.length ?? 0) : 0) > 160
-  const isFlashcard = current?.mode === 'flashcard'
+  /**
+   * Der Server sagt, welche Wege erlaubt sind. Bei `learner_choice` entscheidet
+   * der Umschalter; sonst gibt es nur einen Weg, und der Hinweis darunter sagt
+   * warum. Ein manipulierter Client gewinnt nichts: Die RPC leitet dieselbe
+   * Regel erneut ab (R5).
+   */
+  const canChooseMode = current?.mode === 'learner_choice'
+  const effectiveMode: StudyMode = canChooseMode ? preferredMode : current?.mode === 'flashcard' ? 'flashcard' : 'typed'
+  const isFlashcard = effectiveMode === 'flashcard'
+  // Der Wechsel des Weges deckt nichts auf: Die nächste Ansicht fängt wieder
+  // bei der Frage an.
+  useEffect(() => { setRevealed(false) }, [effectiveMode])
+  const reducedMotion = useReducedMotion() ?? false
   // Bei Wörtern liegt die Lösung schon im Payload (kein Satz-Geheimnis wie bei
   // getippten Sätzen); der Server bleibt trotzdem die Instanz für den Lernstand.
   const flashcardSolution = current ? (isToGerman ? (targetWord ?? '') : current.translation) : ''
@@ -213,94 +233,110 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
           <span className="learning-pill">{t(isSentence ? 'sentence_format' : isToGerman ? 'direction_to_de' : 'direction_from_de')}</span>
           <span>{t('card_progress_compact', { current: index + 1, total: session.length })} · {t('phase_compact', { phase: current.phase })}</span>
         </div>
-        {flipCard ? (
-          /* Karteikarte: Vorderseite fragt, Rückseite zeigt Frage und Lösung.
-             Der `key` setzt die Drehung bei jeder neuen Karte hart zurück,
-             damit die nächste Frage nicht rückwärts hereindreht. */
-          <article key={current.progressId} className={cn('learning-card learning-card-flip', revealed && 'is-revealed')}>
-            <div className="learning-flip-inner">
-              <div className="learning-flip-face learning-flip-front" aria-hidden={revealed} inert={revealed}>
-                <div tabIndex={0} className={cn('learning-card-content', denseCard && 'learning-card-content-dense')}>
-                  {!isSentence && current.card.image_url && <img className="learning-card-image" src={current.card.image_url} alt={t('image_alt')} />}
-                  <span className="learning-eyebrow">{t(isSentence ? 'sentence_format' : 'word_format')}</span>
-                  <h2 lang={current.promptLanguage} className={cn(isSentence ? 'learning-sentence' : 'learning-word', !isToGerman && articleColorClass(current.card.article))}>{prompt}</h2>
+        {!answerResult && !saveFailed && (canChooseMode
+          ? <StudyModeToggle mode={preferredMode} disabled={reviewPending} t={t}
+              onChange={mode => { setPreferredMode(mode); saveStudyMode(mode) }} />
+          /* Kein Umschalter heisst: Fuer diese Karte gibt es nur einen Weg.
+             Das gehoert gesagt, sonst wirkt der fehlende Schalter wie ein Fehler. */
+          : <p className="learning-mode-locked">{t(isSentence ? 'mode_locked_typed' : 'mode_locked_flashcard')}</p>)}
+        {/* Buehnenwechsel: Karte und Aktionsflaeche blenden als ein Block ueber,
+            statt dass die Karte stehen bleibt und nur die Knoepfe springen. */}
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.div key={effectiveMode} className="learning-stage"
+            initial={reducedMotion ? false : { opacity: 0, y: 12, scale: .985 }}
+            animate={reducedMotion ? undefined : { opacity: 1, y: 0, scale: 1 }}
+            exit={reducedMotion ? undefined : { opacity: 0, y: -12, scale: .985 }}
+            transition={{ duration: .28, ease: [.22, 1, .36, 1] }}>
+          {flipCard ? (
+            /* Karteikarte: Vorderseite fragt, Rückseite zeigt Frage und Lösung.
+               Der `key` setzt die Drehung bei jeder neuen Karte hart zurück,
+               damit die nächste Frage nicht rückwärts hereindreht. */
+            <article key={current.progressId} className={cn('learning-card learning-card-flip', revealed && 'is-revealed')}>
+              <div className="learning-flip-inner">
+                <div className="learning-flip-face learning-flip-front" aria-hidden={revealed} inert={revealed}>
+                  <div tabIndex={0} className={cn('learning-card-content', denseCard && 'learning-card-content-dense')}>
+                    {!isSentence && current.card.image_url && <img className="learning-card-image" src={current.card.image_url} alt={t('image_alt')} />}
+                    <span className="learning-eyebrow">{t(isSentence ? 'sentence_format' : 'word_format')}</span>
+                    <h2 lang={current.promptLanguage} className={cn(isSentence ? 'learning-sentence' : 'learning-word', !isToGerman && articleColorClass(current.card.article))}>{prompt}</h2>
+                  </div>
+                </div>
+                <div className="learning-flip-face learning-flip-back" aria-hidden={!revealed} inert={!revealed}>
+                  {/* Die Rueckseite fuellt sich erst beim Aufdecken: bis 90 Grad ist sie
+                      ohnehin unsichtbar, und die Loesung steht vorher nicht im DOM. */}
+                  <div ref={flipBackRef} tabIndex={0} className={cn('learning-card-content', denseFlipBack && 'learning-card-content-dense')}>
+                    {revealed && <>
+                    <span className="learning-eyebrow">{t(isSentence ? 'sentence_format' : 'word_format')}</span>
+                    {/* Die Frage bleibt auf der Rückseite stehen, nur zurückgenommen. */}
+                    <p className="learning-flip-echo" lang={current.promptLanguage}>{prompt}</p>
+                    <div className="learning-divider" />
+                    <span className="learning-eyebrow">{t('correct_sentence_label')}</span>
+                    <p className={cn('learning-solution', isToGerman && articleColorClass(current.card.article))} lang={answerLanguage}>{flashcardSolution}</p>
+                    {current.contextSentence && <p className="learning-context" lang="de"><span className="sr-only">{t('context_label')}: </span>{current.contextSentence}</p>}
+                    <SolutionAudioButton cardId={current.card.id} language="de" text={targetWord ?? ''} audioUrl={current.card.audio_url} label={t('listen_word')} ariaLabel={t('listen_word_aria', { word: current.card.word_de })} variant="secondary" />
+                    </>}
+                  </div>
                 </div>
               </div>
-              <div className="learning-flip-face learning-flip-back" aria-hidden={!revealed} inert={!revealed}>
-                {/* Die Rueckseite fuellt sich erst beim Aufdecken: bis 90 Grad ist sie
-                    ohnehin unsichtbar, und die Loesung steht vorher nicht im DOM. */}
-                <div ref={flipBackRef} tabIndex={0} className={cn('learning-card-content', denseFlipBack && 'learning-card-content-dense')}>
-                  {revealed && <>
-                  <span className="learning-eyebrow">{t(isSentence ? 'sentence_format' : 'word_format')}</span>
-                  {/* Die Frage bleibt auf der Rückseite stehen, nur zurückgenommen. */}
-                  <p className="learning-flip-echo" lang={current.promptLanguage}>{prompt}</p>
-                  <div className="learning-divider" />
+            </article>
+          ) : (
+          <article className="learning-card">
+            <div key={current.progressId} tabIndex={0} className={cn('learning-card-content', denseCard && 'learning-card-content-dense')}>
+              {!isSentence && !answerResult && current.card.image_url && <img className="learning-card-image" src={current.card.image_url} alt={t('image_alt')} />}
+              <span className="learning-eyebrow">{t(isSentence ? 'sentence_format' : 'word_format')}</span>
+              <h2 lang={current.promptLanguage} className={cn(isSentence ? 'learning-sentence' : 'learning-word', !isToGerman && articleColorClass(current.card.article))}>{prompt}</h2>
+              {answerResult && <>
+                <div className="learning-divider" />
+                {answerResult.softError
+                  ? <SoftErrorBadge reason={answerResult.softError} translations={softErrorTranslations} />
+                  : <p className={answerResult.correct ? 'learning-success' : 'learning-error'} role="status">{
+                      isFlashcard 
+                        ? t(answerResult.correct ? 'knew_it_hint' : 'didnt_know_hint')
+                        : t(isSentence ? answerResult.correct ? 'sentence_correct' : 'sentence_incorrect' : answerResult.correct ? 'answer_correct' : 'answer_incorrect')
+                    }</p>}
+                {answerResult.isAlternative && (
+                  <div className="mt-3 flex items-start gap-3 rounded-xl border border-[var(--border)] bg-[var(--surface-muted)] p-4 text-[var(--foreground)]">
+                    <Info className="mt-0.5 h-5 w-5 shrink-0 text-[var(--violet)]" aria-hidden="true" />
+                    <p>
+                      {t('alternative_answer_hint')}
+                    </p>
+                  </div>
+                )}
+                {!answerResult.correct && !isFlashcard && (
+                  <div className="my-4 w-full rounded-2xl border border-[var(--border)] bg-[var(--surface-muted)] p-4 text-left" lang={answerLanguage}>
+                    <span className="learning-eyebrow mb-2 block">{t('your_answer_label')}</span>
+                    <p className="learning-sentence whitespace-pre-wrap break-words">{answer}</p>
+                    <span className="learning-eyebrow mb-2 mt-5 block">{t('correct_sentence_label')}</span>
+                    <VisualDiff actual={answer} expected={answerResult.solution} className="learning-sentence" />
+                  </div>
+                )}
+                {answerResult.correct && <>
                   <span className="learning-eyebrow">{t('correct_sentence_label')}</span>
-                  <p className={cn('learning-solution', isToGerman && articleColorClass(current.card.article))} lang={answerLanguage}>{flashcardSolution}</p>
+                  <p className={cn(isSentence ? 'learning-sentence' : 'learning-solution', !isSentence && isToGerman && articleColorClass(current.card.article))} lang={answerLanguage}>{answerResult.solution}</p>
+                </>}
+                {!isSentence && <>
                   {current.contextSentence && <p className="learning-context" lang="de"><span className="sr-only">{t('context_label')}: </span>{current.contextSentence}</p>}
                   <SolutionAudioButton cardId={current.card.id} language="de" text={targetWord ?? ''} audioUrl={current.card.audio_url} label={t('listen_word')} ariaLabel={t('listen_word_aria', { word: current.card.word_de })} variant="secondary" />
-                  </>}
-                </div>
-              </div>
+                </>}
+              </>}
             </div>
           </article>
-        ) : (
-        <article className="learning-card">
-          <div key={current.progressId} tabIndex={0} className={cn('learning-card-content', denseCard && 'learning-card-content-dense')}>
-            {!isSentence && !answerResult && current.card.image_url && <img className="learning-card-image" src={current.card.image_url} alt={t('image_alt')} />}
-            <span className="learning-eyebrow">{t(isSentence ? 'sentence_format' : 'word_format')}</span>
-            <h2 lang={current.promptLanguage} className={cn(isSentence ? 'learning-sentence' : 'learning-word', !isToGerman && articleColorClass(current.card.article))}>{prompt}</h2>
-            {answerResult && <>
-              <div className="learning-divider" />
-              {answerResult.softError
-                ? <SoftErrorBadge reason={answerResult.softError} translations={softErrorTranslations} />
-                : <p className={answerResult.correct ? 'learning-success' : 'learning-error'} role="status">{
-                    isFlashcard 
-                      ? t(answerResult.correct ? 'knew_it_hint' : 'didnt_know_hint')
-                      : t(isSentence ? answerResult.correct ? 'sentence_correct' : 'sentence_incorrect' : answerResult.correct ? 'answer_correct' : 'answer_incorrect')
-                  }</p>}
-              {answerResult.isAlternative && (
-                <div className="mt-3 flex items-start gap-3 rounded-xl border border-[var(--border)] bg-[var(--surface-muted)] p-4 text-[var(--foreground)]">
-                  <Info className="mt-0.5 h-5 w-5 shrink-0 text-[var(--violet)]" aria-hidden="true" />
-                  <p>
-                    {t('alternative_answer_hint')}
-                  </p>
+          )}
+          {saveFailed ? <button type="button" className="learning-button learning-button-primary learning-button-wide" onClick={retry}>{t('error_retry')}</button> : answerResult
+            ? <button type="button" className="learning-button learning-button-primary learning-button-wide" onClick={() => advance()}>{t(index + 1 === session.length ? 'finish_session' : 'next_card')}</button>
+            : isFlashcard
+            ? revealed
+              ? <div className="learning-flashcard-actions">
+                  <button type="button" className="learning-button learning-button-primary" disabled={reviewPending} onClick={() => submitSelfRating(true)}>{t('knew_it')}</button>
+                  <button type="button" className="learning-button learning-button-secondary" disabled={reviewPending} onClick={() => submitSelfRating(false)}>{t('didnt_know')}</button>
                 </div>
-              )}
-              {!answerResult.correct && !isFlashcard && (
-                <div className="my-4 w-full rounded-2xl border border-[var(--border)] bg-[var(--surface-muted)] p-4 text-left" lang={answerLanguage}>
-                  <span className="learning-eyebrow mb-2 block">{t('your_answer_label')}</span>
-                  <p className="learning-sentence whitespace-pre-wrap break-words">{answer}</p>
-                  <span className="learning-eyebrow mb-2 mt-5 block">{t('correct_sentence_label')}</span>
-                  <VisualDiff actual={answer} expected={answerResult.solution} className="learning-sentence" />
-                </div>
-              )}
-              {answerResult.correct && <>
-                <span className="learning-eyebrow">{t('correct_sentence_label')}</span>
-                <p className={cn(isSentence ? 'learning-sentence' : 'learning-solution', !isSentence && isToGerman && articleColorClass(current.card.article))} lang={answerLanguage}>{answerResult.solution}</p>
-              </>}
-              {!isSentence && <>
-                {current.contextSentence && <p className="learning-context" lang="de"><span className="sr-only">{t('context_label')}: </span>{current.contextSentence}</p>}
-                <SolutionAudioButton cardId={current.card.id} language="de" text={targetWord ?? ''} audioUrl={current.card.audio_url} label={t('listen_word')} ariaLabel={t('listen_word_aria', { word: current.card.word_de })} variant="secondary" />
-              </>}
-            </>}
-          </div>
-        </article>
-        )}
-        {saveFailed ? <button type="button" className="learning-button learning-button-primary learning-button-wide" onClick={retry}>{t('error_retry')}</button> : answerResult
-          ? <button type="button" className="learning-button learning-button-primary learning-button-wide" onClick={() => advance()}>{t(index + 1 === session.length ? 'finish_session' : 'next_card')}</button>
-          : isFlashcard
-          ? revealed
-            ? <div className="learning-flashcard-actions">
-                <button type="button" className="learning-button learning-button-primary" disabled={reviewPending} onClick={() => submitSelfRating(true)}>{t('knew_it')}</button>
-                <button type="button" className="learning-button learning-button-secondary" disabled={reviewPending} onClick={() => submitSelfRating(false)}>{t('didnt_know')}</button>
-              </div>
-            : <button type="button" className="learning-button learning-button-primary learning-button-wide" onClick={revealFlashcard}>{t('reveal_solution')}</button>
-          : <form className="learning-typing" onSubmit={submitAnswer}>
-            <label htmlFor="vocabulary-answer">{t(answerLabel)}</label>
-            <textarea id="vocabulary-answer" lang={answerLanguage} value={answer} onChange={event => { drafts.current.set(current.progressId, event.target.value); setAnswer(event.target.value) }} rows={isSentence ? 2 : 1} maxLength={4000} autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck={false} disabled={reviewPending} />
-            <button className="learning-button learning-button-primary" disabled={reviewPending || !answer.trim().length}>{t('check_sentence')}</button>
-          </form>}
+              : <button type="button" className="learning-button learning-button-primary learning-button-wide" onClick={revealFlashcard}>{t('reveal_solution')}</button>
+            : <form className="learning-typing" onSubmit={submitAnswer}>
+              <label htmlFor="vocabulary-answer">{t(answerLabel)}</label>
+              <textarea id="vocabulary-answer" lang={answerLanguage} value={answer} onChange={event => { drafts.current.set(current.progressId, event.target.value); setAnswer(event.target.value) }} rows={isSentence ? 2 : 1} maxLength={4000} autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck={false} disabled={reviewPending} />
+              <button className="learning-button learning-button-primary" disabled={reviewPending || !answer.trim().length}>{t('check_sentence')}</button>
+            </form>}
+          </motion.div>
+        </AnimatePresence>
       </>}
       {saveFailed && <p role="status" className="learning-status learning-error">{t('save_failed')}</p>}
     </LearningScreen>

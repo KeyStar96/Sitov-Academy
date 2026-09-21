@@ -9,6 +9,7 @@
 
 const STORAGE_PREFIX = 'sitov_lernkasten'
 const AUTOSTART_KEY = 'sitov_vocab_autostart'
+const STUDY_MODE_KEY = 'sitov_vocab_study_mode'
 
 function storageKey(level: string): string {
   return `${STORAGE_PREFIX}:${level}`
@@ -98,5 +99,37 @@ export function consumeVocabularyAutostart(level: string): void {
     }
   } catch (err) {
     console.error("Autostart-Marke für Niveau konnte nicht gelöscht werden:")
+  }
+}
+
+/**
+ * Bevorzugter Abfrageweg für Karten, bei denen der Lernende die Wahl hat
+ * (eigene Sprache → Deutsch, Wortkarten).
+ *
+ * Bewusst gerätegebunden im `localStorage` und nicht auf dem Server: Der Weg
+ * durch eine Karte ist eine Vorliebe, kein Lernstand. Wer am Telefon lieber
+ * aufdeckt und am Rechner tippt, soll das dürfen.
+ *
+ * Standard ist die Karteikarte: Sie ist der niedrigschwellige Einstieg, und
+ * der Umschalter macht den aktiven Abruf jederzeit erreichbar.
+ */
+export function loadStudyMode(): 'flashcard' | 'typed' {
+  if (!isBrowser()) return 'flashcard'
+
+  try {
+    return window.localStorage.getItem(STUDY_MODE_KEY) === 'typed' ? 'typed' : 'flashcard'
+  } catch (err) {
+    console.error('Abfragemodus konnte nicht geladen werden:')
+    return 'flashcard'
+  }
+}
+
+export function saveStudyMode(mode: 'flashcard' | 'typed'): void {
+  if (!isBrowser()) return
+
+  try {
+    window.localStorage.setItem(STUDY_MODE_KEY, mode)
+  } catch (err) {
+    console.error('Abfragemodus konnte nicht gespeichert werden:')
   }
 }

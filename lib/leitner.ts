@@ -38,36 +38,60 @@ export function isLeitnerPhase(value: number): value is LeitnerPhase {
   return Number.isInteger(value) && value >= 1 && value <= 6
 }
 
-/** Abfragemodus einer Karte: getippter Abruf oder Karteikarten-Selbsteinschätzung. */
-export type VocabularyReviewMode = 'typed' | 'flashcard'
-
 /**
- * Höchste Leitner-Phase, die noch im Karteikarten-Modus (Wiedererkennung)
- * abgefragt wird. Darüber wird getippt (aktiver Abruf).
+ * Abfragemodus einer Karte.
+ *
+ * `typed` und `flashcard` sind feste Vorgaben des Servers. `learner_choice`
+ * überlässt die Wahl dem Lernenden: Beide Wege sind für diese Karte erlaubt,
+ * der Umschalter in der Lern-UI entscheidet.
  */
-export const FLASHCARD_MAX_PHASE: LeitnerPhase = 2
+export type VocabularyReviewMode = 'typed' | 'flashcard' | 'learner_choice'
+
+/** Die beiden Abfragerichtungen einer Vokabel. */
+export type VocabularyReviewDirection = 'de_to_native' | 'native_to_de'
 
 /**
- * Legt den Abfragemodus einer fälligen Karte fest. Der Modus ist bewusst
- * deterministisch aus dem Lernstand ableitbar, damit der Server ihn beim
- * Bewerten identisch neu berechnen kann (R5): Ein Client kann keine Tipp-Karte
- * als Karteikarte selbst bewerten.
+ * Legt fest, wie eine fällige Karte abgefragt werden darf. Der Modus hängt am
+ * Inhalt (Wort oder Satz) und an der Richtung — nicht mehr am Lernstand:
  *
- * Sätze werden immer getippt – ihre exakte Schreibweise ist der Lerninhalt und
- * darf nie zur Selbsteinschätzung herabgestuft werden. Frisch gelernte Wörter
- * (Phase 1–2) laufen zur Wiedererkennung als Karteikarte, reifere Wörter zum
- * aktiven Abruf als Texteingabe.
+ * - **Sätze** werden immer getippt. Ihre exakte Schreibweise ist der
+ *   Lerninhalt und darf nie zur Selbsteinschätzung herabgestuft werden.
+ * - **Deutsch → eigene Sprache** läuft immer als Karteikarte. Aktives
+ *   Ausschreiben gilt ausschließlich dem Deutschen; die Rechtschreibung der
+ *   Muttersprache ist hier nicht der Lerngegenstand.
+ * - **Eigene Sprache → Deutsch** überlässt dem Lernenden die Wahl zwischen
+ *   Karteikarte und Ausschreiben.
  *
- * Muss identisch zu `vocabulary_private.self_rating_allowed` in
- * `supabase/vps/18_vocabulary_self_rating.sql` bleiben.
+ * R5 bleibt gewahrt: Der Client wählt nur den *Weg*. Die Bewertung trifft in
+ * beiden Fällen PostgreSQL — beim Tippen aus dem Vergleich mit dem
+ * gespeicherten Inhalt, bei der Karteikarte aus der Selbsteinschätzung als
+ * Eingabe. Welche Wege erlaubt sind, prüft die Datenbank erneut; diese
+ * Funktion muss deshalb deckungsgleich zu
+ * `vocabulary_private.self_rating_allowed` bleiben
+ * (`supabase/vps/20_vocabulary_learner_mode.sql`).
  */
 export function vocabularyReviewMode(
-  box: number | null | undefined,
-  format: 'word' | 'sentence'
+  format: 'word' | 'sentence',
+  direction: VocabularyReviewDirection
 ): VocabularyReviewMode {
   if (format === 'sentence') return 'typed'
-  const phase = Math.min(6, Math.max(1, Math.round(box ?? 1)))
-  return phase <= FLASHCARD_MAX_PHASE ? 'flashcard' : 'typed'
+  return direction === 'de_to_native' ? 'flashcard' : 'learner_choice'
+}
+
+/**
+ * Spiegel von `vocabulary_private.self_rating_allowed`: Darf diese Karte per
+ * Selbsteinschätzung bewertet werden? Alles außer Sätzen darf es.
+ */
+export function selfRatingAllowed(format: 'word' | 'sentence'): boolean {
+  return format !== 'sentence'
+}
+
+/** Darf diese Karte ausgeschrieben werden? Nur Deutsch wird getippt. */
+export function typedAnswerAllowed(
+  format: 'word' | 'sentence',
+  direction: VocabularyReviewDirection
+): boolean {
+  return format === 'sentence' || direction === 'native_to_de'
 }
 
 /**

@@ -360,7 +360,7 @@ Befund: `h.get('x-forwarded-for')?.split(',')[0]` ist client-kontrolliert und fr
 
 ### PHASE 5 — UI/UX, KONTRAST, MEDIEN-HUB & DASHBOARD
 
-Stand 20.09.2026: Phase 5.1–5.6 umgesetzt und automatisiert geprüft. Vollständiger Bericht: [docs/phase-5-verification.md](docs/phase-5-verification.md). Phase 5.7 bleibt außerhalb dieser Freigabe offen.
+Stand 20.09.2026: Phase 5.1–5.6 umgesetzt und automatisiert geprüft. Vollständiger Bericht: [docs/phase-5-verification.md](docs/phase-5-verification.md). Phase 5.7 und 5.8 umgesetzt.
 
 * [x] Nachtrag 20.09.2026: Lernraum-/Admin-Einstieg verwendet bei bestehenden Sitzungen die gespeicherte Interface-Sprache, einschließlich Rückkehr von der Homepage. 84 gezielte Tests und VPS-Build bestanden; [Nachweis](docs/learning-language-fix.md).
 
@@ -411,6 +411,17 @@ Befund: `e2e/accessibility.spec.ts` enthält einen expliziten Whitelist-Block, d
 * [x] Design-System & Farbwelt: Basis aus Tiefem Slate/Dunkelblau (`#0F172A` / `slate-900`) und warmem Off-White/Hellgrau (`slate-50`).
 * [x] Marken- & Akzentfarbe: Warmes Orange (`#F97316` / `orange-500`) mit abgedunkeltem Hover-State (`#EA580C`), strikt mit WCAG-AA-Kontrast.
 * [x] Premium-Akzente: Sanfte Gold-/Warmton-Gradients, subtile Glassmorphism-Karten und sanfte Schlagschatten.
+
+#### 5.8 Vokabel-Lernbox: 6 Phasen sichtbar, beide Richtungen verbindlich, Modus wählbar
+* [x] Sechs Lernphasen plus Archiv als Bento-Grid im Glassmorphism-Look (`components/vocabulary/LeitnerBoxOverview.tsx`), mit Fachname, Ruhezeit, Bestand, Fälligkeit und gestaffelter Framer-Motion-Einblendung.
+* [x] „Hineinschauen": Jedes Fach öffnet eine Schublade (`components/vocabulary/PhaseInspector.tsx`) mit der vollständigen Vokabelliste der Phase — seitlich auf großen Geräten, von unten auf dem Telefon, Inhalt erst beim Öffnen geladen (Obergrenze 300 Wörter je Fach).
+* [x] Lernlogik auf Wortebene: Eine Vokabel liegt in der Phase ihrer **schwächeren** Richtung (`lib/vocabulary-box.ts`) und rückt erst weiter, wenn beide Richtungen bestanden sind. Eine Lektion mit 84 neuen Vokabeln bleibt damit 168 Aufgaben. Die Terminplanung je Richtung bleibt unverändert.
+* [x] Zwischenschritt „halb gewusst" sichtbar: schraffierter Anteil im Fachbalken, Zähler je Fach, Richtungs-Chips je Vokabel in der Schublade, halber Schritt im Gesamtfortschritt.
+* [x] Modus-Umschalter in der Lern-UI (`components/vocabulary/StudyModeToggle.tsx`): Karteikarte oder Ausschreiben, gefüllte Pille wandert per `layoutId`, Karte und Aktionsfläche blenden gemeinsam über (`AnimatePresence mode="wait"`); `prefers-reduced-motion` schaltet die Bewegung ab. Wahl gerätegebunden im `localStorage`.
+* [x] Ausschreiben gilt ausschließlich der Richtung eigene Sprache → Deutsch. Deutsch → eigene Sprache läuft immer als Karteikarte, Sätze immer als Texteingabe; fehlt die Wahl, sagt die UI warum.
+* [x] `supabase/vps/20_vocabulary_learner_mode.sql` löst die Selbsteinschätzung aus dem Fach-Band von Migration 18 (vorher ab Phase 3 abgelehnt). R5 bleibt gewahrt: Der Client wählt den Weg, PostgreSQL entscheidet Fach, Intervall und Termin. Sätze bleiben ausgeschlossen. Rollback beiliegend.
+* [x] Lektionsliste und Fächer-Übersicht stammen aus **einem** Lesevorgang (`getVocabularyOverview`) und teilen die Definitionen von „gelernt" und „fällig" — sie können nicht widersprechen.
+* [x] 38 neue Textbausteine in allen fünf Wörterbüchern (de/en/ru/uk/tr). Prüfungen: TypeScript, 1.439 Jest-Tests in 118 Suites, 11 VPS-Datenbanktests für Migration 20, 6 axe-core-Browsertests und Produktionsbuild bestanden.
 
 ---
 
