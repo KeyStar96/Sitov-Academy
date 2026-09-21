@@ -17,7 +17,7 @@ export default function CourseQuantityInput({value,onChange,unitMinutes,unitPric
         onChange={event=>{const next=event.target.value;setDraft(next);if(/^\d+$/.test(next)&&Number(next)>=1&&Number(next)<=1000)onChange(Number(next))}}
         onBlur={()=>{if(!valid)setDraft(String(value))}}/>
       <button type="button" disabled={disabled||value>=1000} className={control} aria-label={copy.increase} onClick={()=>onChange(value+1)}><Plus size={18} aria-hidden="true"/></button>
-      <strong className="text-lg tabular-nums text-[var(--accent)]">{new Intl.NumberFormat(lang,{style:'currency',currency:'EUR'}).format(value*unitPrice)}</strong>
+      <strong className="text-lg tabular-nums text-[var(--accent-text)]">{new Intl.NumberFormat(lang,{style:'currency',currency:'EUR'}).format(value*unitPrice)}</strong>
     </div>
     <p id={`${id}-hint`} className="text-base leading-relaxed text-[var(--muted)]">{copy.hint.replace('{minutes}',String(unitMinutes))}</p>
     {!valid&&<p role="alert" className="text-base text-red-700 dark:text-red-300">{copy.range}</p>}

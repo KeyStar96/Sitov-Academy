@@ -40,7 +40,7 @@ export default async function AGBPage({ params }: { params: Promise<{ lang: stri
 
             <main className="container mx-auto px-4 pt-32 pb-16 max-w-4xl relative">
                 <div className="mb-12">
-                    <Link href={`/${lang}`} className="inline-flex min-h-12 items-center px-5 py-2.5 bg-white/60 dark:bg-[#1a1a1a]/60 backdrop-blur-md border border-white/40 dark:border-white/10 rounded-full text-foreground/60 hover:text-primary-orange hover:shadow-lg transition-all duration-300 gap-3 group">
+                    <Link href={`/${lang}`} className="inline-flex min-h-12 items-center px-5 py-2.5 bg-white/60 dark:bg-[#1a1a1a]/60 backdrop-blur-md border border-white/40 dark:border-white/10 rounded-full text-foreground/60 hover:text-accent-text hover:shadow-lg transition-all duration-300 gap-3 group">
                         <span className="text-xl group-hover:-translate-x-1 transition-transform">←</span>
                         <span className="text-xs font-bold tracking-widest uppercase">{dictionary.registration?.back_home || "Zurück zur Startseite"}</span>
                     </Link>
@@ -64,7 +64,7 @@ export default async function AGBPage({ params }: { params: Promise<{ lang: stri
                             {/* Ambient Glow */}
                             <div className="absolute -top-24 -right-24 w-48 h-48 bg-[radial-gradient(circle,rgba(251,146,60,0.1)_0%,transparent_70%)] rounded-full pointer-events-none" />
                             
-                            <h2 className={`relative z-10 text-2xl font-bold tracking-tight mb-6 ${section.highlight ? 'text-primary-orange' : 'text-foreground'}`}>
+                            <h2 className={`relative z-10 text-2xl font-bold tracking-tight mb-6 ${section.highlight ? 'text-accent-text' : 'text-foreground'}`}>
                                 {section.title}
                             </h2>
                             <div className={`relative z-10 space-y-4 text-foreground/70 leading-relaxed text-base md:text-lg ${section.title === 'Muster-Widerrufsformular' ? 'font-mono text-sm bg-black/5 dark:bg-black/30 p-6 rounded-2xl border border-black/10 dark:border-white/10' : ''}`}>

@@ -14,7 +14,7 @@ export default function LearningHistoryChart({ history, lang }: { history: Teach
     <p className="mt-2 text-sm leading-relaxed text-[var(--muted)]">{t.historyHint}</p>
     <dl className="my-5 flex flex-wrap gap-x-8 gap-y-3">{(['answers', 'correct'] as const).map(key => <div key={key}><dt className="text-sm text-[var(--muted)]">{t[key]}</dt><dd className="text-2xl font-semibold tabular-nums">{totals[key]}</dd></div>)}</dl>
     {totals.answers === 0 ? <p className="rounded-xl bg-[var(--surface-muted)] p-4">{t.noHistory}</p> : <>
-      <div className="flex flex-wrap gap-4 text-sm" aria-hidden="true"><span className="text-[var(--accent)]">━ {t.answers}</span><span className="text-[var(--success)]">┄ {t.correct}</span></div>
+      <div className="flex flex-wrap gap-4 text-sm" aria-hidden="true"><span className="text-[var(--accent-text)]">━ {t.answers}</span><span className="text-[var(--success)]">┄ {t.correct}</span></div>
       <svg viewBox="0 0 600 200" className="mt-2 w-full" aria-hidden="true" focusable="false">
         <line x1="24" y1="176" x2="576" y2="176" stroke="var(--border)" />
         <line x1="24" y1="24" x2="576" y2="24" stroke="var(--border)" strokeDasharray="3 5" />

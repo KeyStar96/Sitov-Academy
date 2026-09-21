@@ -263,7 +263,7 @@ const CourseRow = React.memo(({ course, selected, onToggle, title, priceFormatte
                             {/* Title */}
                             <span className={cn(
                                 "font-sans text-base md:text-lg font-semibold tracking-tight transition-colors break-words pr-2",
-                                selected ? "text-[var(--accent)]" : "text-[var(--foreground)]"
+                                selected ? "text-[var(--accent-text)]" : "text-[var(--foreground)]"
                             )}>
                                 {title}
                             </span>
@@ -378,10 +378,10 @@ const TerminalInput = ({ label, error, registration, isDimmed, ...props }: Termi
                     "absolute left-0 top-0 text-xs tracking-normal text-[var(--muted)] transition-all pointer-events-none",
                     monoClassName,
                     "peer-placeholder-shown:top-5 peer-placeholder-shown:text-lg peer-placeholder-shown:normal-case peer-placeholder-shown:font-sans peer-placeholder-shown:text-gray-500 dark:peer-placeholder-shown:text-gray-500",
-                    "peer-focus:top-0 peer-focus:text-xs peer-focus:uppercase peer-focus:tracking-widest peer-focus:text-[var(--accent)]",
+                    "peer-focus:top-0 peer-focus:text-xs peer-focus:uppercase peer-focus:tracking-widest peer-focus:text-[var(--accent-text)]",
                     monoClassName
                 )}>
-                {label} {props.required && <span className="text-[var(--accent)]">*</span>}
+                {label} {props.required && <span className="text-[var(--accent-text)]">*</span>}
             </label>
             {error && <span className={cn("text-red-500 dark:text-red-400 text-xs absolute right-0 top-2", monoClassName)}>{error}</span>}
         </div>
@@ -464,7 +464,7 @@ const PhoneInput = ({
     return (
         <div className={cn("enrollment-phone relative group z-30", props.isDimmed ? "opacity-30" : "opacity-100")}>
             <span className={cn(
-                "absolute left-0 top-0 text-xs tracking-normal text-[var(--accent)] transition-all",
+                "absolute left-0 top-0 text-xs tracking-normal text-[var(--accent-text)] transition-all",
                 monoClassName,
                 // Always visible label
             )}>
@@ -1001,7 +1001,7 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
     if (isAlreadyUsed) {
         return (
             <div className="registration-flow enrollment-result min-h-screen w-full flex flex-col items-center justify-center text-center p-6 font-sans">
-                <div className="w-20 h-20 rounded-full bg-[var(--accent)]/10 text-[var(--accent)] flex items-center justify-center mb-6 relative">
+                <div className="w-20 h-20 rounded-full bg-[var(--accent)]/10 text-[var(--accent-text)] flex items-center justify-center mb-6 relative">
                     <span className="absolute -top-1 -right-1 text-xs">!</span>
                     <User size={32} />
                 </div>
@@ -1032,7 +1032,7 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                         {(trialT?.success_message || germanDictionary.registration.trial.success_message)}{" "}
                         <strong className="text-[var(--foreground)]">{formData?.email}</strong>.
                     </p>
-                    <p className="text-[var(--accent)] font-semibold text-lg mb-12">
+                    <p className="text-[var(--accent-text)] font-semibold text-lg mb-12">
                         <CalendarDays size={18} className="inline mr-2" />
                         {selectedDateLabel}
                     </p>
@@ -1090,7 +1090,7 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                 {/* Header with Progress */}
                 <header className="enrollment-header px-4 py-6 sm:px-8 lg:px-10 shrink-0 z-10">
                     <div className="flex flex-wrap justify-between items-center gap-3 mb-6">
-                        <Link href={`/${lang}`} className={cn("min-h-11 text-sm font-medium text-[var(--muted)] hover:text-[var(--accent)] transition-colors flex items-center gap-2", monoClassName)}>
+                        <Link href={`/${lang}`} className={cn("min-h-11 text-sm font-medium text-[var(--muted)] hover:text-[var(--accent-text)] transition-colors flex items-center gap-2", monoClassName)}>
                             <ChevronLeft size={14} /> {t?.back_home || germanDictionary.registration.back_home}
                         </Link>
                         <div className="enrollment-brand flex min-w-0 items-center">
@@ -1122,8 +1122,8 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                     {/* Trial Mode Banner */}
                     {isTrialMode && (
                         <div className="flex items-center gap-2 mb-4 bg-[var(--accent)]/10 dark:bg-[var(--accent)]/20 border border-[var(--accent)]/30 rounded-lg px-4 py-2 w-fit">
-                            <Gift size={16} className="text-[var(--accent)]" />
-                            <span className={cn("text-xs font-semibold tracking-normal text-[var(--accent)]", monoClassName)}>
+                            <Gift size={16} className="text-[var(--accent-text)]" />
+                            <span className={cn("text-xs font-semibold tracking-normal text-[var(--accent-text)]", monoClassName)}>
                                 {trialT?.badge || germanDictionary.registration.trial.badge}
                             </span>
                         </div>
@@ -1142,7 +1142,7 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                     {isTrialMode
                         ? <p className="text-sm md:text-base text-[var(--muted)] max-w-xl transition-colors duration-300">{trialT?.subtitle || germanDictionary.registration.trial.subtitle}</p>
                         : (<>
-                            {step === 1 && <p className="text-sm md:text-base text-[var(--muted)] max-w-xl transition-colors duration-300">{wizard?.step1_sub} <span className="text-[var(--accent)] font-semibold">{currentMonthLabel}</span>.</p>}
+                            {step === 1 && <p className="text-sm md:text-base text-[var(--muted)] max-w-xl transition-colors duration-300">{wizard?.step1_sub} <span className="text-[var(--accent-text)] font-semibold">{currentMonthLabel}</span>.</p>}
                             {step === 2 && <p className="text-sm md:text-base text-[var(--muted)] max-w-xl transition-colors duration-300">{wizard?.step2_sub}</p>}
                             {step === 3 && <p className="text-sm md:text-base text-[var(--muted)] max-w-xl transition-colors duration-300">{wizard?.step3_sub}</p>}
                         </>)
@@ -1177,7 +1177,7 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                                                     {/* Ambient Glow */}
                                                     <div aria-hidden="true" className="hidden absolute -top-24 -left-24 w-48 h-48 bg-[radial-gradient(circle,rgba(251,146,60,0.15)_0%,transparent_70%)] rounded-full pointer-events-none" />
                                                     {/* Header */}
-                                                    <span className={cn("font-sans tabular-nums text-xs tracking-normal text-[var(--accent)] uppercase mb-0", monoClassName)}>
+                                                    <span className={cn("font-sans tabular-nums text-xs tracking-normal text-[var(--accent-text)] uppercase mb-0", monoClassName)}>
                                                         {formLabels?.start_date_label || germanDictionary.registration.form.start_date_label}
                                                     </span>
 
@@ -1247,7 +1247,7 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                                                         <div aria-hidden="true" className="hidden absolute -bottom-24 -right-24 w-48 h-48 bg-[radial-gradient(circle,rgba(251,146,60,0.15)_0%,transparent_70%)] rounded-full" />
                                                     </div>
                                                     {/* Header */}
-                                                    <span className={cn("font-sans tabular-nums text-xs tracking-normal text-[var(--accent)] uppercase mb-0", monoClassName)}>
+                                                    <span className={cn("font-sans tabular-nums text-xs tracking-normal text-[var(--accent-text)] uppercase mb-0", monoClassName)}>
                                                         {wizard?.sidebar_hint_title || germanDictionary.registration.wizard.sidebar_hint_title}
                                                     </span>
 
@@ -1295,7 +1295,7 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                                                     <button
                                                         type="button"
                                                         onClick={() => setShowPaymentInfo(prev => !prev)}
-                                                        className="min-h-11 mt-3 text-sm text-[var(--muted)] underline decoration-dotted hover:text-[var(--accent)] transition-colors text-left"
+                                                        className="min-h-11 mt-3 text-sm text-[var(--muted)] underline decoration-dotted hover:text-[var(--accent-text)] transition-colors text-left"
                                                     >
                                                         {t?.pricing_roadmap?.how_payment_works || germanDictionary.registration.pricing_roadmap.how_payment_works}
                                                     </button>
@@ -1322,7 +1322,7 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                                                                     <div className="flex gap-4">
                                                                         {/* Trust Icon */}
                                                                         <div className="shrink-0 mt-0.5">
-                                                                            <CheckCircle2 size={20} className="text-[var(--accent)]" />
+                                                                            <CheckCircle2 size={20} className="text-[var(--accent-text)]" />
                                                                         </div>
 
                                                                         {/* Text Block */}
@@ -1335,15 +1335,15 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                                                                             {/* Bullet Points */}
                                                                             <ul className="space-y-1.5">
                                                                                 <li className="text-xs text-[var(--muted)] flex items-start gap-2">
-                                                                                    <span className="text-[var(--accent)] mt-0.5">•</span>
+                                                                                    <span className="text-[var(--accent-text)] mt-0.5">•</span>
                                                                                     <span>{t?.pricing_roadmap?.payment_point_1 || "Sie zahlen heute nur den ersten Monat."}</span>
                                                                                 </li>
                                                                                 <li className="text-xs text-[var(--muted)] flex items-start gap-2">
-                                                                                    <span className="text-[var(--accent)] mt-0.5">•</span>
+                                                                                    <span className="text-[var(--accent-text)] mt-0.5">•</span>
                                                                                     <span>{t?.pricing_roadmap?.payment_point_2 || "Danach entscheiden Sie flexibel weiter."}</span>
                                                                                 </li>
                                                                                 <li className="text-xs text-[var(--muted)] flex items-start gap-2">
-                                                                                    <span className="text-[var(--accent)] mt-0.5">•</span>
+                                                                                    <span className="text-[var(--accent-text)] mt-0.5">•</span>
                                                                                     <span>{t?.pricing_roadmap?.payment_point_3 || "Kündbar bis zum 25. des Monats."}</span>
                                                                                 </li>
                                                                             </ul>
@@ -1360,7 +1360,7 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                                                 {/* Ambient Glow */}
                                                 <div aria-hidden="true" className="hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-[radial-gradient(circle,rgba(251,146,60,0.1)_0%,transparent_70%)] rounded-full pointer-events-none" />
                                                 {/* Header */}
-                                                <span className={cn("font-sans tabular-nums text-xs tracking-normal text-[var(--accent)] uppercase mb-6", monoClassName)}>
+                                                <span className={cn("font-sans tabular-nums text-xs tracking-normal text-[var(--accent-text)] uppercase mb-6", monoClassName)}>
                                                     {trialT?.select_day || germanDictionary.registration.trial.select_day}
                                                 </span>
 
@@ -1384,7 +1384,7 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                                                                     className={cn(
                                                                         "min-h-11 text-left px-4 py-3 rounded-xl border transition-colors duration-200 font-sans tabular-nums text-sm",
                                                                         trialDate === d.iso
-                                                                            ? "bg-[var(--accent-soft)] dark:bg-[var(--accent)]/10 border-[var(--accent)] text-[var(--accent)] font-semibold shadow-sm"
+                                                                            ? "bg-[var(--accent-soft)] dark:bg-[var(--accent)]/10 border-[var(--accent)] text-[var(--accent-text)] font-semibold shadow-sm"
                                                                             : "border-black/5 dark:border-white/5 text-gray-700 dark:text-gray-300 hover:border-[var(--accent)] dark:hover:border-[var(--accent)]"
                                                                     )}
                                                                 >
@@ -1412,7 +1412,7 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                                     ].map((group, idx) => (
                                         <section key={idx} className="mb-8">
                                             <div className="flex items-center gap-3 mb-4">
-                                                <span className="font-sans tabular-nums text-xs tracking-normal text-black dark:text-[var(--accent)]">{group.title}</span>
+                                                <span className="font-sans tabular-nums text-xs tracking-normal text-black dark:text-[var(--accent-text)]">{group.title}</span>
                                                 <div className="h-px bg-black/20 dark:bg-white/20 flex-1" />
                                             </div>
                                             <div className="space-y-4">
@@ -1599,7 +1599,7 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                                             <div className="text-gray-500">{wizard?.summary_labels?.address || germanDictionary.registration.wizard.summary_labels.address}</div>
                                             <div className="font-medium text-[var(--foreground)]">{formData?.street}<br />{formData?.zip} {formData?.city}</div>
                                         </div>
-                                        <button onClick={() => setStep(2)} className="inline-flex min-h-11 items-center text-[var(--accent)] text-sm font-semibold hover:underline mt-4">
+                                        <button onClick={() => setStep(2)} className="inline-flex min-h-11 items-center text-[var(--accent-text)] text-sm font-semibold hover:underline mt-4">
                                             {wizard?.edit}
                                         </button>
                                         </div>
@@ -1628,7 +1628,7 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                                                 );
                                             })}
                                         </div>
-                                        <button onClick={() => setStep(1)} className="inline-flex min-h-11 items-center text-[var(--accent)] text-sm font-semibold hover:underline mt-4">
+                                        <button onClick={() => setStep(1)} className="inline-flex min-h-11 items-center text-[var(--accent-text)] text-sm font-semibold hover:underline mt-4">
                                             {wizard?.change_selection}
                                         </button>
                                     </div>
@@ -1650,7 +1650,7 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                 <div className="enrollment-receipt-heading px-5 pt-6 pb-4 shrink-0 border-b border-[var(--border)]">
                     <div className="flex items-center justify-between">
                         <div className="flex items-center gap-2">
-                            <span className="font-sans tabular-nums text-xs text-[var(--accent)] tracking-normal">
+                            <span className="font-sans tabular-nums text-xs text-[var(--accent-text)] tracking-normal">
                                 {isTrialMode ? (trialT?.badge || germanDictionary.registration.trial.badge) : (receipt?.live_title || germanDictionary.registration.receipt.live_title)}
                             </span>
                             <span className="relative flex h-2 w-2">
@@ -1681,7 +1681,7 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                             {/* Selected Date */}
                             {trialDate && (
                                 <div className="flex items-center gap-2 text-sm text-gray-300">
-                                    <CalendarDays size={14} className="text-[var(--accent)]" />
+                                    <CalendarDays size={14} className="text-[var(--accent-text)]" />
                                     <span className="font-sans tabular-nums">{trialDates.find(d => d.iso === trialDate)?.label || trialDate}</span>
                                 </div>
                             )}

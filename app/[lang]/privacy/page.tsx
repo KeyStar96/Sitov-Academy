@@ -40,7 +40,7 @@ export default async function PrivacyPage({ params }: { params: Promise<{ lang: 
 
             <main className="container mx-auto px-4 pt-32 pb-16 max-w-4xl relative">
                 <div className="mb-12">
-                    <Link href={`/${lang}`} className="inline-flex min-h-12 items-center px-5 py-2.5 bg-white/60 dark:bg-[#1a1a1a]/60 backdrop-blur-md border border-white/40 dark:border-white/10 rounded-full text-foreground/60 hover:text-primary-orange hover:shadow-lg transition-all duration-300 gap-3 group">
+                    <Link href={`/${lang}`} className="inline-flex min-h-12 items-center px-5 py-2.5 bg-white/60 dark:bg-[#1a1a1a]/60 backdrop-blur-md border border-white/40 dark:border-white/10 rounded-full text-foreground/60 hover:text-accent-text hover:shadow-lg transition-all duration-300 gap-3 group">
                         <span className="text-xl group-hover:-translate-x-1 transition-transform">←</span>
                         <span className="text-xs font-bold tracking-widest uppercase">{dictionary.registration?.back_home || "Back"}</span>
                     </Link>

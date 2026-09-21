@@ -44,7 +44,7 @@ export default async function RegisterPage({
           {t('register_subtitle')}{' '}
           <Link
             href={`/${lang}/login`}
-            className="font-semibold text-[var(--accent)] underline decoration-2 underline-offset-4 hover:text-[var(--foreground)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
+            className="font-semibold text-[var(--accent-text)] underline decoration-2 underline-offset-4 hover:text-[var(--foreground)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
           >
             {t('register_login_link')}
           </Link>

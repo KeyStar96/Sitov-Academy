@@ -37,7 +37,7 @@ export default function NextCourseCard({ calendar, lang, className = '' }: {
       {event ? (
         <div className="mt-5 min-w-0">
           <p className="break-words text-2xl font-bold leading-snug text-[var(--foreground)]">{title}</p>
-          <p className="mt-2 text-lg font-semibold text-[var(--accent)]">{when}</p>
+          <p className="mt-2 text-lg font-semibold text-[var(--accent-text)]">{when}</p>
           <p className="mt-1 text-base text-[var(--muted)]">
             <time dateTime={`${event.date}T${event.startTime}`}>{event.startTime}–{event.endTime}</time>
             {event.pending ? ` · ${t('next_course_pending')}` : ''}

@@ -27,10 +27,10 @@ export default function ThemeSwitch() {
         className="relative inline-flex h-11 w-[4.75rem] shrink-0 items-center rounded-full border border-[var(--border)] bg-[var(--surface-muted)] px-1 transition-colors focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)]"
       >
         {/* Both destinations stay visible so the control reads as a slider, not an icon. */}
-        <Sun size={18} aria-hidden="true" className={`absolute left-2 transition-opacity ${dark ? 'opacity-40 text-[var(--muted)]' : 'opacity-100 text-[var(--accent)]'}`} />
+        <Sun size={18} aria-hidden="true" className={`absolute left-2 transition-opacity ${dark ? 'opacity-40 text-[var(--muted)]' : 'opacity-100 text-[var(--accent-text)]'}`} />
         <Moon size={18} aria-hidden="true" className={`absolute right-2 transition-opacity ${dark ? 'opacity-100 text-[var(--violet)]' : 'opacity-40 text-[var(--muted)]'}`} />
         <span className={`relative z-10 flex h-9 w-9 items-center justify-center rounded-full bg-[var(--surface)] shadow-sm transition-transform duration-200 ease-out motion-reduce:transition-none ${dark ? 'translate-x-[2.05rem]' : 'translate-x-0'}`}>
-          {dark ? <Moon size={18} aria-hidden="true" className="text-[var(--violet)]" /> : <Sun size={18} aria-hidden="true" className="text-[var(--accent)]" />}
+          {dark ? <Moon size={18} aria-hidden="true" className="text-[var(--violet)]" /> : <Sun size={18} aria-hidden="true" className="text-[var(--accent-text)]" />}
         </span>
       </button>
     </div>

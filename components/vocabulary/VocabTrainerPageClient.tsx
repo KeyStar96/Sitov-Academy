@@ -99,19 +99,19 @@ export default function VocabTrainerPageClient({ learnerId, initialCards, lesson
     </details>
     <section aria-label={t('your_sets')}>
       <div className="mb-4 flex flex-wrap items-center justify-between gap-2"><h2 className="text-xl font-semibold">{t('your_sets')}</h2>
-        <button type="button" onClick={() => setSelection(Array.from(dueByLesson.keys()))} className="min-h-12 rounded-xl px-3 text-base font-semibold text-[var(--accent)]">{t('lernkasten_select_all')}</button>
+        <button type="button" onClick={() => setSelection(Array.from(dueByLesson.keys()))} className="min-h-12 rounded-xl px-3 text-base font-semibold text-[var(--accent-text)]">{t('lernkasten_select_all')}</button>
       </div>
       <div className="grid gap-3 md:grid-cols-2">
         {lessonStats.map(lesson => <article key={lesson.lesson} className="min-w-0 rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-4 sm:p-5">
           <div className="flex items-start justify-between gap-3"><div className="min-w-0"><h3 className="break-words text-lg font-semibold">{lesson.lesson}</h3></div>
             <button type="button" onClick={() => toggle(lesson)} aria-pressed={selection.includes(lesson.lesson)} aria-label={t(selection.includes(lesson.lesson) ? 'lernkasten_remove_aria' : 'lernkasten_add_aria', { lesson: lesson.lesson })}
-              className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-[var(--border)] text-[var(--accent)]">{selection.includes(lesson.lesson) ? <Check size={20} aria-hidden="true" /> : <Plus size={20} aria-hidden="true" />}</button>
+              className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-[var(--border)] text-[var(--accent-text)]">{selection.includes(lesson.lesson) ? <Check size={20} aria-hidden="true" /> : <Plus size={20} aria-hidden="true" />}</button>
           </div>
           <p className="mt-3 text-base text-[var(--muted)]">{t('lernkasten_lesson_meta', { due: dueByLesson.get(lesson.lesson) ?? 0, total: lesson.total })}</p>
           <div className="mt-4 h-1 rounded-full bg-[var(--surface-muted)]" aria-hidden="true"><div className="h-full rounded-full bg-[var(--violet)]" style={{ width: `${lesson.total ? lesson.learned / lesson.total * 100 : 0}%` }} /></div>
           <div className="mt-3 flex flex-wrap gap-2">
             <button type="button" onClick={() => setOpenLesson(lesson.lesson)} className="inline-flex min-h-12 items-center gap-2 rounded-xl px-2 text-base font-semibold"><BookOpen size={16} aria-hidden="true" />{t('show_cards')}</button>
-            {lesson.untouched > 0 && <Link className="inline-flex min-h-12 items-center rounded-xl px-2 text-base font-semibold text-[var(--accent)]" href={`${overview}/assess?lesson=${encodeURIComponent(lesson.lesson)}`}>{t('assess_set')}</Link>}
+            {lesson.untouched > 0 && <Link className="inline-flex min-h-12 items-center rounded-xl px-2 text-base font-semibold text-[var(--accent-text)]" href={`${overview}/assess?lesson=${encodeURIComponent(lesson.lesson)}`}>{t('assess_set')}</Link>}
           </div>
         </article>)}
       </div>

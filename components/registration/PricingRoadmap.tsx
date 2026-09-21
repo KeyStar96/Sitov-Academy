@@ -108,7 +108,7 @@ export default function PricingRoadmap({
                     </span>
                     <div className="flex min-w-0 flex-wrap items-baseline justify-between gap-x-4 gap-y-2">
                         <span className="min-w-0 text-base font-medium text-[var(--foreground)]">{currentMonthLabel}</span>
-                        <span className="text-2xl font-semibold tracking-tight text-[var(--accent)] tabular-nums">{formatPrice(currentMonthPrice)}</span>
+                        <span className="text-2xl font-semibold tracking-tight text-[var(--accent-text)] tabular-nums">{formatPrice(currentMonthPrice)}</span>
                     </div>
                 </div>
                 <div className="my-4 h-px bg-[var(--border)]" />
@@ -124,7 +124,7 @@ export default function PricingRoadmap({
                     ))}
                 </div>
                 <div className="flex items-start gap-2 rounded-xl border border-[var(--border)] bg-[var(--surface-muted)] px-3 py-3">
-                    <Check size={17} className="mt-0.5 shrink-0 text-[var(--accent)]" aria-hidden="true" />
+                    <Check size={17} className="mt-0.5 shrink-0 text-[var(--accent-text)]" aria-hidden="true" />
                     <span className="text-xs font-medium leading-relaxed text-[var(--foreground)]">{t.cancel_anytime}</span>
                 </div>
             </div>

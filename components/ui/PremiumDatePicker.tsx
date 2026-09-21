@@ -235,7 +235,7 @@ export const PremiumDatePicker = ({
                     "text-xs uppercase tracking-widest text-gray-500 mb-6 block",
                     jetbrainsMono.className
                 )}>
-                    {label} {required && <span className="text-[var(--accent)]">*</span>}
+                    {label} {required && <span className="text-[var(--accent-text)]">*</span>}
                 </span>
             )}
             

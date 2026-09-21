@@ -85,7 +85,7 @@ export default function TeacherSidebar({ lang, onNavigate }: { lang: string; onN
                     <Icon
                       size={18}
                       aria-hidden="true"
-                      className={`shrink-0 transition-colors ${active ? 'text-[var(--accent)]' : 'text-[var(--muted)] group-hover:text-[var(--foreground)]'}`}
+                      className={`shrink-0 transition-colors ${active ? 'text-[var(--accent-text)]' : 'text-[var(--muted)] group-hover:text-[var(--foreground)]'}`}
                     />
                     <span className="min-w-0 truncate">{t(item.labelKey)}</span>
                   </Link>

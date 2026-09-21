@@ -150,12 +150,12 @@ export default function PronunciationConversation({ conversation: initial, staff
   return <article className={`min-w-0 overflow-hidden rounded-3xl border bg-[var(--surface)] ${conversation.hasUnseen ? 'border-[var(--accent)]' : 'border-[var(--border)]'}`}>
     <button type="button" onClick={() => { followLatest.current = true; setVisited(true); setOpen(true) }} aria-haspopup="dialog"
       className="flex min-h-20 w-full items-center gap-4 p-5 text-left sm:p-6">
-      <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[var(--surface-muted)] text-[var(--accent)]"><MessageCircle size={23} aria-hidden="true" /></span>
+      <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[var(--surface-muted)] text-[var(--accent-text)]"><MessageCircle size={23} aria-hidden="true" /></span>
       <span className="min-w-0 flex-1"><span className="block truncate text-lg font-semibold">{title}</span>
         <span className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-base text-[var(--muted)]">
           <span>{conversation.level}</span><span>{conversation.createdAt ? new Date(conversation.createdAt).toLocaleDateString(lang) : ''}</span>
-          <span className={conversation.status === 'pending' ? 'text-[var(--accent)]' : ''}>{t(conversation.status === 'pending' ? 'status_pending' : 'status_reviewed')}</span>
-          {conversation.hasUnseen && <span className="font-semibold text-[var(--accent)]">{t('new_badge')}</span>}
+          <span className={conversation.status === 'pending' ? 'text-[var(--accent-text)]' : ''}>{t(conversation.status === 'pending' ? 'status_pending' : 'status_reviewed')}</span>
+          {conversation.hasUnseen && <span className="font-semibold text-[var(--accent-text)]">{t('new_badge')}</span>}
         </span>
       </span>
     </button>

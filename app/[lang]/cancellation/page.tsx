@@ -63,7 +63,7 @@ export default async function CancellationPage({
 
                         {/* Back Button */}
                         <div className="relative z-10 mb-8">
-                            <Link href={`/${lang}`} className="inline-flex items-center px-4 py-2 bg-white/60 dark:bg-[#1a1a1a]/60 backdrop-blur-md border border-white/40 dark:border-white/10 rounded-full text-foreground/60 hover:text-[var(--accent)] hover:shadow-lg transition-all duration-300 gap-2 group">
+                            <Link href={`/${lang}`} className="inline-flex items-center px-4 py-2 bg-white/60 dark:bg-[#1a1a1a]/60 backdrop-blur-md border border-white/40 dark:border-white/10 rounded-full text-foreground/60 hover:text-[var(--accent-text)] hover:shadow-lg transition-all duration-300 gap-2 group">
                                 <span className="text-xl group-hover:-translate-x-1 transition-transform">←</span>
                                 <span className="text-[10px] font-bold tracking-widest uppercase font-mono">{dictionary.cancellation.back_home || "Back"}</span>
                             </Link>

@@ -97,7 +97,7 @@ export default async function ResetPasswordPage({
 
           <Link
             href={`/${lang}/login`}
-            className="inline-flex min-h-14 items-center text-lg font-semibold text-[var(--accent)] underline decoration-2 underline-offset-4 hover:text-[var(--foreground)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
+            className="inline-flex min-h-14 items-center text-lg font-semibold text-[var(--accent-text)] underline decoration-2 underline-offset-4 hover:text-[var(--foreground)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
           >
             {t('forgot_back_to_login')}
           </Link>

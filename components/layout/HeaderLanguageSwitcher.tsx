@@ -83,7 +83,7 @@ export default function HeaderLanguageSwitcher({
                   aria-selected={locale === currentLocale}
                   className={`flex min-h-12 w-full items-center px-4 text-left text-sm font-bold focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-[-2px] focus-visible:outline-[var(--accent)] ${
                     locale === currentLocale
-                      ? 'bg-[var(--accent)]/10 text-[var(--accent)]'
+                      ? 'bg-[var(--accent)]/10 text-[var(--accent-text)]'
                       : 'text-slate-800 hover:bg-slate-50 dark:text-slate-100 dark:hover:bg-slate-800'
                   }`}
                 >

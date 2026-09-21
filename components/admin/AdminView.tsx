@@ -132,7 +132,7 @@ export default function AdminView({
             <p className="truncate text-xs text-[var(--muted)]">{metric.label}</p>
             <p
               className={`mt-2 text-2xl font-semibold tabular-nums ${
-                metric.tone === 'accent' ? 'text-[var(--accent)]' : ''
+                metric.tone === 'accent' ? 'text-[var(--accent-text)]' : ''
               }`}
             >
               {metric.value}
@@ -202,7 +202,7 @@ export default function AdminView({
       <section className="min-w-0 overflow-hidden rounded-xl border border-[var(--border)] bg-[var(--surface)]">
         {rows.length === 0 ? (
           <div className="px-4 py-14 text-center">
-            <CheckCircle2 size={34} className="mx-auto mb-3 text-[var(--accent)]" aria-hidden="true" />
+            <CheckCircle2 size={34} className="mx-auto mb-3 text-[var(--accent-text)]" aria-hidden="true" />
             <p className="font-semibold">{t('finance_empty')}</p>
             <p className="mt-2 text-sm text-[var(--muted)]">{t('finance_empty_hint')}</p>
           </div>

@@ -87,7 +87,7 @@ export default function ContentView({ lang, levels }: { lang: string; levels: st
                         : 'border-[var(--border)] hover:bg-[var(--surface-muted)]'
                     }`}
                   >
-                    <Icon size={18} aria-hidden="true" className={selected ? 'text-[var(--accent)]' : 'text-[var(--muted)]'} />
+                    <Icon size={18} aria-hidden="true" className={selected ? 'text-[var(--accent-text)]' : 'text-[var(--muted)]'} />
                     <span className="min-w-0">
                       <span className="block truncate text-sm font-semibold">{t(type.titleKey)}</span>
                     </span>
@@ -144,12 +144,12 @@ export default function ContentView({ lang, levels }: { lang: string; levels: st
                 href={`/${lang}/admin/${type.route}`}
                 className="group flex min-w-0 flex-col rounded-xl border border-[var(--border)] bg-[var(--surface)] p-5 transition-colors hover:bg-[var(--surface-muted)]"
               >
-                <span className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[var(--accent-soft)] text-[var(--accent)]">
+                <span className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[var(--accent-soft)] text-[var(--accent-text)]">
                   <Icon size={20} aria-hidden="true" />
                 </span>
                 <span className="text-sm font-semibold">{t(type.titleKey)}</span>
                 <span className="mt-1 flex-1 text-sm leading-relaxed text-[var(--muted)]">{t(type.descKey)}</span>
-                <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-[var(--accent)]">
+                <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-[var(--accent-text)]">
                   {t('content_manage')}
                   <ArrowRight size={15} aria-hidden="true" className="transition-transform group-hover:translate-x-0.5" />
                 </span>

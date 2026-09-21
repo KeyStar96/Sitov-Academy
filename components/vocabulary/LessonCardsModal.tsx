@@ -387,7 +387,7 @@ export default function LessonCardsModal({
                     <button
                       type="button"
                       onClick={() => setShowCustomForm(true)}
-                      className="inline-flex min-h-14 w-full items-center justify-center rounded-2xl border-2 border-dashed border-[var(--accent)] vocabulary-phase-new px-6 text-base font-bold text-[var(--accent)] transition-colors hover:opacity-90 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)]"
+                      className="inline-flex min-h-14 w-full items-center justify-center rounded-2xl border-2 border-dashed border-[var(--accent)] vocabulary-phase-new px-6 text-base font-bold text-[var(--accent-text)] transition-colors hover:opacity-90 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)]"
                     >
                       {t('add_custom_vocab')}
                     </button>
@@ -414,7 +414,7 @@ export default function LessonCardsModal({
                               {card.translation || t('no_translation')}
                             </p>
                             {card.isCustom && (
-                              <p className="mt-1 text-base font-semibold text-[var(--accent)]">
+                              <p className="mt-1 text-base font-semibold text-[var(--accent-text)]">
                                 {t('custom_vocab_badge')}
                               </p>
                             )}

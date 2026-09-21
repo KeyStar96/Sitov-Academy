@@ -121,10 +121,10 @@ export default function CancellationForm({ dictionary, lang, courses }: Cancella
                         className={cn(
                             "absolute left-0 top-0 text-xs font-mono uppercase tracking-widest text-gray-600 dark:text-gray-400 transition-all pointer-events-none",
                             "peer-placeholder-shown:top-3 peer-placeholder-shown:text-lg peer-placeholder-shown:normal-case peer-placeholder-shown:font-sans peer-placeholder-shown:text-[var(--muted)]",
-                            "peer-focus:top-0 peer-focus:text-xs peer-focus:uppercase peer-focus:tracking-widest peer-focus:text-[var(--accent)]"
+                            "peer-focus:top-0 peer-focus:text-xs peer-focus:uppercase peer-focus:tracking-widest peer-focus:text-[var(--accent-text)]"
                         )}
                     >
-                        {t.form.full_name} <span className="text-[var(--accent)]">*</span>
+                        {t.form.full_name} <span className="text-[var(--accent-text)]">*</span>
                     </label>
                     {errors.fullName && (
                         <span className="text-red-500 text-xs mt-1 block font-mono">{errors.fullName.message}</span>
@@ -150,10 +150,10 @@ export default function CancellationForm({ dictionary, lang, courses }: Cancella
                         className={cn(
                             "absolute left-0 top-0 text-xs font-mono uppercase tracking-widest text-gray-600 dark:text-gray-400 transition-all pointer-events-none",
                             "peer-placeholder-shown:top-3 peer-placeholder-shown:text-lg peer-placeholder-shown:normal-case peer-placeholder-shown:font-sans peer-placeholder-shown:text-[var(--muted)]",
-                            "peer-focus:top-0 peer-focus:text-xs peer-focus:uppercase peer-focus:tracking-widest peer-focus:text-[var(--accent)]"
+                            "peer-focus:top-0 peer-focus:text-xs peer-focus:uppercase peer-focus:tracking-widest peer-focus:text-[var(--accent-text)]"
                         )}
                     >
-                        {t.form.email} <span className="text-[var(--accent)]">*</span>
+                        {t.form.email} <span className="text-[var(--accent-text)]">*</span>
                     </label>
                     {errors.email && (
                         <span className="text-red-500 text-xs mt-1 block font-mono">{errors.email.message}</span>
