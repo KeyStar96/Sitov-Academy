@@ -44,20 +44,39 @@ jest.mock('next/link', () => ({
     ),
 }));
 
-// Framer Motion Mock (Simplified)
-// This avoids complex animation timers in tests
-jest.mock('framer-motion', () => ({
-    __esModule: true,
-    motion: {
-        div: ({ children, ...props }: any) => React.createElement('div', props, children),
-        h2: ({ children, ...props }: any) => React.createElement('h2', props, children),
-        p: ({ children, ...props }: any) => React.createElement('p', props, children),
-        section: ({ children, ...props }: any) => React.createElement('section', props, children),
-        span: ({ children, ...props }: any) => React.createElement('span', props, children), // Added span
-        // Add other HTML elements as needed
-    },
-    AnimatePresence: ({ children }: any) => React.createElement(React.Fragment, {}, children),
-}));
+// Framer Motion Mock (comprehensive, animation-free)
+// Renders any motion.<tag> and motion.create(Component) as the plain element, strips
+// animation-only props, and stubs the motion-value hooks so components that use
+// useScroll / useMotionValue / useMotionTemplate / useMotionValueEvent render in JSDOM.
+jest.mock('framer-motion', () => {
+    const ANIM_PROPS = new Set([
+        'initial', 'animate', 'exit', 'whileHover', 'whileTap', 'whileInView', 'whileFocus',
+        'whileDrag', 'transition', 'variants', 'viewport', 'drag', 'layout', 'layoutId',
+    ]);
+    const strip = (props: any) => {
+        const out: any = {};
+        for (const key in props) if (!ANIM_PROPS.has(key)) out[key] = props[key];
+        return out;
+    };
+    const make = (tag: any) => ({ children, ...props }: any) => React.createElement(tag, strip(props), children);
+    const motion: any = new Proxy(
+        { create: (Component: any) => make(Component) },
+        { get: (target, key: string) => (key in target ? (target as any)[key] : make(key)) },
+    );
+    const value = (init: any) => ({ get: () => init, set: () => {}, on: () => () => {}, destroy: () => {} });
+    return {
+        __esModule: true,
+        motion,
+        AnimatePresence: ({ children }: any) => React.createElement(React.Fragment, {}, children),
+        MotionConfig: ({ children }: any) => React.createElement(React.Fragment, {}, children),
+        useReducedMotion: () => true,
+        useScroll: () => ({ scrollY: value(0), scrollX: value(0), scrollYProgress: value(0), scrollXProgress: value(0) }),
+        useMotionValueEvent: () => {},
+        useMotionValue: (init: any) => value(init),
+        useMotionTemplate: () => '',
+        useTransform: () => value(0),
+    };
+});
 
 // ResizeObserver Mock (often missing in JSDOM)
 global.ResizeObserver = class ResizeObserver {

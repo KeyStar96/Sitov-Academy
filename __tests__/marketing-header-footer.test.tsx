@@ -25,16 +25,6 @@ jest.mock('@/components/layout/BrandLogo', () => ({
   __esModule: true,
   default: ({ name }: { name: string }) => <span>{name}</span>,
 }))
-jest.mock('framer-motion', () => ({
-  AnimatePresence: ({ children }: { children: React.ReactNode }) => <>{children}</>,
-  motion: {
-    div: ({ children, id, className }: React.ComponentProps<'div'>) => (
-      <div id={id} className={className}>{children}</div>
-    ),
-  },
-  useReducedMotion: () => true,
-}))
-
 const locales = [
   { lang: 'de', dictionary: de },
   { lang: 'en', dictionary: en },
