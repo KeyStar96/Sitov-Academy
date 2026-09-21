@@ -41,7 +41,7 @@ export default function GreetingClock({ name, lang, children }: {
     : ' '
 
   return (
-    <section className="flex min-w-0 flex-col gap-6 rounded-[1.75rem] border border-[var(--border)] bg-[var(--surface)] p-6 shadow-sm sm:p-8 lg:flex-row lg:items-center lg:justify-between">
+    <section className="flex min-w-0 flex-col gap-6 rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-6 shadow-md sm:p-8 lg:flex-row lg:items-center lg:justify-between">
       <div className="min-w-0">
         <h1 className="break-words text-3xl font-bold leading-tight tracking-tight text-[var(--foreground)] sm:text-4xl">{greeting}</h1>
         <p className="mt-3 max-w-xl text-lg leading-relaxed text-[var(--muted)]">{messages.greeting_sub}</p>

@@ -27,7 +27,7 @@ export default function NextCourseCard({ calendar, lang, className = '' }: {
     : null
 
   return (
-    <section className={`flex min-w-0 flex-col rounded-3xl border border-[var(--border)] bg-[var(--accent-soft)] p-6 shadow-sm sm:p-7 ${className}`}>
+    <section className={`flex min-w-0 flex-col rounded-3xl border border-[var(--border)] bg-[var(--accent-soft)] p-6 shadow-md sm:p-7 ${className}`}>
       <div className="flex items-center gap-3">
         <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[var(--accent-strong)] text-[var(--accent-foreground)]">
           <CalendarClock size={24} aria-hidden="true" />

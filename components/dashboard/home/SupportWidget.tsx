@@ -27,7 +27,7 @@ export default function SupportWidget({ lang, labels, className = '' }: {
     { href: `mailto:${labels.email}`, label: labels.emailLabel, icon: Mail, external: false },
   ]
   return (
-    <section aria-labelledby="dashboard-support-title" className={`flex min-w-0 flex-col rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-6 shadow-sm sm:p-7 ${className}`}>
+    <section aria-labelledby="dashboard-support-title" className={`flex min-w-0 flex-col rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-6 shadow-md sm:p-7 ${className}`}>
       <div className="flex items-center gap-3">
         <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[var(--surface-muted)] text-[var(--violet)]">
           <LifeBuoy size={24} aria-hidden="true" />

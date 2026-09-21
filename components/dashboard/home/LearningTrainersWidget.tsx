@@ -28,7 +28,7 @@ export default function LearningTrainersWidget({ lang, level, profile, translati
   const languageLocked = lang === 'de'
 
   return (
-    <section aria-labelledby="dashboard-trainers-title" className={`flex min-w-0 flex-col rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-6 shadow-sm sm:p-7 ${className}`}>
+    <section aria-labelledby="dashboard-trainers-title" className={`flex min-w-0 flex-col rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-6 shadow-md sm:p-7 ${className}`}>
       <div className="flex flex-wrap items-center justify-between gap-3">
         <h2 id="dashboard-trainers-title" className="text-xl font-bold text-[var(--foreground)]">{home('trainers_title')}</h2>
         <Link href={`/${lang}/dashboard`} className="inline-flex min-h-11 items-center gap-1.5 rounded-full px-3 text-base font-semibold text-[var(--violet)] underline underline-offset-4 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)]">
