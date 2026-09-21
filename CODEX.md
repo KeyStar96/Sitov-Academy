@@ -406,11 +406,11 @@ Befund: `e2e/accessibility.spec.ts` enthält einen expliziten Whitelist-Block, d
 * [x] Zeitzone explizit `Europe/Berlin`; keine UTC-Verschiebung am Monatsrand.
 
 #### 5.7 KI-Design-Autonomie & "Subtle Luxury" UI/UX
-* [ ] Vollständige Design-Regie durch die KI als Senior UI/UX Designer unter Verwendung von Tailwind CSS, shadcn/ui, Lucide Icons und Framer Motion.
-* [ ] Stilrichtung "Subtle Luxury": Modern, edel, aufgeräumt, keine knalligen Farben, viel White-Space, präzise Typografie.
-* [ ] Design-System & Farbwelt: Basis aus Tiefem Slate/Dunkelblau (`#0F172A` / `slate-900`) und warmem Off-White/Hellgrau (`slate-50`).
-* [ ] Marken- & Akzentfarbe: Warmes Orange (`#F97316` / `orange-500`) mit abgedunkeltem Hover-State (`#EA580C`), strikt mit WCAG-AA-Kontrast.
-* [ ] Premium-Akzente: Sanfte Gold-/Warmton-Gradients, subtile Glassmorphism-Karten und sanfte Schlagschatten.
+* [x] Vollständige Design-Regie durch die KI als Senior UI/UX Designer unter Verwendung von Tailwind CSS, shadcn/ui, Lucide Icons und Framer Motion.
+* [x] Stilrichtung "Subtle Luxury": Modern, edel, aufgeräumt, keine knalligen Farben, viel White-Space, präzise Typografie.
+* [x] Design-System & Farbwelt: Basis aus Tiefem Slate/Dunkelblau (`#0F172A` / `slate-900`) und warmem Off-White/Hellgrau (`slate-50`).
+* [x] Marken- & Akzentfarbe: Warmes Orange (`#F97316` / `orange-500`) mit abgedunkeltem Hover-State (`#EA580C`), strikt mit WCAG-AA-Kontrast.
+* [x] Premium-Akzente: Sanfte Gold-/Warmton-Gradients, subtile Glassmorphism-Karten und sanfte Schlagschatten.
 
 ---
 
