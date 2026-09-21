@@ -207,7 +207,11 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
               <div className="learning-divider" />
               {answerResult.softError
                 ? <SoftErrorBadge reason={answerResult.softError} translations={softErrorTranslations} />
-                : <p className={answerResult.correct ? 'learning-success' : 'learning-error'} role="status">{t(isSentence ? answerResult.correct ? 'sentence_correct' : 'sentence_incorrect' : answerResult.correct ? 'answer_correct' : 'answer_incorrect')}</p>}
+                : <p className={answerResult.correct ? 'learning-success' : 'learning-error'} role="status">{
+                    isFlashcard 
+                      ? t(answerResult.correct ? 'knew_it_hint' : 'didnt_know_hint')
+                      : t(isSentence ? answerResult.correct ? 'sentence_correct' : 'sentence_incorrect' : answerResult.correct ? 'answer_correct' : 'answer_incorrect')
+                  }</p>}
               {answerResult.isAlternative && (
                 <div className="mt-3 flex items-start gap-3 rounded-xl border border-[var(--border)] bg-[var(--surface-muted)] p-4 text-[var(--foreground)]">
                   <Info className="mt-0.5 h-5 w-5 shrink-0 text-[var(--violet)]" aria-hidden="true" />
@@ -216,7 +220,7 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
                   </p>
                 </div>
               )}
-              {!answerResult.correct && (
+              {!answerResult.correct && !isFlashcard && (
                 <div className="my-4 w-full rounded-2xl border border-[var(--border)] bg-[var(--surface-muted)] p-4 text-left" lang={answerLanguage}>
                   <span className="learning-eyebrow mb-2 block">{t('your_answer_label')}</span>
                   <p className="learning-sentence whitespace-pre-wrap break-words">{answer}</p>
