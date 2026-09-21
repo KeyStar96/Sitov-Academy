@@ -252,6 +252,42 @@ it('reicht eine Karteikarte über Aufdecken und Selbsteinschätzung an den Serve
   await waitFor(() => expect(screen.getByRole('button', { name: de.vocabulary.lernkasten_back })).toBeInTheDocument())
 })
 
+it('dreht die Karteikarte um und haelt immer nur die sichtbare Seite bedienbar', async () => {
+  const { container } = mount([flashcard, { ...second, mode: 'flashcard', progressId: 'flash-2' }])
+  const scene = container.querySelector('.learning-card-flip')!
+  const front = container.querySelector('.learning-flip-front')!
+  const back = container.querySelector('.learning-flip-back')!
+  // Vorderseite zeigt die Frage, die Rueckseite ist fuer Tastatur und Screenreader zu.
+  expect(scene).not.toHaveClass('is-revealed')
+  expect(front).not.toHaveAttribute('inert')
+  expect(back).toHaveAttribute('inert')
+  expect(back).toHaveAttribute('aria-hidden', 'true')
+
+  fireEvent.click(screen.getByRole('button', { name: de.vocabulary.reveal_solution }))
+
+  // Nach der Drehung tauschen die Seiten ihre Rollen.
+  expect(scene).toHaveClass('is-revealed')
+  expect(front).toHaveAttribute('inert')
+  expect(front).toHaveAttribute('aria-hidden', 'true')
+  expect(back).not.toHaveAttribute('inert')
+  // Die Rueckseite traegt Frage, Loesung und Kontextsatz.
+  expect(back).toHaveTextContent('дом')
+  expect(back).toHaveTextContent('das Haus')
+  expect(back).toHaveTextContent(flashcard.contextSentence!)
+
+  await act(async () => { fireEvent.click(screen.getByRole('button', { name: de.vocabulary.knew_it })) })
+  // Die naechste Karte startet wieder auf der Vorderseite, ohne zurueckzudrehen.
+  await waitFor(() => expect(container.querySelector('.learning-card-flip')).not.toHaveClass('is-revealed'))
+  expect(screen.getByRole('button', { name: de.vocabulary.reveal_solution })).toBeInTheDocument()
+})
+
+it('haelt die getippte Karte ohne Drehung im bisherigen Aufbau', async () => {
+  const { container } = mount([word])
+  expect(container.querySelector('.learning-card-flip')).toBeNull()
+  await submit()
+  expect(container.querySelector('.learning-card-flip')).toBeNull()
+})
+
 it('meldet „Wusste ich nicht" als known:false und bewertet weiterhin serverseitig', async () => {
   mount([flashcard])
   fireEvent.click(screen.getByRole('button', { name: de.vocabulary.reveal_solution }))

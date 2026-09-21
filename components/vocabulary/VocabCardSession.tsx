@@ -184,6 +184,19 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
   // Bei Wörtern liegt die Lösung schon im Payload (kein Satz-Geheimnis wie bei
   // getippten Sätzen); der Server bleibt trotzdem die Instanz für den Lernstand.
   const flashcardSolution = current ? (isToGerman ? (targetWord ?? '') : current.translation) : ''
+  // Die Rückseite trägt Frage und Lösung, wird also früher eng als die Vorderseite.
+  const denseFlipBack = prompt.length + flashcardSolution.length + (current?.contextSentence?.length ?? 0) > 160
+  // Solange die Karte gedreht ist, darf nur die sichtbare Seite Fokus und
+  // Vorlesereihenfolge bekommen – sonst tabbt man ins Unsichtbare.
+  const flipCard = isFlashcard && !answerResult
+  const flipBackRef = useRef<HTMLDivElement>(null)
+
+  function revealFlashcard() {
+    setRevealed(true)
+    // Nach dem Umdrehen liegt der Fokus auf der Rückseite: Screenreader lesen
+    // Frage und Lösung vor, und der scrollbare Bereich bleibt bedienbar.
+    requestAnimationFrame(() => flipBackRef.current?.focus())
+  }
 
   return (
     <LearningScreen title={t('title')}
@@ -200,18 +213,43 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
           <span className="learning-pill">{t(isSentence ? 'sentence_format' : isToGerman ? 'direction_to_de' : 'direction_from_de')}</span>
           <span>{t('card_progress_compact', { current: index + 1, total: session.length })} · {t('phase_compact', { phase: current.phase })}</span>
         </div>
+        {flipCard ? (
+          /* Karteikarte: Vorderseite fragt, Rückseite zeigt Frage und Lösung.
+             Der `key` setzt die Drehung bei jeder neuen Karte hart zurück,
+             damit die nächste Frage nicht rückwärts hereindreht. */
+          <article key={current.progressId} className={cn('learning-card learning-card-flip', revealed && 'is-revealed')}>
+            <div className="learning-flip-inner">
+              <div className="learning-flip-face learning-flip-front" aria-hidden={revealed} inert={revealed}>
+                <div tabIndex={0} className={cn('learning-card-content', denseCard && 'learning-card-content-dense')}>
+                  {!isSentence && current.card.image_url && <img className="learning-card-image" src={current.card.image_url} alt={t('image_alt')} />}
+                  <span className="learning-eyebrow">{t(isSentence ? 'sentence_format' : 'word_format')}</span>
+                  <h2 lang={current.promptLanguage} className={cn(isSentence ? 'learning-sentence' : 'learning-word', !isToGerman && articleColorClass(current.card.article))}>{prompt}</h2>
+                </div>
+              </div>
+              <div className="learning-flip-face learning-flip-back" aria-hidden={!revealed} inert={!revealed}>
+                {/* Die Rueckseite fuellt sich erst beim Aufdecken: bis 90 Grad ist sie
+                    ohnehin unsichtbar, und die Loesung steht vorher nicht im DOM. */}
+                <div ref={flipBackRef} tabIndex={0} className={cn('learning-card-content', denseFlipBack && 'learning-card-content-dense')}>
+                  {revealed && <>
+                  <span className="learning-eyebrow">{t(isSentence ? 'sentence_format' : 'word_format')}</span>
+                  {/* Die Frage bleibt auf der Rückseite stehen, nur zurückgenommen. */}
+                  <p className="learning-flip-echo" lang={current.promptLanguage}>{prompt}</p>
+                  <div className="learning-divider" />
+                  <span className="learning-eyebrow">{t('correct_sentence_label')}</span>
+                  <p className={cn('learning-solution', isToGerman && articleColorClass(current.card.article))} lang={answerLanguage}>{flashcardSolution}</p>
+                  {current.contextSentence && <p className="learning-context" lang="de"><span className="sr-only">{t('context_label')}: </span>{current.contextSentence}</p>}
+                  <SolutionAudioButton cardId={current.card.id} language="de" text={targetWord ?? ''} audioUrl={current.card.audio_url} label={t('listen_word')} ariaLabel={t('listen_word_aria', { word: current.card.word_de })} variant="secondary" />
+                  </>}
+                </div>
+              </div>
+            </div>
+          </article>
+        ) : (
         <article className="learning-card">
           <div key={current.progressId} tabIndex={0} className={cn('learning-card-content', denseCard && 'learning-card-content-dense')}>
             {!isSentence && !answerResult && current.card.image_url && <img className="learning-card-image" src={current.card.image_url} alt={t('image_alt')} />}
             <span className="learning-eyebrow">{t(isSentence ? 'sentence_format' : 'word_format')}</span>
             <h2 lang={current.promptLanguage} className={cn(isSentence ? 'learning-sentence' : 'learning-word', !isToGerman && articleColorClass(current.card.article))}>{prompt}</h2>
-            {isFlashcard && revealed && !answerResult && <>
-              <div className="learning-divider" />
-              <span className="learning-eyebrow">{t('correct_sentence_label')}</span>
-              <p className={cn('learning-solution', isToGerman && articleColorClass(current.card.article))} lang={answerLanguage}>{flashcardSolution}</p>
-              {current.contextSentence && <p className="learning-context" lang="de"><span className="sr-only">{t('context_label')}: </span>{current.contextSentence}</p>}
-              <SolutionAudioButton cardId={current.card.id} language="de" text={targetWord ?? ''} audioUrl={current.card.audio_url} label={t('listen_word')} ariaLabel={t('listen_word_aria', { word: current.card.word_de })} variant="secondary" />
-            </>}
             {answerResult && <>
               <div className="learning-divider" />
               {answerResult.softError
@@ -248,6 +286,7 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
             </>}
           </div>
         </article>
+        )}
         {saveFailed ? <button type="button" className="learning-button learning-button-primary learning-button-wide" onClick={retry}>{t('error_retry')}</button> : answerResult
           ? <button type="button" className="learning-button learning-button-primary learning-button-wide" onClick={() => advance()}>{t(index + 1 === session.length ? 'finish_session' : 'next_card')}</button>
           : isFlashcard
@@ -256,7 +295,7 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
                 <button type="button" className="learning-button learning-button-primary" disabled={reviewPending} onClick={() => submitSelfRating(true)}>{t('knew_it')}</button>
                 <button type="button" className="learning-button learning-button-secondary" disabled={reviewPending} onClick={() => submitSelfRating(false)}>{t('didnt_know')}</button>
               </div>
-            : <button type="button" className="learning-button learning-button-primary learning-button-wide" onClick={() => setRevealed(true)}>{t('reveal_solution')}</button>
+            : <button type="button" className="learning-button learning-button-primary learning-button-wide" onClick={revealFlashcard}>{t('reveal_solution')}</button>
           : <form className="learning-typing" onSubmit={submitAnswer}>
             <label htmlFor="vocabulary-answer">{t(answerLabel)}</label>
             <textarea id="vocabulary-answer" lang={answerLanguage} value={answer} onChange={event => { drafts.current.set(current.progressId, event.target.value); setAnswer(event.target.value) }} rows={isSentence ? 2 : 1} maxLength={4000} autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck={false} disabled={reviewPending} />
