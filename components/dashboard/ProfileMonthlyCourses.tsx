@@ -11,13 +11,17 @@ import { useMonthlySelection } from './useMonthlySelection'
 import ProfileCourseCalendar from './ProfileCourseCalendar'
 import type { ProfileCourseCalendarState } from '@/lib/profile-course-calendar'
 
-export default function ProfileMonthlyCourses({ initial, lang, translations, courseTitles, calendar }: {
+export default function ProfileMonthlyCourses({ initial, lang, translations, courseTitles, calendar, onRevisionChange }: {
   initial: ProfileMonthlyState; lang: string; translations: ProfileTranslations; courseTitles: Record<string, string>
   calendar?: ProfileCourseCalendarState | null
+  // Lets a sibling calendar widget refresh once a booking is persisted.
+  onRevisionChange?: (revision: string) => void
 }) {
   const t = createProfileTranslator(translations)
   const router = useRouter()
   const { state, saving, message, hasError, change } = useMonthlySelection(initial)
+  const bookingRevision = `${state.booking?.id ?? ''}:${state.booking?.revision ?? ''}`
+  useEffect(() => { onRevisionChange?.(bookingRevision) }, [bookingRevision, onRevisionChange])
   const [monthExpired, setMonthExpired] = useState(false)
   const [needsCourse, setNeedsCourse] = useState(false)
   // Preserve the original hint's height when an inherited selection is saved.
@@ -50,7 +54,7 @@ export default function ProfileMonthlyCourses({ initial, lang, translations, cou
 
   return (
     <div className="min-w-0 space-y-6">
-    {calendar !== undefined && <ProfileCourseCalendar initial={calendar} lang={lang} bookingRevision={`${state.booking?.id ?? ''}:${state.booking?.revision ?? ''}`} />}
+    {calendar !== undefined && <ProfileCourseCalendar initial={calendar} lang={lang} bookingRevision={bookingRevision} />}
     <section aria-labelledby="monthly-title" className="min-w-0 rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-4 shadow-sm sm:p-7">
       <div className="flex min-w-0 items-start gap-3">
         <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[var(--accent)] text-[var(--accent-foreground)]"><CalendarDays size={24} aria-hidden="true" /></span>
