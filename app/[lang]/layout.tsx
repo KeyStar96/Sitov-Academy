@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Manrope, JetBrains_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "../globals.css";
 import SmoothScroll from "@/components/effects/SmoothScroll";
 import { getDictionary } from "@/lib/dictionary";
@@ -32,10 +32,14 @@ export const metadata: Metadata = {
   },
 };
 
-const manrope = Manrope({
-  subsets: ["latin", "cyrillic"],
+// Inter: Variable-Font mit Kyrillisch (ru/uk) UND Latin-Extended (tr: ğ/ş/ı).
+// next/font lädt zur Build-Zeit herunter und self-hosted — kein Client-Request an Google (DSGVO).
+const inter = Inter({
+  subsets: ["latin", "latin-ext", "cyrillic"],
+  variable: '--font-sans',
   display: 'swap',
   preload: true,
+  adjustFontFallback: true, // metrisch angepasster Fallback → minimiert CLS
 });
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin", "cyrillic"],
@@ -66,8 +70,8 @@ export const viewport = {
    * This blends the bottom bar area seamlessly
    */
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#f7f5ef' },
-    { media: '(prefers-color-scheme: dark)', color: '#121417' },
+    { media: '(prefers-color-scheme: light)', color: '#f8fafc' }, // slate-50 = --canvas hell
+    { media: '(prefers-color-scheme: dark)', color: '#0f172a' },  // slate-900 = --canvas dunkel
   ],
 };
 
@@ -125,7 +129,7 @@ fbq('track', 'PageView');
         </noscript>
         {/* End Meta Pixel Code */}
       </head>
-      <body className={`${manrope.className} ${jetbrainsMono.variable} bg-[var(--canvas)] text-[var(--foreground)] antialiased overflow-x-clip w-full`}>
+      <body className={`${inter.variable} ${jetbrainsMono.variable} font-sans bg-[var(--canvas)] text-[var(--foreground)] antialiased overflow-x-clip w-full`}>
         <a className="academy-skip-link" href="#main-content">{dictionary.academy.skip_content}</a>
         <Preloader label={dictionary.academy.preloader_label} name={dictionary.academy.brand_name} descriptor={dictionary.academy.brand_descriptor} />
         {/* Navigation progress bar — instant visual feedback during page transitions */}

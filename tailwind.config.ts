@@ -20,14 +20,30 @@ const config: Config = {
   ],
   theme: {
     extend: {
+        fontFamily: {
+          sans: ["var(--font-sans)", "system-ui", "-apple-system", "Segoe UI", "Roboto", "Helvetica", "Arial", "sans-serif"],
+          mono: ["var(--font-mono)", "ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
+        },
         colors: {
             background: "var(--background)", // Wird via CSS-Variablen überschrieben
             foreground: "var(--foreground)",
+            // Subtle Luxury — semantische Tokens (Slate/Orange)
+            surface: { DEFAULT: "var(--surface)", muted: "var(--surface-muted)" },
+            border: { DEFAULT: "var(--border)", strong: "var(--border-strong)" },
+            muted: "var(--muted)",
+            violet: "var(--violet)",
+            success: "var(--success)",
+            danger: "var(--danger)",
             // Spaceship UI Color System
             primary: {
               orange: "var(--primary-orange)", // hsl(14, 100%, 50%)
             },
             accent: {
+              DEFAULT: "var(--accent)",
+              hover: "var(--accent-hover)",
+              text: "var(--accent-text)",
+              foreground: "var(--accent-foreground)",
+              soft: "var(--accent-soft)",
               cyan: "var(--accent-cyan)", // hsl(180, 100%, 50%)
               lime: "var(--accent-lime)", // hsl(65, 100%, 50%) - Electric Lime
             },
@@ -55,6 +71,18 @@ const config: Config = {
               light: "rgba(255, 255, 255, 0.5)",
             }
           },
+      backgroundImage: {
+        gold: "linear-gradient(135deg, var(--gold-from), var(--gold-via) 55%, var(--gold-to))",
+      },
+      boxShadow: {
+        sm: "var(--shadow-sm)",
+        md: "var(--shadow-md)",
+        lg: "var(--shadow-lg)",
+      },
+      borderRadius: {
+        "2xl": "1.25rem",
+        "3xl": "1.75rem",
+      },
       animation: {
         'marquee': 'marquee 20s linear infinite',
       },

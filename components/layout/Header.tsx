@@ -4,16 +4,20 @@ import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 import { Menu, X, ArrowUpRight } from 'lucide-react'
-import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
+import { AnimatePresence, motion, useReducedMotion, useScroll, useMotionValueEvent } from 'framer-motion'
 import type { getDictionary } from '@/lib/dictionary'
 import { LOCALES, UI_LOCALE_ENDONYMS } from '@/lib/locale-routing'
+import { cn } from '@/lib/utils'
 import BrandLogo from './BrandLogo'
 import ThemeToggle from './ThemeToggle'
 
 type Dictionary = Awaited<ReturnType<typeof getDictionary>>
+const MotionLink = motion.create(Link)
+const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1]
 
 export default function Header({ lang, dictionary }: { lang: string; dictionary: Dictionary }) {
   const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
   const menuButton = useRef<HTMLButtonElement>(null)
   const router = useRouter()
   const pathname = usePathname()
@@ -25,6 +29,9 @@ export default function Header({ lang, dictionary }: { lang: string; dictionary:
     { id: 'courses', label: dictionary.header.nav.courses },
   ]
 
+  const { scrollY } = useScroll()
+  useMotionValueEvent(scrollY, 'change', (y) => setScrolled(y > 8))
+
   useEffect(() => {
     if (!open) return
     const close = (event: KeyboardEvent) => {
@@ -34,8 +41,22 @@ export default function Header({ lang, dictionary }: { lang: string; dictionary:
     return () => window.removeEventListener('keydown', close)
   }, [open])
 
+  // Dezentes Hover/Tap-Skalieren — nur ohne reduced-motion; sonst leeres Objekt (kein Effekt).
+  const press = reduced
+    ? {}
+    : {
+        whileHover: { scale: 1.03 },
+        whileTap: { scale: 0.97 },
+        transition: { type: 'spring' as const, stiffness: 420, damping: 30 },
+      }
+
   return (
-    <header className="academy-header">
+    <motion.header
+      className={cn('academy-header', scrolled && 'is-scrolled')}
+      initial={reduced ? false : { y: -12, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.4, ease: EASE }}
+    >
       <div className="academy-header-inner academy-container">
         <Link href={`/${lang}`} className="academy-brand-link"><BrandLogo name={copy.brand_name} /></Link>
         <nav className="academy-desktop-nav" aria-label={copy.navigation}>
@@ -47,8 +68,8 @@ export default function Header({ lang, dictionary }: { lang: string; dictionary:
             <label><span className="sr-only">{copy.language}</span><select className="academy-language" value={lang} onChange={event => router.push(pathname.replace(/^\/[^/]+/, `/${event.target.value}`))}>{LOCALES.map(locale => <option key={locale} value={locale}>{UI_LOCALE_ENDONYMS[locale]}</option>)}</select></label>
           </div>
           <div className="academy-header-primary-actions">
-            <Link className="academy-button academy-button-primary academy-header-booking" href={`/${lang}/registration`}>{copy.book_course}<ArrowUpRight size={17} aria-hidden="true" /></Link>
-            <Link className="academy-button academy-button-outline academy-header-learning" href={`/${lang}/dashboard`}>{copy.platform}<ArrowUpRight size={17} aria-hidden="true" /></Link>
+            <MotionLink {...press} className="academy-button academy-button-primary academy-header-booking" href={`/${lang}/registration`}>{copy.book_course}<ArrowUpRight size={17} aria-hidden="true" /></MotionLink>
+            <MotionLink {...press} className="academy-button academy-button-outline academy-header-learning" href={`/${lang}/dashboard`}>{copy.platform}<ArrowUpRight size={17} aria-hidden="true" /></MotionLink>
           </div>
           <button ref={menuButton} type="button" className="academy-icon-button academy-menu-toggle" aria-expanded={open} aria-controls="academy-mobile-menu" aria-label={open ? copy.menu_close : copy.menu_open} onClick={() => setOpen(!open)}>{open ? <X size={22} /> : <Menu size={22} />}</button>
         </div>
@@ -62,6 +83,6 @@ export default function Header({ lang, dictionary }: { lang: string; dictionary:
           </nav>
         </motion.div>}
       </AnimatePresence>
-    </header>
+    </motion.header>
   )
 }
