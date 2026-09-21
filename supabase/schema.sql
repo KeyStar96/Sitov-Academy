@@ -1,4 +1,3 @@
--- Canonical VPS application schema. Auth/Storage bootstrap is managed separately.
 --
 -- PostgreSQL database dump
 --
@@ -8650,3 +8649,4 @@ ALTER DEFAULT PRIVILEGES FOR ROLE postgres IN SCHEMA public GRANT ALL ON TABLES 
 --
 -- PostgreSQL database dump complete
 --
+
