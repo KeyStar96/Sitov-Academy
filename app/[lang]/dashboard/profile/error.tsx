@@ -26,7 +26,7 @@ export default function ProfileError({
       <button
         type="button"
         onClick={reset}
-        className="mt-8 inline-flex min-h-16 items-center justify-center gap-3 rounded-2xl bg-[var(--accent)] px-5 py-4 text-base sm:text-xl font-bold text-[var(--accent-foreground)] shadow-md transition-colors hover:bg-[var(--accent-hover)]"
+        className="mt-8 inline-flex min-h-16 items-center justify-center gap-3 rounded-2xl bg-[var(--accent-strong)] px-5 py-4 text-base sm:text-xl font-bold text-[var(--accent-foreground)] shadow-md transition-colors hover:bg-[var(--accent-strong-hover)]"
       >
         <RefreshCw size={28} aria-hidden="true" />
         {t('error_retry')}

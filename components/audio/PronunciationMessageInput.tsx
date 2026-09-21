@@ -112,7 +112,7 @@ export default function PronunciationMessageInput({ conversationId, t, onMessage
           type="button"
           disabled={busy || (!text.trim() && !recorder.audioBlob)}
           onClick={() => void send()}
-          className="ml-auto inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-5 py-3 text-base font-semibold text-[var(--accent-foreground)] disabled:opacity-50"
+          className="ml-auto inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-[var(--accent-strong)] px-5 py-3 text-base font-semibold text-[var(--accent-foreground)] disabled:opacity-50"
         >
           {sending ? <Loader2 size={20} className="animate-spin" /> : <Send size={18} />} {t(sending ? 'sending_message' : 'send_message')}
         </button>

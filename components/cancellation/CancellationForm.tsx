@@ -87,7 +87,7 @@ export default function CancellationForm({ dictionary, lang, courses }: Cancella
                 <p className="text-gray-500 dark:text-gray-400 max-w-md mb-8">
                     {t.success.message}
                 </p>
-                <Link href={`/${lang}`} className="bg-[var(--accent)] text-[var(--accent-foreground)] px-8 py-4 rounded font-bold uppercase tracking-widest hover:bg-[var(--accent-hover)] transition-colors">
+                <Link href={`/${lang}`} className="bg-[var(--accent-strong)] text-[var(--accent-foreground)] px-8 py-4 rounded font-bold uppercase tracking-widest hover:bg-[var(--accent-strong-hover)] transition-colors">
                     {t.back_home}
                 </Link>
             </motion.div>
@@ -189,7 +189,7 @@ export default function CancellationForm({ dictionary, lang, courses }: Cancella
                                 value="asap"
                                 className="peer appearance-none w-full h-full absolute inset-0 cursor-pointer"
                             />
-                            <div className="w-2.5 h-2.5 bg-[var(--accent)] rounded-full scale-0 peer-checked:scale-100 transition-transform" />
+                            <div className="w-2.5 h-2.5 bg-[var(--accent-strong)] rounded-full scale-0 peer-checked:scale-100 transition-transform" />
                         </div>
                         <span className="text-gray-800 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white transition-colors">
                             {t.form.asap_option}
@@ -204,7 +204,7 @@ export default function CancellationForm({ dictionary, lang, courses }: Cancella
                                 value="specific_date"
                                 className="peer appearance-none w-full h-full absolute inset-0 cursor-pointer"
                             />
-                            <div className="w-2.5 h-2.5 bg-[var(--accent)] rounded-full scale-0 peer-checked:scale-100 transition-transform" />
+                            <div className="w-2.5 h-2.5 bg-[var(--accent-strong)] rounded-full scale-0 peer-checked:scale-100 transition-transform" />
                         </div>
                         <span className="text-gray-800 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white transition-colors">
                             {t.form.specific_date_option}
@@ -248,7 +248,7 @@ export default function CancellationForm({ dictionary, lang, courses }: Cancella
                 <button
                     type="submit"
                     disabled={isSubmitting || !isValid || isValidating}
-                    className="w-full bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-[var(--accent-foreground)] font-bold py-4 rounded-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                    className="w-full bg-[var(--accent-strong)] hover:bg-[var(--accent-strong-hover)] text-[var(--accent-foreground)] font-bold py-4 rounded-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
                     {isSubmitting || isValidating ? (
                         <>

@@ -58,7 +58,7 @@ export default function ContentView({ lang, levels }: { lang: string; levels: st
       {/* Geführter „Inhalt hinzufügen"-Workflow */}
       <section className="overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--surface)]">
         <div className="flex items-center gap-3 border-b border-[var(--border)] bg-[var(--surface-muted)] px-5 py-4">
-          <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[var(--accent)] text-[var(--accent-foreground)]">
+          <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[var(--accent-strong)] text-[var(--accent-foreground)]">
             <Plus size={18} aria-hidden="true" />
           </span>
           <div className="min-w-0">
@@ -122,7 +122,7 @@ export default function ContentView({ lang, levels }: { lang: string; levels: st
               </p>
               <Link
                 href={target}
-                className="inline-flex min-h-11 shrink-0 items-center gap-2 rounded-lg bg-[var(--accent)] px-4 text-sm font-semibold text-[var(--accent-foreground)] transition-opacity hover:bg-[var(--accent-hover)]"
+                className="inline-flex min-h-11 shrink-0 items-center gap-2 rounded-lg bg-[var(--accent-strong)] px-4 text-sm font-semibold text-[var(--accent-foreground)] transition-opacity hover:bg-[var(--accent-strong-hover)]"
               >
                 {t('content_add_cta')}
                 <ArrowRight size={16} aria-hidden="true" />

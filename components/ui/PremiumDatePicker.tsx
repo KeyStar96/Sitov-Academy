@@ -258,7 +258,7 @@ export const PremiumDatePicker = ({
                             {isActive && (
                                 <motion.div
                                     layoutId="activeMonth"
-                                    className="absolute inset-0 bg-[var(--accent)] rounded-full shadow-md shadow-[var(--accent)]/20"
+                                    className="absolute inset-0 bg-[var(--accent-strong)] rounded-full shadow-md shadow-[var(--accent)]/20"
                                     transition={{ type: "spring", stiffness: 350, damping: 30 }}
                                 />
                             )}
@@ -307,7 +307,7 @@ export const PremiumDatePicker = ({
                             </span>
                             {/* Orange dot indicator for active day */}
                             {isActive && (
-                                <div className="absolute bottom-2 w-1.5 h-1.5 rounded-full bg-[var(--accent)]" />
+                                <div className="absolute bottom-2 w-1.5 h-1.5 rounded-full bg-[var(--accent-strong)]" />
                             )}
                         </button>
                     );

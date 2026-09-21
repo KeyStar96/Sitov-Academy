@@ -57,7 +57,7 @@ export default function ProfileMonthlyCourses({ initial, lang, translations, cou
     {calendar !== undefined && <ProfileCourseCalendar initial={calendar} lang={lang} bookingRevision={bookingRevision} />}
     <section aria-labelledby="monthly-title" className="min-w-0 rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-4 shadow-sm sm:p-7">
       <div className="flex min-w-0 items-start gap-3">
-        <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[var(--accent)] text-[var(--accent-foreground)]"><CalendarDays size={24} aria-hidden="true" /></span>
+        <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[var(--accent-strong)] text-[var(--accent-foreground)]"><CalendarDays size={24} aria-hidden="true" /></span>
         <div className="min-w-0">
           <p className="mb-1 break-words text-base font-bold text-orange-800 dark:text-orange-300">{month}</p>
           <h2 id="monthly-title" className="break-words text-xl font-bold text-[var(--foreground)]">{t('next_month_title')}</h2>
@@ -73,7 +73,7 @@ export default function ProfileMonthlyCourses({ initial, lang, translations, cou
         aria-describedby="pause-description" onClick={togglePause} disabled={monthExpired}
         className={`mt-4 flex min-h-16 w-full min-w-0 items-center justify-between gap-3 rounded-2xl border-2 p-4 text-left focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-orange-500 disabled:opacity-60 ${paused ? 'border-amber-500 bg-amber-50 dark:bg-amber-950' : 'border-[var(--border)] bg-[var(--surface-muted)]  '}`}>
         <span className="min-w-0 break-words font-semibold text-[var(--foreground)]">{t('pause_next_month')}</span>
-        <span aria-hidden="true" className={`flex h-7 w-12 shrink-0 items-center rounded-full p-1 transition-colors ${paused ? 'bg-[var(--accent)]' : 'bg-[var(--muted)]'}`}>
+        <span aria-hidden="true" className={`flex h-7 w-12 shrink-0 items-center rounded-full p-1 transition-colors ${paused ? 'bg-[var(--accent-strong)]' : 'bg-[var(--muted)]'}`}>
           <span className={`h-5 w-5 rounded-full bg-[var(--surface)] shadow-sm transition-transform motion-reduce:transition-none ${paused ? 'translate-x-5' : ''}`} />
         </span>
       </button>

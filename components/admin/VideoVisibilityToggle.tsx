@@ -23,7 +23,7 @@ export default function VideoVisibilityToggle({ id, title, isActive, lang, onCha
     } catch { setFailed(true) } finally { setBusy(false) }
   }
   return <div className="space-y-2"><button type="button" role="switch" aria-checked={visible} aria-label={`${t.visibility}: ${title}`} disabled={busy} onClick={() => void toggle()} className="inline-flex min-h-12 items-center gap-3 rounded-xl border border-[var(--border)] bg-[var(--surface)] px-4 disabled:opacity-60">
-    <span aria-hidden="true" className={`flex h-6 w-10 items-center rounded-full border border-[var(--border)] p-1 ${visible ? 'bg-[var(--accent)]' : 'bg-[var(--surface-muted)]'}`}><span className={`h-4 w-4 rounded-full bg-white ${visible ? 'ml-auto' : ''}`} /></span>
+    <span aria-hidden="true" className={`flex h-6 w-10 items-center rounded-full border border-[var(--border)] p-1 ${visible ? 'bg-[var(--accent-strong)]' : 'bg-[var(--surface-muted)]'}`}><span className={`h-4 w-4 rounded-full bg-white ${visible ? 'ml-auto' : ''}`} /></span>
     <span>{busy ? t.finalizing : visible ? t.visible : t.hidden}</span>
   </button>{failed && <p role="alert" className="text-sm">{t.failed}</p>}</div>
 }

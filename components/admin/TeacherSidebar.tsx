@@ -79,7 +79,7 @@ export default function TeacherSidebar({ lang, onNavigate }: { lang: string; onN
                     <span
                       aria-hidden="true"
                       className={`absolute left-0 top-1/2 h-6 w-1 -translate-y-1/2 rounded-r-full transition-colors ${
-                        active ? 'bg-[var(--accent)]' : 'bg-transparent'
+                        active ? 'bg-[var(--accent-strong)]' : 'bg-transparent'
                       }`}
                     />
                     <Icon

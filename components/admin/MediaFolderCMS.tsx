@@ -39,7 +39,7 @@ export default function MediaFolderCMS({ initial, lang }: { initial: MediaFolder
       <label className="block space-y-2"><span>{t.name}</span><input required maxLength={180} value={form.title} onChange={event => setForm({ ...form, title: event.target.value })} className={field} /></label>
       <label className="block space-y-2"><span>{t.level}</span><select disabled={!!form.folder_id} value={form.level} onChange={event => setForm({ ...form, level: event.target.value })} className={field}>{ACCESS_LEVELS.map(level => <option key={level}>{level}</option>)}</select></label>
       <label className="block space-y-2"><span>{t.order}</span><input type="number" min={0} max={100000} required value={form.sort_order} onChange={event => setForm({ ...form, sort_order: Number(event.target.value) })} className={field} /></label>
-      <button disabled={busy} className="min-h-12 rounded-lg bg-[var(--accent)] px-5 font-semibold text-[var(--accent-foreground)] hover:bg-[var(--accent-hover)]">{t.save}</button>
+      <button disabled={busy} className="min-h-12 rounded-lg bg-[var(--accent-strong)] px-5 font-semibold text-[var(--accent-foreground)] hover:bg-[var(--accent-strong-hover)]">{t.save}</button>
       {form.folder_id && <button type="button" onClick={() => setForm(empty)} className="ml-3 min-h-12 px-3">{t.newFolder}</button>}
       <p role={notice === 'failed' ? 'alert' : 'status'} className="min-h-6 text-sm">{notice ? t[notice] : ''}</p>
     </form>

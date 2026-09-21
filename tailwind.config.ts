@@ -41,6 +41,8 @@ const config: Config = {
             accent: {
               DEFAULT: "var(--accent)",
               hover: "var(--accent-hover)",
+              strong: "var(--accent-strong)",
+              "strong-hover": "var(--accent-strong-hover)",
               text: "var(--accent-text)",
               foreground: "var(--accent-foreground)",
               soft: "var(--accent-soft)",

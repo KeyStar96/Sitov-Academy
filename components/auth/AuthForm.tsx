@@ -127,7 +127,7 @@ export default function AuthForm({
         type="submit"
         disabled={isPending}
         aria-busy={isPending}
-        className="flex min-h-14 w-full items-center justify-center gap-3 rounded-2xl bg-[var(--accent)] px-6 text-xl font-bold text-[var(--accent-foreground)] shadow-md transition-colors hover:bg-[var(--accent-hover)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)] disabled:cursor-not-allowed disabled:opacity-80"
+        className="flex min-h-14 w-full items-center justify-center gap-3 rounded-2xl bg-[var(--accent-strong)] px-6 text-xl font-bold text-[var(--accent-foreground)] shadow-md transition-colors hover:bg-[var(--accent-strong-hover)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)] disabled:cursor-not-allowed disabled:opacity-80"
       >
         {isPending && <Loader2 size={24} className="animate-spin" aria-hidden="true" />}
         {isPending ? pendingLabel : submitLabel}

@@ -410,9 +410,9 @@ html {
   /* Spaceship UI: Button-System */
   /* Primär: Solid Orange mit präziser Linie */
   .btn-primary {
-    background: var(--primary-orange);
+    background: var(--accent-strong);
     color: white;
-    border: 1px solid var(--primary-orange);
+    border: 1px solid var(--accent-strong);
     transition: all 0.3s ease;
   }
 
@@ -1064,10 +1064,12 @@ h1, h2, h3 { text-wrap: balance; }
   --muted: #475569;             /* slate-600 — 7.4:1, sicher für Fließtext */
   --border: #cbd5e1;            /* slate-300 */
   --border-strong: #94a3b8;     /* slate-400 */
-  --accent: #f97316;            /* orange-500 — Füllungen/Rahmen/Icons */
-  --accent-hover: #ea580c;      /* orange-600 — Hover-Füllung */
+  --accent: #f97316;            /* orange-500 — Marke: Rahmen, Fokus, Dots, Tints */
+  --accent-hover: #ea580c;      /* orange-600 */
+  --accent-strong: #c2410c;     /* orange-700 — texttragende Füllungen (Weiß = 5.2:1) */
+  --accent-strong-hover: #9a3412; /* orange-800 — Hover der Füllungen (Weiß = 7.3:1) */
   --accent-text: #c2410c;       /* orange-700 — Orange ALS Text auf Light (4.9:1) */
-  --accent-foreground: #0f172a; /* Tinte AUF Orange-Füllung (6.4:1) */
+  --accent-foreground: #ffffff; /* Weiß AUF --accent-strong-Füllung (5.2:1) */
   --accent-soft: #fff7ed;       /* orange-50 */
   --accent-ring: #f9731666;     /* Focus/Glow, halbtransparent */
   --gold-from: #fef3c7;         /* amber-100 */
@@ -1098,8 +1100,10 @@ html.dark {
   --border-strong: #475569;
   --accent: #f97316;
   --accent-hover: #fb923c;      /* im Dark aufhellen = spürbares Feedback */
+  --accent-strong: #c2410c;     /* orange-700 — texttragende Füllungen (Weiß = 5.2:1) */
+  --accent-strong-hover: #9a3412; /* orange-800 — Hover der Füllungen (Weiß = 7.3:1) */
   --accent-text: #fb923c;       /* orange-400 als Text auf Dark (7.9:1) */
-  --accent-foreground: #0f172a; /* Tinte auf Orange bleibt 6.4:1 */
+  --accent-foreground: #ffffff; /* Weiß AUF --accent-strong-Füllung */
   --accent-soft: #431407;       /* orange-950 */
   --accent-ring: #f9731659;
   --gold-from: #fcd34d;
@@ -1128,6 +1132,8 @@ html.high-contrast {
   --border-strong: #222222;
   --accent: #9a3412;            /* orange-800 — Weiß darauf = 7.3:1 (AAA) */
   --accent-hover: #7c2d12;
+  --accent-strong: #9a3412;
+  --accent-strong-hover: #7c2d12;
   --accent-text: #7c2d12;
   --accent-foreground: #ffffff;
   --accent-soft: #fff1e6;
@@ -1149,6 +1155,8 @@ html.dark.high-contrast {
   --border-strong: #dddddd;
   --accent: #fdba74;            /* orange-300 — Schwarz darauf = 12.5:1 */
   --accent-hover: #fed7aa;
+  --accent-strong: #fdba74;
+  --accent-strong-hover: #fed7aa;
   --accent-text: #fdba74;
   --accent-foreground: #000000;
   --accent-soft: #1a0f06;
@@ -1202,7 +1210,7 @@ html:has(.academy-header) { scroll-padding-top: 9rem; }
 .academy-desktop-nav a:hover { color: var(--accent-text); }
 .academy-button { display: inline-flex; min-height: 48px; min-width: 44px; align-items: center; justify-content: center; gap: .7rem; border: 1px solid transparent; padding: .85rem 1.1rem; border-radius: 99px; font-size: .875rem; font-weight: 700; line-height: 1.5; text-align: center; transition: transform .2s, background .2s; overflow-wrap: anywhere; }
 .academy-button svg { flex-shrink: 0; }
-.academy-button-primary { background: var(--accent); color: var(--accent-foreground); }
+.academy-button-primary { background: var(--accent-strong); color: var(--accent-foreground); }
 .academy-button-outline { border-color: var(--border); background: var(--surface); color: var(--foreground); }
 .academy-icon-button { display: inline-flex; min-width: 48px; min-height: 48px; height: 48px; flex-shrink: 0; padding: .65rem; gap: .5rem; align-items: center; justify-content: center; border: 1px solid var(--border); border-radius: 99px; background: var(--surface); color: var(--foreground); font-size: .8rem; }
 .academy-language { min-width: 48px; min-height: 48px; height: 48px; max-width: 100%; border-radius: 99px; padding: .6rem 1.9rem .6rem .75rem; border: 1px solid var(--border); background: var(--surface); color: var(--foreground); font-size: .85rem; }
@@ -1323,7 +1331,7 @@ html:has(.academy-header) { scroll-padding-top: 9rem; }
 body:has(.learning-screen) .academy-student-header, body:has(.learning-screen) .academy-app-background { visibility: hidden; }
 @media (hover: hover) {
   .academy-button:hover { transform: translateY(-2px); }
-  .academy-button-primary:hover { background: var(--accent-hover); }
+  .academy-button-primary:hover { background: var(--accent-strong-hover); }
   .academy-button-outline:hover, .academy-icon-button:hover { background: var(--surface-muted); }
   a.academy-level-card:hover { border-color: var(--violet); transform: translateY(-3px); box-shadow: var(--shadow-md); }
   .academy-course-card:hover, .academy-method-card:hover { border-color: var(--border-strong); transform: translateY(-3px); box-shadow: var(--shadow-md); }
@@ -1404,10 +1412,10 @@ body:has(.learning-screen) .academy-support { display: none; }
 .academy-lesson-dialog button { overflow-wrap: anywhere; }
 .academy-lesson-tabs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .5rem; padding: 0 1rem 1rem; }
 .academy-lesson-tab { min-width: 0; border-radius: .85rem; padding: .75rem .5rem; font-size: .875rem; font-weight: 700; line-height: 1.5; text-align: center; background: var(--surface-muted); color: var(--foreground); }
-.academy-lesson-tab[aria-selected='true'] { background: var(--accent); color: var(--accent-foreground); }
+.academy-lesson-tab[aria-selected='true'] { background: var(--accent-strong); color: var(--accent-foreground); }
 .academy-appearance { position: relative; flex-shrink: 0; }
 .academy-appearance-panel { background: var(--surface); color: var(--foreground); border: 1px solid var(--border); box-shadow: 0 16px 48px #00000026; }
-.academy-appearance-theme-choice[aria-pressed='true'] { border-color: var(--accent); background: var(--accent); color: var(--accent-foreground); }
+.academy-appearance-theme-choice[aria-pressed='true'] { border-color: var(--accent-strong); background: var(--accent-strong); color: var(--accent-foreground); }
 .academy-contrast-switch[aria-checked='true'] { border-color: var(--violet); }
 .academy-contrast-indicator { background: var(--surface-muted); border: 2px solid var(--border); }
 .academy-contrast-indicator > span { background: var(--muted); }

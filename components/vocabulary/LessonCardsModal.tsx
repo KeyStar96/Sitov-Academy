@@ -367,7 +367,7 @@ export default function LessonCardsModal({
                       <div className="flex flex-col gap-3 sm:flex-row">
                         <button
                           type="submit"
-                          className="inline-flex min-h-14 flex-1 items-center justify-center rounded-2xl bg-[var(--accent)] px-6 text-base font-bold text-[var(--accent-foreground)] shadow-sm transition-colors hover:bg-[var(--accent-hover)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)]"
+                          className="inline-flex min-h-14 flex-1 items-center justify-center rounded-2xl bg-[var(--accent-strong)] px-6 text-base font-bold text-[var(--accent-foreground)] shadow-sm transition-colors hover:bg-[var(--accent-strong-hover)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)]"
                         >
                           {t('custom_vocab_save')}
                         </button>
@@ -445,7 +445,7 @@ export default function LessonCardsModal({
                               onClick={() => void handleAddSingleCard(card.id)}
                               disabled={pendingCardId !== null || isResetting}
                               aria-label={t('add_single_card_aria', { word: card.word_de })}
-                              className="inline-flex min-h-12 min-w-12 shrink-0 items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-5 py-3 text-base font-bold text-[var(--accent-foreground)] shadow-sm transition-colors hover:bg-[var(--accent-hover)] disabled:opacity-60 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)]"
+                              className="inline-flex min-h-12 min-w-12 shrink-0 items-center justify-center gap-2 rounded-xl bg-[var(--accent-strong)] px-5 py-3 text-base font-bold text-[var(--accent-foreground)] shadow-sm transition-colors hover:bg-[var(--accent-strong-hover)] disabled:opacity-60 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)]"
                             >
                               {isPending ? (
                                 <Loader2 size={20} className="animate-spin" aria-hidden="true" />

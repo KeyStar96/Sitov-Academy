@@ -143,7 +143,7 @@ export default function AudioRecorder({
                   {t('your_recording')}
                 </span>
                 <span className="flex items-center gap-2 text-base font-bold text-[var(--accent-text)] bg-[color-mix(in_srgb,var(--accent)_10%,var(--surface))] px-2 py-1 rounded">
-                  <span className="h-2 w-2 bg-[var(--accent)] rounded-full animate-pulse"></span>
+                  <span className="h-2 w-2 bg-[var(--accent-strong)] rounded-full animate-pulse"></span>
                   {t('recording_running')}
                 </span>
               </div>
@@ -206,7 +206,7 @@ export default function AudioRecorder({
               type="button"
               onClick={handleStart}
               disabled={recorder.status === 'requesting' || isUploading}
-              className="flex min-h-[56px] min-w-[56px] w-full items-center justify-center gap-3 rounded-2xl bg-[var(--accent)] px-5 py-3 text-lg font-semibold text-[var(--accent-foreground)] shadow-sm transition-colors hover:bg-[var(--accent-hover)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
+              className="flex min-h-[56px] min-w-[56px] w-full items-center justify-center gap-3 rounded-2xl bg-[var(--accent-strong)] px-5 py-3 text-lg font-semibold text-[var(--accent-foreground)] shadow-sm transition-colors hover:bg-[var(--accent-strong-hover)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
             >
               {recorder.status === 'requesting' ? (
                 <Loader2 size={26} className="animate-spin" aria-hidden="true" />
@@ -238,7 +238,7 @@ export default function AudioRecorder({
               type="button"
               onClick={handleSubmit}
               disabled={isUploading}
-              className="mx-auto flex min-h-16 min-w-14 w-full items-center justify-center gap-3 rounded-2xl bg-[var(--accent)] px-5 py-3 text-lg font-semibold text-[var(--accent-foreground)] shadow-sm transition-colors hover:bg-[var(--accent-hover)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
+              className="mx-auto flex min-h-16 min-w-14 w-full items-center justify-center gap-3 rounded-2xl bg-[var(--accent-strong)] px-5 py-3 text-lg font-semibold text-[var(--accent-foreground)] shadow-sm transition-colors hover:bg-[var(--accent-strong-hover)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
             >
               {isUploading ? (
                 <Loader2 className="animate-spin" size={28} aria-hidden="true" />
@@ -302,7 +302,7 @@ export default function AudioRecorder({
                 onClick={handleStart}
                 disabled={recorder.status === 'requesting' || isUploading}
                 aria-label={t('start_recording')}
-                className="pointer-events-auto relative flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-[var(--accent)] text-[var(--accent-foreground)] shadow-xl shadow-black/25 ring-1 ring-white/20 transition-transform duration-200 hover:scale-105 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] active:scale-95 disabled:cursor-not-allowed disabled:opacity-60 motion-reduce:transition-none motion-reduce:hover:scale-100"
+                className="pointer-events-auto relative flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-[var(--accent-strong)] text-[var(--accent-foreground)] shadow-xl shadow-black/25 ring-1 ring-white/20 transition-transform duration-200 hover:scale-105 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] active:scale-95 disabled:cursor-not-allowed disabled:opacity-60 motion-reduce:transition-none motion-reduce:hover:scale-100"
               >
                 {recorder.status === 'requesting' ? (
                   <Loader2 size={28} className="animate-spin" aria-hidden="true" />

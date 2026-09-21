@@ -110,7 +110,7 @@ export default function NavigationProgress() {
             aria-valuenow={Math.round(progress)}
         >
             <div
-                className="h-full bg-[var(--accent)] transition-all duration-200 ease-out"
+                className="h-full bg-[var(--accent-strong)] transition-all duration-200 ease-out"
                 style={{
                     width: `${progress}%`,
                     opacity: progress >= 100 ? 0 : 1,

@@ -93,7 +93,7 @@ export default function WaveformPlayer({
           disabled={playbackBlocked}
           aria-label={playback.isPlaying ? translate('pause_aria') : translate('play_aria')}
           aria-busy={playback.isBuffering}
-          className={`flex shrink-0 items-center justify-center rounded-full bg-[var(--accent)] text-[var(--accent-foreground)] shadow-sm transition-colors hover:bg-[var(--accent-hover)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] disabled:cursor-not-allowed disabled:opacity-50 ${
+          className={`flex shrink-0 items-center justify-center rounded-full bg-[var(--accent-strong)] text-[var(--accent-foreground)] shadow-sm transition-colors hover:bg-[var(--accent-strong-hover)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] disabled:cursor-not-allowed disabled:opacity-50 ${
             compact ? 'h-12 w-12' : 'h-16 w-16'
           }`}
         >
@@ -115,7 +115,7 @@ export default function WaveformPlayer({
 
           <div className="absolute inset-x-0 bottom-0 h-1 bg-[var(--border)]">
             <div
-              className="h-full bg-[var(--accent)] transition-[width] duration-150"
+              className="h-full bg-[var(--accent-strong)] transition-[width] duration-150"
               style={{ width: `${Math.round(progress * 100)}%` }}
             />
           </div>
