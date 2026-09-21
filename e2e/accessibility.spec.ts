@@ -9,15 +9,20 @@ for (const theme of ['light', 'dark'] as const) {
         localStorage.setItem('theme', value)
         localStorage.setItem('academy-contrast', 'standard')
       }, theme)
+      // Sample the SETTLED UI: axe reads the live DOM, so a mid-flight fade (e.g. a
+      // GSAP hero reveal at opacity 0.25, or a Framer mount fade) would report transient,
+      // non-representative colour pairs. Emulating reduced motion makes reduced-motion-aware
+      // animations (GSAP hero, the Reveal sections, all CSS transitions) render final at once;
+      // the explicit settle below covers the few Framer opacity fades that ignore it.
+      await page.emulateMedia({ reducedMotion: 'reduce' })
       await page.goto(path)
       await expect(page.locator('html')).toHaveAttribute('data-theme', theme)
       await expect(page.locator('.academy-preloader')).toHaveCount(0)
       await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
-      // Wait for the registration step's entrance animation, without excluding its nodes.
-      if (path.endsWith('/registration')) {
-        await expect(page.locator('.enrollment-control-grid').locator('..')).toHaveCSS('opacity', '1')
-        await expect(page.locator('.enrollment-control-grid').locator('..')).toHaveCSS('filter', 'blur(0px)')
-      }
+      // Under reduced motion the registration step renders final at once (filter: none),
+      // so no per-route entrance wait is needed. Let any remaining Framer opacity fades
+      // finish before sampling the perceivable colours.
+      await page.waitForTimeout(1500)
       // Assert the complete axe result. No rule, node, impact or tag exclusions.
       const results = await new AxeBuilder({ page }).analyze()
       expect(results.violations).toEqual([])
