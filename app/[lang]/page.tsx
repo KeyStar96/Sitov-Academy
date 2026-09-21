@@ -7,6 +7,7 @@ import Header from "@/components/layout/Header";
 import AcademyStory from "@/components/sections/AcademyStory";
 import AcademyCourses from "@/components/sections/AcademyCourses";
 import AcademyFooter from "@/components/sections/AcademyFooter";
+import PremiumCtaCard from "@/components/ui/PremiumCtaCard";
 
 /* ─── Locale → OpenGraph locale mapping ─── */
 const OG_LOCALE_MAP: Record<string, string> = {
@@ -180,6 +181,15 @@ export default async function HomePage({
         <Suspense fallback={<section id="courses" className="academy-section academy-container min-h-[30rem]" aria-busy="true"><p role="status">{dictionary.academy.course_loading}</p></section>}>
           <AcademyCourses dictionary={dictionary} lang={lang} />
         </Suspense>
+        <section className="academy-section academy-container">
+          <PremiumCtaCard
+            eyebrow={dictionary.academy.platform}
+            title={dictionary.academy.learn_title}
+            description={dictionary.academy.learn_description}
+            ctaLabel={dictionary.academy.hero_secondary}
+            href={`/${lang}/dashboard`}
+          />
+        </section>
       </div>
       <AcademyFooter dictionary={dictionary} lang={lang} />
     </>
