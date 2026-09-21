@@ -1374,10 +1374,31 @@ body:has(.learning-screen) .academy-support { display: none; }
 .academy-skeleton { background: var(--surface-muted); animation: pulse 2s cubic-bezier(.4, 0, .6, 1) infinite; }
 @media (prefers-reduced-motion: reduce) { .academy-skeleton { animation: none; } }
 
-/* A single recorder stays within its reading column and clears the iOS home indicator. */
+/* Schwebende Aufnahme-Bedienung auf dem Handy: milchige Glasflaeche ueber dem
+   Lesetext, weicher Auftritt von unten und genug Luft, damit weder Text noch
+   Einreichen-Knopf jemals unter dem Dock verschwinden. */
+.pronunciation-recorder-glass {
+  background: color-mix(in srgb, var(--surface) 78%, transparent);
+  border: 1px solid color-mix(in srgb, var(--foreground) 12%, transparent);
+  color: var(--foreground);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  backdrop-filter: blur(18px) saturate(180%);
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .pronunciation-recorder-glass { background: var(--surface); }
+}
+
+@keyframes pronunciation-dock-rise {
+  from { opacity: 0; transform: translateY(1.25rem) scale(.94); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.pronunciation-recorder-dock > div > * { animation: pronunciation-dock-rise .28s cubic-bezier(.22, 1, .36, 1) both; }
+@media (prefers-reduced-motion: reduce) {
+  .pronunciation-recorder-dock > div > * { animation: none; }
+}
+
 @media (max-width: 1023px) {
-  .pronunciation-reading-text { padding-bottom: calc(var(--recording-bar-height, 6rem) + 1.5rem); }
-  .pronunciation-text-end { scroll-margin-bottom: calc(var(--recording-bar-height, 6rem) + 1rem); }
-  .pronunciation-recording-bar { padding-bottom: env(safe-area-inset-bottom, 0px); background: var(--canvas); }
-  .pronunciation-recording-bar > div { max-height: 55dvh; overflow-y: auto; overscroll-behavior: contain; }
+  /* Freiraum fuer das Dock (FAB 4rem bzw. Aufnahmeleiste) plus Home-Indikator. */
+  .pronunciation-practice { padding-bottom: calc(6.5rem + env(safe-area-inset-bottom, 0px)); }
+  .pronunciation-text-end { scroll-margin-bottom: calc(7rem + env(safe-area-inset-bottom, 0px)); }
 }

@@ -249,7 +249,7 @@ it('reicht eine Karteikarte über Aufdecken und Selbsteinschätzung an den Serve
     expect.objectContaining({ progressId: 'flash-1', known: true, expectedLearnerId: learnerId, requestId: expect.any(String) }),
   )
   expect(submitVocabularyAnswer).not.toHaveBeenCalled()
-  await waitFor(() => expect(screen.getByRole('button', { name: de.vocabulary.finish_session })).toBeInTheDocument())
+  await waitFor(() => expect(screen.getByRole('button', { name: de.vocabulary.lernkasten_back })).toBeInTheDocument())
 })
 
 it('meldet „Wusste ich nicht" als known:false und bewertet weiterhin serverseitig', async () => {

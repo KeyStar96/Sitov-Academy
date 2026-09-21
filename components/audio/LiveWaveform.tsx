@@ -17,12 +17,15 @@ export default function LiveWaveform({
   elapsedSeconds,
   ariaLabel,
   analyserRef,
+  compact = false,
 }: {
   levels: readonly number[]
   isActive: boolean
   elapsedSeconds: number
   ariaLabel: string
   analyserRef?: RefObject<AnalyserNode | null>
+  /** Einzeilige Variante für die schmale Aufnahmeleiste auf dem Handy. */
+  compact?: boolean
 }) {
   const levelsRef = useRef<readonly number[]>(levels)
   levelsRef.current = levels
@@ -33,6 +36,23 @@ export default function LiveWaveform({
     if (analyserRef?.current) return frame.getVolume()
     const fallback = levelsRef.current
     return fallback.length > 0 ? (fallback[fallback.length - 1] ?? 0) : 0
+  }
+
+  if (compact) {
+    return (
+      <div className="flex w-full min-w-0 items-center gap-3">
+        <div
+          role="img"
+          aria-label={ariaLabel}
+          className="h-10 min-w-0 flex-1 overflow-hidden rounded-xl bg-[color-mix(in_srgb,var(--accent)_10%,var(--surface))]"
+        >
+          <FluidWaveform getVolume={getVolume} getTone={frame.getTone} isActive={isActive} />
+        </div>
+        <span className="shrink-0 text-base font-bold tabular-nums text-[var(--foreground)]">
+          {formatDuration(elapsedSeconds)}
+        </span>
+      </div>
+    )
   }
 
   return (

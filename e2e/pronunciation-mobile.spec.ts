@@ -41,6 +41,8 @@ for (const theme of ['light', 'dark'] as const) {
       expect(readable.error).toBeNull()
       expect(readable.data?.map(prompt => prompt.id)).toEqual([promptId])
       await authenticateBrowser(page, { api: api!, key: key!, email, password })
+      // Die schwebende Aufnahme-Bedienung gibt es nur unterhalb des lg-Breakpoints.
+      await page.setViewportSize({ width: 390, height: 844 })
       await page.goto('/ru/dashboard/level/A1.1/pronunciation')
       // The prototype keeps the permission fixture across native MediaDevices
       // wrappers in WebKit. App recording logic and browser clicks stay real.
@@ -55,15 +57,18 @@ for (const theme of ['light', 'dark'] as const) {
       await end.scrollIntoViewIfNeeded()
       const bar = page.getByTestId('pronunciation-recording-bar')
       const record = bar.getByRole('button', { name: ru.pronunciation.start_recording, exact: true })
-      await expect(bar).toHaveCSS('position', 'sticky')
+      // Im Ruhezustand traegt ein schwebender Knopf die Aufnahme – keine Leiste im Textfluss.
+      await expect(bar).toHaveCSS('position', 'fixed')
       await expect(record).toBeInViewport({ ratio: 1 })
       await expect(record).toBeEnabled()
       const bounds = await record.boundingBox()
       expect(bounds!.width).toBeGreaterThanOrEqual(56)
       expect(bounds!.height).toBeGreaterThanOrEqual(56)
+      // Am Seitenende bleibt der Lesetext vollstaendig ueber dem Knopf lesbar.
+      await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight))
       const ending = await end.boundingBox()
-      const sticky = await bar.boundingBox()
-      expect(ending!.y + ending!.height).toBeLessThanOrEqual(sticky!.y)
+      const dock = await record.boundingBox()
+      expect(ending!.y + ending!.height).toBeLessThanOrEqual(dock!.y)
       expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([])
       await page.screenshot({ path: testInfo.outputPath('reading-end-recording-bar.png') })
       await record.click()

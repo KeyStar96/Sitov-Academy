@@ -18,6 +18,14 @@ import WaveformPlayer from '@/components/audio/WaveformPlayer'
  *
  * Die Aufnahme-Mechanik liegt in `useAudioRecorder`, der Upload in
  * `lib/audio/upload.ts`. Diese Komponente ist reine UI und Ablaufsteuerung.
+ *
+ * Auf Handys (`mobileFloating`) läuft die Bedienung über eine schwebende
+ * Ebene statt über eine Karte im Textfluss:
+ *   Ruhezustand  → runder Aufnahme-Knopf (FAB) unten rechts,
+ *   Aufnahme     → schmale Glasleiste mit Stopp-Knopf und Live-Wellenform,
+ *   Auswertung   → die schwebende Ebene verschwindet, Player und Aktionen
+ *                  stehen als normale Karte unter dem Vorlesetext.
+ * So verdeckt die Aufnahme-UI den vorzulesenden Text zu keinem Zeitpunkt.
  */
 export default function AudioRecorder({
   promptId,
@@ -26,7 +34,7 @@ export default function AudioRecorder({
   translations,
   onSubmitted,
   compact = false,
-  mobileSticky = false,
+  mobileFloating = false,
 }: {
   promptId: string
   onRecordingStateChange?: (busy: boolean) => void
@@ -34,7 +42,7 @@ export default function AudioRecorder({
   translations?: PronunciationTranslations
   onSubmitted?: () => void
   compact?: boolean
-  mobileSticky?: boolean
+  mobileFloating?: boolean
 }) {
   const t = createPronunciationTranslator(translations ?? {})
   const recorder = useAudioRecorder()
@@ -96,14 +104,29 @@ export default function AudioRecorder({
     }
   }
 
-  return (
+  /** Auf dem Handy trägt die schwebende Ebene die Bedienung – die Karte bleibt dort leer. */
+  const isReviewing = recorder.hasRecording && !recorder.isRecording
+  const cardOnlyOnDesktop = mobileFloating && !isReviewing
+  const mobileHidden = mobileFloating ? 'hidden lg:block' : undefined
+
+  const statusBanner = statusMessage && (
+    <p
+      className="mx-auto mb-6 flex max-w-xl items-start gap-3 rounded-2xl border border-[var(--border)] bg-[var(--surface-muted)] p-4 text-left text-lg text-[var(--danger)]"
+      role="status"
+    >
+      <TriangleAlert size={24} className="mt-0.5 shrink-0" aria-hidden="true" />
+      {statusMessage}
+    </p>
+  )
+
+  const card = (
     <div
       className={`min-w-0 break-words rounded-3xl border border-[var(--border)] bg-[var(--surface)] text-center text-[var(--foreground)] shadow-sm transition-colors ${
-        compact ? 'p-5 shadow-none' : mobileSticky ? 'p-3 lg:p-8' : 'p-5 sm:p-8'
-      }`}
+        compact ? 'p-5 shadow-none' : mobileFloating ? 'p-5 lg:p-8' : 'p-5 sm:p-8'
+      } ${cardOnlyOnDesktop ? 'hidden lg:block' : ''}`}
     >
       {!compact && (
-        <div className={mobileSticky ? 'hidden lg:block' : undefined}>
+        <div className={mobileHidden}>
           <h2 className="mb-4 text-2xl font-bold text-[var(--foreground)]">
             {t('record_title')}
           </h2>
@@ -149,9 +172,11 @@ export default function AudioRecorder({
                   onClick={recorder.reset}
                   disabled={isUploading}
                   aria-label={t('delete_recording_aria')}
-                  className="mt-4 flex min-h-[56px] min-w-[56px] w-full shrink-0 items-center justify-center rounded-xl border border-[var(--border)] bg-[var(--surface)] p-3 text-[var(--muted)] transition-colors hover:border-[var(--danger)] hover:bg-[color-mix(in_srgb,var(--danger)_8%,var(--surface))] hover:text-[var(--danger)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] disabled:opacity-50 sm:mt-0 sm:w-auto"
+                  className="mt-4 flex min-h-[56px] min-w-[56px] w-full shrink-0 items-center justify-center gap-2 rounded-xl border border-[var(--border)] bg-[var(--surface)] p-3 text-[var(--muted)] transition-colors hover:border-[var(--danger)] hover:bg-[color-mix(in_srgb,var(--danger)_8%,var(--surface))] hover:text-[var(--danger)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] disabled:opacity-50 sm:mt-0 sm:w-auto"
                 >
                   <Trash2 size={24} aria-hidden="true" />
+                  {/* Der volle Balken bleibt auf dem Handy sonst ein Icon ohne Bedeutung. */}
+                  <span className="text-base font-semibold sm:sr-only">{t('delete_recording')}</span>
                 </button>
               )}
             </div>
@@ -159,20 +184,14 @@ export default function AudioRecorder({
         </div>
       )}
 
-      {statusMessage && (
-        <p
-          className="mx-auto mb-6 flex max-w-xl items-start gap-3 rounded-2xl border border-[var(--border)] bg-[var(--surface-muted)] p-4 text-left text-lg text-[var(--danger)]"
-          role="status"
-        >
-          <TriangleAlert size={24} className="mt-0.5 shrink-0" aria-hidden="true" />
-          {statusMessage}
-        </p>
-      )}
+      {/* Im Ruhezustand ist die Karte auf dem Handy ausgeblendet – dort meldet
+          die schwebende Ebene den Fehler, sodass er nie doppelt vorgelesen wird. */}
+      {statusBanner}
 
       {recorder.status === 'requesting' && (
         <p role="status" className="mb-4 text-base text-[var(--muted)]">{t('requesting_mic')}</p>
       )}
-      <div className="mb-2 flex flex-col items-center justify-center gap-4 sm:flex-row">
+      <div className={`mb-2 flex-col items-center justify-center gap-4 sm:flex-row ${mobileFloating ? 'hidden lg:flex' : 'flex'}`}>
         {recorder.isRecording ? (
           <button
             type="button"
@@ -232,5 +251,69 @@ export default function AudioRecorder({
         </div>
       )}
     </div>
+  )
+
+  if (!mobileFloating) return card
+
+  return (
+    <>
+      {card}
+
+      {/* Schwebende Bedienebene – nur auf Handys, nie während der Auswertung. */}
+      {!isReviewing && (
+        <div
+          data-testid="pronunciation-recording-bar"
+          className="pronunciation-recorder-dock pointer-events-none fixed inset-x-0 bottom-0 z-40 lg:hidden"
+        >
+          <div className="mx-auto flex w-full max-w-3xl flex-col items-end gap-3 px-4 pb-[calc(env(safe-area-inset-bottom,0px)+0.75rem)]">
+            {statusMessage && (
+              <p
+                role="status"
+                className="pronunciation-recorder-glass pointer-events-auto flex w-full items-start gap-3 rounded-2xl p-4 text-left text-base text-[var(--danger)] shadow-lg"
+              >
+                <TriangleAlert size={22} className="mt-0.5 shrink-0" aria-hidden="true" />
+                {statusMessage}
+              </p>
+            )}
+
+            {recorder.isRecording ? (
+              <div className="pronunciation-recorder-glass pointer-events-auto flex w-full items-center gap-3 rounded-2xl p-2 pr-4 shadow-xl">
+                <button
+                  type="button"
+                  onClick={recorder.stop}
+                  aria-label={t('stop_recording')}
+                  className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-[var(--danger)] text-white shadow-md transition-transform duration-200 hover:scale-105 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] active:scale-95 motion-reduce:transition-none motion-reduce:hover:scale-100"
+                >
+                  <Square size={24} fill="currentColor" aria-hidden="true" />
+                </button>
+                <LiveWaveform
+                  compact
+                  levels={recorder.levels}
+                  isActive
+                  elapsedSeconds={recorder.elapsedSeconds}
+                  ariaLabel={t('waveform_live_aria')}
+                  analyserRef={recorder.analyserRef}
+                />
+                <span className="sr-only" role="status">{t('recording_running')}</span>
+              </div>
+            ) : (
+              <button
+                type="button"
+                onClick={handleStart}
+                disabled={recorder.status === 'requesting' || isUploading}
+                aria-label={t('start_recording')}
+                className="pointer-events-auto relative flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-[var(--accent)] text-[var(--accent-foreground)] shadow-xl shadow-black/25 ring-1 ring-white/20 transition-transform duration-200 hover:scale-105 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] active:scale-95 disabled:cursor-not-allowed disabled:opacity-60 motion-reduce:transition-none motion-reduce:hover:scale-100"
+              >
+                {recorder.status === 'requesting' ? (
+                  <Loader2 size={28} className="animate-spin" aria-hidden="true" />
+                ) : (
+                  <Mic size={28} aria-hidden="true" />
+                )}
+              </button>
+            )}
+          </div>
+        </div>
+      )}
+    </>
   )
 }
