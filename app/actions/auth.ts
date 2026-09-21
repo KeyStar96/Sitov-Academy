@@ -30,12 +30,20 @@ import {
  *     Oberfläche.
  */
 
-/** Wie viele Versuche pro Zeitfenster je Absender erlaubt sind. */
-const RATE_LIMITS = {
-  login: { limit: 10, window: '5 m' },
+/**
+ * Wie viele Versuche pro Zeitfenster erlaubt sind.
+ *
+ * `account` ist ein ZWEITER, vom Absender unabhängiger Eimer je Zieladresse.
+ * Ein kombinierter Schlüssel `ip:email` würde nicht helfen: Ein Angreifer mit
+ * 200 Adressen bekäme weiterhin 200 getrennte Eimer gegen dasselbe Postfach.
+ * Erst ein reiner Konto-Eimer begrenzt verteiltes Credential-Stuffing.
+ */
+type RateLimitRule = { limit: number; window: string; account?: { limit: number; window: string } }
+const RATE_LIMITS: Record<'login' | 'signup' | 'email', RateLimitRule> = {
+  login: { limit: 10, window: '5 m', account: { limit: 12, window: '15 m' } },
   signup: { limit: 5, window: '15 m' },
-  email: { limit: 3, window: '15 m' },
-} as const
+  email: { limit: 3, window: '15 m', account: { limit: 4, window: '60 m' } },
+}
 
 function readLanguage(formData: FormData): string {
   return uiLanguageSchema.parse(formData.get('lang') ?? undefined)
@@ -54,12 +62,26 @@ async function requestIdentifier(scope: keyof typeof RATE_LIMITS): Promise<strin
   }
 }
 
-async function isRateLimited(scope: keyof typeof RATE_LIMITS): Promise<boolean> {
+/** Gleiche Adresse, andere Schreibweise oder Leerraum: derselbe Eimer. */
+function accountIdentifier(scope: keyof typeof RATE_LIMITS, email: string): string {
+  return `auth:${scope}:account:${email.trim().toLowerCase()}`
+}
+
+/**
+ * Begrenzt Absender UND Zielkonto. `rateLimit()` hasht die Kennung vor dem
+ * Speichern (lib/ratelimit.ts), die Adresse liegt also nie im Klartext.
+ */
+async function isRateLimited(scope: keyof typeof RATE_LIMITS, email?: string): Promise<boolean> {
   try {
     const identifier = await requestIdentifier(scope)
-    const { limit, window } = RATE_LIMITS[scope]
-    const result = await rateLimit(identifier, limit, window)
-    return !result.success
+    const { limit, window, account } = RATE_LIMITS[scope]
+    const [source, target] = await Promise.all([
+      rateLimit(identifier, limit, window),
+      account && email
+        ? rateLimit(accountIdentifier(scope, email), account.limit, account.window)
+        : Promise.resolve({ success: true } as const),
+    ])
+    return !source.success || !target.success
   } catch (error) {
     // SECURITY: Fail-Closed. Wenn der Rate-Limiter (PostgreSQL) ausfällt,
     // dürfen keine Authentifizierungsanfragen (Brute-Force) durchgehen.
@@ -98,7 +120,7 @@ export async function login(formData: FormData) {
 
     if (!parsed.success) {
       status = 'login_invalid'
-    } else if (await isRateLimited('login')) {
+    } else if (await isRateLimited('login', parsed.data.email)) {
       status = 'login_rate_limited'
     } else {
       const supabase = await createClient()
@@ -233,7 +255,7 @@ export async function resetPassword(formData: FormData) {
 
     if (!parsed.success) {
       status = 'reset_invalid'
-    } else if (await isRateLimited('email')) {
+    } else if (await isRateLimited('email', parsed.data.email)) {
       status = 'reset_rate_limited'
     } else {
       const supabase = await createClient()
@@ -265,7 +287,7 @@ export async function resendConfirmation(formData: FormData) {
 
     if (!parsed.success) {
       status = 'resend_invalid'
-    } else if (await isRateLimited('email')) {
+    } else if (await isRateLimited('email', parsed.data.email)) {
       status = 'resend_rate_limited'
     } else {
       const supabase = await createClient()

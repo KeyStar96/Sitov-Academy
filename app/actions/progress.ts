@@ -9,18 +9,27 @@ export async function getAllLevelsProgress() {
 
   if (!user) return {}
 
+  // R10: Ein Lesefehler darf niemals als "0 % Fortschritt" erscheinen. Ohne die
+  // Fehlerprüfung liefert PostgREST `data: null`, und die Nullish-Guards weiter
+  // unten erzeugen daraus stillschweigend einen falschen, zu niedrigen Wert.
   // 1. Hole alle Übungen und deren Level
-  const { data: exercises } = await supabase.from('learning_exercises').select('id, unit:learning_units!inner(level)')
-  
+  const { data: exercises, error: exercisesError } = await supabase.from('learning_exercises').select('id, unit:learning_units!inner(level)')
+
   // 2. Hole alle Vokabelkarten und deren Level
-  const { data: vocabCards } = await supabase.from('learning_vocabulary_cards').select('id, unit:learning_units!inner(level)')
+  const { data: vocabCards, error: vocabCardsError } = await supabase.from('learning_vocabulary_cards').select('id, unit:learning_units!inner(level)')
 
   // 3. Hole den Fortschritt des Users für Übungen
-  const { data: exerciseProgress } = await supabase
+  const { data: exerciseProgress, error: exerciseProgressError } = await supabase
     .from('user_exercise_progress')
     .select('exercise_id')
     .eq('auth_user_id', user.id)
     .eq('completed', true)
+
+  const readFailure = exercisesError ?? vocabCardsError ?? exerciseProgressError
+  if (readFailure) {
+    console.error('[progress] level_progress_unavailable')
+    throw new Error(`level_progress_unavailable: ${readFailure.code ?? 'unknown'}`)
+  }
 
   // 4. Hole den Fortschritt des Users für Vokabeln (Box 7 = gemeistert)
   const vocabProgress = (await readVocabularyProgress(supabase, user.id)).filter(row => row.box_number === 7)

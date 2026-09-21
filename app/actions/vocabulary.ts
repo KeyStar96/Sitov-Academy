@@ -69,7 +69,10 @@ export async function getVocabularySession(level?: string, uiLanguage?: string):
         .order('id').range(from, to)),
       supabase.from('vocabulary_learning_state').select('last_card_id').eq('auth_user_id', user.id).maybeSingle(),
     ])
-    if (cursorError) return { learnerId: null, cards: [], deferredCount: 0, previousCardId: null }
+    // R10: Nur fehlender Zugriff liefert eine leere Session. Ein Lesefehler wird
+    // codiert geworfen, sonst ist "Datenbank weg" von "nichts fällig" für den
+    // Lernenden nicht unterscheidbar.
+    if (cursorError) throw new Error(`vocabulary_session_unavailable: ${cursorError.code ?? 'unknown'}`)
     const catalogById = new Map(catalog.map(row => mapVocabularyCard(row)).map(card => [card.id, card]))
     // Reuse one display object per card in both directions (Flight can reference it).
     const displayCards = new Map([...catalogById].map(([id, card]) => [id, {
@@ -106,8 +109,10 @@ export async function getVocabularySession(level?: string, uiLanguage?: string):
     const weighted = pickWeightedRandomOrder(cards, card => selectionWeightForBox(card.box))
     return { learnerId: user.id, ...scheduleVocabularyCards(weighted, cursor?.last_card_id), previousCardId: cursor?.last_card_id ?? null }
   } catch (error) {
-    console.error("Vocabulary session failed:")
-    return { learnerId: null, cards: [], deferredCount: 0, previousCardId: null }
+    // Weiterwerfen: die Trainer-Route hat eine error.tsx-Boundary. Eine leere
+    // Session hier hätte einen Ausfall als "du bist fertig" dargestellt (R10).
+    console.error("[vocabulary] session_unavailable")
+    throw error instanceof Error ? error : new Error('vocabulary_session_unavailable')
   }
 }
 
@@ -127,7 +132,8 @@ export async function getVocabularyAssessment(lessonName: string, level: string,
       vocabularyQuery(learner.supabase).eq('unit.level', level).eq('unit.label', lessonName).order('id'),
       readVocabularyProgress(learner.supabase, learner.user.id),
     ])
-    if (error) return { learnerId: null, cards: [] }
+    // R10: leere Karten nur bei fehlendem Zugriff, nie bei einem Lesefehler.
+    if (error) throw new Error(`vocabulary_assessment_unavailable: ${error.code ?? 'unknown'}`)
     const assessed = new Set(progress.map(row => `${row.card_id}:${row.direction}`))
     return {
       learnerId: learner.user.id,
@@ -139,8 +145,9 @@ export async function getVocabularyAssessment(lessonName: string, level: string,
           translation: translation.text, translationLanguage: translation.language, direction }]
       })),
     }
-  } catch {
-    return { learnerId: null, cards: [] }
+  } catch (error) {
+    console.error("[vocabulary] assessment_unavailable")
+    throw error instanceof Error ? error : new Error('vocabulary_assessment_unavailable')
   }
 }
 
@@ -293,10 +300,12 @@ export async function getLessonCards(lessonName: string, level?: string, uiLangu
   if (language === 'de') return []
   let query = vocabularyQuery(learner.supabase).eq('unit.label', lessonName)
   if (level) query = query.eq('unit.level', level)
+  // R10: readVocabularyProgress wirft mit Fehlercode. Ein `.catch(() => null)`
+  // hätte diesen Code verworfen und den Ausfall als "leere Lektion" gezeigt.
   const [{ data: cards, error }, progress] = await Promise.all([
-    query, readVocabularyProgress(learner.supabase, learner.user.id).catch(() => null),
+    query, readVocabularyProgress(learner.supabase, learner.user.id),
   ])
-  if (error || !progress) return []
+  if (error) throw new Error(`vocabulary_lesson_unavailable: ${error.code ?? 'unknown'}`)
   return (cards ?? []).map(row => mapVocabularyCard(row)).filter(card => {
     if (!card.id || !card.lesson || !card.level || !hasTrainerAccess(learner.profile, card.level, 'vocabulary')) return false
     const allowedLessons = getAllowedLessons(learner.profile, card.level, 'vocabulary')
@@ -317,10 +326,12 @@ export async function getLessonStats(level?: string): Promise<LessonStat[]> {
   if (!learner || (level && !hasTrainerAccess(learner.profile, level, 'vocabulary'))) return []
   let query = vocabularyQuery(learner.supabase)
   if (level) query = query.eq('unit.level', level)
+  // R10: readVocabularyProgress wirft mit Fehlercode. Ein `.catch(() => null)`
+  // hätte diesen Code verworfen und den Ausfall als "leere Lektion" gezeigt.
   const [{ data: cards, error }, progress] = await Promise.all([
-    query, readVocabularyProgress(learner.supabase, learner.user.id).catch(() => null),
+    query, readVocabularyProgress(learner.supabase, learner.user.id),
   ])
-  if (error || !progress) return []
+  if (error) throw new Error(`vocabulary_lesson_unavailable: ${error.code ?? 'unknown'}`)
   const stats = new Map<string, LessonStat>()
   const now = Date.now()
   for (const card of (cards ?? []).map(mapVocabularyCard)) {

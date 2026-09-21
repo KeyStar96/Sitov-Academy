@@ -25,7 +25,8 @@ export const vocabWriteSchema = z.object({
   }
 })
 export type VocabWriteInput = z.infer<typeof vocabWriteSchema>
-export type VocabSaveResult = { success: true; data: VocabularyCardRow } | { success: false; error: 'invalid_input' | 'save_failed' }
+/** `code` trägt den maschinenlesbaren RPC-/SQLSTATE-Code (R10). */
+export type VocabSaveResult = { success: true; data: VocabularyCardRow } | { success: false; error: 'invalid_input' | 'save_failed'; code?: string }
 
 export function emptyVocabForm(): VocabWriteInput {
   return { level: 'A1.1', lesson: '', word_de: '', article: 'none', plural: '', translation_ru: '', translation_tr: '', translation_en: '', translation_uk: '', context_sentence_de: '', context_sentence_en: '', context_sentence_ru: '', context_sentence_uk: '', context_sentence_tr: '', sentence_practice: false }

@@ -1,0 +1,11 @@
+-- Rollback for supabase/vps/19_vocabulary_self_rating_fix.sql.
+-- Run atomically on the VPS with psql -1 after a fresh backup.
+--
+-- This migration only restored the EXECUTE grant that migration 18 forgot.
+-- Reverting it re-breaks the flashcard trainer: every self-rating raises
+-- 42501 inside the SECURITY INVOKER boundary wrapper, which returns
+-- {"error":"not_authorized"} and the client shows "could not be saved".
+-- Deploy a client that no longer offers the flashcard mode BEFORE running this.
+REVOKE EXECUTE ON FUNCTION vocabulary_private.submit_self_rating_once(uuid,uuid,boolean,text) FROM authenticated;
+-- The public boundary wrapper's own grants are left intact: they match what
+-- migration 18 intended and are shared with the rollback path of 18 itself.

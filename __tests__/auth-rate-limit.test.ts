@@ -29,5 +29,23 @@ it('keeps the real client key stable when XFF is forged and separates clients', 
     jest.mocked(headers).mockResolvedValue(new Headers({ 'x-forwarded-for': chain }) as never)
     await expect(login(form())).rejects.toThrow('login_rate_limited')
   }
-  expect(jest.mocked(rateLimit).mock.calls.map(call => call[0])).toEqual(['auth:login:198.51.100.23','auth:login:198.51.100.23','auth:login:203.0.113.9'])
+  const keys = jest.mocked(rateLimit).mock.calls.map(call => call[0])
+  // Two independent buckets per attempt: the forge-proof client IP and the
+  // target account. A forged leading hop must change neither.
+  expect(keys.filter(key => !key.includes(':account:'))).toEqual(['auth:login:198.51.100.23','auth:login:198.51.100.23','auth:login:203.0.113.9'])
+  expect(keys.filter(key => key.includes(':account:'))).toEqual(['auth:login:account:test@example.test','auth:login:account:test@example.test','auth:login:account:test@example.test'])
+})
+
+it('the account bucket is independent of the source address and ignores case and padding', async () => {
+  jest.mocked(rateLimit).mockResolvedValue({ success: false, remaining: 0, limit: 10, reset: Date.now() })
+  const shaped = (email: string) => { const data = form(); data.set('email', email); return data }
+  for (const [chain, email] of [['198.51.100.23, 10.0.2.5', 'test@example.test'], ['203.0.113.9, 10.0.2.5', '  TEST@Example.TEST  ']] as const) {
+    jest.mocked(headers).mockResolvedValue(new Headers({ 'x-forwarded-for': chain }) as never)
+    await expect(login(shaped(email))).rejects.toThrow('login_rate_limited')
+  }
+  const account = jest.mocked(rateLimit).mock.calls.map(call => call[0]).filter(key => key.includes(':account:'))
+  // Same mailbox from two addresses and two spellings must share ONE bucket,
+  // otherwise distributed credential stuffing simply fans out across buckets.
+  expect(new Set(account)).toEqual(new Set(['auth:login:account:test@example.test']))
+  expect(account).toHaveLength(2)
 })

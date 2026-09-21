@@ -8237,6 +8237,7 @@ REVOKE ALL ON FUNCTION vocabulary_private.submit_self_rating(p_progress_id uuid,
 --
 
 REVOKE ALL ON FUNCTION vocabulary_private.submit_self_rating_once(p_request_id uuid, p_progress_id uuid, p_known boolean, p_ui_language text) FROM PUBLIC;
+GRANT ALL ON FUNCTION vocabulary_private.submit_self_rating_once(p_request_id uuid, p_progress_id uuid, p_known boolean, p_ui_language text) TO authenticated;
 
 
 --

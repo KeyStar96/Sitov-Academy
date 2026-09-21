@@ -32,31 +32,40 @@ export async function getAdminStats() {
     await requireAdmin()
     const supabase = createAdminClient()
     
+    // R10: `count` ist bei einem Fehler `null`. Ohne diese Prüfung würde
+    // `count || 0` einen Datenbankausfall in glaubwürdig aussehende Nullen
+    // verwandeln — der Lehrer hielte ein leeres Dashboard für die Wahrheit.
     // Get total students
-    const { count: studentCount } = await supabase
+    const { count: studentCount, error: studentError } = await supabase
       .from('profiles')
       .select('id', { count: 'exact', head: true })
       .eq('role', 'student')
 
     // Freigeschaltete Nutzer: mind. ein Sprachniveau freigegeben.
-    const { count: activatedCount } = await supabase
+    const { count: activatedCount, error: activatedError } = await supabase
       .from('profiles')
       .select('id,student_level_access!inner(auth_user_id)', { count: 'exact', head: true })
 
     // Get pending submissions
-    const { count: pendingSubmissions } = await supabase
+    const { count: pendingSubmissions, error: pendingError } = await supabase
       .from('submissions')
       .select('*', { count: 'exact', head: true })
       .eq('status', 'pending')
-      
+
+    const readFailure = studentError ?? activatedError ?? pendingError
+    if (readFailure) throw new Error(`admin_stats_unavailable: ${readFailure.code ?? 'unknown'}`)
+
     return {
-      studentCount: studentCount || 0,
-      activatedCount: activatedCount || 0,
-      pendingSubmissions: pendingSubmissions || 0
+      studentCount: studentCount ?? 0,
+      activatedCount: activatedCount ?? 0,
+      pendingSubmissions: pendingSubmissions ?? 0
     }
   } catch (error) {
+    // Weiterwerfen statt Nullen: app/[lang]/admin/error.tsx zeigt eine ehrliche
+    // Wiederholen-Ansicht. Eine fehlgeschlagene Autorisierung bleibt ebenfalls
+    // sichtbar, statt als "0 Schüler" durchzugehen.
     console.error("Error fetching admin stats")
-    return { studentCount: 0, activatedCount: 0, pendingSubmissions: 0 }
+    throw error instanceof Error ? error : new Error('admin_stats_unavailable')
   }
 }
 
