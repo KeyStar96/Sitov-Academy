@@ -21,7 +21,7 @@ const untouched: LessonStat = { lesson: 'Lektion 2', total: 85, active: 0, learn
 function card(lesson: string, progressId: string): DueVocabularyCard {
   return {
     progressId, box: 1, phase: 1, mode: 'learner_choice', promptLanguage: 'ru',
-    direction: 'native_to_de', format: 'word', prompt: 'дом', contextSentence: null,
+    direction: 'native_to_de', format: 'word', prompt: 'дом', contextSentence: null, solution: null,
     translation: 'дом', isHardForNativeLanguage: false,
     card: { id: progressId, word_de: 'Haus', article: 'das', plural: null, level: 'A1.1', lesson, image_url: null, audio_url: null },
   }

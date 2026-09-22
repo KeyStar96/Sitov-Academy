@@ -54,8 +54,9 @@ export type VocabularyReviewDirection = 'de_to_native' | 'native_to_de'
  * Legt fest, wie eine fällige Karte abgefragt werden darf. Der Modus hängt am
  * Inhalt (Wort oder Satz) und an der Richtung — nicht mehr am Lernstand:
  *
- * - **Sätze** werden immer getippt. Ihre exakte Schreibweise ist der
- *   Lerninhalt und darf nie zur Selbsteinschätzung herabgestuft werden.
+ * - **Sätze** werden wie Vokabeln behandelt: Der Lernende wählt zwischen
+ *   Karteikarte („Weiß ich / Weiß ich nicht") und Ausschreiben. Sätze gibt es
+ *   nur in der Richtung „eigene Sprache → Deutsch".
  * - **Deutsch → eigene Sprache** läuft immer als Karteikarte. Aktives
  *   Ausschreiben gilt ausschließlich dem Deutschen; die Rechtschreibung der
  *   Muttersprache ist hier nicht der Lerngegenstand.
@@ -68,22 +69,24 @@ export type VocabularyReviewDirection = 'de_to_native' | 'native_to_de'
  * Eingabe. Welche Wege erlaubt sind, prüft die Datenbank erneut; diese
  * Funktion muss deshalb deckungsgleich zu
  * `vocabulary_private.self_rating_allowed` bleiben
- * (`supabase/vps/20_vocabulary_learner_mode.sql`).
+ * (`supabase/vps/21_vocabulary_sentence_learner_choice.sql`).
  */
 export function vocabularyReviewMode(
   format: 'word' | 'sentence',
   direction: VocabularyReviewDirection
 ): VocabularyReviewMode {
-  if (format === 'sentence') return 'typed'
+  if (format === 'sentence') return 'learner_choice'
   return direction === 'de_to_native' ? 'flashcard' : 'learner_choice'
 }
 
 /**
  * Spiegel von `vocabulary_private.self_rating_allowed`: Darf diese Karte per
- * Selbsteinschätzung bewertet werden? Alles außer Sätzen darf es.
+ * Selbsteinschätzung bewertet werden? Seit Phase 5.9 dürfen es alle Karten —
+ * Wörter wie Sätze. Die einzige Karte ohne Wahl (Deutsch → eigene Sprache) ist
+ * ohnehin fest die Karteikarte.
  */
-export function selfRatingAllowed(format: 'word' | 'sentence'): boolean {
-  return format !== 'sentence'
+export function selfRatingAllowed(_format: 'word' | 'sentence'): boolean {
+  return true
 }
 
 /** Darf diese Karte ausgeschrieben werden? Nur Deutsch wird getippt. */

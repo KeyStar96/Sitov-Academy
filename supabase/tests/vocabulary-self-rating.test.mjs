@@ -13,7 +13,7 @@ const repoFile=async(relative)=>readFile(fileURLToPath(new URL(`../../${relative
 
 await test('flashcard self-rating: learner-chosen mode, authorization, idempotency and TS/SQL parity',async t=>{
  const db=await createPhase3Database()
- await apply(db,['18_vocabulary_self_rating.sql','19_vocabulary_self_rating_fix.sql','20_vocabulary_learner_mode.sql'])
+ await apply(db,['18_vocabulary_self_rating.sql','19_vocabulary_self_rating_fix.sql','20_vocabulary_learner_mode.sql','21_vocabulary_sentence_learner_choice.sql'])
 
  let sequence=400
  const addCard=async({sentence=false,word='Haus',article='das'}={})=>{
@@ -106,13 +106,17 @@ await test('flashcard self-rating: learner-chosen mode, authorization, idempoten
   }
  })
 
- await t.test('a sentence card is always typed, even in box 1',async()=>{
+ await t.test('a sentence may be self-rated too, and its correct answer is the German sentence',async()=>{
+  // Seit Migration 21 werden Sätze wie Vokabeln behandelt: Der Lernende darf
+  // auch einen Satz per "Kenn ich" bewerten. Die zurückgegebene Musterlösung
+  // ist der deutsche Kontextsatz, nicht das Einzelwort.
   const cardId=await addCard({word:'Tür',article:'die',sentence:true})
   const progressId=await progressOf(cardId,'native_to_de')
   await arm(progressId,1)
   const response=await rate(id(730),progressId,true)
-  assert.equal(response.error,'flashcard_not_allowed')
-  assert.equal((await stateOf(progressId)).box_number,1)
+  assert.equal(response.success,true,'a sentence self-rating is accepted')
+  assert.equal(response.correctAnswer,'Ich öffne die Tür.','the correct answer is the German sentence')
+  assert.equal((await stateOf(progressId)).box_number,2,'the server advances the box itself')
  })
 
  await t.test('replaying one request_id returns the same receipt and moves the box once',async()=>{
@@ -167,22 +171,19 @@ await test('flashcard self-rating: learner-chosen mode, authorization, idempoten
   // rule twice. If they drift, the client offers a mode the RPC then rejects
   // and the trainer dies with flashcard_not_allowed - exactly what this asserts.
   //
-  // Migration 20 moved the choice from the box to the learner: every WORD may
-  // be self-rated in every box, a SENTENCE in none. The TypeScript side says so
-  // in selfRatingAllowed(); assert the literal is still readable there so this
-  // test fails loudly if someone narrows one side only.
+  // Migration 21 gab die Wahl vollends an den Lernenden: JEDE Karte darf in
+  // jedem Fach selbst eingeschätzt werden - Wort wie Satz. Die TypeScript-Seite
+  // sagt das in selfRatingAllowed(); das Literal bleibt lesbar, damit dieser
+  // Test laut fehlschlägt, wenn jemand nur eine Seite wieder verengt.
   const leitner=await repoFile('lib/leitner.ts')
-  assert.match(leitner,/export function selfRatingAllowed\(\s*format: 'word' \| 'sentence'\s*\): boolean \{\s*return format !== 'sentence'/,
+  assert.match(leitner,/export function selfRatingAllowed\(_format: 'word' \| 'sentence'\): boolean \{\s*return true/,
    'lib/leitner.ts:selfRatingAllowed must stay a readable literal rule')
   await db.exec('RESET ROLE')
   for(let box=1;box<=7;box+=1) {
-   const sql=(await db.query('SELECT vocabulary_private.self_rating_allowed($1,false) allowed',[box])).rows[0].allowed
-   assert.equal(sql,true,`box ${box}: SQL refuses a flashcard the UI offers`)
-  }
-  // A sentence is never a flashcard, whatever the box says.
-  for(let box=1;box<=7;box+=1) {
-   assert.equal((await db.query('SELECT vocabulary_private.self_rating_allowed($1,true) allowed',[box])).rows[0].allowed,false,
-    `box ${box}: a sentence must always be typed`)
+   assert.equal((await db.query('SELECT vocabulary_private.self_rating_allowed($1,false) allowed',[box])).rows[0].allowed,true,
+    `box ${box}: SQL refuses a word flashcard the UI offers`)
+   assert.equal((await db.query('SELECT vocabulary_private.self_rating_allowed($1,true) allowed',[box])).rows[0].allowed,true,
+    `box ${box}: SQL refuses a sentence flashcard the UI now offers`)
   }
  })
 

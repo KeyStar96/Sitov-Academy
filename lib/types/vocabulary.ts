@@ -37,6 +37,15 @@ export interface DueVocabularyCard {
   promptLanguage: UiLocale
   /** German context is omitted from unrevealed sentence prompts. */
   contextSentence: string | null
+  /**
+   * Die deutsche Musterlösung für die Karteikarten-Rückseite eines Satzes.
+   * Nur bei Sätzen gesetzt; Wortkarten leiten ihre Lösung aus `card`/
+   * `translation` ab. Sätze dürfen seit Phase 5.9 als Karteikarte gelernt
+   * werden, und die Rückseite braucht dafür den deutschen Satz — genauso wie
+   * eine Wortkarte ihre Lösung bereits im Payload trägt. Die Bewertung bleibt
+   * bei PostgreSQL (R5); dies ist reine Anzeige.
+   */
+  solution: string | null
   box: LeitnerBox
   phase: LeitnerPhase
   card: VocabularyCardView

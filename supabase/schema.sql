@@ -4078,7 +4078,7 @@ CREATE FUNCTION vocabulary_private.self_rating_allowed(p_box integer, p_sentence
     LANGUAGE sql IMMUTABLE
     SET search_path TO ''
     AS $$
- SELECT NOT p_sentence AND least(6,greatest(1,coalesce(p_box,1))) <= 2
+ SELECT true
 $$;
 
 
@@ -4116,7 +4116,7 @@ CREATE FUNCTION vocabulary_private.submit_answer(p_progress_id uuid, p_is_correc
 DECLARE actor uuid:=auth.uid(); progress public.vocabulary_direction_progress; card public.learning_vocabulary_cards;
  profile public.profiles; canonical text; translated text; prompt text; previous_card uuid; grade jsonb;
  accepted text[]; correct boolean; sentence boolean; soft boolean; old_phase integer; new_phase integer;
- new_box integer; days integer; previous_days integer; difficult boolean; is_alternative boolean:=false;
+ new_box integer; days integer; previous_days integer; difficult boolean; is_alternative boolean:=false; plural text;
 BEGIN
  IF actor IS NULL THEN RAISE EXCEPTION 'authentication_required' USING ERRCODE='42501'; END IF;
  IF p_ui_language IS NULL OR p_ui_language NOT IN('de','en','ru','uk','tr') THEN
@@ -4145,6 +4145,19 @@ BEGIN
  ELSIF progress.direction='native_to_de' THEN
   canonical:=concat_ws(' ',nullif(nullif(card.article::text,'none'),''),card.word_de);
   accepted:=ARRAY[canonical];
+  -- Plurals count too ("der Papa / die Papas"): for real nouns (with an article)
+  -- with a real plural (not the "-" placeholder), accept the plural, the fixed
+  -- plural article "die" and the combined dictionary form. The singular stays
+  -- the disclosed canonical answer.
+  plural:=nullif(btrim(coalesce(card.plural,'')),'');
+  IF card.article IS NOT NULL AND card.article::text<>'none'
+     AND plural IS NOT NULL AND plural NOT IN ('-','–','—') THEN
+   accepted:=accepted
+     ||('die '||plural)
+     ||plural
+     ||(canonical||' / die '||plural)
+     ||(canonical||', die '||plural);
+  END IF;
  ELSE
   canonical:=translated; accepted:=ARRAY[canonical];
  END IF;
@@ -4247,7 +4260,9 @@ BEGIN
  IF NOT vocabulary_private.self_rating_allowed(progress.box_number,sentence) THEN
   RAISE EXCEPTION 'flashcard_not_allowed' USING ERRCODE='PT409'; END IF;
  SELECT translation INTO translated FROM public.vocabulary_translations WHERE card_id=card.id AND locale=p_ui_language;
- IF progress.direction='native_to_de' THEN
+ IF sentence THEN
+  SELECT context_sentence INTO canonical FROM public.vocabulary_translations WHERE card_id=card.id AND locale='de';
+ ELSIF progress.direction='native_to_de' THEN
   canonical:=concat_ws(' ',nullif(nullif(card.article::text,'none'),''),card.word_de);
  ELSE
   canonical:=translated;

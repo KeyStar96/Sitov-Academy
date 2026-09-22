@@ -102,8 +102,11 @@ export async function getVocabularySession(level?: string, uiLanguage?: string):
         mode: vocabularyReviewMode(sentence ? 'sentence' : 'word', direction),
         prompt: source ? source.text : direction === 'native_to_de' ? translation : card.word_de,
         promptLanguage: source ? source.language : direction === 'native_to_de' ? translatedWord!.language : 'de',
-        // Never send the exact German sentence before a typing answer is submitted.
+        // Der getippte Satz zeigt seinen Kontext erst nach dem Absenden; die
+        // deutsche Musterlösung reist getrennt als `solution` mit, damit die
+        // Karteikarten-Rückseite sie aufdecken kann (wie bei Wortkarten).
         contextSentence: sentence ? null : card.context_sentence_de,
+        solution: sentence ? card.context_sentence_de : null,
         box, phase: (box === LEITNER_LEARNED_BOX ? 6 : box) as LeitnerPhase,
         card: displayCards.get(card.id)!,
         translation, isHardForNativeLanguage: isHardForNativeLanguage(card, profile.native_language),

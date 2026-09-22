@@ -21,12 +21,14 @@ const learnerId = '00000000-0000-4000-8000-000000000001'
 /** Eigene Sprache → Deutsch, Wortkarte: die einzige Karte mit freier Wahl. */
 const choice: DueVocabularyCard = {
   progressId: 'progress-1', box: 4, phase: 4, mode: 'learner_choice', promptLanguage: 'ru',
-  direction: 'native_to_de', format: 'word', prompt: 'дом', contextSentence: null,
+  direction: 'native_to_de', format: 'word', prompt: 'дом', contextSentence: null, solution: null,
   translation: 'дом', isHardForNativeLanguage: false,
   card: { id: 'word-1', word_de: 'Haus', article: 'das', plural: 'Häuser', level: 'A1.1', lesson: 'Lektion 1', image_url: null, audio_url: null },
 }
 const reverse: DueVocabularyCard = { ...choice, progressId: 'reverse', mode: 'flashcard', direction: 'de_to_native', promptLanguage: 'de', prompt: 'Haus' }
-const sentence: DueVocabularyCard = { ...choice, progressId: 'sentence', mode: 'typed', format: 'sentence', prompt: 'Я учу немецкий.' }
+// Sätze werden seit Phase 5.9 wie Vokabeln behandelt: learner_choice, und die
+// deutsche Musterlösung reist für die Karteikarten-Rückseite in `solution` mit.
+const sentence: DueVocabularyCard = { ...choice, progressId: 'sentence', mode: 'learner_choice', format: 'sentence', prompt: 'Я учу немецкий.', solution: 'Ich lerne Deutsch.' }
 
 function result(overrides: Partial<SubmitVocabularyAnswerResult> = {}): SubmitVocabularyAnswerResult {
   return { success: true, isCorrect: true, correctAnswer: 'das Haus', isAlternative: false, softError: null,
@@ -95,19 +97,23 @@ it('deckt beim Moduswechsel nichts auf', async () => {
 })
 
 it('bietet keinen Umschalter an, wo es nur einen Weg gibt', () => {
-  // Deutsch → eigene Sprache wird nie ausgeschrieben; Sätze werden nie
-  // selbst eingeschätzt. Beides gehört erklärt, sonst wirkt der fehlende
-  // Schalter wie ein Fehler.
-  const reverseView = mount([reverse])
+  // Deutsch → eigene Sprache wird nie ausgeschrieben. Das gehört erklärt, sonst
+  // wirkt der fehlende Schalter wie ein Fehler.
+  mount([reverse])
   expect(screen.queryByRole('radiogroup')).not.toBeInTheDocument()
   expect(screen.getByText(de.vocabulary.mode_locked_flashcard)).toBeInTheDocument()
   expect(screen.getByRole('button', { name: de.vocabulary.reveal_solution })).toBeInTheDocument()
-  reverseView.unmount()
+})
 
+it('behandelt Sätze wie Vokabeln: Umschalter, und die Rückseite zeigt den deutschen Satz', () => {
+  // Früher erzwangen Sätze das Ausschreiben. Jetzt bietet auch der Satz den
+  // Umschalter (Standard: Karteikarte), und beim Aufdecken steht die deutsche
+  // Musterlösung auf der Rückseite.
   mount([sentence])
-  expect(screen.queryByRole('radiogroup')).not.toBeInTheDocument()
-  expect(screen.getByText(de.vocabulary.mode_locked_typed)).toBeInTheDocument()
-  expect(screen.getByRole('textbox')).toBeInTheDocument()
+  expect(screen.getByRole('radiogroup')).toBeInTheDocument()
+  fireEvent.click(screen.getByRole('button', { name: de.vocabulary.reveal_solution }))
+  expect(screen.getByText('Ich lerne Deutsch.')).toBeInTheDocument()
+  expect(screen.getByRole('button', { name: de.vocabulary.knew_it })).toBeInTheDocument()
 })
 
 it('blendet den Umschalter aus, sobald die Antwort bewertet ist', async () => {

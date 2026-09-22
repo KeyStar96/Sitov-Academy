@@ -201,9 +201,12 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
   // bei der Frage an.
   useEffect(() => { setRevealed(false) }, [effectiveMode])
   const reducedMotion = useReducedMotion() ?? false
-  // Bei Wörtern liegt die Lösung schon im Payload (kein Satz-Geheimnis wie bei
-  // getippten Sätzen); der Server bleibt trotzdem die Instanz für den Lernstand.
-  const flashcardSolution = current ? (isToGerman ? (targetWord ?? '') : current.translation) : ''
+  // Die Lösung liegt im Payload; der Server bleibt trotzdem die Instanz für den
+  // Lernstand. Sätze zeigen ihren deutschen Musterlösungssatz (`solution`),
+  // Wortkarten das deutsche Wort bzw. die Übersetzung.
+  const flashcardSolution = current
+    ? isSentence ? (current.solution ?? '') : isToGerman ? (targetWord ?? '') : current.translation
+    : ''
   // Die Rückseite trägt Frage und Lösung, wird also früher eng als die Vorderseite.
   const denseFlipBack = prompt.length + flashcardSolution.length + (current?.contextSentence?.length ?? 0) > 160
   // Solange die Karte gedreht ist, darf nur die sichtbare Seite Fokus und
@@ -270,9 +273,9 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
                     <p className="learning-flip-echo" lang={current.promptLanguage}>{prompt}</p>
                     <div className="learning-divider" />
                     <span className="learning-eyebrow">{t('correct_sentence_label')}</span>
-                    <p className={cn('learning-solution', isToGerman && articleColorClass(current.card.article))} lang={answerLanguage}>{flashcardSolution}</p>
+                    <p className={cn(isSentence ? 'learning-sentence' : 'learning-solution', !isSentence && isToGerman && articleColorClass(current.card.article))} lang={answerLanguage}>{flashcardSolution}</p>
                     {current.contextSentence && <p className="learning-context" lang="de"><span className="sr-only">{t('context_label')}: </span>{current.contextSentence}</p>}
-                    <SolutionAudioButton cardId={current.card.id} language="de" text={targetWord ?? ''} audioUrl={current.card.audio_url} label={t('listen_word')} ariaLabel={t('listen_word_aria', { word: current.card.word_de })} variant="secondary" />
+                    {!isSentence && <SolutionAudioButton cardId={current.card.id} language="de" text={targetWord ?? ''} audioUrl={current.card.audio_url} label={t('listen_word')} ariaLabel={t('listen_word_aria', { word: current.card.word_de })} variant="secondary" />}
                     </>}
                   </div>
                 </div>

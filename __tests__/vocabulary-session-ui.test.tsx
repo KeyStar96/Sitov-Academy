@@ -17,7 +17,7 @@ jest.mock('@/lib/audio/neural-client', () => ({ prefetchNeuralAudio: jest.fn().m
 const learnerId = '00000000-0000-4000-8000-000000000001'
 const word: DueVocabularyCard = {
   progressId: 'progress-1', box: 1, phase: 1, mode: 'typed', promptLanguage: 'ru', direction: 'native_to_de', format: 'word', prompt: 'дом',
-  contextSentence: 'Wir wohnen in einem Haus mit Garten.', translation: 'дом', isHardForNativeLanguage: false,
+  contextSentence: 'Wir wohnen in einem Haus mit Garten.', solution: null, translation: 'дом', isHardForNativeLanguage: false,
   card: { id: 'word-1', word_de: 'Haus', article: 'das', plural: 'Häuser', level: 'A1.1', lesson: 'Lektion 1', image_url: null, audio_url: null },
 }
 const second: DueVocabularyCard = { ...word, progressId: 'progress-2', prompt: 'учиться', card: { ...word.card, id: 'word-2', word_de: 'lernen', article: null } }

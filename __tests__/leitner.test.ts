@@ -209,9 +209,11 @@ describe('Gewichtete Zufallsauswahl', () => {
 })
 
 describe('vocabularyReviewMode', () => {
-  it('bewertet Sätze niemals selbst ein – immer Texteingabe', () => {
+  it('überlässt Sätze dem Umschalter – wie Vokabeln', () => {
+    // Seit Phase 5.9 werden Sätze wie Vokabeln behandelt: Karteikarte oder
+    // Ausschreiben, der Lernende wählt. (Sätze gibt es nur nach Deutsch hin.)
     for (const direction of ['de_to_native', 'native_to_de'] as const) {
-      expect(vocabularyReviewMode('sentence', direction)).toBe('typed')
+      expect(vocabularyReviewMode('sentence', direction)).toBe('learner_choice')
     }
   })
 
@@ -225,11 +227,12 @@ describe('vocabularyReviewMode', () => {
     expect(vocabularyReviewMode('word', 'native_to_de')).toBe('learner_choice')
   })
 
-  it('hält den Modus unabhängig vom Lernstand', () => {
-    // Früher entschied das Fach über den Modus. Jetzt entscheidet der Lernende,
-    // und die Datenbank muss die Selbsteinschätzung in jedem Fach zulassen.
+  it('erlaubt die Selbsteinschätzung für jede Karte', () => {
+    // Früher entschied das Fach über den Modus, und Sätze waren ausgeschlossen.
+    // Jetzt entscheidet der Lernende, und die Datenbank lässt die
+    // Selbsteinschätzung für Wort wie Satz in jedem Fach zu.
     expect(selfRatingAllowed('word')).toBe(true)
-    expect(selfRatingAllowed('sentence')).toBe(false)
+    expect(selfRatingAllowed('sentence')).toBe(true)
   })
 
   it('erlaubt das Ausschreiben nur für deutschsprachige Antworten', () => {

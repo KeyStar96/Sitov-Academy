@@ -31,9 +31,9 @@ await test('Phase 3 vocabulary server grading, Leitner intervals and transaction
   await db.query("UPDATE vocabulary_direction_progress SET box_number=$2,lapses=$3,next_review_date='2020-01-01' WHERE id=$1",[progressId,box,lapses])
   await db.query('DELETE FROM vocabulary_learning_state WHERE auth_user_id=$1',[student]);await actor(db,student)
  }
- const add=async({sentence=false,word='Haus',article='das',known=false,user=student,alternatives=[],translation='дом'}={})=>{
+ const add=async({sentence=false,word='Haus',article='das',plural=null,known=false,user=student,alternatives=[],translation='дом'}={})=>{
   const cardId=id(sequence++);await db.exec('RESET ROLE')
-  await db.query('INSERT INTO learning_vocabulary_cards(id,unit_id,word_de,article,sentence_practice,alternative_answers_de) VALUES($1,$2,$3,$4,$5,$6)',[cardId,vocabularyUnit,word,article,sentence,alternatives])
+  await db.query('INSERT INTO learning_vocabulary_cards(id,unit_id,word_de,article,plural,sentence_practice,alternative_answers_de) VALUES($1,$2,$3,$4,$5,$6,$7)',[cardId,vocabularyUnit,word,article,plural,sentence,alternatives])
   for(const [locale,value,context] of [['de',word,'Ich öffne die Tür.'],['ru',translation,'Я открываю дверь.'],['en','house','I open the door.'],['uk','будинок','Я відчиняю двері.'],['tr','ev','Kapıyı açıyorum.']])
    await db.query('INSERT INTO vocabulary_translations(card_id,locale,translation,context_sentence) VALUES($1,$2,$3,$4)',[cardId,locale,value,context])
   await actor(db,user)
@@ -99,6 +99,29 @@ await test('Phase 3 vocabulary server grading, Leitner intervals and transaction
     const response=await review(a.reverse,text,false);assert.equal(response.isCorrect,true);assert.equal(response.isAlternative,true)
     assert.equal(response.softError,reason);assert.equal(response.correctAnswer,'Ich öffne die Tür.')
    }
+  })
+  await t.test('plurals count as correct: bare plural, plural article and the combined dictionary form',async()=>{
+   // Plural-Grading lebt in Migration 21. Frühere Teilprüfungen replayen die
+   // Basis-Migration (apply(db) -> 06_soft_errors), die submit_answer ohne
+   // Plural neu setzt; hier die aktuelle Fassung wiederherstellen.
+   await db.exec('RESET ROLE');await apply(db,['21_vocabulary_sentence_learner_choice.sql']);await actor(db,student)
+   // "der Papa / die Papas": Singular, Plural, der stehende Plural-Artikel "die"
+   // und die kombinierten Formen sind gültig. Der Singular bleibt Musterlösung;
+   // ein Plural wird als Alternative markiert.
+   const a=await add({word:'Papa',article:'der',plural:'Papas',translation:'папа'})
+   for(const [text,alternative] of [['der Papa',false],['die Papas',true],['Papas',true],['der Papa / die Papas',true],['der Papa, die Papas',true]]) {
+    await resetDue(a.reverse)
+    const response=await review(a.reverse,text,false)
+    assert.equal(response.isCorrect,true,text)
+    assert.equal(response.correctAnswer,'der Papa','the singular stays the disclosed answer')
+    assert.equal(response.isAlternative,alternative,text)
+   }
+   // Der Platzhalter "-" ist keine echte Pluralform: es bleibt beim Singular.
+   const noPlural=await add({word:'Fernseher',article:'der',plural:'-',translation:'телевизор'})
+   await resetDue(noPlural.reverse)
+   assert.equal((await review(noPlural.reverse,'der Fernseher',false)).isCorrect,true)
+   await resetDue(noPlural.reverse)
+   assert.equal((await review(noPlural.reverse,'die Fernseher',true)).isCorrect,false,'the "-" placeholder adds no plural form')
   })
   await t.test('soft reviews advance all six phases, preserve lapses and cap intervals including difficult words',async()=>{
    for(const difficult of [false,true]) for(let box=1;box<=6;box++) {
