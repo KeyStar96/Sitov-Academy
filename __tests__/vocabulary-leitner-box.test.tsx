@@ -1,5 +1,5 @@
 import { fireEvent, render, screen, waitFor, within } from '@testing-library/react'
-import LeitnerBoxOverview from '@/components/vocabulary/LeitnerBoxOverview'
+import LeitnerBoxOverview, { stackFill, stackLines } from '@/components/vocabulary/LeitnerBoxOverview'
 import { getPhaseCards } from '@/app/actions/vocabulary'
 import { summarizeBox, computeWordBoxState, type DirectionProgressRow } from '@/lib/vocabulary-box'
 import type { PhaseCardView } from '@/lib/types/vocabulary'
@@ -66,6 +66,35 @@ it('zählt nicht aufgenommene Vokabeln getrennt und gewichtet den Fortschritt', 
   expect(screen.getByText('1 noch nicht aufgenommen')).toBeInTheDocument()
   expect(screen.getByRole('progressbar', { name: 'Fortschritt im Karteikasten' }))
     .toHaveAttribute('aria-valuenow', String(summary.percent))
+})
+
+it('macht den Kartenstapel mit der Zahl der Vokabeln dicker', () => {
+  // Leeres Fach bleibt leer, eine Karte bleibt eine dünne Lage, und jede
+  // weitere Vokabel macht den Stapel sichtbar dicker — bis das Fach voll ist.
+  expect(stackFill(0)).toBe(0)
+  const fills = [1, 2, 5, 20, 50, 300].map(stackFill)
+  fills.forEach((fill, index) => {
+    expect(fill).toBeGreaterThan(index === 0 ? 0 : fills[index - 1])
+  })
+  expect(fills[0]).toBeLessThan(0.1)
+  expect(stackFill(100_000)).toBe(1)
+  // Nie mehr sichtbare Kartenkanten, als Karten im Fach liegen.
+  expect(stackLines(1)).toBe(1)
+  expect(stackLines(2)).toBe(2)
+  expect(stackLines(0)).toBe(0)
+
+  mount()
+  const empty = screen.getByRole('button', { name: 'In das Fach „Frisch“ hineinschauen' })
+  expect(empty).toHaveAttribute('data-empty', 'true')
+  expect(empty.style.getPropertyValue('--fill')).toBe('0.000')
+  const fresh = screen.getByRole('button', { name: 'In das Fach „Neu“ hineinschauen' })
+  expect(Number(fresh.style.getPropertyValue('--fill'))).toBeCloseTo(stackFill(3), 3)
+})
+
+it('öffnet ein Fach per Tastatur', async () => {
+  mount()
+  fireEvent.keyDown(screen.getByRole('button', { name: 'In das Fach „Neu“ hineinschauen' }), { key: 'Enter' })
+  expect(await screen.findByRole('dialog', { name: 'Fach 1: Neu' })).toBeInTheDocument()
 })
 
 it('öffnet ein Fach und listet die Vokabeln mit beiden Richtungen auf', async () => {

@@ -1395,7 +1395,23 @@
     "due_tasks_label": "görev sırada",
     "set_learned_share": "%{percent} öğrenildi",
     "set_add_short": "Ekle",
-    "set_words_total": "{count} kelime"
+    "set_words_total": "{count} kelime",
+    "lernkasten_start_count": "Şimdi {count} kelime çalış",
+    "lernkasten_start_count_one": "Şimdi 1 kelime çalış",
+    "lernkasten_due_headline": "kelime bugün seni bekliyor",
+    "lernkasten_due_headline_one": "kelime bugün seni bekliyor",
+    "lernkasten_from_lessons": "Öğrenme kutundaki {count} dersten",
+    "lernkasten_from_lessons_one": "Öğrenme kutundaki 1 dersten",
+    "lernkasten_all_done_hint": "Bugün için tekrar edilecek bir şey kalmadı. Öğrenmeye devam etmek için aşağıdan ders seç.",
+    "lernkasten_due_elsewhere": "Diğer derslerde sırada bekleyen: {count}",
+    "lernkasten_choose_lessons": "Ders seç",
+    "lernkasten_not_in_box": "Kutuda değil",
+    "lernkasten_tap_to_add": "Eklemek için dokun",
+    "lernkasten_tap_to_remove": "Çıkarmak için dokun",
+    "lernkasten_switch_aria": "“{lesson}” dersi öğrenme kutusunda",
+    "lessons_title": "Hangi dersleri öğrenmek istiyorsun?",
+    "lessons_hint": "Bir dersi aç, kelimeleri öğrenme kutuna girsin.",
+    "box_tap_hint": "İçindeki kelimeleri görmek için bir göze dokun."
   },
   "exercises": {
     "soft_error": {

@@ -1,22 +1,22 @@
 'use client'
 
-import { useMemo, useState } from 'react'
-import { motion, useReducedMotion } from 'framer-motion'
-import { Archive, ChevronRight, Clock, Layers, SplitSquareHorizontal } from 'lucide-react'
+import { useCallback, useEffect, useId, useMemo, useRef, useState, type CSSProperties, type KeyboardEvent, type PointerEvent, type ReactNode } from 'react'
+import { useReducedMotion } from 'framer-motion'
+import { Check, Hand } from 'lucide-react'
 import { createVocabularyTranslator, type VocabularyTranslations } from '@/lib/vocabulary-i18n'
 import { phaseIntervalInDays, phaseTone, type BoxBucket, type BoxBucketKey } from '@/lib/vocabulary-box'
 import type { VocabularyBoxSummary } from '@/lib/types/vocabulary'
 import { cn } from '@/lib/utils'
-import PhaseInspector from './PhaseInspector'
+import PhaseInspector, { type InspectorOrigin } from './PhaseInspector'
 import './lernkasten.css'
-
-const EASE = [0.22, 1, 0.36, 1] as const
 
 interface Props {
   summary: VocabularyBoxSummary
   level: string
   uiLanguage: string
   translations?: VocabularyTranslations
+  /** Hauptaktion direkt unter der Box — der Start-Knopf der Trainer-Seite. */
+  action?: ReactNode
 }
 
 type Translator = ReturnType<typeof createVocabularyTranslator>
@@ -26,127 +26,246 @@ export function bucketName(key: BoxBucketKey, t: Translator): string {
   return key === 'learned' ? t('box_phase_learned') : t(`box_phase_name_${key}` as 'box_phase_name_1')
 }
 
-function intervalLabel(key: BoxBucketKey, t: Translator): string {
+export function intervalLabel(key: BoxBucketKey, t: Translator): string {
   if (key === 'learned') return t('box_interval_archive')
   const days = phaseIntervalInDays(key)
   return days === 1 ? t('box_interval_day') : t('box_interval_days', { days })
 }
 
+/** Ab so vielen Vokabeln ist ein Fach randvoll. */
+const STACK_FULL_AT = 400
+/** So viele Kartenkanten passen sichtbar an einen vollen Stapel. */
+const STACK_MAX_LINES = 28
+
 /**
- * Ein Fach des Karteikastens.
+ * Füllhöhe eines Fachs zwischen 0 (leer) und 1 (randvoll).
  *
- * Die Kachel ist als Ganzes der Schalter zum Hineinschauen: Ein Fach ohne
- * sichtbaren Inhalt wäre ein Karteikasten mit zugeklebten Schubladen.
+ * Logarithmisch statt linear: Der Unterschied zwischen 2 und 20 Vokabeln muss
+ * genauso ins Auge fallen wie der zwischen 50 und 300 — sonst wäre ein Fach mit
+ * wenigen Karten neben einem vollen nicht mehr zu sehen. Eine einzelne Karte
+ * bleibt als dünne Lage sichtbar, ein leeres Fach bleibt leer.
  */
-function PhaseTile({ bucket, t, onOpen, delay, reduced }: {
+export function stackFill(count: number): number {
+  if (count <= 0) return 0
+  return Math.min(1, Math.log2(1 + count / 2) / Math.log2(1 + STACK_FULL_AT / 2))
+}
+
+/** Sichtbare Kartenkanten: nie mehr, als Karten im Fach liegen. */
+export function stackLines(count: number): number {
+  if (count <= 0) return 0
+  return Math.max(1, Math.min(count, Math.round(stackFill(count) * STACK_MAX_LINES)))
+}
+
+const COUNT_SLOT = '\u0000'
+
+/** Teilt „{count} Vokabeln" um die Zahl, damit sie groß stehen kann — in jeder Sprache an ihrer Stelle. */
+function countParts(count: number, t: Translator): [string, string] {
+  if (count === 1) {
+    const text = t('box_word_count_one')
+    const at = text.indexOf('1')
+    return at === -1 ? ['', ` ${text}`] : [text.slice(0, at), text.slice(at + 1)]
+  }
+  const [before = '', after = ''] = t('box_word_count', { count: COUNT_SLOT }).split(COUNT_SLOT)
+  return [before, after]
+}
+
+/**
+ * Ein Fach der Lernbox: Öffnung mit Tiefe, darin der Kartenstapel, darunter
+ * das Messing-Etikett.
+ *
+ * Das ganze Fach ist der Schalter zum Hineinschauen. Es ist bewusst ein
+ * `div` mit Button-Rolle: Ein natives `<button>` beschneidet in manchen
+ * Browsern seinen Inhalt und drückt die 3D-Szene darin flach.
+ */
+function Compartment({ bucket, index, open, t, onOpen }: {
   bucket: BoxBucket
+  index: number
+  open: boolean
   t: Translator
-  onOpen: () => void
-  delay: number
-  reduced: boolean
+  onOpen: (key: BoxBucketKey, from: HTMLElement) => void
 }) {
+  const id = useId()
   const tone = phaseTone(bucket.key)
   const name = bucketName(bucket.key, t)
   const isArchive = bucket.key === 'learned'
-  // Der Balken zeigt die Zusammensetzung des Fachs, nicht seine Größe: Wie
-  // viele Vokabeln sitzen in beiden Richtungen, wie viele erst in einer?
-  const halfShare = bucket.count ? (bucket.halfKnown / bucket.count) * 100 : 0
-  const fullShare = bucket.count ? 100 - halfShare : 0
+  const [before, after] = countParts(bucket.count, t)
+  const ids = { count: `${id}-count`, due: `${id}-due`, half: `${id}-half`, interval: `${id}-interval` }
+  const describedBy = [ids.count, bucket.due > 0 && ids.due, bucket.halfKnown > 0 && ids.half, ids.interval].filter(Boolean).join(' ')
+  const style = {
+    '--i': String(index),
+    '--fill': stackFill(bucket.count).toFixed(3),
+    '--lines': String(stackLines(bucket.count)),
+  } as CSSProperties
+
+  function onKeyDown(event: KeyboardEvent<HTMLDivElement>) {
+    if (event.key !== 'Enter' && event.key !== ' ') return
+    event.preventDefault()
+    onOpen(bucket.key, event.currentTarget)
+  }
 
   return (
-    <motion.button
-      type="button"
-      onClick={onOpen}
+    <div
+      role="button"
+      tabIndex={0}
       aria-label={t('box_open_aria', { name })}
-      initial={reduced ? false : { opacity: 0, y: 14 }}
-      animate={reduced ? undefined : { opacity: 1, y: 0 }}
-      transition={{ duration: 0.45, ease: EASE, delay }}
-      whileHover={reduced ? undefined : { y: -4 }}
-      whileTap={reduced ? undefined : { scale: 0.99 }}
-      className={cn(
-        'sl-glass group relative flex min-h-[10.5rem] w-full flex-col overflow-hidden rounded-2xl p-4 text-left',
-        'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)]',
-        isArchive && 'sm:col-span-2 lg:col-span-3',
-      )}
+      aria-describedby={describedBy}
+      aria-haspopup="dialog"
+      className="lb-cell"
+      data-archive={isArchive || undefined}
+      data-open={open || undefined}
+      data-empty={bucket.count === 0 || undefined}
+      style={style}
+      onClick={(event) => onOpen(bucket.key, event.currentTarget)}
+      onKeyDown={onKeyDown}
     >
-      <span aria-hidden="true" className={cn('vocab-phase-numeral', tone.text)}>
-        {isArchive ? '✓' : bucket.key}
-      </span>
-
-      <span className="flex items-center gap-2">
-        <span className={cn('flex h-8 w-8 shrink-0 items-center justify-center rounded-lg', tone.soft, tone.text)} aria-hidden="true">
-          {isArchive ? <Archive size={16} /> : <Layers size={16} />}
-        </span>
-        <span className="min-w-0">
-          <span className={cn('block break-words text-base font-bold leading-tight', tone.text)}>{name}</span>
-          <span className="mt-0.5 flex items-center gap-1 text-sm text-[var(--muted)]">
-            <Clock size={12} aria-hidden="true" />
-            {intervalLabel(bucket.key, t)}
-          </span>
-        </span>
-      </span>
-
-      <span className="mt-4 flex items-baseline gap-2">
-        <span className="text-4xl font-semibold tabular-nums tracking-tighter text-[var(--foreground)]">{bucket.count}</span>
-        <span className="text-sm text-[var(--muted)]">{t(bucket.count === 1 ? 'box_word_count_one' : 'box_word_count', { count: bucket.count })}</span>
-      </span>
-
-      <span className="mt-auto block w-full pt-4">
-        <span className="vocab-phase-bar" aria-hidden="true">
-          <span className={tone.fill} style={{ width: `${fullShare}%` }} />
-          <span className={tone.fill} data-half="true" style={{ width: `${halfShare}%` }} />
-        </span>
-        <span className="mt-2.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
-          {bucket.due > 0 && (
-            <span className="font-semibold text-[var(--accent-text)]">{t('box_due_badge', { count: bucket.due })}</span>
+      <span className="lb-cell__frame lb-cell__frame--top" aria-hidden="true" />
+      <span className="lb-cell__row" aria-hidden="true">
+        <span className="lb-cell__frame lb-cell__frame--side" />
+        <span className="lb-hole">
+          <span className="lb-hole__back" />
+          <span className="lb-hole__floor" />
+          <span className="lb-hole__wall lb-hole__wall--l" />
+          <span className="lb-hole__wall lb-hole__wall--r" />
+          {bucket.count > 0 && (
+            <>
+              <span className="lb-stack__shadow" />
+              <span className="lb-stack">
+                <span className="lb-stack__grow">
+                  <span className="lb-stack__top" />
+                  <span className="lb-stack__side lb-stack__side--l" />
+                  <span className="lb-stack__side lb-stack__side--r" />
+                  <span className="lb-stack__card" />
+                  {bucket.due > 0 && <span className="lb-stack__flag" />}
+                </span>
+              </span>
+            </>
           )}
-          {bucket.halfKnown > 0 && (
-            <span className="inline-flex items-center gap-1 text-[var(--muted)]">
-              <SplitSquareHorizontal size={13} aria-hidden="true" />
-              {t('box_half_known', { count: bucket.halfKnown })}
+        </span>
+        <span className="lb-cell__frame lb-cell__frame--side" />
+      </span>
+      {bucket.due > 0 && <span id={ids.due} className="lb-due">{t('box_due_badge', { count: bucket.due })}</span>}
+      <span className="lb-cell__plinth">
+        <span className="lb-plate">
+          <span className="lb-plate__head">
+            <span className={cn('lb-plate__badge', tone.soft, tone.text)} aria-hidden="true">
+              {isArchive ? <Check size={16} strokeWidth={3} /> : bucket.key}
             </span>
-          )}
-          <span className="ml-auto inline-flex items-center gap-1 font-semibold text-[var(--accent-text)]">
-            {t('box_open')}
-            <ChevronRight size={14} aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-0.5" />
+            <span className="lb-plate__name">{name}</span>
           </span>
+          <span id={ids.count} className="lb-plate__count">{before}<b>{bucket.count}</b>{after}</span>
         </span>
       </span>
-    </motion.button>
+      <span className="sr-only">
+        {bucket.halfKnown > 0 && <span id={ids.half}>{t('box_half_known', { count: bucket.halfKnown })}</span>}
+        <span id={ids.interval}>{intervalLabel(bucket.key, t)}</span>
+      </span>
+    </div>
   )
 }
 
 /**
- * Der Karteikasten als Ganzes: sechs Lernphasen plus Archiv.
+ * Die Lernbox als Gegenstand: ein Holzkasten mit sechs Reifefächern und dem
+ * Archiv. In jedem Fach liegt ein Kartenstapel, dessen Dicke der Zahl der
+ * Vokabeln folgt. Ein Tipp auf ein Fach zieht es auf (PhaseInspector).
  *
  * Eine Vokabel liegt in der Phase ihrer **schwächeren** Richtung. Sie rückt
  * also erst weiter, wenn sie in beide Richtungen sitzt — der Zwischenschritt
  * steht als „halb gewusst" an jedem Fach und an jeder Vokabel im Fach.
  */
-export default function LeitnerBoxOverview({ summary, level, uiLanguage, translations = {} }: Props) {
+export default function LeitnerBoxOverview({ summary, level, uiLanguage, translations = {}, action }: Props) {
   const t = useMemo(() => createVocabularyTranslator(translations), [translations])
   const reduced = useReducedMotion() ?? false
+  const introId = useId()
+  const scene = useRef<HTMLDivElement>(null)
+  const frame = useRef(0)
   const [openPhase, setOpenPhase] = useState<BoxBucketKey | null>(null)
+  const [origin, setOrigin] = useState<InspectorOrigin | null>(null)
+  const openBucket = summary.buckets.find((bucket) => bucket.key === openPhase) ?? null
+
+  const open = useCallback((key: BoxBucketKey, from: HTMLElement) => {
+    const rect = from.getBoundingClientRect()
+    setOrigin({ x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 })
+    setOpenPhase(key)
+  }, [])
+  const close = useCallback(() => setOpenPhase(null), [])
+
+  useEffect(() => () => cancelAnimationFrame(frame.current), [])
+
+  // Die Box neigt sich leicht zur Maus — nur mit echter Maus und ohne
+  // Bewegungsreduktion. Die Werte laufen als CSS-Variablen direkt an die
+  // Bühne, React rendert dafür nicht neu.
+  function onPointerMove(event: PointerEvent<HTMLDivElement>) {
+    if (reduced || event.pointerType !== 'mouse' || !scene.current) return
+    const rect = scene.current.getBoundingClientRect()
+    const x = (event.clientX - rect.left) / rect.width - 0.5
+    const y = (event.clientY - rect.top) / rect.height - 0.5
+    cancelAnimationFrame(frame.current)
+    frame.current = requestAnimationFrame(() => {
+      const node = scene.current
+      if (!node) return
+      node.dataset.tracking = 'true'
+      node.style.setProperty('--lb-ry', `${(x * 9).toFixed(2)}deg`)
+      node.style.setProperty('--lb-rx', `${(-21 - y * 5).toFixed(2)}deg`)
+    })
+  }
+
+  function onPointerLeave() {
+    cancelAnimationFrame(frame.current)
+    const node = scene.current
+    if (!node) return
+    delete node.dataset.tracking
+    node.style.removeProperty('--lb-ry')
+    node.style.removeProperty('--lb-rx')
+  }
 
   return (
-    <section aria-label={t('box_title')} className="min-w-0">
-      <div className="mb-4 flex flex-wrap items-end justify-between gap-x-6 gap-y-3">
-        <div className="min-w-0">
-          <h2 className="text-xl font-semibold text-[var(--foreground)]">{t('box_title')}</h2>
-          <p className="mt-1 max-w-prose text-base leading-relaxed text-[var(--muted)]">{t('box_intro')}</p>
+    <section aria-label={t('box_title')} aria-describedby={introId} className="min-w-0">
+      <p id={introId} className="sr-only">{t('box_intro')}</p>
+
+      <div ref={scene} className="lb-scene" onPointerMove={onPointerMove} onPointerLeave={onPointerLeave}>
+        <div className="lb-stage">
+          <div className="lb-cabinet">
+            <span className="lb-cabinet__shadow" aria-hidden="true" />
+            <span className="lb-cabinet__top" aria-hidden="true" />
+            <span className="lb-cabinet__side lb-cabinet__side--l" aria-hidden="true" />
+            <span className="lb-cabinet__side lb-cabinet__side--r" aria-hidden="true" />
+            <span className="lb-cabinet__rail lb-cabinet__rail--top" aria-hidden="true" />
+            <span className="lb-cabinet__rail lb-cabinet__rail--bottom" aria-hidden="true" />
+            <span className="lb-cabinet__rail lb-cabinet__rail--left" aria-hidden="true" />
+            <span className="lb-cabinet__rail lb-cabinet__rail--right" aria-hidden="true" />
+            <div className="lb-grid">
+              {summary.buckets.map((bucket, index) => (
+                <Compartment
+                  key={String(bucket.key)}
+                  bucket={bucket}
+                  index={index}
+                  open={openPhase === bucket.key}
+                  t={t}
+                  onOpen={open}
+                />
+              ))}
+            </div>
+          </div>
         </div>
-        <p className="text-base text-[var(--muted)]">
-          {t('box_untouched', { count: summary.untouched })}
-        </p>
       </div>
 
-      <div className="sl-glass mb-4 rounded-2xl p-4">
-        <div className="flex items-center justify-between gap-3">
-          <span className="text-base font-bold text-[var(--foreground)]">{t('box_progress_label')}</span>
-          <span className="shrink-0 text-xl font-bold tabular-nums text-[var(--foreground)]">{summary.percent}%</span>
+      <p className="lb-hint">
+        <Hand size={18} aria-hidden="true" className="shrink-0 text-[var(--accent-text)]" />
+        {t('box_tap_hint')}
+      </p>
+
+      {action && <div className="mt-6">{action}</div>}
+
+      <div className="mt-6 border-t border-[var(--border)] pt-4">
+        <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+          <span className="text-base font-semibold text-[var(--foreground)]">{t('box_progress_label')}</span>
+          <span className="flex flex-wrap items-baseline gap-x-3 text-base text-[var(--muted)]">
+            <span className="text-xl font-bold tabular-nums text-[var(--foreground)]">{summary.percent}%</span>
+            {summary.untouched > 0 && <span>{t('box_untouched', { count: summary.untouched })}</span>}
+          </span>
         </div>
         <div
-          className="sl-bar mt-3 h-2.5"
+          className="sl-bar mt-3 h-3"
           data-tone="success"
           role="progressbar"
           aria-valuemin={0}
@@ -161,25 +280,14 @@ export default function LeitnerBoxOverview({ summary, level, uiLanguage, transla
         </div>
       </div>
 
-      <div className="grid min-w-0 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-        {summary.buckets.map((bucket, index) => (
-          <PhaseTile
-            key={String(bucket.key)}
-            bucket={bucket}
-            t={t}
-            reduced={reduced}
-            delay={reduced ? 0 : index * 0.05}
-            onOpen={() => setOpenPhase(bucket.key)}
-          />
-        ))}
-      </div>
-
       <PhaseInspector
         phase={openPhase}
+        bucket={openBucket}
+        origin={origin}
         level={level}
         uiLanguage={uiLanguage}
         translations={translations}
-        onClose={() => setOpenPhase(null)}
+        onClose={close}
       />
     </section>
   )

@@ -1399,7 +1399,23 @@
     "due_tasks_label": "tasks due",
     "set_learned_share": "{percent}% learned",
     "set_add_short": "Add",
-    "set_words_total": "{count} words"
+    "set_words_total": "{count} words",
+    "lernkasten_start_count": "Practise {count} words now",
+    "lernkasten_start_count_one": "Practise 1 word now",
+    "lernkasten_due_headline": "words are waiting for you today",
+    "lernkasten_due_headline_one": "word is waiting for you today",
+    "lernkasten_from_lessons": "From {count} lessons in your learning box",
+    "lernkasten_from_lessons_one": "From 1 lesson in your learning box",
+    "lernkasten_all_done_hint": "Nothing else is due today. Choose lessons below to keep learning.",
+    "lernkasten_due_elsewhere": "Still due in other lessons: {count}",
+    "lernkasten_choose_lessons": "Choose lessons",
+    "lernkasten_not_in_box": "Not in the box",
+    "lernkasten_tap_to_add": "Tap to add",
+    "lernkasten_tap_to_remove": "Tap to take out",
+    "lernkasten_switch_aria": "Lesson “{lesson}” in the learning box",
+    "lessons_title": "Which lessons would you like to learn?",
+    "lessons_hint": "Switch a lesson on and its words go into your learning box.",
+    "box_tap_hint": "Tap a drawer to see the words inside."
   },
   "exercises": {
     "soft_error": {

@@ -31,7 +31,7 @@ it('passes the selected dictionary through the overview and session start', asyn
   const page = await VocabularyPage({ params: Promise.resolve({ lang: 'ru', level: 'A1.1' }) })
   expect(page.type).toBe(VocabTrainerPageClient)
   render(page)
-  fireEvent.click(screen.getByRole('button', { name: ru.vocabulary.lernkasten_start }))
+  fireEvent.click(screen.getByRole('button', { name: ru.vocabulary.lernkasten_start_count_one }))
   expect(jest.mocked(VocabCardSession).mock.calls[0][0]).toMatchObject({ softErrorTranslations: ru.exercises.soft_error, uiLanguage: 'ru' })
 })
 it('passes the selected dictionary to the direct training route', async () => {

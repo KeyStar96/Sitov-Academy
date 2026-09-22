@@ -1398,7 +1398,23 @@
     "due_tasks_label": "завдань до повтору",
     "set_learned_share": "{percent} % вивчено",
     "set_add_short": "Додати",
-    "set_words_total": "{count} слів"
+    "set_words_total": "{count} слів",
+    "lernkasten_start_count": "Вчити слова зараз ({count})",
+    "lernkasten_start_count_one": "Вчити 1 слово зараз",
+    "lernkasten_due_headline": "до повторення сьогодні",
+    "lernkasten_due_headline_one": "до повторення сьогодні",
+    "lernkasten_from_lessons": "Уроків у коробці: {count}",
+    "lernkasten_from_lessons_one": "Уроків у коробці: 1",
+    "lernkasten_all_done_hint": "На сьогодні більше нічого не треба повторювати. Вибери уроки нижче, щоб вчитися далі.",
+    "lernkasten_due_elsewhere": "Ще до повторення в інших уроках: {count}",
+    "lernkasten_choose_lessons": "Вибрати уроки",
+    "lernkasten_not_in_box": "Не в коробці",
+    "lernkasten_tap_to_add": "Натисни, щоб додати",
+    "lernkasten_tap_to_remove": "Натисни, щоб прибрати",
+    "lernkasten_switch_aria": "Урок «{lesson}» у коробці",
+    "lessons_title": "Які уроки ти хочеш вчити?",
+    "lessons_hint": "Увімкни урок — і його слова потраплять у твою коробку.",
+    "box_tap_hint": "Натисни на відділення, щоб побачити слова в ньому."
   },
   "exercises": {
     "soft_error": {

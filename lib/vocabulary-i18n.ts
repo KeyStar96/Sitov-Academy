@@ -220,6 +220,22 @@ export const VOCABULARY_FALLBACKS = {
   set_learned_share: '{percent} % gelernt',
   set_add_short: 'Hinzufügen',
   set_words_total: '{count} Vokabeln',
+  lernkasten_start_count: 'Jetzt {count} Vokabeln üben',
+  lernkasten_start_count_one: 'Jetzt 1 Vokabel üben',
+  lernkasten_due_headline: 'Vokabeln warten heute auf dich',
+  lernkasten_due_headline_one: 'Vokabel wartet heute auf dich',
+  lernkasten_from_lessons: 'Aus {count} Lektionen in deinem Lernkasten',
+  lernkasten_from_lessons_one: 'Aus 1 Lektion in deinem Lernkasten',
+  lernkasten_all_done_hint: 'Für heute ist nichts mehr fällig. Wähle unten Lektionen aus, um weiterzulernen.',
+  lernkasten_due_elsewhere: 'Noch fällig in anderen Lektionen: {count}',
+  lernkasten_choose_lessons: 'Lektionen auswählen',
+  lernkasten_not_in_box: 'Nicht im Lernkasten',
+  lernkasten_tap_to_add: 'Antippen zum Hinzufügen',
+  lernkasten_tap_to_remove: 'Antippen zum Herausnehmen',
+  lernkasten_switch_aria: 'Lektion „{lesson}“ im Lernkasten',
+  lessons_title: 'Welche Lektionen möchtest du lernen?',
+  lessons_hint: 'Schalte eine Lektion ein – ihre Vokabeln kommen dann in deinen Lernkasten.',
+  box_tap_hint: 'Tippe auf ein Fach, um die Vokabeln darin zu sehen.',
 } as const
 
 export type VocabularyTranslationKey = Extract<keyof typeof VOCABULARY_FALLBACKS, string>

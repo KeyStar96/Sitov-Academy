@@ -1398,7 +1398,23 @@
     "due_tasks_label": "заданий к повтору",
     "set_learned_share": "{percent} % выучено",
     "set_add_short": "Добавить",
-    "set_words_total": "{count} слов"
+    "set_words_total": "{count} слов",
+    "lernkasten_start_count": "Учить слова сейчас ({count})",
+    "lernkasten_start_count_one": "Учить 1 слово сейчас",
+    "lernkasten_due_headline": "к повторению сегодня",
+    "lernkasten_due_headline_one": "к повторению сегодня",
+    "lernkasten_from_lessons": "Уроков в коробке: {count}",
+    "lernkasten_from_lessons_one": "Уроков в коробке: 1",
+    "lernkasten_all_done_hint": "На сегодня больше ничего не нужно повторять. Выбери уроки ниже, чтобы учиться дальше.",
+    "lernkasten_due_elsewhere": "Ещё к повторению в других уроках: {count}",
+    "lernkasten_choose_lessons": "Выбрать уроки",
+    "lernkasten_not_in_box": "Не в коробке",
+    "lernkasten_tap_to_add": "Нажми, чтобы добавить",
+    "lernkasten_tap_to_remove": "Нажми, чтобы убрать",
+    "lernkasten_switch_aria": "Урок «{lesson}» в коробке",
+    "lessons_title": "Какие уроки ты хочешь учить?",
+    "lessons_hint": "Включи урок — и его слова попадут в твою коробку.",
+    "box_tap_hint": "Нажми на отделение, чтобы увидеть слова в нём."
   },
   "exercises": {
     "soft_error": {

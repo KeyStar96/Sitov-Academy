@@ -1,65 +1,773 @@
 /* Karteikasten-eigene Bausteine. Die geteilten Flächen (.sl-glass, .sl-card,
  * .sl-chip, .sl-bar, .sl-icon-tile) stehen in app/globals.css — Dashboard und
  * Lernraum benutzen dieselben.
+ *
+ * Die Lernbox ist eine echte CSS-3D-Szene statt eines WebGL-Canvas: Jedes Fach
+ * bleibt ein Element im DOM — mit Namen für Screenreader, Tastaturfokus,
+ * Kontrastmodus und ohne Ladezeit für eine 3D-Bibliothek. Bewegt werden nur
+ * `transform`-Werte, also läuft alles auf dem Compositor.
  */
 
-/* Die Riesenziffer des Fachs liegt als Relief hinter dem Inhalt und darf den
-   Text nie stören — daher rein dekorativ und vom Zeiger ausgenommen. */
-.vocab-phase-numeral {
+/* ── Material ────────────────────────────────────────────────────────────
+   Holz, Papier und Messing als eigene Tokens: Die Box ist ein Gegenstand und
+   kein UI-Element, darf also warm aussehen. Alles Texttragende (Etiketten,
+   Fällig-Fähnchen) nutzt dagegen die Theme-Tokens, damit der Kontrastvertrag
+   aus globals.css auch hier gilt. */
+.lb-scene {
+  --lb-wood-hi: #ecd1a6;
+  --lb-wood: #d9b27d;
+  --lb-wood-mid: #bb8b55;
+  --lb-wood-lo: #8a5f35;
+  --lb-wood-deep: #573a20;
+  --lb-grain: rgb(110 68 30 / 0.11);
+  --lb-card: #fffdf6;
+  --lb-card-edge: #f1e8d5;
+  --lb-card-line: #cbb994;
+  --lb-card-side: #e0d2b2;
+  --lb-rule-red: #e27d6d;
+  --lb-rule-blue: #b4cbe2;
+  --lb-brass-hi: #f6dc97;
+  --lb-brass: #c9a049;
+  --lb-brass-lo: #8b6822;
+  --lb-cast: rgb(15 23 42 / 0.3);
+}
+
+html.dark .lb-scene {
+  --lb-wood-hi: #8a6443;
+  --lb-wood: #6f4d32;
+  --lb-wood-mid: #573a25;
+  --lb-wood-lo: #3a2616;
+  --lb-wood-deep: #22160c;
+  --lb-grain: rgb(0 0 0 / 0.18);
+  --lb-card: #f3ecdc;
+  --lb-card-edge: #e2d8c2;
+  --lb-card-line: #b3a07b;
+  --lb-card-side: #cfc0a0;
+  --lb-cast: rgb(0 0 0 / 0.55);
+}
+
+/* ── Szene ─────────────────────────────────────────────────────────────────
+   1u = 1 % der Szenenbreite (Container-Einheit), gedeckelt, damit die Box auf
+   großen Bildschirmen nicht ins Riesenhafte wächst. Ohne Container-Einheiten
+   fällt sie auf die Fensterbreite zurück. */
+.lb-scene {
+  --u: min(0.84vw, 9.4px);
+  --lb-frame: calc(var(--u) * 0.9);
+  --lb-depth: calc(var(--u) * 15);
+  --lb-hole-h: calc(var(--u) * 19);
+  --lb-card-w: calc(var(--u) * 19);
+  --lb-card-d: calc(var(--u) * 10);
+  --lb-stack-max: calc(var(--u) * 15);
+  --lb-rx: -21deg;
+  --lb-ry: 0deg;
+
+  position: relative;
+  container-type: inline-size;
+  /* Auf dem Telefon darf die Box bis an den Rand der Karte reichen — jeder
+     Pixel Breite macht die Fächer größer und die Etiketten lesbarer. */
+  margin-inline: calc(var(--lb-bleed, 0px) * -1);
+  perspective: calc(var(--u) * 170);
+  perspective-origin: 50% 30%;
+  padding: calc(var(--u) * 7) 0 calc(var(--u) * 4);
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@supports (width: 1cqi) {
+  .lb-scene { --u: min(1cqi, 9.4px); }
+}
+
+.lb-stage {
+  position: relative;
+  /* Die gekippte Box ist kürzer als ihr Layout-Kasten — den Rest nicht als
+     Leerraum stehen lassen. */
+  margin-bottom: calc(var(--u) * -9);
+  transform-style: preserve-3d;
+  transform: rotateX(var(--lb-rx)) rotateY(var(--lb-ry));
+  transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.lb-scene[data-tracking='true'] .lb-stage {
+  transition-duration: 180ms;
+}
+
+/* Jede Ebene zwischen Bühne und Fläche muss 3D weiterreichen — ein einziges
+   flaches Element dazwischen presst alles Folgende auf seine Ebene. */
+.lb-cabinet,
+.lb-grid,
+.lb-cell,
+.lb-cell__row,
+.lb-hole,
+.lb-stack,
+.lb-stack__grow {
+  transform-style: preserve-3d;
+}
+
+.lb-cabinet {
+  position: relative;
+  margin-inline: auto;
+  width: calc(var(--u) * 96);
+  padding: var(--lb-frame);
+}
+
+.lb-cabinet > span,
+.lb-cell span {
+  display: block;
+}
+
+/* Deckel-Oberseite: liegt oben auf dem Kasten und fängt das meiste Licht. */
+.lb-cabinet__top {
   position: absolute;
-  top: -0.35em;
-  right: 0.06em;
-  font-size: 7rem;
+  left: 0;
+  right: 0;
+  bottom: 100%;
+  height: calc(var(--lb-depth) + var(--u) * 1.2);
+  transform-origin: 50% 100%;
+  transform: rotateX(90deg);
+  border-radius: calc(var(--u) * 0.8) calc(var(--u) * 0.8) 0 0;
+  background:
+    repeating-linear-gradient(92deg, transparent 0 calc(var(--u) * 3.1), var(--lb-grain) calc(var(--u) * 3.1) calc(var(--u) * 3.4)),
+    linear-gradient(0deg, var(--lb-wood-hi), var(--lb-wood) 70%, var(--lb-wood-mid));
+  box-shadow: inset 0 calc(var(--u) * -0.4) 0 rgb(255 255 255 / 0.35);
+  pointer-events: none;
+}
+
+.lb-cabinet__side {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: calc(var(--lb-depth) + var(--u) * 1.2);
+  backface-visibility: hidden;
+  background: linear-gradient(90deg, var(--lb-wood-mid), var(--lb-wood-lo));
+  pointer-events: none;
+}
+
+.lb-cabinet__side--l {
+  right: 100%;
+  transform-origin: 100% 50%;
+  transform: rotateY(-90deg);
+}
+
+.lb-cabinet__side--r {
+  left: 100%;
+  transform-origin: 0 50%;
+  transform: rotateY(90deg);
+  background: linear-gradient(270deg, var(--lb-wood-mid), var(--lb-wood-lo));
+}
+
+/* Äußerer Rahmen als vier Leisten: Eine durchgehende Holzfläche würde die
+   Öffnungen der Fächer zudecken. */
+.lb-cabinet__rail {
+  position: absolute;
+  background:
+    repeating-linear-gradient(90deg, transparent 0 calc(var(--u) * 2.3), var(--lb-grain) calc(var(--u) * 2.3) calc(var(--u) * 2.5)),
+    linear-gradient(180deg, var(--lb-wood-hi), var(--lb-wood));
+  pointer-events: none;
+}
+
+.lb-cabinet__rail--top { top: 0; left: 0; right: 0; height: var(--lb-frame); border-radius: calc(var(--u) * 0.8) calc(var(--u) * 0.8) 0 0; }
+.lb-cabinet__rail--bottom { bottom: 0; left: 0; right: 0; height: var(--lb-frame); background: linear-gradient(180deg, var(--lb-wood), var(--lb-wood-mid)); }
+.lb-cabinet__rail--left { top: 0; bottom: 0; left: 0; width: var(--lb-frame); }
+.lb-cabinet__rail--right { top: 0; bottom: 0; right: 0; width: var(--lb-frame); }
+
+/* Schlagschatten auf der Tischplatte — ein liegendes Rechteck mit weichem
+   Verlauf statt eines Filters, damit er nichts kostet. */
+.lb-cabinet__shadow {
+  position: absolute;
+  left: calc(var(--u) * -4);
+  right: calc(var(--u) * -4);
+  bottom: 0;
+  height: calc(var(--lb-depth) + var(--u) * 12);
+  transform-origin: 50% 100%;
+  transform: rotateX(90deg) translateY(calc(var(--u) * 6)) translateZ(-1px);
+  background: radial-gradient(ellipse 52% 46% at 50% 55%, var(--lb-cast), transparent 72%);
+  pointer-events: none;
+}
+
+.lb-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* ── Fach ──────────────────────────────────────────────────────────────── */
+.lb-cell {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  cursor: pointer;
+  border-radius: calc(var(--u) * 0.6);
+  outline: none;
+}
+
+.lb-cell[data-archive] {
+  grid-column: 1 / -1;
+}
+
+.lb-cell__frame {
+  flex-shrink: 0;
+  background:
+    repeating-linear-gradient(90deg, transparent 0 calc(var(--u) * 2.3), var(--lb-grain) calc(var(--u) * 2.3) calc(var(--u) * 2.5)),
+    linear-gradient(180deg, var(--lb-wood-hi), var(--lb-wood));
+}
+
+.lb-cell__frame--top { height: var(--lb-frame); }
+.lb-cell__frame--side { width: var(--lb-frame); }
+
+.lb-cell__row {
+  display: flex;
+}
+
+/* Die Öffnung selbst hat keine Fläche: Man blickt durch sie hindurch auf
+   Rückwand, Boden und Seitenwände, die dahinter in der Tiefe liegen. */
+.lb-hole {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  height: var(--lb-hole-h);
+}
+
+.lb-hole__back {
+  position: absolute;
+  inset: 0;
+  transform: translateZ(calc(var(--lb-depth) * -1));
+  background: linear-gradient(180deg, var(--lb-wood-deep), var(--lb-wood-lo) 75%);
+}
+
+.lb-hole__floor {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: var(--lb-depth);
+  transform-origin: 50% 100%;
+  transform: rotateX(90deg);
+  background:
+    repeating-linear-gradient(90deg, transparent 0 calc(var(--u) * 2.3), var(--lb-grain) calc(var(--u) * 2.3) calc(var(--u) * 2.5)),
+    linear-gradient(0deg, var(--lb-wood-mid), var(--lb-wood-lo) 85%);
+}
+
+.lb-hole__wall {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: var(--lb-depth);
+  backface-visibility: hidden;
+}
+
+.lb-hole__wall--l {
+  left: 0;
+  transform-origin: 0 50%;
+  transform: rotateY(90deg);
+  background: linear-gradient(270deg, var(--lb-wood-deep), var(--lb-wood-lo) 60%, var(--lb-wood-mid));
+}
+
+.lb-hole__wall--r {
+  right: 0;
+  transform-origin: 100% 50%;
+  transform: rotateY(-90deg);
+  background: linear-gradient(90deg, var(--lb-wood-deep), var(--lb-wood-mid) 65%, var(--lb-wood));
+}
+
+/* Das Archiv bekommt grünen Filz: Hier liegt, was geschafft ist. */
+.lb-cell[data-archive] .lb-hole__floor {
+  background:
+    radial-gradient(circle at 50% 100%, rgb(255 255 255 / 0.1), transparent 70%),
+    linear-gradient(0deg, #3f7f57, #24583a 85%);
+}
+
+.lb-cell[data-archive] .lb-hole__back {
+  background: linear-gradient(180deg, #173a26, #245a3b 80%);
+}
+
+html.dark .lb-cell[data-archive] .lb-hole__floor {
+  background: linear-gradient(0deg, #2f6344, #173d28 85%);
+}
+
+/* Kontaktschatten des Stapels auf dem Fachboden. */
+.lb-stack__shadow {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: calc(var(--lb-card-w) + var(--u) * 3);
+  height: calc(var(--lb-card-d) + var(--u) * 3);
+  transform-origin: 50% 100%;
+  transform: translateX(-50%) translateZ(calc(var(--u) * -1.5)) rotateX(90deg) translateZ(1px);
+  background: radial-gradient(ellipse 50% 50% at 50% 50%, rgb(0 0 0 / 0.38), transparent 70%);
+  pointer-events: none;
+}
+
+/* ── Kartenstapel ──────────────────────────────────────────────────────────
+   Ein Quader statt vieler Einzelkarten: Vorderseite mit Kartenkanten, Deckel
+   mit der obersten Karteikarte, zwei Seiten. Die Höhe folgt der Anzahl der
+   Vokabeln (siehe stackFill), die Zahl der sichtbaren Kanten ebenso. */
+.lb-stack {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: var(--lb-card-w);
+  height: calc(var(--lb-stack-max) * var(--fill, 0));
+  transform: translateX(-50%) translateZ(calc(var(--u) * -2.2));
+  transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.lb-stack__grow {
+  position: absolute;
+  inset: 0;
+  transform-origin: 50% 100%;
+  animation: lb-stack-grow 1000ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: calc(var(--i, 0) * 80ms + 200ms);
+  background-color: var(--lb-card-edge);
+  background-image:
+    linear-gradient(90deg, rgb(0 0 0 / 0.06), transparent 18%, transparent 82%, rgb(0 0 0 / 0.08)),
+    linear-gradient(0deg, var(--lb-card-line) 0 1px, transparent 1px);
+  background-size: 100% 100%, 100% calc(100% / var(--lines, 1));
+  border-radius: 1px;
+}
+
+@keyframes lb-stack-grow {
+  from { transform: scaleY(0.001); }
+}
+
+.lb-stack__top {
+  position: absolute;
+  left: 0;
+  bottom: 100%;
+  width: 100%;
+  height: var(--lb-card-d);
+  transform-origin: 50% 100%;
+  transform: rotateX(90deg);
+  background: linear-gradient(0deg, var(--lb-card), var(--lb-card-edge));
+  border-radius: 1px;
+}
+
+.lb-stack__side {
+  position: absolute;
+  top: 0;
+  width: var(--lb-card-d);
+  height: 100%;
+  backface-visibility: hidden;
+  background-color: var(--lb-card-side);
+  background-image: linear-gradient(0deg, var(--lb-card-line) 0 1px, transparent 1px);
+  background-size: 100% calc(100% / var(--lines, 1));
+}
+
+.lb-stack__side--l { right: 100%; transform-origin: 100% 50%; transform: rotateY(-90deg); }
+.lb-stack__side--r { left: 100%; transform-origin: 0 50%; transform: rotateY(90deg); filter: brightness(0.9); }
+
+/* Die oberste Karteikarte liegt leicht schräg und trägt die typischen Linien.
+   Beim Zeigen auf das Fach rutscht sie ein Stück heraus — „zieh mich". */
+.lb-stack__card {
+  position: absolute;
+  left: 0;
+  bottom: 100%;
+  width: 100%;
+  height: var(--lb-card-d);
+  transform-origin: 50% 100%;
+  transform: rotateX(90deg) translateZ(1.5px) rotateZ(-3deg);
+  border-radius: 2px;
+  background:
+    linear-gradient(180deg, transparent 0 22%, var(--lb-rule-red) 22% calc(22% + 1px), transparent calc(22% + 1px)),
+    repeating-linear-gradient(180deg, transparent 0 calc(var(--u) * 1.5), var(--lb-rule-blue) calc(var(--u) * 1.5) calc(var(--u) * 1.5 + 1px)),
+    var(--lb-card);
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 0.05);
+  transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Fällige Karten stehen als orangefarbene Reiter oben aus dem Stapel. */
+.lb-stack__flag {
+  position: absolute;
+  bottom: 100%;
+  right: 12%;
+  width: 22%;
+  min-width: calc(var(--u) * 2);
+  height: calc(var(--u) * 3.2);
+  transform-origin: 50% 100%;
+  transform: translateZ(calc(var(--lb-card-d) * -0.45)) rotateZ(4deg);
+  border-radius: 2px 2px 0 0;
+  background: linear-gradient(180deg, var(--accent), var(--accent-hover));
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.35);
+}
+
+/* ── Etikett unter dem Fach ────────────────────────────────────────────────
+   Das Messing-Etikett trägt Nummer, Name und Anzahl. Es liegt in der
+   Frontebene, bleibt also scharf und unverzerrt — Lesbarkeit geht vor. */
+.lb-cell__plinth {
+  flex: 1;
+  padding: calc(var(--u) * 0.5) var(--lb-frame) var(--lb-frame);
+  background:
+    repeating-linear-gradient(90deg, transparent 0 calc(var(--u) * 2.3), var(--lb-grain) calc(var(--u) * 2.3) calc(var(--u) * 2.5)),
+    linear-gradient(180deg, var(--lb-wood), var(--lb-wood-hi) 30%, var(--lb-wood));
+}
+
+.lb-cell span.lb-plate {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0.3rem 0.4rem 0.35rem;
+  border-radius: 0.45rem;
+  border: 2px solid var(--lb-brass);
+  background: var(--surface);
+  color: var(--foreground);
+  text-align: center;
+  box-shadow:
+    inset 0 0 0 1px var(--lb-brass-hi),
+    0 1px 0 var(--lb-brass-lo),
+    0 2px 4px rgb(0 0 0 / 0.18);
+  transform: translateZ(0.5px);
+  transition: border-color 160ms ease, box-shadow 160ms ease, background-color 160ms ease;
+}
+
+.lb-cell span.lb-plate__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.lb-cell span.lb-plate__badge {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 1.55rem;
+  height: 1.55rem;
+  border-radius: 9999px;
+  font-size: 0.95rem;
   font-weight: 800;
   line-height: 1;
-  letter-spacing: -0.06em;
-  opacity: 0.09;
-  pointer-events: none;
-  user-select: none;
   font-variant-numeric: tabular-nums;
 }
 
-/* Fortschrittsband eines Fachs: links der Anteil „beide Richtungen sitzen",
-   rechts der halb gewusste Rest. Zwei Flächen, ein Balken. */
-.vocab-phase-bar {
-  display: flex;
-  height: 0.375rem;
-  overflow: hidden;
+.lb-plate__name {
+  min-width: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.15;
+  /* Lieber unter die Nummer umbrechen als mitten im Wort trennen. */
+  overflow-wrap: break-word;
+}
+
+.lb-plate__count {
+  margin-top: 0.1rem;
+  font-size: 0.875rem;
+  line-height: 1.2;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.lb-plate__count b {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--foreground);
+  letter-spacing: -0.01em;
+}
+
+/* Im Archiv ist Platz für eine einzige Zeile. */
+.lb-cell[data-archive] span.lb-plate {
+  flex-direction: row;
+  flex-wrap: wrap;
+  column-gap: 0.75rem;
+}
+
+.lb-cell[data-archive] .lb-plate__count { margin-top: 0; }
+
+/* Fällig-Fähnchen: steckt oben rechts am Rahmen des Fachs, vor der Öffnung. */
+.lb-cell span.lb-due {
+  position: absolute;
+  top: calc(var(--u) * -0.6);
+  right: calc(var(--u) * -0.4);
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  max-width: calc(100% + var(--u) * 0.4);
+  padding: 0.2rem 0.5rem;
   border-radius: 9999px;
+  background: var(--accent-strong);
+  color: var(--accent-foreground);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: nowrap;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.25);
+  transform: translateZ(calc(var(--u) * 0.8)) rotateZ(3deg);
+}
+
+/* ── Zustände ──────────────────────────────────────────────────────────── */
+.lb-cell:focus-visible .lb-plate,
+.lb-cell[data-open] .lb-plate {
+  border-color: var(--accent);
+  box-shadow:
+    0 0 0 3px var(--accent),
+    0 0 0 6px var(--accent-ring);
+}
+
+.lb-cell:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.lb-cell[data-open] .lb-stack {
+  transform: translateX(-50%) translateZ(calc(var(--u) * -0.6));
+}
+
+.lb-cell[data-open] .lb-stack__card {
+  transform: rotateX(90deg) translateZ(2px) translateY(calc(var(--u) * 4)) rotateZ(-6deg);
+}
+
+@media (hover: hover) {
+  .lb-cell:hover .lb-plate {
+    border-color: var(--accent);
+    background: color-mix(in srgb, var(--accent) 7%, var(--surface));
+  }
+  .lb-cell:hover .lb-stack {
+    transform: translateX(-50%) translateZ(calc(var(--u) * -1.2));
+  }
+  .lb-cell:hover .lb-stack__card {
+    transform: rotateX(90deg) translateZ(2px) translateY(calc(var(--u) * 2.6)) rotateZ(-5deg);
+  }
+}
+
+.lb-cell:active .lb-plate {
+  transform: translateZ(0.5px) scale(0.98);
+}
+
+/* Breite Szene: alle sieben Fächer in einer Reihe — der klassische lange
+   Karteikasten. Die Fächer werden schmaler, dafür flacher und tiefer. */
+@container (min-width: 600px) {
+  .lb-cabinet {
+    --lb-hole-h: calc(var(--u) * 17);
+    --lb-card-w: min(calc(var(--u) * 10.5), calc(100% - var(--u) * 2.2));
+    --lb-card-d: calc(var(--u) * 9);
+    --lb-stack-max: calc(var(--u) * 13);
+  }
+  .lb-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr)) minmax(0, 1.2fr);
+  }
+  .lb-cell[data-archive] { grid-column: auto; }
+  .lb-stage { margin-bottom: 0; }
+}
+
+/* Schmale Telefone: Etiketten kompakter, damit Name und Anzahl in die Fächer
+   passen, ohne dass das Etikett die Öffnung erdrückt. */
+@container (max-width: 400px) {
+  .lb-cell span.lb-plate { padding: 0.25rem 0.2rem 0.3rem; }
+  .lb-cell span.lb-plate__badge { width: 1.3rem; height: 1.3rem; font-size: 0.8125rem; }
+  .lb-cell span.lb-plate__head { gap: 0.25rem; }
+  .lb-plate__name { font-size: 0.8125rem; }
+  .lb-plate__count { font-size: 0.8125rem; }
+  .lb-plate__count b { font-size: 1.05rem; }
+  .lb-cell span.lb-due { font-size: 0.75rem; padding: 0.15rem 0.4rem; }
+}
+
+/* ── Hinweise unter der Box ─────────────────────────────────────────────── */
+.lb-hint {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* ── Start-Knopf ───────────────────────────────────────────────────────────
+   Die eine Hauptaktion der Seite: groß, satt gefüllt, mit Pfeil in einem
+   eigenen Kreis. Ein leiser Lichtschein wandert darüber, solange etwas fällig
+   ist — bei reduzierter Bewegung steht er still. */
+.lb-cta {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  min-height: 4.25rem;
+  padding: 0.75rem 1.5rem 0.75rem 0.75rem;
+  overflow: hidden;
+  border-radius: 1.25rem;
+  background: var(--accent-strong);
+  color: var(--accent-foreground);
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  box-shadow: 0 14px 30px -12px color-mix(in srgb, var(--accent-strong) 70%, transparent), var(--shadow-md);
+  transition: background-color 160ms ease, box-shadow 160ms ease;
+}
+
+.lb-cta::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, transparent 30%, rgb(255 255 255 / 0.22) 50%, transparent 70%);
+  transform: translateX(-120%);
+  animation: lb-cta-shine 4.8s ease-in-out 1.6s infinite;
+  pointer-events: none;
+}
+
+@keyframes lb-cta-shine {
+  0%, 60% { transform: translateX(-120%); }
+  85%, 100% { transform: translateX(120%); }
+}
+
+.lb-cta__icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 9999px;
+  background: var(--accent-foreground);
+  color: var(--accent-strong);
+}
+
+.lb-cta:focus-visible {
+  outline: 3px solid var(--foreground);
+  outline-offset: 3px;
+}
+
+.lb-cta:disabled { opacity: 0.7; }
+
+@media (hover: hover) {
+  .lb-cta:hover:not(:disabled) { background: var(--accent-strong-hover); }
+  .lb-cta:hover:not(:disabled) .lb-cta__icon { color: var(--accent-strong-hover); }
+}
+
+@media (min-width: 640px) {
+  .lb-cta { width: auto; min-width: 24rem; font-size: 1.375rem; }
+}
+
+/* Bestätigung „Alles erledigt": ruhig, grün, mit klarer nächster Aktion. */
+.lb-done {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem 1rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid color-mix(in srgb, var(--success) 45%, var(--border));
+  border-radius: 1.25rem;
+  background: color-mix(in srgb, var(--success) 8%, var(--surface));
+  text-align: center;
+}
+
+html.high-contrast .lb-done { background: var(--surface); border-color: var(--foreground); }
+
+/* ── Lektionen: großer Schalter ────────────────────────────────────────────
+   Der ganze Streifen ist der Schalter (mindestens 56 px hoch). Zustand steht
+   als Text daneben — Farbe und Knopfposition sind nie das einzige Merkmal. */
+.lb-switch {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  width: 100%;
+  min-height: 3.5rem;
+  padding: 0.625rem 0.875rem;
+  border: 2px solid var(--border);
+  border-radius: 1rem;
+  background: var(--surface);
+  color: var(--foreground);
+  text-align: left;
+  transition: border-color 160ms ease, background-color 160ms ease;
+}
+
+.lb-switch[aria-checked='true'] {
+  border-color: var(--accent-strong);
+  background: color-mix(in srgb, var(--accent) 9%, var(--surface));
+}
+
+.lb-switch:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.lb-switch__track {
+  position: relative;
+  flex-shrink: 0;
+  width: 3.5rem;
+  height: 2rem;
+  border-radius: 9999px;
+  border: 2px solid var(--border-strong);
   background: var(--surface-muted);
+  transition: background-color 200ms ease, border-color 200ms ease;
 }
 
-.vocab-phase-bar > span {
-  display: block;
-  height: 100%;
-  transition: width 320ms cubic-bezier(0.22, 1, 0.36, 1);
+.lb-switch__thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 9999px;
+  background: var(--surface);
+  color: var(--accent-strong);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.3);
+  transition: transform 240ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Der halb gewusste Anteil bekommt dieselbe Farbe, aber als Schraffur: Er ist
-   Fortschritt, aber noch kein gesicherter. Das bleibt auch ohne Farbsehen
-   unterscheidbar. */
-.vocab-phase-bar > span[data-half='true'] {
-  opacity: 0.85;
-  background-image: repeating-linear-gradient(
-    135deg,
-    transparent 0 3px,
-    var(--surface) 3px 6px
-  );
+.lb-switch[aria-checked='true'] .lb-switch__track {
+  background: var(--accent-strong);
+  border-color: var(--accent-strong);
 }
 
-/* Richtungs-Chip in der Fachansicht: gefüllt = Richtung sitzt, offen = fehlt.
-   Der Rahmen einer bestandenen Richtung folgt der Textfarbe über currentColor,
-   statt sich auf die Reihenfolge von Tailwind-Utility und dieser Datei zu
-   verlassen — border ist hier eine Kurzschreibweise und würde sie sonst je nach
-   Bundle-Reihenfolge überschreiben. */
+.lb-switch[aria-checked='true'] .lb-switch__thumb {
+  transform: translateX(1.5rem);
+}
+
+@media (hover: hover) {
+  .lb-switch:hover:not(:disabled) { border-color: var(--accent); }
+}
+
+html.high-contrast .lb-switch[aria-checked='true'] { background: var(--surface); }
+
+/* ── Kontrastmodus: Holz und Licht weichen klaren Flächen und Linien ───── */
+html.high-contrast .lb-scene {
+  --lb-wood-hi: var(--surface);
+  --lb-wood: var(--surface);
+  --lb-wood-mid: var(--surface-muted);
+  --lb-wood-lo: var(--surface-muted);
+  --lb-wood-deep: var(--surface-muted);
+  --lb-grain: transparent;
+  --lb-card: #ffffff;
+  --lb-card-edge: #ffffff;
+  --lb-card-line: #000000;
+  --lb-card-side: #ffffff;
+  --lb-cast: transparent;
+}
+
+html.high-contrast .lb-plate { border-color: var(--foreground); box-shadow: none; }
+html.high-contrast .lb-cell__frame,
+html.high-contrast .lb-cabinet__rail { outline: 1px solid var(--foreground); }
+html.high-contrast .lb-cta::after { display: none; }
+
+/* ── Richtungs-Chip in der Fachansicht ─────────────────────────────────────
+   Gefüllt = Richtung sitzt, offen = fehlt. Der Rahmen einer bestandenen
+   Richtung folgt der Textfarbe über currentColor, statt sich auf die
+   Reihenfolge von Tailwind-Utility und dieser Datei zu verlassen — border ist
+   hier eine Kurzschreibweise und würde sie sonst je nach Bundle-Reihenfolge
+   überschreiben. */
 .vocab-direction-chip {
   display: inline-flex;
   align-items: center;
   gap: 0.375rem;
-  padding: 0.25rem 0.625rem;
+  min-height: 2rem;
+  padding: 0.25rem 0.75rem;
   border-radius: 9999px;
   border: 1px solid var(--border);
-  font-size: 0.875rem;
+  font-size: 0.9375rem;
   font-weight: 600;
   line-height: 1.3;
   white-space: nowrap;
@@ -69,8 +777,24 @@
   border-color: currentColor;
 }
 
+/* Der Kopf der Fachansicht trägt die Farbe des Fachs als Reiter-Kante. */
+.lb-inspector__band {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 6px;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .vocab-phase-bar > span {
+  .lb-stage,
+  .lb-stack,
+  .lb-stack__card,
+  .lb-switch,
+  .lb-switch__thumb,
+  .lb-cell span.lb-plate {
     transition: none;
+  }
+  .lb-stack__grow,
+  .lb-cta::after {
+    animation: none;
   }
 }
