@@ -118,3 +118,7 @@
 }
 @media (max-height: 450px) { .learning-card-content { gap: 6px; } .learning-workspace { overflow-y: auto; } }
 @media (prefers-reduced-motion: reduce) { .learning-screen * { animation: none !important; transition: none !important; } }
+
+/* Wiederholung nach einem falschen ersten Versuch: gleiche Pille, aber in der
+   Markenfarbe, damit man sofort sieht, dass diese Runde nicht zählt. */
+.learning-pill-retry { border-color: var(--accent); color: var(--accent-text); font-weight: 650; }

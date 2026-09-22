@@ -20,7 +20,7 @@ import {
   type AddCardsResult, type AssessmentDecision, type DueVocabularyCard,
   type InitializeLessonResult, type LessonCardView, type LessonStat,
   type SubmitAssessmentResult, type SubmitVocabularyAnswerInput, type SubmitVocabularyAnswerResult,
-  type SubmitVocabularySelfRatingInput,
+  type SubmitVocabularySelfRatingInput, type CheckVocabularyRetryInput, type CheckVocabularyRetryResult,
   type PhaseCardView, type PhaseCardsResult, type VocabularyBoxSummary,
   type VocabularySession, type VocabularyAssessmentSession,
 } from '@/lib/types/vocabulary'
@@ -290,6 +290,35 @@ export async function submitVocabularySelfRating(input: SubmitVocabularySelfRati
     return { ...result.data, previousPhase: result.data.previousPhase as LeitnerPhase, newPhase: result.data.newPhase as LeitnerPhase }
   } catch {
     return { success: false, error: 'save_failed' }
+  }
+}
+
+const retryResultSchema = z.object({
+  success: z.literal(true), isCorrect: z.boolean(), correctAnswer: z.string(), isAlternative: z.boolean(),
+  softError: z.enum(SOFT_ERROR_REASONS).nullable(),
+})
+
+/**
+ * Wiederholung in derselben Sitzung (Phase-6-Regel): PostgreSQL bewertet die
+ * getippte Antwort wie beim ersten Versuch, schreibt aber nichts — Phase und
+ * Termin hat schon der erste Versuch des Tages festgelegt.
+ */
+export async function checkVocabularyRetry(input: CheckVocabularyRetryInput): Promise<CheckVocabularyRetryResult> {
+  const parsed = z.object({ progressId: z.string().uuid(), expectedLearnerId: z.string().uuid().optional(),
+    typedAnswer: z.string().min(1).max(4000).refine(value => value.trim().length > 0), uiLanguage: languageSchema.optional() }).safeParse(input)
+  if (!parsed.success) return { success: false, error: 'invalid_input' }
+  try {
+    const learner = await loadLearner(parsed.data.expectedLearnerId)
+    if (!learner) return { success: false, error: 'check_failed' }
+    const { data, error } = await learner.supabase.rpc('check_vocabulary_retry', {
+      p_progress_id: parsed.data.progressId, p_typed_answer: parsed.data.typedAnswer,
+      p_ui_language: parsed.data.uiLanguage ?? languageSchema.catch('de').parse(learner.profile.ui_language),
+    })
+    if (error || getRpcError(data)) return { success: false, error: 'check_failed' }
+    const result = retryResultSchema.safeParse(data)
+    return result.success ? result.data : { success: false, error: 'check_failed' }
+  } catch {
+    return { success: false, error: 'check_failed' }
   }
 }
 

@@ -1352,8 +1352,8 @@
     "reset_progress_yes": "Yes, reset",
     "cancel": "Cancel",
     "method_title": "How your flashcards work",
-    "method_progress": "A correct answer moves that direction up one phase. An incorrect answer moves it back one phase, down to phase 1 at most.",
-    "method_intervals": "Correct answers are spaced 1, 3, 9, 29 and 90 days apart. Words marked difficult for your native language may be reviewed sooner.",
+    "method_progress": "Only the first try of the day counts: a correct answer moves that direction up one phase. A wrong answer moves it back one phase, down to phase 1 at most, and the word comes back the next day. In the same round you practise wrong words until you get each one right once.",
+    "method_intervals": "New words are due right away. After each correct answer the pause grows: 1, 3, 9, 29 and 90 days – about 132 days in total until “learned”. Words marked difficult for your native language may be reviewed sooner.",
     "method_learned": "A word counts as learned once you pass the due review in phase 6 in both directions: German → translation and translation → German. It then leaves regular review. “Learned” is a progress status, not a guarantee that you will never forget it.",
     "method_assessment": "The initial assessment tests both directions separately: German → interface language and interface language → German. “Already know it” starts that direction in phase 6; “Still learning” starts in phase 1. Known directions are reviewed after 90 days.",
     "your_answer_label": "Your answer:",
@@ -1415,7 +1415,12 @@
     "lernkasten_switch_aria": "Lesson “{lesson}” in the learning box",
     "lessons_title": "Which lessons would you like to learn?",
     "lessons_hint": "Switch a lesson on and its words go into your learning box.",
-    "box_tap_hint": "Tap a drawer to see the words inside."
+    "box_tap_hint": "Tap a drawer to see the words inside.",
+    "retry_label": "Repeat",
+    "retry_hint": "One more try: this answer doesn't change the phase. The word comes back tomorrow.",
+    "retry_scheduled": "You'll practise this word again later in this round.",
+    "retry_check_failed": "Your answer couldn't be checked just now. Please try again.",
+    "session_done_retry": "Words you got wrong on the first try come back tomorrow."
   },
   "exercises": {
     "soft_error": {

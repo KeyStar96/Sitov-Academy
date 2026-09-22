@@ -143,7 +143,29 @@ describe('applyLeitnerAnswer – falsche Antwort', () => {
     expect(result.previousPhase).toBe(6)
     expect(result.newBox).toBe(5)
     expect(result.movedBack).toBe(true)
-    expect(result.intervalInDays).toBe(29)
+  })
+
+  it('macht eine falsche Vokabel immer am nächsten Tag wieder fällig (Phase-6-Regel)', () => {
+    // Nicht das Intervall der niedrigeren Phase: Ein Fehler in Phase 6 schiebt
+    // die Vokabel nicht 29 Tage weg, sondern bringt sie morgen zurück.
+    for (const currentBox of [1, 2, 3, 4, 5, 6, 7]) {
+      for (const isHardForNativeLanguage of [false, true]) {
+        const result = applyLeitnerAnswer({ currentBox, isCorrect: false, isHardForNativeLanguage, now: NOW })
+        expect(result.intervalInDays).toBe(1)
+        expect(daysBetween(NOW, result.nextReviewDate)).toBe(1)
+      }
+    }
+  })
+
+  it('braucht auf dem Erfolgsweg zusammen etwa 132 Tage bis „gelernt“', () => {
+    let box = 1
+    let total = 0
+    while (box !== 7) {
+      const result = applyLeitnerAnswer({ currentBox: box, isCorrect: true, now: NOW })
+      if (!result.becameLearned) total += result.intervalInDays
+      box = result.newBox
+    }
+    expect(total).toBe(132)
   })
 
   it('legt die Wiederholung nie in die Vergangenheit', () => {

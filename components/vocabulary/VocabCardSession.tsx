@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { Info } from 'lucide-react'
-import { finishVocabularySession, submitVocabularyAnswer, submitVocabularySelfRating } from '@/app/actions/vocabulary'
+import { checkVocabularyRetry, finishVocabularySession, submitVocabularyAnswer, submitVocabularySelfRating } from '@/app/actions/vocabulary'
 import SolutionAudioButton from '@/components/exercises/SolutionAudioButton'
 import LearningScreen from './LearningScreen'
 import StudyModeToggle, { type StudyMode } from './StudyModeToggle'
@@ -12,6 +12,7 @@ import { loadStudyMode, saveStudyMode } from '@/lib/vocabulary-lernkasten'
 import { createVocabularyTranslator, type VocabularyTranslations } from '@/lib/vocabulary-i18n'
 import { scheduleVocabularyCards } from '@/lib/vocabulary-scheduler'
 import { articleColorClass } from '@/lib/vocabulary-ui'
+import type { LeitnerPhase } from '@/lib/leitner'
 import type { DueVocabularyCard, SubmitVocabularyAnswerInput, SubmitVocabularyAnswerResult, SubmitVocabularySelfRatingInput } from '@/lib/types/vocabulary'
 import { createOrderedWriteQueue, type OrderedWriteQueue } from '@/lib/vocabulary-write-queue'
 import { prefetchNeuralAudio } from '@/lib/audio/neural-client'
@@ -33,13 +34,26 @@ interface VocabCardSessionProps {
   onBackToLernkasten?: (lastAnsweredCardId: string | null) => void
 }
 
+/** Eine Karte der Sitzung; `retry` markiert die Wiederholung nach einem falschen ersten Versuch. */
+interface SessionItem {
+  card: DueVocabularyCard
+  retry: boolean
+  key: string
+}
+
 export default function VocabCardSession({ learnerId, cards, translations = {}, softErrorTranslations, overviewHref, uiLanguage = 'de', previousCardId = null, initialDeferredCount = 0, onBackToLernkasten }: VocabCardSessionProps) {
   const router = useRouter()
   const actorId = useRef(learnerId).current
   const mounted = useRef(true)
   useEffect(() => { mounted.current = true; return () => { mounted.current = false } }, [])
   const [plan] = useState(() => scheduleVocabularyCards(cards, previousCardId))
-  const session = plan.cards
+  // Phase-6-Sitzung: Jede fällige Karte kommt einmal als gewerteter Versuch.
+  // Ist er falsch, hängt sich eine Wiederholung hinten an — so lange, bis die
+  // Karte einmal richtig beantwortet ist. Wiederholungen ändern die Phase nicht.
+  const [queue, setQueue] = useState<SessionItem[]>(() => plan.cards.map(card => ({ card, retry: false, key: card.progressId })))
+  const queueRef = useRef(queue)
+  const [retryCount, setRetryCount] = useState(0)
+  const [retryFailed, setRetryFailed] = useState(false)
   const [index, setIndex] = useState(0)
   const indexRef = useRef(0)
   const [reviewPending, setReviewPending] = useState(false)
@@ -59,10 +73,12 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
   const exitRequested = useRef(false)
   const finalized = useRef(false)
   const t = useMemo(() => createVocabularyTranslator(translations), [translations])
-  const current = session[index]
-  useEffect(() => prefetchNeuralAudio(session.slice(index, index + 2)
-    .filter(item => item.format === 'word')
-    .map(item => ({ text: vocabularyAudioText(item.card), language: 'de', cardId: item.card.id, audioUrl: item.card.audio_url }))), [index, session])
+  const item = queue[index]
+  const current = item?.card
+  const isRetry = item?.retry ?? false
+  useEffect(() => prefetchNeuralAudio(queue.slice(index, index + 2).map(entry => entry.card)
+    .filter(entry => entry.format === 'word')
+    .map(entry => ({ text: vocabularyAudioText(entry.card), language: 'de', cardId: entry.card.id, audioUrl: entry.card.audio_url }))), [index, queue])
   type ReviewIntent =
     | { kind: 'typed'; index: number; card: DueVocabularyCard; input: SubmitVocabularyAnswerInput }
     | { kind: 'self'; index: number; card: DueVocabularyCard; input: SubmitVocabularySelfRatingInput }
@@ -74,8 +90,31 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
     else router.push(overviewHref)
   }
 
+  /**
+   * Falsch beantwortet: Die Karte kommt am Ende der Runde noch einmal. Nach dem
+   * ersten Versuch trägt sie schon die zurückgestufte Phase vom Server.
+   */
+  function enqueueRetry(card: DueVocabularyCard, phase: LeitnerPhase = card.phase) {
+    drafts.current.delete(card.progressId)
+    const retryCard = phase === card.phase ? card : { ...card, phase, box: phase }
+    const next = [...queueRef.current, { card: retryCard, retry: true, key: `${card.progressId}:${queueRef.current.length}` }]
+    queueRef.current = next
+    setQueue(next)
+    setRetryCount(count => count + 1)
+  }
+
+  function moveToNextCard() {
+    indexRef.current += 1
+    setIndex(indexRef.current)
+    setAnswer(drafts.current.get(queueRef.current[indexRef.current]?.card.progressId) ?? '')
+    setAnswerResult(null)
+    setRevealed(false)
+    setRetryFailed(false)
+    finishIfReady()
+  }
+
   function finishIfReady() {
-    if (writes.current?.pending.length || indexRef.current < session.length || finalized.current) return
+    if (writes.current?.pending.length || indexRef.current < queueRef.current.length || finalized.current) return
     finalized.current = true
     // A refresh failure cannot roll back answers that have already committed.
     void finishVocabularySession().catch(() => undefined)
@@ -90,13 +129,11 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
       if (mounted.current) {
         reviewBusy.current = false
         setReviewPending(false)
+        // Nur der erste Versuch zählt; war er falsch, wird bis zur ersten
+        // richtigen Antwort in dieser Sitzung wiederholt.
+        if (result.isCorrect === false) enqueueRetry(item.card, result.newPhase)
         if (item.kind === 'self') {
-          indexRef.current += 1
-          setIndex(indexRef.current)
-          setAnswer(drafts.current.get(session[indexRef.current]?.progressId) ?? '')
-          setAnswerResult(null)
-          setRevealed(false)
-          finishIfReady()
+          moveToNextCard()
         } else {
           setAnswerResult({ correct: result.isCorrect === true, solution: result.correctAnswer ?? '', isAlternative: result.isAlternative === true, softError: result.softError ?? null })
         }
@@ -149,16 +186,32 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
 
   function advance() {
     if (!answerResult || reviewBusy.current || index !== indexRef.current) return
-    indexRef.current += 1
-    setIndex(indexRef.current)
-    setAnswer(drafts.current.get(session[indexRef.current]?.progressId) ?? '')
-    setAnswerResult(null)
-    setRevealed(false)
-    finishIfReady()
+    moveToNextCard()
+  }
+
+  /**
+   * Getippte Wiederholung: PostgreSQL prüft wie beim ersten Versuch (R5),
+   * schreibt aber nichts. Ist sie wieder falsch, kommt die Karte noch einmal.
+   */
+  async function checkRetry() {
+    if (!actorId || !current || answerResult || reviewBusy.current || !answer.trim().length) return
+    const at = indexRef.current
+    const card = current
+    reviewBusy.current = true
+    setReviewPending(true)
+    setRetryFailed(false)
+    const result = await checkVocabularyRetry({ progressId: card.progressId, expectedLearnerId: actorId, typedAnswer: answer, uiLanguage })
+    if (!mounted.current || at !== indexRef.current) return
+    reviewBusy.current = false
+    setReviewPending(false)
+    if (!result.success) { setRetryFailed(true); return }
+    if (!result.isCorrect) enqueueRetry(card)
+    setAnswerResult({ correct: result.isCorrect === true, solution: result.correctAnswer ?? '', isAlternative: result.isAlternative === true, softError: result.softError ?? null })
   }
 
   function submitAnswer(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
+    if (isRetry) { void checkRetry(); return }
     if (!actorId || !current || answerResult || reviewBusy.current || !answer.trim().length || index !== indexRef.current || writes.current?.blocked) return
     reviewBusy.current = true
     setReviewPending(true)
@@ -171,6 +224,12 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
   /** Karteikarten-Selbsteinschätzung; die DB entscheidet den Lernstand (R5). */
   function submitSelfRating(known: boolean) {
     if (!actorId || !current || answerResult || reviewBusy.current || index !== indexRef.current || writes.current?.blocked) return
+    // Wiederholung: nichts wird gespeichert, der erste Versuch hat entschieden.
+    if (isRetry) {
+      if (!known) enqueueRetry(current)
+      moveToNextCard()
+      return
+    }
     reviewBusy.current = true
     setReviewPending(true)
     setSaveFailed(false)
@@ -224,18 +283,21 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
   return (
     <LearningScreen title={t('title')}
       subtitle={current ? t('lesson_label', { lesson: stripLessonPrefix(current.card.lesson) }) : undefined}
-      progress={session.length ? index / session.length * 100 : 100} onExit={goBack} t={t}>
+      progress={queue.length ? index / queue.length * 100 : 100} onExit={goBack} t={t}>
       {!current ? <div className="learning-card learning-complete" aria-live="polite">
-        <span className="learning-pill">{t('card_progress_compact', { current: index, total: session.length })}</span>
+        <span className="learning-pill">{t('card_progress_compact', { current: index, total: queue.length })}</span>
         <h2>{t('session_done_title')}</h2>
         <p>{t('session_done_text')}</p>
+        {retryCount > 0 && <p>{t('session_done_retry')}</p>}
         {plan.deferredCount + initialDeferredCount > 0 && <p>{t('repetition_gap_hint')}</p>}
         <button type="button" className="learning-button learning-button-primary" onClick={goBack}>{t('lernkasten_back')}</button>
       </div> : <>
         <div className="learning-meta">
           <span className="learning-pill">{t(isSentence ? 'sentence_format' : isToGerman ? 'direction_to_de' : 'direction_from_de')}</span>
-          <span>{t('card_progress_compact', { current: index + 1, total: session.length })} · {t('phase_compact', { phase: current.phase })}</span>
+          {isRetry && <span className="learning-pill learning-pill-retry">{t('retry_label')}</span>}
+          <span>{t('card_progress_compact', { current: index + 1, total: queue.length })} · {t('phase_compact', { phase: current.phase })}</span>
         </div>
+        {isRetry && !answerResult && <p className="learning-mode-locked" role="note">{t('retry_hint')}</p>}
         {!answerResult && !saveFailed && (canChooseMode
           ? <StudyModeToggle mode={preferredMode} disabled={reviewPending} t={t}
               onChange={mode => { setPreferredMode(mode); saveStudyMode(mode) }} />
@@ -254,7 +316,7 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
             /* Karteikarte: Vorderseite fragt, Rückseite zeigt Frage und Lösung.
                Der `key` setzt die Drehung bei jeder neuen Karte hart zurück,
                damit die nächste Frage nicht rückwärts hereindreht. */
-            <article key={current.progressId} className={cn('learning-card learning-card-flip', revealed && 'is-revealed')}>
+            <article key={item.key} className={cn('learning-card learning-card-flip', revealed && 'is-revealed')}>
               <div className="learning-flip-inner">
                 <div className="learning-flip-face learning-flip-front" aria-hidden={revealed} inert={revealed}>
                   <div tabIndex={0} className={cn('learning-card-content', denseCard && 'learning-card-content-dense')}>
@@ -283,7 +345,7 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
             </article>
           ) : (
           <article className="learning-card">
-            <div key={current.progressId} tabIndex={0} className={cn('learning-card-content', denseCard && 'learning-card-content-dense')}>
+            <div key={item.key} tabIndex={0} className={cn('learning-card-content', denseCard && 'learning-card-content-dense')}>
               {!isSentence && !answerResult && current.card.image_url && <img className="learning-card-image" src={current.card.image_url} alt={t('image_alt')} />}
               <span className="learning-eyebrow">{t(isSentence ? 'sentence_format' : 'word_format')}</span>
               <h2 lang={current.promptLanguage} className={cn(isSentence ? 'learning-sentence' : 'learning-word', !isToGerman && articleColorClass(current.card.article))}>{prompt}</h2>
@@ -296,6 +358,7 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
                         ? t(answerResult.correct ? 'knew_it_hint' : 'didnt_know_hint')
                         : t(isSentence ? answerResult.correct ? 'sentence_correct' : 'sentence_incorrect' : answerResult.correct ? 'answer_correct' : 'answer_incorrect')
                     }</p>}
+                {!answerResult.correct && <p className="learning-context" role="note">{t('retry_scheduled')}</p>}
                 {answerResult.isAlternative && (
                   <div className="mt-3 flex items-start gap-3 rounded-xl border border-[var(--border)] bg-[var(--surface-muted)] p-4 text-[var(--foreground)]">
                     <Info className="mt-0.5 h-5 w-5 shrink-0 text-[var(--violet)]" aria-hidden="true" />
@@ -325,7 +388,7 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
           </article>
           )}
           {saveFailed ? <button type="button" className="learning-button learning-button-primary learning-button-wide" onClick={retry}>{t('error_retry')}</button> : answerResult
-            ? <button type="button" className="learning-button learning-button-primary learning-button-wide" onClick={() => advance()}>{t(index + 1 === session.length ? 'finish_session' : 'next_card')}</button>
+            ? <button type="button" className="learning-button learning-button-primary learning-button-wide" onClick={() => advance()}>{t(index + 1 === queue.length ? 'finish_session' : 'next_card')}</button>
             : isFlashcard
             ? revealed
               ? <div className="learning-flashcard-actions">
@@ -342,6 +405,7 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
         </AnimatePresence>
       </>}
       {saveFailed && <p role="status" className="learning-status learning-error">{t('save_failed')}</p>}
+      {retryFailed && <p role="status" className="learning-status learning-error">{t('retry_check_failed')}</p>}
     </LearningScreen>
   )
 }

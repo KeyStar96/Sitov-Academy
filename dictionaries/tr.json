@@ -1348,8 +1348,8 @@
     "reset_progress_yes": "Evet, sıfırla",
     "cancel": "İptal",
     "method_title": "Kelime kartların nasıl çalışır?",
-    "method_progress": "Doğru cevap, o sorgulama yönünü bir üst aşamaya taşır. Yanlış cevap bir aşama geri götürür; en düşük aşama 1’dir.",
-    "method_intervals": "Doğru cevaplar arasında 1, 3, 9, 29 ve 90 gün beklenir. Ana dilinize göre zor olarak işaretlenen kelimeler daha erken tekrarlanır.",
+    "method_progress": "Günün yalnızca ilk denemesi sayılır: Doğru cevap o sorgulama yönünü bir üst aşamaya taşır. Yanlış cevap bir aşama geri götürür (en düşük aşama 1) ve kelime ertesi gün tekrar gelir. Yanlış kelimeleri aynı turda bir kez doğru cevaplayana kadar tekrar çalışırsın.",
+    "method_intervals": "Yeni kelimeler hemen sıraya girer. Her doğru cevaptan sonra ara uzar: 1, 3, 9, 29 ve 90 gün – “öğrenildi”ye kadar toplam yaklaşık 132 gün. Ana dilinize göre zor olarak işaretlenen kelimeler daha erken tekrarlanır.",
     "method_learned": "Bir kelime, 6. aşamadaki zamanı gelen tekrarı her iki yönde de doğru yanıtladığınızda öğrenilmiş sayılır: Almanca → çeviri ve çeviri → Almanca. Ardından düzenli tekrarlarda görünmez. “Öğrenildi” bir ilerleme durumudur, kelimeyi hiç unutmayacağınız anlamına gelmez.",
     "method_assessment": "İlk değerlendirmede iki yön ayrı ayrı sınanır: Almanca → arayüz dili ve arayüz dili → Almanca. “Zaten biliyorum” o yönü 6. aşamadan, “Hâlâ öğreniyorum” ise 1. aşamadan başlatır. Bilinen yönler 90 gün sonra tekrar sınanır.",
     "your_answer_label": "Yanıtınız:",
@@ -1411,7 +1411,12 @@
     "lernkasten_switch_aria": "“{lesson}” dersi öğrenme kutusunda",
     "lessons_title": "Hangi dersleri öğrenmek istiyorsun?",
     "lessons_hint": "Bir dersi aç, kelimeleri öğrenme kutuna girsin.",
-    "box_tap_hint": "İçindeki kelimeleri görmek için bir göze dokun."
+    "box_tap_hint": "İçindeki kelimeleri görmek için bir göze dokun.",
+    "retry_label": "Tekrar",
+    "retry_hint": "Bir kez daha: Bu cevap aşamayı değiştirmez. Kelime yarın tekrar gelir.",
+    "retry_scheduled": "Bu kelimeyi bu turda birazdan tekrar çalışacaksın.",
+    "retry_check_failed": "Cevabın şu anda kontrol edilemedi. Lütfen tekrar dene.",
+    "session_done_retry": "İlk denemede yanlış olan kelimeler yarın tekrar gelir."
   },
   "exercises": {
     "soft_error": {

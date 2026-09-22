@@ -18,12 +18,11 @@ export const LEITNER_LEARNED_BOX = 7
 export type LeitnerBox = LeitnerPhase | typeof LEITNER_LEARNED_BOX
 
 /**
- * Ruhezeit in Tagen, die eine Vokabel beim *Eintritt* in eine Phase erhält.
+ * Ruhezeit in Tagen, die eine Vokabel beim *Aufstieg* in eine Phase erhält.
  *
- * Erfolgsweg: Phase 1 → 2 (1 Tag) → 3 (3 Tage) → 4 (9 Tage) → 5 (29 Tage)
- * → 6 (90 Tage) → gelernt.
- * Der Wert von Phase 1 greift auf dem Fehlerweg: Wer bis in Phase 1
- * zurückrutscht, bekommt die Vokabel am nächsten Tag erneut vorgelegt.
+ * Erfolgsweg: Phase 1 (neu, sofort fällig) → 2 (1 Tag) → 3 (3 Tage) → 4
+ * (9 Tage) → 5 (29 Tage) → 6 (90 Tage) → gelernt, zusammen ≈ 132 Tage.
+ * Auf dem Fehlerweg gilt stattdessen {@link WRONG_ANSWER_INTERVAL_IN_DAYS}.
  */
 export const PHASE_INTERVALS_IN_DAYS: Readonly<Record<LeitnerPhase, number>> = {
   1: 1,
@@ -33,6 +32,12 @@ export const PHASE_INTERVALS_IN_DAYS: Readonly<Record<LeitnerPhase, number>> = {
   5: 29,
   6: 90,
 }
+
+/**
+ * Phase-6-Regel: Ein falscher erster Versuch macht die Vokabel am nächsten Tag
+ * wieder fällig — unabhängig davon, in welche Phase sie zurückrutscht.
+ */
+export const WRONG_ANSWER_INTERVAL_IN_DAYS = 1
 
 export function isLeitnerPhase(value: number): value is LeitnerPhase {
   return Number.isInteger(value) && value >= 1 && value <= 6
@@ -163,11 +168,19 @@ export function intervalForPhase(phase: LeitnerPhase, isHardForNativeLanguage = 
 }
 
 /**
- * Wendet eine Antwort auf den Lernstand an.
+ * Wendet den *ersten* Versuch des Tages auf den Lernstand an — Spiegel von
+ * `vocabulary_private.submit_answer`/`submit_self_rating`
+ * (`supabase/vps/22_vocabulary_phase6_rules.sql`). Wiederholungen in derselben
+ * Sitzung ändern nichts und laufen nicht hier durch.
  *
- * Richtig  → eine Phase weiter; aus Phase 6 heraus gilt die Vokabel als gelernt.
- * Falsch   → **exakt eine Phase zurück**, mindestens bis Phase 1. Der übrige
- *            Lernfortschritt bleibt erhalten; es wird nichts zurückgesetzt.
+ * Richtig  → eine Phase weiter mit deren Intervall; aus Phase 6 heraus gilt die
+ *            Vokabel als gelernt.
+ * Falsch   → **exakt eine Phase zurück**, mindestens bis Phase 1, und am
+ *            nächsten Tag wieder fällig. Der übrige Lernfortschritt bleibt
+ *            erhalten; es wird nichts zurückgesetzt.
+ *
+ * Die Datenbank legt den Termin zusätzlich auf den Beginn des Kalendertags
+ * (Europe/Berlin); hier zählt nur die Zahl der Tage.
  */
 export function applyLeitnerAnswer(input: LeitnerAnswerInput): LeitnerAnswerResult {
   const now = input.now ?? new Date()
@@ -191,7 +204,7 @@ export function applyLeitnerAnswer(input: LeitnerAnswerInput): LeitnerAnswerResu
   }
 
   const newPhase: LeitnerPhase = Math.max(1, previousPhase - 1) as LeitnerPhase
-  const intervalInDays = intervalForPhase(newPhase, input.isHardForNativeLanguage)
+  const intervalInDays = WRONG_ANSWER_INTERVAL_IN_DAYS
 
   return {
     previousPhase,

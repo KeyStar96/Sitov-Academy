@@ -2,7 +2,7 @@ import React from 'react'
 import { randomUUID } from 'node:crypto'
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import VocabCardSession from '@/components/vocabulary/VocabCardSession'
-import { finishVocabularySession, submitVocabularyAnswer, submitVocabularySelfRating } from '@/app/actions/vocabulary'
+import { checkVocabularyRetry, finishVocabularySession, submitVocabularyAnswer, submitVocabularySelfRating } from '@/app/actions/vocabulary'
 import type { DueVocabularyCard, SubmitVocabularyAnswerResult } from '@/lib/types/vocabulary'
 import de from '@/dictionaries/de.json'
 import ru from '@/dictionaries/ru.json'
@@ -10,7 +10,7 @@ import { prefetchNeuralAudio } from '@/lib/audio/neural-client'
 
 jest.unmock('lucide-react')
 jest.unmock('framer-motion')
-jest.mock('@/app/actions/vocabulary', () => ({ submitVocabularyAnswer: jest.fn(), submitVocabularySelfRating: jest.fn(), finishVocabularySession: jest.fn().mockResolvedValue({ success: true }) }))
+jest.mock('@/app/actions/vocabulary', () => ({ submitVocabularyAnswer: jest.fn(), submitVocabularySelfRating: jest.fn(), checkVocabularyRetry: jest.fn(), finishVocabularySession: jest.fn().mockResolvedValue({ success: true }) }))
 jest.mock('@/components/layout/ThemeToggle', () => ({ __esModule: true, default: () => null }))
 jest.mock('@/components/exercises/SolutionAudioButton', () => ({ __esModule: true, default: ({ label }: { label: string }) => <button>{label}</button> }))
 jest.mock('@/lib/audio/neural-client', () => ({ prefetchNeuralAudio: jest.fn().mockReturnValue(jest.fn()) }))
@@ -31,6 +31,7 @@ beforeEach(() => {
   jest.clearAllMocks()
   jest.mocked(submitVocabularyAnswer).mockReset().mockResolvedValue(result())
   jest.mocked(submitVocabularySelfRating).mockReset().mockResolvedValue(result())
+  jest.mocked(checkVocabularyRetry).mockReset().mockResolvedValue({ success: true, isCorrect: true, correctAnswer: 'das Haus', isAlternative: false, softError: null })
   Object.defineProperty(crypto, 'randomUUID', { configurable: true, value: randomUUID })
 })
 function mount(cards: DueVocabularyCard[]) { return render(<VocabCardSession learnerId={learnerId} cards={cards} translations={de.vocabulary} uiLanguage="ru" overviewHref="/ru/dashboard" />) }
@@ -293,4 +294,84 @@ it('meldet „Wusste ich nicht" als known:false und bewertet weiterhin serversei
   fireEvent.click(screen.getByRole('button', { name: de.vocabulary.reveal_solution }))
   await act(async () => { fireEvent.click(screen.getByRole('button', { name: de.vocabulary.didnt_know })) })
   expect(submitVocabularySelfRating).toHaveBeenCalledWith(expect.objectContaining({ known: false }))
+})
+
+describe('Phase-6-Runde: falsche Vokabeln werden wiederholt, bis sie einmal sitzen', () => {
+  const flashTwo: DueVocabularyCard = { ...second, mode: 'flashcard', progressId: 'flash-2' }
+  async function rate(known: boolean) {
+    fireEvent.click(screen.getByRole('button', { name: de.vocabulary.reveal_solution }))
+    await act(async () => { fireEvent.click(screen.getByRole('button', { name: known ? de.vocabulary.knew_it : de.vocabulary.didnt_know })) })
+  }
+
+  it('hängt eine falsch eingeschätzte Karteikarte als Wiederholung an und speichert sie dabei nicht erneut', async () => {
+    jest.mocked(submitVocabularySelfRating).mockResolvedValueOnce(result({ isCorrect: false, newPhase: 1, movedBack: false }))
+    mount([flashcard, flashTwo])
+    await rate(false)
+    await rate(true)
+    // Beide gewerteten Versuche sind gespeichert – jetzt kommt die erste Karte noch einmal.
+    expect(submitVocabularySelfRating).toHaveBeenCalledTimes(2)
+    expect(screen.getByText(de.vocabulary.retry_label)).toBeInTheDocument()
+    expect(screen.getByText(de.vocabulary.retry_hint)).toBeInTheDocument()
+    expect(screen.getByText('Karte 3/3 · Phase 1/6')).toBeInTheDocument()
+    // Wieder nicht gewusst: Sie kommt noch einmal. Nichts davon geht an den Server.
+    await rate(false)
+    expect(screen.getByText('Karte 4/4 · Phase 1/6')).toBeInTheDocument()
+    await rate(true)
+    expect(submitVocabularySelfRating).toHaveBeenCalledTimes(2)
+    expect(screen.getByText(de.vocabulary.session_done_retry)).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: de.vocabulary.lernkasten_back })).toBeInTheDocument()
+  })
+
+  it('prüft eine getippte Wiederholung serverseitig, ohne den Lernstand erneut zu setzen', async () => {
+    jest.mocked(submitVocabularyAnswer).mockResolvedValueOnce(result({ isCorrect: false, previousPhase: 4, newPhase: 3, movedBack: true }))
+    jest.mocked(checkVocabularyRetry)
+      .mockResolvedValueOnce({ success: true, isCorrect: false, correctAnswer: 'das Haus', isAlternative: false, softError: null })
+      .mockResolvedValueOnce({ success: true, isCorrect: true, correctAnswer: 'das Haus', isAlternative: false, softError: null })
+    mount([{ ...word, box: 4, phase: 4 }])
+    expect(screen.getByText('Karte 1/1 · Phase 4/6')).toBeInTheDocument()
+    await submit('das Hauss Garten')
+    expect(screen.getByText(de.vocabulary.retry_scheduled)).toBeInTheDocument()
+    next()
+    // Die Wiederholung beginnt leer – nicht mit der falschen Antwort von eben.
+    expect(screen.getByRole('textbox')).toHaveValue('')
+    expect(screen.getByText(de.vocabulary.retry_label)).toBeInTheDocument()
+    // Die Wiederholung zeigt die schon zurückgestufte Phase.
+    expect(screen.getByText('Karte 2/2 · Phase 3/6')).toBeInTheDocument()
+    await submit('die Haus')
+    expect(checkVocabularyRetry).toHaveBeenCalledWith({ progressId: word.progressId, typedAnswer: 'die Haus', expectedLearnerId: learnerId, uiLanguage: 'ru' })
+    expect(submitVocabularyAnswer).toHaveBeenCalledTimes(1)
+    expect(screen.getByText(de.vocabulary.answer_incorrect)).toBeVisible()
+    next()
+    await submit('das Haus')
+    expect(checkVocabularyRetry).toHaveBeenCalledTimes(2)
+    expect(screen.getByText(de.vocabulary.answer_correct)).toBeVisible()
+    fireEvent.click(screen.getByRole('button', { name: de.vocabulary.finish_session }))
+    expect(screen.getByText(de.vocabulary.session_done_retry)).toBeInTheDocument()
+    expect(submitVocabularyAnswer).toHaveBeenCalledTimes(1)
+  })
+
+  it('lässt eine richtig beantwortete Karte in der Runde nicht wiederkommen', async () => {
+    mount([word, second])
+    await submit('das Haus')
+    next()
+    await submit('lernen')
+    fireEvent.click(screen.getByRole('button', { name: de.vocabulary.finish_session }))
+    expect(screen.queryByText(de.vocabulary.retry_label)).not.toBeInTheDocument()
+    expect(screen.queryByText(de.vocabulary.session_done_retry)).not.toBeInTheDocument()
+    expect(screen.getByRole('button', { name: de.vocabulary.lernkasten_back })).toBeInTheDocument()
+  })
+
+  it('meldet eine gescheiterte Prüfung und lässt die Wiederholung erneut absenden', async () => {
+    jest.mocked(submitVocabularyAnswer).mockResolvedValueOnce(result({ isCorrect: false }))
+    jest.mocked(checkVocabularyRetry).mockResolvedValueOnce({ success: false, error: 'check_failed' })
+    mount([word])
+    await submit('falsch')
+    next()
+    await submit('das Haus')
+    expect(screen.getByText(de.vocabulary.retry_check_failed)).toBeInTheDocument()
+    expect(screen.getByRole('textbox')).toHaveValue('das Haus')
+    await act(async () => { fireEvent.click(screen.getByRole('button', { name: de.vocabulary.check_sentence })) })
+    expect(checkVocabularyRetry).toHaveBeenCalledTimes(2)
+    expect(screen.getByText(de.vocabulary.answer_correct)).toBeVisible()
+  })
 })

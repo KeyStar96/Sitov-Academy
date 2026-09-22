@@ -88,7 +88,12 @@ test('typed vocabulary answer earns a soft ascent with the previous interval and
     const result = await admin.from('vocabulary_direction_progress').select('box_number,lapses,next_review_date,last_answered_at').eq('id', progressId).single()
     expect(result.error).toBeNull()
     expect(result.data).toMatchObject({ box_number: 4, lapses: 0 })
-    expect(new Date(result.data!.next_review_date).getTime() - new Date(result.data!.last_answered_at).getTime()).toBe(3 * 86400000)
+    // Kalendertage (Europe/Berlin, Migration 22): fällig ab Mitternacht, drei
+    // Tage nach dem Antworttag — nicht exakt 72 Stunden nach der Antwort.
+    const due = new Date(result.data!.next_review_date)
+    const berlinDay = (date: Date) => Date.parse(new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Berlin' }).format(date))
+    expect(new Intl.DateTimeFormat('de-DE', { timeZone: 'Europe/Berlin', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).format(due)).toBe('00:00')
+    expect((berlinDay(due) - berlinDay(new Date(result.data!.last_answered_at))) / 86400000).toBe(3)
   } finally { await fixture.cleanup() }
 })
 

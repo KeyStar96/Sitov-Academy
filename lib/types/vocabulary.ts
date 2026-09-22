@@ -126,6 +126,28 @@ export interface SubmitVocabularyAnswerResult {
   intervalInDays?: number
 }
 
+/**
+ * Wiederholung einer falsch beantworteten Karte in derselben Sitzung. Sie wird
+ * wie der erste Versuch aus dem gespeicherten Inhalt bewertet, ändert aber
+ * weder Phase noch Termin: Beim Phase-6-System zählt nur der erste Versuch des
+ * Tages.
+ */
+export interface CheckVocabularyRetryInput {
+  progressId: string
+  expectedLearnerId?: string
+  typedAnswer: string
+  uiLanguage?: string
+}
+
+export interface CheckVocabularyRetryResult {
+  success: boolean
+  isCorrect?: boolean
+  correctAnswer?: string
+  isAlternative?: boolean
+  softError?: SoftErrorReason | null
+  error?: 'invalid_input' | 'check_failed'
+}
+
 export interface InitializeLessonResult {
   success: boolean
   added: number

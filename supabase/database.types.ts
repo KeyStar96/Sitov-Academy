@@ -1479,6 +1479,14 @@ export type Database = {
     }
     Functions: {
       begin_learning_reset: { Args: { p_confirmation: string }; Returns: Json }
+      check_vocabulary_retry: {
+        Args: {
+          p_progress_id: string
+          p_typed_answer: string
+          p_ui_language?: string
+        }
+        Returns: Json
+      }
       claim_mail_jobs: {
         Args: { p_limit?: number; p_worker_id: string }
         Returns: Json

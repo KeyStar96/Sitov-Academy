@@ -6,8 +6,8 @@ import { createTranslator, type Translations, type Translator } from '@/lib/i18n
  */
 export const VOCABULARY_FALLBACKS = {
   method_title: "So funktioniert dein Karteikasten",
-  method_progress: "Eine richtige Antwort verschiebt diese Abfragerichtung eine Phase weiter. Bei einer falschen Antwort geht es eine Phase zurück, höchstens bis Phase 1.",
-  method_intervals: "Zwischen richtigen Antworten liegen 1, 3, 9, 29 und 90 Tage. Als schwierig markierte Wörter werden je nach Muttersprache früher wiederholt.",
+  method_progress: 'Nur der erste Versuch des Tages zählt: Richtig schiebt diese Abfragerichtung eine Phase weiter. Falsch schiebt sie eine Phase zurück, höchstens bis Phase 1, und die Vokabel kommt am nächsten Tag wieder. Falsche Vokabeln übst du in derselben Runde so lange, bis du sie einmal richtig hast.',
+  method_intervals: 'Neue Vokabeln sind sofort fällig. Nach jeder richtigen Antwort wächst die Pause: 1, 3, 9, 29 und 90 Tage – zusammen etwa 132 Tage bis „gelernt“. Als schwierig markierte Wörter werden je nach Muttersprache früher wiederholt.',
   method_learned: "Ein Wort gilt als gelernt, wenn du die fällige Wiederholung in Phase 6 in beiden Richtungen bestanden hast: Deutsch → Übersetzung und Übersetzung → Deutsch. Danach erscheint es nicht mehr in der regulären Abfrage. „Gelernt“ ist ein Lernstatus, keine Garantie, dass du das Wort nie vergisst.",
   method_assessment: "Bei der Ersteinstufung prüfst du beide Richtungen getrennt: Deutsch → Interfacesprache und Interfacesprache → Deutsch. „Kenne ich schon“ startet die jeweilige Richtung in Phase 6, „Kenne ich nicht“ in Phase 1. Bekannte Richtungen werden nach 90 Tagen erneut geprüft.",
   title: 'Vokabel-Trainer',
@@ -236,6 +236,11 @@ export const VOCABULARY_FALLBACKS = {
   lessons_title: 'Welche Lektionen möchtest du lernen?',
   lessons_hint: 'Schalte eine Lektion ein – ihre Vokabeln kommen dann in deinen Lernkasten.',
   box_tap_hint: 'Tippe auf ein Fach, um die Vokabeln darin zu sehen.',
+  retry_label: 'Wiederholung',
+  retry_hint: 'Noch einmal üben: Diese Antwort zählt nicht für die Phase. Die Vokabel kommt morgen wieder.',
+  retry_scheduled: 'Du übst diese Vokabel in dieser Runde gleich noch einmal.',
+  retry_check_failed: 'Die Antwort konnte gerade nicht geprüft werden. Bitte versuche es noch einmal.',
+  session_done_retry: 'Vokabeln, die beim ersten Versuch falsch waren, kommen morgen wieder.',
 } as const
 
 export type VocabularyTranslationKey = Extract<keyof typeof VOCABULARY_FALLBACKS, string>
