@@ -54,7 +54,8 @@ export default async function LevelDashboard({ params }: {
       {lang === 'de' && <TrainerLanguageRequired lang={lang} />}
       <LevelPath lang={lang} level={decodedLevel} title={titleKey ? copy[titleKey] ?? decodedLevel : decodedLevel}
         description={descriptionKey ? copy[descriptionKey] ?? '' : ''} stations={stations} next={next}
-        vocabularyHref={vocabularyOpen ? `${base}/vocabulary` : null} />
+        vocabularyHref={vocabularyOpen ? `${base}/vocabulary` : null} vocabularyTranslations={(dict.vocabulary ?? {}) as VocabularyTranslations}
+        ownWords={vocabularyOpen ? { title: vocabularyT('own_words_title'), words: status?.ownWords ? vocabularyT('set_words_total', { count: status.ownWords }) : vocabularyT('own_words_empty') } : null} />
       <TrainerStatusTiles lang={lang} level={decodedLevel} status={status} languageLocked={lang === 'de'} />
     </div>
   )

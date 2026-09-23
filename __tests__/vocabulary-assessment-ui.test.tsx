@@ -41,7 +41,7 @@ function choose(known: boolean) {
   fireEvent.click(screen.getByRole('button', { name: de.vocabulary.reveal_solution }))
   fireEvent.click(screen.getByRole('button', { name: known ? /Kenne ich bereits/ : /Kenne ich nicht/ }))
 }
-it('stores an unknown word immediately, selects its lesson, and starts learning after assessment', async () => {
+it('stores an unknown word immediately and keeps the finished screen until the learner starts training', async () => {
   renderAssessment()
   choose(false)
   await act(async () => undefined)
@@ -50,6 +50,11 @@ it('stores an unknown word immediately, selects its lesson, and starts learning 
   expect(screen.getByRole('heading', { name: 'learn' })).toBeVisible()
   choose(true)
   await act(async () => undefined)
+  // Kein automatischer Sprung: Die Übung sieht der Einstufung ähnlich und wurde
+  // für eine zweite Einstufung gehalten (Tester-Bericht, Lektion 5).
+  expect(screen.getByText(de.vocabulary.assess_done_title)).toBeVisible()
+  expect(mockReplace).not.toHaveBeenCalled()
+  fireEvent.click(screen.getByRole('button', { name: de.vocabulary.go_to_training }))
   expect(mockReplace).toHaveBeenCalledWith('/de/dashboard/level/A1.1/vocabulary/train?lesson=Lektion%202')
 })
 it('restores the current word after a rejected save and does not select or navigate', async () => {
@@ -62,15 +67,10 @@ it('restores the current word after a rejected save and does not select or navig
   expect(loadLernkastenSelection('A1.1')).toBeNull()
   expect(mockReplace).not.toHaveBeenCalled()
 })
-it('can skip an unfinished assessment directly to the first lesson returned by the server', async () => {
-  jest.mocked(skipVocabularyAssessment).mockResolvedValue({ success: true, lesson: 'Lektion 1', added: 2 })
+it('offers no shortcut that skips the assessment', () => {
   renderAssessment()
-  await act(async () => fireEvent.click(screen.getByRole('button', { name: de.vocabulary.skip_assessment })))
-  expect(skipVocabularyAssessment).toHaveBeenCalledWith('A1.1', learnerId)
-  expect(mockReplace).toHaveBeenCalledWith('/de/dashboard/level/A1.1/vocabulary/train?lesson=Lektion%201')
-  expect(submitLessonAssessment).not.toHaveBeenCalled()
+  expect(screen.queryByRole('button', { name: de.vocabulary.skip_assessment })).not.toBeInTheDocument()
 })
-
 function deferred<Result>() {
   let resolve!: (result: Result) => void
   const promise = new Promise<Result>(done => { resolve = done })
@@ -93,6 +93,8 @@ it('accepts rapid assessment clicks without save labels and navigates only after
   await act(async () => first.resolve({ success: true, addedKnown: 0, addedNew: 1 }))
   expect(submitLessonAssessment).toHaveBeenCalledTimes(2)
   expect(mockReplace).not.toHaveBeenCalled()
+  fireEvent.click(screen.getByRole('button', { name: de.vocabulary.go_to_training }))
+  expect(mockReplace).not.toHaveBeenCalled()
   await act(async () => last.resolve({ success: true, addedKnown: 1, addedNew: 0 }))
   expect(mockReplace).toHaveBeenCalledTimes(1)
 })
@@ -110,19 +112,9 @@ it('keeps all rapid assessment decisions after an early failure and retries them
   expect(jest.mocked(submitLessonAssessment).mock.calls.map(([decision]) => decision)).toEqual([
     [{ cardId: 'word-1', alreadyKnown: false }], [{ cardId: 'word-1', alreadyKnown: false }], [{ cardId: 'word-2', alreadyKnown: true }],
   ])
+  expect(mockReplace).not.toHaveBeenCalled()
+  fireEvent.click(screen.getByRole('button', { name: de.vocabulary.go_to_training }))
   expect(mockReplace).toHaveBeenCalledTimes(1)
-})
-it('queues skip behind pending decisions instead of dropping them', async () => {
-  const first = deferred<{ success: boolean; addedKnown: number; addedNew: number }>()
-  jest.mocked(submitLessonAssessment).mockReturnValueOnce(first.promise)
-  jest.mocked(skipVocabularyAssessment).mockResolvedValueOnce({ success: true, lesson: 'Lektion 1', added: 1 })
-  renderAssessment()
-  choose(false)
-  fireEvent.click(screen.getByRole('button', { name: de.vocabulary.skip_assessment }))
-  expect(skipVocabularyAssessment).not.toHaveBeenCalled()
-  await act(async () => first.resolve({ success: true, addedKnown: 0, addedNew: 1 }))
-  expect(skipVocabularyAssessment).toHaveBeenCalledTimes(1)
-  expect(mockReplace).toHaveBeenCalledWith('/de/dashboard/level/A1.1/vocabulary/train?lesson=Lektion%201')
 })
 it('never rebinds buffered assessment choices to a different incoming learner', async () => {
   const first = deferred<{ success: boolean; addedKnown: number; addedNew: number }>()
@@ -149,6 +141,7 @@ it('flushes rapid decisions and starts learning when the browser blocks the stor
     expect(jest.mocked(submitLessonAssessment).mock.calls.map(([decision]) => decision)).toEqual([
       [{ cardId: 'word-1', alreadyKnown: false }], [{ cardId: 'word-2', alreadyKnown: true }],
     ])
+    fireEvent.click(screen.getByRole('button', { name: de.vocabulary.go_to_training }))
     expect(mockReplace).toHaveBeenCalledTimes(1)
     expect(mockReplace).toHaveBeenCalledWith('/de/dashboard/level/A1.1/vocabulary/train?lesson=Lektion%202')
     expect(screen.queryByText(de.vocabulary.assess_save_failed)).not.toBeInTheDocument()

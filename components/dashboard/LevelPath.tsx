@@ -2,13 +2,15 @@
 
 import { useState, type CSSProperties } from 'react'
 import Link from 'next/link'
-import { ArrowRight, BookOpen, Check, ChevronRight, ListChecks, Map as MapIcon } from 'lucide-react'
+import { ArrowRight, BookOpen, Check, ChevronRight, Eye, ListChecks, Map as MapIcon, PenLine } from 'lucide-react'
+import LessonCardsModal from '@/components/vocabulary/LessonCardsModal'
+import type { VocabularyTranslations } from '@/lib/vocabulary-i18n'
 import BottomSheet from '@/components/ui/BottomSheet'
 import ProgressRing from '@/components/ui/ProgressRing'
 import { studentTranslator } from '@/lib/student-ui-i18n'
 import type { PathStation } from '@/lib/level-path'
 
-export default function LevelPath({ lang, level, title, description, stations, next, vocabularyHref }: {
+export default function LevelPath({ lang, level, title, description, stations, next, vocabularyHref, vocabularyTranslations, ownWords }: {
   lang: string
   level: string
   title: string
@@ -17,11 +19,15 @@ export default function LevelPath({ lang, level, title, description, stations, n
   /** Der große Weiter-Knopf; fehlt er, ist gerade kein Bereich offen. */
   next: { href: string; hint: string } | null
   vocabularyHref: string | null
+  vocabularyTranslations?: VocabularyTranslations
+  /** „Eigene Wörter" des Niveaus: Titel und Wortzahl; verwaltet werden sie in der Lernbox. */
+  ownWords?: { title: string; words: string } | null
 }) {
   const t = studentTranslator(lang)
   // Die Station bleibt nach dem Schließen gesetzt, damit das Blatt mit Inhalt hinausfährt.
   const [selected, setSelected] = useState<PathStation | null>(null)
   const [sheetOpen, setSheetOpen] = useState(false)
+  const [cardsOpen, setCardsOpen] = useState(false)
   const done = stations.filter(station => station.state === 'done').length
 
   return (
@@ -90,6 +96,13 @@ export default function LevelPath({ lang, level, title, description, stations, n
               ))}
             </ol>
           )}
+          {ownWords && (
+            <Link href={`${vocabularyHref}#lernkasten-eigene-woerter`} className="st-own-words st-press">
+              <span className="st-own-words__icon" aria-hidden="true"><PenLine size={22} /></span>
+              <span className="min-w-0 flex-1"><span className="st-path__name block">{ownWords.title}</span><span className="st-path__meta">{ownWords.words}</span></span>
+              <ChevronRight size={20} aria-hidden="true" className="st-path__chevron" />
+            </Link>
+          )}
         </section>
       )}
 
@@ -107,6 +120,11 @@ export default function LevelPath({ lang, level, title, description, stations, n
               <Link href={vocabularyHref} className={`st-button st-press ${selected.untouched > 0 ? 'st-button--soft' : 'st-button--primary'}`}>
                 <BookOpen size={20} aria-hidden="true" />{t('station_practice')}
               </Link>
+            )}
+            {vocabularyTranslations && (
+              <button type="button" onClick={() => { setSheetOpen(false); setCardsOpen(true) }} className="st-button st-button--soft st-press">
+                <Eye size={20} aria-hidden="true" />{vocabularyTranslations.show_cards || t('station_words', { count: selected.total })}
+              </button>
             )}
           </div>
         ) : undefined}>
@@ -126,6 +144,9 @@ export default function LevelPath({ lang, level, title, description, stations, n
           </div>
         )}
       </BottomSheet>
+      {cardsOpen && selected && vocabularyTranslations && (
+        <LessonCardsModal lesson={selected.lesson} level={level} uiLanguage={lang} translations={vocabularyTranslations} onClose={() => setCardsOpen(false)} onCardAdded={() => undefined} />
+      )}
     </div>
   )
 }

@@ -31,6 +31,8 @@ export interface LevelLearningStatus {
   media: { locked: boolean; total: number; fresh: number } | null
   /** Vokabel-Lektionen des Kurses in ihrer Reihenfolge — die Stationen des Lernwegs. */
   lessons: LessonStation[]
+  /** Wörter in „Eigene Wörter" dieses Niveaus. */
+  ownWords: number
 }
 
 export interface LessonStation {
@@ -128,6 +130,7 @@ export async function loadLevelLearningStatus({ supabase, userId, profile, level
       : pronunciation && { locked: false, ...pronunciation },
     media: locked.media ? { locked: true, total: 0, fresh: 0 } : media && { locked: false, ...media },
     lessons: courseLessons.map(({ lesson, total, active, learned, untouched, due }) => ({ lesson, total, active, learned, untouched, due })),
+    ownWords: (vocabulary?.stats ?? []).find(stat => isOwnWordsLesson(stat.lesson))?.total ?? 0,
   }
 }
 

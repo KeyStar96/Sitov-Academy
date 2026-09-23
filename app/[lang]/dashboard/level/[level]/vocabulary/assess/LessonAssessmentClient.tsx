@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { submitLessonAssessment, skipVocabularyAssessment } from '@/app/actions/vocabulary'
+import { submitLessonAssessment } from '@/app/actions/vocabulary'
 import { loadLernkastenSelection, saveLernkastenSelection } from '@/lib/vocabulary-lernkasten'
 import { createVocabularyTranslator, type VocabularyTranslations } from '@/lib/vocabulary-i18n'
 import { articleColorClass } from '@/lib/vocabulary-ui'
@@ -33,9 +33,8 @@ export default function LessonAssessmentClient({ learnerId, cards, lessonName, l
   const [index, setIndex] = useState(0)
   const indexRef = useRef(0)
   const resumeIndex = useRef(0)
-  const [skipQueued, setSkipQueued] = useState(false)
-  const skipRequested = useRef(false)
   const exitRequested = useRef(false)
+  const finishRequested = useRef(false)
   const navigated = useRef(false)
   const [saveFailed, setSaveFailed] = useState(false)
   const [counts, setCounts] = useState({ known: 0, fresh: 0 })
@@ -44,7 +43,7 @@ export default function LessonAssessmentClient({ learnerId, cards, lessonName, l
   const t = useMemo(() => createVocabularyTranslator(translations), [translations])
   const overview = `/${lang}/dashboard/level/${encodeURIComponent(level)}/vocabulary`
   const current = session[index]
-  type AssessmentIntent = { kind: 'decision'; index: number; cardId: string; alreadyKnown: boolean } | { kind: 'skip' }
+  type AssessmentIntent = { kind: 'decision'; index: number; cardId: string; alreadyKnown: boolean }
   type AssessmentResult = { success: boolean; lesson?: string }
   const writes = useRef<OrderedWriteQueue<AssessmentIntent> | null>(null)
 
@@ -63,14 +62,9 @@ export default function LessonAssessmentClient({ learnerId, cards, lessonName, l
   }
 
   if (!writes.current) writes.current = createOrderedWriteQueue<AssessmentIntent, AssessmentResult>({
-    write: item => !actorId ? Promise.resolve({ success: false }) : item.kind === 'skip' ? skipVocabularyAssessment(level, actorId)
-      : submitLessonAssessment([{ cardId: item.cardId, alreadyKnown: item.alreadyKnown }], actorId),
-    accepted: (result, item) => result.success && (item.kind !== 'skip' || !!result.lesson),
+    write: item => !actorId ? Promise.resolve({ success: false }) : submitLessonAssessment([{ cardId: item.cardId, alreadyKnown: item.alreadyKnown }], actorId),
+    accepted: result => result.success,
     onAccepted: (item, result) => {
-      if (item.kind === 'skip') {
-        if (!exitRequested.current) startTraining(result.lesson!)
-        return
-      }
       confirmedCounts.current = { known: confirmedCounts.current.known + Number(item.alreadyKnown), fresh: confirmedCounts.current.fresh + Number(!item.alreadyKnown) }
       if (!item.alreadyKnown) {
         const selected = loadLernkastenSelection(level) ?? []
@@ -89,7 +83,10 @@ export default function LessonAssessmentClient({ learnerId, cards, lessonName, l
     },
     onDrained: () => {
       if (exitRequested.current) leave()
-      else if (indexRef.current === session.length && optimisticCounts.current.fresh > 0) startTraining(lessonName)
+      // Nie von selbst weiter: Nach dem letzten Wort bleibt „Fertig eingestuft!"
+      // stehen. Die Übungsrunde sieht der Einstufung sehr ähnlich — startete sie
+      // automatisch, hielten Lernende sie für eine zweite Einstufung.
+      else if (finishRequested.current) startTraining(lessonName)
     },
   })
 
@@ -103,7 +100,7 @@ export default function LessonAssessmentClient({ learnerId, cards, lessonName, l
   }
 
   function decide(alreadyKnown: boolean) {
-    if (!actorId || !current || !revealed || index !== indexRef.current || writes.current?.blocked || skipRequested.current) return
+    if (!actorId || !current || !revealed || index !== indexRef.current || writes.current?.blocked) return
     const item: AssessmentIntent = { kind: 'decision', index, cardId: current.id, alreadyKnown }
     indexRef.current += 1
     resumeIndex.current = indexRef.current
@@ -113,14 +110,6 @@ export default function LessonAssessmentClient({ learnerId, cards, lessonName, l
     setCounts(optimisticCounts.current)
     // The UI continues instantly; the queue preserves network ordering and retry intent.
     writes.current?.enqueue(item)
-  }
-
-  function skip() {
-    if (!actorId || skipRequested.current) return
-    skipRequested.current = true
-    setSkipQueued(true)
-    writes.current?.enqueue({ kind: 'skip' })
-    if (writes.current?.blocked) retry()
   }
 
   function goBack() {
@@ -133,8 +122,9 @@ export default function LessonAssessmentClient({ learnerId, cards, lessonName, l
   }
 
   function finishAssessment() {
-    if (optimisticCounts.current.fresh === 0) goBack()
-    else if (!writes.current?.pending.length) startTraining(lessonName)
+    if (optimisticCounts.current.fresh === 0) { goBack(); return }
+    finishRequested.current = true
+    if (!writes.current?.pending.length) startTraining(lessonName)
   }
 
   return (
@@ -176,7 +166,6 @@ export default function LessonAssessmentClient({ learnerId, cards, lessonName, l
         {counts.fresh === 0 && <p>{t('assess_done_summary', { known: counts.known, new: counts.fresh })}</p>}
         <button className="learning-button" onClick={finishAssessment}>{t(counts.fresh > 0 ? 'go_to_training' : 'back_to_overview')}</button>
       </div>}
-      <button className="learning-button learning-button-wide" disabled={skipQueued} onClick={skip}>{t('skip_assessment')}</button>
       {saveFailed && <p className="learning-status learning-error" role="status">{t('assess_save_failed')}</p>}
       {saveFailed && !current && <button className="learning-button learning-button-primary" onClick={retry}>{t('error_retry')}</button>}
     </LearningScreen>
