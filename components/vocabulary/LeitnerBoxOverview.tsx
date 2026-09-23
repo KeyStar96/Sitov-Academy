@@ -161,12 +161,13 @@ function Compartment({ bucket, index, open, t, onOpen }: {
       {bucket.due > 0 && <span id={ids.due} className="lb-due">{t('box_due_badge', { count: bucket.due })}</span>}
       <span className="lb-cell__plinth">
         <span className="lb-plate">
-          {/* Jedes Etikett ist gleich gebaut: Nummer, Name, Anzahl — jeweils
-              in einer eigenen Zeile. So bekommt der Name die volle Breite, und
-              ein langer Name verschiebt nie die Nummer. */}
-          <span className={cn('lb-plate__badge', tone.soft, tone.text)} aria-hidden="true">
-            {isArchive ? <Check size={16} strokeWidth={3} /> : bucket.key}
-          </span>
+          {/* Die Phasennummer steht als großes, blasses Zahlzeichen hinter dem
+              Text — wie „01, 02, 03" auf den Niveau-Karten. Sie ist absolut
+              gesetzt und sitzt deshalb in jedem Etikett gleich, egal wie der
+              Name umbricht. Das Archiv behält seinen Haken in der Zeile. */}
+          {isArchive
+            ? <span className={cn('lb-plate__badge', tone.soft, tone.text)} aria-hidden="true"><Check size={16} strokeWidth={3} /></span>
+            : <span className={cn('lb-plate__numeral', tone.text)} aria-hidden="true">{String(bucket.key).padStart(2, '0')}</span>}
           <span className="lb-plate__name">{name}</span>
           <span id={ids.count} className="lb-plate__count">{before}<b>{bucket.count}</b>{after}</span>
         </span>
