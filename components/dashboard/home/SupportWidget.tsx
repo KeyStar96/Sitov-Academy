@@ -1,14 +1,10 @@
 import { LifeBuoy, Mail, MessageCircle, Phone, Send } from 'lucide-react'
 import { dashboardHomeTranslator } from '@/lib/dashboard-home-i18n'
+import { supportChannels, type SupportLabels } from '@/lib/support-channels'
 
-export interface SupportLabels {
-  whatsapp: string
-  phone: string
-  phoneLabel: string
-  telegram: string
-  email: string
-  emailLabel: string
-}
+export type { SupportLabels }
+
+const ICONS = { whatsapp: MessageCircle, phone: Phone, telegram: Send, email: Mail } as const
 
 /**
  * Schnellhilfe für ältere Nutzer: gut sichtbare, selbsterklärende Kontaktwege.
@@ -20,12 +16,7 @@ export default function SupportWidget({ lang, labels, className = '' }: {
   className?: string
 }) {
   const t = dashboardHomeTranslator(lang)
-  const channels = [
-    { href: 'https://wa.me/491714758620', label: labels.whatsapp, icon: MessageCircle, external: true },
-    { href: `tel:${labels.phone.replace(/\s/g, '')}`, label: labels.phoneLabel, icon: Phone, external: false },
-    { href: 'https://t.me/Sprachschule_Anastasia', label: labels.telegram, icon: Send, external: true },
-    { href: `mailto:${labels.email}`, label: labels.emailLabel, icon: Mail, external: false },
-  ]
+  const channels = supportChannels(labels).map(channel => ({ ...channel, icon: ICONS[channel.kind] }))
   return (
     <section aria-labelledby="dashboard-support-title" className={`sl-glass flex min-w-0 flex-col rounded-3xl p-6 sm:p-7 ${className}`}>
       <div className="flex items-center gap-3">

@@ -18,18 +18,28 @@ const calendar: ProfileCourseCalendarState = {
 }
 beforeEach(() => { jest.clearAllMocks(); jest.mocked(getProfileCourseCalendar).mockResolvedValue({ success: true, data: calendar }) })
 
-it('switches between this month and next, filters by accessible day buttons, and retains cancellation reasons', () => {
+afterEach(() => jest.useRealTimers())
+
+it('groups upcoming dates as calendar leaves, switches months and retains cancellation reasons', () => {
+  jest.useFakeTimers({ now: new Date('2026-09-21T10:00:00Z') })
   render(<ProfileCourseCalendar initial={calendar} lang="de" bookingRevision="1" />)
+  expect(screen.getByRole('heading', { name: 'Morgen' })).toBeInTheDocument()
   expect(screen.getByText('Fällt aus: Feiertag')).toBeInTheDocument()
-  fireEvent.click(screen.getByRole('button', { name: /22\. September · Termine: 1/ }))
-  expect(screen.getByText('Deutsch A1')).toBeInTheDocument()
-  expect(screen.queryByText('Deutsch A2')).not.toBeInTheDocument()
-  fireEvent.click(screen.getByRole('button', { name: 'Alle Termine des Monats' }))
+  expect(screen.getByRole('heading', { name: 'Später in diesem Monat' })).toBeInTheDocument()
   expect(screen.getByText('Deutsch A2')).toBeInTheDocument()
   fireEvent.click(screen.getByRole('button', { name: 'Oktober 2026' }))
   expect(screen.getByRole('button', { name: 'Oktober 2026' })).toHaveAttribute('aria-pressed', 'true')
   expect(screen.queryByText('Deutsch A1')).not.toBeInTheDocument()
   expect(screen.getByText('Bestätigung ausstehend')).toBeInTheDocument()
+})
+
+it('folds past dates of the month away until asked for', () => {
+  jest.useFakeTimers({ now: new Date('2026-09-25T10:00:00Z') })
+  render(<ProfileCourseCalendar initial={calendar} lang="de" bookingRevision="1" />)
+  expect(screen.queryByText('Deutsch A1')).not.toBeInTheDocument()
+  fireEvent.click(screen.getByRole('button', { name: 'Schon vorbei (1)' }))
+  expect(screen.getByText('Deutsch A1')).toBeInTheDocument()
+  expect(screen.getByText('Fällt aus: Feiertag')).toBeInTheDocument()
 })
 
 it('refreshes only after a persisted booking revision changes and presents refresh errors with retry', async () => {

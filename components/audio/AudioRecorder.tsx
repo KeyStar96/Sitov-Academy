@@ -35,6 +35,7 @@ export default function AudioRecorder({
   onSubmitted,
   compact = false,
   mobileFloating = false,
+  onPhaseChange,
 }: {
   promptId: string
   onRecordingStateChange?: (busy: boolean) => void
@@ -43,6 +44,8 @@ export default function AudioRecorder({
   onSubmitted?: () => void
   compact?: boolean
   mobileFloating?: boolean
+  /** Ablauf für die Schritt-Anzeige im Sprechstudio. */
+  onPhaseChange?: (phase: 'idle' | 'recording' | 'review' | 'submitted') => void
 }) {
   const t = createPronunciationTranslator(translations ?? {})
   const recorder = useAudioRecorder()
@@ -52,6 +55,8 @@ export default function AudioRecorder({
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [uploadFailed, setUploadFailed] = useState(false)
   useEffect(() => { onRecordingStateChange?.(recorder.status === 'requesting' || recorder.isRecording || isUploading || (recorder.hasRecording && !isSubmitted)) }, [recorder.status, recorder.isRecording, recorder.hasRecording, isUploading, isSubmitted, onRecordingStateChange])
+  const phase = isSubmitted ? 'submitted' : recorder.isRecording ? 'recording' : recorder.hasRecording ? 'review' : 'idle'
+  useEffect(() => { onPhaseChange?.(phase) }, [phase, onPhaseChange])
 
   const statusMessage = (() => {
     if (recorder.status === 'denied') return t('mic_denied')
@@ -206,7 +211,7 @@ export default function AudioRecorder({
               type="button"
               onClick={handleStart}
               disabled={recorder.status === 'requesting' || isUploading}
-              className="flex min-h-[56px] min-w-[56px] w-full items-center justify-center gap-3 rounded-2xl bg-[var(--accent-strong)] px-5 py-3 text-lg font-semibold text-[var(--accent-foreground)] shadow-sm transition-colors hover:bg-[var(--accent-strong-hover)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
+              className="st-mic flex min-h-[4.5rem] min-w-[56px] w-full items-center justify-center gap-3 rounded-full bg-[var(--accent-strong)] px-8 py-3 text-xl font-bold text-[var(--accent-foreground)] shadow-lg transition-colors hover:bg-[var(--accent-strong-hover)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
             >
               {recorder.status === 'requesting' ? (
                 <Loader2 size={26} className="animate-spin" aria-hidden="true" />
@@ -265,7 +270,7 @@ export default function AudioRecorder({
           data-testid="pronunciation-recording-bar"
           className="pronunciation-recorder-dock pointer-events-none fixed inset-x-0 bottom-0 z-40 lg:hidden"
         >
-          <div className="mx-auto flex w-full max-w-3xl flex-col items-end gap-3 px-4 pb-[calc(env(safe-area-inset-bottom,0px)+0.75rem)]">
+          <div className="mx-auto flex w-full max-w-3xl flex-col items-center gap-3 px-4 pb-[calc(env(safe-area-inset-bottom,0px)+0.75rem)]">
             {statusMessage && (
               <p
                 role="status"
@@ -302,13 +307,14 @@ export default function AudioRecorder({
                 onClick={handleStart}
                 disabled={recorder.status === 'requesting' || isUploading}
                 aria-label={t('start_recording')}
-                className="pointer-events-auto relative flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-[var(--accent-strong)] text-[var(--accent-foreground)] shadow-xl shadow-black/25 ring-1 ring-white/20 transition-transform duration-200 hover:scale-105 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] active:scale-95 disabled:cursor-not-allowed disabled:opacity-60 motion-reduce:transition-none motion-reduce:hover:scale-100"
+                className="st-mic pointer-events-auto relative flex min-h-[4.25rem] shrink-0 items-center justify-center gap-3 rounded-full bg-[var(--accent-strong)] px-7 text-lg font-bold text-[var(--accent-foreground)] shadow-xl shadow-black/25 ring-1 ring-white/20 transition-transform duration-200 hover:scale-105 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] active:scale-95 disabled:cursor-not-allowed disabled:opacity-60 motion-reduce:transition-none motion-reduce:hover:scale-100"
               >
                 {recorder.status === 'requesting' ? (
                   <Loader2 size={28} className="animate-spin" aria-hidden="true" />
                 ) : (
                   <Mic size={28} aria-hidden="true" />
                 )}
+                <span aria-hidden="true">{t('start_recording')}</span>
               </button>
             )}
           </div>

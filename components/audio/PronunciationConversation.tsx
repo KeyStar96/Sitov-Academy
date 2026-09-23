@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react'
 import { ChevronDown, Loader2, MessageCircle, RefreshCw } from 'lucide-react'
 import { createPronunciationTranslator, type PronunciationTranslations } from '@/lib/pronunciation-i18n'
 import type { PronunciationConversation as Conversation } from '@/lib/pronunciation-conversations'
@@ -46,11 +46,13 @@ function mergeConversation(previous: Conversation, incoming: Conversation, sourc
     status: previousLatest > incomingLatest ? previous.status : incoming.status }
 }
 
-export default function PronunciationConversation({ conversation: initial, staff = false, lang, translations }: {
+export default function PronunciationConversation({ conversation: initial, staff = false, lang, translations, trigger }: {
   conversation: Conversation
   staff?: boolean
   lang: string
   translations: PronunciationTranslations
+  /** Eigener Auslöser (z. B. der Brief im Briefkasten); ohne ihn erscheint die bisherige Gesprächszeile. */
+  trigger?: (open: () => void, conversation: Conversation) => ReactNode
 }) {
   const t = createPronunciationTranslator(translations)
   const [conversation, setConversation] = useState(initial)
@@ -147,18 +149,8 @@ export default function PronunciationConversation({ conversation: initial, staff
   const buttonClass = 'inline-flex min-h-12 min-w-12 items-center justify-center gap-2 rounded-xl border border-[var(--border)] bg-[var(--surface)] px-3 py-2 text-base font-semibold transition-colors hover:bg-[var(--surface-muted)] disabled:opacity-50'
   const title = staff ? conversation.studentName ?? t('student_label') : conversation.title ?? t('conversation_title')
 
-  return <article className={`min-w-0 overflow-hidden rounded-3xl border bg-[var(--surface)] ${conversation.hasUnseen ? 'border-[var(--accent)]' : 'border-[var(--border)]'}`}>
-    <button type="button" onClick={() => { followLatest.current = true; setVisited(true); setOpen(true) }} aria-haspopup="dialog"
-      className="flex min-h-20 w-full items-center gap-4 p-5 text-left sm:p-6">
-      <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[var(--surface-muted)] text-[var(--accent-text)]"><MessageCircle size={23} aria-hidden="true" /></span>
-      <span className="min-w-0 flex-1"><span className="block truncate text-lg font-semibold">{title}</span>
-        <span className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-base text-[var(--muted)]">
-          <span>{conversation.level}</span><span>{conversation.createdAt ? new Date(conversation.createdAt).toLocaleDateString(lang) : ''}</span>
-          <span className={conversation.status === 'pending' ? 'text-[var(--accent-text)]' : ''}>{t(conversation.status === 'pending' ? 'status_pending' : 'status_reviewed')}</span>
-          {conversation.hasUnseen && <span className="font-semibold text-[var(--accent-text)]">{t('new_badge')}</span>}
-        </span>
-      </span>
-    </button>
+  const openDialog = () => { followLatest.current = true; setVisited(true); setOpen(true) }
+  const dialog = <>
     {visited && <PersistentDialog open={open} title={title} closeLabel={t('close_conversation')} dismissible={!busy} onOpen={scrollToLatest} onClose={() => setOpen(false)}>
       <div className="flex shrink-0 items-center justify-between gap-3 border-b border-[var(--border)] px-4 py-2 sm:px-6">
         <div className="min-w-0"><p className="text-base text-[var(--muted)]">{staff ? conversation.title ?? t('conversation_title') : t('conversation_hint')}</p>
@@ -197,5 +189,21 @@ export default function PronunciationConversation({ conversation: initial, staff
         <PronunciationMessageInput conversationId={conversation.id} t={t} onBusyChange={setBusy} onMessageSent={async () => { followLatest.current = true; await refresh() }} />
       </div>
     </PersistentDialog>}
+  </>
+  if (trigger) return <>{trigger(openDialog, conversation)}{dialog}</>
+
+  return <article className={`min-w-0 overflow-hidden rounded-3xl border bg-[var(--surface)] ${conversation.hasUnseen ? 'border-[var(--accent)]' : 'border-[var(--border)]'}`}>
+    <button type="button" onClick={openDialog} aria-haspopup="dialog"
+      className="flex min-h-20 w-full items-center gap-4 p-5 text-left sm:p-6">
+      <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[var(--surface-muted)] text-[var(--accent-text)]"><MessageCircle size={23} aria-hidden="true" /></span>
+      <span className="min-w-0 flex-1"><span className="block truncate text-lg font-semibold">{title}</span>
+        <span className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-base text-[var(--muted)]">
+          <span>{conversation.level}</span><span>{conversation.createdAt ? new Date(conversation.createdAt).toLocaleDateString(lang) : ''}</span>
+          <span className={conversation.status === 'pending' ? 'text-[var(--accent-text)]' : ''}>{t(conversation.status === 'pending' ? 'status_pending' : 'status_reviewed')}</span>
+          {conversation.hasUnseen && <span className="font-semibold text-[var(--accent-text)]">{t('new_badge')}</span>}
+        </span>
+      </span>
+    </button>
+    {dialog}
   </article>
 }

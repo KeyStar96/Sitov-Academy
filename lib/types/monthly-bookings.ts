@@ -24,6 +24,8 @@ export interface ProfileCourse {
   unitPrice: number
   unitMinutes: number
   available: boolean
+  /** Planmäßige Termine im Buchungsmonat (Ausfälle nicht abgezogen); `null` ohne festen Wochentag. */
+  sessions?: number | null
 }
 export interface MonthlySelection {
   courseSelections: CourseSelection[]

@@ -32,8 +32,8 @@ export const completeUploadSchema = z.object({
   asset_id: z.string().uuid(), folder_id: z.string().uuid(),
   title: z.string().trim().min(1).max(180), file: mediaFileSchema,
 }).strict()
-export interface MediaAsset { id: string; title: string; path: string; mime: string; bytes: number; kind: 'videos' | 'presentations'; isActive?: boolean }
-export interface MediaFolder { folder_id: string; level: string; course_id: string | null; title: string; sort_order: number; assets: MediaAsset[] }
+export interface MediaAsset { id: string; title: string; path: string; mime: string; bytes: number; kind: 'videos' | 'presentations'; isActive?: boolean; createdAt?: string | null }
+export interface MediaFolder { folder_id: string; level: string; course_id: string | null; title: string; sort_order: number; created_at?: string; assets: MediaAsset[] }
 export function mediaPath(level: string, folderId: string, assetId: string, format: MediaFormat) {
   return `${level}/${folderId}/${format === 'mp4' || format === 'webm' ? 'videos' : 'presentations'}/${assetId}.${format}`
 }

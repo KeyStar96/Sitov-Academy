@@ -1,14 +1,14 @@
 'use server'
 
-import { publicStorageUrl } from '@/lib/storage-public-url'
+import { loadReplySenderNames, pronunciationPlaybackUrl } from '@/lib/pronunciation-playback-server'
 import { revalidatePath } from 'next/cache'
 import { z } from 'zod'
 import { createClient } from '@/utils/supabase/server'
 import { queueTransactionalEmail } from '@/lib/mail'
 import { getRpcError } from '@/lib/rpc-errors'
 import {
-  createPronunciationSubmissionSchema, pronunciationMessageSchema, pronunciationAudioObjectPath,
-  isOwnedPronunciationAudio, PRIVATE_PRONUNCIATION_BUCKET,
+  createPronunciationSubmissionSchema, pronunciationMessageSchema,
+  isOwnedPronunciationAudio,
   type CreatePronunciationSubmissionInput, type SendPronunciationMessageInput,
   type PronunciationMutationResult, type PronunciationConversation, type PronunciationMessage,
 } from '@/lib/pronunciation-conversations'
@@ -19,16 +19,7 @@ function refreshPronunciation() {
   revalidatePath('/[lang]/admin/submissions', 'page')
   revalidatePath('/[lang]/dashboard', 'page')
 }
-async function playbackUrl(client: Client, reference: string | null): Promise<string | null> {
-  if (!reference) return null
-  const path = pronunciationAudioObjectPath(reference)
-  if (!path) return null
-  try {
-    const { data, error } = await client.storage.from(PRIVATE_PRONUNCIATION_BUCKET).createSignedUrl(path, 3600)
-    if (error) { console.error("Signing pronunciation recording failed"); return null }
-    return publicStorageUrl(data.signedUrl)
-  } catch (error) { console.error("Signing pronunciation recording failed"); return null }
-}
+const playbackUrl = pronunciationPlaybackUrl
 export async function createPronunciationSubmission(input: CreatePronunciationSubmissionInput): Promise<PronunciationMutationResult> {
   const parsed = createPronunciationSubmissionSchema.safeParse(input)
   if (!parsed.success) return { success: false, reason: 'invalid_input' }
@@ -95,25 +86,29 @@ export async function getPronunciationConversations(level?: string, submissionId
     if (!user) return []
     const { data: profile } = await supabase.from('profiles').select('role').eq('id', user.id).single()
     const staff = profile?.role === 'teacher' || profile?.role === 'admin'
-    let query = supabase.from('submissions').select(`id,auth_user_id,level,text_content,content_url,status,created_at,
+    let query = supabase.from('submissions').select(`id,auth_user_id,level,text_content,content_url,status,created_at,prompt_id,
       prompt:learning_reading_texts(unit:learning_units(label)),
-      pronunciation_messages(id,sender_role,text_content,audio_path,created_at,seen_at)`)
+      pronunciation_messages(id,sender_id,sender_role,text_content,audio_path,created_at,seen_at)`)
     if (!staff) query = query.eq('auth_user_id', user.id)
     if (level) query = query.eq('level', level)
     if (submissionId) query = query.eq('id', submissionId)
     const { data, error } = await query.order('created_at', { ascending: false })
     if (error) { console.error("Loading pronunciation conversations failed"); return [] }
     const studentIds = [...new Set((data ?? []).map(row => row.auth_user_id))]
-    const { data: profiles } = studentIds.length ? await supabase.from('people').select('auth_user_id,display_name,email').in('auth_user_id', studentIds) : { data: [] }
+    const [{ data: profiles }, senderNames] = await Promise.all([
+      studentIds.length ? supabase.from('people').select('auth_user_id,display_name,email').in('auth_user_id', studentIds) : Promise.resolve({ data: [] }),
+      staff ? Promise.resolve(new Map<string, string>()) : loadReplySenderNames(supabase),
+    ])
     const people = new Map((profiles ?? []).map(profile => [profile.auth_user_id, profile]))
     const conversations = await Promise.all((data ?? []).map(async (row): Promise<PronunciationConversation> => {
       const messages: PronunciationMessage[] = [{ id: `recording-${row.id}`, senderRole: 'student', text: '', audioUrl: await playbackUrl(supabase, row.content_url), createdAt: row.created_at ?? '', unseen: false }]
       for (const message of row.pronunciation_messages ?? []) {
         const senderRole = message.sender_role === 'teacher' || message.sender_role === 'admin' ? message.sender_role : 'student'
-        messages.push({ id: message.id, senderRole, text: message.text_content, audioUrl: await playbackUrl(supabase, message.audio_path), createdAt: message.created_at, unseen: !message.seen_at && (staff ? senderRole === 'student' : senderRole !== 'student') })
+        messages.push({ id: message.id, senderRole, text: message.text_content, audioUrl: await playbackUrl(supabase, message.audio_path), createdAt: message.created_at, unseen: !message.seen_at && (staff ? senderRole === 'student' : senderRole !== 'student'),
+          ...(staff || senderRole === 'student' ? {} : { senderName: senderNames.get(message.sender_id) ?? null }) })
       }
       messages.sort((a, b) => a.createdAt.localeCompare(b.createdAt) || a.id.localeCompare(b.id))
-      return { id: row.id, level: row.level, title: row.prompt?.unit?.label ?? null, readingText: row.text_content, status: row.status ?? 'pending', studentName: people.get(row.auth_user_id)?.display_name ?? null, studentEmail: staff ? people.get(row.auth_user_id)?.email ?? null : null, createdAt: row.created_at ?? '', messages, hasUnseen: messages.some((message) => message.unseen) }
+      return { id: row.id, level: row.level, title: row.prompt?.unit?.label ?? null, promptId: row.prompt_id, readingText: row.text_content, status: row.status ?? 'pending', studentName: people.get(row.auth_user_id)?.display_name ?? null, studentEmail: staff ? people.get(row.auth_user_id)?.email ?? null : null, createdAt: row.created_at ?? '', messages, hasUnseen: messages.some((message) => message.unseen) }
     }))
     return conversations.sort((a, b) => (b.messages.at(-1)?.createdAt ?? '').localeCompare(a.messages.at(-1)?.createdAt ?? ''))
   } catch (error) { console.error("Loading pronunciation conversations failed"); return [] }

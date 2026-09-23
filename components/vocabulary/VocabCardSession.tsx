@@ -21,6 +21,7 @@ import { cn } from '@/lib/utils'
 import { lessonLabel } from '@/lib/vocabulary-own-words'
 import VisualDiff from '@/components/exercises/VisualDiff'
 import SoftErrorBadge from '@/components/exercises/SoftErrorBadge'
+import { SessionBoxMoves, type SessionMove } from './SuccessMoments'
 import type { SoftErrorReason } from '@/lib/answer-grading'
 
 interface VocabCardSessionProps {
@@ -54,6 +55,8 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
   const [queue, setQueue] = useState<SessionItem[]>(() => plan.cards.map(card => ({ card, retry: false, key: card.progressId })))
   const queueRef = useRef(queue)
   const [retryCount, setRetryCount] = useState(0)
+  // Wohin die Karten dieser Runde gewandert sind — für den Abschluss-Moment.
+  const [moves, setMoves] = useState<SessionMove[]>([])
   const [retryFailed, setRetryFailed] = useState(false)
   const [index, setIndex] = useState(0)
   const indexRef = useRef(0)
@@ -133,6 +136,10 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
         // Nur der erste Versuch zählt; war er falsch, wird bis zur ersten
         // richtigen Antwort in dieser Sitzung wiederholt.
         if (result.isCorrect === false) enqueueRetry(item.card, result.newPhase)
+        if (result.previousPhase && result.newPhase) {
+          const move: SessionMove = { from: result.previousPhase, to: result.newPhase, learned: result.becameLearned === true }
+          setMoves(previous => [...previous, move])
+        }
         if (item.kind === 'self') {
           moveToNextCard()
         } else {
@@ -291,6 +298,7 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
         <p>{t('session_done_text')}</p>
         {retryCount > 0 && <p>{t('session_done_retry')}</p>}
         {plan.deferredCount + initialDeferredCount > 0 && <p>{t('repetition_gap_hint')}</p>}
+        <SessionBoxMoves lang={uiLanguage} moves={moves} />
         <button type="button" className="learning-button learning-button-primary" onClick={goBack}>{t('lernkasten_back')}</button>
       </div> : <>
         <div className="learning-meta">

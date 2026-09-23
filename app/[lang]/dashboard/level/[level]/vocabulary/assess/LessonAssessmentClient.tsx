@@ -10,6 +10,7 @@ import type { VocabularyAssessmentCard } from '@/lib/types/vocabulary'
 import { createOrderedWriteQueue, type OrderedWriteQueue } from '@/lib/vocabulary-write-queue'
 import { cn, stripLessonPrefix } from '@/lib/utils'
 import LearningScreen, { LearningStats } from '@/components/vocabulary/LearningScreen'
+import { AssessmentResult } from '@/components/vocabulary/SuccessMoments'
 
 export type AssessmentCard = VocabularyAssessmentCard
 interface LessonAssessmentClientProps {
@@ -171,6 +172,7 @@ export default function LessonAssessmentClient({ learnerId, cards, lessonName, l
         </div>}
       </> : <div className="learning-card learning-complete" aria-live="polite">
         <h2>{t('assess_done_title')}</h2>
+        <AssessmentResult lang={lang} known={counts.known} fresh={counts.fresh} />
         {counts.fresh === 0 && <p>{t('assess_done_summary', { known: counts.known, new: counts.fresh })}</p>}
         <button className="learning-button" onClick={finishAssessment}>{t(counts.fresh > 0 ? 'go_to_training' : 'back_to_overview')}</button>
       </div>}

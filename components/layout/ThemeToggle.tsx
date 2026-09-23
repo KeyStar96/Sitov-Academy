@@ -7,7 +7,12 @@ import AppearanceOptions from './AppearanceOptions'
 import { useAppearanceCopy } from './AppearanceProvider'
 
 /** One compact entry point for light, dark and the independent contrast preference. */
-export default function ThemeToggle({ lightLabel, darkLabel }: { lightLabel: string; darkLabel: string }) {
+export default function ThemeToggle({ lightLabel, darkLabel, label }: {
+  lightLabel: string
+  darkLabel: string
+  /** Sichtbares Wort unter dem Symbol (Kopfzeile der Lernplattform); ohne bleibt es ein reines Symbol. */
+  label?: string
+}) {
   const copy = useAppearanceCopy()
   const [open, setOpen] = useState(false)
   const [position, setPosition] = useState<CSSProperties>({ visibility: 'hidden' })
@@ -66,8 +71,9 @@ export default function ThemeToggle({ lightLabel, darkLabel }: { lightLabel: str
     }} onBlur={event => {
       if (event.relatedTarget instanceof Node && !event.currentTarget.contains(event.relatedTarget) && !panel.current?.contains(event.relatedTarget)) setOpen(false)
     }}>
-      <button ref={trigger} type="button" onClick={() => setOpen(value => !value)} className="academy-icon-button" aria-label={copy.title} title={copy.title} aria-expanded={open} aria-haspopup="dialog" aria-controls={open ? id : undefined}>
+      <button ref={trigger} type="button" onClick={() => setOpen(value => !value)} className={label ? 'st-toolbar-button st-press' : 'academy-icon-button'} aria-label={copy.title} title={copy.title} aria-expanded={open} aria-haspopup="dialog" aria-controls={open ? id : undefined}>
         <Contrast className="h-5 w-5" aria-hidden="true" />
+        {label && <span aria-hidden="true">{label}</span>}
       </button>
       {/* A body portal escapes the mobile menu's scrolling/clipping container. */}
       {open && createPortal(<div ref={panel} id={id} role="dialog" aria-labelledby={`${id}-title`} className="academy-appearance-panel fixed z-[1000] w-[min(20rem,calc(100vw-2rem))] overflow-y-auto overscroll-contain rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-4 text-[var(--foreground)] shadow-xl [overflow-wrap:break-word]" style={position}>

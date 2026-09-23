@@ -64,7 +64,13 @@ jest.mock('framer-motion', () => {
         for (const key in props) if (!ANIM_PROPS.has(key)) out[key] = props[key];
         return out;
     };
-    const make = (tag: any) => ({ children, ...props }: any) => React.createElement(tag, strip(props), children);
+    // One stable component per tag: a fresh function per access would remount
+    // the subtree on every render and wipe the state of everything inside.
+    const components = new Map<any, any>();
+    const make = (tag: any) => {
+        if (!components.has(tag)) components.set(tag, ({ children, ...props }: any) => React.createElement(tag, strip(props), children));
+        return components.get(tag);
+    };
     const motion: any = new Proxy(
         { create: (Component: any) => make(Component) },
         { get: (target, key: string) => (key in target ? (target as any)[key] : make(key)) },

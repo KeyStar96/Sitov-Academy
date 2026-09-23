@@ -17,6 +17,8 @@ interface SolutionAudioButtonProps {
   ariaLabel: string
   variant?: 'primary' | 'secondary'
   onUnsupported?: () => void
+  /** Abspielstand (0–1) für die Mitlese-Hervorhebung; `null`, sobald nichts mehr läuft. */
+  onProgress?: (fraction: number | null) => void
 }
 
 // 10 ms of PCM silence. An actual play() in the tap unlocks this same native
@@ -30,7 +32,7 @@ export default function SolutionAudioButton(props: SolutionAudioButtonProps) {
   return <NeuralAudioPlayer key={neuralAudioKey(source)} {...source} />
 }
 
-function NeuralAudioPlayer({ text, audioUrl, cardId, language, label, ariaLabel, variant = 'primary', onUnsupported }: SolutionAudioButtonProps & { language: NeuralAudioLanguage }) {
+function NeuralAudioPlayer({ text, audioUrl, cardId, language, label, ariaLabel, variant = 'primary', onUnsupported, onProgress }: SolutionAudioButtonProps & { language: NeuralAudioLanguage }) {
   const copy = useAudioFeedback()
   const source = useRef<NeuralAudioSource>({ text, audioUrl, cardId, language }).current
   const [url, setUrl] = useState(() => cachedNeuralAudio(source))
@@ -161,8 +163,13 @@ function NeuralAudioPlayer({ text, audioUrl, cardId, language, label, ariaLabel,
             setIsPlaying(true); setLoading(false); pendingRef.current = false
           }
         }}
-        onPause={() => { if (!primingRef.current) setIsPlaying(false) }}
-        onEnded={() => { if (!primingRef.current) { setIsPlaying(false); setLoading(false) } }}
+        onTimeUpdate={() => {
+          const audio = audioRef.current
+          if (!onProgress || !audio || primingRef.current || !audio.duration) return
+          onProgress(Math.min(1, audio.currentTime / audio.duration))
+        }}
+        onPause={() => { if (!primingRef.current) { setIsPlaying(false); onProgress?.(null) } }}
+        onEnded={() => { if (!primingRef.current) { setIsPlaying(false); setLoading(false); onProgress?.(null) } }}
         onError={() => {
           if (!primingRef.current && audioRef.current?.getAttribute('src')) {
             cancel(); setError(true)

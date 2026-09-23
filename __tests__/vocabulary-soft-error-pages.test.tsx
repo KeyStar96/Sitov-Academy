@@ -25,7 +25,7 @@ beforeEach(() => {
   localStorage.clear()
   jest.mocked(getDictionary).mockResolvedValue(ru)
   jest.mocked(getVocabularySession).mockResolvedValue({ learnerId: 'learner', cards: [card], deferredCount: 0, previousCardId: null })
-  jest.mocked(getVocabularyOverview).mockResolvedValue({ stats: [], box: summarizeBox([]) })
+  jest.mocked(getVocabularyOverview).mockResolvedValue({ stats: [], box: summarizeBox([]), dueCards: 0 })
 })
 it('passes the selected dictionary through the overview and session start', async () => {
   const page = await VocabularyPage({ params: Promise.resolve({ lang: 'ru', level: 'A1.1' }) })

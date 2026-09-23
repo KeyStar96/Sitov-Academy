@@ -1,5 +1,5 @@
 import React from 'react'
-import { act, fireEvent, render, screen } from '@testing-library/react'
+import { act, fireEvent, render, screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import ExerciseClient from '@/components/exercises/ExerciseClient'
 import ExerciseCMS from '@/components/admin/ExerciseCMS'
@@ -10,6 +10,8 @@ import type { GrammarExerciseRow } from '@/lib/grammar-validation'
 import russian from '@/dictionaries/ru.json'
 
 jest.unmock('lucide-react')
+// Ganze Lernabläufe mit simuliertem Tippen dauern unter Last länger als 5 s.
+jest.setTimeout(20000)
 jest.mock('@/components/exercises/GrammarStudio.module.css', () => ({}))
 jest.mock('@/app/actions/exercises', () => ({ recordExerciseAttempt: jest.fn(), finishExerciseSession: jest.fn() }))
 jest.mock('@/app/actions/grammar-cms', () => ({ saveGrammarExercise: jest.fn(), removeGrammarExercise: jest.fn() }))
@@ -38,34 +40,26 @@ beforeEach(() => {
   }))
   jest.mocked(finishExerciseSession).mockResolvedValue({ success: true })
   HTMLElement.prototype.scrollIntoView = jest.fn()
+  // Die meisten Fälle tippen; die Kärtchen haben einen eigenen Test.
+  window.localStorage.setItem('sitov:grammar-input', 'typing')
 })
-it('positions each new card below the actual sticky header and preserves keyboard focus', async () => {
+it('runs the session in the focused learning screen and moves focus to every new exercise', async () => {
   const user = userEvent.setup()
-  jest.spyOn(HTMLElement.prototype, 'getBoundingClientRect').mockImplementation(function (this: HTMLElement) {
-    const top = this.classList.contains('academy-student-header') ? 0 : 480
-    const height = this.classList.contains('academy-student-header') ? 180 : 32
-    return { x: 0, y: top, top, bottom: top + height, left: 0, right: 390, width: 390, height, toJSON: () => ({ top, height }) }
-  })
-  render(<><header className="academy-student-header" /><ExerciseClient exercises={[fill, item]} lang="de" level="A1.1" /></>)
-
-  expect(window.scrollTo).not.toHaveBeenCalled()
+  render(<ExerciseClient exercises={[fill, item]} lang="de" level="A1.1" />)
+  expect(screen.queryByRole('region', { name: 'Grammatik' })).not.toBeInTheDocument()
   await user.click(screen.getByRole('button', { name: 'Mit offenen Aufgaben starten' }))
+  expect(screen.getByRole('region', { name: 'Grammatik' })).toBeInTheDocument()
   const firstHeading = screen.getByRole('heading', { name: 'Artikel', level: 2 })
   expect(firstHeading).toHaveFocus()
-  expect(window.scrollTo).toHaveBeenLastCalledWith({ top: 284, behavior: 'smooth' })
 
   await user.type(screen.getByRole('textbox', { name: 'Lücke' }), 'ein Tisch')
   await user.click(screen.getByRole('button', { name: 'Antwort prüfen' }))
-  expect(window.scrollTo).toHaveBeenCalledTimes(1)
   expect(screen.queryByRole('textbox', { name: 'Lücke' })).not.toBeInTheDocument()
 
   const next = screen.getByRole('button', { name: 'Nächste Übung' })
   expect(next).toHaveFocus()
-  next.focus()
   await user.keyboard('{Enter}')
-  expect(screen.getByRole('heading', { name: 'Artikel', level: 2 })).toBe(firstHeading)
-  expect(firstHeading).toHaveFocus()
-  expect(window.scrollTo).toHaveBeenCalledTimes(2)
+  expect(screen.getByRole('heading', { name: 'Artikel', level: 2 })).toHaveFocus()
   expect(screen.getByRole('button', { name: 'Antwort prüfen' })).toBeDisabled()
   expect(screen.queryByText('Richtig! Gut gemacht.')).not.toBeInTheDocument()
 
@@ -73,15 +67,45 @@ it('positions each new card below the actual sticky header and preserves keyboar
   await user.click(screen.getByRole('button', { name: 'Antwort prüfen' }))
   await user.click(screen.getByRole('button', { name: 'Lerneinheit abschließen' }))
   expect(screen.getByRole('heading', { name: 'Ein guter Schritt nach vorn.' })).toHaveFocus()
-  expect(window.scrollTo).toHaveBeenCalledTimes(3)
-})
-it('moves to the exercise without animation when reduced motion is preferred', async () => {
-  const media = window.matchMedia('(prefers-reduced-motion: reduce)')
-  jest.spyOn(window, 'matchMedia').mockReturnValue({ ...media, matches: true })
-  render(<ExerciseClient exercises={[item]} lang="de" level="A1.1" />)
-  fireEvent.click(screen.getByRole('button', { name: 'Mit offenen Aufgaben starten' }))
-  expect(window.scrollTo).toHaveBeenLastCalledWith({ top: 0, behavior: 'instant' })
-  expect(screen.getByRole('heading', { name: 'Artikel', level: 2 })).toHaveFocus()
+}, 20000)
+it('offers word cards by default: tapping fills the gap in order and the answer is checked by the server', async () => {
+  const user = userEvent.setup()
+  window.localStorage.removeItem('sitov:grammar-input')
+  render(<ExerciseClient exercises={[fill]} lang="de" level="A1.1" />)
+  await user.click(screen.getByRole('button', { name: 'Mit offenen Aufgaben starten' }))
+  expect(screen.getByRole('button', { name: 'Kärtchen' })).toHaveAttribute('aria-pressed', 'true')
+  expect(screen.queryByRole('textbox', { name: 'Lücke' })).not.toBeInTheDocument()
+  expect(screen.getByRole('button', { name: 'Antwort prüfen' })).toBeDisabled()
+  await user.click(screen.getByRole('button', { name: '„ein" einsetzen' }))
+  await user.click(screen.getByRole('button', { name: '„Tisch" einsetzen' }))
+  expect(within(screen.getByRole('group', { name: 'Lücke' })).getAllByRole('button').map(button => button.textContent)).toEqual(['ein', 'Tisch'])
+  await user.click(screen.getByRole('button', { name: '„ein" wieder herausnehmen' }))
+  await user.click(screen.getByRole('button', { name: '„ein" einsetzen' }))
+  expect(within(screen.getByRole('group', { name: 'Lücke' })).getAllByRole('button').map(button => button.textContent)).toEqual(['Tisch', 'ein'])
+  await user.click(screen.getByRole('button', { name: 'Neu beginnen' }))
+  await user.click(screen.getByRole('button', { name: '„ein" einsetzen' }))
+  await user.click(screen.getByRole('button', { name: '„Tisch" einsetzen' }))
+  await user.click(screen.getByRole('button', { name: 'Antwort prüfen' }))
+  expect(recordExerciseAttempt).toHaveBeenCalledWith({ exerciseId: fill.id, answer: 'ein Tisch', hintShown: false })
+  await user.click(screen.getByRole('button', { name: 'Lerneinheit abschließen' }))
+  expect(screen.getByRole('heading', { name: 'Ein guter Schritt nach vorn.' })).toBeInTheDocument()
+}, 20000)
+it('remembers typing as the preferred input and shows the article colours and the endings table where they help', async () => {
+  const user = userEvent.setup()
+  window.localStorage.removeItem('sitov:grammar-input')
+  const verbs: StudentExercise = { ...fill, id: 'a611d604-4b69-4040-a12c-451f8c5e1653', topic: 'Verben im Präsens',
+    content: { target_form: ['lernen'], text_before: 'Du ', text_after: ' Deutsch.', correct_answer: 'lernst' }, chips: ['lernst', 'lernt'] }
+  render(<ExerciseClient exercises={[item, verbs]} lang="de" level="A1.1" />)
+  await user.click(screen.getByRole('button', { name: 'Artikel: Thema üben' }))
+  expect(screen.getByRole('note', { name: 'Artikel-Farben' })).toHaveTextContent('der')
+  await user.click(screen.getByRole('button', { name: 'Zurück' }))
+  await user.click(screen.getByRole('button', { name: 'Verben im Präsens: Thema üben' }))
+  expect(screen.queryByRole('note', { name: 'Artikel-Farben' })).not.toBeInTheDocument()
+  expect(screen.getByText('Endungen im Präsens').closest('details')).toHaveAttribute('open')
+  expect(screen.getByRole('rowheader', { name: 'du' }).closest('tr')).toHaveAttribute('data-active', 'true')
+  await user.click(screen.getByRole('button', { name: 'Tippen' }))
+  expect(window.localStorage.getItem('sitov:grammar-input')).toBe('typing')
+  expect(screen.getByRole('textbox', { name: 'Lücke' })).toBeInTheDocument()
 })
 it.each([
   { name: 'fill-in-blank', exercise: fill, wrong: 'eine Tisch', answer: 'ein Tisch', reduced: false },
@@ -154,7 +178,7 @@ it.each([
   await act(async () => finish({ success: true, attempts: 1, isCorrect: false, status: 'INCORRECT', matched: null, reason: null, score: 0 }))
   expect(screen.queryByRole('button', { name: 'Lerneinheit abschließen' })).not.toBeInTheDocument()
   expect(screen.getByText('Fast! Versuche es noch einmal.')).toBeVisible()
-  fireEvent.click(screen.getByRole('button', { name: 'Zur Themenübersicht' }))
+  fireEvent.click(screen.getByRole('button', { name: 'Zurück' }))
   expect(screen.getByRole('button', { name: 'Mit offenen Aufgaben starten' })).toBeVisible()
 })
 

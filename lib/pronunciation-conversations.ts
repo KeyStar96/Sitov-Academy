@@ -12,9 +12,13 @@ export type SendPronunciationMessageInput = z.infer<typeof pronunciationMessageS
 export interface PronunciationMutationResult { success: boolean; id?: string; reason?: 'not_authenticated' | 'invalid_input' | 'save_failed' }
 export interface PronunciationMessage {
   id: string; senderRole: 'student' | 'teacher' | 'admin'; text: string; audioUrl: string | null; createdAt: string; unseen: boolean;
+  /** Anzeigename der antwortenden Lehrkraft (nur in der Ansicht der Lernenden, Migration 24). */
+  senderName?: string | null;
 }
 export interface PronunciationConversation {
   id: string; level: string; title: string | null; readingText: string | null; status: string;
+  /** Vorgelesener Text; ordnet das Gespräch im Sprechstudio seinem Text zu. */
+  promptId?: string | null;
   studentName: string | null; studentEmail: string | null; createdAt: string; messages: PronunciationMessage[]; hasUnseen: boolean;
 }
 export function pronunciationAudioObjectPath(reference: string): string | null {

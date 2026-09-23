@@ -3,6 +3,8 @@
 import { useEffect, useState } from 'react'
 import { AlertCircle, ArrowRight, CheckCircle2, Info } from 'lucide-react'
 import { useSolvedActionFocus } from '@/components/exercises/useSolvedActionFocus'
+import { ArticleColored, articleWord } from '@/components/exercises/GrammarAids'
+import { articleColorClass } from '@/lib/vocabulary-ui'
 import SolutionAudioButton from '@/components/exercises/SolutionAudioButton'
 import type { ExerciseTranslator } from '@/lib/exercise-i18n'
 import type { ConfirmedExerciseAttempt, MultipleChoiceExercise as MultipleChoiceExerciseData } from '@/lib/types/exercise'
@@ -94,7 +96,8 @@ export default function MultipleChoiceExerciseCard({
                 !isCorrectAndSolved && !isExcluded && !isSelected && 'border-[var(--border)]  bg-[var(--surface)]  text-[var(--foreground)]  hover:border-[var(--violet)]  hover:bg-[var(--surface-muted)] '
               )}
             >
-              {option}
+              {articleWord(option) && <span aria-hidden="true" className={cn('st-word-tile__dot mr-3 shrink-0', !isSelected && articleColorClass(articleWord(option)))} />}
+              {isSelected ? option : <ArticleColored word={option} />}
             </button>
           )
         })}

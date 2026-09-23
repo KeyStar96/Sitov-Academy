@@ -1,17 +1,13 @@
 import React from 'react'
 import { render, screen, fireEvent, waitFor, within } from '@testing-library/react'
 import { hasTrainerAccess, hasConfiguredTrainerAccess, getAllowedLessons, TRAINERS, type LevelAccessProfile } from '@/lib/access/levels'
-import LevelTrainerCards from '@/components/dashboard/LevelTrainerCards'
+import TrainerStatusTiles from '@/components/dashboard/TrainerStatusTiles'
+import { studentTranslator } from '@/lib/student-ui-i18n'
 import StudentList from '@/components/admin/StudentList'
 import { AdminI18nProvider } from '@/components/admin/AdminI18nProvider'
 import { getAvailableLessons, updateStudentTrainerAccess, updateStudentAllowedLevels } from '@/app/actions/admin'
 import type { AdminStudentRow } from '@/lib/types/admin-staff'
 import de from '@/dictionaries/de.json'
-import en from '@/dictionaries/en.json'
-import ru from '@/dictionaries/ru.json'
-import uk from '@/dictionaries/uk.json'
-import tr from '@/dictionaries/tr.json'
-import { mediaCopy } from '@/lib/media-i18n'
 
 jest.unmock('lucide-react')
 jest.mock('@/app/actions/admin', () => ({ getAvailableLessons: jest.fn(), updateStudentTrainerAccess: jest.fn(), updateStudentRole: jest.fn(), updateStudentAllowedLevels: jest.fn() }))
@@ -43,17 +39,22 @@ test('empty unit selections lock learner cards while teacher configuration remai
  expect(hasTrainerAccess({...profile,ui_language:'ru'},'A1.1','pronunciation')).toBe(false)
  expect(getAllowedLessons({...profile,ui_language:'ru'},'A1.1','pronunciation')).toEqual([])
 })
-describe('Student trainer cards', () => {
- test.each([['de',de],['en',en],['ru',ru],['uk',uk],['tr',tr]] as const)('locked card has label and no navigation in %s', (lang,dict) => {
-  render(<LevelTrainerCards lang={lang} level="A1.1" profile={denied} translations={dict.dashboard} />)
-  const locked=screen.getByRole('heading',{name:dict.dashboard.cat_exercises_title}).closest('article')!
-  expect(locked).toHaveAttribute('aria-disabled','true')
-  expect(within(locked).getByText(dict.dashboard.trainer_locked_badge)).toBeVisible()
-  expect(within(locked).queryByRole('link')).toBeNull()
-  expect(locked.querySelector('svg')).not.toBeNull()
-  expect(screen.getAllByRole('link')).toHaveLength(lang === 'de' ? 3 : 4)
-  expect(screen.getByRole('heading', { name: dict.dashboard.cat_videos_title }).closest('a')).toHaveAttribute('href', `/${lang}/dashboard/level/A1.1/videos`)
-  expect(screen.getByRole('link', { name: `${mediaCopy(lang).title} ${mediaCopy(lang).intro}` })).toHaveAttribute('href', `/${lang}/dashboard/level/A1.1/media`)
+describe('Student trainer tiles', () => {
+ const status = (locked: boolean) => ({ level: 'A1.1', lessons: [],
+  vocabulary: { locked: false, due: 3, activeWords: 10, total: 20, learned: 0 },
+  grammar: { locked, total: 0, solved: 0, topics: 0, openTopics: 0 },
+  pronunciation: { locked: false, texts: 2, open: 2, waiting: 0, unread: 0 },
+  media: { locked: false, total: 1, fresh: 0 } })
+ test.each(['de', 'en', 'ru', 'uk', 'tr'] as const)('a locked tile has a label and no navigation in %s', lang => {
+  const t = studentTranslator(lang)
+  render(<TrainerStatusTiles lang={lang} level="A1.1" status={status(true)} languageLocked={false} />)
+  const locked = screen.getByText(t('area_grammar')).closest('[aria-disabled="true"]')!
+  expect(locked).not.toBeNull()
+  expect(within(locked as HTMLElement).getByText(t('status_locked'))).toBeVisible()
+  expect(within(locked as HTMLElement).queryByRole('link')).toBeNull()
+  expect(screen.getAllByRole('link')).toHaveLength(3)
+  expect(screen.getByText(t('area_media')).closest('a')).toHaveAttribute('href', `/${lang}/dashboard/level/A1.1/videos`)
+  expect(screen.getByText(t('area_vocabulary')).closest('a')).toHaveTextContent(t.count('status_vocab_due', 3))
  })
 })
 describe('Teacher trainer controls', () => {

@@ -3,6 +3,7 @@ import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import VideoCMS from '@/components/admin/VideoCMS'
 import VideoLibrary from '@/components/dashboard/VideoLibrary'
+import { buildMediaLibrary } from '@/lib/media-library'
 import { setVideoVisibility } from '@/app/actions/media'
 import { addVideo, updateVideo } from '@/app/actions/cms'
 import { VIDEO_FALLBACKS as copy } from '@/lib/videos-i18n'
@@ -54,19 +55,20 @@ it('saves a URL-less draft but requires a URL when publication is selected', asy
 })
 
 it('shows an active DW resource as an outbound link and keeps empty drafts out of the student library', () => {
-  render(<VideoLibrary videos={[item, { ...item, id: 'draft', title: 'Unfertig', source_url: null, is_active: false }]} lang="ru" level="A1.1" translations={{}} />)
+  render(<VideoLibrary {...buildMediaLibrary({ videos: [item, { ...item, id: 'draft', title: 'Unfertig', source_url: null, is_active: false }], folders: [], looseTitle: 'Weitere Videos' })} lang="ru" level="A1.1" translations={{}} />)
   const link = screen.getByRole('link', { name: '„Hallo“ in einem neuen Fenster öffnen' })
   expect(link).toHaveAttribute('href', item.source_url)
   expect(link).toHaveAttribute('rel', 'noopener noreferrer')
-  expect(screen.getByText(copy.watch_resource)).toBeInTheDocument()
+  expect(screen.getByText(copy.external_privacy)).toBeInTheDocument()
   expect(screen.queryByText('Unfertig')).not.toBeInTheDocument()
 })
 
 it('shows published MP4 uploads without an external URL and hides unpublished uploads', () => {
   const uploaded = { ...item, source_url: null, storage_path: 'A1.1/folder/videos/video.mp4', file_size: 1024 }
-  render(<VideoLibrary videos={[uploaded, { ...uploaded, id: 'hidden', title: 'Hidden upload', is_active: false }]} lang="en" level="A1.1" translations={{}} />)
+  render(<VideoLibrary {...buildMediaLibrary({ videos: [uploaded, { ...uploaded, id: 'hidden', title: 'Hidden upload', is_active: false }], folders: [], looseTitle: 'More videos' })} lang="en" level="A1.1" translations={{}} />)
   expect(screen.getByText('Hallo')).toBeInTheDocument()
-  expect(screen.getByRole('button', { name: 'Open' })).toBeInTheDocument()
+  expect(screen.getByRole('heading', { name: 'More videos' })).toBeInTheDocument()
+  expect(screen.getByRole('button', { name: /Hallo/ })).toHaveAttribute('aria-haspopup', 'dialog')
   expect(screen.queryByText('Hidden upload')).not.toBeInTheDocument()
   expect(screen.queryByText(copy.empty_internal)).not.toBeInTheDocument()
 })

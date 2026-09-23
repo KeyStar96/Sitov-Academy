@@ -430,9 +430,13 @@ export async function getLessonStats(level?: string): Promise<LessonStat[]> {
  * getrennte Aufrufe auf derselben Seite hätten Katalog und Lernstand doppelt
  * gelesen — bei tausenden Vokabeln pro Niveau lohnt sich der gemeinsame Pass.
  */
-export async function getVocabularyOverview(level?: string): Promise<{ stats: LessonStat[]; box: VocabularyBoxSummary }> {
+export async function getVocabularyOverview(level?: string): Promise<{ stats: LessonStat[]; box: VocabularyBoxSummary; dueCards: number }> {
   const words = await readWordBox(level, null)
-  return { stats: summarizeLessons(lessonEntries(words)), box: summarizeBox((words ?? []).map(word => word.state)) }
+  // Fällige *Karten* (Richtungen) wie der Start-Knopf der Lernbox zählt; die
+  // Fächer zählen fällige Wörter. Die Startseite spricht von Karten.
+  const dueCards = (words ?? []).reduce((sum, { state }) => sum
+    + (state ? Number(state.directions.de_to_native.isDue) + Number(state.directions.native_to_de.isDue) : 0), 0)
+  return { stats: summarizeLessons(lessonEntries(words)), box: summarizeBox((words ?? []).map(word => word.state)), dueCards }
 }
 
 const bucketKeySchema = z.union([z.literal('learned'), z.number().int().min(1).max(6)])

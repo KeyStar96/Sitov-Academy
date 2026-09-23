@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback, useEffect, useState, type KeyboardEvent } from 'react'
+import { useCallback, useEffect, useRef, useState, type KeyboardEvent } from 'react'
 import { Loader2, Pause, Play, RotateCcw } from 'lucide-react'
 import FluidWaveform from '@/components/audio/FluidWaveform'
 import { useAudioPlayback } from '@/lib/audio/useAudioPlayback'
@@ -25,6 +25,7 @@ export default function WaveformPlayer({
   t,
   label,
   compact = false,
+  onProgress,
 }: {
   src: string | null
   /** Rohdaten der eigenen Aufnahme – auf iOS zuverlässiger zu dekodieren als nur die Blob-URL. */
@@ -33,6 +34,8 @@ export default function WaveformPlayer({
   t?: PronunciationTranslator
   label?: string
   compact?: boolean
+  /** Abspielstand für Mitlese-Hervorhebung und „gehört"-Markierung. */
+  onProgress?: (state: { playing: boolean; fraction: number; ended: boolean }) => void
 }) {
   const translate: PronunciationTranslator = t ?? defaultTranslator
   const [speedIndex, setSpeedIndex] = useState(0)
@@ -40,6 +43,13 @@ export default function WaveformPlayer({
 
   const playback = useAudioPlayback(src, speed, blob)
   useEffect(() => () => playback.pause(), [playback.pause])
+  const progressCallback = useRef(onProgress)
+  progressCallback.current = onProgress
+  const fraction = playbackProgress(playback.currentTime, playback.duration)
+  const ended = !playback.isPlaying && playback.duration > 0 && playback.currentTime >= playback.duration - 0.05
+  useEffect(() => {
+    progressCallback.current?.({ playing: playback.isPlaying, fraction, ended })
+  }, [playback.isPlaying, fraction, ended])
 
   const getVolume = useCallback((): number => {
     if (!playback.isPlaying) return 0
@@ -75,7 +85,7 @@ export default function WaveformPlayer({
   }
   if (!src) return null
 
-  const progress = playbackProgress(playback.currentTime, playback.duration)
+  const progress = fraction
   const playbackBlocked = playback.error !== null
 
   return (

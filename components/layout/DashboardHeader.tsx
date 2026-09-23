@@ -3,7 +3,7 @@
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import { ChevronRight, ArrowLeft } from 'lucide-react'
-import { mediaCopy } from '@/lib/media-i18n'
+import { studentTranslator } from '@/lib/student-ui-i18n'
 import {
   createDashboardTranslator,
   DASHBOARD_ROUTE_KEYS,
@@ -22,6 +22,7 @@ export default function DashboardHeader({
 }) {
   const pathname = usePathname()
   const t = createDashboardTranslator(translations)
+  const s = studentTranslator(lang)
 
   const segments = pathname.split('/').filter(Boolean)
   const dashboardIndex = segments.indexOf('dashboard')
@@ -40,7 +41,9 @@ export default function DashboardHeader({
 
     const decodedSegment = decodeURIComponent(segment)
     const routeKey = DASHBOARD_ROUTE_KEYS[segment as DashboardRouteSegment]
-    const displayName = segment === 'media' ? mediaCopy(lang).title : routeKey ? t(routeKey) : decodedSegment
+    // Mediathek (videos/media) und Kalender tragen die Namen aus der App-Leiste.
+    const displayName = segment === 'media' || segment === 'videos' ? s('media_title')
+      : segment === 'calendar' ? s('calendar_title') : routeKey ? t(routeKey) : decodedSegment
 
     breadcrumbs.push({
       name: displayName,
@@ -48,15 +51,26 @@ export default function DashboardHeader({
     })
   }
 
-  const backHref = breadcrumbs.length > 1 ? breadcrumbs[breadcrumbs.length - 2].href : null
+  const parent = breadcrumbs.length > 1 ? breadcrumbs[breadcrumbs.length - 2] : null
   const currentName = breadcrumbs[breadcrumbs.length - 1]?.name ?? t('nav_dashboard')
 
   return (
     <div className="flex min-w-0 w-full items-center gap-2 md:w-auto md:flex-1 md:gap-3">
-      {backHref ? (
+      {/* Handy: „Wo bin ich?" in einem Satz — zurück steht mit Namen da, nicht nur als Pfeil. */}
+      {parent ? (
         <Link
-          href={backHref}
-          className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl text-[var(--muted)] transition-colors hover:bg-[var(--surface-muted)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
+          href={parent.href}
+          className="st-back-pill st-press md:hidden"
+          aria-label={s('nav_back_to', { name: parent.name })}
+        >
+          <ArrowLeft size={20} aria-hidden="true" />
+          <span className="truncate">{parent.name}</span>
+        </Link>
+      ) : null}
+      {parent ? (
+        <Link
+          href={parent.href}
+          className="hidden h-12 w-12 shrink-0 items-center justify-center rounded-xl text-[var(--muted)] transition-colors hover:bg-[var(--surface-muted)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] md:flex"
           aria-label={t('nav_back_aria')}
           title={t('nav_back')}
         >
@@ -88,7 +102,8 @@ export default function DashboardHeader({
         </ol>
       </nav>
 
-      <h1 aria-current="page" className="min-w-0 truncate text-base font-semibold text-[var(--foreground)] md:hidden">{currentName}</h1>
+      {parent && <ChevronRight size={16} className="shrink-0 text-[var(--muted)] md:hidden" aria-hidden="true" />}
+      <h1 aria-current="page" className="min-w-0 truncate text-base font-bold text-[var(--foreground)] md:hidden">{currentName}</h1>
     </div>
   )
 }

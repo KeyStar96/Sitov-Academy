@@ -20,13 +20,13 @@ jest.unmock('lucide-react')
 jest.mock('@/components/vocabulary/VocabTrainerPageClient', () => () => null)
 jest.mock('@/components/vocabulary/VocabCardSession', () => () => null)
 jest.mock('@/components/exercises/ExerciseClient', () => () => null)
-jest.mock('@/components/audio/PronunciationPractice', () => () => null)
-jest.mock('@/components/audio/PronunciationInbox', () => () => null)
+jest.mock('@/components/audio/PronunciationStudio', () => () => null)
 jest.mock('@/components/dashboard/VideoLibrary', () => () => null)
 jest.mock('@/app/actions/vocabulary', () => ({ getVocabularySession: jest.fn(), getVocabularyOverview: jest.fn() }))
 jest.mock('@/app/actions/exercises', () => ({ getExercises: jest.fn() }))
 jest.mock('@/app/actions/pronunciation', () => ({ getPronunciationPrompts: jest.fn() }))
 jest.mock('@/app/actions/pronunciation-conversations', () => ({ getPronunciationConversations: jest.fn() }))
+jest.mock('@/app/actions/media', () => ({ getMediaFolders: jest.fn().mockResolvedValue({ success: true, data: [] }) }))
 jest.mock('@/lib/access/server', () => ({ currentUserHasTrainerAccess: jest.fn() }))
 jest.mock('@/lib/dictionary', () => ({ getDictionary: jest.fn() }))
 jest.mock('@/utils/supabase/server', () => ({ createClient: jest.fn() }))
@@ -36,7 +36,7 @@ const cases = [
   ['vocabulary', () => VocabularyPage({ params })],
   ['learning box', () => TrainPage({ params, searchParams: Promise.resolve({}) })],
   ['grammar', () => ExercisesPage({ params })],
-  ['pronunciation', () => PronunciationPage({ params })],
+  ['pronunciation', () => PronunciationPage({ params, searchParams: Promise.resolve({}) })],
   ['video deep link', () => VideoPage({ params })],
   ['trainer guard', () => TrainerAccessGuard({ params, trainer: 'vocabulary', children: <p>Hidden trainer</p> })],
 ] as const

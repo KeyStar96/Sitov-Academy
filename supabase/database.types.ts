@@ -492,6 +492,29 @@ export type Database = {
           },
         ]
       }
+      learning_activity_days: {
+        Row: {
+          auth_user_id: string
+          day: string
+        }
+        Insert: {
+          auth_user_id: string
+          day: string
+        }
+        Update: {
+          auth_user_id?: string
+          day?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "learning_activity_days_auth_user_id_fkey"
+            columns: ["auth_user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       learning_exercises: {
         Row: {
           content: Json
@@ -1563,6 +1586,13 @@ export type Database = {
       }
       media_storage_usage: { Args: never; Returns: Json }
       prepare_business_month: { Args: { p_month: string }; Returns: Json }
+      pronunciation_reply_senders: {
+        Args: never
+        Returns: {
+          display_name: string | null
+          sender_id: string
+        }[]
+      }
       queue_transactional_email: {
         Args: {
           p_dedupe_key: string

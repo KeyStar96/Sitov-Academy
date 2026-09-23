@@ -4,14 +4,25 @@ import { useEffect, useRef, useState } from 'react'
 import type { MediaAsset } from '@/lib/media'
 import { mediaCopy } from '@/lib/media-i18n'
 
-export default function MediaAssetViewer({ asset, lang, allowVideoDownload = false }: { asset: MediaAsset; lang: string; allowVideoDownload?: boolean }) {
+export default function MediaAssetViewer({ asset, lang, allowVideoDownload = false, autoOpen = false, bare = false, startAt = 0, onTime }: {
+  asset: MediaAsset
+  lang: string
+  allowVideoDownload?: boolean
+  /** Mediathek: Das Blatt öffnet den Player sofort, ohne zweiten Tipp. */
+  autoOpen?: boolean
+  /** Ohne Titel und Dateigröße, wenn der Rahmen (Blatt) beides schon zeigt. */
+  bare?: boolean
+  /** „Weiterschauen": Startposition in Sekunden. */
+  startAt?: number
+  onTime?: (seconds: number, duration: number) => void
+}) {
   const t = mediaCopy(lang)
   const canDownload = asset.kind !== 'videos' || allowVideoDownload
   const [url, setUrl] = useState<string | null>(null)
   const [error, setError] = useState(false)
   const [busy, setBusy] = useState(false)
   const video = useRef<HTMLVideoElement>(null)
-  const position = useRef(0)
+  const position = useRef(startAt)
   const resume = useRef(false)
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null)
   const generation = useRef(0)
@@ -19,6 +30,7 @@ export default function MediaAssetViewer({ asset, lang, allowVideoDownload = fal
   const viewing = useRef(false)
   function close() { viewing.current = false; generation.current++; setUrl(null); if (timer.current) clearTimeout(timer.current) }
   useEffect(() => () => { viewing.current = false; generation.current++; if (timer.current) clearTimeout(timer.current) }, [])
+  useEffect(() => { if (autoOpen) void open() }, [autoOpen])
   async function open(download = false) {
     if (download && !canDownload) return
     if (inFlight.current) {
@@ -37,7 +49,7 @@ export default function MediaAssetViewer({ asset, lang, allowVideoDownload = fal
         const a = document.createElement('a'); a.href = result.url; a.download = asset.title; a.rel = 'noopener'; document.body.appendChild(a); a.click(); a.remove()
       } else {
         viewing.current = true
-        position.current = video.current?.currentTime ?? 0
+        position.current = video.current ? video.current.currentTime : position.current
         resume.current = !!video.current && !video.current.paused
         setUrl(result.url)
         if (timer.current) clearTimeout(timer.current)
@@ -47,13 +59,14 @@ export default function MediaAssetViewer({ asset, lang, allowVideoDownload = fal
     } catch { if (id === generation.current) { close(); video.current?.pause(); setError(true) } }
     finally { inFlight.current = false; setBusy(false) }
   }
-  return <article className="min-w-0 space-y-3 rounded-xl border border-[var(--border)] bg-[var(--surface)] p-4">
-    <h4 className="break-words font-semibold">{asset.title}</h4>
-    <p className="text-sm text-[var(--muted)]">{(asset.bytes / 1024 / 1024).toFixed(1)} MiB</p>
-    <div className="flex flex-wrap gap-2">{(asset.kind === 'videos' || asset.mime === 'application/pdf') && <button disabled={busy} onClick={() => url ? close() : void open()} className="min-h-12 rounded-lg border border-[var(--border)] px-4">{url ? t.close : t.open}</button>}
-      {canDownload && <button disabled={busy} onClick={() => void open(true)} className="min-h-12 rounded-lg border border-[var(--border)] px-4">{t.download}</button>}</div>
+  return <article className={bare ? 'min-w-0 space-y-3' : 'min-w-0 space-y-3 rounded-xl border border-[var(--border)] bg-[var(--surface)] p-4'}>
+    {!bare && <h4 className="break-words font-semibold">{asset.title}</h4>}
+    {!bare && <p className="text-sm text-[var(--muted)]">{(asset.bytes / 1024 / 1024).toFixed(1)} MiB</p>}
+    <div className="flex flex-wrap gap-2">{!bare && (asset.kind === 'videos' || asset.mime === 'application/pdf') && <button disabled={busy} onClick={() => url ? close() : void open()} className="min-h-12 rounded-lg border border-[var(--border)] px-4">{url ? t.close : t.open}</button>}
+      {canDownload && <button disabled={busy} onClick={() => void open(true)} className={bare ? 'st-button st-button--soft st-press' : 'min-h-12 rounded-lg border border-[var(--border)] px-4'}>{t.download}</button>}</div>
     {busy && <p role="status">{t.loading}</p>}{error && <p role="alert">{t.accessFailed}</p>}
-    {url && (asset.kind === 'videos' ? <video ref={video} controls controlsList={canDownload ? undefined : 'nodownload'} onContextMenu={canDownload ? undefined : event => event.preventDefault()} playsInline preload="metadata" src={url} aria-label={asset.title} className="aspect-video w-full rounded-lg bg-black" onLoadedMetadata={() => { if (video.current) { video.current.currentTime = position.current; if (resume.current) void video.current.play().catch(() => {}) } }} onError={() => { close(); setError(true) }} />
+    {url && (asset.kind === 'videos' ? <video ref={video} controls controlsList={canDownload ? undefined : 'nodownload'} onContextMenu={canDownload ? undefined : event => event.preventDefault()} playsInline preload="metadata" src={url} aria-label={asset.title} className="aspect-video w-full rounded-lg bg-black" onLoadedMetadata={() => { if (video.current) { video.current.currentTime = position.current; if (resume.current) void video.current.play().catch(() => {}) } }}
+      onTimeUpdate={() => { if (video.current && onTime) onTime(video.current.currentTime, video.current.duration) }} onError={() => { close(); setError(true) }} />
       : <iframe title={asset.title} src={url} className="h-[65vh] w-full rounded-lg border border-[var(--border)]" />)}
   </article>
 }

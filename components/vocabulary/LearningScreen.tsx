@@ -1,10 +1,12 @@
 'use client'
 
-import { useEffect, useRef, type ReactNode } from 'react'
+import { useEffect, useRef, type ReactNode, type Ref } from 'react'
 import { ArrowLeft } from 'lucide-react'
 import ThemeToggle from '@/components/layout/ThemeToggle'
-import type { VocabularyTranslator } from '@/lib/vocabulary-i18n'
 import './learning.css'
+
+/** Die vier Texte des Rahmens. Vokabeln reichen ihren Übersetzer durch, die Grammatik eigene Texte. */
+export type LearningScreenKey = 'exit_learning' | 'theme_light' | 'theme_dark' | 'overall_progress_label'
 
 interface LearningScreenProps {
   title: string
@@ -12,7 +14,9 @@ interface LearningScreenProps {
   progress: number
   onExit: () => void
   exitDisabled?: boolean
-  t: VocabularyTranslator
+  t: (key: LearningScreenKey) => string
+  /** Scrollfläche des Arbeitsbereichs, z. B. um bei jeder neuen Aufgabe nach oben zu springen. */
+  workspaceRef?: Ref<HTMLDivElement>
   children: ReactNode
 }
 
@@ -38,7 +42,7 @@ export function LearningStats({ label, items }: { label: string; items: Array<{ 
 }
 
 /** Focused viewport shared by assessment and practice; background stays inert. */
-export default function LearningScreen({ title, subtitle, progress, onExit, exitDisabled = false, t, children }: LearningScreenProps) {
+export default function LearningScreen({ title, subtitle, progress, onExit, exitDisabled = false, t, workspaceRef, children }: LearningScreenProps) {
   const screen = useRef<HTMLElement>(null)
   useEffect(() => {
     const changed: Array<{ element: HTMLElement; inert: boolean }> = []
@@ -75,7 +79,7 @@ export default function LearningScreen({ title, subtitle, progress, onExit, exit
         aria-valuenow={Math.round(progress)} aria-valuemin={0} aria-valuemax={100}>
         <span style={{ width: `${Math.max(0, Math.min(100, progress))}%` }} />
       </div>
-      <div className="learning-workspace">{children}</div>
+      <div ref={workspaceRef} className="learning-workspace">{children}</div>
     </section>
   )
 }

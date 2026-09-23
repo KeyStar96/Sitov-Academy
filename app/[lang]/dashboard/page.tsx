@@ -1,23 +1,22 @@
-import Link from 'next/link'
-import { ArrowUpRight, Sparkles } from 'lucide-react'
 import { getAllLevelsProgress } from '@/app/actions/progress'
 import { getUnseenFeedbackSummary } from '@/app/actions/feedback'
 import { getDictionary } from '@/lib/dictionary'
 import { createDashboardTranslator, type DashboardTranslations } from '@/lib/dashboard-i18n'
-import { createProfileTranslator } from '@/lib/profile-i18n'
 import type { PronunciationTranslations } from '@/lib/pronunciation-i18n'
 import { createClient } from '@/utils/supabase/server'
 import { loadLevelAccessProfile } from '@/lib/access/server'
 import { hasLevelAccess } from '@/lib/access/levels'
 import { loadProfileMonthlyState } from '@/lib/profile-dashboard-server'
 import { loadProfileCourseCalendar } from '@/lib/profile-course-calendar-server'
-import FeedbackNotificationCard from '@/components/dashboard/FeedbackNotificationCard'
-import ProfileCourseCalendar from '@/components/dashboard/ProfileCourseCalendar'
-import GreetingClock from '@/components/dashboard/home/GreetingClock'
-import ThemeSwitch from '@/components/dashboard/home/ThemeSwitch'
-import NextCourseCard from '@/components/dashboard/home/NextCourseCard'
-import CoursePlanner from '@/components/dashboard/home/CoursePlanner'
-import LearningTrainersWidget from '@/components/dashboard/home/LearningTrainersWidget'
+import { formatCalendarDate } from '@/lib/profile-course-calendar'
+import { nextUpcomingEvent } from '@/lib/dashboard-next-course'
+import { formatProfileMonth } from '@/lib/profile-month'
+import { loadLevelLearningStatus, loadWeekActivity } from '@/lib/learning-status-server'
+import { studentTranslator } from '@/lib/student-ui-i18n'
+import { teacherFirstName } from '@/lib/teacher-portraits'
+import TodayPlan, { type TodayItem } from '@/components/dashboard/home/TodayPlan'
+import MailboxPreview from '@/components/dashboard/home/MailboxPreview'
+import TrainerStatusTiles from '@/components/dashboard/TrainerStatusTiles'
 import SupportWidget from '@/components/dashboard/home/SupportWidget'
 import LevelCard from '@/components/dashboard/home/LevelCard'
 
@@ -34,22 +33,8 @@ export default async function DashboardPage({ params }: { params: Promise<{ lang
       ])
     : [null, null]
 
-  // Booking and calendar are optional widgets: a load failure must not take the
-  // whole dashboard down, so each is guarded independently (as on the profile page).
-  const profileT = createProfileTranslator(dict.profile)
-  let monthly: Awaited<ReturnType<typeof loadProfileMonthlyState>> | null = null
-  let calendar: Awaited<ReturnType<typeof loadProfileCourseCalendar>> | null = null
-  if (user) {
-    try { monthly = await loadProfileMonthlyState(supabase, user) }
-    catch { console.error('[dashboard] Course plan could not be loaded') }
-    try { calendar = await loadProfileCourseCalendar(supabase, user) }
-    catch { console.error('[dashboard] Course calendar could not be loaded') }
-  }
-  const courseTitles = Object.fromEntries((monthly?.courses ?? []).map(course => [
-    course.id, course.translations.find(item => item.locale === lang)?.title || course.title || profileT('course_fallback'),
-  ]))
-
   const t = createDashboardTranslator(dict.dashboard as DashboardTranslations)
+  const s = studentTranslator(lang)
   const copy = dict.academy
   const displayName = profileRow?.data?.person?.display_name || user?.email || ''
   const levels = [
@@ -62,7 +47,45 @@ export default async function DashboardPage({ params }: { params: Promise<{ lang
   ]
   const accessible = levels.filter(level => hasLevelAccess(accessProfile, level.id))
   const recommended = accessible.find(level => (progressMap[level.id] || 0) > 0 && (progressMap[level.id] || 0) < 100) || accessible.find(level => (progressMap[level.id] || 0) < 100) || accessible[0]
-  const progress = recommended ? Math.max(0, Math.min(100, progressMap[recommended.id] || 0)) : 0
+
+  // Kalender, Buchung, Lernstand und Lerntage sind unabhängige Zusätze: Ein
+  // Ladefehler darf die Startseite nie mitreißen (wie auf der Profilseite).
+  const [monthly, calendar, status, week] = user ? await Promise.all([
+    loadProfileMonthlyState(supabase, user).catch(() => { console.error('[dashboard] Course plan could not be loaded'); return null }),
+    loadProfileCourseCalendar(supabase, user).catch(() => { console.error('[dashboard] Course calendar could not be loaded'); return null }),
+    recommended ? loadLevelLearningStatus({ supabase, userId: user.id, profile: accessProfile, level: recommended.id, lang }) : Promise.resolve(null),
+    loadWeekActivity(supabase, user.id),
+  ]) : [null, null, null, null]
+
+  const levelBase = recommended ? `/${lang}/dashboard/level/${encodeURIComponent(recommended.id)}` : null
+  const items: TodayItem[] = []
+  const vocabulary = status?.vocabulary
+  if (levelBase && vocabulary && !vocabulary.locked) {
+    if (vocabulary.due > 0) items.push({ kind: 'vocabulary', label: s.count('today_vocab', vocabulary.due), href: `${levelBase}/vocabulary`, actionable: true })
+    else if (vocabulary.total > 0 && vocabulary.activeWords + vocabulary.learned === 0) items.push({ kind: 'vocabulary', label: s('today_vocab_setup'), href: `${levelBase}/vocabulary`, actionable: true })
+  }
+  if (unseenFeedback.count > 0 && unseenFeedback.latestLevel) {
+    const name = teacherFirstName(unseenFeedback.latest?.senderName) ?? s('teacher_fallback')
+    items.push({ kind: 'feedback', label: s.count('today_feedback', unseenFeedback.count, { name }),
+      href: `/${lang}/dashboard/level/${encodeURIComponent(unseenFeedback.latestLevel)}/pronunciation?tab=mailbox`, actionable: true })
+  }
+  const grammar = status?.grammar
+  if (levelBase && grammar && !grammar.locked && grammar.openTopics > 0) {
+    items.push({ kind: 'grammar', label: s.count('today_grammar', grammar.openTopics), href: `${levelBase}/exercises`, actionable: true })
+  }
+  const next = nextUpcomingEvent(calendar)
+  if (next) {
+    const { event, relation } = next
+    items.push({ kind: 'course', actionable: false, href: `/${lang}/dashboard/calendar`,
+      label: relation === 'today' ? s('today_course_today', { time: event.startTime })
+        : relation === 'tomorrow' ? s('today_course_tomorrow', { time: event.startTime })
+          : s('today_course_date', { date: formatCalendarDate(event.date, lang, { weekday: 'long', day: 'numeric', month: 'long' }), time: event.startTime }) })
+  }
+  if (monthly && (monthly.source === 'empty' || monthly.source === 'unresolved')) {
+    items.push({ kind: 'booking', actionable: false, href: `/${lang}/dashboard/calendar#booking`,
+      label: s('today_booking', { month: formatProfileMonth(monthly.targetMonth, lang) }) })
+  }
+
   const supportLabels = {
     whatsapp: copy.support_whatsapp,
     phone: dict.Footer.Contact.phone,
@@ -72,37 +95,15 @@ export default async function DashboardPage({ params }: { params: Promise<{ lang
     emailLabel: dict.Footer.Contact.email_button,
   }
 
-  return <div className="space-y-6">
-    <FeedbackNotificationCard summary={unseenFeedback} translations={dict.pronunciation as PronunciationTranslations} lang={lang} />
-
-    <GreetingClock name={displayName} lang={lang}><ThemeSwitch /></GreetingClock>
-
-    <div className="grid grid-cols-1 gap-5 lg:grid-cols-12">
-      <section className="academy-next-step sl-glass sl-hero lg:col-span-7">
-        <div className="relative">
-          <p className="academy-eyebrow"><Sparkles size={16} aria-hidden="true" />{copy.dashboard_recommended}</p>
-          <h2>{recommended?.title || copy.learn_title}</h2>
-          <p>{recommended?.description || copy.dashboard_no_access}</p>
-          {recommended && <Link className="academy-button academy-button-primary" href={`/${lang}/dashboard/level/${recommended.id}`}>{copy.dashboard_cta}<ArrowUpRight size={19} aria-hidden="true" /></Link>}
-        </div>
-        <div className="academy-progress-disc relative" role="img" aria-label={`${copy.dashboard_progress}: ${progress}%`} style={{ '--progress': `${progress * 3.6}deg` } as React.CSSProperties}><span><strong>{progress}%</strong><small>{copy.dashboard_progress}</small></span></div>
-      </section>
-
-      <NextCourseCard calendar={calendar} lang={lang} className="lg:col-span-5" />
-
-      {monthly
-        ? <CoursePlanner calendar={calendar} monthly={monthly} lang={lang} translations={dict.profile} courseTitles={courseTitles} />
-        : <>
-            <div className="min-w-0 lg:col-span-7"><ProfileCourseCalendar initial={calendar} lang={lang} bookingRevision="" /></div>
-            <section className="min-w-0 rounded-3xl border border-amber-200 bg-amber-50 p-6 shadow-sm dark:border-amber-800 dark:bg-amber-950 lg:col-span-5">
-              <h2 className="text-xl font-bold text-[var(--foreground)]">{profileT('next_month_title')}</h2>
-              <p role="alert" className="mt-3 text-amber-900 dark:text-amber-200">{profileT('booking_load_failed')}</p>
-              <a href={`/${lang}/dashboard`} className="mt-4 inline-flex min-h-12 min-w-12 items-center rounded-xl border border-amber-500 px-4 py-2 font-bold text-amber-950 dark:text-amber-100">{profileT('reload')}</a>
-            </section>
-          </>}
-
-      <LearningTrainersWidget lang={lang} level={recommended?.id ?? null} profile={accessProfile} translations={dict.dashboard as DashboardTranslations} className="lg:col-span-8" />
-      <SupportWidget lang={lang} labels={supportLabels} className="lg:col-span-4" />
+  return <div className="space-y-8">
+    <div className="grid grid-cols-1 items-start gap-5 lg:grid-cols-12">
+      <div className="min-w-0 lg:col-span-7">
+        <TodayPlan lang={lang} name={displayName} items={items} fallbackHref={levelBase} week={week} noLevel={!recommended} />
+      </div>
+      <div className="flex min-w-0 flex-col gap-5 lg:col-span-5">
+        <MailboxPreview summary={unseenFeedback} lang={lang} translations={dict.pronunciation as PronunciationTranslations} />
+        {recommended && <TrainerStatusTiles lang={lang} level={recommended.id} status={status} languageLocked={lang === 'de'} showPathLink />}
+      </div>
     </div>
 
     <section aria-labelledby="academy-levels-title">
@@ -114,5 +115,7 @@ export default async function DashboardPage({ params }: { params: Promise<{ lang
           copy={{ start: t('start'), continueLearning: t('continue_learning'), lockedHint: t('level_locked_hint') }} />)}
       </div>
     </section>
+
+    <SupportWidget lang={lang} labels={supportLabels} />
   </div>
 }
