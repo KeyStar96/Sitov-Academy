@@ -2,14 +2,9 @@
 
 import { useCallback, useEffect, useId, useMemo, useRef, useState, type FormEvent, type WheelEvent } from 'react'
 import { CloudOff, Loader2, Plus, Trash2, X } from 'lucide-react'
-import { addCardsToTrainer, getLessonCards, resetLessonProgress } from '@/app/actions/vocabulary'
-import {
-  addCustomVocabulary,
-  loadCustomVocabulary,
-  removeCustomVocabulary,
-  type CustomVocabularyCard,
-} from '@/lib/vocabulary-custom'
-import { createVocabularyTranslator, type VocabularyTranslations } from '@/lib/vocabulary-i18n'
+import { addCardsToTrainer, addOwnWord, deleteOwnWord, getLessonCards, resetLessonProgress } from '@/app/actions/vocabulary'
+import { isOwnWordsLesson, lessonTitle } from '@/lib/vocabulary-own-words'
+import { createVocabularyTranslator, type VocabularyTranslationKey, type VocabularyTranslations } from '@/lib/vocabulary-i18n'
 import { articleColorClass, phaseBadgeClasses } from '@/lib/vocabulary-ui'
 import type { LessonCardView } from '@/lib/types/vocabulary'
 import { cn } from '@/lib/utils'
@@ -18,30 +13,14 @@ import PhaseDistributionChart from '@/components/vocabulary/PhaseDistributionCha
 type CardsState = 'loading' | 'error' | LessonCardView[]
 type ModalTab = 'words' | 'phases'
 
-interface DisplayCard {
-  id: string
-  word_de: string
-  article: string | null
-  translation: string
-  phase: LessonCardView['phase']
-  isLearned: boolean
-  isCustom: boolean
-}
-
-function toDisplayCard(card: LessonCardView | CustomVocabularyCard): DisplayCard {
-  return {
-    id: card.id,
-    word_de: card.word_de,
-    article: 'article' in card ? card.article : null,
-    translation: card.translation,
-    phase: card.phase,
-    isLearned: card.isLearned,
-    isCustom: 'isCustom' in card && card.isCustom === true,
-  }
-}
+type OwnMessage = { key: VocabularyTranslationKey; word?: string; tone: 'status' | 'alert' }
 
 /**
  * Vokabelliste einer Lektion als Overlay mit Tabs.
+ *
+ * Für „Eigene Wörter" ist es zugleich der Ort, an dem man Wörter einträgt und
+ * wieder löscht (serverseitig, Migration 23). Kurslektionen bekommen keine
+ * eigenen Einträge mehr — die frühere Merkliste im Browser ist entfallen.
  *
  * Der Dialog reserviert die dynamische Viewport-Höhe samt Safe Areas.
  * Header (Titel, Tabs, Schließen) bleibt `flex-shrink-0`. Der Inhalt darunter
@@ -62,7 +41,7 @@ export default function LessonCardsModal({
   uiLanguage?: string
   translations?: VocabularyTranslations
   onClose: () => void
-  /** Wird nach erfolgreicher manueller Übernahme aufgerufen, damit die Lektionsliste dahinter aktualisiert. */
+  /** Wird nach jeder Änderung (Übernahme, eigenes Wort, Löschen, Zurücksetzen) aufgerufen, damit die Seite dahinter aktualisiert. */
   onCardAdded: () => void
 }) {
   const t = createVocabularyTranslator(translations)
@@ -73,22 +52,20 @@ export default function LessonCardsModal({
   const wordsPanelId = `${tabIds}-words-panel`
   const phasesPanelId = `${tabIds}-phases-panel`
 
+  const own = isOwnWordsLesson(lesson)
+  const title = lessonTitle(lesson, t)
+  const wordInput = useRef<HTMLInputElement>(null)
   const [cardsState, setCardsState] = useState<CardsState>('loading')
-  const [customCards, setCustomCards] = useState<CustomVocabularyCard[]>([])
   const [pendingCardId, setPendingCardId] = useState<string | null>(null)
   const [addFailed, setAddFailed] = useState(false)
   const [activeTab, setActiveTab] = useState<ModalTab>('words')
-  const [showCustomForm, setShowCustomForm] = useState(false)
-  const [customWord, setCustomWord] = useState('')
-  const [customTranslation, setCustomTranslation] = useState('')
-  const [customError, setCustomError] = useState(false)
+  const [ownWord, setOwnWord] = useState('')
+  const [ownTranslation, setOwnTranslation] = useState('')
+  const [ownSaving, setOwnSaving] = useState(false)
+  const [ownMessage, setOwnMessage] = useState<OwnMessage | null>(null)
   const [isResetting, setIsResetting] = useState(false)
   const [showResetConfirm, setShowResetConfirm] = useState(false)
   const [resetFailed, setResetFailed] = useState(false)
-
-  useEffect(() => {
-    setCustomCards(loadCustomVocabulary(level, lesson))
-  }, [level, lesson])
 
   useEffect(() => {
     let cancelled = false
@@ -139,10 +116,7 @@ export default function LessonCardsModal({
     }
   }, [])
 
-  const displayCards = useMemo((): DisplayCard[] => {
-    const serverCards = Array.isArray(cardsState) ? cardsState.map(toDisplayCard) : []
-    return [...customCards.map(toDisplayCard), ...serverCards]
-  }, [cardsState, customCards])
+  const displayCards = useMemo(() => Array.isArray(cardsState) ? cardsState : [], [cardsState])
 
   const handleAddSingleCard = useCallback(
     async (cardId: string) => {
@@ -170,40 +144,64 @@ export default function LessonCardsModal({
     [cardsState, isResetting, onCardAdded, pendingCardId]
   )
 
-  const handleSaveCustom = useCallback(
-    (event: FormEvent<HTMLFormElement>) => {
+  // Nach einer Änderung still nachladen, ohne die Liste in den Ladezustand zu
+  // werfen — die Eingabe bleibt stehen und der Fokus im Formular.
+  const refreshCards = useCallback(async () => {
+    try { setCardsState(await getLessonCards(lesson, level, uiLanguage)) } catch { /* Liste bleibt, nächste Änderung lädt erneut */ }
+  }, [lesson, level, uiLanguage])
+
+  const handleAddOwn = useCallback(
+    async (event: FormEvent<HTMLFormElement>) => {
       event.preventDefault()
-      const word = customWord.trim()
-      const translation = customTranslation.trim()
+      if (ownSaving) return
+      const word = ownWord.trim()
+      const translation = ownTranslation.trim()
       if (!word || !translation) {
-        setCustomError(true)
+        setOwnMessage({ key: 'own_words_missing', tone: 'alert' })
         return
       }
-
+      setOwnSaving(true)
+      setOwnMessage(null)
       try {
-        const updated = addCustomVocabulary(level, lesson, word, translation)
-        setCustomCards(updated)
-        setCustomWord('')
-        setCustomTranslation('')
-        setCustomError(false)
-        setShowCustomForm(false)
-      } catch (err) {
-        console.error("Eigene Vokabel für Lektion konnte nicht gespeichert werden:")
-        setCustomError(true)
+        const result = await addOwnWord({ level, word, translation, uiLanguage: uiLanguage ?? '' })
+        if (result.success === false) {
+          setOwnMessage({ key: result.error === 'exists' ? 'own_words_exists' : result.error === 'limit' ? 'own_words_limit' : result.error === 'invalid' ? 'own_words_missing' : 'own_words_failed', tone: 'alert' })
+          return
+        }
+        setOwnWord('')
+        setOwnTranslation('')
+        setOwnMessage({ key: result.activated ? 'own_words_added_to_box' : 'own_words_added', word, tone: 'status' })
+        await refreshCards()
+        onCardAdded()
+        wordInput.current?.focus()
+      } catch {
+        setOwnMessage({ key: 'own_words_failed', tone: 'alert' })
+      } finally {
+        setOwnSaving(false)
       }
     },
-    [customTranslation, customWord, lesson, level]
+    [level, onCardAdded, ownSaving, ownTranslation, ownWord, refreshCards, uiLanguage]
   )
 
-  const handleRemoveCustom = useCallback(
-    (cardId: string) => {
+  const handleDeleteOwn = useCallback(
+    async (cardId: string) => {
+      if (!Array.isArray(cardsState) || pendingCardId !== null) return
+      const previousCards = cardsState
+      setPendingCardId(cardId)
+      setOwnMessage(null)
+      setCardsState(previousCards.filter(card => card.id !== cardId))
       try {
-        setCustomCards(removeCustomVocabulary(level, lesson, cardId))
-      } catch (err) {
-        console.error("Eigene Vokabel konnte nicht gelöscht werden:")
+        const result = await deleteOwnWord(cardId)
+        if (!result.success) throw new Error('own_word_delete_failed')
+        onCardAdded()
+      } catch {
+        setCardsState(previousCards)
+        setOwnMessage({ key: 'own_words_delete_failed', tone: 'alert' })
+      } finally {
+        setPendingCardId(null)
       }
     },
-    [lesson, level]
+    [cardsState, onCardAdded, pendingCardId]
   )
 
   const handleResetProgress = useCallback(async () => {
@@ -238,7 +236,7 @@ export default function LessonCardsModal({
         ref={dialog}
         role="dialog"
         aria-modal="true"
-        aria-label={lesson}
+        aria-label={title}
         data-lenis-prevent
         onClick={(event) => event.stopPropagation()}
         onWheel={(event) => event.stopPropagation()}
@@ -247,7 +245,7 @@ export default function LessonCardsModal({
         <div className="flex shrink-0 flex-col border-b border-[var(--border)]">
           <div className="flex items-start justify-between gap-3 p-4 pb-3 sm:p-5 sm:pb-3">
             <h3 className="min-w-0 break-words pt-2 text-lg font-bold text-[var(--foreground)]">
-              {lesson}
+              {title}
             </h3>
             <button
               type="button"
@@ -320,77 +318,64 @@ export default function LessonCardsModal({
 
               {Array.isArray(cardsState) && (
                 <div className="space-y-4">
-                  {showCustomForm ? (
-                    <form
-                      onSubmit={handleSaveCustom}
-                      className="space-y-4 rounded-2xl border-2 border-[var(--border)] vocabulary-phase-new p-4"
-                    >
+                  {own && (
+                    <form onSubmit={handleAddOwn} className="space-y-4 rounded-2xl border-2 border-[var(--border)] p-4" noValidate>
+                      <p className="text-base leading-relaxed text-[var(--muted)]">{t('own_words_hint')}</p>
                       <div>
-                        <label htmlFor={`${tabIds}-custom-word`} className="mb-2 block text-base font-bold text-[var(--foreground)]">
-                          {t('custom_vocab_word_label')}
+                        <label htmlFor={`${tabIds}-own-word`} className="mb-2 block text-base font-bold text-[var(--foreground)]">
+                          {t('own_words_word_label')}
                         </label>
                         <input
-                          id={`${tabIds}-custom-word`}
+                          ref={wordInput}
+                          id={`${tabIds}-own-word`}
                           type="text"
-                          value={customWord}
-                          onChange={(event) => {
-                            setCustomWord(event.target.value)
-                            setCustomError(false)
-                          }}
-                          placeholder={t('custom_vocab_word_placeholder')}
+                          lang="de"
+                          value={ownWord}
+                          maxLength={160}
+                          onChange={(event) => { setOwnWord(event.target.value); setOwnMessage(null) }}
+                          placeholder={t('own_words_word_placeholder')}
+                          aria-describedby={`${tabIds}-own-word-hint`}
+                          autoComplete="off"
+                          autoCapitalize="none"
+                          spellCheck={false}
+                          className="min-h-14 w-full rounded-2xl border-2 border-[var(--border)] bg-[var(--surface)] px-4 text-base text-[var(--foreground)] placeholder:text-[var(--muted)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)]"
+                        />
+                        <p id={`${tabIds}-own-word-hint`} className="mt-1.5 text-base text-[var(--muted)]">{t('own_words_word_hint')}</p>
+                      </div>
+                      <div>
+                        <label htmlFor={`${tabIds}-own-translation`} className="mb-2 block text-base font-bold text-[var(--foreground)]">
+                          {t('own_words_translation_label')}
+                        </label>
+                        <input
+                          id={`${tabIds}-own-translation`}
+                          type="text"
+                          lang={uiLanguage}
+                          value={ownTranslation}
+                          maxLength={200}
+                          onChange={(event) => { setOwnTranslation(event.target.value); setOwnMessage(null) }}
+                          placeholder={t('own_words_translation_placeholder')}
                           autoComplete="off"
                           className="min-h-14 w-full rounded-2xl border-2 border-[var(--border)] bg-[var(--surface)] px-4 text-base text-[var(--foreground)] placeholder:text-[var(--muted)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)]"
                         />
                       </div>
-                      <div>
-                        <label htmlFor={`${tabIds}-custom-translation`} className="mb-2 block text-base font-bold text-[var(--foreground)]">
-                          {t('custom_vocab_translation_label')}
-                        </label>
-                        <input
-                          id={`${tabIds}-custom-translation`}
-                          type="text"
-                          value={customTranslation}
-                          onChange={(event) => {
-                            setCustomTranslation(event.target.value)
-                            setCustomError(false)
-                          }}
-                          placeholder={t('custom_vocab_translation_placeholder')}
-                          autoComplete="off"
-                          className="min-h-14 w-full rounded-2xl border-2 border-[var(--border)] bg-[var(--surface)] px-4 text-base text-[var(--foreground)] placeholder:text-[var(--muted)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)]"
-                        />
-                      </div>
-                      {customError && (
-                        <p role="alert" className="text-base font-medium text-amber-800 dark:text-amber-300">
-                          {t('custom_vocab_error')}
+                      {ownMessage && (
+                        <p role={ownMessage.tone} className={cn('text-base font-medium', ownMessage.tone === 'alert' ? 'text-[var(--danger)]' : 'text-[var(--success)]')}>
+                          {t(ownMessage.key, { word: ownMessage.word ?? '' })}
                         </p>
                       )}
-                      <div className="flex flex-col gap-3 sm:flex-row">
-                        <button
-                          type="submit"
-                          className="inline-flex min-h-14 flex-1 items-center justify-center rounded-2xl bg-[var(--accent-strong)] px-6 text-base font-bold text-[var(--accent-foreground)] shadow-sm transition-colors hover:bg-[var(--accent-strong-hover)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)]"
-                        >
-                          {t('custom_vocab_save')}
-                        </button>
-                        <button
-                          type="button"
-                          onClick={() => {
-                            setShowCustomForm(false)
-                            setCustomError(false)
-                          }}
-                          className="inline-flex min-h-14 flex-1 items-center justify-center rounded-2xl border-2 border-[var(--border)] bg-[var(--surface)] px-6 text-base font-bold text-[var(--foreground)] transition-colors hover:bg-[var(--surface-muted)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)]"
-                        >
-                          {t('custom_vocab_cancel')}
-                        </button>
-                      </div>
+                      <button
+                        type="submit"
+                        disabled={ownSaving}
+                        className="inline-flex min-h-14 w-full items-center justify-center gap-2 rounded-2xl bg-[var(--accent-strong)] px-6 text-base font-bold text-[var(--accent-foreground)] shadow-sm transition-colors hover:bg-[var(--accent-strong-hover)] disabled:opacity-60 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)]"
+                      >
+                        {ownSaving ? <Loader2 size={20} className="animate-spin" aria-hidden="true" /> : <Plus size={20} aria-hidden="true" />}
+                        {t(ownSaving ? 'own_words_adding' : 'own_words_add')}
+                      </button>
                     </form>
-                  ) : (
-                    <button
-                      type="button"
-                      onClick={() => setShowCustomForm(true)}
-                      className="inline-flex min-h-14 w-full items-center justify-center rounded-2xl border-2 border-dashed border-[var(--accent)] vocabulary-phase-new px-6 text-base font-bold text-[var(--accent-text)] transition-colors hover:opacity-90 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)]"
-                    >
-                      {t('add_custom_vocab')}
-                    </button>
+                  )}
+
+                  {own && displayCards.length === 0 && (
+                    <p className="text-base text-[var(--muted)]">{t('own_words_empty')}</p>
                   )}
 
                   <ul className="space-y-3">
@@ -407,65 +392,61 @@ export default function LessonCardsModal({
                           className="flex min-w-0 flex-col gap-3 rounded-2xl bg-[var(--surface-muted)] p-4 shadow-sm ring-1 ring-[var(--border)] sm:flex-row sm:items-center sm:justify-between"
                         >
                           <div className="min-w-0">
-                            <p className={cn('break-words text-base font-bold', articleColorClass(card.article))}>
+                            <p lang="de" className={cn('break-words text-base font-bold', articleColorClass(card.article))}>
                               {displayWord}
                             </p>
                             <p className="break-words text-base text-[var(--muted)]">
                               {card.translation || t('no_translation')}
                             </p>
-                            {card.isCustom && (
-                              <p className="mt-1 text-base font-semibold text-[var(--accent-text)]">
-                                {t('custom_vocab_badge')}
-                              </p>
-                            )}
                           </div>
 
-                          {card.isCustom ? (
-                            <div className="flex min-w-0 flex-wrap items-center gap-2">
+                          <div className="flex min-w-0 flex-wrap items-center gap-2">
+                            {card.phase === null ? (
+                              own ? (
+                                // Eigene Wörter warten als Ganzes auf das Einschalten der Lektion.
+                                <span className="inline-flex min-h-11 max-w-full shrink-0 items-center justify-center rounded-full border border-dashed border-[var(--border-strong)] px-4 text-sm font-bold text-[var(--muted)]">
+                                  {t('own_words_waiting')}
+                                </span>
+                              ) : (
+                                <button
+                                  type="button"
+                                  onClick={() => void handleAddSingleCard(card.id)}
+                                  disabled={pendingCardId !== null || isResetting}
+                                  aria-label={t('add_single_card_aria', { word: card.word_de })}
+                                  className="inline-flex min-h-12 min-w-12 shrink-0 items-center justify-center gap-2 rounded-xl bg-[var(--accent-strong)] px-5 py-3 text-base font-bold text-[var(--accent-foreground)] shadow-sm transition-colors hover:bg-[var(--accent-strong-hover)] disabled:opacity-60 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)]"
+                                >
+                                  {isPending ? (
+                                    <Loader2 size={20} className="animate-spin" aria-hidden="true" />
+                                  ) : (
+                                    <Plus size={20} aria-hidden="true" />
+                                  )}
+                                  {t('add_single_card')}
+                                </button>
+                              )
+                            ) : (
                               <span
                                 className={cn(
-                                  'inline-flex min-h-12 items-center justify-center rounded-full px-5 text-base font-bold',
+                                  'inline-flex min-h-11 max-w-full shrink-0 items-center justify-center rounded-full px-4 text-sm font-bold',
                                   phaseBadgeClasses(card.phase, card.isLearned)
                                 )}
                               >
-                                {t('phase_badge', { phase: card.phase ?? 1 })}
+                                {card.isLearned
+                                  ? t('phase_badge_learned')
+                                  : t('phase_badge', { phase: card.phase })}
                               </span>
+                            )}
+                            {own && (
                               <button
                                 type="button"
-                                onClick={() => handleRemoveCustom(card.id)}
-                                aria-label={t('remove_custom_vocab_aria', { word: card.word_de })}
-                                className="flex h-12 w-12 items-center justify-center rounded-xl text-[var(--muted)] transition-colors hover:bg-red-50 hover:text-red-700 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)] dark:hover:bg-red-950/40 dark:hover:text-red-300"
+                                onClick={() => void handleDeleteOwn(card.id)}
+                                disabled={pendingCardId !== null || isResetting}
+                                aria-label={t('own_words_delete_aria', { word: displayWord })}
+                                className="flex h-12 w-12 items-center justify-center rounded-xl text-[var(--muted)] transition-colors hover:bg-red-50 hover:text-red-700 disabled:opacity-50 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)] dark:hover:bg-red-950/40 dark:hover:text-red-300"
                               >
-                                <Trash2 size={22} aria-hidden="true" />
+                                {isPending ? <Loader2 size={20} className="animate-spin" aria-hidden="true" /> : <Trash2 size={22} aria-hidden="true" />}
                               </button>
-                            </div>
-                          ) : card.phase === null ? (
-                            <button
-                              type="button"
-                              onClick={() => void handleAddSingleCard(card.id)}
-                              disabled={pendingCardId !== null || isResetting}
-                              aria-label={t('add_single_card_aria', { word: card.word_de })}
-                              className="inline-flex min-h-12 min-w-12 shrink-0 items-center justify-center gap-2 rounded-xl bg-[var(--accent-strong)] px-5 py-3 text-base font-bold text-[var(--accent-foreground)] shadow-sm transition-colors hover:bg-[var(--accent-strong-hover)] disabled:opacity-60 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)]"
-                            >
-                              {isPending ? (
-                                <Loader2 size={20} className="animate-spin" aria-hidden="true" />
-                              ) : (
-                                <Plus size={20} aria-hidden="true" />
-                              )}
-                              {t('add_single_card')}
-                            </button>
-                          ) : (
-                            <span
-                              className={cn(
-                                'inline-flex min-h-11 max-w-full shrink-0 items-center justify-center rounded-full px-4 text-sm font-bold',
-                                phaseBadgeClasses(card.phase, card.isLearned)
-                              )}
-                            >
-                              {card.isLearned
-                                ? t('phase_badge_learned')
-                                : t('phase_badge', { phase: card.phase })}
-                            </span>
-                          )}
+                            )}
+                          </div>
                         </li>
                       )
                     })}

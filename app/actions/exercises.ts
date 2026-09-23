@@ -76,9 +76,12 @@ async function loadVocabularyMatches(
   const matches = new Map<string, VocabularyMatch>()
   if (words.length === 0) return matches
 
+  // Nur Kursvokabeln: Ein selbst eingetragenes Wort darf Artikel und Audio
+  // einer Übung nicht überschreiben.
   const { data, error } = await supabase
     .from('learning_vocabulary_cards')
-    .select('word_de, article, audio_url')
+    .select('word_de, article, audio_url, unit:learning_units!inner(owner_auth_user_id)')
+    .is('unit.owner_auth_user_id', null)
     .in('word_de', [...words])
 
   if (error) {

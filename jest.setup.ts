@@ -14,6 +14,7 @@ jest.mock('next/navigation', () => ({
         push: jest.fn(),
         replace: jest.fn(),
         prefetch: jest.fn(),
+        refresh: jest.fn(),
     }),
     usePathname: () => '',
 }));
@@ -56,6 +57,7 @@ jest.mock('framer-motion', () => {
     const ANIM_PROPS = new Set([
         'initial', 'animate', 'exit', 'whileHover', 'whileTap', 'whileInView', 'whileFocus',
         'whileDrag', 'transition', 'variants', 'viewport', 'drag', 'layout', 'layoutId',
+        'dragControls', 'dragListener', 'dragConstraints', 'dragElastic', 'onDragEnd',
     ]);
     const strip = (props: any) => {
         const out: any = {};
@@ -79,6 +81,7 @@ jest.mock('framer-motion', () => {
         useMotionValue: (init: any) => value(init),
         useMotionTemplate: () => '',
         useTransform: () => value(0),
+        useDragControls: () => ({ start: () => {} }),
     };
 });
 

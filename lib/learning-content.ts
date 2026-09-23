@@ -12,6 +12,8 @@ export const vocabularyCardSchema = z.object({
   context_sentence_uk: optionalText, context_sentence_tr: optionalText,
   sentence_practice: z.boolean(), is_hard_for_ru: z.boolean().nullable(), is_hard_for_tr: z.boolean().nullable(),
   alternative_answers_de: z.array(z.string()),
+  /** „Eigene Wörter" einer lernenden Person (Migration 23), nie Kursinhalt. */
+  is_own: z.boolean().optional(),
 })
 export type VocabularyContentRow = z.infer<typeof vocabularyCardSchema>
 

@@ -15,8 +15,10 @@ export async function getAllLevelsProgress() {
   // 1. Hole alle Übungen und deren Level
   const { data: exercises, error: exercisesError } = await supabase.from('learning_exercises').select('id, unit:learning_units!inner(level)')
 
-  // 2. Hole alle Vokabelkarten und deren Level
-  const { data: vocabCards, error: vocabCardsError } = await supabase.from('learning_vocabulary_cards').select('id, unit:learning_units!inner(level)')
+  // 2. Hole alle Vokabelkarten und deren Level — nur Kursvokabeln: „Eigene
+  //    Wörter" zählen in der Lernbox, nicht im Kursfortschritt des Niveaus.
+  const { data: vocabCards, error: vocabCardsError } = await supabase.from('learning_vocabulary_cards')
+    .select('id, unit:learning_units!inner(level,owner_auth_user_id)').is('unit.owner_auth_user_id', null)
 
   // 3. Hole den Fortschritt des Users für Übungen
   const { data: exerciseProgress, error: exerciseProgressError } = await supabase

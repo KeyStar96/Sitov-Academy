@@ -296,6 +296,21 @@ it('meldet „Wusste ich nicht" als known:false und bewertet weiterhin serversei
   expect(submitVocabularySelfRating).toHaveBeenCalledWith(expect.objectContaining({ known: false }))
 })
 
+it('ordnet die Selbsteinschätzung wie beim Einstufen an: links „wusste ich", rechts „wusste ich nicht"', () => {
+  mount([flashcard])
+  fireEvent.click(screen.getByRole('button', { name: de.vocabulary.reveal_solution }))
+  const known = screen.getByRole('button', { name: de.vocabulary.knew_it })
+  const unknown = screen.getByRole('button', { name: de.vocabulary.didnt_know })
+  expect(known.compareDocumentPosition(unknown) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
+})
+
+it('zeigt den Zähler als eigene Spalte mit Kurzform und liest die Langform vor', () => {
+  mount([flashcard])
+  expect(screen.getByText('1/1')).toBeInTheDocument()
+  expect(screen.getByText(de.vocabulary.stat_card)).toBeInTheDocument()
+  expect(screen.getByText('Karte 1 von 1, Phase 1 von 6')).toHaveClass('sr-only')
+})
+
 describe('Phase-6-Runde: falsche Vokabeln werden wiederholt, bis sie einmal sitzen', () => {
   const flashTwo: DueVocabularyCard = { ...second, mode: 'flashcard', progressId: 'flash-2' }
   async function rate(known: boolean) {
@@ -312,10 +327,10 @@ describe('Phase-6-Runde: falsche Vokabeln werden wiederholt, bis sie einmal sitz
     expect(submitVocabularySelfRating).toHaveBeenCalledTimes(2)
     expect(screen.getByText(de.vocabulary.retry_label)).toBeInTheDocument()
     expect(screen.getByText(de.vocabulary.retry_hint)).toBeInTheDocument()
-    expect(screen.getByText('Karte 3/3 · Phase 1/6')).toBeInTheDocument()
+    expect(screen.getByText('Karte 3 von 3, Phase 1 von 6')).toBeInTheDocument()
     // Wieder nicht gewusst: Sie kommt noch einmal. Nichts davon geht an den Server.
     await rate(false)
-    expect(screen.getByText('Karte 4/4 · Phase 1/6')).toBeInTheDocument()
+    expect(screen.getByText('Karte 4 von 4, Phase 1 von 6')).toBeInTheDocument()
     await rate(true)
     expect(submitVocabularySelfRating).toHaveBeenCalledTimes(2)
     expect(screen.getByText(de.vocabulary.session_done_retry)).toBeInTheDocument()
@@ -328,7 +343,7 @@ describe('Phase-6-Runde: falsche Vokabeln werden wiederholt, bis sie einmal sitz
       .mockResolvedValueOnce({ success: true, isCorrect: false, correctAnswer: 'das Haus', isAlternative: false, softError: null })
       .mockResolvedValueOnce({ success: true, isCorrect: true, correctAnswer: 'das Haus', isAlternative: false, softError: null })
     mount([{ ...word, box: 4, phase: 4 }])
-    expect(screen.getByText('Karte 1/1 · Phase 4/6')).toBeInTheDocument()
+    expect(screen.getByText('Karte 1 von 1, Phase 4 von 6')).toBeInTheDocument()
     await submit('das Hauss Garten')
     expect(screen.getByText(de.vocabulary.retry_scheduled)).toBeInTheDocument()
     next()
@@ -336,7 +351,7 @@ describe('Phase-6-Runde: falsche Vokabeln werden wiederholt, bis sie einmal sitz
     expect(screen.getByRole('textbox')).toHaveValue('')
     expect(screen.getByText(de.vocabulary.retry_label)).toBeInTheDocument()
     // Die Wiederholung zeigt die schon zurückgestufte Phase.
-    expect(screen.getByText('Karte 2/2 · Phase 3/6')).toBeInTheDocument()
+    expect(screen.getByText('Karte 2 von 2, Phase 3 von 6')).toBeInTheDocument()
     await submit('die Haus')
     expect(checkVocabularyRetry).toHaveBeenCalledWith({ progressId: word.progressId, typedAnswer: 'die Haus', expectedLearnerId: learnerId, uiLanguage: 'ru' })
     expect(submitVocabularyAnswer).toHaveBeenCalledTimes(1)

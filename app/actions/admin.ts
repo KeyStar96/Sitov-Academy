@@ -200,7 +200,7 @@ export async function getAvailableLessons(level: string, trainer: string): Promi
     const validTrainer = z.enum(TRAINERS).parse(trainer)
     const supabase = await createClient()
     const { data: units, error } = await supabase.from('learning_units').select('id,label')
-      .eq('level', validLevel).eq('trainer', validTrainer).eq('is_active', true).order('sort_order').order('id')
+      .eq('level', validLevel).eq('trainer', validTrainer).eq('is_active', true).is('owner_auth_user_id', null).order('sort_order').order('id')
     if (error) throw error
     const topics = new Map<string, Set<string>>()
     if (validTrainer === 'exercises') {

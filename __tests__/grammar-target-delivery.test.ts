@@ -22,7 +22,7 @@ const row = {
 }
 
 function setup(rows: unknown[]) {
-  const query = { select: jest.fn().mockReturnThis(), eq: jest.fn().mockReturnThis(), order: jest.fn().mockReturnThis(),
+  const query = { select: jest.fn().mockReturnThis(), eq: jest.fn().mockReturnThis(), is: jest.fn().mockReturnThis(), order: jest.fn().mockReturnThis(),
     range: jest.fn().mockReturnThis(), in: jest.fn().mockResolvedValue({ data: [], error: null }) }
   jest.mocked(createClient).mockResolvedValue({ auth: { getUser: jest.fn().mockResolvedValue({ data: { user: { id } } }) },
     from: jest.fn().mockReturnValue(query) } as unknown as Awaited<ReturnType<typeof createClient>>)

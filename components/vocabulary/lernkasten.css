@@ -422,15 +422,6 @@ html.dark .lb-cell[data-archive] .lb-hole__floor {
   transition: border-color 160ms ease, box-shadow 160ms ease, background-color 160ms ease;
 }
 
-.lb-cell span.lb-plate__head {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 0.35rem;
-  min-width: 0;
-}
-
 .lb-cell span.lb-plate__badge {
   display: inline-flex;
   flex-shrink: 0;
@@ -438,6 +429,7 @@ html.dark .lb-cell[data-archive] .lb-hole__floor {
   justify-content: center;
   width: 1.55rem;
   height: 1.55rem;
+  margin-bottom: 0.1rem;
   border-radius: 9999px;
   font-size: 0.95rem;
   font-weight: 800;
@@ -445,21 +437,33 @@ html.dark .lb-cell[data-archive] .lb-hole__floor {
   font-variant-numeric: tabular-nums;
 }
 
-.lb-plate__name {
-  min-width: 0;
+/* Der Name hat die volle Breite des Etiketts. Mehrteilige Namen („Долгая
+   память") brechen am Leerzeichen; nur lange Einzelwörter („Закреплённое")
+   trennen an der Silbe (html lang = Oberflächensprache), kurze wie
+   „Знакомое" nie. Ein Wort ohne Trennstelle bricht zur Not irgendwo — aber
+   nie über den Rand des Etiketts. */
+.lb-cell span.lb-plate__name {
+  display: block;
+  max-width: 100%;
   font-size: 0.95rem;
   font-weight: 700;
-  line-height: 1.15;
-  /* Lieber unter die Nummer umbrechen als mitten im Wort trennen. */
-  overflow-wrap: break-word;
+  line-height: 1.2;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  hyphenate-limit-chars: 10 4 4;
+  -webkit-hyphenate-limit-before: 4;
+  -webkit-hyphenate-limit-after: 4;
+  overflow-wrap: anywhere;
 }
 
 .lb-plate__count {
-  margin-top: 0.1rem;
+  margin-top: 0.15rem;
+  max-width: 100%;
   font-size: 0.875rem;
   line-height: 1.2;
   color: var(--muted);
   font-variant-numeric: tabular-nums;
+  text-wrap: balance;
 }
 
 .lb-plate__count b {
@@ -469,13 +473,15 @@ html.dark .lb-cell[data-archive] .lb-hole__floor {
   letter-spacing: -0.01em;
 }
 
-/* Im Archiv ist Platz für eine einzige Zeile. */
+/* Im Archiv ist Platz für eine einzige Zeile: Haken, Name, Anzahl. */
 .lb-cell[data-archive] span.lb-plate {
   flex-direction: row;
   flex-wrap: wrap;
-  column-gap: 0.75rem;
+  column-gap: 0.5rem;
 }
 
+.lb-cell[data-archive] span.lb-plate__badge { margin-bottom: 0; }
+.lb-cell[data-archive] span.lb-plate__name { display: inline; margin-inline-end: 0.25rem; }
 .lb-cell[data-archive] .lb-plate__count { margin-top: 0; }
 
 /* Fällig-Fähnchen: steckt oben rechts am Rahmen des Fachs, vor der Öffnung. */
@@ -486,15 +492,18 @@ html.dark .lb-cell[data-archive] .lb-hole__floor {
   z-index: 1;
   display: inline-flex;
   align-items: center;
-  max-width: calc(100% + var(--u) * 0.4);
+  /* Bleibt im Fach: Eine lange Anzahl („1277 к повтору") bricht lieber
+     ausgewogen in zwei Zeilen um, als über den Nachbarn zu ragen. */
+  max-width: calc(100% - var(--u) * 0.5);
   padding: 0.2rem 0.5rem;
-  border-radius: 9999px;
+  border-radius: 0.8rem;
   background: var(--accent-strong);
   color: var(--accent-foreground);
   font-size: 0.8125rem;
   font-weight: 700;
   line-height: 1.2;
-  white-space: nowrap;
+  text-align: center;
+  text-wrap: balance;
   box-shadow: 0 2px 6px rgb(0 0 0 / 0.25);
   transform: translateZ(calc(var(--u) * 0.8)) rotateZ(3deg);
 }
@@ -554,16 +563,59 @@ html.dark .lb-cell[data-archive] .lb-hole__floor {
   .lb-stage { margin-bottom: 0; }
 }
 
+/* Telefon hochkant: Die Box steht randlos auf der Seite (siehe .lb-hero) und
+   bekommt höhere Fächer — größere Tippflächen, deutlichere Stapel. Die Breite
+   misst sich am Deckel: Er liegt dem Betrachter am nächsten und wirkt rund
+   12 % breiter als die Front. Bei 86u endet er knapp vor dem Bildschirmrand;
+   jedes Fach mehr Höhe schiebt ihn weiter nach vorn und damit breiter. */
+@container (max-width: 599px) {
+  .lb-cabinet {
+    --lb-hole-h: calc(var(--u) * 22);
+    --lb-stack-max: calc(var(--u) * 17);
+    width: calc(var(--u) * 86);
+  }
+}
+
 /* Schmale Telefone: Etiketten kompakter, damit Name und Anzahl in die Fächer
    passen, ohne dass das Etikett die Öffnung erdrückt. */
 @container (max-width: 400px) {
-  .lb-cell span.lb-plate { padding: 0.25rem 0.2rem 0.3rem; }
+  .lb-cell span.lb-plate { padding: 0.25rem 0.25rem 0.3rem; }
   .lb-cell span.lb-plate__badge { width: 1.3rem; height: 1.3rem; font-size: 0.8125rem; }
-  .lb-cell span.lb-plate__head { gap: 0.25rem; }
-  .lb-plate__name { font-size: 0.8125rem; }
+  .lb-cell span.lb-plate__name { font-size: 0.8125rem; }
   .lb-plate__count { font-size: 0.8125rem; }
   .lb-plate__count b { font-size: 1.05rem; }
   .lb-cell span.lb-due { font-size: 0.75rem; padding: 0.15rem 0.4rem; }
+}
+
+/* Sehr schmale Telefone (320 px): eine Stufe kleiner, damit auch vierstellige
+   Anzahlen neben ihrer Einheit stehen bleiben. */
+@container (max-width: 340px) {
+  .lb-cell span.lb-plate { padding: 0.2rem 0.15rem 0.25rem; }
+  .lb-cell span.lb-plate__badge { width: 1.15rem; height: 1.15rem; font-size: 0.75rem; }
+  .lb-cell span.lb-plate__name { font-size: 0.75rem; }
+  .lb-plate__count { font-size: 0.75rem; }
+  .lb-plate__count b { font-size: 0.95rem; }
+  .lb-cell span.lb-due { font-size: 0.6875rem; padding: 0.15rem 0.35rem; }
+}
+
+/* ── Einstieg der Trainer-Seite ────────────────────────────────────────────
+   Ab 640 px liegt die Lernbox auf der geteilten Glasfläche (.sl-glass
+   .sl-hero). Auf dem Telefon steht sie frei: Rahmen, Innenabstand und
+   Lichtschein der Karte kosten dort genau die Breite, die die Fächer
+   brauchen — Karten bleiben dem vorbehalten, was man antippt. Zwei Klassen
+   Spezifität, damit die Reihenfolge der Stylesheets keine Rolle spielt. */
+@media (max-width: 639.98px) {
+  .lb-hero.sl-glass,
+  html.high-contrast .lb-hero.sl-glass {
+    overflow: visible;
+    border: 0;
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+  .lb-hero.sl-hero::before { display: none; }
 }
 
 /* ── Hinweise unter der Box ─────────────────────────────────────────────── */
@@ -727,30 +779,62 @@ html.high-contrast .lb-done { background: var(--surface); border-color: var(--fo
   transform: translateX(1.5rem);
 }
 
+/* Gesperrt (z. B. „Eigene Wörter" ohne Wort): gestrichelt statt blass — der
+   Hinweistext darin muss lesbar bleiben. */
+.lb-switch:disabled {
+  cursor: default;
+  border-style: dashed;
+}
+
+.lb-switch:disabled .lb-switch__track { border-style: dashed; }
+
 @media (hover: hover) {
   .lb-switch:hover:not(:disabled) { border-color: var(--accent); }
 }
 
 html.high-contrast .lb-switch[aria-checked='true'] { background: var(--surface); }
 
-/* ── Kontrastmodus: Holz und Licht weichen klaren Flächen und Linien ───── */
+/* ── Kontrastmodus: Holz und Licht weichen klaren Flächen und Linien ─────
+   Das ganze Gestell (Leisten, Rahmen, Sockel, Deckel) in EINER vollen Farbe,
+   das Innere der Fächer als ruhige Fläche, die Karten als weißes Papier mit
+   klarer Kante. Früher bekam jede Leiste einen eigenen 1-px-Umriss — die
+   stießen an den Ecken nicht aneinander, und das Gestell zerfiel in lose
+   Striche. Alles läuft über die Theme-Tokens und gilt so hell wie dunkel. */
 html.high-contrast .lb-scene {
-  --lb-wood-hi: var(--surface);
-  --lb-wood: var(--surface);
+  --lb-wood-hi: var(--border);
+  --lb-wood: var(--border);
   --lb-wood-mid: var(--surface-muted);
   --lb-wood-lo: var(--surface-muted);
   --lb-wood-deep: var(--surface-muted);
   --lb-grain: transparent;
   --lb-card: #ffffff;
   --lb-card-edge: #ffffff;
-  --lb-card-line: #000000;
-  --lb-card-side: #ffffff;
+  --lb-card-line: #a3a3a3;
+  --lb-card-rim: #555555;
+  --lb-card-side: #e5e5e5;
   --lb-cast: transparent;
 }
 
+/* Teile, deren Verlauf sonst Gestell- und Innenfarbe mischen würde. */
+html.high-contrast :is(.lb-cabinet__top, .lb-cabinet__side, .lb-cabinet__rail--bottom) {
+  background: var(--border);
+  box-shadow: none;
+}
+
+/* Wände und Boden eine Stufe dunkler als die Rückwand: gerade genug Tiefe,
+   um das Fach als Öffnung zu lesen. Das Archiv behält seinen grünen Filz. */
+html.high-contrast .lb-hole__wall,
+html.high-contrast .lb-cell:not([data-archive]) .lb-hole__floor {
+  background: color-mix(in srgb, var(--foreground) 9%, var(--surface-muted));
+}
+
+html.high-contrast :is(.lb-stack__grow, .lb-stack__top, .lb-stack__side, .lb-stack__card) {
+  outline: 1px solid var(--lb-card-rim);
+  outline-offset: -1px;
+}
+
+html.high-contrast .lb-stack__shadow { display: none; }
 html.high-contrast .lb-plate { border-color: var(--foreground); box-shadow: none; }
-html.high-contrast .lb-cell__frame,
-html.high-contrast .lb-cabinet__rail { outline: 1px solid var(--foreground); }
 html.high-contrast .lb-cta::after { display: none; }
 
 /* ── Richtungs-Chip in der Fachansicht ─────────────────────────────────────
@@ -775,6 +859,23 @@ html.high-contrast .lb-cta::after { display: none; }
 
 .vocab-direction-chip[data-cleared='true'] {
   border-color: currentColor;
+}
+
+/* ── Fachansicht ───────────────────────────────────────────────────────────
+   Telefon: Blatt von unten mit fester Höhe — es springt beim Laden nicht und
+   lässt oben einen Streifen der Seite stehen, damit klar bleibt, dass es
+   über ihr liegt. Breite Geräte: Karte in der Mitte, so hoch wie ihr Inhalt. */
+.lb-inspector {
+  height: calc(100dvh - max(2.5rem, env(safe-area-inset-top) + 1rem));
+}
+
+.lb-inspector__foot {
+  padding-bottom: max(1rem, env(safe-area-inset-bottom));
+}
+
+@media (min-width: 640px) {
+  .lb-inspector { height: auto; max-height: 86dvh; }
+  .lb-inspector__foot { padding-bottom: 1rem; }
 }
 
 /* Der Kopf der Fachansicht trägt die Farbe des Fachs als Reiter-Kante. */

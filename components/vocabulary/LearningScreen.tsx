@@ -16,6 +16,27 @@ interface LearningScreenProps {
   children: ReactNode
 }
 
+/**
+ * Zähler oben rechts über der Karte: kleine Beschriftung über der Zahl, Ziffern
+ * mit fester Breite. So bleibt die Spalte auch bei vierstelligen Werten
+ * („1000/3000") schmal genug, dass die Richtungs-Pille daneben in derselben
+ * Zeile steht — früher rutschte der Zähler ab zwei Ziffern in eine eigene
+ * Zeile. Screenreader lesen statt der Kurzform den ausgeschriebenen Satz.
+ */
+export function LearningStats({ label, items }: { label: string; items: Array<{ label: string; value: string }> }) {
+  return (
+    <div className="learning-stats">
+      <span className="sr-only">{label}</span>
+      {items.map(item => (
+        <span key={item.label} className="learning-stat" aria-hidden="true">
+          <span className="learning-stat-label">{item.label}</span>
+          <span className="learning-stat-value">{item.value}</span>
+        </span>
+      ))}
+    </div>
+  )
+}
+
 /** Focused viewport shared by assessment and practice; background stays inert. */
 export default function LearningScreen({ title, subtitle, progress, onExit, exitDisabled = false, t, children }: LearningScreenProps) {
   const screen = useRef<HTMLElement>(null)

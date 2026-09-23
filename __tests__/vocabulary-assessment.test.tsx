@@ -96,3 +96,12 @@ it('adds unknown words only after revealing the translation', async () => {
   fireEvent.click(screen.getByText(translations.add_to_box))
   await waitFor(() => expect(submitLessonAssessment).toHaveBeenCalledWith([{ cardId: 'card-house', alreadyKnown: false }], learnerId))
 })
+
+it('ordnet die Entscheidung wie beim Lernen an: links „weiß ich", rechts „weiß ich nicht"', () => {
+  renderAssess()
+  fireEvent.click(screen.getByRole('button', { name: translations.reveal_solution }))
+  const known = screen.getByText(translations.already_know).closest('button')!
+  const unknown = screen.getByText(translations.add_to_box).closest('button')!
+  expect(known.compareDocumentPosition(unknown) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
+  expect(known).toHaveClass('learning-button-primary')
+})

@@ -11,7 +11,10 @@ export async function readAdminVocabulary(client: SupabaseClient<Database>) {
   const rows: VocabularyContentRow[] = []
   const pageSize = 500
   for (let offset = 0; ; offset += pageSize) {
-    const { data, error } = await vocabularyQuery(client).order('created_at', { ascending: false }).order('id').range(offset, offset + pageSize - 1)
+    // Nur Kursinhalt: „Eigene Wörter" der Lernenden sieht das Personal über
+    // staff_manage zwar, verwaltet sie aber nicht.
+    const { data, error } = await vocabularyQuery(client).is('unit.owner_auth_user_id', null)
+      .order('created_at', { ascending: false }).order('id').range(offset, offset + pageSize - 1)
     if (error) throw error
     rows.push(...(data ?? []).map(row => mapVocabularyCard(row)))
     if (!data || data.length < pageSize) return rows

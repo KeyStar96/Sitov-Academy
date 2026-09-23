@@ -171,6 +171,21 @@ export interface LessonCardView {
   contextSentence?: string | null
 }
 
+/** Ein selbst eingetragenes Wort für die Lektion „Eigene Wörter" (Migration 23). */
+export interface AddOwnWordInput {
+  level: string
+  /** Deutsches Wort, bei Nomen mit Artikel („das Haus"). */
+  word: string
+  /** Übersetzung in der Sprache der Oberfläche. */
+  translation: string
+  uiLanguage: string
+}
+
+export type AddOwnWordResult =
+  /** `activated`: Die Lektion lernt schon — das Wort liegt sofort in Phase 1. */
+  | { success: true; cardId: string; activated: boolean }
+  | { success: false; error: 'invalid' | 'exists' | 'limit' | 'failed' }
+
 export interface AddCardsResult {
   success: boolean
   added: number

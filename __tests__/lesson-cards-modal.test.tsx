@@ -1,13 +1,13 @@
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import LessonCardsModal from '@/components/vocabulary/LessonCardsModal'
-import { addCardsToTrainer, getLessonCards, resetLessonProgress } from '@/app/actions/vocabulary'
+import { addCardsToTrainer, addOwnWord, deleteOwnWord, getLessonCards, resetLessonProgress } from '@/app/actions/vocabulary'
 import { VOCABULARY_FALLBACKS } from '@/lib/vocabulary-i18n'
 import type { AddCardsResult, LessonCardView } from '@/lib/types/vocabulary'
 
 jest.unmock('lucide-react')
 
 jest.mock('@/app/actions/vocabulary', () => ({
-  addCardsToTrainer: jest.fn(), getLessonCards: jest.fn(), resetLessonProgress: jest.fn(),
+  addCardsToTrainer: jest.fn(), addOwnWord: jest.fn(), deleteOwnWord: jest.fn(), getLessonCards: jest.fn(), resetLessonProgress: jest.fn(),
 }))
 
 const card: LessonCardView = {
@@ -73,4 +73,64 @@ it('requests lesson translations using the current interface language', async ()
   render(<LessonCardsModal lesson="Lektion 1" level="A1.1" uiLanguage="uk" onClose={onClose} onCardAdded={onCardAdded} />)
   await screen.findByText('house')
   expect(getLessonCards).toHaveBeenCalledWith('Lektion 1', 'A1.1', 'uk')
+})
+
+describe('„Eigene Wörter"', () => {
+  const own = 'Eigene Wörter'
+  const word = (text: string) => screen.getByLabelText(VOCABULARY_FALLBACKS.own_words_word_label) as HTMLInputElement
+  const translation = () => screen.getByLabelText(VOCABULARY_FALLBACKS.own_words_translation_label) as HTMLInputElement
+  const submit = () => screen.getByRole('button', { name: VOCABULARY_FALLBACKS.own_words_add })
+
+  it('Kurslektionen haben kein Eingabeformular mehr', async () => {
+    render(<LessonCardsModal lesson="Lektion 1" level="A1.1" uiLanguage="ru" onClose={onClose} onCardAdded={onCardAdded} />)
+    await screen.findByText('das Haus')
+    expect(screen.queryByRole('textbox')).not.toBeInTheDocument()
+  })
+
+  it('trägt ein Wort ein, leert das Formular und lädt die Liste nach', async () => {
+    jest.mocked(getLessonCards).mockResolvedValueOnce([]).mockResolvedValueOnce([{ ...card, id: 'own-1', word_de: 'Brot', translation: 'хлеб', phase: 1 }])
+    jest.mocked(addOwnWord).mockResolvedValue({ success: true, cardId: 'own-1', activated: true })
+    render(<LessonCardsModal lesson={own} level="A1.1" uiLanguage="ru" onClose={onClose} onCardAdded={onCardAdded} />)
+    expect(screen.getByRole('dialog')).toHaveAccessibleName(VOCABULARY_FALLBACKS.own_words_title)
+    expect(await screen.findByText(VOCABULARY_FALLBACKS.own_words_empty)).toBeInTheDocument()
+    fireEvent.change(word(''), { target: { value: 'das Brot' } })
+    fireEvent.change(translation(), { target: { value: 'хлеб' } })
+    await act(async () => { fireEvent.click(submit()) })
+    expect(addOwnWord).toHaveBeenCalledWith({ level: 'A1.1', word: 'das Brot', translation: 'хлеб', uiLanguage: 'ru' })
+    expect(screen.getByRole('status')).toHaveTextContent(VOCABULARY_FALLBACKS.own_words_added_to_box.replace('{word}', 'das Brot'))
+    expect(await screen.findByText('Phase 1')).toBeInTheDocument()
+    expect(word('').value).toBe('')
+    expect(translation().value).toBe('')
+    expect(word('')).toHaveFocus()
+    expect(onCardAdded).toHaveBeenCalledTimes(1)
+  })
+
+  it('verlangt beide Felder und meldet doppelte Wörter', async () => {
+    jest.mocked(getLessonCards).mockResolvedValue([])
+    jest.mocked(addOwnWord).mockResolvedValue({ success: false, error: 'exists' })
+    render(<LessonCardsModal lesson={own} level="A1.1" uiLanguage="ru" onClose={onClose} onCardAdded={onCardAdded} />)
+    await screen.findByText(VOCABULARY_FALLBACKS.own_words_empty)
+    await act(async () => { fireEvent.click(submit()) })
+    expect(screen.getByRole('alert')).toHaveTextContent(VOCABULARY_FALLBACKS.own_words_missing)
+    expect(addOwnWord).not.toHaveBeenCalled()
+    fireEvent.change(word(''), { target: { value: 'Brot' } })
+    fireEvent.change(translation(), { target: { value: 'хлеб' } })
+    await act(async () => { fireEvent.click(submit()) })
+    expect(screen.getByRole('alert')).toHaveTextContent(VOCABULARY_FALLBACKS.own_words_exists)
+    expect(word('').value).toBe('Brot')
+    expect(onCardAdded).not.toHaveBeenCalled()
+  })
+
+  it('zeigt wartende Wörter ohne Einzel-Übernahme und löscht mit Rücknahme bei Fehlern', async () => {
+    jest.mocked(getLessonCards).mockResolvedValue([card])
+    jest.mocked(deleteOwnWord).mockResolvedValue({ success: false })
+    render(<LessonCardsModal lesson={own} level="A1.1" uiLanguage="ru" onClose={onClose} onCardAdded={onCardAdded} />)
+    expect(await screen.findByText(VOCABULARY_FALLBACKS.own_words_waiting)).toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: /Karteikasten/ })).not.toBeInTheDocument()
+    await act(async () => { fireEvent.click(screen.getByRole('button', { name: VOCABULARY_FALLBACKS.own_words_delete_aria.replace('{word}', 'das Haus') })) })
+    expect(deleteOwnWord).toHaveBeenCalledWith('word-1')
+    expect(screen.getByText('das Haus')).toBeInTheDocument()
+    expect(screen.getByRole('alert')).toHaveTextContent(VOCABULARY_FALLBACKS.own_words_delete_failed)
+    expect(onCardAdded).not.toHaveBeenCalled()
+  })
 })

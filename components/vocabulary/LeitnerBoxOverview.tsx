@@ -58,6 +58,21 @@ export function stackLines(count: number): number {
 
 const COUNT_SLOT = '\u0000'
 
+/**
+ * Das Mitkippen gibt es nur am Rechner: breiter Bildschirm und ein Gerät, das
+ * sich als echte Maus meldet. Auf dem Telefon bleibt die Box ruhig stehen —
+ * das Event allein reicht nicht, denn auch Touch-Geräte liefern mitunter
+ * Maus-Events (Emulatoren, Tablets mit Maus-Modus).
+ */
+const TILT_QUERY = '(min-width: 640px) and (hover: hover) and (pointer: fine)'
+
+function clearTilt(node: HTMLElement | null) {
+  if (!node) return
+  delete node.dataset.tracking
+  node.style.removeProperty('--lb-ry')
+  node.style.removeProperty('--lb-rx')
+}
+
 /** Teilt „{count} Vokabeln" um die Zahl, damit sie groß stehen kann — in jeder Sprache an ihrer Stelle. */
 function countParts(count: number, t: Translator): [string, string] {
   if (count === 1) {
@@ -146,12 +161,13 @@ function Compartment({ bucket, index, open, t, onOpen }: {
       {bucket.due > 0 && <span id={ids.due} className="lb-due">{t('box_due_badge', { count: bucket.due })}</span>}
       <span className="lb-cell__plinth">
         <span className="lb-plate">
-          <span className="lb-plate__head">
-            <span className={cn('lb-plate__badge', tone.soft, tone.text)} aria-hidden="true">
-              {isArchive ? <Check size={16} strokeWidth={3} /> : bucket.key}
-            </span>
-            <span className="lb-plate__name">{name}</span>
+          {/* Jedes Etikett ist gleich gebaut: Nummer, Name, Anzahl — jeweils
+              in einer eigenen Zeile. So bekommt der Name die volle Breite, und
+              ein langer Name verschiebt nie die Nummer. */}
+          <span className={cn('lb-plate__badge', tone.soft, tone.text)} aria-hidden="true">
+            {isArchive ? <Check size={16} strokeWidth={3} /> : bucket.key}
           </span>
+          <span className="lb-plate__name">{name}</span>
           <span id={ids.count} className="lb-plate__count">{before}<b>{bucket.count}</b>{after}</span>
         </span>
       </span>
@@ -178,6 +194,7 @@ export default function LeitnerBoxOverview({ summary, level, uiLanguage, transla
   const introId = useId()
   const scene = useRef<HTMLDivElement>(null)
   const frame = useRef(0)
+  const canTilt = useRef(false)
   const [openPhase, setOpenPhase] = useState<BoxBucketKey | null>(null)
   const [origin, setOrigin] = useState<InspectorOrigin | null>(null)
   const openBucket = summary.buckets.find((bucket) => bucket.key === openPhase) ?? null
@@ -191,11 +208,26 @@ export default function LeitnerBoxOverview({ summary, level, uiLanguage, transla
 
   useEffect(() => () => cancelAnimationFrame(frame.current), [])
 
-  // Die Box neigt sich leicht zur Maus — nur mit echter Maus und ohne
+  useEffect(() => {
+    if (typeof window.matchMedia !== 'function') return
+    const query = window.matchMedia(TILT_QUERY)
+    const sync = () => {
+      canTilt.current = query.matches
+      if (!query.matches) {
+        cancelAnimationFrame(frame.current)
+        clearTilt(scene.current)
+      }
+    }
+    sync()
+    query.addEventListener('change', sync)
+    return () => query.removeEventListener('change', sync)
+  }, [])
+
+  // Die Box neigt sich leicht zur Maus — nur am Rechner (TILT_QUERY) und ohne
   // Bewegungsreduktion. Die Werte laufen als CSS-Variablen direkt an die
   // Bühne, React rendert dafür nicht neu.
   function onPointerMove(event: PointerEvent<HTMLDivElement>) {
-    if (reduced || event.pointerType !== 'mouse' || !scene.current) return
+    if (reduced || !canTilt.current || event.pointerType !== 'mouse' || !scene.current) return
     const rect = scene.current.getBoundingClientRect()
     const x = (event.clientX - rect.left) / rect.width - 0.5
     const y = (event.clientY - rect.top) / rect.height - 0.5
@@ -211,11 +243,7 @@ export default function LeitnerBoxOverview({ summary, level, uiLanguage, transla
 
   function onPointerLeave() {
     cancelAnimationFrame(frame.current)
-    const node = scene.current
-    if (!node) return
-    delete node.dataset.tracking
-    node.style.removeProperty('--lb-ry')
-    node.style.removeProperty('--lb-rx')
+    clearTilt(scene.current)
   }
 
   return (

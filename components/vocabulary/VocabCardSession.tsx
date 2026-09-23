@@ -6,7 +6,7 @@ import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { Info } from 'lucide-react'
 import { checkVocabularyRetry, finishVocabularySession, submitVocabularyAnswer, submitVocabularySelfRating } from '@/app/actions/vocabulary'
 import SolutionAudioButton from '@/components/exercises/SolutionAudioButton'
-import LearningScreen from './LearningScreen'
+import LearningScreen, { LearningStats } from './LearningScreen'
 import StudyModeToggle, { type StudyMode } from './StudyModeToggle'
 import { loadStudyMode, saveStudyMode } from '@/lib/vocabulary-lernkasten'
 import { createVocabularyTranslator, type VocabularyTranslations } from '@/lib/vocabulary-i18n'
@@ -17,7 +17,8 @@ import type { DueVocabularyCard, SubmitVocabularyAnswerInput, SubmitVocabularyAn
 import { createOrderedWriteQueue, type OrderedWriteQueue } from '@/lib/vocabulary-write-queue'
 import { prefetchNeuralAudio } from '@/lib/audio/neural-client'
 import { vocabularyAudioText } from '@/lib/audio/neural-config'
-import { cn, stripLessonPrefix } from '@/lib/utils'
+import { cn } from '@/lib/utils'
+import { lessonLabel } from '@/lib/vocabulary-own-words'
 import VisualDiff from '@/components/exercises/VisualDiff'
 import SoftErrorBadge from '@/components/exercises/SoftErrorBadge'
 import type { SoftErrorReason } from '@/lib/answer-grading'
@@ -282,7 +283,7 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
 
   return (
     <LearningScreen title={t('title')}
-      subtitle={current ? t('lesson_label', { lesson: stripLessonPrefix(current.card.lesson) }) : undefined}
+      subtitle={current ? lessonLabel(current.card.lesson, t) : undefined}
       progress={queue.length ? index / queue.length * 100 : 100} onExit={goBack} t={t}>
       {!current ? <div className="learning-card learning-complete" aria-live="polite">
         <span className="learning-pill">{t('card_progress_compact', { current: index, total: queue.length })}</span>
@@ -293,9 +294,12 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
         <button type="button" className="learning-button learning-button-primary" onClick={goBack}>{t('lernkasten_back')}</button>
       </div> : <>
         <div className="learning-meta">
-          <span className="learning-pill">{t(isSentence ? 'sentence_format' : isToGerman ? 'direction_to_de' : 'direction_from_de')}</span>
-          {isRetry && <span className="learning-pill learning-pill-retry">{t('retry_label')}</span>}
-          <span>{t('card_progress_compact', { current: index + 1, total: queue.length })} · {t('phase_compact', { phase: current.phase })}</span>
+          <div className="learning-meta-pills">
+            <span className="learning-pill">{t(isSentence ? 'sentence_format' : isToGerman ? 'direction_to_de' : 'direction_from_de')}</span>
+            {isRetry && <span className="learning-pill learning-pill-retry">{t('retry_label')}</span>}
+          </div>
+          <LearningStats label={`${t('card_progress', { current: index + 1, total: queue.length })}, ${t('phase_label', { phase: current.phase })}`}
+            items={[{ label: t('stat_card'), value: `${index + 1}/${queue.length}` }, { label: t('stat_phase'), value: `${current.phase}/6` }]} />
         </div>
         {isRetry && !answerResult && <p className="learning-mode-locked" role="note">{t('retry_hint')}</p>}
         {!answerResult && !saveFailed && (canChooseMode

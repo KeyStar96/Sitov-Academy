@@ -14,10 +14,11 @@ import { readVocabularyProgress } from '@/lib/vocabulary-queries'
 import { loadLevelAccessProfile } from '@/lib/access/server'
 import { readAllRows } from '@/lib/supabase-read'
 import { vocabularyQuery, mapVocabularyCard } from '@/lib/learning-catalog'
-import { resolveVocabularySentenceSource, resolveVocabularyInterfaceTranslation } from '@/lib/vocabulary-languages'
+import { resolveVocabularySentenceSource, resolveVocabularyInterfaceTranslation, resolveCardInterfaceTranslation } from '@/lib/vocabulary-languages'
+import { isOwnWordsLesson, parseGermanHeadword } from '@/lib/vocabulary-own-words'
 import {
   isHardForNativeLanguage,
-  type AddCardsResult, type AssessmentDecision, type DueVocabularyCard,
+  type AddCardsResult, type AddOwnWordInput, type AddOwnWordResult, type AssessmentDecision, type DueVocabularyCard,
   type InitializeLessonResult, type LessonCardView, type LessonStat,
   type SubmitAssessmentResult, type SubmitVocabularyAnswerInput, type SubmitVocabularyAnswerResult,
   type SubmitVocabularySelfRatingInput, type CheckVocabularyRetryInput, type CheckVocabularyRetryResult,
@@ -90,7 +91,7 @@ export async function getVocabularySession(level?: string, uiLanguage?: string):
       const direction = row.direction === 'native_to_de' ? 'native_to_de' : 'de_to_native'
       const sentence = direction === 'native_to_de' && card.sentence_practice
       const source = sentence ? resolveVocabularySentenceSource(card, language, profile.native_language) : null
-      const translatedWord = resolveVocabularyInterfaceTranslation(card, language)
+      const translatedWord = resolveCardInterfaceTranslation(card, language)
       // Incomplete content must never downgrade a DB-enforced sentence to self-rating.
       if ((sentence && !source) || (!sentence && !translatedWord)) return []
       const translation = translatedWord?.text ?? ''
@@ -129,6 +130,8 @@ export async function getDueCards(level?: string, uiLanguage?: string): Promise<
 /** Minimal assessment payload plus the verified actor for queued decisions. */
 export async function getVocabularyAssessment(lessonName: string, level: string, uiLanguage?: string): Promise<VocabularyAssessmentSession> {
   try {
+    // Eigene Wörter starten ohne Einstufung direkt in Phase 1.
+    if (isOwnWordsLesson(lessonName)) return { learnerId: null, cards: [] }
     const learner = await loadLearner()
     if (!learner || !hasTrainerAccess(learner.profile, level, 'vocabulary')) return { learnerId: null, cards: [] }
     const language = languageSchema.catch('de').parse(uiLanguage ?? learner.profile.ui_language)
@@ -236,6 +239,59 @@ export async function getVocabularyOnboarding(level: string): Promise<{ status: 
     .eq('auth_user_id', learner.user.id).eq('level', level).maybeSingle()
   if (error || !data || (data.status !== 'skipped' && data.status !== 'completed')) return null
   return { status: data.status, lesson: data.unit.label }
+}
+
+const ownWordSchema = z.object({
+  level: z.string().min(1).max(40),
+  word: z.string().max(160).refine(value => value.trim().length > 0),
+  translation: z.string().max(200).refine(value => value.trim().length > 0),
+  uiLanguage: z.enum(['en', 'ru', 'uk', 'tr']),
+})
+
+/**
+ * Trägt ein Wort in „Eigene Wörter" ein. Die Datenbank legt die private
+ * Lektion beim ersten Wort an und entscheidet, ob das Wort sofort in Phase 1
+ * startet (Lektion lernt schon) oder auf die erste Aktivierung wartet.
+ * Die Übersetzung gilt für die Sprache der Oberfläche — aus ihr wird die
+ * Richtung Deutsch → eigene Sprache abgefragt.
+ */
+export async function addOwnWord(input: AddOwnWordInput): Promise<AddOwnWordResult> {
+  const parsed = ownWordSchema.safeParse(input)
+  if (!parsed.success) return { success: false, error: 'invalid' }
+  try {
+    const learner = await loadLearner()
+    if (!learner || !hasTrainerAccess(learner.profile, parsed.data.level, 'vocabulary')) return { success: false, error: 'failed' }
+    const headword = parseGermanHeadword(parsed.data.word)
+    const { data, error } = await learner.supabase.rpc('add_own_vocabulary', {
+      p_level: parsed.data.level, p_word_de: headword.word_de, p_article: headword.article,
+      p_translation: parsed.data.translation.trim(), p_locale: parsed.data.uiLanguage,
+    })
+    if (error) return { success: false, error: 'failed' }
+    const failure = getRpcError(data)
+    if (failure) return { success: false, error: failure.error === 'own_word_exists' ? 'exists' : failure.error === 'own_word_limit' ? 'limit' : failure.error === 'invalid_input' ? 'invalid' : 'failed' }
+    const result = z.object({ cardId: z.string().uuid(), activated: z.boolean() }).safeParse(data)
+    if (!result.success) return { success: false, error: 'failed' }
+    refreshVocabulary()
+    return { success: true, ...result.data }
+  } catch {
+    return { success: false, error: 'failed' }
+  }
+}
+
+/** Löscht ein eigenes Wort samt Lernstand. Fremde oder Kurs-Karten findet die Datenbank gar nicht erst. */
+export async function deleteOwnWord(cardId: string): Promise<{ success: boolean }> {
+  const parsed = z.string().uuid().safeParse(cardId)
+  if (!parsed.success) return { success: false }
+  try {
+    const learner = await loadLearner()
+    if (!learner) return { success: false }
+    const { data, error } = await learner.supabase.rpc('delete_own_vocabulary', { p_card_id: parsed.data })
+    if (error || getRpcError(data)) return { success: false }
+    refreshVocabulary()
+    return { success: true }
+  } catch {
+    return { success: false }
+  }
 }
 
 /** Every review is graded from the learner's typed answer inside PostgreSQL. */
@@ -351,7 +407,7 @@ export async function getLessonCards(lessonName: string, level?: string, uiLangu
     const learned = states.length === 2 && states.every(row => normalizeBox(row.box_number) === LEITNER_LEARNED_BOX)
     const phase = states.length ? Math.min(...states.map(row => Math.min(6, normalizeBox(row.box_number)))) as LeitnerPhase : null
     return { id: card.id, word_de: card.word_de, article: card.article, plural: card.plural,
-      translation: resolveVocabularyInterfaceTranslation(card, language)?.text ?? '', image_url: card.image_url, audio_url: card.audio_url,
+      translation: resolveCardInterfaceTranslation(card, language)?.text ?? '', image_url: card.image_url, audio_url: card.audio_url,
       phase, isLearned: learned, contextSentence: card.context_sentence_de }
   }).sort((a, b) => a.word_de.localeCompare(b.word_de, 'de-DE'))
 }
@@ -423,7 +479,7 @@ async function readWordBox(level: string | undefined, language: z.infer<typeof l
   }).map(card => ({
     card,
     state: computeWordBoxState(byCard.get(card.id) ?? [], now),
-    translation: language ? resolveVocabularyInterfaceTranslation(card, language)?.text ?? '' : '',
+    translation: language ? resolveCardInterfaceTranslation(card, language)?.text ?? '' : '',
   }))
 }
 

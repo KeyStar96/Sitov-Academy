@@ -4,10 +4,11 @@ import { useEffect, useMemo, useRef, useState, useTransition } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { motion, useReducedMotion } from 'framer-motion'
-import { ArrowDown, ArrowRight, BookOpen, Check, CircleCheckBig, ListChecks, Sparkles } from 'lucide-react'
+import { ArrowDown, ArrowRight, BookOpen, Check, CircleCheckBig, ListChecks, PenLine, Sparkles } from 'lucide-react'
 import { initializeLesson } from '@/app/actions/vocabulary'
 import { createVocabularyTranslator, type VocabularyTranslations } from '@/lib/vocabulary-i18n'
 import { loadLernkastenSelection, saveLernkastenSelection } from '@/lib/vocabulary-lernkasten'
+import { isOwnWordsLesson, lessonTitle, OWN_WORDS_LESSON } from '@/lib/vocabulary-own-words'
 import type { DueVocabularyCard, LessonStat, VocabularyBoxSummary } from '@/lib/types/vocabulary'
 import type { SoftErrorReason } from '@/lib/answer-grading'
 import VocabCardSession from './VocabCardSession'
@@ -18,6 +19,8 @@ import './lernkasten.css'
 const EASE = [0.22, 1, 0.36, 1] as const
 const LESSONS_ID = 'lernkasten-lektionen'
 const COUNT_SLOT = '\u0000'
+/** „Eigene Wörter" steht immer in der Liste — auch bevor das erste Wort existiert. */
+const EMPTY_OWN_WORDS: LessonStat = { lesson: OWN_WORDS_LESSON, total: 0, active: 0, learned: 0, untouched: 0, due: 0 }
 
 interface Props {
   learnerId: string | null
@@ -66,6 +69,8 @@ export default function VocabTrainerPageClient({ learnerId, initialCards, lesson
   const lessonsHeading = useRef<HTMLHeadingElement>(null)
   const [pending, setPending] = useState(false)
   const [error, setError] = useState(false)
+  const [ownPending, setOwnPending] = useState(false)
+  const [ownError, setOwnError] = useState(false)
   const reduced = useReducedMotion() ?? false
   useEffect(() => {
     const saved = loadLernkastenSelection(level)
@@ -82,10 +87,32 @@ export default function VocabTrainerPageClient({ learnerId, initialCards, lesson
   // „{count} fällig" — dieselben Worte wie am Fach der Lernbox, die Zahl fett.
   const [duePrefix = '', dueSuffix = ''] = t('box_due_badge', { count: COUNT_SLOT }).split(COUNT_SLOT)
 
+  const courseLessons = lessonStats.filter(lesson => !isOwnWordsLesson(lesson.lesson))
+  const lessonCards = [...courseLessons, lessonStats.find(lesson => isOwnWordsLesson(lesson.lesson)) ?? EMPTY_OWN_WORDS]
+
   function toggle(lesson: LessonStat) {
     if (selection.includes(lesson.lesson)) setSelection(selection.filter(entry => entry !== lesson.lesson))
+    else if (isOwnWordsLesson(lesson.lesson)) { if (lesson.total > 0) void activateOwnWords(lesson) }
     else if (!lesson.active && !lesson.learned && lesson.untouched) setOnboarding(lesson.lesson)
     else setSelection([...selection, lesson.lesson])
+  }
+  // Eigene Wörter brauchen keine Einstufung: Beim Einschalten landen alle noch
+  // nicht aufgenommenen Wörter direkt in Phase 1. Später eingetragene Wörter
+  // legt die Datenbank selbst in Phase 1, sobald die Lektion einmal lief.
+  async function activateOwnWords(lesson: LessonStat) {
+    if (lesson.untouched === 0) { setSelection(previous => [...new Set([...previous, lesson.lesson])]); return }
+    if (!learnerId || ownPending) return
+    setOwnPending(true)
+    setOwnError(false)
+    setSelection(previous => [...new Set([...previous, lesson.lesson])])
+    try {
+      const result = await initializeLesson(lesson.lesson, level, learnerId)
+      if (!result.success) throw new Error('own_words_activation_failed')
+      startRefresh(() => router.refresh())
+    } catch {
+      setSelection(previous => previous.filter(item => item !== lesson.lesson))
+      setOwnError(true)
+    } finally { setOwnPending(false) }
   }
   function selectAllDue() {
     setSelection(previous => [...new Set([...previous, ...dueByLesson.keys()])])
@@ -142,7 +169,10 @@ export default function VocabTrainerPageClient({ learnerId, initialCards, lesson
       </div>
 
   return <div className="mx-auto w-full max-w-5xl space-y-10 text-[var(--foreground)]">
-    <section className="sl-glass sl-hero px-4 py-6 [--lb-bleed:0.75rem] sm:p-8 sm:[--lb-bleed:0px]" aria-label={t('lernkasten_title')}>
+    {/* Auf dem Telefon ohne Karte (siehe .lb-hero): Die Box reicht mit
+        --lb-bleed über den Seitenrand der academy-container bis an den
+        Bildschirmrand. */}
+    <section className="lb-hero sl-glass sl-hero [--lb-bleed:1rem] sm:p-8 sm:[--lb-bleed:0px]" aria-label={t('lernkasten_title')}>
       <div className="relative">
         <p className="flex items-center gap-2 text-base font-semibold text-[var(--muted)]">
           {due > 0 && <span className="sl-due-dot" aria-hidden="true" />}
@@ -176,47 +206,60 @@ export default function VocabTrainerPageClient({ learnerId, initialCards, lesson
         </button>}
       </div>
       <div className="grid min-w-0 gap-4 md:grid-cols-2">
-        {lessonStats.map((lesson, index) => {
+        {lessonCards.map((lesson, index) => {
+          const own = isOwnWordsLesson(lesson.lesson)
+          // Ohne eigenes Wort gibt es nichts einzuschalten: Die Karte lädt dann
+          // nur zum ersten Eintrag ein.
+          const empty = own && lesson.total === 0
           const selected = selection.includes(lesson.lesson)
           const lessonDue = dueByLesson.get(lesson.lesson) ?? 0
           const learnedPercent = lesson.total ? Math.round(lesson.learned / lesson.total * 100) : 0
-          return <motion.article key={lesson.lesson} data-selected={selected} className="sl-card flex min-w-0 flex-col gap-4 p-5 sm:p-6"
+          const title = lessonTitle(lesson.lesson, t)
+          return <motion.article key={lesson.lesson} data-selected={selected} data-own={own || undefined} className="sl-card flex min-w-0 flex-col gap-4 p-5 sm:p-6"
             initial={reduced ? false : { opacity: 0, y: 12 }} animate={reduced ? undefined : { opacity: 1, y: 0 }}
             transition={{ duration: 0.4, ease: EASE, delay: reduced ? 0 : Math.min(index, 7) * 0.04 }}>
             <div className="flex flex-wrap items-start justify-between gap-x-3 gap-y-2">
-              <div className="min-w-0">
-                <h3 className="break-words text-xl font-semibold">{lesson.lesson}</h3>
-                <p className="mt-1 flex flex-wrap gap-x-2 text-base text-[var(--muted)]">
-                  <span>{t('set_words_total', { count: lesson.total })}</span>
-                  <span aria-hidden="true">·</span>
-                  <span>{t('set_learned_share', { percent: learnedPercent })}</span>
-                </p>
+              <div className="flex min-w-0 items-start gap-3">
+                {own && <span className="sl-icon-tile h-11 w-11" aria-hidden="true"><PenLine size={20} /></span>}
+                <div className="min-w-0">
+                  <h3 className="break-words text-xl font-semibold">{title}</h3>
+                  <p className="mt-1 flex flex-wrap gap-x-2 text-base text-[var(--muted)]">
+                    {empty ? <span>{t('own_words_empty')}</span> : <>
+                      <span>{t('set_words_total', { count: lesson.total })}</span>
+                      <span aria-hidden="true">·</span>
+                      <span>{t('set_learned_share', { percent: learnedPercent })}</span>
+                    </>}
+                  </p>
+                </div>
               </div>
               {/* Fällige Aufgaben sind der Grund, ein Set auszuwählen — sie
                   tragen deshalb Akzentfarbe, ein leeres Set bleibt ruhig. */}
-              {lessonDue > 0
+              {empty ? null : lessonDue > 0
                 ? <span className="shrink-0 rounded-full bg-[var(--accent)]/10 px-3 py-1 text-base font-semibold text-[var(--accent-text)]">{duePrefix}<b>{lessonDue}</b>{dueSuffix}</span>
                 : <span className="shrink-0 rounded-full bg-[var(--surface-muted)] px-3 py-1 text-base text-[var(--muted)]">{t('lernkasten_no_due_badge')}</span>}
             </div>
-            <div className="sl-bar h-2" data-tone="success" aria-hidden="true"><span style={{ width: `${learnedPercent}%` }} /></div>
+            {!empty && <div className="sl-bar h-2" data-tone="success" aria-hidden="true"><span style={{ width: `${learnedPercent}%` }} /></div>}
             <button type="button" role="switch" aria-checked={selected} data-selected={selected} onClick={() => toggle(lesson)} className="lb-switch"
-              aria-label={t('lernkasten_switch_aria', { lesson: lesson.lesson })}>
+              disabled={empty || (own && ownPending)} aria-label={t('lernkasten_switch_aria', { lesson: title })}>
               <span className="lb-switch__track" aria-hidden="true">
                 <span className="lb-switch__thumb">{selected && <Check size={16} strokeWidth={3} />}</span>
               </span>
               <span className="flex min-w-0 flex-col">
                 <span className="text-lg font-semibold leading-snug">{t(selected ? 'lernkasten_in_box' : 'lernkasten_not_in_box')}</span>
-                <span className="text-sm text-[var(--muted)]">{t(selected ? 'lernkasten_tap_to_remove' : 'lernkasten_tap_to_add')}</span>
+                <span className="text-sm text-[var(--muted)]">{empty ? t('own_words_switch_disabled') : t(selected ? 'lernkasten_tap_to_remove' : 'lernkasten_tap_to_add')}</span>
               </span>
             </button>
+            {own && ownError && <p role="alert" className="text-base text-[var(--danger)]">{t('own_words_activate_failed')}</p>}
             <div className="flex flex-wrap items-center gap-x-5 gap-y-1 border-t border-[var(--border)] pt-2">
-              <button type="button" onClick={() => setOpenLesson(lesson.lesson)} className="inline-flex min-h-12 items-center gap-2 text-base font-semibold"><BookOpen size={18} aria-hidden="true" />{t('show_cards')}</button>
-              {lesson.untouched > 0 && <Link className="inline-flex min-h-12 items-center gap-2 text-base font-semibold text-[var(--accent-text)]" href={`${overview}/assess?lesson=${encodeURIComponent(lesson.lesson)}`}><ListChecks size={18} aria-hidden="true" />{t('assess_set')}</Link>}
+              {own
+                ? <button type="button" onClick={() => setOpenLesson(lesson.lesson)} className="inline-flex min-h-12 items-center gap-2 text-base font-semibold text-[var(--accent-text)]"><PenLine size={18} aria-hidden="true" />{t(empty ? 'own_words_add_first' : 'own_words_manage')}</button>
+                : <button type="button" onClick={() => setOpenLesson(lesson.lesson)} className="inline-flex min-h-12 items-center gap-2 text-base font-semibold"><BookOpen size={18} aria-hidden="true" />{t('show_cards')}</button>}
+              {!own && lesson.untouched > 0 && <Link className="inline-flex min-h-12 items-center gap-2 text-base font-semibold text-[var(--accent-text)]" href={`${overview}/assess?lesson=${encodeURIComponent(lesson.lesson)}`}><ListChecks size={18} aria-hidden="true" />{t('assess_set')}</Link>}
             </div>
           </motion.article>
         })}
       </div>
-      {lessonStats.length === 0 && <p className="py-10 text-lg text-[var(--muted)]">{t('no_sets')}</p>}
+      {courseLessons.length === 0 && <p className="py-10 text-lg text-[var(--muted)]">{t('no_sets')}</p>}
     </section>
 
     <details className="sl-glass rounded-2xl px-5 sm:px-7">

@@ -713,6 +713,7 @@ export type Database = {
           is_active: boolean
           label: string
           level: string
+          owner_auth_user_id: string | null
           sort_order: number
           trainer: Database["public"]["Enums"]["trainer_code"]
         }
@@ -721,6 +722,7 @@ export type Database = {
           is_active?: boolean
           label: string
           level: string
+          owner_auth_user_id?: string | null
           sort_order?: number
           trainer: Database["public"]["Enums"]["trainer_code"]
         }
@@ -729,6 +731,7 @@ export type Database = {
           is_active?: boolean
           label?: string
           level?: string
+          owner_auth_user_id?: string | null
           sort_order?: number
           trainer?: Database["public"]["Enums"]["trainer_code"]
         }
@@ -1478,6 +1481,16 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      add_own_vocabulary: {
+        Args: {
+          p_article: string | null
+          p_level: string
+          p_locale: string
+          p_translation: string
+          p_word_de: string
+        }
+        Returns: Json
+      }
       begin_learning_reset: { Args: { p_confirmation: string }; Returns: Json }
       check_vocabulary_retry: {
         Args: {
@@ -1508,6 +1521,10 @@ export type Database = {
       }
       decline_business_booking: { Args: { p_id: string }; Returns: Json }
       delete_course_exception: { Args: { p_id: string }; Returns: Json }
+      delete_own_vocabulary: {
+        Args: { p_card_id: string }
+        Returns: Json
+      }
       delete_learning_content: {
         Args: { p_id: string; p_trainer: string }
         Returns: Json

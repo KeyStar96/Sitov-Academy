@@ -5,7 +5,8 @@ import { videoRecordSchema } from './video-links'
 import { isCefrFamily, type PronunciationPrompt } from './pronunciation-prompts'
 
 /** Foreign-key embeds keep content, translations and unit metadata authoritative. */
-export const vocabularySelection = '*,unit:learning_units!inner(id,level,label,sort_order,is_active),translations:vocabulary_translations(*)' as const
+// owner_auth_user_id: gesetzt nur bei „Eigene Wörter" (Migration 23). Admin-Pfade filtern darauf.
+export const vocabularySelection = '*,unit:learning_units!inner(id,level,label,sort_order,is_active,owner_auth_user_id),translations:vocabulary_translations(*)' as const
 export const grammarSelection = '*,unit:learning_units!inner(id,level,label,sort_order,is_active),translations:grammar_translations(*)' as const
 // The grants table creates a second PostgREST path to levels; select the unit FK explicitly.
 export const readingSelection = '*,unit:learning_units!inner(id,level,label,sort_order,is_active,learning_levels!learning_units_level_fkey!inner(cefr_level))' as const
@@ -16,7 +17,7 @@ export const readingQuery = (client: SupabaseClient<Database>) => client.from('l
 export const videoQuery = (client: SupabaseClient<Database>) => client.from('learning_videos').select(videoSelection)
 
 type Unit = Pick<Tables<'learning_units'>, 'id' | 'level' | 'label' | 'sort_order' | 'is_active'>
-type VocabularyRow = Tables<'learning_vocabulary_cards'> & { unit: Unit; translations: Tables<'vocabulary_translations'>[] }
+type VocabularyRow = Tables<'learning_vocabulary_cards'> & { unit: Unit & Pick<Tables<'learning_units'>, 'owner_auth_user_id'>; translations: Tables<'vocabulary_translations'>[] }
 type GrammarRow = Tables<'learning_exercises'> & { unit: Unit; translations: (Tables<'grammar_translations'> & { prompt?: string | null })[] }
 type ReadingRow = Tables<'learning_reading_texts'> & { unit: Unit & { learning_levels: Pick<Tables<'learning_levels'>, 'cefr_level'> } }
 type VideoRow = Tables<'learning_videos'> & { unit: Unit }
@@ -24,7 +25,7 @@ type VideoRow = Tables<'learning_videos'> & { unit: Unit }
 export function mapVocabularyCard(row: VocabularyRow) {
   const translation = (locale: string) => row.translations.find(item => item.locale === locale)
   return vocabularyCardSchema.parse({
-    ...row, unit_id: row.unit.id, level: row.unit.level, lesson: row.unit.label,
+    ...row, unit_id: row.unit.id, level: row.unit.level, lesson: row.unit.label, is_own: row.unit.owner_auth_user_id != null,
     translation_en: translation('en')?.translation ?? null, translation_ru: translation('ru')?.translation ?? null,
     translation_uk: translation('uk')?.translation ?? null, translation_tr: translation('tr')?.translation ?? null,
     context_sentence_de: translation('de')?.context_sentence ?? null, context_sentence_en: translation('en')?.context_sentence ?? null,

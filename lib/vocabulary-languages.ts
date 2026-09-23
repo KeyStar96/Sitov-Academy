@@ -46,6 +46,23 @@ export function resolveVocabularyInterfaceTranslation(card: TranslationCard, uiL
   return text?.trim() ? { language: uiLanguage, text } : null
 }
 
+/**
+ * Wie oben — nur „Eigene Wörter" (Migration 23) haben eine Ausnahme: Sie tragen
+ * genau eine Übersetzung, in der Sprache, in der sie eingetragen wurden. Nach
+ * einem Sprachwechsel der Oberfläche gilt sie weiter, mit ihrer echten Sprache
+ * (lang-Attribut, Vorlesen). Spiegelt vocabulary_private.card_translation, die
+ * auch die Bewertung in PostgreSQL so auflöst — gleiche Reihenfolge.
+ */
+export function resolveCardInterfaceTranslation(card: TranslationCard & { is_own?: boolean }, uiLanguage: UiLocale): VocabularySource | null {
+  const exact = resolveVocabularyInterfaceTranslation(card, uiLanguage)
+  if (exact || !card.is_own || uiLanguage === 'de') return exact
+  for (const language of ['en', 'ru', 'tr', 'uk'] as const) {
+    const text = card[`translation_${language}`]
+    if (text?.trim()) return { language, text }
+  }
+  return null
+}
+
 /** Resolve both the text and its actual language so labels never misstate a fallback. */
 export function resolveVocabularyTranslation(card: TranslationCard, nativeLanguage: string | null): VocabularySource | null {
   const nativeLocale = vocabularyNativeLocale(nativeLanguage)

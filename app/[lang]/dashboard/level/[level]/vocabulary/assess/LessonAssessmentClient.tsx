@@ -9,7 +9,7 @@ import { articleColorClass } from '@/lib/vocabulary-ui'
 import type { VocabularyAssessmentCard } from '@/lib/types/vocabulary'
 import { createOrderedWriteQueue, type OrderedWriteQueue } from '@/lib/vocabulary-write-queue'
 import { cn, stripLessonPrefix } from '@/lib/utils'
-import LearningScreen from '@/components/vocabulary/LearningScreen'
+import LearningScreen, { LearningStats } from '@/components/vocabulary/LearningScreen'
 
 export type AssessmentCard = VocabularyAssessmentCard
 interface LessonAssessmentClientProps {
@@ -140,7 +140,11 @@ export default function LessonAssessmentClient({ learnerId, cards, lessonName, l
     <LearningScreen title={t('assess_title')} subtitle={t('lesson_label', { lesson: stripLessonPrefix(lessonName) })}
       progress={session.length ? index / session.length * 100 : 100} onExit={goBack} t={t}>
       {current ? <>
-        <div className="learning-meta"><span className="learning-pill">{t('direction_to_de')}</span><span>{t('card_progress_compact', { current: index + 1, total: session.length })}</span></div>
+        <div className="learning-meta">
+          <div className="learning-meta-pills"><span className="learning-pill">{t('direction_to_de')}</span></div>
+          <LearningStats label={t('card_progress', { current: index + 1, total: session.length })}
+            items={[{ label: t('stat_card'), value: `${index + 1}/${session.length}` }]} />
+        </div>
         <div className="learning-card">
           <div className="learning-card-content" aria-live="polite" aria-atomic="true">
             <span className="learning-eyebrow">{t('assessment_word_label')}</span>
@@ -154,12 +158,15 @@ export default function LessonAssessmentClient({ learnerId, cards, lessonName, l
             </>}
           </div>
         </div>
+        {/* Dieselbe Anordnung wie beim Lernen (VocabCardSession): links „weiß
+            ich", rechts „weiß ich nicht" — sonst tippt man beim Wechsel
+            zwischen Einstufen und Lernen aus Gewohnheit daneben. */}
         {saveFailed ? <button className="learning-button learning-button-primary learning-button-wide" onClick={retry}>{t('error_retry')}</button> : !revealed ? <button type="button" className="learning-button learning-button-primary learning-button-wide" onClick={() => setRevealed(true)}>{t('reveal_solution')}</button> : <div className="learning-actions">
-          <button className="learning-button" onClick={() => decide(false)}>
-            <span>{t('add_to_box')}</span><small>{t('add_to_box_hint')}</small>
-          </button>
           <button className="learning-button learning-button-primary" onClick={() => decide(true)}>
             <span>{t('already_know')}</span><small>{t('already_know_hint')}</small>
+          </button>
+          <button className="learning-button" onClick={() => decide(false)}>
+            <span>{t('add_to_box')}</span><small>{t('add_to_box_hint')}</small>
           </button>
         </div>}
       </> : <div className="learning-card learning-complete" aria-live="polite">
