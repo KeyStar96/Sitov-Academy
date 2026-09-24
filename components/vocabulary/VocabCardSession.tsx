@@ -8,7 +8,9 @@ import { checkVocabularyRetry, finishVocabularySession, submitVocabularyAnswer, 
 import SolutionAudioButton from '@/components/exercises/SolutionAudioButton'
 import LearningScreen, { LearningStats } from './LearningScreen'
 import StudyModeToggle, { type StudyMode } from './StudyModeToggle'
-import { loadStudyMode, saveStudyMode } from '@/lib/vocabulary-lernkasten'
+import { loadRoundSize, loadStudyMode, saveStudyMode } from '@/lib/vocabulary-lernkasten'
+import { countRounds, DEFAULT_ROUND_SIZE, roundLimit, takeRound, type RoundSize } from '@/lib/vocabulary-rounds'
+import { studentTranslator } from '@/lib/student-ui-i18n'
 import { createVocabularyTranslator, type VocabularyTranslations } from '@/lib/vocabulary-i18n'
 import { scheduleVocabularyCards } from '@/lib/vocabulary-scheduler'
 import { articleColorClass } from '@/lib/vocabulary-ui'
@@ -22,6 +24,7 @@ import { lessonLabel } from '@/lib/vocabulary-own-words'
 import VisualDiff from '@/components/exercises/VisualDiff'
 import SoftErrorBadge from '@/components/exercises/SoftErrorBadge'
 import { SessionBoxMoves, type SessionMove } from './SuccessMoments'
+import RoundBreak, { TodayRounds } from './RoundBreak'
 import type { SoftErrorReason } from '@/lib/answer-grading'
 
 interface VocabCardSessionProps {
@@ -33,6 +36,8 @@ interface VocabCardSessionProps {
   uiLanguage?: string
   previousCardId?: string | null
   initialDeferredCount?: number
+  /** Karten pro Runde; ohne Angabe gilt die auf diesem Gerät gespeicherte Wahl. */
+  roundSize?: RoundSize
   onBackToLernkasten?: (lastAnsweredCardId: string | null) => void
 }
 
@@ -43,20 +48,30 @@ interface SessionItem {
   key: string
 }
 
-export default function VocabCardSession({ learnerId, cards, translations = {}, softErrorTranslations, overviewHref, uiLanguage = 'de', previousCardId = null, initialDeferredCount = 0, onBackToLernkasten }: VocabCardSessionProps) {
+function toSessionItem(card: DueVocabularyCard): SessionItem {
+  return { card, retry: false, key: card.progressId }
+}
+
+export default function VocabCardSession({ learnerId, cards, translations = {}, softErrorTranslations, overviewHref, uiLanguage = 'de', previousCardId = null, initialDeferredCount = 0, roundSize, onBackToLernkasten }: VocabCardSessionProps) {
   const router = useRouter()
   const actorId = useRef(learnerId).current
   const mounted = useRef(true)
   useEffect(() => { mounted.current = true; return () => { mounted.current = false } }, [])
   const [plan] = useState(() => scheduleVocabularyCards(cards, previousCardId))
-  // Phase-6-Sitzung: Jede fällige Karte kommt einmal als gewerteter Versuch.
-  // Ist er falsch, hängt sich eine Wiederholung hinten an — so lange, bis die
-  // Karte einmal richtig beantwortet ist. Wiederholungen ändern die Phase nicht.
-  const [queue, setQueue] = useState<SessionItem[]>(() => plan.cards.map(card => ({ card, retry: false, key: card.progressId })))
+  // Lernrunden: Der geplante Stapel wird in Runden fester Größe geteilt.
+  // Jede fällige Karte kommt einmal als gewerteter Versuch. Ist er falsch,
+  // hängt sich eine Wiederholung ans Ende DIESER Runde — so kommt ein
+  // unbekanntes Wort nach höchstens einer Rundenlänge wieder. Wiederholungen
+  // ändern die Phase nicht.
+  const [size, setSize] = useState<RoundSize>(roundSize ?? DEFAULT_ROUND_SIZE)
+  const [round, setRound] = useState(() => ({ number: 1, start: 0, length: roundLimit(roundSize ?? DEFAULT_ROUND_SIZE, plan.cards.length) }))
+  const [queue, setQueue] = useState<SessionItem[]>(() => takeRound(plan.cards, 0, roundSize ?? DEFAULT_ROUND_SIZE, previousCardId).map(toSessionItem))
   const queueRef = useRef(queue)
+  const workspace = useRef<HTMLDivElement>(null)
   const [retryCount, setRetryCount] = useState(0)
-  // Wohin die Karten dieser Runde gewandert sind — für den Abschluss-Moment.
+  // Wohin die Karten gewandert sind — für die Pause und den Abschluss-Moment.
   const [moves, setMoves] = useState<SessionMove[]>([])
+  const [roundMovesFrom, setRoundMovesFrom] = useState(0)
   const [retryFailed, setRetryFailed] = useState(false)
   const [index, setIndex] = useState(0)
   const indexRef = useRef(0)
@@ -77,6 +92,7 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
   const exitRequested = useRef(false)
   const finalized = useRef(false)
   const t = useMemo(() => createVocabularyTranslator(translations), [translations])
+  const s = studentTranslator(uiLanguage)
   const item = queue[index]
   const current = item?.card
   const isRetry = item?.retry ?? false
@@ -87,6 +103,36 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
     | { kind: 'typed'; index: number; card: DueVocabularyCard; input: SubmitVocabularyAnswerInput }
     | { kind: 'self'; index: number; card: DueVocabularyCard; input: SubmitVocabularySelfRatingInput }
   const writes = useRef<OrderedWriteQueue<ReviewIntent> | null>(null)
+
+  /** Setzt die Bühne auf die Runde ab `start` im geplanten Stapel. */
+  function beginRound(number: number, start: number, nextSize: RoundSize, previous: string | null) {
+    const next = takeRound(plan.cards, start, nextSize, previous).map(toSessionItem)
+    queueRef.current = next
+    setQueue(next)
+    setRound({ number, start, length: next.length })
+    setRoundMovesFrom(moves.length)
+    indexRef.current = 0
+    setIndex(0)
+    drafts.current.clear()
+    setAnswer('')
+    setAnswerResult(null)
+    setRevealed(false)
+    setRetryFailed(false)
+    setSaveFailed(false)
+    finalized.current = false
+    workspace.current?.scrollTo?.({ top: 0 })
+  }
+
+  // Ohne ausdrückliche Größe (z. B. direkter Aufruf über /train) gilt die auf
+  // diesem Gerät gespeicherte Wahl — aber nur, solange noch nichts beantwortet ist.
+  useEffect(() => {
+    if (roundSize !== undefined) return
+    const stored = loadRoundSize()
+    if (stored === size || indexRef.current !== 0 || writes.current?.pending.length) return
+    setSize(stored)
+    beginRound(1, 0, stored, previousCardId)
+    // Nur beim Öffnen der Sitzung.
+  }, [])
 
   function navigateBack() {
     if (!mounted.current) return
@@ -246,6 +292,11 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
     } })
   }
 
+  // Stand des Tages: Karten bis zum Ende dieser Runde, übrige Karten, Runden insgesamt.
+  const done = round.start + round.length
+  const remaining = plan.cards.length - done
+  const totalRounds = round.number - 1 + countRounds(plan.cards.length - round.start, size)
+
   const targetWord = current && (current.card.article && current.card.article !== 'none'
     ? `${current.card.article} ${current.card.word_de}` : current.card.word_de)
   const isSentence = current?.format === 'sentence'
@@ -319,11 +370,19 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
   return (
     <LearningScreen title={t('title')}
       subtitle={current ? lessonLabel(current.card.lesson, t) : undefined}
-      progress={queue.length ? index / queue.length * 100 : 100} onExit={goBack} t={t}>
-      {!current ? <div className="learning-card learning-complete" aria-live="polite">
+      progress={queue.length ? index / queue.length * 100 : 100} onExit={goBack} t={t} workspaceRef={workspace}>
+      {!current ? remaining > 0
+        ? <RoundBreak key={round.number} lang={uiLanguage} round={round.number} rounds={totalRounds} roundCards={round.length}
+            done={done} total={plan.cards.length} nextCount={roundLimit(size, remaining)} moves={moves.slice(roundMovesFrom)}
+            onContinue={() => beginRound(round.number + 1, done, size, lastAnswered.current)} onPause={goBack} />
+        : <div className="learning-card learning-complete" aria-live="polite">
         <span className="learning-pill">{t('card_progress_compact', { current: index, total: queue.length })}</span>
         <h2>{t('session_done_title')}</h2>
         <p>{t('session_done_text')}</p>
+        {totalRounds > 1 && <>
+          <p className="learning-round__remaining">{s('round_all_done', { total: plan.cards.length, rounds: totalRounds })}</p>
+          <TodayRounds lang={uiLanguage} rounds={totalRounds} completed={totalRounds} done={plan.cards.length} previous={round.start} total={plan.cards.length} />
+        </>}
         {retryCount > 0 && <p>{t('session_done_retry')}</p>}
         {plan.deferredCount + initialDeferredCount > 0 && <p>{t('repetition_gap_hint')}</p>}
         <SessionBoxMoves lang={uiLanguage} moves={moves} />
@@ -334,8 +393,11 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
             <span className="learning-pill">{t(isSentence ? 'sentence_format' : isToGerman ? 'direction_to_de' : 'direction_from_de')}</span>
             {isRetry && <span className="learning-pill learning-pill-retry">{t('retry_label')}</span>}
           </div>
-          <LearningStats label={`${t('card_progress', { current: index + 1, total: queue.length })}, ${t('phase_label', { phase: current.phase })}`}
-            items={[{ label: t('stat_card'), value: `${index + 1}/${queue.length}` }, { label: t('stat_phase'), value: `${current.phase}/6` }]} />
+          <LearningStats label={`${totalRounds > 1 ? `${s('round_label', { round: round.number, rounds: totalRounds })}, ` : ''}${t('card_progress', { current: index + 1, total: queue.length })}, ${t('phase_label', { phase: current.phase })}`}
+            items={[
+              ...(totalRounds > 1 ? [{ label: s('round_stat'), value: `${round.number}/${totalRounds}` }] : []),
+              { label: t('stat_card'), value: `${index + 1}/${queue.length}` }, { label: t('stat_phase'), value: `${current.phase}/6` },
+            ]} />
         </div>
         {isRetry && !answerResult && <p className="learning-mode-locked" role="note">{t('retry_hint')}</p>}
         {/* Nur wo es wirklich eine Wahl gibt, steht der Umschalter. Karten mit
@@ -427,7 +489,7 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
           </article>
           )}
           {saveFailed ? <button type="button" className="learning-button learning-button-primary learning-button-wide" onClick={retry}>{t('error_retry')}</button> : answerResult
-            ? <button type="button" className="learning-button learning-button-primary learning-button-wide" onClick={() => advance()}>{t(index + 1 === queue.length ? 'finish_session' : 'next_card')}</button>
+            ? <button type="button" className="learning-button learning-button-primary learning-button-wide" onClick={() => advance()}>{index + 1 < queue.length ? t('next_card') : remaining > 0 ? s('round_finish') : t('finish_session')}</button>
             : isFlashcard
             ? revealed
               ? <div className="learning-flashcard-actions">

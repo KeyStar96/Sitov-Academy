@@ -5,8 +5,11 @@
  * Server (Schalter im Lernweg) und gilt so auf jedem Gerät.
  */
 
+import { DEFAULT_ROUND_SIZE, parseRoundSize, type RoundSize } from './vocabulary-rounds'
+
 const AUTOSTART_KEY = 'sitov_vocab_autostart'
 const STUDY_MODE_KEY = 'sitov_vocab_study_mode'
+const ROUND_SIZE_KEY = 'sitov_vocab_round_size'
 
 function isBrowser(): boolean {
   // Accessing the storage property itself can throw (blocked storage/sandbox).
@@ -88,5 +91,30 @@ export function saveStudyMode(mode: 'flashcard' | 'typed'): void {
     window.localStorage.setItem(STUDY_MODE_KEY, mode)
   } catch (err) {
     console.error('Abfragemodus konnte nicht gespeichert werden:')
+  }
+}
+
+/**
+ * Karten pro Lernrunde. Wie der Abfrageweg eine Vorliebe dieses Geräts und
+ * kein Lernstand; ohne gespeicherte Wahl gilt die kleine Standardrunde.
+ */
+export function loadRoundSize(): RoundSize {
+  if (!isBrowser()) return DEFAULT_ROUND_SIZE
+
+  try {
+    return parseRoundSize(window.localStorage.getItem(ROUND_SIZE_KEY))
+  } catch (err) {
+    console.error('Rundengröße konnte nicht geladen werden:')
+    return DEFAULT_ROUND_SIZE
+  }
+}
+
+export function saveRoundSize(size: RoundSize): void {
+  if (!isBrowser()) return
+
+  try {
+    window.localStorage.setItem(ROUND_SIZE_KEY, String(size))
+  } catch (err) {
+    console.error('Rundengröße konnte nicht gespeichert werden:')
   }
 }

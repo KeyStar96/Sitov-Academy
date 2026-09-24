@@ -14,7 +14,8 @@
    Fällig-Fähnchen) nutzt dagegen die Theme-Tokens, damit der Kontrastvertrag
    aus globals.css auch hier gilt. */
 .lb-scene,
-.lb-guide {
+.lb-guide,
+.lb-rounds {
   --lb-wood-hi: #ecd1a6;
   --lb-wood: #d9b27d;
   --lb-wood-mid: #bb8b55;
@@ -34,7 +35,8 @@
 }
 
 html.dark .lb-scene,
-html.dark .lb-guide {
+html.dark .lb-guide,
+html.dark .lb-rounds {
   --lb-wood-hi: #8a6443;
   --lb-wood: #6f4d32;
   --lb-wood-mid: #573a25;
@@ -728,6 +730,142 @@ html.dark .lb-cell[data-archive] .lb-hole__floor {
 
 @media (min-width: 640px) {
   .lb-cta { width: auto; min-width: 24rem; font-size: 1.375rem; }
+}
+
+/* ── Karten pro Runde ──────────────────────────────────────────────────────
+   Die Wahl vor dem Start: eine ruhige Karte mit großen Zahlentasten (mind.
+   52 px hoch) für sichere Treffer auch mit unruhiger Hand. Die gewählte Taste
+   trägt die Füllung --accent-strong, die per layoutId von Taste zu Taste
+   wandert. Darunter der heutige Stapel als kleine Karteikarten-Päckchen aus
+   demselben Papier wie die Karten in der Lernbox. */
+.lb-rounds {
+  width: 100%;
+  max-width: 38rem;
+  margin-inline: auto;
+  padding: 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 1.25rem;
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+  text-align: left;
+}
+
+.lb-rounds__head { display: flex; align-items: flex-start; gap: 0.875rem; }
+
+.lb-rounds__icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 0.875rem;
+  background: var(--accent-soft);
+  color: var(--accent-text);
+}
+
+.lb-rounds__title { font-size: 1.1875rem; font-weight: 700; line-height: 1.3; color: var(--foreground); }
+.lb-rounds__hint { margin-top: 0.25rem; font-size: 1rem; line-height: 1.55; color: var(--muted); }
+
+.lb-rounds__options {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.375rem;
+  margin-top: 1rem;
+  padding: 0.375rem;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: var(--surface-muted);
+}
+
+@media (min-width: 480px) {
+  .lb-rounds__options { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+}
+
+.lb-rounds__option {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.25rem;
+  padding: 0.25rem;
+  border-radius: 0.75rem;
+  color: var(--foreground);
+  font-size: 1.25rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: color 160ms ease, background-color 160ms ease;
+}
+
+.lb-rounds__option[data-active] { color: var(--accent-foreground); }
+.lb-rounds__option:has(input:focus-visible) { outline: 3px solid var(--foreground); outline-offset: 2px; }
+.lb-rounds__option:active { transform: scale(0.97); }
+
+@media (hover: hover) {
+  .lb-rounds__option:not([data-active]):hover { background: var(--surface); }
+}
+
+.lb-rounds__pill {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: 0.75rem;
+  background: var(--accent-strong);
+  box-shadow: 0 8px 18px -10px color-mix(in srgb, var(--accent-strong) 80%, transparent);
+}
+
+.lb-rounds__value { position: relative; z-index: 1; overflow-wrap: anywhere; text-align: center; }
+
+.lb-rounds__plan { display: flex; flex-direction: column; gap: 0.625rem; margin-top: 1rem; }
+
+.lb-rounds__stacks { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 0.5rem 0.4rem; min-height: 1.9rem; }
+
+/* Ein Päckchen = eine Runde: Karteikarte mit roter Kopflinie und blauen
+   Zeilen, darunter zwei versetzte Kanten als weitere Karten. */
+.lb-rounds__stack {
+  position: relative;
+  width: 1.9rem;
+  height: 1.3rem;
+  margin-bottom: 0.3rem;
+  border: 1px solid var(--lb-card-line);
+  border-radius: 0.25rem;
+  background: var(--lb-card);
+  box-shadow:
+    0 0.15rem 0 -0.05rem var(--lb-card-edge), 0 0.15rem 0 0 var(--lb-card-line),
+    0 0.3rem 0 -0.05rem var(--lb-card-edge), 0 0.3rem 0 0 var(--lb-card-line);
+  transform-origin: 50% 100%;
+}
+
+.lb-rounds__stack::before,
+.lb-rounds__stack::after {
+  content: '';
+  position: absolute;
+  left: 0.25rem;
+  right: 0.25rem;
+  height: 1px;
+}
+
+.lb-rounds__stack::before { top: 0.3rem; background: var(--lb-rule-red); }
+.lb-rounds__stack::after { top: 0.6rem; background: var(--lb-rule-blue); box-shadow: 0 0.25rem 0 var(--lb-rule-blue); }
+
+/* Die letzte, nicht volle Runde ist sichtbar kleiner. */
+.lb-rounds__stack[data-partial] { width: 1.5rem; height: 1rem; }
+.lb-rounds__stack[data-partial]::after { box-shadow: none; }
+
+.lb-rounds__more { align-self: center; font-size: 1rem; font-weight: 700; color: var(--muted); font-variant-numeric: tabular-nums; }
+.lb-rounds__summary { font-size: 1rem; font-weight: 600; line-height: 1.5; color: var(--foreground); }
+
+html.high-contrast .lb-rounds { box-shadow: none; border-color: var(--foreground); }
+html.high-contrast .lb-rounds__stack { border-color: var(--foreground); background: var(--surface); box-shadow: 0 0.2rem 0 -0.05rem var(--surface), 0 0.2rem 0 0 var(--foreground); }
+html.high-contrast .lb-rounds__stack::before,
+html.high-contrast .lb-rounds__stack::after { background: var(--foreground); box-shadow: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .lb-rounds__option { transition: none; }
+  .lb-rounds__option:active { transform: none; }
 }
 
 /* Bestätigung „Alles erledigt": ruhig, grün, mit klarer nächster Aktion. */

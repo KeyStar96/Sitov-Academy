@@ -11,6 +11,9 @@ import type { DueVocabularyCard, VocabularyBoxSummary } from '@/lib/types/vocabu
 import type { SoftErrorReason } from '@/lib/answer-grading'
 import VocabCardSession from './VocabCardSession'
 import LeitnerBoxOverview from './LeitnerBoxOverview'
+import RoundSizePicker from './RoundSizePicker'
+import { loadRoundSize, saveRoundSize } from '@/lib/vocabulary-lernkasten'
+import { DEFAULT_ROUND_SIZE, ROUND_SIZES, roundLimit, type RoundSize } from '@/lib/vocabulary-rounds'
 import './lernkasten.css'
 
 const EASE = [0.22, 1, 0.36, 1] as const
@@ -47,23 +50,32 @@ export default function VocabTrainerPageClient({ learnerId, initialCards, boxSum
   const [previousCardId, setPreviousCardId] = useState<string | null>(initialPreviousCardId)
   const reduced = useReducedMotion() ?? false
   useEffect(() => { setPreviousCardId(initialPreviousCardId) }, [initialPreviousCardId])
+  // Karten pro Runde: gerätegebunden gespeichert, erst nach dem Mounten bekannt.
+  const [roundSize, setRoundSize] = useState<RoundSize | null>(null)
+  useEffect(() => { setRoundSize(loadRoundSize()) }, [])
+  const chosenSize = roundSize ?? DEFAULT_ROUND_SIZE
   const due = initialCards.length
+  const firstRound = roundLimit(chosenSize, due)
   const dueLessons = new Set(initialCards.map(item => item.card.lesson)).size
   const path = `/${lang}/dashboard/level/${encodeURIComponent(level)}`
   // Leer ist die Box, solange im Lernweg noch keine Lektion eingeschaltet ist.
   const empty = due === 0 && boxSummary.inPhases + boxSummary.learned === 0
 
-  if (session) return <VocabCardSession key={learnerId} learnerId={learnerId} cards={session} translations={translations} softErrorTranslations={softErrorTranslations} uiLanguage={lang} previousCardId={previousCardId} initialDeferredCount={initialDeferredCount} overviewHref={overview}
+  if (session) return <VocabCardSession key={learnerId} learnerId={learnerId} cards={session} translations={translations} softErrorTranslations={softErrorTranslations} uiLanguage={lang} previousCardId={previousCardId} initialDeferredCount={initialDeferredCount} overviewHref={overview} roundSize={chosenSize}
     onBackToLernkasten={lastId => { setPreviousCardId(lastId); setSession(null); startRefresh(() => router.refresh()) }} />
 
   // Die eine Hauptaktion. Ist nichts fällig, tritt an ihre Stelle kein
   // ausgegrauter Knopf, sondern eine klare Auskunft mit dem nächsten Schritt.
   const action = due > 0
     ? <div className="flex flex-col items-center gap-3">
+        {/* Die Auswahl lohnt erst, wenn mehr Karten fällig sind als die kleinste Runde fasst. */}
+        {due > ROUND_SIZES[0] && <div className="mb-3 w-full">
+          <RoundSizePicker lang={lang} due={due} size={roundSize} onChange={size => { setRoundSize(size); saveRoundSize(size) }} />
+        </div>}
         <motion.button type="button" disabled={refreshing} onClick={() => setSession(initialCards)} className="lb-cta"
           whileHover={reduced ? undefined : { y: -2 }} whileTap={reduced ? undefined : { scale: 0.98 }}>
           <span className="lb-cta__icon" aria-hidden="true"><ArrowRight size={24} strokeWidth={2.75} /></span>
-          <span>{due === 1 ? t('lernkasten_start_count_one') : t('lernkasten_start_count', { count: due })}</span>
+          <span>{firstRound === 1 ? t('lernkasten_start_count_one') : t('lernkasten_start_count', { count: firstRound })}</span>
         </motion.button>
         <p className="text-center text-base text-[var(--muted)]">
           {dueLessons === 1 ? t('lernkasten_from_lessons_one') : t('lernkasten_from_lessons', { count: dueLessons })}
