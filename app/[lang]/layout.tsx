@@ -102,7 +102,11 @@ export default async function RootLayout({
   };
 
   return (
-    <html lang={lang} suppressHydrationWarning>
+    // data-scroll-behavior: Next.js schaltet `scroll-behavior: smooth` (globals.css) nur mit diesem
+    // Attribut während eines Seitenwechsels ab. Ohne es scrollte der Wechsel zur Startseite weich bis
+    // zum Footer: Der neue Scroll-Handler ruft scrollIntoView für jedes Wurzelelement der Seite in
+    // umgekehrter Reihenfolge auf, und das erste weiche Scrollen (zum Footer) setzte sich durch.
+    <html lang={lang} suppressHydrationWarning data-scroll-behavior="smooth">
       <head>
         {/* Standardized PWA - "Native App" Hack */}
         <meta name="mobile-web-app-capable" content="yes" />
