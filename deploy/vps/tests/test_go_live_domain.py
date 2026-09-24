@@ -87,6 +87,13 @@ class GoLiveDomainTest(unittest.TestCase):
         own_ipv6 = {**here, (MODULE.APEX, '1.1.1.1', 'AAAA'): [MODULE.IPV6]}
         self.assertEqual(MODULE.dns_problems(own_ipv6), [])
 
+    def test_dns_lag_is_acceptable_only_once_published_everywhere_by_name(self):
+        here = {(name, resolver, 'A'): [MODULE.IP] for name in (MODULE.APEX, MODULE.WWW) for resolver in ('a', 'b')}
+        here.update({(name, resolver, 'AAAA'): [] for name in (MODULE.APEX, MODULE.WWW) for resolver in ('a', 'b')})
+        self.assertTrue(MODULE.dns_published({**here, (MODULE.WWW, 'b', 'A'): ['75.2.60.5']}))
+        self.assertFalse(MODULE.dns_published({**here, (MODULE.WWW, 'a', 'A'): ['75.2.60.5'], (MODULE.WWW, 'b', 'A'): ['75.2.60.5']}))
+        self.assertFalse(MODULE.dns_published({**here, (MODULE.APEX, 'a', 'AAAA'): ['2001:db8::1']}))
+
     def test_traefik_routes_cover_both_names_with_one_redirect(self):
         try:
             import yaml

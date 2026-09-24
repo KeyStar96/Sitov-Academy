@@ -90,6 +90,13 @@ def patch_auth(compose, values):
     return compose[:start] + block + compose[end:]
 
 
+def dns_published(answers):
+    """Each name has the VPS address on at least one nameserver and no foreign AAAA anywhere."""
+    names = {name for name, _, _ in answers}
+    return all(any(addresses == [IP] for (n, _, kind), addresses in answers.items() if n == name and kind == 'A')
+               for name in names) and not any('AAAA' in problem for problem in dns_problems(answers))
+
+
 def dns_problems(answers):
     """answers: {(name, resolver, 'A'|'AAAA'): [addresses]} → list of human-readable problems."""
     problems = []
@@ -208,12 +215,17 @@ def prepare(_args):
 
 def activate(args):
     release = args.release or head_revision()
-    problems = dns_problems(resolve())
+    answers = resolve()
+    problems = dns_problems(answers)
     if problems:
-        print('DNS zeigt noch nicht (überall) auf den VPS – nichts geändert:')
+        # Anycast nodes of the zone can lag behind for a while; with --accept-dns-lag
+        # it is enough that every name is already published on some nameserver.
+        lagging = args.accept_dns_lag and dns_published(answers)
+        print('DNS noch nicht überall umgestellt' + (' – wird bewusst akzeptiert:' if lagging else ' – nichts geändert:'))
         for problem in problems:
             print('  - ' + problem)
-        return 1
+        if not lagging:
+            return 1
     if not prepared(release):
         print(f'Kein Domain-Build für {release} – zuerst prepare ausführen. Nichts geändert.')
         return 1
@@ -285,6 +297,8 @@ def main():
     commands.add_parser('prepare').set_defaults(handler=prepare)
     activate_parser = commands.add_parser('activate')
     activate_parser.add_argument('--release', help='prepared domain release (default: current Git HEAD)')
+    activate_parser.add_argument('--accept-dns-lag', action='store_true',
+                                 help='proceed once every name is published on at least one nameserver')
     activate_parser.set_defaults(handler=activate)
     rollback_parser = commands.add_parser('rollback')
     rollback_parser.add_argument('--backup', required=True)
