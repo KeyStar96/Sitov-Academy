@@ -533,7 +533,7 @@ const en: StudentMessages = {
 
 const ru: StudentMessages = {
   today_title: 'Сегодня для тебя',
-  today_vocab: 'Карточек ждут в твоей картотеке: {count}',
+  today_vocab: 'Новых карточек: {count}',
   today_vocab_one: 'В твоей картотеке ждёт 1 карточка',
   today_vocab_setup: 'Настрой свою картотеку',
   today_feedback: 'Новых голосовых сообщений от {name}: {count}',
@@ -597,7 +597,7 @@ const ru: StudentMessages = {
   path_done: 'Пройдено уроков: {done} из {total}',
   path_progress_aria: 'Пройдено уроков: {done} из {total}',
   path_continue: 'Продолжить',
-  path_next_vocab: 'Карточек ждут в картотеке: {count}',
+  path_next_vocab: 'Новых карточек: {count}',
   path_next_vocab_one: 'В картотеке ждёт 1 карточка',
   path_next_lesson: 'Следующая остановка: {lesson}',
   path_next_grammar: 'Грамматика: открытых тем {count}',
