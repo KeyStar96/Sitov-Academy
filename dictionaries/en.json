@@ -738,7 +738,7 @@
                     "(1) German law applies.",
                     "(2) The contract language is German.",
                     "(3) If the participant is a consumer, the statutory place of jurisdiction of their residence applies.",
-                    "(4) EU Commission platform for online dispute resolution: https://ec.europa.eu/consumers/odr/. We are neither obliged nor willing to participate in a dispute settlement procedure before a consumer arbitration board."
+                    "(4) We are neither obliged nor willing to participate in a dispute settlement procedure before a consumer arbitration board."
                 ]
             }
         ]
@@ -783,9 +783,8 @@
                 ]
             },
             {
-                "title": "EU Dispute Resolution",
+                "title": "Consumer dispute resolution",
                 "content": [
-                    "The European Commission provides a platform for online dispute resolution (OS): https://ec.europa.eu/consumers/odr/.",
                     "We are not willing or obliged to participate in dispute resolution proceedings before a consumer arbitration board."
                 ]
             }
@@ -812,15 +811,15 @@
             {
                 "title": "2. Hosting and Server Log Files",
                 "content": [
-                    "Our website and learning platform run on a virtual server (VPS) at IONOS that we administer. Necessary connection data such as IP address, requested page, time, browser, referrer and error status are processed to deliver and secure the service under Article 6(1)(f) GDPR.",
-                    "We manage the application, database, authentication and file storage on this server. Technical logs are retained only as long as needed for operation, troubleshooting, security incidents or statutory record-keeping duties. Hosting provider information: https://www.ionos.de/terms-gtc/datenschutzerklaerung/",
-                    "The server (VPS) is hosted fully GDPR-compliant in Germany (IONOS SE, Elgendorfer Str. 57, 56410 Montabaur). All data remains on this system under our direct control."
+                    "Our website and learning platform run on a virtual server (VPS) at STRATO that we administer. Necessary connection data such as IP address, requested page, time, browser, referrer and error status are processed to deliver and secure the service under Article 6(1)(f) GDPR.",
+                    "We manage the application, database, authentication and file storage on this server. Technical logs are retained only as long as needed for operation, troubleshooting, security incidents or statutory record-keeping duties. Hosting provider information: https://www.strato.de/datenschutz/",
+                    "Our hosting provider is STRATO GmbH, Otto-Ostrowski-Straße 7, 10249 Berlin, Germany. The server is located in a data centre in Germany. Our domain and our mailbox (info@sitov-academy.com) are provided by IONOS SE, Elgendorfer Str. 57, 56410 Montabaur, Germany; emails you send us are stored there. IONOS privacy information: https://www.ionos.de/terms-gtc/datenschutzerklaerung/"
                 ]
             },
             {
                 "title": "3. Cookies and LocalStorage",
                 "content": [
-                    "Essential cookies and browser storage support languages, appearance and sign-in. Section 11 explains learning preferences and answers awaiting synchronization. The Meta Pixel for marketing purposes is only loaded with your consent (section 8.7).",
+                    "Essential cookies and browser storage support languages, appearance and sign-in. Section 11 explains learning preferences and answers awaiting synchronization. The Meta Pixel for marketing purposes is only loaded with your consent (section 8.6).",
                     "Art. 6(1)(b), (f) GDPR; § 25(2) TDDDG. Marketing only with consent: Art. 6(1)(a) GDPR; § 25(1) TDDDG."
                 ]
             },
@@ -893,7 +892,7 @@
                     "Section 2 describes hosting and technical logs.",
                     "8.2 Cookies",
                     "Our website uses cookies. Cookies are small text files that are stored on your device. Without your consent, we use exclusively technically necessary cookies that are required for the basic operation of the website (e.g. to save the language you have selected).",
-                    "We only use cookies and similar technologies for marketing purposes (Meta Pixel, see 8.7) if you expressly agree via our consent banner. Without consent, the Meta Pixel is not loaded and no connection to Meta servers is established.",
+                    "We only use cookies and similar technologies for marketing purposes (Meta Pixel, see 8.6) if you expressly agree via our consent banner. Without consent, the Meta Pixel is not loaded and no connection to Meta servers is established.",
                     "Legal basis: The use of these technically necessary cookies takes place on the basis of our legitimate interest in a user-friendly and functional provision of our services (Art. 6 Para. 1 lit. f GDPR).",
                     "Storage period: Most of the cookies we use are so-called 'session cookies'. They are automatically deleted after your visit. Other cookies (e.g. for language selection) remain stored on your device until you delete them. You can check your browser settings to be informed about the setting of cookies and only allow cookies in individual cases or exclude the acceptance of cookies for certain cases or generally.",
                     "We store your choice from the consent banner in your browser’s local storage (key “sitov-consent”) for a maximum of 12 months; after that we ask again. You can change or withdraw your choice at any time via “Cookie settings” in the footer. Legal basis: § 25(2) no. 2 TDDDG, Art. 6(1)(c) GDPR in conjunction with Art. 7(1) GDPR (proof of consent).",
@@ -931,7 +930,7 @@
                     "8.5 Contact (E-Mail, Phone)",
                     "If you contact us by e-mail or phone, the data you provide (your e-mail address, possibly your name and phone number) will be stored by us to answer your questions.",
                     "Legal basis: Art. 6 Para. 1 lit. b GDPR (for contract initiation) or Art. 6 Para. 1 lit. f GDPR (legitimate interest in efficient communication).",
-                    "8.7 Meta Pixel (only with consent)",
+                    "8.6 Meta Pixel (only with consent)",
                     "Only with your express consent do we use the Meta Pixel on our website. The provider is Meta Platforms Ireland Limited, Merrion Road, Dublin 4, D04 X2K5, Ireland (parent company: Meta Platforms, Inc., 1 Meta Way, Menlo Park, CA 94025, USA).",
                     "Purpose: measuring the effectiveness of our ads on Facebook and Instagram (e.g. whether a click on an ad leads to a trial lesson request or a course registration) and delivering these ads, for example to people who have already visited our website.",
                     "Data processed: IP address, browser and device information, pages visited with time and referrer, the events we trigger (page view, trial lesson request or course registration with course ID and amount) and cookie identifiers such as “_fbp” (stored for up to 90 days). If you are logged in to Facebook or Instagram, Meta may link the visit to your account.",
@@ -988,7 +987,7 @@
             {
                 "title": "13. Educational Videos and Media",
                 "content": [
-                    "Our learning platform hosts educational videos and presentations directly on our own GDPR-compliant server (VPS) in Germany. When accessing these media, no data is transferred to third parties. Only with explicitly marked external links (e.g. YouTube) do you leave our platform; thereafter, the privacy policy of the respective provider applies (for YouTube: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland; https://policies.google.com/privacy)."
+                    "Learning videos and presentations that we upload ourselves are stored on our server (VPS) in Germany; no data is transferred to third parties when you access them. YouTube players or preview images are never loaded automatically. Only when you open a marked external link (e.g. to YouTube) do you leave our platform; the privacy policy of that provider then applies (for YouTube: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland; https://policies.google.com/privacy)."
                 ]
             },
             {

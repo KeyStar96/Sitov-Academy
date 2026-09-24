@@ -734,7 +734,7 @@
                     "(1) Alman hukuku geçerlidir.",
                     "(2) Sözleşme dili Almancadır.",
                     "(3) Katılımcı tüketici ise, ikametgahının yasal yetkili mahkemesi geçerlidir.",
-                    "(4) Çevrimiçi uyuşmazlık çözümü için AB Komisyonu platformu: https://ec.europa.eu/consumers/odr/. Bir tüketici hakem heyeti önünde uyuşmazlık çözüm prosedürüne katılmakla yükümlü değiliz ve buna istekli de değiliz."
+                    "(4) Bir tüketici hakem heyeti önünde uyuşmazlık çözüm prosedürüne katılmakla yükümlü değiliz ve buna istekli de değiliz."
                 ]
             }
         ]
@@ -779,9 +779,8 @@
                 ]
             },
             {
-                "title": "AB Uyuşmazlık Çözümü",
+                "title": "Tüketici uyuşmazlıklarının çözümü",
                 "content": [
-                    "Avrupa Komisyonu, çevrimiçi uyuşmazlık çözümü (OS) için bir platform sağlar: https://ec.europa.eu/consumers/odr/.",
                     "Bir tüketici hakem heyeti önünde uyuşmazlık çözüm prosedürlerine katılmaya istekli veya yükümlü değiliz."
                 ]
             }
@@ -808,15 +807,15 @@
             {
                 "title": "2. Barındırma ve Sunucu Günlük Dosyaları",
                 "content": [
-                    "Web sitemiz ve öğrenme platformumuz, IONOS bünyesinde kendimizin yönettiği bir sanal sunucu (VPS) üzerinde çalışır. Hizmeti sunmak ve korumak için IP adresi, istenen sayfa, zaman, tarayıcı, yönlendiren sayfa ve hata durumu gibi gerekli bağlantı verileri işlenir. Hukuki dayanak GDPR Madde 6(1)(f) hükmüdür.",
-                    "Uygulamayı, veritabanını, kimlik doğrulamayı ve dosya depolamasını bu sunucuda yönetiriz. Teknik kayıtlar yalnızca işletim, sorun giderme, güvenlik olayları veya yasal kayıt yükümlülükleri için gereken süre boyunca saklanır. Barındırma sağlayıcısının bilgileri: https://www.ionos.de/terms-gtc/datenschutzerklaerung/",
-                    "Sunucu (VPS), Almanya'da (IONOS SE, Elgendorfer Str. 57, 56410 Montabaur) tamamen GDPR uyumlu olarak barındırılmaktadır. Tüm veriler doğrudan kontrolümüz altında bu sistemde kalır."
+                    "Web sitemiz ve öğrenme platformumuz, STRATO bünyesinde kendimizin yönettiği bir sanal sunucu (VPS) üzerinde çalışır. Hizmeti sunmak ve korumak için IP adresi, istenen sayfa, zaman, tarayıcı, yönlendiren sayfa ve hata durumu gibi gerekli bağlantı verileri işlenir. Hukuki dayanak GDPR Madde 6(1)(f) hükmüdür.",
+                    "Uygulamayı, veritabanını, kimlik doğrulamayı ve dosya depolamasını bu sunucuda yönetiriz. Teknik kayıtlar yalnızca işletim, sorun giderme, güvenlik olayları veya yasal kayıt yükümlülükleri için gereken süre boyunca saklanır. Barındırma sağlayıcısının bilgileri: https://www.strato.de/datenschutz/",
+                    "Barındırma hizmeti sağlayıcımız STRATO GmbH, Otto-Ostrowski-Straße 7, 10249 Berlin, Almanya'dır. Sunucu Almanya'daki bir veri merkezinde bulunur. Alan adımız ve e-posta kutumuz (info@sitov-academy.com) IONOS SE, Elgendorfer Str. 57, 56410 Montabaur, Almanya tarafından sağlanır; bize gönderdiğiniz e-postalar orada saklanır. IONOS'un veri koruma bilgileri: https://www.ionos.de/terms-gtc/datenschutzerklaerung/"
                 ]
             },
             {
                 "title": "3. Çerezler ve LocalStorage",
                 "content": [
-                    "Gerekli çerezler ve tarayıcı depolaması dil, görünüm ve girişi destekler. Öğrenme ayarları ve eşitlenmeyi bekleyen cevaplar bölüm 11’de açıklanmıştır. Pazarlama amaçlı Meta Pixel yalnızca onayınızla yüklenir (bölüm 8.7).",
+                    "Gerekli çerezler ve tarayıcı depolaması dil, görünüm ve girişi destekler. Öğrenme ayarları ve eşitlenmeyi bekleyen cevaplar bölüm 11’de açıklanmıştır. Pazarlama amaçlı Meta Pixel yalnızca onayınızla yüklenir (bölüm 8.6).",
                     "Art. 6(1)(b), (f) GDPR; § 25(2) TDDDG. Pazarlama yalnızca onayla: Art. 6(1)(a) GDPR; § 25(1) TDDDG."
                 ]
             },
@@ -889,7 +888,7 @@
                     "Barındırma ve teknik kayıtlar bölüm 2’de açıklanmıştır.",
                     "8.2 Çerezler",
                     "Web sitemiz çerezler kullanır. Çerezler, cihazınızda saklanan küçük metin dosyalarıdır. Onayınız olmadan yalnızca web sitesinin temel çalışması için gerekli olan teknik olarak gerekli çerezleri kullanıyoruz (örneğin seçtiğiniz dili kaydetmek için).",
-                    "Pazarlama amaçlı çerezleri ve benzer teknolojileri (Meta Pixel, bkz. 8.7) yalnızca onay bannerımız üzerinden açıkça onay vermeniz halinde kullanırız. Onay olmadan Meta Pixel yüklenmez ve Meta sunucularına bağlantı kurulmaz.",
+                    "Pazarlama amaçlı çerezleri ve benzer teknolojileri (Meta Pixel, bkz. 8.6) yalnızca onay bannerımız üzerinden açıkça onay vermeniz halinde kullanırız. Onay olmadan Meta Pixel yüklenmez ve Meta sunucularına bağlantı kurulmaz.",
                     "Yasal dayanak: Bu teknik olarak gerekli çerezlerin kullanımı, hizmetlerimizin kullanıcı dostu ve işlevsel bir şekilde sunulmasındaki meşru menfaatimize (DSGVO Madde 6 Fıkra 1 bent f) dayanmaktadır.",
                     "Saklama süresi: Kullandığımız çerezlerin çoğu sözde 'oturum çerezleri'dir. Ziyaretinizin bitiminden sonra otomatik olarak silinirler. Diğer çerezler (örneğin dil seçimi için) siz silene kadar cihazınızda kayıtlı kalır. Tarayıcınızı, çerezlerin ayarlanması hakkında bilgilendirilecek ve yalnızca bireysel durumlarda çerezlere izin verecek veya belirli durumlar için veya genel olarak çerezlerin kabul edilmesini hariç tutacak şekilde ayarlayabilirsiniz.",
                     "Onay bannerındaki seçiminizi tarayıcınızın yerel depolamasında (“sitov-consent” anahtarı) en fazla 12 ay saklarız; ardından tekrar sorarız. Seçiminizi istediğiniz zaman sayfanın altındaki “Çerez ayarları” üzerinden değiştirebilir veya geri alabilirsiniz. Yasal dayanak: § 25 fıkra 2 no. 2 TDDDG, Art. 7(1) DSGVO ile bağlantılı olarak Art. 6(1)(c) DSGVO (onayın ispatı).",
@@ -927,7 +926,7 @@
                     "8.5 İletişim (E-Posta, Telefon)",
                     "Bizimle e-posta veya telefon yoluyla iletişime geçerseniz, verdiğiniz veriler (e-posta adresiniz, muhtemelen adınız ve telefon numaranız) sorularınızı yanıtlamak için tarafımızca saklanacaktır.",
                     "Yasal dayanak: DSGVO Madde 6 Fıkra 1 bent b (sözleşme hazırlığı için) veya DSGVO Madde 6 Fıkra 1 bent f (verimli iletişimdeki meşru menfaat).",
-                    "8.7 Meta Pixel (yalnızca onayla)",
+                    "8.6 Meta Pixel (yalnızca onayla)",
                     "Web sitemizde Meta Pixel’i yalnızca açık onayınızla kullanırız. Sağlayıcı: Meta Platforms Ireland Limited, Merrion Road, Dublin 4, D04 X2K5, İrlanda (ana şirket: Meta Platforms, Inc., 1 Meta Way, Menlo Park, CA 94025, ABD).",
                     "Amaç: Facebook ve Instagram’daki reklamlarımızın etkinliğinin ölçülmesi (örneğin bir reklama tıklandıktan sonra deneme dersi talebi veya kurs kaydı yapılıp yapılmadığı) ve bu reklamların, örneğin web sitemizi daha önce ziyaret etmiş kişilere gösterilmesi.",
                     "İşlenen veriler: IP adresi, tarayıcı ve cihaz bilgileri, ziyaret edilen sayfalar (zaman ve yönlendiren sayfa ile), tarafımızdan tetiklenen olaylar (sayfa görüntüleme, deneme dersi talebi veya kurs kimliği ve tutarla kurs kaydı) ve “_fbp” gibi çerez tanımlayıcıları (saklama süresi 90 güne kadar). Facebook veya Instagram’da oturum açmışsanız Meta, ziyareti hesabınızla ilişkilendirebilir.",
@@ -984,7 +983,7 @@
             {
                 "title": "13. Eğitim Videoları ve Medya",
                 "content": [
-                    "Öğrenme platformumuz, eğitim videolarını ve sunumları doğrudan Almanya'daki GDPR uyumlu kendi sunucumuzda (VPS) barındırır. Bu medyaya erişirken üçüncü taraflara hiçbir veri aktarılmaz. Yalnızca açıkça işaretlenmiş harici bağlantılarla (ör. YouTube) platformumuzdan ayrılırsınız; bundan sonra ilgili sağlayıcının gizlilik politikası geçerlidir (YouTube için: Google Ireland Limited; https://policies.google.com/privacy)."
+                    "Kendi yüklediğimiz eğitim videoları ve sunumlar Almanya'daki sunucumuzda (VPS) saklanır; bunlara erişirken üçüncü taraflara veri aktarılmaz. YouTube oynatıcıları veya önizleme görselleri asla otomatik olarak yüklenmez. Yalnızca işaretli bir harici bağlantıyı (ör. YouTube'a) açtığınızda platformumuzdan ayrılırsınız; bundan sonra ilgili sağlayıcının gizlilik koşulları geçerlidir (YouTube için: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, İrlanda; https://policies.google.com/privacy)."
                 ]
             },
             {

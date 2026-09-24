@@ -737,7 +737,7 @@
                     "(1) Es gilt deutsches Recht.",
                     "(2) Die Vertragssprache ist Deutsch.",
                     "(3) Ist der Teilnehmer Verbraucher, gilt der gesetzliche Gerichtsstand seines Wohnsitzes.",
-                    "(4) Plattform der EU-Kommission zur Online-Streitbeilegung: https://ec.europa.eu/consumers/odr/. Wir sind zur Teilnahme an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle weder verpflichtet noch bereit."
+                    "(4) Wir sind zur Teilnahme an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle weder verpflichtet noch bereit."
                 ]
             }
         ]
@@ -782,9 +782,8 @@
                 ]
             },
             {
-                "title": "EU-Streitschlichtung",
+                "title": "Verbraucherstreitbeilegung",
                 "content": [
-                    "Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: https://ec.europa.eu/consumers/odr/.",
                     "Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen."
                 ]
             }
@@ -811,15 +810,15 @@
             {
                 "title": "2. Hosting und Server-Logfiles",
                 "content": [
-                    "Unsere Website und Lernplattform werden auf einem von uns administrierten virtuellen Server (VPS) bei IONOS betrieben. Dabei werden technisch erforderliche Verbindungsdaten wie IP-Adresse, aufgerufene Seite, Zeitpunkt, Browser, Referrer und Fehlerstatus verarbeitet. Zweck ist die Auslieferung und Absicherung des Angebots; Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO.",
-                    "Wir verwalten die Anwendung, Datenbank, Anmeldung und Dateispeicherung auf diesem Server. Technische Protokolle werden nur so lange aufbewahrt, wie sie für den Betrieb, die Bearbeitung von Fehlern und Sicherheitsvorfällen oder gesetzliche Nachweispflichten benötigt werden. Informationen des Hostinganbieters: https://www.ionos.de/terms-gtc/datenschutzerklaerung/",
-                    "Der Server (VPS) wird vollständig DSGVO-konform im Rechenzentrum in Deutschland (IONOS SE, Elgendorfer Str. 57, 56410 Montabaur) gehostet. Alle Daten verbleiben auf diesem System unter unserer direkten Kontrolle."
+                    "Unsere Website und Lernplattform werden auf einem von uns administrierten virtuellen Server (VPS) bei STRATO betrieben. Dabei werden technisch erforderliche Verbindungsdaten wie IP-Adresse, aufgerufene Seite, Zeitpunkt, Browser, Referrer und Fehlerstatus verarbeitet. Zweck ist die Auslieferung und Absicherung des Angebots; Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO.",
+                    "Wir verwalten die Anwendung, Datenbank, Anmeldung und Dateispeicherung auf diesem Server. Technische Protokolle werden nur so lange aufbewahrt, wie sie für den Betrieb, die Bearbeitung von Fehlern und Sicherheitsvorfällen oder gesetzliche Nachweispflichten benötigt werden. Informationen des Hostinganbieters: https://www.strato.de/datenschutz/",
+                    "Hostinganbieter ist die STRATO GmbH, Otto-Ostrowski-Straße 7, 10249 Berlin. Der Server steht in einem Rechenzentrum in Deutschland. Unsere Domain und unser E-Mail-Postfach (info@sitov-academy.com) werden von der IONOS SE, Elgendorfer Str. 57, 56410 Montabaur, bereitgestellt; E-Mails, die Sie an uns senden, werden dort gespeichert. Informationen von IONOS zum Datenschutz: https://www.ionos.de/terms-gtc/datenschutzerklaerung/"
                 ]
             },
             {
                 "title": "3. Cookies und LocalStorage",
                 "content": [
-                    "Sprachen, Darstellung und Anmeldung werden durch technisch notwendige Cookies und Browser-Speicher unterstützt. Details zu Lernraum-Einstellungen und noch zu synchronisierenden Antworten stehen in Abschnitt 11. Das Meta-Pixel für Marketingzwecke wird nur nach Ihrer Einwilligung geladen (Abschnitt 8.7).",
+                    "Sprachen, Darstellung und Anmeldung werden durch technisch notwendige Cookies und Browser-Speicher unterstützt. Details zu Lernraum-Einstellungen und noch zu synchronisierenden Antworten stehen in Abschnitt 11. Das Meta-Pixel für Marketingzwecke wird nur nach Ihrer Einwilligung geladen (Abschnitt 8.6).",
                     "Art. 6(1)(b), (f) GDPR; § 25(2) TDDDG. Marketing nur mit Einwilligung: Art. 6(1)(a) GDPR; § 25(1) TDDDG."
                 ]
             },
@@ -892,7 +891,7 @@
                     "Für Hosting und technische Protokolle gelten die Informationen in Abschnitt 2.",
                     "8.2 Cookies",
                     "Unsere Website verwendet Cookies. Cookies sind kleine Textdateien, die auf Ihrem Endgerät gespeichert werden. Ohne Ihre Einwilligung setzen wir ausschließlich technisch notwendige Cookies ein, die für den Grundbetrieb der Website erforderlich sind (z.B. zur Speicherung der von Ihnen gewählten Sprache).",
-                    "Cookies und vergleichbare Technologien für Marketingzwecke (Meta-Pixel, siehe 8.7) setzen wir nur ein, wenn Sie über unser Einwilligungsbanner ausdrücklich zustimmen. Ohne Einwilligung wird das Meta-Pixel nicht geladen und es wird keine Verbindung zu Servern von Meta aufgebaut.",
+                    "Cookies und vergleichbare Technologien für Marketingzwecke (Meta-Pixel, siehe 8.6) setzen wir nur ein, wenn Sie über unser Einwilligungsbanner ausdrücklich zustimmen. Ohne Einwilligung wird das Meta-Pixel nicht geladen und es wird keine Verbindung zu Servern von Meta aufgebaut.",
                     "Rechtsgrundlage: Der Einsatz dieser technisch notwendigen Cookies erfolgt auf Grundlage unseres berechtigten Interesses an einer nutzerfreundlichen und funktionsfähigen Bereitstellung unserer Dienste (Art. 6 Abs. 1 lit. f DSGVO).",
                     "Speicherdauer: Die meisten der von uns verwendeten Cookies sind so genannte „Session-Cookies“. Sie werden nach Ende Ihres Besuchs automatisch gelöscht. Andere Cookies (z.B. für die Sprachwahl) bleiben auf Ihrem Endgerät gespeichert, bis Sie diese löschen. Sie können Ihren Browser so einstellen, dass Sie über das Setzen von Cookies informiert werden und Cookies nur im Einzelfall erlauben oder die Annahme von Cookies für bestimmte Fälle oder generell ausschließen.",
                     "Ihre Auswahl im Einwilligungsbanner speichern wir im lokalen Speicher Ihres Browsers (Schlüssel „sitov-consent“) für höchstens 12 Monate; danach fragen wir erneut. Sie können Ihre Auswahl jederzeit über „Cookie-Einstellungen“ im Seitenfuß ändern oder widerrufen. Rechtsgrundlage: § 25 Abs. 2 Nr. 2 TDDDG, Art. 6 Abs. 1 lit. c DSGVO i. V. m. Art. 7 Abs. 1 DSGVO (Nachweis der Einwilligung).",
@@ -930,7 +929,7 @@
                     "8.5 Kontaktaufnahme (E-Mail, Telefon)",
                     "Wenn Sie uns per E-Mail oder Telefon kontaktieren, werden die von Ihnen mitgeteilten Daten (Ihre E-Mail-Adresse, ggf. Ihr Name und Ihre Telefonnummer) von uns gespeichert, um Ihre Fragen zu beantworten.",
                     "Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (bei Vertragsanbahnung) bzw. Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an effizienter Kommunikation).",
-                    "8.7 Meta-Pixel (nur mit Einwilligung)",
+                    "8.6 Meta-Pixel (nur mit Einwilligung)",
                     "Ausschließlich nach Ihrer ausdrücklichen Einwilligung setzen wir auf unserer Website das Meta-Pixel ein. Anbieter ist die Meta Platforms Ireland Limited, Merrion Road, Dublin 4, D04 X2K5, Irland (Mutterunternehmen: Meta Platforms, Inc., 1 Meta Way, Menlo Park, CA 94025, USA).",
                     "Zweck: Messung der Wirksamkeit unserer Werbeanzeigen auf Facebook und Instagram (z. B. ob nach einem Klick auf eine Anzeige eine Anfrage für eine Probestunde oder eine Kursanmeldung erfolgt) sowie die Aussteuerung dieser Anzeigen, etwa an Personen, die unsere Website bereits besucht haben.",
                     "Verarbeitete Daten: IP-Adresse, Browser- und Geräteinformationen, aufgerufene Seiten mit Zeitpunkt und Referrer, die von uns ausgelösten Ereignisse (Seitenaufruf, Anfrage einer Probestunde bzw. Kursanmeldung mit Kurskennung und Betrag) sowie Cookie-Kennungen wie „_fbp“ (Speicherdauer bis zu 90 Tage). Sind Sie bei Facebook oder Instagram angemeldet, kann Meta den Besuch Ihrem Konto zuordnen.",
@@ -987,7 +986,7 @@
             {
                 "title": "13. Lernvideos und Medien",
                 "content": [
-                    "Unsere Lernplattform hostet Lernvideos und Präsentationen direkt auf unserem eigenen, DSGVO-konformen Server (VPS) in Deutschland. Beim Abruf dieser Medien werden keine Daten an Dritte übertragen. Lediglich bei explizit gekennzeichneten externen Links (z.B. YouTube) verlassen Sie unsere Plattform; danach gelten die Datenschutzbestimmungen des jeweiligen Anbieters (für YouTube: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland; https://policies.google.com/privacy)."
+                    "Lernvideos und Präsentationen, die wir selbst hochladen, liegen auf unserem Server (VPS) in Deutschland; beim Abruf werden keine Daten an Dritte übertragen. YouTube-Player oder Vorschaubilder werden nicht automatisch geladen. Erst wenn Sie einen gekennzeichneten externen Link (z. B. zu YouTube) öffnen, verlassen Sie unsere Plattform; danach gelten die Datenschutzbestimmungen des jeweiligen Anbieters (für YouTube: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland; https://policies.google.com/privacy)."
                 ]
             },
             {

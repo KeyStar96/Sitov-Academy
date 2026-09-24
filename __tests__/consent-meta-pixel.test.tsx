@@ -194,7 +194,7 @@ describe('Wörterbücher', () => {
   it.each(['de', 'en', 'uk', 'ru', 'tr'])('%s: Datenschutzerklärung nennt Meta-Pixel, Einwilligung und Drittlandtransfer', locale => {
     const dict = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'dictionaries', `${locale}.json`), 'utf-8'))
     const privacy = JSON.stringify(dict.privacy)
-    expect(privacy).toContain('8.7 Meta')
+    expect(privacy).toContain('8.6 Meta')
     expect(privacy).toContain('controller_addendum')
     expect(privacy).toContain('Data Privacy Framework')
     expect(privacy).toContain(CONSENT_STORAGE_KEY)
