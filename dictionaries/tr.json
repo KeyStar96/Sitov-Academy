@@ -486,7 +486,7 @@
         "need_start": "Önce ne zaman başlamak istediğinizi seçin.",
         "need_start_trial": "Önce bir tarih seçin.",
         "need_details": "Lütfen kırmızı ile işaretli alanları kontrol edin. Sizi ilk alana götürdük.",
-        "need_consents": "Lütfen önce yukarıdaki tüm maddeleri onaylayın."
+        "need_consents": "Lütfen önce tüm maddeleri onaylayın."
       },
       "dock": {
         "chosen": {

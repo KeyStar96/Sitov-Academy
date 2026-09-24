@@ -489,7 +489,7 @@
         "need_start": "Wähle zuerst, wann du anfangen möchtest.",
         "need_start_trial": "Wähle zuerst einen Termin.",
         "need_details": "Bitte prüfe die rot markierten Felder. Wir haben dich zum ersten Feld gebracht.",
-        "need_consents": "Bitte bestätige zuerst alle Punkte oben."
+        "need_consents": "Bitte bestätige zuerst alle Punkte."
       },
       "dock": {
         "chosen": {

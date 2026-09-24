@@ -96,8 +96,10 @@ html.high-contrast .reg-glow { display: none; }
 @media (min-width: 640px) { .reg-bar { padding: calc(env(safe-area-inset-top, 0px) + 20px) 32px 0; } }
 
 /* Mobile reads top to bottom: question, answers, costs, then the action bar,
-   which stays at the bottom of the screen the whole time. On wide screens the
-   costs sit beside the question and stay in view. */
+   which stays at the bottom of the screen the whole time. On wide screens
+   costs and "Weiter" form one column beside the question that never leaves
+   the window, like a receipt with its checkout button – nothing floats over
+   the answers. */
 .reg-layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -108,21 +110,37 @@ html.high-contrast .reg-glow { display: none; }
   margin: 0 auto;
   padding: 20px 16px 0;
 }
+.reg-side { display: contents; }
 @media (min-width: 640px) { .reg-layout { gap: 32px; padding: 28px 32px 40px; } }
 @media (max-width: 1023px) {
   /* While typing personal details the costs would only push "Weiter" away. */
   .reg-layout[data-step="3"] .reg-costs { display: none; }
 }
 @media (min-width: 1024px) {
+  html:has(.registration-flow) { scroll-padding-bottom: 24px; }
   .reg-layout {
-    grid-template-columns: minmax(0, 1fr) 380px;
-    grid-template-areas: "head costs" "main costs" "nav costs";
-    grid-template-rows: auto auto 1fr;
-    column-gap: 56px;
+    grid-template-columns: minmax(0, 1fr) clamp(360px, 30vw, 400px);
+    grid-template-areas: "head side" "main side";
+    grid-template-rows: auto 1fr;
+    column-gap: clamp(32px, 4vw, 56px);
     align-items: start;
+    padding-bottom: 72px;
   }
-  .reg-costs { position: sticky; top: 24px; }
+  .reg-side { grid-area: side; display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+  .reg-costs { display: flex; flex: 0 1 auto; flex-direction: column; min-height: 0; }
 }
+/* Starts level with "Schritt 1 von 4" (96px down) and is never taller than
+   what is left of the window there, so "Weiter" is visible without
+   scrolling. It rests 24px below the top edge once the page has moved 72px
+   and grows with the page up to that point, keeping 24px free below. Lower
+   windows keep the column in the page and "Weiter" at the bottom edge. */
+@media (min-width: 1024px) and (min-height: 720px) {
+  .reg-side { position: sticky; top: 24px; max-height: calc(100vh - 120px); max-height: calc(100dvh - 120px); }
+  @supports (animation-timeline: scroll()) {
+    .reg-side { animation: reg-side-grow linear both; animation-timeline: scroll(root); animation-range: 0 72px; }
+  }
+}
+@keyframes reg-side-grow { from { max-height: calc(100dvh - 120px); } to { max-height: calc(100dvh - 48px); } }
 
 /* Header: where am I, what is asked */
 .reg-head { grid-area: head; display: grid; gap: 14px; min-width: 0; }
@@ -190,11 +208,13 @@ html.high-contrast .reg-progress__bar > span::after { background: var(--accent-s
 .reg-course__body { display: contents; }
 .reg-course > .reg-check { grid-area: 1 / 1; }
 .reg-course__title { grid-area: 1 / 2; }
-.reg-course__details, .reg-course__state { grid-column: 1 / -1; }
+/* Scoped to the course card: the start-date card shows the same "Das ist
+   gewählt" and must not get a second column from it. */
+.reg-course :is(.reg-course__details, .reg-course__state) { grid-column: 1 / -1; }
 @media (min-width: 640px) {
   /* Room enough on wider screens: details line up under the title. */
   .reg-course { column-gap: 16px; padding: 22px 22px 22px 20px; }
-  .reg-course__details, .reg-course__state { grid-column: 2; }
+  .reg-course :is(.reg-course__details, .reg-course__state) { grid-column: 2; }
 }
 .reg-course[data-selected="true"], .reg-day[data-selected="true"] {
   border-color: var(--accent-strong); background: color-mix(in srgb, var(--accent) 6%, var(--surface));
@@ -249,9 +269,11 @@ html.high-contrast [data-selected="true"] > .reg-check, html.high-contrast [data
 }
 
 /* Step 2: start dates as calendar sheets */
-.reg-days-wrap { display: grid; gap: 18px; }
+/* Two sheets per row only where each keeps its time on one line – on a small
+   desktop the side column takes that room, so it depends on the space left. */
+.reg-days-wrap { display: grid; gap: 18px; container-type: inline-size; }
 .reg-days { display: grid; gap: 12px; }
-@media (min-width: 640px) { .reg-days { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@container (min-width: 660px) { .reg-days { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .reg-day { align-items: center; min-height: 108px; padding: 14px 16px 14px 14px; }
 .reg-leaf {
   display: flex; flex-direction: column; flex-shrink: 0; align-items: center; width: 4.6rem; overflow: hidden;
@@ -397,6 +419,13 @@ html.high-contrast .reg-nav::before { display: none; }
   /* With the on-screen keyboard open the bar would cover the field being typed in. */
   .reg-layout:has(.reg-input:focus) .reg-nav { position: relative; }
 }
+@media (min-width: 1024px) {
+  /* Below the costs in the side column, never over the answers. It stays
+     sticky, but the column always fits the window unless the window is low. */
+  .reg-nav { flex: none; padding: 16px; }
+  /* The receipt right above already says what is chosen and what it costs. */
+  .reg-side:has(.reg-costs) .reg-nav__summary { display: none; }
+}
 .reg-nav__live:empty { display: none; }
 .reg-nav__hint {
   display: flex; align-items: flex-start; gap: 8px; padding: 0 2px; border-radius: 14px;
@@ -418,7 +447,7 @@ html.high-contrast .reg-nav::before { display: none; }
 .reg-nav__buttons { display: flex; flex-wrap: wrap-reverse; gap: 10px; }
 .reg-nav__buttons > .reg-nav__back { flex: 1 0 auto; padding-inline: 18px; }
 .reg-nav__buttons > .reg-nav__next { flex: 2 1 12rem; }
-@media (max-width: 639px) {
+@media (max-width: 639px), (min-width: 1024px) {
   /* "Kostenpflichtig bestellen" gets its own full-width row instead of breaking in two. */
   .reg-layout[data-step="4"] .reg-nav__next { flex-basis: 100%; }
   .reg-layout[data-step="4"] .reg-nav__back { min-height: 52px; }
@@ -485,6 +514,37 @@ html.high-contrast .reg-costs-card::before, html.high-contrast .reg-costs-card::
 .reg-disclosure > :not(summary) { display: block; margin: 0 16px 14px; font-size: 17px; }
 .reg-disclosure[open] > :not(summary) { animation: reg-rise .3s var(--reg-ease) both; }
 .reg-costs__vat { color: var(--muted); font-size: 16px; }
+.reg-costs__details { display: contents; }
+/* Desktop: a compact receipt that fits the window. Title, amount and the
+   payment note always stay in view; if the window is short, only the details
+   below them scroll, with a soft fade at the edge that still has more. */
+@media (min-width: 1024px) {
+  .reg-costs-card { display: flex; flex: 0 1 auto; flex-direction: column; gap: 12px; min-height: 0; padding: 24px; }
+  .reg-costs-card > * { flex: none; }
+  .reg-costs__title { font-size: 21px; }
+  .reg-costs__label { margin-top: 0; font-size: 17px; }
+  .reg-costs__total { font-size: 2.75rem; }
+  .reg-costs__from, .reg-costs__note, .reg-costs__count, .reg-costs__later { font-size: 16px; }
+  .reg-costs__details {
+    display: grid; flex: 0 1 auto; gap: 12px; min-height: 0; margin: 0 -10px; padding: 0 10px 4px;
+    overflow: hidden auto; overscroll-behavior: contain;
+    scrollbar-width: thin; scrollbar-color: color-mix(in srgb, var(--muted) 45%, transparent) transparent;
+  }
+  @supports (animation-timeline: scroll()) {
+    .reg-costs__details {
+      -webkit-mask-image: linear-gradient(transparent, #000 var(--reg-fade-top), #000 calc(100% - var(--reg-fade-bottom)), transparent);
+      mask-image: linear-gradient(transparent, #000 var(--reg-fade-top), #000 calc(100% - var(--reg-fade-bottom)), transparent);
+      animation: reg-fade-top linear both, reg-fade-bottom linear both;
+      animation-timeline: scroll(self), scroll(self);
+      animation-range: 0 32px, calc(100% - 32px) 100%;
+    }
+  }
+}
+/* Without overflow the scroll timeline is inactive and both fades stay 0. */
+@property --reg-fade-top { syntax: "<length>"; inherits: false; initial-value: 0px; }
+@property --reg-fade-bottom { syntax: "<length>"; inherits: false; initial-value: 0px; }
+@keyframes reg-fade-top { from { --reg-fade-top: 0px; } to { --reg-fade-top: 28px; } }
+@keyframes reg-fade-bottom { from { --reg-fade-bottom: 40px; } to { --reg-fade-bottom: 0px; } }
 
 /* Thank-you and trial-used pages */
 .reg-result { display: flex; justify-content: center; padding: calc(env(safe-area-inset-top, 0px) + 40px) 16px calc(env(safe-area-inset-bottom, 0px) + 72px); }

@@ -50,39 +50,42 @@ export default function EnrollmentCosts({ courses, selections, startIso, startCh
       </p>
       <p className="reg-costs__note">{costs.pay_first}</p>
 
-      <ul className="reg-costs__lines">
-        {first.lines.map(({ course, stats, price }) => (
-          <li key={course.id}>
-            <span className="reg-costs__line">
-              <span className="reg-costs__course">{courseText(course, lang).title}</span>
-              <span className="reg-costs__price">{formatEuro(price)}</span>
-            </span>
-            <span className="reg-costs__count">
-              {course.category === 'private' ? formatCourseQuantity(stats.totalUnits, course.unitMinutes, lang) : countLabel(costs.sessions, stats.sessionCount, lang)}
-            </span>
-            {stats.deductions.map(deduction => (
-              <span key={`${deduction.date}-${deduction.reason}`} className="reg-costs__cancelled">
-                {fill(costs.cancelled, { date: deduction.date, reason: deduction.reason })}
+      {/* On a desktop the amount above stays in view; these details scroll inside the box if the window is short. */}
+      <div className="reg-costs__details">
+        <ul className="reg-costs__lines">
+          {first.lines.map(({ course, stats, price }) => (
+            <li key={course.id}>
+              <span className="reg-costs__line">
+                <span className="reg-costs__course">{courseText(course, lang).title}</span>
+                <span className="reg-costs__price">{formatEuro(price)}</span>
               </span>
-            ))}
-          </li>
-        ))}
-      </ul>
-
-      <div className="reg-costs__later">
-        <h3>{costs.later_title}</h3>
-        <ul>
-          {later.map(month => <li key={month.iso}>{fill(costs.later_month, { month: formatMonth(month.iso, lang), price: formatEuro(month.total) })}</li>)}
+              <span className="reg-costs__count">
+                {course.category === 'private' ? formatCourseQuantity(stats.totalUnits, course.unitMinutes, lang) : countLabel(costs.sessions, stats.sessionCount, lang)}
+              </span>
+              {stats.deductions.map(deduction => (
+                <span key={`${deduction.date}-${deduction.reason}`} className="reg-costs__cancelled">
+                  {fill(costs.cancelled, { date: deduction.date, reason: deduction.reason })}
+                </span>
+              ))}
+            </li>
+          ))}
         </ul>
-        <p>{costs.renewal}</p>
-      </div>
 
-      <details className="reg-disclosure">
-        <summary><span>{costs.how_title}</span><ChevronDown size={22} aria-hidden="true" /></summary>
-        <p>{costs.how_text}</p>
-        <a href={agbHref} target="_blank" rel="noopener noreferrer">{costs.agb_link} <span className="reg-visually-hidden">{copy.consents.new_tab}</span></a>
-      </details>
-      <p className="reg-costs__vat">{costs.vat}</p>
+        <div className="reg-costs__later">
+          <h3>{costs.later_title}</h3>
+          <ul>
+            {later.map(month => <li key={month.iso}>{fill(costs.later_month, { month: formatMonth(month.iso, lang), price: formatEuro(month.total) })}</li>)}
+          </ul>
+          <p>{costs.renewal}</p>
+        </div>
+
+        <details className="reg-disclosure">
+          <summary><span>{costs.how_title}</span><ChevronDown size={22} aria-hidden="true" /></summary>
+          <p>{costs.how_text}</p>
+          <a href={agbHref} target="_blank" rel="noopener noreferrer">{costs.agb_link} <span className="reg-visually-hidden">{copy.consents.new_tab}</span></a>
+        </details>
+        <p className="reg-costs__vat">{costs.vat}</p>
+      </div>
     </div>
   )
 }

@@ -394,45 +394,48 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                     )}
                 </div>
 
-                {selectedCourses.length > 0 && (
-                    <aside className="reg-costs" aria-labelledby="reg-costs-title">
-                        {isTrial
-                            ? <EnrollmentTrialCosts copy={copy} dateLabel={startLabel || undefined} />
-                            : <EnrollmentCosts courses={selectedCourses} selections={courseSelections} startIso={costStart} startChosen={Boolean(startIso)}
-                                exceptions={exceptions} lang={lang} copy={copy} agbHref={`/${lang}/agb`} referenceYear={referenceYear} />}
-                    </aside>
-                )}
+                {/* Phone: costs, then the action bar at the bottom of the screen. Desktop: both side by side with the question, always in view. */}
+                <div className="reg-side">
+                    {selectedCourses.length > 0 && (
+                        <aside className="reg-costs" aria-labelledby="reg-costs-title">
+                            {isTrial
+                                ? <EnrollmentTrialCosts copy={copy} dateLabel={startLabel || undefined} />
+                                : <EnrollmentCosts courses={selectedCourses} selections={courseSelections} startIso={costStart} startChosen={Boolean(startIso)}
+                                    exceptions={exceptions} lang={lang} copy={copy} agbHref={`/${lang}/agb`} referenceYear={referenceYear} />}
+                        </aside>
+                    )}
 
-                {/* Always in reach at the bottom of the screen, so nobody has to guess that "Weiter" is further down. */}
-                <div className="reg-nav" data-ready={blocker ? undefined : "true"}>
-                    <div aria-live="polite" className="reg-nav__live">
-                        {navMessage && (
-                            <p id="reg-nav-hint" className="reg-nav__hint" data-nudge={nudge || (step === 3 && detailsInvalid) ? "true" : undefined}>
-                                <Info size={22} aria-hidden="true" /><span>{navMessage}</span>
+                    {/* Always in reach, so nobody has to guess that "Weiter" is further down. */}
+                    <div className="reg-nav" data-ready={blocker ? undefined : "true"}>
+                        <div aria-live="polite" className="reg-nav__live">
+                            {navMessage && (
+                                <p id="reg-nav-hint" className="reg-nav__hint" data-nudge={nudge || (step === 3 && detailsInvalid) ? "true" : undefined}>
+                                    <Info size={22} aria-hidden="true" /><span>{navMessage}</span>
+                                </p>
+                            )}
+                        </div>
+                        {summary && (
+                            <p key={`${step}-${summary.label}-${summary.value ?? ""}`} className="reg-nav__summary">
+                                <span className="reg-nav__summary-icon" aria-hidden="true">{SummaryIcon && <SummaryIcon size={18} strokeWidth={2.5} />}</span>
+                                <span className="reg-nav__summary-label">{summary.label}</span>
+                                {summary.value && <span className="reg-nav__summary-value">{summary.value}</span>}
                             </p>
                         )}
-                    </div>
-                    {summary && (
-                        <p key={`${step}-${summary.label}-${summary.value ?? ""}`} className="reg-nav__summary">
-                            <span className="reg-nav__summary-icon" aria-hidden="true">{SummaryIcon && <SummaryIcon size={18} strokeWidth={2.5} />}</span>
-                            <span className="reg-nav__summary-label">{summary.label}</span>
-                            {summary.value && <span className="reg-nav__summary-value">{summary.value}</span>}
-                        </p>
-                    )}
-                    <div className="reg-nav__buttons">
-                        {step > 1 && (
-                            <button type="button" className="reg-button reg-button--soft reg-nav__back" onClick={() => goTo((step - 1) as Step)} disabled={submitting}>
-                                <ArrowLeft size={22} aria-hidden="true" />{copy.nav.back}
+                        <div className="reg-nav__buttons">
+                            {step > 1 && (
+                                <button type="button" className="reg-button reg-button--soft reg-nav__back" onClick={() => goTo((step - 1) as Step)} disabled={submitting}>
+                                    <ArrowLeft size={22} aria-hidden="true" />{copy.nav.back}
+                                </button>
+                            )}
+                            <button type="submit" className="reg-button reg-button--primary reg-nav__next" disabled={submitting || checking}
+                                aria-disabled={blocker ? true : undefined} aria-describedby={navMessage ? "reg-nav-hint" : undefined}>
+                                {step < 4
+                                    ? <>{checking && <Loader2 size={22} className="animate-spin" aria-hidden="true" />}{checking ? copy.nav.checking : copy.nav.next}{!checking && <span className="reg-nav__arrow" aria-hidden="true"><ArrowRight size={22} /></span>}</>
+                                    : submitting
+                                        ? <><Loader2 size={22} className="animate-spin" aria-hidden="true" />{copy.nav.sending}</>
+                                        : <>{isTrial ? copy.nav.submit_trial : copy.nav.submit}<span className="reg-nav__arrow" aria-hidden="true"><Send size={20} /></span></>}
                             </button>
-                        )}
-                        <button type="submit" className="reg-button reg-button--primary reg-nav__next" disabled={submitting || checking}
-                            aria-disabled={blocker ? true : undefined} aria-describedby={navMessage ? "reg-nav-hint" : undefined}>
-                            {step < 4
-                                ? <>{checking && <Loader2 size={22} className="animate-spin" aria-hidden="true" />}{checking ? copy.nav.checking : copy.nav.next}{!checking && <span className="reg-nav__arrow" aria-hidden="true"><ArrowRight size={22} /></span>}</>
-                                : submitting
-                                    ? <><Loader2 size={22} className="animate-spin" aria-hidden="true" />{copy.nav.sending}</>
-                                    : <>{isTrial ? copy.nav.submit_trial : copy.nav.submit}<span className="reg-nav__arrow" aria-hidden="true"><Send size={20} /></span></>}
-                        </button>
+                        </div>
                     </div>
                 </div>
             </form>

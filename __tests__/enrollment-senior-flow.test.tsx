@@ -123,7 +123,7 @@ it('lets names in any alphabet through and sends a complete registration', async
   expect(screen.getAllByRole('checkbox')).toHaveLength(4)
   fireEvent.click(screen.getByRole('button', { name: 'Kostenpflichtig bestellen' }))
   expect(submitEnrollment).not.toHaveBeenCalled()
-  expect(screen.getByText('Bitte bestätige zuerst alle Punkte oben.')).toBeInTheDocument()
+  expect(screen.getByText('Bitte bestätige zuerst alle Punkte.')).toBeInTheDocument()
 
   fireEvent.click(screen.getAllByRole('button', { name: 'Mehr lesen' })[0])
   expect(screen.getByText(/gemäß der Datenschutzerklärung/)).toBeVisible()

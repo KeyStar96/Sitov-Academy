@@ -13,7 +13,7 @@ export default function RegistrationLoading() {
                 <div className="h-12 w-44 rounded-full bg-[var(--surface-muted)]" />
                 <div className="h-9 w-36 rounded-xl bg-[var(--surface-muted)]" />
             </div>
-            <div className="mx-auto grid w-full max-w-[1180px] gap-7 px-4 pb-14 pt-5 sm:px-8 sm:pt-7 lg:grid-cols-[minmax(0,1fr)_380px] lg:gap-x-14 animate-pulse">
+            <div className="mx-auto grid w-full max-w-[1180px] gap-7 px-4 pb-14 pt-5 sm:px-8 sm:pt-7 lg:grid-cols-[minmax(0,1fr)_clamp(360px,30vw,400px)] lg:items-start lg:gap-x-[clamp(32px,4vw,56px)] animate-pulse">
                 <div className="grid min-w-0 gap-4">
                     <div className="h-5 w-48 max-w-full rounded bg-[var(--surface-muted)]" />
                     <div className="grid grid-cols-4 gap-1.5">
@@ -34,6 +34,11 @@ export default function RegistrationLoading() {
                             </div>
                         ))}
                     </div>
+                </div>
+                {/* Desktop: the side column with "Weiter" beside the question. */}
+                <div className="hidden gap-3 rounded-[26px] border border-[color-mix(in_srgb,var(--border)_50%,transparent)] bg-[var(--surface)] p-4 shadow-[var(--shadow-sm)] lg:grid">
+                    <div className="h-5 w-56 max-w-full rounded bg-[var(--surface-muted)]" />
+                    <div className="h-[58px] w-full rounded-[18px] bg-[var(--surface-muted)]" />
                 </div>
             </div>
         </div>
