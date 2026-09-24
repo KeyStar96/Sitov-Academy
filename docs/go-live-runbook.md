@@ -1,7 +1,17 @@
 # Go-live: www.sitov-academy.com auf den VPS
 
-Stand 24.09.2026. Der VPS (STRATO, `217.154.228.254`) läuft produktiv unter der IP; Domain und
-Postfach liegen bei IONOS, die Domain zeigt noch auf die alte Netlify-Seite (`75.2.60.5`).
+**Umgezogen am 24.09.2026, 15:52 UTC.** `https://www.sitov-academy.com` läuft auf dem VPS (STRATO,
+`217.154.228.254`); Domain und Postfach liegen bei IONOS. Release `d9969a30d5a9` aus
+`/var/www/sitov-releases-domain`, Backup `/root/backups/sitov-domain-cutover/20260924T155152Z`,
+Rückweg-Release `3b2251804c0a`. Zertifikat: Let's Encrypt über Traefik (www + Apex), Erneuerung automatisch.
+
+Zwei Lehren aus dem Umzug:
+- Einzelne IONOS-Anycast-Nameserver lieferten vom VPS aus noch 20 Min. die alte Zone, während das übrige
+  Netz schon umgestellt war → `activate --accept-dns-lag`.
+- Coolify startet Traefik mit `allowACMEByPass=true`: Eigene HTTP-Router dürfen den Pfad
+  `/.well-known/acme-challenge/` nicht abdecken, sonst schlägt HTTP-01 fehl (erster Versuch: 404).
+
+Nach dem Umzug gelten normale Deploys wieder (`deploy-release.sh`); `app.env` enthält jetzt die Domain.
 
 ## Zuständigkeiten
 
