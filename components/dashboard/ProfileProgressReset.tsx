@@ -146,7 +146,7 @@ function ResetConfirmationDialog({ translations: t, trigger, pending, error, onC
     <dialog ref={dialog} tabIndex={-1} aria-modal="true" aria-labelledby={titleId} aria-describedby={descriptionId}
       aria-busy={pending} onKeyDown={trapFocus}
       onCancel={event => { event.preventDefault(); if (!pending) onClose() }}
-      className="fixed inset-0 m-auto max-h-[calc(100dvh_-_2rem)] w-[calc(100%_-_2rem)] max-w-md overflow-y-auto overscroll-contain rounded-3xl border border-red-300 bg-[var(--surface)] p-5 text-[var(--foreground)] shadow-2xl outline-none backdrop:bg-black/55 dark:border-red-900 sm:p-7">
+      className="fixed inset-0 m-auto max-h-[calc(100dvh_-_2rem_-_env(safe-area-inset-top,0px)_-_env(safe-area-inset-bottom,0px))] w-[calc(100%_-_2rem)] max-w-md overflow-y-auto overscroll-contain rounded-3xl border border-red-300 bg-[var(--surface)] p-5 text-[var(--foreground)] shadow-2xl outline-none backdrop:bg-black/55 dark:border-red-900 sm:p-7">
       <span className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-red-50 text-red-700 dark:bg-red-950 dark:text-red-300">
         <AlertTriangle size={25} aria-hidden="true" />
       </span>

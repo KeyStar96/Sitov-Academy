@@ -1186,7 +1186,7 @@ body { min-height: 100vh; min-height: 100dvh; }
 :where(a, button, input, select, textarea):focus-visible { outline: 3px solid var(--violet); outline-offset: 4px; }
 .academy-container { width: min(100% - 2rem, 1200px); margin-inline: auto; min-width: 0; }
 .academy-app-background { background: var(--canvas); }
-.academy-skip-link { position: fixed; left: 1rem; top: 1rem; z-index: 1000000; transform: translateY(-200%); background: var(--surface); color: var(--foreground); padding: .8rem 1rem; border: 2px solid var(--violet); border-radius: .6rem; }
+.academy-skip-link { position: fixed; left: 1rem; top: calc(env(safe-area-inset-top, 0px) + 1rem); z-index: 1000000; transform: translateY(calc(-100% - env(safe-area-inset-top, 0px) - 1.5rem)); background: var(--surface); color: var(--foreground); padding: .8rem 1rem; border: 2px solid var(--violet); border-radius: .6rem; }
 .academy-skip-link:focus { transform: translateY(0); }
 .academy-logo { display: inline-flex; align-items: center; gap: .65rem; color: var(--foreground); min-width: 0; }
 .academy-logo-mark { flex-shrink: 0; width: 40px; height: 40px; border-radius: 11px; }

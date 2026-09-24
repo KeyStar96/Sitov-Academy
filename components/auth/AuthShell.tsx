@@ -8,7 +8,7 @@ import type { ReactNode } from 'react'
 export default async function AuthShell({lang,title,description,children}:{lang:string;title:string;description?:ReactNode;children:ReactNode}) {
   const dict=await getDictionary(lang)
   const t=registrationLabels(lang)
-  return <div className="relative min-h-dvh overflow-hidden bg-[var(--canvas)] px-4 py-5 text-[var(--foreground)] sm:px-7 sm:py-7">
+  return <div className="relative min-h-dvh overflow-hidden bg-[var(--canvas)] px-4 pt-[calc(env(safe-area-inset-top,0px)+1.25rem)] pb-[calc(env(safe-area-inset-bottom,0px)+1.25rem)] text-[var(--foreground)] sm:px-7 sm:pt-[calc(env(safe-area-inset-top,0px)+1.75rem)] sm:pb-[calc(env(safe-area-inset-bottom,0px)+1.75rem)]">
     {/* Dezente, warme Deko-Glow — gibt der Glass-Karte etwas zum Bluren. */}
     <div aria-hidden className="pointer-events-none absolute inset-0 z-0" style={{ background: 'radial-gradient(42rem 42rem at 12% 8%, color-mix(in srgb, var(--violet) 12%, transparent), transparent 60%), radial-gradient(38rem 38rem at 92% 96%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 62%)' }} />
     <header className="relative z-10 mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-4">

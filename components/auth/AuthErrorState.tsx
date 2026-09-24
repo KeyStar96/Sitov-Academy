@@ -7,7 +7,7 @@ import { useRouteFeedback } from '@/components/layout/RouteFeedbackProvider'
 export default function AuthErrorState({ reset }: { reset: () => void }) {
   const copy = useRouteFeedback('auth')
   return (
-    <div className="flex min-h-screen items-center justify-center bg-[var(--canvas)] px-4 py-12">
+    <div className="flex min-h-screen items-center justify-center bg-[var(--canvas)] px-4 pt-[calc(env(safe-area-inset-top,0px)+3rem)] pb-[calc(env(safe-area-inset-bottom,0px)+3rem)]">
       <div className="w-full max-w-lg space-y-6 rounded-3xl border-2 border-[var(--border)] bg-[var(--surface)] p-5 text-center sm:p-8 shadow-sm">
         <h1 className="text-2xl font-bold text-[var(--foreground)]">
           {copy.error_title}

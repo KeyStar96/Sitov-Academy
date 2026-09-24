@@ -11,7 +11,7 @@ import { useRouteFeedback } from '@/components/layout/RouteFeedbackProvider'
 export default function AuthLoadingState({ fieldCount = 2 }: { fieldCount?: number }) {
   const copy = useRouteFeedback('auth')
   return (
-    <div className="flex min-h-screen items-center justify-center bg-[var(--canvas)] px-4 py-12">
+    <div className="flex min-h-screen items-center justify-center bg-[var(--canvas)] px-4 pt-[calc(env(safe-area-inset-top,0px)+3rem)] pb-[calc(env(safe-area-inset-bottom,0px)+3rem)]">
       <div className="w-full max-w-lg space-y-8">
         <span className="sr-only" role="status">
           {copy.loading}
