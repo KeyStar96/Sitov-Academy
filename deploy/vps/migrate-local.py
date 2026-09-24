@@ -29,9 +29,9 @@ def digest(path):
 def inventory():
     return json.loads(sql("SELECT coalesce(json_agg(x ORDER BY x.bucket_id,x.name),'[]') FROM (SELECT bucket_id,name,id,version,updated_at,metadata FROM storage.objects) x"))
 
-def backup():
+def backup(root=Path('/root/backups'),prefix='sitov-migration-'):
     stamp=datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')
-    target=Path('/root/backups')/('sitov-migration-'+stamp)
+    target=root/(prefix+stamp)
     target.mkdir(mode=0o700,parents=True)
     before=inventory()
     for filename,command in [('postgres.dump',['pg_dump','-d','postgres','-Fc']),('roles.sql',['pg_dumpall','--roles-only'])]:

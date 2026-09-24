@@ -1,0 +1,56 @@
+# Domain routes for www.sitov-academy.com (canonical) and sitov-academy.com.
+# Installed as /data/coolify/proxy/dynamic/sitov-domain.yaml by go-live-domain.py
+# only AFTER both DNS names point to this VPS: Traefik requests the Let's Encrypt
+# certificate (HTTP-01) as soon as the file appears, and a failed early attempt
+# would only burn the Let's Encrypt failure quota.
+# Reuses service sitov-native and middlewares sitov-https/sitov-security from
+# sitov-ip.yaml (same file provider). The IP routes stay unchanged.
+http:
+  routers:
+    sitov-www-http:
+      rule: Host(`www.sitov-academy.com`)
+      entryPoints: [http]
+      service: sitov-native
+      middlewares: [sitov-https]
+      priority: 100
+    sitov-apex-http:
+      rule: Host(`sitov-academy.com`)
+      entryPoints: [http]
+      service: sitov-native
+      middlewares: [sitov-apex-to-www]
+      priority: 100
+    sitov-www-https:
+      rule: Host(`www.sitov-academy.com`)
+      entryPoints: [https]
+      service: sitov-native
+      middlewares: [sitov-security, sitov-domain-headers]
+      priority: 100
+      tls:
+        certResolver: letsencrypt
+        domains:
+          - main: www.sitov-academy.com
+            sans: [sitov-academy.com]
+    sitov-apex-https:
+      rule: Host(`sitov-academy.com`)
+      entryPoints: [https]
+      service: sitov-native
+      middlewares: [sitov-apex-to-www]
+      priority: 100
+      tls:
+        certResolver: letsencrypt
+        domains:
+          - main: www.sitov-academy.com
+            sans: [sitov-academy.com]
+  middlewares:
+    # One hop from any apex URL (http or https) to the canonical www origin.
+    sitov-apex-to-www:
+      redirectRegex:
+        regex: ^https?://sitov-academy\.com(?::\d+)?(.*)$
+        replacement: https://www.sitov-academy.com${1}
+        permanent: true
+    sitov-domain-headers:
+      headers:
+        # Without includeSubDomains: mail.sitov-academy.com serves no HTTPS site.
+        stsSeconds: 31536000
+        # Course PDFs are framed from /supabase on the same origin; nothing else may frame the app.
+        customFrameOptionsValue: SAMEORIGIN

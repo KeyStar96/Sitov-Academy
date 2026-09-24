@@ -1,0 +1,11 @@
+[Unit]
+Description=Sitov Academy daily backup (PostgreSQL + Storage)
+Requires=docker.service
+After=docker.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python3 /var/www/sitov-academy/deploy/vps/backup-daily.py
+Nice=10
+IOSchedulingClass=idle
+UMask=0077
