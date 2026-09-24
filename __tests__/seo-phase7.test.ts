@@ -163,8 +163,16 @@ describe('OpenGraph-Bild', () => {
 describe('Crawling-Falle im Sprachsegment', () => {
   it('app/[lang]/layout.tsx erlaubt nur die generierten Sprachen', () => {
     const layout = fs.readFileSync(path.join(process.cwd(), 'app', '[lang]', 'layout.tsx'), 'utf-8')
-    expect(layout).toMatch(/export const dynamicParams = false/)
     expect(layout).toMatch(/generateStaticParams\(\)\s*\{\s*return LOCALES\.map/)
+    expect(layout).toMatch(/if \(!\(LOCALES as readonly string\[\]\)\.includes\(lang\)\) notFound\(\)/)
+  })
+
+  it('setzt kein dynamicParams = false (sonst nach jeder An-/Abmeldung 404 auf allen statischen Seiten)', () => {
+    // revalidatePath('/', 'layout') in app/actions/auth.ts baut die statischen
+    // Seiten neu; mit dynamicParams = false endet das in Next.js 16 als
+    // NoFallbackError und einem dauerhaft zwischengespeicherten 404.
+    const layout = fs.readFileSync(path.join(process.cwd(), 'app', '[lang]', 'layout.tsx'), 'utf-8')
+    expect(layout).not.toMatch(/export const dynamicParams\s*=\s*false/)
   })
 
   it('enthält kein hartcodiertes Meta-Pixel und kein noscript-Tracking mehr', () => {

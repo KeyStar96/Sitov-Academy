@@ -59,9 +59,11 @@ export async function generateStaticParams() {
   return LOCALES.map(lang => ({ lang }));
 }
 
-// Nur die fünf Sprachen existieren. Jeder andere Wert im Sprachsegment ist
-// eine 404 statt einer gerenderten Kopie der Seite (Crawling-Falle).
-export const dynamicParams = false;
+// Nur die fünf Sprachen existieren; jeden anderen Wert beantwortet das Layout
+// unten mit notFound() (Crawling-Falle). Bewusst KEIN `dynamicParams = false`:
+// Damit liefert Next.js nach jedem revalidatePath('/', 'layout') – also nach
+// jeder An- oder Abmeldung – für ALLE statischen Seiten dauerhaft 404
+// (NoFallbackError beim Neuaufbau).
 
 export const viewport = {
   width: 'device-width',
