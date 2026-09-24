@@ -1,7 +1,7 @@
 'use client'
 
 import { useMemo } from 'react'
-import { CalendarDays, ChevronDown, Gift } from 'lucide-react'
+import { CalendarDays, ChevronDown, Gift, Wallet } from 'lucide-react'
 import type { CourseConfig, CourseException } from '@/lib/course-config'
 import type { CourseSelection } from '@/lib/course-selection'
 import { calculateMonthlyStats } from '@/lib/course-calculations'
@@ -40,9 +40,10 @@ export default function EnrollmentCosts({ courses, selections, startIso, startCh
 
   return (
     <div className="reg-costs-card">
-      <h2 id="reg-costs-title" className="reg-costs__title">{costs.title}</h2>
+      <h2 id="reg-costs-title" className="reg-costs__title"><span className="reg-costs__icon" aria-hidden="true"><Wallet size={22} /></span>{costs.title}</h2>
       <p className="reg-costs__label">{fill(costs.first_month, { month: formatMonth(startIso, lang) })}</p>
-      <p className="reg-costs__total" aria-live="polite" aria-atomic="true">{formatEuro(first.total)}</p>
+      {/* Keyed so a new amount rolls in instead of silently swapping. */}
+      <p className="reg-costs__total" aria-live="polite" aria-atomic="true"><span key={first.total} className="reg-costs__amount">{formatEuro(first.total)}</span></p>
       <p className="reg-costs__from">
         <CalendarDays size={20} aria-hidden="true" />
         <span>{fill(startChosen ? costs.counted_from : costs.counted_from_next, { date: formatDay(startIso, lang, referenceYear) })}</span>
@@ -89,7 +90,7 @@ export default function EnrollmentCosts({ courses, selections, startIso, startCh
 export function EnrollmentTrialCosts({ copy, dateLabel }: { copy: FlowCopy; dateLabel?: string }) {
   return (
     <div className="reg-costs-card">
-      <h2 id="reg-costs-title" className="reg-costs__title">{copy.costs.title_trial}</h2>
+      <h2 id="reg-costs-title" className="reg-costs__title"><span className="reg-costs__icon" aria-hidden="true"><Gift size={22} /></span>{copy.costs.title_trial}</h2>
       <p className="reg-costs__total reg-costs__total--free"><Gift size={28} aria-hidden="true" />{copy.costs.trial_price}</p>
       {dateLabel && <p className="reg-costs__from"><CalendarDays size={20} aria-hidden="true" /><span>{fill(copy.costs.trial_date, { date: dateLabel })}</span></p>}
       <p className="reg-costs__note">{copy.costs.trial_free}</p>

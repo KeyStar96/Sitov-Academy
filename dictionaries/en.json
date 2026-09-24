@@ -489,6 +489,15 @@
         "need_details": "Please check the fields marked in red. We have taken you to the first one.",
         "need_consents": "Please confirm all points above first."
       },
+      "dock": {
+        "chosen": {
+          "one": "{count} course selected",
+          "few": "{count} courses selected",
+          "many": "{count} courses selected",
+          "other": "{count} courses selected"
+        },
+        "first_month": "First month: {price}"
+      },
       "costs": {
         "title": "Your costs",
         "title_trial": "Your trial lesson",

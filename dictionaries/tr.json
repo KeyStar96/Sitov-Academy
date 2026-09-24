@@ -488,6 +488,15 @@
         "need_details": "Lütfen kırmızı ile işaretli alanları kontrol edin. Sizi ilk alana götürdük.",
         "need_consents": "Lütfen önce yukarıdaki tüm maddeleri onaylayın."
       },
+      "dock": {
+        "chosen": {
+          "one": "{count} kurs seçildi",
+          "few": "{count} kurs seçildi",
+          "many": "{count} kurs seçildi",
+          "other": "{count} kurs seçildi"
+        },
+        "first_month": "İlk ay: {price}"
+      },
       "costs": {
         "title": "Maliyetleriniz",
         "title_trial": "Deneme dersiniz",

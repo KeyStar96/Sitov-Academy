@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { AlertCircle, ArrowLeft, ArrowRight, CalendarDays, Gift, Info, Loader2, Send } from "lucide-react";
+import { AlertCircle, ArrowLeft, ArrowRight, CalendarDays, Check, Gift, Info, Loader2, MapPin, Mic, Monitor, Send } from "lucide-react";
 import BrandLogo from "@/components/layout/BrandLogo";
 import type { CourseConfig, CourseException } from "@/lib/course-config";
 import type { CourseSelection } from "@/lib/course-selection";
@@ -25,7 +25,7 @@ import EnrollmentCosts, { EnrollmentTrialCosts, monthCost } from "./EnrollmentCo
 import EnrollmentConsents, { type ConsentItem, type ConsentKey } from "./EnrollmentConsents";
 import { BirthDateField, PhoneField, TextField } from "./EnrollmentFields";
 import { EnrollmentDone, EnrollmentTrialUsed } from "./EnrollmentResult";
-import { fill, formatDay, type RegistrationDictionary } from "./registration-copy";
+import { countLabel, fill, formatDay, formatEuro, type RegistrationDictionary } from "./registration-copy";
 import "./registration.css";
 
 export type { RegistrationDictionary };
@@ -40,6 +40,7 @@ const FIELD_IDS: Record<(typeof PERSONAL_FIELDS)[number], string> = {
     birthDate: "reg-birth-date-day", street: "reg-street", zip: "reg-zip", city: "reg-city",
 };
 const EMPTY_PERSONAL = { firstName: "", lastName: "", email: "", phone: "", birthDate: "", street: "", zip: "", city: "" };
+const GROUP_ICONS = { presence: MapPin, speech: Mic, online: Monitor } as const;
 
 /** Moves focus to what is missing and brings it into view. */
 function focusFirst(selector: string) {
@@ -134,6 +135,8 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
     }, [startOptions, startIso]);
 
     const costStart = startIso || startOptions[0]?.iso || firstIso;
+    const firstMonthTotal = useMemo(() => isTrial || selectedCourses.length === 0 ? 0
+        : monthCost(selectedCourses, courseSelections, costStart, exceptions, lang).total, [isTrial, selectedCourses, courseSelections, costStart, exceptions, lang]);
     const needsVideo = selectedCourses.some(course => course.type === "online");
     const consentItems: ConsentItem[] = [
         { key: "privacy", short: copy.consents.privacy, full: t.legal.privacy, link: { href: `/${lang}/privacy`, label: copy.consents.privacy_link } },
@@ -152,8 +155,8 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
 
     useEffect(() => {
         if (firstStepRender.current) { firstStepRender.current = false; return; }
-        // A new question: start at the top and let screen readers read its title.
-        window.scrollTo({ top: 0, behavior: "auto" });
+        // A new question: start at the top (no long glide) and let screen readers read its title.
+        window.scrollTo({ top: 0, behavior: "instant" });
         headingRef.current?.focus({ preventScroll: true });
     }, [step]);
 
@@ -258,35 +261,48 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
     const stepName = step === 2 && isTrial ? copy.steps.start_trial : copy.steps[stepKey];
     const personal = form.watch("personal");
     const startLabel = startIso ? formatDay(startIso, lang, referenceYear) : "";
+    const firstMonthLabel = fill(copy.dock.first_month, { price: formatEuro(firstMonthTotal) });
+    // What is chosen so far, right beside "Weiter" – the answer to "did my tap work?".
+    const summary = navMessage ? null
+        : step === 1 && selectedIds.length > 0 ? { icon: Check, label: countLabel(copy.dock.chosen, selectedIds.length, lang), value: isTrial ? copy.costs.trial_price : firstMonthLabel }
+            : step === 2 && startIso ? { icon: CalendarDays, label: fill(isTrial ? copy.costs.trial_date : copy.review.start, { date: startLabel }) }
+                : null;
+    const SummaryIcon = summary?.icon;
+    let cardIndex = 0;
 
     return (
         <div data-lenis-prevent className="registration-flow">
+            <div className="reg-glow" aria-hidden="true" />
+            <header className="reg-bar">
+                <Link href={`/${lang}`} className="reg-home"><ArrowLeft size={20} aria-hidden="true" /><span>{copy.home}</span></Link>
+                <div className="reg-brand"><BrandLogo name={dictionary.academy.brand_name} /></div>
+            </header>
             <form className="reg-layout" data-step={step} noValidate onSubmit={onFormSubmit}>
-                <header className="reg-head">
-                    <div className="reg-topbar">
-                        <Link href={`/${lang}`} className="reg-home"><ArrowLeft size={20} aria-hidden="true" />{copy.home}</Link>
-                        <div className="reg-brand"><BrandLogo name={dictionary.academy.brand_name} /></div>
-                    </div>
+                <div className="reg-head">
                     {isTrial && <p className="reg-badge"><Gift size={20} aria-hidden="true" />{t.trial.badge}</p>}
                     <div className="reg-progress">
                         <p className="reg-progress__label"><strong>{fill(copy.step_of, { step, total: TOTAL_STEPS })}</strong> · {stepName}</p>
                         <div className="reg-progress__bar" aria-hidden="true">
-                            {[1, 2, 3, 4].map(value => <span key={value} data-done={value <= step} />)}
+                            {[1, 2, 3, 4].map(value => <span key={value} data-done={value < step} data-current={value === step} />)}
                         </div>
                     </div>
-                    <h1 id="reg-step-title" ref={headingRef} tabIndex={-1} className="reg-title">{title}</h1>
-                    <p className="reg-intro">{intro}</p>
-                </header>
+                    <h1 key={`title-${step}`} id="reg-step-title" ref={headingRef} tabIndex={-1} className="reg-title reg-enter">{title}</h1>
+                    <p key={`intro-${step}`} className="reg-intro reg-enter">{intro}</p>
+                </div>
 
                 <div key={step} className="reg-main">
-                    {step === 1 && (groups.length === 0 ? <p className="reg-empty">{copy.no_courses}</p> : groups.map(group => (
+                    {step === 1 && (groups.length === 0 ? <p className="reg-empty">{copy.no_courses}</p> : groups.map(group => {
+                        const GroupIcon = GROUP_ICONS[group.key as keyof typeof GROUP_ICONS];
+                        return (
                         <section key={group.key} className="reg-group" aria-labelledby={`reg-group-${group.key}`}>
-                            <h2 id={`reg-group-${group.key}`} className="reg-group__title">{group.title}</h2>
+                            <h2 id={`reg-group-${group.key}`} className="reg-group__title">
+                                <span className="reg-group__icon" aria-hidden="true"><GroupIcon size={20} /></span>{group.title}
+                            </h2>
                             <div className="reg-group__list">
                                 {group.courses.map(course => {
                                     const selected = selectedIds.includes(course.id);
                                     return (
-                                        <div key={course.id} className="reg-group__item">
+                                        <div key={course.id} className="reg-group__item reg-enter" style={{ "--i": cardIndex++ } as React.CSSProperties}>
                                             <EnrollmentCourseCard course={course} lang={lang} copy={copy} selected={selected} single={isTrial}
                                                 trialPriceLabel={isTrial ? copy.costs.trial_price : undefined} onToggle={() => toggleCourse(course.id)} />
                                             {!isTrial && course.category === "private" && selected && (
@@ -298,7 +314,8 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                                 })}
                             </div>
                         </section>
-                    )))}
+                        );
+                    }))}
 
                     {step === 2 && (
                         <EnrollmentStartDates options={startOptions} value={startIso} onChange={iso => { setStartIso(iso); setNudge(false); }}
@@ -386,7 +403,8 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                     </aside>
                 )}
 
-                <div className="reg-nav">
+                {/* Always in reach at the bottom of the screen, so nobody has to guess that "Weiter" is further down. */}
+                <div className="reg-nav" data-ready={blocker ? undefined : "true"}>
                     <div aria-live="polite" className="reg-nav__live">
                         {navMessage && (
                             <p id="reg-nav-hint" className="reg-nav__hint" data-nudge={nudge || (step === 3 && detailsInvalid) ? "true" : undefined}>
@@ -394,19 +412,26 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                             </p>
                         )}
                     </div>
+                    {summary && (
+                        <p key={`${step}-${summary.label}-${summary.value ?? ""}`} className="reg-nav__summary">
+                            <span className="reg-nav__summary-icon" aria-hidden="true">{SummaryIcon && <SummaryIcon size={18} strokeWidth={2.5} />}</span>
+                            <span className="reg-nav__summary-label">{summary.label}</span>
+                            {summary.value && <span className="reg-nav__summary-value">{summary.value}</span>}
+                        </p>
+                    )}
                     <div className="reg-nav__buttons">
                         {step > 1 && (
-                            <button type="button" className="reg-button reg-button--soft" onClick={() => goTo((step - 1) as Step)} disabled={submitting}>
+                            <button type="button" className="reg-button reg-button--soft reg-nav__back" onClick={() => goTo((step - 1) as Step)} disabled={submitting}>
                                 <ArrowLeft size={22} aria-hidden="true" />{copy.nav.back}
                             </button>
                         )}
                         <button type="submit" className="reg-button reg-button--primary reg-nav__next" disabled={submitting || checking}
                             aria-disabled={blocker ? true : undefined} aria-describedby={navMessage ? "reg-nav-hint" : undefined}>
                             {step < 4
-                                ? <>{checking && <Loader2 size={22} className="animate-spin" aria-hidden="true" />}{checking ? copy.nav.checking : copy.nav.next}{!checking && <ArrowRight size={22} aria-hidden="true" />}</>
+                                ? <>{checking && <Loader2 size={22} className="animate-spin" aria-hidden="true" />}{checking ? copy.nav.checking : copy.nav.next}{!checking && <span className="reg-nav__arrow" aria-hidden="true"><ArrowRight size={22} /></span>}</>
                                 : submitting
                                     ? <><Loader2 size={22} className="animate-spin" aria-hidden="true" />{copy.nav.sending}</>
-                                    : <>{isTrial ? copy.nav.submit_trial : copy.nav.submit}<Send size={22} aria-hidden="true" /></>}
+                                    : <>{isTrial ? copy.nav.submit_trial : copy.nav.submit}<span className="reg-nav__arrow" aria-hidden="true"><Send size={20} /></span></>}
                         </button>
                     </div>
                 </div>

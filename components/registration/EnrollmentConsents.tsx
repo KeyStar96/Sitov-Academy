@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, type CSSProperties } from 'react'
 import { Check, CheckCheck, ChevronDown } from 'lucide-react'
 import type { FlowCopy } from './registration-copy'
 
@@ -27,11 +27,11 @@ export default function EnrollmentConsents({ items, values, onChange, onAcceptAl
         <CheckCheck size={22} aria-hidden="true" />{copy.consents.accept_all}
       </button>
       <ul className="reg-consents">
-        {items.map(item => {
+        {items.map((item, index) => {
           const checked = values[item.key]
           const expanded = open === item.key
           return (
-            <li key={item.key} className="reg-consent" data-checked={checked}>
+            <li key={item.key} className="reg-consent reg-enter" data-checked={checked} style={{ '--i': index } as CSSProperties}>
               <label className="reg-consent__main">
                 <input id={`reg-consent-${item.key}`} type="checkbox" checked={checked} onChange={event => onChange(item.key, event.target.checked)}
                   className="reg-visually-hidden" aria-describedby={expanded ? `reg-consent-${item.key}-full` : undefined} />

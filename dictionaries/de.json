@@ -491,6 +491,15 @@
         "need_details": "Bitte prüfe die rot markierten Felder. Wir haben dich zum ersten Feld gebracht.",
         "need_consents": "Bitte bestätige zuerst alle Punkte oben."
       },
+      "dock": {
+        "chosen": {
+          "one": "{count} Kurs gewählt",
+          "few": "{count} Kurse gewählt",
+          "many": "{count} Kurse gewählt",
+          "other": "{count} Kurse gewählt"
+        },
+        "first_month": "Erster Monat: {price}"
+      },
       "costs": {
         "title": "Deine Kosten",
         "title_trial": "Deine Probestunde",

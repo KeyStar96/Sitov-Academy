@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, type ReactNode } from 'react'
+import { useEffect, useRef, type CSSProperties, type ReactNode } from 'react'
 import Link from 'next/link'
 import { ArrowLeft, CalendarDays, Check, User } from 'lucide-react'
 import EnrollmentSignup from './EnrollmentSignup'
@@ -36,7 +36,7 @@ export function EnrollmentDone({ dictionary, lang, trial, email, name, trialDate
       {trial && trialDateLabel && <p className="reg-result__date"><CalendarDays size={22} aria-hidden="true" />{fill(done.trial_date, { date: trialDateLabel })}</p>}
       <h2 className="reg-result__subtitle">{done.next_title}</h2>
       <ol className="reg-result__steps">
-        {steps.map((step, index) => <li key={index}><span aria-hidden="true">{index + 1}</span><p>{step}</p></li>)}
+        {steps.map((step, index) => <li key={index} className="reg-enter" style={{ '--i': index + 2 } as CSSProperties}><span aria-hidden="true">{index + 1}</span><p>{step}</p></li>)}
       </ol>
       <EnrollmentSignup lang={lang} name={name} email={email} />
     </ResultShell>

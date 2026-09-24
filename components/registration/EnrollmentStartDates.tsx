@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, type CSSProperties } from 'react'
 import { Check, Clock } from 'lucide-react'
 import type { CourseConfig } from '@/lib/course-config'
 import { courseText } from '@/lib/business-courses'
@@ -32,11 +32,11 @@ export default function EnrollmentStartDates({ options, value, onChange, lang, c
   return (
     <div className="reg-days-wrap">
       <div role="radiogroup" aria-labelledby={labelledBy} className="reg-days">
-        {options.slice(0, visible).map(option => {
+        {options.slice(0, visible).map((option, index) => {
           const leaf = leafParts(option.iso, lang)
           const selected = option.iso === value
           return (
-            <label key={option.iso} className="reg-day" data-selected={selected}>
+            <label key={option.iso} className="reg-day reg-enter" data-selected={selected} style={{ '--i': index % PAGE } as CSSProperties}>
               <input type="radio" name="reg-start" value={option.iso} checked={selected} onChange={() => onChange(option.iso)} className="reg-visually-hidden" />
               <span className="reg-leaf" aria-hidden="true">
                 <span className="reg-leaf__weekday">{leaf.weekday}</span>
