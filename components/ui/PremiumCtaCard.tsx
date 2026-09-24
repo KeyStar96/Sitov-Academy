@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useRef } from 'react'
+import { useRef, type ReactNode } from 'react'
 import { ArrowUpRight, type LucideIcon } from 'lucide-react'
 import { motion, useReducedMotion, useMotionTemplate, useMotionValue } from 'framer-motion'
 import { cn } from '@/lib/utils'
@@ -13,12 +13,14 @@ type Props = {
   ctaLabel: string
   href: string
   icon?: LucideIcon
+  /** Kleines Etikett im Knopf, z. B. <BetaBadge tone="on-primary" />. */
+  badge?: ReactNode
   className?: string
 }
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1]
 
-export default function PremiumCtaCard({ eyebrow, title, description, ctaLabel, href, icon: Icon, className }: Props) {
+export default function PremiumCtaCard({ eyebrow, title, description, ctaLabel, href, icon: Icon, badge, className }: Props) {
   const reduced = useReducedMotion()
   const ref = useRef<HTMLDivElement>(null)
   // Spotlight folgt dem Cursor (nur Desktop/Maus, dezent).
@@ -60,6 +62,7 @@ export default function PremiumCtaCard({ eyebrow, title, description, ctaLabel, 
           <Link href={href} className="academy-button academy-button-primary premium-cta-button">
             {Icon && <Icon size={20} aria-hidden="true" />}
             {ctaLabel}
+            {badge}
             <ArrowUpRight size={20} aria-hidden="true" />
           </Link>
         </motion.div>

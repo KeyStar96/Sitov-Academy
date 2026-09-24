@@ -1914,6 +1914,8 @@
         "navigation": "Main navigation",
         "language": "Choose language",
         "platform": "My learning space",
+        "beta_label": "Beta",
+        "beta_hint": "Beta – the learning platform is still being built",
         "hero_eyebrow": "Learn German. In Hanover & online.",
         "hero_title": "New language.",
         "hero_highlight": "New possibilities.",

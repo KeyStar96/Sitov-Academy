@@ -1910,6 +1910,8 @@
         "navigation": "Ana gezinme",
         "language": "Dil seç",
         "platform": "Öğrenme alanım",
+        "beta_label": "Beta",
+        "beta_hint": "Beta – öğrenme platformu hâlâ geliştiriliyor",
         "hero_eyebrow": "Almanca öğren. Hannover’de ve çevrimiçi.",
         "hero_title": "Yeni bir dil.",
         "hero_highlight": "Yeni olanaklar.",

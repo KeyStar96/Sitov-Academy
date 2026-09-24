@@ -7,6 +7,7 @@ import { ArrowRight, ArrowUpRight, Sparkles } from 'lucide-react'
 import { gsap, useGSAP } from '@/lib/gsap'
 import type { getDictionary } from '@/lib/dictionary'
 import styles from './HeroBrain.module.css'
+import BetaBadge from '@/components/ui/BetaBadge'
 
 const NeuralBrain = dynamic(() => import('@/components/effects/NeuralBrain'), { ssr: false })
 type Dictionary = Awaited<ReturnType<typeof getDictionary>>
@@ -26,7 +27,7 @@ export default function Hero({ dictionary, lang = 'de' }: { dictionary: Dictiona
       <p className="academy-hero-description hero-reveal">{copy.hero_description}</p>
       <div className="academy-hero-actions hero-reveal">
         <Link href="#courses" className="academy-button academy-button-primary">{copy.hero_primary}<ArrowUpRight size={20} aria-hidden="true" /></Link>
-        <Link href={`/${lang}/dashboard`} className="academy-button academy-button-outline">{copy.hero_secondary}<ArrowRight size={18} aria-hidden="true" /></Link>
+        <Link href={`/${lang}/dashboard`} className="academy-button academy-button-outline">{copy.hero_secondary}<BetaBadge label={copy.beta_label} hint={copy.beta_hint} /><ArrowRight size={18} aria-hidden="true" /></Link>
       </div>
       <div className="academy-hero-footnote hero-reveal"><span>{copy.hero_level_range}</span><span aria-hidden="true">·</span><span>{dictionary.header.banner.location}</span></div>
     </div>

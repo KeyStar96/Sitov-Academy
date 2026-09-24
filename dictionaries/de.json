@@ -1913,6 +1913,8 @@
         "navigation": "Hauptnavigation",
         "language": "Sprache wählen",
         "platform": "Mein Lernraum",
+        "beta_label": "Beta",
+        "beta_hint": "Beta – die Lernplattform ist noch im Aufbau",
         "hero_eyebrow": "Deutsch lernen. In Hannover & online.",
         "hero_title": "Neue Sprache.",
         "hero_highlight": "Neue Möglichkeiten.",

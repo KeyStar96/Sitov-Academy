@@ -8,6 +8,7 @@ import AcademyStory from "@/components/sections/AcademyStory";
 import AcademyCourses from "@/components/sections/AcademyCourses";
 import AcademyFooter from "@/components/sections/AcademyFooter";
 import PremiumCtaCard from "@/components/ui/PremiumCtaCard";
+import BetaBadge from "@/components/ui/BetaBadge";
 import AcademyFaq from "@/components/sections/AcademyFaq";
 import { CANONICAL_SITE_URL } from "@/lib/site-url";
 import { OG_IMAGE, absoluteUrl, buildFaqPageJsonLd, buildPageMetadata, localizedUrl, serializeJsonLd } from "@/lib/seo";
@@ -158,6 +159,7 @@ export default async function HomePage({
             title={dictionary.academy.learn_title}
             description={dictionary.academy.learn_description}
             ctaLabel={dictionary.academy.hero_secondary}
+            badge={<BetaBadge tone="on-primary" label={dictionary.academy.beta_label} hint={dictionary.academy.beta_hint} />}
             href={`/${lang}/dashboard`}
           />
         </section>
