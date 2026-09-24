@@ -1,7 +1,7 @@
 import 'server-only'
 import { readSupabasePublicConfig } from '@/lib/supabase-env'
 
-export type TransactionalMailKind = 'registration_received' | 'registration_confirmed' | 'booking_cancelled' | 'cancellation_requested' | 'trial_confirmed' | 'trial_cancelled' | 'new_enrollment' | 'feedback_available' | 'course_exception_added'
+export type TransactionalMailKind = 'registration_received' | 'registration_confirmed' | 'booking_cancelled' | 'cancellation_requested' | 'trial_confirmed' | 'trial_cancelled' | 'new_enrollment' | 'feedback_available' | 'course_exception_added' | 'new_signup'
 export interface TransactionalMailPayload {
   name?: string
   courses?: Array<{ title: string; price?: number; units?: number; unitPrice?: number; unitMinutes?: number }>
