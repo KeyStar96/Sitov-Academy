@@ -52,6 +52,15 @@ export default async function AdminLayout({
     </Link>
   )
 
+  const compactBrand = (
+    <Link
+      href={`/${lang}/admin`}
+      className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl transition-opacity hover:opacity-80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
+    >
+      <BrandLogo name={t('brand_name')} compact />
+    </Link>
+  )
+
   const controls = (
     <>
       <span
@@ -80,7 +89,7 @@ export default async function AdminLayout({
 
   return (
     <AdminI18nProvider translations={translations}>
-      <TeacherLayout lang={lang} brand={brand} controls={controls}>
+      <TeacherLayout lang={lang} brand={brand} compactBrand={compactBrand} controls={controls}>
         {children}
       </TeacherLayout>
     </AdminI18nProvider>
