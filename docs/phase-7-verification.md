@@ -60,7 +60,14 @@ Stand 24.09.2026, separater Auftrag: nur dieser 7.3-Punkt.
 
 Umsetzung: `deploy/vps/patch-auth-hibp.py` (Dry-Run standardmäßig, `--apply` mit root-only-Backup unter `/root/backups/sitov-auth-hibp/`, atomares Ersetzen, keine Secrets in der Ausgabe), danach nur Auth neu erstellen: `docker compose up -d --no-deps supabase-auth`. `configure-local-services.py` führt die beiden Werte als Soll-Konfiguration. Rollback: Backup zurückspielen, denselben Compose-Befehl ausführen. Reihenfolge beim Rollout: erst App-Release mit den neuen Meldungen, dann Auth.
 
-Tests: `deploy/vps/tests/test_auth_hibp.py` (exakte Bytes, Idempotenz, CRLF, Konflikte/Duplikate/Interpolation brechen ab, Swap-/Limit-Prüfung, Backup-Rechte), Jest `__tests__/auth-signup-mail.test.ts` (Zuordnung `pwned` in Registrierung und Passwort-Reset), `__tests__/auth-i18n.test.ts` (Texte in allen Sprachen). Live-Nachweis nach dem Rollout siehe unten.
+Tests: `deploy/vps/tests/test_auth_hibp.py` (exakte Bytes, Idempotenz, CRLF, Konflikte/Duplikate/Interpolation brechen ab, Swap-/Limit-Prüfung, Backup-Rechte), Jest `__tests__/auth-signup-mail.test.ts` (Zuordnung `pwned` in Registrierung und Passwort-Reset), `__tests__/auth-i18n.test.ts` (Texte in allen Sprachen). Live-Nachweis (24.09.2026):
+
+- Reihenfolge: App-Release `7d96e1fb5d08` aktiviert (Health `ready`), danach Auth.
+- Compose-Backup: `/root/backups/sitov-auth-hibp/20260924T082228128279Z-docker-compose.yml`, SHA256 `60a7963fe203505e31b130c4e817f8f61f6fea2b4100b02ccf60431b73374142`; neue Compose SHA256 `99c6ee0bf52647e6d9e3453b749b2b541543bc7824fccf17d5dd37b4f5e1baa3`; `docker compose config --quiet` ok; erneuter Dry-Run `changed: false`.
+- `docker compose up -d --no-deps supabase-auth`: nach ~8 s `healthy`, 0 Fehlerzeilen im Log, beide HIBP-Werte im Container gesetzt.
+- Laufzeit-Limits aller 20 Container vor/nach identisch (Auth 256 MiB / MemorySwap 256 MiB / 0,5 CPU).
+- Über Kong (`/auth/v1/signup`): `password123` + ungültige Mail → `422 weak_password`, `reasons: ["pwned"]` (Prüfung vor jeder Kontoanlage); Zufallspasswort + ungültige Mail → `400 validation_failed` (kein Fehlalarm).
+- Oberfläche `https://217.154.228.254/de/register` mit geleaktem Passwort → `?status=signup_password_breached`, Meldung sichtbar; `auth.users` für die Testadresse: 0 Einträge.
 
 ## Offen / Hinweise
 
