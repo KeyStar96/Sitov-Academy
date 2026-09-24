@@ -11,7 +11,7 @@ jest.mock('@/lib/media-upload', () => ({
   createMediaUpload: jest.fn(), uploadTicketKey: () => 'upload-ticket',
   readUploadTicket: () => JSON.parse(localStorage.getItem('upload-ticket') ?? '{"assetId":"00000000-0000-4000-8000-000000000003","title":"Lesson","completed":false}'),
 }))
-const folder: MediaFolder = { folder_id: '00000000-0000-4000-8000-000000000002', level: 'A1.1', course_id: null, title: 'Folder', sort_order: 0, assets: [] }
+const folder: MediaFolder = { folder_id: '00000000-0000-4000-8000-000000000002', level: 'A1.1', course_id: null, title: 'Folder', sort_order: 0, assets: [], links: [] }
 const file = new File(['video'], 'lesson.mp4', { type: 'video/mp4' })
 const onSaved = jest.fn().mockResolvedValue(undefined)
 const uploader = () => ({ start: jest.fn(), abort: jest.fn().mockResolvedValue(undefined) })

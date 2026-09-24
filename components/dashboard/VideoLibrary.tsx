@@ -63,7 +63,8 @@ export default function VideoLibrary({ groups = [], links = [], lang, level, tra
   const continueWatching = assets
     .filter(asset => asset.kind === 'videos' && progress[asset.id] && progress[asset.id].t > 5 && progress[asset.id].t < progress[asset.id].d - 10)
     .sort((a, b) => progress[b.id].at - progress[a.id].at).slice(0, 3)
-  const videos = assets.filter(asset => asset.kind === 'videos').length + links.length
+  const folderLinks = groups.flatMap(group => group.links)
+  const videos = assets.filter(asset => asset.kind === 'videos').length + links.length + folderLinks.length
   const documents = assets.filter(asset => asset.kind === 'presentations').length
 
   const track = useCallback((id: string, seconds: number, duration: number) => {
@@ -111,6 +112,25 @@ export default function VideoLibrary({ groups = [], links = [], lang, level, tra
     )
   }
 
+  const linkTile = (link: LibraryLink, index: number) => {
+    const host = youtubeWatchUrl(link.url) ? 'YouTube' : new URL(link.url).hostname
+    return (
+      <li key={link.id} className="st-rise" style={{ '--i': Math.min(index, 8) } as CSSProperties}>
+        <a href={link.url} target="_blank" rel="noopener noreferrer" aria-label={t('open_external_aria', { title: link.title })} className="st-media st-press" data-kind="link">
+          <span className="st-media__poster" style={{ '--st-hue': hue(link.id) } as CSSProperties} aria-hidden="true">
+            <Globe size={26} className="st-media__glyph" />
+            <span className="st-media__play"><Play size={24} fill="currentColor" /></span>
+          </span>
+          <span className="st-media__body">
+            <span className="st-media__kind">{host}<ArrowUpRight size={15} aria-hidden="true" /></span>
+            <span className="st-media__title">{link.title}</span>
+            {link.description && <span className="st-media__description">{link.description}</span>}
+          </span>
+        </a>
+      </li>
+    )
+  }
+
   if (failed) return <p role="alert" className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-6">{t('error_description')}</p>
 
   return (
@@ -147,7 +167,7 @@ export default function VideoLibrary({ groups = [], links = [], lang, level, tra
         </section>
       )}
 
-      {groups.filter(group => group.assets.length > 0).map(group => (
+      {groups.filter(group => group.assets.length > 0 || group.links.length > 0).map(group => (
         <section key={group.id} aria-labelledby={`media-group-${group.id}`}>
           <div className="st-section-head !mb-3">
             <div>
@@ -155,38 +175,20 @@ export default function VideoLibrary({ groups = [], links = [], lang, level, tra
               {group.createdAt && <p className="st-section-sub">{s('media_added', { date: formatCalendarDate(group.createdAt.slice(0, 10), lang, { day: 'numeric', month: 'long', year: 'numeric' }) })}</p>}
             </div>
           </div>
-          <ul className="st-media-grid">{group.assets.map(tile)}</ul>
+          <ul className="st-media-grid">{group.assets.map(tile)}{group.links.map((link, index) => linkTile(link, group.assets.length + index))}</ul>
         </section>
       ))}
 
       {links.length > 0 && (
         <section aria-labelledby="media-links">
           <h2 id="media-links" className="st-section-title mb-3">{s('media_links')}</h2>
-          <ul className="st-media-grid">
-            {links.map((link, index) => {
-              const host = youtubeWatchUrl(link.url) ? 'YouTube' : new URL(link.url).hostname
-              return (
-                <li key={link.id} className="st-rise" style={{ '--i': Math.min(index, 8) } as CSSProperties}>
-                  <a href={link.url} target="_blank" rel="noopener noreferrer" aria-label={t('open_external_aria', { title: link.title })} className="st-media st-press" data-kind="link">
-                    <span className="st-media__poster" style={{ '--st-hue': hue(link.id) } as CSSProperties} aria-hidden="true">
-                      <Globe size={26} className="st-media__glyph" />
-                      <span className="st-media__play"><Play size={24} fill="currentColor" /></span>
-                    </span>
-                    <span className="st-media__body">
-                      <span className="st-media__kind">{host}<ArrowUpRight size={15} aria-hidden="true" /></span>
-                      <span className="st-media__title">{link.title}</span>
-                      {link.description && <span className="st-media__description">{link.description}</span>}
-                    </span>
-                  </a>
-                </li>
-              )
-            })}
-          </ul>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-[var(--muted)]">{t('external_privacy')}</p>
+          <ul className="st-media-grid">{links.map(linkTile)}</ul>
         </section>
       )}
 
-      {assets.length === 0 && links.length === 0 && (
+      {(links.length > 0 || folderLinks.length > 0) && <p className="max-w-2xl text-base leading-relaxed text-[var(--muted)]">{t('external_privacy')}</p>}
+
+      {assets.length === 0 && links.length === 0 && folderLinks.length === 0 && (
         <section className="st-empty st-empty--hero">
           <Clapperboard className="mx-auto text-[var(--muted)]" size={34} aria-hidden="true" />
           <h2>{t('in_preparation')}</h2>

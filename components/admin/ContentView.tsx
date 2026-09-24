@@ -9,7 +9,6 @@ import {
   Mic,
   PencilRuler,
   Plus,
-  Video,
   type LucideIcon,
 } from 'lucide-react'
 import { useAdminTranslator } from './AdminI18nProvider'
@@ -27,7 +26,6 @@ interface ContentType {
 
 const CONTENT_TYPES: ContentType[] = [
   { id: 'media', route: 'content/media', icon: FolderOpen, titleKey: 'content_type_media_title', descKey: 'content_type_media_desc', levelAware: false },
-  { id: 'video', route: 'content/videos', icon: Video, titleKey: 'content_type_video_title', descKey: 'content_type_video_desc', levelAware: true },
   { id: 'vocabulary', route: 'content/vocabulary', icon: FileText, titleKey: 'content_type_vocab_title', descKey: 'content_type_vocab_desc', levelAware: true },
   { id: 'grammar', route: 'content/exercises', icon: PencilRuler, titleKey: 'content_type_grammar_title', descKey: 'content_type_grammar_desc', levelAware: true },
   { id: 'pronunciation', route: 'content/pronunciation', icon: Mic, titleKey: 'content_type_pronunciation_title', descKey: 'content_type_pronunciation_desc', levelAware: true },

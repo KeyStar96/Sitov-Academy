@@ -17,7 +17,6 @@ import {
   Receipt,
   Users,
   UserPlus,
-  Video,
   Wallet,
 } from 'lucide-react'
 import { useAdminTranslator } from './AdminI18nProvider'
@@ -33,7 +32,6 @@ const ICONS: Record<AdminNavIcon, LucideIcon> = {
   courses: BookOpen,
   content: LibraryBig,
   media: FolderOpen,
-  videos: Video,
   vocabulary: FileText,
   grammar: PencilRuler,
   pronunciation: Mic,

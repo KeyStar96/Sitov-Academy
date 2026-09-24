@@ -48,8 +48,3 @@ export const videoInputSchema = z.object({
   file_size: z.number().int().positive().max(536870912).nullable().optional(),
 }).refine(value => !value.storage_path || (!!value.folder_id && !!value.file_size), { message: 'Uploaded files require a folder and size' })
 .refine(value => !value.is_active || value.source_url !== null || !!value.storage_path, { path: ['source_url'], message: 'Published resources require a URL' })
-export interface VideoWriteInput { level: string; title: string; description: string; source_url: string; is_active: boolean; folder_id?: string | null; storage_path?: string | null; file_size?: number | null }
-/** `code` trägt den maschinenlesbaren RPC-/SQLSTATE-Code (R10); `error` bleibt
- * die schmale UI-Kategorie, damit bestehende i18n-Zuordnungen gültig bleiben. */
-export interface VideoWriteResult { success: boolean; data?: VideoRecord; error?: 'invalid_input' | 'save_failed'; code?: string }
-export interface VideoDeleteResult { success: boolean; error?: 'invalid_input' | 'delete_failed'; code?: string }

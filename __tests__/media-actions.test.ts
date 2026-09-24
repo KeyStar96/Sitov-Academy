@@ -2,8 +2,10 @@
 jest.mock('server-only', () => ({}), { virtual: true })
 jest.mock('next/cache', () => ({ revalidatePath: jest.fn() }))
 jest.mock('@/utils/supabase/server', () => ({ createClient: jest.fn() }))
+jest.mock('@/lib/learning-writes', () => ({ saveLearningContent: jest.fn(), deleteLearningContent: jest.fn() }))
 import { createClient } from '@/utils/supabase/server'
-import { completeMediaUpload, getMediaFolders, saveMediaFolder, setVideoVisibility } from '@/app/actions/media'
+import { saveLearningContent, deleteLearningContent } from '@/lib/learning-writes'
+import { completeMediaUpload, deleteMediaLink, getMediaFolders, saveMediaFolder, saveMediaLink, setVideoVisibility } from '@/app/actions/media'
 
 const id = (n: number) => `00000000-0000-4000-8000-${String(n).padStart(12, '0')}`
 const folder = { folder_id: id(1), title: 'Lessons', level: 'A1.1', course_id: null, sort_order: 0 }
@@ -81,4 +83,44 @@ it('only staff can switch video publication and source-less drafts stay hidden',
   expect(await setVideoVisibility({ video_id: id(2), is_active: false })).toEqual({ success: true, data: { video_id: id(2), is_active: false } })
   expect(tables.learning_units.update).toHaveBeenCalledWith({ is_active: false })
   expect(tables.learning_units.eq).toHaveBeenCalledWith('id', id(2))
+})
+
+it('lists file-less folder entries as links instead of uploads', async () => {
+  const tables = session()
+  tables.lms_media_folder.range.mockResolvedValue({ data: [folder], error: null })
+  tables.learning_videos.range.mockResolvedValueOnce({ data: [
+    { id: id(20), folder_id: folder.folder_id, title: 'Alphabet', description: null, source_url: 'https://youtu.be/abcdefghijk', storage_path: null, file_size: null, created_at: null, unit: { is_active: true } },
+    { id: id(21), folder_id: folder.folder_id, title: 'Broken', description: null, source_url: null, storage_path: null, file_size: null, created_at: null, unit: { is_active: false } },
+  ], error: null })
+  const result = await getMediaFolders('A1.1')
+  expect(result.success && result.data[0]).toMatchObject({ assets: [], links: [{ id: id(20), title: 'Alphabet', url: 'https://www.youtube.com/watch?v=abcdefghijk', isActive: true }] })
+})
+
+it('saves a folder link with the folder level and never overwrites an uploaded file', async () => {
+  const tables = session()
+  jest.mocked(saveLearningContent).mockResolvedValue({ id: id(5) })
+  const input = { folder_id: folder.folder_id, title: 'Alphabet', url: 'https://youtu.be/abcdefghijk', description: '', is_active: true }
+  expect(await saveMediaLink(input)).toEqual({ success: true, data: { id: id(5) } })
+  expect(saveLearningContent).toHaveBeenCalledWith(expect.anything(), 'videos', {
+    title: 'Alphabet', description: '', is_active: true, level: 'A1.1', source_url: 'https://www.youtube.com/watch?v=abcdefghijk',
+    folder_id: folder.folder_id, storage_path: null, file_size: null,
+  }, undefined)
+  tables.learning_videos.single.mockResolvedValue({ data: { storage_path: `A1.1/${folder.folder_id}/videos/${id(6)}.mp4` }, error: null })
+  expect(await saveMediaLink({ ...input, video_id: id(6) })).toEqual({ success: false, error: 'invalid_input' })
+  expect(await saveMediaLink({ ...input, url: 'javascript:alert(1)' })).toEqual({ success: false, error: 'invalid_input' })
+  expect(await saveMediaLink({ ...input, level: 'C2' })).toEqual({ success: false, error: 'invalid_input' })
+  expect(saveLearningContent).toHaveBeenCalledTimes(1)
+})
+
+it('lets only staff remove links and never deletes uploads through the link path', async () => {
+  session('student')
+  expect(await saveMediaLink({})).toEqual({ success: false, error: 'not_authorized' })
+  expect(await deleteMediaLink({ video_id: id(7) })).toEqual({ success: false, error: 'not_authorized' })
+  const tables = session()
+  tables.learning_videos.single.mockResolvedValue({ data: { storage_path: 'A1.1/upload.mp4' }, error: null })
+  expect(await deleteMediaLink({ video_id: id(7) })).toEqual({ success: false, error: 'invalid_input' })
+  expect(deleteLearningContent).not.toHaveBeenCalled()
+  tables.learning_videos.single.mockResolvedValue({ data: { storage_path: null }, error: null })
+  expect(await deleteMediaLink({ video_id: id(7) })).toEqual({ success: true, data: { video_id: id(7) } })
+  expect(deleteLearningContent).toHaveBeenCalledWith(expect.anything(), 'videos', id(7))
 })

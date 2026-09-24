@@ -18,7 +18,6 @@ export type AdminNavIcon =
   | 'courses'
   | 'content'
   | 'media'
-  | 'videos'
   | 'vocabulary'
   | 'grammar'
   | 'pronunciation'
@@ -67,7 +66,6 @@ export function buildAdminNav(lang: string): AdminNavSection[] {
       items: [
         { labelKey: 'nav_content_hub', href: `${base}/content`, icon: 'content', exact: true },
         { labelKey: 'nav_media', href: `${base}/content/media`, icon: 'media' },
-        { labelKey: 'nav_videos', href: `${base}/content/videos`, icon: 'videos' },
         { labelKey: 'nav_vocabulary', href: `${base}/content/vocabulary`, icon: 'vocabulary' },
         { labelKey: 'nav_grammar', href: `${base}/content/exercises`, icon: 'grammar' },
         { labelKey: 'nav_pronunciation', href: `${base}/content/pronunciation`, icon: 'pronunciation' },
