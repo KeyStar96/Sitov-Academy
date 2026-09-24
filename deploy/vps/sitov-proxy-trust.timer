@@ -1,0 +1,10 @@
+[Unit]
+Description=Sitov Academy: refresh nginx proxy allow list after reboots or proxy recreation
+
+[Timer]
+OnBootSec=20s
+OnUnitActiveSec=1min
+AccuracySec=5s
+
+[Install]
+WantedBy=timers.target

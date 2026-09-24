@@ -1,0 +1,8 @@
+[Unit]
+Description=Sitov Academy: nginx trusts only the current coolify-proxy addresses
+Requires=docker.service
+After=docker.service nginx.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python3 /var/www/sitov-academy/deploy/vps/configure-proxy-trust.py --reload

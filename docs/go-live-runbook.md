@@ -77,6 +77,18 @@ Wiederherstellung (Beispiel Datenbank): `docker exec -i supabase-db-eknmzxvqiloj
 einen frischen Stand sichern. Storage-Dateien liegen unter `objects/<id>`, Zuordnung in
 `storage-manifest.json`.
 
+## Neustart / Traefik neu erstellt
+
+Docker vergibt coolify-proxy danach neue Adressen; nginx lässt nur die inspizierten Traefik-Adressen
+durch (`/etc/nginx/snippets/sitov-trusted-proxy.conf`), sonst 403. `sitov-proxy-trust.timer` gleicht
+die Liste jede Minute ab (`configure-proxy-trust.py --reload`, schreibt nur bei Änderung, lädt nginx
+erst nach `nginx -t`). Einrichtung:
+
+```bash
+sudo install -m 644 /var/www/sitov-academy/deploy/vps/sitov-proxy-trust.{service,timer} /etc/systemd/system/
+sudo systemctl daemon-reload && sudo systemctl enable --now sitov-proxy-trust.timer
+```
+
 ## Mail
 
 Behoben am 24.09.2026 (`patch-mail-routing.py`): Postfix hielt sich für das Ziel von
