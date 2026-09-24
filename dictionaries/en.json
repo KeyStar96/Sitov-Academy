@@ -1422,7 +1422,7 @@
     "lernkasten_due_headline_one": "word is waiting for you today",
     "lernkasten_from_lessons": "From {count} lessons in your learning box",
     "lernkasten_from_lessons_one": "From 1 lesson in your learning box",
-    "lernkasten_all_done_hint": "Nothing else is due today. Choose lessons below to keep learning.",
+    "lernkasten_all_done_hint": "Nothing else is due today. You can switch on more lessons in your learning path.",
     "lernkasten_due_elsewhere": "Still due in other lessons: {count}",
     "lernkasten_choose_lessons": "Choose lessons",
     "lernkasten_not_in_box": "Not in the box",

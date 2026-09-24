@@ -1418,7 +1418,7 @@
     "lernkasten_due_headline_one": "kelime bugün seni bekliyor",
     "lernkasten_from_lessons": "Öğrenme kutundaki {count} dersten",
     "lernkasten_from_lessons_one": "Öğrenme kutundaki 1 dersten",
-    "lernkasten_all_done_hint": "Bugün için tekrar edilecek bir şey kalmadı. Öğrenmeye devam etmek için aşağıdan ders seç.",
+    "lernkasten_all_done_hint": "Bugün için tekrar edilecek bir şey kalmadı. Öğrenme yolunda başka dersleri açabilirsin.",
     "lernkasten_due_elsewhere": "Diğer derslerde sırada bekleyen: {count}",
     "lernkasten_choose_lessons": "Ders seç",
     "lernkasten_not_in_box": "Kutuda değil",

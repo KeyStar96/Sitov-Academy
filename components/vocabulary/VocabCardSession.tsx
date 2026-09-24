@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
-import { Info } from 'lucide-react'
+import { Info, RotateCw } from 'lucide-react'
 import { checkVocabularyRetry, finishVocabularySession, submitVocabularyAnswer, submitVocabularySelfRating } from '@/app/actions/vocabulary'
 import SolutionAudioButton from '@/components/exercises/SolutionAudioButton'
 import LearningScreen, { LearningStats } from './LearningScreen'
@@ -281,11 +281,39 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
   const flipCard = isFlashcard && !answerResult
   const flipBackRef = useRef<HTMLDivElement>(null)
 
+  const flipFrontRef = useRef<HTMLDivElement>(null)
+
   function revealFlashcard() {
     setRevealed(true)
     // Nach dem Umdrehen liegt der Fokus auf der Rückseite: Screenreader lesen
     // Frage und Lösung vor, und der scrollbare Bereich bleibt bedienbar.
     requestAnimationFrame(() => flipBackRef.current?.focus())
+  }
+
+  /**
+   * Die ganze Karte ist eine Karteikarte zum Umdrehen: Ein Tipp irgendwo auf
+   * die Karte dreht sie um — und wieder zurück. Knöpfe auf der Karte
+   * (Vorlesen) behalten ihre eigene Aufgabe. Solange eine Einschätzung
+   * gespeichert wird, bleibt die Karte liegen.
+   */
+  function turnCard() {
+    if (reviewPending || saveFailed) return
+    if (!revealed) { revealFlashcard(); return }
+    setRevealed(false)
+    requestAnimationFrame(() => flipFrontRef.current?.focus())
+  }
+
+  function onCardClick(event: React.MouseEvent<HTMLElement>) {
+    if ((event.target as HTMLElement).closest('button, a, input, textarea, select')) return
+    // Markierter Text ist kein Tipp zum Umdrehen.
+    if (window.getSelection?.()?.toString()) return
+    turnCard()
+  }
+
+  function onCardKeyDown(event: React.KeyboardEvent<HTMLDivElement>) {
+    if (event.target !== event.currentTarget || (event.key !== 'Enter' && event.key !== ' ')) return
+    event.preventDefault()
+    turnCard()
   }
 
   return (
@@ -310,12 +338,10 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
             items={[{ label: t('stat_card'), value: `${index + 1}/${queue.length}` }, { label: t('stat_phase'), value: `${current.phase}/6` }]} />
         </div>
         {isRetry && !answerResult && <p className="learning-mode-locked" role="note">{t('retry_hint')}</p>}
-        {!answerResult && !saveFailed && (canChooseMode
-          ? <StudyModeToggle mode={preferredMode} disabled={reviewPending} t={t}
-              onChange={mode => { setPreferredMode(mode); saveStudyMode(mode) }} />
-          /* Kein Umschalter heisst: Fuer diese Karte gibt es nur einen Weg.
-             Das gehoert gesagt, sonst wirkt der fehlende Schalter wie ein Fehler. */
-          : <p className="learning-mode-locked">{t(isSentence ? 'mode_locked_typed' : 'mode_locked_flashcard')}</p>)}
+        {/* Nur wo es wirklich eine Wahl gibt, steht der Umschalter. Karten mit
+            nur einem Weg bleiben ohne Erklärtext — die Karte selbst zeigt, was zu tun ist. */}
+        {!answerResult && !saveFailed && canChooseMode && <StudyModeToggle mode={preferredMode} disabled={reviewPending} t={t}
+          onChange={mode => { setPreferredMode(mode); saveStudyMode(mode) }} />}
         {/* Buehnenwechsel: Karte und Aktionsflaeche blenden als ein Block ueber,
             statt dass die Karte stehen bleibt und nur die Knoepfe springen. */}
         <AnimatePresence mode="wait" initial={false}>
@@ -328,30 +354,31 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
             /* Karteikarte: Vorderseite fragt, Rückseite zeigt Frage und Lösung.
                Der `key` setzt die Drehung bei jeder neuen Karte hart zurück,
                damit die nächste Frage nicht rückwärts hereindreht. */
-            <article key={item.key} className={cn('learning-card learning-card-flip', revealed && 'is-revealed')}>
+            <article key={item.key} className={cn('learning-card learning-card-flip', revealed && 'is-revealed')} onClick={onCardClick}>
               <div className="learning-flip-inner">
                 <div className="learning-flip-face learning-flip-front" aria-hidden={revealed} inert={revealed}>
-                  <div tabIndex={0} className={cn('learning-card-content', denseCard && 'learning-card-content-dense')}>
+                  <div ref={flipFrontRef} tabIndex={0} onKeyDown={onCardKeyDown} aria-keyshortcuts="Enter Space" className={cn('learning-card-content', denseCard && 'learning-card-content-dense')}>
                     {!isSentence && current.card.image_url && <img className="learning-card-image" src={current.card.image_url} alt={t('image_alt')} />}
                     <span className="learning-eyebrow">{t(isSentence ? 'sentence_format' : 'word_format')}</span>
                     <h2 lang={current.promptLanguage} className={cn(isSentence ? 'learning-sentence' : 'learning-word', !isToGerman && articleColorClass(current.card.article))}>{prompt}</h2>
                   </div>
+                  <RotateCw size={20} aria-hidden="true" className="learning-flip-cue" />
                 </div>
                 <div className="learning-flip-face learning-flip-back" aria-hidden={!revealed} inert={!revealed}>
                   {/* Die Rueckseite fuellt sich erst beim Aufdecken: bis 90 Grad ist sie
                       ohnehin unsichtbar, und die Loesung steht vorher nicht im DOM. */}
-                  <div ref={flipBackRef} tabIndex={0} className={cn('learning-card-content', denseFlipBack && 'learning-card-content-dense')}>
+                  <div ref={flipBackRef} tabIndex={0} onKeyDown={onCardKeyDown} aria-keyshortcuts="Enter Space" className={cn('learning-card-content', denseFlipBack && 'learning-card-content-dense')}>
                     {revealed && <>
-                    <span className="learning-eyebrow">{t(isSentence ? 'sentence_format' : 'word_format')}</span>
                     {/* Die Frage bleibt auf der Rückseite stehen, nur zurückgenommen. */}
                     <p className="learning-flip-echo" lang={current.promptLanguage}>{prompt}</p>
                     <div className="learning-divider" />
                     <span className="learning-eyebrow">{t('correct_sentence_label')}</span>
                     <p className={cn(isSentence ? 'learning-sentence' : 'learning-solution', !isSentence && isToGerman && articleColorClass(current.card.article))} lang={answerLanguage}>{flashcardSolution}</p>
-                    {current.contextSentence && <p className="learning-context" lang="de"><span className="sr-only">{t('context_label')}: </span>{current.contextSentence}</p>}
+                    {current.contextSentence && <p className="learning-context learning-example" lang="de"><span className="sr-only">{t('context_label')}: </span>{current.contextSentence}</p>}
                     {!isSentence && <SolutionAudioButton cardId={current.card.id} language="de" text={targetWord ?? ''} audioUrl={current.card.audio_url} label={t('listen_word')} ariaLabel={t('listen_word_aria', { word: current.card.word_de })} variant="secondary" />}
                     </>}
                   </div>
+                  <RotateCw size={20} aria-hidden="true" className="learning-flip-cue" />
                 </div>
               </div>
             </article>
@@ -392,7 +419,7 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
                   <p className={cn(isSentence ? 'learning-sentence' : 'learning-solution', !isSentence && isToGerman && articleColorClass(current.card.article))} lang={answerLanguage}>{answerResult.solution}</p>
                 </>}
                 {!isSentence && <>
-                  {current.contextSentence && <p className="learning-context" lang="de"><span className="sr-only">{t('context_label')}: </span>{current.contextSentence}</p>}
+                  {current.contextSentence && <p className="learning-context learning-example" lang="de"><span className="sr-only">{t('context_label')}: </span>{current.contextSentence}</p>}
                   <SolutionAudioButton cardId={current.card.id} language="de" text={targetWord ?? ''} audioUrl={current.card.audio_url} label={t('listen_word')} ariaLabel={t('listen_word_aria', { word: current.card.word_de })} variant="secondary" />
                 </>}
               </>}

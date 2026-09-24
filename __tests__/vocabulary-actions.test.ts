@@ -27,6 +27,7 @@ const review = {
 function session(options: {
   card?: VocabularyCardRow; nativeLanguage?: string; uiLanguage?: string;
   direction?: string; signedIn?: boolean; previousCardId?: string | null; actorId?: string
+  pausedUnits?: string[] | 'missing'
 } = {}) {
   const profile = {
     role: 'student', level_access: [{ level: 'A1.1' }], native_language: options.nativeLanguage ?? 'ru',
@@ -56,7 +57,13 @@ function session(options: {
   cards.in.mockImplementation((_column: string, values: string[]) => { locales = values; return cards })
   const rulesResult = Promise.resolve({ data: [], error: null })
   const rules = { select: jest.fn().mockReturnThis(), eq: jest.fn().mockReturnThis(), then: rulesResult.then.bind(rulesResult) }
-  const from = jest.fn((table: string) => table === 'profiles' ? profileChain : table === 'learning_trainer_grants' ? rules : table === 'learning_vocabulary_cards' ? cards : table === 'vocabulary_learning_state' ? cursor : progress)
+  // Migration 25: im Lernweg ausgeschaltete Lektionen. „missing" spielt eine App
+  // vor der Migration nach (Tabelle unbekannt).
+  const pausesResult = Promise.resolve(options.pausedUnits === 'missing'
+    ? { data: null, error: { code: 'PGRST205', message: 'missing' } }
+    : { data: (options.pausedUnits ?? []).map(unit_id => ({ unit_id })), error: null })
+  const pauses = { select: jest.fn().mockReturnThis(), eq: jest.fn().mockReturnThis(), then: pausesResult.then.bind(pausesResult) }
+  const from = jest.fn((table: string) => table === 'profiles' ? profileChain : table === 'learning_trainer_grants' ? rules : table === 'learning_vocabulary_cards' ? cards : table === 'vocabulary_learning_state' ? cursor : table === 'vocabulary_lesson_pauses' ? pauses : progress)
   const rpc = jest.fn().mockResolvedValue({ data: review, error: null })
   const client = {
     from, rpc, auth: { getUser: jest.fn().mockResolvedValue({ data: { user: options.signedIn === false ? null : { id: options.actorId ?? userId } }, error: null }) },
@@ -96,6 +103,19 @@ describe('session DTO source language', () => {
     expect((await getVocabularySession('A1.1', 'tr')).cards).toEqual([])
     session({ direction: 'de_to_native', uiLanguage: 'tr' })
     expect((await getVocabularySession('A1.1', 'tr')).cards[0]).toMatchObject({ format: 'word', prompt: 'Tür', promptLanguage: 'de', translation: 'kapı' })
+  })
+  it('leaves out lessons that are switched off in the learning path', async () => {
+    session({ pausedUnits: [card.unit_id] })
+    expect((await getVocabularySession('A1.1', 'ru')).cards).toEqual([])
+    session({ pausedUnits: ['00000000-0000-4000-8000-000000000098'] })
+    expect((await getVocabularySession('A1.1', 'ru')).cards).toHaveLength(1)
+  })
+  it('keeps practising every lesson while the switch table does not exist yet', async () => {
+    const error = jest.spyOn(console, 'error').mockImplementation(() => undefined)
+    session({ pausedUnits: 'missing' })
+    expect((await getVocabularySession('A1.1', 'ru')).cards).toHaveLength(1)
+    expect(error).toHaveBeenCalledWith('[vocabulary] lesson_pauses_unavailable')
+    error.mockRestore()
   })
   it('continues respecting the persisted spacing boundary after source resolution', async () => {
     session({ previousCardId: card.id })

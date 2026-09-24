@@ -62,7 +62,8 @@ export default async function DashboardPage({ params }: { params: Promise<{ lang
   const vocabulary = status?.vocabulary
   if (levelBase && vocabulary && !vocabulary.locked) {
     if (vocabulary.due > 0) items.push({ kind: 'vocabulary', label: s.count('today_vocab', vocabulary.due), href: `${levelBase}/vocabulary`, actionable: true })
-    else if (vocabulary.total > 0 && vocabulary.activeWords + vocabulary.learned === 0) items.push({ kind: 'vocabulary', label: s('today_vocab_setup'), href: `${levelBase}/vocabulary`, actionable: true })
+    // Lektionen werden im Lernweg eingeschaltet — dorthin führt die Einrichtung.
+    else if (vocabulary.total > 0 && vocabulary.activeWords + vocabulary.learned === 0) items.push({ kind: 'vocabulary', label: s('today_vocab_setup'), href: levelBase, actionable: true })
   }
   if (unseenFeedback.count > 0 && unseenFeedback.latestLevel) {
     const name = teacherFirstName(unseenFeedback.latest?.senderName) ?? s('teacher_fallback')

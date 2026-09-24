@@ -7,6 +7,7 @@ import { hasLevelAccess, hasTrainerAccess, type LevelAccessProfile } from '@/lib
 import { mapVideo, videoQuery } from '@/lib/learning-catalog'
 import { learningResourceUrl } from '@/lib/video-links'
 import { isOwnWordsLesson } from '@/lib/vocabulary-own-words'
+import type { LessonStat } from '@/lib/types/vocabulary'
 import { berlinNow } from '@/lib/dashboard-next-course'
 import { createClient } from '@/utils/supabase/server'
 
@@ -31,8 +32,8 @@ export interface LevelLearningStatus {
   media: { locked: boolean; total: number; fresh: number } | null
   /** Vokabel-Lektionen des Kurses in ihrer Reihenfolge — die Stationen des Lernwegs. */
   lessons: LessonStation[]
-  /** Wörter in „Eigene Wörter" dieses Niveaus. */
-  ownWords: number
+  /** „Eigene Wörter" dieses Niveaus; `null`, solange nichts geladen werden konnte. */
+  ownWords: LessonStation | null
 }
 
 export interface LessonStation {
@@ -43,6 +44,8 @@ export interface LessonStation {
   learned: number
   untouched: number
   due: number
+  /** Im Lernweg ausgeschaltet: Lernstand bleibt, geübt wird nicht. */
+  paused?: boolean
 }
 
 async function settle<T>(work: () => Promise<T>, report: () => void): Promise<T | null> {
@@ -113,13 +116,18 @@ export async function loadLevelLearningStatus({ supabase, userId, profile, level
   const topics = new Map<string, boolean>()
   for (const exercise of exercises ?? []) topics.set(exercise.topic, (topics.get(exercise.topic) ?? true) && exercise.completed)
   const courseLessons = (vocabulary?.stats ?? []).filter(stat => !isOwnWordsLesson(stat.lesson))
+  const station = ({ lesson, total, active, learned, untouched, due, paused }: LessonStat): LessonStation =>
+    ({ lesson, total, active, learned, untouched, due, paused: paused === true })
+  const own = (vocabulary?.stats ?? []).find(stat => isOwnWordsLesson(stat.lesson))
 
   return {
     level,
     vocabulary: locked.vocabulary ? { locked: true, due: 0, activeWords: 0, total: 0, learned: 0 }
       : vocabulary && {
+        // Lernbox-Zahlen zählen nur eingeschaltete Lektionen; `total` sind alle
+        // Wörter des Niveaus — daran erkennt die Startseite „noch nichts begonnen".
         locked: false, due: vocabulary.dueCards, activeWords: vocabulary.box.inPhases,
-        total: vocabulary.box.total, learned: vocabulary.box.learned,
+        total: vocabulary.stats.reduce((sum, stat) => sum + stat.total, 0), learned: vocabulary.box.learned,
       },
     grammar: locked.grammar ? { locked: true, total: 0, solved: 0, topics: 0, openTopics: 0 }
       : exercises && {
@@ -129,8 +137,8 @@ export async function loadLevelLearningStatus({ supabase, userId, profile, level
     pronunciation: locked.pronunciation ? { locked: true, texts: 0, open: 0, waiting: 0, unread: 0 }
       : pronunciation && { locked: false, ...pronunciation },
     media: locked.media ? { locked: true, total: 0, fresh: 0 } : media && { locked: false, ...media },
-    lessons: courseLessons.map(({ lesson, total, active, learned, untouched, due }) => ({ lesson, total, active, learned, untouched, due })),
-    ownWords: (vocabulary?.stats ?? []).find(stat => isOwnWordsLesson(stat.lesson))?.total ?? 0,
+    lessons: courseLessons.map(station),
+    ownWords: own ? station(own) : null,
   }
 }
 

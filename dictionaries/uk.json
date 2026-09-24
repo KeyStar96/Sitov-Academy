@@ -1421,7 +1421,7 @@
     "lernkasten_due_headline_one": "до повторення сьогодні",
     "lernkasten_from_lessons": "Уроків у коробці: {count}",
     "lernkasten_from_lessons_one": "Уроків у коробці: 1",
-    "lernkasten_all_done_hint": "На сьогодні більше нічого не треба повторювати. Вибери уроки нижче, щоб вчитися далі.",
+    "lernkasten_all_done_hint": "На сьогодні більше нічого не треба повторювати. У навчальному шляху можна увімкнути нові уроки.",
     "lernkasten_due_elsewhere": "Ще до повторення в інших уроках: {count}",
     "lernkasten_choose_lessons": "Вибрати уроки",
     "lernkasten_not_in_box": "Не в коробці",

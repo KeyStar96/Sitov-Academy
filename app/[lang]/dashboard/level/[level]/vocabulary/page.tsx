@@ -27,7 +27,6 @@ export default async function VocabularyOverviewPage({
       initialCards={session.cards}
       initialDeferredCount={session.deferredCount}
       initialPreviousCardId={session.previousCardId}
-      lessonStats={overview.stats}
       boxSummary={overview.box}
       translations={translations}
       softErrorTranslations={dict.exercises?.soft_error}

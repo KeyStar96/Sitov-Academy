@@ -5,8 +5,8 @@ import { loadLevelLearningStatus } from '@/lib/learning-status-server'
 import { toStations } from '@/lib/level-path'
 import { studentTranslator } from '@/lib/student-ui-i18n'
 import { createVocabularyTranslator, type VocabularyTranslations } from '@/lib/vocabulary-i18n'
-import { lessonLabel } from '@/lib/vocabulary-own-words'
-import LevelPath from '@/components/dashboard/LevelPath'
+import { lessonLabel, OWN_WORDS_LESSON } from '@/lib/vocabulary-own-words'
+import LevelPath, { type PathNext } from '@/components/dashboard/LevelPath'
 import TrainerStatusTiles from '@/components/dashboard/TrainerStatusTiles'
 import TrainerLanguageRequired from '@/components/dashboard/TrainerLanguageRequired'
 
@@ -18,7 +18,8 @@ const LEVEL_COPY: Record<string, [string, string]> = {
 
 /**
  * Der Lernweg eines Niveaus: oben Stand und *ein* Weiter-Knopf, darunter die
- * Lektionen als Stationen, am Ende alle Lernbereiche mit ihrem Stand.
+ * Lektionen als Stationen mit ihrem Lernbox-Schalter und „Eigene Wörter", am
+ * Ende alle Lernbereiche mit ihrem Stand.
  */
 export default async function LevelDashboard({ params }: {
   params: Promise<{ lang: string; level: string }>
@@ -43,8 +44,10 @@ export default async function LevelDashboard({ params }: {
   const vocabularyOpen = !!vocabulary && !vocabulary.locked
   const current = stations.find(station => station.state === 'current')
   const grammar = status?.grammar
-  const next = vocabularyOpen && vocabulary.due > 0 ? { href: `${base}/vocabulary`, hint: s.count('path_next_vocab', vocabulary.due) }
-    : vocabularyOpen && current ? { href: `${base}/vocabulary/assess?lesson=${encodeURIComponent(current.lesson)}`, hint: s('path_next_lesson', { lesson: current.label }) }
+  // Die nächste Lektion beginnt immer mit derselben Frage wie ihr Schalter
+  // (Wörter prüfen oder alle in Fach 1) — deshalb kein direkter Sprung in die Einstufung.
+  const next: PathNext | null = vocabularyOpen && vocabulary.due > 0 ? { href: `${base}/vocabulary`, hint: s.count('path_next_vocab', vocabulary.due) }
+    : vocabularyOpen && current ? { lesson: current.lesson, hint: s('path_next_lesson', { lesson: current.label }) }
       : grammar && !grammar.locked && grammar.openTopics > 0 ? { href: `${base}/exercises`, hint: s('path_next_grammar', { count: grammar.openTopics }) }
         : vocabularyOpen && stations.length > 0 ? { href: `${base}/vocabulary`, hint: s('station_practice') }
           : null
@@ -55,7 +58,7 @@ export default async function LevelDashboard({ params }: {
       <LevelPath lang={lang} level={decodedLevel} title={titleKey ? copy[titleKey] ?? decodedLevel : decodedLevel}
         description={descriptionKey ? copy[descriptionKey] ?? '' : ''} stations={stations} next={next}
         vocabularyHref={vocabularyOpen ? `${base}/vocabulary` : null} vocabularyTranslations={(dict.vocabulary ?? {}) as VocabularyTranslations}
-        ownWords={vocabularyOpen ? { title: vocabularyT('own_words_title'), words: status?.ownWords ? vocabularyT('set_words_total', { count: status.ownWords }) : vocabularyT('own_words_empty') } : null} />
+        ownWords={vocabularyOpen ? status?.ownWords ?? { lesson: OWN_WORDS_LESSON, total: 0, active: 0, learned: 0, untouched: 0, due: 0 } : undefined} />
       <TrainerStatusTiles lang={lang} level={decodedLevel} status={status} languageLocked={lang === 'de'} />
     </div>
   )

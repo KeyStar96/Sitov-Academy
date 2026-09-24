@@ -39,7 +39,15 @@
 .learning-eyebrow { font-size: 1rem; font-weight: 600; color: var(--learn-muted); letter-spacing: .02em; }
 .learning-word, .learning-sentence, .learning-solution { width: 100%; font-size: clamp(22px, 3.8dvh, 34px); line-height: 1.3; font-weight: 650; letter-spacing: -.02em; overflow-wrap: anywhere; }
 /* Wörter und Sätze teilen eine Schriftgröße; nur lange Karten werden unten (dense) gemeinsam kleiner. */
-.learning-context { border-left: 2px solid var(--learn-violet); padding-left: 12px; font-size: 1rem; line-height: 1.5; color: var(--learn-muted); text-align: left; max-width: 100%; }
+/* Frage, Lösung und Beispielsatz stehen auf der Karte mittig untereinander.
+   Ausdrücklich gesetzt: globals.css stellt jedes <p> linksbündig, und die
+   Lösung ist ein <p> über die volle Breite — sie klebte sonst am linken Rand.
+   Nur direkte Kinder: Der Vergleich „Deine Antwort" bleibt linksbündig. */
+.learning-card-content > :is(.learning-word, .learning-sentence, .learning-solution, .learning-flip-echo, .learning-context) { text-align: center; }
+.learning-context { font-size: 1rem; line-height: 1.5; color: var(--learn-muted); max-width: 100%; }
+/* Beispielsatz: ruhige Fläche statt Seitenstrich — ein Strich links passt
+   nicht zu einer mittig gesetzten Karte. */
+.learning-example { border-radius: 14px; background: var(--learn-muted-surface); padding: 8px 14px; color: var(--learn-text); }
 .learning-divider { width: 40px; height: 1px; background: var(--learn-border); flex-shrink: 0; }
 .learning-card-image { height: clamp(44px, 12dvh, 104px); width: clamp(44px, 12dvh, 104px); border-radius: 16px; object-fit: cover; }
 .learning-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; flex-shrink: 0; }
@@ -87,6 +95,12 @@
   background: var(--learn-surface); box-shadow: 0 12px 48px #20232106;
 }
 .learning-flip-back { transform: rotateY(180deg); }
+/* Die ganze Karte dreht sich per Tipp um; das kleine Dreh-Zeichen in der Ecke
+   verrät es, ohne einen weiteren Satz auf die Karte zu schreiben. */
+.learning-card-flip, .learning-card-tappable { cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.learning-card-flip :is(button, a) { cursor: pointer; }
+.learning-flip-cue { position: absolute; right: 16px; bottom: 14px; color: var(--learn-muted); opacity: .7; pointer-events: none; }
+@media (hover: hover) { .learning-card-flip:hover .learning-flip-face { border-color: color-mix(in srgb, var(--learn-accent) 45%, var(--learn-border)); } }
 /* Die Frage bleibt auf der Rueckseite lesbar, tritt aber hinter die Loesung zurueck. */
 .learning-flip-echo { font-size: clamp(15px, 2.2dvh, 19px); font-weight: 600; line-height: 1.3; color: var(--learn-muted); overflow-wrap: anywhere; }
 /* Der Inhalt der Rueckseite steigt nach der halben Drehung gestaffelt auf. */

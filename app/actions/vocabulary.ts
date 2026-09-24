@@ -8,7 +8,7 @@ import { createClient } from '@/utils/supabase/server'
 import { requestSession } from '@/lib/request-session'
 import { hasTrainerAccess, isAccessLevel, getAllowedLessons } from '@/lib/access/levels'
 import { LEITNER_LEARNED_BOX, normalizeBox, pickWeightedRandomOrder, selectionWeightForBox, vocabularyReviewMode, type LeitnerPhase } from '@/lib/leitner'
-import { computeWordBoxState, summarizeBox, summarizeLessons, PHASE_INSPECTOR_LIMIT, type BoxBucketKey, type WordBoxState } from '@/lib/vocabulary-box'
+import { computeWordBoxState, isLessonInBox, summarizeBox, summarizeLessons, PHASE_INSPECTOR_LIMIT, type BoxBucketKey, type WordBoxState } from '@/lib/vocabulary-box'
 import { scheduleVocabularyCards } from '@/lib/vocabulary-scheduler'
 import { readVocabularyProgress } from '@/lib/vocabulary-queries'
 import { loadLevelAccessProfile } from '@/lib/access/server'
@@ -52,6 +52,44 @@ function refreshVocabulary() {
   revalidatePath('/[lang]/dashboard/level/[level]/vocabulary/train', 'page')
 }
 
+type Learner = NonNullable<Awaited<ReturnType<typeof loadLearner>>>
+
+/**
+ * Im Lernweg ausgeschaltete Lektionen (Migration 25) als Unit-IDs.
+ *
+ * Bewusst fehlertolerant: Fehlt die Tabelle noch (App vor der Migration
+ * ausgerollt) oder scheitert das Lesen, gilt jede begonnene Lektion als
+ * eingeschaltet. Das zeigt schlimmstenfalls zu viele Karten — nie zu wenige,
+ * und nie einen Ausfall als „nichts zu tun".
+ */
+async function readPausedUnits(learner: Learner): Promise<Set<string>> {
+  const { data, error } = await learner.supabase.from('vocabulary_lesson_pauses').select('unit_id').eq('auth_user_id', learner.user.id)
+  if (error) {
+    console.error('[vocabulary] lesson_pauses_unavailable')
+    return new Set()
+  }
+  return new Set((data ?? []).map(row => row.unit_id))
+}
+
+/** Units einer Lektion, die die lernende Person nutzen darf (Kurslektion oder „Eigene Wörter"). */
+async function lessonUnitIds(learner: Learner, lessonName: string, level: string): Promise<string[]> {
+  const { data, error } = await vocabularyQuery(learner.supabase).eq('unit.label', lessonName).eq('unit.level', level)
+  if (error) throw new Error(`vocabulary_lesson_unavailable: ${error.code ?? 'unknown'}`)
+  const allowedLessons = getAllowedLessons(learner.profile, level, 'vocabulary')
+  return [...new Set((data ?? []).map(row => mapVocabularyCard(row))
+    .filter(card => card.level === level && hasTrainerAccess(learner.profile, card.level, 'vocabulary')
+      && (card.is_own || !allowedLessons || allowedLessons.includes(card.unit_id)))
+    .map(card => card.unit_id))]
+}
+
+async function setUnitsPaused(learner: Learner, unitIds: readonly string[], paused: boolean): Promise<boolean> {
+  for (const unitId of unitIds) {
+    const { data, error } = await learner.supabase.rpc('set_vocabulary_lesson_paused', { p_unit_id: unitId, p_paused: paused })
+    if (error || getRpcError(data)) return false
+  }
+  return true
+}
+
 /** Due dates remain intact when sibling directions have to wait for another word. */
 export async function getVocabularySession(level?: string, uiLanguage?: string): Promise<VocabularySession> {
   try {
@@ -65,12 +103,13 @@ export async function getVocabularySession(level?: string, uiLanguage?: string):
     const locales = [...new Set(['de', language, profile.native_language].filter((value): value is string => !!value))]
     let catalogQuery = vocabularyQuery(supabase).in('translations.locale', locales).order('id')
     if (level) catalogQuery = catalogQuery.eq('unit.level', level)
-    const [catalog, progress, { data: cursor, error: cursorError }] = await Promise.all([
+    const [catalog, progress, { data: cursor, error: cursorError }, paused] = await Promise.all([
       readAllRows((from, to) => catalogQuery.range(from, to)),
       readAllRows((from, to) => supabase.from('vocabulary_direction_progress').select('id,card_id,direction,box_number')
         .eq('auth_user_id', user.id).lte('next_review_date', new Date().toISOString()).lt('box_number', LEITNER_LEARNED_BOX)
         .order('id').range(from, to)),
       supabase.from('vocabulary_learning_state').select('last_card_id').eq('auth_user_id', user.id).maybeSingle(),
+      readPausedUnits(learner),
     ])
     // R10: Nur fehlender Zugriff liefert eine leere Session. Ein Lesefehler wird
     // codiert geworfen, sonst ist "Datenbank weg" von "nichts fällig" für den
@@ -85,6 +124,8 @@ export async function getVocabularySession(level?: string, uiLanguage?: string):
     const cards: DueVocabularyCard[] = progress.flatMap(row => {
       const card = catalogById.get(row.card_id)
       if (!card || !hasTrainerAccess(profile, card.level, 'vocabulary')) return []
+      // Im Lernweg ausgeschaltet: Lernstand bleibt, geübt wird die Lektion nicht.
+      if (paused.has(card.unit_id)) return []
       const allowedLessons = getAllowedLessons(profile, card.level, 'vocabulary')
       if (allowedLessons !== null && !allowedLessons.includes(card.unit_id)) return []
       const box = normalizeBox(row.box_number)
@@ -210,7 +251,14 @@ export async function initializeLesson(lessonName: string, level?: string, expec
     if (error || !data?.length) return { success: false, added: 0 }
     const allowed = data.map(mapVocabularyCard).filter(card => typeof card.id === 'string' && typeof card.level === 'string' && hasTrainerAccess(learner.profile, card.level, 'vocabulary'))
     if (!allowed.length) return { success: false, added: 0 }
-    return addCardsToTrainer(allowed.map(card => card.id), learner.user.id)
+    const result = await addCardsToTrainer(allowed.map(card => card.id), learner.user.id)
+    // Wer eine Lektion aufnimmt, will sie auch üben: eine alte Pause fällt weg.
+    // Scheitert das, sind die Wörter trotzdem aufgenommen — der Schalter im
+    // Lernweg zeigt dann ehrlich „aus".
+    if (result.success && !await setUnitsPaused(learner, [...new Set(allowed.map(card => card.unit_id))], false)) {
+      console.error('[vocabulary] lesson_resume_failed')
+    }
+    return result
   } catch {
     return { success: false, added: 0 }
   }
@@ -229,6 +277,30 @@ export async function skipVocabularyAssessment(level: string, expectedLearnerId?
     return { success: true, added: result.data.addedNew, lesson: result.data.lesson }
   } catch {
     return { success: false, added: 0 }
+  }
+}
+
+const lessonSwitchSchema = z.object({ lesson: z.string().trim().min(1).max(200), level: z.string().min(1).max(40), inBox: z.boolean() })
+
+/**
+ * Schalter im Lernweg: Lektion in die Lernbox legen oder herausnehmen.
+ * Herausnehmen löscht keinen Lernstand; die Karten ruhen nur. Das erste
+ * Einschalten (Einstufung oder „alle in Phase 1") läuft über
+ * submitLessonAssessment bzw. initializeLesson.
+ */
+export async function setLessonInBox(lesson: string, level: string, inBox: boolean): Promise<{ success: boolean }> {
+  const parsed = lessonSwitchSchema.safeParse({ lesson, level, inBox })
+  if (!parsed.success) return { success: false }
+  try {
+    const learner = await loadLearner()
+    if (!learner || !hasTrainerAccess(learner.profile, parsed.data.level, 'vocabulary')) return { success: false }
+    const units = await lessonUnitIds(learner, parsed.data.lesson, parsed.data.level)
+    if (!units.length || !await setUnitsPaused(learner, units, !parsed.data.inBox)) return { success: false }
+    refreshVocabulary()
+    return { success: true }
+  } catch {
+    console.error('[vocabulary] lesson_switch_failed')
+    return { success: false }
   }
 }
 
@@ -420,7 +492,7 @@ export async function getLessonCards(lessonName: string, level?: string, uiLangu
  * sobald eine Richtung wartet. Beide Ansichten können so nie widersprechen.
  */
 export async function getLessonStats(level?: string): Promise<LessonStat[]> {
-  return summarizeLessons(lessonEntries(await readWordBox(level, null)))
+  return lessonStats(await readWordBox(level, null))
 }
 
 /**
@@ -432,11 +504,26 @@ export async function getLessonStats(level?: string): Promise<LessonStat[]> {
  */
 export async function getVocabularyOverview(level?: string): Promise<{ stats: LessonStat[]; box: VocabularyBoxSummary; dueCards: number }> {
   const words = await readWordBox(level, null)
+  const stats = lessonStats(words)
+  // Die Lernbox enthält nur eingeschaltete Lektionen; der Lernweg zeigt alle.
+  const inBox = wordsInBox(words, stats)
   // Fällige *Karten* (Richtungen) wie der Start-Knopf der Lernbox zählt; die
   // Fächer zählen fällige Wörter. Die Startseite spricht von Karten.
-  const dueCards = (words ?? []).reduce((sum, { state }) => sum
+  const dueCards = inBox.reduce((sum, { state }) => sum
     + (state ? Number(state.directions.de_to_native.isDue) + Number(state.directions.native_to_de.isDue) : 0), 0)
-  return { stats: summarizeLessons(lessonEntries(words)), box: summarizeBox((words ?? []).map(word => word.state)), dueCards }
+  return { stats, box: summarizeBox(inBox.map(word => word.state)), dueCards }
+}
+
+/** Lektionsstand samt Schalterstellung aus dem Lernweg. */
+function lessonStats(words: WordBoxEntry[] | null): LessonStat[] {
+  const paused = new Set((words ?? []).filter(word => word.paused).map(word => word.card.lesson))
+  return summarizeLessons(lessonEntries(words)).map(stat => paused.has(stat.lesson) ? { ...stat, paused: true } : stat)
+}
+
+/** Nur die Wörter eingeschalteter Lektionen — der Inhalt der Lernbox. */
+function wordsInBox(words: WordBoxEntry[] | null, stats: readonly LessonStat[] = lessonStats(words)): WordBoxEntry[] {
+  const lessons = new Set(stats.filter(isLessonInBox).map(stat => stat.lesson))
+  return (words ?? []).filter(word => lessons.has(word.card.lesson))
 }
 
 const bucketKeySchema = z.union([z.literal('learned'), z.number().int().min(1).max(6)])
@@ -452,6 +539,8 @@ interface WordBoxEntry {
   state: WordBoxState | null
   /** Leer, wenn der Aufrufer keine Sprache braucht (reines Zählen). */
   translation: string
+  /** Die Lektion ist im Lernweg ausgeschaltet. */
+  paused: boolean
 }
 
 function lessonEntries(words: WordBoxEntry[] | null) {
@@ -463,8 +552,8 @@ async function readWordBox(level: string | undefined, language: z.infer<typeof l
   if (!learner || (level && !hasTrainerAccess(learner.profile, level, 'vocabulary'))) return null
   let query = vocabularyQuery(learner.supabase)
   if (level) query = query.eq('unit.level', level)
-  const [{ data: cards, error }, progress] = await Promise.all([
-    query, readVocabularyProgress(learner.supabase, learner.user.id),
+  const [{ data: cards, error }, progress, paused] = await Promise.all([
+    query, readVocabularyProgress(learner.supabase, learner.user.id), readPausedUnits(learner),
   ])
   // R10: Ein Lesefehler wird geworfen. Eine leere Box hier hätte einen Ausfall
   // als „du hast noch nichts gelernt" dargestellt.
@@ -484,6 +573,7 @@ async function readWordBox(level: string | undefined, language: z.infer<typeof l
     card,
     state: computeWordBoxState(byCard.get(card.id) ?? [], now),
     translation: language ? resolveCardInterfaceTranslation(card, language)?.text ?? '' : '',
+    paused: paused.has(card.unit_id),
   }))
 }
 
@@ -504,7 +594,7 @@ export async function getPhaseCards(key: BoxBucketKey, level?: string, uiLanguag
   const words = await readWordBox(level, language)
   if (!words) return { key: bucket, cards: [], total: 0, truncated: false }
 
-  const matching = words.filter((word): word is typeof word & { state: WordBoxState } =>
+  const matching = wordsInBox(words).filter((word): word is typeof word & { state: WordBoxState } =>
     !!word.state && (bucket === 'learned' ? word.state.isLearned : !word.state.isLearned && word.state.phase === bucket))
   const sorted = matching.sort((a, b) => {
     if (a.state.isDue !== b.state.isDue) return a.state.isDue ? -1 : 1

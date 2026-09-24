@@ -2,8 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { submitLessonAssessment } from '@/app/actions/vocabulary'
-import { loadLernkastenSelection, saveLernkastenSelection } from '@/lib/vocabulary-lernkasten'
+import { setLessonInBox, submitLessonAssessment } from '@/app/actions/vocabulary'
 import { createVocabularyTranslator, type VocabularyTranslations } from '@/lib/vocabulary-i18n'
 import { articleColorClass } from '@/lib/vocabulary-ui'
 import type { VocabularyAssessmentCard } from '@/lib/types/vocabulary'
@@ -47,11 +46,12 @@ export default function LessonAssessmentClient({ learnerId, cards, lessonName, l
   type AssessmentResult = { success: boolean; lesson?: string }
   const writes = useRef<OrderedWriteQueue<AssessmentIntent> | null>(null)
 
-  function startTraining(lesson: string) {
+  async function startTraining(lesson: string) {
     if (navigated.current || !mounted.current) return
     navigated.current = true
-    const selected = loadLernkastenSelection(level) ?? []
-    saveLernkastenSelection(level, Array.from(new Set([...selected, lesson])))
+    // Die eingestufte Lektion liegt jetzt in der Lernbox — auch wenn sie im
+    // Lernweg früher einmal ausgeschaltet war. Scheitert das, übt man trotzdem.
+    await setLessonInBox(lesson, level, true).catch(() => undefined)
     router.replace(`${overview}/train?lesson=${encodeURIComponent(lesson)}`)
   }
 
@@ -66,10 +66,6 @@ export default function LessonAssessmentClient({ learnerId, cards, lessonName, l
     accepted: result => result.success,
     onAccepted: (item, result) => {
       confirmedCounts.current = { known: confirmedCounts.current.known + Number(item.alreadyKnown), fresh: confirmedCounts.current.fresh + Number(!item.alreadyKnown) }
-      if (!item.alreadyKnown) {
-        const selected = loadLernkastenSelection(level) ?? []
-        saveLernkastenSelection(level, Array.from(new Set([...selected, lessonName])))
-      }
     },
     onBlocked: pending => {
       if (!mounted.current) return
@@ -86,7 +82,7 @@ export default function LessonAssessmentClient({ learnerId, cards, lessonName, l
       // Nie von selbst weiter: Nach dem letzten Wort bleibt „Fertig eingestuft!"
       // stehen. Die Übungsrunde sieht der Einstufung sehr ähnlich — startete sie
       // automatisch, hielten Lernende sie für eine zweite Einstufung.
-      else if (finishRequested.current) startTraining(lessonName)
+      else if (finishRequested.current) void startTraining(lessonName)
     },
   })
 
@@ -124,7 +120,7 @@ export default function LessonAssessmentClient({ learnerId, cards, lessonName, l
   function finishAssessment() {
     if (optimisticCounts.current.fresh === 0) { goBack(); return }
     finishRequested.current = true
-    if (!writes.current?.pending.length) startTraining(lessonName)
+    if (!writes.current?.pending.length) void startTraining(lessonName)
   }
 
   return (
@@ -136,7 +132,8 @@ export default function LessonAssessmentClient({ learnerId, cards, lessonName, l
           <LearningStats label={t('card_progress', { current: index + 1, total: session.length })}
             items={[{ label: t('stat_card'), value: `${index + 1}/${session.length}` }]} />
         </div>
-        <div className="learning-card">
+        {/* Wie beim Lernen: Ein Tipp irgendwo auf die Karte deckt die Lösung auf. */}
+        <div className={cn('learning-card', !revealed && !saveFailed && 'learning-card-tappable')} onClick={() => { if (!saveFailed) setRevealed(true) }}>
           <div className="learning-card-content" aria-live="polite" aria-atomic="true">
             <span className="learning-eyebrow">{t('assessment_word_label')}</span>
             <h2 lang={current.translationLanguage} className="learning-word">{current.translation}</h2>

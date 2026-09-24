@@ -1381,6 +1381,39 @@ export type Database = {
           },
         ]
       }
+      vocabulary_lesson_pauses: {
+        Row: {
+          auth_user_id: string
+          paused_at: string
+          unit_id: string
+        }
+        Insert: {
+          auth_user_id: string
+          paused_at?: string
+          unit_id: string
+        }
+        Update: {
+          auth_user_id?: string
+          paused_at?: string
+          unit_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "vocabulary_lesson_pauses_auth_user_id_fkey"
+            columns: ["auth_user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "vocabulary_lesson_pauses_unit_id_fkey"
+            columns: ["unit_id"]
+            isOneToOne: false
+            referencedRelation: "learning_units"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       vocabulary_learning_state: {
         Row: {
           auth_user_id: string
@@ -1663,6 +1696,10 @@ export type Database = {
           p_unit_ids?: string[]
           p_user_id: string
         }
+        Returns: Json
+      }
+      set_vocabulary_lesson_paused: {
+        Args: { p_paused: boolean; p_unit_id: string }
         Returns: Json
       }
       skip_vocabulary_assessment: { Args: { p_level: string }; Returns: Json }

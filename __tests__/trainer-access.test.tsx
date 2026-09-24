@@ -40,7 +40,7 @@ test('empty unit selections lock learner cards while teacher configuration remai
  expect(getAllowedLessons({...profile,ui_language:'ru'},'A1.1','pronunciation')).toEqual([])
 })
 describe('Student trainer tiles', () => {
- const status = (locked: boolean) => ({ level: 'A1.1', lessons: [], ownWords: 0,
+ const status = (locked: boolean) => ({ level: 'A1.1', lessons: [], ownWords: null,
   vocabulary: { locked: false, due: 3, activeWords: 10, total: 20, learned: 0 },
   grammar: { locked, total: 0, solved: 0, topics: 0, openTopics: 0 },
   pronunciation: { locked: false, texts: 2, open: 2, waiting: 0, unread: 0 },

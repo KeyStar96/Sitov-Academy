@@ -1421,7 +1421,7 @@
     "lernkasten_due_headline_one": "Vokabel wartet heute auf dich",
     "lernkasten_from_lessons": "Aus {count} Lektionen in deinem Lernkasten",
     "lernkasten_from_lessons_one": "Aus 1 Lektion in deinem Lernkasten",
-    "lernkasten_all_done_hint": "Für heute ist nichts mehr fällig. Wähle unten Lektionen aus, um weiterzulernen.",
+    "lernkasten_all_done_hint": "Für heute ist nichts mehr fällig. Im Lernweg kannst du weitere Lektionen einschalten.",
     "lernkasten_due_elsewhere": "Noch fällig in anderen Lektionen: {count}",
     "lernkasten_choose_lessons": "Lektionen auswählen",
     "lernkasten_not_in_box": "Nicht im Lernkasten",

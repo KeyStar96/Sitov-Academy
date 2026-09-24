@@ -96,13 +96,38 @@ it('deckt beim Moduswechsel nichts auf', async () => {
   expect(await screen.findByRole('button', { name: de.vocabulary.reveal_solution })).toBeInTheDocument()
 })
 
-it('bietet keinen Umschalter an, wo es nur einen Weg gibt', () => {
-  // Deutsch → eigene Sprache wird nie ausgeschrieben. Das gehört erklärt, sonst
-  // wirkt der fehlende Schalter wie ein Fehler.
+it('bietet keinen Umschalter und keinen Erklärtext an, wo es nur einen Weg gibt', () => {
+  // Deutsch → eigene Sprache wird nie ausgeschrieben. Der frühere Hinweis
+  // („nur Deutsch wird ausgeschrieben") war für Lernende nur Ballast.
   mount([reverse])
   expect(screen.queryByRole('radiogroup')).not.toBeInTheDocument()
-  expect(screen.getByText(de.vocabulary.mode_locked_flashcard)).toBeInTheDocument()
+  expect(screen.queryByText(de.vocabulary.mode_locked_flashcard)).not.toBeInTheDocument()
   expect(screen.getByRole('button', { name: de.vocabulary.reveal_solution })).toBeInTheDocument()
+})
+
+it('dreht die Karteikarte per Tipp irgendwo auf die Karte um — und wieder zurück', () => {
+  const { container } = mount([reverse])
+  const card = container.querySelector('.learning-card-flip')!
+  expect(card).not.toHaveClass('is-revealed')
+  fireEvent.click(screen.getByRole('heading', { name: 'das Haus' }))
+  expect(card).toHaveClass('is-revealed')
+  expect(screen.getByRole('button', { name: de.vocabulary.knew_it })).toBeInTheDocument()
+  // Die Rückseite nennt die Lösung ohne weitere Überschrift „Wort erkennen".
+  const back = container.querySelector('.learning-flip-back')!
+  expect(back).not.toHaveTextContent(de.vocabulary.word_format)
+  // Knöpfe auf der Karte (Vorlesen) drehen sie nicht.
+  fireEvent.click(screen.getByRole('button', { name: de.vocabulary.listen_word }))
+  expect(card).toHaveClass('is-revealed')
+  fireEvent.click(back)
+  expect(card).not.toHaveClass('is-revealed')
+  expect(screen.getByRole('button', { name: de.vocabulary.reveal_solution })).toBeInTheDocument()
+})
+
+it('dreht die Karte auch mit der Tastatur um', () => {
+  const { container } = mount([reverse])
+  const front = container.querySelector<HTMLElement>('.learning-flip-front .learning-card-content')!
+  fireEvent.keyDown(front, { key: 'Enter' })
+  expect(container.querySelector('.learning-card-flip')).toHaveClass('is-revealed')
 })
 
 it('behandelt Sätze wie Vokabeln: Umschalter, und die Rückseite zeigt den deutschen Satz', () => {
