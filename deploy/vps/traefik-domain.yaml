@@ -3,18 +3,21 @@
 # only AFTER both DNS names point to this VPS: Traefik requests the Let's Encrypt
 # certificate (HTTP-01) as soon as the file appears, and a failed early attempt
 # would only burn the Let's Encrypt failure quota.
+# Coolify runs the http entrypoint with allowACMEByPass=true: a matching user
+# router would swallow the HTTP-01 challenge (first attempt: redirect → 404), so
+# both http routers exclude /.well-known/acme-challenge/ and leave it to Traefik.
 # Reuses service sitov-native and middlewares sitov-https/sitov-security from
 # sitov-ip.yaml (same file provider). The IP routes stay unchanged.
 http:
   routers:
     sitov-www-http:
-      rule: Host(`www.sitov-academy.com`)
+      rule: Host(`www.sitov-academy.com`) && !PathPrefix(`/.well-known/acme-challenge/`)
       entryPoints: [http]
       service: sitov-native
       middlewares: [sitov-https]
       priority: 100
     sitov-apex-http:
-      rule: Host(`sitov-academy.com`)
+      rule: Host(`sitov-academy.com`) && !PathPrefix(`/.well-known/acme-challenge/`)
       entryPoints: [http]
       service: sitov-native
       middlewares: [sitov-apex-to-www]

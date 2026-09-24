@@ -106,6 +106,9 @@ class GoLiveDomainTest(unittest.TestCase):
         self.assertEqual(routers['sitov-apex-http']['middlewares'], ['sitov-apex-to-www'])
         for name in ('sitov-www-https', 'sitov-apex-https'):
             self.assertEqual(routers[name]['tls']['certResolver'], 'letsencrypt')
+        for name in ('sitov-www-http', 'sitov-apex-http'):
+            # allowACMEByPass=true: otherwise the redirect swallows Let's Encrypt's HTTP-01 request.
+            self.assertIn('!PathPrefix(`/.well-known/acme-challenge/`)', routers[name]['rule'])
         import re
         redirect = config['middlewares']['sitov-apex-to-www']['redirectRegex']
         for url in ('http://sitov-academy.com/de/agb?x=1', 'https://sitov-academy.com/de/agb?x=1'):
