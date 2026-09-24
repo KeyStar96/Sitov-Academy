@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "../globals.css";
 import SmoothScroll from "@/components/effects/SmoothScroll";
@@ -11,10 +12,14 @@ import NavigationProgress from "@/components/effects/NavigationProgress";
 import Preloader from "@/components/effects/Preloader";
 import { THEME_BOOTSTRAP_SCRIPT } from "@/lib/theme";
 import { RouteFeedbackProvider, type RouteFeedbackCopy } from "@/components/layout/RouteFeedbackProvider";
+import ConsentManager from "@/components/analytics/ConsentManager";
+import { CONSENT_BOOTSTRAP_SCRIPT } from "@/lib/analytics/consent";
+import { CANONICAL_SITE_URL } from "@/lib/site-url";
+import { LOCALES } from "@/lib/locale-routing";
 
 /* ─── Global metadata defaults (inherited by all pages) ─── */
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.sitov-academy.com'),
+  metadataBase: new URL(CANONICAL_SITE_URL),
   title: {
     template: '%s | Sitov Academy',
     default: 'Sitov Academy — Deutschkurse in Hannover',
@@ -51,14 +56,12 @@ const jetbrainsMono = JetBrains_Mono({
 // STATIC GENERATION (SSG)
 // This tells Next.js to pre-build these routes at build time.
 export async function generateStaticParams() {
-  return [
-    { lang: 'de' },
-    { lang: 'en' },
-    { lang: 'uk' },
-    { lang: 'ru' },
-    { lang: 'tr' },
-  ];
+  return LOCALES.map(lang => ({ lang }));
 }
+
+// Nur die fünf Sprachen existieren. Jeder andere Wert im Sprachsegment ist
+// eine 404 statt einer gerenderten Kopie der Seite (Crawling-Falle).
+export const dynamicParams = false;
 
 export const viewport = {
   width: 'device-width',
@@ -85,6 +88,9 @@ export default async function RootLayout({
 }) {
   // Hier "warten" wir auf die Sprache
   const { lang } = await params;
+  // Dynamisch gerenderte Seiten (Login, Lernraum) prüfen `dynamicParams` nicht;
+  // Pfade wie `/authx/login` umgehen die Middleware. Beides endet hier als 404.
+  if (!(LOCALES as readonly string[]).includes(lang)) notFound();
   const dictionary = await getDictionary(lang);
   const feedback = ({ loading, error_title, error_description, error_retry }: RouteFeedbackCopy): RouteFeedbackCopy => ({ loading, error_title, error_description, error_retry });
   const feedbackMessages = {
@@ -101,33 +107,7 @@ export default async function RootLayout({
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <script dangerouslySetInnerHTML={{ __html: THEME_BOOTSTRAP_SCRIPT }} />
-        {/* Meta Pixel Code */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1550332886706723');
-fbq('track', 'PageView');
-            `,
-          }}
-        />
-        <noscript>
-          <img
-            height="1"
-            width="1"
-            style={{ display: "none" }}
-            src="https://www.facebook.com/tr?id=1550332886706723&ev=PageView&noscript=1"
-            alt=""
-          />
-        </noscript>
-        {/* End Meta Pixel Code */}
+        <script dangerouslySetInnerHTML={{ __html: CONSENT_BOOTSTRAP_SCRIPT }} />
       </head>
       <body className={`${inter.variable} ${jetbrainsMono.variable} font-sans bg-[var(--canvas)] text-[var(--foreground)] antialiased overflow-x-clip w-full`}>
         <a className="academy-skip-link" href="#main-content">{dictionary.academy.skip_content}</a>
@@ -181,6 +161,8 @@ fbq('track', 'PageView');
         </RouteFeedbackProvider>
         </AppearanceProvider>
         <SupportNode dictionary={dictionary} />
+        {/* Meta-Pixel nur nach Opt-in; ohne Einwilligung kein Request an Meta. */}
+        <ConsentManager lang={lang} copy={dictionary.consent} />
       </body>
     </html>
   );

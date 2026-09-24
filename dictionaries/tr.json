@@ -21,7 +21,9 @@
       "Almanca konuşma kursu Hannover",
       "göçmenler için Almanca Hannover"
     ],
-    "og_image_alt": "Sitov Academy – Hannover'de Ukraynalılar ve Rusça konuşanlar için Almanca kursları"
+    "og_image_alt": "Sitov Academy – Hannover'de Ukraynalılar ve Rusça konuşanlar için Almanca kursları",
+    "registration_title": "Kurs kaydı ve ücretsiz deneme dersi",
+    "registration_description": "Sitov Academy’nin Hannover’deki veya çevrimiçi Almanca kurslarından birine online kaydol ya da ücretsiz bir deneme dersi talep et. Güncel kurslar, tarihler ve fiyatlar tek bakışta."
   },
   "header": {
     "banner": {
@@ -747,7 +749,7 @@
   },
   "privacy": {
     "title": "Gizlilik Politikası",
-    "status": "Son güncelleme: 13 Eylül 2026",
+    "status": "Son güncelleme: 24 Eylül 2026",
     "intro": "Dil okulumuza gösterdiğiniz ilgiden dolayı mutluyuz. Gizliliğinizin korunması bizim için son derece önemlidir. Aşağıda verilerinizin işlenmesi hakkında sizi ayrıntılı olarak bilgilendiriyoruz.",
     "sections": [
       {
@@ -773,8 +775,8 @@
       {
         "title": "3. Çerezler ve LocalStorage",
         "content": [
-          "Gerekli çerezler ve tarayıcı depolaması dil, görünüm ve girişi destekler. Öğrenme ayarları ve eşitlenmeyi bekleyen cevaplar bölüm 11’de açıklanmıştır.",
-          "Art. 6(1)(b), (f) GDPR; § 25(2) TDDDG."
+          "Gerekli çerezler ve tarayıcı depolaması dil, görünüm ve girişi destekler. Öğrenme ayarları ve eşitlenmeyi bekleyen cevaplar bölüm 11’de açıklanmıştır. Pazarlama amaçlı Meta Pixel yalnızca onayınızla yüklenir (bölüm 8.7).",
+          "Art. 6(1)(b), (f) GDPR; § 25(2) TDDDG. Pazarlama yalnızca onayla: Art. 6(1)(a) GDPR; § 25(1) TDDDG."
         ]
       },
       {
@@ -845,10 +847,11 @@
           "8.1 Barındırma ve Sunucu Günlük Dosyaları",
           "Barındırma ve teknik kayıtlar bölüm 2’de açıklanmıştır.",
           "8.2 Çerezler",
-          "Web sitemiz çerezler kullanır. Çerezler, cihazınızda saklanan küçük metin dosyalarıdır. Yalnızca web sitesinin temel çalışması için gerekli olan teknik olarak gerekli çerezleri kullanıyoruz (örneğin seçtiğiniz dili kaydetmek için).",
-          "Analiz, izleme veya pazarlama amacıyla çerez kullanmıyoruz.",
+          "Web sitemiz çerezler kullanır. Çerezler, cihazınızda saklanan küçük metin dosyalarıdır. Onayınız olmadan yalnızca web sitesinin temel çalışması için gerekli olan teknik olarak gerekli çerezleri kullanıyoruz (örneğin seçtiğiniz dili kaydetmek için).",
+          "Pazarlama amaçlı çerezleri ve benzer teknolojileri (Meta Pixel, bkz. 8.7) yalnızca onay bannerımız üzerinden açıkça onay vermeniz halinde kullanırız. Onay olmadan Meta Pixel yüklenmez ve Meta sunucularına bağlantı kurulmaz.",
           "Yasal dayanak: Bu teknik olarak gerekli çerezlerin kullanımı, hizmetlerimizin kullanıcı dostu ve işlevsel bir şekilde sunulmasındaki meşru menfaatimize (DSGVO Madde 6 Fıkra 1 bent f) dayanmaktadır.",
           "Saklama süresi: Kullandığımız çerezlerin çoğu sözde 'oturum çerezleri'dir. Ziyaretinizin bitiminden sonra otomatik olarak silinirler. Diğer çerezler (örneğin dil seçimi için) siz silene kadar cihazınızda kayıtlı kalır. Tarayıcınızı, çerezlerin ayarlanması hakkında bilgilendirilecek ve yalnızca bireysel durumlarda çerezlere izin verecek veya belirli durumlar için veya genel olarak çerezlerin kabul edilmesini hariç tutacak şekilde ayarlayabilirsiniz.",
+          "Onay bannerındaki seçiminizi tarayıcınızın yerel depolamasında (“sitov-consent” anahtarı) en fazla 12 ay saklarız; ardından tekrar sorarız. Seçiminizi istediğiniz zaman sayfanın altındaki “Çerez ayarları” üzerinden değiştirebilir veya geri alabilirsiniz. Yasal dayanak: § 25 fıkra 2 no. 2 TDDDG, Art. 7(1) DSGVO ile bağlantılı olarak Art. 6(1)(c) DSGVO (onayın ispatı).",
           "8.3 Kurslara Kayıt",
           "Web sitemiz üzerinden, e-posta ile veya yerinde kağıt form ile bir kursa kayıt olursanız, sözleşmenin ifası için gerekli verileri toplarız:",
           "- Soyadı ve Adı",
@@ -890,7 +893,15 @@
           "Önemli: Harita varsayılan olarak yüklenmez. Yalnızca 'Haritayı Göster' düğmesine (iki tıklama çözümü) aktif olarak tıkladığınızda, Google sunucularıyla bir bağlantı kurulur. Bu sırada IP adresiniz ve muhtemelen konum verileriniz Google'a iletilir.",
           "Yasal dayanak: Google Maps kullanımı, yalnızca DSGVO Madde 6 Fıkra 1 bent a uyarınca rızanıza dayanmaktadır. Haritayı etkinleştirerek bu rızayı vermiş olursunuz.",
           "Üçüncü ülkeye aktarım: Google Maps kullanılarak veriler ABD'ye iletilebilir. Google, 'EU-US Data Privacy Framework'e dayanmaktadır. Yine de, ABD'de teorik olarak ABD makamlarının erişim haklarının mevcut olabileceğine dikkat çekeriz.",
-          "Google tarafından veri işleme hakkında daha fazla bilgi Google'ın gizlilik politikasında bulunabilir: https://policies.google.com/privacy."
+          "Google tarafından veri işleme hakkında daha fazla bilgi Google'ın gizlilik politikasında bulunabilir: https://policies.google.com/privacy.",
+          "8.7 Meta Pixel (yalnızca onayla)",
+          "Web sitemizde Meta Pixel’i yalnızca açık onayınızla kullanırız. Sağlayıcı: Meta Platforms Ireland Limited, Merrion Road, Dublin 4, D04 X2K5, İrlanda (ana şirket: Meta Platforms, Inc., 1 Meta Way, Menlo Park, CA 94025, ABD).",
+          "Amaç: Facebook ve Instagram’daki reklamlarımızın etkinliğinin ölçülmesi (örneğin bir reklama tıklandıktan sonra deneme dersi talebi veya kurs kaydı yapılıp yapılmadığı) ve bu reklamların, örneğin web sitemizi daha önce ziyaret etmiş kişilere gösterilmesi.",
+          "İşlenen veriler: IP adresi, tarayıcı ve cihaz bilgileri, ziyaret edilen sayfalar (zaman ve yönlendiren sayfa ile), tarafımızdan tetiklenen olaylar (sayfa görüntüleme, deneme dersi talebi veya kurs kimliği ve tutarla kurs kaydı) ve “_fbp” gibi çerez tanımlayıcıları (saklama süresi 90 güne kadar). Facebook veya Instagram’da oturum açmışsanız Meta, ziyareti hesabınızla ilişkilendirebilir.",
+          "Yasal dayanak: Art. 6(1)(a) DSGVO ve § 25(1) TDDDG uyarınca onayınız. Onayınızı istediğiniz zaman, ileriye dönük olarak sayfanın altındaki “Çerez ayarları” üzerinden geri alabilirsiniz; geri almadan önce gerçekleştirilen işlemenin hukuka uygunluğu etkilenmez.",
+          "Ortak sorumluluk: Web sitemizde verilerin toplanması ve Meta’ya aktarılmasından Meta Platforms Ireland Limited ile birlikte ortaklaşa sorumluyuz (Art. 26 DSGVO). Ayrıntılar ortak sorumluluk sözleşmesinde düzenlenmiştir: https://www.facebook.com/legal/controller_addendum. Sonraki işlemeden yalnızca Meta sorumludur.",
+          "Üçüncü ülkelere aktarım: Meta verileri ABD’ye aktarabilir. Meta Platforms, Inc., EU-US Data Privacy Framework kapsamında sertifikalıdır; aktarım, AB Komisyonu’nun yeterlilik kararına (Art. 45 DSGVO) ve ek olarak standart sözleşme maddelerine (Art. 46(2)(c) DSGVO) dayanır. Lütfen üçüncü ülkelere aktarımın genel risklerine (ABD makamlarının teorik erişim olanakları) dikkat edin.",
+          "Daha fazla bilgi: https://www.facebook.com/privacy/policy/"
         ]
       },
       {
@@ -1945,5 +1956,55 @@
     "system": "Cihaz ayarlarını kullan",
     "system_description": "Cihazınızın ayarlarını izler.",
     "close": "Görünüm ayarlarını kapat"
+  },
+  "consent": {
+    "title": "Gizlilik ayarları",
+    "description": "Gerekli tarayıcı verileri web sitesinin çalışmasını sağlar – örneğin dil, görünüm ve giriş için. Yalnızca onay verirsen, Facebook ve Instagram’daki reklamlarımızın etkisini ölçmek için ek olarak Meta Pixel’i (Meta Platforms Ireland Ltd.) yükleriz. Bu sırada veriler ABD’ye aktarılabilir. Seçimini istediğin zaman sayfanın altındaki “Çerez ayarları” üzerinden değiştirebilirsin.",
+    "privacy_link": "Gizlilik politikasında daha fazlası",
+    "necessary_label": "Gerekli",
+    "necessary_description": "Dil, görünüm, giriş ve buradaki seçimin. Bunlar olmadan web sitesi çalışmaz.",
+    "always_active": "Her zaman etkin",
+    "marketing_label": "Pazarlama (Meta Pixel)",
+    "marketing_description": "Facebook ve Instagram’daki reklamlarımız için sayfa görüntülemelerini ve kurs taleplerini ölçer. Veriler Meta’ya, ABD dahil, aktarılır.",
+    "accept_all": "Tümünü kabul et",
+    "reject_all": "Yalnızca gerekli",
+    "customize": "Ayarlar",
+    "save": "Seçimi kaydet",
+    "settings_button": "Çerez ayarları"
+  },
+  "faq": {
+    "eyebrow": "Sık sorulan sorular",
+    "title": "Bilmekte fayda var.",
+    "description": "Kurslar, kayıt ve ödeme hakkında en önemli yanıtlar.",
+    "items": [
+      {
+        "question": "Almanca kursları nerede yapılıyor?",
+        "answer": "Yüz yüze kurslarımız Freizeitheim Vahrenwald’da, Vahrenwalder Str. 92, 30165 Hannover adresinde yapılır. Çevrimiçi kurslar görüntülü konferansla yapılır; böylece evden de katılabilirsin."
+      },
+      {
+        "question": "Kurslar kimler için uygun?",
+        "answer": "Almanca öğrenmek isteyen tüm yetişkinler için. Ukraynalılar ve Rusça konuşanlar konusunda uzmanız: Öğretmenin Anastasia Sitov, Almanca ve Rusçayı ana dili olarak konuşarak iki dilli büyüdü."
+      },
+      {
+        "question": "Ücretsiz deneme dersi var mı?",
+        "answer": "Evet. Kişi başına bir kez ücretsiz ve bağlayıcı olmayan bir deneme dersi talep edebilirsin. Bunun için kayıt formunda deneme dersini ve sana uygun bir günü seç."
+      },
+      {
+        "question": "Nasıl kayıt olurum?",
+        "answer": "En kolay yol bu web sitesindeki kayıt formudur. E-posta ile, kâğıt formla veya yerinde şahsen de kayıt olabilirsin. Online kayıttan sonra e-posta ile bir onay alırsın."
+      },
+      {
+        "question": "Ödeme nasıl yapılır?",
+        "answer": "Kurs ücreti her ay peşin olarak faturalandırılır ve banka havalesiyle ödenir. Sonraki faturaları her ayın sonunda bir sonraki ay için alırsın. Güncel fiyatlar bu sayfadaki kursların yanında yer alır."
+      },
+      {
+        "question": "İstediğim zaman iptal edebilir miyim?",
+        "answer": "Evet. Sözleşmeni istediğin zaman herhangi bir şekil şartı olmadan iptal edebilirsin – e-posta ile, bu web sitesindeki iptal formuyla veya bir mesajlaşma uygulaması üzerinden. İptal, içinde bulunulan fatura ayının sonunda geçerli olur."
+      },
+      {
+        "question": "Öğrenme alanı nedir?",
+        "answer": "Kursunla birlikte kelime çalışması, alıştırmalar, telaffuz çalışması ve videolar içeren kişisel çevrimiçi öğrenme alanına erişim alırsın. Öğretmenin senin için uygun seviyeyi açar ve ilerlemen kaydedilir."
+      }
+    ]
   }
 }

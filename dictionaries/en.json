@@ -22,7 +22,9 @@
       "German language school near me Hannover",
       "German classes for expats Hannover"
     ],
-    "og_image_alt": "Sitov Academy – German courses in Hannover for Ukrainians and Russian speakers"
+    "og_image_alt": "Sitov Academy – German courses in Hannover for Ukrainians and Russian speakers",
+    "registration_title": "Course registration & free trial lesson",
+    "registration_description": "Register online for a German course at Sitov Academy in Hannover or online – or request a free trial lesson. Current courses, dates and prices at a glance."
   },
   "header": {
     "banner": {
@@ -751,7 +753,7 @@
   },
   "privacy": {
     "title": "Privacy Policy",
-    "status": "Last updated: 13 September 2026",
+    "status": "Last updated: 24 September 2026",
     "intro": "We are pleased about your interest in our language school. The protection of your privacy is of the utmost importance to us. Below we inform you in detail about the handling of your data.",
     "sections": [
       {
@@ -777,8 +779,8 @@
       {
         "title": "3. Cookies and LocalStorage",
         "content": [
-          "Essential cookies and browser storage support languages, appearance and sign-in. Section 11 explains learning preferences and answers awaiting synchronization.",
-          "Art. 6(1)(b), (f) GDPR; § 25(2) TDDDG."
+          "Essential cookies and browser storage support languages, appearance and sign-in. Section 11 explains learning preferences and answers awaiting synchronization. The Meta Pixel for marketing purposes is only loaded with your consent (section 8.7).",
+          "Art. 6(1)(b), (f) GDPR; § 25(2) TDDDG. Marketing only with consent: Art. 6(1)(a) GDPR; § 25(1) TDDDG."
         ]
       },
       {
@@ -849,10 +851,11 @@
           "8.1 Hosting and Server Log Files",
           "Section 2 describes hosting and technical logs.",
           "8.2 Cookies",
-          "Our website uses cookies. Cookies are small text files that are stored on your device. We use exclusively technically necessary cookies that are required for the basic operation of the website (e.g. to save the language you have selected).",
-          "We do not use cookies for analysis, tracking or marketing purposes.",
+          "Our website uses cookies. Cookies are small text files that are stored on your device. Without your consent, we use exclusively technically necessary cookies that are required for the basic operation of the website (e.g. to save the language you have selected).",
+          "We only use cookies and similar technologies for marketing purposes (Meta Pixel, see 8.7) if you expressly agree via our consent banner. Without consent, the Meta Pixel is not loaded and no connection to Meta servers is established.",
           "Legal basis: The use of these technically necessary cookies takes place on the basis of our legitimate interest in a user-friendly and functional provision of our services (Art. 6 Para. 1 lit. f GDPR).",
           "Storage period: Most of the cookies we use are so-called 'session cookies'. They are automatically deleted after your visit. Other cookies (e.g. for language selection) remain stored on your device until you delete them. You can check your browser settings to be informed about the setting of cookies and only allow cookies in individual cases or exclude the acceptance of cookies for certain cases or generally.",
+          "We store your choice from the consent banner in your browser’s local storage (key “sitov-consent”) for a maximum of 12 months; after that we ask again. You can change or withdraw your choice at any time via “Cookie settings” in the footer. Legal basis: § 25(2) no. 2 TDDDG, Art. 6(1)(c) GDPR in conjunction with Art. 7(1) GDPR (proof of consent).",
           "8.3 Registration for Courses",
           "If you register for a course via our website, by e-mail or by paper form on site, we collect the data necessary for the execution of the contract:",
           "- Name and First Name",
@@ -894,7 +897,15 @@
           "Important: The map is not loaded by default. Only when you actively click on the button 'Show Map' (two-click solution), a connection to the Google servers is established. Your IP address and possibly location data are transmitted to Google.",
           "Legal basis: The use of Google Maps takes place exclusively on the basis of your consent according to Art. 6 Para. 1 lit. a GDPR. You grant this consent by activating the map.",
           "Third country transfer: By using Google Maps, data can be transmitted to the USA. Google relies on the 'EU-US Data Privacy Framework'. Nevertheless, we point out that access rights by US authorities may theoretically exist in the USA.",
-          "Further information on data processing by Google can be found in Google's privacy policy: https://policies.google.com/privacy."
+          "Further information on data processing by Google can be found in Google's privacy policy: https://policies.google.com/privacy.",
+          "8.7 Meta Pixel (only with consent)",
+          "Only with your express consent do we use the Meta Pixel on our website. The provider is Meta Platforms Ireland Limited, Merrion Road, Dublin 4, D04 X2K5, Ireland (parent company: Meta Platforms, Inc., 1 Meta Way, Menlo Park, CA 94025, USA).",
+          "Purpose: measuring the effectiveness of our ads on Facebook and Instagram (e.g. whether a click on an ad leads to a trial lesson request or a course registration) and delivering these ads, for example to people who have already visited our website.",
+          "Data processed: IP address, browser and device information, pages visited with time and referrer, the events we trigger (page view, trial lesson request or course registration with course ID and amount) and cookie identifiers such as “_fbp” (stored for up to 90 days). If you are logged in to Facebook or Instagram, Meta may link the visit to your account.",
+          "Legal basis: your consent pursuant to Art. 6(1)(a) GDPR and § 25(1) TDDDG. You can withdraw your consent at any time with effect for the future via “Cookie settings” in the footer; the lawfulness of processing carried out before the withdrawal remains unaffected.",
+          "Joint controllership: we and Meta Platforms Ireland Limited are jointly responsible for collecting the data on our website and transmitting it to Meta (Art. 26 GDPR). The details are set out in the joint controller agreement: https://www.facebook.com/legal/controller_addendum. Meta is solely responsible for any subsequent processing.",
+          "Transfer to third countries: Meta may transfer data to the USA. Meta Platforms, Inc. is certified under the EU-US Data Privacy Framework; the transfer is based on the European Commission’s adequacy decision (Art. 45 GDPR) and additionally on standard contractual clauses (Art. 46(2)(c) GDPR). Please note the general risks of a transfer to third countries (theoretical access by US authorities).",
+          "Further information: https://www.facebook.com/privacy/policy/"
         ]
       },
       {
@@ -1949,5 +1960,55 @@
     "system": "Use device settings",
     "system_description": "Follows the settings on your device.",
     "close": "Close appearance settings"
+  },
+  "consent": {
+    "title": "Privacy settings",
+    "description": "Essential storage keeps this website running – for language, display and sign-in. Only if you agree do we also load the Meta Pixel (Meta Platforms Ireland Ltd.) to measure how our ads on Facebook and Instagram perform. Data may be transferred to the USA in the process. You can change your choice at any time via “Cookie settings” in the footer.",
+    "privacy_link": "More in our privacy policy",
+    "necessary_label": "Essential",
+    "necessary_description": "Language, display, sign-in and your choice here. The website does not work without them.",
+    "always_active": "Always active",
+    "marketing_label": "Marketing (Meta Pixel)",
+    "marketing_description": "Measures page views and course enquiries for our ads on Facebook and Instagram. Data is shared with Meta, including in the USA.",
+    "accept_all": "Accept all",
+    "reject_all": "Essential only",
+    "customize": "Settings",
+    "save": "Save selection",
+    "settings_button": "Cookie settings"
+  },
+  "faq": {
+    "eyebrow": "Frequently asked questions",
+    "title": "Good to know.",
+    "description": "The key answers about courses, registration and payment.",
+    "items": [
+      {
+        "question": "Where do the German courses take place?",
+        "answer": "Our in-person courses take place at Freizeitheim Vahrenwald, Vahrenwalder Str. 92, 30165 Hannover. Online courses run via video conference, so you can also join from home."
+      },
+      {
+        "question": "Who are the courses for?",
+        "answer": "For all adults who want to learn German. We specialise in Ukrainians and Russian speakers: your teacher Anastasia Sitov grew up bilingual, with German and Russian as her native languages."
+      },
+      {
+        "question": "Is there a free trial lesson?",
+        "answer": "Yes. You can request a free, no-obligation trial lesson – once per person. Simply choose the trial lesson and a suitable day in the registration form."
+      },
+      {
+        "question": "How do I register?",
+        "answer": "The easiest way is the registration form on this website. You can also register by email, with a paper form or in person. After registering online, you will receive a confirmation by email."
+      },
+      {
+        "question": "How does payment work?",
+        "answer": "The course fee is invoiced monthly in advance and paid by bank transfer. You receive follow-up invoices at the end of each month for the next month. Current prices are shown with the courses on this page."
+      },
+      {
+        "question": "Can I cancel at any time?",
+        "answer": "Yes. You can cancel at any time without a formal notice – by email, via the cancellation form on this website or by messenger. The cancellation takes effect at the end of the current billing month."
+      },
+      {
+        "question": "What is the learning space?",
+        "answer": "With your course you get access to your personal online learning space with vocabulary training, exercises, pronunciation practice and videos. Your teacher unlocks the right level for you, and your progress is saved."
+      }
+    ]
   }
 }

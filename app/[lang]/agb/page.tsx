@@ -3,31 +3,18 @@ import AcademyFooter from "@/components/sections/AcademyFooter";
 import Header from "@/components/layout/Header";
 import Link from "next/link";
 import { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/seo";
+import { LOCALES } from "@/lib/locale-routing";
 
 export async function generateStaticParams() {
-    return [
-        { lang: 'de' }, { lang: 'en' }, { lang: 'uk' }, { lang: 'ru' }, { lang: 'tr' },
-    ];
+    return LOCALES.map(lang => ({ lang }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
     const { lang } = await params;
     const dictionary = await getDictionary(lang);
-    return {
-        title: dictionary.agb?.title || "AGB",
-        description: dictionary.agb?.title || "AGB",
-        alternates: {
-            canonical: `https://www.sitov-academy.com/${lang}/agb`,
-            languages: {
-                'x-default': `https://www.sitov-academy.com/de/agb`,
-                de: `https://www.sitov-academy.com/de/agb`,
-                en: `https://www.sitov-academy.com/en/agb`,
-                uk: `https://www.sitov-academy.com/uk/agb`,
-                ru: `https://www.sitov-academy.com/ru/agb`,
-                tr: `https://www.sitov-academy.com/tr/agb`,
-            },
-        },
-    };
+    const title = dictionary.agb?.title || "AGB";
+    return buildPageMetadata({ lang, path: '/agb', title, description: title, imageAlt: dictionary.meta.og_image_alt });
 }
 
 export default async function AGBPage({ params }: { params: Promise<{ lang: string }> }) {

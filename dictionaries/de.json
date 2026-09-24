@@ -24,7 +24,9 @@
       "Deutsch Anfänger Hannover",
       "Deutsch Konversationskurs Hannover"
     ],
-    "og_image_alt": "Sitov Academy – Deutschkurse in Hannover für Ukrainer und Russischsprachige"
+    "og_image_alt": "Sitov Academy – Deutschkurse in Hannover für Ukrainer und Russischsprachige",
+    "registration_title": "Kursanmeldung & kostenlose Probestunde",
+    "registration_description": "Melde dich online für einen Deutschkurs der Sitov Academy in Hannover oder online an – oder frage eine kostenlose Probestunde an. Aktuelle Kurse, Termine und Preise auf einen Blick."
   },
   "header": {
     "banner": {
@@ -750,7 +752,7 @@
   },
   "privacy": {
     "title": "Datenschutzerklärung",
-    "status": "Stand: 13. September 2026",
+    "status": "Stand: 24. September 2026",
     "intro": "Wir freuen uns über Ihr Interesse an unserer Sprachschule. Der Schutz Ihrer Privatsphäre ist für uns von höchster Bedeutung. Nachfolgend informieren wir Sie ausführlich über den Umgang mit Ihren Daten.",
     "sections": [
       {
@@ -776,8 +778,8 @@
       {
         "title": "3. Cookies und LocalStorage",
         "content": [
-          "Sprachen, Darstellung und Anmeldung werden durch technisch notwendige Cookies und Browser-Speicher unterstützt. Details zu Lernraum-Einstellungen und noch zu synchronisierenden Antworten stehen in Abschnitt 11.",
-          "Art. 6(1)(b), (f) GDPR; § 25(2) TDDDG."
+          "Sprachen, Darstellung und Anmeldung werden durch technisch notwendige Cookies und Browser-Speicher unterstützt. Details zu Lernraum-Einstellungen und noch zu synchronisierenden Antworten stehen in Abschnitt 11. Das Meta-Pixel für Marketingzwecke wird nur nach Ihrer Einwilligung geladen (Abschnitt 8.7).",
+          "Art. 6(1)(b), (f) GDPR; § 25(2) TDDDG. Marketing nur mit Einwilligung: Art. 6(1)(a) GDPR; § 25(1) TDDDG."
         ]
       },
       {
@@ -848,10 +850,11 @@
           "8.1 Hosting und Server-Logfiles",
           "Für Hosting und technische Protokolle gelten die Informationen in Abschnitt 2.",
           "8.2 Cookies",
-          "Unsere Website verwendet Cookies. Cookies sind kleine Textdateien, die auf Ihrem Endgerät gespeichert werden. Wir setzen ausschließlich technisch notwendige Cookies ein, die für den Grundbetrieb der Website erforderlich sind (z.B. zur Speicherung der von Ihnen gewählten Sprache).",
-          "Wir verwenden keine Cookies für Analyse-, Tracking- oder Marketingzwecke.",
+          "Unsere Website verwendet Cookies. Cookies sind kleine Textdateien, die auf Ihrem Endgerät gespeichert werden. Ohne Ihre Einwilligung setzen wir ausschließlich technisch notwendige Cookies ein, die für den Grundbetrieb der Website erforderlich sind (z.B. zur Speicherung der von Ihnen gewählten Sprache).",
+          "Cookies und vergleichbare Technologien für Marketingzwecke (Meta-Pixel, siehe 8.7) setzen wir nur ein, wenn Sie über unser Einwilligungsbanner ausdrücklich zustimmen. Ohne Einwilligung wird das Meta-Pixel nicht geladen und es wird keine Verbindung zu Servern von Meta aufgebaut.",
           "Rechtsgrundlage: Der Einsatz dieser technisch notwendigen Cookies erfolgt auf Grundlage unseres berechtigten Interesses an einer nutzerfreundlichen und funktionsfähigen Bereitstellung unserer Dienste (Art. 6 Abs. 1 lit. f DSGVO).",
           "Speicherdauer: Die meisten der von uns verwendeten Cookies sind so genannte „Session-Cookies“. Sie werden nach Ende Ihres Besuchs automatisch gelöscht. Andere Cookies (z.B. für die Sprachwahl) bleiben auf Ihrem Endgerät gespeichert, bis Sie diese löschen. Sie können Ihren Browser so einstellen, dass Sie über das Setzen von Cookies informiert werden und Cookies nur im Einzelfall erlauben oder die Annahme von Cookies für bestimmte Fälle oder generell ausschließen.",
+          "Ihre Auswahl im Einwilligungsbanner speichern wir im lokalen Speicher Ihres Browsers (Schlüssel „sitov-consent“) für höchstens 12 Monate; danach fragen wir erneut. Sie können Ihre Auswahl jederzeit über „Cookie-Einstellungen“ im Seitenfuß ändern oder widerrufen. Rechtsgrundlage: § 25 Abs. 2 Nr. 2 TDDDG, Art. 6 Abs. 1 lit. c DSGVO i. V. m. Art. 7 Abs. 1 DSGVO (Nachweis der Einwilligung).",
           "8.3 Anmeldung zu Kursen",
           "Wenn Sie sich über unsere Website, per E-Mail oder per Papierformular vor Ort für einen Kurs anmelden, erheben wir die für die Vertragsdurchführung notwendigen Daten:",
           "- Name und Vorname",
@@ -876,7 +879,7 @@
           "Rechtsgrundlage: Die Nutzung von Telegram erfolgt auf Basis Ihrer ausdrücklichen Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO. Mit dem Beitritt zur Telegram-Gruppe willigen Sie in die Datenverarbeitung durch Telegram ein. Sie können Ihre Einwilligung jederzeit widerrufen, indem Sie die Telegram-Gruppe verlassen oder uns per E-Mail informieren.",
           "Hinweise zu Datenschutzrisiken:",
           "- Keine standardmäßige Ende-zu-Ende-Verschlüsselung: Normale Chats und Gruppenchats sind nicht Ende-zu-Ende verschlüsselt. Nur 'Geheime Chats' bieten diese Funktion.",
-          "- Serverstandorte: Telegram speichert Daten auf weltweit verteilten Servern. Die genauen Standorte sind не transparent.",
+          "- Serverstandorte: Telegram speichert Daten auf weltweit verteilten Servern. Die genauen Standorte sind nicht transparent.",
           "- Drittlandtransfer: Es findet eine Datenübertragung in Länder außerhalb der EU statt, die kein gleichwertiges Datenschutzniveau bieten.",
           "- Metadaten: Telegram speichert Metadaten (wer mit wem kommuniziert) bis zu 12 Monate.",
           "- Zugriff durch Behörden: Je nach Serverstandort können lokale Behörden unter bestimmten Umständen Zugriff auf Daten verlangen.",
@@ -893,7 +896,15 @@
           "Wichtig: Die Karte wird standardmäßig nicht geladen. Erst wenn Sie aktiv auf den Button 'Karte anzeigen' klicken (Zwei-Klick-Lösung), wird eine Verbindung zu den Servern von Google hergestellt. Dabei wird Ihre IP-Adresse und ggf. Standortdaten an Google übertragen.",
           "Rechtsgrundlage: Die Nutzung von Google Maps erfolgt ausschließlich auf Grundlage Ihrer Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO. Sie erteilen diese Einwilligung, indem Sie die Karte aktivieren.",
           "Drittlandtransfer: Durch die Nutzung von Google Maps können Daten in die USA übertragen werden. Google beruft sich auf das 'EU-US Data Privacy Framework'. Dennoch weisen wir darauf hin, dass in den USA theoretisch Zugriffsrechte durch US-Behörden bestehen können.",
-          "Weitere Informationen zur Datenverarbeitung durch Google entnehmen Sie den Datenschutzhinweisen von Google: https://policies.google.com/privacy."
+          "Weitere Informationen zur Datenverarbeitung durch Google entnehmen Sie den Datenschutzhinweisen von Google: https://policies.google.com/privacy.",
+          "8.7 Meta-Pixel (nur mit Einwilligung)",
+          "Ausschließlich nach Ihrer ausdrücklichen Einwilligung setzen wir auf unserer Website das Meta-Pixel ein. Anbieter ist die Meta Platforms Ireland Limited, Merrion Road, Dublin 4, D04 X2K5, Irland (Mutterunternehmen: Meta Platforms, Inc., 1 Meta Way, Menlo Park, CA 94025, USA).",
+          "Zweck: Messung der Wirksamkeit unserer Werbeanzeigen auf Facebook und Instagram (z. B. ob nach einem Klick auf eine Anzeige eine Anfrage für eine Probestunde oder eine Kursanmeldung erfolgt) sowie die Aussteuerung dieser Anzeigen, etwa an Personen, die unsere Website bereits besucht haben.",
+          "Verarbeitete Daten: IP-Adresse, Browser- und Geräteinformationen, aufgerufene Seiten mit Zeitpunkt und Referrer, die von uns ausgelösten Ereignisse (Seitenaufruf, Anfrage einer Probestunde bzw. Kursanmeldung mit Kurskennung und Betrag) sowie Cookie-Kennungen wie „_fbp“ (Speicherdauer bis zu 90 Tage). Sind Sie bei Facebook oder Instagram angemeldet, kann Meta den Besuch Ihrem Konto zuordnen.",
+          "Rechtsgrundlage: Ihre Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1 TDDDG. Sie können die Einwilligung jederzeit mit Wirkung für die Zukunft über „Cookie-Einstellungen“ im Seitenfuß widerrufen; die Rechtmäßigkeit der bis zum Widerruf erfolgten Verarbeitung bleibt unberührt.",
+          "Gemeinsame Verantwortlichkeit: Für die Erhebung der Daten auf unserer Website und ihre Übermittlung an Meta sind wir gemeinsam mit der Meta Platforms Ireland Limited verantwortlich (Art. 26 DSGVO). Die Einzelheiten regelt die Vereinbarung über die gemeinsame Verantwortlichkeit: https://www.facebook.com/legal/controller_addendum. Für die anschließende Verarbeitung ist Meta allein verantwortlich.",
+          "Drittlandtransfer: Meta kann Daten in die USA übertragen. Meta Platforms, Inc. ist nach dem EU-US Data Privacy Framework zertifiziert; die Übermittlung stützt sich auf den Angemessenheitsbeschluss der EU-Kommission (Art. 45 DSGVO) und ergänzend auf Standardvertragsklauseln (Art. 46 Abs. 2 lit. c DSGVO). Bitte beachten Sie die allgemeinen Risiken eines Drittlandtransfers (theoretische Zugriffsmöglichkeiten durch US-Behörden).",
+          "Weitere Informationen: https://www.facebook.com/privacy/policy/"
         ]
       },
       {
@@ -1948,5 +1959,55 @@
     "system": "Systemeinstellungen verwenden",
     "system_description": "Folgt den Einstellungen deines Geräts.",
     "close": "Darstellung schließen"
+  },
+  "consent": {
+    "title": "Datenschutz-Einstellungen",
+    "description": "Notwendige Speicher halten die Website am Laufen – etwa für Sprache, Darstellung und Anmeldung. Nur wenn du zustimmst, laden wir zusätzlich das Meta-Pixel (Meta Platforms Ireland Ltd.), um die Wirkung unserer Werbung auf Facebook und Instagram zu messen. Dabei können Daten in die USA übertragen werden. Deine Auswahl kannst du jederzeit unter „Cookie-Einstellungen“ im Seitenfuß ändern.",
+    "privacy_link": "Mehr in der Datenschutzerklärung",
+    "necessary_label": "Notwendig",
+    "necessary_description": "Sprache, Darstellung, Anmeldung und deine Auswahl hier. Ohne sie funktioniert die Website nicht.",
+    "always_active": "Immer aktiv",
+    "marketing_label": "Marketing (Meta-Pixel)",
+    "marketing_description": "Misst Seitenaufrufe und Kursanfragen für unsere Werbung auf Facebook und Instagram. Datenübermittlung an Meta, auch in die USA.",
+    "accept_all": "Alle akzeptieren",
+    "reject_all": "Nur notwendige",
+    "customize": "Einstellungen",
+    "save": "Auswahl speichern",
+    "settings_button": "Cookie-Einstellungen"
+  },
+  "faq": {
+    "eyebrow": "Häufige Fragen",
+    "title": "Gut zu wissen.",
+    "description": "Die wichtigsten Antworten rund um Kurse, Anmeldung und Bezahlung.",
+    "items": [
+      {
+        "question": "Wo finden die Deutschkurse statt?",
+        "answer": "Unsere Präsenzkurse finden im Freizeitheim Vahrenwald statt, Vahrenwalder Str. 92, 30165 Hannover. Online-Kurse laufen per Videokonferenz, sodass du auch von zu Hause aus teilnehmen kannst."
+      },
+      {
+        "question": "Für wen sind die Kurse geeignet?",
+        "answer": "Für alle Erwachsenen, die Deutsch lernen möchten. Spezialisiert sind wir auf Ukrainer und Russischsprachige: Deine Lehrerin Anastasia Sitov ist mit Deutsch und Russisch als Muttersprachen zweisprachig aufgewachsen."
+      },
+      {
+        "question": "Gibt es eine kostenlose Probestunde?",
+        "answer": "Ja. Du kannst eine kostenlose und unverbindliche Probestunde anfragen – einmal pro Person. Wähle dazu im Anmeldeformular die Probestunde und einen passenden Tag."
+      },
+      {
+        "question": "Wie melde ich mich an?",
+        "answer": "Am einfachsten über das Anmeldeformular auf dieser Website. Du kannst dich auch per E-Mail, mit einem Papierformular oder persönlich vor Ort anmelden. Nach der Online-Anmeldung bekommst du eine Bestätigung per E-Mail."
+      },
+      {
+        "question": "Wie funktioniert die Bezahlung?",
+        "answer": "Die Kursgebühr wird monatlich im Voraus in Rechnung gestellt und per Überweisung bezahlt. Folgerechnungen erhältst du zum Monatsende für den nächsten Monat. Aktuelle Preise stehen bei den Kursen auf dieser Seite."
+      },
+      {
+        "question": "Kann ich jederzeit kündigen?",
+        "answer": "Ja. Du kannst jederzeit formlos kündigen – per E-Mail, über das Kündigungsformular auf dieser Website oder per Messenger. Die Kündigung wird zum Ende des laufenden Abrechnungsmonats wirksam."
+      },
+      {
+        "question": "Was ist der Lernraum?",
+        "answer": "Mit deinem Kurs bekommst du Zugang zu deinem persönlichen Online-Lernraum mit Vokabeltraining, Übungen, Aussprachetraining und Videos. Deine Lehrkraft schaltet das passende Niveau für dich frei, und dein Fortschritt wird gespeichert."
+      }
+    ]
   }
 }

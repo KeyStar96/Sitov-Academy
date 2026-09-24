@@ -1,4 +1,4 @@
-import { normalizeOrigin, originFromHeaders, resolveSiteUrl, resolveOutboundSiteUrl, resolveAuthRedirectOrigin, buildSiteUrl, isLocalhostOrigin } from '@/lib/site-url'
+import { normalizeOrigin, originFromHeaders, resolveSiteUrl, resolveOutboundSiteUrl, resolveAuthRedirectOrigin, resolveCanonicalSiteUrl, buildSiteUrl, isLocalhostOrigin } from '@/lib/site-url'
 
 const production = { NODE_ENV: 'production', NEXT_PUBLIC_SITE_URL: 'https://217.154.228.254' }
 describe('self-hosted origins', () => {
@@ -88,5 +88,16 @@ describe('canonical deployment origin', () => {
   it('allows the development fallback but fails closed without a production origin', () => {
     expect(readCanonicalOrigin({ NODE_ENV: 'development' })).toBe('http://localhost:3000')
     expect(() => readCanonicalOrigin({ NODE_ENV: 'production' })).toThrow()
+  })
+  it('prefers the explicit SEO origin over the deployment origin (VPS still served by IP)', () => {
+    const env = { NODE_ENV: 'production' as const, CANONICAL_SITE_URL: ' https://www.sitov-academy.com/de ', NEXT_PUBLIC_SITE_URL: 'https://217.154.228.254', SITE_URL: 'https://217.154.228.254' }
+    expect(readCanonicalOrigin(env)).toBe('https://www.sitov-academy.com')
+    // Transaktionale Links bleiben auf der Deployment-Origin.
+    expect(resolveOutboundSiteUrl(env)).toBe('https://217.154.228.254')
+    expect(resolveSiteUrl(env)).toBe('https://217.154.228.254')
+  })
+  it('ignores an unusable SEO origin and falls back to the deployment origin', () => {
+    expect(readCanonicalOrigin({ NODE_ENV: 'production', CANONICAL_SITE_URL: 'ftp://www.sitov-academy.com', NEXT_PUBLIC_SITE_URL: 'https://public.example' })).toBe('https://public.example')
+    expect(resolveCanonicalSiteUrl({ NODE_ENV: 'development', CANONICAL_SITE_URL: '   ' })).toBe('http://localhost:3000')
   })
 })

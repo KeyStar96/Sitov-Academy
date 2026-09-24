@@ -77,3 +77,11 @@ it('does not silently render the wrong language when the profile lookup fails', 
   profileError = { message: 'database unavailable' }
   await expect(visit('/de/dashboard')).rejects.toThrow('Interface language could not be loaded')
 })
+
+it('sends the bare root straight to /de without a trailing-slash redirect chain', async () => {
+  const response = await visit('/')
+  expect(response.status).toBe(301)
+  expect(response.headers.get('location')).toBe('https://school.example/de')
+  expect((await visit('/?utm_source=telegram')).headers.get('location')).toBe('https://school.example/de?utm_source=telegram')
+  expect((await visit('/agb')).headers.get('location')).toBe('https://school.example/de/agb')
+})

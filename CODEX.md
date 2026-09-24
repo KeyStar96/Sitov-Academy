@@ -460,27 +460,29 @@ Ausgangsbefund: `lib/mail/templates.mjs` enthielt keinen Ausfallabschnitt.
 
 ### PHASE 7 — SEO, RECHT & DSGVO
 
+Stand 24.09.2026: **7.1 und 7.2 umgesetzt und automatisiert geprüft; 7.3 nicht Teil des Auftrags vom 24.09.2026 (offen).** Bericht: [docs/phase-7-verification.md](docs/phase-7-verification.md). Keine DB-, Speicher- oder CPU-Änderungen.
+
 #### 7.0 IST-ZUSTAND
 JSON-LD, OpenGraph, Twitter Cards, canonical und hreflang sind im Prinzip vorhanden. Baue das nicht neu — schließe die Löcher.
 
 #### 7.1 Konkrete SEO-Löcher
-* [ ] Kaputtes OG-Image. `/Bilder/og-sitov-academy.jpg` existiert nicht. 1200×630-Bild erzeugen und ablegen.
-* [ ] `hreflang` fehlt auf allen Unterseiten. `alternates.languages` inklusive `x-default` ergänzen.
-* [ ] `app/sitemap.ts`: `alternates.languages` um `x-default` erweitern.
-* [ ] Hartcodierte Basis-URLs auf `CANONICAL_SITE_URL` umstellen.
-* [ ] FAQPage-JSON-LD ergänzen.
-* [ ] `app/[lang]/layout.tsx`: `export const dynamicParams = false` setzen, da `dynamicParams` derzeit fehlt.
-* [ ] Prüfen, ob `disallow: '/registration'` in `robots.ts` gewollt ist und Entscheidung dokumentieren.
+* [x] Kaputtes OG-Image. `/Bilder/og-sitov-academy.jpg` existiert nicht. 1200×630-Bild erzeugen und ablegen. (JPEG 1200×630, HTTP 200 `image/jpeg` – Unit + E2E.)
+* [x] `hreflang` fehlt auf allen Unterseiten. `alternates.languages` inklusive `x-default` ergänzen. (`lib/seo.ts`; alle 6 indexierbaren Seiten × 5 Sprachen, inkl. der bisher metadatenlosen Kursanmeldung; `noindex`-Seiten bewusst ohne hreflang.)
+* [x] `app/sitemap.ts`: `alternates.languages` um `x-default` erweitern. (30 URLs inkl. `/registration`.)
+* [x] Hartcodierte Basis-URLs auf `CANONICAL_SITE_URL` umstellen. (Env `CANONICAL_SITE_URL` hat Vorrang vor der Deployment-Origin, weil der VPS bis zum DNS-Umzug unter der IP läuft; Mail-/Auth-Links unverändert.)
+* [x] FAQPage-JSON-LD ergänzen. (Sichtbare FAQ-Sektion + identisches JSON-LD, 5 Sprachen; Google zeigt FAQ-Rich-Results seit 08/2023 nur für Behörden-/Gesundheitsseiten.)
+* [x] `app/[lang]/layout.tsx`: `export const dynamicParams = false` setzen, da `dynamicParams` derzeit fehlt. (Zusätzlich `notFound()` für unbekannte Sprachen, weil dynamische Seiten `dynamicParams` nicht prüfen; `/` → `/de` ohne Redirect-Kette.)
+* [x] Prüfen, ob `disallow: '/registration'` in `robots.ts` gewollt ist und Entscheidung dokumentieren. (Entfernt: griff nie wegen Sprachpräfix; Conversion-Seite soll indexiert werden; Sperren bleiben nur `/api/`, `/auth/`. Begründung im Bericht.)
 
 #### 7.2 Meta-Pixel — LCP-Bremse und DSGVO-Verstoß
 Befund: Meta-Pixel blockiert im `<head>` vor der Einwilligung.
 
-* [ ] Pixel aus dem `<head>` entfernen.
-* [ ] Nur nach expliziter Opt-in-Einwilligung nachladen (`next/script`, `strategy="afterInteractive"`).
-* [ ] Consent-Banner mit granularer Auswahl (notwendig / Marketing) implementieren.
-* [ ] Das `<noscript>`-Tracking-Pixel entfällt.
-* [ ] `lib/analytics/meta-pixel.ts` an den Consent-State koppeln.
-* [ ] Datenschutzerklärung um Meta-Pixel und Drittlandtransfer ergänzen.
+* [x] Pixel aus dem `<head>` entfernen.
+* [x] Nur nach expliziter Opt-in-Einwilligung nachladen (`next/script`, `strategy="afterInteractive"`).
+* [x] Consent-Banner mit granularer Auswahl (notwendig / Marketing) implementieren. (Ablehnen gleichwertig, Widerruf über Footer; Banner im statischen HTML, damit es auf dem Handy kein spätes LCP-Element wird; axe 0 Verstöße.)
+* [x] Das `<noscript>`-Tracking-Pixel entfällt.
+* [x] `lib/analytics/meta-pixel.ts` an den Consent-State koppeln.
+* [x] Datenschutzerklärung um Meta-Pixel und Drittlandtransfer ergänzen. (Abschnitte 3, 8.2, neu 8.7 in 5 Sprachen; fachlicher Entwurf – rechtliche Prüfung empfohlen.)
 
 #### 7.3 Weitere Pflichten
 * [ ] Supabase Auth: „Leaked Password Protection" (HaveIBeenPwned) aktivieren (`GOTRUE_PASSWORD_HIBP_ENABLED=true`). Prüfe ausgehende Rechte, andernfalls lokale Blocklist als Ersatz verwenden.
@@ -506,7 +508,7 @@ Befund: `playwright.config.ts` läuft über Dev-Build, hat kein Mobile-Projekt u
 * [x] **Phase 4 — mit ausdrücklich freigegebener verkürzter Laufzeit:** Gefälschter `X-Forwarded-For` ändert Rate-Limit-Key nicht · Vokabel-Session TTFB p95 495,7 ms · 3292 Anfragen ohne Fehler, OOM oder zusätzliche Neustarts. Lasttest auf Nutzerwunsch nach 13 min 44 s statt 30 min beendet; Phase 4 abgenommen. Nachweis: [docs/phase-4-verification.md](docs/phase-4-verification.md).
 * [ ] **Phase 5:** axe-core ohne jeden Filter, 0 color-contrast-Verstöße auf den relevanten Routen · Aufnahmebutton nach Scroll zum Textende `toBeInViewport()` auf Mobile.
 * [x] **Phase 6:** Registrierung für Kurs mit Ausfall ⇒ Payload enthält Datum und Template zeigt es in allen fünf Locales; eigene spätere Benachrichtigungen, Dedupe und Sprachbeibehaltung geprüft. Monitoring auf Nutzerwunsch gestrichen.
-* [ ] **Phase 7:** `sitemap.xml` valide inkl. `x-default` · `robots.txt` erreichbar · JSON-LD Schema.org-valide · OG-Image liefert HTTP 200 · ohne Consent kein Request an Meta.
+* [x] **Phase 7:** `sitemap.xml` valide inkl. `x-default` · `robots.txt` erreichbar · JSON-LD Schema.org-valide · OG-Image liefert HTTP 200 · ohne Consent kein Request an Meta. Nachweis: `e2e/phase7-seo.spec.ts` (`e2e/phase7.config.ts`, Produktions-Build, Desktop + Pixel 7) und `__tests__/seo-phase7.test.ts`, `__tests__/consent-meta-pixel.test.tsx`.
 * [ ] **Phase 8:** `npm test`, `npm run test:e2e` und alle `supabase/tests/*.test.mjs` grün.
 
 ---

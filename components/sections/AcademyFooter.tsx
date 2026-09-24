@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { ArrowUpRight, Mail, Phone } from 'lucide-react'
 import BrandLogo from '@/components/layout/BrandLogo'
+import ConsentSettingsButton from '@/components/analytics/ConsentSettingsButton'
 import type { getDictionary } from '@/lib/dictionary'
 
 type Dictionary = Awaited<ReturnType<typeof getDictionary>>
@@ -56,6 +57,7 @@ export default function AcademyFooter({ dictionary, lang }: { dictionary: Dictio
             <Link href={`/${lang}/privacy`}>{footer.Legal.privacy}</Link>
             <Link href={`/${lang}/agb`}>{footer.Legal.terms}</Link>
             <Link href={`/${lang}/cancellation`}>{footer.Legal.cancellation}</Link>
+            <ConsentSettingsButton label={dictionary.consent.settings_button} className="academy-footer-consent" />
           </nav>
         </div>
       </div>

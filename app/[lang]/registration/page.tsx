@@ -3,7 +3,26 @@ import EnrollmentTerminal from "@/components/registration/EnrollmentTerminal";
 import { getDictionary } from "@/lib/dictionary";
 import { getCourses } from "@/app/actions/get-courses";
 import { getExceptions } from "@/app/actions/get-exceptions";
+import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/seo";
 // AppBackground removed - using global layout's background
+
+export async function generateMetadata({
+    params,
+}: {
+    params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+    const { lang } = await params;
+    const dictionary = await getDictionary(lang);
+
+    return buildPageMetadata({
+        lang,
+        path: '/registration',
+        title: dictionary.meta.registration_title,
+        description: dictionary.meta.registration_description,
+        imageAlt: dictionary.meta.og_image_alt,
+    });
+}
 
 export default async function RegistrationPage({
     params,

@@ -79,10 +79,10 @@ export async function middleware(request: NextRequest) {
   // 5. Fehlt das Sprachpräfix, auf die Standardsprache umleiten. Query-Parameter
   //    bleiben erhalten, damit Kampagnen- und Rückkehr-Links nicht abbrechen.
   if (!currentLocale) {
-    const target = new URL(
-      `/${uiLanguage ?? DEFAULT_LOCALE}${pathname.startsWith('/') ? '' : '/'}${pathname}`,
-      request.url
-    )
+    // `/` direkt auf `/de` (nicht `/de/`): sonst folgt eine zweite
+    // Weiterleitung auf die Variante ohne Schrägstrich (Redirect-Kette).
+    const suffix = pathname === '/' ? '' : `${pathname.startsWith('/') ? '' : '/'}${pathname}`
+    const target = new URL(`/${uiLanguage ?? DEFAULT_LOCALE}${suffix}`, request.url)
     target.search = request.nextUrl.search
     return redirectPreservingSession(target, supabaseResponse, uiLanguage ? 307 : 301)
   }

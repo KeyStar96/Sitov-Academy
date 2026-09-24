@@ -3,31 +3,18 @@ import AcademyFooter from "@/components/sections/AcademyFooter";
 import Header from "@/components/layout/Header";
 import Link from "next/link";
 import { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/seo";
+import { LOCALES } from "@/lib/locale-routing";
 
 export async function generateStaticParams() {
-    return [
-        { lang: 'de' }, { lang: 'en' }, { lang: 'uk' }, { lang: 'ru' }, { lang: 'tr' },
-    ];
+    return LOCALES.map(lang => ({ lang }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
     const { lang } = await params;
     const dictionary = await getDictionary(lang);
-    return {
-        title: dictionary.privacy?.title || "Privacy Policy",
-        description: dictionary.privacy?.title || "Privacy Policy",
-        alternates: {
-            canonical: `https://www.sitov-academy.com/${lang}/privacy`,
-            languages: {
-                'x-default': `https://www.sitov-academy.com/de/privacy`,
-                de: `https://www.sitov-academy.com/de/privacy`,
-                en: `https://www.sitov-academy.com/en/privacy`,
-                uk: `https://www.sitov-academy.com/uk/privacy`,
-                ru: `https://www.sitov-academy.com/ru/privacy`,
-                tr: `https://www.sitov-academy.com/tr/privacy`,
-            },
-        },
-    };
+    const title = dictionary.privacy?.title || "Privacy Policy";
+    return buildPageMetadata({ lang, path: '/privacy', title, description: title, imageAlt: dictionary.meta.og_image_alt });
 }
 
 export default async function PrivacyPage({ params }: { params: Promise<{ lang: string }> }) {

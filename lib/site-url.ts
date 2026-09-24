@@ -1,11 +1,9 @@
 /** Explicit deployment origins prevent email links from depending on request headers. */
 export const DEV_FALLBACK_SITE_URL = 'http://localhost:3000'
 
-/** Deployment origin for static metadata; development stays on localhost. */
-export const CANONICAL_SITE_URL = resolveSiteUrl(process.env as SiteUrlEnv)
-
 /** Nur die Variablen, die für die Auflösung gelesen werden. */
 export interface SiteUrlEnv {
+  CANONICAL_SITE_URL?: string
   NEXT_PUBLIC_SITE_URL?: string
   SITE_URL?: string
   NODE_ENV?: string
@@ -81,6 +79,17 @@ export function resolveSiteUrl(env: SiteUrlEnv, _headerOrigin: string | null = n
   return DEV_FALLBACK_SITE_URL
 }
 
+/**
+ * Öffentliche Origin für Suchmaschinen (canonical, hreflang, Sitemap, OG, JSON-LD).
+ *
+ * `CANONICAL_SITE_URL` gewinnt vor der Deployment-Origin: Der VPS läuft bis zum
+ * DNS-Umzug unter seiner IP, Google soll aber nur die Domain als kanonisch sehen.
+ * Mail- und Auth-Links bleiben bewusst auf `NEXT_PUBLIC_SITE_URL`.
+ */
+export function resolveCanonicalSiteUrl(env: SiteUrlEnv): string {
+  return normalizeOrigin(env.CANONICAL_SITE_URL) ?? resolveSiteUrl(env)
+}
+
 /** Transactional links require a configured origin; request headers cannot supply it. */
 export function resolveOutboundSiteUrl(env: SiteUrlEnv, _headerOrigin: string | null = null): string {
   const explicit = normalizeOrigin(env.NEXT_PUBLIC_SITE_URL) ?? normalizeOrigin(env.SITE_URL)
@@ -108,6 +117,9 @@ export function buildSiteUrl(
   }
   return url.toString()
 }
+
+/** Kanonische Origin für Metadaten; Entwicklung bleibt auf localhost. */
+export const CANONICAL_SITE_URL = resolveCanonicalSiteUrl(process.env as SiteUrlEnv)
 
 /**
  * Basis für Redirects nach Auth-Callbacks.

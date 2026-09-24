@@ -8,11 +8,11 @@ import { ChevronLeft } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { getCourses } from '@/app/actions/get-courses';
 import { courseText } from '@/lib/business-courses';
+import { buildPageMetadata } from '@/lib/seo';
+import { LOCALES } from '@/lib/locale-routing';
 
 export async function generateStaticParams() {
-    return [
-        { lang: 'de' }, { lang: 'en' }, { lang: 'uk' }, { lang: 'ru' }, { lang: 'tr' },
-    ];
+    return LOCALES.map(lang => ({ lang }));
 }
 
 export async function generateMetadata({
@@ -23,21 +23,13 @@ export async function generateMetadata({
     const { lang } = await params;
     const dictionary = await getDictionary(lang);
 
-    return {
-        title: `${dictionary.cancellation.title} | Sitov Academy`,
+    return buildPageMetadata({
+        lang,
+        path: '/cancellation',
+        title: dictionary.cancellation.title,
         description: dictionary.cancellation.description,
-        alternates: {
-            canonical: `https://www.sitov-academy.com/${lang}/cancellation`,
-            languages: {
-                'x-default': `https://www.sitov-academy.com/de/cancellation`,
-                de: `https://www.sitov-academy.com/de/cancellation`,
-                en: `https://www.sitov-academy.com/en/cancellation`,
-                uk: `https://www.sitov-academy.com/uk/cancellation`,
-                ru: `https://www.sitov-academy.com/ru/cancellation`,
-                tr: `https://www.sitov-academy.com/tr/cancellation`,
-            },
-        },
-    };
+        imageAlt: dictionary.meta.og_image_alt,
+    });
 }
 
 export default async function CancellationPage({
