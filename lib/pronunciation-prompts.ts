@@ -39,3 +39,17 @@ export function cefrFamilyFromLevel(level: string): CefrFamily | null {
   const family = trimmed.split('.')[0]
   return isCefrFamily(family) ? family : null
 }
+
+/**
+ * Lesetext (mehrere Sätze) oder Einzelsatz. Beide gehören zum Aussprache-
+ * Trainer; die Unterscheidung ordnet nur die Verwaltungsansicht.
+ */
+export function pronunciationTextKind(text: string): 'text' | 'sentence' {
+  const sentences = text.trim().match(/[.!?…]+(?=["“”»«')\s]*(?:\s|$))/g) ?? []
+  return sentences.length > 1 ? 'text' : 'sentence'
+}
+
+export function countWords(text: string): number {
+  const trimmed = text.trim()
+  return trimmed ? trimmed.split(/\s+/).length : 0
+}
