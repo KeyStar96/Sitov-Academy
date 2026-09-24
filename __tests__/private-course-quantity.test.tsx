@@ -1,36 +1,41 @@
 import React, { useState } from 'react'
 import { render, screen, fireEvent } from '@testing-library/react'
 import CourseQuantityInput from '@/components/registration/CourseQuantityInput'
-import PricingRoadmap from '@/components/registration/PricingRoadmap'
+import EnrollmentCosts from '@/components/registration/EnrollmentCosts'
 import { calculateMonthlyStats } from '@/lib/course-calculations'
 import { courseSelectionsSchema, courseSelectionsForRpc } from '@/lib/course-selection'
 import type { CourseConfig } from '@/lib/course-config'
 import de from '@/dictionaries/de.json'
 
 jest.unmock('lucide-react')
-jest.mock('framer-motion',()=>({useReducedMotion:()=>true,motion:{div:({children,className}:{children:React.ReactNode;className?:string})=><div className={className}>{children}</div>}}))
 const id='00000000-0000-4000-8000-000000000001'
 const course:CourseConfig={id,slug:'privatunterricht-online',title:'Privatunterricht online',type:'online',category:'private',unitPrice:25,unitMinutes:45,sessions:[]}
 function QuantityPreview() {
  const [value,setValue]=useState(1)
- const stats=calculateMonthlyStats(course,'de',9,2026,[],15,value)
- return <><CourseQuantityInput value={value} onChange={setValue} unitPrice={25} unitMinutes={45} lang="de"/><PricingRoadmap dictionary={de} lang="de" startDate="15.10.2026" selectedCourses={[course]} courseSelections={[{courseId:id,requestedUnits:value}]} currentMonthPrice={stats.totalUnits*course.unitPrice}/></>
+ return <><CourseQuantityInput value={value} onChange={setValue} unitPrice={25} unitMinutes={45} lang="de"/><EnrollmentCosts courses={[course]} selections={[{courseId:id,requestedUnits:value}]} startIso="2026-10-15" startChosen exceptions={[]} lang="de" copy={de.registration.flow} agbHref="/de/agb" referenceYear="2026"/></>
+}
+// Quantity input, first-month total and the course line show the exact price; the next two months follow in words.
+const expectPrice=(price:string)=>{
+ expect(screen.getAllByText(price)).toHaveLength(3)
+ expect(screen.getByText(`November 2026: etwa ${price}`)).toBeInTheDocument()
+ expect(screen.getByText(`Dezember 2026: etwa ${price}`)).toBeInTheDocument()
 }
 it('prices the chosen number of 45-minute units at €25 in the first month and both following months',()=>{
  render(<QuantityPreview/>)
  expect(screen.getByRole('spinbutton',{name:'Unterrichtseinheiten'})).toHaveValue(1)
- expect(screen.getAllByText('25,00 €')).toHaveLength(4)
+ expectPrice('25,00 €')
  fireEvent.change(screen.getByRole('spinbutton'),{target:{value:'3'}})
- expect(screen.getAllByText('75,00 €')).toHaveLength(4)
+ expectPrice('75,00 €')
+ expect(screen.getByText('3 × 45 Minuten')).toBeInTheDocument()
  fireEvent.click(screen.getByRole('button',{name:'Eine Einheit mehr'}))
  expect(screen.getByRole('spinbutton')).toHaveValue(4)
- expect(screen.getAllByText('100,00 €')).toHaveLength(4)
+ expectPrice('100,00 €')
 })
 it('does not lose a valid quantity when the learner temporarily clears the input',()=>{
  render(<QuantityPreview/>)
  fireEvent.change(screen.getByRole('spinbutton'),{target:{value:''}})
  expect(screen.getByRole('alert')).toHaveTextContent('1 bis 1.000')
- expect(screen.getAllByText('25,00 €')).toHaveLength(4)
+ expectPrice('25,00 €')
  fireEvent.blur(screen.getByRole('spinbutton'))
  expect(screen.getByRole('spinbutton')).toHaveValue(1)
  expect(screen.queryByRole('alert')).not.toBeInTheDocument()

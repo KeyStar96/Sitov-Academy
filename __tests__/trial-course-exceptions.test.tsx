@@ -21,6 +21,8 @@ jest.mock('framer-motion',()=>{
 })
 const course:CourseConfig={id:'00000000-0000-4000-8000-000000000001',slug:'deutsch-level-1',title:'Deutsch Level 1',category:'german',type:'presence',unitPrice:2.5,unitMinutes:45,sessions:[{day:'Mo',startTime:'10:30',endTime:'12:00'}],trialLessons:true}
 const serverTime=new Date('2026-09-13T10:00:00Z').getTime()
+// The trial date is step 2; the course comes preselected from the link.
+const goToDates=()=>fireEvent.click(screen.getByRole('button',{name:'Weiter'}))
 
 it('excludes global and own-course cancellations before filling eight trial dates, but keeps other-course cancellations',()=>{
  render(<EnrollmentTerminal dictionary={de} lang="de" courses={[course]} serverTime={serverTime} exceptions={[
@@ -28,23 +30,26 @@ it('excludes global and own-course cancellations before filling eight trial date
   {date:'2026-09-21',reason:'This course cancelled',courseIds:[course.id]},
   {date:'2026-09-28',reason:'Another course cancelled',courseIds:['00000000-0000-4000-8000-000000000002']},
  ]}/>);
- expect(screen.queryByRole('button',{name:/14\.09\.2026/})).not.toBeInTheDocument()
- expect(screen.queryByRole('button',{name:/21\.09\.2026/})).not.toBeInTheDocument()
- expect(screen.getByRole('button',{name:/28\.09\.2026/})).toBeInTheDocument()
- expect(screen.getByRole('button',{name:/09\.11\.2026/})).toBeInTheDocument()
+ goToDates()
+ expect(screen.queryByRole('radio',{name:/14\. September/})).not.toBeInTheDocument()
+ expect(screen.queryByRole('radio',{name:/21\. September/})).not.toBeInTheDocument()
+ expect(screen.getByRole('radio',{name:/28\. September/})).toBeInTheDocument()
+ fireEvent.click(screen.getByRole('button',{name:'Weitere Termine zeigen'}))
+ expect(screen.getByRole('radio',{name:/9\. November/})).toBeInTheDocument()
 })
 
 it('respects the course period and clears a selected trial when its date becomes cancelled',()=>{
  const courses=[{...course,startDate:'2026-09-21',endDate:'2026-09-28'}]
  const {rerender}=render(<EnrollmentTerminal dictionary={de} lang="de" courses={courses} serverTime={serverTime}/>);
- expect(screen.queryByRole('button',{name:/14\.09\.2026/})).not.toBeInTheDocument()
- expect(screen.queryByRole('button',{name:/05\.10\.2026/})).not.toBeInTheDocument()
- fireEvent.click(screen.getByRole('button',{name:/21\.09\.2026/}))
- const receipt=document.querySelector('.enrollment-receipt')!
- expect(receipt.textContent).toContain('21.09.2026')
+ goToDates()
+ expect(screen.queryByRole('radio',{name:/14\. September/})).not.toBeInTheDocument()
+ expect(screen.queryByRole('radio',{name:/5\. Oktober/})).not.toBeInTheDocument()
+ fireEvent.click(screen.getByRole('radio',{name:/21\. September/}))
+ const receipt=screen.getByRole('complementary')
+ expect(receipt).toHaveTextContent('Termin: Montag, 21. September')
  rerender(<EnrollmentTerminal dictionary={de} lang="de" courses={courses} serverTime={serverTime} exceptions={[{date:'2026-09-21',reason:'Cancelled'}]}/>);
- expect(screen.queryByRole('button',{name:/21\.09\.2026/})).not.toBeInTheDocument()
- expect(receipt.textContent).not.toContain('21.09.2026')
- expect(screen.getByRole('button',{name:/28\.09\.2026/})).toBeInTheDocument()
+ expect(screen.queryByRole('radio',{name:/21\. September/})).not.toBeInTheDocument()
+ expect(receipt).not.toHaveTextContent('21. September')
+ expect(screen.getByRole('radio',{name:/28\. September/})).not.toBeChecked()
 })
 jest.mock('@/app/actions/auth',()=>({signup:jest.fn()}))

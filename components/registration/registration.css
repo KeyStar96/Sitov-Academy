@@ -1,189 +1,273 @@
-/* Registration owns its presentation; pricing, calendar and submission logic stay shared. */
+/* Registration: calm, large and one question at a time – written for older
+   learners first. Colours come only from the theme tokens (light, dark and
+   high contrast); accent text uses --accent-text, filled controls --accent-strong. */
 .registration-flow {
-  --registration-on-accent: var(--accent-foreground);
+  min-width: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
   background: var(--canvas);
   color: var(--foreground);
-  min-width: 0;
-  max-width: 1440px;
+  font-size: 18px;
+  line-height: 1.55;
+  letter-spacing: 0;
+  overflow-wrap: break-word;
+}
+.registration-flow :is(button, a, input, select, summary) { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+.registration-flow :is(button, a, input, select, textarea, summary):focus-visible { outline: 3px solid var(--violet); outline-offset: 3px; }
+.reg-visually-hidden {
+  position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; border: 0;
+  overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
+}
+
+/* Mobile reads top to bottom: question, answers, costs, buttons. On wide
+   screens the costs sit beside the question and stay in view. */
+.reg-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas: "head" "main" "costs" "nav";
+  gap: 28px;
+  width: 100%;
+  max-width: 1180px;
   margin: 0 auto;
-  isolation: isolate;
-  /* Do not create a scroll container around the CSS-sticky receipt. */
-  overflow: visible;
+  padding: 16px 16px 56px;
 }
-
-.registration-flow :is(button, input, select, textarea, [role="checkbox"]) { touch-action: manipulation; }
-.registration-flow :is(button, a, input, select, textarea, [role="checkbox"]):focus-visible {
-  outline: 3px solid var(--violet);
-  outline-offset: 3px;
+@media (min-width: 640px) { .reg-layout { padding: 24px 32px 72px; } }
+@media (max-width: 1023px) {
+  /* While typing personal details the costs would only push "Weiter" away. */
+  .reg-layout[data-step="3"] .reg-costs { display: none; }
 }
-.registration-flow :is(button, a) { -webkit-tap-highlight-color: transparent; }
-.registration-flow :is(.text-gray-400, .text-gray-500, .text-gray-600) { color: var(--muted); }
-.registration-flow :is(.enrollment-header, .enrollment-panel, .enrollment-course, .enrollment-receipt) { min-width: 0; }
-.enrollment-header h1 { line-height: 1.1; overflow-wrap: anywhere; }
-.enrollment-header > div:first-child { min-height: 48px; }
-.enrollment-brand .academy-logo-mark { width: 34px; height: 34px; }
-.enrollment-brand .academy-logo-name { font-size: 15px; }
-.enrollment-panel { background: var(--surface); box-shadow: var(--shadow-md); }
-/* Glassmorphism nur auf Desktop — spart GPU auf älteren Mobilgeräten der Zielgruppe. */
-@media (hover: hover) and (min-width: 768px) {
-  .enrollment-panel {
-    background: color-mix(in srgb, var(--surface) 82%, transparent);
-    -webkit-backdrop-filter: blur(14px) saturate(150%);
-    backdrop-filter: blur(14px) saturate(150%);
-  }
-}
-.enrollment-course { background: var(--surface); border-color: var(--border); transition: background 160ms ease, border-color 160ms ease; }
-.enrollment-course:hover { border-color: var(--accent); background: var(--surface-muted); }
-.enrollment-course-selected { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 6%, var(--surface)); }
-.enrollment-course-private:not(.enrollment-course-selected) { border-color: color-mix(in srgb, var(--violet) 35%, var(--border)); }
-.enrollment-course > div { min-width: 0; }
-.enrollment-course svg { flex-shrink: 0; }
-.enrollment-course .bg-\[var\(--accent\)\] .text-white { color: var(--registration-on-accent); }
-.enrollment-course-selected [class*="bg-white"] { background: var(--surface-muted); color: var(--foreground); }
-.enrollment-course [class*="text-gray-"] { color: var(--muted); }
-
-/* Keep labels visible while reading or correcting a form; never dim other fields. */
-.registration-flow .enrollment-personal { overflow: visible; }
-.registration-flow .enrollment-personal input:not([type="checkbox"]) {
-  width: 100%; min-width: 0; min-height: 52px;
-  border: 1px solid var(--border); border-radius: 12px;
-  padding: 13px 14px; margin-top: 26px;
-  background: var(--surface); color: var(--foreground);
-  font-family: inherit; font-size: 16px; line-height: 1.45;
-  box-shadow: none;
-}
-.registration-flow .enrollment-personal input:not([type="checkbox"]):focus { border-color: var(--accent); }
-.registration-flow .enrollment-personal input:not([type="checkbox"]):-webkit-autofill {
-  -webkit-box-shadow: 0 0 0 1000px var(--surface) inset;
-  -webkit-text-fill-color: var(--foreground);
-}
-.registration-flow .enrollment-personal input ~ label,
-.registration-flow .enrollment-phone > span {
-  top: 0; left: 0; font-family: inherit; font-size: 13px; line-height: 1.4;
-  font-weight: 600; letter-spacing: 0; text-transform: none;
-  color: var(--muted);
-}
-.registration-flow .enrollment-personal .enrollment-phone input { margin-top: 0; }
-.registration-flow .enrollment-personal .enrollment-phone button { min-height: 52px; border-radius: 12px; font-family: inherit; }
-.registration-flow .enrollment-personal :is(.enrollment-field, .enrollment-phone) > span:last-child:not(:first-child) {
-  position: static; display: block; margin-top: 5px; font-size: 12px; line-height: 1.4;
-}
-.registration-flow .enrollment-personal [class*="text-red-"] { color: #a32c24; }
-.dark .registration-flow .enrollment-personal [class*="text-red-"] { color: #ffb4a8; }
-.enrollment-consent { color: var(--foreground); }
-.enrollment-consent:hover { background: var(--surface-muted); }
-.enrollment-consent input { margin-top: 2px; accent-color: var(--accent); }
-
-/* Calendar dates wrap into visible touch targets instead of hiding behind horizontal swipes. */
-.registration-flow .enrollment-control-grid .premium-scrollbar {
-  display: flex; flex-wrap: wrap; gap: 6px;
-  overflow-x: visible; overscroll-behavior: auto;
-  margin-bottom: 10px; padding-bottom: 10px;
-  scrollbar-width: none;
-}
-.registration-flow .enrollment-control-grid .premium-scrollbar::-webkit-scrollbar { display: none; }
-.registration-flow .enrollment-control-grid .premium-scrollbar > button {
-  min-height: 44px; padding: 8px 12px; font-family: inherit; font-size: 13px;
-}
-.registration-flow .enrollment-control-grid .premium-scrollbar:has(> button.flex-col) {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(44px, 1fr));
-  gap: 6px; width: 100%; padding-bottom: 0; margin-bottom: 0;
-}
-.registration-flow .enrollment-control-grid .premium-scrollbar > button.flex-col {
-  min-width: 0; width: 100%; height: 60px; min-height: 60px; padding: 6px 2px; border-radius: 12px;
-}
-.registration-flow .enrollment-control-grid .premium-scrollbar > button.flex-col:not(:disabled) {
-  background: var(--surface); border-color: var(--border); box-shadow: none;
-}
-.registration-flow .enrollment-control-grid .premium-scrollbar > button.flex-col > div { border-radius: 12px; box-shadow: none; }
-.registration-flow .enrollment-control-grid .premium-scrollbar > button.flex-col .text-2xl { font-size: 20px; }
-.registration-flow .enrollment-control-grid .premium-scrollbar > button.flex-col .bg-gray-900 { background: var(--foreground); }
-.registration-flow .enrollment-control-grid .premium-scrollbar > button.flex-col.text-white > span { color: var(--surface); }
-.registration-flow .enrollment-control-grid .premium-scrollbar > button:not(.flex-col) { color: var(--muted); background: var(--surface-muted); }
-.registration-flow .enrollment-control-grid .premium-scrollbar > button:not(.flex-col).text-\[var\(--accent-foreground\)\] { color: var(--registration-on-accent); }
-.registration-flow .enrollment-control-grid .premium-scrollbar > button:not(.flex-col) > .bg-\[var\(--accent\)\] { background: var(--accent); box-shadow: none; }
-
-/* A calm invoice preview shares the same light/dark system as the form. */
-.registration-flow .enrollment-receipt { background: var(--surface); border-top: 1px solid var(--border); color: var(--foreground); }
-.registration-flow .enrollment-receipt :is(.text-gray-200, .text-gray-300, .text-white) { color: var(--foreground); }
-.registration-flow .enrollment-receipt :is(.text-gray-400, .text-gray-500, .text-gray-600) { color: var(--muted); }
-.registration-flow .enrollment-receipt [class*="border-white"] { border-color: var(--border); }
-.registration-flow .enrollment-receipt :is(.text-green-400, .text-green-500) { color: var(--accent-text); }
-.registration-flow .enrollment-receipt [class*="text-red-"] { color: #a32c24; }
-.dark .registration-flow .enrollment-receipt [class*="text-red-"] { color: #ffb4a8; }
-.enrollment-receipt-items { overflow-wrap: anywhere; }
-.enrollment-receipt-total { background: var(--surface-muted); }
-.enrollment-receipt-total > div { flex-wrap: wrap; gap: 8px 14px; }
-.enrollment-receipt-total .tabular-nums { color: var(--foreground); }
-.enrollment-receipt-footer { padding: 0 0 max(16px, env(safe-area-inset-bottom)); }
-.registration-flow .enrollment-receipt .enrollment-submit {
-  width: calc(100% - 32px); margin: 16px 16px 0; border-radius: 14px; letter-spacing: 0;
-  min-height: 68px; height: auto; box-shadow: none; white-space: normal;
-}
-.registration-flow .enrollment-receipt .enrollment-submit:not(:disabled),
-.registration-flow :is(.enrollment-scroll-link, .enrollment-home-button) {
-  background: var(--accent-strong); color: var(--registration-on-accent);
-}
-.registration-flow .enrollment-receipt .enrollment-submit:disabled { background: var(--surface-muted); color: var(--muted); }
-.enrollment-submit > span { min-width: 0; overflow-wrap: anywhere; }
-.enrollment-submit > svg { flex-shrink: 0; }
-.enrollment-scroll-link { max-width: calc(100vw - 32px); white-space: nowrap; }
-.enrollment-result { background: var(--canvas); color: var(--foreground); }
-.enrollment-result p { line-height: 1.65; overflow-wrap: anywhere; }
 @media (min-width: 1024px) {
-  .registration-flow .enrollment-receipt {
-    max-height: calc(100vh - 4rem);
-    max-height: calc(100dvh - 4rem);
-    border: 1px solid var(--border);
-    border-radius: 24px;
-    overflow: hidden;
-    box-shadow: var(--shadow-lg);
+  .reg-layout {
+    grid-template-columns: minmax(0, 1fr) 360px;
+    grid-template-areas: "head costs" "main costs" "nav costs";
+    grid-template-rows: auto auto 1fr;
+    column-gap: 48px;
+    align-items: start;
   }
-  /* Long course selections remain readable without moving the total or action. */
-  .registration-flow .enrollment-receipt-items {
-    min-height: 0;
-    overflow-y: auto;
-    overscroll-behavior-y: contain;
-    scrollbar-gutter: stable;
-  }
-  .registration-flow .enrollment-main { padding-bottom: 16px; }
+  .reg-costs { position: sticky; top: 24px; }
 }
-@media (max-width: 430px) {
-  .enrollment-header .academy-logo-name { font-size: 14px; }
-  .registration-flow .enrollment-course { padding: 14px; }
-  .enrollment-course > div:first-child { gap: 12px; }
-  .registration-flow .enrollment-control-grid .enrollment-panel { padding: 16px; }
-  .enrollment-receipt-items { padding: 20px; }
+
+/* Header */
+.reg-head { grid-area: head; display: grid; gap: 14px; min-width: 0; }
+.reg-topbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; min-height: 48px; }
+.reg-home {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 48px; margin-left: -10px; padding: 8px 12px 8px 10px;
+  border-radius: 12px; color: var(--foreground); font-size: 17px; font-weight: 650;
+  text-decoration: underline; text-underline-offset: 4px;
 }
-@media (prefers-reduced-motion: reduce) {
-  .registration-flow *, .registration-flow *::before, .registration-flow *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
+.reg-brand { display: flex; min-width: 0; align-items: center; }
+.reg-brand .academy-logo-mark { width: 34px; height: 34px; }
+.reg-brand .academy-logo-name { font-size: 15px; }
+.reg-badge {
+  display: inline-flex; width: fit-content; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 99px;
+  background: color-mix(in srgb, var(--accent) 12%, var(--surface)); color: var(--accent-text); font-size: 17px; font-weight: 700;
 }
-.registration-flow .enrollment-personal input ~ span[class*="text-red-"] {
-  position: static; display: block; margin-top: 5px; font-size: 12px; line-height: 1.4;
+.reg-progress { display: grid; gap: 8px; margin-top: 4px; }
+.reg-progress__label { color: var(--muted); font-size: 17px; }
+.reg-progress__label strong { color: var(--foreground); }
+.reg-progress__bar { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
+.reg-progress__bar > span { height: 8px; border-radius: 99px; background: var(--surface-muted); box-shadow: inset 0 0 0 1px var(--border); }
+.reg-progress__bar > span[data-done="true"] { background: var(--accent-strong); box-shadow: none; }
+.reg-title { margin-top: 6px; color: var(--foreground); font-size: clamp(1.75rem, 1.2rem + 2.4vw, 2.6rem); font-weight: 750; line-height: 1.2; letter-spacing: -0.01em; }
+.reg-title:focus, .reg-result__title:focus { outline: none; }
+.reg-intro { max-width: 40em; color: var(--muted); font-size: 18px; }
+
+/* Step content */
+.reg-main { grid-area: main; display: grid; gap: 28px; min-width: 0; animation: reg-in .25s ease both; }
+@keyframes reg-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.reg-empty { padding: 20px; border: 2px dashed var(--border); border-radius: 18px; background: var(--surface); font-size: 18px; }
+
+/* Step 1: courses as large tap targets */
+.reg-group { display: grid; gap: 14px; }
+.reg-group__title { color: var(--foreground); font-size: 21px; font-weight: 750; line-height: 1.3; }
+.reg-group__list, .reg-group__item { display: grid; gap: 14px; }
+.reg-group__item { gap: 10px; }
+.reg-course, .reg-day, .reg-consent__main { position: relative; cursor: pointer; }
+.reg-course, .reg-day {
+  display: flex; width: 100%; min-width: 0; gap: 16px; border: 2px solid var(--border); border-radius: 20px;
+  background: var(--surface); color: var(--foreground); transition: border-color .15s ease, background-color .15s ease, box-shadow .15s ease;
 }
-.registration-flow .enrollment-control-grid .premium-scrollbar { font-family: inherit; }
-.registration-flow .enrollment-control-grid .premium-scrollbar > button.flex-col:disabled { opacity: .55; }
-.registration-flow .enrollment-panel > .absolute[class*="top-"][class*="backdrop-blur"] {
-  background: var(--surface); color: var(--foreground); border-color: var(--border);
-  box-shadow: 0 8px 28px rgb(24 40 26 / 8%);
+.reg-course { align-items: flex-start; min-height: 96px; padding: 18px; }
+.reg-course[data-selected="true"], .reg-day[data-selected="true"] {
+  border-color: var(--accent-strong); background: color-mix(in srgb, var(--accent) 7%, var(--surface)); box-shadow: 0 0 0 1px var(--accent-strong);
 }
-.registration-flow .enrollment-personal .opacity-30 { opacity: 1; }
-.registration-flow .enrollment-personal .relative input ~ label {
-  top: 0; left: 0; font-family: inherit; font-size: 13px; line-height: 1.4;
-  font-weight: 600; letter-spacing: 0; text-transform: none; color: var(--muted);
+.reg-course:has(input:focus-visible), .reg-day:has(input:focus-visible), .reg-consent__main:has(input:focus-visible) { outline: 3px solid var(--violet); outline-offset: 3px; }
+.reg-check {
+  display: flex; flex-shrink: 0; align-items: center; justify-content: center; width: 44px; height: 44px;
+  border: 2px solid var(--border); border-radius: 12px; background: var(--surface); color: var(--muted);
 }
-/* Contain the first input's top margin so floating labels sit above its border. */
-.registration-flow .enrollment-personal .relative:has(> input:not([type="checkbox"])) {
-  display: flow-root;
+.reg-course:has(input[type="radio"]) .reg-check { border-radius: 50%; }
+[data-selected="true"] > .reg-check, [data-checked="true"] .reg-check { border-color: var(--accent-strong); background: var(--accent-strong); color: var(--accent-foreground); }
+.reg-course__body { display: grid; flex: 1; gap: 6px; min-width: 0; }
+.reg-course__title { font-size: 20px; font-weight: 750; line-height: 1.3; }
+.reg-course__details { display: grid; gap: 4px; }
+.reg-course__meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; color: var(--muted); font-size: 17px; font-weight: 600; }
+.reg-course__meta svg { flex-shrink: 0; }
+.reg-course__level { padding: 0 10px; border: 1px solid var(--border); border-radius: 99px; color: var(--foreground); }
+.reg-course__time { color: var(--foreground); font-size: 18px; }
+.reg-course__price { color: var(--foreground); font-size: 18px; font-weight: 700; }
+.reg-course__state {
+  display: inline-flex; width: fit-content; align-items: center; gap: 6px; margin-top: 4px; padding: 4px 12px;
+  border-radius: 99px; background: var(--accent-strong); color: var(--accent-foreground); font-size: 17px; font-weight: 700;
 }
-.registration-flow .enrollment-personal .enrollment-country-code {
-  display: block; width: 100%; min-width: 44px; min-height: 52px;
-  border: 1px solid var(--border); border-radius: 12px;
-  padding: 12px 8px; background: var(--surface); color: var(--foreground);
-  font-family: inherit; font-size: 16px; line-height: 1.45;
+
+/* Step 2: start dates as calendar sheets */
+.reg-days-wrap { display: grid; gap: 16px; }
+.reg-days { display: grid; gap: 12px; }
+@media (min-width: 640px) { .reg-days { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.reg-day { align-items: center; min-height: 104px; padding: 12px 16px 12px 12px; }
+.reg-leaf {
+  display: flex; flex-direction: column; flex-shrink: 0; align-items: center; width: 4.4rem; overflow: hidden;
+  border: 1px solid var(--border); border-radius: 14px; background: var(--surface); box-shadow: var(--shadow-sm);
 }
+.reg-leaf__weekday { width: 100%; padding: 2px 0; background: var(--accent-strong); color: var(--accent-foreground); font-size: 15px; font-weight: 800; text-align: center; text-transform: uppercase; letter-spacing: .04em; }
+.reg-leaf__day { color: var(--foreground); font-size: 30px; font-weight: 800; line-height: 1.15; font-variant-numeric: tabular-nums; }
+.reg-leaf__month { padding-bottom: 4px; color: var(--muted); font-size: 15px; font-weight: 700; }
+.reg-day__body { display: grid; gap: 4px; min-width: 0; }
+.reg-day__date { font-size: 19px; font-weight: 750; line-height: 1.3; }
+.reg-day__time { display: flex; align-items: flex-start; gap: 6px; color: var(--foreground); font-size: 17px; }
+.reg-day__time svg { flex-shrink: 0; margin-top: 4px; color: var(--accent-text); }
+.reg-days__more { justify-self: start; }
+
+/* Step 3: fixed labels above framed boxes, example or error below */
+.reg-form, .reg-panel { display: grid; padding: 20px; border: 1px solid var(--border); border-radius: 24px; background: var(--surface); }
+.reg-form { gap: 26px; }
+.reg-form__row { display: grid; gap: 26px; }
+@media (min-width: 640px) {
+  .reg-form, .reg-panel { padding: 28px; }
+  .reg-form__row { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+  .reg-form__row--place { grid-template-columns: minmax(9rem, 12rem) minmax(0, 1fr); }
+}
+.reg-field { display: grid; gap: 8px; min-width: 0; margin: 0; padding: 0; border: 0; }
+.reg-field[data-invalid="true"] { padding-left: 14px; border-left: 4px solid var(--danger); }
+.reg-field__label { padding: 0; color: var(--foreground); font-size: 18px; font-weight: 700; line-height: 1.35; }
+.reg-input {
+  width: 100%; min-width: 0; min-height: 56px; padding: 12px 14px; border: 2px solid var(--border); border-radius: 12px;
+  background: var(--surface); color: var(--foreground); font: inherit; font-size: 19px; line-height: 1.4;
+}
+.reg-input:focus { border-color: var(--accent-strong); }
+.reg-field[data-invalid="true"] .reg-input { border-color: var(--danger); }
+.reg-input:-webkit-autofill { -webkit-box-shadow: 0 0 0 1000px var(--surface) inset; -webkit-text-fill-color: var(--foreground); }
+.reg-field__hint { color: var(--muted); font-size: 17px; }
+.reg-field__error { display: flex; align-items: flex-start; gap: 8px; color: var(--danger); font-size: 17px; font-weight: 650; }
+.reg-field__error svg { flex-shrink: 0; margin-top: 2px; }
+.reg-phone { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr); gap: 10px; }
+.reg-date { display: flex; flex-wrap: wrap; gap: 14px; }
+.reg-date__part { display: grid; gap: 6px; }
+.reg-date__part--short { width: 5.5rem; }
+.reg-date__part--year { width: 7.5rem; }
+.reg-date__label { color: var(--foreground); font-size: 17px; font-weight: 600; }
+.reg-date .reg-input { text-align: center; font-variant-numeric: tabular-nums; }
+
+/* Step 4: review, consents, errors */
+.reg-review { display: grid; gap: 24px; }
+.reg-panel { gap: 14px; }
+.reg-panel__title { font-size: 22px; font-weight: 750; line-height: 1.3; }
+.reg-panel__intro { color: var(--muted); }
+.reg-review__courses { display: grid; gap: 8px; }
+.reg-review__courses li { display: grid; }
+.reg-review__courses strong { font-size: 19px; }
+.reg-review__courses span { color: var(--muted); }
+.reg-review__start { display: flex; align-items: flex-start; gap: 8px; font-weight: 650; }
+.reg-review__start svg { flex-shrink: 0; margin-top: 3px; color: var(--accent-text); }
+.reg-review__details { display: grid; gap: 12px; }
+.reg-review__details > div { display: grid; gap: 2px; }
+.reg-review__details dt { color: var(--muted); font-size: 17px; }
+.reg-review__details dd { margin: 0; font-weight: 650; overflow-wrap: anywhere; }
+@media (min-width: 640px) { .reg-review__details > div { grid-template-columns: 11rem minmax(0, 1fr); gap: 16px; } }
+.reg-review__actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.reg-consents__all { justify-self: start; }
+.reg-consents { display: grid; gap: 14px; }
+.reg-consent { display: grid; overflow: hidden; border: 2px solid var(--border); border-radius: 20px; background: var(--surface); }
+.reg-consent[data-checked="true"] { border-color: var(--accent-strong); background: color-mix(in srgb, var(--accent) 6%, var(--surface)); }
+.reg-consent__main { display: flex; align-items: flex-start; gap: 14px; min-height: 76px; padding: 16px; font-size: 18px; font-weight: 600; }
+.reg-consent__text { padding-top: 8px; }
+.reg-consent__more {
+  display: inline-flex; width: fit-content; align-items: center; gap: 6px; min-height: 48px; margin: -6px 16px 10px 64px; padding: 4px 10px;
+  border-radius: 10px; color: var(--accent-text); font-size: 17px; font-weight: 700; text-decoration: underline; text-underline-offset: 4px;
+}
+.reg-consent__more svg { transition: transform .15s ease; }
+.reg-consent__more svg[data-open="true"] { transform: rotate(180deg); }
+.reg-consent__full { display: grid; gap: 10px; margin: 0 16px 16px; padding: 14px; border-radius: 14px; background: var(--surface-muted); font-size: 17px; line-height: 1.6; }
+.reg-consent__full[hidden] { display: none; }
+.reg-consent__full a, .reg-disclosure a { width: fit-content; color: var(--accent-text); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+.reg-alert { display: flex; align-items: flex-start; gap: 10px; padding: 14px 16px; border: 2px solid var(--danger); border-radius: 16px; background: var(--surface); font-weight: 650; }
+.reg-alert svg { flex-shrink: 0; color: var(--danger); }
+
+/* Buttons and navigation: "Zurück" and "Weiter" side by side, both large */
+.reg-button {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 56px; padding: 12px 22px;
+  border: 2px solid var(--border); border-radius: 16px; background: var(--surface); color: var(--foreground);
+  font: inherit; font-size: 19px; font-weight: 750; line-height: 1.25; text-align: center; text-decoration: none; cursor: pointer;
+}
+.reg-button--primary { border-color: var(--accent-strong); background: var(--accent-strong); color: var(--accent-foreground); }
+/* Not ready yet: still clickable, the sentence beside it says what is missing. */
+.reg-button--primary[aria-disabled="true"] { border-color: var(--border); background: var(--surface-muted); color: var(--foreground); }
+.reg-button:disabled { cursor: default; opacity: .7; }
+.reg-nav { grid-area: nav; display: grid; gap: 14px; min-width: 0; }
+.reg-nav__live:empty { display: none; }
+.reg-nav__hint {
+  display: flex; align-items: flex-start; gap: 10px; padding: 12px 14px; border: 2px solid var(--border); border-radius: 14px;
+  background: var(--surface); color: var(--foreground); font-size: 18px; font-weight: 650;
+}
+.reg-nav__hint svg { flex-shrink: 0; margin-top: 2px; }
+.reg-nav__hint[data-nudge="true"] { border-color: var(--warning-foreground); background: var(--warning); color: var(--warning-foreground); }
+.reg-nav__buttons { display: flex; flex-wrap: wrap-reverse; gap: 12px; }
+.reg-nav__buttons > .reg-button { flex: 1 1 11rem; }
+.reg-nav__buttons > .reg-nav__next { flex-grow: 2; }
+
+/* Costs: only after the first course choice */
+.reg-costs { grid-area: costs; min-width: 0; }
+.reg-costs-card {
+  display: grid; gap: 12px; padding: 22px; border: 2px solid color-mix(in srgb, var(--accent) 45%, var(--border));
+  border-radius: 24px; background: var(--surface); box-shadow: var(--shadow-md);
+}
+.reg-costs__title { font-size: 22px; font-weight: 750; }
+.reg-costs__label { font-size: 18px; font-weight: 650; }
+.reg-costs__total { color: var(--foreground); font-size: clamp(2.2rem, 1.6rem + 2.6vw, 2.75rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.reg-costs__total--free { display: flex; align-items: center; gap: 12px; color: var(--success); }
+.reg-costs__from { display: flex; align-items: flex-start; gap: 8px; color: var(--muted); font-size: 17px; }
+.reg-costs__from svg { flex-shrink: 0; margin-top: 3px; color: var(--accent-text); }
+.reg-costs__note { padding: 12px 14px; border-radius: 14px; background: color-mix(in srgb, var(--accent) 8%, var(--surface)); font-size: 17px; font-weight: 600; }
+.reg-costs__lines, .reg-costs__later { display: grid; gap: 12px; padding-top: 12px; border-top: 1px solid var(--border); }
+.reg-costs__lines li { display: grid; gap: 2px; }
+.reg-costs__line { display: flex; justify-content: space-between; gap: 12px; font-weight: 700; }
+.reg-costs__price { white-space: nowrap; font-variant-numeric: tabular-nums; }
+.reg-costs__count { color: var(--muted); font-size: 17px; }
+.reg-costs__cancelled { color: var(--muted); font-size: 16px; }
+.reg-costs__later { gap: 6px; font-size: 17px; }
+.reg-costs__later h3 { font-size: 18px; font-weight: 700; }
+.reg-costs__later p { color: var(--muted); }
+.reg-disclosure { border: 2px solid var(--border); border-radius: 14px; background: var(--surface); }
+.reg-disclosure summary { display: flex; min-height: 52px; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 14px; font-weight: 700; list-style: none; cursor: pointer; }
+.reg-disclosure summary::-webkit-details-marker { display: none; }
+.reg-disclosure summary svg { flex-shrink: 0; transition: transform .15s ease; }
+.reg-disclosure[open] summary svg { transform: rotate(180deg); }
+.reg-disclosure > :not(summary) { display: block; margin: 0 14px 14px; font-size: 17px; }
+.reg-costs__vat { color: var(--muted); font-size: 16px; }
+
+/* Thank-you and trial-used pages */
+.reg-result { display: flex; justify-content: center; padding: 32px 16px 72px; }
+.reg-result__card { display: grid; justify-items: start; gap: 18px; width: 100%; max-width: 640px; }
+.reg-result__icon { display: flex; align-items: center; justify-content: center; width: 80px; height: 80px; border-radius: 50%; background: color-mix(in srgb, var(--success) 14%, var(--surface)); color: var(--success); }
+.reg-result__title { font-size: clamp(1.9rem, 1.4rem + 2.4vw, 2.6rem); font-weight: 800; line-height: 1.2; }
+.reg-result__lead { font-size: 20px; }
+.reg-result__date { display: flex; align-items: center; gap: 8px; font-size: 19px; font-weight: 700; }
+.reg-result__date svg { flex-shrink: 0; color: var(--accent-text); }
+.reg-result__subtitle { margin-top: 8px; font-size: 22px; font-weight: 750; }
+.reg-result__steps { display: grid; gap: 12px; width: 100%; }
+.reg-result__steps li { display: flex; align-items: flex-start; gap: 14px; padding: 14px 16px; border: 1px solid var(--border); border-radius: 16px; background: var(--surface); }
+.reg-result__steps li > span {
+  display: flex; flex-shrink: 0; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%;
+  background: var(--accent-strong); color: var(--accent-foreground); font-weight: 800;
+}
+.reg-result__steps li p { padding-top: 4px; font-size: 18px; }
 
 @media (hover: hover) {
-  .registration-flow .enrollment-receipt .enrollment-submit:not(:disabled):hover,
-  .registration-flow :is(.enrollment-scroll-link, .enrollment-home-button):hover { background: var(--accent-strong-hover); }
+  .reg-course:hover, .reg-day:hover, .reg-consent:hover, .reg-button--soft:not(:disabled):hover, .reg-disclosure summary:hover { border-color: var(--accent-strong); }
+  .reg-home:hover { background: var(--surface-muted); }
+  .reg-button--primary:not([aria-disabled="true"]):not(:disabled):hover { border-color: var(--accent-strong-hover); background: var(--accent-strong-hover); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .registration-flow *, .registration-flow *::before, .registration-flow *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }

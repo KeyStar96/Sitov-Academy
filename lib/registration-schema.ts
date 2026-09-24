@@ -11,9 +11,10 @@ export const phoneRegex = /^(?=(?:[^0-9]*[0-9]){8})[\d\s\+\-\(\)\/]{8,}$/;
 // Helper for whitespace normalization
 const normalize = (val: string) => val.trim().replace(/\s+/g, ' ');
 
-// Name Validation: Letters (Unicode), spaces, hyphens, apostrophes, dots (for Jr., St.)
+// Name Validation: letters of any script (A\u011Fao\u011Flu, \u041E\u043B\u0435\u043D\u0430), spaces, hyphens,
+// apostrophes incl. the typographic one phones insert, dots (for Jr., St.).
 // Disallows numbers and other special characters like ! @ # $ % ^ & * ( ) < >
-const nameRegex = /^[a-zA-Z\u00C0-\u00FF\s\-\.']+$/;
+const nameRegex = /^[\p{L}\p{M}\s\-\.'\u2019]+$/u;
 
 // Safe Text: Disallow < and > to prevent basic HTML injection
 const safeTextRegex = /^[^<>]*$/;

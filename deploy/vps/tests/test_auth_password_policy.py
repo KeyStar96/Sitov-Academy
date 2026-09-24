@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Exact-byte Auth HIBP patch tests; no production access or subprocesses."""
+"""Exact-byte Auth password-policy patch tests; no production access or subprocesses."""
 import importlib.util
 import contextlib
 import io
@@ -10,8 +10,8 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-SCRIPT = Path(__file__).resolve().parents[1] / 'patch-auth-hibp.py'
-SPEC = importlib.util.spec_from_file_location('sitov_auth_hibp', SCRIPT)
+SCRIPT = Path(__file__).resolve().parents[1] / 'patch-auth-password-policy.py'
+SPEC = importlib.util.spec_from_file_location('sitov_auth_password_policy', SCRIPT)
 MODULE = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(MODULE)
 RUNTIME = {'Memory': 268435456, 'MemorySwap': 268435456, 'NanoCpus': 500000000}
@@ -46,11 +46,15 @@ CONFIG = b'''services:
 volumes:
   retained: {}
 '''
-ADDED = b'    - GOTRUE_PASSWORD_HIBP_ENABLED=true\n    - GOTRUE_PASSWORD_HIBP_FAIL_CLOSED=false\n'
+HIBP = b'    - GOTRUE_PASSWORD_HIBP_ENABLED=true\n    - GOTRUE_PASSWORD_HIBP_FAIL_CLOSED=false\n'
+MIN_LENGTH = b'    - GOTRUE_PASSWORD_MIN_LENGTH=8\n'
+ADDED = HIBP + MIN_LENGTH
+ALL_BEFORE_NONE = {'GOTRUE_PASSWORD_HIBP_ENABLED': None, 'GOTRUE_PASSWORD_HIBP_FAIL_CLOSED': None, 'GOTRUE_PASSWORD_MIN_LENGTH': None}
+ALL_AFTER = {'GOTRUE_PASSWORD_HIBP_ENABLED': 'true', 'GOTRUE_PASSWORD_HIBP_FAIL_CLOSED': 'false', 'GOTRUE_PASSWORD_MIN_LENGTH': '8'}
 
 
-class AuthHibpPatchTests(unittest.TestCase):
-    def test_only_two_auth_settings_and_the_live_swap_cap_are_added(self):
+class AuthPasswordPolicyPatchTests(unittest.TestCase):
+    def test_only_three_auth_settings_and_the_live_swap_cap_are_added(self):
         changed, report = MODULE.patch_content(CONFIG, RUNTIME)
         expected = CONFIG.replace(b'    - GOTRUE_SMS_AUTOCONFIRM=${ENABLE_PHONE_AUTOCONFIRM:-true}\n',
                                   b'    - GOTRUE_SMS_AUTOCONFIRM=${ENABLE_PHONE_AUTOCONFIRM:-true}\n' + ADDED)
@@ -60,8 +64,8 @@ class AuthHibpPatchTests(unittest.TestCase):
         self.assertIn(b'    - GOTRUE_PASSWORD_HIBP_ENABLED=false\n    mem_limit: 1728m', changed)
         self.assertEqual(MODULE.ram_cpu_caps(changed), MODULE.ram_cpu_caps(CONFIG))
         self.assertEqual(report['ram_cpu_limits_original_sha256'], report['ram_cpu_limits_final_sha256'])
-        self.assertEqual(report['before'], {'GOTRUE_PASSWORD_HIBP_ENABLED': None, 'GOTRUE_PASSWORD_HIBP_FAIL_CLOSED': None})
-        self.assertEqual(report['after'], {'GOTRUE_PASSWORD_HIBP_ENABLED': 'true', 'GOTRUE_PASSWORD_HIBP_FAIL_CLOSED': 'false'})
+        self.assertEqual(report['before'], ALL_BEFORE_NONE)
+        self.assertEqual(report['after'], ALL_AFTER)
         self.assertEqual(report['auth_memswap'], {'before_bytes': None, 'after_bytes': 268435456, 'added': True})
         self.assertNotIn('SERVICE_PASSWORD', json.dumps(report))
         self.assertNotIn('postgres://', json.dumps(report))
@@ -71,8 +75,18 @@ class AuthHibpPatchTests(unittest.TestCase):
         repeated, report = MODULE.patch_content(changed, RUNTIME)
         self.assertEqual(changed, repeated)
         self.assertFalse(report['changed'])
-        self.assertEqual(report['before'], {'GOTRUE_PASSWORD_HIBP_ENABLED': 'true', 'GOTRUE_PASSWORD_HIBP_FAIL_CLOSED': 'false'})
+        self.assertEqual(report['before'], ALL_AFTER)
         self.assertNotIn(b'\n', changed.replace(b'\r\n', b''))
+
+    def test_live_hibp_state_only_gains_the_minimum_length(self):
+        # Live state since the Phase 7.3 rollout: HIBP set and swap pinned.
+        live = MODULE.patch_content(CONFIG, RUNTIME)[0].replace(MIN_LENGTH, b'')
+        changed, report = MODULE.patch_content(live, RUNTIME)
+        self.assertEqual(changed, live.replace(HIBP, HIBP + MIN_LENGTH))
+        self.assertEqual(report['before'], dict(ALL_AFTER, GOTRUE_PASSWORD_MIN_LENGTH=None))
+        self.assertEqual(report['auth_memswap'], {'before_bytes': 268435456, 'after_bytes': 268435456, 'added': False})
+        self.assertEqual(MODULE.ram_cpu_caps(changed), MODULE.ram_cpu_caps(live))
+        self.assertEqual(changed.count(b'memswap_limit'), 1)
 
     def test_conflicting_duplicate_or_mapping_settings_abort(self):
         for config in (
@@ -80,6 +94,9 @@ class AuthHibpPatchTests(unittest.TestCase):
             CONFIG.replace(b'    - ADDITIONAL_REDIRECT_URLS=None\n', b'    - GOTRUE_PASSWORD_HIBP_FAIL_CLOSED=true\n    - ADDITIONAL_REDIRECT_URLS=None\n'),
             CONFIG.replace(b'    - ADDITIONAL_REDIRECT_URLS=None\n', b'    - GOTRUE_PASSWORD_HIBP_ENABLED=${HIBP:-true}\n    - ADDITIONAL_REDIRECT_URLS=None\n'),
             CONFIG.replace(b'    - ADDITIONAL_REDIRECT_URLS=None\n', (b'    - GOTRUE_PASSWORD_HIBP_ENABLED=true\n' * 2) + b'    - ADDITIONAL_REDIRECT_URLS=None\n'),
+            CONFIG.replace(b'    - ADDITIONAL_REDIRECT_URLS=None\n', b'    - GOTRUE_PASSWORD_MIN_LENGTH=6\n    - ADDITIONAL_REDIRECT_URLS=None\n'),
+            CONFIG.replace(b'    - ADDITIONAL_REDIRECT_URLS=None\n', b'    - GOTRUE_PASSWORD_MIN_LENGTH=${PASSWORD_MIN:-8}\n    - ADDITIONAL_REDIRECT_URLS=None\n'),
+            CONFIG.replace(b'    - ADDITIONAL_REDIRECT_URLS=None\n', b'    - GOTRUE_PASSWORD_MIN_LENGTH=8\n    - GOTRUE_PASSWORD_MIN_LENGTH=8\n    - ADDITIONAL_REDIRECT_URLS=None\n'),
             CONFIG.replace(b'    image: supabase/gotrue:v2.186.0', b'    image: supabase/gotrue:v1.0.0'),
             CONFIG.replace(b'  supabase-auth:', b'  unrelated-auth:'),
         ):

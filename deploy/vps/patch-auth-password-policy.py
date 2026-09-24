@@ -1,11 +1,17 @@
 #!/usr/bin/env python3
-"""Inspect Sitov Auth password checks; --apply enables Leaked Password Protection.
+"""Inspect Sitov Auth password rules; --apply sets the password policy.
 
-Run on the VPS as root. Sets GOTRUE_PASSWORD_HIBP_ENABLED=true and
-GOTRUE_PASSWORD_HIBP_FAIL_CLOSED=false for supabase-auth only. GoTrue sends the
-first five hex characters of a SHA-1 hash to api.pwnedpasswords.com
-(k-anonymity); no password or personal data leaves the host. Fail-open keeps
-sign-up and password reset available if HIBP is unreachable.
+Run on the VPS as root. For supabase-auth only it sets:
+- GOTRUE_PASSWORD_MIN_LENGTH=8: the same minimum the app forms enforce
+  (lib/types/auth.ts PASSWORD_MIN_LENGTH). GoTrue's default is 6, so direct
+  Auth API calls past the forms could otherwise set shorter passwords.
+- GOTRUE_PASSWORD_HIBP_ENABLED=true and GOTRUE_PASSWORD_HIBP_FAIL_CLOSED=false
+  (Leaked Password Protection, Phase 7.3). GoTrue sends the first five hex
+  characters of a SHA-1 hash to api.pwnedpasswords.com (k-anonymity); no
+  password or personal data leaves the host. Fail-open keeps sign-up and
+  password reset available if HIBP is unreachable.
+Values already present must match exactly; anything else aborts. Existing
+passwords keep working: GoTrue checks the rules only when a password is set.
 
 An absent Auth memswap_limit is pinned to the live value, because recreating
 the container would otherwise replace the live 256 MiB memory-plus-swap cap
@@ -28,10 +34,11 @@ import subprocess
 import tempfile
 
 COMPOSE = Path('/data/coolify/services/eknmzxvqilojjicinatnllbt/docker-compose.yml')
-BACKUPS = Path('/root/backups/sitov-auth-hibp')
+BACKUPS = Path('/root/backups/sitov-auth-password-policy')
 AUTH = 'supabase-auth-eknmzxvqilojjicinatnllbt'
 AUTH_MEMORY = 268435456
-SETTINGS = ((b'GOTRUE_PASSWORD_HIBP_ENABLED', b'true'), (b'GOTRUE_PASSWORD_HIBP_FAIL_CLOSED', b'false'))
+SETTINGS = ((b'GOTRUE_PASSWORD_HIBP_ENABLED', b'true'), (b'GOTRUE_PASSWORD_HIBP_FAIL_CLOSED', b'false'),
+            (b'GOTRUE_PASSWORD_MIN_LENGTH', b'8'))
 CAPS = re.compile(rb'(?m)^[ \t]*(?:mem_limit|mem_reservation|memswap_limit|mem_swappiness|cpus|cpu_count|cpu_percent|cpu_shares|cpu_period|cpu_quota|cpuset|memory):[^\r\n]*(?:\r?\n|$)')
 
 
@@ -142,7 +149,7 @@ def apply_patch(path, backup_root, runtime):
         os.fsync(output.fileno())
     if backup.read_bytes() != original:
         raise RuntimeError('Configuration backup verification failed')
-    descriptor, temporary = tempfile.mkstemp(prefix='.sitov-auth-hibp-', dir=path.parent)
+    descriptor, temporary = tempfile.mkstemp(prefix='.sitov-auth-password-policy-', dir=path.parent)
     try:
         with os.fdopen(descriptor, 'wb') as output:
             os.fchmod(output.fileno(), stat.S_IMODE(metadata.st_mode))

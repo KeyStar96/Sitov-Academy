@@ -72,6 +72,6 @@ Tests: `deploy/vps/tests/test_auth_hibp.py` (exakte Bytes, Idempotenz, CRLF, Kon
 ## Offen / Hinweise
 
 - 7.3 übrige Punkte (rechtliche Gesamtprüfung von Impressum/AGB/Datenschutz, Markennamen) nicht beauftragt.
-- Beobachtung außerhalb des Auftrags: GoTrue selbst erzwingt die Standard-Mindestlänge (6); die App verlangt 8. Direkte API-Aufrufe am Formular vorbei könnten kürzere Passwörter setzen (`GOTRUE_PASSWORD_MIN_LENGTH`).
+- Passwort-Mindestlänge angeglichen (Code fertig, Live-Rollout offen): `deploy/vps/patch-auth-hibp.py` heißt jetzt `deploy/vps/patch-auth-password-policy.py` und setzt zusätzlich `GOTRUE_PASSWORD_MIN_LENGTH=8` (GoTrue-Standard 6, App 8). Backups künftig unter `/root/backups/sitov-auth-password-policy/`. Bestehende Passwörter bleiben gültig; geprüft wird nur beim Setzen. Tests: `deploy/vps/tests/test_auth_password_policy.py`.
 - Die neuen Datenschutz-Absätze (8.2, 8.7, Abschnitt 3) sind ein fachlicher Entwurf und sollten rechtlich geprüft werden, bevor Werbung mit Pixel geschaltet wird.
 - Nach dem DNS-Umzug in der Search Console die Sitemap `https://www.sitov-academy.com/sitemap.xml` einreichen.
