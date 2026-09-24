@@ -6,7 +6,7 @@ jest.mock('@/lib/supabase-env', () => ({
   SUPABASE_COOKIE_NAME: 'sb-sitov-auth-token',
   readSupabaseServerConfig: () => ({ url: 'http://kong:8000', anonKey: 'test-local-key' }),
 }))
-import { middleware } from '@/middleware'
+import { proxy } from '@/proxy'
 
 let language: string | null, user: { id: string } | null, profileError: object | null
 const profile = jest.fn(), eq = jest.fn(), from = jest.fn()
@@ -22,7 +22,7 @@ beforeEach(() => {
     } }, from,
   }))
 })
-const visit = (path: string, method = 'GET') => middleware(new NextRequest(`https://school.example${path}`, { method }))
+const visit = (path: string, method = 'GET') => proxy(new NextRequest(`https://school.example${path}`, { method }))
 
 it('keeps the public website German but returns an existing learner to English', async () => {
   expect((await visit('/de')).headers.get('location')).toBeNull()
