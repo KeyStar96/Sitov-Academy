@@ -13,7 +13,8 @@
    kein UI-Element, darf also warm aussehen. Alles Texttragende (Etiketten,
    Fällig-Fähnchen) nutzt dagegen die Theme-Tokens, damit der Kontrastvertrag
    aus globals.css auch hier gilt. */
-.lb-scene {
+.lb-scene,
+.lb-guide {
   --lb-wood-hi: #ecd1a6;
   --lb-wood: #d9b27d;
   --lb-wood-mid: #bb8b55;
@@ -32,7 +33,8 @@
   --lb-cast: rgb(15 23 42 / 0.3);
 }
 
-html.dark .lb-scene {
+html.dark .lb-scene,
+html.dark .lb-guide {
   --lb-wood-hi: #8a6443;
   --lb-wood: #6f4d32;
   --lb-wood-mid: #573a25;
@@ -847,4 +849,294 @@ html.high-contrast .lb-cta::after { display: none; }
   .lb-cta::after {
     animation: none;
   }
+}
+
+/* ── Kurzanleitung „Wie funktioniert dein Lernkasten?" ─────────────────────
+   Eine Karte: oben der Schalter, aufgeklappt die Mini-Box und die Regeln.
+   Die Mini-Box nutzt dieselben Holz- und Papier-Tokens wie der große Kasten;
+   alles Texttragende steht auf --surface mit den Theme-Tokens. */
+.lb-guide {
+  margin-top: 1.5rem;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 1.25rem;
+  background: var(--surface);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.lb-guide:hover,
+.lb-guide[data-open] {
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+  box-shadow: var(--shadow-md);
+}
+
+.lb-guide__toggle {
+  display: flex;
+  width: 100%;
+  min-height: 4rem;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.75rem 1rem 0.75rem 0.75rem;
+  background: transparent;
+  color: var(--foreground);
+  font-size: 1.0625rem;
+  font-weight: 650;
+  line-height: 1.35;
+  text-align: left;
+}
+
+.lb-guide__toggle:focus-visible {
+  outline: 3px solid var(--foreground);
+  outline-offset: -3px;
+  border-radius: 1.25rem;
+}
+
+.lb-guide__icon {
+  position: relative;
+  display: inline-flex;
+  width: 2.75rem;
+  height: 2.75rem;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.9rem;
+  background: color-mix(in srgb, var(--accent) 12%, var(--surface));
+  color: var(--accent-text);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Zugeklappt glimmt die Glühbirne sacht – eine Einladung, kein Blinken. */
+.lb-guide__icon::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: inherit;
+  box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 45%, transparent);
+  animation: lb-guide-glow 3.6s ease-in-out 1.2s infinite;
+  pointer-events: none;
+}
+
+.lb-guide[data-open] .lb-guide__icon::after { animation: none; }
+.lb-guide__toggle:hover .lb-guide__icon { transform: rotate(-8deg) scale(1.06); }
+
+@keyframes lb-guide-glow {
+  0%, 55%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 0%, transparent); }
+  70% { box-shadow: 0 0 0 6px color-mix(in srgb, var(--accent) 28%, transparent); }
+  85% { box-shadow: 0 0 0 10px color-mix(in srgb, var(--accent) 0%, transparent); }
+}
+
+.lb-guide__chevron {
+  flex-shrink: 0;
+  color: var(--muted);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.lb-guide[data-open] .lb-guide__chevron { transform: rotate(180deg); }
+
+.lb-guide__panel { overflow: hidden; }
+
+.lb-guide__body {
+  margin: 0 1rem;
+  padding: 1.25rem 0 1.25rem;
+  border-top: 1px solid var(--border);
+}
+
+/* Mini-Box: sieben gleich breite Spalten ohne Lücke, damit „ein Fach weiter"
+   genau translateX(100 %) der Kartenbreite ist. */
+.lb-guide__track { max-width: 30rem; margin: 0 auto; }
+
+.lb-guide__slots {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  padding-top: 0.75rem;
+}
+
+.lb-guide__slot {
+  display: flex;
+  height: 3.4rem;
+  align-items: flex-end;
+  justify-content: center;
+  margin: 0 0.18rem;
+  padding-bottom: 0.3rem;
+  border-radius: 0.55rem 0.55rem 0.45rem 0.45rem;
+  background: linear-gradient(180deg, var(--lb-wood-lo) 0%, var(--lb-wood-mid) 38%, var(--lb-wood) 100%);
+  box-shadow: inset 0 4px 7px rgb(0 0 0 / 0.3), 0 1px 0 var(--lb-wood-hi);
+  animation: lb-guide-slot-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: calc(0.08s + var(--i, 0) * 0.05s);
+}
+
+@keyframes lb-guide-slot-in {
+  from { opacity: 0; transform: translateY(8px) scale(0.92); }
+}
+
+.lb-guide__numeral {
+  display: inline-flex;
+  min-width: 1.45rem;
+  height: 1.15rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.3rem;
+  border-radius: 0.35rem;
+  background: var(--surface);
+  box-shadow: 0 1px 0 rgb(0 0 0 / 0.18);
+  font-size: 0.8rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.lb-guide__card {
+  position: absolute;
+  top: 0.35rem;
+  left: 0;
+  display: flex;
+  width: calc(100% / 7);
+  height: 2.05rem;
+  justify-content: center;
+  pointer-events: none;
+  animation: lb-guide-card 9s cubic-bezier(0.45, 0, 0.2, 1) 0.5s infinite both;
+}
+
+.lb-guide__paper {
+  width: 60%;
+  height: 100%;
+  border: 1px solid var(--lb-card-edge);
+  border-radius: 0.2rem;
+  background:
+    linear-gradient(var(--lb-rule-red), var(--lb-rule-red)) 0 28% / 100% 2px no-repeat,
+    repeating-linear-gradient(180deg, transparent 0 5px, var(--lb-rule-blue) 5px 6px) 0 44% / 100% 56% no-repeat,
+    var(--lb-card);
+  box-shadow: 0 5px 10px rgb(15 23 42 / 0.25);
+}
+
+.lb-guide__mark {
+  position: absolute;
+  top: -0.5rem;
+  right: 8%;
+  display: grid;
+  width: 1.15rem;
+  height: 1.15rem;
+  place-items: center;
+  border-radius: 9999px;
+  color: #fff;
+  opacity: 0;
+  box-shadow: 0 2px 5px rgb(15 23 42 / 0.25);
+}
+
+.lb-guide__mark--wrong { background: var(--danger); animation: lb-guide-wrong 9s ease 0.5s infinite both; }
+.lb-guide__mark--right { background: var(--success); animation: lb-guide-right 9s ease 0.5s infinite both; }
+
+/* Fach 1 → 2 → 3, falsch → 2, dann 3 … 6 und ins Archiv. X in Kartenbreiten
+   (= Fächern), der Bogen in rem. */
+@keyframes lb-guide-card {
+  0% { transform: translate(0, 0); opacity: 0; }
+  4%, 8% { transform: translate(0, 0); opacity: 1; }
+  10% { transform: translate(50%, -0.65rem); }
+  12%, 18% { transform: translate(100%, 0); }
+  20% { transform: translate(150%, -0.65rem); }
+  22%, 32% { transform: translate(200%, 0); }
+  34% { transform: translate(150%, -0.4rem); }
+  36%, 44% { transform: translate(100%, 0); }
+  46% { transform: translate(150%, -0.65rem); }
+  48%, 54% { transform: translate(200%, 0); }
+  56% { transform: translate(250%, -0.65rem); }
+  58%, 64% { transform: translate(300%, 0); }
+  66% { transform: translate(350%, -0.65rem); }
+  68%, 74% { transform: translate(400%, 0); }
+  76% { transform: translate(450%, -0.65rem); }
+  78%, 82% { transform: translate(500%, 0); }
+  84% { transform: translate(550%, -0.65rem); }
+  86%, 96% { transform: translate(600%, 0); opacity: 1; }
+  100% { transform: translate(600%, 0); opacity: 0; }
+}
+
+@keyframes lb-guide-wrong {
+  0%, 23% { opacity: 0; transform: scale(0.4); }
+  25% { opacity: 1; transform: scale(1.2); }
+  27%, 33% { opacity: 1; transform: scale(1); }
+  36%, 100% { opacity: 0; transform: scale(0.4); }
+}
+
+@keyframes lb-guide-right {
+  0%, 86% { opacity: 0; transform: scale(0.4); }
+  88% { opacity: 1; transform: scale(1.2); }
+  90%, 95% { opacity: 1; transform: scale(1); }
+  99%, 100% { opacity: 0; transform: scale(0.4); }
+}
+
+.lb-guide__days {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  margin-top: 0.4rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  text-align: center;
+}
+
+.lb-guide__caption {
+  margin-top: 0.15rem;
+  color: var(--muted);
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+.lb-guide__steps {
+  display: grid;
+  gap: 0.85rem;
+  max-width: 40rem;
+  margin: 1.35rem auto 0;
+}
+
+.lb-guide__step {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  color: var(--foreground);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.lb-guide__step b { font-weight: 700; }
+
+.lb-guide__step-icon {
+  --tone: var(--accent-text);
+  display: inline-flex;
+  width: 2.25rem;
+  height: 2.25rem;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+  background: color-mix(in srgb, var(--tone) 12%, var(--surface));
+  color: var(--tone);
+}
+
+.lb-guide__step-icon[data-tone='success'] { --tone: var(--success); }
+.lb-guide__step-icon[data-tone='danger'] { --tone: var(--danger); }
+.lb-guide__step-icon[data-tone='violet'] { --tone: var(--violet); }
+
+.lb-guide__tip {
+  display: flex;
+  max-width: 40rem;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin: 1.1rem auto 0;
+  padding: 0.8rem 1rem;
+  border-radius: 1rem;
+  background: color-mix(in srgb, var(--accent) 8%, var(--surface));
+  color: var(--foreground);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lb-guide__icon::after,
+  .lb-guide__slot,
+  .lb-guide__card,
+  .lb-guide__mark { animation: none; }
+  .lb-guide__card { opacity: 1; }
+  .lb-guide__icon,
+  .lb-guide__chevron { transition: none; }
 }

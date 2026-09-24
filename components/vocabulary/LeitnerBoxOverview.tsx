@@ -7,6 +7,7 @@ import { createVocabularyTranslator, type VocabularyTranslations } from '@/lib/v
 import { phaseIntervalInDays, phaseTone, type BoxBucket, type BoxBucketKey } from '@/lib/vocabulary-box'
 import type { VocabularyBoxSummary } from '@/lib/types/vocabulary'
 import { cn } from '@/lib/utils'
+import LernkastenGuide from './LernkastenGuide'
 import PhaseInspector, { type InspectorOrigin } from './PhaseInspector'
 import './lernkasten.css'
 
@@ -308,6 +309,8 @@ export default function LeitnerBoxOverview({ summary, level, uiLanguage, transla
           <span style={{ width: `${summary.percent}%` }} />
         </div>
       </div>
+
+      <LernkastenGuide t={t} defaultOpen={summary.buckets.every((bucket) => bucket.count === 0)} />
 
       <PhaseInspector
         phase={openPhase}
