@@ -460,7 +460,7 @@ Ausgangsbefund: `lib/mail/templates.mjs` enthielt keinen Ausfallabschnitt.
 
 ### PHASE 7 — SEO, RECHT & DSGVO
 
-Stand 24.09.2026: **7.1 und 7.2 umgesetzt und automatisiert geprüft; 7.3 nicht Teil des Auftrags vom 24.09.2026 (offen).** Bericht: [docs/phase-7-verification.md](docs/phase-7-verification.md). Keine DB-, Speicher- oder CPU-Änderungen.
+Stand 24.09.2026: **7.1 und 7.2 umgesetzt und automatisiert geprüft; aus 7.3 ist die Leaked Password Protection umgesetzt, die übrigen 7.3-Punkte sind nicht beauftragt (offen).** Bericht: [docs/phase-7-verification.md](docs/phase-7-verification.md). Keine DB-, Speicher- oder CPU-Änderungen.
 
 #### 7.0 IST-ZUSTAND
 JSON-LD, OpenGraph, Twitter Cards, canonical und hreflang sind im Prinzip vorhanden. Baue das nicht neu — schließe die Löcher.
@@ -485,7 +485,7 @@ Befund: Meta-Pixel blockiert im `<head>` vor der Einwilligung.
 * [x] Datenschutzerklärung um Meta-Pixel und Drittlandtransfer ergänzen. (Abschnitte 3, 8.2, neu 8.7 in 5 Sprachen; fachlicher Entwurf – rechtliche Prüfung empfohlen.)
 
 #### 7.3 Weitere Pflichten
-* [ ] Supabase Auth: „Leaked Password Protection" (HaveIBeenPwned) aktivieren (`GOTRUE_PASSWORD_HIBP_ENABLED=true`). Prüfe ausgehende Rechte, andernfalls lokale Blocklist als Ersatz verwenden.
+* [x] Supabase Auth: „Leaked Password Protection" (HaveIBeenPwned) aktivieren (`GOTRUE_PASSWORD_HIBP_ENABLED=true`). Prüfe ausgehende Rechte, andernfalls lokale Blocklist als Ersatz verwenden. (24.09.2026: Egress aus dem Auth-Container zu `api.pwnedpasswords.com` geprüft und vorhanden → native HIBP-Prüfung statt Blocklist; fail-open; `deploy/vps/patch-auth-hibp.py` mit Backup und festgeschriebenem Swap-Limit; App meldet geleakte Passwörter verständlich in 5 Sprachen. Nachweis im Bericht.)
 * [ ] Impressum, AGB und Datenschutzerklärung auf DSGVO-Konformität und korrekte Adressen (`.Footer.Addresses`) abgleichen.
 * [ ] Keine geschützten Markennamen (z. B. Duolingo) und Lehrbuchinhalte („Schritte Plus Neu") in DB, Dictionaries oder Metadaten verwenden. Grep über `supabase/seeds/*` einbeziehen.
 

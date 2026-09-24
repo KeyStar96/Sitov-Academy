@@ -16,6 +16,7 @@ export const AUTH_STATUS_CODES = [
   'signup_failed',
   'signup_email_failed',
   'signup_rate_limited',
+  'signup_password_breached',
   'confirm_success',
   'confirm_failed',
   'confirm_missing_params',
@@ -31,6 +32,7 @@ export const AUTH_STATUS_CODES = [
   'password_invalid',
   'password_failed',
   'password_session_missing',
+  'password_breached',
   'resend_email_sent',
   'resend_invalid',
   'resend_rate_limited',
@@ -62,6 +64,17 @@ export type AuthStatusTone = 'success' | 'error'
 
 export function toneForAuthStatus(status: AuthStatusCode): AuthStatusTone {
   return POSITIVE_STATUS_CODES.has(status) ? 'success' : 'error'
+}
+
+/**
+ * Supabase Auth lehnt Passwörter aus bekannten Datenlecks ab (HaveIBeenPwned,
+ * `GOTRUE_PASSWORD_HIBP_ENABLED`): `weak_password` mit dem Grund `pwned`.
+ * Andere `weak_password`-Gründe bleiben beim allgemeinen Fehler.
+ */
+export function isBreachedPasswordError(error: unknown): boolean {
+  if (!error || typeof error !== 'object') return false
+  const { code, reasons } = error as { code?: unknown; reasons?: unknown }
+  return code === 'weak_password' && Array.isArray(reasons) && reasons.includes('pwned')
 }
 
 /**

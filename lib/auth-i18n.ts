@@ -99,6 +99,10 @@ export const AUTH_FALLBACKS = {
     'Es wurden zu viele E-Mails angefordert. Bitte warte einen Moment.',
   status_password_updated: 'Dein neues Passwort ist gespeichert. Du kannst dich jetzt anmelden.',
   status_password_invalid: 'Das Passwort braucht mindestens {min} Zeichen.',
+  status_signup_password_breached:
+    'Dieses Passwort ist aus bekannten Datenlecks bekannt und deshalb nicht sicher. Bitte wähle ein anderes Passwort.',
+  status_password_breached:
+    'Dieses Passwort ist aus bekannten Datenlecks bekannt und deshalb nicht sicher. Bitte wähle ein anderes Passwort.',
   status_password_failed:
     'Das Passwort konnte nicht gespeichert werden. Bitte versuche es noch einmal.',
   status_password_session_missing:

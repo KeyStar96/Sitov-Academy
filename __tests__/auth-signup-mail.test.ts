@@ -12,7 +12,8 @@ jest.mock('@/lib/site-url', () => ({
 import { headers } from 'next/headers'
 import { rateLimit } from '@/lib/ratelimit'
 import { createClient } from '@/utils/supabase/server'
-import { signup } from '@/app/actions/auth'
+import { signup, updatePassword } from '@/app/actions/auth'
+import { isBreachedPasswordError } from '@/lib/types/auth'
 
 const form = () => {
   const data = new FormData()
@@ -64,4 +65,52 @@ it('behält den generischen Fehler für alle übrigen Registrierungsfehler', asy
     mockSignUp({ data: { user: null }, error: { code: 'weak_password', message: 'Password is too weak' } })
     await expect(signup(form())).rejects.toThrow('/de/register?status=signup_failed')
   } finally { log.mockRestore() }
+})
+
+it('nennt ein Passwort aus bekannten Datenlecks konkret (HIBP, Grund „pwned“)', async () => {
+  const log = jest.spyOn(console, 'error').mockImplementation(() => {})
+  try {
+    mockSignUp({ data: { user: null }, error: { code: 'weak_password', reasons: ['pwned'], message: 'Password is known to be weak' } })
+    await expect(signup(form())).rejects.toThrow('/de/register?status=signup_password_breached')
+  } finally { log.mockRestore() }
+})
+
+describe('Passwort zurücksetzen mit Leaked Password Protection', () => {
+  const passwordForm = () => {
+    const data = new FormData()
+    data.set('password', 'password-test')
+    data.set('lang', 'uk')
+    return data
+  }
+  function mockUpdateUser(error: unknown) {
+    jest.mocked(createClient).mockResolvedValue({ auth: {
+      getUser: jest.fn().mockResolvedValue({ data: { user: { id: 'learner' } } }),
+      updateUser: jest.fn().mockResolvedValue({ data: {}, error }),
+      signOut: jest.fn(),
+    } } as never)
+  }
+
+  it('meldet ein geleaktes Passwort statt eines generischen Fehlers', async () => {
+    const log = jest.spyOn(console, 'error').mockImplementation(() => {})
+    try {
+      mockUpdateUser({ code: 'weak_password', reasons: ['pwned'], message: 'Password is known to be weak' })
+      await expect(updatePassword(passwordForm())).rejects.toThrow('/uk/reset-password?status=password_breached')
+    } finally { log.mockRestore() }
+  })
+
+  it('behält andere Speicherfehler beim generischen Status', async () => {
+    const log = jest.spyOn(console, 'error').mockImplementation(() => {})
+    try {
+      mockUpdateUser({ code: 'weak_password', reasons: ['length'], message: 'Password is too short' })
+      await expect(updatePassword(passwordForm())).rejects.toThrow('/uk/reset-password?status=password_failed')
+    } finally { log.mockRestore() }
+  })
+})
+
+it('erkennt nur weak_password mit dem Grund „pwned“ als Datenleck', () => {
+  expect(isBreachedPasswordError({ code: 'weak_password', reasons: ['length', 'pwned'] })).toBe(true)
+  expect(isBreachedPasswordError({ code: 'weak_password', reasons: ['characters'] })).toBe(false)
+  expect(isBreachedPasswordError({ code: 'weak_password' })).toBe(false)
+  expect(isBreachedPasswordError({ code: 'user_already_exists', reasons: ['pwned'] })).toBe(false)
+  expect(isBreachedPasswordError(null)).toBe(false)
 })

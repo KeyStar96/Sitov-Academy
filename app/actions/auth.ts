@@ -9,6 +9,7 @@ import { buildSiteUrl, getOutboundSiteUrl } from '@/lib/site-url'
 import { resolveVerifiedPerson } from '@/lib/profile-person'
 import {
   emailOnlySchema,
+  isBreachedPasswordError,
   loginSchema,
   signupSchema,
   uiLanguageSchema,
@@ -215,6 +216,8 @@ export async function signup(formData: FormData) {
         status =
           error.code === 'user_already_exists' ? 'signup_email_sent'
           : error.code === 'unexpected_failure' ? 'signup_email_failed'
+          // Passwort aus einem bekannten Datenleck: konkret sagen, was zu tun ist.
+          : isBreachedPasswordError(error) ? 'signup_password_breached'
           : 'signup_failed'
       } else if (data.user && data.user.identities?.length === 0) {
         // A public signup form must not disclose existing student addresses.
@@ -334,7 +337,7 @@ export async function updatePassword(formData: FormData) {
 
         if (error) {
           console.error("[auth] Passwort konnte nicht gespeichert werden")
-          status = 'password_failed'
+          status = isBreachedPasswordError(error) ? 'password_breached' : 'password_failed'
         }
       }
     }

@@ -1,6 +1,6 @@
 # Phase 7 — SEO, Recht & DSGVO
 
-Stand: 24.09.2026. Umfang: 7.1 (SEO-Löcher) und 7.2 (Meta-Pixel/Consent) vollständig. 7.3 war nicht Teil dieses Auftrags und bleibt offen. Keine DB-, Speicher- oder CPU-Änderungen (R2, R7 und R8 nicht berührt). Keine neuen externen Dienste (R3); das Meta-Pixel lädt ausschließlich im Browser nach Opt-in.
+Stand: 24.09.2026. Umfang: 7.1 (SEO-Löcher) und 7.2 (Meta-Pixel/Consent) vollständig; aus 7.3 die Leaked Password Protection (eigener Abschnitt unten), übrige 7.3-Punkte offen. Keine DB-, Speicher- oder CPU-Änderungen (R2, R7 und R8 nicht berührt). Keine neuen externen Dienste (R3); das Meta-Pixel lädt ausschließlich im Browser nach Opt-in.
 
 ## Bestandsprüfung (R1)
 
@@ -45,8 +45,26 @@ Stand: 24.09.2026. Umfang: 7.1 (SEO-Löcher) und 7.2 (Meta-Pixel/Consent) vollst
 
 Aufruf E2E: Build mit Platzhalter-Env (`CANONICAL_SITE_URL=https://www.sitov-academy.com`, `NEXT_PUBLIC_SITE_URL=https://217.154.228.254`), `next start -p 3100`, dann `CANONICAL_SITE_URL=… NEXT_PUBLIC_SITE_URL=… npx playwright test --config e2e/phase7.config.ts`.
 
+## 7.3 Leaked Password Protection (HaveIBeenPwned)
+
+Stand 24.09.2026, separater Auftrag: nur dieser 7.3-Punkt.
+
+| Prüfung | Befund |
+|---|---|
+| Auth-Dienst | `supabase/gotrue:v2.186.0` (Coolify-Compose), Binary enthält `HIBPConfiguration`; HIBP bisher nicht gesetzt |
+| Ausgehende Rechte | `IPAddressDeny=any` gilt nur für `sitov-app.service`. Aus dem Auth-Container funktionieren DNS und HTTPS zu `api.pwnedpasswords.com` (Range-Abfrage geliefert) → **native HIBP-Prüfung, keine lokale Blocklist nötig** |
+| R3 | Die Range-Abfrage überträgt nur die ersten 5 Hex-Zeichen eines SHA-1-Hashes (k-Anonymität), weder Passwort noch personenbezogene Daten; kein Datenhaltungsdienst. Genau dieser Weg ist in 7.3 vorgesehen. |
+| Ausfallverhalten | `GOTRUE_PASSWORD_HIBP_FAIL_CLOSED=false`: Ist HIBP nicht erreichbar, bleiben Registrierung und Passwort-Reset möglich |
+| App | GoTrue antwortet mit `422 weak_password` und dem Grund `pwned`. Bisher lief das in die generische Fehlermeldung; jetzt eigene Statusmeldungen `signup_password_breached` / `password_breached` in 5 Sprachen. Andere `weak_password`-Gründe bleiben generisch. |
+| Ressourcen (R2) | Keine Änderung. Weil das Neuerstellen des Containers `MemorySwap` auf den Docker-Standard setzen würde (Lehre aus Phase 2), schreibt der Patch den Live-Wert `memswap_limit: 268435456` fest; RAM-/CPU-Limits byte-identisch (Hash im Patch-Report). |
+
+Umsetzung: `deploy/vps/patch-auth-hibp.py` (Dry-Run standardmäßig, `--apply` mit root-only-Backup unter `/root/backups/sitov-auth-hibp/`, atomares Ersetzen, keine Secrets in der Ausgabe), danach nur Auth neu erstellen: `docker compose up -d --no-deps supabase-auth`. `configure-local-services.py` führt die beiden Werte als Soll-Konfiguration. Rollback: Backup zurückspielen, denselben Compose-Befehl ausführen. Reihenfolge beim Rollout: erst App-Release mit den neuen Meldungen, dann Auth.
+
+Tests: `deploy/vps/tests/test_auth_hibp.py` (exakte Bytes, Idempotenz, CRLF, Konflikte/Duplikate/Interpolation brechen ab, Swap-/Limit-Prüfung, Backup-Rechte), Jest `__tests__/auth-signup-mail.test.ts` (Zuordnung `pwned` in Registrierung und Passwort-Reset), `__tests__/auth-i18n.test.ts` (Texte in allen Sprachen). Live-Nachweis nach dem Rollout siehe unten.
+
 ## Offen / Hinweise
 
-- 7.3 (HIBP-Passwortschutz, rechtliche Gesamtprüfung von Impressum/AGB/Datenschutz, Markennamen) nicht Teil dieses Auftrags.
+- 7.3 übrige Punkte (rechtliche Gesamtprüfung von Impressum/AGB/Datenschutz, Markennamen) nicht beauftragt.
+- Beobachtung außerhalb des Auftrags: GoTrue selbst erzwingt die Standard-Mindestlänge (6); die App verlangt 8. Direkte API-Aufrufe am Formular vorbei könnten kürzere Passwörter setzen (`GOTRUE_PASSWORD_MIN_LENGTH`).
 - Die neuen Datenschutz-Absätze (8.2, 8.7, Abschnitt 3) sind ein fachlicher Entwurf und sollten rechtlich geprüft werden, bevor Werbung mit Pixel geschaltet wird.
 - Nach dem DNS-Umzug in der Search Console die Sitemap `https://www.sitov-academy.com/sitemap.xml` einreichen.

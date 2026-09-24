@@ -29,6 +29,10 @@ env_set('supabase-auth',{
  'GOTRUE_MAILER_TEMPLATES_INVITE':'http://host.docker.internal:8088/mail-templates/invite.html',
  'GOTRUE_MAILER_TEMPLATES_MAGIC_LINK':'http://host.docker.internal:8088/mail-templates/magic_link.html',
  'GOTRUE_MAILER_TEMPLATES_EMAIL_CHANGE':'http://host.docker.internal:8088/mail-templates/email_change.html',
+ # Leaked Password Protection (Phase 7.3): k-anonymity range lookup, fail-open.
+ # Live rollout and swap-cap pinning: deploy/vps/patch-auth-hibp.py.
+ 'GOTRUE_PASSWORD_HIBP_ENABLED':'true',
+ 'GOTRUE_PASSWORD_HIBP_FAIL_CLOSED':'false',
 })
 services['supabase-auth']['extra_hosts']=['host.docker.internal:host-gateway']
 services['supabase-kong']['ports']=['127.0.0.1:9080:8000']
