@@ -26,11 +26,11 @@ sudo python3 /var/www/sitov-academy/deploy/vps/go-live-domain.py check
 sudo python3 /var/www/sitov-academy/deploy/vps/go-live-domain.py activate
 ```
 
-`activate` prüft zuerst DNS (1.1.1.1 und 8.8.8.8, A und AAAA), Domain-Build und unveränderte app.env und
+`activate` prüft zuerst DNS direkt bei den IONOS-Nameservern (A und AAAA; die 1-h-TTL öffentlicher Caches muss nicht abgewartet werden), Domain-Build und unveränderte app.env und
 ändert sonst nichts. Dann in dieser Reihenfolge: Traefik-Route `traefik-domain.yaml` → Zertifikat für
 `www` + Apex (Wartezeit bis 5 Min.) → Supabase-Auth-URLs (Allow-List behält die IP für bereits
 verschickte Links) → app.env → Domain-Release (App + Mail-Worker, Health-Check mit Rücksprung).
-Zwischen DNS-Umstellung und Zertifikat sehen Besucher kurz eine Zertifikatswarnung – daher nachts.
+Zwischen DNS-Umstellung und Zertifikat sehen Besucher, die schon den VPS erreichen, kurz eine Zertifikatswarnung; wer die alte Adresse noch im Cache hat, landet bis zu 1 h weiter auf Netlify.
 
 Nach Commits zwischen `prepare` und `activate` erneut `prepare` ausführen (`check` zeigt es an).
 

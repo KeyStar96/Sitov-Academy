@@ -2,7 +2,7 @@
 """Move Sitov from https://217.154.228.254 to https://www.sitov-academy.com.
 
 Run on the VPS as root:
-  check      read-only: DNS, prepared domain build, Traefik route, certificates
+  check      read-only: DNS at the IONOS nameservers, prepared domain build, Traefik route, certificates
   prepare    BEFORE the DNS change; the live site stays untouched. Writes
              /etc/sitov-academy/app.env.domain and builds the domain release into
              /var/www/sitov-releases-domain (NEXT_PUBLIC_* are baked in at build).
@@ -37,7 +37,9 @@ ORIGIN = 'https://' + WWW
 APP_VALUES = {'NEXT_PUBLIC_SITE_URL': ORIGIN, 'SITE_URL': ORIGIN, 'NEXT_PUBLIC_SUPABASE_URL': ORIGIN + '/supabase'}
 AUTH_VALUES = {'API_EXTERNAL_URL': ORIGIN + '/supabase', 'GOTRUE_SITE_URL': ORIGIN,
                'GOTRUE_URI_ALLOW_LIST': f'{ORIGIN}/**,https://{IP}/**'}
-RESOLVERS = ('1.1.1.1', '8.8.8.8')
+# Authoritative IONOS nameservers (fallback if the NS lookup fails). Asking them directly
+# avoids waiting out the 1 h TTL in public caches while visitors already reach the VPS.
+RESOLVERS = ('ns1100.ui-dns.de', 'ns1077.ui-dns.org', 'ns1057.ui-dns.com', 'ns1053.ui-dns.biz')
 
 APP_ENV = Path('/etc/sitov-academy/app.env')
 DOMAIN_ENV = Path('/etc/sitov-academy/app.env.domain')
@@ -111,12 +113,18 @@ def output(*command):
     return subprocess.run([str(part) for part in command], check=True, capture_output=True, text=True).stdout.strip()
 
 
+def nameservers():
+    lines = output('dig', '+short', '+time=3', '+tries=2', 'NS', APEX, '@1.1.1.1').splitlines()
+    return tuple(sorted(line.rstrip('.') for line in lines if line.strip())) or RESOLVERS
+
+
 def resolve():
     answers = {}
+    servers = nameservers()
     for name in (APEX, WWW):
-        for resolver in RESOLVERS:
+        for resolver in servers:
             for kind in ('A', 'AAAA'):
-                lines = output('dig', '+short', '+time=3', '+tries=2', kind, name, '@' + resolver).splitlines()
+                lines = output('dig', '+short', '+norecurse', '+time=3', '+tries=2', kind, name, '@' + resolver).splitlines()
                 answers[(name, resolver, kind)] = sorted(line for line in lines if re.fullmatch(r'[0-9a-f.:]+', line))
     return answers
 
@@ -229,8 +237,11 @@ def activate(args):
             break
         time.sleep(5)
     else:
-        print('Kein gültiges Zertifikat nach 5 Minuten. Auth und App unverändert.\n'
-              'Diagnose: docker logs coolify-proxy 2>&1 | grep -i -E "acme|certificate" | tail')
+        # Removing the route makes the next `activate` a configuration change, so Traefik retries ACME.
+        TRAEFIK_TARGET.unlink()
+        print('Kein gültiges Zertifikat nach 5 Minuten; Domainroute wieder entfernt. Auth und App unverändert.\n'
+              'Diagnose: docker logs coolify-proxy 2>&1 | grep -i -E "acme|certificate" | tail\n'
+              'Erneut versuchen: activate (frühestens nach einigen Minuten).')
         return 1
     print('Zertifikat für www und Apex gültig.')
 
