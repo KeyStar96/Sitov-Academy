@@ -292,19 +292,19 @@ export function phaseTone(key: BoxBucketKey): PhaseTone {
     return {
       fill: 'bg-[var(--success)]',
       text: 'text-[var(--success)]',
-      soft: 'bg-[var(--success)]/10',
+      soft: 'bg-[color-mix(in_srgb,var(--success)_10%,var(--surface))]',
     }
   }
   if (key >= 4) {
     return {
       fill: 'bg-[var(--violet)]',
       text: 'text-[var(--violet)]',
-      soft: 'bg-[var(--violet)]/10',
+      soft: 'bg-[color-mix(in_srgb,var(--violet)_10%,var(--surface))]',
     }
   }
   return {
     fill: 'bg-[var(--accent)]',
     text: 'text-[var(--accent-text)]',
-    soft: 'bg-[var(--accent)]/10',
+    soft: 'bg-[color-mix(in_srgb,var(--accent)_10%,var(--surface))]',
   }
 }

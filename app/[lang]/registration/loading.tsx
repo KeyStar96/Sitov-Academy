@@ -17,7 +17,7 @@ export default function RegistrationLoading() {
                 <div className="grid min-w-0 gap-4">
                     <div className="h-5 w-48 max-w-full rounded bg-[var(--surface-muted)]" />
                     <div className="grid grid-cols-4 gap-1.5">
-                        {[1, 2, 3, 4].map(i => <div key={i} className={`h-2 rounded-full ${i === 1 ? "bg-[var(--accent)]/30" : "bg-[var(--surface-muted)]"}`} />)}
+                        {[1, 2, 3, 4].map(i => <div key={i} className={`h-2 rounded-full ${i === 1 ? "bg-[color-mix(in_srgb,var(--accent)_30%,transparent)]" : "bg-[var(--surface-muted)]"}`} />)}
                     </div>
                     <div className="mt-2 h-10 w-full max-w-md rounded-lg bg-[var(--surface-muted)]" />
                     <div className="h-5 w-full max-w-sm rounded bg-[var(--surface-muted)]" />
