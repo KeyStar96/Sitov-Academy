@@ -1,0 +1,54 @@
+{
+  "implementation_commit": "e6a8d32f4ce74ab20a0ff5a4750927c37c108575",
+  "date": "2026-09-25",
+  "migrations": [
+    "30_fair_answer_grading.sql",
+    "31_vocabulary_target_forms.sql"
+  ],
+  "tests": {
+    "jest": {
+      "suites": 138,
+      "passed": 1680,
+      "failed": 0,
+      "skipped": 0
+    },
+    "db": {
+      "files": 43,
+      "passed": 413,
+      "failed": 0,
+      "skipped": 0
+    },
+    "python": {
+      "passed": 64,
+      "failed": 0,
+      "skipped": 0
+    },
+    "axe_existing": 6,
+    "axe_extended": 28,
+    "axe_violations": 0,
+    "build_exit": 0,
+    "tsc_exit": 0
+  },
+  "clone": {
+    "restored": true,
+    "replayed_twice": true,
+    "rollback_previous_bodies_identical": true,
+    "removed_after_verification": true
+  },
+  "live": {
+    "release": "e6a8d32f4ce7",
+    "health_loopback": "ready",
+    "health_public": "ready",
+    "variant_findings": 15,
+    "variant_unresolved": 0,
+    "schema_sha256": "45601d6fd79141be2a0d0f46fb336bb97ff131aef7e505db801058d8fc98e6ef",
+    "types_sha256": "7bd41a07503488bb5ce85cd2ef80ffd9d6cc666f9342afb3ae789e040d680605",
+    "mail_worker": "inactive (pre-existing)"
+  },
+  "backup": {
+    "backup": "/root/backups/sitov-migration-20260925T204937355350Z",
+    "postgres_sha256": "8654a4cb2e2c8acc51987447b1f18eeac5dfc1b029550f3825c4d47dd621cd21",
+    "storage_manifest_sha256": "dd923e99ed6fc35b9c6714c5e8f43f59b0693a1bf19be915e0f6dcc54f39c269",
+    "objects": 549
+  }
+}

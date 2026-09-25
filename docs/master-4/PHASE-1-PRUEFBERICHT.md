@@ -45,7 +45,7 @@ Der Klon `sitov_phase1_20260925` wurde aus diesem Dump im bestehenden PostgreSQL
 
 ### Bilder und Accessibility
 
-[Vorher/Nachher-Galerie](phase-1-bilder/README.md): beide Knopfpaare, Schreiben mit Artikelhinweis und Home ohne Freigabe, jeweils Desktop und Handy. Künstliche lokale Daten, kein produktiver Login, keine Personendaten; Ausgangsbuild vor allen Codeänderungen. Die Bilddateien und vollständigen Axe-Ergebnisse sind versioniert. Die erste erweiterte Prüfung fand vier Auth-Ansichten mit doppeltem/nestendem `main`; `AuthShell` verwendete ein zweites `main` innerhalb des Layouts. Dies wurde ohne visuelle Änderung korrigiert und wird vollständig erneut geprüft. Keine Axe-Regeln oder Knoten werden ausgeschlossen.
+[Vorher/Nachher-Galerie](phase-1-bilder/README.md): beide Knopfpaare, Schreiben mit Artikelhinweis und Home ohne Freigabe, jeweils Desktop und Handy. Künstliche lokale Daten, kein produktiver Login, keine Personendaten; Ausgangsbuild vor allen Codeänderungen. Die Bilddateien und vollständigen Axe-Ergebnisse sind versioniert. Die erste erweiterte Prüfung fand vier Auth-Ansichten mit doppeltem/nestendem `main`; `AuthShell` verwendete ein zweites `main` innerhalb des Layouts. Dies wurde ohne visuelle Änderung korrigiert; die vollständige Wiederholungsprüfung bestand. Keine Axe-Regeln oder Knoten werden ausgeschlossen.
 
 ### Abschließende Tests und Aktivierung
 
@@ -63,4 +63,32 @@ Lokale Rohprotokolle: `/tmp/smartgerman-phase1/`. Ausführung wie Phase-0-Baseli
 
 Erstlaufbefunde: Zwei Full-Jest-Fehler (alte Assessment-Reihenfolge und dynamischer Audit-Fehlerlog) wurden gezielt behoben; anschließend vollständiger Lauf erfolgreich. Es wurden keine Test- oder Logger-Ausnahmen ergänzt. Die letzten Reviews prüften zusätzlich serverseitige Zahlenregeln, einen typografisch gleichwertigen Distraktor und Erhalt älterer CMS-Payloads. Die Quellen für PostgreSQL-Sicherheit wurden anhand der [offiziellen Functions-Dokumentation](https://supabase.com/docs/guides/database/functions) geprüft; der aktuelle Changelog erfordert für diese bestehenden APIs keine Änderung oder neue Abhängigkeit.
 
-Alle lokalen Abnahmen und der finale Klon-Abgleich sind grün. Noch ausstehend: Veröffentlichung und Produktionsaktivierung. Der bereits in Phase 0 inaktive Mail-Worker bleibt nach dem bestehenden Release-Verfahren unverändert; seine Zustellprüfung gehört weiterhin zur vorgesehenen Betriebs-/Mailphase. Phase 1 ändert Anmelde- und Freigabehinweise, löst aber keine Testmails oder echten Nutzeranmeldungen aus.
+Alle lokalen Abnahmen, der finale Klon-Abgleich sowie Veröffentlichung und Produktionsaktivierung sind abgeschlossen. Der bereits in Phase 0 inaktive Mail-Worker bleibt nach dem bestehenden Release-Verfahren unverändert; seine Zustellprüfung gehört weiterhin zur vorgesehenen Betriebs-/Mailphase. Phase 1 ändert Anmelde- und Freigabehinweise, löst aber keine Testmails oder echten Nutzeranmeldungen aus.
+
+
+## Produktive Aktivierung und Abschluss
+
+Implementierungscommit `e6a8d32f4ce74ab20a0ff5a4750927c37c108575`, veröffentlicht auf `origin/codex/vps-self-hosted`. Das vorbereitete VPS-Release wurde mit bestehender Produktionskonfiguration gebaut (Exit 0, 157 statische Seiten). Bestehende Service-Dateien wurden vorab geprüft; zum vorherigen Release ist ihr Inhalt unverändert.
+
+```sh
+bash /var/www/sitov-academy/deploy/vps/deploy-release.sh --prepare-only
+python3 /var/www/sitov-academy/deploy/vps/migrate-local.py --apply 30_fair_answer_grading.sql 31_vocabulary_target_forms.sql --sql-dir /var/www/sitov-releases/e6a8d32f4ce7/supabase/vps --keep-stopped
+bash /var/www/sitov-academy/deploy/vps/deploy-release.sh --activate e6a8d32f4ce7 --schema-changed
+```
+
+Produktivbackup unmittelbar vor SQL: `/root/backups/sitov-migration-20260925T204937355350Z`, `COMPLETE` vorhanden, **549 Storage-Objekte**. Nachträglich erneut berechneter PostgreSQL-SHA256 `8654a4cb2e2c8acc51987447b1f18eeac5dfc1b029550f3825c4d47dd621cd21`; Storage-Manifest-SHA256 `dd923e99ed6fc35b9c6714c5e8f43f59b0693a1bf19be915e0f6dcc54f39c269`. `applied.json` bestätigt Datenbank `postgres` und beide Migrationen:
+
+| Datei | SHA256 |
+|---|---|
+| 30_fair_answer_grading.sql | `f489b0a5773f5d612fb32d754155f41b5f2fd2dbdbf9b8cbd5b2b3366f448d5d` |
+| 31_vocabulary_target_forms.sql | `11bfe95cc78dd7db0bc42c11444700e9c57e8ba2f202e89f095fefa6e7a579c3` |
+
+Ergebnis: `/var/www/sitov-current` zeigt auf `/var/www/sitov-releases/e6a8d32f4ce7`, App aktiv, Loopback und `https://www.sitov-academy.com/api/health` jeweils `{"status":"ready"}`. Die unveränderte SQL-Abnahme aus `deploy/vps/tests/master4-phase1.sql` besteht live. Das Live-Varianten-Audit meldet 512 aktive gemeinsame Karten, 26 Satzkarten, 15 Befunde und **0 ungelöste**. Die öffentliche Anmeldestatusseite liefert den neuen Dank und den vollständigen aktuellen Dictionarytext.
+
+Live-Schema und generierte Typen wurden anschließend rein lesend exportiert: Schema-SHA256 `45601d6fd79141be2a0d0f46fb336bb97ff131aef7e505db801058d8fc98e6ef`, Typen-SHA256 `7bd41a07503488bb5ce85cd2ef80ffd9d6cc666f9342afb3ae789e040d680605`. Beide stimmen exakt mit Klon und Repository überein.
+
+App-Limit weiterhin 2.048 MiB, Mail-Limit 256 MiB, `IPAddressDeny=any` mit Loopback-Freigabe erhalten. Keine neuen Dienste oder Ressourcenlimits. Der vorher inaktive Mail-Worker bleibt nach dem bestehenden Aktivierungsvertrag inaktiv; die bereits zu Phase 6/8 zugeordnete Zustellprüfung bleibt offen. Dies ist keine getestete Mailzustellung und keine echte Registrierungssitzung.
+
+Der ausschließlich für diese Phase angelegte Datenbankklon wurde nach Abnahme entfernt. Lokaler Fixture-/Next-Prozess und SSH-Forward sind beendet; geschützte Backups bleiben erhalten. Abschlussstatus: **Phase 1 vollständig durchgeführt**, Dokumentation/Screenshots versioniert; keine Phase 2–8 ausgeführt.
+
+Maschinenlesbare Zusammenfassung: [phase-1-nachweise.json](phase-1-nachweise.json).

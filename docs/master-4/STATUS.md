@@ -2,14 +2,14 @@
 
 | Feld | Wert |
 |---|---|
-| Letzte Aktualisierung | 2026-09-25, Phase 1 — Implementierung und Abnahme |
-| Git-Revision | Phase-1-Ausgang `81c7a40710b9963a95aa3f633f17ea5b75d59f25`; Implementierung vor Veröffentlichung vollständig lokal geprüft |
+| Letzte Aktualisierung | 2026-09-25, Phase 1 abgeschlossen und aktiviert |
+| Git-Revision | Implementierung `e6a8d32f4ce74ab20a0ff5a4750927c37c108575`; Abschlussnachweise im nachfolgenden Dokumentationscommit |
 | Branch | `codex/vps-self-hosted` |
-| Aktives Release | `5f12313ac51e1f4fbe5fd04eb01d6ccefebaa90c` (`/var/www/sitov-current` → `/var/www/sitov-releases/5f12313ac51e`) |
+| Aktives Release | `e6a8d32f4ce74ab20a0ff5a4750927c37c108575` (`/var/www/sitov-current` → `/var/www/sitov-releases/e6a8d32f4ce7`) |
 | Health | Loopback und `https://www.sitov-academy.com/api/health`: `ready` |
-| Letzte Migration | `29_student_level_access_notification.sql`; Registry und Live-Trigger/Enum geprüft |
+| Letzte Migration | `31_vocabulary_target_forms.sql`; 30/31 produktiv über Runner angewendet, Live-Vertrag und Varianten geprüft |
 | Nächste freie Nummer | **32**, vor Verwendung erneut prüfen; Phase 1 belegt 30 und 31 |
-| Datenbank | PostgreSQL 15.8; ausschließlich lesende Live-Abfragen |
+| Datenbank | PostgreSQL 15.8; 30/31 mit Backup aktiviert; anschließende Abnahme ausschließlich lesend |
 
 ## Test-Baseline (Phase 0)
 
@@ -69,7 +69,7 @@ Die obigen Angaben dokumentieren die abgeschlossene Phase-0-Ausgangslage. Der an
 
 ## Phase 1 — Schnelle Korrekturen und Bewertung
 
-Stand: **implementiert und vollständig geprüft; produktive Aktivierung ausstehend**. Ausgangsrevision `81c7a40710b9963a95aa3f633f17ea5b75d59f25`, unverändert auf `codex/vps-self-hosted`. [Prüfbericht](PHASE-1-PRUEFBERICHT.md), [R15-/Registrierungs-Audit](phase-1-actions-signup.md), [Varianten-Audit](varianten-audit.md), [Vorher/Nachher-Bilder](phase-1-bilder/README.md).
+Stand: **abgeschlossen und produktiv aktiviert**. Ausschließlich Phase 1 ausgeführt. Ausgangsrevision `81c7a40710b9963a95aa3f633f17ea5b75d59f25`, unverändert auf `codex/vps-self-hosted`. [Prüfbericht](PHASE-1-PRUEFBERICHT.md), [R15-/Registrierungs-Audit](phase-1-actions-signup.md), [Varianten-Audit](varianten-audit.md), [Vorher/Nachher-Bilder](phase-1-bilder/README.md).
 
 - [x] 1.1 Beide Lern-Knopfpaare getauscht; app-weites R15-Audit umgesetzt; DOM-Tests inklusive gemeinsamer Dialoge.
 - [x] 1.2 Neue serverseitige Bewertung, neutrale Hinweise in fünf Sprachen, vollständige Intervalle/Punkte bei Großschreibung/Satzzeichen; Umlaut/Tippfehler und Distraktoren geprüft; Vorschau und Oberfläche aktualisiert.
@@ -79,8 +79,8 @@ Stand: **implementiert und vollständig geprüft; produktive Aktivierung aussteh
 - [x] Migrationen und Rückwege angelegt, `ORDER`, vollständiger aktueller Schema-Snapshot und generierte öffentliche Typen aktualisiert.
 - [x] Finale Abnahme: 1.680 Jest-Tests (138 Suites), 413 DB-Tests (43 Dateien), 64 Python-Tests, 6 bestehende Playwright-Axe-Fälle und 28 erweiterte Axe-Ansichten; Build und TypeScript grün, kein Skip.
 - [x] Finale doppelte Anwendung im echten PostgreSQL-Klon mit identischen Schema-/Typenprüfsummen; Rückweg und Wiederanwendung geprüft, Varianten-Audit ohne offene Fälle.
-- [ ] Produktionsbackup und Aktivierung mit Schemaänderungsablauf.
-- [ ] Abschlussnachweise und Git-Abgabe.
+- [x] Produktionsbackup und Aktivierung mit Schemaänderungsablauf; lokaler/öffentlicher Health-Endpunkt `ready`, Live-Schema und Typen identisch zum geprüften Klon.
+- [x] Abschlussnachweise und Git-Abgabe: Implementierung `e6a8d32` auf `origin/codex/vps-self-hosted`; endgültige Betriebsnachweise im separaten Dokumentationscommit.
 
 ### Verbindliche Übergabe
 
@@ -89,3 +89,12 @@ Belegt: **30_fair_answer_grading.sql** und **31_vocabulary_target_forms.sql**, j
 `grade_answer` liefert `status`, `matched`, `reason` und `hint`. `EXACT` hat `reason:null` und optional einen neutralen `hint` (`capitalization`, `punctuation`, `capitalization_punctuation`); Typografiegleichheit allein hat `hint:null`. `SOFT_ERROR` hat `reason:umlaut|typo` und `hint:null`. `INCORRECT` hat `matched:null`, `reason:null`, `hint:null`. Großschreibung/Satzzeichen dürfen keine Punkt-/Intervallkürzung verursachen. Exakte falsche Distraktoren sind immer `INCORRECT`. Artikel bleiben Lernziel; die Vokabel-RPC ergänzt `feedback:article_missing|article_wrong|null`, auch bei Wiederholungen. Zahlenvarianten und Wortstellung werden ausschließlich pro Aufgabe festgelegt.
 
 Phase 4 verwendet diesen Vertrag für alle Schreibaufgaben. Aufgaben zur Unterscheidung der Großschreibung (Sie/sie) bleiben für Phase 4 Auswahlaufgaben; diese Phase ergänzt dafür keinen neuen Aufgabenbestand. Phase 3 muss weiterhin den in Phase 0 belegten Grammatik-Lesevertrag ohne vorab ausgelieferte Lösungen herstellen. Die neuen Variantenentscheidungen stehen vollständig in [varianten-audit.md](varianten-audit.md).
+
+
+### Betrieb und Backup nach Phase 1
+
+- Produktivbackup: `/root/backups/sitov-migration-20260925T204937355350Z`, vollständig mit 549 Storage-Objekten. PostgreSQL-SHA256 `8654a4cb2e2c8acc51987447b1f18eeac5dfc1b029550f3825c4d47dd621cd21`; Storage-Manifest-SHA256 `dd923e99ed6fc35b9c6714c5e8f43f59b0693a1bf19be915e0f6dcc54f39c269`.
+- Aktivierung: vorbereitetes Release `e6a8d32f4ce7`, Migration mit `--keep-stopped`, Aktivierung mit `--schema-changed`; App aktiv und beide Health-Endpunkte `ready`. Migrationsdatei-Prüfsummen und Live-Schemaabgleich im [Prüfbericht](PHASE-1-PRUEFBERICHT.md).
+- Live-Varianten-Audit: 512 aktive gemeinsame Karten / 26 Satzkarten / 15 Meldungen / **0 offen**. Nächste freie Migration **32**.
+- Keine RAM-/Netzwerkgrenzen geändert; keine Hintergrunddienste ergänzt. Temporärer Klon nach erfolgreicher Abnahme entfernt, lokale QA-Prozesse und SSH-Forward beendet; Backups bleiben geschützt erhalten.
+- Bestehender Befund: `sitov-mail.service` weiterhin inaktiv (wie vor Phase 1), gemäß vorhandenem Release-Verfahren nicht automatisch gestartet. Zustellbetrieb bleibt für Phase 6/8 zu prüfen; keine Testmails, Konten oder Nutzeranmeldungen angelegt. Phasen 2–8 und ihre offenen Bestandsbefunde bleiben unverändert zugeordnet.
