@@ -336,7 +336,8 @@ Aufgaben:
 
 #### 1.3 Hinweis auf den Artikel beim Ausschreiben
 Befund: Die Beschriftung `type_german_with_article` existiert, ein sichtbarer Hinweis fehlt (`VocabCardSession.tsx` um Zeile 300 und 500). Artikel stehen in `public.grammatical_article` (`der`/`die`/`das`/`none`), Farben in `articleColorClass` (`lib/vocabulary-ui.ts`).
-* [ ] Im Schreibmodus erscheint bei Nomen (Artikel ungleich `none`) über dem Eingabefeld ein kleiner Info-Chip: „Schreib den Artikel mit: der, die oder das“, mit den drei Artikeln in ihren Farben. Bei anderen Wortarten erscheint er nicht.
+* [ ] Im Schreibmodus erscheint bei Nomen (Artikel ungleich `none`) über dem Eingabefeld ein kleiner Info-Chip: „Schreib den Artikel mit: der, die oder das“, mit den drei Artikeln in ihren Farben. Er steht **vor** der Antwort, nicht erst nach einem Fehler. Bei anderen Wortarten erscheint er nicht.
+* [ ] Der Chip ist eine eigene Komponente, damit der Lernpfad ihn in Phase 3 wiederverwendet.
 * [ ] `submit_answer` liefert bei falscher Antwort zusätzlich `feedback: "article_missing" | "article_wrong" | null`, berechnet in PostgreSQL: Stimmt die Antwort ohne Artikel mit dem Nomen überein, ist es `article_missing`; mit einem anderen Artikel ist es `article_wrong`. Das Ergebnis bleibt `INCORRECT`, weil der Artikel Lernziel ist.
 * [ ] Die Oberfläche erklärt beide Fälle in einem Satz (fünf Sprachen) und zeigt die Lösung mit farbigem Artikel.
 * [ ] DB-Tests für beide Rückmeldungen und für Pluralwörter („die Eltern“); Komponententest, dass der Chip nur bei Nomen erscheint.
@@ -420,7 +421,7 @@ Befund: Grammatik läuft über `learning_units` (`trainer` = `exercises`), `lear
 * **Aufbau:** Ein Niveau hat einen Lernpfad aus Pfaden, einen pro Buchlektion. Ein Pfad besteht aus Übungsknoten, einem Wiederholungsknoten und einem Testknoten. Spezial-Zweige hängen optional an einem Knoten.
 * **Freischaltung:**
   * Pfad 1 ist verfügbar, sobald die Lehrkraft den Trainer bzw. das Niveau freigeschaltet hat (bestehende Freigaben, `unit_allowed` bleibt wirksam).
-  * Pfad n+1 wird frei, wenn der Test von Pfad n bestanden ist oder die Lehrkraft ihn freischaltet.
+  * Ein Pfad (eine Lektion) gilt als **abgeschlossen**, sobald sein Abschlusstest mit mindestens **80 %** bestanden ist. Dann wird der nächste Pfad frei: Pfad 1 → Pfad 2 → … → Pfad 7, bis der ganze Lernpfad des Niveaus abgeschlossen ist. Die Lehrkraft kann einen Pfad zusätzlich von Hand freischalten.
   * Innerhalb eines Pfads werden die Knoten der Reihe nach frei. Der Test wird frei, wenn alle Übungs- und Wiederholungsknoten geschafft sind.
   * Spezial-Zweige blockieren nie etwas.
 * **Übungsknoten:** Jeder beginnt mit einer **Merkkarte**: die Regel in der Oberflächensprache, deutsche Beispiele, Farbcode (zum Beispiel Artikel oder Verbposition). Falsch beantwortete Aufgaben kommen am Ende des Knotens noch einmal. Ein Knoten ist geschafft, wenn jede Aufgabe einmal richtig beantwortet wurde. Sterne: 3 bei mindestens 90 % richtig im ersten Versuch, 2 ab 70 %, sonst 1. Wiederholen darf man jederzeit; es zählt der beste Stern-Wert.
@@ -431,7 +432,10 @@ Befund: Grammatik läuft über `learning_units` (`trainer` = `exercises`), `lear
   * Nach dem Test: Ergebnis, jede Aufgabe mit eigener Antwort und Lösung, Empfehlung, welche Knoten man wiederholen sollte.
   * Bestanden: Feier (D5 Nr. 8), die nächste Insel öffnet sich mit Animation.
 * **Bewertung:** Für alle Schreibanteile gilt der `grade_answer`-Vertrag aus Phase 1. `SOFT_ERROR` zählt als richtig.
-* **Niveau geschafft:** Sind alle Tests eines Niveaus bestanden, feiert die App das. Das **nächste Niveau schaltet weiterhin die Lehrkraft frei** (bezahlte Kurse). Sie bekommt dafür einen Hinweis (Phase 6 und 7).
+* **Niveau geschafft:** Sind alle Pfade eines Niveaus abgeschlossen, feiert die App das.
+  * Niveaus schaltet ausschließlich die Lehrkraft frei, weil sie künftig einzeln bezahlt werden. Sie kann mehrere oder alle gebuchten Niveaus **im Voraus** freischalten (`set_student_level_access` nimmt schon heute eine Liste). Daran ändert der Lernpfad nichts: Er schaltet nie ein Niveau frei.
+  * Ist das nächste Niveau freigeschaltet, zeigt die Feier den Knopf „Weiter mit A1.2“. Ist es nicht freigeschaltet, steht dort nur neutral: „A1.2 ist für dich noch nicht freigeschaltet.“
+  * **Die Lehrkraft bekommt keine Benachrichtigung**, wenn jemand ein Niveau abschließt: keine Mail, kein Hinweis, kein Zähler. Sie sieht den Stand nur, wenn sie die Schülerseite öffnet (Phase 7).
 
 #### 3.2 Aufgabentypen
 Alle Typen werden in PostgreSQL bewertet (R5). Für jeden Typ legst du ein JSON-Schema für `content` fest, als Zod-Schema in `lib/` und als SQL-Prüfung, und passt den Constraint aus 2.6 so an, dass er je Typ die richtigen Pflichtfelder verlangt.
@@ -451,6 +455,7 @@ Alle Typen werden in PostgreSQL bewertet (R5). Für jeden Typ legst du ein JSON-
 * [ ] Enum-Erweiterung von `public.exercise_type` in einer **eigenen, vorgeschalteten Migration**.
 * [ ] Für `listening` erzeugt ein Skript die Audiodateien vorab mit dem lokalen Piper-TTS (normal und langsam) und legt sie im Storage ab. Keine Erzeugung zur Laufzeit beim Lernen.
 * [ ] Die Oberfläche jedes Typs ist mit Tastatur und Screenreader bedienbar; Ziehen ist nirgends nötig (R13).
+* [ ] Schreibaufgaben tragen das optionale Kennzeichen `needs_article`; ist es gesetzt, zeigt die Aufgabe den Artikel-Chip aus Phase 1.3.
 
 #### 3.3 Datenmodell
 Vorgaben (Namen und Details darfst du verbessern, die Struktur nicht):
@@ -514,6 +519,7 @@ Du erstellst **alle Aufgaben und alle sieben Tests selbst**. Grundlage sind auss
 * **Wiederkehrende Figuren:** Erfinde eine kleine Besetzung (vier bis sechs Personen verschiedenen Alters und verschiedener Herkunft), die durch alle sieben Pfade führt. Keine Namen aus Lehrwerken (R14).
 * **Kein Vorgriff:** Keine Grammatik aus späteren Pfaden. Pfad 3 kennt noch keinen Akkusativ, Pfad 5 noch kein Perfekt.
 * **Wortschatz:** vorrangig die Wörter der passenden Vokabel-Lektion von A1.1 (Zuordnung laut `STATUS.md` aus Phase 0) und der Wörter früherer Pfade. Neue Wörter nur, wenn das Lernziel sie verlangt.
+* **Artikel-Hinweis:** Verlangt eine Schreibaufgabe ein Nomen, trägt sie im Seed das Kennzeichen `needs_article` und zeigt den Artikel-Chip aus Phase 1.3 vor der Antwort.
 * **Merkkarten:** höchstens drei Sätze Regel in der Oberflächensprache, zwei bis vier deutsche Beispiele, Farbcode (Artikel: die bestehenden Artikelfarben; Verbposition: eine einheitliche Hervorhebung für das Verb).
 * **Erklärungen bei Fehlern:** Zu jeder Aufgabe eine kurze Erklärung in allen vier Oberflächensprachen (en, ru, uk, tr) und auf Deutsch für das CMS.
 * **Hören:** In jedem Pfad mindestens ein Knoten mit `listening`, weil Hören für Telefonate und Termine zentral ist.
@@ -555,7 +561,7 @@ Befund: Die Lernbox gilt pro Niveau. Der Lernstand liegt in `vocabulary_directio
 * **Mitgenommen werden offene Wörter** aller früheren Niveaus (niedrigere `sort_order`), einschließlich offener eigener Wörter. Nie begonnene Wörter bleiben im alten Niveau. Wörter aus pausierten Lektionen bleiben pausiert.
 * **Ein Schalter pro Person und Zielniveau.** Ist er an, erscheinen die offenen Wörter in Lernbox, Fälligkeiten und Lernsitzung des Zielniveaus, jeweils im richtigen Fach. Ist er aus, verschwinden sie dort wieder, ohne Verlust.
 * **Die Station** „Aus früheren Niveaus“ steht in den Lektionen neben „Eigene Wörter“, mit Schalter, Anzahl und Mini-Verteilung auf die Fächer, aufgeschlüsselt nach Herkunftsniveau.
-* **Einmalige Frage:** Öffnet jemand zum ersten Mal ein Niveau und hat offene Wörter in früheren Niveaus, fragt die App einmal: „23 offene Wörter aus A1.1 mitnehmen?“ mit „Nein, danke“ links und „Mitnehmen“ rechts (R15). Die Antwort wird gespeichert, der Schalter bleibt jederzeit änderbar.
+* **Einmalige Frage:** Beginnt jemand zum ersten Mal, in einem Niveau Vokabeln zu lernen (erste Lernrunde oder erstes Einstufen dort), und hat offene Wörter in früheren Niveaus, fragt die App einmal: „23 offene Wörter aus A1.1 mitnehmen?“ mit „Nein, danke“ links und „Mitnehmen“ rechts (R15). Die Antwort wird gespeichert, der Schalter bleibt jederzeit änderbar.
 * **Zugriff:** Eine mitgenommene Karte darf beantwortet werden, wenn die Person das Zielniveau freigeschaltet hat, der Schalter an ist und für diese Karte bereits eigener Lernstand existiert. Das prüft PostgreSQL.
 * **Zurücksetzen:** Setzt die Lehrkraft das Zielniveau zurück, wird dessen Schalter gelöscht, der Lernstand der Herkunftsniveaus bleibt. Setzt sie ein Herkunftsniveau zurück, verschwinden dessen Karten auch aus der Mitnahme.
 * **Kein Doppelzählen:** Der Fortschritt eines Niveaus („x % gelernt“) zählt nur seine eigenen Wörter. Mitgenommene Wörter erscheinen getrennt ausgewiesen.
@@ -585,7 +591,7 @@ Befund: Nur Medien kennen `fresh` (erstellt in den letzten N Tagen, `lib/learnin
 Regeln:
 * Eine Tabelle für **Gesehen-Quittungen**: Person, Art (Enum), Objekt, Zeitpunkt.
 * Arten: Niveau, Vokabel-Lektion, Pfad, Spezial-Zweig, Aussprache-Text, Medienordner, Video, Präsentation, Trainer (Modus).
-* **Neu** ist ein Objekt für eine Person, wenn es für sie sichtbar ist, sie es noch nicht geöffnet hat und es **nach ihrem ersten Besuch dieses Niveaus** veröffentlicht oder freigeschaltet wurde. Ein neu freigeschaltetes Niveau und ein neu freigeschalteter Modus sind bis zum ersten Öffnen neu. So zeigt ein frisches Konto nicht alles als neu.
+* **Neu** ist ein Objekt für eine Person, wenn es für sie sichtbar ist, sie es noch nicht geöffnet hat und es **nach ihrem ersten Besuch dieses Niveaus** veröffentlicht oder freigeschaltet wurde. Ein Niveau oder Modus ist neu, wenn er **nach dem ersten Besuch der Person im Lernraum** freigeschaltet wurde und noch nicht geöffnet ist. Was schon beim ersten Besuch freigeschaltet war (zum Beispiel alle im Voraus gebuchten Niveaus), ist nicht neu. So zeigt ein frisches Konto nicht alles als neu.
 * Bei der Migration gelten alle Bestandsobjekte für alle bestehenden Personen als gesehen.
 * **Gesehen** wird gesetzt, wenn die Person das Objekt öffnet (Seite, Knoten, Video, Ordner), nicht beim bloßen Anzeigen der Liste.
 * Anzeige nach D10: Badge an Kachel, Karte und Modus-Tab; Punkt am Tab „Lernen“ der unteren Leiste, wenn in irgendeinem freigeschalteten Niveau etwas neu ist; Badge an der Niveaukarte auf Home.
@@ -606,10 +612,10 @@ Befund: Die Mail **existiert bereits**. `app/actions/pronunciation-conversations
 * [ ] Tests: Schalter aus → keine Zeile in `private.mail_outbox`; an → genau eine Zeile; drei Antworten in 10 Minuten → eine Mail; Vorlage in fünf Sprachen.
 * [ ] **Nachweis in Produktion:** Testkonto, Antwort der Lehrkraft, Zeile in `private.mail_outbox` mit Status `sent`, Eingang im Postfach des Testkontos. Im Bericht nur Zeitstempel und Status, keine Adressen. Danach Testdaten entfernen.
 
-#### 6.3 Hinweis an die Lehrkraft: Niveau geschafft
-* [ ] Hat eine Person alle Tests eines Niveaus bestanden, erscheint im Lehrer-Dashboard ein Hinweis „bereit für A1.2“ mit Knopf „A1.2 freischalten“ (die vorhandene Freischalt-Mail aus Migration 29 geht dann automatisch).
-* [ ] Zusätzlich eine Mail an die Lehrkraft (Staff-Mail wie bei Migration 27), höchstens eine pro Person und Niveau.
-* [ ] Tests für Hinweis, Dedupe und Freischaltung mit einem Klick.
+#### 6.3 Niveau abgeschlossen: keine Benachrichtigung der Lehrkraft
+Nutzerentscheidung vom 25.09.2026: Die Lehrkraft schaltet gebuchte Niveaus im Voraus frei und will beim Abschluss eines Niveaus **nicht** benachrichtigt werden.
+* [ ] Es gibt weder Staff-Mail noch Dashboard-Hinweis noch Zähler zum Niveau-Abschluss.
+* [ ] DB-Test: Nach dem Bestehen des letzten Tests eines Niveaus entsteht keine neue Zeile in `private.mail_outbox`.
 
 **Abnahme Phase 6:** Alle Tests grün, Produktionsnachweis der Aussprache-Mail im Bericht, Home-Antwortzeit nicht schlechter als 10 % gegenüber Phase 0.
 
@@ -625,7 +631,8 @@ Befund: `components/admin/StudentDetailModal.tsx` ist 31 Zeilen lang (nur Kontak
 
 #### 7.1 Schülerseite `/admin/students/[id]`
 Eigene Seite statt Modal, mit Tabs. Das Modal wird durch einen Link auf die Seite ersetzt.
-* [ ] **Überblick:** zuletzt aktiv, Lernzeit 7 und 30 Tage, aktive Tage in Folge, aktuelles Niveau, Position auf dem Lernpfad, letzte Testnote, fällige Karten, Mini-Verteilung auf die Fächer, offene Hinweise („braucht Aufmerksamkeit“, „bereit für nächstes Niveau“).
+* [ ] **Überblick:** zuletzt aktiv, Lernzeit 7 und 30 Tage, aktive Tage in Folge, aktuelles Niveau, Position auf dem Lernpfad, letzte Testnote, fällige Karten, Mini-Verteilung auf die Fächer, Markierung „braucht Aufmerksamkeit“ mit Grund, abgeschlossene Pfade je Niveau.
+* [ ] **Niveaus freischalten** wie bisher, auch mehrere oder alle auf einmal im Voraus. Die neue Seite übernimmt diese Funktion aus der Liste, ohne sie einzuschränken.
 * [ ] **Vokabeln:** Fächer-Verteilung je Niveau **und je Lektion** (`PhaseDistributionChart.tsx` wiederverwenden), halb gewusste Wörter, die schwierigsten Wörter (meiste Rückfälle), die letzten 50 Antworten mit getippter Antwort und Ergebnis, pausierte Lektionen, Mitnahme an/aus mit Anzahl. Eigene Wörter bleiben privat: nur ihre Anzahl.
 * [ ] **Lernpfad:** Karte wie bei der Person, mit Sternen und Status je Knoten; alle Testversuche mit Prozentwert und aufklappbar jede Antwort; Knöpfe „Pfad freischalten“ und „Pfad/Test zurücksetzen“ mit Bestätigung und Protokoll.
 * [ ] **Aussprache:** Gespräche, offene und unbeantwortete Aufnahmen, Link in das Gespräch.
@@ -650,7 +657,7 @@ Eigene Seite statt Modal, mit Tabs. Das Modal wird durch einen Link auf die Seit
 * [ ] Tests für Speichern, Limit, Übernehmen (danach wird dieselbe Antwort als richtig bewertet) und Ablehnen.
 
 #### 7.5 Navigation
-* [ ] `lib/admin-navigation.ts` um „Einsprüche“ (mit Zähler) und „Bereit für nächstes Niveau“ ergänzen.
+* [ ] `lib/admin-navigation.ts` um „Einsprüche“ (mit Zähler) ergänzen.
 
 **Abnahme Phase 7:** DB-Tests für alle neuen Abfragen inklusive Rechten (Lernende sehen keine fremden Daten, Lehrkraft sieht alle); Playwright für Schülerseite, Liste, Einspruch; axe ohne Filter; Antwortzeit der Liste bei 200 Test-Personen unter 800 ms (p95, Messung im Bericht).
 
@@ -670,7 +677,7 @@ Eigene Seite statt Modal, mit Tabs. Das Modal wird durch einen Link auf die Seit
 * [ ] **Phase 2:** Modus-Dock auf allen vier Modi · volle Brotkrumen auf Handy · untere Leiste blendet aus und ein, Aufnahmeknopf bleibt sichtbar · Home zeigt das zuletzt gelernte Niveau · reduzierte Bewegung ohne laufende Animationen.
 * [ ] **Phase 3/4:** Pfad 1 komplett auf Pixel 7 · Test knapp unter 80 % nicht bestanden, genau 80 % bestanden · Pfad 2 erst danach frei · keine Lösungen vor der Antwort (Netzwerkmitschnitt) · `/exercises` leitet nach `/path` · Qualitätstests des Seeds.
 * [ ] **Phase 5:** Mitnahme mit erhaltenem Fach, Schalter aus und an, Zurücksetzen.
-* [ ] **Phase 6:** „Neu“ erscheint und verschwindet · Mail-Schalter aus/an · Bündelung.
+* [ ] **Phase 6:** „Neu“ erscheint und verschwindet, im Voraus freigeschaltete Niveaus sind nicht neu · Mail-Schalter aus/an · Bündelung · keine Benachrichtigung der Lehrkraft bei Niveau-Abschluss.
 * [ ] **Phase 7:** Schülerseite mit allen Tabs · Einspruch übernehmen · Rechte.
 * [ ] **Gesamt:** axe ohne Filter auf allen Lernenden- und Admin-Routen in hell und dunkel · `translation-integrity` grün · vollständiger Jest-, DB-, Python- und Playwright-Lauf grün.
 
