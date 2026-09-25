@@ -325,6 +325,7 @@ Neuer Vertrag (verbindlich):
 * Umlaut und Tippfehler bleiben `SOFT_ERROR` wie bisher. Kommt Groß-/Kleinschreibung zu einem Umlaut- oder Tippfehler hinzu, bestimmt der Umlaut- bzw. Tippfehler das Ergebnis.
 * Typografische Gleichwertigkeiten gelten immer als identisch: verschiedene Apostrophe (`'` `’`), Anführungszeichen, Bindestrich-Arten, mehrfache Leerzeichen, Leerzeichen am Anfang oder Ende.
 * Alles andere bleibt, wie es ist. Insbesondere werden `der`/`den`, `ihm`/`ihn`, `am`/`an` weiter nicht als Tippfehler toleriert.
+* **Distraktoren sind keine Tippfehler:** Hat eine Lückenaufgabe vorgegebene falsche Antwortmöglichkeiten (Distraktoren) und die Eingabe des Lernenden entspricht EXAKT einem dieser falschen Distraktoren (z.B. „arbeiten“ statt „arbeitet“), darf dies niemals als `SOFT_ERROR` gewertet werden. Das Ergebnis muss zwingend `INCORRECT` sein.
 * Didaktische Folge: Aufgaben, deren **Lernziel** die Großschreibung ist (Höflichkeitsform „Sie“ gegen „sie“), werden nicht als Schreibaufgabe gebaut, sondern als Auswahl. Das gilt für Phase 4.
 
 Aufgaben:
