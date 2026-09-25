@@ -147,7 +147,7 @@ Dieselben Wörter bedeuten im Code, in der Oberfläche und in diesem Prompt dass
 * **R8 — BACKUP VOR JEDER DB-ÄNDERUNG.** Über `deploy/vps/migrate-local.py` (bei `--apply` automatisch, sonst `--backup-only`). SHA256 von Datenbank-Dump und Storage-Manifest stehen im Bericht.
 * **R9 — ROLLBACK-PLAN.** Jede Migration hat eine Rückweg-Datei unter `supabase/vps/rollback/`. Kein Bruch ohne Rückweg. Bestandsdaten werden archiviert (`is_active = false`), nicht gelöscht.
 * **R10 — FEHLER SIND EXPLIZIT.** Jede RPC gibt bei Fehlern strukturiertes JSONB zurück, mindestens `{"error": "<code>", "message": "<text>"}`. Die Oberfläche übersetzt `error`-Codes in allen fünf Sprachen. Nichts wird still verschluckt.
-* **R11 — ENUM STATT CHECK.** Wiederkehrende Wertemengen (Knotenart, Status, Ereignisart, Einspruchsstatus …) werden `CREATE TYPE … AS ENUM`, nie `CHECK`.
+* **R11 — ENUM STATT CHECK.** Wiederkehrende Wertemengen (Knotenart, Status, Ereignisart …) werden `CREATE TYPE … AS ENUM`, nie `CHECK`.
 * **R12 — FÜNF SPRACHEN, IMMER GLEICHZEITIG.** Jeder neue Text entsteht in `de`, `en`, `ru`, `uk` und `tr` im selben Commit. `__tests__/translation-integrity.test.ts` muss grün bleiben (exakt gleiche Schlüsselstruktur). Übersetzungen sind natürlich formuliert, nicht wörtlich. Russisch und Ukrainisch werden nie vermischt.
 * **R13 — BARRIEREFREI FÜR ÄLTERE MENSCHEN.**
   * Touch-Ziele mindestens 48 × 48 px, Hauptaktionen 56 px hoch.
@@ -261,7 +261,7 @@ Die Skizze der Lehrerin zeigt einen gewundenen Weg aus blauen Aufgabenknoten, ge
 * **Richtig:** grüner Haken, kurzer Pop, positives Wort, weiter mit einem großen Knopf rechts bzw. unten.
 * **Richtig mit Schreibhinweis** (Umlaut, Tippfehler): wie richtig, dazu die korrekte Schreibweise mit markierter Stelle. Gelb (`--warning`) nur für diesen Fall.
 * **Neutraler Hinweis** (Groß-/Kleinschreibung, Zeichensetzung): wie richtig, ohne Warnfarbe, nur „So schreibt man es: …“.
-* **Falsch:** kein Rot als Fläche. Sanftes Wackeln, die richtige Lösung groß, eine Erklärung in der Oberflächensprache, wenn es eine gibt (zum Beispiel „Der Artikel fehlt“). Bei Schreibaufgaben zusätzlich der Link „Meine Antwort ist auch richtig“ (Phase 7).
+* **Falsch:** kein Rot als Fläche. Sanftes Wackeln, die richtige Lösung groß, eine Erklärung in der Oberflächensprache, wenn es eine gibt (zum Beispiel „Der Artikel fehlt“).
 
 ### D12 — Knöpfe
 * R15 gilt überall. Die primäre Aktion ist gefüllt (`--accent-strong`), die sekundäre umrandet.
@@ -650,16 +650,10 @@ Eigene Seite statt Modal, mit Tabs. Das Modal wird durch einen Link auf die Seit
 * [ ] Datenschutzerklärung in fünf Sprachen ergänzen: was die Lehrkraft sieht, wozu, wie lange.
 * [ ] Im Profil der Lernenden ein Satz: „Deine Lehrkraft sieht deinen Lernfortschritt, damit sie dich gezielt unterstützen kann.“ mit Link zur Datenschutzerklärung.
 
-#### 7.4 Antwort-Einsprüche
-* [ ] Nach einer falschen Schreibantwort (Vokabeln und Lernpfad-Übungen, nicht im Test) gibt es den Link „Meine Antwort ist auch richtig“. Er speichert Aufgabe, Antwort und Person. Höchstens 20 Einsprüche pro Person und Tag.
-* [ ] Warteschlange im Dashboard mit Aufgabe, erwarteter Lösung und eingereichter Antwort. „Übernehmen“ fügt die Antwort mit einem Klick zu `accepted_answers` bzw. `alternative_answers_de` hinzu; „Ablehnen“ mit optionaler Begründung.
-* [ ] Die Person sieht beim nächsten Besuch einen Hinweis zum Ergebnis. Die Übernahme gilt für alle künftigen Antworten; bereits vergebene Ergebnisse werden nicht rückwirkend geändert. Bei knapp nicht bestandenen Tests kann die Lehrkraft den Pfad manuell freischalten.
-* [ ] Tests für Speichern, Limit, Übernehmen (danach wird dieselbe Antwort als richtig bewertet) und Ablehnen.
+#### 7.4 Bewusst nicht gebaut: Einsprüche von Lernenden
+Nutzerentscheidung vom 25.09.2026: Lernende beurteilen nie selbst, ob eine Schreibantwort richtig ist. Es gibt **keinen** Knopf „Meine Antwort ist auch richtig“ und keine Einspruchs-Warteschlange. Richtige Lösungen und Varianten legt ausschließlich die Lehrkraft fest, im CMS und über das Varianten-Audit aus Phase 1.4. Die Selbsteinschätzung „Wusste ich / Wusste ich nicht“ im Karteikarten-Modus bleibt unverändert.
 
-#### 7.5 Navigation
-* [ ] `lib/admin-navigation.ts` um „Einsprüche“ (mit Zähler) ergänzen.
-
-**Abnahme Phase 7:** DB-Tests für alle neuen Abfragen inklusive Rechten (Lernende sehen keine fremden Daten, Lehrkraft sieht alle); Playwright für Schülerseite, Liste, Einspruch; axe ohne Filter; Antwortzeit der Liste bei 200 Test-Personen unter 800 ms (p95, Messung im Bericht).
+**Abnahme Phase 7:** DB-Tests für alle neuen Abfragen inklusive Rechten (Lernende sehen keine fremden Daten, Lehrkraft sieht alle); Playwright für Schülerseite und Liste; axe ohne Filter; Antwortzeit der Liste bei 200 Test-Personen unter 800 ms (p95, Messung im Bericht).
 
 **Übergabe:** Neue Routen, RPCs und die Löschregel in `STATUS.md`.
 
@@ -678,7 +672,7 @@ Eigene Seite statt Modal, mit Tabs. Das Modal wird durch einen Link auf die Seit
 * [ ] **Phase 3/4:** Pfad 1 komplett auf Pixel 7 · Test knapp unter 80 % nicht bestanden, genau 80 % bestanden · Pfad 2 erst danach frei · keine Lösungen vor der Antwort (Netzwerkmitschnitt) · `/exercises` leitet nach `/path` · Qualitätstests des Seeds.
 * [ ] **Phase 5:** Mitnahme mit erhaltenem Fach, Schalter aus und an, Zurücksetzen.
 * [ ] **Phase 6:** „Neu“ erscheint und verschwindet, im Voraus freigeschaltete Niveaus sind nicht neu · Mail-Schalter aus/an · Bündelung · keine Benachrichtigung der Lehrkraft bei Niveau-Abschluss.
-* [ ] **Phase 7:** Schülerseite mit allen Tabs · Einspruch übernehmen · Rechte.
+* [ ] **Phase 7:** Schülerseite mit allen Tabs · Rechte · kein Einspruchs-Knopf in der Lernenden-Oberfläche.
 * [ ] **Gesamt:** axe ohne Filter auf allen Lernenden- und Admin-Routen in hell und dunkel · `translation-integrity` grün · vollständiger Jest-, DB-, Python- und Playwright-Lauf grün.
 
 #### 8.3 Leistung
