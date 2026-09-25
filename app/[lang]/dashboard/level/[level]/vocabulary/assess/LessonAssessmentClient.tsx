@@ -50,7 +50,7 @@ export default function LessonAssessmentClient({ learnerId, cards, lessonName, l
     if (navigated.current || !mounted.current) return
     navigated.current = true
     // Die eingestufte Lektion liegt jetzt in der Lernbox — auch wenn sie im
-    // Lernweg früher einmal ausgeschaltet war. Scheitert das, übt man trotzdem.
+    // unter „Lektionen" früher einmal ausgeschaltet war. Scheitert das, übt man trotzdem.
     await setLessonInBox(lesson, level, true).catch(() => undefined)
     router.replace(`${overview}/train?lesson=${encodeURIComponent(lesson)}`)
   }

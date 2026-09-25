@@ -10,7 +10,7 @@ export interface PathStation extends LessonStation {
 }
 
 /**
- * Stationen aus den Vokabel-Lektionen: „geschafft" ist eine Lektion, sobald
+ * Stationen unter „Lektionen" (Modus Vokabeln): „geschafft" ist eine Lektion, sobald
  * alle ihre Wörter im Karteikasten liegen — das Festigen läuft danach in der
  * Lernbox weiter. „Jetzt dran" ist die erste Lektion mit neuen Wörtern.
  */

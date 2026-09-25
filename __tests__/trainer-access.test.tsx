@@ -48,7 +48,7 @@ describe('Student trainer tiles', () => {
  test.each(['de', 'en', 'ru', 'uk', 'tr'] as const)('a locked tile has a label and no navigation in %s', lang => {
   const t = studentTranslator(lang)
   render(<TrainerStatusTiles lang={lang} level="A1.1" status={status(true)} languageLocked={false} />)
-  const locked = screen.getByText(t('area_grammar')).closest('[aria-disabled="true"]')!
+  const locked = screen.getByText(t('area_path')).closest('[aria-disabled="true"]')!
   expect(locked).not.toBeNull()
   expect(within(locked as HTMLElement).getByText(t('status_locked'))).toBeVisible()
   expect(within(locked as HTMLElement).queryByRole('link')).toBeNull()

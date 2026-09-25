@@ -30,6 +30,13 @@ export const DASHBOARD_FALLBACKS = {
   nav_train: 'Lernen',
   nav_assess: 'Einstufen',
   nav_lessons: 'Lektionen',
+  nav_path: 'Lernpfad',
+  nav_path_n: 'Pfad {n}',
+  nav_node: 'Knoten',
+  nav_test: 'Test',
+  nav_home: 'Start',
+  nav_media: 'Mediathek',
+  nav_calendar: 'Kalender',
   nav_back: 'Zurück',
   nav_back_aria: 'Eine Seite zurück',
   open_profile: 'Profil',
@@ -63,12 +70,22 @@ export function createDashboardTranslator(translations: DashboardTranslations): 
   return createTranslator(DASHBOARD_FALLBACKS, translations)
 }
 
+/**
+ * Beschriftung je Pfadsegment für die Brotkrumen (D7). Der Lernpfad liegt bis
+ * Phase 3 unter `exercises` und heißt schon jetzt wie im Modus-Dock. Phase 3
+ * ergänzt `path/<n>/<knoten>/test`: Pfad n (`nav_path_n`), Knoten, Test.
+ */
 export const DASHBOARD_ROUTE_KEYS = {
-  dashboard: 'nav_dashboard',
+  dashboard: 'nav_home',
   profile: 'nav_profile',
-  exercises: 'nav_exercises',
+  exercises: 'nav_path',
+  path: 'nav_path',
+  node: 'nav_node',
+  test: 'nav_test',
   vocabulary: 'nav_vocabulary',
-  videos: 'nav_videos',
+  videos: 'nav_media',
+  media: 'nav_media',
+  calendar: 'nav_calendar',
   pronunciation: 'nav_pronunciation',
   train: 'nav_train',
   assess: 'nav_assess',

@@ -230,13 +230,13 @@ export interface LessonBoxStat {
   untouched: number
   /** Vokabeln, bei denen mindestens eine Richtung wartet. */
   due: number
-  /** Im Lernweg ausgeschaltet (Migration 25): Lernstand bleibt, geübt wird nicht. */
+  /** Unter „Lektionen" ausgeschaltet (Migration 25): Lernstand bleibt, geübt wird nicht. */
   paused?: boolean
 }
 
 /**
  * Eine Lektion liegt in der Lernbox, sobald sie Lernstand hat (Einstufung oder
- * „alle Wörter in Phase 1") und im Lernweg nicht ausgeschaltet ist.
+ * „alle Wörter in Phase 1") und unter „Lektionen" nicht ausgeschaltet ist.
  */
 export function isLessonInBox(stat: Pick<LessonBoxStat, 'active' | 'learned' | 'paused'>): boolean {
   return stat.active + stat.learned > 0 && !stat.paused

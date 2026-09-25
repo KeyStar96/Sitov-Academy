@@ -7,7 +7,7 @@
    ══════════════════════════════════════════════════════════════════════ */
 
 /* ── Mikro-Animationen ─────────────────────────────────────────────────── */
-@keyframes st-rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+@keyframes st-rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 @keyframes st-pop { 0% { opacity: 0; transform: scale(.6); } 60% { opacity: 1; transform: scale(1.08); } 100% { transform: scale(1); } }
 @keyframes st-ring-fill { from { stroke-dashoffset: var(--st-ring-length); } }
 @keyframes st-ping { 0% { transform: scale(1); opacity: .55; } 80%, 100% { transform: scale(2.4); opacity: 0; } }
@@ -16,11 +16,12 @@
 @keyframes st-shine { from { transform: translateX(-120%) skewX(-18deg); } to { transform: translateX(340%) skewX(-18deg); } }
 @keyframes st-breathe { 0%, 100% { box-shadow: 0 0 0 0 var(--accent-ring); } 50% { box-shadow: 0 0 0 10px transparent; } }
 
-.st-rise { animation: st-rise .5s cubic-bezier(.22, 1, .36, 1) both; animation-delay: calc(var(--i, 0) * 70ms); }
-.st-pop { animation: st-pop .45s cubic-bezier(.22, 1, .36, 1) both; }
+.st-rise { animation: st-rise var(--motion-slow) var(--ease-out-soft) both; animation-delay: calc(min(var(--i, 0), 7) * var(--motion-stagger)); }
+.st-pop { animation: st-pop var(--motion-slow) var(--ease-out-soft) both; }
 /* Tipp-Rückmeldung: Das Ziel gibt beim Drücken spürbar nach. */
-.st-press { transition: transform .16s ease, box-shadow .2s ease, border-color .2s ease, background-color .2s ease; -webkit-tap-highlight-color: transparent; }
+.st-press { transition: transform var(--motion-fast) ease, box-shadow var(--motion-base) ease, border-color var(--motion-base) ease, background-color var(--motion-base) ease; -webkit-tap-highlight-color: transparent; }
 .st-press:active { transform: scale(.97); }
+[data-pressable] { -webkit-tap-highlight-color: transparent; }
 
 /* ── Allgemeine Bausteine ──────────────────────────────────────────────── */
 .st-eyebrow { display: flex; align-items: center; gap: .5rem; margin-top: 1.25rem; color: var(--accent-text); font-size: .8rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
@@ -44,7 +45,7 @@
 .st-ring { position: relative; display: inline-grid; flex-shrink: 0; place-items: center; }
 .st-ring svg { display: block; }
 .st-ring__track { fill: none; stroke: var(--surface-muted); }
-.st-ring__value { fill: none; stroke: var(--accent); stroke-linecap: round; animation: st-ring-fill 1.1s cubic-bezier(.22, 1, .36, 1) both; transition: stroke-dashoffset .6s cubic-bezier(.22, 1, .36, 1); }
+.st-ring__value { fill: none; stroke: var(--accent); stroke-linecap: round; animation: st-ring-fill var(--motion-slower) var(--ease-out-soft) both; transition: stroke-dashoffset var(--motion-slower) var(--ease-out-soft); }
 .st-ring__value[data-tone='success'] { stroke: var(--success); }
 .st-ring__value[data-tone='violet'] { stroke: var(--violet); }
 .st-ring__value[data-tone='muted'] { stroke: var(--border); }
@@ -86,7 +87,7 @@
 .st-today__item[data-kind='course'] .st-today__icon,
 .st-today__item[data-kind='booking'] .st-today__icon { background: var(--surface-muted); color: var(--foreground); }
 .st-today__ping { position: absolute; top: .3rem; right: .3rem; width: .6rem; height: .6rem; border-radius: 99px; background: var(--violet); }
-.st-today__ping::after { content: ''; position: absolute; inset: 0; border-radius: inherit; background: var(--violet); animation: st-ping 1.8s cubic-bezier(0, 0, .2, 1) infinite; }
+.st-today__ping::after { content: ''; position: absolute; inset: 0; border-radius: inherit; background: var(--violet); opacity: 0; animation: st-ping 240ms cubic-bezier(0, 0, .2, 1) 2; }
 .st-today__label { min-width: 0; flex: 1; font-size: 1.1rem; font-weight: 650; line-height: 1.35; overflow-wrap: anywhere; }
 .st-today__chevron { flex-shrink: 0; color: var(--muted); transition: transform .2s ease; }
 .st-today__done { display: flex; align-items: flex-start; gap: .85rem; margin-top: .75rem; border-radius: 1.2rem; background: color-mix(in srgb, var(--success) 10%, var(--surface)); padding: 1rem; }
@@ -98,11 +99,11 @@
 
 /* Der eine große Knopf. Ein Lichtstreif läuft einmal darüber und sagt „hier geht's los". */
 .st-cta { position: relative; display: flex; min-height: 4.5rem; align-items: center; justify-content: space-between; gap: 1rem; overflow: hidden; margin-top: 1rem; border-radius: 1.3rem; background: var(--accent-strong); padding: .8rem 1rem .8rem 1.35rem; color: var(--accent-foreground); box-shadow: 0 14px 30px -14px var(--accent-strong); }
-.st-cta::after { content: ''; position: absolute; inset: 0 auto 0 0; width: 35%; background: linear-gradient(90deg, transparent, rgb(255 255 255 / .22), transparent); animation: st-shine 1.4s .9s cubic-bezier(.4, 0, .2, 1) both; pointer-events: none; }
+.st-cta::after { content: ''; position: absolute; inset: 0 auto 0 0; width: 35%; background: linear-gradient(90deg, transparent, rgb(255 255 255 / .22), transparent); animation: st-shine var(--motion-slower) .6s cubic-bezier(.4, 0, .2, 1) both; pointer-events: none; }
 .st-cta__text { display: flex; min-width: 0; flex-direction: column; }
 .st-cta__label { font-size: 1.3rem; font-weight: 800; line-height: 1.2; letter-spacing: -.01em; }
 .st-cta__hint { margin-top: .15rem; font-size: 1rem; font-weight: 600; opacity: .92; }
-.st-cta__arrow { display: flex; width: 3rem; height: 3rem; flex-shrink: 0; align-items: center; justify-content: center; border-radius: 99px; background: rgb(255 255 255 / .18); animation: st-nudge 2.4s 2s ease-in-out 3; }
+.st-cta__arrow { display: flex; width: 3rem; height: 3rem; flex-shrink: 0; align-items: center; justify-content: center; border-radius: 99px; background: rgb(255 255 255 / .18); animation: st-nudge var(--motion-slower) 1.2s ease-in-out 1; }
 html.high-contrast .st-cta::after { display: none; }
 html.high-contrast .st-cta__arrow { background: transparent; border: 2px solid currentColor; }
 @media (hover: hover) { .st-cta:hover { background: var(--accent-strong-hover); } }
@@ -112,7 +113,7 @@ html.high-contrast .st-cta__arrow { background: transparent; border: 2px solid c
 .st-week__summary { color: var(--foreground); font-size: 1rem; font-weight: 650; line-height: 1.45; }
 .st-week__days { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: .35rem; margin-top: .75rem; }
 .st-week__day { display: flex; min-width: 0; flex-direction: column; align-items: center; gap: .35rem; }
-.st-week__dot { display: flex; width: 2.35rem; height: 2.35rem; align-items: center; justify-content: center; border: 2px solid var(--border); border-radius: 99px; background: var(--surface); color: var(--surface); animation: st-pop .45s cubic-bezier(.22, 1, .36, 1) both; animation-delay: calc(200ms + var(--i, 0) * 60ms); }
+.st-week__dot { display: flex; width: 2.35rem; height: 2.35rem; align-items: center; justify-content: center; border: 2px solid var(--border); border-radius: 99px; background: var(--surface); color: var(--surface); animation: st-pop var(--motion-slow) var(--ease-out-soft) both; animation-delay: calc(120ms + min(var(--i, 0), 7) * var(--motion-stagger)); }
 .st-week__day[data-future='true'] .st-week__dot { border-style: dashed; opacity: .7; }
 .st-week__day[data-done='true'] .st-week__dot { border-color: var(--success); background: var(--success); }
 .st-week__day[data-today='true'] .st-week__dot { box-shadow: 0 0 0 3px var(--surface), 0 0 0 5px var(--accent); }
@@ -127,8 +128,8 @@ html.high-contrast .st-cta__arrow { background: transparent; border: 2px solid c
 .st-tile__top { display: flex; align-items: flex-start; justify-content: space-between; gap: .5rem; }
 .st-tile__icon { display: flex; width: 3rem; height: 3rem; align-items: center; justify-content: center; border-radius: .95rem; background: color-mix(in srgb, var(--accent) 12%, var(--surface)); color: var(--accent-text); transition: transform .3s cubic-bezier(.22, 1, .36, 1); }
 .st-tile[data-tone='locked'] .st-tile__icon, .st-tile[data-tone='done'] .st-tile__icon { background: var(--surface-muted); color: var(--muted); }
-.st-tile__badge { min-width: 2.25rem; border-radius: 99px; background: var(--accent-strong); padding: .15rem .6rem; color: var(--accent-foreground); font-size: 1rem; font-weight: 800; text-align: center; font-variant-numeric: tabular-nums; animation: st-pop .5s .25s cubic-bezier(.22, 1, .36, 1) both; }
-.st-tile__check { display: flex; width: 1.9rem; height: 1.9rem; align-items: center; justify-content: center; border-radius: 99px; background: color-mix(in srgb, var(--success) 16%, var(--surface)); color: var(--success); animation: st-pop .5s .25s cubic-bezier(.22, 1, .36, 1) both; }
+.st-tile__badge { min-width: 2.25rem; border-radius: 99px; background: var(--accent-strong); padding: .15rem .6rem; color: var(--accent-foreground); font-size: 1rem; font-weight: 800; text-align: center; font-variant-numeric: tabular-nums; animation: st-pop var(--motion-slow) .16s var(--ease-out-soft) both; }
+.st-tile__check { display: flex; width: 1.9rem; height: 1.9rem; align-items: center; justify-content: center; border-radius: 99px; background: color-mix(in srgb, var(--success) 16%, var(--surface)); color: var(--success); animation: st-pop var(--motion-slow) .16s var(--ease-out-soft) both; }
 .st-tile__title { margin-top: auto; padding-top: .8rem; font-size: 1.15rem; font-weight: 750; line-height: 1.25; overflow-wrap: anywhere; hyphens: auto; }
 .st-tile__status { display: flex; align-items: center; gap: .45rem; margin-top: .25rem; color: var(--muted); font-size: .98rem; font-weight: 650; line-height: 1.35; }
 .st-tile[data-tone='action'] .st-tile__status { color: var(--accent-text); }
@@ -168,28 +169,49 @@ html.high-contrast .st-cta__arrow { background: transparent; border: 2px solid c
 }
 @media (hover: hover) { .st-toolbar-button:hover { background: var(--surface-muted); } }
 
-/* Handy-Brotkrume: Zurück mit Namen */
-.st-back-pill { display: inline-flex; min-height: 44px; max-width: 45%; flex-shrink: 0; align-items: center; gap: .35rem; border: 1px solid var(--border); border-radius: 99px; background: var(--surface); padding: 0 .85rem 0 .6rem; color: var(--foreground); font-size: .95rem; font-weight: 700; }
+/* ── Brotkrumen mit vollem Pfad (D7) ─────────────────────────────────────
+   Auf dem Handy eine waagerecht scrollende Spur, am PC darf sie umbrechen.
+   Keine Randverläufe: Beschriftungen und Fokusring bleiben voll lesbar. */
+.st-crumbs { min-width: 0; width: 100%; }
+.st-crumbs__list { display: flex; min-width: 0; align-items: center; gap: .15rem; overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: none; padding: .2rem .1rem; }
+.st-crumbs__list::-webkit-scrollbar { display: none; }
+.st-crumbs__item { display: flex; flex-shrink: 0; align-items: center; gap: .15rem; }
+.st-crumb { display: inline-flex; min-height: 48px; align-items: center; gap: .4rem; border-radius: 99px; padding: 0 .75rem; color: var(--muted); font-size: 1rem; font-weight: 650; line-height: 1.2; white-space: nowrap; }
+a.st-crumb:focus-visible { outline: 3px solid var(--accent); outline-offset: -3px; }
+.st-crumb--current { background: var(--surface); border: 1px solid var(--border); color: var(--foreground); font-weight: 750; }
+.st-crumb__icon { flex-shrink: 0; }
+.st-crumbs__item[data-kind='vocabulary'] .st-crumb__icon { color: var(--mode-vocabulary-text); }
+.st-crumbs__item[data-kind='path'] .st-crumb__icon { color: var(--mode-path-text); }
+.st-crumbs__item[data-kind='pronunciation'] .st-crumb__icon { color: var(--mode-pronunciation-text); }
+.st-crumbs__item[data-kind='media'] .st-crumb__icon { color: var(--mode-media-text); }
+.st-crumbs__sep { flex-shrink: 0; color: var(--muted); }
+@media (hover: hover) { a.st-crumb:hover { background: var(--surface-muted); color: var(--foreground); } }
+@media (min-width: 768px) { .st-crumbs__list { flex-wrap: wrap; overflow: visible; } }
 
-/* ── App-Leiste unten ──────────────────────────────────────────────────── */
-.academy-student-shell { --st-tabbar-h: calc(4.6rem + env(safe-area-inset-bottom, 0px)); }
-.st-tabbar { position: fixed; inset: auto 0 0; z-index: 60; border-top: 1px solid var(--border); background: color-mix(in srgb, var(--surface) 90%, transparent); padding: .35rem .5rem calc(.35rem + env(safe-area-inset-bottom, 0px)); box-shadow: 0 -12px 30px -18px rgb(15 23 42 / .35); -webkit-backdrop-filter: blur(16px) saturate(160%); backdrop-filter: blur(16px) saturate(160%); }
+/* ── App-Leiste unten (D8) ─────────────────────────────────────────────────
+   StudentNavigation setzt data-tabbar="visible|hidden" am Wurzelelement.
+   --st-tabbar-visible ist die gerade sichtbare Leistenhöhe; alles, was über
+   der Leiste schwebt (Aufnahme-Dock), richtet sich danach und wandert mit. */
+.academy-student-shell { --st-tabbar-h: calc(4.6rem + env(safe-area-inset-bottom, 0px)); --st-tabbar-visible: var(--st-tabbar-h); }
+.academy-student-shell[data-tabbar='hidden'] { --st-tabbar-visible: 0px; }
+.st-tabbar { position: fixed; inset: auto 0 0; z-index: 60; border-top: 1px solid var(--border); background: color-mix(in srgb, var(--surface) 90%, transparent); padding: .35rem .5rem calc(.35rem + env(safe-area-inset-bottom, 0px)); box-shadow: 0 -12px 30px -18px rgb(15 23 42 / .35); -webkit-backdrop-filter: blur(16px) saturate(160%); backdrop-filter: blur(16px) saturate(160%); transition: transform var(--motion-slow) var(--ease-out-soft), visibility 0s; }
+/* Verborgen: aus dem Bild geschoben und aus der Tab-Reihenfolge genommen. */
+.academy-student-shell[data-tabbar='hidden'] .st-tabbar { transform: translateY(calc(100% + 1rem)); visibility: hidden; transition: transform var(--motion-slow) var(--ease-out-soft), visibility 0s linear var(--motion-slow); }
 html.high-contrast .st-tabbar { background: var(--surface); -webkit-backdrop-filter: none; backdrop-filter: none; }
 .st-tabbar__list { position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .25rem; max-width: 32rem; margin: 0 auto; }
 .st-tabbar__item { min-width: 0; }
-.st-tabbar__link { position: relative; z-index: 1; display: flex; width: 100%; min-height: 3.75rem; flex-direction: column; align-items: center; justify-content: center; gap: .2rem; border-radius: 1.1rem; color: var(--muted); font-size: .85rem; font-weight: 700; }
+.st-tabbar__link { position: relative; z-index: 1; isolation: isolate; display: flex; width: 100%; min-height: 3.75rem; flex-direction: column; align-items: center; justify-content: center; gap: .2rem; border-radius: 1.1rem; color: var(--muted); font-size: .85rem; font-weight: 700; }
 .st-tabbar__link[aria-current='page'] { color: var(--accent-text); }
-/* Die Pille gleitet per CSS zum aktiven Reiter (--st-active = Index). */
-.st-tabbar__pill { position: absolute; top: .15rem; bottom: .15rem; left: 0; width: calc((100% - .75rem) / 4); border-radius: 1rem; background: color-mix(in srgb, var(--accent) 13%, var(--surface)); transform: translateX(calc(var(--st-active, 0) * (100% + .25rem))); transition: transform .38s cubic-bezier(.22, 1, .36, 1), opacity .2s ease; pointer-events: none; }
-.st-tabbar__list[data-has-active='false'] .st-tabbar__pill { opacity: 0; }
+/* Die Pille wandert per layoutId zum aktiven Reiter (SlidingPill). */
+.st-tabbar__pill { position: absolute; z-index: -1; inset: .15rem; border-radius: 1rem; background: color-mix(in srgb, var(--accent) 13%, var(--surface)); pointer-events: none; }
 html.high-contrast .st-tabbar__pill { background: transparent; border: 2px solid var(--accent-text); }
-.st-tabbar__icon { transition: transform .25s cubic-bezier(.22, 1, .36, 1); }
+.st-tabbar__icon { transition: transform var(--motion-base) var(--ease-out-soft); }
 .st-tabbar__link[aria-current='page'] .st-tabbar__icon { transform: translateY(-1px) scale(1.08); }
 .st-tabbar__label { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 @media (max-width: 767.98px) {
   .academy-student-content { padding-bottom: calc(var(--st-tabbar-h) + 1.5rem); }
-  /* Die schwebende Aufnahme-Bedienung sitzt über der App-Leiste. */
-  .academy-student-shell .pronunciation-recorder-dock { bottom: var(--st-tabbar-h); }
+  /* Die schwebende Aufnahme-Bedienung sitzt über der App-Leiste und wandert mit ihr. */
+  .academy-student-shell .pronunciation-recorder-dock { bottom: 0; transform: translateY(calc(-1 * var(--st-tabbar-visible))); transition: transform var(--motion-slow) var(--ease-out-soft); }
   .academy-student-shell .pronunciation-practice { padding-bottom: calc(6.5rem + var(--st-tabbar-h)); }
 }
 @media (min-width: 768px) { .st-tabbar { display: none; } }
@@ -200,7 +222,7 @@ body:has(.learning-screen) .st-tabbar { display: none; }
 .st-help-link__icon { display: flex; width: 3rem; height: 3rem; flex-shrink: 0; align-items: center; justify-content: center; border-radius: .95rem; background: color-mix(in srgb, var(--accent) 12%, var(--surface)); color: var(--accent-text); }
 @media (hover: hover) { .st-help-link:hover { border-color: var(--accent); } }
 
-/* ── Lernweg ───────────────────────────────────────────────────────────── */
+/* ── Lektionen (Modus Vokabeln) ───────────────────────────────────────────────────────── */
 .st-empty { border: 1px dashed var(--border); border-radius: 1.25rem; padding: 1.25rem; color: var(--muted); font-size: 1.05rem; line-height: 1.6; }
 .st-path-hero { padding: 1.25rem 1rem; border-radius: 1.75rem; }
 .st-path-hero__row { display: flex; align-items: center; gap: 1rem; margin-top: .4rem; }
@@ -213,14 +235,14 @@ body:has(.learning-screen) .st-tabbar { display: none; }
    Die Linie zum nächsten Halt wächst beim Erscheinen nach unten; geschaffte
    Abschnitte sind grün, der Rest gestrichelt. */
 .st-path { position: relative; display: grid; gap: 1rem; }
-.st-path__stop { --node: 3.25rem; position: relative; animation: st-rise .5s cubic-bezier(.22, 1, .36, 1) both; animation-delay: calc(var(--i, 0) * 80ms); }
-.st-path__stop:not(:last-child)::after { content: ''; position: absolute; z-index: 0; top: calc(50% + var(--node) / 2 + .2rem); bottom: calc(-50% - 1rem + var(--node) / 2 + .2rem); left: calc(var(--node) / 2 - 2px); width: 4px; border-radius: 4px; background: var(--border); transform-origin: top; animation: st-grow-y .5s cubic-bezier(.22, 1, .36, 1) both; animation-delay: calc(250ms + var(--i, 0) * 80ms); }
+.st-path__stop { --node: 3.25rem; position: relative; animation: st-rise var(--motion-slow) var(--ease-out-soft) both; animation-delay: calc(min(var(--i, 0), 7) * var(--motion-stagger)); }
+.st-path__stop:not(:last-child)::after { content: ''; position: absolute; z-index: 0; top: calc(50% + var(--node) / 2 + .2rem); bottom: calc(-50% - 1rem + var(--node) / 2 + .2rem); left: calc(var(--node) / 2 - 2px); width: 4px; border-radius: 4px; background: var(--border); transform-origin: top; animation: st-grow-y var(--motion-slower) var(--ease-out-soft) both; animation-delay: calc(120ms + min(var(--i, 0), 7) * var(--motion-stagger)); }
 .st-path__stop[data-state='done']:not(:last-child)::after { background: var(--success); }
 .st-path__stop:is([data-state='open'], [data-state='current']):not(:last-child)::after { background: repeating-linear-gradient(to bottom, var(--border) 0 6px, transparent 6px 12px); }
 .st-path__row { position: relative; z-index: 1; display: flex; width: 100%; align-items: center; gap: .75rem; color: var(--foreground); text-align: start; }
-.st-path__node { display: flex; width: var(--node); height: var(--node); flex-shrink: 0; align-items: center; justify-content: center; border: 3px solid var(--border); border-radius: 99px; background: var(--surface); color: var(--muted); font-size: 1.25rem; font-weight: 800; font-variant-numeric: tabular-nums; animation: st-pop .5s cubic-bezier(.22, 1, .36, 1) both; animation-delay: calc(120ms + var(--i, 0) * 80ms); }
+.st-path__node { display: flex; width: var(--node); height: var(--node); flex-shrink: 0; align-items: center; justify-content: center; border: 3px solid var(--border); border-radius: 99px; background: var(--surface); color: var(--muted); font-size: 1.25rem; font-weight: 800; font-variant-numeric: tabular-nums; animation: st-pop var(--motion-slow) var(--ease-out-soft) both; animation-delay: calc(80ms + min(var(--i, 0), 7) * var(--motion-stagger)); }
 .st-path__stop[data-state='done'] .st-path__node { border-color: var(--success); background: var(--success); color: var(--surface); }
-.st-path__stop[data-state='current'] .st-path__node { border-color: var(--accent); background: var(--accent-strong); color: var(--accent-foreground); animation: st-pop .5s cubic-bezier(.22, 1, .36, 1) both, st-breathe 2.6s 1s ease-in-out infinite; }
+.st-path__stop[data-state='current'] .st-path__node { border-color: var(--accent); background: var(--accent-strong); color: var(--accent-foreground); box-shadow: 0 0 0 4px var(--accent-ring); animation: st-pop var(--motion-slow) var(--ease-out-soft) both, st-breathe var(--motion-slower) .5s ease-in-out 1; }
 .st-path__card { display: flex; min-width: 0; flex: 1; flex-direction: column; border: 1px solid var(--border); border-radius: 1.3rem; background: var(--surface); transition: border-color .2s ease, box-shadow .2s ease; }
 /* Oberer Teil: Name und Stand, tippen öffnet die Station. Unterer Teil: der Schalter. */
 .st-path__open { display: flex; min-height: 4.75rem; width: 100%; align-items: center; gap: .5rem; padding: .75rem .8rem .75rem 1rem; color: var(--foreground); text-align: start; }
@@ -240,7 +262,7 @@ body:has(.learning-screen) .st-tabbar { display: none; }
 .st-path__stop[data-state='current'] .st-path__state { color: var(--accent-text); }
 .st-path__due { border-radius: 99px; background: var(--accent-strong); padding: 0 .55rem; color: var(--accent-foreground); font-size: .9rem; font-weight: 700; }
 .st-path__bar { display: block; width: 100%; height: .35rem; margin-top: .3rem; overflow: hidden; border-radius: 99px; background: var(--surface-muted); }
-.st-path__bar > span { display: block; height: 100%; border-radius: inherit; background: var(--accent); animation: st-bar-grow 1s .4s cubic-bezier(.22, 1, .36, 1) both; transform-origin: left; }
+.st-path__bar > span { display: block; height: 100%; border-radius: inherit; background: var(--accent); animation: st-bar-grow var(--motion-slower) .2s var(--ease-out-soft) both; transform-origin: left; }
 .st-path__stop[data-state='done'] .st-path__bar > span { background: var(--success); }
 .st-path__chevron { flex-shrink: 0; color: var(--muted); transition: transform .2s ease; }
 @keyframes st-bar-grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
@@ -353,7 +375,7 @@ html.high-contrast .st-segment__pill { border: 2px solid var(--foreground); }
 .st-steps__item[data-state='active'] .st-steps__icon { border-color: var(--accent); background: var(--accent-strong); color: var(--accent-foreground); transform: scale(1.12); animation: st-breathe 2.6s ease-in-out infinite; }
 .st-steps__item[data-state='done'] .st-steps__icon { border-color: var(--success); background: var(--success); color: var(--surface); }
 .st-steps__label { display: flex; flex-direction: column; color: var(--muted); font-size: .92rem; font-weight: 700; line-height: 1.25; overflow-wrap: anywhere; hyphens: auto; }
-.st-steps__number { font-size: .75rem; letter-spacing: .08em; opacity: .8; }
+.st-steps__number { font-size: .8rem; letter-spacing: .08em; }
 .st-steps__item[data-state='active'] .st-steps__label { color: var(--accent-text); }
 .st-steps__item[data-state='done'] .st-steps__label { color: var(--success); }
 @media (min-width: 640px) { .st-steps__label { font-size: 1rem; } }
@@ -578,3 +600,93 @@ html.high-contrast .st-switch[aria-checked='true'] { background: var(--surface);
 .st-choice:disabled { cursor: wait; opacity: .7; }
 @media (hover: hover) { .st-choice:hover:not(:disabled) { border-color: var(--accent); } }
 @media (prefers-reduced-motion: reduce) { .st-switch, .st-switch__thumb, .st-switch__track { transition: none; } }
+
+/* ══════════════════════════════════════════════════════════════════════
+   Phase 2 — Navigation und Bewegung
+   ══════════════════════════════════════════════════════════════════════ */
+
+/* ── „Neu" (D10): zweimal pulsieren (480 ms), dann Ruhe ───────────────── */
+@keyframes st-new-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.35); } }
+.st-new-badge { display: inline-flex; flex-shrink: 0; align-items: center; gap: .35rem; border-radius: 99px; background: var(--accent-strong); padding: .1rem .65rem .1rem .5rem; color: var(--accent-foreground); font-size: 1rem; font-weight: 800; line-height: 1.5; }
+.st-new-badge__dot { display: block; width: .55rem; height: .55rem; border-radius: 99px; background: currentColor; animation: st-new-pulse 240ms var(--ease-out-soft) 2; }
+.st-new-badge[data-variant='dot'] { width: .8rem; height: .8rem; justify-content: center; padding: 0; box-shadow: 0 0 0 2px var(--surface); }
+.st-new-badge[data-variant='dot'] .st-new-badge__dot { width: .8rem; height: .8rem; background: var(--accent-strong); }
+
+/* ── Modus-Dock (D6) ───────────────────────────────────────────────────
+   Klebt unter dem Seitenkopf (top setzt ModeDock nach dessen Höhe). Die
+   Kennfarbe erscheint nur im aktiven Reiter und in den Symbolen. */
+.st-mode-dock { position: sticky; top: 0; z-index: 25; margin: -1.25rem 0 1.5rem; padding: .5rem 0; background: color-mix(in srgb, var(--canvas) 94%, transparent); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
+html.high-contrast .st-mode-dock { background: var(--canvas); -webkit-backdrop-filter: none; backdrop-filter: none; }
+.st-mode-dock__list { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .3rem; max-width: 48rem; margin: 0 auto; border: 1px solid var(--border); border-radius: 1.3rem; background: var(--surface); padding: .3rem; box-shadow: var(--shadow-sm); }
+.st-mode-dock__item { min-width: 0; }
+.st-mode-dock__link { position: relative; isolation: isolate; display: flex; width: 100%; height: 100%; min-height: 3.5rem; flex-direction: column; align-items: center; justify-content: center; gap: .15rem; border-radius: 1rem; padding: .4rem .2rem; color: var(--muted); font-size: 1rem; font-weight: 700; line-height: 1.2; text-align: center; }
+.st-mode-dock__link:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.st-mode-dock__link[aria-current='page'] { color: var(--foreground); font-weight: 800; }
+.st-mode-dock__label { max-width: 100%; overflow-wrap: anywhere; hyphens: auto; -webkit-hyphens: auto; }
+.st-mode-dock__icon { display: flex; flex-shrink: 0; }
+.st-mode-dock__link[data-mode='vocabulary'] .st-mode-dock__icon { color: var(--mode-vocabulary-text); }
+.st-mode-dock__link[data-mode='path'] .st-mode-dock__icon { color: var(--mode-path-text); }
+.st-mode-dock__link[data-mode='pronunciation'] .st-mode-dock__icon { color: var(--mode-pronunciation-text); }
+.st-mode-dock__link[data-mode='media'] .st-mode-dock__icon { color: var(--mode-media-text); }
+.st-mode-dock__link[data-locked] .st-mode-dock__icon { color: var(--muted); }
+/* Aktiv: Kennfläche + Kontur in Modusfarbe; der Zustand steckt zusätzlich in aria-current und Schriftstärke. */
+.st-mode-dock__pill { position: absolute; z-index: -1; inset: 0; border-radius: 1rem; pointer-events: none; }
+.st-mode-dock__link[data-mode='vocabulary'] .st-mode-dock__pill { background: var(--mode-vocabulary-surface); box-shadow: inset 0 0 0 2px var(--mode-vocabulary-text); }
+.st-mode-dock__link[data-mode='path'] .st-mode-dock__pill { background: var(--mode-path-surface); box-shadow: inset 0 0 0 2px var(--mode-path-text); }
+.st-mode-dock__link[data-mode='pronunciation'] .st-mode-dock__pill { background: var(--mode-pronunciation-surface); box-shadow: inset 0 0 0 2px var(--mode-pronunciation-text); }
+.st-mode-dock__link[data-mode='media'] .st-mode-dock__pill { background: var(--mode-media-surface); box-shadow: inset 0 0 0 2px var(--mode-media-text); }
+.st-mode-dock__count { position: absolute; top: .15rem; right: .25rem; min-width: 1.6rem; border-radius: 99px; background: var(--accent-strong); padding: 0 .4rem; color: var(--accent-foreground); font-size: 1rem; font-weight: 800; line-height: 1.5rem; text-align: center; font-variant-numeric: tabular-nums; }
+.st-mode-dock__new { position: absolute; top: .45rem; right: .55rem; }
+@media (hover: hover) { .st-mode-dock__link:hover { background: var(--surface-muted); color: var(--foreground); } }
+@media (min-width: 640px) {
+  .st-mode-dock__link { flex-direction: row; gap: .5rem; min-height: 3.25rem; padding: .4rem .6rem; }
+  .st-mode-dock__count { position: static; }
+  .st-mode-dock__new { position: static; }
+}
+.st-mode-content { min-width: 0; }
+
+/* ── Unteransicht in Vokabeln: Lernbox | Lektionen ─────────────────────── */
+.st-subnav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .25rem; max-width: 28rem; margin: 0 auto 1.5rem; border: 1px solid var(--border); border-radius: 1.2rem; background: var(--surface-muted); padding: .3rem; }
+.st-subnav__link { position: relative; isolation: isolate; display: flex; min-height: 3rem; align-items: center; justify-content: center; gap: .5rem; border-radius: .95rem; padding: 0 .5rem; color: var(--muted); font-size: 1.05rem; font-weight: 750; text-align: center; }
+.st-subnav__link[aria-current='page'] { color: var(--foreground); }
+.st-subnav__link:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.st-subnav__pill { position: absolute; z-index: -1; inset: 0; border-radius: .95rem; background: var(--surface); box-shadow: var(--shadow-sm); pointer-events: none; }
+html.high-contrast .st-subnav__pill { border: 2px solid var(--foreground); }
+
+/* ── Niveau-Übersicht: „Weiter, wo du aufgehört hast" ──────────────────── */
+.st-resume { padding: 1.25rem 1rem; border-radius: 1.75rem; }
+@media (min-width: 640px) { .st-resume { padding: 2rem; } }
+.st-resume__level { color: var(--foreground); font-size: 1.05rem; font-weight: 700; }
+.st-resume__level-text { margin-top: .15rem; color: var(--muted); font-size: 1rem; line-height: 1.55; }
+.st-resume__title { margin-top: 1rem; color: var(--foreground); font-size: clamp(1.45rem, 5.5vw, 2rem); font-weight: 750; letter-spacing: -.025em; line-height: 1.2; overflow-wrap: break-word; hyphens: auto; }
+.st-resume__place { display: flex; align-items: center; gap: .75rem; margin-top: .75rem; color: var(--foreground); font-size: 1.1rem; font-weight: 650; line-height: 1.4; }
+.st-resume__place-icon { display: flex; width: 2.75rem; height: 2.75rem; flex-shrink: 0; align-items: center; justify-content: center; border-radius: .9rem; background: var(--surface-muted); color: var(--foreground); }
+.st-resume__place-icon[data-mode='vocabulary'] { background: var(--mode-vocabulary-surface); color: var(--mode-vocabulary-text); }
+.st-resume__place-icon[data-mode='path'] { background: var(--mode-path-surface); color: var(--mode-path-text); }
+.st-resume__place-icon[data-mode='pronunciation'] { background: var(--mode-pronunciation-surface); color: var(--mode-pronunciation-text); }
+.st-resume__place-icon[data-mode='media'] { background: var(--mode-media-surface); color: var(--mode-media-text); }
+.st-resume__none { margin-top: .75rem; color: var(--muted); font-size: 1.05rem; }
+
+/* ── Modus-Karten: vier gleich große Karten mit Kennfarbe ──────────────── */
+.st-tile[data-area='vocabulary'] .st-tile__icon { background: var(--mode-vocabulary-surface); color: var(--mode-vocabulary-text); }
+.st-tile[data-area='path'] .st-tile__icon { background: var(--mode-path-surface); color: var(--mode-path-text); }
+.st-tile[data-area='pronunciation'] .st-tile__icon { background: var(--mode-pronunciation-surface); color: var(--mode-pronunciation-text); }
+.st-tile[data-area='media'] .st-tile__icon { background: var(--mode-media-surface); color: var(--mode-media-text); }
+.st-tile[data-area][data-tone='locked'] .st-tile__icon { background: var(--surface-muted); color: var(--muted); }
+.st-tile[data-area='vocabulary'] { box-shadow: inset 0 3px 0 var(--mode-vocabulary-text); }
+.st-tile[data-area='path'] { box-shadow: inset 0 3px 0 var(--mode-path-text); }
+.st-tile[data-area='pronunciation'] { box-shadow: inset 0 3px 0 var(--mode-pronunciation-text); }
+.st-tile[data-area='media'] { box-shadow: inset 0 3px 0 var(--mode-media-text); }
+.st-tile[data-area][data-tone='locked'] { box-shadow: none; }
+@media (min-width: 900px) { .st-tiles--modes { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+
+/* ── Weniger Bewegung: im Lernraum läuft dann gar nichts ─────────────────
+   Nicht nur verkürzt (globals.css), sondern abgeschaltet: Zustände stehen
+   sofort da, nichts bleibt in einem Zwischenzustand hängen. */
+@media (prefers-reduced-motion: reduce) {
+  .academy-student-shell *, .academy-student-shell *::before, .academy-student-shell *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

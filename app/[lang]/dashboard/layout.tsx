@@ -8,6 +8,8 @@ import LearningResetSync from '@/components/layout/LearningResetSync'
 import BrandLogo from '@/components/layout/BrandLogo'
 import LogoutButton from '@/components/dashboard/LogoutButton'
 import StudentNavigation from '@/components/dashboard/StudentNavigation'
+import MotionProvider from '@/components/motion/MotionProvider'
+import { loadLastActiveLevel } from '@/lib/last-active-level'
 import { getDictionary } from '@/lib/dictionary'
 import { createDashboardTranslator, type DashboardTranslations } from '@/lib/dashboard-i18n'
 import { loadLevelAccessProfile } from '@/lib/access/server'
@@ -21,9 +23,9 @@ export default async function DashboardLayout({ children, params }: { children: 
   const { lang } = await params
   const { supabase, user } = await requestSession()
   if (!user) redirect(`/${lang}/login`)
-  const [{ data: profile }, dict, access] = await Promise.all([
+  const [{ data: profile }, dict, access, lastActive] = await Promise.all([
     supabase.from('profiles').select('role,person:people(display_name)').eq('id', user.id).single(), getDictionary(lang),
-    loadLevelAccessProfile(supabase, user.id),
+    loadLevelAccessProfile(supabase, user.id), loadLastActiveLevel(),
   ])
   if (profile?.role === 'teacher' || profile?.role === 'admin') redirect(`/${lang}/admin`)
   const translations = dict.dashboard as DashboardTranslations
@@ -38,7 +40,7 @@ export default async function DashboardLayout({ children, params }: { children: 
     email: dict.Footer.Contact.email,
     emailLabel: dict.Footer.Contact.email_button,
   }
-  return <div className="academy-student-shell">
+  return <MotionProvider><div className="academy-student-shell" data-tabbar="visible">
     <LearningResetSync userId={user.id} />
     <header className="academy-student-header"><div className="academy-container">
       <div className="academy-student-toolbar"><Link href={`/${lang}/dashboard`} className="academy-brand-link"><span className="hidden sm:inline-flex"><BrandLogo name={dict.academy.brand_name} /></span><span className="sm:hidden"><BrandLogo name={dict.academy.brand_name} compact /></span></Link>
@@ -51,6 +53,7 @@ export default async function DashboardLayout({ children, params }: { children: 
       </div><div className="academy-student-breadcrumb"><DashboardHeader lang={lang} translations={translations} breadcrumbLabel={dict.academy.breadcrumb} /></div>
     </div></header>
     <div className="academy-student-content academy-container">{children}</div>
-    <StudentNavigation lang={lang} firstLevel={levels[0] ?? null} levels={levels} supportLabels={supportLabels} />
-  </div>
+    <StudentNavigation lang={lang} firstLevel={levels[0] ?? null} levels={levels} supportLabels={supportLabels}
+      lastActiveLevel={lastActive ? lastActive.level : undefined} />
+  </div></MotionProvider>
 }

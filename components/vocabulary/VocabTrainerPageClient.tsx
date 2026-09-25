@@ -3,8 +3,8 @@
 import { useEffect, useMemo, useState, useTransition } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
-import { motion, useReducedMotion } from 'framer-motion'
-import { ArrowRight, CircleCheckBig, Map as MapIcon } from 'lucide-react'
+import { motion } from 'framer-motion'
+import { ArrowRight, CircleCheckBig, ListChecks } from 'lucide-react'
 import { createVocabularyTranslator, type VocabularyTranslations } from '@/lib/vocabulary-i18n'
 import { studentTranslator } from '@/lib/student-ui-i18n'
 import type { DueVocabularyCard, VocabularyBoxSummary } from '@/lib/types/vocabulary'
@@ -14,9 +14,9 @@ import LeitnerBoxOverview from './LeitnerBoxOverview'
 import RoundSizePicker from './RoundSizePicker'
 import { loadRoundSize, saveRoundSize } from '@/lib/vocabulary-lernkasten'
 import { DEFAULT_ROUND_SIZE, ROUND_SIZES, roundLimit, type RoundSize } from '@/lib/vocabulary-rounds'
+import { lessonsHref } from '@/lib/mode-targets'
+import { EASE_OUT_SOFT, MOTION, PRESS_SCALE, useReducedMotionSafe } from '@/lib/motion'
 import './lernkasten.css'
-
-const EASE = [0.22, 1, 0.36, 1] as const
 
 interface Props {
   learnerId: string | null
@@ -37,7 +37,7 @@ interface Props {
  * Die Seite beantwortet eine einzige Frage: „Was muss ich jetzt tun?" Oben
  * steht, wie viel heute wartet, darunter die Lernbox als Gegenstand und
  * direkt darunter der eine große Start-Knopf. Was in der Box liegt, wird im
- * Lernweg entschieden: Dort werden Lektionen und „Eigene Wörter"
+ * Modus Vokabeln unter „Lektionen" entschieden: Dort werden Lektionen und „Eigene Wörter"
  * eingeschaltet, eingestuft und ergänzt.
  */
 export default function VocabTrainerPageClient({ learnerId, initialCards, boxSummary, translations = {}, softErrorTranslations, lang, level, initialDeferredCount = 0, initialPreviousCardId = null }: Props) {
@@ -48,7 +48,7 @@ export default function VocabTrainerPageClient({ learnerId, initialCards, boxSum
   const s = studentTranslator(lang)
   const [session, setSession] = useState<DueVocabularyCard[] | null>(null)
   const [previousCardId, setPreviousCardId] = useState<string | null>(initialPreviousCardId)
-  const reduced = useReducedMotion() ?? false
+  const reduced = useReducedMotionSafe()
   useEffect(() => { setPreviousCardId(initialPreviousCardId) }, [initialPreviousCardId])
   // Karten pro Runde: gerätegebunden gespeichert, erst nach dem Mounten bekannt.
   const [roundSize, setRoundSize] = useState<RoundSize | null>(null)
@@ -57,8 +57,8 @@ export default function VocabTrainerPageClient({ learnerId, initialCards, boxSum
   const due = initialCards.length
   const firstRound = roundLimit(chosenSize, due)
   const dueLessons = new Set(initialCards.map(item => item.card.lesson)).size
-  const path = `/${lang}/dashboard/level/${encodeURIComponent(level)}`
-  // Leer ist die Box, solange im Lernweg noch keine Lektion eingeschaltet ist.
+  const lessons = lessonsHref(lang, level)
+  // Leer ist die Box, solange unter „Lektionen" noch keine Lektion eingeschaltet ist.
   const empty = due === 0 && boxSummary.inPhases + boxSummary.learned === 0
 
   if (session) return <VocabCardSession key={learnerId} learnerId={learnerId} cards={session} translations={translations} softErrorTranslations={softErrorTranslations} uiLanguage={lang} previousCardId={previousCardId} initialDeferredCount={initialDeferredCount} overviewHref={overview} roundSize={chosenSize}
@@ -73,7 +73,7 @@ export default function VocabTrainerPageClient({ learnerId, initialCards, boxSum
           <RoundSizePicker lang={lang} due={due} size={roundSize} onChange={size => { setRoundSize(size); saveRoundSize(size) }} />
         </div>}
         <motion.button type="button" disabled={refreshing} onClick={() => setSession(initialCards)} className="lb-cta"
-          whileHover={reduced ? undefined : { y: -2 }} whileTap={reduced ? undefined : { scale: 0.98 }}>
+          whileHover={reduced ? undefined : { y: -2 }} whileTap={reduced ? undefined : { scale: PRESS_SCALE }} transition={{ duration: MOTION.fast }}>
           <span className="lb-cta__icon" aria-hidden="true"><ArrowRight size={24} strokeWidth={2.75} /></span>
           <span>{firstRound === 1 ? t('lernkasten_start_count_one') : t('lernkasten_start_count', { count: firstRound })}</span>
         </motion.button>
@@ -84,9 +84,9 @@ export default function VocabTrainerPageClient({ learnerId, initialCards, boxSum
     : empty
       ? <div className="flex flex-col items-center gap-4 text-center" role="status">
           <p className="max-w-md text-lg text-[var(--foreground)]">{s('box_empty_text')}</p>
-          <Link href={path} className="lb-cta">
-            <span className="lb-cta__icon" aria-hidden="true"><MapIcon size={22} strokeWidth={2.5} /></span>
-            <span>{s('areas_to_path')}</span>
+          <Link href={lessons} className="lb-cta">
+            <span className="lb-cta__icon" aria-hidden="true"><ListChecks size={22} strokeWidth={2.5} /></span>
+            <span>{s('areas_to_lessons')}</span>
           </Link>
         </div>
       : <div className="lb-done" role="status">
@@ -94,8 +94,8 @@ export default function VocabTrainerPageClient({ learnerId, initialCards, boxSum
             <CircleCheckBig size={22} aria-hidden="true" className="shrink-0 text-[var(--success)]" />
             {t('lernkasten_all_done_hint')}
           </p>
-          <Link href={path} className="inline-flex min-h-12 items-center gap-2 rounded-full border-2 border-[var(--border-strong)] bg-[var(--surface)] px-5 text-base font-semibold text-[var(--foreground)] hover:border-[var(--accent)]">
-            <MapIcon size={18} aria-hidden="true" />{s('areas_to_path')}
+          <Link href={lessons} className="inline-flex min-h-12 items-center gap-2 rounded-full border-2 border-[var(--border-strong)] bg-[var(--surface)] px-5 text-base font-semibold text-[var(--foreground)] hover:border-[var(--accent)]">
+            <ListChecks size={18} aria-hidden="true" />{s('areas_to_lessons')}
           </Link>
         </div>
 
@@ -112,7 +112,7 @@ export default function VocabTrainerPageClient({ learnerId, initialCards, boxSum
         {due > 0
           ? <h2 className="mt-2 flex flex-wrap items-baseline gap-x-3 gap-y-1">
               <motion.span key={due} initial={reduced ? false : { opacity: 0, y: 8 }} animate={reduced ? undefined : { opacity: 1, y: 0 }}
-                transition={{ duration: 0.35, ease: EASE }} className="text-5xl font-bold leading-none tracking-tight tabular-nums sm:text-6xl">{due}</motion.span>
+                transition={{ duration: MOTION.slow, ease: EASE_OUT_SOFT }} className="text-5xl font-bold leading-none tracking-tight tabular-nums sm:text-6xl">{due}</motion.span>
               <span className="text-xl font-semibold leading-tight sm:text-3xl">{due === 1 ? t('lernkasten_due_headline_one') : t('lernkasten_due_headline')}</span>
             </h2>
           : <h2 className="mt-2 text-3xl font-bold leading-tight sm:text-4xl">{empty ? s('box_empty_title') : t('all_done')}</h2>}

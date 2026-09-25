@@ -1,7 +1,7 @@
 import { act, fireEvent, render, screen, within } from '@testing-library/react'
-import LevelPath, { type PathNext } from '@/components/dashboard/LevelPath'
+import VocabularyLessons, { type LessonsNext } from '@/components/vocabulary/VocabularyLessons'
 import { initializeLesson, setLessonInBox } from '@/app/actions/vocabulary'
-import { toStations } from '@/lib/level-path'
+import { toStations } from '@/lib/lesson-stations'
 import { studentTranslator } from '@/lib/student-ui-i18n'
 import { OWN_WORDS_LESSON } from '@/lib/vocabulary-own-words'
 import type { LessonStation } from '@/lib/learning-status-server'
@@ -19,14 +19,14 @@ const vocabularyHref = '/de/dashboard/level/A1.1/vocabulary'
 
 /** Begonnen und eingeschaltet, heute 5 Wörter fällig. */
 const active: LessonStation = { lesson: 'Lektion 1', total: 10, active: 8, learned: 2, untouched: 0, due: 5 }
-/** Begonnen, aber im Lernweg ausgeschaltet. */
+/** Begonnen, aber unter „Lektionen" ausgeschaltet. */
 const paused: LessonStation = { lesson: 'Lektion 2', total: 12, active: 12, learned: 0, untouched: 0, due: 4, paused: true }
 /** Noch nie begonnen. */
 const fresh: LessonStation = { lesson: 'Lektion 3', total: 9, active: 0, learned: 0, untouched: 9, due: 0 }
 const emptyOwn: LessonStation = { lesson: OWN_WORDS_LESSON, total: 0, active: 0, learned: 0, untouched: 0, due: 0 }
 
-function mount({ lessons = [active, paused, fresh], own = emptyOwn, next = null }: { lessons?: LessonStation[]; own?: LessonStation; next?: PathNext | null } = {}) {
-  return render(<LevelPath lang="de" level="A1.1" title="A1.1" description="" stations={toStations(lessons, lesson => lesson)}
+function mount({ lessons = [active, paused, fresh], own = emptyOwn, next = null }: { lessons?: LessonStation[]; own?: LessonStation; next?: LessonsNext | null } = {}) {
+  return render(<VocabularyLessons lang="de" level="A1.1" stations={toStations(lessons, lesson => lesson)}
     next={next} vocabularyHref={vocabularyHref} vocabularyTranslations={de.vocabulary} ownWords={own} />)
 }
 
@@ -109,13 +109,13 @@ describe('erstes Einschalten einer Lektion', () => {
   })
 
   it('startet auch über den großen Weiter-Knopf mit derselben Frage', () => {
-    mount({ next: { lesson: 'Lektion 3', hint: t('path_next_lesson', { lesson: 'Lektion 3' }) } })
-    fireEvent.click(screen.getByRole('button', { name: new RegExp(t('path_continue')) }))
+    mount({ next: { lesson: 'Lektion 3', hint: t('lessons_next_lesson', { lesson: 'Lektion 3' }) } })
+    fireEvent.click(screen.getByRole('button', { name: new RegExp(t('lessons_continue')) }))
     expect(screen.getByRole('dialog', { name: t('start_title', { lesson: 'Lektion 3' }) })).toBeInTheDocument()
   })
 })
 
-describe('Eigene Wörter im Lernweg', () => {
+describe('Eigene Wörter unter „Lektionen“', () => {
   it('lädt ohne Wort zum ersten Eintrag ein; der Schalter ist gesperrt', () => {
     mount()
     const own = lessonSwitch(de.vocabulary.own_words_title)

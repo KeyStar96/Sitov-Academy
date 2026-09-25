@@ -1,8 +1,15 @@
 import TrainerAccessGuard from '@/components/dashboard/TrainerAccessGuard'
+import VocabularyTabs from '@/components/vocabulary/VocabularyTabs'
 
-export default function TrainerLayout(props: {
+export default async function TrainerLayout({ children, params }: {
   children: React.ReactNode
   params: Promise<{ lang: string; level: string }>
 }) {
-  return <TrainerAccessGuard {...props} trainer="vocabulary" />
+  const { lang, level } = await params
+  return (
+    <TrainerAccessGuard params={params} trainer="vocabulary">
+      <VocabularyTabs lang={lang} level={decodeURIComponent(level)} />
+      {children}
+    </TrainerAccessGuard>
+  )
 }

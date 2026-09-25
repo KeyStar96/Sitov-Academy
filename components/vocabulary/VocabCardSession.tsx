@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
+import FeedbackMotion from '@/components/motion/FeedbackMotion'
 import { Info, RotateCw } from 'lucide-react'
 import { checkVocabularyRetry, finishVocabularySession, submitVocabularyAnswer, submitVocabularySelfRating } from '@/app/actions/vocabulary'
 import SolutionAudioButton from '@/components/exercises/SolutionAudioButton'
@@ -454,6 +455,8 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
               <h2 lang={current.promptLanguage} className={cn(isSentence ? 'learning-sentence' : 'learning-word', !isToGerman && articleColorClass(current.card.article))}>{prompt}</h2>
               {answerResult && <>
                 <div className="learning-divider" />
+                {/* D5/D11: richtig ein kurzer Pop, falsch ein sanftes Wackeln — nie rot blinkend. */}
+                <FeedbackMotion key={`${item.key}-feedback`} correct={answerResult.correct}>
                 {answerResult.softError
                   ? <SoftErrorBadge reason={answerResult.softError} translations={softErrorTranslations} />
                   : <p className={answerResult.correct ? 'learning-success' : 'learning-error'} role="status">{
@@ -461,6 +464,7 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
                         ? t(answerResult.correct ? 'knew_it_hint' : 'didnt_know_hint')
                         : t(isSentence ? answerResult.correct ? 'sentence_correct' : 'sentence_incorrect' : answerResult.correct ? 'answer_correct' : 'answer_incorrect')
                     }</p>}
+                </FeedbackMotion>
                 {!answerResult.correct && <p className="learning-context" role="note">{t('retry_scheduled')}</p>}
                 {answerResult.hint && <OrthographyNote lang={uiLanguage} solution={answerResult.solution} />}
                 {answerResult.feedback && <p role="note" className="learning-context">{learningFeedback(uiLanguage)[answerResult.feedback]}</p>}

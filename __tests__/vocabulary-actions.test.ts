@@ -57,7 +57,7 @@ function session(options: {
   cards.in.mockImplementation((_column: string, values: string[]) => { locales = values; return cards })
   const rulesResult = Promise.resolve({ data: [], error: null })
   const rules = { select: jest.fn().mockReturnThis(), eq: jest.fn().mockReturnThis(), then: rulesResult.then.bind(rulesResult) }
-  // Migration 25: im Lernweg ausgeschaltete Lektionen. „missing" spielt eine App
+  // Migration 25: unter „Lektionen“ ausgeschaltete Lektionen. „missing" spielt eine App
   // vor der Migration nach (Tabelle unbekannt).
   const pausesResult = Promise.resolve(options.pausedUnits === 'missing'
     ? { data: null, error: { code: 'PGRST205', message: 'missing' } }

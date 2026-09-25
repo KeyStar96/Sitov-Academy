@@ -29,7 +29,8 @@ const START_HINT = {
  *
  * Wie die Kopfzeile der Lernbox sagt die Karte in ganzen Sätzen, was heute
  * wartet — und darunter steht genau *ein* großer Knopf. Er startet den
- * ersten Punkt, den man tun kann; ohne offene Punkte führt er zum Lernweg.
+ * ersten Punkt, den man tun kann; ohne offene Punkte führt er zu den
+ * Lernbereichen des Niveaus.
  * Jede Zeile ist selbst ein großes Ziel, falls man lieber etwas anderes
  * zuerst erledigt.
  */
@@ -37,7 +38,7 @@ export default function TodayPlan({ lang, name, items, fallbackHref, week, noLev
   lang: string
   name: string
   items: TodayItem[]
-  /** Ziel des Knopfs, wenn nichts ansteht: der Lernweg des empfohlenen Niveaus. */
+  /** Ziel des Knopfs, wenn nichts ansteht: die Übersicht des zuletzt gelernten Niveaus. */
   fallbackHref: string | null
   week: { days: string[]; learned: string[]; today: string } | null
   noLevel: boolean
@@ -45,8 +46,8 @@ export default function TodayPlan({ lang, name, items, fallbackHref, week, noLev
   const t = studentTranslator(lang)
   const first = items.find(item => item.actionable)
   const start = first
-    ? { href: first.href, hint: t(START_HINT[first.kind as keyof typeof START_HINT] ?? 'today_start_path') }
-    : fallbackHref ? { href: fallbackHref, hint: t('today_start_path') } : null
+    ? { href: first.href, hint: t(START_HINT[first.kind as keyof typeof START_HINT] ?? 'today_start_level') }
+    : fallbackHref ? { href: fallbackHref, hint: t('today_start_level') } : null
   const allDone = !items.some(item => item.actionable)
 
   return (

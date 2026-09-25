@@ -69,7 +69,7 @@ function refreshVocabulary() {
 type Learner = NonNullable<Awaited<ReturnType<typeof loadLearner>>>
 
 /**
- * Im Lernweg ausgeschaltete Lektionen (Migration 25) als Unit-IDs.
+ * Unter „Lektionen" ausgeschaltete Lektionen (Migration 25) als Unit-IDs.
  *
  * Bewusst fehlertolerant: Fehlt die Tabelle noch (App vor der Migration
  * ausgerollt) oder scheitert das Lesen, gilt jede begonnene Lektion als
@@ -138,7 +138,7 @@ export async function getVocabularySession(level?: string, uiLanguage?: string):
     const cards: DueVocabularyCard[] = progress.flatMap(row => {
       const card = catalogById.get(row.card_id)
       if (!card || !hasTrainerAccess(profile, card.level, 'vocabulary')) return []
-      // Im Lernweg ausgeschaltet: Lernstand bleibt, geübt wird die Lektion nicht.
+      // Unter „Lektionen" ausgeschaltet: Lernstand bleibt, geübt wird die Lektion nicht.
       if (paused.has(card.unit_id)) return []
       const allowedLessons = getAllowedLessons(profile, card.level, 'vocabulary')
       if (allowedLessons !== null && !allowedLessons.includes(card.unit_id)) return []
@@ -268,7 +268,7 @@ export async function initializeLesson(lessonName: string, level?: string, expec
     const result = await addCardsToTrainer(allowed.map(card => card.id), learner.user.id)
     // Wer eine Lektion aufnimmt, will sie auch üben: eine alte Pause fällt weg.
     // Scheitert das, sind die Wörter trotzdem aufgenommen — der Schalter im
-    // Lernweg zeigt dann ehrlich „aus".
+    // „Lektionen" zeigt dann ehrlich „aus".
     if (result.success && !await setUnitsPaused(learner, [...new Set(allowed.map(card => card.unit_id))], false)) {
       console.error('[vocabulary] lesson_resume_failed')
     }
@@ -297,7 +297,7 @@ export async function skipVocabularyAssessment(level: string, expectedLearnerId?
 const lessonSwitchSchema = z.object({ lesson: z.string().trim().min(1).max(200), level: z.string().min(1).max(40), inBox: z.boolean() })
 
 /**
- * Schalter im Lernweg: Lektion in die Lernbox legen oder herausnehmen.
+ * Schalter unter „Lektionen": Lektion in die Lernbox legen oder herausnehmen.
  * Herausnehmen löscht keinen Lernstand; die Karten ruhen nur. Das erste
  * Einschalten (Einstufung oder „alle in Phase 1") läuft über
  * submitLessonAssessment bzw. initializeLesson.
@@ -521,7 +521,7 @@ export async function getLessonStats(level?: string): Promise<LessonStat[]> {
 export async function getVocabularyOverview(level?: string): Promise<{ stats: LessonStat[]; box: VocabularyBoxSummary; dueCards: number }> {
   const words = await readWordBox(level, null)
   const stats = lessonStats(words)
-  // Die Lernbox enthält nur eingeschaltete Lektionen; der Lernweg zeigt alle.
+  // Die Lernbox enthält nur eingeschaltete Lektionen; „Lektionen" zeigt alle.
   const inBox = wordsInBox(words, stats)
   // Fällige *Karten* (Richtungen) wie der Start-Knopf der Lernbox zählt; die
   // Fächer zählen fällige Wörter. Die Startseite spricht von Karten.
@@ -530,7 +530,7 @@ export async function getVocabularyOverview(level?: string): Promise<{ stats: Le
   return { stats, box: summarizeBox(inBox.map(word => word.state)), dueCards }
 }
 
-/** Lektionsstand samt Schalterstellung aus dem Lernweg. */
+/** Lektionsstand samt Schalterstellung unter „Lektionen". */
 function lessonStats(words: WordBoxEntry[] | null): LessonStat[] {
   const paused = new Set((words ?? []).filter(word => word.paused).map(word => word.card.lesson))
   return summarizeLessons(lessonEntries(words)).map(stat => paused.has(stat.lesson) ? { ...stat, paused: true } : stat)
@@ -555,7 +555,7 @@ interface WordBoxEntry {
   state: WordBoxState | null
   /** Leer, wenn der Aufrufer keine Sprache braucht (reines Zählen). */
   translation: string
-  /** Die Lektion ist im Lernweg ausgeschaltet. */
+  /** Die Lektion ist unter „Lektionen" ausgeschaltet. */
   paused: boolean
 }
 

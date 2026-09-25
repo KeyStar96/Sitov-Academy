@@ -38,7 +38,9 @@ export default function LevelCard({ id, title, description, index, href, locked,
         <span className="academy-level-code">{id}</span>
         {locked
           ? <Lock size={18} aria-hidden="true" />
-          : <span className="academy-level-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>}
+          // Rein dekoratives Relief: als CSS-Inhalt, nicht als Text (sonst wertet axe
+          // die absichtlich blasse Zahl als zu kontrastarmen Text).
+          : <span className="academy-level-number" aria-hidden="true" data-number={String(index + 1).padStart(2, '0')} />}
       </div>
       <h3>{title}</h3>
       <p>{description}</p>

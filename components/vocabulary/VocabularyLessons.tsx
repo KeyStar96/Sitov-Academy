@@ -3,7 +3,7 @@
 import { useEffect, useState, useTransition, type CSSProperties } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { ArrowRight, BookOpen, Check, ChevronRight, Eye, Layers, ListChecks, Map as MapIcon, PenLine, Plus } from 'lucide-react'
+import { ArrowRight, BookOpen, Check, ChevronRight, Eye, Layers, ListChecks, PenLine, Plus } from 'lucide-react'
 import { initializeLesson, setLessonInBox } from '@/app/actions/vocabulary'
 import LessonCardsModal from '@/components/vocabulary/LessonCardsModal'
 import { createVocabularyTranslator, type VocabularyTranslations } from '@/lib/vocabulary-i18n'
@@ -12,10 +12,10 @@ import BottomSheet from '@/components/ui/BottomSheet'
 import ProgressRing from '@/components/ui/ProgressRing'
 import { studentTranslator } from '@/lib/student-ui-i18n'
 import type { LessonStation } from '@/lib/learning-status-server'
-import type { PathStation } from '@/lib/level-path'
+import type { PathStation } from '@/lib/lesson-stations'
 
 /** Der große Weiter-Knopf: ein Ziel oder „diese Lektion beginnen" (öffnet die Startwahl). */
-export type PathNext = { href: string; hint: string } | { lesson: string; hint: string }
+export type LessonsNext = { href: string; hint: string } | { lesson: string; hint: string }
 
 /**
  * Großer Schalter „In deiner Lernbox". Der Zustand steht immer als Text
@@ -45,7 +45,9 @@ function BoxSwitch({ on, busy, disabled, label, hint, ariaLabel, onToggle }: {
 }
 
 /**
- * Der Lernweg eines Niveaus — hier wird entschieden, was in die Lernbox kommt.
+ * „Lektionen" im Modus Vokabeln — hier wird entschieden, was in die Lernbox
+ * kommt. Bis Phase 2 stand diese Liste auf der Niveau-Seite; „Lernpfad"
+ * meint seitdem ausschließlich den Grammatik-Pfad.
  *
  * Jede Lektion ist eine Station mit einem großen Schalter. Das erste
  * Einschalten fragt einmal, wie man anfangen möchte: Wörter prüfen
@@ -54,14 +56,12 @@ function BoxSwitch({ on, busy, disabled, label, hint, ariaLabel, onToggle }: {
  * „Eigene Wörter" stehen als eigene Station darunter: einschalten, eintragen,
  * löschen. Die Lernbox-Seite zeigt danach nur noch die Box selbst.
  */
-export default function LevelPath({ lang, level, title, description, stations, next, vocabularyHref, vocabularyTranslations, ownWords }: {
+export default function VocabularyLessons({ lang, level, stations, next, vocabularyHref, vocabularyTranslations, ownWords }: {
   lang: string
   level: string
-  title: string
-  description: string
   stations: PathStation[]
-  /** Der große Weiter-Knopf; fehlt er, ist gerade kein Bereich offen. */
-  next: PathNext | null
+  /** Der große Weiter-Knopf; fehlt er, gibt es gerade nichts zu tun. */
+  next: LessonsNext | null
   vocabularyHref: string | null
   vocabularyTranslations?: VocabularyTranslations
   /** „Eigene Wörter" des Niveaus; fehlt, wenn der Vokabeltrainer nicht offen ist. */
@@ -174,26 +174,26 @@ export default function LevelPath({ lang, level, title, description, stations, n
 
   return (
     <div className="space-y-8">
-      <section className="st-path-hero sl-glass sl-hero" aria-labelledby="path-level-title">
+      <section className="st-path-hero sl-glass sl-hero" aria-labelledby="lessons-title">
         <div className="relative">
           <p className="st-eyebrow !mt-0">{t('areas_level', { level })}</p>
           <div className="st-path-hero__row">
             <div className="min-w-0 flex-1">
-              <h1 id="path-level-title" className="st-path-hero__title">{title}</h1>
-              <p className="st-path-hero__text">{description}</p>
+              <h2 id="lessons-title" className="st-path-hero__title">{t('lessons_title')}</h2>
+              <p className="st-path-hero__text">{t('lessons_hint')}</p>
             </div>
             {stations.length > 0 && (
               <ProgressRing value={done / stations.length} size={84} stroke={8} tone={done === stations.length ? 'success' : 'accent'}
-                label={t('path_progress_aria', { done, total: stations.length })}>
+                label={t('lessons_progress_aria', { done, total: stations.length })}>
                 <strong className="text-2xl font-extrabold tabular-nums text-[var(--foreground)]">{done}/{stations.length}</strong>
               </ProgressRing>
             )}
           </div>
-          {stations.length > 0 && <p className="st-path-hero__count">{t('path_done', { done, total: stations.length })}</p>}
+          {stations.length > 0 && <p className="st-path-hero__count">{t('lessons_done', { done, total: stations.length })}</p>}
           {next && ('href' in next ? (
             <Link href={next.href} className="st-cta st-press">
               <span className="st-cta__text">
-                <span className="st-cta__label">{t('path_continue')}</span>
+                <span className="st-cta__label">{t('lessons_continue')}</span>
                 <span className="st-cta__hint">{next.hint}</span>
               </span>
               <span className="st-cta__arrow" aria-hidden="true"><ArrowRight size={24} /></span>
@@ -204,7 +204,7 @@ export default function LevelPath({ lang, level, title, description, stations, n
               if (station) openStart(station, station.label)
             }}>
               <span className="st-cta__text">
-                <span className="st-cta__label">{t('path_continue')}</span>
+                <span className="st-cta__label">{t('lessons_continue')}</span>
                 <span className="st-cta__hint">{next.hint}</span>
               </span>
               <span className="st-cta__arrow" aria-hidden="true"><ArrowRight size={24} /></span>
@@ -214,15 +214,9 @@ export default function LevelPath({ lang, level, title, description, stations, n
       </section>
 
       {vocabularyHref && (
-        <section aria-labelledby="path-title">
-          <div className="st-section-head">
-            <div className="min-w-0">
-              <h2 id="path-title" className="st-section-title flex items-center gap-2"><MapIcon size={22} aria-hidden="true" className="text-[var(--accent-text)]" />{t('path_title')}</h2>
-              <p className="st-section-sub">{t('path_hint')}</p>
-            </div>
-          </div>
-          {stations.length === 0 ? <p className="st-empty">{t('path_empty')}</p> : (
-            <ol className="st-path">
+        <div>
+          {stations.length === 0 ? <p className="st-empty">{t('lessons_empty')}</p> : (
+            <ol className="st-path" aria-labelledby="lessons-title">
               {stations.map((station, index) => {
                 const on = inBox(station)
                 return (
@@ -282,7 +276,7 @@ export default function LevelPath({ lang, level, title, description, stations, n
               </button>
             </article>
           )}
-        </section>
+        </div>
       )}
 
       <BottomSheet open={sheetOpen} onClose={() => setSheetOpen(false)} title={selected?.label ?? ''} closeLabel={t('close')}

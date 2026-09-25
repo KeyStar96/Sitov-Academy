@@ -2,7 +2,7 @@
  * Gerätegebundene Vorlieben des Vokabeltrainers im Browser-Speicher.
  *
  * Welche Lektionen in der Lernbox liegen, steht seit Migration 25 auf dem
- * Server (Schalter im Lernweg) und gilt so auf jedem Gerät.
+ * Server (Schalter unter „Lektionen") und gilt so auf jedem Gerät.
  */
 
 import { DEFAULT_ROUND_SIZE, parseRoundSize, type RoundSize } from './vocabulary-rounds'

@@ -2926,6 +2926,100 @@ END $$;
 
 
 --
+-- Name: get_last_active_level(); Type: FUNCTION; Schema: public; Owner: -
+--
+
+CREATE FUNCTION public.get_last_active_level() RETURNS jsonb
+    LANGUAGE plpgsql STABLE SECURITY DEFINER
+    SET search_path TO ''
+    AS $$
+DECLARE
+ actor uuid:=(SELECT auth.uid());
+ staff boolean;
+ recent jsonb;
+ fallback_level text;
+ fallback_source text;
+ boundary_state text;
+BEGIN
+ IF actor IS NULL THEN
+  RETURN jsonb_build_object('error','authentication_required','message','Sign in to continue.','sqlstate','42501');
+ END IF;
+ SELECT p.role::text IN('teacher','admin') INTO staff FROM public.profiles p WHERE p.id=actor;
+ staff:=coalesce(staff,false);
+
+ WITH allowed AS (
+  SELECT l.code AS level,l.sort_order FROM public.learning_levels l
+  WHERE l.is_active AND (staff OR EXISTS(SELECT 1 FROM public.student_level_access a
+   WHERE a.auth_user_id=actor AND a.level=l.code))
+ ), activity AS (
+  SELECT u.level,'vocabulary'::text AS mode,r.created_at AS at,u.label AS unit_label,NULL::text AS topic
+  FROM vocabulary_private.answer_receipts r
+  JOIN public.vocabulary_direction_progress v ON v.id=r.progress_id AND v.auth_user_id=actor
+  JOIN public.learning_vocabulary_cards c ON c.id=v.card_id
+  JOIN public.learning_units u ON u.id=c.unit_id
+  WHERE r.auth_user_id=actor
+  UNION ALL
+  SELECT u.level,'vocabulary',v.last_answered_at,u.label,NULL
+  FROM public.vocabulary_direction_progress v
+  JOIN public.learning_vocabulary_cards c ON c.id=v.card_id
+  JOIN public.learning_units u ON u.id=c.unit_id
+  WHERE v.auth_user_id=actor AND v.last_answered_at IS NOT NULL
+  UNION ALL
+  SELECT u.level,'exercises',coalesce(p.updated_at,p.created_at),u.label,e.topic
+  FROM public.user_exercise_progress p
+  JOIN public.learning_exercises e ON e.id=p.exercise_id
+  JOIN public.learning_units u ON u.id=e.unit_id
+  WHERE p.auth_user_id=actor AND (coalesce(p.attempts,0)>0 OR coalesce(p.completed,false))
+  UNION ALL
+  SELECT s.level,'pronunciation',s.created_at,u.label,NULL
+  FROM public.submissions s
+  LEFT JOIN public.learning_reading_texts t ON t.id=s.prompt_id
+  LEFT JOIN public.learning_units u ON u.id=t.unit_id
+  WHERE s.auth_user_id=actor AND s.created_at IS NOT NULL
+ ), latest AS (
+  -- Je Niveau die jüngste Handlung; bei Gleichstand entscheidet der Modus stabil.
+  SELECT DISTINCT ON (a.level) a.level,a.mode,a.at,a.unit_label,a.topic,al.sort_order
+  FROM activity a JOIN allowed al ON al.level=a.level
+  WHERE a.at IS NOT NULL
+  ORDER BY a.level,a.at DESC,a.mode
+ )
+ SELECT coalesce(jsonb_agg(jsonb_build_object('level',l.level,'mode',l.mode,'at',l.at,
+   'unit_label',l.unit_label,'topic',l.topic) ORDER BY l.at DESC,l.sort_order),'[]'::jsonb)
+ INTO recent FROM latest l;
+
+ IF jsonb_array_length(recent)>0 THEN
+  RETURN jsonb_build_object('level',recent->0->>'level','mode',recent->0->>'mode',
+   'source','activity','levels',recent);
+ END IF;
+
+ SELECT l.code INTO fallback_level FROM public.learning_levels l
+ WHERE l.is_active AND (staff OR EXISTS(SELECT 1 FROM public.student_level_access a WHERE a.auth_user_id=actor AND a.level=l.code))
+  AND (EXISTS(SELECT 1 FROM public.vocabulary_direction_progress v
+    JOIN public.learning_vocabulary_cards c ON c.id=v.card_id
+    JOIN public.learning_units u ON u.id=c.unit_id
+    WHERE v.auth_user_id=actor AND u.level=l.code)
+   OR EXISTS(SELECT 1 FROM public.user_exercise_progress p
+    JOIN public.learning_exercises e ON e.id=p.exercise_id
+    JOIN public.learning_units u ON u.id=e.unit_id
+    WHERE p.auth_user_id=actor AND u.level=l.code))
+ ORDER BY l.sort_order,l.code LIMIT 1;
+ IF fallback_level IS NOT NULL THEN
+  fallback_source:='started';
+ ELSE
+  SELECT l.code INTO fallback_level FROM public.learning_levels l
+  WHERE l.is_active AND (staff OR EXISTS(SELECT 1 FROM public.student_level_access a WHERE a.auth_user_id=actor AND a.level=l.code))
+  ORDER BY l.sort_order,l.code LIMIT 1;
+  fallback_source:=CASE WHEN fallback_level IS NULL THEN 'none' ELSE 'unlocked' END;
+ END IF;
+ RETURN jsonb_build_object('level',fallback_level,'mode',NULL,'source',fallback_source,'levels','[]'::jsonb);
+EXCEPTION WHEN OTHERS THEN
+ GET STACKED DIAGNOSTICS boundary_state=RETURNED_SQLSTATE;
+ RETURN jsonb_build_object('error','request_failed','message','The request could not be completed.','sqlstate',boundary_state);
+END
+$$;
+
+
+--
 -- Name: initialize_vocabulary_cards(jsonb); Type: FUNCTION; Schema: public; Owner: -
 --
 
@@ -8724,6 +8818,15 @@ GRANT ALL ON FUNCTION public.get_all_students_progress_data() TO authenticated;
 
 REVOKE ALL ON FUNCTION public.get_all_students_progress_data(p_student_id uuid, p_course_id uuid) FROM PUBLIC;
 GRANT ALL ON FUNCTION public.get_all_students_progress_data(p_student_id uuid, p_course_id uuid) TO authenticated;
+
+
+--
+-- Name: FUNCTION get_last_active_level(); Type: ACL; Schema: public; Owner: -
+--
+
+REVOKE ALL ON FUNCTION public.get_last_active_level() FROM PUBLIC;
+GRANT ALL ON FUNCTION public.get_last_active_level() TO authenticated;
+GRANT ALL ON FUNCTION public.get_last_active_level() TO service_role;
 
 
 --

@@ -47,16 +47,16 @@ it('zeigt nur noch die Lernbox: keine Lektionsliste, keine eigenen Wörter, kein
   expect(screen.getByText('session')).toBeInTheDocument()
 })
 
-it('führt ohne fällige Karten zum Lernweg', () => {
+it('führt ohne fällige Karten zu den Lektionen', () => {
   mount([])
   expect(screen.getByText(de.vocabulary.lernkasten_all_done_hint)).toBeInTheDocument()
-  expect(screen.getByRole('link', { name: s('areas_to_path') })).toHaveAttribute('href', '/ru/dashboard/level/A1.1')
+  expect(screen.getByRole('link', { name: s('areas_to_lessons') })).toHaveAttribute('href', '/ru/dashboard/level/A1.1/vocabulary/lessons')
 })
 
-it('erklärt eine leere Lernbox und schickt zum Einschalten in den Lernweg', () => {
+it('erklärt eine leere Lernbox und schickt zum Einschalten zu den Lektionen', () => {
   mount([], summarizeBox([]))
   expect(screen.getByRole('heading', { name: s('box_empty_title') })).toBeInTheDocument()
   expect(screen.getByText(s('box_empty_text'))).toBeInTheDocument()
-  expect(screen.getByRole('link', { name: s('areas_to_path') })).toHaveAttribute('href', '/ru/dashboard/level/A1.1')
+  expect(screen.getByRole('link', { name: s('areas_to_lessons') })).toHaveAttribute('href', '/ru/dashboard/level/A1.1/vocabulary/lessons')
   expect(screen.queryByText(de.vocabulary.lernkasten_all_done_hint)).not.toBeInTheDocument()
 })

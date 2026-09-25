@@ -9,7 +9,7 @@ import StudentNavigation from '@/components/dashboard/StudentNavigation'
 import ProfileSettings from '@/components/dashboard/ProfileSettings'
 import { SessionBoxMoves, AssessmentResult } from '@/components/vocabulary/SuccessMoments'
 import { buildWordTiles } from '@/components/exercises/FillInBlankExercise'
-import { toStations } from '@/lib/level-path'
+import { toStations } from '@/lib/lesson-stations'
 import { courseSessionsInMonth } from '@/lib/profile-month'
 import { studentTranslator, STUDENT_MESSAGES } from '@/lib/student-ui-i18n'
 import { teacherFirstName, teacherPortrait } from '@/lib/teacher-portraits'
@@ -56,7 +56,7 @@ describe('Heute für dich', () => {
   })
 })
 
-describe('Lernweg', () => {
+describe('Lektionen', () => {
   it('marks fully started lessons as done and the first lesson with new words as current', () => {
     const stations = toStations([
       { lesson: 'Lektion 1', total: 10, active: 8, learned: 2, untouched: 0, due: 3 },

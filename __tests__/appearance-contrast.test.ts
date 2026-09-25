@@ -69,6 +69,18 @@ describe.each([
     }
   })
 
+  // Phase 2 (D2): Modus-Kennfarben. Text/Symbol auf der eigenen Kennfläche und
+  // auf allen Grundflächen; die aktive Dock-Pille trägt normale Schrift.
+  it.each(['vocabulary', 'path', 'pronunciation', 'media', 'special'])('keeps the %s mode colour legible on its identity surface and every base surface', mode => {
+    const text = colors[`mode-${mode}-text`], surface = colors[`mode-${mode}-surface`]
+    expect(text).toBeDefined()
+    expect(surface).toBeDefined()
+    expect(contrast(text, surface)).toBeGreaterThanOrEqual(threshold)
+    for (const base of ['canvas', 'surface', 'surface-muted']) expect(contrast(text, colors[base])).toBeGreaterThanOrEqual(threshold)
+    expect(contrast(colors.foreground, surface)).toBeGreaterThanOrEqual(threshold)
+    expect(contrast(colors.muted, surface)).toBeGreaterThanOrEqual(threshold)
+  })
+
   it('keeps accent chips and warning messages readable', () => {
     expect(contrast(colors['accent-text'], colors['accent-soft'])).toBeGreaterThanOrEqual(threshold)
     expect(contrast(colors['warning-foreground'], colors.warning)).toBeGreaterThanOrEqual(4.5)

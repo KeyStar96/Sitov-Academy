@@ -1056,6 +1056,13 @@ h1, h2, h3 { text-wrap: balance; }
    Eine visuelle Sprache über öffentliche Seite und Lernraum. */
 :root {
   color-scheme: light;
+  /* Bewegung (D4, Phase 2): CSS in ms, Framer-Werte stehen in lib/motion.ts. */
+  --motion-fast: 120ms;         /* Druck, Hover, Fokus */
+  --motion-base: 200ms;         /* Tabs, Chips, kleine Wechsel */
+  --motion-slow: 320ms;         /* Karten, Blätter, Seitenteile */
+  --motion-slower: 500ms;       /* Pfadlinie, Feier-Grundbewegung */
+  --motion-stagger: 40ms;       /* Gestaffeltes Einblenden, höchstens acht Elemente */
+  --ease-out-soft: cubic-bezier(.22, 1, .36, 1);
   --canvas: #f8fafc;            /* slate-50 — warmes Off-White */
   --background: var(--canvas);
   --surface: #ffffff;
@@ -1087,6 +1094,18 @@ h1, h2, h3 { text-wrap: balance; }
   --lm-text-espresso: var(--foreground);
   --accent-cyan: var(--violet);
   --accent-lime: var(--accent);
+  /* Modus-Kennfarben (D2, Phase 2): kleine deckende Kennfläche + Text/Symbol.
+     Gemessen in der Designrichtlinie, geprüft in appearance-contrast.test.ts. */
+  --mode-vocabulary-surface: #fff7ed;
+  --mode-vocabulary-text: #c2410c;
+  --mode-path-surface: #eff6ff;
+  --mode-path-text: #1e40af;
+  --mode-pronunciation-surface: #f5f3ff;
+  --mode-pronunciation-text: #5b21b6;
+  --mode-media-surface: #f0fdfa;
+  --mode-media-text: #115e59;
+  --mode-special-surface: #f0fdf4;
+  --mode-special-text: #166534;
 }
 html.dark {
   color-scheme: dark;
@@ -1119,6 +1138,16 @@ html.dark {
   --dm-border-slate: var(--border);
   --dm-text-main: var(--foreground);
   --dm-text-muted: var(--muted);
+  --mode-vocabulary-surface: #431407;
+  --mode-vocabulary-text: #fb923c;
+  --mode-path-surface: #172554;
+  --mode-path-text: #93c5fd;
+  --mode-pronunciation-surface: #2e1065;
+  --mode-pronunciation-text: #c4b5fd;
+  --mode-media-surface: #042f2e;
+  --mode-media-text: #5eead4;
+  --mode-special-surface: #052e16;
+  --mode-special-text: #86efac;
 }
 /* Contrast is independent of the light/dark preference. Keep accent text and
    filled controls legible against both plain and gently tinted surfaces. */
@@ -1144,6 +1173,16 @@ html.high-contrast {
   --violet: #3730a3;
   --success: #14532d;
   --danger: #7f1d1d;            /* red-900 — ≥7:1 auf danger-Tint (High-Contrast) */
+  --mode-vocabulary-surface: #fff1e6;
+  --mode-vocabulary-text: #7c2d12;
+  --mode-path-surface: #eff6ff;
+  --mode-path-text: #1e3a8a;
+  --mode-pronunciation-surface: #f5f3ff;
+  --mode-pronunciation-text: #4c1d95;
+  --mode-media-surface: #f0fdfa;
+  --mode-media-text: #134e4a;
+  --mode-special-surface: #f0fdf4;
+  --mode-special-text: #14532d;
 }
 html.dark.high-contrast {
   --canvas: #000000;
@@ -1167,6 +1206,16 @@ html.dark.high-contrast {
   --violet: #c7d2fe;
   --success: #86efac;
   --danger: #fca5a5;
+  --mode-vocabulary-surface: #1a0f06;
+  --mode-vocabulary-text: #fdba74;
+  --mode-path-surface: #172554;
+  --mode-path-text: #bfdbfe;
+  --mode-pronunciation-surface: #2e1065;
+  --mode-pronunciation-text: #ddd6fe;
+  --mode-media-surface: #042f2e;
+  --mode-media-text: #99f6e4;
+  --mode-special-surface: #052e16;
+  --mode-special-text: #bbf7d0;
 }
 html.high-contrast :where(a, button, input, select, textarea, summary):focus-visible {
   outline: 3px solid var(--foreground);
@@ -1328,6 +1377,7 @@ html:has(.academy-header) { scroll-padding-top: 9rem; }
 .academy-level-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; }
 .academy-level-code { display: inline-flex; align-items: center; justify-content: center; background: color-mix(in srgb, var(--accent) 10%, var(--surface)); color: var(--accent-text); border: 1px solid var(--border); border-radius: .9rem; min-width: 60px; height: 50px; font-weight: 750; font-size: 1.1rem; letter-spacing: -.03em; }
 .academy-level-number { position: absolute; top: -.3em; right: .05em; font-size: 6.5rem; font-weight: 800; line-height: 1; letter-spacing: -.06em; color: var(--accent-text); opacity: .09; pointer-events: none; user-select: none; font-variant-numeric: tabular-nums; }
+.academy-level-number::before { content: attr(data-number); }
 .academy-level-card h3 { font-size: 1.1rem; letter-spacing: -.025em; font-weight: 700; line-height: 1.5; margin-bottom: .7rem; }
 .academy-level-card > p { font-size: 1rem; color: var(--muted); line-height: 1.75; margin-bottom: 1.5rem; flex: 1; }
 .academy-level-bottom { display: flex; justify-content: space-between; align-items: center; gap: .8rem; font-size: 1rem; font-weight: 700; color: var(--accent-text); min-height: 48px; }

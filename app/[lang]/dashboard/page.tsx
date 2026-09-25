@@ -11,7 +11,9 @@ import { loadProfileCourseCalendar } from '@/lib/profile-course-calendar-server'
 import { formatCalendarDate } from '@/lib/profile-course-calendar'
 import { nextUpcomingEvent } from '@/lib/dashboard-next-course'
 import { formatProfileMonth } from '@/lib/profile-month'
-import { loadLevelLearningStatus, loadWeekActivity } from '@/lib/learning-status-server'
+import { loadLevelLearningStatus, loadWeekActivity, modeLock } from '@/lib/learning-status-server'
+import { loadLastActiveLevel } from '@/lib/last-active-level'
+import { lessonsHref, levelHref, modeHref } from '@/lib/mode-targets'
 import { studentTranslator } from '@/lib/student-ui-i18n'
 import { teacherFirstName } from '@/lib/teacher-portraits'
 import TodayPlan, { type TodayItem } from '@/components/dashboard/home/TodayPlan'
@@ -23,6 +25,8 @@ import AuthStatusMessage from '@/components/auth/AuthStatusMessage'
 import { authStatusMessage, authTranslations, createAuthTranslator } from '@/lib/auth-i18n'
 import { parseAuthStatus } from '@/lib/types/auth'
 
+const CONTINUE_TO = { vocabulary: 'continue_to_vocabulary', path: 'continue_to_path', pronunciation: 'continue_to_pronunciation', media: 'continue_to_media' } as const
+
 export default async function DashboardPage({ params, searchParams }: {
   params: Promise<{ lang: string }>
   searchParams?: Promise<{ [key: string]: string | string[] | undefined }>
@@ -30,8 +34,8 @@ export default async function DashboardPage({ params, searchParams }: {
   const { lang } = await params
   const confirmed = parseAuthStatus((await searchParams)?.status) === 'confirm_success'
   const supabase = await createClient()
-  const [{ data: { user } }, progressMap, unseenFeedback, dict] = await Promise.all([
-    supabase.auth.getUser(), getAllLevelsProgress(), getUnseenFeedbackSummary(), getDictionary(lang),
+  const [{ data: { user } }, progressMap, unseenFeedback, dict, lastActive] = await Promise.all([
+    supabase.auth.getUser(), getAllLevelsProgress(), getUnseenFeedbackSummary(), getDictionary(lang), loadLastActiveLevel(),
   ])
   const [accessProfile, profileRow] = user
     ? await Promise.all([
@@ -54,7 +58,10 @@ export default async function DashboardPage({ params, searchParams }: {
     { id: 'B1.2', title: dict.dashboard.level_b12_title, description: dict.dashboard.level_b12_desc },
   ]
   const accessible = levels.filter(level => hasLevelAccess(accessProfile, level.id))
-  const recommended = accessible.find(level => (progressMap[level.id] || 0) > 0 && (progressMap[level.id] || 0) < 100) || accessible.find(level => (progressMap[level.id] || 0) < 100) || accessible[0]
+  // Das zuletzt gelernte Niveau entscheidet PostgreSQL (Migration 32). Nur wenn
+  // die Abfrage scheitert, gilt der alte Rückfall: erstes angefangenes Niveau.
+  const recommended = accessible.find(level => level.id === lastActive?.level)
+    || accessible.find(level => (progressMap[level.id] || 0) > 0 && (progressMap[level.id] || 0) < 100) || accessible.find(level => (progressMap[level.id] || 0) < 100) || accessible[0]
 
   // Kalender, Buchung, Lernstand und Lerntage sind unabhängige Zusätze: Ein
   // Ladefehler darf die Startseite nie mitreißen (wie auf der Profilseite).
@@ -65,13 +72,13 @@ export default async function DashboardPage({ params, searchParams }: {
     loadWeekActivity(supabase, user.id),
   ]) : [null, null, null, null]
 
-  const levelBase = recommended ? `/${lang}/dashboard/level/${encodeURIComponent(recommended.id)}` : null
+  const levelBase = recommended ? levelHref(lang, recommended.id) : null
   const items: TodayItem[] = []
   const vocabulary = status?.vocabulary
   if (levelBase && vocabulary && !vocabulary.locked) {
     if (vocabulary.due > 0) items.push({ kind: 'vocabulary', label: s.count('today_vocab', vocabulary.due), href: `${levelBase}/vocabulary`, actionable: true })
-    // Lektionen werden im Lernweg eingeschaltet — dorthin führt die Einrichtung.
-    else if (vocabulary.total > 0 && vocabulary.activeWords + vocabulary.learned === 0) items.push({ kind: 'vocabulary', label: s('today_vocab_setup'), href: levelBase, actionable: true })
+    // Lektionen werden im Modus Vokabeln unter „Lektionen" eingeschaltet — dorthin führt die Einrichtung.
+    else if (vocabulary.total > 0 && vocabulary.activeWords + vocabulary.learned === 0) items.push({ kind: 'vocabulary', label: s('today_vocab_setup'), href: lessonsHref(lang, recommended!.id), actionable: true })
   }
   if (unseenFeedback.count > 0 && unseenFeedback.latestLevel) {
     const name = teacherFirstName(unseenFeedback.latest?.senderName) ?? s('teacher_fallback')
@@ -80,7 +87,7 @@ export default async function DashboardPage({ params, searchParams }: {
   }
   const grammar = status?.grammar
   if (levelBase && grammar && !grammar.locked && grammar.openTopics > 0) {
-    items.push({ kind: 'grammar', label: s.count('today_grammar', grammar.openTopics), href: `${levelBase}/exercises`, actionable: true })
+    items.push({ kind: 'grammar', label: s.count('today_grammar', grammar.openTopics), href: modeHref(lang, recommended!.id, 'path'), actionable: true })
   }
   const next = nextUpcomingEvent(calendar)
   if (next) {
@@ -94,6 +101,16 @@ export default async function DashboardPage({ params, searchParams }: {
     items.push({ kind: 'booking', actionable: false, href: `/${lang}/dashboard/calendar#booking`,
       label: s('today_booking', { month: formatProfileMonth(monthly.targetMonth, lang) }) })
   }
+
+  // „Zum Lernpfad" bzw. zum zuletzt genutzten Modus dieses Niveaus; ist er
+  // gesperrt, führt der Knopf zur Übersicht des Niveaus.
+  const lastMode = lastActive?.levels.find(entry => entry.level === recommended?.id)?.mode ?? null
+  const continueMode = lastMode ?? 'path'
+  const areasContinue = recommended
+    ? modeLock(accessProfile, recommended.id, lang, continueMode) === null
+      ? { href: modeHref(lang, recommended.id, continueMode), label: s(CONTINUE_TO[continueMode]) }
+      : { href: levelHref(lang, recommended.id), label: s('continue_to_level', { level: recommended.id }) }
+    : undefined
 
   const supportLabels = {
     whatsapp: copy.support_whatsapp,
@@ -112,7 +129,8 @@ export default async function DashboardPage({ params, searchParams }: {
       </div>
       <div className="flex min-w-0 flex-col gap-5 lg:col-span-5">
         <MailboxPreview summary={unseenFeedback} lang={lang} translations={dict.pronunciation as PronunciationTranslations} />
-        {recommended && <TrainerStatusTiles lang={lang} level={recommended.id} status={status} languageLocked={lang === 'de'} showPathLink />}
+        {recommended && <TrainerStatusTiles lang={lang} level={recommended.id} status={status} languageLocked={lang === 'de'}
+          title={s('areas_title_level', { level: recommended.id })} continueLink={areasContinue} />}
       </div>
     </div>
 

@@ -98,3 +98,18 @@ Phase 4 verwendet diesen Vertrag für alle Schreibaufgaben. Aufgaben zur Untersc
 - Live-Varianten-Audit: 512 aktive gemeinsame Karten / 26 Satzkarten / 15 Meldungen / **0 offen**. Nächste freie Migration **32**.
 - Keine RAM-/Netzwerkgrenzen geändert; keine Hintergrunddienste ergänzt. Temporärer Klon nach erfolgreicher Abnahme entfernt, lokale QA-Prozesse und SSH-Forward beendet; Backups bleiben geschützt erhalten.
 - Bestehender Befund: `sitov-mail.service` weiterhin inaktiv (wie vor Phase 1), gemäß vorhandenem Release-Verfahren nicht automatisch gestartet. Zustellbetrieb bleibt für Phase 6/8 zu prüfen; keine Testmails, Konten oder Nutzeranmeldungen angelegt. Phasen 2–8 und ihre offenen Bestandsbefunde bleiben unverändert zugeordnet.
+
+
+## Phase 2 — Navigation und Design-System
+
+Stand: **umgesetzt, Abnahme unvollständig** (Sitzung wegen Kontingent beendet). Ausgangsrevision `3271a12`. [Prüfbericht](PHASE-2-PRUEFBERICHT.md).
+
+- [x] 2.1 D4-Tokens in `app/globals.css` (`--motion-fast|base|slow|slower`, `--motion-stagger`, `--ease-out-soft`); `lib/motion.ts` (`MOTION`, `EASE_OUT_SOFT`, `SPRING` 420/34 mit Ruhe-Schwelle ≤500 ms, `STAGGER`, Varianten, `useReducedMotionSafe`, `useIsHydrating`); `MotionConfig reducedMotion="user"` über `components/motion/MotionProvider`. Bausteine `components/motion/{PressableCard,CountUp,NewBadge,SlidingPill,FeedbackMotion}`. Modus-Tokens `--mode-{vocabulary,path,pronunciation,media,special}-{surface,text}` in allen vier Paletten, Kontrasttest erweitert.
+- [x] 2.2 `components/dashboard/ModeDock.tsx` im Niveau-Layout (Zähler per Suspense). **Modus-Ziele für Phase 3: `lib/mode-targets.ts` → `MODE_SEGMENTS.path` (heute `exercises`).**
+- [x] 2.3 Niveau-Seite: `ResumeCard` + vier Modus-Karten; `LevelPath` → `components/vocabulary/VocabularyLessons.tsx` unter `/vocabulary/lessons` („Lektionen“), Unteransicht `VocabularyTabs`; „Lernweg“ in fünf Sprachen/Kommentaren ersetzt, Grep-Test `__tests__/lessons-rename.test.ts`.
+- [x] 2.4 Brotkrumen mit vollem Pfad (`lib/breadcrumbs.ts`, `DASHBOARD_ROUTE_KEYS` um Lernpfad/Pfad n/Knoten/Test/Mediathek/Kalender erweitert).
+- [x] 2.5 `data-tabbar` am Shell-Element, `--st-tabbar-visible`; Aufnahme-Dock wandert mit.
+- [x] 2.6 Migration `32_last_active_level.sql` + Rückweg, `ORDER`, `schema.sql`/`database.types.ts` (Funktion von Hand im Exportformat ergänzt, kein Klon-Export). Home „Deine Lernbereiche · A1.2“, Reiter „Lernen“ über RPC, `localStorage` nur Rückfall.
+- [x] 2.7 D5 auf Home, Niveau, Dock, Brotkrumen, Lernbox, Antwort-Rückmeldung; Reduced-Motion schaltet im Lernraum alle Animationen ab.
+
+Tests: Jest 1.765 bestanden / 1 bekannter bedingter Skip (VPS-Smoke); neuer DB-Test `last-active-level` 10/10; Build Exit 0 (157 Seiten). **Offen:** vollständiger DB-Lauf nach den Änderungen, finaler Playwright-Lauf `e2e/phase2.config.ts` (Desktop/Pixel 7/iPhone 14; vorheriger Desktop-Lauf 19/31, Befunde danach behoben, nicht erneut geprüft), `pronunciation-mobile.spec.ts` (braucht VPS-Gateway), Vorher/Nachher-Bilder, Lighthouse (kein Phase-0-Wert vorhanden). **Migration 32 nicht produktiv angewendet** (kein VPS-Zugang): Backup/`--apply 32_last_active_level.sql --keep-stopped`/`--activate --schema-changed` wie Phase 1. Nächste freie Nummer **33**.

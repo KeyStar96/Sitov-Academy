@@ -1,5 +1,6 @@
 import 'server-only'
 
+import { cache } from 'react'
 import { getVocabularyOverview } from '@/app/actions/vocabulary'
 import { getExercises } from '@/app/actions/exercises'
 import { getPronunciationPrompts } from '@/app/actions/pronunciation'
@@ -10,6 +11,8 @@ import { isOwnWordsLesson } from '@/lib/vocabulary-own-words'
 import type { LessonStat } from '@/lib/types/vocabulary'
 import { berlinNow } from '@/lib/dashboard-next-course'
 import { createClient } from '@/utils/supabase/server'
+import { LEARNING_MODES, MODE_TRAINERS, type LearningMode } from '@/lib/mode-targets'
+import type { ModeDockEntry, ModeLock } from '@/components/dashboard/ModeDock'
 
 type Client = Awaited<ReturnType<typeof createClient>>
 
@@ -18,7 +21,8 @@ const FRESH_MEDIA_DAYS = 14
 
 /**
  * Was in jedem Trainer eines Niveaus gerade wartet — die Grundlage der
- * Kacheln „Vokabeln · 48 fällig" auf Startseite und Lernweg.
+ * Modus-Karten „Vokabeln · 48 fällig" auf Startseite und Niveau-Seite und der
+ * Zähler im Modus-Dock.
  *
  * Jeder Bereich ist unabhängig: `null` heißt „konnte nicht geladen werden"
  * und wird als neutrale Kachel ohne Zahl gezeigt. Ein Ausfall darf nie als
@@ -30,7 +34,7 @@ export interface LevelLearningStatus {
   grammar: { locked: boolean; total: number; solved: number; topics: number; openTopics: number } | null
   pronunciation: { locked: boolean; texts: number; open: number; waiting: number; unread: number } | null
   media: { locked: boolean; total: number; fresh: number } | null
-  /** Vokabel-Lektionen des Kurses in ihrer Reihenfolge — die Stationen des Lernwegs. */
+  /** Vokabel-Lektionen des Kurses in ihrer Reihenfolge — die Stationen unter „Lektionen". */
   lessons: LessonStation[]
   /** „Eigene Wörter" dieses Niveaus; `null`, solange nichts geladen werden konnte. */
   ownWords: LessonStation | null
@@ -44,7 +48,7 @@ export interface LessonStation {
   learned: number
   untouched: number
   due: number
-  /** Im Lernweg ausgeschaltet: Lernstand bleibt, geübt wird nicht. */
+  /** Unter „Lektionen" ausgeschaltet: Lernstand bleibt, geübt wird nicht. */
   paused?: boolean
 }
 
@@ -52,6 +56,13 @@ async function settle<T>(work: () => Promise<T>, report: () => void): Promise<T 
   try { return await work() }
   catch { report(); return null }
 }
+
+/**
+ * Pro Anfrage nur einmal gelesen: Das Niveau-Layout (Modus-Dock) und die
+ * Seite darunter brauchen dieselben Zahlen.
+ */
+const vocabularyOverview = cache((level: string) => getVocabularyOverview(level))
+const pronunciationStatus = cache(async (userId: string, level: string) => loadPronunciation(await createClient(), userId, level))
 
 async function loadPronunciation(supabase: Client, userId: string, level: string) {
   const [prompts, submissions] = await Promise.all([
@@ -107,9 +118,9 @@ export async function loadLevelLearningStatus({ supabase, userId, profile, level
     media: !hasLevelAccess(profile, level),
   }
   const [vocabulary, exercises, pronunciation, media] = await Promise.all([
-    locked.vocabulary ? null : settle(() => getVocabularyOverview(level), () => console.error('[learning-status] vocabulary_unavailable')),
+    locked.vocabulary ? null : settle(() => vocabularyOverview(level), () => console.error('[learning-status] vocabulary_unavailable')),
     locked.grammar ? null : settle(() => getExercises(level, lang), () => console.error('[learning-status] grammar_unavailable')),
-    locked.pronunciation ? null : settle(() => loadPronunciation(supabase, userId, level), () => console.error('[learning-status] pronunciation_unavailable')),
+    locked.pronunciation ? null : settle(() => pronunciationStatus(userId, level), () => console.error('[learning-status] pronunciation_unavailable')),
     locked.media ? null : settle(() => loadMedia(supabase, level), () => console.error('[learning-status] media_unavailable')),
   ])
 
@@ -140,6 +151,36 @@ export async function loadLevelLearningStatus({ supabase, userId, profile, level
     lessons: courseLessons.map(station),
     ownWords: own ? station(own) : null,
   }
+}
+
+/**
+ * Warum ein Modus gesperrt ist. Die Mediathek folgt allein der
+ * Niveau-Freigabe (wie ihre Route); die übrigen Modi brauchen eine nicht
+ * deutsche Oberfläche und die Trainer-Freigabe der Lehrkraft.
+ */
+export function modeLock(profile: LevelAccessProfile | null, level: string, lang: string, mode: LearningMode): ModeLock {
+  if (mode === 'media') return hasLevelAccess(profile, level) ? null : 'teacher'
+  if (lang === 'de' || profile?.ui_language === 'de') return 'language'
+  return hasTrainerAccess(profile, level, MODE_TRAINERS[mode]) ? null : 'teacher'
+}
+
+/** Einträge des Modus-Docks mit Sperren und Zählern (fällige Karten, ungelesene Antworten). */
+export async function loadModeDock({ userId, profile, level, lang }: {
+  userId: string
+  profile: LevelAccessProfile | null
+  level: string
+  lang: string
+}): Promise<ModeDockEntry[]> {
+  const lock = (mode: LearningMode) => modeLock(profile, level, lang, mode)
+  const [overview, speech] = await Promise.all([
+    lock('vocabulary') ? null : settle(() => vocabularyOverview(level), () => console.error('[mode-dock] vocabulary_unavailable')),
+    lock('pronunciation') ? null : settle(() => pronunciationStatus(userId, level), () => console.error('[mode-dock] pronunciation_unavailable')),
+  ])
+  return LEARNING_MODES.map(mode => ({
+    mode,
+    lock: lock(mode),
+    count: mode === 'vocabulary' ? overview?.dueCards : mode === 'pronunciation' ? speech?.unread : undefined,
+  }))
 }
 
 /** Montag bis Sonntag der laufenden Berliner Woche, als `YYYY-MM-DD`. */

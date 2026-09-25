@@ -60,7 +60,7 @@ it('stores an unknown word immediately and keeps the finished screen until the l
   expect(mockReplace).not.toHaveBeenCalled()
   expect(setLessonInBox).not.toHaveBeenCalled()
   await act(async () => fireEvent.click(screen.getByRole('button', { name: de.vocabulary.go_to_training })))
-  // Die eingestufte Lektion liegt danach sicher in der Lernbox (Schalter im Lernweg).
+  // Die eingestufte Lektion liegt danach sicher in der Lernbox (Schalter unter „Lektionen“).
   expect(setLessonInBox).toHaveBeenCalledWith('Lektion 2', 'A1.1', true)
   expect(mockReplace).toHaveBeenCalledWith('/de/dashboard/level/A1.1/vocabulary/train?lesson=Lektion%202')
 })

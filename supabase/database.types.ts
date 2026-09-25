@@ -1605,6 +1605,7 @@ export type Database = {
       get_all_students_progress_data:
         | { Args: never; Returns: Json }
         | { Args: { p_course_id: string; p_student_id: string }; Returns: Json }
+      get_last_active_level: { Args: never; Returns: Json }
       initialize_vocabulary_cards: {
         Args: { p_decisions: Json }
         Returns: Json

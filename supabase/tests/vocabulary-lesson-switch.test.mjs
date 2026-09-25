@@ -3,7 +3,7 @@ import assert from 'node:assert/strict'
 import {readFile} from 'node:fs/promises'
 import {createPhase3Database,actor,id,student,outsider,vocabularyUnit,exerciseUnit,result,apply} from './helpers/phase3-db.mjs'
 
-// Migration 25: Lektionen im Lernweg ein- und ausschalten. Ausgeschaltete
+// Migration 25: Lektionen unter „Lektionen“ (Modus Vokabeln) ein- und ausschalten. Ausgeschaltete
 // Lektionen merkt sich vocabulary_lesson_pauses je Person; geschrieben wird nur
 // über set_vocabulary_lesson_paused, Lernstand bleibt unberührt.
 
