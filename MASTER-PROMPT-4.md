@@ -617,6 +617,14 @@ Nutzerentscheidung vom 25.09.2026: Die Lehrkraft schaltet gebuchte Niveaus im Vo
 * [ ] Es gibt weder Staff-Mail noch Dashboard-Hinweis noch Zähler zum Niveau-Abschluss.
 * [ ] DB-Test: Nach dem Bestehen des letzten Tests eines Niveaus entsteht keine neue Zeile in `private.mail_outbox`.
 
+#### 6.4 Freischalt-Mail: mehrere Niveaus in einer Mail
+Befund: Migration 29 legt mit einem Zeilen-Trigger (`on_student_level_access_granted_notify`, `FOR EACH ROW`) für **jedes** neu freigeschaltete Niveau eine eigene Mail vom Typ `level_access_granted` an (Dedupe-Schlüssel `level-access:<user id>:<level>`). `set_student_level_access` schreibt alle gewählten Niveaus in **einer** `INSERT`-Anweisung. Schaltet die Lehrkraft sechs Niveaus auf einmal frei, bekommt die Person heute sechs Mails. Nutzerentscheidung vom 25.09.2026: Das wird eine Mail.
+* [ ] Neue Migration: Der Trigger arbeitet pro Anweisung (`FOR EACH STATEMENT` mit `REFERENCING NEW TABLE`) und legt je Person **eine** Mail an, die alle in diesem Speichervorgang neu freigeschalteten Niveaus in Kursreihenfolge (`learning_levels.sort_order`) nennt.
+* [ ] Die bisherigen Zusagen aus Migration 29 bleiben: Ein Niveau, das schon einmal angekündigt wurde, wird nie wieder angekündigt, auch nicht nach Entziehen und erneutem Freischalten. Bestehende Freigaben lösen keine Mail aus. Scheitert das Einreihen, bleibt die Freischaltung bestehen (nur `WARNING`).
+* [ ] Vorlage `levelAccess` in `lib/mail/templates.mjs` für ein und für mehrere Niveaus, in fünf Sprachen. Der Text nennt statt „Übungen“ die heutigen Bereiche: Vokabeln, Lernpfad, Aussprache und Mediathek. Der Knopf führt zum ersten neu freigeschalteten Niveau.
+* [ ] Payload mit einer Liste `levels` statt eines einzelnen `level`. Der Mail-Worker kann Mails, die noch im alten Format in der Warteschlange liegen, weiter darstellen.
+* [ ] Tests (Muster: `supabase/tests/level-access-notification.test.mjs`): sechs Niveaus auf einmal → genau eine Zeile in `private.mail_outbox` mit allen sechs; ein Niveau → eine Mail mit einem Niveau; Entziehen und erneutes Freischalten → keine Mail; später ein weiteres Niveau → eine Mail nur mit diesem; zwei Personen in einem Vorgang → je eine eigene Mail.
+
 **Abnahme Phase 6:** Alle Tests grün, Produktionsnachweis der Aussprache-Mail im Bericht, Home-Antwortzeit nicht schlechter als 10 % gegenüber Phase 0.
 
 **Übergabe:** Arten der Gesehen-Quittungen und die RPC-Namen in `STATUS.md`.
@@ -671,7 +679,7 @@ Nutzerentscheidung vom 25.09.2026: Lernende beurteilen nie selbst, ob eine Schre
 * [ ] **Phase 2:** Modus-Dock auf allen vier Modi · volle Brotkrumen auf Handy · untere Leiste blendet aus und ein, Aufnahmeknopf bleibt sichtbar · Home zeigt das zuletzt gelernte Niveau · reduzierte Bewegung ohne laufende Animationen.
 * [ ] **Phase 3/4:** Pfad 1 komplett auf Pixel 7 · Test knapp unter 80 % nicht bestanden, genau 80 % bestanden · Pfad 2 erst danach frei · keine Lösungen vor der Antwort (Netzwerkmitschnitt) · `/exercises` leitet nach `/path` · Qualitätstests des Seeds.
 * [ ] **Phase 5:** Mitnahme mit erhaltenem Fach, Schalter aus und an, Zurücksetzen.
-* [ ] **Phase 6:** „Neu“ erscheint und verschwindet, im Voraus freigeschaltete Niveaus sind nicht neu · Mail-Schalter aus/an · Bündelung · keine Benachrichtigung der Lehrkraft bei Niveau-Abschluss.
+* [ ] **Phase 6:** „Neu“ erscheint und verschwindet, im Voraus freigeschaltete Niveaus sind nicht neu · Mail-Schalter aus/an · Bündelung · mehrere freigeschaltete Niveaus ergeben eine Mail · keine Benachrichtigung der Lehrkraft bei Niveau-Abschluss.
 * [ ] **Phase 7:** Schülerseite mit allen Tabs · Rechte · kein Einspruchs-Knopf in der Lernenden-Oberfläche.
 * [ ] **Gesamt:** axe ohne Filter auf allen Lernenden- und Admin-Routen in hell und dunkel · `translation-integrity` grün · vollständiger Jest-, DB-, Python- und Playwright-Lauf grün.
 
