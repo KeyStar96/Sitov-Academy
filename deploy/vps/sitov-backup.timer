@@ -1,8 +1,8 @@
 [Unit]
-Description=Sitov Academy daily backup at 03:30
+Description=Sitov Academy weekly backup, Sundays at 03:30
 
 [Timer]
-OnCalendar=*-*-* 03:30:00
+OnCalendar=Sun *-*-* 03:30:00
 RandomizedDelaySec=10min
 Persistent=true
 

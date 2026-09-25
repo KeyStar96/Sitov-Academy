@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""Daily Sitov backup: PostgreSQL dump, roles and every Storage object, with SHA256.
+"""Weekly Sitov backup (file and target names keep the historical "daily"): PostgreSQL dump, roles and every Storage object, with SHA256.
 
 Reuses the migration runner's backup (deploy/vps/migrate-local.py): online
 `pg_dump -Fc`, `pg_dumpall --roles-only` and Storage files via the Storage API,
 checked against the object inventory. Services keep running.
 Target: /root/backups/daily/sitov-daily-<stamp> (root-only, contains personal data).
 Keeps the newest KEEP complete backups; removes older ones and incomplete leftovers.
-Run by sitov-backup.timer. Restore: see docs/go-live-runbook.md.
+Run by sitov-backup.timer (Sundays 03:30). Restore: see docs/go-live-runbook.md.
 """
 import importlib.util
 from pathlib import Path

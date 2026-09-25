@@ -60,8 +60,8 @@ sudo python3 /var/www/sitov-academy/deploy/vps/go-live-domain.py rollback --back
 
 ## Backups
 
-`sitov-backup.timer` sichert täglich 03:30 Datenbank (`pg_dump -Fc`), Rollen und alle Storage-Dateien
-mit SHA256 nach `/root/backups/daily/` und behält 14 Stände (`backup-daily.py`, dieselbe Routine wie
+`sitov-backup.timer` sichert wöchentlich sonntags 03:30 Datenbank (`pg_dump -Fc`), Rollen und alle Storage-Dateien
+mit SHA256 nach `/root/backups/daily/` und behält 14 Stände, also rund 14 Wochen (`backup-daily.py`, dieselbe Routine wie
 der Migrations-Runner). Einrichtung:
 
 ```bash

@@ -1,5 +1,5 @@
 [Unit]
-Description=Sitov Academy daily backup (PostgreSQL + Storage)
+Description=Sitov Academy weekly backup (PostgreSQL + Storage)
 Requires=docker.service
 After=docker.service
 
