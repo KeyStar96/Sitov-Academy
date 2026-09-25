@@ -1,0 +1,15 @@
+const http=require('node:http');
+const user={id:'00000000-0000-4000-8000-000000000001',aud:'authenticated',role:'authenticated',email:'demo@example.invalid',email_confirmed_at:'2026-01-01T00:00:00Z',app_metadata:{provider:'email'},user_metadata:{},created_at:'2026-01-01T00:00:00Z'};
+const unit=(n,trainer='vocabulary')=>({id:`00000000-0000-4000-8000-${String(100+n).padStart(12,'0')}`,level:'A1.1',label:`Lektion ${n}`,sort_order:n,is_active:true,owner_auth_user_id:null,trainer,learning_levels:{cefr_level:'A1'}});
+const terms=[['Name','name'],['Familie','family'],['Apfel','apple'],['Tisch','table'],['Morgen','morning'],['Sonne','sun'],['Schule','school']];
+const cards=terms.map(([word,en],i)=>({id:`00000000-0000-4000-8000-${String(200+i).padStart(12,'0')}`,unit_id:unit(i+1).id,word_de:word,article:i===0||i===2||i===3||i===4?'der':'die',plural:null,image_url:null,audio_url:null,created_at:'2026-01-01T00:00:00Z',sentence_practice:false,alternative_answers_de:[],unit:unit(i+1),translations:[{locale:'en',translation:en,context_sentence:null,is_difficult:false},{locale:'de',translation:word,context_sentence:null,is_difficult:false}]}));
+const progress=['native_to_de'].map((direction,i)=>({id:`00000000-0000-4000-8000-${String(300+i).padStart(12,'0')}`,card_id:cards[0].id,direction,box_number:1,next_review_date:'2026-01-01T00:00:00Z'}));
+const tables={profiles:[{id:user.id,role:'student',native_language:'en',ui_language:'en',person:{display_name:'Demo',email:user.email},level_access:[{level:'A1.1'}]}],learning_vocabulary_cards:cards,vocabulary_direction_progress:progress,learning_reading_texts:[{id:'00000000-0000-4000-8000-000000000401',unit:unit(1,'pronunciation'),sentence_de:'Heute lernen wir zusammen. Danach machen wir eine Pause.',focus:'Satzmelodie',audio_url:null}],learning_units:cards.map(c=>c.unit)};
+let scenario='vocabulary';
+http.createServer((req,res)=>{const url=new URL(req.url,'http://127.0.0.1:54321');const name=url.pathname.split('/').at(-1);if(url.pathname==='/fixture'){scenario=url.searchParams.get('scenario');res.end('ok');return;} tables.profiles[0].level_access=scenario==='pending'?[]:[{level:'A1.1'}];let data=[];console.log(req.method,url.pathname,url.searchParams.get('select')||'');
+ if(url.pathname==='/auth/v1/user')data=user;
+ else if(url.pathname.startsWith('/rest/v1/rpc/')){if(name==='claim_verified_person')data={id:null,unresolved:false};else data=[];}
+ else {data=name==='vocabulary_direction_progress'&&scenario==='assessment'?[]:tables[name]||[];const offset=Number(url.searchParams.get('offset')||0);if(offset)data=[];if(req.headers.accept?.includes('vnd.pgrst.object+json'))data=data[0]||null;}
+ if(!['GET','HEAD','OPTIONS'].includes(req.method)&&!url.pathname.startsWith('/rest/v1/rpc/')){res.writeHead(405);return res.end('{}');}
+ res.writeHead(200,{'content-type':'application/json','access-control-allow-origin':'*','access-control-allow-headers':'*','content-range':`0-${Math.max(0,(data?.length||1)-1)}/${data?.length||1}`});res.end(req.method==='HEAD'?'':JSON.stringify(data));
+}).listen(54321,'127.0.0.1',()=>console.log('Fixture listening locally on 54321'));

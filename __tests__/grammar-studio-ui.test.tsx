@@ -233,3 +233,16 @@ it('requires explicit confirmation before deleting an exercise and its progress'
   expect(removeGrammarExercise).toHaveBeenCalledWith(item.id)
   expect(screen.getByText('Noch keine Aufgaben vorhanden.')).toBeVisible()
 })
+
+it('shows confirmed capitalization guidance neutrally through ExerciseClient', async () => {
+  jest.mocked(recordExerciseAttempt).mockResolvedValueOnce({
+    success: true, attempts: 1, isCorrect: true, status: 'EXACT', matched: 'ein Tisch', reason: null, hint: 'capitalization', score: 100,
+  })
+  const { container } = render(<ExerciseClient exercises={[fill]} lang="ru" level="A1.1" translations={russian.exercises} />)
+  fireEvent.click(screen.getByRole('button', { name: 'Начать нерешённые задания' }))
+  fireEvent.change(screen.getByRole('textbox', { name: russian.exercises.blank_label }), { target: { value: 'ein tisch' } })
+  await act(async () => fireEvent.click(screen.getByRole('button', { name: russian.exercises.check_answer })))
+  expect(screen.getByText('Вот как это пишется:', { exact: false })).toBeVisible()
+  expect(container.querySelector('[class*=warning]')).toBeNull()
+  expect(screen.getByRole('button', { name: 'Завершить занятие' })).toBeVisible()
+})

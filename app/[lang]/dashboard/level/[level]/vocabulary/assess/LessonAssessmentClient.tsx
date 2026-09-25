@@ -146,15 +146,14 @@ export default function LessonAssessmentClient({ learnerId, cards, lessonName, l
             </>}
           </div>
         </div>
-        {/* Dieselbe Anordnung wie beim Lernen (VocabCardSession): links „weiß
-            ich", rechts „weiß ich nicht" — sonst tippt man beim Wechsel
-            zwischen Einstufen und Lernen aus Gewohnheit daneben. */}
+        {/* Wie beim Lernen: links „In die Lernbox", rechts die positive,
+            gefüllte Aktion „Kenne ich schon" (R15). */}
         {saveFailed ? <button className="learning-button learning-button-primary learning-button-wide" onClick={retry}>{t('error_retry')}</button> : !revealed ? <button type="button" className="learning-button learning-button-primary learning-button-wide" onClick={() => setRevealed(true)}>{t('reveal_solution')}</button> : <div className="learning-actions">
+          <button className="learning-button learning-button-secondary" onClick={() => decide(false)}>
+            <span>{t('add_to_box')}</span><small>{t('add_to_box_hint')}</small>
+          </button>
           <button className="learning-button learning-button-primary" onClick={() => decide(true)}>
             <span>{t('already_know')}</span><small>{t('already_know_hint')}</small>
-          </button>
-          <button className="learning-button" onClick={() => decide(false)}>
-            <span>{t('add_to_box')}</span><small>{t('add_to_box_hint')}</small>
           </button>
         </div>}
       </> : <div className="learning-card learning-complete" aria-live="polite">

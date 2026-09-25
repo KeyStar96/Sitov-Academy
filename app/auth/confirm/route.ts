@@ -70,7 +70,7 @@ export async function GET(request: NextRequest) {
       return redirectTo(request, failPath, failStatus)
     }
 
-    return redirectTo(request, decision.nextPath)
+    return redirectTo(request, decision.nextPath, decision.isRecovery ? undefined : 'confirm_success')
   } catch (error) {
     console.error("[auth/confirm] Unerwarteter Fehler")
     const failPath = decision.isRecovery

@@ -75,7 +75,7 @@ export default function MediaUpload({ folder, lang, onSaved }: { folder: MediaFo
     {file && /\.(mp4|webm)$/i.test(file.name) && <label className="block space-y-2"><span>{t.fileTitle}</span><input required maxLength={180} disabled={active || state === 'paused'} value={title} onChange={event => setTitle(event.target.value)} className="min-h-12 w-full rounded-lg border border-[var(--border)] bg-[var(--surface)] px-3" /></label>}
     <progress aria-label={t.uploading} value={progress} max={100} className="h-3 w-full accent-[var(--accent)]" />
     <p role={state === 'failed' || state === 'invalid' ? 'alert' : 'status'} aria-live="polite" className="min-h-6 text-sm">{state === 'idle' ? '' : t[state]} {state === 'uploading' || state === 'paused' ? `${progress}%` : ''}</p>
-    <div className="flex flex-wrap gap-3"><button type="submit" disabled={!file || !title.trim() || active || state === 'saved'} className="min-h-12 rounded-lg bg-[var(--accent-strong)] px-5 font-semibold text-[var(--accent-foreground)] hover:bg-[var(--accent-strong-hover)] disabled:opacity-60">{state === 'failed' ? t.retry : state === 'paused' ? t.resume : t.start}</button>
-    {state === 'uploading' && <button type="button" onClick={() => void pause()} className="min-h-12 rounded-lg border border-[var(--border)] px-5">{t.pause}</button>}</div>
+    <div className="flex flex-wrap gap-3">{state === 'uploading' && <button type="button" onClick={() => void pause()} className="min-h-12 rounded-lg border border-[var(--border)] px-5">{t.pause}</button>}
+    <button type="submit" disabled={!file || !title.trim() || active || state === 'saved'} className="min-h-12 rounded-lg bg-[var(--accent-strong)] px-5 font-semibold text-[var(--accent-foreground)] hover:bg-[var(--accent-strong-hover)] disabled:opacity-60">{state === 'failed' ? t.retry : state === 'paused' ? t.resume : t.start}</button></div>
   </form>
 }

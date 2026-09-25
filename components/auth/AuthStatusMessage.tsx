@@ -14,9 +14,11 @@ import { toneForAuthStatus, type AuthStatusCode } from '@/lib/types/auth'
 export default function AuthStatusMessage({
   status,
   message,
+  title,
 }: {
   status: AuthStatusCode
   message: string
+  title?: string
 }) {
   const isSuccess = toneForAuthStatus(status) === 'success'
 
@@ -36,7 +38,10 @@ export default function AuthStatusMessage({
           <Info size={26} aria-hidden="true" />
         )}
       </span>
-      <p className="text-lg text-slate-900 dark:text-slate-100">{message}</p>
+      <div className="text-lg text-slate-900 dark:text-slate-100">
+        {title && <p className="mb-2 font-bold">{title}</p>}
+        <p>{message}</p>
+      </div>
     </div>
   )
 }

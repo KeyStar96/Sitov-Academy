@@ -473,19 +473,19 @@ export default function LessonCardsModal({
                       <div className="flex flex-wrap gap-4">
                         <button
                           type="button"
-                          onClick={handleResetProgress}
-                          disabled={isResetting}
-                          className="inline-flex min-h-12 items-center justify-center rounded-xl bg-red-700 px-6 font-bold text-white transition-colors hover:bg-red-700 disabled:opacity-50"
-                        >
-                          {isResetting && <Loader2 size={20} className="mr-2 animate-spin" aria-hidden="true" />}{t('reset_progress_yes')}
-                        </button>
-                        <button
-                          type="button"
                           onClick={() => setShowResetConfirm(false)}
                           disabled={isResetting}
                           className="inline-flex min-h-12 items-center justify-center rounded-xl border-2 border-[var(--border)] bg-[var(--surface)] px-6 font-bold text-[var(--foreground)] transition-colors hover:bg-[var(--surface-muted)]"
                         >
                           {t('cancel')}
+                        </button>
+                        <button
+                          type="button"
+                          onClick={handleResetProgress}
+                          disabled={isResetting}
+                          className="inline-flex min-h-12 items-center justify-center rounded-xl bg-red-700 px-6 font-bold text-white transition-colors hover:bg-red-700 disabled:opacity-50"
+                        >
+                          {isResetting && <Loader2 size={20} className="mr-2 animate-spin" aria-hidden="true" />}{t('reset_progress_yes')}
                         </button>
                       </div>
                     </div>

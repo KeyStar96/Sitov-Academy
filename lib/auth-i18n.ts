@@ -66,8 +66,9 @@ export const AUTH_FALLBACKS = {
   resend_pending: 'Link wird gesendet …',
 
   // --- Statusmeldungen ---
+  signup_thanks: "Vielen Dank für deine Anmeldung!",
   status_signup_email_sent:
-    'Fast fertig! Wir haben dir eine E-Mail geschickt. Bitte öffne sie und klicke auf den Bestätigungs-Knopf.',
+    'Der Admin prüft kurz deine Daten und schaltet dir danach die Funktionen frei. Bitte prüfe dein Postfach. Falls eine Bestätigung erforderlich ist, erhältst du einen Link. Hast du bereits ein Konto, melde dich an oder nutze „Passwort vergessen“.',
   status_signup_email_exists:
     'Für diese E-Mail-Adresse gibt es schon ein Konto. Bitte melde dich an oder setze dein Passwort zurück.',
   status_signup_invalid:
@@ -79,7 +80,7 @@ export const AUTH_FALLBACKS = {
   status_signup_rate_limited:
     'Es gab zu viele Versuche in kurzer Zeit. Bitte warte einen Moment und versuche es dann erneut.',
   status_confirm_success:
-    'Vielen Dank! Deine E-Mail-Adresse ist bestätigt und du bist angemeldet.',
+    'Deine E-Mail-Adresse ist bestätigt und du bist angemeldet. Der Admin prüft kurz deine Daten und schaltet dir danach die Funktionen frei.',
   status_confirm_failed:
     'Dieser Bestätigungslink ist abgelaufen oder wurde bereits verwendet. Du kannst unten einen neuen Link anfordern.',
   status_confirm_missing_params:

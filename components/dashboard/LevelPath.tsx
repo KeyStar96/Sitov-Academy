@@ -154,18 +154,18 @@ export default function LevelPath({ lang, level, title, description, stations, n
   const startChoice = start && (
     <div className="grid gap-3">
       <p className="text-lg font-semibold text-[var(--foreground)]">{t('start_question')}</p>
-      <button type="button" onClick={() => void startWithAssessment()} disabled={startPending !== null} className="st-choice st-choice--primary st-press">
-        <ListChecks size={24} aria-hidden="true" className="shrink-0" />
-        <span className="min-w-0">
-          <span className="st-choice__title">{startPending === 'assess' ? t('start_saving') : t('start_assess')}</span>
-          <span className="st-choice__hint">{t('start_assess_hint')}</span>
-        </span>
-      </button>
       <button type="button" onClick={() => void startWithAllWords()} disabled={startPending !== null} className="st-choice st-press">
         <Layers size={24} aria-hidden="true" className="shrink-0" />
         <span className="min-w-0">
           <span className="st-choice__title">{startPending === 'all' ? t('start_saving') : t.count('start_all', start.count)}</span>
           <span className="st-choice__hint">{t('start_all_hint')}</span>
+        </span>
+      </button>
+      <button type="button" onClick={() => void startWithAssessment()} disabled={startPending !== null} className="st-choice st-choice--primary st-press">
+        <ListChecks size={24} aria-hidden="true" className="shrink-0" />
+        <span className="min-w-0">
+          <span className="st-choice__title">{startPending === 'assess' ? t('start_saving') : t('start_assess')}</span>
+          <span className="st-choice__hint">{t('start_assess_hint')}</span>
         </span>
       </button>
       {startFailed && <p role="alert" className="st-path__error">{t('start_failed')}</p>}
@@ -290,6 +290,14 @@ export default function LevelPath({ lang, level, title, description, stations, n
         description={selected ? t(inBox(selected) ? 'switch_on' : 'switch_off') : undefined}
         footer={selected && vocabularyHref ? (
           <div className="grid gap-3">
+            <button type="button" onClick={() => { setSheetOpen(false); setCardsFor(selected.lesson) }} className="st-button st-button--soft st-press">
+              <Eye size={20} aria-hidden="true" />{t('station_show_words')}
+            </button>
+            {started(selected) && selected.untouched > 0 && (
+              <button type="button" onClick={() => openStart(selected, selected.label)} className="st-button st-button--soft st-press">
+                <Plus size={20} aria-hidden="true" />{t.count('station_add_new', selected.untouched)}
+              </button>
+            )}
             {!started(selected) && (
               <button type="button" onClick={() => openStart(selected, selected.label)} className="st-button st-button--primary st-press">
                 <ListChecks size={20} aria-hidden="true" />{t('station_start')}
@@ -300,14 +308,6 @@ export default function LevelPath({ lang, level, title, description, stations, n
                 <BookOpen size={20} aria-hidden="true" />{t('station_practice')}
               </Link>
             )}
-            {started(selected) && selected.untouched > 0 && (
-              <button type="button" onClick={() => openStart(selected, selected.label)} className="st-button st-button--soft st-press">
-                <Plus size={20} aria-hidden="true" />{t.count('station_add_new', selected.untouched)}
-              </button>
-            )}
-            <button type="button" onClick={() => { setSheetOpen(false); setCardsFor(selected.lesson) }} className="st-button st-button--soft st-press">
-              <Eye size={20} aria-hidden="true" />{t('station_show_words')}
-            </button>
           </div>
         ) : undefined}>
         {selected && (

@@ -1,6 +1,6 @@
 import type { LeitnerBox, LeitnerPhase, VocabularyReviewMode } from '@/lib/leitner'
 import type { BoxBucketKey, BoxSummary, LessonBoxStat, WordBoxState } from '@/lib/vocabulary-box'
-import type { SoftErrorReason } from '@/lib/answer-grading'
+import type { SoftErrorReason, OrthographyHint, ArticleFeedback } from '@/lib/answer-grading'
 import type { Database } from '@/supabase/database.types'
 import type { UiLocale } from '@/lib/locale-routing'
 import { resolveVocabularyTranslation, vocabularyNativeLocale, type VocabularySourceLanguage } from '@/lib/vocabulary-languages'
@@ -12,6 +12,8 @@ export type VocabularyCardRow = import('@/lib/learning-content').VocabularyConte
 
 /** Felder der Vokabelkarte, die der Trainer tatsächlich benötigt. */
 export interface VocabularyCardView {
+  /** Optional German target forms shown before a typed sentence answer. */
+  target_form?: string[] | null
   id: string
   lesson: string
   level: string
@@ -118,6 +120,8 @@ export interface SubmitVocabularyAnswerResult {
   correctAnswer?: string
   isAlternative?: boolean
   softError?: SoftErrorReason | null
+  hint?: OrthographyHint | null
+  feedback?: ArticleFeedback | null
   error?: 'invalid_input' | 'spacing_required' | 'save_failed'
   previousPhase?: LeitnerPhase
   newPhase?: LeitnerPhase
@@ -145,6 +149,8 @@ export interface CheckVocabularyRetryResult {
   correctAnswer?: string
   isAlternative?: boolean
   softError?: SoftErrorReason | null
+  hint?: OrthographyHint | null
+  feedback?: ArticleFeedback | null
   error?: 'invalid_input' | 'check_failed'
 }
 

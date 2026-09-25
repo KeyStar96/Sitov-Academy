@@ -19,9 +19,16 @@ import MailboxPreview from '@/components/dashboard/home/MailboxPreview'
 import TrainerStatusTiles from '@/components/dashboard/TrainerStatusTiles'
 import SupportWidget from '@/components/dashboard/home/SupportWidget'
 import LevelCard from '@/components/dashboard/home/LevelCard'
+import AuthStatusMessage from '@/components/auth/AuthStatusMessage'
+import { authStatusMessage, authTranslations, createAuthTranslator } from '@/lib/auth-i18n'
+import { parseAuthStatus } from '@/lib/types/auth'
 
-export default async function DashboardPage({ params }: { params: Promise<{ lang: string }> }) {
+export default async function DashboardPage({ params, searchParams }: {
+  params: Promise<{ lang: string }>
+  searchParams?: Promise<{ [key: string]: string | string[] | undefined }>
+}) {
   const { lang } = await params
+  const confirmed = parseAuthStatus((await searchParams)?.status) === 'confirm_success'
   const supabase = await createClient()
   const [{ data: { user } }, progressMap, unseenFeedback, dict] = await Promise.all([
     supabase.auth.getUser(), getAllLevelsProgress(), getUnseenFeedbackSummary(), getDictionary(lang),
@@ -34,6 +41,7 @@ export default async function DashboardPage({ params }: { params: Promise<{ lang
     : [null, null]
 
   const t = createDashboardTranslator(dict.dashboard as DashboardTranslations)
+  const auth = createAuthTranslator(authTranslations(dict))
   const s = studentTranslator(lang)
   const copy = dict.academy
   const displayName = profileRow?.data?.person?.display_name || user?.email || ''
@@ -97,6 +105,7 @@ export default async function DashboardPage({ params }: { params: Promise<{ lang
   }
 
   return <div className="space-y-8">
+    {confirmed && <AuthStatusMessage status="confirm_success" title={auth('signup_thanks')} message={authStatusMessage(auth, 'confirm_success')} />}
     <div className="grid grid-cols-1 items-start gap-5 lg:grid-cols-12">
       <div className="min-w-0 lg:col-span-7">
         <TodayPlan lang={lang} name={displayName} items={items} fallbackHref={levelBase} week={week} noLevel={!recommended} />

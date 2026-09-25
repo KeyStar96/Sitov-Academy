@@ -12,7 +12,7 @@ import type { ConfirmedExerciseAttempt, FillInBlankExercise as FillInBlankExerci
 import { cn } from '@/lib/utils'
 import VisualDiff from '@/components/exercises/VisualDiff'
 import type { SoftErrorReason } from '@/lib/answer-grading'
-import SoftErrorBadge from '@/components/exercises/SoftErrorBadge'
+import SoftErrorBadge, { OrthographyNote } from '@/components/exercises/SoftErrorBadge'
 import { ArticleColored, articleWord } from '@/components/exercises/GrammarAids'
 import { studentTranslator } from '@/lib/student-ui-i18n'
 import { articleColorClass } from '@/lib/vocabulary-ui'
@@ -299,6 +299,8 @@ export default function FillInBlankExerciseCard({
           {validationResult?.status === 'SOFT_ERROR' && (
             <SoftErrorBadge reason={validationResult.reason} translations={softErrorTranslations} />
           )}
+
+          {validationResult?.status === 'EXACT' && validationResult.hint && <OrthographyNote lang={lang} solution={validationResult.matched} />}
 
           {localizedSmartHint && <p className="mt-4 text-lg leading-relaxed text-[var(--foreground)]">{localizedSmartHint}</p>}
           {/* Tap-to-Listen für das gelöste Wort und den gesamten Satz. */}

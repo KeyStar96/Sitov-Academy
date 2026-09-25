@@ -10,7 +10,7 @@ import type { ExerciseTranslator } from '@/lib/exercise-i18n'
 import type { ConfirmedExerciseAttempt, MultipleChoiceExercise as MultipleChoiceExerciseData } from '@/lib/types/exercise'
 import { cn } from '@/lib/utils'
 import type { SoftErrorReason } from '@/lib/answer-grading'
-import SoftErrorBadge from '@/components/exercises/SoftErrorBadge'
+import SoftErrorBadge, { OrthographyNote } from '@/components/exercises/SoftErrorBadge'
 
 interface MultipleChoiceExerciseProps {
   exercise: MultipleChoiceExerciseData
@@ -149,6 +149,7 @@ export default function MultipleChoiceExerciseCard({
             <p className="text-2xl font-bold text-[var(--foreground)]">{t('correct_well_done')}</p>
           </div>
           {attempt?.result.status === 'SOFT_ERROR' && <SoftErrorBadge reason={attempt.result.reason} translations={softErrorTranslations} />}
+          {attempt?.result.status === 'EXACT' && attempt.result.hint && <OrthographyNote lang={lang} solution={attempt.result.matched} />}
           
           <div className="mt-6 flex w-full flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
             <SolutionAudioButton

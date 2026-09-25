@@ -61,8 +61,8 @@ export default function MediaLinkForm({ folders, folderId, editing, lang, onSave
     <label className="flex min-h-12 items-center gap-3"><input type="checkbox" checked={form.is_active} onChange={event => setForm({ ...form, is_active: event.target.checked })} className="h-5 w-5 accent-[var(--accent)]" />{t.linkVisible}</label>
     <p role={state === 'failed' || state === 'invalid' ? 'alert' : 'status'} aria-live="polite" className="min-h-6 text-sm">{state === 'invalid' ? t.linkInvalid : state === 'saved' ? t.saved : state === 'failed' ? t.failed : ''}</p>
     <div className="flex flex-wrap gap-3">
-      <button type="submit" disabled={state === 'saving'} className="inline-flex min-h-12 items-center gap-2 rounded-lg bg-[var(--accent-strong)] px-5 font-semibold text-[var(--accent-foreground)] hover:bg-[var(--accent-strong-hover)] disabled:opacity-60">{state === 'saving' && <Loader2 size={18} className="animate-spin" aria-hidden="true" />}{t.linkSave}</button>
       {editing && <button type="button" onClick={onCancel} className="min-h-12 rounded-lg border border-[var(--border)] px-5">{t.cancel}</button>}
+      <button type="submit" disabled={state === 'saving'} className="inline-flex min-h-12 items-center gap-2 rounded-lg bg-[var(--accent-strong)] px-5 font-semibold text-[var(--accent-foreground)] hover:bg-[var(--accent-strong-hover)] disabled:opacity-60">{state === 'saving' && <Loader2 size={18} className="animate-spin" aria-hidden="true" />}{t.linkSave}</button>
     </div>
   </form>
 }

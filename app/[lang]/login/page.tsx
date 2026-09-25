@@ -59,7 +59,8 @@ export default async function LoginPage({
         </>
       }
     >
-      {status && <AuthStatusMessage status={status} message={status === 'signup_email_sent' ? learning.auth_email_sent : authStatusMessage(t, status)} />}
+      {status && <AuthStatusMessage status={status} message={authStatusMessage(t, status)}
+        title={status === 'signup_email_sent' || status === 'confirm_success' ? t('signup_thanks') : undefined} />}
       <p className="rounded-2xl bg-[var(--canvas)] p-4 text-sm leading-relaxed text-[var(--muted)]">{learning.auth_existing}</p>
 
       <AuthForm

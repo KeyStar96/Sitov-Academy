@@ -1,3 +1,4 @@
+import { learningWritePayload } from '@/lib/learning-writes'
 import { emptyVocabForm, vocabWriteSchema } from '@/lib/types/vocabulary-admin'
 
 const valid = { ...emptyVocabForm(), word_de: 'lernen', lesson: 'Lektion 1' }
@@ -18,4 +19,24 @@ describe('vocabulary editor server validation', () => {
   it('rejects excessive content before a database mutation', () => {
     expect(vocabWriteSchema.safeParse({ ...valid, context_sentence_ru: 'a'.repeat(1001) }).success).toBe(false)
   })
+})
+
+it('validates optional target forms and equivalent answers without changing German forms', () => {
+  expect(vocabWriteSchema.parse({ ...valid, target_form: [' heißen ', 'Sie'], alternative_answers_de: [' Mein Name ist Anna. '] })).toMatchObject({ target_form: ['heißen', 'Sie'], alternative_answers_de: ['Mein Name ist Anna.'] })
+  for (const target_form of [[''], ['x'.repeat(121)], Array(13).fill('lernen')]) expect(vocabWriteSchema.safeParse({ ...valid, target_form }).success).toBe(false)
+  expect(vocabWriteSchema.safeParse({ ...valid, alternative_answers_de: [''] }).success).toBe(false)
+})
+
+
+it('preserves omitted sentence metadata through legacy CMS payload validation and RPC mapping', () => {
+  const legacy = { ...valid }
+  delete legacy.target_form
+  delete legacy.alternative_answers_de
+  const parsed = vocabWriteSchema.parse(legacy)
+  const payload = learningWritePayload('vocabulary', parsed) as { fields: Record<string, unknown> }
+  expect(payload.fields).not.toHaveProperty('target_form')
+  expect(payload.fields).not.toHaveProperty('alternative_answers_de')
+  // Clearing is intentional only when the editor explicitly supplies empty arrays.
+  const clear = learningWritePayload('vocabulary', vocabWriteSchema.parse({ ...legacy, target_form: [], alternative_answers_de: [] })) as { fields: Record<string, unknown> }
+  expect(clear.fields).toMatchObject({ target_form: [], alternative_answers_de: [] })
 })

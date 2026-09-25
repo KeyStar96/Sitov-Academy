@@ -50,8 +50,8 @@ export default function MediaLinkCard({ link, lang, level, onEdit, onChanged }: 
     <VideoVisibilityToggle id={link.id} title={link.title} isActive={link.isActive} lang={lang} onChanged={onChanged} />
     <div className="flex flex-wrap gap-2">
       <a href={link.url} target="_blank" rel="noopener noreferrer" aria-label={`${t.open}: ${link.title}`} className={button}><ArrowUpRight size={16} aria-hidden="true" />{t.open}</a>
+      <button type="button" disabled={busy} onClick={() => void remove()} aria-label={`${t.remove}: ${link.title}`} className="inline-flex h-12 w-12 items-center justify-center rounded-lg text-[var(--muted)] hover:bg-[var(--surface-muted)] disabled:opacity-50">{busy ? <Loader2 size={18} className="animate-spin" aria-hidden="true" /> : <Trash2 size={18} aria-hidden="true" />}</button>
       <button type="button" disabled={busy} onClick={onEdit} aria-label={`${t.editLink}: ${link.title}`} className={button}><Pencil size={16} aria-hidden="true" />{t.editLink}</button>
-      <button type="button" disabled={busy} onClick={() => void remove()} aria-label={`${t.remove}: ${link.title}`} className="ml-auto inline-flex h-12 w-12 items-center justify-center rounded-lg text-[var(--muted)] hover:bg-[var(--surface-muted)] disabled:opacity-50">{busy ? <Loader2 size={18} className="animate-spin" aria-hidden="true" /> : <Trash2 size={18} aria-hidden="true" />}</button>
     </div>
     {failed && <p role="alert" className="text-sm">{t.failed}</p>}
   </article>

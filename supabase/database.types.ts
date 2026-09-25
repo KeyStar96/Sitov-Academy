@@ -767,6 +767,13 @@ export type Database = {
             referencedColumns: ["code"]
           },
           {
+            foreignKeyName: "learning_units_owner_auth_user_id_fkey"
+            columns: ["owner_auth_user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
             foreignKeyName: "learning_units_trainer_fk"
             columns: ["trainer"]
             isOneToOne: false
@@ -836,6 +843,7 @@ export type Database = {
           image_url: string | null
           plural: string | null
           sentence_practice: boolean
+          target_form: string[] | null
           unit_id: string
           word_de: string
         }
@@ -848,6 +856,7 @@ export type Database = {
           image_url?: string | null
           plural?: string | null
           sentence_practice?: boolean
+          target_form?: string[] | null
           unit_id: string
           word_de: string
         }
@@ -860,6 +869,7 @@ export type Database = {
           image_url?: string | null
           plural?: string | null
           sentence_practice?: boolean
+          target_form?: string[] | null
           unit_id?: string
           word_de?: string
         }
@@ -1381,39 +1391,6 @@ export type Database = {
           },
         ]
       }
-      vocabulary_lesson_pauses: {
-        Row: {
-          auth_user_id: string
-          paused_at: string
-          unit_id: string
-        }
-        Insert: {
-          auth_user_id: string
-          paused_at?: string
-          unit_id: string
-        }
-        Update: {
-          auth_user_id?: string
-          paused_at?: string
-          unit_id?: string
-        }
-        Relationships: [
-          {
-            foreignKeyName: "vocabulary_lesson_pauses_auth_user_id_fkey"
-            columns: ["auth_user_id"]
-            isOneToOne: false
-            referencedRelation: "profiles"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "vocabulary_lesson_pauses_unit_id_fkey"
-            columns: ["unit_id"]
-            isOneToOne: false
-            referencedRelation: "learning_units"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
       vocabulary_learning_state: {
         Row: {
           auth_user_id: string
@@ -1443,6 +1420,39 @@ export type Database = {
             columns: ["auth_user_id"]
             isOneToOne: true
             referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      vocabulary_lesson_pauses: {
+        Row: {
+          auth_user_id: string
+          paused_at: string
+          unit_id: string
+        }
+        Insert: {
+          auth_user_id: string
+          paused_at?: string
+          unit_id: string
+        }
+        Update: {
+          auth_user_id?: string
+          paused_at?: string
+          unit_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "vocabulary_lesson_pauses_auth_user_id_fkey"
+            columns: ["auth_user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "vocabulary_lesson_pauses_unit_id_fkey"
+            columns: ["unit_id"]
+            isOneToOne: false
+            referencedRelation: "learning_units"
             referencedColumns: ["id"]
           },
         ]
@@ -1539,7 +1549,7 @@ export type Database = {
     Functions: {
       add_own_vocabulary: {
         Args: {
-          p_article: string | null
+          p_article: string
           p_level: string
           p_locale: string
           p_translation: string
@@ -1577,14 +1587,11 @@ export type Database = {
       }
       decline_business_booking: { Args: { p_id: string }; Returns: Json }
       delete_course_exception: { Args: { p_id: string }; Returns: Json }
-      delete_own_vocabulary: {
-        Args: { p_card_id: string }
-        Returns: Json
-      }
       delete_learning_content: {
         Args: { p_id: string; p_trainer: string }
         Returns: Json
       }
+      delete_own_vocabulary: { Args: { p_card_id: string }; Returns: Json }
       fail_mail_job: {
         Args: {
           p_error: string
@@ -1622,7 +1629,7 @@ export type Database = {
       pronunciation_reply_senders: {
         Args: never
         Returns: {
-          display_name: string | null
+          display_name: string
           sender_id: string
         }[]
       }

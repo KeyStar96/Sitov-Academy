@@ -135,10 +135,35 @@ describe('answer request routing', () => {
     expect(await submitVocabularyAnswer({ progressId, typedAnswer: 'wrong', isCorrect: true } as SubmitVocabularyAnswerInput)).toMatchObject({ success: true, isCorrect: false })
     expect(rpc).toHaveBeenCalledWith('submit_vocabulary_answer', expect.objectContaining({ p_is_correct: null, p_typed_answer: 'wrong' }))
   })
-  it.each(['punctuation', 'capitalization', 'umlaut', 'typo'])('preserves the authoritative soft-error reason %s', async softError => {
+  it.each(['umlaut', 'typo'])('preserves the authoritative soft-error reason %s', async softError => {
     const { rpc } = session()
     rpc.mockResolvedValue({ data: { ...review, softError }, error: null })
     expect(await submitVocabularyAnswer({ progressId, typedAnswer: 'die Tur' })).toMatchObject({ success: true, softError })
+  })
+  it.each(['punctuation', 'capitalization'])('presents a historical %s receipt neutrally without changing earned progress', async softError => {
+    const { rpc } = session()
+    const legacy = { ...review, softError, previousPhase: 3, newPhase: 4, intervalInDays: 3 }
+    rpc.mockResolvedValue({ data: legacy, error: null })
+    expect(await submitVocabularyAnswer({ requestId, progressId, typedAnswer: 'ich öffne die tür' })).toEqual({
+      ...legacy, softError: null, hint: softError,
+    })
+    expect(legacy.softError).toBe(softError)
+    expect(legacy).not.toHaveProperty('hint')
+    expect(rpc).toHaveBeenCalledTimes(1)
+    expect(rpc).toHaveBeenCalledWith('submit_vocabulary_answer_once', expect.objectContaining({ p_request_id: requestId }))
+  })
+  it.each(['punctuation', 'capitalization'])('rejects obsolete %s warnings from a current non-receipt grade', async softError => {
+    const { rpc } = session()
+    rpc.mockResolvedValue({ data: { ...review, softError }, error: null })
+    expect(await submitVocabularyAnswer({ progressId, typedAnswer: 'ich öffne die tür' })).toEqual({ success: false, error: 'save_failed' })
+  })
+  it.each([
+    { softError: 'capitalization', hint: null },
+    { softError: 'punctuation', isCorrect: false },
+  ])('rejects a contradictory legacy receipt without inventing a verdict %j', async invalid => {
+    const { rpc } = session()
+    rpc.mockResolvedValue({ data: { ...review, ...invalid }, error: null })
+    expect(await submitVocabularyAnswer({ requestId, progressId, typedAnswer: 'ich öffne die tür' })).toEqual({ success: false, error: 'save_failed' })
   })
   it.each([
     { softError: 'unknown' }, { softError: undefined }, { isAlternative: undefined }, { correctAnswer: undefined },

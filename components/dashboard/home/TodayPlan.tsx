@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import type { CSSProperties } from 'react'
-import { ArrowRight, BookOpen, CalendarCheck, CalendarClock, ChevronRight, Mail, Mic, PartyPopper, PenTool } from 'lucide-react'
+import { ArrowRight, BookOpen, CalendarCheck, CalendarClock, ChevronRight, Clock, Mail, Mic, PartyPopper, PenTool } from 'lucide-react'
 import TodayGreeting from './TodayGreeting'
 import WeekStrip from './WeekStrip'
 import { studentTranslator } from '@/lib/student-ui-i18n'
@@ -64,7 +64,20 @@ export default function TodayPlan({ lang, name, items, fallbackHref, week, noLev
             </div>
           </div>
         )}
-        {noLevel && <p className="st-today__done st-rise text-base text-[var(--muted)]">{t('today_no_level')}</p>}
+        {noLevel && <section aria-labelledby="pending-access-title" className="st-rise my-6 rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-5 sm:p-7">
+          <div className="flex items-start gap-4">
+            <span className="sl-icon-tile h-12 w-12 shrink-0" aria-hidden="true"><Clock size={26} /></span>
+            <div className="min-w-0">
+              <h3 id="pending-access-title" className="text-xl font-bold text-[var(--foreground)]">{t('pending_access_title')}</h3>
+              <p className="mt-4 text-lg leading-relaxed text-[var(--foreground)]"><strong>{t('pending_access_thanks')}</strong> {t('pending_access_review')}</p>
+              <p className="mt-3 text-base leading-relaxed text-[var(--muted)]">{t('pending_access_email')}</p>
+            </div>
+          </div>
+          <div className="mt-5 flex flex-wrap gap-3">
+            <Link href={`/${lang}/dashboard#dashboard-support-title`} className="st-button st-button--soft st-press">{t('nav_help')}</Link>
+            <Link href={`/${lang}/dashboard/calendar`} className="st-button st-button--soft st-press">{t('nav_calendar')}</Link>
+          </div>
+        </section>}
 
         {items.length > 0 && (
           <ul className="st-today__list">

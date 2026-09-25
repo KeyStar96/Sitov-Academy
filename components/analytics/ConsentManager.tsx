@@ -124,10 +124,10 @@ export default function ConsentManager({ lang, copy }: { lang: string; copy: Con
         )}
         <div className="consent-actions">
           <button type="button" className="academy-button academy-button-primary" onClick={() => decide(false)}>{copy.reject_all}</button>
-          <button type="button" className="academy-button academy-button-primary" onClick={() => decide(true)}>{copy.accept_all}</button>
           {customizing
             ? <button type="button" className="academy-button academy-button-outline" onClick={() => decide(marketing)}>{copy.save}</button>
             : <button type="button" className="academy-button academy-button-outline" onClick={customize}>{copy.customize}</button>}
+          <button type="button" className="academy-button academy-button-primary" onClick={() => decide(true)}>{copy.accept_all}</button>
         </div>
       </section>
     )}

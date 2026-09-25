@@ -52,3 +52,39 @@ it('validates all sentence languages before calling a save action', async () => 
   expect(updateVocab).not.toHaveBeenCalled()
   expect(addVocab).not.toHaveBeenCalled()
 })
+
+it('saves optional sentence target forms and reviewed alternatives from separate lines', async () => {
+  jest.mocked(updateVocab).mockResolvedValue({ success: true, data: item })
+  renderEditor()
+  fireEvent.click(screen.getByRole('button', { name: de.admin.cms_edit }))
+  fireEvent.change(screen.getByLabelText(de.admin.cms_target_form), { target: { value: ' heißen\nSie\n' } })
+  fireEvent.change(screen.getByLabelText(de.admin.cms_alternative_answers), { target: { value: 'Mein Name ist Anna.\n' } })
+  fireEvent.click(screen.getByRole('button', { name: de.admin.cms_save }))
+  await waitFor(() => expect(updateVocab).toHaveBeenCalledWith(item.id, expect.objectContaining({ target_form: ['heißen', 'Sie'], alternative_answers_de: ['Mein Name ist Anna.'] })))
+})
+
+it('keeps stored target forms and alternatives while editing another field', async () => {
+  const existing = { ...item, target_form: ['lernen'], alternative_answers_de: ['Deutsch lerne ich.'] }
+  jest.mocked(updateVocab).mockResolvedValue({ success: true, data: existing })
+  render(<AdminI18nProvider translations={de.admin}><VocabCMS initialData={[existing]} /></AdminI18nProvider>)
+  fireEvent.click(screen.getByRole('button', { name: de.admin.cms_edit }))
+  expect(screen.getByLabelText(de.admin.cms_target_form)).toHaveValue('lernen')
+  expect(screen.getByLabelText(de.admin.cms_target_form)).toHaveClass('text-base', 'min-h-12')
+  expect(screen.getByLabelText(de.admin.cms_target_form)).not.toHaveClass('text-sm', 'min-h-11')
+  expect(screen.getByLabelText(de.admin.cms_alternative_answers)).not.toHaveClass('text-sm', 'min-h-11')
+  expect(screen.getByLabelText(de.admin.cms_alternative_answers)).toHaveValue('Deutsch lerne ich.')
+  fireEvent.change(screen.getByLabelText(de.admin.cms_word_de), { target: { value: 'sprechen' } })
+  fireEvent.click(screen.getByRole('button', { name: de.admin.cms_save }))
+  await waitFor(() => expect(updateVocab).toHaveBeenCalledWith(item.id, expect.objectContaining({ word_de: 'sprechen', target_form: ['lernen'], alternative_answers_de: ['Deutsch lerne ich.'] })))
+})
+
+it('places the positive row action and final confirmation last', () => {
+  renderEditor()
+  const edit = screen.getByRole('button', { name: de.admin.cms_edit })
+  const remove = screen.getByRole('button', { name: de.admin.cms_delete })
+  expect(remove.compareDocumentPosition(edit) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
+  fireEvent.click(remove)
+  const cancel = screen.getByRole('button', { name: de.admin.cms_cancel })
+  const confirm = screen.getByRole('button', { name: de.admin.cms_delete_final })
+  expect(cancel.compareDocumentPosition(confirm) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
+})

@@ -22,10 +22,12 @@ import { vocabularyAudioText } from '@/lib/audio/neural-config'
 import { cn } from '@/lib/utils'
 import { lessonLabel } from '@/lib/vocabulary-own-words'
 import VisualDiff from '@/components/exercises/VisualDiff'
-import SoftErrorBadge from '@/components/exercises/SoftErrorBadge'
+import SoftErrorBadge, { OrthographyNote } from '@/components/exercises/SoftErrorBadge'
 import { SessionBoxMoves, type SessionMove } from './SuccessMoments'
 import RoundBreak, { TodayRounds } from './RoundBreak'
-import type { SoftErrorReason } from '@/lib/answer-grading'
+import ArticleHint, { ArticleSolution } from './ArticleHint'
+import { learningFeedback } from '@/lib/learning-feedback-i18n'
+import type { SoftErrorReason, OrthographyHint, ArticleFeedback } from '@/lib/answer-grading'
 
 interface VocabCardSessionProps {
   learnerId: string | null
@@ -88,7 +90,7 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
   const [preferredMode, setPreferredMode] = useState<StudyMode>('flashcard')
   useEffect(() => { setPreferredMode(loadStudyMode()) }, [])
   const drafts = useRef(new Map<string, string>())
-  const [answerResult, setAnswerResult] = useState<{ correct: boolean; solution: string; isAlternative: boolean; softError: SoftErrorReason | null } | null>(null)
+  const [answerResult, setAnswerResult] = useState<{ correct: boolean; solution: string; isAlternative: boolean; softError: SoftErrorReason | null; hint: OrthographyHint | null; feedback: ArticleFeedback | null } | null>(null)
   const exitRequested = useRef(false)
   const finalized = useRef(false)
   const t = useMemo(() => createVocabularyTranslator(translations), [translations])
@@ -189,7 +191,7 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
         if (item.kind === 'self') {
           moveToNextCard()
         } else {
-          setAnswerResult({ correct: result.isCorrect === true, solution: result.correctAnswer ?? '', isAlternative: result.isAlternative === true, softError: result.softError ?? null })
+          setAnswerResult({ correct: result.isCorrect === true, solution: result.correctAnswer ?? '', isAlternative: result.isAlternative === true, softError: result.softError ?? null, hint: result.hint ?? null, feedback: result.feedback ?? null })
         }
       }
     },
@@ -260,7 +262,7 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
     setReviewPending(false)
     if (!result.success) { setRetryFailed(true); return }
     if (!result.isCorrect) enqueueRetry(card)
-    setAnswerResult({ correct: result.isCorrect === true, solution: result.correctAnswer ?? '', isAlternative: result.isAlternative === true, softError: result.softError ?? null })
+    setAnswerResult({ correct: result.isCorrect === true, solution: result.correctAnswer ?? '', isAlternative: result.isAlternative === true, softError: result.softError ?? null, hint: result.hint ?? null, feedback: result.feedback ?? null })
   }
 
   function submitAnswer(event: React.FormEvent<HTMLFormElement>) {
@@ -460,6 +462,8 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
                         : t(isSentence ? answerResult.correct ? 'sentence_correct' : 'sentence_incorrect' : answerResult.correct ? 'answer_correct' : 'answer_incorrect')
                     }</p>}
                 {!answerResult.correct && <p className="learning-context" role="note">{t('retry_scheduled')}</p>}
+                {answerResult.hint && <OrthographyNote lang={uiLanguage} solution={answerResult.solution} />}
+                {answerResult.feedback && <p role="note" className="learning-context">{learningFeedback(uiLanguage)[answerResult.feedback]}</p>}
                 {answerResult.isAlternative && (
                   <div className="mt-3 flex items-start gap-3 rounded-xl border border-[var(--border)] bg-[var(--surface-muted)] p-4 text-[var(--foreground)]">
                     <Info className="mt-0.5 h-5 w-5 shrink-0 text-[var(--violet)]" aria-hidden="true" />
@@ -473,12 +477,13 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
                     <span className="learning-eyebrow mb-2 block">{t('your_answer_label')}</span>
                     <p className="learning-sentence whitespace-pre-wrap break-words">{answer}</p>
                     <span className="learning-eyebrow mb-2 mt-5 block">{t('correct_sentence_label')}</span>
-                    <VisualDiff actual={answer} expected={answerResult.solution} className="learning-sentence" />
+                    {answerResult.feedback ? <p className="learning-sentence"><ArticleSolution solution={answerResult.solution} /></p>
+                      : <VisualDiff actual={answer} expected={answerResult.solution} className="learning-sentence" />}
                   </div>
                 )}
                 {answerResult.correct && <>
                   <span className="learning-eyebrow">{t('correct_sentence_label')}</span>
-                  <p className={cn(isSentence ? 'learning-sentence' : 'learning-solution', !isSentence && isToGerman && articleColorClass(current.card.article))} lang={answerLanguage}>{answerResult.solution}</p>
+                  <p className={cn(isSentence ? 'learning-sentence' : 'learning-solution', !isSentence && isToGerman && articleColorClass(current.card.article))} lang={answerLanguage}><ArticleSolution solution={answerResult.solution} /></p>
                 </>}
                 {!isSentence && <>
                   {current.contextSentence && <p className="learning-context learning-example" lang="de"><span className="sr-only">{t('context_label')}: </span>{current.contextSentence}</p>}
@@ -493,13 +498,15 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
             : isFlashcard
             ? revealed
               ? <div className="learning-flashcard-actions">
-                  <button type="button" className="learning-button learning-button-primary" disabled={reviewPending} onClick={() => submitSelfRating(true)}>{t('knew_it')}</button>
                   <button type="button" className="learning-button learning-button-secondary" disabled={reviewPending} onClick={() => submitSelfRating(false)}>{t('didnt_know')}</button>
+                  <button type="button" className="learning-button learning-button-primary" disabled={reviewPending} onClick={() => submitSelfRating(true)}>{t('knew_it')}</button>
                 </div>
               : <button type="button" className="learning-button learning-button-primary learning-button-wide" onClick={revealFlashcard}>{t('reveal_solution')}</button>
             : <form className="learning-typing" onSubmit={submitAnswer}>
+              {isSentence && current.card.target_form?.length ? <p className="text-xl" lang="de" translate="no">[{current.card.target_form.join(', ')}]</p> : null}
+              {!isSentence && isToGerman && <ArticleHint article={current.card.article} lang={uiLanguage} id="vocabulary-article-hint" />}
               <label htmlFor="vocabulary-answer">{t(answerLabel)}</label>
-              <textarea id="vocabulary-answer" lang={answerLanguage} value={answer} onChange={event => { drafts.current.set(current.progressId, event.target.value); setAnswer(event.target.value) }} rows={isSentence ? 2 : 1} maxLength={4000} autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck={false} disabled={reviewPending} />
+              <textarea id="vocabulary-answer" aria-describedby={!isSentence && isToGerman && current.card.article && current.card.article !== 'none' ? 'vocabulary-article-hint' : undefined} lang={answerLanguage} value={answer} onChange={event => { drafts.current.set(current.progressId, event.target.value); setAnswer(event.target.value) }} rows={isSentence ? 2 : 1} maxLength={4000} autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck={false} disabled={reviewPending} />
               <button className="learning-button learning-button-primary" disabled={reviewPending || !answer.trim().length}>{t('check_sentence')}</button>
             </form>}
           </motion.div>

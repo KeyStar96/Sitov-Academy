@@ -35,6 +35,11 @@ it.each([['de', de], ['en', en], ['ru', ru], ['uk', uk], ['tr', tr]] as const)('
   expect(screen.getByText('das Haus')).toHaveAttribute('lang', 'de')
   expect(screen.getByText(dict.vocabulary.plural_label.replace('{plural}', 'Häuser'))).toBeVisible()
   expect(screen.getByText(dict.vocabulary.already_know)).toBeVisible()
+  const known = screen.getByText(dict.vocabulary.already_know).closest('button')!
+  const unknown = screen.getByText(dict.vocabulary.add_to_box).closest('button')!
+  expect(unknown.compareDocumentPosition(known) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
+  expect(known).toHaveClass('learning-button-primary')
+  expect(unknown).toHaveClass('learning-button-secondary')
   expect(submitLessonAssessment).not.toHaveBeenCalled()
 })
 function choose(known: boolean) {

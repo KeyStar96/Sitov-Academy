@@ -1,12 +1,12 @@
 import {test} from 'node:test'
 import assert from 'node:assert/strict'
-import {createPhase3Database,actor,id,student,teacher,outsider,vocabularyUnit,result,apply} from './helpers/phase3-db.mjs'
+import {createPhase1Database,actor,id,student,teacher,outsider,vocabularyUnit,result,applyCurrent as apply} from './helpers/phase1-db.mjs'
 
 // Historical migration/copy and legacy API invariants remain in vocabulary-history.test.mjs.
-// This suite executes the current Phase 2 + Phase 3 SQL, not obsolete grading bodies.
-await test('Phase 3 vocabulary server grading, Leitner intervals and transactional receipts',async t=>{
+// This suite executes the complete current function chain through migration 30.
+await test('Phase 1 vocabulary server grading, Leitner intervals and transactional receipts',async t=>{
  let legacySentence,legacyWord,legacyResponse,legacyProgress,legacyReceiptTime
- const db=await createPhase3Database({beforeSoftErrors:async(db)=>{
+ const db=await createPhase1Database({beforeSoftErrors:async(db)=>{
   for(const [cardId,sentence] of [[id(180),true],[id(181),false]]) {
    await db.query("INSERT INTO learning_vocabulary_cards(id,unit_id,word_de,article,sentence_practice) VALUES($1,$2,'Haus','das',$3)",[cardId,vocabularyUnit,sentence])
    await db.query("INSERT INTO vocabulary_translations(card_id,locale,translation,context_sentence) VALUES($1,'de','Haus','Ich öffne die Tür.'),($1,'ru','дом','Я открываю дверь.')",[cardId])
@@ -71,19 +71,52 @@ await test('Phase 3 vocabulary server grading, Leitner intervals and transaction
     assert.equal(value.correctAnswer,'lernen');assert.equal(value.isCorrect,true)
    }
   })
+  await t.test('articles are required before singular/plural nouns and retries explain the same error',async()=>{
+   for(const [word,article,plural,typed,feedback] of [
+    ['Haus','das',null,'Haus','article_missing'],['Haus','das',null,'die Haus','article_wrong'],
+    ['Haus','das',null,'den Haus','article_wrong'],['Eltern','die',null,'Eltern','article_missing'],
+    ['Eltern','die',null,'das Eltern','article_wrong'],['Papa','der','Papas','Papas','article_missing'],
+    ['Papa','der','Papas','der Papas','article_wrong'],
+   ]) {
+    const a=await add({word,article,plural})
+    const response=await review(a.reverse,typed,true)
+    assert.equal(response.isCorrect,false,typed);assert.equal(response.feedback,feedback,typed)
+    assert.equal(response.softError,null);assert.equal(response.hint,null);assert.equal(response.intervalInDays,1)
+    const retry=await result(db,'SELECT check_vocabulary_retry($1,$2,$3) result',[a.reverse,typed,'ru'])
+    assert.equal(retry.isCorrect,false);assert.equal(retry.feedback,feedback)
+    const corrected=await result(db,'SELECT check_vocabulary_retry($1,$2,$3) result',[a.reverse,`${article} ${word}`,'ru'])
+    assert.equal(corrected.isCorrect,true);assert.equal(corrected.feedback,null)
+   }
+   const verb=await add({word:'lernen',article:'none'})
+   assert.equal((await review(verb.reverse,'lernen')).feedback,null)
+  })
+  await t.test('Ich heiße Anna accepts writing hints at full interval while real typos remain soft',async()=>{
+   const a=await add({sentence:true})
+   await db.exec('RESET ROLE')
+   await db.query("UPDATE vocabulary_translations SET context_sentence='Ich heiße Anna.' WHERE card_id=$1 AND locale='de'",[a.cardId])
+   for(const [typed,soft,hint,days] of [
+    ['ich heiße anna',null,'capitalization_punctuation',9],
+    ['Ich heisse Anna','umlaut',null,3],['ich heise anna','typo',null,3],
+   ]) {
+    await resetDue(a.reverse,3)
+    const response=await review(a.reverse,typed,false)
+    assert.equal(response.isCorrect,true);assert.equal(response.softError,soft);assert.equal(response.hint,hint)
+    assert.equal(response.newPhase,4);assert.equal(response.intervalInDays,days)
+   }
+  })
   await t.test('native direction uses the selected interface locale and never accepts another locale answer',async()=>{
    for(const [locale,translation] of [['en','house'],['ru','дом'],['uk','будинок'],['tr','ev']]) {
     const a=await add();assert.equal((await review(a.forward,translation,false,locale)).isCorrect,true)
     await resetDue(a.forward);assert.equal((await review(a.forward,'das Haus',true,locale)).isCorrect,false)
    }
   })
-  await t.test('sentence typo, punctuation, capitalization and umlaut are soft; trim-only remains exact',async()=>{
+  await t.test('sentence case and punctuation are exact; only umlaut and typo cap intervals',async()=>{
    const a=await add({sentence:true})
-   for(const [text,reason] of [['Ich öffne die Tür','punctuation'],['ich öffne die tür.','capitalization'],['Ich oeffne die Tuer.','umlaut'],['Ich öffn die Tür.','typo'],[' Ich\töffne die Tür. ',null]]) {
+   for(const [text,reason,hint] of [['Ich öffne die Tür',null,'punctuation'],['ich öffne die tür.',null,'capitalization'],['ich öffne die tür',null,'capitalization_punctuation'],['Ich oeffne die Tuer.','umlaut',null],['Ich öffn die Tür.','typo',null],[' Ich\töffne die Tür. ',null,null]]) {
     const input=text
     await resetDue(a.reverse,3,2)
     const response=await review(a.reverse,input,false)
-    assert.equal(response.isCorrect,true,input);assert.equal(response.softError,reason,input);assert.equal(response.newPhase,4)
+    assert.equal(response.isCorrect,true,input);assert.equal(response.softError,reason,input);assert.equal(response.hint,hint,input);assert.equal(response.newPhase,4)
     assert.equal(response.correctAnswer,'Ich öffne die Tür.');assert.equal(response.isAlternative,false)
     assert.equal((await states(a.cardId))[1].lapses,2)
     assert.equal(response.intervalInDays,reason?3:9)
@@ -94,28 +127,24 @@ await test('Phase 3 vocabulary server grading, Leitner intervals and transaction
   })
   await t.test('accepted alternatives receive the canonical answer disclosure and accurate alternative flags',async()=>{
    const a=await add({sentence:true,alternatives:['Ich mache die Tür auf.']})
-   for(const [text,reason] of [['Ich mache die Tür auf.',null],['Ich mache die Tür auf','punctuation']]) {
+   for(const [text,hint] of [['Ich mache die Tür auf.',null],['Ich mache die Tür auf','punctuation']]) {
     await resetDue(a.reverse)
     const response=await review(a.reverse,text,false);assert.equal(response.isCorrect,true);assert.equal(response.isAlternative,true)
-    assert.equal(response.softError,reason);assert.equal(response.correctAnswer,'Ich öffne die Tür.')
+    assert.equal(response.softError,null);assert.equal(response.hint,hint);assert.equal(response.correctAnswer,'Ich öffne die Tür.')
    }
   })
-  await t.test('plurals count as correct: bare plural, plural article and the combined dictionary form',async()=>{
-   // Plural-Grading lebt in Migration 21. Frühere Teilprüfungen replayen die
-   // Basis-Migration (apply(db) -> 06_soft_errors), die submit_answer ohne
-   // Plural neu setzt; hier die aktuelle Fassung wiederherstellen.
-   await db.exec('RESET ROLE');await apply(db,['21_vocabulary_sentence_learner_choice.sql']);await actor(db,student)
-   // "der Papa / die Papas": Singular, Plural, der stehende Plural-Artikel "die"
-   // und die kombinierten Formen sind gültig. Der Singular bleibt Musterlösung;
-   // ein Plural wird als Alternative markiert.
+  await t.test('plural article and dictionary forms remain correct; bare plural needs its article',async()=>{
    const a=await add({word:'Papa',article:'der',plural:'Papas',translation:'папа'})
-   for(const [text,alternative] of [['der Papa',false],['die Papas',true],['Papas',true],['der Papa / die Papas',true],['der Papa, die Papas',true]]) {
+   for(const [text,alternative] of [['der Papa',false],['die Papas',true],['der Papa / die Papas',true],['der Papa, die Papas',true]]) {
     await resetDue(a.reverse)
     const response=await review(a.reverse,text,false)
     assert.equal(response.isCorrect,true,text)
     assert.equal(response.correctAnswer,'der Papa','the singular stays the disclosed answer')
     assert.equal(response.isAlternative,alternative,text)
    }
+   await resetDue(a.reverse)
+   const bare=await review(a.reverse,'Papas',false)
+   assert.equal(bare.isCorrect,false);assert.equal(bare.feedback,'article_missing')
    // Der Platzhalter "-" ist keine echte Pluralform: es bleibt beim Singular.
    const noPlural=await add({word:'Fernseher',article:'der',plural:'-',translation:'телевизор'})
    await resetDue(noPlural.reverse)
@@ -128,11 +157,12 @@ await test('Phase 3 vocabulary server grading, Leitner intervals and transaction
     const a=await add({sentence:true});await db.exec('RESET ROLE')
     await db.query("UPDATE vocabulary_translations SET is_difficult=$2 WHERE card_id=$1 AND locale='ru'",[a.cardId,difficult])
     await resetDue(a.reverse,box,3)
-    const response=await review(a.reverse,'Ich öffne die Tür',false)
+    const response=await review(a.reverse,'Ich öffn die Tür.',false)
     const base=[1,1,3,9,29,90][box-1],expected=difficult?Math.max(1,Math.floor(base/2)):base
     assert.equal(response.newPhase,Math.min(6,box+1));assert.equal(response.becameLearned,box===6);assert.equal(response.intervalInDays,expected)
     const state=(await states(a.cardId))[1];assert.equal(state.box_number,Math.min(7,box+1));assert.equal(state.lapses,3)
-    assert.ok(Math.abs((state.next_review_date.getTime()-state.last_answered_at.getTime())/86400000-expected)<0.001)
+    const calendar=(await db.query("SELECT (next_review_date AT TIME ZONE 'Europe/Berlin')::date-(last_answered_at AT TIME ZONE 'Europe/Berlin')::date days FROM vocabulary_direction_progress WHERE id=$1",[a.reverse])).rows[0]
+    assert.equal(calendar.days,expected)
     assert.equal((await review(a.reverse,'Ich öffne die Tür.',false)).error,'review_not_due')
    }
   })
@@ -166,9 +196,9 @@ await test('Phase 3 vocabulary server grading, Leitner intervals and transaction
    const spacer=await add();await review(spacer.forward,'дом');assert.equal((await review(a.reverse,'das Haus')).isCorrect,true)
    assert.equal((await review(a.reverse,'das Haus')).error,'review_not_due')
   })
-  await t.test('receipt replay preserves soft outcome, score, cursor and exact request payload binding',async()=>{
+  await t.test('receipt replay preserves neutral hint, score, cursor and exact request payload binding',async()=>{
    const a=await add({sentence:true});const key=id(1000)
-   const first=await once(key,a.reverse,'Ich öffne die Tür',false);assert.equal(first.softError,'punctuation')
+   const first=await once(key,a.reverse,'Ich öffne die Tür',false);assert.equal(first.softError,null);assert.equal(first.hint,'punctuation')
    const state=await states(a.cardId)
    assert.deepEqual(await once(key,a.reverse,'Ich öffne die Tür',false),first)
    const spacer=await add();await review(spacer.forward,'дом')

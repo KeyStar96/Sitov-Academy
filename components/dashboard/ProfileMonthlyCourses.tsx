@@ -161,14 +161,14 @@ export default function ProfileMonthlyCourses({ initial, lang, translations, cou
               {step === 1 && <>
                 <h3 className="st-booking__question">{s('booking_q', { month })}</h3>
                 <div className="mt-4 grid gap-3">
-                  <button type="button" onClick={chooseContinue} disabled={monthExpired} className="st-choice st-press" data-tone="go">
-                    <span className="st-choice__icon" aria-hidden="true"><Sparkles size={24} /></span>
-                    <span className="min-w-0 flex-1"><span className="st-choice__title">{s('booking_continue')}</span><span className="st-choice__hint">{s('booking_continue_hint')}</span></span>
-                    <ArrowRight size={22} aria-hidden="true" className="shrink-0" />
-                  </button>
                   <button type="button" onClick={choosePause} disabled={monthExpired} className="st-choice st-press" data-tone="pause">
                     <span className="st-choice__icon" aria-hidden="true"><CirclePause size={24} /></span>
                     <span className="min-w-0 flex-1"><span className="st-choice__title">{s('booking_pause')}</span><span className="st-choice__hint">{s('booking_pause_hint', { month })}</span></span>
+                    <ArrowRight size={22} aria-hidden="true" className="shrink-0" />
+                  </button>
+                  <button type="button" onClick={chooseContinue} disabled={monthExpired} className="st-choice st-press" data-tone="go">
+                    <span className="st-choice__icon" aria-hidden="true"><Sparkles size={24} /></span>
+                    <span className="min-w-0 flex-1"><span className="st-choice__title">{s('booking_continue')}</span><span className="st-choice__hint">{s('booking_continue_hint')}</span></span>
                     <ArrowRight size={22} aria-hidden="true" className="shrink-0" />
                   </button>
                 </div>

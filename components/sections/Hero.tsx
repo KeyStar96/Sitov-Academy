@@ -26,8 +26,8 @@ export default function Hero({ dictionary, lang = 'de' }: { dictionary: Dictiona
       <h1 className="hero-reveal">{copy.hero_title}<br /><span>{copy.hero_highlight}</span></h1>
       <p className="academy-hero-description hero-reveal">{copy.hero_description}</p>
       <div className="academy-hero-actions hero-reveal">
-        <Link href="#courses" className="academy-button academy-button-primary">{copy.hero_primary}<ArrowUpRight size={20} aria-hidden="true" /></Link>
         <Link href={`/${lang}/dashboard`} className="academy-button academy-button-outline">{copy.hero_secondary}<BetaBadge label={copy.beta_label} hint={copy.beta_hint} /><ArrowRight size={18} aria-hidden="true" /></Link>
+        <Link href="#courses" className="academy-button academy-button-primary">{copy.hero_primary}<ArrowUpRight size={20} aria-hidden="true" /></Link>
       </div>
       <div className="academy-hero-footnote hero-reveal"><span>{copy.hero_level_range}</span><span aria-hidden="true">·</span><span>{dictionary.header.banner.location}</span></div>
     </div>

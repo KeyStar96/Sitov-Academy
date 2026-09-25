@@ -6,6 +6,7 @@ import { ArrowLeft, Loader2 } from 'lucide-react'
 import { useAdminTranslator } from './AdminI18nProvider'
 import type { Trainer, AccessLevel, TrainerAccessRule } from '@/lib/access/levels'
 import type { AccessUnit } from '@/lib/access/units'
+import DialogActions from '@/components/ui/DialogActions'
 
 /** The content selection occupies the existing student dialog, without a second overlay. */
 export default function LessonAccessModal({ studentId, level, trainer, rule, onClose, onSave, onBusyChange }: {
@@ -106,10 +107,11 @@ export default function LessonAccessModal({ studentId, level, trainer, rule, onC
         {saveFailed && <p role="alert" className="mt-4 text-base text-red-700 dark:text-red-300">{t('save_failed')}</p>}
       </div>
       <footer className="flex shrink-0 flex-wrap justify-end gap-3 border-t border-[var(--border)] px-5 py-4 sm:px-6">
-        <button type="button" onClick={onClose} disabled={saving} className="min-h-12 rounded-xl border border-[var(--border)] px-5 font-semibold disabled:opacity-50">{t('cancel')}</button>
-        <button type="button" onClick={handleSave} disabled={saving || loading || loadFailed || lessons.length === 0} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-[var(--accent-strong)] px-6 font-bold text-[var(--accent-foreground)] hover:bg-[var(--accent-strong-hover)] disabled:opacity-50">
+        <DialogActions className="w-full sm:w-auto"
+        secondary={<button type="button" onClick={onClose} disabled={saving} className="min-h-12 rounded-xl border border-[var(--border)] px-5 font-semibold disabled:opacity-50">{t('cancel')}</button>}
+        primary={<button type="button" onClick={handleSave} disabled={saving || loading || loadFailed || lessons.length === 0} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-[var(--accent-strong)] px-6 font-bold text-[var(--accent-foreground)] hover:bg-[var(--accent-strong-hover)] disabled:opacity-50">
           {saving && <Loader2 size={20} className="animate-spin" aria-hidden="true" />}{t('save')}
-        </button>
+        </button>} />
       </footer>
     </>
   )

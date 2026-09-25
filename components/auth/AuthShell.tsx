@@ -15,7 +15,7 @@ export default async function AuthShell({lang,title,description,children}:{lang:
       <Link href={`/${lang}`} className="inline-flex min-h-14 items-center rounded-xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent)]"><BrandLogo name={dict.academy.brand_name} descriptor={dict.academy.brand_descriptor}/></Link>
       <Link href={`/${lang}`} className="inline-flex min-h-12 items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--surface)] px-5 text-sm font-semibold hover:border-[var(--violet)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent)]"><ArrowLeft size={18} aria-hidden="true"/>{t.home}</Link>
     </header>
-    <main className="relative z-10 mx-auto grid w-full max-w-6xl min-w-0 items-center gap-7 py-10 sm:py-16 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-16">
+    <div className="relative z-10 mx-auto grid w-full max-w-6xl min-w-0 items-center gap-7 py-10 sm:py-16 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-16">
       <section className="relative min-w-0 lg:py-12">
         <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--surface)] px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-[var(--violet)]"><Sparkles size={16} aria-hidden="true"/>{t.learning}</p>
         <h2 className="max-w-lg text-4xl font-semibold leading-[1.08] tracking-[-0.045em] sm:text-5xl lg:text-6xl">{t.auth_headline}</h2>
@@ -28,6 +28,6 @@ export default async function AuthShell({lang,title,description,children}:{lang:
         <div className="space-y-6">{children}</div>
         <p className="mt-7 flex items-start gap-3 border-t border-[var(--border)] pt-5 text-sm leading-relaxed text-[var(--muted)]"><ShieldCheck size={20} className="mt-0.5 shrink-0 text-[var(--violet)]" aria-hidden="true"/>{t.auth_security}</p>
       </section>
-    </main>
+    </div>
   </div>
 }

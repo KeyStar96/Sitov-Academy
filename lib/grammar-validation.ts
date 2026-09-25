@@ -78,14 +78,18 @@ export function normalizeGrammarAnswer(value: string): string {
 
 export type ValidationResult = AnswerGrade
 
-const normalizeSpacing = (value: string) => value.trim().replace(/\s+/g, ' ')
-const withoutPunctuation = (value: string) => normalizeSpacing(value.replace(/[\p{P}\p{S}]/gu, ''))
+const normalizeSpacing = (value: string) => value.normalize('NFC')
+  .replace(/[’‘ʼ＇]/g, "'").replace(/[„“”«»＂]/g, '"').replace(/[‐‑‒–—−﹘－]/g, '-')
+  .trim().replace(/\s+/g, ' ')
+const withoutPunctuation = (value: string) => normalizeSpacing(value.replace(/(?<![0-9])[.,]|[.,](?![0-9])|[!?;:'"()\[\]{}…]|(?<![0-9])-(?![0-9])/gu, ''))
 const foldCase = (value: string) => value.toLocaleLowerCase('de-DE')
 const expandUmlauts = (value: string) => value.replace(/[äöüßÄÖÜẞ]/g, letter => ({
   ä: 'ae', ö: 'oe', ü: 'ue', ß: 'ss', Ä: 'Ae', Ö: 'Oe', Ü: 'Ue', ẞ: 'SS',
 })[letter]!)
 
 function oneWordEdit(left: string, right: string): boolean {
+  // Numbers and codes need task-specific accepted variants, never typo tolerance.
+  if (!/^\p{L}+$/u.test(left) || !/^\p{L}+$/u.test(right)) return false
   const a = Array.from(left)
   const b = Array.from(right)
   if (Math.min(a.length, b.length) < 4 || Math.abs(a.length - b.length) > 1) return false
@@ -102,7 +106,7 @@ function oneWordEdit(left: string, right: string): boolean {
 }
 
 function isSingleWordTypo(input: string, accepted: string): boolean {
-  // Keep punctuation and spacing identical; other soft differences cannot be combined.
+  // Case and punctuation are already neutralized before typo comparison.
   const wordPattern = /[\p{L}\p{N}]+/gu
   if (input.replace(wordPattern, '#') !== accepted.replace(wordPattern, '#')) return false
   const inputWords = input.match(wordPattern) ?? []
@@ -118,21 +122,27 @@ function isSingleWordTypo(input: string, accepted: string): boolean {
 }
 
 /** Non-authoritative preview only. Completion, scores and final feedback come from PostgreSQL. */
-export function validateUserAnswer(userAnswer: string, acceptedAnswers: string[]): ValidationResult {
+export function validateUserAnswer(userAnswer: string, acceptedAnswers: string[], distractors: string[] = []): ValidationResult {
   const input = normalizeSpacing(userAnswer)
-  if (!input) return { status: 'INCORRECT', matched: null, reason: null }
+  const incorrect: ValidationResult = { status: 'INCORRECT', matched: null, reason: null, hint: null }
+  if (!input) return incorrect
   const candidates = acceptedAnswers.map(matched => ({ matched, normalized: normalizeSpacing(matched) })).filter(answer => answer.normalized.length > 0)
+  // Authored false choices must never receive typo tolerance.
+  if (distractors.some(option => option === userAnswer && !acceptedAnswers.includes(option))) return incorrect
   const exact = candidates.find(answer => answer.normalized === input)
-  if (exact) return { status: 'EXACT', matched: exact.matched, reason: null }
+  if (exact) return { status: 'EXACT', matched: exact.matched, reason: null, hint: null }
+  const normalized = foldCase(withoutPunctuation(input))
+  const neutral = candidates.find(answer => normalized === foldCase(withoutPunctuation(answer.normalized)))
+  if (neutral) return { status: 'EXACT', matched: neutral.matched, reason: null,
+    hint: foldCase(input) === foldCase(neutral.normalized) ? 'capitalization'
+      : withoutPunctuation(input) === withoutPunctuation(neutral.normalized) ? 'punctuation' : 'capitalization_punctuation' }
   const rules: Array<[SoftErrorReason, (left: string, right: string) => boolean]> = [
-    ['punctuation', (left, right) => withoutPunctuation(left) === withoutPunctuation(right)],
-    ['capitalization', (left, right) => foldCase(left) === foldCase(right)],
     ['umlaut', (left, right) => expandUmlauts(left) === expandUmlauts(right)],
     ['typo', isSingleWordTypo],
   ]
   for (const [reason, matches] of rules) {
-    const candidate = candidates.find(answer => input.length > 0 && matches(input, answer.normalized))
-    if (candidate) return { status: 'SOFT_ERROR', matched: candidate.matched, reason }
+    const candidate = candidates.find(answer => normalized.length > 0 && matches(normalized, foldCase(withoutPunctuation(answer.normalized))))
+    if (candidate) return { status: 'SOFT_ERROR', matched: candidate.matched, reason, hint: null }
   }
-  return { status: 'INCORRECT', matched: null, reason: null }
+  return incorrect
 }

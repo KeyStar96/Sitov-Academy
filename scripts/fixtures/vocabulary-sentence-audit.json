@@ -1,0 +1,267 @@
+{
+  "cards": [
+    {
+      "id": "0e418b9e-c02d-4148-b262-a608d369cadb",
+      "level": "A1.1",
+      "lesson": "Lektion 1",
+      "word_de": "Telefonnummer",
+      "sentence": "Wie ist Ihre Telefonnummer?",
+      "target_form": null,
+      "sentence_practice": true,
+      "alternative_answers_de": []
+    },
+    {
+      "id": "3d4ea48d-5efe-460b-bdfe-3e14f5f2bb21",
+      "level": "A1.1",
+      "lesson": "Lektion 1",
+      "word_de": "Deutschland",
+      "sentence": "Ich wohne in Deutschland.",
+      "target_form": null,
+      "sentence_practice": true,
+      "alternative_answers_de": []
+    },
+    {
+      "id": "48c57bb9-a03c-4a4d-b386-28b95975d66b",
+      "level": "A1.1",
+      "lesson": "Lektion 1",
+      "word_de": "Sprache",
+      "sentence": "Welche Sprache sprechen Sie?",
+      "target_form": null,
+      "sentence_practice": true,
+      "alternative_answers_de": []
+    },
+    {
+      "id": "59ffe0cf-f9c7-455a-b086-54153690cbce",
+      "level": "A1.1",
+      "lesson": "Lektion 1",
+      "word_de": "kommen",
+      "sentence": "Woher kommen Sie?",
+      "target_form": null,
+      "sentence_practice": true,
+      "alternative_answers_de": []
+    },
+    {
+      "id": "5ab5409a-2d71-4e95-a0d2-7a9864a76688",
+      "level": "A1.1",
+      "lesson": "Lektion 1",
+      "word_de": "sprechen",
+      "sentence": "Ich spreche Deutsch und Russisch.",
+      "target_form": null,
+      "sentence_practice": true,
+      "alternative_answers_de": []
+    },
+    {
+      "id": "70d12be8-01c9-48a2-b2ca-cac05066412d",
+      "level": "A1.1",
+      "lesson": "Lektion 1",
+      "word_de": "Name",
+      "sentence": "Wie ist Ihr Name?",
+      "target_form": null,
+      "sentence_practice": true,
+      "alternative_answers_de": []
+    },
+    {
+      "id": "8c1aa2cd-bf20-49fe-ab40-402a0d29f22e",
+      "level": "A1.1",
+      "lesson": "Lektion 1",
+      "word_de": "Vorname",
+      "sentence": "Mein Vorname ist Anna.",
+      "target_form": null,
+      "sentence_practice": true,
+      "alternative_answers_de": []
+    },
+    {
+      "id": "8dc37b6a-6cf4-4bb9-93ae-870d4ba16187",
+      "level": "A1.1",
+      "lesson": "Lektion 1",
+      "word_de": "Entschuldigung",
+      "sentence": "Entschuldigung, wo ist der Bahnhof?",
+      "target_form": null,
+      "sentence_practice": true,
+      "alternative_answers_de": []
+    },
+    {
+      "id": "af776643-126c-4cdf-8bff-b32ac63f78fa",
+      "level": "A1.1",
+      "lesson": "Lektion 1",
+      "word_de": "Deutsch",
+      "sentence": "Ich lerne Deutsch.",
+      "target_form": null,
+      "sentence_practice": true,
+      "alternative_answers_de": []
+    },
+    {
+      "id": "b15bfa51-740c-4eac-813b-6fca868eabbd",
+      "level": "A1.1",
+      "lesson": "Lektion 1",
+      "word_de": "danke",
+      "sentence": "Danke für Ihre Hilfe!",
+      "target_form": null,
+      "sentence_practice": true,
+      "alternative_answers_de": []
+    },
+    {
+      "id": "b2030cf8-16e1-4d25-91a8-63a8853cc21b",
+      "level": "A1.1",
+      "lesson": "Lektion 1",
+      "word_de": "Nachname",
+      "sentence": "Mein Nachname ist Müller.",
+      "target_form": null,
+      "sentence_practice": true,
+      "alternative_answers_de": []
+    },
+    {
+      "id": "e9871cab-6f5b-4a30-9cd1-f6bd2406bfda",
+      "level": "A1.1",
+      "lesson": "Lektion 1",
+      "word_de": "Adresse",
+      "sentence": "Wie ist Ihre Adresse?",
+      "target_form": null,
+      "sentence_practice": true,
+      "alternative_answers_de": []
+    },
+    {
+      "id": "1a03578f-3e9b-42a1-a45f-a60c4152df15",
+      "level": "A1.1",
+      "lesson": "Lektion 2",
+      "word_de": "lernen",
+      "sentence": "Wir lernen zusammen Deutsch.",
+      "target_form": null,
+      "sentence_practice": true,
+      "alternative_answers_de": []
+    },
+    {
+      "id": "69d845b3-4310-4919-986a-80bf913822b0",
+      "level": "A1.1",
+      "lesson": "Lektion 2",
+      "word_de": "wohnen",
+      "sentence": "Ich wohne in Hannover.",
+      "target_form": null,
+      "sentence_practice": true,
+      "alternative_answers_de": []
+    },
+    {
+      "id": "770b2edb-43a1-4935-adbd-9570c39b46e5",
+      "level": "A1.1",
+      "lesson": "Lektion 2",
+      "word_de": "Familie",
+      "sentence": "Meine Familie lebt in Deutschland.",
+      "target_form": null,
+      "sentence_practice": true,
+      "alternative_answers_de": []
+    },
+    {
+      "id": "a2f81e78-789c-4017-b53f-c4217fdbc7e4",
+      "level": "A1.1",
+      "lesson": "Lektion 2",
+      "word_de": "verstehen",
+      "sentence": "Ich verstehe die Frage nicht.",
+      "target_form": null,
+      "sentence_practice": true,
+      "alternative_answers_de": []
+    },
+    {
+      "id": "e183c8a4-e15a-40ad-b97d-1dccd79f5cc5",
+      "level": "A1.1",
+      "lesson": "Lektion 3",
+      "word_de": "Brot",
+      "sentence": "Ich kaufe ein Brot.",
+      "target_form": null,
+      "sentence_practice": true,
+      "alternative_answers_de": []
+    },
+    {
+      "id": "fc3f909e-d640-4664-a559-d971861e0613",
+      "level": "A1.1",
+      "lesson": "Lektion 3",
+      "word_de": "Kaffee",
+      "sentence": "Ich trinke morgens Kaffee.",
+      "target_form": null,
+      "sentence_practice": true,
+      "alternative_answers_de": []
+    },
+    {
+      "id": "73affc2d-5aba-4b26-a66d-d2562a7db202",
+      "level": "A1.1",
+      "lesson": "Lektion 4",
+      "word_de": "Wohnung",
+      "sentence": "Ich suche eine Wohnung.",
+      "target_form": null,
+      "sentence_practice": true,
+      "alternative_answers_de": []
+    },
+    {
+      "id": "d280c958-b4fe-4b4f-97ff-b75f8fb7a899",
+      "level": "A1.1",
+      "lesson": "Lektion 4",
+      "word_de": "Küche",
+      "sentence": "Ich koche in der Küche.",
+      "target_form": null,
+      "sentence_practice": true,
+      "alternative_answers_de": []
+    },
+    {
+      "id": "2ad0f4dc-7dbc-423d-87b8-aa67f2c94114",
+      "level": "A1.1",
+      "lesson": "Lektion 5",
+      "word_de": "arbeiten",
+      "sentence": "Ich arbeite von Montag bis Freitag.",
+      "target_form": null,
+      "sentence_practice": true,
+      "alternative_answers_de": []
+    },
+    {
+      "id": "b957a819-1077-4bdb-8de8-a7e770d2642f",
+      "level": "A1.1",
+      "lesson": "Lektion 5",
+      "word_de": "müde",
+      "sentence": "Ich bin heute sehr müde.",
+      "target_form": null,
+      "sentence_practice": true,
+      "alternative_answers_de": []
+    },
+    {
+      "id": "e0fe2ac8-8518-48f8-862d-02fdf4cdf44c",
+      "level": "A1.1",
+      "lesson": "Lektion 6",
+      "word_de": "Wetter",
+      "sentence": "Wie ist das Wetter heute?",
+      "target_form": null,
+      "sentence_practice": true,
+      "alternative_answers_de": []
+    },
+    {
+      "id": "20dd2336-d1c6-4bdd-b858-285f42c4b702",
+      "level": "A1.1",
+      "lesson": "Lektion 7",
+      "word_de": "lernen",
+      "sentence": "Wir lernen zusammen Deutsch.",
+      "target_form": null,
+      "sentence_practice": true,
+      "alternative_answers_de": []
+    },
+    {
+      "id": "58c08d0e-43f9-447e-9ca9-afd6fffeeb53",
+      "level": "A1.1",
+      "lesson": "Lektion 7",
+      "word_de": "schreiben",
+      "sentence": "Ich schreibe eine E-Mail.",
+      "target_form": null,
+      "sentence_practice": true,
+      "alternative_answers_de": []
+    },
+    {
+      "id": "f125e23c-f5c1-4604-b418-8937982aca06",
+      "level": "A1.1",
+      "lesson": "Lektion 7",
+      "word_de": "kommen",
+      "sentence": "Woher kommen Sie?",
+      "target_form": null,
+      "sentence_practice": true,
+      "alternative_answers_de": []
+    }
+  ],
+  "read_only": "on",
+  "captured_at": "2026-09-25T20:30:08.145036+00:00",
+  "shared_active_cards": 512
+}

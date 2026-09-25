@@ -2,13 +2,13 @@
 
 | Feld | Wert |
 |---|---|
-| Letzte Aktualisierung | 2026-09-25, Phase 0 |
-| Git-Revision | Geprüfte Ausgangsrevision `e123fab0ba49177c3c15f06db10249d92eb688d9`; Abschlussdokumentation im Commit, der diese Datei einführt |
+| Letzte Aktualisierung | 2026-09-25, Phase 1 — Implementierung und Abnahme |
+| Git-Revision | Phase-1-Ausgang `81c7a40710b9963a95aa3f633f17ea5b75d59f25`; Implementierung vor Veröffentlichung vollständig lokal geprüft |
 | Branch | `codex/vps-self-hosted` |
 | Aktives Release | `5f12313ac51e1f4fbe5fd04eb01d6ccefebaa90c` (`/var/www/sitov-current` → `/var/www/sitov-releases/5f12313ac51e`) |
 | Health | Loopback und `https://www.sitov-academy.com/api/health`: `ready` |
 | Letzte Migration | `29_student_level_access_notification.sql`; Registry und Live-Trigger/Enum geprüft |
-| Nächste freie Nummer | **30**, vor Verwendung erneut prüfen; in Phase 0 keine Nummer verbraucht |
+| Nächste freie Nummer | **32**, vor Verwendung erneut prüfen; Phase 1 belegt 30 und 31 |
 | Datenbank | PostgreSQL 15.8; ausschließlich lesende Live-Abfragen |
 
 ## Test-Baseline (Phase 0)
@@ -64,4 +64,28 @@ Die sechs Axe-Fälle prüfen öffentliche Home-/Registrierungs-/Abmeldeseiten je
 | Antwort-Einsprüche und zusätzlicher Staff-Hinweis bei Niveauabschluss sind veraltete Zwischenbericht-Vorschläge; aktuelle Split-Prompts schließen sie ausdrücklich aus. | 6 / 7: aktuellen Phasenprompt befolgen |
 | Reines Docs/Seed/Test-Delta zwischen lokalem Stand und aktivem Release. Phase 0 veröffentlicht Dokumente, aktiviert kein neues Release. | Vor späterem Deployment erneut Revisionen vergleichen |
 
-Phase 1 darf auf dieser dokumentierten Ausgangslage beginnen. Keine Phase 1–8 wurde als erledigt markiert.
+Die obigen Angaben dokumentieren die abgeschlossene Phase-0-Ausgangslage. Der anschließende Phase-1-Stand folgt hier; Phasen 2–8 wurden nicht ausgeführt.
+
+
+## Phase 1 — Schnelle Korrekturen und Bewertung
+
+Stand: **implementiert und vollständig geprüft; produktive Aktivierung ausstehend**. Ausgangsrevision `81c7a40710b9963a95aa3f633f17ea5b75d59f25`, unverändert auf `codex/vps-self-hosted`. [Prüfbericht](PHASE-1-PRUEFBERICHT.md), [R15-/Registrierungs-Audit](phase-1-actions-signup.md), [Varianten-Audit](varianten-audit.md), [Vorher/Nachher-Bilder](phase-1-bilder/README.md).
+
+- [x] 1.1 Beide Lern-Knopfpaare getauscht; app-weites R15-Audit umgesetzt; DOM-Tests inklusive gemeinsamer Dialoge.
+- [x] 1.2 Neue serverseitige Bewertung, neutrale Hinweise in fünf Sprachen, vollständige Intervalle/Punkte bei Großschreibung/Satzzeichen; Umlaut/Tippfehler und Distraktoren geprüft; Vorschau und Oberfläche aktualisiert.
+- [x] 1.3 Wiederverwendbarer Artikel-Chip vor der deutschen Eingabe; serverseitiges Artikel-Feedback und farbige Lösung; Plural-/Komponententests.
+- [x] 1.4 `target_form text[]` in DB/CMS/Trainer; alle 26 aktiven gemeinsamen Satzkarten geprüft; 15 Entscheidungen (7 Zielformen, 8 Alternativen) samt idempotenter Übernahme und Datenarchiv.
+- [x] 1.5 Registrierung und E-Mail-Bestätigung mit hervorgehobener Erklärung; große Freischaltungs-Karte in fünf Sprachen; Hilfe/Kalender zugänglich; Tests mit/ohne Niveau.
+- [x] Migrationen und Rückwege angelegt, `ORDER`, vollständiger aktueller Schema-Snapshot und generierte öffentliche Typen aktualisiert.
+- [x] Finale Abnahme: 1.680 Jest-Tests (138 Suites), 413 DB-Tests (43 Dateien), 64 Python-Tests, 6 bestehende Playwright-Axe-Fälle und 28 erweiterte Axe-Ansichten; Build und TypeScript grün, kein Skip.
+- [x] Finale doppelte Anwendung im echten PostgreSQL-Klon mit identischen Schema-/Typenprüfsummen; Rückweg und Wiederanwendung geprüft, Varianten-Audit ohne offene Fälle.
+- [ ] Produktionsbackup und Aktivierung mit Schemaänderungsablauf.
+- [ ] Abschlussnachweise und Git-Abgabe.
+
+### Verbindliche Übergabe
+
+Belegt: **30_fair_answer_grading.sql** und **31_vocabulary_target_forms.sql**, jeweils mit Datei unter `supabase/vps/rollback/`. Nächste freie Nummer **32**, vor Verwendung erneut prüfen. Die historischen Enum-Werte bleiben aus Kompatibilitätsgründen in PostgreSQL erhalten; neu erzeugte Soft-Ergebnisse verwenden nur `umlaut` und `typo`.
+
+`grade_answer` liefert `status`, `matched`, `reason` und `hint`. `EXACT` hat `reason:null` und optional einen neutralen `hint` (`capitalization`, `punctuation`, `capitalization_punctuation`); Typografiegleichheit allein hat `hint:null`. `SOFT_ERROR` hat `reason:umlaut|typo` und `hint:null`. `INCORRECT` hat `matched:null`, `reason:null`, `hint:null`. Großschreibung/Satzzeichen dürfen keine Punkt-/Intervallkürzung verursachen. Exakte falsche Distraktoren sind immer `INCORRECT`. Artikel bleiben Lernziel; die Vokabel-RPC ergänzt `feedback:article_missing|article_wrong|null`, auch bei Wiederholungen. Zahlenvarianten und Wortstellung werden ausschließlich pro Aufgabe festgelegt.
+
+Phase 4 verwendet diesen Vertrag für alle Schreibaufgaben. Aufgaben zur Unterscheidung der Großschreibung (Sie/sie) bleiben für Phase 4 Auswahlaufgaben; diese Phase ergänzt dafür keinen neuen Aufgabenbestand. Phase 3 muss weiterhin den in Phase 0 belegten Grammatik-Lesevertrag ohne vorab ausgelieferte Lösungen herstellen. Die neuen Variantenentscheidungen stehen vollständig in [varianten-audit.md](varianten-audit.md).

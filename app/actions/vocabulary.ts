@@ -2,7 +2,7 @@
 
 import { revalidatePath } from 'next/cache'
 import { z } from 'zod'
-import { SOFT_ERROR_REASONS } from '@/lib/answer-grading'
+import { SOFT_ERROR_REASONS, ORTHOGRAPHY_HINTS, ARTICLE_FEEDBACK } from '@/lib/answer-grading'
 import { getRpcError } from '@/lib/rpc-errors'
 import { createClient } from '@/utils/supabase/server'
 import { requestSession } from '@/lib/request-session'
@@ -32,9 +32,23 @@ const initializationResultSchema = z.object({ addedKnown: z.number().int().nonne
 const reviewResultSchema = z.object({
   success: z.literal(true), isCorrect: z.boolean(), correctAnswer: z.string(), isAlternative: z.boolean(),
   softError: z.enum(SOFT_ERROR_REASONS).nullable(),
+  hint: z.enum(ORTHOGRAPHY_HINTS).nullable().optional(),
+  feedback: z.enum(ARTICLE_FEEDBACK).nullable().optional(),
   previousPhase: z.number().int().min(1).max(6), newPhase: z.number().int().min(1).max(6),
   becameLearned: z.boolean(), movedBack: z.boolean(), intervalInDays: z.number().int().positive(),
 })
+
+// Pre-30 typed receipts retain their original verdict and earned interval.
+// Adapt only their presentation; current grades and self-ratings stay strict.
+const receiptReviewResultSchema = z.preprocess(value => {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) return value
+  const receipt = value as Record<string, unknown>
+  if (receipt.isCorrect === true && !('hint' in receipt)
+    && (receipt.softError === 'capitalization' || receipt.softError === 'punctuation')) {
+    return { ...receipt, softError: null, hint: receipt.softError }
+  }
+  return value
+}, reviewResultSchema)
 
 async function loadLearner(expectedLearnerId?: string) {
   const { supabase, user } = await requestSession()
@@ -119,7 +133,7 @@ export async function getVocabularySession(level?: string, uiLanguage?: string):
     // Reuse one display object per card in both directions (Flight can reference it).
     const displayCards = new Map([...catalogById].map(([id, card]) => [id, {
       id: card.id, level: card.level, lesson: card.lesson, word_de: card.word_de,
-      article: card.article, plural: card.plural, image_url: card.image_url, audio_url: card.audio_url,
+      article: card.article, plural: card.plural, image_url: card.image_url, audio_url: card.audio_url, target_form: card.target_form ?? null,
     }]))
     const cards: DueVocabularyCard[] = progress.flatMap(row => {
       const card = catalogById.get(row.card_id)
@@ -385,7 +399,7 @@ export async function submitVocabularyAnswer(input: SubmitVocabularyAnswerInput)
     if (error) return { success: false, error: error.message.includes('vocabulary_spacing_required') ? 'spacing_required' : 'save_failed' }
     const failure = getRpcError(data)
     if (failure) return { success: false, error: failure.error === 'vocabulary_spacing_required' ? 'spacing_required' : 'save_failed' }
-    const result = reviewResultSchema.safeParse(data)
+    const result = (parsed.data.requestId ? receiptReviewResultSchema : reviewResultSchema).safeParse(data)
     if (!result.success) return { success: false, error: 'save_failed' }
     return { ...result.data, previousPhase: result.data.previousPhase as LeitnerPhase, newPhase: result.data.newPhase as LeitnerPhase }
   } catch {
@@ -424,6 +438,8 @@ export async function submitVocabularySelfRating(input: SubmitVocabularySelfRati
 const retryResultSchema = z.object({
   success: z.literal(true), isCorrect: z.boolean(), correctAnswer: z.string(), isAlternative: z.boolean(),
   softError: z.enum(SOFT_ERROR_REASONS).nullable(),
+  hint: z.enum(ORTHOGRAPHY_HINTS).nullable().optional(),
+  feedback: z.enum(ARTICLE_FEEDBACK).nullable().optional(),
 })
 
 /**

@@ -1,3 +1,4 @@
+-- Canonical VPS application schema. Auth/Storage bootstrap is managed separately.
 --
 -- PostgreSQL database dump
 --
@@ -105,6 +106,17 @@ CREATE SCHEMA trainer_access_private;
 --
 
 CREATE SCHEMA vocabulary_private;
+
+
+--
+-- Name: answer_hint; Type: TYPE; Schema: learning_private; Owner: -
+--
+
+CREATE TYPE learning_private.answer_hint AS ENUM (
+    'capitalization',
+    'punctuation',
+    'capitalization_punctuation'
+);
 
 
 --
@@ -256,7 +268,9 @@ CREATE TYPE public.mail_kind AS ENUM (
     'new_enrollment',
     'feedback_available',
     'raw',
-    'course_exception_added'
+    'course_exception_added',
+    'new_signup',
+    'level_access_granted'
 );
 
 
@@ -355,6 +369,16 @@ CREATE TYPE public.unit_access_mode AS ENUM (
 CREATE TYPE public.vocabulary_direction AS ENUM (
     'de_to_native',
     'native_to_de'
+);
+
+
+--
+-- Name: article_feedback; Type: TYPE; Schema: vocabulary_private; Owner: -
+--
+
+CREATE TYPE vocabulary_private.article_feedback AS ENUM (
+    'article_missing',
+    'article_wrong'
 );
 
 
@@ -642,6 +666,57 @@ END $$;
 
 
 --
+-- Name: notify_staff_of_signup(); Type: FUNCTION; Schema: business_private; Owner: -
+--
+
+CREATE FUNCTION business_private.notify_staff_of_signup() RETURNS trigger
+    LANGUAGE plpgsql SECURITY DEFINER
+    SET search_path TO ''
+    AS $$
+DECLARE v_result jsonb;
+BEGIN
+ IF nullif(btrim(new.email),'') IS NULL THEN RETURN new; END IF;
+ BEGIN
+  v_result:=public.queue_transactional_email('staff-signup:'||new.id,'new_signup','info@sitov-academy.com','de',
+   business_private.staff_signup_payload(new.email,coalesce(new.raw_user_meta_data,'{}'::jsonb)));
+  IF jsonb_typeof(v_result)='object' AND v_result ? 'error' THEN RAISE WARNING 'staff_signup_notification_failed'; END IF;
+ EXCEPTION WHEN OTHERS THEN RAISE WARNING 'staff_signup_notification_failed';
+ END;
+ RETURN new;
+END $$;
+
+
+--
+-- Name: notify_student_of_level_access(); Type: FUNCTION; Schema: business_private; Owner: -
+--
+
+CREATE FUNCTION business_private.notify_student_of_level_access() RETURNS trigger
+    LANGUAGE plpgsql SECURITY DEFINER
+    SET search_path TO ''
+    AS $$
+DECLARE v_email text; v_name text; v_locale text; v_result jsonb;
+BEGIN
+ BEGIN
+  SELECT coalesce(nullif(btrim(pe.email),''),nullif(btrim(u.email),'')),
+         left(coalesce(nullif(btrim(pe.display_name),''),''),150),
+         CASE WHEN pr.ui_language IN('de','en','ru','uk','tr') THEN pr.ui_language ELSE 'de' END
+    INTO v_email,v_name,v_locale
+    FROM auth.users u
+    LEFT JOIN public.profiles pr ON pr.id=u.id
+    LEFT JOIN public.people pe ON pe.auth_user_id=u.id
+   WHERE u.id=new.auth_user_id
+   LIMIT 1;
+  IF v_email IS NULL THEN RETURN new; END IF;
+  v_result:=public.queue_transactional_email('level-access:'||new.auth_user_id||':'||new.level,'level_access_granted',v_email,v_locale,
+   jsonb_build_object('name',v_name,'level',new.level,'path','/'||v_locale||'/dashboard/level/'||new.level));
+  IF jsonb_typeof(v_result)='object' AND v_result ? 'error' THEN RAISE WARNING 'level_access_notification_failed'; END IF;
+ EXCEPTION WHEN OTHERS THEN RAISE WARNING 'level_access_notification_failed';
+ END;
+ RETURN new;
+END $$;
+
+
+--
 -- Name: prepare_month(date); Type: FUNCTION; Schema: business_private; Owner: -
 --
 
@@ -864,6 +939,21 @@ end $$;
 
 
 --
+-- Name: staff_signup_payload(text, jsonb); Type: FUNCTION; Schema: business_private; Owner: -
+--
+
+CREATE FUNCTION business_private.staff_signup_payload(p_email text, p_meta jsonb) RETURNS jsonb
+    LANGUAGE sql IMMUTABLE
+    SET search_path TO ''
+    AS $$
+ SELECT jsonb_build_object('path','/de/admin/students','message',concat_ws(E'\n',
+  'Name: '||left(coalesce(nullif(btrim(p_meta->>'display_name'),''),nullif(btrim(p_meta->>'name'),''),split_part(p_email,'@',1)),160),
+  'E-Mail: '||p_email,
+  'Muttersprache: '||left(nullif(btrim(p_meta->>'native_language'),''),40)))
+$$;
+
+
+--
 -- Name: submit_cancellation(text, text, uuid, text, date, text); Type: FUNCTION; Schema: business_private; Owner: -
 --
 
@@ -1028,13 +1118,21 @@ BEGIN
   -- Options are discrete choices: a wrong option must never become a typo match.
   correct:=p_answer=target.content->>'correct_answer';
   grade:=jsonb_build_object('status',CASE WHEN correct THEN 'EXACT' ELSE 'INCORRECT' END,
-   'matched',CASE WHEN correct THEN target.content->>'correct_answer' ELSE NULL END,'reason',NULL);
+   'matched',CASE WHEN correct THEN target.content->>'correct_answer' ELSE NULL END,'reason',NULL,'hint',NULL);
  ELSE
   -- Compatibility fallback for legacy reads; remove only in a follow-up release.
   accepted:=coalesce(target.content->'accepted_answers',target.content->'alternative_answers','[]'::jsonb);
   IF jsonb_typeof(accepted) IS DISTINCT FROM 'array' THEN
    RAISE EXCEPTION 'exercise_unavailable' USING ERRCODE='22023'; END IF;
-  grade:=learning_private.grade_answer(p_answer,ARRAY[target.content->>'correct_answer']||ARRAY(SELECT jsonb_array_elements_text(accepted)));
+  -- A supplied wrong option is deliberate grammar content, never a typo.
+  IF jsonb_typeof(target.content->'options')='array' AND EXISTS(
+   SELECT 1 FROM jsonb_array_elements_text(target.content->'options') option
+   WHERE option=p_answer AND option<>target.content->>'correct_answer'
+    AND NOT EXISTS(SELECT 1 FROM jsonb_array_elements_text(accepted) answer WHERE answer=option)) THEN
+   grade:=jsonb_build_object('status','INCORRECT','matched',NULL,'reason',NULL,'hint',NULL);
+  ELSE
+   grade:=learning_private.grade_answer(p_answer,ARRAY[target.content->>'correct_answer']||ARRAY(SELECT jsonb_array_elements_text(accepted)));
+  END IF;
   PERFORM platform_private.require_rpc_success(grade);
   correct:=grade->>'status' IN('EXACT','SOFT_ERROR');
  END IF;
@@ -1143,13 +1241,30 @@ CREATE FUNCTION learning_private.allowed_unit_ids() RETURNS uuid[]
  LEFT JOIN public.student_level_access l ON l.auth_user_id=p.id AND l.level=u.level
  LEFT JOIN public.learning_trainer_grants a
    ON a.auth_user_id=p.id AND a.level=u.level AND a.trainer=u.trainer
- WHERE p.id=(SELECT auth.uid()) AND (p.role IN ('teacher','admin') OR (
+ WHERE p.id=(SELECT auth.uid()) AND CASE WHEN u.owner_auth_user_id IS NULL THEN (p.role IN ('teacher','admin') OR (
    p.ui_language<>'de' AND u.is_active AND l.auth_user_id IS NOT NULL
    AND u.trainer::text IN ('vocabulary','exercises','pronunciation','videos')
    AND COALESCE(a.enabled,true) AND (a.unit_mode IS DISTINCT FROM 'selected' OR EXISTS (
      SELECT 1 FROM public.learning_unit_grants g WHERE g.auth_user_id=p.id
-       AND g.level=u.level AND g.trainer=u.trainer AND g.unit_id=u.id))));
+       AND g.level=u.level AND g.trainer=u.trainer AND g.unit_id=u.id))))
+  -- Eigene Unit: dieselbe Bedingung wie trainer_access_private.allowed(),
+  -- ohne Lektionsauswahl.
+  ELSE u.owner_auth_user_id=p.id AND (p.role IN ('teacher','admin') OR (
+   p.ui_language<>'de' AND l.auth_user_id IS NOT NULL AND COALESCE(a.enabled,true))) END;
 $$;
+
+
+--
+-- Name: answer_without_punctuation(text); Type: FUNCTION; Schema: learning_private; Owner: -
+--
+
+CREATE FUNCTION learning_private.answer_without_punctuation(p_value text) RETURNS text
+    LANGUAGE sql IMMUTABLE STRICT
+    SET search_path TO ''
+    AS $_$
+ SELECT learning_private.normalize_answer(regexp_replace(learning_private.normalize_answer(p_value),
+  $punct$(?<![[:digit:]])[.,]|[.,](?![[:digit:]])|[!?;:'"()\[\]{}…]|(?<![[:digit:]])-(?![[:digit:]])$punct$,'','g'))
+$_$;
 
 
 --
@@ -1181,13 +1296,13 @@ CREATE FUNCTION learning_private.ensure_unit(p_id uuid, p_level text, p_trainer 
  IF p_id IS NOT NULL THEN
   DELETE FROM public.learning_unit_grants WHERE unit_id=p_id AND level<>p_level;
   UPDATE public.learning_units SET level=p_level,label=p_label,is_active=p_active,sort_order=p_sort
-  WHERE id=p_id AND trainer::text=p_trainer RETURNING id INTO result;
+  WHERE id=p_id AND trainer::text=p_trainer AND owner_auth_user_id IS NULL RETURNING id INTO result;
   IF result IS NULL THEN INSERT INTO public.learning_units(id,level,trainer,label,is_active,sort_order)
    VALUES(p_id,p_level,p_trainer::public.trainer_code,p_label,p_active,p_sort) RETURNING id INTO result; END IF;
  ELSE
   PERFORM pg_advisory_xact_lock(hashtextextended('learning-unit:'||p_level||':'||p_trainer||':'||p_label,0));
   IF p_trainer IN('vocabulary','exercises') THEN
-   SELECT id INTO result FROM public.learning_units WHERE level=p_level AND trainer::text=p_trainer AND label=p_label;
+   SELECT id INTO result FROM public.learning_units WHERE level=p_level AND trainer::text=p_trainer AND label=p_label AND owner_auth_user_id IS NULL;
   END IF;
   IF result IS NULL THEN INSERT INTO public.learning_units(level,trainer,label,is_active,sort_order)
    VALUES(p_level,p_trainer::public.trainer_code,p_label,p_active,p_sort) RETURNING id INTO result; END IF;
@@ -1231,10 +1346,10 @@ $$;
 CREATE FUNCTION learning_private.grade_answer(p_input text, p_accepted text[]) RETURNS jsonb
     LANGUAGE plpgsql IMMUTABLE SECURITY DEFINER
     SET search_path TO ''
-    AS $$
-DECLARE input_value text; candidate text; original text; reason learning_private.soft_error_reason;
- status learning_private.answer_status:='INCORRECT'; input_words text[]; accepted_words text[];
- distance integer; word_index integer;
+    AS $_$
+DECLARE input_value text; input_plain text; candidate text; candidate_plain text; original text;
+ hint learning_private.answer_hint; reason learning_private.soft_error_reason;
+ input_words text[]; accepted_words text[]; distance integer; word_index integer;
 BEGIN
  IF p_input IS NULL OR length(p_input)>4000 OR learning_private.normalize_answer(p_input)='' THEN
   RETURN jsonb_build_object('error','invalid_answer','message','Enter an answer of at most 4000 characters.','sqlstate','22023');
@@ -1244,52 +1359,59 @@ BEGIN
   RETURN jsonb_build_object('error','invalid_accepted_answers','message','The accepted answers are missing or invalid.','sqlstate','22023');
  END IF;
  input_value:=learning_private.normalize_answer(p_input);
- -- Exact answers across the whole list always outrank a soft match to another answer.
+ input_plain:=learning_private.answer_without_punctuation(input_value);
+ -- Literal/typographic equality across all answers outranks every other match.
  FOREACH original IN ARRAY p_accepted LOOP
   IF input_value=learning_private.normalize_answer(original) THEN
-   status:='EXACT'; RETURN jsonb_build_object('status',status,'matched',original,'reason',NULL);
+   RETURN jsonb_build_object('status','EXACT','matched',original,'reason',NULL,'hint',NULL);
   END IF;
  END LOOP;
- -- Priority applies across all accepted answers, without combining normalizations.
- FOREACH reason IN ARRAY enum_range(NULL::learning_private.soft_error_reason) LOOP
+ -- Case and punctuation carry a neutral writing hint, never a penalty.
+ FOREACH original IN ARRAY p_accepted LOOP
+  candidate:=learning_private.normalize_answer(original);
+  candidate_plain:=learning_private.answer_without_punctuation(candidate);
+  IF lower(input_plain)=lower(candidate_plain) THEN
+   hint:=CASE WHEN lower(input_value)=lower(candidate) THEN 'capitalization'
+    WHEN input_plain=candidate_plain THEN 'punctuation' ELSE 'capitalization_punctuation' END;
+   RETURN jsonb_build_object('status','EXACT','matched',original,'reason',NULL,'hint',hint);
+  END IF;
+ END LOOP;
+ -- Ignore case/punctuation before checking remaining errors. Umlaut outranks
+ -- typo across the entire answer list; we never equate word order or content.
+ FOREACH reason IN ARRAY ARRAY['umlaut','typo']::learning_private.soft_error_reason[] LOOP
   FOREACH original IN ARRAY p_accepted LOOP
-   candidate:=learning_private.normalize_answer(original);
-   IF reason='punctuation' THEN
-    IF learning_private.normalize_answer(regexp_replace(input_value,'[[:punct:]„“”‘’«»…—–]','','g')) =
-      learning_private.normalize_answer(regexp_replace(candidate,'[[:punct:]„“”‘’«»…—–]','','g')) THEN
-     status:='SOFT_ERROR'; RETURN jsonb_build_object('status',status,'matched',original,'reason',reason);
-    END IF;
-   ELSIF reason='capitalization' THEN
-    IF lower(input_value)=lower(candidate) THEN
-     status:='SOFT_ERROR'; RETURN jsonb_build_object('status',status,'matched',original,'reason',reason);
-    END IF;
-   ELSIF reason='umlaut' THEN
-    IF learning_private.expand_german_letters(input_value)=learning_private.expand_german_letters(candidate) THEN
-     status:='SOFT_ERROR'; RETURN jsonb_build_object('status',status,'matched',original,'reason',reason);
+   candidate_plain:=lower(learning_private.answer_without_punctuation(original));
+   IF reason='umlaut' THEN
+    IF learning_private.expand_german_letters(lower(input_plain))=learning_private.expand_german_letters(candidate_plain) THEN
+     RETURN jsonb_build_object('status','SOFT_ERROR','matched',original,'reason',reason,'hint',NULL);
     END IF;
    ELSE
-    -- Preserve every separator (including punctuation) and word order/count.
-    -- A typo may not quietly combine punctuation/capitalization/umlaut changes.
-    IF regexp_split_to_array(input_value,'[[:alnum:]ÄÖÜäöüßẞ]+') IS DISTINCT FROM
-       regexp_split_to_array(candidate,'[[:alnum:]ÄÖÜäöüßẞ]+') THEN CONTINUE; END IF;
-    input_words:=regexp_split_to_array(input_value,'[^[:alnum:]ÄÖÜäöüßẞ]+');
-    accepted_words:=regexp_split_to_array(candidate,'[^[:alnum:]ÄÖÜäöüßẞ]+');
+    -- Content symbols (currency, %, +) and numeral separators must agree too.
+    IF regexp_split_to_array(lower(input_plain),'[[:alnum:]ÄÖÜäöüßẞ]+') IS DISTINCT FROM
+       regexp_split_to_array(candidate_plain,'[[:alnum:]ÄÖÜäöüßẞ]+') THEN CONTINUE; END IF;
+    input_words:=regexp_split_to_array(lower(input_plain),'[^[:alnum:]ÄÖÜäöüßẞ]+');
+    accepted_words:=regexp_split_to_array(candidate_plain,'[^[:alnum:]ÄÖÜäöüßẞ]+');
     IF cardinality(input_words)<>cardinality(accepted_words) THEN CONTINUE; END IF;
     distance:=0;
     FOR word_index IN 1..cardinality(input_words) LOOP
      IF input_words[word_index]=accepted_words[word_index] THEN CONTINUE; END IF;
+     -- Numbers/codes may be the learning objective: changed numeric-bearing
+     -- tokens require an authored accepted answer, never global typo tolerance.
+     IF input_words[word_index] !~ '^[[:alpha:]ÄÖÜäöüßẞ]+$'
+      OR accepted_words[word_index] !~ '^[[:alpha:]ÄÖÜäöüßẞ]+$' THEN distance:=2; EXIT; END IF;
+     -- Articles/pronouns/prepositions remain exact: der/den, ihm/ihn, am/an.
      IF least(char_length(input_words[word_index]),char_length(accepted_words[word_index]))<4 THEN distance:=2; EXIT; END IF;
      distance:=distance+learning_private.levenshtein_at_most_one(input_words[word_index],accepted_words[word_index]);
      IF distance>1 THEN EXIT; END IF;
     END LOOP;
     IF distance=1 THEN
-     status:='SOFT_ERROR'; RETURN jsonb_build_object('status',status,'matched',original,'reason',reason);
+     RETURN jsonb_build_object('status','SOFT_ERROR','matched',original,'reason',reason,'hint',NULL);
     END IF;
    END IF;
   END LOOP;
  END LOOP;
- RETURN jsonb_build_object('status',status,'matched',NULL,'reason',NULL);
-END $$;
+ RETURN jsonb_build_object('status','INCORRECT','matched',NULL,'reason',NULL,'hint',NULL);
+END $_$;
 
 
 --
@@ -1345,8 +1467,42 @@ CREATE FUNCTION learning_private.normalize_answer(p_value text) RETURNS text
     LANGUAGE sql IMMUTABLE STRICT
     SET search_path TO ''
     AS $$
- SELECT btrim(regexp_replace(p_value,'\s+',' ','g'))
+ SELECT btrim(regexp_replace(translate(translate(translate(normalize(p_value,NFC),
+  '’‘ʼ＇',repeat(chr(39),4)), '„“”«»＂','""""""'), '‐‑‒–—−﹘－','--------'), '[[:space:]  ]+',' ','g'))
 $$;
+
+
+--
+-- Name: record_activity_day(); Type: FUNCTION; Schema: learning_private; Owner: -
+--
+
+CREATE FUNCTION learning_private.record_activity_day() RETURNS trigger
+    LANGUAGE plpgsql SECURITY DEFINER
+    SET search_path TO ''
+    AS $$
+DECLARE
+ learner uuid;
+ happened timestamptz;
+BEGIN
+ IF TG_TABLE_NAME='vocabulary_direction_progress' THEN
+  IF NEW.last_answered_at IS NULL
+   OR (TG_OP='UPDATE' AND NEW.last_answered_at IS NOT DISTINCT FROM OLD.last_answered_at) THEN RETURN NULL; END IF;
+  learner:=NEW.auth_user_id; happened:=NEW.last_answered_at;
+ ELSIF TG_TABLE_NAME='user_exercise_progress' THEN
+  IF coalesce(NEW.attempts,0)=0 AND NOT coalesce(NEW.completed,false) THEN RETURN NULL; END IF;
+  IF TG_OP='UPDATE' AND NEW.attempts IS NOT DISTINCT FROM OLD.attempts
+   AND NEW.completed IS NOT DISTINCT FROM OLD.completed THEN RETURN NULL; END IF;
+  learner:=NEW.auth_user_id; happened:=now();
+ ELSIF TG_TABLE_NAME='submissions' THEN
+  learner:=NEW.auth_user_id; happened:=coalesce(NEW.created_at,now());
+ ELSE
+  RETURN NULL;
+ END IF;
+ INSERT INTO public.learning_activity_days(auth_user_id,day)
+ VALUES(learner,(happened AT TIME ZONE 'Europe/Berlin')::date)
+ ON CONFLICT DO NOTHING;
+ RETURN NULL;
+END $$;
 
 
 --
@@ -1375,8 +1531,9 @@ CREATE FUNCTION learning_private.unit_allowed(p_unit_id uuid) RETURNS boolean
     LANGUAGE sql STABLE SECURITY DEFINER
     SET search_path TO ''
     AS $$
- SELECT EXISTS(SELECT 1 FROM public.learning_units u WHERE u.id=p_unit_id
- AND trainer_access_private.unit_allowed(u.level,u.trainer::text,u.id::text));
+ SELECT EXISTS(SELECT 1 FROM public.learning_units u WHERE u.id=p_unit_id AND CASE
+  WHEN u.owner_auth_user_id IS NULL THEN trainer_access_private.unit_allowed(u.level,u.trainer::text,u.id::text)
+  ELSE u.owner_auth_user_id=(SELECT auth.uid()) AND trainer_access_private.allowed(u.level,u.trainer::text) END);
 $$;
 
 
@@ -1868,6 +2025,39 @@ $$;
 
 
 --
+-- Name: add_own_vocabulary(text, text, text, text, text); Type: FUNCTION; Schema: public; Owner: -
+--
+
+CREATE FUNCTION public.add_own_vocabulary(p_level text, p_word_de text, p_article text, p_translation text, p_locale text) RETURNS jsonb
+    LANGUAGE plpgsql
+    SET search_path TO ''
+    AS $$
+DECLARE boundary_state text; boundary_message text; boundary_code text;
+BEGIN
+ RETURN vocabulary_private.add_own_word(p_level,p_word_de,p_article,p_translation,p_locale);
+ EXCEPTION WHEN OTHERS THEN
+  GET STACKED DIAGNOSTICS boundary_state=RETURNED_SQLSTATE,boundary_message=MESSAGE_TEXT;
+  boundary_code:=CASE WHEN boundary_message=ANY(ARRAY[
+   'authentication_required','trainer_access_denied','invalid_language','own_word_exists','own_word_limit',
+   'not_authorized','not_authenticated','invalid_input','request_failed','conflict','not_found'
+  ]) THEN boundary_message
+  WHEN boundary_state='42501' THEN 'not_authorized'
+  WHEN boundary_state IN('23502','23503','23514','22P02','22023','22007') THEN 'invalid_input'
+  WHEN boundary_state IN('23505','PT409','40001') THEN 'conflict'
+  WHEN boundary_state='40P01' THEN 'retry_required'
+  WHEN boundary_state IN('P0002','02000') THEN 'not_found'
+  ELSE 'request_failed' END;
+  RETURN jsonb_build_object('error',boundary_code,'message',CASE
+   WHEN boundary_code='own_word_exists' THEN 'This word is already in your own words.'
+   WHEN boundary_code='own_word_limit' THEN 'Your own words list is full.'
+   WHEN boundary_state='42501' THEN 'The request is not authorized.'
+   WHEN boundary_code IN('conflict','retry_required') THEN 'Reload and retry the request.'
+   WHEN boundary_code='invalid_input' THEN 'The request contains invalid data.'
+   ELSE 'The request could not be completed.' END,'sqlstate',boundary_state);
+END $$;
+
+
+--
 -- Name: begin_learning_reset(text); Type: FUNCTION; Schema: public; Owner: -
 --
 
@@ -1908,6 +2098,39 @@ RETURN to_jsonb((SELECT learning_reset_private.begin_reset(p_confirmation)));
    ELSE 'The request could not be completed.' END,'sqlstate',boundary_state);
 END;
 $$;
+
+
+--
+-- Name: check_vocabulary_retry(uuid, text, text); Type: FUNCTION; Schema: public; Owner: -
+--
+
+CREATE FUNCTION public.check_vocabulary_retry(p_progress_id uuid, p_typed_answer text, p_ui_language text DEFAULT 'de'::text) RETURNS jsonb
+    LANGUAGE plpgsql
+    SET search_path TO ''
+    AS $$
+DECLARE boundary_state text; boundary_message text; boundary_code text;
+BEGIN
+ RETURN to_jsonb((SELECT vocabulary_private.check_retry_answer(p_progress_id,p_typed_answer,p_ui_language)));
+ EXCEPTION WHEN OTHERS THEN
+  GET STACKED DIAGNOSTICS boundary_state=RETURNED_SQLSTATE,boundary_message=MESSAGE_TEXT;
+  boundary_code:=CASE WHEN boundary_message=ANY(ARRAY[
+   'authentication_required','trainer_access_denied','invalid_language','answer_required','answer_too_long',
+   'progress_not_found','retry_not_available','exercise_unavailable','sentence_content_missing',
+   'not_authorized','not_authenticated','invalid_input','request_failed','conflict','not_found'
+  ]) THEN boundary_message
+  WHEN boundary_state='42501' THEN 'not_authorized'
+  WHEN boundary_state IN('23502','23503','23514','22P02','22023','22007') THEN 'invalid_input'
+  WHEN boundary_state IN('23505','PT409','40001') THEN 'conflict'
+  WHEN boundary_state='40P01' THEN 'retry_required'
+  WHEN boundary_state IN('P0002','02000') THEN 'not_found'
+  ELSE 'request_failed' END;
+  RETURN jsonb_build_object('error',boundary_code,'message',CASE
+   WHEN boundary_code='retry_not_available' THEN 'Answer the scheduled review of this card first.'
+   WHEN boundary_state='42501' THEN 'The request is not authorized.'
+   WHEN boundary_code IN('conflict','retry_required') THEN 'Reload and retry the request.'
+   WHEN boundary_code='invalid_input' THEN 'The request contains invalid data.'
+   ELSE 'The request could not be completed.' END,'sqlstate',boundary_state);
+END $$;
 
 
 --
@@ -2404,6 +2627,36 @@ $$;
 
 
 --
+-- Name: delete_own_vocabulary(uuid); Type: FUNCTION; Schema: public; Owner: -
+--
+
+CREATE FUNCTION public.delete_own_vocabulary(p_card_id uuid) RETURNS jsonb
+    LANGUAGE plpgsql
+    SET search_path TO ''
+    AS $$
+DECLARE boundary_state text; boundary_message text; boundary_code text;
+BEGIN
+ RETURN vocabulary_private.delete_own_word(p_card_id);
+ EXCEPTION WHEN OTHERS THEN
+  GET STACKED DIAGNOSTICS boundary_state=RETURNED_SQLSTATE,boundary_message=MESSAGE_TEXT;
+  boundary_code:=CASE WHEN boundary_message=ANY(ARRAY[
+   'authentication_required','not_authorized','not_authenticated','invalid_input','request_failed','conflict','not_found'
+  ]) THEN boundary_message
+  WHEN boundary_state='42501' THEN 'not_authorized'
+  WHEN boundary_state IN('23502','23503','23514','22P02','22023','22007') THEN 'invalid_input'
+  WHEN boundary_state IN('23505','PT409','40001') THEN 'conflict'
+  WHEN boundary_state='40P01' THEN 'retry_required'
+  WHEN boundary_state IN('P0002','02000') THEN 'not_found'
+  ELSE 'request_failed' END;
+  RETURN jsonb_build_object('error',boundary_code,'message',CASE
+   WHEN boundary_state='42501' THEN 'The request is not authorized.'
+   WHEN boundary_code IN('conflict','retry_required') THEN 'Reload and retry the request.'
+   WHEN boundary_code='invalid_input' THEN 'The request contains invalid data.'
+   ELSE 'The request could not be completed.' END,'sqlstate',boundary_state);
+END $$;
+
+
+--
 -- Name: fail_mail_job(uuid, uuid, text, boolean); Type: FUNCTION; Schema: public; Owner: -
 --
 
@@ -2508,16 +2761,9 @@ CREATE FUNCTION public.get_all_students_progress_data() RETURNS jsonb
 DECLARE
     result jsonb := '{}'::jsonb;
 BEGIN
-    -- Authorization Check
     IF NOT business_private.is_staff() THEN
         RETURN jsonb_build_object('error', 'not_authorized', 'message', 'Staff access required.');
     END IF;
-
-    -- The aggregation matches the TS logic:
-    -- 1. Total exercises and vocab per level
-    -- 2. Completed exercises per user per level
-    -- 3. Completed vocab per user per level (both directions box=7)
-    -- 4. Math.round((completed / total) * 100)
 
     WITH totals AS (
         SELECT u.level, COUNT(e.id) as total_items
@@ -2528,6 +2774,7 @@ BEGIN
         SELECT u.level, COUNT(v.id) as total_items
         FROM public.learning_units u
         JOIN public.learning_vocabulary_cards v ON v.unit_id = u.id
+        WHERE u.owner_auth_user_id IS NULL
         GROUP BY u.level
     ),
     level_totals AS (
@@ -2556,6 +2803,7 @@ BEGIN
         FROM learned_vocab lv
         JOIN public.learning_vocabulary_cards v ON v.id = lv.card_id
         JOIN public.learning_units u ON u.id = v.unit_id
+        WHERE u.owner_auth_user_id IS NULL
         GROUP BY lv.auth_user_id, u.level
     ),
     user_level_completed AS (
@@ -2594,7 +2842,6 @@ BEGIN
 
     RETURN result;
 EXCEPTION WHEN OTHERS THEN
-    -- R10: expose stable codes, never SQLERRM, queries or customer data.
     RETURN jsonb_build_object('error', 'request_failed',
         'message', 'Progress could not be loaded.', 'sqlstate', SQLSTATE);
 END;
@@ -2634,8 +2881,6 @@ BEGIN
  percentages := public.get_all_students_progress_data();
  IF percentages ? 'error' THEN RETURN percentages; END IF;
 
- -- A word is learned only when both directions reached box 7. Incomplete
- -- direction pairs retain their lowest active phase, as in the student UI.
  WITH cards AS (
   SELECT c.id, CASE WHEN count(p.id)=0 THEN NULL
    WHEN count(p.id)=2 AND bool_and(p.box_number=7) THEN 7
@@ -2643,7 +2888,7 @@ BEGIN
   FROM public.learning_vocabulary_cards c
   JOIN public.learning_units u ON u.id=c.unit_id
   LEFT JOIN public.vocabulary_direction_progress p ON p.card_id=c.id AND p.auth_user_id=p_student_id
-  WHERE p_course_id IS NULL OR u.level=selected_level
+  WHERE (p_course_id IS NULL OR u.level=selected_level) AND u.owner_auth_user_id IS NULL
   GROUP BY c.id
  ), buckets AS (
   SELECT phase_number, count(c.id) AS count
@@ -2655,9 +2900,6 @@ BEGIN
   'overallPercent',CASE WHEN count(*)=0 THEN 0 ELSE round(coalesce(sum(phase),0)::numeric/(count(*)*7)*100) END
  ) INTO distribution FROM cards;
 
- -- Receipts are actual persisted answer events; never infer old phases from
- -- updated_at or generate synthetic progress snapshots. Grade from response,
- -- not the obsolete, client-supplied is_correct receipt field (R5).
  WITH days AS (SELECT today-29+n AS day FROM generate_series(0,29) n),
  events AS (
   SELECT (r.created_at AT TIME ZONE 'Europe/Berlin')::date AS day,
@@ -2670,6 +2912,7 @@ BEGIN
    AND r.created_at>=((today-29)::timestamp AT TIME ZONE 'Europe/Berlin')
    AND r.created_at<((today+1)::timestamp AT TIME ZONE 'Europe/Berlin')
    AND (p_course_id IS NULL OR u.level=selected_level)
+   AND u.owner_auth_user_id IS NULL
   GROUP BY (r.created_at AT TIME ZONE 'Europe/Berlin')::date
  ) SELECT jsonb_agg(jsonb_build_object('date',d.day,'answers',coalesce(e.answers,0),'correct',coalesce(e.correct,0)) ORDER BY d.day)
  INTO history FROM days d LEFT JOIN events e USING(day);
@@ -2991,6 +3234,22 @@ RETURN to_jsonb((select business_private.prepare_month(p_month)));
    WHEN boundary_code='invalid_input' THEN 'The request contains invalid data.'
    ELSE 'The request could not be completed.' END,'sqlstate',boundary_state);
 END;
+$$;
+
+
+--
+-- Name: pronunciation_reply_senders(); Type: FUNCTION; Schema: public; Owner: -
+--
+
+CREATE FUNCTION public.pronunciation_reply_senders() RETURNS TABLE(sender_id uuid, display_name text)
+    LANGUAGE sql STABLE SECURITY DEFINER
+    SET search_path TO ''
+    AS $$
+ SELECT DISTINCT m.sender_id, nullif(btrim(p.display_name),'')
+ FROM public.pronunciation_messages m
+ JOIN public.submissions s ON s.id=m.submission_id AND s.auth_user_id=(SELECT auth.uid())
+ LEFT JOIN public.people p ON p.auth_user_id=m.sender_id
+ WHERE m.sender_role::text IN('teacher','admin') AND (SELECT auth.uid()) IS NOT NULL
 $$;
 
 
@@ -3395,11 +3654,19 @@ BEGIN
   IF coalesce((fields->>'sentence_practice')::boolean,false) AND EXISTS(SELECT 1 FROM public.locales l WHERE NOT EXISTS(
    SELECT 1 FROM jsonb_array_elements(translations) t WHERE t->>'locale'=l.code AND nullif(btrim(t->>'context_sentence'),'') IS NOT NULL)) THEN
   RAISE EXCEPTION 'Sentence translations required' USING ERRCODE='23514'; END IF;
-  INSERT INTO public.learning_vocabulary_cards(id,unit_id,word_de,article,plural,image_url,audio_url,sentence_practice,alternative_answers_de)
+  -- phase1-vocabulary-target-form-v1
+  IF fields->'target_form' IS NOT NULL AND fields->'target_form'<>'null'::jsonb THEN
+   IF jsonb_typeof(fields->'target_form') IS DISTINCT FROM 'array' THEN RAISE EXCEPTION 'Invalid target form' USING ERRCODE='23514'; END IF;
+   IF jsonb_array_length(fields->'target_form')>12 OR EXISTS(SELECT 1 FROM jsonb_array_elements(fields->'target_form') value
+    WHERE jsonb_typeof(value) IS DISTINCT FROM 'string' OR length(btrim(value#>>'{}')) NOT BETWEEN 1 AND 120)
+   THEN RAISE EXCEPTION 'Invalid target form' USING ERRCODE='23514'; END IF;
+  END IF;
+  INSERT INTO public.learning_vocabulary_cards(id,unit_id,word_de,article,plural,image_url,audio_url,sentence_practice,alternative_answers_de,target_form)
   VALUES(item,target_unit,fields->>'word_de',(fields->>'article')::public.grammatical_article,fields->>'plural',fields->>'image_url',fields->>'audio_url',coalesce((fields->>'sentence_practice')::boolean,false),
-  ARRAY(SELECT jsonb_array_elements_text(coalesce(fields->'alternative_answers_de','[]'::jsonb))))
+  ARRAY(SELECT jsonb_array_elements_text(coalesce(fields->'alternative_answers_de','[]'::jsonb))),
+  CASE WHEN fields->'target_form' IS NULL OR fields->'target_form'='null'::jsonb THEN NULL ELSE ARRAY(SELECT btrim(value) FROM jsonb_array_elements_text(fields->'target_form')) END)
   ON CONFLICT(id) DO UPDATE SET unit_id=excluded.unit_id,word_de=excluded.word_de,article=excluded.article,plural=excluded.plural,
-  image_url=excluded.image_url,audio_url=excluded.audio_url,sentence_practice=excluded.sentence_practice,alternative_answers_de=excluded.alternative_answers_de;
+  image_url=excluded.image_url,audio_url=excluded.audio_url,sentence_practice=excluded.sentence_practice,alternative_answers_de=excluded.alternative_answers_de,target_form=excluded.target_form;
   DELETE FROM public.vocabulary_translations WHERE card_id=item;
   FOR translation_row IN SELECT value FROM jsonb_array_elements(translations) LOOP
    INSERT INTO public.vocabulary_translations(card_id,locale,translation,context_sentence,is_difficult)
@@ -3649,6 +3916,38 @@ END;
    ELSE 'The request could not be completed.' END,'sqlstate',boundary_state);
 END;
 $$;
+
+
+--
+-- Name: set_vocabulary_lesson_paused(uuid, boolean); Type: FUNCTION; Schema: public; Owner: -
+--
+
+CREATE FUNCTION public.set_vocabulary_lesson_paused(p_unit_id uuid, p_paused boolean) RETURNS jsonb
+    LANGUAGE plpgsql SECURITY DEFINER
+    SET search_path TO ''
+    AS $$
+DECLARE actor uuid:=(SELECT auth.uid());
+BEGIN
+ IF actor IS NULL THEN
+  RETURN jsonb_build_object('error','authentication_required','message','Sign in to change your learning box.');
+ END IF;
+ IF p_unit_id IS NULL OR p_paused IS NULL THEN
+  RETURN jsonb_build_object('error','invalid_input','message','The request contains invalid data.');
+ END IF;
+ IF NOT EXISTS(SELECT 1 FROM public.learning_units u WHERE u.id=p_unit_id AND u.trainer='vocabulary') THEN
+  RETURN jsonb_build_object('error','not_found','message','This lesson does not exist.');
+ END IF;
+ IF p_paused THEN
+  IF NOT learning_private.unit_allowed(p_unit_id) THEN
+   RETURN jsonb_build_object('error','trainer_access_denied','message','This lesson is not available to you.');
+  END IF;
+  INSERT INTO public.vocabulary_lesson_pauses(auth_user_id,unit_id) VALUES(actor,p_unit_id)
+  ON CONFLICT DO NOTHING;
+ ELSE
+  DELETE FROM public.vocabulary_lesson_pauses WHERE auth_user_id=actor AND unit_id=p_unit_id;
+ END IF;
+ RETURN jsonb_build_object('unitId',p_unit_id,'paused',p_paused);
+END $$;
 
 
 --
@@ -4003,6 +4302,209 @@ $$;
 
 
 --
+-- Name: add_own_word(text, text, text, text, text); Type: FUNCTION; Schema: vocabulary_private; Owner: -
+--
+
+CREATE FUNCTION vocabulary_private.add_own_word(p_level text, p_word_de text, p_article text, p_translation text, p_locale text) RETURNS jsonb
+    LANGUAGE plpgsql SECURITY DEFINER
+    SET search_path TO ''
+    AS $$
+DECLARE actor uuid:=auth.uid(); own_unit uuid; new_card uuid; activated boolean;
+ word text:=btrim(regexp_replace(coalesce(p_word_de,''),'\s+',' ','g'));
+ translated text:=btrim(regexp_replace(coalesce(p_translation,''),'\s+',' ','g'));
+BEGIN
+ IF actor IS NULL THEN RAISE EXCEPTION 'authentication_required' USING ERRCODE='42501'; END IF;
+ IF NOT trainer_access_private.allowed(p_level,'vocabulary') THEN RAISE EXCEPTION 'trainer_access_denied' USING ERRCODE='42501'; END IF;
+ -- Die Übersetzung steht in der Sprache der Oberfläche: Daraus fragt der
+ -- Trainer die Richtung Deutsch → eigene Sprache ab (answer_key).
+ IF p_locale IS NULL OR p_locale NOT IN('en','ru','uk','tr') THEN RAISE EXCEPTION 'invalid_language' USING ERRCODE='22023'; END IF;
+ IF length(word) NOT BETWEEN 1 AND 120 OR length(translated) NOT BETWEEN 1 AND 200
+  OR (p_article IS NOT NULL AND p_article NOT IN('der','die','das')) THEN
+  RAISE EXCEPTION 'invalid_input' USING ERRCODE='22023'; END IF;
+ PERFORM pg_advisory_xact_lock(hashtextextended('vocabulary:'||actor::text,0));
+ SELECT id INTO own_unit FROM public.learning_units WHERE owner_auth_user_id=actor AND level=p_level AND trainer='vocabulary';
+ IF own_unit IS NULL THEN
+  INSERT INTO public.learning_units(level,trainer,label,sort_order,is_active,owner_auth_user_id)
+   VALUES(p_level,'vocabulary','Eigene Wörter',1000000,true,actor) RETURNING id INTO own_unit;
+ END IF;
+ -- 1000 = eine initialize_vocabulary_cards-Anfrage aktiviert die ganze Lektion.
+ IF (SELECT count(*) FROM public.learning_vocabulary_cards c WHERE c.unit_id=own_unit)>=1000 THEN
+  RAISE EXCEPTION 'own_word_limit' USING ERRCODE='22023'; END IF;
+ IF EXISTS(SELECT 1 FROM public.learning_vocabulary_cards c WHERE c.unit_id=own_unit
+  AND lower(c.word_de)=lower(word) AND coalesce(c.article::text,'')=coalesce(p_article,'')) THEN
+  RAISE EXCEPTION 'own_word_exists' USING ERRCODE='23505'; END IF;
+ activated:=EXISTS(SELECT 1 FROM public.vocabulary_direction_progress v JOIN public.learning_vocabulary_cards c ON c.id=v.card_id
+  WHERE v.auth_user_id=actor AND c.unit_id=own_unit);
+ INSERT INTO public.learning_vocabulary_cards(unit_id,word_de,article,sentence_practice)
+  VALUES(own_unit,word,p_article::public.grammatical_article,false) RETURNING id INTO new_card;
+ INSERT INTO public.vocabulary_translations(card_id,locale,translation) VALUES(new_card,p_locale,translated);
+ IF activated THEN
+  INSERT INTO public.vocabulary_direction_progress(auth_user_id,card_id,direction,box_number,next_review_date)
+   SELECT actor,new_card,d::public.vocabulary_direction,1,now() FROM unnest(ARRAY['de_to_native','native_to_de']) d;
+ END IF;
+ RETURN jsonb_build_object('cardId',new_card,'activated',activated);
+END $$;
+
+
+--
+-- Name: answer_article_feedback(text, text, text, text); Type: FUNCTION; Schema: vocabulary_private; Owner: -
+--
+
+CREATE FUNCTION vocabulary_private.answer_article_feedback(p_input text, p_word text, p_article text, p_plural text) RETURNS vocabulary_private.article_feedback
+    LANGUAGE plpgsql IMMUTABLE
+    SET search_path TO ''
+    AS $_$
+DECLARE input_value text:=lower(learning_private.answer_without_punctuation(p_input));
+ word text:=lower(learning_private.answer_without_punctuation(p_word));
+ plural text:=CASE WHEN btrim(coalesce(p_plural,'')) NOT IN ('','-','–','—')
+  THEN lower(learning_private.answer_without_punctuation(p_plural)) END;
+ parts text[];
+BEGIN
+ IF p_article IS NULL OR p_article='none' THEN RETURN NULL; END IF;
+ IF input_value=word OR input_value=plural THEN RETURN 'article_missing'; END IF;
+ parts:=regexp_match(input_value,'^(der|die|das|den|dem|des|ein|eine|einen|einem|einer|eines) (.+)$');
+ IF parts IS NOT NULL AND (parts[2]=word OR parts[2]=plural)
+  AND NOT (coalesce(parts[2]=word AND parts[1]=p_article,false)
+    OR coalesce(parts[2]=plural AND parts[1]='die',false)) THEN RETURN 'article_wrong'; END IF;
+ RETURN NULL;
+END $_$;
+
+
+--
+-- Name: answer_key(uuid, text, text); Type: FUNCTION; Schema: vocabulary_private; Owner: -
+--
+
+CREATE FUNCTION vocabulary_private.answer_key(p_card_id uuid, p_direction text, p_ui_language text, OUT canonical text, OUT accepted text[]) RETURNS record
+    LANGUAGE plpgsql STABLE
+    SET search_path TO ''
+    AS $$
+DECLARE card public.learning_vocabulary_cards; translated text; prompt text; plural text;
+BEGIN
+ SELECT * INTO card FROM public.learning_vocabulary_cards WHERE id=p_card_id;
+ SELECT translation,context_sentence INTO translated,prompt FROM public.vocabulary_translations WHERE card_id=card.id AND locale=p_ui_language;
+ translated:=vocabulary_private.card_translation(card.id,p_ui_language);
+ IF card.sentence_practice AND p_direction='native_to_de' THEN
+  SELECT context_sentence INTO canonical FROM public.vocabulary_translations WHERE card_id=card.id AND locale='de';
+  IF nullif(btrim(prompt),'') IS NULL OR nullif(btrim(canonical),'') IS NULL THEN
+   RAISE EXCEPTION 'sentence_content_missing' USING ERRCODE='23514'; END IF;
+  accepted:=ARRAY[canonical]||coalesce(card.alternative_answers_de,ARRAY[]::text[]);
+ ELSIF p_direction='native_to_de' THEN
+  canonical:=concat_ws(' ',nullif(nullif(card.article::text,'none'),''),card.word_de);
+  accepted:=ARRAY[canonical];
+  -- Vokabeln werden oft als "der Papa / die Papas" gelernt. Für echte Nomen
+  -- (mit Artikel) mit echtem Plural (nicht dem Platzhalter "-") gelten daher
+  -- auch die Pluralform, der stehende Plural-Artikel "die" und die kombinierte
+  -- Wörterbuchform als richtig. Der Singular bleibt die angezeigte Musterlösung.
+  plural:=nullif(btrim(coalesce(card.plural,'')),'');
+  IF card.article IS NOT NULL AND card.article::text<>'none'
+     AND plural IS NOT NULL AND plural NOT IN ('-','–','—') THEN
+   accepted:=accepted
+     ||('die '||plural)
+     ||plural
+     ||(canonical||' / die '||plural)
+     ||(canonical||', die '||plural);
+  END IF;
+ ELSE
+  canonical:=translated; accepted:=ARRAY[canonical];
+ END IF;
+ IF nullif(btrim(canonical),'') IS NULL THEN RAISE EXCEPTION 'exercise_unavailable' USING ERRCODE='23514'; END IF;
+END $$;
+
+
+--
+-- Name: card_translation(uuid, text); Type: FUNCTION; Schema: vocabulary_private; Owner: -
+--
+
+CREATE FUNCTION vocabulary_private.card_translation(p_card_id uuid, p_ui_language text) RETURNS text
+    LANGUAGE sql STABLE
+    SET search_path TO ''
+    AS $$
+ SELECT coalesce(
+  (SELECT t.translation FROM public.vocabulary_translations t
+    WHERE t.card_id=p_card_id AND t.locale=p_ui_language AND nullif(btrim(t.translation),'') IS NOT NULL),
+  (SELECT t.translation FROM public.vocabulary_translations t
+    JOIN public.learning_vocabulary_cards c ON c.id=t.card_id
+    JOIN public.learning_units u ON u.id=c.unit_id
+    WHERE t.card_id=p_card_id AND u.owner_auth_user_id IS NOT NULL AND t.locale<>'de'
+     AND nullif(btrim(t.translation),'') IS NOT NULL
+    ORDER BY t.locale LIMIT 1));
+$$;
+
+
+--
+-- Name: check_retry_answer(uuid, text, text); Type: FUNCTION; Schema: vocabulary_private; Owner: -
+--
+
+CREATE FUNCTION vocabulary_private.check_retry_answer(p_progress_id uuid, p_typed_answer text, p_ui_language text) RETURNS jsonb
+    LANGUAGE plpgsql SECURITY DEFINER
+    SET search_path TO ''
+    AS $$
+DECLARE actor uuid:=auth.uid(); progress public.vocabulary_direction_progress; card public.learning_vocabulary_cards;
+ solution record; grade jsonb; correct boolean; feedback vocabulary_private.article_feedback;
+BEGIN
+ IF actor IS NULL THEN RAISE EXCEPTION 'authentication_required' USING ERRCODE='42501'; END IF;
+ IF p_ui_language IS NULL OR p_ui_language NOT IN('de','en','ru','uk','tr') THEN
+  RAISE EXCEPTION 'invalid_language' USING ERRCODE='22023'; END IF;
+ IF length(p_typed_answer)>4000 THEN RAISE EXCEPTION 'answer_too_long' USING ERRCODE='22023'; END IF;
+ IF p_typed_answer IS NULL OR learning_private.normalize_answer(p_typed_answer)='' THEN
+  RAISE EXCEPTION 'answer_required' USING ERRCODE='22023'; END IF;
+ SELECT * INTO progress FROM public.vocabulary_direction_progress WHERE id=p_progress_id AND auth_user_id=actor;
+ IF NOT FOUND THEN RAISE EXCEPTION 'progress_not_found' USING ERRCODE='42501'; END IF;
+ SELECT * INTO card FROM public.learning_vocabulary_cards WHERE id=progress.card_id;
+ IF NOT learning_private.unit_allowed(card.unit_id) OR p_ui_language='de' THEN
+  RAISE EXCEPTION 'trainer_access_denied' USING ERRCODE='42501'; END IF;
+ IF progress.last_answered_at IS NULL OR progress.last_answered_at<vocabulary_private.review_day(0)
+  OR progress.next_review_date<=now() THEN
+  RAISE EXCEPTION 'retry_not_available' USING ERRCODE='PT409'; END IF;
+ SELECT * INTO solution FROM vocabulary_private.answer_key(card.id,progress.direction::text,p_ui_language);
+ grade:=learning_private.grade_answer(p_typed_answer,solution.accepted);
+ PERFORM platform_private.require_rpc_success(grade);
+ IF progress.direction='native_to_de' AND NOT card.sentence_practice THEN
+  feedback:=vocabulary_private.answer_article_feedback(p_typed_answer,card.word_de,card.article::text,card.plural);
+  IF feedback IS NOT NULL THEN
+   grade:=jsonb_build_object('status','INCORRECT','matched',NULL,'reason',NULL,'hint',NULL);
+  END IF;
+ END IF;
+ correct:=grade->>'status' IN('EXACT','SOFT_ERROR');
+ RETURN jsonb_build_object('success',true,'isCorrect',correct,'correctAnswer',solution.canonical,
+  'isAlternative',correct AND grade->>'matched' IS DISTINCT FROM solution.canonical,'softError',grade->'reason','hint',grade->'hint','feedback',feedback);
+END $$;
+
+
+--
+-- Name: delete_own_unit_cards(); Type: FUNCTION; Schema: vocabulary_private; Owner: -
+--
+
+CREATE FUNCTION vocabulary_private.delete_own_unit_cards() RETURNS trigger
+    LANGUAGE plpgsql SECURITY DEFINER
+    SET search_path TO ''
+    AS $$
+BEGIN
+ DELETE FROM public.learning_vocabulary_cards WHERE unit_id=OLD.id;
+ RETURN OLD;
+END $$;
+
+
+--
+-- Name: delete_own_word(uuid); Type: FUNCTION; Schema: vocabulary_private; Owner: -
+--
+
+CREATE FUNCTION vocabulary_private.delete_own_word(p_card_id uuid) RETURNS jsonb
+    LANGUAGE plpgsql SECURITY DEFINER
+    SET search_path TO ''
+    AS $$
+DECLARE actor uuid:=auth.uid();
+BEGIN
+ IF actor IS NULL THEN RAISE EXCEPTION 'authentication_required' USING ERRCODE='42501'; END IF;
+ PERFORM pg_advisory_xact_lock(hashtextextended('vocabulary:'||actor::text,0));
+ DELETE FROM public.learning_vocabulary_cards c USING public.learning_units u
+  WHERE c.id=p_card_id AND u.id=c.unit_id AND u.owner_auth_user_id=actor;
+ IF NOT FOUND THEN RAISE EXCEPTION 'not_found' USING ERRCODE='P0002'; END IF;
+ RETURN jsonb_build_object('success',true);
+END $$;
+
+
+--
 -- Name: initialize_cards(jsonb); Type: FUNCTION; Schema: vocabulary_private; Owner: -
 --
 
@@ -4071,6 +4573,18 @@ END $$;
 
 
 --
+-- Name: review_day(integer); Type: FUNCTION; Schema: vocabulary_private; Owner: -
+--
+
+CREATE FUNCTION vocabulary_private.review_day(p_days integer) RETURNS timestamp with time zone
+    LANGUAGE sql STABLE
+    SET search_path TO ''
+    AS $$
+ SELECT (date_trunc('day', now() AT TIME ZONE 'Europe/Berlin') + make_interval(days => p_days)) AT TIME ZONE 'Europe/Berlin'
+$$;
+
+
+--
 -- Name: self_rating_allowed(integer, boolean); Type: FUNCTION; Schema: vocabulary_private; Owner: -
 --
 
@@ -4094,6 +4608,7 @@ DECLARE actor uuid := auth.uid(); first_unit public.learning_units; decisions js
 BEGIN
  IF actor IS NULL OR NOT trainer_access_private.allowed(p_level,'vocabulary') THEN RAISE EXCEPTION 'trainer_access_denied' USING ERRCODE='42501'; END IF;
  SELECT u.* INTO first_unit FROM public.learning_units u WHERE u.level=p_level AND u.trainer='vocabulary'
+ AND u.owner_auth_user_id IS NULL
  AND learning_private.unit_allowed(u.id) AND EXISTS(SELECT 1 FROM public.learning_vocabulary_cards c WHERE c.unit_id=u.id)
  ORDER BY u.sort_order,u.label,u.id LIMIT 1;
  IF NOT FOUND THEN RAISE EXCEPTION 'lesson_not_found' USING ERRCODE='22023'; END IF;
@@ -4114,9 +4629,9 @@ CREATE FUNCTION vocabulary_private.submit_answer(p_progress_id uuid, p_is_correc
     SET search_path TO ''
     AS $$
 DECLARE actor uuid:=auth.uid(); progress public.vocabulary_direction_progress; card public.learning_vocabulary_cards;
- profile public.profiles; canonical text; translated text; prompt text; previous_card uuid; grade jsonb;
- accepted text[]; correct boolean; sentence boolean; soft boolean; old_phase integer; new_phase integer;
- new_box integer; days integer; previous_days integer; difficult boolean; is_alternative boolean:=false; plural text;
+ profile public.profiles; solution record; previous_card uuid; grade jsonb;
+ feedback vocabulary_private.article_feedback; correct boolean; soft boolean; old_phase integer; new_phase integer;
+ new_box integer; days integer; previous_days integer; difficult boolean; is_alternative boolean:=false;
 BEGIN
  IF actor IS NULL THEN RAISE EXCEPTION 'authentication_required' USING ERRCODE='42501'; END IF;
  IF p_ui_language IS NULL OR p_ui_language NOT IN('de','en','ru','uk','tr') THEN
@@ -4135,54 +4650,39 @@ BEGIN
   RAISE EXCEPTION 'review_not_due' USING ERRCODE='PT409'; END IF;
  SELECT last_card_id INTO previous_card FROM public.vocabulary_learning_state WHERE auth_user_id=actor;
  IF previous_card=progress.card_id THEN RAISE EXCEPTION 'vocabulary_spacing_required' USING ERRCODE='PT409'; END IF;
- SELECT translation,context_sentence INTO translated,prompt FROM public.vocabulary_translations WHERE card_id=card.id AND locale=p_ui_language;
- sentence:=card.sentence_practice AND progress.direction='native_to_de';
- IF sentence THEN
-  SELECT context_sentence INTO canonical FROM public.vocabulary_translations WHERE card_id=card.id AND locale='de';
-  IF nullif(btrim(prompt),'') IS NULL OR nullif(btrim(canonical),'') IS NULL THEN
-   RAISE EXCEPTION 'sentence_content_missing' USING ERRCODE='23514'; END IF;
-  accepted:=ARRAY[canonical]||coalesce(card.alternative_answers_de,ARRAY[]::text[]);
- ELSIF progress.direction='native_to_de' THEN
-  canonical:=concat_ws(' ',nullif(nullif(card.article::text,'none'),''),card.word_de);
-  accepted:=ARRAY[canonical];
-  -- Plurals count too ("der Papa / die Papas"): for real nouns (with an article)
-  -- with a real plural (not the "-" placeholder), accept the plural, the fixed
-  -- plural article "die" and the combined dictionary form. The singular stays
-  -- the disclosed canonical answer.
-  plural:=nullif(btrim(coalesce(card.plural,'')),'');
-  IF card.article IS NOT NULL AND card.article::text<>'none'
-     AND plural IS NOT NULL AND plural NOT IN ('-','–','—') THEN
-   accepted:=accepted
-     ||('die '||plural)
-     ||plural
-     ||(canonical||' / die '||plural)
-     ||(canonical||', die '||plural);
-  END IF;
- ELSE
-  canonical:=translated; accepted:=ARRAY[canonical];
- END IF;
- IF nullif(btrim(canonical),'') IS NULL THEN RAISE EXCEPTION 'exercise_unavailable' USING ERRCODE='23514'; END IF;
+ SELECT * INTO solution FROM vocabulary_private.answer_key(card.id,progress.direction::text,p_ui_language);
  -- Every answer, in either direction, is graded from stored content. The legacy
  -- p_is_correct argument remains payload-bound for receipt compatibility only.
- grade:=learning_private.grade_answer(p_typed_answer,accepted);
+ grade:=learning_private.grade_answer(p_typed_answer,solution.accepted);
  PERFORM platform_private.require_rpc_success(grade);
+ IF progress.direction='native_to_de' AND NOT card.sentence_practice THEN
+  feedback:=vocabulary_private.answer_article_feedback(p_typed_answer,card.word_de,card.article::text,card.plural);
+  IF feedback IS NOT NULL THEN
+   grade:=jsonb_build_object('status','INCORRECT','matched',NULL,'reason',NULL,'hint',NULL);
+  END IF;
+ END IF;
  correct:=grade->>'status' IN('EXACT','SOFT_ERROR'); soft:=grade->>'status'='SOFT_ERROR';
- is_alternative:=correct AND grade->>'matched' IS DISTINCT FROM canonical;
+ is_alternative:=correct AND grade->>'matched' IS DISTINCT FROM solution.canonical;
  old_phase:=least(6,greatest(1,coalesce(progress.box_number,1)));
  new_phase:=CASE WHEN correct THEN least(6,old_phase+1) ELSE greatest(1,old_phase-1) END;
  new_box:=CASE WHEN correct AND old_phase=6 THEN 7 ELSE new_phase END;
- days:=CASE new_phase WHEN 1 THEN 1 WHEN 2 THEN 1 WHEN 3 THEN 3 WHEN 4 THEN 9 WHEN 5 THEN 29 ELSE 90 END;
- previous_days:=CASE old_phase WHEN 1 THEN 1 WHEN 2 THEN 1 WHEN 3 THEN 3 WHEN 4 THEN 9 WHEN 5 THEN 29 ELSE 90 END;
- IF soft THEN days:=least(days,previous_days); END IF;
- SELECT coalesce(t.is_difficult,false) INTO difficult FROM public.vocabulary_translations t WHERE t.card_id=card.id AND t.locale=profile.native_language;
- IF difficult THEN days:=greatest(1,days/2); END IF;
- UPDATE public.vocabulary_direction_progress SET box_number=new_box,next_review_date=now()+make_interval(days=>days),
+ IF correct THEN
+  days:=CASE new_phase WHEN 1 THEN 1 WHEN 2 THEN 1 WHEN 3 THEN 3 WHEN 4 THEN 9 WHEN 5 THEN 29 ELSE 90 END;
+  previous_days:=CASE old_phase WHEN 1 THEN 1 WHEN 2 THEN 1 WHEN 3 THEN 3 WHEN 4 THEN 9 WHEN 5 THEN 29 ELSE 90 END;
+  IF soft THEN days:=least(days,previous_days); END IF;
+  SELECT coalesce(t.is_difficult,false) INTO difficult FROM public.vocabulary_translations t WHERE t.card_id=card.id AND t.locale=profile.native_language;
+  IF difficult THEN days:=greatest(1,days/2); END IF;
+ ELSE
+  -- Phase 6: Ein falscher erster Versuch kommt am nächsten Tag wieder.
+  days:=1;
+ END IF;
+ UPDATE public.vocabulary_direction_progress SET box_number=new_box,next_review_date=vocabulary_private.review_day(days),
   lapses=lapses+CASE WHEN NOT correct THEN 1 ELSE 0 END,last_answered_at=now(),updated_at=now() WHERE id=progress.id;
  INSERT INTO public.vocabulary_learning_state(auth_user_id,last_card_id,last_reviewed_at) VALUES(actor,progress.card_id,now())
  ON CONFLICT(auth_user_id) DO UPDATE SET last_card_id=excluded.last_card_id,last_reviewed_at=excluded.last_reviewed_at;
  RETURN jsonb_build_object('success',true,'isCorrect',correct,'previousPhase',old_phase,'newPhase',new_phase,
   'becameLearned',new_box=7,'movedBack',new_phase<old_phase,'intervalInDays',days,
-  'correctAnswer',canonical,'isAlternative',is_alternative,'softError',grade->'reason');
+  'correctAnswer',solution.canonical,'isAlternative',is_alternative,'softError',grade->'reason','hint',grade->'hint','feedback',feedback);
 END $$;
 
 
@@ -4236,7 +4736,7 @@ CREATE FUNCTION vocabulary_private.submit_self_rating(p_progress_id uuid, p_know
     SET search_path TO ''
     AS $$
 DECLARE actor uuid:=auth.uid(); progress public.vocabulary_direction_progress; card public.learning_vocabulary_cards;
- profile public.profiles; canonical text; translated text; prompt text; previous_card uuid;
+ profile public.profiles; canonical text; translated text; previous_card uuid;
  sentence boolean; correct boolean; old_phase integer; new_phase integer; new_box integer; days integer; difficult boolean;
 BEGIN
  IF actor IS NULL THEN RAISE EXCEPTION 'authentication_required' USING ERRCODE='42501'; END IF;
@@ -4255,11 +4755,11 @@ BEGIN
  SELECT last_card_id INTO previous_card FROM public.vocabulary_learning_state WHERE auth_user_id=actor;
  IF previous_card=progress.card_id THEN RAISE EXCEPTION 'vocabulary_spacing_required' USING ERRCODE='PT409'; END IF;
  sentence:=card.sentence_practice AND progress.direction='native_to_de';
- -- R5 guard: a self-rating is only valid where the server itself puts the card
- -- in flashcard mode. Otherwise the learner must type an answer that is graded.
+ -- R5 guard: a self-rating is only valid where the server itself allows the
+ -- flashcard mode. Seit Phase 5.9 ist das jede Karte, Satz eingeschlossen.
  IF NOT vocabulary_private.self_rating_allowed(progress.box_number,sentence) THEN
   RAISE EXCEPTION 'flashcard_not_allowed' USING ERRCODE='PT409'; END IF;
- SELECT translation INTO translated FROM public.vocabulary_translations WHERE card_id=card.id AND locale=p_ui_language;
+ translated:=vocabulary_private.card_translation(card.id,p_ui_language);
  IF sentence THEN
   SELECT context_sentence INTO canonical FROM public.vocabulary_translations WHERE card_id=card.id AND locale='de';
  ELSIF progress.direction='native_to_de' THEN
@@ -4272,10 +4772,15 @@ BEGIN
  old_phase:=least(6,greatest(1,coalesce(progress.box_number,1)));
  new_phase:=CASE WHEN correct THEN least(6,old_phase+1) ELSE greatest(1,old_phase-1) END;
  new_box:=CASE WHEN correct AND old_phase=6 THEN 7 ELSE new_phase END;
- days:=CASE new_phase WHEN 1 THEN 1 WHEN 2 THEN 1 WHEN 3 THEN 3 WHEN 4 THEN 9 WHEN 5 THEN 29 ELSE 90 END;
- SELECT coalesce(t.is_difficult,false) INTO difficult FROM public.vocabulary_translations t WHERE t.card_id=card.id AND t.locale=profile.native_language;
- IF difficult THEN days:=greatest(1,days/2); END IF;
- UPDATE public.vocabulary_direction_progress SET box_number=new_box,next_review_date=now()+make_interval(days=>days),
+ IF correct THEN
+  days:=CASE new_phase WHEN 1 THEN 1 WHEN 2 THEN 1 WHEN 3 THEN 3 WHEN 4 THEN 9 WHEN 5 THEN 29 ELSE 90 END;
+  SELECT coalesce(t.is_difficult,false) INTO difficult FROM public.vocabulary_translations t WHERE t.card_id=card.id AND t.locale=profile.native_language;
+  IF difficult THEN days:=greatest(1,days/2); END IF;
+ ELSE
+  -- Phase 6: Ein falscher erster Versuch kommt am nächsten Tag wieder.
+  days:=1;
+ END IF;
+ UPDATE public.vocabulary_direction_progress SET box_number=new_box,next_review_date=vocabulary_private.review_day(days),
   lapses=lapses+CASE WHEN NOT correct THEN 1 ELSE 0 END,last_answered_at=now(),updated_at=now() WHERE id=progress.id;
  INSERT INTO public.vocabulary_learning_state(auth_user_id,last_card_id,last_reviewed_at) VALUES(actor,progress.card_id,now())
  ON CONFLICT(auth_user_id) DO UPDATE SET last_card_id=excluded.last_card_id,last_reviewed_at=excluded.last_reviewed_at;
@@ -4335,6 +4840,20 @@ CREATE TABLE business_private.registration_identity_resolutions (
     person_id uuid NOT NULL,
     resolved_by uuid,
     resolved_at timestamp with time zone DEFAULT now() NOT NULL
+);
+
+
+--
+-- Name: vocabulary_variant_backups; Type: TABLE; Schema: learning_private; Owner: -
+--
+
+CREATE TABLE learning_private.vocabulary_variant_backups (
+    card_id uuid NOT NULL,
+    previous_target_form text[],
+    previous_alternatives text[] NOT NULL,
+    applied_target_form text[],
+    applied_alternatives text[] NOT NULL,
+    is_active boolean DEFAULT true NOT NULL
 );
 
 
@@ -4624,6 +5143,16 @@ CREATE TABLE public.invoice_cases (
 
 
 --
+-- Name: learning_activity_days; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.learning_activity_days (
+    auth_user_id uuid NOT NULL,
+    day date NOT NULL
+);
+
+
+--
 -- Name: learning_exercises; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -4733,7 +5262,9 @@ CREATE TABLE public.learning_units (
     label text NOT NULL,
     sort_order integer DEFAULT 0 NOT NULL,
     is_active boolean DEFAULT true NOT NULL,
-    CONSTRAINT learning_units_label_check CHECK (((length(btrim(label)) >= 1) AND (length(btrim(label)) <= 160)))
+    owner_auth_user_id uuid,
+    CONSTRAINT learning_units_label_check CHECK (((length(btrim(label)) >= 1) AND (length(btrim(label)) <= 160))),
+    CONSTRAINT learning_units_own_words_check CHECK ((((owner_auth_user_id IS NULL) AND (label <> 'Eigene Wörter'::text)) OR ((owner_auth_user_id IS NOT NULL) AND (trainer = 'vocabulary'::public.trainer_code) AND (label = 'Eigene Wörter'::text))))
 );
 
 
@@ -4770,8 +5301,16 @@ CREATE TABLE public.learning_vocabulary_cards (
     created_at timestamp with time zone DEFAULT now(),
     sentence_practice boolean DEFAULT false NOT NULL,
     alternative_answers_de text[] DEFAULT '{}'::text[] NOT NULL,
-    unit_id uuid NOT NULL
+    unit_id uuid NOT NULL,
+    target_form text[]
 );
+
+
+--
+-- Name: COLUMN learning_vocabulary_cards.target_form; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.learning_vocabulary_cards.target_form IS 'Optional German target forms displayed before a typed sentence answer.';
 
 
 --
@@ -4988,6 +5527,17 @@ CREATE TABLE public.vocabulary_learning_state (
 
 
 --
+-- Name: vocabulary_lesson_pauses; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.vocabulary_lesson_pauses (
+    auth_user_id uuid NOT NULL,
+    unit_id uuid NOT NULL,
+    paused_at timestamp with time zone DEFAULT now() NOT NULL
+);
+
+
+--
 -- Name: vocabulary_onboarding; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -5037,6 +5587,14 @@ CREATE TABLE vocabulary_private.answer_receipts (
 
 ALTER TABLE ONLY business_private.registration_identity_resolutions
     ADD CONSTRAINT registration_identity_resolutions_pkey PRIMARY KEY (auth_user_id);
+
+
+--
+-- Name: vocabulary_variant_backups vocabulary_variant_backups_pkey; Type: CONSTRAINT; Schema: learning_private; Owner: -
+--
+
+ALTER TABLE ONLY learning_private.vocabulary_variant_backups
+    ADD CONSTRAINT vocabulary_variant_backups_pkey PRIMARY KEY (card_id);
 
 
 --
@@ -5229,6 +5787,14 @@ ALTER TABLE ONLY public.invoice_cases
 
 ALTER TABLE ONLY public.invoice_cases
     ADD CONSTRAINT invoice_cases_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: learning_activity_days learning_activity_days_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.learning_activity_days
+    ADD CONSTRAINT learning_activity_days_pkey PRIMARY KEY (auth_user_id, day);
 
 
 --
@@ -5480,6 +6046,14 @@ ALTER TABLE ONLY public.vocabulary_learning_state
 
 
 --
+-- Name: vocabulary_lesson_pauses vocabulary_lesson_pauses_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.vocabulary_lesson_pauses
+    ADD CONSTRAINT vocabulary_lesson_pauses_pkey PRIMARY KEY (auth_user_id, unit_id);
+
+
+--
 -- Name: vocabulary_onboarding vocabulary_onboarding_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -5682,7 +6256,14 @@ CREATE INDEX learning_units_catalog_idx ON public.learning_units USING btree (le
 -- Name: learning_units_named_lesson_idx; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE UNIQUE INDEX learning_units_named_lesson_idx ON public.learning_units USING btree (level, trainer, label) WHERE (trainer = ANY (ARRAY['vocabulary'::public.trainer_code, 'exercises'::public.trainer_code]));
+CREATE UNIQUE INDEX learning_units_named_lesson_idx ON public.learning_units USING btree (level, trainer, label) WHERE ((trainer = ANY (ARRAY['vocabulary'::public.trainer_code, 'exercises'::public.trainer_code])) AND (owner_auth_user_id IS NULL));
+
+
+--
+-- Name: learning_units_own_words_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX learning_units_own_words_idx ON public.learning_units USING btree (owner_auth_user_id, level, trainer) WHERE (owner_auth_user_id IS NOT NULL);
 
 
 --
@@ -5805,6 +6386,13 @@ CREATE INDEX vocabulary_learning_last_card_idx ON public.vocabulary_learning_sta
 
 
 --
+-- Name: vocabulary_lesson_pauses_unit_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX vocabulary_lesson_pauses_unit_idx ON public.vocabulary_lesson_pauses USING btree (unit_id);
+
+
+--
 -- Name: vocabulary_onboarding_unit_idx; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -5854,6 +6442,27 @@ CREATE TRIGGER guard_reading_quality BEFORE INSERT OR UPDATE ON public.learning_
 
 
 --
+-- Name: user_exercise_progress learning_activity_grammar; Type: TRIGGER; Schema: public; Owner: -
+--
+
+CREATE TRIGGER learning_activity_grammar AFTER INSERT OR UPDATE OF attempts, completed ON public.user_exercise_progress FOR EACH ROW EXECUTE FUNCTION learning_private.record_activity_day();
+
+
+--
+-- Name: submissions learning_activity_pronunciation; Type: TRIGGER; Schema: public; Owner: -
+--
+
+CREATE TRIGGER learning_activity_pronunciation AFTER INSERT ON public.submissions FOR EACH ROW EXECUTE FUNCTION learning_private.record_activity_day();
+
+
+--
+-- Name: vocabulary_direction_progress learning_activity_vocabulary; Type: TRIGGER; Schema: public; Owner: -
+--
+
+CREATE TRIGGER learning_activity_vocabulary AFTER INSERT OR UPDATE OF last_answered_at ON public.vocabulary_direction_progress FOR EACH ROW EXECUTE FUNCTION learning_private.record_activity_day();
+
+
+--
 -- Name: pronunciation_messages learning_reset_guard; Type: TRIGGER; Schema: public; Owner: -
 --
 
@@ -5893,6 +6502,20 @@ CREATE TRIGGER learning_reset_guard BEFORE INSERT OR UPDATE ON public.vocabulary
 --
 
 CREATE TRIGGER learning_reset_guard BEFORE INSERT OR UPDATE ON public.vocabulary_onboarding FOR EACH ROW EXECUTE FUNCTION learning_reset_private.guard_write();
+
+
+--
+-- Name: learning_units learning_units_own_words_cleanup; Type: TRIGGER; Schema: public; Owner: -
+--
+
+CREATE TRIGGER learning_units_own_words_cleanup BEFORE DELETE ON public.learning_units FOR EACH ROW WHEN ((old.owner_auth_user_id IS NOT NULL)) EXECUTE FUNCTION vocabulary_private.delete_own_unit_cards();
+
+
+--
+-- Name: student_level_access on_student_level_access_granted_notify; Type: TRIGGER; Schema: public; Owner: -
+--
+
+CREATE TRIGGER on_student_level_access_granted_notify AFTER INSERT ON public.student_level_access FOR EACH ROW EXECUTE FUNCTION business_private.notify_student_of_level_access();
 
 
 --
@@ -6256,6 +6879,14 @@ ALTER TABLE ONLY public.invoice_cases
 
 
 --
+-- Name: learning_activity_days learning_activity_days_auth_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.learning_activity_days
+    ADD CONSTRAINT learning_activity_days_auth_user_id_fkey FOREIGN KEY (auth_user_id) REFERENCES public.profiles(id) ON DELETE CASCADE;
+
+
+--
 -- Name: learning_exercises learning_exercises_unit_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -6333,6 +6964,14 @@ ALTER TABLE ONLY public.learning_unit_grants
 
 ALTER TABLE ONLY public.learning_units
     ADD CONSTRAINT learning_units_level_fkey FOREIGN KEY (level) REFERENCES public.learning_levels(code);
+
+
+--
+-- Name: learning_units learning_units_owner_auth_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.learning_units
+    ADD CONSTRAINT learning_units_owner_auth_user_id_fkey FOREIGN KEY (owner_auth_user_id) REFERENCES public.profiles(id) ON DELETE CASCADE;
 
 
 --
@@ -6557,6 +7196,22 @@ ALTER TABLE ONLY public.vocabulary_learning_state
 
 ALTER TABLE ONLY public.vocabulary_learning_state
     ADD CONSTRAINT vocabulary_learning_state_user_id_fkey FOREIGN KEY (auth_user_id) REFERENCES public.profiles(id) ON DELETE CASCADE;
+
+
+--
+-- Name: vocabulary_lesson_pauses vocabulary_lesson_pauses_auth_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.vocabulary_lesson_pauses
+    ADD CONSTRAINT vocabulary_lesson_pauses_auth_user_id_fkey FOREIGN KEY (auth_user_id) REFERENCES public.profiles(id) ON DELETE CASCADE;
+
+
+--
+-- Name: vocabulary_lesson_pauses vocabulary_lesson_pauses_unit_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.vocabulary_lesson_pauses
+    ADD CONSTRAINT vocabulary_lesson_pauses_unit_id_fkey FOREIGN KEY (unit_id) REFERENCES public.learning_units(id) ON DELETE CASCADE;
 
 
 --
@@ -6799,6 +7454,19 @@ CREATE POLICY invoice_read ON public.invoice_cases FOR SELECT TO authenticated U
 CREATE POLICY item_read ON public.booking_items FOR SELECT TO authenticated USING ((EXISTS ( SELECT 1
    FROM public.bookings b
   WHERE (b.id = booking_items.booking_id))));
+
+
+--
+-- Name: learning_activity_days; Type: ROW SECURITY; Schema: public; Owner: -
+--
+
+ALTER TABLE public.learning_activity_days ENABLE ROW LEVEL SECURITY;
+
+--
+-- Name: learning_activity_days learning_activity_days_read; Type: POLICY; Schema: public; Owner: -
+--
+
+CREATE POLICY learning_activity_days_read ON public.learning_activity_days FOR SELECT TO authenticated USING ((auth_user_id = ( SELECT auth.uid() AS uid)));
 
 
 --
@@ -7222,6 +7890,19 @@ ALTER TABLE public.vocabulary_direction_progress ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.vocabulary_learning_state ENABLE ROW LEVEL SECURITY;
 
 --
+-- Name: vocabulary_lesson_pauses; Type: ROW SECURITY; Schema: public; Owner: -
+--
+
+ALTER TABLE public.vocabulary_lesson_pauses ENABLE ROW LEVEL SECURITY;
+
+--
+-- Name: vocabulary_lesson_pauses vocabulary_lesson_pauses_read; Type: POLICY; Schema: public; Owner: -
+--
+
+CREATE POLICY vocabulary_lesson_pauses_read ON public.vocabulary_lesson_pauses FOR SELECT TO authenticated USING ((auth_user_id = ( SELECT auth.uid() AS uid)));
+
+
+--
 -- Name: vocabulary_onboarding; Type: ROW SECURITY; Schema: public; Owner: -
 --
 
@@ -7439,6 +8120,20 @@ REVOKE ALL ON FUNCTION business_private.notify_course_exception() FROM PUBLIC;
 
 
 --
+-- Name: FUNCTION notify_staff_of_signup(); Type: ACL; Schema: business_private; Owner: -
+--
+
+REVOKE ALL ON FUNCTION business_private.notify_staff_of_signup() FROM PUBLIC;
+
+
+--
+-- Name: FUNCTION notify_student_of_level_access(); Type: ACL; Schema: business_private; Owner: -
+--
+
+REVOKE ALL ON FUNCTION business_private.notify_student_of_level_access() FROM PUBLIC;
+
+
+--
 -- Name: FUNCTION prepare_month(p_month date); Type: ACL; Schema: business_private; Owner: -
 --
 
@@ -7493,6 +8188,13 @@ REVOKE ALL ON FUNCTION business_private.save_course_exception(p_course_id uuid, 
 
 REVOKE ALL ON FUNCTION business_private.save_month(p_month date, p_course_selections jsonb, p_paused boolean, p_expected uuid, p_revision integer) FROM PUBLIC;
 GRANT ALL ON FUNCTION business_private.save_month(p_month date, p_course_selections jsonb, p_paused boolean, p_expected uuid, p_revision integer) TO authenticated;
+
+
+--
+-- Name: FUNCTION staff_signup_payload(p_email text, p_meta jsonb); Type: ACL; Schema: business_private; Owner: -
+--
+
+REVOKE ALL ON FUNCTION business_private.staff_signup_payload(p_email text, p_meta jsonb) FROM PUBLIC;
 
 
 --
@@ -7596,6 +8298,14 @@ GRANT ALL ON FUNCTION learning_private.allowed_unit_ids() TO service_role;
 
 
 --
+-- Name: FUNCTION answer_without_punctuation(p_value text); Type: ACL; Schema: learning_private; Owner: -
+--
+
+REVOKE ALL ON FUNCTION learning_private.answer_without_punctuation(p_value text) FROM PUBLIC;
+GRANT ALL ON FUNCTION learning_private.answer_without_punctuation(p_value text) TO postgres;
+
+
+--
 -- Name: FUNCTION audio_readable(p_name text); Type: ACL; Schema: learning_private; Owner: -
 --
 
@@ -7656,6 +8366,13 @@ REVOKE ALL ON FUNCTION learning_private.levenshtein_at_most_one(p_left text, p_r
 
 REVOKE ALL ON FUNCTION learning_private.normalize_answer(p_value text) FROM PUBLIC;
 GRANT ALL ON FUNCTION learning_private.normalize_answer(p_value text) TO postgres;
+
+
+--
+-- Name: FUNCTION record_activity_day(); Type: ACL; Schema: learning_private; Owner: -
+--
+
+REVOKE ALL ON FUNCTION learning_private.record_activity_day() FROM PUBLIC;
 
 
 --
@@ -7860,12 +8577,30 @@ REVOKE ALL ON FUNCTION pronunciation_private.validate_message() FROM PUBLIC;
 
 
 --
+-- Name: FUNCTION add_own_vocabulary(p_level text, p_word_de text, p_article text, p_translation text, p_locale text); Type: ACL; Schema: public; Owner: -
+--
+
+REVOKE ALL ON FUNCTION public.add_own_vocabulary(p_level text, p_word_de text, p_article text, p_translation text, p_locale text) FROM PUBLIC;
+GRANT ALL ON FUNCTION public.add_own_vocabulary(p_level text, p_word_de text, p_article text, p_translation text, p_locale text) TO authenticated;
+GRANT ALL ON FUNCTION public.add_own_vocabulary(p_level text, p_word_de text, p_article text, p_translation text, p_locale text) TO service_role;
+
+
+--
 -- Name: FUNCTION begin_learning_reset(p_confirmation text); Type: ACL; Schema: public; Owner: -
 --
 
 REVOKE ALL ON FUNCTION public.begin_learning_reset(p_confirmation text) FROM PUBLIC;
 GRANT ALL ON FUNCTION public.begin_learning_reset(p_confirmation text) TO authenticated;
 GRANT ALL ON FUNCTION public.begin_learning_reset(p_confirmation text) TO service_role;
+
+
+--
+-- Name: FUNCTION check_vocabulary_retry(p_progress_id uuid, p_typed_answer text, p_ui_language text); Type: ACL; Schema: public; Owner: -
+--
+
+REVOKE ALL ON FUNCTION public.check_vocabulary_retry(p_progress_id uuid, p_typed_answer text, p_ui_language text) FROM PUBLIC;
+GRANT ALL ON FUNCTION public.check_vocabulary_retry(p_progress_id uuid, p_typed_answer text, p_ui_language text) TO authenticated;
+GRANT ALL ON FUNCTION public.check_vocabulary_retry(p_progress_id uuid, p_typed_answer text, p_ui_language text) TO service_role;
 
 
 --
@@ -7947,6 +8682,15 @@ GRANT ALL ON FUNCTION public.delete_course_exception(p_id uuid) TO authenticated
 
 REVOKE ALL ON FUNCTION public.delete_learning_content(p_trainer text, p_id uuid) FROM PUBLIC;
 GRANT ALL ON FUNCTION public.delete_learning_content(p_trainer text, p_id uuid) TO authenticated;
+
+
+--
+-- Name: FUNCTION delete_own_vocabulary(p_card_id uuid); Type: ACL; Schema: public; Owner: -
+--
+
+REVOKE ALL ON FUNCTION public.delete_own_vocabulary(p_card_id uuid) FROM PUBLIC;
+GRANT ALL ON FUNCTION public.delete_own_vocabulary(p_card_id uuid) TO authenticated;
+GRANT ALL ON FUNCTION public.delete_own_vocabulary(p_card_id uuid) TO service_role;
 
 
 --
@@ -8039,6 +8783,15 @@ GRANT ALL ON FUNCTION public.media_storage_usage() TO authenticated;
 
 REVOKE ALL ON FUNCTION public.prepare_business_month(p_month date) FROM PUBLIC;
 GRANT ALL ON FUNCTION public.prepare_business_month(p_month date) TO authenticated;
+
+
+--
+-- Name: FUNCTION pronunciation_reply_senders(); Type: ACL; Schema: public; Owner: -
+--
+
+REVOKE ALL ON FUNCTION public.pronunciation_reply_senders() FROM PUBLIC;
+GRANT ALL ON FUNCTION public.pronunciation_reply_senders() TO authenticated;
+GRANT ALL ON FUNCTION public.pronunciation_reply_senders() TO service_role;
 
 
 --
@@ -8141,6 +8894,15 @@ GRANT ALL ON FUNCTION public.set_student_trainer_access(p_user_id uuid, p_level 
 
 
 --
+-- Name: FUNCTION set_vocabulary_lesson_paused(p_unit_id uuid, p_paused boolean); Type: ACL; Schema: public; Owner: -
+--
+
+REVOKE ALL ON FUNCTION public.set_vocabulary_lesson_paused(p_unit_id uuid, p_paused boolean) FROM PUBLIC;
+GRANT ALL ON FUNCTION public.set_vocabulary_lesson_paused(p_unit_id uuid, p_paused boolean) TO authenticated;
+GRANT ALL ON FUNCTION public.set_vocabulary_lesson_paused(p_unit_id uuid, p_paused boolean) TO service_role;
+
+
+--
 -- Name: FUNCTION skip_vocabulary_assessment(p_level text); Type: ACL; Schema: public; Owner: -
 --
 
@@ -8193,6 +8955,61 @@ GRANT ALL ON FUNCTION public.submit_vocabulary_self_rating_once(p_request_id uui
 
 
 --
+-- Name: FUNCTION add_own_word(p_level text, p_word_de text, p_article text, p_translation text, p_locale text); Type: ACL; Schema: vocabulary_private; Owner: -
+--
+
+REVOKE ALL ON FUNCTION vocabulary_private.add_own_word(p_level text, p_word_de text, p_article text, p_translation text, p_locale text) FROM PUBLIC;
+GRANT ALL ON FUNCTION vocabulary_private.add_own_word(p_level text, p_word_de text, p_article text, p_translation text, p_locale text) TO authenticated;
+
+
+--
+-- Name: FUNCTION answer_article_feedback(p_input text, p_word text, p_article text, p_plural text); Type: ACL; Schema: vocabulary_private; Owner: -
+--
+
+REVOKE ALL ON FUNCTION vocabulary_private.answer_article_feedback(p_input text, p_word text, p_article text, p_plural text) FROM PUBLIC;
+GRANT ALL ON FUNCTION vocabulary_private.answer_article_feedback(p_input text, p_word text, p_article text, p_plural text) TO postgres;
+
+
+--
+-- Name: FUNCTION answer_key(p_card_id uuid, p_direction text, p_ui_language text, OUT canonical text, OUT accepted text[]); Type: ACL; Schema: vocabulary_private; Owner: -
+--
+
+REVOKE ALL ON FUNCTION vocabulary_private.answer_key(p_card_id uuid, p_direction text, p_ui_language text, OUT canonical text, OUT accepted text[]) FROM PUBLIC;
+GRANT ALL ON FUNCTION vocabulary_private.answer_key(p_card_id uuid, p_direction text, p_ui_language text, OUT canonical text, OUT accepted text[]) TO postgres;
+
+
+--
+-- Name: FUNCTION card_translation(p_card_id uuid, p_ui_language text); Type: ACL; Schema: vocabulary_private; Owner: -
+--
+
+REVOKE ALL ON FUNCTION vocabulary_private.card_translation(p_card_id uuid, p_ui_language text) FROM PUBLIC;
+GRANT ALL ON FUNCTION vocabulary_private.card_translation(p_card_id uuid, p_ui_language text) TO postgres;
+
+
+--
+-- Name: FUNCTION check_retry_answer(p_progress_id uuid, p_typed_answer text, p_ui_language text); Type: ACL; Schema: vocabulary_private; Owner: -
+--
+
+REVOKE ALL ON FUNCTION vocabulary_private.check_retry_answer(p_progress_id uuid, p_typed_answer text, p_ui_language text) FROM PUBLIC;
+GRANT ALL ON FUNCTION vocabulary_private.check_retry_answer(p_progress_id uuid, p_typed_answer text, p_ui_language text) TO authenticated;
+
+
+--
+-- Name: FUNCTION delete_own_unit_cards(); Type: ACL; Schema: vocabulary_private; Owner: -
+--
+
+REVOKE ALL ON FUNCTION vocabulary_private.delete_own_unit_cards() FROM PUBLIC;
+
+
+--
+-- Name: FUNCTION delete_own_word(p_card_id uuid); Type: ACL; Schema: vocabulary_private; Owner: -
+--
+
+REVOKE ALL ON FUNCTION vocabulary_private.delete_own_word(p_card_id uuid) FROM PUBLIC;
+GRANT ALL ON FUNCTION vocabulary_private.delete_own_word(p_card_id uuid) TO authenticated;
+
+
+--
 -- Name: FUNCTION initialize_cards(p_decisions jsonb); Type: ACL; Schema: vocabulary_private; Owner: -
 --
 
@@ -8206,6 +9023,14 @@ GRANT ALL ON FUNCTION vocabulary_private.initialize_cards(p_decisions jsonb) TO 
 
 REVOKE ALL ON FUNCTION vocabulary_private.reset_lesson(p_unit_id uuid) FROM PUBLIC;
 GRANT ALL ON FUNCTION vocabulary_private.reset_lesson(p_unit_id uuid) TO authenticated;
+
+
+--
+-- Name: FUNCTION review_day(p_days integer); Type: ACL; Schema: vocabulary_private; Owner: -
+--
+
+REVOKE ALL ON FUNCTION vocabulary_private.review_day(p_days integer) FROM PUBLIC;
+GRANT ALL ON FUNCTION vocabulary_private.review_day(p_days integer) TO postgres;
 
 
 --
@@ -8359,6 +9184,14 @@ GRANT ALL ON TABLE public.grammar_translations TO service_role;
 
 GRANT SELECT ON TABLE public.invoice_cases TO authenticated;
 GRANT ALL ON TABLE public.invoice_cases TO service_role;
+
+
+--
+-- Name: TABLE learning_activity_days; Type: ACL; Schema: public; Owner: -
+--
+
+GRANT SELECT ON TABLE public.learning_activity_days TO authenticated;
+GRANT ALL ON TABLE public.learning_activity_days TO service_role;
 
 
 --
@@ -8616,6 +9449,14 @@ GRANT SELECT ON TABLE public.vocabulary_learning_state TO authenticated;
 
 
 --
+-- Name: TABLE vocabulary_lesson_pauses; Type: ACL; Schema: public; Owner: -
+--
+
+GRANT SELECT ON TABLE public.vocabulary_lesson_pauses TO authenticated;
+GRANT ALL ON TABLE public.vocabulary_lesson_pauses TO service_role;
+
+
+--
 -- Name: TABLE vocabulary_onboarding; Type: ACL; Schema: public; Owner: -
 --
 
@@ -8664,4 +9505,3 @@ ALTER DEFAULT PRIVILEGES FOR ROLE postgres IN SCHEMA public GRANT ALL ON TABLES 
 --
 -- PostgreSQL database dump complete
 --
-

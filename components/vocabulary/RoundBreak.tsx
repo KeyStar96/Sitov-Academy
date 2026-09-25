@@ -87,11 +87,11 @@ export default function RoundBreak({ lang, round, rounds, roundCards, done, tota
       </motion.div>
       <motion.p variants={rise} className="learning-round__remaining">{s.count('round_remaining', total - done)}</motion.p>
       <motion.div variants={rise} className="learning-round__actions">
-        <button type="button" className="learning-button learning-button-primary learning-button-wide" onClick={onContinue}>
-          <span className="learning-round__label">{s.count('round_next', nextCount)}<ArrowRight size={20} aria-hidden="true" className="learning-round__arrow" /></span>
-        </button>
         <button type="button" className="learning-button learning-button-secondary learning-button-wide" onClick={onPause}>
           <span className="learning-round__label"><Coffee size={20} aria-hidden="true" />{s('round_pause')}</span>
+        </button>
+        <button type="button" className="learning-button learning-button-primary learning-button-wide" onClick={onContinue}>
+          <span className="learning-round__label">{s.count('round_next', nextCount)}<ArrowRight size={20} aria-hidden="true" className="learning-round__arrow" /></span>
         </button>
       </motion.div>
       <motion.p variants={rise} className="learning-round__reassure">{s('round_pause_hint')}</motion.p>

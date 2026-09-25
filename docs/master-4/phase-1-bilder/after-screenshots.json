@@ -1,0 +1,98 @@
+[
+  {
+    "file": "after-buttons-desktop.png",
+    "path": "/en/dashboard/level/A1.1/vocabulary/train",
+    "status": 200,
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "width": 1440,
+    "height": 1000,
+    "sha256": "368aaf31300f0e170b4b3b9b73292b076882c10d743c1e0ddb4439b89a4858a5"
+  },
+  {
+    "file": "after-article-desktop.png",
+    "path": "/en/dashboard/level/A1.1/vocabulary/train",
+    "status": 200,
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "width": 1440,
+    "height": 1000,
+    "sha256": "c330d127c23138f579e2cac2560645e97dba2b993fc7739816860c0f46a89851"
+  },
+  {
+    "file": "after-assessment-desktop.png",
+    "path": "/en/dashboard/level/A1.1/vocabulary/assess?lesson=Lektion%201",
+    "status": 200,
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "width": 1440,
+    "height": 1000,
+    "sha256": "3ee9a1a007d3acbd1e6bdcdcc4708ea52c5a726e1a989fa5ba9c8f7fc34be6ad"
+  },
+  {
+    "file": "after-pending-desktop.png",
+    "path": "/en/dashboard",
+    "status": 200,
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "width": 1440,
+    "height": 1912,
+    "sha256": "3f168075cb9163cbff7b3bff59fa2f671c12993fc517218dc3a2263aa13c2a38"
+  },
+  {
+    "file": "after-buttons-handy.png",
+    "path": "/en/dashboard/level/A1.1/vocabulary/train",
+    "status": 200,
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "width": 390,
+    "height": 844,
+    "sha256": "a3d4903c21d2bbd74b4b3ef3e4d3947e5d65ac7ec7495c3c0ae42c286b7ea548"
+  },
+  {
+    "file": "after-article-handy.png",
+    "path": "/en/dashboard/level/A1.1/vocabulary/train",
+    "status": 200,
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "width": 390,
+    "height": 844,
+    "sha256": "f519a1d03d1eea9c51627e90ed6dabf80d60f11183b7273d8dba18a0eeaca4cf"
+  },
+  {
+    "file": "after-assessment-handy.png",
+    "path": "/en/dashboard/level/A1.1/vocabulary/assess?lesson=Lektion%201",
+    "status": 200,
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "width": 390,
+    "height": 844,
+    "sha256": "d3568362dad87cce26048ed2e7e7fe3bdab7976497ed3e392849c367a4d5f0d7"
+  },
+  {
+    "file": "after-pending-handy.png",
+    "path": "/en/dashboard",
+    "status": 200,
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "width": 390,
+    "height": 3474,
+    "sha256": "c56b022bdfe8277cb5ff0f8c8b1b3bdefab8886e96d36e7c6616f26bf4bbb801"
+  }
+]

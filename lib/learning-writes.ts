@@ -22,7 +22,7 @@ export function learningWritePayload(trainer: Trainer, input: Json): Json {
     label: (trainer === 'vocabulary' || trainer === 'exercises' ? form.lesson : form.title) ?? null }
   for (const key of ['is_active', 'sort_order']) if (form[key] !== undefined) unit[key] = form[key]
   const fieldNames: Record<Trainer, string[]> = {
-    vocabulary: ['word_de', 'article', 'plural', 'image_url', 'audio_url', 'sentence_practice', 'alternative_answers_de'],
+    vocabulary: ['word_de', 'article', 'plural', 'image_url', 'audio_url', 'sentence_practice', 'alternative_answers_de', 'target_form'],
     exercises: ['topic', 'type', 'content', 'solution_audio_url'], pronunciation: ['sentence_de', 'focus', 'audio_url'],
     videos: ['description', 'source_url', 'title', 'folder_id', 'storage_path', 'file_size'],
   }

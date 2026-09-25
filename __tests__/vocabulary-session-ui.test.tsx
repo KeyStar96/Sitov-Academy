@@ -80,18 +80,18 @@ it('keeps an exact-looking answer incorrect when the server rejects it', async (
   expect(screen.getByText(de.vocabulary.answer_incorrect)).toBeVisible()
   expect(screen.queryByText(de.vocabulary.answer_correct)).not.toBeInTheDocument()
 })
-it('shows a Russian soft-error badge without red error styling', async () => {
-  jest.mocked(submitVocabularyAnswer).mockResolvedValueOnce(result({ softError: 'capitalization' }))
+it('shows a Russian umlaut soft-error badge without red error styling', async () => {
+  jest.mocked(submitVocabularyAnswer).mockResolvedValueOnce(result({ softError: 'umlaut' }))
   const { container } = render(<VocabCardSession learnerId={learnerId} cards={[word]} translations={ru.vocabulary}
     softErrorTranslations={ru.exercises.soft_error} uiLanguage="ru" overviewHref="/ru/dashboard" />)
-  fireEvent.change(screen.getByRole('textbox'), { target: { value: 'das haus' } })
+  fireEvent.change(screen.getByRole('textbox'), { target: { value: 'das Haeus' } })
   await act(async () => fireEvent.click(screen.getByRole('button', { name: ru.vocabulary.check_sentence })))
-  expect(screen.getByText(ru.exercises.soft_error.capitalization)).toBeVisible()
-  expect(screen.getByText('das Haus')).toBeVisible()
+  expect(screen.getByText(ru.exercises.soft_error.umlaut)).toBeVisible()
+  expect(container.querySelector('.learning-solution')).toHaveTextContent('das Haus')
   expect(container.querySelector('[class*=warning]')).not.toBeNull()
   expect(container.querySelector('.learning-error, [class*=danger]')).toBeNull()
 })
-it.each(['punctuation', 'capitalization', 'umlaut', 'typo'] as const)('preserves the server soft-error reason %s', async reason => {
+it.each(['umlaut', 'typo'] as const)('preserves the server soft-error reason %s', async reason => {
   jest.mocked(submitVocabularyAnswer).mockResolvedValueOnce(result({ softError: reason }))
   render(<VocabCardSession learnerId={learnerId} cards={[word]} translations={de.vocabulary}
     softErrorTranslations={{ [reason]: `Hinweis ${reason}` }} uiLanguage="ru" overviewHref="/ru/dashboard" />)
@@ -296,12 +296,12 @@ it('meldet „Wusste ich nicht" als known:false und bewertet weiterhin serversei
   expect(submitVocabularySelfRating).toHaveBeenCalledWith(expect.objectContaining({ known: false }))
 })
 
-it('ordnet die Selbsteinschätzung wie beim Einstufen an: links „wusste ich", rechts „wusste ich nicht"', () => {
+it('ordnet die Selbsteinschätzung wie beim Einstufen an: links „wusste ich nicht", rechts „wusste ich"', () => {
   mount([flashcard])
   fireEvent.click(screen.getByRole('button', { name: de.vocabulary.reveal_solution }))
   const known = screen.getByRole('button', { name: de.vocabulary.knew_it })
   const unknown = screen.getByRole('button', { name: de.vocabulary.didnt_know })
-  expect(known.compareDocumentPosition(unknown) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
+  expect(unknown.compareDocumentPosition(known) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
 })
 
 it('zeigt den Zähler als eigene Spalte mit Kurzform und liest die Langform vor', () => {
@@ -389,4 +389,34 @@ describe('Phase-6-Runde: falsche Vokabeln werden wiederholt, bis sie einmal sitz
     expect(checkVocabularyRetry).toHaveBeenCalledTimes(2)
     expect(screen.getByText(de.vocabulary.answer_correct)).toBeVisible()
   })
+})
+
+it.each(['capitalization', 'punctuation', 'capitalization_punctuation'] as const)('shows neutral spelling guidance for %s without a warning', async hint => {
+  jest.mocked(submitVocabularyAnswer).mockResolvedValueOnce(result({ hint }))
+  const { container } = mount([word])
+  await submit('das haus')
+  expect(screen.getByText('Вот как это пишется:', { exact: false })).toBeVisible()
+  expect(screen.getByText(de.vocabulary.answer_correct)).toBeVisible()
+  expect(container.querySelector('[class*=warning], .learning-error')).toBeNull()
+})
+it('places the secondary self-rating before the filled positive action in the DOM', () => {
+  const { container } = mount([{ ...word, mode: 'flashcard' }])
+  fireEvent.click(screen.getByRole('button', { name: de.vocabulary.reveal_solution }))
+  const actions = container.querySelectorAll('.learning-flashcard-actions button')
+  expect(actions[0]).toHaveTextContent(de.vocabulary.didnt_know)
+  expect(actions[1]).toHaveTextContent(de.vocabulary.knew_it)
+  expect(actions[1]).toHaveClass('learning-button-primary')
+})
+it('shows target forms in typing mode before the answer', () => {
+  mount([{ ...sentence, card: { ...sentence.card, target_form: ['heißen'] } }])
+  expect(screen.getByText('[heißen]')).toBeVisible()
+  expect(screen.queryByText('Вот как это пишется:', { exact: false })).not.toBeInTheDocument()
+})
+it.each(['article_missing', 'article_wrong'] as const)('renders the server article feedback %s and colors the returned article', async feedback => {
+  jest.mocked(submitVocabularyAnswer).mockResolvedValueOnce(result({ isCorrect: false, feedback }))
+  const { container } = mount([word])
+  await submit(feedback === 'article_missing' ? 'Haus' : 'der Haus')
+  expect(screen.getByText(feedback === 'article_missing' ? 'Не забудь поставить артикль перед существительным.' : 'У этого существительного другой артикль.')).toBeVisible()
+  expect(screen.getByText(de.vocabulary.answer_incorrect)).toBeVisible()
+  expect(container.querySelector('.learning-sentence .text-green-700')).toHaveTextContent('das')
 })

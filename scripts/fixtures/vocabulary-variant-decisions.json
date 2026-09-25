@@ -1,0 +1,213 @@
+[
+  {
+    "id": "0e418b9e-c02d-4148-b262-a608d369cadb",
+    "level": "A1.1",
+    "lesson": "Lektion 1",
+    "sentence": "Wie ist Ihre Telefonnummer?",
+    "reasons": [
+      "du_sie"
+    ],
+    "target_form": [
+      "Ihre"
+    ],
+    "alternative_answers_de": [],
+    "reason": "Formelle Anrede ist Lernziel; du wird nicht gleichgesetzt."
+  },
+  {
+    "id": "3d4ea48d-5efe-460b-bdfe-3e14f5f2bb21",
+    "level": "A1.1",
+    "lesson": "Lektion 1",
+    "sentence": "Ich wohne in Deutschland.",
+    "reasons": [
+      "word_order"
+    ],
+    "target_form": null,
+    "alternative_answers_de": [
+      "In Deutschland wohne ich."
+    ],
+    "reason": "Gleiche Aussage mit veränderter Stellung der Zeit-/Ortsangabe."
+  },
+  {
+    "id": "48c57bb9-a03c-4a4d-b386-28b95975d66b",
+    "level": "A1.1",
+    "lesson": "Lektion 1",
+    "sentence": "Welche Sprache sprechen Sie?",
+    "reasons": [
+      "du_sie"
+    ],
+    "target_form": [
+      "Sie"
+    ],
+    "alternative_answers_de": [],
+    "reason": "Formelle Anrede ist Lernziel; du wird nicht gleichgesetzt."
+  },
+  {
+    "id": "59ffe0cf-f9c7-455a-b086-54153690cbce",
+    "level": "A1.1",
+    "lesson": "Lektion 1",
+    "sentence": "Woher kommen Sie?",
+    "reasons": [
+      "du_sie"
+    ],
+    "target_form": [
+      "Sie"
+    ],
+    "alternative_answers_de": [],
+    "reason": "Formelle Anrede ist Lernziel; du wird nicht gleichgesetzt."
+  },
+  {
+    "id": "70d12be8-01c9-48a2-b2ca-cac05066412d",
+    "level": "A1.1",
+    "lesson": "Lektion 1",
+    "sentence": "Wie ist Ihr Name?",
+    "reasons": [
+      "du_sie"
+    ],
+    "target_form": [
+      "Ihr",
+      "Name"
+    ],
+    "alternative_answers_de": [],
+    "reason": "Formelle Anrede ist Lernziel; du wird nicht gleichgesetzt."
+  },
+  {
+    "id": "b15bfa51-740c-4eac-813b-6fca868eabbd",
+    "level": "A1.1",
+    "lesson": "Lektion 1",
+    "sentence": "Danke für Ihre Hilfe!",
+    "reasons": [
+      "du_sie"
+    ],
+    "target_form": [
+      "Ihre"
+    ],
+    "alternative_answers_de": [],
+    "reason": "Formelle Anrede ist Lernziel; du wird nicht gleichgesetzt."
+  },
+  {
+    "id": "e9871cab-6f5b-4a30-9cd1-f6bd2406bfda",
+    "level": "A1.1",
+    "lesson": "Lektion 1",
+    "sentence": "Wie ist Ihre Adresse?",
+    "reasons": [
+      "du_sie"
+    ],
+    "target_form": [
+      "Ihre"
+    ],
+    "alternative_answers_de": [],
+    "reason": "Formelle Anrede ist Lernziel; du wird nicht gleichgesetzt."
+  },
+  {
+    "id": "69d845b3-4310-4919-986a-80bf913822b0",
+    "level": "A1.1",
+    "lesson": "Lektion 2",
+    "sentence": "Ich wohne in Hannover.",
+    "reasons": [
+      "word_order"
+    ],
+    "target_form": null,
+    "alternative_answers_de": [
+      "In Hannover wohne ich."
+    ],
+    "reason": "Gleiche Aussage mit veränderter Stellung der Zeit-/Ortsangabe."
+  },
+  {
+    "id": "770b2edb-43a1-4935-adbd-9570c39b46e5",
+    "level": "A1.1",
+    "lesson": "Lektion 2",
+    "sentence": "Meine Familie lebt in Deutschland.",
+    "reasons": [
+      "word_order"
+    ],
+    "target_form": null,
+    "alternative_answers_de": [
+      "In Deutschland lebt meine Familie."
+    ],
+    "reason": "Gleiche Aussage mit veränderter Stellung der Zeit-/Ortsangabe."
+  },
+  {
+    "id": "fc3f909e-d640-4664-a559-d971861e0613",
+    "level": "A1.1",
+    "lesson": "Lektion 3",
+    "sentence": "Ich trinke morgens Kaffee.",
+    "reasons": [
+      "word_order"
+    ],
+    "target_form": null,
+    "alternative_answers_de": [
+      "Morgens trinke ich Kaffee."
+    ],
+    "reason": "Gleiche Aussage mit veränderter Stellung der Zeit-/Ortsangabe."
+  },
+  {
+    "id": "d280c958-b4fe-4b4f-97ff-b75f8fb7a899",
+    "level": "A1.1",
+    "lesson": "Lektion 4",
+    "sentence": "Ich koche in der Küche.",
+    "reasons": [
+      "word_order"
+    ],
+    "target_form": null,
+    "alternative_answers_de": [
+      "In der Küche koche ich."
+    ],
+    "reason": "Gleiche Aussage mit veränderter Stellung der Zeit-/Ortsangabe."
+  },
+  {
+    "id": "2ad0f4dc-7dbc-423d-87b8-aa67f2c94114",
+    "level": "A1.1",
+    "lesson": "Lektion 5",
+    "sentence": "Ich arbeite von Montag bis Freitag.",
+    "reasons": [
+      "word_order"
+    ],
+    "target_form": null,
+    "alternative_answers_de": [
+      "Von Montag bis Freitag arbeite ich."
+    ],
+    "reason": "Gleiche Aussage mit veränderter Stellung der Zeit-/Ortsangabe."
+  },
+  {
+    "id": "b957a819-1077-4bdb-8de8-a7e770d2642f",
+    "level": "A1.1",
+    "lesson": "Lektion 5",
+    "sentence": "Ich bin heute sehr müde.",
+    "reasons": [
+      "word_order"
+    ],
+    "target_form": null,
+    "alternative_answers_de": [
+      "Heute bin ich sehr müde."
+    ],
+    "reason": "Gleiche Aussage mit veränderter Stellung der Zeit-/Ortsangabe."
+  },
+  {
+    "id": "e0fe2ac8-8518-48f8-862d-02fdf4cdf44c",
+    "level": "A1.1",
+    "lesson": "Lektion 6",
+    "sentence": "Wie ist das Wetter heute?",
+    "reasons": [
+      "word_order"
+    ],
+    "target_form": null,
+    "alternative_answers_de": [
+      "Wie ist heute das Wetter?"
+    ],
+    "reason": "Gleiche Aussage mit veränderter Stellung der Zeit-/Ortsangabe."
+  },
+  {
+    "id": "f125e23c-f5c1-4604-b418-8937982aca06",
+    "level": "A1.1",
+    "lesson": "Lektion 7",
+    "sentence": "Woher kommen Sie?",
+    "reasons": [
+      "du_sie"
+    ],
+    "target_form": [
+      "Sie"
+    ],
+    "alternative_answers_de": [],
+    "reason": "Formelle Anrede ist Lernziel; du wird nicht gleichgesetzt."
+  }
+]
