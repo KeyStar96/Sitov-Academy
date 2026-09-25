@@ -1,7 +1,6 @@
 'use client'
 
-import { useCallback, useEffect, useId, useMemo, useRef, useState, type CSSProperties, type KeyboardEvent, type PointerEvent, type ReactNode } from 'react'
-import { useReducedMotion } from 'framer-motion'
+import { useCallback, useId, useMemo, useState, type CSSProperties, type KeyboardEvent, type ReactNode } from 'react'
 import { Check, Hand } from 'lucide-react'
 import { createVocabularyTranslator, type VocabularyTranslations } from '@/lib/vocabulary-i18n'
 import { phaseIntervalInDays, phaseTone, type BoxBucket, type BoxBucketKey } from '@/lib/vocabulary-box'
@@ -58,21 +57,6 @@ export function stackLines(count: number): number {
 }
 
 const COUNT_SLOT = '\u0000'
-
-/**
- * Das Mitkippen gibt es nur am Rechner: breiter Bildschirm und ein Gerät, das
- * sich als echte Maus meldet. Auf dem Telefon bleibt die Box ruhig stehen —
- * das Event allein reicht nicht, denn auch Touch-Geräte liefern mitunter
- * Maus-Events (Emulatoren, Tablets mit Maus-Modus).
- */
-const TILT_QUERY = '(min-width: 640px) and (hover: hover) and (pointer: fine)'
-
-function clearTilt(node: HTMLElement | null) {
-  if (!node) return
-  delete node.dataset.tracking
-  node.style.removeProperty('--lb-ry')
-  node.style.removeProperty('--lb-rx')
-}
 
 /** Teilt „{count} Vokabeln" um die Zahl, damit sie groß stehen kann — in jeder Sprache an ihrer Stelle. */
 function countParts(count: number, t: Translator): [string, string] {
@@ -192,11 +176,7 @@ function Compartment({ bucket, index, open, t, onOpen }: {
  */
 export default function LeitnerBoxOverview({ summary, level, uiLanguage, translations = {}, action }: Props) {
   const t = useMemo(() => createVocabularyTranslator(translations), [translations])
-  const reduced = useReducedMotion() ?? false
   const introId = useId()
-  const scene = useRef<HTMLDivElement>(null)
-  const frame = useRef(0)
-  const canTilt = useRef(false)
   const [openPhase, setOpenPhase] = useState<BoxBucketKey | null>(null)
   const [origin, setOrigin] = useState<InspectorOrigin | null>(null)
   const openBucket = summary.buckets.find((bucket) => bucket.key === openPhase) ?? null
@@ -208,51 +188,13 @@ export default function LeitnerBoxOverview({ summary, level, uiLanguage, transla
   }, [])
   const close = useCallback(() => setOpenPhase(null), [])
 
-  useEffect(() => () => cancelAnimationFrame(frame.current), [])
-
-  useEffect(() => {
-    if (typeof window.matchMedia !== 'function') return
-    const query = window.matchMedia(TILT_QUERY)
-    const sync = () => {
-      canTilt.current = query.matches
-      if (!query.matches) {
-        cancelAnimationFrame(frame.current)
-        clearTilt(scene.current)
-      }
-    }
-    sync()
-    query.addEventListener('change', sync)
-    return () => query.removeEventListener('change', sync)
-  }, [])
-
-  // Die Box neigt sich leicht zur Maus — nur am Rechner (TILT_QUERY) und ohne
-  // Bewegungsreduktion. Die Werte laufen als CSS-Variablen direkt an die
-  // Bühne, React rendert dafür nicht neu.
-  function onPointerMove(event: PointerEvent<HTMLDivElement>) {
-    if (reduced || !canTilt.current || event.pointerType !== 'mouse' || !scene.current) return
-    const rect = scene.current.getBoundingClientRect()
-    const x = (event.clientX - rect.left) / rect.width - 0.5
-    const y = (event.clientY - rect.top) / rect.height - 0.5
-    cancelAnimationFrame(frame.current)
-    frame.current = requestAnimationFrame(() => {
-      const node = scene.current
-      if (!node) return
-      node.dataset.tracking = 'true'
-      node.style.setProperty('--lb-ry', `${(x * 9).toFixed(2)}deg`)
-      node.style.setProperty('--lb-rx', `${(-21 - y * 5).toFixed(2)}deg`)
-    })
-  }
-
-  function onPointerLeave() {
-    cancelAnimationFrame(frame.current)
-    clearTilt(scene.current)
-  }
-
   return (
     <section aria-label={t('box_title')} aria-describedby={introId} className="min-w-0">
       <p id={introId} className="sr-only">{t('box_intro')}</p>
 
-      <div ref={scene} className="lb-scene" onPointerMove={onPointerMove} onPointerLeave={onPointerLeave}>
+      {/* Die Box steht auf jedem Gerät in derselben festen Schrägansicht und
+          kippt nicht mit der Maus mit. */}
+      <div className="lb-scene">
         <div className="lb-stage">
           <div className="lb-cabinet">
             <span className="lb-cabinet__shadow" aria-hidden="true" />

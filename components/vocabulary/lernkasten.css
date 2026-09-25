@@ -62,8 +62,6 @@ html.dark .lb-rounds {
   --lb-card-w: calc(var(--u) * 19);
   --lb-card-d: calc(var(--u) * 10);
   --lb-stack-max: calc(var(--u) * 15);
-  --lb-rx: -21deg;
-  --lb-ry: 0deg;
 
   position: relative;
   container-type: inline-size;
@@ -87,12 +85,8 @@ html.dark .lb-rounds {
      Leerraum stehen lassen. */
   margin-bottom: calc(var(--u) * -9);
   transform-style: preserve-3d;
-  transform: rotateX(var(--lb-rx)) rotateY(var(--lb-ry));
-  transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.lb-scene[data-tracking='true'] .lb-stage {
-  transition-duration: 180ms;
+  /* Feste Schrägansicht von oben — die Box kippt nicht mit der Maus mit. */
+  transform: rotateX(-21deg);
 }
 
 /* Jede Ebene zwischen Bühne und Fläche muss 3D weiterreichen — ein einziges
@@ -977,7 +971,6 @@ html.high-contrast .lb-cta::after { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .lb-stage,
   .lb-stack,
   .lb-stack__card,
   .lb-cell span.lb-plate {
