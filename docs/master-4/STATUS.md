@@ -2,14 +2,14 @@
 
 | Feld | Wert |
 |---|---|
-| Letzte Aktualisierung | 2026-09-26, Phase 2 implementiert und lokaler Testabschluss grün; produktive Abnahme offen |
-| Git-Revision | Implementierung `e6a8d32f4ce74ab20a0ff5a4750927c37c108575`; Abschlussnachweise im nachfolgenden Dokumentationscommit |
+| Letzte Aktualisierung | 2026-09-26, Phase-3-Infrastruktur lokal abgeschlossen und geprüft; kein Deployment |
+| Git-Revision | Phase-3-Ausgangsstand `a25f8285c89a0bfecec6d4d65657a594547cfabc`; Infrastruktur und Nachweise im gemeinsamen Abschlusscommit |
 | Branch | `codex/vps-self-hosted` |
 | Aktives Release | `e6a8d32f4ce74ab20a0ff5a4750927c37c108575` (`/var/www/sitov-current` → `/var/www/sitov-releases/e6a8d32f4ce7`) |
 | Health | Loopback und `https://www.sitov-academy.com/api/health`: `ready` |
-| Letzte Migration | `31_vocabulary_target_forms.sql`; 30/31 produktiv über Runner angewendet, Live-Vertrag und Varianten geprüft |
-| Nächste freie Nummer | **32**, vor Verwendung erneut prüfen; Phase 1 belegt 30 und 31 |
-| Datenbank | PostgreSQL 15.8; 30/31 mit Backup aktiviert; anschließende Abnahme ausschließlich lesend |
+| Letzte Migration | Lokal `35_path_learning.sql`; produktiv weiterhin 31, Migrationen 32–35 nicht aktiviert |
+| Nächste freie Nummer | **36**, vor Verwendung erneut prüfen |
+| Datenbank | Produktiv unverändert PostgreSQL 15.8; Phase 3 in isoliertem lokalem PostgreSQL-17.11-Klon mit Backups geprüft |
 
 ## Test-Baseline (Phase 0)
 
@@ -124,3 +124,63 @@ Tests: **1.792 Jest**, **423 DB**, **177 Playwright** (Desktop/Pixel 7/iPhone 14
 - [x] Lokaler Testabschluss und Git-Abgabe: dieser Commit auf `codex/vps-self-hosted`; keine weiteren Phasen implementiert, kein Deployment.
 
 Migration/Produktivaktivierung, echte Gateway-Integration sowie Screenshot-/Lighthouse-Abnahme bleiben wie oben offen. Keine Produktivdaten verändert.
+
+## Phase 3 — Lernpfad-Infrastruktur
+
+Stand: **im ausdrücklich beauftragten Infrastrukturumfang lokal abgeschlossen**. Keine Phase 4 ausgeführt. Der Zusatzauftrag beschränkt diesen Durchlauf auf Architektur, Tabellen, RPCs, Enums und Zod-Verträge. Neue Lernseiten, Routenwechsel und CMS-Oberfläche aus 3.5/3.6 wurden deshalb nicht implementiert. Der vollständige ursprüngliche UI-Abnahmeumfang von Phase 3 ist damit noch nicht erreicht.
+
+Ausgangsrevision `a25f828`; [Prüfbericht](PHASE-3-PRUEFBERICHT.md), [Seed-/Aufgabenvertrag](PHASE-3-SEED-VERTRAG.md), [PostgreSQL-Nachweise](phase-3-db-nachweise.json). Gemeinsamer lokaler Abschlusscommit; kein Push und kein Deployment.
+
+- [x] 3.1 Serielle Pfad-/Knotenfreigabe, mindestens 80 % zum Bestehen, Spezial-Zweige ohne Sperrwirkung, Erstversuch-Sterne mit Bestwert, wiederholbare/fortsetzbare Knoten. Niveaus bleiben ausschließlich durch Lehrkraft freigeschaltet; keine Abschlussbenachrichtigung.
+- [x] 3.2 Vorgeschaltete Enum-Migration **33**, alle neun Typen mit passenden SQL-/Zod-Verträgen und PostgreSQL-Bewertung, `SOFT_ERROR` richtig, optionales `needs_article`, lokale Offline-Audio-Infrastruktur.
+- [x] 3.3 Datenmodell, Übersetzungen, RLS, RPC-Schreibgrenze, Archivierung der alten Grammatik-Units aller Niveaus; Niveau-/Gesamtreset und Browserinvalidierung erweitert.
+- [x] 3.4 Karte-/Knoten-/Test-/Staff-RPCs, lösungsfreie Startantworten, blockierter Alt-RPC-Zugriff, idempotente Antwortbelege, eingefrorene Aufgaben, Testauswahl mit jedem Lernziel und garantierter anderer Folgeauswahl. Alle zugehörigen DB-Tests grün.
+- [x] 3.6 Backend-Grundlage für spätere Pflege: validierender Pfadimport und Export im vorhandenen Seedformat; Archivierung statt Löschen. CLI-Importbefehl vorbereitet, nicht ausgeführt.
+- [x] R7–R9: Runner-Reihenfolge 33 → 34 → 35, Rückwege, echter Schema-/Typenkatalog, doppelte Migration, Rückweg und Wiederanwendung im isolierten PostgreSQL-Klon; 13 geprüfte synthetische Backups, echte parallele Sitzungen.
+- [x] Abschluss: **460/460 DB-/Offline-Audio-Tests**, **54/54 gezielte Jest-Tests**, **64/64 Python-Tests**, jeweils ohne Skip; TypeScript und Build Exit 0. Kein Testfilter hinzugefügt. Bestehende zeitabhängige Last-active-Fixture deterministisch gemacht.
+- [ ] 3.5 Lernkarte, Knoten-/Testansichten, Weiterleitung, Dock-Ziel, Brotkrumen, Animationen und neue Playwright-/Axe-Fälle: außerhalb dieses Infrastrukturauftrags.
+- [ ] 3.6 CMS-Oberfläche mit Vorschau und Bearbeitung: außerhalb dieses Infrastrukturauftrags; Backend-Verträge stehen bereit.
+
+### Migrationen und Betrieb
+
+Neu: `33_path_exercise_types.sql`, `34_path_content_contract.sql`, `35_path_learning.sql`, jeweils mit Datei unter `supabase/vps/rollback/`. Nächste freie Nummer **36**. Produktiv wurden weder 32 noch 33–35 angewendet. Die neuen Migrationen archivieren alte Grammatik-Units und dürfen erst zusammen mit dem passenden Lernpfad-UI-Release aktiviert werden. Kein RAM-Limit, Dienst, Hosting oder Produktionsinhalt wurde verändert.
+
+Klon: lokales PostgreSQL **17.11**, ausschließlich synthetische Daten; kein VPS-/Produktionsklon. Migrationen zweimal und nach Rückweg erneut mit identischem Schema. Zwei parallele echte Sitzungen liefern denselben Knotenlauf und denselben Antwortbeleg, genau eine Wertung. Migrationen- und Backup-SHA256 im [Nachweis](phase-3-db-nachweise.json). Die konkrete PostgreSQL-15.8-Abnahme bleibt vor einer späteren produktiven Aktivierung erforderlich.
+
+`supabase/schema.sql` stammt aus dem abschließend geprüften PostgreSQL-Klon; SHA256 **e2e956b43d2896563f094dbea45690feb60781b0084f97a79d52377ef93a46d8**. Der Snapshot enthält weiterhin sämtliche 741 bisherigen Objektmarker plus neue Objekte. Die betroffenen öffentlichen Typen in `database.types.ts` wurden über `deploy/vps/export-path-types.py` aus dem echten Klon-Katalog erzeugt. Der vollständige Snapshot wurde mit PostgreSQL 17 exportiert und ist ein Referenzartefakt; produktive Änderungen erfolgen ausschließlich über den Migrationsrunner.
+
+Rückweg: 35 deaktiviert neue RPCs/Pfade und stellt alte Funktionen sowie alte Unit-Aktivierungen wieder her; sämtliche neuen Pfaddaten bleiben erhalten. 34 bricht den vollständigen Rückweg ausdrücklich ab, falls schon Aufgaben der sechs neuen Typen existieren; dann ist das gesicherte Backup der vollständige Rückweg. Zusätzliche Enumlabels bleiben nach 33 erhalten. Nichts wird per `CASCADE` gelöscht.
+
+### Verbindliche Datenmodell-Übergabe
+
+| Tabelle | Spalten |
+| --- | --- |
+| `learning_units` — neue Spalten | `is_path`, `path_source_id`, `path_slug`, `path_title`; bestehende `id`, `level`, `trainer='exercises'`, `label`, `sort_order`, `is_active` bleiben maßgeblich |
+| `learning_exercises` — neue Spalten | `node_id`, `goal_id`, `source_ref`, `sort_order`, `path_is_active`, `explanation_card`; bestehende `type`, `content`, `unit_id`, `content_version`, `content_status` bleiben |
+| `grammar_translations` — neue Spalte | `instruction`; vorhandene `exercise_id`, `locale`, `hint`, `smart_hint`, `explanation`, `prompt` bleiben |
+| `path_unit_translations` | `unit_id`, `locale`, `title` |
+| `path_objectives` | `unit_id`, `id` (Quellkennung), `area`, `description` |
+| `path_nodes` | `id`, `unit_id`, `source_id`, `kind`, `sort_order`, `title`, `topic`, `merkkarte`, `goals`, `anchor_node_id`, `test_size`, `is_active`, `created_by`, `created_at`, `updated_at` |
+| `path_node_translations` | `node_id`, `locale`, `title`, `rule` |
+| `path_node_progress` | `auth_user_id`, `node_id`, `status`, `best_stars`, `first_attempt_accuracy`, `created_at`, `updated_at`, `completed_at` |
+| `path_practice_runs` | `id`, `auth_user_id`, `node_id`, `status`, `queue`, `total`, `first_correct`, `created_at`, `updated_at`, `completed_at` |
+| `path_test_attempts` | `id`, `auth_user_id`, `node_id`, `status`, `selected_exercise_ids`, `percentage`, `passed`, `created_at`, `completed_at` |
+| `path_test_answers` | `attempt_id`, `exercise_id`, `answer`, `result`, `answered_at` |
+| `path_interventions` | `id`, `auth_user_id`, `unit_id`, `node_id`, `action`, `created_by`, `created_at` |
+| `path_private.practice_items` | `run_id`, `exercise_id`, `snapshot`, `attempts`, `solved`, `first_correct` |
+| `path_private.test_items` | `attempt_id`, `exercise_id`, `snapshot`, `position` |
+| `path_private.answer_receipts` | `run_id`, `request_id`, `exercise_id`, `answer`, `response` |
+| `path_private.function_backups`, `content_contract_backups` | `signature`, `definition`; ursprüngliche Funktionsdefinitionen für den Rückweg |
+| `path_private.archived_units`, `rollback_unit_flags` | `unit_id`, `is_active`; gesicherte Aktivierungsstände |
+
+Enums: `exercise_type` erweitert um `multi_blank`, `matching`, `categorize`, `dialogue`, `listening`, `transform`; neu `path_node_kind` (`practice`, `review`, `test`, `special`), `path_progress_status` (`in_progress`, `completed`), `path_run_status` (`active`, `completed`, `abandoned`), `path_intervention_action` (`unlock`, `reset_path`, `reset_test`), `path_objective_area` (`grammar`, `communication`, `can_do`, `vocabulary`).
+
+Öffentliche JSONB-RPCs: `get_learning_path(p_level,p_locale)`, `start_path_node(p_node_id,p_locale,p_restart)`, `submit_path_answer(p_run_id,p_exercise_id,p_answer,p_request_id,p_locale)`, `start_path_test(p_node_id,p_locale)`, `submit_path_test_answer(p_attempt_id,p_exercise_id,p_answer)`, `finish_path_test(p_attempt_id,p_locale)`, `manage_learning_path(p_student_id,p_unit_id,p_action,p_node_id)`, `import_learning_path(p_path)`, `export_learning_path(p_unit_id)`. Locale-Standard `de`, Restart-Standard `false`. Alle prüfen die aufrufende Identität; fremde IDs verleihen keine Berechtigung.
+
+### Verbindliche Seed-/Befehls-Übergabe
+
+Der vorhandene Seed bleibt unverändert: **7 Pfade, 85 Knoten, 769 Aufgaben, 87 Lernziele**, SHA256 **d5d954b7579ababef29876eb5321757d722194bd096ae44bf1ab925864c99a0c**. Kein neuer JSON-Seed wurde erstellt. Der neue Import wurde nicht ausgeführt. Der unveränderte Alt-Regressions-Test verwendet seine bestehende kurzlebige Altschema-Testdatenbank; das ist kein Phase-4-Import.
+
+`node scripts/path-seed.mjs` validiert ausschließlich. Der für Phase 4 vorbereitete Importbefehl ist **`node scripts/path-seed.mjs supabase/seeds/path-a1.1.json --import`**; er benötigt ausdrücklich einen lokalen Endpunkt und eine authentifizierte Staff-Sitzung. Alle neun JSON-Formate, Antwortformen, Merkkarten-/Übersetzungsfelder, Source-ID-Zuordnung und Umgebungsvariablen sind im [Seed-/Aufgabenvertrag](PHASE-3-SEED-VERTRAG.md) vollständig beschrieben.
+
+`node scripts/path-listening-audio.mjs` ist ebenfalls nur eine Prüfung. Voraberzeugung/Upload benötigen ausdrücklich `--generate --output <Verzeichnis>` bzw. `--upload --output <Verzeichnis>`. Der private Bucket heißt `path-audio`. Der reale A1.1-Seed hat derzeit **0 Hörübungen**; es wurden keine Dateien erzeugt oder hochgeladen.

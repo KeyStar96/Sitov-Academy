@@ -42,10 +42,14 @@ afterEach(() => {
 it('announces a completed reset without reloading the initiating tab', () => {
   const { callback } = listen()
   localStorage.setItem('sitov_lernkasten:A1.1', '["Lesson 1"]')
+  localStorage.setItem('sitov_path:A1.1:resume', 'old-run-id')
+  sessionStorage.setItem('sitov_path:test', 'old-attempt-id')
   sessionStorage.setItem('sitov_vocab_autostart', 'A1.1')
   announceLearningReset(userId)
   expect(callback).not.toHaveBeenCalled()
   expect(localStorage.getItem('sitov_lernkasten:A1.1')).toBeNull()
+  expect(localStorage.getItem('sitov_path:A1.1:resume')).toBeNull()
+  expect(sessionStorage.getItem('sitov_path:test')).toBeNull()
   expect(sessionStorage.getItem('sitov_vocab_autostart')).toBeNull()
   const stored = JSON.parse(localStorage.getItem(key) ?? '{}') as Record<string, unknown>
   expect(stored.userId).toBe(userId)

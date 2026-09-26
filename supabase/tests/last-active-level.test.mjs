@@ -110,7 +110,9 @@ await test('get_last_active_level follows the most recent learning action of the
    assert.deepEqual([grammar.level,grammar.mode,grammar.levels[0].topic],['A1.1','exercises','Artikel'])
    await age()
    await admin()
-   await db.query("INSERT INTO submissions(auth_user_id,type,level,status,prompt_id) VALUES($1,'audio','A1.2','pending',$2)",[student,prompt])
+   // Explicitly later fixture time: back-to-back PGlite transactions can share
+   // the same timestamp, in which case the RPC correctly uses its mode tie-break.
+   await db.query("INSERT INTO submissions(auth_user_id,type,level,status,prompt_id,created_at) VALUES($1,'audio','A1.2','pending',$2,clock_timestamp()+interval '1 second')",[student,prompt])
    const speech=await last(student)
    assert.deepEqual([speech.level,speech.mode],['A1.2','pronunciation'])
    assert.deepEqual(speech.levels.map(entry=>entry.level),['A1.2','A1.1'])

@@ -397,6 +397,7 @@ export type Database = {
           exercise_id: string
           explanation: string | null
           hint: string | null
+          instruction: string | null
           locale: string
           prompt: string | null
           smart_hint: string | null
@@ -405,6 +406,7 @@ export type Database = {
           exercise_id: string
           explanation?: string | null
           hint?: string | null
+          instruction?: string | null
           locale: string
           prompt?: string | null
           smart_hint?: string | null
@@ -413,6 +415,7 @@ export type Database = {
           exercise_id?: string
           explanation?: string | null
           hint?: string | null
+          instruction?: string | null
           locale?: string
           prompt?: string | null
           smart_hint?: string | null
@@ -518,39 +521,51 @@ export type Database = {
       learning_exercises: {
         Row: {
           content: Json
-          content_status:
-            | Database["public"]["Enums"]["learning_content_status"]
-            | null
+          content_status: Database["public"]["Enums"]["learning_content_status"] | null
           content_version: number
           created_at: string | null
+          explanation_card: string | null
+          goal_id: string | null
           id: string
+          node_id: string | null
+          path_is_active: boolean
           solution_audio_url: string | null
+          sort_order: number
+          source_ref: string | null
           topic: string
           type: Database["public"]["Enums"]["exercise_type"]
           unit_id: string
         }
         Insert: {
           content: Json
-          content_status?:
-            | Database["public"]["Enums"]["learning_content_status"]
-            | null
+          content_status?: never
           content_version?: number
           created_at?: string | null
+          explanation_card?: string | null
+          goal_id?: string | null
           id?: string
+          node_id?: string | null
+          path_is_active?: boolean
           solution_audio_url?: string | null
+          sort_order?: number
+          source_ref?: string | null
           topic: string
           type: Database["public"]["Enums"]["exercise_type"]
           unit_id: string
         }
         Update: {
           content?: Json
-          content_status?:
-            | Database["public"]["Enums"]["learning_content_status"]
-            | null
+          content_status?: never
           content_version?: number
           created_at?: string | null
+          explanation_card?: string | null
+          goal_id?: string | null
           id?: string
+          node_id?: string | null
+          path_is_active?: boolean
           solution_audio_url?: string | null
+          sort_order?: number
+          source_ref?: string | null
           topic?: string
           type?: Database["public"]["Enums"]["exercise_type"]
           unit_id?: string
@@ -562,6 +577,20 @@ export type Database = {
             isOneToOne: false
             referencedRelation: "learning_units"
             referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "path_exercise_goal_fk"
+            columns: ["unit_id", "goal_id"]
+            isOneToOne: false
+            referencedRelation: "path_objectives"
+            referencedColumns: ["unit_id", "id"]
+          },
+          {
+            foreignKeyName: "path_exercise_node_fk"
+            columns: ["node_id", "unit_id"]
+            isOneToOne: false
+            referencedRelation: "path_nodes"
+            referencedColumns: ["id", "unit_id"]
           },
         ]
       }
@@ -734,27 +763,39 @@ export type Database = {
         Row: {
           id: string
           is_active: boolean
+          is_path: boolean
           label: string
           level: string
           owner_auth_user_id: string | null
+          path_slug: string | null
+          path_source_id: string | null
+          path_title: string | null
           sort_order: number
           trainer: Database["public"]["Enums"]["trainer_code"]
         }
         Insert: {
           id?: string
           is_active?: boolean
+          is_path?: boolean
           label: string
           level: string
           owner_auth_user_id?: string | null
+          path_slug?: string | null
+          path_source_id?: string | null
+          path_title?: string | null
           sort_order?: number
           trainer: Database["public"]["Enums"]["trainer_code"]
         }
         Update: {
           id?: string
           is_active?: boolean
+          is_path?: boolean
           label?: string
           level?: string
           owner_auth_user_id?: string | null
+          path_slug?: string | null
+          path_source_id?: string | null
+          path_title?: string | null
           sort_order?: number
           trainer?: Database["public"]["Enums"]["trainer_code"]
         }
@@ -1542,6 +1583,417 @@ export type Database = {
           },
         ]
       }
+      path_interventions: {
+        Row: {
+          action: Database["public"]["Enums"]["path_intervention_action"]
+          auth_user_id: string
+          created_at: string
+          created_by: string
+          id: string
+          node_id: string | null
+          unit_id: string
+        }
+        Insert: {
+          action: Database["public"]["Enums"]["path_intervention_action"]
+          auth_user_id: string
+          created_at?: string
+          created_by: string
+          id?: string
+          node_id?: string | null
+          unit_id: string
+        }
+        Update: {
+          action?: Database["public"]["Enums"]["path_intervention_action"]
+          auth_user_id?: string
+          created_at?: string
+          created_by?: string
+          id?: string
+          node_id?: string | null
+          unit_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "path_interventions_auth_user_id_fkey"
+            columns: ["auth_user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "path_interventions_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "path_interventions_node_id_fkey"
+            columns: ["node_id"]
+            isOneToOne: false
+            referencedRelation: "path_nodes"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "path_interventions_unit_id_fkey"
+            columns: ["unit_id"]
+            isOneToOne: false
+            referencedRelation: "learning_units"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      path_node_progress: {
+        Row: {
+          auth_user_id: string
+          best_stars: number
+          completed_at: string | null
+          created_at: string
+          first_attempt_accuracy: number
+          node_id: string
+          status: Database["public"]["Enums"]["path_progress_status"]
+          updated_at: string
+        }
+        Insert: {
+          auth_user_id: string
+          best_stars?: number
+          completed_at?: string | null
+          created_at?: string
+          first_attempt_accuracy?: number
+          node_id: string
+          status?: Database["public"]["Enums"]["path_progress_status"]
+          updated_at?: string
+        }
+        Update: {
+          auth_user_id?: string
+          best_stars?: number
+          completed_at?: string | null
+          created_at?: string
+          first_attempt_accuracy?: number
+          node_id?: string
+          status?: Database["public"]["Enums"]["path_progress_status"]
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "path_node_progress_auth_user_id_fkey"
+            columns: ["auth_user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "path_node_progress_node_id_fkey"
+            columns: ["node_id"]
+            isOneToOne: false
+            referencedRelation: "path_nodes"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      path_node_translations: {
+        Row: {
+          locale: string
+          node_id: string
+          rule: string | null
+          title: string
+        }
+        Insert: {
+          locale: string
+          node_id: string
+          rule?: string | null
+          title: string
+        }
+        Update: {
+          locale?: string
+          node_id?: string
+          rule?: string | null
+          title?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "path_node_translations_locale_fkey"
+            columns: ["locale"]
+            isOneToOne: false
+            referencedRelation: "locales"
+            referencedColumns: ["code"]
+          },
+          {
+            foreignKeyName: "path_node_translations_node_id_fkey"
+            columns: ["node_id"]
+            isOneToOne: false
+            referencedRelation: "path_nodes"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      path_nodes: {
+        Row: {
+          anchor_node_id: string | null
+          created_at: string
+          created_by: string | null
+          goals: string[]
+          id: string
+          is_active: boolean
+          kind: Database["public"]["Enums"]["path_node_kind"]
+          merkkarte: Json | null
+          sort_order: number
+          source_id: string
+          test_size: number | null
+          title: string
+          topic: string
+          unit_id: string
+          updated_at: string
+        }
+        Insert: {
+          anchor_node_id?: string | null
+          created_at?: string
+          created_by?: string | null
+          goals?: string[]
+          id?: string
+          is_active?: boolean
+          kind: Database["public"]["Enums"]["path_node_kind"]
+          merkkarte?: Json | null
+          sort_order: number
+          source_id: string
+          test_size?: number | null
+          title: string
+          topic: string
+          unit_id: string
+          updated_at?: string
+        }
+        Update: {
+          anchor_node_id?: string | null
+          created_at?: string
+          created_by?: string | null
+          goals?: string[]
+          id?: string
+          is_active?: boolean
+          kind?: Database["public"]["Enums"]["path_node_kind"]
+          merkkarte?: Json | null
+          sort_order?: number
+          source_id?: string
+          test_size?: number | null
+          title?: string
+          topic?: string
+          unit_id?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "path_nodes_anchor_node_id_unit_id_fkey"
+            columns: ["anchor_node_id", "unit_id"]
+            isOneToOne: false
+            referencedRelation: "path_nodes"
+            referencedColumns: ["id", "unit_id"]
+          },
+          {
+            foreignKeyName: "path_nodes_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "path_nodes_unit_id_fkey"
+            columns: ["unit_id"]
+            isOneToOne: false
+            referencedRelation: "learning_units"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      path_objectives: {
+        Row: {
+          area: Database["public"]["Enums"]["path_objective_area"]
+          description: string
+          id: string
+          unit_id: string
+        }
+        Insert: {
+          area: Database["public"]["Enums"]["path_objective_area"]
+          description: string
+          id: string
+          unit_id: string
+        }
+        Update: {
+          area?: Database["public"]["Enums"]["path_objective_area"]
+          description?: string
+          id?: string
+          unit_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "path_objectives_unit_id_fkey"
+            columns: ["unit_id"]
+            isOneToOne: false
+            referencedRelation: "learning_units"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      path_practice_runs: {
+        Row: {
+          auth_user_id: string
+          completed_at: string | null
+          created_at: string
+          first_correct: number
+          id: string
+          node_id: string
+          queue: string[]
+          status: Database["public"]["Enums"]["path_run_status"]
+          total: number
+          updated_at: string
+        }
+        Insert: {
+          auth_user_id: string
+          completed_at?: string | null
+          created_at?: string
+          first_correct?: number
+          id?: string
+          node_id: string
+          queue: string[]
+          status?: Database["public"]["Enums"]["path_run_status"]
+          total: number
+          updated_at?: string
+        }
+        Update: {
+          auth_user_id?: string
+          completed_at?: string | null
+          created_at?: string
+          first_correct?: number
+          id?: string
+          node_id?: string
+          queue?: string[]
+          status?: Database["public"]["Enums"]["path_run_status"]
+          total?: number
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "path_practice_runs_auth_user_id_fkey"
+            columns: ["auth_user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "path_practice_runs_node_id_fkey"
+            columns: ["node_id"]
+            isOneToOne: false
+            referencedRelation: "path_nodes"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      path_test_answers: {
+        Row: {
+          answer: Json
+          answered_at: string
+          attempt_id: string
+          exercise_id: string
+          result: Json | null
+        }
+        Insert: {
+          answer: Json
+          answered_at?: string
+          attempt_id: string
+          exercise_id: string
+          result?: Json | null
+        }
+        Update: {
+          answer?: Json
+          answered_at?: string
+          attempt_id?: string
+          exercise_id?: string
+          result?: Json | null
+        }
+        Relationships: [
+        ]
+      }
+      path_test_attempts: {
+        Row: {
+          auth_user_id: string
+          completed_at: string | null
+          created_at: string
+          id: string
+          node_id: string
+          passed: boolean | null
+          percentage: number | null
+          selected_exercise_ids: string[]
+          status: Database["public"]["Enums"]["path_run_status"]
+        }
+        Insert: {
+          auth_user_id: string
+          completed_at?: string | null
+          created_at?: string
+          id?: string
+          node_id: string
+          passed?: boolean | null
+          percentage?: number | null
+          selected_exercise_ids: string[]
+          status?: Database["public"]["Enums"]["path_run_status"]
+        }
+        Update: {
+          auth_user_id?: string
+          completed_at?: string | null
+          created_at?: string
+          id?: string
+          node_id?: string
+          passed?: boolean | null
+          percentage?: number | null
+          selected_exercise_ids?: string[]
+          status?: Database["public"]["Enums"]["path_run_status"]
+        }
+        Relationships: [
+          {
+            foreignKeyName: "path_test_attempts_auth_user_id_fkey"
+            columns: ["auth_user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "path_test_attempts_node_id_fkey"
+            columns: ["node_id"]
+            isOneToOne: false
+            referencedRelation: "path_nodes"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      path_unit_translations: {
+        Row: {
+          locale: string
+          title: string
+          unit_id: string
+        }
+        Insert: {
+          locale: string
+          title: string
+          unit_id: string
+        }
+        Update: {
+          locale?: string
+          title?: string
+          unit_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "path_unit_translations_locale_fkey"
+            columns: ["locale"]
+            isOneToOne: false
+            referencedRelation: "locales"
+            referencedColumns: ["code"]
+          },
+          {
+            foreignKeyName: "path_unit_translations_unit_id_fkey"
+            columns: ["unit_id"]
+            isOneToOne: false
+            referencedRelation: "learning_units"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
@@ -1761,6 +2213,74 @@ export type Database = {
         }
         Returns: Json
       }
+      get_learning_path: {
+        Args: {
+          p_level: string
+          p_locale?: string
+        }
+        Returns: Json
+      }
+      start_path_node: {
+        Args: {
+          p_node_id: string
+          p_locale?: string
+          p_restart?: boolean
+        }
+        Returns: Json
+      }
+      submit_path_answer: {
+        Args: {
+          p_run_id: string
+          p_exercise_id: string
+          p_answer: Json
+          p_request_id: string
+          p_locale?: string
+        }
+        Returns: Json
+      }
+      start_path_test: {
+        Args: {
+          p_node_id: string
+          p_locale?: string
+        }
+        Returns: Json
+      }
+      submit_path_test_answer: {
+        Args: {
+          p_attempt_id: string
+          p_exercise_id: string
+          p_answer: Json
+        }
+        Returns: Json
+      }
+      finish_path_test: {
+        Args: {
+          p_attempt_id: string
+          p_locale?: string
+        }
+        Returns: Json
+      }
+      manage_learning_path: {
+        Args: {
+          p_student_id: string
+          p_unit_id: string
+          p_action: string
+          p_node_id?: string
+        }
+        Returns: Json
+      }
+      import_learning_path: {
+        Args: {
+          p_path: Json
+        }
+        Returns: Json
+      }
+      export_learning_path: {
+        Args: {
+          p_unit_id: string
+        }
+        Returns: Json
+      }
     }
     Enums: {
       booking_kind: "registration" | "monthly" | "trial"
@@ -1769,7 +2289,7 @@ export type Database = {
       cefr_code: "A1" | "A2" | "B1" | "B2" | "C1" | "C2"
       course_category: "german" | "speaking" | "online" | "private"
       course_type: "presence" | "online"
-      exercise_type: "fill_in_blank" | "multiple_choice" | "sentence_building"
+      exercise_type: "fill_in_blank" | "multiple_choice" | "sentence_building" | "multi_blank" | "matching" | "categorize" | "dialogue" | "listening" | "transform"
       grammatical_article: "der" | "die" | "das" | "none"
       invoice_status: "outstanding" | "created"
       learning_content_status: "incomplete" | "ready"
@@ -1795,6 +2315,11 @@ export type Database = {
       trainer_code: "vocabulary" | "exercises" | "pronunciation" | "videos"
       unit_access_mode: "all" | "selected"
       vocabulary_direction: "de_to_native" | "native_to_de"
+      path_node_kind: "practice" | "review" | "test" | "special"
+      path_progress_status: "in_progress" | "completed"
+      path_run_status: "active" | "completed" | "abandoned"
+      path_intervention_action: "unlock" | "reset_path" | "reset_test"
+      path_objective_area: "grammar" | "communication" | "can_do" | "vocabulary"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -1922,13 +2447,18 @@ export type CompositeTypes<
 export const Constants = {
   public: {
     Enums: {
+      path_objective_area: ["grammar", "communication", "can_do", "vocabulary"],
+      path_intervention_action: ["unlock", "reset_path", "reset_test"],
+      path_run_status: ["active", "completed", "abandoned"],
+      path_progress_status: ["in_progress", "completed"],
+      path_node_kind: ["practice", "review", "test", "special"],
       booking_kind: ["registration", "monthly", "trial"],
       booking_status: ["pending", "confirmed", "cancelled", "rejected"],
       cancellation_type: ["asap", "specific_date"],
       cefr_code: ["A1", "A2", "B1", "B2", "C1", "C2"],
       course_category: ["german", "speaking", "online", "private"],
       course_type: ["presence", "online"],
-      exercise_type: ["fill_in_blank", "multiple_choice", "sentence_building"],
+      exercise_type: ["fill_in_blank", "multiple_choice", "sentence_building", "multi_blank", "matching", "categorize", "dialogue", "listening", "transform"],
       grammatical_article: ["der", "die", "das", "none"],
       invoice_status: ["outstanding", "created"],
       learning_content_status: ["incomplete", "ready"],

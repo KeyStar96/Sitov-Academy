@@ -40,10 +40,15 @@ function storedNotice(userId: string): LearningResetNotice | null {
 export function clearLearningResetBrowserState(): void {
   try {
     for (const key of Object.keys(window.localStorage)) {
-      if (key.startsWith('sitov_lernkasten:')) window.localStorage.removeItem(key)
+      if (key.startsWith('sitov_lernkasten:') || key.startsWith('sitov_path:')) window.localStorage.removeItem(key)
     }
   } catch { /* Storage may be disabled; the server reset already succeeded. */ }
-  try { window.sessionStorage.removeItem('sitov_vocab_autostart') }
+  try {
+    window.sessionStorage.removeItem('sitov_vocab_autostart')
+    for (const key of Object.keys(window.sessionStorage)) {
+      if (key.startsWith('sitov_path:')) window.sessionStorage.removeItem(key)
+    }
+  }
   catch { /* Private browsing must not turn a completed reset into an error. */ }
 }
 
