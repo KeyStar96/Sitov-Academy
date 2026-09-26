@@ -1,0 +1,84 @@
+{
+  "postgres": "15.8",
+  "files": [
+    "32_last_active_level.sql",
+    "33_path_exercise_types.sql",
+    "34_path_content_contract.sql",
+    "35_path_learning.sql",
+    "36_migrate_old_grammar_progress.sql",
+    "37_vocabulary_carryover.sql",
+    "38_learning_sessions.sql",
+    "39_teacher_dashboard.sql"
+  ],
+  "schema_idempotent": true,
+  "rollback_reapply": true,
+  "stable_seed_ids": true,
+  "legacy_progress_preserved": true,
+  "counts": {
+    "path_count": 7,
+    "node_count": 85,
+    "exercise_count": 769,
+    "objective_count": 87
+  },
+  "backups": [
+    {
+      "label": "first",
+      "sha256": "c0f94ff004ebcdf13c6f274bef6ab3d55b07f3bdaab97f443479cf400e7517e3"
+    },
+    {
+      "label": "second",
+      "sha256": "8ef173d2b37b1e0f62602c6348b484cd6ae648bc903c0d797cebe41c178e32e6"
+    },
+    {
+      "label": "import-first",
+      "sha256": "4cfb84c18049d6d6b6f835625a98025f9e71cfae9a719daf3e9398aa3820f341"
+    },
+    {
+      "label": "import-second",
+      "sha256": "91eb689d855ed655c07039b6182d6f7e80c3814eb3d8ebe682440dc29b881ec2"
+    },
+    {
+      "label": "rollback-39",
+      "sha256": "eae6356ca942741786e1a25ba324272df8a3572ea302509a11b57fab46ef0016"
+    },
+    {
+      "label": "rollback-38",
+      "sha256": "cd2c997e4392d96586af46a28373b7a1f94826e4baf66221f55f45e3432876c4"
+    },
+    {
+      "label": "rollback-37",
+      "sha256": "761c8008510359d64b2e55b75ebc22c98807011914ae43b1fd021f1f42550dc2"
+    },
+    {
+      "label": "rollback-36",
+      "sha256": "96a04200333360c83102610a20edd52c02c0e34f0c872f902ca68183d3d622b2"
+    },
+    {
+      "label": "rollback-35",
+      "sha256": "f8b74f619051f4e8027ac573f6133f5dce5a22801c4dd5bfd6308becb28cfe95"
+    },
+    {
+      "label": "rollback-34",
+      "sha256": "44db4d82dc31f998da6aa42f0d2527d582d2fde254b8108a3ac66e4766c73538"
+    },
+    {
+      "label": "rollback-33",
+      "sha256": "3a5dc20cc08e08130be78e68a9c9f7276f5ca9ee62cb4c8dacef9ac7363959b7"
+    },
+    {
+      "label": "rollback-32",
+      "sha256": "3a5dc20cc08e08130be78e68a9c9f7276f5ca9ee62cb4c8dacef9ac7363959b7"
+    },
+    {
+      "label": "reapply",
+      "sha256": "75bb010aaa2eba5eada4668c1fe4f5826b9fa148ff6289358298b82a8374c24d"
+    },
+    {
+      "label": "import-after-rollback",
+      "sha256": "7a815f2d9b7575cda9215b2791ff525ccc679f9d753a89e7b33c45f8becee1a3"
+    }
+  ],
+  "schema_sha256": "925f55bc2591671c1512e4748943c12b0bfe583b08e39e399bd6028412914664",
+  "seed_export_equal": true,
+  "original_ownership_preserved": true
+}

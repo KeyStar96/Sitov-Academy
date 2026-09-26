@@ -40,4 +40,12 @@ Dies ist der initiale Prüfbericht, keine abgeschlossene Abnahme und kein Deploy
 - Hilfe für Lernpfad und Wortmitnahme auf Home und im mobilen Hilfeblatt in fünf Sprachen ergänzt. Bestehende Kontaktwege unverändert.
 - Ungefiltertes Axe fand eine fehlende H1 in der Staff-Ausspracheansicht und unpassende Aside-Landmarks in Medien-/Aussprache-CMS. Semantische Überschrift bzw. normale Inhaltscontainer korrigiert.
 - Testharness unterstützte HEAD nicht; dadurch scheiterte die Admin-Statistikzählung. HEAD wird jetzt an echtes PostgREST weitergeleitet. Die Matrix verwirft zusätzlich sichtbare Fehleransichten mit Wiederholen-Schaltfläche.
-- Erster breiter Browserlauf wegen dieser Befunde abgebrochen; nicht als grüner Nachweis gewertet. Trace-Aufzeichnung verursachte lange Abschlusswartezeiten; finale Matrix nutzt Fehler-Screenshots und vollständige JSON-/Axe-Ergebnisse ohne Trace-Aufzeichnung, weiterhin alle Assertions und Regeln.
+- Erster breiter Browserlauf wegen dieser Befunde abgebrochen; nicht als grüner Nachweis gewertet. Bei der Trace-Aufzeichnung wurden lange Abschlusswartezeiten beobachtet; finale Matrix nutzt Fehler-Screenshots und vollständige JSON-/Axe-Ergebnisse ohne Trace-Aufzeichnung, weiterhin alle Assertions und Regeln.
+
+- Zusätzlicher PostgreSQL-15.8-Klon mit originalen Eigentümern und Grants: gleicher vollständiger Ablauf grün, einschließlich geschütztem Export aller sieben Pfade. Dadurch werden die unterschiedlichen Rechte von `postgres` und `supabase_admin` berücksichtigt.
+- VPS-Release `a23e870c8aa5` erfolgreich mit `--prepare-only` gebaut. Ressourcenlimits unverändert; altes Release blieb während des Builds `ready`.
+- Browser-Infrastruktur: vorhandener Chromium-Cache unvollständig; Node 26 zeigte hängende Download-/Browser-Abschlüsse. Separate frische Playwright-Browser unter `/tmp/sitov-phase8-browsers` und gebündeltes Node 24.19.0 verwendet. Weiterleitungen vor Axe ausdrücklich abgewartet. Keine Assertions, Routen oder Geräte entfernt.
+
+- Vollmatrix deckte einen echten Safari-Hydrierungsfehler auf: ICU verbindet Datum/Uhrzeit unterschiedlich. Numerische Berliner Datumsbestandteile werden jetzt deterministisch zusammengesetzt; Sommer-/Winterzeit regressionsgeprüft.
+- Streaming-Weiterleitungen alter Lesezeichen verursachten auf WebKit abgebrochene RSC-Anfragen. Feste Aliase werden früh per HTTP weitergeleitet; geschützte Video-Quellen löst ein GET-Handler mit unveränderter Zugriffs-/URL-Prüfung auf. Deutscher Sprachhinweis bleibt erhalten.
+- Abschließende Matrix: 222/222 grün auf drei Geräten × zwei Themen, ungefiltertes Axe. Jest: 1.931/1.931 in 153 Suites. Zwischenläufe mit 209/222 und 220/222 ausdrücklich nicht als Abnahme gewertet.

@@ -44,6 +44,18 @@ const nextConfig: NextConfig = {
   // Leere Konfiguration aktiviert Turbopack ohne Webpack-Fehler
   turbopack: {},
 
+  // Resolve legacy bookmarks before streaming any dashboard HTML.
+  async redirects() {
+    return [
+      { source: '/:lang(de|en|ru|uk|tr)/dashboard/lessons', destination: '/:lang/dashboard', permanent: false },
+      { source: '/:lang(de|en|ru|uk|tr)/dashboard/level/:level/media', destination: '/:lang/dashboard/level/:level/videos', permanent: false },
+      { source: '/:lang(de|en|ru|uk|tr)/dashboard/level/:level/exercises', destination: '/:lang/dashboard/level/:level/path', permanent: false },
+      { source: '/:lang(en|ru|uk|tr)/dashboard/level/:level/videos/:id', destination: '/api/learning-video/:lang/:level/:id', permanent: false },
+      { source: '/:lang(de|en|ru|uk|tr)/admin/feedback', destination: '/:lang/admin/submissions', permanent: false },
+      { source: '/:lang(de|en|ru|uk|tr)/admin/content/videos', destination: '/:lang/admin/content/media', permanent: false },
+    ]
+  },
+
   // PERFORMANCE: Headers für besseres Caching
   async headers() {
     return [
@@ -84,4 +96,3 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
-

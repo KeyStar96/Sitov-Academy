@@ -6,8 +6,8 @@ export default defineConfig({
   workers: 2, retries: 0, reporter: [['list'], ['json', { outputFile: '/tmp/sitov-phase8-playwright-matrix.json' }]],
   use: { baseURL: 'http://127.0.0.1:3107', screenshot: 'only-on-failure', trace: 'off' },
   projects: [
-    { name: 'Desktop Chrome', use: { ...devices['Desktop Chrome'], channel: 'chrome' } },
-    { name: 'Pixel 7', use: { ...devices['Pixel 7'], channel: 'chrome' } },
+    { name: 'Desktop Chrome', use: { ...devices['Desktop Chrome'] } },
+    { name: 'Pixel 7', use: { ...devices['Pixel 7'] } },
     { name: 'iPhone 14', use: { ...devices['iPhone 14'] } },
   ],
 })
