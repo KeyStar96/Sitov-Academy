@@ -4,6 +4,7 @@ import { useEffect, useId, useRef, useState, type CSSProperties } from 'react'
 import { usePathname } from 'next/navigation'
 import { CalendarDays, GraduationCap, House, LifeBuoy, Mail, MessageCircle, Phone, Send } from 'lucide-react'
 import BottomSheet from '@/components/ui/BottomSheet'
+import LearningHelpEntries from '@/components/dashboard/LearningHelpEntries'
 import PressableCard from '@/components/motion/PressableCard'
 import SlidingPill from '@/components/motion/SlidingPill'
 import { dashboardHomeTranslator } from '@/lib/dashboard-home-i18n'
@@ -204,6 +205,7 @@ export default function StudentNavigation({ lang, firstLevel, levels, supportLab
             )
           })}
         </ul>
+        <LearningHelpEntries lang={lang} />
       </BottomSheet>
     </>
   )

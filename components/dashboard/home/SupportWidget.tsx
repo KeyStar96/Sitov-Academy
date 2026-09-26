@@ -1,6 +1,7 @@
 import { LifeBuoy, Mail, MessageCircle, Phone, Send } from 'lucide-react'
 import { dashboardHomeTranslator } from '@/lib/dashboard-home-i18n'
 import { supportChannels, type SupportLabels } from '@/lib/support-channels'
+import LearningHelpEntries from '@/components/dashboard/LearningHelpEntries'
 
 export type { SupportLabels }
 
@@ -40,6 +41,7 @@ export default function SupportWidget({ lang, labels, className = '' }: {
           </li>
         ))}
       </ul>
+      <LearningHelpEntries lang={lang} />
     </section>
   )
 }

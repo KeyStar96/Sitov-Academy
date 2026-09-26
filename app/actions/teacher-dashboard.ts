@@ -60,6 +60,7 @@ export async function interveneTeacherPath(input: TeacherIntervention): Promise<
       revalidatePath('/[lang]/admin/students', 'page')
       revalidatePath('/[lang]/admin/students/[id]', 'page')
       revalidatePath('/[lang]/dashboard/level/[level]/exercises', 'page')
+  revalidatePath('/[lang]/dashboard/level/[level]/path', 'page')
     }
     return result
   } catch { return { error: 'request_failed' } }

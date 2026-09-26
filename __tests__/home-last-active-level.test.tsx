@@ -61,7 +61,7 @@ it('zeigt „Deine Lernbereiche · A1.2", wenn zuletzt in A1.2 gelernt wurde —
   expect(t('areas_title_level', { level: 'A1.2' })).toBe(`${t('areas_title')} · A1.2`)
   // Der Knopf führt zum zuletzt genutzten Modus dieses Niveaus.
   expect(screen.getByRole('link', { name: t('continue_to_vocabulary') })).toHaveAttribute('href', '/ru/dashboard/level/A1.2/vocabulary')
-  expect(screen.getByRole('link', { name: new RegExp(t('area_path')) })).toHaveAttribute('href', '/ru/dashboard/level/A1.2/exercises')
+  expect(screen.getByRole('link', { name: new RegExp(t('area_path')) })).toHaveAttribute('href', '/ru/dashboard/level/A1.2/path')
 })
 
 it('nennt auf Deutsch dieselbe Überschrift und führt bei gesperrtem Modus zur Übersicht', async () => {
@@ -77,7 +77,7 @@ it('ohne Lernhandlung im Niveau: „Zum Lernpfad"', async () => {
   await renderHome('ru')
   const t = studentTranslator('ru')
   expect(screen.getByRole('heading', { level: 2, name: t('areas_title_level', { level: 'A1.1' }) })).toBeInTheDocument()
-  expect(screen.getByRole('link', { name: t('continue_to_path') })).toHaveAttribute('href', '/ru/dashboard/level/A1.1/exercises')
+  expect(screen.getByRole('link', { name: t('continue_to_path') })).toHaveAttribute('href', '/ru/dashboard/level/A1.1/path')
 })
 
 it('fällt nur bei gescheiterter Abfrage auf das erste angefangene Niveau zurück', async () => {

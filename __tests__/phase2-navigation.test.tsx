@@ -32,9 +32,9 @@ beforeEach(() => { window.localStorage.clear(); mockPathname = '/de/dashboard' }
 
 describe('Modus-Ziele an einer Stelle', () => {
   it('führen bis Phase 3 zum bestehenden Grammatik-Trainer und erkennen jeden Modus an seiner Route', () => {
-    expect(MODE_SEGMENTS).toEqual({ vocabulary: 'vocabulary', path: 'exercises', pronunciation: 'pronunciation', media: 'videos' })
+    expect(MODE_SEGMENTS).toEqual({ vocabulary: 'vocabulary', path: 'path', pronunciation: 'pronunciation', media: 'videos' })
     expect(LEARNING_MODES.map(mode => modeHref('ru', 'A1.1', mode))).toEqual([
-      '/ru/dashboard/level/A1.1/vocabulary', '/ru/dashboard/level/A1.1/exercises',
+      '/ru/dashboard/level/A1.1/vocabulary', '/ru/dashboard/level/A1.1/path',
       '/ru/dashboard/level/A1.1/pronunciation', '/ru/dashboard/level/A1.1/videos'])
     expect(lessonsHref('ru', 'A1.1')).toBe('/ru/dashboard/level/A1.1/vocabulary/lessons')
     expect(modeFromPathname('/ru/dashboard/level/A1.1/vocabulary/lessons')).toBe('vocabulary')
@@ -70,7 +70,7 @@ describe('Modus-Dock', () => {
   it.each([
     ['/ru/dashboard/level/A1.1/vocabulary', 'area_vocabulary'],
     ['/ru/dashboard/level/A1.1/vocabulary/lessons', 'area_vocabulary'],
-    ['/ru/dashboard/level/A1.1/exercises', 'area_path'],
+    ['/ru/dashboard/level/A1.1/path', 'area_path'],
     ['/ru/dashboard/level/A1.1/pronunciation', 'area_pronunciation'],
     ['/ru/dashboard/level/A1.1/videos', 'area_media'],
   ] as const)('%s: genau ein aktiver Reiter mit aria-current', (path, label) => {
@@ -105,7 +105,7 @@ describe('Modus-Dock', () => {
     render(<ModeDock lang="ru" level="A1.1" entries={open({ path: { lock: 'teacher' }, pronunciation: { lock: 'teacher', count: 4 } })} />)
     const path = screen.getByRole('link', { name: `${t('area_path')}, ${t('mode_locked')}` })
     expect(path).toHaveAttribute('data-locked', 'teacher')
-    expect(path).toHaveAttribute('href', '/ru/dashboard/level/A1.1/exercises')
+    expect(path).toHaveAttribute('href', '/ru/dashboard/level/A1.1/path')
     expect(path.querySelector('.lucide-lock')).not.toBeNull()
     // Gesperrt: keine Zahl, die zum Üben einlädt.
     expect(screen.getByRole('link', { name: `${t('area_pronunciation')}, ${t('mode_locked')}` })).not.toHaveTextContent('4')
@@ -143,7 +143,7 @@ describe('Brotkrumen mit vollem Pfad', () => {
     ['Vokabeln / Lektionen', '/de/dashboard/level/A1.1/vocabulary/lessons', ['Start', 'A1.1', 'Vokabeln', 'Lektionen']],
     ['Aussprache', '/de/dashboard/level/A1.1/pronunciation', ['Start', 'A1.1', 'Aussprache']],
     ['Mediathek', '/de/dashboard/level/A1.1/videos', ['Start', 'A1.1', 'Mediathek']],
-    ['Lernpfad (bis Phase 3)', '/de/dashboard/level/A1.1/exercises', ['Start', 'A1.1', 'Lernpfad']],
+    ['Lernpfad', '/de/dashboard/level/A1.1/path', ['Start', 'A1.1', 'Lernpfad']],
     ['Video', '/de/dashboard/level/A1.1/videos/5f0c', ['Start', 'A1.1', 'Mediathek', 'Video']],
     ['Kalender', '/de/dashboard/calendar', ['Start', 'Kalender']],
   ])('%s', (_, path, expected) => {

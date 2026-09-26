@@ -68,13 +68,13 @@ export default function PronunciationCMS({ prompts, translations, lang, initialL
    <button className={`${button} bg-[var(--accent-strong)] text-[var(--accent-foreground)]`} onClick={() => { setNotice(null); setForm({ level, title: '', text: '', focus: '', isActive: isAccessLevel(level) }); requestAnimationFrame(() => formRef.current?.scrollIntoView({ block: 'start', behavior: 'smooth' })) }}><Plus size={20} aria-hidden="true" />{t('cms_add')}</button>
   </header>
 
-  <aside className="flex flex-col gap-3 rounded-2xl border border-[var(--border)] bg-[var(--surface-muted)] p-4 sm:flex-row sm:items-center sm:justify-between">
+  <div className="flex flex-col gap-3 rounded-2xl border border-[var(--border)] bg-[var(--surface-muted)] p-4 sm:flex-row sm:items-center sm:justify-between">
    <p className="max-w-3xl text-sm leading-relaxed">{t('cms_scope')}</p>
    <div className="flex shrink-0 flex-wrap gap-2">
     <Link href={`/${lang}/admin/content/vocabulary`} className={`${button} bg-[var(--surface)]`}>{t('cms_scope_vocabulary')}<ArrowRight size={16} aria-hidden="true" /></Link>
     <Link href={`/${lang}/admin/content/exercises`} className={`${button} bg-[var(--surface)]`}>{t('cms_scope_grammar')}<ArrowRight size={16} aria-hidden="true" /></Link>
    </div>
-  </aside>
+  </div>
 
   <div className="flex flex-wrap items-end gap-4">
    <label className="block w-full max-w-xs text-sm font-semibold">{t('cms_level_label')}<select className={field} value={level} onChange={event => setLevel(event.target.value)}>{LEVELS.map(value => <option key={value} value={value}>{t('cms_level_summary', { level: value, visible: counts.get(value)!.visible, archived: counts.get(value)!.archived })}</option>)}</select></label>

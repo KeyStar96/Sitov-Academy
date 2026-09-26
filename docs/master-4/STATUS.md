@@ -2,7 +2,7 @@
 
 | Feld | Wert |
 |---|---|
-| Letzte Aktualisierung | 2026-09-26, Phase 7 lokal vollständig implementiert und abgenommen; Phase 6 übersprungen, Produktion unverändert |
+| Letzte Aktualisierung | 2026-09-26, Phase 8 in Arbeit: PostgreSQL-15.8-Klon abgenommen, Releasevorbereitung; Phase 6 bleibt übersprungen |
 | Git-Revision | Phase-7-Ausgangsstand `09e66e94760ad709b0d92b2850bc30fbfc9de378`; Phase-7-Implementierung und Nachweise für gemeinsamen lokalen Abschlusscommit |
 | Branch | `codex/vps-self-hosted` |
 | Aktives Release | `e6a8d32f4ce74ab20a0ff5a4750927c37c108575` (`/var/www/sitov-current` → `/var/www/sitov-releases/e6a8d32f4ce7`) |
@@ -275,3 +275,22 @@ Stand: **lokal vollständig implementiert und abgenommen.** Ausschließlich Phas
 Lernzeit vor Einführung der Sitzungserfassung wird nicht rückwirkend geschätzt. Historische Pfad-/Test-/Aussprachezeitpunkte werden für „zuletzt aktiv“ berücksichtigt; Übungsantwortbelege ohne gespeicherten Zeitpunkt werden nicht einer erfundenen Siebentage-Trefferquote zugeordnet. Die 180-Tage-Löschung wird durch die nächste Lernaktivität beziehungsweise den Wartungsaufruf ausgelöst; bei vollständigem Stillstand läuft kein zusätzlicher Hintergrundprozess.
 
 Es gibt weiterhin keine Einspruchs-Warteschlange und keinen Knopf zur Selbstkorrektur von Schreibantworten; Karteikarten-Selbsteinschätzung bleibt unverändert. Phase 6 bleibt bewusst übersprungen. Phase 8 wurde nicht vorgezogen. Eine produktive Aktivierung der Migrationen 32–39 ist ausdrücklich nicht beauftragt und wurde nicht ausgeführt.
+
+
+## Phase 8 — Abnahme und Auslieferung
+
+Stand: **in Arbeit, noch keine Produktionsmigration oder Aktivierung**. Der Nutzer hat den kumulativen Go-Live beauftragt. Die vollständige Release-Abhängigkeit umfasst **32–39**, einschließlich der Phase-7-Migrationen 38/39. Phase 6 wird nicht nachgeholt.
+
+- [x] Regeln, Phase-8-Auftrag und Ist-Stand gelesen; [Prüfbericht vor Änderungen](PHASE-8-PRUEFBERICHT.md) erstellt.
+- [x] Live-Stand lesend bestätigt: altes Release `e6a8d32f4ce7`, Health `ready`, PostgreSQL 15.8; App/nginx/TTS aktiv, Mail inaktiv.
+- [x] Vollbackup mit 563 Storage-Objekten; anfänglich abgeschnittener Download erkannt und kompletter erfolgreicher Wiederholungslauf dokumentiert.
+- [x] Kumulativer PostgreSQL-15.8-Klon: Migrationen 32–39 zweimal, sämtliche Rückwege, Wiederanwendung, drei Importe, identische IDs, erhaltene Altfortschritte und vollständiger Seed-Exportvergleich. [Nachweise](phase-8-postgres15-nachweise.json).
+- [x] Idempotenzfehler in Migration 34 vor Erstaktivierung korrigiert: Postgres-Grant auf ihre eigenen neun Funktionen begrenzt.
+- [x] `/path` als kanonisches Ziel und `/exercises` als Weiterleitung; Hilfe für Lernpfad und Wortmitnahme in fünf Sprachen.
+- [x] Gefundene semantische Axe-Fehler in Staff-Aussprache, Medien- und Aussprache-CMS korrigiert.
+- [x] Aktuelle Regression: 1.925 Jest-Tests / 151 Suites, 531 DB-/Node-Tests und 64 Python-Tests grün; Produktionsbuild erfolgreich.
+- [ ] Abschließende vollständige Browsermatrix, kompletter Pixel-7-Lernpfad und Lighthouse-Nachweise.
+- [ ] Produktivmigration mit Backup, Live-Seedimport, Aktivierung, Rauchtest, Testdatenbereinigung, aktive Dienste.
+- [ ] Schema-/Typenexport aus Produktion, endgültige Verifikation und Abschlusscommit.
+- [N/A] Phase-6-Abnahmematrix und Hilfe für deren neue Funktionen: ausdrücklich aus dem MVP ausgeschlossen.
+- [N/A] Numerischer Lighthouse-Vergleich mit Phase 0: dort wurde kein Vergleichswert erhoben. Neue Werte werden ausdrücklich als Erstbaseline dokumentiert.

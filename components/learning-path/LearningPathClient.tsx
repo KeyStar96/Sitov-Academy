@@ -1,5 +1,7 @@
 'use client'
 
+import { modeHref } from '@/lib/mode-targets'
+
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
@@ -136,7 +138,7 @@ export default function LearningPathClient({ initialPath, initialError, lang, le
       {map?.completed && <div className={styles.card}>
         <p>{t('all_done')}</p>
         {map.next_level && (map.next_level_available
-          ? <Link className={styles.primary} href={`/${lang}/dashboard/level/${encodeURIComponent(map.next_level)}/exercises`}>{t('next_level', { level: map.next_level })}</Link>
+          ? <Link className={styles.primary} href={modeHref(lang, map.next_level, 'path')}>{t('next_level', { level: map.next_level })}</Link>
           : <p>{t('teacher_level')}</p>)}
       </div>}
       {map?.paths.map(path => <article key={path.id} className={styles.card}>

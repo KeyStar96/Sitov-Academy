@@ -156,6 +156,11 @@ def main():
             def do_GET(self):
                 self.handle_request()
 
+            def do_HEAD(self):
+                # Supabase exact-count queries use HEAD. Forward to the real
+                # PostgREST instance so whole-route acceptance sees real counts.
+                self.handle_request()
+
             def do_POST(self):
                 self.handle_request()
 

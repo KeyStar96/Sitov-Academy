@@ -344,4 +344,10 @@ GRANT EXECUTE ON FUNCTION path_private.valid_text(jsonb,integer,boolean),path_pr
  path_private.valid_local_audio(jsonb),path_private.german_task_allowed(jsonb),
  path_private.valid_content(public.exercise_type,jsonb) TO authenticated,service_role;
 GRANT USAGE ON SCHEMA path_private TO postgres;
-GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA path_private TO postgres;
+-- Scope the grant to this migration. A replay after 35–39 must not grant
+-- additional privileges on helpers introduced by those later migrations.
+GRANT EXECUTE ON FUNCTION path_private.valid_text(jsonb,integer,boolean),path_private.text_key(text),
+ path_private.valid_strings(jsonb,integer,boolean),path_private.only_keys(jsonb,text[]),
+ path_private.valid_local_audio(jsonb),path_private.german_task_allowed(jsonb),
+ path_private.valid_content(public.exercise_type,jsonb),path_private.present_content(public.exercise_type,jsonb),
+ path_private.grade(public.exercise_type,jsonb,jsonb) TO postgres;

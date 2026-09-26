@@ -49,7 +49,7 @@ export default function MediaFolderCMS({ initial, initialLooseLinks = [], lang }
     setEditingLink(null)
   }
   const field = 'min-h-12 w-full rounded-lg border border-[var(--border)] bg-[var(--surface)] px-3'
-  return <div className="space-y-8"><div className="grid items-start gap-6 xl:grid-cols-[20rem_minmax(0,1fr)]"><aside className="min-w-0 space-y-6">
+  return <div className="space-y-8"><div className="grid items-start gap-6 xl:grid-cols-[20rem_minmax(0,1fr)]"><div className="min-w-0 space-y-6">
     <label className="block space-y-2"><span>{t.selectFolder}</span><select className={field} value={selected} onChange={event => setSelected(event.target.value)}><option value="">{t.selectFolder}</option>{folders.map(item => <option key={item.folder_id} value={item.folder_id}>{item.level} · {item.title}</option>)}</select></label>
     {folder && <button onClick={() => setForm({ folder_id: folder.folder_id, title: folder.title, level: folder.level, sort_order: folder.sort_order })} className={`${field} text-left`}>{t.edit}</button>}
     <form onSubmit={save} className="space-y-4 rounded-2xl border border-[var(--border)] p-5"><h2 className="text-lg font-semibold">{form.folder_id ? t.edit : t.newFolder}</h2>
@@ -60,7 +60,7 @@ export default function MediaFolderCMS({ initial, initialLooseLinks = [], lang }
       <button disabled={busy} className="min-h-12 rounded-lg bg-[var(--accent-strong)] px-5 font-semibold text-[var(--accent-foreground)] hover:bg-[var(--accent-strong-hover)]">{t.save}</button>
       <p role={notice === 'failed' ? 'alert' : 'status'} className="min-h-6 text-sm">{notice ? t[notice] : ''}</p>
     </form>
-  </aside><div className="min-w-0 space-y-6">{folder ? <>
+  </div><div className="min-w-0 space-y-6">{folder ? <>
     <section ref={addRef} aria-labelledby="media-add-title" className="scroll-mt-24 space-y-3">
       <h2 id="media-add-title" className="text-lg font-semibold">{t.addContent} <span className="font-normal text-[var(--muted)]">· {folder.level} · {folder.title}</span></h2>
       <div className="grid items-start gap-4 [grid-template-columns:repeat(auto-fit,minmax(min(100%,20rem),1fr))]">

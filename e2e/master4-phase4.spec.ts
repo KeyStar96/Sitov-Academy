@@ -9,7 +9,8 @@ const exercises = new Map<string, any>(seed.flatMap((path: any) => path.nodes.fl
 const sessionFile = process.env.PHASE4_SESSION_FILE
 if (!sessionFile) throw new Error('Set PHASE4_SESSION_FILE from phase4-local-import.py --serve')
 const session = JSON.parse(readFileSync(sessionFile, 'utf8'))
-const backend = 'http://127.0.0.1:54339'
+const backend = process.env.PATH_E2E_BACKEND || 'http://127.0.0.1:54339'
+if (!['127.0.0.1', 'localhost'].includes(new URL(backend).hostname)) throw new Error('Path tests require an isolated loopback backend')
 
 async function signIn(page: Page, theme = 'light') {
   await page.context().addCookies([{ name: 'sb-sitov-auth-token',
