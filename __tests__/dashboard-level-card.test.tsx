@@ -36,6 +36,9 @@ it('ist gesperrt kein Link, sondern eine Sackgasse mit Begründung', () => {
 })
 
 it('nummeriert die Kacheln zweistellig', () => {
-  mount({ index: 5 })
-  expect(screen.getByText('06')).toBeInTheDocument()
+  const { container } = mount({ index: 5 })
+  // Das dekorative Relief wird seit Phase 2 über ::before dargestellt.
+  const number = container.querySelector('.academy-level-number')
+  expect(number).toHaveAttribute('data-number', '06')
+  expect(number).toHaveAttribute('aria-hidden', 'true')
 })

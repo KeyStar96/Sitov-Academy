@@ -1,12 +1,12 @@
 import { expect, test, type Page } from '@playwright/test'
 import AxeBuilder from '@axe-core/playwright'
+import { signInPhase2 as signIn } from './helpers/phase2-session'
 
 /**
  * Phase 2 — Navigation und Design-System im echten Browser (Desktop, Pixel 7,
  * iPhone 14) gegen das künstliche Loopback-Fixture (e2e/phase2.config.ts).
  * Keine Regel, kein Knoten und kein Gerät wird ausgeblendet.
  */
-const USER_ID = '00000000-0000-4000-8000-000000000001'
 const ROUTES = {
   home: '/en/dashboard',
   level: '/en/dashboard/level/A1.1',
@@ -17,24 +17,6 @@ const ROUTES = {
   media: '/en/dashboard/level/A1.1/videos',
 } as const
 const ACTIVE = { vocabulary: 'Vocabulary', lessons: 'Vocabulary', path: 'Learning path', pronunciation: 'Pronunciation', media: 'Media library' } as const
-
-const b64 = (value: object) => Buffer.from(JSON.stringify(value)).toString('base64url')
-
-async function signIn(page: Page, theme: 'light' | 'dark' = 'light') {
-  const expires = Math.floor(Date.now() / 1000) + 3600
-  const user = { id: USER_ID, aud: 'authenticated', role: 'authenticated', email: 'demo@example.invalid', app_metadata: { provider: 'email' }, user_metadata: {} }
-  const session = { access_token: `${b64({ alg: 'HS256', typ: 'JWT' })}.${b64({ sub: USER_ID, aud: 'authenticated', role: 'authenticated', exp: expires })}.local-fixture-only`,
-    refresh_token: 'local-fixture-only', token_type: 'bearer', expires_in: 3600, expires_at: expires, user }
-  const origin = new URL(test.info().project.use.baseURL ?? 'http://127.0.0.1:3100')
-  await page.context().addCookies([{ name: 'sb-sitov-auth-token', value: `base64-${b64(session)}`, domain: origin.hostname, path: '/', httpOnly: false, secure: false, sameSite: 'Lax' }])
-  await page.addInitScript(value => {
-    localStorage.setItem('theme', value)
-    localStorage.setItem('academy-contrast', 'standard')
-    localStorage.setItem('sitov-consent', JSON.stringify({ version: 1, marketing: false, decidedAt: new Date(Date.now() - 60000).toISOString() }))
-  }, theme)
-  // R3: nur Loopback — keine CDNs, Schriften oder Dienste von außen.
-  await page.route('**/*', route => ['127.0.0.1', 'localhost'].includes(new URL(route.request().url()).hostname) ? route.continue() : route.abort())
-}
 
 async function open(page: Page, path: string) {
   const response = await page.goto(path, { waitUntil: 'networkidle' })
@@ -72,6 +54,16 @@ test.describe('Modus-Dock', () => {
         expect(box.width).toBeGreaterThanOrEqual(48)
       }
       expect(await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)).toBeLessThanOrEqual(0)
+      if (name === 'vocabulary') {
+        // Kontrastreiche Fachnummern dürfen die Anzahl nicht mehr überlagern.
+        const plates = page.locator('.lb-plate').filter({ has: page.locator('.lb-plate__numeral') })
+        await expect(plates).toHaveCount(6)
+        for (const plate of await plates.all()) {
+          const number = (await plate.locator('.lb-plate__numeral').boundingBox())!
+          const count = (await plate.locator('.lb-plate__count').boundingBox())!
+          expect(number.y).toBeGreaterThanOrEqual(count.y + count.height)
+        }
+      }
     })
   }
 

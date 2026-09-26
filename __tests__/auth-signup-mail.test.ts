@@ -114,3 +114,18 @@ it('erkennt nur weak_password mit dem Grund „pwned“ als Datenleck', () => {
   expect(isBreachedPasswordError({ code: 'user_already_exists', reasons: ['pwned'] })).toBe(false)
   expect(isBreachedPasswordError(null)).toBe(false)
 })
+
+it.each([
+  ['de', 'ru', 'ru'], ['de', 'en', 'en'], ['de', 'uk', 'uk'], ['de', 'tr', 'tr'],
+  ['en', 'ru', 'en'], ['ru', 'uk', 'ru'], ['uk', 'tr', 'uk'], ['tr', 'en', 'tr'],
+])('registration on /%s with native language %s saves interface language %s', async (lang, native, expected) => {
+  const signUp = jest.fn().mockResolvedValue({ data: { user: { id: 'new-student' }, session: null }, error: null })
+  jest.mocked(createClient).mockResolvedValue({ auth: { signUp } } as never)
+  const data = form()
+  data.set('lang', lang)
+  data.set('native_language', native)
+  await expect(signup(data)).rejects.toThrow(`/${lang}/login?status=signup_email_sent`)
+  expect(signUp).toHaveBeenCalledWith(expect.objectContaining({
+    options: expect.objectContaining({ data: expect.objectContaining({ native_language: native, ui_language: expected }) }),
+  }))
+})

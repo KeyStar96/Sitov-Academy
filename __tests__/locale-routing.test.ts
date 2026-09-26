@@ -4,10 +4,29 @@ import {
   isLocaleExempt,
   isProtectedPath,
   localeFromPathname,
+  localeFromAcceptLanguage,
   mapLegacyLang,
   safeUiLanguageNextPath,
   shouldApplyLegacyLangRedirect,
 } from '@/lib/locale-routing'
+
+describe('Browsersprache ohne Sprachpräfix (6bdb3c9)', () => {
+  it.each([
+    ['ru-RU,ru;q=0.9,en;q=0.8', 'ru'],
+    ['de;q=0.3,uk-UA;q=0.9,en;q=0.7', 'uk'],
+    ['fr-FR,en-GB;q=0.8', 'en'],
+    ['TR-tr', 'tr'],
+    ['en;q=0,de;q=0.5', 'de'],
+    ['uk;q=0.8,ru;q=0.8', 'uk'],
+    ['en;q=invalid,tr;q=0.5', 'tr'],
+    ['fr,*;q=0.5', null],
+    ['', null],
+    [null, null],
+    [undefined, null],
+  ])('%s → %s', (header, expected) => {
+    expect(localeFromAcceptLanguage(header)).toBe(expected)
+  })
+})
 
 describe('isLocaleExempt', () => {
   it('nimmt die Bestätigungsroute aus', () => {

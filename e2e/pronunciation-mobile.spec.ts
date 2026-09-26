@@ -1,13 +1,24 @@
-import { test, expect } from '@playwright/test'
+import { test, expect, type Page, type TestInfo } from '@playwright/test'
 import AxeBuilder from '@axe-core/playwright'
 import { createClient } from '@supabase/supabase-js'
 import { randomUUID } from 'node:crypto'
 import ru from '../dictionaries/ru.json'
+import en from '../dictionaries/en.json'
+import { signInPhase2 } from './helpers/phase2-session'
 import { readingSelection } from '../lib/learning-catalog'
 import { authenticateBrowser } from './helpers/authenticated-session'
 
 for (const theme of ['light', 'dark'] as const) {
   test(`recording remains visible and clickable after reading a long text (${theme})`, async ({ page, request }, testInfo) => {
+    if (testInfo.project.metadata.phase2Fixture) {
+      // Local UI contract; the isolated gateway path below still checks real
+      // Auth/RLS when invoked with its own config and private credentials.
+      const health = await request.get('http://127.0.0.1:54329/__phase2/health')
+      expect(await health.json()).toEqual({ fixture: 'phase2', writes: false })
+      await signInPhase2(page, theme)
+      await checkRecording(page, testInfo, 'en', en.pronunciation)
+      return
+    }
     const api = process.env.E2E_SUPABASE_URL
     const key = process.env.E2E_SUPABASE_SERVICE_ROLE_KEY
     expect(api, 'Start the isolated VPS gateway and load its private test env').toBeTruthy()
@@ -41,40 +52,7 @@ for (const theme of ['light', 'dark'] as const) {
       expect(readable.error).toBeNull()
       expect(readable.data?.map(prompt => prompt.id)).toEqual([promptId])
       await authenticateBrowser(page, { api: api!, key: key!, email, password })
-      // Die schwebende Aufnahme-Bedienung gibt es nur unterhalb des lg-Breakpoints.
-      await page.setViewportSize({ width: 390, height: 844 })
-      await page.goto('/ru/dashboard/level/A1.1/pronunciation')
-      // The prototype keeps the permission fixture across native MediaDevices
-      // wrappers in WebKit. App recording logic and browser clicks stay real.
-      await page.evaluate(() => {
-        Object.defineProperty(Object.getPrototypeOf(navigator.mediaDevices), 'getUserMedia', {
-          configurable: true,
-          value: async () => { throw new DOMException('Test microphone permission denied', 'NotAllowedError') },
-        })
-      })
-      const end = page.getByTestId('pronunciation-text-end')
-      await expect(page.getByTestId('pronunciation-reading-text')).toContainText('Abschnitt 18.')
-      await end.scrollIntoViewIfNeeded()
-      const bar = page.getByTestId('pronunciation-recording-bar')
-      const record = bar.getByRole('button', { name: ru.pronunciation.start_recording, exact: true })
-      // Im Ruhezustand traegt ein schwebender Knopf die Aufnahme – keine Leiste im Textfluss.
-      await expect(bar).toHaveCSS('position', 'fixed')
-      await expect(record).toBeInViewport({ ratio: 1 })
-      await expect(record).toBeEnabled()
-      const bounds = await record.boundingBox()
-      expect(bounds!.width).toBeGreaterThanOrEqual(56)
-      expect(bounds!.height).toBeGreaterThanOrEqual(56)
-      // Am Seitenende bleibt der Lesetext vollstaendig ueber dem Knopf lesbar.
-      await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight))
-      const ending = await end.boundingBox()
-      const dock = await record.boundingBox()
-      expect(ending!.y + ending!.height).toBeLessThanOrEqual(dock!.y)
-      expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([])
-      await page.screenshot({ path: testInfo.outputPath('reading-end-recording-bar.png') })
-      await record.click()
-      await expect(bar.getByRole('status')).toContainText(ru.pronunciation.mic_denied)
-      await expect(record).toBeInViewport({ ratio: 1 })
-      await page.screenshot({ path: testInfo.outputPath('microphone-permission-feedback.png') })
+      await checkRecording(page, testInfo, 'ru', ru.pronunciation)
     } finally {
       expect((await admin.auth.admin.deleteUser(userId)).error).toBeNull()
       expect((await admin.from('learning_reading_texts').delete().eq('id', promptId)).error).toBeNull()
@@ -82,4 +60,41 @@ for (const theme of ['light', 'dark'] as const) {
       for (const person of people.data ?? []) expect((await admin.from('people').delete().eq('id', person.id)).error).toBeNull()
     }
   })
+}
+
+async function checkRecording(page: Page, testInfo: TestInfo, lang: string, copy: typeof en.pronunciation) {
+  // Die schwebende Aufnahme-Bedienung gibt es nur unterhalb des lg-Breakpoints.
+  await page.setViewportSize({ width: 390, height: 844 })
+  await page.goto(`/${lang}/dashboard/level/A1.1/pronunciation`)
+  // The prototype keeps the permission fixture across native MediaDevices
+  // wrappers in WebKit. App recording logic and browser clicks stay real.
+  await page.evaluate(() => {
+    Object.defineProperty(Object.getPrototypeOf(navigator.mediaDevices), 'getUserMedia', {
+      configurable: true,
+      value: async () => { throw new DOMException('Test microphone permission denied', 'NotAllowedError') },
+    })
+  })
+  const end = page.getByTestId('pronunciation-text-end')
+  await expect(page.getByTestId('pronunciation-reading-text')).toContainText('Abschnitt 18.')
+  await end.scrollIntoViewIfNeeded()
+  const bar = page.getByTestId('pronunciation-recording-bar')
+  const record = bar.getByRole('button', { name: copy.start_recording, exact: true })
+  // Im Ruhezustand traegt ein schwebender Knopf die Aufnahme – keine Leiste im Textfluss.
+  await expect(bar).toHaveCSS('position', 'fixed')
+  await expect(record).toBeInViewport({ ratio: 1 })
+  await expect(record).toBeEnabled()
+  const bounds = await record.boundingBox()
+  expect(bounds!.width).toBeGreaterThanOrEqual(56)
+  expect(bounds!.height).toBeGreaterThanOrEqual(56)
+  // Am Seitenende bleibt der Lesetext vollstaendig ueber dem Knopf lesbar.
+  await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight))
+  const ending = await end.boundingBox()
+  const dock = await record.boundingBox()
+  expect(ending!.y + ending!.height).toBeLessThanOrEqual(dock!.y)
+  expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([])
+  await page.screenshot({ path: testInfo.outputPath('reading-end-recording-bar.png') })
+  await record.click()
+  await expect(bar.getByRole('status')).toContainText(copy.mic_denied)
+  await expect(record).toBeInViewport({ ratio: 1 })
+  await page.screenshot({ path: testInfo.outputPath('microphone-permission-feedback.png') })
 }

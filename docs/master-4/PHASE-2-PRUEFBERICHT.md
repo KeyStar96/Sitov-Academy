@@ -23,3 +23,144 @@
 - Geschützte Lernraum-Seiten werden, wie in Phase 0/1, gegen ein kurzlebiges Loopback-Fixture mit künstlichen Daten geprüft — diesmal als versioniertes Testwerkzeug (`e2e/helpers/phase2-fixture.mjs`), nicht als temporäre Datei.
 
 Keine Ressourcenlimits, keine neuen Hintergrunddienste (R2), keine externen Ressourcen (R3). Phasen 3–8 werden nicht ausgeführt.
+
+## Test-Nachprüfung ab `6bdb3c9` (26.09.2026)
+
+Prüfung vor Änderungen: sauberer Arbeitsbaum auf `codex/vps-self-hosted`, HEAD
+`6bdb3c92366811620c4487699542ace382901dff`. Auftrag: ausschließlich Phase-2-Tests
+reparieren und den nachträglichen i18n-Fix absichern; keine Produktänderungen,
+Migrationen oder Aktivierung. Lokale Next-Dokumentation zur Proxy-Konvention gelesen.
+
+| Ist | Soll |
+|---|---|
+| Phase-2-Browserlauf nach letzten Korrekturen nicht wiederholt | Vollständiger lokaler Lauf Desktop/Pixel 7/iPhone 14, Fehler ohne Skip oder Axe-Filter aufklären |
+| iPhone zuvor nur in Chromium emuliert | Installiertes WebKit verwenden; CDP-basierte Safe-Area-Prüfung benötigt browsergerechte Testinfrastruktur |
+| `6bdb3c9` ohne Tests für Accept-Language, Registrierung und Übersetzungsschutz | Regressionstests für diese tatsächlich geänderten Verträge |
+| Vollständiger DB-Lauf offen | Alle lokalen DB-Testdateien ausführen; keine Produktivdaten ändern |
+
+### Korrekturen im Testauftrag
+
+- Veraltete LevelCard-Assertion auf das dekorative `data-number`-Relief und
+  `aria-hidden` umgestellt; die zweistellige Nummer bleibt geprüft.
+- Regressionen für `6bdb3c9`: gewichtete Browsersprachen einschließlich regionaler
+  Sprachkürzel und Fallbacks, Profilvorrang, explizite Seitensprache, Cookie-Erhalt,
+  Registrierungs-Metadaten für alle vier Übersetzungssprachen, sichtbare Sprachwahl,
+  HTML-Übersetzungsschutz und temporärer Redirect samt Query/Vary im Browser.
+- iPhone-Projekt verwendet auch mit `E2E_BROWSER_CHANNEL=chrome` weiterhin WebKit.
+  Nur ein expliziter `E2E_CHROMIUM_PATH` aktiviert weiterhin Chromium-Emulation.
+- Safe-Area-Test nutzt in Chromium CDP; in WebKit werden ausschließlich
+  `env(safe-area-inset-*)`-Werte in den gelieferten CSS-Dateien durch die gleichen
+  59/34-px-Testwerte ersetzt. Layoutregeln und sämtliche Assertions bleiben erhalten.
+- Gemeinsame künstliche Sitzung nach `e2e/helpers/phase2-session.ts` ausgelagert.
+  Die vorhandenen Aussprache-UI-Assertions laufen nun zusätzlich in der lokalen
+  Phase-2-Konfiguration, in beiden Themes und allen drei Projekten. Der originale
+  Gateway-Pfad mit echten Auth-/RLS-Abfragen und Aufräumen bleibt erhalten.
+
+### Infrastruktur und Grenzen
+
+Der erste Jest-Lauf hatte einen veralteten LevelCard-Test und den bekannten
+bedingten Smoke-Skip. Der abschließende vollständige Lauf aktiviert den Smoke
+über einen temporären SSH-Forward zu `127.0.0.1:9080`; dieser liest ausschließlich
+`courses` und prüft den verweigerten Zugriff auf `people`. Keine Produktivdaten
+wurden geschrieben, der Forward wurde anschließend beendet.
+
+Playwrights Chromium-Headless-Paket fehlte. Der Download blieb unter lokalem
+Node 26 hängen; für den Testlauf wurde der vorhandene Chrome genutzt. Auch der
+Node-26-Testserver blieb später mit hoher CPU-Last hängen. Diese eigenen Prozesse
+wurden beendet und der Browserlauf einschließlich Testserver mit Node 24.19.0
+neu gestartet. iPhone läuft mit installiertem WebKit, ohne Chromium-Ersatz.
+Die ersten neu ergänzten Browserassertions wurden korrigiert: tatsächlicher
+Sprachwahl-Name aus dem Dictionary, relative Location-Header gegen die Antwort-URL
+auflösen. Diese Testfehler sind keine Fehler des Übersetzungsfixes.
+
+Das isolierte schreibende VPS-Gateway ist nicht aktiv und wurde nicht neu
+angelegt. Der lokale Aussprachelauf ist ein UI-Nachweis mit künstlichen Daten,
+kein Ersatznachweis für dessen Auth-/RLS-Integration. Die vollständigen lokalen
+DB-Tests prüfen die Datenbankverträge separat. Migration 32, Schema-Export,
+Produktivaktivierung sowie die noch offenen Screenshot-/Lighthouse-Nachweise
+gehören nicht zu diesem reinen Testauftrag und bleiben unverändert offen.
+
+### Zwischenstand vor der freigegebenen CSS-Korrektur
+
+| Prüfung | Ergebnis |
+|---|---|
+| Vollständiger Jest-Lauf inkl. rein lesendem VPS-Smoke | **1.792 bestanden**, 142 Suites, 0 Fehler, 0 Skips |
+| Vollständiger lokaler DB-Lauf | **423 bestanden**, 0 Fehler, 0 Skips |
+| `npm run build` gegen Loopback-Fixture | Exit 0 |
+| `npx tsc --noEmit` | Exit 0 |
+| Playwright Phase 2, Desktop/Pixel 7/iPhone 14 | **173 Fälle bestanden, 4 weiterhin rot**, 0 Skips; siehe Laufaufteilung unten |
+
+Der vollständige Browserlauf umfasste 177 Fälle: 162 bestanden, vier
+Kontrastbefunde und elf WebKit-Testinfrastrukturfehler (`mouse.wheel` wird in
+mobilem WebKit nicht unterstützt). Nach Umstellung auf echtes programmatisches
+Scrollen wurden alle 15 fehlgeschlagenen Fälle erneut ausgeführt: **11 bestanden,
+4 unverändert rot**. Damit ist kein vollständig grüner Browserlauf belegt.
+Desktop: alle 59 Fälle grün. Die Aussprache-UI-Tests bestehen in allen drei
+Projekten und beiden Themes, einschließlich tatsächlichem Klick und
+Mikrofonberechtigungs-Rückmeldung. Kein Axe-Filter, `skip` oder abgeschwächter
+Erwartungswert wurde hinzugefügt.
+
+**Verbleibender Anwendungsbefund:** `/en/dashboard/level/A1.1/vocabulary`, jeweils
+hell/dunkel auf Pixel 7 und iPhone 14: Axe `color-contrast` für die drei sichtbaren
+`.lb-plate__numeral`-Fachnummern. In `components/vocabulary/LeitnerBoxOverview.tsx`
+steht die dekorative Nummer als Textknoten; `components/vocabulary/lernkasten.css`
+setzt dessen Deckkraft auf `0.14`. Eine zusätzliche Messung nach 2,5 Sekunden
+bestätigt im dunklen Pixel-Layout **1,27:1 statt mindestens 3:1**; kein flüchtiger
+Animationsbefund. Der Test bleibt korrekt rot. Wegen des ausdrücklichen Test-only-Auftrags wurde der Commit zunächst
+zurückgestellt. Anschließend hat der Nutzer die Korrektur im Anwendungscode
+explizit freigegeben; der Abschlussnachweis folgt unten.
+
+Reproduktion (Node 24 LTS; installierter Chrome und Playwright-WebKit):
+
+```sh
+NEXT_PUBLIC_SUPABASE_URL=http://127.0.0.1:54329 \
+NEXT_PUBLIC_SUPABASE_ANON_KEY=phase2-local-placeholder \
+SUPABASE_INTERNAL_URL=http://127.0.0.1:54329 \
+SUPABASE_SERVICE_ROLE_KEY=phase2-local-placeholder \
+NEXT_PUBLIC_SITE_URL=http://127.0.0.1:3100 SITE_URL=http://127.0.0.1:3100 \
+NEXT_TELEMETRY_DISABLED=1 npm run build
+E2E_BROWSER_CHANNEL=chrome npx playwright test --config=e2e/phase2.config.ts
+E2E_BROWSER_CHANNEL=chrome npx playwright test --config=e2e/phase2.config.ts --last-failed
+node --test supabase/tests/*.test.mjs
+npx tsc --noEmit
+```
+
+Jest-Smoke analog zur [Phase-0-Baseline](TEST-BASELINE.md): temporärer
+Loopback-SSH-Forward, `RUN_SELF_HOSTED_INTEGRATION=1`,
+`SELF_HOSTED_TEST_URL=http://127.0.0.1:54322` und ausschließlich im Prozess
+bereitgestellter Anon-Key, dann `npm test -- --runInBand`. Keine Schlüssel
+in Testdateien oder Nachweisen gespeichert.
+
+
+### Abschluss nach freigegebener Kontrastkorrektur — 26.09.2026
+
+Der Nutzer hat die minimale Anwendungskorrektur ausdrücklich erlaubt. Die
+Fachnummern verwenden jetzt ihre vorhandenen Farbtokens mit voller Deckkraft,
+auch im hohen Kontrastmodus. Sie stehen mit 18 px in einer eigenen Zeile statt
+als große, transparente Überlagerung hinter der Wortanzahl. Die Darstellung
+wurde am Pixel-Layout visuell geprüft; ein zusätzlicher Browservergleich der
+Bounding-Boxes sichert auf allen drei Geräten ab, dass Zahl und Wortanzahl sich
+nicht überlagern. Zusätzliche Axe-Messungen der dunklen Ansicht in Standard-
+und hohem Kontrast melden jeweils keine Verstöße.
+
+| Abschließende Prüfung | Bestanden | Fehler | Skips |
+|---|---:|---:|---:|
+| Jest inkl. rein lesendem VPS-Smoke | **1.792**, 142 Suites | 0 | 0 |
+| Alle lokalen DB-Testdateien | **423** | 0 | 0 |
+| Playwright, vollständiger Lauf | **177**, 59 je Gerät | 0 | 0 |
+| Build nach finaler CSS-Korrektur | Exit 0 | 0 | — |
+| TypeScript nach finaler Änderung | Exit 0 | 0 | — |
+
+Playwright lief unter Node 24.19.0 in 4,8 Minuten, ohne Wiederholungen und ohne
+Axe-Filter. Desktop/Pixel 7: lokaler Chrome; iPhone 14: WebKit. Enthalten sind
+66 vollständige Axe-Prüfungen (öffentliche Seiten, sieben Lernraumrouten und
+Aussprache-UI jeweils hell/dunkel auf allen drei Geräten). Die ausstehende
+Gateway-Integration wird dadurch nicht als durchgeführt ausgegeben.
+
+**Lokaler Phase-2-Testauftrag abgeschlossen**, einschließlich Regressionen für
+`6bdb3c9` und der freigegebenen CSS-Korrektur. Git-Abgabe zusammen mit den Tests
+und diesem Nachweis auf `codex/vps-self-hosted`. Die produktive Aktivierung von
+Migration 32, der echte Klon-Export, der separate Gateway-Auth-/RLS-Lauf sowie
+formale Vorher/Nachher- und Lighthouse-Nachweise bleiben außerhalb dieses
+Testauftrags offen. Daher wird hier keine vollständige produktive
+Phase-2-Abnahme behauptet.

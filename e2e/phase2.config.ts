@@ -8,8 +8,10 @@ import { defineConfig, devices } from '@playwright/test'
  *
  * Geräte: Desktop, Pixel 7, iPhone 14. Ohne installierten Playwright-Browser
  * lässt sich ein vorhandenes Chromium über E2E_CHROMIUM_PATH oder ein Kanal
- * über E2E_BROWSER_CHANNEL nutzen; „iPhone 14" läuft dann als
- * Geräteemulation (Viewport, DPR, Touch, User-Agent) in Chromium.
+ * über E2E_BROWSER_CHANNEL nutzen. iPhone 14 bleibt mit einem Kanal in
+ * WebKit; nur E2E_CHROMIUM_PATH erzwingt ausdrücklich Chromium-Emulation.
+ * pronunciation-mobile nutzt hier dieselben UI-Assertions mit lokalen Daten;
+ * der eigenständige Gateway-Aufruf behält seine echten Auth-/RLS-Prüfungen.
  */
 const browser = {
   ...(process.env.E2E_BROWSER_CHANNEL ? { channel: process.env.E2E_BROWSER_CHANNEL } : {}),
@@ -20,13 +22,13 @@ const root = resolve(__dirname, '..')
 
 export default defineConfig({
   testDir: '.',
-  testMatch: ['phase2-navigation.spec.ts', 'navigation-scroll.spec.ts', 'mobile-safe-area.spec.ts', 'accessibility.spec.ts'],
+  testMatch: ['phase2-navigation.spec.ts', 'phase2-i18n.spec.ts', 'pronunciation-mobile.spec.ts', 'navigation-scroll.spec.ts', 'mobile-safe-area.spec.ts', 'accessibility.spec.ts'],
   timeout: 90000, workers: 1, retries: 0, reporter: 'list',
   use: { baseURL: process.env.E2E_BASE_URL || 'http://127.0.0.1:3100', screenshot: 'only-on-failure', trace: 'retain-on-failure' },
   projects: [
-    { name: 'desktop', use: { ...devices['Desktop Chrome'], ...browser } },
-    { name: 'Pixel 7', use: { ...devices['Pixel 7'], ...browser } },
-    { name: 'iPhone 14', use: { ...devices['iPhone 14'], ...(process.env.E2E_CHROMIUM_PATH ? { browserName: 'chromium' as const } : {}), ...browser } },
+    { name: 'desktop', metadata: { phase2Fixture: true }, use: { ...devices['Desktop Chrome'], ...browser } },
+    { name: 'Pixel 7', metadata: { phase2Fixture: true }, use: { ...devices['Pixel 7'], ...browser } },
+    { name: 'iPhone 14', metadata: { phase2Fixture: true }, use: { ...devices['iPhone 14'], ...(process.env.E2E_CHROMIUM_PATH ? { browserName: 'chromium' as const, ...browser } : {}) } },
   ],
   webServer: [
     { command: 'node e2e/helpers/phase2-fixture.mjs', cwd: root, url: `${fixture}/__phase2/health`, reuseExistingServer: true, timeout: 30000 },

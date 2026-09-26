@@ -413,10 +413,8 @@ html.dark .lb-cell[data-archive] .lb-hole__floor {
   border: 2px solid var(--lb-brass);
   background: var(--surface);
   color: var(--foreground);
-  /* Linksbündig wie die Niveau-Karten: Der Text beginnt immer an derselben
-     Kante, rechts unten bleibt Raum für das Zahlzeichen. */
+  /* Linksbündige Beschriftung; die Nummer erhält eine eigene Zeile. */
   text-align: start;
-  /* Schneidet das Zahlzeichen an der Kante ab, wie auf den Niveau-Karten. */
   overflow: hidden;
   box-shadow:
     inset 0 0 0 1px var(--lb-brass-hi),
@@ -426,20 +424,19 @@ html.dark .lb-cell[data-archive] .lb-hole__floor {
   transition: border-color 160ms ease, box-shadow 160ms ease, background-color 160ms ease;
 }
 
-/* Phasennummer als Wasserzeichen: unten rechts, an der Kante angeschnitten,
-   in der Farbe der Phase. Rein dekorativ (aria-hidden) — Name und
-   Beschriftung des Fachs tragen die Information. */
+/* Fachnummer unten rechts in der kontrastgeprüften Farbe der Phase.
+   Volle Deckkraft erhält den Kontrast auch auf kleinen Bildschirmen.
+   Rein dekorativ (aria-hidden) — Name und Beschriftung tragen die Information. */
 .lb-cell span.lb-plate__numeral {
-  position: absolute;
-  right: -0.04em;
-  bottom: -0.2em;
-  z-index: 0;
-  font-size: 3rem;
+  align-self: flex-end;
+  order: 1;
+  margin-top: 0.2rem;
+  font-size: 1.125rem;
   font-weight: 800;
   line-height: 1;
   letter-spacing: -0.06em;
   font-variant-numeric: tabular-nums;
-  opacity: 0.14;
+  opacity: 1;
   pointer-events: none;
   user-select: none;
 }
@@ -584,8 +581,6 @@ html.dark .lb-cell[data-archive] .lb-hole__floor {
   }
   .lb-cell[data-archive] { grid-column: auto; }
   .lb-stage { margin-bottom: 0; }
-  /* Sieben schmale Etiketten: kleineres Zahlzeichen, weniger unter dem Text. */
-  .lb-cell span.lb-plate__numeral { font-size: 2.5rem; }
 }
 
 /* Telefon hochkant: Die Box steht randlos auf der Seite (siehe .lb-hero) und
@@ -606,7 +601,6 @@ html.dark .lb-cell[data-archive] .lb-hole__floor {
 @container (max-width: 400px) {
   .lb-cell span.lb-plate { padding: 0.25rem 0.4rem 0.3rem; }
   .lb-cell span.lb-plate__badge { width: 1.3rem; height: 1.3rem; }
-  .lb-cell span.lb-plate__numeral { font-size: 2.5rem; }
   .lb-cell span.lb-plate__name { font-size: 0.8125rem; }
   .lb-plate__count { font-size: 0.8125rem; }
   .lb-plate__count b { font-size: 1.05rem; }
@@ -618,7 +612,6 @@ html.dark .lb-cell[data-archive] .lb-hole__floor {
 @container (max-width: 340px) {
   .lb-cell span.lb-plate { padding: 0.2rem 0.3rem 0.25rem; }
   .lb-cell span.lb-plate__badge { width: 1.15rem; height: 1.15rem; }
-  .lb-cell span.lb-plate__numeral { font-size: 2.2rem; }
   .lb-cell span.lb-plate__name { font-size: 0.75rem; }
   .lb-plate__count { font-size: 0.75rem; }
   .lb-plate__count b { font-size: 0.95rem; }
@@ -920,7 +913,6 @@ html.high-contrast :is(.lb-stack__grow, .lb-stack__top, .lb-stack__side, .lb-sta
 
 html.high-contrast .lb-stack__shadow { display: none; }
 html.high-contrast .lb-plate { border-color: var(--foreground); box-shadow: none; }
-html.high-contrast .lb-cell span.lb-plate__numeral { opacity: 0.3; }
 html.high-contrast .lb-cta::after { display: none; }
 
 /* ── Richtungs-Chip in der Fachansicht ─────────────────────────────────────

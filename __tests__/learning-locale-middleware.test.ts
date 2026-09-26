@@ -85,3 +85,32 @@ it('sends the bare root straight to /de without a trailing-slash redirect chain'
   expect((await visit('/?utm_source=telegram')).headers.get('location')).toBe('https://school.example/de?utm_source=telegram')
   expect((await visit('/agb')).headers.get('location')).toBe('https://school.example/de/agb')
 })
+
+it.each(['en', 'ru', 'uk', 'tr', 'de'])('uses browser language %s for unprefixed public URLs without caching a permanent redirect', async locale => {
+  const response = await proxy(new NextRequest('https://school.example/?utm_source=test', {
+    headers: { 'accept-language': `${locale};q=0.9,fr;q=0.8` },
+  }))
+  expect(response.status).toBe(307)
+  expect(response.headers.get('location')).toBe(`https://school.example/${locale}?utm_source=test`)
+  expect(response.headers.get('vary')).toContain('accept-language')
+  expect(mockServerClient).not.toHaveBeenCalled()
+})
+
+it('prioritizes saved language over browser language and preserves refreshed cookies', async () => {
+  language = 'uk'
+  const response = await proxy(new NextRequest('https://school.example/dashboard/profile?tab=language', {
+    headers: { 'accept-language': 'ru-RU,ru;q=0.9' },
+  }))
+  expect(response.status).toBe(307)
+  expect(response.headers.get('location')).toBe('https://school.example/uk/dashboard/profile?tab=language')
+  expect(response.headers.get('cache-control')).toBe('private, no-store')
+  expect(response.cookies.get('sb-sitov-auth-token')?.value).toBe('refreshed')
+})
+
+it('preserves an explicit public locale even when the browser prefers another language', async () => {
+  user = null
+  for (const path of ['/de', '/de/register', '/de/login']) {
+    const response = await proxy(new NextRequest(`https://school.example${path}`, { headers: { 'accept-language': 'ru-RU' } }))
+    expect(response.headers.get('location')).toBeNull()
+  }
+})

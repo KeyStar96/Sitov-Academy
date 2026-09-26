@@ -2,7 +2,7 @@
 
 | Feld | Wert |
 |---|---|
-| Letzte Aktualisierung | 2026-09-25, Phase 1 abgeschlossen und aktiviert |
+| Letzte Aktualisierung | 2026-09-26, Phase 2 implementiert und lokaler Testabschluss grün; produktive Abnahme offen |
 | Git-Revision | Implementierung `e6a8d32f4ce74ab20a0ff5a4750927c37c108575`; Abschlussnachweise im nachfolgenden Dokumentationscommit |
 | Branch | `codex/vps-self-hosted` |
 | Aktives Release | `e6a8d32f4ce74ab20a0ff5a4750927c37c108575` (`/var/www/sitov-current` → `/var/www/sitov-releases/e6a8d32f4ce7`) |
@@ -102,7 +102,7 @@ Phase 4 verwendet diesen Vertrag für alle Schreibaufgaben. Aufgaben zur Untersc
 
 ## Phase 2 — Navigation und Design-System
 
-Stand: **umgesetzt, Abnahme unvollständig** (Sitzung wegen Kontingent beendet). Ausgangsrevision `3271a12`. [Prüfbericht](PHASE-2-PRUEFBERICHT.md).
+Stand: **umgesetzt und lokal vollständig getestet**; produktive und ergänzende Abnahme bleibt offen (siehe unten). Ausgangsrevision `3271a12`, Testbasis `6bdb3c9`. [Prüfbericht](PHASE-2-PRUEFBERICHT.md).
 
 - [x] 2.1 D4-Tokens in `app/globals.css` (`--motion-fast|base|slow|slower`, `--motion-stagger`, `--ease-out-soft`); `lib/motion.ts` (`MOTION`, `EASE_OUT_SOFT`, `SPRING` 420/34 mit Ruhe-Schwelle ≤500 ms, `STAGGER`, Varianten, `useReducedMotionSafe`, `useIsHydrating`); `MotionConfig reducedMotion="user"` über `components/motion/MotionProvider`. Bausteine `components/motion/{PressableCard,CountUp,NewBadge,SlidingPill,FeedbackMotion}`. Modus-Tokens `--mode-{vocabulary,path,pronunciation,media,special}-{surface,text}` in allen vier Paletten, Kontrasttest erweitert.
 - [x] 2.2 `components/dashboard/ModeDock.tsx` im Niveau-Layout (Zähler per Suspense). **Modus-Ziele für Phase 3: `lib/mode-targets.ts` → `MODE_SEGMENTS.path` (heute `exercises`).**
@@ -112,4 +112,15 @@ Stand: **umgesetzt, Abnahme unvollständig** (Sitzung wegen Kontingent beendet).
 - [x] 2.6 Migration `32_last_active_level.sql` + Rückweg, `ORDER`, `schema.sql`/`database.types.ts` (Funktion von Hand im Exportformat ergänzt, kein Klon-Export). Home „Deine Lernbereiche · A1.2“, Reiter „Lernen“ über RPC, `localStorage` nur Rückfall.
 - [x] 2.7 D5 auf Home, Niveau, Dock, Brotkrumen, Lernbox, Antwort-Rückmeldung; Reduced-Motion schaltet im Lernraum alle Animationen ab.
 
-Tests: Jest 1.765 bestanden / 1 bekannter bedingter Skip (VPS-Smoke); neuer DB-Test `last-active-level` 10/10; Build Exit 0 (157 Seiten). **Offen:** vollständiger DB-Lauf nach den Änderungen, finaler Playwright-Lauf `e2e/phase2.config.ts` (Desktop/Pixel 7/iPhone 14; vorheriger Desktop-Lauf 19/31, Befunde danach behoben, nicht erneut geprüft), `pronunciation-mobile.spec.ts` (braucht VPS-Gateway), Vorher/Nachher-Bilder, Lighthouse (kein Phase-0-Wert vorhanden). **Migration 32 nicht produktiv angewendet** (kein VPS-Zugang): Backup/`--apply 32_last_active_level.sql --keep-stopped`/`--activate --schema-changed` wie Phase 1. Nächste freie Nummer **33**.
+Tests: **1.792 Jest**, **423 DB**, **177 Playwright** (Desktop/Pixel 7/iPhone 14 mit WebKit), jeweils vollständig grün ohne Skip; Build und TypeScript Exit 0. Übersetzungsfix `6bdb3c9` abgesichert, Vokabel-Fachnummern nach ausdrücklicher Freigabe kontrastreich und ohne Textüberlagerung dargestellt. **Separat offen:** echter Aussprache-Gateway-Auth-/RLS-Lauf, formale Vorher/Nachher-Bilder und Lighthouse (kein Phase-0-Vergleichswert vorhanden). **Migration 32 nicht produktiv angewendet**: Backup/`--apply 32_last_active_level.sql --keep-stopped`/`--activate --schema-changed` wie Phase 1; außerdem echter Klon-Export von Schema/Typen. Nächste freie Nummer **33**. Der lokale Testabschluss ist keine produktive Aktivierung.
+
+### Phase-2-Testnachprüfung ab `6bdb3c9` — 26.09.2026
+
+- [x] Tests/Testinfrastruktur und Nachweise repariert; zusätzlich ausdrücklich freigegebene CSS-Kontrastkorrektur der Vokabel-Fachnummern. Übersetzungsfix `6bdb3c9` durch neue Jest- und Browserregressionen geprüft.
+- [x] Vollständiger Jest-Lauf: **1.792/1.792**, 142 Suites, kein Skip; vorhandenen rein lesenden VPS-Smoke explizit aktiviert.
+- [x] Vollständiger lokaler DB-Lauf: **423/423**, kein Skip; Build und TypeScript Exit 0.
+- [x] Veraltete LevelCard-Assertion, WebKit-Safe-Area-Emulation und mobiles Scrollen im Test repariert; iPhone verwendet WebKit. Aussprache-UI-Prüfungen gegen künstliche Daten in allen Projekten und beiden Themes grün; echter Gateway-Auth-/RLS-Lauf bleibt separat offen.
+- [x] Vollständiger abschließender Playwright-Lauf: **177/177**, kein Skip, kein Retry, keine Axe-Filter; Desktop und Pixel 7 in Chrome, iPhone 14 in WebKit. Alle vier vorherigen Kontrastbefunde behoben; zusätzliche Überlappungsprüfung für Fachnummern auf allen drei Geräten. Details im [Prüfbericht](PHASE-2-PRUEFBERICHT.md).
+- [x] Lokaler Testabschluss und Git-Abgabe: dieser Commit auf `codex/vps-self-hosted`; keine weiteren Phasen implementiert, kein Deployment.
+
+Migration/Produktivaktivierung, echte Gateway-Integration sowie Screenshot-/Lighthouse-Abnahme bleiben wie oben offen. Keine Produktivdaten verändert.

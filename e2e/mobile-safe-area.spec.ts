@@ -17,6 +17,20 @@ const ROUTES = ['/de', '/de/agb', '/de/privacy', '/de/imprint', '/de/cancellatio
 test.use({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, deviceScaleFactor: 3 })
 
 async function emulateNotch(page: Page) {
+  if (page.context().browser()?.browserType().name() !== 'chromium') {
+    // WebKit bietet kein CDP-Inset-Override. Nur die Umgebungswerte werden
+    // in den ausgelieferten Stylesheets ersetzt; sämtliche Layoutregeln und
+    // Statusleisten-Assertions bleiben dieselben wie im Chromium-Lauf.
+    await page.route('**/*.css', async route => {
+      const response = await route.fetch()
+      const css = (await response.text()).replace(
+        /env\(safe-area-inset-(top|bottom|left|right)(?:\s*,\s*[^)]*)?\)/g,
+        (_, edge: string) => `${edge === 'top' ? TOP : edge === 'bottom' ? BOTTOM : 0}px`,
+      )
+      await route.fulfill({ response, body: css })
+    })
+    return
+  }
   const session = await page.context().newCDPSession(page)
   await session.send('Emulation.setSafeAreaInsetsOverride', {
     insets: { top: TOP, topMax: TOP, bottom: BOTTOM, bottomMax: BOTTOM, left: 0, leftMax: 0, right: 0, rightMax: 0 },
@@ -59,7 +73,9 @@ for (const route of ROUTES) {
 
     expect(await contentUnderStatusBar(page, false), 'Seitenanfang').toEqual([])
     const scrollable = await page.evaluate(() => document.documentElement.scrollHeight > innerHeight + 200)
-    await page.mouse.wheel(0, 900)
+    // Mobile WebKit unterstützt kein Mausrad; ein echter Scroll-Offset löst
+    // in beiden Engines dieselben Scroll- und Sticky-Layout-Ereignisse aus.
+    await page.evaluate(() => window.scrollBy({ top: 900, behavior: 'instant' }))
     await page.waitForTimeout(400)
     if (scrollable) expect(await page.evaluate(() => scrollY), 'Seite wurde gescrollt').toBeGreaterThan(100)
     expect(await contentUnderStatusBar(page, true), 'nach dem Scrollen (fixiert/sticky)').toEqual([])
