@@ -26,6 +26,10 @@ export interface VocabularyCardView {
 
 /** Eine fällige Karte inklusive aufgelöstem Lernstand und Übersetzung. */
 export interface DueVocabularyCard {
+  /** Niveau, in dem diese konkrete Lernsitzung gestartet wurde. */
+  targetLevel?: string
+  /** Nur für mitgenommene Karten; der gespeicherte Lernstand bleibt dort. */
+  originLevel?: string
   progressId: string
   direction: VocabularyDirection
   format: VocabularyFormat
@@ -93,6 +97,7 @@ export interface VocabularyAssessmentCard {
 export type LessonStat = LessonBoxStat
 
 export interface SubmitVocabularyAnswerInput {
+  targetLevel?: string
   progressId: string
   /** Authenticated identity captured when the learning screen was loaded. */
   expectedLearnerId?: string
@@ -104,6 +109,7 @@ export interface SubmitVocabularyAnswerInput {
 
 /** Selbsteinschätzung im Karteikarten-Modus; der Server entscheidet den Lernstand. */
 export interface SubmitVocabularySelfRatingInput {
+  targetLevel?: string
   progressId: string
   /** Authenticated identity captured when the learning screen was loaded. */
   expectedLearnerId?: string
@@ -137,6 +143,7 @@ export interface SubmitVocabularyAnswerResult {
  * Tages.
  */
 export interface CheckVocabularyRetryInput {
+  targetLevel?: string
   progressId: string
   expectedLearnerId?: string
   typedAnswer: string
@@ -205,6 +212,7 @@ export interface AddCardsResult {
  * Rohwerten abzuleiten.
  */
 export interface PhaseCardView extends WordBoxState {
+  originLevel?: string
   id: string
   word_de: string
   article: string | null
@@ -224,6 +232,21 @@ export interface PhaseCardsResult {
 
 /** Verteilung der Vokabeln eines Sprachniveaus über die sieben Fächer. */
 export type VocabularyBoxSummary = BoxSummary
+
+/** Offene, bereits begonnene Wörter; auch bei ausgeschaltetem Schalter sichtbar. */
+export interface VocabularyCarryoverSummary {
+  targetLevel: string
+  enabled: boolean
+  decidedAt: string | null
+  startedAt: string | null
+  promptRequired: boolean
+  total: number
+  byLevel: Array<{ level: string; total: number; box: VocabularyBoxSummary }>
+}
+
+export type VocabularyCarryoverResult =
+  | { success: true; carryover: VocabularyCarryoverSummary }
+  | { success: false; error: 'invalid_input' | 'save_failed' }
 
 /** Eine Entscheidung im „Vokabeln einstufen"-Durchlauf (Pre-Assessment). */
 export interface AssessmentDecision {

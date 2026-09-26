@@ -8,7 +8,7 @@ import { hasLevelAccess, hasTrainerAccess, type LevelAccessProfile } from '@/lib
 import { mapVideo, videoQuery } from '@/lib/learning-catalog'
 import { learningResourceUrl } from '@/lib/video-links'
 import { isOwnWordsLesson } from '@/lib/vocabulary-own-words'
-import type { LessonStat } from '@/lib/types/vocabulary'
+import type { LessonStat, VocabularyCarryoverSummary } from '@/lib/types/vocabulary'
 import { berlinNow } from '@/lib/dashboard-next-course'
 import { createClient } from '@/utils/supabase/server'
 import { LEARNING_MODES, MODE_TRAINERS, type LearningMode } from '@/lib/mode-targets'
@@ -38,6 +38,7 @@ export interface LevelLearningStatus {
   lessons: LessonStation[]
   /** „Eigene Wörter" dieses Niveaus; `null`, solange nichts geladen werden konnte. */
   ownWords: LessonStation | null
+  carryover?: VocabularyCarryoverSummary | null
 }
 
 export interface LessonStation {
@@ -138,7 +139,7 @@ export async function loadLevelLearningStatus({ supabase, userId, profile, level
         // Lernbox-Zahlen zählen nur eingeschaltete Lektionen; `total` sind alle
         // Wörter des Niveaus — daran erkennt die Startseite „noch nichts begonnen".
         locked: false, due: vocabulary.dueCards, activeWords: vocabulary.box.inPhases,
-        total: vocabulary.stats.reduce((sum, stat) => sum + stat.total, 0), learned: vocabulary.box.learned,
+        total: vocabulary.stats.reduce((sum, stat) => sum + stat.total, 0), learned: vocabulary.ownBox.learned,
       },
     grammar: locked.grammar ? { locked: true, total: 0, solved: 0, topics: 0, openTopics: 0 }
       : exercises && {
@@ -150,6 +151,7 @@ export async function loadLevelLearningStatus({ supabase, userId, profile, level
     media: locked.media ? { locked: true, total: 0, fresh: 0 } : media && { locked: false, ...media },
     lessons: courseLessons.map(station),
     ownWords: own ? station(own) : null,
+    carryover: vocabulary?.carryover ?? null,
   }
 }
 

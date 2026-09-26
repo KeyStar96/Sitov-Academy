@@ -2045,6 +2045,48 @@ export type Database = {
           },
         ]
       }
+      vocabulary_carryover_preferences: {
+        Row: {
+          auth_user_id: string
+          decided_at: string | null
+          enabled: boolean
+          is_active: boolean
+          started_at: string | null
+          target_level: string
+        }
+        Insert: {
+          auth_user_id: string
+          decided_at?: string | null
+          enabled?: boolean
+          is_active?: boolean
+          started_at?: string | null
+          target_level: string
+        }
+        Update: {
+          auth_user_id?: string
+          decided_at?: string | null
+          enabled?: boolean
+          is_active?: boolean
+          started_at?: string | null
+          target_level?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "vocabulary_carryover_preferences_auth_user_id_fkey"
+            columns: ["auth_user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "vocabulary_carryover_preferences_target_level_fkey"
+            columns: ["target_level"]
+            isOneToOne: false
+            referencedRelation: "learning_levels"
+            referencedColumns: ["code"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
@@ -2066,6 +2108,11 @@ export type Database = {
           p_progress_id: string
           p_typed_answer: string
           p_ui_language?: string
+        } | {
+          p_progress_id: string
+          p_typed_answer: string
+          p_ui_language: string
+          p_target_level: string
         }
         Returns: Json
       }
@@ -2238,29 +2285,48 @@ export type Database = {
       }
       submit_vocabulary_answer: {
         Args: {
-          p_is_correct?: boolean
           p_progress_id: string
+          p_is_correct?: boolean
           p_typed_answer?: string
           p_ui_language?: string
+        } | {
+          p_progress_id: string
+          p_is_correct: boolean
+          p_typed_answer: string
+          p_ui_language: string
+          p_target_level: string
         }
         Returns: Json
       }
       submit_vocabulary_answer_once: {
         Args: {
-          p_is_correct?: boolean
-          p_progress_id: string
           p_request_id: string
+          p_progress_id: string
+          p_is_correct?: boolean
           p_typed_answer?: string
           p_ui_language?: string
+        } | {
+          p_request_id: string
+          p_progress_id: string
+          p_is_correct: boolean
+          p_typed_answer: string
+          p_ui_language: string
+          p_target_level: string
         }
         Returns: Json
       }
       submit_vocabulary_self_rating_once: {
         Args: {
-          p_known: boolean
-          p_progress_id: string
           p_request_id: string
+          p_progress_id: string
+          p_known: boolean
           p_ui_language?: string
+        } | {
+          p_request_id: string
+          p_progress_id: string
+          p_known: boolean
+          p_ui_language: string
+          p_target_level: string
         }
         Returns: Json
       }
@@ -2335,6 +2401,33 @@ export type Database = {
       import_learning_path_seed: {
         Args: {
           p_paths: Json
+        }
+        Returns: Json
+      }
+      get_vocabulary_carryover: {
+        Args: {
+          p_target_level: string
+        }
+        Returns: Json
+      }
+      begin_vocabulary_level: {
+        Args: {
+          p_target_level: string
+        }
+        Returns: Json
+      }
+      set_vocabulary_carryover: {
+        Args: {
+          p_target_level: string
+          p_enabled: boolean
+        }
+        Returns: Json
+      }
+      get_vocabulary_carryover_cards: {
+        Args: {
+          p_target_level: string
+          p_offset?: number
+          p_limit?: number
         }
         Returns: Json
       }

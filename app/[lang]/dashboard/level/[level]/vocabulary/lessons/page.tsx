@@ -42,6 +42,7 @@ export default async function VocabularyLessonsPage({ params }: {
 
   return (
     <VocabularyLessons lang={lang} level={decodedLevel} stations={stations} next={next}
+      carryover={open ? status?.carryover : null} learnerId={user?.id}
       vocabularyHref={open ? vocabularyHref : null} vocabularyTranslations={translations}
       ownWords={open ? status?.ownWords ?? { lesson: OWN_WORDS_LESSON, total: 0, active: 0, learned: 0, untouched: 0, due: 0 } : undefined} />
   )

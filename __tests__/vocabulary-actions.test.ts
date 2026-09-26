@@ -64,7 +64,11 @@ function session(options: {
     : { data: (options.pausedUnits ?? []).map(unit_id => ({ unit_id })), error: null })
   const pauses = { select: jest.fn().mockReturnThis(), eq: jest.fn().mockReturnThis(), then: pausesResult.then.bind(pausesResult) }
   const from = jest.fn((table: string) => table === 'profiles' ? profileChain : table === 'learning_trainer_grants' ? rules : table === 'learning_vocabulary_cards' ? cards : table === 'vocabulary_learning_state' ? cursor : table === 'vocabulary_lesson_pauses' ? pauses : progress)
-  const rpc = jest.fn().mockResolvedValue({ data: review, error: null })
+  const rpc = jest.fn().mockImplementation(async (name: string, args: { p_target_level?: string }) => ({
+    data: name === 'get_vocabulary_carryover'
+      ? { success: true, targetLevel: args.p_target_level, enabled: false, decidedAt: null, startedAt: null, promptRequired: false, cards: [] }
+      : review, error: null,
+  }))
   const client = {
     from, rpc, auth: { getUser: jest.fn().mockResolvedValue({ data: { user: options.signedIn === false ? null : { id: options.actorId ?? userId } }, error: null }) },
   }

@@ -1,4 +1,4 @@
-import { announceLearningReset, subscribeToLearningResets } from '@/lib/learning-reset-events'
+import { announceLearningReset, announceVocabularyCarryoverChange, subscribeToLearningResets } from '@/lib/learning-reset-events'
 
 const userId = '00000000-0000-4000-8000-000000000001'
 const otherId = '00000000-0000-4000-8000-000000000002'
@@ -43,12 +43,16 @@ it('announces a completed reset without reloading the initiating tab', () => {
   const { callback } = listen()
   localStorage.setItem('sitov_lernkasten:A1.1', '["Lesson 1"]')
   localStorage.setItem('sitov_path:A1.1:resume', 'old-run-id')
+  localStorage.setItem('sitov_vocab_carryover:B1.2', 'stale-source-queue')
+  sessionStorage.setItem('sitov_vocab_carryover:A1.2', 'stale-prompt')
   sessionStorage.setItem('sitov_path:test', 'old-attempt-id')
   sessionStorage.setItem('sitov_vocab_autostart', 'A1.1')
   announceLearningReset(userId)
   expect(callback).not.toHaveBeenCalled()
   expect(localStorage.getItem('sitov_lernkasten:A1.1')).toBeNull()
   expect(localStorage.getItem('sitov_path:A1.1:resume')).toBeNull()
+  expect(localStorage.getItem('sitov_vocab_carryover:B1.2')).toBeNull()
+  expect(sessionStorage.getItem('sitov_vocab_carryover:A1.2')).toBeNull()
   expect(sessionStorage.getItem('sitov_path:test')).toBeNull()
   expect(sessionStorage.getItem('sitov_vocab_autostart')).toBeNull()
   const stored = JSON.parse(localStorage.getItem(key) ?? '{}') as Record<string, unknown>
@@ -74,6 +78,33 @@ it('clears the receiving tab learning state and coalesces duplicate channel/stor
   expect(localStorage.getItem('theme')).toBe('dark')
   expect(localStorage.getItem('sitov_custom_vocab:B1.2:Lesson 2')).toBe('["das Haus"]')
   expect(sessionStorage.getItem('sitov-intro-seen')).toBe('1')
+})
+
+it('announces a carryover choice without reloading the initiating tab or clearing path state', () => {
+  const { callback } = listen()
+  localStorage.setItem('sitov_path:A1.1:resume', 'run-to-keep')
+  announceVocabularyCarryoverChange(userId)
+  expect(callback).not.toHaveBeenCalled()
+  expect(localStorage.getItem('sitov_path:A1.1:resume')).toBe('run-to-keep')
+  expect(JSON.parse(localStorage.getItem(key)!)).toMatchObject({ userId, change: 'carryover' })
+  window.dispatchEvent(new Event('focus'))
+  expect(callback).not.toHaveBeenCalled()
+})
+
+it.each(['channel', 'storage', 'focus'])('invalidates an open source/target session after another tab changes carryover via %s', delivery => {
+  const { callback } = listen()
+  localStorage.setItem('sitov_path:A1.1:resume', 'run-to-keep')
+  const change = notice({ change: 'carryover' })
+  if (delivery === 'channel') new TestChannel('sitov-learning-reset').postMessage(change)
+  if (delivery === 'storage') storageEvent(change)
+  if (delivery === 'focus') {
+    localStorage.setItem(key, JSON.stringify(change))
+    window.dispatchEvent(new Event('focus'))
+  }
+  expect(callback).toHaveBeenCalledTimes(1)
+  expect(localStorage.getItem('sitov_path:A1.1:resume')).toBe('run-to-keep')
+  storageEvent(change)
+  expect(callback).toHaveBeenCalledTimes(1)
 })
 
 it('ignores another account, malformed messages, and unrelated storage changes', () => {

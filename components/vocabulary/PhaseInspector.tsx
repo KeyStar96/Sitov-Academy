@@ -11,6 +11,7 @@ import { articleColorClass } from '@/lib/vocabulary-ui'
 import type { PhaseCardView, PhaseCardsResult } from '@/lib/types/vocabulary'
 import { cn } from '@/lib/utils'
 import { lessonLabel } from '@/lib/vocabulary-own-words'
+import { carryoverTranslator } from '@/lib/vocabulary-carryover-i18n'
 import { useScrollLock } from '@/components/ui/useScrollLock'
 import { bucketName, intervalLabel } from './LeitnerBoxOverview'
 import './lernkasten.css'
@@ -43,7 +44,7 @@ interface Props {
  * Vokabel in diesem Fach liegen bleibt. Gefüllt heißt „sitzt", offen heißt
  * „fehlt noch" — und genau eine gefüllte Seite ist der Zustand „halb gewusst".
  */
-function CardRow({ card, t }: { card: PhaseCardView; t: ReturnType<typeof createVocabularyTranslator> }) {
+function CardRow({ card, t, lang }: { card: PhaseCardView; t: ReturnType<typeof createVocabularyTranslator>; lang: string }) {
   const tone = phaseTone(card.isLearned ? 'learned' : card.phase)
   const word = card.article && card.article !== 'none' ? `${card.article} ${card.word_de}` : card.word_de
 
@@ -54,6 +55,7 @@ function CardRow({ card, t }: { card: PhaseCardView; t: ReturnType<typeof create
         <p className="min-w-0 break-words text-lg text-[var(--muted)]">{card.translation}</p>
       </div>
       <div className="mt-2.5 flex flex-wrap items-center gap-2">
+        {card.originLevel && <span className="rounded-full border border-[var(--border)] bg-[var(--surface-muted)] px-3 py-1 text-base font-semibold" data-testid="carryover-origin">{carryoverTranslator(lang)('origin', { level: card.originLevel })}</span>}
         {VOCABULARY_DIRECTIONS.map((direction) => {
           // Eine Richtung „sitzt", wenn sie die Phase der Vokabel schon
           // verlassen hat — sie wartet dann auf die Gegenrichtung.
@@ -315,7 +317,7 @@ export default function PhaseInspector({ phase, bucket = null, origin = null, le
               )}
               {typeof content === 'object' && content.cards.length > 0 && (
                 <ul className="mt-2 min-w-0">
-                  {content.cards.map((card) => <CardRow key={card.id} card={card} t={t} />)}
+                  {content.cards.map((card) => <CardRow key={card.id} card={card} t={t} lang={uiLanguage} />)}
                 </ul>
               )}
               {typeof content === 'object' && content.truncated && (

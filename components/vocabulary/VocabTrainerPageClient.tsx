@@ -7,9 +7,9 @@ import { motion } from 'framer-motion'
 import { ArrowRight, CircleCheckBig, ListChecks } from 'lucide-react'
 import { createVocabularyTranslator, type VocabularyTranslations } from '@/lib/vocabulary-i18n'
 import { studentTranslator } from '@/lib/student-ui-i18n'
-import type { DueVocabularyCard, VocabularyBoxSummary } from '@/lib/types/vocabulary'
+import type { DueVocabularyCard, VocabularyBoxSummary, VocabularyCarryoverSummary } from '@/lib/types/vocabulary'
 import type { SoftErrorReason } from '@/lib/answer-grading'
-import VocabCardSession from './VocabCardSession'
+import VocabularyTrainingStart from './VocabularyTrainingStart'
 import LeitnerBoxOverview from './LeitnerBoxOverview'
 import RoundSizePicker from './RoundSizePicker'
 import { loadRoundSize, saveRoundSize } from '@/lib/vocabulary-lernkasten'
@@ -29,6 +29,7 @@ interface Props {
   level: string
   initialDeferredCount?: number
   initialPreviousCardId?: string | null
+  carryover?: VocabularyCarryoverSummary | null
 }
 
 /**
@@ -40,7 +41,7 @@ interface Props {
  * Modus Vokabeln unter „Lektionen" entschieden: Dort werden Lektionen und „Eigene Wörter"
  * eingeschaltet, eingestuft und ergänzt.
  */
-export default function VocabTrainerPageClient({ learnerId, initialCards, boxSummary, translations = {}, softErrorTranslations, lang, level, initialDeferredCount = 0, initialPreviousCardId = null }: Props) {
+export default function VocabTrainerPageClient({ learnerId, initialCards, boxSummary, translations = {}, softErrorTranslations, lang, level, initialDeferredCount = 0, initialPreviousCardId = null, carryover }: Props) {
   const router = useRouter()
   const [refreshing, startRefresh] = useTransition()
   const t = useMemo(() => createVocabularyTranslator(translations), [translations])
@@ -61,7 +62,7 @@ export default function VocabTrainerPageClient({ learnerId, initialCards, boxSum
   // Leer ist die Box, solange unter „Lektionen" noch keine Lektion eingeschaltet ist.
   const empty = due === 0 && boxSummary.inPhases + boxSummary.learned === 0
 
-  if (session) return <VocabCardSession key={learnerId} learnerId={learnerId} cards={session} translations={translations} softErrorTranslations={softErrorTranslations} uiLanguage={lang} previousCardId={previousCardId} initialDeferredCount={initialDeferredCount} overviewHref={overview} roundSize={chosenSize}
+  if (session) return <VocabularyTrainingStart key={learnerId} level={level} learnerId={learnerId} cards={session} translations={translations} softErrorTranslations={softErrorTranslations} uiLanguage={lang} previousCardId={previousCardId} initialDeferredCount={initialDeferredCount} overviewHref={overview} roundSize={chosenSize}
     onBackToLernkasten={lastId => { setPreviousCardId(lastId); setSession(null); startRefresh(() => router.refresh()) }} />
 
   // Die eine Hauptaktion. Ist nichts fällig, tritt an ihre Stelle kein
@@ -118,7 +119,7 @@ export default function VocabTrainerPageClient({ learnerId, initialCards, boxSum
           : <h2 className="mt-2 text-3xl font-bold leading-tight sm:text-4xl">{empty ? s('box_empty_title') : t('all_done')}</h2>}
 
         <div className="mt-4 sm:mt-2">
-          <LeitnerBoxOverview summary={boxSummary} level={level} uiLanguage={lang} translations={translations} action={action} />
+          <LeitnerBoxOverview summary={boxSummary} level={level} uiLanguage={lang} translations={translations} action={action} carryover={carryover} />
         </div>
 
         {initialDeferredCount > 0 && <p className="mt-4 text-base text-[var(--muted)]">{t('repetition_gap_hint')}</p>}

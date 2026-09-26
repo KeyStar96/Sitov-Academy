@@ -4,10 +4,11 @@ import { summarizeBox, type WordBoxState } from '@/lib/vocabulary-box'
 import type { DueVocabularyCard } from '@/lib/types/vocabulary'
 import de from '@/dictionaries/de.json'
 import { studentTranslator } from '@/lib/student-ui-i18n'
+import { beginVocabularyLevel, getVocabularySession } from '@/app/actions/vocabulary'
 
 jest.unmock('lucide-react')
 jest.unmock('framer-motion')
-jest.mock('@/app/actions/vocabulary', () => ({ getPhaseCards: jest.fn() }))
+jest.mock('@/app/actions/vocabulary', () => ({ getPhaseCards: jest.fn(), beginVocabularyLevel: jest.fn(), getVocabularySession: jest.fn() }))
 jest.mock('@/components/vocabulary/VocabCardSession', () => ({ __esModule: true, default: () => <p>session</p> }))
 jest.mock('next/navigation', () => ({ useRouter: () => ({ refresh: jest.fn(), push: jest.fn() }) }))
 
@@ -37,14 +38,16 @@ function mount(cards: DueVocabularyCard[], box = summarizeBox([resting])) {
     translations={de.vocabulary} lang="ru" level="A1.1" />)
 }
 
-it('zeigt nur noch die Lernbox: keine Lektionsliste, keine eigenen Wörter, keine Methoden-Erklärung', () => {
+it('zeigt nur noch die Lernbox: keine Lektionsliste, keine eigenen Wörter, keine Methoden-Erklärung', async () => {
+  jest.mocked(beginVocabularyLevel).mockResolvedValue({ success: true, carryover: { targetLevel: 'A1.1', enabled: false, decidedAt: '2026-09-26', startedAt: '2026-09-26', promptRequired: false, total: 0, byLevel: [] } })
+  jest.mocked(getVocabularySession).mockResolvedValue({ learnerId, cards: [card('Lektion 1', 'p-1')], deferredCount: 0, previousCardId: null })
   mount([card('Lektion 1', 'p-1'), card('Lektion 1', 'p-2')])
   expect(screen.queryByRole('heading', { name: 'Lektion 1' })).not.toBeInTheDocument()
   expect(screen.queryByRole('heading', { name: de.vocabulary.own_words_title })).not.toBeInTheDocument()
   expect(screen.queryByRole('switch')).not.toBeInTheDocument()
   expect(screen.queryByText(de.vocabulary.method_title)).not.toBeInTheDocument()
   fireEvent.click(screen.getByRole('button', { name: 'Jetzt 2 Vokabeln üben' }))
-  expect(screen.getByText('session')).toBeInTheDocument()
+  expect(await screen.findByText('session')).toBeInTheDocument()
 })
 
 it('führt ohne fällige Karten zu den Lektionen', () => {

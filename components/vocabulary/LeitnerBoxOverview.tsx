@@ -4,7 +4,8 @@ import { useCallback, useId, useMemo, useState, type CSSProperties, type Keyboar
 import { Check, Hand } from 'lucide-react'
 import { createVocabularyTranslator, type VocabularyTranslations } from '@/lib/vocabulary-i18n'
 import { phaseIntervalInDays, phaseTone, type BoxBucket, type BoxBucketKey } from '@/lib/vocabulary-box'
-import type { VocabularyBoxSummary } from '@/lib/types/vocabulary'
+import type { VocabularyBoxSummary, VocabularyCarryoverSummary } from '@/lib/types/vocabulary'
+import { carryoverTranslator } from '@/lib/vocabulary-carryover-i18n'
 import { cn } from '@/lib/utils'
 import LernkastenGuide from './LernkastenGuide'
 import PhaseInspector, { type InspectorOrigin } from './PhaseInspector'
@@ -17,6 +18,7 @@ interface Props {
   translations?: VocabularyTranslations
   /** Hauptaktion direkt unter der Box — der Start-Knopf der Trainer-Seite. */
   action?: ReactNode
+  carryover?: VocabularyCarryoverSummary | null
 }
 
 type Translator = ReturnType<typeof createVocabularyTranslator>
@@ -174,7 +176,7 @@ function Compartment({ bucket, index, open, t, onOpen }: {
  * also erst weiter, wenn sie in beide Richtungen sitzt — der Zwischenschritt
  * steht als „halb gewusst" an jedem Fach und an jeder Vokabel im Fach.
  */
-export default function LeitnerBoxOverview({ summary, level, uiLanguage, translations = {}, action }: Props) {
+export default function LeitnerBoxOverview({ summary, level, uiLanguage, translations = {}, action, carryover }: Props) {
   const t = useMemo(() => createVocabularyTranslator(translations), [translations])
   const introId = useId()
   const [openPhase, setOpenPhase] = useState<BoxBucketKey | null>(null)
@@ -225,6 +227,14 @@ export default function LeitnerBoxOverview({ summary, level, uiLanguage, transla
         <Hand size={18} aria-hidden="true" className="shrink-0 text-[var(--accent-text)]" />
         {t('box_tap_hint')}
       </p>
+      {carryover?.enabled && carryover.total > 0 && <div className="space-y-2 text-base text-[var(--muted)]">
+        <p>{carryoverTranslator(uiLanguage)('separate', { count: carryover.total })}</p>
+        <ul className="flex flex-wrap gap-2" aria-label={carryoverTranslator(uiLanguage)('title')}>
+          {carryover.byLevel.map(origin => <li key={origin.level} className="rounded-full border border-[var(--border)] bg-[var(--surface)] px-3 py-1 text-[var(--foreground)]">
+            <span>{origin.level}</span><span aria-hidden="true"> · </span><span>{origin.total}</span>
+          </li>)}
+        </ul>
+      </div>}
 
       {action && <div className="mt-6">{action}</div>}
 

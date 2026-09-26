@@ -2,14 +2,14 @@
 
 | Feld | Wert |
 |---|---|
-| Letzte Aktualisierung | 2026-09-26, Phase 4 lokal abgeschlossen und geprüft; kein Deployment |
-| Git-Revision | Phase-4-Ausgangsstand `c0eb6cfa7b2d9c2b2d168fdae3af2b8dae090577`; Implementierung und Nachweise im gemeinsamen Abschlusscommit |
+| Letzte Aktualisierung | 2026-09-26, Phase 5 lokal implementiert und vollständig geprüft; Produktivumfang zur Entscheidung offen |
+| Git-Revision | Phase-5-Ausgangsstand `b7dc0c7781e75afc3c7aa34d827276f3d583d996`; Implementierung und Nachweise im gemeinsamen Abschlusscommit |
 | Branch | `codex/vps-self-hosted` |
 | Aktives Release | `e6a8d32f4ce74ab20a0ff5a4750927c37c108575` (`/var/www/sitov-current` → `/var/www/sitov-releases/e6a8d32f4ce7`) |
-| Health | Letzter dokumentierter Produktionsstand: `ready`; Phase 4 ausschließlich lokal geprüft |
-| Letzte Migration | Lokal `36_migrate_old_grammar_progress.sql`; produktiv weiterhin 31, Migrationen 32–36 nicht aktiviert |
-| Nächste freie Nummer | **37**, vor Verwendung erneut prüfen |
-| Datenbank | Produktiv unverändert PostgreSQL 15.8; Phase 4 mit Backups in isoliertem lokalem PostgreSQL 17.11 und echtem PostgREST 16.4 geprüft |
+| Health | Produktionsstand erneut rein lesend geprüft: `ready`; keine Aktivierung in Phase 5 |
+| Letzte Migration | Lokal `37_vocabulary_carryover.sql`; produktiv weiterhin 31, Migrationen 32–37 nicht aktiviert |
+| Nächste freie Nummer | **38**, vor Verwendung erneut prüfen |
+| Datenbank | Produktiv unverändert PostgreSQL 15.8; Phase 5 mit Backups in isoliertem lokalem PostgreSQL 17.11 und echtem PostgREST 16.4 geprüft |
 
 ## Test-Baseline (Phase 0)
 
@@ -205,3 +205,33 @@ Der aktuelle Importbefehl lautet **`npm run seed:learning-path -- --import --bac
 Die lokale Umgebung verwendet PostgreSQL **17.11** und echtes PostgREST **16.4**, künstliche Benutzer und einen synthetischen Auth-Endpunkt; sämtliche Import-, RLS- und Bewertungsaufrufe gehen an die echte Datenbank. Sie ist eine isolierte Testumgebung und wird nach der Abnahme beendet. Produktion bleibt auf Migration 31 und dem bisherigen Release; Aktivierung von 32–36 und dem passenden UI-Release wurde nicht beauftragt. Die sechs zusätzlichen Phase-3-Aufgabenformen sind nicht im Seed enthalten; ihre Oberfläche wurde in Phase 4 nicht vorgezogen. Phasen 5–8 wurden nicht ausgeführt.
 
 Anfängliche Typ-/Logging-Probleme, die korrigierte Antwortform bei ungültigen Testantworten und ein Browser-Testproblem beim Lesen gestreamter Response-Bodys sind im Prüfbericht offen dokumentiert. Alle finalen Prüfläufe sind grün; keine Assertions oder Sicherheitsprüfungen wurden ausgeblendet.
+
+## Phase 5 — Wörter mitnehmen
+
+Stand: **lokal implementiert und vollständig geprüft; produktive Abnahme offen**. Ausschließlich Phase-5-Code umgesetzt. Ausgangsrevision `b7dc0c7781e75afc3c7aa34d827276f3d583d996`. [Prüfbericht](PHASE-5-PRUEFBERICHT.md), [Betrieb/Rückweg](phase-5-betrieb.md), [Nachweise](phase-5-nachweise.json), [Browserbilder](phase-5-bilder/README.md).
+
+- [x] **Entscheidung:** Migration **37_vocabulary_carryover.sql**, persönliche Entscheidung pro Zielniveau mit RLS, expliziten Grants, Beginn-/Entscheidungszeit und JSONB-RPCs; Schutz während laufender Gesamtresets. Nachweislich frühere Lernaktivität verhindert eine nachträgliche Erstfrage.
+- [x] **Gemeinsamer Fortschritt:** offene begonnene Karten aller früheren Niveaus einschließlich eigener Wörter, ohne Kopie. Originale Richtungszeilen, Fächer und Termine bleiben erhalten. Pausierte, nie begonnene, fremde und vollständig gelernte Karten ausgeschlossen.
+- [x] **Zugriff/Bewertung:** aktuelle vollständige Funktionskörper für Antwort, Selbsteinschätzung und Retry mit explizitem Zielniveau erweitert; Prüfungen auch vor dem Lesen gespeicherter Antwortbelege. Gesperrtes Ziel, Schalter-Aus, Pause oder fremder Lernstand verweigern die Wertung. Herkunftsniveau darf inzwischen gesperrt sein; direkte Tabellen-RLS wird nicht erweitert.
+- [x] **Daten/Oberfläche:** Übersicht, Fälligkeiten und Sitzung berücksichtigen Mitnahme; Niveauprozent zählt nur eigene Wörter. Station neben eigenen Wörtern mit Anzahl/Fachverteilung je Herkunft; Herkunftsetiketten in Box/Fachansicht/Sitzung. Einmalige gespeicherte Frage vor Lernrunde oder Einstufung, fünf Sprachen, „Nein, danke“ links und „Mitnehmen“ rechts. Annahme lädt die Karten sofort in die erste Runde; leere Direktaufrufe verbrauchen die Frage nicht.
+- [x] **Reset/Tabs:** Zielreset löscht nur die Zielentscheidung und eigenen Zielfortschritt; Herkunft bleibt erhalten. Herkunftsreset entfernt dessen Karten aus späteren Niveaus. Gesamtreset und Rückweg geprüft. Schalteränderungen verwerfen alte Sitzungen anderer Tabs.
+- [x] **DB-/Browserabnahme:** **1.896 Jest-Tests / 147 Suites**, **503 DB-/Node-Tests**, **64 Python-Tests**, **6 Playwright-Fälle und fünf vollständige Axe-Scans**; 0 Fehler/Skips im finalen Lauf. TypeScript und Produktionsbuild (157 statische Seiten) erfolgreich. Mobil hell/dunkel und Desktop visuell geprüft.
+- [x] **R7–R9:** echter lokaler PostgreSQL-Klon, **15 geprüfte Backups**, Migration zweimal, Rückweg und Wiederanwendung mit identischem Schema und unverändertem Ursprungslernstand; zusätzlicher frischer Klon bestätigt den Schemaexport. Schema und öffentliche Typen aus dem echten Katalog. Nächste freie Nummer **38**.
+- [x] **Dokumentation/Git:** Prüfbericht vor Änderungen, RPC-Übergabe, Aktivierungs-/Rückweg, Nachweise und Bilder vorbereitet; gemeinsamer lokaler Abschlusscommit. Kein Push, keine produktive Änderung.
+- [ ] **Produktiv aktiviert:** offen. Der bisher geordnete/abgenommene Migrationsweg verlangt 32–37 und betrifft damit die bislang nur lokal freigegebenen früheren Phasen. Deren Aktivierung archiviert alte Grammatik-Units und benötigt den 769-Aufgaben-Import. Konkreter Umfang wurde zur Entscheidung vorgelegt; keine stillschweigende Erweiterung des Auftrags „ausschließlich Phase 5“. Vor Aktivierung bleibt außerdem PostgreSQL-15.8-Abnahme nötig.
+
+### Verbindliche Übergabe für Phase 7
+
+| Objekt | Vertrag |
+| --- | --- |
+| `vocabulary_carryover_preferences` | `auth_user_id`, `target_level` (gemeinsamer Primärschlüssel), `enabled`, `started_at`, `decided_at`, `is_active`; eigene aktive Zeilen lesbar, Schreiben über RPC |
+| `get_vocabulary_carryover(p_target_level)` | `success`, `targetLevel`, `enabled`, `startedAt`, `decidedAt`, `promptRequired`, `cards[{cardId,originLevel}]` |
+| `begin_vocabulary_level(p_target_level)` | einmaligen Beginn speichern, obigen Vertrag zurückgeben; ohne Kandidaten wird die Nichtmitnahme automatisch vermerkt |
+| `set_vocabulary_carryover(p_target_level,p_enabled)` | aktuelle Entscheidung speichern, obigen Vertrag zurückgeben |
+| `get_vocabulary_carryover_cards(p_target_level,p_offset=0,p_limit=500)` | paginierte berechtigte Vorschau-Karten und originale persönliche `progress`-Zeilen; Kandidaten auch bei Schalter-Aus für die Station lesbar, keine fällige Ziel-Sitzung dadurch freigegeben |
+| Bewertungs-RPCs | zusätzliche Überladung von `submit_vocabulary_answer`, `submit_vocabulary_answer_once`, `submit_vocabulary_self_rating_once`, `check_vocabulary_retry` mit Pflichtfeld `p_target_level`; historische Signaturen erhalten |
+| `vocabulary_private.answer_receipts` | zusätzliches `target_level`; gleiche Request-ID darf nicht in einem anderen Ziel wiederverwendet werden |
+| `vocabulary_private.carryover_function_backups` | einmalig gesicherte aktuelle Niveau-/Gesamtreset-Funktionen für Rückweg; nicht für Clients lesbar |
+| `getVocabularyOverview` / `LevelLearningStatus.carryover` | eigene Lektionszahlen/`ownBox`, gemeinsame sichtbare `box`, `dueCards`, separate `carryover` mit `byLevel[{level,total,box}]`; Dashboard-Prozent nur aus eigenen Wörtern bilden |
+
+Altbestand-Grenzen sind im Prüfbericht dokumentiert: eine historische Einstufung ausschließlich neuer Wörter ist von Initialisierung nicht zuverlässig unterscheidbar; unvollständige Richtungsdaten werden nicht repariert. Die rein lesende Produktionsprüfung fand **0** unvollständige Richtungspaare. Phasen 6–8 wurden nicht ausgeführt.

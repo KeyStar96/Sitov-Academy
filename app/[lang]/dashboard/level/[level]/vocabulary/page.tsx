@@ -28,6 +28,7 @@ export default async function VocabularyOverviewPage({
       initialDeferredCount={session.deferredCount}
       initialPreviousCardId={session.previousCardId}
       boxSummary={overview.box}
+      carryover={overview.carryover}
       translations={translations}
       softErrorTranslations={dict.exercises?.soft_error}
       lang={lang}

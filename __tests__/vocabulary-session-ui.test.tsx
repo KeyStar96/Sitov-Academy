@@ -59,12 +59,35 @@ it('prepares headword audio but hides the solution and self-rating controls unti
   expect(screen.queryByRole('button', { name: de.vocabulary.listen_word })).not.toBeInTheDocument()
   expect(screen.getByRole('textbox')).toHaveAttribute('lang', 'de')
 })
+
+it('keeps the target level on carried typed answers, failed-write retries and practice retries', async () => {
+  jest.mocked(submitVocabularyAnswer).mockResolvedValueOnce({ success: false }).mockResolvedValueOnce(result({ isCorrect: false, previousPhase: 3, newPhase: 2 }))
+  render(<VocabCardSession learnerId={learnerId} level="A1.2" cards={[{ ...word, phase: 3, box: 3, originLevel: 'A1.1', targetLevel: 'A1.2' }]}
+    translations={de.vocabulary} uiLanguage="ru" overviewHref="/ru/dashboard/level/A1.2/vocabulary" />)
+  expect(screen.getByTestId('carryover-origin')).toHaveTextContent('Из A1.1')
+  await submit('das Hauss Garten')
+  const original = jest.mocked(submitVocabularyAnswer).mock.calls[0][0]
+  expect(original).toMatchObject({ progressId: word.progressId, targetLevel: 'A1.2' })
+  await act(async () => fireEvent.click(screen.getByRole('button', { name: de.vocabulary.error_retry })))
+  expect(jest.mocked(submitVocabularyAnswer).mock.calls[1][0]).toEqual(original)
+  next()
+  await submit('das Haus')
+  expect(checkVocabularyRetry).toHaveBeenCalledWith(expect.objectContaining({ targetLevel: 'A1.2', progressId: word.progressId }))
+})
+
+it('sends the target level with a carried self-rating while preserving its progress id', async () => {
+  render(<VocabCardSession learnerId={learnerId} level="A1.2" cards={[{ ...word, mode: 'flashcard', originLevel: 'A1.1' }]}
+    translations={de.vocabulary} uiLanguage="ru" overviewHref="/ru/dashboard/level/A1.2/vocabulary" />)
+  fireEvent.click(screen.getByRole('button', { name: de.vocabulary.reveal_solution }))
+  await act(async () => fireEvent.click(screen.getByRole('button', { name: de.vocabulary.knew_it })))
+  expect(submitVocabularySelfRating).toHaveBeenCalledWith(expect.objectContaining({ progressId: word.progressId, targetLevel: 'A1.2', known: true }))
+})
 it.each([word, sentence])('waits for server authority for $format cards and sends typed bytes unchanged', async card => {
   const reply = deferred()
   jest.mocked(submitVocabularyAnswer).mockReturnValueOnce(reply.promise)
   mount([card, second])
   typeAnswer(' das Haus \n')
-  expect(submitVocabularyAnswer).toHaveBeenCalledWith({ progressId: card.progressId, typedAnswer: ' das Haus \n', expectedLearnerId: learnerId, uiLanguage: 'ru', requestId: expect.any(String) })
+  expect(submitVocabularyAnswer).toHaveBeenCalledWith({ progressId: card.progressId, typedAnswer: ' das Haus \n', expectedLearnerId: learnerId, uiLanguage: 'ru', targetLevel: 'A1.1', requestId: expect.any(String) })
   expect(screen.getByRole('heading', { name: card.prompt })).toBeVisible()
   expect(screen.getByRole('textbox')).toBeDisabled()
   expect(screen.queryByRole('button', { name: de.vocabulary.next_card })).not.toBeInTheDocument()
@@ -353,7 +376,7 @@ describe('Phase-6-Runde: falsche Vokabeln werden wiederholt, bis sie einmal sitz
     // Die Wiederholung zeigt die schon zurückgestufte Phase.
     expect(screen.getByText('Karte 2 von 2, Phase 3 von 6')).toBeInTheDocument()
     await submit('die Haus')
-    expect(checkVocabularyRetry).toHaveBeenCalledWith({ progressId: word.progressId, typedAnswer: 'die Haus', expectedLearnerId: learnerId, uiLanguage: 'ru' })
+    expect(checkVocabularyRetry).toHaveBeenCalledWith({ progressId: word.progressId, typedAnswer: 'die Haus', expectedLearnerId: learnerId, uiLanguage: 'ru', targetLevel: 'A1.1' })
     expect(submitVocabularyAnswer).toHaveBeenCalledTimes(1)
     expect(screen.getByText(de.vocabulary.answer_incorrect)).toBeVisible()
     next()

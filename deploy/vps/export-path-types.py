@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Refresh the Phase-3 public TypeScript surface from the verified clone catalog.
+"""Refresh learning RPC TypeScript types from the verified clone catalog.
 
 Unchanged generated types are preserved. No database connection or credentials.
 Usage: python3 deploy/vps/export-path-types.py /tmp/clone/public-catalog.json
@@ -52,7 +52,7 @@ def replace_member(section, name, body):
 
 
 selected = sorted({c['table_name'] for c in catalog['columns']
-                   if c['table_name'].startswith('path_') or c['table_name'] in ('learning_units', 'learning_exercises', 'grammar_translations')})
+                   if c['table_name'].startswith('path_') or c['table_name'] in ('learning_units', 'learning_exercises', 'grammar_translations', 'vocabulary_carryover_preferences')})
 for table in selected:
     columns = sorted([c for c in catalog['columns'] if c['table_name'] == table], key=lambda c: c['column_name'])
     lines = ['      ' + table + ': {']
@@ -88,15 +88,22 @@ functions = ['get_learning_path', 'start_path_node', 'submit_path_answer', 'star
 # Older Phase-3 evidence remains usable; Phase-4 catalogs include the atomic API.
 if any(fn['name'] == 'import_learning_path_seed' for fn in catalog['functions']):
     functions.append('import_learning_path_seed')
+if any(fn['name'] == 'get_vocabulary_carryover' for fn in catalog['functions']):
+    functions.extend(['get_vocabulary_carryover', 'begin_vocabulary_level', 'set_vocabulary_carryover',
+                      'get_vocabulary_carryover_cards', 'submit_vocabulary_answer',
+                      'submit_vocabulary_answer_once', 'submit_vocabulary_self_rating_once', 'check_vocabulary_retry'])
 for name in functions:
-    found = [fn for fn in catalog['functions'] if fn['name'] == name]
-    if len(found) != 1 or found[0]['result'] != 'jsonb':
+    found = sorted([fn for fn in catalog['functions'] if fn['name'] == name], key=lambda fn: fn['arguments'])
+    if not found or any(fn['result'] != 'jsonb' for fn in found):
         raise ValueError('Unexpected public RPC signature: ' + name)
     lines = ['      ' + name + ': {', '        Args: {']
-    for parameter in found[0]['arguments'].split(', '):
-        argument, pgtype = parameter.split(' ', 1)
-        pgtype, *default = pgtype.split(' DEFAULT ', 1)
-        lines.append(f'          {argument}{"?" if default else ""}: {ts_type(pgtype)}')
+    for index, fn in enumerate(found):
+        if index:
+            lines.append('        } | {')
+        for parameter in fn['arguments'].split(', '):
+            argument, pgtype = parameter.split(' ', 1)
+            pgtype, *default = pgtype.split(' DEFAULT ', 1)
+            lines.append(f'          {argument}{"?" if default else ""}: {ts_type(pgtype)}')
     lines.extend(['        }', '        Returns: Json', '      }'])
     replace_member('Functions', name, '\n'.join(lines))
 

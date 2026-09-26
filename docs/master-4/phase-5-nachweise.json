@@ -1,0 +1,171 @@
+{
+  "postgres": "postgres (PostgreSQL) 17.11 (Homebrew)",
+  "postgrest": "PostgREST 16.4",
+  "counts": {
+    "cards": 7,
+    "directions": 10
+  },
+  "source_progress_preserved": true,
+  "migration_idempotent": true,
+  "rollback_reapply": true,
+  "schema_sha256": "5f71abc3ffd9f6a0610a1e5e5046a223dd5e3eb8bfb270bb79c24768969071db",
+  "migration_sha256": "c83737b760f7405346f84d1cabc86acc5d46cd590b581e72d2b6b85e25ead8c2",
+  "backups": [
+    {
+      "label": "bootstrap",
+      "path": "/private/tmp/sitov-phase5-verified/backups/sitov-p5-vym2foxj-000-bootstrap",
+      "sha256": "0ca5b1f9b0db25aee0ad704000827aba6ebc8e66107f2d8f4a330821daf658e4"
+    },
+    {
+      "label": "fixture",
+      "path": "/private/tmp/sitov-phase5-verified/backups/sitov-p5-vym2foxj-001-fixture",
+      "sha256": "9d391193852fffc39a77dea9cf1163a75f9b27eeeef42259c0bfff8a3a30746e"
+    },
+    {
+      "label": "migration-first",
+      "path": "/private/tmp/sitov-phase5-verified/backups/sitov-p5-vym2foxj-002-migration-first",
+      "sha256": "b13171b61aae649c8e3cf516a5821afa95633fcf06e0b1ae13e206edf4b3df2e"
+    },
+    {
+      "label": "migration-second",
+      "path": "/private/tmp/sitov-phase5-verified/backups/sitov-p5-vym2foxj-003-migration-second",
+      "sha256": "63ced275aab26428e74d910bd422bb95181107c61c555b76bf3f2371768aed57"
+    },
+    {
+      "label": "preference-fixture",
+      "path": "/private/tmp/sitov-phase5-verified/backups/sitov-p5-vym2foxj-004-preference-fixture",
+      "sha256": "7b314fe0a1f92c07aa077d3b27723c7f2eb221a9a26d960020bd8be42fb94f29"
+    },
+    {
+      "label": "rollback",
+      "path": "/private/tmp/sitov-phase5-verified/backups/sitov-p5-vym2foxj-005-rollback",
+      "sha256": "23336c06d50a86c65efa4c0ee1ec5b3273725e22c8ba2631e31389b99706af5b"
+    },
+    {
+      "label": "reapply",
+      "path": "/private/tmp/sitov-phase5-verified/backups/sitov-p5-vym2foxj-006-reapply",
+      "sha256": "1bf5e7539d0f3d6d9703cf0d3fb49aff288b2fef15ee0bdd4f552e12823b9719"
+    },
+    {
+      "label": "browser-fixture",
+      "path": "/private/tmp/sitov-phase5-verified/backups/sitov-p5-vym2foxj-007-browser-fixture",
+      "sha256": "1da07af166f8219b03c8a282d3bd0c5f23915e915b379a0b8361a787451d2962"
+    },
+    {
+      "label": "browser-session",
+      "path": "/private/tmp/sitov-phase5-verified/backups/sitov-p5-vym2foxj-008-browser-session",
+      "sha256": "8f65a4c74337d783502ede5a48eee1e578c5e51d87f6367977e49d8dc4536a61"
+    },
+    {
+      "label": "browser-reset",
+      "path": "/private/tmp/sitov-phase5-verified/backups/sitov-p5-vym2foxj-009-browser-reset",
+      "sha256": "cc08ff30db8f178aa3b359062512440dd3b418ef3cd09007e9173a1bd6be0469"
+    },
+    {
+      "label": "browser-reset",
+      "path": "/private/tmp/sitov-phase5-verified/backups/sitov-p5-vym2foxj-010-browser-reset",
+      "sha256": "43d6af04fddb43eb009a67bc317505b5838925819d7d865766e67846fb296239"
+    },
+    {
+      "label": "browser-reset",
+      "path": "/private/tmp/sitov-phase5-verified/backups/sitov-p5-vym2foxj-011-browser-reset",
+      "sha256": "5f0d25f5d7a381694b749476d07239a542b5275e242b10ed8763584b9449ffbc"
+    },
+    {
+      "label": "browser-reset",
+      "path": "/private/tmp/sitov-phase5-verified/backups/sitov-p5-vym2foxj-012-browser-reset",
+      "sha256": "28cfab807cdfd65e27ba1cb268ca3aea13a17d712298dcbe8cc47cd055543902"
+    },
+    {
+      "label": "browser-reset",
+      "path": "/private/tmp/sitov-phase5-verified/backups/sitov-p5-vym2foxj-013-browser-reset",
+      "sha256": "55d03f1239404aa0992f6f6fcc269f2779a2f551e7c5c90ff784399b669c930e"
+    },
+    {
+      "label": "browser-reset",
+      "path": "/private/tmp/sitov-phase5-verified/backups/sitov-p5-vym2foxj-014-browser-reset",
+      "sha256": "8fdf08bb405b7e4dc804716826b4c0aae85066d863a9e34e543df03681cb3fe4"
+    }
+  ],
+  "phase": 5,
+  "baseline_revision": "b7dc0c7781e75afc3c7aa34d827276f3d583d996",
+  "production_changed": false,
+  "tests": {
+    "jest": {
+      "passed": 1896,
+      "suites": 147,
+      "failed": 0,
+      "skipped": 0
+    },
+    "db_node": {
+      "passed": 503,
+      "failed": 0,
+      "skipped": 0
+    },
+    "python": {
+      "passed": 64,
+      "failed": 0,
+      "skipped": 0
+    },
+    "playwright": {
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0,
+      "axe_scans": 5,
+      "axe_violations": 0
+    },
+    "typescript_exit": 0,
+    "build_exit": 0,
+    "build_static_pages": 157
+  },
+  "live_read_only": {
+    "release": "e6a8d32f4ce74ab20a0ff5a4750927c37c108575",
+    "health": "ready",
+    "migration": 31,
+    "incomplete_direction_pairs": 0
+  },
+  "file_sha256": {
+    "supabase/vps/37_vocabulary_carryover.sql": "c83737b760f7405346f84d1cabc86acc5d46cd590b581e72d2b6b85e25ead8c2",
+    "supabase/vps/rollback/37_vocabulary_carryover.sql": "8102100cde1c5c80146e521adf5ddd5aefb7876ec3d369a0f9cbf2adcf004e14",
+    "supabase/schema.sql": "7f9ad153f458b0719a767fc240765972e43868bb5ed43e393ee556c5a2abde6e",
+    "supabase/database.types.ts": "36d35df35d4411065fc541e3dd473f11dccde15ec8a2883fd1b4a68ea1a06154"
+  },
+  "screenshots": [
+    {
+      "file": "carryover-question.png",
+      "width": 1280,
+      "height": 720,
+      "sha256": "82ac9da5312870f8c8a8d17f0d688ee3c9d5fa8c434b4d829af6426ebc7c7e7b"
+    },
+    {
+      "file": "original-box.png",
+      "width": 1280,
+      "height": 720,
+      "sha256": "02a069ce8f9184a255244290bbe16985d5aff0366326d04cd2d9eed9f1d3d4f8"
+    },
+    {
+      "file": "carryover-station-light.png",
+      "width": 390,
+      "height": 1725,
+      "sha256": "be39245e63c7ae895e1be45f971907dbbec3b16d75db760fbdb04fa537e35255"
+    },
+    {
+      "file": "carryover-station-dark.png",
+      "width": 390,
+      "height": 1725,
+      "sha256": "48adb63f3d308b5845c1b775049ef116be29722e4bbdc1819eef6019f846b40d"
+    },
+    {
+      "file": "carryover-question-light.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "6aa45cf8f70bbaa24c655d3b6cbea73f4f22641ce0ba211116ca5d1951350ca5"
+    },
+    {
+      "file": "carryover-question-dark.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "5760c751909dd4dcd2fb557718366309131eec6755d39619f14e45ac857a198a"
+    }
+  ]
+}

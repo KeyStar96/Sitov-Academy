@@ -11,6 +11,7 @@ import { LEITNER_LEARNED_BOX, normalizeBox, pickWeightedRandomOrder, selectionWe
 import { computeWordBoxState, isLessonInBox, summarizeBox, summarizeLessons, PHASE_INSPECTOR_LIMIT, type BoxBucketKey, type WordBoxState } from '@/lib/vocabulary-box'
 import { scheduleVocabularyCards } from '@/lib/vocabulary-scheduler'
 import { readVocabularyProgress } from '@/lib/vocabulary-queries'
+import { carryoverLevelSchema, carryoverStateSchema, readCarryoverCatalog, readCarryoverState, type CarryoverState } from '@/lib/vocabulary-carryover-server'
 import { loadLevelAccessProfile } from '@/lib/access/server'
 import { readAllRows } from '@/lib/supabase-read'
 import { vocabularyQuery, mapVocabularyCard } from '@/lib/learning-catalog'
@@ -24,6 +25,7 @@ import {
   type SubmitVocabularySelfRatingInput, type CheckVocabularyRetryInput, type CheckVocabularyRetryResult,
   type PhaseCardView, type PhaseCardsResult, type VocabularyBoxSummary,
   type VocabularySession, type VocabularyAssessmentSession,
+  type VocabularyCarryoverSummary, type VocabularyCarryoverResult,
 } from '@/lib/types/vocabulary'
 
 const languageSchema = z.enum(['de', 'en', 'ru', 'uk', 'tr'])
@@ -117,19 +119,24 @@ export async function getVocabularySession(level?: string, uiLanguage?: string):
     const locales = [...new Set(['de', language, profile.native_language].filter((value): value is string => !!value))]
     let catalogQuery = vocabularyQuery(supabase).in('translations.locale', locales).order('id')
     if (level) catalogQuery = catalogQuery.eq('unit.level', level)
-    const [catalog, progress, { data: cursor, error: cursorError }, paused] = await Promise.all([
+    const [catalog, ownProgress, { data: cursor, error: cursorError }, paused, carryover] = await Promise.all([
       readAllRows((from, to) => catalogQuery.range(from, to)),
       readAllRows((from, to) => supabase.from('vocabulary_direction_progress').select('id,card_id,direction,box_number')
         .eq('auth_user_id', user.id).lte('next_review_date', new Date().toISOString()).lt('box_number', LEITNER_LEARNED_BOX)
         .order('id').range(from, to)),
       supabase.from('vocabulary_learning_state').select('last_card_id').eq('auth_user_id', user.id).maybeSingle(),
       readPausedUnits(learner),
+      level ? readCarryoverState(supabase, level) : null,
     ])
+    const carried = carryover?.enabled ? await readCarryoverCatalog(supabase, carryover, user.id) : { cards: [], progress: [] }
+    const carriedIds = new Set(carried.cards.map(card => card.id))
+    const progress = [...new Map([...ownProgress, ...carried.progress.filter(row => row.box_number < LEITNER_LEARNED_BOX
+      && row.next_review_date !== null && Date.parse(row.next_review_date) <= Date.now())].map(row => [row.id, row])).values()]
     // R10: Nur fehlender Zugriff liefert eine leere Session. Ein Lesefehler wird
     // codiert geworfen, sonst ist "Datenbank weg" von "nichts fällig" für den
     // Lernenden nicht unterscheidbar.
     if (cursorError) throw new Error(`vocabulary_session_unavailable: ${cursorError.code ?? 'unknown'}`)
-    const catalogById = new Map(catalog.map(row => mapVocabularyCard(row)).map(card => [card.id, card]))
+    const catalogById = new Map([...catalog.map(row => mapVocabularyCard(row)), ...carried.cards].map(card => [card.id, card]))
     // Reuse one display object per card in both directions (Flight can reference it).
     const displayCards = new Map([...catalogById].map(([id, card]) => [id, {
       id: card.id, level: card.level, lesson: card.lesson, word_de: card.word_de,
@@ -137,11 +144,11 @@ export async function getVocabularySession(level?: string, uiLanguage?: string):
     }]))
     const cards: DueVocabularyCard[] = progress.flatMap(row => {
       const card = catalogById.get(row.card_id)
-      if (!card || !hasTrainerAccess(profile, card.level, 'vocabulary')) return []
+      if (!card || (!carriedIds.has(card.id) && !hasTrainerAccess(profile, card.level, 'vocabulary'))) return []
       // Unter „Lektionen" ausgeschaltet: Lernstand bleibt, geübt wird die Lektion nicht.
       if (paused.has(card.unit_id)) return []
       const allowedLessons = getAllowedLessons(profile, card.level, 'vocabulary')
-      if (allowedLessons !== null && !allowedLessons.includes(card.unit_id)) return []
+      if (!carriedIds.has(card.id) && !card.is_own && allowedLessons !== null && !allowedLessons.includes(card.unit_id)) return []
       const box = normalizeBox(row.box_number)
       const direction = row.direction === 'native_to_de' ? 'native_to_de' : 'de_to_native'
       const sentence = direction === 'native_to_de' && card.sentence_practice
@@ -151,6 +158,7 @@ export async function getVocabularySession(level?: string, uiLanguage?: string):
       if ((sentence && !source) || (!sentence && !translatedWord)) return []
       const translation = translatedWord?.text ?? ''
       return [{
+        targetLevel: level ?? card.level, ...(carriedIds.has(card.id) ? { originLevel: card.level } : {}),
         progressId: row.id, direction, format: sentence ? 'sentence' : 'word',
         // Der Server legt fest, welche Wege erlaubt sind; `learner_choice`
         // schaltet den Umschalter in der Lern-UI frei. Die Bewertungs-RPC
@@ -382,7 +390,7 @@ export async function deleteOwnWord(cardId: string): Promise<{ success: boolean 
 
 /** Every review is graded from the learner's typed answer inside PostgreSQL. */
 export async function submitVocabularyAnswer(input: SubmitVocabularyAnswerInput): Promise<SubmitVocabularyAnswerResult> {
-  const parsed = z.object({ progressId: z.string().uuid(), expectedLearnerId: z.string().uuid().optional(), requestId: z.string().uuid().optional(),
+  const parsed = z.object({ progressId: z.string().uuid(), targetLevel: carryoverLevelSchema.optional(), expectedLearnerId: z.string().uuid().optional(), requestId: z.string().uuid().optional(),
     typedAnswer: z.string().min(1).max(4000).refine(value => value.trim().length > 0), uiLanguage: languageSchema.optional() }).safeParse(input)
   if (!parsed.success) return { success: false, error: 'invalid_input' }
   try {
@@ -390,6 +398,7 @@ export async function submitVocabularyAnswer(input: SubmitVocabularyAnswerInput)
     if (!learner) return { success: false, error: 'save_failed' }
     const payload = {
       p_progress_id: parsed.data.progressId, p_is_correct: null,
+      ...(parsed.data.targetLevel ? { p_target_level: parsed.data.targetLevel } : {}),
       p_typed_answer: parsed.data.typedAnswer,
       p_ui_language: parsed.data.uiLanguage ?? languageSchema.catch('de').parse(learner.profile.ui_language),
     }
@@ -414,7 +423,7 @@ export async function submitVocabularyAnswer(input: SubmitVocabularyAnswerInput)
  * idempotent – ein wiederholter Versuch liefert dieselbe Quittung.
  */
 export async function submitVocabularySelfRating(input: SubmitVocabularySelfRatingInput): Promise<SubmitVocabularyAnswerResult> {
-  const parsed = z.object({ progressId: z.string().uuid(), expectedLearnerId: z.string().uuid().optional(),
+  const parsed = z.object({ progressId: z.string().uuid(), targetLevel: carryoverLevelSchema.optional(), expectedLearnerId: z.string().uuid().optional(),
     requestId: z.string().uuid(), known: z.boolean(), uiLanguage: languageSchema.optional() }).safeParse(input)
   if (!parsed.success) return { success: false, error: 'invalid_input' }
   try {
@@ -422,6 +431,7 @@ export async function submitVocabularySelfRating(input: SubmitVocabularySelfRati
     if (!learner) return { success: false, error: 'save_failed' }
     const { data, error } = await learner.supabase.rpc('submit_vocabulary_self_rating_once', {
       p_request_id: parsed.data.requestId, p_progress_id: parsed.data.progressId, p_known: parsed.data.known,
+      ...(parsed.data.targetLevel ? { p_target_level: parsed.data.targetLevel } : {}),
       p_ui_language: parsed.data.uiLanguage ?? languageSchema.catch('de').parse(learner.profile.ui_language),
     })
     if (error) return { success: false, error: 'save_failed' }
@@ -448,7 +458,7 @@ const retryResultSchema = z.object({
  * Termin hat schon der erste Versuch des Tages festgelegt.
  */
 export async function checkVocabularyRetry(input: CheckVocabularyRetryInput): Promise<CheckVocabularyRetryResult> {
-  const parsed = z.object({ progressId: z.string().uuid(), expectedLearnerId: z.string().uuid().optional(),
+  const parsed = z.object({ progressId: z.string().uuid(), targetLevel: carryoverLevelSchema.optional(), expectedLearnerId: z.string().uuid().optional(),
     typedAnswer: z.string().min(1).max(4000).refine(value => value.trim().length > 0), uiLanguage: languageSchema.optional() }).safeParse(input)
   if (!parsed.success) return { success: false, error: 'invalid_input' }
   try {
@@ -456,6 +466,7 @@ export async function checkVocabularyRetry(input: CheckVocabularyRetryInput): Pr
     if (!learner) return { success: false, error: 'check_failed' }
     const { data, error } = await learner.supabase.rpc('check_vocabulary_retry', {
       p_progress_id: parsed.data.progressId, p_typed_answer: parsed.data.typedAnswer,
+      ...(parsed.data.targetLevel ? { p_target_level: parsed.data.targetLevel } : {}),
       p_ui_language: parsed.data.uiLanguage ?? languageSchema.catch('de').parse(learner.profile.ui_language),
     })
     if (error || getRpcError(data)) return { success: false, error: 'check_failed' }
@@ -508,7 +519,7 @@ export async function getLessonCards(lessonName: string, level?: string, uiLangu
  * sobald eine Richtung wartet. Beide Ansichten können so nie widersprechen.
  */
 export async function getLessonStats(level?: string): Promise<LessonStat[]> {
-  return lessonStats(await readWordBox(level, null))
+  return lessonStats((await readWordBox(level, null))?.own ?? null)
 }
 
 /**
@@ -518,16 +529,72 @@ export async function getLessonStats(level?: string): Promise<LessonStat[]> {
  * getrennte Aufrufe auf derselben Seite hätten Katalog und Lernstand doppelt
  * gelesen — bei tausenden Vokabeln pro Niveau lohnt sich der gemeinsame Pass.
  */
-export async function getVocabularyOverview(level?: string): Promise<{ stats: LessonStat[]; box: VocabularyBoxSummary; dueCards: number }> {
+export async function getVocabularyOverview(level?: string): Promise<{
+  stats: LessonStat[]; box: VocabularyBoxSummary; ownBox: VocabularyBoxSummary;
+  dueCards: number; carryover: VocabularyCarryoverSummary | null
+}> {
   const words = await readWordBox(level, null)
-  const stats = lessonStats(words)
-  // Die Lernbox enthält nur eingeschaltete Lektionen; „Lektionen" zeigt alle.
-  const inBox = wordsInBox(words, stats)
-  // Fällige *Karten* (Richtungen) wie der Start-Knopf der Lernbox zählt; die
-  // Fächer zählen fällige Wörter. Die Startseite spricht von Karten.
+  const stats = lessonStats(words?.own ?? null)
+  const ownInBox = wordsInBox(words?.own ?? null, stats)
+  const ownBox = summarizeBox(ownInBox.map(word => word.state))
+  const inBox = [...ownInBox, ...(words?.carryover.enabled ? words.carried : [])]
   const dueCards = inBox.reduce((sum, { state }) => sum
     + (state ? Number(state.directions.de_to_native.isDue) + Number(state.directions.native_to_de.isDue) : 0), 0)
-  return { stats, box: summarizeBox(inBox.map(word => word.state)), dueCards }
+  const box = summarizeBox(inBox.map(word => word.state))
+  // Foreign cards enrich the boxes and due queue, never this level's progress.
+  return { stats, box: { ...box, percent: ownBox.percent }, ownBox, dueCards,
+    carryover: words && level ? carryoverSummary(words.carryover, words.carried) : null }
+}
+
+export async function getVocabularyCarryover(level: string): Promise<VocabularyCarryoverSummary> {
+  if (!carryoverLevelSchema.safeParse(level).success) throw new Error('vocabulary_carryover_invalid_input')
+  const words = await readWordBox(level, null)
+  if (!words) throw new Error('vocabulary_carryover_forbidden')
+  return carryoverSummary(words.carryover, words.carried)
+}
+
+/** Called after the learner starts a round/assessment, never while rendering a GET. */
+export async function beginVocabularyLevel(level: string, expectedLearnerId?: string): Promise<VocabularyCarryoverResult> {
+  return changeCarryover(level, undefined, expectedLearnerId)
+}
+
+export async function setVocabularyCarryover(level: string, enabled: boolean, expectedLearnerId?: string): Promise<VocabularyCarryoverResult> {
+  if (typeof enabled !== 'boolean') return { success: false, error: 'invalid_input' }
+  return changeCarryover(level, enabled, expectedLearnerId)
+}
+
+async function changeCarryover(level: string, enabled: boolean | undefined, expectedLearnerId?: string): Promise<VocabularyCarryoverResult> {
+  const parsed = carryoverLevelSchema.safeParse(level)
+  if (!parsed.success) return { success: false, error: 'invalid_input' }
+  try {
+    const learner = await loadLearner(expectedLearnerId)
+    if (!learner || !hasTrainerAccess(learner.profile, parsed.data, 'vocabulary')) return { success: false, error: 'save_failed' }
+    const { data, error } = enabled === undefined
+      ? await learner.supabase.rpc('begin_vocabulary_level', { p_target_level: parsed.data })
+      : await learner.supabase.rpc('set_vocabulary_carryover', { p_target_level: parsed.data, p_enabled: enabled })
+    const state = carryoverStateSchema.safeParse(data)
+    if (error || getRpcError(data) || !state.success || state.data.targetLevel !== parsed.data) return { success: false, error: 'save_failed' }
+    const carried = await readCarryoverEntries(learner, state.data, null)
+    refreshVocabulary()
+    return { success: true, carryover: carryoverSummary(state.data, carried) }
+  } catch {
+    console.error('[vocabulary] carryover_save_failed')
+    return { success: false, error: 'save_failed' }
+  }
+}
+
+function carryoverSummary(state: CarryoverState, words: WordBoxEntry[]): VocabularyCarryoverSummary {
+  const byLevel = new Map<string, WordBoxEntry[]>()
+  // RPC order follows the database's learning_levels.sort_order.
+  for (const candidate of state.cards) {
+    if (!byLevel.has(candidate.originLevel)) byLevel.set(candidate.originLevel, [])
+  }
+  for (const word of words) byLevel.get(word.card.level)?.push(word)
+  return { targetLevel: state.targetLevel, enabled: state.enabled, decidedAt: state.decidedAt,
+    startedAt: state.startedAt, promptRequired: state.promptRequired, total: words.length,
+    byLevel: [...byLevel].filter(([, entries]) => entries.length > 0).map(([level, entries]) => ({
+      level, total: entries.length, box: summarizeBox(entries.map(word => word.state)),
+    })) }
 }
 
 /** Lektionsstand samt Schalterstellung unter „Lektionen". */
@@ -563,17 +630,45 @@ function lessonEntries(words: WordBoxEntry[] | null) {
   return (words ?? []).map(({ card, state }) => ({ lesson: card.lesson, state }))
 }
 
-async function readWordBox(level: string | undefined, language: z.infer<typeof languageSchema> | null): Promise<WordBoxEntry[] | null> {
+interface WordBoxData {
+  own: WordBoxEntry[]
+  carried: WordBoxEntry[]
+  carryover: CarryoverState
+}
+
+async function readCarryoverEntries(learner: Learner, carryover: CarryoverState, language: z.infer<typeof languageSchema> | null): Promise<WordBoxEntry[]> {
+  const catalog = await readCarryoverCatalog(learner.supabase, carryover, learner.user.id)
+  const byCard = new Map<string, typeof catalog.progress>()
+  for (const row of catalog.progress) {
+    const rows = byCard.get(row.card_id)
+    if (rows) rows.push(row)
+    else byCard.set(row.card_id, [row])
+  }
+  return catalog.cards.flatMap(card => {
+    const rows = byCard.get(card.id) ?? []
+    if (!rows.length) return []
+    // An interrupted assessment may have only one direction. Display its
+    // existing compartment without scheduling or creating its missing sibling.
+    const displayRows = rows.length === 1 ? [...rows, {
+      ...rows[0], direction: rows[0].direction === 'de_to_native' ? 'native_to_de' as const : 'de_to_native' as const,
+      box_number: Math.min(rows[0].box_number, 6), next_review_date: null,
+    }] : rows
+    const state = computeWordBoxState(displayRows)
+    if (!state || state.isLearned) return []
+    return [{ card, state, translation: language ? resolveCardInterfaceTranslation(card, language)?.text ?? '' : '', paused: false }]
+  })
+}
+
+async function readWordBox(level: string | undefined, language: z.infer<typeof languageSchema> | null): Promise<WordBoxData | null> {
   const learner = await loadLearner()
   if (!learner || (level && !hasTrainerAccess(learner.profile, level, 'vocabulary'))) return null
-  let query = vocabularyQuery(learner.supabase)
+  let query = vocabularyQuery(learner.supabase).order('id')
   if (level) query = query.eq('unit.level', level)
-  const [{ data: cards, error }, progress, paused] = await Promise.all([
-    query, readVocabularyProgress(learner.supabase, learner.user.id), readPausedUnits(learner),
+  const [cards, progress, paused, carryover] = await Promise.all([
+    readAllRows((from, to) => query.range(from, to)), readVocabularyProgress(learner.supabase, learner.user.id), readPausedUnits(learner),
+    level ? readCarryoverState(learner.supabase, level) : { success: true as const, targetLevel: '', enabled: false,
+      decidedAt: null, startedAt: null, promptRequired: false, cards: [] },
   ])
-  // R10: Ein Lesefehler wird geworfen. Eine leere Box hier hätte einen Ausfall
-  // als „du hast noch nichts gelernt" dargestellt.
-  if (error) throw new Error(`vocabulary_box_unavailable: ${error.code ?? 'unknown'}`)
   const byCard = new Map<string, typeof progress>()
   for (const row of progress) {
     const list = byCard.get(row.card_id)
@@ -581,16 +676,17 @@ async function readWordBox(level: string | undefined, language: z.infer<typeof l
     else byCard.set(row.card_id, [row])
   }
   const now = Date.now()
-  return (cards ?? []).map(row => mapVocabularyCard(row)).filter(card => {
+  const own = cards.map(row => mapVocabularyCard(row)).filter(card => {
     if (!card.id || !card.lesson || !card.level || !hasTrainerAccess(learner.profile, card.level, 'vocabulary')) return false
     const allowedLessons = getAllowedLessons(learner.profile, card.level, 'vocabulary')
-    return !allowedLessons || allowedLessons.includes(card.unit_id)
+    return card.is_own || !allowedLessons || allowedLessons.includes(card.unit_id)
   }).map(card => ({
     card,
     state: computeWordBoxState(byCard.get(card.id) ?? [], now),
     translation: language ? resolveCardInterfaceTranslation(card, language)?.text ?? '' : '',
     paused: paused.has(card.unit_id),
   }))
+  return { own, carryover, carried: await readCarryoverEntries(learner, carryover, language) }
 }
 
 /**
@@ -610,7 +706,7 @@ export async function getPhaseCards(key: BoxBucketKey, level?: string, uiLanguag
   const words = await readWordBox(level, language)
   if (!words) return { key: bucket, cards: [], total: 0, truncated: false }
 
-  const matching = wordsInBox(words).filter((word): word is typeof word & { state: WordBoxState } =>
+  const matching = [...wordsInBox(words.own), ...(words.carryover.enabled ? words.carried : [])].filter((word): word is typeof word & { state: WordBoxState } =>
     !!word.state && (bucket === 'learned' ? word.state.isLearned : !word.state.isLearned && word.state.phase === bucket))
   const sorted = matching.sort((a, b) => {
     if (a.state.isDue !== b.state.isDue) return a.state.isDue ? -1 : 1
@@ -625,6 +721,7 @@ export async function getPhaseCards(key: BoxBucketKey, level?: string, uiLanguag
     cards: sorted.slice(0, PHASE_INSPECTOR_LIMIT).map(word => ({
       id: word.card.id, word_de: word.card.word_de, article: word.card.article,
       translation: word.translation, lesson: word.card.lesson, ...word.state,
+      ...(level && word.card.level !== level ? { originLevel: word.card.level } : {}),
     } satisfies PhaseCardView)),
   }
 }

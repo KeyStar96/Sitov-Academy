@@ -13,6 +13,8 @@ import ProgressRing from '@/components/ui/ProgressRing'
 import { studentTranslator } from '@/lib/student-ui-i18n'
 import type { LessonStation } from '@/lib/learning-status-server'
 import type { PathStation } from '@/lib/lesson-stations'
+import type { VocabularyCarryoverSummary } from '@/lib/types/vocabulary'
+import VocabularyCarryoverStation from './VocabularyCarryoverStation'
 
 /** Der große Weiter-Knopf: ein Ziel oder „diese Lektion beginnen" (öffnet die Startwahl). */
 export type LessonsNext = { href: string; hint: string } | { lesson: string; hint: string }
@@ -56,7 +58,7 @@ function BoxSwitch({ on, busy, disabled, label, hint, ariaLabel, onToggle }: {
  * „Eigene Wörter" stehen als eigene Station darunter: einschalten, eintragen,
  * löschen. Die Lernbox-Seite zeigt danach nur noch die Box selbst.
  */
-export default function VocabularyLessons({ lang, level, stations, next, vocabularyHref, vocabularyTranslations, ownWords }: {
+export default function VocabularyLessons({ lang, level, stations, next, vocabularyHref, vocabularyTranslations, ownWords, carryover, learnerId }: {
   lang: string
   level: string
   stations: PathStation[]
@@ -66,6 +68,8 @@ export default function VocabularyLessons({ lang, level, stations, next, vocabul
   vocabularyTranslations?: VocabularyTranslations
   /** „Eigene Wörter" des Niveaus; fehlt, wenn der Vokabeltrainer nicht offen ist. */
   ownWords?: LessonStation
+  carryover?: VocabularyCarryoverSummary | null
+  learnerId?: string | null
 }) {
   const t = studentTranslator(lang)
   const vt = createVocabularyTranslator(vocabularyTranslations ?? {})
@@ -254,6 +258,7 @@ export default function VocabularyLessons({ lang, level, stations, next, vocabul
             </ol>
           )}
 
+          <div className="grid items-start gap-6 lg:grid-cols-2">
           {ownWords && (
             <article className="st-own-words" data-inbox={ownOn} aria-labelledby="path-own-title">
               <div className="flex items-start gap-3">
@@ -276,6 +281,8 @@ export default function VocabularyLessons({ lang, level, stations, next, vocabul
               </button>
             </article>
           )}
+          {carryover && <VocabularyCarryoverStation summary={carryover} lang={lang} learnerId={learnerId} />}
+          </div>
         </div>
       )}
 

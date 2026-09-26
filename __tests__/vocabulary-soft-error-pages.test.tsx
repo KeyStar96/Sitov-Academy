@@ -1,16 +1,16 @@
-import { render, screen, fireEvent } from '@testing-library/react'
+import { render, screen, fireEvent, waitFor } from '@testing-library/react'
 import VocabularyPage from '@/app/[lang]/dashboard/level/[level]/vocabulary/page'
 import TrainPage from '@/app/[lang]/dashboard/level/[level]/vocabulary/train/page'
 import VocabTrainerPageClient from '@/components/vocabulary/VocabTrainerPageClient'
 import VocabCardSession from '@/components/vocabulary/VocabCardSession'
-import { getVocabularySession, getVocabularyOverview } from '@/app/actions/vocabulary'
+import { getVocabularySession, getVocabularyOverview, beginVocabularyLevel } from '@/app/actions/vocabulary'
 import { getDictionary } from '@/lib/dictionary'
 import ru from '@/dictionaries/ru.json'
 import type { DueVocabularyCard } from '@/lib/types/vocabulary'
 import { summarizeBox } from '@/lib/vocabulary-box'
 
 jest.unmock('lucide-react')
-jest.mock('@/app/actions/vocabulary', () => ({ getVocabularySession: jest.fn(), getVocabularyOverview: jest.fn(), getPhaseCards: jest.fn(), initializeLesson: jest.fn() }))
+jest.mock('@/app/actions/vocabulary', () => ({ getVocabularySession: jest.fn(), getVocabularyOverview: jest.fn(), beginVocabularyLevel: jest.fn(), getPhaseCards: jest.fn(), initializeLesson: jest.fn() }))
 jest.mock('@/lib/dictionary', () => ({ getDictionary: jest.fn() }))
 jest.mock('@/components/vocabulary/VocabCardSession', () => ({ __esModule: true, default: jest.fn(() => null) }))
 jest.mock('@/components/vocabulary/LessonCardsModal', () => ({ __esModule: true, default: () => null }))
@@ -25,16 +25,19 @@ beforeEach(() => {
   localStorage.clear()
   jest.mocked(getDictionary).mockResolvedValue(ru)
   jest.mocked(getVocabularySession).mockResolvedValue({ learnerId: 'learner', cards: [card], deferredCount: 0, previousCardId: null })
-  jest.mocked(getVocabularyOverview).mockResolvedValue({ stats: [], box: summarizeBox([]), dueCards: 0 })
+  jest.mocked(getVocabularyOverview).mockResolvedValue({ stats: [], box: summarizeBox([]), ownBox: summarizeBox([]), carryover: null, dueCards: 0 })
+  jest.mocked(beginVocabularyLevel).mockResolvedValue({ success: true, carryover: { targetLevel: 'A1.1', enabled: false, decidedAt: '2026-09-26', startedAt: '2026-09-26', promptRequired: false, total: 0, byLevel: [] } })
 })
 it('passes the selected dictionary through the overview and session start', async () => {
   const page = await VocabularyPage({ params: Promise.resolve({ lang: 'ru', level: 'A1.1' }) })
   expect(page.type).toBe(VocabTrainerPageClient)
   render(page)
   fireEvent.click(screen.getByRole('button', { name: ru.vocabulary.lernkasten_start_count_one }))
-  expect(jest.mocked(VocabCardSession).mock.calls[0][0]).toMatchObject({ softErrorTranslations: ru.exercises.soft_error, uiLanguage: 'ru' })
+  await waitFor(() => expect(VocabCardSession).toHaveBeenCalled())
+  expect(jest.mocked(VocabCardSession).mock.calls[0][0]).toMatchObject({ softErrorTranslations: ru.exercises.soft_error, uiLanguage: 'ru', level: 'A1.1' })
 })
 it('passes the selected dictionary to the direct training route', async () => {
   render(await TrainPage({ params: Promise.resolve({ lang: 'ru', level: 'A1.1' }), searchParams: Promise.resolve({}) }))
+  await waitFor(() => expect(VocabCardSession).toHaveBeenCalled())
   expect(jest.mocked(VocabCardSession).mock.calls[0][0]).toMatchObject({ softErrorTranslations: ru.exercises.soft_error, uiLanguage: 'ru' })
 })

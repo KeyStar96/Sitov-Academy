@@ -8,6 +8,7 @@ interface LearningResetNotice {
   userId: string
   resetId: string
   originId: string
+  change?: 'carryover'
 }
 
 function randomId(): string {
@@ -25,7 +26,8 @@ function parseNotice(value: unknown, userId: string): LearningResetNotice | null
   if (candidate.userId !== userId || typeof candidate.resetId !== 'string'
     || !candidate.resetId || candidate.resetId.length > 100
     || typeof candidate.originId !== 'string' || !candidate.originId || candidate.originId.length > 100) return null
-  return { userId, resetId: candidate.resetId, originId: candidate.originId }
+  return { userId, resetId: candidate.resetId, originId: candidate.originId,
+    ...(candidate.change === 'carryover' ? { change: 'carryover' as const } : {}) }
 }
 function readNotice(raw: string | null, userId: string): LearningResetNotice | null {
   try { return raw ? parseNotice(JSON.parse(raw), userId) : null }
@@ -36,17 +38,20 @@ function storedNotice(userId: string): LearningResetNotice | null {
   catch { return null }
 }
 
-/** Auth, theme, personal preferences and self-authored vocabulary are preserved. */
+/** Auth, theme and self-authored vocabulary are preserved. Carryover decisions
+ * are authoritative in PostgreSQL; a reset invalidates every level's cached
+ * queue because an origin reset can remove cards from any later target. */
 export function clearLearningResetBrowserState(): void {
   try {
     for (const key of Object.keys(window.localStorage)) {
-      if (key.startsWith('sitov_lernkasten:') || key.startsWith('sitov_path:')) window.localStorage.removeItem(key)
+      if (key.startsWith('sitov_lernkasten:') || key.startsWith('sitov_path:')
+        || key.startsWith('sitov_vocab_carryover:')) window.localStorage.removeItem(key)
     }
   } catch { /* Storage may be disabled; the server reset already succeeded. */ }
   try {
     window.sessionStorage.removeItem('sitov_vocab_autostart')
     for (const key of Object.keys(window.sessionStorage)) {
-      if (key.startsWith('sitov_path:')) window.sessionStorage.removeItem(key)
+      if (key.startsWith('sitov_path:') || key.startsWith('sitov_vocab_carryover:')) window.sessionStorage.removeItem(key)
     }
   }
   catch { /* Private browsing must not turn a completed reset into an error. */ }
@@ -56,7 +61,18 @@ export function clearLearningResetBrowserState(): void {
  * the authenticated page, and is never sent as authorization to the Action. */
 export function announceLearningReset(userId: string): void {
   clearLearningResetBrowserState()
-  const notice: LearningResetNotice = { userId, resetId: randomId(), originId: tabOrigin() }
+  publishLearningChange(userId)
+}
+
+/** After a persisted switch/choice, other tabs discard their session snapshots.
+ * This uses the existing reload subscriber; it does not reset any learning data
+ * or clear unrelated path-resume preferences in the initiating tab. */
+export function announceVocabularyCarryoverChange(userId: string): void {
+  publishLearningChange(userId, 'carryover')
+}
+
+function publishLearningChange(userId: string, change?: 'carryover'): void {
+  const notice: LearningResetNotice = { userId, resetId: randomId(), originId: tabOrigin(), ...(change ? { change } : {}) }
   try { window.localStorage.setItem(`${STORAGE_PREFIX}${userId}`, JSON.stringify(notice)) }
   catch { /* BroadcastChannel can still reach open tabs without local storage. */ }
   try {
@@ -81,7 +97,7 @@ export function subscribeToLearningResets(userId: string, onExternalReset: () =>
     lastResetId = notice.resetId
     if (notice.originId === originId) return
     handled = true
-    clearLearningResetBrowserState()
+    if (notice.change !== 'carryover') clearLearningResetBrowserState()
     onExternalReset()
   }
   const checkStored = () => receive(storedNotice(userId))

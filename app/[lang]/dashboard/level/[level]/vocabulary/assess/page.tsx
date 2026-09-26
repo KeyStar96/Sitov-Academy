@@ -4,6 +4,7 @@ import { getVocabularyAssessment } from '@/app/actions/vocabulary'
 import { getDictionary } from '@/lib/dictionary'
 import { createVocabularyTranslator, type VocabularyTranslations } from '@/lib/vocabulary-i18n'
 import LessonAssessmentClient from './LessonAssessmentClient'
+import VocabularyStartGate from '@/components/vocabulary/VocabularyStartGate'
 
 export default async function VocabularyAssessPage({
   params,
@@ -40,6 +41,7 @@ export default async function VocabularyAssessPage({
           </Link>
         </div>
       ) : (
+        <VocabularyStartGate level={decodedLevel} lang={lang} learnerId={assessment.learnerId}>
         <LessonAssessmentClient
           key={assessment.learnerId}
           learnerId={assessment.learnerId}
@@ -49,6 +51,7 @@ export default async function VocabularyAssessPage({
           level={decodedLevel}
           translations={translations}
         />
+        </VocabularyStartGate>
       )}
     </div>
   )

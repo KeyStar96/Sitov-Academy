@@ -29,9 +29,12 @@ import RoundBreak, { TodayRounds } from './RoundBreak'
 import ArticleHint, { ArticleSolution } from './ArticleHint'
 import { learningFeedback } from '@/lib/learning-feedback-i18n'
 import type { SoftErrorReason, OrthographyHint, ArticleFeedback } from '@/lib/answer-grading'
+import { carryoverTranslator } from '@/lib/vocabulary-carryover-i18n'
 
 interface VocabCardSessionProps {
   learnerId: string | null
+  /** Explicit target of this session, also carried in each queued write. */
+  level?: string
   cards: DueVocabularyCard[]
   translations?: VocabularyTranslations
   softErrorTranslations?: Partial<Record<SoftErrorReason, string>>
@@ -55,7 +58,7 @@ function toSessionItem(card: DueVocabularyCard): SessionItem {
   return { card, retry: false, key: card.progressId }
 }
 
-export default function VocabCardSession({ learnerId, cards, translations = {}, softErrorTranslations, overviewHref, uiLanguage = 'de', previousCardId = null, initialDeferredCount = 0, roundSize, onBackToLernkasten }: VocabCardSessionProps) {
+export default function VocabCardSession({ learnerId, level, cards, translations = {}, softErrorTranslations, overviewHref, uiLanguage = 'de', previousCardId = null, initialDeferredCount = 0, roundSize, onBackToLernkasten }: VocabCardSessionProps) {
   const router = useRouter()
   const actorId = useRef(learnerId).current
   const mounted = useRef(true)
@@ -257,7 +260,7 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
     reviewBusy.current = true
     setReviewPending(true)
     setRetryFailed(false)
-    const result = await checkVocabularyRetry({ progressId: card.progressId, expectedLearnerId: actorId, typedAnswer: answer, uiLanguage })
+    const result = await checkVocabularyRetry({ progressId: card.progressId, expectedLearnerId: actorId, typedAnswer: answer, uiLanguage, targetLevel: level ?? card.targetLevel ?? card.card.level })
     if (!mounted.current || at !== indexRef.current) return
     reviewBusy.current = false
     setReviewPending(false)
@@ -274,7 +277,7 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
     setReviewPending(true)
     setSaveFailed(false)
     writes.current?.enqueue({ kind: 'typed', index, card: current, input: {
-      progressId: current.progressId, expectedLearnerId: actorId, typedAnswer: answer, uiLanguage, requestId: crypto.randomUUID(),
+      progressId: current.progressId, expectedLearnerId: actorId, typedAnswer: answer, uiLanguage, targetLevel: level ?? current.targetLevel ?? current.card.level, requestId: crypto.randomUUID(),
     } })
   }
 
@@ -291,7 +294,7 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
     setReviewPending(true)
     setSaveFailed(false)
     writes.current?.enqueue({ kind: 'self', index, card: current, input: {
-      progressId: current.progressId, expectedLearnerId: actorId, known, uiLanguage, requestId: crypto.randomUUID(),
+      progressId: current.progressId, expectedLearnerId: actorId, known, uiLanguage, targetLevel: level ?? current.targetLevel ?? current.card.level, requestId: crypto.randomUUID(),
     } })
   }
 
@@ -393,6 +396,7 @@ export default function VocabCardSession({ learnerId, cards, translations = {}, 
       </div> : <>
         <div className="learning-meta">
           <div className="learning-meta-pills">
+            {current.originLevel && <span className="learning-pill" data-testid="carryover-origin">{carryoverTranslator(uiLanguage)('origin', { level: current.originLevel })}</span>}
             <span className="learning-pill">{t(isSentence ? 'sentence_format' : isToGerman ? 'direction_to_de' : 'direction_from_de')}</span>
             {isRetry && <span className="learning-pill learning-pill-retry">{t('retry_label')}</span>}
           </div>
