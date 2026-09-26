@@ -792,7 +792,7 @@
     },
     "privacy": {
         "title": "Privacy Policy",
-        "status": "Last updated: 24 September 2026",
+        "status": "Updated: 26 September 2026",
         "intro": "We are pleased about your interest in our language school. The protection of your privacy is of the utmost importance to us. Below we inform you in detail about the handling of your data.",
         "sections": [
             {
@@ -973,7 +973,10 @@
                 "content": [
                     "The platform processes account details (email, profile name, language), released levels and booked courses, vocabulary phases, review directions and dates, answers, exercise attempts and results. This supports individual practice, progress display and teacher support under Article 6(1)(b) GDPR. Access protection and security logging are based on Article 6(1)(f) GDPR.",
                     "An existing student record is linked only after verified sign-in and an unambiguous match. Entering a known email address alone does not reveal stored student information. Ambiguous matches require review by the school. Authorized teachers and administrators access information needed for teaching and course administration.",
-                    "Browser storage and essential sign-in cookies retain language, theme, session state, selected learning sets and, where necessary, answers awaiting synchronization. Local preferences remain until deleted in the browser. Personal learning records are stored for use and support of the account and deleted when it ends, unless separate statutory duties or a specific need to preserve legal claims require retention. Requests for access or deletion can be sent to info@sitov-academy.com."
+                    "Browser storage and essential sign-in cookies retain language, theme, session state, selected learning sets and, where necessary, answers awaiting synchronization. Local preferences remain until deleted in the browser. Personal learning records are stored for use and support of the account and deleted when it ends, unless separate statutory duties or a specific need to preserve legal claims require retention. Requests for access or deletion can be sent to info@sitov-academy.com.",
+                    "Your teacher and authorised administrators can see your learning progress, vocabulary boxes and due reviews, answers to shared course vocabulary and learning path exercises, test attempts and results, unlocked levels, pronunciation conversations and teaching notes. This helps them identify difficulties, offer targeted support and unlock or reset a learning path or test when needed. The content of your own words and answers to them stays private; only their number is shown.",
+                    "For the activity overview, we record only learning sessions based on saved answers and submitted recordings: start and end, learning mode, level and number of answers. We do not record click trails or individual keystrokes for this purpose. Displayed study time is an estimate between successive learning answers; gaps longer than five minutes, time before the first or after the last answer, and simply viewing media are excluded. We do not reconstruct study time for earlier learning days.",
+                    "Raw learning session records are automatically deleted after 180 days the next time any learning activity is saved on the platform, including records for accounts that have become inactive. The activity log then retains only daily totals (learning day, last activity that day, number of answers and estimated time per mode) for the lifetime of the learning account. This period applies to the additional session log; learning answers, results, recordings and teaching notes follow the account and pronunciation support rules in sections 11 and 12."
                 ]
             },
             {
@@ -993,7 +996,7 @@
             {
                 "title": "14. Updates to this privacy notice",
                 "content": [
-                    "This Privacy Policy reflects the learning platform’s features and operation on a self-managed VPS as of 13 September 2026. We update this information when processing changes."
+                    "This Privacy Policy reflects the learning platform’s features and operation on a self-managed VPS as of 26 September 2026. We update this information when processing changes."
                 ]
             }
         ]
@@ -1169,7 +1172,9 @@
         "ui_locale_en": "English",
         "ui_locale_ru": "Русский",
         "ui_locale_uk": "Українська",
-        "ui_locale_tr": "Türkçe"
+        "ui_locale_tr": "Türkçe",
+        "teacher_progress_notice": "Your teacher can see your learning progress so they can give you targeted support.",
+        "teacher_progress_privacy": "Privacy policy"
     },
     "pronunciation": {
         "title": "Pronunciation Training",

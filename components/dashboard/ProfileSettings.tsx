@@ -17,10 +17,11 @@ const EASE = [0.22, 1, 0.36, 1] as const
  * den Bereich, „Alle Einstellungen" (oder die Zurück-Geste) führt zurück.
  * Das Zurücksetzen des Lernstands steht getrennt ganz unten in „Vorsicht".
  */
-export default function ProfileSettings({ lang, sections, danger }: {
+export default function ProfileSettings({ lang, sections, danger, notice }: {
   lang: string
   sections: { id: SettingsSectionId; title: string; hint: string; content: ReactNode }[]
   danger: ReactNode
+  notice?: ReactNode
 }) {
   const s = studentTranslator(lang)
   const reduced = useReducedMotion() ?? false
@@ -54,6 +55,7 @@ export default function ProfileSettings({ lang, sections, danger }: {
           <motion.div key="tiles" initial={reduced ? false : { opacity: 0, x: -24 }} animate={{ opacity: 1, x: 0 }}
             exit={reduced ? { opacity: 0 } : { opacity: 0, x: -24 }} transition={{ duration: 0.26, ease: EASE }}>
             <h1 className="st-path-hero__title">{s('settings_title')}</h1>
+            {notice && <div className="mt-4 text-base leading-relaxed text-[var(--foreground)]">{notice}</div>}
             <ul className="st-settings mt-5">
               {sections.map((section, index) => {
                 const Icon = ICONS[section.id]

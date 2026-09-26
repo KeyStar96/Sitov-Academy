@@ -788,7 +788,7 @@
     },
     "privacy": {
         "title": "Gizlilik Politikası",
-        "status": "Son güncelleme: 24 Eylül 2026",
+        "status": "Güncelleme: 26 Eylül 2026",
         "intro": "Dil okulumuza gösterdiğiniz ilgiden dolayı mutluyuz. Gizliliğinizin korunması bizim için son derece önemlidir. Aşağıda verilerinizin işlenmesi hakkında sizi ayrıntılı olarak bilgilendiriyoruz.",
         "sections": [
             {
@@ -969,7 +969,10 @@
                 "content": [
                     "Platform; hesap bilgilerini (e-posta, profil adı, dil), açılan seviyeleri ve kaydolunan kursları, kelime aşamalarını, sorgulama yönlerini, tekrar tarihlerini, cevapları, alıştırma denemelerini ve sonuçlarını işler. Amaç bireysel çalışma, ilerlemenin gösterilmesi ve öğretmen desteğidir; hukuki dayanak GDPR Madde 6(1)(b)’dir. Erişim güvenliği ve güvenlik kayıtları Madde 6(1)(f)’ye dayanır.",
                     "Mevcut öğrenci kaydı yalnızca doğrulanmış girişten ve kesin eşleştirmeden sonra hesaba bağlanır. Bilinen bir e-posta adresini yazmak, kayıtlı öğrenci bilgilerini göstermez. Belirsiz eşleşmeleri okul inceler. Yetkili öğretmen ve yöneticiler, eğitim ve kurs yönetimi için gerekli bilgilere erişebilir.",
-                    "Tarayıcı depolaması ve gerekli giriş çerezleri dil, tema, oturum, seçilen çalışma setleri ve gerektiğinde eşitlenmeyi bekleyen cevapları saklar. Yerel ayarlar tarayıcıdan silinene kadar kalır. Kişisel öğrenme kayıtları hesabın kullanımı ve desteği için saklanır; ayrı yasal yükümlülükler veya somut hak koruma ihtiyacı bulunmadıkça hesap sona erdiğinde silinir. Bilgi ve silme talepleri: info@sitov-academy.com."
+                    "Tarayıcı depolaması ve gerekli giriş çerezleri dil, tema, oturum, seçilen çalışma setleri ve gerektiğinde eşitlenmeyi bekleyen cevapları saklar. Yerel ayarlar tarayıcıdan silinene kadar kalır. Kişisel öğrenme kayıtları hesabın kullanımı ve desteği için saklanır; ayrı yasal yükümlülükler veya somut hak koruma ihtiyacı bulunmadıkça hesap sona erdiğinde silinir. Bilgi ve silme talepleri: info@sitov-academy.com.",
+                    "Öğretmenin ve yetkili yöneticiler öğrenme ilerlemeni, kelime kutularını ve zamanı gelen tekrarları, ortak kurs kelimelerine ve öğrenme yolu alıştırmalarına verdiğin yanıtları, test denemelerini ve sonuçlarını, açılan seviyeleri, telaffuz konuşmalarını ve öğretmen notlarını görebilir. Böylece zorlandığın noktaları belirleyebilir, sana uygun destek verebilir ve gerektiğinde bir öğrenme yolunu veya testi açabilir ya da sıfırlayabilirler. Kendi kelimelerinin içeriği ve bunlara verdiğin yanıtlar gizli kalır; yalnızca sayıları gösterilir.",
+                    "Etkinlik özeti için yalnızca kaydedilen yanıtlara ve gönderilen ses kayıtlarına dayanan öğrenme oturumlarını kaydederiz: başlangıç ve bitiş, öğrenme modu, seviye ve yanıt sayısı. Bu amaçla tıklama yolları veya tek tek tuş vuruşları kaydedilmez. Gösterilen çalışma süresi, art arda verilen öğrenme yanıtları arasındaki tahmini süredir; beş dakikadan uzun aralar, ilk yanıttan önceki ve son yanıttan sonraki süre ile yalnızca medya görüntüleme hesaba katılmaz. Önceki öğrenme günleri için geriye dönük süre üretilmez.",
+                    "Ham öğrenme oturumu kayıtları, 180 gün geçtikten sonra platformda bir sonraki öğrenme etkinliği kaydedildiğinde otomatik olarak silinir; artık etkin olmayan hesaplar da buna dahildir. Etkinlik günlüğünde daha sonra öğrenme hesabı var olduğu sürece yalnızca günlük toplamlar (öğrenme günü, o günkü son etkinlik, yanıt sayısı ve mod başına tahmini süre) kalır. Bu süre ek oturum günlüğü için geçerlidir; öğrenme yanıtları, sonuçlar, ses kayıtları ve öğretmen notları için 11. ve 12. bölümlerdeki öğrenme hesabı ve telaffuz desteği kuralları geçerlidir."
                 ]
             },
             {
@@ -989,7 +992,7 @@
             {
                 "title": "14. Bu gizlilik bildirimindeki güncellemeler",
                 "content": [
-                    "Bu Gizlilik Politikası, öğrenme platformunun işlevlerini ve kendi yönettiğimiz VPS üzerindeki işletimini 13 Eylül 2026 itibarıyla yansıtır. Veri işleme değiştiğinde bu bilgileri güncelleriz."
+                    "Bu Gizlilik Politikası, öğrenme platformunun işlevlerini ve kendi yönettiğimiz VPS üzerindeki işletimini 26 Eylül 2026 itibarıyla yansıtır. Veri işleme değiştiğinde bu bilgileri güncelleriz."
                 ]
             }
         ]
@@ -1165,7 +1168,9 @@
         "ui_locale_en": "English",
         "ui_locale_ru": "Русский",
         "ui_locale_uk": "Українська",
-        "ui_locale_tr": "Türkçe"
+        "ui_locale_tr": "Türkçe",
+        "teacher_progress_notice": "Öğretmenin, sana ihtiyacına uygun destek verebilmek için öğrenme ilerlemeni görür.",
+        "teacher_progress_privacy": "Gizlilik politikası"
     },
     "pronunciation": {
         "title": "Telaffuz Çalışması",

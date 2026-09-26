@@ -79,7 +79,7 @@ export default function TeacherLayout({
               onClick={() => setOpen(true)}
               aria-label={t('sidebar_menu_open')}
               aria-expanded={open}
-              className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-[var(--border)] text-[var(--foreground)] transition-colors hover:bg-[var(--surface-muted)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] lg:hidden"
+              className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-lg border border-[var(--border)] text-[var(--foreground)] transition-colors hover:bg-[var(--surface-muted)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] lg:hidden"
             >
               <Menu size={20} aria-hidden="true" />
             </button>
@@ -90,11 +90,11 @@ export default function TeacherLayout({
           </div>
         </header>
 
-        <main className="min-w-0 flex-1">
+        <div className="min-w-0 flex-1">
           <div className="mx-auto max-w-[1440px] py-6 pb-[max(1.5rem,env(safe-area-inset-bottom))] pl-[max(1rem,env(safe-area-inset-left))] pr-[max(1rem,env(safe-area-inset-right))] sm:pl-[max(1.5rem,env(safe-area-inset-left))] sm:pr-[max(1.5rem,env(safe-area-inset-right))] lg:px-8">
             {children}
           </div>
-        </main>
+        </div>
       </div>
 
       {/* Mobiler Drawer */}
@@ -113,7 +113,7 @@ export default function TeacherLayout({
                 type="button"
                 onClick={() => setOpen(false)}
                 aria-label={t('sidebar_menu_close')}
-                className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-[var(--border)] transition-colors hover:bg-[var(--surface-muted)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
+                className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-lg border border-[var(--border)] transition-colors hover:bg-[var(--surface-muted)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
               >
                 <X size={20} aria-hidden="true" />
               </button>

@@ -497,16 +497,28 @@ export type Database = {
       }
       learning_activity_days: {
         Row: {
+          answer_count: number
           auth_user_id: string
           day: string
+          last_activity_at: string | null
+          mode_seconds: Json
+          study_seconds: number
         }
         Insert: {
+          answer_count?: number
           auth_user_id: string
           day: string
+          last_activity_at?: string | null
+          mode_seconds?: Json
+          study_seconds?: number
         }
         Update: {
+          answer_count?: number
           auth_user_id?: string
           day?: string
+          last_activity_at?: string | null
+          mode_seconds?: Json
+          study_seconds?: number
         }
         Relationships: [
           {
@@ -1590,7 +1602,9 @@ export type Database = {
           created_at: string
           created_by: string
           id: string
+          is_active: boolean
           node_id: string | null
+          request_id: string | null
           unit_id: string
         }
         Insert: {
@@ -1599,7 +1613,9 @@ export type Database = {
           created_at?: string
           created_by: string
           id?: string
+          is_active?: boolean
           node_id?: string | null
+          request_id?: string | null
           unit_id: string
         }
         Update: {
@@ -1608,7 +1624,9 @@ export type Database = {
           created_at?: string
           created_by?: string
           id?: string
+          is_active?: boolean
           node_id?: string | null
+          request_id?: string | null
           unit_id?: string
         }
         Relationships: [
@@ -1649,6 +1667,7 @@ export type Database = {
           completed_at: string | null
           created_at: string
           first_attempt_accuracy: number
+          is_active: boolean
           node_id: string
           status: Database["public"]["Enums"]["path_progress_status"]
           updated_at: string
@@ -1659,6 +1678,7 @@ export type Database = {
           completed_at?: string | null
           created_at?: string
           first_attempt_accuracy?: number
+          is_active?: boolean
           node_id: string
           status?: Database["public"]["Enums"]["path_progress_status"]
           updated_at?: string
@@ -1669,6 +1689,7 @@ export type Database = {
           completed_at?: string | null
           created_at?: string
           first_attempt_accuracy?: number
+          is_active?: boolean
           node_id?: string
           status?: Database["public"]["Enums"]["path_progress_status"]
           updated_at?: string
@@ -1838,6 +1859,7 @@ export type Database = {
           created_at: string
           first_correct: number
           id: string
+          is_active: boolean
           node_id: string
           queue: string[]
           status: Database["public"]["Enums"]["path_run_status"]
@@ -1850,6 +1872,7 @@ export type Database = {
           created_at?: string
           first_correct?: number
           id?: string
+          is_active?: boolean
           node_id: string
           queue: string[]
           status?: Database["public"]["Enums"]["path_run_status"]
@@ -1862,6 +1885,7 @@ export type Database = {
           created_at?: string
           first_correct?: number
           id?: string
+          is_active?: boolean
           node_id?: string
           queue?: string[]
           status?: Database["public"]["Enums"]["path_run_status"]
@@ -1916,6 +1940,7 @@ export type Database = {
           completed_at: string | null
           created_at: string
           id: string
+          is_active: boolean
           node_id: string
           passed: boolean | null
           percentage: number | null
@@ -1927,6 +1952,7 @@ export type Database = {
           completed_at?: string | null
           created_at?: string
           id?: string
+          is_active?: boolean
           node_id: string
           passed?: boolean | null
           percentage?: number | null
@@ -1938,6 +1964,7 @@ export type Database = {
           completed_at?: string | null
           created_at?: string
           id?: string
+          is_active?: boolean
           node_id?: string
           passed?: boolean | null
           percentage?: number | null
@@ -2081,6 +2108,57 @@ export type Database = {
           {
             foreignKeyName: "vocabulary_carryover_preferences_target_level_fkey"
             columns: ["target_level"]
+            isOneToOne: false
+            referencedRelation: "learning_levels"
+            referencedColumns: ["code"]
+          },
+        ]
+      }
+      learning_sessions: {
+        Row: {
+          answer_count: number
+          auth_user_id: string
+          ended_at: string
+          id: string
+          is_active: boolean
+          level: string
+          mode: Database["public"]["Enums"]["learning_session_mode"]
+          started_at: string
+          study_seconds: number
+        }
+        Insert: {
+          answer_count?: number
+          auth_user_id: string
+          ended_at: string
+          id?: string
+          is_active?: boolean
+          level: string
+          mode: Database["public"]["Enums"]["learning_session_mode"]
+          started_at: string
+          study_seconds?: number
+        }
+        Update: {
+          answer_count?: number
+          auth_user_id?: string
+          ended_at?: string
+          id?: string
+          is_active?: boolean
+          level?: string
+          mode?: Database["public"]["Enums"]["learning_session_mode"]
+          started_at?: string
+          study_seconds?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "learning_sessions_auth_user_id_fkey"
+            columns: ["auth_user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "learning_sessions_level_fkey"
+            columns: ["level"]
             isOneToOne: false
             referencedRelation: "learning_levels"
             referencedColumns: ["code"]
@@ -2383,6 +2461,12 @@ export type Database = {
           p_unit_id: string
           p_action: string
           p_node_id?: string
+        } | {
+          p_student_id: string
+          p_unit_id: string
+          p_action: string
+          p_node_id: string
+          p_request_id: string
         }
         Returns: Json
       }
@@ -2431,6 +2515,19 @@ export type Database = {
         }
         Returns: Json
       }
+      get_teacher_dashboard_students: {
+        Args: {
+        }
+        Returns: Json
+      }
+      get_teacher_student_detail: {
+        Args: {
+          p_student_id: string
+          p_tab?: string
+          p_locale?: string
+        }
+        Returns: Json
+      }
     }
     Enums: {
       booking_kind: "registration" | "monthly" | "trial"
@@ -2470,6 +2567,7 @@ export type Database = {
       path_run_status: "active" | "completed" | "abandoned"
       path_intervention_action: "unlock" | "reset_path" | "reset_test"
       path_objective_area: "grammar" | "communication" | "can_do" | "vocabulary"
+      learning_session_mode: "vocabulary" | "path" | "pronunciation"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -2597,6 +2695,7 @@ export type CompositeTypes<
 export const Constants = {
   public: {
     Enums: {
+      learning_session_mode: ["vocabulary", "path", "pronunciation"],
       path_objective_area: ["grammar", "communication", "can_do", "vocabulary"],
       path_intervention_action: ["unlock", "reset_path", "reset_test"],
       path_run_status: ["active", "completed", "abandoned"],

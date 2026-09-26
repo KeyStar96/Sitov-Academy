@@ -1,266 +1,97 @@
 'use client'
 
-import { useRef, useState } from 'react'
-import { updateStudentRole, updateStudentAllowedLevels, updateStudentTrainerAccess } from '@/app/actions/admin'
-import { ACCESS_LEVELS, hasConfiguredTrainerAccess, type Trainer, type AccessLevel } from '@/lib/access/levels'
-import { Loader2, SlidersHorizontal } from 'lucide-react'
+import { useState } from 'react'
+import Link from 'next/link'
+import { ACCESS_LEVELS } from '@/lib/access/levels'
 import { useAdminTranslator } from './AdminI18nProvider'
-import { useBlackboard } from './BlackboardProvider'
-import StudentDetailModal from './StudentDetailModal'
 import StudentAccessModal from './StudentAccessModal'
-import { displayBlackboardNote } from '@/lib/types/teacher-notes'
 import type { AdminStudentRow } from '@/lib/types/admin-staff'
-import { profileRoleSchema } from '@/lib/types/backend'
+import type { TeacherStudent } from '@/lib/teacher-dashboard-contract'
+import { teacherDashboardT, teacherAttentionLabel, type TeacherCopyKey } from '@/lib/teacher-dashboard-i18n'
+import { useStudentAccess } from './useStudentAccess'
+import { AttentionReasons, MiniPhases, displayDate, berlinDate, studyTime, dashboardControl as control, dashboardButton as button } from './TeacherDashboardShared'
 
-export default function StudentList({
-  initialStudents,
-  currentUserId,
-  currentUserRole,
-  progressData = {},
-  lang,
-}: {
-  initialStudents: AdminStudentRow[]
-  currentUserId?: string
-  currentUserRole?: string
-  progressData?: Record<string, Record<string, number>>
-  lang: string
+type Row = AdminStudentRow & Partial<Omit<TeacherStudent, keyof AdminStudentRow>>
+const metrics = ['lastActive', 'time7', 'position', 'lastTest', 'due', 'phases', 'attention'] as const
+const sortKeys = ['name', ...metrics, 'access', '1', '2', '3', '4', '5', '6', 'learned'] as const
+type SortKey = typeof sortKeys[number]
+const emptyFilters = { from: '', until: '', timeMin: '', timeMax: '', testMin: '', testMax: '', dueMin: '', dueMax: '', path: '', attention: '', level: '', phase: '1', phaseMin: '', phaseMax: '' }
+function sortValue(row: Row, key: SortKey): string | number {
+  if (key === 'name') return `${row.person?.display_name ?? ''} ${row.person?.email ?? ''}`
+  if (key === 'access') return (row.allowed_levels ?? []).join(' ')
+  if (key === 'lastActive') return row.lastActiveAt ? new Date(row.lastActiveAt).getTime() : -1
+  if (key === 'time7') return row.learningSeconds7d ?? -1
+  if (key === 'position') return row.pathPosition ? `${row.currentLevel} ${row.pathPosition.title} ${String(row.pathPosition.completedNodes).padStart(4, '0')}` : ''
+  if (key === 'lastTest') return row.lastTest?.percentage ?? -1
+  if (key === 'due') return row.dueCards ?? -1
+  if (key === 'attention') return (row.attentionReasons ?? []).join(' ')
+  if (key === 'phases') return Object.values(row.phases ?? {}).reduce((sum: number, item) => sum + item, 0)
+  return row.phases?.[key] ?? -1
+}
+function inRange(value: number | null | undefined, minimum: string, maximum: string) {
+  return (!minimum && !maximum) || (value !== null && value !== undefined && (!minimum || value >= Number(minimum)) && (!maximum || value <= Number(maximum)))
+}
+export default function StudentList({ initialStudents, lang }: {
+  initialStudents: Row[]; currentUserId?: string; currentUserRole?: string; progressData?: Record<string, Record<string, number>>; lang: string
 }) {
-  const t = useAdminTranslator()
-  const { getBoard } = useBlackboard()
-  const [students, setStudents] = useState<AdminStudentRow[]>(initialStudents)
-  const [loadingId, setLoadingId] = useState<string | null>(null)
-  const [resetLevel, setResetLevel] = useState<Record<string, string>>({})
-  const [message, setMessage] = useState<string | null>(null)
-  const [hasError, setHasError] = useState(false)
-  const [selectedId, setSelectedId] = useState<string | null>(null)
-  const mutationLock = useRef(false)
+  const admin = useAdminTranslator(), t = teacherDashboardT(lang)
+  const access = useStudentAccess(initialStudents)
   const [search, setSearch] = useState('')
-  const [visibleProgress, setVisibleProgress] = useState(progressData)
-
-  const [accessStudentId, setAccessStudentId] = useState<string | null>(null)
-  const accessStudent = students.find(student => student.id === accessStudentId) ?? null
-
-  const filteredStudents = students.filter(student => `${student.person?.display_name ?? ''} ${student.person?.email ?? ''}`.toLocaleLowerCase(lang).includes(search.toLocaleLowerCase(lang).trim()))
-  const selected = students.find(student => student.id === selectedId) ?? null
-
-  const handleRoleChange = async (id: string, newRole: string) => {
-    const parsedRole = profileRoleSchema.safeParse(newRole)
-    if (!parsedRole.success || mutationLock.current) return
-    if (id === currentUserId && newRole === 'student') {
-      setHasError(true)
-      setMessage(t('role_self_denied'))
-      return
-    }
-    mutationLock.current = true
-    const previous = students
-    setStudents(current => current.map(student => student.id === id ? { ...student, role: parsedRole.data } : student))
-    setLoadingId(id)
-    try {
-      const result = await updateStudentRole(id, newRole)
-      if (result.success !== true) throw new Error('role_change_failed')
-      setHasError(false)
-      setMessage(null)
-    } catch {
-      setStudents(previous)
-      setHasError(true)
-      setMessage(t('role_change_failed'))
-    } finally { mutationLock.current = false; setLoadingId(null) }
+  const [sort, setSort] = useState<SortKey>('name')
+  const [descending, setDescending] = useState(false)
+  const [filters, setFilters] = useState(emptyFilters)
+  const update = (key: keyof typeof emptyFilters, value: string) => setFilters(current => ({ ...current, [key]: value }))
+  const sorted = access.students.filter(row => {
+    const name = `${row.person?.display_name ?? ''} ${row.person?.email ?? ''}`.toLocaleLowerCase(lang)
+    const active = row.lastActiveAt ? berlinDate(row.lastActiveAt) : null
+    return name.includes(search.trim().toLocaleLowerCase(lang))
+      && (!filters.from || Boolean(active && active >= filters.from)) && (!filters.until || Boolean(active && active <= filters.until))
+      && inRange(row.learningSeconds7d === undefined ? undefined : row.learningSeconds7d / 60, filters.timeMin, filters.timeMax)
+      && inRange(row.lastTest?.percentage, filters.testMin, filters.testMax) && inRange(row.dueCards, filters.dueMin, filters.dueMax)
+      && (!filters.path || `${row.currentLevel ?? ''} ${row.pathPosition?.title ?? ''} ${row.pathPosition?.completedNodes ?? ''}/${row.pathPosition?.totalNodes ?? ''}`.toLocaleLowerCase(lang).includes(filters.path.toLocaleLowerCase(lang)))
+      && (!filters.attention || (filters.attention === 'none' ? !row.attentionReasons?.length : filters.attention === 'any' ? Boolean(row.attentionReasons?.length) : row.attentionReasons?.includes(filters.attention)))
+      && (!filters.level || row.allowed_levels?.includes(filters.level))
+      && inRange(row.phases?.[filters.phase as keyof NonNullable<Row['phases']>], filters.phaseMin, filters.phaseMax)
+  }).sort((left, right) => {
+    const a = sortValue(left, sort), b = sortValue(right, sort)
+    const comparison = typeof a === 'number' && typeof b === 'number' ? a - b : String(a).localeCompare(String(b), lang, { numeric: true })
+    return (descending ? -comparison : comparison) || left.id.localeCompare(right.id)
+  })
+  const sortLabel = (key: SortKey) => key === 'access' ? admin('trainer_access_title') : /^[1-6]$/.test(key) ? t('phase', { phase: key }) : t(key as TeacherCopyKey)
+  const rangeControl = (label: string, min: keyof typeof emptyFilters, max: keyof typeof emptyFilters) => <fieldset className="min-w-0"><legend className="mb-2 font-semibold">{label}</legend><div className="grid grid-cols-2 gap-2"><label>{t('minimum')}<input type="number" min="0" value={filters[min]} onChange={event => update(min, event.target.value)} aria-label={`${label} · ${t('minimum')}`} className={control} /></label><label>{t('maximum')}<input type="number" min="0" value={filters[max]} onChange={event => update(max, event.target.value)} aria-label={`${label} · ${t('maximum')}`} className={control} /></label></div></fieldset>
+  const cell = (row: Row, key: typeof metrics[number]) => {
+    if (key === 'lastActive') return displayDate(row.lastActiveAt ?? null, lang)
+    if (key === 'time7') return row.learningSeconds7d === undefined ? '—' : studyTime(row.learningSeconds7d, lang)
+    if (key === 'position') return row.pathPosition ? `${row.currentLevel ?? ''} · ${row.pathPosition.title} · ${row.pathPosition.completedNodes}/${row.pathPosition.totalNodes}` : '—'
+    if (key === 'lastTest') return row.lastTest?.percentage == null ? '—' : `${row.lastTest.percentage}%`
+    if (key === 'due') return row.dueCards ?? '—'
+    if (key === 'phases') return row.phases ? <MiniPhases phases={row.phases} lang={lang} /> : '—'
+    return <AttentionReasons reasons={row.attentionReasons ?? []} lang={lang} />
   }
-
-  const handleLevelToggle = async (id: string, level: string) => {
-    if (mutationLock.current) return
-    const student = students.find(item => item.id === id)
-    if (!student) return
-    mutationLock.current = true
-    const previous = students
-    const current = student.allowed_levels ?? []
-    const nextLevels = current.includes(level) ? current.filter(item => item !== level) : [...current, level]
-    setStudents(rows => rows.map(item => item.id === id ? { ...item, allowed_levels: nextLevels } : item))
-    setLoadingId(id)
-    try {
-      const result = await updateStudentAllowedLevels(id, nextLevels)
-      if (result.success !== true) throw new Error('levels_save_failed')
-      setStudents(rows => rows.map(item => item.id === id ? { ...item, allowed_levels: result.allowedLevels ?? nextLevels } : item))
-      setHasError(false)
-      setMessage(null)
-    } catch {
-      setStudents(previous)
-      setHasError(true)
-      setMessage(t('levels_save_failed'))
-    } finally { mutationLock.current = false; setLoadingId(null) }
-  }
-
-  const handleTrainerToggle = async (id: string, level: AccessLevel, trainer: Trainer) => {
-    if (mutationLock.current) return
-    const student = students.find(item => item.id === id)
-    if (!student || !student.allowed_levels?.includes(level)) return
-    mutationLock.current = true
-    const previous = students
-    const enabled = !hasConfiguredTrainerAccess(student, level, trainer)
-    const previousRule = student.trainer_grants?.find(rule => rule.level === level && rule.trainer === trainer)
-    const rules = [...(student.trainer_grants ?? []).filter(rule => rule.level !== level || rule.trainer !== trainer), { ...previousRule, level, trainer, enabled }]
-    setStudents(rows => rows.map(item => item.id === id ? { ...item, trainer_grants: rules } : item))
-    setLoadingId(id)
-    try {
-      const result = await updateStudentTrainerAccess({ userId: id, level, trainer, enabled })
-      if (!result.success) throw new Error('trainer_save_failed')
-      setHasError(false)
-      setMessage(null)
-    } catch {
-      setStudents(previous)
-      setHasError(true)
-      setMessage(t('trainer_save_failed'))
-    } finally { mutationLock.current = false; setLoadingId(null) }
-  }
-
-  const handleAllowedLessonsUpdate = (id: string, level: AccessLevel, trainer: Trainer, allowedLessons: string[] | null) => {
-    const student = students.find(item => item.id === id)
-    if (!student) return
-    const rules = [...(student.trainer_grants ?? []).filter(rule => rule.level !== level || rule.trainer !== trainer)]
-
-    const oldRule = student.trainer_grants?.find(rule => rule.level === level && rule.trainer === trainer)
-    rules.push({ level, trainer, enabled: oldRule?.enabled ?? true, unit_ids: allowedLessons })
-
-    setStudents(rows => rows.map(item => item.id === id ? { ...item, trainer_grants: rules } : item))
-  }
-
-  const handleResetProgress = async (id: string, level: string) => {
-    if (mutationLock.current || !confirm(t('reset_confirm', { level }))) return
-    mutationLock.current = true
-    const previous = visibleProgress
-    setVisibleProgress(current => ({ ...current, [id]: { ...current[id], [level]: 0 } }))
-    setLoadingId(id)
-    try {
-      const { resetStudentProgress } = await import('@/app/actions/admin')
-      const result = await resetStudentProgress(id, level)
-      if (result.success !== true) throw new Error('reset_failed')
-      setHasError(false)
-      setMessage(t('reset_success', { level }))
-    } catch {
-      setVisibleProgress(previous)
-      setHasError(true)
-      setMessage(t('reset_failed'))
-    } finally { mutationLock.current = false; setLoadingId(null) }
-  }
-
-  return (
-    <div className="min-w-0 overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--surface)] text-[var(--foreground)]">
-      <div className="border-b border-[var(--border)] p-4">
-        <label className="block text-base font-medium"><span className="mb-2 block">{t('grid_search_label')}</span><input type="search" value={search} onChange={event => setSearch(event.target.value)} placeholder={t('grid_search_placeholder')} className="min-h-12 w-full rounded-xl border border-[var(--border)] bg-[var(--surface)] px-3" /></label>
-        <p className="mt-2 text-sm text-[var(--muted)]" role="status">{t('grid_result_count', { count: filteredStudents.length, total: students.length })}</p>
-      </div>
-      {!accessStudent && message && <p className={`px-4 py-3 text-base ${hasError ? 'text-red-700 dark:text-red-300' : 'text-[var(--foreground)]'}`} role={hasError ? 'alert' : 'status'}>{message}</p>}
-      <table className="block w-full table-fixed border-collapse text-left lg:table">
-        <thead className="hidden border-b border-[var(--border)] bg-[var(--surface-muted)] text-sm text-[var(--muted)] lg:table-header-group">
-          <tr>{(['col_name_email', 'col_registered', 'col_progress', 'trainer_access_title', 'blackboard_title', 'col_actions'] as const).map(key => <th scope="col" key={key} className="p-4 font-semibold">{t(key)}</th>)}</tr>
-        </thead>
-        <tbody className="block divide-y divide-[var(--border)] lg:table-row-group">
-          {filteredStudents.map(student => {
-            const name = student.person?.display_name || t('unknown_name')
-            const notePreview = displayBlackboardNote(getBoard(student.id).noteText)
-            const fullAccess = student.role === 'teacher' || student.role === 'admin'
-            return (
-              <tr key={student.id} className="grid min-w-0 grid-cols-1 gap-3 p-4 align-top sm:grid-cols-2 lg:table-row lg:p-0">
-                <td className="min-w-0 lg:p-4"><button type="button" onClick={() => setSelectedId(student.id)} aria-label={t('open_details_aria', { name })} className="min-h-12 w-full min-w-0 rounded-lg text-left"><span className="block break-words text-base font-bold">{name}</span><span className="mt-1 block break-all text-sm text-[var(--muted)]">{student.person?.email}</span></button></td>
-                <td className="text-sm text-[var(--muted)] lg:p-4">{student.created_at ? new Date(student.created_at).toLocaleDateString(lang) : '—'}</td>
-                <td className="lg:p-4"><ProgressBadges progress={visibleProgress[student.id] || {}} emptyLabel={t('no_progress')} /></td>
-                <td className="lg:p-4">
-                  {fullAccess ? <p className="text-sm font-semibold">{t('full_access')}</p> : <>
-                    <p className="mb-2 text-sm text-[var(--muted)]">{student.allowed_levels?.length ? ACCESS_LEVELS.filter(level => student.allowed_levels?.includes(level)).join(' · ') : t('access_none')}</p>
-                    <button type="button" onClick={() => { setMessage(null); setAccessStudentId(student.id) }} aria-label={t('access_manage_aria', { name })} className="flex min-h-12 w-full items-center justify-center gap-2 rounded-xl border border-[var(--border)] px-3 text-base font-semibold hover:bg-[var(--surface-muted)]"><SlidersHorizontal size={18} aria-hidden="true" />{t('access_manage')}</button>
-                  </>}
-                </td>
-                <td className="min-w-0 lg:p-4"><button type="button" onClick={() => setSelectedId(student.id)} className="min-h-12 w-full rounded-lg text-left text-sm"><span className="block font-semibold">{t('grid_open_notes')}</span>{notePreview && <span className="mt-1 line-clamp-2 break-words text-[var(--muted)]">{notePreview}</span>}</button></td>
-                <td className="lg:p-4"><button type="button" onClick={() => setSelectedId(student.id)} className="min-h-12 w-full rounded-xl border border-[var(--border)] px-3 text-base font-semibold hover:bg-[var(--surface-muted)]">{t('open_details')}</button></td>
-              </tr>
-            )
-          })}
-          {filteredStudents.length === 0 && <tr><td colSpan={6} className="p-8 text-center text-[var(--muted)]">{t('empty_students')}</td></tr>}
-        </tbody>
-      </table>
-      {selected && <StudentDetailModal student={selected} onClose={() => setSelectedId(null)}>
-        <div className="mt-6 grid gap-5 border-t border-[var(--border)] pt-5 sm:grid-cols-2">
-          <section><h3 className="mb-3 text-base font-bold">{t('col_role')}</h3><RoleSelect student={selected} currentUserId={currentUserId} currentUserRole={currentUserRole} loading={loadingId === selected.id} onChange={handleRoleChange} /></section>
-          <section><h3 className="mb-3 text-base font-bold">{t('col_progress')}</h3><ResetControls student={selected} level={resetLevel[selected.id] || 'A1.1'} loading={loadingId === selected.id} onLevelChange={value => setResetLevel({ ...resetLevel, [selected.id]: value })} onReset={handleResetProgress} /></section>
-        </div>
-        {message && <p className="mt-4 text-base" role={hasError ? 'alert' : 'status'}>{message}</p>}
-      </StudentDetailModal>}
-      {accessStudent && <StudentAccessModal key={accessStudent.id} student={accessStudent} loading={loadingId === accessStudent.id} message={message} hasError={hasError} onClose={() => setAccessStudentId(null)} onLevelToggle={handleLevelToggle} onTrainerToggle={handleTrainerToggle} onLessonsUpdate={handleAllowedLessonsUpdate} />}
+  return <div className="min-w-0 space-y-4 text-base text-[var(--foreground)]">
+    <div className="space-y-4 rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-4">
+      <label className="block font-semibold"><span className="mb-2 block">{admin('grid_search_label')}</span><input type="search" value={search} onChange={event => setSearch(event.target.value)} className={control} placeholder={admin('grid_search_placeholder')} /></label>
+      <div className="grid gap-3 sm:grid-cols-2"><label>{t('sort')}<select value={sort} onChange={event => setSort(event.target.value as SortKey)} className={control}>{sortKeys.map(key => <option key={key} value={key}>{sortLabel(key)}</option>)}</select></label><label>{t('direction')}<select value={descending ? 'desc' : 'asc'} onChange={event => setDescending(event.target.value === 'desc')} className={control}><option value="asc">{t('ascending')}</option><option value="desc">{t('descending')}</option></select></label></div>
+      <details><summary className={`${button} cursor-pointer`}>{t('filters')}</summary><div className="mt-4 grid gap-5 sm:grid-cols-2 2xl:grid-cols-3">
+        <fieldset><legend className="mb-2 font-semibold">{t('lastActive')}</legend><label>{t('after')}<input type="date" value={filters.from} onChange={event => update('from', event.target.value)} aria-label={`${t('lastActive')} · ${t('after')}`} className={control} /></label><label>{t('before')}<input type="date" value={filters.until} onChange={event => update('until', event.target.value)} aria-label={`${t('lastActive')} · ${t('before')}`} className={control} /></label></fieldset>
+        {rangeControl(t('time7'), 'timeMin', 'timeMax')}{rangeControl(t('lastTest'), 'testMin', 'testMax')}{rangeControl(t('due'), 'dueMin', 'dueMax')}
+        <label>{t('position')}<input value={filters.path} onChange={event => update('path', event.target.value)} className={control} /></label>
+        <label>{t('attention')}<select value={filters.attention} onChange={event => update('attention', event.target.value)} className={control}><option value="">{t('all')}</option><option value="any">{t('attention')}</option><option value="none">{t('noAttention')}</option>{[...new Set(access.students.flatMap(row => row.attentionReasons ?? []))].map(reason => <option key={reason} value={reason}>{teacherAttentionLabel(lang, reason)}</option>)}</select></label>
+        <label>{admin('trainer_access_title')}<select value={filters.level} onChange={event => update('level', event.target.value)} className={control}><option value="">{t('all')}</option>{ACCESS_LEVELS.map(level => <option key={level}>{level}</option>)}</select></label>
+        <div><label>{t('phases')}<select value={filters.phase} onChange={event => update('phase', event.target.value)} className={control}>{['1', '2', '3', '4', '5', '6', 'learned'].map(phase => <option key={phase} value={phase}>{phase === 'learned' ? t('learned') : t('phase', { phase })}</option>)}</select></label>{rangeControl(t('phases'), 'phaseMin', 'phaseMax')}</div>
+      </div><button type="button" onClick={() => { setSearch(''); setFilters(emptyFilters) }} className={`${button} mt-4`}>{t('clear')}</button></details>
+      <p role="status">{admin('grid_result_count', { count: sorted.length, total: access.students.length })}</p>
     </div>
-  )
-}
-
-function ProgressBadges({ progress, emptyLabel }: { progress: Record<string, number>; emptyLabel: string }) {
-  const activeLevels = Object.entries(progress).filter(([, value]) => value > 0).sort((left, right) => left[0].localeCompare(right[0]))
-  if (activeLevels.length === 0) return <span className="text-sm text-[var(--muted)]">{emptyLabel}</span>
-  return <div className="flex flex-wrap gap-2">{activeLevels.map(([level, value]) => <span key={level} className="rounded-lg border border-[var(--border)] bg-[var(--surface-muted)] px-2 py-1 text-sm font-semibold">{level}: {value}%</span>)}</div>
-}
-
-function RoleSelect({
-  student, currentUserId, currentUserRole, loading, onChange,
-}: {
-  student: AdminStudentRow
-  currentUserId?: string
-  currentUserRole?: string
-  loading: boolean
-  onChange: (id: string, role: string) => void
-}) {
-  const t = useAdminTranslator()
-  return (
-    <div className="relative inline-block w-32">
-      <select
-        value={student.role ?? 'student'}
-        onChange={event => onChange(student.id, event.target.value)}
-        disabled={loading || student.id === currentUserId || currentUserRole !== 'admin'}
-        aria-label={t('col_role')}
-        className="h-12 w-full cursor-pointer appearance-none rounded-xl border border-[var(--border)] bg-[var(--surface)] px-3 pr-8 text-base font-semibold text-[var(--foreground)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)] disabled:cursor-default disabled:bg-[var(--surface-muted)]"
-      >
-        <option value="student">{t('role_student')}</option>
-        <option value="teacher">{t('role_teacher')}</option>
-        {(student.role === 'admin' || currentUserRole === 'admin') && <option value="admin">{t('role_admin')}</option>}
-      </select>
-      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-[var(--muted)]">
-        {loading ? <Loader2 size={14} className="animate-spin" /> : (
-          <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
-        )}
-      </div>
-    </div>
-  )
-}
-
-function ResetControls({
-  student, level, loading, onLevelChange, onReset,
-}: {
-  student: AdminStudentRow
-  level: string
-  loading: boolean
-  onLevelChange: (level: string) => void
-  onReset: (id: string, level: string) => void
-}) {
-  const t = useAdminTranslator()
-  const name = student.person?.display_name || t('unknown_name')
-  return (
-    <div className="flex flex-col gap-2">
-      <select
-        className="h-12 rounded-lg border border-[var(--border)] bg-[var(--surface)] px-2 text-base font-semibold text-[var(--foreground)] focus:outline-none focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] "
-        value={level}
-        onChange={event => onLevelChange(event.target.value)}
-        disabled={loading}
-        aria-label={t('col_progress')}
-      >
-        {ACCESS_LEVELS.map(item => (
-          <option key={item} value={item}>{item}</option>
-        ))}
-      </select>
-      <button
-        type="button"
-        onClick={() => onReset(student.id, level)}
-        disabled={loading}
-        className="inline-flex h-12 items-center justify-center rounded-lg border border-red-200 bg-red-50 px-3 text-base font-semibold text-red-600 transition-colors hover:bg-red-100 disabled:opacity-50 dark:border-red-900/30 dark:bg-red-900/20 dark:text-red-400"
-        aria-label={t('reset_aria', { name, level })}
-      >
-        {t('reset')}
-      </button>
-    </div>
-  )
+    <table className="block w-full table-fixed border-collapse text-left 2xl:table"><thead className="hidden 2xl:table-header-group"><tr>{(['name', ...metrics] as const).map(key => <th key={key} scope="col" className="p-2 align-top font-semibold" aria-sort={sort === key ? descending ? 'descending' : 'ascending' : undefined}><button className="min-h-12 w-full break-words rounded-lg text-left" onClick={() => { setSort(key); setDescending(sort === key ? !descending : false) }}>{t(key)}</button></th>)}<th scope="col" className="p-2" aria-sort={sort === 'access' ? descending ? 'descending' : 'ascending' : undefined}><button type="button" className="min-h-12 rounded-lg text-left" onClick={() => { setSort('access'); setDescending(sort === 'access' ? !descending : false) }}>{admin('trainer_access_title')}</button></th></tr></thead>
+      <tbody className="block space-y-4 2xl:table-row-group 2xl:space-y-0">{sorted.map(row => {
+        const name = row.person?.display_name || admin('unknown_name')
+        return <tr key={row.id} data-testid={`teacher-student-${row.id}`} className="grid min-w-0 grid-cols-1 gap-4 rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-4 sm:grid-cols-2 2xl:table-row 2xl:rounded-none 2xl:p-0">
+          <td className="min-w-0 align-top 2xl:p-2"><Link href={`/${lang}/admin/students/${row.id}`} aria-label={admin('open_details_aria', { name })} className="block min-h-12 break-words rounded-lg py-2 font-bold underline decoration-[var(--border)] underline-offset-4">{name}<span className="mt-1 block break-all font-normal">{row.person?.email}</span></Link></td>
+          {metrics.map(key => <td key={key} className="min-w-0 break-words align-top 2xl:p-2"><span className="mb-1 block font-semibold 2xl:sr-only">{t(key)}</span>{cell(row, key)}</td>)}
+          <td className="min-w-0 align-top 2xl:p-2">{row.role === 'teacher' || row.role === 'admin' ? <p>{admin('full_access')}</p> : <><p className="mb-2">{row.allowed_levels?.join(' · ') || admin('access_none')}</p><button type="button" onClick={() => { access.setMessage(null); access.setAccessStudentId(row.id) }} aria-label={admin('access_manage_aria', { name })} className={`${button} w-full`}>{admin('access_manage')}</button></>}</td>
+        </tr>
+      })}{sorted.length === 0 && <tr><td colSpan={9} className="block p-8 text-center 2xl:table-cell">{admin('empty_students')}</td></tr>}</tbody>
+    </table>
+    {access.accessStudent && <StudentAccessModal key={access.accessStudent.id} student={access.accessStudent} loading={access.loadingId === access.accessStudent.id} message={access.message} hasError={access.hasError} onClose={() => access.setAccessStudentId(null)} onLevelToggle={access.handleLevelToggle} onTrainerToggle={access.handleTrainerToggle} onLessonsUpdate={access.handleLessonsUpdate} />}
+  </div>
 }

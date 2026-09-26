@@ -791,7 +791,7 @@
     },
     "privacy": {
         "title": "Datenschutzerklärung",
-        "status": "Stand: 24. September 2026",
+        "status": "Stand: 26. September 2026",
         "intro": "Wir freuen uns über Ihr Interesse an unserer Sprachschule. Der Schutz Ihrer Privatsphäre ist für uns von höchster Bedeutung. Nachfolgend informieren wir Sie ausführlich über den Umgang mit Ihren Daten.",
         "sections": [
             {
@@ -972,7 +972,10 @@
                 "content": [
                     "Die Lernplattform verarbeitet Kontodaten (E-Mail, Profilname, Sprache), freigegebene Niveaus und gebuchte Kurse sowie Vokabelphasen, Abfragerichtungen, Wiederholungstermine, Antworten, Übungsversuche und Ergebnisse. Die Zwecke sind persönliches Training, Fortschrittsanzeige und Betreuung durch die Lehrkraft; Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO. Sicherheitsprotokolle und Maßnahmen gegen missbräuchliche Zugriffe beruhen auf Art. 6 Abs. 1 lit. f DSGVO.",
                     "Ein bestehender Schülerdatensatz wird erst nach verifizierter Anmeldung und eindeutiger Zuordnung mit dem Lernkonto verbunden. Die bloße Eingabe einer bekannten E-Mail-Adresse zeigt keine gespeicherten Schülerdaten an. Bei mehrdeutigen Zuordnungen ist eine Prüfung durch die Sprachschule erforderlich. Lehrkräfte und Administratoren sehen die zur Kursverwaltung und Betreuung benötigten Daten.",
-                    "Browser-Speicher und notwendige Anmelde-Cookies speichern unter anderem Sprache, Design, Sitzungsstatus, Lernset-Auswahl und gegebenenfalls noch zu synchronisierende Antworten. Lokale Einstellungen bleiben bis zum Löschen im Browser bestehen. Personenbezogene Lernstände werden für die Nutzung und Betreuung des Lernkontos gespeichert; bei Beendigung des Kontos werden sie gelöscht, soweit keine gesonderte gesetzliche Pflicht oder konkret erforderliche Anspruchssicherung entgegensteht. Auskunft und Löschung können unter info@sitov-academy.com angefragt werden."
+                    "Browser-Speicher und notwendige Anmelde-Cookies speichern unter anderem Sprache, Design, Sitzungsstatus, Lernset-Auswahl und gegebenenfalls noch zu synchronisierende Antworten. Lokale Einstellungen bleiben bis zum Löschen im Browser bestehen. Personenbezogene Lernstände werden für die Nutzung und Betreuung des Lernkontos gespeichert; bei Beendigung des Kontos werden sie gelöscht, soweit keine gesonderte gesetzliche Pflicht oder konkret erforderliche Anspruchssicherung entgegensteht. Auskunft und Löschung können unter info@sitov-academy.com angefragt werden.",
+                    "Deine Lehrkraft und berechtigte Administratoren sehen deinen Lernfortschritt, Fächer und fällige Wiederholungen, Antworten auf gemeinsame Kurswörter und Lernpfadaufgaben, Testversuche und Ergebnisse, freigeschaltete Niveaus, Aussprachegespräche sowie Betreuungsnotizen. Damit können sie Schwierigkeiten erkennen, gezielt unterstützen und bei Bedarf einen Lernpfad oder Test freischalten oder zurücksetzen. Der Inhalt deiner eigenen Wörter und Antworten darauf bleibt privat; angezeigt wird nur ihre Anzahl.",
+                    "Für den Aktivitätsüberblick erfassen wir ausschließlich Lernsitzungen aus gespeicherten Antworten und eingereichten Aufnahmen: Beginn und Ende, Lernmodus, Niveau und Anzahl der Antworten. Es werden dafür keine Klickpfade oder einzelnen Tastatureingaben aufgezeichnet. Die angezeigte Lernzeit ist eine Schätzung zwischen aufeinanderfolgenden Lernantworten; Pausen über fünf Minuten, die Zeit vor der ersten und nach der letzten Antwort sowie reine Medienaufrufe werden nicht mitgezählt. Für frühere Lerntage wird keine Lernzeit nachträglich erfunden.",
+                    "Rohdaten dieser Lernsitzungen werden nach 180 Tagen automatisch beim nächsten Speichern einer Lernaktivität auf der Plattform gelöscht, auch für inzwischen inaktive Konten. Danach bleiben im Aktivitätsprotokoll nur Tageswerte (Lerntag, letzte Aktivität an diesem Tag, Anzahl der Antworten und geschätzte Zeit je Modus) für die Dauer des Lernkontos erhalten. Diese Frist gilt für das zusätzliche Sitzungsprotokoll; für Lernantworten, Ergebnisse, Aufnahmen und Betreuungsnotizen gelten die Regeln zum Lernkonto und zur Aussprachebetreuung in den Abschnitten 11 und 12."
                 ]
             },
             {
@@ -992,7 +995,7 @@
             {
                 "title": "14. Aktualität dieser Datenschutzerklärung",
                 "content": [
-                    "Diese Datenschutzerklärung berücksichtigt den Funktionsumfang und den Betrieb der Lernplattform auf einem eigenverwalteten VPS am 13. September 2026. Bei Änderungen der Verarbeitung passen wir die Informationen an."
+                    "Diese Datenschutzerklärung berücksichtigt den Funktionsumfang und den Betrieb der Lernplattform auf einem eigenverwalteten VPS am 26. September 2026. Bei Änderungen der Verarbeitung passen wir die Informationen an."
                 ]
             }
         ]
@@ -1168,7 +1171,9 @@
         "ui_locale_en": "English",
         "ui_locale_ru": "Русский",
         "ui_locale_uk": "Українська",
-        "ui_locale_tr": "Türkçe"
+        "ui_locale_tr": "Türkçe",
+        "teacher_progress_notice": "Deine Lehrkraft sieht deinen Lernfortschritt, damit sie dich gezielt unterstützen kann.",
+        "teacher_progress_privacy": "Datenschutzerklärung"
     },
     "pronunciation": {
         "title": "Aussprache-Training",

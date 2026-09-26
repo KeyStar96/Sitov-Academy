@@ -1,0 +1,425 @@
+{
+  "postgres": "postgres (PostgreSQL) 17.11 (Homebrew)",
+  "postgrest": "PostgREST 16.4",
+  "counts": {
+    "paths": 7,
+    "students": 200,
+    "directions": 39810
+  },
+  "source_progress_preserved": true,
+  "migration_idempotent": true,
+  "rollback_reapply": true,
+  "schema_sha256": "a975ed7ae64dc0133606a6f253a6837f612653f8c610ce738639a29cd2726265",
+  "migration_sha256": {
+    "38_learning_sessions.sql": "9396c758fd4c80903ae262c82283a935c098d3fdcf9d714a257be2d4c677fc1f",
+    "39_teacher_dashboard.sql": "e841b93f17638fbdf321c7d4cc59d1604a353b4c4de9c40eeded1a73f255d1ad"
+  },
+  "performance": {
+    "method": "40 HTTP/PostgREST list RPC calls after 5 warmups; loopback, 200 synthetic learners",
+    "samples_ms": [
+      151.926,
+      152.979,
+      152.386,
+      153.296,
+      154.04,
+      152.773,
+      151.512,
+      154.451,
+      153.512,
+      153.636,
+      154.241,
+      153.559,
+      154.377,
+      154.176,
+      154.697,
+      154.046,
+      154.828,
+      154.826,
+      156.986,
+      161.678,
+      159.243,
+      158.792,
+      162.152,
+      240.301,
+      220.159,
+      222.77,
+      224.716,
+      244.747,
+      284.942,
+      345.83,
+      236.68,
+      279.144,
+      353.959,
+      293.625,
+      230.003,
+      293.185,
+      222.169,
+      230.27,
+      206.052,
+      277.621
+    ],
+    "p95_ms": 293.625,
+    "limit_ms": 800
+  },
+  "backups": [
+    {
+      "label": "bootstrap",
+      "path": "/private/tmp/sitov-phase7-acceptance/backups/sitov-p7-3p_rlb85-000-bootstrap",
+      "sha256": "509ce615939778e02831c181f7a6f525891c0306f75907c4b3c0ade3d7c8ce76"
+    },
+    {
+      "label": "fixture",
+      "path": "/private/tmp/sitov-phase7-acceptance/backups/sitov-p7-3p_rlb85-001-fixture",
+      "sha256": "2e65a242603f375386063044d6f13e29b6f82ff700a464fdbd3ab89c33c94ab8"
+    },
+    {
+      "label": "migration-first-38",
+      "path": "/private/tmp/sitov-phase7-acceptance/backups/sitov-p7-3p_rlb85-002-migration-first-38",
+      "sha256": "598bc19185d64238b8dc2cec5e7f696f80558d610b228fd89dedd62900217c81"
+    },
+    {
+      "label": "migration-first-39",
+      "path": "/private/tmp/sitov-phase7-acceptance/backups/sitov-p7-3p_rlb85-003-migration-first-39",
+      "sha256": "9bae3c31f22ab0f14672678f13b68110bfc1d8694cc81aee3278951957afabc0"
+    },
+    {
+      "label": "migration-second-38",
+      "path": "/private/tmp/sitov-phase7-acceptance/backups/sitov-p7-3p_rlb85-004-migration-second-38",
+      "sha256": "f7e7d2d9ef61c6a4b3642d13a75e860845f8b3d6d2646495476cf6f8cda5e5fb"
+    },
+    {
+      "label": "migration-second-39",
+      "path": "/private/tmp/sitov-phase7-acceptance/backups/sitov-p7-3p_rlb85-005-migration-second-39",
+      "sha256": "375514709d4d365cd3bf33483cdd0976374fe4b70897f684358c1baf35812f15"
+    },
+    {
+      "label": "path-import",
+      "path": "/private/tmp/sitov-phase7-acceptance/backups/sitov-p7-3p_rlb85-006-path-import",
+      "sha256": "0c24c5ab42c8db9c057de564400ddb1674130c6e09cb25bbdaef4bc6a5eff1ba"
+    },
+    {
+      "label": "dashboard-fixture",
+      "path": "/private/tmp/sitov-phase7-acceptance/backups/sitov-p7-3p_rlb85-007-dashboard-fixture",
+      "sha256": "a953e0779747a5ee768fb4f18c3d7704523062bf917d4837da7824c2750c40ff"
+    },
+    {
+      "label": "rollback-39",
+      "path": "/private/tmp/sitov-phase7-acceptance/backups/sitov-p7-3p_rlb85-008-rollback-39",
+      "sha256": "ddfd82a15b4d2ab4070352d8af295d93b8095fd379a42b4c550492c022b5acc9"
+    },
+    {
+      "label": "rollback-38",
+      "path": "/private/tmp/sitov-phase7-acceptance/backups/sitov-p7-3p_rlb85-009-rollback-38",
+      "sha256": "45a0afc542dcb2e89dcc942c040db6d3a716e99aa4b366fecc12b5635d2b4d55"
+    },
+    {
+      "label": "reapply-38",
+      "path": "/private/tmp/sitov-phase7-acceptance/backups/sitov-p7-3p_rlb85-010-reapply-38",
+      "sha256": "48b6e8bb177aebeec51b3e2de89dbcd4523359adb8d1fd53e6760318b91d04ea"
+    },
+    {
+      "label": "reapply-39",
+      "path": "/private/tmp/sitov-phase7-acceptance/backups/sitov-p7-3p_rlb85-011-reapply-39",
+      "sha256": "e2c9e3044b515ec64a44a9df3db5c65c6de15f02c2078a504bd8b64f16c24cdf"
+    },
+    {
+      "label": "browser-session",
+      "path": "/private/tmp/sitov-phase7-acceptance/backups/sitov-p7-3p_rlb85-012-browser-session",
+      "sha256": "60a8b72193669ed191bbd929ea7d205acc956267fd4909b011da3875e08ee41f"
+    }
+  ],
+  "scope": {
+    "phase": 7,
+    "phase_6": "skipped_by_user",
+    "production_migration": false,
+    "deployment": false,
+    "data": "synthetic local fixtures only"
+  },
+  "concurrency": {
+    "database": "local PostgreSQL",
+    "backup": "/private/tmp/sitov-phase7-concurrency-final/before-concurrency.dump",
+    "backup_sha256": "bad999ce40d01ef7ced0f1cff8229c6388ab2ff6a17f0a808c7ab7d7705478ce",
+    "scenarios": [
+      {
+        "name": "practice answer commits before path reset",
+        "wait_event": "advisory",
+        "elapsed_ms": 21.494,
+        "first_result": {
+          "grade": {
+            "fields": [
+              {
+                "id": "answer",
+                "status": "EXACT",
+                "correct": true
+              }
+            ],
+            "status": "EXACT",
+            "correct": true
+          },
+          "queue": [],
+          "stars": 3,
+          "solution": {
+            "content": {
+              "options": [
+                "Ja",
+                "Nein"
+              ],
+              "question": "Wähle Ja.",
+              "target_form": [
+                "Ja"
+              ],
+              "correct_answer": "Ja",
+              "accepted_answers": [
+                "Ja"
+              ]
+            },
+            "explanation": null
+          },
+          "completed": true,
+          "first_attempt_accuracy": 100.0
+        },
+        "second_result": {
+          "success": true,
+          "interventionId": "ae2abda6-783c-4ee1-a5ae-2a399ecf8c8f"
+        }
+      },
+      {
+        "name": "path reset commits before stale practice answer",
+        "wait_event": "advisory",
+        "elapsed_ms": 16.492,
+        "first_result": {
+          "success": true,
+          "interventionId": "44970cee-784b-4951-a9ab-278bda869338"
+        },
+        "second_result": {
+          "error": "attempt_unavailable",
+          "sqlstate": "42501"
+        }
+      },
+      {
+        "name": "passed exam commits before test reset",
+        "wait_event": "advisory",
+        "elapsed_ms": 19.906,
+        "first_result": {
+          "passed": true,
+          "answers": [
+            {
+              "id": "fdaa21c5-5ddd-40d3-968c-2bbe116da3fc",
+              "type": "multiple_choice",
+              "answer": {
+                "index": 0
+              },
+              "result": {
+                "fields": [
+                  {
+                    "id": "answer",
+                    "status": "EXACT",
+                    "correct": true
+                  }
+                ],
+                "status": "EXACT",
+                "correct": true
+              },
+              "content": {
+                "options": [
+                  "Ja",
+                  "Nein"
+                ],
+                "question": "Wähle Ja."
+              },
+              "solution": {
+                "content": {
+                  "options": [
+                    "Ja",
+                    "Nein"
+                  ],
+                  "question": "Wähle Ja.",
+                  "target_form": [
+                    "Ja"
+                  ],
+                  "correct_answer": "Ja",
+                  "accepted_answers": [
+                    "Ja"
+                  ]
+                },
+                "explanation": null
+              }
+            }
+          ],
+          "attempt_id": "51c4b18d-a947-419f-88b3-24163bbd34ad",
+          "percentage": 100.0,
+          "recommended_nodes": []
+        },
+        "second_result": {
+          "success": true,
+          "interventionId": "ab912694-7c85-43e6-a687-e9152972ff9b"
+        }
+      },
+      {
+        "name": "test reset commits before exam finish",
+        "wait_event": "advisory",
+        "elapsed_ms": 16.341,
+        "first_result": {
+          "success": true,
+          "interventionId": "0e6ef767-08df-4809-9fed-80a56d444727"
+        },
+        "second_result": {
+          "error": "attempt_unavailable",
+          "sqlstate": "42501"
+        }
+      }
+    ],
+    "fixture_cleanup": true,
+    "fixture_ids": {
+      "student": "6ea5abd3-473f-47ba-a973-37820c4c8896",
+      "teacher": "d25a4ead-4666-49ff-a944-80b3153bee70",
+      "unit": "eabf8196-7557-462c-9445-0af1592f7cd2",
+      "practice": "39c59aed-6bbe-4d49-9e3f-556916f11eff",
+      "exam": "621e1f96-89af-4a51-bd7c-b53f27a98b8a",
+      "exercise": "710d10f9-b313-4f61-baaa-581a859f28ab",
+      "test1": "fdaa21c5-5ddd-40d3-968c-2bbe116da3fc",
+      "test2": "0c203e0c-d6d5-4e53-8c87-969a74c28588"
+    },
+    "passed": true
+  },
+  "tests": {
+    "database": {
+      "passed": 531,
+      "failed": 0,
+      "skipped": 0
+    },
+    "jest": {
+      "passed": 1923,
+      "suites": 150,
+      "failed": 0,
+      "skipped": 0
+    },
+    "python": {
+      "vps_passed": 61,
+      "tts_passed": 3,
+      "failed": 0,
+      "skipped": 0
+    },
+    "build": {
+      "passed": true,
+      "static_pages": 157
+    },
+    "browser": {
+      "passed": 8,
+      "failed": 0,
+      "skipped": 0,
+      "duration_seconds": 47.2,
+      "axe_scans": 13,
+      "axe_violations": 0,
+      "axe_exclusions": [],
+      "axe_disabled_rules": []
+    },
+    "typescript": {
+      "passed": true
+    }
+  },
+  "logs": {
+    "database": {
+      "path": "/tmp/sitov-phase7-db.log",
+      "sha256": "f351a16f5c7e328144f06a2b5cb23dde963537dc7c6ca19fa3a991928ad21262"
+    },
+    "jest": {
+      "path": "/tmp/sitov-phase7-jest-final.log",
+      "sha256": "0df3346dd3a70d32c4c635d6a372b2fe1f68b1e547839adb269c552960e7487e"
+    },
+    "python": {
+      "path": "/tmp/sitov-phase7-python.log",
+      "sha256": "e047981aa9dce4ce44ebc2eefff85da5be4757a2413336e8c43ff8af2950b974"
+    },
+    "tts": {
+      "path": "/tmp/sitov-phase7-tts.log",
+      "sha256": "f534406116194119df952577c4bd0a80a356f23971d41a58820b089d359985b8"
+    },
+    "browser": {
+      "path": "/tmp/sitov-phase7-browser-final.log",
+      "sha256": "11d485d2b5283a582be59701cd4de5d9658e8e33d79005993df3dc9eaa007ef8"
+    },
+    "build": {
+      "path": "/tmp/sitov-phase7-build-final.log",
+      "sha256": "92a4a5d61530100259a217dac972c359452a566238e4d1c7f75b005a0cc57574"
+    },
+    "ui_after_heading_fix": {
+      "path": "/tmp/sitov-phase7-ui-final.log",
+      "sha256": "7c81eff8eb2f2c351c0845c965bd56b91b459fc4db19d792fd3582ae9cc75c68"
+    }
+  },
+  "screenshots": [
+    {
+      "file": "teacher-list-desktop.png",
+      "width": 1600,
+      "height": 1560,
+      "sha256": "215fc9161c042f1e2b5623aaf585ee93245032b4165de9c6f50e4109f136abb5"
+    },
+    {
+      "file": "teacher-activity-desktop.png",
+      "width": 1280,
+      "height": 3178,
+      "sha256": "f91cb4a882fc1466ff44729bbd1ff1816732a7798cf964a9dc0e74b6a2a7f35f"
+    },
+    {
+      "file": "teacher-notes-desktop.png",
+      "width": 1280,
+      "height": 819,
+      "sha256": "3be009b35a4fed5e80cad1800d51f9073a864c390b1fe2920fb39fdf5460a96c"
+    },
+    {
+      "file": "teacher-overview-desktop.png",
+      "width": 1280,
+      "height": 1479,
+      "sha256": "3100c6a41ea54b316bf68fe3b784c05175659ab7b89b396b5a675476ea5dace0"
+    },
+    {
+      "file": "teacher-path-desktop.png",
+      "width": 1280,
+      "height": 9336,
+      "sha256": "87395cfd528e174bef51a61e2db7ad54da1b90e5984f27482ebbe44f3639cbaa"
+    },
+    {
+      "file": "teacher-pronunciation-desktop.png",
+      "width": 1280,
+      "height": 720,
+      "sha256": "5d133dba67d06f07179177867191b595a69ada668857ea07c0b715d8d04490f0"
+    },
+    {
+      "file": "teacher-vocabulary-desktop.png",
+      "width": 1280,
+      "height": 3207,
+      "sha256": "e00cc5d53d84c5866b42930e7d03410cc8bcd3c72259a2408c4917307921411a"
+    },
+    {
+      "file": "teacher-unlock-confirm.png",
+      "width": 1280,
+      "height": 6739,
+      "sha256": "1bf9ca5faebe413b9de55c4e7667948934b45c833f0a513fde5a017b6d229e74"
+    },
+    {
+      "file": "teacher-list-dark-mobile.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "1dbf2dd5381cdd6f445366807e50b9de5202b5813d6d54aa347d77d64641746c"
+    },
+    {
+      "file": "teacher-path-dark-mobile.png",
+      "width": 390,
+      "height": 15830,
+      "sha256": "8f5b591ff83dd26c4ff5d4a6b759bc389761282b710d540410c4a1452696acc2"
+    },
+    {
+      "file": "teacher-list-light-mobile.png",
+      "width": 390,
+      "height": 844,
+      "sha256": "94ceb8e1351ae118740a79aa63384adf17f3bafb804a726e24d075eaae5f6ecb"
+    },
+    {
+      "file": "teacher-path-light-mobile.png",
+      "width": 390,
+      "height": 15830,
+      "sha256": "cec0e0d09c78f8bb337060623312ab05b6bf6e66176dec34d7919f84f783475d"
+    }
+  ]
+}

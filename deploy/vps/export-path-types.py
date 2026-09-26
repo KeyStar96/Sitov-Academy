@@ -52,7 +52,7 @@ def replace_member(section, name, body):
 
 
 selected = sorted({c['table_name'] for c in catalog['columns']
-                   if c['table_name'].startswith('path_') or c['table_name'] in ('learning_units', 'learning_exercises', 'grammar_translations', 'vocabulary_carryover_preferences')})
+                   if c['table_name'].startswith('path_') or c['table_name'] in ('learning_units', 'learning_exercises', 'grammar_translations', 'vocabulary_carryover_preferences', 'learning_sessions', 'learning_activity_days')})
 for table in selected:
     columns = sorted([c for c in catalog['columns'] if c['table_name'] == table], key=lambda c: c['column_name'])
     lines = ['      ' + table + ': {']
@@ -92,6 +92,9 @@ if any(fn['name'] == 'get_vocabulary_carryover' for fn in catalog['functions']):
     functions.extend(['get_vocabulary_carryover', 'begin_vocabulary_level', 'set_vocabulary_carryover',
                       'get_vocabulary_carryover_cards', 'submit_vocabulary_answer',
                       'submit_vocabulary_answer_once', 'submit_vocabulary_self_rating_once', 'check_vocabulary_retry'])
+for name in ('get_teacher_dashboard_students', 'get_teacher_student_detail'):
+    if any(fn['name'] == name for fn in catalog['functions']):
+        functions.append(name)
 for name in functions:
     found = sorted([fn for fn in catalog['functions'] if fn['name'] == name], key=lambda fn: fn['arguments'])
     if not found or any(fn['result'] != 'jsonb' for fn in found):
@@ -101,6 +104,8 @@ for name in functions:
         if index:
             lines.append('        } | {')
         for parameter in fn['arguments'].split(', '):
+            if not parameter:
+                continue
             argument, pgtype = parameter.split(' ', 1)
             pgtype, *default = pgtype.split(' DEFAULT ', 1)
             lines.append(f'          {argument}{"?" if default else ""}: {ts_type(pgtype)}')
@@ -108,7 +113,7 @@ for name in functions:
     replace_member('Functions', name, '\n'.join(lines))
 
 for name, labels in enums.items():
-    if name != 'exercise_type' and not name.startswith('path_'):
+    if name not in ('exercise_type', 'learning_session_mode') and not name.startswith('path_'):
         continue
     replace_member('Enums', name, '      ' + name + ': ' + ' | '.join(map(json.dumps, labels)))
     constant_start = source.index('export const Constants =')

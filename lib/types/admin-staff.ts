@@ -5,7 +5,9 @@ import type { TeacherStudentNote } from './teacher-notes'
 
 import type { TrainerAccessRule } from '@/lib/access/levels'
 
-export interface AdminStudentRow extends Pick<Profile, 'id' | 'role' | 'created_at' | 'person'> {
+export interface AdminStudentRow extends Pick<Profile, 'id' | 'role' | 'created_at'> {
+  // The teacher dashboard needs contact fields, not dates of birth or locale metadata.
+  person: (Pick<Person, 'display_name' | 'email' | 'phone' | 'street' | 'postal_code' | 'city'> & Partial<Person>) | null
   trainer_grants?: TrainerAccessRule[] | null
   allowed_levels: string[] | null
 }

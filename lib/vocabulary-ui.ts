@@ -182,5 +182,5 @@ export function computePhaseDistribution(cards: readonly PhaseCountCard[]): Phas
 export function phaseBarClasses(key: PhaseBucketKey): { bar: string; label: string } {
   if (key === 'learned' || key === 6) return { bar: 'bg-[var(--success)]', label: 'text-[var(--success)]' }
   if (key >= 4) return { bar: 'bg-[var(--violet)]', label: 'text-[var(--violet)]' }
-  return { bar: 'bg-[var(--accent)]', label: 'text-[var(--accent)]' }
+  return { bar: 'bg-[var(--accent)]', label: 'text-[var(--mode-vocabulary-text)]' }
 }

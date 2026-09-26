@@ -68,7 +68,7 @@ export default function TeacherSidebar({ lang, onNavigate }: { lang: string; onN
                     href={item.href}
                     onClick={onNavigate}
                     aria-current={active ? 'page' : undefined}
-                    className={`group relative flex min-h-11 items-center gap-3 rounded-lg py-2 pl-3 pr-3 text-sm font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] ${
+                    className={`group relative flex min-h-12 items-center gap-3 rounded-lg py-2 pl-3 pr-3 text-sm font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] ${
                       active
                         ? 'bg-[var(--accent-soft)] text-[var(--foreground)]'
                         : 'text-[var(--muted)] hover:bg-[var(--surface-muted)] hover:text-[var(--foreground)]'

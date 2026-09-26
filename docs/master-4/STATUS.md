@@ -2,14 +2,14 @@
 
 | Feld | Wert |
 |---|---|
-| Letzte Aktualisierung | 2026-09-26, Phase 5 lokal implementiert und vollständig geprüft; Produktivumfang zur Entscheidung offen |
-| Git-Revision | Phase-5-Ausgangsstand `b7dc0c7781e75afc3c7aa34d827276f3d583d996`; Implementierung und Nachweise im gemeinsamen Abschlusscommit |
+| Letzte Aktualisierung | 2026-09-26, Phase 7 lokal vollständig implementiert und abgenommen; Phase 6 übersprungen, Produktion unverändert |
+| Git-Revision | Phase-7-Ausgangsstand `09e66e94760ad709b0d92b2850bc30fbfc9de378`; Phase-7-Implementierung und Nachweise für gemeinsamen lokalen Abschlusscommit |
 | Branch | `codex/vps-self-hosted` |
 | Aktives Release | `e6a8d32f4ce74ab20a0ff5a4750927c37c108575` (`/var/www/sitov-current` → `/var/www/sitov-releases/e6a8d32f4ce7`) |
-| Health | Produktionsstand erneut rein lesend geprüft: `ready`; keine Aktivierung in Phase 5 |
-| Letzte Migration | Lokal `37_vocabulary_carryover.sql`; produktiv weiterhin 31, Migrationen 32–37 nicht aktiviert |
-| Nächste freie Nummer | **38**, vor Verwendung erneut prüfen |
-| Datenbank | Produktiv unverändert PostgreSQL 15.8; Phase 5 mit Backups in isoliertem lokalem PostgreSQL 17.11 und echtem PostgREST 16.4 geprüft |
+| Health | Letzter dokumentierter Produktionsbefund aus Phase 5: `ready`; Phase 7 ohne Produktionszugriff oder Aktivierung |
+| Letzte Migration | Lokal `39_teacher_dashboard.sql`; produktiv weiterhin 31, Migrationen 32–39 nicht aktiviert |
+| Nächste freie Nummer | **40**, vor Verwendung erneut prüfen |
+| Datenbank | Produktiv unverändert PostgreSQL 15.8; Phase 7 mit geprüften Backups in isoliertem lokalem PostgreSQL 17.11 und echtem PostgREST 16.4 geprüft |
 
 ## Test-Baseline (Phase 0)
 
@@ -234,4 +234,44 @@ Stand: **lokal implementiert und vollständig geprüft; produktive Abnahme offen
 | `vocabulary_private.carryover_function_backups` | einmalig gesicherte aktuelle Niveau-/Gesamtreset-Funktionen für Rückweg; nicht für Clients lesbar |
 | `getVocabularyOverview` / `LevelLearningStatus.carryover` | eigene Lektionszahlen/`ownBox`, gemeinsame sichtbare `box`, `dueCards`, separate `carryover` mit `byLevel[{level,total,box}]`; Dashboard-Prozent nur aus eigenen Wörtern bilden |
 
-Altbestand-Grenzen sind im Prüfbericht dokumentiert: eine historische Einstufung ausschließlich neuer Wörter ist von Initialisierung nicht zuverlässig unterscheidbar; unvollständige Richtungsdaten werden nicht repariert. Die rein lesende Produktionsprüfung fand **0** unvollständige Richtungspaare. Phasen 6–8 wurden nicht ausgeführt.
+Altbestand-Grenzen sind im Prüfbericht dokumentiert: eine historische Einstufung ausschließlich neuer Wörter ist von Initialisierung nicht zuverlässig unterscheidbar; unvollständige Richtungsdaten werden nicht repariert. Die rein lesende Produktionsprüfung in Phase 5 fand **0** unvollständige Richtungspaare. Zum Abschluss von Phase 5 waren die Phasen 6–8 noch nicht ausgeführt; der folgende Abschnitt dokumentiert die anschließende Planänderung.
+
+
+## Phase 6 — Benachrichtigungen
+
+**Auf ausdrücklichen Nutzerwunsch vollständig übersprungen.** Phase 7 wurde direkt nach dem lokal erfolgreich abgeschlossenen Phase-5-Stand vorgezogen. Es wurden keine Phase-6-Benachrichtigungen, Mail-Worker-Änderungen oder sonstigen Phase-6-Aufgaben umgesetzt. Daraus folgt keine Freigabe für eine spätere automatische Nachholung.
+
+## Phase 7 — Lehrer-Dashboard
+
+Stand: **lokal vollständig implementiert und abgenommen.** Ausschließlich Phase 7 umgesetzt. Ausgangsrevision `09e66e94760ad709b0d92b2850bc30fbfc9de378`. [Prüfbericht](PHASE-7-PRUEFBERICHT.md), [lokaler Betrieb und Rückweg](phase-7-betrieb.md), [Prüf- und Backup-Nachweise](phase-7-nachweise.json), [Browserbilder samt Manifest](phase-7-bilder/README.md). **Keine Produktionsmigration, kein Deployment und kein Push.** Produktion bleibt auf Migration 31 und dem oben dokumentierten Release.
+
+- [x] **7.1 Schülerseite:** Neue geschützte Route `/{lang}/admin/students/[id]` mit Überblick, Vokabeln, Lernpfad, Aussprache, Aktivität und datierten Notizen. Die Liste verlinkt auf die Seite. Überblick mit letzter Aktivität, Lernzeit 7/30 Tage, Serie, Niveau, Pfadposition, letzter Testnote, fälligen Karten, Fächerverteilung, Aufmerksamkeitsgründen und Pfadabschlüssen je Niveau. Einzelne, mehrere und alle Niveaus bleiben im Voraus freischaltbar; bisherige Trainer-/Lektionsfreigaben und Admin-Rollenverwaltung bleiben erhalten.
+- [x] **7.1 Lernverlauf:** Fächer je Niveau und Lektion, halb gewusste Wörter mit unterschiedlichen Richtungsfächern, Rückfälle, letzte 50 gemeinsame Vokabelantworten, Pausen und Mitnahme samt Anzahl. Lernpfad mit Knotenstatus und Sternen, sämtlichen Testversuchen und aufklappbaren Antworten einschließlich archivierter Versuche. Aussprachegespräche mit offenen/unbeantworteten Aufnahmen und Gesprächslink; Aktivitätskalender und Zeitverteilung nach Modus.
+- [x] **Privatheit/Rechte:** Eigene Wörter ausschließlich als Anzahl; ihre Inhalte, getippten Antworten, Fächer und Rückfall-Ranglisten erscheinen nicht in den Lehrkraftdaten. Mitnahme zählt private Kandidaten nur numerisch. Neue Lese-RPCs prüfen die authentifizierte Staff-Rolle in PostgreSQL; Lernende und anonyme Aufrufe bekommen keine fremden Daten. Lehrkraft-/Admin-Konten bleiben für die bestehende Rollenverwaltung in Liste und Detail erreichbar; Notfallaktionen gelten nur für Lernende.
+- [x] **7.2 Liste:** Neue Kennzahlen, Namenssuche, Sortierung und Spaltenfilter; mobile Kartenansicht. PostgreSQL berechnet die Gründe: mindestens sieben Tage inaktiv, die letzten zwei abgeschlossenen aktiven Versuche desselben Tests nicht bestanden, mehr als 150 fällige Karten oder Trefferquote unter 50 % in den letzten sieben Tagen. Gemeinsame Vokabelantworten und zeitlich belegbare bewertete Pfadantworten fließen in die Trefferquote ein. Ein später bestandener Test beendet den Grund „zweimal nicht bestanden“.
+- [x] **Notfallaktionen:** Bestätigung und dauerhafter Audit-Eintrag für „Pfad freischalten“, „Pfad zurücksetzen“ und „Test zurücksetzen“. Request-ID verhindert doppelte Ausführung bei Wiederholung; dieselbe ID mit anderem Inhalt wird abgewiesen. Schülerantworten und Lehrkrafteingriffe teilen dieselben Datenbanksperren. Reset archiviert Versuche, Antworten und bisherigen Fortschritt, entwertet alte Sitzungen und lässt historische Protokolle bestehen. Testreset erhält Übungsknoten; Pfadreset nimmt auch manuelle Freischaltungen dieses Pfads zurück. Fehlende Niveau-/Trainer-/Lektionsrechte werden beim Freischalten ausdrücklich gemeldet und nicht erweitert.
+- [x] **7.3 Sitzungen/Datenschutz:** Migration `38_learning_sessions.sql` erfasst ausschließlich Lernereignisse mit Beginn, Ende, Modus, Niveau und Antwortanzahl; keine Klickpfade oder Tastatureingaben. Lernzeit ist eine konservative Schätzung zwischen Antworten desselben Modus/Niveaus bei höchstens fünf Minuten Abstand; erste Antwort und untätige Nachlaufzeit zählen null Sekunden. Tageswerte bleiben dauerhaft. Mehr als 180 Tage alte Sitzungsrohdaten werden beim nächsten Lernereignis global gelöscht, auch für inzwischen inaktive Konten; kein zusätzlicher Dienst. Datenschutzerklärung und Profilhinweis gleichzeitig in `de`, `en`, `ru`, `uk`, `tr` ergänzt.
+- [x] **Abfrageperformance:** Sammelabfrage mit gezielten Indizes und einmaliger Berechtigungsberechnung je Person/Lektion. Gemessene **HTTP-p95 293,625 ms** bei **200 Lernenden**, zusätzlich einer Lehrkraft, **39.810 Richtungszeilen**, **40 Messungen nach fünf Aufwärmaufrufen**; Abnahmegrenze 800 ms eingehalten. Echter lokaler PostgreSQL-/PostgREST-Pfad einschließlich JSON-Antwort, keine simulierte RPC. Messlauf: `/tmp/sitov-phase7-acceptance`.
+- [x] **R7–R9:** Migrationen **38/39**, geordnete lokale Anwendung über den Backup-Adapter von `migrate-local.py`, doppelte Anwendung, Rückwege und Wiederanwendung mit identischem Schema geprüft. Schema-Snapshot und öffentliche Typen aus echtem PostgreSQL exportiert. Vier zusätzliche echte konkurrierende PostgreSQL-Szenarien weisen die Advisory-Lock-Wartezustände nach: Antwort vor/nach Pfadreset sowie Testabschluss vor/nach Testreset. Keine Wiederbelebung archivierter Sterne oder Testabschlüsse; synthetische Konkurrenztestdaten vollständig entfernt. Nächste freie Nummer **40**.
+- [x] **Finale Regressionen:** **531/531 DB-/Node-Tests**, **1.923 Jest-Tests / 150 Suites**, **64 Python-Tests (61 VPS + 3 TTS)** sowie TypeScript und Produktionsbuild mit **157 statischen Seiten** erfolgreich. Auch der abschließende Jest- und Build-Lauf ist grün; keine fehlgeschlagenen oder übersprungenen Assertions.
+- [x] **Browser-/Axe-Abnahme:** **8/8 Phase-7-Playwright-Fälle bestanden** (finaler Lauf: **47,2 s**), **13 vollständige Axe-Scans ohne Filter**, 0 Verstöße und 0 Skips. Geprüft sind Liste, alle sechs Detailtabs, Mehrfach-/Gesamtfreigaben, Bestätigung/Abbruch, reale Notfallaktionen, parallele Wiederholungen und Zugriffsschutz. Desktop und Mobil hell/dunkel ohne horizontalen Überlauf; zwölf PNGs mit Abmessungen und Prüfsummen dokumentiert.
+- [x] **Dokumentation/Übergabe:** Finale Prüfergebnisse, Routen-/RPC-Verträge, Löschregel, Rückwege, Backup-Prüfsummen und Browserbilder für den gemeinsamen lokalen Abschlusscommit dokumentiert. Kein Push und keine produktive Aktivierung.
+
+### Verbindliche Übergabe nach Phase 7
+
+| Objekt | Vertrag |
+| --- | --- |
+| `/{lang}/admin/students/[id]` | Detailseite; `?tab=overview\|vocabulary\|path\|pronunciation\|activity\|notes`; bestehende Liste unter `/{lang}/admin/students` |
+| `get_teacher_dashboard_students()` | Staff-RPC: `{success:true,students:[...]}` mit Kontakten, Rollen, Freigaben und allen Listenkennzahlen; enthält für die reversible Rollenverwaltung auch bestehende Staff-Konten |
+| `get_teacher_student_detail(p_student_id,p_tab='overview',p_locale='de')` | Staff-RPC: `{success:true,data:...}`; tababhängiger geprüfter Vertrag, strukturierte Fehlercodes; Locale `de/en/ru/uk/tr` |
+| `manage_learning_path(p_student_id,p_unit_id,p_action,p_node_id,p_request_id)` | Neue idempotente Überladung; Aktionen `unlock`, `reset_path`, `reset_test`; Erfolg `{success:true,interventionId}`. Die bisherige Vier-Parameter-Signatur bleibt kompatibel |
+| `learning_sessions` | Rohsitzungen mit `auth_user_id`, `mode`, `level`, `started_at`, `ended_at`, `answer_count`, `study_seconds`, `is_active`; eigene aktive Sitzungen bzw. Staff lesbar, keine direkten Client-Schreibrechte |
+| `learning_activity_days` | Dauerhafte Berliner Tageswerte; zusätzlich `study_seconds`, `answer_count`, `mode_seconds`, `last_activity_at`; Aufbewahrung unabhängig von Sitzungsrohdaten |
+| `learning_private.prune_learning_sessions()` | Entfernt global Sitzungen mit `ended_at` älter als 180 Tage; automatisch beim Schreiben neuer Lernereignisse, zusätzlich für den vorhandenen Service-Role-Wartungsweg ausführbar |
+| Lernpfad-Archivierung | `is_active` an Knotenfortschritt, Übungsläufen, Testversuchen und Interventionen; `request_id` an Interventionen; private Fortschrittssicherung in `teacher_dashboard_private.progress_archive` |
+| `path_private.answer_receipts.created_at` | Zeitstempel neuer Übungsantworten; historische Belege behalten `NULL`, statt eine frühere Antwortzeit zu erfinden |
+| Rückwege `rollback/39_teacher_dashboard.sql`, `rollback/38_learning_sessions.sql` | Dashboard-RPCs zurücknehmen und Sitzungen archivieren; archivbewusste Pfad-Lese-/Schreibfunktionen bleiben als Kompatibilitätsschutz erhalten, damit Altabschlüsse nicht wieder erscheinen und Lernen während des Rückwegs bei Wiederanwendung sichtbar bleibt. Genaue Wiederherstellung über das geprüfte Vollbackup |
+
+Lernzeit vor Einführung der Sitzungserfassung wird nicht rückwirkend geschätzt. Historische Pfad-/Test-/Aussprachezeitpunkte werden für „zuletzt aktiv“ berücksichtigt; Übungsantwortbelege ohne gespeicherten Zeitpunkt werden nicht einer erfundenen Siebentage-Trefferquote zugeordnet. Die 180-Tage-Löschung wird durch die nächste Lernaktivität beziehungsweise den Wartungsaufruf ausgelöst; bei vollständigem Stillstand läuft kein zusätzlicher Hintergrundprozess.
+
+Es gibt weiterhin keine Einspruchs-Warteschlange und keinen Knopf zur Selbstkorrektur von Schreibantworten; Karteikarten-Selbsteinschätzung bleibt unverändert. Phase 6 bleibt bewusst übersprungen. Phase 8 wurde nicht vorgezogen. Eine produktive Aktivierung der Migrationen 32–39 ist ausdrücklich nicht beauftragt und wurde nicht ausgeführt.

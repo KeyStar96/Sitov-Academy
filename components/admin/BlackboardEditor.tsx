@@ -27,10 +27,10 @@ export default function BlackboardEditor({
       {!compact && (
         <div>
           <h3 className="text-base font-bold text-[var(--foreground)]">{t('blackboard_title')}</h3>
-          <p className="mt-1 text-sm leading-relaxed text-[var(--muted)]">{t('blackboard_intro')}</p>
+          <p className="mt-1 text-base leading-relaxed text-[var(--muted)]">{t('blackboard_intro')}</p>
         </div>
       )}
-      <label htmlFor={noteId} className="block text-sm font-bold text-[var(--foreground)]">
+      <label htmlFor={noteId} className="block text-base font-bold text-[var(--foreground)]">
         {t('blackboard_note_label')}
       </label>
       <textarea
@@ -43,10 +43,10 @@ export default function BlackboardEditor({
         className="min-h-12 w-full resize-y rounded-xl border border-[var(--border)] bg-[var(--surface)] px-3 py-3 text-base leading-relaxed text-[var(--foreground)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--violet)]"
       />
       {board.status === 'saving' && (
-        <Loader2 size={18} aria-hidden="true" className="animate-spin text-[var(--muted)]" />
+        <Loader2 size={18} aria-hidden="true" className="animate-spin motion-reduce:animate-none text-[var(--muted)]" />
       )}
       <p
-        className={`min-h-6 text-sm leading-relaxed ${board.status === 'error' ? 'text-red-700 dark:text-red-300' : 'text-emerald-800 dark:text-emerald-300'}`}
+        className={`min-h-6 text-base leading-relaxed ${board.status === 'error' ? 'text-red-700 dark:text-red-300' : 'text-emerald-800 dark:text-emerald-300'}`}
         role={board.status === 'error' ? 'alert' : 'status'}
         aria-live={board.status === 'error' ? 'assertive' : 'polite'}
       >

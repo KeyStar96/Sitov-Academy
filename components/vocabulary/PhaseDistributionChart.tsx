@@ -35,7 +35,7 @@ export default function PhaseDistributionChart({ cards, distribution: aggregate,
           const colors = phaseBarClasses(bucket.key)
           const label = bucketLabel(bucket.key, t)
           return <li key={String(bucket.key)} className="min-w-0">
-            <div className="mb-2 flex min-w-0 flex-wrap items-baseline justify-between gap-x-3 gap-y-1 text-sm leading-relaxed">
+            <div className="mb-2 flex min-w-0 flex-wrap items-baseline justify-between gap-x-3 gap-y-1 text-base leading-relaxed">
               <span className={`break-words font-bold ${colors.label}`}>{label}</span>
               <span className="break-words tabular-nums text-[var(--muted)]">{t('phase_chart_bar_count', { count: bucket.count })}</span>
             </div>

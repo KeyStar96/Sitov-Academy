@@ -37,6 +37,7 @@ export default async function ProfilePage({ params }: { params: Promise<{ lang: 
 
   return (
     <ProfileSettings lang={lang}
+      notice={<p>{t('teacher_progress_notice')} <Link href={`/${lang}/privacy`} className="inline-flex min-h-12 items-center rounded-lg px-2 font-semibold text-[var(--accent-text)] underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2">{t('teacher_progress_privacy')}</Link></p>}
       danger={<ProfileProgressReset translations={dict.progress_reset} userId={user.id} />}
       sections={[
         { id: 'details', title: s('settings_details'), hint: s('settings_details_hint'), content: (
