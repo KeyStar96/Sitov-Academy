@@ -49,3 +49,5 @@ Dies ist der initiale Prüfbericht, keine abgeschlossene Abnahme und kein Deploy
 - Vollmatrix deckte einen echten Safari-Hydrierungsfehler auf: ICU verbindet Datum/Uhrzeit unterschiedlich. Numerische Berliner Datumsbestandteile werden jetzt deterministisch zusammengesetzt; Sommer-/Winterzeit regressionsgeprüft.
 - Streaming-Weiterleitungen alter Lesezeichen verursachten auf WebKit abgebrochene RSC-Anfragen. Feste Aliase werden früh per HTTP weitergeleitet; geschützte Video-Quellen löst ein GET-Handler mit unveränderter Zugriffs-/URL-Prüfung auf. Deutscher Sprachhinweis bleibt erhalten.
 - Abschließende Matrix: 222/222 grün auf drei Geräten × zwei Themen, ungefiltertes Axe. Jest: 1.931/1.931 in 153 Suites. Zwischenläufe mit 209/222 und 220/222 ausdrücklich nicht als Abnahme gewertet.
+
+- Lighthouse-Erstlauf: Home 74, simulierter LCP 50,3 s; Netzwerkanalyse fand ein 9-MB-Favicon. Metadaten verwenden jetzt die vorhandene lokale Next-Bildoptimierung (64px/3.468 Bytes); Original bleibt erhalten. Finale Messung leert den Browser-Cache vor jeder Route, um warme Folgemessungen nicht als Kaltstart auszugeben.

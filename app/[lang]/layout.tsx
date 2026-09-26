@@ -31,9 +31,10 @@ export const metadata: Metadata = {
     telephone: false,
   },
   icons: {
-    icon: '/Bilder/favicon.png',
-    shortcut: '/Bilder/favicon.png',
-    apple: '/Bilder/favicon.png',
+    // Use the local image optimizer: the original artwork is 3072px / 9 MB.
+    icon: '/_next/image?url=%2FBilder%2Ffavicon.png&w=64&q=75',
+    shortcut: '/_next/image?url=%2FBilder%2Ffavicon.png&w=64&q=75',
+    apple: '/_next/image?url=%2FBilder%2Ffavicon.png&w=256&q=75',
   },
 };
 
