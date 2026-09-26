@@ -84,6 +84,27 @@ export function localeFromNativeLanguage(value: string | null | undefined): UiLo
   return toUiLocale(value)
 }
 
+/**
+ * Wählt aus dem `Accept-Language`-Header (Handy-/Browsersprache) die beste
+ * unterstützte Oberflächensprache, z. B. `ru-RU,ru;q=0.9,en;q=0.8` → `ru`.
+ * Ohne passende Sprache `null`, damit der Aufrufer auf Deutsch zurückfällt.
+ */
+export function localeFromAcceptLanguage(header: string | null | undefined): UiLocale | null {
+  if (!header) return null
+  const ranked = header.split(',').slice(0, 20).map((part, index) => {
+    const [tag = '', ...params] = part.trim().split(';')
+    const q = params.map(param => param.trim()).find(param => param.startsWith('q='))
+    const weight = q ? Number.parseFloat(q.slice(2)) : 1
+    return { base: tag.trim().toLowerCase().split('-')[0], weight: Number.isFinite(weight) ? weight : 0, index }
+  }).filter(entry => entry.weight > 0)
+    .sort((a, b) => b.weight - a.weight || a.index - b.index)
+  for (const { base } of ranked) {
+    const locale = LOCALES.find(candidate => candidate === base)
+    if (locale) return locale
+  }
+  return null
+}
+
 /** Sichere Normalisierung eines beliebigen Werts auf eine bekannte UI-Locale. */
 export function toUiLocale(value: string | null | undefined): UiLocale {
   return LOCALES.find(locale => locale === value) ?? DEFAULT_LOCALE

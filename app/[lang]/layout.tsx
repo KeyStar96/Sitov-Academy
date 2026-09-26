@@ -106,8 +106,13 @@ export default async function RootLayout({
     // Attribut während eines Seitenwechsels ab. Ohne es scrollte der Wechsel zur Startseite weich bis
     // zum Footer: Der neue Scroll-Handler ruft scrollIntoView für jedes Wurzelelement der Seite in
     // umgekehrter Reihenfolge auf, und das erste weiche Scrollen (zum Footer) setzte sich durch.
-    <html lang={lang} suppressHydrationWarning data-scroll-behavior="smooth">
+    // translate="no" + notranslate: Browser (Chrome, Edge, Safari) sollen die Seite nicht selbst
+    // übersetzen. Die Maschinenübersetzung baute Fehler in unsere Texte ein, übersetzte die deutschen
+    // Lerninhalte mit und ließ React beim Aktualisieren der veränderten Seite abstürzen. Jede Sprache
+    // hat eigene, geprüfte Texte; gewechselt wird über den Sprachumschalter.
+    <html lang={lang} translate="no" suppressHydrationWarning data-scroll-behavior="smooth">
       <head>
+        <meta name="google" content="notranslate" />
         {/* Standardized PWA - "Native App" Hack */}
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />

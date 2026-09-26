@@ -199,7 +199,11 @@ export async function signup(formData: FormData) {
             display_name: parsed.data.display_name,
             // Wird vom Trigger `provision_profile` in `profiles` übernommen.
             native_language: parsed.data.native_language,
-            ui_language: lang,
+            // Auf der deutschen Seite gilt die Muttersprache als Oberfläche:
+            // Deutsch sperrt die Trainer (sie brauchen eine Übersetzungssprache),
+            // und wer versehentlich auf `/de` landet, soll nicht mit einer
+            // Oberfläche starten, die er nicht versteht.
+            ui_language: lang === 'de' ? parsed.data.native_language : lang,
           },
         },
       })

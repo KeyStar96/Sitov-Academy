@@ -5,6 +5,7 @@ import {
   isAuthPath,
   isLocaleExempt,
   isProtectedPath,
+  localeFromAcceptLanguage,
   localeFromPathname,
   mapLegacyLang,
   shouldApplyLegacyLangRedirect,
@@ -76,15 +77,23 @@ export async function proxy(request: NextRequest) {
     )
   }
 
-  // 5. Fehlt das Sprachpräfix, auf die Standardsprache umleiten. Query-Parameter
+  // 5. Fehlt das Sprachpräfix, auf die gespeicherte Sprache, sonst auf die
+  //    Handy-/Browsersprache und erst zuletzt auf Deutsch umleiten. Wer die
+  //    Seite ohne `/ru` öffnet, soll sich nicht versehentlich auf der deutschen
+  //    Seite registrieren (dort sind die Trainer gesperrt). Query-Parameter
   //    bleiben erhalten, damit Kampagnen- und Rückkehr-Links nicht abbrechen.
   if (!currentLocale) {
     // `/` direkt auf `/de` (nicht `/de/`): sonst folgt eine zweite
     // Weiterleitung auf die Variante ohne Schrägstrich (Redirect-Kette).
     const suffix = pathname === '/' ? '' : `${pathname.startsWith('/') ? '' : '/'}${pathname}`
-    const target = new URL(`/${uiLanguage ?? DEFAULT_LOCALE}${suffix}`, request.url)
+    const browserLanguage = uiLanguage ? null : localeFromAcceptLanguage(request.headers.get('accept-language'))
+    const target = new URL(`/${uiLanguage ?? browserLanguage ?? DEFAULT_LOCALE}${suffix}`, request.url)
     target.search = request.nextUrl.search
-    return redirectPreservingSession(target, supabaseResponse, uiLanguage ? 307 : 301)
+    // Nur die feste Standardsprache ist dauerhaft (301); eine personen- oder
+    // browserabhängige Wahl darf nicht zwischengespeichert werden.
+    const response = redirectPreservingSession(target, supabaseResponse, uiLanguage || browserLanguage ? 307 : 301)
+    response.headers.append('vary', 'accept-language')
+    return response
   }
 
   // 6. Routenschutz
