@@ -1,0 +1,116 @@
+{
+  "release": "01fa06e013d6",
+  "live": {
+    "counts": {
+      "paths": 7,
+      "nodes": 85,
+      "exercises": 769,
+      "objectives": 87
+    },
+    "seed_sha256": "d5d954b7579ababef29876eb5321757d722194bd096ae44bf1ab925864c99a0c",
+    "legacy_progress_preserved": true,
+    "seed_export_equal": true,
+    "catalog_seed_grants_ok": true,
+    "release": "01fa06e013d6"
+  },
+  "export": {
+    "schema_sha256": "b246cf01d919fd033d8de73ea5e4194b116fa8c7613ada3c363fedb2f103c1e2",
+    "catalog_sha256": "0ecb2094b644ec5180d3d6122bde4362bba0cce0f0f50c4e3ccb82723940a95e",
+    "schemas": [
+      "public",
+      "business_private",
+      "grammar_private",
+      "identity_private",
+      "learning_private",
+      "learning_reset_private",
+      "platform_private",
+      "private",
+      "pronunciation_private",
+      "trainer_access_private",
+      "vocabulary_private",
+      "media_private",
+      "path_private",
+      "teacher_dashboard_private"
+    ]
+  },
+  "smoke": {
+    "visited": [
+      "/en/dashboard",
+      "/en/dashboard/level/A1.1",
+      "/en/dashboard/level/A1.1/vocabulary",
+      "/en/dashboard/level/A1.1/path",
+      "/en/dashboard/level/A1.1/pronunciation",
+      "/en/dashboard/level/A1.1/videos",
+      "/en/dashboard/level/A1.1/path",
+      "/en/dashboard/level/A1.1/vocabulary"
+    ],
+    "path_node_complete": true,
+    "pageerrors": [],
+    "vocabulary": {
+      "cards": 10,
+      "round_completed": true,
+      "lesson_activated_via_ui": true,
+      "pageerrors": []
+    }
+  },
+  "types_unchanged_after_catalog_refresh": true,
+  "types_sha256": "2a5b56fdb229b12b56fe8e9df2a7f403d4cbab4b370a0cd31f75240f6426007b",
+  "cleanup": {
+    "temporary_user_deleted": true,
+    "person_deleted": true,
+    "test_outbox_removed": true,
+    "sessions_revoked": true,
+    "private_answer_receipts_removed": true,
+    "remaining_application_learner_rows": 0
+  },
+  "backups": [
+    {
+      "stage": "migration",
+      "backup": "/root/backups/sitov-migration-20260926T122549468276Z",
+      "postgres_sha256": "d99753a3bd56b81271bd8ef84aa7757d187b2d271228fa1ef31247fd2563b989",
+      "storage_manifest_sha256": "586664117e3a092889fad6415202944c6df0c15693ba60c0aca908a7ee06d1fa",
+      "objects": 563
+    },
+    {
+      "stage": "import",
+      "backup": "/root/backups/sitov-migration-20260926T122622802821Z",
+      "postgres_sha256": "14c359c544ee87192994d4d510404f03889c4b5a462ddadb6ae4193a034d848a",
+      "storage_manifest_sha256": "586664117e3a092889fad6415202944c6df0c15693ba60c0aca908a7ee06d1fa",
+      "objects": 563
+    },
+    {
+      "stage": "fixture",
+      "backup": "/root/backups/sitov-migration-20260926T122852234460Z",
+      "postgres_sha256": "dafb19b8a687db197a253de4d6b6899197715edb93ee8aee2565229107ae77c5",
+      "storage_manifest_sha256": "586664117e3a092889fad6415202944c6df0c15693ba60c0aca908a7ee06d1fa",
+      "objects": 563
+    },
+    {
+      "stage": "cleanup",
+      "backup": "/root/backups/sitov-migration-20260926T123237262889Z",
+      "postgres_sha256": "cf70e5c0525322db6213be720b3d1a7aff41fba596ff9eca98539b730b079496",
+      "storage_manifest_sha256": "586664117e3a092889fad6415202944c6df0c15693ba60c0aca908a7ee06d1fa",
+      "objects": 563
+    },
+    {
+      "stage": "cleanup-audit",
+      "backup": "/root/backups/sitov-migration-20260926T123415417691Z",
+      "postgres_sha256": "5a82efb4f13a0cd1e82c7160fa03840ca1778807d306e7f92e8b09f20f49f772",
+      "storage_manifest_sha256": "586664117e3a092889fad6415202944c6df0c15693ba60c0aca908a7ee06d1fa",
+      "objects": 563
+    }
+  ],
+  "services": {
+    "sitov-app": "active",
+    "sitov-mail": "active",
+    "nginx": "active",
+    "sitov-tts": "active",
+    "postfix": "active"
+  },
+  "health": {
+    "internal": "ready",
+    "public": "ready"
+  },
+  "memory_limits_unchanged": true,
+  "temporary_verification_databases_removed": true
+}

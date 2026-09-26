@@ -279,18 +279,19 @@ Es gibt weiterhin keine Einspruchs-Warteschlange und keinen Knopf zur Selbstkorr
 
 ## Phase 8 — Abnahme und Auslieferung
 
-Stand: **in Arbeit, noch keine Produktionsmigration oder Aktivierung**. Der Nutzer hat den kumulativen Go-Live beauftragt. Die vollständige Release-Abhängigkeit umfasst **32–39**, einschließlich der Phase-7-Migrationen 38/39. Phase 6 wird nicht nachgeholt.
+Stand: **abgeschlossen und produktiv aktiviert am 26.09.2026**. Der kumulative Go-Live umfasst **32–39**, einschließlich Phase 7. Phase 6 bleibt ausdrücklich übersprungen. [Vollständige Verifikation](verifikation.md), [Live-/Backupnachweise](phase-8-live-nachweise.json), [Leistungswerte](phase-8-performance.json).
 
-- [x] Regeln, Phase-8-Auftrag und Ist-Stand gelesen; [Prüfbericht vor Änderungen](PHASE-8-PRUEFBERICHT.md) erstellt.
-- [x] Live-Stand lesend bestätigt: altes Release `e6a8d32f4ce7`, Health `ready`, PostgreSQL 15.8; App/nginx/TTS aktiv, Mail inaktiv.
-- [x] Vollbackup mit 563 Storage-Objekten; anfänglich abgeschnittener Download erkannt und kompletter erfolgreicher Wiederholungslauf dokumentiert.
-- [x] Kumulativer PostgreSQL-15.8-Klon: Migrationen 32–39 zweimal, sämtliche Rückwege, Wiederanwendung, drei Importe, identische IDs, erhaltene Altfortschritte und vollständiger Seed-Exportvergleich. [Nachweise](phase-8-postgres15-nachweise.json).
-- [x] Idempotenzfehler in Migration 34 vor Erstaktivierung korrigiert: Postgres-Grant auf ihre eigenen neun Funktionen begrenzt.
-- [x] `/path` als kanonisches Ziel und `/exercises` als Weiterleitung; Hilfe für Lernpfad und Wortmitnahme in fünf Sprachen.
-- [x] Gefundene semantische Axe-Fehler in Staff-Aussprache, Medien- und Aussprache-CMS korrigiert.
-- [x] Aktuelle Regression: 1.925 Jest-Tests / 151 Suites, 531 DB-/Node-Tests und 64 Python-Tests grün; Produktionsbuild erfolgreich.
-- [ ] Abschließende vollständige Browsermatrix, kompletter Pixel-7-Lernpfad und Lighthouse-Nachweise.
-- [ ] Produktivmigration mit Backup, Live-Seedimport, Aktivierung, Rauchtest, Testdatenbereinigung, aktive Dienste.
-- [ ] Schema-/Typenexport aus Produktion, endgültige Verifikation und Abschlusscommit.
-- [N/A] Phase-6-Abnahmematrix und Hilfe für deren neue Funktionen: ausdrücklich aus dem MVP ausgeschlossen.
-- [N/A] Numerischer Lighthouse-Vergleich mit Phase 0: dort wurde kein Vergleichswert erhoben. Neue Werte werden ausdrücklich als Erstbaseline dokumentiert.
+- [x] **8.1 Testinfrastruktur:** Produktionsbuild, authentifizierte englische Testpersonen, Desktop Chrome, Pixel 7 und iPhone 14/WebKit.
+- [x] **8.2 Phasen 1–5/7:** Aktionsreihenfolge/Artikel/Bewertung, Navigation/Brotkrumen/Bewegung/letztes Niveau, kompletter erster Pfad, 80%-Grenze, Lösungsgeheimhaltung, Mitnahme/Reset sowie Staff-Tabs/Rechte/Notfallaktionen automatisiert geprüft. Einzelzuordnung im Verifikationsbericht.
+- [x] **8.2 Gesamt:** 1.931 Jest-Tests / 153 Suites, 531 DB-/Node-Tests, 64 Python-Tests; 222/222 Routen-/Themen-/Gerätefälle mit ungefiltertem Axe, 3/3 kompletter Pixel-7-Pfad, 8/8 Phase-7-Browserfälle. Keine finalen Fehler/Skips. TypeScript und Produktionsbuild grün.
+- [N/A] **8.2 Phase 6:** ausdrücklich aus dem MVP ausgeschlossen; keine automatische Nachholung.
+- [x] **8.3 Leistung:** mobiles Lighthouse mit geleertem Cache: Home **80**, Niveau **81**, Pfad **81**; separater Knoten-Timespan dokumentiert. Kaltstart-LCP um fünf Sekunden bleibt Optimierungspunkt. Pfadkarte ein RPC, 357.556 Bytes gzip-JS, Framer Motion ohne doppelte Client-Quellmodule. Lehrerlisten-p95 lokal **155,572 ms** bei 200 Lernenden/39.810 Richtungszeilen.
+- [N/A] **8.3 Phase-0-Vergleich:** dort keine Lighthouse-Baseline erhoben; aktuelle Werte als Erstbaseline dokumentiert.
+- [x] **8.4 Hilfe:** Lernpfad und Wortmitnahme in fünf Sprachen, bestehende Hilfe erhalten.
+- [N/A] **8.4 Phase-6-Hilfe:** Benachrichtigungen und „Neu“ nicht Bestandteil dieses MVP.
+- [x] **8.4 Dokumentation:** `verifikation.md`, STATUS, Produktionsschema 15.8 und Typenabgleich vollständig; sämtliche Nachweise im Abschlusscommit.
+- [x] **8.5 Migration/Import:** zwei PostgreSQL-15.8-Klone einschließlich Originalrechten, Idempotenz/Rückwege/Wiederanwendung und stabile Seed-IDs geprüft. Produktiv 32–39 über Backup-Runner; separater Backup-geschützter CLI-Import mit **7/85/769/87**, geschützter vollständiger Exportvergleich und unveränderten Altfortschritten.
+- [x] **8.5 Auslieferung:** Release **01fa06e013d6** live; intern/öffentlich Health **ready**. App/Mail/nginx/TTS/Postfix aktiv. Speicherlimits unverändert, keine zusätzlichen Dienste.
+- [x] **8.5 Rauchtest/Bereinigung:** echtes temporäres GoTrue-Konto, Home/Niveau/vier Modi, kompletter Pfadknoten und zehn Karten; Sitzung widerrufen, Konto/Person/Lernstände/private Belege/Testmails entfernt, 0 zugehörige Anwendungszeilen. Verifikationsklone mit Backup entfernt.
+
+Die alten Phasenberichte dokumentieren ihren damaligen lokalen Stand. Die produktive Freigabe ist mit diesem Abschnitt erstmals erfolgt. Nächste freie Migrationsnummer **40**. Betriebsgrenzen: sporadisch abgebrochene Storage-Downloads wurden fail-closed erkannt und durch vollständige erfolgreiche Backups ersetzt; mobile Kaltstart-Performance bleibt weiter optimierbar. Keine dieser Einschränkungen wurde im Nachweis ausgeblendet.

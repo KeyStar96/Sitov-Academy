@@ -3,9 +3,8 @@
 -- PostgreSQL database dump
 --
 
-
--- Dumped from database version 17.11 (Homebrew)
--- Dumped by pg_dump version 17.11 (Homebrew)
+-- Dumped from database version 15.8
+-- Dumped by pg_dump version 15.8
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -10769,14 +10768,14 @@ CREATE POLICY catalog_read ON public.cefr_levels FOR SELECT TO authenticated USI
 -- Name: course_audiences catalog_read; Type: POLICY; Schema: public; Owner: -
 --
 
-CREATE POLICY catalog_read ON public.course_audiences FOR SELECT TO anon, authenticated USING (true);
+CREATE POLICY catalog_read ON public.course_audiences FOR SELECT TO authenticated, anon USING (true);
 
 
 --
 -- Name: courses catalog_read; Type: POLICY; Schema: public; Owner: -
 --
 
-CREATE POLICY catalog_read ON public.courses FOR SELECT TO anon, authenticated USING ((archived_at IS NULL));
+CREATE POLICY catalog_read ON public.courses FOR SELECT TO authenticated, anon USING ((archived_at IS NULL));
 
 
 --
@@ -10833,7 +10832,7 @@ ALTER TABLE public.courses ENABLE ROW LEVEL SECURITY;
 -- Name: course_exceptions exception_read; Type: POLICY; Schema: public; Owner: -
 --
 
-CREATE POLICY exception_read ON public.course_exceptions FOR SELECT TO anon, authenticated USING (((course_id IS NULL) OR (EXISTS ( SELECT 1
+CREATE POLICY exception_read ON public.course_exceptions FOR SELECT TO authenticated, anon USING (((course_id IS NULL) OR (EXISTS ( SELECT 1
    FROM public.courses c
   WHERE (c.id = course_exceptions.course_id)))));
 
@@ -10984,7 +10983,7 @@ ALTER TABLE public.locales ENABLE ROW LEVEL SECURITY;
 -- Name: locales locales_read; Type: POLICY; Schema: public; Owner: -
 --
 
-CREATE POLICY locales_read ON public.locales FOR SELECT TO anon, authenticated USING (true);
+CREATE POLICY locales_read ON public.locales FOR SELECT TO authenticated, anon USING (true);
 
 
 --
@@ -11326,7 +11325,7 @@ CREATE POLICY released_units ON public.learning_units FOR SELECT TO authenticate
 -- Name: course_schedules schedule_read; Type: POLICY; Schema: public; Owner: -
 --
 
-CREATE POLICY schedule_read ON public.course_schedules FOR SELECT TO anon, authenticated USING ((EXISTS ( SELECT 1
+CREATE POLICY schedule_read ON public.course_schedules FOR SELECT TO authenticated, anon USING ((EXISTS ( SELECT 1
    FROM public.courses c
   WHERE (c.id = course_schedules.course_id))));
 
@@ -11472,7 +11471,7 @@ ALTER TABLE public.teacher_student_notes ENABLE ROW LEVEL SECURITY;
 -- Name: course_translations translation_read; Type: POLICY; Schema: public; Owner: -
 --
 
-CREATE POLICY translation_read ON public.course_translations FOR SELECT TO anon, authenticated USING ((EXISTS ( SELECT 1
+CREATE POLICY translation_read ON public.course_translations FOR SELECT TO authenticated, anon USING ((EXISTS ( SELECT 1
    FROM public.courses c
   WHERE (c.id = course_translations.course_id))));
 
@@ -11632,6 +11631,7 @@ GRANT USAGE ON SCHEMA media_private TO service_role;
 --
 
 GRANT USAGE ON SCHEMA path_private TO service_role;
+GRANT USAGE ON SCHEMA path_private TO postgres;
 GRANT USAGE ON SCHEMA path_private TO authenticated;
 
 
@@ -11661,6 +11661,7 @@ GRANT USAGE ON SCHEMA pronunciation_private TO authenticated;
 --
 
 REVOKE USAGE ON SCHEMA public FROM PUBLIC;
+GRANT USAGE ON SCHEMA public TO postgres;
 GRANT USAGE ON SCHEMA public TO anon;
 GRANT USAGE ON SCHEMA public TO authenticated;
 GRANT USAGE ON SCHEMA public TO service_role;
@@ -11946,6 +11947,7 @@ GRANT ALL ON FUNCTION learning_private.allowed_unit_ids() TO service_role;
 --
 
 REVOKE ALL ON FUNCTION learning_private.answer_without_punctuation(p_value text) FROM PUBLIC;
+GRANT ALL ON FUNCTION learning_private.answer_without_punctuation(p_value text) TO postgres;
 
 
 --
@@ -11993,6 +11995,7 @@ GRANT ALL ON FUNCTION learning_private.german_text_allowed(p_text text) TO servi
 --
 
 REVOKE ALL ON FUNCTION learning_private.grade_answer(p_input text, p_accepted text[]) FROM PUBLIC;
+GRANT ALL ON FUNCTION learning_private.grade_answer(p_input text, p_accepted text[]) TO postgres;
 
 
 --
@@ -12021,6 +12024,7 @@ REVOKE ALL ON FUNCTION learning_private.lock_activity_day() FROM PUBLIC;
 --
 
 REVOKE ALL ON FUNCTION learning_private.normalize_answer(p_value text) FROM PUBLIC;
+GRANT ALL ON FUNCTION learning_private.normalize_answer(p_value text) TO postgres;
 
 
 --
@@ -12181,6 +12185,7 @@ GRANT ALL ON FUNCTION media_private.path_allowed(p_name text, p_write boolean) T
 --
 
 REVOKE ALL ON FUNCTION media_private.published_video_unit_ids() FROM PUBLIC;
+GRANT ALL ON FUNCTION media_private.published_video_unit_ids() TO postgres;
 GRANT ALL ON FUNCTION media_private.published_video_unit_ids() TO authenticated;
 GRANT ALL ON FUNCTION media_private.published_video_unit_ids() TO service_role;
 
@@ -12223,6 +12228,7 @@ GRANT ALL ON FUNCTION path_private.error(p_message text, p_state text) TO servic
 
 REVOKE ALL ON FUNCTION path_private.german_task_allowed(p_value jsonb) FROM PUBLIC;
 GRANT ALL ON FUNCTION path_private.german_task_allowed(p_value jsonb) TO service_role;
+GRANT ALL ON FUNCTION path_private.german_task_allowed(p_value jsonb) TO postgres;
 GRANT ALL ON FUNCTION path_private.german_task_allowed(p_value jsonb) TO authenticated;
 
 
@@ -12231,6 +12237,7 @@ GRANT ALL ON FUNCTION path_private.german_task_allowed(p_value jsonb) TO authent
 --
 
 REVOKE ALL ON FUNCTION path_private.grade(p_type public.exercise_type, p_content jsonb, p_answer jsonb) FROM PUBLIC;
+GRANT ALL ON FUNCTION path_private.grade(p_type public.exercise_type, p_content jsonb, p_answer jsonb) TO postgres;
 GRANT ALL ON FUNCTION path_private.grade(p_type public.exercise_type, p_content jsonb, p_answer jsonb) TO service_role;
 
 
@@ -12272,6 +12279,7 @@ GRANT ALL ON FUNCTION path_private.node_available(p_node uuid) TO authenticated;
 
 REVOKE ALL ON FUNCTION path_private.only_keys(p_value jsonb, p_keys text[]) FROM PUBLIC;
 GRANT ALL ON FUNCTION path_private.only_keys(p_value jsonb, p_keys text[]) TO service_role;
+GRANT ALL ON FUNCTION path_private.only_keys(p_value jsonb, p_keys text[]) TO postgres;
 GRANT ALL ON FUNCTION path_private.only_keys(p_value jsonb, p_keys text[]) TO authenticated;
 
 
@@ -12288,6 +12296,7 @@ GRANT ALL ON FUNCTION path_private.present(p_snapshot jsonb, p_locale text) TO s
 --
 
 REVOKE ALL ON FUNCTION path_private.present_content(p_type public.exercise_type, p_content jsonb) FROM PUBLIC;
+GRANT ALL ON FUNCTION path_private.present_content(p_type public.exercise_type, p_content jsonb) TO postgres;
 GRANT ALL ON FUNCTION path_private.present_content(p_type public.exercise_type, p_content jsonb) TO service_role;
 
 
@@ -12321,6 +12330,7 @@ GRANT ALL ON FUNCTION path_private.solution(p_snapshot jsonb, p_locale text) TO 
 
 REVOKE ALL ON FUNCTION path_private.text_key(p_value text) FROM PUBLIC;
 GRANT ALL ON FUNCTION path_private.text_key(p_value text) TO service_role;
+GRANT ALL ON FUNCTION path_private.text_key(p_value text) TO postgres;
 GRANT ALL ON FUNCTION path_private.text_key(p_value text) TO authenticated;
 
 
@@ -12339,6 +12349,7 @@ GRANT ALL ON FUNCTION path_private.unit_available(p_unit uuid) TO authenticated;
 
 REVOKE ALL ON FUNCTION path_private.valid_content(p_type public.exercise_type, p_content jsonb) FROM PUBLIC;
 GRANT ALL ON FUNCTION path_private.valid_content(p_type public.exercise_type, p_content jsonb) TO service_role;
+GRANT ALL ON FUNCTION path_private.valid_content(p_type public.exercise_type, p_content jsonb) TO postgres;
 GRANT ALL ON FUNCTION path_private.valid_content(p_type public.exercise_type, p_content jsonb) TO authenticated;
 
 
@@ -12348,6 +12359,7 @@ GRANT ALL ON FUNCTION path_private.valid_content(p_type public.exercise_type, p_
 
 REVOKE ALL ON FUNCTION path_private.valid_local_audio(p_value jsonb) FROM PUBLIC;
 GRANT ALL ON FUNCTION path_private.valid_local_audio(p_value jsonb) TO service_role;
+GRANT ALL ON FUNCTION path_private.valid_local_audio(p_value jsonb) TO postgres;
 GRANT ALL ON FUNCTION path_private.valid_local_audio(p_value jsonb) TO authenticated;
 
 
@@ -12366,6 +12378,7 @@ GRANT ALL ON FUNCTION path_private.valid_seed_shape(p_path jsonb) TO authenticat
 
 REVOKE ALL ON FUNCTION path_private.valid_strings(p_value jsonb, p_min integer, p_unique boolean) FROM PUBLIC;
 GRANT ALL ON FUNCTION path_private.valid_strings(p_value jsonb, p_min integer, p_unique boolean) TO service_role;
+GRANT ALL ON FUNCTION path_private.valid_strings(p_value jsonb, p_min integer, p_unique boolean) TO postgres;
 GRANT ALL ON FUNCTION path_private.valid_strings(p_value jsonb, p_min integer, p_unique boolean) TO authenticated;
 
 
@@ -12375,6 +12388,7 @@ GRANT ALL ON FUNCTION path_private.valid_strings(p_value jsonb, p_min integer, p
 
 REVOKE ALL ON FUNCTION path_private.valid_text(p_value jsonb, p_max integer, p_empty boolean) FROM PUBLIC;
 GRANT ALL ON FUNCTION path_private.valid_text(p_value jsonb, p_max integer, p_empty boolean) TO service_role;
+GRANT ALL ON FUNCTION path_private.valid_text(p_value jsonb, p_max integer, p_empty boolean) TO postgres;
 GRANT ALL ON FUNCTION path_private.valid_text(p_value jsonb, p_max integer, p_empty boolean) TO authenticated;
 
 
@@ -12514,7 +12528,6 @@ GRANT ALL ON FUNCTION public.complete_mail_job(p_id uuid, p_lease_token uuid, p_
 
 REVOKE ALL ON FUNCTION public.complete_media_upload(p_payload jsonb) FROM PUBLIC;
 GRANT ALL ON FUNCTION public.complete_media_upload(p_payload jsonb) TO authenticated;
-GRANT ALL ON FUNCTION public.complete_media_upload(p_payload jsonb) TO service_role;
 
 
 --
@@ -12556,7 +12569,6 @@ GRANT ALL ON FUNCTION public.decline_business_booking(p_id uuid) TO authenticate
 
 REVOKE ALL ON FUNCTION public.delete_course_exception(p_id uuid) FROM PUBLIC;
 GRANT ALL ON FUNCTION public.delete_course_exception(p_id uuid) TO authenticated;
-GRANT ALL ON FUNCTION public.delete_course_exception(p_id uuid) TO service_role;
 
 
 --
@@ -12615,7 +12627,6 @@ GRANT ALL ON FUNCTION public.finish_path_test(p_attempt_id uuid, p_locale text) 
 
 REVOKE ALL ON FUNCTION public.get_all_students_progress_data() FROM PUBLIC;
 GRANT ALL ON FUNCTION public.get_all_students_progress_data() TO authenticated;
-GRANT ALL ON FUNCTION public.get_all_students_progress_data() TO service_role;
 
 
 --
@@ -12624,7 +12635,6 @@ GRANT ALL ON FUNCTION public.get_all_students_progress_data() TO service_role;
 
 REVOKE ALL ON FUNCTION public.get_all_students_progress_data(p_student_id uuid, p_course_id uuid) FROM PUBLIC;
 GRANT ALL ON FUNCTION public.get_all_students_progress_data(p_student_id uuid, p_course_id uuid) TO authenticated;
-GRANT ALL ON FUNCTION public.get_all_students_progress_data(p_student_id uuid, p_course_id uuid) TO service_role;
 
 
 --
@@ -12718,7 +12728,6 @@ GRANT ALL ON FUNCTION public.learning_reset_audio_batch(p_token uuid) TO service
 
 REVOKE ALL ON FUNCTION public.list_registration_identity_conflicts() FROM PUBLIC;
 GRANT ALL ON FUNCTION public.list_registration_identity_conflicts() TO authenticated;
-GRANT ALL ON FUNCTION public.list_registration_identity_conflicts() TO service_role;
 
 
 --
@@ -12760,7 +12769,6 @@ GRANT ALL ON FUNCTION public.mark_pronunciation_seen(p_submission_id uuid) TO se
 
 REVOKE ALL ON FUNCTION public.media_storage_usage() FROM PUBLIC;
 GRANT ALL ON FUNCTION public.media_storage_usage() TO authenticated;
-GRANT ALL ON FUNCTION public.media_storage_usage() TO service_role;
 
 
 --
@@ -12819,7 +12827,6 @@ GRANT ALL ON FUNCTION public.reset_vocabulary_lesson_progress(p_unit_id uuid) TO
 
 REVOKE ALL ON FUNCTION public.resolve_registration_identity(p_person_id uuid, p_auth_user_id uuid) FROM PUBLIC;
 GRANT ALL ON FUNCTION public.resolve_registration_identity(p_person_id uuid, p_auth_user_id uuid) TO authenticated;
-GRANT ALL ON FUNCTION public.resolve_registration_identity(p_person_id uuid, p_auth_user_id uuid) TO service_role;
 
 
 --
@@ -12844,7 +12851,6 @@ GRANT ALL ON FUNCTION public.save_business_month(p_month date, p_course_selectio
 
 REVOKE ALL ON FUNCTION public.save_course_exception(p_course_id uuid, p_date date, p_reason text) FROM PUBLIC;
 GRANT ALL ON FUNCTION public.save_course_exception(p_course_id uuid, p_date date, p_reason text) TO authenticated;
-GRANT ALL ON FUNCTION public.save_course_exception(p_course_id uuid, p_date date, p_reason text) TO service_role;
 
 
 --
@@ -13058,6 +13064,7 @@ GRANT ALL ON FUNCTION vocabulary_private.add_own_word(p_level text, p_word_de te
 --
 
 REVOKE ALL ON FUNCTION vocabulary_private.answer_article_feedback(p_input text, p_word text, p_article text, p_plural text) FROM PUBLIC;
+GRANT ALL ON FUNCTION vocabulary_private.answer_article_feedback(p_input text, p_word text, p_article text, p_plural text) TO postgres;
 
 
 --
@@ -13065,6 +13072,7 @@ REVOKE ALL ON FUNCTION vocabulary_private.answer_article_feedback(p_input text, 
 --
 
 REVOKE ALL ON FUNCTION vocabulary_private.answer_key(p_card_id uuid, p_direction text, p_ui_language text, OUT canonical text, OUT accepted text[]) FROM PUBLIC;
+GRANT ALL ON FUNCTION vocabulary_private.answer_key(p_card_id uuid, p_direction text, p_ui_language text, OUT canonical text, OUT accepted text[]) TO postgres;
 
 
 --
@@ -13072,6 +13080,7 @@ REVOKE ALL ON FUNCTION vocabulary_private.answer_key(p_card_id uuid, p_direction
 --
 
 REVOKE ALL ON FUNCTION vocabulary_private.card_translation(p_card_id uuid, p_ui_language text) FROM PUBLIC;
+GRANT ALL ON FUNCTION vocabulary_private.card_translation(p_card_id uuid, p_ui_language text) TO postgres;
 
 
 --
@@ -13146,6 +13155,7 @@ GRANT ALL ON FUNCTION vocabulary_private.reset_lesson(p_unit_id uuid) TO authent
 --
 
 REVOKE ALL ON FUNCTION vocabulary_private.review_day(p_days integer) FROM PUBLIC;
+GRANT ALL ON FUNCTION vocabulary_private.review_day(p_days integer) TO postgres;
 
 
 --
@@ -13272,9 +13282,9 @@ GRANT ALL ON TABLE public.cefr_levels TO service_role;
 -- Name: TABLE course_audiences; Type: ACL; Schema: public; Owner: -
 --
 
-GRANT ALL ON TABLE public.course_audiences TO service_role;
 GRANT SELECT ON TABLE public.course_audiences TO anon;
 GRANT SELECT ON TABLE public.course_audiences TO authenticated;
+GRANT ALL ON TABLE public.course_audiences TO service_role;
 
 
 --
@@ -13333,8 +13343,8 @@ GRANT ALL ON TABLE public.invoice_cases TO service_role;
 -- Name: TABLE learning_activity_days; Type: ACL; Schema: public; Owner: -
 --
 
-GRANT ALL ON TABLE public.learning_activity_days TO service_role;
 GRANT SELECT ON TABLE public.learning_activity_days TO authenticated;
+GRANT ALL ON TABLE public.learning_activity_days TO service_role;
 
 
 --
@@ -13365,8 +13375,8 @@ GRANT SELECT,INSERT,DELETE,UPDATE ON TABLE public.learning_reading_texts TO auth
 -- Name: TABLE learning_sessions; Type: ACL; Schema: public; Owner: -
 --
 
-GRANT ALL ON TABLE public.learning_sessions TO service_role;
 GRANT SELECT ON TABLE public.learning_sessions TO authenticated;
+GRANT ALL ON TABLE public.learning_sessions TO service_role;
 
 
 --
@@ -13421,8 +13431,7 @@ GRANT SELECT,INSERT,DELETE,UPDATE ON TABLE public.learning_vocabulary_cards TO a
 -- Name: TABLE lms_media_folder; Type: ACL; Schema: public; Owner: -
 --
 
-GRANT ALL ON TABLE public.lms_media_folder TO anon;
-GRANT ALL ON TABLE public.lms_media_folder TO authenticated;
+GRANT SELECT,INSERT,DELETE,UPDATE ON TABLE public.lms_media_folder TO authenticated;
 GRANT ALL ON TABLE public.lms_media_folder TO service_role;
 
 
@@ -13430,8 +13439,7 @@ GRANT ALL ON TABLE public.lms_media_folder TO service_role;
 -- Name: TABLE lms_presentation_asset; Type: ACL; Schema: public; Owner: -
 --
 
-GRANT ALL ON TABLE public.lms_presentation_asset TO anon;
-GRANT ALL ON TABLE public.lms_presentation_asset TO authenticated;
+GRANT SELECT,INSERT,DELETE,UPDATE ON TABLE public.lms_presentation_asset TO authenticated;
 GRANT ALL ON TABLE public.lms_presentation_asset TO service_role;
 
 
@@ -13448,8 +13456,7 @@ GRANT ALL ON TABLE public.locales TO service_role;
 -- Name: TABLE media_mime_types; Type: ACL; Schema: public; Owner: -
 --
 
-GRANT ALL ON TABLE public.media_mime_types TO anon;
-GRANT ALL ON TABLE public.media_mime_types TO authenticated;
+GRANT SELECT ON TABLE public.media_mime_types TO authenticated;
 GRANT ALL ON TABLE public.media_mime_types TO service_role;
 
 
@@ -13457,8 +13464,8 @@ GRANT ALL ON TABLE public.media_mime_types TO service_role;
 -- Name: TABLE path_interventions; Type: ACL; Schema: public; Owner: -
 --
 
-GRANT ALL ON TABLE public.path_interventions TO service_role;
 GRANT SELECT ON TABLE public.path_interventions TO authenticated;
+GRANT ALL ON TABLE public.path_interventions TO service_role;
 
 
 --
@@ -13472,64 +13479,64 @@ GRANT SELECT ON TABLE public.path_legacy_progress_notes TO authenticated;
 -- Name: TABLE path_node_progress; Type: ACL; Schema: public; Owner: -
 --
 
-GRANT ALL ON TABLE public.path_node_progress TO service_role;
 GRANT SELECT ON TABLE public.path_node_progress TO authenticated;
+GRANT ALL ON TABLE public.path_node_progress TO service_role;
 
 
 --
 -- Name: TABLE path_node_translations; Type: ACL; Schema: public; Owner: -
 --
 
-GRANT ALL ON TABLE public.path_node_translations TO service_role;
 GRANT SELECT ON TABLE public.path_node_translations TO authenticated;
+GRANT ALL ON TABLE public.path_node_translations TO service_role;
 
 
 --
 -- Name: TABLE path_nodes; Type: ACL; Schema: public; Owner: -
 --
 
-GRANT ALL ON TABLE public.path_nodes TO service_role;
 GRANT SELECT ON TABLE public.path_nodes TO authenticated;
+GRANT ALL ON TABLE public.path_nodes TO service_role;
 
 
 --
 -- Name: TABLE path_objectives; Type: ACL; Schema: public; Owner: -
 --
 
-GRANT ALL ON TABLE public.path_objectives TO service_role;
 GRANT SELECT ON TABLE public.path_objectives TO authenticated;
+GRANT ALL ON TABLE public.path_objectives TO service_role;
 
 
 --
 -- Name: TABLE path_practice_runs; Type: ACL; Schema: public; Owner: -
 --
 
-GRANT ALL ON TABLE public.path_practice_runs TO service_role;
 GRANT SELECT ON TABLE public.path_practice_runs TO authenticated;
+GRANT ALL ON TABLE public.path_practice_runs TO service_role;
 
 
 --
 -- Name: TABLE path_test_answers; Type: ACL; Schema: public; Owner: -
 --
 
-GRANT ALL ON TABLE public.path_test_answers TO service_role;
 GRANT SELECT ON TABLE public.path_test_answers TO authenticated;
+GRANT ALL ON TABLE public.path_test_answers TO service_role;
 
 
 --
 -- Name: TABLE path_test_attempts; Type: ACL; Schema: public; Owner: -
 --
 
-GRANT ALL ON TABLE public.path_test_attempts TO service_role;
 GRANT SELECT ON TABLE public.path_test_attempts TO authenticated;
+GRANT ALL ON TABLE public.path_test_attempts TO service_role;
 
 
 --
 -- Name: TABLE path_unit_translations; Type: ACL; Schema: public; Owner: -
 --
 
-GRANT ALL ON TABLE public.path_unit_translations TO service_role;
 GRANT SELECT ON TABLE public.path_unit_translations TO authenticated;
+GRANT ALL ON TABLE public.path_unit_translations TO service_role;
 
 
 --
@@ -13669,8 +13676,8 @@ GRANT SELECT ON TABLE public.user_exercise_progress TO authenticated;
 -- Name: TABLE vocabulary_carryover_preferences; Type: ACL; Schema: public; Owner: -
 --
 
-GRANT ALL ON TABLE public.vocabulary_carryover_preferences TO service_role;
 GRANT SELECT ON TABLE public.vocabulary_carryover_preferences TO authenticated;
+GRANT ALL ON TABLE public.vocabulary_carryover_preferences TO service_role;
 
 
 --
@@ -13693,8 +13700,8 @@ GRANT SELECT ON TABLE public.vocabulary_learning_state TO authenticated;
 -- Name: TABLE vocabulary_lesson_pauses; Type: ACL; Schema: public; Owner: -
 --
 
-GRANT ALL ON TABLE public.vocabulary_lesson_pauses TO service_role;
 GRANT SELECT ON TABLE public.vocabulary_lesson_pauses TO authenticated;
+GRANT ALL ON TABLE public.vocabulary_lesson_pauses TO service_role;
 
 
 --
@@ -13717,30 +13724,30 @@ GRANT ALL ON TABLE public.vocabulary_translations TO service_role;
 -- Name: DEFAULT PRIVILEGES FOR SEQUENCES; Type: DEFAULT ACL; Schema: public; Owner: -
 --
 
-ALTER DEFAULT PRIVILEGES FOR ROLE postgres IN SCHEMA public GRANT ALL ON SEQUENCES TO postgres;
-ALTER DEFAULT PRIVILEGES FOR ROLE postgres IN SCHEMA public GRANT ALL ON SEQUENCES TO anon;
-ALTER DEFAULT PRIVILEGES FOR ROLE postgres IN SCHEMA public GRANT ALL ON SEQUENCES TO authenticated;
-ALTER DEFAULT PRIVILEGES FOR ROLE postgres IN SCHEMA public GRANT ALL ON SEQUENCES TO service_role;
+ALTER DEFAULT PRIVILEGES FOR ROLE postgres IN SCHEMA public GRANT ALL ON SEQUENCES  TO postgres;
+ALTER DEFAULT PRIVILEGES FOR ROLE postgres IN SCHEMA public GRANT ALL ON SEQUENCES  TO anon;
+ALTER DEFAULT PRIVILEGES FOR ROLE postgres IN SCHEMA public GRANT ALL ON SEQUENCES  TO authenticated;
+ALTER DEFAULT PRIVILEGES FOR ROLE postgres IN SCHEMA public GRANT ALL ON SEQUENCES  TO service_role;
 
 
 --
 -- Name: DEFAULT PRIVILEGES FOR FUNCTIONS; Type: DEFAULT ACL; Schema: public; Owner: -
 --
 
-ALTER DEFAULT PRIVILEGES FOR ROLE postgres IN SCHEMA public GRANT ALL ON FUNCTIONS TO postgres;
-ALTER DEFAULT PRIVILEGES FOR ROLE postgres IN SCHEMA public GRANT ALL ON FUNCTIONS TO anon;
-ALTER DEFAULT PRIVILEGES FOR ROLE postgres IN SCHEMA public GRANT ALL ON FUNCTIONS TO authenticated;
-ALTER DEFAULT PRIVILEGES FOR ROLE postgres IN SCHEMA public GRANT ALL ON FUNCTIONS TO service_role;
+ALTER DEFAULT PRIVILEGES FOR ROLE postgres IN SCHEMA public GRANT ALL ON FUNCTIONS  TO postgres;
+ALTER DEFAULT PRIVILEGES FOR ROLE postgres IN SCHEMA public GRANT ALL ON FUNCTIONS  TO anon;
+ALTER DEFAULT PRIVILEGES FOR ROLE postgres IN SCHEMA public GRANT ALL ON FUNCTIONS  TO authenticated;
+ALTER DEFAULT PRIVILEGES FOR ROLE postgres IN SCHEMA public GRANT ALL ON FUNCTIONS  TO service_role;
 
 
 --
 -- Name: DEFAULT PRIVILEGES FOR TABLES; Type: DEFAULT ACL; Schema: public; Owner: -
 --
 
-ALTER DEFAULT PRIVILEGES FOR ROLE postgres IN SCHEMA public GRANT ALL ON TABLES TO postgres;
-ALTER DEFAULT PRIVILEGES FOR ROLE postgres IN SCHEMA public GRANT ALL ON TABLES TO anon;
-ALTER DEFAULT PRIVILEGES FOR ROLE postgres IN SCHEMA public GRANT ALL ON TABLES TO authenticated;
-ALTER DEFAULT PRIVILEGES FOR ROLE postgres IN SCHEMA public GRANT ALL ON TABLES TO service_role;
+ALTER DEFAULT PRIVILEGES FOR ROLE postgres IN SCHEMA public GRANT ALL ON TABLES  TO postgres;
+ALTER DEFAULT PRIVILEGES FOR ROLE postgres IN SCHEMA public GRANT ALL ON TABLES  TO anon;
+ALTER DEFAULT PRIVILEGES FOR ROLE postgres IN SCHEMA public GRANT ALL ON TABLES  TO authenticated;
+ALTER DEFAULT PRIVILEGES FOR ROLE postgres IN SCHEMA public GRANT ALL ON TABLES  TO service_role;
 
 
 --
