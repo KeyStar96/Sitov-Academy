@@ -85,6 +85,9 @@ for table in selected:
 
 functions = ['get_learning_path', 'start_path_node', 'submit_path_answer', 'start_path_test', 'submit_path_test_answer',
              'finish_path_test', 'manage_learning_path', 'import_learning_path', 'export_learning_path']
+# Older Phase-3 evidence remains usable; Phase-4 catalogs include the atomic API.
+if any(fn['name'] == 'import_learning_path_seed' for fn in catalog['functions']):
+    functions.append('import_learning_path_seed')
 for name in functions:
     found = [fn for fn in catalog['functions'] if fn['name'] == name]
     if len(found) != 1 or found[0]['result'] != 'jsonb':

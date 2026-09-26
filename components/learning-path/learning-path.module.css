@@ -1,0 +1,48 @@
+.root { color: var(--foreground); font-size: 18px; line-height: 1.6; max-width: 960px; margin: 0 auto; padding: 16px 0 48px; overflow-wrap: anywhere; }
+.root h2 { font-size: clamp(26px, 4vw, 36px); font-weight: 700; line-height: 1.25; }
+.root h3 { font-size: 22px; font-weight: 650; line-height: 1.4; }
+.root p { margin: 12px 0; }
+.root button, .root input, .root summary, .root a { min-height: 48px; font: inherit; }
+.root button, .root a { min-width: 48px; }
+.root button:focus-visible, .root input:focus-visible, .root a:focus-visible, .root summary:focus-visible { outline: 3px solid var(--accent-strong); outline-offset: 4px; }
+.root button:disabled { cursor: default; }
+.header { display: grid; gap: 12px; margin-bottom: 24px; }
+.header button { justify-self: start; }
+.header p { margin: 0; color: var(--muted); }
+.map { display: grid; gap: 24px; }
+.card { padding: clamp(16px, 4vw, 32px); border: 1px solid var(--border); border-radius: 24px; background: var(--surface); box-shadow: var(--shadow-sm); min-width: 0; }
+.eyebrow { display: flex; align-items: center; gap: 10px; color: var(--mode-path-text); }
+.nodes { list-style: none; padding: 0; display: grid; gap: 12px; margin-top: 24px; }
+.node { display: flex; gap: 16px; align-items: center; width: 100%; padding: 16px; text-align: left; border: 1px solid var(--border); border-radius: 16px; background: var(--surface); color: var(--foreground); }
+.node:not(:disabled):hover { background: var(--mode-path-surface); }
+.node:disabled { background: var(--surface-muted); }
+.nodeIcon { display: flex; flex: 0 0 48px; height: 48px; align-items: center; justify-content: center; border-radius: 50%; color: var(--mode-path-text); background: var(--mode-path-surface); }
+.nodeText { display: grid; min-width: 0; }
+.nodeText > span { color: var(--muted); font-size: 16px; }
+.rule { padding: clamp(16px, 4vw, 28px); border-radius: 18px; border: 1px solid var(--mode-path-text); color: var(--mode-path-text); background: var(--mode-path-surface); }
+.rule h3 { display: flex; gap: 10px; align-items: center; }
+.rule h3 svg { flex-shrink: 0; }
+.rule ul { list-style: disc; margin: 16px 0 0; padding-left: 24px; }
+.rule li + li { margin-top: 12px; }
+.actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 12px; margin-top: 24px; }
+.primary, .secondary { display: inline-flex; justify-content: center; align-items: center; padding: 10px 20px; border-radius: 12px; border: 1px solid var(--border); text-decoration: none; }
+.primary { background: var(--accent-strong); color: var(--accent-foreground); border-color: var(--accent-strong); }
+.primary:not(:disabled):hover { background: var(--accent-strong-hover); }
+.secondary { background: var(--surface); color: var(--foreground); }
+.primary:disabled, .secondary:disabled { background: var(--surface-muted); color: var(--muted); border-color: var(--border); }
+.instruction { margin-bottom: 20px; font-size: 22px; }
+.prompt { padding: 12px 0; }
+.fields { border: 0; padding: 0; margin: 0; min-width: 0; }
+.sentence { font-size: 22px; }
+.label { display: block; margin-top: 24px; }
+.input { width: 100%; background: var(--surface); color: var(--foreground); padding: 12px 16px; border: 2px solid var(--border); border-radius: 12px; margin-top: 8px; font-size: 20px; }
+.options { display: grid; gap: 12px; margin-top: 20px; }
+.option { display: flex; align-items: center; gap: 16px; min-height: 56px; padding: 12px 16px; border: 1px solid var(--border); border-radius: 12px; }
+.option input { width: 22px; height: 22px; min-height: 22px; flex-shrink: 0; accent-color: var(--accent-strong); }
+.option[data-selected='true'] { border-color: var(--mode-path-text); background: var(--mode-path-surface); color: var(--mode-path-text); }
+.tiles { display: flex; flex-wrap: wrap; gap: 12px; padding: 16px; border: 1px solid var(--border); border-radius: 12px; min-height: 80px; }
+.feedback { font-size: 18px; }
+.error { border: 1px solid var(--danger); color: var(--foreground); border-radius: 12px; padding: 16px; margin-bottom: 24px; background: var(--surface); }
+.result { border-top: 1px solid var(--border); margin-top: 16px; padding-top: 12px; }
+.result summary { padding: 12px 0; cursor: pointer; }
+@media (max-width: 480px) { .node { gap: 12px; padding: 12px; } .actions > button { width: 100%; } }

@@ -2,14 +2,14 @@
 
 | Feld | Wert |
 |---|---|
-| Letzte Aktualisierung | 2026-09-26, Phase-3-Infrastruktur lokal abgeschlossen und geprüft; kein Deployment |
-| Git-Revision | Phase-3-Ausgangsstand `a25f8285c89a0bfecec6d4d65657a594547cfabc`; Infrastruktur und Nachweise im gemeinsamen Abschlusscommit |
+| Letzte Aktualisierung | 2026-09-26, Phase 4 lokal abgeschlossen und geprüft; kein Deployment |
+| Git-Revision | Phase-4-Ausgangsstand `c0eb6cfa7b2d9c2b2d168fdae3af2b8dae090577`; Implementierung und Nachweise im gemeinsamen Abschlusscommit |
 | Branch | `codex/vps-self-hosted` |
 | Aktives Release | `e6a8d32f4ce74ab20a0ff5a4750927c37c108575` (`/var/www/sitov-current` → `/var/www/sitov-releases/e6a8d32f4ce7`) |
-| Health | Loopback und `https://www.sitov-academy.com/api/health`: `ready` |
-| Letzte Migration | Lokal `35_path_learning.sql`; produktiv weiterhin 31, Migrationen 32–35 nicht aktiviert |
-| Nächste freie Nummer | **36**, vor Verwendung erneut prüfen |
-| Datenbank | Produktiv unverändert PostgreSQL 15.8; Phase 3 in isoliertem lokalem PostgreSQL-17.11-Klon mit Backups geprüft |
+| Health | Letzter dokumentierter Produktionsstand: `ready`; Phase 4 ausschließlich lokal geprüft |
+| Letzte Migration | Lokal `36_migrate_old_grammar_progress.sql`; produktiv weiterhin 31, Migrationen 32–36 nicht aktiviert |
+| Nächste freie Nummer | **37**, vor Verwendung erneut prüfen |
+| Datenbank | Produktiv unverändert PostgreSQL 15.8; Phase 4 mit Backups in isoliertem lokalem PostgreSQL 17.11 und echtem PostgREST 16.4 geprüft |
 
 ## Test-Baseline (Phase 0)
 
@@ -184,3 +184,24 @@ Der vorhandene Seed bleibt unverändert: **7 Pfade, 85 Knoten, 769 Aufgaben, 87 
 `node scripts/path-seed.mjs` validiert ausschließlich. Der für Phase 4 vorbereitete Importbefehl ist **`node scripts/path-seed.mjs supabase/seeds/path-a1.1.json --import`**; er benötigt ausdrücklich einen lokalen Endpunkt und eine authentifizierte Staff-Sitzung. Alle neun JSON-Formate, Antwortformen, Merkkarten-/Übersetzungsfelder, Source-ID-Zuordnung und Umgebungsvariablen sind im [Seed-/Aufgabenvertrag](PHASE-3-SEED-VERTRAG.md) vollständig beschrieben.
 
 `node scripts/path-listening-audio.mjs` ist ebenfalls nur eine Prüfung. Voraberzeugung/Upload benötigen ausdrücklich `--generate --output <Verzeichnis>` bzw. `--upload --output <Verzeichnis>`. Der private Bucket heißt `path-audio`. Der reale A1.1-Seed hat derzeit **0 Hörübungen**; es wurden keine Dateien erzeugt oder hochgeladen.
+
+## Phase 4 — Lernpfad: Inhalte A1.1
+
+Stand: **lokal abgeschlossen und geprüft**. Ausschließlich Phase 4; kein Deployment, keine Produktionsmigration. Ausgangsrevision `c0eb6cfa7b2d9c2b2d168fdae3af2b8dae090577`. [Prüfbericht](PHASE-4-PRUEFBERICHT.md), [Import-Anleitung](phase-4-import.md), [DB-/Backup-Nachweise](phase-4-db-nachweise.json), [Browserbilder](phase-4-bilder/README.md).
+
+- [x] **4.1 Import:** `scripts/import_learning_path.ts` mit vollständiger Zod-Validierung, expliziter lokaler Service Role, geprüftem frischem Backup, Zeitlimit und Ergebnisprüfung. Atomare Batch-RPC verwendet bestehende Quellkennungen/UUIDs. Drei echte lokale CLI-Importe einschließlich Wiederholung und Rückweg/Wiederanwendung erfolgreich. Seed unverändert.
+- [x] **4.1 Datenbestand:** **7 Pfade, 85 Knoten, 769 Aufgaben, 87 Lernziele**, dazu 35 Pfad-, 425 Knoten- und 3.845 Aufgabenübersetzungen. Vollständiger DB-Export entspricht dem Seed; wiederholte Importe behalten die IDs.
+- [x] **4.2 Merkkarten:** Neue Lernpfadansicht in der bestehenden Übungen-Route; blaue Merkkarten aus dem Seed vor Übungsbeginn, vorhandene Tokens, fünf Sprachen, Tastaturbedienung und mindestens 48px große Aktionen.
+- [x] **4.3 Aufgaben/Bewertung:** Auswahl, Lückentext und Satzbau aus dem Seed bedienbar; lösungsfreie Startdaten und Bewertung ausschließlich in PostgreSQL. Browserabnahme des gesamten ersten Pfads: **78 Übungs-/Wiederholungsaufgaben**, darunter 36 Lückentexte und drei ausdrücklich mit Großschreibungs-/Satzzeichenabweichung beantwortete Aufgaben. Zehn Übungs-/Wiederholungsknoten mit drei Sternen; **16 Testaufgaben, 100 %**, danach Pfad 2 freigeschaltet.
+- [x] **4.4 Altdaten:** **36_migrate_old_grammar_progress.sql** statt der bereits belegten Nummer 31, mit Rückweg. Alle alten Grammatik-Units archiviert; ursprüngliche Fortschritte unverändert erhalten. Keine unzuverlässige Abschlusszuordnung anhand von Lektionsnummern. Neue Pfade beginnen ohne übernommene Abschlüsse; schon vorhandener neuer Lernpfadfortschritt bleibt erhalten. Einmalige, nur für Staff lesbare Lehrkraft-Notiz je Person/Niveau, Erklärung in fünf Sprachen.
+- [x] **Backup/Idempotenz/Rückweg:** `migrate-local.py`-Adapter mit geprüften lokalen `pg_dump`-Backups, doppelte DDL-Anwendung, Rückweg und Wiederanwendung erfolgreich. Rückweg erhält Inhalte, Fortschritt, Versuche und Notizen. Schema-Snapshot und öffentliche Typen aus echtem PostgreSQL aktualisiert; nächste freie Nummer **37**.
+- [x] **Abnahme:** **1.862 Jest-Tests / 145 Suites**, **482 DB-/Node-Tests**, **64 Python-Tests**, **3 Playwright-Fälle mit sieben vollständigen Axe-Scans**; jeweils 0 Fehler und 0 Skips. TypeScript und Produktionsbuild mit 157 statischen Seiten erfolgreich. Desktop und Mobil hell/dunkel visuell geprüft.
+- [x] **Dokumentation/Git:** Prüfbericht vor Änderungen, Bedienung und Rückweg, Prüfsummen, Backup-Zähler und Bilder dokumentiert; Implementierung und Nachweise im gemeinsamen Phase-4-Abschlusscommit.
+
+### Übergabe
+
+Der aktuelle Importbefehl lautet **`npm run seed:learning-path -- --import --backup-dir /absoluter/pfad/zum/frischen/backup`** mit `PATH_SEED_SUPABASE_URL` und `PATH_SEED_SERVICE_ROLE_KEY`. Ohne `--import` erfolgt ausschließlich lokale Validierung. Die Phase-3-Staff-Importfunktion bleibt kompatibel; der neue CLI verwendet die Service-Role-RPC `import_learning_path_seed(p_paths jsonb)` für den vollständigen atomaren Seed. `path_legacy_progress_notes` enthält die geschützten Lehrkraft-Notizen.
+
+Die lokale Umgebung verwendet PostgreSQL **17.11** und echtes PostgREST **16.4**, künstliche Benutzer und einen synthetischen Auth-Endpunkt; sämtliche Import-, RLS- und Bewertungsaufrufe gehen an die echte Datenbank. Sie ist eine isolierte Testumgebung und wird nach der Abnahme beendet. Produktion bleibt auf Migration 31 und dem bisherigen Release; Aktivierung von 32–36 und dem passenden UI-Release wurde nicht beauftragt. Die sechs zusätzlichen Phase-3-Aufgabenformen sind nicht im Seed enthalten; ihre Oberfläche wurde in Phase 4 nicht vorgezogen. Phasen 5–8 wurden nicht ausgeführt.
+
+Anfängliche Typ-/Logging-Probleme, die korrigierte Antwortform bei ungültigen Testantworten und ein Browser-Testproblem beim Lesen gestreamter Response-Bodys sind im Prüfbericht offen dokumentiert. Alle finalen Prüfläufe sind grün; keine Assertions oder Sicherheitsprüfungen wurden ausgeblendet.

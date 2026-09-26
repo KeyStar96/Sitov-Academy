@@ -8,6 +8,9 @@ const require = createRequire(import.meta.url)
 require('ts-node').register({ transpileOnly: true, compilerOptions: { module: 'CommonJS', moduleResolution: 'node' } })
 const { learningPathSeedSchema } = require('../lib/learning-path-schema.ts')
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..')
+class SeedCommandError extends Error {
+  constructor(category) { super('Seed command failed.'); this.category = category }
+}
 
 async function main() {
   const args = process.argv.slice(2)
@@ -20,13 +23,12 @@ async function main() {
   const unsupported = args.filter(arg => arg.startsWith('--') && arg !== '--import')
   const filenames = args.filter(arg => !arg.startsWith('--'))
   if (unsupported.length || filenames.length > 1 || args.filter(arg => arg === '--import').length > 1) {
-    throw new Error('Invalid arguments. Use --help for the supported command format.')
+    throw new SeedCommandError('arguments')
   }
   const filename = resolve(root, filenames[0] ?? 'supabase/seeds/path-a1.1.json')
   const result = learningPathSeedSchema.safeParse(JSON.parse(await readFile(filename, 'utf8')))
   if (!result.success) {
-    for (const issue of result.error.issues) console.error(`${issue.path.join('.') || 'seed'}: ${issue.message}`)
-    throw new Error(`Seed validation failed (${result.error.issues.length} issues).`)
+    throw new SeedCommandError('validation')
   }
   const paths = result.data
   const nodes = paths.flatMap(path => path.nodes)
@@ -37,12 +39,12 @@ async function main() {
   const anonKey = process.env.PATH_SEED_ANON_KEY
   const accessToken = process.env.PATH_SEED_STAFF_ACCESS_TOKEN
   if (!endpoint || !anonKey || !accessToken) {
-    throw new Error('Import needs PATH_SEED_SUPABASE_URL, PATH_SEED_ANON_KEY and PATH_SEED_STAFF_ACCESS_TOKEN. No import was attempted.')
+    throw new SeedCommandError('configuration')
   }
   const url = new URL(endpoint)
   if (!['http:', 'https:'].includes(url.protocol) || url.username || url.password || url.search || url.hash
     || !['localhost', '127.0.0.1', '[::1]'].includes(url.hostname)) {
-    throw new Error('This infrastructure command accepts only a local Supabase endpoint (localhost or loopback).')
+    throw new SeedCommandError('configuration')
   }
   // All paths have been validated before the first request. Each RPC is atomic;
   // stable source IDs let a later Phase 4 import resume safely after a failed path.
@@ -54,13 +56,19 @@ async function main() {
     const payload = await response.json().catch(() => null)
     if (!response.ok || !payload || payload.error) {
       // Do not log response bodies or credentials; database errors can include content.
-      throw new Error(`Import of ${path.id} failed (HTTP ${response.status}${payload?.error ? `, ${String(payload.error).slice(0, 100)}` : ''}).`)
+      throw new SeedCommandError('import')
     }
     console.log(`Imported ${path.id}: ${payload.node_count} nodes, ${payload.exercise_count} exercises.`)
   }
 }
 
 main().catch(error => {
-  console.error(error instanceof Error ? error.message : 'Seed command failed.')
+  switch (error instanceof SeedCommandError ? error.category : undefined) {
+    case 'arguments': console.error('Invalid seed arguments. Use --help for the supported command format.'); break
+    case 'validation': console.error('Seed schema validation failed. No database request was made.'); break
+    case 'configuration': console.error('Staff import needs a local PATH_SEED_SUPABASE_URL, PATH_SEED_ANON_KEY and PATH_SEED_STAFF_ACCESS_TOKEN. No import was attempted.'); break
+    case 'import': console.error('Staff seed import failed. Inspect the local database before repeating; earlier paths may already be committed.'); break
+    default: console.error('Seed command failed. Check the local seed JSON and connection; no internal error details were logged.')
+  }
   process.exitCode = 1
 })

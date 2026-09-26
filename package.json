@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "test": "jest",
+    "seed:learning-path": "ts-node --transpile-only --compiler-options '{\"module\":\"CommonJS\",\"moduleResolution\":\"node\"}' scripts/import_learning_path.ts",
     "test:db:monthly": "node --test supabase/tests/monthly-bookings.test.mjs",
     "test:db:profile": "node --test supabase/tests/profile-dashboard.test.mjs",
     "test:e2e": "playwright test",

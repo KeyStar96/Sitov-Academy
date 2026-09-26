@@ -1994,6 +1994,57 @@ export type Database = {
           },
         ]
       }
+      path_legacy_progress_notes: {
+        Row: {
+          auth_user_id: string
+          created_at: string
+          existing_path_progress_preserved: boolean
+          initial_path_progress: number
+          legacy_attempt_count: number
+          legacy_completed_count: number
+          legacy_exercise_count: number
+          level: string
+          note: Json
+        }
+        Insert: {
+          auth_user_id: string
+          created_at?: string
+          existing_path_progress_preserved: boolean
+          initial_path_progress?: number
+          legacy_attempt_count: number
+          legacy_completed_count: number
+          legacy_exercise_count: number
+          level: string
+          note: Json
+        }
+        Update: {
+          auth_user_id?: string
+          created_at?: string
+          existing_path_progress_preserved?: boolean
+          initial_path_progress?: number
+          legacy_attempt_count?: number
+          legacy_completed_count?: number
+          legacy_exercise_count?: number
+          level?: string
+          note?: Json
+        }
+        Relationships: [
+          {
+            foreignKeyName: "path_legacy_progress_notes_auth_user_id_fkey"
+            columns: ["auth_user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "path_legacy_progress_notes_level_fkey"
+            columns: ["level"]
+            isOneToOne: false
+            referencedRelation: "learning_levels"
+            referencedColumns: ["code"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
@@ -2278,6 +2329,12 @@ export type Database = {
       export_learning_path: {
         Args: {
           p_unit_id: string
+        }
+        Returns: Json
+      }
+      import_learning_path_seed: {
+        Args: {
+          p_paths: Json
         }
         Returns: Json
       }

@@ -15,6 +15,9 @@ const BUCKET = 'path-audio'
 const REFERENCE_PREFIX = `/storage/v1/object/authenticated/${BUCKET}/`
 const engine = 'piper-local-v1:de:ffmpeg-atempo-0.8:mp3-48k'
 const hash = value => createHash('sha256').update(value).digest('hex')
+class AudioCommandError extends Error {
+  constructor(message, category) { super(message); this.category = category }
+}
 
 export function localEndpoint(value) {
   const url = new URL(value)
@@ -202,14 +205,14 @@ export async function main(args = process.argv.slice(2)) {
     else if (arg === '--upload' && !upload) upload = true
     else if (arg === '--output' && !output && args[i + 1] && !args[i + 1].startsWith('--')) output = resolve(args[++i])
     else if (!arg.startsWith('--') && !filename) filename = arg
-    else throw new Error('Invalid arguments. Use --help for supported options.')
+    else throw new AudioCommandError('Invalid arguments. Use --help for supported options.', 'arguments')
   }
-  if ((generate || upload) && !output) throw new Error('--generate and --upload require an explicit --output directory.')
+  if ((generate || upload) && !output) throw new AudioCommandError('--generate and --upload require an explicit --output directory.', 'arguments')
   const require = createRequire(import.meta.url)
   require('ts-node').register({ transpileOnly: true, compilerOptions: { module: 'CommonJS', moduleResolution: 'node' } })
   const { learningPathSeedSchema } = require('../lib/learning-path-schema.ts')
   const parsed = learningPathSeedSchema.safeParse(JSON.parse(await readFile(resolve(root, filename ?? 'supabase/seeds/path-a1.1.json'), 'utf8')))
-  if (!parsed.success) throw new Error(`Seed validation failed (${parsed.error.issues.length} issues).`)
+  if (!parsed.success) throw new AudioCommandError('Seed validation failed.', 'validation')
   const plan = planListeningAudio(parsed.data)
   console.log(`Valid: ${plan.exercises} listening exercises, ${plan.files.length} audio files.${!generate && !upload ? ' Dry run only.' : ''}`)
   if (!plan.files.length || (!generate && !upload)) return
@@ -221,5 +224,12 @@ export async function main(args = process.argv.slice(2)) {
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
-  main().catch(error => { console.error(error instanceof Error ? error.message : 'Listening audio command failed.'); process.exitCode = 1 })
+  main().catch(error => {
+    switch (error instanceof AudioCommandError ? error.category : undefined) {
+      case 'arguments': console.error('Invalid listening-audio arguments. Use --help; --generate and --upload require an explicit --output directory.'); break
+      case 'validation': console.error('Seed schema validation failed. No audio was generated or uploaded.'); break
+      default: console.error('Listening audio command failed. Check the local seed, Piper/ffmpeg and private Storage configuration; no internal error details were logged.')
+    }
+    process.exitCode = 1
+  })
 }
