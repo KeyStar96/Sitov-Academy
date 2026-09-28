@@ -7,10 +7,10 @@ Dieses Dokument beschreibt das Soll für spätere Phasen und den dazu geprüften
 ## Quellen und Geltung
 
 - [CODEX-4-Grundregeln](../master-4/prompts-split/00_CODEX-4-RULES.md): vollständig gelesen; R1–R16, D1–D8 und D12, Ablauf S1–S7.
-- [Phase 0](../master-4/prompts-split/00_PHASE-0-GPT.md): vollständig gelesen; Bestandsaufnahme, Richtlinie, Kontrastmessung und Beispiele.
-- [MASTER-PROMPT-4.md](../../MASTER-PROMPT-4.md), Abschnitt „DESIGN-RICHTLINIE“, Zeilen 172–272: vollständige Quelle D1–D13. **D9, D10, D11 und D13 fehlen nur in der Kurzfassung, nicht im Repository.** Sie sind unten aus dem Master übernommen, keine erfundenen Ergänzungen. Auch die Status-Vorlage ist dort im Anhang B ab Zeile 825 vorhanden.
-- [ZWISCHENBERICHT](../master-4/ZWISCHENBERICHT.md), Abschnitte 3 und 5: technische Bestandsannahmen und Designentscheidungen. Bei Abweichungen zum aktuellen Quelltext wird der gemessene Bestand ausgewiesen; spätere Phasen werden hier weder ausgeführt noch neu festgelegt.
-- [Prüfbericht](../master-4/PRUEFBERICHT.md), [Status](../master-4/STATUS.md) und [Ist-Bilder](../master-4/ist/): Inventar, Testnachweise und visueller Vorher-Vergleich.
+- [Phase 0](https://github.com/KeyStar96/Sitov-Academy/blob/fc1d859dbd79db3e8f64f285cd707e2b79edb743/docs/master-4/prompts-split/00_PHASE-0-GPT.md): vollständig gelesen; Bestandsaufnahme, Richtlinie, Kontrastmessung und Beispiele.
+- [MASTER-PROMPT-4.md](https://github.com/KeyStar96/Sitov-Academy/blob/fc1d859dbd79db3e8f64f285cd707e2b79edb743/MASTER-PROMPT-4.md), Abschnitt „DESIGN-RICHTLINIE“, Zeilen 172–272: vollständige Quelle D1–D13. **D9, D10, D11 und D13 fehlen nur in der Kurzfassung, nicht im Repository.** Sie sind unten aus dem Master übernommen, keine erfundenen Ergänzungen. Auch die Status-Vorlage ist dort im Anhang B ab Zeile 825 vorhanden.
+- [ZWISCHENBERICHT](https://github.com/KeyStar96/Sitov-Academy/blob/fc1d859dbd79db3e8f64f285cd707e2b79edb743/docs/master-4/ZWISCHENBERICHT.md), Abschnitte 3 und 5: technische Bestandsannahmen und Designentscheidungen. Bei Abweichungen zum aktuellen Quelltext wird der gemessene Bestand ausgewiesen; spätere Phasen werden hier weder ausgeführt noch neu festgelegt.
+- [Prüfbericht](https://github.com/KeyStar96/Sitov-Academy/blob/fc1d859dbd79db3e8f64f285cd707e2b79edb743/docs/master-4/PRUEFBERICHT.md), [Status](../master-4/STATUS.md) und [Ist-Bilder](https://github.com/KeyStar96/Sitov-Academy/tree/fc1d859dbd79db3e8f64f285cd707e2b79edb743/docs/master-4/ist): Inventar, Testnachweise und visueller Vorher-Vergleich.
 
 Die Zeilenangaben beziehen sich auf die Ausgangsrevision. R13 (Zugänglichkeit), R15 (positive Aktion rechts/unten), R12 (fünf Sprachen) und R3 (lokal ausgelieferte Ressourcen) gelten für jedes Muster. Die Beispielschnipsel führen keine neuen Produkttexte ein; Beschriftungen kommen als bereits übersetzte Werte herein.
 
