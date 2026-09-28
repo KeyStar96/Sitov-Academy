@@ -1,6 +1,7 @@
 import { z } from "zod";
 import { validateEmail } from "@/app/actions/validate-email";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any -- dictionary JSON is untyped
 export const createCancellationSchema = (t: any) => z.object({
     fullName: z.string().min(2, t?.cancellation?.errors?.name_required || "Name must be at least 2 characters"),
     email: z.string()

@@ -46,6 +46,7 @@ const isUnderage = (day: string, month: string, year: string) => {
     return age < 18;
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any -- dictionary JSON is untyped
 export const createSchema = (t: Record<string, any>) => z.object({
     personal: z.object({
         firstName: z.string()

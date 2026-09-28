@@ -43,7 +43,7 @@ export const calculateMonthlyStats = (
 
     let sessionCount = 0;
     let totalUnits = 0;
-    let deductions: { amount: number, reason: string, date: string }[] = [];
+    const deductions: { amount: number, reason: string, date: string }[] = [];
 
     // Map sessions map for easy lookup
     const sessionsByDay = new Map<number, typeof course.sessions>();
@@ -122,7 +122,7 @@ export const getNext6Months = (lang: string, referenceDate?: Date) => {
     const today = referenceDate || new Date();
     // Start from next month
     let currentMonth = today.getMonth() + 1;
-    let currentYear = today.getFullYear();
+    const currentYear = today.getFullYear();
 
     const locale = LOCALE_MAP[lang] || 'de-DE';
 

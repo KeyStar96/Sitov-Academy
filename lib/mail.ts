@@ -21,7 +21,7 @@ export interface QueueTransactionalEmailInput {
   payload: TransactionalMailPayload
 }
 export interface MailSendResult { success: boolean; messageId?: string; error?: string }
-interface QueueInput extends QueueTransactionalEmailInput {}
+type QueueInput = QueueTransactionalEmailInput
 
 /** Success means durably queued. Only the native worker performs SMTP delivery. */
 async function enqueue(input: QueueInput): Promise<MailSendResult> {

@@ -6,13 +6,24 @@ import { JetBrains_Mono } from "next/font/google";
 
 const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"] });
 
+interface DateDropdownsProps {
+    value?: string;
+    onChange: (value: string) => void;
+    label?: React.ReactNode;
+    error?: string;
+    required?: boolean;
+    /** Accepted for API compatibility; the masked text input does not use them. */
+    futureYears?: boolean;
+    minDate?: Date | string;
+}
+
 export const DateDropdowns = ({
     value,
     onChange,
     label,
     error,
     required,
-}: any) => {
+}: DateDropdownsProps) => {
     const defaultId = React.useId();
     const id = defaultId;
     

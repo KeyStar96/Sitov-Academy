@@ -42,7 +42,8 @@ function pdfFile(minimumBytes = 0): Buffer {
     '<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>',
     `<< /Length ${Buffer.byteLength(stream)} >>\nstream\n${stream}endstream`,
   ]
-  let body = '%PDF-1.4\n', offsets = [0]
+  let body = '%PDF-1.4\n'
+  const offsets = [0]
   objects.forEach((object, index) => { offsets.push(Buffer.byteLength(body)); body += `${index + 1} 0 obj\n${object}\nendobj\n` })
   if (body.length < minimumBytes) body += ' '.repeat(minimumBytes - body.length)
   const xref = Buffer.byteLength(body)

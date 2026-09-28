@@ -14,6 +14,7 @@ import { getEarliestCancellationDate } from "@/lib/cancellation-utils";
 import { DateDropdowns } from "@/components/ui/DateDropdowns";
 
 interface CancellationFormProps {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any -- dictionary JSON is untyped
     dictionary: any;
     lang: string;
     courses: { id: string; title: string }[];
