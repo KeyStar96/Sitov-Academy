@@ -2,14 +2,16 @@
 
 | Feld | Wert |
 |---|---|
-| Letzte Aktualisierung | 2026-09-26, Phase 8 in Arbeit: PostgreSQL-15.8-Klon abgenommen, Releasevorbereitung; Phase 6 bleibt übersprungen |
-| Git-Revision | Phase-7-Ausgangsstand `09e66e94760ad709b0d92b2850bc30fbfc9de378`; Phase-7-Implementierung und Nachweise für gemeinsamen lokalen Abschlusscommit |
+| Letzte Aktualisierung | 2026-09-28: Phase 8 abgeschlossen und produktiv aktiviert (26.09.2026); Phase 6 bleibt übersprungen |
+| Git-Revision | Produktives Release aus `01fa06e013d6`; spätere Commits auf `codex/vps-self-hosted` betreffen nur Dokumentation und Testskripte |
 | Branch | `codex/vps-self-hosted` |
-| Aktives Release | `e6a8d32f4ce74ab20a0ff5a4750927c37c108575` (`/var/www/sitov-current` → `/var/www/sitov-releases/e6a8d32f4ce7`) |
-| Health | Letzter dokumentierter Produktionsbefund aus Phase 5: `ready`; Phase 7 ohne Produktionszugriff oder Aktivierung |
-| Letzte Migration | Lokal `39_teacher_dashboard.sql`; produktiv weiterhin 31, Migrationen 32–39 nicht aktiviert |
+| Aktives Release | `01fa06e013d6` (`/var/www/sitov-current` → `/var/www/sitov-releases/01fa06e013d6`) |
+| Health | `ready` (öffentlich geprüft am 28.09.2026) |
+| Letzte Migration | `39_teacher_dashboard.sql`, produktiv angewendet (32–39 am 26.09.2026) |
 | Nächste freie Nummer | **40**, vor Verwendung erneut prüfen |
-| Datenbank | Produktiv unverändert PostgreSQL 15.8; Phase 7 mit geprüften Backups in isoliertem lokalem PostgreSQL 17.11 und echtem PostgREST 16.4 geprüft |
+| Datenbank | Produktiv PostgreSQL 15.8 |
+
+> **Archivierte Nachweise:** Prüfberichte, Nachweis-JSONs, Bilder, `MASTER-PROMPT-4.md` und `CODEX.md` wurden am 26.09.2026 aus dem Arbeitsstand entfernt (Commits `5dba843`, `49e35b5`, `6353f89`). Die Links unten zeigen auf den letzten vollständigen Stand `fc1d859`; lokal abrufbar mit `git show fc1d859:docs/master-4/<Datei>`.
 
 ## Test-Baseline (Phase 0)
 
@@ -22,7 +24,7 @@
 | `tsc --noEmit` | 1 vollständiger Lauf, Exit 0 | 0 | 0 |
 | Build | 1 vollständiger Lauf, Exit 0, 157 statische Seiten | 0 | 0 |
 
-Bereits rote Tests: **Keine fehlgeschlagenen Anwendungs-/DB-Assertions im abschließenden Lauf.** Erstlaufprobleme sind nicht ausgeblendet: Jest übersprang zunächst seinen optionalen echten DB-Smoke; Python einen Test ohne PyYAML; Playwright scheiterte zunächst bei sechs Browserstarts wegen fehlendem Chromium. Alle vorgesehenen Fälle wurden anschließend vollständig ausgeführt: Jest einschließlich rein lesendem Produktions-Smoke über SSH-Tunnel, Python mit temporärem PyYAML, Accessibility über den lokalen Chrome-Channel. Kein Test und kein Filter wurde geändert. Details, Befehle und Grenzen: [TEST-BASELINE.md](TEST-BASELINE.md).
+Bereits rote Tests: **Keine fehlgeschlagenen Anwendungs-/DB-Assertions im abschließenden Lauf.** Erstlaufprobleme sind nicht ausgeblendet: Jest übersprang zunächst seinen optionalen echten DB-Smoke; Python einen Test ohne PyYAML; Playwright scheiterte zunächst bei sechs Browserstarts wegen fehlendem Chromium. Alle vorgesehenen Fälle wurden anschließend vollständig ausgeführt: Jest einschließlich rein lesendem Produktions-Smoke über SSH-Tunnel, Python mit temporärem PyYAML, Accessibility über den lokalen Chrome-Channel. Kein Test und kein Filter wurde geändert. Details, Befehle und Grenzen: [TEST-BASELINE.md](https://github.com/KeyStar96/Sitov-Academy/blob/fc1d859dbd79db3e8f64f285cd707e2b79edb743/docs/master-4/TEST-BASELINE.md).
 
 Die sechs Axe-Fälle prüfen öffentliche Home-/Registrierungs-/Abmeldeseiten jeweils hell/dunkel. Sie sind keine vollständige Accessibility-Abnahme der geschützten Lernräume. Die gesonderten schreibenden Docker-/REST-Integrationstools wurden in Phase 0 nicht ausgeführt; alle vorhandenen lokalen DB-/Python-Tests liefen. Der normale Jest-Aufruf enthält weiterhin den vorhandenen bedingten Skip; vollständige Folgeläufe müssen den Smoke explizit aktivieren.
 
@@ -33,7 +35,7 @@ Die sechs Axe-Fälle prüfen öffentliche Home-/Registrierungs-/Abmeldeseiten je
 - Offen (mit Begründung): Keine undokumentierte Phase-0-Aufgabe. Bestehende Produkt-/Betriebsabweichungen bleiben für die unten zugeordneten Folgephasen offen. Screenshot- und Testgrenzen sind ausdrücklich dokumentiert.
 - Abweichungen vom Prompt: Ergänzende Vollquelle `MASTER-PROMPT-4.md` für Anhang B und D9–D11/D13; Chrome-Channel statt fehlendem Standard-Chromium; künstliche lokale Screenshot-Daten statt einer echten Personensitzung. Kein produktiver Login und keine Personendaten in Bildern. Keine Anwendung geändert, um Prüfungen bestehen zu lassen.
 - Migrationen: **keine**; Rückweg/Backup-SHA256: nicht anwendbar, da keine produktive DB-Änderung. Keine Aktivierung oder Ressourcenänderung auf dem VPS.
-- Nachweise: [Prüfbericht](PRUEFBERICHT.md), [Code-Inventar](CODE-INVENTAR.md), [VPS-Bestand](VPS-BESTAND.md), [Tests](TEST-BASELINE.md), [Designrichtlinie](../design/lernraum-designrichtlinie.md), [Bilder](ist/README.md).
+- Nachweise: [Prüfbericht](https://github.com/KeyStar96/Sitov-Academy/blob/fc1d859dbd79db3e8f64f285cd707e2b79edb743/docs/master-4/PRUEFBERICHT.md), [Code-Inventar](https://github.com/KeyStar96/Sitov-Academy/blob/fc1d859dbd79db3e8f64f285cd707e2b79edb743/docs/master-4/CODE-INVENTAR.md), [VPS-Bestand](https://github.com/KeyStar96/Sitov-Academy/blob/fc1d859dbd79db3e8f64f285cd707e2b79edb743/docs/master-4/VPS-BESTAND.md), [Tests](https://github.com/KeyStar96/Sitov-Academy/blob/fc1d859dbd79db3e8f64f285cd707e2b79edb743/docs/master-4/TEST-BASELINE.md), [Designrichtlinie](../design/lernraum-designrichtlinie.md), [Bilder](https://github.com/KeyStar96/Sitov-Academy/blob/fc1d859dbd79db3e8f64f285cd707e2b79edb743/docs/master-4/ist/README.md).
 - Git-Abgabe: ausschließlich diese Dokumentation und PNGs im Abschlusscommit auf `codex/vps-self-hosted`; Veröffentlichung auf `origin/codex/vps-self-hosted`, kein App-Deployment.
 
 ### Checkliste 0.1–0.4
@@ -69,7 +71,7 @@ Die obigen Angaben dokumentieren die abgeschlossene Phase-0-Ausgangslage. Der an
 
 ## Phase 1 — Schnelle Korrekturen und Bewertung
 
-Stand: **abgeschlossen und produktiv aktiviert**. Ausschließlich Phase 1 ausgeführt. Ausgangsrevision `81c7a40710b9963a95aa3f633f17ea5b75d59f25`, unverändert auf `codex/vps-self-hosted`. [Prüfbericht](PHASE-1-PRUEFBERICHT.md), [R15-/Registrierungs-Audit](phase-1-actions-signup.md), [Varianten-Audit](varianten-audit.md), [Vorher/Nachher-Bilder](phase-1-bilder/README.md).
+Stand: **abgeschlossen und produktiv aktiviert**. Ausschließlich Phase 1 ausgeführt. Ausgangsrevision `81c7a40710b9963a95aa3f633f17ea5b75d59f25`, unverändert auf `codex/vps-self-hosted`. [Prüfbericht](https://github.com/KeyStar96/Sitov-Academy/blob/fc1d859dbd79db3e8f64f285cd707e2b79edb743/docs/master-4/PHASE-1-PRUEFBERICHT.md), [R15-/Registrierungs-Audit](https://github.com/KeyStar96/Sitov-Academy/blob/fc1d859dbd79db3e8f64f285cd707e2b79edb743/docs/master-4/phase-1-actions-signup.md), [Varianten-Audit](https://github.com/KeyStar96/Sitov-Academy/blob/fc1d859dbd79db3e8f64f285cd707e2b79edb743/docs/master-4/varianten-audit.md), [Vorher/Nachher-Bilder](https://github.com/KeyStar96/Sitov-Academy/blob/fc1d859dbd79db3e8f64f285cd707e2b79edb743/docs/master-4/phase-1-bilder/README.md).
 
 - [x] 1.1 Beide Lern-Knopfpaare getauscht; app-weites R15-Audit umgesetzt; DOM-Tests inklusive gemeinsamer Dialoge.
 - [x] 1.2 Neue serverseitige Bewertung, neutrale Hinweise in fünf Sprachen, vollständige Intervalle/Punkte bei Großschreibung/Satzzeichen; Umlaut/Tippfehler und Distraktoren geprüft; Vorschau und Oberfläche aktualisiert.
@@ -88,13 +90,13 @@ Belegt: **30_fair_answer_grading.sql** und **31_vocabulary_target_forms.sql**, j
 
 `grade_answer` liefert `status`, `matched`, `reason` und `hint`. `EXACT` hat `reason:null` und optional einen neutralen `hint` (`capitalization`, `punctuation`, `capitalization_punctuation`); Typografiegleichheit allein hat `hint:null`. `SOFT_ERROR` hat `reason:umlaut|typo` und `hint:null`. `INCORRECT` hat `matched:null`, `reason:null`, `hint:null`. Großschreibung/Satzzeichen dürfen keine Punkt-/Intervallkürzung verursachen. Exakte falsche Distraktoren sind immer `INCORRECT`. Artikel bleiben Lernziel; die Vokabel-RPC ergänzt `feedback:article_missing|article_wrong|null`, auch bei Wiederholungen. Zahlenvarianten und Wortstellung werden ausschließlich pro Aufgabe festgelegt.
 
-Phase 4 verwendet diesen Vertrag für alle Schreibaufgaben. Aufgaben zur Unterscheidung der Großschreibung (Sie/sie) bleiben für Phase 4 Auswahlaufgaben; diese Phase ergänzt dafür keinen neuen Aufgabenbestand. Phase 3 muss weiterhin den in Phase 0 belegten Grammatik-Lesevertrag ohne vorab ausgelieferte Lösungen herstellen. Die neuen Variantenentscheidungen stehen vollständig in [varianten-audit.md](varianten-audit.md).
+Phase 4 verwendet diesen Vertrag für alle Schreibaufgaben. Aufgaben zur Unterscheidung der Großschreibung (Sie/sie) bleiben für Phase 4 Auswahlaufgaben; diese Phase ergänzt dafür keinen neuen Aufgabenbestand. Phase 3 muss weiterhin den in Phase 0 belegten Grammatik-Lesevertrag ohne vorab ausgelieferte Lösungen herstellen. Die neuen Variantenentscheidungen stehen vollständig in [varianten-audit.md](https://github.com/KeyStar96/Sitov-Academy/blob/fc1d859dbd79db3e8f64f285cd707e2b79edb743/docs/master-4/varianten-audit.md).
 
 
 ### Betrieb und Backup nach Phase 1
 
 - Produktivbackup: `/root/backups/sitov-migration-20260925T204937355350Z`, vollständig mit 549 Storage-Objekten. PostgreSQL-SHA256 `8654a4cb2e2c8acc51987447b1f18eeac5dfc1b029550f3825c4d47dd621cd21`; Storage-Manifest-SHA256 `dd923e99ed6fc35b9c6714c5e8f43f59b0693a1bf19be915e0f6dcc54f39c269`.
-- Aktivierung: vorbereitetes Release `e6a8d32f4ce7`, Migration mit `--keep-stopped`, Aktivierung mit `--schema-changed`; App aktiv und beide Health-Endpunkte `ready`. Migrationsdatei-Prüfsummen und Live-Schemaabgleich im [Prüfbericht](PHASE-1-PRUEFBERICHT.md).
+- Aktivierung: vorbereitetes Release `e6a8d32f4ce7`, Migration mit `--keep-stopped`, Aktivierung mit `--schema-changed`; App aktiv und beide Health-Endpunkte `ready`. Migrationsdatei-Prüfsummen und Live-Schemaabgleich im [Prüfbericht](https://github.com/KeyStar96/Sitov-Academy/blob/fc1d859dbd79db3e8f64f285cd707e2b79edb743/docs/master-4/PHASE-1-PRUEFBERICHT.md).
 - Live-Varianten-Audit: 512 aktive gemeinsame Karten / 26 Satzkarten / 15 Meldungen / **0 offen**. Nächste freie Migration **32**.
 - Keine RAM-/Netzwerkgrenzen geändert; keine Hintergrunddienste ergänzt. Temporärer Klon nach erfolgreicher Abnahme entfernt, lokale QA-Prozesse und SSH-Forward beendet; Backups bleiben geschützt erhalten.
 - Bestehender Befund: `sitov-mail.service` weiterhin inaktiv (wie vor Phase 1), gemäß vorhandenem Release-Verfahren nicht automatisch gestartet. Zustellbetrieb bleibt für Phase 6/8 zu prüfen; keine Testmails, Konten oder Nutzeranmeldungen angelegt. Phasen 2–8 und ihre offenen Bestandsbefunde bleiben unverändert zugeordnet.
@@ -102,7 +104,7 @@ Phase 4 verwendet diesen Vertrag für alle Schreibaufgaben. Aufgaben zur Untersc
 
 ## Phase 2 — Navigation und Design-System
 
-Stand: **umgesetzt und lokal vollständig getestet**; produktive und ergänzende Abnahme bleibt offen (siehe unten). Ausgangsrevision `3271a12`, Testbasis `6bdb3c9`. [Prüfbericht](PHASE-2-PRUEFBERICHT.md).
+Stand: **umgesetzt und lokal vollständig getestet**; produktive und ergänzende Abnahme bleibt offen (siehe unten). Ausgangsrevision `3271a12`, Testbasis `6bdb3c9`. [Prüfbericht](https://github.com/KeyStar96/Sitov-Academy/blob/fc1d859dbd79db3e8f64f285cd707e2b79edb743/docs/master-4/PHASE-2-PRUEFBERICHT.md).
 
 - [x] 2.1 D4-Tokens in `app/globals.css` (`--motion-fast|base|slow|slower`, `--motion-stagger`, `--ease-out-soft`); `lib/motion.ts` (`MOTION`, `EASE_OUT_SOFT`, `SPRING` 420/34 mit Ruhe-Schwelle ≤500 ms, `STAGGER`, Varianten, `useReducedMotionSafe`, `useIsHydrating`); `MotionConfig reducedMotion="user"` über `components/motion/MotionProvider`. Bausteine `components/motion/{PressableCard,CountUp,NewBadge,SlidingPill,FeedbackMotion}`. Modus-Tokens `--mode-{vocabulary,path,pronunciation,media,special}-{surface,text}` in allen vier Paletten, Kontrasttest erweitert.
 - [x] 2.2 `components/dashboard/ModeDock.tsx` im Niveau-Layout (Zähler per Suspense). **Modus-Ziele für Phase 3: `lib/mode-targets.ts` → `MODE_SEGMENTS.path` (heute `exercises`).**
@@ -120,7 +122,7 @@ Tests: **1.792 Jest**, **423 DB**, **177 Playwright** (Desktop/Pixel 7/iPhone 14
 - [x] Vollständiger Jest-Lauf: **1.792/1.792**, 142 Suites, kein Skip; vorhandenen rein lesenden VPS-Smoke explizit aktiviert.
 - [x] Vollständiger lokaler DB-Lauf: **423/423**, kein Skip; Build und TypeScript Exit 0.
 - [x] Veraltete LevelCard-Assertion, WebKit-Safe-Area-Emulation und mobiles Scrollen im Test repariert; iPhone verwendet WebKit. Aussprache-UI-Prüfungen gegen künstliche Daten in allen Projekten und beiden Themes grün; echter Gateway-Auth-/RLS-Lauf bleibt separat offen.
-- [x] Vollständiger abschließender Playwright-Lauf: **177/177**, kein Skip, kein Retry, keine Axe-Filter; Desktop und Pixel 7 in Chrome, iPhone 14 in WebKit. Alle vier vorherigen Kontrastbefunde behoben; zusätzliche Überlappungsprüfung für Fachnummern auf allen drei Geräten. Details im [Prüfbericht](PHASE-2-PRUEFBERICHT.md).
+- [x] Vollständiger abschließender Playwright-Lauf: **177/177**, kein Skip, kein Retry, keine Axe-Filter; Desktop und Pixel 7 in Chrome, iPhone 14 in WebKit. Alle vier vorherigen Kontrastbefunde behoben; zusätzliche Überlappungsprüfung für Fachnummern auf allen drei Geräten. Details im [Prüfbericht](https://github.com/KeyStar96/Sitov-Academy/blob/fc1d859dbd79db3e8f64f285cd707e2b79edb743/docs/master-4/PHASE-2-PRUEFBERICHT.md).
 - [x] Lokaler Testabschluss und Git-Abgabe: dieser Commit auf `codex/vps-self-hosted`; keine weiteren Phasen implementiert, kein Deployment.
 
 Migration/Produktivaktivierung, echte Gateway-Integration sowie Screenshot-/Lighthouse-Abnahme bleiben wie oben offen. Keine Produktivdaten verändert.
@@ -129,7 +131,7 @@ Migration/Produktivaktivierung, echte Gateway-Integration sowie Screenshot-/Ligh
 
 Stand: **im ausdrücklich beauftragten Infrastrukturumfang lokal abgeschlossen**. Keine Phase 4 ausgeführt. Der Zusatzauftrag beschränkt diesen Durchlauf auf Architektur, Tabellen, RPCs, Enums und Zod-Verträge. Neue Lernseiten, Routenwechsel und CMS-Oberfläche aus 3.5/3.6 wurden deshalb nicht implementiert. Der vollständige ursprüngliche UI-Abnahmeumfang von Phase 3 ist damit noch nicht erreicht.
 
-Ausgangsrevision `a25f828`; [Prüfbericht](PHASE-3-PRUEFBERICHT.md), [Seed-/Aufgabenvertrag](PHASE-3-SEED-VERTRAG.md), [PostgreSQL-Nachweise](phase-3-db-nachweise.json). Gemeinsamer lokaler Abschlusscommit; kein Push und kein Deployment.
+Ausgangsrevision `a25f828`; [Prüfbericht](https://github.com/KeyStar96/Sitov-Academy/blob/fc1d859dbd79db3e8f64f285cd707e2b79edb743/docs/master-4/PHASE-3-PRUEFBERICHT.md), [Seed-/Aufgabenvertrag](https://github.com/KeyStar96/Sitov-Academy/blob/fc1d859dbd79db3e8f64f285cd707e2b79edb743/docs/master-4/PHASE-3-SEED-VERTRAG.md), [PostgreSQL-Nachweise](https://github.com/KeyStar96/Sitov-Academy/blob/fc1d859dbd79db3e8f64f285cd707e2b79edb743/docs/master-4/phase-3-db-nachweise.json). Gemeinsamer lokaler Abschlusscommit; kein Push und kein Deployment.
 
 - [x] 3.1 Serielle Pfad-/Knotenfreigabe, mindestens 80 % zum Bestehen, Spezial-Zweige ohne Sperrwirkung, Erstversuch-Sterne mit Bestwert, wiederholbare/fortsetzbare Knoten. Niveaus bleiben ausschließlich durch Lehrkraft freigeschaltet; keine Abschlussbenachrichtigung.
 - [x] 3.2 Vorgeschaltete Enum-Migration **33**, alle neun Typen mit passenden SQL-/Zod-Verträgen und PostgreSQL-Bewertung, `SOFT_ERROR` richtig, optionales `needs_article`, lokale Offline-Audio-Infrastruktur.
@@ -145,7 +147,7 @@ Ausgangsrevision `a25f828`; [Prüfbericht](PHASE-3-PRUEFBERICHT.md), [Seed-/Aufg
 
 Neu: `33_path_exercise_types.sql`, `34_path_content_contract.sql`, `35_path_learning.sql`, jeweils mit Datei unter `supabase/vps/rollback/`. Nächste freie Nummer **36**. Produktiv wurden weder 32 noch 33–35 angewendet. Die neuen Migrationen archivieren alte Grammatik-Units und dürfen erst zusammen mit dem passenden Lernpfad-UI-Release aktiviert werden. Kein RAM-Limit, Dienst, Hosting oder Produktionsinhalt wurde verändert.
 
-Klon: lokales PostgreSQL **17.11**, ausschließlich synthetische Daten; kein VPS-/Produktionsklon. Migrationen zweimal und nach Rückweg erneut mit identischem Schema. Zwei parallele echte Sitzungen liefern denselben Knotenlauf und denselben Antwortbeleg, genau eine Wertung. Migrationen- und Backup-SHA256 im [Nachweis](phase-3-db-nachweise.json). Die konkrete PostgreSQL-15.8-Abnahme bleibt vor einer späteren produktiven Aktivierung erforderlich.
+Klon: lokales PostgreSQL **17.11**, ausschließlich synthetische Daten; kein VPS-/Produktionsklon. Migrationen zweimal und nach Rückweg erneut mit identischem Schema. Zwei parallele echte Sitzungen liefern denselben Knotenlauf und denselben Antwortbeleg, genau eine Wertung. Migrationen- und Backup-SHA256 im [Nachweis](https://github.com/KeyStar96/Sitov-Academy/blob/fc1d859dbd79db3e8f64f285cd707e2b79edb743/docs/master-4/phase-3-db-nachweise.json). Die konkrete PostgreSQL-15.8-Abnahme bleibt vor einer späteren produktiven Aktivierung erforderlich.
 
 `supabase/schema.sql` stammt aus dem abschließend geprüften PostgreSQL-Klon; SHA256 **e2e956b43d2896563f094dbea45690feb60781b0084f97a79d52377ef93a46d8**. Der Snapshot enthält weiterhin sämtliche 741 bisherigen Objektmarker plus neue Objekte. Die betroffenen öffentlichen Typen in `database.types.ts` wurden über `deploy/vps/export-path-types.py` aus dem echten Klon-Katalog erzeugt. Der vollständige Snapshot wurde mit PostgreSQL 17 exportiert und ist ein Referenzartefakt; produktive Änderungen erfolgen ausschließlich über den Migrationsrunner.
 
@@ -181,13 +183,13 @@ Enums: `exercise_type` erweitert um `multi_blank`, `matching`, `categorize`, `di
 
 Der vorhandene Seed bleibt unverändert: **7 Pfade, 85 Knoten, 769 Aufgaben, 87 Lernziele**, SHA256 **d5d954b7579ababef29876eb5321757d722194bd096ae44bf1ab925864c99a0c**. Kein neuer JSON-Seed wurde erstellt. Der neue Import wurde nicht ausgeführt. Der unveränderte Alt-Regressions-Test verwendet seine bestehende kurzlebige Altschema-Testdatenbank; das ist kein Phase-4-Import.
 
-`node scripts/path-seed.mjs` validiert ausschließlich. Der für Phase 4 vorbereitete Importbefehl ist **`node scripts/path-seed.mjs supabase/seeds/path-a1.1.json --import`**; er benötigt ausdrücklich einen lokalen Endpunkt und eine authentifizierte Staff-Sitzung. Alle neun JSON-Formate, Antwortformen, Merkkarten-/Übersetzungsfelder, Source-ID-Zuordnung und Umgebungsvariablen sind im [Seed-/Aufgabenvertrag](PHASE-3-SEED-VERTRAG.md) vollständig beschrieben.
+`node scripts/path-seed.mjs` validiert ausschließlich. Der für Phase 4 vorbereitete Importbefehl ist **`node scripts/path-seed.mjs supabase/seeds/path-a1.1.json --import`**; er benötigt ausdrücklich einen lokalen Endpunkt und eine authentifizierte Staff-Sitzung. Alle neun JSON-Formate, Antwortformen, Merkkarten-/Übersetzungsfelder, Source-ID-Zuordnung und Umgebungsvariablen sind im [Seed-/Aufgabenvertrag](https://github.com/KeyStar96/Sitov-Academy/blob/fc1d859dbd79db3e8f64f285cd707e2b79edb743/docs/master-4/PHASE-3-SEED-VERTRAG.md) vollständig beschrieben.
 
 `node scripts/path-listening-audio.mjs` ist ebenfalls nur eine Prüfung. Voraberzeugung/Upload benötigen ausdrücklich `--generate --output <Verzeichnis>` bzw. `--upload --output <Verzeichnis>`. Der private Bucket heißt `path-audio`. Der reale A1.1-Seed hat derzeit **0 Hörübungen**; es wurden keine Dateien erzeugt oder hochgeladen.
 
 ## Phase 4 — Lernpfad: Inhalte A1.1
 
-Stand: **lokal abgeschlossen und geprüft**. Ausschließlich Phase 4; kein Deployment, keine Produktionsmigration. Ausgangsrevision `c0eb6cfa7b2d9c2b2d168fdae3af2b8dae090577`. [Prüfbericht](PHASE-4-PRUEFBERICHT.md), [Import-Anleitung](phase-4-import.md), [DB-/Backup-Nachweise](phase-4-db-nachweise.json), [Browserbilder](phase-4-bilder/README.md).
+Stand: **lokal abgeschlossen und geprüft**. Ausschließlich Phase 4; kein Deployment, keine Produktionsmigration. Ausgangsrevision `c0eb6cfa7b2d9c2b2d168fdae3af2b8dae090577`. [Prüfbericht](https://github.com/KeyStar96/Sitov-Academy/blob/fc1d859dbd79db3e8f64f285cd707e2b79edb743/docs/master-4/PHASE-4-PRUEFBERICHT.md), [Import-Anleitung](https://github.com/KeyStar96/Sitov-Academy/blob/fc1d859dbd79db3e8f64f285cd707e2b79edb743/docs/master-4/phase-4-import.md), [DB-/Backup-Nachweise](https://github.com/KeyStar96/Sitov-Academy/blob/fc1d859dbd79db3e8f64f285cd707e2b79edb743/docs/master-4/phase-4-db-nachweise.json), [Browserbilder](https://github.com/KeyStar96/Sitov-Academy/blob/fc1d859dbd79db3e8f64f285cd707e2b79edb743/docs/master-4/phase-4-bilder/README.md).
 
 - [x] **4.1 Import:** `scripts/import_learning_path.ts` mit vollständiger Zod-Validierung, expliziter lokaler Service Role, geprüftem frischem Backup, Zeitlimit und Ergebnisprüfung. Atomare Batch-RPC verwendet bestehende Quellkennungen/UUIDs. Drei echte lokale CLI-Importe einschließlich Wiederholung und Rückweg/Wiederanwendung erfolgreich. Seed unverändert.
 - [x] **4.1 Datenbestand:** **7 Pfade, 85 Knoten, 769 Aufgaben, 87 Lernziele**, dazu 35 Pfad-, 425 Knoten- und 3.845 Aufgabenübersetzungen. Vollständiger DB-Export entspricht dem Seed; wiederholte Importe behalten die IDs.
@@ -208,7 +210,7 @@ Anfängliche Typ-/Logging-Probleme, die korrigierte Antwortform bei ungültigen 
 
 ## Phase 5 — Wörter mitnehmen
 
-Stand: **lokal implementiert und vollständig geprüft; produktive Abnahme offen**. Ausschließlich Phase-5-Code umgesetzt. Ausgangsrevision `b7dc0c7781e75afc3c7aa34d827276f3d583d996`. [Prüfbericht](PHASE-5-PRUEFBERICHT.md), [Betrieb/Rückweg](phase-5-betrieb.md), [Nachweise](phase-5-nachweise.json), [Browserbilder](phase-5-bilder/README.md).
+Stand: **lokal implementiert und vollständig geprüft; produktive Abnahme offen**. Ausschließlich Phase-5-Code umgesetzt. Ausgangsrevision `b7dc0c7781e75afc3c7aa34d827276f3d583d996`. [Prüfbericht](https://github.com/KeyStar96/Sitov-Academy/blob/fc1d859dbd79db3e8f64f285cd707e2b79edb743/docs/master-4/PHASE-5-PRUEFBERICHT.md), [Betrieb/Rückweg](https://github.com/KeyStar96/Sitov-Academy/blob/fc1d859dbd79db3e8f64f285cd707e2b79edb743/docs/master-4/phase-5-betrieb.md), [Nachweise](https://github.com/KeyStar96/Sitov-Academy/blob/fc1d859dbd79db3e8f64f285cd707e2b79edb743/docs/master-4/phase-5-nachweise.json), [Browserbilder](https://github.com/KeyStar96/Sitov-Academy/blob/fc1d859dbd79db3e8f64f285cd707e2b79edb743/docs/master-4/phase-5-bilder/README.md).
 
 - [x] **Entscheidung:** Migration **37_vocabulary_carryover.sql**, persönliche Entscheidung pro Zielniveau mit RLS, expliziten Grants, Beginn-/Entscheidungszeit und JSONB-RPCs; Schutz während laufender Gesamtresets. Nachweislich frühere Lernaktivität verhindert eine nachträgliche Erstfrage.
 - [x] **Gemeinsamer Fortschritt:** offene begonnene Karten aller früheren Niveaus einschließlich eigener Wörter, ohne Kopie. Originale Richtungszeilen, Fächer und Termine bleiben erhalten. Pausierte, nie begonnene, fremde und vollständig gelernte Karten ausgeschlossen.
@@ -243,7 +245,7 @@ Altbestand-Grenzen sind im Prüfbericht dokumentiert: eine historische Einstufun
 
 ## Phase 7 — Lehrer-Dashboard
 
-Stand: **lokal vollständig implementiert und abgenommen.** Ausschließlich Phase 7 umgesetzt. Ausgangsrevision `09e66e94760ad709b0d92b2850bc30fbfc9de378`. [Prüfbericht](PHASE-7-PRUEFBERICHT.md), [lokaler Betrieb und Rückweg](phase-7-betrieb.md), [Prüf- und Backup-Nachweise](phase-7-nachweise.json), [Browserbilder samt Manifest](phase-7-bilder/README.md). **Keine Produktionsmigration, kein Deployment und kein Push.** Produktion bleibt auf Migration 31 und dem oben dokumentierten Release.
+Stand: **lokal vollständig implementiert und abgenommen.** Ausschließlich Phase 7 umgesetzt. Ausgangsrevision `09e66e94760ad709b0d92b2850bc30fbfc9de378`. [Prüfbericht](https://github.com/KeyStar96/Sitov-Academy/blob/fc1d859dbd79db3e8f64f285cd707e2b79edb743/docs/master-4/PHASE-7-PRUEFBERICHT.md), [lokaler Betrieb und Rückweg](https://github.com/KeyStar96/Sitov-Academy/blob/fc1d859dbd79db3e8f64f285cd707e2b79edb743/docs/master-4/phase-7-betrieb.md), [Prüf- und Backup-Nachweise](https://github.com/KeyStar96/Sitov-Academy/blob/fc1d859dbd79db3e8f64f285cd707e2b79edb743/docs/master-4/phase-7-nachweise.json), [Browserbilder samt Manifest](https://github.com/KeyStar96/Sitov-Academy/blob/fc1d859dbd79db3e8f64f285cd707e2b79edb743/docs/master-4/phase-7-bilder/README.md). **Keine Produktionsmigration, kein Deployment und kein Push.** Produktion bleibt auf Migration 31 und dem oben dokumentierten Release.
 
 - [x] **7.1 Schülerseite:** Neue geschützte Route `/{lang}/admin/students/[id]` mit Überblick, Vokabeln, Lernpfad, Aussprache, Aktivität und datierten Notizen. Die Liste verlinkt auf die Seite. Überblick mit letzter Aktivität, Lernzeit 7/30 Tage, Serie, Niveau, Pfadposition, letzter Testnote, fälligen Karten, Fächerverteilung, Aufmerksamkeitsgründen und Pfadabschlüssen je Niveau. Einzelne, mehrere und alle Niveaus bleiben im Voraus freischaltbar; bisherige Trainer-/Lektionsfreigaben und Admin-Rollenverwaltung bleiben erhalten.
 - [x] **7.1 Lernverlauf:** Fächer je Niveau und Lektion, halb gewusste Wörter mit unterschiedlichen Richtungsfächern, Rückfälle, letzte 50 gemeinsame Vokabelantworten, Pausen und Mitnahme samt Anzahl. Lernpfad mit Knotenstatus und Sternen, sämtlichen Testversuchen und aufklappbaren Antworten einschließlich archivierter Versuche. Aussprachegespräche mit offenen/unbeantworteten Aufnahmen und Gesprächslink; Aktivitätskalender und Zeitverteilung nach Modus.
@@ -279,7 +281,7 @@ Es gibt weiterhin keine Einspruchs-Warteschlange und keinen Knopf zur Selbstkorr
 
 ## Phase 8 — Abnahme und Auslieferung
 
-Stand: **abgeschlossen und produktiv aktiviert am 26.09.2026**. Der kumulative Go-Live umfasst **32–39**, einschließlich Phase 7. Phase 6 bleibt ausdrücklich übersprungen. [Vollständige Verifikation](verifikation.md), [Live-/Backupnachweise](phase-8-live-nachweise.json), [Leistungswerte](phase-8-performance.json).
+Stand: **abgeschlossen und produktiv aktiviert am 26.09.2026**. Der kumulative Go-Live umfasst **32–39**, einschließlich Phase 7. Phase 6 bleibt ausdrücklich übersprungen. [Vollständige Verifikation](https://github.com/KeyStar96/Sitov-Academy/blob/fc1d859dbd79db3e8f64f285cd707e2b79edb743/docs/master-4/verifikation.md), [Live-/Backupnachweise](https://github.com/KeyStar96/Sitov-Academy/blob/fc1d859dbd79db3e8f64f285cd707e2b79edb743/docs/master-4/phase-8-live-nachweise.json), [Leistungswerte](https://github.com/KeyStar96/Sitov-Academy/blob/fc1d859dbd79db3e8f64f285cd707e2b79edb743/docs/master-4/phase-8-performance.json).
 
 - [x] **8.1 Testinfrastruktur:** Produktionsbuild, authentifizierte englische Testpersonen, Desktop Chrome, Pixel 7 und iPhone 14/WebKit.
 - [x] **8.2 Phasen 1–5/7:** Aktionsreihenfolge/Artikel/Bewertung, Navigation/Brotkrumen/Bewegung/letztes Niveau, kompletter erster Pfad, 80%-Grenze, Lösungsgeheimhaltung, Mitnahme/Reset sowie Staff-Tabs/Rechte/Notfallaktionen automatisiert geprüft. Einzelzuordnung im Verifikationsbericht.
