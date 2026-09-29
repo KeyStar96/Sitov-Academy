@@ -22,20 +22,26 @@ Jeder Schüler soll sich seine Teilnahmebescheinigung in seinem Profil selbst al
    - Wie bilden wir das auf dem Zertifikat logisch ab, ohne dass es unübersichtlich wird?
 
 2. **Kunden-Synchronisation (Papierkram -> Plattform):**
-   - Ich kann aus papierkram.de eine `eintraege.csv` (Kundenliste) exportieren. 
+   - Ich kann aus papierkram.de eine Kundenliste exportieren (siehe `docs/Papierkram/Adressbuch/eintraege.csv`). 
    - Ich brauche im Lehrer-Dashboard eine Upload-Funktion für diese CSV.
+   - *Dynamik:* Diese Liste wächst kontinuierlich durch Neuanmeldungen.
    - *Logik:* Nur Zeilen mit `Kontaktart = 'Kunde'` sollen beachtet werden. Neue Kunden sollen in unserer Datenbank ergänzt werden. Bestehende Kunden (Abgleich per E-Mail-Adresse) dürfen NICHT überschrieben werden, da Schüler ihre Daten im Profil selbst ändern können.
 
 3. **Rechnungs-Synchronisation (Papierkram -> Plattform):**
-   - Ich exportiere aus papierkram.de monatlich eine `rechnungen.csv` (inkl. Rechnungsnr, Kunde, Status "Bezahlt"/"Unbezahlt", Datum).
+   - Ich exportiere aus papierkram.de monatlich eine Rechnungsliste (siehe `docs/Papierkram/Rechnungen/rechnungen-3.csv`).
    - Auch diese CSV möchte ich im Lehrer-Dashboard hochladen.
-   - *Logik:* Der Rechnungsstatus in der Plattform soll aktualisiert werden. Erst wenn eine Rechnung für den entsprechenden Monat den Status "Bezahlt" hat, darf die Teilnahmebescheinigung heruntergeladen werden.
-   - *Das Problem:* Da Schüler oft zu spät zahlen, muss das System flexibel und fehlertolerant sein. Wir erstellen die Rechnungen immer am Ende des Monats für den Folgemonat.
+   - *Dynamik:* Rechnungen sind extrem dynamisch. Bestehende Rechnungen können storniert werden und Korrektur-Rechnungen können neu ausgestellt werden. Das System muss damit sicher umgehen können.
+   - *Logik:* Der Rechnungsstatus in der Plattform soll aktualisiert werden. Erst wenn eine gültige Rechnung für den entsprechenden Monat den Status "Bezahlt" hat, darf die Teilnahmebescheinigung heruntergeladen werden. Da Schüler oft zu spät zahlen, muss das System flexibel und fehlertolerant sein. Wir erstellen die Rechnungen immer am Ende des Monats für den Folgemonat.
+
+4. **Produkte / Dienstleistungen:**
+   - Wir haben verschiedene Dienstleistungen/Kurse, die auf den Rechnungen abgerechnet und auf den Zertifikaten ausgewiesen werden (siehe `docs/Papierkram/Dienstleistungen/produkte.csv`).
+   - *Dynamik:* Für den Moment sind diese fest, können sich aber in der Zukunft erweitern.
 
 **Deine Aufgabe:**
-Bitte analysiere diese Problemstellungen und erarbeite ein ganzheitliches technisches und fachliches Konzept (noch keinen Code). 
+Bitte sichte zunächst die bereitgestellten Dateien (`docs/Papierkram/Adressbuch/eintraege.csv`, `docs/Papierkram/Rechnungen/rechnungen-3.csv`, `docs/Papierkram/Dienstleistungen/produkte.csv`), um ihre Struktur kennenzulernen. 
+Analysiere anschließend die Problemstellungen und erarbeite ein ganzheitliches technisches und fachliches Konzept (noch keinen Code). 
 1. Wie sollte die Logik für die Teilnahmebescheinigungen (Zeitraum, Lücken in der Historie) aufgebaut sein? Was empfiehlst du für die PDF-Generierung in Next.js?
-2. Wie strukturieren wir den Datenbank- und CSV-Import-Workflow am smartesten, um den manuellen Aufwand zu minimieren, aber flexibel bei verspäteten Zahlungen zu bleiben?
+2. Wie strukturieren wir den Datenbank- und CSV-Import-Workflow am smartesten, um den manuellen Aufwand zu minimieren, aber robust bei Stornierungen und flexibel bei verspäteten Zahlungen zu bleiben?
 3. Skizziere einen Lösungsansatz (Architektur, Datenmodell, UI-Flow) für das Lehrer-Dashboard (CSV-Uploads) und das Schüler-Profil (PDF-Download).
 
 *Beispiel für den bisherigen Text der manuellen Teilnahmebescheinigung:*
