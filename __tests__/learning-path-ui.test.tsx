@@ -122,6 +122,51 @@ it('resumes unanswered test items, saves without grading and shows server final 
   expect(finishLearningTest).toHaveBeenCalledWith(id, 'en')
 })
 
+describe('always-open section tests', () => {
+  const testId = '00000000-0000-4000-8000-000000000004'
+  const lockedPath: PathMap = { ...map, paths: [{ ...map.paths[0], available: false, nodes: [
+    { ...node, available: false }, { ...node, id: nextId, title: 'Next step', sort_order: 2, available: false },
+    { ...node, id: testId, kind: 'test', title: 'Section test', sort_order: 3, available: true },
+  ] }] }
+  const pathTest: PathTest = { attempt_id: id, node_id: testId, total: 1, exercises: [{ ...run.exercises[0], answer: { text: 'saved' } }] }
+
+  async function finishWith(outcome: Partial<TestResult>) {
+    jest.mocked(startLearningTest).mockResolvedValue({ data: pathTest })
+    jest.mocked(finishLearningTest).mockResolvedValue({ data: { attempt_id: id, percentage: 100, passed: true, recommended_nodes: [], answers: [], ...outcome } })
+    render(<LearningPathClient initialPath={lockedPath} level="A1.1" lang="en" />)
+    fireEvent.click(screen.getByTestId(`path-node-${testId}`))
+    fireEvent.click(await screen.findByTestId('path-test-finish'))
+    return screen.findByTestId('path-test-outcome')
+  }
+
+  it('keeps the test open inside a locked path while its lessons stay locked', () => {
+    render(<LearningPathClient initialPath={lockedPath} level="A1.1" lang="en" />)
+    expect(screen.getByTestId(`path-node-${id}`)).toBeDisabled()
+    expect(screen.getByTestId(`path-node-${testId}`)).toBeEnabled()
+    expect(screen.getByTestId(`path-node-${testId}`)).toHaveTextContent('Always open')
+    expect(screen.getByText('Still locked. Take the test to jump straight in.')).toBeInTheDocument()
+  })
+
+  it('celebrates a pass and lists the lessons it unlocked', async () => {
+    const outcome = await finishWith({ percentage: 86.67, passed: true })
+    expect(outcome).toHaveAttribute('data-passed', 'true')
+    expect(outcome).toHaveTextContent('Test passed')
+    expect(outcome).toHaveTextContent('Great work! Every lesson in this path is now unlocked.')
+    expect(screen.getByRole('list', { name: 'Unlocked' })).toHaveTextContent('Greetings')
+    expect(screen.getByText('Result: 86%')).toBeInTheDocument()
+  })
+
+  it('encourages below 80% instead of failing the learner and points to helpful lessons', async () => {
+    const outcome = await finishWith({ percentage: 73.33, passed: false, recommended_nodes: [nextId] })
+    expect(outcome).toHaveAttribute('data-passed', 'false')
+    expect(outcome).toHaveTextContent('Good try!')
+    expect(outcome).toHaveTextContent('You are not quite ready yet. Work through the learning path step by step to master the test!')
+    expect(outcome).toHaveTextContent('You need 7 more percentage points to reach the goal.')
+    expect(outcome).toHaveTextContent('Next step')
+    expect(outcome).not.toHaveTextContent('Test passed')
+  })
+})
+
 it.each(['de', 'en', 'ru', 'uk', 'tr'] as const)('has every interface and error message in %s', lang => {
   expect(Object.keys(learningPathMessages[lang]).sort()).toEqual(Object.keys(learningPathMessages.de).sort())
   expect(Object.values(learningPathMessages[lang]).every(Boolean)).toBe(true)

@@ -4,23 +4,22 @@ import { modeHref } from '@/lib/mode-targets'
 
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
-import { Check, Lock, Route } from 'lucide-react'
+import { Trophy } from 'lucide-react'
 import { getLearningPath, startLearningNode, submitLearningAnswer, startLearningTest, saveLearningTestAnswer, finishLearningTest } from '@/app/actions/learning-path'
 import type { PathAnswer, PathMap, PathNode, PracticeRun, PracticeResult, PathTest, TestResult, PathGrade } from '@/lib/learning-path-contract'
 import { pathErrorText, pathTranslator } from '@/lib/learning-path-i18n'
-import { MOTION, PRESS_SCALE, useReducedMotionSafe } from '@/lib/motion'
 import { OrthographyNote } from '@/components/exercises/SoftErrorBadge'
 import FeedbackMotion from '@/components/motion/FeedbackMotion'
-import NewBadge from '@/components/motion/NewBadge'
 import { useLearningNew } from '@/components/dashboard/useLearningNew'
 import { studentTranslator } from '@/lib/student-ui-i18n'
 import type { LearningNewItems } from '@/lib/learning-new'
 import RuleCard from './RuleCard'
 import PathExerciseForm from './PathExerciseForm'
+import PathTrail from './PathTrail'
+import TestOutcome from './TestOutcome'
 import styles from './learning-path.module.css'
 
-type Selection = { node: PathNode; title: string }
+type Selection = { node: PathNode; title: string; pathId: string }
 
 function GradeFeedback({ grade, solution, lang, isTest = false }: { grade: PathGrade; solution: PracticeResult['solution']; lang: string; isTest?: boolean }) {
   const t = pathTranslator(lang)
@@ -43,7 +42,6 @@ export default function LearningPathClient({ initialPath, initialError, lang, le
   const t = pathTranslator(lang)
   const newLabel = studentTranslator(lang)('media_new')
   const news = useLearningNew(newItems)
-  const reduced = useReducedMotionSafe()
   const [map, setMap] = useState(initialPath)
   const [error, setError] = useState(initialError ?? null)
   const [busy, setBusy] = useState(false)
@@ -60,6 +58,9 @@ export default function LearningPathClient({ initialPath, initialError, lang, le
   const pending = useRef<{ key: string; requestId: string } | null>(null)
   const exercise = run ? run.exercises.find(item => item.id === run.queue[0])
     : test?.exercises.find(item => item.answer === null)
+  const selectedPath = map?.paths.find(path => path.id === selection?.pathId)
+  const pathNodes = selectedPath?.nodes ?? []
+  const hasNextPath = Boolean(selectedPath && map && map.paths.indexOf(selectedPath) < map.paths.length - 1)
   const view = !selection ? 'map' : cardShown ? 'rule' : feedback ? 'feedback' : testResult ? 'result' : exercise?.id ?? 'finish'
 
   useEffect(() => {
@@ -94,7 +95,7 @@ export default function LearningPathClient({ initialPath, initialError, lang, le
         if (result.error) { setError(result.error); return }
         setRun(result.data); setTest(null); setCardShown(Boolean(result.data.merkkarte))
       }
-      setSelection({ node, title }); setFeedback(null); setTestResult(null); setStep(0); pending.current = null
+      setSelection({ node, title, pathId }); setFeedback(null); setTestResult(null); setStep(0); pending.current = null
       // Erst wenn der Knoten wirklich offen ist, gilt er als geöffnet; die Zähler folgen beim Zurück zur Karte.
       news.mark('path', pathId, { refresh: false })
       if (node.kind === 'special') news.mark('special_branch', node.id, { refresh: false })
@@ -153,33 +154,20 @@ export default function LearningPathClient({ initialPath, initialError, lang, le
           ? <Link className={styles.primary} href={modeHref(lang, map.next_level, 'path')}>{t('next_level', { level: map.next_level })}</Link>
           : <p>{t('teacher_level')}</p>)}
       </div>}
-      {map?.paths.map(path => <article key={path.id} className={styles.card}>
-        <p className={styles.eyebrow}><Route size={20} aria-hidden="true" /> {t('path', { number: path.sort_order })}</p>
-        <h3>{path.title}{news.isNew('path', path.id) && <NewBadge label={newLabel} className="ml-2 align-middle" />}</h3>
-        <ol className={styles.nodes}>{path.nodes.map(node => <li key={node.id}>
-          <motion.button className={styles.node} data-testid={`path-node-${node.id}`} data-node-kind={node.kind}
-            disabled={busy || !node.available || !path.available} whileTap={reduced ? undefined : { scale: PRESS_SCALE }}
-            transition={{ duration: reduced ? 0 : MOTION.fast }} onClick={() => openNode(node, path.title, path.id)}>
-            <span className={styles.nodeIcon} aria-hidden="true">{!node.available ? <Lock size={22} /> : node.status === 'completed' ? <Check size={22} /> : node.sort_order}</span>
-            <span className={styles.nodeText}><strong>{node.title}{news.isNew('special_branch', node.id) && <NewBadge label={newLabel} className="ml-2 align-middle" />}</strong><span>{t(node.kind)} · {t(!node.available ? 'locked' : node.status === 'completed' ? 'completed' : node.status === 'in_progress' || node.tests.some(attempt => attempt.status === 'active') ? 'resume' : 'ready')}</span>
-              {node.stars > 0 && <span>{t('stars', { count: node.stars })}</span>}
-            </span>
-          </motion.button>
-        </li>)}</ol>
-      </article>)}
+      {map && map.paths.length > 0 && <PathTrail map={map} lang={lang} busy={busy}
+        onOpen={(node, path) => openNode(node, path.title, path.id)}
+        isNewPath={id => news.isNew('path', id)} isNewBranch={id => news.isNew('special_branch', id)} newLabel={newLabel} />}
       {map && map.paths.length === 0 && <p>{t('empty')}</p>}
     </div>}
-    {selection && <div className={styles.card}>
+    {selection && <div className={testResult ? undefined : styles.card}>
       {cardShown && run?.merkkarte ? <>
         <RuleCard card={run.merkkarte} lang={lang} />
         <div className={styles.actions}><button data-testid="path-rule-continue" className={styles.primary} onClick={() => setCardShown(false)}>{t('begin')}</button></div>
-      </> : testResult ? <>
-        <h3>{t(testResult.passed ? 'passed' : 'retry_test')}</h3>
-        <p>{t('percentage', { value: testResult.percentage })}</p>
-        {testResult.recommended_nodes.length > 0 && <><p>{t('recommendations')}</p><ul>
-          {map?.paths.flatMap(path => path.nodes).filter(node => testResult.recommended_nodes.includes(node.id)).map(node => <li key={node.id}>{node.title}</li>)}
-        </ul></>}
-        <h3>{t('results')}</h3>
+      </> : testResult ? <TestOutcome result={testResult} lang={lang} hasNextPath={hasNextPath}
+        lessons={pathNodes.filter(node => node.kind === 'practice' || node.kind === 'review')}
+        recommended={pathNodes.filter(node => testResult.recommended_nodes.includes(node.id))}
+        actions={<div className={`${styles.actions} !justify-center`}><button data-testid="path-outcome-back" className={styles.primary} disabled={busy} onClick={() => void perform(refreshMap)}>{t('back')}</button></div>}>
+        <h3 className="!mt-8">{t('results')}</h3>
         {testResult.answers.map((item, index) => <details key={item.id} className={styles.result}>
           <summary>{index + 1}. {item.content.instruction || t('answer')}</summary>
           <p lang="de" translate="no">{item.type === 'fill_in_blank' ? `${item.content.text_before} … ${item.content.text_after}` : item.type === 'multiple_choice' ? item.content.question : item.content.parts.join(' · ')}</p>
@@ -188,13 +176,12 @@ export default function LearningPathClient({ initialPath, initialError, lang, le
               : 'indices' in item.answer && item.type === 'sentence_building' ? item.answer.indices.map(index => item.content.parts[index]).join(' ') : ''}</span></p>
           <GradeFeedback grade={item.result} solution={item.solution} lang={lang} isTest />
         </details>)}
-        <div className={styles.actions}><button className={styles.primary} disabled={busy} onClick={() => void perform(refreshMap)}>{t('back')}</button></div>
-      </> : feedback ? <div ref={feedbackRef} tabIndex={-1} data-testid="path-feedback">
+      </TestOutcome> : feedback ? <div ref={feedbackRef} tabIndex={-1} data-testid="path-feedback">
         <GradeFeedback grade={feedback.grade} solution={feedback.solution} lang={lang} />
         {feedback.completed && <><h3>{t('node_done')}</h3><p>{t('stars', { count: feedback.stars ?? 0 })}</p></>}
         <div className={styles.actions}><button data-testid="path-next" className={styles.primary} disabled={busy} onClick={next}>{t(feedback.completed ? 'back' : 'next')}</button></div>
       </div> : <>
-        {test && <p>{t('test_intro')}</p>}
+        {test && <div className={styles.callout}><Trophy size={22} aria-hidden="true" /><p className="!m-0">{t('test_hint')} {t('test_intro')}</p></div>}
         <p role="status">{t('progress', { done: run ? run.total - run.queue.length : test?.exercises.filter(item => item.answer !== null).length ?? 0, total: run?.total ?? test?.total ?? 0 })}</p>
         {exercise ? <PathExerciseForm key={`${exercise.id}-${step}`} exercise={exercise} lang={lang} busy={busy} onSubmit={submit} isTest={Boolean(test)} />
           : test && <><p>{t('test_ready')}</p><div className={styles.actions}><button data-testid="path-test-finish" className={styles.primary} disabled={busy} onClick={finish}>{t('finish')}</button></div></>}

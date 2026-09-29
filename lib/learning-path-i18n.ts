@@ -16,7 +16,7 @@ const de = {
   save: 'Antwort speichern', finish: 'Test abschließen', test_intro: 'Im Test bekommst du die Bewertung am Ende. Ab 80 % ist der Test bestanden.',
   test_ready: 'Alle Antworten sind gespeichert. Du kannst den Test jetzt abschließen.',
   passed: 'Test bestanden', retry_test: 'Du kannst den Test erneut versuchen.', percentage: 'Ergebnis: {value} %',
-  recommendations: 'Diese Knoten helfen dir beim Wiederholen:', results: 'Deine Antworten',
+  recommendations: 'Diese Lektionen helfen dir weiter:', results: 'Deine Antworten',
   empty: 'Hier werden bald neue Lernpfade freigeschaltet.', loading: 'Wird geladen …',
   retry: 'Erneut versuchen', error: 'Das hat gerade nicht geklappt. Bitte versuche es erneut.',
   error_auth: 'Bitte melde dich erneut an.', error_locked: 'Schließe zuerst die vorherigen Schritte ab. Die Niveau-Freigabe übernimmt deine Lehrkraft.',
@@ -25,6 +25,14 @@ const de = {
   error_conflict: 'Der Lernstand hat sich geändert. Kehre zum Lernpfad zurück und setze dort fort.',
   all_done: 'Du hast alle Pfade dieses Niveaus abgeschlossen.', next_level: 'Weiter zu {level}',
   teacher_level: 'Deine Lehrkraft schaltet das nächste Niveau für dich frei.',
+  test_open: 'Immer offen', test_hint: 'Teste dein Wissen jederzeit. Ab 80 % schaltest du den ganzen Pfad frei.',
+  passed_body: 'Stark! Alle Lektionen dieses Pfads sind jetzt freigeschaltet.', passed_next: 'Der nächste Pfad ist jetzt offen.',
+  not_ready_title: 'Guter Versuch!', not_ready: 'Du bist noch nicht ganz bereit. Bitte arbeite den vorherigen Lernpfad Schritt für Schritt ab, um den Test zu meistern!',
+  not_ready_gap: 'Bis zum Ziel fehlen dir noch {points} Prozentpunkte.', not_ready_tip: 'Bei jedem neuen Versuch bekommst du andere Aufgaben.',
+  goal: 'Ziel: 80 %', score: 'Dein Ergebnis', unlocked: 'Freigeschaltet',
+  level_progress: '{done} von {total} Lektionen geschafft', path_progress: '{done} von {total} Lektionen',
+  start_here: 'Jetzt dran', test_passed: 'Bestanden · {value} %', test_last: 'Letzter Versuch: {value} %',
+  path_locked_hint: 'Noch gesperrt. Mit dem Test kannst du direkt einsteigen.',
 }
 type Messages = Record<keyof typeof de, string>
 const en: Messages = {
@@ -51,6 +59,14 @@ const en: Messages = {
   error_conflict: 'Your progress has changed. Return to the learning path to continue.',
   all_done: 'You have completed every path in this level.', next_level: 'Continue to {level}',
   teacher_level: 'Your teacher will unlock the next level for you.',
+  test_open: 'Always open', test_hint: 'Test your knowledge any time. Score 80% to unlock the whole path.',
+  passed_body: 'Great work! Every lesson in this path is now unlocked.', passed_next: 'The next path is now open.',
+  not_ready_title: 'Good try!', not_ready: 'You are not quite ready yet. Work through the learning path step by step to master the test!',
+  not_ready_gap: 'You need {points} more percentage points to reach the goal.', not_ready_tip: 'Each new attempt gives you different exercises.',
+  goal: 'Goal: 80%', score: 'Your result', unlocked: 'Unlocked',
+  level_progress: '{done} of {total} lessons completed', path_progress: '{done} of {total} lessons',
+  start_here: 'Up next', test_passed: 'Passed · {value}%', test_last: 'Last attempt: {value}%',
+  path_locked_hint: 'Still locked. Take the test to jump straight in.',
 }
 const ru: Messages = {
   title: 'Учебный маршрут', intro: 'Шаг за шагом: изучай, практикуйся и закрепляй знания.',
@@ -76,6 +92,14 @@ const ru: Messages = {
   error_conflict: 'Прогресс изменился. Вернись к учебному маршруту и продолжи оттуда.',
   all_done: 'Все маршруты этого уровня завершены.', next_level: 'Перейти к {level}',
   teacher_level: 'Преподаватель откроет тебе следующий уровень.',
+  test_open: 'Всегда открыт', test_hint: 'Проверь свои знания в любое время. Набери 80 %, чтобы открыть весь маршрут.',
+  passed_body: 'Отлично! Все уроки этого маршрута теперь открыты.', passed_next: 'Следующий маршрут уже открыт.',
+  not_ready_title: 'Хорошая попытка!', not_ready: 'Пока ещё рановато. Пройди предыдущий маршрут шаг за шагом — и тест тебе покорится!',
+  not_ready_gap: 'До цели осталось: {points} %.', not_ready_tip: 'С каждой новой попыткой ты получаешь другие задания.',
+  goal: 'Цель: 80 %', score: 'Твой результат', unlocked: 'Открыто',
+  level_progress: 'Пройдено уроков: {done} из {total}', path_progress: 'Уроков: {done} из {total}',
+  start_here: 'Сейчас', test_passed: 'Пройден · {value} %', test_last: 'Последняя попытка: {value} %',
+  path_locked_hint: 'Пока закрыт. С помощью теста можно начать сразу.',
 }
 const uk: Messages = {
   title: 'Навчальний маршрут', intro: 'Крок за кроком: вивчай, практикуйся та закріплюй знання.',
@@ -101,6 +125,14 @@ const uk: Messages = {
   error_conflict: 'Прогрес змінився. Повернися до навчального маршруту та продовж звідти.',
   all_done: 'Усі маршрути цього рівня завершено.', next_level: 'Перейти до {level}',
   teacher_level: 'Викладач відкриє тобі наступний рівень.',
+  test_open: 'Завжди відкритий', test_hint: 'Перевір свої знання будь-коли. Набери 80 %, щоб відкрити весь маршрут.',
+  passed_body: 'Чудово! Усі уроки цього маршруту тепер відкриті.', passed_next: 'Наступний маршрут уже відкритий.',
+  not_ready_title: 'Гарна спроба!', not_ready: 'Поки що трохи зарано. Пройди попередній маршрут крок за кроком — і тест тобі підкориться!',
+  not_ready_gap: 'До мети залишилося: {points} %.', not_ready_tip: 'З кожною новою спробою ти отримуєш інші завдання.',
+  goal: 'Мета: 80 %', score: 'Твій результат', unlocked: 'Відкрито',
+  level_progress: 'Пройдено уроків: {done} із {total}', path_progress: 'Уроків: {done} із {total}',
+  start_here: 'Зараз', test_passed: 'Пройдено · {value} %', test_last: 'Остання спроба: {value} %',
+  path_locked_hint: 'Поки закритий. Завдяки тесту можна почати одразу.',
 }
 const tr: Messages = {
   title: 'Öğrenme yolu', intro: 'Adım adım öğren, alıştırma yap ve bilgilerini pekiştir.',
@@ -126,6 +158,14 @@ const tr: Messages = {
   error_conflict: 'İlerlemen değişti. Öğrenme yoluna dönerek devam et.',
   all_done: 'Bu seviyedeki tüm yolları tamamladın.', next_level: '{level} seviyesine geç',
   teacher_level: 'Öğretmenin bir sonraki seviyeyi senin için açacak.',
+  test_open: 'Her zaman açık', test_hint: 'Bilgini istediğin zaman test et. Tüm yolu açmak için %80 yeterli.',
+  passed_body: 'Harika! Bu yoldaki tüm dersler artık açık.', passed_next: 'Sonraki yol artık açık.',
+  not_ready_title: 'Güzel deneme!', not_ready: 'Henüz tam hazır değilsin. Testi başarmak için önceki öğrenme yolunu adım adım tamamla!',
+  not_ready_gap: 'Hedefe kalan: %{points}.', not_ready_tip: 'Her yeni denemede farklı alıştırmalar alırsın.',
+  goal: 'Hedef: %80', score: 'Sonucun', unlocked: 'Açıldı',
+  level_progress: '{total} dersten {done} tanesi tamamlandı', path_progress: '{total} dersten {done}',
+  start_here: 'Sıradaki', test_passed: 'Geçtin · %{value}', test_last: 'Son deneme: %{value}',
+  path_locked_hint: 'Henüz kilitli. Testle doğrudan başlayabilirsin.',
 }
 export const learningPathMessages: Record<UiLocale, Messages> = { de, en, ru, uk, tr }
 export function pathTranslator(locale: string) {
