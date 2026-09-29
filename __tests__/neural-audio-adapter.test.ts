@@ -54,3 +54,16 @@ it('returns a safe error when the local service cannot be reached',async()=>{
   fetchMock.mockRejectedValue(new Error('private diagnostic'))
   await expect(synthesizeNeuralAudio('Hallo','de')).rejects.toThrow('Local speech service unavailable')
 })
+
+it('returns genuine word timings and requests the selected voice', async () => {
+  const { synthesizeNeuralSpeech } = await import('@/lib/audio/edge-tts')
+  const wordTimings = [{ start: 0.05, end: 0.2 }, { start: 0.3, end: 1.1 }]
+  fetchMock.mockResolvedValue(new Response(mp3(), { headers: { 'Content-Type': 'audio/mpeg', 'X-Word-Timings': JSON.stringify(wordTimings) } }))
+  expect(await synthesizeNeuralSpeech('die Tür', 'de', 'female')).toEqual({ audio: mp3(), wordTimings })
+  expect(fetchMock.mock.calls[0][1]?.body).toBe(JSON.stringify({ text: 'die Tür', language: 'de', voice: 'female' }))
+})
+it('ignores invalid alignment rather than inventing word timings', async () => {
+  const { synthesizeNeuralSpeech } = await import('@/lib/audio/edge-tts')
+  fetchMock.mockResolvedValue(new Response(mp3(), { headers: { 'Content-Type': 'audio/mpeg', 'X-Word-Timings': JSON.stringify([{ start: 1, end: 0 }]) } }))
+  expect(await synthesizeNeuralSpeech('Tür', 'de')).toEqual({ audio: mp3() })
+})

@@ -12,7 +12,9 @@ import NewBadge from '@/components/motion/NewBadge'
 import { useLearningNew } from '@/components/dashboard/useLearningNew'
 import type { LearningNewItems } from '@/lib/learning-new'
 import SolutionAudioButton from '@/components/exercises/SolutionAudioButton'
+import { useAudioFeedback } from '@/components/layout/RouteFeedbackProvider'
 import { prefetchNeuralAudio } from '@/lib/audio/neural-client'
+import type { NeuralVoiceProfile } from '@/lib/types/audio'
 import { createPronunciationTranslator, type PronunciationTranslations } from '@/lib/pronunciation-i18n'
 import type { PronunciationConversation } from '@/lib/pronunciation-conversations'
 import type { PronunciationPrompt } from '@/lib/pronunciation-prompts'
@@ -109,6 +111,7 @@ function Studio({ prompts, statuses, level, lang, translations, onOpenMailbox, n
 }) {
   const t = createPronunciationTranslator(translations)
   const s = studentTranslator(lang)
+  const audioCopy = useAudioFeedback()
   const news = useLearningNew(newItems)
   const reduced = useReducedMotion() ?? false
   // Start beim ersten Text, der noch nicht aufgenommen ist.
@@ -117,8 +120,12 @@ function Studio({ prompts, statuses, level, lang, translations, onOpenMailbox, n
   const [phase, setPhase] = useState<RecorderPhase>('idle')
   const [listened, setListened] = useState(false)
   const [following, setFollowing] = useState<number | null>(null)
+  const [activeWordIndex, setActiveWordIndex] = useState<number | null>(null)
+  const [referenceVoice, setReferenceVoice] = useState<'original' | NeuralVoiceProfile>('original')
   const cards = useRef<HTMLUListElement>(null)
   const selected = prompts.find(prompt => prompt.id === selectedId) ?? prompts[0]
+  const hasTeacherReference = Boolean(selected?.audioUrl && !selected.audioUrl.includes('/audio_cache/'))
+  const useOriginalReference = hasTeacherReference && referenceVoice === 'original'
 
   useEffect(() => {
     if (!selected) return
@@ -126,7 +133,7 @@ function Studio({ prompts, statuses, level, lang, translations, onOpenMailbox, n
   }, [selected?.sentenceDe, selected?.audioUrl])
 
   useEffect(() => {
-    setListened(false); setFollowing(null); setPhase('idle')
+    setListened(false); setFollowing(null); setActiveWordIndex(null); setPhase('idle')
     const card = cards.current?.querySelector<HTMLElement>('[aria-pressed="true"]')
     card?.scrollIntoView?.({ block: 'nearest', inline: 'center', behavior: reduced ? 'instant' : 'smooth' })
   }, [selectedId, reduced])
@@ -210,15 +217,29 @@ function Studio({ prompts, statuses, level, lang, translations, onOpenMailbox, n
             </header>
             <div className="st-reading__body">
               <div data-testid="pronunciation-reading-text">
-                <KaraokeText text={selected.sentenceDe} progress={following} className="st-karaoke whitespace-pre-line" />
+                <KaraokeText text={selected.sentenceDe} progress={following} activeWordIndex={useOriginalReference ? undefined : activeWordIndex} className="st-karaoke whitespace-pre-line" />
               </div>
               <span data-testid="pronunciation-text-end" className="pronunciation-text-end block h-px" aria-hidden="true" />
               <p className="st-reading__follow"><Headphones size={18} aria-hidden="true" />{s('studio_follow')}</p>
-              <div className="mt-4">
-                {selected.audioUrl
-                  ? <WaveformPlayer src={selected.audioUrl} t={t} label={t('reference_listen')}
+              <div className="mt-4 space-y-3">
+                {hasTeacherReference && <label className="flex flex-wrap items-center gap-2 text-sm font-semibold text-[var(--muted)]">
+                  <span>{audioCopy.voice}</span>
+                  <select aria-label={audioCopy.voice} value={referenceVoice}
+                    onChange={event => { setReferenceVoice(event.target.value as 'original' | NeuralVoiceProfile); setFollowing(null); setActiveWordIndex(null) }}
+                    style={{ height: 48, minHeight: 48 }}
+                    className="h-12 min-h-12 max-w-full cursor-pointer appearance-none rounded-xl border border-[var(--border)] bg-[var(--surface)] px-3 text-[var(--foreground)]">
+                    <option value="original">{audioCopy.recording}</option>
+                    <option value="male">{audioCopy.voice_male}</option>
+                    <option value="female">{audioCopy.voice_female}</option>
+                  </select>
+                  <span aria-hidden="true">▾</span>
+                </label>}
+                {useOriginalReference
+                  ? <WaveformPlayer src={selected.audioUrl} level={level} t={t} label={t('reference_listen')}
                       onProgress={state => onReferenceProgress(state.playing || (state.fraction > 0 && !state.ended) ? state.fraction : null)} />
-                  : <SolutionAudioButton text={selected.sentenceDe} language="de" label={t('reference_listen')} ariaLabel={t('reference_listen_aria')} onProgress={onReferenceProgress} />}
+                  : <SolutionAudioButton text={selected.sentenceDe} audioUrl={hasTeacherReference ? null : selected.audioUrl} level={level} language="de"
+                      voiceProfile={hasTeacherReference && referenceVoice !== 'original' ? referenceVoice : undefined} hideVoiceSelection={hasTeacherReference}
+                      label={t('reference_listen')} ariaLabel={t('reference_listen_aria')} onProgress={onReferenceProgress} onWordChange={setActiveWordIndex} />}
               </div>
             </div>
           </article>

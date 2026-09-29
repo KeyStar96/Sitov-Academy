@@ -3,9 +3,10 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { Loader2, Pause, Volume2 } from 'lucide-react'
 import { useAudioFeedback } from '@/components/layout/RouteFeedbackProvider'
-import { cachedNeuralAudio, invalidateNeuralAudio, neuralAudioKey, resolveNeuralAudio, type NeuralAudioSource } from '@/lib/audio/neural-client'
+import { cachedNeuralAudio, cachedNeuralWordTimings, invalidateNeuralAudio, neuralAudioKey, resolveNeuralAudio, type NeuralAudioSource } from '@/lib/audio/neural-client'
 import { requestPlaybackAudioSession } from '@/lib/audio/web-audio'
-import type { NeuralAudioLanguage } from '@/lib/types/audio'
+import { currentWordIndex, defaultPlaybackRate, PLAYBACK_RATES } from '@/lib/audio/playback-settings'
+import type { NeuralVoiceProfile, NeuralAudioLanguage } from '@/lib/types/audio'
 import { cn } from '@/lib/utils'
 
 interface SolutionAudioButtonProps {
@@ -13,6 +14,10 @@ interface SolutionAudioButtonProps {
   audioUrl?: string | null
   cardId?: string
   language?: NeuralAudioLanguage
+  voiceProfile?: NeuralVoiceProfile
+  hideVoiceSelection?: boolean
+  level?: string
+  onWordChange?: (index: number | null) => void
   label: string
   ariaLabel: string
   variant?: 'primary' | 'secondary'
@@ -27,14 +32,47 @@ const SILENT_AUDIO = 'data:audio/wav;base64,UklGRnQAAABXQVZFZm10IBAAAAABAAEAQB8A
 let activePlayer: { element: HTMLAudioElement; cancel: () => void } | null = null
 
 export default function SolutionAudioButton(props: SolutionAudioButtonProps) {
-  const source = { ...props, language: props.language ?? 'de' }
-  // A new card owns a new media element; late requests cannot start the previous card.
-  return <NeuralAudioPlayer key={neuralAudioKey(source)} {...source} />
+  const copy = useAudioFeedback()
+  const [manualRate, setManualRate] = useState<number | null>(null)
+  const [voice, setVoice] = useState<'default' | NeuralVoiceProfile>('default')
+  const language = props.language ?? 'de'
+  const selectedVoice = language === 'de' ? props.voiceProfile ?? voice : 'default'
+  const rate = manualRate ?? defaultPlaybackRate(props.level)
+  const recording = props.audioUrl && !props.audioUrl.includes('/audio_cache/') ? props.audioUrl : null
+  const source = { text: props.text, cardId: props.cardId, language,
+    audioUrl: selectedVoice === 'default' ? recording : null,
+    voice: selectedVoice === 'default' ? undefined : selectedVoice,
+    aligned: Boolean(props.onWordChange && !recording) }
+  return <div className="flex min-w-0 flex-wrap items-center justify-center gap-2">
+    <NeuralAudioPlayer key={neuralAudioKey(source)} {...props} {...source} rate={rate} onSlowReplay={() => setManualRate(0.75)} />
+    <div className="flex max-w-full flex-wrap justify-center gap-2">
+      <label className="flex items-center gap-2 text-sm font-semibold text-[var(--muted)]">
+        <span>{copy.speed}</span>
+        <select aria-label={copy.speed} value={rate} onChange={event => setManualRate(Number(event.target.value))}
+          style={{ height: 48, minHeight: 48 }}
+          className="h-12 min-h-12 cursor-pointer appearance-none rounded-xl border border-[var(--border)] bg-[var(--surface)] px-3 text-[var(--foreground)]">
+          {PLAYBACK_RATES.map(value => <option key={value} value={value}>{String(value)}×</option>)}
+        </select>
+        <span aria-hidden="true">▾</span>
+      </label>
+      {source.language === 'de' && !props.hideVoiceSelection && <label className="flex items-center gap-2 text-sm font-semibold text-[var(--muted)]">
+        <span>{copy.voice}</span>
+        <select aria-label={copy.voice} value={selectedVoice} onChange={event => setVoice(event.target.value as 'default' | NeuralVoiceProfile)}
+          style={{ height: 48, minHeight: 48 }}
+          className="h-12 min-h-12 max-w-full cursor-pointer appearance-none rounded-xl border border-[var(--border)] bg-[var(--surface)] px-3 text-[var(--foreground)]">
+          <option value="default">{recording ? copy.recording : copy.voice_male}</option>
+          {recording && <option value="male">{copy.voice_male}</option>}
+          <option value="female">{copy.voice_female}</option>
+        </select>
+        <span aria-hidden="true">▾</span>
+      </label>}
+    </div>
+  </div>
 }
 
-function NeuralAudioPlayer({ text, audioUrl, cardId, language, label, ariaLabel, variant = 'primary', onUnsupported, onProgress }: SolutionAudioButtonProps & { language: NeuralAudioLanguage }) {
+function NeuralAudioPlayer({ text, audioUrl, cardId, language, voice, aligned, rate, onSlowReplay, label, ariaLabel, variant = 'primary', onUnsupported, onProgress, onWordChange }: SolutionAudioButtonProps & { language: NeuralAudioLanguage; voice?: NeuralVoiceProfile; aligned?: boolean; rate: number; onSlowReplay: () => void }) {
   const copy = useAudioFeedback()
-  const source = useRef<NeuralAudioSource>({ text, audioUrl, cardId, language }).current
+  const source = useRef<NeuralAudioSource>({ text, audioUrl, cardId, language, voice, aligned }).current
   const [url, setUrl] = useState(() => cachedNeuralAudio(source))
   const [isPlaying, setIsPlaying] = useState(false)
   const [loading, setLoading] = useState(false)
@@ -46,14 +84,49 @@ function NeuralAudioPlayer({ text, audioUrl, cardId, language, label, ariaLabel,
   const pendingRef = useRef(false)
   const primingRef = useRef(false)
 
+  const rateRef = useRef(rate)
+  rateRef.current = rate
+  const progressRef = useRef({ onProgress, onWordChange })
+  progressRef.current = { onProgress, onWordChange }
+  const frameRef = useRef<number | null>(null)
+  const lastWordRef = useRef<number | null>(null)
+  const stopFollowing = useCallback(() => {
+    if (frameRef.current !== null) cancelAnimationFrame(frameRef.current)
+    frameRef.current = null
+    lastWordRef.current = null
+    progressRef.current.onProgress?.(null)
+    progressRef.current.onWordChange?.(null)
+  }, [])
+  const reportPosition = useCallback(() => {
+    const audio = audioRef.current
+    if (!audio || primingRef.current) return
+    if (Number.isFinite(audio.duration) && audio.duration > 0) progressRef.current.onProgress?.(Math.min(1, audio.currentTime / audio.duration))
+    const index = currentWordIndex(cachedNeuralWordTimings(source) ?? [], audio.currentTime)
+    if (lastWordRef.current !== index) {
+      lastWordRef.current = index
+      progressRef.current.onWordChange?.(index)
+    }
+  }, [source])
+  useEffect(() => {
+    if (!isPlaying) return
+    const follow = () => { reportPosition(); frameRef.current = requestAnimationFrame(follow) }
+    frameRef.current = requestAnimationFrame(follow)
+    return () => { if (frameRef.current !== null) cancelAnimationFrame(frameRef.current); frameRef.current = null }
+  }, [isPlaying, reportPosition])
+  useEffect(() => {
+    const audio = audioRef.current
+    if (audio) { audio.preservesPitch = true; audio.playbackRate = rate }
+  }, [rate])
+
   const cancel = useCallback((audio = audioRef.current) => {
     requestRef.current += 1
     pendingRef.current = false
     primingRef.current = false
     if (activePlayer?.element === audio) activePlayer = null
+    stopFollowing()
     audio?.pause()
     if (aliveRef.current) { setLoading(false); setIsPlaying(false) }
-  }, [])
+  }, [stopFollowing])
 
   useEffect(() => {
     aliveRef.current = true
@@ -89,6 +162,8 @@ function NeuralAudioPlayer({ text, audioUrl, cardId, language, label, ariaLabel,
     setError(false)
     setNeedsGesture(false)
     if (audio.getAttribute('src') !== nextUrl) audio.src = nextUrl
+    audio.preservesPitch = true
+    audio.playbackRate = rateRef.current
     try {
       await audio.play()
     } catch (reason: unknown) {
@@ -147,6 +222,20 @@ function NeuralAudioPlayer({ text, audioUrl, cardId, language, label, ariaLabel,
         {loading ? <Loader2 size={20} className="animate-spin motion-reduce:animate-none" aria-hidden="true" /> : isPlaying ? <Pause size={20} aria-hidden="true" /> : <Volume2 size={20} aria-hidden="true" />}
         <span>{error ? copy.retry : loading ? copy.loading : isPlaying ? copy.pause : label}</span>
       </button>
+      {(onProgress || onWordChange) && <button type="button" aria-label={copy.slow_repeat}
+        style={{ height: 48, minHeight: 48 }}
+          className="h-12 min-h-12 cursor-pointer appearance-none rounded-xl border border-[var(--border)] bg-[var(--surface)] px-4 text-sm font-semibold text-[var(--foreground)]"
+        onClick={() => {
+          onSlowReplay()
+          rateRef.current = 0.75
+          const audio = audioRef.current
+          if (!audio) return
+          audio.playbackRate = 0.75
+          if (!primingRef.current) audio.currentTime = 0
+          lastWordRef.current = null
+          progressRef.current.onWordChange?.(null)
+          if (!isPlaying && !pendingRef.current) handleClick()
+        }}>{copy.slow_repeat}</button>}
       <audio ref={audioRef} preload="auto" playsInline controls={needsGesture} aria-label={ariaLabel}
         className={needsGesture ? 'h-12 min-w-0 w-full max-w-full rounded-xl' : 'hidden'}
         onPlay={() => {
@@ -163,13 +252,11 @@ function NeuralAudioPlayer({ text, audioUrl, cardId, language, label, ariaLabel,
             setIsPlaying(true); setLoading(false); pendingRef.current = false
           }
         }}
-        onTimeUpdate={() => {
-          const audio = audioRef.current
-          if (!onProgress || !audio || primingRef.current || !audio.duration) return
-          onProgress(Math.min(1, audio.currentTime / audio.duration))
-        }}
-        onPause={() => { if (!primingRef.current) { setIsPlaying(false); onProgress?.(null) } }}
-        onEnded={() => { if (!primingRef.current) { setIsPlaying(false); setLoading(false); onProgress?.(null) } }}
+        onTimeUpdate={reportPosition}
+        onSeeked={reportPosition}
+        onWaiting={() => { if (!primingRef.current) { setLoading(true); setIsPlaying(false); stopFollowing() } }}
+        onPause={() => { if (!primingRef.current) { setIsPlaying(false); stopFollowing() } }}
+        onEnded={() => { if (!primingRef.current) { setIsPlaying(false); setLoading(false); stopFollowing() } }}
         onError={() => {
           if (!primingRef.current && audioRef.current?.getAttribute('src')) {
             cancel(); setError(true)

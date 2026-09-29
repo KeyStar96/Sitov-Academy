@@ -8,6 +8,16 @@ import { signInPhase2 } from './helpers/phase2-session'
 import { readingSelection } from '../lib/learning-catalog'
 import { authenticateBrowser } from './helpers/authenticated-session'
 
+function fixtureReferenceWav() {
+  const samples = 8000
+  const wav = Buffer.alloc(44 + samples * 2)
+  wav.write('RIFF', 0); wav.writeUInt32LE(wav.length - 8, 4); wav.write('WAVEfmt ', 8)
+  wav.writeUInt32LE(16, 16); wav.writeUInt16LE(1, 20); wav.writeUInt16LE(1, 22)
+  wav.writeUInt32LE(8000, 24); wav.writeUInt32LE(16000, 28); wav.writeUInt16LE(2, 32); wav.writeUInt16LE(16, 34)
+  wav.write('data', 36); wav.writeUInt32LE(samples * 2, 40)
+  return wav
+}
+
 for (const theme of ['light', 'dark'] as const) {
   test(`recording remains visible and clickable after reading a long text (${theme})`, async ({ page, request }, testInfo) => {
     if (testInfo.project.metadata.phase2Fixture) {
@@ -16,6 +26,7 @@ for (const theme of ['light', 'dark'] as const) {
       const health = await request.get('http://127.0.0.1:54329/__phase2/health')
       expect(await health.json()).toEqual({ fixture: 'phase2', writes: false })
       await signInPhase2(page, theme)
+      await page.route('http://127.0.0.1:54329/__phase2/reference.wav', route => route.fulfill({ contentType: 'audio/wav', body: fixtureReferenceWav() }))
       await checkRecording(page, testInfo, 'en', en.pronunciation)
       return
     }
@@ -77,6 +88,39 @@ async function checkRecording(page: Page, testInfo: TestInfo, lang: string, copy
   const end = page.getByTestId('pronunciation-text-end')
   await expect(page.getByTestId('pronunciation-reading-text')).toContainText('Abschnitt 18.')
   await end.scrollIntoViewIfNeeded()
+  if (testInfo.project.metadata.phase2Fixture) {
+    const reading = page.locator('article.st-reading')
+    const speed = reading.locator('select').filter({ has: page.locator('option[value="0.75"]') })
+    await expect(speed).toHaveValue('0.85')
+    expect(await speed.locator('option').evaluateAll(options => options.map(option => (option as HTMLOptionElement).value)))
+      .toEqual(['0.75', '0.85', '1', '1.25'])
+    await speed.selectOption('0.75')
+    await expect(speed).toHaveValue('0.75')
+    await speed.selectOption('1.25')
+    await expect(speed).toHaveValue('1.25')
+    await speed.selectOption('0.85')
+    const voice = reading.getByRole('combobox', { name: en.neural_audio.voice, exact: true })
+    const original = await voice.locator('option[value="original"]').count()
+    expect(await voice.locator('option').evaluateAll(options => options.map(option => (option as HTMLOptionElement).value)))
+      .toEqual(original ? ['original', 'male', 'female'] : ['default', 'female'])
+    await voice.selectOption('female')
+    await expect(voice).toHaveValue('female')
+    await expect(speed).toHaveValue('0.85')
+    await expect(speed).toHaveCSS('min-height', '48px')
+    const controlBounds = await voice.boundingBox()
+    expect(controlBounds!.height).toBeGreaterThanOrEqual(48)
+    expect(controlBounds!.x + controlBounds!.width).toBeLessThanOrEqual(390)
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true)
+    await page.screenshot({ path: testInfo.outputPath('tts-female-controls.png') })
+    if (original) {
+      await voice.selectOption('male')
+      await expect(voice).toHaveValue('male')
+      await voice.selectOption('original')
+      await expect(voice).toHaveValue('original')
+    } else await voice.selectOption('default')
+    await expect(speed).toHaveValue('0.85')
+    await page.screenshot({ path: testInfo.outputPath('tts-reference-controls.png') })
+  }
   const bar = page.getByTestId('pronunciation-recording-bar')
   const record = bar.getByRole('button', { name: copy.start_recording, exact: true })
   // Im Ruhezustand traegt ein schwebender Knopf die Aufnahme – keine Leiste im Textfluss.

@@ -444,7 +444,7 @@ export default function VocabCardSession({ learnerId, level, cards, translations
                     <span className="learning-eyebrow">{t('correct_sentence_label')}</span>
                     <p className={cn(isSentence ? 'learning-sentence' : 'learning-solution', !isSentence && isToGerman && articleColorClass(current.card.article))} lang={answerLanguage}>{flashcardSolution}</p>
                     {current.contextSentence && <p className="learning-context learning-example" lang="de"><span className="sr-only">{t('context_label')}: </span>{current.contextSentence}</p>}
-                    {!isSentence && <SolutionAudioButton cardId={current.card.id} language="de" text={targetWord ?? ''} audioUrl={current.card.audio_url} label={t('listen_word')} ariaLabel={t('listen_word_aria', { word: current.card.word_de })} variant="secondary" />}
+                    {!isSentence && <SolutionAudioButton level={level ?? current.card.level} cardId={current.card.id} language="de" text={targetWord ?? ''} audioUrl={current.card.audio_url} label={t('listen_word')} ariaLabel={t('listen_word_aria', { word: current.card.word_de })} variant="secondary" />}
                     </>}
                   </div>
                   <RotateCw size={20} aria-hidden="true" className="learning-flip-cue" />
@@ -495,7 +495,7 @@ export default function VocabCardSession({ learnerId, level, cards, translations
                 </>}
                 {!isSentence && <>
                   {current.contextSentence && <p className="learning-context learning-example" lang="de"><span className="sr-only">{t('context_label')}: </span>{current.contextSentence}</p>}
-                  <SolutionAudioButton cardId={current.card.id} language="de" text={targetWord ?? ''} audioUrl={current.card.audio_url} label={t('listen_word')} ariaLabel={t('listen_word_aria', { word: current.card.word_de })} variant="secondary" />
+                  <SolutionAudioButton level={level ?? current.card.level} cardId={current.card.id} language="de" text={targetWord ?? ''} audioUrl={current.card.audio_url} label={t('listen_word')} ariaLabel={t('listen_word_aria', { word: current.card.word_de })} variant="secondary" />
                 </>}
               </>}
             </div>

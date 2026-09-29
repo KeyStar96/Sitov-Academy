@@ -3,18 +3,19 @@ import 'server-only'
 
 import { createHash } from 'node:crypto'
 import { createAdminClient } from '@/utils/supabase/admin'
-import type { NeuralAudioLanguage } from '@/lib/types/audio'
-import { AUDIO_CACHE_BUCKET, AUDIO_CACHE_VERSION, AUDIO_FORMAT, AUDIO_RATE, NEURAL_VOICES, normalizeAudioText } from './neural-config'
-import { synthesizeNeuralAudio } from './edge-tts'
+import { validWordTimings } from './playback-settings'
+import type { NeuralSpeechAsset, NeuralVoiceProfile, NeuralAudioLanguage } from '@/lib/types/audio'
+import { AUDIO_CACHE_BUCKET, AUDIO_CACHE_VERSION, AUDIO_FORMAT, AUDIO_RATE, NEURAL_VOICES, GERMAN_VOICE_PROFILES, normalizeAudioText } from './neural-config'
+import { synthesizeNeuralSpeech } from './edge-tts'
 
-export function neuralAudioPath(text: string, language: NeuralAudioLanguage): string {
+export function neuralAudioPath(text: string, language: NeuralAudioLanguage, voice?: NeuralVoiceProfile): string {
   const hash = createHash('sha256').update(JSON.stringify({
-    text: normalizeAudioText(text), voice: NEURAL_VOICES[language].voice, rate: AUDIO_RATE, format: AUDIO_FORMAT,
+    text: normalizeAudioText(text), voice: language === 'de' ? GERMAN_VOICE_PROFILES[voice ?? 'male'] : NEURAL_VOICES[language].voice, rate: AUDIO_RATE, format: AUDIO_FORMAT,
   })).digest('hex')
   return `${AUDIO_CACHE_VERSION}/${language}/${hash}.mp3`
 }
 
-export async function findCachedAudio(path: string): Promise<string | null> {
+export async function findCachedAudio(path: string): Promise<NeuralSpeechAsset | null> {
   const storage = createAdminClient().storage.from(AUDIO_CACHE_BUCKET)
   const { data, error } = await storage.info(path)
   if (error) {
@@ -22,20 +23,22 @@ export async function findCachedAudio(path: string): Promise<string | null> {
     throw error
   }
   if (!data) return null
-  return publicStorageUrl(storage.getPublicUrl(path).data.publicUrl)
+  const wordTimings = validWordTimings(data.metadata?.wordTimings)
+  return { audioUrl: publicStorageUrl(storage.getPublicUrl(path).data.publicUrl), ...(wordTimings ? { wordTimings } : {}) }
 }
 
 // Deduplicate simultaneous requests in one worker; immutable paths handle cross-worker races.
-const inFlight = new Map<string, Promise<string>>()
+const inFlight = new Map<string, Promise<NeuralSpeechAsset>>()
 
-export function generateCachedAudio(text: string, language: NeuralAudioLanguage, path: string): Promise<string> {
+export function generateCachedAudio(text: string, language: NeuralAudioLanguage, path: string, voice?: NeuralVoiceProfile): Promise<NeuralSpeechAsset> {
   const pending = inFlight.get(path)
   if (pending) return pending
   const work = (async () => {
     const storage = createAdminClient().storage.from(AUDIO_CACHE_BUCKET)
-    const audio = await synthesizeNeuralAudio(text, language)
+    const { audio, wordTimings } = await synthesizeNeuralSpeech(text, language, voice)
     const { error } = await storage.upload(path, audio, {
       contentType: 'audio/mpeg', cacheControl: '31536000', upsert: false,
+      ...(wordTimings ? { metadata: { wordTimings } } : {}),
     })
     if (error) {
       // Another request may have filled the same content-addressed key first.
@@ -43,7 +46,7 @@ export function generateCachedAudio(text: string, language: NeuralAudioLanguage,
       if (winner) return winner
       throw error
     }
-    return publicStorageUrl(storage.getPublicUrl(path).data.publicUrl)
+    return { audioUrl: publicStorageUrl(storage.getPublicUrl(path).data.publicUrl), ...(wordTimings ? { wordTimings } : {}) }
   })().finally(() => { inFlight.delete(path) })
   inFlight.set(path, work)
   return work

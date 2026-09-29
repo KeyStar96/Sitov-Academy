@@ -1966,6 +1966,12 @@
         "teacher_training_text": "Braunschweig Teknik Üniversitesinde Almancanın ikinci dil ve yabancı dil olarak öğretimi üzerine uzmanlık eğitimi."
     },
     "neural_audio": {
+        "slow_repeat": "Yavaş tekrar et",
+        "speed": "Hız",
+        "voice": "Ses",
+        "voice_male": "Thorsten (erkek)",
+        "voice_female": "Kerstin (kadın)",
+        "recording": "Orijinal kayıt",
         "error": "Ses dosyası yüklenemedi.",
         "retry": "Sesi yeniden yükle",
         "ready": "Ses hazır. Dinlemek için dokunun.",

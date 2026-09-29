@@ -16,11 +16,12 @@ const inputSchema = z.object({
   text: z.string().trim().min(1).max(AUDIO_MAX_TEXT_LENGTH).refine(text => !/[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f]/u.test(text)),
   language: z.enum(['de', 'ru', 'uk', 'en', 'tr']),
   cardId: z.string().uuid().optional(),
+  voice: z.enum(['male', 'female']).optional(),
 }).strict()
 
 export async function generateAudio(input: GenerateAudioInput): Promise<GenerateAudioResult> {
   const parsed = inputSchema.safeParse(input)
-  if (!parsed.success) return { success: false, error: 'invalid_input' }
+  if (!parsed.success || (parsed.data.voice && parsed.data.language !== 'de')) return { success: false, error: 'invalid_input' }
   try {
     const supabase = await createClient()
     const { data: { user }, error: authError } = await supabase.auth.getUser()
@@ -28,7 +29,7 @@ export async function generateAudio(input: GenerateAudioInput): Promise<Generate
     const profile = await loadLevelAccessProfile(supabase, user.id)
     if (!profile || !['student', 'teacher', 'admin'].includes(profile.role ?? '')) return { success: false, error: 'forbidden' }
 
-    const { language, cardId } = parsed.data
+    const { language, cardId, voice } = parsed.data
     const text = normalizeAudioText(parsed.data.text)
     let card: { id: string; word_de: string; article: Tables<'learning_vocabulary_cards'>['article']; level: string; audio_url: string | null } | null = null
     if (cardId) {
@@ -39,23 +40,23 @@ export async function generateAudio(input: GenerateAudioInput): Promise<Generate
       if (language === 'de' && text !== vocabularyAudioText(card)) return { success: false, error: 'invalid_input' }
     }
     if (!(await rateLimit(`audio-read:${user.id}`, 120, '60 s')).success) return { success: false, error: 'rate_limited' }
-    const path = neuralAudioPath(text, language)
-    const cachedUrl = await findCachedAudio(path)
-    let audioUrl = cachedUrl
-    if (!audioUrl) {
+    const path = neuralAudioPath(text, language, voice)
+    const cachedAsset = await findCachedAudio(path)
+    let asset = cachedAsset
+    if (!asset) {
       if (!(await rateLimit(`audio-generate:${user.id}`, 20, '60 s')).success) return { success: false, error: 'rate_limited' }
-      audioUrl = await generateCachedAudio(text, language, path)
+      asset = await generateCachedAudio(text, language, path, voice)
     }
-    if (card && language === 'de' && !card.audio_url) {
+    if (card && language === 'de' && voice !== 'female' && !card.audio_url) {
       // Guard against a concurrent content edit or teacher-supplied recording. Never overwrite either.
-      let update = createAdminClient().from('learning_vocabulary_cards').update({ audio_url: audioUrl })
+      let update = createAdminClient().from('learning_vocabulary_cards').update({ audio_url: asset.audioUrl })
         .eq('id', card.id).eq('word_de', card.word_de).is('audio_url', null)
       update = card.article === null ? update.is('article', null) : update.eq('article', card.article)
       const { error } = await update
       if (error) throw error
     }
-    return { success: true, audioUrl, cached: Boolean(cachedUrl) }
-  } catch (error) {
+    return { success: true, ...asset, cached: Boolean(cachedAsset) }
+  } catch {
     console.error("Neural audio generation failed:")
     return { success: false, error: 'audio_unavailable' }
   }

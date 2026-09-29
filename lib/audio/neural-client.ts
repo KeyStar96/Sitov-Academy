@@ -2,16 +2,19 @@
 
 import { generateAudio } from '@/app/actions/generate-audio'
 import { normalizeAudioText } from '@/lib/audio/neural-config'
-import type { NeuralAudioLanguage } from '@/lib/types/audio'
+import type { NeuralSpeechAsset, NeuralVoiceProfile, NeuralAudioLanguage } from '@/lib/types/audio'
 
 export interface NeuralAudioSource {
   text: string
   language: NeuralAudioLanguage
   cardId?: string
   audioUrl?: string | null
+  voice?: NeuralVoiceProfile
+  /** Require synthesis metadata instead of reusing old unaligned generated speech. */
+  aligned?: boolean
 }
 
-const resolvedUrls = new Map<string, string>()
+const resolvedUrls = new Map<string, NeuralSpeechAsset>()
 const pendingUrls = new Map<string, Promise<string>>()
 const preloadedAudio = new Map<string, HTMLAudioElement>()
 const MAX_URLS = 256
@@ -19,15 +22,24 @@ const MAX_PRELOADED_AUDIO = 4
 const MAX_PREFETCH_REQUESTS = 2
 
 export function neuralAudioKey(source: NeuralAudioSource): string {
-  return JSON.stringify([source.cardId ?? null, source.language, normalizeAudioText(source.text), source.audioUrl ?? null])
+  return JSON.stringify([source.cardId ?? null, source.language, normalizeAudioText(source.text), source.audioUrl && !source.audioUrl.includes('/audio_cache/') ? source.audioUrl : null, source.voice ?? 'male'])
 }
 
 export function cachedNeuralAudio(source: NeuralAudioSource): string | null {
-  return resolvedUrls.get(neuralAudioKey(source)) || source.audioUrl || null
+  const cached = resolvedUrls.get(neuralAudioKey(source))
+  if (cached) return cached.audioUrl
+  // A recording belongs to its original speaker; an alternate synthesized voice
+  // and aligned playback must not silently reuse it.
+  if (source.voice || source.aligned) return null
+  return source.audioUrl && !source.audioUrl.includes('/audio_cache/') ? source.audioUrl : null
 }
 
 export function invalidateNeuralAudio(source: NeuralAudioSource): void {
   resolvedUrls.delete(neuralAudioKey(source))
+}
+
+export function cachedNeuralWordTimings(source: NeuralAudioSource) {
+  return resolvedUrls.get(neuralAudioKey(source))?.wordTimings
 }
 
 /** Shared by the visible button and the small vocabulary lookahead window. */
@@ -42,13 +54,14 @@ export function resolveNeuralAudio(source: NeuralAudioSource, regenerate = false
       const result = await generateAudio({
         text: normalizeAudioText(source.text), language: source.language,
         ...(source.cardId ? { cardId: source.cardId } : {}),
+        ...(source.voice ? { voice: source.voice } : {}),
       })
       if (result.success === false) throw new Error(result.error)
       if (resolvedUrls.size >= MAX_URLS) {
         const oldest = resolvedUrls.keys().next().value
         if (oldest) resolvedUrls.delete(oldest)
       }
-      resolvedUrls.set(key, result.audioUrl)
+      resolvedUrls.set(key, { audioUrl: result.audioUrl, ...(result.wordTimings ? { wordTimings: result.wordTimings } : {}) })
       return result.audioUrl
     } finally {
       pendingUrls.delete(key)

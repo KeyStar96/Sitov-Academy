@@ -306,6 +306,7 @@ export default function FillInBlankExerciseCard({
           {/* Tap-to-Listen für das gelöste Wort und den gesamten Satz. */}
           <div className="mt-6 flex w-full flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
             <SolutionAudioButton
+              level={exercise.level}
               text={exercise.content.correct_answer}
               audioUrl={exercise.solutionAudioUrl}
               label={t('listen_word')}
@@ -313,6 +314,7 @@ export default function FillInBlankExerciseCard({
               onUnsupported={() => setAudioUnsupported(true)}
             />
             <SolutionAudioButton
+              level={exercise.level}
               text={fullSentence}
               label={t('listen_sentence')}
               ariaLabel={t('listen_sentence_aria')}

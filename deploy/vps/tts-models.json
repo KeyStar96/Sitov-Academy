@@ -1,7 +1,22 @@
 {
   "repository": "rhasspy/piper-voices",
   "revision": "1162a9173d0ce503555aed757976b7a9912eae4c",
+  "alignment_models": ["de_DE-thorsten-high", "de_DE-kerstin-low"],
   "voices": {
+    "de_DE-kerstin-low": {
+      "de/de_DE/kerstin/low/de_DE-kerstin-low.onnx": {
+        "size_bytes": 63104526,
+        "md5_digest": "1d5e5788cfddb04cbb34418f2841931e"
+      },
+      "de/de_DE/kerstin/low/de_DE-kerstin-low.onnx.json": {
+        "size_bytes": 4158,
+        "md5_digest": "a96995af6c1c5b37ed3d62b5107e1d9a"
+      },
+      "de/de_DE/kerstin/low/MODEL_CARD": {
+        "size_bytes": 272,
+        "md5_digest": "69ec1bc99fc7e19c9ddcdf712920a6c7"
+      }
+    },
     "de_DE-thorsten-high": {
       "de/de_DE/thorsten/high/de_DE-thorsten-high.onnx": {
         "size_bytes": 113895201,

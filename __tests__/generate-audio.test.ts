@@ -48,8 +48,8 @@ function session(options: {
   jest.mocked(createAdminClient).mockReturnValue({ from: adminFrom } as unknown as ReturnType<typeof createAdminClient>)
   jest.mocked(rateLimit).mockResolvedValue(allowed)
   jest.mocked(neuralAudioPath).mockReturnValue('cache-key.mp3')
-  jest.mocked(findCachedAudio).mockResolvedValue(audioUrl)
-  jest.mocked(generateCachedAudio).mockResolvedValue(audioUrl)
+  jest.mocked(findCachedAudio).mockResolvedValue({ audioUrl })
+  jest.mocked(generateCachedAudio).mockResolvedValue({ audioUrl })
   return { from, profileChain, cardChain, update, adminFrom, updateResult }
 }
 beforeEach(() => jest.clearAllMocks())
@@ -112,8 +112,8 @@ describe('audio cache and protected recording updates', () => {
     jest.mocked(findCachedAudio).mockResolvedValue(null)
     const text = '  die\n Tür '.normalize('NFD')
     expect(await generateAudio({ ...input, text })).toEqual({ success: true, audioUrl, cached: false })
-    expect(neuralAudioPath).toHaveBeenCalledWith('die Tür', 'de')
-    expect(generateCachedAudio).toHaveBeenCalledWith('die Tür', 'de', 'cache-key.mp3')
+    expect(neuralAudioPath).toHaveBeenCalledWith('die Tür', 'de', undefined)
+    expect(generateCachedAudio).toHaveBeenCalledWith('die Tür', 'de', 'cache-key.mp3', undefined)
     expect(rateLimit).toHaveBeenCalledWith(`audio-generate:${userId}`, 20, '60 s')
   })
   it('never overwrites a teacher-provided vocabulary recording', async () => {
@@ -163,4 +163,23 @@ describe('audio cache and protected recording updates', () => {
     expect(generateCachedAudio).not.toHaveBeenCalled()
     log.mockRestore()
   })
+})
+
+it('keeps female speech separate from the canonical German card recording', async () => {
+  session()
+  expect(await generateAudio({ ...input, voice: 'female' })).toMatchObject({ success: true })
+  expect(neuralAudioPath).toHaveBeenCalledWith('die Tür', 'de', 'female')
+  expect(createAdminClient).not.toHaveBeenCalled()
+})
+it('rejects voice profiles for unsupported languages and unknown profile names', async () => {
+  session()
+  expect(await generateAudio({ text: 'Hello', language: 'en', voice: 'female' })).toEqual({ success: false, error: 'invalid_input' })
+  expect(await generateAudio({ ...input, voice: 'unknown' } as unknown as GenerateAudioInput)).toEqual({ success: false, error: 'invalid_input' })
+  expect(createClient).not.toHaveBeenCalled()
+})
+it('returns cached word timings with the generated URL', async () => {
+  session()
+  const wordTimings = [{ start: 0.1, end: 0.3 }, { start: 0.4, end: 1.2 }]
+  jest.mocked(findCachedAudio).mockResolvedValue({ audioUrl, wordTimings })
+  expect(await generateAudio(input)).toEqual({ success: true, audioUrl, wordTimings, cached: true })
 })

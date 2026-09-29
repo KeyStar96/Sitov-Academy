@@ -1,9 +1,9 @@
 jest.mock('server-only', () => ({}), { virtual: true })
 jest.mock('@/utils/supabase/admin', () => ({ createAdminClient: jest.fn() }))
-jest.mock('@/lib/audio/edge-tts', () => ({ synthesizeNeuralAudio: jest.fn() }))
+jest.mock('@/lib/audio/edge-tts', () => ({ synthesizeNeuralSpeech: jest.fn() }))
 
 import { createAdminClient } from '@/utils/supabase/admin'
-import { synthesizeNeuralAudio } from '@/lib/audio/edge-tts'
+import { synthesizeNeuralSpeech } from '@/lib/audio/edge-tts'
 import { findCachedAudio, generateCachedAudio, neuralAudioPath } from '@/lib/audio/neural-cache'
 import { AUDIO_CACHE_BUCKET, NEURAL_VOICES, normalizeAudioText, vocabularyAudioText } from '@/lib/audio/neural-config'
 
@@ -11,13 +11,13 @@ const internalAudioUrl = 'http://127.0.0.1:9080/storage/v1/object/public/audio_c
 const audioUrl = 'https://217.154.228.254/supabase/storage/v1/object/public/audio_cache/cached.mp3'
 function storageClient() {
   const storage = {
-    info: jest.fn().mockResolvedValue({ data: { id: 'object' }, error: null }),
+    info: jest.fn().mockResolvedValue({ data: { id: 'object', metadata: undefined as unknown }, error: null }),
     upload: jest.fn().mockResolvedValue({ data: { path: 'cached.mp3' }, error: null }),
     getPublicUrl: jest.fn().mockReturnValue({ data: { publicUrl: internalAudioUrl } }),
   }
   const from = jest.fn().mockReturnValue(storage)
   jest.mocked(createAdminClient).mockReturnValue({ storage: { from } } as unknown as ReturnType<typeof createAdminClient>)
-  jest.mocked(synthesizeNeuralAudio).mockResolvedValue(Buffer.from('test audio'))
+  jest.mocked(synthesizeNeuralSpeech).mockResolvedValue({ audio: Buffer.from('test audio') })
   return { storage, from }
 }
 const previousPublicUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
@@ -38,7 +38,7 @@ describe('neural speech language and content keys', () => {
     ['uk', 'uk_UA-ukrainian_tts-medium-speaker2', 'uk-UA'], ['en', 'en_US-ljspeech-high', 'en-US'], ['tr', 'espeak-ng-tr', 'tr-TR'],
   ] as const)('uses the configured %s local voice and locale', (language, voice, locale) => {
     expect(NEURAL_VOICES[language]).toEqual({ voice, locale })
-    expect(neuralAudioPath('Guten Tag.', language)).toMatch(new RegExp(`^piper-local-v1/${language}/[a-f0-9]{64}\\.mp3$`))
+    expect(neuralAudioPath('Guten Tag.', language)).toMatch(new RegExp(`^piper-local-v2/${language}/[a-f0-9]{64}\\.mp3$`))
   })
   it('shares keys for Unicode/whitespace equivalents while preserving text and language distinctions', () => {
     expect(neuralAudioPath('  Ich öffne\n die Tür. ', 'de')).toBe(neuralAudioPath('Ich öffne die Tür.'.normalize('NFD'), 'de'))
@@ -57,10 +57,10 @@ describe('neural speech language and content keys', () => {
 describe('immutable Storage cache', () => {
   it('looks up the dedicated bucket without generating on a hit', async () => {
     const { storage, from } = storageClient()
-    expect(await findCachedAudio('piper-local-v1/de/hash.mp3')).toBe(audioUrl)
+    expect(await findCachedAudio('piper-local-v2/de/hash.mp3')).toEqual({ audioUrl })
     expect(from).toHaveBeenCalledWith(AUDIO_CACHE_BUCKET)
-    expect(storage.info).toHaveBeenCalledWith('piper-local-v1/de/hash.mp3')
-    expect(synthesizeNeuralAudio).not.toHaveBeenCalled()
+    expect(storage.info).toHaveBeenCalledWith('piper-local-v2/de/hash.mp3')
+    expect(synthesizeNeuralSpeech).not.toHaveBeenCalled()
   })
   it.each(['400', '404', 404])('treats missing object status %s as a miss', async statusCode => {
     const { storage } = storageClient()
@@ -72,14 +72,14 @@ describe('immutable Storage cache', () => {
     const error = { statusCode: '403', message: 'Not authorized' }
     storage.info.mockResolvedValue({ data: null, error })
     await expect(findCachedAudio('private.mp3')).rejects.toBe(error)
-    expect(synthesizeNeuralAudio).not.toHaveBeenCalled()
+    expect(synthesizeNeuralSpeech).not.toHaveBeenCalled()
   })
   it('uploads MP3 immutably with a long cache lifetime', async () => {
     const { storage } = storageClient()
     const data = Buffer.from('mp3 bytes')
-    jest.mocked(synthesizeNeuralAudio).mockResolvedValue(data)
-    expect(await generateCachedAudio('Guten Tag.', 'de', 'generated.mp3')).toBe(audioUrl)
-    expect(synthesizeNeuralAudio).toHaveBeenCalledWith('Guten Tag.', 'de')
+    jest.mocked(synthesizeNeuralSpeech).mockResolvedValue({ audio: data })
+    expect(await generateCachedAudio('Guten Tag.', 'de', 'generated.mp3')).toEqual({ audioUrl })
+    expect(synthesizeNeuralSpeech).toHaveBeenCalledWith('Guten Tag.', 'de', undefined)
     expect(storage.upload).toHaveBeenCalledWith('generated.mp3', data, {
       contentType: 'audio/mpeg', cacheControl: '31536000', upsert: false,
     })
@@ -87,21 +87,21 @@ describe('immutable Storage cache', () => {
   it('deduplicates simultaneous requests and releases the in-flight entry afterward', async () => {
     const { storage } = storageClient()
     let finish: (audio: Buffer) => void = () => undefined
-    jest.mocked(synthesizeNeuralAudio).mockReturnValueOnce(new Promise(resolve => { finish = resolve }))
+    jest.mocked(synthesizeNeuralSpeech).mockReturnValueOnce(new Promise(resolve => { finish = audio => resolve({ audio }) }))
     const first = generateCachedAudio('Hallo', 'de', 'parallel.mp3')
     const second = generateCachedAudio('Hallo', 'de', 'parallel.mp3')
     expect(first).toBe(second)
-    expect(synthesizeNeuralAudio).toHaveBeenCalledTimes(1)
+    expect(synthesizeNeuralSpeech).toHaveBeenCalledTimes(1)
     finish(Buffer.from('audio'))
-    await expect(Promise.all([first, second])).resolves.toEqual([audioUrl, audioUrl])
+    await expect(Promise.all([first, second])).resolves.toEqual([{ audioUrl }, { audioUrl }])
     expect(storage.upload).toHaveBeenCalledTimes(1)
     await generateCachedAudio('Hallo', 'de', 'parallel.mp3')
-    expect(synthesizeNeuralAudio).toHaveBeenCalledTimes(2)
+    expect(synthesizeNeuralSpeech).toHaveBeenCalledTimes(2)
   })
   it('uses another worker’s winning upload without overwriting it', async () => {
     const { storage } = storageClient()
     storage.upload.mockResolvedValue({ data: null, error: { statusCode: '409' } })
-    expect(await generateCachedAudio('Hallo', 'de', 'race.mp3')).toBe(audioUrl)
+    expect(await generateCachedAudio('Hallo', 'de', 'race.mp3')).toEqual({ audioUrl })
     expect(storage.info).toHaveBeenCalledWith('race.mp3')
     expect(storage.upload).toHaveBeenCalledTimes(1)
   })
@@ -111,7 +111,18 @@ describe('immutable Storage cache', () => {
     storage.upload.mockResolvedValueOnce({ data: null, error })
     storage.info.mockResolvedValue({ data: null, error: { statusCode: '404' } })
     await expect(generateCachedAudio('Hallo', 'de', 'retry.mp3')).rejects.toBe(error)
-    await expect(generateCachedAudio('Hallo', 'de', 'retry.mp3')).resolves.toBe(audioUrl)
-    expect(synthesizeNeuralAudio).toHaveBeenCalledTimes(2)
+    await expect(generateCachedAudio('Hallo', 'de', 'retry.mp3')).resolves.toEqual({ audioUrl })
+    expect(synthesizeNeuralSpeech).toHaveBeenCalledTimes(2)
   })
+})
+
+it('separates male and female cache keys and stores exact timings atomically with MP3', async () => {
+  const { storage } = storageClient()
+  expect(neuralAudioPath('die Tür', 'de', 'male')).not.toBe(neuralAudioPath('die Tür', 'de', 'female'))
+  const wordTimings = [{ start: 0.05, end: 0.3 }, { start: 0.4, end: 1.1 }]
+  jest.mocked(synthesizeNeuralSpeech).mockResolvedValue({ audio: Buffer.from('mp3'), wordTimings })
+  expect(await generateCachedAudio('die Tür', 'de', 'female.mp3', 'female')).toEqual({ audioUrl, wordTimings })
+  expect(storage.upload).toHaveBeenCalledWith('female.mp3', expect.any(Buffer), expect.objectContaining({ metadata: { wordTimings }, upsert: false }))
+  storage.info.mockResolvedValue({ data: { id: 'object', metadata: { wordTimings } }, error: null })
+  expect(await findCachedAudio('female.mp3')).toEqual({ audioUrl, wordTimings })
 })

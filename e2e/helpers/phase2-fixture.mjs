@@ -34,7 +34,7 @@ const progress = ['de_to_native', 'native_to_de'].map((direction, index) => ({
 }))
 // Ein langer, frei formulierter Lesetext: Die Aussprache-Seite muss scrollen.
 const reading = {
-  id: id(401), unit_id: unit(1, 'pronunciation').id, unit: unit(1, 'pronunciation'), focus: 'Satzmelodie', audio_url: null,
+  id: id(401), unit_id: unit(1, 'pronunciation').id, unit: unit(1, 'pronunciation'), focus: 'Satzmelodie', audio_url: process.env.PHASE2_REFERENCE_AUDIO || null,
   sentence_de: Array.from({ length: 18 }, (_, index) => `Abschnitt ${index + 1}. Heute lernen wir zusammen. Wir lesen langsam und machen eine kurze Pause.`).join('\n\n'),
 }
 

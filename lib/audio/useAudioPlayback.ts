@@ -26,6 +26,14 @@ import { guessAudioMimeType } from '@/lib/audio/waveform'
 
 export type PlaybackError = null | 'format' | 'load'
 
+function setPlaybackRate(audio: HTMLAudioElement, rate: number): void {
+  audio.playbackRate = rate
+  audio.preservesPitch = true
+  const compatible = audio as HTMLAudioElement & { webkitPreservesPitch?: boolean; mozPreservesPitch?: boolean }
+  if ('webkitPreservesPitch' in compatible) compatible.webkitPreservesPitch = true
+  if ('mozPreservesPitch' in compatible) compatible.mozPreservesPitch = true
+}
+
 export interface UseAudioPlaybackResult {
   error: PlaybackError
   isPlaying: boolean
@@ -72,7 +80,7 @@ export function useAudioPlayback(
     prepareHtmlAudioElement(audio, nextSrc)
     audio.muted = false
     audio.volume = 1
-    audio.playbackRate = rateRef.current
+    setPlaybackRate(audio, rateRef.current)
     if (audio.src !== nextSrc) {
       audio.src = nextSrc
       audio.load()
@@ -162,6 +170,18 @@ export function useAudioPlayback(
     const audio = htmlAudioRef.current
     if (!audio) return
 
+    let frame: number | null = null
+    const stopFrames = () => {
+      if (frame !== null) window.cancelAnimationFrame(frame)
+      frame = null
+    }
+    // Read the native source clock. Rate changes and seeks are already reflected
+    // here, so highlighting never advances on an independent wall-clock timer.
+    const updateFrame = () => {
+      if (!isPlayingRef.current) { frame = null; return }
+      setCurrentTime(audio.currentTime)
+      frame = window.requestAnimationFrame(updateFrame)
+    }
     const handleTime = () => setCurrentTime(audio.currentTime)
     const handleDuration = () => {
       const value = audio.duration
@@ -186,23 +206,31 @@ export function useAudioPlayback(
       isPlayingRef.current = true
       setIsBuffering(false)
       setError(null)
+      stopFrames()
+      updateFrame()
     }
     const handlePause = () => {
       setIsPlaying(false)
       isPlayingRef.current = false
       setIsBuffering(false)
       setCurrentTime(audio.currentTime)
+      stopFrames()
     }
     const handleEnded = () => {
       setIsPlaying(false)
       isPlayingRef.current = false
-      setCurrentTime(0)
+      setIsBuffering(false)
+      setCurrentTime(audio.currentTime)
+      stopFrames()
     }
     const handleWaiting = () => setIsBuffering(true)
     const handleCanPlay = () => setIsBuffering(false)
     const handleError = () => {
       setIsBuffering(false)
       setError('load')
+      setIsPlaying(false)
+      isPlayingRef.current = false
+      stopFrames()
     }
 
     audio.addEventListener('timeupdate', handleTime)
@@ -216,6 +244,7 @@ export function useAudioPlayback(
     audio.addEventListener('error', handleError)
 
     return () => {
+      stopFrames()
       audio.removeEventListener('timeupdate', handleTime)
       audio.removeEventListener('loadedmetadata', handleDuration)
       audio.removeEventListener('durationchange', handleDuration)
@@ -230,7 +259,7 @@ export function useAudioPlayback(
 
   useEffect(() => {
     const audio = htmlAudioRef.current
-    if (audio) audio.playbackRate = rate
+    if (audio) setPlaybackRate(audio, rate)
   }, [rate])
 
   useEffect(() => () => releaseWavUrl(), [releaseWavUrl])
@@ -257,7 +286,7 @@ export function useAudioPlayback(
     requestPlaybackAudioSession()
     audio.muted = false
     audio.volume = 1
-    audio.playbackRate = rateRef.current
+    setPlaybackRate(audio, rateRef.current)
 
     if (!audio.src) {
       assignSrc(audio, wavUrlRef.current ?? src)

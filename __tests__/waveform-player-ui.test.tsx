@@ -29,3 +29,28 @@ it('stops playback when a conversation player unmounts', () => {
   unmount()
   expect(playback.pause).toHaveBeenCalledTimes(1)
 })
+
+it('starts A-level reference recordings at 0.85× and changes their actual playback rate', () => {
+  const { rerender } = render(<WaveformPlayer src="test.wav" level="A1.2" />)
+  const speed = screen.getByRole('combobox')
+  expect(speed).toHaveValue('0.85')
+  expect(jest.mocked(useAudioPlayback)).toHaveBeenLastCalledWith('test.wav', 0.85, undefined)
+  fireEvent.change(speed, { target: { value: '0.75' } })
+  expect(jest.mocked(useAudioPlayback)).toHaveBeenLastCalledWith('test.wav', 0.75, undefined)
+  expect(playback.seek).not.toHaveBeenCalled()
+  expect(playback.play).not.toHaveBeenCalled()
+  rerender(<WaveformPlayer src="test.wav" level="B1" />)
+  expect(speed).toHaveValue('1')
+  expect(jest.mocked(useAudioPlayback)).toHaveBeenLastCalledWith('test.wav', 1, undefined)
+})
+
+it('passes source-clock progress unchanged when the speed changes', () => {
+  const onProgress = jest.fn()
+  playback.isPlaying = true
+  const { rerender } = render(<WaveformPlayer src="test.wav" level="A2" onProgress={onProgress} />)
+  expect(onProgress).toHaveBeenLastCalledWith({ playing: true, fraction: 0.2, ended: false })
+  fireEvent.change(screen.getByRole('combobox'), { target: { value: '1.25' } })
+  playback.currentTime = 15
+  rerender(<WaveformPlayer src="test.wav" level="A2" onProgress={onProgress} />)
+  expect(onProgress).toHaveBeenLastCalledWith({ playing: true, fraction: 0.25, ended: false })
+})

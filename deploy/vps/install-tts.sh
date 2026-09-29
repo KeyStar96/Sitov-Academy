@@ -15,6 +15,8 @@ install -m 644 "$TTS_SOURCE_DIR/TTS_LICENSES.md" "$TTS_INSTALL_DIR/licenses/TTS_
 "$TTS_INSTALL_DIR/venv/bin/python" - "$TTS_INSTALL_DIR" <<'PY'
 import hashlib,json,os,sys,urllib.request
 from pathlib import Path
+import onnx
+from piper.patch_voice_with_alignment import add_alignment_output
 root=Path(sys.argv[1])
 manifest=json.loads((root/'tts-models.json').read_text())
 for name,files in manifest['voices'].items():
@@ -37,6 +39,20 @@ for name,files in manifest['voices'].items():
             print('Installed',destination.name,flush=True)
         finally:
             temporary.unlink(missing_ok=True)
+for name in manifest['alignment_models']:
+    # The original download remains checksum-pinned and unchanged. Exposing
+    # the duration tensor preserves the same waveform and inference prosody.
+    source=root/'models'/f'{name}.onnx'
+    destination=root/'models'/f'{name}.aligned.onnx'
+    temporary=destination.with_suffix('.onnx.download')
+    try:
+        model=onnx.load(str(source))
+        add_alignment_output(model)
+        onnx.save(model,str(temporary))
+        temporary.replace(destination)
+        print('Prepared alignment',destination.name,flush=True)
+    finally:
+        temporary.unlink(missing_ok=True)
 license_url='https://raw.githubusercontent.com/OHF-Voice/piper1-gpl/v1.8.0/COPYING'
 with urllib.request.urlopen(license_url,timeout=30) as response:
     (root/'licenses'/'Piper-GPL-3.0.txt').write_bytes(response.read())

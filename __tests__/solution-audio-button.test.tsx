@@ -262,3 +262,83 @@ it('does not report an intentional interrupted play as an audio failure', async 
   await act(async () => { request.reject(new DOMException('play interrupted by pause', 'AbortError')) })
   expect(screen.queryByRole('alert')).not.toBeInTheDocument()
 })
+
+it('starts A courses at 0.85 and keeps a manually selected speed across cards', () => {
+  const input = props()
+  const { container, rerender } = render(<SolutionAudioButton {...input} level="A1.1" audioUrl="https://media.example.com/level.mp3" />)
+  const speed = screen.getByRole('combobox', { name: dictionary.neural_audio.speed })
+  expect(speed).toHaveValue('0.85')
+  expect(container.querySelector('audio')?.playbackRate).toBe(0.85)
+  fireEvent.change(speed, { target: { value: '0.75' } })
+  expect(container.querySelector('audio')?.playbackRate).toBe(0.75)
+  expect(container.querySelector('audio')?.preservesPitch).toBe(true)
+  rerender(<SolutionAudioButton {...props()} level="B1" audioUrl="https://media.example.com/next-level.mp3" />)
+  expect(speed).toHaveValue('0.75')
+  expect(container.querySelector('audio')?.playbackRate).toBe(0.75)
+})
+
+it('uses the latest speed when synthesis completes after a speed change', async () => {
+  const request = deferred<GenerateAudioResult>()
+  jest.mocked(generateAudio).mockReturnValueOnce(request.promise)
+  const input = props()
+  const { container } = render(<SolutionAudioButton {...input} level="A2" />)
+  fireEvent.click(screen.getByRole('button', { name: input.ariaLabel }))
+  fireEvent.change(screen.getByRole('combobox', { name: dictionary.neural_audio.speed }), { target: { value: '0.75' } })
+  await act(async () => request.resolve({ success: true, audioUrl: 'https://media.example.com/rate-after-generation.mp3', cached: false }))
+  expect(container.querySelector('audio')?.playbackRate).toBe(0.75)
+})
+
+it('follows exact word boundaries on the media clock at all speeds and clears pauses', async () => {
+  const onWordChange = jest.fn()
+  const frames: FrameRequestCallback[] = []
+  jest.spyOn(window, 'requestAnimationFrame').mockImplementation(callback => { frames.push(callback); return frames.length })
+  jest.spyOn(window, 'cancelAnimationFrame').mockImplementation(() => undefined)
+  jest.mocked(generateAudio).mockResolvedValueOnce({ success: true, audioUrl: 'https://media.example.com/aligned.mp3', cached: false,
+    wordTimings: [{ start: 0.1, end: 0.4 }, { start: 0.6, end: 2.2 }] })
+  const input = props()
+  const { container } = render(<SolutionAudioButton {...input} level="A1" onWordChange={onWordChange} />)
+  await act(async () => { await Promise.resolve() })
+  const audio = container.querySelector('audio')!
+  Object.defineProperty(audio, 'duration', { configurable: true, value: 2.5 })
+  fireEvent.click(screen.getByRole('button', { name: input.ariaLabel }))
+  const frame = (seconds: number) => act(() => { audio.currentTime = seconds; frames.shift()?.(performance.now()) })
+  frame(0.2)
+  expect(onWordChange).toHaveBeenLastCalledWith(0)
+  fireEvent.change(screen.getByRole('combobox', { name: dictionary.neural_audio.speed }), { target: { value: '0.75' } })
+  frame(0.5)
+  expect(onWordChange).toHaveBeenLastCalledWith(null)
+  frame(0.7)
+  expect(onWordChange).toHaveBeenLastCalledWith(1)
+  fireEvent.change(screen.getByRole('combobox', { name: dictionary.neural_audio.speed }), { target: { value: '1.25' } })
+  frame(2)
+  expect(onWordChange).toHaveBeenLastCalledWith(1)
+  fireEvent.pause(audio)
+  expect(onWordChange).toHaveBeenLastCalledWith(null)
+  expect(window.cancelAnimationFrame).toHaveBeenCalled()
+})
+
+it('cancels the old voice and synthesizes female speech without reusing the recording', async () => {
+  const input = props()
+  const { container } = render(<SolutionAudioButton {...input} audioUrl="https://media.example.com/original.mp3" />)
+  fireEvent.click(screen.getByRole('button', { name: input.ariaLabel }))
+  const original = container.querySelector('audio')
+  fireEvent.change(screen.getByRole('combobox', { name: dictionary.neural_audio.voice }), { target: { value: 'female' } })
+  expect(jest.mocked(HTMLMediaElement.prototype.pause).mock.instances).toContain(original)
+  await waitFor(() => expect(generateAudio).toHaveBeenCalledWith(expect.objectContaining({ text: input.text, language: 'de', voice: 'female' })))
+  await waitFor(() => expect(container.querySelector('audio')?.src).toBe('https://media.example.com/generated.mp3'))
+  expect(container.querySelector('audio')).not.toBe(original)
+})
+
+it('repeats the current sentence immediately at 0.75 without another synthesis request', async () => {
+  const input = props()
+  const onProgress = jest.fn()
+  const { container } = render(<SolutionAudioButton {...input} audioUrl="https://media.example.com/repeat.mp3" onProgress={onProgress} />)
+  fireEvent.click(screen.getByRole('button', { name: input.ariaLabel }))
+  const audio = container.querySelector('audio')!
+  audio.currentTime = 2
+  fireEvent.click(screen.getByRole('button', { name: dictionary.neural_audio.slow_repeat }))
+  expect(audio.currentTime).toBe(0)
+  expect(audio.playbackRate).toBe(0.75)
+  expect(screen.getByRole('combobox', { name: dictionary.neural_audio.speed })).toHaveValue('0.75')
+  expect(generateAudio).not.toHaveBeenCalled()
+})

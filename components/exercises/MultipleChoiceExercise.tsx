@@ -153,6 +153,7 @@ export default function MultipleChoiceExerciseCard({
           
           <div className="mt-6 flex w-full flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
             <SolutionAudioButton
+              level={exercise.level}
               text={exercise.content.question.includes('___') 
                 ? exercise.content.question.replace('___', exercise.content.correct_answer)
                 : exercise.content.question + ' ' + exercise.content.correct_answer}

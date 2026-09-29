@@ -5,13 +5,11 @@ import { Loader2, Pause, Play, RotateCcw } from 'lucide-react'
 import FluidWaveform from '@/components/audio/FluidWaveform'
 import { useAudioPlayback } from '@/lib/audio/useAudioPlayback'
 import { formatDuration, playbackProgress } from '@/lib/audio/waveform'
+import { defaultPlaybackRate, PLAYBACK_RATES } from '@/lib/audio/playback-settings'
 import {
   createPronunciationTranslator,
   type PronunciationTranslator,
 } from '@/lib/pronunciation-i18n'
-
-/** Tempo-Stufen: langsamer zum Nachsprechen, schneller zum Überfliegen. */
-const SPEEDS = [1, 0.75, 1.25] as const
 
 /** Sprung pro Pfeiltaste – bewusst grob, damit Nachjustieren leicht bleibt. */
 const KEYBOARD_SEEK_SECONDS = 5
@@ -24,6 +22,7 @@ export default function WaveformPlayer({
   blob,
   t,
   label,
+  level,
   compact = false,
   onProgress,
 }: {
@@ -33,13 +32,15 @@ export default function WaveformPlayer({
   /** Übersetzer aus `lib/pronunciation-i18n.ts`. */
   t?: PronunciationTranslator
   label?: string
+  /** A-Niveaus starten verlangsamt; ab B-Niveau gilt das natürliche Tempo. */
+  level?: string
   compact?: boolean
   /** Abspielstand für Mitlese-Hervorhebung und „gehört"-Markierung. */
   onProgress?: (state: { playing: boolean; fraction: number; ended: boolean }) => void
 }) {
   const translate: PronunciationTranslator = t ?? defaultTranslator
-  const [speedIndex, setSpeedIndex] = useState(0)
-  const speed = SPEEDS[speedIndex] ?? 1
+  const [manualSpeed, setManualSpeed] = useState<{ level?: string; rate: number } | null>(null)
+  const speed = manualSpeed && manualSpeed.level === level ? manualSpeed.rate : defaultPlaybackRate(level)
 
   const playback = useAudioPlayback(src, speed, blob)
   useEffect(() => () => playback.pause(), [playback.pause])
@@ -151,14 +152,18 @@ export default function WaveformPlayer({
           <span className="text-base font-semibold tabular-nums text-[var(--muted)]">
             {formatDuration(playback.currentTime)} / {formatDuration(playback.duration)}
           </span>
-          <button
-            type="button"
-            onClick={() => setSpeedIndex((index) => (index + 1) % SPEEDS.length)}
-            aria-label={translate('speed_aria', { speed: `${speed}×` })}
-            className="min-h-12 min-w-12 rounded-xl bg-[var(--surface-muted)] px-4 text-base font-semibold text-[var(--foreground)] transition-colors hover:bg-[var(--surface)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
-          >
-            {translate('speed_label', { speed: `${speed}×` })}
-          </button>
+          <div className="relative">
+            <select
+              value={speed}
+              onChange={event => setManualSpeed({ level, rate: Number(event.target.value) })}
+              aria-label={translate('speed_aria', { speed: `${speed}×` })}
+              style={{ height: 48, minHeight: 48 }}
+              className="h-12 min-h-12 min-w-12 cursor-pointer appearance-none rounded-xl bg-[var(--surface-muted)] pl-4 pr-8 text-base font-semibold text-[var(--foreground)] transition-colors hover:bg-[var(--surface)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
+            >
+              {PLAYBACK_RATES.map(rate => <option key={rate} value={rate}>{translate('speed_label', { speed: `${rate}×` })}</option>)}
+            </select>
+            <span aria-hidden="true" className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2">▾</span>
+          </div>
         </div>
       </div>
 
