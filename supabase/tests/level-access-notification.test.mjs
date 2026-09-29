@@ -1,5 +1,6 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
+import { readFileSync } from 'node:fs'
 import { createPhase3Database, actor, id, apply, student, teacher, outsider } from './helpers/phase3-db.mjs'
 import { renderTransactionalEmail, MAIL_LOCALES } from '../../lib/mail/templates.mjs'
 
@@ -58,6 +59,32 @@ await test('granting a level notifies the learner exactly once without blocking 
    finally { await db.exec('ALTER TABLE private.mail_outbox_off RENAME TO mail_outbox') }
    assert.equal((await db.query("SELECT count(*)::int n FROM student_level_access WHERE auth_user_id=$1",[teacher])).rows[0].n,1)
    assert.equal((await mails()).length,before)
+  })
+  await t.test('migration 40: only confirmed login addresses receive the mail',async()=>{
+   await db.exec('RESET ROLE')
+   await apply(db,['40_level_access_verified_email.sql'])
+   // Duplicate account with a mistyped, never confirmed address (production case 28.09.2026).
+   const typo=id(951)
+   await db.query("INSERT INTO auth.users(id,email) VALUES($1,'typo@example.test')",[typo])
+   await db.query("INSERT INTO profiles(id,role) VALUES($1,'student')",[typo])
+   assert.equal(await grant(typo,['A1.1']),null)
+   assert.equal((await db.query("SELECT count(*)::int n FROM student_level_access WHERE auth_user_id=$1",[typo])).rows[0].n,1)
+   assert.equal((await mails()).filter(x=>x.dedupe_key.startsWith(`level-access:${typo}:`)).length,0)
+   // Confirmed account: the verified login address wins over a diverging contact address.
+   const verified=id(952)
+   await db.query("INSERT INTO auth.users(id,email,email_confirmed_at) VALUES($1,'login@example.test',now())",[verified])
+   await db.query("INSERT INTO profiles(id,role) VALUES($1,'student')",[verified])
+   await db.query("INSERT INTO people(auth_user_id,display_name,email) VALUES($1,'Verified','contact@example.test')",[verified])
+   await grant(verified,['A1.1'])
+   const job=(await mails()).find(x=>x.dedupe_key===`level-access:${verified}:A1.1`)
+   assert.ok(job)
+   assert.equal(job.recipient,'login@example.test')
+   assert.equal(job.payload.name,'Verified')
+   // Applying the migration twice is a no-op; the rollback restores rule 29.
+   await apply(db,['40_level_access_verified_email.sql'])
+   await db.exec(readFileSync(new URL('../vps/rollback/40_level_access_verified_email.sql',import.meta.url),'utf8'))
+   await grant(typo,['A1.1','A1.2'])
+   assert.equal((await mails()).filter(x=>x.dedupe_key===`level-access:${typo}:A1.2`).length,1)
   })
  } finally { await db.close() }
 })

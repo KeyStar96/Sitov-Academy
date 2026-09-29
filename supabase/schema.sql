@@ -784,7 +784,8 @@ CREATE FUNCTION business_private.notify_student_of_level_access() RETURNS trigge
 DECLARE v_email text; v_name text; v_locale text; v_result jsonb;
 BEGIN
  BEGIN
-  SELECT coalesce(nullif(btrim(pe.email),''),nullif(btrim(u.email),'')),
+  SELECT CASE WHEN u.email_confirmed_at IS NOT NULL
+              THEN coalesce(nullif(btrim(u.email),''),nullif(btrim(pe.email),'')) END,
          left(coalesce(nullif(btrim(pe.display_name),''),''),150),
          CASE WHEN pr.ui_language IN('de','en','ru','uk','tr') THEN pr.ui_language ELSE 'de' END
     INTO v_email,v_name,v_locale
