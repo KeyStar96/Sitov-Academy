@@ -2,13 +2,13 @@
 
 | Feld | Wert |
 |---|---|
-| Letzte Aktualisierung | 2026-09-28: Phase 8 abgeschlossen und produktiv aktiviert (26.09.2026); Phase 6 bleibt übersprungen |
-| Git-Revision | Produktives Release aus `01fa06e013d6`; spätere Commits auf `codex/vps-self-hosted` betreffen nur Dokumentation und Testskripte |
+| Letzte Aktualisierung | 2026-09-29: Phase 8 produktiv seit 26.09.2026; Migration 40 und Build-Schutz am 29.09.2026 aktiviert; Phase 6 bleibt übersprungen |
+| Git-Revision | Produktives Release aus `0bcdcd57e38d` |
 | Branch | `codex/vps-self-hosted` |
-| Aktives Release | `01fa06e013d6` (`/var/www/sitov-current` → `/var/www/sitov-releases/01fa06e013d6`) |
-| Health | `ready` (öffentlich geprüft am 28.09.2026) |
-| Letzte Migration | `39_teacher_dashboard.sql`, produktiv angewendet (32–39 am 26.09.2026) |
-| Nächste freie Nummer | **40**, vor Verwendung erneut prüfen |
+| Aktives Release | `0bcdcd57e38d` (`/var/www/sitov-current` → `/var/www/sitov-releases/0bcdcd57e38d`); vorheriges `01fa06e013d6` |
+| Health | `ready` (öffentlich geprüft am 29.09.2026) |
+| Letzte Migration | `40_level_access_verified_email.sql`, produktiv am 29.09.2026 (Backup `/root/backups/sitov-migration-20260929T083431045107Z`) |
+| Nächste freie Nummer | **41**, vor Verwendung erneut prüfen |
 | Datenbank | Produktiv PostgreSQL 15.8 |
 
 > **Archivierte Nachweise:** Prüfberichte, Nachweis-JSONs, Bilder, `MASTER-PROMPT-4.md` und `CODEX.md` wurden am 26.09.2026 aus dem Arbeitsstand entfernt (Commits `5dba843`, `49e35b5`, `6353f89`). Die Links unten zeigen auf den letzten vollständigen Stand `fc1d859`; lokal abrufbar mit `git show fc1d859:docs/master-4/<Datei>`.
