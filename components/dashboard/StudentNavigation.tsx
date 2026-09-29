@@ -74,7 +74,9 @@ export function decideTabbar({ focusInBar, keyboard, dialog, y, viewport, height
  * Beim Runterscrollen macht die Leiste Platz, beim Hochscrollen kommt sie
  * zurück. Der Zustand steht als `data-tabbar` am Wurzelelement; die
  * CSS-Variable `--st-tabbar-visible` richtet alles aus, was über der Leiste
- * schwebt (z. B. das Aufnahme-Dock). Ab Tablet-Breite übernimmt die Kopfzeile.
+ * schwebt (z. B. das Aufnahme-Dock). Die Modus-Leiste oben (`ModeDock`) folgt
+ * demselben Zustand auf allen Breiten: runter → gleitet nach oben weg, hoch →
+ * kommt sofort zurück. Ab Tablet-Breite übernimmt die Kopfzeile die Links.
  */
 export default function StudentNavigation({ lang, firstLevel, levels, supportLabels, lastActiveLevel, learnNew = false }: {
   lang: string
@@ -130,7 +132,8 @@ export default function StudentNavigation({ lang, firstLevel, levels, supportLab
       if (step !== 0 && step !== direction) { direction = step; anchor = lastY }
       lastY = y
       const next = decideTabbar({
-        focusInBar: !!nav.current?.contains(document.activeElement),
+        // Fokus in einer der beiden Leisten (unten oder Modus-Leiste oben) hält beide sichtbar.
+        focusInBar: !!nav.current?.contains(document.activeElement) || !!document.activeElement?.closest('.st-mode-dock'),
         keyboard: keyboardOpen(),
         dialog: helpOpenRef.current || !!document.querySelector('[role="dialog"][aria-modal="true"]'),
         y, viewport: window.innerHeight, height: document.documentElement.scrollHeight,

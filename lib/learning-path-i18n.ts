@@ -16,7 +16,7 @@ const de = {
   save: 'Antwort speichern', finish: 'Test abschließen',
   test_ready: 'Alle Antworten sind gespeichert. Du kannst den Test jetzt abschließen.',
   passed: 'Test bestanden', percentage: 'Ergebnis: {value} %',
-  recommendations: 'Diese Lektionen helfen dir weiter:', results: 'Deine Antworten',
+  recommendations: 'Diese Lektionen helfen dir weiter:',
   empty: 'Hier werden bald neue Lernpfade freigeschaltet.', loading: 'Wird geladen …',
   retry: 'Erneut versuchen', error: 'Das hat gerade nicht geklappt. Bitte versuche es erneut.',
   error_auth: 'Bitte melde dich erneut an.', error_locked: 'Schließe zuerst die vorherigen Schritte ab. Die Niveau-Freigabe übernimmt deine Lehrkraft.',
@@ -30,6 +30,12 @@ const de = {
   level_progress: '{done} von {total} Lektionen geschafft', path_progress: '{done} von {total} Lektionen',
   start_here: 'Jetzt dran', test_last: 'Letzter Versuch: {value} %',
   exit_learning: 'Zurück', theme_light: 'Helles Design aktivieren', theme_dark: 'Dunkles Design aktivieren', overall_progress_label: 'Gesamtfortschritt',
+  translate: 'Übersetzung', translation_region: 'Übersetzung der Aufgabe', hint_base: 'Grundform', hint_meaning: 'Bedeutung',
+  review_open: 'Testauswertung ansehen', review_restart: 'Test erneut starten', review_continue: 'Test fortsetzen',
+  review_title: 'Testauswertung', review_filter_label: 'Aufgaben anzeigen', review_filter_all: 'Alle', review_filter_wrong: 'Nur Fehler',
+  review_score: '{correct} von {total} richtig', review_your_answer: 'Deine Antwort', review_no_answer: 'Keine Antwort',
+  review_all_correct: 'Alles richtig – keine Fehler!', review_last: 'Letztes Ergebnis: {value} %', review_date: 'Abgeschlossen am {date}',
+  review_item: 'Aufgabe {number}', review_correct: 'Richtig', review_wrong: 'Falsch',
 }
 type Messages = Record<keyof typeof de, string>
 const en: Messages = {
@@ -47,7 +53,7 @@ const en: Messages = {
   save: 'Save answer', finish: 'Finish test',
   test_ready: 'All answers are saved. You can finish the test now.',
   passed: 'Test passed', percentage: 'Result: {value}%',
-  recommendations: 'Review these steps for more practice:', results: 'Your answers',
+  recommendations: 'Review these steps for more practice:',
   empty: 'New learning paths will be available here soon.', loading: 'Loading …',
   retry: 'Try again', error: 'That did not work. Please try again.',
   error_auth: 'Please sign in again.', error_locked: 'Complete the earlier steps first. Your teacher unlocks access to each level.',
@@ -61,6 +67,12 @@ const en: Messages = {
   level_progress: '{done} of {total} lessons completed', path_progress: '{done} of {total} lessons',
   start_here: 'Up next', test_last: 'Last attempt: {value}%',
   exit_learning: 'Back', theme_light: 'Switch to light mode', theme_dark: 'Switch to dark mode', overall_progress_label: 'Overall progress',
+  translate: 'Translation', translation_region: 'Translation of the task', hint_base: 'Base form', hint_meaning: 'Meaning',
+  review_open: 'View test results', review_restart: 'Start the test again', review_continue: 'Continue the test',
+  review_title: 'Test results', review_filter_label: 'Show tasks', review_filter_all: 'All', review_filter_wrong: 'Mistakes only',
+  review_score: '{correct} of {total} correct', review_your_answer: 'Your answer', review_no_answer: 'No answer',
+  review_all_correct: 'Everything correct – no mistakes!', review_last: 'Last result: {value}%', review_date: 'Completed on {date}',
+  review_item: 'Task {number}', review_correct: 'Correct', review_wrong: 'Incorrect',
 }
 const ru: Messages = {
   title: 'Учебный маршрут',
@@ -77,7 +89,7 @@ const ru: Messages = {
   save: 'Сохранить ответ', finish: 'Завершить тест',
   test_ready: 'Все ответы сохранены. Теперь можно завершить тест.',
   passed: 'Тест пройден', percentage: 'Результат: {value} %',
-  recommendations: 'Повтори эти шаги, чтобы закрепить знания:', results: 'Твои ответы',
+  recommendations: 'Повтори эти шаги, чтобы закрепить знания:',
   empty: 'Скоро здесь появятся новые учебные маршруты.', loading: 'Загрузка …',
   retry: 'Попробовать снова', error: 'Не получилось. Попробуй ещё раз.',
   error_auth: 'Войди в аккаунт ещё раз.', error_locked: 'Сначала заверши предыдущие шаги. Доступ к уровню открывает преподаватель.',
@@ -91,6 +103,12 @@ const ru: Messages = {
   level_progress: 'Пройдено уроков: {done} из {total}', path_progress: 'Уроков: {done} из {total}',
   start_here: 'Сейчас', test_last: 'Последняя попытка: {value} %',
   exit_learning: 'Назад', theme_light: 'Включить светлую тему', theme_dark: 'Включить тёмную тему', overall_progress_label: 'Общий прогресс',
+  translate: 'Перевод', translation_region: 'Перевод задания', hint_base: 'Начальная форма', hint_meaning: 'Значение',
+  review_open: 'Посмотреть результаты теста', review_restart: 'Пройти тест заново', review_continue: 'Продолжить тест',
+  review_title: 'Результаты теста', review_filter_label: 'Показать задания', review_filter_all: 'Все', review_filter_wrong: 'Только ошибки',
+  review_score: 'Верно: {correct} из {total}', review_your_answer: 'Ваш ответ', review_no_answer: 'Нет ответа',
+  review_all_correct: 'Всё верно – ни одной ошибки!', review_last: 'Последний результат: {value} %', review_date: 'Завершён {date}',
+  review_item: 'Задание {number}', review_correct: 'Верно', review_wrong: 'Неверно',
 }
 const uk: Messages = {
   title: 'Навчальний маршрут',
@@ -107,7 +125,7 @@ const uk: Messages = {
   save: 'Зберегти відповідь', finish: 'Завершити тест',
   test_ready: 'Усі відповіді збережено. Тепер можна завершити тест.',
   passed: 'Тест пройдено', percentage: 'Результат: {value} %',
-  recommendations: 'Повтори ці кроки, щоб закріпити знання:', results: 'Твої відповіді',
+  recommendations: 'Повтори ці кроки, щоб закріпити знання:',
   empty: 'Незабаром тут з’являться нові навчальні маршрути.', loading: 'Завантаження …',
   retry: 'Спробувати знову', error: 'Не вдалося. Спробуй ще раз.',
   error_auth: 'Увійди в обліковий запис ще раз.', error_locked: 'Спочатку заверши попередні кроки. Доступ до рівня відкриває викладач.',
@@ -121,6 +139,12 @@ const uk: Messages = {
   level_progress: 'Пройдено уроків: {done} із {total}', path_progress: 'Уроків: {done} із {total}',
   start_here: 'Зараз', test_last: 'Остання спроба: {value} %',
   exit_learning: 'Назад', theme_light: 'Увімкнути світлу тему', theme_dark: 'Увімкнути темну тему', overall_progress_label: 'Загальний прогрес',
+  translate: 'Переклад', translation_region: 'Переклад завдання', hint_base: 'Початкова форма', hint_meaning: 'Значення',
+  review_open: 'Переглянути результати тесту', review_restart: 'Пройти тест знову', review_continue: 'Продовжити тест',
+  review_title: 'Результати тесту', review_filter_label: 'Показати завдання', review_filter_all: 'Усі', review_filter_wrong: 'Лише помилки',
+  review_score: 'Правильно: {correct} із {total}', review_your_answer: 'Ваша відповідь', review_no_answer: 'Немає відповіді',
+  review_all_correct: 'Усе правильно – жодної помилки!', review_last: 'Останній результат: {value} %', review_date: 'Завершено {date}',
+  review_item: 'Завдання {number}', review_correct: 'Правильно', review_wrong: 'Неправильно',
 }
 const tr: Messages = {
   title: 'Öğrenme yolu',
@@ -137,7 +161,7 @@ const tr: Messages = {
   save: 'Yanıtı kaydet', finish: 'Testi bitir',
   test_ready: 'Tüm yanıtlar kaydedildi. Şimdi testi bitirebilirsin.',
   passed: 'Testi geçtin', percentage: 'Sonuç: %{value}',
-  recommendations: 'Pekiştirmek için bu adımları tekrar et:', results: 'Yanıtların',
+  recommendations: 'Pekiştirmek için bu adımları tekrar et:',
   empty: 'Yeni öğrenme yolları yakında burada açılacak.', loading: 'Yükleniyor …',
   retry: 'Tekrar dene', error: 'İşlem tamamlanamadı. Lütfen tekrar dene.',
   error_auth: 'Lütfen tekrar giriş yap.', error_locked: 'Önce önceki adımları tamamla. Seviye erişimini öğretmenin açar.',
@@ -151,6 +175,12 @@ const tr: Messages = {
   level_progress: '{total} dersten {done} tanesi tamamlandı', path_progress: '{total} dersten {done}',
   start_here: 'Sıradaki', test_last: 'Son deneme: %{value}',
   exit_learning: 'Geri', theme_light: 'Açık temaya geç', theme_dark: 'Koyu temaya geç', overall_progress_label: 'Genel ilerleme',
+  translate: 'Çeviri', translation_region: 'Görevin çevirisi', hint_base: 'Temel biçim', hint_meaning: 'Anlamı',
+  review_open: 'Test sonuçlarını gör', review_restart: 'Testi yeniden başlat', review_continue: 'Teste devam et',
+  review_title: 'Test sonuçları', review_filter_label: 'Görevleri göster', review_filter_all: 'Tümü', review_filter_wrong: 'Sadece hatalar',
+  review_score: '{total} görevden {correct} doğru', review_your_answer: 'Cevabınız', review_no_answer: 'Cevap yok',
+  review_all_correct: 'Hepsi doğru – hiç hata yok!', review_last: 'Son sonuç: %{value}', review_date: '{date} tarihinde tamamlandı',
+  review_item: '{number}. görev', review_correct: 'Doğru', review_wrong: 'Yanlış',
 }
 export const learningPathMessages: Record<UiLocale, Messages> = { de, en, ru, uk, tr }
 export function pathTranslator(locale: string) {

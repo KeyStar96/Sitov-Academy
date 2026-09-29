@@ -301,7 +301,8 @@ CREATE TYPE public.mail_kind AS ENUM (
     'raw',
     'course_exception_added',
     'new_signup',
-    'level_access_granted'
+    'level_access_granted',
+    'learning_reminder'
 );
 
 
@@ -7384,7 +7385,9 @@ CREATE TABLE public.grammar_translations (
     smart_hint text,
     explanation text,
     prompt text,
-    instruction text
+    instruction text,
+    task text,
+    gap_hint text
 );
 
 
@@ -7897,7 +7900,9 @@ CREATE TABLE public.profiles (
     updated_at timestamp with time zone DEFAULT now(),
     role public.profile_role DEFAULT 'student'::public.profile_role,
     ui_language text DEFAULT 'de'::text NOT NULL,
-    notify_pronunciation_feedback boolean DEFAULT true NOT NULL
+    notify_pronunciation_feedback boolean DEFAULT true NOT NULL,
+    notify_new_content boolean DEFAULT true NOT NULL,
+    notify_learning_reminders boolean DEFAULT true NOT NULL
 );
 
 

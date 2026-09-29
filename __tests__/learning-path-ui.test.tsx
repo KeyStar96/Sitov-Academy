@@ -1,11 +1,11 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import LearningPathClient from '@/components/learning-path/LearningPathClient'
 import PathExerciseForm from '@/components/learning-path/PathExerciseForm'
-import { getLearningPath, startLearningNode, submitLearningAnswer, startLearningTest, saveLearningTestAnswer, finishLearningTest } from '@/app/actions/learning-path'
+import { getLearningPath, startLearningNode, submitLearningAnswer, startLearningTest, saveLearningTestAnswer, finishLearningTest, getLearningTestReview } from '@/app/actions/learning-path'
 import { learningPathMessages, pathErrorText } from '@/lib/learning-path-i18n'
-import type { PathMap, PracticeRun, PracticeResult, PathTest, TestResult } from '@/lib/learning-path-contract'
+import type { PathExercise, PathMap, PracticeRun, PracticeResult, PathTest, TestResult } from '@/lib/learning-path-contract'
 
-jest.mock('@/app/actions/learning-path', () => ({ getLearningPath: jest.fn(), startLearningNode: jest.fn(), submitLearningAnswer: jest.fn(), startLearningTest: jest.fn(), saveLearningTestAnswer: jest.fn(), finishLearningTest: jest.fn() }))
+jest.mock('@/app/actions/learning-path', () => ({ getLearningPath: jest.fn(), startLearningNode: jest.fn(), submitLearningAnswer: jest.fn(), startLearningTest: jest.fn(), saveLearningTestAnswer: jest.fn(), finishLearningTest: jest.fn(), getLearningTestReview: jest.fn() }))
 jest.unmock('lucide-react')
 const id = '00000000-0000-4000-8000-000000000001'
 const nextId = '00000000-0000-4000-8000-000000000002'
@@ -170,4 +170,120 @@ it.each(['de', 'en', 'ru', 'uk', 'tr'] as const)('has every interface and error 
   expect(Object.values(learningPathMessages[lang]).every(Boolean)).toBe(true)
   expect(pathErrorText(lang, 'node_locked')).toBe(learningPathMessages[lang].error_locked)
   expect(pathErrorText(lang, 'unknown_error')).toBe(learningPathMessages[lang].error)
+})
+
+describe('help with the German task (Phase 8)', () => {
+  const choice: PathExercise = { id, type: 'multiple_choice', content: { instruction: 'Что вы скажете?', question: 'Es ist sieben Uhr am Morgen.', options: ['Guten Morgen!', 'Gute Nacht!'] },
+    translation: { task: 'Семь часов утра.' } }
+
+  it('translates the task only on request and keeps the answer options German', () => {
+    const toggle = jest.fn()
+    const { rerender } = render(<PathExerciseForm exercise={choice} lang="ru" busy={false} isTest={false} onSubmit={jest.fn()} translationOpen={false} onTranslationToggle={toggle} />)
+    const button = screen.getByTestId('path-translate')
+    expect(button).toHaveAttribute('aria-pressed', 'false')
+    expect(button).toHaveTextContent('Перевод')
+    expect(screen.queryByTestId('path-translation')).not.toBeInTheDocument()
+    fireEvent.click(button)
+    expect(toggle).toHaveBeenCalledTimes(1)
+    rerender(<PathExerciseForm exercise={choice} lang="ru" busy={false} isTest={false} onSubmit={jest.fn()} translationOpen onTranslationToggle={toggle} />)
+    expect(screen.getByTestId('path-translation')).toHaveTextContent('Семь часов утра.')
+    expect(screen.getByTestId('path-translation').querySelector('p')).toHaveAttribute('lang', 'ru')
+    expect(screen.getByText('Es ist sieben Uhr am Morgen.')).toHaveAttribute('lang', 'de')
+    for (const option of ['Guten Morgen!', 'Gute Nacht!']) expect(screen.getByText(option)).toHaveAttribute('lang', 'de')
+  })
+
+  it('offers no translation button when there is nothing to translate', () => {
+    render(<PathExerciseForm exercise={{ ...choice, translation: undefined }} lang="ru" busy={false} isTest={false} onSubmit={jest.fn()} onTranslationToggle={jest.fn()} />)
+    expect(screen.queryByTestId('path-translate')).not.toBeInTheDocument()
+  })
+
+  it('shows the infinitive in the gap and mirrors the typed answer there', () => {
+    const gap: PathExercise = { id, type: 'fill_in_blank', content: { text_before: 'Hallo, ich ', text_after: ' Lara.', gap_hint: 'heißen' } }
+    render(<PathExerciseForm exercise={gap} lang="en" busy={false} isTest={false} onSubmit={jest.fn()} />)
+    const hint = screen.getByTestId('path-gap-hint')
+    expect(hint).toHaveAttribute('data-kind', 'base')
+    expect(hint).toHaveAttribute('lang', 'de')
+    expect(hint).toHaveTextContent('(Base form: heißen)')
+    fireEvent.change(screen.getByTestId('path-answer'), { target: { value: 'heiße' } })
+    expect(screen.getByText('heiße', { selector: 'span' })).toBeInTheDocument()
+  })
+
+  it('names the meaning in the interface language when the base form would be the answer', () => {
+    const gap: PathExercise = { id, type: 'fill_in_blank', content: { text_before: 'Das Sofa steht im ', text_after: '.' }, translation: { gap_hint: 'гостиная' } }
+    render(<PathExerciseForm exercise={gap} lang="ru" busy={false} isTest={false} onSubmit={jest.fn()} />)
+    const hint = screen.getByTestId('path-gap-hint')
+    expect(hint).toHaveAttribute('data-kind', 'meaning')
+    expect(hint).toHaveAttribute('lang', 'ru')
+    expect(hint).toHaveTextContent('гостиная')
+  })
+
+  it('keeps the translation open for the next task in the session', async () => {
+    jest.mocked(startLearningNode).mockResolvedValue({ data: { ...run, merkkarte: null, total: 2, queue: [id, nextId],
+      exercises: [choice, { ...choice, id: nextId, content: { ...choice.content, question: 'Es ist acht Uhr am Abend.' }, translation: { task: 'Восемь часов вечера.' } }] } })
+    jest.mocked(submitLearningAnswer).mockResolvedValue({ data: { ...result, completed: false, stars: null, queue: [nextId] } })
+    render(<LearningPathClient initialPath={map} level="A1.1" lang="ru" />)
+    fireEvent.click(screen.getByTestId(`path-node-${id}`))
+    fireEvent.click(await screen.findByTestId('path-translate'))
+    expect(await screen.findByTestId('path-translation')).toHaveTextContent('Семь часов утра.')
+    fireEvent.click(screen.getByText('Guten Morgen!'))
+    fireEvent.click(screen.getByTestId('path-check'))
+    fireEvent.click(await screen.findByTestId('path-next'))
+    expect(await screen.findByTestId('path-translation')).toHaveTextContent('Восемь часов вечера.')
+    expect(screen.getByTestId('path-translate')).toHaveAttribute('aria-pressed', 'true')
+  })
+})
+
+describe('test evaluation (Phase 8)', () => {
+  const testId = '00000000-0000-4000-8000-000000000004'
+  const answers: TestResult['answers'] = [
+    { id, type: 'fill_in_blank', content: { instruction: 'Fill the gap.', text_before: 'Ich', text_after: 'hier.', gap_hint: 'wohnen' }, answer: { text: 'wohnt' },
+      result: { status: 'INCORRECT', correct: false, fields: [] }, solution: { content: { correct_answer: 'wohne' }, explanation: 'Ich wohne: ending -e.' } },
+    { id: nextId, type: 'multiple_choice', content: { question: 'Es ist sieben Uhr.', options: ['Guten Morgen!', 'Gute Nacht!'] }, answer: { index: 0 },
+      result: { status: 'EXACT', correct: true, fields: [] }, solution: { content: { correct_answer: 'Guten Morgen!' }, explanation: null } },
+  ]
+  const done: PathMap = { ...map, paths: [{ ...map.paths[0], nodes: [{ ...node, id: testId, kind: 'test', title: 'Section test',
+    tests: [{ id, status: 'completed', percentage: 50, passed: false, completed_at: '2026-09-28T10:00:00Z' }] }] }] }
+
+  it('asks what to do with a completed test and shows own answers next to the solutions', async () => {
+    jest.mocked(getLearningTestReview).mockResolvedValue({ data: { attempt_id: id, percentage: 50, passed: false, recommended_nodes: [], answers, completed_at: '2026-09-28T10:00:00Z' } })
+    render(<LearningPathClient initialPath={done} level="A1.1" lang="en" />)
+    fireEvent.click(screen.getByTestId(`path-node-${testId}`))
+    expect(await screen.findByTestId('path-test-choice')).toHaveTextContent('50')
+    expect(startLearningTest).not.toHaveBeenCalled()
+    expect(screen.getByTestId('path-choice-start')).toHaveTextContent('Start the test again')
+    fireEvent.click(screen.getByTestId('path-choice-review'))
+    const review = await screen.findByTestId('path-test-review')
+    expect(getLearningTestReview).toHaveBeenCalledWith(testId, 'en')
+    expect(review).toHaveTextContent('1 of 2 correct')
+    const items = screen.getAllByTestId('path-review-item')
+    expect(items).toHaveLength(1)
+    expect(items[0]).toHaveTextContent('Your answer')
+    expect(items[0]).toHaveTextContent('wohnt')
+    expect(items[0]).toHaveTextContent('wohne')
+    expect(items[0]).toHaveTextContent('Ich wohne: ending -e.')
+    fireEvent.click(screen.getByTestId('path-review-filter-all'))
+    expect(screen.getAllByTestId('path-review-item')).toHaveLength(2)
+    expect(screen.getAllByTestId('path-review-item')[1]).toHaveTextContent('Guten Morgen!')
+  })
+
+  it('starts the test again from the choice or from the evaluation', async () => {
+    jest.mocked(startLearningTest).mockResolvedValue({ data: { attempt_id: nextId, node_id: testId, total: 1, exercises: [{ ...run.exercises[0], answer: null }] } })
+    render(<LearningPathClient initialPath={done} level="A1.1" lang="en" />)
+    fireEvent.click(screen.getByTestId(`path-node-${testId}`))
+    fireEvent.click(await screen.findByTestId('path-choice-start'))
+    expect(await screen.findByTestId('path-answer')).toBeInTheDocument()
+    expect(startLearningTest).toHaveBeenCalledWith(testId, 'en')
+  })
+
+  it('opens the evaluation right after finishing a test', async () => {
+    const pathTest: PathTest = { attempt_id: id, node_id: testId, total: 1, exercises: [{ ...run.exercises[0], answer: { text: 'wohnt' } }] }
+    jest.mocked(startLearningTest).mockResolvedValue({ data: pathTest })
+    jest.mocked(finishLearningTest).mockResolvedValue({ data: { attempt_id: id, percentage: 0, passed: false, recommended_nodes: [], answers: [answers[0]] } })
+    render(<LearningPathClient initialPath={{ ...map, paths: [{ ...map.paths[0], nodes: [{ ...node, id: testId, kind: 'test' }] }] }} level="A1.1" lang="en" />)
+    fireEvent.click(screen.getByTestId(`path-node-${testId}`))
+    fireEvent.click(await screen.findByTestId('path-test-finish'))
+    fireEvent.click(await screen.findByTestId('path-outcome-review'))
+    expect(await screen.findByTestId('path-test-review')).toHaveTextContent('wohnt')
+    expect(getLearningTestReview).not.toHaveBeenCalled()
+  })
 })

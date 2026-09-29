@@ -400,6 +400,8 @@ export type Database = {
           instruction: string | null
           locale: string
           prompt: string | null
+          task: string | null
+          gap_hint: string | null
           smart_hint: string | null
         }
         Insert: {
@@ -409,6 +411,8 @@ export type Database = {
           instruction?: string | null
           locale: string
           prompt?: string | null
+          task?: string | null
+          gap_hint?: string | null
           smart_hint?: string | null
         }
         Update: {
@@ -418,6 +422,8 @@ export type Database = {
           instruction?: string | null
           locale?: string
           prompt?: string | null
+          task?: string | null
+          gap_hint?: string | null
           smart_hint?: string | null
         }
         Relationships: [
@@ -1131,6 +1137,8 @@ export type Database = {
           id: string
           native_language: string | null
           notify_pronunciation_feedback: boolean
+          notify_learning_reminders: boolean
+          notify_new_content: boolean
           role: Database["public"]["Enums"]["profile_role"] | null
           ui_language: string
           updated_at: string | null
@@ -1140,6 +1148,8 @@ export type Database = {
           id: string
           native_language?: string | null
           notify_pronunciation_feedback?: boolean
+          notify_learning_reminders?: boolean
+          notify_new_content?: boolean
           role?: Database["public"]["Enums"]["profile_role"] | null
           ui_language?: string
           updated_at?: string | null
@@ -1149,6 +1159,8 @@ export type Database = {
           id?: string
           native_language?: string | null
           notify_pronunciation_feedback?: boolean
+          notify_learning_reminders?: boolean
+          notify_new_content?: boolean
           role?: Database["public"]["Enums"]["profile_role"] | null
           ui_language?: string
           updated_at?: string | null
@@ -2512,6 +2524,19 @@ export type Database = {
         }
         Returns: Json
       }
+      get_path_test_review: {
+        Args: {
+          p_node_id: string
+          p_locale?: string
+        }
+        Returns: Json
+      }
+      queue_learning_reminders: {
+        Args: {
+          p_now?: string
+        }
+        Returns: Json
+      }
       manage_learning_path: {
         Args: {
           p_student_id: string
@@ -2610,6 +2635,7 @@ export type Database = {
         | "course_exception_added"
         | "new_signup"
         | "level_access_granted"
+        | "learning_reminder"
       mail_status: "pending" | "processing" | "sent" | "failed"
       media_format: "mp4" | "webm" | "pdf" | "pptx" | "key"
       onboarding_status: "skipped" | "completed"
@@ -2783,6 +2809,7 @@ export const Constants = {
         "course_exception_added",
         "new_signup",
         "level_access_granted",
+        "learning_reminder",
       ],
       mail_status: ["pending", "processing", "sent", "failed"],
       media_format: ["mp4", "webm", "pdf", "pptx", "key"],

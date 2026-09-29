@@ -69,7 +69,11 @@ export default async function ProfilePage({ params }: { params: Promise<{ lang: 
         ) },
         { id: 'appearance', title: s('settings_appearance'), hint: s('settings_appearance_hint'), content: <ProfileAppearanceSettings /> },
         { id: 'notifications', title: s('settings_notifications'), hint: s('settings_notifications_hint'),
-          content: <ProfileNotificationSettings lang={lang} initial={profile.notify_pronunciation_feedback ?? true} /> },
+          content: <ProfileNotificationSettings lang={lang} initial={{
+            pronunciation: profile.notify_pronunciation_feedback ?? true,
+            new_content: profile.notify_new_content ?? true,
+            reminders: profile.notify_learning_reminders ?? true,
+          }} /> },
         { id: 'courses', title: s('settings_courses'), hint: s('settings_courses_hint'), content: (
           <div className="space-y-5">
             <Link href={`/${lang}/dashboard/calendar#booking`} className="st-cta st-press !mt-0">

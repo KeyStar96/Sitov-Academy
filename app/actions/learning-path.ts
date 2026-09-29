@@ -4,11 +4,11 @@ import { z } from 'zod'
 import { createClient } from '@/utils/supabase/server'
 import type { Database } from '@/supabase/database.types'
 import { pathLocaleSchema, pathLevelSchema, pathIdSchema, pathAnswerSchema, pathMapSchema,
-  practiceRunSchema, practiceResultSchema, pathTestSchema, testResultSchema,
-  type PathResult, type PathMap, type PracticeRun, type PracticeResult, type PathTest, type TestResult } from '@/lib/learning-path-contract'
+  practiceRunSchema, practiceResultSchema, pathTestSchema, testResultSchema, testReviewSchema,
+  type PathResult, type PathMap, type PracticeRun, type PracticeResult, type PathTest, type TestResult, type TestReview } from '@/lib/learning-path-contract'
 
 type PathRpc = 'get_learning_path' | 'start_path_node' | 'submit_path_answer'
-  | 'start_path_test' | 'submit_path_test_answer' | 'finish_path_test'
+  | 'start_path_test' | 'submit_path_test_answer' | 'finish_path_test' | 'get_path_test_review'
 
 /** Cookie identity only. PostgreSQL checks access, ownership, ordering and grading. */
 async function callPathRpc<T, N extends PathRpc>(name: N,
@@ -65,4 +65,11 @@ export async function finishLearningTest(attemptId: string, locale: string): Pro
   if (!pathIdSchema.safeParse(attemptId).success || !pathLocaleSchema.safeParse(locale).success)
     return { error: 'invalid_input' } as const
   return callPathRpc('finish_path_test', { p_attempt_id: attemptId, p_locale: locale }, testResultSchema)
+}
+
+/** Latest completed attempt of a test with answers vs. solutions; ownership is checked in PostgreSQL. */
+export async function getLearningTestReview(nodeId: string, locale: string): Promise<PathResult<TestReview>> {
+  if (!pathIdSchema.safeParse(nodeId).success || !pathLocaleSchema.safeParse(locale).success)
+    return { error: 'invalid_input' } as const
+  return callPathRpc('get_path_test_review', { p_node_id: nodeId, p_locale: locale }, testReviewSchema)
 }

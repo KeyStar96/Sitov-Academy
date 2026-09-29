@@ -54,6 +54,8 @@ export const multipleChoiceContentSchema = z.strictObject({
 export const fillInBlankContentSchema = z.strictObject({
   ...baseContent, ...writtenAnswer, accepted_answers: legacyAnswerList, text_before: sentencePart, text_after: sentencePart,
   correct_answer: germanText, options: options.optional(),
+  /** German base form (infinitive for verbs) of the searched word, shown in the gap (migration 44). */
+  gap_hint: germanText.refine(codepointLimit(100), 'Gap hint is too long').optional(),
 }).superRefine((value, ctx) => {
   canonicalAnswer(value, ctx)
   if (!`${value.text_before}${value.text_after}`.trim()) {
@@ -154,7 +156,13 @@ const ruleTranslations = z.strictObject({
   en: z.strictObject({ rule: text }), ru: z.strictObject({ rule: text }),
   uk: z.strictObject({ rule: text }), tr: z.strictObject({ rule: text }),
 })
-const exerciseTranslation = z.strictObject({ instruction: text, hint: text, explanation: text, prompt: text.optional() })
+const exerciseTranslation = z.strictObject({
+  instruction: text, hint: text, explanation: text, prompt: text.optional(),
+  /** The German task (question, sentence or target sentence) in this interface language (migration 44). */
+  task: text.optional(),
+  /** Meaning of the searched word of a gap, when its German base form would give the answer away (migration 44). */
+  gap_hint: text.refine(codepointLimit(100), 'Gap hint is too long').optional(),
+})
 export const learningPathExerciseTranslationsSchema = z.strictObject({
   en: exerciseTranslation, ru: exerciseTranslation, uk: exerciseTranslation, tr: exerciseTranslation,
 })
@@ -177,6 +185,11 @@ export const learningPathSeedExerciseSchema = z.strictObject({
   if (!result.success) {
     for (const issue of result.error.issues) ctx.addIssue({ ...issue, path: ['content', ...issue.path] })
     return
+  }
+  if (value.exercise_type !== 'fill_in_blank') {
+    for (const locale of ['en', 'ru', 'uk', 'tr'] as const) {
+      if (value.translations[locale].gap_hint !== undefined) ctx.addIssue({ code: 'custom', path: ['translations', locale, 'gap_hint'], message: 'Only gaps have a gap hint' })
+    }
   }
   if (value.accepted_answers) {
     const accepted = 'accepted_answers' in result.data ? result.data.accepted_answers : undefined

@@ -4,9 +4,9 @@ import { modeHref } from '@/lib/mode-targets'
 
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
-import { CheckCheck, CircleCheck, RotateCcw, Target } from 'lucide-react'
-import { getLearningPath, startLearningNode, submitLearningAnswer, startLearningTest, saveLearningTestAnswer, finishLearningTest } from '@/app/actions/learning-path'
-import type { PathAnswer, PathMap, PathNode, PracticeRun, PracticeResult, PathTest, TestResult, PathGrade } from '@/lib/learning-path-contract'
+import { CheckCheck, CircleCheck, ListChecks, Play, RotateCcw, Target, Trophy } from 'lucide-react'
+import { getLearningPath, startLearningNode, submitLearningAnswer, startLearningTest, saveLearningTestAnswer, finishLearningTest, getLearningTestReview } from '@/app/actions/learning-path'
+import type { PathAnswer, PathMap, PathNode, PracticeRun, PracticeResult, PathTest, TestResult, TestReview as TestReviewData, PathGrade } from '@/lib/learning-path-contract'
 import { pathErrorText, pathTranslator } from '@/lib/learning-path-i18n'
 import { OrthographyNote } from '@/components/exercises/SoftErrorBadge'
 import FeedbackMotion from '@/components/motion/FeedbackMotion'
@@ -14,13 +14,24 @@ import { useLearningNew } from '@/components/dashboard/useLearningNew'
 import { studentTranslator } from '@/lib/student-ui-i18n'
 import type { LearningNewItems } from '@/lib/learning-new'
 import LearningScreen from '@/components/vocabulary/LearningScreen'
+import BottomSheet from '@/components/ui/BottomSheet'
 import RuleCard from './RuleCard'
 import PathExerciseForm from './PathExerciseForm'
 import PathTrail from './PathTrail'
 import TestOutcome from './TestOutcome'
+import TestReview from './TestReview'
 import styles from './learning-path.module.css'
 
 type Selection = { node: PathNode; title: string; pathId: string }
+type Review = TestResult & Pick<Partial<TestReviewData>, 'completed_at'>
+
+/** Übersetzungshilfe bleibt für die nächsten Aufgaben offen oder zu (nur Bequemlichkeit). */
+const TRANSLATION_KEY = 'sitov:path-translation'
+
+/** Der letzte abgeschlossene Versuch eines Tests (Liste kommt neueste zuerst). */
+function lastCompleted(node: PathNode) {
+  return node.kind === 'test' ? node.tests.find(attempt => attempt.status === 'completed' && attempt.percentage !== null) : undefined
+}
 
 function GradeFeedback({ grade, solution, lang, isTest = false }: { grade: PathGrade; solution: PracticeResult['solution']; lang: string; isTest?: boolean }) {
   const t = pathTranslator(lang)
@@ -56,6 +67,9 @@ export default function LearningPathClient({ initialPath, initialError, lang, le
   const [cardShown, setCardShown] = useState(false)
   const [feedback, setFeedback] = useState<PracticeResult | null>(null)
   const [testResult, setTestResult] = useState<TestResult | null>(null)
+  const [review, setReview] = useState<Review | null>(null)
+  const [choice, setChoice] = useState<Selection | null>(null)
+  const [translationOpen, setTranslationOpen] = useState(false)
   const [step, setStep] = useState(0)
   const heading = useRef<HTMLHeadingElement>(null)
   const feedbackRef = useRef<HTMLDivElement>(null)
@@ -66,7 +80,18 @@ export default function LearningPathClient({ initialPath, initialError, lang, le
     : test?.exercises.find(item => item.answer === null)
   const selectedPath = map?.paths.find(path => path.id === selection?.pathId)
   const pathNodes = selectedPath?.nodes ?? []
-  const view = !selection ? 'map' : cardShown ? 'rule' : feedback ? 'feedback' : testResult ? 'result' : exercise?.id ?? 'finish'
+  const view = !selection ? 'map' : review ? 'review' : cardShown ? 'rule' : feedback ? 'feedback' : testResult ? 'result' : exercise?.id ?? 'finish'
+
+  useEffect(() => {
+    try { setTranslationOpen(window.localStorage.getItem(TRANSLATION_KEY) === 'open') } catch { /* nur Bequemlichkeit */ }
+  }, [])
+
+  function toggleTranslation() {
+    setTranslationOpen(previous => {
+      try { window.localStorage.setItem(TRANSLATION_KEY, previous ? 'closed' : 'open') } catch { /* nur Bequemlichkeit */ }
+      return !previous
+    })
+  }
 
   useEffect(() => {
     // Zurück auf der Karte bleibt die Stelle, an der man war.
@@ -88,12 +113,15 @@ export default function LearningPathClient({ initialPath, initialError, lang, le
   async function refreshMap() {
     const result = await getLearningPath(level, lang)
     if (result.error) { setError(result.error); return }
-    setMap(result.data); setSelection(null); setRun(null); setTest(null); setFeedback(null); setTestResult(null)
+    setMap(result.data); setSelection(null); setRun(null); setTest(null); setFeedback(null); setTestResult(null); setReview(null)
     pending.current = null
     news.flush()
   }
 
-  function openNode(node: PathNode, title: string, pathId: string) {
+  function openNode(node: PathNode, title: string, pathId: string, start = false) {
+    // Ein schon absolvierter Test: erst fragen — Auswertung ansehen oder erneut starten.
+    if (!start && lastCompleted(node)) { setError(null); setChoice({ node, title, pathId }); return }
+    setChoice(null)
     void perform(async () => {
       if (node.kind === 'test') {
         const result = await startLearningTest(node.id, lang)
@@ -104,7 +132,7 @@ export default function LearningPathClient({ initialPath, initialError, lang, le
         if (result.error) { setError(result.error); return }
         setRun(result.data); setTest(null); setCardShown(Boolean(result.data.merkkarte))
       }
-      setSelection({ node, title, pathId }); setFeedback(null); setTestResult(null); setStep(0); pending.current = null
+      setSelection({ node, title, pathId }); setFeedback(null); setTestResult(null); setReview(null); setStep(0); pending.current = null
       // Erst wenn der Knoten wirklich offen ist, gilt er als geöffnet; die Zähler folgen beim Zurück zur Karte.
       news.mark('path', pathId, { refresh: false })
       if (node.kind === 'special') news.mark('special_branch', node.id, { refresh: false })
@@ -137,6 +165,17 @@ export default function LearningPathClient({ initialPath, initialError, lang, le
     setRun({ ...run, queue: feedback.queue }); setFeedback(null); setStep(previous => previous + 1); pending.current = null
   }
 
+  function showReview(target: Selection) {
+    setChoice(null)
+    void perform(async () => {
+      const result = await getLearningTestReview(target.node.id, lang)
+      if (result.error) { setError(result.error); return }
+      setRun(null); setTest(null); setCardShown(false); setFeedback(null); setTestResult(null)
+      setSelection(target); setReview(result.data)
+      news.mark('path', target.pathId, { refresh: false })
+    })
+  }
+
   function finish() {
     if (!test) return
     void perform(async () => {
@@ -150,30 +189,28 @@ export default function LearningPathClient({ initialPath, initialError, lang, le
     const done = run ? run.total - run.queue.length : test?.exercises.filter(item => item.answer !== null).length ?? 0
     const total = run?.total ?? test?.total ?? 0
     return <section className={styles.root} aria-busy={busy}>
-      <LearningScreen title={selection.node.title} subtitle={total && !testResult ? `${done} / ${total}` : undefined}
-        progress={testResult ? 100 : total ? (done / total) * 100 : 0} onExit={() => void perform(refreshMap)} exitDisabled={busy}
+      <LearningScreen title={selection.node.title} subtitle={review ? t('review_title') : total && !testResult ? `${done} / ${total}` : undefined}
+        progress={testResult || review ? 100 : total ? (done / total) * 100 : 0} onExit={() => void perform(refreshMap)} exitDisabled={busy}
         t={key => t(key)} workspaceRef={workspace}>
         <div ref={stage} tabIndex={-1} className={styles.stage}>
           {error && <div className={styles.error} role="alert"><p>{pathErrorText(lang, error)}</p></div>}
-          {cardShown && run?.merkkarte ? <>
+          {review ? <TestReview review={review} lang={lang} actions={<>
+            <button type="button" data-testid="path-review-back" className={styles.secondary} disabled={busy} onClick={() => void perform(refreshMap)}>{t('back')}</button>
+            <button type="button" data-testid="path-review-restart" className={styles.primary} disabled={busy}
+              onClick={() => openNode(selection.node, selection.title, selection.pathId, true)}><RotateCcw size={18} aria-hidden="true" />{t('review_restart')}</button>
+          </>} />
+          : cardShown && run?.merkkarte ? <>
             <RuleCard card={run.merkkarte} lang={lang} />
             <div className={`${styles.actions} ${styles.dock}`}><button data-testid="path-rule-continue" className={styles.primary} onClick={() => setCardShown(false)}>{t('begin')}</button></div>
           </> : testResult ? <TestOutcome result={testResult} lang={lang}
             lessons={pathNodes.filter(node => node.kind === 'practice' || node.kind === 'review')}
             recommended={pathNodes.filter(node => testResult.recommended_nodes.includes(node.id))}
-            actions={<div className={`${styles.actions} !justify-center`}><button data-testid="path-outcome-back" className={styles.primary} disabled={busy} onClick={() => void perform(refreshMap)}>{t('back')}</button></div>}>
-            {testResult.answers.length > 0 && <details className={styles.answers}>
-              <summary>{t('results')}</summary>
-              {testResult.answers.map((item, index) => <details key={item.id} className={styles.result}>
-                <summary>{index + 1}. {item.content.instruction || t('answer')}</summary>
-                <p lang="de" translate="no">{item.type === 'fill_in_blank' ? `${item.content.text_before} … ${item.content.text_after}` : item.type === 'multiple_choice' ? item.content.question : item.content.parts.join(' · ')}</p>
-                <p>{t('answer')}: <span lang="de" translate="no">{'text' in item.answer ? item.answer.text
-                  : 'index' in item.answer && item.type === 'multiple_choice' ? item.content.options[item.answer.index]
-                    : 'indices' in item.answer && item.type === 'sentence_building' ? item.answer.indices.map(index => item.content.parts[index]).join(' ') : ''}</span></p>
-                <GradeFeedback grade={item.result} solution={item.solution} lang={lang} isTest />
-              </details>)}
-            </details>}
-          </TestOutcome> : feedback ? <div ref={feedbackRef} tabIndex={-1} data-testid="path-feedback" className={styles.stage}>
+            actions={<div className={`${styles.actions} !justify-center`}>
+              {testResult.answers.length > 0 && <button type="button" data-testid="path-outcome-review" className={styles.secondary} disabled={busy}
+                onClick={() => setReview(testResult)}><ListChecks size={18} aria-hidden="true" />{t('review_open')}</button>}
+              <button data-testid="path-outcome-back" className={styles.primary} disabled={busy} onClick={() => void perform(refreshMap)}>{t('back')}</button>
+            </div>} />
+          : feedback ? <div ref={feedbackRef} tabIndex={-1} data-testid="path-feedback" className={styles.stage}>
             <GradeFeedback grade={feedback.grade} solution={feedback.solution} lang={lang} />
             {feedback.completed && <p className={styles.nodeDone}><CheckCheck size={24} aria-hidden="true" />{t('node_done')}<span className="sr-only">, {t('stars', { count: feedback.stars ?? 0 })}</span>
               <span aria-hidden="true" className={styles.nodeDoneStars}>{'★'.repeat(feedback.stars ?? 0)}{'☆'.repeat(3 - (feedback.stars ?? 0))}</span></p>}
@@ -181,7 +218,8 @@ export default function LearningPathClient({ initialPath, initialError, lang, le
           </div> : <>
             <p className="sr-only" role="status">{t('progress', { done, total })}</p>
             {test && done === 0 && <p className={styles.goalChip}><Target size={18} aria-hidden="true" /><span className="sr-only">{t('goal')}</span><span aria-hidden="true">80&thinsp;%</span></p>}
-            {exercise ? <PathExerciseForm key={`${exercise.id}-${step}`} exercise={exercise} lang={lang} busy={busy} onSubmit={submit} isTest={Boolean(test)} />
+            {exercise ? <PathExerciseForm key={`${exercise.id}-${step}`} exercise={exercise} lang={lang} busy={busy} onSubmit={submit} isTest={Boolean(test)}
+              translationOpen={translationOpen} onTranslationToggle={toggleTranslation} />
               : test && <div className={styles.ready}>
                 <CheckCheck size={56} aria-hidden="true" />
                 <p className="sr-only">{t('test_ready')}</p>
@@ -211,5 +249,40 @@ export default function LearningPathClient({ initialPath, initialError, lang, le
         isNewPath={id => news.isNew('path', id)} isNewBranch={id => news.isNew('special_branch', id)} newLabel={newLabel} />}
       {map && map.paths.length === 0 && <p>{t('empty')}</p>}
     </div>
+    <TestChoice choice={choice} lang={lang} busy={busy} onClose={() => setChoice(null)}
+      onReview={target => showReview(target)} onStart={target => openNode(target.node, target.title, target.pathId, true)} />
   </section>
+}
+
+/**
+ * Klick auf einen schon absolvierten Test: das letzte Ergebnis und zwei klare
+ * Wege — die Auswertung ansehen oder den Test erneut starten (ein offener
+ * Versuch wird fortgesetzt).
+ */
+function TestChoice({ choice, lang, busy, onClose, onReview, onStart }: {
+  choice: Selection | null; lang: string; busy: boolean; onClose: () => void
+  onReview: (target: Selection) => void; onStart: (target: Selection) => void
+}) {
+  const t = pathTranslator(lang)
+  const last = choice ? lastCompleted(choice.node) : undefined
+  const resumes = Boolean(choice?.node.tests.some(attempt => attempt.status === 'active'))
+  const value = last?.percentage === null || last?.percentage === undefined ? null : Math.floor(last.percentage)
+  return <BottomSheet open={Boolean(choice)} onClose={onClose} title={choice?.node.title ?? ''} closeLabel={t('exit_learning')}
+    icon={<Trophy size={24} />}>
+    {choice && <div className={styles.choiceList} data-testid="path-test-choice">
+      {last && value !== null && <p className={styles.choiceResult} data-passed={Boolean(last.passed)}>
+        <span className="sr-only">{t('review_last', { value })}</span>
+        <span className={styles.choicePercent} aria-hidden="true">{value}&thinsp;%</span>
+        <span className={styles.chip} data-tone={last.passed ? 'success' : 'path'}>{t(last.passed ? 'passed' : 'goal')}</span>
+      </p>}
+      <button type="button" className={styles.choice} data-tone="review" data-testid="path-choice-review" disabled={busy} onClick={() => onReview(choice)}>
+        <span className={styles.choiceIcon} aria-hidden="true"><ListChecks size={24} /></span>
+        <span>{t('review_open')}</span>
+      </button>
+      <button type="button" className={styles.choice} data-tone="start" data-testid="path-choice-start" disabled={busy} onClick={() => onStart(choice)}>
+        <span className={styles.choiceIcon} aria-hidden="true">{resumes ? <Play size={24} /> : <RotateCcw size={24} />}</span>
+        <span>{t(resumes ? 'review_continue' : 'review_restart')}</span>
+      </button>
+    </div>}
+  </BottomSheet>
 }

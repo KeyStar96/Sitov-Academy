@@ -4,7 +4,7 @@ import { createServer } from 'node:net'
 import { readFile } from 'node:fs/promises'
 import { renderTransactionalEmail, MAIL_KINDS, MAIL_LOCALES, mailLink } from '../lib/mail/templates.mjs'
 import { createLocalSmtpTransport } from '../lib/mail/smtp.mjs'
-import { runMailBatch } from '../lib/mail/worker.mjs'
+import { runMailBatch, runReminderCheck, REMINDER_INTERVAL_MS } from '../lib/mail/worker.mjs'
 
 const site='http://203.0.113.24'
 const job={id:'00000000-0000-4000-8000-000000000003',lease_token:'00000000-0000-4000-8000-000000000004',recipient:'student@example.test',locale:'de',kind:'feedback_available',payload:{name:'Anna',path:'/de/dashboard/profile'}}
@@ -140,4 +140,19 @@ test('outage sections are localized, escaped, complete and absent for empty list
   }
   for(const date of ['2026-02-30','2026-01-01T00:00:00Z','bad'])
     assert.throws(()=>renderTransactionalEmail('registration_received','de',{exceptions:[{date}]},site),/invalid_exception_date/)
+})
+
+test('the worker asks PostgreSQL for learning reminders and survives every failure',async()=>{
+  assert.equal(REMINDER_INTERVAL_MS,3600000,'at most once an hour')
+  const calls=[]
+  const ok={rpc:async(name,args)=>{calls.push([name,args]);return {data:{queued:2}}}}
+  assert.equal(await runReminderCheck({client:ok,logger:log}),2)
+  assert.deepEqual(calls,[['queue_learning_reminders',{}]])
+  assert.equal(await runReminderCheck({client:{rpc:async()=>({data:{queued:0,skipped:'quiet_hours'}})},logger:log}),0)
+  const errors=[]
+  const logger={info(){},error(message){errors.push(message)}}
+  assert.equal(await runReminderCheck({client:{rpc:async()=>({error:{message:'missing'}})},logger}),0)
+  assert.equal(await runReminderCheck({client:{rpc:async()=>({data:{error:'not_authorized'}})},logger}),0)
+  assert.equal(await runReminderCheck({client:{rpc:async()=>{throw new Error('offline')}},logger}),0)
+  assert.deepEqual(errors,['[mail-worker] reminder_check_failed','[mail-worker] reminder_check_failed','[mail-worker] reminder_check_failed'])
 })

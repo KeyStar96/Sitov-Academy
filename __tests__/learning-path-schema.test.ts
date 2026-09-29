@@ -88,7 +88,8 @@ describe('existing Phase 4 seed compatibility (read-only)', () => {
     expect(learningPathSeedSchema.safeParse(changed).success).toBe(false)
   })
   it('validates every source record and preserves the existing file exactly', () => {
-    expect(createHash('sha256').update(seedFile).digest('hex')).toBe('d5d954b7579ababef29876eb5321757d722194bd096ae44bf1ab925864c99a0c')
+    // Phase 8 (Migration 44): Übersetzung jeder Aufgabe und Grundform-/Bedeutungshinweis jeder Lücke ergänzt.
+    expect(createHash('sha256').update(seedFile).digest('hex')).toBe('b4f2ada9c7981f54a2720cab635eab739eab77096532ebc67246c558818cd1c8')
     const parsed = learningPathSeedSchema.parse(seed)
     expect(parsed).toEqual(seed)
     expect(parsed).toHaveLength(7)

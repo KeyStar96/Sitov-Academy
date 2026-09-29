@@ -4,6 +4,16 @@ import { createRequire } from 'node:module'
 import { readFile } from 'node:fs/promises'
 import { createLearningPathDatabase, actor, id, student, teacher, result } from './helpers/learning-path-db.mjs'
 
+// Fields added by migration 44 (task translation, gap hints) are checked against 44
+// in path-task-help.test.mjs; this contract predates them.
+const without44 = exercise => {
+ const content = { ...exercise.content }
+ delete content.gap_hint
+ const translations = Object.fromEntries(Object.entries(exercise.translations ?? {}).map(([lang, value]) => {
+  const rest = { ...value }; delete rest.task; delete rest.gap_hint; return [lang, rest] }))
+ return { ...exercise, content, translations }
+}
+
 const require = createRequire(import.meta.url)
 require('ts-node').register({ transpileOnly: true, compilerOptions: { module: 'CommonJS', moduleResolution: 'node' } })
 const { learningPathSeedSchema } = require('../../lib/learning-path-schema.ts')
@@ -160,7 +170,7 @@ await test('path JSON import/export preserves source contracts and enforces staf
     await t.test('validates the existing seven-path source read-only without importing any curriculum records', async () => {
       const existing = JSON.parse(await readFile(new URL('../seeds/path-a1.1.json', import.meta.url), 'utf8'))
       const before = (await db.query('SELECT count(*)::int total FROM learning_exercises')).rows[0].total
-      for (const path of existing) {
+      for (const path of existing.map(path => ({ ...path, nodes: path.nodes.map(node => ({ ...node, exercises: node.exercises.map(without44) })) }))) {
         assert.equal((await db.query('SELECT path_private.valid_seed_shape($1) valid', [JSON.stringify(path)])).rows[0].valid, true, path.id)
       }
       assert.equal((await db.query('SELECT count(*)::int total FROM learning_exercises')).rows[0].total, before)

@@ -1,6 +1,6 @@
 import { readFileSync, readdirSync, statSync } from 'node:fs'
 import { join, resolve } from 'node:path'
-import { render, screen, within } from '@testing-library/react'
+import { render, screen, waitFor, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import ModeDock, { type ModeDockEntry } from '@/components/dashboard/ModeDock'
 import DashboardHeader from '@/components/layout/DashboardHeader'
@@ -204,6 +204,27 @@ describe('Untere Leiste (D8)', () => {
   it('setzt den Zustand als Attribut am Wurzelelement', () => {
     render(<div className="academy-student-shell"><StudentNavigation lang="de" firstLevel="A1.1" levels={['A1.1']} supportLabels={labels} lastActiveLevel="A1.1" /></div>)
     expect(document.querySelector('.academy-student-shell')).toHaveAttribute('data-tabbar', 'visible')
+  })
+
+  it('nimmt die Modus-Leiste oben mit: runter → weg, hoch → sofort zurück, Fokus darin → sichtbar (Phase 8)', async () => {
+    const scrollTo = (y: number) => { Object.defineProperty(window, 'scrollY', { configurable: true, value: y }); window.dispatchEvent(new Event('scroll')) }
+    Object.defineProperty(document.documentElement, 'scrollHeight', { configurable: true, value: 4000 })
+    render(<div className="academy-student-shell">
+      <nav className="st-mode-dock"><a href="#vocabulary">Vokabeln</a></nav>
+      <StudentNavigation lang="de" firstLevel="A1.1" levels={['A1.1']} supportLabels={labels} lastActiveLevel="A1.1" />
+    </div>)
+    const shell = document.querySelector('.academy-student-shell')!
+    scrollTo(300); scrollTo(600)
+    await waitFor(() => expect(shell).toHaveAttribute('data-tabbar', 'hidden'))
+    scrollTo(580)
+    await waitFor(() => expect(shell).toHaveAttribute('data-tabbar', 'visible'))
+    scrollTo(900)
+    await waitFor(() => expect(shell).toHaveAttribute('data-tabbar', 'hidden'))
+    screen.getByRole('link', { name: 'Vokabeln' }).focus()
+    await waitFor(() => expect(shell).toHaveAttribute('data-tabbar', 'visible'))
+    const css = readFileSync(join(process.cwd(), 'components/dashboard/student.css'), 'utf8')
+    expect(css).toMatch(/\.academy-student-shell\[data-tabbar='hidden'\] \.st-mode-dock \{ transform: translateY\(calc\(-100% - 1rem\)\); opacity: 0; visibility: hidden;/)
+    Object.defineProperty(window, 'scrollY', { configurable: true, value: 0 })
   })
 })
 

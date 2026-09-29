@@ -8,16 +8,19 @@ export const pathLevelSchema = z.enum(ACCESS_LEVELS)
 export const pathIdSchema = z.string().uuid()
 const text = z.string().max(4000)
 const common = { instruction: text.optional(), prompt: text.optional() }
+/** Help next to the German task in the learner's interface language (migration 44). Never graded. */
+export const pathTranslationSchema = z.object({ task: text.optional(), gap_hint: text.optional() })
+const help = { translation: pathTranslationSchema.optional() }
 
 // A second allowlist at the server/client boundary. Authoring fields (including
 // accepted_answers and target_form) can never cross the pre-grading boundary.
 export const pathExerciseSchema = z.discriminatedUnion('type', [
   z.object({ id: pathIdSchema, type: z.literal('fill_in_blank'), content: z.object({ ...common,
-    text_before: text, text_after: text, needs_article: z.boolean().optional() }) }),
+    text_before: text, text_after: text, needs_article: z.boolean().optional(), gap_hint: text.optional() }), ...help }),
   z.object({ id: pathIdSchema, type: z.literal('multiple_choice'), content: z.object({ ...common,
-    question: text, options: z.array(text).min(2).max(128) }) }),
+    question: text, options: z.array(text).min(2).max(128) }), ...help }),
   z.object({ id: pathIdSchema, type: z.literal('sentence_building'), content: z.object({ ...common,
-    parts: z.array(text).min(1).max(128) }) }),
+    parts: z.array(text).min(1).max(128) }), ...help }),
 ])
 export const pathAnswerSchema = z.union([
   z.object({ text: z.string().min(1).max(4000) }).strict(),
@@ -30,7 +33,7 @@ export const pathNodeSchema = z.object({ id: pathIdSchema, kind: z.enum(['practi
   title: text, sort_order: z.number(), available: z.boolean(), status: z.enum(['in_progress', 'completed']).nullable(),
   stars: z.number().int().min(0).max(3),
   tests: z.array(z.object({ id: pathIdSchema, status: z.enum(['active', 'completed', 'abandoned']),
-    percentage: z.number().nullable(), passed: z.boolean().nullable() })) })
+    percentage: z.number().nullable(), passed: z.boolean().nullable(), completed_at: z.string().nullable().optional() })) })
 export const pathMapSchema = z.object({ level: pathLevelSchema, completed: z.boolean(),
   next_level: z.string().nullable(), next_level_available: z.boolean(),
   paths: z.array(z.object({ id: pathIdSchema, source_id: text, title: text, sort_order: z.number(),
@@ -59,6 +62,8 @@ export const testResultSchema = z.object({ attempt_id: pathIdSchema, percentage:
   passed: z.boolean(), recommended_nodes: z.array(pathIdSchema),
   answers: z.array(z.intersection(pathExerciseSchema, z.object({ answer: pathAnswerSchema,
     result: pathGradeSchema, solution: solutionSchema }))) })
+/** Evaluation of the latest completed attempt of a test (migration 45). */
+export const testReviewSchema = testResultSchema.extend({ completed_at: z.string().nullable().optional() })
 
 export type PathExercise = z.infer<typeof pathExerciseSchema>
 export type PathAnswer = z.infer<typeof pathAnswerSchema>
@@ -69,5 +74,7 @@ export type PracticeRun = z.infer<typeof practiceRunSchema>
 export type PracticeResult = z.infer<typeof practiceResultSchema>
 export type PathTest = z.infer<typeof pathTestSchema>
 export type TestResult = z.infer<typeof testResultSchema>
+export type TestReview = z.infer<typeof testReviewSchema>
+export type PathTranslation = z.infer<typeof pathTranslationSchema>
 export type PathGrade = z.infer<typeof pathGradeSchema>
 export type PathResult<T> = { data: T; error?: never } | { error: string; data?: never }

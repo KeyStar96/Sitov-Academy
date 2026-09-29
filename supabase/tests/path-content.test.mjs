@@ -6,6 +6,16 @@ import { createRequire } from 'node:module'
 import { createPhase1Database, actor, student, exerciseUnit, id, result } from './helpers/phase1-db.mjs'
 import { apply } from './helpers/phase3-db.mjs'
 
+// Fields added by migration 44 (task translation, gap hints) are checked against 44
+// in path-task-help.test.mjs; this contract predates them.
+const without44 = exercise => {
+ const content = { ...exercise.content }
+ delete content.gap_hint
+ const translations = Object.fromEntries(Object.entries(exercise.translations ?? {}).map(([lang, value]) => {
+  const rest = { ...value }; delete rest.task; delete rest.gap_hint; return [lang, rest] }))
+ return { ...exercise, content, translations }
+}
+
 const require = createRequire(import.meta.url)
 require('ts-node').register({ transpileOnly: true, compilerOptions: { module: 'CommonJS', moduleResolution: 'node' } })
 const { learningPathContentSchemas } = require('../../lib/learning-path-schema.ts')
@@ -100,7 +110,7 @@ await test('Phase 3 typed exercise contracts, grading, publication and rollback'
   })
   await t.test('all existing seed exercise payloads satisfy SQL without importing a single row', async () => {
    const seed=JSON.parse(await readFile(new URL('../seeds/path-a1.1.json',import.meta.url),'utf8'))
-   const exercises=seed.flatMap(path=>path.nodes.flatMap(node=>node.exercises))
+   const exercises=seed.flatMap(path=>path.nodes.flatMap(node=>node.exercises)).map(without44)
    const failures=(await db.query(`SELECT e->>'ref' ref FROM jsonb_array_elements($1::jsonb) e
     WHERE NOT path_private.valid_content((e->>'exercise_type')::exercise_type,e->'content')`,[JSON.stringify(exercises)])).rows
    assert.deepEqual(failures,[]);assert.equal(exercises.length,769)

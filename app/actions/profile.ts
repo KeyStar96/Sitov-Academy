@@ -46,23 +46,37 @@ export async function updatePersonalDetails(input: unknown): Promise<BackendActi
   })
 }
 
+/** Die drei optionalen Mail-Arten und ihre Spalte (Migrationen 41 und 47). */
+export type MailPreference = 'pronunciation' | 'new_content' | 'reminders'
+
 /**
- * Schalter „E-Mail, wenn meine Lehrkraft in der Aussprache antwortet"
- * (`profiles.notify_pronunciation_feedback`, Migration 41). Die Person darf nur
- * diese Spalte ihres eigenen Profils ändern (Spaltenrecht und RLS); ob eine Mail
- * entsteht, entscheidet die Datenbank beim Einreihen.
+ * Schalter für optionale E-Mails im Profil: Antwort der Lehrkraft in der
+ * Aussprache, neue Lerninhalte (Niveau freigeschaltet) und Lern-Erinnerungen.
+ * Die Person darf nur diese Spalten ihres eigenen Profils ändern (Spaltenrecht
+ * und RLS); ob eine Mail entsteht oder versendet wird, prüft die Datenbank.
+ * Pflicht-Mails (Konto, Registrierung, Kursanmeldung) haben keinen Schalter.
  */
-export async function setPronunciationMailPreference(enabled: boolean): Promise<{ success: boolean }> {
-  if (typeof enabled !== 'boolean') return { success: false }
+export async function setMailPreference(preference: MailPreference, enabled: boolean): Promise<{ success: boolean }> {
+  if (typeof enabled !== 'boolean' || !['pronunciation', 'new_content', 'reminders'].includes(preference)) return { success: false }
+  const update = preference === 'pronunciation' ? { notify_pronunciation_feedback: enabled }
+    : preference === 'new_content' ? { notify_new_content: enabled } : { notify_learning_reminders: enabled }
   try {
     const supabase = await createClient()
     const { data: { user } } = await supabase.auth.getUser()
     if (!user) return { success: false }
-    const { data, error } = await supabase.from('profiles').update({ notify_pronunciation_feedback: enabled }).eq('id', user.id).select('notify_pronunciation_feedback').single()
-    if (error || data?.notify_pronunciation_feedback !== enabled) { console.error('[profile] Benachrichtigung konnte nicht gespeichert werden'); return { success: false } }
+    const { data, error } = await supabase.from('profiles').update(update).eq('id', user.id)
+      .select('notify_pronunciation_feedback,notify_new_content,notify_learning_reminders').single()
+    const saved = data && (preference === 'pronunciation' ? data.notify_pronunciation_feedback
+      : preference === 'new_content' ? data.notify_new_content : data.notify_learning_reminders)
+    if (error || saved !== enabled) { console.error('[profile] Benachrichtigung konnte nicht gespeichert werden'); return { success: false } }
     revalidatePath('/[lang]/dashboard/profile', 'page')
     return { success: true }
   } catch { console.error('[profile] Benachrichtigung: unerwarteter Fehler'); return { success: false } }
+}
+
+/** Schalter „E-Mail, wenn meine Lehrkraft in der Aussprache antwortet" (Migration 41). */
+export async function setPronunciationMailPreference(enabled: boolean): Promise<{ success: boolean }> {
+  return setMailPreference('pronunciation', enabled)
 }
 
 export async function updateProfileContact(input: unknown): Promise<BackendActionResult<ProfileContact>> {

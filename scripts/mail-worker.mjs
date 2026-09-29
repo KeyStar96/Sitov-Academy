@@ -4,7 +4,7 @@ import { setTimeout as delay } from 'node:timers/promises'
 import { createClient } from '@supabase/supabase-js'
 import { createLocalSmtpTransport, senderAddress } from '../lib/mail/smtp.mjs'
 import { mailSiteOrigin } from '../lib/mail/templates.mjs'
-import { runMailBatch } from '../lib/mail/worker.mjs'
+import { REMINDER_INTERVAL_MS, runMailBatch, runReminderCheck } from '../lib/mail/worker.mjs'
 
 // Run with node --env-file=/etc/sitov-academy/app.env scripts/mail-worker.mjs.
 // All configuration is server-side; secrets must never enter a public bundle.
@@ -22,8 +22,13 @@ async function main() {
   const stop = () => { stopping=true; controller.abort() }
   process.once('SIGINT',stop); process.once('SIGTERM',stop)
   console.info('[mail-worker] started',{workerId})
+  let nextReminderCheck = 0
   try {
     while (!stopping) {
+      if (Date.now() >= nextReminderCheck) {
+        nextReminderCheck = Date.now() + REMINDER_INTERVAL_MS
+        await runReminderCheck({client})
+      }
       await runMailBatch({client,transport,workerId})
       if (process.argv.includes('--once')) break
       try { await delay(5000,undefined,{signal:controller.signal}) } catch { /* Graceful shutdown. */ }

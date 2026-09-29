@@ -35,8 +35,6 @@
 .tiles { display: flex; flex-wrap: wrap; gap: 12px; padding: 16px; border: 1px solid var(--border); border-radius: 12px; min-height: 80px; }
 .feedback { font-size: 18px; }
 .error { border: 1px solid var(--danger); color: var(--foreground); border-radius: 12px; padding: 16px; margin-bottom: 24px; background: var(--surface); }
-.result { border-top: 1px solid var(--border); margin-top: 16px; padding-top: 12px; }
-.result summary { padding: 12px 0; cursor: pointer; }
 @media (max-width: 480px) { .actions > button { width: 100%; } }
 
 /* ── Lernpfad-Karte: ein gewundener Weg statt einer Liste ──────────────────
@@ -168,5 +166,73 @@
 .ready .dock { align-self: stretch; }
 .nodeDone { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; color: var(--success); font-weight: 750; }
 .nodeDoneStars { color: var(--accent-text); font-size: 22px; letter-spacing: 2px; }
-.answers { margin-top: 24px; border-top: 1px solid var(--border); }
-.answers > summary { padding: 14px 0; cursor: pointer; font-weight: 750; }
+
+/* ── Hilfe zur deutschen Aufgabe: Übersetzung auf Wunsch, Hinweis in der Lücke ── */
+.gap { display: inline-flex; flex-wrap: wrap; align-items: baseline; gap: 6px; margin: 0 6px; }
+.gapSlot { display: inline-block; min-width: 4.5ch; padding: 0 10px; border-bottom: 3px solid var(--mode-path-text); border-radius: 10px 10px 4px 4px; background: var(--mode-path-surface); color: var(--mode-path-text); font-weight: 750; text-align: center; }
+.gapSlot[data-empty] { color: var(--muted); font-weight: 600; }
+.gapHint { display: inline-flex; align-items: center; gap: 5px; padding: 1px 10px; border: 1.5px dashed var(--mode-path-text); border-radius: 99px; background: var(--surface); color: var(--mode-path-text); font-size: 16px; font-weight: 750; line-height: 1.5; }
+.gapHint[data-kind='meaning'] { border-style: solid; background: color-mix(in srgb, var(--mode-path-surface) 55%, var(--surface)); font-weight: 650; }
+.gapHint svg { flex-shrink: 0; }
+.translateToggle { display: inline-flex; align-self: flex-start; align-items: center; gap: 8px; margin-top: 12px; padding: 6px 18px; border: 1px solid var(--border); border-radius: 99px; background: var(--surface); color: var(--mode-path-text); font-size: 16px; font-weight: 750; box-shadow: var(--shadow-sm); transition: background var(--motion-base) var(--ease-out-soft), border-color var(--motion-base) var(--ease-out-soft); }
+.translateToggle[aria-pressed='true'] { border-color: var(--mode-path-text); background: var(--mode-path-surface); }
+@media (hover: hover) { .translateToggle:hover { border-color: var(--mode-path-text); } }
+.translation { overflow: hidden; }
+.root .translation p { display: flex; align-items: flex-start; gap: 10px; margin: 12px 0 4px; padding: 14px 16px; border-left: 4px solid var(--mode-path-text); border-radius: 4px 16px 16px 4px; background: var(--mode-path-surface); color: var(--foreground); font-size: 19px; line-height: 1.55; }
+.translation svg { flex-shrink: 0; margin-top: 4px; color: var(--mode-path-text); }
+
+/* ── Absolvierter Test: Auswahl und Testauswertung ── */
+.choiceList { display: grid; gap: 12px; }
+.root .choiceResult, .choiceResult { display: flex; align-items: center; justify-content: center; gap: 12px; margin: 0 0 4px; }
+.choicePercent { font-size: 40px; font-weight: 800; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.choiceResult[data-passed='true'] .choicePercent { color: var(--success); }
+.choiceResult[data-passed='false'] .choicePercent { color: var(--mode-path-text); }
+.choice { display: flex; align-items: center; gap: 14px; width: 100%; min-height: 64px; padding: 12px 16px; border: 1px solid var(--border); border-radius: 18px; background: var(--surface); color: var(--foreground); font-size: 18px; font-weight: 750; text-align: left; box-shadow: var(--shadow-sm); transition: transform var(--motion-base) var(--ease-out-soft), box-shadow var(--motion-base) var(--ease-out-soft); }
+.choice[data-tone='start'] { border-color: var(--accent-strong); background: var(--accent-strong); color: var(--accent-foreground); }
+.choiceIcon { display: inline-flex; flex-shrink: 0; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 14px; background: var(--mode-path-surface); color: var(--mode-path-text); }
+.choice[data-tone='start'] .choiceIcon { background: color-mix(in srgb, var(--accent-foreground) 18%, transparent); color: var(--accent-foreground); }
+@media (hover: hover) { .choice:not(:disabled):hover { transform: translateY(-2px); box-shadow: var(--shadow-md); } }
+.choice:focus-visible { outline: 3px solid var(--accent-strong); outline-offset: 3px; }
+.choice:disabled { cursor: default; opacity: .6; }
+
+.review { display: flex; flex: 1 0 auto; flex-direction: column; gap: 16px; }
+.reviewSummary { display: flex; align-items: center; gap: 16px; padding: 18px 20px; border: 1px solid var(--border); border-radius: 24px; box-shadow: var(--shadow-sm); }
+.reviewSummary[data-passed='true'] { background: radial-gradient(120% 120% at 0% 0%, color-mix(in srgb, var(--success) 14%, var(--surface)), var(--surface) 70%); }
+.reviewSummary[data-passed='false'] { background: radial-gradient(120% 120% at 0% 0%, var(--mode-path-surface), var(--surface) 70%); }
+.root .reviewTop, .reviewTop { display: flex; flex-wrap: wrap; align-items: center; column-gap: 14px; row-gap: 4px; }
+.root .reviewSummary p { margin: 0; }
+.reviewIcon { display: inline-flex; flex-shrink: 0; align-items: center; justify-content: center; width: 56px; height: 56px; border-radius: 18px; background: var(--mode-path-surface); color: var(--mode-path-text); }
+.reviewPercent { font-size: 32px; font-weight: 800; line-height: 1.15; font-variant-numeric: tabular-nums; }
+.reviewScore { font-weight: 700; }
+.reviewDate { color: var(--muted); font-size: 16px; }
+.segmented { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; padding: 4px; border: 1px solid var(--border); border-radius: 16px; background: var(--surface-muted); }
+.root .segmented button, .segmented button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 6px 8px; border-radius: 12px; color: var(--muted); font-size: 16px; font-weight: 750; line-height: 1.2; transition: background var(--motion-base) var(--ease-out-soft), color var(--motion-base) var(--ease-out-soft); }
+.segmented button[aria-checked='true'] { background: var(--surface); color: var(--foreground); box-shadow: var(--shadow-sm); }
+.segmentedCount { min-width: 28px; padding: 0 8px; border-radius: 99px; background: var(--surface); font-size: 15px; font-variant-numeric: tabular-nums; }
+.segmented button[aria-checked='true'] .segmentedCount { background: var(--mode-path-surface); color: var(--mode-path-text); }
+.reviewList { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+.reviewItem { padding: 16px 18px; border: 1px solid var(--border); border-left-width: 5px; border-radius: 20px; background: var(--surface); }
+.reviewItem[data-correct='true'] { border-left-color: var(--success); }
+.reviewItem[data-correct='false'] { border-left-color: var(--accent-text); }
+.root .reviewItem p { margin: 6px 0; }
+.reviewHead { display: flex; align-items: center; gap: 10px; font-weight: 800; }
+.reviewBadge { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; color: var(--surface); }
+.reviewItem[data-correct='true'] .reviewBadge { background: var(--success); }
+.reviewItem[data-correct='false'] .reviewBadge { background: var(--accent-text); }
+.reviewInstruction { color: var(--muted); font-size: 16px; }
+.reviewTask { font-size: 20px; }
+.reviewAnswers { display: grid; gap: 8px; margin: 10px 0 0; }
+.reviewAnswers > div { display: grid; gap: 2px; padding: 10px 14px; border-radius: 14px; background: var(--surface-muted); }
+.reviewAnswers dt { color: var(--muted); font-size: 14px; font-weight: 750; letter-spacing: .02em; text-transform: uppercase; }
+.reviewAnswers dd { margin: 0; font-size: 19px; font-weight: 700; }
+.reviewAnswers > div[data-kind='given'][data-correct='true'], .reviewAnswers > div[data-kind='solution'] { background: color-mix(in srgb, var(--success) 12%, var(--surface)); }
+.reviewAnswers > div[data-kind='given'][data-correct='false'] dd { text-decoration: line-through; text-decoration-color: color-mix(in srgb, var(--accent-text) 70%, transparent); text-decoration-thickness: 2px; }
+.reviewAnswers > div[data-kind='solution'] dd { color: var(--success); }
+.reviewMissing { color: var(--muted); font-style: italic; font-weight: 600; }
+.reviewNote, .reviewExplanation { font-size: 16px; }
+.reviewExplanation { color: var(--muted); }
+.reviewEmpty { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 24px; border: 1px dashed var(--success); border-radius: 20px; color: var(--success); font-weight: 750; }
+@keyframes pathReviewRise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: no-preference) {
+  .reviewItem { animation: pathReviewRise var(--motion-base) var(--ease-out-soft) both; animation-delay: calc(var(--i, 0) * 40ms); }
+}

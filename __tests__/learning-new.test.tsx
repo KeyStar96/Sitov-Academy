@@ -7,7 +7,7 @@ import LevelNewTracker from '@/components/dashboard/LevelNewTracker'
 import ProfileNotificationSettings from '@/components/dashboard/ProfileNotificationSettings'
 import { useLearningNew } from '@/components/dashboard/useLearningNew'
 import { markLearningSeen } from '@/app/actions/learning-new'
-import { setPronunciationMailPreference } from '@/app/actions/profile'
+import { setMailPreference } from '@/app/actions/profile'
 import { LEARNING_MODES } from '@/lib/mode-targets'
 import { modeIsNew, newModes, parseLearningNewCounts, parseLearningNewItems, trainerKey } from '@/lib/learning-new'
 import { STUDENT_MESSAGES, studentTranslator } from '@/lib/student-ui-i18n'
@@ -16,7 +16,7 @@ let mockPathname = '/de/dashboard/level/A1.1/vocabulary'
 const refresh = jest.fn()
 jest.mock('next/navigation', () => ({ usePathname: () => mockPathname, useRouter: () => ({ refresh, push: jest.fn() }) }))
 jest.mock('@/app/actions/learning-new', () => ({ markLearningSeen: jest.fn() }))
-jest.mock('@/app/actions/profile', () => ({ setPronunciationMailPreference: jest.fn() }))
+jest.mock('@/app/actions/profile', () => ({ setMailPreference: jest.fn() }))
 jest.unmock('lucide-react')
 
 const labels = { whatsapp: 'WhatsApp', phone: '+49 1', phoneLabel: 'Anrufen', telegram: 'Telegram', email: 'a@b.test', emailLabel: 'E-Mail' }
@@ -123,30 +123,47 @@ describe('Gesehen-Quittung beim Öffnen', () => {
 
 describe('Schalter „Benachrichtigungen" (Phase 6.2)', () => {
   it('speichert sofort, bestätigt mit einer Meldung und zeigt den Zustand als Wort', async () => {
-    jest.mocked(setPronunciationMailPreference).mockResolvedValue({ success: true })
-    render(<ProfileNotificationSettings lang="de" initial />)
+    jest.mocked(setMailPreference).mockResolvedValue({ success: true })
+    render(<ProfileNotificationSettings lang="de" initial={{ pronunciation: true, new_content: true, reminders: true }} />)
     const toggle = screen.getByRole('switch', { name: /E-Mail, wenn meine Lehrkraft in der Aussprache antwortet/ })
     expect(toggle).toHaveAttribute('aria-checked', 'true')
     expect(toggle.textContent).toMatch(/An ·/)
     await userEvent.click(toggle)
-    expect(setPronunciationMailPreference).toHaveBeenCalledWith(false)
+    expect(setMailPreference).toHaveBeenCalledWith('pronunciation', false)
     expect(toggle).toHaveAttribute('aria-checked', 'false')
     expect(toggle.textContent).toMatch(/Aus ·/)
     expect(await screen.findByRole('status')).toHaveTextContent('Gespeichert.')
   })
 
   it('stellt den Schalter zurück und meldet den Fehler, wenn das Speichern scheitert', async () => {
-    jest.mocked(setPronunciationMailPreference).mockResolvedValue({ success: false })
-    render(<ProfileNotificationSettings lang="en" initial={false} />)
-    await userEvent.click(screen.getByRole('switch'))
+    jest.mocked(setMailPreference).mockResolvedValue({ success: false })
+    render(<ProfileNotificationSettings lang="en" initial={{ pronunciation: false, new_content: true, reminders: true }} />)
+    const toggle = screen.getByRole('switch', { name: /teacher replies/ })
+    await userEvent.click(toggle)
     expect(await screen.findByRole('status')).toHaveTextContent('That did not work. Please try again.')
-    expect(screen.getByRole('switch')).toHaveAttribute('aria-checked', 'false')
+    expect(toggle).toHaveAttribute('aria-checked', 'false')
+  })
+
+  it('hat je optionaler Mail einen eigenen Schalter und nennt die Pflicht-Mails ohne Schalter (Phase 8)', async () => {
+    jest.mocked(setMailPreference).mockResolvedValue({ success: true })
+    render(<ProfileNotificationSettings lang="de" initial={{ pronunciation: true, new_content: true, reminders: false }} />)
+    expect(screen.getAllByRole('switch')).toHaveLength(3)
+    const content = screen.getByRole('switch', { name: /neuen Lerninhalten/ })
+    const reminders = screen.getByRole('switch', { name: /Lern-Erinnerungen/ })
+    expect(reminders).toHaveAttribute('aria-checked', 'false')
+    await userEvent.click(content)
+    expect(setMailPreference).toHaveBeenLastCalledWith('new_content', false)
+    await userEvent.click(reminders)
+    expect(setMailPreference).toHaveBeenLastCalledWith('reminders', true)
+    expect(reminders).toHaveAttribute('aria-checked', 'true')
+    expect(screen.getByTestId('notify-required')).toHaveTextContent(/Passwort zurücksetzen.*Registrierung.*Kursanmeldung/)
   })
 })
 
 describe('Fünf Sprachen', () => {
   it('haben alle neuen Texte gleichzeitig', () => {
-    const keys = ['new_in_level', 'nav_learn_new', 'settings_notifications', 'settings_notifications_hint', 'notify_pronunciation', 'notify_pronunciation_hint', 'notify_saved', 'notify_error', 'notify_on', 'notify_off'] as const
+    const keys = ['new_in_level', 'nav_learn_new', 'settings_notifications', 'settings_notifications_hint', 'notify_pronunciation', 'notify_pronunciation_hint', 'notify_saved', 'notify_error', 'notify_on', 'notify_off',
+      'notify_new_content', 'notify_new_content_hint', 'notify_reminders', 'notify_reminders_hint', 'notify_required'] as const
     for (const lang of ['de', 'en', 'ru', 'uk', 'tr'] as const) {
       const s = studentTranslator(lang)
       for (const key of keys) expect(s(key)).toEqual(expect.any(String))
