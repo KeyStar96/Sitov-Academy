@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState, type CSSProperties, type ReactNode } from 'react'
-import { LockOpen, Sprout, Trophy } from 'lucide-react'
+import { LockOpen, Sprout, Target, Trophy } from 'lucide-react'
 import type { PathNode, TestResult } from '@/lib/learning-path-contract'
 import { pathTranslator } from '@/lib/learning-path-i18n'
 import { useReducedMotionSafe } from '@/lib/motion'
@@ -29,13 +29,15 @@ function useCountUp(target: number, reduced: boolean): number {
   return value
 }
 
-function ScoreRing({ value, caption, goal }: { value: number; caption: string; goal: string }) {
+function ScoreRing({ value, goal }: { value: number; goal: string }) {
   const reduced = useReducedMotionSafe()
   const shown = useCountUp(value, reduced)
   // Markierung bei 80 % des Umfangs, Kreis beginnt oben (SVG ist um -90° gedreht).
   const angle = (PASS_MARK / 100) * 2 * Math.PI
   const tick = (radius: number) => ({ x: 50 + radius * Math.cos(angle), y: 50 + radius * Math.sin(angle) })
   const [inner, outer] = [tick(37), tick(53)]
+  // Beschriftung außen neben der Markierung (ungedreht: im Uhrzeigersinn ab oben).
+  const label = { left: `${50 + 62 * Math.sin(angle)}%`, top: `${50 - 62 * Math.cos(angle)}%` }
   return <div className={styles.ring}>
     <svg viewBox="0 0 100 100" aria-hidden="true" focusable="false">
       <circle className={styles.ringTrack} cx="50" cy="50" r="42" />
@@ -44,9 +46,8 @@ function ScoreRing({ value, caption, goal }: { value: number; caption: string; g
     </svg>
     <div className={styles.ringLabel}>
       <span className={styles.ringNumber} aria-hidden="true">{shown}&thinsp;%</span>
-      <span className={styles.ringCaption}>{caption}</span>
-      <span className={styles.ringCaption}>{goal}</span>
     </div>
+    <span className={styles.ringGoalLabel} style={label}><Target size={14} aria-hidden="true" /><span className="sr-only">{goal}</span><span aria-hidden="true">{PASS_MARK}</span></span>
   </div>
 }
 
@@ -65,31 +66,28 @@ function Confetti() {
 }
 
 /**
- * Ergebnis eines Teil-Tests. Bestanden: Feier mit Konfetti und den nun offenen
- * Lektionen. Nicht bestanden: warme Ermutigung, der Abstand zum Ziel und die
- * Lektionen, die helfen — nie rot, nie ein „Durchgefallen".
+ * Ergebnis eines Teil-Tests, fast ohne Text: Der Ring zeigt Ergebnis und
+ * Ziel. Bestanden: Konfetti und die nun offenen Lektionen als Chips. Nicht
+ * bestanden: ein ermutigender Satz und die Lektionen, die helfen — nie rot.
  */
-export default function TestOutcome({ result, lang, lessons, recommended, hasNextPath, actions, children }: {
+export default function TestOutcome({ result, lang, lessons, recommended, actions, children }: {
   result: TestResult; lang: string
   /** Lektionen des Pfads, die ein bestandener Test freischaltet. */
   lessons: PathNode[]
   recommended: PathNode[]
-  hasNextPath: boolean
   actions: ReactNode
   children?: ReactNode
 }) {
   const t = pathTranslator(lang)
   const score = Math.floor(result.percentage)
-  const gap = Math.max(1, Math.ceil(PASS_MARK - result.percentage))
   return <>
     <div className={styles.outcome} data-passed={result.passed} data-testid="path-test-outcome">
       {result.passed && <Confetti />}
-      <ScoreRing value={score} caption={t('score')} goal={t('goal')} />
+      <ScoreRing value={score} goal={t('goal')} />
       <span className={styles.hero} aria-hidden="true">{result.passed ? <Trophy size={32} strokeWidth={2.4} /> : <Sprout size={32} strokeWidth={2.4} />}</span>
       <h3 className={styles.outcomeTitle} role="status">{t(result.passed ? 'passed' : 'not_ready_title')}</h3>
       <p className="sr-only">{t('percentage', { value: score })}</p>
       {result.passed ? <>
-        <p className={styles.outcomeText}>{t('passed_body')}{hasNextPath && <> {t('passed_next')}</>}</p>
         {lessons.length > 0 && <ul className={styles.unlockList} aria-label={t('unlocked')}>
           {lessons.map((node, index) => <li key={node.id} style={{ '--i': String(index) } as CSSProperties}>
             <span className={styles.chip} data-tone="success"><LockOpen size={16} aria-hidden="true" />{node.title}</span>
@@ -97,10 +95,8 @@ export default function TestOutcome({ result, lang, lessons, recommended, hasNex
         </ul>}
       </> : <>
         <p className={styles.outcomeText}>{t('not_ready')}</p>
-        <p className={styles.outcomeHint}>{t('not_ready_gap', { points: gap })} {t('not_ready_tip')}</p>
         {recommended.length > 0 && <>
-          <p className="!mb-0 !mt-5 font-bold">{t('recommendations')}</p>
-          <ol className={styles.miniTrail}>
+          <ol className={styles.miniTrail} aria-label={t('recommendations')}>
             {recommended.map((node, index) => <li key={node.id}>
               <span className={styles.miniDot} aria-hidden="true">{index + 1}</span>
               <span className="font-semibold">{node.title}</span>

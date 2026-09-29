@@ -18,7 +18,7 @@ export default function PathExerciseForm({ exercise, lang, busy, onSubmit, isTes
   const complete = exercise.type === 'fill_in_blank' ? text.trim().length > 0
     : exercise.type === 'multiple_choice' ? index !== null : indices.length === exercise.content.parts.length
 
-  return <form data-testid="path-exercise" data-exercise-id={exercise.id} data-exercise-type={exercise.type}
+  return <form className={styles.form} data-testid="path-exercise" data-exercise-id={exercise.id} data-exercise-type={exercise.type}
     onSubmit={event => { event.preventDefault(); if (complete && answer && !busy) onSubmit(answer) }}>
     <h3 className={styles.instruction}>{exercise.content.instruction || t(exercise.type === 'sentence_building' ? 'arrange' : exercise.type === 'multiple_choice' ? 'choose' : 'answer')}</h3>
     {exercise.content.prompt && <p className={styles.prompt}>{exercise.content.prompt}</p>}
@@ -60,7 +60,7 @@ export default function PathExerciseForm({ exercise, lang, busy, onSubmit, isTes
         </div>
       </>}
     </fieldset>
-    <div className={styles.actions}><button type="submit" data-testid="path-check" className={styles.primary} disabled={busy || !complete}>
+    <div className={`${styles.actions} ${styles.dock}`}><button type="submit" data-testid="path-check" className={styles.primary} disabled={busy || !complete}>
       {busy ? t('loading') : t(isTest ? 'save' : 'check')}
     </button></div>
   </form>

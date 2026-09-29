@@ -2,7 +2,7 @@
 
 import type { CSSProperties } from 'react'
 import { motion } from 'framer-motion'
-import { Check, Lock, Route, Sparkles, Star, Trophy, BookOpen, Repeat } from 'lucide-react'
+import { Check, History, Lock, Play, Route, Sparkles, Star, Target, Trophy, BookOpen, Repeat } from 'lucide-react'
 import type { PathMap, PathNode } from '@/lib/learning-path-contract'
 import { pathTranslator } from '@/lib/learning-path-i18n'
 import { MOTION, PRESS_SCALE, useReducedMotionSafe } from '@/lib/motion'
@@ -45,14 +45,23 @@ function reached(path: Path, index: number): boolean {
   return path.nodes.slice(0, index).every(before => before.available)
 }
 
-/** Stand in Worten; ein Test nennt sein letztes Ergebnis (Attempts kommen neueste zuerst). */
+/** Stand in Worten, nur für Screenreader; sichtbar sprechen Medaille, Sterne und Chips. */
 function stopStatus(node: PathNode, state: StopState, t: ReturnType<typeof pathTranslator>): string {
   if (node.kind !== 'test') return t(state === 'locked' ? 'locked' : isDone(node) ? 'completed' : node.status === 'in_progress' ? 'resume' : 'ready')
+  if (isDone(node)) return t('completed')
+  return node.tests.some(attempt => attempt.status === 'active') ? t('resume') : t('ready')
+}
+
+/** Kompakter Test-Chip: Ziel 80 %, letzter Versuch oder bestandenes Ergebnis (Versuche kommen neueste zuerst). */
+function TestChip({ node, t }: { node: PathNode; t: ReturnType<typeof pathTranslator> }) {
   const passed = node.tests.find(attempt => attempt.passed)
-  if (isDone(node)) return t('test_passed', { value: Math.floor(passed?.percentage ?? 100) })
-  if (node.tests.some(attempt => attempt.status === 'active')) return t('resume')
+  if (isDone(node)) return <span className={styles.chip} data-tone="success"><Check size={15} strokeWidth={3} aria-hidden="true" />{Math.floor(passed?.percentage ?? 100)}&thinsp;%</span>
   const last = node.tests.find(attempt => attempt.status === 'completed' && attempt.percentage !== null)
-  return last?.percentage != null ? t('test_last', { value: Math.floor(last.percentage) }) : t('ready')
+  return <>
+    <span className={styles.chip} data-tone="gold"><Target size={15} aria-hidden="true" /><span className="sr-only">{t('goal')}</span><span aria-hidden="true">80&thinsp;%</span></span>
+    {last?.percentage != null && <span className={styles.chip} data-tone="muted"><History size={15} aria-hidden="true" />
+      <span className="sr-only">{t('test_last', { value: Math.floor(last.percentage) })}</span><span aria-hidden="true">{Math.floor(last.percentage)}&thinsp;%</span></span>}
+  </>
 }
 
 function Stars({ count, label }: { count: number; label: string }) {
@@ -84,11 +93,12 @@ export default function PathTrail({ map, lang, busy, onOpen, isNewPath, isNewBra
   const levelDone = lessons.filter(isDone).length
 
   return <div className={styles.trailRoot}>
-    {lessons.length > 0 && <div data-testid="path-level-progress">
-      <p className="!m-0 text-base font-semibold text-[var(--muted)]">{t('level_progress', { done: levelDone, total: lessons.length })}</p>
-      <div className={styles.bar} role="progressbar" aria-valuemin={0} aria-valuemax={lessons.length} aria-valuenow={levelDone} aria-label={t('title')}>
+    {lessons.length > 0 && <div data-testid="path-level-progress" className={styles.meter}>
+      <div className={styles.bar} role="progressbar" aria-valuemin={0} aria-valuemax={lessons.length} aria-valuenow={levelDone}
+        aria-label={t('level_progress', { done: levelDone, total: lessons.length })}>
         <div className={styles.barFill} style={{ '--p': String(levelDone / lessons.length) } as CSSProperties} />
       </div>
+      <span className={styles.meterValue} aria-hidden="true">{levelDone}/{lessons.length}</span>
     </div>}
 
     {map.paths.map(path => {
@@ -100,17 +110,18 @@ export default function PathTrail({ map, lang, busy, onOpen, isNewPath, isNewBra
           <Route className={styles.bannerArt} aria-hidden="true" />
           <div className="flex flex-wrap items-center gap-2">
             <span className={styles.chip} data-tone="path"><Route size={16} aria-hidden="true" />{t('path', { number: path.sort_order })}</span>
-            {path.completed ? <span className={styles.chip} data-tone="gold"><Trophy size={16} aria-hidden="true" />{t('completed')}</span>
-              : !path.available && <span className={styles.chip} data-tone="muted"><Lock size={16} aria-hidden="true" />{t('locked')}</span>}
+            {path.completed ? <span className={styles.chip} data-tone="gold" role="img" aria-label={t('completed')}><Trophy size={16} aria-hidden="true" /></span>
+              : !path.available && <span className={styles.chip} data-tone="muted" role="img" aria-label={t('locked')}><Lock size={16} aria-hidden="true" /></span>}
           </div>
           <h3 id={`path-title-${path.id}`} className="!mt-3 !text-2xl !font-extrabold !leading-tight">
             {path.title}{isNewPath(path.id) && <NewBadge label={newLabel} className="ml-2 align-middle" />}
           </h3>
-          {pathLessons.length > 0 && <>
-            <p className="!mb-0 !mt-2 text-base font-semibold text-[var(--muted)]">{t('path_progress', { done: pathDone, total: pathLessons.length })}</p>
-            <div className={styles.bar} aria-hidden="true"><div className={styles.barFill} style={{ '--p': String(pathDone / pathLessons.length) } as CSSProperties} /></div>
-          </>}
-          {!path.available && <p className="!mb-0 !mt-3 text-base text-[var(--foreground)]">{t('path_locked_hint')}</p>}
+          {pathLessons.length > 0 && <div className={styles.meter}>
+            <div className={styles.bar} role="img" aria-label={t('path_progress', { done: pathDone, total: pathLessons.length })}>
+              <div className={styles.barFill} style={{ '--p': String(pathDone / pathLessons.length) } as CSSProperties} />
+            </div>
+            <span className={styles.meterValue} aria-hidden="true">{pathDone}/{pathLessons.length}</span>
+          </div>}
         </header>
 
         <ol className={styles.trail}>{path.nodes.map((node, index) => {
@@ -142,13 +153,12 @@ export default function PathTrail({ map, lang, busy, onOpen, isNewPath, isNewBra
                   <span className={styles.stopTitle}>
                     {node.title}{isNewBranch(node.id) && <NewBadge label={newLabel} className="ml-2 align-middle" />}
                   </span>
-                  <span className={styles.stopMeta}>
-                    {state === 'current' && <span className={styles.chip} data-tone="accent">{t('start_here')}</span>}
-                    {node.kind === 'test' && !isDone(node) && <span className={styles.chip} data-tone="gold">{t('test_open')}</span>}
-                    <span>{t(node.kind)} · {status}</span>
+                  <span className="sr-only">{t(node.kind)}, {status}</span>
+                  {(state === 'current' || node.kind === 'test' || node.stars > 0) && <span className={styles.stopMeta}>
+                    {state === 'current' && <span className={styles.chip} data-tone="accent"><Play size={14} fill="currentColor" aria-hidden="true" />{t('start_here')}</span>}
+                    {node.kind === 'test' && <TestChip node={node} t={t} />}
                     {node.stars > 0 && <Stars count={node.stars} label={t('stars', { count: node.stars })} />}
-                  </span>
-                  {node.kind === 'test' && !isDone(node) && <span className={`${styles.stopMeta} !font-medium`}>{t('test_hint')}</span>}
+                  </span>}
                 </span>
               </motion.button>
             </div>

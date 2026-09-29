@@ -4,11 +4,9 @@ import { useEffect, useId, useRef, useState, type CSSProperties } from 'react'
 import { usePathname } from 'next/navigation'
 import { CalendarDays, GraduationCap, House, LifeBuoy, Mail, MessageCircle, Phone, Send } from 'lucide-react'
 import BottomSheet from '@/components/ui/BottomSheet'
-import LearningHelpEntries from '@/components/dashboard/LearningHelpEntries'
 import PressableCard from '@/components/motion/PressableCard'
 import SlidingPill from '@/components/motion/SlidingPill'
 import NewBadge from '@/components/motion/NewBadge'
-import { dashboardHomeTranslator } from '@/lib/dashboard-home-i18n'
 import { levelHref } from '@/lib/mode-targets'
 import { studentTranslator } from '@/lib/student-ui-i18n'
 import { supportChannels, type SupportLabels } from '@/lib/support-channels'
@@ -90,7 +88,6 @@ export default function StudentNavigation({ lang, firstLevel, levels, supportLab
   learnNew?: boolean
 }) {
   const t = studentTranslator(lang)
-  const home = dashboardHomeTranslator(lang)
   const pathname = usePathname() ?? ''
   const group = useId()
   const nav = useRef<HTMLElement>(null)
@@ -194,7 +191,7 @@ export default function StudentNavigation({ lang, firstLevel, levels, supportLab
         </ul>
       </nav>
       <BottomSheet open={helpOpen} onClose={() => setHelpOpen(false)} title={t('help_title')} closeLabel={t('close')}
-        icon={<LifeBuoy size={24} />} description={home('support_intro')}>
+        icon={<LifeBuoy size={24} />}>
         <ul className="grid gap-3">
           {supportChannels(supportLabels).map((channel, index) => {
             const Icon = CHANNEL_ICONS[channel.kind]
@@ -209,7 +206,6 @@ export default function StudentNavigation({ lang, firstLevel, levels, supportLab
             )
           })}
         </ul>
-        <LearningHelpEntries lang={lang} />
       </BottomSheet>
     </>
   )

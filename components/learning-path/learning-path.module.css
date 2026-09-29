@@ -116,13 +116,11 @@
 .ringGoal { stroke: var(--foreground); stroke-width: 3; stroke-linecap: round; }
 .ringLabel { position: absolute; inset: 0; display: grid; place-content: center; gap: 2px; }
 .ringNumber { color: var(--foreground); font-size: 36px; font-weight: 800; line-height: 1; font-variant-numeric: tabular-nums; }
-.ringCaption { color: var(--muted); font-size: 14px; font-weight: 600; }
 .hero { display: inline-flex; width: 64px; height: 64px; align-items: center; justify-content: center; margin-top: 12px; border-radius: 50%; animation: pathPop var(--motion-slow) var(--ease-out-soft) .9s both; }
 .outcome[data-passed='true'] .hero { border: 3px solid var(--gold-to); background: var(--gold); color: #431407; box-shadow: 0 6px 0 color-mix(in srgb, var(--gold-to) 55%, #000); }
 .outcome[data-passed='false'] .hero { border: 3px solid var(--mode-path-text); background: var(--mode-path-surface); color: var(--mode-path-text); }
 .outcome .outcomeTitle { margin-top: 8px; font-size: clamp(24px, 6vw, 30px); font-weight: 800; line-height: 1.25; }
 .outcome .outcomeText { max-width: 34rem; margin: 8px auto 0; color: var(--foreground); }
-.outcome .outcomeHint { max-width: 34rem; margin: 6px auto 0; color: var(--muted); font-size: 16px; }
 .unlockList { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 18px 0 0; padding: 0; list-style: none; }
 .unlockList li { animation: pathPop var(--motion-slow) var(--ease-out-soft) both; animation-delay: calc(1s + min(var(--i, 0), 7) * 90ms); }
 .miniTrail { display: grid; max-width: 360px; margin: 16px auto 0; padding: 0; list-style: none; text-align: left; }
@@ -149,3 +147,26 @@
   .stop, .medal, .stop[data-state='current'] .medal, .stop[data-kind='test'][data-state='current'] .medal, .shine, .barFill, .ringValue, .hero, .unlockList li { animation: none; }
   .confetti { display: none; }
 }
+
+/* ── Kompakte Zähler statt Sätze ─────────────────────────────────────── */
+.meter { display: flex; align-items: center; gap: 10px; margin-top: 12px; }
+.meter .bar { flex: 1; margin-top: 0; }
+.meterValue { color: var(--muted); font-size: 15px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.ringGoalLabel { position: absolute; display: inline-flex; white-space: nowrap; align-items: center; gap: 2px; padding: 1px 7px; border: 1px solid var(--border); border-radius: 99px; background: var(--surface); color: var(--foreground); font-size: 13px; font-weight: 800; line-height: 1.5; transform: translate(-50%, -50%); }
+
+/* ── Geöffneter Halt im Vollbild (LearningScreen): Inhalt oben, Knopf klebt unten ── */
+.stage { display: flex; flex: 1 0 auto; flex-direction: column; gap: 8px; width: 100%; outline: none; }
+.form { display: flex; flex: 1 0 auto; flex-direction: column; }
+.dock { position: sticky; bottom: 0; z-index: 2; margin-top: auto; padding: 16px 0 8px; background: linear-gradient(to bottom, transparent, var(--canvas) 40%); }
+.verdict { display: flex; align-items: center; gap: 10px; font-weight: 750; }
+.verdict svg { flex-shrink: 0; }
+.verdict[data-correct='true'] { color: var(--success); }
+.verdict[data-correct='false'] { color: var(--accent-text); }
+.goalChip { display: inline-flex; align-self: flex-start; align-items: center; gap: 6px; min-height: 32px; margin: 0 !important; padding: 2px 12px; border: 1px solid var(--gold-to); border-radius: 99px; background: var(--gold-from); color: #431407; font-size: 15px; font-weight: 800; }
+.ready { display: flex; flex: 1 0 auto; flex-direction: column; align-items: center; justify-content: center; color: var(--success); }
+.ready > svg { box-sizing: content-box; margin: auto 0; padding: 28px; border-radius: 50%; background: color-mix(in srgb, var(--success) 12%, var(--surface)); animation: pathPop var(--motion-slow) var(--ease-out-soft) both; }
+.ready .dock { align-self: stretch; }
+.nodeDone { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; color: var(--success); font-weight: 750; }
+.nodeDoneStars { color: var(--accent-text); font-size: 22px; letter-spacing: 2px; }
+.answers { margin-top: 24px; border-top: 1px solid var(--border); }
+.answers > summary { padding: 14px 0; cursor: pointer; font-weight: 750; }

@@ -1593,15 +1593,16 @@ html:not([data-consent="open"]) .consent-banner[data-prompt="auto"] { display: n
 .consent-switch:checked { background: var(--accent-strong); border-color: var(--accent-strong); }
 .consent-switch:checked::after { background: var(--accent-foreground); transform: translate(1.2rem, -50%); }
 .consent-switch:focus-visible { outline: 3px solid var(--violet); outline-offset: 3px; }
-.consent-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .5rem; margin-top: 1rem; }
+/* Alle drei Knöpfe gleich breit: am Handy untereinander, ab 640 px nebeneinander. */
+.consent-actions { display: grid; grid-template-columns: minmax(0, 1fr); gap: .5rem; margin-top: 1rem; }
 .consent-actions .academy-button { width: 100%; padding-inline: .75rem; }
-.consent-actions .academy-button-outline { grid-column: 1 / -1; }
 @media (max-width: 639px) {
   .consent-banner { padding: .95rem; }
   .consent-text { font-size: .8rem; line-height: 1.55; }
 }
 @media (min-width: 640px) {
-  .consent-banner { inset-inline: auto; left: 1.25rem; bottom: max(1.25rem, env(safe-area-inset-bottom)); width: min(27rem, calc(100vw - 2.5rem)); padding: 1.35rem; }
+  .consent-banner { inset-inline: auto; left: 1.25rem; bottom: max(1.25rem, env(safe-area-inset-bottom)); width: min(36rem, calc(100vw - 2.5rem)); padding: 1.35rem; }
+  .consent-actions { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 @media (prefers-reduced-motion: reduce) {
   .academy-faq-item summary svg, .consent-switch, .consent-switch::after { transition: none; }

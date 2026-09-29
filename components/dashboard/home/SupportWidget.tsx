@@ -1,7 +1,6 @@
 import { LifeBuoy, Mail, MessageCircle, Phone, Send } from 'lucide-react'
 import { dashboardHomeTranslator } from '@/lib/dashboard-home-i18n'
 import { supportChannels, type SupportLabels } from '@/lib/support-channels'
-import LearningHelpEntries from '@/components/dashboard/LearningHelpEntries'
 
 export type { SupportLabels }
 
@@ -26,7 +25,6 @@ export default function SupportWidget({ lang, labels, className = '' }: {
         </span>
         <h2 id="dashboard-support-title" className="text-xl font-bold text-[var(--foreground)]">{t('support_title')}</h2>
       </div>
-      <p className="mt-3 text-base leading-relaxed text-[var(--muted)]">{t('support_intro')}</p>
       <ul className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
         {channels.map(channel => (
           <li key={channel.href}>
@@ -41,7 +39,6 @@ export default function SupportWidget({ lang, labels, className = '' }: {
           </li>
         ))}
       </ul>
-      <LearningHelpEntries lang={lang} />
     </section>
   )
 }
