@@ -1,3 +1,5 @@
+import type { CertificateFunctions, CertificateTables } from './certificates.types'
+
 export type Json =
   | string
   | number
@@ -13,7 +15,7 @@ export type Database = {
     PostgrestVersion: "14.6"
   }
   public: {
-    Tables: {
+    Tables: CertificateTables & {
       booking_items: {
         Row: {
           amount: number
@@ -2232,7 +2234,7 @@ export type Database = {
     Views: {
       [_ in never]: never
     }
-    Functions: {
+    Functions: CertificateFunctions & {
       add_own_vocabulary: {
         Args: {
           p_article: string

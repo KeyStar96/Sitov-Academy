@@ -9559,7 +9559,7 @@ CREATE TRIGGER learning_units_own_words_cleanup BEFORE DELETE ON public.learning
 -- Name: student_level_access on_student_level_access_granted_notify; Type: TRIGGER; Schema: public; Owner: -
 --
 
-CREATE TRIGGER on_student_level_access_granted_notify AFTER INSERT ON public.student_level_access REFERENCING NEW TABLE AS new_rows FOR EACH STATEMENT EXECUTE FUNCTION business_private.notify_students_of_level_access();
+-- Installed after notify_students_of_level_access is defined below.
 
 
 --
@@ -14071,3 +14071,1112 @@ GRANT EXECUTE ON FUNCTION public.get_learning_new_counts(), public.get_learning_
 --
 -- PostgreSQL database dump complete
 --
+
+CREATE TRIGGER on_student_level_access_granted_notify AFTER INSERT ON public.student_level_access REFERENCING NEW TABLE AS new_rows FOR EACH STATEMENT EXECUTE FUNCTION business_private.notify_students_of_level_access();
+
+-- Certificate CSV reconciliation and private PDF issuance (2026-09-29)
+
+-- Source: migrations/20260929165242_certificate_csv_schema.sql
+-- CSV-only Papierkram reconciliation and privately issued attendance certificates.
+-- Additive migration; apply within the migration runner's transaction.
+-- Client writes are deliberately absent. Server operations validate the session
+-- and staff role before using a service-role transaction/RPC.
+CREATE SCHEMA IF NOT EXISTS certificates_private;
+REVOKE ALL ON SCHEMA certificates_private FROM PUBLIC, anon, authenticated;
+GRANT USAGE ON SCHEMA certificates_private TO service_role;
+
+CREATE TABLE IF NOT EXISTS public.import_batches (
+ id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+ account_key text NOT NULL DEFAULT 'papierkram',
+ kind text NOT NULL CHECK(kind IN ('customers','invoices','products')),
+ status text NOT NULL DEFAULT 'preview' CHECK(status IN ('preview','applied','failed')),
+ filename text NOT NULL CHECK(length(filename) BETWEEN 1 AND 255),
+ file_sha256 text NOT NULL CHECK(file_sha256 ~ '^[a-f0-9]{64}$'),
+ exported_at timestamptz NOT NULL,
+ scope jsonb NOT NULL DEFAULT '{}'::jsonb CHECK(jsonb_typeof(scope)='object'),
+ is_complete_snapshot boolean NOT NULL DEFAULT false,
+ export_year integer CHECK(export_year BETWEEN 2000 AND 2200),
+ baseline_hash text,
+ summary jsonb NOT NULL DEFAULT '{}'::jsonb CHECK(jsonb_typeof(summary)='object'),
+ created_by uuid REFERENCES public.profiles(id) ON DELETE SET NULL,
+ created_at timestamptz NOT NULL DEFAULT now(),
+ updated_at timestamptz NOT NULL DEFAULT now(),
+ applied_at timestamptz,
+ CHECK((status='applied')=(applied_at IS NOT NULL)),
+ CHECK(NOT is_complete_snapshot OR (kind='invoices' AND export_year IS NOT NULL))
+);
+CREATE INDEX IF NOT EXISTS import_batches_export_idx ON public.import_batches(account_key,kind,exported_at DESC);
+CREATE INDEX IF NOT EXISTS import_batches_checksum_idx ON public.import_batches(account_key,kind,file_sha256);
+CREATE INDEX IF NOT EXISTS import_batches_actor_idx ON public.import_batches(created_by);
+
+CREATE TABLE IF NOT EXISTS public.import_rows (
+ id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+ batch_id uuid NOT NULL REFERENCES public.import_batches(id) ON DELETE RESTRICT,
+ row_number integer NOT NULL CHECK(row_number>0),
+ external_key text,
+ raw_data jsonb NOT NULL DEFAULT '{}'::jsonb CHECK(jsonb_typeof(raw_data)='object'),
+ normalized_data jsonb NOT NULL DEFAULT '{}'::jsonb CHECK(jsonb_typeof(normalized_data)='object'),
+ disposition text NOT NULL CHECK(disposition IN ('new','updated','unchanged','conflict','ignored','error')),
+ issues jsonb NOT NULL DEFAULT '[]'::jsonb CHECK(jsonb_typeof(issues)='array'),
+ resolution jsonb NOT NULL DEFAULT '{}'::jsonb CHECK(jsonb_typeof(resolution)='object'),
+ created_at timestamptz NOT NULL DEFAULT now(),
+ updated_at timestamptz NOT NULL DEFAULT now(),
+ UNIQUE(batch_id,row_number)
+);
+
+CREATE TABLE IF NOT EXISTS public.external_customers (
+ id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+ account_key text NOT NULL DEFAULT 'papierkram',
+ customer_number text NOT NULL CHECK(length(btrim(customer_number)) BETWEEN 1 AND 100),
+ person_id uuid REFERENCES public.people(id) ON DELETE RESTRICT,
+ display_name text NOT NULL DEFAULT '',
+ email text,
+ phone text,
+ street text,
+ postal_code text,
+ city text,
+ source_data jsonb NOT NULL DEFAULT '{}'::jsonb CHECK(jsonb_typeof(source_data)='object'),
+ review_status text NOT NULL DEFAULT 'pending' CHECK(review_status IN ('pending','resolved','ignored')),
+ review_reason text,
+ source_revision integer NOT NULL DEFAULT 1 CHECK(source_revision>0),
+ source_exported_at timestamptz,
+ last_import_batch_id uuid REFERENCES public.import_batches(id) ON DELETE RESTRICT,
+ created_at timestamptz NOT NULL DEFAULT now(),
+ updated_at timestamptz NOT NULL DEFAULT now(),
+ UNIQUE(account_key,customer_number),
+ CHECK(review_status<>'resolved' OR person_id IS NOT NULL)
+);
+CREATE INDEX IF NOT EXISTS external_customers_person_idx ON public.external_customers(person_id);
+CREATE INDEX IF NOT EXISTS external_customers_email_idx ON public.external_customers(lower(btrim(email)));
+CREATE INDEX IF NOT EXISTS external_customers_import_idx ON public.external_customers(last_import_batch_id);
+
+CREATE TABLE IF NOT EXISTS public.external_products (
+ id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+ account_key text NOT NULL DEFAULT 'papierkram',
+ article_number text NOT NULL CHECK(length(btrim(article_number)) BETWEEN 1 AND 100),
+ name text NOT NULL CHECK(length(btrim(name))>0),
+ description text NOT NULL DEFAULT '',
+ unit text,
+ unit_price numeric(12,2) CHECK(unit_price>=0),
+ source_data jsonb NOT NULL DEFAULT '{}'::jsonb CHECK(jsonb_typeof(source_data)='object'),
+ review_status text NOT NULL DEFAULT 'pending' CHECK(review_status IN ('pending','resolved','ignored')),
+ review_reason text,
+ source_revision integer NOT NULL DEFAULT 1 CHECK(source_revision>0),
+ source_exported_at timestamptz,
+ last_import_batch_id uuid REFERENCES public.import_batches(id) ON DELETE RESTRICT,
+ created_at timestamptz NOT NULL DEFAULT now(),
+ updated_at timestamptz NOT NULL DEFAULT now(),
+ UNIQUE(account_key,article_number)
+);
+CREATE INDEX IF NOT EXISTS external_products_import_idx ON public.external_products(last_import_batch_id);
+
+-- A single Papierkram SKU can correspond to multiple timetable courses.
+CREATE TABLE IF NOT EXISTS public.external_product_courses (
+ product_id uuid NOT NULL REFERENCES public.external_products(id) ON DELETE RESTRICT,
+ course_id uuid NOT NULL REFERENCES public.courses(id) ON DELETE RESTRICT,
+ certificate_title text NOT NULL CHECK(length(btrim(certificate_title))>0),
+ certificate_description text NOT NULL DEFAULT '',
+ schedule_snapshot jsonb NOT NULL DEFAULT '[]'::jsonb CHECK(jsonb_typeof(schedule_snapshot)='array'),
+ version integer NOT NULL DEFAULT 1 CHECK(version>0),
+ created_at timestamptz NOT NULL DEFAULT now(),
+ updated_at timestamptz NOT NULL DEFAULT now(),
+ PRIMARY KEY(product_id,course_id)
+);
+CREATE INDEX IF NOT EXISTS external_product_courses_course_idx ON public.external_product_courses(course_id);
+
+CREATE TABLE IF NOT EXISTS public.invoices (
+ id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+ account_key text NOT NULL DEFAULT 'papierkram',
+ invoice_number text NOT NULL CHECK(length(btrim(invoice_number)) BETWEEN 1 AND 100),
+ external_customer_id uuid REFERENCES public.external_customers(id) ON DELETE RESTRICT,
+ customer_number text,
+ document_type text NOT NULL DEFAULT 'invoice' CHECK(document_type IN ('invoice','cancellation','credit_note','unknown')),
+ source_status text NOT NULL,
+ payment_status text NOT NULL DEFAULT 'unknown' CHECK(payment_status IN ('unpaid','partial','paid','overpaid','reminded','unknown')),
+ validity text NOT NULL DEFAULT 'review' CHECK(validity IN ('valid','cancelled','replaced','review')),
+ invoice_date date NOT NULL,
+ due_date date,
+ paid_at date,
+ service_month date CHECK(extract(day FROM service_month)=1),
+ service_month_source text CHECK(service_month_source IN ('subject','existing','manual','booking')),
+ gross_amount numeric(12,2) NOT NULL,
+ paid_amount numeric(12,2) NOT NULL DEFAULT 0,
+ discount_amount numeric(12,2) NOT NULL DEFAULT 0 CHECK(discount_amount>=0),
+ currency text NOT NULL DEFAULT 'EUR' CHECK(currency='EUR'),
+ article_numbers text[] NOT NULL DEFAULT '{}'::text[],
+ subject text NOT NULL DEFAULT '',
+ source_data jsonb NOT NULL DEFAULT '{}'::jsonb CHECK(jsonb_typeof(source_data)='object'),
+ source_revision integer NOT NULL DEFAULT 1 CHECK(source_revision>0),
+ source_exported_at timestamptz NOT NULL,
+ last_import_batch_id uuid REFERENCES public.import_batches(id) ON DELETE RESTRICT,
+ last_seen_at timestamptz NOT NULL DEFAULT now(),
+ review_reason text,
+ created_at timestamptz NOT NULL DEFAULT now(),
+ updated_at timestamptz NOT NULL DEFAULT now(),
+ UNIQUE(account_key,invoice_number)
+);
+CREATE INDEX IF NOT EXISTS invoices_customer_idx ON public.invoices(external_customer_id);
+CREATE INDEX IF NOT EXISTS invoices_month_idx ON public.invoices(service_month,payment_status,validity);
+CREATE INDEX IF NOT EXISTS invoices_import_idx ON public.invoices(last_import_batch_id);
+CREATE INDEX IF NOT EXISTS invoices_account_date_idx ON public.invoices(account_key,invoice_date);
+
+CREATE TABLE IF NOT EXISTS public.invoice_relations (
+ id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+ original_invoice_id uuid NOT NULL REFERENCES public.invoices(id) ON DELETE RESTRICT,
+ related_invoice_id uuid NOT NULL REFERENCES public.invoices(id) ON DELETE RESTRICT,
+ relation_type text NOT NULL CHECK(relation_type IN ('cancels','replaces')),
+ confirmed boolean NOT NULL DEFAULT false,
+ confirmed_by uuid REFERENCES public.profiles(id) ON DELETE SET NULL,
+ confirmed_at timestamptz,
+ created_at timestamptz NOT NULL DEFAULT now(),
+ updated_at timestamptz NOT NULL DEFAULT now(),
+ UNIQUE(original_invoice_id,related_invoice_id,relation_type),
+ CHECK(original_invoice_id<>related_invoice_id),
+ CHECK(confirmed=(confirmed_at IS NOT NULL))
+);
+CREATE INDEX IF NOT EXISTS invoice_relations_related_idx ON public.invoice_relations(related_invoice_id);
+CREATE INDEX IF NOT EXISTS invoice_relations_actor_idx ON public.invoice_relations(confirmed_by);
+
+CREATE TABLE IF NOT EXISTS public.invoice_allocations (
+ id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+ invoice_id uuid NOT NULL REFERENCES public.invoices(id) ON DELETE RESTRICT,
+ person_id uuid NOT NULL REFERENCES public.people(id) ON DELETE RESTRICT,
+ course_id uuid NOT NULL REFERENCES public.courses(id) ON DELETE RESTRICT,
+ booking_item_id uuid REFERENCES public.booking_items(id) ON DELETE RESTRICT,
+ start_date date NOT NULL,
+ end_date date NOT NULL CHECK(end_date>=start_date),
+ status text NOT NULL DEFAULT 'pending' CHECK(status IN ('pending','confirmed','excluded')),
+ source text NOT NULL DEFAULT 'manual' CHECK(source IN ('manual','import','booking')),
+ source_revision integer NOT NULL DEFAULT 1 CHECK(source_revision>0),
+ created_by uuid REFERENCES public.profiles(id) ON DELETE SET NULL,
+ created_at timestamptz NOT NULL DEFAULT now(),
+ updated_at timestamptz NOT NULL DEFAULT now(),
+ UNIQUE(invoice_id,person_id,course_id,start_date,end_date),
+ CHECK(date_trunc('month',start_date)=date_trunc('month',end_date))
+);
+CREATE INDEX IF NOT EXISTS invoice_allocations_person_course_idx ON public.invoice_allocations(person_id,course_id,start_date,end_date);
+CREATE INDEX IF NOT EXISTS invoice_allocations_course_idx ON public.invoice_allocations(course_id);
+CREATE INDEX IF NOT EXISTS invoice_allocations_booking_idx ON public.invoice_allocations(booking_item_id);
+CREATE INDEX IF NOT EXISTS invoice_allocations_actor_idx ON public.invoice_allocations(created_by);
+
+CREATE TABLE IF NOT EXISTS public.participation_periods (
+ id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+ person_id uuid NOT NULL REFERENCES public.people(id) ON DELETE RESTRICT,
+ course_id uuid NOT NULL REFERENCES public.courses(id) ON DELETE RESTRICT,
+ booking_item_id uuid REFERENCES public.booking_items(id) ON DELETE RESTRICT,
+ start_date date NOT NULL,
+ end_date date NOT NULL CHECK(end_date>=start_date),
+ status text NOT NULL DEFAULT 'pending' CHECK(status IN ('pending','confirmed','revoked')),
+ confirmed_by uuid REFERENCES public.profiles(id) ON DELETE SET NULL,
+ confirmed_at timestamptz,
+ title_snapshot text NOT NULL CHECK(length(btrim(title_snapshot))>0),
+ description_snapshot text NOT NULL DEFAULT '',
+ schedule_snapshot jsonb NOT NULL DEFAULT '[]'::jsonb CHECK(jsonb_typeof(schedule_snapshot)='array'),
+ source_revision integer NOT NULL DEFAULT 1 CHECK(source_revision>0),
+ revision integer NOT NULL DEFAULT 1 CHECK(revision>0),
+ note text,
+ created_at timestamptz NOT NULL DEFAULT now(),
+ updated_at timestamptz NOT NULL DEFAULT now(),
+ CHECK(status<>'confirmed' OR confirmed_at IS NOT NULL),
+ CHECK(date_trunc('month',start_date)=date_trunc('month',end_date)),
+ UNIQUE(person_id,course_id,start_date,end_date)
+);
+CREATE INDEX IF NOT EXISTS participation_periods_course_idx ON public.participation_periods(course_id,start_date);
+CREATE INDEX IF NOT EXISTS participation_periods_booking_idx ON public.participation_periods(booking_item_id);
+CREATE INDEX IF NOT EXISTS participation_periods_actor_idx ON public.participation_periods(confirmed_by);
+
+CREATE TABLE IF NOT EXISTS public.certificate_issues (
+ id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+ person_id uuid NOT NULL REFERENCES public.people(id) ON DELETE RESTRICT,
+ certificate_number text UNIQUE,
+ status text NOT NULL DEFAULT 'generating' CHECK(status IN ('generating','issued','failed','revoked')),
+ requested_month date CHECK(extract(day FROM requested_month)=1),
+ snapshot jsonb NOT NULL CHECK(jsonb_typeof(snapshot)='object'),
+ template_version text NOT NULL DEFAULT '1',
+ storage_bucket text NOT NULL DEFAULT 'certificates' CHECK(storage_bucket='certificates'),
+ storage_path text UNIQUE,
+ pdf_sha256 text CHECK(pdf_sha256 ~ '^[a-f0-9]{64}$'),
+ requested_by uuid REFERENCES public.profiles(id) ON DELETE SET NULL,
+ issued_at timestamptz,
+ revoked_at timestamptz,
+ revoked_by uuid REFERENCES public.profiles(id) ON DELETE SET NULL,
+ revoked_reason text,
+ failure_reason text,
+ created_at timestamptz NOT NULL DEFAULT now(),
+ updated_at timestamptz NOT NULL DEFAULT now(),
+ CHECK(status<>'issued' OR (issued_at IS NOT NULL AND storage_path IS NOT NULL AND pdf_sha256 IS NOT NULL AND certificate_number IS NOT NULL)),
+ CHECK(status<>'revoked' OR (revoked_at IS NOT NULL AND nullif(btrim(revoked_reason),'') IS NOT NULL))
+);
+CREATE INDEX IF NOT EXISTS certificate_issues_person_idx ON public.certificate_issues(person_id,created_at DESC);
+CREATE INDEX IF NOT EXISTS certificate_issues_requester_idx ON public.certificate_issues(requested_by);
+CREATE INDEX IF NOT EXISTS certificate_issues_revoker_idx ON public.certificate_issues(revoked_by);
+
+CREATE TABLE IF NOT EXISTS public.certificate_sources (
+ id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+ issue_id uuid NOT NULL REFERENCES public.certificate_issues(id) ON DELETE RESTRICT,
+ participation_period_id uuid NOT NULL REFERENCES public.participation_periods(id) ON DELETE RESTRICT,
+ invoice_allocation_id uuid NOT NULL REFERENCES public.invoice_allocations(id) ON DELETE RESTRICT,
+ source_revision integer NOT NULL CHECK(source_revision>0),
+ participation_revision integer NOT NULL CHECK(participation_revision>0),
+ invoice_revision integer NOT NULL CHECK(invoice_revision>0),
+ allocation_revision integer NOT NULL CHECK(allocation_revision>0),
+ snapshot jsonb NOT NULL CHECK(jsonb_typeof(snapshot)='object'),
+ created_at timestamptz NOT NULL DEFAULT now(),
+ UNIQUE(issue_id,participation_period_id,invoice_allocation_id)
+);
+CREATE INDEX IF NOT EXISTS certificate_sources_participation_idx ON public.certificate_sources(participation_period_id);
+CREATE INDEX IF NOT EXISTS certificate_sources_allocation_idx ON public.certificate_sources(invoice_allocation_id);
+
+CREATE TABLE IF NOT EXISTS public.certificate_audit_log (
+ id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+ entity_type text NOT NULL,
+ entity_id uuid NOT NULL,
+ action text NOT NULL,
+ before_data jsonb,
+ after_data jsonb,
+ actor_id uuid REFERENCES public.profiles(id) ON DELETE SET NULL,
+ import_batch_id uuid REFERENCES public.import_batches(id) ON DELETE RESTRICT,
+ created_at timestamptz NOT NULL DEFAULT now()
+);
+CREATE INDEX IF NOT EXISTS certificate_audit_entity_idx ON public.certificate_audit_log(entity_type,entity_id,created_at DESC);
+CREATE INDEX IF NOT EXISTS certificate_audit_actor_idx ON public.certificate_audit_log(actor_id);
+CREATE INDEX IF NOT EXISTS certificate_audit_import_idx ON public.certificate_audit_log(import_batch_id);
+
+COMMENT ON TABLE public.invoice_cases IS 'Existing bookkeeping workflow: invoice requested/created. CSV payment and document validity are held separately in invoices.';
+COMMENT ON COLUMN public.import_batches.scope IS 'Explicit export coverage (e.g. invoice year and archived documents). Absence from a partial export never proves cancellation.';
+COMMENT ON COLUMN public.import_rows.raw_data IS 'Whitelisted source columns only. Do not retain unrelated bank account or contact export columns.';
+COMMENT ON COLUMN public.invoices.service_month IS 'Confirmed service month; never inferred from invoice date plus one month. A later payment update preserves this assignment.';
+COMMENT ON COLUMN public.invoice_relations.relation_type IS 'The related document cancels or replaces the original. Copy/template notes are not evidence of this relation.';
+COMMENT ON TABLE public.certificate_sources IS 'Immutable source versions used at issuance. Current eligibility is rechecked before serving a stored PDF.';
+
+CREATE OR REPLACE FUNCTION certificates_private.touch_updated_at() RETURNS trigger
+LANGUAGE plpgsql SET search_path='' AS $$
+BEGIN NEW.updated_at:=clock_timestamp(); RETURN NEW; END $$;
+REVOKE ALL ON FUNCTION certificates_private.touch_updated_at() FROM PUBLIC,anon,authenticated;
+
+CREATE OR REPLACE FUNCTION certificates_private.validate_participation() RETURNS trigger
+LANGUAGE plpgsql SET search_path='' AS $$
+BEGIN
+ IF NEW.status='confirmed' AND NEW.end_date>(clock_timestamp() AT TIME ZONE 'Europe/Berlin')::date THEN
+  RAISE EXCEPTION 'Future participation cannot be confirmed' USING ERRCODE='23514';
+ END IF;
+ RETURN NEW;
+END $$;
+REVOKE ALL ON FUNCTION certificates_private.validate_participation() FROM PUBLIC,anon,authenticated;
+DROP TRIGGER IF EXISTS certificate_participation_valid ON public.participation_periods;
+CREATE TRIGGER certificate_participation_valid BEFORE INSERT OR UPDATE ON public.participation_periods
+ FOR EACH ROW EXECUTE FUNCTION certificates_private.validate_participation();
+
+CREATE OR REPLACE FUNCTION certificates_private.preserve_issue_snapshot() RETURNS trigger
+LANGUAGE plpgsql SET search_path='' AS $$
+BEGIN
+ IF TG_OP='DELETE' THEN
+  IF OLD.status IN ('issued','revoked') THEN RAISE EXCEPTION 'Issued certificates are retained' USING ERRCODE='23514'; END IF;
+  RETURN OLD;
+ END IF;
+ IF OLD.status IN ('issued','revoked') THEN
+  IF ROW(NEW.person_id,NEW.certificate_number,NEW.requested_month,NEW.snapshot,NEW.template_version,NEW.storage_bucket,NEW.storage_path,NEW.pdf_sha256,NEW.issued_at)
+   IS DISTINCT FROM ROW(OLD.person_id,OLD.certificate_number,OLD.requested_month,OLD.snapshot,OLD.template_version,OLD.storage_bucket,OLD.storage_path,OLD.pdf_sha256,OLD.issued_at)
+   OR NEW.status NOT IN ('issued','revoked') OR (OLD.status='revoked' AND NEW.status<>'revoked') THEN
+   RAISE EXCEPTION 'Issued certificate content is immutable' USING ERRCODE='23514';
+  END IF;
+ END IF;
+ RETURN NEW;
+END $$;
+REVOKE ALL ON FUNCTION certificates_private.preserve_issue_snapshot() FROM PUBLIC,anon,authenticated;
+DROP TRIGGER IF EXISTS certificate_issue_immutable ON public.certificate_issues;
+CREATE TRIGGER certificate_issue_immutable BEFORE UPDATE OR DELETE ON public.certificate_issues
+ FOR EACH ROW EXECUTE FUNCTION certificates_private.preserve_issue_snapshot();
+
+DO $policies$
+DECLARE table_name text;
+BEGIN
+ FOREACH table_name IN ARRAY ARRAY['import_batches','import_rows','external_customers','external_products','external_product_courses','invoices','invoice_relations','invoice_allocations','participation_periods','certificate_issues','certificate_sources','certificate_audit_log'] LOOP
+  EXECUTE format('ALTER TABLE public.%I ENABLE ROW LEVEL SECURITY',table_name);
+  EXECUTE format('REVOKE ALL ON public.%I FROM PUBLIC,anon,authenticated',table_name);
+  EXECUTE format('GRANT SELECT ON public.%I TO authenticated',table_name);
+  EXECUTE format('GRANT ALL ON public.%I TO service_role',table_name);
+  EXECUTE format('DROP POLICY IF EXISTS certificate_staff_read ON public.%I',table_name);
+  EXECUTE format('CREATE POLICY certificate_staff_read ON public.%I FOR SELECT TO authenticated USING ((SELECT business_private.is_staff()))',table_name);
+ END LOOP;
+ FOREACH table_name IN ARRAY ARRAY['import_batches','import_rows','external_customers','external_products','external_product_courses','invoices','invoice_relations','invoice_allocations','participation_periods','certificate_issues'] LOOP
+  EXECUTE format('DROP TRIGGER IF EXISTS certificate_touch_updated_at ON public.%I',table_name);
+  EXECUTE format('CREATE TRIGGER certificate_touch_updated_at BEFORE UPDATE ON public.%I FOR EACH ROW EXECUTE FUNCTION certificates_private.touch_updated_at()',table_name);
+ END LOOP;
+END $policies$;
+-- Audit entries and source snapshots are append-only to the runtime role.
+REVOKE UPDATE,DELETE,TRUNCATE ON public.certificate_audit_log,public.certificate_sources FROM service_role;
+DROP POLICY IF EXISTS certificate_person_read ON public.participation_periods;
+CREATE POLICY certificate_person_read ON public.participation_periods FOR SELECT TO authenticated
+ USING(EXISTS(SELECT 1 FROM public.people p WHERE p.id=person_id AND p.auth_user_id=(SELECT auth.uid())));
+DROP POLICY IF EXISTS certificate_person_read ON public.certificate_issues;
+CREATE POLICY certificate_person_read ON public.certificate_issues FOR SELECT TO authenticated
+ USING(EXISTS(SELECT 1 FROM public.people p WHERE p.id=person_id AND p.auth_user_id=(SELECT auth.uid())));
+
+INSERT INTO storage.buckets(id,name,public,file_size_limit,allowed_mime_types)
+ VALUES('certificates','certificates',false,10485760,ARRAY['application/pdf'])
+ ON CONFLICT(id) DO UPDATE SET public=false,file_size_limit=excluded.file_size_limit,allowed_mime_types=excluded.allowed_mime_types;
+-- Restrictive policy also defeats any unrelated permissive "staff may read all"
+-- policy that could otherwise accidentally expose this private bucket.
+DROP POLICY IF EXISTS certificates_server_only ON storage.objects;
+CREATE POLICY certificates_server_only ON storage.objects AS RESTRICTIVE FOR ALL TO anon,authenticated
+ USING(bucket_id<>'certificates') WITH CHECK(bucket_id<>'certificates');
+
+-- The existing verified identity claim may discard only a completely empty
+-- account person. New certificate/finance references must block that operation.
+CREATE OR REPLACE FUNCTION business_private.has_certificate_history(p_person uuid) RETURNS boolean
+LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$
+ SELECT EXISTS(SELECT 1 FROM public.external_customers WHERE person_id=p_person)
+ OR EXISTS(SELECT 1 FROM public.invoice_allocations WHERE person_id=p_person)
+ OR EXISTS(SELECT 1 FROM public.participation_periods WHERE person_id=p_person)
+ OR EXISTS(SELECT 1 FROM public.certificate_issues WHERE person_id=p_person)
+$$;
+REVOKE ALL ON FUNCTION business_private.has_certificate_history(uuid) FROM PUBLIC,anon,authenticated;
+GRANT EXECUTE ON FUNCTION business_private.has_certificate_history(uuid) TO service_role;
+
+-- Preserve the deployed functions and their ACLs while extending only the
+-- three known emptiness predicates. Fail on definition drift instead of
+-- silently replacing unrelated, newer identity logic.
+DO $identity_guards$
+DECLARE signature text; definition text; old_predicate text; new_predicate text;
+BEGIN
+ FOR signature,old_predicate,new_predicate IN SELECT * FROM (VALUES
+  ('business_private.claim_person()',
+   'AND NOT EXISTS(SELECT 1 FROM public.invoice_cases WHERE person_id=v_person.id) THEN',
+   'AND NOT EXISTS(SELECT 1 FROM public.invoice_cases WHERE person_id=v_person.id) AND NOT business_private.has_certificate_history(v_person.id) THEN'),
+  ('business_private.list_registration_identity_conflicts()',
+   'AND NOT EXISTS(SELECT 1 FROM public.invoice_cases i WHERE i.person_id=account.id)',
+   'AND NOT EXISTS(SELECT 1 FROM public.invoice_cases i WHERE i.person_id=account.id) AND NOT business_private.has_certificate_history(account.id)'),
+  ('business_private.resolve_registration_identity(uuid,uuid)',
+   'OR EXISTS(SELECT 1 FROM public.invoice_cases WHERE person_id=current_person.id)',
+   'OR EXISTS(SELECT 1 FROM public.invoice_cases WHERE person_id=current_person.id) OR business_private.has_certificate_history(current_person.id)')
+ ) AS changes(signature,old_predicate,new_predicate) LOOP
+  definition:=pg_get_functiondef(signature::regprocedure);
+  IF strpos(definition,new_predicate)=0 THEN
+   IF strpos(definition,old_predicate)=0 THEN
+    RAISE EXCEPTION 'certificate_identity_guard_drift: %',signature USING ERRCODE='23514';
+   END IF;
+   EXECUTE replace(definition,old_predicate,new_predicate);
+  END IF;
+ END LOOP;
+END $identity_guards$;
+
+NOTIFY pgrst,'reload schema';
+
+
+-- Source: migrations/20260929165727_certificate_csv_workflow.sql
+-- Transactional, service-only CSV reconciliation. No Papierkram network API.
+CREATE OR REPLACE FUNCTION certificates_private.verified_staff(p_actor uuid) RETURNS boolean
+LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$
+ SELECT EXISTS(SELECT 1 FROM public.profiles p JOIN auth.users u ON u.id=p.id
+ WHERE p.id=p_actor AND p.role IN ('teacher','admin') AND u.email_confirmed_at IS NOT NULL)
+$$;
+REVOKE ALL ON FUNCTION certificates_private.verified_staff(uuid) FROM PUBLIC,anon,authenticated;
+GRANT EXECUTE ON FUNCTION certificates_private.verified_staff(uuid) TO service_role;
+
+CREATE OR REPLACE FUNCTION certificates_private.account_baseline(p_account text) RETURNS text
+LANGUAGE sql STABLE SET search_path='' AS $$
+ SELECT md5(jsonb_build_array(
+ (SELECT coalesce(jsonb_agg(jsonb_build_array(id,source_revision) ORDER BY id),'[]') FROM public.external_customers WHERE account_key=p_account),
+ (SELECT coalesce(jsonb_agg(jsonb_build_array(id,source_revision) ORDER BY id),'[]') FROM public.external_products WHERE account_key=p_account),
+ (SELECT coalesce(jsonb_agg(jsonb_build_array(id,source_revision) ORDER BY id),'[]') FROM public.invoices WHERE account_key=p_account),
+ (SELECT coalesce(jsonb_agg(jsonb_build_array(m.product_id,m.course_id,m.version) ORDER BY m.product_id,m.course_id),'[]') FROM public.external_product_courses m JOIN public.external_products p ON p.id=m.product_id WHERE p.account_key=p_account),
+ (SELECT coalesce(jsonb_agg(jsonb_build_array(id,email,auth_user_id) ORDER BY id),'[]') FROM public.people),
+ (SELECT coalesce(jsonb_agg(jsonb_build_array(id,person_id,target_month,start_date,status,revision) ORDER BY id),'[]') FROM public.bookings),
+ (SELECT coalesce(jsonb_agg(jsonb_build_array(id,booking_id,course_id) ORDER BY id),'[]') FROM public.booking_items)
+ )::text)
+$$;
+
+CREATE OR REPLACE FUNCTION certificates_private.record_change() RETURNS trigger
+LANGUAGE plpgsql SET search_path='' AS $$
+DECLARE before_value jsonb; after_value jsonb; entity uuid; actor uuid;
+BEGIN
+ actor:=nullif(current_setting('certificates.actor_id',true),'')::uuid;
+ IF TG_OP<>'INSERT' THEN before_value:=to_jsonb(OLD); END IF;
+ IF TG_OP<>'DELETE' THEN after_value:=to_jsonb(NEW); END IF;
+ IF before_value IS NOT DISTINCT FROM after_value THEN RETURN NULL; END IF;
+ entity:=coalesce((after_value->>'id')::uuid,(before_value->>'id')::uuid,(after_value->>'product_id')::uuid,(before_value->>'product_id')::uuid);
+ INSERT INTO public.certificate_audit_log(entity_type,entity_id,action,before_data,after_data,actor_id)
+ VALUES(TG_TABLE_NAME,entity,lower(TG_OP),before_value,after_value,actor);
+ RETURN NULL;
+END $$;
+
+CREATE OR REPLACE FUNCTION certificates_private.bump_source_revision() RETURNS trigger
+LANGUAGE plpgsql SET search_path='' AS $$
+DECLARE ignored text[]:=ARRAY['source_revision','revision','updated_at','last_seen_at','last_import_batch_id','source_exported_at'];
+BEGIN
+ IF (to_jsonb(NEW)-ignored) IS DISTINCT FROM (to_jsonb(OLD)-ignored) THEN
+  NEW.source_revision:=OLD.source_revision+1;
+  IF TG_TABLE_NAME='participation_periods' THEN NEW.revision:=OLD.revision+1; END IF;
+ ELSE
+  NEW.source_revision:=OLD.source_revision;
+  IF TG_TABLE_NAME='participation_periods' THEN NEW.revision:=OLD.revision; END IF;
+ END IF;
+ RETURN NEW;
+END $$;
+
+CREATE OR REPLACE FUNCTION certificates_private.invalidate_sources() RETURNS trigger
+LANGUAGE plpgsql SET search_path='' AS $$
+DECLARE target_ids uuid[];
+BEGIN
+ IF TG_OP='UPDATE' AND NEW.source_revision=OLD.source_revision THEN RETURN NULL; END IF;
+ IF TG_TABLE_NAME='invoices' THEN
+  SELECT array_agg(DISTINCT s.issue_id) INTO target_ids FROM public.certificate_sources s
+  JOIN public.invoice_allocations a ON a.id=s.invoice_allocation_id WHERE a.invoice_id=NEW.id;
+ ELSIF TG_TABLE_NAME='invoice_allocations' THEN
+  SELECT array_agg(DISTINCT s.issue_id) INTO target_ids FROM public.certificate_sources s WHERE s.invoice_allocation_id=NEW.id;
+ ELSIF TG_TABLE_NAME='participation_periods' THEN
+  SELECT array_agg(DISTINCT s.issue_id) INTO target_ids FROM public.certificate_sources s WHERE s.participation_period_id=NEW.id;
+ END IF;
+ UPDATE public.certificate_issues SET status=CASE WHEN status='generating' THEN 'failed' ELSE 'revoked' END,
+ revoked_at=CASE WHEN status='issued' THEN clock_timestamp() ELSE revoked_at END,
+ revoked_reason=CASE WHEN status='issued' THEN 'Die zugrunde liegenden Teilnahme- oder Rechnungsdaten wurden geändert.' ELSE revoked_reason END,
+ failure_reason=CASE WHEN status='generating' THEN 'source_changed' ELSE failure_reason END
+ WHERE id=ANY(target_ids) AND status IN ('generating','issued');
+ -- A newly added obligation can invalidate existing certificates even though
+ -- that obligation was not among their original source rows.
+ IF TG_TABLE_NAME='invoice_allocations' THEN
+  UPDATE public.certificate_issues i SET status=CASE WHEN i.status='generating' THEN 'failed' ELSE 'revoked' END,
+   revoked_at=CASE WHEN i.status='issued' THEN clock_timestamp() ELSE i.revoked_at END,
+   revoked_reason=CASE WHEN i.status='issued' THEN 'Die Rechnungszuordnung wurde geändert.' ELSE i.revoked_reason END,
+   failure_reason=CASE WHEN i.status='generating' THEN 'source_changed' ELSE i.failure_reason END
+  WHERE i.status IN ('generating','issued') AND EXISTS(SELECT 1 FROM public.certificate_sources s JOIN public.participation_periods p ON p.id=s.participation_period_id
+   WHERE s.issue_id=i.id AND p.person_id=NEW.person_id AND p.course_id=NEW.course_id AND p.start_date<=NEW.end_date AND p.end_date>=NEW.start_date);
+ END IF;
+ RETURN NULL;
+END $$;
+
+DO $triggers$ DECLARE t text; BEGIN
+ FOREACH t IN ARRAY ARRAY['external_customers','external_products','invoices','invoice_allocations','participation_periods'] LOOP
+  EXECUTE format('DROP TRIGGER IF EXISTS certificate_revision ON public.%I',t);
+  EXECUTE format('CREATE TRIGGER certificate_revision BEFORE UPDATE ON public.%I FOR EACH ROW EXECUTE FUNCTION certificates_private.bump_source_revision()',t);
+ END LOOP;
+ FOREACH t IN ARRAY ARRAY['external_customers','external_products','external_product_courses','invoices','invoice_relations','invoice_allocations','participation_periods','certificate_issues'] LOOP
+  EXECUTE format('DROP TRIGGER IF EXISTS certificate_audit ON public.%I',t);
+  EXECUTE format('CREATE TRIGGER certificate_audit AFTER INSERT OR UPDATE OR DELETE ON public.%I FOR EACH ROW EXECUTE FUNCTION certificates_private.record_change()',t);
+ END LOOP;
+ FOREACH t IN ARRAY ARRAY['invoices','invoice_allocations','participation_periods'] LOOP
+  EXECUTE format('DROP TRIGGER IF EXISTS certificate_invalidate ON public.%I',t);
+  EXECUTE format('CREATE TRIGGER certificate_invalidate AFTER INSERT OR UPDATE ON public.%I FOR EACH ROW EXECUTE FUNCTION certificates_private.invalidate_sources()',t);
+ END LOOP;
+END $triggers$;
+
+CREATE OR REPLACE FUNCTION certificates_private.refresh_allocations(p_invoice uuid) RETURNS void
+LANGUAGE plpgsql SET search_path='' AS $$
+DECLARE inv public.invoices; person uuid; item record; problem text; article text;
+BEGIN
+ SELECT * INTO inv FROM public.invoices WHERE id=p_invoice FOR UPDATE;
+ SELECT person_id INTO person FROM public.external_customers WHERE id=inv.external_customer_id AND review_status='resolved';
+ IF person IS NULL THEN problem:='customer_unresolved';
+ ELSIF inv.service_month IS NULL THEN problem:='service_month_missing';
+ ELSIF cardinality(inv.article_numbers)=0 THEN problem:='product_unmapped';
+ ELSE
+  FOREACH article IN ARRAY inv.article_numbers LOOP
+   IF NOT EXISTS(SELECT 1 FROM public.external_products p JOIN public.external_product_courses m ON m.product_id=p.id
+    WHERE p.account_key=inv.account_key AND p.article_number=article AND p.review_status='resolved') THEN problem:='product_unmapped'; EXIT; END IF;
+  END LOOP;
+ END IF;
+ IF problem IS NULL AND inv.document_type='invoice' AND inv.validity NOT IN ('cancelled','replaced') THEN
+  FOR item IN SELECT DISTINCT ON (bi.course_id,b.start_date) bi.id,bi.course_id,b.start_date,m.certificate_title,m.certificate_description,m.schedule_snapshot
+   FROM public.bookings b JOIN public.booking_items bi ON bi.booking_id=b.id
+   JOIN public.external_product_courses m ON m.course_id=bi.course_id JOIN public.external_products p ON p.id=m.product_id
+   WHERE b.person_id=person AND b.target_month=inv.service_month AND b.status='confirmed' AND b.kind<>'trial'
+    AND p.account_key=inv.account_key AND p.article_number=ANY(inv.article_numbers) AND p.review_status='resolved'
+   ORDER BY bi.course_id,b.start_date,bi.id
+  LOOP
+   INSERT INTO public.invoice_allocations(invoice_id,person_id,course_id,booking_item_id,start_date,end_date,status,source,created_by)
+   SELECT inv.id,person,item.course_id,item.id,greatest(item.start_date,inv.service_month),(inv.service_month+interval '1 month - 1 day')::date,'confirmed','booking',nullif(current_setting('certificates.actor_id',true),'')::uuid
+   WHERE NOT EXISTS(SELECT 1 FROM public.invoice_allocations a WHERE a.invoice_id=inv.id AND a.person_id=person AND a.course_id=item.course_id AND a.source='manual')
+   ON CONFLICT(invoice_id,person_id,course_id,start_date,end_date) DO NOTHING;
+   INSERT INTO public.participation_periods(person_id,course_id,booking_item_id,start_date,end_date,title_snapshot,description_snapshot,schedule_snapshot)
+   SELECT person,item.course_id,item.id,greatest(item.start_date,inv.service_month),(inv.service_month+interval '1 month - 1 day')::date,item.certificate_title,item.certificate_description,item.schedule_snapshot
+   WHERE NOT EXISTS(SELECT 1 FROM public.participation_periods p WHERE p.person_id=person AND p.course_id=item.course_id
+    AND p.start_date<=(inv.service_month+interval '1 month - 1 day')::date AND p.end_date>=greatest(item.start_date,inv.service_month) AND p.status<>'revoked')
+   ON CONFLICT DO NOTHING;
+  END LOOP;
+  FOREACH article IN ARRAY inv.article_numbers LOOP
+   IF NOT EXISTS(SELECT 1 FROM public.invoice_allocations a JOIN public.external_product_courses m ON m.course_id=a.course_id
+    JOIN public.external_products p ON p.id=m.product_id WHERE a.invoice_id=inv.id AND a.status='confirmed'
+    AND p.account_key=inv.account_key AND p.article_number=article) THEN problem:='allocation_missing'; END IF;
+  END LOOP;
+ END IF;
+ -- Source-import problems and deliberate review decisions must never be cleared
+ -- merely because a product/customer mapping has become available.
+ IF inv.review_reason IS NULL OR inv.review_reason IN ('customer_unresolved','service_month_missing','product_unmapped','allocation_missing') THEN
+  UPDATE public.invoices SET review_reason=problem WHERE id=inv.id AND review_reason IS DISTINCT FROM problem;
+ END IF;
+END $$;
+
+CREATE OR REPLACE FUNCTION public.certificate_eligibility(p_person uuid) RETURNS jsonb
+LANGUAGE plpgsql STABLE SET search_path='' AS $$
+DECLARE period record; reason text; allocations jsonb; output jsonb:='[]';
+BEGIN
+ FOR period IN SELECT * FROM public.participation_periods WHERE person_id=p_person ORDER BY start_date,course_id,id LOOP
+  reason:=NULL;
+  IF period.status<>'confirmed' THEN reason:='participation_unconfirmed';
+  ELSIF period.end_date>(current_timestamp AT TIME ZONE 'Europe/Berlin')::date THEN reason:='future_period';
+  ELSIF NOT EXISTS(SELECT 1 FROM public.invoice_allocations a WHERE a.person_id=p_person AND a.course_id=period.course_id
+   AND a.status='confirmed' AND a.start_date<=period.end_date AND a.end_date>=period.start_date) THEN reason:='allocation_missing';
+  ELSIF EXISTS(SELECT 1 FROM generate_series(period.start_date::timestamp,period.end_date::timestamp,interval '1 day') day
+   WHERE NOT EXISTS(SELECT 1 FROM public.invoice_allocations a WHERE a.person_id=p_person AND a.course_id=period.course_id
+    AND a.status='confirmed' AND a.start_date<=day::date AND a.end_date>=day::date)) THEN reason:='coverage_gap';
+  ELSIF EXISTS(SELECT 1 FROM public.invoice_allocations a JOIN public.invoices i ON i.id=a.invoice_id
+   LEFT JOIN public.external_customers c ON c.id=i.external_customer_id
+   WHERE a.person_id=p_person AND a.course_id=period.course_id AND a.status<>'excluded'
+   AND a.start_date<=period.end_date AND a.end_date>=period.start_date
+   AND (a.status<>'confirmed' OR c.person_id IS DISTINCT FROM p_person OR c.review_status<>'resolved'
+    OR i.service_month IS DISTINCT FROM date_trunc('month',period.start_date)::date OR i.review_reason IS NOT NULL
+    OR i.validity<>'valid' OR i.document_type<>'invoice')) THEN reason:='invoice_review';
+  ELSIF EXISTS(SELECT 1 FROM public.invoices i JOIN public.external_customers c ON c.id=i.external_customer_id
+   WHERE c.person_id=p_person AND i.service_month=date_trunc('month',period.start_date)::date AND i.document_type='invoice'
+    AND i.validity NOT IN ('cancelled','replaced') AND EXISTS(SELECT 1 FROM public.external_products p JOIN public.external_product_courses m ON m.product_id=p.id
+      WHERE p.account_key=i.account_key AND p.article_number=ANY(i.article_numbers) AND m.course_id=period.course_id)
+    AND (i.validity<>'valid' OR i.review_reason IS NOT NULL OR NOT EXISTS(SELECT 1 FROM public.invoice_allocations a WHERE a.invoice_id=i.id AND a.person_id=p_person AND a.course_id=period.course_id AND a.status='confirmed'))
+   ) THEN reason:='invoice_review';
+  ELSIF EXISTS(SELECT 1 FROM public.invoice_allocations a JOIN public.invoices i ON i.id=a.invoice_id
+   WHERE a.person_id=p_person AND a.course_id=period.course_id AND a.status='confirmed'
+    AND a.start_date<=period.end_date AND a.end_date>=period.start_date
+    AND (i.payment_status NOT IN ('paid','overpaid') OR i.gross_amount<0 OR i.paid_amount+i.discount_amount<i.gross_amount)) THEN reason:='invoice_unpaid';
+  END IF;
+  SELECT coalesce(jsonb_agg(jsonb_build_object('id',a.id,'invoice_id',i.id,'start_date',a.start_date,'end_date',a.end_date,
+   'source_revision',a.source_revision,'invoice_revision',i.source_revision,'payment_status',i.payment_status,'validity',i.validity,'invoice_number',i.invoice_number) ORDER BY a.id),'[]')
+  INTO allocations FROM public.invoice_allocations a JOIN public.invoices i ON i.id=a.invoice_id
+  WHERE a.person_id=p_person AND a.course_id=period.course_id AND a.status='confirmed' AND a.start_date<=period.end_date AND a.end_date>=period.start_date;
+  output:=output||jsonb_build_array(to_jsonb(period)||jsonb_build_object('eligible',reason IS NULL,'reason',reason,'allocations',allocations));
+ END LOOP;
+ RETURN output;
+END $$;
+
+CREATE OR REPLACE FUNCTION certificates_private.apply_rows(p_batch uuid) RETURNS jsonb
+LANGUAGE plpgsql SET search_path='' AS $$
+DECLARE batch public.import_batches; row_data record; d jsonb; person uuid; matches integer; duplicates integer;
+ customer public.external_customers; product public.external_products; inv public.invoices; email_value text; key_value text;
+ disposition_value text; changed integer:=0; conflicts integer:=0; missing integer:=0; inv_id uuid;
+BEGIN
+ SELECT * INTO batch FROM public.import_batches WHERE id=p_batch FOR UPDATE;
+ IF batch.id IS NULL THEN RAISE EXCEPTION 'Import not found' USING ERRCODE='22023'; END IF;
+ IF batch.status='applied' THEN RETURN jsonb_build_object('batch_id',batch.id,'status','applied','summary',batch.summary); END IF;
+ IF EXISTS(SELECT 1 FROM public.import_rows WHERE batch_id=batch.id AND disposition='error') THEN
+  RAISE EXCEPTION 'Import contains invalid rows; correct the CSV before applying it' USING ERRCODE='23514';
+ END IF;
+ IF batch.kind='invoices' AND batch.is_complete_snapshot AND EXISTS(SELECT 1 FROM public.import_rows r WHERE r.batch_id=batch.id
+  AND r.disposition<>'ignored' AND extract(year FROM (r.normalized_data->>'invoice_date')::date) IS DISTINCT FROM batch.export_year) THEN
+  RAISE EXCEPTION 'A complete year export contains invoices from a different year' USING ERRCODE='23514';
+ END IF;
+ IF EXISTS(SELECT 1 FROM public.import_batches b WHERE b.id<>batch.id AND b.account_key=batch.account_key AND b.kind=batch.kind AND b.status='applied' AND b.file_sha256=batch.file_sha256 AND b.exported_at=batch.exported_at AND b.scope=batch.scope) THEN
+  UPDATE public.import_batches SET status='applied',applied_at=clock_timestamp(),summary=summary||'{"duplicate":true}'::jsonb WHERE id=batch.id;
+  RETURN jsonb_build_object('batch_id',batch.id,'status','applied','summary',jsonb_build_object('duplicate',true));
+ END IF;
+ IF batch.baseline_hash IS DISTINCT FROM certificates_private.account_baseline(batch.account_key) THEN
+  RAISE EXCEPTION 'Import preview is stale; upload again' USING ERRCODE='40001';
+ END IF;
+ IF EXISTS(SELECT 1 FROM public.import_batches b WHERE b.account_key=batch.account_key AND b.kind=batch.kind AND b.status='applied' AND b.exported_at>batch.exported_at) THEN
+  RAISE EXCEPTION 'An older export cannot overwrite a newer import' USING ERRCODE='40001';
+ END IF;
+ FOR row_data IN SELECT * FROM public.import_rows WHERE batch_id=batch.id ORDER BY row_number LOOP
+  IF row_data.disposition IN ('ignored','error') THEN CONTINUE; END IF;
+  d:=row_data.normalized_data; disposition_value:='updated';
+  IF batch.kind='customers' THEN
+   key_value:=d->>'customer_number'; email_value:=nullif(lower(btrim(d->>'email')),'');
+   SELECT * INTO customer FROM public.external_customers WHERE account_key=batch.account_key AND customer_number=key_value FOR UPDATE;
+   IF customer.source_exported_at>batch.exported_at THEN RAISE EXCEPTION 'Stale customer export' USING ERRCODE='40001'; END IF;
+   person:=customer.person_id;
+   IF customer.id IS NULL THEN disposition_value:='new'; ELSIF customer.source_data=d THEN disposition_value:='unchanged'; END IF;
+   IF person IS NULL AND email_value IS NOT NULL THEN
+    SELECT count(*) INTO duplicates FROM public.import_rows r WHERE r.batch_id=batch.id AND r.disposition NOT IN ('ignored','error') AND lower(btrim(r.normalized_data->>'email'))=email_value;
+    SELECT count(*),(array_agg(p.id ORDER BY p.id))[1] INTO matches,person FROM public.people p WHERE lower(btrim(p.email))=email_value;
+    IF duplicates>1 OR matches>1 OR EXISTS(SELECT 1 FROM public.external_customers ec WHERE ec.account_key=batch.account_key AND ec.customer_number<>key_value AND lower(btrim(ec.email))=email_value) THEN person:=NULL;
+    ELSIF matches=0 THEN
+     INSERT INTO public.people(display_name,email,phone,street,postal_code,city)
+     VALUES(d->>'display_name',email_value,d->>'phone',d->>'street',d->>'postal_code',d->>'city') RETURNING id INTO person;
+    END IF;
+   END IF;
+   IF person IS NULL THEN disposition_value:='conflict'; conflicts:=conflicts+1; END IF;
+   INSERT INTO public.external_customers(account_key,customer_number,person_id,display_name,email,phone,street,postal_code,city,source_data,review_status,review_reason,source_exported_at,last_import_batch_id)
+   VALUES(batch.account_key,key_value,person,d->>'display_name',email_value,d->>'phone',d->>'street',d->>'postal_code',d->>'city',d,
+    CASE WHEN person IS NULL THEN 'pending' ELSE 'resolved' END,CASE WHEN person IS NULL THEN 'email_missing_or_ambiguous' END,batch.exported_at,batch.id)
+   ON CONFLICT(account_key,customer_number) DO UPDATE SET display_name=excluded.display_name,email=excluded.email,phone=excluded.phone,street=excluded.street,postal_code=excluded.postal_code,city=excluded.city,
+    person_id=coalesce(external_customers.person_id,excluded.person_id),source_data=excluded.source_data,review_status=CASE WHEN coalesce(external_customers.person_id,excluded.person_id) IS NOT NULL THEN 'resolved' ELSE excluded.review_status END,
+    review_reason=CASE WHEN coalesce(external_customers.person_id,excluded.person_id) IS NOT NULL THEN NULL ELSE excluded.review_reason END,source_exported_at=excluded.source_exported_at,last_import_batch_id=excluded.last_import_batch_id;
+  ELSIF batch.kind='products' THEN
+   SELECT * INTO product FROM public.external_products WHERE account_key=batch.account_key AND article_number=d->>'article_number' FOR UPDATE;
+   IF product.source_exported_at>batch.exported_at THEN RAISE EXCEPTION 'Stale product export' USING ERRCODE='40001'; END IF;
+   IF product.id IS NULL THEN disposition_value:='new'; ELSIF product.source_data=d THEN disposition_value:='unchanged'; END IF;
+   INSERT INTO public.external_products(account_key,article_number,name,description,unit,unit_price,source_data,source_exported_at,last_import_batch_id)
+   VALUES(batch.account_key,d->>'article_number',d->>'name',coalesce(d->>'description',''),d->>'unit',(d->>'unit_price')::numeric,d,batch.exported_at,batch.id)
+   ON CONFLICT(account_key,article_number) DO UPDATE SET name=excluded.name,description=excluded.description,unit=excluded.unit,unit_price=excluded.unit_price,source_data=excluded.source_data,source_exported_at=excluded.source_exported_at,last_import_batch_id=excluded.last_import_batch_id;
+  ELSE
+   SELECT * INTO inv FROM public.invoices WHERE account_key=batch.account_key AND invoice_number=d->>'invoice_number' FOR UPDATE;
+   IF inv.source_exported_at>batch.exported_at THEN RAISE EXCEPTION 'Stale invoice export' USING ERRCODE='40001'; END IF;
+   IF inv.id IS NULL THEN disposition_value:='new'; ELSIF inv.source_data=d THEN disposition_value:='unchanged'; END IF;
+   INSERT INTO public.invoices(account_key,invoice_number,external_customer_id,customer_number,document_type,source_status,payment_status,validity,invoice_date,due_date,paid_at,service_month,service_month_source,gross_amount,paid_amount,discount_amount,article_numbers,subject,source_data,source_exported_at,last_import_batch_id,review_reason)
+   VALUES(batch.account_key,d->>'invoice_number',(SELECT id FROM public.external_customers WHERE account_key=batch.account_key AND customer_number=d->>'customer_number'),d->>'customer_number',d->>'document_type',d->>'source_status',d->>'payment_status',d->>'validity',(d->>'invoice_date')::date,nullif(d->>'due_date','')::date,nullif(d->>'paid_at','')::date,nullif(d->>'service_month','')::date,'subject',(d->>'gross_amount')::numeric,(d->>'paid_amount')::numeric,(d->>'discount_amount')::numeric,ARRAY(SELECT jsonb_array_elements_text(d->'article_numbers')),coalesce(d->>'subject',''),d,batch.exported_at,batch.id,nullif(d->>'review_reason',''))
+   ON CONFLICT(account_key,invoice_number) DO UPDATE SET
+    external_customer_id=excluded.external_customer_id,customer_number=excluded.customer_number,document_type=excluded.document_type,source_status=excluded.source_status,payment_status=excluded.payment_status,
+    validity=CASE WHEN invoices.validity IN ('cancelled','replaced') AND EXISTS(SELECT 1 FROM public.invoice_relations r WHERE r.original_invoice_id=invoices.id AND r.confirmed) THEN invoices.validity ELSE excluded.validity END,
+    invoice_date=excluded.invoice_date,due_date=excluded.due_date,paid_at=excluded.paid_at,
+    service_month=coalesce(invoices.service_month,excluded.service_month),service_month_source=coalesce(invoices.service_month_source,excluded.service_month_source),
+    gross_amount=excluded.gross_amount,paid_amount=excluded.paid_amount,discount_amount=excluded.discount_amount,article_numbers=excluded.article_numbers,subject=excluded.subject,source_data=excluded.source_data,source_exported_at=excluded.source_exported_at,last_import_batch_id=excluded.last_import_batch_id,last_seen_at=clock_timestamp(),
+    review_reason=CASE WHEN invoices.service_month IS NOT NULL AND excluded.service_month IS NOT NULL AND invoices.service_month<>excluded.service_month THEN 'service_month_conflict'
+     WHEN invoices.customer_number IS DISTINCT FROM excluded.customer_number THEN 'customer_changed'
+     WHEN invoices.service_month IS NOT NULL AND excluded.review_reason IN ('missing_month','service_month_missing') THEN NULL
+     ELSE excluded.review_reason END
+   RETURNING id INTO inv_id;
+   PERFORM certificates_private.refresh_allocations(inv_id);
+  END IF;
+  UPDATE public.import_rows SET disposition=disposition_value WHERE id=row_data.id;
+  IF disposition_value IN ('new','updated') THEN changed:=changed+1; END IF;
+ END LOOP;
+ IF batch.kind='invoices' AND batch.is_complete_snapshot AND batch.export_year IS NOT NULL AND batch.scope->>'includes_archived'='true' THEN
+  UPDATE public.invoices i SET validity='review',review_reason='missing_from_snapshot'
+   WHERE i.account_key=batch.account_key AND extract(year FROM i.invoice_date)=batch.export_year
+    AND i.source_exported_at<=batch.exported_at AND i.validity NOT IN ('cancelled','replaced')
+    AND NOT EXISTS(SELECT 1 FROM public.import_rows r WHERE r.batch_id=batch.id AND r.external_key=i.invoice_number);
+  GET DIAGNOSTICS missing=ROW_COUNT;
+ END IF;
+ IF batch.kind='customers' THEN
+  UPDATE public.invoices i SET external_customer_id=c.id FROM public.external_customers c
+   WHERE c.account_key=batch.account_key AND i.account_key=c.account_key AND c.customer_number=i.customer_number AND i.external_customer_id IS NULL;
+ END IF;
+ IF batch.kind IN ('customers','products') THEN
+  FOR inv_id IN SELECT id FROM public.invoices WHERE account_key=batch.account_key LOOP PERFORM certificates_private.refresh_allocations(inv_id); END LOOP;
+ END IF;
+ UPDATE public.import_batches SET status='applied',applied_at=clock_timestamp(),summary=summary||jsonb_build_object('changed',changed,'conflicts',conflicts,'missing',missing) WHERE id=batch.id RETURNING summary INTO d;
+ RETURN jsonb_build_object('batch_id',batch.id,'status','applied','summary',d);
+END $$;
+
+CREATE OR REPLACE FUNCTION public.certificate_staff_command(p_actor uuid,p_command text,p_payload jsonb) RETURNS jsonb
+LANGUAGE plpgsql SET search_path='' AS $$
+DECLARE account text:=coalesce(p_payload->>'account_key','papierkram'); batch_id uuid; row_value jsonb; entry jsonb; identifier uuid;
+ person uuid; customer public.external_customers; inv public.invoices; related public.invoices; course public.courses; period public.participation_periods;
+ target_course_id uuid; start_day date; end_day date; changed integer:=0; reason text;
+BEGIN
+ IF NOT certificates_private.verified_staff(p_actor) THEN RAISE EXCEPTION 'Verified staff required' USING ERRCODE='42501'; END IF;
+ IF p_payload IS NULL OR jsonb_typeof(p_payload)<>'object' OR octet_length(p_payload::text)>12582912 THEN RAISE EXCEPTION 'Invalid command payload' USING ERRCODE='22023'; END IF;
+ -- One reconciliation lock avoids customer/invoice/order races across all
+ -- commands, including commands whose account is obtained from the target row.
+ PERFORM pg_advisory_xact_lock(hashtextextended('certificate-reconciliation',0));
+ PERFORM set_config('certificates.actor_id',p_actor::text,true);
+ IF p_command='stage_import' THEN
+  IF jsonb_typeof(p_payload->'rows')<>'array' OR jsonb_array_length(p_payload->'rows')>10000 THEN RAISE EXCEPTION 'Invalid import rows' USING ERRCODE='22023'; END IF;
+  IF p_payload->>'expected_baseline' IS DISTINCT FROM certificates_private.account_baseline(account) THEN
+   RAISE EXCEPTION 'Preview source changed; refresh before uploading' USING ERRCODE='40001';
+  END IF;
+  INSERT INTO public.import_batches(account_key,kind,filename,file_sha256,exported_at,scope,is_complete_snapshot,export_year,baseline_hash,summary,created_by)
+  VALUES(account,p_payload->>'kind',p_payload->>'filename',p_payload->>'file_sha256',(p_payload->>'exported_at')::timestamptz,coalesce(p_payload->'scope','{}'),coalesce((p_payload->>'is_complete_snapshot')::boolean,false),nullif(p_payload->>'export_year','')::integer,certificates_private.account_baseline(account),coalesce(p_payload->'summary','{}'),p_actor) RETURNING id INTO batch_id;
+  FOR row_value IN SELECT value FROM jsonb_array_elements(p_payload->'rows') LOOP
+   INSERT INTO public.import_rows(batch_id,row_number,external_key,raw_data,normalized_data,disposition,issues)
+   VALUES(batch_id,(row_value->>'row_number')::integer,row_value->>'external_key',coalesce(row_value->'raw_data','{}'),coalesce(row_value->'normalized_data','{}'),coalesce(row_value->>'disposition','new'),coalesce(row_value->'issues','[]'));
+  END LOOP;
+  RETURN jsonb_build_object('batch_id',batch_id,'status','preview','summary',coalesce(p_payload->'summary','{}'));
+ ELSIF p_command='apply_import' THEN
+  RETURN certificates_private.apply_rows((p_payload->>'batch_id')::uuid);
+ ELSIF p_command='resolve_customer' THEN
+  SELECT * INTO customer FROM public.external_customers WHERE id=(p_payload->>'id')::uuid FOR UPDATE;
+  IF customer.id IS NULL THEN RAISE EXCEPTION 'Customer not found' USING ERRCODE='22023'; END IF;
+  person:=nullif(p_payload->>'person_id','')::uuid;
+  IF person IS NULL THEN
+   IF nullif(btrim(p_payload->>'email'),'') IS NULL OR nullif(btrim(p_payload->>'display_name'),'') IS NULL THEN RAISE EXCEPTION 'Name and email required' USING ERRCODE='22023'; END IF;
+   INSERT INTO public.people(display_name,email,phone,street,postal_code,city) VALUES(p_payload->>'display_name',lower(btrim(p_payload->>'email')),p_payload->>'phone',p_payload->>'street',p_payload->>'postal_code',p_payload->>'city') RETURNING id INTO person;
+  END IF;
+  IF customer.person_id IS NOT NULL AND customer.person_id<>person THEN RAISE EXCEPTION 'Existing customer mapping cannot be reassigned' USING ERRCODE='23514'; END IF;
+  UPDATE public.external_customers SET person_id=person,review_status='resolved',review_reason=NULL WHERE id=customer.id;
+  FOR identifier IN SELECT id FROM public.invoices WHERE external_customer_id=customer.id LOOP PERFORM certificates_private.refresh_allocations(identifier); END LOOP;
+  RETURN jsonb_build_object('id',customer.id,'person_id',person);
+ ELSIF p_command='map_product' THEN
+  identifier:=(p_payload->>'id')::uuid;
+  IF NOT EXISTS(SELECT 1 FROM public.external_products WHERE id=identifier) OR jsonb_typeof(p_payload->'course_ids')<>'array' OR jsonb_array_length(p_payload->'course_ids')=0 THEN RAISE EXCEPTION 'Product and courses required' USING ERRCODE='22023'; END IF;
+  -- Correct an unused mapping; mappings with accounting history are retained.
+  IF EXISTS(SELECT 1 FROM public.external_product_courses m WHERE m.product_id=identifier AND NOT (to_jsonb(m.course_id::text)<@(p_payload->'course_ids'))
+    AND EXISTS(SELECT 1 FROM public.invoice_allocations a JOIN public.invoices i ON i.id=a.invoice_id JOIN public.external_products p ON p.id=m.product_id
+     WHERE a.course_id=m.course_id AND i.account_key=p.account_key AND p.article_number=ANY(i.article_numbers))) THEN
+   RAISE EXCEPTION 'A mapping with invoice history cannot be removed' USING ERRCODE='23514';
+  END IF;
+  DELETE FROM public.external_product_courses m WHERE m.product_id=identifier AND NOT (to_jsonb(m.course_id::text)<@(p_payload->'course_ids'));
+  FOR target_course_id IN SELECT value::uuid FROM jsonb_array_elements_text(p_payload->'course_ids') LOOP
+   SELECT * INTO course FROM public.courses WHERE id=target_course_id;
+   IF course.id IS NULL THEN RAISE EXCEPTION 'Course not found' USING ERRCODE='22023'; END IF;
+   INSERT INTO public.external_product_courses(product_id,course_id,certificate_title,certificate_description,schedule_snapshot)
+   VALUES(identifier,course.id,coalesce(nullif(p_payload->>'title',''),course.title),coalesce(p_payload->>'description',course.description),
+    coalesce((SELECT jsonb_agg(jsonb_build_object('weekday',s.weekday,'start_time',s.start_time,'end_time',s.end_time) ORDER BY s.weekday,s.start_time) FROM public.course_schedules s WHERE s.course_id=course.id),'[]'))
+   ON CONFLICT(product_id,course_id) DO UPDATE SET certificate_title=excluded.certificate_title,certificate_description=excluded.certificate_description,schedule_snapshot=excluded.schedule_snapshot,version=external_product_courses.version+1;
+  END LOOP;
+  UPDATE public.external_products SET review_status='resolved',review_reason=NULL WHERE id=identifier;
+  FOR batch_id IN SELECT i.id FROM public.invoices i JOIN public.external_products p ON p.account_key=i.account_key AND p.article_number=ANY(i.article_numbers) WHERE p.id=identifier LOOP PERFORM certificates_private.refresh_allocations(batch_id); END LOOP;
+  RETURN jsonb_build_object('id',identifier);
+ ELSIF p_command='resolve_invoice' THEN
+  identifier:=(p_payload->>'id')::uuid;
+  UPDATE public.invoices SET service_month=(p_payload->>'service_month')::date,service_month_source='manual',validity=p_payload->>'validity',review_reason=NULL WHERE id=identifier;
+  IF NOT FOUND THEN RAISE EXCEPTION 'Invoice not found' USING ERRCODE='22023'; END IF;
+  PERFORM certificates_private.refresh_allocations(identifier);
+  RETURN jsonb_build_object('id',identifier);
+ ELSIF p_command='relate_invoice' THEN
+  SELECT * INTO inv FROM public.invoices WHERE id=(p_payload->>'original')::uuid FOR UPDATE;
+  SELECT * INTO related FROM public.invoices WHERE id=(p_payload->>'related')::uuid FOR UPDATE;
+  reason:=p_payload->>'type';
+  IF inv.id IS NULL OR related.id IS NULL OR inv.id=related.id OR inv.document_type<>'invoice' OR inv.account_key<>related.account_key OR inv.external_customer_id IS NULL OR inv.external_customer_id IS DISTINCT FROM related.external_customer_id OR inv.service_month IS NULL OR reason NOT IN ('cancels','replaces') THEN RAISE EXCEPTION 'Invalid invoice relation' USING ERRCODE='23514'; END IF;
+  IF reason='replaces' AND (related.document_type<>'invoice' OR related.service_month IS DISTINCT FROM inv.service_month) THEN RAISE EXCEPTION 'Replacement must cover the same customer and month' USING ERRCODE='23514'; END IF;
+  IF reason='cancels' AND related.document_type NOT IN ('cancellation','credit_note') THEN RAISE EXCEPTION 'Cancellation document required' USING ERRCODE='23514'; END IF;
+  IF reason='cancels' AND related.service_month IS NOT NULL AND related.service_month<>inv.service_month THEN RAISE EXCEPTION 'Cancellation must cover the original service month' USING ERRCODE='23514'; END IF;
+  IF reason='cancels' AND related.service_month IS NULL THEN
+   UPDATE public.invoices SET service_month=inv.service_month,service_month_source='manual' WHERE id=related.id;
+  END IF;
+  INSERT INTO public.invoice_relations(original_invoice_id,related_invoice_id,relation_type,confirmed,confirmed_by,confirmed_at)
+  VALUES(inv.id,related.id,reason,true,p_actor,clock_timestamp()) ON CONFLICT(original_invoice_id,related_invoice_id,relation_type) DO UPDATE SET confirmed=true,confirmed_by=p_actor,confirmed_at=clock_timestamp();
+  UPDATE public.invoices SET validity=CASE WHEN reason='replaces' THEN 'replaced' ELSE 'cancelled' END,review_reason=NULL WHERE id=inv.id;
+  IF reason='replaces' THEN
+   INSERT INTO public.invoice_allocations(invoice_id,person_id,course_id,start_date,end_date,status,source,created_by)
+   SELECT related.id,a.person_id,a.course_id,a.start_date,a.end_date,'confirmed','manual',p_actor FROM public.invoice_allocations a
+    WHERE a.invoice_id=inv.id AND a.status='confirmed' AND EXISTS(SELECT 1 FROM public.external_products p JOIN public.external_product_courses m ON m.product_id=p.id WHERE p.account_key=related.account_key AND p.article_number=ANY(related.article_numbers) AND m.course_id=a.course_id)
+   ON CONFLICT DO NOTHING;
+   UPDATE public.invoice_allocations SET status='excluded' WHERE invoice_id=inv.id;
+   PERFORM certificates_private.refresh_allocations(related.id);
+  END IF;
+  RETURN jsonb_build_object('id',inv.id,'related_id',related.id);
+ ELSIF p_command='allocate' THEN
+  SELECT * INTO inv FROM public.invoices WHERE id=(p_payload->>'invoice_id')::uuid FOR UPDATE;
+  SELECT person_id INTO person FROM public.external_customers WHERE id=inv.external_customer_id AND review_status='resolved';
+  target_course_id:=(p_payload->>'course_id')::uuid; start_day:=(p_payload->>'start')::date; end_day:=(p_payload->>'end')::date;
+  IF inv.id IS NULL OR person IS NULL OR inv.document_type<>'invoice' OR (inv.validity IN ('cancelled','replaced') AND coalesce(p_payload->>'status','confirmed')<>'excluded') OR date_trunc('month',start_day)::date IS DISTINCT FROM inv.service_month OR date_trunc('month',end_day)::date IS DISTINCT FROM inv.service_month OR start_day>end_day
+   OR NOT EXISTS(SELECT 1 FROM public.external_products p JOIN public.external_product_courses m ON m.product_id=p.id WHERE p.account_key=inv.account_key AND p.article_number=ANY(inv.article_numbers) AND p.review_status='resolved' AND m.course_id=target_course_id) THEN RAISE EXCEPTION 'Allocation does not match invoice/customer/course/month' USING ERRCODE='23514'; END IF;
+  identifier:=nullif(p_payload->>'id','')::uuid;
+  IF identifier IS NOT NULL THEN
+   UPDATE public.invoice_allocations SET course_id=target_course_id,start_date=start_day,end_date=end_day,status=coalesce(p_payload->>'status','confirmed'),source='manual'
+    WHERE id=identifier AND invoice_id=inv.id AND person_id=person;
+   IF NOT FOUND THEN RAISE EXCEPTION 'Allocation not found' USING ERRCODE='22023'; END IF;
+  ELSE
+   INSERT INTO public.invoice_allocations(invoice_id,person_id,course_id,start_date,end_date,status,source,created_by)
+   VALUES(inv.id,person,target_course_id,start_day,end_day,coalesce(p_payload->>'status','confirmed'),'manual',p_actor)
+   ON CONFLICT(invoice_id,person_id,course_id,start_date,end_date) DO UPDATE SET status=excluded.status RETURNING id INTO identifier;
+  END IF;
+  PERFORM certificates_private.refresh_allocations(inv.id);
+  RETURN jsonb_build_object('id',identifier,'person_id',person);
+ ELSIF p_command='confirm_participation' THEN
+  IF jsonb_typeof(p_payload->'periods')<>'array' OR jsonb_array_length(p_payload->'periods')>500 THEN RAISE EXCEPTION 'Invalid participation batch' USING ERRCODE='22023'; END IF;
+  FOR entry IN SELECT value FROM jsonb_array_elements(p_payload->'periods') LOOP
+   identifier:=nullif(entry->>'id','')::uuid; person:=(entry->>'person_id')::uuid; target_course_id:=(entry->>'course_id')::uuid; start_day:=(entry->>'start')::date; end_day:=(entry->>'end')::date;
+   IF EXISTS(SELECT 1 FROM public.participation_periods p WHERE p.person_id=person AND p.course_id=target_course_id AND p.status<>'revoked' AND p.start_date<=end_day AND p.end_date>=start_day AND (identifier IS NULL OR p.id<>identifier)) THEN RAISE EXCEPTION 'Overlapping participation period' USING ERRCODE='23514'; END IF;
+   IF identifier IS NOT NULL THEN
+    SELECT * INTO period FROM public.participation_periods WHERE id=identifier FOR UPDATE;
+    IF period.id IS NULL OR period.person_id<>person OR period.course_id<>target_course_id OR (entry->>'revision')::integer IS DISTINCT FROM period.revision THEN RAISE EXCEPTION 'Participation changed; refresh first' USING ERRCODE='40001'; END IF;
+    UPDATE public.participation_periods SET start_date=start_day,end_date=end_day,status='confirmed',confirmed_by=p_actor,confirmed_at=clock_timestamp(),title_snapshot=entry->>'title',description_snapshot=coalesce(entry->>'description',''),schedule_snapshot=coalesce(entry->'schedule','[]') WHERE id=identifier;
+   ELSE
+    INSERT INTO public.participation_periods(person_id,course_id,start_date,end_date,status,confirmed_by,confirmed_at,title_snapshot,description_snapshot,schedule_snapshot)
+    VALUES(person,target_course_id,start_day,end_day,'confirmed',p_actor,clock_timestamp(),entry->>'title',coalesce(entry->>'description',''),coalesce(entry->'schedule','[]'));
+   END IF;
+   changed:=changed+1;
+  END LOOP;
+  RETURN jsonb_build_object('confirmed_count',changed);
+ ELSIF p_command='revoke_participation' THEN
+  identifier:=(p_payload->>'id')::uuid; reason:=nullif(btrim(p_payload->>'reason'),'');
+  IF reason IS NULL THEN RAISE EXCEPTION 'Revocation reason required' USING ERRCODE='22023'; END IF;
+  UPDATE public.participation_periods SET status='revoked',note=reason
+   WHERE id=identifier AND revision=(p_payload->>'revision')::integer;
+  IF NOT FOUND THEN RAISE EXCEPTION 'Participation changed; refresh first' USING ERRCODE='40001'; END IF;
+  RETURN jsonb_build_object('id',identifier);
+ ELSIF p_command='revoke_issue' THEN
+  identifier:=(p_payload->>'id')::uuid; reason:=nullif(btrim(p_payload->>'reason'),'');
+  IF reason IS NULL THEN RAISE EXCEPTION 'Revocation reason required' USING ERRCODE='22023'; END IF;
+  UPDATE public.certificate_issues SET status='revoked',revoked_at=clock_timestamp(),revoked_by=p_actor,revoked_reason=reason WHERE id=identifier AND status IN ('issued','revoked');
+  IF NOT FOUND THEN RAISE EXCEPTION 'Issued certificate not found' USING ERRCODE='22023'; END IF;
+  RETURN jsonb_build_object('id',identifier);
+ END IF;
+ RAISE EXCEPTION 'Unknown certificate command' USING ERRCODE='22023';
+END $$;
+
+REVOKE ALL ON ALL FUNCTIONS IN SCHEMA certificates_private FROM PUBLIC,anon,authenticated;
+GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA certificates_private TO service_role;
+REVOKE ALL ON FUNCTION public.certificate_staff_command(uuid,text,jsonb),public.certificate_eligibility(uuid) FROM PUBLIC,anon,authenticated;
+GRANT EXECUTE ON FUNCTION public.certificate_staff_command(uuid,text,jsonb),public.certificate_eligibility(uuid) TO service_role;
+NOTIFY pgrst,'reload schema';
+
+
+-- Source: migrations/20260929170539_certificate_eligibility_guards.sql
+-- Eligibility is a current calculation; a historical paid flag never grants
+-- blanket permission for all courses, later obligations, or changed SKUs.
+CREATE OR REPLACE FUNCTION public.certificate_import_baseline(p_account text DEFAULT 'papierkram') RETURNS text
+LANGUAGE sql STABLE SET search_path='' AS $$
+ SELECT certificates_private.account_baseline(p_account)
+$$;
+REVOKE ALL ON FUNCTION public.certificate_import_baseline(text) FROM PUBLIC,anon,authenticated;
+GRANT EXECUTE ON FUNCTION public.certificate_import_baseline(text) TO service_role;
+
+CREATE OR REPLACE FUNCTION certificates_private.invoice_has_course(p_invoice uuid,p_course uuid) RETURNS boolean
+LANGUAGE sql STABLE SET search_path='' AS $$
+ SELECT EXISTS(SELECT 1 FROM public.invoices i
+ JOIN public.external_products p ON p.account_key=i.account_key AND p.article_number=ANY(i.article_numbers)
+ JOIN public.external_product_courses m ON m.product_id=p.id
+ WHERE i.id=p_invoice AND p.review_status='resolved' AND m.course_id=p_course)
+$$;
+
+CREATE OR REPLACE FUNCTION certificates_private.valid_invoice_relation(p_related uuid) RETURNS boolean
+LANGUAGE sql STABLE SET search_path='' AS $$
+ SELECT EXISTS(SELECT 1 FROM public.invoice_relations r
+ JOIN public.invoices original ON original.id=r.original_invoice_id
+ JOIN public.invoices related ON related.id=r.related_invoice_id
+ WHERE r.related_invoice_id=p_related AND r.confirmed AND original.document_type='invoice'
+  AND original.account_key=related.account_key AND original.external_customer_id IS NOT NULL
+  AND original.external_customer_id=related.external_customer_id AND original.service_month IS NOT NULL
+  AND original.service_month=related.service_month
+  AND ((r.relation_type='cancels' AND related.document_type IN ('cancellation','credit_note'))
+    OR (r.relation_type='replaces' AND related.document_type='invoice')))
+$$;
+
+-- An explicit correction relationship confirms the current document identity
+-- and charge. Payment-only updates remain valid; a changed customer, month,
+-- document type, SKU or charge requires the teacher to confirm it again.
+CREATE OR REPLACE FUNCTION certificates_private.invalidate_invoice_relations() RETURNS trigger
+LANGUAGE plpgsql SET search_path='' AS $$
+DECLARE affected uuid[];
+BEGIN
+ IF ROW(NEW.account_key,NEW.external_customer_id,NEW.customer_number,NEW.document_type,NEW.service_month,NEW.gross_amount,NEW.article_numbers)
+  IS NOT DISTINCT FROM ROW(OLD.account_key,OLD.external_customer_id,OLD.customer_number,OLD.document_type,OLD.service_month,OLD.gross_amount,OLD.article_numbers) THEN RETURN NULL; END IF;
+ SELECT array_agg(DISTINCT original_invoice_id) INTO affected FROM public.invoice_relations
+ WHERE confirmed AND (original_invoice_id=NEW.id OR related_invoice_id=NEW.id);
+ UPDATE public.invoice_relations SET confirmed=false,confirmed_at=NULL,confirmed_by=NULL
+ WHERE confirmed AND (original_invoice_id=NEW.id OR related_invoice_id=NEW.id);
+ UPDATE public.invoices SET validity='review',review_reason='invoice_relation_changed'
+ WHERE id=ANY(affected) AND (validity<>'review' OR review_reason IS DISTINCT FROM 'invoice_relation_changed');
+ RETURN NULL;
+END $$;
+DROP TRIGGER IF EXISTS certificate_00_relation_invalidate ON public.invoices;
+CREATE TRIGGER certificate_00_relation_invalidate AFTER UPDATE ON public.invoices
+ FOR EACH ROW EXECUTE FUNCTION certificates_private.invalidate_invoice_relations();
+
+CREATE OR REPLACE FUNCTION public.certificate_eligibility(p_person uuid) RETURNS jsonb
+LANGUAGE plpgsql STABLE SET search_path='' AS $$
+DECLARE period record; reason text; allocations jsonb; output jsonb:='[]';
+BEGIN
+ FOR period IN SELECT * FROM public.participation_periods WHERE person_id=p_person ORDER BY start_date,course_id,id LOOP
+  reason:=NULL;
+  IF period.status<>'confirmed' THEN reason:='participation_unconfirmed';
+  ELSIF period.end_date>(current_timestamp AT TIME ZONE 'Europe/Berlin')::date THEN reason:='future_period';
+  -- A cancellation-only partial export must not leave an older paid document
+  -- usable until a teacher confirms which original it cancels. An unknown
+  -- cancellation month is conservatively unresolved for this customer.
+  ELSIF EXISTS(SELECT 1 FROM public.invoices i JOIN public.external_customers c ON c.id=i.external_customer_id
+   WHERE c.person_id=p_person AND i.document_type IN ('cancellation','credit_note','unknown')
+    AND (i.service_month IS NULL OR i.service_month=date_trunc('month',period.start_date)::date)
+    AND NOT certificates_private.valid_invoice_relation(i.id))
+   THEN reason:='cancellation_unresolved';
+  ELSIF EXISTS(SELECT 1 FROM public.invoice_allocations a JOIN public.invoices i ON i.id=a.invoice_id
+   LEFT JOIN public.external_customers c ON c.id=i.external_customer_id
+   WHERE a.person_id=p_person AND a.course_id=period.course_id AND a.status<>'excluded'
+    AND a.start_date<=period.end_date AND a.end_date>=period.start_date
+    AND i.validity NOT IN ('cancelled','replaced')
+    AND (a.status<>'confirmed' OR c.person_id IS DISTINCT FROM p_person OR c.review_status<>'resolved'
+     OR i.service_month IS DISTINCT FROM date_trunc('month',period.start_date)::date
+     OR i.review_reason IS NOT NULL OR i.validity<>'valid' OR i.document_type<>'invoice'
+     OR NOT certificates_private.invoice_has_course(i.id,period.course_id))) THEN reason:='invoice_review';
+  -- Also consider required invoices which have not been allocated yet. Leaving
+  -- a new unpaid invoice unallocated cannot bypass the payment requirement.
+  ELSIF EXISTS(SELECT 1 FROM public.invoices i JOIN public.external_customers c ON c.id=i.external_customer_id
+   WHERE c.person_id=p_person AND i.document_type='invoice' AND i.validity NOT IN ('cancelled','replaced')
+    AND (i.service_month IS NULL OR i.service_month=date_trunc('month',period.start_date)::date)
+    AND (certificates_private.invoice_has_course(i.id,period.course_id)
+     OR cardinality(i.article_numbers)=0 OR EXISTS(SELECT 1 FROM unnest(i.article_numbers) sku
+      WHERE NOT EXISTS(SELECT 1 FROM public.external_products p JOIN public.external_product_courses m ON m.product_id=p.id
+       WHERE p.account_key=i.account_key AND p.article_number=sku AND p.review_status='resolved')))
+    AND (i.service_month IS NULL OR i.validity<>'valid' OR i.review_reason IS NOT NULL
+     OR NOT EXISTS(SELECT 1 FROM public.invoice_allocations a WHERE a.invoice_id=i.id AND a.person_id=p_person
+      AND a.course_id=period.course_id AND a.status='confirmed')))
+   THEN reason:='invoice_review';
+  ELSIF NOT EXISTS(SELECT 1 FROM public.invoice_allocations a JOIN public.invoices i ON i.id=a.invoice_id
+   WHERE a.person_id=p_person AND a.course_id=period.course_id AND a.status='confirmed'
+    AND a.start_date<=period.end_date AND a.end_date>=period.start_date
+    AND i.document_type='invoice' AND i.validity='valid') THEN reason:='allocation_missing';
+  ELSIF EXISTS(SELECT 1 FROM generate_series(period.start_date::timestamp,period.end_date::timestamp,interval '1 day') day
+   WHERE NOT EXISTS(SELECT 1 FROM public.invoice_allocations a JOIN public.invoices i ON i.id=a.invoice_id
+    WHERE a.person_id=p_person AND a.course_id=period.course_id AND a.status='confirmed'
+     AND a.start_date<=day::date AND a.end_date>=day::date AND i.document_type='invoice' AND i.validity='valid'))
+   THEN reason:='coverage_gap';
+  ELSIF EXISTS(SELECT 1 FROM public.invoice_allocations a JOIN public.invoices i ON i.id=a.invoice_id
+   WHERE a.person_id=p_person AND a.course_id=period.course_id AND a.status='confirmed'
+    AND a.start_date<=period.end_date AND a.end_date>=period.start_date
+    AND i.validity NOT IN ('cancelled','replaced')
+    AND (i.payment_status NOT IN ('paid','overpaid') OR i.gross_amount<=0 OR i.paid_amount<0
+     OR i.discount_amount<0 OR i.discount_amount>i.gross_amount OR i.paid_amount+i.discount_amount<i.gross_amount))
+   THEN reason:='invoice_unpaid';
+  END IF;
+  SELECT coalesce(jsonb_agg(jsonb_build_object('id',a.id,'invoice_id',i.id,'start_date',a.start_date,'end_date',a.end_date,
+   'source_revision',a.source_revision,'invoice_revision',i.source_revision,'payment_status',i.payment_status,
+   'validity',i.validity,'invoice_number',i.invoice_number) ORDER BY a.id),'[]') INTO allocations
+  FROM public.invoice_allocations a JOIN public.invoices i ON i.id=a.invoice_id
+  WHERE a.person_id=p_person AND a.course_id=period.course_id AND a.status='confirmed'
+   AND a.start_date<=period.end_date AND a.end_date>=period.start_date
+   AND i.document_type='invoice' AND i.validity NOT IN ('cancelled','replaced');
+  output:=output||jsonb_build_array(to_jsonb(period)||jsonb_build_object('eligible',reason IS NULL,'reason',reason,'allocations',allocations));
+ END LOOP;
+ RETURN output;
+END $$;
+
+-- A new, as-yet unallocated cancellation or invoice was not among the stored
+-- certificate sources. Re-evaluate existing issues for the affected customer.
+CREATE OR REPLACE FUNCTION certificates_private.invalidate_customer_issues() RETURNS trigger
+LANGUAGE plpgsql SET search_path='' AS $$
+DECLARE person uuid; people uuid[]; issue record; eligibility jsonb; valid_period_ids uuid[];
+BEGIN
+ IF TG_OP='UPDATE' AND NEW.source_revision=OLD.source_revision THEN RETURN NULL; END IF;
+ IF TG_OP='UPDATE' THEN
+  SELECT array_agg(DISTINCT person_id) INTO people FROM public.external_customers WHERE id IN (OLD.external_customer_id,NEW.external_customer_id) AND person_id IS NOT NULL;
+ ELSE
+  SELECT array_agg(person_id) INTO people FROM public.external_customers WHERE id=NEW.external_customer_id AND person_id IS NOT NULL;
+ END IF;
+ FOREACH person IN ARRAY coalesce(people,'{}'::uuid[]) LOOP
+ eligibility:=public.certificate_eligibility(person);
+ SELECT coalesce(array_agg((x->>'id')::uuid),'{}'::uuid[]) INTO valid_period_ids
+ FROM jsonb_array_elements(eligibility) x WHERE (x->>'eligible')::boolean;
+ FOR issue IN SELECT i.id,i.status FROM public.certificate_issues i WHERE i.person_id=person AND i.status IN ('issued','generating')
+  AND EXISTS(SELECT 1 FROM public.certificate_sources s WHERE s.issue_id=i.id AND NOT (s.participation_period_id=ANY(valid_period_ids))) LOOP
+  UPDATE public.certificate_issues SET status=CASE WHEN issue.status='issued' THEN 'revoked' ELSE 'failed' END,
+   revoked_at=CASE WHEN issue.status='issued' THEN clock_timestamp() ELSE revoked_at END,
+   revoked_reason=CASE WHEN issue.status='issued' THEN 'Die Zahlungsgrundlage hat sich geändert.' ELSE revoked_reason END,
+   failure_reason=CASE WHEN issue.status='generating' THEN 'source_changed' ELSE failure_reason END WHERE id=issue.id;
+ END LOOP;
+ END LOOP;
+ RETURN NULL;
+END $$;
+DROP TRIGGER IF EXISTS certificate_customer_invalidate ON public.invoices;
+CREATE TRIGGER certificate_customer_invalidate AFTER INSERT OR UPDATE ON public.invoices
+ FOR EACH ROW EXECUTE FUNCTION certificates_private.invalidate_customer_issues();
+
+REVOKE ALL ON FUNCTION certificates_private.invoice_has_course(uuid,uuid),certificates_private.valid_invoice_relation(uuid),certificates_private.invalidate_invoice_relations(),certificates_private.invalidate_customer_issues() FROM PUBLIC,anon,authenticated;
+GRANT EXECUTE ON FUNCTION certificates_private.invoice_has_course(uuid,uuid),certificates_private.valid_invoice_relation(uuid),certificates_private.invalidate_invoice_relations(),certificates_private.invalidate_customer_issues() TO service_role;
+REVOKE ALL ON FUNCTION public.certificate_eligibility(uuid) FROM PUBLIC,anon,authenticated;
+GRANT EXECUTE ON FUNCTION public.certificate_eligibility(uuid) TO service_role;
+NOTIFY pgrst,'reload schema';
+
+
+-- Source: migrations/20260929172325_certificate_pdf_issuance.sql
+-- PDF issuance reserves an immutable snapshot before rendering, then verifies
+-- all payment/attendance sources again after the private Storage upload.
+CREATE OR REPLACE FUNCTION certificates_private.verified_person(p_actor uuid) RETURNS uuid
+LANGUAGE sql STABLE SECURITY DEFINER SET search_path='' AS $$
+ SELECT person.id FROM auth.users u JOIN public.profiles profile ON profile.id=u.id
+ JOIN public.people person ON person.auth_user_id=profile.id
+ WHERE u.id=p_actor AND u.email_confirmed_at IS NOT NULL AND nullif(btrim(u.email),'') IS NOT NULL
+  AND NOT coalesce((to_jsonb(u)->>'is_anonymous')::boolean,false)
+$$;
+REVOKE ALL ON FUNCTION certificates_private.verified_person(uuid) FROM PUBLIC,anon,authenticated;
+GRANT EXECUTE ON FUNCTION certificates_private.verified_person(uuid) TO service_role;
+
+CREATE OR REPLACE FUNCTION certificates_private.issue_sources_current(p_issue uuid) RETURNS boolean
+LANGUAGE plpgsql STABLE SET search_path='' AS $$
+DECLARE issue public.certificate_issues; current_periods jsonb; snapshot_period jsonb; current_period jsonb;
+BEGIN
+ SELECT * INTO issue FROM public.certificate_issues WHERE id=p_issue;
+ IF issue.id IS NULL OR jsonb_typeof(issue.snapshot->'periods') IS DISTINCT FROM 'array'
+  OR jsonb_array_length(issue.snapshot->'periods')=0 THEN RETURN false; END IF;
+ current_periods:=public.certificate_eligibility(issue.person_id);
+ FOR snapshot_period IN SELECT value FROM jsonb_array_elements(issue.snapshot->'periods') LOOP
+  SELECT value INTO current_period FROM jsonb_array_elements(current_periods)
+   WHERE value->>'id'=snapshot_period->>'id';
+  IF current_period IS NULL OR NOT (current_period->>'eligible')::boolean
+   OR (current_period->>'revision')::integer IS DISTINCT FROM (snapshot_period->>'revision')::integer
+   OR (current_period->>'source_revision')::integer IS DISTINCT FROM (snapshot_period->>'source_revision')::integer
+   OR current_period->'allocations' IS DISTINCT FROM snapshot_period->'allocations' THEN RETURN false; END IF;
+ END LOOP;
+ IF (SELECT count(DISTINCT participation_period_id) FROM public.certificate_sources WHERE issue_id=issue.id)
+  <>jsonb_array_length(issue.snapshot->'periods') THEN RETURN false; END IF;
+ RETURN NOT EXISTS(SELECT 1 FROM public.certificate_sources s
+  JOIN public.participation_periods p ON p.id=s.participation_period_id
+  JOIN public.invoice_allocations a ON a.id=s.invoice_allocation_id
+  JOIN public.invoices i ON i.id=a.invoice_id
+  WHERE s.issue_id=issue.id AND (p.person_id<>issue.person_id OR a.person_id<>issue.person_id OR a.course_id<>p.course_id
+   OR s.source_revision<>p.source_revision OR s.participation_revision<>p.revision
+   OR s.invoice_revision<>i.source_revision OR s.allocation_revision<>a.source_revision));
+END $$;
+
+CREATE OR REPLACE FUNCTION public.certificate_issue_command(p_actor uuid,p_command text,p_payload jsonb DEFAULT '{}'::jsonb) RETURNS jsonb
+LANGUAGE plpgsql SET search_path='' AS $$
+DECLARE person uuid; person_row public.people; selected_month date; periods jsonb; snapshot_data jsonb;
+ issue public.certificate_issues; period jsonb; allocation jsonb; identifier uuid; today date; digest text;
+BEGIN
+ person:=certificates_private.verified_person(p_actor);
+ IF person IS NULL THEN RAISE EXCEPTION 'Verified certificate owner required' USING ERRCODE='42501'; END IF;
+ IF p_payload IS NULL OR jsonb_typeof(p_payload)<>'object' OR octet_length(p_payload::text)>8192 THEN RAISE EXCEPTION 'Invalid certificate request' USING ERRCODE='22023'; END IF;
+ PERFORM pg_advisory_xact_lock(hashtextextended('certificate-reconciliation',0));
+ PERFORM set_config('certificates.actor_id',p_actor::text,true);
+ -- Lock the persisted business identity while taking its contact snapshot.
+ SELECT * INTO person_row FROM public.people WHERE id=person AND auth_user_id=p_actor FOR SHARE;
+ IF person_row.id IS NULL THEN RAISE EXCEPTION 'Certificate owner changed' USING ERRCODE='42501'; END IF;
+ today:=(clock_timestamp() AT TIME ZONE 'Europe/Berlin')::date;
+ IF p_command='reserve' THEN
+  selected_month:=nullif(p_payload->>'month','')::date;
+  IF selected_month IS NOT NULL AND extract(day FROM selected_month)<>1 THEN RAISE EXCEPTION 'Choose a calendar month' USING ERRCODE='22023'; END IF;
+  SELECT coalesce(jsonb_agg(value ORDER BY value->>'start_date',value->>'course_id',value->>'id'),'[]') INTO periods
+   FROM jsonb_array_elements(public.certificate_eligibility(person))
+   WHERE (value->>'eligible')::boolean AND (selected_month IS NULL OR date_trunc('month',(value->>'start_date')::date)::date=selected_month);
+  IF jsonb_array_length(periods)=0 THEN RETURN jsonb_build_object('error','conflict','message','Für diese Auswahl stehen keine bestätigten und bezahlten Teilnahmezeiträume zur Verfügung.'); END IF;
+  IF jsonb_array_length(periods)>600 THEN RETURN jsonb_build_object('error','invalid_input','message','Bitte einen einzelnen Monat auswählen.'); END IF;
+  snapshot_data:=jsonb_build_object('person',jsonb_build_object('display_name',person_row.display_name,'street',person_row.street,'postal_code',person_row.postal_code,'city',person_row.city),
+   'periods',periods,'date',today);
+  UPDATE public.certificate_issues SET status='failed',failure_reason='generation_expired'
+   WHERE status='generating' AND created_at<clock_timestamp()-interval '10 minutes';
+  SELECT * INTO issue FROM public.certificate_issues i WHERE i.person_id=person AND i.requested_month IS NOT DISTINCT FROM selected_month
+   AND i.template_version='1' AND i.snapshot=snapshot_data AND i.status='issued' ORDER BY i.issued_at DESC LIMIT 1 FOR UPDATE;
+  IF issue.id IS NOT NULL AND certificates_private.issue_sources_current(issue.id) THEN RETURN to_jsonb(issue); END IF;
+  IF EXISTS(SELECT 1 FROM public.certificate_issues i WHERE i.person_id=person AND i.status='generating') THEN
+   RETURN jsonb_build_object('error','conflict','message','Die Bescheinigung wird bereits erstellt. Bitte kurz warten und erneut versuchen.');
+  END IF;
+  IF (SELECT count(*) FROM public.certificate_issues WHERE status='generating')>=3 THEN
+   RETURN jsonb_build_object('error','conflict','message','Aktuell werden mehrere Bescheinigungen erstellt. Bitte kurz warten und erneut versuchen.');
+  END IF;
+  identifier:=gen_random_uuid();
+  INSERT INTO public.certificate_issues(id,person_id,certificate_number,requested_month,snapshot,template_version,storage_path,requested_by)
+   VALUES(identifier,person,'SA-'||extract(year FROM today)::text||'-'||upper(replace(identifier::text,'-','')),selected_month,snapshot_data,'1',person::text||'/'||identifier::text||'.pdf',p_actor)
+   RETURNING * INTO issue;
+  FOR period IN SELECT value FROM jsonb_array_elements(periods) LOOP
+   FOR allocation IN SELECT value FROM jsonb_array_elements(period->'allocations') LOOP
+    INSERT INTO public.certificate_sources(issue_id,participation_period_id,invoice_allocation_id,source_revision,participation_revision,invoice_revision,allocation_revision,snapshot)
+    VALUES(issue.id,(period->>'id')::uuid,(allocation->>'id')::uuid,(period->>'source_revision')::integer,(period->>'revision')::integer,
+     (allocation->>'invoice_revision')::integer,(allocation->>'source_revision')::integer,jsonb_build_object('period',period,'allocation',allocation));
+   END LOOP;
+  END LOOP;
+  RETURN to_jsonb(issue);
+ END IF;
+ identifier:=nullif(p_payload->>'id','')::uuid;
+ SELECT * INTO issue FROM public.certificate_issues WHERE id=identifier AND person_id=person FOR UPDATE;
+ IF issue.id IS NULL THEN RAISE EXCEPTION 'Certificate not available' USING ERRCODE='42501'; END IF;
+ IF p_command='fail' THEN
+  UPDATE public.certificate_issues SET status='failed',failure_reason='pdf_generation_failed' WHERE id=issue.id AND status='generating' RETURNING * INTO issue;
+  IF issue.id IS NULL THEN SELECT * INTO issue FROM public.certificate_issues WHERE id=identifier AND person_id=person; END IF;
+  RETURN to_jsonb(issue);
+ ELSIF p_command IN ('finalize','download') THEN
+  IF (p_command='finalize' AND issue.status NOT IN ('generating','issued')) OR (p_command='download' AND issue.status<>'issued') THEN
+   RETURN jsonb_build_object('error','conflict','message','Diese Bescheinigung ist nicht mehr verfügbar. Bitte eine neue Bescheinigung erstellen.');
+  END IF;
+  IF NOT certificates_private.issue_sources_current(issue.id) THEN
+   UPDATE public.certificate_issues SET status=CASE WHEN status='issued' THEN 'revoked' ELSE 'failed' END,
+    revoked_at=CASE WHEN status='issued' THEN clock_timestamp() ELSE revoked_at END,
+    revoked_reason=CASE WHEN status='issued' THEN 'Die zugrunde liegenden Teilnahme- oder Rechnungsdaten wurden geändert.' ELSE revoked_reason END,
+    failure_reason=CASE WHEN status='generating' THEN 'source_changed' ELSE failure_reason END
+    WHERE id=issue.id;
+   RETURN jsonb_build_object('error','conflict','message','Die zugrunde liegenden Daten wurden geändert. Bitte eine neue Bescheinigung erstellen.');
+  END IF;
+  IF p_command='download' THEN RETURN to_jsonb(issue); END IF;
+  digest:=p_payload->>'pdf_sha256';
+  IF digest IS NULL OR digest !~ '^[a-f0-9]{64}$' THEN RAISE EXCEPTION 'Invalid PDF digest' USING ERRCODE='22023'; END IF;
+  IF issue.status='issued' THEN
+   IF issue.pdf_sha256<>digest THEN RETURN jsonb_build_object('error','conflict','message','Die gespeicherte Datei stimmt nicht mit dieser Bescheinigung überein.'); END IF;
+   RETURN to_jsonb(issue);
+  END IF;
+  IF issue.created_at<clock_timestamp()-interval '10 minutes' THEN
+   UPDATE public.certificate_issues SET status='failed',failure_reason='generation_expired' WHERE id=issue.id;
+   RETURN jsonb_build_object('error','conflict','message','Die Erstellung ist abgelaufen. Bitte erneut versuchen.');
+  END IF;
+  IF NOT EXISTS(SELECT 1 FROM storage.objects o WHERE o.bucket_id='certificates' AND o.name=issue.storage_path
+   AND o.metadata->>'mimetype'='application/pdf' AND (o.metadata->>'size')::numeric BETWEEN 1 AND 10485760
+   AND o.user_metadata->>'issue_id'=issue.id::text AND o.user_metadata->>'sha256'=digest) THEN
+   UPDATE public.certificate_issues SET status='failed',failure_reason='storage_upload_missing' WHERE id=issue.id;
+   RETURN jsonb_build_object('error','conflict','message','Die PDF-Datei wurde nicht vollständig gespeichert. Bitte erneut versuchen.');
+  END IF;
+  UPDATE public.certificate_issues SET status='issued',pdf_sha256=digest,issued_at=clock_timestamp() WHERE id=issue.id RETURNING * INTO issue;
+  RETURN to_jsonb(issue);
+ END IF;
+ RAISE EXCEPTION 'Unknown certificate command' USING ERRCODE='22023';
+END $$;
+
+REVOKE ALL ON FUNCTION certificates_private.issue_sources_current(uuid),public.certificate_issue_command(uuid,text,jsonb) FROM PUBLIC,anon,authenticated;
+GRANT EXECUTE ON FUNCTION certificates_private.issue_sources_current(uuid),public.certificate_issue_command(uuid,text,jsonb) TO service_role;
+NOTIFY pgrst,'reload schema';
