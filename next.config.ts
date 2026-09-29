@@ -30,7 +30,8 @@ const nextConfig: NextConfig = {
 
   // PERFORMANCE: Experimentelle Optimierungen
   experimental: {
-    cpus: 4,
+    // Build workers; the VPS build sets SITOV_BUILD_CPUS=1 to stay within its memory budget.
+    cpus: Number(process.env.SITOV_BUILD_CPUS) || 4,
     // Optimized Package Imports - reduziert Bundle-Größe drastisch
     optimizePackageImports: [
       "lucide-react",

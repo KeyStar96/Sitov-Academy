@@ -9,6 +9,16 @@ CURRENT_LINK="${SITOV_CURRENT_LINK:-/var/www/sitov-current}"
 ENV_FILE="${SITOV_ENV_FILE:-/etc/sitov-academy/app.env}"
 SYSTEMD_DIR="${SITOV_SYSTEMD_DIR:-/etc/systemd/system}"
 LOCK_FILE="${SITOV_DEPLOY_LOCK_FILE:-/var/lock/sitov-release.lock}"
+# The build shares an 8 GB host without swap with Supabase, Coolify, the app and TTS.
+# An unbounded build (3 GB heap + 4 workers) froze the whole VPS on 2026-09-29.
+# npm ci/next build now run in a capped systemd scope: when memory runs out, only
+# the build is killed. It starts only if the cap plus a reserve is available.
+# Measured locally: 1 worker + 2 GB heap peaks at ~1.65 GB in total.
+BUILD_MEMORY_MAX_MB="${SITOV_BUILD_MEMORY_MAX_MB:-2560}"
+BUILD_RESERVE_MB="${SITOV_BUILD_RESERVE_MB:-1024}"
+BUILD_HEAP_MB="${SITOV_BUILD_HEAP_MB:-2048}"
+BUILD_CPUS="${SITOV_BUILD_CPUS:-1}"
+MEMINFO="${SITOV_MEMINFO:-/proc/meminfo}"
 MODE=deploy
 SCHEMA_CHANGED=false
 REVISION=
@@ -40,7 +50,27 @@ fi
 exec 9>"$LOCK_FILE"
 flock -n 9 || { echo 'Another release operation is running.' >&2; exit 1; }
 
+require_build_memory() {
+  local available_kb required_mb
+  available_kb="$(awk '/^MemAvailable:/ {print $2}' "$MEMINFO")"
+  [[ "$available_kb" =~ ^[0-9]+$ ]] || { echo 'Cannot read MemAvailable; refusing to build.' >&2; exit 1; }
+  required_mb=$((BUILD_MEMORY_MAX_MB + BUILD_RESERVE_MB))
+  if ((available_kb / 1024 < required_mb)); then
+    printf 'Only %s MB memory available; the build needs %s MB (cap %s + reserve %s). Nothing was changed.\n' \
+      "$((available_kb / 1024))" "$required_mb" "$BUILD_MEMORY_MAX_MB" "$BUILD_RESERVE_MB" >&2
+    exit 1
+  fi
+}
+
+# Run a build step in its own memory-capped cgroup, at low CPU and IO priority.
+run_capped() {
+  systemd-run --scope --quiet --collect \
+    -p "MemoryMax=${BUILD_MEMORY_MAX_MB}M" -p MemorySwapMax=0 -p CPUQuota=200% \
+    -- nice -n 10 "$@"
+}
+
 prepare_release() {
+  require_build_memory
   cd "$SOURCE_DIR"
   # Discard only a generated cache if an older checkout still tracks it.
   if git ls-files --error-unmatch tsconfig.tsbuildinfo >/dev/null 2>&1; then
@@ -56,11 +86,13 @@ prepare_release() {
     exit 1
   fi
   install -d -m 755 "$RELEASE_DIR"
+  # A failed or killed build must not leave a directory that blocks the retry.
+  trap 'if [[ ! -e "$RELEASE_DIR/.sitov-prepared" ]]; then rm -rf -- "$RELEASE_DIR"; echo "Build failed; removed incomplete $RELEASE_DIR." >&2; fi' EXIT
   git archive "$FULL_REVISION" | tar -x -C "$RELEASE_DIR"
   install -m 640 -o root -g sitov "$ENV_FILE" "$RELEASE_DIR/.env.local"
   cd "$RELEASE_DIR"
-  npm ci --no-audit --no-fund
-  NODE_OPTIONS=--max-old-space-size=3072 npm run build
+  run_capped npm ci --no-audit --no-fund
+  run_capped env NODE_OPTIONS="--max-old-space-size=${BUILD_HEAP_MB}" SITOV_BUILD_CPUS="$BUILD_CPUS" npm run build
   test -s .next/BUILD_ID
   test -s .next/required-server-files.json
   chown -R sitov:sitov .next
@@ -80,6 +112,7 @@ prepare_release() {
   printf '%s\n' "$FULL_REVISION" > .sitov-prepared.tmp
   chmod 600 .sitov-prepared.tmp
   mv .sitov-prepared.tmp .sitov-prepared
+  trap - EXIT
   printf 'Prepared release: %s\n' "$REVISION"
 }
 

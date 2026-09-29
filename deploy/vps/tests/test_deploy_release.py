@@ -24,7 +24,12 @@ if name=='git':
  elif 'ls-tree' in args:
   for p in sorted(pathlib.Path(os.environ['MOCK_SOURCE']).rglob('*')):
    if p.is_file():sys.stdout.buffer.write(str(p.relative_to(os.environ['MOCK_SOURCE'])).encode()+b'\0')
+elif name=='systemd-run':
+ os.execvp(args[args.index('--')+1],args[args.index('--')+1:])
+elif name=='nice':
+ os.execvp(args[2],args[2:])
 elif name=='npm':
+ with open(os.environ['MOCK_LOG'],'a') as f:f.write(json.dumps(['npm-env',os.environ.get('NODE_OPTIONS'),os.environ.get('SITOV_BUILD_CPUS')])+'\n')
  if args==['run','build']:
   if os.environ.get('MOCK_BUILD_FAIL')=='1':sys.exit(1)
   pathlib.Path('.next/server').mkdir(parents=True)
@@ -76,7 +81,7 @@ class DeploymentTests(unittest.TestCase):
         (self.source / 'app.js').write_text('source')
         self.bin = self.root / 'bin'
         self.bin.mkdir()
-        for name in ('git', 'npm', 'systemctl', 'curl', 'install', 'chown', 'flock', 'sleep', 'mv', 'readlink', 'sha256sum'):
+        for name in ('git', 'npm', 'systemctl', 'curl', 'install', 'chown', 'flock', 'sleep', 'mv', 'readlink', 'sha256sum', 'systemd-run', 'nice'):
             command = self.bin / name
             command.write_text(MOCK)
             command.chmod(0o755)
@@ -89,11 +94,13 @@ class DeploymentTests(unittest.TestCase):
         self.env_file = self.root / 'app.env'
         self.env_file.write_text('FAKE=mock-only\n')
         self.log = self.root / 'calls.jsonl'
+        self.meminfo = self.root / 'meminfo'
+        self.meminfo.write_text('MemTotal:        8073216 kB\nMemAvailable:    4550000 kB\n')
         self.env = dict(os.environ, PATH=str(self.bin)+os.pathsep+os.environ['PATH'],
             MOCK_LOG=str(self.log), MOCK_SOURCE=str(self.source), MOCK_MAIL_ACTIVE='1',
             SITOV_SOURCE_DIR=str(self.source), SITOV_RELEASES_DIR=str(self.root/'releases'),
             SITOV_CURRENT_LINK=str(self.current), SITOV_ENV_FILE=str(self.env_file),
-            SITOV_SYSTEMD_DIR=str(self.systemd), SITOV_DEPLOY_LOCK_FILE=str(self.root/'lock'))
+            SITOV_SYSTEMD_DIR=str(self.systemd), SITOV_DEPLOY_LOCK_FILE=str(self.root/'lock'), SITOV_MEMINFO=str(self.meminfo))
 
     def run_script(self, *args, **changes):
         return subprocess.run(['bash', str(SCRIPT), *args], env=dict(self.env, **changes), text=True, capture_output=True)
@@ -150,6 +157,33 @@ class DeploymentTests(unittest.TestCase):
         result=self.run_script('--prepare-only',MOCK_BUILD_FAIL='1')
         self.assertNotEqual(result.returncode,0)
         self.assertFalse((self.root/'releases'/REVISION/'.sitov-prepared').exists())
+        self.assertEqual(self.current.resolve(),self.previous)
+
+    def test_failed_build_removes_incomplete_release_so_a_retry_works(self):
+        result=self.run_script('--prepare-only',MOCK_BUILD_FAIL='1')
+        self.assertNotEqual(result.returncode,0)
+        self.assertFalse((self.root/'releases'/REVISION).exists())
+        self.assertIn('removed incomplete',result.stderr)
+        self.prepare()
+
+    def test_build_runs_in_a_memory_capped_scope_with_one_worker(self):
+        self.prepare()
+        scopes=[c for c in self.calls() if c[0]=='systemd-run']
+        self.assertEqual(len(scopes),2)
+        for call in scopes:
+            self.assertIn('MemoryMax=2560M',call)
+            self.assertIn('MemorySwapMax=0',call)
+            self.assertIn('--scope',call)
+        self.assertIn(['npm-env','--max-old-space-size=2048','1'],self.calls())
+        self.assertFalse(any(c[0]=='npm' for c in self.calls() if c[0]!='npm-env' and 'systemd-run' not in json.dumps(scopes)))
+
+    def test_low_memory_refuses_before_touching_anything(self):
+        self.meminfo.write_text('MemTotal:        8073216 kB\nMemAvailable:    1945600 kB\n')
+        result=self.run_script('--prepare-only')
+        self.assertNotEqual(result.returncode,0)
+        self.assertIn('Nothing was changed',result.stderr)
+        self.assertFalse((self.root/'releases').exists() and any((self.root/'releases').iterdir()))
+        self.assertFalse(self.log.exists() and any(c[0] in ('git','npm','systemd-run') for c in self.calls()))
         self.assertEqual(self.current.resolve(),self.previous)
 
     def test_rejects_unknown_revision_and_path_traversal(self):
