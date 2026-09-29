@@ -1,0 +1,9 @@
+Name;Artikelnummer;Beschreibung;Typ;Netto-Preis;Brutto-Preis;Einheitbezeichnung Einzel;Einheitbezeichnung Mehrfach;USt.-Satz
+Deutsch A1.1 (Online);SLA-A11-Online;1 Unterrichtseinheit à 60 Min.;Dienstleistung;10,00;10,00;Stunde;Stunden;0.0
+Deutsch B1 (Online);SLA-B1-Online;1 Unterrichtseinheit à 60 Min.;Dienstleistung;10,00;10,00;Stunde;Stunden;0.0
+Deutsch Level 1 (A0-A1);SLA-Level-1;1 Unterrichtseinheit à 45 Min.;Dienstleistung;2,50;2,50;Stunde;Stunden;0.0
+Deutsch Level 2 (A1-A2);SLA-Level-2;1 Unterrichtseinheit à 45 Min.;Dienstleistung;2,50;2,50;Stunde;Stunden;0.0
+Deutsch Level 3 (A2-B1);SLA-Level-3;1 Unterrichtseinheit à 45 Min.;Dienstleistung;2,50;2,50;Stunde;Stunden;0.0
+Privatunterricht;DE-PRIVAT;1 Unterrichtseinheit à 45 Min.;Dienstleistung;25,00;25,00;Stunde;Stunden;0.0
+Sprechtraining A1-B1;SLA-Speech-A1-B1;1 Unterrichtseinheit à 60 Min.;Dienstleistung;3,50;3,50;Stunde;Stunden;0.0
+
