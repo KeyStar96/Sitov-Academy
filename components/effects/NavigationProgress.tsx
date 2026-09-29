@@ -16,11 +16,14 @@ export default function NavigationProgress() {
     const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
     useEffect(() => {
+        let disposed = false;
+        let completionTimer: ReturnType<typeof setTimeout> | null = null;
+
         // Track clicks on internal links to start progress immediately
         const handleClick = (e: MouseEvent) => {
             const target = e.target as HTMLElement;
             const anchor = target.closest("a");
-            if (!anchor) return;
+            if (!anchor || anchor.hasAttribute("download")) return;
 
             const href = anchor.getAttribute("href");
             if (!href) return;
@@ -32,37 +35,49 @@ export default function NavigationProgress() {
             const isNewTab = anchor.target === "_blank";
 
             if (isInternal && !isAnchor && !isSamePage && !isNewTab) {
+                if (completionTimer !== null) clearTimeout(completionTimer);
+                completionTimer = null;
                 startProgress();
             }
         };
 
-        // Detect navigation completion via URL change (popstate + pushstate)
+        // Next.js can write history from an insertion effect during refresh.
+        // Defer React state updates until that commit has finished.
         const handleComplete = () => {
-            completeProgress();
+            if (disposed) return;
+            if (completionTimer !== null) clearTimeout(completionTimer);
+            completionTimer = setTimeout(() => {
+                completionTimer = null;
+                if (!disposed) completeProgress();
+            }, 0);
         };
 
         // Patch pushState/replaceState to detect programmatic navigation
         const originalPushState = history.pushState;
         const originalReplaceState = history.replaceState;
 
-        history.pushState = function (...args) {
+        const patchedPushState: typeof history.pushState = function (...args) {
             originalPushState.apply(this, args);
             handleComplete();
         };
 
-        history.replaceState = function (...args) {
+        const patchedReplaceState: typeof history.replaceState = function (...args) {
             originalReplaceState.apply(this, args);
             handleComplete();
         };
+        history.pushState = patchedPushState;
+        history.replaceState = patchedReplaceState;
 
         document.addEventListener("click", handleClick, { capture: true });
         window.addEventListener("popstate", handleComplete);
 
         return () => {
+            disposed = true;
+            if (completionTimer !== null) clearTimeout(completionTimer);
             document.removeEventListener("click", handleClick, { capture: true });
             window.removeEventListener("popstate", handleComplete);
-            history.pushState = originalPushState;
-            history.replaceState = originalReplaceState;
+            if (history.pushState === patchedPushState) history.pushState = originalPushState;
+            if (history.replaceState === patchedReplaceState) history.replaceState = originalReplaceState;
             if (intervalRef.current) clearInterval(intervalRef.current);
             if (timeoutRef.current) clearTimeout(timeoutRef.current);
         };
@@ -91,6 +106,7 @@ export default function NavigationProgress() {
 
     const completeProgress = () => {
         if (intervalRef.current) clearInterval(intervalRef.current);
+        if (timeoutRef.current) clearTimeout(timeoutRef.current);
 
         setProgress(100);
 
