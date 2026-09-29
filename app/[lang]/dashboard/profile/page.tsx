@@ -15,6 +15,9 @@ import ProfileProgressReset from '@/components/dashboard/ProfileProgressReset'
 import ProfileNotificationSettings from '@/components/dashboard/ProfileNotificationSettings'
 import ProfileSettings from '@/components/dashboard/ProfileSettings'
 import { studentTranslator } from '@/lib/student-ui-i18n'
+import ProfileCertificates from '@/components/dashboard/ProfileCertificates'
+import { getStudentCertificateData } from '@/app/actions/certificates'
+import { certificateStudentText } from '@/lib/certificates/student-i18n'
 
 export default async function ProfilePage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang: requestedLang } = await params
@@ -31,6 +34,8 @@ export default async function ProfilePage({ params }: { params: Promise<{ lang: 
   const profile = profileResult.data
   const t = createProfileTranslator(dict.profile)
   const s = studentTranslator(lang)
+  const certificates = await getStudentCertificateData()
+  const certificateText = certificateStudentText(lang)
   let courseHistory: Awaited<ReturnType<typeof loadVerifiedCourseHistory>> = null
   try { courseHistory = await loadVerifiedCourseHistory(user) }
   catch { console.error('[profile] Existing course history could not be loaded') }
@@ -41,6 +46,8 @@ export default async function ProfilePage({ params }: { params: Promise<{ lang: 
       notice={<p>{t('teacher_progress_notice')} <Link href={`/${lang}/privacy`} className="inline-flex min-h-12 items-center rounded-lg px-2 font-semibold text-[var(--accent-text)] underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2">{t('teacher_progress_privacy')}</Link></p>}
       danger={<ProfileProgressReset translations={dict.progress_reset} userId={user.id} />}
       sections={[
+        { id: 'certificates', title: certificateText.title, hint: certificateText.intro,
+          content: <ProfileCertificates initial={certificates} lang={lang} /> },
         { id: 'details', title: s('settings_details'), hint: s('settings_details_hint'), content: (
           <ProfileDetailsForm lang={lang} translations={dict.profile} pendingEmail={user.new_email || null} birthDate={courseHistory?.birthDate}
             initial={{ display_name: profile.person?.display_name ?? '', email: profile.person?.email ?? user.email ?? '', phone: profile.person?.phone ?? null, street: profile.person?.street ?? null, postal_code: profile.person?.postal_code ?? null, city: profile.person?.city ?? null }} />

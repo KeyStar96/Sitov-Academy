@@ -2,6 +2,8 @@ import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
     testDir: './e2e',
+    // The certificate smoke suite owns a separate synthetic Auth/Storage fixture.
+    testIgnore: ['**/certificates.spec.ts'],
     timeout: 30000,
     expect: {
         timeout: 5000

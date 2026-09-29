@@ -13,6 +13,7 @@ import {
   UserPlus,
 } from 'lucide-react'
 import { useAdminTranslator } from './AdminI18nProvider'
+import { certificateAdminCopy } from './certificates/i18n'
 import { formatProfileMonth } from '@/lib/profile-month'
 import { formatCourseQuantity } from '@/lib/course-quantity-i18n'
 import type { RegistrationOverview, StaffRegistration, StaffInvoice } from '@/lib/types/admin-registrations'
@@ -183,6 +184,10 @@ export default function AdminView({
           ))}
         </div>
         <div className="flex flex-wrap gap-2">
+          <Link href={`/${lang}/admin/finance/certificates`} className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-[var(--border)] px-3 text-sm font-medium text-[var(--foreground)] transition-colors hover:bg-[var(--surface-muted)]">
+            <FileText size={16} aria-hidden="true" />
+            {certificateAdminCopy(lang).title}
+          </Link>
           <Link href={`/${lang}/admin/registrations`} className="inline-flex min-h-10 items-center gap-2 rounded-lg border border-[var(--border)] px-3 text-sm font-medium text-[var(--foreground)] transition-colors hover:bg-[var(--surface-muted)]">
             <UserPlus size={16} aria-hidden="true" />
             {t('finance_open_registrations')}

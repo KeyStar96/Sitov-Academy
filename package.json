@@ -18,16 +18,20 @@
     "test:db:grammar": "node --test supabase/tests/grammar-learning.test.mjs",
     "test:db:pronunciation": "node --test supabase/tests/pronunciation-conversations.test.mjs",
     "test:db:reset": "node --test supabase/tests/learning-reset.test.mjs",
-    "test:db:lesson-switch": "node --test supabase/tests/vocabulary-lesson-switch.test.mjs"
+    "test:db:lesson-switch": "node --test supabase/tests/vocabulary-lesson-switch.test.mjs",
+    "test:db:certificates": "node --test supabase/tests/certificate-workflow.test.mjs supabase/tests/certificate-issuance.test.mjs",
+    "test:e2e:certificates": "playwright test -c e2e/certificates.config.ts"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
     "@hookform/resolvers": "^5.2.2",
+    "@react-pdf/renderer": "4.9.0",
     "@react-three/fiber": "9.7.0",
     "@supabase/ssr": "^0.8.0",
     "@supabase/supabase-js": "^2.93.3",
     "@types/three": "^0.182.0",
     "clsx": "^2.1.1",
+    "csv-parse": "7.0.3",
     "dotenv": "^17.2.3",
     "framer-motion": "^12.23.26",
     "gsap": "^3.14.2",

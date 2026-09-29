@@ -2,14 +2,14 @@
 
 import { useEffect, useState, type CSSProperties, type ReactNode } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
-import { ArrowLeft, Bell, CalendarDays, ChevronRight, Contrast, Languages, TriangleAlert, UserRound } from 'lucide-react'
+import { ArrowLeft, Bell, CalendarDays, ChevronRight, Contrast, FileCheck2, Languages, TriangleAlert, UserRound } from 'lucide-react'
 import { studentTranslator } from '@/lib/student-ui-i18n'
 
-export type SettingsSectionId = 'details' | 'language' | 'appearance' | 'notifications' | 'courses'
+export type SettingsSectionId = 'details' | 'language' | 'appearance' | 'notifications' | 'courses' | 'certificates'
 
-const ICONS = { details: UserRound, language: Languages, appearance: Contrast, notifications: Bell, courses: CalendarDays } as const
+const ICONS = { details: UserRound, language: Languages, appearance: Contrast, notifications: Bell, courses: CalendarDays, certificates: FileCheck2 } as const
 /** Alte Sprunglinks (z. B. „Sprache im Profil auswählen") öffnen direkt den passenden Bereich. */
-const HASHES: Record<string, SettingsSectionId> = { '#language-settings': 'language', '#details': 'details', '#appearance': 'appearance', '#notifications': 'notifications', '#courses': 'courses' }
+const HASHES: Record<string, SettingsSectionId> = { '#language-settings': 'language', '#details': 'details', '#appearance': 'appearance', '#notifications': 'notifications', '#courses': 'courses', '#certificates': 'certificates' }
 const EASE = [0.22, 1, 0.36, 1] as const
 
 /**

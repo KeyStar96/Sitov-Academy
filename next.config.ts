@@ -1,6 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  serverExternalPackages: ['@react-pdf/renderer'],
+  outputFileTracingIncludes: { '/api/certificates': ['./lib/certificates/fonts/**/*'] },
   // PERFORMANCE: Compiler-Optimierungen
   compiler: {
     // Entferne console.log in Production (spart Bundle-Größe und CPU).
@@ -30,6 +32,7 @@ const nextConfig: NextConfig = {
 
   // PERFORMANCE: Experimentelle Optimierungen
   experimental: {
+    serverActions: { bodySizeLimit: '6mb' },
     // Build workers; the VPS build sets SITOV_BUILD_CPUS=1 to stay within its memory budget.
     cpus: Number(process.env.SITOV_BUILD_CPUS) || 4,
     // Optimized Package Imports - reduziert Bundle-Größe drastisch

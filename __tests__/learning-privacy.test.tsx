@@ -17,6 +17,9 @@ jest.mock('@/utils/supabase/server', () => ({ createClient: async () => ({
 }) }))
 jest.mock('@/lib/profile-person', () => ({ resolveVerifiedPerson: async () => ({ id: null }) }))
 jest.mock('@/lib/profile-course-history', () => ({ loadVerifiedCourseHistory: async () => null }))
+jest.mock('@/app/actions/certificates', () => ({ getStudentCertificateData: async () => ({ success: true,
+  data: { person: null, identityUnresolved: false, periods: [], issues: [], paymentUpdatedAt: null },
+}) }))
 jest.mock('@/components/dashboard/ProfileDetailsForm', () => () => null)
 jest.mock('@/components/dashboard/UiLanguageForm', () => () => null)
 jest.mock('@/components/dashboard/ProfileCourseHistory', () => () => null)
