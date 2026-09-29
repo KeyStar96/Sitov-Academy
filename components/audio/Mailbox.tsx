@@ -24,10 +24,12 @@ function latestTeacherMessage(conversation: Conversation): PronunciationMessage 
  * lässt sich direkt abspielen. Gehörte Briefe wandern sichtbar ins Archiv;
  * Aufnahmen ohne Antwort stehen als „unterwegs" dazwischen.
  */
-export default function Mailbox({ conversations, lang, translations }: {
+export default function Mailbox({ conversations, lang, translations, focusId }: {
   conversations: Conversation[]
   lang: string
   translations: PronunciationTranslations
+  /** Gespräch, das beim Laden direkt geöffnet wird (Link aus der Mail). */
+  focusId?: string
 }) {
   const s = studentTranslator(lang)
   const reduced = useReducedMotion() ?? false
@@ -60,7 +62,7 @@ export default function Mailbox({ conversations, lang, translations }: {
           <motion.div key={conversation.id}
             initial={reduced ? false : { opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
             exit={reduced ? { opacity: 0 } : { opacity: 0, y: 40, scale: 0.94, transition: { duration: 0.45, ease: EASE } }}>
-            <Letter conversation={conversation} lang={lang} translations={translations}
+            <Letter conversation={conversation} lang={lang} translations={translations} focused={conversation.id === focusId}
               onFiled={() => setFiled(previous => new Set(previous).add(conversation.id))} />
           </motion.div>
         ))}
@@ -72,7 +74,7 @@ export default function Mailbox({ conversations, lang, translations }: {
           <ul className="grid gap-3">
             {waiting.map(conversation => (
               <li key={conversation.id}>
-                <PronunciationConversation conversation={conversation} lang={lang} translations={translations}
+                <PronunciationConversation conversation={conversation} lang={lang} translations={translations} defaultOpen={conversation.id === focusId}
                   trigger={(open, current) => (
                     <button type="button" onClick={open} aria-haspopup="dialog" className="st-mail-row st-press" data-kind="waiting">
                       <span className="st-mail-row__icon" aria-hidden="true"><Send size={20} className="st-fly" /></span>
@@ -101,7 +103,7 @@ export default function Mailbox({ conversations, lang, translations }: {
               <motion.ul className="grid gap-3 overflow-hidden" initial={reduced ? false : { height: 0, opacity: 0 }}
                 animate={{ height: 'auto', opacity: 1 }} exit={reduced ? { opacity: 0 } : { height: 0, opacity: 0 }} transition={{ duration: 0.3, ease: EASE }}>
                 {archive.map(conversation => (
-                  <li key={conversation.id}><PronunciationConversation conversation={conversation} lang={lang} translations={translations} /></li>
+                  <li key={conversation.id}><PronunciationConversation conversation={conversation} lang={lang} translations={translations} defaultOpen={conversation.id === focusId} /></li>
                 ))}
               </motion.ul>
             )}
@@ -113,11 +115,12 @@ export default function Mailbox({ conversations, lang, translations }: {
 }
 
 /** Ein Brief: Foto und Name, die Sprachnachricht direkt abspielbar, darunter der Text. */
-function Letter({ conversation, lang, translations, onFiled }: {
+function Letter({ conversation, lang, translations, onFiled, focused = false }: {
   conversation: Conversation
   lang: string
   translations: PronunciationTranslations
   onFiled: () => void
+  focused?: boolean
 }) {
   const s = studentTranslator(lang)
   const p = createPronunciationTranslator(translations)
@@ -161,7 +164,7 @@ function Letter({ conversation, lang, translations, onFiled }: {
         {!message?.audioUrl && !heard && (
           <button type="button" onClick={() => { acknowledge(); file() }} className="st-button st-button--soft st-press"><Check size={18} aria-hidden="true" />{s('mailbox_heard')}</button>
         )}
-        <PronunciationConversation conversation={conversation} lang={lang} translations={translations}
+        <PronunciationConversation conversation={conversation} lang={lang} translations={translations} defaultOpen={focused}
           trigger={open => (
             <button type="button" onClick={() => { acknowledge(); open() }} aria-haspopup="dialog" className="st-link-pill st-press">
               <MessagesSquare size={18} aria-hidden="true" />{s('mailbox_open')}

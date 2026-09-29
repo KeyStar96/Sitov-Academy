@@ -690,3 +690,9 @@ html.high-contrast .st-subnav__pill { border: 2px solid var(--foreground); }
     scroll-behavior: auto !important;
   }
 }
+
+/* „Neu" (Phase 6.1): Kennzeichen an Niveau-Karte, Modus-Karte und Reiter „Lernen". */
+.academy-level-top .academy-level-new { margin-inline-start: .5rem; }
+.st-tile__new { margin-inline-start: auto; }
+.st-tabbar__new { position: absolute; top: .55rem; left: calc(50% + .65rem); }
+.st-new-item { margin-inline-start: .5rem; vertical-align: middle; }

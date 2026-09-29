@@ -7,6 +7,7 @@ import type { VideoRecord } from '@/lib/video-links'
 import { buildMediaLibrary } from '@/lib/media-library'
 import type { MediaFolder } from '@/lib/media'
 import { studentTranslator } from '@/lib/student-ui-i18n'
+import { loadLearningNewItems } from '@/lib/learning-new-server'
 
 /**
  * Die Mediathek eines Niveaus: Unterrichtsordner (Videos und Unterlagen),
@@ -37,5 +38,6 @@ export default async function VideosOverviewPage({ params }: { params: Promise<{
     else console.error('Media folders unavailable')
   } catch { console.error('Media folders unavailable') }
   const { groups, links } = buildMediaLibrary({ videos, folders, looseTitle: s('media_more_videos') })
-  return <VideoLibrary groups={groups} links={links} lang={lang} level={decodedLevel} translations={dict.videos ?? {}} failed={failed} />
+  const news = await loadLearningNewItems(decodedLevel)
+  return <VideoLibrary groups={groups} links={links} lang={lang} level={decodedLevel} translations={dict.videos ?? {}} failed={failed} newItems={news.items} />
 }

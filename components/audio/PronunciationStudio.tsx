@@ -8,6 +8,9 @@ import AudioRecorder from '@/components/audio/AudioRecorder'
 import WaveformPlayer from '@/components/audio/WaveformPlayer'
 import KaraokeText from '@/components/audio/KaraokeText'
 import Mailbox from '@/components/audio/Mailbox'
+import NewBadge from '@/components/motion/NewBadge'
+import { useLearningNew } from '@/components/dashboard/useLearningNew'
+import type { LearningNewItems } from '@/lib/learning-new'
 import SolutionAudioButton from '@/components/exercises/SolutionAudioButton'
 import { prefetchNeuralAudio } from '@/lib/audio/neural-client'
 import { createPronunciationTranslator, type PronunciationTranslations } from '@/lib/pronunciation-i18n'
@@ -35,13 +38,17 @@ function textStatuses(conversations: readonly PronunciationConversation[]): Map<
  * Die drei Schritte leuchten nacheinander auf, die Texte stehen als Karten mit
  * ihrem Stand da, und beim Anhören des Vorbilds liest man Wort für Wort mit.
  */
-export default function PronunciationStudio({ prompts, conversations, level, lang, translations, initialTab = 'studio' }: {
+export default function PronunciationStudio({ prompts, conversations, level, lang, translations, initialTab = 'studio', newItems, focusConversation }: {
   prompts: readonly PronunciationPrompt[]
   conversations: PronunciationConversation[]
   level: string
   lang: string
   translations: PronunciationTranslations
   initialTab?: StudioTab
+  /** Neue Texte (Phase 6.1); ein Text gilt als gesehen, wenn die Person ihn antippt. */
+  newItems?: LearningNewItems
+  /** Gespräch aus dem Link der Benachrichtigungs-Mail; wird beim Laden geöffnet. */
+  focusConversation?: string
 }) {
   const s = studentTranslator(lang)
   const router = useRouter()
@@ -84,23 +91,25 @@ export default function PronunciationStudio({ prompts, conversations, level, lan
 
       <div role="tabpanel" id={`studio-panel-${tab}`} aria-labelledby={`studio-tab-${tab}`}>
         {tab === 'studio'
-          ? <Studio prompts={prompts} statuses={statuses} level={level} lang={lang} translations={translations} onOpenMailbox={() => switchTab('mailbox')} />
-          : <Mailbox conversations={conversations} lang={lang} translations={translations} />}
+          ? <Studio prompts={prompts} statuses={statuses} level={level} lang={lang} translations={translations} newItems={newItems} onOpenMailbox={() => switchTab('mailbox')} />
+          : <Mailbox conversations={conversations} lang={lang} translations={translations} focusId={focusConversation} />}
       </div>
     </div>
   )
 }
 
-function Studio({ prompts, statuses, level, lang, translations, onOpenMailbox }: {
+function Studio({ prompts, statuses, level, lang, translations, onOpenMailbox, newItems }: {
   prompts: readonly PronunciationPrompt[]
   statuses: Map<string, TextStatus>
   level: string
   lang: string
   translations: PronunciationTranslations
   onOpenMailbox: () => void
+  newItems?: LearningNewItems
 }) {
   const t = createPronunciationTranslator(translations)
   const s = studentTranslator(lang)
+  const news = useLearningNew(newItems)
   const reduced = useReducedMotion() ?? false
   // Start beim ersten Text, der noch nicht aufgenommen ist.
   const [selectedId, setSelectedId] = useState(() => (prompts.find(prompt => !statuses.has(prompt.id)) ?? prompts[0])?.id)
@@ -172,10 +181,10 @@ function Studio({ prompts, statuses, level, lang, translations, onOpenMailbox }:
               const isSelected = prompt.id === selected.id
               return (
                 <li key={prompt.id} className="st-textcards__item" style={{ '--i': Math.min(index, 8) } as CSSProperties}>
-                  <button type="button" aria-pressed={isSelected} disabled={recordingBusy && !isSelected} onClick={() => setSelectedId(prompt.id)}
+                  <button type="button" aria-pressed={isSelected} disabled={recordingBusy && !isSelected} onClick={() => { news.mark('pronunciation_text', prompt.id); setSelectedId(prompt.id) }}
                     className="st-textcard st-press" data-status={textStatus}>
                     <span className="st-textcard__number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
-                    <span className="st-textcard__title">{prompt.title ?? prompt.sentenceDe}</span>
+                    <span className="st-textcard__title">{prompt.title ?? prompt.sentenceDe}{news.isNew('pronunciation_text', prompt.id) && <NewBadge label={s('media_new')} className="st-new-item" />}</span>
                     <span className="st-textcard__status">
                       {textStatus === 'answered' && <Check size={15} strokeWidth={3} aria-hidden="true" />}
                       {textStatus === 'unread' && <span className="sl-due-dot" aria-hidden="true" />}

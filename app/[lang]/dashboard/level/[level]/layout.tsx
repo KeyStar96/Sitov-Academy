@@ -9,6 +9,9 @@ import LevelLocked from '@/components/dashboard/LevelLocked'
 import ModeDock from '@/components/dashboard/ModeDock'
 import ModeTransition from '@/components/dashboard/ModeTransition'
 import { loadModeDock, modeLock } from '@/lib/learning-status-server'
+import LevelNewTracker from '@/components/dashboard/LevelNewTracker'
+import { loadLearningNewCounts } from '@/lib/learning-new-server'
+import { newModes } from '@/lib/learning-new'
 import { LEARNING_MODES } from '@/lib/mode-targets'
 
 export const dynamic = 'force-dynamic'
@@ -41,9 +44,10 @@ export default async function LevelAccessLayout({
     redirect(`/${lang}/login`)
   }
 
-  const [profile, dict] = await Promise.all([
+  const [profile, dict, news] = await Promise.all([
     loadLevelAccessProfile(supabase, user.id),
     getDictionary(lang),
+    loadLearningNewCounts(),
   ])
 
   if (!hasLevelAccess(profile, decodedLevel)) {
@@ -53,7 +57,11 @@ export default async function LevelAccessLayout({
 
   // Sperren stehen sofort fest; die Zähler kommen nach, ohne die Seite aufzuhalten.
   const plain = LEARNING_MODES.map(mode => ({ mode, lock: modeLock(profile, decodedLevel, lang, mode) }))
+  const levelNew = news?.levels[decodedLevel]
+  const flagged = newModes(levelNew).filter(mode => levelNew?.modeNew[mode])
+  const visit = !!news && !news.visited.includes(decodedLevel)
   return <>
+    {(visit || levelNew?.level || flagged.length > 0) && <LevelNewTracker level={decodedLevel} visit={visit} levelNew={levelNew?.level === true} newModes={flagged} />}
     <Suspense fallback={<ModeDock lang={lang} level={decodedLevel} entries={plain} />}>
       <CountedModeDock lang={lang} level={decodedLevel} userId={user.id} profile={profile} />
     </Suspense>

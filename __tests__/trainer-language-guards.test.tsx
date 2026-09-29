@@ -17,6 +17,7 @@ import { currentUserHasTrainerAccess } from '@/lib/access/server'
 import { createClient } from '@/utils/supabase/server'
 
 jest.unmock('lucide-react')
+jest.mock('@/lib/learning-new-server', () => ({ loadLearningNewItems: jest.fn().mockResolvedValue({ items: {}, lessonIds: {} }), loadLearningNewCounts: jest.fn().mockResolvedValue(null) }))
 jest.mock('@/components/vocabulary/VocabTrainerPageClient', () => () => null)
 jest.mock('@/components/vocabulary/VocabCardSession', () => () => null)
 jest.mock('@/components/exercises/ExerciseClient', () => () => null)

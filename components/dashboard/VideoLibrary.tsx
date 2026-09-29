@@ -4,6 +4,9 @@ import { useCallback, useEffect, useState, type CSSProperties } from 'react'
 import Link from 'next/link'
 import { ArrowUpRight, BookOpen, Clapperboard, FileText, Globe, Play } from 'lucide-react'
 import BottomSheet from '@/components/ui/BottomSheet'
+import NewBadge from '@/components/motion/NewBadge'
+import { useLearningNew } from './useLearningNew'
+import type { LearningNewItems } from '@/lib/learning-new'
 import MediaAssetViewer from './MediaAssetViewer'
 import { createVideoTranslator, type VideoTranslations } from '@/lib/videos-i18n'
 import { studentTranslator } from '@/lib/student-ui-i18n'
@@ -13,7 +16,6 @@ import { youtubeWatchUrl } from '@/lib/video-links'
 import type { LibraryGroup, LibraryLink } from '@/lib/media-library'
 
 const PROGRESS_KEY = 'sitov:media-progress'
-const FRESH_DAYS = 14
 
 type Progress = Record<string, { t: number; d: number; at: number }>
 
@@ -22,9 +24,6 @@ function readProgress(): Progress {
 }
 function writeProgress(progress: Progress) {
   try { window.localStorage.setItem(PROGRESS_KEY, JSON.stringify(progress)) } catch { /* nur Bequemlichkeit */ }
-}
-function isFresh(date: string | null | undefined) {
-  return !!date && Date.now() - Date.parse(date) < FRESH_DAYS * 86_400_000
 }
 /** Pro Medium ein ruhiger, gleichbleibender Farbton für die Vorschau. */
 function hue(id: string) {
@@ -43,16 +42,19 @@ function fileBadge(asset: MediaAsset) {
  * Knopf und merken sich (nur in diesem Browser), wo man aufgehört hat —
  * daraus entsteht oben „Weiterschauen". Unterlagen erscheinen als Seite.
  */
-export default function VideoLibrary({ groups = [], links = [], lang, level, translations, failed = false }: {
+export default function VideoLibrary({ groups = [], links = [], lang, level, translations, failed = false, newItems }: {
   groups?: LibraryGroup[]
   links?: LibraryLink[]
   lang: string
   level: string
   translations: VideoTranslations
   failed?: boolean
+  /** Was für diese Person neu ist (Phase 6.1); ersetzt die frühere 14-Tage-Regel. */
+  newItems?: LearningNewItems
 }) {
   const t = createVideoTranslator(translations)
   const s = studentTranslator(lang)
+  const news = useLearningNew(newItems)
   const [progress, setProgress] = useState<Progress>({})
   const [open, setOpen] = useState<MediaAsset | null>(null)
   const [sheetOpen, setSheetOpen] = useState(false)
@@ -79,7 +81,14 @@ export default function VideoLibrary({ groups = [], links = [], lang, level, tra
     })
   }, [])
 
-  function show(asset: MediaAsset) { setOpen(asset); setSheetOpen(true) }
+  const kindOf = (asset: MediaAsset) => asset.kind === 'videos' ? 'video' as const : 'presentation' as const
+  /** Öffnen quittiert das Medium und seinen Ordner (ein Ordner gilt als geöffnet, sobald etwas darin geöffnet ist). */
+  function opened(kind: 'video' | 'presentation', id: string, groupId: string | undefined) {
+    news.mark(kind, id)
+    if (groupId && groupId !== 'loose') news.mark('media_folder', groupId)
+  }
+  const groupOf = (id: string) => groups.find(group => group.assets.some(asset => asset.id === id) || group.links.some(link => link.id === id))?.id
+  function show(asset: MediaAsset) { opened(kindOf(asset), asset.id, groupOf(asset.id)); setOpen(asset); setSheetOpen(true) }
 
   const tile = (asset: MediaAsset, index: number) => {
     const watched = progress[asset.id]
@@ -103,7 +112,7 @@ export default function VideoLibrary({ groups = [], links = [], lang, level, tra
           <span className="st-media__body">
             <span className="st-media__kind">
               {isVideo ? s('media_video') : s('media_document')}
-              {isFresh(asset.createdAt) && <span className="st-media__new">{s('media_new')}</span>}
+              {news.isNew(kindOf(asset), asset.id) && <span className="st-media__new">{s('media_new')}</span>}
             </span>
             <span className="st-media__title">{asset.title}</span>
           </span>
@@ -116,13 +125,14 @@ export default function VideoLibrary({ groups = [], links = [], lang, level, tra
     const host = youtubeWatchUrl(link.url) ? 'YouTube' : new URL(link.url).hostname
     return (
       <li key={link.id} className="st-rise" style={{ '--i': Math.min(index, 8) } as CSSProperties}>
-        <a href={link.url} target="_blank" rel="noopener noreferrer" aria-label={t('open_external_aria', { title: link.title })} className="st-media st-press" data-kind="link">
+        <a href={link.url} target="_blank" rel="noopener noreferrer" aria-label={t('open_external_aria', { title: link.title })} className="st-media st-press" data-kind="link"
+          onClick={() => opened('video', link.id, groupOf(link.id))}>
           <span className="st-media__poster" style={{ '--st-hue': hue(link.id) } as CSSProperties} aria-hidden="true">
             <Globe size={26} className="st-media__glyph" />
             <span className="st-media__play"><Play size={24} fill="currentColor" /></span>
           </span>
           <span className="st-media__body">
-            <span className="st-media__kind">{host}<ArrowUpRight size={15} aria-hidden="true" /></span>
+            <span className="st-media__kind">{host}<ArrowUpRight size={15} aria-hidden="true" />{news.isNew('video', link.id) && <span className="st-media__new">{s('media_new')}</span>}</span>
             <span className="st-media__title">{link.title}</span>
             {link.description && <span className="st-media__description">{link.description}</span>}
           </span>
@@ -171,7 +181,7 @@ export default function VideoLibrary({ groups = [], links = [], lang, level, tra
         <section key={group.id} aria-labelledby={`media-group-${group.id}`}>
           <div className="st-section-head !mb-3">
             <div>
-              <h2 id={`media-group-${group.id}`} className="st-section-title">{group.title}</h2>
+              <h2 id={`media-group-${group.id}`} className="st-section-title">{group.title}{news.isNew('media_folder', group.id) && <NewBadge label={s('media_new')} className="st-new-item" />}</h2>
               {group.createdAt && <p className="st-section-sub">{s('media_added', { date: formatCalendarDate(group.createdAt.slice(0, 10), lang, { day: 'numeric', month: 'long', year: 'numeric' }) })}</p>}
             </div>
           </div>

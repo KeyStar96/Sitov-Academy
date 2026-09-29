@@ -7,6 +7,7 @@ import BottomSheet from '@/components/ui/BottomSheet'
 import LearningHelpEntries from '@/components/dashboard/LearningHelpEntries'
 import PressableCard from '@/components/motion/PressableCard'
 import SlidingPill from '@/components/motion/SlidingPill'
+import NewBadge from '@/components/motion/NewBadge'
 import { dashboardHomeTranslator } from '@/lib/dashboard-home-i18n'
 import { levelHref } from '@/lib/mode-targets'
 import { studentTranslator } from '@/lib/student-ui-i18n'
@@ -77,7 +78,7 @@ export function decideTabbar({ focusInBar, keyboard, dialog, y, viewport, height
  * CSS-Variable `--st-tabbar-visible` richtet alles aus, was über der Leiste
  * schwebt (z. B. das Aufnahme-Dock). Ab Tablet-Breite übernimmt die Kopfzeile.
  */
-export default function StudentNavigation({ lang, firstLevel, levels, supportLabels, lastActiveLevel }: {
+export default function StudentNavigation({ lang, firstLevel, levels, supportLabels, lastActiveLevel, learnNew = false }: {
   lang: string
   firstLevel: string | null
   /** Freigeschaltete Niveaus — nur diese darf „Lernen" ansteuern. */
@@ -85,6 +86,8 @@ export default function StudentNavigation({ lang, firstLevel, levels, supportLab
   supportLabels: SupportLabels
   /** Ergebnis von `get_last_active_level`; `undefined`, wenn die Abfrage scheiterte. */
   lastActiveLevel?: string | null
+  /** In irgendeinem freigeschalteten Niveau ist etwas neu (Phase 6.1): Punkt am Reiter „Lernen". */
+  learnNew?: boolean
 }) {
   const t = studentTranslator(lang)
   const home = dashboardHomeTranslator(lang)
@@ -164,7 +167,7 @@ export default function StudentNavigation({ lang, firstLevel, levels, supportLab
     ?? (rpcFailed ? storedLevel : rpcLevel) ?? firstLevel
   const tabs = [
     { id: 'home', label: t('nav_home'), icon: House, href: base, active: pathname === base || pathname === `${base}/` },
-    { id: 'learn', label: t('nav_learn'), icon: GraduationCap, href: learnLevel ? levelHref(lang, learnLevel) : base, active: !!currentLevel },
+    { id: 'learn', label: t('nav_learn'), icon: GraduationCap, href: learnLevel ? levelHref(lang, learnLevel) : base, active: !!currentLevel, fresh: learnNew },
     { id: 'calendar', label: t('nav_calendar'), icon: CalendarDays, href: `${base}/calendar`, active: pathname.startsWith(`${base}/calendar`) },
   ]
 
@@ -178,6 +181,7 @@ export default function StudentNavigation({ lang, firstLevel, levels, supportLab
                 {tab.active && <SlidingPill group={`tabbar-${group}`} className="st-tabbar__pill" />}
                 <tab.icon size={24} aria-hidden="true" className="st-tabbar__icon" />
                 <span className="st-tabbar__label">{tab.label}</span>
+                {'fresh' in tab && tab.fresh && <NewBadge variant="dot" label={t('nav_learn_new')} className="st-tabbar__new" />}
               </PressableCard>
             </li>
           ))}

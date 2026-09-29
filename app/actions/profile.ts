@@ -46,6 +46,25 @@ export async function updatePersonalDetails(input: unknown): Promise<BackendActi
   })
 }
 
+/**
+ * Schalter „E-Mail, wenn meine Lehrkraft in der Aussprache antwortet"
+ * (`profiles.notify_pronunciation_feedback`, Migration 41). Die Person darf nur
+ * diese Spalte ihres eigenen Profils ändern (Spaltenrecht und RLS); ob eine Mail
+ * entsteht, entscheidet die Datenbank beim Einreihen.
+ */
+export async function setPronunciationMailPreference(enabled: boolean): Promise<{ success: boolean }> {
+  if (typeof enabled !== 'boolean') return { success: false }
+  try {
+    const supabase = await createClient()
+    const { data: { user } } = await supabase.auth.getUser()
+    if (!user) return { success: false }
+    const { data, error } = await supabase.from('profiles').update({ notify_pronunciation_feedback: enabled }).eq('id', user.id).select('notify_pronunciation_feedback').single()
+    if (error || data?.notify_pronunciation_feedback !== enabled) { console.error('[profile] Benachrichtigung konnte nicht gespeichert werden'); return { success: false } }
+    revalidatePath('/[lang]/dashboard/profile', 'page')
+    return { success: true }
+  } catch { console.error('[profile] Benachrichtigung: unerwarteter Fehler'); return { success: false } }
+}
+
 export async function updateProfileContact(input: unknown): Promise<BackendActionResult<ProfileContact>> {
   return withBackendSession(async ({ supabase, userId }) => {
     const fields = profileContactSchema.parse(input)

@@ -12,6 +12,7 @@ import { loadVerifiedCourseHistory } from '@/lib/profile-course-history'
 import ProfileCourseHistory from '@/components/dashboard/ProfileCourseHistory'
 import ProfileAppearanceSettings from '@/components/dashboard/ProfileAppearanceSettings'
 import ProfileProgressReset from '@/components/dashboard/ProfileProgressReset'
+import ProfileNotificationSettings from '@/components/dashboard/ProfileNotificationSettings'
 import ProfileSettings from '@/components/dashboard/ProfileSettings'
 import { studentTranslator } from '@/lib/student-ui-i18n'
 
@@ -67,6 +68,8 @@ export default async function ProfilePage({ params }: { params: Promise<{ lang: 
           </section>
         ) },
         { id: 'appearance', title: s('settings_appearance'), hint: s('settings_appearance_hint'), content: <ProfileAppearanceSettings /> },
+        { id: 'notifications', title: s('settings_notifications'), hint: s('settings_notifications_hint'),
+          content: <ProfileNotificationSettings lang={lang} initial={profile.notify_pronunciation_feedback ?? true} /> },
         { id: 'courses', title: s('settings_courses'), hint: s('settings_courses_hint'), content: (
           <div className="space-y-5">
             <Link href={`/${lang}/dashboard/calendar#booking`} className="st-cta st-press !mt-0">

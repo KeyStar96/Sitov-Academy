@@ -17,7 +17,7 @@ export interface ModeDockEntry {
   lock: ModeLock
   /** Zahl am Reiter: fällige Karten (Vokabeln) oder ungelesene Antworten (Aussprache). */
   count?: number
-  /** „Neu"-Kennzeichen; gefüllt ab Phase 6 (gesehen-Quittung). */
+  /** „Neu"-Kennzeichen (Phase 6.1): neue Inhalte oder der Modus selbst, noch nicht geöffnet. */
   fresh?: boolean
 }
 
@@ -57,12 +57,13 @@ export default function ModeDock({ lang, level, entries }: {
           const status = entry.lock === 'language' ? t('mode_locked_language')
             : entry.lock === 'teacher' ? t('mode_locked')
               : count && countKey ? t.count(countKey, count) : null
+          const label = [status, entry.fresh && !entry.lock ? t('media_new') : null].filter(Boolean).join(', ')
           return (
             <li key={entry.mode} className="st-mode-dock__item">
               <PressableCard href={modeHref(lang, level, entry.mode)} className="st-mode-dock__link"
                 aria-current={current ? 'page' : undefined} data-mode={entry.mode} data-locked={entry.lock ?? undefined}
-                // Der Name beginnt mit dem sichtbaren Wort (WCAG 2.5.3) und nennt Zahl bzw. Sperrgrund.
-                aria-label={status ? `${t(LABELS[entry.mode])}, ${status}` : undefined}
+                // Der Name beginnt mit dem sichtbaren Wort (WCAG 2.5.3) und nennt Zahl, Sperrgrund bzw. „Neu".
+                aria-label={label ? `${t(LABELS[entry.mode])}, ${label}` : undefined}
                 title={entry.lock ? status ?? undefined : undefined}>
                 {current && <SlidingPill group={`mode-dock-${group}`} className="st-mode-dock__pill" />}
                 <span className="st-mode-dock__icon" aria-hidden="true"><Icon size={22} /></span>

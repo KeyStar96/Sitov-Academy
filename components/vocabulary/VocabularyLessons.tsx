@@ -9,6 +9,9 @@ import LessonCardsModal from '@/components/vocabulary/LessonCardsModal'
 import { createVocabularyTranslator, type VocabularyTranslations } from '@/lib/vocabulary-i18n'
 import { isLessonInBox } from '@/lib/vocabulary-box'
 import BottomSheet from '@/components/ui/BottomSheet'
+import NewBadge from '@/components/motion/NewBadge'
+import { useLearningNew } from '@/components/dashboard/useLearningNew'
+import type { LearningNewItems } from '@/lib/learning-new'
 import ProgressRing from '@/components/ui/ProgressRing'
 import { studentTranslator } from '@/lib/student-ui-i18n'
 import type { LessonStation } from '@/lib/learning-status-server'
@@ -58,7 +61,7 @@ function BoxSwitch({ on, busy, disabled, label, hint, ariaLabel, onToggle }: {
  * „Eigene Wörter" stehen als eigene Station darunter: einschalten, eintragen,
  * löschen. Die Lernbox-Seite zeigt danach nur noch die Box selbst.
  */
-export default function VocabularyLessons({ lang, level, stations, next, vocabularyHref, vocabularyTranslations, ownWords, carryover, learnerId }: {
+export default function VocabularyLessons({ lang, level, stations, next, vocabularyHref, vocabularyTranslations, ownWords, carryover, learnerId, newItems, lessonIds }: {
   lang: string
   level: string
   stations: PathStation[]
@@ -70,8 +73,14 @@ export default function VocabularyLessons({ lang, level, stations, next, vocabul
   ownWords?: LessonStation
   carryover?: VocabularyCarryoverSummary | null
   learnerId?: string | null
+  /** Neue Objekte dieses Niveaus (Phase 6.1) und Lektionsname → Objekt-Schlüssel der neuen Lektionen. */
+  newItems?: LearningNewItems
+  lessonIds?: Record<string, string>
 }) {
   const t = studentTranslator(lang)
+  const news = useLearningNew(newItems)
+  const lessonNew = (lesson: string) => news.isNew('vocabulary_lesson', lessonIds?.[lesson])
+  const openLesson = (lesson: string) => news.mark('vocabulary_lesson', lessonIds?.[lesson])
   const vt = createVocabularyTranslator(vocabularyTranslations ?? {})
   const router = useRouter()
   const [, startRefresh] = useTransition()
@@ -96,6 +105,7 @@ export default function VocabularyLessons({ lang, level, stations, next, vocabul
   const refresh = () => startRefresh(() => router.refresh())
 
   function openStart(station: LessonStation, label: string) {
+    openLesson(station.lesson)
     const fresh = !started(station)
     setStart({ lesson: station.lesson, label, count: fresh ? station.total : station.untouched, fresh })
     setStartFailed(false)
@@ -105,6 +115,7 @@ export default function VocabularyLessons({ lang, level, stations, next, vocabul
 
   async function toggle(station: LessonStation, label: string, own = false) {
     if (pending) return
+    openLesson(station.lesson)
     const on = inBox(station)
     // Erstes Einschalten einer Kurslektion: einmal fragen, wie es losgehen soll.
     if (!on && !started(station) && !own) { openStart(station, label); return }
@@ -230,9 +241,9 @@ export default function VocabularyLessons({ lang, level, stations, next, vocabul
                         {station.state === 'done' ? <Check size={24} strokeWidth={3} /> : station.number}
                       </span>
                       <div className="st-path__card">
-                        <button type="button" className="st-path__open st-press" onClick={() => { setSelected(station); setSheetOpen(true) }} aria-haspopup="dialog">
+                        <button type="button" className="st-path__open st-press" onClick={() => { openLesson(station.lesson); setSelected(station); setSheetOpen(true) }} aria-haspopup="dialog">
                           <span className="st-path__body">
-                            <span className="st-path__name">{station.label}</span>
+                            <span className="st-path__name">{station.label}{lessonNew(station.lesson) && <NewBadge label={t('media_new')} className="st-new-item" />}</span>
                             <span className="st-path__meta">
                               <span className="st-path__state">{t(station.state === 'done' ? 'station_done' : station.state === 'current' ? 'station_current' : 'station_open')}</span>
                               <span aria-hidden="true">·</span>

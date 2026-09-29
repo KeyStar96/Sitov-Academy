@@ -4,6 +4,7 @@ import { getLearningPath } from '@/app/actions/learning-path'
 import { redirect } from 'next/navigation'
 import { modeFromPathname, modeHref } from '@/lib/mode-targets'
 
+jest.mock('@/lib/learning-new-server', () => ({ loadLearningNewItems: jest.fn().mockResolvedValue({ items: {}, lessonIds: {} }), loadLearningNewCounts: jest.fn().mockResolvedValue(null) }))
 jest.mock('@/app/actions/learning-path', () => ({ getLearningPath: jest.fn() }))
 jest.mock('@/components/learning-path/LearningPathClient', () => () => null)
 jest.mock('@/components/dashboard/TrainerLanguageRequired', () => () => null)

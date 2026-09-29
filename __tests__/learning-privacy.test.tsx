@@ -22,6 +22,7 @@ jest.mock('@/components/dashboard/UiLanguageForm', () => () => null)
 jest.mock('@/components/dashboard/ProfileCourseHistory', () => () => null)
 jest.mock('@/components/dashboard/ProfileAppearanceSettings', () => () => null)
 jest.mock('@/components/dashboard/ProfileProgressReset', () => () => null)
+jest.mock('@/components/dashboard/ProfileNotificationSettings', () => () => null)
 jest.mock('@/components/layout/Header', () => () => null)
 jest.mock('@/components/sections/AcademyFooter', () => () => null)
 

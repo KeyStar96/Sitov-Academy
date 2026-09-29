@@ -66,21 +66,13 @@ describe('authenticated pronunciation writes', () => {
   expect(messages.insert).toHaveBeenCalledWith({submission_id:promptId,sender_id:owner,text_content:'Danke!',audio_path:null})
  })
 })
-describe('durable teacher feedback notifications', () => {
- function staffMessage() {
-  mockFrom.mockImplementation((table:string) => table === 'profiles' ? query({role:'teacher',ui_language:'uk',person:{display_name:'Lernende',email:'student@example.invalid'}}) : table === 'submissions' ? query({auth_user_id:other,level:'A1.1'}) : query({id:promptId}))
- }
- it('queues one localized event using the committed message identity', async () => {
-  staffMessage()
+describe('teacher feedback notifications (Phase 6.2)', () => {
+ it('leaves the reply mail to the database trigger, where the learner switch is enforced', async () => {
+  mockFrom.mockImplementation((table:string) => table === 'profiles' ? query({role:'teacher'}) : query({id:promptId}))
   expect(await sendPronunciationMessage({submissionId:promptId,text:'Gut gelesen!',audioPath:null})).toEqual({success:true,id:promptId})
-  expect(queueTransactionalEmail).toHaveBeenCalledWith({dedupeKey:`pronunciation-message:${promptId}`,kind:'feedback_available',to:'student@example.invalid',locale:'uk',payload:{name:'Lernende',path:'/uk/dashboard/level/A1.1/pronunciation'}})
- })
- it('keeps a committed message successful when queuing notification fails', async () => {
-  staffMessage()
-  jest.mocked(queueTransactionalEmail).mockRejectedValueOnce(new Error('Outbox unavailable'))
-  const log=jest.spyOn(console,'error').mockImplementation(()=>{})
-  try { expect(await sendPronunciationMessage({submissionId:promptId,text:'Gut gelesen!',audioPath:null})).toEqual({success:true,id:promptId}) }
-  finally {log.mockRestore()}
+  expect(queueTransactionalEmail).not.toHaveBeenCalled()
+  // Only the message insert is issued: no profile, submission or person lookups for a mail any more.
+  expect(mockFrom.mock.calls.map(call => call[0])).toEqual(['pronunciation_messages'])
  })
 })
 describe('canonical conversation history', () => {

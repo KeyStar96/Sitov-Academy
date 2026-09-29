@@ -12,12 +12,11 @@ import type { LessonStat, VocabularyCarryoverSummary } from '@/lib/types/vocabul
 import { berlinNow } from '@/lib/dashboard-next-course'
 import { createClient } from '@/utils/supabase/server'
 import { LEARNING_MODES, MODE_TRAINERS, type LearningMode } from '@/lib/mode-targets'
+import { modeIsNew } from '@/lib/learning-new'
+import { loadLearningNewCounts } from '@/lib/learning-new-server'
 import type { ModeDockEntry, ModeLock } from '@/components/dashboard/ModeDock'
 
 type Client = Awaited<ReturnType<typeof createClient>>
-
-/** Medien gelten so lange als „neu", wie sie jünger als diese Spanne sind. */
-const FRESH_MEDIA_DAYS = 14
 
 /**
  * Was in jedem Trainer eines Niveaus gerade wartet — die Grundlage der
@@ -34,6 +33,8 @@ export interface LevelLearningStatus {
   grammar: { locked: boolean; total: number; solved: number; topics: number; openTopics: number } | null
   pronunciation: { locked: boolean; texts: number; open: number; waiting: number; unread: number } | null
   media: { locked: boolean; total: number; fresh: number } | null
+  /** Modi mit „Neu"-Kennzeichen (Phase 6.1): neue Inhalte oder der Modus selbst. */
+  fresh?: Record<LearningMode, boolean>
   /** Vokabel-Lektionen des Kurses in ihrer Reihenfolge — die Stationen unter „Lektionen". */
   lessons: LessonStation[]
   /** „Eigene Wörter" dieses Niveaus; `null`, solange nichts geladen werden konnte. */
@@ -86,17 +87,12 @@ async function loadPronunciation(supabase: Client, userId: string, level: string
 async function loadMedia(supabase: Client, level: string) {
   const [videos, documents] = await Promise.all([
     videoQuery(supabase).eq('unit.level', level),
-    supabase.from('lms_presentation_asset').select('asset_id,created_at,folder:lms_media_folder!inner(level)').eq('folder.level', level),
+    supabase.from('lms_presentation_asset').select('asset_id,folder:lms_media_folder!inner(level)').eq('folder.level', level),
   ])
   if (videos.error || documents.error) throw new Error('media_unavailable')
-  const since = Date.now() - FRESH_MEDIA_DAYS * 86_400_000
-  const dates = [
-    ...(videos.data ?? []).map(mapVideo)
-      .filter(video => video.is_active && ((video.storage_path && video.file_size) || learningResourceUrl(video.source_url)))
-      .map(video => video.created_at),
-    ...(documents.data ?? []).map(document => document.created_at),
-  ]
-  return { total: dates.length, fresh: dates.filter(date => date && Date.parse(date) >= since).length }
+  const playable = (videos.data ?? []).map(mapVideo)
+    .filter(video => video.is_active && ((video.storage_path && video.file_size) || learningResourceUrl(video.source_url)))
+  return { total: playable.length + (documents.data ?? []).length }
 }
 
 /**
@@ -118,12 +114,14 @@ export async function loadLevelLearningStatus({ supabase, userId, profile, level
     pronunciation: languageLocked || !hasTrainerAccess(profile, level, 'pronunciation'),
     media: !hasLevelAccess(profile, level),
   }
-  const [vocabulary, exercises, pronunciation, media] = await Promise.all([
+  const [vocabulary, exercises, pronunciation, media, news] = await Promise.all([
     locked.vocabulary ? null : settle(() => vocabularyOverview(level), () => console.error('[learning-status] vocabulary_unavailable')),
     locked.grammar ? null : settle(() => getExercises(level, lang), () => console.error('[learning-status] grammar_unavailable')),
     locked.pronunciation ? null : settle(() => pronunciationStatus(userId, level), () => console.error('[learning-status] pronunciation_unavailable')),
     locked.media ? null : settle(() => loadMedia(supabase, level), () => console.error('[learning-status] media_unavailable')),
+    loadLearningNewCounts(),
   ])
+  const levelNew = news?.levels[level]
 
   const topics = new Map<string, boolean>()
   for (const exercise of exercises ?? []) topics.set(exercise.topic, (topics.get(exercise.topic) ?? true) && exercise.completed)
@@ -148,7 +146,9 @@ export async function loadLevelLearningStatus({ supabase, userId, profile, level
       },
     pronunciation: locked.pronunciation ? { locked: true, texts: 0, open: 0, waiting: 0, unread: 0 }
       : pronunciation && { locked: false, ...pronunciation },
-    media: locked.media ? { locked: true, total: 0, fresh: 0 } : media && { locked: false, ...media },
+    // „Neu" pro Person aus der Datenbank (Migration 42); ersetzt die frühere 14-Tage-Regel der Medien.
+    media: locked.media ? { locked: true, total: 0, fresh: 0 } : media && { locked: false, ...media, fresh: levelNew?.modes.media ?? 0 },
+    fresh: Object.fromEntries(LEARNING_MODES.map(mode => [mode, modeIsNew(levelNew, mode)])) as Record<LearningMode, boolean>,
     lessons: courseLessons.map(station),
     ownWords: own ? station(own) : null,
     carryover: vocabulary?.carryover ?? null,
@@ -174,13 +174,15 @@ export async function loadModeDock({ userId, profile, level, lang }: {
   lang: string
 }): Promise<ModeDockEntry[]> {
   const lock = (mode: LearningMode) => modeLock(profile, level, lang, mode)
-  const [overview, speech] = await Promise.all([
+  const [overview, speech, news] = await Promise.all([
     lock('vocabulary') ? null : settle(() => vocabularyOverview(level), () => console.error('[mode-dock] vocabulary_unavailable')),
     lock('pronunciation') ? null : settle(() => pronunciationStatus(userId, level), () => console.error('[mode-dock] pronunciation_unavailable')),
+    loadLearningNewCounts(),
   ])
   return LEARNING_MODES.map(mode => ({
     mode,
     lock: lock(mode),
+    fresh: !lock(mode) && modeIsNew(news?.levels[level], mode),
     count: mode === 'vocabulary' ? overview?.dueCards : mode === 'pronunciation' ? speech?.unread : undefined,
   }))
 }

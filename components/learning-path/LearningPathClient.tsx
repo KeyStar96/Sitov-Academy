@@ -12,6 +12,10 @@ import { pathErrorText, pathTranslator } from '@/lib/learning-path-i18n'
 import { MOTION, PRESS_SCALE, useReducedMotionSafe } from '@/lib/motion'
 import { OrthographyNote } from '@/components/exercises/SoftErrorBadge'
 import FeedbackMotion from '@/components/motion/FeedbackMotion'
+import NewBadge from '@/components/motion/NewBadge'
+import { useLearningNew } from '@/components/dashboard/useLearningNew'
+import { studentTranslator } from '@/lib/student-ui-i18n'
+import type { LearningNewItems } from '@/lib/learning-new'
 import RuleCard from './RuleCard'
 import PathExerciseForm from './PathExerciseForm'
 import styles from './learning-path.module.css'
@@ -31,10 +35,14 @@ function GradeFeedback({ grade, solution, lang, isTest = false }: { grade: PathG
   </FeedbackMotion>
 }
 
-export default function LearningPathClient({ initialPath, initialError, lang, level }: {
+export default function LearningPathClient({ initialPath, initialError, lang, level, newItems }: {
   initialPath?: PathMap; initialError?: string; lang: string; level: string
+  /** Neue Pfade und Zweige (Phase 6.1); der Pfad gilt als gesehen, sobald einer seiner Knoten geöffnet wird. */
+  newItems?: LearningNewItems
 }) {
   const t = pathTranslator(lang)
+  const newLabel = studentTranslator(lang)('media_new')
+  const news = useLearningNew(newItems)
   const reduced = useReducedMotionSafe()
   const [map, setMap] = useState(initialPath)
   const [error, setError] = useState(initialError ?? null)
@@ -72,9 +80,10 @@ export default function LearningPathClient({ initialPath, initialError, lang, le
     if (result.error) { setError(result.error); return }
     setMap(result.data); setSelection(null); setRun(null); setTest(null); setFeedback(null); setTestResult(null)
     pending.current = null
+    news.flush()
   }
 
-  function openNode(node: PathNode, title: string) {
+  function openNode(node: PathNode, title: string, pathId: string) {
     void perform(async () => {
       if (node.kind === 'test') {
         const result = await startLearningTest(node.id, lang)
@@ -86,6 +95,9 @@ export default function LearningPathClient({ initialPath, initialError, lang, le
         setRun(result.data); setTest(null); setCardShown(Boolean(result.data.merkkarte))
       }
       setSelection({ node, title }); setFeedback(null); setTestResult(null); setStep(0); pending.current = null
+      // Erst wenn der Knoten wirklich offen ist, gilt er als geöffnet; die Zähler folgen beim Zurück zur Karte.
+      news.mark('path', pathId, { refresh: false })
+      if (node.kind === 'special') news.mark('special_branch', node.id, { refresh: false })
     })
   }
 
@@ -143,13 +155,13 @@ export default function LearningPathClient({ initialPath, initialError, lang, le
       </div>}
       {map?.paths.map(path => <article key={path.id} className={styles.card}>
         <p className={styles.eyebrow}><Route size={20} aria-hidden="true" /> {t('path', { number: path.sort_order })}</p>
-        <h3>{path.title}</h3>
+        <h3>{path.title}{news.isNew('path', path.id) && <NewBadge label={newLabel} className="ml-2 align-middle" />}</h3>
         <ol className={styles.nodes}>{path.nodes.map(node => <li key={node.id}>
           <motion.button className={styles.node} data-testid={`path-node-${node.id}`} data-node-kind={node.kind}
             disabled={busy || !node.available || !path.available} whileTap={reduced ? undefined : { scale: PRESS_SCALE }}
-            transition={{ duration: reduced ? 0 : MOTION.fast }} onClick={() => openNode(node, path.title)}>
+            transition={{ duration: reduced ? 0 : MOTION.fast }} onClick={() => openNode(node, path.title, path.id)}>
             <span className={styles.nodeIcon} aria-hidden="true">{!node.available ? <Lock size={22} /> : node.status === 'completed' ? <Check size={22} /> : node.sort_order}</span>
-            <span className={styles.nodeText}><strong>{node.title}</strong><span>{t(node.kind)} · {t(!node.available ? 'locked' : node.status === 'completed' ? 'completed' : node.status === 'in_progress' || node.tests.some(attempt => attempt.status === 'active') ? 'resume' : 'ready')}</span>
+            <span className={styles.nodeText}><strong>{node.title}{news.isNew('special_branch', node.id) && <NewBadge label={newLabel} className="ml-2 align-middle" />}</strong><span>{t(node.kind)} · {t(!node.available ? 'locked' : node.status === 'completed' ? 'completed' : node.status === 'in_progress' || node.tests.some(attempt => attempt.status === 'active') ? 'resume' : 'ready')}</span>
               {node.stars > 0 && <span>{t('stars', { count: node.stars })}</span>}
             </span>
           </motion.button>

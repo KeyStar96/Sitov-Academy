@@ -13,6 +13,7 @@ import { nextUpcomingEvent } from '@/lib/dashboard-next-course'
 import { formatProfileMonth } from '@/lib/profile-month'
 import { loadLevelLearningStatus, loadWeekActivity, modeLock } from '@/lib/learning-status-server'
 import { loadLastActiveLevel } from '@/lib/last-active-level'
+import { loadLearningNewCounts } from '@/lib/learning-new-server'
 import { lessonsHref, levelHref, modeHref } from '@/lib/mode-targets'
 import { studentTranslator } from '@/lib/student-ui-i18n'
 import { teacherFirstName } from '@/lib/teacher-portraits'
@@ -34,8 +35,8 @@ export default async function DashboardPage({ params, searchParams }: {
   const { lang } = await params
   const confirmed = parseAuthStatus((await searchParams)?.status) === 'confirm_success'
   const supabase = await createClient()
-  const [{ data: { user } }, progressMap, unseenFeedback, dict, lastActive] = await Promise.all([
-    supabase.auth.getUser(), getAllLevelsProgress(), getUnseenFeedbackSummary(), getDictionary(lang), loadLastActiveLevel(),
+  const [{ data: { user } }, progressMap, unseenFeedback, dict, lastActive, news] = await Promise.all([
+    supabase.auth.getUser(), getAllLevelsProgress(), getUnseenFeedbackSummary(), getDictionary(lang), loadLastActiveLevel(), loadLearningNewCounts(),
   ])
   const [accessProfile, profileRow] = user
     ? await Promise.all([
@@ -140,7 +141,8 @@ export default async function DashboardPage({ params, searchParams }: {
         {levels.map((level, index) => <LevelCard key={level.id} id={level.id} title={level.title} description={level.description}
           index={index} href={`/${lang}/dashboard/level/${level.id}`} locked={!hasLevelAccess(accessProfile, level.id)}
           progress={Math.max(0, Math.min(100, progressMap[level.id] || 0))}
-          copy={{ start: t('start'), continueLearning: t('continue_learning'), lockedHint: t('level_locked_hint') }} />)}
+          fresh={(news?.levels[level.id]?.total ?? 0) > 0}
+          copy={{ start: t('start'), continueLearning: t('continue_learning'), lockedHint: t('level_locked_hint'), newLabel: s('media_new') }} />)}
       </div>
     </section>
 

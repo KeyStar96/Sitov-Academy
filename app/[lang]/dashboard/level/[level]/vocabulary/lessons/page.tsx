@@ -2,6 +2,7 @@ import { requestSession } from '@/lib/request-session'
 import { loadLevelAccessProfile } from '@/lib/access/server'
 import { getDictionary } from '@/lib/dictionary'
 import { loadLevelLearningStatus } from '@/lib/learning-status-server'
+import { loadLearningNewItems } from '@/lib/learning-new-server'
 import { toStations } from '@/lib/lesson-stations'
 import { modeHref } from '@/lib/mode-targets'
 import { studentTranslator } from '@/lib/student-ui-i18n'
@@ -25,7 +26,10 @@ export default async function VocabularyLessonsPage({ params }: {
     user ? loadLevelAccessProfile(supabase, user.id) : null,
     getDictionary(lang),
   ])
-  const status = user ? await loadLevelLearningStatus({ supabase, userId: user.id, profile, level: decodedLevel, lang }) : null
+  const [status, news] = await Promise.all([
+    user ? loadLevelLearningStatus({ supabase, userId: user.id, profile, level: decodedLevel, lang }) : null,
+    loadLearningNewItems(decodedLevel),
+  ])
   const s = studentTranslator(lang)
   const translations = (dict.vocabulary ?? {}) as VocabularyTranslations
   const vocabularyT = createVocabularyTranslator(translations)
@@ -42,7 +46,7 @@ export default async function VocabularyLessonsPage({ params }: {
 
   return (
     <VocabularyLessons lang={lang} level={decodedLevel} stations={stations} next={next}
-      carryover={open ? status?.carryover : null} learnerId={user?.id}
+      carryover={open ? status?.carryover : null} learnerId={user?.id} newItems={news.items} lessonIds={news.lessonIds}
       vocabularyHref={open ? vocabularyHref : null} vocabularyTranslations={translations}
       ownWords={open ? status?.ownWords ?? { lesson: OWN_WORDS_LESSON, total: 0, active: 0, learned: 0, untouched: 0, due: 0 } : undefined} />
   )

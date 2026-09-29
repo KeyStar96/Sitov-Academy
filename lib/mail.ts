@@ -5,6 +5,10 @@ export type TransactionalMailKind = 'registration_received' | 'registration_conf
 export interface TransactionalMailPayload {
   name?: string
   level?: string
+  /** Freigeschaltete Niveaus in Kursreihenfolge (Migration 41); ältere Mails in der Warteschlange tragen noch `level`. */
+  levels?: string[]
+  /** Gebündelte Antworten der Lehrkraft in der Aussprache (Migration 41). */
+  replies?: Array<{ text: string; audio: boolean }>
   courses?: Array<{ title: string; price?: number; units?: number; unitPrice?: number; unitMinutes?: number }>
   exceptions?: Array<{ courseId: string; title: string; date: string; reason: string }>
   total?: number

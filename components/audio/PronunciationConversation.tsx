@@ -46,17 +46,19 @@ function mergeConversation(previous: Conversation, incoming: Conversation, sourc
     status: previousLatest > incomingLatest ? previous.status : incoming.status }
 }
 
-export default function PronunciationConversation({ conversation: initial, staff = false, lang, translations, trigger }: {
+export default function PronunciationConversation({ conversation: initial, staff = false, lang, translations, trigger, defaultOpen = false }: {
   conversation: Conversation
   staff?: boolean
   lang: string
   translations: PronunciationTranslations
   /** Eigener Auslöser (z. B. der Brief im Briefkasten); ohne ihn erscheint die bisherige Gesprächszeile. */
   trigger?: (open: () => void, conversation: Conversation) => ReactNode
+  /** Das Gespräch ist beim Laden schon geöffnet (Link aus der Benachrichtigungs-Mail). */
+  defaultOpen?: boolean
 }) {
   const t = createPronunciationTranslator(translations)
   const [conversation, setConversation] = useState(initial)
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(defaultOpen)
   const [visited, setVisited] = useState(false)
   const [busy, setBusy] = useState(false)
   const [refreshing, setRefreshing] = useState(false)

@@ -239,9 +239,33 @@ Stand: **lokal implementiert und vollständig geprüft; produktive Abnahme offen
 Altbestand-Grenzen sind im Prüfbericht dokumentiert: eine historische Einstufung ausschließlich neuer Wörter ist von Initialisierung nicht zuverlässig unterscheidbar; unvollständige Richtungsdaten werden nicht repariert. Die rein lesende Produktionsprüfung in Phase 5 fand **0** unvollständige Richtungspaare. Zum Abschluss von Phase 5 waren die Phasen 6–8 noch nicht ausgeführt; der folgende Abschnitt dokumentiert die anschließende Planänderung.
 
 
-## Phase 6 — Benachrichtigungen
+## Phase 6 — Benachrichtigungen und „Neu"
 
-**Auf ausdrücklichen Nutzerwunsch vollständig übersprungen.** Phase 7 wurde direkt nach dem lokal erfolgreich abgeschlossenen Phase-5-Stand vorgezogen. Es wurden keine Phase-6-Benachrichtigungen, Mail-Worker-Änderungen oder sonstigen Phase-6-Aufgaben umgesetzt. Daraus folgt keine Freigabe für eine spätere automatische Nachholung.
+Stand: **lokal vollständig umgesetzt und getestet (29.09.2026); Produktionsaktivierung und Produktionsnachweis: siehe „Betrieb Phase 6" unten.** Im ersten Durchlauf ausdrücklich übersprungen, am 29.09.2026 beauftragt und ausgeführt. Ausgangsrevision `e8ada40`. [Prüfbericht](PHASE-6-PRUEFBERICHT.md).
+
+- [x] **6.1 „Neu"-System:** Migration `42_learning_new.sql` (+ Rückweg). Tabellen `learning_first_visits` (Grundlinie je Person `room` und je Niveau) und `learning_seen_receipts` (Person, Art, Objekt, Zeitpunkt), Spalten `student_level_access.granted_at`, `learning_trainer_grants.enabled_at`, `learning_units.created_at`. Bestandsobjekte gelten bei der Migration für alle bestehenden Personen als gesehen. Anzeige an Niveaukarte (Home), Modus-Karte, Modus-Reiter, Punkt am Reiter „Lernen", Vokabel-Lektion, Pfad, Spezial-Zweig, Aussprache-Text, Medienordner, Video, Präsentation; das alte 14-Tage-`fresh` der Medien ist darin aufgegangen.
+- [x] **6.2 Aussprache-Mail:** Migration `41_mail_notifications.sql`. `profiles.notify_pronunciation_feedback boolean NOT NULL DEFAULT true`; die Mail entsteht per Trigger in der Datenbank (App-Weg entfernt), Schalter im Profil „Benachrichtigungen", Bündelung über 10 Minuten (`available_at`), Link direkt ins Gespräch, Vorlage in fünf Sprachen mit Antwortliste.
+- [x] **6.3 Niveau abgeschlossen:** keine Benachrichtigung; DB-Test bestätigt, dass nach dem Bestehen des letzten Tests keine Zeile in `private.mail_outbox` entsteht.
+- [x] **6.4 Freischalt-Mail:** Anweisungs-Trigger; eine Mail je Person und Speichervorgang mit allen neuen Niveaus in Kursreihenfolge; angekündigte Niveaus nie wieder (`business_private.level_access_announcements`); Vorlage `levelAccess` für ein und mehrere Niveaus, fünf Sprachen; alte Queue-Mails mit `level` bleiben darstellbar.
+- [x] **Tests:** Jest **1.941** (154 Suites, 1 vorhandener bedingter Skip des echten DB-Smokes) · DB/Node **548/548** (Baseline 531; +14 `notification-mail`, +12 `learning-new`, jeweils ohne Skip) · Python: die 9 VPS-Testdateien mit **64** Tests grün (ein vorhandener bedingter Skip in `test_go_live_domain`); die drei TTS-Tests wurden nicht erneut ausgeführt (unberührt) · `tsc --noEmit` Exit 0 · `eslint` 0 Fehler · Produktionsbuild Exit 0.
+- [x] **R7–R9:** Migrationen idempotent (im Test doppelt angewendet), Rückwege `rollback/41_mail_notifications.sql`, `rollback/42_learning_new.sql` (Funktionen/Trigger zurück, Daten bleiben als Archiv), beide in `ORDER` von `migrate-local.py` (Test `test_every_migration_file_is_registered_in_order` grün), `schema.sql` und `database.types.ts` von Hand aktualisiert (kein Klon-Export, wie bei Migration 32).
+- [x] **Leistung:** Neu-Zähler in **einem** Aufruf, der im vorhandenen `Promise.all` von Home, Dashboard-Layout und Niveau-Layout mitläuft und pro Anfrage nur einmal ausgeführt wird. Lokal (PGlite) 38 ms bei 800 neuen Objekten (60 Lektionen, 400 Texte, 300 Videos, 40 Ordner). Messwerte der Produktionsdatenbank und Home-Antwortzeit vorher/nachher: siehe „Betrieb Phase 6".
+
+### Verbindliche Übergabe nach Phase 6
+
+| Objekt | Vertrag |
+|---|---|
+| Enum `learning_seen_kind` | `level`, `vocabulary_lesson`, `path`, `special_branch`, `pronunciation_text`, `media_folder`, `video`, `presentation`, `trainer` (Schlüssel der Art `trainer`: `<Niveau>:<Trainer>`, z. B. `A1.1:videos`) |
+| `get_learning_new_counts()` | `{success,any,levels{<Niveau>:{level,total,modes{vocabulary,path,pronunciation,media},modeNew{…}}},visited[]}` — legt beim ersten Aufruf die Grundlinie `room` an; Fehler `{error,message}` |
+| `get_learning_new_items(p_level)` | `{success,level,items{<Art>:[Schlüssel]},lessons{<Lektions-ID>:<Name>}}` |
+| `mark_learning_seen(p_kind,p_object_key)` | `{success,marked}`; Quittung nur für gerade neue Objekte; Art `level` legt zusätzlich die Grundlinie des Niveaus an |
+| `learning_private.new_objects()` | interne Berechnung, nicht für Clients |
+| `profiles.notify_pronunciation_feedback` | Schalter der Person (Standard an); Spaltenrecht `UPDATE` für `authenticated` |
+| Outbox `feedback_available` | Dedupe `pronunciation-thread:<Gespräch>:<erste Nachricht>`, Payload `{name,authUserId,submissionId,replies[{text,audio}],path}`, `available_at` = erste Antwort + 10 min |
+| Outbox `level_access_granted` | Dedupe `level-access:<Person>:<Niveau1+Niveau2…>`, Payload `{name,levels[],path}`; ältere Zeilen mit `level` bleiben renderbar |
+| `business_private.level_access_announcements` | Person + Niveau, bereits angekündigt; wird aus den bisherigen Mails gefüllt |
+
+Bewusste Grenzen: siehe Prüfbericht (Lektionsauswahl und Aktivieren einer inaktiven Lektion ohne Zeitstempel). `lib/mail.ts` (`queueTransactionalEmail`) wird von der App nicht mehr aufgerufen und bleibt ohne R4-Nachweis stehen.
 
 ## Phase 7 — Lehrer-Dashboard
 

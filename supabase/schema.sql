@@ -7542,7 +7542,8 @@ CREATE TABLE public.learning_trainer_grants (
     level text NOT NULL,
     trainer public.trainer_code NOT NULL,
     enabled boolean NOT NULL,
-    unit_mode public.unit_access_mode DEFAULT 'all'::public.unit_access_mode NOT NULL
+    unit_mode public.unit_access_mode DEFAULT 'all'::public.unit_access_mode NOT NULL,
+    enabled_at timestamp with time zone
 );
 
 
@@ -7583,6 +7584,7 @@ CREATE TABLE public.learning_units (
     path_source_id text,
     path_slug text,
     path_title text,
+    created_at timestamp with time zone DEFAULT now() NOT NULL,
     CONSTRAINT learning_units_label_check CHECK (((length(btrim(label)) >= 1) AND (length(btrim(label)) <= 160))),
     CONSTRAINT learning_units_own_words_check CHECK ((((owner_auth_user_id IS NULL) AND (label <> 'Eigene Wörter'::text)) OR ((owner_auth_user_id IS NOT NULL) AND (trainer = 'vocabulary'::public.trainer_code) AND (label = 'Eigene Wörter'::text))))
 );
@@ -7894,7 +7896,8 @@ CREATE TABLE public.profiles (
     created_at timestamp with time zone DEFAULT now(),
     updated_at timestamp with time zone DEFAULT now(),
     role public.profile_role DEFAULT 'student'::public.profile_role,
-    ui_language text DEFAULT 'de'::text NOT NULL
+    ui_language text DEFAULT 'de'::text NOT NULL,
+    notify_pronunciation_feedback boolean DEFAULT true NOT NULL
 );
 
 
@@ -7922,7 +7925,8 @@ CREATE TABLE public.pronunciation_messages (
 
 CREATE TABLE public.student_level_access (
     auth_user_id uuid NOT NULL,
-    level text NOT NULL
+    level text NOT NULL,
+    granted_at timestamp with time zone DEFAULT now() NOT NULL
 );
 
 
@@ -9550,7 +9554,7 @@ CREATE TRIGGER learning_units_own_words_cleanup BEFORE DELETE ON public.learning
 -- Name: student_level_access on_student_level_access_granted_notify; Type: TRIGGER; Schema: public; Owner: -
 --
 
-CREATE TRIGGER on_student_level_access_granted_notify AFTER INSERT ON public.student_level_access FOR EACH ROW EXECUTE FUNCTION business_private.notify_student_of_level_access();
+CREATE TRIGGER on_student_level_access_granted_notify AFTER INSERT ON public.student_level_access REFERENCING NEW TABLE AS new_rows FOR EACH STATEMENT EXECUTE FUNCTION business_private.notify_students_of_level_access();
 
 
 --
@@ -13749,6 +13753,314 @@ ALTER DEFAULT PRIVILEGES FOR ROLE postgres IN SCHEMA public GRANT ALL ON TABLES 
 ALTER DEFAULT PRIVILEGES FOR ROLE postgres IN SCHEMA public GRANT ALL ON TABLES  TO anon;
 ALTER DEFAULT PRIVILEGES FOR ROLE postgres IN SCHEMA public GRANT ALL ON TABLES  TO authenticated;
 ALTER DEFAULT PRIVILEGES FOR ROLE postgres IN SCHEMA public GRANT ALL ON TABLES  TO service_role;
+
+--
+-- Phase 6 (Migrationen 41 und 42): von Hand im Exportformat ergänzt, kein Klon-Export.
+--
+CREATE TYPE public.learning_seen_kind AS ENUM (
+    'level',
+    'vocabulary_lesson',
+    'path',
+    'special_branch',
+    'pronunciation_text',
+    'media_folder',
+    'video',
+    'presentation',
+    'trainer'
+);
+CREATE TABLE business_private.level_access_announcements (
+    auth_user_id uuid NOT NULL,
+    level text NOT NULL,
+    announced_at timestamp with time zone DEFAULT now() NOT NULL
+);
+CREATE TABLE public.learning_first_visits (
+    auth_user_id uuid NOT NULL,
+    scope text NOT NULL,
+    first_visit_at timestamp with time zone DEFAULT now() NOT NULL,
+    CONSTRAINT learning_first_visits_scope_check CHECK (((scope = 'room'::text) OR ((length(scope) >= 1) AND (length(scope) <= 20))))
+);
+CREATE TABLE public.learning_seen_receipts (
+    auth_user_id uuid NOT NULL,
+    kind public.learning_seen_kind NOT NULL,
+    object_key text NOT NULL,
+    seen_at timestamp with time zone DEFAULT now() NOT NULL,
+    CONSTRAINT learning_seen_receipts_object_key_check CHECK (((length(object_key) >= 1) AND (length(object_key) <= 80)))
+);
+ALTER TABLE ONLY business_private.level_access_announcements
+    ADD CONSTRAINT level_access_announcements_pkey PRIMARY KEY (auth_user_id, level);
+ALTER TABLE ONLY public.learning_first_visits
+    ADD CONSTRAINT learning_first_visits_pkey PRIMARY KEY (auth_user_id, scope);
+ALTER TABLE ONLY public.learning_seen_receipts
+    ADD CONSTRAINT learning_seen_receipts_pkey PRIMARY KEY (auth_user_id, kind, object_key);
+ALTER TABLE ONLY business_private.level_access_announcements
+    ADD CONSTRAINT level_access_announcements_auth_user_id_fkey FOREIGN KEY (auth_user_id) REFERENCES auth.users(id) ON DELETE CASCADE;
+ALTER TABLE ONLY public.learning_first_visits
+    ADD CONSTRAINT learning_first_visits_auth_user_id_fkey FOREIGN KEY (auth_user_id) REFERENCES auth.users(id) ON DELETE CASCADE;
+ALTER TABLE ONLY public.learning_seen_receipts
+    ADD CONSTRAINT learning_seen_receipts_auth_user_id_fkey FOREIGN KEY (auth_user_id) REFERENCES auth.users(id) ON DELETE CASCADE;
+CREATE FUNCTION business_private.notify_student_of_pronunciation_reply() RETURNS trigger
+    LANGUAGE plpgsql SECURITY DEFINER
+    SET search_path TO ''
+    AS $$
+DECLARE v_learner uuid; v_level text; v_email text; v_name text; v_locale text; v_notify boolean;
+ v_reply jsonb; v_updated integer; v_result jsonb;
+BEGIN
+ BEGIN
+  IF new.sender_role NOT IN('teacher','admin') THEN RETURN new; END IF;
+  SELECT s.auth_user_id,s.level INTO v_learner,v_level FROM public.submissions s WHERE s.id=new.submission_id;
+  IF v_learner IS NULL THEN RETURN new; END IF;
+  SELECT pr.notify_pronunciation_feedback,
+         CASE WHEN u.email_confirmed_at IS NOT NULL
+              THEN coalesce(nullif(btrim(u.email),''),nullif(btrim(pe.email),'')) END,
+         left(coalesce(nullif(btrim(pe.display_name),''),''),150),
+         CASE WHEN pr.ui_language IN('de','en','ru','uk','tr') THEN pr.ui_language ELSE 'de' END
+    INTO v_notify,v_email,v_name,v_locale
+    FROM auth.users u
+    JOIN public.profiles pr ON pr.id=u.id
+    LEFT JOIN public.people pe ON pe.auth_user_id=u.id
+   WHERE u.id=v_learner
+   LIMIT 1;
+  IF v_notify IS NOT TRUE OR v_email IS NULL THEN RETURN new; END IF;
+  -- Gleichzeitige Antworten im selben Gespräch werden nacheinander gebündelt.
+  PERFORM pg_advisory_xact_lock(hashtextextended('pronunciation-mail:'||new.submission_id::text,0));
+  v_reply:=jsonb_build_object('text',left(btrim(new.text_content),200),'audio',new.audio_path IS NOT NULL);
+  UPDATE private.mail_outbox SET payload=jsonb_set(payload,'{replies}',(payload->'replies')||v_reply)
+   WHERE kind::text='feedback_available' AND status::text='pending'
+     AND payload->>'submissionId'=new.submission_id::text
+     AND CASE WHEN jsonb_typeof(payload->'replies')='array' THEN jsonb_array_length(payload->'replies')<10 ELSE false END;
+  GET DIAGNOSTICS v_updated=ROW_COUNT;
+  IF v_updated=0 THEN
+   v_result:=public.queue_transactional_email('pronunciation-thread:'||new.submission_id||':'||new.id,'feedback_available',v_email,v_locale,
+    jsonb_build_object('name',v_name,'authUserId',v_learner,'submissionId',new.submission_id,'replies',jsonb_build_array(v_reply),
+     'path','/'||v_locale||'/dashboard/level/'||v_level||'/pronunciation?tab=mailbox&conversation='||new.submission_id));
+   IF jsonb_typeof(v_result)='object' AND v_result ? 'error' THEN RAISE WARNING 'pronunciation_notification_failed'; END IF;
+   -- Erst nach dem Bündelungsfenster versenden.
+   UPDATE private.mail_outbox SET available_at=now()+interval '10 minutes'
+    WHERE dedupe_key='pronunciation-thread:'||new.submission_id||':'||new.id AND status::text='pending';
+  END IF;
+ EXCEPTION WHEN OTHERS THEN RAISE WARNING 'pronunciation_notification_failed';
+ END;
+ RETURN new;
+END $$;
+CREATE FUNCTION business_private.cancel_pronunciation_mail_on_opt_out() RETURNS trigger
+    LANGUAGE plpgsql SECURITY DEFINER
+    SET search_path TO ''
+    AS $$
+BEGIN
+ BEGIN
+  DELETE FROM private.mail_outbox WHERE kind::text='feedback_available' AND status::text='pending'
+   AND payload->>'authUserId'=new.id::text AND dedupe_key LIKE 'pronunciation-thread:%';
+ EXCEPTION WHEN OTHERS THEN RAISE WARNING 'pronunciation_opt_out_cleanup_failed';
+ END;
+ RETURN new;
+END $$;
+CREATE FUNCTION business_private.notify_students_of_level_access() RETURNS trigger
+    LANGUAGE plpgsql SECURITY DEFINER
+    SET search_path TO ''
+    AS $$
+DECLARE r record; v_result jsonb; v_key text;
+BEGIN
+ BEGIN
+  FOR r IN
+   SELECT n.auth_user_id,array_agg(n.level ORDER BY l.sort_order NULLS LAST,n.level) levels,
+          max(CASE WHEN u.email_confirmed_at IS NOT NULL
+                   THEN coalesce(nullif(btrim(u.email),''),(SELECT nullif(btrim(p.email),'') FROM public.people p WHERE p.auth_user_id=u.id LIMIT 1)) END) email,
+          max(left(coalesce((SELECT nullif(btrim(p.display_name),'') FROM public.people p WHERE p.auth_user_id=u.id LIMIT 1),''),150)) name,
+          max(CASE WHEN pr.ui_language IN('de','en','ru','uk','tr') THEN pr.ui_language ELSE 'de' END) locale
+     FROM (SELECT DISTINCT auth_user_id,level FROM new_rows) n
+     JOIN auth.users u ON u.id=n.auth_user_id
+     LEFT JOIN public.learning_levels l ON l.code=n.level
+     LEFT JOIN public.profiles pr ON pr.id=n.auth_user_id
+    WHERE NOT EXISTS(SELECT 1 FROM business_private.level_access_announcements a WHERE a.auth_user_id=n.auth_user_id AND a.level=n.level)
+    GROUP BY n.auth_user_id
+  LOOP
+   BEGIN
+    IF r.email IS NULL THEN CONTINUE; END IF;
+    v_key:='level-access:'||r.auth_user_id||':'||array_to_string(r.levels,'+');
+    v_result:=public.queue_transactional_email(v_key,'level_access_granted',r.email,r.locale,
+     jsonb_build_object('name',r.name,'levels',to_jsonb(r.levels),'path','/'||r.locale||'/dashboard/level/'||r.levels[1]));
+    IF jsonb_typeof(v_result)='object' AND v_result ? 'error' THEN RAISE WARNING 'level_access_notification_failed'; CONTINUE; END IF;
+    INSERT INTO business_private.level_access_announcements(auth_user_id,level) SELECT r.auth_user_id,x FROM unnest(r.levels) x ON CONFLICT DO NOTHING;
+   EXCEPTION WHEN OTHERS THEN RAISE WARNING 'level_access_notification_failed';
+   END;
+  END LOOP;
+ EXCEPTION WHEN OTHERS THEN RAISE WARNING 'level_access_notification_failed';
+ END;
+ RETURN NULL;
+END $$;
+CREATE FUNCTION learning_private.stamp_trainer_enabled() RETURNS trigger
+    LANGUAGE plpgsql
+    SET search_path TO ''
+    AS $$
+BEGIN
+ IF new.enabled AND NOT old.enabled THEN new.enabled_at:=now(); END IF;
+ RETURN new;
+END $$;
+CREATE FUNCTION learning_private.new_objects()
+RETURNS TABLE(level text,mode text,kind public.learning_seen_kind,object_key text,covered boolean)
+    LANGUAGE plpgsql STABLE SECURITY DEFINER
+    SET search_path TO ''
+    AS $$
+DECLARE actor uuid:=auth.uid(); room timestamptz; allowed uuid[]; published uuid[];
+BEGIN
+ IF actor IS NULL OR coalesce(identity_private.current_profile_role(),'') IN('teacher','admin') THEN RETURN; END IF;
+ SELECT v.first_visit_at INTO room FROM public.learning_first_visits v WHERE v.auth_user_id=actor AND v.scope='room';
+ IF room IS NULL THEN RETURN; END IF;
+ allowed:=learning_private.allowed_unit_ids();
+ published:=media_private.published_video_unit_ids();
+ RETURN QUERY
+ WITH lv AS MATERIALIZED (
+   SELECT a.level lvl,a.granted_at,b.first_visit_at base,
+          EXISTS(SELECT 1 FROM public.learning_seen_receipts r WHERE r.auth_user_id=actor AND r.kind='level' AND r.object_key=a.level) opened
+     FROM public.student_level_access a
+     JOIN public.learning_levels l ON l.code=a.level AND l.is_active
+     LEFT JOIN public.learning_first_visits b ON b.auth_user_id=actor AND b.scope=a.level
+    WHERE a.auth_user_id=actor),
+  seen AS MATERIALIZED (SELECT r.kind k,r.object_key key FROM public.learning_seen_receipts r WHERE r.auth_user_id=actor),
+  levels_new AS (
+   SELECT lv.lvl,NULL::text m,'level'::public.learning_seen_kind k,lv.lvl key,false cov
+     FROM lv WHERE lv.granted_at>room AND NOT lv.opened),
+  trainers_new AS (
+   SELECT lv.lvl,CASE g.trainer::text WHEN 'vocabulary' THEN 'vocabulary' WHEN 'exercises' THEN 'path' WHEN 'pronunciation' THEN 'pronunciation' ELSE 'media' END,
+          'trainer'::public.learning_seen_kind,lv.lvl||':'||g.trainer::text,false
+     FROM lv JOIN public.learning_trainer_grants g ON g.auth_user_id=actor AND g.level=lv.lvl
+    WHERE g.enabled AND g.enabled_at>room AND NOT (lv.granted_at>room AND NOT lv.opened)
+      AND trainer_access_private.allowed(lv.lvl,g.trainer::text)
+      AND NOT EXISTS(SELECT 1 FROM seen s WHERE s.k='trainer' AND s.key=lv.lvl||':'||g.trainer::text)),
+  lessons_new AS (
+   SELECT lv.lvl,'vocabulary'::text,'vocabulary_lesson'::public.learning_seen_kind,u.id::text,false
+     FROM lv JOIN public.learning_units u ON u.level=lv.lvl AND u.trainer='vocabulary' AND u.owner_auth_user_id IS NULL AND u.is_active
+    WHERE lv.base IS NOT NULL AND u.created_at>lv.base AND u.id=ANY(allowed)
+      AND NOT EXISTS(SELECT 1 FROM seen s WHERE s.k='vocabulary_lesson' AND s.key=u.id::text)),
+  paths_new AS MATERIALIZED (
+   SELECT lv.lvl,u.id
+     FROM lv JOIN public.learning_units u ON u.level=lv.lvl AND u.trainer='exercises' AND u.is_path AND u.is_active
+    WHERE lv.base IS NOT NULL AND u.created_at>lv.base AND u.id=ANY(allowed) AND path_private.unit_available(u.id)
+      AND NOT EXISTS(SELECT 1 FROM seen s WHERE s.k='path' AND s.key=u.id::text)),
+  branches_new AS (
+   SELECT lv.lvl,'path'::text,'special_branch'::public.learning_seen_kind,n.id::text,EXISTS(SELECT 1 FROM paths_new pn WHERE pn.id=n.unit_id)
+     FROM lv JOIN public.learning_units u ON u.level=lv.lvl AND u.trainer='exercises' AND u.is_path AND u.is_active
+     JOIN public.path_nodes n ON n.unit_id=u.id AND n.kind='special' AND n.is_active
+    WHERE lv.base IS NOT NULL AND n.created_at>lv.base AND u.id=ANY(allowed) AND path_private.node_available(n.id)
+      AND NOT EXISTS(SELECT 1 FROM seen s WHERE s.k='special_branch' AND s.key=n.id::text)),
+  texts_new AS (
+   SELECT lv.lvl,'pronunciation'::text,'pronunciation_text'::public.learning_seen_kind,r.id::text,false
+     FROM lv JOIN public.learning_units u ON u.level=lv.lvl AND u.trainer='pronunciation' AND u.owner_auth_user_id IS NULL AND u.is_active
+     JOIN public.learning_reading_texts r ON r.unit_id=u.id
+    WHERE lv.base IS NOT NULL AND r.created_at>lv.base AND u.id=ANY(allowed)
+      AND learning_private.german_text_allowed(r.sentence_de) AND learning_private.german_text_allowed(r.focus)
+      AND NOT EXISTS(SELECT 1 FROM seen s WHERE s.k='pronunciation_text' AND s.key=r.id::text)),
+  folders_new AS MATERIALIZED (
+   SELECT lv.lvl,f.folder_id
+     FROM lv JOIN public.lms_media_folder f ON f.level=lv.lvl
+    WHERE lv.base IS NOT NULL AND f.created_at>lv.base AND media_private.folder_allowed(f.folder_id)
+      AND NOT EXISTS(SELECT 1 FROM seen s WHERE s.k='media_folder' AND s.key=f.folder_id::text)),
+  videos_new AS (
+   SELECT lv.lvl,'media'::text,'video'::public.learning_seen_kind,v.id::text,v.folder_id IS NOT NULL AND EXISTS(SELECT 1 FROM folders_new fn WHERE fn.folder_id=v.folder_id)
+     FROM lv JOIN public.learning_units u ON u.level=lv.lvl AND u.trainer='videos' AND u.is_active
+     JOIN public.learning_videos v ON v.unit_id=u.id
+    WHERE lv.base IS NOT NULL AND v.created_at>lv.base
+      AND ((v.storage_path IS NOT NULL AND v.file_size IS NOT NULL AND u.id=ANY(published)) OR (v.storage_path IS NULL AND v.source_url IS NOT NULL AND u.id=ANY(allowed)))
+      AND (v.folder_id IS NULL OR media_private.folder_allowed(v.folder_id))
+      AND NOT EXISTS(SELECT 1 FROM seen s WHERE s.k='video' AND s.key=v.id::text)),
+  assets_new AS (
+   SELECT lv.lvl,'media'::text,'presentation'::public.learning_seen_kind,a.asset_id::text,EXISTS(SELECT 1 FROM folders_new fn WHERE fn.folder_id=a.folder_id)
+     FROM lv JOIN public.lms_media_folder f ON f.level=lv.lvl
+     JOIN public.lms_presentation_asset a ON a.folder_id=f.folder_id
+    WHERE lv.base IS NOT NULL AND a.created_at>lv.base AND media_private.folder_allowed(f.folder_id)
+      AND NOT EXISTS(SELECT 1 FROM seen s WHERE s.k='presentation' AND s.key=a.asset_id::text))
+ SELECT * FROM levels_new
+ UNION ALL SELECT * FROM trainers_new
+ UNION ALL SELECT * FROM lessons_new
+ UNION ALL SELECT pn.lvl,'path','path'::public.learning_seen_kind,pn.id::text,false FROM paths_new pn
+ UNION ALL SELECT * FROM branches_new
+ UNION ALL SELECT * FROM texts_new
+ UNION ALL SELECT fn.lvl,'media','media_folder'::public.learning_seen_kind,fn.folder_id::text,false FROM folders_new fn
+ UNION ALL SELECT * FROM videos_new
+ UNION ALL SELECT * FROM assets_new;
+END $$;
+CREATE FUNCTION public.get_learning_new_counts() RETURNS jsonb
+    LANGUAGE plpgsql SECURITY DEFINER
+    SET search_path TO ''
+    AS $$
+DECLARE actor uuid:=auth.uid(); levels jsonb; visited jsonb;
+BEGIN
+ IF actor IS NULL THEN RETURN jsonb_build_object('error','not_authenticated','message','Authentication is required.'); END IF;
+ -- Der erste Aufruf im Lernraum legt die Grundlinie fest: davor Freigeschaltetes ist nicht neu.
+ INSERT INTO public.learning_first_visits(auth_user_id,scope) VALUES(actor,'room') ON CONFLICT DO NOTHING;
+ SELECT coalesce(jsonb_object_agg(g.level,g.entry),'{}'::jsonb) INTO levels FROM (
+  SELECT n.level,jsonb_build_object(
+    'level',bool_or(n.kind='level'),
+    'total',count(*),
+    'modes',jsonb_build_object(
+      'vocabulary',count(*) FILTER(WHERE n.mode='vocabulary' AND n.kind<>'trainer'),
+      'path',count(*) FILTER(WHERE n.mode='path' AND n.kind<>'trainer'),
+      'pronunciation',count(*) FILTER(WHERE n.mode='pronunciation' AND n.kind<>'trainer'),
+      'media',count(*) FILTER(WHERE n.mode='media' AND n.kind<>'trainer')),
+    'modeNew',jsonb_build_object(
+      'vocabulary',coalesce(bool_or(n.mode='vocabulary' AND n.kind='trainer'),false),
+      'path',coalesce(bool_or(n.mode='path' AND n.kind='trainer'),false),
+      'pronunciation',coalesce(bool_or(n.mode='pronunciation' AND n.kind='trainer'),false),
+      'media',coalesce(bool_or(n.mode='media' AND n.kind='trainer'),false))) entry
+    FROM learning_private.new_objects() n WHERE NOT n.covered GROUP BY n.level) g;
+ -- Niveaus mit Grundlinie: nur dort kann Inhalt „neu" sein; die Oberfläche meldet den ersten Besuch weiterer Niveaus.
+ SELECT coalesce(jsonb_agg(v.scope ORDER BY v.scope),'[]'::jsonb) INTO visited FROM public.learning_first_visits v WHERE v.auth_user_id=actor AND v.scope<>'room';
+ RETURN jsonb_build_object('success',true,'any',levels<>'{}'::jsonb,'levels',levels,'visited',visited);
+EXCEPTION WHEN OTHERS THEN RETURN jsonb_build_object('error','request_failed','message','The request could not be completed.','sqlstate',SQLSTATE);
+END $$;
+CREATE FUNCTION public.get_learning_new_items(p_level text) RETURNS jsonb
+    LANGUAGE plpgsql SECURITY DEFINER
+    SET search_path TO ''
+    AS $$
+DECLARE actor uuid:=auth.uid(); items jsonb; lessons jsonb;
+BEGIN
+ IF actor IS NULL THEN RETURN jsonb_build_object('error','not_authenticated','message','Authentication is required.'); END IF;
+ IF p_level IS NULL OR length(p_level) NOT BETWEEN 1 AND 20 THEN RETURN jsonb_build_object('error','invalid_input','message','The request contains invalid data.'); END IF;
+ SELECT coalesce(jsonb_object_agg(g.kind,g.keys),'{}'::jsonb) INTO items FROM (
+  SELECT n.kind::text kind,jsonb_agg(n.object_key ORDER BY n.object_key) keys
+    FROM learning_private.new_objects() n WHERE n.level=p_level GROUP BY n.kind) g;
+ -- Vokabel-Lektionen erscheinen in der Oberfläche unter ihrem Namen: Name je neuer Lektion mitgeben.
+ SELECT coalesce(jsonb_object_agg(u.id::text,u.label),'{}'::jsonb) INTO lessons FROM public.learning_units u
+  WHERE u.id::text IN(SELECT n.object_key FROM learning_private.new_objects() n WHERE n.level=p_level AND n.kind='vocabulary_lesson');
+ RETURN jsonb_build_object('success',true,'level',p_level,'items',items,'lessons',lessons);
+EXCEPTION WHEN OTHERS THEN RETURN jsonb_build_object('error','request_failed','message','The request could not be completed.','sqlstate',SQLSTATE);
+END $$;
+CREATE FUNCTION public.mark_learning_seen(p_kind text,p_object_key text) RETURNS jsonb
+    LANGUAGE plpgsql SECURITY DEFINER
+    SET search_path TO ''
+    AS $$
+DECLARE actor uuid:=auth.uid(); v_kind public.learning_seen_kind; v_marked integer:=0;
+BEGIN
+ IF actor IS NULL THEN RETURN jsonb_build_object('error','not_authenticated','message','Authentication is required.'); END IF;
+ IF p_object_key IS NULL OR length(p_object_key) NOT BETWEEN 1 AND 80 THEN RETURN jsonb_build_object('error','invalid_input','message','The request contains invalid data.'); END IF;
+ BEGIN v_kind:=p_kind::public.learning_seen_kind;
+ EXCEPTION WHEN invalid_text_representation THEN RETURN jsonb_build_object('error','invalid_input','message','The request contains invalid data.'); END;
+ INSERT INTO public.learning_first_visits(auth_user_id,scope) VALUES(actor,'room') ON CONFLICT DO NOTHING;
+ -- Quittung nur für Objekte, die gerade wirklich neu sind: die Tabelle wächst nicht mit jedem Klick.
+ INSERT INTO public.learning_seen_receipts(auth_user_id,kind,object_key)
+ SELECT actor,n.kind,n.object_key FROM learning_private.new_objects() n WHERE n.kind=v_kind AND n.object_key=p_object_key
+ ON CONFLICT DO NOTHING;
+ GET DIAGNOSTICS v_marked=ROW_COUNT;
+ -- Ein Niveau zu öffnen ist der erste Besuch dieses Niveaus: ab jetzt zählt später Veröffentlichtes als neu.
+ IF v_kind='level' AND EXISTS(SELECT 1 FROM public.student_level_access a WHERE a.auth_user_id=actor AND a.level=p_object_key) THEN
+  INSERT INTO public.learning_first_visits(auth_user_id,scope) VALUES(actor,p_object_key) ON CONFLICT DO NOTHING;
+ END IF;
+ RETURN jsonb_build_object('success',true,'marked',v_marked>0);
+EXCEPTION WHEN OTHERS THEN RETURN jsonb_build_object('error','request_failed','message','The request could not be completed.','sqlstate',SQLSTATE);
+END $$;
+CREATE TRIGGER on_pronunciation_reply_notify AFTER INSERT ON public.pronunciation_messages FOR EACH ROW WHEN ((new.sender_role = ANY (ARRAY['teacher'::public.profile_role, 'admin'::public.profile_role]))) EXECUTE FUNCTION business_private.notify_student_of_pronunciation_reply();
+CREATE TRIGGER on_pronunciation_opt_out AFTER UPDATE OF notify_pronunciation_feedback ON public.profiles FOR EACH ROW WHEN ((old.notify_pronunciation_feedback AND (NOT new.notify_pronunciation_feedback))) EXECUTE FUNCTION business_private.cancel_pronunciation_mail_on_opt_out();
+CREATE TRIGGER stamp_trainer_enabled BEFORE UPDATE OF enabled ON public.learning_trainer_grants FOR EACH ROW EXECUTE FUNCTION learning_private.stamp_trainer_enabled();
+ALTER TABLE business_private.level_access_announcements ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.learning_first_visits ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.learning_seen_receipts ENABLE ROW LEVEL SECURITY;
+CREATE POLICY own_read ON public.learning_first_visits FOR SELECT TO authenticated USING ((auth_user_id = ( SELECT auth.uid() AS uid)));
+CREATE POLICY own_read ON public.learning_seen_receipts FOR SELECT TO authenticated USING ((auth_user_id = ( SELECT auth.uid() AS uid)));
+GRANT UPDATE(notify_pronunciation_feedback) ON TABLE public.profiles TO authenticated;
+GRANT SELECT ON TABLE public.learning_first_visits, public.learning_seen_receipts TO authenticated;
+GRANT ALL ON TABLE public.learning_first_visits, public.learning_seen_receipts TO service_role;
+REVOKE ALL ON FUNCTION public.get_learning_new_counts(), public.get_learning_new_items(text), public.mark_learning_seen(text, text) FROM PUBLIC, anon;
+GRANT EXECUTE ON FUNCTION public.get_learning_new_counts(), public.get_learning_new_items(text), public.mark_learning_seen(text, text) TO authenticated;
 
 
 --

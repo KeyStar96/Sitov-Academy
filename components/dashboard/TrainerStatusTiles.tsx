@@ -2,6 +2,7 @@ import type { CSSProperties } from 'react'
 import { ArrowUpRight, BookOpen, Check, Clapperboard, Lock, Mic, Route } from 'lucide-react'
 import PressableCard from '@/components/motion/PressableCard'
 import CountUp from '@/components/motion/CountUp'
+import NewBadge from '@/components/motion/NewBadge'
 import type { LevelLearningStatus } from '@/lib/learning-status-server'
 import { modeHref, type LearningMode } from '@/lib/mode-targets'
 import { studentTranslator, type StudentMessageKey } from '@/lib/student-ui-i18n'
@@ -97,6 +98,7 @@ export default function TrainerStatusTiles({ lang, level, status, languageLocked
               <span className="st-tile__top">
                 <span className="st-tile__icon" aria-hidden="true">{tile.tone === 'locked' ? <Lock size={24} /> : <tile.icon size={24} />}</span>
                 {tile.badge > 0 && <span className="st-tile__badge" aria-hidden="true"><CountUp value={tile.badge} cap={999} /></span>}
+                {tile.tone !== 'locked' && status?.fresh?.[tile.id] && <NewBadge label={t('media_new')} className="st-tile__new" />}
                 {tile.tone === 'done' && <span className="st-tile__check" aria-hidden="true"><Check size={16} strokeWidth={3} /></span>}
               </span>
               <span className="st-tile__title">{t(tile.title)}</span>

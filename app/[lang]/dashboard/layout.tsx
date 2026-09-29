@@ -10,6 +10,7 @@ import LogoutButton from '@/components/dashboard/LogoutButton'
 import StudentNavigation from '@/components/dashboard/StudentNavigation'
 import MotionProvider from '@/components/motion/MotionProvider'
 import { loadLastActiveLevel } from '@/lib/last-active-level'
+import { loadLearningNewCounts } from '@/lib/learning-new-server'
 import { getDictionary } from '@/lib/dictionary'
 import { createDashboardTranslator, type DashboardTranslations } from '@/lib/dashboard-i18n'
 import { loadLevelAccessProfile } from '@/lib/access/server'
@@ -23,9 +24,9 @@ export default async function DashboardLayout({ children, params }: { children: 
   const { lang } = await params
   const { supabase, user } = await requestSession()
   if (!user) redirect(`/${lang}/login`)
-  const [{ data: profile }, dict, access, lastActive] = await Promise.all([
+  const [{ data: profile }, dict, access, lastActive, news] = await Promise.all([
     supabase.from('profiles').select('role,person:people(display_name)').eq('id', user.id).single(), getDictionary(lang),
-    loadLevelAccessProfile(supabase, user.id), loadLastActiveLevel(),
+    loadLevelAccessProfile(supabase, user.id), loadLastActiveLevel(), loadLearningNewCounts(),
   ])
   if (profile?.role === 'teacher' || profile?.role === 'admin') redirect(`/${lang}/admin`)
   const translations = dict.dashboard as DashboardTranslations
@@ -54,6 +55,6 @@ export default async function DashboardLayout({ children, params }: { children: 
     </div></header>
     <div className="academy-student-content academy-container">{children}</div>
     <StudentNavigation lang={lang} firstLevel={levels[0] ?? null} levels={levels} supportLabels={supportLabels}
-      lastActiveLevel={lastActive ? lastActive.level : undefined} />
+      lastActiveLevel={lastActive ? lastActive.level : undefined} learnNew={news?.any === true} />
   </div></MotionProvider>
 }

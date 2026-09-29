@@ -674,6 +674,7 @@ export type Database = {
         Row: {
           auth_user_id: string
           enabled: boolean
+          enabled_at: string | null
           level: string
           trainer: Database["public"]["Enums"]["trainer_code"]
           unit_mode: Database["public"]["Enums"]["unit_access_mode"]
@@ -681,6 +682,7 @@ export type Database = {
         Insert: {
           auth_user_id: string
           enabled: boolean
+          enabled_at?: string | null
           level: string
           trainer: Database["public"]["Enums"]["trainer_code"]
           unit_mode?: Database["public"]["Enums"]["unit_access_mode"]
@@ -688,6 +690,7 @@ export type Database = {
         Update: {
           auth_user_id?: string
           enabled?: boolean
+          enabled_at?: string | null
           level?: string
           trainer?: Database["public"]["Enums"]["trainer_code"]
           unit_mode?: Database["public"]["Enums"]["unit_access_mode"]
@@ -773,6 +776,7 @@ export type Database = {
       }
       learning_units: {
         Row: {
+          created_at: string
           id: string
           is_active: boolean
           is_path: boolean
@@ -786,6 +790,7 @@ export type Database = {
           trainer: Database["public"]["Enums"]["trainer_code"]
         }
         Insert: {
+          created_at?: string
           id?: string
           is_active?: boolean
           is_path?: boolean
@@ -799,6 +804,7 @@ export type Database = {
           trainer: Database["public"]["Enums"]["trainer_code"]
         }
         Update: {
+          created_at?: string
           id?: string
           is_active?: boolean
           is_path?: boolean
@@ -1124,6 +1130,7 @@ export type Database = {
           created_at: string | null
           id: string
           native_language: string | null
+          notify_pronunciation_feedback: boolean
           role: Database["public"]["Enums"]["profile_role"] | null
           ui_language: string
           updated_at: string | null
@@ -1132,6 +1139,7 @@ export type Database = {
           created_at?: string | null
           id: string
           native_language?: string | null
+          notify_pronunciation_feedback?: boolean
           role?: Database["public"]["Enums"]["profile_role"] | null
           ui_language?: string
           updated_at?: string | null
@@ -1140,6 +1148,7 @@ export type Database = {
           created_at?: string | null
           id?: string
           native_language?: string | null
+          notify_pronunciation_feedback?: boolean
           role?: Database["public"]["Enums"]["profile_role"] | null
           ui_language?: string
           updated_at?: string | null
@@ -1212,14 +1221,17 @@ export type Database = {
       student_level_access: {
         Row: {
           auth_user_id: string
+          granted_at: string
           level: string
         }
         Insert: {
           auth_user_id: string
+          granted_at?: string
           level: string
         }
         Update: {
           auth_user_id?: string
+          granted_at?: string
           level?: string
         }
         Relationships: [
@@ -2114,6 +2126,45 @@ export type Database = {
           },
         ]
       }
+      learning_first_visits: {
+        Row: {
+          auth_user_id: string
+          first_visit_at: string
+          scope: string
+        }
+        Insert: {
+          auth_user_id: string
+          first_visit_at?: string
+          scope: string
+        }
+        Update: {
+          auth_user_id?: string
+          first_visit_at?: string
+          scope?: string
+        }
+        Relationships: []
+      }
+      learning_seen_receipts: {
+        Row: {
+          auth_user_id: string
+          kind: Database["public"]["Enums"]["learning_seen_kind"]
+          object_key: string
+          seen_at: string
+        }
+        Insert: {
+          auth_user_id: string
+          kind: Database["public"]["Enums"]["learning_seen_kind"]
+          object_key: string
+          seen_at?: string
+        }
+        Update: {
+          auth_user_id?: string
+          kind?: Database["public"]["Enums"]["learning_seen_kind"]
+          object_key?: string
+          seen_at?: string
+        }
+        Relationships: []
+      }
       learning_sessions: {
         Row: {
           answer_count: number
@@ -2234,6 +2285,12 @@ export type Database = {
         | { Args: never; Returns: Json }
         | { Args: { p_course_id: string; p_student_id: string }; Returns: Json }
       get_last_active_level: { Args: never; Returns: Json }
+      get_learning_new_counts: { Args: never; Returns: Json }
+      get_learning_new_items: { Args: { p_level: string }; Returns: Json }
+      mark_learning_seen: {
+        Args: { p_kind: string; p_object_key: string }
+        Returns: Json
+      }
       initialize_vocabulary_cards: {
         Args: { p_decisions: Json }
         Returns: Json
@@ -2567,6 +2624,7 @@ export type Database = {
       path_run_status: "active" | "completed" | "abandoned"
       path_intervention_action: "unlock" | "reset_path" | "reset_test"
       path_objective_area: "grammar" | "communication" | "can_do" | "vocabulary"
+      learning_seen_kind: "level" | "vocabulary_lesson" | "path" | "special_branch" | "pronunciation_text" | "media_folder" | "video" | "presentation" | "trainer"
       learning_session_mode: "vocabulary" | "path" | "pronunciation"
     }
     CompositeTypes: {
@@ -2695,6 +2753,7 @@ export type CompositeTypes<
 export const Constants = {
   public: {
     Enums: {
+      learning_seen_kind: ["level", "vocabulary_lesson", "path", "special_branch", "pronunciation_text", "media_folder", "video", "presentation", "trainer"],
       learning_session_mode: ["vocabulary", "path", "pronunciation"],
       path_objective_area: ["grammar", "communication", "can_do", "vocabulary"],
       path_intervention_action: ["unlock", "reset_path", "reset_test"],

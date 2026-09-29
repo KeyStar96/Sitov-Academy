@@ -1,12 +1,15 @@
 import Link from 'next/link'
 import { ChevronRight, Lock } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import NewBadge from '@/components/motion/NewBadge'
 
 export interface LevelCardCopy {
   /** Sichtbarer Text der Aktion, abhängig davon, ob schon Fortschritt besteht. */
   start: string
   continueLearning: string
   lockedHint: string
+  /** „Neu"-Kennzeichen (Phase 6.1). */
+  newLabel?: string
 }
 
 /**
@@ -20,7 +23,7 @@ export interface LevelCardCopy {
  * nichts zu öffnen, und ein toter Link wäre für Tastatur und Screenreader
  * schlicht eine Sackgasse.
  */
-export default function LevelCard({ id, title, description, index, href, locked, progress, copy }: {
+export default function LevelCard({ id, title, description, index, href, locked, progress, copy, fresh = false }: {
   id: string
   title: string
   description: string
@@ -31,11 +34,14 @@ export default function LevelCard({ id, title, description, index, href, locked,
   /** Bereits auf 0–100 begrenzt. */
   progress: number
   copy: LevelCardCopy
+  /** Im Niveau ist etwas neu: das Niveau selbst oder Inhalte in einem Modus. */
+  fresh?: boolean
 }) {
   const content = (
     <>
       <div className="academy-level-top">
         <span className="academy-level-code">{id}</span>
+        {fresh && !locked && copy.newLabel && <NewBadge label={copy.newLabel} className="academy-level-new" />}
         {locked
           ? <Lock size={18} aria-hidden="true" />
           // Rein dekoratives Relief: als CSS-Inhalt, nicht als Text (sonst wertet axe

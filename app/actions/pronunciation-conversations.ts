@@ -4,7 +4,6 @@ import { loadReplySenderNames, pronunciationPlaybackUrl } from '@/lib/pronunciat
 import { revalidatePath } from 'next/cache'
 import { z } from 'zod'
 import { createClient } from '@/utils/supabase/server'
-import { queueTransactionalEmail } from '@/lib/mail'
 import { getRpcError } from '@/lib/rpc-errors'
 import {
   createPronunciationSubmissionSchema, pronunciationMessageSchema,
@@ -36,20 +35,6 @@ export async function createPronunciationSubmission(input: CreatePronunciationSu
     return { success: true, id }
   } catch (error) { console.error("Creating pronunciation conversation failed"); return { success: false, reason: 'save_failed' } }
 }
-async function notifyPronunciationFeedback(supabase: Client, senderId: string, submissionId: string, messageId: string): Promise<void> {
-  try {
-    const { data: sender } = await supabase.from('profiles').select('role').eq('id', senderId).single()
-    if (sender?.role !== 'teacher' && sender?.role !== 'admin') return
-    const { data: thread } = await supabase.from('submissions').select('auth_user_id,level').eq('id', submissionId).single()
-    if (!thread) return
-    const { data: learner } = await supabase.from('profiles').select('ui_language,person:people(display_name,email)').eq('id', thread.auth_user_id).single()
-    if (!learner?.person?.email) return
-    const locale = z.enum(['de', 'en', 'ru', 'uk', 'tr']).catch('en').parse(learner.ui_language)
-    const queued = await queueTransactionalEmail({ dedupeKey: `pronunciation-message:${messageId}`, kind: 'feedback_available', to: learner.person.email, locale,
-      payload: { name: learner.person.display_name ?? '', path: `/${locale}/dashboard/level/${encodeURIComponent(thread.level)}/pronunciation` } })
-    if (!queued.success) console.error("Pronunciation notification could not be queued")
-  } catch { console.error("Pronunciation notification could not be queued") }
-}
 export async function sendPronunciationMessage(input: SendPronunciationMessageInput): Promise<PronunciationMutationResult> {
   const parsed = pronunciationMessageSchema.safeParse(input)
   if (!parsed.success) return { success: false, reason: 'invalid_input' }
@@ -61,9 +46,8 @@ export async function sendPronunciationMessage(input: SendPronunciationMessageIn
     // Database policies and a trigger validate membership, sender role and immutable recording ownership.
     const { data, error } = await supabase.from('pronunciation_messages').insert({ submission_id: parsed.data.submissionId, sender_id: user.id, text_content: parsed.data.text, audio_path: parsed.data.audioPath ?? null }).select('id').single()
     if (error) { console.error("Sending pronunciation message failed"); return { success: false, reason: 'save_failed' } }
-    // The recording is already committed. Mail failures must not turn a successful
-    // send into a retry that creates a second chat message.
-    await notifyPronunciationFeedback(supabase, user.id, parsed.data.submissionId, data.id)
+    // The teacher-reply mail is queued by a database trigger (migration 41), where the
+    // learner's notification switch is enforced; nothing to do here.
     refreshPronunciation()
     return { success: true, id: data.id }
   } catch (error) { console.error("Sending pronunciation message failed"); return { success: false, reason: 'save_failed' } }
