@@ -2,13 +2,13 @@
 
 | Feld | Wert |
 |---|---|
-| Letzte Aktualisierung | 2026-09-29: Phase 8 produktiv seit 26.09.2026; Migration 40 und Build-Schutz am 29.09.2026 aktiviert; Phase 6 bleibt übersprungen |
-| Git-Revision | Produktives Release aus `0bcdcd57e38d` |
+| Letzte Aktualisierung | 2026-09-29: Phase 6 (Benachrichtigungen und „Neu") mit Migrationen 41 und 42 produktiv aktiviert; Produktionsnachweis der Aussprache-Mail offen (braucht ein Testkonto) |
+| Git-Revision | Produktives Release aus `7a3b218f5fe1` (Commit `7a3b218`) |
 | Branch | `codex/vps-self-hosted` |
-| Aktives Release | `0bcdcd57e38d` (`/var/www/sitov-current` → `/var/www/sitov-releases/0bcdcd57e38d`); vorheriges `01fa06e013d6` |
-| Health | `ready` (öffentlich geprüft am 29.09.2026) |
-| Letzte Migration | `40_level_access_verified_email.sql`, produktiv am 29.09.2026 (Backup `/root/backups/sitov-migration-20260929T083431045107Z`) |
-| Nächste freie Nummer | **41**, vor Verwendung erneut prüfen |
+| Aktives Release | `7a3b218f5fe1` (`/var/www/sitov-current` → `/var/www/sitov-releases/7a3b218f5fe1`); vorheriges `0bcdcd57e38d` |
+| Health | `ready` (intern und öffentlich geprüft am 29.09.2026 nach der Aktivierung) |
+| Letzte Migration | `42_learning_new.sql`, produktiv am 29.09.2026 (Backup `/root/backups/sitov-migration-20260929T094929346326Z`, PostgreSQL-SHA256 `946023488cd46e522afdf6ca8db88a3310a9e0df5272494ef8423d5c51b4d866`) |
+| Nächste freie Nummer | **43**, vor Verwendung erneut prüfen |
 | Datenbank | Produktiv PostgreSQL 15.8 |
 
 > **Archivierte Nachweise:** Prüfberichte, Nachweis-JSONs, Bilder, `MASTER-PROMPT-4.md` und `CODEX.md` wurden am 26.09.2026 aus dem Arbeitsstand entfernt (Commits `5dba843`, `49e35b5`, `6353f89`). Die Links unten zeigen auf den letzten vollständigen Stand `fc1d859`; lokal abrufbar mit `git show fc1d859:docs/master-4/<Datei>`.
@@ -241,7 +241,7 @@ Altbestand-Grenzen sind im Prüfbericht dokumentiert: eine historische Einstufun
 
 ## Phase 6 — Benachrichtigungen und „Neu"
 
-Stand: **lokal vollständig umgesetzt und getestet (29.09.2026); Produktionsaktivierung und Produktionsnachweis: siehe „Betrieb Phase 6" unten.** Im ersten Durchlauf ausdrücklich übersprungen, am 29.09.2026 beauftragt und ausgeführt. Ausgangsrevision `e8ada40`. [Prüfbericht](PHASE-6-PRUEFBERICHT.md).
+Stand: **umgesetzt, getestet und produktiv aktiviert am 29.09.2026; der Produktionsnachweis der Aussprache-Mail (Zustellung bis ins Postfach) ist offen.** Im ersten Durchlauf ausdrücklich übersprungen, am 29.09.2026 beauftragt und ausgeführt. Ausgangsrevision `e8ada40`. [Prüfbericht](PHASE-6-PRUEFBERICHT.md).
 
 - [x] **6.1 „Neu"-System:** Migration `42_learning_new.sql` (+ Rückweg). Tabellen `learning_first_visits` (Grundlinie je Person `room` und je Niveau) und `learning_seen_receipts` (Person, Art, Objekt, Zeitpunkt), Spalten `student_level_access.granted_at`, `learning_trainer_grants.enabled_at`, `learning_units.created_at`. Bestandsobjekte gelten bei der Migration für alle bestehenden Personen als gesehen. Anzeige an Niveaukarte (Home), Modus-Karte, Modus-Reiter, Punkt am Reiter „Lernen", Vokabel-Lektion, Pfad, Spezial-Zweig, Aussprache-Text, Medienordner, Video, Präsentation; das alte 14-Tage-`fresh` der Medien ist darin aufgegangen.
 - [x] **6.2 Aussprache-Mail:** Migration `41_mail_notifications.sql`. `profiles.notify_pronunciation_feedback boolean NOT NULL DEFAULT true`; die Mail entsteht per Trigger in der Datenbank (App-Weg entfernt), Schalter im Profil „Benachrichtigungen", Bündelung über 10 Minuten (`available_at`), Link direkt ins Gespräch, Vorlage in fünf Sprachen mit Antwortliste.
@@ -249,7 +249,15 @@ Stand: **lokal vollständig umgesetzt und getestet (29.09.2026); Produktionsakti
 - [x] **6.4 Freischalt-Mail:** Anweisungs-Trigger; eine Mail je Person und Speichervorgang mit allen neuen Niveaus in Kursreihenfolge; angekündigte Niveaus nie wieder (`business_private.level_access_announcements`); Vorlage `levelAccess` für ein und mehrere Niveaus, fünf Sprachen; alte Queue-Mails mit `level` bleiben darstellbar.
 - [x] **Tests:** Jest **1.941** (154 Suites, 1 vorhandener bedingter Skip des echten DB-Smokes) · DB/Node **548/548** (Baseline 531; +14 `notification-mail`, +12 `learning-new`, jeweils ohne Skip) · Python: die 9 VPS-Testdateien mit **64** Tests grün (ein vorhandener bedingter Skip in `test_go_live_domain`); die drei TTS-Tests wurden nicht erneut ausgeführt (unberührt) · `tsc --noEmit` Exit 0 · `eslint` 0 Fehler · Produktionsbuild Exit 0.
 - [x] **R7–R9:** Migrationen idempotent (im Test doppelt angewendet), Rückwege `rollback/41_mail_notifications.sql`, `rollback/42_learning_new.sql` (Funktionen/Trigger zurück, Daten bleiben als Archiv), beide in `ORDER` von `migrate-local.py` (Test `test_every_migration_file_is_registered_in_order` grün), `schema.sql` und `database.types.ts` von Hand aktualisiert (kein Klon-Export, wie bei Migration 32).
-- [x] **Leistung:** Neu-Zähler in **einem** Aufruf, der im vorhandenen `Promise.all` von Home, Dashboard-Layout und Niveau-Layout mitläuft und pro Anfrage nur einmal ausgeführt wird. Lokal (PGlite) 38 ms bei 800 neuen Objekten (60 Lektionen, 400 Texte, 300 Videos, 40 Ordner). Messwerte der Produktionsdatenbank und Home-Antwortzeit vorher/nachher: siehe „Betrieb Phase 6".
+- [x] **Leistung:** Neu-Zähler in **einem** Aufruf, der im vorhandenen `Promise.all` von Home, Dashboard-Layout und Niveau-Layout mitläuft und pro Anfrage nur einmal ausgeführt wird. Lokal (PGlite) 38 ms bei 800 neuen Objekten (60 Lektionen, 400 Texte, 300 Videos, 40 Ordner). Messwerte der Produktionsdatenbank: siehe „Betrieb Phase 6".
+
+### Betrieb Phase 6 (29.09.2026)
+
+- Commit `7a3b218` auf `origin/codex/vps-self-hosted`. Release `7a3b218f5fe1` vorbereitet mit dem Build-Schutz aus `0bcdcd5`. Auf dem VPS waren nur ca. 3,4 GB verfügbar; der Standardlauf verlangt 3,5 GB (Deckel 2560 + Reserve 1024 MB) und hätte abgelehnt. Erster Versuch mit Deckel 2200 MB / Heap 1792 MB wurde in der TypeScript-Phase vom Speicherdeckel beendet (Host unberührt, Health `ready`, unvollständiges Release entfernt). Zweiter Versuch mit unverändertem Deckel 2560 MB und auf ausdrücklichen Wunsch gesenkter Reserve (`SITOV_BUILD_RESERVE_MB=900`) erfolgreich; Speicher und Health wurden währenddessen überwacht (Minimum ca. 1,5 GB verfügbar, Health durchgehend `ready`). Kein Limit erhöht, kein Dienst ergänzt.
+- Schemaänderungsablauf: `migrate-local.py --apply 41_mail_notifications.sql 42_learning_new.sql --keep-stopped` (Backup `sitov-migration-20260929T094929346326Z`, 662 Storage-Objekte), danach `deploy-release.sh --activate 7a3b218f5fe1 --schema-changed`. Unterbrechung der App ca. 20 s. Danach `sitov-app`, `sitov-mail`, `nginx`, `sitov-tts` aktiv; interner und öffentlicher Health `ready`.
+- Produktionsstand nach der Migration (nur lesend geprüft): drei neue RPCs und alle drei neuen Trigger vorhanden; Grundlinie `room` für alle 41 Profile, 0 Quittungen; 21 bereits angekündigte Niveaus aus den bisherigen Mails übernommen; alle 41 Profile mit Schalter „an" (Standard); Outbox: 76 Mails `sent`, keine offenen.
+- Leistung: `get_learning_new_counts()` für eine bestehende lernende Person in einer zurückgerollten Transaktion in der Produktionsdatenbank **5,4 ms**; Ergebnis „nichts neu" (Bestand ist gesehen). Der Aufruf läuft im vorhandenen `Promise.all` der Seiten mit. Eine Home-Antwortzeit vorher/nachher konnte nicht per Browser gemessen werden, weil dafür ein angemeldetes Konto nötig ist; es gibt außerdem keine Phase-0-Antwortzeit als Vergleichswert (Phase 8 nennt dasselbe für Lighthouse). Die Abnahme „nicht schlechter als 10 %" ist deshalb nur über die gemessenen Datenbankzeiten belegt, nicht über eine Seiten-Antwortzeit.
+- **Offen: Produktionsnachweis der Aussprache-Mail.** Vorgabe: Testkonto, Antwort der Lehrkraft, Zeile in `private.mail_outbox` mit Status `sent`, Eingang im Postfach; im Bericht nur Zeitstempel und Status; danach Testdaten entfernen. Ein Testkonto in Produktion darf dieser Ablauf nicht selbst anlegen (Kontoanlage ist ausgeschlossen); der Nachweis wartet auf ein von der Betreiberin oder dem Betreiber angelegtes Testkonto. Die Trigger-Logik selbst ist mit 14 DB-Tests (Schalter aus/an, Bündelung, Sprachen, Abbestellen) und die Zustellung durch den bereits aktiven Worker (76 versendete Mails) belegt.
 
 ### Verbindliche Übergabe nach Phase 6
 

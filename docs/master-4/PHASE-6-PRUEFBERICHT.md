@@ -15,7 +15,7 @@ Stand: 29.09.2026. Ausgangsrevision `e8ada40` auf `codex/vps-self-hosted`, produ
 | Freischalt-Mail | eine Mail je Speichervorgang | Zeilen-Trigger (Migration 29/40): sechs Niveaus = sechs Mails | Anweisungs-Trigger (Migration 41) |
 | Vorlage `levelAccess` | Bereiche Vokabeln, Lernpfad, Aussprache, Mediathek; Liste `levels` | Text nannte „Übungen, Vokabeln und Medien"; nur ein `level` | Vorlage für ein/mehrere Niveaus, fünf Sprachen |
 | Mail-Worker | alte Queue-Mails weiter darstellbar | Worker ruft nur `renderTransactionalEmail` auf | Vorlage akzeptiert `level` und `levels` |
-| `sitov-mail.service` | läuft | In Phase 0 inaktiv gemeldet; produktiv seit dem Go-Live aktiv (Nachweis beim Deployment) | siehe Produktionsnachweis in `STATUS.md` |
+| `sitov-mail.service` | läuft | In Phase 0 inaktiv gemeldet; am 29.09.2026 `active`, Outbox: 76 Mails `sent` | erledigt, siehe „Betrieb Phase 6" in `STATUS.md` |
 
 ## Entscheidungen
 
