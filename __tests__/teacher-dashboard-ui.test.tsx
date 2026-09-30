@@ -9,6 +9,7 @@ import { updateStudentAllowedLevels } from '@/app/actions/admin'
 import type { TeacherDetailData, TeacherStudent } from '@/lib/teacher-dashboard-contract'
 import de from '@/dictionaries/de.json'
 
+jest.unmock('lucide-react')
 jest.mock('@/app/actions/teacher-dashboard', () => ({ interveneTeacherPath: jest.fn() }))
 jest.mock('@/app/actions/admin', () => ({ updateStudentAllowedLevels: jest.fn(), updateStudentTrainerAccess: jest.fn(), updateStudentRole: jest.fn(), resetStudentProgress: jest.fn() }))
 const id = '00000000-0000-4000-8000-000000000001', unitId = '00000000-0000-4000-8000-000000000002', nodeId = '00000000-0000-4000-8000-000000000003'
@@ -63,7 +64,7 @@ it('formats exact typed answers and resolves choice and sentence indices against
 it('links to the dedicated student page and filters dates in Berlin consistently', () => {
   render(<AdminI18nProvider translations={de.admin}><StudentList initialStudents={[student]} lang="de" /></AdminI18nProvider>)
   expect(screen.getByRole('link', { name: /Ada/  })).toHaveAttribute('href', `/de/admin/students/${id}`)
-  fireEvent.click(screen.getByText('Spaltenfilter'))
+  fireEvent.click(screen.getByText('Filter & Sortierung'))
   fireEvent.change(screen.getByLabelText('Zuletzt aktiv · Ab Datum'), { target: { value: '2026-09-26' } })
   expect(screen.getByTestId(`teacher-student-${id}`)).toBeInTheDocument()
   fireEvent.change(screen.getByLabelText('Fällige Karten · Mindestens'), { target: { value: '4' } })

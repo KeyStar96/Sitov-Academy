@@ -7,7 +7,6 @@ const copy = {
   path: ['Lernpfad', 'Learning path', 'Учебный путь', 'Навчальний шлях', 'Öğrenme yolu'],
   pronunciation: ['Aussprache', 'Pronunciation', 'Произношение', 'Вимова', 'Telaffuz'],
   activity: ['Aktivität', 'Activity', 'Активность', 'Активність', 'Etkinlik'],
-  notes: ['Notizen', 'Notes', 'Заметки', 'Нотатки', 'Notlar'],
   start: ['Start', 'Home', 'Главная', 'Головна', 'Ana sayfa'],
   students: ['Lernende', 'Students', 'Ученики', 'Учні', 'Öğrenciler'],
   name: ['Name', 'Name', 'Имя', 'Ім’я', 'Ad'],

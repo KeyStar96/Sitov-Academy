@@ -1,10 +1,8 @@
 import { profileContactSchema } from '@/lib/types/profile'
 import { profileRoleSchema } from '@/lib/types/backend'
 import { saveNextMonthSchema, targetMonthSchema } from '@/lib/types/monthly-bookings'
-import { saveBlackboardSchema } from '@/lib/types/teacher-notes'
 
 const course = '00000000-0000-4000-8000-000000000001'
-const note = { student_id: course, note_id: null, note_text: ' Notiz\r\nmit Umlauten: ä, ї, ı ' }
 
 describe('monthly backend validation', () => {
   it('accepts all supported roles, rejecting invented privileges', () => {
@@ -30,18 +28,6 @@ describe('monthly backend validation', () => {
       expect(saveNextMonthSchema.safeParse({ targetMonth:'2026-09-01',courseSelections:[],paused:true,expected:null,[field]:course }).success).toBe(false)
     }
     expect(saveNextMonthSchema.safeParse({ id: course }).success).toBe(false)
-  })
-  it('normalizes note line endings and preserves canonical empty notes', () => {
-    expect(saveBlackboardSchema.parse(note)).toEqual({ student_id: course, note_id: null, note_text: 'Notiz\nmit Umlauten: ä, ї, ı' })
-    expect(saveBlackboardSchema.parse({ ...note, note_text: '   ' }).note_text).toBe('')
-  })
-  it.each(['<script>alert(1)</script>', '<img src=x onerror=alert(1)>', 'Hidden\u0000text', 'x'.repeat(5001)])('rejects unsafe note text', value => {
-    expect(saveBlackboardSchema.safeParse({ ...note, note_text: value }).success).toBe(false)
-  })
-  it('rejects forged teacher or obsolete billing metadata', () => {
-    expect(saveBlackboardSchema.safeParse({ ...note, teacher_id: course }).success).toBe(false)
-    expect(saveBlackboardSchema.safeParse({ ...note, discount_percent: 10 }).success).toBe(false)
-    expect(saveBlackboardSchema.safeParse({ ...note, is_blackboard: true }).success).toBe(false)
   })
   it('preserves international addresses and leading postal zeroes', () => {
     expect(profileContactSchema.parse({ phone: ' +49 123 ', street: ' Straße 2 ', postal_code: '00123', city: 'Київ' })).toEqual({ phone: '+49 123', street: 'Straße 2', postal_code: '00123', city: 'Київ' })

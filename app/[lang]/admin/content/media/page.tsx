@@ -1,11 +1,19 @@
 import { getLooseMediaLinks, getMediaFolders } from '@/app/actions/media'
 import MediaFolderCMS from '@/components/admin/MediaFolderCMS'
-import { mediaCopy } from '@/lib/media-i18n'
+import { PageHeader } from '@/components/admin/ui'
+import { getDictionary } from '@/lib/dictionary'
+import { createAdminTranslator } from '@/lib/admin-i18n'
+import { contentAdminCopy } from '@/lib/content-admin-i18n'
 
 export default async function MediaPage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params
-  const [folders, looseLinks] = await Promise.all([getMediaFolders(), getLooseMediaLinks()])
+  const [folders, looseLinks, dictionary] = await Promise.all([getMediaFolders(), getLooseMediaLinks(), getDictionary(lang)])
   if (!folders.success) throw new Error('media_unavailable')
-  const t = mediaCopy(lang)
-  return <div className="space-y-6"><header><h1 className="text-3xl font-semibold">{t.title}</h1><p className="mt-3 max-w-3xl text-[var(--muted)]">{t.intro}</p></header><MediaFolderCMS initial={folders.data} initialLooseLinks={looseLinks.success ? looseLinks.data : []} lang={lang} /></div>
+  const t = createAdminTranslator(dictionary.admin)
+  return (
+    <div className="min-w-0 space-y-5 sm:space-y-6">
+      <PageHeader eyebrow={t('group_content')} title={t('nav_media')} description={contentAdminCopy(lang).mediaIntro} />
+      <MediaFolderCMS initial={folders.data} initialLooseLinks={looseLinks.success ? looseLinks.data : []} lang={lang} />
+    </div>
+  )
 }

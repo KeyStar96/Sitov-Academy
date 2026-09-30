@@ -1,15 +1,16 @@
 'use client'
 
 import { useMemo, useState } from 'react'
-import { ArrowDownWideNarrow, Search, SlidersHorizontal } from 'lucide-react'
+import { ArrowDownWideNarrow, CalendarClock, ChevronDown, Search } from 'lucide-react'
 import { useAdminTranslator } from './AdminI18nProvider'
-import BlackboardEditor from './BlackboardEditor'
+import { Badge, Card, EmptyState, adminButton, adminFocus, adminInput, adminLabel, type AdminTone } from './ui'
 import { courseQuantityCopy } from '@/lib/course-quantity-i18n'
 import { formatProfileMonth } from '@/lib/profile-month'
 import { formatStudentAddress, type NextMonthOverview, type NextMonthRowStatus } from '@/lib/types/admin-staff'
 import { bookingGridRows, filterAndSortBookings, type BookingGridFilters, type BookingSort, type BookingSortField } from '@/lib/admin-booking-grid'
 
-const inputClass = 'min-h-11 w-full min-w-0 rounded-md border border-[var(--border)] bg-[var(--surface)] px-3 text-sm text-[var(--foreground)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]'
+const inputClass = adminInput
+const statusTone: Record<NextMonthRowStatus, AdminTone> = { pending: 'warning', confirmed: 'success', inherited: 'neutral', cancelled: 'danger' }
 const defaultFilters: BookingGridFilters = { search: '', status: 'all', course: 'all', format: 'all' }
 const statusKeys = { pending: 'status_pending', confirmed: 'status_confirmed', inherited: 'status_inherited', cancelled: 'status_cancelled' } as const
 const sortKeys = { name: 'grid_sort_name', status: 'col_status', courses: 'grid_sort_courses', city: 'grid_sort_city' } as const
@@ -29,62 +30,58 @@ export default function NextMonthBookings({ overview, lang, courseTitles }: {
   const setSort = (index: number, value: Partial<BookingSort>) => setSorts(previous => previous.map((sort, at) => at === index ? { ...sort, ...value } : sort))
 
   return (
-    <section className="min-w-0 overflow-hidden rounded-lg border border-[var(--border)] bg-[var(--surface)] text-[var(--foreground)]">
-      <div className="space-y-4 border-b border-[var(--border)] p-3 sm:p-4">
-        <div className="flex flex-wrap items-center justify-between gap-3">
-          <h2 className="flex items-center gap-2 text-sm font-semibold"><SlidersHorizontal size={17} aria-hidden="true" />{t('grid_title')}</h2>
-          <p className="text-sm tabular-nums text-[var(--muted)]" role="status">{t('grid_result_count', { count: rows.length, total })}</p>
-        </div>
-        <div className="grid min-w-0 gap-3 sm:grid-cols-2 xl:grid-cols-4">
-          <label className="min-w-0 text-sm font-medium">
-            <span className="mb-1.5 block">{t('grid_search_label')}</span>
-            <span className="relative block"><Search size={17} className="pointer-events-none absolute left-3 top-3.5 text-[var(--muted)]" aria-hidden="true" /><input type="search" value={filters.search} onChange={event => setFilter('search', event.target.value)} placeholder={t('grid_search_placeholder')} className={`${inputClass} pl-9`} /></span>
-          </label>
-          <label className="min-w-0 text-sm font-medium"><span className="mb-1.5 block">{t('col_status')}</span>
+    <div className="min-w-0 space-y-4 text-[var(--foreground)]">
+      <div className="space-y-3">
+        <label className="block min-w-0">
+          <span className="sr-only">{t('grid_search_label')}</span>
+          <span className="relative block"><Search size={17} className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[var(--muted)]" aria-hidden="true" /><input type="search" value={filters.search} onChange={event => setFilter('search', event.target.value)} placeholder={t('grid_search_placeholder')} aria-label={t('grid_search_label')} className={`${inputClass} pl-9`} /></span>
+        </label>
+        <div className="grid min-w-0 grid-cols-1 gap-3 sm:grid-cols-3">
+          <label className="block min-w-0"><span className={adminLabel}>{t('col_status')}</span>
             <select value={filters.status} onChange={event => setFilter('status', event.target.value as NextMonthRowStatus | 'all')} className={inputClass}>
               <option value="all">{t('grid_all_statuses')}</option>
               {Object.entries(statusKeys).map(([value, key]) => <option key={value} value={value}>{t(key)}</option>)}
             </select>
           </label>
-          <label className="min-w-0 text-sm font-medium"><span className="mb-1.5 block">{t('grid_course')}</span>
+          <label className="block min-w-0"><span className={adminLabel}>{t('grid_course')}</span>
             <select value={filters.course} onChange={event => setFilter('course', event.target.value)} className={inputClass}>
               <option value="all">{t('grid_all_courses')}</option>
               {overview.groups.map(group => <option key={group.courseId} value={group.courseId}>{courseTitles[group.courseId] || group.title || t('course_fallback')}</option>)}
             </select>
           </label>
-          <label className="min-w-0 text-sm font-medium"><span className="mb-1.5 block">{t('grid_format')}</span>
+          <label className="block min-w-0"><span className={adminLabel}>{t('grid_format')}</span>
             <select value={filters.format} onChange={event => setFilter('format', event.target.value as BookingGridFilters['format'])} className={inputClass}>
               <option value="all">{t('grid_all_formats')}</option><option value="online">{t('course_online')}</option><option value="presence">{t('course_presence')}</option>
             </select>
           </label>
         </div>
-        <details className="group">
-          <summary className="flex min-h-11 cursor-pointer list-none items-center gap-2 text-sm font-medium"><ArrowDownWideNarrow size={17} aria-hidden="true" />{t('grid_sorting')}</summary>
-          <div className="grid gap-3 pt-2 sm:grid-cols-2 xl:grid-cols-4">
-            {sorts.map((sort, index) => <div key={index} className="grid min-w-0 grid-cols-[minmax(0,1fr)_minmax(0,1fr)] gap-2 sm:col-span-2">
-              <label className="min-w-0 text-sm"><span className="mb-1.5 block">{t(index === 0 ? 'grid_sort_primary' : 'grid_sort_secondary')}</span>
+        <details className="group overflow-hidden rounded-xl border border-[var(--admin-line)] bg-[var(--surface)]">
+          <summary className={`flex min-h-12 cursor-pointer list-none items-center gap-2 px-4 text-sm font-semibold ${adminFocus}`}><ArrowDownWideNarrow size={16} aria-hidden="true" className="text-[var(--muted)]" /><span className="flex-1">{t('grid_sorting')}</span><ChevronDown size={16} aria-hidden="true" className="text-[var(--muted)] transition-transform group-open:rotate-180" /></summary>
+          <div className="grid gap-3 border-t border-[var(--admin-line)] p-4 sm:grid-cols-2">
+            {sorts.map((sort, index) => <div key={index} className="grid min-w-0 grid-cols-[minmax(0,1fr)_minmax(0,1fr)] gap-2">
+              <label className="block min-w-0"><span className={adminLabel}>{t(index === 0 ? 'grid_sort_primary' : 'grid_sort_secondary')}</span>
                 <select value={sort.field} onChange={event => setSort(index, { field: event.target.value as BookingSortField })} className={inputClass}>{Object.entries(sortKeys).map(([value, key]) => <option key={value} value={value}>{t(key)}</option>)}</select>
               </label>
-              <label className="min-w-0 text-sm"><span className="mb-1.5 block">{t('grid_sort_direction')}</span><select value={sort.direction} onChange={event => setSort(index, { direction: event.target.value === 'desc' ? 'desc' : 'asc' })} className={inputClass}><option value="asc">{t('grid_sort_asc')}</option><option value="desc">{t('grid_sort_desc')}</option></select></label>
+              <label className="block min-w-0"><span className={adminLabel}>{t('grid_sort_direction')}</span><select value={sort.direction} onChange={event => setSort(index, { direction: event.target.value === 'desc' ? 'desc' : 'asc' })} className={inputClass}><option value="asc">{t('grid_sort_asc')}</option><option value="desc">{t('grid_sort_desc')}</option></select></label>
             </div>)}
           </div>
         </details>
+        <p className="text-sm tabular-nums text-[var(--muted)]" role="status">{t('grid_result_count', { count: rows.length, total })}</p>
       </div>
-      {rows.length === 0 ? <div className="px-4 py-12 text-center"><p className="font-semibold">{t(total === 0 ? 'bookings_empty' : 'grid_no_results')}</p><p className="mt-2 text-sm text-[var(--muted)]">{t(total === 0 ? 'bookings_empty_hint' : 'grid_no_results_hint')}</p>{total > 0 && <button type="button" onClick={() => setFilters(defaultFilters)} className="mt-4 min-h-11 rounded-md border border-[var(--border)] px-4 text-sm font-semibold">{t('grid_reset')}</button>}</div> : (
-        <table className="block w-full table-fixed border-collapse text-left text-sm lg:table">
+      {rows.length === 0 ? <Card><EmptyState icon={CalendarClock} title={t(total === 0 ? 'bookings_empty' : 'grid_no_results')} description={t(total === 0 ? 'bookings_empty_hint' : 'grid_no_results_hint')} action={total > 0 ? <button type="button" onClick={() => setFilters(defaultFilters)} className={adminButton('secondary', 'sm')}>{t('grid_reset')}</button> : undefined} /></Card> : (
+        <table className="block w-full border-collapse text-left text-sm lg:table lg:table-fixed lg:overflow-hidden lg:rounded-xl lg:border lg:border-[var(--admin-line)] lg:bg-[var(--surface)]">
           <caption className="sr-only">{t('grid_caption', { month })}</caption>
-          <thead className="hidden border-b border-[var(--border)] bg-[var(--surface-muted)] text-[var(--muted)] lg:table-header-group"><tr>{(['col_name_email', 'grid_course', 'col_status', 'col_contact', 'blackboard_title'] as const).map(key => <th scope="col" key={key} className="px-4 py-3 font-medium">{t(key)}</th>)}</tr></thead>
-          <tbody className="block divide-y divide-[var(--border)] lg:table-row-group">{rows.map(row => (
-            <tr key={row.student.id} className="grid min-w-0 grid-cols-1 gap-3 p-4 align-top sm:grid-cols-2 lg:table-row lg:p-0">
-              <td className="min-w-0 break-words lg:px-4 lg:py-3"><p className="font-semibold">{row.student.person?.display_name || t('unknown_name')}</p><p className="mt-1 break-all text-xs text-[var(--muted)]">{row.student.person?.email}</p></td>
-              <td className="min-w-0 lg:px-4 lg:py-3"><p className="mb-1 text-xs text-[var(--muted)] lg:hidden">{t('grid_course')}</p>{row.courseSelections.length ? <ul className="space-y-1">{row.courseSelections.map(selection => <li key={selection.courseId} className="break-words">{courseTitles[selection.courseId] || t('course_fallback')}{selection.requestedUnits!==undefined&&<span className="block text-[var(--muted)]">{courseQuantityCopy(lang).label}: {selection.requestedUnits}</span>}</li>)}</ul> : <span className="text-[var(--muted)]">{t('status_cancelled')}</span>}</td>
-              <td className="min-w-0 lg:px-4 lg:py-3"><span className={`inline-flex rounded px-2 py-1 text-xs font-semibold ${row.status === 'confirmed' ? 'bg-emerald-50 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-200' : row.status === 'cancelled' ? 'bg-amber-50 text-amber-900 dark:bg-amber-950 dark:text-amber-200' : 'bg-[var(--surface-muted)] text-[var(--foreground)]'}`}>{t(statusKeys[row.status])}</span></td>
-              <td className="min-w-0 break-words text-[var(--muted)] lg:px-4 lg:py-3"><p>{row.student.person?.phone || t('not_specified')}</p><p className="mt-1 text-xs leading-relaxed">{formatStudentAddress(row.student) || t('not_specified')}</p></td>
-              <td className="min-w-0 sm:col-span-2 lg:px-4 lg:py-3"><details><summary className="flex min-h-11 cursor-pointer list-none items-center rounded-md border border-[var(--border)] px-3 font-medium">{t('grid_open_notes')}</summary><div className="pt-3"><BlackboardEditor studentId={row.student.id} studentName={row.student.person?.display_name || t('unknown_name')} compact /></div></details></td>
+          <thead className="hidden border-b border-[var(--admin-line)] bg-[var(--surface-muted)] lg:table-header-group"><tr>{(['col_name_email', 'grid_course', 'col_status', 'col_contact'] as const).map(key => <th scope="col" key={key} className="px-4 py-2.5 text-xs font-semibold text-[var(--muted)]">{t(key)}</th>)}</tr></thead>
+          <tbody className="block space-y-3 lg:table-row-group lg:space-y-0 lg:divide-y lg:divide-[var(--admin-line)]">{rows.map(row => (
+            <tr key={row.student.id} className="grid min-w-0 grid-cols-1 gap-3 rounded-xl border border-[var(--admin-line)] bg-[var(--surface)] p-4 align-top sm:grid-cols-2 lg:table-row lg:rounded-none lg:border-0 lg:p-0">
+              <td className="flex min-w-0 items-start justify-between gap-3 break-words sm:col-span-2 lg:table-cell lg:px-4 lg:py-3"><div className="min-w-0"><p className="font-semibold">{row.student.person?.display_name || t('unknown_name')}</p><p className="mt-0.5 break-all text-xs text-[var(--muted)]">{row.student.person?.email}</p></div><span className="shrink-0 lg:hidden"><Badge tone={statusTone[row.status]}>{t(statusKeys[row.status])}</Badge></span></td>
+              <td className="min-w-0 lg:px-4 lg:py-3"><p className="mb-1 text-xs text-[var(--muted)] lg:hidden">{t('grid_course')}</p>{row.courseSelections.length ? <ul className="space-y-1">{row.courseSelections.map(selection => <li key={selection.courseId} className="break-words">{courseTitles[selection.courseId] || t('course_fallback')}{selection.requestedUnits!==undefined&&<span className="block text-xs text-[var(--muted)]">{courseQuantityCopy(lang).label}: {selection.requestedUnits}</span>}</li>)}</ul> : <span className="text-[var(--muted)]">{t('status_cancelled')}</span>}</td>
+              <td className="hidden min-w-0 lg:table-cell lg:px-4 lg:py-3"><Badge tone={statusTone[row.status]}>{t(statusKeys[row.status])}</Badge></td>
+              <td className="min-w-0 break-words text-[var(--muted)] lg:px-4 lg:py-3"><p className="mb-1 text-xs lg:hidden">{t('col_contact')}</p><p className="text-[var(--foreground)]">{row.student.person?.phone || t('not_specified')}</p><p className="mt-0.5 text-xs leading-relaxed">{formatStudentAddress(row.student) || t('not_specified')}</p></td>
             </tr>
           ))}</tbody>
         </table>
       )}
-    </section>
+    </div>
   )
 }

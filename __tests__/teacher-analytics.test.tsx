@@ -19,7 +19,8 @@ beforeEach(() => { jest.clearAllMocks(); jest.mocked(getTeacherAnalytics).mockRe
 it('renders server aggregates, accessible history, and the existing course/exception editor entry point', async () => {
   render(<TeacherAnalytics options={options} failed={false} lang="de" translations={{}} />)
   expect(await screen.findByRole('progressbar')).toHaveAttribute('aria-valuenow', '86')
-  expect(screen.getByRole('link', { name: 'Kurse & Ausfälle verwalten' })).toHaveAttribute('href', '/de/admin/courses')
+  // Kursverwaltung ist aus der Lernanalyse herausgelöst (Bereich „Kurse“).
+  expect(screen.queryByRole('link', { name: /Kurse/ })).not.toBeInTheDocument()
   fireEvent.click(screen.getByText('Tageswerte anzeigen'))
   const table = screen.getByRole('table')
   expect(within(table).getByRole('row', { name: '30.09. 5 3' })).toBeInTheDocument()

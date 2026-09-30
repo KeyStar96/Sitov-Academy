@@ -9,6 +9,8 @@ import { revalidatePath } from 'next/cache'
 import { sanitizeAllowedLevels, ACCESS_LEVELS, TRAINERS } from '@/lib/access/levels'
 import { withBackendSession, checkDatabaseError, checkRpcError, revalidateBackendPages } from '@/lib/actions/backend'
 import { profileRoleSchema, uuidSchema } from '@/lib/types/backend'
+import { loadUnassignedStudents } from '@/lib/admin-new-students'
+import type { AdminNavCounts } from '@/lib/admin-navigation'
 
 // Helper to check if current user is admin/teacher
 async function requireAdmin() {
@@ -55,10 +57,14 @@ export async function getAdminStats() {
     const readFailure = studentError ?? activatedError ?? pendingError
     if (readFailure) throw new Error(`admin_stats_unavailable: ${readFailure.code ?? 'unknown'}`)
 
+    // Neue Registrierungen ohne Niveau-Zuordnung (eigene Definition in lib/admin-new-students).
+    const unassigned = await loadUnassignedStudents(supabase)
+
     return {
       studentCount: studentCount ?? 0,
       activatedCount: activatedCount ?? 0,
-      pendingSubmissions: pendingSubmissions ?? 0
+      pendingSubmissions: pendingSubmissions ?? 0,
+      newStudentCount: unassigned.length,
     }
   } catch (error) {
     // Weiterwerfen statt Nullen: app/[lang]/admin/error.tsx zeigt eine ehrliche
@@ -66,6 +72,26 @@ export async function getAdminStats() {
     // sichtbar, statt als "0 Schüler" durchzugehen.
     console.error("Error fetching admin stats")
     throw error instanceof Error ? error : new Error('admin_stats_unavailable')
+  }
+}
+
+/**
+ * Zähler für die Navigations-Badges (Neue Schüler, offene Korrekturen).
+ * Wirft nie: Ein Ausfall zeigt schlicht keine Badges statt die gesamte
+ * Lehrer-Oberfläche zu blockieren; `null` bedeutet „unbekannt“, nicht 0.
+ */
+export async function getAdminNavCounts(): Promise<AdminNavCounts> {
+  try {
+    await requireAdmin()
+    const supabase = createAdminClient()
+    const [unassigned, pending] = await Promise.all([
+      loadUnassignedStudents(supabase).then(rows => rows.length).catch(() => null),
+      supabase.from('submissions').select('id', { count: 'exact', head: true }).eq('status', 'pending')
+        .then(({ count, error }) => (error ? null : count ?? 0), () => null),
+    ])
+    return { newStudents: unassigned, corrections: pending }
+  } catch {
+    return { newStudents: null, corrections: null }
   }
 }
 

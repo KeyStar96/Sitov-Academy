@@ -1,13 +1,17 @@
-import Link from 'next/link'
 import { getCertificateAdminData } from '@/app/actions/certificates'
 import CertificateDashboard from '@/components/admin/certificates/CertificateDashboard'
+import { certificateTabFrom } from '@/components/admin/certificates/tabs'
 import { certificateAdminCopy } from '@/components/admin/certificates/i18n'
+import { Notice, PageHeader } from '@/components/admin/ui'
+import { administrationCopy } from '@/lib/admin-administration-i18n'
 
 export const dynamic = 'force-dynamic'
-export default async function CertificatesPage({ params }: { params: Promise<{ lang: string }> }) {
-  const { lang } = await params
+export default async function CertificatesPage({ params, searchParams }: { params: Promise<{ lang: string }>; searchParams: Promise<{ tab?: string }> }) {
+  const [{ lang }, { tab }] = await Promise.all([params, searchParams])
   const result = await getCertificateAdminData()
-  const c = certificateAdminCopy(lang)
-  if (result.success === false) return <section className="space-y-4 rounded-xl border border-[var(--border)] bg-[var(--surface)] p-6 text-[var(--foreground)]"><h1 className="text-2xl font-semibold">{c.title}</h1><p role="alert">{result.error === 'not_authenticated' || result.error === 'not_authorized' ? c.denied : c.failed}</p><Link href={`/${lang}/admin/finance`} className="inline-flex min-h-11 items-center underline">{c.back}</Link></section>
-  return <CertificateDashboard initialData={result.data} lang={lang} />
+  if (result.success === false) {
+    const c = certificateAdminCopy(lang)
+    return <div className="min-w-0 space-y-5"><PageHeader title={administrationCopy(lang).certificatesTitle} /><Notice tone="warning" role="alert">{result.error === 'not_authenticated' || result.error === 'not_authorized' ? c.denied : c.failed}</Notice></div>
+  }
+  return <CertificateDashboard initialData={result.data} lang={lang} view="certificates" initialTab={certificateTabFrom(tab)} />
 }

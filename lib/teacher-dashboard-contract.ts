@@ -2,7 +2,8 @@ import { z } from 'zod'
 import { ACCESS_LEVELS, TRAINERS } from '@/lib/access/levels'
 import type { PhaseDistribution } from '@/lib/vocabulary-ui'
 
-export const TEACHER_TABS = ['overview', 'vocabulary', 'path', 'pronunciation', 'activity', 'notes'] as const
+/** Tabs der Schülerseite. Das frühere „notes“ (Schwarzes Brett) ist seit Phase 11.2 entfernt. */
+export const TEACHER_TABS = ['overview', 'vocabulary', 'path', 'pronunciation', 'activity'] as const
 export const teacherTabSchema = z.enum(TEACHER_TABS)
 export type TeacherTab = z.infer<typeof teacherTabSchema>
 const count = z.number().int().nonnegative()
@@ -47,9 +48,8 @@ export const teacherPathSchema = z.object({
 export const teacherPronunciationSchema = z.object({ conversations: z.array(z.object({ id, createdAt: date, status: z.string(), messageCount: count, unansweredCount: count, lastMessageAt: date.nullable() })) })
 export const teacherActivitySchema = z.object({ days: z.array(z.object({ date, seconds: count, answers: count, active: z.boolean() })),
   byMode: z.array(z.object({ mode: z.string(), seconds: count })), totalSeconds: count })
-export const teacherNotesSchema = z.object({ notes: z.array(z.object({ id, note_text: z.string(), created_at: date, updated_at: date, teacher_id: id })) })
 export const teacherDetailSchemas = { overview: teacherStudentSchema, vocabulary: teacherVocabularySchema,
-  path: teacherPathSchema, pronunciation: teacherPronunciationSchema, activity: teacherActivitySchema, notes: teacherNotesSchema }
+  path: teacherPathSchema, pronunciation: teacherPronunciationSchema, activity: teacherActivitySchema }
 export type TeacherDetailData = { [K in TeacherTab]: z.infer<(typeof teacherDetailSchemas)[K]> }
 export type TeacherResult<T> = { data: T; error?: never } | { error: string; data?: never }
 export const teacherInterventionSchema = z.object({ studentId: id, unitId: id,

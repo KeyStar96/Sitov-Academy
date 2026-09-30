@@ -1703,3 +1703,33 @@ html:not([data-consent="open"]) .consent-banner[data-prompt="auto"] { display: n
 @media (prefers-reduced-motion: reduce) {
   .premium-cta, .premium-cta * { transition: none !important; }
 }
+
+/* Lehrer-Dashboard (Phase 11.2): sachliche, mobile-first Admin-Oberfläche.
+   Karten und Listen trennen sich über ruhige Haarlinien, die aus den Theme-
+   Tokens abgeleitet werden; Eingabefelder behalten die kontraststarke
+   --border-Kontur (≥3:1). Status-Tönungen mischen die semantischen Farben
+   mit der Fläche, damit Text in allen vier Paletten AA erreicht. */
+.admin-shell {
+  --admin-line: color-mix(in srgb, var(--border) 34%, var(--surface));
+  --admin-line-strong: color-mix(in srgb, var(--border) 62%, var(--surface));
+  --admin-hover: color-mix(in srgb, var(--surface-muted) 70%, var(--surface));
+  --admin-success-soft: color-mix(in srgb, var(--success) 12%, var(--surface));
+  --admin-danger-soft: color-mix(in srgb, var(--danger) 11%, var(--surface));
+  --admin-info-soft: color-mix(in srgb, var(--violet) 10%, var(--surface));
+  --admin-topbar-height: 3.75rem;
+  --admin-tabbar-height: 4rem;
+  -webkit-tap-highlight-color: transparent;
+}
+html.high-contrast .admin-shell {
+  --admin-line: var(--border);
+  --admin-line-strong: var(--border-strong);
+  --admin-success-soft: var(--surface);
+  --admin-danger-soft: var(--surface);
+  --admin-info-soft: var(--surface);
+}
+/* Horizontale Unterreiter: wischbar, ohne sichtbare Scrollleiste. */
+.admin-scroll-x { overflow-x: auto; scrollbar-width: none; overscroll-behavior-x: contain; }
+.admin-scroll-x::-webkit-scrollbar { display: none; }
+@media (prefers-reduced-motion: reduce) {
+  .admin-shell *, .admin-shell *::before, .admin-shell *::after { transition-duration: 0ms !important; animation-duration: 0ms !important; }
+}

@@ -1,10 +1,13 @@
+import { TriangleAlert } from 'lucide-react'
 import { teacherDashboardT, teacherAttentionLabel } from '@/lib/teacher-dashboard-i18n'
 import { teacherDistribution, type TeacherPhases } from '@/lib/teacher-dashboard-contract'
 import { phaseBarClasses } from '@/lib/vocabulary-ui'
+import { adminButton, adminInput } from './ui'
 
-export const dashboardControl = 'min-h-12 w-full rounded-xl border border-[var(--border)] bg-[var(--surface)] px-3 py-2 text-base text-[var(--foreground)]'
-export const dashboardButton = 'inline-flex min-h-12 items-center justify-center rounded-xl border border-[var(--border)] px-4 py-2 text-base font-semibold hover:border-[var(--accent-strong)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent-strong)] disabled:opacity-50'
-export const dashboardPanel = 'min-w-0 rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-4 sm:p-6'
+/** Gemeinsame Klassen der Schüleransichten – abgeleitet aus dem Admin-UI-Kit. */
+export const dashboardControl = adminInput
+export const dashboardButton = adminButton('secondary', 'md')
+export const dashboardPanel = 'min-w-0 rounded-xl border border-[var(--admin-line)] bg-[var(--surface)] p-4 sm:p-5'
 export function studyTime(seconds: number, lang: string) { return teacherDashboardT(lang)('minutes', { count: Math.round(seconds / 60) }) }
 export function displayDate(value: string | null, lang: string) {
   if (!value) return teacherDashboardT(lang)('never')
@@ -18,15 +21,19 @@ export function displayDate(value: string | null, lang: string) {
   const date = lang === 'en' ? `${part('month')}/${part('day')}/${part('year')}` : `${part('day')}.${part('month')}.${part('year')}`
   return `${date} · ${part('hour')}:${part('minute')}`
 }
-export function AttentionReasons({ reasons, lang }: { reasons: string[]; lang: string }) {
+export function AttentionReasons({ reasons, lang, compact = false }: { reasons: string[]; lang: string; compact?: boolean }) {
   const t = teacherDashboardT(lang)
-  return reasons.length ? <div className="rounded-xl border border-[var(--accent)] bg-[var(--accent-soft)] p-3 text-[var(--foreground)]"><p className="font-bold">{t('attention')}</p><ul className="mt-1 list-inside list-disc space-y-1">{reasons.map(reason => <li key={reason}>{teacherAttentionLabel(lang, reason)}</li>)}</ul></div> : <span>{t('noAttention')}</span>
+  if (!reasons.length) return <span className="text-sm text-[var(--muted)]">{t('noAttention')}</span>
+  if (compact) {
+    return <ul className="flex flex-wrap gap-1.5" aria-label={t('attention')}>{reasons.map(reason => <li key={reason}><span className="inline-flex items-center gap-1 rounded-md bg-[var(--warning)] px-2 py-0.5 text-xs font-semibold leading-5 text-[var(--warning-foreground)]"><TriangleAlert size={12} aria-hidden="true" />{teacherAttentionLabel(lang, reason)}</span></li>)}</ul>
+  }
+  return <div className="rounded-xl bg-[var(--warning)] px-4 py-3 text-sm text-[var(--warning-foreground)]"><p className="flex items-center gap-2 font-semibold"><TriangleAlert size={16} aria-hidden="true" />{t('attention')}</p><ul className="mt-1.5 list-inside list-disc space-y-0.5">{reasons.map(reason => <li key={reason}>{teacherAttentionLabel(lang, reason)}</li>)}</ul></div>
 }
 export function MiniPhases({ phases, lang }: { phases: TeacherPhases; lang: string }) {
   const t = teacherDashboardT(lang)
   const { buckets, totalInBox } = teacherDistribution(phases)
   const label = buckets.map(bucket => `${bucket.key === 'learned' ? t('learned') : t('phase', { phase: bucket.key })}: ${bucket.count}`).join(' · ')
-  return <div aria-label={label} role="img" className="min-w-20"><div className="flex h-3 overflow-hidden rounded-full bg-[var(--surface-muted)]" aria-hidden="true">{buckets.map(bucket => <span key={bucket.key} className={phaseBarClasses(bucket.key).bar} style={{ width: `${totalInBox ? bucket.count / totalInBox * 100 : 0}%` }} />)}</div><p className="mt-2 text-base tabular-nums" aria-hidden="true">{buckets.map(bucket => bucket.count).join(' / ')}</p></div>
+  return <div aria-label={label} role="img" className="min-w-20"><div className="flex h-2 overflow-hidden rounded-full bg-[var(--surface-muted)]" aria-hidden="true">{buckets.map(bucket => <span key={bucket.key} className={phaseBarClasses(bucket.key).bar} style={{ width: `${totalInBox ? bucket.count / totalInBox * 100 : 0}%` }} />)}</div><p className="mt-1.5 text-xs tabular-nums text-[var(--muted)]" aria-hidden="true">{buckets.map(bucket => bucket.count).join(' / ')}</p></div>
 }
 
 export function berlinDate(value: string): string { return new Intl.DateTimeFormat('sv-SE', { timeZone: 'Europe/Berlin', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date(value)) }

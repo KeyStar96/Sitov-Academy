@@ -2,6 +2,7 @@
 
 import { useEffect, useId, useState } from 'react'
 import { Link2, Loader2 } from 'lucide-react'
+import { adminButton, adminInput } from './ui'
 import { saveMediaLink } from '@/app/actions/media'
 import { mediaCopy } from '@/lib/media-i18n'
 import { learningResourceUrl } from '@/lib/video-links'
@@ -50,19 +51,19 @@ export default function MediaLinkForm({ folders, folderId, editing, lang, onSave
     } catch { setState('failed') }
   }
 
-  const field = 'min-h-12 w-full rounded-lg border border-[var(--border)] bg-[var(--surface)] px-3'
-  return <form onSubmit={submit} className="space-y-4 rounded-2xl border border-[var(--border)] bg-[var(--surface-muted)] p-5">
-    <h3 className="flex items-center gap-2 text-lg font-semibold"><Link2 size={20} aria-hidden="true" />{editing ? t.linkEdit : t.addLink}</h3>
-    <label className="block space-y-2"><span>{t.linkUrl}</span><input required type="url" inputMode="url" maxLength={2000} placeholder="https://www.youtube.com/watch?v=…" aria-describedby={`${id}-hint`} value={form.url} onChange={event => { setForm({ ...form, url: event.target.value }); if (state === 'invalid') setState('idle') }} className={field} /></label>
+  const field = adminInput
+  return <form onSubmit={submit} className="min-w-0 space-y-4 rounded-xl border border-[var(--admin-line)] bg-[var(--surface)] p-4 sm:p-5">
+    <h3 className="flex items-center gap-2 text-sm font-semibold"><Link2 size={17} aria-hidden="true" className="text-[var(--muted)]" />{editing ? t.linkEdit : t.addLink}</h3>
+    <label className="block space-y-1.5"><span className="block text-sm font-medium">{t.linkUrl}</span><input required type="url" inputMode="url" maxLength={2000} placeholder="https://www.youtube.com/watch?v=…" aria-describedby={`${id}-hint`} value={form.url} onChange={event => { setForm({ ...form, url: event.target.value }); if (state === 'invalid') setState('idle') }} className={field} /></label>
     <p id={`${id}-hint`} className="text-sm leading-relaxed text-[var(--muted)]">{t.linkUrlHint}</p>
-    <label className="block space-y-2"><span>{t.linkTitle}</span><input required minLength={2} maxLength={180} value={form.title} onChange={event => setForm({ ...form, title: event.target.value })} className={field} /></label>
-    <label className="block space-y-2"><span>{t.linkDescription}</span><textarea rows={2} maxLength={1200} value={form.description} onChange={event => setForm({ ...form, description: event.target.value })} className={`${field} py-2`} /></label>
-    {(editing || folders.length > 1) && <label className="block space-y-2"><span>{t.linkFolder}</span><select required value={form.folder_id} onChange={event => setForm({ ...form, folder_id: event.target.value })} className={field}>{folders.map(folder => <option key={folder.folder_id} value={folder.folder_id}>{folder.level} · {folder.title}</option>)}</select></label>}
-    <label className="flex min-h-12 items-center gap-3"><input type="checkbox" checked={form.is_active} onChange={event => setForm({ ...form, is_active: event.target.checked })} className="h-5 w-5 accent-[var(--accent)]" />{t.linkVisible}</label>
+    <label className="block space-y-1.5"><span className="block text-sm font-medium">{t.linkTitle}</span><input required minLength={2} maxLength={180} value={form.title} onChange={event => setForm({ ...form, title: event.target.value })} className={field} /></label>
+    <label className="block space-y-1.5"><span className="block text-sm font-medium">{t.linkDescription}</span><textarea rows={2} maxLength={1200} value={form.description} onChange={event => setForm({ ...form, description: event.target.value })} className={`${field} resize-y`} /></label>
+    {(editing || folders.length > 1) && <label className="block space-y-1.5"><span className="block text-sm font-medium">{t.linkFolder}</span><select required value={form.folder_id} onChange={event => setForm({ ...form, folder_id: event.target.value })} className={field}>{folders.map(folder => <option key={folder.folder_id} value={folder.folder_id}>{folder.level} · {folder.title}</option>)}</select></label>}
+    <label className="flex min-h-12 items-center gap-3 text-sm"><input type="checkbox" checked={form.is_active} onChange={event => setForm({ ...form, is_active: event.target.checked })} className="h-5 w-5 accent-[var(--accent-strong)]" />{t.linkVisible}</label>
     <p role={state === 'failed' || state === 'invalid' ? 'alert' : 'status'} aria-live="polite" className="min-h-6 text-sm">{state === 'invalid' ? t.linkInvalid : state === 'saved' ? t.saved : state === 'failed' ? t.failed : ''}</p>
-    <div className="flex flex-wrap gap-3">
-      {editing && <button type="button" onClick={onCancel} className="min-h-12 rounded-lg border border-[var(--border)] px-5">{t.cancel}</button>}
-      <button type="submit" disabled={state === 'saving'} className="inline-flex min-h-12 items-center gap-2 rounded-lg bg-[var(--accent-strong)] px-5 font-semibold text-[var(--accent-foreground)] hover:bg-[var(--accent-strong-hover)] disabled:opacity-60">{state === 'saving' && <Loader2 size={18} className="animate-spin" aria-hidden="true" />}{t.linkSave}</button>
+    <div className="flex flex-col gap-2 sm:flex-row sm:justify-end">
+      {editing && <button type="button" onClick={onCancel} className={adminButton('secondary')}>{t.cancel}</button>}
+      <button type="submit" disabled={state === 'saving'} className={adminButton('primary')}>{state === 'saving' && <Loader2 size={18} className="animate-spin" aria-hidden="true" />}{t.linkSave}</button>
     </div>
   </form>
 }

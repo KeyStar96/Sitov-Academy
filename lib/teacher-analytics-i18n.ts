@@ -1,7 +1,7 @@
 import { toUiLocale } from './locale-routing'
 const de = {
   title: 'Lernanalyse', intro: 'Leitner-Verteilung und dokumentierte Lernaktivität je Schüler und unabhängig freigeschaltetem Trainer-Niveau.',
-  student: 'Schüler', unknown: 'Schüler ohne Namen', level: 'Trainer-Niveau', allLevels: 'Alle Lernniveaus', manage: 'Kurse & Ausfälle verwalten',
+  student: 'Schüler', unknown: 'Schüler ohne Namen', level: 'Trainer-Niveau', allLevels: 'Alle Lernniveaus',
   empty: 'Noch keine Schüler vorhanden.', loading: 'Lernanalyse wird geladen …', failed: 'Die Lernanalyse konnte nicht geladen werden.', retry: 'Erneut laden',
   phases: 'Leitner-Phasen 1–7', phaseHint: 'Pro Wort zählt die niedrigste Phase beider Abfragerichtungen. Phase 7 bedeutet: in beiden Richtungen gelernt. Der Balken zeigt den gewichteten Vokabelfortschritt.',
   scope: 'Die Auswertung zeigt ausschließlich das gewählte Trainer-Niveau. Kursanmeldungen und Kurszuordnungen sind davon unabhängig.',
@@ -11,7 +11,7 @@ const de = {
 type Copy = typeof de
 const en: Copy = {
   title: 'Learning analytics', intro: 'Leitner distribution and recorded learning activity by student and independently unlocked trainer level.',
-  student: 'Student', unknown: 'Student without a name', level: 'Trainer level', allLevels: 'All learning levels', manage: 'Manage courses & cancellations',
+  student: 'Student', unknown: 'Student without a name', level: 'Trainer level', allLevels: 'All learning levels',
   empty: 'No students yet.', loading: 'Loading learning analytics …', failed: 'Learning analytics could not be loaded.', retry: 'Try again',
   phases: 'Leitner phases 1–7', phaseHint: 'Each word uses the lower phase of its two directions. Phase 7 means learned in both directions. The bar shows weighted vocabulary progress.',
   scope: 'This view covers only the selected trainer level. Course enrollments and course assignments are independent.',
@@ -20,7 +20,7 @@ const en: Copy = {
 }
 const ru: Copy = {
   title: 'Аналитика обучения', intro: 'Распределение по этапам Лейтнера и сохранённая активность ученика по отдельному уровню тренажёра.',
-  student: 'Ученик', unknown: 'Ученик без имени', level: 'Уровень тренажёра', allLevels: 'Все уровни обучения', manage: 'Курсы и отмены занятий',
+  student: 'Ученик', unknown: 'Ученик без имени', level: 'Уровень тренажёра', allLevels: 'Все уровни обучения',
   empty: 'Учеников пока нет.', loading: 'Загрузка аналитики …', failed: 'Не удалось загрузить аналитику.', retry: 'Повторить',
   phases: 'Этапы Лейтнера 1–7', phaseHint: 'Для каждого слова показан меньший этап из двух направлений. Этап 7 означает, что слово выучено в обоих направлениях. Полоса показывает взвешенный прогресс по словам.',
   scope: 'Показаны результаты только выбранного уровня тренажёра. Запись на курсы и назначение курсов независимы.',
@@ -29,7 +29,7 @@ const ru: Copy = {
 }
 const uk: Copy = {
   title: 'Аналітика навчання', intro: 'Розподіл за етапами Лейтнера та збережена активність учня за окремим рівнем тренажера.',
-  student: 'Учень', unknown: 'Учень без імені', level: 'Рівень тренажера', allLevels: 'Усі рівні навчання', manage: 'Курси та скасування занять',
+  student: 'Учень', unknown: 'Учень без імені', level: 'Рівень тренажера', allLevels: 'Усі рівні навчання',
   empty: 'Учнів поки немає.', loading: 'Завантаження аналітики …', failed: 'Не вдалося завантажити аналітику.', retry: 'Спробувати знову',
   phases: 'Етапи Лейтнера 1–7', phaseHint: 'Для кожного слова показано нижчий етап із двох напрямків. Етап 7 означає, що слово вивчено в обох напрямках. Смужка показує зважений прогрес зі слів.',
   scope: 'Показано результати лише вибраного рівня тренажера. Запис на курси та призначення курсів незалежні.',
@@ -38,7 +38,7 @@ const uk: Copy = {
 }
 const tr: Copy = {
   title: 'Öğrenme analizi', intro: 'Öğrenciye ve bağımsız açılan alıştırma seviyesine göre Leitner dağılımı ve kayıtlı öğrenme etkinliği.',
-  student: 'Öğrenci', unknown: 'İsimsiz öğrenci', level: 'Alıştırma seviyesi', allLevels: 'Tüm öğrenme seviyeleri', manage: 'Kursları ve ders iptallerini yönet',
+  student: 'Öğrenci', unknown: 'İsimsiz öğrenci', level: 'Alıştırma seviyesi', allLevels: 'Tüm öğrenme seviyeleri',
   empty: 'Henüz öğrenci yok.', loading: 'Öğrenme analizi yükleniyor …', failed: 'Öğrenme analizi yüklenemedi.', retry: 'Tekrar dene',
   phases: 'Leitner aşamaları 1–7', phaseHint: 'Her kelime için iki yönden düşük olan aşama gösterilir. Aşama 7, kelimenin iki yönde de öğrenildiğini belirtir. Çubuk ağırlıklı kelime ilerlemesini gösterir.',
   scope: 'Bu görünüm yalnızca seçilen alıştırma seviyesini kapsar. Kurs kayıtları ve kurs atamaları bağımsızdır.',

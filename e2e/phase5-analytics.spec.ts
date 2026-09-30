@@ -51,7 +51,8 @@ for (const theme of ['light', 'dark'] as const) {
       // A new student has no answer receipts. Do not fabricate a learning history.
       await expect(page.getByRole('region', { name: t.history }).getByText(t.noHistory, { exact: true })).toBeVisible()
       await expect(page.getByText(t.failed, { exact: true })).toHaveCount(0)
-      await expect(page.getByRole('link', { name: t.manage, exact: true })).toHaveAttribute('href', '/ru/admin/courses')
+      // Kursverwaltung liegt seit Phase 11.2 im eigenen Bereich „Kurse“, nicht in der Lernanalyse.
+      await expect(page.locator('#admin-content').getByRole('link', { name: /курс/i })).toHaveCount(0)
       expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([])
       await page.screenshot({ path: testInfo.outputPath('teacher-trainer-analytics.png') })
     } finally {

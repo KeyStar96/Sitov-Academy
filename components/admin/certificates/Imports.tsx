@@ -67,7 +67,7 @@ export default function Imports({ data, lang, c, busy, run, reload, onError }: D
   const stats = [['total', c.total], ['ready', c.ready], ['conflicts', c.conflicts], ['errors', c.errors], ['ignored', c.ignored], ['paid', c.paid]] as const
 
   return <div className="space-y-6">
-    <section className={panel}><h2 className="text-lg font-semibold">{c.uploadTitle}</h2><p className="mt-1 text-sm text-[var(--muted)]">{c.uploadHint}</p>
+    <section className={panel}><h2 className="text-sm font-semibold">{c.uploadTitle}</h2><p className="mt-1 text-sm text-[var(--muted)]">{c.uploadHint}</p>
       <form onSubmit={preview} className="mt-4"><fieldset disabled={disabled} className="space-y-4">
         <div className="grid gap-4 md:grid-cols-3">
           <Field label={c.kind}><select className={control} name="kind" value={kind} onChange={event => { setKind(event.target.value as CertificateImportKind); setComplete(false) }}><option value="customers">{c.customers}</option><option value="products">{c.products}</option><option value="invoices">{c.invoices}</option></select></Field>
@@ -83,7 +83,7 @@ export default function Imports({ data, lang, c, busy, run, reload, onError }: D
       </fieldset></form>
     </section>
     {batchId && <section className={`${panel} space-y-4`} aria-busy={working}>
-      <div><h2 className="text-lg font-semibold">{c.previewTitle}</h2><p className="mt-1 break-words text-sm text-[var(--muted)]">{batch?.filename} · {batch && certificateStatus(batch.status, c)}</p></div>
+      <div><h2 className="text-sm font-semibold">{c.previewTitle}</h2><p className="mt-1 break-words text-sm text-[var(--muted)]">{batch?.filename} · {batch && certificateStatus(batch.status, c)}</p></div>
       {working && !rows && <p role="status">{c.working}</p>}
       {rows && <>
         <dl className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">{stats.map(([key, label]) => <div key={key} className="rounded-lg bg-[var(--surface-muted)] p-3"><dt className="text-xs text-[var(--muted)]">{label}</dt><dd className="mt-1 text-xl font-semibold">{typeof summary[key] === 'number' ? summary[key] : '—'}</dd></div>)}</dl>
@@ -99,7 +99,7 @@ export default function Imports({ data, lang, c, busy, run, reload, onError }: D
         {batch?.status === 'preview' && <button className={primary} type="button" disabled={disabled || rows.some(row => row.disposition === 'error') || rows.every(row => row.disposition === 'ignored')} onClick={async () => { if (await run({ command: 'apply_import', payload: { batch_id: batchId } })) await inspect(batchId) }}>{c.apply}</button>}
       </>}
     </section>}
-    <section className={`${panel} space-y-4`}><h2 className="text-lg font-semibold">{c.history}</h2>
+    <section className={`${panel} space-y-4`}><h2 className="text-sm font-semibold">{c.history}</h2>
       {!data.batches.length ? <Empty text={c.noData} /> : <Table caption={c.history} headings={[c.file, c.kind, c.exportedAt, c.status, c.details]}>{data.batches.slice(0, historyCount).map(entry => <tr key={entry.id}>
         <td className={`${cell} break-words`}>{entry.filename}</td><td className={cell}>{certificateStatus(entry.kind, c)}</td><td className={cell}>{formatDate(entry.exported_at, lang, true)}</td><td className={cell}>{certificateStatus(entry.status, c)}</td><td className={cell}><button className={button} disabled={disabled} type="button" onClick={() => inspect(entry.id)}>{c.inspect}</button></td>
       </tr>)}</Table>}

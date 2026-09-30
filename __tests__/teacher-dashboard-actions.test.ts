@@ -35,7 +35,7 @@ it.each(['not_authorized', 'learning_reset_in_progress', 'path_locked', 'request
 it('refuses requests without a cookie-authenticated identity', async () => {
   const rpc = setup({ success: true }, null, null)
   expect(await getTeacherStudents()).toEqual({ error: 'authentication_required' })
-  expect(await getTeacherStudentDetail(id, 'notes', 'de')).toEqual({ error: 'authentication_required' })
+  expect(await getTeacherStudentDetail(id, 'activity', 'de')).toEqual({ error: 'authentication_required' })
   expect(await interveneTeacherPath({ studentId: id, unitId, action: 'unlock', nodeId: null, requestId })).toEqual({ error: 'authentication_required' })
   expect(rpc).not.toHaveBeenCalled()
 })
@@ -53,7 +53,9 @@ it('reports missing backend RPCs explicitly and validates tab/locale before I/O'
   const rpc = setup(null, { code: 'PGRST202' })
   expect(await getTeacherStudents()).toEqual({ error: 'backend_unavailable' })
   rpc.mockClear()
-  expect(await getTeacherStudentDetail(id, 'notes', 'xx')).toEqual({ error: 'invalid_input' })
+  expect(await getTeacherStudentDetail(id, 'activity', 'xx')).toEqual({ error: 'invalid_input' })
+  // Der frühere Tab „notes“ (Schwarzes Brett) ist entfernt und wird nicht mehr abgefragt.
+  expect(await getTeacherStudentDetail(id, 'notes' as never, 'de')).toEqual({ error: 'invalid_input' })
   expect(rpc).not.toHaveBeenCalled()
 })
 it.each(['de', 'en', 'ru', 'uk', 'tr'])('translates every real dashboard failure and attention reason in %s', lang => {

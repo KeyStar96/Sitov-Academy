@@ -8,7 +8,10 @@ import { parseFillInBlankContent, parseMultipleChoiceContent, readTargetForms } 
 import { grammarTranslator } from '@/lib/grammar-i18n'
 import { ACCESS_LEVELS } from '@/lib/access/levels'
 import type { Json } from '@/supabase/database.types'
-import styles from '@/components/exercises/GrammarStudio.module.css'
+import { useAdminTranslator } from './AdminI18nProvider'
+import { Badge, Card, EmptyState, Notice, PageHeader, adminButton, adminInput, adminLabel } from './ui'
+import { contentAdminCopy } from '@/lib/content-admin-i18n'
+import { cn } from '@/lib/utils'
 
 interface EditorState {
   id?: string
@@ -69,6 +72,8 @@ export default function ExerciseCMS({ initialData, lang = 'de', loadFailed = fal
   const [page, setPage] = useState(1)
   const editorRef = useRef<HTMLFormElement>(null)
   const g = useMemo(() => grammarTranslator(lang), [lang])
+  const t = useAdminTranslator()
+  const copy = contentAdminCopy(lang)
   const filtered = items.filter(row => (!level || row.level === level) && `${row.topic} ${row.lesson} ${previewFor(row)}`.toLocaleLowerCase('de-DE').includes(query.toLocaleLowerCase('de-DE')))
   const set = (key: Exclude<keyof EditorState, 'contentHints' | 'metadataHints' | 'translationPrompts'>, value: string) => setEditor(previous => previous ? { ...previous, [key]: value } : previous)
 
@@ -149,57 +154,63 @@ export default function ExerciseCMS({ initialData, lang = 'de', loadFailed = fal
     } catch { setMessage('failed') } finally { setBusy(false) }
   }
 
-  return <section className={styles.shell}>
-    <header className={styles.hero}>
-      <div><span className={styles.eyebrow}><BookOpenCheck size={17} aria-hidden="true" />{g('total')}</span><h1 className={styles.title}>{g('adminTitle')}</h1><p className={styles.subtitle}>{g('adminSubtitle')}</p></div>
-      <button type="button" disabled={busy} onClick={() => openEditor()} className="academy-button academy-button-primary"><Plus size={19} aria-hidden="true" />{g('newExercise')}</button>
-    </header>
-    {message && <p role={message === 'invalid' || message === 'failed' ? 'alert' : 'status'} className={`${styles.notice} rounded-xl border border-[var(--border)] bg-[var(--surface-muted)]`}><CheckCircle2 size={18} aria-hidden="true" />{g(message)}</p>}
-    {editor && <form onSubmit={handleSave} ref={editorRef} className={styles.editor}>
-      <div className="flex flex-wrap items-center justify-between gap-3"><h2 className="text-xl font-semibold">{g(editor.id ? 'editExercise' : 'newExercise')}</h2><button type="button" disabled={busy} onClick={() => setEditor(null)} className="academy-button academy-button-secondary"><X size={17} aria-hidden="true" />{g('cancel')}</button></div>
-      <div className={styles.editorGrid}>
-        <label className={styles.field}>{g('level', { level: '' })}<select value={editor.level} onChange={event => set('level', event.target.value)}>{ACCESS_LEVELS.map(value => <option key={value}>{value}</option>)}</select></label>
-        <label className={styles.field}>{g('type')}<select value={editor.type} onChange={event => set('type', event.target.value)}><option value="fill_in_blank">{g('fill')}</option><option value="multiple_choice">{g('choice')}</option></select></label>
-        <label className={styles.field}>{g('lesson')}<input required maxLength={120} value={editor.lesson} onChange={event => set('lesson', event.target.value)} /></label>
-        <label className={styles.field}>{g('topic')}<input required maxLength={160} value={editor.topic} onChange={event => set('topic', event.target.value)} /></label>
-        <label className={`${styles.field} ${styles.wide}`}>{g('instruction')}<input maxLength={500} value={editor.instruction} onChange={event => set('instruction', event.target.value)} /></label>
-        <label className={`${styles.field} ${styles.wide}`}>{g('targetForms')}<textarea required rows={2} value={editor.targetForms} onChange={event => set('targetForms', event.target.value)} /></label>
-        <p className={`${styles.wide} text-[var(--muted)]`}>{g('targetFormsHelp')}</p>
-        {(['de', 'en', 'ru', 'uk', 'tr'] as const).map(locale => <label key={locale} className={`${styles.field} ${styles.wide}`}>{g('translationPrompt', { language: locale.toUpperCase() })}<textarea rows={2} maxLength={2000} value={editor.translationPrompts[locale] ?? ''} onChange={event => setEditor(previous => previous ? { ...previous, translationPrompts: { ...previous.translationPrompts, [locale]: event.target.value } } : previous)} /></label>)}
+  const field = 'block min-w-0'
+  const wide = 'block min-w-0 sm:col-span-2'
+  const label = (text: string) => <span className={adminLabel}>{text}</span>
+  const failed = message === 'invalid' || message === 'failed'
+  return <div className="min-w-0 space-y-5 text-[var(--foreground)] sm:space-y-6">
+    <PageHeader eyebrow={t('group_content')} title={t('nav_learning_path')} description={copy.pathIntro}
+      actions={<button type="button" disabled={busy} onClick={() => openEditor()} className={adminButton('primary')}><Plus size={17} aria-hidden="true" />{g('newExercise')}</button>} />
+    {message && <Notice tone={failed ? 'danger' : 'success'} role={failed ? 'alert' : 'status'}><span className="inline-flex items-center gap-2"><CheckCircle2 size={16} aria-hidden="true" />{g(message)}</span></Notice>}
+    {editor && <form onSubmit={handleSave} ref={editorRef} className="scroll-mt-24 space-y-5 rounded-xl border border-[var(--admin-line)] bg-[var(--surface)] p-4 sm:p-5">
+      <div className="flex flex-wrap items-center justify-between gap-3"><h2 className="text-sm font-semibold">{g(editor.id ? 'editExercise' : 'newExercise')}</h2><button type="button" disabled={busy} onClick={() => setEditor(null)} className={adminButton('ghost', 'sm')}><X size={16} aria-hidden="true" />{g('cancel')}</button></div>
+      <div className="grid min-w-0 gap-4 sm:grid-cols-2">
+        <label className={field}>{label(g('level', { level: '' }).trim())}<select className={adminInput} value={editor.level} onChange={event => set('level', event.target.value)}>{ACCESS_LEVELS.map(value => <option key={value}>{value}</option>)}</select></label>
+        <label className={field}>{label(g('type'))}<select className={adminInput} value={editor.type} onChange={event => set('type', event.target.value)}><option value="fill_in_blank">{g('fill')}</option><option value="multiple_choice">{g('choice')}</option></select></label>
+        <label className={field}>{label(g('lesson'))}<input className={adminInput} required maxLength={120} value={editor.lesson} onChange={event => set('lesson', event.target.value)} /></label>
+        <label className={field}>{label(g('topic'))}<input className={adminInput} required maxLength={160} value={editor.topic} onChange={event => set('topic', event.target.value)} /></label>
+        <label className={wide}>{label(g('instruction'))}<input className={adminInput} maxLength={500} value={editor.instruction} onChange={event => set('instruction', event.target.value)} /></label>
+        <label className={wide}>{label(g('targetForms'))}<textarea className={cn(adminInput, 'resize-y')} required rows={2} value={editor.targetForms} onChange={event => set('targetForms', event.target.value)} /></label>
+        <p className="text-sm text-[var(--muted)] sm:col-span-2">{g('targetFormsHelp')}</p>
+        {(['de', 'en', 'ru', 'uk', 'tr'] as const).map(locale => <label key={locale} className={wide}>{label(g('translationPrompt', { language: locale.toUpperCase() }))}<textarea className={cn(adminInput, 'resize-y')} rows={2} maxLength={2000} value={editor.translationPrompts[locale] ?? ''} onChange={event => setEditor(previous => previous ? { ...previous, translationPrompts: { ...previous.translationPrompts, [locale]: event.target.value } } : previous)} /></label>)}
         {editor.type === 'fill_in_blank' ? <>
-          <label className={styles.field}>{g('before')}<textarea maxLength={2000} rows={3} value={editor.textBefore} onChange={event => set('textBefore', event.target.value)} /></label>
-          <label className={styles.field}>{g('after')}<textarea maxLength={2000} rows={3} value={editor.textAfter} onChange={event => set('textAfter', event.target.value)} /></label>
-        </> : <label className={`${styles.field} ${styles.wide}`}>{g('question')}<textarea required maxLength={4000} rows={3} value={editor.question} onChange={event => set('question', event.target.value)} /></label>}
+          <label className={field}>{label(g('before'))}<textarea className={cn(adminInput, 'resize-y')} maxLength={2000} rows={3} value={editor.textBefore} onChange={event => set('textBefore', event.target.value)} /></label>
+          <label className={field}>{label(g('after'))}<textarea className={cn(adminInput, 'resize-y')} maxLength={2000} rows={3} value={editor.textAfter} onChange={event => set('textAfter', event.target.value)} /></label>
+        </> : <label className={wide}>{label(g('question'))}<textarea className={cn(adminInput, 'resize-y')} required maxLength={4000} rows={3} value={editor.question} onChange={event => set('question', event.target.value)} /></label>}
         {editor.type === 'fill_in_blank' && <>
-          <label className={`${styles.field} ${styles.wide}`}>{g('alternativeAnswers')}<textarea rows={3} value={editor.acceptedAnswers} onChange={event => set('acceptedAnswers', event.target.value)} /></label>
-          <label className={`${styles.field} ${styles.wide}`}>Lücken-Hinweis (z.B. (morgen / arbeiten / müssen))<input maxLength={100} value={editor.gapHint} onChange={event => set('gapHint', event.target.value)} /></label>
+          <label className={wide}>{label(g('alternativeAnswers'))}<textarea className={cn(adminInput, 'resize-y')} rows={3} value={editor.acceptedAnswers} onChange={event => set('acceptedAnswers', event.target.value)} /></label>
+          <label className={wide}>{label(copy.gapHint)}<input className={adminInput} maxLength={100} value={editor.gapHint} onChange={event => set('gapHint', event.target.value)} /></label>
         </>}
-        <label className={styles.field}>{g('answer')}<input required maxLength={1000} value={editor.answer} onChange={event => set('answer', event.target.value)} /></label>
-        <label className={styles.field}>{g('options')}<textarea required rows={3} value={editor.options} onChange={event => set('options', event.target.value)} /></label>
-        <label className={`${styles.field} ${styles.wide}`}>{g('hint')}<textarea rows={2} maxLength={2000} value={editor.hint} onChange={event => set('hint', event.target.value)} /></label>
-        <label className={`${styles.field} ${styles.wide}`}>{g('audio')}<input type="url" value={editor.audio} onChange={event => set('audio', event.target.value)} /></label>
-        <label className={styles.field}>{g('ruHint')}<textarea rows={2} maxLength={2000} value={editor.hintRu} onChange={event => set('hintRu', event.target.value)} /></label>
-        <label className={styles.field}>{g('trHint')}<textarea rows={2} maxLength={2000} value={editor.hintTr} onChange={event => set('hintTr', event.target.value)} /></label>
+        <label className={field}>{label(g('answer'))}<input className={adminInput} required maxLength={1000} value={editor.answer} onChange={event => set('answer', event.target.value)} /></label>
+        <label className={field}>{label(g('options'))}<textarea className={cn(adminInput, 'resize-y')} required rows={3} value={editor.options} onChange={event => set('options', event.target.value)} /></label>
+        <label className={wide}>{label(g('hint'))}<textarea className={cn(adminInput, 'resize-y')} rows={2} maxLength={2000} value={editor.hint} onChange={event => set('hint', event.target.value)} /></label>
+        <label className={wide}>{label(g('audio'))}<input className={adminInput} type="url" value={editor.audio} onChange={event => set('audio', event.target.value)} /></label>
+        <label className={field}>{label(g('ruHint'))}<textarea className={cn(adminInput, 'resize-y')} rows={2} maxLength={2000} value={editor.hintRu} onChange={event => set('hintRu', event.target.value)} /></label>
+        <label className={field}>{label(g('trHint'))}<textarea className={cn(adminInput, 'resize-y')} rows={2} maxLength={2000} value={editor.hintTr} onChange={event => set('hintTr', event.target.value)} /></label>
       </div>
-      <div className={styles.preview}><span className={styles.eyebrow}>{g('preview')}</span><p className="mt-2 text-lg">{editor.translationPrompts[lang]?.trim() || (editor.type === 'fill_in_blank' ? <>{editor.textBefore}<strong className="text-[var(--violet)]">[{editor.answer || '…'}]</strong>{editor.textAfter}</> : editor.question)}{editor.targetForms.trim() && <span lang="de"> [{editor.targetForms.split('\n').map(value => value.trim()).filter(Boolean).join(', ')}]</span>}</p></div>
-      <button type="submit" disabled={busy} className="academy-button academy-button-primary">{busy ? <Loader2 size={18} className="animate-spin" aria-hidden="true" /> : <CheckCircle2 size={18} aria-hidden="true" />}{g('save')}</button>
+      <div className="rounded-lg bg-[var(--surface-muted)] p-4"><p className="text-xs font-semibold uppercase tracking-wide text-[var(--muted)]">{g('preview')}</p><p className="mt-2 text-base">{editor.translationPrompts[lang]?.trim() || (editor.type === 'fill_in_blank' ? <>{editor.textBefore}<strong className="text-[var(--accent-text)]">[{editor.answer || '…'}]</strong>{editor.textAfter}</> : editor.question)}{editor.targetForms.trim() && <span lang="de"> [{editor.targetForms.split('\n').map(value => value.trim()).filter(Boolean).join(', ')}]</span>}</p></div>
+      <div className="flex justify-end"><button type="submit" disabled={busy} className={adminButton('primary', 'md', 'w-full sm:w-auto')}>{busy ? <Loader2 size={16} className="animate-spin motion-reduce:animate-none" aria-hidden="true" /> : <CheckCircle2 size={16} aria-hidden="true" />}{g('save')}</button></div>
     </form>}
-    <div className={styles.sectionHeading}>
-      <h2>{g('manageCount', { count: filtered.length })}</h2>
-      <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
-        <label className="relative block"><span className="sr-only">{g('search')}</span><Search size={17} className="pointer-events-none absolute left-3 top-4 text-[var(--muted)]" aria-hidden="true" /><input type="search" className={`${styles.search} !pl-10`} value={query} placeholder={g('search')} onChange={event => { setQuery(event.target.value); setPage(1) }} /></label>
-        <label className={styles.field}><span className="sr-only">{g('allLevels')}</span><select value={level} onChange={event => { setLevel(event.target.value); setPage(1) }}><option value="">{g('allLevels')}</option>{ACCESS_LEVELS.map(value => <option key={value}>{value}</option>)}</select></label>
-      </div>
-    </div>
-    <div className={styles.list}>
-      {filtered.slice(0, page * 30).map(row => <article key={row.id} className={styles.listCard}>
-        <div className={styles.listContent}><span className={styles.badge}>{row.level} · {row.type === 'fill_in_blank' ? g('fill') : g('choice')}</span>{(row.content_status === 'incomplete' || !readTargetForms(row.content)) && <span className="ml-2 inline-block rounded-full bg-[var(--warning)] px-3 py-1 text-sm font-semibold text-[var(--warning-foreground)]">{g('incomplete')}</span>}<h3 className="mt-3">{row.topic} <span className="font-normal text-[var(--muted)]">· {row.lesson}</span></h3><p>{previewFor(row)}</p>
-          {deleteId === row.id && <div role="alert" className="mt-3 rounded-xl border border-[var(--border)] p-3"><p>{g('deleteQuestion')}</p><div className={styles.actions}><button type="button" disabled={busy} onClick={() => setDeleteId(null)} className="academy-button academy-button-secondary">{g('cancel')}</button><button type="button" disabled={busy} onClick={() => handleDelete(row.id)} className="academy-button academy-button-primary">{busy && <Loader2 size={17} className="animate-spin" aria-hidden="true" />}{g('deleteConfirm')}</button></div></div>}
+    <section className="space-y-3" aria-labelledby="exercise-list-heading">
+      <div className="flex min-w-0 flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+        <h2 id="exercise-list-heading" className="text-sm font-semibold">{g('manageCount', { count: filtered.length })}</h2>
+        <div className="grid min-w-0 gap-2 sm:w-auto sm:grid-cols-[16rem_10rem]">
+          <label className="relative block min-w-0"><span className="sr-only">{g('search')}</span><Search size={17} className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[var(--muted)]" aria-hidden="true" /><input type="search" className={`${adminInput} pl-9`} value={query} placeholder={g('search')} onChange={event => { setQuery(event.target.value); setPage(1) }} /></label>
+          <label className="block min-w-0"><span className="sr-only">{g('allLevels')}</span><select className={adminInput} value={level} onChange={event => { setLevel(event.target.value); setPage(1) }}><option value="">{g('allLevels')}</option>{ACCESS_LEVELS.map(value => <option key={value}>{value}</option>)}</select></label>
         </div>
-        <div className={styles.actions}><button type="button" disabled={busy} onClick={() => setDeleteId(row.id)} className="academy-button academy-button-secondary" aria-label={`${g('remove')}: ${row.topic}`}><Trash2 size={17} aria-hidden="true" /></button><button type="button" onClick={() => openEditor(row)} disabled={busy || !['fill_in_blank', 'multiple_choice'].includes(row.type)} className="academy-button academy-button-secondary" aria-label={`${g('edit')}: ${row.topic}`}><Pencil size={17} aria-hidden="true" /><span className="sr-only lg:not-sr-only">{g('edit')}</span></button></div>
-      </article>)}
-      {filtered.length === 0 && <div className={styles.empty}><BookOpenCheck size={34} className="mx-auto text-[var(--violet)]" aria-hidden="true" /><p>{items.length ? g('noResults') : g('empty')}</p></div>}
-    </div>
-    {filtered.length > page * 30 && <button type="button" onClick={() => setPage(previous => previous + 1)} className="academy-button academy-button-secondary mt-4">{g('manageCount', { count: Math.min(30, filtered.length - page * 30) })}<Plus size={18} aria-hidden="true" /></button>}
-  </section>
+      </div>
+      {filtered.length === 0 ? <Card><EmptyState icon={BookOpenCheck} title={items.length ? g('noResults') : g('empty')} /></Card> : <Card as="div"><ul className="divide-y divide-[var(--admin-line)]">
+        {filtered.slice(0, page * 30).map(row => <li key={row.id}><article className="flex min-w-0 items-start gap-3 p-4">
+          <div className="min-w-0 flex-1">
+            <div className="flex flex-wrap gap-1.5"><Badge tone="info">{row.level}</Badge><Badge>{row.type === 'fill_in_blank' ? g('fill') : g('choice')}</Badge>{(row.content_status === 'incomplete' || !readTargetForms(row.content)) && <Badge tone="warning">{g('incomplete')}</Badge>}</div>
+            <h3 className="mt-2 break-words text-[0.9375rem] font-semibold">{row.topic} <span className="font-normal text-[var(--muted)]">· {row.lesson}</span></h3>
+            <p className="mt-1 break-words text-sm text-[var(--muted)]">{previewFor(row)}</p>
+            {deleteId === row.id && <div role="alert" className="mt-3 rounded-lg border border-[var(--admin-line-strong)] p-3 text-sm"><p>{g('deleteQuestion')}</p><div className="mt-3 flex flex-col gap-2 sm:flex-row sm:justify-end"><button type="button" disabled={busy} onClick={() => setDeleteId(null)} className={adminButton('secondary', 'sm')}>{g('cancel')}</button><button type="button" disabled={busy} onClick={() => handleDelete(row.id)} className={adminButton('danger', 'sm')}>{busy && <Loader2 size={15} className="animate-spin motion-reduce:animate-none" aria-hidden="true" />}{g('deleteConfirm')}</button></div></div>}
+          </div>
+          <div className="flex shrink-0 gap-2"><button type="button" disabled={busy} onClick={() => setDeleteId(row.id)} className={adminButton('secondary', 'icon', 'h-11 w-11')} aria-label={`${g('remove')}: ${row.topic}`}><Trash2 size={16} aria-hidden="true" /></button><button type="button" onClick={() => openEditor(row)} disabled={busy || !['fill_in_blank', 'multiple_choice'].includes(row.type)} className={adminButton('secondary', 'sm')} aria-label={`${g('edit')}: ${row.topic}`}><Pencil size={16} aria-hidden="true" /><span className="sr-only lg:not-sr-only">{g('edit')}</span></button></div>
+        </article></li>)}
+      </ul></Card>}
+      {filtered.length > page * 30 && <button type="button" onClick={() => setPage(previous => previous + 1)} className={adminButton('secondary', 'md', 'w-full sm:w-auto')}>{g('manageCount', { count: Math.min(30, filtered.length - page * 30) })}<Plus size={16} aria-hidden="true" /></button>}
+    </section>
+  </div>
 }

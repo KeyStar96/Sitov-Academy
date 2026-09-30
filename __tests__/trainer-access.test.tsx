@@ -11,9 +11,6 @@ import de from '@/dictionaries/de.json'
 
 jest.unmock('lucide-react')
 jest.mock('@/app/actions/admin', () => ({ getAvailableLessons: jest.fn(), updateStudentTrainerAccess: jest.fn(), updateStudentRole: jest.fn(), updateStudentAllowedLevels: jest.fn() }))
-jest.mock('@/components/admin/BlackboardProvider', () => ({ useBlackboard: () => ({ getBoard: () => ({ noteText: '' }) }) }))
-jest.mock('@/components/admin/BlackboardEditor', () => () => null)
-jest.mock('@/components/admin/StudentDetailModal', () => () => null)
 const student: LevelAccessProfile = { role: 'student', allowed_levels: ['A1.1','A1.2'] }
 const denied = { ...student, trainer_grants: [{ level: 'A1.1', trainer: 'exercises', enabled: false }] }
 

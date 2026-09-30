@@ -5,8 +5,8 @@ import {saveCourse} from '@/app/actions/course-cms'
 import {courseEditorSchema,type CourseEditor} from '@/lib/business-courses'
 import {calculateMonthlyStats} from '@/lib/course-calculations'
 const refresh=jest.fn()
-jest.mock('lucide-react',()=>({Plus:()=>null,Pencil:()=>null,Archive:()=>null,CalendarDays:()=>null,Loader2:()=>null,X:()=>null}))
-jest.mock('next/navigation',()=>({useRouter:()=>({refresh})}))
+jest.unmock('lucide-react')
+jest.mock('next/navigation',()=>({useRouter:()=>({refresh}),usePathname:()=>'/de/admin/courses'}))
 jest.mock('@/app/actions/course-cms',()=>({saveCourse:jest.fn()}))
 const course:CourseEditor={id:'00000000-0000-4000-8000-000000000001',slug:'future-c2',title:'Neue Gesprächsrunde',description:'Ein neuer Kurs',type:'online',category:'speaking',level:'C2',unit_price:15,unit_minutes:60,start_date:'',end_date:'',trial_lessons:false,sort_order:125,archived:false,schedules:[{weekday:6,start_time:'10:00',end_time:'11:00'}],translations:[],exceptions:[]}
 beforeAll(()=>{
@@ -16,7 +16,7 @@ beforeAll(()=>{
 })
 beforeEach(()=>{jest.clearAllMocks();jest.mocked(saveCourse).mockResolvedValue({success:true,data:{id:course.id!}})})
 it('edits dynamic course copy and archives within a bounded dialog, retaining the public course identity',async()=>{
- render(<CourseCMS initial={[course]} lang="de" failed={false}/>);fireEvent.click(screen.getByRole('button',{name:'Bearbeiten'}))
+ render(<CourseCMS initial={[course]} lang="de" failed={false}/>);fireEvent.click(screen.getByRole('button',{name:'Neue Gesprächsrunde bearbeiten'}))
  expect(await screen.findByRole('dialog')).toHaveAttribute('aria-modal','true')
  fireEvent.change(screen.getByLabelText('Kurstitel'),{target:{value:'Gesprächsrunde am Samstag'}})
  fireEvent.click(screen.getByLabelText('Kurs archivieren'));fireEvent.click(screen.getByRole('button',{name:'Speichern'}))
@@ -25,19 +25,27 @@ it('edits dynamic course copy and archives within a bounded dialog, retaining th
 })
 it('retains unsaved work and reports server failures inside the editor',async()=>{
  jest.mocked(saveCourse).mockResolvedValue({success:false,error:'request_failed'})
- render(<CourseCMS initial={[course]} lang="de" failed={false}/>);fireEvent.click(screen.getByRole('button',{name:'Bearbeiten'}))
+ render(<CourseCMS initial={[course]} lang="de" failed={false}/>);fireEvent.click(screen.getByRole('button',{name:'Neue Gesprächsrunde bearbeiten'}))
  fireEvent.change(screen.getByLabelText('Kurstitel'),{target:{value:'Entwurf behalten'}});fireEvent.click(screen.getByRole('button',{name:'Speichern'}))
  expect(await screen.findByRole('alert')).toHaveTextContent('Der Kurs konnte nicht gespeichert werden')
  expect(screen.getByLabelText('Kurstitel')).toHaveValue('Entwurf behalten');expect(refresh).not.toHaveBeenCalled()
 })
-it('edits course cancellations in the existing accessible course modal',async()=>{
- render(<CourseCMS initial={[course]} lang="de" failed={false}/>);fireEvent.click(screen.getByRole('button',{name:'Bearbeiten'}))
- fireEvent.click(screen.getByRole('button',{name:'Ausnahme hinzufügen'}))
- fireEvent.change(screen.getByLabelText('Datum'),{target:{value:'2026-10-10'}})
- fireEvent.change(screen.getByLabelText('Grund'),{target:{value:'Fortbildung'}})
- fireEvent.click(screen.getByRole('button',{name:'Speichern'}))
- await waitFor(()=>expect(saveCourse).toHaveBeenCalledWith(expect.objectContaining({id:course.id,exceptions:[{date:'2026-10-10',reason:'Fortbildung'}]})))
- await waitFor(()=>expect(screen.queryByRole('dialog')).not.toBeInTheDocument())
+it('no longer edits cancellations in the course modal but links to the central cancellations page',async()=>{
+ render(<CourseCMS initial={[{...course,exceptions:[{date:'2099-10-10',reason:'Fortbildung'}]}]} lang="de" failed={false}/>)
+ expect(screen.getByRole('link',{name:/Geplante Ausfälle: 1/})).toHaveAttribute('href','/de/admin/courses/cancellations')
+ fireEvent.click(screen.getByRole('button',{name:'Neue Gesprächsrunde bearbeiten'}))
+ const dialog=await screen.findByRole('dialog')
+ expect(screen.queryByRole('button',{name:'Ausnahme hinzufügen'})).not.toBeInTheDocument()
+ expect(screen.queryByLabelText('Grund')).not.toBeInTheDocument()
+ expect(dialog.querySelector('a[href="/de/admin/courses/cancellations"]')).not.toBeNull()
+})
+it('filters active and archived courses with pressed chips',()=>{
+ render(<CourseCMS initial={[course,{...course,id:'00000000-0000-4000-8000-000000000002',slug:'old',title:'Alter Kurs',archived:true}]} lang="de" failed={false}/>)
+ expect(screen.getByRole('heading',{name:'Neue Gesprächsrunde'})).toBeInTheDocument()
+ expect(screen.queryByRole('heading',{name:'Alter Kurs'})).not.toBeInTheDocument()
+ fireEvent.click(screen.getByRole('button',{name:/Archiviert/}))
+ expect(screen.getByRole('button',{name:/Archiviert/})).toHaveAttribute('aria-pressed','true')
+ expect(screen.getByRole('heading',{name:'Alter Kurs'})).toBeInTheDocument()
 })
 it('validates schedule duration, prices, duplicate locales and unsafe titles',()=>{
  expect(courseEditorSchema.safeParse(course).success).toBe(true)
@@ -51,7 +59,7 @@ it('public price estimates respect course date bounds and weekend sessions',()=>
  expect(stats.totalUnits).toBe(2);expect(stats.sessionCount).toBe(2)
 })
 it('private lessons use quantities and appointment scheduling while retaining the chosen teaching format',async()=>{
- render(<CourseCMS initial={[course]} lang="de" failed={false}/>);fireEvent.click(screen.getByRole('button',{name:'Bearbeiten'}))
+ render(<CourseCMS initial={[course]} lang="de" failed={false}/>);fireEvent.click(screen.getByRole('button',{name:'Neue Gesprächsrunde bearbeiten'}))
  fireEvent.change(screen.getByLabelText('Kategorie'),{target:{value:'private'}})
  expect(screen.getByLabelText('Probestunde möglich')).toBeDisabled()
  expect(screen.queryByRole('button',{name:'Termin hinzufügen'})).not.toBeInTheDocument()

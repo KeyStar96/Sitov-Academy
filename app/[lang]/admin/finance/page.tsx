@@ -3,6 +3,7 @@ import { getRegistrationOverview } from '@/app/actions/admin-registrations'
 import { getNextMonthStaffOverview } from '@/app/actions/admin-operations'
 import { getDictionary } from '@/lib/dictionary'
 import { createAdminTranslator } from '@/lib/admin-i18n'
+import { Notice, PageHeader } from '@/components/admin/ui'
 
 export const dynamic = 'force-dynamic'
 
@@ -24,9 +25,9 @@ export default async function AdminFinancePage({
 
   if (!overviewResult.success) {
     return (
-      <div className="rounded-xl border border-amber-200 bg-amber-50 p-6 dark:border-amber-800 dark:bg-amber-950">
-        <h1 className="text-2xl font-semibold">{t('finance_title')}</h1>
-        <p role="alert" className="mt-3 text-amber-900 dark:text-amber-200">{t('overview_load_failed')}</p>
+      <div className="min-w-0 space-y-5">
+        <PageHeader title={t('finance_title')} />
+        <Notice tone="warning" role="alert">{t('overview_load_failed')}</Notice>
       </div>
     )
   }

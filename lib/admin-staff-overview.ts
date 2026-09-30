@@ -2,23 +2,21 @@ import 'server-only'
 import {createClient} from '@/utils/supabase/server'
 import {checkDatabaseError} from '@/lib/actions/backend'
 import {profileMonthWindow} from '@/lib/profile-month'
-import {type TeacherStudentNote} from '@/lib/types/teacher-notes'
 import type {NextMonthOverview} from '@/lib/types/admin-staff'
-import {buildNextMonthOverview,notesByStudent} from '@/lib/admin-next-month'
+import {buildNextMonthOverview} from '@/lib/admin-next-month'
 import {monthlyBooking} from './business-bookings'
-export async function loadStaffBlackboardNotes():Promise<Record<string,TeacherStudentNote>> {
- const client=await createClient();const {data,error}=await client.from('teacher_student_notes').select('*').order('id');checkDatabaseError(error);return notesByStudent(data??[])
-}
 export async function loadNextMonthStaffOverview():Promise<NextMonthOverview> {
  const client=await createClient(),months=profileMonthWindow()
- const [profiles,bookings,courses,notes]=await Promise.all([
+ const [profiles,bookings,courses]=await Promise.all([
   client.from('profiles').select('id,person:people(display_name,email,phone,street,postal_code,city)').eq('role','student'),
   client.from('bookings').select('*,people(auth_user_id),booking_items(course_id,requested_units)').neq('kind','trial').neq('status','rejected').order('target_month'),
-  client.from('courses').select('*').is('archived_at',null).order('sort_order'),loadStaffBlackboardNotes(),
+  client.from('courses').select('*').is('archived_at',null).order('sort_order')
  ])
  for(const response of [profiles,bookings,courses])checkDatabaseError(response.error)
  return buildNextMonthOverview({targetMonth:months.next,afterNext:months.afterNext,
  students:(profiles.data??[]).filter(p=>!!p.id).map(p=>({id:p.id,person:p.person})),
  bookings:(bookings.data??[]).filter(b=>!!b.people?.auth_user_id).map(b=>monthlyBooking(b,b.people!.auth_user_id!)),
- catalog:(courses.data??[]).map(c=>({id:c.id,title:c.title,type:c.type==='online'?'online':'presence',startDate:c.start_date,endDate:c.end_date})),notes})
+ catalog:(courses.data??[]).map(c=>({id:c.id,title:c.title,type:c.type==='online'?'online':'presence',startDate:c.start_date,endDate:c.end_date})),
+ // Notizen des entfernten „Schwarzen Bretts“ werden weder geladen noch an den Browser übertragen.
+ notes:{}})
 }

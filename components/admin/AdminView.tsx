@@ -8,12 +8,10 @@ import {
   CheckCircle2,
   FileText,
   PauseCircle,
-  Receipt,
   Search,
-  UserPlus,
 } from 'lucide-react'
 import { useAdminTranslator } from './AdminI18nProvider'
-import { certificateAdminCopy } from './certificates/i18n'
+import { Badge, Card, CardHeader, EmptyState, PageHeader, StatTile, adminButton, adminChip, adminInput, adminLabel, type AdminTone } from './ui'
 import { formatProfileMonth } from '@/lib/profile-month'
 import { formatCourseQuantity } from '@/lib/course-quantity-i18n'
 import type { RegistrationOverview, StaffRegistration, StaffInvoice } from '@/lib/types/admin-registrations'
@@ -21,21 +19,8 @@ import type { NextMonthOverview, NextMonthStudentRow } from '@/lib/types/admin-s
 
 type StatusFilter = 'all' | 'unconfirmed' | 'outstanding' | 'done'
 
-const control =
-  'min-h-11 w-full min-w-0 rounded-lg border border-[var(--border)] bg-[var(--surface)] px-3 text-sm text-[var(--foreground)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]'
-
-function badge(kind: 'ok' | 'warn' | 'muted' | 'danger') {
-  const map = {
-    ok: 'bg-emerald-50 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-200',
-    warn: 'bg-amber-50 text-amber-900 dark:bg-amber-950 dark:text-amber-200',
-    danger: 'bg-red-50 text-red-800 dark:bg-red-950 dark:text-red-200',
-    muted: 'bg-[var(--surface-muted)] text-[var(--muted)]',
-  } as const
-  return `inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold ${map[kind]}`
-}
-
 /**
- * Konsolidierte Ansicht „Administration & Finanzen".
+ * Monatsübersicht im Bereich „Verwaltung“.
  *
  * Vereint die frühere Studentenverwaltung, Anmeldungen, Folgemonat-Buchungen
  * und Rechnungen zu einer Arbeitsgrundlage: Welche Schüler nehmen im gewählten
@@ -103,12 +88,12 @@ export default function AdminView({
 
   const continuity = useMemo(() => deriveContinuity(bookings), [bookings])
 
-  const metrics: Array<{ key: string; label: string; value: number; tone: 'accent' | 'ok' | 'warn' }> = [
-    { key: 'students', label: t('finance_kpi_students'), value: kpis.students, tone: 'accent' },
-    { key: 'confirmed', label: t('finance_kpi_confirmed'), value: kpis.confirmed, tone: 'ok' },
-    { key: 'pending', label: t('finance_kpi_pending'), value: kpis.pending, tone: 'warn' },
-    { key: 'invoiced', label: t('finance_kpi_invoiced'), value: kpis.invoiced, tone: 'ok' },
-    { key: 'outstanding', label: t('finance_kpi_outstanding'), value: kpis.outstanding, tone: 'warn' },
+  const metrics: Array<{ key: string; label: string; value: number; tone: 'neutral' | 'accent' | 'warning' }> = [
+    { key: 'students', label: t('finance_kpi_students'), value: kpis.students, tone: 'neutral' },
+    { key: 'confirmed', label: t('finance_kpi_confirmed'), value: kpis.confirmed, tone: 'neutral' },
+    { key: 'pending', label: t('finance_kpi_pending'), value: kpis.pending, tone: kpis.pending ? 'warning' : 'neutral' },
+    { key: 'invoiced', label: t('finance_kpi_invoiced'), value: kpis.invoiced, tone: 'neutral' },
+    { key: 'outstanding', label: t('finance_kpi_outstanding'), value: kpis.outstanding, tone: kpis.outstanding ? 'accent' : 'neutral' },
   ]
 
   const filters: Array<{ value: StatusFilter; label: string }> = [
@@ -118,103 +103,52 @@ export default function AdminView({
     { value: 'done', label: t('finance_filter_done') },
   ]
 
+  const regTone = (status: StaffRegistration['status']): AdminTone => status === 'confirmed' ? 'success' : status === 'pending' ? 'warning' : 'danger'
   return (
-    <div className="min-w-0 space-y-6 text-[var(--foreground)]">
-      <header className="space-y-2">
-        <p className="text-xs font-semibold uppercase tracking-widest text-[var(--muted)]">{formatProfileMonth(month, lang)}</p>
-        <h1 className="text-2xl font-semibold tracking-tight sm:text-3xl">{t('finance_title')}</h1>
-        <p className="max-w-3xl text-sm leading-relaxed text-[var(--muted)]">{t('finance_intro')}</p>
-      </header>
+    <div className="min-w-0 space-y-5 text-[var(--foreground)] sm:space-y-6">
+      <PageHeader eyebrow={formatProfileMonth(month, lang)} title={t('finance_title')} description={t('finance_intro')} />
 
-      {/* Kennzahlen */}
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 xl:grid-cols-5">
-        {metrics.map(metric => (
-          <div key={metric.key} className="min-w-0 rounded-xl border border-[var(--border)] bg-[var(--surface)] p-4">
-            <p className="truncate text-xs text-[var(--muted)]">{metric.label}</p>
-            <p
-              className={`mt-2 text-2xl font-semibold tabular-nums ${
-                metric.tone === 'accent' ? 'text-[var(--accent-text)]' : ''
-              }`}
-            >
-              {metric.value}
-            </p>
-          </div>
-        ))}
+        {metrics.map(metric => <StatTile key={metric.key} label={metric.label} value={metric.value} tone={metric.tone} />)}
       </div>
 
-      {/* Werkzeugleiste */}
-      <div className="flex flex-col gap-3 rounded-xl border border-[var(--border)] bg-[var(--surface)] p-4 sm:flex-row sm:items-end">
-        <label className="min-w-0 flex-1">
-          <span className="mb-1.5 block text-sm font-medium text-[var(--muted)]">{t('finance_search')}</span>
+      <div className="grid min-w-0 gap-3 sm:grid-cols-[minmax(0,1fr)_13rem] sm:items-end">
+        <label className="block min-w-0">
+          <span className={adminLabel}>{t('finance_search')}</span>
           <span className="relative block">
-            <Search size={17} aria-hidden="true" className="pointer-events-none absolute left-3 top-3 text-[var(--muted)]" />
-            <input type="search" value={search} onChange={event => setSearch(event.target.value)} className={`${control} pl-9`} />
+            <Search size={17} aria-hidden="true" className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[var(--muted)]" />
+            <input type="search" value={search} onChange={event => setSearch(event.target.value)} className={`${adminInput} pl-9`} />
           </span>
         </label>
-        <label className="min-w-0 sm:w-52">
-          <span className="mb-1.5 block text-sm font-medium text-[var(--muted)]">{t('finance_month')}</span>
+        <label className="block min-w-0">
+          <span className={adminLabel}>{t('finance_month')}</span>
           <input
             type="month"
             value={monthValue}
             onChange={event => {
               if (/^\d{4}-\d{2}$/.test(event.target.value)) router.push(`/${lang}/admin/finance?month=${event.target.value}`)
             }}
-            className={control}
+            className={adminInput}
           />
         </label>
       </div>
 
-      {/* Statusfilter + Sprünge in die Desks */}
-      <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
-        <div className="flex flex-wrap gap-2" role="group" aria-label={t('finance_col_registration')}>
-          {filters.map(option => (
-            <button
-              key={option.value}
-              type="button"
-              onClick={() => setFilter(option.value)}
-              aria-pressed={filter === option.value}
-              className={`inline-flex min-h-10 items-center rounded-lg border px-3 text-sm font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] ${
-                filter === option.value
-                  ? 'border-[var(--accent)] bg-[var(--accent-soft)] text-[var(--foreground)]'
-                  : 'border-[var(--border)] text-[var(--muted)] hover:bg-[var(--surface-muted)]'
-              }`}
-            >
-              {option.label}
-            </button>
-          ))}
-        </div>
-        <div className="flex flex-wrap gap-2">
-          <Link href={`/${lang}/admin/finance/certificates`} className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-[var(--border)] px-3 text-sm font-medium text-[var(--foreground)] transition-colors hover:bg-[var(--surface-muted)]">
-            <FileText size={16} aria-hidden="true" />
-            {certificateAdminCopy(lang).title}
-          </Link>
-          <Link href={`/${lang}/admin/registrations`} className="inline-flex min-h-10 items-center gap-2 rounded-lg border border-[var(--border)] px-3 text-sm font-medium text-[var(--foreground)] transition-colors hover:bg-[var(--surface-muted)]">
-            <UserPlus size={16} aria-hidden="true" />
-            {t('finance_open_registrations')}
-          </Link>
-          <Link href={`/${lang}/admin/invoices?month=${monthValue}`} className="inline-flex min-h-10 items-center gap-2 rounded-lg border border-[var(--border)] px-3 text-sm font-medium text-[var(--foreground)] transition-colors hover:bg-[var(--surface-muted)]">
-            <Receipt size={16} aria-hidden="true" />
-            {t('finance_open_invoices')}
-          </Link>
-          <Link href={`/${lang}/admin/bookings`} className="inline-flex min-h-10 items-center gap-2 rounded-lg border border-[var(--border)] px-3 text-sm font-medium text-[var(--foreground)] transition-colors hover:bg-[var(--surface-muted)]">
-            <CalendarClock size={16} aria-hidden="true" />
-            {t('finance_open_bookings')}
-          </Link>
-        </div>
+      <div className="admin-scroll-x -mx-1 flex gap-2 px-1" role="group" aria-label={t('finance_col_registration')}>
+        {filters.map(option => (
+          <button key={option.value} type="button" onClick={() => setFilter(option.value)} aria-pressed={filter === option.value} className={adminChip(filter === option.value)}>
+            {option.label}
+          </button>
+        ))}
       </div>
 
       {/* Matrix */}
-      <section className="min-w-0 overflow-hidden rounded-xl border border-[var(--border)] bg-[var(--surface)]">
+      <Card as="section">
         {rows.length === 0 ? (
-          <div className="px-4 py-14 text-center">
-            <CheckCircle2 size={34} className="mx-auto mb-3 text-[var(--accent-text)]" aria-hidden="true" />
-            <p className="font-semibold">{t('finance_empty')}</p>
-            <p className="mt-2 text-sm text-[var(--muted)]">{t('finance_empty_hint')}</p>
-          </div>
+          <EmptyState icon={CheckCircle2} title={t('finance_empty')} description={t('finance_empty_hint')} />
         ) : (
           <table className="block w-full border-collapse text-left text-sm lg:table">
             <caption className="sr-only">{t('finance_title')} · {formatProfileMonth(month, lang)}</caption>
-            <thead className="hidden border-b border-[var(--border)] bg-[var(--surface-muted)] text-[var(--muted)] lg:table-header-group">
+            <thead className="hidden border-b border-[var(--admin-line)] bg-[var(--surface-muted)] lg:table-header-group">
               <tr>
                 {[
                   t('finance_col_student'),
@@ -224,35 +158,30 @@ export default function AdminView({
                   t('finance_col_amount'),
                   t('finance_col_actions'),
                 ].map(label => (
-                  <th key={label} scope="col" className="px-4 py-3 font-medium">
+                  <th key={label} scope="col" className="px-4 py-2.5 text-xs font-semibold text-[var(--muted)]">
                     {label}
                   </th>
                 ))}
               </tr>
             </thead>
-            <tbody className="block divide-y divide-[var(--border)] lg:table-row-group">
+            <tbody className="block divide-y divide-[var(--admin-line)] lg:table-row-group">
               {rows.map(row => {
                 const invoice = invoiceFor(row)
                 const created = invoice?.status === 'created'
                 return (
-                  <tr
-                    key={`${row.source}:${row.id}`}
-                    className="grid grid-cols-1 gap-3 p-4 align-top sm:grid-cols-2 lg:table-row lg:p-0"
-                  >
-                    <td className="min-w-0 break-words lg:px-4 lg:py-3">
+                  <tr key={`${row.source}:${row.id}`} className="grid grid-cols-2 gap-x-4 gap-y-3 p-4 align-top lg:table-row lg:p-0">
+                    <td className="col-span-2 min-w-0 break-words lg:px-4 lg:py-3">
                       <p className="font-semibold">{row.contact.name}</p>
                       <p className="mt-0.5 break-all text-xs text-[var(--muted)]">{row.contact.email}</p>
                     </td>
-                    <td className="min-w-0 lg:px-4 lg:py-3">
+                    <td className="col-span-2 min-w-0 lg:px-4 lg:py-3">
                       <p className="mb-1 text-xs text-[var(--muted)] lg:hidden">{t('finance_col_courses')}</p>
                       {row.courses.length ? (
                         <ul className="space-y-1">
                           {row.courses.map(course => (
                             <li key={course.id} className="break-words">
                               {course.title}
-                              <span className="block text-xs text-[var(--muted)]">
-                                {formatCourseQuantity(course.units, course.unitMinutes, lang)}
-                              </span>
+                              <span className="block text-xs text-[var(--muted)]">{formatCourseQuantity(course.units, course.unitMinutes, lang)}</span>
                             </li>
                           ))}
                         </ul>
@@ -262,38 +191,27 @@ export default function AdminView({
                     </td>
                     <td className="min-w-0 lg:px-4 lg:py-3">
                       <p className="mb-1 text-xs text-[var(--muted)] lg:hidden">{t('finance_col_registration')}</p>
-                      <span
-                        className={badge(
-                          row.status === 'confirmed' ? 'ok' : row.status === 'pending' ? 'warn' : 'danger',
-                        )}
-                      >
-                        {row.status === 'confirmed'
-                          ? t('finance_reg_confirmed')
-                          : row.status === 'pending'
-                            ? t('finance_reg_pending')
-                            : t('finance_reg_cancelled')}
-                      </span>
+                      <Badge tone={regTone(row.status)}>
+                        {row.status === 'confirmed' ? t('finance_reg_confirmed') : row.status === 'pending' ? t('finance_reg_pending') : t('finance_reg_cancelled')}
+                      </Badge>
                     </td>
                     <td className="min-w-0 lg:px-4 lg:py-3">
                       <p className="mb-1 text-xs text-[var(--muted)] lg:hidden">{t('finance_col_invoice')}</p>
                       {row.status === 'confirmed' ? (
-                        <span className={badge(created ? 'ok' : 'warn')}>
+                        <Badge tone={created ? 'success' : 'warning'}>
                           {created ? t('finance_filter_done') : t('finance_filter_outstanding')}
                           {invoice?.reference ? ` · ${invoice.reference}` : ''}
-                        </span>
+                        </Badge>
                       ) : (
                         <span className="text-[var(--muted)]">—</span>
                       )}
                     </td>
                     <td className="min-w-0 tabular-nums lg:px-4 lg:py-3">
                       <p className="mb-1 text-xs text-[var(--muted)] lg:hidden">{t('finance_col_amount')}</p>
-                      {row.totalPrice !== null ? currency(row.totalPrice) : '—'}
+                      <span className="font-semibold">{row.totalPrice !== null ? currency(row.totalPrice) : '—'}</span>
                     </td>
-                    <td className="min-w-0 sm:col-span-2 lg:px-4 lg:py-3">
-                      <Link
-                        href={`/${lang}/admin/invoices?month=${monthValue}`}
-                        className="inline-flex min-h-10 items-center gap-2 rounded-lg border border-[var(--border)] px-3 text-sm font-medium text-[var(--foreground)] transition-colors hover:bg-[var(--surface-muted)]"
-                      >
+                    <td className="min-w-0 lg:px-4 lg:py-3">
+                      <Link href={`/${lang}/admin/invoices?month=${monthValue}`} className={adminButton('secondary', 'sm', 'w-full lg:w-auto')}>
                         <FileText size={15} aria-hidden="true" />
                         {t('finance_row_action_invoice')}
                       </Link>
@@ -304,35 +222,29 @@ export default function AdminView({
             </tbody>
           </table>
         )}
-      </section>
+      </Card>
 
       {/* Kontinuität & Pausen */}
       {continuity && (continuity.inherited.length > 0 || continuity.paused.length > 0) && (
-        <section className="min-w-0 space-y-4 rounded-xl border border-[var(--border)] bg-[var(--surface)] p-4 sm:p-5">
-          <div>
-            <h2 className="text-sm font-semibold">{t('finance_continuity_title')}</h2>
-            <p className="mt-1 text-sm text-[var(--muted)]">
-              {t('finance_continuity_intro')}
-              {continuity.month ? ` · ${formatProfileMonth(continuity.month, lang)}` : ''}
-            </p>
-          </div>
-          <div className="grid gap-4 md:grid-cols-2">
+        <Card labelledBy="finance-continuity">
+          <CardHeader id="finance-continuity" icon={CalendarClock} title={t('finance_continuity_title')} description={`${t('finance_continuity_intro')}${continuity.month ? ` · ${formatProfileMonth(continuity.month, lang)}` : ''}`} />
+          <div className="grid gap-3 p-4 md:grid-cols-2">
             <ContinuityList
               icon={<CalendarClock size={16} aria-hidden="true" className="text-[var(--muted)]" />}
               title={t('finance_inherited')}
               rows={continuity.inherited}
-              tone="muted"
+              tone="neutral"
               t={t}
             />
             <ContinuityList
-              icon={<PauseCircle size={16} aria-hidden="true" className="text-amber-600 dark:text-amber-300" />}
+              icon={<PauseCircle size={16} aria-hidden="true" className="text-[var(--warning-foreground)]" />}
               title={t('finance_paused')}
               rows={continuity.paused}
-              tone="warn"
+              tone="warning"
               t={t}
             />
           </div>
-        </section>
+        </Card>
       )}
     </div>
   )
@@ -348,26 +260,24 @@ function ContinuityList({
   icon: React.ReactNode
   title: string
   rows: NextMonthStudentRow[]
-  tone: 'muted' | 'warn'
+  tone: 'neutral' | 'warning'
   t: ReturnType<typeof useAdminTranslator>
 }) {
   return (
-    <div className="min-w-0 rounded-lg border border-[var(--border)] bg-[var(--canvas)] p-4">
-      <p className="mb-3 flex items-center gap-2 text-sm font-semibold">
+    <div className="min-w-0 rounded-lg border border-[var(--admin-line)] p-3">
+      <p className="mb-2 flex items-center gap-2 text-sm font-semibold">
         {icon}
         {title}
-        <span className={badge(tone)}>{rows.length}</span>
+        <Badge tone={tone}>{rows.length}</Badge>
       </p>
       {rows.length === 0 ? (
         <p className="text-sm text-[var(--muted)]">—</p>
       ) : (
-        <ul className="space-y-2">
+        <ul className="space-y-1.5 text-sm">
           {rows.map(row => (
             <li key={row.student.id} className="min-w-0 break-words">
-              <p className="text-sm font-medium">{row.student.person?.display_name || row.student.person?.email || t('finance_col_student')}</p>
-              {row.courseSelections.length > 0 && (
-                <p className="text-xs text-[var(--muted)]">{row.courseSelections.length}</p>
-              )}
+              {row.student.person?.display_name || row.student.person?.email || t('finance_col_student')}
+              {row.courseSelections.length > 0 && <span className="ml-1 text-xs text-[var(--muted)]">· {row.courseSelections.length}</span>}
             </li>
           ))}
         </ul>

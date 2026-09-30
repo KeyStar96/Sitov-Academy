@@ -1,7 +1,6 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { getTeacherAnalytics } from '@/app/actions/teacher-analytics'
 import { teacherAnalyticsCopy } from '@/lib/teacher-analytics-i18n'
@@ -9,9 +8,7 @@ import type { AnalyticsOptions, TeacherAnalytics as AnalyticsData } from '@/lib/
 import type { VocabularyTranslations } from '@/lib/vocabulary-i18n'
 import PhaseDistributionChart from '@/components/vocabulary/PhaseDistributionChart'
 import LearningHistoryChart from './LearningHistoryChart'
-
-const control = 'min-h-12 w-full rounded-xl border border-[var(--border)] bg-[var(--surface)] px-3 py-2 text-base text-[var(--foreground)]'
-const button = 'inline-flex min-h-12 items-center justify-center rounded-xl border border-[var(--border)] px-4 py-2 font-semibold hover:bg-[var(--surface-muted)]'
+import { Notice, PageHeader, adminButton, adminInput, adminLabel } from './ui'
 
 export default function TeacherAnalytics({ options, failed, lang, translations }: {
   options: AnalyticsOptions; failed: boolean; lang: string; translations: VocabularyTranslations
@@ -37,22 +34,24 @@ export default function TeacherAnalytics({ options, failed, lang, translations }
   }, [studentId, level, revision])
   const current = result?.studentId === studentId && result.level === (level || null) ? result : null
   const completion = current ? Object.entries(current.completionByLevel).filter(([code]) => !level || code === level) : []
-  return <div className="min-w-0 space-y-6 text-[var(--foreground)]">
-    <header><h1 className="text-2xl font-semibold tracking-tight">{t.title}</h1><p className="mt-2 max-w-3xl text-[var(--muted)]">{t.intro}</p><Link href={`/${lang}/admin/courses`} className={`${button} mt-4`}>{t.manage}</Link></header>
-    {failed ? <div role="alert" className="space-y-3 rounded-2xl border border-[var(--border)] p-5"><p>{t.failed}</p><button type="button" className={button} onClick={() => router.refresh()}>{t.retry}</button></div> : options.students.length === 0 ? <p>{t.empty}</p> : <>
-      <div className="grid gap-4 rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-5 sm:grid-cols-2">
-        <label className="grid min-w-0 gap-2 font-semibold"><span>{t.student}</span><select className={control} value={studentId} onChange={event => setStudentId(event.target.value)}>{options.students.map(student => <option key={student.id} value={student.id}>{student.name || `${t.unknown} (${student.id.slice(0, 8)})`}</option>)}</select></label>
-        <label className="grid min-w-0 gap-2 font-semibold"><span>{t.level}</span><select className={control} value={level} onChange={event => setLevel(event.target.value)}><option value="">{t.allLevels}</option>{options.levels.map(item => <option key={item.code} value={item.code}>{item.code}</option>)}</select></label>
+  const retry = (onClick: () => void) => <button type="button" className={adminButton('secondary', 'sm')} onClick={onClick}>{t.retry}</button>
+  // Kursverwaltung gehört nicht mehr zur Lernanalyse – sie liegt im Bereich „Kurse“.
+  return <div className="min-w-0 space-y-5 text-[var(--foreground)] sm:space-y-6">
+    <PageHeader title={t.title} description={t.intro} />
+    {failed ? <Notice tone="warning" role="alert" action={retry(() => router.refresh())}>{t.failed}</Notice> : options.students.length === 0 ? <p className="text-sm text-[var(--muted)]">{t.empty}</p> : <>
+      <div className="grid gap-4 rounded-xl border border-[var(--admin-line)] bg-[var(--surface)] p-4 sm:grid-cols-2 sm:p-5">
+        <label className="block min-w-0"><span className={adminLabel}>{t.student}</span><select className={adminInput} value={studentId} onChange={event => setStudentId(event.target.value)}>{options.students.map(student => <option key={student.id} value={student.id}>{student.name || `${t.unknown} (${student.id.slice(0, 8)})`}</option>)}</select></label>
+        <label className="block min-w-0"><span className={adminLabel}>{t.level}</span><select className={adminInput} value={level} onChange={event => setLevel(event.target.value)}><option value="">{t.allLevels}</option>{options.levels.map(item => <option key={item.code} value={item.code}>{item.code}</option>)}</select></label>
         {level && <p className="text-sm leading-relaxed text-[var(--muted)] sm:col-span-2">{t.scope}</p>}
       </div>
       <div aria-live="polite" aria-busy={loading}>
-        {loading && <p role="status">{t.loading}</p>}
-        {error && <div role="alert" className="space-y-3"><p>{t.failed}</p><button type="button" className={button} onClick={() => setRevision(value => value + 1)}>{t.retry}</button></div>}
+        {loading && <p role="status" className="text-sm text-[var(--muted)]">{t.loading}</p>}
+        {error && <Notice tone="warning" role="alert" action={retry(() => setRevision(value => value + 1))}>{t.failed}</Notice>}
       </div>
       {current && !loading && <>
-        {completion.length > 0 && <section aria-label={t.completion} className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-5"><h2 className="text-xl font-semibold">{t.completion}</h2><dl className="mt-4 flex flex-wrap gap-6">{completion.map(([level, percent]) => <div key={level}><dt className="text-sm text-[var(--muted)]">{level}</dt><dd className="text-2xl font-semibold tabular-nums">{percent}%</dd></div>)}</dl></section>}
-        <div className="grid min-w-0 items-start gap-5 xl:grid-cols-2">
-          <section className="min-w-0 rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-5" aria-label={t.phases}><h2 className="text-xl font-semibold">{t.phases}</h2><p className="my-4 text-sm leading-relaxed text-[var(--muted)]">{t.phaseHint}</p><PhaseDistributionChart distribution={current.distribution} translations={translations} /></section>
+        {completion.length > 0 && <section aria-label={t.completion} className="space-y-3"><h2 className="text-sm font-semibold">{t.completion}</h2><dl className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">{completion.map(([code, percent]) => <div key={code} className="min-w-0 rounded-xl border border-[var(--admin-line)] bg-[var(--surface)] p-4"><dt className="text-[0.8125rem] font-medium text-[var(--muted)]">{code}</dt><dd className="mt-2 text-2xl font-semibold leading-none tabular-nums">{percent}%</dd></div>)}</dl></section>}
+        <div className="grid min-w-0 items-start gap-4 xl:grid-cols-2">
+          <section className="min-w-0 rounded-xl border border-[var(--admin-line)] bg-[var(--surface)] p-4 sm:p-5" aria-label={t.phases}><h2 className="text-sm font-semibold">{t.phases}</h2><p className="my-3 text-sm leading-relaxed text-[var(--muted)]">{t.phaseHint}</p><PhaseDistributionChart distribution={current.distribution} translations={translations} /></section>
           <LearningHistoryChart history={current.history} lang={lang} />
         </div>
       </>}

@@ -7,6 +7,7 @@ import { completeMediaUpload } from '@/app/actions/media'
 import { mediaFileSchema, type MediaFolder } from '@/lib/media'
 import { createMediaUpload, readUploadTicket, uploadTicketKey } from '@/lib/media-upload'
 import { mediaCopy } from '@/lib/media-i18n'
+import { adminButton, adminInput } from './ui'
 
 export default function MediaUpload({ folder, lang, onSaved }: { folder: MediaFolder; lang: string; onSaved: () => Promise<void> }) {
   const t = mediaCopy(lang)
@@ -63,19 +64,19 @@ export default function MediaUpload({ folder, lang, onSaved }: { folder: MediaFo
     setState('paused')
     try { await previous?.abort() } catch { if (mounted.current) setState('failed') }
   }
-  return <form onSubmit={event => { event.preventDefault(); void start() }} className="space-y-4 rounded-2xl border border-[var(--border)] bg-[var(--surface-muted)] p-5">
-    <h3 className="text-lg font-semibold">{t.upload}</h3>
+  return <form onSubmit={event => { event.preventDefault(); void start() }} className="min-w-0 space-y-4 rounded-xl border border-[var(--admin-line)] bg-[var(--surface)] p-4 sm:p-5">
+    <h3 className="text-sm font-semibold">{t.upload}</h3>
     <p id={`upload-hint-${folder.folder_id}`} className="text-sm leading-relaxed text-[var(--muted)]">{t.hint}</p>
-    <label className="block space-y-2"><span>{t.choose}</span><input className="block min-h-12 w-full max-w-full rounded-lg border border-[var(--border)] p-2" type="file" accept=".mp4,.webm,.pdf,.pptx,.key" disabled={active} aria-describedby={`upload-hint-${folder.folder_id}`} onChange={event => {
+    <label className="block space-y-1.5"><span className="block text-sm font-medium">{t.choose}</span><input className="block min-h-12 w-full max-w-full rounded-lg border border-[var(--border)] bg-[var(--surface)] p-2 text-sm file:mr-3 file:min-h-10 file:rounded-md file:border-0 file:bg-[var(--surface-muted)] file:px-3 file:text-sm file:font-semibold file:text-[var(--foreground)]" type="file" accept=".mp4,.webm,.pdf,.pptx,.key" disabled={active} aria-describedby={`upload-hint-${folder.folder_id}`} onChange={event => {
       const selected = event.target.files?.[0] ?? null
       const parsed = selected && mediaFileSchema.safeParse({ name: selected.name, size: selected.size, type: selected.type })
       setFile(parsed && parsed.success ? selected : null); setProgress(0); setState(selected && !parsed?.success ? 'invalid' : 'idle')
       setTitle(selected ? (selected.name.replace(/\.[^.]+$/, '') || selected.name).slice(0, 180) : '')
     }} /></label>
-    {file && /\.(mp4|webm)$/i.test(file.name) && <label className="block space-y-2"><span>{t.fileTitle}</span><input required maxLength={180} disabled={active || state === 'paused'} value={title} onChange={event => setTitle(event.target.value)} className="min-h-12 w-full rounded-lg border border-[var(--border)] bg-[var(--surface)] px-3" /></label>}
-    <progress aria-label={t.uploading} value={progress} max={100} className="h-3 w-full accent-[var(--accent)]" />
+    {file && /\.(mp4|webm)$/i.test(file.name) && <label className="block space-y-1.5"><span className="block text-sm font-medium">{t.fileTitle}</span><input required maxLength={180} disabled={active || state === 'paused'} value={title} onChange={event => setTitle(event.target.value)} className={adminInput} /></label>}
+    <progress aria-label={t.uploading} value={progress} max={100} className="h-2 w-full accent-[var(--accent-strong)]" />
     <p role={state === 'failed' || state === 'invalid' ? 'alert' : 'status'} aria-live="polite" className="min-h-6 text-sm">{state === 'idle' ? '' : t[state]} {state === 'uploading' || state === 'paused' ? `${progress}%` : ''}</p>
-    <div className="flex flex-wrap gap-3">{state === 'uploading' && <button type="button" onClick={() => void pause()} className="min-h-12 rounded-lg border border-[var(--border)] px-5">{t.pause}</button>}
-    <button type="submit" disabled={!file || !title.trim() || active || state === 'saved'} className="min-h-12 rounded-lg bg-[var(--accent-strong)] px-5 font-semibold text-[var(--accent-foreground)] hover:bg-[var(--accent-strong-hover)] disabled:opacity-60">{state === 'failed' ? t.retry : state === 'paused' ? t.resume : t.start}</button></div>
+    <div className="flex flex-col gap-2 sm:flex-row sm:justify-end">{state === 'uploading' && <button type="button" onClick={() => void pause()} className={adminButton('secondary')}>{t.pause}</button>}
+    <button type="submit" disabled={!file || !title.trim() || active || state === 'saved'} className={adminButton('primary')}>{state === 'failed' ? t.retry : state === 'paused' ? t.resume : t.start}</button></div>
   </form>
 }

@@ -7,6 +7,7 @@ import { useAdminTranslator } from './AdminI18nProvider'
 import type { Trainer, AccessLevel, TrainerAccessRule } from '@/lib/access/levels'
 import type { AccessUnit } from '@/lib/access/units'
 import DialogActions from '@/components/ui/DialogActions'
+import { adminButton } from './ui'
 
 /** The content selection occupies the existing student dialog, without a second overlay. */
 export default function LessonAccessModal({ studentId, level, trainer, rule, onClose, onSave, onBusyChange }: {
@@ -71,45 +72,45 @@ export default function LessonAccessModal({ studentId, level, trainer, rule, onC
   return (
     <>
       <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-5 py-4 sm:px-6" data-lenis-prevent>
-        <button type="button" onClick={onClose} disabled={saving} className="mb-4 flex min-h-12 items-center gap-2 rounded-lg px-2 text-base font-semibold hover:bg-[var(--surface-muted)] disabled:opacity-50">
+        <button type="button" onClick={onClose} disabled={saving} className={adminButton('ghost', 'sm', '-ml-2 mb-3')}>
           <ArrowLeft size={20} aria-hidden="true" />{t('access_back')}
         </button>
         {loading ? (
           <div role="status" aria-label={t('loading')} className="flex min-h-40 items-center justify-center"><Loader2 className="animate-spin" aria-hidden="true" /></div>
         ) : loadFailed ? (
-          <div role="alert" className="rounded-xl border border-[var(--border)] p-5">
+          <div role="alert" className="rounded-xl bg-[var(--warning)] p-4 text-sm text-[var(--warning-foreground)]">
             <p>{t('access_load_failed')}</p>
-            <button type="button" onClick={() => setAttempt(value => value + 1)} className="mt-3 min-h-12 rounded-lg border border-[var(--border)] px-4 font-semibold">{t('access_retry')}</button>
+            <button type="button" onClick={() => setAttempt(value => value + 1)} className={adminButton('secondary', 'sm', 'mt-3')}>{t('access_retry')}</button>
           </div>
         ) : lessons.length === 0 ? (
-          <p className="rounded-xl border border-[var(--border)] px-4 py-10 text-center text-[var(--muted)]">{t('no_lessons_found')}</p>
+          <p className="rounded-xl border border-[var(--admin-line)] px-4 py-10 text-center text-sm text-[var(--muted)]">{t('no_lessons_found')}</p>
         ) : (
           <fieldset disabled={saving} className="space-y-4">
             <legend className="sr-only">{t(trainer === 'pronunciation' ? 'pronunciation_access_title' : 'lesson_access_title')}</legend>
-            <label className="flex min-h-14 cursor-pointer items-start gap-3 rounded-xl border border-[var(--border)] bg-[var(--surface-muted)] p-4">
-              <input type="checkbox" checked={selected === null} onChange={event => setSelected(event.target.checked ? null : lessons.map(lesson => lesson.id))} className="mt-1 h-5 w-5 shrink-0 accent-[var(--accent)]" />
+            <label className="flex min-h-12 cursor-pointer items-center gap-3 rounded-lg bg-[var(--surface-muted)] px-3 py-2 text-sm">
+              <input type="checkbox" checked={selected === null} onChange={event => setSelected(event.target.checked ? null : lessons.map(lesson => lesson.id))} className="h-5 w-5 shrink-0 accent-[var(--accent-strong)]" />
               <span className="font-semibold">{t('access_all_units')}</span>
             </label>
             <div className="flex flex-wrap items-center justify-between gap-3">
-              <p className="text-base text-[var(--muted)]">{t('access_selected_units', { count: selected === null ? lessons.length : lessons.filter(lesson => selected.includes(lesson.id)).length })}</p>
-              <button type="button" onClick={() => setSelected([])} className="min-h-12 rounded-lg border border-[var(--border)] px-4 text-base font-semibold hover:bg-[var(--surface-muted)]">{t('select_none')}</button>
+              <p className="text-sm text-[var(--muted)]">{t('access_selected_units', { count: selected === null ? lessons.length : lessons.filter(lesson => selected.includes(lesson.id)).length })}</p>
+              <button type="button" onClick={() => setSelected([])} className={adminButton('secondary', 'sm')}>{t('select_none')}</button>
             </div>
             <div className="space-y-2">
               {lessons.map(lesson => (
-                <label key={lesson.id} className="flex min-h-14 cursor-pointer items-start gap-3 rounded-xl border border-[var(--border)] p-4 hover:bg-[var(--surface-muted)] has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-[var(--violet)]">
-                  <input type="checkbox" checked={selected === null || selected.includes(lesson.id)} onChange={() => setSelected(current => current === null ? lessons.filter(item => item.id !== lesson.id).map(item => item.id) : current.includes(lesson.id) ? current.filter(id => id !== lesson.id) : [...current, lesson.id])} className="mt-1 h-5 w-5 shrink-0 accent-[var(--accent)]" />
-                  <span className="min-w-0 break-words text-base font-medium">{lesson.label}</span>
+                <label key={lesson.id} className="flex min-h-12 cursor-pointer items-center gap-3 rounded-lg border border-[var(--admin-line)] px-3 py-2 hover:bg-[var(--admin-hover)] has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-[var(--violet)]">
+                  <input type="checkbox" checked={selected === null || selected.includes(lesson.id)} onChange={() => setSelected(current => current === null ? lessons.filter(item => item.id !== lesson.id).map(item => item.id) : current.includes(lesson.id) ? current.filter(id => id !== lesson.id) : [...current, lesson.id])} className="h-5 w-5 shrink-0 accent-[var(--accent-strong)]" />
+                  <span className="min-w-0 break-words text-sm font-medium">{lesson.label}</span>
                 </label>
               ))}
             </div>
           </fieldset>
         )}
-        {saveFailed && <p role="alert" className="mt-4 text-base text-red-700 dark:text-red-300">{t('save_failed')}</p>}
+        {saveFailed && <p role="alert" className="mt-4 text-sm text-[var(--danger)]">{t('save_failed')}</p>}
       </div>
-      <footer className="flex shrink-0 flex-wrap justify-end gap-3 border-t border-[var(--border)] px-5 py-4 sm:px-6">
+      <footer className="flex shrink-0 flex-wrap justify-end gap-3 border-t border-[var(--admin-line)] px-4 py-3 sm:px-6">
         <DialogActions className="w-full sm:w-auto"
-        secondary={<button type="button" onClick={onClose} disabled={saving} className="min-h-12 rounded-xl border border-[var(--border)] px-5 font-semibold disabled:opacity-50">{t('cancel')}</button>}
-        primary={<button type="button" onClick={handleSave} disabled={saving || loading || loadFailed || lessons.length === 0} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-[var(--accent-strong)] px-6 font-bold text-[var(--accent-foreground)] hover:bg-[var(--accent-strong-hover)] disabled:opacity-50">
+        secondary={<button type="button" onClick={onClose} disabled={saving} className={adminButton('secondary')}>{t('cancel')}</button>}
+        primary={<button type="button" onClick={handleSave} disabled={saving || loading || loadFailed || lessons.length === 0} className={adminButton('primary')}>
           {saving && <Loader2 size={20} className="animate-spin" aria-hidden="true" />}{t('save')}
         </button>} />
       </footer>

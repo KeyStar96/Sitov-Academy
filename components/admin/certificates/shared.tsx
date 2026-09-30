@@ -2,11 +2,13 @@ import type { ReactNode } from 'react'
 import type { Json } from '@/supabase/database.types'
 import type { CertificateAdminData, CertificateStaffCommand } from '@/lib/certificates/types'
 import type { CertificateAdminCopy } from './i18n'
+import { adminButton, adminInput } from '../ui'
 
-export const control = 'min-h-11 w-full min-w-0 rounded-lg border border-[var(--border)] bg-[var(--surface)] px-3 py-2 text-sm text-[var(--foreground)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]'
-export const button = 'inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-[var(--border)] px-4 py-2 text-sm font-medium transition-colors hover:bg-[var(--surface-muted)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] disabled:cursor-not-allowed disabled:opacity-50'
-export const primary = `${button} border-[var(--accent)] bg-[var(--accent-soft)]`
-export const panel = 'min-w-0 rounded-xl border border-[var(--border)] bg-[var(--surface)] p-4 sm:p-5'
+// Klassen aus dem Admin-UI-Kit (Phase 11.2), damit alle Zertifikats-Ansichten einheitlich bleiben.
+export const control = adminInput
+export const button = adminButton('secondary', 'sm')
+export const primary = adminButton('primary', 'sm')
+export const panel = 'min-w-0 rounded-xl border border-[var(--admin-line)] bg-[var(--surface)] p-4 sm:p-5'
 export type CommandRunner = (command: CertificateStaffCommand) => Promise<boolean>
 export interface DeskProps { data: CertificateAdminData; lang: string; c: CertificateAdminCopy; busy: boolean; run: CommandRunner }
 export function Field({ label, children }: { label: string; children: ReactNode }) {
@@ -14,8 +16,8 @@ export function Field({ label, children }: { label: string; children: ReactNode 
 }
 export function Empty({ text }: { text: string }) { return <p className="py-5 text-sm text-[var(--muted)]">{text}</p> }
 export function Table({ caption, headings, children }: { caption: string; headings: string[]; children: ReactNode }) {
-  return <div className="min-w-0 overflow-x-auto rounded-lg border border-[var(--border)]" tabIndex={0} role="region" aria-label={caption}>
-    <table className="w-full text-left text-sm"><caption className="sr-only">{caption}</caption><thead className="bg-[var(--surface-muted)]"><tr>{headings.map((heading, i) => <th key={i} scope="col" className="whitespace-nowrap px-3 py-3 font-medium">{heading}</th>)}</tr></thead><tbody className="divide-y divide-[var(--border)]">{children}</tbody></table>
+  return <div className="min-w-0 overflow-x-auto rounded-lg border border-[var(--admin-line)]" tabIndex={0} role="region" aria-label={caption}>
+    <table className="w-full text-left text-sm"><caption className="sr-only">{caption}</caption><thead className="bg-[var(--surface-muted)]"><tr>{headings.map((heading, i) => <th key={i} scope="col" className="whitespace-nowrap px-3 py-2.5 text-xs font-semibold text-[var(--muted)]">{heading}</th>)}</tr></thead><tbody className="divide-y divide-[var(--admin-line)]">{children}</tbody></table>
   </div>
 }
 export const cell = 'min-w-32 px-3 py-3 align-top'

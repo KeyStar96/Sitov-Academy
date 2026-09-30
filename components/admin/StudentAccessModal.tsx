@@ -7,6 +7,7 @@ import type { AdminStudentRow } from '@/lib/types/admin-staff'
 import { useAdminTranslator } from './AdminI18nProvider'
 import AdminDialog from './AdminDialog'
 import LessonAccessModal from './LessonAccessModal'
+import { adminButton, adminInput } from './ui'
 
 export default function StudentAccessModal({ student, loading, message, hasError, onClose, onLevelToggle, onTrainerToggle, onLessonsUpdate }: {
   student: AdminStudentRow
@@ -46,35 +47,35 @@ export default function StudentAccessModal({ student, loading, message, hasError
         />
       ) : (
         <div className="min-h-0 flex-1 space-y-5 overflow-y-auto overscroll-contain px-5 py-5 sm:px-6" data-lenis-prevent>
-          <div className="flex flex-wrap items-end justify-between gap-4 rounded-2xl border border-[var(--border)] bg-[var(--surface-muted)] p-4">
-            <label className="min-w-40 flex-1 text-base font-semibold">
-              <span className="mb-2 block">{t('access_level_select')}</span>
-              <select value={level} disabled={busy} onChange={event => setLevel(event.target.value as AccessLevel)} className="min-h-12 w-full rounded-xl border border-[var(--border)] bg-[var(--surface)] px-3 text-base text-[var(--foreground)]">
+          <div className="flex flex-col gap-3 rounded-xl bg-[var(--surface-muted)] p-4 sm:flex-row sm:items-end">
+            <label className="min-w-0 flex-1">
+              <span className="mb-1.5 block text-sm font-medium">{t('access_level_select')}</span>
+              <select value={level} disabled={busy} onChange={event => setLevel(event.target.value as AccessLevel)} className={adminInput}>
                 {ACCESS_LEVELS.map(item => <option key={item} value={item}>{item}</option>)}
               </select>
             </label>
-            <button type="button" role="checkbox" aria-checked={levelEnabled} aria-label={t('level_toggle_aria', { level, name, action: levelEnabled ? t('level_revoke') : t('level_grant') })} disabled={busy} onClick={() => onLevelToggle(student.id, level)} className="flex min-h-12 flex-1 items-center justify-center gap-2 rounded-xl border border-[var(--border)] bg-[var(--surface)] px-4 text-base font-semibold disabled:opacity-50">
+            <button type="button" role="checkbox" aria-checked={levelEnabled} aria-label={t('level_toggle_aria', { level, name, action: levelEnabled ? t('level_revoke') : t('level_grant') })} disabled={busy} onClick={() => onLevelToggle(student.id, level)} className={adminButton(levelEnabled ? 'secondary' : 'primary', 'md', 'flex-1')}>
               {levelEnabled ? <LockOpen size={20} aria-hidden="true" /> : <Lock size={20} aria-hidden="true" />}{level} · {t(levelEnabled ? 'level_revoke' : 'level_grant')}
             </button>
           </div>
-          {!levelEnabled && <p className="text-base text-[var(--muted)]">{t('trainer_level_required')}</p>}
+          {!levelEnabled && <p className="text-sm text-[var(--muted)]">{t('trainer_level_required')}</p>}
           <fieldset disabled={busy || !levelEnabled} className="grid gap-3 sm:grid-cols-2">
-            <legend className="mb-3 text-base font-bold">{t('trainer_access_level', { level })}</legend>
+            <legend className="mb-3 text-sm font-semibold">{t('trainer_access_level', { level })}</legend>
             {TRAINERS.map(item => {
               const enabled = hasConfiguredTrainerAccess(student, level, item)
               const allowedLessons = student.trainer_grants?.find(rule => rule.level === level && rule.trainer === item)?.unit_ids
               const restricted = allowedLessons !== undefined && allowedLessons !== null
               return (
-                <div key={item} className="flex flex-col rounded-2xl border border-[var(--border)] p-3">
-                  <label className="flex min-h-14 cursor-pointer items-center gap-3 rounded-lg px-1 text-base font-semibold has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-[var(--violet)]">
-                    <input type="checkbox" checked={enabled} onChange={() => onTrainerToggle(student.id, level, item)} aria-label={`${name} · ${level} · ${t(`trainer_${item}`)}`} className="h-5 w-5 shrink-0 accent-[var(--accent)]" />
+                <div key={item} className="flex flex-col rounded-xl border border-[var(--admin-line)] p-3">
+                  <label className="flex min-h-12 cursor-pointer items-center gap-3 rounded-lg px-1 text-sm font-semibold has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-[var(--accent)]">
+                    <input type="checkbox" checked={enabled} onChange={() => onTrainerToggle(student.id, level, item)} aria-label={`${name} · ${level} · ${t(`trainer_${item}`)}`} className="h-5 w-5 shrink-0 accent-[var(--accent-strong)]" />
                     <span className="min-w-0 flex-1">{t(`trainer_${item}`)}</span>
                     {enabled ? <LockOpen size={18} aria-hidden="true" /> : <Lock size={18} aria-hidden="true" />}
                   </label>
                   {item !== 'videos' && (
                     <>
                       <p className="mb-2 px-1 text-sm leading-relaxed text-[var(--muted)]">{restricted ? t('access_selected_units', { count: allowedLessons.length }) : t('access_all_units')}</p>
-                      <button type="button" disabled={!enabled || busy} onClick={() => setTrainer(item)} className="mt-auto flex min-h-12 items-center justify-center gap-2 rounded-xl border border-[var(--border)] px-3 text-base font-semibold hover:bg-[var(--surface-muted)] disabled:cursor-not-allowed disabled:text-[var(--muted)]">
+                      <button type="button" disabled={!enabled || busy} onClick={() => setTrainer(item)} className={adminButton('secondary', 'sm', 'mt-auto w-full')}>
                         <SlidersHorizontal size={18} aria-hidden="true" />{t(item === 'pronunciation' ? 'pronunciation_access_button' : 'restrict_lessons')}
                       </button>
                     </>
@@ -84,7 +85,7 @@ export default function StudentAccessModal({ student, loading, message, hasError
             })}
           </fieldset>
           <p className="flex min-h-6 items-center gap-2 text-sm text-[var(--muted)]" role="status">{loading && <Loader2 size={18} className="animate-spin" aria-hidden="true" />}{t('access_saved_automatically')}</p>
-          {message && <p role={hasError ? 'alert' : 'status'} className={`text-base ${hasError ? 'text-red-700 dark:text-red-300' : 'text-[var(--foreground)]'}`}>{message}</p>}
+          {message && <p role={hasError ? 'alert' : 'status'} className={`text-sm ${hasError ? 'text-[var(--danger)]' : 'text-[var(--foreground)]'}`}>{message}</p>}
         </div>
       )}
     </AdminDialog>

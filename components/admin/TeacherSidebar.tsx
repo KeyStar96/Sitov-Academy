@@ -2,90 +2,65 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import {
-  BarChart3,
-  BookOpen,
-  CalendarClock,
-  FileText,
-  FolderOpen,
-  LayoutDashboard,
-  LibraryBig,
-  type LucideIcon,
-  MessageSquareText,
-  Mic,
-  PencilRuler,
-  Receipt,
-  Users,
-  UserPlus,
-  Wallet,
-} from 'lucide-react'
 import { useAdminTranslator } from './AdminI18nProvider'
-import { buildAdminNav, isNavItemActive, type AdminNavIcon } from '@/lib/admin-navigation'
-
-const ICONS: Record<AdminNavIcon, LucideIcon> = {
-  overview: LayoutDashboard,
-  finance: Wallet,
-  registrations: UserPlus,
-  invoices: Receipt,
-  bookings: CalendarClock,
-  students: Users,
-  courses: BookOpen,
-  content: LibraryBig,
-  media: FolderOpen,
-  vocabulary: FileText,
-  grammar: PencilRuler,
-  pronunciation: Mic,
-  analytics: BarChart3,
-  feedback: MessageSquareText,
-}
+import { ADMIN_NAV_ICONS } from './TeacherNavIcons'
+import { CountBadge, adminFocus } from './ui'
+import { buildAdminNav, findActiveNavItem, type AdminNavCounts } from '@/lib/admin-navigation'
+import { cn } from '@/lib/utils'
 
 /**
- * Gruppierte Sidebar-Navigation. Aktive Ziele werden dezent in der Markenfarbe
- * Orange (`--accent`) hervorgehoben – ein farbiger Indikatorbalken plus weiche
- * Akzentfläche, ohne die Fläche komplett einzufärben.
+ * Gruppierte Navigation für die Desktop-Seitenleiste und das mobile Menü-Blatt.
+ * Aktiv ist genau ein Ziel (längster passender Pfad): dezente Fläche plus
+ * orangefarbener Indikator, Zähler als kleine Badges.
  */
-export default function TeacherSidebar({ lang, onNavigate }: { lang: string; onNavigate?: () => void }) {
+export default function TeacherSidebar({ lang, counts, onNavigate, size = 'compact' }: {
+  lang: string
+  counts?: AdminNavCounts
+  onNavigate?: () => void
+  /** `comfortable` = 48-px-Zeilen für Touch im Menü-Blatt. */
+  size?: 'compact' | 'comfortable'
+}) {
   const pathname = usePathname()
   const t = useAdminTranslator()
   const sections = buildAdminNav(lang)
+  const active = findActiveNavItem(pathname, sections)
 
   return (
-    <nav aria-label={t('sidebar_primary_label')} className="flex flex-col gap-6">
-      {sections.map((section, sectionIndex) => (
-        <div key={section.labelKey ?? `section-${sectionIndex}`} className="min-w-0">
+    <nav aria-label={t('sidebar_primary_label')} className="flex flex-col gap-5">
+      {sections.map(section => (
+        <div key={section.id} className="min-w-0">
           {section.labelKey && (
-            <p className="mb-1.5 px-3 text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-[var(--muted)]">
+            <p className="mb-1 px-3 text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-[var(--muted)]">
               {t(section.labelKey)}
             </p>
           )}
-          <ul className="space-y-0.5">
+          <ul className="space-y-px">
             {section.items.map(item => {
-              const Icon = ICONS[item.icon]
-              const active = isNavItemActive(pathname, item)
+              const Icon = ADMIN_NAV_ICONS[item.icon]
+              const current = item === active
+              const count = item.badge ? counts?.[item.badge] : null
               return (
                 <li key={item.href}>
                   <Link
                     href={item.href}
                     onClick={onNavigate}
-                    aria-current={active ? 'page' : undefined}
-                    className={`group relative flex min-h-12 items-center gap-3 rounded-lg py-2 pl-3 pr-3 text-sm font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] ${
-                      active
-                        ? 'bg-[var(--accent-soft)] text-[var(--foreground)]'
-                        : 'text-[var(--muted)] hover:bg-[var(--surface-muted)] hover:text-[var(--foreground)]'
-                    }`}
+                    aria-current={current ? 'page' : undefined}
+                    className={cn(
+                      'group relative flex items-center gap-3 rounded-lg pl-3 pr-2.5 text-sm transition-colors',
+                      size === 'comfortable' ? 'min-h-12' : 'min-h-10',
+                      adminFocus,
+                      current
+                        ? 'bg-[var(--surface-muted)] font-semibold text-[var(--foreground)]'
+                        : 'font-medium text-[var(--muted)] hover:bg-[var(--admin-hover)] hover:text-[var(--foreground)]',
+                    )}
                   >
                     <span
                       aria-hidden="true"
-                      className={`absolute left-0 top-1/2 h-6 w-1 -translate-y-1/2 rounded-r-full transition-colors ${
-                        active ? 'bg-[var(--accent-strong)]' : 'bg-transparent'
-                      }`}
+                      className={cn('absolute left-0 top-1/2 h-5 w-[3px] -translate-y-1/2 rounded-r-full', current ? 'bg-[var(--accent)]' : 'bg-transparent')}
                     />
-                    <Icon
-                      size={18}
-                      aria-hidden="true"
-                      className={`shrink-0 transition-colors ${active ? 'text-[var(--accent-text)]' : 'text-[var(--muted)] group-hover:text-[var(--foreground)]'}`}
-                    />
-                    <span className="min-w-0 truncate">{t(item.labelKey)}</span>
+                    <Icon size={17} aria-hidden="true" className={cn('shrink-0', current ? 'text-[var(--accent-text)]' : 'text-[var(--muted)] group-hover:text-[var(--foreground)]')} />
+                    <span className="min-w-0 flex-1 truncate">{t(item.labelKey)}</span>
+                    <CountBadge count={count} label={count ? t('badge_count_aria', { count }) : undefined} />
                   </Link>
                 </li>
               )

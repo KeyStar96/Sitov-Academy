@@ -7,6 +7,7 @@ import { mediaCopy } from '@/lib/media-i18n'
 import { youtubeWatchUrl } from '@/lib/video-links'
 import type { MediaLink } from '@/lib/media'
 import VideoVisibilityToggle from './VideoVisibilityToggle'
+import { adminButton } from './ui'
 
 function hostOf(url: string, website: string) {
   if (youtubeWatchUrl(url)) return 'YouTube'
@@ -37,12 +38,12 @@ export default function MediaLinkCard({ link, lang, level, onEdit, onChanged }: 
     } catch { setFailed(true) } finally { setBusy(false) }
   }
 
-  const button = 'inline-flex min-h-12 items-center gap-2 rounded-lg border border-[var(--border)] bg-[var(--surface)] px-3 text-sm font-medium disabled:opacity-50'
-  return <article className="flex min-w-0 flex-col gap-3 rounded-xl border border-[var(--border)] bg-[var(--surface)] p-4">
+  const button = adminButton('secondary', 'sm')
+  return <article className="flex min-w-0 flex-col gap-3 rounded-xl border border-[var(--admin-line)] bg-[var(--surface)] p-4">
     <div className="flex min-w-0 items-start gap-3">
-      <span aria-hidden="true" className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[var(--accent-soft)] text-[var(--accent-text)]"><Icon size={20} /></span>
+      <span aria-hidden="true" className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[var(--surface-muted)] text-[var(--muted)]"><Icon size={18} /></span>
       <div className="min-w-0 flex-1">
-        <h4 className="break-words font-semibold">{link.title}</h4>
+        <h4 className="break-words text-sm font-semibold">{link.title}</h4>
         <p className="truncate text-sm text-[var(--muted)]">{level && <span className="font-semibold">{level} · </span>}{hostOf(link.url, t.website)}</p>
         {link.description && <p className="mt-1 break-words text-sm text-[var(--muted)]">{link.description}</p>}
       </div>
@@ -50,9 +51,9 @@ export default function MediaLinkCard({ link, lang, level, onEdit, onChanged }: 
     <VideoVisibilityToggle id={link.id} title={link.title} isActive={link.isActive} lang={lang} onChanged={onChanged} />
     <div className="flex flex-wrap gap-2">
       <a href={link.url} target="_blank" rel="noopener noreferrer" aria-label={`${t.open}: ${link.title}`} className={button}><ArrowUpRight size={16} aria-hidden="true" />{t.open}</a>
-      <button type="button" disabled={busy} onClick={() => void remove()} aria-label={`${t.remove}: ${link.title}`} className="inline-flex h-12 w-12 items-center justify-center rounded-lg text-[var(--muted)] hover:bg-[var(--surface-muted)] disabled:opacity-50">{busy ? <Loader2 size={18} className="animate-spin" aria-hidden="true" /> : <Trash2 size={18} aria-hidden="true" />}</button>
+      <button type="button" disabled={busy} onClick={() => void remove()} aria-label={`${t.remove}: ${link.title}`} className={adminButton('ghost', 'icon', 'h-11 w-11 text-[var(--danger)]')}>{busy ? <Loader2 size={18} className="animate-spin" aria-hidden="true" /> : <Trash2 size={18} aria-hidden="true" />}</button>
       <button type="button" disabled={busy} onClick={onEdit} aria-label={`${t.editLink}: ${link.title}`} className={button}><Pencil size={16} aria-hidden="true" />{t.editLink}</button>
     </div>
-    {failed && <p role="alert" className="text-sm">{t.failed}</p>}
+    {failed && <p role="alert" className="text-sm text-[var(--danger)]">{t.failed}</p>}
   </article>
 }
