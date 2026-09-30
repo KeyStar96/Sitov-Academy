@@ -2,10 +2,10 @@ import 'server-only'
 
 import { AUDIO_MAX_BYTES, AUDIO_MAX_TEXT_LENGTH, NEURAL_VOICES, normalizeAudioText } from './neural-config'
 import { validWordTimings } from './playback-settings'
-import type { AudioWordTiming, NeuralVoiceProfile, NeuralAudioLanguage } from '@/lib/types/audio'
+import type { AudioWordTiming, NeuralAudioLanguage } from '@/lib/types/audio'
 
 /** Kept under the existing import path; every synthesis request now stays on this VPS. */
-export async function synthesizeNeuralSpeech(input: string, language: NeuralAudioLanguage, voice?: NeuralVoiceProfile): Promise<{ audio: Buffer; wordTimings?: AudioWordTiming[] }> {
+export async function synthesizeNeuralSpeech(input: string, language: NeuralAudioLanguage): Promise<{ audio: Buffer; wordTimings?: AudioWordTiming[] }> {
   const text = normalizeAudioText(input)
   if (!text || text.length > AUDIO_MAX_TEXT_LENGTH || !Object.hasOwn(NEURAL_VOICES, language)) throw new Error('Invalid synthesis input')
   const endpoint = new URL(process.env.LOCAL_TTS_URL || 'http://127.0.0.1:9070')
@@ -23,7 +23,7 @@ export async function synthesizeNeuralSpeech(input: string, language: NeuralAudi
     for (;;) {
       response = await fetch(endpoint, {
         method: 'POST', headers: { 'Content-Type': 'application/json', ...(token ? { Authorization: `Bearer ${token}` } : {}) },
-        body: JSON.stringify({ text, language, ...(voice ? { voice } : {}) }), cache: 'no-store', signal: controller.signal, redirect: 'error',
+        body: JSON.stringify({ text, language }), cache: 'no-store', signal: controller.signal, redirect: 'error',
       })
       if (response.status !== 503) break
       const diagnostic: unknown = await response.json().catch(() => null)

@@ -98,7 +98,14 @@ await test('certificate CSV workflow: identity, payments, corrections, provenanc
    assert.equal((await query("SELECT validity FROM invoices WHERE invoice_number='R-2'"))[0].validity,'valid')
   })
   await t.test('automatic mapping uses actual booking and keeps attendance pending; replacement remains blocked until paid',async()=>{
+   const existingAllocations=await query('SELECT id,invoice_id,person_id,course_id,start_date,end_date,status FROM invoice_allocations ORDER BY id')
+   const existingPeriods=await query('SELECT id,person_id,course_id,start_date,end_date,status FROM participation_periods ORDER BY id')
    await rpc('map_product',{id:product,course_ids:[courseId,otherCourse]})
+   assert.deepEqual(await query('SELECT course_id FROM external_product_courses WHERE product_id=$1 ORDER BY course_id',[product]),[{course_id:courseId},{course_id:otherCourse}])
+   assert.deepEqual(await query('SELECT id,invoice_id,person_id,course_id,start_date,end_date,status FROM invoice_allocations ORDER BY id'),existingAllocations)
+   assert.deepEqual(await query('SELECT id,person_id,course_id,start_date,end_date,status FROM participation_periods ORDER BY id'),existingPeriods)
+   await assert.rejects(rpc('map_product',{id:product,course_ids:[otherCourse]}),e=>e.code==='23514')
+   assert.equal((await query('SELECT count(*)::int n FROM external_product_courses WHERE product_id=$1',[product]))[0].n,2)
    await db.exec('RESET ROLE')
    const booking=(await query(`INSERT INTO bookings(person_id,target_month,start_date,status,kind,contact_name,contact_email,privacy_accepted,agb_accepted)
     VALUES($1,'2026-02-01','2026-02-15','confirmed','monthly','Snapshot name','snapshot@example.test',true,true) RETURNING id`,[person]))[0].id

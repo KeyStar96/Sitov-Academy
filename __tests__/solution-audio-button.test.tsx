@@ -3,6 +3,7 @@ import SolutionAudioButton from '@/components/exercises/SolutionAudioButton'
 import { generateAudio } from '@/app/actions/generate-audio'
 import type { GenerateAudioResult } from '@/lib/types/audio'
 import dictionary from '@/dictionaries/de.json'
+import { PLAYBACK_RATE_STORAGE_KEY } from '@/lib/audio/usePlaybackRate'
 
 jest.unmock('lucide-react')
 jest.mock('@/app/actions/generate-audio', () => ({ generateAudio: jest.fn() }))
@@ -27,6 +28,7 @@ function playMedia(this: HTMLMediaElement) {
 }
 
 beforeEach(() => {
+  localStorage.clear()
   jest.clearAllMocks()
   jest.spyOn(HTMLMediaElement.prototype, 'play').mockImplementation(playMedia)
   jest.spyOn(HTMLMediaElement.prototype, 'pause').mockImplementation(function () { this.dispatchEvent(new Event('pause')) })
@@ -317,16 +319,26 @@ it('follows exact word boundaries on the media clock at all speeds and clears pa
   expect(window.cancelAnimationFrame).toHaveBeenCalled()
 })
 
-it('cancels the old voice and synthesizes female speech without reusing the recording', async () => {
+it('offers speed controls without a voice selector', () => {
   const input = props()
-  const { container } = render(<SolutionAudioButton {...input} audioUrl="https://media.example.com/original.mp3" />)
-  fireEvent.click(screen.getByRole('button', { name: input.ariaLabel }))
-  const original = container.querySelector('audio')
-  fireEvent.change(screen.getByRole('combobox', { name: dictionary.neural_audio.voice }), { target: { value: 'female' } })
-  expect(jest.mocked(HTMLMediaElement.prototype.pause).mock.instances).toContain(original)
-  await waitFor(() => expect(generateAudio).toHaveBeenCalledWith(expect.objectContaining({ text: input.text, language: 'de', voice: 'female' })))
-  await waitFor(() => expect(container.querySelector('audio')?.src).toBe('https://media.example.com/generated.mp3'))
-  expect(container.querySelector('audio')).not.toBe(original)
+  render(<SolutionAudioButton {...input} audioUrl="https://media.example.com/original.mp3" />)
+  expect(screen.getAllByRole('combobox')).toHaveLength(1)
+  expect(screen.getByRole('combobox', { name: dictionary.neural_audio.speed })).toBeInTheDocument()
+})
+
+it('restores the chosen speed after the next card remounts and on a later visit', () => {
+  const first = render(<SolutionAudioButton {...props()} level="A1" audioUrl="https://media.example.com/first.mp3" />)
+  fireEvent.change(screen.getByRole('combobox', { name: dictionary.neural_audio.speed }), { target: { value: '0.75' } })
+  expect(localStorage.getItem(PLAYBACK_RATE_STORAGE_KEY)).toBe('0.75')
+  first.unmount()
+  const second = render(<SolutionAudioButton {...props()} level="B1" audioUrl="https://media.example.com/second.mp3" />)
+  expect(screen.getByRole('combobox', { name: dictionary.neural_audio.speed })).toHaveValue('0.75')
+  expect(second.container.querySelector('audio')?.playbackRate).toBe(0.75)
+  second.unmount()
+  // Stored state alone is enough, including before any card is played.
+  localStorage.setItem(PLAYBACK_RATE_STORAGE_KEY, '1.25')
+  const nextVisit = render(<SolutionAudioButton {...props()} level="A2" audioUrl="https://media.example.com/visit.mp3" />)
+  expect(nextVisit.container.querySelector('audio')?.playbackRate).toBe(1.25)
 })
 
 it('repeats the current sentence immediately at 0.75 without another synthesis request', async () => {
@@ -340,5 +352,6 @@ it('repeats the current sentence immediately at 0.75 without another synthesis r
   expect(audio.currentTime).toBe(0)
   expect(audio.playbackRate).toBe(0.75)
   expect(screen.getByRole('combobox', { name: dictionary.neural_audio.speed })).toHaveValue('0.75')
+  expect(localStorage.getItem(PLAYBACK_RATE_STORAGE_KEY)).toBe('0.75')
   expect(generateAudio).not.toHaveBeenCalled()
 })

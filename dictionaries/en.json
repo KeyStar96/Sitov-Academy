@@ -1972,10 +1972,6 @@
     "neural_audio": {
         "slow_repeat": "Repeat slowly",
         "speed": "Speed",
-        "voice": "Voice",
-        "voice_male": "Thorsten (male)",
-        "voice_female": "Kerstin (female)",
-        "recording": "Original recording",
         "error": "The audio could not be loaded.",
         "retry": "Retry loading audio",
         "ready": "Audio is ready. Tap to play.",

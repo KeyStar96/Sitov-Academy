@@ -5,8 +5,9 @@ import { Loader2, Pause, Volume2 } from 'lucide-react'
 import { useAudioFeedback } from '@/components/layout/RouteFeedbackProvider'
 import { cachedNeuralAudio, cachedNeuralWordTimings, invalidateNeuralAudio, neuralAudioKey, resolveNeuralAudio, type NeuralAudioSource } from '@/lib/audio/neural-client'
 import { requestPlaybackAudioSession } from '@/lib/audio/web-audio'
-import { currentWordIndex, defaultPlaybackRate, PLAYBACK_RATES } from '@/lib/audio/playback-settings'
-import type { NeuralVoiceProfile, NeuralAudioLanguage } from '@/lib/types/audio'
+import { currentWordIndex, PLAYBACK_RATES } from '@/lib/audio/playback-settings'
+import { usePlaybackRate } from '@/lib/audio/usePlaybackRate'
+import type { NeuralAudioLanguage } from '@/lib/types/audio'
 import { cn } from '@/lib/utils'
 
 interface SolutionAudioButtonProps {
@@ -14,8 +15,6 @@ interface SolutionAudioButtonProps {
   audioUrl?: string | null
   cardId?: string
   language?: NeuralAudioLanguage
-  voiceProfile?: NeuralVoiceProfile
-  hideVoiceSelection?: boolean
   level?: string
   onWordChange?: (index: number | null) => void
   label: string
@@ -33,15 +32,11 @@ let activePlayer: { element: HTMLAudioElement; cancel: () => void } | null = nul
 
 export default function SolutionAudioButton(props: SolutionAudioButtonProps) {
   const copy = useAudioFeedback()
-  const [manualRate, setManualRate] = useState<number | null>(null)
-  const [voice, setVoice] = useState<'default' | NeuralVoiceProfile>('default')
+  const [rate, setManualRate] = usePlaybackRate(props.level)
   const language = props.language ?? 'de'
-  const selectedVoice = language === 'de' ? props.voiceProfile ?? voice : 'default'
-  const rate = manualRate ?? defaultPlaybackRate(props.level)
   const recording = props.audioUrl && !props.audioUrl.includes('/audio_cache/') ? props.audioUrl : null
   const source = { text: props.text, cardId: props.cardId, language,
-    audioUrl: selectedVoice === 'default' ? recording : null,
-    voice: selectedVoice === 'default' ? undefined : selectedVoice,
+    audioUrl: recording,
     aligned: Boolean(props.onWordChange && !recording) }
   return <div className="flex min-w-0 flex-wrap items-center justify-center gap-2">
     <NeuralAudioPlayer key={neuralAudioKey(source)} {...props} {...source} rate={rate} onSlowReplay={() => setManualRate(0.75)} />
@@ -55,24 +50,13 @@ export default function SolutionAudioButton(props: SolutionAudioButtonProps) {
         </select>
         <span aria-hidden="true">▾</span>
       </label>
-      {source.language === 'de' && !props.hideVoiceSelection && <label className="flex items-center gap-2 text-sm font-semibold text-[var(--muted)]">
-        <span>{copy.voice}</span>
-        <select aria-label={copy.voice} value={selectedVoice} onChange={event => setVoice(event.target.value as 'default' | NeuralVoiceProfile)}
-          style={{ height: 48, minHeight: 48 }}
-          className="h-12 min-h-12 max-w-full cursor-pointer appearance-none rounded-xl border border-[var(--border)] bg-[var(--surface)] px-3 text-[var(--foreground)]">
-          <option value="default">{recording ? copy.recording : copy.voice_male}</option>
-          {recording && <option value="male">{copy.voice_male}</option>}
-          <option value="female">{copy.voice_female}</option>
-        </select>
-        <span aria-hidden="true">▾</span>
-      </label>}
     </div>
   </div>
 }
 
-function NeuralAudioPlayer({ text, audioUrl, cardId, language, voice, aligned, rate, onSlowReplay, label, ariaLabel, variant = 'primary', onUnsupported, onProgress, onWordChange }: SolutionAudioButtonProps & { language: NeuralAudioLanguage; voice?: NeuralVoiceProfile; aligned?: boolean; rate: number; onSlowReplay: () => void }) {
+function NeuralAudioPlayer({ text, audioUrl, cardId, language, aligned, rate, onSlowReplay, label, ariaLabel, variant = 'primary', onUnsupported, onProgress, onWordChange }: SolutionAudioButtonProps & { language: NeuralAudioLanguage; aligned?: boolean; rate: number; onSlowReplay: () => void }) {
   const copy = useAudioFeedback()
-  const source = useRef<NeuralAudioSource>({ text, audioUrl, cardId, language, voice, aligned }).current
+  const source = useRef<NeuralAudioSource>({ text, audioUrl, cardId, language, aligned }).current
   const [url, setUrl] = useState(() => cachedNeuralAudio(source))
   const [isPlaying, setIsPlaying] = useState(false)
   const [loading, setLoading] = useState(false)

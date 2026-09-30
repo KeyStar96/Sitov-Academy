@@ -5,12 +5,13 @@ import { createPhase3Database, actor, id, student, teacher, outsider, exerciseUn
 await test('Phase 5 teacher analytics uses authorized SQL aggregates and real Berlin-day receipts', async t => {
  const db = await createPhase3Database()
  const course = id(510), unlinked = id(511), cards = [id(520), id(521), id(522)], exercise = id(523)
- const read = (studentId = student, courseId = course) => result(db, 'SELECT public.get_all_students_progress_data($1::uuid,$2::uuid) result', [studentId, courseId])
+ const read = (studentId = student, level = 'A1.1') => result(db, 'SELECT public.get_student_learning_analytics($1::uuid,$2::text) result', [studentId, level])
+ const legacy = courseId => result(db, 'SELECT public.get_all_students_progress_data($1::uuid,$2::uuid) result', [student, courseId])
  try {
   await db.query("INSERT INTO courses(id,slug,title,type,category,level,audience_code,unit_price) VALUES($1,'analytics-a1','A1 Course','presence','german','A1.1','A1.1',5),($2,'analytics-private','Private','online','private',NULL,NULL,10)", [course, unlinked])
   for (const card of cards) await db.query("INSERT INTO learning_vocabulary_cards(id,unit_id,word_de) VALUES($1,$2,'Haus')", [card, vocabularyUnit])
   await db.exec("INSERT INTO learning_levels(code,cefr_level,sort_order) VALUES('A1.2','A1',2)")
-  await db.query("INSERT INTO learning_units(id,level,trainer,label) VALUES($1,'A1.2','vocabulary','Other course level')", [id(540)])
+  await db.query("INSERT INTO learning_units(id,level,trainer,label) VALUES($1,'A1.2','vocabulary','Other trainer level')", [id(540)])
   await db.query("INSERT INTO learning_vocabulary_cards(id,unit_id,word_de) VALUES($1,$2,'Fremd')", [id(541),id(540)])
   await db.query("INSERT INTO learning_exercises(id,unit_id,topic,type,content) VALUES($1,$2,'Artikel','fill_in_blank','{\"correct_answer\":\"ein\",\"accepted_answers\":[\"ein\"]}')", [exercise, exerciseUnit])
   await db.query('INSERT INTO user_exercise_progress(auth_user_id,exercise_id,completed) VALUES($1,$2,true)', [student, exercise])
@@ -27,7 +28,13 @@ await test('Phase 5 teacher analytics uses authorized SQL aggregates and real Be
   await actor(db, teacher)
   const original = await result(db, 'SELECT public.get_all_students_progress_data() result')
   await db.exec('RESET ROLE')
-  await apply(db, ['11_teacher_analytics.sql'])
+  const snapshot = await result(db, `SELECT jsonb_build_object(
+   'courses',(SELECT jsonb_agg(to_jsonb(c) ORDER BY id) FROM public.courses c),
+   'grants',(SELECT jsonb_agg(to_jsonb(a) ORDER BY auth_user_id,level) FROM public.student_level_access a),
+   'progress',(SELECT jsonb_agg(to_jsonb(p) ORDER BY id) FROM public.vocabulary_direction_progress p),
+   'receipts',(SELECT jsonb_agg(to_jsonb(r) ORDER BY request_id) FROM vocabulary_private.answer_receipts r)
+  ) result`)
+  await apply(db, ['11_teacher_analytics.sql', '10_rls_performance.sql', '52_independent_trainer_analytics.sql'])
   await t.test('keeps Phase 4 callers compatible and aggregates both directions', async () => {
    await actor(db, teacher)
    assert.deepEqual(await result(db, 'SELECT public.get_all_students_progress_data() result'), original)
@@ -47,15 +54,47 @@ await test('Phase 5 teacher analytics uses authorized SQL aggregates and real Be
    assert.equal(analytics.history.reduce((total, day) => total + day.answers, 0), 2)
    assert.equal(JSON.stringify(analytics).includes('private answer'), false)
   })
-  await t.test('does not fabricate another student or an unmapped course learning level', async () => {
+  await t.test('does not fabricate another student or infer trainer progress from a course', async () => {
    const empty = await read(outsider)
    assert.equal(empty.distribution.totalInBox, 0)
    assert.ok(empty.history.every(day => day.answers === 0))
-   const noLevel = await read(student, unlinked)
-   assert.equal(noLevel.level, null); assert.equal(noLevel.distribution.totalCards, 0)
+   assert.equal((await legacy(course)).error, 'invalid_input')
+   assert.equal((await legacy(unlinked)).error, 'invalid_input')
+   const allLevels = await legacy(null)
+   assert.equal(allLevels.level, null); assert.equal(allLevels.courseId, null); assert.equal(allLevels.distribution.totalCards, 4)
+   assert.equal(Object.hasOwn(await read(), 'courseId'), false)
    assert.equal((await read(null)).error, 'invalid_input')
    assert.equal((await read(teacher)).error, 'not_found')
-   assert.equal((await read(student, id(999))).error, 'not_found')
+   assert.equal((await read(student, 'B9.9')).error, 'not_found')
+  })
+  await t.test('preserves every existing course, entitlement, learning progress and answer receipt', async () => {
+   await db.exec('RESET ROLE')
+   assert.deepEqual(await result(db, `SELECT jsonb_build_object(
+    'courses',(SELECT jsonb_agg(to_jsonb(c) ORDER BY id) FROM public.courses c),
+    'grants',(SELECT jsonb_agg(to_jsonb(a) ORDER BY auth_user_id,level) FROM public.student_level_access a),
+    'progress',(SELECT jsonb_agg(to_jsonb(p) ORDER BY id) FROM public.vocabulary_direction_progress p),
+    'receipts',(SELECT jsonb_agg(to_jsonb(r) ORDER BY request_id) FROM vocabulary_private.answer_receipts r)
+   ) result`), snapshot)
+   assert.equal((await db.query("SELECT 1 FROM pg_constraint WHERE conname='courses_level_fkey'")).rows.length, 0)
+   await actor(db, teacher)
+  })
+  await t.test('unlocks a trainer level without a course registration and never creates one', async () => {
+   await actor(db, teacher)
+   const bookingsBefore = (await db.query('SELECT count(*)::int n FROM bookings')).rows[0].n
+   await db.query("SELECT set_student_level_access($1,ARRAY['A1.1']::text[])", [outsider])
+   await actor(db, outsider)
+   assert.equal((await db.query('SELECT id FROM learning_vocabulary_cards')).rows.length, 3)
+   await actor(db, teacher)
+   assert.equal((await db.query('SELECT count(*)::int n FROM bookings')).rows[0].n, bookingsBefore)
+   // Course audience metadata can change freely without changing an entitlement.
+   await db.exec('RESET ROLE')
+   await db.query("UPDATE courses SET level=NULL WHERE id=$1", [course])
+   await actor(db, teacher)
+   assert.equal((await read()).level, 'A1.1')
+   assert.equal((await read()).distribution.totalInBox, 2)
+   await actor(db, outsider)
+   assert.equal((await db.query('SELECT id FROM learning_vocabulary_cards')).rows.length, 3)
+   await actor(db, teacher)
   })
   await t.test('denies anonymous and nonstaff access before touching private data', async () => {
    await actor(db, student); assert.equal((await read()).error, 'not_authorized')
@@ -63,8 +102,8 @@ await test('Phase 5 teacher analytics uses authorized SQL aggregates and real Be
    await actor(db, null, 'anon'); await assert.rejects(read(), error => error.code === '42501')
   })
   await t.test('is repeatable, has an empty search_path and reports structured SQL failures', async () => {
-   await db.exec('RESET ROLE'); await apply(db, ['11_teacher_analytics.sql'])
-   const security = (await db.query("SELECT prosecdef,proconfig FROM pg_proc WHERE oid='public.get_all_students_progress_data(uuid,uuid)'::regprocedure")).rows[0]
+   await db.exec('RESET ROLE'); await apply(db, ['52_independent_trainer_analytics.sql'])
+   const security = (await db.query("SELECT prosecdef,proconfig FROM pg_proc WHERE oid='public.get_student_learning_analytics(uuid,text)'::regprocedure")).rows[0]
    assert.equal(security.prosecdef, true); assert.deepEqual(security.proconfig, ['search_path=""'])
    await db.exec('BEGIN; ALTER TABLE vocabulary_private.answer_receipts RENAME TO temporarily_unavailable;')
    await actor(db, teacher)

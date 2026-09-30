@@ -20,6 +20,7 @@ export type Database = {
         Row: {
           amount: number
           booking_id: string
+          calendar_snapshot: Json
           course_id: string
           id: string
           requested_units: number | null
@@ -31,6 +32,7 @@ export type Database = {
         Insert: {
           amount: number
           booking_id: string
+          calendar_snapshot?: Json
           course_id: string
           id?: string
           requested_units?: number | null
@@ -42,6 +44,7 @@ export type Database = {
         Update: {
           amount?: number
           booking_id?: string
+          calendar_snapshot?: Json
           course_id?: string
           id?: string
           requested_units?: number | null
@@ -385,13 +388,6 @@ export type Database = {
             referencedRelation: "course_audiences"
             referencedColumns: ["code"]
           },
-          {
-            foreignKeyName: "courses_level_fkey"
-            columns: ["level"]
-            isOneToOne: false
-            referencedRelation: "learning_levels"
-            referencedColumns: ["code"]
-          },
         ]
       }
       grammar_translations: {
@@ -448,6 +444,7 @@ export type Database = {
       invoice_cases: {
         Row: {
           booking_id: string
+          calendar_adjustment_amount: number
           created_by: string | null
           id: string
           invoice_created_at: string | null
@@ -459,6 +456,7 @@ export type Database = {
         }
         Insert: {
           booking_id: string
+          calendar_adjustment_amount?: number
           created_by?: string | null
           id?: string
           invoice_created_at?: string | null
@@ -470,6 +468,7 @@ export type Database = {
         }
         Update: {
           booking_id?: string
+          calendar_adjustment_amount?: number
           created_by?: string | null
           id?: string
           invoice_created_at?: string | null
@@ -2298,6 +2297,10 @@ export type Database = {
       get_all_students_progress_data:
         | { Args: never; Returns: Json }
         | { Args: { p_course_id: string; p_student_id: string }; Returns: Json }
+      get_student_learning_analytics: {
+        Args: { p_student_id: string; p_level?: string | null }
+        Returns: Json
+      }
       get_last_active_level: { Args: never; Returns: Json }
       get_learning_new_counts: { Args: never; Returns: Json }
       get_learning_new_items: { Args: { p_level: string }; Returns: Json }

@@ -37,3 +37,30 @@ it.each(['de', 'en'])('distinguishes pending cancellation links from confirmed r
   expect(within(replacementRow).getByText(c.confirmed, { exact: true })).toBeVisible()
   expect(within(replacementRow).queryByText(c.review, { exact: true })).not.toBeInTheDocument()
 })
+
+it.each(['de', 'en'])('allows extending an already resolved service mapping without reimport in %s', lang => {
+  const data = fixture()
+  const productId = '00000000-0000-4000-8000-000000000010'
+  const a1 = '00000000-0000-4000-8000-000000000011'
+  const b1 = '00000000-0000-4000-8000-000000000012'
+  data.products = [{ id: productId, article_number: 'SLA-Speech-A1-B1', name: 'Sprechtraining A1-B1', description: '', unit: 'Stunde', unit_price: 3.5, review_status: 'resolved', review_reason: null }]
+  data.courses = [
+    { id: a1, title: 'Sprechtraining A1', description: '', slug: 'speech-a1', start_date: null, end_date: null, archived_at: null, type: 'online' },
+    { id: b1, title: 'Sprechtraining B1', description: '', slug: 'speech-b1', start_date: null, end_date: null, archived_at: null, type: 'online' },
+  ]
+  data.productCourses = [{ product_id: productId, course_id: a1, certificate_title: 'Sprechtraining A1-B1', certificate_description: 'Sprechen üben', schedule_snapshot: [], version: 1 }]
+  const c = certificateAdminCopy(lang)
+  const run = jest.fn().mockResolvedValue(true)
+  render(<Reconcile data={data} lang={lang} c={c} busy={false} run={run} />)
+  fireEvent.click(screen.getByRole('button', { name: c.products }))
+  expect(screen.queryByRole('checkbox', { name: c.showAll })).not.toBeInTheDocument()
+  fireEvent.click(screen.getByText('Sprechtraining A1-B1'))
+  expect(screen.getByRole('checkbox', { name: /Sprechtraining A1 · Online/ })).toBeChecked()
+  fireEvent.click(screen.getByRole('checkbox', { name: /Sprechtraining B1 · Online/ }))
+  fireEvent.click(screen.getByRole('button', { name: c.productMap }))
+  expect(run).toHaveBeenCalledWith({ command: 'map_product', payload: {
+    id: productId, course_ids: [a1, b1], title: 'Sprechtraining A1-B1', description: 'Sprechen üben',
+  } })
+  fireEvent.change(screen.getByRole('searchbox'), { target: { value: 'SLA-Speech' } })
+  expect(screen.getByText('Sprechtraining A1-B1')).toBeInTheDocument()
+})

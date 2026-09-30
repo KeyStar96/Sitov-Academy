@@ -7,6 +7,8 @@
  *   `student_level_access` (feingranular, z. B. `"A1.1"`) freigeschaltet.
  * - Pro Niveau können Trainer durch `learning_trainer_grants` gesperrt werden.
  *   Ohne Override gilt die bestehende Niveau-Freigabe für alle vier Trainer.
+ * - Trainer-Niveaus sind unabhängig von Kursen und Kursanmeldungen.
+ *   Ein gleichlautendes Kursniveau erzeugt oder entzieht keine Freigabe.
  * - Ein frisch registrierter Nutzer hat ein leeres Array → kein Zugriff.
  * - Admins und Lehrer (role `admin`/`teacher`) haben unabhängig davon Vollzugriff.
  *

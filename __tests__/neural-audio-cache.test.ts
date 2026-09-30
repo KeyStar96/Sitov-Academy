@@ -6,6 +6,8 @@ import { createAdminClient } from '@/utils/supabase/admin'
 import { synthesizeNeuralSpeech } from '@/lib/audio/edge-tts'
 import { findCachedAudio, generateCachedAudio, neuralAudioPath } from '@/lib/audio/neural-cache'
 import { AUDIO_CACHE_BUCKET, NEURAL_VOICES, normalizeAudioText, vocabularyAudioText } from '@/lib/audio/neural-config'
+import { createHash } from 'node:crypto'
+import { AUDIO_CACHE_VERSION, AUDIO_FORMAT, AUDIO_RATE } from '@/lib/audio/neural-config'
 
 const internalAudioUrl = 'http://127.0.0.1:9080/storage/v1/object/public/audio_cache/cached.mp3'
 const audioUrl = 'https://217.154.228.254/supabase/storage/v1/object/public/audio_cache/cached.mp3'
@@ -79,7 +81,7 @@ describe('immutable Storage cache', () => {
     const data = Buffer.from('mp3 bytes')
     jest.mocked(synthesizeNeuralSpeech).mockResolvedValue({ audio: data })
     expect(await generateCachedAudio('Guten Tag.', 'de', 'generated.mp3')).toEqual({ audioUrl })
-    expect(synthesizeNeuralSpeech).toHaveBeenCalledWith('Guten Tag.', 'de', undefined)
+    expect(synthesizeNeuralSpeech).toHaveBeenCalledWith('Guten Tag.', 'de')
     expect(storage.upload).toHaveBeenCalledWith('generated.mp3', data, {
       contentType: 'audio/mpeg', cacheControl: '31536000', upsert: false,
     })
@@ -116,13 +118,15 @@ describe('immutable Storage cache', () => {
   })
 })
 
-it('separates male and female cache keys and stores exact timings atomically with MP3', async () => {
+it('uses the existing Thorsten cache key and retains exact timings with MP3', async () => {
   const { storage } = storageClient()
-  expect(neuralAudioPath('die Tür', 'de', 'male')).not.toBe(neuralAudioPath('die Tür', 'de', 'female'))
+  const hash = createHash('sha256').update(JSON.stringify({ text: 'die Tür', voice: 'de_DE-thorsten-high', rate: AUDIO_RATE, format: AUDIO_FORMAT })).digest('hex')
+  const path = `${AUDIO_CACHE_VERSION}/de/${hash}.mp3`
+  expect(neuralAudioPath('die Tür', 'de')).toBe(path)
   const wordTimings = [{ start: 0.05, end: 0.3 }, { start: 0.4, end: 1.1 }]
   jest.mocked(synthesizeNeuralSpeech).mockResolvedValue({ audio: Buffer.from('mp3'), wordTimings })
-  expect(await generateCachedAudio('die Tür', 'de', 'female.mp3', 'female')).toEqual({ audioUrl, wordTimings })
-  expect(storage.upload).toHaveBeenCalledWith('female.mp3', expect.any(Buffer), expect.objectContaining({ metadata: { wordTimings }, upsert: false }))
+  expect(await generateCachedAudio('die Tür', 'de', path)).toEqual({ audioUrl, wordTimings })
+  expect(storage.upload).toHaveBeenCalledWith(path, expect.any(Buffer), expect.objectContaining({ metadata: { wordTimings }, upsert: false }))
   storage.info.mockResolvedValue({ data: { id: 'object', metadata: { wordTimings } }, error: null })
-  expect(await findCachedAudio('female.mp3')).toEqual({ audioUrl, wordTimings })
+  expect(await findCachedAudio(path)).toEqual({ audioUrl, wordTimings })
 })

@@ -7,6 +7,7 @@ jest.mock('@/lib/audio/useAudioPlayback', () => ({ useAudioPlayback: jest.fn() }
 jest.mock('@/components/audio/FluidWaveform', () => ({ __esModule: true, default: () => <div /> }))
 let playback: UseAudioPlaybackResult
 beforeEach(() => {
+  localStorage.clear()
   jest.clearAllMocks()
   playback = { error: null, isPlaying: false, isBuffering: false, currentTime: 12, duration: 60, htmlAudioRef: { current: null }, getVolume: () => 0, getTone: () => 0, play: jest.fn(), pause: jest.fn(), seek: jest.fn() }
   jest.mocked(useAudioPlayback).mockImplementation(() => playback)
@@ -30,8 +31,8 @@ it('stops playback when a conversation player unmounts', () => {
   expect(playback.pause).toHaveBeenCalledTimes(1)
 })
 
-it('starts A-level reference recordings at 0.85× and changes their actual playback rate', () => {
-  const { rerender } = render(<WaveformPlayer src="test.wav" level="A1.2" />)
+it('starts A-level references at 0.85× and retains an explicit rate across levels and remounts', () => {
+  const { rerender, unmount } = render(<WaveformPlayer src="test.wav" level="A1.2" />)
   const speed = screen.getByRole('combobox')
   expect(speed).toHaveValue('0.85')
   expect(jest.mocked(useAudioPlayback)).toHaveBeenLastCalledWith('test.wav', 0.85, undefined)
@@ -40,8 +41,12 @@ it('starts A-level reference recordings at 0.85× and changes their actual playb
   expect(playback.seek).not.toHaveBeenCalled()
   expect(playback.play).not.toHaveBeenCalled()
   rerender(<WaveformPlayer src="test.wav" level="B1" />)
-  expect(speed).toHaveValue('1')
-  expect(jest.mocked(useAudioPlayback)).toHaveBeenLastCalledWith('test.wav', 1, undefined)
+  expect(speed).toHaveValue('0.75')
+  expect(jest.mocked(useAudioPlayback)).toHaveBeenLastCalledWith('test.wav', 0.75, undefined)
+  unmount()
+  render(<WaveformPlayer src="next-reference.wav" level="B2" />)
+  expect(screen.getByRole('combobox')).toHaveValue('0.75')
+  expect(jest.mocked(useAudioPlayback)).toHaveBeenLastCalledWith('next-reference.wav', 0.75, undefined)
 })
 
 it('passes source-clock progress unchanged when the speed changes', () => {

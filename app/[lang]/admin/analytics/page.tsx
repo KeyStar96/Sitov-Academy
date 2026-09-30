@@ -6,6 +6,6 @@ export default async function AnalyticsPage({ params }: { params: Promise<{ lang
   const { lang } = await params
   const [options, dict] = await Promise.all([getTeacherAnalyticsOptions(), getDictionary(lang)])
   return <TeacherAnalytics key={options.success ? options.data.students[0]?.id ?? 'empty' : 'failed'}
-    options={options.success ? options.data : { students: [], courses: [] }} failed={!options.success}
+    options={options.success ? options.data : { students: [], levels: [] }} failed={!options.success}
     lang={lang} translations={dict.vocabulary ?? {}} />
 }

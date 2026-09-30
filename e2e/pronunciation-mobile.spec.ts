@@ -76,15 +76,16 @@ for (const theme of ['light', 'dark'] as const) {
 async function checkRecording(page: Page, testInfo: TestInfo, lang: string, copy: typeof en.pronunciation) {
   // Die schwebende Aufnahme-Bedienung gibt es nur unterhalb des lg-Breakpoints.
   await page.setViewportSize({ width: 390, height: 844 })
-  await page.goto(`/${lang}/dashboard/level/A1.1/pronunciation`)
   // The prototype keeps the permission fixture across native MediaDevices
-  // wrappers in WebKit. App recording logic and browser clicks stay real.
-  await page.evaluate(() => {
+  // wrappers in WebKit. Install on every navigation, including the speed reload.
+  // App recording logic and browser clicks stay real.
+  await page.addInitScript(() => {
     Object.defineProperty(Object.getPrototypeOf(navigator.mediaDevices), 'getUserMedia', {
       configurable: true,
       value: async () => { throw new DOMException('Test microphone permission denied', 'NotAllowedError') },
     })
   })
+  await page.goto(`/${lang}/dashboard/level/A1.1/pronunciation`)
   const end = page.getByTestId('pronunciation-text-end')
   await expect(page.getByTestId('pronunciation-reading-text')).toContainText('Abschnitt 18.')
   await end.scrollIntoViewIfNeeded()
@@ -99,25 +100,17 @@ async function checkRecording(page: Page, testInfo: TestInfo, lang: string, copy
     await speed.selectOption('1.25')
     await expect(speed).toHaveValue('1.25')
     await speed.selectOption('0.85')
-    const voice = reading.getByRole('combobox', { name: en.neural_audio.voice, exact: true })
-    const original = await voice.locator('option[value="original"]').count()
-    expect(await voice.locator('option').evaluateAll(options => options.map(option => (option as HTMLOptionElement).value)))
-      .toEqual(original ? ['original', 'male', 'female'] : ['default', 'female'])
-    await voice.selectOption('female')
-    await expect(voice).toHaveValue('female')
+    await expect(reading.getByRole('combobox')).toHaveCount(1)
     await expect(speed).toHaveValue('0.85')
     await expect(speed).toHaveCSS('min-height', '48px')
-    const controlBounds = await voice.boundingBox()
+    const controlBounds = await speed.boundingBox()
     expect(controlBounds!.height).toBeGreaterThanOrEqual(48)
     expect(controlBounds!.x + controlBounds!.width).toBeLessThanOrEqual(390)
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true)
-    await page.screenshot({ path: testInfo.outputPath('tts-female-controls.png') })
-    if (original) {
-      await voice.selectOption('male')
-      await expect(voice).toHaveValue('male')
-      await voice.selectOption('original')
-      await expect(voice).toHaveValue('original')
-    } else await voice.selectOption('default')
+    await speed.selectOption('0.75')
+    await page.reload()
+    await expect(speed).toHaveValue('0.75')
+    await speed.selectOption('0.85')
     await expect(speed).toHaveValue('0.85')
     await page.screenshot({ path: testInfo.outputPath('tts-reference-controls.png') })
   }
@@ -131,10 +124,11 @@ async function checkRecording(page: Page, testInfo: TestInfo, lang: string, copy
   expect(bounds!.width).toBeGreaterThanOrEqual(56)
   expect(bounds!.height).toBeGreaterThanOrEqual(56)
   // Am Seitenende bleibt der Lesetext vollstaendig ueber dem Knopf lesbar.
-  await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight))
-  const ending = await end.boundingBox()
-  const dock = await record.boundingBox()
-  expect(ending!.y + ending!.height).toBeLessThanOrEqual(dock!.y)
+  await page.evaluate(() => window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'instant' }))
+  await expect.poll(async () => {
+    const [ending, dock] = await Promise.all([end.boundingBox(), record.boundingBox()])
+    return ending && dock ? ending.y + ending.height - dock.y : Infinity
+  }, { message: 'The reading end stays fully above the recording control after scrolling' }).toBeLessThanOrEqual(0)
   expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([])
   await page.screenshot({ path: testInfo.outputPath('reading-end-recording-bar.png') })
   await record.click()

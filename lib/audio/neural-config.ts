@@ -23,5 +23,3 @@ export function vocabularyAudioText(card: { article: string | null; word_de: str
   const article = card.article && card.article !== 'none' ? card.article : ''
   return normalizeAudioText(`${article} ${card.word_de}`)
 }
-
-export const GERMAN_VOICE_PROFILES = { male: 'de_DE-thorsten-high', female: 'de_DE-kerstin-low' } as const

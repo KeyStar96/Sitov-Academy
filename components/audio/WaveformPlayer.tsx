@@ -1,11 +1,12 @@
 'use client'
 
-import { useCallback, useEffect, useRef, useState, type KeyboardEvent } from 'react'
+import { useCallback, useEffect, useRef, type KeyboardEvent } from 'react'
 import { Loader2, Pause, Play, RotateCcw } from 'lucide-react'
 import FluidWaveform from '@/components/audio/FluidWaveform'
 import { useAudioPlayback } from '@/lib/audio/useAudioPlayback'
 import { formatDuration, playbackProgress } from '@/lib/audio/waveform'
-import { defaultPlaybackRate, PLAYBACK_RATES } from '@/lib/audio/playback-settings'
+import { PLAYBACK_RATES } from '@/lib/audio/playback-settings'
+import { usePlaybackRate } from '@/lib/audio/usePlaybackRate'
 import {
   createPronunciationTranslator,
   type PronunciationTranslator,
@@ -39,8 +40,7 @@ export default function WaveformPlayer({
   onProgress?: (state: { playing: boolean; fraction: number; ended: boolean }) => void
 }) {
   const translate: PronunciationTranslator = t ?? defaultTranslator
-  const [manualSpeed, setManualSpeed] = useState<{ level?: string; rate: number } | null>(null)
-  const speed = manualSpeed && manualSpeed.level === level ? manualSpeed.rate : defaultPlaybackRate(level)
+  const [speed, setSpeed] = usePlaybackRate(level)
 
   const playback = useAudioPlayback(src, speed, blob)
   useEffect(() => () => playback.pause(), [playback.pause])
@@ -155,7 +155,7 @@ export default function WaveformPlayer({
           <div className="relative">
             <select
               value={speed}
-              onChange={event => setManualSpeed({ level, rate: Number(event.target.value) })}
+              onChange={event => setSpeed(Number(event.target.value))}
               aria-label={translate('speed_aria', { speed: `${speed}×` })}
               style={{ height: 48, minHeight: 48 }}
               className="h-12 min-h-12 min-w-12 cursor-pointer appearance-none rounded-xl bg-[var(--surface-muted)] pl-4 pr-8 text-base font-semibold text-[var(--foreground)] transition-colors hover:bg-[var(--surface)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"

@@ -22,6 +22,10 @@ export default function RegistrationDesk({ initial, lang, mode }: { initial: Reg
   const router=useRouter()
   const [rows,setRows]=useState(initial.registrations)
   const [invoices,setInvoices]=useState(initial.invoices)
+  const [loaded,setLoaded]=useState(initial)
+  // A server refresh may carry recalculated prices after a cancellation or
+  // confirmation. Keep the filter/search while adopting the fresh snapshot.
+  if(loaded!==initial){setLoaded(initial);setRows(initial.registrations);setInvoices(initial.invoices)}
   const [filter,setFilter]=useState(mode==='registrations'?'pending':'outstanding')
   const [search,setSearch]=useState('')
   const [message,setMessage]=useState<string|null>(null)
@@ -32,10 +36,10 @@ export default function RegistrationDesk({ initial, lang, mode }: { initial: Reg
   const [declineError,setDeclineError]=useState<string|null>(null)
   const month=initial.targetMonth
   const eligible=mode==='invoices'?invoiceQueue(rows,invoices,month):rows
-  const counts={pending:rows.filter(row=>row.status==='pending').length,outstanding:invoiceQueue(rows,invoices,month).filter(row=>!invoices.some(invoice=>invoice.source===row.source && invoice.sourceId===row.id && invoice.status==='created')).length}
+  const counts={pending:rows.filter(row=>row.status==='pending').length,outstanding:invoiceQueue(rows,invoices,month).filter(row=>!invoices.some(invoice=>invoice.source===row.source && invoice.sourceId===row.id && invoice.status==='created' && !invoice.calendarAdjustmentAmount)).length}
   const filtered=useMemo(()=>eligible.filter(row=>{
     const invoice=invoices.find(item=>item.source===row.source && item.sourceId===row.id)
-    const matches=filter==='all'||(mode==='registrations'?row.status===filter:(invoice?.status??'outstanding')===filter)
+    const matches=filter==='all'||(mode==='registrations'?row.status===filter:(invoice?.status??'outstanding')===filter||(filter==='outstanding'&&!!invoice?.calendarAdjustmentAmount))
     return matches&&`${row.contact.name} ${row.contact.email}`.toLocaleLowerCase().includes(search.toLocaleLowerCase())
   }),[eligible,invoices,filter,mode,search])
   function accept(row:StaffRegistration) {
@@ -108,6 +112,7 @@ function RegistrationCard({row,invoice,lang,mode,busy,disabled,onAccept,onDeclin
     </div>
     {row.consents&&mode==='registrations'&&<details className="border-t border-[var(--border)] px-5 sm:px-7"><summary className="flex min-h-12 cursor-pointer items-center text-sm font-semibold text-[var(--muted)]">{t.consent}</summary><dl className="grid gap-3 pb-5 text-sm sm:grid-cols-2">{[['privacy',row.consents.privacy],['terms',row.consents.agb],['revocation',row.consents.revocation],['recording',row.consents.recording]].map(([key,value])=><div key={String(key)} className="flex justify-between gap-3"><dt>{t[key as 'privacy'|'terms'|'revocation'|'recording']}</dt><dd>{value===null?t.unspecified:value?t.yes:t.no}</dd></div>)}</dl></details>}
     <footer className="flex flex-col gap-3 border-t border-[var(--border)] bg-[color-mix(in_srgb,var(--canvas)_50%,transparent)] p-5 sm:p-7">
+      {mode==='invoices'&&invoice?.status==='created'&&!!invoice.calendarAdjustmentAmount&&<p role="status" className="rounded-xl border border-amber-300 bg-amber-50 p-4 text-amber-950 dark:border-amber-800 dark:bg-amber-950 dark:text-amber-100">{t.calendar_correction.replace('{difference}',currency(invoice.calendarAdjustmentAmount)).replace('{total}',currency((row.totalPrice??0)+invoice.calendarAdjustmentAmount))}</p>}
       {mode==='registrations'&&row.status==='pending'&&<div className="flex flex-wrap gap-3"><button type="button" onClick={onDecline} disabled={disabled||invoice?.status==='created'} className={declineControl}><X size={18} aria-hidden="true"/>{t.decline}</button><button type="button" onClick={onAccept} disabled={disabled} aria-busy={busy} className={primary}>{busy?<Loader2 className="animate-spin" size={18}/>:<Check size={18} aria-hidden="true"/>}{busy?t.saving:t.accept}</button></div>}
       {mode==='registrations'&&row.status==='confirmed'&&<Link href={`/${lang}/admin/invoices`} className={`${control} inline-flex w-fit items-center gap-2`}><FileText size={18} aria-hidden="true"/>{t.invoices_title}</Link>}
       {mode==='invoices'&&(invoice?.status==='created'?<div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-center"><p className="text-sm text-[var(--muted)]">{invoice.reference&&<strong className="mr-3 text-[var(--foreground)]">{invoice.reference}</strong>}{displayDate(invoice.createdAt,lang)}</p><button type="button" disabled={disabled} onClick={()=>onInvoice(false,'')} className={control}>{busy?t.saving:t.reopen}</button></div>:<form onSubmit={event=>{event.preventDefault();onInvoice(true,reference)}} className="flex min-w-0 flex-col gap-4 sm:flex-row sm:items-end"><label className="min-w-0 flex-1"><span className="mb-2 block text-sm font-semibold text-[var(--muted)]">{t.reference}</span><input className={`${control} w-full`} value={reference} maxLength={120} onChange={event=>setReference(event.target.value)}/></label><button type="submit" disabled={disabled||row.status!=='confirmed'} aria-busy={busy} className={primary}>{busy?<Loader2 className="animate-spin" size={18}/>:<Check size={18} aria-hidden="true"/>}{busy?t.saving:t.save}</button></form>)}

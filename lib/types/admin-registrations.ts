@@ -50,6 +50,7 @@ export interface StaffInvoice {
   status: 'outstanding' | 'created'
   reference: string | null
   createdAt: string | null
+  calendarAdjustmentAmount?: number
 }
 export interface RegistrationOverview {
   registrations: StaffRegistration[]

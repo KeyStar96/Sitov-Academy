@@ -6,7 +6,7 @@ const bucket = z.object({
   key: z.union([z.literal(1), z.literal(2), z.literal(3), z.literal(4), z.literal(5), z.literal(6), z.literal('learned')]), count,
 }).transform((value): PhaseBucket => ({ key: value.key, count: value.count }))
 export const teacherAnalyticsSchema = z.object({
-  studentId: z.string().uuid(), courseId: z.string().uuid().nullable(), level: z.string().nullable(),
+  studentId: z.string().uuid(), level: z.string().nullable(),
   completionByLevel: z.record(z.string(), z.number().int().min(0).max(100)),
   distribution: z.object({
     buckets: z.array(bucket).length(7),
@@ -26,5 +26,5 @@ export const teacherAnalyticsSchema = z.object({
 export type TeacherAnalytics = z.infer<typeof teacherAnalyticsSchema>
 export interface AnalyticsOptions {
   students: { id: string; name: string }[]
-  courses: { id: string; title: string; level: string | null }[]
+  levels: { code: string }[]
 }

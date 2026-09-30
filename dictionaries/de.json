@@ -1971,10 +1971,6 @@
     "neural_audio": {
         "slow_repeat": "Langsam wiederholen",
         "speed": "Tempo",
-        "voice": "Stimme",
-        "voice_male": "Thorsten (männlich)",
-        "voice_female": "Kerstin (weiblich)",
-        "recording": "Originalaufnahme",
         "error": "Die Audiodatei konnte nicht geladen werden.",
         "retry": "Audio erneut laden",
         "ready": "Audio ist bereit. Tippe zum Abspielen.",

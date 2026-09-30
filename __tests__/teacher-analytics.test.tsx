@@ -7,13 +7,13 @@ import { teacherAnalyticsCopy } from '@/lib/teacher-analytics-i18n'
 
 jest.mock('@/app/actions/teacher-analytics', () => ({ getTeacherAnalytics: jest.fn() }))
 jest.mock('next/navigation', () => ({ useRouter: () => ({ refresh: jest.fn() }) }))
-const studentId = '00000000-0000-4000-8000-000000000001', secondId = '00000000-0000-4000-8000-000000000002', courseId = '00000000-0000-4000-8000-000000000003'
+const studentId = '00000000-0000-4000-8000-000000000001', secondId = '00000000-0000-4000-8000-000000000002'
 const data: AnalyticsData = {
-  studentId, courseId: null, level: null, completionByLevel: { 'A1.1': 50 }, timezone: 'Europe/Berlin',
+  studentId, level: null, completionByLevel: { 'A1.1': 50 }, timezone: 'Europe/Berlin',
   distribution: { buckets: [1, 2, 3, 4, 5, 6, 'learned'].map(key => ({ key, count: key === 6 ? 3 : 0 })) as AnalyticsData['distribution']['buckets'], totalCards: 3, totalInBox: 3, overallPercent: 86 },
   history: Array.from({ length: 30 }, (_, index) => ({ date: `2026-09-${String(index + 1).padStart(2, '0')}`, answers: index === 29 ? 5 : 0, correct: index === 29 ? 3 : 0 })),
 }
-const options = { students: [{ id: studentId, name: 'Anna' }, { id: secondId, name: 'Boris' }], courses: [{ id: courseId, title: 'Kurs A1', level: 'A1.1' }] }
+const options = { students: [{ id: studentId, name: 'Anna' }, { id: secondId, name: 'Boris' }], levels: [{ code: 'A1.1' }, { code: 'A1.2' }] }
 beforeEach(() => { jest.clearAllMocks(); jest.mocked(getTeacherAnalytics).mockResolvedValue({ success: true, data }) })
 
 it('renders server aggregates, accessible history, and the existing course/exception editor entry point', async () => {
@@ -46,14 +46,19 @@ it('shows an explicit error and retries instead of presenting a database outage 
   expect(await screen.findByRole('progressbar')).toBeInTheDocument()
 })
 
-it('sends course selection to SQL and distinguishes a missing level from empty learning progress', async () => {
+it('selects independent trainer levels without presenting course memberships', async () => {
   render(<TeacherAnalytics options={options} failed={false} lang="de" translations={{}} />)
   await screen.findByRole('progressbar')
-  jest.mocked(getTeacherAnalytics).mockResolvedValueOnce({ success: true, data: { ...data, courseId, level: null } })
-  fireEvent.change(screen.getByLabelText('Kurs'), { target: { value: courseId } })
-  expect(await screen.findByText('Diesem Kurs ist kein eindeutiges Lernniveau zugeordnet.')).toBeInTheDocument()
-  expect(getTeacherAnalytics).toHaveBeenLastCalledWith({ studentId, courseId })
-  expect(screen.queryByRole('progressbar')).not.toBeInTheDocument()
+  expect(screen.queryByRole('combobox', { name: 'Kurs' })).not.toBeInTheDocument()
+  const selector = screen.getByLabelText('Trainer-Niveau')
+  expect(within(selector).getAllByRole('option').map(option => option.textContent)).toEqual(['Alle Lernniveaus', 'A1.1', 'A1.2'])
+  jest.mocked(getTeacherAnalytics).mockResolvedValueOnce({ success: true, data: { ...data, level: 'A1.1', completionByLevel: { 'A1.1': 50, 'A1.2': 80 } } })
+  fireEvent.change(selector, { target: { value: 'A1.1' } })
+  expect(await screen.findByText(/Kursanmeldungen und Kurszuordnungen sind davon unabhängig/)).toBeInTheDocument()
+  await waitFor(() => expect(getTeacherAnalytics).toHaveBeenLastCalledWith({ studentId, level: 'A1.1' }))
+  expect(await screen.findByText('50%')).toBeInTheDocument()
+  expect(screen.queryByText('80%')).not.toBeInTheDocument()
+  expect(screen.getByRole('progressbar')).toBeInTheDocument()
 })
 
 it('does not draw a made-up learning curve when no receipts exist', () => {
@@ -63,7 +68,7 @@ it('does not draw a made-up learning curve when no receipts exist', () => {
 })
 
 it('does not request learning data when metadata loading failed', async () => {
-  render(<TeacherAnalytics options={{ students: [], courses: [] }} failed lang="de" translations={{}} />)
+  render(<TeacherAnalytics options={{ students: [], levels: [] }} failed lang="de" translations={{}} />)
   await waitFor(() => expect(screen.getByRole('alert')).toBeInTheDocument())
   expect(getTeacherAnalytics).not.toHaveBeenCalled()
 })

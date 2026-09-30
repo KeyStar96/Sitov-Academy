@@ -13,7 +13,8 @@ export default function Reconcile(props: DeskProps) {
   const [invoiceId, setInvoiceId] = useState('')
   const query = search.trim().toLowerCase()
   const customers = data.customers.filter(row => (showAll || row.review_status !== 'resolved') && `${row.display_name} ${row.email} ${row.customer_number}`.toLowerCase().includes(query))
-  const products = data.products.filter(row => (showAll || row.review_status !== 'resolved') && `${row.name} ${row.article_number}`.toLowerCase().includes(query))
+  // Course mappings remain editable after import, including resolved services.
+  const products = data.products.filter(row => `${row.name} ${row.article_number}`.toLowerCase().includes(query))
   // All invoices remain selectable so late payments and allocation corrections can be inspected.
   const invoices = data.invoices.filter(row => `${row.invoice_number} ${row.customer_number} ${data.customers.find(customer => customer.id === row.external_customer_id)?.display_name ?? ''}`.toLowerCase().includes(query))
   const selectedInvoice = invoices.find(row => row.id === invoiceId) ?? invoices.find(row => row.review_reason || row.validity === 'review') ?? invoices[0]
@@ -21,10 +22,10 @@ export default function Reconcile(props: DeskProps) {
   return <div className="space-y-4">
     <div className={`${panel} space-y-4`}>
       <div className="flex flex-wrap gap-2" role="group" aria-label={c.resolve}>{sections.map(value => <button type="button" className={section === value ? primary : button} aria-pressed={section === value} key={value} onClick={() => { setSection(value); setLimit(30) }}>{c[value]}</button>)}</div>
-      <div className="grid gap-3 md:grid-cols-2"><Field label={c.search}><input className={control} type="search" value={search} onChange={event => { setSearch(event.target.value); setLimit(30) }} /></Field>{section !== 'invoices' && <label className="flex min-h-11 items-center gap-3 self-end text-sm"><input className="h-5 w-5" type="checkbox" checked={showAll} onChange={event => setShowAll(event.target.checked)} />{c.showAll}</label>}</div>
+      <div className="grid gap-3 md:grid-cols-2"><Field label={c.search}><input className={control} type="search" value={search} onChange={event => { setSearch(event.target.value); setLimit(30) }} /></Field>{section === 'customers' && <label className="flex min-h-11 items-center gap-3 self-end text-sm"><input className="h-5 w-5" type="checkbox" checked={showAll} onChange={event => setShowAll(event.target.checked)} />{c.showAll}</label>}</div>
     </div>
     {section === 'customers' && <>{!customers.length && <Empty text={c.noData} />}{customers.slice(0, limit).map(row => <Customer key={`${row.id}:${row.person_id}`} row={row} {...props} />)}{customers.length > limit && <button type="button" className={button} onClick={() => setLimit(value => value + 30)}>{c.more} ({limit}/{customers.length})</button>}</>}
-    {section === 'products' && <>{!products.length && <Empty text={c.noData} />}{products.map(row => <Product key={`${row.id}:${data.productCourses.filter(map => map.product_id === row.id).map(map => `${map.course_id}:${map.version}`).join(',')}`} row={row} {...props} />)}</>}
+    {section === 'products' && <>{!products.length && <Empty text={c.noData} />}{products.slice(0, limit).map(row => <Product key={`${row.id}:${data.productCourses.filter(map => map.product_id === row.id).map(map => `${map.course_id}:${map.version}`).join(',')}`} row={row} {...props} />)}{products.length > limit && <button type="button" className={button} onClick={() => setLimit(value => value + 30)}>{c.more} ({limit}/{products.length})</button>}</>}
     {section === 'invoices' && <>
       <Field label={c.invoice}><select className={control} value={selectedInvoice?.id ?? ''} onChange={event => setInvoiceId(event.target.value)}><option value="">{c.select}</option>{invoices.map(row => <option key={row.id} value={row.id}>{row.invoice_number} · {data.customers.find(customer => customer.id === row.external_customer_id)?.display_name ?? row.customer_number} · {certificateStatus(row.payment_status, c)}</option>)}</select></Field>
       {selectedInvoice ? <Invoice key={`${selectedInvoice.id}:${selectedInvoice.source_revision}`} invoice={selectedInvoice} {...props} /> : <Empty text={c.noData} />}

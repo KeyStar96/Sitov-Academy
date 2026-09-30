@@ -46,33 +46,21 @@ it('upgrades a legacy generated reference to TTS timing while retaining teacher 
   expect(jest.mocked(WaveformPlayer).mock.calls[0][0]).toMatchObject({ level: 'B1' })
 })
 
-it('offers male/female speech alongside a teacher reference and uses their exact word timing', () => {
+it('retains authored teacher references without a voice selector', () => {
   render(<PronunciationStudio prompts={[{ ...prompt, audioUrl: 'https://storage.test/teacher/recording.mp3' }]} conversations={[]} level="A1" lang="de" translations={{}} />)
-  const voices = screen.getByRole('combobox', { name: 'Stimme' })
-  expect(voices).toHaveValue('original')
+  expect(screen.queryByRole('combobox', { name: 'Stimme' })).toBeNull()
   fireEvent.click(screen.getByRole('button', { name: 'Teacher recording' }))
   expect(screen.getByTestId('pronunciation-reading-text').querySelector('[data-state="current"]')).toHaveTextContent('sich.')
-  fireEvent.change(voices, { target: { value: 'female' } })
-  expect(screen.queryByRole('button', { name: 'Teacher recording' })).toBeNull()
-  expect(screen.getByTestId('pronunciation-reading-text').querySelector('[data-state]')).toBeNull()
-  expect(jest.mocked(SolutionAudioButton).mock.calls.at(-1)?.[0]).toMatchObject({
-    audioUrl: null, voiceProfile: 'female', hideVoiceSelection: true, level: 'A1',
-  })
-  fireEvent.click(screen.getByRole('button', { name: 'Read with TTS' }))
-  expect(screen.getByTestId('pronunciation-reading-text').querySelector('[data-state="current"]')).toHaveTextContent('Straßenverkehrsordnung')
-  fireEvent.change(voices, { target: { value: 'male' } })
-  expect(jest.mocked(SolutionAudioButton).mock.calls.at(-1)?.[0]).toMatchObject({ voiceProfile: 'male', audioUrl: null })
-  fireEvent.change(voices, { target: { value: 'original' } })
   expect(screen.getByRole('button', { name: 'Teacher recording' })).toBeInTheDocument()
   expect(screen.queryByRole('button', { name: 'Read with TTS' })).toBeNull()
 })
 
-it('keeps the normal TTS voice selector when the next text has no teacher recording', () => {
+it('uses fixed synthesis on the next text without a teacher recording', () => {
   render(<PronunciationStudio prompts={[
     { ...prompt, title: 'Teacher text', audioUrl: 'https://storage.test/teacher/recording.mp3' },
     { ...prompt, id: 'text-2', title: 'Generated text' },
   ]} conversations={[]} level="A2" lang="de" translations={{}} />)
-  fireEvent.change(screen.getByRole('combobox', { name: 'Stimme' }), { target: { value: 'female' } })
   fireEvent.click(screen.getByRole('button', { name: /Generated text/ }))
-  expect(jest.mocked(SolutionAudioButton).mock.calls.at(-1)?.[0]).toMatchObject({ audioUrl: null, voiceProfile: undefined, hideVoiceSelection: false })
+  expect(jest.mocked(SolutionAudioButton).mock.calls.at(-1)?.[0]).toMatchObject({ audioUrl: null, level: 'A2', language: 'de' })
+  expect(screen.queryByRole('combobox', { name: 'Stimme' })).toBeNull()
 })

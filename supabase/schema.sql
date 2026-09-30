@@ -15180,3 +15180,256 @@ END $$;
 REVOKE ALL ON FUNCTION certificates_private.issue_sources_current(uuid),public.certificate_issue_command(uuid,text,jsonb) FROM PUBLIC,anon,authenticated;
 GRANT EXECUTE ON FUNCTION certificates_private.issue_sources_current(uuid),public.certificate_issue_command(uuid,text,jsonb) TO service_role;
 NOTIFY pgrst,'reload schema';
+
+
+-- Consolidated correction: 52_independent_trainer_analytics.sql
+-- Trainer levels are independent from commercial courses and registrations.
+-- Additive/non-destructive: preserve every course, grant, receipt and progress row.
+-- Apply through the normal backup-backed migration runner, before the new app.
+
+ALTER TABLE public.courses DROP CONSTRAINT IF EXISTS courses_level_fkey;
+COMMENT ON COLUMN public.courses.level IS 'Legacy course audience metadata. It does not assign a trainer level or grant learning access.';
+COMMENT ON TABLE public.student_level_access IS 'Explicit trainer-level entitlements; independent from course bookings and course audience metadata.';
+
+CREATE OR REPLACE FUNCTION public.get_student_learning_analytics(p_student_id uuid, p_level text DEFAULT NULL)
+RETURNS jsonb LANGUAGE plpgsql SECURITY DEFINER SET search_path TO '' AS $$
+DECLARE
+ percentages jsonb;
+ distribution jsonb;
+ history jsonb;
+ today date := (now() AT TIME ZONE 'Europe/Berlin')::date;
+BEGIN
+ IF NOT business_private.is_staff() THEN
+  RETURN jsonb_build_object('error','not_authorized','message','Staff access required.');
+ END IF;
+ IF p_student_id IS NULL THEN
+  RETURN jsonb_build_object('error','invalid_input','message','A student is required.');
+ END IF;
+ IF NOT EXISTS(SELECT 1 FROM public.profiles WHERE id=p_student_id AND role='student') THEN
+  RETURN jsonb_build_object('error','not_found','message','Student not found.');
+ END IF;
+ IF p_level IS NOT NULL AND NOT EXISTS(SELECT 1 FROM public.learning_levels WHERE code=p_level) THEN
+  RETURN jsonb_build_object('error','not_found','message','Trainer level not found.');
+ END IF;
+ percentages := public.get_all_students_progress_data();
+ IF percentages ? 'error' THEN RETURN percentages; END IF;
+
+ -- A word is learned only when both directions reached box 7. Incomplete
+ -- direction pairs retain their lowest active phase, as in the student UI.
+ WITH cards AS (
+  SELECT c.id, CASE WHEN count(p.id)=0 THEN NULL
+   WHEN count(p.id)=2 AND bool_and(p.box_number=7) THEN 7
+   ELSE least(6,min(p.box_number)) END AS phase
+  FROM public.learning_vocabulary_cards c
+  JOIN public.learning_units u ON u.id=c.unit_id
+  LEFT JOIN public.vocabulary_direction_progress p ON p.card_id=c.id AND p.auth_user_id=p_student_id
+  WHERE p_level IS NULL OR u.level=p_level
+  GROUP BY c.id
+ ), buckets AS (
+  SELECT phase_number, count(c.id) AS count
+  FROM generate_series(1,7) phase_number LEFT JOIN cards c ON c.phase=phase_number
+  GROUP BY phase_number
+ ) SELECT jsonb_build_object(
+  'buckets',(SELECT jsonb_agg(jsonb_build_object('key',CASE WHEN phase_number=7 THEN to_jsonb('learned'::text) ELSE to_jsonb(phase_number) END,'count',count) ORDER BY phase_number) FROM buckets),
+  'totalCards',count(*),'totalInBox',count(phase),
+  'overallPercent',CASE WHEN count(*)=0 THEN 0 ELSE round(coalesce(sum(phase),0)::numeric/(count(*)*7)*100) END
+ ) INTO distribution FROM cards;
+
+ -- Receipts are actual persisted answer events; never infer old phases from
+ -- updated_at or generate synthetic progress snapshots. Grade from response,
+ -- not the obsolete, client-supplied is_correct receipt field (R5).
+ WITH days AS (SELECT today-29+n AS day FROM generate_series(0,29) n),
+ events AS (
+  SELECT (r.created_at AT TIME ZONE 'Europe/Berlin')::date AS day,
+   count(*) AS answers, count(*) FILTER(WHERE r.response->>'isCorrect'='true') AS correct
+  FROM vocabulary_private.answer_receipts r
+  JOIN public.vocabulary_direction_progress p ON p.id=r.progress_id AND p.auth_user_id=r.auth_user_id
+  JOIN public.learning_vocabulary_cards c ON c.id=p.card_id
+  JOIN public.learning_units u ON u.id=c.unit_id
+  WHERE r.auth_user_id=p_student_id
+   AND r.created_at>=((today-29)::timestamp AT TIME ZONE 'Europe/Berlin')
+   AND r.created_at<((today+1)::timestamp AT TIME ZONE 'Europe/Berlin')
+   AND (p_level IS NULL OR u.level=p_level)
+  GROUP BY (r.created_at AT TIME ZONE 'Europe/Berlin')::date
+ ) SELECT jsonb_agg(jsonb_build_object('date',d.day,'answers',coalesce(e.answers,0),'correct',coalesce(e.correct,0)) ORDER BY d.day)
+ INTO history FROM days d LEFT JOIN events e USING(day);
+
+ RETURN jsonb_build_object('studentId',p_student_id,'level',p_level,
+  'completionByLevel',coalesce(percentages->p_student_id::text,'{}'::jsonb),
+  'distribution',distribution,'history',history,'timezone','Europe/Berlin');
+EXCEPTION WHEN OTHERS THEN
+ RETURN jsonb_build_object('error','request_failed','message','Learning analytics could not be loaded.','sqlstate',SQLSTATE);
+END $$;
+REVOKE EXECUTE ON FUNCTION public.get_student_learning_analytics(uuid,text) FROM PUBLIC,anon;
+GRANT EXECUTE ON FUNCTION public.get_student_learning_analytics(uuid,text) TO authenticated;
+
+
+-- Keep the old signature callable during rolling upgrades, but reject a course
+-- filter: a course UUID can never establish ownership of trainer progress.
+-- No-argument get_all_students_progress_data() remains unchanged.
+CREATE OR REPLACE FUNCTION public.get_all_students_progress_data(p_student_id uuid, p_course_id uuid)
+RETURNS jsonb LANGUAGE plpgsql SECURITY INVOKER SET search_path TO '' AS $$
+BEGIN
+ IF NOT business_private.is_staff() THEN
+  RETURN jsonb_build_object('error','not_authorized','message','Staff access required.');
+ END IF;
+ IF p_course_id IS NOT NULL THEN
+  RETURN jsonb_build_object('error','invalid_input','message','Select an independent trainer level instead of a course.');
+ END IF;
+ RETURN public.get_student_learning_analytics(p_student_id,NULL) || jsonb_build_object('courseId',NULL);
+END $$;
+REVOKE EXECUTE ON FUNCTION public.get_all_students_progress_data(uuid,uuid) FROM PUBLIC,anon;
+GRANT EXECUTE ON FUNCTION public.get_all_students_progress_data(uuid,uuid) TO authenticated;
+
+NOTIFY pgrst, 'reload schema';
+
+
+-- Consolidated correction: 53_course_cancellation_billing.sql
+-- Additive calendar correction. Preserve booking IDs, user/learning records and
+-- issued invoice snapshots. Run in the migration runner's transaction.
+ALTER TABLE public.booking_items ADD COLUMN IF NOT EXISTS calendar_snapshot jsonb;
+ALTER TABLE public.invoice_cases ADD COLUMN IF NOT EXISTS calendar_adjustment_amount numeric(10,2) NOT NULL DEFAULT 0;
+
+CREATE OR REPLACE FUNCTION business_private.course_calendar_snapshot(p_course uuid) RETURNS jsonb
+LANGUAGE sql STABLE SET search_path='' AS $$
+ SELECT jsonb_build_object('category',c.category,'start_date',c.start_date,'end_date',c.end_date,
+  'schedules',coalesce((SELECT jsonb_agg(jsonb_build_object('weekday',s.weekday,'start_time',s.start_time,'end_time',s.end_time)
+   ORDER BY s.weekday,s.start_time,s.id) FROM public.course_schedules s WHERE s.course_id=c.id),'[]'::jsonb))
+ FROM public.courses c WHERE c.id=p_course;
+$$;
+REVOKE ALL ON FUNCTION business_private.course_calendar_snapshot(uuid) FROM PUBLIC,anon,authenticated;
+GRANT EXECUTE ON FUNCTION business_private.course_calendar_snapshot(uuid) TO service_role;
+
+-- Existing bookings retain their prices and quantities; only missing timetable
+-- metadata is copied from their current course. No source rows are removed.
+UPDATE public.booking_items i SET calendar_snapshot=business_private.course_calendar_snapshot(i.course_id)
+ WHERE i.calendar_snapshot IS NULL;
+ALTER TABLE public.booking_items ALTER COLUMN calendar_snapshot SET NOT NULL;
+-- The INSERT trigger replaces this placeholder with the course timetable.
+ALTER TABLE public.booking_items ALTER COLUMN calendar_snapshot SET DEFAULT '{}'::jsonb;
+COMMENT ON COLUMN public.booking_items.calendar_snapshot IS 'Timetable and course date bounds at booking time. Cancellations use this snapshot plus the original unit price/minutes.';
+COMMENT ON COLUMN public.invoice_cases.calendar_adjustment_amount IS 'Current calendar total minus issued booking total. A nonzero value requires an external invoice correction; the issued snapshot is preserved.';
+
+CREATE OR REPLACE FUNCTION business_private.snapshot_booking_calendar() RETURNS trigger
+LANGUAGE plpgsql SET search_path='' AS $$
+BEGIN
+ NEW.calendar_snapshot:=business_private.course_calendar_snapshot(NEW.course_id);
+ RETURN NEW;
+END $$;
+REVOKE ALL ON FUNCTION business_private.snapshot_booking_calendar() FROM PUBLIC,anon,authenticated;
+DROP TRIGGER IF EXISTS booking_calendar_snapshot ON public.booking_items;
+CREATE TRIGGER booking_calendar_snapshot BEFORE INSERT ON public.booking_items
+ FOR EACH ROW EXECUTE FUNCTION business_private.snapshot_booking_calendar();
+
+CREATE OR REPLACE FUNCTION business_private.booking_item_calendar_quote(p_item uuid) RETURNS TABLE(units numeric,amount numeric)
+LANGUAGE sql STABLE SET search_path='' AS $$
+ SELECT CASE WHEN b.kind='trial' THEN 0 WHEN i.calendar_snapshot->>'category'='private' THEN i.units ELSE calendar.units END,
+  CASE WHEN b.kind='trial' THEN 0 WHEN i.calendar_snapshot->>'category'='private' THEN i.amount ELSE round(calendar.units*i.unit_price,2) END
+ FROM public.booking_items i JOIN public.bookings b ON b.id=i.booking_id CROSS JOIN LATERAL (
+  SELECT coalesce(sum(extract(epoch FROM (s.end_time-s.start_time))/60/i.unit_minutes),0) units
+  FROM jsonb_to_recordset(i.calendar_snapshot->'schedules') AS s(weekday integer,start_time time,end_time time)
+  CROSS JOIN LATERAL generate_series(b.start_date::timestamp,(b.target_month+interval '1 month - 1 day')::timestamp,interval '1 day') day
+  WHERE extract(isodow FROM day)=s.weekday
+   AND (nullif(i.calendar_snapshot->>'start_date','') IS NULL OR day::date>=(i.calendar_snapshot->>'start_date')::date)
+   AND (nullif(i.calendar_snapshot->>'end_date','') IS NULL OR day::date<=(i.calendar_snapshot->>'end_date')::date)
+   AND NOT EXISTS(SELECT 1 FROM public.course_exceptions e WHERE e.date=day::date AND (e.course_id IS NULL OR e.course_id=i.course_id))
+ ) calendar WHERE i.id=p_item;
+$$;
+REVOKE ALL ON FUNCTION business_private.booking_item_calendar_quote(uuid) FROM PUBLIC,anon,authenticated;
+GRANT EXECUTE ON FUNCTION business_private.booking_item_calendar_quote(uuid) TO service_role;
+
+CREATE OR REPLACE FUNCTION business_private.refresh_booking_calendar(p_booking uuid) RETURNS void
+LANGUAGE plpgsql SECURITY DEFINER SET search_path='' AS $$
+DECLARE b public.bookings; issued boolean; adjustment numeric:=0; changed integer;
+BEGIN
+ SELECT * INTO b FROM public.bookings WHERE id=p_booking FOR UPDATE;
+ IF b.id IS NULL OR b.kind='trial' OR b.status NOT IN ('pending','confirmed') THEN RETURN; END IF;
+ SELECT EXISTS(SELECT 1 FROM public.invoice_cases x WHERE x.booking_id=b.id AND x.status='created') INTO issued;
+ IF issued THEN
+  SELECT coalesce(sum(q.amount-i.amount),0) INTO adjustment FROM public.booking_items i
+   CROSS JOIN LATERAL business_private.booking_item_calendar_quote(i.id) q WHERE i.booking_id=b.id;
+ ELSE
+  WITH recalculated AS (
+   SELECT i.id,q.units,q.amount FROM public.booking_items i
+    CROSS JOIN LATERAL business_private.booking_item_calendar_quote(i.id) q WHERE i.booking_id=b.id
+  ) UPDATE public.booking_items i SET units=q.units,amount=q.amount FROM recalculated q
+   WHERE i.id=q.id AND (i.units IS DISTINCT FROM q.units::numeric(10,3) OR i.amount IS DISTINCT FROM q.amount);
+  GET DIAGNOSTICS changed=ROW_COUNT;
+  IF changed>0 THEN UPDATE public.bookings SET revision=revision+1,updated_at=now() WHERE id=b.id; END IF;
+ END IF;
+ UPDATE public.invoice_cases SET calendar_adjustment_amount=adjustment,updated_at=now()
+  WHERE booking_id=b.id AND calendar_adjustment_amount IS DISTINCT FROM adjustment;
+END $$;
+REVOKE ALL ON FUNCTION business_private.refresh_booking_calendar(uuid) FROM PUBLIC,anon,authenticated;
+GRANT EXECUTE ON FUNCTION business_private.refresh_booking_calendar(uuid) TO service_role;
+
+CREATE OR REPLACE FUNCTION business_private.refresh_exception_bookings() RETURNS trigger
+LANGUAGE plpgsql SECURITY DEFINER SET search_path='' AS $$
+DECLARE old_day date;new_day date;old_course uuid;new_course uuid;booking uuid;
+BEGIN
+ IF TG_OP<>'INSERT' THEN old_day:=OLD.date;old_course:=OLD.course_id; END IF;
+ IF TG_OP<>'DELETE' THEN new_day:=NEW.date;new_course:=NEW.course_id; END IF;
+ -- A reason edit has no financial effect. Changing/removing an exception must
+ -- refresh both the original and replacement date/course.
+ IF TG_OP='UPDATE' AND old_day=new_day AND old_course IS NOT DISTINCT FROM new_course THEN RETURN NULL; END IF;
+ FOR booking IN SELECT b.id FROM public.bookings b WHERE b.status IN ('pending','confirmed') AND b.kind<>'trial'
+  AND EXISTS(SELECT 1 FROM public.booking_items i WHERE i.booking_id=b.id AND (
+   (old_day>=b.start_date AND old_day<(b.target_month+interval '1 month')::date AND (old_course IS NULL OR i.course_id=old_course))
+   OR (new_day>=b.start_date AND new_day<(b.target_month+interval '1 month')::date AND (new_course IS NULL OR i.course_id=new_course))))
+  ORDER BY b.id FOR UPDATE
+ LOOP PERFORM business_private.refresh_booking_calendar(booking); END LOOP;
+ RETURN NULL;
+END $$;
+REVOKE ALL ON FUNCTION business_private.refresh_exception_bookings() FROM PUBLIC,anon,authenticated;
+DROP TRIGGER IF EXISTS course_exception_billing ON public.course_exceptions;
+CREATE TRIGGER course_exception_billing AFTER INSERT OR UPDATE OR DELETE ON public.course_exceptions
+ FOR EACH ROW EXECUTE FUNCTION business_private.refresh_exception_bookings();
+
+-- Keep the current confirmation/mail and month-continuation behavior intact.
+-- Refresh open snapshots before confirmation and when loading an existing month.
+DO $patch$
+DECLARE definition text;
+BEGIN
+ SELECT pg_get_functiondef('business_private.confirm_booking(uuid)'::regprocedure) INTO definition;
+ IF position('business_private.refresh_booking_calendar' IN definition)=0 THEN
+  IF position('if b.status=''confirmed'' then return;end if;' IN definition)=0 THEN RAISE EXCEPTION 'Unexpected confirm_booking definition'; END IF;
+  definition:=replace(definition,'if b.status=''confirmed'' then return;end if;',
+   'perform business_private.refresh_booking_calendar(b.id);'||E'\n if b.status=''confirmed'' then return;end if;');
+  EXECUTE definition;
+ END IF;
+ SELECT pg_get_functiondef('business_private.prepare_month(date)'::regprocedure) INTO definition;
+ IF position('business_private.refresh_booking_calendar' IN definition)=0 THEN
+  IF position('for p in select * from public.people order by id for update loop' IN definition)=0 THEN RAISE EXCEPTION 'Unexpected prepare_month definition'; END IF;
+  definition:=replace(definition,'for p in select * from public.people order by id for update loop',
+   'for p in select * from public.people order by id for update loop'||E'\n  perform business_private.refresh_booking_calendar(id) from public.bookings where person_id=p.id and target_month=p_month order by id;');
+  EXECUTE definition;
+ END IF;
+END $patch$;
+
+CREATE OR REPLACE FUNCTION business_private.mark_invoice(p_booking uuid,p_month date,p_created boolean,p_reference text) RETURNS void
+LANGUAGE plpgsql SECURITY DEFINER SET search_path='' AS $$
+DECLARE b public.bookings;
+BEGIN
+ IF NOT business_private.is_staff() THEN RAISE insufficient_privilege; END IF;
+ SELECT * INTO STRICT b FROM public.bookings WHERE id=p_booking FOR UPDATE;
+ IF p_created IS NULL OR p_month IS NULL OR b.target_month<>p_month OR b.kind='trial' OR (p_created AND b.status<>'confirmed') OR length(coalesce(p_reference,''))>120 THEN RAISE check_violation; END IF;
+ PERFORM business_private.refresh_booking_calendar(b.id);
+ INSERT INTO public.invoice_cases(person_id,target_month,booking_id) VALUES(b.person_id,b.target_month,b.id) ON CONFLICT(person_id,target_month) DO NOTHING;
+ UPDATE public.invoice_cases SET status=(CASE WHEN p_created THEN 'created' ELSE 'outstanding' END)::public.invoice_status,
+  invoice_reference=nullif(btrim(p_reference),''),invoice_created_at=CASE WHEN p_created THEN coalesce(invoice_created_at,now()) ELSE NULL END,
+  created_by=auth.uid(),updated_at=now() WHERE person_id=b.person_id AND target_month=p_month;
+ -- Reopening permits a corrected invoice; the original values were retained
+ -- until the staff member explicitly reopened the accounting case.
+ IF NOT p_created THEN PERFORM business_private.refresh_booking_calendar(b.id); END IF;
+END $$;
+
+-- Repair already stored open cases on deployment and surface required invoice
+-- corrections. Amounts for created invoices stay byte-for-byte unchanged.
+DO $repair$
+DECLARE booking uuid;
+BEGIN
+ FOR booking IN SELECT id FROM public.bookings WHERE status IN ('pending','confirmed') AND kind<>'trial' ORDER BY id
+ LOOP PERFORM business_private.refresh_booking_calendar(booking); END LOOP;
+END $repair$;
+
+NOTIFY pgrst,'reload schema';

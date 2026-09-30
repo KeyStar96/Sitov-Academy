@@ -7,7 +7,7 @@ import ru from '../dictionaries/ru.json'
 import { authenticateBrowser } from './helpers/authenticated-session'
 
 for (const theme of ['light', 'dark'] as const) {
-  test(`teacher analytics loads SQL aggregates for the selected student and course (${theme})`, async ({ page, request }, testInfo) => {
+  test(`teacher analytics loads SQL aggregates for the selected student and independent trainer level (${theme})`, async ({ page, request }, testInfo) => {
     const api = process.env.E2E_SUPABASE_URL
     const key = process.env.E2E_SUPABASE_SERVICE_ROLE_KEY
     expect(api, 'Use the isolated self-hosted test gateway').toBeTruthy()
@@ -42,7 +42,8 @@ for (const theme of ['light', 'dark'] as const) {
       await expect(page.getByRole('heading', { name: t.title, exact: true })).toBeVisible()
       await page.getByRole('combobox', { name: t.student, exact: true }).selectOption(userIds[1])
       await expect(page.getByRole('region', { name: t.history }).getByText(t.noHistory, { exact: true })).toBeVisible()
-      await page.getByRole('combobox', { name: t.course, exact: true }).selectOption(courseId)
+      await expect(page.getByRole('combobox', { name: t.level, exact: true }).getByRole('option', { name: `Analytics A1 ${token}` })).toHaveCount(0)
+      await page.getByRole('combobox', { name: t.level, exact: true }).selectOption('A1.1')
       await expect(page.getByText(t.scope, { exact: true })).toBeVisible()
       const phases = page.getByRole('region', { name: t.phases, exact: true })
       await expect(phases.getByRole('progressbar')).toHaveAttribute('aria-valuenow', '0')
@@ -52,7 +53,7 @@ for (const theme of ['light', 'dark'] as const) {
       await expect(page.getByText(t.failed, { exact: true })).toHaveCount(0)
       await expect(page.getByRole('link', { name: t.manage, exact: true })).toHaveAttribute('href', '/ru/admin/courses')
       expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([])
-      await page.screenshot({ path: testInfo.outputPath('teacher-course-analytics.png') })
+      await page.screenshot({ path: testInfo.outputPath('teacher-trainer-analytics.png') })
     } finally {
       expect((await admin.from('courses').delete().eq('id', courseId)).error).toBeNull()
       for (const userId of userIds) expect((await admin.auth.admin.deleteUser(userId)).error).toBeNull()

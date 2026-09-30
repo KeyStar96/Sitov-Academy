@@ -112,8 +112,8 @@ describe('audio cache and protected recording updates', () => {
     jest.mocked(findCachedAudio).mockResolvedValue(null)
     const text = '  die\n Tür '.normalize('NFD')
     expect(await generateAudio({ ...input, text })).toEqual({ success: true, audioUrl, cached: false })
-    expect(neuralAudioPath).toHaveBeenCalledWith('die Tür', 'de', undefined)
-    expect(generateCachedAudio).toHaveBeenCalledWith('die Tür', 'de', 'cache-key.mp3', undefined)
+    expect(neuralAudioPath).toHaveBeenCalledWith('die Tür', 'de')
+    expect(generateCachedAudio).toHaveBeenCalledWith('die Tür', 'de', 'cache-key.mp3')
     expect(rateLimit).toHaveBeenCalledWith(`audio-generate:${userId}`, 20, '60 s')
   })
   it('never overwrites a teacher-provided vocabulary recording', async () => {
@@ -165,15 +165,21 @@ describe('audio cache and protected recording updates', () => {
   })
 })
 
-it('keeps female speech separate from the canonical German card recording', async () => {
+it('rejects a female voice before auth, cache reads or card writes', async () => {
   session()
-  expect(await generateAudio({ ...input, voice: 'female' })).toMatchObject({ success: true })
-  expect(neuralAudioPath).toHaveBeenCalledWith('die Tür', 'de', 'female')
+  expect(await generateAudio({ ...input, voice: 'female' } as unknown as GenerateAudioInput)).toEqual({ success: false, error: 'invalid_input' })
+  expect(createClient).not.toHaveBeenCalled()
+  expect(neuralAudioPath).not.toHaveBeenCalled()
   expect(createAdminClient).not.toHaveBeenCalled()
+})
+it('accepts the old male default during deployment and uses the canonical cache', async () => {
+  session()
+  expect(await generateAudio({ ...input, voice: 'male' } as unknown as GenerateAudioInput)).toMatchObject({ success: true })
+  expect(neuralAudioPath).toHaveBeenCalledWith('die Tür', 'de')
 })
 it('rejects voice profiles for unsupported languages and unknown profile names', async () => {
   session()
-  expect(await generateAudio({ text: 'Hello', language: 'en', voice: 'female' })).toEqual({ success: false, error: 'invalid_input' })
+  expect(await generateAudio({ text: 'Hello', language: 'en', voice: 'male' } as unknown as GenerateAudioInput)).toEqual({ success: false, error: 'invalid_input' })
   expect(await generateAudio({ ...input, voice: 'unknown' } as unknown as GenerateAudioInput)).toEqual({ success: false, error: 'invalid_input' })
   expect(createClient).not.toHaveBeenCalled()
 })

@@ -20,5 +20,5 @@ export async function loadRegistrationOverview(month:string):Promise<Registratio
  consents:{privacy:row.privacy_accepted,agb:row.agb_accepted,revocation:row.revocation_accepted,recording:row.recording_accepted},
  courses:row.booking_items.map(item=>({id:item.course_id,title:item.title_snapshot,amount:item.amount,unitPrice:item.unit_price,unitMinutes:item.unit_minutes,units:item.units,requestedUnits:item.requested_units})),
  }))
- return {registrations,targetMonth:month,invoices:(invoices.data??[]).map(row=>({source:registrations.find(b=>b.id===row.booking_id)?.source??'registration',sourceId:row.booking_id,month:row.target_month,status:row.status==='created'?'created':'outstanding',reference:row.invoice_reference,createdAt:row.invoice_created_at}))}
+ return {registrations,targetMonth:month,invoices:(invoices.data??[]).map(row=>({source:registrations.find(b=>b.id===row.booking_id)?.source??'registration',sourceId:row.booking_id,month:row.target_month,status:row.status==='created'?'created':'outstanding',reference:row.invoice_reference,createdAt:row.invoice_created_at,calendarAdjustmentAmount:row.calendar_adjustment_amount}))}
 }
