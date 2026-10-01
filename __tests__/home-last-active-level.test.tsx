@@ -23,6 +23,7 @@ jest.mock('@/utils/supabase/server', () => ({
 }))
 jest.mock('@/app/actions/progress', () => ({ getAllLevelsProgress: async () => ({ 'A1.1': 50 }) }))
 jest.mock('@/app/actions/feedback', () => ({ getUnseenFeedbackSummary: async () => ({ count: 0, latestLevel: null, latest: null }) }))
+jest.mock('@/app/actions/learning-progress', () => ({ getMyLearningProgress: async () => ({ success: false, error: 'request_failed' }) }))
 jest.mock('@/app/actions/pronunciation-conversations', () => ({ markPronunciationSeen: jest.fn() }))
 jest.mock('@/lib/access/server', () => ({
   loadLevelAccessProfile: async () => ({ role: 'student', ui_language: 'ru', native_language: 'ru', allowed_levels: ['A1.1', 'A1.2'], trainer_grants: [] }),

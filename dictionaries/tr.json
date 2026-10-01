@@ -1037,6 +1037,8 @@
         "nav_test": "Test",
         "nav_media": "Medya kütüphanesi",
         "nav_calendar": "Takvim",
+        "nav_progress": "İlerlemem",
+        "nav_focus": "Sorunlu kelimeler",
         "nav_home": "Ana sayfa",
         "nav_back": "Geri",
         "nav_back_aria": "Bir sayfa geri git",

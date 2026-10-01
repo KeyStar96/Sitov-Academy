@@ -37,6 +37,8 @@ export const DASHBOARD_FALLBACKS = {
   nav_home: 'Start',
   nav_media: 'Mediathek',
   nav_calendar: 'Kalender',
+  nav_progress: 'Mein Fortschritt',
+  nav_focus: 'Problemwörter',
   nav_back: 'Zurück',
   nav_back_aria: 'Eine Seite zurück',
   open_profile: 'Profil',
@@ -90,6 +92,8 @@ export const DASHBOARD_ROUTE_KEYS = {
   train: 'nav_train',
   assess: 'nav_assess',
   lessons: 'nav_lessons',
+  progress: 'nav_progress',
+  focus: 'nav_focus',
 } as const
 
 export type DashboardRouteSegment = keyof typeof DASHBOARD_ROUTE_KEYS

@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { Mail, MapPin, Phone } from 'lucide-react'
 import { getTeacherStudentDetail } from '@/app/actions/teacher-dashboard'
+import { getStudentLearningProgress } from '@/app/actions/learning-progress'
 import { getDictionary } from '@/lib/dictionary'
 import { createClient } from '@/utils/supabase/server'
 import { TEACHER_TABS, teacherTabSchema } from '@/lib/teacher-dashboard-contract'
@@ -8,6 +9,7 @@ import { teacherDashboardT } from '@/lib/teacher-dashboard-i18n'
 import { studentsAdminCopy } from '@/lib/students-admin-i18n'
 import TeacherDashboardFailure from '@/components/admin/TeacherDashboardFailure'
 import TeacherStudentOverview from '@/components/admin/TeacherStudentOverview'
+import StudentProgressSnapshot from '@/components/admin/StudentProgressSnapshot'
 import TeacherStudentPath from '@/components/admin/TeacherStudentPath'
 import { TeacherStudentVocabulary, TeacherStudentPronunciation, TeacherStudentActivity } from '@/components/admin/TeacherStudentPanels'
 import { PageHeader, adminChip, adminFocus } from '@/components/admin/ui'
@@ -32,9 +34,16 @@ export default async function TeacherStudentPage({ params, searchParams }: {
   async function content() {
     if (activeTab === 'overview') {
       const client = await createClient()
-      const { data: { user } } = await client.auth.getUser()
+      const [{ data: { user } }, snapshot] = await Promise.all([
+        client.auth.getUser(),
+        // Heute & 7 Tage: ein Zusatz – ein Ladefehler blendet ihn nur aus.
+        student.role === 'student' ? getStudentLearningProgress({ studentId: id, level: null, days: 7 }) : Promise.resolve(null),
+      ])
       const { data: profile } = user ? await client.from('profiles').select('role').eq('id', user.id).single() : { data: null }
-      return <TeacherStudentOverview key={JSON.stringify(student)} student={student} lang={lang} currentUserId={user?.id ?? ''} currentUserRole={profile?.role ?? ''} />
+      return <div className="min-w-0 space-y-4 sm:space-y-5">
+        {snapshot?.success && <StudentProgressSnapshot progress={snapshot.data} lang={lang} />}
+        <TeacherStudentOverview key={JSON.stringify(student)} student={student} lang={lang} currentUserId={user?.id ?? ''} currentUserRole={profile?.role ?? ''} />
+      </div>
     }
     if (activeTab === 'vocabulary') {
       const result = await getTeacherStudentDetail(id, 'vocabulary', lang)

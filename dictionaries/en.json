@@ -1041,6 +1041,8 @@
         "nav_test": "Test",
         "nav_media": "Media library",
         "nav_calendar": "Calendar",
+        "nav_progress": "My progress",
+        "nav_focus": "Problem words",
         "nav_home": "Home",
         "nav_back": "Back",
         "nav_back_aria": "Go back one page",

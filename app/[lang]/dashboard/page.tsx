@@ -22,6 +22,8 @@ import MailboxPreview from '@/components/dashboard/home/MailboxPreview'
 import TrainerStatusTiles from '@/components/dashboard/TrainerStatusTiles'
 import SupportWidget from '@/components/dashboard/home/SupportWidget'
 import LevelCard from '@/components/dashboard/home/LevelCard'
+import ProgressTeaser from '@/components/dashboard/home/ProgressTeaser'
+import { getMyLearningProgress } from '@/app/actions/learning-progress'
 import AuthStatusMessage from '@/components/auth/AuthStatusMessage'
 import { authStatusMessage, authTranslations, createAuthTranslator } from '@/lib/auth-i18n'
 import { parseAuthStatus } from '@/lib/types/auth'
@@ -66,14 +68,20 @@ export default async function DashboardPage({ params, searchParams }: {
 
   // Kalender, Buchung, Lernstand und Lerntage sind unabhängige Zusätze: Ein
   // Ladefehler darf die Startseite nie mitreißen (wie auf der Profilseite).
-  const [monthly, calendar, status, week] = user ? await Promise.all([
+  const [monthly, calendar, status, week, progress] = user ? await Promise.all([
     loadProfileMonthlyState(supabase, user).catch(() => { console.error('[dashboard] Course plan could not be loaded'); return null }),
     loadProfileCourseCalendar(supabase, user).catch(() => { console.error('[dashboard] Course calendar could not be loaded'); return null }),
     recommended ? loadLevelLearningStatus({ supabase, userId: user.id, profile: accessProfile, level: recommended.id, lang }) : Promise.resolve(null),
     loadWeekActivity(supabase, user.id),
-  ]) : [null, null, null, null]
+    getMyLearningProgress({ level: null, days: 7 }).then(result => result.success ? result.data : null).catch(() => null),
+  ]) : [null, null, null, null, null]
 
   const levelBase = recommended ? levelHref(lang, recommended.id) : null
+  // Problemwörter gehören zum Vokabeltrainer des empfohlenen Niveaus (nicht mit Deutsch als Oberfläche).
+  const focus = progress && recommended && lang !== 'de' ? {
+    href: `/${lang}/dashboard/level/${encodeURIComponent(recommended.id)}/vocabulary/focus`,
+    due: progress.focus.words.filter(word => word.level === recommended.id && word.due).length,
+  } : null
   const items: TodayItem[] = []
   const vocabulary = status?.vocabulary
   if (levelBase && vocabulary && !vocabulary.locked) {
@@ -129,6 +137,7 @@ export default async function DashboardPage({ params, searchParams }: {
         <TodayPlan lang={lang} name={displayName} items={items} fallbackHref={levelBase} week={week} noLevel={!recommended} />
       </div>
       <div className="flex min-w-0 flex-col gap-5 lg:col-span-5">
+        {progress && <ProgressTeaser progress={progress} lang={lang} focus={focus} />}
         <MailboxPreview summary={unseenFeedback} lang={lang} translations={dict.pronunciation as PronunciationTranslations} />
         {recommended && <TrainerStatusTiles lang={lang} level={recommended.id} status={status} languageLocked={lang === 'de'}
           title={s('areas_title_level', { level: recommended.id })} continueLink={areasContinue} />}

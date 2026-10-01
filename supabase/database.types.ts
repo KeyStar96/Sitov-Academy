@@ -2301,6 +2301,22 @@ export type Database = {
         Args: { p_student_id: string; p_level?: string | null }
         Returns: Json
       }
+      get_learning_progress: {
+        Args: { p_student_id?: string | null; p_level?: string | null; p_days?: number }
+        Returns: Json
+      }
+      get_vocabulary_focus: {
+        Args: { p_level?: string | null; p_ui_language?: string }
+        Returns: Json
+      }
+      submit_vocabulary_focus_answer: {
+        Args: { p_request_id: string; p_card_id: string; p_format: string; p_answer: string; p_ui_language?: string }
+        Returns: Json
+      }
+      record_media_view: {
+        Args: { p_kind: string; p_object_id: string }
+        Returns: Json
+      }
       get_last_active_level: { Args: never; Returns: Json }
       get_learning_new_counts: { Args: never; Returns: Json }
       get_learning_new_items: { Args: { p_level: string }; Returns: Json }

@@ -6,6 +6,7 @@ import { ArrowUpRight, BookOpen, Clapperboard, FileText, Globe, Play } from 'luc
 import BottomSheet from '@/components/ui/BottomSheet'
 import NewBadge from '@/components/motion/NewBadge'
 import { useLearningNew } from './useLearningNew'
+import { recordMediaView } from '@/app/actions/media-views'
 import type { LearningNewItems } from '@/lib/learning-new'
 import MediaAssetViewer from './MediaAssetViewer'
 import { createVideoTranslator, type VideoTranslations } from '@/lib/videos-i18n'
@@ -82,10 +83,15 @@ export default function VideoLibrary({ groups = [], links = [], lang, level, tra
   }, [])
 
   const kindOf = (asset: MediaAsset) => asset.kind === 'videos' ? 'video' as const : 'presentation' as const
-  /** Öffnen quittiert das Medium und seinen Ordner (ein Ordner gilt als geöffnet, sobald etwas darin geöffnet ist). */
+  /**
+   * Öffnen quittiert das Medium und seinen Ordner (ein Ordner gilt als geöffnet,
+   * sobald etwas darin geöffnet ist) und zählt für die Mediathek-Kurve der
+   * Lernanalyse. Beides still: ein Fehler darf das Öffnen nie stören.
+   */
   function opened(kind: 'video' | 'presentation', id: string, groupId: string | undefined) {
     news.mark(kind, id)
     if (groupId && groupId !== 'loose') news.mark('media_folder', groupId)
+    void recordMediaView(kind, id).catch(() => { /* still */ })
   }
   const groupOf = (id: string) => groups.find(group => group.assets.some(asset => asset.id === id) || group.links.some(link => link.id === id))?.id
   function show(asset: MediaAsset) { opened(kindOf(asset), asset.id, groupOf(asset.id)); setOpen(asset); setSheetOpen(true) }

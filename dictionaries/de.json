@@ -1040,6 +1040,8 @@
         "nav_test": "Test",
         "nav_media": "Mediathek",
         "nav_calendar": "Kalender",
+        "nav_progress": "Mein Fortschritt",
+        "nav_focus": "Problemwörter",
         "nav_home": "Start",
         "nav_back": "Zurück",
         "nav_back_aria": "Eine Seite zurück",

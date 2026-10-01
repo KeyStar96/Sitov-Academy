@@ -56,6 +56,11 @@ export function lessonsHref(lang: string, level: string): string {
   return `${modeHref(lang, level, 'vocabulary')}/lessons`
 }
 
+/** Unterseite „Problemwörter" im Modus Vokabeln (Phase 11.3). */
+export function focusHref(lang: string, level: string): string {
+  return `${modeHref(lang, level, 'vocabulary')}/focus`
+}
+
 /** Der Modus, in dem ein Pfad liegt; `null` auf der Niveau-Übersicht und außerhalb eines Niveaus. */
 export function modeFromPathname(pathname: string): LearningMode | null {
   const segment = pathname.match(/\/dashboard\/level\/[^/]+\/([^/?#]+)/)?.[1]

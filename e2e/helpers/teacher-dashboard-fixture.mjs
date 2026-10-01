@@ -34,7 +34,8 @@ function reset() {
   }))
   const access = names.flatMap(([, , levels], index) => levels.map(level => ({ auth_user_id: id(100 + index), level, granted_at: stamp(-100) })))
   const profileFor = (person, index, [, language, levels]) => ({
-    id: person.auth_user_id, role: 'student', ui_language: 'de', native_language: language,
+    // Oberflächensprache = Muttersprache: Die Trainer sind mit Deutsch als Oberfläche gesperrt.
+    id: person.auth_user_id, role: 'student', ui_language: language, native_language: language,
     created_at: index >= 5 ? stamp(-6 - index * 20) : stamp(-24 * (60 - index)), updated_at: null,
     person, people: person, level_access: levels.map(level => ({ level })), student_level_access: levels.map(level => ({ auth_user_id: person.auth_user_id })),
   })
@@ -95,9 +96,75 @@ function reset() {
     learning_units: [unit],
     lms_media_folder: [{ folder_id: id(900), level: 'A1.1', course_id: null, title: 'Grundlagen', sort_order: 1, created_at: stamp(-300) }],
     learning_videos: [], lms_presentation_asset: [], learning_vocabulary_cards: [], learning_exercises: [],
+    // Problemwörter (Phase 11.3) – je Wort Stufe 0…4; `due` wie in PostgreSQL.
+    focus_words: [
+      { cardId: id(1001), word: 'Tisch', article: 'der', translation: 'стол', wrongCount: 2, articleErrors: 3, stage: 0 },
+      { cardId: id(1002), word: 'Haus', article: 'das', translation: 'дом', wrongCount: 4, articleErrors: 0, stage: 0 },
+      { cardId: id(1003), word: 'Fenster', article: 'das', translation: 'окно', wrongCount: 3, articleErrors: 0, stage: 1 },
+      { cardId: id(1004), word: 'schnell', article: null, translation: 'быстро', wrongCount: 5, articleErrors: 0, stage: 2 },
+      { cardId: id(1005), word: 'Katze', article: 'die', translation: 'кошка', wrongCount: 3, articleErrors: 0, stage: 4 },
+    ].map(word => ({ level: 'A1.1', status: word.stage >= 4 ? 'mastered' : 'active', dueAt: word.stage >= 4 ? null : stamp(-2), practiceCount: 0, practiceCorrect: 0, masteredAt: word.stage >= 4 ? stamp(-40) : null, ...word })),
+    media_views: 0,
   }
 }
 reset()
+
+const focusDisplay = word => [word.article, word.word].filter(Boolean).join(' ')
+const focusDue = word => word.status === 'active' && (!word.dueAt || word.dueAt <= new Date().toISOString())
+function focusWord(word) {
+  const article = word.articleErrors >= 2 && Boolean(word.article)
+  return { cardId: word.cardId, word: word.word, article: word.article, level: word.level, translation: word.translation, status: word.status, stage: word.stage,
+    dueAt: word.dueAt, due: focusDue(word), wrongCount: word.wrongCount, articleErrors: word.articleErrors, masteredAt: word.masteredAt,
+    reasons: [article ? 'article' : null, word.wrongCount >= 3 || !article ? 'hard' : null].filter(Boolean) }
+}
+function focusItem(word) {
+  const article = word.articleErrors >= 2 && Boolean(word.article)
+  const base = { cardId: word.cardId, stage: word.stage, level: word.level, prompt: word.translation, noun: Boolean(word.article), reasons: focusWord(word).reasons }
+  const format = article ? 'article' : ['choice', 'build', 'type'][Math.min(2, word.stage)]
+  if (format === 'article') return { ...base, format, word: word.word, options: ['der', 'die', 'das'] }
+  if (format === 'choice') return { ...base, format, options: [focusDisplay(word), 'der Stuhl', 'die Lampe', 'das Buch'].sort() }
+  if (format === 'build') return { ...base, format, letters: [...word.word].reverse(), article: word.article }
+  return { ...base, format, firstLetter: word.word[0], length: word.word.length }
+}
+
+/** Künstliche, aber stimmige Tageswerte je Modus (7 bis 90 Tage bis heute). */
+function learningProgress(studentId, days, level) {
+  const seed = Number(studentId.slice(-3)) % 17
+  const daily = Array.from({ length: days }, (_, index) => {
+    const active = (index + seed) % 4 !== 1
+    const answers = active ? 6 + ((index * 7 + seed) % 23) : 0
+    const correct = active ? Math.min(answers, Math.round(answers * (0.5 + ((index + seed) % 9) / 20))) : 0
+    const focus = active && index % 3 === 0 ? 4 : 0
+    const path = active && index % 2 === 0 ? 5 + (index % 4) : 0
+    return {
+      date: day(index - (days - 1)),
+      vocabulary: { answers, correct, learned: active && index % 5 === 0 ? 2 : 0, seconds: answers * 20 },
+      focus: { answers: focus, correct: focus ? 3 : 0 },
+      path: { answers: path, correct: Math.max(0, path - (index % 3)), stations: path && index % 6 === 0 ? 1 : 0, seconds: path * 30 },
+      pronunciation: { recordings: active && index % 4 === 2 ? 2 : 0, replies: active && index % 8 === 2 ? 1 : 0, seconds: active && index % 4 === 2 ? 240 : 0 },
+      media: { views: active && index % 5 === 1 ? 1 + (index % 3) : 0 },
+    }
+  })
+  const words = tables.focus_words.filter(word => !level || word.level === level)
+  return {
+    success: true, studentId, level: level ?? null, days, today: day(0), timezone: 'Europe/Berlin', daily,
+    vocabulary: { totalWords: 120, inBox: 64, learnedWords: 18, learnedTotal: 26, overallPercent: 38,
+      buckets: [1, 2, 3, 4, 5, 6, 'learned'].map((key, index) => ({ key, count: [14, 11, 8, 6, 4, 3, 18][index] })) },
+    focus: { active: words.filter(word => word.status === 'active').length, due: words.filter(focusDue).length, mastered: words.filter(word => word.status === 'mastered').length,
+      articleWords: words.filter(word => word.status === 'active' && word.articleErrors >= 2).length,
+      words: words.map(word => ({ cardId: word.cardId, word: word.word, article: word.article, level: word.level, status: word.status, stage: word.stage, dueAt: word.dueAt, due: focusDue(word),
+        wrongCount: word.wrongCount, articleErrors: word.articleErrors, practiceCount: word.practiceCount, practiceCorrect: word.practiceCorrect, masteredAt: word.masteredAt })) },
+    path: { totalStations: 36, completedStations: 11, totalUnits: 6, completedUnits: 2,
+      tests: [[-12, 55, false, 'Familie'], [-9, 82, true, 'Familie'], [-3, 91, true, 'Einkaufen im kleinen Laden an der Ecke']].filter(([offset]) => -offset < days)
+        .map(([offset, percentage, passed, title]) => ({ completedAt: stamp(offset * 24), percentage, passed, title })) },
+    pronunciation: { totalTexts: 24, practicedTexts: 7, recordings: 15, awaitingReply: 1 },
+    media: { totalMedia: 18, viewedMedia: 6, recent: [
+      { kind: 'video', title: 'Begrüßung und Vorstellung', viewedAt: stamp(-2), views: 2 },
+      { kind: 'presentation', title: 'Artikel-Übersicht.pdf', viewedAt: stamp(-30), views: 1 },
+      { kind: 'link', title: 'Deutsch lernen mit Liedern', viewedAt: stamp(-70), views: 3 },
+    ] },
+  }
+}
 
 function teacherStudent(profile) {
   const levels = profile.level_access.map(item => item.level)
@@ -118,6 +185,32 @@ function teacherStudent(profile) {
 }
 
 const rpcs = {
+  get_learning_progress: (body, uid) => learningProgress(body.p_student_id ?? uid, body.p_days ?? 30, body.p_level ?? null),
+  record_media_view: () => { tables.media_views++; return { success: true, recorded: true } },
+  get_vocabulary_focus: body => {
+    if (body.p_ui_language === 'de') return { error: 'invalid_learning_language', message: 'x' }
+    const words = tables.focus_words.filter(word => !body.p_level || word.level === body.p_level)
+    const next = words.filter(word => word.status === 'active' && word.dueAt).map(word => word.dueAt).filter(value => value > new Date().toISOString()).sort()[0] ?? null
+    return { success: true, level: body.p_level ?? null,
+      summary: { active: words.filter(word => word.status === 'active').length, due: words.filter(focusDue).length, mastered: words.filter(word => word.status === 'mastered').length,
+        articleWords: words.filter(word => word.status === 'active' && word.articleErrors >= 2).length, nextDueAt: next },
+      words: words.map(focusWord), items: words.filter(focusDue).map(focusItem) }
+  },
+  submit_vocabulary_focus_answer: body => {
+    const word = tables.focus_words.find(item => item.cardId === body.p_card_id)
+    if (!word || word.status !== 'active') return { error: 'not_found', message: 'x' }
+    if (!focusDue(word)) return { error: 'review_not_due', message: 'x' }
+    const answer = String(body.p_answer ?? '').trim()
+    const correct = body.p_format === 'article' ? answer === word.article : body.p_format === 'build' ? answer === word.word : answer.toLowerCase() === focusDisplay(word).toLowerCase()
+    word.practiceCount++; if (correct) word.practiceCorrect++
+    word.stage = correct ? Math.min(4, word.stage + 1) : 0
+    word.status = word.stage >= 4 ? 'mastered' : 'active'
+    const due = new Date(); due.setUTCDate(due.getUTCDate() + [0, 1, 3, 7, 0][word.stage]); due.setUTCHours(22, 0, 0, 0)
+    word.dueAt = word.status === 'mastered' ? null : correct ? due.toISOString() : new Date().toISOString()
+    return { success: true, correct, format: body.p_format, stage: word.stage, status: word.status, dueAt: word.dueAt,
+      solution: { display: focusDisplay(word), word: word.word, article: word.article }, softError: null,
+      feedback: body.p_format === 'type' && word.article && !correct && answer.toLowerCase() === word.word.toLowerCase() ? 'article_missing' : null }
+  },
   media_storage_usage: () => ({ total_bytes: 3.1e9, levels: LEVELS.slice(0, 3).map((level, index) => ({ level, bytes: (index + 1) * 0.8e9, limit_bytes: 5e9 })) }),
   get_teacher_dashboard_students: () => ({ success: true, students: tables.profiles.filter(row => row.role === 'student').map(teacherStudent) }),
   get_teacher_student_detail: body => {
@@ -216,13 +309,14 @@ const server = http.createServer(async (request, response) => {
   if (url.pathname === '/__teacher/health') data = { fixture: 'teacher-dashboard', synthetic: true }
   else if (url.pathname === '/__teacher/reset') { reset(); data = { ok: true } }
   else if (url.pathname === '/__teacher/rpc-calls') data = rpcCalls
+  else if (url.pathname === '/__teacher/media-views') data = { views: tables.media_views }
   else if (url.pathname === '/auth/v1/user') {
     const uid = actor(request)
     data = { id: uid, aud: 'authenticated', role: 'authenticated', email: uid === TEACHER ? 'teacher@example.invalid' : 'student@example.invalid', email_confirmed_at: stamp(-9000), is_anonymous: false, app_metadata: { provider: 'email' }, user_metadata: {}, created_at: stamp(-9000) }
   } else if (url.pathname.startsWith('/rest/v1/rpc/')) {
     const payload = await body(request)
     rpcCalls.push({ name, payload })
-    data = rpcs[name] ? rpcs[name](payload) : null
+    data = rpcs[name] ? rpcs[name](payload, actor(request)) : null
   } else if (url.pathname.startsWith('/rest/v1/')) {
     if (!['GET', 'HEAD'].includes(request.method)) { await body(request); data = [] }
     else {

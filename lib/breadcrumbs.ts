@@ -16,7 +16,7 @@ export interface Crumb {
 const KINDS: Partial<Record<string, CrumbKind>> = {
   dashboard: 'home', vocabulary: 'vocabulary', exercises: 'path', path: 'path',
   pronunciation: 'pronunciation', videos: 'media', media: 'media', lessons: 'lessons',
-  calendar: 'calendar', profile: 'profile',
+  calendar: 'calendar', profile: 'profile', focus: 'vocabulary',
 }
 
 /**

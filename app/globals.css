@@ -1733,3 +1733,13 @@ html.high-contrast .admin-shell {
 @media (prefers-reduced-motion: reduce) {
   .admin-shell *, .admin-shell *::before, .admin-shell *::after { transition-duration: 0ms !important; animation-duration: 0ms !important; }
 }
+
+/* Diagramme der Lernanalyse (Phase 11.3): ruhige Übergänge beim Wechsel des
+   Zeitraums, sichtbarer Fokus für die Tastaturbedienung. */
+.trend-chart { border-radius: .5rem; outline: none; }
+.trend-chart:focus-visible { box-shadow: 0 0 0 2px var(--surface), 0 0 0 4px var(--accent); }
+.trend-chart__bar { transition: y var(--motion-slow, 320ms) var(--ease-out-soft, ease), height var(--motion-slow, 320ms) var(--ease-out-soft, ease), fill-opacity var(--motion-fast, 120ms) ease; }
+.accuracy-ring__value { transition: stroke-dasharray var(--motion-slower, 500ms) var(--ease-out-soft, ease); }
+@media (prefers-reduced-motion: reduce) {
+  .trend-chart__bar, .accuracy-ring__value { transition: none; }
+}

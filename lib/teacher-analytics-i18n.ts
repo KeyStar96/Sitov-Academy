@@ -1,48 +1,43 @@
 import { toUiLocale } from './locale-routing'
 const de = {
-  title: 'Lernanalyse', intro: 'Leitner-Verteilung und dokumentierte Lernaktivität je Schüler und unabhängig freigeschaltetem Trainer-Niveau.',
+  title: 'Lernanalyse', intro: 'Tageswerte mit Prozent, Lernverlauf und Fortschritt je Lernmodus – für jede lernende Person und jedes unabhängig freigeschaltete Trainer-Niveau.',
   student: 'Schüler', unknown: 'Schüler ohne Namen', level: 'Trainer-Niveau', allLevels: 'Alle Lernniveaus',
   empty: 'Noch keine Schüler vorhanden.', loading: 'Lernanalyse wird geladen …', failed: 'Die Lernanalyse konnte nicht geladen werden.', retry: 'Erneut laden',
-  phases: 'Leitner-Phasen 1–7', phaseHint: 'Pro Wort zählt die niedrigste Phase beider Abfragerichtungen. Phase 7 bedeutet: in beiden Richtungen gelernt. Der Balken zeigt den gewichteten Vokabelfortschritt.',
   scope: 'Die Auswertung zeigt ausschließlich das gewählte Trainer-Niveau. Kursanmeldungen und Kurszuordnungen sind davon unabhängig.',
-  completion: 'Abgeschlossene Lerninhalte', history: 'Lernverlauf · letzte 30 Tage', historyHint: 'Tatsächlich gespeicherte Vokabelantworten je Tag (Europe/Berlin). Grammatikversuche und gelöschte Lernstände sind hier nicht enthalten.',
-  noHistory: 'In diesem Zeitraum sind keine Vokabelantworten gespeichert.', answers: 'Antworten', correct: 'Richtig beantwortet', date: 'Datum', table: 'Tageswerte anzeigen',
+  scopeAll: 'Tageswerte aller Niveaus; Gesamtstände beziehen sich auf die freigeschalteten Trainer-Niveaus.',
+  openProfile: 'Schülerprofil öffnen',
 }
 type Copy = typeof de
 const en: Copy = {
-  title: 'Learning analytics', intro: 'Leitner distribution and recorded learning activity by student and independently unlocked trainer level.',
+  title: 'Learning analytics', intro: 'Daily values with percentages, learning history and progress by learning mode – for every learner and every independently unlocked trainer level.',
   student: 'Student', unknown: 'Student without a name', level: 'Trainer level', allLevels: 'All learning levels',
   empty: 'No students yet.', loading: 'Loading learning analytics …', failed: 'Learning analytics could not be loaded.', retry: 'Try again',
-  phases: 'Leitner phases 1–7', phaseHint: 'Each word uses the lower phase of its two directions. Phase 7 means learned in both directions. The bar shows weighted vocabulary progress.',
   scope: 'This view covers only the selected trainer level. Course enrollments and course assignments are independent.',
-  completion: 'Completed learning content', history: 'Learning history · last 30 days', historyHint: 'Actual saved vocabulary answers per day (Europe/Berlin). Grammar attempts and deleted learning progress are not included.',
-  noHistory: 'No vocabulary answers are saved for this period.', answers: 'Answers', correct: 'Answered correctly', date: 'Date', table: 'Show daily values',
+  scopeAll: 'Daily values of all levels; totals refer to the unlocked trainer levels.',
+  openProfile: 'Open student profile',
 }
 const ru: Copy = {
-  title: 'Аналитика обучения', intro: 'Распределение по этапам Лейтнера и сохранённая активность ученика по отдельному уровню тренажёра.',
+  title: 'Аналитика обучения', intro: 'Данные за день в процентах, история и прогресс по учебным режимам – для каждого ученика и каждого отдельно открытого уровня тренажёра.',
   student: 'Ученик', unknown: 'Ученик без имени', level: 'Уровень тренажёра', allLevels: 'Все уровни обучения',
   empty: 'Учеников пока нет.', loading: 'Загрузка аналитики …', failed: 'Не удалось загрузить аналитику.', retry: 'Повторить',
-  phases: 'Этапы Лейтнера 1–7', phaseHint: 'Для каждого слова показан меньший этап из двух направлений. Этап 7 означает, что слово выучено в обоих направлениях. Полоса показывает взвешенный прогресс по словам.',
   scope: 'Показаны результаты только выбранного уровня тренажёра. Запись на курсы и назначение курсов независимы.',
-  completion: 'Завершённые учебные материалы', history: 'История обучения · последние 30 дней', historyHint: 'Сохранённые ответы по словам за каждый день (Europe/Berlin). Попытки по грамматике и удалённый прогресс не включены.',
-  noHistory: 'За этот период нет сохранённых ответов по словам.', answers: 'Ответы', correct: 'Верные ответы', date: 'Дата', table: 'Показать данные по дням',
+  scopeAll: 'Данные за день по всем уровням; итоги относятся к открытым уровням тренажёра.',
+  openProfile: 'Открыть профиль ученика',
 }
 const uk: Copy = {
-  title: 'Аналітика навчання', intro: 'Розподіл за етапами Лейтнера та збережена активність учня за окремим рівнем тренажера.',
+  title: 'Аналітика навчання', intro: 'Дані за день у відсотках, історія та прогрес за навчальними режимами – для кожного учня й кожного окремо відкритого рівня тренажера.',
   student: 'Учень', unknown: 'Учень без імені', level: 'Рівень тренажера', allLevels: 'Усі рівні навчання',
   empty: 'Учнів поки немає.', loading: 'Завантаження аналітики …', failed: 'Не вдалося завантажити аналітику.', retry: 'Спробувати знову',
-  phases: 'Етапи Лейтнера 1–7', phaseHint: 'Для кожного слова показано нижчий етап із двох напрямків. Етап 7 означає, що слово вивчено в обох напрямках. Смужка показує зважений прогрес зі слів.',
   scope: 'Показано результати лише вибраного рівня тренажера. Запис на курси та призначення курсів незалежні.',
-  completion: 'Завершені навчальні матеріали', history: 'Історія навчання · останні 30 днів', historyHint: 'Збережені відповіді зі слів за кожен день (Europe/Berlin). Спроби з граматики та видалений прогрес не включено.',
-  noHistory: 'За цей період немає збережених відповідей зі слів.', answers: 'Відповіді', correct: 'Правильні відповіді', date: 'Дата', table: 'Показати дані за днями',
+  scopeAll: 'Дані за день з усіх рівнів; підсумки стосуються відкритих рівнів тренажера.',
+  openProfile: 'Відкрити профіль учня',
 }
 const tr: Copy = {
-  title: 'Öğrenme analizi', intro: 'Öğrenciye ve bağımsız açılan alıştırma seviyesine göre Leitner dağılımı ve kayıtlı öğrenme etkinliği.',
+  title: 'Öğrenme analizi', intro: 'Yüzdeli günlük değerler, öğrenme geçmişi ve öğrenme moduna göre ilerleme – her öğrenci ve bağımsız açılan her alıştırma seviyesi için.',
   student: 'Öğrenci', unknown: 'İsimsiz öğrenci', level: 'Alıştırma seviyesi', allLevels: 'Tüm öğrenme seviyeleri',
   empty: 'Henüz öğrenci yok.', loading: 'Öğrenme analizi yükleniyor …', failed: 'Öğrenme analizi yüklenemedi.', retry: 'Tekrar dene',
-  phases: 'Leitner aşamaları 1–7', phaseHint: 'Her kelime için iki yönden düşük olan aşama gösterilir. Aşama 7, kelimenin iki yönde de öğrenildiğini belirtir. Çubuk ağırlıklı kelime ilerlemesini gösterir.',
   scope: 'Bu görünüm yalnızca seçilen alıştırma seviyesini kapsar. Kurs kayıtları ve kurs atamaları bağımsızdır.',
-  completion: 'Tamamlanan öğrenme içeriği', history: 'Öğrenme geçmişi · son 30 gün', historyHint: 'Günlük kaydedilmiş kelime yanıtları (Europe/Berlin). Dil bilgisi denemeleri ve silinen ilerleme dahil değildir.',
-  noHistory: 'Bu dönem için kayıtlı kelime yanıtı yok.', answers: 'Yanıtlar', correct: 'Doğru yanıtlanan', date: 'Tarih', table: 'Günlük değerleri göster',
+  scopeAll: 'Tüm seviyelerin günlük değerleri; toplamlar açılmış alıştırma seviyelerine göredir.',
+  openProfile: 'Öğrenci profilini aç',
 }
 export function teacherAnalyticsCopy(lang: string): Copy { return { de, en, ru, uk, tr }[toUiLocale(lang)] }

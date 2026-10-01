@@ -2,16 +2,17 @@
 
 import { useId } from 'react'
 import { usePathname } from 'next/navigation'
-import { Archive, ListChecks } from 'lucide-react'
+import { Archive, ListChecks, Target } from 'lucide-react'
 import PressableCard from '@/components/motion/PressableCard'
 import SlidingPill from '@/components/motion/SlidingPill'
-import { lessonsHref, modeHref } from '@/lib/mode-targets'
+import { focusHref, lessonsHref, modeHref } from '@/lib/mode-targets'
 import { studentTranslator } from '@/lib/student-ui-i18n'
 
 /**
- * Die zwei Ansichten im Modus Vokabeln: Lernbox (üben) und Lektionen
- * (auswählen, was in die Lernbox kommt). Nur auf diesen beiden Seiten
- * sichtbar — Einstufung und Lernrunde füllen den ganzen Bildschirm.
+ * Die drei Ansichten im Modus Vokabeln: Lernbox (üben), Lektionen
+ * (auswählen, was in die Lernbox kommt) und Problemwörter (Schwachstellen
+ * gezielt trainieren, Phase 11.3). Nur auf diesen Seiten sichtbar —
+ * Einstufung und Lernrunde füllen den ganzen Bildschirm.
  */
 export default function VocabularyTabs({ lang, level }: { lang: string; level: string }) {
   const t = studentTranslator(lang)
@@ -19,14 +20,16 @@ export default function VocabularyTabs({ lang, level }: { lang: string; level: s
   const group = useId()
   const box = modeHref(lang, level, 'vocabulary')
   const lessons = lessonsHref(lang, level)
+  const focus = focusHref(lang, level)
   const at = (href: string) => decodeURIComponent(pathname.replace(/\/$/, '')) === decodeURIComponent(href)
-  if (!at(box) && !at(lessons)) return null
+  if (!at(box) && !at(lessons) && !at(focus)) return null
   const tabs = [
     { href: box, label: t('vocab_tab_box'), icon: Archive },
     { href: lessons, label: t('vocab_tab_lessons'), icon: ListChecks },
+    { href: focus, label: t('vocab_tab_focus'), icon: Target },
   ]
   return (
-    <nav aria-label={t('vocab_tabs_label')} className="st-subnav">
+    <nav aria-label={t('vocab_tabs_label')} className="st-subnav" data-count={tabs.length}>
       {tabs.map(tab => {
         const current = at(tab.href)
         return (

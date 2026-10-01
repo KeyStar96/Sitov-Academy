@@ -3,6 +3,7 @@ import AxeBuilder from '@axe-core/playwright'
 import { createClient } from '@supabase/supabase-js'
 import { randomUUID } from 'node:crypto'
 import { teacherAnalyticsCopy } from '../lib/teacher-analytics-i18n'
+import { learningProgressCopy } from '../lib/learning-progress-i18n'
 import ru from '../dictionaries/ru.json'
 import { authenticateBrowser } from './helpers/authenticated-session'
 
@@ -21,7 +22,7 @@ for (const theme of ['light', 'dark'] as const) {
     const admin = createClient(api!, key!, { auth: { persistSession: false, autoRefreshToken: false } })
     const token = randomUUID(), courseId = randomUUID(), userIds: string[] = [], personIds: string[] = []
     const password = `Test-${token}!`, teacherEmail = `analytics-teacher-${token}@test.invalid`
-    const t = teacherAnalyticsCopy('ru')
+    const t = teacherAnalyticsCopy('ru'), p = learningProgressCopy('ru')
     try {
       for (const role of ['teacher', 'student'] as const) {
         const created = await admin.auth.admin.createUser({
@@ -41,15 +42,16 @@ for (const theme of ['light', 'dark'] as const) {
       await page.goto('/ru/admin/analytics')
       await expect(page.getByRole('heading', { name: t.title, exact: true })).toBeVisible()
       await page.getByRole('combobox', { name: t.student, exact: true }).selectOption(userIds[1])
-      await expect(page.getByRole('region', { name: t.history }).getByText(t.noHistory, { exact: true })).toBeVisible()
+      await expect(page.getByRole('region', { name: p('overview_title') }).getByText(p('empty_chart'), { exact: true })).toBeVisible()
       await expect(page.getByRole('combobox', { name: t.level, exact: true }).getByRole('option', { name: `Analytics A1 ${token}` })).toHaveCount(0)
       await page.getByRole('combobox', { name: t.level, exact: true }).selectOption('A1.1')
       await expect(page.getByText(t.scope, { exact: true })).toBeVisible()
-      const phases = page.getByRole('region', { name: t.phases, exact: true })
+      const phases = page.getByRole('region', { name: p('phases'), exact: true })
       await expect(phases.getByRole('progressbar')).toHaveAttribute('aria-valuenow', '0')
       await expect(phases.getByText(ru.vocabulary.phase_chart_empty, { exact: true })).toBeVisible()
-      // A new student has no answer receipts. Do not fabricate a learning history.
-      await expect(page.getByRole('region', { name: t.history }).getByText(t.noHistory, { exact: true })).toBeVisible()
+      // A new student has no answer receipts. Do not fabricate a learning history or a 0 % quota.
+      await expect(page.getByRole('region', { name: p('overview_title') }).getByText(p('empty_chart'), { exact: true })).toBeVisible()
+      await expect(page.getByRole('img', { name: p('accuracy_none') })).toBeVisible()
       await expect(page.getByText(t.failed, { exact: true })).toHaveCount(0)
       // Kursverwaltung liegt seit Phase 11.2 im eigenen Bereich „Kurse“, nicht in der Lernanalyse.
       await expect(page.locator('#admin-content').getByRole('link', { name: /курс/i })).toHaveCount(0)

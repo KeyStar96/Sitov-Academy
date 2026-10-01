@@ -701,3 +701,37 @@ html.high-contrast .st-subnav__pill { border: 2px solid var(--foreground); }
 .st-tile__new { margin-inline-start: auto; }
 .st-tabbar__new { position: absolute; top: .55rem; left: calc(50% + .65rem); }
 .st-new-item { margin-inline-start: .5rem; vertical-align: middle; }
+
+/* ── Problemwörter-Training (Phase 11.3) ──────────────────────────────────
+   Große Antwortflächen (≥ 56 px), Artikel mit denselben Farbpunkten wie in
+   der Grammatik (der blau, die rot, das grün), Rückmeldung über Rahmen und
+   Tönung – nie nur über Farbe: Text und Symbol sagen dasselbe. */
+.st-focus-card { border: 1px solid var(--border); border-radius: 1.75rem; background: var(--surface); padding: 1.25rem 1rem; box-shadow: var(--shadow-sm); }
+@media (min-width: 640px) { .st-focus-card { padding: 1.75rem; } }
+.st-focus-option { position: relative; display: flex; min-height: 3.5rem; width: 100%; align-items: center; justify-content: center; gap: .6rem; border: 2px solid var(--border); border-radius: 1.1rem; background: var(--surface); padding: .6rem 1rem; color: var(--foreground); font-size: 1.15rem; font-weight: 700; line-height: 1.3; text-align: center; overflow-wrap: anywhere; }
+.st-focus-option[data-state='correct'] { border-color: var(--success); background: color-mix(in srgb, var(--success) 12%, var(--surface)); }
+.st-focus-option[data-state='wrong'] { border-color: var(--danger); background: color-mix(in srgb, var(--danger) 10%, var(--surface)); }
+.st-focus-option:disabled { cursor: default; }
+@media (hover: hover) { .st-focus-option:hover:not(:disabled) { border-color: var(--accent); } }
+.st-focus-dot { width: .75rem; height: .75rem; flex-shrink: 0; border-radius: 99px; background: var(--border); }
+[data-article='der'] > .st-focus-dot { background: #1d4ed8; }
+[data-article='die'] > .st-focus-dot { background: #b91c1c; }
+[data-article='das'] > .st-focus-dot { background: #15803d; }
+html.dark [data-article='der'] > .st-focus-dot { background: #93c5fd; }
+html.dark [data-article='die'] > .st-focus-dot { background: #fca5a5; }
+html.dark [data-article='das'] > .st-focus-dot { background: #86efac; }
+.st-focus-slots { display: flex; min-height: 3.6rem; flex-wrap: wrap; align-items: flex-end; justify-content: center; gap: .35rem; }
+.st-focus-slot { display: inline-flex; min-width: 2.4rem; height: 3.25rem; align-items: center; justify-content: center; border-bottom: 3px solid var(--border); padding: 0 .2rem; color: var(--foreground); font-size: 1.55rem; font-weight: 800; }
+button.st-focus-slot { border-radius: .6rem .6rem 0 0; background: color-mix(in srgb, var(--accent) 7%, var(--surface)); border-bottom-color: var(--accent); }
+.st-focus-letter { display: inline-flex; min-width: 3rem; min-height: 3.25rem; align-items: center; justify-content: center; border: 1px solid var(--border); border-bottom-width: 3px; border-radius: .9rem; background: var(--surface); padding: 0 .75rem; color: var(--foreground); font-size: 1.35rem; font-weight: 750; box-shadow: var(--shadow-sm); }
+.st-focus-feedback { border-radius: 1.2rem; border: 1px solid var(--border); padding: .9rem 1rem; }
+.st-focus-feedback[data-tone='success'] { border-color: color-mix(in srgb, var(--success) 60%, var(--border)); background: color-mix(in srgb, var(--success) 10%, var(--surface)); }
+.st-focus-feedback[data-tone='danger'] { border-color: color-mix(in srgb, var(--danger) 55%, var(--border)); background: color-mix(in srgb, var(--danger) 8%, var(--surface)); }
+.st-focus-chip { display: inline-flex; min-height: 1.9rem; align-items: center; gap: .35rem; border-radius: 99px; padding: 0 .7rem; font-size: .9rem; font-weight: 700; }
+.st-focus-chip[data-reason='article'] { background: color-mix(in srgb, var(--accent) 12%, var(--surface)); color: var(--accent-text); }
+.st-focus-chip[data-reason='hard'] { background: color-mix(in srgb, var(--violet) 12%, var(--surface)); color: var(--violet); }
+/* Drei Ansichten im Modus Vokabeln (Lernbox · Lektionen · Problemwörter):
+   schmal Symbol über Text, damit auch „Проблемные слова" ohne Abschneiden passt. */
+.st-subnav[data-count='3'] { grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 36rem; }
+.st-subnav[data-count='3'] .st-subnav__link { min-height: 3.75rem; flex-direction: column; gap: .15rem; padding: .35rem .3rem; font-size: .9rem; line-height: 1.15; overflow-wrap: anywhere; }
+@media (min-width: 30rem) { .st-subnav[data-count='3'] .st-subnav__link { min-height: 3rem; flex-direction: row; gap: .45rem; font-size: 1rem; } }
