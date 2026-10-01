@@ -2,8 +2,12 @@ import { render, screen } from '@testing-library/react'
 import de from '@/dictionaries/de.json'
 import ru from '@/dictionaries/ru.json'
 import { loadLastActiveLevel } from '@/lib/last-active-level'
+import { loadLevelAccessProfile } from '@/lib/access/server'
+import { getMyLearningProgress } from '@/app/actions/learning-progress'
 import { studentTranslator } from '@/lib/student-ui-i18n'
+import { learningProgressCopy } from '@/lib/learning-progress-i18n'
 import type { LevelLearningStatus } from '@/lib/learning-status-server'
+import { progressData } from './fixtures/learning-progress'
 
 /**
  * Phase 2.6: Home folgt dem zuletzt gelernten Niveau (get_last_active_level),
@@ -23,10 +27,10 @@ jest.mock('@/utils/supabase/server', () => ({
 }))
 jest.mock('@/app/actions/progress', () => ({ getAllLevelsProgress: async () => ({ 'A1.1': 50 }) }))
 jest.mock('@/app/actions/feedback', () => ({ getUnseenFeedbackSummary: async () => ({ count: 0, latestLevel: null, latest: null }) }))
-jest.mock('@/app/actions/learning-progress', () => ({ getMyLearningProgress: async () => ({ success: false, error: 'request_failed' }) }))
+jest.mock('@/app/actions/learning-progress', () => ({ getMyLearningProgress: jest.fn() }))
 jest.mock('@/app/actions/pronunciation-conversations', () => ({ markPronunciationSeen: jest.fn() }))
 jest.mock('@/lib/access/server', () => ({
-  loadLevelAccessProfile: async () => ({ role: 'student', ui_language: 'ru', native_language: 'ru', allowed_levels: ['A1.1', 'A1.2'], trainer_grants: [] }),
+  loadLevelAccessProfile: jest.fn(),
 }))
 jest.mock('@/lib/profile-dashboard-server', () => ({ loadProfileMonthlyState: async () => null }))
 jest.mock('@/lib/profile-course-calendar-server', () => ({ loadProfileCourseCalendar: async () => null }))
@@ -51,7 +55,11 @@ async function renderHome(lang: 'de' | 'ru') {
   render(await DashboardPage({ params: Promise.resolve({ lang }), searchParams: Promise.resolve({}) }))
 }
 
-beforeEach(() => jest.mocked(loadLastActiveLevel).mockReset())
+beforeEach(() => {
+  jest.mocked(loadLastActiveLevel).mockReset()
+  jest.mocked(getMyLearningProgress).mockReset().mockResolvedValue({ success: false, error: 'request_failed' })
+  jest.mocked(loadLevelAccessProfile).mockReset().mockResolvedValue({ role: 'student', ui_language: 'ru', native_language: 'ru', allowed_levels: ['A1.1', 'A1.2'], trainer_grants: [] })
+})
 
 it('zeigt „Deine Lernbereiche · A1.2", wenn zuletzt in A1.2 gelernt wurde — obwohl A1.1 halb fertig ist', async () => {
   jest.mocked(loadLastActiveLevel).mockResolvedValue({ level: 'A1.2', mode: 'vocabulary', source: 'activity',
@@ -85,6 +93,21 @@ it('fällt nur bei gescheiterter Abfrage auf das erste angefangene Niveau zurüc
   jest.mocked(loadLastActiveLevel).mockResolvedValue(null)
   await renderHome('ru')
   expect(screen.getByRole('heading', { level: 2, name: `${studentTranslator('ru')('areas_title')} · A1.1` })).toBeInTheDocument()
+})
+
+it.each([false, true])('zeigt den Problemwort-Link nur bei freigeschaltetem Vokabeltrainer (enabled=%s)', async enabled => {
+  jest.mocked(loadLastActiveLevel).mockResolvedValue({ level: 'A1.2', mode: 'path', source: 'activity', levels: [] })
+  jest.mocked(loadLevelAccessProfile).mockResolvedValue({ role: 'student', ui_language: 'ru', native_language: 'ru', allowed_levels: ['A1.1', 'A1.2'],
+    trainer_grants: [{ level: 'A1.2', trainer: 'vocabulary', enabled, unit_ids: null }] })
+  const progress = progressData(7)
+  progress.focus.words = [{ cardId: '00000000-0000-4000-8000-000000000002', level: 'A1.2', word: 'Haus', article: 'das', status: 'active', stage: 0,
+    dueAt: '2026-09-30T08:00:00+00:00', due: true, wrongCount: 3, articleErrors: 0, practiceCount: 0, practiceCorrect: 0, masteredAt: null }]
+  progress.focus.active = 1; progress.focus.due = 1
+  jest.mocked(getMyLearningProgress).mockResolvedValue({ success: true, data: progress })
+  await renderHome('ru')
+  const link = screen.queryByRole('link', { name: `${learningProgressCopy('ru')('focus_cta')} (1)` })
+  if (enabled) expect(link).toHaveAttribute('href', '/ru/dashboard/level/A1.2/vocabulary/focus')
+  else expect(link).not.toBeInTheDocument()
 })
 
 it('die Überschrift steht in allen Sprachen im Wörterbuch der Lernräume', () => {

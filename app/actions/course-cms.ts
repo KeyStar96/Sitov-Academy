@@ -20,17 +20,11 @@ export async function getCourseCatalog():Promise<BackendActionResult<CourseEdito
 export async function saveCourse(input:unknown):Promise<BackendActionResult<{id:string}>> {
  return withBackendSession(async({supabase})=>{
   const parsed=courseEditorSchema.parse(input)
-  // save_business_course löscht und schreibt ALLE Ausfälle des Kurses aus dem
-  // Payload neu. Ausfälle werden nur noch unter „Kursausfälle“ gepflegt; der
-  // Kurs-Editor darf sie nie verwerfen. Daher gilt immer der gespeicherte Stand,
-  // unabhängig davon, was der Client mitschickt. Neue Kurse haben keine.
-  let exceptions:CourseEditor['exceptions']=[]
-  if(parsed.id){
-   const {data:stored,error:readError}=await supabase.from('course_exceptions').select('date,reason').eq('course_id',parsed.id).order('date').order('id')
-   checkDatabaseError(readError)
-   exceptions=(stored??[]).map(row=>({date:row.date,reason:row.reason}))
-  }
-  const course={...parsed,exceptions}
+  // Kursausfälle werden ausschließlich über ihre eigenen Commands gepflegt.
+  // Migration 55 lässt den Kalender bei Kursänderungen atomar unverändert;
+  // kein vorheriger Read darf gleichzeitig eingetragene Ausfälle ersetzen.
+  const {exceptions,...course}=parsed
+  void exceptions
   const {data,error}=await supabase.rpc('save_business_course',{p_data:course})
   checkDatabaseError(error)
   checkRpcError(data)

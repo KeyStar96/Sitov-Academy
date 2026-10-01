@@ -97,7 +97,7 @@ describe('Mein Fortschritt', () => {
     let slow!: (value: Awaited<ReturnType<typeof getMyLearningProgress>>) => void
     jest.mocked(getMyLearningProgress).mockImplementationOnce(() => new Promise(resolve => { slow = resolve }))
       .mockResolvedValueOnce({ success: true, data: progressData(90) })
-    render(<StudentProgress initial={initial} levels={['A1.1', 'A1.2']} lang="de" translations={{}} focusLevel="A1.1" />)
+    render(<StudentProgress initial={initial} levels={['A1.1', 'A1.2']} lang="de" translations={{}} focusLevel="A1.1" focusLevels={['A1.1', 'A1.2']} />)
     expect(within(screen.getByRole('region', { name: 'Heute' })).getByRole('img', { name: '75 Prozent richtig' })).toBeInTheDocument()
     expect(getMyLearningProgress).not.toHaveBeenCalled()
     fireEvent.click(screen.getByRole('button', { name: '7 Tage' }))
@@ -113,7 +113,7 @@ describe('Mein Fortschritt', () => {
   it('filtert nach Niveau und meldet Fehler mit Wiederholen', async () => {
     jest.mocked(getMyLearningProgress).mockResolvedValueOnce({ success: false, error: 'request_failed' })
       .mockResolvedValueOnce({ success: true, data: { ...initial, level: 'A1.2' } })
-    render(<StudentProgress initial={initial} levels={['A1.1', 'A1.2']} lang="de" translations={{}} focusLevel={null} />)
+    render(<StudentProgress initial={initial} levels={['A1.1', 'A1.2']} lang="de" translations={{}} focusLevel={null} focusLevels={[]} />)
     expect(screen.queryByRole('link', { name: 'Problemwörter üben' })).not.toBeInTheDocument()
     fireEvent.change(screen.getByLabelText('Niveau'), { target: { value: 'A1.2' } })
     expect(await screen.findByRole('alert')).toHaveTextContent('Die Lernanalyse konnte nicht geladen werden.')
@@ -121,7 +121,17 @@ describe('Mein Fortschritt', () => {
     expect(getMyLearningProgress).toHaveBeenLastCalledWith({ level: 'A1.2', days: 30 })
     await screen.findByRole('region', { name: 'Heute' })
     expect(screen.queryByRole('alert')).not.toBeInTheDocument()
-    expect(screen.getByRole('link', { name: 'Problemwörter üben' })).toHaveAttribute('href', '/de/dashboard/level/A1.2/vocabulary/focus')
+    expect(screen.queryByRole('link', { name: 'Problemwörter üben' })).not.toBeInTheDocument()
+  })
+  it('zeigt Problemwörter nur für Niveaus mit freigeschaltetem Vokabeltrainer', async () => {
+    jest.mocked(getMyLearningProgress).mockImplementation(async input => ({ success: true, data: { ...initial, level: (input as { level: string | null }).level } }))
+    render(<StudentProgress initial={initial} levels={['A1.1', 'A1.2']} lang="ru" translations={{}} focusLevel="A1.1" focusLevels={['A1.1']} />)
+    const t = learningProgressCopy('ru')
+    expect(screen.getByRole('link', { name: t('focus_cta') })).toHaveAttribute('href', '/ru/dashboard/level/A1.1/vocabulary/focus')
+    await act(async () => { fireEvent.change(screen.getByLabelText(t('level')), { target: { value: 'A1.2' } }) })
+    expect(screen.queryByRole('link', { name: t('focus_cta') })).not.toBeInTheDocument()
+    await act(async () => { fireEvent.change(screen.getByLabelText(t('level')), { target: { value: 'A1.1' } }) })
+    expect(screen.getByRole('link', { name: t('focus_cta') })).toHaveAttribute('href', '/ru/dashboard/level/A1.1/vocabulary/focus')
   })
   it('zeigt auf der Startseite den Tag in Zahlen mit Link zum Fortschritt', () => {
     render(<ProgressTeaser progress={progressData(7, '2026-09-30', (day, index) => index === 6 ? progressDay(day.date, { path: { answers: 4, correct: 3 } }) : day)} lang="ru" focus={{ href: '/ru/dashboard/level/A1.1/vocabulary/focus', due: 2 }} />)

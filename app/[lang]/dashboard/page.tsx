@@ -5,7 +5,7 @@ import { createDashboardTranslator, type DashboardTranslations } from '@/lib/das
 import type { PronunciationTranslations } from '@/lib/pronunciation-i18n'
 import { createClient } from '@/utils/supabase/server'
 import { loadLevelAccessProfile } from '@/lib/access/server'
-import { hasLevelAccess } from '@/lib/access/levels'
+import { hasLevelAccess, hasTrainerAccess } from '@/lib/access/levels'
 import { loadProfileMonthlyState } from '@/lib/profile-dashboard-server'
 import { loadProfileCourseCalendar } from '@/lib/profile-course-calendar-server'
 import { formatCalendarDate } from '@/lib/profile-course-calendar'
@@ -78,7 +78,7 @@ export default async function DashboardPage({ params, searchParams }: {
 
   const levelBase = recommended ? levelHref(lang, recommended.id) : null
   // Problemwörter gehören zum Vokabeltrainer des empfohlenen Niveaus (nicht mit Deutsch als Oberfläche).
-  const focus = progress && recommended && lang !== 'de' ? {
+  const focus = progress && recommended && lang !== 'de' && hasTrainerAccess(accessProfile, recommended.id, 'vocabulary') ? {
     href: `/${lang}/dashboard/level/${encodeURIComponent(recommended.id)}/vocabulary/focus`,
     due: progress.focus.words.filter(word => word.level === recommended.id && word.due).length,
   } : null

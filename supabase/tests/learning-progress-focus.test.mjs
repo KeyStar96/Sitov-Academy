@@ -1,12 +1,12 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { createCurrentDatabase, actor, id, student, teacher, outsider, vocabularyUnit, result } from './helpers/current-db.mjs'
+import { createCurrentDatabase, currentFeatureMigrations, actor, id, student, teacher, outsider, vocabularyUnit, result } from './helpers/current-db.mjs'
 
 // Migration 54 (Phase 11.3): Lernanalyse je Modus, angeschaute Medien und
 // Problemwörter. Additiv: bestehende Lernstände, Quittungen, Lerntage und
 // Sitzungen bleiben unverändert; die Rückschau liest nur vorhandene Zähler.
 
-const LATEST = ['54_learning_progress_focus.sql']
+const LATEST = currentFeatureMigrations
 const card = { haus: id(54001), tisch: id(54002), katze: id(54003), buch: id(54004), stuhl: id(54005), lampe: id(54006), fenster: id(54007), schnell: id(54008), own: id(54009), tuer: id(54010) }
 const ownUnit = id(54100), videoUnit = id(54101), folder = id(54102), video = id(54103), presentation = id(54104), hiddenFolder = id(54105), hiddenAsset = id(54106)
 const progressIds = new Map()

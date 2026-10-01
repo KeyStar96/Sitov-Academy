@@ -14,7 +14,7 @@ import LearningProgressView from './LearningProgressView'
  * Schüler-Design. Zeitraum und Niveau wechseln ohne Neuladen der Seite; die
  * bisherigen Werte bleiben sichtbar, bis die neuen da sind.
  */
-export default function StudentProgress({ initial, levels, lang, translations, focusLevel }: {
+export default function StudentProgress({ initial, levels, lang, translations, focusLevel, focusLevels }: {
   initial: LearningProgress | null
   /** Freigeschaltete Niveaus (Filter). */
   levels: readonly string[]
@@ -22,6 +22,8 @@ export default function StudentProgress({ initial, levels, lang, translations, f
   translations: VocabularyTranslations
   /** Niveau, dessen Problemwörter-Training der Knopf öffnet; `null`: kein Vokabeltrainer (z. B. Deutsch als Oberfläche). */
   focusLevel: string | null
+  /** Niveaus mit freigeschaltetem Vokabeltrainer und gültiger Lernsprache. */
+  focusLevels: readonly string[]
 }) {
   const t = learningProgressCopy(lang)
   const [days, setDays] = useState<ProgressRange>(initial?.days === 7 || initial?.days === 90 ? initial.days : 30)
@@ -42,7 +44,7 @@ export default function StudentProgress({ initial, levels, lang, translations, f
     } catch { if (id === request.current) setFailed(true) }
     finally { if (id === request.current) setLoading(false) }
   }
-  const target = level || focusLevel
+  const target = level ? focusLevels.includes(level) ? level : null : focusLevel
   const focusAction = target ? <Link href={`/${lang}/dashboard/level/${encodeURIComponent(target)}/vocabulary/focus`} className="st-link-pill st-press"><Target size={18} aria-hidden="true" />{t('focus_cta')}</Link> : undefined
   return <div className="space-y-5">
     <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-end sm:justify-between">

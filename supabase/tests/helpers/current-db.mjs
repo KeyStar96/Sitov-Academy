@@ -12,11 +12,13 @@ export const currentMigrations = [
   '52_independent_trainer_analytics.sql', '53_course_cancellation_billing.sql',
 ]
 
-/** Isolated PGlite database at the current production schema (01 … 53).
+export const currentFeatureMigrations = ['54_learning_progress_focus.sql', '55_preserve_course_outages_focus_access.sql']
+
+/** Isolated PGlite database at the reviewed application schema (01 … 55).
  * `beforeLatest` installs fixtures that must exist before the migration under
  * test, e.g. to prove that a backfill preserves and reads live-like rows.
  */
-export async function createCurrentDatabase({ beforeLatest, latest = [] } = {}) {
+export async function createCurrentDatabase({ beforeLatest, latest = currentFeatureMigrations } = {}) {
   const db = await createLearningPathDatabase()
   try {
     for (const migration of currentMigrations) {

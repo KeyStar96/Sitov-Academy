@@ -3,7 +3,7 @@ import { getMyLearningProgress } from '@/app/actions/learning-progress'
 import { getDictionary } from '@/lib/dictionary'
 import { requestSession } from '@/lib/request-session'
 import { loadLevelAccessProfile } from '@/lib/access/server'
-import { ACCESS_LEVELS, hasLevelAccess } from '@/lib/access/levels'
+import { ACCESS_LEVELS, hasLevelAccess, hasTrainerAccess } from '@/lib/access/levels'
 import { loadLastActiveLevel } from '@/lib/last-active-level'
 import { learningProgressCopy } from '@/lib/learning-progress-i18n'
 import StudentProgress from '@/components/progress/StudentProgress'
@@ -23,12 +23,13 @@ export default async function ProgressPage({ params }: { params: Promise<{ lang:
   const t = learningProgressCopy(lang)
   const levels = ACCESS_LEVELS.filter(level => hasLevelAccess(access, level))
   // Problemwörter gehören zum Vokabeltrainer; der braucht eine andere Oberflächensprache als Deutsch.
-  const focusLevel = lang === 'de' ? null : levels.find(level => level === lastActive?.level) ?? levels[0] ?? null
+  const focusLevels = lang === 'de' ? [] : levels.filter(level => hasTrainerAccess(access, level, 'vocabulary'))
+  const focusLevel = focusLevels.find(level => level === lastActive?.level) ?? focusLevels[0] ?? null
   return <div className="space-y-6">
     <header>
       <h1 className="st-path-hero__title">{t('student_title')}</h1>
       <p className="mt-1 text-lg text-[var(--muted)]">{t('student_intro')}</p>
     </header>
-    <StudentProgress initial={initial.success ? initial.data : null} levels={levels} lang={lang} translations={dict.vocabulary ?? {}} focusLevel={focusLevel} />
+    <StudentProgress initial={initial.success ? initial.data : null} levels={levels} lang={lang} translations={dict.vocabulary ?? {}} focusLevel={focusLevel} focusLevels={focusLevels} />
   </div>
 }
