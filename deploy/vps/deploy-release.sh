@@ -18,6 +18,12 @@ BUILD_MEMORY_MAX_MB="${SITOV_BUILD_MEMORY_MAX_MB:-2560}"
 BUILD_RESERVE_MB="${SITOV_BUILD_RESERVE_MB:-1024}"
 BUILD_HEAP_MB="${SITOV_BUILD_HEAP_MB:-2048}"
 BUILD_CPUS="${SITOV_BUILD_CPUS:-1}"
+# Next.js defaults to Turbopack; Webpack can be selected for a bounded VPS build.
+BUILD_BUNDLER="${SITOV_BUILD_BUNDLER-turbopack}"
+case "$BUILD_BUNDLER" in
+  turbopack|webpack) ;;
+  *) echo 'Invalid SITOV_BUILD_BUNDLER; expected turbopack or webpack.' >&2; exit 2 ;;
+esac
 MEMINFO="${SITOV_MEMINFO:-/proc/meminfo}"
 MODE=deploy
 SCHEMA_CHANGED=false
@@ -92,7 +98,9 @@ prepare_release() {
   install -m 640 -o root -g sitov "$ENV_FILE" "$RELEASE_DIR/.env.local"
   cd "$RELEASE_DIR"
   run_capped npm ci --no-audit --no-fund
-  run_capped env NODE_OPTIONS="--max-old-space-size=${BUILD_HEAP_MB}" SITOV_BUILD_CPUS="$BUILD_CPUS" npm run build
+  local build_command=(npm run build)
+  if [[ "$BUILD_BUNDLER" == webpack ]]; then build_command+=(-- --webpack); fi
+  run_capped env NODE_OPTIONS="--max-old-space-size=${BUILD_HEAP_MB}" SITOV_BUILD_CPUS="$BUILD_CPUS" "${build_command[@]}"
   test -s .next/BUILD_ID
   test -s .next/required-server-files.json
   chown -R sitov:sitov .next

@@ -30,7 +30,7 @@ elif name=='nice':
  os.execvp(args[2],args[2:])
 elif name=='npm':
  with open(os.environ['MOCK_LOG'],'a') as f:f.write(json.dumps(['npm-env',os.environ.get('NODE_OPTIONS'),os.environ.get('SITOV_BUILD_CPUS')])+'\n')
- if args==['run','build']:
+ if args in (['run','build'],['run','build','--','--webpack']):
   if os.environ.get('MOCK_BUILD_FAIL')=='1':sys.exit(1)
   pathlib.Path('.next/server').mkdir(parents=True)
   pathlib.Path('.next/BUILD_ID').write_text('prepared-build\n')
@@ -101,6 +101,7 @@ class DeploymentTests(unittest.TestCase):
             SITOV_SOURCE_DIR=str(self.source), SITOV_RELEASES_DIR=str(self.root/'releases'),
             SITOV_CURRENT_LINK=str(self.current), SITOV_ENV_FILE=str(self.env_file),
             SITOV_SYSTEMD_DIR=str(self.systemd), SITOV_DEPLOY_LOCK_FILE=str(self.root/'lock'), SITOV_MEMINFO=str(self.meminfo))
+        self.env.pop('SITOV_BUILD_BUNDLER', None)
 
     def run_script(self, *args, **changes):
         return subprocess.run(['bash', str(SCRIPT), *args], env=dict(self.env, **changes), text=True, capture_output=True)
@@ -175,7 +176,45 @@ class DeploymentTests(unittest.TestCase):
             self.assertIn('MemorySwapMax=0',call)
             self.assertIn('--scope',call)
         self.assertIn(['npm-env','--max-old-space-size=2048','1'],self.calls())
+        self.assertIn(['npm','run','build'],self.calls())
         self.assertFalse(any(c[0]=='npm' for c in self.calls() if c[0]!='npm-env' and 'systemd-run' not in json.dumps(scopes)))
+
+    def test_webpack_flag_reaches_the_capped_build_without_switching_live(self):
+        result=self.run_script('--prepare-only',SITOV_BUILD_BUNDLER='webpack')
+        self.assertEqual(result.returncode,0,result.stderr)
+        calls=self.calls()
+        self.assertIn(['npm','ci','--no-audit','--no-fund'],calls)
+        self.assertIn(['npm','run','build','--','--webpack'],calls)
+        build_scope=next(c for c in calls if c[0]=='systemd-run' and 'build' in c)
+        self.assertEqual(build_scope[-5:],['npm','run','build','--','--webpack'])
+        self.assertIn('MemoryMax=2560M',build_scope)
+        self.assertIn('MemorySwapMax=0',build_scope)
+        self.assertIn(['npm-env','--max-old-space-size=2048','1'],calls)
+        self.assertTrue((self.root/'releases'/REVISION/'.sitov-prepared').is_file())
+        self.assertEqual(self.current.resolve(),self.previous)
+        self.assertEqual((self.source/'app.js').read_text(),'source')
+        self.assertFalse(any(c[0]=='systemctl' and c[1] in ('restart','stop','daemon-reload') for c in calls))
+
+    def test_explicit_turbopack_retains_the_default_build_command(self):
+        result=self.run_script('--prepare-only',SITOV_BUILD_BUNDLER='turbopack')
+        self.assertEqual(result.returncode,0,result.stderr)
+        self.assertIn(['npm','run','build'],self.calls())
+        self.assertFalse(any('--webpack' in c or '--turbopack' in c for c in self.calls()))
+
+    def test_invalid_bundler_is_rejected_before_source_or_live_mutations(self):
+        (self.previous/'live.js').write_text('active release')
+        source_before={str(path.relative_to(self.source)):path.read_bytes() for path in self.source.rglob('*') if path.is_file()}
+        for bundler in ('', 'invalid', 'WEBPACK', 'webpack --no-mangling', 'turbopack; touch injected'):
+            with self.subTest(bundler=bundler):
+                result=self.run_script('--prepare-only',SITOV_BUILD_BUNDLER=bundler)
+                self.assertEqual(result.returncode,2,result.stderr)
+                self.assertIn('Invalid SITOV_BUILD_BUNDLER',result.stderr)
+                self.assertFalse(self.log.exists())
+                self.assertFalse((self.root/'lock').exists())
+                self.assertFalse((self.root/'releases').exists())
+                self.assertEqual(self.current.resolve(),self.previous)
+                self.assertEqual((self.previous/'live.js').read_text(),'active release')
+                self.assertEqual({str(path.relative_to(self.source)):path.read_bytes() for path in self.source.rglob('*') if path.is_file()},source_before)
 
     def test_low_memory_refuses_before_touching_anything(self):
         self.meminfo.write_text('MemTotal:        8073216 kB\nMemAvailable:    1945600 kB\n')

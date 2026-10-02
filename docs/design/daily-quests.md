@@ -138,3 +138,11 @@ record release SHA and Berlin activation time only after readiness succeeds.
 assignments, preferences or earned streaks. Pair it with the matching application
 rollback; reapplying 59 restores access to the preserved records. The archived
 `/[lang]/reise/beim-baecker` route remains development-only.
+
+For the shared VPS, select the tested bounded Webpack preparation with
+`SITOV_BUILD_BUNDLER=webpack`, memory cap 2560 MiB, heap 1536 MiB, reserve
+1024 MiB and one worker. Only Studio and Analytics may be paused temporarily
+for preparation and must be restored. The compiler choice does not disable
+TypeScript, artifact verification, memory guards or rollback protections.
+Thirteen deployment contract tests cover both compiler choices and early
+rejection of invalid values. Default preparation continues to use Turbopack.
