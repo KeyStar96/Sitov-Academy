@@ -1,0 +1,36 @@
+{
+  "product": "Sitov Academy",
+  "pilot": "Deutschreise · Beim Bäcker",
+  "figma": "https://www.figma.com/design/KbqXmrZJOdSSjPyRVJps7v?node-id=3-41",
+  "scene": {
+    "path": "public/Bilder/deutschreise/bakery-scene.png",
+    "dimensions": [1536, 1024],
+    "mode": "Built-in ImageGen",
+    "finalPrompt": "Use case: illustration-story\nAsset type: adult German learning web story scene, wide 3:2.\nPrimary request: transform this bakery scene into an unmistakably stylized, hand-painted premium editorial illustration with visible elegant brushwork and simplified dimensional forms; it must read as illustration rather than photography.\nComposition/framing: preserve the welcoming baker woman right of center, front-facing customer perspective, breads in the counter, and the quiet left half for a later overlay.\nLighting/mood: retain the warm cinematic golden morning sunlight, gentle atmosphere and mature natural proportions.\nConstraints: preserve the scene and its layout; no lettering, logos, signage, UI, speech bubbles, watermark, childish cartoon features or additional people."
+  },
+  "audio": {
+    "directory": "public/Bilder/deutschreise/audio",
+    "mode": "Local macOS text-to-speech: say and afconvert",
+    "voice": "Anna (de_DE)",
+    "wordsPerMinute": 165,
+    "encoding": "AAC in M4A, mono, 22050 Hz",
+    "texts": {
+      "intro.m4a": "Guten Morgen! Was darf es sein?",
+      "broetchen.m4a": "Das Brötchen. Ein Brötchen.",
+      "kaffee.m4a": "Der Kaffee. Ein Kaffee.",
+      "tuete.m4a": "Die Tüte. Eine Tüte.",
+      "order.m4a": "Ich möchte ein Brötchen und einen Kaffee, bitte.",
+      "question.m4a": "Möchten Sie eine Tüte?",
+      "thanks.m4a": "Hier, bitte! Guten Appetit!"
+    }
+  },
+  "motion": {
+    "speechBubbleNode": "7:72",
+    "opacity": [0, 1],
+    "translateY": [8, 0],
+    "durationSeconds": 0.32,
+    "ease": [0.22, 1, 0.36, 1],
+    "lifecycle": "Figma repeats its preview timeline; the application reveals the bubble once when a dialogue state changes.",
+    "reducedMotion": "Show the resting state immediately."
+  }
+}
