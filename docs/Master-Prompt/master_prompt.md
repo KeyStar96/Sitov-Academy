@@ -36,6 +36,8 @@ Nach *jeder* abgeschlossenen Phase muss die KI aufgefordert werden, die getätig
 > **Anforderungen:**
 > 1. **Nachrichtenverwaltung:** Lehrer müssen in der Lage sein, eingereichte Sprachnachrichten von Schülern im Aussprache-Trainer zu löschen. Implementiere eine intuitive Lösch-Funktion (inkl. Sicherheitsabfrage/Feedback).
 > 2. **Audio-Geschwindigkeit:** Lehrer müssen die Möglichkeit haben, die Audio-Aufnahmen der Schüler schneller abzuspielen (konkret: ein Toggle oder Button für 2x Geschwindigkeit). Dies soll den Workflow der Lehrer beschleunigen.
+> 3. **Schüler-Profile löschen (Lehrer):** Lehrer müssen in der Lage sein, Profile von Schülern zu löschen.
+> 4. **Eigenes Profil löschen (Schüler):** Schüler müssen die Möglichkeit haben, ihr eigenes Profil in der Lernplattform endgültig zu löschen. WICHTIG: Es darf hierbei nur das reine Lernplattform-Profil gelöscht werden, nicht jedoch die zugrundeliegenden People-Daten (wie Adressen, Abrechnungsdaten), da diese für z.B. noch offene Rechnungen benötigt werden.
 > 
 > **Abschluss:**
 > Bitte dokumentiere nach erfolgreicher Implementierung und UI-Anpassung den Fortschritt und die neuen UI-Komponenten in meinem Obsidian Vault.
