@@ -59,6 +59,7 @@ const server=http.createServer(async(request,response)=>{
   else if(name==='certificate_staff_command')data=command(body)
   else if(name==='get_last_active_level')data={level:'A1.1',mode:'vocabulary',source:'activity',levels:[]}
   else if(name==='get_learning_new_counts')data={success:true,levels:{},any:false,visited:[]}
+  else if(name==='get_staff_pronunciation_view')data={success:true,hiddenSubmissions:[],hiddenMessages:[],pendingCount:0}
  }
  else if(url.pathname.startsWith('/rest/v1/')){
   data=[...(tables[name]??[])]
