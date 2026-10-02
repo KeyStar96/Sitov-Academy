@@ -67,12 +67,16 @@ test.describe('Modus-Dock', () => {
     })
   }
 
-  test('bleibt beim Scrollen unter dem Seitenkopf kleben', async ({ page }) => {
+  test('gleitet beim Runterscrollen weg und klebt beim Hochscrollen unter dem Seitenkopf', async ({ page }) => {
     await signIn(page)
     await open(page, ROUTES.lessons)
     const dock = page.getByRole('navigation', { name: 'Learning areas of A1.1' })
     await scrollBy(page, 900)
     expect(await page.evaluate(() => scrollY)).toBeGreaterThan(200)
+    await expect(page.locator('.academy-student-shell')).toHaveAttribute('data-tabbar', 'hidden')
+    await expect(dock).toBeHidden()
+    await scrollBy(page, -120)
+    await expect(page.locator('.academy-student-shell')).toHaveAttribute('data-tabbar', 'visible')
     await expect(dock).toBeInViewport()
     const header = (await page.locator('.academy-student-header').boundingBox())!
     const dockBox = (await dock.boundingBox())!
