@@ -1,12 +1,13 @@
 'use client'
 
 import { useCallback, useEffect, useRef, type KeyboardEvent } from 'react'
-import { Loader2, Pause, Play, RotateCcw } from 'lucide-react'
+import { FastForward, Loader2, Pause, Play, RotateCcw } from 'lucide-react'
 import FluidWaveform from '@/components/audio/FluidWaveform'
 import { useAudioPlayback } from '@/lib/audio/useAudioPlayback'
 import { formatDuration, playbackProgress } from '@/lib/audio/waveform'
 import { PLAYBACK_RATES } from '@/lib/audio/playback-settings'
 import { usePlaybackRate } from '@/lib/audio/usePlaybackRate'
+import { FAST_PLAYBACK_RATE, useFastPlayback } from '@/lib/audio/useFastPlayback'
 import {
   createPronunciationTranslator,
   type PronunciationTranslator,
@@ -25,6 +26,7 @@ export default function WaveformPlayer({
   label,
   level,
   compact = false,
+  fastToggle = false,
   onProgress,
 }: {
   src: string | null
@@ -36,11 +38,15 @@ export default function WaveformPlayer({
   /** A-Niveaus starten verlangsamt; ab B-Niveau gilt das natürliche Tempo. */
   level?: string
   compact?: boolean
+  /** Lehrkräfte: ein Umschalter für doppeltes Tempo statt der Tempo-Auswahl der Lernenden. */
+  fastToggle?: boolean
   /** Abspielstand für Mitlese-Hervorhebung und „gehört"-Markierung. */
   onProgress?: (state: { playing: boolean; fraction: number; ended: boolean }) => void
 }) {
   const translate: PronunciationTranslator = t ?? defaultTranslator
-  const [speed, setSpeed] = usePlaybackRate(level)
+  const [learnerSpeed, setSpeed] = usePlaybackRate(level)
+  const [fast, setFast] = useFastPlayback()
+  const speed = fastToggle ? (fast ? FAST_PLAYBACK_RATE : 1) : learnerSpeed
 
   const playback = useAudioPlayback(src, speed, blob)
   useEffect(() => () => playback.pause(), [playback.pause])
@@ -152,18 +158,36 @@ export default function WaveformPlayer({
           <span className="text-base font-semibold tabular-nums text-[var(--muted)]">
             {formatDuration(playback.currentTime)} / {formatDuration(playback.duration)}
           </span>
-          <div className="relative">
-            <select
-              value={speed}
-              onChange={event => setSpeed(Number(event.target.value))}
-              aria-label={translate('speed_aria', { speed: `${speed}×` })}
-              style={{ height: 48, minHeight: 48 }}
-              className="h-12 min-h-12 min-w-12 cursor-pointer appearance-none rounded-xl bg-[var(--surface-muted)] pl-4 pr-8 text-base font-semibold text-[var(--foreground)] transition-colors hover:bg-[var(--surface)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
+          {fastToggle ? (
+            <button
+              type="button"
+              aria-pressed={fast}
+              onClick={() => setFast(!fast)}
+              aria-label={translate('fast_playback')}
+              title={translate('fast_playback')}
+              className={`inline-flex h-12 min-w-16 items-center justify-center gap-1.5 rounded-xl px-3 text-base font-bold tabular-nums transition-colors focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] ${
+                fast
+                  ? 'bg-[var(--accent-strong)] text-[var(--accent-foreground)] hover:bg-[var(--accent-strong-hover)]'
+                  : 'bg-[var(--surface-muted)] text-[var(--foreground)] hover:bg-[var(--surface)]'
+              }`}
             >
-              {PLAYBACK_RATES.map(rate => <option key={rate} value={rate}>{translate('speed_label', { speed: `${rate}×` })}</option>)}
-            </select>
-            <span aria-hidden="true" className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2">▾</span>
-          </div>
+              <FastForward size={18} aria-hidden="true" />
+              <span aria-hidden="true">{FAST_PLAYBACK_RATE}×</span>
+            </button>
+          ) : (
+            <div className="relative">
+              <select
+                value={speed}
+                onChange={event => setSpeed(Number(event.target.value))}
+                aria-label={translate('speed_aria', { speed: `${speed}×` })}
+                style={{ height: 48, minHeight: 48 }}
+                className="h-12 min-h-12 min-w-12 cursor-pointer appearance-none rounded-xl bg-[var(--surface-muted)] pl-4 pr-8 text-base font-semibold text-[var(--foreground)] transition-colors hover:bg-[var(--surface)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
+              >
+                {PLAYBACK_RATES.map(rate => <option key={rate} value={rate}>{translate('speed_label', { speed: `${rate}×` })}</option>)}
+              </select>
+              <span aria-hidden="true" className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2">▾</span>
+            </div>
+          )}
         </div>
       </div>
 

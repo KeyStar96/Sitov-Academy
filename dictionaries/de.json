@@ -1605,6 +1605,7 @@
         "status_resend_email_sent": "Wir haben dir einen neuen Bestätigungslink geschickt. Bitte schau in dein E-Mail-Postfach.",
         "status_resend_invalid": "Bitte gib eine gültige E-Mail-Adresse ein.",
         "status_resend_rate_limited": "Es wurden zu viele E-Mails angefordert. Bitte warte einen Moment.",
+        "status_profile_deleted": "Dein Profil in der Lernplattform wurde gelöscht. Danke, dass du mit uns gelernt hast.",
         "spam_hint": "Die E-Mail kommt meist innerhalb einer Minute. Schau bitte auch im Ordner „Spam\" oder „Werbung\" nach.",
         "error_title": "Diese Seite konnte nicht geladen werden",
         "error_description": "Da ist etwas schiefgegangen. Bitte versuche es noch einmal – deine Daten sind sicher.",
@@ -1973,6 +1974,21 @@
         "not_authenticated": "Bitte melde dich erneut an, bevor du deinen Lernfortschritt zurücksetzt.",
         "reset_in_progress": "Das Zurücksetzen läuft bereits. Bitte warte einen Moment und versuche es dann erneut.",
         "scope": "Dein persönliches Profil und deine Kursbuchungen bleiben erhalten."
+    },
+    "profile_delete": {
+        "title": "Profil löschen",
+        "description": "Lösche dein Profil in der Lernplattform endgültig – mit deinem Zugang, deinem Lernfortschritt und deinen Sprachaufnahmen.",
+        "button": "Mein Profil endgültig löschen",
+        "dialog_title": "Profil wirklich löschen?",
+        "dialog_description": "Dein Zugang zur Lernplattform, dein gesamter Lernfortschritt, deine Sprachaufnahmen und die Gespräche mit deiner Lehrkraft werden unwiderruflich gelöscht. Du wirst danach abgemeldet.",
+        "scope": "Deine Kursbuchungen, Rechnungen und Teilnahmebescheinigungen bleiben bei der Akademie gespeichert – zusammen mit Name und Anschrift, die dafür nötig sind.",
+        "acknowledge": "Ja, ich möchte mein Profil endgültig löschen.",
+        "cancel": "Abbrechen",
+        "confirm": "Profil endgültig löschen",
+        "pending": "Dein Profil wird gelöscht …",
+        "error": "Dein Profil konnte nicht gelöscht werden. Bitte versuche es erneut.",
+        "not_authenticated": "Bitte melde dich erneut an, bevor du dein Profil löschst.",
+        "conflict": "Dein Profil kann hier nicht gelöscht werden. Bitte wende dich an die Akademie."
     },
     "accessibility": {
         "title": "Darstellung & Lesbarkeit",

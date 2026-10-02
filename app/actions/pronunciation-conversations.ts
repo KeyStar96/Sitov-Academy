@@ -1,15 +1,16 @@
 'use server'
 
-import { loadReplySenderNames, pronunciationPlaybackUrl } from '@/lib/pronunciation-playback-server'
+import { loadReplySenderNames, loadStaffPronunciationView, pronunciationPlaybackUrl } from '@/lib/pronunciation-playback-server'
 import { revalidatePath } from 'next/cache'
 import { z } from 'zod'
 import { createClient } from '@/utils/supabase/server'
 import { getRpcError } from '@/lib/rpc-errors'
 import {
   createPronunciationSubmissionSchema, pronunciationMessageSchema,
-  isOwnedPronunciationAudio,
+  isOwnedPronunciationAudio, staffConversationStatus,
   type CreatePronunciationSubmissionInput, type SendPronunciationMessageInput,
   type PronunciationMutationResult, type PronunciationConversation, type PronunciationMessage,
+  type PronunciationHideResult,
 } from '@/lib/pronunciation-conversations'
 
 type Client = Awaited<ReturnType<typeof createClient>>
@@ -63,6 +64,36 @@ export async function markPronunciationSeen(submissionId: string): Promise<Pronu
     return { success: true }
   } catch (error) { console.error("Marking pronunciation messages read failed"); return { success: false, reason: 'save_failed' } }
 }
+/** Staff only – the database checks the role itself. Nothing is deleted: the learner keeps everything. */
+async function setHidden(id: string, hidden: boolean, save: (supabase: Client, id: string) => PromiseLike<{ data: unknown; error: { code?: string } | null }>): Promise<PronunciationHideResult> {
+  const parsed = z.uuid().safeParse(id)
+  if (!parsed.success || typeof hidden !== 'boolean') return { success: false, reason: 'invalid_input' }
+  try {
+    const supabase = await createClient()
+    const { data: { user } } = await supabase.auth.getUser()
+    if (!user) return { success: false, reason: 'not_authenticated' }
+    const { data, error } = await save(supabase, parsed.data)
+    const failure = getRpcError(data)
+    if (error || failure) {
+      console.error("Changing the staff pronunciation view failed")
+      const reason = (['not_authenticated', 'not_authorized', 'invalid_input', 'not_found'] as const).find(code => code === failure?.error)
+      return { success: false, reason: reason ?? 'save_failed' }
+    }
+    if (!z.object({ success: z.literal(true), hidden: z.literal(hidden) }).safeParse(data).success) return { success: false, reason: 'save_failed' }
+    // Saved; a cache failure must not report it as failed.
+    try { revalidatePath('/[lang]/admin', 'layout') }
+    catch { console.error("Staff pronunciation view could not refresh route cache") }
+    return { success: true }
+  } catch { console.error("Changing the staff pronunciation view failed"); return { success: false, reason: 'save_failed' } }
+}
+/** Entfernt eine Einreichung samt Gespräch aus der Lehreransicht (`hidden`) oder holt sie zurück. */
+export async function setPronunciationSubmissionHidden(submissionId: string, hidden: boolean): Promise<PronunciationHideResult> {
+  return setHidden(submissionId, hidden, (supabase, id) => supabase.rpc('set_pronunciation_submission_hidden', { p_submission_id: id, p_hidden: hidden }))
+}
+/** Entfernt eine einzelne Nachricht eines Lernenden aus der Lehreransicht oder holt sie zurück. */
+export async function setPronunciationMessageHidden(messageId: string, hidden: boolean): Promise<PronunciationHideResult> {
+  return setHidden(messageId, hidden, (supabase, id) => supabase.rpc('set_pronunciation_message_hidden', { p_message_id: id, p_hidden: hidden }))
+}
 export async function getPronunciationConversations(level?: string, submissionId?: string): Promise<PronunciationConversation[]> {
   try {
     const supabase = await createClient()
@@ -79,20 +110,27 @@ export async function getPronunciationConversations(level?: string, submissionId
     const { data, error } = await query.order('created_at', { ascending: false })
     if (error) { console.error("Loading pronunciation conversations failed"); return [] }
     const studentIds = [...new Set((data ?? []).map(row => row.auth_user_id))]
-    const [{ data: profiles }, senderNames] = await Promise.all([
+    const [{ data: profiles }, senderNames, staffView] = await Promise.all([
       studentIds.length ? supabase.from('people').select('auth_user_id,display_name,email').in('auth_user_id', studentIds) : Promise.resolve({ data: [] }),
       staff ? Promise.resolve(new Map<string, string>()) : loadReplySenderNames(supabase),
+      // Lehrkräfte sehen nicht, was sie aus ihrer Ansicht entfernt haben; Lernende sehen immer alles.
+      staff ? loadStaffPronunciationView(supabase) : Promise.resolve(null),
     ])
     const people = new Map((profiles ?? []).map(profile => [profile.auth_user_id, profile]))
-    const conversations = await Promise.all((data ?? []).map(async (row): Promise<PronunciationConversation> => {
+    const rows = (data ?? []).filter(row => !staffView?.hiddenSubmissions.has(row.id))
+    const conversations = await Promise.all(rows.map(async (row): Promise<PronunciationConversation> => {
+      const all = row.pronunciation_messages ?? []
+      const visible = all.filter(message => !staffView?.hiddenMessages.has(message.id))
+        .sort((a, b) => a.created_at.localeCompare(b.created_at) || a.id.localeCompare(b.id))
+      const status = staffView ? staffConversationStatus(row.status ?? 'pending', visible.map(message => message.sender_role), all.length - visible.length) : row.status ?? 'pending'
       const messages: PronunciationMessage[] = [{ id: `recording-${row.id}`, senderRole: 'student', text: '', audioUrl: await playbackUrl(supabase, row.content_url), createdAt: row.created_at ?? '', unseen: false }]
-      for (const message of row.pronunciation_messages ?? []) {
+      for (const message of visible) {
         const senderRole = message.sender_role === 'teacher' || message.sender_role === 'admin' ? message.sender_role : 'student'
         messages.push({ id: message.id, senderRole, text: message.text_content, audioUrl: await playbackUrl(supabase, message.audio_path), createdAt: message.created_at, unseen: !message.seen_at && (staff ? senderRole === 'student' : senderRole !== 'student'),
           ...(staff || senderRole === 'student' ? {} : { senderName: senderNames.get(message.sender_id) ?? null }) })
       }
       messages.sort((a, b) => a.createdAt.localeCompare(b.createdAt) || a.id.localeCompare(b.id))
-      return { id: row.id, level: row.level, title: row.prompt?.unit?.label ?? null, promptId: row.prompt_id, readingText: row.text_content, status: row.status ?? 'pending', studentName: people.get(row.auth_user_id)?.display_name ?? null, studentEmail: staff ? people.get(row.auth_user_id)?.email ?? null : null, createdAt: row.created_at ?? '', messages, hasUnseen: messages.some((message) => message.unseen) }
+      return { id: row.id, level: row.level, title: row.prompt?.unit?.label ?? null, promptId: row.prompt_id, readingText: row.text_content, status, studentName: people.get(row.auth_user_id)?.display_name ?? null, studentEmail: staff ? people.get(row.auth_user_id)?.email ?? null : null, createdAt: row.created_at ?? '', messages, hasUnseen: messages.some((message) => message.unseen) }
     }))
     return conversations.sort((a, b) => (b.messages.at(-1)?.createdAt ?? '').localeCompare(a.messages.at(-1)?.createdAt ?? ''))
   } catch (error) { console.error("Loading pronunciation conversations failed"); return [] }

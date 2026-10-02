@@ -1,11 +1,11 @@
 import { resolve } from 'node:path'
 import { defineConfig, devices } from '@playwright/test'
 
-/** Lehrer-Dashboard (Phase 11.2) und Lernanalyse/Problemwörter (Phase 11.3) gegen ein synthetisches Loopback-Backend – nie gegen Live-Daten. */
+/** Lehrer-Dashboard (Phase 11.2), Lernanalyse/Problemwörter (Phase 11.3) und Löschen/2×-Wiedergabe (Master-Prompt Phase 2) gegen ein synthetisches Loopback-Backend – nie gegen Live-Daten. */
 const fixture = 'http://127.0.0.1:54331'
 const root = resolve(__dirname, '..')
 export default defineConfig({
-  testDir: '.', testMatch: ['teacher-dashboard.spec.ts', 'learning-progress.spec.ts'], timeout: 120000, workers: 1, retries: 0, reporter: 'list',
+  testDir: '.', testMatch: ['teacher-dashboard.spec.ts', 'learning-progress.spec.ts', 'phase2-teacher-tools.spec.ts'], timeout: 120000, workers: 1, retries: 0, reporter: 'list',
   outputDir: '/tmp/sitov-teacher-dashboard-results',
   use: { baseURL: 'http://127.0.0.1:3102', actionTimeout: 15000, screenshot: 'only-on-failure', trace: 'off', contextOptions: { reducedMotion: 'reduce' }, channel: process.env.E2E_BROWSER_CHANNEL ?? 'chrome' },
   projects: [{ name: 'mobile', use: { ...devices['Pixel 7'] } }, { name: 'desktop', use: { ...devices['Desktop Chrome'] } }],

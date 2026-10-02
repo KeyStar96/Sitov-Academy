@@ -10,6 +10,20 @@ export const pronunciationMessageSchema = z.object({
 export type CreatePronunciationSubmissionInput = z.infer<typeof createPronunciationSubmissionSchema>
 export type SendPronunciationMessageInput = z.infer<typeof pronunciationMessageSchema>
 export interface PronunciationMutationResult { success: boolean; id?: string; reason?: 'not_authenticated' | 'invalid_input' | 'save_failed' }
+/** Aus der Lehreransicht entfernen oder zurückholen (Migration 57). Für Lernende ändert sich nichts. */
+export type PronunciationHideResult =
+  | { success: true }
+  | { success: false; reason: 'not_authenticated' | 'not_authorized' | 'invalid_input' | 'not_found' | 'save_failed' }
+/**
+ * Status eines Gesprächs aus Sicht der Lehrkräfte: maßgeblich ist die letzte Nachricht, die sie noch sehen.
+ * Bleiben nur entfernte Nachrichten übrig, wartet die erste Aufnahme weiter auf eine Antwort.
+ * Dieselbe Regel zählt in der Datenbank die offenen Korrekturen (`get_staff_pronunciation_view`).
+ */
+export function staffConversationStatus(storedStatus: string, visibleRoles: readonly string[], hiddenCount: number): string {
+  const latest = visibleRoles.at(-1)
+  if (latest) return latest === 'teacher' || latest === 'admin' ? 'reviewed' : 'pending'
+  return hiddenCount > 0 ? 'pending' : storedStatus
+}
 export interface PronunciationMessage {
   id: string; senderRole: 'student' | 'teacher' | 'admin'; text: string; audioUrl: string | null; createdAt: string; unseen: boolean;
   /** Anzeigename der antwortenden Lehrkraft (nur in der Ansicht der Lernenden, Migration 24). */

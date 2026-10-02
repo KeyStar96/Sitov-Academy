@@ -2284,6 +2284,11 @@ export type Database = {
         Returns: Json
       }
       delete_own_vocabulary: { Args: { p_card_id: string }; Returns: Json }
+      delete_own_learning_profile: { Args: { p_confirmation: string }; Returns: Json }
+      delete_student_learning_profile: {
+        Args: { p_student_id: string; p_confirmation: string }
+        Returns: Json
+      }
       fail_mail_job: {
         Args: {
           p_error: string
@@ -2318,6 +2323,15 @@ export type Database = {
         Returns: Json
       }
       get_last_active_level: { Args: never; Returns: Json }
+      get_staff_pronunciation_view: { Args: never; Returns: Json }
+      set_pronunciation_message_hidden: {
+        Args: { p_message_id: string; p_hidden: boolean }
+        Returns: Json
+      }
+      set_pronunciation_submission_hidden: {
+        Args: { p_submission_id: string; p_hidden: boolean }
+        Returns: Json
+      }
       get_learning_new_counts: { Args: never; Returns: Json }
       get_learning_new_items: { Args: { p_level: string }; Returns: Json }
       mark_learning_seen: {

@@ -113,6 +113,8 @@ export const AUTH_FALLBACKS = {
   status_resend_invalid: 'Bitte gib eine gültige E-Mail-Adresse ein.',
   status_resend_rate_limited:
     'Es wurden zu viele E-Mails angefordert. Bitte warte einen Moment.',
+  status_profile_deleted:
+    'Dein Profil in der Lernplattform wurde gelöscht. Danke, dass du mit uns gelernt hast.',
 
   // --- Hinweise und Fehlerseiten ---
   spam_hint:

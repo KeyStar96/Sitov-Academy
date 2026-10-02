@@ -10,6 +10,8 @@ import type { BackendActionResult } from '@/lib/types/backend'
 import { resolveVerifiedPerson } from '@/lib/profile-person'
 import { buildSiteUrl, getOutboundSiteUrl } from '@/lib/site-url'
 import { safeUiLanguageNextPath } from '@/lib/locale-routing'
+import { runConfirmedDelete } from '@/lib/confirmed-delete'
+import { deleteOwnProfileSchema, type DeleteOwnProfileInput, type ProfileDeletionResult } from '@/lib/types/profile-deletion'
 
 export async function updatePersonalDetails(input: unknown): Promise<BackendActionResult<PersonalDetailsResult>> {
   return withBackendSession(async ({ supabase, userId, user }) => {
@@ -89,6 +91,38 @@ export async function updateProfileContact(input: unknown): Promise<BackendActio
     revalidateBackendPages()
     return {phone:data.phone,street:data.street,postal_code:data.postal_code,city:data.city}
   })
+}
+
+/**
+ * Löscht das eigene Lernplattform-Profil endgültig: Anmeldekonto, Lernstände,
+ * Aufnahmen und Gespräche. Die Person (`people`) mit Adresse, Buchungen und
+ * Rechnungen bleibt erhalten – die Akademie braucht sie z. B. für offene
+ * Rechnungen. Die Identität kommt aus der Sitzung, nie aus dem Formular.
+ *
+ * Nur ein Fehlschlag kehrt zum Aufrufer zurück. Nach dem Löschen wird die
+ * Sitzung beendet und – wie in `auth.ts` außerhalb von `try` – zur Anmeldung
+ * weitergeleitet.
+ */
+export async function deleteOwnProfile(lang: string, input: DeleteOwnProfileInput): Promise<ProfileDeletionResult> {
+  const safeLang = uiLanguageSchema.parse(lang)
+  const parsed = deleteOwnProfileSchema.safeParse(input)
+  if (!parsed.success) return { success: false, reason: 'invalid_input' }
+  try {
+    const supabase = await createClient()
+    const { data: { user }, error } = await supabase.auth.getUser()
+    if (error || !user) return { success: false, reason: 'not_authenticated' }
+    const result = await runConfirmedDelete(() => supabase.rpc('delete_own_learning_profile', { p_confirmation: parsed.data.confirmation }))
+    if (!result.success) { console.error('[profile] Profil konnte nicht gelöscht werden'); return result }
+    // The account no longer exists; this only clears the session cookies.
+    try { await supabase.auth.signOut({ scope: 'local' }) }
+    catch { console.error('[profile] Abmeldung nach dem Löschen fehlgeschlagen') }
+  } catch {
+    console.error('[profile] Profil löschen: unerwarteter Fehler')
+    return { success: false, reason: 'delete_failed' }
+  }
+  try { revalidatePath('/', 'layout') }
+  catch { console.error('[profile] Routen-Cache nach dem Löschen nicht aktualisiert') }
+  redirect(`/${safeLang}/login?status=profile_deleted`)
 }
 
 /**

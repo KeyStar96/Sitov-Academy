@@ -18,6 +18,19 @@ const day = offset => { const date = new Date(); date.setUTCDate(date.getUTCDate
 const stamp = offset => { const date = new Date(); date.setUTCHours(date.getUTCHours() + offset); return date.toISOString() }
 const month = (offset = 0) => { const date = new Date(); date.setUTCDate(1); date.setUTCMonth(date.getUTCMonth() + offset); return date.toISOString().slice(0, 10) }
 
+const audioName = (owner, n) => `${owner}/${id(n)}.wav`
+const audioRef = (owner, n) => `storage://pronunciation_audio/${audioName(owner, n)}`
+
+/** Zwei Sekunden leiser Ton als WAV – genug, damit der Player Länge und Tempo zeigt. */
+function demoWav() {
+  const rate = 8000, samples = rate * 2, buffer = Buffer.alloc(44 + samples * 2)
+  buffer.write('RIFF', 0); buffer.writeUInt32LE(36 + samples * 2, 4); buffer.write('WAVEfmt ', 8); buffer.writeUInt32LE(16, 16)
+  buffer.writeUInt16LE(1, 20); buffer.writeUInt16LE(1, 22); buffer.writeUInt32LE(rate, 24); buffer.writeUInt32LE(rate * 2, 28)
+  buffer.writeUInt16LE(2, 32); buffer.writeUInt16LE(16, 34); buffer.write('data', 36); buffer.writeUInt32LE(samples * 2, 40)
+  for (let index = 0; index < samples; index++) buffer.writeInt16LE(Math.round(Math.sin(index / rate * 2 * Math.PI * 330) * 6000), 44 + index * 2)
+  return buffer
+}
+
 let tables, rpcCalls
 
 function reset() {
@@ -88,10 +101,18 @@ function reset() {
     bookings,
     booking_items: bookings.flatMap(item => item.booking_items),
     invoice_cases: [],
+    // Phase 2: Die erste Einreichung hat eine Aufnahme und ein Gespräch (Antwort der Lehrkraft, Folgeaufnahme).
     submissions: [0, 1].map(index => ({
       id: id(800 + index), auth_user_id: people[index].auth_user_id, type: 'audio', level: 'A1.1', text_content: 'Heute lernen wir zusammen.',
-      content_url: null, status: 'pending', created_at: stamp(-3 - index), prompt_id: id(801), prompt: { unit: { label: 'Lektion 1' } }, pronunciation_messages: [],
+      content_url: index === 0 ? audioRef(people[0].auth_user_id, 850) : null, status: 'pending', created_at: stamp(-3 - index), prompt_id: id(801), prompt: { unit: { label: 'Lektion 1' } },
+      pronunciation_messages: index === 0 ? [
+        { id: id(860), submission_id: id(800), sender_id: TEACHER, sender_role: 'teacher', text_content: 'Schön gelesen! Achte auf das lange „e“ in „lesen“.', audio_path: null, created_at: stamp(-2), seen_at: stamp(-2) },
+        { id: id(861), submission_id: id(800), sender_id: people[0].auth_user_id, sender_role: 'student', text_content: 'Danke, hier ist mein zweiter Versuch.', audio_path: audioRef(people[0].auth_user_id, 851), created_at: stamp(-1), seen_at: null },
+      ] : [],
     })),
+    // Namen der Dateien im privaten Aufnahme-Speicher (nur Namen, keine echten Dateien).
+    storage_objects: [audioName(people[0].auth_user_id, 850), audioName(people[0].auth_user_id, 851)],
+    staff_hidden: { submissions: [], messages: [] },
     learning_reading_texts: [{ id: id(801), unit_id: unit.id, unit, focus: 'Satzmelodie', audio_url: null, sort_order: 1, title: 'Im kleinen Laden', is_active: true, sentence_de: 'Heute lernen wir zusammen. Wir lesen langsam und machen eine kurze Pause.' }],
     learning_units: [unit],
     lms_media_folder: [{ folder_id: id(900), level: 'A1.1', course_id: null, title: 'Grundlagen', sort_order: 1, created_at: stamp(-300) }],
@@ -220,7 +241,9 @@ const rpcs = {
       overview: teacherStudent(profile),
       vocabulary: { byLevel: [], byLesson: [], halfKnown: [], hardest: [], recentAnswers: [], pausedLessons: [], carryover: [], ownWordCount: 2 },
       path: { paths: [], attempts: [], interventions: [] },
-      pronunciation: { conversations: [] },
+      pronunciation: { conversations: staffSubmissions().filter(row => row.auth_user_id === profile.id).map(row => ({
+        id: row.id, status: row.status, createdAt: row.created_at, lastMessageAt: staffMessages(row).at(-1)?.created_at ?? null, messageCount: staffMessages(row).length,
+        unansweredCount: staffStatus(row) === 'pending' ? 1 : 0 })) },
       activity: { days: Array.from({ length: 30 }, (_, index) => ({ date: day(index - 29), seconds: index % 3 ? 600 : 0, answers: index % 3 ? 12 : 0, active: index % 3 !== 0 })), byMode: [{ mode: 'vocabulary', seconds: 3600 }, { mode: 'path', seconds: 1800 }], totalSeconds: 5400 },
     }[body.p_tab]
     return { success: true, data }
@@ -264,6 +287,60 @@ const rpcs = {
     return { success: true }
   },
   save_business_course: body => body.p_data?.id ?? id(399),
+  // Phase 2 (Migration 57), vereinfacht. Aus der Lehreransicht entfernen: nur eine Markierung, nichts wird gelöscht.
+  set_pronunciation_submission_hidden: (body, uid) => {
+    if (!staff(uid)) return { error: 'not_authorized', message: 'Staff access required.' }
+    if (!tables.submissions.some(row => row.id === body.p_submission_id)) return { error: 'not_found', message: 'Submission not found.' }
+    tables.staff_hidden.submissions = tables.staff_hidden.submissions.filter(item => item !== body.p_submission_id).concat(body.p_hidden ? [body.p_submission_id] : [])
+    return { success: true, hidden: body.p_hidden }
+  },
+  set_pronunciation_message_hidden: (body, uid) => {
+    if (!staff(uid)) return { error: 'not_authorized', message: 'Staff access required.' }
+    const message = tables.submissions.flatMap(row => row.pronunciation_messages).find(item => item.id === body.p_message_id)
+    if (!message) return { error: 'not_found', message: 'Message not found.' }
+    if (body.p_hidden && message.sender_role !== 'student') return { error: 'not_authorized', message: 'Only learner messages can be removed from the staff view.' }
+    tables.staff_hidden.messages = tables.staff_hidden.messages.filter(item => item !== body.p_message_id).concat(body.p_hidden ? [body.p_message_id] : [])
+    return { success: true, hidden: body.p_hidden }
+  },
+  get_staff_pronunciation_view: (body, uid) => {
+    if (!staff(uid)) return { error: 'not_authorized', message: 'Staff access required.' }
+    return { success: true, hiddenSubmissions: tables.staff_hidden.submissions, hiddenMessages: tables.staff_hidden.messages,
+      pendingCount: staffSubmissions().filter(row => staffStatus(row) === 'pending').length }
+  },
+  delete_student_learning_profile: (body, uid) => {
+    if (!staff(uid)) return { error: 'not_authorized', message: 'Staff access required.' }
+    if (body.p_confirmation !== 'DELETE_STUDENT_PROFILE') return { error: 'invalid_input', message: 'Confirmation is required.' }
+    const profile = tables.profiles.find(row => row.id === body.p_student_id)
+    if (!profile) return { error: 'not_found', message: 'Profile not found.' }
+    if (profile.role !== 'student') return { error: 'not_authorized', message: 'Only learner profiles can be deleted.' }
+    return removeProfile(profile)
+  },
+  delete_own_learning_profile: (body, uid) => {
+    if (body.p_confirmation !== 'DELETE_LEARNING_PROFILE') return { error: 'invalid_input', message: 'Confirmation is required.' }
+    const profile = tables.profiles.find(row => row.id === uid)
+    if (!profile) return { error: 'not_found', message: 'Profile not found.' }
+    if (profile.role !== 'student') return { error: 'not_authorized', message: 'Only learner profiles can be deleted here.' }
+    return removeProfile(profile)
+  },
+}
+const staff = uid => ['teacher', 'admin'].includes(tables.profiles.find(row => row.id === uid)?.role)
+const staffSubmissions = () => tables.submissions.filter(row => !tables.staff_hidden.submissions.includes(row.id))
+const staffMessages = row => row.pronunciation_messages.filter(message => !tables.staff_hidden.messages.includes(message.id))
+/** Wie in der Datenbank: Für Lehrkräfte zählt die letzte Nachricht, die sie noch sehen. */
+function staffStatus(row) {
+  const latest = staffMessages(row).at(-1)
+  if (latest) return ['teacher', 'admin'].includes(latest.sender_role) ? 'reviewed' : 'pending'
+  return row.pronunciation_messages.length ? 'pending' : row.status
+}
+/** Wie in der Datenbank: Konto und Lerndaten gehen, die Person (people) und ihre Buchungen bleiben. */
+function removeProfile(profile) {
+  const names = tables.storage_objects.filter(name => name.startsWith(`${profile.id}/`)).sort()
+  if (names.length) return { success: true, deleted: false, pendingAudio: names }
+  tables.submissions = tables.submissions.filter(row => row.auth_user_id !== profile.id)
+  tables.student_level_access = tables.student_level_access.filter(row => row.auth_user_id !== profile.id)
+  tables.profiles = tables.profiles.filter(row => row !== profile)
+  for (const person of tables.people) if (person.auth_user_id === profile.id) person.auth_user_id = null
+  return { success: true, deleted: true }
 }
 
 function applyFilters(rows, params, select) {
@@ -310,6 +387,24 @@ const server = http.createServer(async (request, response) => {
   else if (url.pathname === '/__teacher/reset') { reset(); data = { ok: true } }
   else if (url.pathname === '/__teacher/rpc-calls') data = rpcCalls
   else if (url.pathname === '/__teacher/media-views') data = { views: tables.media_views }
+  else if (url.pathname === '/__teacher/phase2-state') data = { storage: tables.storage_objects, hidden: tables.staff_hidden, submissions: tables.submissions.map(row => ({ id: row.id, messages: row.pronunciation_messages.map(message => message.id), status: row.status })),
+    profiles: tables.profiles.map(row => row.id), people: tables.people.map(person => ({ id: person.id, auth_user_id: person.auth_user_id, display_name: person.display_name })), bookings: tables.bookings.length }
+  // Privater Aufnahme-Speicher: signierte Abspiel-URL, Abruf der Datei, Löschen über die Storage-API.
+  else if (url.pathname.startsWith('/storage/v1/object/sign/pronunciation_audio/')) {
+    const object = decodeURIComponent(url.pathname.slice('/storage/v1/object/sign/pronunciation_audio/'.length))
+    if (request.method === 'POST') { await body(request); data = { signedURL: `/object/sign/pronunciation_audio/${object}?token=local-fixture-only` } }
+    else if (!tables.storage_objects.includes(object)) { status = 404; data = { statusCode: '404', error: 'not_found', message: 'Object not found' } }
+    else {
+      const wav = demoWav()
+      response.writeHead(200, { 'content-type': 'audio/wav', 'content-length': wav.length, 'accept-ranges': 'none', 'access-control-allow-origin': '*' })
+      response.end(request.method === 'HEAD' ? '' : wav)
+      return
+    }
+  } else if (url.pathname === '/storage/v1/object/pronunciation_audio' && request.method === 'DELETE') {
+    const { prefixes = [] } = await body(request)
+    data = prefixes.filter(name => tables.storage_objects.includes(name)).map(name => ({ name, bucket_id: 'pronunciation_audio' }))
+    tables.storage_objects = tables.storage_objects.filter(name => !prefixes.includes(name))
+  }
   else if (url.pathname === '/auth/v1/user') {
     const uid = actor(request)
     data = { id: uid, aud: 'authenticated', role: 'authenticated', email: uid === TEACHER ? 'teacher@example.invalid' : 'student@example.invalid', email_confirmed_at: stamp(-9000), is_anonymous: false, app_metadata: { provider: 'email' }, user_metadata: {}, created_at: stamp(-9000) }
@@ -332,7 +427,7 @@ const server = http.createServer(async (request, response) => {
       }
     }
   }
-  response.writeHead(status, { 'content-type': 'application/json', 'access-control-allow-origin': '*', 'access-control-allow-headers': '*', 'access-control-expose-headers': 'content-range' })
+  response.writeHead(status, { 'content-type': 'application/json', 'access-control-allow-origin': '*', 'access-control-allow-headers': '*', 'access-control-allow-methods': '*', 'access-control-expose-headers': 'content-range' })
   response.end(request.method === 'HEAD' ? '' : JSON.stringify(data))
 })
 

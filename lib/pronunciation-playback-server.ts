@@ -1,5 +1,6 @@
 import 'server-only'
 
+import { z } from 'zod'
 import { publicStorageUrl } from '@/lib/storage-public-url'
 import { pronunciationAudioObjectPath, PRIVATE_PRONUNCIATION_BUCKET } from '@/lib/pronunciation-conversations'
 import type { createClient } from '@/utils/supabase/server'
@@ -25,4 +26,20 @@ export async function loadReplySenderNames(client: Client): Promise<Map<string, 
     if (error) throw error
     return new Map((data ?? []).flatMap(row => row.display_name ? [[row.sender_id, row.display_name] as [string, string]] : []))
   } catch { console.error('Reply sender names unavailable'); return new Map() }
+}
+
+export interface StaffPronunciationView { hiddenSubmissions: ReadonlySet<string>; hiddenMessages: ReadonlySet<string>; pendingCount: number | null }
+const staffViewSchema = z.object({ success: z.literal(true), hiddenSubmissions: z.array(z.string()), hiddenMessages: z.array(z.string()), pendingCount: z.number().int().min(0) })
+
+/**
+ * Was Lehrkräfte aus ihrer Ansicht entfernt haben und wie viele Gespräche für sie noch offen sind.
+ * Ohne Migration 57 (oder bei einem Ausfall) ist nichts ausgeblendet und der Zähler unbekannt.
+ */
+export async function loadStaffPronunciationView(client: Client): Promise<StaffPronunciationView> {
+  try {
+    const { data, error } = await client.rpc('get_staff_pronunciation_view')
+    if (error) throw error
+    const view = staffViewSchema.parse(data)
+    return { hiddenSubmissions: new Set(view.hiddenSubmissions), hiddenMessages: new Set(view.hiddenMessages), pendingCount: view.pendingCount }
+  } catch { console.error('Staff pronunciation view unavailable'); return { hiddenSubmissions: new Set(), hiddenMessages: new Set(), pendingCount: null } }
 }

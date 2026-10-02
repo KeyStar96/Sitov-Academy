@@ -36,6 +36,7 @@ export const AUTH_STATUS_CODES = [
   'resend_email_sent',
   'resend_invalid',
   'resend_rate_limited',
+  'profile_deleted',
 ] as const
 
 export type AuthStatusCode = (typeof AUTH_STATUS_CODES)[number]
@@ -48,6 +49,7 @@ const POSITIVE_STATUS_CODES: ReadonlySet<AuthStatusCode> = new Set<AuthStatusCod
   'reset_email_sent',
   'password_updated',
   'resend_email_sent',
+  'profile_deleted',
 ])
 
 export function isAuthStatusCode(value: unknown): value is AuthStatusCode {

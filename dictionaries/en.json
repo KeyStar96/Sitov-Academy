@@ -1606,6 +1606,7 @@
         "status_resend_email_sent": "We have sent you a new confirmation link. Please check your email inbox.",
         "status_resend_invalid": "Please enter a valid email address.",
         "status_resend_rate_limited": "Too many emails have been requested. Please wait a moment.",
+        "status_profile_deleted": "Your learning platform profile has been deleted. Thank you for learning with us.",
         "spam_hint": "The email usually arrives within a minute. Please also check your spam or promotions folder.",
         "error_title": "This page could not be loaded",
         "error_description": "Something went wrong. Please try again – your data is safe.",
@@ -1974,6 +1975,21 @@
         "not_authenticated": "Please sign in again before resetting your learning progress.",
         "reset_in_progress": "A reset is already in progress. Please wait a moment and try again.",
         "scope": "Your personal profile and course bookings will be kept."
+    },
+    "profile_delete": {
+        "title": "Delete profile",
+        "description": "Permanently delete your learning platform profile – including your access, your learning progress and your voice recordings.",
+        "button": "Permanently delete my profile",
+        "dialog_title": "Really delete your profile?",
+        "dialog_description": "Your access to the learning platform, all of your learning progress, your voice recordings and the conversations with your teacher will be deleted irrevocably. You will be signed out afterwards.",
+        "scope": "Your course bookings, invoices and certificates of attendance remain stored at the academy – together with the name and address they require.",
+        "acknowledge": "Yes, I want to delete my profile permanently.",
+        "cancel": "Cancel",
+        "confirm": "Delete profile permanently",
+        "pending": "Your profile is being deleted …",
+        "error": "Your profile could not be deleted. Please try again.",
+        "not_authenticated": "Please sign in again before deleting your profile.",
+        "conflict": "Your profile cannot be deleted here. Please contact the academy."
     },
     "accessibility": {
         "title": "Appearance & readability",

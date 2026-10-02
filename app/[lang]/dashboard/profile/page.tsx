@@ -12,6 +12,7 @@ import { loadVerifiedCourseHistory } from '@/lib/profile-course-history'
 import ProfileCourseHistory from '@/components/dashboard/ProfileCourseHistory'
 import ProfileAppearanceSettings from '@/components/dashboard/ProfileAppearanceSettings'
 import ProfileProgressReset from '@/components/dashboard/ProfileProgressReset'
+import ProfileDelete from '@/components/dashboard/ProfileDelete'
 import ProfileNotificationSettings from '@/components/dashboard/ProfileNotificationSettings'
 import ProfileSettings from '@/components/dashboard/ProfileSettings'
 import { studentTranslator } from '@/lib/student-ui-i18n'
@@ -44,7 +45,11 @@ export default async function ProfilePage({ params }: { params: Promise<{ lang: 
   return (
     <ProfileSettings lang={lang}
       notice={<p>{t('teacher_progress_notice')} <Link href={`/${lang}/privacy`} className="inline-flex min-h-12 items-center rounded-lg px-2 font-semibold text-[var(--accent-text)] underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2">{t('teacher_progress_privacy')}</Link></p>}
-      danger={<ProfileProgressReset translations={dict.progress_reset} userId={user.id} />}
+      danger={<div className="space-y-4">
+        <ProfileProgressReset translations={dict.progress_reset} userId={user.id} />
+        {/* Konten von Lehrkräften und Verwaltung löscht nur die Verwaltung (Migration 57). */}
+        {(profile.role ?? 'student') === 'student' && <ProfileDelete translations={dict.profile_delete} lang={lang} />}
+      </div>}
       sections={[
         { id: 'certificates', title: certificateText.title, hint: certificateText.intro,
           content: <ProfileCertificates initial={certificates} lang={lang} /> },

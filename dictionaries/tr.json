@@ -1602,6 +1602,7 @@
         "status_resend_email_sent": "Size yeni bir onay bağlantısı gönderdik. Lütfen e-posta gelen kutunuzu kontrol edin.",
         "status_resend_invalid": "Lütfen geçerli bir e-posta adresi girin.",
         "status_resend_rate_limited": "Çok fazla e-posta istendi. Lütfen biraz bekleyin.",
+        "status_profile_deleted": "Öğrenme platformundaki profiliniz silindi. Bizimle öğrendiğiniz için teşekkür ederiz.",
         "spam_hint": "E-posta genellikle bir dakika içinde gelir. Lütfen «Spam» veya «Tanıtımlar» klasörüne de bakın.",
         "error_title": "Bu sayfa yüklenemedi",
         "error_description": "Bir şeyler ters gitti. Lütfen tekrar deneyin – verileriniz güvende.",
@@ -1970,6 +1971,21 @@
         "not_authenticated": "Öğrenme ilerlemeni sıfırlamadan önce lütfen tekrar giriş yap.",
         "reset_in_progress": "Sıfırlama işlemi zaten devam ediyor. Biraz bekleyip tekrar dene.",
         "scope": "Kişisel profilin ve kurs kayıtların korunacak."
+    },
+    "profile_delete": {
+        "title": "Profili sil",
+        "description": "Öğrenme platformundaki profilini kalıcı olarak sil – erişimin, öğrenme ilerlemen ve ses kayıtlarınla birlikte.",
+        "button": "Profilimi kalıcı olarak sil",
+        "dialog_title": "Profil gerçekten silinsin mi?",
+        "dialog_description": "Öğrenme platformuna erişimin, tüm öğrenme ilerlemen, ses kayıtların ve öğretmeninle yaptığın konuşmalar geri alınamaz şekilde silinir. Ardından oturumun kapatılır.",
+        "scope": "Kurs kayıtların, faturaların ve katılım belgelerin, bunlar için gereken ad ve adresle birlikte akademide saklanmaya devam eder.",
+        "acknowledge": "Evet, profilimi kalıcı olarak silmek istiyorum.",
+        "cancel": "Vazgeç",
+        "confirm": "Profili kalıcı olarak sil",
+        "pending": "Profilin siliniyor …",
+        "error": "Profilin silinemedi. Lütfen yeniden dene.",
+        "not_authenticated": "Profilini silmeden önce lütfen tekrar giriş yap.",
+        "conflict": "Profilin buradan silinemiyor. Lütfen akademiyle iletişime geç."
     },
     "accessibility": {
         "title": "Görünüm ve okunabilirlik",

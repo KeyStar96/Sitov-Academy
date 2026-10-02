@@ -11,6 +11,9 @@ import { withBackendSession, checkDatabaseError, checkRpcError, revalidateBacken
 import { profileRoleSchema, uuidSchema } from '@/lib/types/backend'
 import { loadUnassignedStudents } from '@/lib/admin-new-students'
 import type { AdminNavCounts } from '@/lib/admin-navigation'
+import { loadStaffPronunciationView } from '@/lib/pronunciation-playback-server'
+import { runConfirmedDelete } from '@/lib/confirmed-delete'
+import { deleteStudentProfileSchema, type DeleteStudentProfileInput, type ProfileDeletionResult } from '@/lib/types/profile-deletion'
 
 // Helper to check if current user is admin/teacher
 async function requireAdmin() {
@@ -56,6 +59,8 @@ export async function getAdminStats() {
 
     const readFailure = studentError ?? activatedError ?? pendingError
     if (readFailure) throw new Error(`admin_stats_unavailable: ${readFailure.code ?? 'unknown'}`)
+    // Offen ist, was Lehrkräfte noch sehen: aus der Lehreransicht Entferntes zählt nicht (Migration 57).
+    const staffPending = (await loadStaffPronunciationView(await createClient())).pendingCount
 
     // Neue Registrierungen ohne Niveau-Zuordnung (eigene Definition in lib/admin-new-students).
     const unassigned = await loadUnassignedStudents(supabase)
@@ -63,7 +68,7 @@ export async function getAdminStats() {
     return {
       studentCount: studentCount ?? 0,
       activatedCount: activatedCount ?? 0,
-      pendingSubmissions: pendingSubmissions ?? 0,
+      pendingSubmissions: staffPending ?? pendingSubmissions ?? 0,
       newStudentCount: unassigned.length,
     }
   } catch (error) {
@@ -84,12 +89,14 @@ export async function getAdminNavCounts(): Promise<AdminNavCounts> {
   try {
     await requireAdmin()
     const supabase = createAdminClient()
-    const [unassigned, pending] = await Promise.all([
+    const [unassigned, pending, staffView] = await Promise.all([
       loadUnassignedStudents(supabase).then(rows => rows.length).catch(() => null),
       supabase.from('submissions').select('id', { count: 'exact', head: true }).eq('status', 'pending')
         .then(({ count, error }) => (error ? null : count ?? 0), () => null),
+      createClient().then(loadStaffPronunciationView),
     ])
-    return { newStudents: unassigned, corrections: pending }
+    // Aus der Lehreransicht Entferntes zählt nicht als offene Korrektur (Migration 57).
+    return { newStudents: unassigned, corrections: staffView.pendingCount ?? pending }
   } catch {
     return { newStudents: null, corrections: null }
   }
@@ -190,6 +197,33 @@ export async function resetStudentProgress(userId: string, level: string) {
     console.error("Error resetting student progress")
     const message = error instanceof Error ? error.message : 'Unbekannter Fehler'
     return { success: false, error: message }
+  }
+}
+
+/**
+ * Löscht das Lernplattform-Profil eines Schülers: Anmeldekonto, Lernstände,
+ * Aufnahmen und Gespräche. Die Person (`people`) mit Adresse, Buchungen,
+ * Rechnungen und Zertifikaten bleibt erhalten. Wer löschen darf und wen,
+ * entscheidet die Datenbank (`delete_student_learning_profile`, Migration 57).
+ */
+export async function deleteStudentProfile(input: DeleteStudentProfileInput): Promise<ProfileDeletionResult> {
+  const parsed = deleteStudentProfileSchema.safeParse(input)
+  if (!parsed.success) return { success: false, reason: 'invalid_input' }
+  try {
+    const supabase = await createClient()
+    const { data: { user }, error } = await supabase.auth.getUser()
+    if (error || !user) return { success: false, reason: 'not_authenticated' }
+    const result = await runConfirmedDelete(() => supabase.rpc('delete_student_learning_profile', {
+      p_student_id: parsed.data.studentId, p_confirmation: parsed.data.confirmation,
+    }))
+    if (!result.success) { console.error('[admin] Student profile could not be deleted'); return result }
+    // The delete is committed; a cache failure must not report it as failed.
+    try { revalidateBackendPages() }
+    catch { console.error('[admin] Deleted student profile could not refresh route cache') }
+    return { success: true }
+  } catch {
+    console.error('[admin] Student profile could not be deleted')
+    return { success: false, reason: 'delete_failed' }
   }
 }
 
