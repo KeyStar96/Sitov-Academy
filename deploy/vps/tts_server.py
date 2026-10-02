@@ -19,6 +19,8 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
 VOICES = {"de": "de_DE-thorsten-high", "en": "en_US-ljspeech-high", "ru": "ru_RU-denis-medium", "uk": "uk_UA-ukrainian_tts-medium", "tr": "espeak-ng-tr"}
+FEMALE_MODEL = "de_DE-mls-medium"
+FEMALE_SPEAKER_ID = 2  # MLS donor 2037: female in metainfo.txt (CC BY 4.0).
 MAX_BODY = 16 * 1024
 MAX_CHARS = 3000
 MAX_AUDIO = 2 * 1024 * 1024
@@ -27,7 +29,7 @@ SYNTHESIS_SECONDS = 65
 MAX_TIMINGS_HEADER = 32 * 1024
 
 
-def validate_request(raw: bytes) -> tuple[str, str]:
+def validate_request(raw: bytes) -> tuple[str, str, str | None]:
     if not raw or len(raw) > MAX_BODY:
         raise ValueError("request_too_large")
     body = json.loads(raw)
@@ -38,12 +40,12 @@ def validate_request(raw: bytes) -> tuple[str, str]:
         raise ValueError("invalid_request")
     if any(ord(char) < 32 and char not in "\n\r\t" for char in text):
         raise ValueError("invalid_request")
-    # Previous clients may send the old default during rolling deployments.
-    if "voice" in body and body["voice"] != "male":
+    profile = body.get("voice")
+    if "voice" in body and (not isinstance(profile, str) or profile not in {"male", "female"}):
         raise ValueError("invalid_voice")
     if language != "de" and "voice" in body:
         raise ValueError("invalid_voice_language")
-    return " ".join(text.split()), language
+    return " ".join(text.split()), language, profile
 
 
 class BoundedBuffer(io.BytesIO):
@@ -58,8 +60,8 @@ class VoiceCache:
         self.model_dir = model_dir
         self.voices: OrderedDict[str, object] = OrderedDict()
 
-    def get(self, language: str):
-        name = VOICES[language]
+    def get(self, language: str, profile: str | None = None):
+        name = FEMALE_MODEL if language == "de" and profile == "female" else VOICES[language]
         if name in self.voices:
             self.voices.move_to_end(name)
             return self.voices[name]
@@ -224,7 +226,7 @@ def token_timings(text: str, voice, spans: list[dict]) -> list[dict[str, float]]
     return result
 
 
-def synthesize(text: str, language: str, voices: VoiceCache) -> tuple[bytes, list[dict[str, float]] | None]:
+def synthesize(text: str, language: str, voices: VoiceCache, profile: str | None = None) -> tuple[bytes, list[dict[str, float]] | None]:
     timings = None
     if language == "tr":
         # The official Turkish Piper model is non-commercial. eSpeak-NG keeps
@@ -233,7 +235,7 @@ def synthesize(text: str, language: str, voices: VoiceCache) -> tuple[bytes, lis
     else:
         from piper import SynthesisConfig
         output = BoundedBuffer()
-        voice = voices.get(language)
+        voice = voices.get(language, profile)
         spans = []
         samples = 0
         aligned = language == "de"
@@ -241,7 +243,7 @@ def synthesize(text: str, language: str, voices: VoiceCache) -> tuple[bytes, lis
             wav_file.setframerate(voice.config.sample_rate)
             wav_file.setsampwidth(2)
             wav_file.setnchannels(1)
-            for chunk in voice.synthesize(text, syn_config=SynthesisConfig(length_scale=1.0, noise_scale=0.667, noise_w_scale=0.8, speaker_id=2 if language == "uk" else None), include_alignments=aligned):
+            for chunk in voice.synthesize(text, syn_config=SynthesisConfig(length_scale=1.0, noise_scale=0.333 if language == "de" and profile == "female" else 0.667, noise_w_scale=0.333 if language == "de" and profile == "female" else 0.8, speaker_id=FEMALE_SPEAKER_ID if language == "de" and profile == "female" else 2 if language == "uk" else None), include_alignments=aligned):
                 if aligned:
                     if not chunk.phoneme_alignments or sum(int(item.num_samples) for item in chunk.phoneme_alignments) != len(chunk.audio_int16_array):
                         aligned = False
@@ -277,12 +279,12 @@ def inference_process(connection, model_dir: str) -> None:
         voices.get("de")  # Keep the common first word fast after service startup.
         connection.send((True, b"ready"))
         while True:
-            text, language = connection.recv()
+            text, language, profile = connection.recv()
             started = time.monotonic()
             try:
-                audio, timings = synthesize(text, language, voices)
+                audio, timings = synthesize(text, language, voices, profile)
                 connection.send((True, (audio, timings)))
-                print(json.dumps({"event":"tts_ready", "language":language, "voice":VOICES[language], "seconds":round(time.monotonic()-started,3), "bytes":len(audio), "aligned":timings is not None}), flush=True)
+                print(json.dumps({"event":"tts_ready", "language":language, "voice":FEMALE_MODEL if language == "de" and profile == "female" else VOICES[language], "seconds":round(time.monotonic()-started,3), "bytes":len(audio), "aligned":timings is not None}), flush=True)
             except Exception:
                 connection.send((False, b"synthesis_failed"))
     except (EOFError, BrokenPipeError):
@@ -330,11 +332,11 @@ class Engine:
         if self.connection:
             self.connection.close()
 
-    def speak(self, text: str, language: str) -> tuple[bytes, list[dict[str, float]] | None]:
+    def speak(self, text: str, language: str, profile: str | None = None) -> tuple[bytes, list[dict[str, float]] | None]:
         if not self.ready or not self.process or not self.process.is_alive():
             raise RuntimeError("service_unavailable")
         try:
-            self.connection.send((text,language))
+            self.connection.send((text,language,profile))
             if not self.connection.poll(SYNTHESIS_SECONDS):
                 raise TimeoutError("synthesis_timeout")
             success, audio = self.connection.recv()
@@ -379,7 +381,7 @@ class SpeechHandler(BaseHTTPRequestHandler):
             self.respond(404,b'{"error":"not_found"}')
             return
         ready = self.engine.ready and bool(self.engine.process and self.engine.process.is_alive())
-        self.respond(200 if ready else 503,json.dumps({"ready":ready,"engine":"piper-local-v2","languages":list(VOICES),"voices":{"de":["male"]}}).encode())
+        self.respond(200 if ready else 503,json.dumps({"ready":ready,"engine":"piper-local-v2","languages":list(VOICES),"voices":{"de":["male"] + (["female"] if Path(self.engine.model_dir, f"{FEMALE_MODEL}.aligned.onnx").is_file() else [])}}).encode())
 
     def do_POST(self) -> None:
         if self.path != "/synthesize":
@@ -396,7 +398,7 @@ class SpeechHandler(BaseHTTPRequestHandler):
             if self.headers.get_content_type() != "application/json":
                 self.respond(415,b'{"error":"json_required"}')
                 return
-            text, language = validate_request(self.rfile.read(length))
+            text, language, profile = validate_request(self.rfile.read(length))
         except (ValueError, UnicodeError, TimeoutError):
             self.respond(400,b'{"error":"invalid_request"}')
             return
@@ -404,8 +406,8 @@ class SpeechHandler(BaseHTTPRequestHandler):
             self.respond(503,b'{"error":"busy"}')
             return
         try:
-            audio, timings = self.engine.speak(text,language)
-            self.respond(200,audio,"audio/mpeg",timings,"male" if language == "de" else None)
+            audio, timings = self.engine.speak(text,language,profile)
+            self.respond(200,audio,"audio/mpeg",timings,(profile or "male") if language == "de" else None)
         except (RuntimeError,TimeoutError,EOFError,BrokenPipeError):
             self.respond(503,b'{"error":"synthesis_unavailable"}')
         finally:

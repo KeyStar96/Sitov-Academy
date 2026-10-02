@@ -90,3 +90,17 @@ it('reuses supplied recordings without synthesis and retains at most four native
   expect(generateAudio).not.toHaveBeenCalled()
   expect(HTMLMediaElement.prototype.play).not.toHaveBeenCalled()
 })
+
+
+it('separates simultaneous male and female requests for the same text', async () => {
+  const male = source()
+  const female = { ...male, voice: 'female' as const, audioUrl: 'https://media.example.com/male-recording.mp3' }
+  jest.mocked(generateAudio).mockImplementation(async input => ({ success: true, audioUrl: `https://media.example.com/${input.voice ?? 'male'}.mp3`, cached: false }))
+  expect(cachedNeuralAudio(female)).toBeNull()
+  const [maleUrl, femaleUrl] = await Promise.all([resolveNeuralAudio(male), resolveNeuralAudio(female)])
+  expect(maleUrl).not.toBe(femaleUrl)
+  expect(generateAudio).toHaveBeenCalledTimes(2)
+  expect(generateAudio).toHaveBeenCalledWith(expect.objectContaining({ voice: 'female' }))
+  expect(cachedNeuralAudio(male)).toBe(maleUrl)
+  expect(cachedNeuralAudio(female)).toBe(femaleUrl)
+})

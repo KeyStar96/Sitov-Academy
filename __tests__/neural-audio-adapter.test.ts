@@ -67,3 +67,13 @@ it('ignores invalid alignment rather than inventing word timings', async () => {
   fetchMock.mockResolvedValue(new Response(mp3(), { headers: { 'Content-Type': 'audio/mpeg', 'X-Word-Timings': JSON.stringify([{ start: 1, end: 0 }]) } }))
   expect(await synthesizeNeuralSpeech('Tür', 'de')).toEqual({ audio: mp3() })
 })
+
+
+it('requests the female persona and requires the service to confirm it', async () => {
+  const { synthesizeNeuralSpeech } = await import('@/lib/audio/edge-tts')
+  fetchMock.mockResolvedValueOnce(new Response(mp3(), { headers: { 'Content-Type': 'audio/mpeg', 'X-TTS-Voice': 'female' } }))
+  await expect(synthesizeNeuralSpeech('Guten Morgen!', 'de', 'female')).resolves.toEqual({ audio: mp3() })
+  expect(fetchMock.mock.calls[0][1]?.body).toBe(JSON.stringify({ text: 'Guten Morgen!', language: 'de', voice: 'female' }))
+  fetchMock.mockResolvedValueOnce(new Response(mp3(), { headers: { 'Content-Type': 'audio/mpeg', 'X-TTS-Voice': 'male' } }))
+  await expect(synthesizeNeuralSpeech('Guten Morgen!', 'de', 'female')).rejects.toThrow('Local speech service unavailable')
+})

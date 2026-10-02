@@ -1,4 +1,5 @@
 /** @jest-environment node */
+jest.mock('server-only', () => ({}), { virtual: true })
 import { NextRequest } from 'next/server'
 import { GET } from '@/app/auth/confirm/route'
 import { createClient } from '@/utils/supabase/server'

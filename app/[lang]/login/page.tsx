@@ -6,7 +6,7 @@ import AuthShell from '@/components/auth/AuthShell'
 import AuthStatusMessage from '@/components/auth/AuthStatusMessage'
 import { authStatusMessage, authTranslations, createAuthTranslator } from '@/lib/auth-i18n'
 import { getDictionary } from '@/lib/dictionary'
-import { parseAuthStatus, type AuthStatusCode } from '@/lib/types/auth'
+import { parseAuthStatus, safeInternalPath, type AuthStatusCode } from '@/lib/types/auth'
 import { registrationLabels } from '@/lib/admin-registration-i18n'
 
 export const dynamic = 'force-dynamic'
@@ -36,6 +36,8 @@ export default async function LoginPage({
   const { lang } = await params
   const resolvedSearchParams = await searchParams
   const status = parseAuthStatus(resolvedSearchParams?.status)
+  const rawNext = resolvedSearchParams?.next
+  const nextPath = safeInternalPath(typeof rawNext === 'string' ? rawNext : null, '')
 
   const dictionary = await getDictionary(lang)
   const t = createAuthTranslator(authTranslations(dictionary))
@@ -68,6 +70,7 @@ export default async function LoginPage({
         lang={lang}
         submitLabel={t('login_submit')}
         pendingLabel={t('login_pending')}
+        hiddenFields={nextPath ? { next: nextPath } : {}}
         fields={[
           {
             name: 'email',

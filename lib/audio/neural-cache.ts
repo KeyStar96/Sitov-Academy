@@ -4,13 +4,13 @@ import 'server-only'
 import { createHash } from 'node:crypto'
 import { createAdminClient } from '@/utils/supabase/admin'
 import { validWordTimings } from './playback-settings'
-import type { NeuralSpeechAsset, NeuralAudioLanguage } from '@/lib/types/audio'
-import { AUDIO_CACHE_BUCKET, AUDIO_CACHE_VERSION, AUDIO_FORMAT, AUDIO_RATE, NEURAL_VOICES, normalizeAudioText } from './neural-config'
+import type { GermanAudioVoice, NeuralSpeechAsset, NeuralAudioLanguage } from '@/lib/types/audio'
+import { AUDIO_CACHE_BUCKET, AUDIO_CACHE_VERSION, AUDIO_FORMAT, AUDIO_RATE, neuralVoiceName, normalizeAudioText } from './neural-config'
 import { synthesizeNeuralSpeech } from './edge-tts'
 
-export function neuralAudioPath(text: string, language: NeuralAudioLanguage): string {
+export function neuralAudioPath(text: string, language: NeuralAudioLanguage, voice?: GermanAudioVoice): string {
   const hash = createHash('sha256').update(JSON.stringify({
-    text: normalizeAudioText(text), voice: NEURAL_VOICES[language].voice, rate: AUDIO_RATE, format: AUDIO_FORMAT,
+    text: normalizeAudioText(text), voice: neuralVoiceName(language, voice), rate: AUDIO_RATE, format: AUDIO_FORMAT,
   })).digest('hex')
   return `${AUDIO_CACHE_VERSION}/${language}/${hash}.mp3`
 }
@@ -30,12 +30,12 @@ export async function findCachedAudio(path: string): Promise<NeuralSpeechAsset |
 // Deduplicate simultaneous requests in one worker; immutable paths handle cross-worker races.
 const inFlight = new Map<string, Promise<NeuralSpeechAsset>>()
 
-export function generateCachedAudio(text: string, language: NeuralAudioLanguage, path: string): Promise<NeuralSpeechAsset> {
+export function generateCachedAudio(text: string, language: NeuralAudioLanguage, path: string, voice?: GermanAudioVoice): Promise<NeuralSpeechAsset> {
   const pending = inFlight.get(path)
   if (pending) return pending
   const work = (async () => {
     const storage = createAdminClient().storage.from(AUDIO_CACHE_BUCKET)
-    const { audio, wordTimings } = await synthesizeNeuralSpeech(text, language)
+    const { audio, wordTimings } = await (voice ? synthesizeNeuralSpeech(text, language, voice) : synthesizeNeuralSpeech(text, language))
     const { error } = await storage.upload(path, audio, {
       contentType: 'audio/mpeg', cacheControl: '31536000', upsert: false,
       ...(wordTimings ? { metadata: { wordTimings } } : {}),

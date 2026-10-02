@@ -130,3 +130,10 @@ it('uses the existing Thorsten cache key and retains exact timings with MP3', as
   storage.info.mockResolvedValue({ data: { id: 'object', metadata: { wordTimings } }, error: null })
   expect(await findCachedAudio(path)).toEqual({ audioUrl, wordTimings })
 })
+
+
+it('uses a different immutable cache key for the female persona without invalidating existing male audio', () => {
+  const male = neuralAudioPath('Guten Morgen!', 'de')
+  expect(neuralAudioPath('Guten Morgen!', 'de', 'male')).toBe(male)
+  expect(neuralAudioPath('Guten Morgen!', 'de', 'female')).not.toBe(male)
+})

@@ -171,13 +171,13 @@ export default function BakeryJourney({ homeHref = '/de', onSpeak }: {
     ? dialogueComplete ? 'Hier, bitte!\nGuten Appetit!' : 'Möchten Sie eine Tüte?'
     : stage === 'complete' ? 'Hier, bitte!\nGuten Appetit!'
       : 'Guten Morgen!\nWas darf es sein?'
-  const reference = stage === 'order' ? ORDER_SENTENCE
+  // The scene owns its reference independently of the selected vocabulary card.
+  const sceneReference = stage === 'order' ? ORDER_SENTENCE
     : stage === 'dialogue' ? dialogueComplete ? 'Hier, bitte! Guten Appetit!' : 'Möchten Sie eine Tüte?'
       : stage === 'complete' ? 'Hier, bitte! Guten Appetit!'
-      : stage === 'discover' && selectedWord ? wordReference
         : 'Guten Morgen! Was darf es sein?'
-  const audioFilename = stage === 'order' ? 'order' : stage === 'complete' ? 'thanks' : stage === 'dialogue' ? dialogueComplete ? 'thanks' : 'question'
-    : stage === 'discover' && selectedWord ? selectedWord.id === 'roll' ? 'broetchen' : selectedWord.id === 'coffee' ? 'kaffee' : 'tuete' : 'intro'
+  const sceneAudioFilename = stage === 'order' ? 'order' : stage === 'complete' ? 'thanks' : stage === 'dialogue' ? dialogueComplete ? 'thanks' : 'question' : 'intro'
+  const wordAudioFilename = selectedWord?.id === 'roll' ? 'broetchen' : selectedWord?.id === 'coffee' ? 'kaffee' : 'tuete'
   const sceneMotion = stage === 'intro' ? { scale: 1, x: '0%', y: '0%' }
     : stage === 'discover' ? { scale: 1.065, x: '1%', y: '-1.5%' }
       : stage === 'order' ? { scale: 1.045, x: '-1%', y: '0%' }
@@ -225,7 +225,7 @@ export default function BakeryJourney({ homeHref = '/de', onSpeak }: {
         </motion.div>
         <div className={styles.sceneControls}>
           <span>01 / BEIM BÄCKER</span>
-          <PressableCard className={styles.listenButton} onClick={() => { void speak(reference, audioFilename) }} aria-label="Deutsche Referenz anhören" aria-busy={speaking}>
+          <PressableCard className={styles.listenButton} onClick={() => { void speak(sceneReference, sceneAudioFilename) }} aria-label="Deutsche Referenz anhören" aria-busy={speaking}>
             <Volume2 size={18} aria-hidden="true" />{speaking ? 'Du hörst …' : 'Szene anhören'}
           </PressableCard>
         </div>
@@ -252,7 +252,7 @@ export default function BakeryJourney({ homeHref = '/de', onSpeak }: {
             {discovered.includes(word.id) && <Check size={18} className={styles.wordCheck} aria-label="Entdeckt" />}
           </PressableCard>)}</div>
           <div className={styles.wordExample} aria-live="polite"><p>{selectedWord ? wordReference : 'Das Brötchen siehst du in der Auslage. Kaffee und Tüte gehören zu unserem Wortschatz für die Bestellung.'}</p>
-            {selectedWord && <PressableCard className={styles.textButton} onClick={() => { void speak(wordReference, audioFilename) }}><Volume2 size={17} aria-hidden="true" />Wort anhören</PressableCard>}
+            {selectedWord && <PressableCard className={styles.textButton} onClick={() => { void speak(wordReference, wordAudioFilename) }}><Volume2 size={17} aria-hidden="true" />Wort anhören</PressableCard>}
           </div>
           <div className={styles.panelBottom}><p className={styles.smallProgress}>{discovered.length} von 3 Wörtern entdeckt</p>
             <PressableCard className={styles.primaryButton} disabled={discovered.length !== WORDS.length} onClick={() => nextStage('order')}>Zur Bestellung <ArrowRight size={20} aria-hidden="true" /></PressableCard></div>

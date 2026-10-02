@@ -1,12 +1,13 @@
 import { Suspense } from 'react'
 import Link from 'next/link'
-import { ArrowRight, BookOpen, CheckCircle2, LibraryBig, MessageSquareText, UserCheck, UserPlus, Users, CalendarRange } from 'lucide-react'
+import { ArrowRight, BookOpen, CheckCircle2, LibraryBig, Map, MessageSquareText, UserCheck, UserPlus, Users, CalendarRange } from 'lucide-react'
 import { MediaStorageUsage } from '@/components/admin/MediaStorageUsage'
 import { ListCard, ListLink, Notice, PageHeader, StatTile, adminButton } from '@/components/admin/ui'
 import { getAdminStats } from '@/app/actions/admin'
 import { createClient } from '@/utils/supabase/server'
 import { getDictionary } from '@/lib/dictionary'
 import { createAdminTranslator } from '@/lib/admin-i18n'
+import { getDailyQuestCopy } from '@/lib/daily-quest-i18n'
 
 /**
  * Startseite des Lehrer-Dashboards: nur, was täglich zählt.
@@ -23,6 +24,7 @@ export default async function AdminDashboardPage({ params }: { params: Promise<{
     ? await supabase.from('people').select('display_name').eq('auth_user_id', user.id).maybeSingle()
     : { data: null }
   const t = createAdminTranslator(dict.admin)
+  const dailyCopy = getDailyQuestCopy(lang)
   const base = `/${lang}/admin`
   const firstName = person?.display_name?.trim().split(/\s+/)[0]
   const today = new Intl.DateTimeFormat(lang, { weekday: 'long', day: 'numeric', month: 'long', timeZone: 'Europe/Berlin' }).format(new Date())
@@ -35,6 +37,16 @@ export default async function AdminDashboardPage({ params }: { params: Promise<{
         title={firstName ? t('overview_hello', { name: firstName }) : t('nav_overview')}
         description={t('overview_intro')}
       />
+
+      <section aria-labelledby="teacher-quest-title" className="flex flex-col gap-4 rounded-xl border border-[var(--admin-line)] bg-[var(--surface)] p-4 sm:flex-row sm:items-center sm:p-5">
+        <div className="flex min-w-0 items-start gap-3"><Map size={22} aria-hidden="true" className="mt-1 shrink-0 text-[var(--accent-text)]" />
+          <div className="min-w-0"><h2 id="teacher-quest-title" className="text-lg font-semibold">{dailyCopy.previewTitle}</h2>
+            <p className="mt-1 text-sm leading-relaxed text-[var(--muted)]">{dailyCopy.previewNotice}</p></div>
+        </div>
+        <Link href={`${base}/daily-quest`} className={adminButton('secondary', 'md', 'w-full shrink-0 sm:ml-auto sm:w-auto')}>
+          {dailyCopy.previewEntry}<ArrowRight size={16} aria-hidden="true" />
+        </Link>
+      </section>
 
       {stats.newStudentCount > 0 ? (
         <section aria-labelledby="new-students-heading" className="relative min-w-0 overflow-hidden rounded-xl border border-[var(--accent)] bg-[var(--surface)]">

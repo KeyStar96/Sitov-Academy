@@ -17,6 +17,8 @@ jest.mock('@/utils/supabase/server', () => ({ createClient: async () => ({
 }) }))
 jest.mock('@/lib/profile-person', () => ({ resolveVerifiedPerson: async () => ({ id: null }) }))
 jest.mock('@/lib/profile-course-history', () => ({ loadVerifiedCourseHistory: async () => null }))
+// This disclosure test does not execute authenticated quest RPCs or actions.
+jest.mock('@/lib/daily-quest-server', () => ({ loadDailyQuestStatus: jest.fn() }))
 jest.mock('@/app/actions/certificates', () => ({ getStudentCertificateData: async () => ({ success: true,
   data: { person: null, identityUnresolved: false, periods: [], issues: [], paymentUpdatedAt: null },
 }) }))
@@ -27,6 +29,7 @@ jest.mock('@/components/dashboard/ProfileAppearanceSettings', () => () => null)
 jest.mock('@/components/dashboard/ProfileProgressReset', () => () => null)
 jest.mock('@/components/dashboard/ProfileDelete', () => () => null)
 jest.mock('@/components/dashboard/ProfileNotificationSettings', () => () => null)
+jest.mock('@/components/dashboard/ProfileDailyQuestSettings', () => () => null)
 jest.mock('@/components/layout/Header', () => () => null)
 jest.mock('@/components/sections/AcademyFooter', () => () => null)
 

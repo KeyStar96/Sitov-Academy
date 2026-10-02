@@ -2,7 +2,7 @@
 
 import { generateAudio } from '@/app/actions/generate-audio'
 import { normalizeAudioText } from '@/lib/audio/neural-config'
-import type { NeuralSpeechAsset, NeuralAudioLanguage } from '@/lib/types/audio'
+import type { GermanAudioVoice, NeuralSpeechAsset, NeuralAudioLanguage } from '@/lib/types/audio'
 
 export interface NeuralAudioSource {
   text: string
@@ -11,6 +11,7 @@ export interface NeuralAudioSource {
   audioUrl?: string | null
   /** Require synthesis metadata instead of reusing old unaligned generated speech. */
   aligned?: boolean
+  voice?: GermanAudioVoice
 }
 
 const resolvedUrls = new Map<string, NeuralSpeechAsset>()
@@ -21,14 +22,14 @@ const MAX_PRELOADED_AUDIO = 4
 const MAX_PREFETCH_REQUESTS = 2
 
 export function neuralAudioKey(source: NeuralAudioSource): string {
-  return JSON.stringify([source.cardId ?? null, source.language, normalizeAudioText(source.text), source.audioUrl && !source.audioUrl.includes('/audio_cache/') ? source.audioUrl : null])
+  return JSON.stringify([source.cardId ?? null, source.language, normalizeAudioText(source.text), source.audioUrl && !source.audioUrl.includes('/audio_cache/') ? source.audioUrl : null, ...(source.voice === 'female' ? ['female'] : [])])
 }
 
 export function cachedNeuralAudio(source: NeuralAudioSource): string | null {
   const cached = resolvedUrls.get(neuralAudioKey(source))
   if (cached) return cached.audioUrl
   // Aligned playback requires synthesis metadata instead of an old recording.
-  if (source.aligned) return null
+  if (source.aligned || source.voice === 'female') return null
   return source.audioUrl && !source.audioUrl.includes('/audio_cache/') ? source.audioUrl : null
 }
 
@@ -52,6 +53,7 @@ export function resolveNeuralAudio(source: NeuralAudioSource, regenerate = false
       const result = await generateAudio({
         text: normalizeAudioText(source.text), language: source.language,
         ...(source.cardId ? { cardId: source.cardId } : {}),
+        ...(source.voice ? { voice: source.voice } : {}),
       })
       if (result.success === false) throw new Error(result.error)
       if (resolvedUrls.size >= MAX_URLS) {

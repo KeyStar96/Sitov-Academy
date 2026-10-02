@@ -7,10 +7,12 @@ import { rateLimit } from '@/lib/ratelimit'
 import { getClientIp } from '@/lib/client-ip'
 import { buildSiteUrl, getOutboundSiteUrl } from '@/lib/site-url'
 import { resolveVerifiedPerson } from '@/lib/profile-person'
+import { resolveDailyQuestLoginTarget } from '@/lib/daily-quest-server'
 import {
   emailOnlySchema,
   isBreachedPasswordError,
   loginSchema,
+  safeInternalPath,
   signupSchema,
   uiLanguageSchema,
   updatePasswordSchema,
@@ -107,11 +109,14 @@ async function authCallbackUrl(lang: string, next?: string): Promise<string> {
 
 export async function login(formData: FormData) {
   const lang = readLanguage(formData)
+  const rawNext = formData.get('next')
+  const requestedNext = safeInternalPath(typeof rawNext === 'string' ? rawNext : null, '')
   let status: AuthStatusCode | null = null
   // Nach erfolgreichem Login wird die Oberfläche auf die im Profil gespeicherte
   // Sprache (`ui_language`, initial aus der Registrierungssprache) umgestellt.
   // Fällt auf die Formularsprache zurück, falls das Profil nicht lesbar ist.
   let targetLang = lang
+  let nextPath: string | null = null
 
   try {
     const parsed = loginSchema.safeParse({
@@ -157,6 +162,10 @@ export async function login(formData: FormData) {
         } catch (profileError) {
           console.error("[auth] Oberflächensprache konnte nicht geladen werden")
         }
+        nextPath = await resolveDailyQuestLoginTarget({
+          supabase, userId: data.user.id, lang: targetLang,
+          nextPath: requestedNext || `/${targetLang}/dashboard`,
+        })
       }
     }
   } catch (error) {
@@ -165,11 +174,13 @@ export async function login(formData: FormData) {
   }
 
   if (status) {
-    redirect(`/${lang}/login?status=${status}`)
+    const query = new URLSearchParams({ status })
+    if (requestedNext) query.set('next', requestedNext)
+    redirect(`/${lang}/login?${query.toString()}`)
   }
 
   revalidatePath('/', 'layout')
-  redirect(`/${targetLang}/dashboard`)
+  redirect(nextPath ?? `/${targetLang}/dashboard`)
 }
 
 export async function signup(formData: FormData) {

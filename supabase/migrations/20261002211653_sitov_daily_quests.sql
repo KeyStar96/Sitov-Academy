@@ -1,0 +1,1 @@
+../vps/59_daily_quests.sql

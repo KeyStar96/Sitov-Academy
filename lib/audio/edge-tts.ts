@@ -2,12 +2,13 @@ import 'server-only'
 
 import { AUDIO_MAX_BYTES, AUDIO_MAX_TEXT_LENGTH, NEURAL_VOICES, normalizeAudioText } from './neural-config'
 import { validWordTimings } from './playback-settings'
-import type { AudioWordTiming, NeuralAudioLanguage } from '@/lib/types/audio'
+import type { AudioWordTiming, GermanAudioVoice, NeuralAudioLanguage } from '@/lib/types/audio'
 
 /** Kept under the existing import path; every synthesis request now stays on this VPS. */
-export async function synthesizeNeuralSpeech(input: string, language: NeuralAudioLanguage): Promise<{ audio: Buffer; wordTimings?: AudioWordTiming[] }> {
+export async function synthesizeNeuralSpeech(input: string, language: NeuralAudioLanguage, voice?: GermanAudioVoice): Promise<{ audio: Buffer; wordTimings?: AudioWordTiming[] }> {
   const text = normalizeAudioText(input)
   if (!text || text.length > AUDIO_MAX_TEXT_LENGTH || !Object.hasOwn(NEURAL_VOICES, language)) throw new Error('Invalid synthesis input')
+  if (voice && (language !== 'de' || !['female', 'male'].includes(voice))) throw new Error('Invalid synthesis voice')
   const endpoint = new URL(process.env.LOCAL_TTS_URL || 'http://127.0.0.1:9070')
   if (endpoint.protocol !== 'http:' || !['127.0.0.1', 'localhost', '[::1]'].includes(endpoint.hostname) || endpoint.username || endpoint.password || !['', '/'].includes(endpoint.pathname) || endpoint.search || endpoint.hash) {
     throw new Error('Speech service must be local')
@@ -23,7 +24,7 @@ export async function synthesizeNeuralSpeech(input: string, language: NeuralAudi
     for (;;) {
       response = await fetch(endpoint, {
         method: 'POST', headers: { 'Content-Type': 'application/json', ...(token ? { Authorization: `Bearer ${token}` } : {}) },
-        body: JSON.stringify({ text, language }), cache: 'no-store', signal: controller.signal, redirect: 'error',
+        body: JSON.stringify({ text, language, ...(voice ? { voice } : {}) }), cache: 'no-store', signal: controller.signal, redirect: 'error',
       })
       if (response.status !== 503) break
       const diagnostic: unknown = await response.json().catch(() => null)
@@ -36,6 +37,10 @@ export async function synthesizeNeuralSpeech(input: string, language: NeuralAudi
       })
     }
     if (!response.ok || !response.body || !response.headers.get('Content-Type')?.startsWith('audio/mpeg')) throw new Error('Local speech service unavailable')
+    if (voice === 'female' && response.headers.get('X-TTS-Voice') !== 'female') {
+      await response.body.cancel()
+      throw new Error('Local speech service unavailable')
+    }
     if (Number(response.headers.get('Content-Length')) > AUDIO_MAX_BYTES) { await response.body.cancel(); throw new Error('Audio response exceeded the cache limit') }
     const reader = response.body.getReader()
     let byteLength = 0

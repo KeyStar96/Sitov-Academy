@@ -10,12 +10,20 @@ sentence building and a short scripted conversation, ending with a travel stamp.
 - Asset provenance, final image prompt, audio transcripts and motion values:
   [`deutschreise-assets.json`](./deutschreise-assets.json).
 
-## Production must stay blocked
+## Archived pilot access
 
 The server page calls `notFound()` whenever `NODE_ENV !== 'development'`, before
 reading route parameters. There is no production opt-in flag. Keep this guard:
-the user explicitly requires that a later VPS deployment must not activate this
-pilot. No deployment was performed. No main navigation or sitemap link was added.
+the archived `/[lang]/reise/beim-baecker` pilot must remain development-only.
+Its original local acceptance did not deploy it or add navigation/sitemap links.
+
+On 2026-10-02 the user explicitly authorized production activation of the new,
+integrated Daily Quest feature at `/[lang]/dashboard/daily-quest` and its protected
+teacher preview at `/[lang]/admin/daily-quest`. That authorization applies to the
+new integration; the archived pilot guard stays intact. See
+[`daily-quests.md`](./daily-quests.md) for architecture and the rollout record.
+At this documentation checkpoint the new rollout is still in preparation;
+its release SHA, activation time and final production HTTP evidence are pending.
 
 The pilot uses only local React state. It does not write learning records, call AI
 services, record a microphone, change database access or implement payments.

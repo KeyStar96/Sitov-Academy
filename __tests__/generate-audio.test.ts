@@ -165,17 +165,17 @@ describe('audio cache and protected recording updates', () => {
   })
 })
 
-it('rejects a female voice before auth, cache reads or card writes', async () => {
+it('uses the female cache without overwriting the canonical vocabulary recording', async () => {
   session()
-  expect(await generateAudio({ ...input, voice: 'female' } as unknown as GenerateAudioInput)).toEqual({ success: false, error: 'invalid_input' })
-  expect(createClient).not.toHaveBeenCalled()
-  expect(neuralAudioPath).not.toHaveBeenCalled()
+  expect(await generateAudio({ ...input, voice: 'female' })).toMatchObject({ success: true })
+  expect(createClient).toHaveBeenCalled()
+  expect(neuralAudioPath).toHaveBeenCalledWith('die Tür', 'de', 'female')
   expect(createAdminClient).not.toHaveBeenCalled()
 })
 it('accepts the old male default during deployment and uses the canonical cache', async () => {
   session()
   expect(await generateAudio({ ...input, voice: 'male' } as unknown as GenerateAudioInput)).toMatchObject({ success: true })
-  expect(neuralAudioPath).toHaveBeenCalledWith('die Tür', 'de')
+  expect(neuralAudioPath).toHaveBeenCalledWith('die Tür', 'de', 'male')
 })
 it('rejects voice profiles for unsupported languages and unknown profile names', async () => {
   session()

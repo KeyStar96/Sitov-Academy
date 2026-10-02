@@ -3,6 +3,7 @@ import { createClient } from '@/utils/supabase/server'
 import { decideAuthCallback, readAuthCallbackSearch } from '@/lib/auth-callback'
 import { buildAuthRedirectUrl, originFromHeaders } from '@/lib/site-url'
 import type { AuthStatusCode } from '@/lib/types/auth'
+import { resolveDailyQuestLoginTarget } from '@/lib/daily-quest-server'
 
 /**
  * Einstiegspunkt für alle Links aus Auth-E-Mails (Bestätigung, Passwort-Reset,
@@ -13,8 +14,9 @@ import type { AuthStatusCode } from '@/lib/types/auth'
  * nie über eine hartcodierte localhost-Adresse. Lokale Requests bleiben auf
  * dem Request-Host, damit Session-Cookies und Playwright greifen.
  *
- * Nach erfolgreicher Bestätigung geht es direkt ins geschützte Dashboard
- * (`/{lang}/dashboard`). Recovery-Links landen auf der Passwortvergabe.
+ * Nach erfolgreicher Bestätigung geht es ins geschützte Dashboard bzw. beim
+ * ersten Tageslogin in die Deutschreise. Recovery-Links behalten die
+ * Passwortvergabe und gezielte interne Links ihr ursprüngliches Ziel.
  *
  * Diese Route darf nie über die Middleware umgeleitet werden: Eine
  * Weiterleitung würde die Einmal-Token aus der Query verlieren. Siehe
@@ -51,7 +53,7 @@ export async function GET(request: NextRequest) {
 
   try {
     const supabase = await createClient()
-    const { error } =
+    const { data, error } =
       decision.verify.flow === 'pkce'
         ? await supabase.auth.exchangeCodeForSession(decision.verify.code)
         : await supabase.auth.verifyOtp({
@@ -70,7 +72,13 @@ export async function GET(request: NextRequest) {
       return redirectTo(request, failPath, failStatus)
     }
 
-    return redirectTo(request, decision.nextPath, decision.isRecovery ? undefined : 'confirm_success')
+    let nextPath = decision.nextPath
+    if (!decision.isRecovery && data?.user) {
+      nextPath = await resolveDailyQuestLoginTarget({
+        supabase, userId: data.user.id, lang: decision.lang, nextPath,
+      })
+    }
+    return redirectTo(request, nextPath, decision.isRecovery ? undefined : 'confirm_success')
   } catch (error) {
     console.error("[auth/confirm] Unerwarteter Fehler")
     const failPath = decision.isRecovery

@@ -27,6 +27,8 @@ import { getMyLearningProgress } from '@/app/actions/learning-progress'
 import AuthStatusMessage from '@/components/auth/AuthStatusMessage'
 import { authStatusMessage, authTranslations, createAuthTranslator } from '@/lib/auth-i18n'
 import { parseAuthStatus } from '@/lib/types/auth'
+import { loadDailyQuestStatus } from '@/lib/daily-quest-server'
+import DailyQuestEntry from '@/components/dashboard/DailyQuestEntry'
 
 const CONTINUE_TO = { vocabulary: 'continue_to_vocabulary', path: 'continue_to_path', pronunciation: 'continue_to_pronunciation', media: 'continue_to_media' } as const
 
@@ -68,13 +70,14 @@ export default async function DashboardPage({ params, searchParams }: {
 
   // Kalender, Buchung, Lernstand und Lerntage sind unabhängige Zusätze: Ein
   // Ladefehler darf die Startseite nie mitreißen (wie auf der Profilseite).
-  const [monthly, calendar, status, week, progress] = user ? await Promise.all([
+  const [monthly, calendar, status, week, progress, dailyQuest] = user ? await Promise.all([
     loadProfileMonthlyState(supabase, user).catch(() => { console.error('[dashboard] Course plan could not be loaded'); return null }),
     loadProfileCourseCalendar(supabase, user).catch(() => { console.error('[dashboard] Course calendar could not be loaded'); return null }),
     recommended ? loadLevelLearningStatus({ supabase, userId: user.id, profile: accessProfile, level: recommended.id, lang }) : Promise.resolve(null),
     loadWeekActivity(supabase, user.id),
     getMyLearningProgress({ level: null, days: 7 }).then(result => result.success ? result.data : null).catch(() => null),
-  ]) : [null, null, null, null, null]
+    accessProfile?.role === 'student' ? loadDailyQuestStatus().then(result => result.data ?? null).catch(() => null) : Promise.resolve(null),
+  ]) : [null, null, null, null, null, null]
 
   const levelBase = recommended ? levelHref(lang, recommended.id) : null
   // Problemwörter gehören zum Vokabeltrainer des empfohlenen Niveaus (nicht mit Deutsch als Oberfläche).
@@ -132,6 +135,7 @@ export default async function DashboardPage({ params, searchParams }: {
 
   return <div className="space-y-8">
     {confirmed && <AuthStatusMessage status="confirm_success" title={auth('signup_thanks')} message={authStatusMessage(auth, 'confirm_success')} />}
+    {dailyQuest && <DailyQuestEntry lang={lang} status={dailyQuest} />}
     <div className="grid grid-cols-1 items-start gap-5 lg:grid-cols-12">
       <div className="min-w-0 lg:col-span-7">
         <TodayPlan lang={lang} name={displayName} items={items} fallbackHref={levelBase} week={week} noLevel={!recommended} />

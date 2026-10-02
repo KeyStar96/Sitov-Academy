@@ -1,4 +1,5 @@
 import type { CertificateFunctions, CertificateTables } from './certificates.types'
+import type { DailyQuestTables } from './daily-quests.types'
 
 export type Json =
   | string
@@ -8,6 +9,18 @@ export type Json =
   | { [key: string]: Json | undefined }
   | Json[]
 
+/** Additive RPC declarations; outputs are validated by the daily-quest DAL. */
+type DailyQuestFunctions = {
+  claim_daily_quest_login: { Args: never; Returns: Json }
+  get_daily_quest: { Args: never; Returns: Json }
+  get_daily_quest_status: { Args: never; Returns: Json }
+  get_daily_quest_preview: { Args: { p_level?: string }; Returns: Json }
+  set_daily_quest_enabled: { Args: { p_enabled: boolean }; Returns: Json }
+  submit_daily_quest_step: { Args: { p_assignment_id: string; p_step_id: string; p_answer: Json }; Returns: Json }
+  skip_daily_quest: { Args: { p_assignment_id: string }; Returns: Json }
+  complete_daily_quest: { Args: { p_assignment_id: string }; Returns: Json }
+}
+
 export type Database = {
   // Allows to automatically instantiate createClient with right options
   // instead of createClient<Database, { PostgrestVersion: 'XX' }>(URL, KEY)
@@ -15,7 +28,7 @@ export type Database = {
     PostgrestVersion: "14.6"
   }
   public: {
-    Tables: CertificateTables & {
+    Tables: CertificateTables & DailyQuestTables & {
       booking_items: {
         Row: {
           amount: number
@@ -1134,6 +1147,10 @@ export type Database = {
       }
       profiles: {
         Row: {
+          daily_quests_enabled: boolean
+          daily_quest_streak: number
+          daily_quest_longest_streak: number
+          daily_quest_last_completed_date: string | null
           created_at: string | null
           id: string
           native_language: string | null
@@ -1145,6 +1162,10 @@ export type Database = {
           updated_at: string | null
         }
         Insert: {
+          daily_quests_enabled?: boolean
+          daily_quest_streak?: number
+          daily_quest_longest_streak?: number
+          daily_quest_last_completed_date?: string | null
           created_at?: string | null
           id: string
           native_language?: string | null
@@ -1156,6 +1177,10 @@ export type Database = {
           updated_at?: string | null
         }
         Update: {
+          daily_quests_enabled?: boolean
+          daily_quest_streak?: number
+          daily_quest_longest_streak?: number
+          daily_quest_last_completed_date?: string | null
           created_at?: string | null
           id?: string
           native_language?: string | null
@@ -2233,7 +2258,7 @@ export type Database = {
     Views: {
       [_ in never]: never
     }
-    Functions: CertificateFunctions & {
+    Functions: CertificateFunctions & DailyQuestFunctions & {
       add_own_vocabulary: {
         Args: {
           p_article: string
