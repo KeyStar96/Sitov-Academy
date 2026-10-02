@@ -3,7 +3,7 @@
 Dieser Plan teilt die gesamte Überarbeitung in logische Phasen auf. Da du verschiedene KIs mit unterschiedlichen Stärken und Limits nutzt, weisen wir jeder Phase das optimale Modell sowie die empfohlene Aufwands-Stufe (Thinking/Reasoning-Level) zu. 
 
 **Wichtige Regel für den gesamten Prozess:**
-Nach *jeder* abgeschlossenen Phase muss die KI aufgefordert werden, die getätigten Änderungen und den aktuellen Stand in dein Obsidian Vault zu dokumentieren, bevor mit der nächsten Phase begonnen wird.
+Nach *jeder* abgeschlossenen Phase muss die KI aufgefordert werden, die getätigten Änderungen und den aktuellen Stand in dein Obsidian Vault (/Users/denniskostjuk/Library/Mobile\ Documents/com\~apple\~CloudDocs/Obsidian/Life-OS/01\ Projects/Sitov-Academy) zu dokumentieren, bevor mit der nächsten Phase begonnen wird.
 
 ---
 
