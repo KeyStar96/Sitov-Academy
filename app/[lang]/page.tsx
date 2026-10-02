@@ -84,9 +84,6 @@ export default async function HomePage({
             "closes": "18:00",
           },
         ],
-        "sameAs": [
-          "https://t.me/smartgerman_hannover",
-        ],
         "availableLanguage": [
           { "@type": "Language", "name": "German", "alternateName": "de" },
           { "@type": "Language", "name": "Russian", "alternateName": "ru" },

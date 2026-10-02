@@ -3,8 +3,8 @@
 import { useSyncExternalStore } from 'react'
 import { defaultPlaybackRate, PLAYBACK_RATES } from './playback-settings'
 
-export const PLAYBACK_RATE_STORAGE_KEY = 'smartgerman:audio:playback-rate'
-const CHANGE_EVENT = 'smartgerman:audio:playback-rate-changed'
+export const PLAYBACK_RATE_STORAGE_KEY = 'sitov:audio:playback-rate'
+const CHANGE_EVENT = 'sitov:audio:playback-rate-changed'
 let unavailableStorageRate: number | null = null
 let failedWrite: { rate: number; previous: string | null } | null = null
 

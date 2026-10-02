@@ -1,3 +1,7 @@
+## Branding
+
+Die Schule und Lernplattform heißen ausschließlich **Sitov Academy**. Verwende diesen Namen in Oberflächen, Metadaten und Dokumentation. Neue technische Kennungen verwenden das Präfix `sitov`.
+
 <!-- BEGIN:nextjs-agent-rules -->
 
 # This is NOT the Next.js you know

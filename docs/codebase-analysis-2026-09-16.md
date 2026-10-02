@@ -1,4 +1,4 @@
-# Codebase-Analyse — Sitov Academy (SmartGerman)
+# Codebase-Analyse — Sitov Academy
 
 **Stand:** 16. September 2026  
 **Gegenstand:** Next.js-16-App, Supabase-Projekt `wcaslabeiwtvygxtzcio`, Live-Datenbank, Storage, Edge Functions, Tests, Dokumentation  

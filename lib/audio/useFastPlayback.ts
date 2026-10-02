@@ -4,8 +4,8 @@ import { useSyncExternalStore } from 'react'
 
 /** Lehrkräfte hören Aufnahmen wahlweise im natürlichen oder im doppelten Tempo ab. */
 export const FAST_PLAYBACK_RATE = 2
-export const FAST_PLAYBACK_STORAGE_KEY = 'smartgerman:audio:fast-playback'
-const CHANGE_EVENT = 'smartgerman:audio:fast-playback-changed'
+export const FAST_PLAYBACK_STORAGE_KEY = 'sitov:audio:fast-playback'
+const CHANGE_EVENT = 'sitov:audio:fast-playback-changed'
 // Private browsing can block storage entirely; a full quota can allow reads
 // while rejecting writes. Either way the choice still applies on this page.
 let blockedChoice: boolean | null = null

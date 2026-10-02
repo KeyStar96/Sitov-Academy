@@ -1,4 +1,4 @@
-# 🚀 Master-Plan & Prompts für SmartGerman Überarbeitung
+# 🚀 Master-Plan & Prompts für die Überarbeitung von Sitov Academy
 
 Dieser Plan teilt die gesamte Überarbeitung in logische Phasen auf. Da du verschiedene KIs mit unterschiedlichen Stärken und Limits nutzt, weisen wir jeder Phase das optimale Modell sowie die empfohlene Aufwands-Stufe (Thinking/Reasoning-Level) zu. 
 
@@ -13,7 +13,7 @@ Nach *jeder* abgeschlossenen Phase muss die KI aufgefordert werden, die getätig
 
 **Master-Prompt für Phase 1:**
 > **Kontext & Ziel:**
-> Du fungierst als Senior Full-Stack Entwickler. Unser Ziel ist es, in unserer Lernplattform "SmartGerman" bestehende Bugs zu beheben und einige Logiken zu verifizieren. Du sollst den Weg zur Lösung selbstständig finden und keine vorgefertigten Implementierungsmuster verlangen. Bitte analysiere das Problem, finde die Ursache im Code und setze die Lösung um.
+> Du fungierst als Senior Full-Stack Entwickler. Unser Ziel ist es, in unserer Lernplattform "Sitov Academy" bestehende Bugs zu beheben und einige Logiken zu verifizieren. Du sollst den Weg zur Lösung selbstständig finden und keine vorgefertigten Implementierungsmuster verlangen. Bitte analysiere das Problem, finde die Ursache im Code und setze die Lösung um.
 > 
 > **Probleme & Anforderungen:**
 > 1. **Tablet-Bug im Vokabeltrainer:** Wenn Nutzer auf einem Tablet auf den Aussprache-Button klicken (um sich ein Wort akustisch anzuhören), wird fälschlicherweise die Karteikarte umgedreht. Auf dem Smartphone funktioniert die Audio-Wiedergabe problemlos. Finde die Ursache für dieses Tablet-spezifische Verhalten (z.B. Event-Bubbling, Touch-Events vs. Click-Events) und behebe es so, dass nur die Audio abgespielt wird.
@@ -57,8 +57,8 @@ Nach *jeder* abgeschlossenen Phase muss die KI aufgefordert werden, die getätig
 > **Anforderungen & Regeln:**
 > 1. **Struktur:** Das Niveau A1.2 ist in 7 Lektionen (Teil-Paths) unterteilt. Nach jedem Teil-Path muss ein Test absolviert werden, der zu mindestens 80% bestanden werden muss (die Logik hierfür ist von A1.1 bereits vorhanden und soll dynamisch adaptiert werden).
 > 2. **Didaktik & Copyright:** Es dürfen keine bloßen Kopien der Wörter und Sätze aus bestehenden Lehrbüchern verwendet werden. Du musst komplett eigene Formulierungen, Sätze und Aufgaben erstellen.
-> 3. **Ziele (WICHTIG):** Unter dem folgenden absoluten Pfad liegen Ordner ("A1.2 Lektion 1" bis "A1.2 Lektion 7"), welche Bilder mit den exakten Lernzielen der Lektionen enthalten: 
->    `/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/docs/Master-Prompt/LearningPath/`
+> 3. **Ziele (WICHTIG):** Im folgenden Verzeichnis, relativ zur Wurzel des lokalen Sitov-Academy-Repositorys, liegen Ordner ("A1.2 Lektion 1" bis "A1.2 Lektion 7"), welche Bilder mit den exakten Lernzielen der Lektionen enthalten:
+>    `docs/Master-Prompt/LearningPath/`
 >    Bitte analysiere diese Bilder (nutze Vision), extrahiere die Lernziele und sorge dafür, dass die von dir generierten Aufgaben und Seeds exakt diese Ziele abprüfen und trainieren.
 > 4. **Umsetzung:** Implementiere die neuen Seeds und verknüpfe sie korrekt mit der bestehenden Learning-Path-Logik. Finde selbst die optimale Datenstruktur.
 > 
@@ -66,7 +66,7 @@ Nach *jeder* abgeschlossenen Phase muss die KI aufgefordert werden, die getätig
 > Dokumentiere die erstellten Lerninhalte und die Struktur der Datenbank/Seeds für A1.2 in meinem Obsidian Vault.
 
 **Master-Prompt für Phase 4 (Niveau A2.1):**
-> *(Führe exakt den gleichen Prompt wie in Phase 3 durch, tausche dabei lediglich "A1.2" durch "A2.1" aus. Die Ziele für A2.1 befinden sich ebenfalls im Verzeichnis `/Users/denniskostjuk/Documents/SitovAcademy/SmartGerman/docs/Master-Prompt/LearningPath/`)*
+> *(Führe exakt den gleichen Prompt wie in Phase 3 durch, tausche dabei lediglich "A1.2" durch "A2.1" aus. Die Ziele für A2.1 befinden sich ebenfalls im Verzeichnis `docs/Master-Prompt/LearningPath/`, relativ zur Repository-Wurzel.)*
 
 ---
 
