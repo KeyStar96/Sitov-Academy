@@ -8,6 +8,8 @@
     "start": "next start",
     "lint": "eslint .",
     "test": "jest",
+    "build:path-seed": "node scripts/build-path-seed.mjs",
+    "test:path-seed": "node --test scripts/build-path-seed.test.mjs supabase/tests/path-level-seeds.test.mjs",
     "seed:learning-path": "ts-node --transpile-only --compiler-options '{\"module\":\"CommonJS\",\"moduleResolution\":\"node\"}' scripts/import_learning_path.ts",
     "test:db:monthly": "node --test supabase/tests/monthly-bookings.test.mjs",
     "test:db:profile": "node --test supabase/tests/profile-dashboard.test.mjs",
