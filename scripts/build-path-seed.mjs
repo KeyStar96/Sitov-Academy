@@ -45,7 +45,7 @@ async function main() {
   if (flags.includes('--check')) {
     const current = await readFile(seedFile(level), 'utf8').catch(() => null)
     if (current !== output) {
-      console.error(`${seedFile(level)} entspricht nicht den Quellen. Bitte ohne --check neu bauen.`)
+      console.error('Der gespeicherte Seed entspricht nicht den Quellen. Bitte ohne --check neu bauen.')
       process.exitCode = 1
       return
     }
@@ -58,7 +58,8 @@ async function main() {
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   main().catch(error => {
-    console.error(error instanceof SeedBuildError ? error.message : error)
+    if (error instanceof SeedBuildError) console.error('Seed-Validierung fehlgeschlagen. Bitte die lokalen Quelldateien prüfen.')
+    else console.error('Seed-Build fehlgeschlagen. Bitte Niveau und lokale Quelldateien prüfen.')
     process.exitCode = 1
   })
 }
