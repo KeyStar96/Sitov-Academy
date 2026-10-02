@@ -6,7 +6,7 @@ import { learningPathSeedSchema } from '@/lib/learning-path-schema'
 import { EXERCISE_TYPES } from '@/lib/types/exercise'
 
 /**
- * Lernpfade ab A1.2 (supabase/seeds/path-<niveau>.json). Die Seeds entstehen aus den
+ * Lernpfade ab A1.2 (supabase/seeds/path-<niveau>.json), derzeit A1.2 und A2.1. Die Seeds entstehen aus den
  * Quellen in supabase/seeds/path-src/<niveau>/ (scripts/build-path-seed.mjs) und müssen
  * denselben Vertrag erfüllen wie A1.1: Pfade → Lektionen mit Merkkarte → Wiederholung →
  * Test, jedes Lernziel geübt, wiederholt und geprüft, alles in fünf Sprachen.
@@ -43,6 +43,14 @@ const LEVELS: Record<string, LevelRules> = {
     // „Welcher Satz …?“ gehört seit A1.1 zur Aufgabensprache; neu sind in Pfad 6 dieser/dieses/diesen.
     { from: 6, words: ['dieser', 'dieses', 'diesen', 'besser', 'liebsten', 'meisten', 'mag', 'magst', 'mögt'] },
     { from: 7, words: ['werde', 'wirst', 'wird', 'werdet'] },
+  ] },
+  'A2.1': { later: [
+    { from: 2, words: ['hierhin', 'dahin', 'dorthin', 'rein', 'raus', 'rauf', 'runter', 'rüber'] },
+    { from: 3, words: ['eins', 'keins', 'meins'] },
+    { from: 4, words: ['wenn', 'sollte', 'solltest', 'solltet', 'sollten'] },
+    { from: 5, words: ['dafür', 'darauf', 'daran', 'darüber', 'damit', 'davon', 'wofür', 'worauf', 'woran', 'worüber', 'womit', 'wovon'] },
+    { from: 6, words: ['dass', 'musste', 'musstest', 'mussten', 'musstet', 'konnte', 'konntest', 'konnten', 'konntet',
+      'wollte', 'wolltest', 'wollten', 'wolltet', 'durfte', 'durftest', 'durften', 'durftet'] },
   ] },
 }
 const LOCALES: Locale[] = ['en', 'ru', 'uk', 'tr']

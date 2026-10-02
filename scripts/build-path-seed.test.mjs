@@ -1,12 +1,14 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { readFile } from 'node:fs/promises'
-import { buildSeed, seedFile } from './build-path-seed.mjs'
-import { buildLevelSeed, passesAsTypo, serializeSeed, SeedBuildError, stableId } from './lib/path-seed-builder.mjs'
+import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
+import { tmpdir } from 'node:os'
+import { join } from 'node:path'
+import { buildSeed, formatBuildError, run, seedFile } from './build-path-seed.mjs'
+import { answerKey, buildLevelSeed, RULES, serializeSeed, SeedBuildError, stableId } from './lib/path-seed-builder.mjs'
 import { I, asChoice, gap, mc, sb } from '../supabase/seeds/path-src/shared.mjs'
 
 // Levels whose seed is generated from supabase/seeds/path-src/<level>/.
-const LEVELS = ['A1.2']
+const LEVELS = ['A1.2', 'A2.1']
 const four = text => [`${text} en`, `${text} ру`, `${text} ук`, `${text} tr`]
 
 /** The smallest valid path: one lesson with five tasks, a review and a test pool of 24. */
@@ -86,22 +88,106 @@ await test('builder: refuses content that breaks the path rules', () => {
   has(source => { source.nodes[0].ex[0] = gap('G1', 'sein', I.verb, 'Wir ', ' hier.', 'sind', ['seid', 'ist'], four('We are here.'), 'sind') }, /Der Hinweis nennt die Lösung/)
   has(source => { source.nodes[0].ex[0] = sb('G1', 'Satz', I.order, 'Ich / bin / hier.', four('I am here.'), { alt: ['Hier bist du.'] }) }, /benutzt andere Wörter/)
   has(source => { source.nodes[0].ex[0].c = 'unbekannt' }, /Merkkarte unbekannt fehlt/)
-  has(source => { source.nodes[2].ex[0] = gap('G1', 'Dativ', I.article, 'seit ', ' Jahr', 'einem', ['einen', 'einer'], four('for a year'), 'ein') }, /gälte als Tippfehler/)
+  // A "wrong" form that grading cannot tell from the solution (case, punctuation, ae/oe/ue/ss).
+  has(source => { source.nodes[0].ex[0] = gap('G1', 'Maß', I.word, 'Die ', ' stimmen.', 'Maße', ['Masse', 'Messe'], four('The measurements are right.'), four('measurements')) }, /„Masse“ ist nur eine andere Schreibweise der Lösung „Maße“/)
+  has(source => { source.nodes[0].ex[0] = gap('G1', 'Anrede', I.pronoun, 'Wie heißen ', '?', 'Sie', ['sie.', 'du'], four('What is your name?'), four('you (formal)')) }, /„sie\.“ ist nur eine andere Schreibweise/)
+  // Near-identical wrong forms are welcome in every node: grading never forgives them (migration 58).
+  assert.deepEqual(problems(source => { source.nodes[2].ex[0] = gap('G1', 'Dativ', I.article, 'seit ', ' Jahr', 'einem', ['einen', 'einer'], four('for a year'), 'ein') }), [])
 })
 
-await test('builder: asChoice asks for near-identical forms by choice instead of typing', () => {
+await test('builder: every violation names its rule, its task and its source line', () => {
+  let error
+  try {
+    buildLevelSeed(minimal(source => {
+      source.nodes[0].ex[0] = gap('G1', 'sein', I.verb, 'Ich ', ' hier.', 'bin', ['bist', 'ist'], four('I am here.'))
+      source.nodes[0].card.examples = ['Eins.']
+      source.objectives.K1 = 'Ungeübtes Ziel.'
+    }))
+  } catch (caught) { error = caught }
+  assert.ok(error instanceof SeedBuildError)
+  assert.equal(error.details.length, error.problems.length)
+  for (const detail of error.details) assert.ok(RULES[detail.rule], detail.rule)
+  const hint = error.details.find(detail => detail.rule === 'gap-hint')
+  // Gaps follow the choices of a lesson: the seed reference is its position after sorting.
+  assert.equal(hint.where, 'P1-N1-E05')
+  assert.equal(hint.message, 'Lücke ohne Hinweis (Grundform oder Bedeutung)')
+  assert.equal(hint.task, 'Lücke: Ich ___ hier. → bin')
+  assert.equal(hint.node, 'Lektion 1 „Lektion“')
+  assert.equal(hint.origin.file, import.meta.url)
+  assert.ok(hint.origin.line > 0)
+  assert.deepEqual(error.details.filter(detail => detail.rule === 'card').map(detail => [detail.where, detail.message, detail.part, detail.needle]),
+    [['P1 c1', '2 bis 4 Beispiele erwartet (1)', 'lessons', 'c1']])
+  assert.deepEqual(error.details.filter(detail => detail.rule === 'goal-coverage').map(detail => [detail.where, detail.part]),
+    [['P1-K1', 'lessons'], ['P1-K1', 'check'], ['P1-K1', 'check']])
+})
+
+await test('command line: a failed build reports rule, source file and line of every violation', async () => {
+  const sources = await mkdtemp(join(tmpdir(), 'sitov-path-src-'))
+  const shared = new URL('../supabase/seeds/path-src/shared.mjs', import.meta.url).href
+  const translations = text => JSON.stringify(four(text))
+  try {
+    await writeFile(join(sources, 'p1.mjs'), [
+      `import { I, gap, mc } from '${shared}'`,
+      `const task = index => mc('G1', 'Form', I.choose, 'Frage ' + index + '?', ['richtig', 'falsch', 'anders'], ${translations('question')}.map(text => text + index))`,
+      'export default { n: 1, slug: \'probe\', title: \'Probe\', t: ' + translations('Sample') + ',',
+      '  objectives: {',
+      '    G1: \'Eine Form wählen.\',',
+      '    K1: \'Ungeübtes Ziel.\',',
+      '  },',
+      '  nodes: [{ title: \'Formen\', t: ' + translations('Forms') + ',',
+      '    card: { id: \'c1\', rule: \'Regel.\', examples: [\'Eins.\', \'Zwei.\'], highlight: null, t: ' + translations('Rule.') + ', hint: [\'Tipp.\', \'Tip en.\', \'Совет.\', \'Порада.\', \'Tip tr.\'] },',
+      '    ex: [task(1), task(2), task(3), task(4),',
+      '      gap(\'G1\', \'sein\', I.verb, \'Ich \', \' hier.\', \'bin\', [\'bist\', \'ist\'], [\'I am here.\', \'I am here.\', \'Я тут.\', \'Buradayım.\']),',
+      '    ] }],',
+      '}', ''].join('\n'))
+    await writeFile(join(sources, 'p1-check.mjs'), [
+      `import { I, mc } from '${shared}'`,
+      `const task = index => mc('G1', 'Form', I.choose, 'Frage ' + index + '?', ['richtig', 'falsch', 'anders'], ${translations('question')}.map(text => text + index))`,
+      'export default {',
+      '  review: [task(6)],',
+      '  size: 12,',
+      '  test: Array.from({ length: 20 }, (_, index) => task(index + 7)),',
+      '}', ''].join('\n'))
+    await writeFile(join(sources, 'index.mjs'), [
+      "import p1 from './p1.mjs'", "import check from './p1-check.mjs'",
+      "export default [{ ...p1, nodes: [...p1.nodes, { kind: 'review', ex: check.review }, { kind: 'test', size: check.size, ex: check.test }] }]", ''].join('\n'))
+    const output = { errors: [], logs: [], error(text) { this.errors.push(text) }, log(text) { this.logs.push(text) } }
+    assert.equal(await run(['A1.2'], output, { sources, output: join(sources, 'seed.json') }), 1)
+    assert.deepEqual(output.logs, [])
+    const report = output.errors.join('\n')
+    const block = rule => report.split('\n\n').filter(part => part.includes(`Regel „${rule}“`))
+    assert.match(report, /^Seed-Validierung fehlgeschlagen: A1\.2 – 6 Regelverstöße\n/)
+    // The gap: no hint, and its Russian translation is still English. Both point to line 11 of p1.mjs.
+    for (const [rule, where, message] of [['gap-hint', 'P1-N1-E05', 'Lücke ohne Hinweis (Grundform oder Bedeutung)'], ['script', 'P1-N1-E05.task.ru', 'falsche Schrift („I am here.“)']]) {
+      const [text] = block(rule)
+      assert.ok(text.includes(`${where} · Regel „${rule}“\n   Verstoß: ${message}\n`), text)
+      assert.ok(text.includes('p1.mjs:11\n   Knoten:  Lektion 1 „Formen“\n   Aufgabe: Lücke: Ich ___ hier. → bin'), text)
+    }
+    // Goal K1 is declared in line 6 of p1.mjs; review and test live in p1-check.mjs.
+    assert.deepEqual(block('goal-coverage').map(text => text.match(/Quelle: +\S*?(p1[\w-]*\.mjs:\d+)/)[1]), ['p1.mjs:6', 'p1-check.mjs:4', 'p1-check.mjs:6'])
+    assert.ok(block('test-size')[0].includes('Testpool 20 kleiner als das Doppelte der Testgröße 12'))
+    assert.match(block('test-size')[0], /p1-check\.mjs:5\n   Knoten:  Test/)
+    assert.match(report, /Verletzte Regeln:\n(  [\w-]+ \(\d+×\): .+\n?)+$/)
+    assert.ok(report.includes(`  gap-hint (1×): ${RULES['gap-hint']}`))
+
+    // A defect in a source file is no content rule: the report shows the original error and its place.
+    await mkdir(join(sources, 'broken'))
+    await writeFile(join(sources, 'broken', 'index.mjs'), 'export default undefinedPaths\n')
+    const broken = { errors: [], error(text) { this.errors.push(text) }, log() {} }
+    assert.equal(await run(['B1.2'], broken, { sources: join(sources, 'broken'), output: join(sources, 'seed.json') }), 1)
+    assert.match(broken.errors.join('\n'), /^Seed-Build fehlgeschlagen: B1\.2\nReferenceError: undefinedPaths is not defined\n\s+at .*index\.mjs:1:\d+/)
+    assert.match(formatBuildError(new SeedBuildError([{ rule: 'schema', where: 'A1.2', message: 'kaputt' }]), 'A1.2', { sources }), /1 Regelverstoß\n\n1\) A1\.2 · Regel „schema“\n   Verstoß: kaputt\n   Quelle: .*index\.mjs/)
+  } finally { await rm(sources, { recursive: true, force: true }) }
+})
+
+await test('builder: asChoice turns a gap into a choice between the same forms', () => {
   const choice = asChoice(gap('G1', 'Dativ', I.article, 'seit ', ' Jahr', 'einem', ['einen', 'einer'], four('for a year'), 'ein', { h: 'dative' }))
   assert.deepEqual({ type: choice.type, question: choice.question, options: choice.options, h: choice.h },
     { type: 'mc', question: 'seit … Jahr', options: ['einem', 'einen', 'einer'], h: 'dative' })
   assert.deepEqual(problems(source => { source.nodes[2].ex[0] = choice; source.nodes[0].card.hints = { dative: ['Dativ.', 'Dative.', 'Датив.', 'Датів.', 'Dativ tr.'] } }), [])
 })
 
-await test('typo mirror: agrees with learning_private.grade_answer on what passes as a typing error', () => {
-  for (const [typed, accepted, expected] of [
-    ['einer', ['einem'], true], ['hilfst', ['hilft'], true], ['Kochin', ['Köchin'], true], ['Koechin', ['Köchin'], true],
-    ['Sehr geehrte', ['Lieber', 'Sehr geehrter'], true], ['zwanzigte', ['zwanzigste'], true],
-    // Words under four letters stay exact: articles, pronouns, prepositions.
-    ['den', ['dem'], false], ['ihm', ['ihn'], false], ['muss', ['musst'], true], ['sei', ['seid'], false],
-    ['vor', ['seit'], false], ['werden', ['wird'], false], ['zwanzig', ['zwanzigste'], false], ['einem', ['einem'], true],
-  ]) assert.equal(passesAsTypo(typed, accepted), expected, `${typed} → ${accepted.join('/')}`)
+await test('answer key: the same word to grading despite case, punctuation and spelled-out umlauts', () => {
+  for (const [left, right, same] of [['Maße', 'masse', true], ['Sie', 'sie.', true], ['fährt', 'Faehrt!', true], ['„Guten Tag“', 'guten  tag', true],
+    ['fährt', 'fahrt', false], ['einem', 'einen', false], ['das Haus', 'Haus', false]]) assert.equal(answerKey(left) === answerKey(right), same, `${left} / ${right}`)
 })

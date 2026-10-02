@@ -12,9 +12,9 @@ export const currentMigrations = [
   '52_independent_trainer_analytics.sql', '53_course_cancellation_billing.sql',
 ]
 
-export const currentFeatureMigrations = ['54_learning_progress_focus.sql', '55_preserve_course_outages_focus_access.sql', '56_answer_typographic_punctuation.sql', '57_pronunciation_moderation_profile_deletion.sql']
+export const currentFeatureMigrations = ['54_learning_progress_focus.sql', '55_preserve_course_outages_focus_access.sql', '56_answer_typographic_punctuation.sql', '57_pronunciation_moderation_profile_deletion.sql', '58_path_authored_wrong_forms.sql']
 
-/** Isolated PGlite database at the reviewed application schema (01 … 57).
+/** Isolated PGlite database at the reviewed application schema (01 … 58).
  * `beforeLatest` installs fixtures that must exist before the migration under
  * test, e.g. to prove that a backfill preserves and reads live-like rows.
  */

@@ -7,7 +7,7 @@ import { createCurrentDatabase, actor, student, result } from './helpers/current
 // The learning path logic (serial unlocking, test sample, 80 % rule, task translation) is
 // level-independent SQL. These seeds must run through it unchanged: imported by the same
 // service RPC as A1.1, played in every interface language and passed from 80 %.
-const LEVELS = [{ level: 'A1.2', cefr: 'A1', order: 2 }]
+const LEVELS = [{ level: 'A1.2', cefr: 'A1', order: 2 }, { level: 'A2.1', cefr: 'A2', order: 3 }]
 const LOCALES = ['en', 'ru', 'uk', 'tr']
 const CYRILLIC = /[Ѐ-ӿ]/
 const call = (db, fn, params = []) => result(db, `SELECT ${fn} result`, params)
@@ -127,12 +127,12 @@ for (const { level, cefr, order } of LEVELS) {
         }
       })
 
-      await t.test('no test gap lets an authored wrong form pass as a typing error', async () => {
-        // grade_answer forgives one wrong letter in words of four letters and more. A test decides
-        // about unlocking, so its pool asks for near-identical forms (einem/einer) by choice only.
+      await t.test('no gap lets a stored wrong form pass as a typing error', async () => {
+        // grade_answer forgives one wrong letter in words of four letters and more; the stored wrong
+        // forms of a gap (einem/einer) are exempt from that in lessons, reviews and tests (58).
         await db.exec('RESET ROLE')
         const leaks = []
-        for (const task of seed.flatMap(path => path.nodes.filter(node => node.kind === 'test').flatMap(node => node.exercises))) {
+        for (const task of source.values()) {
           if (task.exercise_type !== 'fill_in_blank') continue
           for (const wrong of task.content.options.filter(option => !task.content.accepted_answers.includes(option))) {
             const grade = await call(db, 'path_private.grade($1::exercise_type,$2::jsonb,$3::jsonb)',

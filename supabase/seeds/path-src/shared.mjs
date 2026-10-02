@@ -3,8 +3,18 @@
  * Translations are always written in the order [en, ru, uk, tr].
  */
 
+/**
+ * Remembers where a task was written (file and line of its mc()/gap()/sb() call), so that the
+ * build can point to the exact source line of a rule violation. Not part of the seed.
+ */
+function located(task) {
+  const frame = (new Error().stack ?? '').split('\n').slice(1)
+    .map(line => line.match(/(file:\/\/[^\s)]+):(\d+):\d+\)?$/)).find(match => match && match[1] !== import.meta.url)
+  return Object.defineProperty(task, 'origin', { value: frame ? { file: frame[1], line: Number(frame[2]) } : null, enumerable: false })
+}
+
 /** Multiple choice. `options[0]` is the solution; the build shuffles the order. */
-export const mc = (goal, target, instr, question, options, tr, extra = {}) => ({ type: 'mc', goal, target, instr, question, options, tr, ...extra })
+export const mc = (goal, target, instr, question, options, tr, extra = {}) => located({ type: 'mc', goal, target, instr, question, options, tr, ...extra })
 
 /**
  * Gap. `answer`: string or [solution, ...also accepted]. `distractors`: two wrong forms.
@@ -12,18 +22,18 @@ export const mc = (goal, target, instr, question, options, tr, extra = {}) => ({
  * word (string) – or its meaning in [en, ru, uk, tr] where the base form would be the answer.
  */
 export const gap = (goal, target, instr, before, after, answer, distractors, tr, hint, extra = {}) =>
-  ({ type: 'gap', goal, target, instr, before, after, answers: [answer].flat(), distractors, tr, gapHint: hint, ...extra })
+  located({ type: 'gap', goal, target, instr, before, after, answers: [answer].flat(), distractors, tr, gapHint: hint, ...extra })
 
 /**
  * Turns a gap into a choice between the same forms: "Sie wohnt seit … Monat in Leipzig."
- * Typed answers tolerate one wrong letter, so a test asks for near-identical forms
- * (einem / einen / einer) by choice; the build enforces this in test pools.
+ * Useful where recognising the form is the aim. Typed gaps are safe as well: grading never
+ * forgives a stored wrong form as a typing error (migration 58).
  */
 export const asChoice = ({ goal, target, before, after, answers, distractors, tr, c, h }) =>
   mc(goal, target, I.choose, `${before}…${after}`, [answers[0], ...distractors], tr, { ...(c ? { c } : {}), ...(h ? { h } : {}) })
 
 /** Word order. `sentence`: the solution, parts separated by " / ". `extra.alt`: other correct orders. */
-export const sb = (goal, target, instr, sentence, tr, extra = {}) => ({ type: 'sb', goal, target, instr, sentence, tr, ...extra })
+export const sb = (goal, target, instr, sentence, tr, extra = {}) => located({ type: 'sb', goal, target, instr, sentence, tr, ...extra })
 
 const i = (de, ...t) => ({ de, t })
 
@@ -54,6 +64,12 @@ export const I = {
   polite: i('Ergänze die höfliche Form.', 'Fill in the polite form.', 'Вставьте вежливую форму.', 'Вставте ввічливу форму.', 'Kibar biçimi yazın.'),
   comparison: i('Ergänze die richtige Vergleichsform.', 'Fill in the correct comparative form.', 'Вставьте правильную степень сравнения.', 'Вставте правильний ступінь порівняння.', 'Doğru karşılaştırma biçimini yazın.'),
   ordinal: i('Schreib das Datum als Wort.', 'Write the date as a word.', 'Напишите дату словом.', 'Напишіть дату словом.', 'Tarihi yazıyla yazın.'),
+  participle: i('Ergänze das Partizip.', 'Fill in the past participle.', 'Вставьте причастие (Partizip II).', 'Вставте дієприкметник (Partizip II).', 'Partizip II biçimini yazın.'),
+  auxiliary: i('Ergänze haben oder sein in der richtigen Form.', 'Fill in haben or sein in the correct form.', 'Вставьте haben или sein в правильной форме.', 'Вставте haben або sein у правильній формі.', 'Haben ya da sein fiilini doğru biçimde yazın.'),
+  reflexive: i('Ergänze das Reflexivpronomen.', 'Fill in the reflexive pronoun.', 'Вставьте возвратное местоимение.', 'Вставте зворотний займенник.', 'Dönüşlü zamiri yazın.'),
+  modalPast: i('Ergänze das Modalverb im Präteritum.', 'Fill in the modal verb in the past tense (Präteritum).', 'Вставьте модальный глагол в прошедшем времени (Präteritum).', 'Вставте модальне дієслово в минулому часі (Präteritum).', 'Kip fiilini geçmiş zamanda (Präteritum) yazın.'),
+  adverb: i('Ergänze das passende Adverb.', 'Fill in the correct adverb.', 'Вставьте подходящее наречие.', 'Вставте відповідний прислівник.', 'Uygun zarfı yazın.'),
+  ending: i('Ergänze das Wort mit der richtigen Endung.', 'Fill in the word with the correct ending.', 'Вставьте слово с правильным окончанием.', 'Вставте слово з правильним закінченням.', 'Kelimeyi doğru ekle yazın.'),
   conjunction: i('Ergänze die passende Konjunktion.', 'Fill in the correct conjunction.', 'Вставьте подходящий союз.', 'Вставте відповідний сполучник.', 'Uygun bağlacı yazın.'),
 
   order: i('Bring die Wörter in die richtige Reihenfolge.', 'Put the words in the correct order.', 'Расставьте слова в правильном порядке.', 'Розставте слова в правильному порядку.', 'Kelimeleri doğru sıraya koyun.'),
