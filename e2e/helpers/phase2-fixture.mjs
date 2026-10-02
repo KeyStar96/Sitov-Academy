@@ -49,6 +49,10 @@ const tables = {
 
 const rpcs = {
   claim_verified_person: { id: null, unresolved: false },
+  get_learning_new_counts: { success: true, levels: {}, any: false, visited: [] },
+  get_learning_new_items: { success: true, items: {}, lessons: {} },
+  get_vocabulary_carryover: { success: true, targetLevel: 'A1.1', enabled: false,
+    decidedAt: null, startedAt: null, promptRequired: false, cards: [] },
   get_last_active_level: { level: 'A1.1', mode: 'vocabulary', source: 'activity',
     levels: [{ level: 'A1.1', mode: 'vocabulary', at: '2026-09-24T18:00:00Z', unit_label: 'Lektion 1', topic: null }] },
 }
