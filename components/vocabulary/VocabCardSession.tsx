@@ -361,7 +361,8 @@ export default function VocabCardSession({ learnerId, level, cards, translations
   }
 
   function onCardClick(event: React.MouseEvent<HTMLElement>) {
-    if ((event.target as HTMLElement).closest('button, a, input, textarea, select')) return
+    if (!(event.target instanceof Element)
+      || event.target.closest('button, a, input, textarea, select, label, audio, [data-card-interactive]')) return
     // Markierter Text ist kein Tipp zum Umdrehen.
     if (window.getSelection?.()?.toString()) return
     turnCard()

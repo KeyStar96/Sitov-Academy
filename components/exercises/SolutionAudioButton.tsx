@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState, type SyntheticEvent } from 'react'
 import { Loader2, Pause, Volume2 } from 'lucide-react'
 import { useAudioFeedback } from '@/components/layout/RouteFeedbackProvider'
 import { cachedNeuralAudio, cachedNeuralWordTimings, invalidateNeuralAudio, neuralAudioKey, resolveNeuralAudio, type NeuralAudioSource } from '@/lib/audio/neural-client'
@@ -30,6 +30,12 @@ interface SolutionAudioButtonProps {
 const SILENT_AUDIO = 'data:audio/wav;base64,UklGRnQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YVAAAACAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgA=='
 let activePlayer: { element: HTMLAudioElement; cancel: () => void } | null = null
 
+function stopCardInteraction(event: SyntheticEvent) {
+  // The whole audio area owns its taps, including labels, gaps and native
+  // media controls. Keep native playback/select defaults and gesture activation.
+  event.stopPropagation()
+}
+
 export default function SolutionAudioButton(props: SolutionAudioButtonProps) {
   const copy = useAudioFeedback()
   const [rate, setManualRate] = usePlaybackRate(props.level)
@@ -38,7 +44,9 @@ export default function SolutionAudioButton(props: SolutionAudioButtonProps) {
   const source = { text: props.text, cardId: props.cardId, language,
     audioUrl: recording,
     aligned: Boolean(props.onWordChange && !recording) }
-  return <div className="flex min-w-0 flex-wrap items-center justify-center gap-2">
+  return <div className="flex min-w-0 flex-wrap items-center justify-center gap-2" data-card-interactive
+    onClick={stopCardInteraction} onPointerDown={stopCardInteraction} onPointerUp={stopCardInteraction}
+    onTouchStart={stopCardInteraction} onTouchEnd={stopCardInteraction} onKeyDown={stopCardInteraction}>
     <NeuralAudioPlayer key={neuralAudioKey(source)} {...props} {...source} rate={rate} onSlowReplay={() => setManualRate(0.75)} />
     <div className="flex max-w-full flex-wrap justify-center gap-2">
       <label className="flex items-center gap-2 text-sm font-semibold text-[var(--muted)]">

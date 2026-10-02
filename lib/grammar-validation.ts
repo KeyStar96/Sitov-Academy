@@ -1,6 +1,5 @@
 import { z } from 'zod'
 import { ACCESS_LEVELS } from '@/lib/access/levels'
-import type { Database } from '@/supabase/database.types'
 import type { AnswerGrade, SoftErrorReason } from '@/lib/answer-grading'
 
 const answer = z.string().trim().min(1).max(1000)
@@ -80,9 +79,20 @@ export type ValidationResult = AnswerGrade
 
 const normalizeSpacing = (value: string) => value.normalize('NFC')
   .replace(/[’‘ʼ＇]/g, "'").replace(/[„“”«»＂]/g, '"').replace(/[‐‑‒–—−﹘－]/g, '-')
+  // Mobile keyboards can emit full-width or localized sentence punctuation.
+  // Normalize it before stripping punctuation so decimal separators stay intact.
+  .replace(/[，﹐､、]/g, ',').replace(/[．﹒｡。]/g, '.')
+  .replace(/[：﹕]/g, ':').replace(/[；﹔]/g, ';')
+  .replace(/[？﹖]/g, '?').replace(/[！﹗]/g, '!')
+  .replace(/（/g, '(').replace(/）/g, ')').replace(/［/g, '[').replace(/］/g, ']')
+  .replace(/｛/g, '{').replace(/｝/g, '}')
   .trim().replace(/\s+/g, ' ')
-const withoutPunctuation = (value: string) => normalizeSpacing(value.replace(/(?<![0-9])[.,]|[.,](?![0-9])|[!?;:'"()\[\]{}…]|(?<![0-9])-(?![0-9])/gu, ''))
+const withoutPunctuation = (value: string) => normalizeSpacing(normalizeSpacing(value)
+  .replace(/(?<![0-9])[.,:]|[.,:](?![0-9])|[!?¡¿;'"()\[\]{}…]|(?<![0-9])-(?![0-9])/gu, ''))
 const foldCase = (value: string) => value.toLocaleLowerCase('de-DE')
+// German all-caps spelling permits SS for ß. Keep lower-case ss as umlaut feedback.
+const matchesCaseOnly = (input: string, accepted: string) => foldCase(input) === foldCase(accepted)
+  || input === accepted.toLocaleUpperCase('de-DE').replace(/[ßẞ]/g, 'SS')
 const expandUmlauts = (value: string) => value.replace(/[äöüßÄÖÜẞ]/g, letter => ({
   ä: 'ae', ö: 'oe', ü: 'ue', ß: 'ss', Ä: 'Ae', Ö: 'Oe', Ü: 'Ue', ẞ: 'SS',
 })[letter]!)
@@ -132,9 +142,9 @@ export function validateUserAnswer(userAnswer: string, acceptedAnswers: string[]
   const exact = candidates.find(answer => answer.normalized === input)
   if (exact) return { status: 'EXACT', matched: exact.matched, reason: null, hint: null }
   const normalized = foldCase(withoutPunctuation(input))
-  const neutral = candidates.find(answer => normalized === foldCase(withoutPunctuation(answer.normalized)))
+  const neutral = candidates.find(answer => matchesCaseOnly(withoutPunctuation(input), withoutPunctuation(answer.normalized)))
   if (neutral) return { status: 'EXACT', matched: neutral.matched, reason: null,
-    hint: foldCase(input) === foldCase(neutral.normalized) ? 'capitalization'
+    hint: matchesCaseOnly(input, neutral.normalized) ? 'capitalization'
       : withoutPunctuation(input) === withoutPunctuation(neutral.normalized) ? 'punctuation' : 'capitalization_punctuation' }
   const rules: Array<[SoftErrorReason, (left: string, right: string) => boolean]> = [
     ['umlaut', (left, right) => expandUmlauts(left) === expandUmlauts(right)],

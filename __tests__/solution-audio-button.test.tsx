@@ -1,4 +1,4 @@
-import { act, fireEvent, render, screen, waitFor } from '@testing-library/react'
+import { act, createEvent, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import SolutionAudioButton from '@/components/exercises/SolutionAudioButton'
 import { generateAudio } from '@/app/actions/generate-audio'
 import type { GenerateAudioResult } from '@/lib/types/audio'
@@ -35,6 +35,22 @@ beforeEach(() => {
   jest.mocked(generateAudio).mockResolvedValue({ success: true, audioUrl: 'https://media.example.com/generated.mp3', cached: true })
 })
 afterEach(() => jest.restoreAllMocks())
+
+it.each(['click', 'pointerDown', 'pointerUp', 'touchStart', 'touchEnd', 'keyDown'] as const)(
+  'owns the complete audio-area %s interaction without cancelling native defaults', eventType => {
+    const bubbled = jest.fn()
+    render(<article onClick={bubbled} onPointerDown={bubbled} onPointerUp={bubbled}
+      onTouchStart={bubbled} onTouchEnd={bubbled} onKeyDown={bubbled}>
+      <SolutionAudioButton {...props()} audioUrl="https://media.example.com/interaction.mp3" />
+    </article>)
+    const label = screen.getByText(dictionary.neural_audio.speed)
+    const event = createEvent[eventType](label, { bubbles: true, cancelable: true, key: 'Enter', pointerType: 'touch' })
+    fireEvent(label, event)
+    expect(bubbled).not.toHaveBeenCalled()
+    expect(event.defaultPrevented).toBe(false)
+    expect(HTMLMediaElement.prototype.play).not.toHaveBeenCalled()
+  },
+)
 
 it('plays an existing MP3 synchronously during the click gesture', () => {
   const input = props()

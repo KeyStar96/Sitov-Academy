@@ -28,10 +28,18 @@ it.each([
 
 it.each([
   ['ich heiße anna', 'EXACT', null, 'capitalization_punctuation'],
+  ['ICH HEISSE ANNA.', 'EXACT', null, 'capitalization'],
+  ['ICH HEISSE ANNA', 'EXACT', null, 'capitalization_punctuation'],
   ['Ich heisse Anna', 'SOFT_ERROR', 'umlaut', null],
   ['ich heise anna', 'SOFT_ERROR', 'typo', null],
 ] as const)('previews combined spelling differences: %s', (input, status, reason, hint) => {
   expect(validateUserAnswer(input, ['Ich heiße Anna.'])).toEqual({ status, reason, hint, matched: 'Ich heiße Anna.' })
+})
+it('accepts German uppercase SS while retaining feedback for lower-case ss', () => {
+  expect(validateUserAnswer('STRASSE', ['Straße'])).toMatchObject({ status: 'EXACT', reason: null, hint: 'capitalization' })
+  expect(validateUserAnswer('STRAẞE', ['Straße'])).toMatchObject({ status: 'EXACT', reason: null, hint: 'capitalization' })
+  expect(validateUserAnswer('STRASSE', ['STRAẞE'])).toMatchObject({ status: 'EXACT', reason: null, hint: 'capitalization' })
+  for (const input of ['strasse', 'StraSSe']) expect(validateUserAnswer(input, ['Straße'])).toMatchObject({ status: 'SOFT_ERROR', reason: 'umlaut' })
 })
 it('keeps authored distractors incorrect, but accepts an explicitly accepted option', () => {
   expect(validateUserAnswer('arbeiten', ['arbeitet'], ['arbeiten'])).toMatchObject({ status: 'INCORRECT' })
@@ -41,11 +49,24 @@ it('normalizes typographic apostrophes, quotes, dashes and spacing without a hin
   expect(validateUserAnswer('  „Wie   geht’s?“ — gut  ', ['"Wie geht\'s?" - gut'])).toEqual({ status: 'EXACT', matched: '"Wie geht\'s?" - gut', reason: null, hint: null })
 })
 
+it.each([
+  ['guten morgen！', 'Guten Morgen.', 'capitalization_punctuation'],
+  ['¿Wie geht es dir?', 'Wie geht es dir?', 'punctuation'],
+  ['¡Hallo!', 'Hallo!', 'punctuation'],
+  ['Ich lerne Deutsch。', 'Ich lerne Deutsch.', null],
+  ['（Hallo）', 'Hallo', 'punctuation'],
+  ['2，50 €', '2,50 €', null],
+  ['12：30', '12:30', null],
+] as const)('accepts mobile keyboard punctuation without a penalty: %s', (input, target, hint) => {
+  expect(validateUserAnswer(input, [target])).toEqual({ status: 'EXACT', matched: target, reason: null, hint })
+})
+
 it('keeps an exact distractor incorrect even if typography matches an accepted answer', () => {
   expect(validateUserAnswer("Wie geht’s?", ["Wie geht's?"], ["Wie geht’s?"])).toEqual({ status: 'INCORRECT', matched: null, reason: null, hint: null })
 })
 it.each([
   ['2,50 €', '250 €'], ['50 %', '50'], ['50 €', '50'], ['50 + 2', '50 2'], ['Hauss €', 'Haus'],
+  ['2，50 €', '250 €'], ['2．50 €', '250 €'], ['1230', '12:30'],
 ])('keeps numeric separators and content symbols meaningful: %s / %s', (input, target) => {
   expect(validateUserAnswer(input, [target])).toMatchObject({ status: 'INCORRECT' })
 })
