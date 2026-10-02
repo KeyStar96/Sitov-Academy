@@ -76,12 +76,12 @@ Nach *jeder* abgeschlossenen Phase muss die KI aufgefordert werden, die getätig
 
 **Master-Prompt für Phase 5:**
 > **Kontext & Ziel:**
-> Alle Phasen (Bugfixes, Teacher Dashboard und neue Learning Paths A1.2 & A2.1) sind erfolgreich abgeschlossen und im Obsidian Vault dokumentiert. Nun muss der aktuelle Stand live gehen.
+> Die Phasen 1, 2 und 3 (Bugfixes, Teacher Dashboard und Learning Path A1.2) sind erfolgreich abgeschlossen. Phase 4 (A2.1) wird auf später verschoben. Dieser aktuelle Zwischenstand (ohne A2.1) soll nun live gehen.
 > 
 > **Aufgabe:**
 > 1. Überprüfe, ob alle Tests (falls vorhanden) grün sind und das Projekt fehlerfrei gebaut (gebuildet) werden kann.
-> 2. Führe den Git Commit und Push auf den Main-Branch durch. Bitte formuliere eine umfassende und professionelle Commit-Message, die alle Phasen zusammenfasst.
+> 2. Führe einen Git Commit und Push auf den Main-Branch durch, falls noch ungespeicherte Änderungen vorliegen. Bitte formuliere eine umfassende Commit-Message, die die Phasen 1 bis 3 zusammenfasst.
 > 3. Führe das Deployment auf unserem VPS durch. (Finde den besten Weg für unser Setup, z.B. per SSH verbinden, pullen, Container neu starten oder Build-Prozess triggern).
 > 
 > **Abschluss:**
-> Aktualisiere das Obsidian Vault ein letztes Mal mit dem Deployment-Log und dem Release-Datum.
+> Aktualisiere das Obsidian Vault ein letztes Mal mit dem Deployment-Log und dem Datum für dieses Zwischen-Release.
