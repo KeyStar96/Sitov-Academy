@@ -1,0 +1,123 @@
+.sitovStage { min-width: 0; height: 100%; }
+
+/* Light follows the mouse, while the miniatures also work on a touch screen. */
+.sitovAtmosphere { position: absolute; z-index: -1; inset: 0; overflow: hidden; border-radius: inherit; pointer-events: none; }
+.sitovPointerLight { position: absolute; inset: 0; opacity: 0; background: radial-gradient(18rem circle at var(--sitov-light-x, 65%) var(--sitov-light-y, 20%), color-mix(in srgb, var(--sitov-tone) 15%, transparent), transparent 70%); transition: opacity .35s ease; }
+[data-sitov-pointer='true'] > .sitovAtmosphere .sitovPointerLight, .sitovLevel:focus-visible .sitovPointerLight, .sitovSupport:focus-within .sitovPointerLight { opacity: 1; }
+.sitovRim { position: absolute; inset: 0; overflow: hidden; border-radius: inherit; padding: 1.5px; background: color-mix(in srgb, var(--sitov-tone) 22%, transparent); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask-composite: exclude; }
+.sitovRim::before { content: ''; position: absolute; top: 50%; left: 50%; width: 260%; aspect-ratio: 1; margin: -130% 0 0 -130%; background: conic-gradient(transparent 0turn .66turn, color-mix(in srgb, var(--sitov-tone) 25%, transparent) .76turn, var(--sitov-tone) .85turn, transparent .95turn); animation: sitov-rim-turn 14s linear infinite; }
+
+/* The first step is already beautiful at 0%; the graphic is not a data chart. */
+.sitovLevel[data-sitov-surface] { --sitov-level-tone: var(--accent-text); --sitov-tone: var(--sitov-level-tone); isolation: isolate; display: flex; width: 100%; height: 100%; min-height: 18rem; padding: 1.125rem; border: 1px solid color-mix(in srgb, var(--sitov-level-tone) 30%, var(--border)); border-radius: 1.6rem; background: linear-gradient(135deg, color-mix(in srgb, var(--sitov-level-tone) 7%, var(--surface)), var(--surface) 55%); box-shadow: inset 0 2px 0 color-mix(in srgb, var(--sitov-level-tone) 70%, transparent), var(--shadow-sm); transition: border-color .25s ease, box-shadow .25s ease, transform .2s ease; }
+.sitovLevel[data-level='1'] { --sitov-level-tone: var(--mode-path-text); }
+.sitovLevel[data-level='2'] { --sitov-level-tone: var(--mode-media-text); }
+.sitovLevelCrown { position: relative; display: grid; grid-template-columns: minmax(4.5rem, .55fr) minmax(0, 1fr); align-items: center; min-height: 7rem; margin: -.4rem -.45rem .25rem 0; }
+.sitovLevel :global(.academy-level-top) { position: relative; z-index: 1; display: flex; flex-wrap: wrap; align-content: center; justify-content: flex-start; gap: .55rem; margin: 0; }
+.sitovLevel :global(.academy-level-code) { min-width: 3.6rem; height: 3.4rem; padding-inline: .55rem; border-color: color-mix(in srgb, var(--sitov-level-tone) 45%, var(--border)); border-radius: 1rem; background: color-mix(in srgb, var(--sitov-level-tone) 9%, var(--surface)); color: var(--sitov-level-tone); box-shadow: inset 0 1px 0 color-mix(in srgb, var(--sitov-level-tone) 12%, transparent), 0 8px 16px -13px var(--sitov-level-tone); }
+.sitovLevel :global(.academy-level-number) { top: -.42rem; right: -.15rem; font-size: 5rem; opacity: .045; }
+.sitovLevel :global(.academy-level-new) { margin-inline-start: 0; }
+.sitovLevel h3 { position: relative; margin-bottom: .5rem; font-size: 1.15rem; line-height: 1.35; }
+.sitovLevel > p { position: relative; margin-bottom: .85rem; line-height: 1.55; }
+.sitovLevel :global(.academy-level-bottom) { position: relative; gap: .75rem; color: var(--sitov-level-tone); }
+.sitovLevel[data-locked='false'] :global(.academy-level-bottom) > span:first-child { min-height: 2.6rem; border: 1px solid color-mix(in srgb, var(--sitov-level-tone) 24%, var(--border)); border-radius: 99px; background: color-mix(in srgb, var(--sitov-level-tone) 6%, var(--surface)); padding: .4rem .75rem .4rem .9rem; }
+.sitovLevel :global(.academy-level-bottom) svg { flex-shrink: 0; transition: transform .25s ease; }
+.sitovLevel :global(.academy-level-bottom) > span:last-child { font-variant-numeric: tabular-nums; }
+.sitovLevel :global(.academy-level-track) { height: 4px; background: color-mix(in srgb, var(--sitov-level-tone) 9%, var(--surface-muted)); }
+.sitovLevel :global(.academy-level-track) > span { border-radius: 0 99px 99px 0; background: var(--sitov-level-tone); }
+.sitovLevelArt { position: relative; align-self: center; width: 100%; max-width: 13.5rem; color: var(--sitov-level-tone); pointer-events: none; }
+.sitovLevelArt svg { position: relative; display: block; width: 100%; overflow: visible; }
+.sitovArtGlow { position: absolute; inset: 4% -10% -10%; border-radius: 50%; background: radial-gradient(closest-side, color-mix(in srgb, var(--sitov-level-tone) 20%, transparent), transparent); animation: sitov-art-breathe 6s ease-in-out infinite; }
+.sitovFloor { opacity: .16; stroke-width: .7; }
+.sitovLevelHalo { opacity: .08; transform-origin: 124px 110px; animation: sitov-level-halo-breathe 6s ease-in-out infinite; }
+.sitovStair { animation: sitov-step-float 5.6s cubic-bezier(.45, 0, .55, 1) infinite; }
+.sitovStair[data-step='2'] { animation-delay: -.65s; }
+.sitovStair[data-step='3'] { animation-delay: -1.3s; }
+.sitovStepLight { opacity: .7; }
+.sitovBeacon { transform-origin: 168px 29px; animation: sitov-beacon-float 5.6s ease-in-out -1.3s infinite; }
+.sitovLevelSpark { transform-origin: 125px 55px; animation: sitov-spark-breathe 5s ease-in-out infinite; }
+.sitovLevel[data-locked='true'] { --sitov-level-tone: var(--muted); min-height: 18rem; background: linear-gradient(140deg, var(--surface), var(--surface-muted)); border-style: dashed; border-color: var(--border); box-shadow: none; }
+.sitovLevel[data-locked='true'] .sitovRim, .sitovLevel[data-locked='true'] .sitovArtGlow { display: none; }
+.sitovLevel[data-locked='true'] .sitovLevelArt { opacity: .65; }
+.sitovLevel[data-locked='true'] *, .sitovLevel[data-locked='true'] *::before, .sitovLevel[data-locked='true'] *::after { animation: none; }
+.sitovLevel[data-locked='true'] :global(.academy-level-bottom) { min-height: 3.25rem; color: var(--muted); font-size: .95rem; line-height: 1.45; font-weight: 500; }
+.sitovLevel[data-locked='true'] :global(.academy-level-bottom) > span:first-child { align-items: flex-start; gap: .5rem; }
+.sitovLevel[data-locked='true'] :global(.academy-level-bottom) svg { margin-top: .18rem; }
+.sitovLevel:focus-visible { outline: 3px solid var(--sitov-level-tone); outline-offset: 4px; }
+.sitovLevel[data-locked='false']:active { transform: scale(.985); }
+
+/* The support constellation: a message at the centre, four real channels. */
+.sitovSupport { --sitov-tone: var(--accent-text); position: relative; isolation: isolate; min-width: 0; overflow: hidden; border-radius: 1.75rem; padding: 1.2rem; border-color: color-mix(in srgb, var(--accent-text) 26%, var(--border)); background: linear-gradient(120deg, color-mix(in srgb, var(--accent-text) 5%, var(--surface)), var(--surface) 50%, color-mix(in srgb, var(--mode-path-text) 7%, var(--surface))); box-shadow: var(--shadow-sm); }
+.sitovSupportHeader { position: relative; display: flex; min-width: 0; align-items: center; justify-content: space-between; gap: .6rem; margin-bottom: 1rem; }
+.sitovSupportTitle { position: relative; z-index: 1; display: flex; min-width: 0; flex: 1; flex-direction: column; align-items: flex-start; gap: .7rem; }
+.sitovSupportTitle h2 { line-height: 1.25; overflow-wrap: anywhere; }
+.sitovSupportIcon { display: grid; width: 2.7rem; height: 2.7rem; flex-shrink: 0; place-items: center; border: 1px solid color-mix(in srgb, var(--accent-text) 30%, var(--border)); border-radius: .95rem; background: color-mix(in srgb, var(--accent-text) 10%, var(--surface)); color: var(--accent-text); box-shadow: 0 8px 18px -14px var(--accent-text); }
+.sitovSupportArt { position: relative; width: 11.5rem; height: 7.6rem; flex-shrink: 0; font-size: 16px; color: var(--accent-text); pointer-events: none; transform: scale(.9); transform-origin: right center; margin-left: -1rem; }
+.sitovSupportGlow { position: absolute; inset: -28% -12%; border-radius: 50%; background: radial-gradient(closest-side, color-mix(in srgb, var(--accent-text) 13%, transparent), transparent 85%); animation: sitov-art-breathe 6s ease-in-out infinite; }
+.sitovSignalOrbit { position: absolute; inset: 1.25rem .15rem; border: 1px solid color-mix(in srgb, var(--accent-text) 30%, transparent); border-radius: 50%; transform: rotate(-18deg); }
+.sitovSignalOrbit[data-orbit='outer'] { inset: .5rem .6rem; border-color: color-mix(in srgb, var(--mode-path-text) 30%, transparent); border-style: dashed; transform: rotate(22deg); }
+.sitovSignalPacket { position: absolute; inset: 1.25rem .15rem; border-radius: 50%; transform: rotate(-18deg); }
+.sitovSignalPacket::before { content: ''; position: absolute; top: 50%; left: 50%; width: .32rem; height: .32rem; margin: -.16rem; border-radius: 50%; background: var(--accent-text); box-shadow: 0 0 7px color-mix(in srgb, var(--accent-text) 70%, transparent); animation: sitov-packet-orbit 8s linear infinite; }
+.sitovChatEcho, .sitovChatCore { position: absolute; left: 50%; top: 50%; width: 4.7rem; height: 3.4rem; margin: -1.7rem 0 0 -2.35rem; border: 1px solid color-mix(in srgb, var(--accent-text) 45%, var(--border)); border-radius: 1rem; background: var(--surface); }
+.sitovChatEcho { transform: translate(-7px, -8px) rotate(-12deg); background: color-mix(in srgb, var(--mode-path-text) 8%, var(--surface)); border-color: color-mix(in srgb, var(--mode-path-text) 30%, var(--border)); opacity: .8; animation: sitov-echo-drift 6s ease-in-out infinite; }
+.sitovChatEcho[data-echo='back'] { transform: translate(6px, -14px) rotate(11deg); opacity: .4; animation-direction: reverse; }
+.sitovChatCore { display: flex; align-items: center; justify-content: center; gap: .35rem; z-index: 1; box-shadow: inset 0 2px 0 color-mix(in srgb, var(--accent-text) 45%, transparent), 0 12px 22px -16px var(--accent-text); animation: sitov-core-float 6s ease-in-out infinite; }
+.sitovChatCore::after { content: ''; position: absolute; left: .85rem; bottom: -.35rem; width: .7rem; height: .7rem; border-bottom: 1px solid color-mix(in srgb, var(--accent-text) 45%, var(--border)); border-left: 1px solid color-mix(in srgb, var(--accent-text) 45%, var(--border)); border-bottom-left-radius: .2rem; background: var(--surface); transform: skewY(-35deg); }
+.sitovChatCore > i { width: .42rem; height: .42rem; border-radius: 50%; background: var(--accent-text); animation: sitov-chat-dot 2.8s ease-in-out infinite; }
+.sitovChatCore > i:nth-child(2) { animation-delay: .16s; }
+.sitovChatCore > i:nth-child(3) { animation-delay: .32s; }
+.sitovSatellite { --sitov-channel-tone: var(--accent-text); position: absolute; z-index: 2; display: grid; width: 2.1rem; height: 2.1rem; place-items: center; border: 1px solid color-mix(in srgb, var(--sitov-channel-tone) 45%, var(--border)); border-radius: .7rem; background: var(--surface); color: var(--sitov-channel-tone); box-shadow: 0 5px 14px -10px var(--sitov-channel-tone); animation: sitov-satellite-float 5s ease-in-out infinite; }
+.sitovSatellite[data-channel='whatsapp'] { left: 1.9rem; top: .05rem; --sitov-channel-tone: var(--mode-media-text); }
+.sitovSatellite[data-channel='phone'] { left: -.15rem; top: 3.25rem; animation-delay: -.8s; }
+.sitovSatellite[data-channel='telegram'] { right: -.25rem; top: 4.2rem; --sitov-channel-tone: var(--mode-media-text); animation-delay: -1.6s; }
+.sitovSatellite[data-channel='email'] { right: 1.4rem; top: .4rem; --sitov-channel-tone: var(--mode-path-text); animation-delay: -2.4s; }
+.sitovContacts { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1fr); gap: .65rem; }
+.sitovContacts li { min-width: 0; }
+.sitovContact { --sitov-channel-tone: var(--accent-text); position: relative; display: flex; width: 100%; min-height: 4.15rem; align-items: center; gap: .85rem; overflow: hidden; border: 1px solid color-mix(in srgb, var(--sitov-channel-tone) 22%, var(--border)); border-radius: 1.1rem; background: var(--surface); padding: .65rem .85rem .65rem .65rem; color: var(--foreground); font-size: 1.05rem; font-weight: 700; box-shadow: var(--shadow-sm); transition: border-color .2s ease, background-color .2s ease, transform .2s ease, box-shadow .2s ease; }
+.sitovContact[data-channel='whatsapp'], .sitovContact[data-channel='telegram'] { --sitov-channel-tone: var(--mode-media-text); }
+.sitovContact[data-channel='email'] { --sitov-channel-tone: var(--mode-path-text); }
+.sitovContactIcon { position: relative; display: grid; width: 2.8rem; height: 2.8rem; flex-shrink: 0; place-items: center; border: 1px solid color-mix(in srgb, var(--sitov-channel-tone) 15%, transparent); border-radius: .9rem; background: color-mix(in srgb, var(--sitov-channel-tone) 9%, var(--surface)); color: var(--sitov-channel-tone); transition: transform .3s cubic-bezier(.22, 1, .36, 1); }
+.sitovContactIcon::after { content: ''; position: absolute; inset: 0; border: 1px solid var(--sitov-channel-tone); border-radius: inherit; opacity: 0; }
+.sitovContactArrow { margin-inline-start: auto; flex-shrink: 0; color: var(--sitov-channel-tone); opacity: .7; transition: transform .25s ease, opacity .25s ease; }
+.sitovContact:focus-visible { outline: 3px solid var(--sitov-channel-tone); outline-offset: 3px; }
+.sitovContact:focus-visible .sitovContactIcon { transform: translateY(-2px) rotate(-6deg); }
+.sitovContact:focus-visible .sitovContactArrow { opacity: 1; transform: translateX(3px); }
+.sitovContact:active { transform: scale(.975); background: color-mix(in srgb, var(--sitov-channel-tone) 8%, var(--surface)); }
+.sitovContact:active .sitovContactIcon { transform: scale(.9); }
+.sitovContact:active .sitovContactIcon::after { animation: sitov-contact-ripple .6s ease-out both; }
+
+.sitovStage[data-sitov-live='false'] *, .sitovStage[data-sitov-live='false'] *::before, .sitovStage[data-sitov-live='false'] *::after { animation-play-state: paused !important; }
+@media (hover: hover) and (pointer: fine) {
+  a.sitovLevel[data-sitov-surface]:hover { transform: translateY(-3px); border-color: var(--sitov-level-tone); box-shadow: inset 0 2px 0 var(--sitov-level-tone), 0 20px 30px -24px var(--sitov-level-tone); }
+  a.sitovLevel:hover :global(.academy-level-bottom) svg { transform: translateX(3px); }
+  .sitovContact:hover { transform: translateY(-2px); border-color: var(--sitov-channel-tone); background: color-mix(in srgb, var(--sitov-channel-tone) 4%, var(--surface)); box-shadow: 0 10px 22px -20px var(--sitov-channel-tone); }
+  .sitovContact:hover .sitovContactIcon { transform: translateY(-2px) rotate(-6deg); }
+  .sitovContact:hover .sitovContactArrow { transform: translateX(3px); opacity: 1; }
+}
+@media (max-width: 360px) { .sitovSupport { padding: 1rem; } .sitovSupportArt { width: 9rem; transform: scale(.8); } .sitovSupportTitle h2 { font-size: 1.1rem; } .sitovLevel[data-sitov-surface] { padding: 1rem; } }
+@media (min-width: 480px) { .sitovSupportTitle { flex-direction: row; align-items: center; gap: .85rem; } .sitovSupportArt { transform: none; margin-left: 0; } }
+@media (min-width: 640px) { .sitovLevel[data-sitov-surface] { padding: 1.35rem; min-height: 19rem; } .sitovLevelCrown { min-height: 7.8rem; } .sitovSupport { padding: 1.5rem; } .sitovContacts { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .85rem; } .sitovSupportHeader { margin-bottom: 1.25rem; } .sitovSupportArt { width: 12.5rem; } .sitovSupportIcon { width: 3rem; height: 3rem; } }
+@media (prefers-reduced-motion: reduce) {
+  .sitovStage *, .sitovStage *::before, .sitovStage *::after { animation: none !important; transition: none !important; }
+  .sitovLevel[data-locked='false']:active, .sitovContact:active, a.sitovLevel[data-sitov-surface]:hover, .sitovContact:hover,
+  .sitovContact:hover .sitovContactIcon, .sitovContact:focus-visible .sitovContactIcon, .sitovContact:active .sitovContactIcon,
+  .sitovContact:hover .sitovContactArrow, .sitovContact:focus-visible .sitovContactArrow,
+  a.sitovLevel:hover :global(.academy-level-bottom) svg { transform: none; }
+  .sitovSignalPacket { display: none; }
+}
+:global(html.high-contrast) .sitovLevel[data-sitov-surface], :global(html.high-contrast) .sitovSupport { background: var(--surface); border-width: 2px; box-shadow: none; }
+:global(html.high-contrast) .sitovAtmosphere, :global(html.high-contrast) .sitovArtGlow, :global(html.high-contrast) .sitovSupportGlow, :global(html.high-contrast) .sitovLevelHalo, :global(html.high-contrast) .sitovSignalPacket { display: none; }
+:global(html.high-contrast) .sitovContact, :global(html.high-contrast) .sitovContactIcon, :global(html.high-contrast) .sitovChatCore, :global(html.high-contrast) .sitovSatellite { border-color: currentColor; background: var(--surface); box-shadow: none; }
+:global(html.high-contrast) .sitovLevel[data-locked='true'] .sitovLevelArt { opacity: 1; }
+
+@keyframes sitov-rim-turn { to { transform: rotate(1turn); } }
+@keyframes sitov-art-breathe { 0%, 100% { opacity: .6; transform: scale(.95); } 50% { opacity: 1; transform: scale(1.06); } }
+@keyframes sitov-level-halo-breathe { 0%, 100% { opacity: .06; transform: scale(.95); } 50% { opacity: .12; transform: scale(1.06); } }
+@keyframes sitov-step-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+@keyframes sitov-beacon-float { 0%, 100% { transform: translateY(0) rotate(-4deg); } 50% { transform: translateY(-8px) rotate(4deg); } }
+@keyframes sitov-spark-breathe { 0%, 100% { opacity: .25; transform: scale(.94); } 50% { opacity: .9; transform: scale(1.06); } }
+@keyframes sitov-packet-orbit { 0% { transform: translate(87px, 0); } 12.5% { transform: translate(61px, 29px); } 25% { transform: translate(0, 41px); } 37.5% { transform: translate(-61px, 29px); } 50% { transform: translate(-87px, 0); } 62.5% { transform: translate(-61px, -29px); } 75% { transform: translate(0, -41px); } 87.5% { transform: translate(61px, -29px); } 100% { transform: translate(87px, 0); } }
+@keyframes sitov-core-float { 0%, 100% { transform: translateY(1px) rotate(-3deg); } 50% { transform: translateY(-4px) rotate(2deg); } }
+@keyframes sitov-echo-drift { 0%, 100% { translate: 0 0; } 50% { translate: -2px -3px; } }
+@keyframes sitov-chat-dot { 0%, 35%, 100% { opacity: .55; transform: translateY(0); } 15% { opacity: 1; transform: translateY(-5px); } }
+@keyframes sitov-satellite-float { 0%, 100% { transform: translateY(0) rotate(-5deg); } 50% { transform: translateY(-5px) rotate(4deg); } }
+@keyframes sitov-contact-ripple { 0% { opacity: .7; transform: scale(1); } 100% { opacity: 0; transform: scale(1.65); } }

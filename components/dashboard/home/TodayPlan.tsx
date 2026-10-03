@@ -4,6 +4,9 @@ import { ArrowRight, BookOpen, CalendarCheck, CalendarClock, ChevronRight, Clock
 import TodayGreeting from './TodayGreeting'
 import WeekStrip from './WeekStrip'
 import { studentTranslator } from '@/lib/student-ui-i18n'
+import SitovMotionStage from '@/components/motion/SitovMotionStage'
+import { SitovHomeJourney, SitovHomeRim } from './SitovHomeGraphics'
+import styles from './SitovHomeMotion.module.css'
 
 export type TodayItemKind = 'vocabulary' | 'feedback' | 'grammar' | 'pronunciation' | 'course' | 'booking'
 
@@ -51,9 +54,14 @@ export default function TodayPlan({ lang, name, items, fallbackHref, week, noLev
   const allDone = !items.some(item => item.actionable)
 
   return (
-    <section aria-labelledby="today-title" className="st-today sl-glass sl-hero">
-      <div className="relative">
-        <TodayGreeting name={name} lang={lang} />
+    <SitovMotionStage className={styles.sitovStage}>
+    <section aria-labelledby="today-title" className={`st-today ${styles.sitovPlan}`} data-sitov-surface="">
+      <SitovHomeRim />
+      <div className={styles.sitovContent}>
+        <div className={styles.sitovHeader}>
+          <TodayGreeting name={name} lang={lang} />
+          <SitovHomeJourney />
+        </div>
         <h2 id="today-title" className="st-eyebrow">{t('today_title')}</h2>
 
         {allDone && !noLevel && (
@@ -86,7 +94,7 @@ export default function TodayPlan({ lang, name, items, fallbackHref, week, noLev
               const Icon = ICONS[item.kind]
               return (
                 <li key={item.kind} className="st-rise" style={{ '--i': index + 1 } as CSSProperties}>
-                  <Link href={item.href} className="st-today__item st-press" data-kind={item.kind} data-actionable={item.actionable}>
+                  <Link href={item.href} className={`st-today__item st-press ${styles.sitovItem}`} data-sitov-surface="" data-kind={item.kind} data-actionable={item.actionable}>
                     <span className="st-today__icon" aria-hidden="true">
                       <Icon size={22} />
                       {item.kind === 'feedback' && <span className="st-today__ping" />}
@@ -101,7 +109,7 @@ export default function TodayPlan({ lang, name, items, fallbackHref, week, noLev
         )}
 
         {start && (
-          <Link href={start.href} className="st-cta st-press st-rise" style={{ '--i': items.length + 1 } as CSSProperties}>
+          <Link href={start.href} className={`st-cta st-press st-rise ${styles.sitovCta}`} data-sitov-surface="" style={{ '--i': items.length + 1 } as CSSProperties}>
             <span className="st-cta__text">
               <span className="st-cta__label">{t('today_start')}</span>
               <span className="st-cta__hint">{start.hint}</span>
@@ -113,5 +121,6 @@ export default function TodayPlan({ lang, name, items, fallbackHref, week, noLev
         {week && <WeekStrip lang={lang} week={week} />}
       </div>
     </section>
+    </SitovMotionStage>
   )
 }

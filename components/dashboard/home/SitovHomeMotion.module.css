@@ -1,0 +1,114 @@
+.sitovStage { min-width: 0; }
+.sitovPlan, .sitovTeaser { --sitov-home-tone: var(--accent-text); position: relative; isolation: isolate; min-width: 0; overflow: hidden; border: 1px solid color-mix(in srgb, var(--sitov-home-tone) 32%, var(--border)); border-radius: 1.75rem; background: linear-gradient(145deg, color-mix(in srgb, var(--sitov-home-tone) 8%, var(--surface)), var(--surface) 62%); box-shadow: inset 0 1px 0 color-mix(in srgb, var(--sitov-home-tone) 15%, transparent), 0 18px 40px -32px var(--sitov-home-tone); }
+.sitovPlan.sitovPlan { padding: 1.25rem 1rem; }
+.sitovTeaser { --sitov-home-tone: var(--success); padding: 1.25rem; }
+.sitovPlan::before, .sitovTeaser::before { content: ''; position: absolute; z-index: -1; inset: 0; pointer-events: none; background: radial-gradient(ellipse at var(--sitov-light-x, 85%) var(--sitov-light-y, 12%), color-mix(in srgb, var(--sitov-home-tone) 12%, transparent), transparent 65%); opacity: .65; }
+.sitovContent { position: relative; z-index: 1; }
+/* Actions from the server are readable even before the stage hydrates. */
+.sitovPlan :global(.st-rise) { animation: none; }
+.sitovRim { position: absolute; inset: 0; padding: 1px; pointer-events: none; border-radius: inherit; overflow: hidden; -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask-composite: exclude; }
+.sitovRim > span { position: absolute; width: 250%; aspect-ratio: 1; left: 50%; top: 50%; margin: -125% 0 0 -125%; background: conic-gradient(transparent 0turn .6turn, color-mix(in srgb, var(--sitov-home-tone) 40%, transparent) .72turn, var(--sitov-home-tone) .83turn, transparent .95turn); animation: sitov-home-orbit 16s linear infinite; }
+.sitovHeader { position: relative; }
+.sitovHeader :global(.st-today__hello) { font-size: clamp(1.7rem, 6.5vw, 2.45rem); }
+.sitovPlan :global(.st-eyebrow) { margin-top: .35rem; }
+.sitovJourney { position: relative; width: 100%; max-width: 19rem; height: 136px; margin: .35rem auto .25rem; color: var(--accent-text); pointer-events: none; }
+.sitovJourneyGrid { position: absolute; inset: 15% 3% 0; background-image: linear-gradient(color-mix(in srgb, var(--accent) 9%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in srgb, var(--accent) 9%, transparent) 1px, transparent 1px); background-size: 22px 22px; transform: perspective(240px) rotateX(55deg); -webkit-mask-image: radial-gradient(ellipse, #000, transparent 72%); mask-image: radial-gradient(ellipse, #000, transparent 72%); }
+.sitovJourneyOrbit, .sitovJourneyOrbitInner { position: absolute; width: 84%; height: 62%; left: 8%; top: 22%; border: 1px solid color-mix(in srgb, var(--accent) 28%, transparent); border-radius: 50%; transform: rotate(-13deg); }
+.sitovJourneyOrbitInner { width: 66%; height: 68%; left: 17%; top: 18%; border-style: dashed; border-color: color-mix(in srgb, var(--violet) 24%, transparent); transform: rotate(15deg); }
+.sitovJourneyGlow { position: absolute; width: 66%; height: 34%; left: 17%; bottom: 2%; border-radius: 50%; background: radial-gradient(ellipse, color-mix(in srgb, var(--accent) 22%, transparent), transparent 70%); animation: sitov-home-glow 5s ease-in-out infinite; }
+.sitovJourneyBook { position: absolute; width: 170px; height: 123px; left: calc(50% - 85px); top: 0; animation: sitov-home-float 6s ease-in-out infinite; }
+.sitovJourneyBook svg { width: 100%; height: 100%; filter: drop-shadow(0 8px 8px color-mix(in srgb, var(--accent) 16%, transparent)); }
+.sitovJourneyChip { position: absolute; display: flex; align-items: center; justify-content: center; border: 1px solid color-mix(in srgb, currentColor 45%, var(--border)); border-radius: .8rem; background: var(--surface); box-shadow: 0 8px 18px -12px currentColor; font-size: 1.3rem; font-weight: 800; animation: sitov-home-chip 7s ease-in-out infinite; }
+.sitovJourneyChipA { width: 49px; height: 49px; top: 19%; left: 4%; transform: rotate(-12deg); --sitov-home-rotate: -12deg; }
+.sitovJourneyChipA > span { position: absolute; bottom: 6px; width: 40%; height: 2px; background: currentColor; opacity: .35; border-radius: 2px; }
+.sitovJourneyChipB { width: 39px; height: 39px; top: 9%; right: 8%; color: var(--violet); transform: rotate(14deg); --sitov-home-rotate: 14deg; animation-delay: -2s; }
+.sitovJourneyChipC { width: 38px; height: 38px; bottom: 12%; right: 4%; color: var(--success); transform: rotate(-8deg); --sitov-home-rotate: -8deg; animation-delay: -4s; }
+.sitovJourneyParticle { position: absolute; width: 4px; height: 4px; border-radius: 50%; background: currentColor; box-shadow: 0 0 8px currentColor; animation: sitov-home-particle 5s ease-in-out infinite; }
+.sitovParticleA { left: 28%; top: 8%; }
+.sitovParticleB { right: 21%; bottom: 4%; color: var(--success); animation-delay: -2s; }
+.sitovParticleC { left: 13%; bottom: 15%; color: var(--violet); animation-delay: -3s; }
+.sitovItem.sitovItem { overflow: hidden; border-bottom-width: 2px; background: linear-gradient(130deg, color-mix(in srgb, var(--accent) 5%, var(--surface)), var(--surface) 65%); transition: transform .22s cubic-bezier(.22, 1, .36, 1), border-color .2s ease, box-shadow .2s ease; }
+.sitovItem::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(8rem circle at var(--sitov-light-x, 15%) var(--sitov-light-y, 50%), color-mix(in srgb, var(--accent) 9%, transparent), transparent 70%); opacity: 0; transition: opacity .2s; }
+.sitovItem[data-sitov-pointer='true']::after, .sitovItem:focus-visible::after, .sitovItem:active::after { opacity: 1; }
+.sitovItem :global(.st-today__icon) { border: 1px solid color-mix(in srgb, currentColor 15%, transparent); transition: transform .3s cubic-bezier(.22, 1, .36, 1); }
+.sitovItem:active { transform: scale(.975); }
+.sitovCta.sitovCta { min-height: 5rem; border: 1px solid color-mix(in srgb, var(--accent-foreground) 15%, transparent); background: linear-gradient(120deg, var(--accent-strong), var(--accent-strong-hover)); box-shadow: 0 12px 25px -17px var(--accent-strong), inset 0 1px 0 rgb(255 255 255 / .2); }
+.sitovCta.sitovCta::after { opacity: .6; animation: sitov-home-shine 8s 1s ease-in-out infinite; }
+.sitovCta :global(.st-cta__arrow) { position: relative; animation: none; transition: transform .3s cubic-bezier(.22, 1, .36, 1); }
+.sitovCta :global(.st-cta__arrow)::before { content: ''; position: absolute; inset: -5px; border: 1px solid rgb(255 255 255 / .3); border-radius: inherit; }
+.sitovCta:active :global(.st-cta__arrow) { transform: translateX(3px) scale(.95); }
+.sitovPlan :global(.st-week) { position: relative; border-top-color: color-mix(in srgb, var(--accent) 18%, var(--border)); }
+.sitovPlan :global(.st-week__days) { position: relative; isolation: isolate; }
+.sitovPlan :global(.st-week__days)::before { content: ''; position: absolute; z-index: -1; top: 1.15rem; left: 7%; right: 7%; height: 1px; background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--accent) 30%, var(--border)), transparent); }
+.sitovPlan :global(.st-week__day[data-done='true'] .st-week__dot) { box-shadow: 0 5px 16px -8px var(--success); }
+.sitovPlan :global(.st-week__dot) { animation: sitov-home-day-enter .4s calc(var(--i, 0) * 40ms) cubic-bezier(.22, 1, .36, 1) both; }
+.sitovPlan :global(.st-week__day[data-today='true'] .st-week__dot) { position: relative; box-shadow: 0 0 0 3px var(--surface), 0 0 0 5px var(--accent); }
+.sitovPlan :global(.st-week__day[data-today='true'] .st-week__dot)::after { content: ''; position: absolute; inset: -7px; border: 1px solid var(--accent); border-radius: inherit; animation: sitov-home-day 4s ease-out infinite; }
+.sitovTeaserHead { display: flex; align-items: center; justify-content: space-between; gap: .75rem; }
+.sitovTeaserHead h2 { font-size: 1.2rem; font-weight: 750; color: var(--foreground); letter-spacing: -.02em; }
+.sitovTeaserIcon { display: grid; place-items: center; width: 2.5rem; height: 2.5rem; border: 1px solid color-mix(in srgb, var(--success) 30%, var(--border)); border-radius: .85rem; color: var(--success); background: color-mix(in srgb, var(--success) 8%, var(--surface)); }
+.sitovTodayStats { display: flex; align-items: center; gap: .75rem; margin-top: 1rem; }
+.sitovRingFrame { position: relative; display: grid; flex-shrink: 0; place-items: center; width: 112px; height: 112px; }
+.sitovRingFrame::before { content: ''; position: absolute; inset: 18%; border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, var(--success) 12%, transparent), transparent 75%); }
+.sitovRingAtmosphere { position: absolute; inset: 0; pointer-events: none; }
+.sitovRingTicks { position: absolute; inset: 0; border-radius: 50%; background: repeating-conic-gradient(from -90deg, color-mix(in srgb, var(--success) 35%, transparent) 0deg 1deg, transparent 1deg 15deg); -webkit-mask: radial-gradient(circle, transparent 64%, #000 65% 68%, transparent 69%); mask: radial-gradient(circle, transparent 64%, #000 65% 68%, transparent 69%); }
+.sitovRingOrbit, .sitovRingOrbitSecond { position: absolute; inset: 3%; border: 1px solid color-mix(in srgb, var(--success) 22%, transparent); border-radius: 50%; animation: sitov-home-orbit 18s linear infinite; }
+.sitovRingOrbit > span, .sitovRingOrbitSecond > span { position: absolute; top: calc(50% - 3px); left: -3px; width: 6px; height: 6px; border-radius: 50%; background: var(--success); box-shadow: 0 0 8px color-mix(in srgb, var(--success) 50%, transparent); }
+.sitovRingOrbitSecond { inset: 11%; border-color: transparent; animation-direction: reverse; animation-duration: 24s; }
+.sitovRingOrbitSecond > span { width: 4px; height: 4px; background: var(--accent); }
+.sitovStats { display: grid; min-width: 0; flex: 1; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem; }
+.sitovStat { min-width: 0; border-bottom: 1px solid color-mix(in srgb, var(--success) 18%, var(--border)); padding-bottom: .4rem; }
+.sitovStat dt { font-size: .85rem; font-weight: 650; color: var(--muted); overflow-wrap: anywhere; }
+.sitovStat dd { font-size: 1.8rem; font-weight: 800; line-height: 1.25; font-variant-numeric: tabular-nums; }
+.sitovCorrect { color: var(--success); }
+.sitovStudy { grid-column: 1 / -1; font-size: .9rem; color: var(--muted); }
+.sitovEmpty { margin-top: .75rem; font-size: 1rem; line-height: 1.5; color: var(--muted); }
+.sitovWeekChart { position: relative; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: .4rem; margin-top: 1.1rem; border: 1px solid color-mix(in srgb, var(--success) 15%, var(--border)); border-radius: 1rem; padding: .85rem .65rem .6rem; background: linear-gradient(180deg, color-mix(in srgb, var(--success) 3%, var(--surface)), var(--surface)); }
+.sitovWeekChart > li { display: flex; min-width: 0; flex-direction: column; align-items: center; gap: .35rem; }
+.sitovBarWell { position: relative; display: flex; width: 100%; height: 66px; align-items: flex-end; overflow: hidden; border-radius: .5rem; background: color-mix(in srgb, var(--surface-muted) 60%, transparent); }
+.sitovBarWell::after { content: ''; position: absolute; inset: auto 20% 0; height: 2px; border-radius: 2px; background: var(--border); }
+.sitovBar { width: 100%; border-radius: .5rem .5rem .2rem .2rem; background: linear-gradient(0deg, color-mix(in srgb, var(--success) 40%, var(--surface)), var(--success)); transform-origin: bottom; animation: sitov-home-grow .65s calc(var(--sitov-day, 0) * 65ms) cubic-bezier(.22, 1, .36, 1) both; }
+.sitovWeekChart li[data-today='true'] .sitovBarWell { outline: 1px solid color-mix(in srgb, var(--success) 50%, var(--border)); outline-offset: 2px; }
+.sitovDayName { font-size: .75rem; font-weight: 700; color: var(--muted); }
+.sitovWeekChart li[data-today='true'] .sitovDayName { color: var(--success); }
+.sitovLinks { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1rem; }
+.sitovLinks :global(.st-link-pill) { background: color-mix(in srgb, var(--surface) 92%, transparent); }
+.sitovItem:focus-visible, .sitovCta:focus-visible, .sitovLinks a:focus-visible { outline: 3px solid var(--violet); outline-offset: 3px; }
+.sitovStage[data-sitov-live='false'] *, .sitovStage[data-sitov-live='false'] *::before, .sitovStage[data-sitov-live='false'] *::after { animation-play-state: paused !important; }
+@media (min-width: 640px) {
+  .sitovPlan.sitovPlan { padding: 1.75rem; }
+  .sitovHeader { display: grid; grid-template-columns: minmax(0, 1fr) 160px; align-items: center; gap: .75rem; }
+  .sitovJourney { width: 180px; height: 150px; margin: 0 -10px 0; }
+  .sitovJourneyChipA { left: -5%; }
+  .sitovJourneyChipB { right: -5%; }
+  .sitovJourneyBook { width: 154px; left: calc(50% - 77px); top: 10px; }
+  .sitovPlan :global(.st-eyebrow) { margin-top: .65rem; }
+  .sitovTeaser { padding: 1.5rem; }
+  .sitovTodayStats { gap: 1rem; }
+  .sitovRingFrame { width: 120px; height: 120px; }
+  .sitovStat dd { font-size: 2rem; }
+}
+@media (hover: hover) and (pointer: fine) {
+  .sitovItem:hover { transform: translateY(-2px); box-shadow: 0 10px 20px -17px var(--accent); }
+  .sitovItem:hover :global(.st-today__icon) { transform: rotate(-7deg) translateY(-2px); }
+  .sitovCta:hover :global(.st-cta__arrow) { transform: translateX(4px) rotate(-12deg); }
+  .sitovPlan:hover .sitovJourneyBook { animation-duration: 4s; }
+}
+@media (max-width: 360px) { .sitovTeaser { padding: 1rem; } .sitovRingFrame { width: 100px; height: 100px; } .sitovTodayStats { gap: .6rem; } }
+@media (prefers-reduced-motion: reduce) {
+  .sitovStage *, .sitovStage *::before, .sitovStage *::after { animation: none !important; transition: none !important; }
+  .sitovItem:hover, .sitovItem:active, .sitovCta:active, .sitovItem:hover :global(.st-today__icon), .sitovCta:hover :global(.st-cta__arrow), .sitovCta:active :global(.st-cta__arrow) { transform: none; }
+}
+:global(html.high-contrast) .sitovPlan, :global(html.high-contrast) .sitovTeaser { background: var(--surface); border: 2px solid var(--border); box-shadow: none; }
+:global(html.high-contrast) .sitovRim, :global(html.high-contrast) .sitovJourney, :global(html.high-contrast) .sitovRingAtmosphere, :global(html.high-contrast) .sitovPlan::before, :global(html.high-contrast) .sitovTeaser::before, :global(html.high-contrast) .sitovRingFrame::before, :global(html.high-contrast) .sitovItem::after, :global(html.high-contrast) .sitovCta::after { display: none; }
+:global(html.high-contrast) .sitovBar { background: var(--success); }
+:global(html.high-contrast) .sitovHeader { grid-template-columns: minmax(0, 1fr); }
+@keyframes sitov-home-orbit { to { transform: rotate(360deg); } }
+@keyframes sitov-home-float { 0%, 100% { transform: translateY(0) rotate(-3deg); } 50% { transform: translateY(-7px) rotate(2deg); } }
+@keyframes sitov-home-chip { 0%, 100% { transform: translateY(0) rotate(var(--sitov-home-rotate, 0deg)); } 50% { transform: translateY(-6px) rotate(calc(var(--sitov-home-rotate, 0deg) + 6deg)); } }
+@keyframes sitov-home-glow { 0%, 100% { opacity: .55; transform: scale(.9); } 50% { opacity: 1; transform: scale(1.1); } }
+@keyframes sitov-home-particle { 0%, 100% { transform: translateY(3px); opacity: .3; } 50% { transform: translateY(-7px); opacity: .85; } }
+@keyframes sitov-home-day { 0% { transform: scale(.95); opacity: .55; } 70%, 100% { transform: scale(1.25); opacity: 0; } }
+@keyframes sitov-home-grow { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+@keyframes sitov-home-day-enter { from { transform: scale(.85); } to { transform: scale(1); } }
+@keyframes sitov-home-shine { 0%, 70% { transform: translateX(-150%) skewX(-18deg); } 85%, 100% { transform: translateX(360%) skewX(-18deg); } }

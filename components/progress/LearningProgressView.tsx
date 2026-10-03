@@ -1,7 +1,7 @@
 'use client'
 
-import { useId, useRef, useState, type KeyboardEvent, type ReactNode } from 'react'
-import { BookOpenText, FileText, Film, Globe, Mic, Route, type LucideIcon } from 'lucide-react'
+import { useId, useRef, useState, type CSSProperties, type KeyboardEvent, type ReactNode } from 'react'
+import { Activity, ArrowUpRight, BookOpenText, ChevronDown, FileText, Film, Globe, Mic, Route, Sparkles, type LucideIcon } from 'lucide-react'
 import TrendChart, { ChartLegend, type ChartPoint, type ChartSeries } from '@/components/charts/TrendChart'
 import AccuracyRing from '@/components/charts/AccuracyRing'
 import PhaseDistributionChart from '@/components/vocabulary/PhaseDistributionChart'
@@ -12,6 +12,9 @@ import {
 } from '@/lib/learning-progress'
 import { formatStudyTime, learningProgressCopy, type LearningProgressTranslator } from '@/lib/learning-progress-i18n'
 import type { VocabularyTranslations } from '@/lib/vocabulary-i18n'
+import SitovMotionStage from '@/components/motion/SitovMotionStage'
+import { SitovProgressHalo, SitovProgressScene } from './SitovProgressGraphics'
+import styles from './SitovProgressMotion.module.css'
 
 /**
  * Lernanalyse je Lernmodus (Phase 11.3) – eine Ansicht für zwei Oberflächen:
@@ -37,14 +40,14 @@ const SKINS = {
   },
   student: {
     stack: 'space-y-5',
-    card: 'min-w-0 rounded-[1.35rem] border border-[var(--border)] bg-[var(--surface)] p-4 sm:p-5',
-    tile: 'min-w-0 rounded-2xl bg-[var(--surface-muted)] p-3',
+    card: `${styles.sitovCard} min-w-0 rounded-[1.35rem] border border-[var(--border)] bg-[var(--surface)] p-4 sm:p-5`,
+    tile: `${styles.sitovTile} min-w-0 rounded-2xl bg-[var(--surface-muted)] p-3`,
     title: 'text-lg font-bold text-[var(--foreground)]',
     hint: 'text-base leading-relaxed text-[var(--muted)]',
     label: 'text-sm font-semibold text-[var(--muted)]',
     value: 'text-2xl font-bold leading-none tabular-nums',
     small: 'text-sm',
-    tab: (active: boolean, extra = '') => `${extra} st-press inline-flex min-h-12 shrink-0 items-center gap-2 rounded-full border px-4 text-base font-bold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] ${active ? 'border-[var(--accent)] bg-[var(--accent-soft)] text-[var(--foreground)]' : 'border-[var(--border)] bg-[var(--surface)] text-[var(--muted)]'}`,
+    tab: (active: boolean, extra = '') => `${styles.sitovTab} ${extra} st-press inline-flex min-h-12 shrink-0 items-center gap-2 rounded-full border px-4 text-base font-bold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] ${active ? 'border-[var(--accent)] bg-[var(--accent-soft)] text-[var(--foreground)]' : 'border-[var(--border)] bg-[var(--surface)] text-[var(--muted)]'}`,
     table: 'text-base',
   },
 } as const
@@ -69,37 +72,43 @@ export default function LearningProgressView({ progress, lang, skin = 'admin', t
   const t = learningProgressCopy(lang)
   const s = SKINS[skin]
   const [mode, setMode] = useState<ProgressMode>('vocabulary')
-  return <div className={s.stack}>
+  const content = <>
     <TodayCard progress={progress} lang={lang} t={t} s={s} />
     <OverviewCard progress={progress} lang={lang} t={t} s={s} />
     <ModeTabs mode={mode} onChange={setMode} t={t} s={s} />
-    <div role="tabpanel" id={`progress-panel-${mode}`} aria-labelledby={`progress-tab-${mode}`} className={s.stack}>
+    <div key={skin === 'student' ? mode : undefined} role="tabpanel" id={`progress-panel-${mode}`} aria-labelledby={`progress-tab-${mode}`} className={`${s.stack} ${skin === 'student' ? styles.sitovPanel : ''}`}>
       {mode === 'vocabulary' && <VocabularyPanel progress={progress} lang={lang} t={t} s={s} translations={translations} audience={audience} focusAction={focusAction} />}
       {mode === 'path' && <PathPanel progress={progress} lang={lang} t={t} s={s} />}
       {mode === 'pronunciation' && <PronunciationPanel progress={progress} lang={lang} t={t} s={s} />}
       {mode === 'media' && <MediaPanel progress={progress} lang={lang} t={t} s={s} />}
     </div>
     <DailyTable progress={progress} lang={lang} t={t} s={s} />
-  </div>
+  </>
+  return skin === 'student' ? <SitovMotionStage className={`${s.stack} ${styles.sitovProgress}`} data-sitov-progress="student">{content}</SitovMotionStage> : <div className={s.stack}>{content}</div>
 }
 
 type PanelProps = { progress: LearningProgress; lang: string; t: LearningProgressTranslator; s: Skin }
 
-function Card({ s, title, hint, children, action }: { s: Skin; title: string; hint?: string; children: ReactNode; action?: ReactNode }) {
+function Card({ s, title, hint, children, action, variant = 'standard', icon: Icon = Activity }: { s: Skin; title: string; hint?: string; children: ReactNode; action?: ReactNode; variant?: 'standard' | 'today' | 'overview'; icon?: LucideIcon }) {
   const id = useId()
-  return <section className={s.card} aria-labelledby={id}>
-    <div className="flex flex-wrap items-start justify-between gap-x-4 gap-y-2">
-      <div className="min-w-0"><h2 id={id} className={s.title}>{title}</h2>{hint && <p className={`mt-1 ${s.hint}`}>{hint}</p>}</div>
+  const student = s === SKINS.student
+  const content = <section className={s.card} aria-labelledby={id} data-sitov-variant={student ? variant : undefined} data-sitov-surface={student ? '' : undefined}>
+    {student && <div className={styles.sitovAtmosphere} aria-hidden="true"><span className={styles.sitovGlow} /><span className={styles.sitovRim} /><span className={styles.sitovPointerLight} />{variant === 'overview' && <SitovProgressScene />}</div>}
+    <div className={`flex flex-wrap items-start justify-between gap-x-4 gap-y-2 ${student ? styles.sitovCardHeader : ''}`}>
+      <div className="min-w-0"><h2 id={id} className={`${s.title} ${student ? styles.sitovCardTitle : ''}`}>{student && <span className={styles.sitovTitleIcon} aria-hidden="true"><Icon size={18} /></span>}{title}</h2>{hint && <p className={`mt-1 ${s.hint}`}>{hint}</p>}</div>
       {action}
     </div>
-    <div className="mt-4">{children}</div>
+    <div className={`mt-4 ${student ? styles.sitovCardBody : ''}`}>{children}</div>
   </section>
+  return student ? <SitovMotionStage className={styles.sitovCardStage}>{content}</SitovMotionStage> : content
 }
 
 function Kpi({ s, label, value, hint, tone }: { s: Skin; label: string; value: ReactNode; hint?: ReactNode; tone?: string }) {
-  return <div className={s.tile}>
+  const student = s === SKINS.student
+  return <div className={s.tile} style={student && tone ? { '--sitov-tile-tone': tone } as CSSProperties : undefined}>
+    {student && <span className={styles.sitovTileLight} aria-hidden="true" />}
     <dt className={s.label}>{label}</dt>
-    <dd className={`mt-2 ${s.value}`} style={tone ? { color: tone } : undefined}>{value}</dd>
+    <dd key={student && (typeof value === 'string' || typeof value === 'number') ? value : undefined} className={`mt-2 ${s.value} ${student ? styles.sitovValue : ''}`} style={tone ? { color: tone } : undefined}>{value}</dd>
     {hint && <dd className={`mt-1.5 ${s.small} text-[var(--muted)]`}>{hint}</dd>}
   </div>
 }
@@ -112,28 +121,33 @@ function TodayCard({ progress, lang, t, s }: PanelProps) {
   const today = todaySummary(progress.daily)!
   const totals = rangeTotals(progress.daily)
   const ringLabel = today.percent === null ? t('accuracy_none') : t('accuracy_aria', { value: today.percent })
-  return <Card s={s} title={t('today')} hint={t('today_hint')}>
-    <div className="flex min-w-0 flex-col gap-4 sm:flex-row sm:items-center">
-      <div className="flex items-center gap-4">
-        <AccuracyRing value={today.percent} label={ringLabel} size={skinSize(s)} />
+  const student = s === SKINS.student
+  return <Card s={s} title={t('today')} hint={t('today_hint')} variant="today" icon={Sparkles}>
+    <div className={`flex min-w-0 flex-col gap-4 sm:flex-row sm:items-center ${student ? styles.sitovTodayLayout : ''}`}>
+      <div className={`flex items-center gap-4 ${student ? styles.sitovAccuracyBlock : ''}`}>
+        {student ? <div className={styles.sitovAccuracyScene} data-sitov-empty={today.percent === null}>
+          <SitovProgressHalo />
+          <span className={styles.sitovAccuracyCore}><AccuracyRing value={today.percent} label={ringLabel} size={skinSize(s)} /></span>
+        </div> : <AccuracyRing value={today.percent} label={ringLabel} size={skinSize(s)} />}
         <div className="min-w-0">
           <p className={s.label}>{t('accuracy')}</p>
           <p className={`mt-1 ${s.small} text-[var(--muted)]`}>{today.averagePercent === null ? t('average_none') : t('average', { value: today.averagePercent })}</p>
         </div>
       </div>
-      <dl className="grid min-w-0 flex-1 grid-cols-2 gap-2.5 sm:grid-cols-4">
+      <dl className={`grid min-w-0 flex-1 grid-cols-2 gap-2.5 sm:grid-cols-4 ${student ? styles.sitovTodayTiles : ''}`}>
         <Kpi s={s} label={t('answered')} value={number(lang, today.answers)} />
         <Kpi s={s} label={t('correct')} value={number(lang, today.correct)} tone="var(--success)" />
         <Kpi s={s} label={t('wrong')} value={number(lang, today.wrong)} />
         <Kpi s={s} label={t('study_time')} value={formatStudyTime(today.seconds, t)} />
       </dl>
     </div>
-    <p className={`mt-4 border-t border-[var(--border)] pt-3 ${s.small} text-[var(--muted)]`} style={{ borderColor: 'var(--admin-line, var(--border))' }}>
+    <p className={`mt-4 border-t border-[var(--border)] pt-3 ${s.small} text-[var(--muted)] ${student ? styles.sitovPeriodSummary : ''}`} style={{ borderColor: 'var(--admin-line, var(--border))' }}>
+      {student && <ArrowUpRight size={18} aria-hidden="true" className={styles.sitovSummaryIcon} />}
       {t('period_summary', { days: progress.days, answers: number(lang, totals.answers), percent: totals.percent === null ? '–' : `${totals.percent} %`, active: totals.activeDays })}
     </p>
   </Card>
 }
-const skinSize = (s: Skin) => s === SKINS.student ? 96 : 84
+const skinSize = (s: Skin) => s === SKINS.student ? 108 : 84
 
 function accuracySeries(t: LearningProgressTranslator, days: number): ChartSeries {
   return { key: 'percent', label: t(days > 7 ? 'accuracy_trend' : 'accuracy'), color: 'var(--violet)', type: 'line', axis: 'percent' }
@@ -155,7 +169,7 @@ function OverviewCard({ progress, lang, t, s }: PanelProps) {
     const value = answeredOn(day)
     return { date: day.date, values: { correct: value.correct, wrong: value.wrong, percent: line[index] } }
   })
-  return <Card s={s} title={t('overview_title')} hint={t('overview_hint')}>
+  return <Card s={s} title={t('overview_title')} hint={t('overview_hint')} variant="overview">
     <ChartLegend series={series} />
     <div className="mt-2"><TrendChart points={points} series={series} lang={lang} label={t('overview_title')} emptyLabel={t('empty_chart')}
       detail={index => { const value = answeredOn(progress.daily[index]); return [`${t('answered')}: ${number(lang, value.answers)}`, dayAccuracy(t, progress.days, value)].filter(Boolean).join(' · ') }} /></div>
@@ -174,7 +188,7 @@ function ModeTabs({ mode, onChange, t, s }: { mode: ProgressMode; onChange: (mod
     onChange(next)
     refs.current[next]?.focus()
   }
-  return <div className="min-w-0">
+  return <div className={`min-w-0 ${s === SKINS.student ? styles.sitovModes : ''}`}>
     <h2 className={`mb-2 ${s.title}`}>{t('modes_title')}</h2>
     {/* Handy: 2 × 2 – alle vier Modi auf einen Blick, nichts versteckt sich hinter einer Wischleiste. */}
     <div role="tablist" aria-label={t('modes_label')} onKeyDown={key} className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap">
@@ -182,6 +196,7 @@ function ModeTabs({ mode, onChange, t, s }: { mode: ProgressMode; onChange: (mod
         const Icon = MODE_ICONS[item]
         return <button key={item} ref={element => { refs.current[item] = element }} type="button" role="tab" id={`progress-tab-${item}`}
           aria-selected={mode === item} aria-controls={`progress-panel-${item}`} tabIndex={mode === item ? 0 : -1}
+          data-sitov-mode={s === SKINS.student ? item : undefined} data-sitov-surface={s === SKINS.student ? '' : undefined}
           className={s.tab(mode === item, 'min-w-0 justify-center whitespace-normal text-center leading-tight sm:justify-start')} onClick={() => onChange(item)}>
           <Icon size={17} aria-hidden="true" className="shrink-0" style={{ color: mode === item ? undefined : MODE_COLOR[item] }} />{t(`mode_${item}`)}
         </button>
@@ -216,7 +231,7 @@ function VocabularyPanel({ progress, lang, t, s, translations, audience, focusAc
       <Kpi s={s} label={t('words_learned')} value={t('of_total', { value: number(lang, v.learnedWords), total: number(lang, v.totalWords) })} hint={`${v.overallPercent} %`} />
       <Kpi s={s} label={t('study_time_mode')} value={formatStudyTime(totals.vocabulary.seconds, t)} />
     </dl>
-    <Card s={s} title={t('mode_vocabulary')} hint={t('vocab_chart_hint')}>
+    <Card s={s} title={t('mode_vocabulary')} hint={t('vocab_chart_hint')} icon={BookOpenText}>
       <ChartLegend series={series} />
       <div className="mt-2"><TrendChart points={points} series={series} lang={lang} label={t('mode_vocabulary')} emptyLabel={t('empty_chart')}
         detail={index => { const value = vocabularyAnswers(progress.daily[index]); return [`${t('correct')}: ${number(lang, value.correct)}`, dayAccuracy(t, progress.days, value)].filter(Boolean).join(' · ') }} /></div>
@@ -310,7 +325,7 @@ function PathPanel({ progress, lang, t, s }: PanelProps) {
       <Kpi s={s} label={t('units_passed')} value={t('of_total', { value: number(lang, path.completedUnits), total: number(lang, path.totalUnits) })} />
       <Kpi s={s} label={t('last_test')} value={last ? `${Math.round(last.percentage)} %` : '–'} hint={last ? t(last.passed ? 'passed' : 'not_passed') : undefined} tone={last ? (last.passed ? 'var(--success)' : 'var(--danger)') : undefined} />
     </dl>
-    <Card s={s} title={t('mode_path')} hint={t('path_chart_hint')}>
+    <Card s={s} title={t('mode_path')} hint={t('path_chart_hint')} icon={Route}>
       <ChartLegend series={series} />
       <div className="mt-2"><TrendChart points={points} series={series} lang={lang} label={t('mode_path')} emptyLabel={t('empty_chart')}
         detail={index => dayAccuracy(t, progress.days, progress.daily[index].path)} /></div>
@@ -346,7 +361,7 @@ function PronunciationPanel({ progress, lang, t, s }: PanelProps) {
       <Kpi s={s} label={t('replies')} value={number(lang, totals.pronunciation.replies)} hint={t('period')} />
       <Kpi s={s} label={t('awaiting')} value={number(lang, pron.awaitingReply)} tone={pron.awaitingReply ? 'var(--accent-text)' : undefined} />
     </dl>
-    <Card s={s} title={t('mode_pronunciation')} hint={t('pron_chart_hint')}>
+    <Card s={s} title={t('mode_pronunciation')} hint={t('pron_chart_hint')} icon={Mic}>
       <ChartLegend series={series} />
       <div className="mt-2"><TrendChart points={points} series={series} lang={lang} label={t('mode_pronunciation')} emptyLabel={t('empty_chart')}
         detail={index => progress.daily[index].pronunciation.seconds ? `${t('study_time')}: ${formatStudyTime(progress.daily[index].pronunciation.seconds, t)}` : null} /></div>
@@ -367,7 +382,7 @@ function MediaPanel({ progress, lang, t, s }: PanelProps) {
       <Kpi s={s} label={t('media_viewed')} value={t('of_total', { value: number(lang, media.viewedMedia), total: number(lang, media.totalMedia) })}
         hint={media.totalMedia ? `${percent(media.viewedMedia, media.totalMedia)} %` : undefined} />
     </dl>
-    <Card s={s} title={t('mode_media')} hint={`${t('media_chart_hint')} ${t('media_since')}`}>
+    <Card s={s} title={t('mode_media')} hint={`${t('media_chart_hint')} ${t('media_since')}`} icon={Film}>
       <TrendChart points={points} series={series} lang={lang} label={t('mode_media')} height={180} emptyLabel={t('empty_chart')} />
     </Card>
     <Card s={s} title={t('media_recent')}>
@@ -387,8 +402,11 @@ function MediaPanel({ progress, lang, t, s }: PanelProps) {
 
 function DailyTable({ progress, lang, t, s }: PanelProps) {
   const rows = progress.daily.slice().reverse()
-  return <details className={s.card}>
-    <summary className={`flex min-h-12 cursor-pointer items-center ${s.title}`}>{t('table')}</summary>
+  return <details className={`${s.card} ${s === SKINS.student ? styles.sitovDailyTable : ''}`}>
+    <summary className={`flex min-h-12 cursor-pointer items-center ${s.title}`}>
+      {s === SKINS.student && <span className={styles.sitovTitleIcon} aria-hidden="true"><FileText size={18} /></span>}{t('table')}
+      {s === SKINS.student && <ChevronDown size={20} aria-hidden="true" className={styles.sitovTableChevron} />}
+    </summary>
     <div className="admin-scroll-x mt-2 overflow-x-auto">
       <table className={`w-full min-w-[34rem] text-left ${s.table}`}>
         <caption className="sr-only">{t('table')}</caption>
