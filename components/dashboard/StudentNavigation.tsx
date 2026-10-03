@@ -33,18 +33,16 @@ export type TabbarState = 'visible' | 'hidden'
 
 /**
  * Entscheidet, ob die Leiste sichtbar ist (D8). Vorrang, von oben nach unten:
- * Fokus in der Leiste → sichtbar; offene Bildschirmtastatur → verborgen
- * (Platz für die Eingabe); offenes Blatt/Dialog → sichtbar; ganz oben oder am
- * Seitenende → sichtbar; sonst folgt sie der Scrollrichtung, sobald man
+ * Tastaturfokus in der Leiste → sichtbar; offene Bildschirmtastatur → verborgen
+ * (Platz für die Eingabe); offenes Blatt/Dialog → sichtbar; ganz oben →
+ * sichtbar; sonst folgt sie der Scrollrichtung, sobald man
  * mindestens 8 px in eine Richtung gescrollt hat. `null`: nichts ändern.
  */
-export function decideTabbar({ focusInBar, keyboard, dialog, y, viewport, height, travel, direction }: {
+export function decideTabbar({ focusInBar, keyboard, dialog, y, travel, direction }: {
   focusInBar: boolean
   keyboard: boolean
   dialog: boolean
   y: number
-  viewport: number
-  height: number
   /** Strecke seit dem letzten Richtungswechsel. */
   travel: number
   direction: -1 | 0 | 1
@@ -52,7 +50,7 @@ export function decideTabbar({ focusInBar, keyboard, dialog, y, viewport, height
   if (focusInBar) return 'visible'
   if (keyboard) return 'hidden'
   if (dialog) return 'visible'
-  if (y <= TABBAR_MIN_DEPTH || y + viewport >= height - TABBAR_MIN_TRAVEL) return 'visible'
+  if (y <= TABBAR_MIN_DEPTH) return 'visible'
   if (travel < TABBAR_MIN_TRAVEL || direction === 0) return null
   return direction > 0 ? 'hidden' : 'visible'
 }
@@ -71,7 +69,7 @@ export function decideTabbar({ focusInBar, keyboard, dialog, y, viewport, height
  * CSS-Variable `--st-tabbar-visible` richtet alles aus, was über der Leiste
  * schwebt (z. B. das Aufnahme-Dock). Die Modus-Leiste oben (`ModeDock`) folgt
  * demselben Zustand auf allen Breiten: runter → gleitet nach oben weg, hoch →
- * kommt sofort zurück. Ab Tablet-Breite übernimmt die Kopfzeile die Links.
+ * kommt weich zurück. Ab Tablet-Breite übernimmt die Kopfzeile die Links.
  */
 export default function StudentNavigation({ lang, firstLevel, levels, supportLabels, lastActiveLevel, learnNew = false }: {
   lang: string
@@ -88,10 +86,14 @@ export default function StudentNavigation({ lang, firstLevel, levels, supportLab
   const pathname = usePathname() ?? ''
   const group = useId()
   const nav = useRef<HTMLElement>(null)
+  // Ein Tippen auf „Lernen“ lässt den Link im persistenten Layout fokussiert.
+  // Nur Tastaturfokus darf die Leisten beim anschließenden Scrollen festhalten.
+  const sitovKeyboardNavigation = useRef(true)
   const [helpOpen, setHelpOpen] = useState(false)
   const helpOpenRef = useRef(helpOpen)
-  helpOpenRef.current = helpOpen
-  const [tabbar, setTabbar] = useState<TabbarState>('visible')
+  const [sitovTabbar, setSitovTabbar] = useState({ pathname, state: 'visible' as TabbarState })
+  // Ein neuer Lernbereich beginnt mit sichtbaren Leisten und einer eigenen Scroll-Baseline.
+  const tabbar = helpOpen || sitovTabbar.pathname !== pathname ? 'visible' : sitovTabbar.state
   const base = `/${lang}/dashboard`
   const levelMatch = pathname.match(/\/dashboard\/level\/([^/]+)/)
   const currentLevel = levelMatch ? decodeURIComponent(levelMatch[1]) : null
@@ -105,32 +107,48 @@ export default function StudentNavigation({ lang, firstLevel, levels, supportLab
   }, [tabbar])
 
   useEffect(() => {
-    let lastY = window.scrollY
+    // Safari kann beim elastischen Scrollen Werte außerhalb der Seite melden.
+    const sitovScrollY = () => Math.min(
+      Math.max(0, document.documentElement.scrollHeight - window.innerHeight),
+      Math.max(0, window.scrollY),
+    )
+    let lastY = sitovScrollY()
     let anchor = lastY
     let direction: -1 | 0 | 1 = 0
     let frame = 0
     const decide = () => {
       frame = 0
-      const y = Math.max(0, window.scrollY)
+      const y = sitovScrollY()
       const step = Math.sign(y - lastY) as -1 | 0 | 1
       if (step !== 0 && step !== direction) { direction = step; anchor = lastY }
       lastY = y
       const next = decideTabbar({
-        // Fokus in einer der beiden Leisten (unten oder Modus-Leiste oben) hält beide sichtbar.
-        focusInBar: !!nav.current?.contains(document.activeElement) || !!document.activeElement?.closest('.st-mode-dock'),
+        focusInBar: sitovKeyboardNavigation.current && (
+          !!nav.current?.contains(document.activeElement) || !!document.activeElement?.closest('.st-mode-dock')
+        ),
         keyboard: keyboardOpen(),
         dialog: helpOpenRef.current || !!document.querySelector('[role="dialog"][aria-modal="true"]'),
-        y, viewport: window.innerHeight, height: document.documentElement.scrollHeight,
-        travel: Math.abs(y - anchor), direction,
+        y,
+        // Fokus-/Resize-Ereignisse dürfen keine alte Scrollrichtung wiederholen.
+        travel: Math.abs(y - anchor), direction: step === 0 ? 0 : direction,
       })
-      if (next) setTabbar(next)
+      if (next) setSitovTabbar(current => current.pathname === pathname && current.state === next
+        ? current : { pathname, state: next })
     }
     const schedule = () => { if (!frame) frame = requestAnimationFrame(decide) }
+    const pointer = () => { sitovKeyboardNavigation.current = false }
+    const keyboard = (event: KeyboardEvent) => {
+      if (event.metaKey || event.ctrlKey || event.altKey) return
+      sitovKeyboardNavigation.current = true
+      schedule()
+    }
     window.addEventListener('scroll', schedule, { passive: true })
     window.addEventListener('resize', schedule)
     window.visualViewport?.addEventListener('resize', schedule)
     document.addEventListener('focusin', schedule)
     document.addEventListener('focusout', schedule)
+    document.addEventListener('pointerdown', pointer, true)
+    document.addEventListener('keydown', keyboard, true)
     schedule()
     return () => {
       cancelAnimationFrame(frame)
@@ -139,12 +157,14 @@ export default function StudentNavigation({ lang, firstLevel, levels, supportLab
       window.visualViewport?.removeEventListener('resize', schedule)
       document.removeEventListener('focusin', schedule)
       document.removeEventListener('focusout', schedule)
+      document.removeEventListener('pointerdown', pointer, true)
+      document.removeEventListener('keydown', keyboard, true)
     }
-  }, [])
+  }, [pathname])
 
-  // Ein Seitenwechsel beginnt oben — dort ist die Leiste immer sichtbar.
-  useEffect(() => { setTabbar('visible') }, [pathname])
-  useEffect(() => { if (helpOpen) setTabbar('visible') }, [helpOpen])
+  useEffect(() => {
+    helpOpenRef.current = helpOpen
+  }, [helpOpen])
 
   const rpcLevel = lastActiveLevel && levels.includes(lastActiveLevel) ? lastActiveLevel : null
   const learnLevel = (currentLevel && levels.includes(currentLevel) ? currentLevel : null)

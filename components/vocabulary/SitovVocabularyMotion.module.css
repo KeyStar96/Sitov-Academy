@@ -1,0 +1,166 @@
+/* Paper moves in response to a learner; the wood and all labels stay steady. */
+.sitovHero {
+  --sitov-vocab-ink: var(--accent-text);
+  --sitov-vocab-light: color-mix(in srgb, var(--accent) 16%, transparent);
+  --sitov-vocab-paper: var(--surface);
+}
+
+.sitovHeading {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 9rem;
+  align-items: center;
+  gap: 1.5rem;
+  min-height: 8.25rem;
+}
+.sitovHeadingText { position: relative; z-index: 1; min-width: 0; }
+.sitovHeadingText h2 { text-wrap: balance; }
+
+/* Three familiar articles become a small, suspended paper sculpture. */
+.sitovDeck { position: relative; width: 9rem; height: 8.25rem; perspective: 650px; pointer-events: none; }
+.sitovDeckHalo { position: absolute; inset: -35%; border-radius: 50%; background: radial-gradient(closest-side, var(--sitov-vocab-light), transparent); animation: sitov-vocab-halo 7s ease-in-out infinite; }
+.sitovDeckOrbit { position: absolute; inset: 5% -6%; border: 1px solid color-mix(in srgb, var(--accent) 24%, transparent); border-radius: 50%; transform: rotate(-28deg); }
+.sitovDeckOrbit[data-inner='true'] { inset: 21% 4%; border-style: dashed; opacity: .65; transform: rotate(28deg); }
+.sitovDeckShadow { position: absolute; bottom: 2%; left: 10%; width: 80%; height: 16%; border-radius: 50%; background: radial-gradient(closest-side, color-mix(in srgb, var(--accent-text) 18%, transparent), transparent); animation: sitov-vocab-shadow 6s ease-in-out infinite; }
+.sitovDeckCard { position: absolute; top: 19%; left: calc(4% + var(--sitov-card-index) * 22%); display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 5px; width: 48%; height: 64%; border: 1px solid color-mix(in srgb, var(--accent-text) 42%, var(--border)); border-radius: 1rem; background: linear-gradient(140deg, var(--surface), color-mix(in srgb, var(--accent) 5%, var(--surface))); color: var(--accent-text); box-shadow: 0 12px 20px -13px color-mix(in srgb, var(--accent-text) 45%, transparent), inset 0 1px 0 rgb(255 255 255 / .6); transform: translateY(calc((1 - var(--sitov-card-index)) * -9px)) rotate(calc(-18deg + var(--sitov-card-index) * 17deg)); animation: sitov-vocab-paper 6s ease-in-out infinite; animation-delay: calc(var(--sitov-card-index) * -2s); }
+.sitovDeckCard b { font-size: 1.25rem; font-weight: 800; letter-spacing: -.04em; line-height: 1; }
+.sitovDeckCard i { width: 52%; height: 2px; border-radius: 99px; background: currentColor; opacity: .2; }
+.sitovDeckCard i:last-child { width: 35%; }
+.sitovDeckCard[data-article] { color: var(--sitov-article-color); border-color: color-mix(in srgb, var(--sitov-article-color) 40%, var(--border)); }
+.sitovDeckCard[data-article='der'] { --sitov-article-color: #1d4ed8; }
+.sitovDeckCard[data-article='die'] { --sitov-article-color: #b91c1c; }
+.sitovDeckCard[data-article='das'] { --sitov-article-color: #15803d; }
+:global(html.dark) .sitovDeckCard[data-article='der'] { --sitov-article-color: #93c5fd; }
+:global(html.dark) .sitovDeckCard[data-article='die'] { --sitov-article-color: #fca5a5; }
+:global(html.dark) .sitovDeckCard[data-article='das'] { --sitov-article-color: #86efac; }
+.sitovDeckSpark { position: absolute; inset: 5% -6%; border-radius: 50%; animation: sitov-vocab-orbit 20s linear infinite; }
+.sitovDeckSpark::after { content: ''; position: absolute; left: 50%; top: -2px; width: 4px; height: 4px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 10px color-mix(in srgb, var(--accent) 50%, transparent); }
+.sitovDeckSpark[data-second='true'] { inset: 21% 4%; animation-duration: 26s; animation-direction: reverse; opacity: .5; }
+
+/* Light belongs to the table, so the 3D cabinet is never flattened by opacity. */
+.sitovScene { isolation: isolate; }
+.sitovBoxAtmosphere { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+.sitovBoxHalo { position: absolute; inset: 0 -5% -20%; border-radius: 50%; background: radial-gradient(ellipse at 50% 64%, color-mix(in srgb, var(--accent) 13%, transparent), transparent 68%); animation: sitov-vocab-halo 8s ease-in-out infinite; }
+.sitovBoxOrbit { position: absolute; left: 6%; right: 6%; top: 28%; bottom: 6%; border: 1px solid color-mix(in srgb, var(--accent) 16%, transparent); border-radius: 50%; transform: rotate(-9deg); }
+.sitovBoxOrbit::after { content: ''; position: absolute; inset: -1px; border-radius: inherit; border-top: 1px solid color-mix(in srgb, var(--accent-text) 38%, transparent); border-right: 1px solid transparent; border-bottom: 1px solid transparent; border-left: 1px solid transparent; animation: sitov-vocab-orbit 26s linear infinite; }
+.sitovBoxOrbit[data-second='true'] { left: 15%; right: 15%; top: 20%; bottom: 2%; border-style: dashed; transform: rotate(12deg); opacity: .5; }
+.sitovBoxOrbit[data-second='true']::after { animation-direction: reverse; animation-duration: 34s; }
+.sitovScene :global(.lb-stage) { animation: sitov-vocab-camera .95s cubic-bezier(.22, 1, .36, 1) both; }
+.sitovScene :global(.lb-stack__grow) { animation-name: sitov-vocab-stack-arrive; animation-duration: .85s; animation-delay: calc(var(--i, 0) * 65ms + 100ms); }
+.sitovScene :global(.lb-stack__card) { animation: sitov-vocab-top-paper 7s ease-in-out infinite; animation-delay: calc(var(--i, 0) * -.9s); transition-duration: 600ms; }
+.sitovScene :global(.lb-stack) { transition-duration: 600ms; }
+.sitovScene :global(.lb-stack__flag) { animation: sitov-vocab-tab 8s ease-in-out infinite; animation-delay: calc(var(--i, 0) * -.7s); }
+.sitovHoleLight { position: absolute; inset: 0; transform: translateZ(-1px); background: radial-gradient(ellipse at var(--sitov-light-x, 50%) var(--sitov-light-y, 35%), rgb(255 230 169 / .4), transparent 70%); opacity: 0; transition: opacity .55s cubic-bezier(.22, 1, .36, 1); pointer-events: none; }
+.sitovScene :global(.lb-cell[data-sitov-pointer='true']) .sitovHoleLight,
+.sitovScene :global(.lb-cell:focus-visible) .sitovHoleLight,
+.sitovScene :global(.lb-cell[data-open]) .sitovHoleLight { opacity: 1; }
+.sitovScene :global(.lb-cell span.lb-plate) { transition: border-color .3s ease, box-shadow .4s ease, background-color .3s ease, transform .45s cubic-bezier(.22, 1, .36, 1); }
+.sitovScene :global(.lb-plate)::after { content: ''; position: absolute; inset: 0; background: radial-gradient(8rem circle at var(--sitov-light-x, 50%) var(--sitov-light-y, 50%), color-mix(in srgb, var(--accent) 11%, transparent), transparent); opacity: 0; pointer-events: none; transition: opacity .4s ease; }
+.sitovScene :global(.lb-cell[data-sitov-pointer='true'] .lb-plate)::after { opacity: 1; }
+.sitovScene :global(.lb-cell:focus-visible .lb-stack),
+.sitovScene :global(.lb-cell[data-open] .lb-stack) { transform: translateX(-50%) translateZ(calc(var(--u) * -.2)); }
+.sitovScene :global(.lb-cell:focus-visible .lb-stack__card),
+.sitovScene :global(.lb-cell[data-open] .lb-stack__card) { transform: rotateX(90deg) translateZ(3px) translateY(calc(var(--u) * 4.2)) rotateZ(-7deg); animation: none; translate: none; }
+.sitovAction :global(.lb-cta) { transition: background-color .3s ease, box-shadow .4s ease; }
+.sitovAction :global(.lb-cta)::before { content: ''; position: absolute; inset: 0; background: radial-gradient(18rem circle at var(--sitov-light-x, 50%) var(--sitov-light-y, 50%), rgb(255 255 255 / .15), transparent 70%); opacity: 0; transition: opacity .4s ease; pointer-events: none; }
+.sitovAction :global(.lb-cta[data-sitov-pointer='true'])::before { opacity: 1; }
+.sitovAction :global(.lb-cta__icon) { transition: transform .5s cubic-bezier(.22, 1, .36, 1), color .3s ease; }
+.sitovAction :global(.lb-cta:focus-visible .lb-cta__icon) { transform: translateX(4px); }
+
+/* Session paper stays still while reading or typing. Motion marks a new card,
+   revealing the answer, or a confirmed result, never an imagined score. */
+.sitovSession { min-width: 0; }
+.sitovCard { position: relative; animation: sitov-vocab-card-arrive .52s cubic-bezier(.22, 1, .36, 1) both; }
+.sitovCard:global(.learning-card):not(:global(.learning-card-flip)),
+.sitovCard :global(.learning-flip-face) { background: radial-gradient(ellipse at var(--sitov-light-x, 50%) var(--sitov-light-y, 0%), color-mix(in srgb, var(--accent) 4%, var(--surface)), var(--surface) 68%); box-shadow: 0 16px 38px -26px color-mix(in srgb, var(--accent-text) 20%, transparent), 0 3px 0 -1px var(--surface), 0 4px 0 -1px var(--border), 0 7px 0 -3px var(--surface), 0 8px 0 -3px var(--border); transition: border-color .35s ease, box-shadow .45s ease; }
+.sitovCard :global(.learning-card-content) { position: relative; z-index: 1; }
+.sitovCard :global(.learning-flip-inner) { transition-duration: 760ms; transition-timing-function: cubic-bezier(.2, .82, .22, 1); }
+.sitovCard :global(.learning-flip-cue) { transition: transform .5s cubic-bezier(.22, 1, .36, 1), color .3s ease; }
+.sitovCard:global(.is-revealed) :global(.learning-flip-cue) { color: var(--accent-text); transform: rotate(180deg); }
+.sitovCard[data-sitov-result='correct'] { border-color: color-mix(in srgb, var(--success) 56%, var(--border)); background: radial-gradient(ellipse at 50% 0%, color-mix(in srgb, var(--success) 7%, var(--surface)), var(--surface) 68%) !important; }
+.sitovCard[data-sitov-result='review'] { border-color: color-mix(in srgb, var(--accent-text) 42%, var(--border)); }
+.sitovCardMark { position: absolute; top: 15px; left: 17px; width: 25px; height: 23px; color: var(--accent-text); pointer-events: none; opacity: .48; }
+.sitovCardMark i { position: absolute; left: 2px; top: 2px; width: 19px; height: 13px; border: 1px solid currentColor; border-radius: 3px; background: var(--surface); transform: rotate(-12deg); }
+.sitovCardMark i:nth-child(2) { left: 4px; top: 5px; transform: rotate(5deg); }
+.sitovCardMark i:nth-child(3) { left: 6px; top: 8px; transform: rotate(13deg); }
+.sitovFeedbackMark { position: absolute; top: 13px; left: 14px; display: grid; place-items: center; width: 31px; height: 31px; border: 1px solid color-mix(in srgb, var(--accent-text) 25%, var(--border)); border-radius: 11px; background: var(--surface); color: var(--accent-text); pointer-events: none; animation: sitov-vocab-stamp .5s cubic-bezier(.22, 1, .36, 1) both; }
+.sitovFeedbackMark[data-correct='true'] { color: var(--success); border-color: color-mix(in srgb, var(--success) 30%, var(--border)); }
+.sitovFeedbackMark i { position: absolute; inset: 0; transform: rotate(calc(var(--sitov-spark-index) * 60deg)); }
+.sitovFeedbackMark i::after { content: ''; position: absolute; left: calc(50% - 1.5px); top: 50%; width: 3px; height: 3px; border-radius: 50%; background: var(--success); animation: sitov-vocab-feedback-spark .7s ease-out both; }
+.sitovSession :global(.learning-button) { position: relative; overflow: hidden; transition: background-color .25s ease, border-color .25s ease, transform .3s cubic-bezier(.22, 1, .36, 1), box-shadow .3s ease; }
+.sitovSession :global(.learning-button-primary) { box-shadow: 0 9px 22px -16px var(--accent-strong); }
+.sitovSession :global(.learning-button-primary)::after { content: ''; position: absolute; inset: 0; background: linear-gradient(105deg, transparent 30%, rgb(255 255 255 / .2), transparent 70%); transform: translateX(-125%); transition: transform .75s cubic-bezier(.22, 1, .36, 1); pointer-events: none; }
+.sitovSession :global(.learning-button-primary:focus-visible)::after { transform: translateX(125%); }
+.sitovSession :global(.learning-typing textarea) { transition: border-color .3s ease, box-shadow .3s ease; }
+.sitovSession :global(.learning-typing textarea:focus) { border-color: var(--accent-text); box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 10%, transparent); }
+
+.sitovComplete { position: relative; background: radial-gradient(ellipse at 50% 0%, color-mix(in srgb, var(--success) 7%, var(--surface)), var(--surface) 65%); }
+.sitovCompletion { position: relative; display: grid; place-items: center; width: 76px; height: 76px; flex-shrink: 0; margin: 6px 0; border: 1px solid color-mix(in srgb, var(--success) 36%, var(--border)); border-radius: 25px; background: color-mix(in srgb, var(--success) 9%, var(--surface)); color: var(--success); box-shadow: 0 14px 30px -23px var(--success); animation: sitov-vocab-stamp .7s cubic-bezier(.22, 1, .36, 1) both; }
+.sitovCompletion > span { position: absolute; inset: -8px; border: 1px solid color-mix(in srgb, var(--success) 32%, transparent); border-radius: 32px; animation: sitov-vocab-completion-ring 1.1s ease-out .15s both; }
+.sitovCompletion > span:nth-child(2) { animation-delay: .3s; }
+.sitovCompletion > i { position: absolute; inset: 0; transform: rotate(calc(var(--sitov-spark-index) * 45deg)); }
+.sitovCompletion > i::after { content: ''; position: absolute; top: 0; left: 50%; width: 4px; height: 4px; border-radius: 50%; background: var(--success); animation: sitov-vocab-completion-spark .9s ease-out .15s both; }
+
+/* A stage owns its animation lifecycle; neighboring trainers are unaffected. */
+:is(.sitovHeading, .sitovScene, .sitovAction, .sitovSession, .sitovComplete)[data-sitov-live='false'] *,
+:is(.sitovHeading, .sitovScene, .sitovAction, .sitovSession, .sitovComplete)[data-sitov-live='false'] *::before,
+:is(.sitovHeading, .sitovScene, .sitovAction, .sitovSession, .sitovComplete)[data-sitov-live='false'] *::after { animation-play-state: paused !important; }
+
+@media (hover: hover) and (pointer: fine) {
+  .sitovAction :global(.lb-cta:hover:not(:disabled) .lb-cta__icon) { transform: translateX(4px) rotate(-6deg); }
+  .sitovScene :global(.lb-cell:hover .lb-stack) { transform: translateX(-50%) translateZ(calc(var(--u) * -.5)); }
+  .sitovScene :global(.lb-cell:hover .lb-stack__card) { transform: rotateX(90deg) translateZ(3px) translateY(calc(var(--u) * 3.4)) rotateZ(-6deg); animation: none; translate: none; }
+  .sitovSession :global(.learning-button:hover:not(:disabled)) { transform: translateY(-2px); }
+  .sitovSession :global(.learning-button-primary:hover:not(:disabled))::after { transform: translateX(125%); }
+  .sitovCard:global(.learning-card-flip:hover) :global(.learning-flip-cue) { color: var(--accent-text); transform: rotate(-24deg); }
+}
+.sitovSession :global(.learning-button:active:not(:disabled)) { transform: scale(.98); }
+
+@media (max-width: 639.98px) {
+  .sitovHeading { grid-template-columns: minmax(0, 1fr) 6.25rem; gap: .5rem; min-height: 6.5rem; }
+  .sitovDeck { width: 6.25rem; height: 6.5rem; }
+  .sitovDeckCard { border-radius: .75rem; }
+  .sitovDeckCard b { font-size: 1rem; }
+}
+@media (max-width: 359px) {
+  .sitovHeading { grid-template-columns: minmax(0, 1fr) 5rem; }
+  .sitovDeck { width: 5rem; height: 5.5rem; }
+  .sitovDeckCard b { font-size: .85rem; }
+}
+
+@keyframes sitov-vocab-halo { 0%, 100% { opacity: .6; transform: scale(.97); } 50% { opacity: 1; transform: scale(1.035); } }
+@keyframes sitov-vocab-paper { 0%, 100% { translate: 0 0; } 50% { translate: 0 -6px; } }
+@keyframes sitov-vocab-shadow { 0%, 100% { opacity: .8; transform: scaleX(1); } 50% { opacity: .5; transform: scaleX(.94); } }
+@keyframes sitov-vocab-orbit { to { rotate: 1turn; } }
+@keyframes sitov-vocab-camera { from { transform: rotateX(-21deg) translateY(12px) translateZ(-14px); } to { transform: rotateX(-21deg); } }
+@keyframes sitov-vocab-stack-arrive { from { translate: 0 0 -14px; } to { translate: 0 0 0; } }
+@keyframes sitov-vocab-top-paper { 0%, 26%, 74%, 100% { translate: 0 0 0; } 50% { translate: 0 0 1.4px; } }
+@keyframes sitov-vocab-tab { 0%, 36%, 70%, 100% { rotate: 0deg; } 50% { rotate: -3deg; } }
+@keyframes sitov-vocab-card-arrive { from { translate: 0 10px; } to { translate: 0 0; } }
+@keyframes sitov-vocab-stamp { from { opacity: 0; transform: scale(.65) rotate(-9deg); } 65% { opacity: 1; transform: scale(1.06) rotate(2deg); } to { transform: scale(1); } }
+@keyframes sitov-vocab-feedback-spark { 0% { opacity: 0; transform: translateY(0) scale(.4); } 20% { opacity: .8; } 100% { opacity: 0; transform: translateY(-25px) scale(.6); } }
+@keyframes sitov-vocab-completion-ring { from { opacity: .8; transform: scale(.86); } to { opacity: 0; transform: scale(1.25); } }
+@keyframes sitov-vocab-completion-spark { from { opacity: 0; transform: translateY(15px) scale(.4); } 35% { opacity: .8; } to { opacity: 0; transform: translateY(-27px) scale(.6); } }
+
+:global(html.high-contrast) :is(.sitovDeckHalo, .sitovDeckShadow, .sitovDeckSpark, .sitovBoxAtmosphere, .sitovHoleLight, .sitovFeedbackMark i, .sitovCompletion > i, .sitovCompletion > span) { display: none; }
+:global(html.high-contrast) .sitovDeckCard { background: var(--surface); border-color: currentColor; box-shadow: none; }
+:global(html.high-contrast) .sitovScene :global(.lb-plate)::after { display: none; }
+:global(html.high-contrast) .sitovAction :global(.lb-cta)::before { display: none; }
+:global(html.high-contrast) .sitovCard:global(.learning-card):not(:global(.learning-card-flip)),
+:global(html.high-contrast) .sitovCard :global(.learning-flip-face),
+:global(html.high-contrast) .sitovComplete { background: var(--surface) !important; box-shadow: none; }
+:global(html.high-contrast) .sitovSession :global(.learning-button-primary)::after { display: none; }
+:global(html.high-contrast) .sitovCardMark { opacity: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  :is(.sitovHeading, .sitovScene, .sitovAction, .sitovSession, .sitovComplete) *,
+  :is(.sitovHeading, .sitovScene, .sitovAction, .sitovSession, .sitovComplete) *::before,
+  :is(.sitovHeading, .sitovScene, .sitovAction, .sitovSession, .sitovComplete) *::after { animation: none !important; transition: none !important; }
+  .sitovScene :global(.lb-cell:is(:hover, :focus-visible, [data-open]) .lb-stack) { transform: translateX(-50%) translateZ(calc(var(--u) * -2.2)); }
+  .sitovScene :global(.lb-cell:is(:hover, :focus-visible, [data-open]) .lb-stack__card) { transform: rotateX(90deg) translateZ(1.5px) rotateZ(-3deg); }
+  .sitovSession :global(.learning-button:is(:hover, :active):not(:disabled)),
+  .sitovAction :global(.lb-cta:is(:hover, :focus-visible) .lb-cta__icon),
+  .sitovCard :global(.learning-flip-cue) { transform: none !important; }
+  .sitovFeedbackMark i, .sitovCompletion > i, .sitovCompletion > span,
+  .sitovSession :global(.learning-button-primary)::after { display: none; }
+}

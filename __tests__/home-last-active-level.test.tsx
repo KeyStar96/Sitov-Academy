@@ -1,10 +1,11 @@
-import { render, screen } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
 import de from '@/dictionaries/de.json'
 import ru from '@/dictionaries/ru.json'
 import { loadLastActiveLevel } from '@/lib/last-active-level'
 import { loadLevelAccessProfile } from '@/lib/access/server'
 import { getMyLearningProgress } from '@/app/actions/learning-progress'
 import { studentTranslator } from '@/lib/student-ui-i18n'
+import { getSitovTrainerCarouselCopy } from '@/lib/sitov-trainer-carousel-i18n'
 import { learningProgressCopy } from '@/lib/learning-progress-i18n'
 import type { LevelLearningStatus } from '@/lib/learning-status-server'
 import { progressData } from './fixtures/learning-progress'
@@ -35,6 +36,7 @@ jest.mock('@/lib/access/server', () => ({
 jest.mock('@/lib/profile-dashboard-server', () => ({ loadProfileMonthlyState: async () => null }))
 jest.mock('@/lib/profile-course-calendar-server', () => ({ loadProfileCourseCalendar: async () => null }))
 jest.mock('@/lib/last-active-level', () => ({ loadLastActiveLevel: jest.fn() }))
+jest.mock('@/lib/learning-new-server', () => ({ loadLearningNewCounts: async () => null }))
 jest.mock('@/lib/learning-status-server', () => ({
   loadWeekActivity: async () => null,
   loadLevelLearningStatus: jest.fn(async ({ level, lang }: { level: string; lang: string }): Promise<LevelLearningStatus> => ({
@@ -48,18 +50,23 @@ jest.mock('@/lib/learning-status-server', () => ({
 }))
 
 // Nach den Mocks laden: Die Seite importiert die ersetzten Module.
-// eslint-disable-next-line @typescript-eslint/no-require-imports
 const DashboardPage = (require('@/app/[lang]/dashboard/page') as typeof import('@/app/[lang]/dashboard/page')).default
 
 async function renderHome(lang: 'de' | 'ru') {
   render(await DashboardPage({ params: Promise.resolve({ lang }), searchParams: Promise.resolve({}) }))
 }
 
+const sitovMatchMedia = window.matchMedia
 beforeEach(() => {
+  window.matchMedia = jest.fn().mockImplementation((query: string) => ({
+    matches: query.includes('prefers-reduced-motion'), media: query,
+    addEventListener: jest.fn(), removeEventListener: jest.fn(),
+  })) as unknown as typeof window.matchMedia
   jest.mocked(loadLastActiveLevel).mockReset()
   jest.mocked(getMyLearningProgress).mockReset().mockResolvedValue({ success: false, error: 'request_failed' })
   jest.mocked(loadLevelAccessProfile).mockReset().mockResolvedValue({ role: 'student', ui_language: 'ru', native_language: 'ru', allowed_levels: ['A1.1', 'A1.2'], trainer_grants: [] })
 })
+afterEach(() => { window.matchMedia = sitovMatchMedia })
 
 it('zeigt „Deine Lernbereiche · A1.2", wenn zuletzt in A1.2 gelernt wurde — obwohl A1.1 halb fertig ist', async () => {
   jest.mocked(loadLastActiveLevel).mockResolvedValue({ level: 'A1.2', mode: 'vocabulary', source: 'activity',
@@ -70,6 +77,7 @@ it('zeigt „Deine Lernbereiche · A1.2", wenn zuletzt in A1.2 gelernt wurde —
   expect(t('areas_title_level', { level: 'A1.2' })).toBe(`${t('areas_title')} · A1.2`)
   // Der Knopf führt zum zuletzt genutzten Modus dieses Niveaus.
   expect(screen.getByRole('link', { name: t('continue_to_vocabulary') })).toHaveAttribute('href', '/ru/dashboard/level/A1.2/vocabulary')
+  fireEvent.click(screen.getByRole('button', { name: getSitovTrainerCarouselCopy('ru').show.replace('{trainer}', t('area_path')) }))
   expect(screen.getByRole('link', { name: new RegExp(t('area_path')) })).toHaveAttribute('href', '/ru/dashboard/level/A1.2/path')
 })
 

@@ -10,6 +10,7 @@ import type { PathAnswer, PathMap, PathNode, PracticeRun, PracticeResult, PathTe
 import { pathErrorText, pathTranslator } from '@/lib/learning-path-i18n'
 import { OrthographyNote } from '@/components/exercises/SoftErrorBadge'
 import FeedbackMotion from '@/components/motion/FeedbackMotion'
+import SitovMotionStage from '@/components/motion/SitovMotionStage'
 import { useLearningNew } from '@/components/dashboard/useLearningNew'
 import { studentTranslator } from '@/lib/student-ui-i18n'
 import type { LearningNewItems } from '@/lib/learning-new'
@@ -221,6 +222,7 @@ export default function LearningPathClient({ initialPath, initialError, lang, le
         progress={testResult || review ? 100 : total ? (done / total) * 100 : 0} onExit={() => void perform(refreshMap)} exitDisabled={busy}
         t={key => t(key)} workspaceRef={workspace}>
         <div ref={stage} tabIndex={-1} className={styles.stage}>
+          <SitovMotionStage key={`${view}-${step}`} className={`${styles.stage} ${styles.sitovView}`} data-sitov-surface>
           {error && <div className={styles.error} role="alert"><p>{pathErrorText(lang, error)}</p></div>}
           {review ? <TestReview review={review} lang={lang} actions={<>
             <button type="button" data-testid="path-review-back" className={styles.secondary} disabled={busy} onClick={() => void perform(refreshMap)}>{t('back')}</button>
@@ -254,6 +256,7 @@ export default function LearningPathClient({ initialPath, initialError, lang, le
                 <div className={`${styles.actions} ${styles.dock}`}><button data-testid="path-test-finish" className={styles.primary} disabled={busy} onClick={finish}>{t('finish')}</button></div>
               </div>}
           </>}
+          </SitovMotionStage>
         </div>
       </LearningScreen>
     </section>
@@ -265,7 +268,7 @@ export default function LearningPathClient({ initialPath, initialError, lang, le
       <p>{pathErrorText(lang, error)}</p>
       <button className={styles.secondary} disabled={busy} onClick={() => void perform(refreshMap)}>{t('retry')}</button>
     </div>}
-    <div data-testid="path-map" className={styles.map}>
+    <SitovMotionStage data-testid="path-map" className={`${styles.map} ${styles.sitovMapStage}`}>
       {map?.completed && <div className={styles.card}>
         <p>{t('all_done')}</p>
         {map.next_level && (map.next_level_available
@@ -276,7 +279,7 @@ export default function LearningPathClient({ initialPath, initialError, lang, le
         onOpen={(node, path) => openNode(node, path.title, path.id)}
         isNewPath={id => news.isNew('path', id)} isNewBranch={id => news.isNew('special_branch', id)} newLabel={newLabel} />}
       {map && map.paths.length === 0 && <p>{t('empty')}</p>}
-    </div>
+    </SitovMotionStage>
     <TestChoice choice={choice} lang={lang} busy={busy} onClose={() => setChoice(null)}
       onReview={target => showReview(target)} onStart={target => openNode(target.node, target.title, target.pathId, true)} />
   </section>

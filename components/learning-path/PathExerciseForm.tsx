@@ -2,7 +2,7 @@
 
 import { useId, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Languages } from 'lucide-react'
+import { AlignLeft, Languages, ListChecks, PenLine } from 'lucide-react'
 import type { PathAnswer, PathExercise } from '@/lib/learning-path-contract'
 import { pathTranslator } from '@/lib/learning-path-i18n'
 import { EASE_OUT_SOFT, MOTION, useReducedMotionSafe } from '@/lib/motion'
@@ -63,7 +63,11 @@ export default function PathExerciseForm({ exercise, lang, busy, onSubmit, isTes
 
   return <form className={styles.form} data-testid="path-exercise" data-exercise-id={exercise.id} data-exercise-type={exercise.type}
     onSubmit={event => { event.preventDefault(); if (complete && answer && !busy) onSubmit(answer) }}>
-    <h3 className={styles.instruction}>{exercise.content.instruction || t(exercise.type === 'sentence_building' ? 'arrange' : exercise.type === 'multiple_choice' ? 'choose' : 'answer')}</h3>
+    <div className={styles.sitovTaskHead}>
+      <span className={styles.sitovTaskIcon} aria-hidden="true">{exercise.type === 'sentence_building' ? <AlignLeft size={25} /> : exercise.type === 'multiple_choice' ? <ListChecks size={25} /> : <PenLine size={25} />}</span>
+      <h3 className={styles.instruction}>{exercise.content.instruction || t(exercise.type === 'sentence_building' ? 'arrange' : exercise.type === 'multiple_choice' ? 'choose' : 'answer')}</h3>
+      <span className={styles.sitovTaskLines} aria-hidden="true"><i /><i /><i /></span>
+    </div>
     {exercise.content.prompt && <p className={styles.prompt}>{exercise.content.prompt}</p>}
     {exercise.type === 'fill_in_blank' && <p className={styles.sentence} lang="de" translate="no" id="path-sentence">
       {exercise.content.text_before}

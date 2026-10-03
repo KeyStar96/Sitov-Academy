@@ -1,7 +1,7 @@
 'use client'
 
-import { useId, type CSSProperties } from 'react'
-import { ArrowUpRight, BookOpen, Check, Clapperboard, Lock, Mic, Route, Waypoints } from 'lucide-react'
+import { useId } from 'react'
+import { ArrowUpRight, Check, Lock, Waypoints } from 'lucide-react'
 import PressableCard from '@/components/motion/PressableCard'
 import SitovMotionStage from '@/components/motion/SitovMotionStage'
 import SitovTrainerCardScene from './SitovTrainerCardScene'
@@ -19,20 +19,19 @@ type Tone = 'action' | 'calm' | 'done' | 'locked'
 interface Tile {
   id: LearningMode
   title: StudentMessageKey
-  icon: typeof BookOpen
   text: string
   tone: Tone
   badge: number
 }
 
 /**
- * Die fünf Modi eines Niveaus als gleichwertiges Home-Karussell oder responsive Niveaukarten, je mit einer
+ * Die fünf Modi eines Niveaus im gemeinsamen Karussell für Home und Lernen, je mit einer
  * Kennzahl: fällige Karten, Position auf dem Lernpfad, neue Antworten der
  * Lehrkraft, neue Medien. Was wartet, trägt eine Zahl und die Akzentfarbe;
  * was erledigt ist, bleibt ruhig mit Haken. Gesperrte Modi zeigen den Grund
  * und führen nirgendwohin.
  */
-export default function TrainerStatusTiles({ lang, level, status, languageLocked, heading = true, title, continueLink, layout = 'compact' }: {
+export default function TrainerStatusTiles({ lang, level, status, languageLocked, heading = true, title, continueLink }: {
   lang: string
   level: string
   status: LevelLearningStatus | null
@@ -42,18 +41,17 @@ export default function TrainerStatusTiles({ lang, level, status, languageLocked
   title?: string
   /** Knopf neben der Überschrift, z. B. „Zum Lernpfad" oder zum zuletzt genutzten Modus. */
   continueLink?: { href: string; label: string }
-  /** `modes`: ein Mosaik aus drei und zwei Karten ab Desktop-Breite (Niveau-Seite). */
+  /** Bestehende Aufrufer dürfen beide Namen verwenden; Home und Lernen zeigen dasselbe Karussell. */
   layout?: 'compact' | 'modes'
 }) {
   const t = studentTranslator(lang)
-  const sitovCompact = layout === 'compact'
   const sitovCarouselCopy = getSitovTrainerCarouselCopy(lang)
   const sitovId = useId()
   const lockedText = (area: 'media' | 'other') => area === 'other' && languageLocked ? t('status_language') : t('status_locked')
   const tiles: Tile[] = []
 
   const vocab = status?.vocabulary
-  tiles.push({ id: 'vocabulary', title: 'area_vocabulary', icon: BookOpen, badge: 0, ...(
+  tiles.push({ id: 'vocabulary', title: 'area_vocabulary', badge: 0, ...(
     vocab?.locked ? { text: lockedText('other'), tone: 'locked' as const }
       : !vocab ? { text: t('status_open'), tone: 'calm' as const }
         : vocab.due > 0 ? { text: t.count('status_vocab_due', vocab.due), tone: 'action' as const, badge: vocab.due }
@@ -62,7 +60,7 @@ export default function TrainerStatusTiles({ lang, level, status, languageLocked
 
   // Bis Phase 3 ist der Lernpfad die Grammatik: Position = erstes offenes Thema.
   const grammar = status?.grammar
-  tiles.push({ id: 'path', title: 'area_path', icon: Route, badge: 0, ...(
+  tiles.push({ id: 'path', title: 'area_path', badge: 0, ...(
     grammar?.locked ? { text: lockedText('other'), tone: 'locked' as const }
       : !grammar ? { text: t('status_open'), tone: 'calm' as const }
         : grammar.total === 0 || grammar.topics === 0 ? { text: t('status_empty'), tone: 'calm' as const }
@@ -70,7 +68,7 @@ export default function TrainerStatusTiles({ lang, level, status, languageLocked
             : { text: t('status_grammar_done'), tone: 'done' as const }) })
 
   const speech = status?.pronunciation
-  tiles.push({ id: 'pronunciation', title: 'area_pronunciation', icon: Mic, badge: 0, ...(
+  tiles.push({ id: 'pronunciation', title: 'area_pronunciation', badge: 0, ...(
     speech?.locked ? { text: lockedText('other'), tone: 'locked' as const }
       : !speech ? { text: t('status_open'), tone: 'calm' as const }
         : speech.unread > 0 ? { text: t.count('status_pron_unread', speech.unread), tone: 'action' as const, badge: speech.unread }
@@ -80,7 +78,7 @@ export default function TrainerStatusTiles({ lang, level, status, languageLocked
                 : { text: t('status_pron_done'), tone: 'done' as const }) })
 
   const media = status?.media
-  tiles.push({ id: 'media', title: 'area_media', icon: Clapperboard, badge: 0, ...(
+  tiles.push({ id: 'media', title: 'area_media', badge: 0, ...(
     media?.locked ? { text: lockedText('media'), tone: 'locked' as const }
       : !media ? { text: t('status_open'), tone: 'calm' as const }
         : media.total === 0 ? { text: t('status_empty'), tone: 'calm' as const }
@@ -88,7 +86,7 @@ export default function TrainerStatusTiles({ lang, level, status, languageLocked
             : { text: t.count('status_media_total', media.total), tone: 'calm' as const }) })
 
   const verbs = status?.verbs
-  tiles.push({ id: 'verbs', title: 'area_verbs', icon: Waypoints, badge: 0, ...(
+  tiles.push({ id: 'verbs', title: 'area_verbs', badge: 0, ...(
     verbs?.locked ? { text: t('status_locked'), tone: 'locked' as const }
       : !verbs ? { text: t('status_open'), tone: 'calm' as const }
         : verbs.total === 0 ? { text: t('status_empty'), tone: 'calm' as const }
@@ -96,29 +94,28 @@ export default function TrainerStatusTiles({ lang, level, status, languageLocked
             : verbs.selected > 0 ? { text: t.count('status_verbs_selected', verbs.selected), tone: 'calm' as const }
               : { text: t.count('status_verbs_total', verbs.total), tone: 'action' as const }) })
 
-  const sitovSlides = (sitovCompact ? LEARNING_MODES.map(mode => tiles.find(tile => tile.id === mode)!) : tiles).map(tile => {
+  const sitovSlides = LEARNING_MODES.map(mode => tiles.find(tile => tile.id === mode)!).map(tile => {
     const sitovVerbArt = <span className={styles.sitovVerbOrbit} aria-hidden="true"><span className={styles.sitovOrbitRing} /><span className={styles.sitovOrbitRing} /><span className={styles.sitovOrbitWord}>ich</span><span className={styles.sitovOrbitWord}>du</span><span className={styles.sitovOrbitWord}>wir</span><Waypoints size={30} /></span>
     const content = (
             <>
               <span className={styles.sitovAtmosphere} aria-hidden="true"><span className={styles.sitovRim} /><span className={styles.sitovLight} /></span>
-              <span className={`st-tile__top ${sitovCompact || tile.id !== 'verbs' ? styles.sitovSceneMeta : ''}`}>
-                {(!sitovCompact && tile.id === 'verbs' || tile.tone === 'locked') && <span className="st-tile__icon" aria-hidden="true">{tile.tone === 'locked' ? <Lock size={20} /> : <tile.icon size={24} />}</span>}
+              <span className={`st-tile__top ${styles.sitovSceneMeta}`}>
+                {tile.tone === 'locked' && <span className="st-tile__icon" aria-hidden="true"><Lock size={20} /></span>}
                 {tile.badge > 0 && <span className="st-tile__badge" aria-hidden="true"><CountUp value={tile.badge} cap={999} /></span>}
                 {tile.tone !== 'locked' && status?.fresh?.[tile.id] && <NewBadge label={t('media_new')} className="st-tile__new" />}
                 {tile.tone === 'done' && <span className="st-tile__check" aria-hidden="true"><Check size={16} strokeWidth={3} /></span>}
               </span>
-              {tile.id !== 'verbs' ? <SitovTrainerCardScene mode={tile.id} tone={tile.tone} className={styles.sitovCardArt} /> : sitovCompact ? sitovVerbArt : null}
+              {tile.id !== 'verbs' ? <SitovTrainerCardScene mode={tile.id} tone={tile.tone} className={styles.sitovCardArt} /> : sitovVerbArt}
               <span className="st-tile__title">{t(tile.title)}</span>
-              {(sitovCompact || tile.id === 'verbs') && <span className={styles.sitovDescription}>{sitovCompact ? sitovCarouselCopy.descriptions[tile.id] : t('area_verbs_hint')}</span>}
+              <span className={styles.sitovDescription}>{sitovCarouselCopy.descriptions[tile.id]}</span>
               <span className="st-tile__status">
                 {tile.tone === 'action' && <span className="sl-due-dot" aria-hidden="true" />}
                 {tile.text}
               </span>
-              {tile.id === 'verbs' && !sitovCompact && sitovVerbArt}
               {tile.tone !== 'locked' && <span className={styles.sitovArrow} aria-hidden="true"><ArrowUpRight size={20} /></span>}
             </>
           )
-    const sitovClass = `st-tile ${styles.sitovTile} ${sitovCompact ? styles.sitovCarouselCard : ''}`
+    const sitovClass = `st-tile ${styles.sitovTile} ${styles.sitovCarouselCard}`
     const card = tile.tone === 'locked'
       ? <div className={sitovClass} data-sitov-surface="" data-tone="locked" data-area={tile.id} aria-disabled="true">{content}</div>
       : <PressableCard href={modeHref(lang, level, tile.id)} className={sitovClass} data-sitov-surface="" data-tone={tile.tone} data-area={tile.id}>{content}</PressableCard>
@@ -140,9 +137,7 @@ export default function TrainerStatusTiles({ lang, level, status, languageLocked
         </div>
       )}
       <SitovMotionStage className={styles.sitovStage}>
-      {sitovCompact ? <SitovTrainerCarousel items={sitovSlides} lang={lang} label={t('areas_title')} /> : <ul className={`${styles.sitovTiles} ${styles.sitovModes}`}>
-        {sitovSlides.map((item, index) => <li key={item.id} className={styles.sitovItem} data-sitov-feature={item.id === 'verbs' ? 'true' : undefined} style={{ '--sitov-i': index } as CSSProperties}>{item.card}</li>)}
-      </ul>}
+        <SitovTrainerCarousel items={sitovSlides} lang={lang} label={t('areas_title')} />
       </SitovMotionStage>
     </section>
   )

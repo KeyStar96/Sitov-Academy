@@ -1,4 +1,4 @@
-.root { color: var(--foreground); font-size: 18px; line-height: 1.6; max-width: 960px; margin: 0 auto; padding: 16px 0 48px; overflow-wrap: anywhere; }
+.root { --sitov-path-bright: #93c5fd; --sitov-path-ease: cubic-bezier(.22, 1, .36, 1); color: var(--foreground); font-size: 18px; line-height: 1.6; max-width: 960px; margin: 0 auto; padding: 16px 0 48px; overflow-wrap: anywhere; }
 .root h2 { font-size: clamp(26px, 4vw, 36px); font-weight: 700; line-height: 1.25; }
 .root h3 { font-size: 22px; font-weight: 650; line-height: 1.4; }
 .root p { margin: 12px 0; }
@@ -6,6 +6,7 @@
 .root button, .root a { min-width: 48px; }
 .root button:focus-visible, .root input:focus-visible, .root a:focus-visible, .root summary:focus-visible { outline: 3px solid var(--accent-strong); outline-offset: 4px; }
 .root button:disabled { cursor: default; }
+.root button { -webkit-tap-highlight-color: transparent; }
 .header { display: grid; gap: 12px; margin-bottom: 24px; }
 .header button { justify-self: start; }
 .header p { margin: 0; color: var(--muted); }
@@ -235,4 +236,188 @@
 @keyframes pathReviewRise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: no-preference) {
   .reviewItem { animation: pathReviewRise var(--motion-base) var(--ease-out-soft) both; animation-delay: calc(var(--i, 0) * 40ms); }
+}
+
+/* Sitov route lighting: motion supports the current step, never changes progress. */
+.sitovJourney { position: relative; isolation: isolate; display: grid; grid-template-columns: minmax(0, 1fr) 270px; align-items: center; gap: 16px; min-height: 244px; padding: clamp(24px, 4vw, 36px); border: 1px solid color-mix(in srgb, var(--mode-path-text) 32%, var(--border)); border-radius: 32px; overflow: hidden; background: linear-gradient(125deg, var(--surface) 15%, color-mix(in srgb, var(--mode-path-surface) 70%, var(--surface))); box-shadow: 0 20px 65px -46px var(--mode-path-text); }
+.sitovJourney::before, .banner::before { content: ''; position: absolute; inset: 0; pointer-events: none; opacity: 0; background: radial-gradient(380px circle at var(--sitov-light-x, 68%) var(--sitov-light-y, 20%), color-mix(in srgb, var(--sitov-path-bright) 18%, transparent), transparent 75%); transition: opacity .5s var(--sitov-path-ease); }
+.sitovJourney[data-sitov-pointer='true']::before, .banner[data-sitov-pointer='true']::before { opacity: 1; }
+.sitovJourney::after { content: ''; position: absolute; inset: auto 10% 0; height: 2px; background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--mode-path-text) 45%, transparent), transparent); }
+.sitovJourneyContent { position: relative; z-index: 1; min-width: 0; }
+.sitovEyebrow { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; color: var(--mode-path-text); font-size: 12px; font-weight: 850; letter-spacing: .07em; text-transform: uppercase; }
+.sitovEyebrow > span { padding: 2px 9px; border: 1px solid color-mix(in srgb, var(--mode-path-text) 40%, var(--border)); border-radius: 99px; letter-spacing: 0; }
+.root .sitovJourneyTitle { margin: 16px 0 8px; font-size: clamp(30px, 5vw, 46px); font-weight: 850; line-height: 1.08; letter-spacing: -.045em; text-wrap: balance; }
+.root .sitovJourneyDetail { max-width: 28rem; margin: 0; color: var(--muted); font-size: 16px; }
+.sitovJourney .meter { max-width: 28rem; margin-top: 20px; }
+.sitovJourney .bar { height: 7px; background: color-mix(in srgb, var(--mode-path-text) 10%, var(--surface)); }
+.sitovJourney .barFill { background: linear-gradient(90deg, var(--mode-path-text), var(--sitov-path-bright)); }
+.sitovAurora { position: absolute; inset: -70% -30% -45% 15%; z-index: -1; pointer-events: none; background: radial-gradient(ellipse at 65% 50%, color-mix(in srgb, var(--sitov-path-bright) 18%, transparent), transparent 57%); animation: sitovPathAurora 13s ease-in-out infinite alternate paused; }
+.sitovScene { position: relative; align-self: center; width: 100%; max-width: 310px; margin: 0 auto; pointer-events: none; }
+.sitovScene > svg { position: relative; width: 100%; height: auto; overflow: visible; }
+.sitovSceneGlow { position: absolute; inset: 5% 15% 10%; border-radius: 50%; background: radial-gradient(ellipse, color-mix(in srgb, var(--sitov-path-bright) 14%, transparent), transparent 70%); }
+.sitovContour { stroke: var(--mode-path-text); stroke-width: .8; stroke-dasharray: 3 7; opacity: .12; }
+.sitovSceneRoadBase { stroke: color-mix(in srgb, var(--mode-path-text) 7%, var(--surface)); stroke-width: 18; stroke-linecap: round; transform: translateY(5px); }
+.sitovSceneRoad { stroke-width: 6; stroke-linecap: round; opacity: .22; stroke-dasharray: 1 11; }
+.sitovSceneRoad[data-reached='true'] { stroke-dasharray: none; opacity: .85; }
+.sitovSceneShadow { fill: var(--mode-path-text); opacity: .09; }
+.sitovSceneMarker { animation: sitovPathMarker 6s ease-in-out infinite paused; animation-delay: calc(var(--sitov-index) * -1.2s); }
+.sitovSceneRing { fill: var(--surface); stroke: color-mix(in srgb, var(--mode-path-text) 40%, var(--border)); stroke-width: 3; }
+.sitovSceneCore { fill: var(--mode-path-surface); }
+.sitovScenePin { fill: var(--mode-path-text); opacity: .6; }
+.sitovSceneCheckpoint[data-state='locked'] .sitovSceneMarker { animation: none; }
+.sitovSceneCheckpoint[data-state='locked'] .sitovSceneRing { stroke: var(--border); stroke-dasharray: 3 3; }
+.sitovSceneCheckpoint[data-state='locked'] .sitovSceneCore { fill: var(--surface-muted); }
+.sitovSceneCheckpoint[data-state='locked'] .sitovScenePin { fill: var(--muted); }
+.sitovSceneCheckpoint[data-state='completed'] .sitovSceneCore { fill: var(--mode-path-text); }
+.sitovSceneCheckpoint[data-state='current'] .sitovSceneRing { stroke: var(--accent-strong); }
+.sitovSceneCheckpoint[data-state='current'] .sitovSceneCore { fill: var(--accent-strong); }
+.sitovSceneCheck { stroke: var(--mode-path-surface); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.sitovScenePlay { fill: var(--accent-foreground); }
+.sitovSceneBeacon { stroke: var(--accent-strong); stroke-width: 1; opacity: .22; transform-box: fill-box; transform-origin: center; animation: sitovPathBeacon 3.8s ease-out infinite paused; }
+.sitovSceneSpark { color: var(--mode-path-text); opacity: .4; animation: sitovPathSpark 6s ease-in-out infinite paused; animation-delay: calc(var(--sitov-index) * -2s); }
+.sitovJourney[data-sitov-live='true'] .sitovAurora, .sitovJourney[data-sitov-live='true'] .sitovSceneMarker, .sitovJourney[data-sitov-live='true'] .sitovSceneBeacon, .sitovJourney[data-sitov-live='true'] .sitovSceneSpark { animation-play-state: running; }
+
+.trailRoot { gap: 24px; }
+.sitovPathSection { min-width: 0; }
+.banner { isolation: isolate; padding: 24px 26px; border-radius: 26px; border-color: color-mix(in srgb, var(--mode-path-text) 20%, var(--border)); background: linear-gradient(120deg, color-mix(in srgb, var(--mode-path-surface) 62%, var(--surface)), var(--surface) 80%); box-shadow: 0 15px 35px -33px var(--mode-path-text); }
+.banner > :not(.bannerArt):not(.sitovBannerLine) { position: relative; z-index: 1; }
+.bannerArt { top: 2px; right: 5px; width: 145px; height: 145px; opacity: .06; transform: rotate(-10deg); }
+.sitovBannerLine { position: absolute; left: 0; top: 25%; bottom: 25%; width: 3px; border-radius: 0 5px 5px 0; background: linear-gradient(var(--mode-path-text), var(--sitov-path-bright)); }
+.banner[data-state='locked'] { border-color: var(--border); }
+.banner[data-state='locked'] .sitovBannerLine { background: var(--border); }
+.banner[data-state='completed'] .sitovBannerLine { background: var(--gold); }
+.banner .bar { height: 6px; }
+.trail { --medal: 4.25rem; margin-top: 22px; }
+.stop { animation: none; }
+.connector { height: 44px; }
+.connector path { stroke-width: 4; stroke-dasharray: .1 11; }
+.connector[data-reached='true'] path { stroke: color-mix(in srgb, var(--mode-path-text) 70%, var(--sitov-path-bright)); }
+.rail { width: 4px; left: calc(var(--medal) / 2 + var(--wave) * var(--amp) - 2px); background-size: 4px 12px; }
+.rail[data-reached='true'] { background: linear-gradient(var(--mode-path-text), color-mix(in srgb, var(--mode-path-text) 65%, var(--sitov-path-bright))); }
+.step { align-items: center; gap: 16px; border-radius: 23px; }
+.medalWrap { align-self: flex-start; margin-top: 5px; }
+.medal { border-width: 3px; box-shadow: 0 5px 0 var(--depth), 0 13px 25px -20px var(--mode-path-text); animation: none; transition: transform .4s var(--sitov-path-ease), box-shadow .4s var(--sitov-path-ease); }
+.stop[data-state='current'] .medal { animation: pathBreathe 3.8s ease-in-out infinite paused; }
+.stop[data-kind='test'][data-state='current'] .medal { animation: pathGlow 3.8s ease-in-out infinite paused; }
+.shine { animation-duration: 6s; animation-play-state: paused; }
+.sitovMedalOrbit { position: absolute; inset: -7px; border: 1px dashed color-mix(in srgb, var(--accent-strong) 25%, transparent); border-radius: 50%; pointer-events: none; animation: sitovPathOrbit 18s linear infinite paused; }
+.sitovMedalOrbit > span { position: absolute; top: 0; left: calc(50% - 3px); width: 6px; height: 6px; border: 2px solid var(--surface); border-radius: 50%; background: var(--accent-strong); box-shadow: 0 0 12px color-mix(in srgb, var(--accent-strong) 35%, transparent); }
+.sitovStopStage[data-sitov-live='true'] .medal, .sitovStopStage[data-sitov-live='true'] .shine, .sitovStopStage[data-sitov-live='true'] .sitovMedalOrbit { animation-play-state: running; }
+.stopCard { position: relative; isolation: isolate; overflow: hidden; margin-top: 0; padding: 18px 42px 18px 20px; border-radius: 23px; box-shadow: 0 9px 25px -24px var(--mode-path-text); transition: border-color .4s var(--sitov-path-ease), box-shadow .4s var(--sitov-path-ease), transform .4s var(--sitov-path-ease), background .4s var(--sitov-path-ease); }
+.stopCard::before { content: ''; position: absolute; z-index: -1; inset: 0; opacity: 0; background: radial-gradient(230px circle at var(--sitov-light-x, 80%) var(--sitov-light-y, 20%), color-mix(in srgb, var(--mode-path-text) 9%, transparent), transparent 75%); transition: opacity .45s var(--sitov-path-ease); }
+.step[data-sitov-pointer='true'] .stopCard::before { opacity: 1; }
+.stop[data-state='current'] .stopCard { border-color: color-mix(in srgb, var(--accent-strong) 52%, var(--border)); background: linear-gradient(120deg, color-mix(in srgb, var(--accent-strong) 5%, var(--surface)), var(--surface)); box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent-strong) 13%, transparent), 0 14px 32px -26px var(--accent-strong); }
+.stopTitle { font-size: 19px; line-height: 1.4; }
+.stopMeta { margin-top: 9px; }
+.sitovStopArrow { position: absolute; right: 16px; top: 24px; color: var(--mode-path-text); opacity: .48; transition: transform .45s var(--sitov-path-ease), opacity .45s; }
+.stop[data-state='current'] .sitovStopArrow { color: var(--accent-text); opacity: .8; }
+@media (hover: hover) {
+  .step:not(:disabled):hover .stopCard { transform: translateY(-3px); box-shadow: 0 15px 30px -26px var(--mode-path-text); }
+  .step:not(:disabled):hover .medal { transform: translateY(-2px) rotate(-4deg); }
+  .step:not(:disabled):hover .sitovStopArrow { transform: translate(2px, -2px); opacity: 1; }
+}
+.step:not(:disabled):active .stopCard { transform: translateY(1px); }
+
+/* A focused step opens like a light paper surface; controls keep their native focus. */
+.sitovView { position: relative; animation: sitovPathArrive .5s var(--sitov-path-ease) both; }
+.primary, .secondary { gap: 8px; border-radius: 16px; font-weight: 750 !important; transition: transform .35s var(--sitov-path-ease), background .3s, border-color .3s, box-shadow .35s var(--sitov-path-ease); }
+.primary { position: relative; isolation: isolate; overflow: hidden; box-shadow: 0 11px 26px -19px var(--accent-strong); }
+.primary::after { content: ''; position: absolute; z-index: -1; top: 0; bottom: 0; left: -90%; width: 65%; transform: skewX(-20deg); background: linear-gradient(90deg, transparent, #ffffff25, transparent); transition: left .8s var(--sitov-path-ease); pointer-events: none; }
+.primary:not(:disabled):hover::after, .primary:not(:disabled):focus-visible::after { left: 140%; }
+.primary:not(:disabled):active, .secondary:not(:disabled):active, .choice:not(:disabled):active { transform: translateY(1px) scale(.975); }
+@media (hover: hover) {
+  .primary:not(:disabled):hover, .secondary:not(:disabled):hover { transform: translateY(-2px); box-shadow: 0 13px 28px -19px var(--mode-path-text); }
+}
+.rule { position: relative; overflow: hidden; padding: 26px; border-radius: 28px; border-color: color-mix(in srgb, var(--mode-path-text) 32%, var(--border)); color: var(--foreground); background: radial-gradient(ellipse at 90% 0%, color-mix(in srgb, var(--sitov-path-bright) 13%, transparent), transparent 65%), linear-gradient(135deg, var(--mode-path-surface), var(--surface) 75%); box-shadow: 0 20px 45px -40px var(--mode-path-text); }
+.rule h3 { min-height: 44px; color: var(--mode-path-text); padding-right: 112px; }
+.rule > p { margin: 24px 0 16px; font-size: 21px; line-height: 1.65; max-width: 38rem; }
+.rule ul { display: grid; gap: 10px; padding: 0; list-style: none; }
+.rule li, .rule li + li { position: relative; margin: 0; padding: 14px 18px 14px 36px; border: 1px solid color-mix(in srgb, var(--mode-path-text) 15%, var(--border)); border-radius: 16px; background: color-mix(in srgb, var(--surface) 85%, transparent); animation: sitovPathArrive .5s var(--sitov-path-ease) both; animation-delay: calc(min(var(--sitov-index), 6) * 50ms); }
+.rule li::before { content: ''; position: absolute; left: 17px; top: 24px; width: 5px; height: 5px; border-radius: 50%; background: var(--mode-path-text); }
+.sitovRuleScene { position: absolute; right: 24px; top: 13px; width: 90px; height: 88px; pointer-events: none; }
+.sitovRuleHalo { position: absolute; inset: 0; border: 1px dashed color-mix(in srgb, var(--mode-path-text) 23%, transparent); border-radius: 50%; transform: rotate(-20deg) scaleY(.75); }
+.sitovRulePage { position: absolute; display: flex; flex-direction: column; gap: 5px; width: 48px; height: 63px; padding: 10px 9px; border: 1px solid color-mix(in srgb, var(--mode-path-text) 40%, var(--border)); border-radius: 12px; color: var(--mode-path-text); background: var(--surface); box-shadow: 0 11px 20px -15px var(--mode-path-text); animation: sitovPathPaper 6s ease-in-out infinite paused; }
+.sitovRulePage[data-page='back'] { top: 8px; left: 12px; --sitov-page-angle: -16deg; transform: rotate(-16deg); animation-delay: -2s; }
+.sitovRulePage[data-page='front'] { top: 14px; left: 37px; --sitov-page-angle: 10deg; transform: rotate(10deg); }
+.sitovRulePage > svg { margin: -2px auto 0; }
+.sitovRulePage > i { width: 100%; height: 3px; border-radius: 4px; background: color-mix(in srgb, var(--mode-path-text) 17%, transparent); }
+.sitovRulePage > i:last-child { width: 65%; }
+.sitovRuleSpark { position: absolute; top: 7px; right: 2px; width: 5px; height: 5px; border-radius: 50%; background: var(--mode-path-text); opacity: .45; }
+.sitovView[data-sitov-live='true'] .sitovRulePage { animation-play-state: running; }
+.sitovTaskHead { position: relative; display: flex; align-items: center; gap: 14px; margin-bottom: 20px; padding: 20px; border: 1px solid color-mix(in srgb, var(--mode-path-text) 20%, var(--border)); border-radius: 23px; overflow: hidden; background: linear-gradient(120deg, var(--mode-path-surface), var(--surface)); }
+.sitovTaskIcon { display: grid; flex-shrink: 0; place-items: center; width: 49px; height: 49px; border: 1px solid color-mix(in srgb, var(--mode-path-text) 23%, var(--border)); border-radius: 16px; color: var(--mode-path-text); background: var(--surface); box-shadow: 0 8px 20px -18px var(--mode-path-text); }
+.sitovTaskHead .instruction { position: relative; z-index: 1; margin: 0; flex: 1; font-size: 21px; font-weight: 750; }
+.sitovTaskLines { position: absolute; display: grid; gap: 7px; right: -8px; top: 15px; width: 90px; transform: rotate(-22deg); opacity: .08; }
+.sitovTaskLines i { height: 6px; border-radius: 99px; background: var(--mode-path-text); }
+.sitovTaskLines i:nth-child(2) { width: 75%; }
+.sitovTaskLines i:nth-child(3) { width: 50%; }
+.sentence { margin: 4px 0 12px !important; padding: 20px 22px; border: 1px solid var(--border); border-radius: 22px; background: var(--surface); font-size: clamp(21px, 4vw, 26px); line-height: 1.85; }
+.gapSlot { transition: background .3s var(--sitov-path-ease), color .3s var(--sitov-path-ease); }
+.input { padding: 15px 18px; border-width: 1.5px; border-radius: 17px; transition: border-color .3s, background .3s, box-shadow .4s var(--sitov-path-ease); }
+.input:focus { border-color: var(--mode-path-text); background: color-mix(in srgb, var(--mode-path-surface) 25%, var(--surface)); box-shadow: 0 0 0 5px color-mix(in srgb, var(--mode-path-text) 7%, transparent); }
+.option { position: relative; isolation: isolate; border-radius: 18px; padding: 16px 19px; cursor: pointer; transition: transform .4s var(--sitov-path-ease), border-color .3s, background .3s, box-shadow .4s var(--sitov-path-ease); }
+.option[data-selected='true'] { box-shadow: 0 0 0 1px color-mix(in srgb, var(--mode-path-text) 16%, transparent), 0 8px 20px -20px var(--mode-path-text); }
+.option input { accent-color: var(--mode-path-text); }
+.fields:disabled .option { cursor: default; }
+@media (hover: hover) { .fields:not(:disabled) .option:hover { transform: translateX(3px); border-color: var(--mode-path-text); } }
+.tiles { align-items: center; gap: 8px; border-style: dashed; border-radius: 20px; padding: 18px; background: color-mix(in srgb, var(--mode-path-surface) 20%, var(--surface)); }
+.tiles .secondary { border-radius: 13px; padding: 9px 16px; background: var(--surface); animation: sitovPathTile .35s var(--sitov-path-ease) both; }
+.feedback { padding: 24px; border: 1px solid var(--border); border-radius: 26px; background: linear-gradient(130deg, var(--surface), color-mix(in srgb, var(--mode-path-surface) 35%, var(--surface))); box-shadow: 0 18px 42px -37px var(--mode-path-text); }
+.nodeDone { padding: 16px 20px; border: 1px solid color-mix(in srgb, var(--success) 30%, var(--border)); border-radius: 20px; background: color-mix(in srgb, var(--success) 5%, var(--surface)); animation: sitovPathArrive .5s var(--sitov-path-ease) both; }
+.nodeDoneStars { margin-left: auto; animation: sitovPathTile .6s var(--sitov-path-ease) both; }
+.reviewSummary { border-color: color-mix(in srgb, var(--mode-path-text) 20%, var(--border)); padding: 24px; border-radius: 28px; box-shadow: 0 16px 36px -34px var(--mode-path-text); }
+.reviewIcon { border: 1px solid color-mix(in srgb, var(--mode-path-text) 20%, var(--border)); box-shadow: 0 8px 22px -18px var(--mode-path-text); }
+.reviewItem { box-shadow: 0 10px 22px -23px var(--mode-path-text); }
+.reviewAnswers > div { transition: background .3s; }
+.segmented { padding: 6px; border-radius: 20px; gap: 6px; }
+.root .segmented button { border-radius: 14px; transition: background .4s var(--sitov-path-ease), color .3s, box-shadow .4s var(--sitov-path-ease), transform .3s var(--sitov-path-ease); }
+.segmented button:active { transform: scale(.975); }
+
+@keyframes sitovPathAurora { from { transform: rotate(-12deg) scale(1); opacity: .65; } to { transform: rotate(8deg) scale(1.12); opacity: 1; } }
+@keyframes sitovPathMarker { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+@keyframes sitovPathBeacon { 0% { transform: scale(.9); opacity: .3; } 80%, 100% { transform: scale(1.2); opacity: 0; } }
+@keyframes sitovPathSpark { 0%, 100% { transform: scale(.8); opacity: .25; } 50% { transform: scale(1.1); opacity: .5; } }
+@keyframes sitovPathOrbit { to { transform: rotate(360deg); } }
+@keyframes sitovPathPaper { 0%, 100% { transform: translateY(0) rotate(var(--sitov-page-angle)); } 50% { transform: translateY(-4px) rotate(calc(var(--sitov-page-angle) + 3deg)); } }
+@keyframes sitovPathArrive { from { opacity: .4; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+@keyframes sitovPathTile { from { opacity: .6; transform: translateY(4px) scale(.98); } to { opacity: 1; transform: none; } }
+
+@media (max-width: 640px) {
+  .sitovJourney { grid-template-columns: minmax(0, 1fr) 150px; min-height: 208px; gap: 0; padding: 24px 22px; }
+  .sitovEyebrow { font-size: 10px; gap: 6px; }
+  .sitovEyebrow svg { width: 14px; }
+  .root .sitovJourneyTitle { font-size: 30px; margin: 14px 0 10px; }
+  .root .sitovJourneyDetail { font-size: 14px; }
+  .sitovJourney .meter { width: calc(100% + 85px); }
+  .sitovScene { align-self: start; margin-top: 32px; margin-right: -9px; }
+  .banner { padding: 21px 22px; }
+  .stopCard { padding: 16px 31px 16px 16px; }
+  .stopTitle { font-size: 17px; }
+  .sitovStopArrow { right: 11px; width: 15px; }
+  .step { gap: 11px; }
+  .rule { padding: 22px; }
+  .rule > p { font-size: 19px; }
+  .sitovRuleScene { right: 14px; }
+  .sitovTaskHead { padding: 17px; gap: 12px; }
+  .sitovTaskHead .instruction { font-size: 19px; }
+  .sentence { padding: 17px 18px; }
+  .reviewSummary { padding: 20px; gap: 13px; }
+}
+@media (max-width: 380px) {
+  .sitovJourney { grid-template-columns: minmax(0, 1fr) 114px; padding: 22px 18px; }
+  .root .sitovJourneyTitle { font-size: 26px; }
+  .sitovScene { margin-top: 45px; }
+  .sitovJourney .meter { width: calc(100% + 60px); }
+  .trail { --medal: 3.8rem; --amp: 2rem; padding-left: 4px; }
+  .stopTitle { font-size: 16px; }
+  .stopCard { padding-left: 13px; }
+  .rule h3 { font-size: 20px; padding-right: 82px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .root *, .root *::before, .root *::after { animation: none !important; transition: none !important; }
+  .sitovMedalOrbit { display: none; }
+  .step:not(:disabled):hover .stopCard, .step:not(:disabled):hover .medal, .step:not(:disabled):active .stopCard, .step:not(:disabled):active .medal,
+  .step:not(:disabled):hover .sitovStopArrow, .primary:not(:disabled):hover, .secondary:not(:disabled):hover,
+  .primary:not(:disabled):active, .secondary:not(:disabled):active, .choice:not(:disabled):hover, .choice:not(:disabled):active,
+  .fields:not(:disabled) .option:hover, .segmented button:active { transform: none; }
 }

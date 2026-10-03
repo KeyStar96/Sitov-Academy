@@ -12,6 +12,9 @@ import {
 } from '@/lib/pronunciation-i18n'
 import LiveWaveform from '@/components/audio/LiveWaveform'
 import WaveformPlayer from '@/components/audio/WaveformPlayer'
+import SitovMotionStage from '@/components/motion/SitovMotionStage'
+import SitovPronunciationScene from '@/components/audio/SitovPronunciationScene'
+import styles from './PronunciationStudio.module.css'
 
 /**
  * Aufnahme-Karte für Schüler: aufnehmen, anhören, einreichen.
@@ -133,13 +136,15 @@ export default function AudioRecorder({
   )
 
   const card = (
-    <div
-      className={`min-w-0 break-words rounded-3xl border border-[var(--border)] bg-[var(--surface)] text-center text-[var(--foreground)] shadow-sm transition-colors ${
+    <SitovMotionStage
+      data-sitov-phase={phase}
+      className={`${styles.sitovRecorder} min-w-0 break-words rounded-3xl border border-[var(--border)] bg-[var(--surface)] text-center text-[var(--foreground)] shadow-sm transition-colors ${
         compact ? 'p-5 shadow-none' : mobileFloating ? 'p-5 lg:p-8' : 'p-5 sm:p-8'
       } ${cardOnlyOnDesktop ? 'hidden lg:block' : ''}`}
     >
       {!compact && (
         <div className={mobileHidden}>
+          {!mobileFloating && !recorder.hasRecording && !recorder.isRecording && <div className={styles.sitovRecorderScene}><SitovPronunciationScene compact /></div>}
           <h2 className="mb-4 text-2xl font-bold text-[var(--foreground)]">
             {t('record_title')}
           </h2>
@@ -148,7 +153,7 @@ export default function AudioRecorder({
       )}
 
       {(recorder.isRecording || recorder.hasRecording) && (
-        <div className="mb-6 bg-[var(--surface-muted)] p-3 sm:p-5 rounded-2xl border border-[var(--border)] text-left">
+        <div className={`${styles.sitovRecordSurface} mb-6 bg-[var(--surface-muted)] p-3 sm:p-5 rounded-2xl border border-[var(--border)] text-left`}>
           {recorder.isRecording ? (
             <div className="mb-3">
               <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
@@ -156,7 +161,7 @@ export default function AudioRecorder({
                   {t('your_recording')}
                 </span>
                 <span className="flex items-center gap-2 text-base font-bold text-[var(--accent-text)] bg-[color-mix(in_srgb,var(--accent)_10%,var(--surface))] px-2 py-1 rounded">
-                  <span className="h-2 w-2 bg-[var(--accent-strong)] rounded-full animate-pulse"></span>
+                  <span className={styles.sitovRecordingIndicator} aria-hidden="true" />
                   {t('recording_running')}
                 </span>
               </div>
@@ -219,7 +224,7 @@ export default function AudioRecorder({
               type="button"
               onClick={handleStart}
               disabled={recorder.status === 'requesting' || isUploading}
-              className="st-mic flex min-h-[4.5rem] min-w-[56px] w-full items-center justify-center gap-3 rounded-full bg-[var(--accent-strong)] px-8 py-3 text-xl font-bold text-[var(--accent-foreground)] shadow-lg transition-colors hover:bg-[var(--accent-strong-hover)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
+              className={`${styles.sitovMicButton} st-mic flex min-h-[4.5rem] min-w-[56px] w-full items-center justify-center gap-3 rounded-full bg-[var(--accent-strong)] px-8 py-3 text-xl font-bold text-[var(--accent-foreground)] shadow-lg transition-colors focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto`}
             >
               {recorder.status === 'requesting' ? (
                 <Loader2 size={26} className="animate-spin" aria-hidden="true" />
@@ -235,7 +240,7 @@ export default function AudioRecorder({
       {recorder.hasRecording && (
         <div className="mt-6 border-t border-[var(--border)] pt-6">
           {isSubmitted ? (
-            <div className="mx-auto inline-flex max-w-xl items-center gap-4 rounded-2xl border border-[var(--border)] bg-[color-mix(in_srgb,var(--success)_10%,var(--surface))] p-4 text-left sm:p-6">
+            <div className={`${styles.sitovSubmitted} mx-auto inline-flex max-w-xl items-center gap-4 rounded-2xl border border-[var(--border)] bg-[color-mix(in_srgb,var(--success)_10%,var(--surface))] p-4 text-left sm:p-6`}>
               <CheckCircle2 className="h-8 w-8 shrink-0 text-[var(--success)]" aria-hidden="true" />
               <div>
                 <p className="text-xl font-bold text-[var(--success)]">
@@ -263,7 +268,7 @@ export default function AudioRecorder({
           )}
         </div>
       )}
-    </div>
+    </SitovMotionStage>
   )
 
   if (!mobileFloating) return card
@@ -274,11 +279,11 @@ export default function AudioRecorder({
 
       {/* Schwebende Bedienebene – nur auf Handys, nie während der Auswertung. */}
       {!isReviewing && (
-        <div
+        <SitovMotionStage
           data-testid="pronunciation-recording-bar"
-          className="pronunciation-recorder-dock pointer-events-none fixed inset-x-0 bottom-0 z-40 lg:hidden"
+          className={`${styles.sitovDock} pronunciation-recorder-dock pointer-events-none fixed inset-x-0 bottom-0 z-40 lg:hidden`}
         >
-          <div className="mx-auto flex w-full max-w-3xl flex-col items-center gap-3 px-4 pb-[calc(env(safe-area-inset-bottom,0px)+0.75rem)]">
+          <div className={`${styles.sitovDockControls} mx-auto flex w-full max-w-3xl flex-col items-center gap-3 px-4 pb-[calc(env(safe-area-inset-bottom,0px)+0.75rem)]`}>
             {statusMessage && (
               <p
                 role="status"
@@ -290,7 +295,7 @@ export default function AudioRecorder({
             )}
 
             {recorder.isRecording ? (
-              <div className="pronunciation-recorder-glass pointer-events-auto flex w-full items-center gap-3 rounded-2xl p-2 pr-4 shadow-xl">
+              <div className={`${styles.sitovDockRecording} pronunciation-recorder-glass pointer-events-auto flex w-full items-center gap-3 rounded-2xl p-2 pr-4 shadow-xl`}>
                 <button
                   type="button"
                   onClick={recorder.stop}
@@ -315,7 +320,7 @@ export default function AudioRecorder({
                 onClick={handleStart}
                 disabled={recorder.status === 'requesting' || isUploading}
                 aria-label={t('start_recording')}
-                className="st-mic pointer-events-auto relative flex min-h-[4.25rem] shrink-0 items-center justify-center gap-3 rounded-full bg-[var(--accent-strong)] px-7 text-lg font-bold text-[var(--accent-foreground)] shadow-xl shadow-black/25 ring-1 ring-white/20 transition-transform duration-200 hover:scale-105 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] active:scale-95 disabled:cursor-not-allowed disabled:opacity-60 motion-reduce:transition-none motion-reduce:hover:scale-100"
+                className={`${styles.sitovMicButton} st-mic pointer-events-auto relative flex min-h-[4.25rem] shrink-0 items-center justify-center gap-3 rounded-full bg-[var(--accent-strong)] px-7 text-lg font-bold text-[var(--accent-foreground)] shadow-xl shadow-black/25 ring-1 ring-white/20 transition-transform duration-200 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)] active:scale-95 disabled:cursor-not-allowed disabled:opacity-60 motion-reduce:transition-none motion-reduce:hover:scale-100`}
               >
                 {recorder.status === 'requesting' ? (
                   <Loader2 size={28} className="animate-spin" aria-hidden="true" />
@@ -326,7 +331,7 @@ export default function AudioRecorder({
               </button>
             )}
           </div>
-        </div>
+        </SitovMotionStage>
       )}
     </>
   )

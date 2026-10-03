@@ -1,6 +1,9 @@
 import { act, fireEvent, render, screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import SitovTrainerCarousel, { type SitovTrainerSlide } from '@/components/dashboard/SitovTrainerCarousel'
+import TrainerStatusTiles from '@/components/dashboard/TrainerStatusTiles'
+import { getSitovTrainerCarouselCopy } from '@/lib/sitov-trainer-carousel-i18n'
+import type { LevelLearningStatus } from '@/lib/learning-status-server'
 import { LEARNING_MODES, modeHref, type LearningMode } from '@/lib/mode-targets'
 
 // Real motion values keep gesture/snap behavior observable; the user's motion
@@ -66,6 +69,41 @@ function sitovWheel(target: HTMLElement, deltaX: number, deltaY = 0, shiftKey = 
   fireEvent(target, event)
   return event
 }
+
+describe('Sitov Academy shared Home and Learn trainer carousel', () => {
+  it.each(['compact', 'modes'] as const)('keeps all trainer routes, descriptions and learning statuses in the %s carousel', layout => {
+    const status: LevelLearningStatus = {
+      level: 'A1.1', lessons: [], ownWords: null,
+      vocabulary: { locked: false, due: 3, activeWords: 10, total: 20, learned: 0 },
+      verbs: { locked: false, total: 90, selected: 10, due: 6, mastered: 0 },
+      grammar: { locked: false, total: 6, solved: 2, topics: 3, openTopics: 2 },
+      pronunciation: { locked: false, texts: 2, open: 2, waiting: 0, unread: 0 },
+      media: { locked: false, total: 1, fresh: 1 },
+    }
+    const { container } = render(<TrainerStatusTiles lang="en" level="A1.1" status={status} languageLocked={false} layout={layout} />)
+    const region = screen.getAllByRole('region', { name: 'Your learning areas' }).find(element => element.getAttribute('aria-roledescription') === 'Carousel')!
+    expect(region).toHaveAttribute('aria-roledescription', 'Carousel')
+    expect([...region.querySelectorAll('[data-sitov-mode]')].map(slide => slide.getAttribute('data-sitov-mode'))).toEqual([...LEARNING_MODES])
+    expect(container.querySelector('[data-sitov-feature]')).toBeNull()
+    for (const mode of LEARNING_MODES) {
+      sitovChoose(mode)
+      const card = screen.getByRole('link')
+      expect(card).toHaveAttribute('href', modeHref('en', 'A1.1', mode))
+      expect(card).toHaveTextContent(sitovLabels[mode])
+      expect(card).toHaveTextContent(getSitovTrainerCarouselCopy('en').descriptions[mode])
+    }
+    sitovChoose('vocabulary')
+    expect(screen.getByRole('link')).toHaveTextContent('3 cards due')
+    sitovChoose('verbs')
+    expect(screen.getByRole('link')).toHaveTextContent('6 verb forms to review')
+    sitovChoose('path')
+    expect(screen.getByRole('link')).toHaveTextContent('Topic 2 of 3')
+    sitovChoose('pronunciation')
+    expect(screen.getByRole('link')).toHaveTextContent('2 texts open')
+    sitovChoose('media')
+    expect(screen.getByRole('link')).toHaveTextContent('1 new')
+  })
+})
 
 describe('Sitov Academy trainer carousel navigation', () => {
   it('exposes only the front card as a reachable link while keeping all five choices available', async () => {

@@ -2,11 +2,13 @@
 
 import type { CSSProperties } from 'react'
 import { motion } from 'framer-motion'
-import { Check, History, Lock, Play, Route, Sparkles, Star, Target, Trophy, BookOpen, Repeat } from 'lucide-react'
+import { ArrowUpRight, Check, History, Lock, Play, Route, Sparkles, Star, Target, Trophy, BookOpen, Repeat } from 'lucide-react'
 import type { PathMap, PathNode } from '@/lib/learning-path-contract'
 import { pathTranslator } from '@/lib/learning-path-i18n'
 import { MOTION, PRESS_SCALE, useReducedMotionSafe } from '@/lib/motion'
 import NewBadge from '@/components/motion/NewBadge'
+import SitovMotionStage from '@/components/motion/SitovMotionStage'
+import SitovPathScene from './SitovPathScene'
 import styles from './learning-path.module.css'
 
 type Path = PathMap['paths'][number]
@@ -93,21 +95,31 @@ export default function PathTrail({ map, lang, busy, onOpen, isNewPath, isNewBra
   const levelDone = lessons.filter(isDone).length
 
   return <div className={styles.trailRoot}>
-    {lessons.length > 0 && <div data-testid="path-level-progress" className={styles.meter}>
-      <div className={styles.bar} role="progressbar" aria-valuemin={0} aria-valuemax={lessons.length} aria-valuenow={levelDone}
-        aria-label={t('level_progress', { done: levelDone, total: lessons.length })}>
-        <div className={styles.barFill} style={{ '--p': String(levelDone / lessons.length) } as CSSProperties} />
+    {lessons.length > 0 && <SitovMotionStage className={styles.sitovJourney} data-sitov-surface data-testid="path-level-progress">
+      <span className={styles.sitovAurora} aria-hidden="true" />
+      <div className={styles.sitovJourneyContent}>
+        <span className={styles.sitovEyebrow}><Route size={17} aria-hidden="true" />Sitov Academy<span>{map.level}</span></span>
+        <p className={styles.sitovJourneyTitle}>{t('title')}</p>
+        <p className={styles.sitovJourneyDetail}>{t('level_progress', { done: levelDone, total: lessons.length })}</p>
+        <div className={styles.meter}>
+          <div className={styles.bar} role="progressbar" aria-valuemin={0} aria-valuemax={lessons.length} aria-valuenow={levelDone}
+            aria-label={t('level_progress', { done: levelDone, total: lessons.length })}>
+            <div className={styles.barFill} style={{ '--p': String(levelDone / lessons.length) } as CSSProperties} />
+          </div>
+          <span className={styles.meterValue} aria-hidden="true">{levelDone}/{lessons.length}</span>
+        </div>
       </div>
-      <span className={styles.meterValue} aria-hidden="true">{levelDone}/{lessons.length}</span>
-    </div>}
+      <SitovPathScene nodes={map.paths.flatMap(path => path.nodes)} currentId={currentId} />
+    </SitovMotionStage>}
 
     {map.paths.map(path => {
       const pathLessons = path.nodes.filter(isLesson)
       const pathDone = pathLessons.filter(isDone).length
       const bannerState = path.completed ? 'completed' : path.available ? 'open' : 'locked'
-      return <section key={path.id} aria-labelledby={`path-title-${path.id}`}>
-        <header className={styles.banner} data-state={bannerState}>
+      return <section key={path.id} className={styles.sitovPathSection} aria-labelledby={`path-title-${path.id}`}>
+        <header className={styles.banner} data-state={bannerState} data-sitov-surface>
           <Route className={styles.bannerArt} aria-hidden="true" />
+          <span className={styles.sitovBannerLine} aria-hidden="true" />
           <div className="flex flex-wrap items-center gap-2">
             <span className={styles.chip} data-tone="path"><Route size={16} aria-hidden="true" />{t('path', { number: path.sort_order })}</span>
             {path.completed ? <span className={styles.chip} data-tone="gold" role="img" aria-label={t('completed')}><Trophy size={16} aria-hidden="true" /></span>
@@ -131,6 +143,7 @@ export default function PathTrail({ map, lang, busy, onOpen, isNewPath, isNewBra
           const status = stopStatus(node, state, t)
           return <li key={node.id} className={styles.stop} data-state={state} data-kind={node.kind}
             style={{ '--wave': String(wave), '--i': String(index) } as CSSProperties}>
+            <SitovMotionStage className={styles.sitovStopStage}>
             {index > 0 && <div className={styles.connector} data-reached={reached(path, index)} aria-hidden="true">
               <svg viewBox="0 0 100 40" preserveAspectRatio="none" focusable="false">
                 <path vectorEffect="non-scaling-stroke" d={`M${previousWave * 100} 0 C${previousWave * 100} 22 ${wave * 100} 18 ${wave * 100} 40`} />
@@ -139,10 +152,12 @@ export default function PathTrail({ map, lang, busy, onOpen, isNewPath, isNewBra
             <div className={styles.row}>
               {index < path.nodes.length - 1 && <span className={styles.rail} data-reached={reached(path, index + 1)} aria-hidden="true" />}
               <motion.button type="button" className={styles.step} data-testid={`path-node-${node.id}`} data-node-kind={node.kind} data-state={state}
+                data-sitov-surface aria-disabled={busy || !node.available}
                 disabled={busy || !node.available} aria-current={state === 'current' ? 'step' : undefined}
                 whileTap={reduced ? undefined : { scale: PRESS_SCALE }} transition={{ duration: reduced ? 0 : MOTION.fast }}
                 onClick={() => onOpen(node, path)}>
                 <span className={styles.medalWrap}>
+                  {state === 'current' && <span className={styles.sitovMedalOrbit} aria-hidden="true"><span /></span>}
                   <span className={styles.medal}>
                     <MedalIcon node={node} state={state} />
                     {node.kind === 'test' && <span className={styles.shine} aria-hidden="true" />}
@@ -160,8 +175,10 @@ export default function PathTrail({ map, lang, busy, onOpen, isNewPath, isNewBra
                     {node.stars > 0 && <Stars count={node.stars} label={t('stars', { count: node.stars })} />}
                   </span>}
                 </span>
+                {node.available && <ArrowUpRight className={styles.sitovStopArrow} size={18} aria-hidden="true" />}
               </motion.button>
             </div>
+            </SitovMotionStage>
           </li>
         })}</ol>
       </section>

@@ -193,11 +193,11 @@ a.st-crumb:focus-visible { outline: 3px solid var(--accent); outline-offset: -3p
    StudentNavigation setzt data-tabbar="visible|hidden" am Wurzelelement.
    --st-tabbar-visible ist die gerade sichtbare Leistenhöhe; alles, was über
    der Leiste schwebt (Aufnahme-Dock), richtet sich danach und wandert mit. */
-.academy-student-shell { --st-tabbar-h: calc(4.6rem + env(safe-area-inset-bottom, 0px)); --st-tabbar-visible: var(--st-tabbar-h); }
-.academy-student-shell[data-tabbar='hidden'] { --st-tabbar-visible: 0px; }
-.st-tabbar { position: fixed; inset: auto 0 0; z-index: 60; border-top: 1px solid var(--border); background: color-mix(in srgb, var(--surface) 90%, transparent); padding: .35rem .5rem calc(.35rem + env(safe-area-inset-bottom, 0px)); box-shadow: 0 -12px 30px -18px rgb(15 23 42 / .35); -webkit-backdrop-filter: blur(16px) saturate(160%); backdrop-filter: blur(16px) saturate(160%); transition: transform var(--motion-slow) var(--ease-out-soft), visibility 0s; }
+.academy-student-shell { --st-tabbar-h: calc(4.6rem + env(safe-area-inset-bottom, 0px)); --st-tabbar-visible: var(--st-tabbar-h); --sitov-nav-duration: 480ms; --sitov-nav-fade: 300ms; --sitov-nav-ease: cubic-bezier(.22, .68, 0, 1); }
+.academy-student-shell[data-tabbar='hidden'] { --st-tabbar-visible: 0px; --sitov-nav-duration: 360ms; --sitov-nav-fade: 260ms; --sitov-nav-ease: cubic-bezier(.4, 0, .2, 1); }
+.st-tabbar { position: fixed; inset: auto 0 0; z-index: 60; border-top: 1px solid var(--border); background: color-mix(in srgb, var(--surface) 90%, transparent); padding: .35rem .5rem calc(.35rem + env(safe-area-inset-bottom, 0px)); box-shadow: 0 -12px 30px -18px rgb(15 23 42 / .35); -webkit-backdrop-filter: blur(16px) saturate(160%); backdrop-filter: blur(16px) saturate(160%); transform: translate3d(0, 0, 0) scale(1); transform-origin: center bottom; opacity: 1; transition: transform var(--sitov-nav-duration) var(--sitov-nav-ease), opacity var(--sitov-nav-fade) ease, visibility 0s; }
 /* Verborgen: aus dem Bild geschoben und aus der Tab-Reihenfolge genommen. */
-.academy-student-shell[data-tabbar='hidden'] .st-tabbar { transform: translateY(calc(100% + 1rem)); visibility: hidden; transition: transform var(--motion-slow) var(--ease-out-soft), visibility 0s linear var(--motion-slow); }
+.academy-student-shell[data-tabbar='hidden'] .st-tabbar { transform: translate3d(0, calc(100% + 1rem), 0) scale(.98); opacity: 0; visibility: hidden; pointer-events: none; transition: transform var(--sitov-nav-duration) var(--sitov-nav-ease), opacity var(--sitov-nav-fade) ease, visibility 0s linear var(--sitov-nav-duration); }
 html.high-contrast .st-tabbar { background: var(--surface); -webkit-backdrop-filter: none; backdrop-filter: none; }
 .st-tabbar__list { position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .25rem; max-width: 32rem; margin: 0 auto; }
 .st-tabbar__item { min-width: 0; }
@@ -212,7 +212,7 @@ html.high-contrast .st-tabbar__pill { background: transparent; border: 2px solid
 @media (max-width: 767.98px) {
   .academy-student-content { padding-bottom: calc(var(--st-tabbar-h) + 1.5rem); }
   /* Die schwebende Aufnahme-Bedienung sitzt über der App-Leiste und wandert mit ihr. */
-  .academy-student-shell .pronunciation-recorder-dock { bottom: 0; transform: translateY(calc(-1 * var(--st-tabbar-visible))); transition: transform var(--motion-slow) var(--ease-out-soft); }
+  .academy-student-shell .pronunciation-recorder-dock { bottom: 0; transform: translateY(calc(-1 * var(--st-tabbar-visible))); transition: transform var(--sitov-nav-duration) var(--sitov-nav-ease); }
   .academy-student-shell .pronunciation-practice { padding-bottom: calc(6.5rem + var(--st-tabbar-h)); }
 }
 @media (min-width: 768px) { .st-tabbar { display: none; } }
@@ -617,10 +617,18 @@ html.high-contrast .st-switch[aria-checked='true'] { background: var(--surface);
    Klebt unter dem Seitenkopf (top setzt ModeDock nach dessen Höhe). Die
    Kennfarbe erscheint nur im aktiven Reiter und in den Symbolen. */
 /* Schwebt frei: kein Band über die ganze Breite, nur die Leiste selbst mit Schatten. */
-.st-mode-dock { position: sticky; top: 0; z-index: 25; margin: -1.25rem 0 1.5rem; padding: .75rem 0; pointer-events: none; transition: transform var(--motion-slow) var(--ease-out-soft), opacity var(--motion-slow) var(--ease-out-soft), visibility 0s; }
+.st-mode-dock { position: sticky; top: 0; z-index: 25; margin: -1.25rem 0 1.5rem; padding: .75rem 0; pointer-events: none; transform: translate3d(0, 0, 0) scale(1); transform-origin: center top; opacity: 1; transition: transform var(--sitov-nav-duration) var(--sitov-nav-ease), opacity var(--sitov-nav-fade) ease, visibility 0s; }
 /* Wie die untere Leiste (data-tabbar, StudentNavigation): beim Runterscrollen gleitet
-   die Modus-Leiste unter den Seitenkopf weg, beim Hochscrollen kommt sie sofort zurück. */
-.academy-student-shell[data-tabbar='hidden'] .st-mode-dock { transform: translateY(calc(-100% - 1rem)); opacity: 0; visibility: hidden; transition: transform var(--motion-slow) var(--ease-out-soft), opacity var(--motion-slow) var(--ease-out-soft), visibility 0s linear var(--motion-slow); }
+   die Modus-Leiste unter den Seitenkopf weg, beim Hochscrollen kommt sie weich zurück. */
+.academy-student-shell[data-tabbar='hidden'] .st-mode-dock { transform: translate3d(0, calc(-100% - 1rem), 0) scale(.98); opacity: 0; visibility: hidden; transition: transform var(--sitov-nav-duration) var(--sitov-nav-ease), opacity var(--sitov-nav-fade) ease, visibility 0s linear var(--sitov-nav-duration); }
+.academy-student-shell[data-tabbar='hidden'] .st-mode-dock__list { pointer-events: none; }
+/* Kleine Folgebewegung der Symbole und Beschriftungen beim Wiedererscheinen. */
+.st-tabbar__item, .st-mode-dock__item { --sitov-nav-item-delay: 0ms; transform: translate3d(0, 0, 0); opacity: 1; transition: transform 340ms var(--sitov-nav-ease) var(--sitov-nav-item-delay), opacity 260ms ease var(--sitov-nav-item-delay); }
+.st-tabbar__item:nth-child(2), .st-mode-dock__item:nth-child(2) { --sitov-nav-item-delay: 24ms; }
+.st-tabbar__item:nth-child(3), .st-mode-dock__item:nth-child(3) { --sitov-nav-item-delay: 48ms; }
+.st-tabbar__item:nth-child(4), .st-mode-dock__item:nth-child(4) { --sitov-nav-item-delay: 72ms; }
+.st-mode-dock__item:nth-child(5) { --sitov-nav-item-delay: 96ms; }
+.academy-student-shell[data-tabbar='hidden'] :is(.st-tabbar__item, .st-mode-dock__item) { --sitov-nav-item-delay: 0ms; opacity: 0; transform: translate3d(0, 6px, 0); }
 .st-mode-dock__list { pointer-events: auto; }
 .st-mode-dock__list { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .3rem; max-width: 58rem; margin: 0 auto; border: 1px solid color-mix(in srgb, var(--border) 45%, transparent); border-radius: 1.5rem; background: var(--surface); padding: .35rem; box-shadow: 0 1px 2px #0f172a14, var(--shadow-lg); }
 html.high-contrast .st-mode-dock__list { border-color: var(--border); }
@@ -750,7 +758,8 @@ button.st-focus-slot { border-radius: .6rem .6rem 0 0; background: color-mix(in 
 .sitov-trainer-stage[data-mode='verbs'] { --sitov-room-color: var(--mode-verbs-text); }
 .sitov-trainer-stage::before { content: ''; position: absolute; z-index: -1; inset: -1rem -.5rem auto; height: 22rem; pointer-events: none; background: radial-gradient(ellipse at var(--sitov-light-x, 80%) var(--sitov-light-y, 8%), color-mix(in srgb, var(--sitov-room-color) 8%, transparent), transparent 68%); opacity: .8; animation: sitov-room-light 12s ease-in-out infinite; }
 .sitov-trainer-stage[data-mode='overview']::before { display: none; }
-.sitov-trainer-stage[data-sitov-live='false'] *, .sitov-trainer-stage[data-sitov-live='false']::before, .sitov-trainer-stage[data-sitov-live='false'] *::before, .sitov-trainer-stage[data-sitov-live='false'] *::after { animation-play-state: paused !important; }
+/* Nested scenes own their pauses; first-paint content must remain readable. */
+.sitov-trainer-stage[data-sitov-live='false']::before { animation-play-state: paused; }
 @keyframes sitov-room-light { 0%, 100% { transform: translateY(0); opacity: .6; } 50% { transform: translateY(12px); opacity: 1; } }
 @media (max-width: 639px) {
   .st-mode-dock__list { gap: .15rem; border-radius: 1.25rem; padding: .3rem; }

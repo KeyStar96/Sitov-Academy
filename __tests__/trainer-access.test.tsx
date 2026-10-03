@@ -3,6 +3,7 @@ import { render, screen, fireEvent, waitFor, within } from '@testing-library/rea
 import { hasTrainerAccess, hasConfiguredTrainerAccess, getAllowedLessons, TRAINERS, type LevelAccessProfile } from '@/lib/access/levels'
 import TrainerStatusTiles from '@/components/dashboard/TrainerStatusTiles'
 import { studentTranslator } from '@/lib/student-ui-i18n'
+import { getSitovTrainerCarouselCopy } from '@/lib/sitov-trainer-carousel-i18n'
 import StudentList from '@/components/admin/StudentList'
 import { AdminI18nProvider } from '@/components/admin/AdminI18nProvider'
 import { getAvailableLessons, updateStudentTrainerAccess, updateStudentAllowedLevels } from '@/app/actions/admin'
@@ -37,6 +38,14 @@ test('empty unit selections lock learner cards while teacher configuration remai
  expect(getAllowedLessons({...profile,ui_language:'ru'},'A1.1','pronunciation')).toEqual([])
 })
 describe('Student trainer tiles', () => {
+ const sitovMatchMedia = window.matchMedia
+ beforeEach(() => {
+  window.matchMedia = jest.fn().mockImplementation((query: string) => ({
+   matches: query.includes('prefers-reduced-motion'), media: query,
+   addEventListener: jest.fn(), removeEventListener: jest.fn(),
+  })) as unknown as typeof window.matchMedia
+ })
+ afterEach(() => { window.matchMedia = sitovMatchMedia })
  const status = (locked: boolean) => ({ level: 'A1.1', lessons: [], ownWords: null,
   vocabulary: { locked: false, due: 3, activeWords: 10, total: 20, learned: 0 },
   grammar: { locked, total: 0, solved: 0, topics: 0, openTopics: 0 },
@@ -45,14 +54,19 @@ describe('Student trainer tiles', () => {
   verbs: { locked: false, total: 90, selected: 0, due: 0, mastered: 0 } })
  test.each(['de', 'en', 'ru', 'uk', 'tr'] as const)('a locked tile has a label and no navigation in %s', lang => {
   const t = studentTranslator(lang)
+  const sitovCopy = getSitovTrainerCarouselCopy(lang)
   render(<TrainerStatusTiles layout="modes" lang={lang} level="A1.1" status={status(true)} languageLocked={false} />)
   const locked = screen.getByText(t('area_path')).closest('[aria-disabled="true"]')!
   expect(locked).not.toBeNull()
   expect(within(locked as HTMLElement).getByText(t('status_locked'))).toBeVisible()
   expect(within(locked as HTMLElement).queryByRole('link')).toBeNull()
-  expect(screen.getAllByRole('link')).toHaveLength(4)
+  expect(screen.getAllByRole('link', { hidden: true })).toHaveLength(4)
   expect(screen.getByText(t('area_media')).closest('a')).toHaveAttribute('href', `/${lang}/dashboard/level/A1.1/videos`)
   expect(screen.getByText(t('area_vocabulary')).closest('a')).toHaveTextContent(t.count('status_vocab_due', 3))
+  fireEvent.click(screen.getByRole('button', { name: sitovCopy.show.replace('{trainer}', t('area_path')) }))
+  expect(screen.queryByRole('link')).toBeNull()
+  fireEvent.click(screen.getByRole('button', { name: sitovCopy.show.replace('{trainer}', t('area_media')) }))
+  expect(screen.getByRole('link')).toHaveAttribute('href', `/${lang}/dashboard/level/A1.1/videos`)
  })
  test('a teacher-locked verb studio stays visible without a link or due badge', () => {
   render(<TrainerStatusTiles layout="modes" lang="en" level="A1.1" languageLocked={false} status={{ ...status(false), verbs: { locked: true, total: 90, selected: 10, due: 6, mastered: 0 } }} />)
@@ -64,8 +78,9 @@ describe('Student trainer tiles', () => {
  })
  test('German interfaces can enter the independent verb trainer and hear its due count', () => {
   render(<TrainerStatusTiles layout="modes" lang="de" level="A1.1" languageLocked status={{ ...status(true), verbs: { locked: false, total: 90, selected: 10, due: 6, mastered: 0 } }} />)
+  fireEvent.click(screen.getByRole('button', { name: 'Verbtrainer anzeigen' }))
   expect(screen.getByRole('link', { name: /Verbtrainer.*6 Verbformen zum Wiederholen/ })).toHaveAttribute('href', '/de/dashboard/level/A1.1/verbs')
-  expect(screen.getAllByRole('listitem')).toHaveLength(5)
+  expect(screen.getAllByRole('listitem', { hidden: true })).toHaveLength(5)
  })
 })
 describe('Teacher trainer controls', () => {

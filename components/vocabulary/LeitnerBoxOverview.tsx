@@ -7,9 +7,11 @@ import { phaseIntervalInDays, phaseTone, type BoxBucket, type BoxBucketKey } fro
 import type { VocabularyBoxSummary, VocabularyCarryoverSummary } from '@/lib/types/vocabulary'
 import { carryoverTranslator } from '@/lib/vocabulary-carryover-i18n'
 import { cn } from '@/lib/utils'
+import SitovMotionStage from '@/components/motion/SitovMotionStage'
 import LernkastenGuide from './LernkastenGuide'
 import PhaseInspector, { type InspectorOrigin } from './PhaseInspector'
 import './lernkasten.css'
+import styles from './SitovVocabularyMotion.module.css'
 
 interface Props {
   summary: VocabularyBoxSummary
@@ -113,6 +115,8 @@ function Compartment({ bucket, index, open, t, onOpen }: {
       aria-describedby={describedBy}
       aria-haspopup="dialog"
       className="lb-cell"
+      data-sitov-surface
+      data-sitov-due={bucket.due > 0 || undefined}
       data-archive={isArchive || undefined}
       data-open={open || undefined}
       data-empty={bucket.count === 0 || undefined}
@@ -128,6 +132,7 @@ function Compartment({ bucket, index, open, t, onOpen }: {
           <span className="lb-hole__floor" />
           <span className="lb-hole__wall lb-hole__wall--l" />
           <span className="lb-hole__wall lb-hole__wall--r" />
+          <span className={styles.sitovHoleLight} />
           {bucket.count > 0 && (
             <>
               <span className="lb-stack__shadow" />
@@ -194,9 +199,14 @@ export default function LeitnerBoxOverview({ summary, level, uiLanguage, transla
     <section aria-label={t('box_title')} aria-describedby={introId} className="min-w-0">
       <p id={introId} className="sr-only">{t('box_intro')}</p>
 
-      {/* Die Box steht auf jedem Gerät in derselben festen Schrägansicht und
-          kippt nicht mit der Maus mit. */}
-      <div className="lb-scene">
+      {/* The camera settles into the familiar view; pointing lifts paper,
+          while the cabinet stays stable for precise touch and keyboard use. */}
+      <SitovMotionStage className={cn('lb-scene', styles.sitovScene)}>
+        <div className={styles.sitovBoxAtmosphere} aria-hidden="true">
+          <span className={styles.sitovBoxHalo} />
+          <span className={styles.sitovBoxOrbit} />
+          <span className={styles.sitovBoxOrbit} data-second="true" />
+        </div>
         <div className="lb-stage">
           <div className="lb-cabinet">
             <span className="lb-cabinet__shadow" aria-hidden="true" />
@@ -221,7 +231,7 @@ export default function LeitnerBoxOverview({ summary, level, uiLanguage, transla
             </div>
           </div>
         </div>
-      </div>
+      </SitovMotionStage>
 
       <p className="lb-hint">
         <Hand size={18} aria-hidden="true" className="shrink-0 text-[var(--accent-text)]" />
@@ -236,7 +246,7 @@ export default function LeitnerBoxOverview({ summary, level, uiLanguage, transla
         </ul>
       </div>}
 
-      {action && <div className="mt-6">{action}</div>}
+      {action && <SitovMotionStage className={cn('mt-6', styles.sitovAction)}>{action}</SitovMotionStage>}
 
       <div className="mt-6 border-t border-[var(--border)] pt-4">
         <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">

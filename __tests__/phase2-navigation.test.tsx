@@ -1,6 +1,6 @@
 import { readFileSync, readdirSync, statSync } from 'node:fs'
 import { join, resolve } from 'node:path'
-import { render, screen, waitFor, within } from '@testing-library/react'
+import { fireEvent, render, screen, waitFor, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import ModeDock, { type ModeDockEntry } from '@/components/dashboard/ModeDock'
 import DashboardHeader from '@/components/layout/DashboardHeader'
@@ -185,7 +185,7 @@ describe('Brotkrumen mit vollem Pfad', () => {
 })
 
 describe('Untere Leiste (D8)', () => {
-  const base = { focusInBar: false, keyboard: false, dialog: false, viewport: 800, height: 3000, travel: 20 }
+  const base = { focusInBar: false, keyboard: false, dialog: false, travel: 20 }
 
   it('verschwindet beim Runterscrollen und kommt beim Hochscrollen zurück — erst ab 56 px Tiefe und 8 px Weg', () => {
     expect(decideTabbar({ ...base, y: 400, direction: 1 })).toBe('hidden')
@@ -194,9 +194,10 @@ describe('Untere Leiste (D8)', () => {
     expect(decideTabbar({ ...base, y: 56, direction: 1 })).toBe('visible')
   })
 
-  it('bleibt oben, am Seitenende, bei Fokus in der Leiste und bei offenem Blatt sichtbar', () => {
+  it('bleibt oben, bei Tastaturfokus in der Leiste und bei offenem Blatt sichtbar; folgt am Seitenende weiter der Richtung', () => {
     expect(decideTabbar({ ...base, y: 0, direction: 1 })).toBe('visible')
-    expect(decideTabbar({ ...base, y: 2200, direction: 1 })).toBe('visible')
+    expect(decideTabbar({ ...base, y: 2200, direction: 1 })).toBe('hidden')
+    expect(decideTabbar({ ...base, y: 2200, direction: -1 })).toBe('visible')
     expect(decideTabbar({ ...base, y: 400, direction: 1, focusInBar: true })).toBe('visible')
     expect(decideTabbar({ ...base, y: 400, direction: 1, dialog: true })).toBe('visible')
   })
@@ -228,9 +229,58 @@ describe('Untere Leiste (D8)', () => {
     await waitFor(() => expect(shell).toHaveAttribute('data-tabbar', 'hidden'))
     screen.getByRole('link', { name: 'Vokabeln' }).focus()
     await waitFor(() => expect(shell).toHaveAttribute('data-tabbar', 'visible'))
-    const css = readFileSync(join(process.cwd(), 'components/dashboard/student.css'), 'utf8')
-    expect(css).toMatch(/\.academy-student-shell\[data-tabbar='hidden'\] \.st-mode-dock \{ transform: translateY\(calc\(-100% - 1rem\)\); opacity: 0; visibility: hidden;/)
     Object.defineProperty(window, 'scrollY', { configurable: true, value: 0 })
+  })
+
+  it('blendet nach dem Tippen auf Lernen und einem Seitenwechsel trotz erhaltenem Linkfokus beide Leisten aus', async () => {
+    const scrollTo = (y: number) => { Object.defineProperty(window, 'scrollY', { configurable: true, value: y }); fireEvent.scroll(window) }
+    Object.defineProperty(document.documentElement, 'scrollHeight', { configurable: true, value: 4000 })
+    const view = () => <div className="academy-student-shell">
+      <nav className="st-mode-dock"><a href="#vocabulary">Vokabeln</a></nav>
+      <StudentNavigation lang="de" firstLevel="A1.1" levels={['A1.1']} supportLabels={labels} lastActiveLevel="A1.1" />
+    </div>
+    const { rerender } = render(view())
+    const learn = screen.getByRole('link', { name: 'Lernen' })
+    fireEvent.pointerDown(learn, { pointerType: 'touch' })
+    learn.focus()
+    mockPathname = '/de/dashboard/level/A1.1'
+    rerender(view())
+    expect(learn).toHaveFocus()
+    const shell = document.querySelector('.academy-student-shell')!
+    scrollTo(300)
+    await waitFor(() => expect(shell).toHaveAttribute('data-tabbar', 'hidden'))
+    scrollTo(280)
+    await waitFor(() => expect(shell).toHaveAttribute('data-tabbar', 'visible'))
+
+    const mode = screen.getByRole('link', { name: 'Vokabeln' })
+    fireEvent.pointerDown(mode, { pointerType: 'mouse' })
+    mode.focus()
+    scrollTo(500)
+    await waitFor(() => expect(shell).toHaveAttribute('data-tabbar', 'hidden'))
+    fireEvent.keyDown(document, { key: 'Tab' })
+    await waitFor(() => expect(shell).toHaveAttribute('data-tabbar', 'visible'))
+    scrollTo(700)
+    await waitFor(() => expect(shell).toHaveAttribute('data-tabbar', 'visible'))
+    scrollTo(0)
+  })
+
+  it('behandelt elastisches Scrollen über das Seitenende nicht als Hochscrollen', async () => {
+    const scrollTo = (y: number) => { Object.defineProperty(window, 'scrollY', { configurable: true, value: y }); fireEvent.scroll(window) }
+    Object.defineProperty(window, 'scrollY', { configurable: true, value: 0 })
+    Object.defineProperty(document.documentElement, 'scrollHeight', { configurable: true, value: 4000 })
+    render(<div className="academy-student-shell"><StudentNavigation lang="de" firstLevel="A1.1" levels={['A1.1']} supportLabels={labels} /></div>)
+    const shell = document.querySelector('.academy-student-shell')!
+    const end = 4000 - window.innerHeight
+    scrollTo(end)
+    await waitFor(() => expect(shell).toHaveAttribute('data-tabbar', 'hidden'))
+    scrollTo(end + 60)
+    await new Promise(resolve => requestAnimationFrame(resolve))
+    scrollTo(end)
+    await new Promise(resolve => requestAnimationFrame(resolve))
+    expect(shell).toHaveAttribute('data-tabbar', 'hidden')
+    scrollTo(end - 20)
+    await waitFor(() => expect(shell).toHaveAttribute('data-tabbar', 'visible'))
+    scrollTo(0)
   })
 })
 

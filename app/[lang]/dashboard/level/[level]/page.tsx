@@ -23,7 +23,7 @@ const CONTINUE_TO = { vocabulary: 'continue_to_vocabulary', path: 'continue_to_p
 
 /**
  * Niveau-Übersicht (Phase 2): oben „Weiter, wo du aufgehört hast", darunter
- * die fünf Modi als responsive Karten mit je einer Kennzahl. Die
+ * die fünf Modi im gleichen Karussell wie auf Home, mit je einer Kennzahl. Die
  * Vokabel-Lektionen liegen jetzt im Modus Vokabeln unter „Lektionen".
  */
 export default async function LevelDashboard({ params }: {
@@ -56,7 +56,7 @@ export default async function LevelDashboard({ params }: {
       {lang === 'de' && decodedLevel !== 'B2' && decodedLevel !== 'C1' && <TrainerLanguageRequired lang={lang} />}
       <ResumeCard lang={lang} level={decodedLevel} title={titleKey ? copy[titleKey] ?? decodedLevel : decodedLevel}
         description={descriptionKey ? copy[descriptionKey] ?? '' : decodedLevel === 'B2' || decodedLevel === 'C1' ? s('level_verbs_description') : ''} target={target} />
-      <TrainerStatusTiles lang={lang} level={decodedLevel} status={status} languageLocked={lang === 'de'} layout="modes" />
+      <TrainerStatusTiles lang={lang} level={decodedLevel} status={status} languageLocked={lang === 'de'} />
     </div>
   )
 }

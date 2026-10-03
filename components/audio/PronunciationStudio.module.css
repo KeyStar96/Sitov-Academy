@@ -1,0 +1,192 @@
+.sitovStudio,
+.sitovRecorder {
+  --sitov-studio: #7c3aed;
+  --sitov-studio-bright: #a78bfa;
+  --sitov-studio-ink: #6d28d9;
+  --sitov-studio-soft: #f3edff;
+  --sitov-studio-ease: cubic-bezier(.22, 1, .36, 1);
+}
+:global(html.dark) .sitovStudio,
+:global(html.dark) .sitovRecorder {
+  --sitov-studio-ink: #c4b5fd;
+  --sitov-studio-soft: #261b3c;
+}
+.sitovStudio {
+  --accent: var(--sitov-studio);
+  --accent-text: var(--sitov-studio-ink);
+  --accent-strong: var(--sitov-studio);
+  --accent-strong-hover: #6d28d9;
+}
+.sitovHero {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  align-items: center;
+  gap: 1.1rem;
+  min-height: 230px;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--sitov-studio) 30%, var(--border));
+  border-radius: 2rem;
+  padding: 1.8rem 2rem;
+  background: linear-gradient(120deg, var(--surface) 20%, color-mix(in srgb, var(--sitov-studio) 8%, var(--surface)));
+  box-shadow: 0 20px 65px -48px var(--sitov-studio);
+}
+.sitovHero::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: radial-gradient(480px circle at var(--sitov-light-x, 70%) var(--sitov-light-y, 35%), color-mix(in srgb, var(--sitov-studio-bright) 18%, transparent), transparent 75%);
+  opacity: .35;
+  transition: opacity .5s var(--sitov-studio-ease);
+}
+.sitovHero[data-sitov-pointer='true']::before { opacity: 1; }
+.sitovHero::after { content: ''; position: absolute; height: 2px; inset: auto 12% 0; background: linear-gradient(90deg, transparent, var(--sitov-studio-bright), transparent); }
+.sitovHeroCopy { position: relative; z-index: 1; min-width: 0; }
+.sitovEyebrow { display: flex; flex-wrap: wrap; align-items: center; gap: .55rem; color: var(--sitov-studio-ink); font-size: .76rem; font-weight: 800; letter-spacing: .055em; text-transform: uppercase; }
+.sitovEyebrow span { border: 1px solid color-mix(in srgb, var(--sitov-studio-ink) 32%, var(--border)); border-radius: 99px; padding: .15rem .55rem; letter-spacing: 0; }
+.sitovHero h2 { margin: .8rem 0 .6rem; max-width: 570px; font-size: clamp(1.7rem, 3.5vw, 2.8rem); font-weight: 850; line-height: 1.1; letter-spacing: -.04em; text-wrap: balance; }
+.sitovHero p { max-width: 510px; font-size: 1rem; color: var(--muted); line-height: 1.65; }
+.sitovHeroFoot { margin-top: 1rem; display: inline-flex; align-items: center; gap: .5rem; color: var(--sitov-studio-ink); font-size: .85rem; font-weight: 700; }
+
+/* An abstract sound illustration, deliberately separate from the measured waveform. */
+.sitovScene { position: relative; width: 260px; height: 210px; color: var(--sitov-studio-ink); }
+.sitovSceneGlow { position: absolute; inset: 15% 10%; border-radius: 50%; background: radial-gradient(ellipse, color-mix(in srgb, var(--sitov-studio-bright) 26%, transparent), transparent 70%); animation: sitov-studio-glow 8s ease-in-out infinite alternate; }
+.sitovOrbit, .sitovOrbitInner { position: absolute; inset: 25px 16px; border: 1px solid color-mix(in srgb, var(--sitov-studio-ink) 23%, transparent); border-radius: 50%; transform: rotate(-27deg); }
+.sitovOrbitInner { inset: 42px 33px; border-style: dashed; transform: rotate(22deg); opacity: .5; }
+.sitovOrbitLight { position: absolute; inset: 25px 16px; border-radius: 50%; animation: sitov-studio-orbit 18s linear infinite; }
+.sitovOrbitLight::after { content: ''; position: absolute; top: 8px; left: 23%; width: 6px; height: 6px; border-radius: 50%; background: var(--sitov-studio-bright); box-shadow: 0 0 12px color-mix(in srgb, var(--sitov-studio) 60%, transparent); }
+.sitovMicSculpture { position: absolute; left: calc(50% - 60px); top: 18px; width: 120px; height: 160px; transform: rotate(-7deg); animation: sitov-studio-float 7s ease-in-out infinite; }
+.sitovMicCapsule { position: absolute; z-index: 1; top: 0; left: 33px; width: 54px; height: 89px; overflow: hidden; border: 2px solid color-mix(in srgb, var(--sitov-studio-ink) 68%, var(--border)); border-radius: 27px; background: linear-gradient(110deg, var(--surface) 5%, var(--sitov-studio-soft) 55%, color-mix(in srgb, var(--sitov-studio-bright) 24%, var(--surface))); box-shadow: inset 4px 0 7px rgb(255 255 255 / .38), inset -5px 0 8px color-mix(in srgb, var(--sitov-studio) 10%, transparent), 0 10px 20px -16px var(--sitov-studio); }
+.sitovMicGrille { position: absolute; inset: 17px 10px 26px; opacity: .55; border-radius: 10px; background: repeating-linear-gradient(to bottom, var(--sitov-studio-ink) 0 2px, transparent 2px 8px); }
+.sitovMicLight { position: absolute; left: calc(50% - 3px); bottom: 11px; width: 6px; height: 6px; border-radius: 50%; background: var(--sitov-studio-bright); transition: background-color .4s; }
+.sitovMicStand { position: absolute; width: 120px; height: 160px; }
+.sitovMicShadow { position: absolute; width: 96px; height: 10px; left: calc(50% - 48px); bottom: 22px; border-radius: 50%; background: radial-gradient(ellipse, color-mix(in srgb, var(--sitov-studio) 16%, transparent), transparent 70%); }
+.sitovSoundTile { position: absolute; z-index: 2; display: grid; place-items: center; width: 48px; height: 48px; border: 1px solid color-mix(in srgb, var(--sitov-studio-ink) 28%, var(--border)); border-radius: 15px; background: color-mix(in srgb, var(--surface) 88%, transparent); box-shadow: 0 9px 24px -15px var(--sitov-studio); font-size: 1.6rem; font-weight: 750; animation: sitov-studio-tile 6s ease-in-out infinite; }
+.sitovSoundTile[data-sitov-tile='letter'] { top: 22px; left: 9px; rotate: -11deg; }
+.sitovSoundTile[data-sitov-tile='symbol'] { right: 7px; bottom: 22px; rotate: 10deg; animation-delay: -3s; }
+.sitovSoundRibbon { position: absolute; width: 74px; height: 45px; top: 91px; opacity: .35; transition: opacity .4s; }
+.sitovSoundRibbon[data-sitov-side='left'] { left: -2px; }
+.sitovSoundRibbon[data-sitov-side='right'] { right: -2px; transform: rotate(180deg); }
+.sitovSoundRibbon svg { width: 100%; height: 100%; overflow: visible; }
+.sitovSoundRibbon path { stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; stroke-dasharray: 4 7; }
+.sitovSoundHalo { position: absolute; inset: 48px 72px 40px; border: 1px solid var(--sitov-studio-bright); border-radius: 50%; opacity: 0; pointer-events: none; }
+.sitovSceneSpark { position: absolute; width: 5px; height: 5px; border-radius: 50%; background: var(--sitov-studio-bright); }
+.sitovSceneSpark[data-sitov-spark='one'] { right: 22px; top: 25px; }
+.sitovSceneSpark[data-sitov-spark='two'] { left: 55px; bottom: 32px; width: 3px; height: 3px; opacity: .65; }
+.sitovScene[data-sitov-state='listening'] .sitovSoundHalo,
+.sitovScene[data-sitov-state='recording'] .sitovSoundHalo { animation: sitov-studio-halo 2.4s var(--sitov-studio-ease) infinite; }
+.sitovScene .sitovSoundHalo[data-sitov-second='true'] { animation-delay: .8s; }
+.sitovScene .sitovSoundHalo[data-sitov-third='true'] { animation-delay: 1.6s; }
+.sitovScene[data-sitov-state='listening'] .sitovSoundRibbon,
+.sitovScene[data-sitov-state='recording'] .sitovSoundRibbon { opacity: .75; }
+.sitovScene[data-sitov-state='listening'] .sitovSoundRibbon path,
+.sitovScene[data-sitov-state='recording'] .sitovSoundRibbon path { animation: sitov-studio-sound 2.2s linear infinite; }
+.sitovScene[data-sitov-state='recording'] .sitovMicLight { background: var(--danger); animation: sitov-studio-recording 1.8s ease-in-out infinite; }
+.sitovScene:is([data-sitov-state='review'], [data-sitov-state='submitted']) .sitovSoundTile[data-sitov-tile='symbol'] { color: var(--success); border-color: color-mix(in srgb, var(--success) 40%, var(--border)); animation: sitov-studio-ready .48s var(--sitov-studio-ease) both; }
+.sitovScene[data-sitov-compact='true'] { width: 210px; height: 180px; margin-inline: auto; scale: .9; }
+.sitovScene[data-sitov-compact='true'] .sitovSoundRibbon { width: 60px; }
+.sitovEmpty { --sitov-studio: #7c3aed; --sitov-studio-bright: #a78bfa; --sitov-studio-ink: #6d28d9; --sitov-studio-soft: #f3edff; }
+
+.sitovTabs:global(.st-segment) { border-radius: 1.3rem; padding: .35rem; border-color: color-mix(in srgb, var(--sitov-studio) 13%, var(--border)); background: color-mix(in srgb, var(--sitov-studio) 3%, var(--surface-muted)); }
+.sitovTabs :global(.st-segment__pill) { top: .35rem; bottom: .35rem; left: .35rem; width: calc((100% - .95rem) / 2); border: 1px solid color-mix(in srgb, var(--sitov-studio) 18%, var(--border)); box-shadow: 0 3px 12px -8px var(--sitov-studio); transition: transform .5s var(--sitov-studio-ease); }
+.sitovTabs :global(.st-segment__option) { transition: color .25s, transform .25s var(--sitov-studio-ease); }
+.sitovTabs :global(.st-segment__option[aria-selected='true']) { color: var(--sitov-studio-ink); }
+/* This panel contains the fixed recording dock: transforms would anchor it to the panel. */
+.sitovPanel:not([hidden]) { opacity: 1; }
+.sitovSteps:global(.st-steps) { padding: 1.35rem 1rem; border: 1px solid var(--border); border-radius: 1.65rem; background: linear-gradient(115deg, var(--surface), color-mix(in srgb, var(--sitov-studio) 3%, var(--surface))); }
+.sitovSteps :global(.st-steps__icon) { width: 3rem; height: 3rem; border-width: 1px; transition: background-color .4s, border-color .4s, color .4s, transform .55s var(--sitov-studio-ease), box-shadow .4s; }
+.sitovSteps :global(.st-steps__item[data-state='active'] .st-steps__icon) { animation: none; box-shadow: 0 5px 22px -9px var(--sitov-studio); }
+.sitovSteps :global(.st-steps__item[data-state='done'] .st-steps__icon) { animation: sitov-studio-ready .42s var(--sitov-studio-ease) both; }
+.sitovSteps :global(.st-steps__item:not(:last-child))::after { top: 1.5rem; height: 2px; background: var(--border); }
+.sitovStepConnector { position: absolute; z-index: 1; top: 1.5rem; left: calc(50% + 1.7rem); right: calc(-50% + 1.7rem); height: 2px; border-radius: 99px; transform: scaleX(0); transform-origin: left; background: linear-gradient(90deg, var(--success), color-mix(in srgb, var(--success) 55%, var(--sitov-studio))); transition: transform .65s var(--sitov-studio-ease); pointer-events: none; }
+[data-state='done'] > .sitovStepConnector { transform: scaleX(1); }
+.sitovTextCard:global(.st-textcard) { isolation: isolate; transition: transform .35s var(--sitov-studio-ease), background .3s, border-color .3s, box-shadow .35s; }
+.sitovTextCard::after { content: ''; position: absolute; z-index: -1; inset: 0; opacity: 0; background: radial-gradient(220px circle at var(--sitov-light-x, 50%) var(--sitov-light-y, 30%), color-mix(in srgb, var(--sitov-studio-bright) 14%, transparent), transparent 80%); transition: opacity .4s; }
+.sitovTextCard[data-sitov-pointer='true']::after { opacity: 1; }
+.sitovTextCard:global([aria-pressed='true']) { border-color: color-mix(in srgb, var(--sitov-studio-ink) 65%, var(--border)); box-shadow: 0 0 0 1px color-mix(in srgb, var(--sitov-studio) 35%, transparent), 0 12px 24px -18px var(--sitov-studio); }
+.sitovTextCard :global(.st-textcard__number) { display: grid; place-items: center; min-width: 1.9rem; height: 1.9rem; margin-bottom: .15rem; border-radius: .6rem; transition: background .3s; }
+.sitovTextCard:global([aria-pressed='true']) :global(.st-textcard__number) { background: var(--sitov-studio-soft); }
+.sitovReading:global(.st-reading) { position: relative; border-color: color-mix(in srgb, var(--sitov-studio) 16%, var(--border)); border-radius: 1.85rem; box-shadow: 0 12px 40px -32px var(--sitov-studio); }
+.sitovReading :global(.st-reading__head) { background: linear-gradient(115deg, var(--surface), color-mix(in srgb, var(--sitov-studio) 5%, var(--surface))); }
+.sitovReading :global(.st-reading__head h2) { animation: sitov-studio-arrive .4s var(--sitov-studio-ease) both; }
+.sitovReading[data-sitov-listening='true'] { border-color: color-mix(in srgb, var(--sitov-studio) 42%, var(--border)); }
+.sitovListeningTrack { position: absolute; inset: 0 0 auto; height: 2px; background: linear-gradient(90deg, var(--sitov-studio), var(--sitov-studio-bright)); transform: scaleX(0); transform-origin: left; transition: transform .45s linear; pointer-events: none; }
+
+.sitovRecorder { position: relative; border-color: color-mix(in srgb, var(--sitov-studio) 18%, var(--border)); box-shadow: 0 14px 40px -33px var(--sitov-studio); }
+.sitovRecorder[data-sitov-phase='review'],
+.sitovRecorder[data-sitov-phase='submitted'] { animation: sitov-studio-arrive .45s var(--sitov-studio-ease) both; }
+.sitovRecorder[data-sitov-phase='submitted'] { border-color: color-mix(in srgb, var(--success) 35%, var(--border)); }
+.sitovRecorderScene { margin: -1rem auto -.25rem; width: 210px; }
+.sitovRecorder button { transition: transform .3s var(--sitov-studio-ease), background-color .25s, border-color .25s, box-shadow .35s; }
+.sitovMicButton:global(.st-mic) { position: relative; isolation: isolate; animation: none; background: var(--sitov-studio); color: #fff; box-shadow: 0 12px 30px -17px var(--sitov-studio); transition: transform .38s var(--sitov-studio-ease), background-color .25s, box-shadow .35s; }
+.sitovMicButton::before { content: ''; position: absolute; z-index: -1; inset: 0; border-radius: inherit; background: linear-gradient(115deg, rgb(255 255 255 / .16), transparent 60%); }
+.sitovMicButton::after { content: ''; position: absolute; inset: -6px; border: 1px solid color-mix(in srgb, var(--sitov-studio-bright) 45%, transparent); border-radius: inherit; opacity: 0; transform: scale(.95); transition: opacity .4s, transform .5s var(--sitov-studio-ease); pointer-events: none; }
+.sitovMicButton:focus-visible { background: #6d28d9; box-shadow: 0 15px 35px -15px var(--sitov-studio); }
+.sitovMicButton:focus-visible::after { opacity: 1; transform: scale(1); }
+.sitovMicButton:active:not(:disabled) { transform: scale(.97); }
+.sitovRecordingIndicator { display: inline-block; width: .5rem; height: .5rem; border-radius: 50%; background: var(--danger); animation: sitov-studio-recording 1.8s ease-in-out infinite; }
+.sitovDock { --sitov-studio: #7c3aed; --sitov-studio-bright: #a78bfa; --sitov-studio-ease: cubic-bezier(.22, 1, .36, 1); }
+.sitovDockControls { animation: sitov-studio-dock .45s var(--sitov-studio-ease) both; }
+.sitovDockRecording { border: 1px solid color-mix(in srgb, var(--sitov-studio) 30%, var(--border)); animation: sitov-studio-dock .45s var(--sitov-studio-ease) both; }
+.sitovRecordSurface { border-color: color-mix(in srgb, var(--sitov-studio) 14%, var(--border)); background: color-mix(in srgb, var(--sitov-studio) 3%, var(--surface-muted)); }
+.sitovSubmitted svg { animation: sitov-studio-ready .5s var(--sitov-studio-ease) both; }
+
+:global([data-sitov-live='false']) .sitovScene *,
+:global([data-sitov-live='false']) .sitovScene *::after,
+:global([data-sitov-live='false']) .sitovRecordingIndicator { animation-play-state: paused; }
+@media (hover: hover) and (pointer: fine) {
+  .sitovTextCard:hover:not(:disabled) { transform: translateY(-3px); border-color: color-mix(in srgb, var(--sitov-studio) 42%, var(--border)); box-shadow: 0 13px 25px -22px var(--sitov-studio); }
+  .sitovMicButton:hover:not(:disabled) { transform: translateY(-2px); background: #6d28d9; box-shadow: 0 15px 35px -15px var(--sitov-studio); }
+  .sitovMicButton:hover:not(:disabled)::after { opacity: 1; transform: scale(1); }
+  .sitovMicButton:active:not(:disabled) { transform: scale(.97); }
+}
+@keyframes sitov-studio-float { 0%, 100% { transform: translateY(0) rotate(-7deg); } 50% { transform: translateY(-5px) rotate(-4deg); } }
+@keyframes sitov-studio-tile { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+@keyframes sitov-studio-orbit { to { transform: rotate(360deg); } }
+@keyframes sitov-studio-glow { from { opacity: .5; transform: scale(.95); } to { opacity: .9; transform: scale(1.08); } }
+@keyframes sitov-studio-halo { 0% { opacity: 0; transform: scale(.75); } 15% { opacity: .55; } 100% { opacity: 0; transform: scale(1.65); } }
+@keyframes sitov-studio-sound { to { stroke-dashoffset: -22; } }
+@keyframes sitov-studio-recording { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: .55; transform: scale(.8); } }
+@keyframes sitov-studio-arrive { from { transform: translateY(8px); } to { transform: none; } }
+@keyframes sitov-studio-dock { from { translate: 0 10px; } to { translate: 0 0; } }
+@keyframes sitov-studio-ready { from { opacity: .5; transform: scale(.9); } 60% { transform: scale(1.04); } to { opacity: 1; transform: scale(1); } }
+@media (max-width: 639px) {
+  .sitovHero { grid-template-columns: minmax(0, 1fr) 120px; gap: .3rem; min-height: 210px; padding: 1.25rem; border-radius: 1.65rem; }
+  .sitovHero h2 { font-size: 1.55rem; }
+  .sitovHero p { font-size: .9rem; line-height: 1.5; }
+  .sitovHeroFoot { font-size: .78rem; }
+  .sitovHero .sitovScene { width: 120px; height: 170px; }
+  .sitovHero .sitovMicSculpture { scale: .75; transform-origin: center; }
+  .sitovHero .sitovOrbit, .sitovHero .sitovOrbitLight { inset: 25px -12px; }
+  .sitovHero .sitovOrbitInner { inset: 42px 2px; }
+  .sitovHero .sitovSoundTile { width: 33px; height: 33px; border-radius: 11px; font-size: 1.2rem; }
+  .sitovHero .sitovSoundTile[data-sitov-tile='letter'] { top: 22px; left: -9px; }
+  .sitovHero .sitovSoundTile[data-sitov-tile='symbol'] { right: -5px; bottom: 17px; }
+  .sitovHero .sitovSoundTile svg { width: 17px; height: 17px; }
+  .sitovHero .sitovSoundRibbon { display: none; }
+  .sitovHero .sitovSoundHalo { inset: 39px 13px 32px; }
+  .sitovHero .sitovMicShadow { bottom: 12px; }
+  .sitovSteps:global(.st-steps) { padding: 1.25rem .5rem; border-radius: 1.4rem; }
+  .sitovSteps :global(.st-steps__label) { font-size: .8rem; }
+}
+@media (max-width: 359px) {
+  .sitovHero { grid-template-columns: minmax(0, 1fr) 90px; padding: 1rem; }
+  .sitovHero .sitovScene { width: 90px; }
+  .sitovHero .sitovSoundTile { display: none; }
+}
+:global(html.high-contrast) .sitovHero,
+:global(html.high-contrast) .sitovReading,
+:global(html.high-contrast) .sitovTextCard { border-color: var(--foreground); }
+:global(html.high-contrast) .sitovTabs :global(.st-segment__pill) { border-color: var(--foreground); }
+@media (prefers-reduced-motion: reduce) {
+  :is(.sitovStudio, .sitovRecorder, .sitovDock, .sitovScene),
+  :is(.sitovStudio, .sitovRecorder, .sitovDock, .sitovScene)::before,
+  :is(.sitovStudio, .sitovRecorder, .sitovDock, .sitovScene)::after,
+  :is(.sitovStudio, .sitovRecorder, .sitovDock, .sitovScene) *,
+  :is(.sitovStudio, .sitovRecorder, .sitovDock, .sitovScene) *::before,
+  :is(.sitovStudio, .sitovRecorder, .sitovDock, .sitovScene) *::after { animation: none !important; transition: none !important; }
+  .sitovTextCard:hover:not(:disabled), .sitovMicButton:hover:not(:disabled), .sitovMicButton:active:not(:disabled) { transform: none; }
+  .sitovMicButton::after { display: none; }
+}

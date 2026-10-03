@@ -16,7 +16,10 @@ import { loadRoundSize, saveRoundSize } from '@/lib/vocabulary-lernkasten'
 import { DEFAULT_ROUND_SIZE, ROUND_SIZES, roundLimit, type RoundSize } from '@/lib/vocabulary-rounds'
 import { lessonsHref } from '@/lib/mode-targets'
 import { EASE_OUT_SOFT, MOTION, PRESS_SCALE, useReducedMotionSafe } from '@/lib/motion'
+import SitovMotionStage from '@/components/motion/SitovMotionStage'
+import { SitovVocabularyDeck } from './SitovVocabularyGraphics'
 import './lernkasten.css'
+import styles from './SitovVocabularyMotion.module.css'
 
 interface Props {
   learnerId: string | null
@@ -73,7 +76,7 @@ export default function VocabTrainerPageClient({ learnerId, initialCards, boxSum
         {due > ROUND_SIZES[0] && <div className="mb-3 w-full">
           <RoundSizePicker lang={lang} due={due} size={roundSize} onChange={size => { setRoundSize(size); saveRoundSize(size) }} />
         </div>}
-        <motion.button type="button" disabled={refreshing} onClick={() => setSession(initialCards)} className="lb-cta"
+        <motion.button type="button" disabled={refreshing} onClick={() => setSession(initialCards)} className="lb-cta" data-sitov-surface
           whileHover={reduced ? undefined : { y: -2 }} whileTap={reduced ? undefined : { scale: PRESS_SCALE }} transition={{ duration: MOTION.fast }}>
           <span className="lb-cta__icon" aria-hidden="true"><ArrowRight size={24} strokeWidth={2.75} /></span>
           <span>{firstRound === 1 ? t('lernkasten_start_count_one') : t('lernkasten_start_count', { count: firstRound })}</span>
@@ -85,7 +88,7 @@ export default function VocabTrainerPageClient({ learnerId, initialCards, boxSum
     : empty
       ? <div className="flex flex-col items-center gap-4 text-center" role="status">
           <p className="max-w-md text-lg text-[var(--foreground)]">{s('box_empty_text')}</p>
-          <Link href={lessons} className="lb-cta">
+          <Link href={lessons} className="lb-cta" data-sitov-surface>
             <span className="lb-cta__icon" aria-hidden="true"><ListChecks size={22} strokeWidth={2.5} /></span>
             <span>{s('areas_to_lessons')}</span>
           </Link>
@@ -104,8 +107,10 @@ export default function VocabTrainerPageClient({ learnerId, initialCards, boxSum
     {/* Auf dem Telefon ohne Karte (siehe .lb-hero): Die Box reicht mit
         --lb-bleed über den Seitenrand der academy-container bis an den
         Bildschirmrand. */}
-    <section className="lb-hero sl-glass sl-hero [--lb-bleed:1rem] sm:p-8 sm:[--lb-bleed:0px]" aria-label={t('lernkasten_title')}>
+    <section className={`lb-hero sl-glass sl-hero ${styles.sitovHero} [--lb-bleed:1rem] sm:p-8 sm:[--lb-bleed:0px]`} aria-label={t('lernkasten_title')}>
       <div className="relative">
+        <SitovMotionStage className={styles.sitovHeading}>
+        <div className={styles.sitovHeadingText}>
         <p className="flex items-center gap-2 text-base font-semibold text-[var(--muted)]">
           {due > 0 && <span className="sl-due-dot" aria-hidden="true" />}
           {t('lernkasten_title')}
@@ -117,6 +122,9 @@ export default function VocabTrainerPageClient({ learnerId, initialCards, boxSum
               <span className="text-xl font-semibold leading-tight sm:text-3xl">{due === 1 ? t('lernkasten_due_headline_one') : t('lernkasten_due_headline')}</span>
             </h2>
           : <h2 className="mt-2 text-3xl font-bold leading-tight sm:text-4xl">{empty ? s('box_empty_title') : t('all_done')}</h2>}
+        </div>
+        <SitovVocabularyDeck />
+        </SitovMotionStage>
 
         <div className="mt-4 sm:mt-2">
           <LeitnerBoxOverview summary={boxSummary} level={level} uiLanguage={lang} translations={translations} action={action} carryover={carryover} />

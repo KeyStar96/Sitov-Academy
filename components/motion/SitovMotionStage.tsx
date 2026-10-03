@@ -11,10 +11,18 @@ export default function SitovMotionStage(props: ComponentPropsWithoutRef<'div'>)
   useEffect(() => {
     const stage = sitovRef.current
     if (!stage) return
-    let visible = true
+    let visible = typeof IntersectionObserver === 'undefined'
     let frame = 0
     let active: HTMLElement | null = null
-    const updateLive = () => { stage.dataset.sitovLive = String(visible && !document.hidden && !sitovReduced) }
+    const clear = () => {
+      cancelAnimationFrame(frame)
+      if (active) { active.dataset.sitovPointer = 'false'; active = null }
+    }
+    const updateLive = () => {
+      const live = visible && !document.hidden && !sitovReduced
+      stage.dataset.sitovLive = String(live)
+      if (!live) clear()
+    }
     const observer = typeof IntersectionObserver === 'undefined' ? null : new IntersectionObserver(([entry]) => {
       visible = entry.isIntersecting
       updateLive()
@@ -23,14 +31,10 @@ export default function SitovMotionStage(props: ComponentPropsWithoutRef<'div'>)
     updateLive()
     document.addEventListener('visibilitychange', updateLive)
 
-    const clear = () => {
-      cancelAnimationFrame(frame)
-      if (active) { active.dataset.sitovPointer = 'false'; active = null }
-    }
     const move = (event: PointerEvent) => {
-      if (sitovReduced || event.pointerType === 'touch' || !window.matchMedia?.('(hover: hover) and (pointer: fine)').matches) return
-      const surface = (event.target as HTMLElement).closest<HTMLElement>('[data-sitov-surface]')
-      if (!surface || !stage.contains(surface) || surface.getAttribute('aria-disabled') === 'true') { clear(); return }
+      if (!visible || document.hidden || sitovReduced || event.pointerType === 'touch' || !window.matchMedia?.('(hover: hover) and (pointer: fine)').matches) { clear(); return }
+      const surface = (event.target as Element).closest<HTMLElement>('[data-sitov-surface]')
+      if (!surface || surface.closest('[data-sitov-motion-stage]') !== stage || surface.getAttribute('aria-disabled') === 'true' || surface.matches(':disabled')) { clear(); return }
       if (surface !== active) { clear(); active = surface }
       cancelAnimationFrame(frame)
       frame = requestAnimationFrame(() => {
@@ -42,14 +46,16 @@ export default function SitovMotionStage(props: ComponentPropsWithoutRef<'div'>)
     }
     stage.addEventListener('pointermove', move)
     stage.addEventListener('pointerleave', clear)
+    stage.addEventListener('pointercancel', clear)
     return () => {
       observer?.disconnect()
       document.removeEventListener('visibilitychange', updateLive)
       stage.removeEventListener('pointermove', move)
       stage.removeEventListener('pointerleave', clear)
+      stage.removeEventListener('pointercancel', clear)
       clear()
     }
   }, [sitovReduced])
 
-  return <div ref={sitovRef} {...props} />
+  return <div ref={sitovRef} {...props} data-sitov-motion-stage="" data-sitov-live="false" />
 }

@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from 'react'
 import { useRouter } from 'next/navigation'
 import { useReducedMotion } from 'framer-motion'
-import { BookOpen, Check, Headphones, Mail, MessageCircle, Mic } from 'lucide-react'
+import { Check, Headphones, Mail, MessageCircle, Mic } from 'lucide-react'
 import AudioRecorder from '@/components/audio/AudioRecorder'
 import WaveformPlayer from '@/components/audio/WaveformPlayer'
 import KaraokeText from '@/components/audio/KaraokeText'
@@ -19,6 +19,9 @@ import type { PronunciationPrompt } from '@/lib/pronunciation-prompts'
 import { studentTranslator } from '@/lib/student-ui-i18n'
 import { usePronunciationCheckpoint } from '@/lib/audio/usePronunciationCheckpoint'
 import type { PronunciationCheckpointSnapshot } from '@/lib/pronunciation-checkpoint'
+import SitovMotionStage from '@/components/motion/SitovMotionStage'
+import SitovPronunciationScene from '@/components/audio/SitovPronunciationScene'
+import styles from './PronunciationStudio.module.css'
 
 export type StudioTab = 'studio' | 'mailbox'
 type TextStatus = 'new' | 'sent' | 'answered' | 'unread'
@@ -81,8 +84,8 @@ export default function PronunciationStudio({ prompts, conversations, level, lan
   }
 
   return (
-    <div className="pronunciation-practice mx-auto w-full max-w-6xl space-y-6 text-[var(--foreground)]">
-      <div role="tablist" aria-label={s('area_pronunciation')} className="st-segment" style={{ '--st-active': tab === 'studio' ? 0 : 1 } as CSSProperties}>
+    <div className={`${styles.sitovStudio} pronunciation-practice mx-auto w-full max-w-6xl space-y-6 text-[var(--foreground)]`}>
+      <div role="tablist" aria-label={s('area_pronunciation')} className={`${styles.sitovTabs} st-segment`} style={{ '--st-active': tab === 'studio' ? 0 : 1 } as CSSProperties}>
         <span className="st-segment__pill" aria-hidden="true" />
         {(['studio', 'mailbox'] as const).map(value => (
           <button key={value} type="button" role="tab" id={`studio-tab-${value}`} aria-selected={tab === value} aria-controls={`studio-panel-${value}`}
@@ -94,10 +97,10 @@ export default function PronunciationStudio({ prompts, conversations, level, lan
         ))}
       </div>
 
-      <div role="tabpanel" id="studio-panel-studio" aria-labelledby="studio-tab-studio" hidden={tab !== 'studio'}>
+      <div role="tabpanel" id="studio-panel-studio" aria-labelledby="studio-tab-studio" className={styles.sitovPanel} hidden={tab !== 'studio'}>
         <Studio prompts={prompts} statuses={statuses} level={level} lang={lang} translations={translations} newItems={newItems} onOpenMailbox={() => switchTab('mailbox')} checkpoint={checkpoint} checkpointUnavailable={checkpointUnavailable} learnerId={learnerId} />
       </div>
-      <div role="tabpanel" id="studio-panel-mailbox" aria-labelledby="studio-tab-mailbox" hidden={tab !== 'mailbox'}>
+      <div role="tabpanel" id="studio-panel-mailbox" aria-labelledby="studio-tab-mailbox" className={styles.sitovPanel} hidden={tab !== 'mailbox'}>
         {tab === 'mailbox' && <Mailbox conversations={conversations} lang={lang} translations={translations} focusId={focusConversation} />}
       </div>
     </div>
@@ -150,7 +153,7 @@ function Studio({ prompts, statuses, level, lang, translations, onOpenMailbox, n
   }, [referenceProgress])
 
   if (!selected) {
-    return <section className="st-empty st-empty--hero"><BookOpen className="mx-auto text-[var(--accent-text)]" size={32} aria-hidden="true" /><h2>{t('prompts_empty')}</h2><p>{t('prompts_empty_hint')}</p></section>
+    return <SitovMotionStage className={`${styles.sitovEmpty} st-empty st-empty--hero`}><SitovPronunciationScene compact /><h2>{t('prompts_empty')}</h2><p>{t('prompts_empty_hint')}</p></SitovMotionStage>
   }
 
   const status = statuses.get(selected.id) ?? 'new'
@@ -170,24 +173,35 @@ function Studio({ prompts, statuses, level, lang, translations, onOpenMailbox, n
 
   return (
     <div className="space-y-6">
+      <SitovMotionStage className={styles.sitovHero} data-sitov-surface>
+        <div className={styles.sitovHeroCopy}>
+          <div className={styles.sitovEyebrow}>{s('area_pronunciation')}<span>{level}</span></div>
+          <h2>{t('record_title')}</h2>
+          <p>{t('record_hint')}</p>
+          <div className={styles.sitovHeroFoot}><Headphones size={17} aria-hidden="true" />{t('text_count', { count: prompts.length })}</div>
+        </div>
+        <SitovPronunciationScene state={phase === 'idle' && following !== null ? 'listening' : phase} />
+      </SitovMotionStage>
       {saved.notice && <p role={saved.notice === 'failed' ? 'alert' : 'status'} className="flex flex-wrap items-center justify-between gap-3 text-sm text-[var(--muted)]">
         <span>{t(saved.notice === 'failed' ? 'checkpoint_failed' : saved.notice === 'conflict' ? 'checkpoint_conflict' : saved.notice === 'saving' ? 'checkpoint_saving' : 'checkpoint_saved')}</span>
         {saved.notice === 'failed' && <button type="button" className="st-button st-button--quiet min-h-12" onClick={() => void saved.retry()}>{t('audio_retry')}</button>}
       </p>}
-      <ol className="st-steps" aria-label={s('studio_steps')}>
+      <ol className={`${styles.sitovSteps} st-steps`} aria-label={s('studio_steps')}>
         {steps.map((step, index) => {
           const state = index < active ? 'done' : index === active ? 'active' : 'todo'
           return (
             <li key={step.key} className="st-steps__item" data-state={state} aria-current={state === 'active' ? 'step' : undefined}>
               <span className="st-steps__icon" aria-hidden="true">{state === 'done' ? <Check size={20} strokeWidth={3} /> : <step.icon size={20} />}</span>
               <span className="st-steps__label"><span className="st-steps__number" aria-hidden="true">0{index + 1}</span>{s(step.key)}</span>
+              {index < steps.length - 1 && <span className={styles.sitovStepConnector} aria-hidden="true" />}
             </li>
           )
         })}
       </ol>
 
       <div className="grid items-start gap-6 lg:grid-cols-[300px_minmax(0,1fr)]">
-        <section aria-labelledby="studio-texts-title" className="min-w-0">
+        <SitovMotionStage className="min-w-0">
+        <section aria-labelledby="studio-texts-title">
           <div className="st-section-head !mb-3">
             <div><h2 id="studio-texts-title" className="st-section-title">{s('studio_texts')}</h2>
               <p className="st-section-sub">{t('text_count', { count: prompts.length })} · {level}</p></div>
@@ -199,7 +213,7 @@ function Studio({ prompts, statuses, level, lang, translations, onOpenMailbox, n
               return (
                 <li key={prompt.id} className="st-textcards__item" style={{ '--i': Math.min(index, 8) } as CSSProperties}>
                   <button type="button" aria-pressed={isSelected} disabled={recordingBusy && !isSelected} onClick={() => { news.mark('pronunciation_text', prompt.id); saved.select(prompt.id) }}
-                    className="st-textcard st-press" data-status={textStatus}>
+                    className={`${styles.sitovTextCard} st-textcard st-press`} data-status={textStatus} data-sitov-surface>
                     <span className="st-textcard__number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
                     <span className="st-textcard__title">{prompt.title ?? prompt.sentenceDe}{news.isNew('pronunciation_text', prompt.id) && <NewBadge label={s('media_new')} className="st-new-item" />}</span>
                     <span className="st-textcard__status">
@@ -213,16 +227,18 @@ function Studio({ prompts, statuses, level, lang, translations, onOpenMailbox, n
             })}
           </ul>
         </section>
+        </SitovMotionStage>
 
         <div className="min-w-0 space-y-5">
-          <article className="st-reading">
+          <article className={`${styles.sitovReading} st-reading`} data-sitov-listening={following !== null}>
+            <span className={styles.sitovListeningTrack} style={{ transform: `scaleX(${Math.min(1, Math.max(0, following ?? saved.reading.referencePosition))})` }} aria-hidden="true" />
             <header className="st-reading__head">
               <div className="mb-3 flex flex-wrap gap-2 text-base font-semibold text-[var(--muted)]">
                 <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1">{level}</span>
                 <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1">{t('words', { count: wordCount })}</span>
                 <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1">{t('reading_time', { minutes: Math.max(1, Math.ceil(wordCount / 70)) })}</span>
               </div>
-              <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">{selected.title ?? t('reference_label')}</h2>
+              <h2 key={selected.id} className="text-2xl font-bold tracking-tight sm:text-3xl">{selected.title ?? t('reference_label')}</h2>
               {selected.focus && <p className="mt-2 text-base leading-relaxed text-[var(--muted)]">{t('prompt_focus', { focus: selected.focus })}</p>}
             </header>
             <div className="st-reading__body">

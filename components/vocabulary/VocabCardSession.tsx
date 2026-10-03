@@ -4,6 +4,9 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import FeedbackMotion from '@/components/motion/FeedbackMotion'
+import SitovMotionStage from '@/components/motion/SitovMotionStage'
+import { SitovVocabularyCardMark, SitovVocabularyCompletion, SitovVocabularyFeedback } from './SitovVocabularyGraphics'
+import styles from './SitovVocabularyMotion.module.css'
 import { Info, RotateCw } from 'lucide-react'
 import { checkVocabularyRetry, finishVocabularySession, submitVocabularyAnswer, submitVocabularySelfRating } from '@/app/actions/vocabulary'
 import SolutionAudioButton from '@/components/exercises/SolutionAudioButton'
@@ -509,7 +512,8 @@ export default function VocabCardSession({ learnerId, level, cards, translations
         ? <RoundBreak key={round.number} lang={uiLanguage} round={round.number} rounds={totalRounds} roundCards={round.length}
             done={done} total={plan.cards.length} nextCount={roundLimit(size, remaining)} moves={moves.slice(roundMovesFrom)}
             onContinue={() => beginRound(round.number + 1, done, size, lastAnswered.current)} onPause={goBack} />
-        : <div className="learning-card learning-complete" aria-live="polite">
+        : <SitovMotionStage className={`learning-card learning-complete ${styles.sitovComplete}`} aria-live="polite">
+        <SitovVocabularyCompletion />
         <span className="learning-pill">{t('card_progress_compact', { current: index, total: queue.length })}</span>
         <h2>{t('session_done_title')}</h2>
         <p>{t('session_done_text')}</p>
@@ -521,7 +525,7 @@ export default function VocabCardSession({ learnerId, level, cards, translations
         {plan.deferredCount + initialDeferredCount > 0 && <p>{t('repetition_gap_hint')}</p>}
         <SessionBoxMoves lang={uiLanguage} moves={moves} />
         <button type="button" className="learning-button learning-button-primary" onClick={goBack}>{t('lernkasten_back')}</button>
-      </div> : <>
+      </SitovMotionStage> : <>
         <div className="learning-meta">
           <div className="learning-meta-pills">
             {current.originLevel && <span className="learning-pill" data-testid="carryover-origin">{carryoverTranslator(uiLanguage)('origin', { level: current.originLevel })}</span>}
@@ -547,13 +551,15 @@ export default function VocabCardSession({ learnerId, level, cards, translations
             animate={reducedMotion ? undefined : { opacity: 1, y: 0, scale: 1 }}
             exit={reducedMotion ? undefined : { opacity: 0, y: -12, scale: .985 }}
             transition={{ duration: .28, ease: [.22, 1, .36, 1] }}>
+          <SitovMotionStage className={`learning-stage ${styles.sitovSession}`}>
           {flipCard ? (
             /* Karteikarte: Vorderseite fragt, Rückseite zeigt Frage und Lösung.
                Der `key` setzt die Drehung bei jeder neuen Karte hart zurück,
                damit die nächste Frage nicht rückwärts hereindreht. */
-            <article key={item.key} className={cn('learning-card learning-card-flip', revealed && 'is-revealed')} onClick={onCardClick}>
+            <article key={item.key} className={cn('learning-card learning-card-flip', styles.sitovCard, revealed && 'is-revealed')} onClick={onCardClick} data-sitov-surface>
               <div className="learning-flip-inner">
                 <div className="learning-flip-face learning-flip-front" aria-hidden={revealed} inert={revealed}>
+                  <SitovVocabularyCardMark />
                   <div ref={flipFrontRef} tabIndex={0} onKeyDown={onCardKeyDown} aria-keyshortcuts="Enter Space" className={cn('learning-card-content', denseCard && 'learning-card-content-dense')}>
                     {!isSentence && current.card.image_url && <img className="learning-card-image" src={current.card.image_url} alt={t('image_alt')} />}
                     <span className="learning-eyebrow">{t(isSentence ? 'sentence_format' : 'word_format')}</span>
@@ -562,6 +568,7 @@ export default function VocabCardSession({ learnerId, level, cards, translations
                   <RotateCw size={20} aria-hidden="true" className="learning-flip-cue" />
                 </div>
                 <div className="learning-flip-face learning-flip-back" aria-hidden={!revealed} inert={!revealed}>
+                  <SitovVocabularyCardMark />
                   {/* Die Rueckseite fuellt sich erst beim Aufdecken: bis 90 Grad ist sie
                       ohnehin unsichtbar, und die Loesung steht vorher nicht im DOM. */}
                   <div ref={flipBackRef} tabIndex={0} onKeyDown={onCardKeyDown} aria-keyshortcuts="Enter Space" className={cn('learning-card-content', denseFlipBack && 'learning-card-content-dense')}>
@@ -580,7 +587,8 @@ export default function VocabCardSession({ learnerId, level, cards, translations
               </div>
             </article>
           ) : (
-          <article className="learning-card">
+          <article key={item.key} className={cn('learning-card', styles.sitovCard)} data-sitov-surface data-sitov-result={answerResult ? answerResult.correct ? 'correct' : 'review' : 'waiting'}>
+            {answerResult ? <SitovVocabularyFeedback key={`${item.key}-${answerResult.correct}`} correct={answerResult.correct} /> : <SitovVocabularyCardMark />}
             <div key={item.key} tabIndex={0} className={cn('learning-card-content', denseCard && 'learning-card-content-dense')}>
               {!isSentence && !answerResult && current.card.image_url && <img className="learning-card-image" src={current.card.image_url} alt={t('image_alt')} />}
               <span className="learning-eyebrow">{t(isSentence ? 'sentence_format' : 'word_format')}</span>
@@ -645,6 +653,7 @@ export default function VocabCardSession({ learnerId, level, cards, translations
               <textarea id="vocabulary-answer" aria-describedby={!isSentence && isToGerman && current.card.article && current.card.article !== 'none' ? 'vocabulary-article-hint' : undefined} lang={answerLanguage} value={answer} onChange={event => { drafts.current.set(current.progressId, event.target.value); setAnswer(event.target.value) }} rows={isSentence ? 2 : 1} maxLength={4000} autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck={false} disabled={reviewPending} />
               <button className="learning-button learning-button-primary" disabled={reviewPending || !answer.trim().length}>{t('check_sentence')}</button>
             </form>}
+          </SitovMotionStage>
           </motion.div>
         </AnimatePresence>
       </>}
