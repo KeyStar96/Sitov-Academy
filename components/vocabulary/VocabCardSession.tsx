@@ -10,7 +10,7 @@ import styles from './SitovVocabularyMotion.module.css'
 import { Info, RotateCw } from 'lucide-react'
 import { checkVocabularyRetry, finishVocabularySession, submitVocabularyAnswer, submitVocabularySelfRating } from '@/app/actions/vocabulary'
 import SolutionAudioButton from '@/components/exercises/SolutionAudioButton'
-import LearningScreen, { LearningStats } from './LearningScreen'
+import LearningScreen, { LearningStats, scrollLearningWorkspace } from './LearningScreen'
 import StudyModeToggle, { type StudyMode } from './StudyModeToggle'
 import { loadRoundSize, loadStudyMode, saveStudyMode } from '@/lib/vocabulary-lernkasten'
 import { countRounds, DEFAULT_ROUND_SIZE, roundLimit, takeRound, type RoundSize } from '@/lib/vocabulary-rounds'
@@ -175,8 +175,9 @@ export default function VocabCardSession({ learnerId, level, cards, translations
       queue: serializeQueue(next),
       roundMovesFrom: checkpointState.current.moves.length, index: 0, answer: '', feedback: null, pending: null })
     finalized.current = false
-    workspace.current?.scrollTo?.({ top: 0 })
   }
+
+  useEffect(() => { scrollLearningWorkspace(workspace.current) }, [index, round.number])
 
   // Ohne ausdrückliche Größe (z. B. direkter Aufruf über /train) gilt die auf
   // diesem Gerät gespeicherte Wahl — aber nur, solange noch nichts beantwortet ist.

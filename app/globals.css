@@ -1497,7 +1497,7 @@ html.high-contrast .sl-hero::before {
 .academy-preloader-name { font-size: clamp(2rem, 7vw, 5rem); font-weight: 650; line-height: 1.3; letter-spacing: -.055em; overflow: visible; padding-bottom: .2em; }
 .academy-preloader-descriptor { color: var(--muted); font-size: 1rem; line-height: 1.7; padding-block: .2em; overflow: visible; }
 .academy-preloader-rule { display: block; height: 2px; width: 4rem; background: var(--accent); margin-top: 1rem; }
-body:has(.learning-screen) .academy-student-header, body:has(.learning-screen) .academy-app-background { visibility: hidden; }
+body:has(.learning-screen[data-presentation='fullscreen']) .academy-student-header, body:has(.learning-screen[data-presentation='fullscreen']) .academy-app-background { visibility: hidden; }
 @media (hover: hover) {
   .academy-button:hover { transform: translateY(-2px); }
   .academy-button-primary:hover { background: var(--accent-strong-hover); }
@@ -1570,7 +1570,7 @@ body:has(.learning-screen) .academy-student-header, body:has(.learning-screen) .
 .academy-support-links { display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--border); padding: .5rem; border-radius: 1rem; min-width: 230px; box-shadow: 0 8px 24px #00000012; }
 .academy-support-links a { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 48px; border-radius: .5rem; padding: .75rem; font-size: .875rem; }
 .academy-support-links a:hover { background: var(--surface-muted); }
-body:has(.learning-screen) .academy-support { display: none; }
+body:has(.learning-screen[data-presentation='fullscreen']) .academy-support { display: none; }
 
 /* ─── FAQ (Startseite): native <details>, Inhalte stehen im HTML ─── */
 .academy-faq-list { display: grid; gap: .75rem; max-width: 52rem; }

@@ -4,6 +4,8 @@ import { generateAudio } from '@/app/actions/generate-audio'
 import type { GenerateAudioResult } from '@/lib/types/audio'
 import dictionary from '@/dictionaries/de.json'
 import { PLAYBACK_RATE_STORAGE_KEY } from '@/lib/audio/usePlaybackRate'
+import { createRef } from 'react'
+import type { SitovAudioControl } from '@/components/exercises/SolutionAudioButton'
 
 jest.unmock('lucide-react')
 jest.mock('@/app/actions/generate-audio', () => ({ generateAudio: jest.fn() }))
@@ -365,6 +367,48 @@ it('offers speed controls without a voice selector', () => {
   render(<SolutionAudioButton {...input} audioUrl="https://media.example.com/original.mp3" />)
   expect(screen.getAllByRole('combobox')).toHaveLength(1)
   expect(screen.getByRole('combobox', { name: dictionary.neural_audio.speed })).toBeInTheDocument()
+})
+
+it('exposes clear pause/resume and restarts the full reading without losing a paused position', () => {
+  const input = props()
+  const controlRef = createRef<SitovAudioControl>()
+  const { container } = render(<SolutionAudioButton {...input} audioUrl="https://media.example.com/reading-controls.mp3" onProgress={jest.fn()}
+    layout="reading" resumeLabel="Weiterhören" restartLabel="Von vorn" restartAriaLabel="Text von Anfang an anhören" controlRef={controlRef} />)
+  const audio = container.querySelector('audio')!
+  fireEvent.click(screen.getByRole('button', { name: input.ariaLabel }))
+  audio.currentTime = 2.5
+  act(() => controlRef.current?.pause())
+  expect(audio.currentTime).toBe(2.5)
+  fireEvent.click(screen.getByRole('button', { name: 'Weiterhören' }))
+  expect(audio.currentTime).toBe(2.5)
+  fireEvent.click(screen.getByRole('button', { name: 'Text von Anfang an anhören' }))
+  expect(audio.currentTime).toBe(0)
+  expect(audio.playbackRate).toBe(1)
+})
+
+it('starts delayed speech at its own zero instead of carrying over the silent unlock clock', async () => {
+  const request = deferred<GenerateAudioResult>()
+  jest.mocked(generateAudio).mockReturnValueOnce(request.promise)
+  const input = props()
+  const { container } = render(<SolutionAudioButton {...input} onWordChange={jest.fn()} />)
+  const audio = container.querySelector('audio')!
+  fireEvent.click(screen.getByRole('button', { name: input.ariaLabel }))
+  audio.currentTime = 0.01
+  await act(async () => request.resolve({ success: true, audioUrl: 'https://media.example.com/full-reading.mp3', cached: false }))
+  expect(audio.currentTime).toBe(0)
+})
+
+it('allows the word lookup to cancel pending synthesis before it can start speaking late', async () => {
+  const request = deferred<GenerateAudioResult>()
+  jest.mocked(generateAudio).mockReturnValueOnce(request.promise)
+  const input = props()
+  const controlRef = createRef<SitovAudioControl>()
+  render(<SolutionAudioButton {...input} controlRef={controlRef} />)
+  fireEvent.click(screen.getByRole('button', { name: input.ariaLabel }))
+  act(() => controlRef.current?.pause())
+  await act(async () => request.resolve({ success: true, audioUrl: 'https://media.example.com/cancel-before-lookup.mp3', cached: false }))
+  expect(HTMLMediaElement.prototype.play).toHaveBeenCalledTimes(1)
+  expect(screen.getByRole('button')).toHaveAttribute('aria-busy', 'false')
 })
 
 it('restores the chosen speed after the next card remounts and on a later visit', () => {

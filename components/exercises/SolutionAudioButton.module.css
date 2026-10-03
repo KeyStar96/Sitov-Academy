@@ -1,0 +1,19 @@
+.sitovReadingControls { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: .65rem; padding: .8rem; border: 1px solid color-mix(in srgb, #8b5cf6 18%, var(--border)); border-radius: 1.35rem; background: color-mix(in srgb, #8b5cf6 3%, var(--surface-muted)); }
+.sitovPlayer { display: contents; }
+.sitovReadingControls .sitovPlay { grid-column: 1 / -1; width: 100%; min-height: 52px; margin: 0; padding: .8rem 1rem; border-radius: 1rem; background: #7c3aed; color: #fff; border-color: #7c3aed; box-shadow: 0 7px 16px -11px #7c3aed; transition: transform .25s cubic-bezier(.22,1,.36,1), box-shadow .25s, background .2s; }
+.sitovReadingControls .sitovPlay:hover { background: #6d28d9; }
+.sitovReadingControls .sitovPlay:active { transform: scale(.98); }
+.sitovSlow, .sitovRestart { display: flex; justify-content: center; align-items: center; gap: .4rem; min-width: 0; width: 100%; min-height: 48px; padding: .55rem .65rem; border: 1px solid var(--border); border-radius: .95rem; font-size: .82rem; line-height: 1.3; font-weight: 650; color: var(--foreground); background: var(--surface); cursor: pointer; transition: background .2s, transform .2s; }
+.sitovRestart svg { flex: 0 0 auto; }
+.sitovSlow:hover, .sitovRestart:hover { background: var(--surface-muted); }
+.sitovSlow:active, .sitovRestart:active { transform: scale(.97); }
+.sitovSpeed { display: flex; grid-column: 1 / -1; align-items: center; justify-content: center; min-width: 0; }
+.sitovSpeed label { gap: .65rem; font-size: .82rem; }
+.sitovSpeed select { min-width: 70px; text-align: center; }
+.sitovNotice { grid-column: 1 / -1; }
+.sitovReadingControls button:focus-visible { outline: 2px solid var(--accent-text); outline-offset: 3px; }
+.sitovReadingControls audio { grid-column: 1 / -1; }
+@media (min-width: 640px) { .sitovReadingControls { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto; align-items: center; padding: 1rem; gap: .75rem; } .sitovReadingControls .sitovPlay { grid-column: 1 / -1; } .sitovSpeed { grid-column: 3; } .sitovSlow, .sitovRestart { font-size: .875rem; } }
+:global(html.high-contrast) .sitovReadingControls { border-color: var(--foreground); background: var(--surface); }
+:global(html.high-contrast) .sitovPlay { border-color: var(--foreground); box-shadow: none; }
+@media (prefers-reduced-motion: reduce) { .sitovPlay, .sitovRestart, .sitovSlow { transition: none !important; transform: none !important; } }

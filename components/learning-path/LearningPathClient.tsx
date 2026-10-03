@@ -14,7 +14,7 @@ import SitovMotionStage from '@/components/motion/SitovMotionStage'
 import { useLearningNew } from '@/components/dashboard/useLearningNew'
 import { studentTranslator } from '@/lib/student-ui-i18n'
 import type { LearningNewItems } from '@/lib/learning-new'
-import LearningScreen from '@/components/vocabulary/LearningScreen'
+import LearningScreen, { scrollLearningWorkspace } from '@/components/vocabulary/LearningScreen'
 import BottomSheet from '@/components/ui/BottomSheet'
 import RuleCard from './RuleCard'
 import PathExerciseForm from './PathExerciseForm'
@@ -77,7 +77,6 @@ export default function LearningPathClient({ initialPath, initialError, lang, le
   const workspace = useRef<HTMLDivElement>(null)
   const stage = useRef<HTMLDivElement>(null)
   const pending = useRef<{ key: string; requestId: string } | null>(null)
-  const resumedInitialCheckpoint = useRef(false)
   const exercise = run ? run.exercises.find(item => item.id === run.queue[0])
     : test?.exercises.find(item => item.answer === null)
   const selectedPath = map?.paths.find(path => path.id === selection?.pathId)
@@ -88,18 +87,9 @@ export default function LearningPathClient({ initialPath, initialError, lang, le
     try { setTranslationOpen(window.localStorage.getItem(TRANSLATION_KEY) === 'open') } catch { /* nur Bequemlichkeit */ }
   }, [])
 
-  useEffect(() => {
-    if (resumedInitialCheckpoint.current) return
-    resumedInitialCheckpoint.current = true
-    const nodeId = initialPath?.resume_node_id
-    if (!nodeId) return
-    for (const path of initialPath.paths) {
-      const node = path.nodes.find(item => item.id === nodeId && item.available)
-      if (node) { openNode(node, path.title, path.id, true); return }
-    }
-    // A server checkpoint is consumed once per mount. Later map refreshes stay on the map.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  // A checkpoint offers an explicit continuation; changing modes always opens the map.
+  const resumePath = map?.paths.find(path => path.nodes.some(node => node.id === map.resume_node_id && node.available))
+  const resumeNode = resumePath?.nodes.find(node => node.id === map?.resume_node_id)
 
   function toggleTranslation() {
     setTranslationOpen(previous => {
@@ -111,8 +101,8 @@ export default function LearningPathClient({ initialPath, initialError, lang, le
   useEffect(() => {
     // Zurück auf der Karte bleibt die Stelle, an der man war.
     if (view === 'map') { heading.current?.focus({ preventScroll: true }); return }
-    // Jeder neue Schritt beginnt oben im Vollbild. Ein autofokussiertes Eingabefeld behält den Fokus.
-    workspace.current?.scrollTo({ top: 0 })
+    // Jeder neue Schritt beginnt oben im gemeinsamen Aufgabenrahmen. Ein autofokussiertes Eingabefeld behält den Fokus.
+    scrollLearningWorkspace(workspace.current)
     const target = view === 'feedback' ? feedbackRef.current : stage.current
     if (!target?.contains(document.activeElement)) target?.focus({ preventScroll: true })
   }, [view])
@@ -269,6 +259,12 @@ export default function LearningPathClient({ initialPath, initialError, lang, le
       <button className={styles.secondary} disabled={busy} onClick={() => void perform(refreshMap)}>{t('retry')}</button>
     </div>}
     <SitovMotionStage data-testid="path-map" className={`${styles.map} ${styles.sitovMapStage}`}>
+      {resumePath && resumeNode && <button type="button" data-testid="path-resume" className={styles.resumeCard} disabled={busy}
+        onClick={() => openNode(resumeNode, resumePath.title, resumePath.id, true)}>
+        <span className={styles.resumeIcon} aria-hidden="true"><Play size={22} /></span>
+        <span><strong>{t('resume')}</strong><span className={styles.resumeTitle}>{resumeNode.title}</span></span>
+        <Play size={18} aria-hidden="true" />
+      </button>}
       {map?.completed && <div className={styles.card}>
         <p>{t('all_done')}</p>
         {map.next_level && (map.next_level_available

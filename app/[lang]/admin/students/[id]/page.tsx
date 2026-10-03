@@ -13,6 +13,8 @@ import StudentProgressSnapshot from '@/components/admin/StudentProgressSnapshot'
 import TeacherStudentPath from '@/components/admin/TeacherStudentPath'
 import { TeacherStudentVocabulary, TeacherStudentPronunciation, TeacherStudentActivity } from '@/components/admin/TeacherStudentPanels'
 import { PageHeader, adminChip, adminFocus } from '@/components/admin/ui'
+import SitovPronunciationAccess from '@/components/admin/SitovPronunciationAccess'
+import { getSitovPronunciationReadiness } from '@/app/actions/sitov-pronunciation-access'
 
 export default async function TeacherStudentPage({ params, searchParams }: {
   params: Promise<{ lang: string; id: string }>; searchParams: Promise<{ tab?: string }>
@@ -54,8 +56,8 @@ export default async function TeacherStudentPage({ params, searchParams }: {
       return result.data ? <TeacherStudentPath data={result.data} studentId={id} studentName={name} lang={lang} canIntervene={student.role === 'student'} /> : <TeacherDashboardFailure lang={lang} error={result.error} />
     }
     if (activeTab === 'pronunciation') {
-      const result = await getTeacherStudentDetail(id, 'pronunciation', lang)
-      return result.data ? <TeacherStudentPronunciation data={result.data} lang={lang} /> : <TeacherDashboardFailure lang={lang} error={result.error} />
+      const [result, readiness] = await Promise.all([getTeacherStudentDetail(id, 'pronunciation', lang), student.allowed_levels[0] ? getSitovPronunciationReadiness(student.allowed_levels[0], id) : Promise.resolve(null)])
+      return result.data ? <div className="space-y-5">{student.role === 'student' && <SitovPronunciationAccess studentId={id} levels={student.allowed_levels} lang={lang} initialReadiness={readiness} />}<TeacherStudentPronunciation data={result.data} lang={lang} /></div> : <TeacherDashboardFailure lang={lang} error={result.error} />
     }
     const result = await getTeacherStudentDetail(id, 'activity', lang)
     return result.data ? <TeacherStudentActivity data={result.data} lang={lang} /> : <TeacherDashboardFailure lang={lang} error={result.error} />

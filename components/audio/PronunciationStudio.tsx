@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from 'react'
 import { useRouter } from 'next/navigation'
 import { useReducedMotion } from 'framer-motion'
-import { Check, Headphones, Mail, MessageCircle, Mic } from 'lucide-react'
+import { Check, Headphones, Languages, Mail, MessageCircle, Mic } from 'lucide-react'
 import AudioRecorder from '@/components/audio/AudioRecorder'
 import WaveformPlayer from '@/components/audio/WaveformPlayer'
 import KaraokeText from '@/components/audio/KaraokeText'
@@ -11,7 +11,7 @@ import Mailbox from '@/components/audio/Mailbox'
 import NewBadge from '@/components/motion/NewBadge'
 import { useLearningNew } from '@/components/dashboard/useLearningNew'
 import type { LearningNewItems } from '@/lib/learning-new'
-import SolutionAudioButton from '@/components/exercises/SolutionAudioButton'
+import SolutionAudioButton, { type SitovAudioControl } from '@/components/exercises/SolutionAudioButton'
 import { prefetchNeuralAudio } from '@/lib/audio/neural-client'
 import { createPronunciationTranslator, type PronunciationTranslations } from '@/lib/pronunciation-i18n'
 import type { PronunciationConversation } from '@/lib/pronunciation-conversations'
@@ -21,6 +21,9 @@ import { usePronunciationCheckpoint } from '@/lib/audio/usePronunciationCheckpoi
 import type { PronunciationCheckpointSnapshot } from '@/lib/pronunciation-checkpoint'
 import SitovMotionStage from '@/components/motion/SitovMotionStage'
 import SitovPronunciationScene from '@/components/audio/SitovPronunciationScene'
+import SitovPronunciationReadinessCard, { SitovLockedReadings } from '@/components/audio/SitovPronunciationReadinessCard'
+import type { SitovPronunciationReadiness } from '@/lib/sitov-pronunciation-readiness'
+import { sitovReadingCopy } from '@/lib/sitov-reading-i18n'
 import styles from './PronunciationStudio.module.css'
 
 export type StudioTab = 'studio' | 'mailbox'
@@ -43,7 +46,7 @@ function textStatuses(conversations: readonly PronunciationConversation[]): Map<
  * Die drei Schritte leuchten nacheinander auf, die Texte stehen als Karten mit
  * ihrem Stand da, und beim Anhören des Vorbilds liest man Wort für Wort mit.
  */
-export default function PronunciationStudio({ prompts, conversations, level, lang, translations, initialTab = 'studio', newItems, focusConversation, checkpoint, checkpointUnavailable, learnerId }: {
+export default function PronunciationStudio({ prompts, conversations, level, lang, translations, initialTab = 'studio', newItems, focusConversation, checkpoint, checkpointUnavailable, learnerId, readiness }: {
   prompts: readonly PronunciationPrompt[]
   conversations: PronunciationConversation[]
   level: string
@@ -57,6 +60,7 @@ export default function PronunciationStudio({ prompts, conversations, level, lan
   checkpoint?: PronunciationCheckpointSnapshot | null
   checkpointUnavailable?: boolean
   learnerId?: string
+  readiness?: SitovPronunciationReadiness | null
 }) {
   const s = studentTranslator(lang)
   const router = useRouter()
@@ -98,7 +102,7 @@ export default function PronunciationStudio({ prompts, conversations, level, lan
       </div>
 
       <div role="tabpanel" id="studio-panel-studio" aria-labelledby="studio-tab-studio" className={styles.sitovPanel} hidden={tab !== 'studio'}>
-        <Studio prompts={prompts} statuses={statuses} level={level} lang={lang} translations={translations} newItems={newItems} onOpenMailbox={() => switchTab('mailbox')} checkpoint={checkpoint} checkpointUnavailable={checkpointUnavailable} learnerId={learnerId} />
+        <Studio prompts={prompts} statuses={statuses} level={level} lang={lang} translations={translations} newItems={newItems} onOpenMailbox={() => switchTab('mailbox')} checkpoint={checkpoint} checkpointUnavailable={checkpointUnavailable} learnerId={learnerId} readiness={readiness} />
       </div>
       <div role="tabpanel" id="studio-panel-mailbox" aria-labelledby="studio-tab-mailbox" className={styles.sitovPanel} hidden={tab !== 'mailbox'}>
         {tab === 'mailbox' && <Mailbox conversations={conversations} lang={lang} translations={translations} focusId={focusConversation} />}
@@ -107,7 +111,7 @@ export default function PronunciationStudio({ prompts, conversations, level, lan
   )
 }
 
-function Studio({ prompts, statuses, level, lang, translations, onOpenMailbox, newItems, checkpoint, checkpointUnavailable, learnerId }: {
+function Studio({ prompts, statuses, level, lang, translations, onOpenMailbox, newItems, checkpoint, checkpointUnavailable, learnerId, readiness }: {
   prompts: readonly PronunciationPrompt[]
   statuses: Map<string, TextStatus>
   level: string
@@ -118,8 +122,11 @@ function Studio({ prompts, statuses, level, lang, translations, onOpenMailbox, n
   checkpoint?: PronunciationCheckpointSnapshot | null
   checkpointUnavailable?: boolean
   learnerId?: string
+  readiness?: SitovPronunciationReadiness | null
 }) {
   const t = createPronunciationTranslator(translations)
+  const router = useRouter()
+  const readingCopy = sitovReadingCopy(lang)
   const s = studentTranslator(lang)
   const news = useLearningNew(newItems)
   const reduced = useReducedMotion() ?? false
@@ -131,6 +138,8 @@ function Studio({ prompts, statuses, level, lang, translations, onOpenMailbox, n
   const [following, setFollowing] = useState<number | null>(null)
   const [activeWordIndex, setActiveWordIndex] = useState<number | null>(null)
   const cards = useRef<HTMLUListElement>(null)
+  const reference = useRef<HTMLDivElement>(null)
+  const audioControl = useRef<SitovAudioControl | null>(null)
   const selected = prompts.find(prompt => prompt.id === selectedId) ?? prompts[0]
   const hasTeacherReference = Boolean(selected?.audioUrl && !selected.audioUrl.includes('/audio_cache/'))
   const useOriginalReference = hasTeacherReference
@@ -148,13 +157,16 @@ function Studio({ prompts, statuses, level, lang, translations, onOpenMailbox, n
 
   const referenceProgress = saved.referenceProgress
   const onReferenceProgress = useCallback((fraction: number | null) => {
-    setFollowing(fraction)
+    // The native clock remains exact; the progress strip needs only a tenth
+    // of a percent. Avoid rerendering every word button on every audio frame.
+    setFollowing(current => fraction !== null && current !== null && Math.round(current * 1000) === Math.round(fraction * 1000) ? current : fraction)
     referenceProgress(fraction)
   }, [referenceProgress])
 
-  if (!selected) {
-    return <SitovMotionStage className={`${styles.sitovEmpty} st-empty st-empty--hero`}><SitovPronunciationScene compact /><h2>{t('prompts_empty')}</h2><p>{t('prompts_empty_hint')}</p></SitovMotionStage>
-  }
+  const readinessPanel = readiness !== undefined && <SitovPronunciationReadinessCard readiness={readiness} lang={lang} level={level} onRetry={() => router.refresh()} />
+  if (!selected) return <div className="space-y-5">{readinessPanel}{readiness?.texts.length
+    ? <SitovLockedReadings readiness={readiness} lang={lang} />
+    : readiness === null ? null : <SitovMotionStage className={`${styles.sitovEmpty} st-empty st-empty--hero`}><SitovPronunciationScene compact /><h2>{t('prompts_empty')}</h2><p>{t('prompts_empty_hint')}</p></SitovMotionStage>}</div>
 
   const status = statuses.get(selected.id) ?? 'new'
   const wordCount = selected.sentenceDe.split(/\s+/).length
@@ -182,6 +194,7 @@ function Studio({ prompts, statuses, level, lang, translations, onOpenMailbox, n
         </div>
         <SitovPronunciationScene state={phase === 'idle' && following !== null ? 'listening' : phase} />
       </SitovMotionStage>
+      {readinessPanel}
       {saved.notice && <p role={saved.notice === 'failed' ? 'alert' : 'status'} className="flex flex-wrap items-center justify-between gap-3 text-sm text-[var(--muted)]">
         <span>{t(saved.notice === 'failed' ? 'checkpoint_failed' : saved.notice === 'conflict' ? 'checkpoint_conflict' : saved.notice === 'saving' ? 'checkpoint_saving' : 'checkpoint_saved')}</span>
         {saved.notice === 'failed' && <button type="button" className="st-button st-button--quiet min-h-12" onClick={() => void saved.retry()}>{t('audio_retry')}</button>}
@@ -226,6 +239,7 @@ function Studio({ prompts, statuses, level, lang, translations, onOpenMailbox, n
               )
             })}
           </ul>
+          {readiness && <SitovLockedReadings readiness={readiness} lang={lang} />}
         </section>
         </SitovMotionStage>
 
@@ -243,11 +257,16 @@ function Studio({ prompts, statuses, level, lang, translations, onOpenMailbox, n
             </header>
             <div className="st-reading__body">
               <div data-testid="pronunciation-reading-text">
-                <KaraokeText text={selected.sentenceDe} progress={following} activeWordIndex={useOriginalReference ? undefined : activeWordIndex} className="st-karaoke whitespace-pre-line" />
+                <KaraokeText key={selected.id} text={selected.sentenceDe} progress={following} activeWordIndex={useOriginalReference ? undefined : activeWordIndex} className="st-karaoke whitespace-pre-line"
+                  wordLookup={{ promptId: selected.id, level, locale: lang, onSelect: () => {
+                    audioControl.current?.pause()
+                    reference.current?.querySelector('audio')?.pause()
+                  } }} />
               </div>
               <span data-testid="pronunciation-text-end" className="pronunciation-text-end block h-px" aria-hidden="true" />
               <p className="st-reading__follow"><Headphones size={18} aria-hidden="true" />{s('studio_follow')}</p>
-              <div className="mt-4 space-y-3">
+              <p className={styles.sitovWordHint}><Languages size={17} aria-hidden="true" />{readingCopy.hint}</p>
+              <div ref={reference} className="mt-4 space-y-3">
                 {useOriginalReference
                   ? <WaveformPlayer key={`${selected.id}:${saved.restoreVersion}`} src={selected.audioUrl} level={level} t={t} label={t('reference_listen')} initialProgress={saved.initialProgress}
                       onProgress={state => {
@@ -255,6 +274,7 @@ function Studio({ prompts, statuses, level, lang, translations, onOpenMailbox, n
                         if (!state.playing) onReferenceProgress(null)
                       }} />
                   : <SolutionAudioButton key={`${selected.id}:${saved.restoreVersion}`} text={selected.sentenceDe} audioUrl={hasTeacherReference ? null : selected.audioUrl} level={level} language="de" initialProgress={saved.initialProgress}
+                      layout="reading" resumeLabel={readingCopy.resume} restartLabel={readingCopy.restart} restartAriaLabel={readingCopy.restartAria} controlRef={audioControl}
                       label={t('reference_listen')} ariaLabel={t('reference_listen_aria')} onProgress={onReferenceProgress} onWordChange={setActiveWordIndex} />}
               </div>
             </div>

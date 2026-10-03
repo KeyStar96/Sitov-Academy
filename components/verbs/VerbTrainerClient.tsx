@@ -76,6 +76,8 @@ export default function VerbTrainerClient({ initialState, lang, actions = sitovA
   const [noTasks, setNoTasks] = useState(false)
   const [sessionTenses, setSessionTenses] = useState<SitovVerbTense[]>(initialState.tenses)
   const inputRef = useRef<HTMLInputElement>(null)
+  const sessionRef = useRef<HTMLElement>(null)
+  const sessionActive = !!round
   const nextRef = useRef<HTMLButtonElement>(null)
   const completionRef = useRef<HTMLHeadingElement>(null)
   const focusedBlank = useRef(0)
@@ -96,7 +98,10 @@ export default function VerbTrainerClient({ initialState, lang, actions = sitovA
   const message = error && (permissionError ? copy.denied : copy.failed)
   const exerciseKind = exercise && (exercise.kind === 'perfect' ? copy.perfectTask : copy[exercise.kind])
 
-  useEffect(() => { if (exercise && !review) inputRef.current?.focus() }, [exercise, review])
+  useEffect(() => {
+    if (sessionActive) sessionRef.current?.scrollIntoView?.({ block: 'start', behavior: window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' })
+  }, [sessionActive])
+  useEffect(() => { if (exercise && !review) inputRef.current?.focus({ preventScroll: true }) }, [exercise, review])
   useEffect(() => { if (review) nextRef.current?.focus({ preventScroll: true }) }, [review])
   useEffect(() => { if (round?.finished) completionRef.current?.focus() }, [round?.finished])
 
@@ -124,8 +129,8 @@ export default function VerbTrainerClient({ initialState, lang, actions = sitovA
     finally { lockedOperation.current = false; setBusy(false) }
   }
 
-  async function start() {
-    const chosen = view === 'targeted' ? tenses : initialState.tenses
+  async function start(automatic = false) {
+    const chosen = !automatic && view === 'targeted' ? tenses : initialState.tenses
     if (!chosen.length || !selectedVerbs.length) return
     setRound({ total: 0, correct: 0, finished: false }); setSessionTenses(chosen)
     await loadExercise(chosen)
@@ -154,30 +159,33 @@ export default function VerbTrainerClient({ initialState, lang, actions = sitovA
   function chooseView(value: View) { setView(value); setError(null) }
 
   return <SitovVerbStage className={styles.sitovTrainer}>
-    <header className={styles.sitovHero}>
+    <header className={styles.sitovHero} data-active={sessionActive}>
+      {!sessionActive && <button type="button" className={styles.sitovHeroAction} disabled={busy} aria-label={`${copy.title} ${selectedVerbs.length ? copy.start : copy.manage}`}
+        onClick={() => { if (selectedVerbs.length) { setView('automatic'); void start(true) } else chooseView('box') }} />}
       <div className={styles.sitovAurora} aria-hidden="true" />
       <div className={styles.sitovHeroText}>
         <p className={styles.sitovEyebrow}><Sparkles size={17} aria-hidden="true" />{copy.eyebrow}<span>{initialState.level}</span></p>
-        <h1>{copy.title}</h1><p className={styles.sitovIntro}>{copy.intro}</p>
+        <h1>{copy.title}</h1>{!sessionActive && <><p className={styles.sitovIntro}>{copy.intro}</p>
+          <span className={styles.sitovHeroCta} aria-hidden="true">{busy ? <LoaderCircle size={19} className={styles.sitovSpinner} /> : <Zap size={19} />}{busy ? copy.loading : selectedVerbs.length ? copy.start : copy.manage}<ArrowRight size={19} /></span></>}
       </div>
-      <div className={styles.sitovOrbit} aria-hidden="true">
+      {!sessionActive && <div className={styles.sitovOrbit} aria-hidden="true">
         <div className={styles.sitovOrbitRing} /><div className={styles.sitovOrbitRingInner} />
         <span className={styles.sitovOrbitCore}><Zap size={30} strokeWidth={1.8} /></span>
         <span className={styles.sitovWord} data-word="1">fahren</span><span className={styles.sitovWord} data-word="2">fährt</span><span className={styles.sitovWord} data-word="3">gefahren</span>
         <span className={styles.sitovOrbitSpark} /><span className={styles.sitovOrbitSpark} data-second="true" />
-      </div>
+      </div>}
     </header>
 
-    <section className={styles.sitovStats} aria-label={copy.summary}>
+    {!sessionActive && <section className={styles.sitovStats} aria-label={copy.summary}>
       {[{ label: copy.selected, value: selectedVerbs.length, icon: Layers3 }, { label: copy.due, value: due + fresh, icon: Flame },
         { label: copy.mastered, value: mastered, icon: CheckCheck }, { label: copy.pool, value: initialState.verbs.length, icon: Sparkles }].map(({ label, value, icon: Icon }) =>
         <div key={label}><Icon size={18} aria-hidden="true" /><strong key={value}>{value}</strong><span>{label}</span></div>)}
-    </section>
+    </section>}
 
     {message && <div className={styles.sitovError} role="alert"><CircleHelp size={20} aria-hidden="true" /><span>{message}</span>
       {permissionError && <button type="button" onClick={() => window.location.reload()}>{copy.reload}</button>}</div>}
 
-    {round ? <section className={styles.sitovSession} aria-label={copy.round}>
+    {round ? <section ref={sessionRef} className={styles.sitovSession} aria-label={copy.round}>
       {round.finished ? <div className={styles.sitovComplete}>
         <div className={styles.sitovVictory} aria-hidden="true"><CheckCheck size={42} />{Array.from({ length: 12 }, (_, index) => <span key={index} style={{ '--sitov-i': index } as CSSProperties} />)}</div>
         <p className={styles.sitovEyebrow}>{copy.round}</p><h2 ref={completionRef} tabIndex={-1}>{copy.complete}</h2><p>{copy.completeHint}</p>

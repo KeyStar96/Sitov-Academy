@@ -6,9 +6,10 @@ Der Account ist die Quelle für bestätigten Lernfortschritt. Browser-Speicher e
 | --- | --- | --- |
 | Vokabeln | Richtungsbezogene Lernbox, Fälligkeiten, Bewertungen und Antwortquittungen in PostgreSQL | Account-Checkpoint mit Kartenreihenfolge, Runde, Position, Feedback und Wiederholungen; offene Antwortabsicht wird mit derselben Quittung erneut gesendet |
 | Problemwörter | Eigene Problemwörter, Trainingsstufe und Antwortquittungen | Eigene Account-Runde mit Position und Wiederholungen |
-| Lernpfad und Tests | Eigene Übungsdurchläufe, Warteschlangen, Antworten, Abschlüsse und Testergebnisse | Neuster noch zugänglicher aktiver Durchlauf öffnet sich; gespeicherte Testantworten sind unveränderlich und identisch wiederholbar |
+| Lernpfad und Tests | Eigene Übungsdurchläufe, Warteschlangen, Antworten, Abschlüsse und Testergebnisse | Übersicht öffnet sich zuerst; „Fortsetzen“ lädt den neusten noch zugänglichen aktiven Durchlauf. Gespeicherte Testantworten sind unveränderlich und identisch wiederholbar |
 | Ältere Grammatikübungen | Bewertung und Account-Checkpoint werden gemeinsam in einer Transaktion gespeichert | Themen-/Wiederholungsrunde mit ausgewählten Übungen und Position; private Quittung verhindert doppelte Bewertung nach Verbindungsabbruch |
 | Aussprache | Private Aufnahmen, Nachrichten, Rückmeldungen und Gelesen-Quittungen | Ausgewählter Lesetext, Anhören-Status und Position der Referenzaufnahme im Account |
+| Verbtrainer | Bewertete Challenge-Quittungen, Boxen und Fälligkeiten je Zeitform | Adaptive Übungsrunde und bekannte Formen bleiben erhalten; eigener Statistikmodus zeigt Antworten, Genauigkeit, Zeit, Zeitformen und Boxverteilung |
 | Eigene Videos | Medienaufrufe und private Account-Checkpoints | Wiedergabeposition, Dauer und „Weiterschauen“; Speichern regelmäßig und bei Pause, Springen, Ende oder Schließen |
 | Daily Journey | Tageszuordnung, bestätigte Stationen, Abschluss und Serie im Account | Erste unbestätigte Station des aktuellen Tages; später machen verändert die Zuordnung nicht |
 | Home und Navigation | Letzter Lernbereich aus eigenen Lernhandlungen und Checkpoints | Gleicher Lernbereich auf einem anderen Gerät; bei Abfragefehlern kein fremder Browser-Fallback |

@@ -26,5 +26,5 @@ export default async function LearningPathPage({ params }: { params: Promise<{ l
   const learningLabels = { exit_learning: vocabulary('exit_learning'), theme_light: vocabulary('theme_light'), theme_dark: vocabulary('theme_dark'), overall_progress_label: vocabulary('overall_progress_label') }
   return <ExerciseClient exercises={exercises} translations={(dict.exercises ?? {}) as ExerciseTranslations} lang={lang} level={decodedLevel} learningLabels={learningLabels}
     initialCheckpoint={checkpoint.ok ? checkpoint.checkpoint : null} checkpointLoadFailed={!checkpoint.ok}
-    initialLearnerId={checkpoint.ok ? checkpoint.learnerId : undefined} />
+    initialLearnerId={checkpoint.ok ? checkpoint.learnerId : undefined} startOnOverview />
 }

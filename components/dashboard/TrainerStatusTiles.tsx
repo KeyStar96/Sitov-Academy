@@ -39,7 +39,7 @@ export default function TrainerStatusTiles({ lang, level, status, languageLocked
   heading?: boolean
   /** Überschrift statt „Deine Lernbereiche" (Home: „Deine Lernbereiche · A1.2"). */
   title?: string
-  /** Knopf neben der Überschrift, z. B. „Zum Lernpfad" oder zum zuletzt genutzten Modus. */
+  /** Gemeinsame Kartenaktion unter dem Inhalt, z. B. zum zuletzt genutzten Modus. */
   continueLink?: { href: string; label: string }
   /** Bestehende Aufrufer dürfen beide Namen verwenden; Home und Lernen zeigen dasselbe Karussell. */
   layout?: 'compact' | 'modes'
@@ -124,21 +124,21 @@ export default function TrainerStatusTiles({ lang, level, status, languageLocked
 
   const headingId = `sitov-areas-${level}-${sitovId.replace(/:/g, '')}`
   return (
-    <section aria-labelledby={heading ? headingId : undefined} aria-label={heading ? undefined : t('areas_title')} className="st-areas">
+    <section aria-labelledby={heading ? headingId : undefined} aria-label={heading ? undefined : t('areas_title')} className={`st-areas ${styles.sitovAreasPanel}`}>
       {heading && (
         <div className="st-section-head">
           <div className="min-w-0">
             <h2 id={headingId} className="st-section-title">{title ?? t('areas_title')}</h2>
             {!title && <p className="st-section-sub">{t('areas_level', { level })}</p>}
           </div>
-          {continueLink && (
-            <PressableCard href={continueLink.href} className="st-link-pill">{continueLink.label}<ArrowUpRight size={18} aria-hidden="true" /></PressableCard>
-          )}
         </div>
       )}
       <SitovMotionStage className={styles.sitovStage}>
         <SitovTrainerCarousel items={sitovSlides} lang={lang} label={t('areas_title')} />
       </SitovMotionStage>
+      {continueLink && <footer className={styles.sitovAreasFooter}>
+        <PressableCard href={continueLink.href} className="st-link-pill">{continueLink.label}<ArrowUpRight size={18} aria-hidden="true" /></PressableCard>
+      </footer>}
     </section>
   )
 }

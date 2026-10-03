@@ -3,6 +3,9 @@
 import { useEffect, useId, useLayoutEffect, useRef, useState, type CSSProperties } from 'react'
 import { createPortal } from 'react-dom'
 import { Contrast, X } from 'lucide-react'
+import { motion } from 'framer-motion'
+import { EASE_OUT_SOFT, useReducedMotionSafe } from '@/lib/motion'
+import styles from './SitovAppearance.module.css'
 import AppearanceOptions from './AppearanceOptions'
 import { useAppearanceCopy } from './AppearanceProvider'
 
@@ -14,6 +17,7 @@ export default function ThemeToggle({ lightLabel, darkLabel, label }: {
   label?: string
 }) {
   const copy = useAppearanceCopy()
+  const reduced = useReducedMotionSafe()
   const [open, setOpen] = useState(false)
   const [position, setPosition] = useState<CSSProperties>({ visibility: 'hidden' })
   const wrapper = useRef<HTMLDivElement>(null)
@@ -34,7 +38,11 @@ export default function ThemeToggle({ lightLabel, darkLabel, label }: {
       const viewportTop = viewport?.offsetTop ?? 0
       const viewportWidth = viewport?.width ?? window.innerWidth
       const viewportHeight = viewport?.height ?? window.innerHeight
-      const height = Math.min(panel.current.scrollHeight, viewportHeight - 32)
+      const height = Math.min(Math.max(panel.current.scrollHeight, panel.current.offsetHeight), viewportHeight - (viewportWidth <= 640 ? 24 : 32))
+      if (viewportWidth <= 640) {
+        setPosition({ left: viewportLeft + 12, top: viewportTop + viewportHeight - height - 12, maxHeight: viewportHeight - 24, visibility: 'visible' })
+        return
+      }
       const left = Math.max(viewportLeft + 16, Math.min(anchor.right - width, viewportLeft + viewportWidth - width - 16))
       const below = anchor.bottom + 8
       const top = below + height <= viewportTop + viewportHeight - 16
@@ -42,10 +50,13 @@ export default function ThemeToggle({ lightLabel, darkLabel, label }: {
       setPosition({ left, top, maxHeight: viewportTop + viewportHeight - top - 16, visibility: 'visible' })
     }
     place()
+    const resize = new ResizeObserver(place)
+    if (panel.current) resize.observe(panel.current)
     window.addEventListener('resize', place)
     window.addEventListener('scroll', place, true)
     window.visualViewport?.addEventListener('resize', place)
     return () => {
+      resize.disconnect()
       window.removeEventListener('resize', place)
       window.removeEventListener('scroll', place, true)
       window.visualViewport?.removeEventListener('resize', place)
@@ -76,13 +87,15 @@ export default function ThemeToggle({ lightLabel, darkLabel, label }: {
         {label && <span aria-hidden="true">{label}</span>}
       </button>
       {/* A body portal escapes the mobile menu's scrolling/clipping container. */}
-      {open && createPortal(<div ref={panel} id={id} role="dialog" aria-labelledby={`${id}-title`} className="academy-appearance-panel fixed z-[1000] w-[min(20rem,calc(100vw-2rem))] overflow-y-auto overscroll-contain rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-4 text-[var(--foreground)] shadow-xl [overflow-wrap:break-word]" style={position}>
-        <div className="mb-3 flex min-w-0 items-center justify-between gap-2">
-          <h2 id={`${id}-title`} className="min-w-0 text-lg font-bold leading-snug">{copy.title}</h2>
-          <button type="button" className="academy-icon-button shrink-0" aria-label={copy.close} onClick={close}><X size={20} aria-hidden="true" /></button>
+      {open && createPortal(<motion.div ref={panel} id={id} role="dialog" aria-labelledby={`${id}-title`} className={`academy-appearance-panel fixed z-[1000] ${styles.panel}`} style={position}
+        initial={reduced ? false : { opacity: 0, y: 14, scale: .97 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ duration: reduced ? 0 : .32, ease: EASE_OUT_SOFT }}>
+        <div className={styles.panelHead}>
+          <span className={styles.panelMark} aria-hidden="true"><Contrast size={21} /></span>
+          <h2 id={`${id}-title`}>{copy.title}</h2>
+          <button type="button" className={`academy-icon-button ${styles.close}`} aria-label={copy.close} onClick={close}><X size={20} aria-hidden="true" /></button>
         </div>
         <AppearanceOptions lightLabel={lightLabel} darkLabel={darkLabel} />
-      </div>, document.body)}
+      </motion.div>, document.body)}
     </div>
   )
 }

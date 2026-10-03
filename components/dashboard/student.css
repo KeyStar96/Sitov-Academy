@@ -216,7 +216,7 @@ html.high-contrast .st-tabbar__pill { background: transparent; border: 2px solid
   .academy-student-shell .pronunciation-practice { padding-bottom: calc(6.5rem + var(--st-tabbar-h)); }
 }
 @media (min-width: 768px) { .st-tabbar { display: none; } }
-body:has(.learning-screen) .st-tabbar { display: none; }
+body:has(.learning-screen[data-presentation='fullscreen']) .st-tabbar { display: none; }
 
 /* Hilfe-Blatt */
 .st-help-link { display: flex; min-height: 4rem; align-items: center; gap: .9rem; border: 1px solid var(--border); border-radius: 1.2rem; background: var(--surface); padding: .6rem 1rem .6rem .6rem; color: var(--foreground); font-size: 1.1rem; font-weight: 700; }

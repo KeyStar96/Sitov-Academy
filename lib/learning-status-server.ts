@@ -3,7 +3,7 @@ import 'server-only'
 import { cache } from 'react'
 import { getVocabularyOverview } from '@/app/actions/vocabulary'
 import { getExercises } from '@/app/actions/exercises'
-import { getPronunciationPrompts } from '@/app/actions/pronunciation'
+import { loadSitovPronunciationReadiness } from '@/lib/sitov-pronunciation-readiness-server'
 import { hasConfiguredTrainerAccess, hasTrainerAccess, type LevelAccessProfile } from '@/lib/access/levels'
 import { mapVideo, videoQuery } from '@/lib/learning-catalog'
 import { learningResourceUrl } from '@/lib/video-links'
@@ -32,7 +32,7 @@ export interface LevelLearningStatus {
   level: string
   vocabulary: { locked: boolean; due: number; activeWords: number; total: number; learned: number } | null
   grammar: { locked: boolean; total: number; solved: number; topics: number; openTopics: number } | null
-  pronunciation: { locked: boolean; texts: number; open: number; waiting: number; unread: number } | null
+  pronunciation: { locked: boolean; texts: number; open: number; waiting: number; unread: number; readyTexts?: number; lockedTexts?: number; readinessTier?: number } | null
   media: { locked: boolean; total: number; fresh: number } | null
   /** Modi mit „Neu"-Kennzeichen (Phase 6.1): neue Inhalte oder der Modus selbst. */
   verbs?: { locked: boolean; total: number; selected: number; due: number; mastered: number } | null
@@ -69,18 +69,22 @@ const vocabularyOverview = cache((level: string) => getVocabularyOverview(level)
 const pronunciationStatus = cache(async (userId: string, level: string) => loadPronunciation(await createClient(), userId, level))
 
 async function loadPronunciation(supabase: Client, userId: string, level: string) {
-  const [prompts, submissions] = await Promise.all([
-    getPronunciationPrompts(level),
+  const [readiness, submissions] = await Promise.all([
+    loadSitovPronunciationReadiness(supabase, level),
     supabase.from('submissions').select('id,prompt_id,status,pronunciation_messages(sender_role,seen_at)')
       .eq('auth_user_id', userId).eq('level', level),
   ])
-  if (submissions.error) throw new Error('submissions_unavailable')
+  if (submissions.error || !readiness) throw new Error('pronunciation_readiness_unavailable')
+  const ready = readiness.texts.filter(text => text.ready)
   const recorded = new Set((submissions.data ?? []).map(row => row.prompt_id).filter(Boolean))
   const unread = (submissions.data ?? []).reduce((sum, row) => sum + (row.pronunciation_messages ?? [])
     .filter(message => message.sender_role !== 'student' && !message.seen_at).length, 0)
   return {
-    texts: prompts.length,
-    open: prompts.filter(prompt => !recorded.has(prompt.id)).length,
+    texts: readiness.texts.length,
+    open: ready.filter(text => !recorded.has(text.id)).length,
+    readyTexts: ready.length,
+    lockedTexts: readiness.texts.length - ready.length,
+    readinessTier: readiness.tier,
     waiting: (submissions.data ?? []).filter(row => row.status === 'pending').length,
     unread,
   }

@@ -1,10 +1,12 @@
 """No model downloads or real synthesis required for HTTP boundary tests."""
 import http.client
+import io
 import json
 import threading
 import unittest
+import wave
 from http.server import ThreadingHTTPServer
-from unittest.mock import Mock
+from unittest.mock import Mock, patch
 from types import SimpleNamespace
 import tts_server
 
@@ -69,6 +71,29 @@ class SpeechBoundaryTests(unittest.TestCase):
 
 
 class AlignmentTests(unittest.TestCase):
+    def test_german_output_retains_initial_samples_after_silent_lead_in(self):
+        alignments = [SimpleNamespace(phoneme=p, num_samples=n) for p, n in [('^', 2), ('h', 8), ('e', 8), ('$', 2)]]
+        pcm = b'\x01\x00' * 20
+        voice = Mock()
+        voice.config.sample_rate = 1000
+        voice.phonemize.return_value = [list('he')]
+        voice.synthesize.return_value = [SimpleNamespace(phoneme_alignments=alignments, audio_int16_array=list(range(20)), audio_int16_bytes=pcm, sample_rate=1000)]
+        voices = Mock()
+        voices.get.return_value = voice
+        captured = []
+        def encode(arguments, **kwargs):
+            captured.append(kwargs['input'])
+            tts_server.Path(arguments[-1]).write_bytes(b'ID3' + b'x' * 125)
+        with patch.dict('sys.modules', {'piper': SimpleNamespace(SynthesisConfig=lambda **kwargs: kwargs)}), patch.object(tts_server.subprocess, 'run', side_effect=encode):
+            audio, timings = tts_server.synthesize('he', 'de', voices)
+        with wave.open(io.BytesIO(captured[0]), 'rb') as wav:
+            self.assertEqual(wav.getnframes(), 370)
+            self.assertEqual(wav.readframes(350), b'\x00\x00' * 350)
+            self.assertEqual(wav.readframes(20), pcm)
+        self.assertEqual(timings, [{'start': 0.352, 'end': 0.368}])
+        self.assertGreater(len(audio), 100)
+        voices.get.assert_called_once_with('de', None)
+
     def test_old_voice_composes_german_ich_phoneme(self):
         phonemes=[['ɪ','c','̧',' ', 'y']]
         old_map={'ɪ':[74],'c':[16],'ç':[40],' ':[3],'y':[37]}

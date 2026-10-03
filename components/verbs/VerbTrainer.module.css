@@ -6,6 +6,17 @@
 .sitovTrainer button:focus-visible, .sitovTrainer input:focus-visible, .sitovTrainer summary:focus-visible { outline: 3px solid var(--sitov-verb-text); outline-offset: 4px; }
 .sitovTrainer button:active:not(:disabled) { transform: scale(.96); }
 .sitovHero { position: relative; isolation: isolate; display: grid; grid-template-columns: 1fr 230px; align-items: center; gap: 1rem; min-height: 270px; padding: 2rem 2.2rem; border: 1px solid color-mix(in srgb, var(--sitov-verb) 44%, var(--border)); border-radius: 2rem; overflow: hidden; background: linear-gradient(115deg,var(--surface),color-mix(in srgb,var(--sitov-verb) 9%,var(--surface))); box-shadow: 0 20px 60px -42px var(--sitov-verb); }
+.sitovTrainer .sitovHeroAction { position: absolute; z-index: 3; inset: 0; width: 100%; height: 100%; border: 0; border-radius: inherit; background: transparent; cursor: pointer; }
+.sitovTrainer .sitovHeroAction:hover { box-shadow: none; }
+.sitovTrainer .sitovHeroAction:active { transform: none; }
+.sitovHero:has(.sitovHeroAction:focus-visible) { outline: 3px solid var(--sitov-verb-text); outline-offset: 4px; }
+.sitovHeroCta { display: inline-flex; align-items: center; gap: .55rem; min-height: 48px; margin-top: 1.2rem; border-radius: 1rem; border: 1px solid var(--sitov-verb); background: var(--sitov-verb); color: #fff; padding: .7rem 1.1rem; font-size: .95rem; font-weight: 750; box-shadow: 0 12px 28px -18px var(--sitov-verb); transition: transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s; }
+.sitovHeroCta svg:last-child { margin-left: .3rem; transition: transform .3s cubic-bezier(.22,1,.36,1); }
+.sitovHero:has(.sitovHeroAction:hover) .sitovHeroCta svg:last-child, .sitovHero:has(.sitovHeroAction:focus-visible) .sitovHeroCta svg:last-child { transform: translateX(4px); }
+.sitovHero:has(.sitovHeroAction:active) .sitovHeroCta { transform: scale(.97); }
+.sitovHero[data-active='true'] { min-height: auto; grid-template-columns: 1fr; padding: 1.1rem 1.4rem; border-radius: 1.4rem; }
+.sitovHero[data-active='true'] h1 { max-width: none; font-size: 1.4rem; margin-bottom: 0; }
+.sitovSession { scroll-margin-top: 14rem; }
 .sitovHero::before { position: absolute; z-index: -1; inset: 0; content: ''; opacity: 0; background: radial-gradient(500px circle at var(--sitov-x) var(--sitov-y),color-mix(in srgb,var(--sitov-verb-bright) 15%,transparent),transparent 75%); transition: opacity .4s; }
 [data-pointer='true'] .sitovHero::before { opacity: 1; }
 .sitovHero::after { content: ''; position: absolute; inset: auto 15% 0; height: 2px; background: linear-gradient(90deg,transparent,var(--sitov-verb-bright),transparent); }
@@ -161,11 +172,15 @@
 }
 @media (max-width:480px) {
   .sitovTrainer { gap: 1rem; }
-  .sitovHero { grid-template-columns: 1fr; padding: 1.5rem 1.2rem 0; }
-  .sitovHero h1 { font-size: 2rem; }
+  .sitovHero { grid-template-columns: 1fr; padding: 1.2rem; gap: .25rem; min-height: 0; }
+  .sitovHeroText { position: relative; z-index: 1; min-width: 0; }
+  .sitovHeroCta { font-size: .85rem; padding: .65rem .75rem; max-width: calc(100% - 3.5rem); }
+  .sitovHeroCta svg { flex-shrink: 0; }
+  .sitovHeroCta svg:first-child { display: none; }
+  .sitovHero h1 { font-size: 1.8rem; }
   .sitovIntro { font-size: .94rem; }
-  .sitovOrbit { justify-self: center; width: 230px; height: 180px; transform: scale(.85); margin-top: -.5rem; margin-bottom: -.5rem; }
-  .sitovWord { font-size: .9rem; }
+  .sitovOrbit { position: absolute; right: .9rem; bottom: .8rem; width: 145px; height: 185px; transform: scale(.46); transform-origin: right bottom; opacity: .85; }
+  .sitovWord { font-size: .86rem; }
   .sitovWord[data-word='3'] { left: 14px; }
   .sitovStats { grid-template-columns: repeat(2,minmax(0,1fr)); }
   .sitovTabs button { flex-direction: column; gap: .3rem; font-size: .78rem; line-height: 1.2; padding: .7rem .25rem; }

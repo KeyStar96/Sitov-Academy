@@ -12,7 +12,7 @@
 }
 .learning-header { display: flex; align-items: center; gap: 8px; width: 100%; max-width: 1040px; min-height: 64px; margin: 0 auto; flex-shrink: 0; }
 .learning-heading { overflow-wrap: anywhere; min-width: 0; flex: 1; text-align: center; }
-.learning-heading h1 { font-size: 1rem; font-weight: 700; line-height: 1.35; }
+.learning-heading h2 { font-size: 1rem; font-weight: 700; line-height: 1.35; }
 /* text-align ausdrücklich: globals.css setzt jedes <p> linksbündig, der
    Untertitel stünde sonst schief unter dem zentrierten Titel. */
 .learning-heading p { font-size: 1rem; color: var(--learn-muted); line-height: 1.35; text-align: center; }
@@ -20,6 +20,16 @@
 .learning-progress { height: 3px; background: var(--learn-border); flex-shrink: 0; margin: 0 -12px; }
 .learning-progress span { display: block; height: 100%; background: var(--learn-accent); transition: width 160ms ease; }
 .learning-workspace { min-height: 0; flex: 1; display: flex; flex-direction: column; gap: 12px; width: 100%; max-width: 720px; overflow-y: auto; margin: 0 auto; padding: 16px 0 8px; }
+.learning-screen[data-presentation='embedded'] { position: relative; inset: auto; z-index: auto; height: auto; min-height: min(34rem, 65dvh); overflow: visible; padding: 0; background: transparent; scroll-margin-block-start: 4rem; }
+.learning-screen[data-presentation='embedded'] .learning-header { gap: 16px; padding: 12px 16px; border: 1px solid var(--learn-border); border-radius: 20px; background: var(--learn-surface); }
+.learning-screen[data-presentation='embedded'] .learning-exit { padding: 8px 12px; border: 1px solid var(--learn-border); border-radius: 14px; background: var(--learn-muted-surface); }
+.learning-screen[data-presentation='embedded'] .learning-heading { text-align: right; }
+.learning-screen[data-presentation='embedded'] .learning-heading p { text-align: right; margin: 0; }
+.learning-screen[data-presentation='embedded'] .learning-progress { margin: 12px 0 0; height: 5px; border-radius: 99px; overflow: hidden; }
+.learning-screen[data-presentation='embedded'] .learning-workspace { flex: none; overflow: visible; padding-top: 20px; padding-bottom: 20px; }
+.learning-screen[data-presentation='embedded'] .learning-card-content { overflow: visible; }
+.learning-screen[data-presentation='embedded'] .learning-stage { min-height: 24rem; }
+@media (max-width: 420px) { .learning-screen[data-presentation='embedded'] .learning-header { gap: 8px; padding: 8px 10px; } .learning-screen[data-presentation='embedded'] .learning-exit { font-size: .9rem; } }
 /* Kopfzeile über der Karte: Pillen links (dürfen bei Bedarf untereinander
    umbrechen), der Zähler rechts in einer eigenen Spalte, die nie umbricht. */
 .learning-meta { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 12px; color: var(--learn-muted); font-size: 1rem; font-weight: 600; }

@@ -2329,6 +2329,9 @@ export type Database = {
         Args: { p_audio_path: string; p_prompt_id: string }
         Returns: Json
       }
+      sitov_get_pronunciation_readiness: { Args: { p_level: string; p_student_id?: string }; Returns: Json }
+      sitov_set_pronunciation_access: { Args: { p_student_id: string; p_level: string; p_mode: string }; Returns: Json }
+      sitov_pronunciation_conversation_titles: { Args: never; Returns: { submission_id: string; title: string }[] }
       decline_business_booking: { Args: { p_id: string }; Returns: Json }
       delete_course_exception: { Args: { p_id: string }; Returns: Json }
       delete_learning_content: {

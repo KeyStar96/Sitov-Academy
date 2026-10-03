@@ -30,6 +30,7 @@ MAX_AUDIO = 2 * 1024 * 1024
 MAX_WAV = 32 * 1024 * 1024
 SYNTHESIS_SECONDS = 65
 MAX_TIMINGS_HEADER = 32 * 1024
+SITOV_GERMAN_LEAD_IN_SECONDS = 0.35
 
 
 def validate_request(raw: bytes) -> tuple[str, str, str | None]:
@@ -293,6 +294,12 @@ def synthesize(text: str, language: str, voices: VoiceCache, profile: str | None
             wav_file.setframerate(voice.config.sample_rate)
             wav_file.setsampwidth(2)
             wav_file.setnchannels(1)
+            if language == "de":
+                # Native mobile output can take a moment to wake, especially
+                # with Bluetooth. Keep every spoken sample and move alignment
+                # by exactly the inserted PCM samples, never by a wall clock.
+                samples = round(voice.config.sample_rate * SITOV_GERMAN_LEAD_IN_SECONDS)
+                wav_file.writeframes(b"\x00\x00" * samples)
             for chunk in chunks:
                 if aligned:
                     if not chunk.phoneme_alignments or sum(int(item.num_samples) for item in chunk.phoneme_alignments) != len(chunk.audio_int16_array):

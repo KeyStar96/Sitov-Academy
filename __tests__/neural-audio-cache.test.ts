@@ -7,7 +7,7 @@ import { synthesizeNeuralSpeech } from '@/lib/audio/edge-tts'
 import { findCachedAudio, generateCachedAudio, neuralAudioPath } from '@/lib/audio/neural-cache'
 import { AUDIO_CACHE_BUCKET, NEURAL_VOICES, normalizeAudioText, vocabularyAudioText } from '@/lib/audio/neural-config'
 import { createHash } from 'node:crypto'
-import { AUDIO_CACHE_VERSION, AUDIO_FORMAT, AUDIO_RATE } from '@/lib/audio/neural-config'
+import { AUDIO_CACHE_VERSION, AUDIO_FORMAT, AUDIO_RATE, SITOV_GERMAN_AUDIO_LEAD_IN_SECONDS } from '@/lib/audio/neural-config'
 
 const internalAudioUrl = 'http://127.0.0.1:9080/storage/v1/object/public/audio_cache/cached.mp3'
 const audioUrl = 'https://217.154.228.254/supabase/storage/v1/object/public/audio_cache/cached.mp3'
@@ -118,11 +118,13 @@ describe('immutable Storage cache', () => {
   })
 })
 
-it('uses the existing Thorsten cache key and retains exact timings with MP3', async () => {
+it('revises the Thorsten cache for a silent lead-in and retains exact timings with MP3', async () => {
   const { storage } = storageClient()
-  const hash = createHash('sha256').update(JSON.stringify({ text: 'die Tür', voice: 'de_DE-thorsten-high', rate: AUDIO_RATE, format: AUDIO_FORMAT })).digest('hex')
+  const hash = createHash('sha256').update(JSON.stringify({ text: 'die Tür', voice: 'de_DE-thorsten-high', rate: AUDIO_RATE, format: AUDIO_FORMAT, leadIn: SITOV_GERMAN_AUDIO_LEAD_IN_SECONDS })).digest('hex')
   const path = `${AUDIO_CACHE_VERSION}/de/${hash}.mp3`
   expect(neuralAudioPath('die Tür', 'de')).toBe(path)
+  const previousHash = createHash('sha256').update(JSON.stringify({ text: 'die Tür', voice: 'de_DE-thorsten-high', rate: AUDIO_RATE, format: AUDIO_FORMAT })).digest('hex')
+  expect(path).not.toBe(`${AUDIO_CACHE_VERSION}/de/${previousHash}.mp3`)
   const wordTimings = [{ start: 0.05, end: 0.3 }, { start: 0.4, end: 1.1 }]
   jest.mocked(synthesizeNeuralSpeech).mockResolvedValue({ audio: Buffer.from('mp3'), wordTimings })
   expect(await generateCachedAudio('die Tür', 'de', path)).toEqual({ audioUrl, wordTimings })

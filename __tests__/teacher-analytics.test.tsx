@@ -26,9 +26,9 @@ it('shows today’s answered and correct questions with a percentage and the dai
   expect(getStudentLearningProgress).toHaveBeenCalledWith({ studentId, level: null, days: 30 })
   fireEvent.click(screen.getByText('Tageswerte anzeigen', { selector: 'summary' }))
   const table = screen.getByRole('table', { name: 'Tageswerte anzeigen' })
-  expect(within(table).getByRole('row', { name: /^30\.09\. 16 12 75 %/ })).toBeInTheDocument()
-  expect(within(table).getByRole('row', { name: /^29\.09\. 10 5 50 %/ })).toBeInTheDocument()
-  expect(within(table).getByRole('row', { name: /^28\.09\. 0 0 –/ })).toBeInTheDocument()
+  expect(within(table).getByRole('row', { name: /^30\.09\. 16 0 12 75 %/ })).toBeInTheDocument()
+  expect(within(table).getByRole('row', { name: /^29\.09\. 10 0 5 50 %/ })).toBeInTheDocument()
+  expect(within(table).getByRole('row', { name: /^28\.09\. 0 0 0 –/ })).toBeInTheDocument()
   // Kursverwaltung ist aus der Lernanalyse herausgelöst (Bereich „Kurse“).
   expect(screen.queryByRole('link', { name: /Kurse/ })).not.toBeInTheDocument()
   expect(screen.getByRole('link', { name: 'Schülerprofil öffnen' })).toHaveAttribute('href', `/de/admin/students/${studentId}`)
@@ -37,7 +37,7 @@ it('shows today’s answered and correct questions with a percentage and the dai
 it('breaks progress down by learning mode in separate tabs', async () => {
   render(<TeacherAnalytics options={options} failed={false} lang="de" translations={{}} />)
   const tabs = await screen.findByRole('tablist', { name: 'Lernmodus wählen' })
-  expect(within(tabs).getAllByRole('tab').map(tab => tab.textContent)).toEqual(['Vokabeltrainer', 'Lernpfad', 'Aussprache-Trainer', 'Mediathek'])
+  expect(within(tabs).getAllByRole('tab').map(tab => tab.textContent)).toEqual(['Vokabeltrainer', 'Verbtrainer', 'Lernpfad', 'Aussprache-Trainer', 'Mediathek'])
   expect(screen.getByRole('region', { name: 'Problemwörter' })).toHaveTextContent('Artikel falsch: 2')
   expect(screen.getByRole('region', { name: 'Leitner-Phasen 1–7' })).toBeInTheDocument()
   fireEvent.click(within(tabs).getByRole('tab', { name: 'Lernpfad' }))

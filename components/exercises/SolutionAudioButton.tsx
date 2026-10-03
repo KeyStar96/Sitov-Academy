@@ -1,7 +1,7 @@
 'use client'
 
-import { useCallback, useEffect, useLayoutEffect, useRef, useState, type SyntheticEvent } from 'react'
-import { Loader2, Pause, Volume2 } from 'lucide-react'
+import { useCallback, useEffect, useLayoutEffect, useRef, useState, type RefObject, type SyntheticEvent } from 'react'
+import { Loader2, Pause, Play, RotateCcw, Volume2 } from 'lucide-react'
 import { useAudioFeedback } from '@/components/layout/RouteFeedbackProvider'
 import { cachedNeuralAudio, cachedNeuralWordTimings, invalidateNeuralAudio, neuralAudioKey, resolveNeuralAudio, type NeuralAudioSource } from '@/lib/audio/neural-client'
 import { requestPlaybackAudioSession } from '@/lib/audio/web-audio'
@@ -9,6 +9,9 @@ import { currentWordIndex, PLAYBACK_RATES } from '@/lib/audio/playback-settings'
 import { usePlaybackRate } from '@/lib/audio/usePlaybackRate'
 import type { NeuralAudioLanguage } from '@/lib/types/audio'
 import { cn } from '@/lib/utils'
+import styles from './SolutionAudioButton.module.css'
+
+export interface SitovAudioControl { pause: () => void }
 
 interface SolutionAudioButtonProps {
   text: string
@@ -25,6 +28,12 @@ interface SolutionAudioButtonProps {
   onProgress?: (fraction: number | null) => void
   /** Position loaded from the learner's account; applied once to native playback. */
   initialProgress?: number
+  /** A reading groups playback, replay and speed into one responsive control bar. */
+  layout?: 'compact' | 'reading'
+  resumeLabel?: string
+  restartLabel?: string
+  restartAriaLabel?: string
+  controlRef?: RefObject<SitovAudioControl | null>
 }
 
 // 10 ms of PCM silence. An actual play() in the tap unlocks this same native
@@ -46,11 +55,11 @@ export default function SolutionAudioButton(props: SolutionAudioButtonProps) {
   const source = { text: props.text, cardId: props.cardId, language,
     audioUrl: recording,
     aligned: Boolean(props.onWordChange && !recording) }
-  return <div className="flex min-w-0 flex-wrap items-center justify-center gap-2" data-card-interactive
+  return <div className={props.layout === 'reading' ? styles.sitovReadingControls : 'flex min-w-0 flex-wrap items-center justify-center gap-2'} data-card-interactive
     onClick={stopCardInteraction} onPointerDown={stopCardInteraction} onPointerUp={stopCardInteraction}
     onTouchStart={stopCardInteraction} onTouchEnd={stopCardInteraction} onKeyDown={stopCardInteraction}>
     <NeuralAudioPlayer key={neuralAudioKey(source)} {...props} {...source} rate={rate} onSlowReplay={() => setManualRate(0.75)} />
-    <div className="flex max-w-full flex-wrap justify-center gap-2">
+    <div className={props.layout === 'reading' ? styles.sitovSpeed : 'flex max-w-full flex-wrap justify-center gap-2'}>
       <label className="flex items-center gap-2 text-sm font-semibold text-[var(--muted)]">
         <span>{copy.speed}</span>
         <select aria-label={copy.speed} value={rate} onChange={event => setManualRate(Number(event.target.value))}
@@ -64,7 +73,7 @@ export default function SolutionAudioButton(props: SolutionAudioButtonProps) {
   </div>
 }
 
-function NeuralAudioPlayer({ text, audioUrl, cardId, language, aligned, rate, onSlowReplay, label, ariaLabel, variant = 'primary', onUnsupported, onProgress, onWordChange, initialProgress = 0 }: SolutionAudioButtonProps & { language: NeuralAudioLanguage; aligned?: boolean; rate: number; onSlowReplay: () => void }) {
+function NeuralAudioPlayer({ text, audioUrl, cardId, language, aligned, rate, onSlowReplay, label, ariaLabel, variant = 'primary', onUnsupported, onProgress, onWordChange, initialProgress = 0, layout, resumeLabel, restartLabel, restartAriaLabel, controlRef }: SolutionAudioButtonProps & { language: NeuralAudioLanguage; aligned?: boolean; rate: number; onSlowReplay: () => void }) {
   const copy = useAudioFeedback()
   const source = useRef<NeuralAudioSource>({ text, audioUrl, cardId, language, aligned }).current
   const [url, setUrl] = useState(() => cachedNeuralAudio(source))
@@ -72,6 +81,7 @@ function NeuralAudioPlayer({ text, audioUrl, cardId, language, aligned, rate, on
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)
   const [needsGesture, setNeedsGesture] = useState(false)
+  const [paused, setPaused] = useState(initialProgress > 0 && initialProgress < 0.99)
   const audioRef = useRef<HTMLAudioElement>(null)
   const aliveRef = useRef(true)
   const requestRef = useRef(0)
@@ -130,6 +140,13 @@ function NeuralAudioPlayer({ text, audioUrl, cardId, language, aligned, rate, on
     if (aliveRef.current) { setLoading(false); setIsPlaying(false) }
   }, [reportNativePosition, stopFollowing])
 
+  useEffect(() => {
+    if (!controlRef) return
+    const controls = { pause: () => cancel() }
+    controlRef.current = controls
+    return () => { if (controlRef.current === controls) controlRef.current = null }
+  }, [cancel, controlRef])
+
   useLayoutEffect(() => {
     aliveRef.current = true
     const audio = audioRef.current
@@ -171,7 +188,16 @@ function NeuralAudioPlayer({ text, audioUrl, cardId, language, aligned, rate, on
     setUrl(nextUrl)
     setError(false)
     setNeedsGesture(false)
-    if (audio.getAttribute('src') !== nextUrl) audio.src = nextUrl
+    if (audio.getAttribute('src') !== nextUrl) {
+      // The silent unlock has its own media clock. Never carry that position
+      // into speech: only the learner's explicit saved checkpoint may seek.
+      audio.pause()
+      audio.src = nextUrl
+      audio.currentTime = 0
+    } else if (audio.ended) {
+      audio.currentTime = 0
+      restoreRef.current = null
+    }
     audio.preservesPitch = true
     audio.playbackRate = rateRef.current
     restorePosition()
@@ -226,16 +252,16 @@ function NeuralAudioPlayer({ text, audioUrl, cardId, language, aligned, rate, on
   }
 
   return (
-    <div className="flex min-w-0 flex-col items-center gap-2">
-      <button type="button" onClick={handleClick} aria-label={error ? copy.retry : isPlaying || loading ? copy.pause : ariaLabel}
+    <div className={layout === 'reading' ? styles.sitovPlayer : 'flex min-w-0 flex-col items-center gap-2'}>
+      <button type="button" onClick={handleClick} aria-label={error ? copy.retry : isPlaying || loading ? copy.pause : paused && resumeLabel ? resumeLabel : ariaLabel}
         aria-pressed={isPlaying} aria-busy={loading}
-        className={cn('academy-button min-h-12 min-w-12 w-full sm:w-auto', variant === 'primary' ? 'academy-button-primary' : 'academy-button-outline')}>
-        {loading ? <Loader2 size={20} className="animate-spin motion-reduce:animate-none" aria-hidden="true" /> : isPlaying ? <Pause size={20} aria-hidden="true" /> : <Volume2 size={20} aria-hidden="true" />}
-        <span>{error ? copy.retry : loading ? copy.loading : isPlaying ? copy.pause : label}</span>
+        className={cn('academy-button min-h-12 min-w-12 w-full sm:w-auto', layout === 'reading' && styles.sitovPlay, variant === 'primary' ? 'academy-button-primary' : 'academy-button-outline')}>
+        {loading ? <Loader2 size={20} className="animate-spin motion-reduce:animate-none" aria-hidden="true" /> : isPlaying ? <Pause size={20} aria-hidden="true" /> : paused && resumeLabel ? <Play size={20} aria-hidden="true" /> : <Volume2 size={20} aria-hidden="true" />}
+        <span>{error ? copy.retry : loading ? copy.loading : isPlaying ? copy.pause : paused && resumeLabel ? resumeLabel : label}</span>
       </button>
       {(onProgress || onWordChange) && <button type="button" aria-label={copy.slow_repeat}
         style={{ height: 48, minHeight: 48 }}
-          className="h-12 min-h-12 cursor-pointer appearance-none rounded-xl border border-[var(--border)] bg-[var(--surface)] px-4 text-sm font-semibold text-[var(--foreground)]"
+          className={cn('h-12 min-h-12 cursor-pointer appearance-none rounded-xl border border-[var(--border)] bg-[var(--surface)] px-4 text-sm font-semibold text-[var(--foreground)]', layout === 'reading' && styles.sitovSlow)}
         onClick={() => {
           onSlowReplay()
           rateRef.current = 0.75
@@ -248,6 +274,17 @@ function NeuralAudioPlayer({ text, audioUrl, cardId, language, aligned, rate, on
           progressRef.current.onWordChange?.(null)
           if (!isPlaying && !pendingRef.current) handleClick()
         }}>{copy.slow_repeat}</button>}
+      {restartLabel && <button type="button" className={styles.sitovRestart} aria-label={restartAriaLabel ?? restartLabel}
+        onClick={() => {
+          const audio = audioRef.current
+          if (!audio) return
+          restoreRef.current = null
+          if (!primingRef.current) audio.currentTime = 0
+          setPaused(false)
+          lastWordRef.current = null
+          progressRef.current.onWordChange?.(null)
+          if (!isPlaying && !pendingRef.current) handleClick()
+        }}><RotateCcw size={17} aria-hidden="true" /><span>{restartLabel}</span></button>}
       <audio ref={audioRef} preload="auto" playsInline controls={needsGesture} aria-label={ariaLabel}
         className={needsGesture ? 'h-12 min-w-0 w-full max-w-full rounded-xl' : 'hidden'}
         onPlay={() => {
@@ -261,7 +298,7 @@ function NeuralAudioPlayer({ text, audioUrl, cardId, language, aligned, rate, on
         }}
         onPlaying={() => {
           if (!primingRef.current && activePlayer?.element === audioRef.current) {
-            setIsPlaying(true); setLoading(false); pendingRef.current = false
+            setIsPlaying(true); setLoading(false); setPaused(false); pendingRef.current = false
           }
         }}
         onTimeUpdate={reportPosition}
@@ -269,15 +306,15 @@ function NeuralAudioPlayer({ text, audioUrl, cardId, language, aligned, rate, on
         onCanPlay={restorePosition}
         onSeeked={reportPosition}
         onWaiting={() => { if (!primingRef.current) { setLoading(true); setIsPlaying(false); stopFollowing() } }}
-        onPause={() => { if (!primingRef.current) { reportPosition(); setIsPlaying(false); stopFollowing() } }}
-        onEnded={() => { if (!primingRef.current) { reportPosition(); setIsPlaying(false); setLoading(false); stopFollowing() } }}
+        onPause={() => { if (!primingRef.current) { reportPosition(); setIsPlaying(false); setPaused(Boolean(audioRef.current && audioRef.current.currentTime > 0 && !audioRef.current.ended)); stopFollowing() } }}
+        onEnded={() => { if (!primingRef.current) { reportPosition(); setIsPlaying(false); setPaused(false); setLoading(false); stopFollowing() } }}
         onError={() => {
           if (!primingRef.current && audioRef.current?.getAttribute('src')) {
             cancel(); setError(true)
           }
         }} />
-      {error && <p role="alert" className="text-sm text-[var(--danger)]">{copy.error}</p>}
-      {needsGesture && <p role="status" className="text-sm text-[var(--muted)]">{copy.ready}</p>}
+      {error && <p role="alert" className={cn('text-sm text-[var(--danger)]', styles.sitovNotice)}>{copy.error}</p>}
+      {needsGesture && <p role="status" className={cn('text-sm text-[var(--muted)]', styles.sitovNotice)}>{copy.ready}</p>}
     </div>
   )
 }

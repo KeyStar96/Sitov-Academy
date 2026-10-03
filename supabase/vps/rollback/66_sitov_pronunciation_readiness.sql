@@ -1,0 +1,25 @@
+-- Keep teacher decisions and audit history for an eventual reapply.
+DROP POLICY IF EXISTS sitov_pronunciation_readiness_bounds ON public.learning_reading_texts;
+DROP POLICY IF EXISTS sitov_pronunciation_ready_upload ON storage.objects;
+DROP POLICY IF EXISTS sitov_pronunciation_owned_upload ON storage.objects;
+DROP POLICY IF EXISTS sitov_pronunciation_participant_read ON storage.objects;
+DROP POLICY IF EXISTS sitov_pronunciation_recording_read_bounds ON storage.objects;
+DROP TRIGGER IF EXISTS sitov_pronunciation_ready_submission ON public.submissions;
+DROP FUNCTION IF EXISTS public.sitov_get_pronunciation_readiness(text,uuid);
+DROP FUNCTION IF EXISTS public.sitov_set_pronunciation_access(uuid,text,text);
+DROP FUNCTION IF EXISTS public.sitov_pronunciation_conversation_titles();
+DROP FUNCTION IF EXISTS sitov_pronunciation_private.conversation_titles();
+DROP FUNCTION IF EXISTS sitov_pronunciation_private.guard_submission();
+DROP FUNCTION IF EXISTS sitov_pronunciation_private.audio_readable(text);
+DROP FUNCTION IF EXISTS sitov_pronunciation_private.can_record();
+DROP FUNCTION IF EXISTS sitov_pronunciation_private.text_allowed(uuid);
+DROP FUNCTION IF EXISTS sitov_pronunciation_private.readiness(text,uuid);
+DROP FUNCTION IF EXISTS sitov_pronunciation_private.set_access(uuid,text,text);
+DROP FUNCTION IF EXISTS sitov_pronunciation_private.assess(uuid,uuid,jsonb);
+DROP FUNCTION IF EXISTS sitov_pronunciation_private.unit_allowed(uuid,uuid);
+DROP FUNCTION IF EXISTS sitov_pronunciation_private.tier(jsonb);
+DROP FUNCTION IF EXISTS sitov_pronunciation_private.evidence(uuid);
+DROP FUNCTION IF EXISTS sitov_pronunciation_private.requirements();
+DROP FUNCTION IF EXISTS sitov_pronunciation_private.content_keys(text);
+DROP FUNCTION IF EXISTS sitov_pronunciation_private.word_key(text);
+DROP INDEX IF EXISTS vocabulary_private.sitov_pronunciation_recall_receipts_idx;

@@ -5,12 +5,13 @@ import { createHash } from 'node:crypto'
 import { createAdminClient } from '@/utils/supabase/admin'
 import { validWordTimings } from './playback-settings'
 import type { GermanAudioVoice, NeuralSpeechAsset, NeuralAudioLanguage } from '@/lib/types/audio'
-import { AUDIO_CACHE_BUCKET, AUDIO_CACHE_VERSION, AUDIO_FORMAT, AUDIO_RATE, neuralVoiceName, normalizeAudioText } from './neural-config'
+import { AUDIO_CACHE_BUCKET, AUDIO_CACHE_VERSION, AUDIO_FORMAT, AUDIO_RATE, SITOV_GERMAN_AUDIO_LEAD_IN_SECONDS, neuralVoiceName, normalizeAudioText } from './neural-config'
 import { synthesizeNeuralSpeech } from './edge-tts'
 
 export function neuralAudioPath(text: string, language: NeuralAudioLanguage, voice?: GermanAudioVoice): string {
   const hash = createHash('sha256').update(JSON.stringify({
     text: normalizeAudioText(text), voice: neuralVoiceName(language, voice), rate: AUDIO_RATE, format: AUDIO_FORMAT,
+    ...(language === 'de' ? { leadIn: SITOV_GERMAN_AUDIO_LEAD_IN_SECONDS } : {}),
   })).digest('hex')
   return `${AUDIO_CACHE_VERSION}/${language}/${hash}.mp3`
 }

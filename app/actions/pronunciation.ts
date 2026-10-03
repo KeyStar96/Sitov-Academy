@@ -9,6 +9,7 @@ import { ACCESS_LEVELS, getAllowedLessons, isAccessLevel } from '@/lib/access/le
 import { saveLearningContent } from '@/lib/learning-writes'
 import { type PronunciationPrompt } from '@/lib/pronunciation-prompts'
 import type { PronunciationMutationResult } from '@/lib/pronunciation-conversations'
+import { loadSitovPronunciationReadiness } from '@/lib/sitov-pronunciation-readiness-server'
 
 export async function getPronunciationPrompts(level: string): Promise<PronunciationPrompt[]> {
  try {
@@ -18,10 +19,13 @@ export async function getPronunciationPrompts(level: string): Promise<Pronunciat
   if (!user) return []
   const accessProfile = await loadLevelAccessProfile(supabase, user.id)
   const allowedLessons = getAllowedLessons(accessProfile, level, 'pronunciation')
+  const readiness = await loadSitovPronunciationReadiness(supabase, level)
+  if (!readiness) return []
+  const readyIds = new Set(readiness.texts.filter(text => text.ready).map(text => text.id))
 
   const { data, error } = await readingQuery(supabase).eq('unit.level', level).eq('unit.is_active', true).order('sort_order', { referencedTable: 'unit' })
   if (error) { console.error("Loading pronunciation texts failed"); return [] }
-  return (data ?? []).map(mapReadingText).filter((prompt): prompt is PronunciationPrompt => prompt !== null && (!allowedLessons || allowedLessons.includes(prompt.unitId)))
+  return (data ?? []).map(mapReadingText).filter((prompt): prompt is PronunciationPrompt => prompt !== null && readyIds.has(prompt.id) && (!allowedLessons || allowedLessons.includes(prompt.unitId)))
  } catch (error) { console.error("Loading pronunciation texts failed"); return [] }
 }
 export interface SavePronunciationPromptInput { id?: string; level: string; title: string; text: string; focus: string; isActive: boolean }

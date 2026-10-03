@@ -7,6 +7,7 @@ export function progressDay(date: string, patch: Partial<{ [K in keyof ProgressD
   return {
     date,
     vocabulary: { answers: 0, correct: 0, learned: 0, seconds: 0, ...patch.vocabulary },
+    verbs: { answers: 0, correct: 0, seconds: 0, present: { answers: 0, correct: 0 }, perfect: { answers: 0, correct: 0 }, past: { answers: 0, correct: 0 }, ...patch.verbs },
     focus: { answers: 0, correct: 0, ...patch.focus },
     path: { answers: 0, correct: 0, stations: 0, seconds: 0, ...patch.path },
     pronunciation: { recordings: 0, replies: 0, seconds: 0, ...patch.pronunciation },
@@ -25,6 +26,10 @@ export function progressPayload(days = 7, today = '2026-09-30', patch: (day: Pro
     success: true as const, studentId: progressStudentId, level: null, days, today, timezone: 'Europe/Berlin' as const, daily,
     vocabulary: { totalWords: 40, inBox: 12, learnedWords: 5, learnedTotal: 5, overallPercent: 31,
       buckets: [1, 2, 3, 4, 5, 6, 'learned'].map(key => ({ key, count: key === 'learned' ? 5 : key === 2 ? 7 : 0 })) },
+    verbs: { totalVerbs: 20, inBox: 8, totalForms: 16, practicedForms: 6, confidentForms: 2, dueForms: 12,
+      buckets: Array.from({ length: 8 }, (_, box) => ({ box, count: box === 0 ? 10 : box === 2 ? 4 : box === 6 ? 2 : 0 })),
+      tenses: [{ tense: 'present', totalForms: 8, practicedForms: 4, confidentForms: 2, dueForms: 4 },
+        { tense: 'perfect', totalForms: 8, practicedForms: 2, confidentForms: 0, dueForms: 8 }] },
     focus: { active: 2, due: 1, mastered: 1, articleWords: 1, words: [
       { cardId: '00000000-0000-4000-8000-000000000101', word: 'Tisch', article: 'der', level: 'A1.1', status: 'active', stage: 1, dueAt: '2026-10-01T22:00:00+00:00', due: false, wrongCount: 2, articleErrors: 2, practiceCount: 1, practiceCorrect: 1, masteredAt: null },
       { cardId: '00000000-0000-4000-8000-000000000102', word: 'Haus', article: 'das', level: 'A1.1', status: 'active', stage: 0, dueAt: '2026-09-29T10:00:00+00:00', due: true, wrongCount: 4, articleErrors: 0, practiceCount: 0, practiceCorrect: 0, masteredAt: null },

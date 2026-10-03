@@ -1,4 +1,9 @@
 /* Home and Learn share the same trainer cards and animated miniatures. */
+.sitovAreasPanel { min-width: 0; padding: clamp(16px, 3vw, 24px); border: 1px solid color-mix(in srgb, var(--mode-path-text) 22%, var(--border)); border-radius: 28px; background: linear-gradient(145deg, color-mix(in srgb, var(--mode-path-surface) 22%, var(--surface)), var(--surface) 65%); box-shadow: var(--shadow-sm); }
+.sitovAreasPanel :global(.st-section-head) { margin-bottom: 8px; }
+.sitovAreasFooter { display: flex; flex-wrap: wrap; gap: 10px; padding-top: 16px; margin-top: 12px; border-top: 1px solid color-mix(in srgb, var(--border) 55%, transparent); }
+.sitovAreasFooter :global(.st-link-pill) { min-height: 48px; max-width: 100%; }
+:global(html.high-contrast) .sitovAreasPanel { border: 2px solid var(--border); background: var(--surface); box-shadow: none; }
 .sitovStage { min-width: 0; }
 .sitovTile[data-sitov-surface] {
   --sitov-tone: var(--accent-text);

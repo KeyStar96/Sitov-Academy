@@ -22,6 +22,27 @@ function sitovActions(): SitovVerbTrainerActions {
   return { next: jest.fn().mockResolvedValue({ data: sitovExercise }), box: jest.fn().mockResolvedValue({ data: { selectedIds: ['sitov-fahren'] } }), answer: jest.fn().mockResolvedValue({ data: sitovReview }) }
 }
 
+test('the motion card starts an adaptive round immediately even from an empty focused selection', async () => {
+  const actions = sitovActions()
+  render(<VerbTrainerClient initialState={sitovState} lang="en" actions={actions} />)
+  fireEvent.click(screen.getByRole('button', { name: 'Focused practice' }))
+  fireEvent.click(screen.getByRole('checkbox', { name: 'Present' }))
+  fireEvent.click(screen.getByRole('checkbox', { name: 'Perfect' }))
+  fireEvent.click(screen.getByRole('button', { name: 'Make verb forms your own. Start practising' }))
+  expect(await screen.findByRole('textbox', { name: 'Your answer 1' })).toHaveFocus()
+  expect(actions.next).toHaveBeenCalledTimes(1)
+  expect(actions.next).toHaveBeenCalledWith({ level: 'A1.2', tenses: ['present', 'perfect'], excludeVerbId: undefined }, 'en')
+  expect(screen.queryByRole('region', { name: 'Practice overview' })).not.toBeInTheDocument()
+})
+
+test('the hero guides an empty verb box to its selection without starting an invalid round', () => {
+  const actions = sitovActions()
+  render(<VerbTrainerClient initialState={{ ...sitovState, selectedIds: [] }} lang="en" actions={actions} />)
+  fireEvent.click(screen.getByRole('button', { name: 'Make verb forms your own. Choose verbs' }))
+  expect(screen.getByRole('button', { name: 'Add: fahren' })).toBeInTheDocument()
+  expect(actions.next).not.toHaveBeenCalled()
+})
+
 test('passes the interface language, shows its short meaning, and saves the actual answer once', async () => {
   const actions = sitovActions()
   render(<VerbTrainerClient initialState={sitovState} lang="en" actions={actions} />)

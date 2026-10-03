@@ -6,7 +6,7 @@ import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import FillInBlankExerciseCard, { type GrammarInputMode } from '@/components/exercises/FillInBlankExercise'
 import MultipleChoiceExerciseCard from '@/components/exercises/MultipleChoiceExercise'
 import { ArticleLegend, EndingsCard, exerciseUsesArticles, exerciseUsesConjugation } from '@/components/exercises/GrammarAids'
-import LearningScreen, { LearningStats, type LearningScreenKey } from '@/components/vocabulary/LearningScreen'
+import LearningScreen, { LearningStats, scrollLearningWorkspace, type LearningScreenKey } from '@/components/vocabulary/LearningScreen'
 import ProgressRing from '@/components/ui/ProgressRing'
 import { finishExerciseSession, recordGrammarCheckpointAttempt } from '@/app/actions/exercises'
 import { loadLearningCheckpoint, saveLearningCheckpoint } from '@/app/actions/learning-checkpoints'
@@ -32,6 +32,7 @@ interface ExerciseClientProps {
   initialCheckpoint?: { state: Record<string, unknown>; revision: number; updatedAt: string } | null
   checkpointLoadFailed?: boolean
   initialLearnerId?: string
+  startOnOverview?: boolean
 }
 
 const DEFAULT_LEARNING_LABELS: Record<LearningScreenKey, string> = {
@@ -44,10 +45,11 @@ const DEFAULT_LEARNING_LABELS: Record<LearningScreenKey, string> = {
  * Knöpfe, Fortschrittsband oben, Kärtchen statt Tastatur als Standard, und
  * je nach Thema anschauliche Hilfen (Artikelfarben, Endungs-Tabelle).
  */
-export default function ExerciseClient({ exercises, translations = {}, lang, level, learningLabels, initialCheckpoint, checkpointLoadFailed = false, initialLearnerId }: ExerciseClientProps) {
+export default function ExerciseClient({ exercises, translations = {}, lang, level, learningLabels, initialCheckpoint, checkpointLoadFailed = false, initialLearnerId, startOnOverview = false }: ExerciseClientProps) {
   const [library, setLibrary] = useState(exercises)
   const initialSession = restoreGrammarCheckpoint(exercises, initialCheckpoint?.state)
-  const [session, setSession] = useState<StudentExercise[] | null>(initialSession?.exercises ?? null)
+  const [savedSession, setSavedSession] = useState(initialSession)
+  const [session, setSession] = useState<StudentExercise[] | null>(startOnOverview ? null : initialSession?.exercises ?? null)
   const [currentIndex, setCurrentIndex] = useState(initialSession?.currentIndex ?? 0)
   const [saveFailed, setSaveFailed] = useState(checkpointLoadFailed)
   const [saving, setSaving] = useState(false)
@@ -81,17 +83,18 @@ export default function ExerciseClient({ exercises, translations = {}, lang, lev
     // Effekt (kein Layout-Effekt), damit er nach dem Lernbildschirm läuft,
     // der beim Öffnen sich selbst fokussiert.
     headingRef.current.focus({ preventScroll: true })
-    workspaceRef.current?.scrollTo?.({ top: 0, behavior: reduced ? 'instant' : 'smooth' })
+    scrollLearningWorkspace(workspaceRef.current)
   }, [session, currentIndex, reduced])
 
   const restoreAccountCheckpoint = useCallback((checkpoint: { state: Record<string, unknown>; revision: number } | null) => {
     checkpointRevision.current = checkpoint?.revision ?? 0
     checkpointKnown.current = true
     const restored = restoreGrammarCheckpoint(library, checkpoint?.state)
-    setSession(restored?.exercises ?? null)
+    setSavedSession(restored)
+    setSession(current => startOnOverview && current === null ? null : restored?.exercises ?? null)
     setCurrentIndex(restored?.currentIndex ?? 0)
     setConfirmedAttempt(null); setPendingAttempt(null); pendingReceipt.current = null
-  }, [library])
+  }, [library, startOnOverview])
 
   const saveCheckpoint = useCallback(async (state: Record<string, unknown>) => {
     const result = await saveLearningCheckpoint('exercises', level, state, checkpointRevision.current, learnerId.current)
@@ -226,7 +229,7 @@ export default function ExerciseClient({ exercises, translations = {}, lang, lev
 
   return (
     <section className="space-y-8 text-[var(--foreground)]">
-      <div className="st-path-hero sl-glass sl-hero">
+      {!session && <><div className="st-path-hero sl-glass sl-hero">
         <div className="relative">
           <p className="st-eyebrow !mt-0">{s('areas_level', { level })}</p>
           <div className="st-path-hero__row">
@@ -240,10 +243,13 @@ export default function ExerciseClient({ exercises, translations = {}, lang, lev
               <small className="text-sm font-semibold text-[var(--muted)]">/ {library.length}</small>
             </ProgressRing>
           </div>
-          <button type="button" disabled={saving} onClick={() => void startSession(undefined, allSolved)} className="st-cta st-press w-full text-left"
+          <button type="button" disabled={saving} onClick={() => {
+            if (savedSession && startOnOverview) { setSession(savedSession.exercises); setCurrentIndex(savedSession.currentIndex) }
+            else void startSession(undefined, allSolved)
+          }} className="st-cta st-press w-full text-left"
             aria-labelledby="grammar-start-label" aria-describedby="grammar-start-hint">
             <span className="st-cta__text">
-              <span id="grammar-start-label" className="st-cta__label">{allSolved ? g('repeat') : g('start')}</span>
+              <span id="grammar-start-label" className="st-cta__label">{savedSession && startOnOverview ? s('continue_action') : allSolved ? g('repeat') : g('start')}</span>
               <span id="grammar-start-hint" className="st-cta__hint">{g('open', { count: library.length - completed })} · {g('topics')}: {topics.length}</span>
             </span>
             <span className="st-cta__arrow" aria-hidden="true">{allSolved ? <RotateCcw size={22} /> : <ArrowRight size={24} />}</span>
@@ -278,12 +284,15 @@ export default function ExerciseClient({ exercises, translations = {}, lang, lev
             )
           })}
         </ul>
-      </section>
+      </section></>}
       {!session && notices}
 
       {session && (
         <LearningScreen title={s('grammar_title')} t={key => labels[key]}
-          progress={session.length ? (currentIndex / session.length) * 100 : 100} onExit={() => setSession(null)} exitDisabled={saving}
+          progress={session.length ? (currentIndex / session.length) * 100 : 100} onExit={() => {
+            setSavedSession(currentIndex < session.length ? { exercises: session, currentIndex } : null)
+            setSession(null)
+          }} exitDisabled={saving}
           workspaceRef={workspaceRef}>
           {!currentExercise ? (
             <div className="learning-card learning-complete" aria-live="polite">
@@ -292,7 +301,7 @@ export default function ExerciseClient({ exercises, translations = {}, lang, lev
               </ProgressRing>
               <h2 ref={headingRef} tabIndex={-1}>{g('finished')}</h2>
               <p>{g('finishedHint', { count: session.length })}</p>
-              <button type="button" onClick={() => setSession(null)} className="learning-button learning-button-primary learning-button-wide">
+              <button type="button" onClick={() => { setSavedSession(null); setSession(null) }} className="learning-button learning-button-primary learning-button-wide">
                 {g('back')}<ArrowRight size={18} aria-hidden="true" />
               </button>
             </div>

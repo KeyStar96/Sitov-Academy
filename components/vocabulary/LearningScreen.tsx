@@ -17,6 +17,8 @@ interface LearningScreenProps {
   t: (key: LearningScreenKey) => string
   /** Scrollfläche des Arbeitsbereichs, z. B. um bei jeder neuen Aufgabe nach oben zu springen. */
   workspaceRef?: Ref<HTMLDivElement>
+  /** Dashboard exercises stay in document flow with the common header and navigation. */
+  presentation?: 'embedded' | 'fullscreen'
   children: ReactNode
 }
 
@@ -41,10 +43,22 @@ export function LearningStats({ label, items }: { label: string; items: Array<{ 
   )
 }
 
-/** Focused viewport shared by assessment and practice; background stays inert. */
-export default function LearningScreen({ title, subtitle, progress, onExit, exitDisabled = false, t, workspaceRef, children }: LearningScreenProps) {
+/** Embedded rounds scroll the document; isolated rounds scroll their own workspace. */
+export function scrollLearningWorkspace(workspace: HTMLElement | null, behavior: ScrollBehavior = 'instant') {
+  const frame = workspace?.closest<HTMLElement>(".learning-screen[data-presentation='embedded']")
+  if (frame) frame.scrollIntoView?.({ block: 'start', behavior })
+  else workspace?.scrollTo?.({ top: 0, behavior })
+}
+
+/** Shared exercise frame. Fullscreen is reserved for explicitly isolated experiences. */
+export default function LearningScreen({ title, subtitle, progress, onExit, exitDisabled = false, t, workspaceRef, presentation = 'embedded', children }: LearningScreenProps) {
   const screen = useRef<HTMLElement>(null)
   useEffect(() => {
+    if (presentation === 'embedded') {
+      screen.current?.scrollIntoView?.({ block: 'start', behavior: 'instant' })
+      screen.current?.focus({ preventScroll: true })
+      return
+    }
     const changed: Array<{ element: HTMLElement; inert: boolean }> = []
     let branch: HTMLElement | null = screen.current
     while (branch?.parentElement) {
@@ -64,16 +78,16 @@ export default function LearningScreen({ title, subtitle, progress, onExit, exit
       changed.forEach(({ element, inert }) => { element.inert = inert })
       document.body.style.overflow = overflow
     }
-  }, [])
+  }, [presentation])
 
   return (
-    <section ref={screen} tabIndex={-1} className="learning-screen" aria-label={title}>
+    <section ref={screen} tabIndex={-1} className="learning-screen" data-presentation={presentation} aria-label={title}>
       <header className="learning-header">
         <button type="button" className="learning-exit" onClick={onExit} disabled={exitDisabled}>
           <ArrowLeft size={18} aria-hidden="true" /><span>{t('exit_learning')}</span>
         </button>
-        <div className="learning-heading"><h1>{title}</h1>{subtitle && <p>{subtitle}</p>}</div>
-        <ThemeToggle lightLabel={t('theme_light')} darkLabel={t('theme_dark')} />
+        <div className="learning-heading"><h2>{title}</h2>{subtitle && <p>{subtitle}</p>}</div>
+        {presentation === 'fullscreen' && <ThemeToggle lightLabel={t('theme_light')} darkLabel={t('theme_dark')} />}
       </header>
       <div className="learning-progress" role="progressbar" aria-label={t('overall_progress_label')}
         aria-valuenow={Math.round(progress)} aria-valuemin={0} aria-valuemax={100}>

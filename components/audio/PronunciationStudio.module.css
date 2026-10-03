@@ -113,6 +113,35 @@
 .sitovReading :global(.st-reading__head h2) { animation: sitov-studio-arrive .4s var(--sitov-studio-ease) both; }
 .sitovReading[data-sitov-listening='true'] { border-color: color-mix(in srgb, var(--sitov-studio) 42%, var(--border)); }
 .sitovListeningTrack { position: absolute; inset: 0 0 auto; height: 2px; background: linear-gradient(90deg, var(--sitov-studio), var(--sitov-studio-bright)); transform: scaleX(0); transform-origin: left; transition: transform .45s linear; pointer-events: none; }
+.sitovWordHint { display: flex; align-items: flex-start; gap: .5rem; margin-top: .7rem; color: var(--muted); font-size: .85rem; line-height: 1.5; }
+.sitovWordHint svg { flex: 0 0 auto; margin-top: .1rem; color: var(--sitov-studio-ink); }
+.sitovReadiness { padding: 1.25rem; border: 1px solid color-mix(in srgb, var(--sitov-studio) 25%, var(--border)); border-radius: 1.6rem; background: linear-gradient(120deg, var(--surface), color-mix(in srgb, var(--sitov-studio) 4%, var(--surface))); }
+.sitovReadiness > p, .sitovReadiness > div > p { margin-top: .6rem; color: var(--muted); font-size: .92rem; line-height: 1.6; }
+.sitovReadiness h3 { font-size: 1.15rem; line-height: 1.35; font-weight: 750; letter-spacing: -.025em; }
+.sitovReadiness > button { margin-top: 1rem; }
+.sitovReadinessHead { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .8rem; }
+.sitovReadinessHead > div > span { display: block; margin-bottom: .35rem; font-size: .76rem; font-weight: 700; color: var(--sitov-studio-ink); }
+.sitovReadinessReady { display: flex; gap: .35rem; align-items: center; padding: .4rem .6rem; border-radius: .75rem; color: var(--success); background: color-mix(in srgb, var(--success) 9%, var(--surface)); font-size: .78rem; font-weight: 650; }
+.sitovMilestones { display: grid; grid-template-columns: minmax(0, 1fr); gap: .8rem; margin-top: 1rem; }
+.sitovMilestone { display: flex; flex-direction: column; min-width: 0; padding: 1rem; border: 1px solid var(--border); border-radius: 1.15rem; background: var(--surface); }
+.sitovMilestoneHeading { display: flex; align-items: center; gap: .45rem; font-size: .85rem; }
+.sitovMilestoneHeading svg { flex: 0 0 auto; color: var(--sitov-studio-ink); }
+.sitovMilestoneHeading > span { flex: 0 0 auto; margin-left: auto; font-variant-numeric: tabular-nums; }
+.sitovMilestoneTrack { height: 5px; margin-top: .8rem; overflow: hidden; border-radius: 99px; background: var(--surface-muted); }
+.sitovMilestoneTrack span { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--sitov-studio), var(--sitov-studio-bright)); transition: width .6s var(--sitov-studio-ease); }
+.sitovMilestone[data-ready='true'] .sitovMilestoneTrack span { background: var(--success); }
+.sitovMilestone > p { margin: .6rem 0 .4rem; color: var(--muted); font-size: .75rem; line-height: 1.5; }
+.sitovMilestone > a { display: flex; gap: .3rem; align-items: center; justify-content: space-between; min-height: 44px; margin: auto -.25rem -.4rem; padding: .4rem .25rem; font-size: .85rem; font-weight: 700; color: var(--sitov-studio-ink); }
+.sitovMilestone > a:focus-visible { outline: 2px solid var(--accent-text); outline-offset: 3px; border-radius: .6rem; }
+.sitovReadiness .sitovCoverageHint { margin-top: .8rem; font-size: .78rem; }
+.sitovHardAccess { display: flex; align-items: center; gap: .85rem; }
+.sitovHardAccess > svg { flex: 0 0 auto; color: var(--sitov-studio-ink); }
+.sitovLockedReadings { display: grid; gap: .65rem; margin-top: 1rem; }
+.sitovLockedReadings > li { display: flex; align-items: flex-start; gap: .65rem; padding: 1rem; border: 1px dashed var(--border); border-radius: 1.15rem; color: var(--muted); background: var(--surface-muted); }
+.sitovLockedReadings > li > svg { flex: 0 0 auto; margin-top: .1rem; }
+.sitovLockedReadings h3 { font-size: .95rem; font-weight: 650; color: var(--foreground); }
+.sitovLockedReadings p { margin-top: .3rem; font-size: .75rem; line-height: 1.5; }
+@media (min-width: 768px) { .sitovReadiness { padding: 1.5rem; } .sitovMilestones { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 
 .sitovRecorder { position: relative; border-color: color-mix(in srgb, var(--sitov-studio) 18%, var(--border)); box-shadow: 0 14px 40px -33px var(--sitov-studio); }
 .sitovRecorder[data-sitov-phase='review'],

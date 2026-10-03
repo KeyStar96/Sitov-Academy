@@ -1,16 +1,17 @@
 'use client'
 
 import { useId, useRef, useState, type CSSProperties, type KeyboardEvent, type ReactNode } from 'react'
-import { Activity, ArrowUpRight, BookOpenText, ChevronDown, FileText, Film, Globe, Mic, Route, Sparkles, type LucideIcon } from 'lucide-react'
+import { Activity, ArrowUpRight, BookOpenText, ChevronDown, FileText, Film, Globe, Mic, Route, Sparkles, Waypoints, type LucideIcon } from 'lucide-react'
 import TrendChart, { ChartLegend, type ChartPoint, type ChartSeries } from '@/components/charts/TrendChart'
 import AccuracyRing from '@/components/charts/AccuracyRing'
 import PhaseDistributionChart from '@/components/vocabulary/PhaseDistributionChart'
 import { adminChip } from '@/components/admin/ui'
 import {
   accuracyLine, answeredOn, learnedCurve, percent, rangeTotals, todaySummary, PROGRESS_MODES,
-  type LearningProgress, type ProgressDay, type ProgressFocusWord, type ProgressMode,
+  studySeconds, type LearningProgress, type ProgressDay, type ProgressFocusWord, type ProgressMode,
 } from '@/lib/learning-progress'
 import { formatStudyTime, learningProgressCopy, type LearningProgressTranslator } from '@/lib/learning-progress-i18n'
+import { getSitovVerbCopy } from '@/lib/verbs/i18n'
 import type { VocabularyTranslations } from '@/lib/vocabulary-i18n'
 import SitovMotionStage from '@/components/motion/SitovMotionStage'
 import { SitovProgressHalo, SitovProgressScene } from './SitovProgressGraphics'
@@ -53,9 +54,9 @@ const SKINS = {
 } as const
 type Skin = typeof SKINS[ProgressSkin]
 
-const MODE_ICONS: Record<ProgressMode, LucideIcon> = { vocabulary: BookOpenText, path: Route, pronunciation: Mic, media: Film }
+const MODE_ICONS: Record<ProgressMode, LucideIcon> = { vocabulary: BookOpenText, verbs: Waypoints, path: Route, pronunciation: Mic, media: Film }
 const MODE_COLOR: Record<ProgressMode, string> = {
-  vocabulary: 'var(--mode-vocabulary-text)', path: 'var(--mode-path-text)',
+  vocabulary: 'var(--mode-vocabulary-text)', verbs: 'var(--mode-verbs-text)', path: 'var(--mode-path-text)',
   pronunciation: 'var(--mode-pronunciation-text)', media: 'var(--mode-media-text)',
 }
 
@@ -78,6 +79,7 @@ export default function LearningProgressView({ progress, lang, skin = 'admin', t
     <ModeTabs mode={mode} onChange={setMode} t={t} s={s} />
     <div key={skin === 'student' ? mode : undefined} role="tabpanel" id={`progress-panel-${mode}`} aria-labelledby={`progress-tab-${mode}`} className={`${s.stack} ${skin === 'student' ? styles.sitovPanel : ''}`}>
       {mode === 'vocabulary' && <VocabularyPanel progress={progress} lang={lang} t={t} s={s} translations={translations} audience={audience} focusAction={focusAction} />}
+      {mode === 'verbs' && <VerbPanel progress={progress} lang={lang} t={t} s={s} />}
       {mode === 'path' && <PathPanel progress={progress} lang={lang} t={t} s={s} />}
       {mode === 'pronunciation' && <PronunciationPanel progress={progress} lang={lang} t={t} s={s} />}
       {mode === 'media' && <MediaPanel progress={progress} lang={lang} t={t} s={s} />}
@@ -190,7 +192,7 @@ function ModeTabs({ mode, onChange, t, s }: { mode: ProgressMode; onChange: (mod
   }
   return <div className={`min-w-0 ${s === SKINS.student ? styles.sitovModes : ''}`}>
     <h2 className={`mb-2 ${s.title}`}>{t('modes_title')}</h2>
-    {/* Handy: 2 × 2 – alle vier Modi auf einen Blick, nichts versteckt sich hinter einer Wischleiste. */}
+    {/* Handy: zwei Spalten – alle fünf Modi auf einen Blick, nichts versteckt sich hinter einer Wischleiste. */}
     <div role="tablist" aria-label={t('modes_label')} onKeyDown={key} className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap">
       {PROGRESS_MODES.map(item => {
         const Icon = MODE_ICONS[item]
@@ -304,6 +306,62 @@ export function StageDots({ stage, label }: { stage: number; label: string }) {
   </span>
 }
 
+function VerbPanel({ progress, lang, t, s }: PanelProps) {
+  const totals = rangeTotals(progress.daily).verbs
+  const verbs = progress.verbs
+  const copy = getSitovVerbCopy(lang)
+  const tenses = ['present', 'perfect', 'past'] as const
+  const tenseColors = [MODE_COLOR.verbs, 'var(--violet)', 'var(--mode-path-text)']
+  const series: ChartSeries[] = tenses.map((tense, index) => ({ key: tense, label: copy[tense], color: tenseColors[index], type: 'bar', stack: 'answers', opacity: .8 }))
+  series.push({ ...accuracySeries(t, progress.days), color: 'var(--success)' })
+  const line = accuracyLine(progress.daily, day => day.verbs)
+  const points = progress.daily.map((day, index) => ({ date: day.date, values: {
+    present: day.verbs.present.answers, perfect: day.verbs.perfect.answers, past: day.verbs.past.answers, percent: line[index],
+  } }))
+  const maxBucket = Math.max(1, ...verbs.buckets.map(bucket => bucket.count))
+  return <>
+    <dl className="grid grid-cols-2 gap-2.5 lg:grid-cols-3">
+      <Kpi s={s} label={t('answered')} value={number(lang, totals.answers)} hint={percent(totals.correct, totals.answers) === null ? t('accuracy_none') : `${percent(totals.correct, totals.answers)} % ${t('correct').toLowerCase()}`} tone={MODE_COLOR.verbs} />
+      <Kpi s={s} label={t('verb_box')} value={t('of_total', { value: number(lang, verbs.inBox), total: number(lang, verbs.totalVerbs) })} />
+      <Kpi s={s} label={t('verb_practiced')} value={t('of_total', { value: number(lang, verbs.practicedForms), total: number(lang, verbs.totalForms) })} />
+      <Kpi s={s} label={t('verb_confident')} value={t('of_total', { value: number(lang, verbs.confidentForms), total: number(lang, verbs.totalForms) })} tone="var(--success)" />
+      <Kpi s={s} label={t('verb_due')} value={number(lang, verbs.dueForms)} />
+      <Kpi s={s} label={t('study_time_mode')} value={formatStudyTime(totals.seconds, t)} />
+    </dl>
+    <Card s={s} title={t('mode_verbs')} hint={t('verb_chart_hint')} icon={Waypoints}>
+      <ChartLegend series={series} />
+      <div className="mt-2"><TrendChart points={points} series={series} lang={lang} label={t('mode_verbs')} emptyLabel={t('empty_chart')}
+        detail={index => [`${t('correct')}: ${number(lang, progress.daily[index].verbs.correct)}`, dayAccuracy(t, progress.days, progress.daily[index].verbs)].filter(Boolean).join(' · ')} /></div>
+    </Card>
+    <Card s={s} title={t('verb_tenses')} hint={t('verb_tenses_hint')} icon={Waypoints}>
+      <div className="grid min-w-0 gap-3 md:grid-cols-3">
+        {verbs.tenses.map(tense => {
+          const answers = progress.daily.reduce((sum, day) => sum + day.verbs[tense.tense].answers, 0)
+          const correct = progress.daily.reduce((sum, day) => sum + day.verbs[tense.tense].correct, 0)
+          return <section key={tense.tense} className={s.tile} aria-label={copy[tense.tense]}>
+            <h3 className="font-bold" style={{ color: MODE_COLOR.verbs }}>{copy[tense.tense]}</h3>
+            <dl className={`mt-3 space-y-2 ${s.small}`}>
+              {[[t('verb_practiced'), t('of_total', { value: number(lang, tense.practicedForms), total: number(lang, tense.totalForms) })],
+                [t('verb_confident'), number(lang, tense.confidentForms)], [t('verb_due'), number(lang, tense.dueForms)]].map(([label, value]) =>
+                <div className="flex min-w-0 justify-between gap-3" key={label}><dt className="text-[var(--muted)]">{label}</dt><dd className="shrink-0 font-semibold tabular-nums">{value}</dd></div>)}
+            </dl>
+            <p className={`mt-3 border-t border-[var(--border)] pt-3 ${s.small} text-[var(--muted)]`}>{t('period')}: {number(lang, answers)} · {percent(correct, answers) === null ? t('accuracy_none') : `${percent(correct, answers)} % ${t('correct').toLowerCase()}`}</p>
+          </section>
+        })}
+      </div>
+    </Card>
+    <Card s={s} title={t('verb_boxes')} hint={t('verb_boxes_hint')} icon={Waypoints}>
+      <ol className={styles.sitovVerbDistribution} aria-label={t('verb_boxes')}>
+        {verbs.buckets.map(bucket => <li key={bucket.box} data-confident={bucket.box >= 6}>
+          <span className={styles.sitovVerbCount}>{number(lang, bucket.count)}</span>
+          <span className={styles.sitovVerbTrack} aria-hidden="true"><i style={{ '--sitov-verb-fill': `${bucket.count / maxBucket * 100}%`, '--sitov-verb-delay': `${bucket.box * 45}ms` } as CSSProperties} /></span>
+          <span className={styles.sitovVerbStageLabel}>{bucket.box === 0 ? t('verb_new') : t('verb_box_number', { value: bucket.box })}</span>
+        </li>)}
+      </ol>
+    </Card>
+  </>
+}
+
 function PathPanel({ progress, lang, t, s }: PanelProps) {
   const totals = rangeTotals(progress.daily)
   const path = progress.path
@@ -410,18 +468,19 @@ function DailyTable({ progress, lang, t, s }: PanelProps) {
     <div className="admin-scroll-x mt-2 overflow-x-auto">
       <table className={`w-full min-w-[34rem] text-left ${s.table}`}>
         <caption className="sr-only">{t('table')}</caption>
-        <thead><tr>{[t('date'), t('answered'), t('correct'), t('accuracy'), t('recordings'), t('views'), t('study_time')].map(label =>
+        <thead><tr>{[t('date'), t('answered'), t('verb_answers'), t('correct'), t('accuracy'), t('recordings'), t('views'), t('study_time')].map(label =>
           <th key={label} scope="col" className="py-2 pr-3 text-xs font-semibold text-[var(--muted)]">{label}</th>)}</tr></thead>
         <tbody>{rows.map(day => {
           const value = answeredOn(day)
           return <tr key={day.date} className="border-t border-[var(--border)]" style={{ borderColor: 'var(--admin-line, var(--border))' }}>
             <th scope="row" className="py-2 pr-3 font-normal tabular-nums"><time dateTime={day.date}>{shortDate(lang, day.date)}</time></th>
             <td className="pr-3 tabular-nums">{value.answers}</td>
+            <td className="pr-3 tabular-nums">{day.verbs.answers}</td>
             <td className="pr-3 tabular-nums">{value.correct}</td>
             <td className="pr-3 tabular-nums">{value.percent === null ? '–' : `${value.percent} %`}</td>
             <td className="pr-3 tabular-nums">{day.pronunciation.recordings}</td>
             <td className="pr-3 tabular-nums">{day.media.views}</td>
-            <td className="tabular-nums">{formatStudyTime(day.vocabulary.seconds + day.path.seconds + day.pronunciation.seconds, t)}</td>
+            <td className="tabular-nums">{formatStudyTime(studySeconds(day), t)}</td>
           </tr>
         })}</tbody>
       </table>

@@ -50,6 +50,18 @@ describe('Rechenhilfen', () => {
     const unordered = progressPayload(7); unordered.daily.reverse()
     expect(learningProgressSchema.safeParse(unordered).success).toBe(false)
   })
+  it('zählt Verbantworten und Lernzeit auch im Überblick und prüft Zeitformen gegen die Summe', () => {
+    const data = progressData(7, '2026-09-30', (day, index) => index === 6 ? progressDay(day.date, {
+      verbs: { answers: 5, correct: 4, seconds: 180, present: { answers: 3, correct: 2 }, perfect: { answers: 2, correct: 2 } },
+    }) : day)
+    expect(answeredOn(data.daily.at(-1)!)).toEqual({ answers: 5, correct: 4, wrong: 1, percent: 80 })
+    expect(rangeTotals(data.daily)).toMatchObject({ answers: 5, activeDays: 1, seconds: 180, verbs: { answers: 5, correct: 4, seconds: 180 } })
+    data.daily.at(-1)!.verbs.present.correct = 3
+    expect(learningProgressSchema.safeParse(data).success).toBe(false)
+    const broken = progressPayload(7)
+    broken.verbs.confidentForms = 15
+    expect(learningProgressSchema.safeParse(broken).success).toBe(false)
+  })
   it('formatiert Lernzeit kurz und hat fünf vollständige Sprachen', () => {
     const t = learningProgressCopy('de')
     expect(formatStudyTime(1500, t)).toBe('25 Min.')
@@ -93,6 +105,22 @@ describe('Diagramm', () => {
 
 describe('Mein Fortschritt', () => {
   const initial = progressData(30, '2026-09-30', (day, index) => index === 29 ? progressDay(day.date, { vocabulary: { answers: 8, correct: 6 } }) : day)
+  it('zeigt den Verbtrainer mit Zeitformen, Wiederholungsstufen und vollständigen Kennzahlen', () => {
+    const data = progressData(7, '2026-09-30', (day, index) => index === 6 ? progressDay(day.date, {
+      verbs: { answers: 5, correct: 4, seconds: 180, present: { answers: 3, correct: 2 }, perfect: { answers: 2, correct: 2 } },
+    }) : day)
+    render(<StudentProgress initial={data} levels={['A1.1', 'A1.2']} lang="de" translations={{}} focusLevel={null} focusLevels={[]} />)
+    expect(within(screen.getByRole('region', { name: 'Heute' })).getByRole('img', { name: '80 Prozent richtig' })).toBeInTheDocument()
+    fireEvent.click(screen.getByRole('tab', { name: 'Verbtrainer' }))
+    const panel = screen.getByRole('tabpanel', { name: 'Verbtrainer' })
+    expect(panel).toHaveTextContent('Verben im Kasten8 von 20')
+    expect(panel).toHaveTextContent('Sichere Formen2 von 16')
+    expect(panel).toHaveTextContent('Formen bereit12')
+    expect(panel).toHaveTextContent('Lernzeit im Zeitraum3 Min.')
+    expect(within(panel).getByRole('region', { name: 'Präsens' })).toHaveTextContent('Im Zeitraum: 3 · 67 % richtig')
+    expect(within(panel).getByRole('region', { name: 'Perfekt' })).toHaveTextContent('Im Zeitraum: 2 · 100 % richtig')
+    expect(within(panel).getByRole('list', { name: 'Wiederholungsstufen' })).toHaveTextContent('10Neu')
+  })
   it('zeigt Heute mit Prozent und lädt beim Wechsel des Zeitraums nach; eine ältere Antwort gewinnt nie', async () => {
     let slow!: (value: Awaited<ReturnType<typeof getMyLearningProgress>>) => void
     jest.mocked(getMyLearningProgress).mockImplementationOnce(() => new Promise(resolve => { slow = resolve }))

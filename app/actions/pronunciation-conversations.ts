@@ -5,6 +5,8 @@ import { revalidatePath } from 'next/cache'
 import { z } from 'zod'
 import { createClient } from '@/utils/supabase/server'
 import { getRpcError } from '@/lib/rpc-errors'
+import { sitovPronunciationConversationTitle } from '@/lib/sitov-pronunciation-legacy-title'
+import { loadSitovPronunciationConversationTitles } from '@/lib/sitov-pronunciation-readiness-server'
 import {
   createPronunciationSubmissionSchema, pronunciationMessageSchema,
   isOwnedPronunciationAudio, staffConversationStatus,
@@ -115,11 +117,12 @@ export async function getPronunciationConversations(level?: string, submissionId
     const { data, error } = await query.order('created_at', { ascending: false })
     if (error) { console.error("Loading pronunciation conversations failed"); return [] }
     const studentIds = [...new Set((data ?? []).map(row => row.auth_user_id))]
-    const [{ data: profiles }, senderNames, staffView] = await Promise.all([
+    const [{ data: profiles }, senderNames, staffView, conversationTitles] = await Promise.all([
       studentIds.length ? supabase.from('people').select('auth_user_id,display_name,email').in('auth_user_id', studentIds) : Promise.resolve({ data: [] }),
       staff ? Promise.resolve(new Map<string, string>()) : loadReplySenderNames(supabase),
       // Lehrkräfte sehen nicht, was sie aus ihrer Ansicht entfernt haben; Lernende sehen immer alles.
       staff ? loadStaffPronunciationView(supabase) : Promise.resolve(null),
+      staff ? Promise.resolve(new Map<string, string>()) : loadSitovPronunciationConversationTitles(supabase),
     ])
     const people = new Map((profiles ?? []).map(profile => [profile.auth_user_id, profile]))
     const rows = (data ?? []).filter(row => !staffView?.hiddenSubmissions.has(row.id))
@@ -135,7 +138,7 @@ export async function getPronunciationConversations(level?: string, submissionId
           ...(staff || senderRole === 'student' ? {} : { senderName: senderNames.get(message.sender_id) ?? null }) })
       }
       messages.sort((a, b) => a.createdAt.localeCompare(b.createdAt) || a.id.localeCompare(b.id))
-      return { id: row.id, level: row.level, title: row.prompt?.unit?.label ?? null, promptId: row.prompt_id, readingText: row.text_content, status, studentName: people.get(row.auth_user_id)?.display_name ?? null, studentEmail: staff ? people.get(row.auth_user_id)?.email ?? null : null, createdAt: row.created_at ?? '', messages, hasUnseen: messages.some((message) => message.unseen) }
+      return { id: row.id, level: row.level, title: sitovPronunciationConversationTitle(row.prompt_id, row.text_content, row.prompt?.unit?.label ?? conversationTitles.get(row.id) ?? null), promptId: row.prompt_id, readingText: row.text_content, status, studentName: people.get(row.auth_user_id)?.display_name ?? null, studentEmail: staff ? people.get(row.auth_user_id)?.email ?? null : null, createdAt: row.created_at ?? '', messages, hasUnseen: messages.some((message) => message.unseen) }
     }))
     return conversations.sort((a, b) => (b.messages.at(-1)?.createdAt ?? '').localeCompare(a.messages.at(-1)?.createdAt ?? ''))
   } catch (error) { console.error("Loading pronunciation conversations failed"); return [] }

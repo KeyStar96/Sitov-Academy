@@ -44,7 +44,7 @@ async function rate(known: boolean) {
   fireEvent.click(screen.getByRole('button', { name: v.reveal_solution }))
   await act(async () => { fireEvent.click(screen.getByRole('button', { name: known ? v.knew_it : v.didnt_know })) })
 }
-const prompt = () => screen.getAllByRole('heading', { level: 2 })[0].textContent
+const prompt = () => document.querySelector('.learning-flip-front .learning-word, .learning-card .learning-word')?.textContent
 
 it('repeats an unknown word inside its round and pauses after each round until the day is done', async () => {
   jest.mocked(submitVocabularySelfRating).mockResolvedValueOnce(result({ isCorrect: false, newPhase: 1 }))

@@ -140,10 +140,14 @@ it('restores newer saved test answers after a stale device conflicts', async () 
   expect(screen.getByText('1 of 2 exercises completed')).toBeInTheDocument()
 })
 
-it('automatically opens the saved account node at its current server queue after a device switch', async () => {
+it('opens the map first and restores the server queue only after explicit continuation', async () => {
   jest.mocked(startLearningNode).mockResolvedValueOnce({ data: { ...run, total: 2, queue: [nextId],
     exercises: [{ ...run.exercises[0], id: nextId }] } })
   render(<LearningPathClient initialPath={{ ...map, resume_node_id: id, paths: [{ ...map.paths[0], nodes: [{ ...node, status: 'in_progress' }] }] }} level="A1.1" lang="en" />)
+  expect(screen.getByTestId('path-map')).toBeInTheDocument()
+  expect(startLearningNode).not.toHaveBeenCalled()
+  expect(screen.queryByTestId('path-answer')).not.toBeInTheDocument()
+  fireEvent.click(screen.getByTestId('path-resume'))
   expect(await screen.findByTestId('path-answer')).toBeInTheDocument()
   expect(startLearningNode).toHaveBeenCalledWith(id, 'en')
   expect(screen.queryByTestId('path-rule-card')).not.toBeInTheDocument()

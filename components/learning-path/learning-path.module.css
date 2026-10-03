@@ -11,6 +11,13 @@
 .header button { justify-self: start; }
 .header p { margin: 0; color: var(--muted); }
 .map { display: grid; gap: 24px; }
+.resumeCard { display: flex; align-items: center; gap: 16px; padding: 18px 20px; border: 1px solid color-mix(in srgb, var(--mode-path-text) 40%, var(--border)); border-radius: 24px; background: linear-gradient(120deg, var(--mode-path-surface), var(--surface)); text-align: left; color: var(--foreground); transition: transform .25s var(--ease-out-soft), box-shadow .25s; }
+.resumeCard > span:nth-child(2) { flex: 1; min-width: 0; }
+.resumeIcon { display: grid; place-items: center; width: 48px; height: 48px; flex-shrink: 0; border-radius: 16px; background: var(--surface); color: var(--mode-path-text); }
+.resumeTitle { display: block; color: var(--muted); font-size: 16px; }
+.resumeCard:active { transform: scale(.985); }
+@media (hover: hover) { .resumeCard:hover { transform: translateY(-2px); box-shadow: var(--shadow-sm); } }
+@media (prefers-reduced-motion: reduce) { .resumeCard { transition: none; transform: none !important; } }
 .card { padding: clamp(16px, 4vw, 32px); border: 1px solid var(--border); border-radius: 24px; background: var(--surface); box-shadow: var(--shadow-sm); min-width: 0; }
 .rule { padding: clamp(16px, 4vw, 28px); border-radius: 18px; border: 1px solid var(--mode-path-text); color: var(--mode-path-text); background: var(--mode-path-surface); }
 .rule h3 { display: flex; gap: 10px; align-items: center; }
