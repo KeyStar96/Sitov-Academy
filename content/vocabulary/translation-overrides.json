@@ -1,0 +1,1788 @@
+{
+  "texts": {
+    "Platte": {
+      "en": "record",
+      "ru": "пластинка",
+      "uk": "платівка",
+      "tr": "plak"
+    },
+    "Ober": {
+      "en": "waiter",
+      "ru": "официант",
+      "uk": "офіціант",
+      "tr": "garson"
+    },
+    "Anlage": {
+      "en": "attachment",
+      "ru": "приложение к документу",
+      "uk": "додаток до документа",
+      "tr": "belge eki"
+    },
+    "Anspruch": {
+      "en": "entitlement",
+      "ru": "право на что-либо",
+      "uk": "право на щось",
+      "tr": "bir şeye hak kazanma"
+    },
+    "Führung": {
+      "en": "guided tour",
+      "ru": "экскурсия",
+      "uk": "екскурсія",
+      "tr": "rehberli tur"
+    },
+    "Fach": {
+      "en": "school subject",
+      "ru": "учебный предмет",
+      "uk": "навчальний предмет",
+      "tr": "okul dersi"
+    },
+    "Wohl": {
+      "en": "well-being",
+      "ru": "благополучие",
+      "uk": "добробут",
+      "tr": "esenlik"
+    },
+    "halt": {
+      "en": "just; simply",
+      "ru": "просто; уж",
+      "uk": "просто; вже ж",
+      "tr": "işte; öylece"
+    },
+    "Verhältnis": {
+      "en": "relationship",
+      "ru": "отношение",
+      "uk": "стосунки",
+      "tr": "ilişki"
+    },
+    "Recht": {
+      "en": "right; entitlement",
+      "ru": "право",
+      "uk": "право",
+      "tr": "hak"
+    },
+    "aufnehmen": {
+      "en": "take out (a loan)",
+      "ru": "брать (кредит)",
+      "uk": "брати (кредит)",
+      "tr": "kredi almak"
+    },
+    "heutig": {
+      "en": "today's",
+      "ru": "сегодняшний",
+      "uk": "сьогоднішній",
+      "tr": "bugünkü"
+    },
+    "morgig": {
+      "en": "tomorrow's",
+      "ru": "завтрашний",
+      "uk": "завтрашній",
+      "tr": "yarınki"
+    },
+    "Lehre": {
+      "en": "apprenticeship",
+      "ru": "профессиональное обучение",
+      "uk": "професійне навчання",
+      "tr": "mesleki eğitim"
+    },
+    "Einnahme": {
+      "en": "taking (a medicine)",
+      "ru": "приём (лекарства)",
+      "uk": "приймання (ліків)",
+      "tr": "ilaç alma"
+    },
+    "Störung": {
+      "en": "disorder; disturbance",
+      "ru": "нарушение; расстройство",
+      "uk": "порушення; розлад",
+      "tr": "bozukluk; rahatsızlık"
+    },
+    "Krankenkasse": {
+      "en": "health insurance fund",
+      "ru": "медицинская страховая касса",
+      "uk": "медична страхова каса",
+      "tr": "sağlık sigortası kurumu"
+    },
+    "Unterlagen": {
+      "en": "documents",
+      "ru": "документы",
+      "uk": "документи",
+      "tr": "belgeler"
+    },
+    "Band": {
+      "en": "band (music)",
+      "ru": "музыкальная группа",
+      "uk": "музичний гурт",
+      "tr": "müzik grubu"
+    },
+    "Hit": {
+      "en": "hit song",
+      "ru": "хит",
+      "uk": "хіт",
+      "tr": "hit şarkı"
+    },
+    "Serie": {
+      "en": "TV series",
+      "ru": "сериал",
+      "uk": "серіал",
+      "tr": "dizi"
+    },
+    "Figur": {
+      "en": "character (in a story)",
+      "ru": "персонаж",
+      "uk": "персонаж",
+      "tr": "hikâye karakteri"
+    },
+    "Fall": {
+      "en": "case",
+      "ru": "случай; дело",
+      "uk": "випадок; справа",
+      "tr": "vaka; olay"
+    },
+    "Fall (Genitiv)": {
+      "en": "grammatical case",
+      "ru": "грамматический падеж",
+      "uk": "граматичний відмінок",
+      "tr": "dilbilgisel hâl"
+    },
+    "Schloss": {
+      "en": "castle",
+      "ru": "замок (здание)",
+      "uk": "замок (будівля)",
+      "tr": "şato"
+    },
+    "Dom": {
+      "en": "cathedral",
+      "ru": "кафедральный собор",
+      "uk": "кафедральний собор",
+      "tr": "katedral"
+    },
+    "Pension": {
+      "en": "guesthouse",
+      "ru": "пансион; небольшой отель",
+      "uk": "пансіон; невеликий готель",
+      "tr": "pansiyon"
+    },
+    "Halbpension": {
+      "en": "half board",
+      "ru": "полупансион",
+      "uk": "напівпансіон",
+      "tr": "yarım pansiyon"
+    },
+    "Ausbildung": {
+      "en": "vocational training",
+      "ru": "профессиональное обучение",
+      "uk": "професійне навчання",
+      "tr": "mesleki eğitim"
+    },
+    "Ausbildungsplatz": {
+      "en": "apprenticeship placement",
+      "ru": "место для профессионального обучения",
+      "uk": "місце професійного навчання",
+      "tr": "mesleki eğitim yeri"
+    },
+    "Auszubildende": {
+      "en": "male trainee",
+      "ru": "ученик на профессиональном обучении",
+      "uk": "учень на професійному навчанні",
+      "tr": "meslek eğitimi gören erkek öğrenci"
+    },
+    "Azubi": {
+      "en": "trainee",
+      "ru": "ученик на профессиональном обучении",
+      "uk": "учень на професійному навчанні",
+      "tr": "meslek öğrencisi"
+    },
+    "Abschluss": {
+      "en": "qualification",
+      "ru": "окончание обучения; диплом",
+      "uk": "завершення навчання; диплом",
+      "tr": "eğitim yeterliliği"
+    },
+    "Zeugnis": {
+      "en": "school report; certificate",
+      "ru": "табель; свидетельство",
+      "uk": "табель; свідоцтво",
+      "tr": "karne; diploma"
+    },
+    "Note": {
+      "en": "grade",
+      "ru": "оценка",
+      "uk": "оцінка",
+      "tr": "not"
+    },
+    "Schulzeit": {
+      "en": "school years",
+      "ru": "школьные годы",
+      "uk": "шкільні роки",
+      "tr": "okul yılları"
+    },
+    "Unterricht": {
+      "en": "lesson; classes",
+      "ru": "занятие; уроки",
+      "uk": "заняття; уроки",
+      "tr": "ders"
+    },
+    "Praktikum": {
+      "en": "internship",
+      "ru": "практика; стажировка",
+      "uk": "практика; стажування",
+      "tr": "staj"
+    },
+    "Stelle": {
+      "en": "job; position",
+      "ru": "рабочее место; должность",
+      "uk": "робоче місце; посада",
+      "tr": "iş; pozisyon"
+    },
+    "Job": {
+      "en": "job",
+      "ru": "работа",
+      "uk": "робота",
+      "tr": "iş"
+    },
+    "Chef": {
+      "en": "boss",
+      "ru": "начальник",
+      "uk": "начальник",
+      "tr": "patron"
+    },
+    "Hausmeister": {
+      "en": "caretaker",
+      "ru": "завхоз; смотритель здания",
+      "uk": "завгосп; доглядач будинку",
+      "tr": "bina görevlisi"
+    },
+    "Hausmann": {
+      "en": "househusband",
+      "ru": "домохозяин",
+      "uk": "домогосподар",
+      "tr": "ev işleriyle ilgilenen erkek"
+    },
+    "Krankenpfleger": {
+      "en": "male nurse",
+      "ru": "медбрат",
+      "uk": "медбрат",
+      "tr": "erkek hemşire"
+    },
+    "Reiseführer": {
+      "en": "tour guide",
+      "ru": "гид",
+      "uk": "гід",
+      "tr": "tur rehberi"
+    },
+    "Serviceangestellte": {
+      "en": "male service employee",
+      "ru": "работник сферы обслуживания",
+      "uk": "працівник сфери обслуговування",
+      "tr": "hizmet görevlisi"
+    },
+    "Mieter": {
+      "en": "male tenant",
+      "ru": "арендатор",
+      "uk": "орендар",
+      "tr": "erkek kiracı"
+    },
+    "Mieterin": {
+      "en": "female tenant",
+      "ru": "арендаторша",
+      "uk": "орендарка",
+      "tr": "kadın kiracı"
+    },
+    "Bewohnerin": {
+      "en": "female resident",
+      "ru": "жительница",
+      "uk": "мешканка",
+      "tr": "kadın sakin"
+    },
+    "Nachbarin": {
+      "en": "female neighbour",
+      "ru": "соседка",
+      "uk": "сусідка",
+      "tr": "kadın komşu"
+    },
+    "Kündigung": {
+      "en": "notice of termination",
+      "ru": "расторжение; увольнение",
+      "uk": "розірвання; звільнення",
+      "tr": "fesih bildirimi"
+    },
+    "Entlassung": {
+      "en": "dismissal",
+      "ru": "увольнение",
+      "uk": "звільнення",
+      "tr": "işten çıkarma"
+    },
+    "Gehalt": {
+      "en": "salary",
+      "ru": "зарплата",
+      "uk": "зарплата",
+      "tr": "maaş"
+    },
+    "Rente": {
+      "en": "pension",
+      "ru": "пенсия",
+      "uk": "пенсія",
+      "tr": "emekli aylığı"
+    },
+    "Rentner": {
+      "en": "male pensioner",
+      "ru": "пенсионер",
+      "uk": "пенсіонер",
+      "tr": "emekli erkek"
+    },
+    "Vollzeit": {
+      "en": "full-time employment",
+      "ru": "полная занятость",
+      "uk": "повна зайнятість",
+      "tr": "tam zamanlı çalışma"
+    },
+    "Teilzeit": {
+      "en": "part-time employment",
+      "ru": "частичная занятость",
+      "uk": "неповна зайнятість",
+      "tr": "yarı zamanlı çalışma"
+    },
+    "Berufserfahrung": {
+      "en": "work experience",
+      "ru": "опыт работы",
+      "uk": "досвід роботи",
+      "tr": "iş deneyimi"
+    },
+    "Bewerbung": {
+      "en": "job application",
+      "ru": "заявление о приёме на работу",
+      "uk": "заява про прийняття на роботу",
+      "tr": "iş başvurusu"
+    },
+    "Lebenslauf": {
+      "en": "CV; résumé",
+      "ru": "резюме",
+      "uk": "резюме",
+      "tr": "özgeçmiş"
+    },
+    "Vorstellungsgespräch": {
+      "en": "job interview",
+      "ru": "собеседование",
+      "uk": "співбесіда",
+      "tr": "iş görüşmesi"
+    },
+    "Gewinn": {
+      "en": "profit; winnings",
+      "ru": "прибыль; выигрыш",
+      "uk": "прибуток; виграш",
+      "tr": "kâr; kazanç"
+    },
+    "Schaden": {
+      "en": "damage",
+      "ru": "ущерб",
+      "uk": "шкода",
+      "tr": "hasar"
+    },
+    "Anzeige": {
+      "en": "advertisement; report",
+      "ru": "объявление; заявление",
+      "uk": "оголошення; заява",
+      "tr": "ilan; ihbar"
+    },
+    "Betrieb": {
+      "en": "business; workplace",
+      "ru": "предприятие",
+      "uk": "підприємство",
+      "tr": "işletme"
+    },
+    "Handel": {
+      "en": "trade; retail",
+      "ru": "торговля",
+      "uk": "торгівля",
+      "tr": "ticaret"
+    },
+    "Kaufmann": {
+      "en": "businessman; merchant",
+      "ru": "коммерсант",
+      "uk": "комерсант",
+      "tr": "ticaret uzmanı"
+    },
+    "Einbrecher": {
+      "en": "burglar",
+      "ru": "взломщик",
+      "uk": "зломщик",
+      "tr": "hırsız"
+    },
+    "Kontakt": {
+      "en": "contact",
+      "ru": "контакт",
+      "uk": "контакт",
+      "tr": "iletişim"
+    },
+    "Bräutigam": {
+      "en": "groom",
+      "ru": "жених",
+      "uk": "наречений",
+      "tr": "damat"
+    },
+    "Braut": {
+      "en": "bride",
+      "ru": "невеста",
+      "uk": "наречена",
+      "tr": "gelin"
+    },
+    "Brautpaar": {
+      "en": "wedding couple",
+      "ru": "молодожёны",
+      "uk": "наречені",
+      "tr": "evlenen çift"
+    },
+    "Trauung": {
+      "en": "wedding ceremony",
+      "ru": "церемония бракосочетания",
+      "uk": "церемонія одруження",
+      "tr": "nikâh töreni"
+    },
+    "verliebt sein": {
+      "en": "be in love",
+      "ru": "быть влюблённым",
+      "uk": "бути закоханим",
+      "tr": "âşık olmak"
+    },
+    "Geborgenheit": {
+      "en": "sense of safety and belonging",
+      "ru": "чувство защищённости",
+      "uk": "відчуття захищеності",
+      "tr": "güvende hissetme"
+    },
+    "Hälfte": {
+      "en": "half",
+      "ru": "половина",
+      "uk": "половина",
+      "tr": "yarı"
+    },
+    "Drittel": {
+      "en": "one third",
+      "ru": "треть",
+      "uk": "третина",
+      "tr": "üçte bir"
+    },
+    "Viertel": {
+      "en": "one quarter",
+      "ru": "четверть",
+      "uk": "чверть",
+      "tr": "dörtte bir"
+    },
+    "Umzug": {
+      "en": "move (home)",
+      "ru": "переезд",
+      "uk": "переїзд",
+      "tr": "taşınma"
+    },
+    "Umfrage": {
+      "en": "survey",
+      "ru": "опрос",
+      "uk": "опитування",
+      "tr": "anket"
+    },
+    "Meldung": {
+      "en": "news report; notification",
+      "ru": "сообщение; уведомление",
+      "uk": "повідомлення",
+      "tr": "haber; bildirim"
+    },
+    "Sender": {
+      "en": "radio or TV station",
+      "ru": "радио- или телеканал",
+      "uk": "радіо- чи телеканал",
+      "tr": "radyo veya televizyon kanalı"
+    },
+    "Rundfunk": {
+      "en": "broadcasting",
+      "ru": "радиовещание",
+      "uk": "радіомовлення",
+      "tr": "radyo yayıncılığı"
+    },
+    "Lager": {
+      "en": "warehouse",
+      "ru": "склад",
+      "uk": "склад",
+      "tr": "depo"
+    },
+    "Netzwerk": {
+      "en": "network",
+      "ru": "сеть",
+      "uk": "мережа",
+      "tr": "ağ"
+    },
+    "Datei": {
+      "en": "file",
+      "ru": "файл",
+      "uk": "файл",
+      "tr": "dosya"
+    },
+    "Festplatte": {
+      "en": "hard drive",
+      "ru": "жёсткий диск",
+      "uk": "жорсткий диск",
+      "tr": "sabit disk"
+    },
+    "Laufwerk": {
+      "en": "drive (computer)",
+      "ru": "дисковод",
+      "uk": "дисковод",
+      "tr": "bilgisayar sürücüsü"
+    },
+    "Konto": {
+      "en": "bank account",
+      "ru": "банковский счёт",
+      "uk": "банківський рахунок",
+      "tr": "banka hesabı"
+    },
+    "Girokonto": {
+      "en": "current account",
+      "ru": "текущий банковский счёт",
+      "uk": "поточний банківський рахунок",
+      "tr": "vadesiz hesap"
+    },
+    "Zinsen": {
+      "en": "interest (finance)",
+      "ru": "проценты по вкладу или кредиту",
+      "uk": "відсотки за вкладом чи кредитом",
+      "tr": "faiz"
+    },
+    "Kredit": {
+      "en": "loan",
+      "ru": "кредит",
+      "uk": "кредит",
+      "tr": "kredi"
+    },
+    "Strafzettel": {
+      "en": "parking or traffic ticket",
+      "ru": "штрафная квитанция",
+      "uk": "штрафна квитанція",
+      "tr": "trafik cezası makbuzu"
+    },
+    "Beleg": {
+      "en": "receipt",
+      "ru": "квитанция; чек",
+      "uk": "квитанція; чек",
+      "tr": "fiş; makbuz"
+    },
+    "Quittung": {
+      "en": "receipt",
+      "ru": "квитанция",
+      "uk": "квитанція",
+      "tr": "makbuz"
+    },
+    "Betrag": {
+      "en": "amount (money)",
+      "ru": "сумма",
+      "uk": "сума",
+      "tr": "tutar"
+    },
+    "EC-Karte": {
+      "en": "debit card",
+      "ru": "дебетовая карта",
+      "uk": "дебетова картка",
+      "tr": "banka kartı"
+    },
+    "auf": {
+      "en": "on; onto",
+      "ru": "на",
+      "uk": "на",
+      "tr": "üstünde; üzerine"
+    },
+    "heiraten": {
+      "en": "marry",
+      "ru": "жениться; вступать в брак",
+      "uk": "одружуватися",
+      "tr": "evlenmek"
+    },
+    "heutige": {
+      "en": "today's",
+      "ru": "сегодняшний",
+      "uk": "сьогоднішній",
+      "tr": "bugünkü"
+    },
+    "morgige": {
+      "en": "tomorrow's",
+      "ru": "завтрашний",
+      "uk": "завтрашній",
+      "tr": "yarınki"
+    },
+    "vorige": {
+      "en": "previous",
+      "ru": "предыдущий",
+      "uk": "попередній",
+      "tr": "önceki"
+    },
+    "sonstige": {
+      "en": "other; remaining",
+      "ru": "прочие; остальные",
+      "uk": "інші; решта",
+      "tr": "diğer; kalan"
+    },
+    "folgende": {
+      "en": "following; next",
+      "ru": "следующий",
+      "uk": "наступний",
+      "tr": "sonraki"
+    },
+    "satt": {
+      "en": "full (after eating)",
+      "ru": "сытый",
+      "uk": "ситий",
+      "tr": "tok"
+    },
+    "satt sein": {
+      "en": "be full (after eating)",
+      "ru": "быть сытым",
+      "uk": "бути ситим",
+      "tr": "tok olmak"
+    },
+    "Amt": {
+      "en": "public authority",
+      "ru": "государственное учреждение",
+      "uk": "державна установа",
+      "tr": "resmî daire"
+    },
+    "Schalter": {
+      "en": "service counter",
+      "ru": "окошко обслуживания",
+      "uk": "віконце обслуговування",
+      "tr": "gişe"
+    },
+    "Antrag": {
+      "en": "application form; request",
+      "ru": "заявление",
+      "uk": "заява",
+      "tr": "başvuru"
+    },
+    "Arm": {
+      "en": "arm",
+      "ru": "рука",
+      "uk": "рука",
+      "tr": "kol"
+    },
+    "Fahrt": {
+      "en": "journey; ride",
+      "ru": "поездка",
+      "uk": "поїздка",
+      "tr": "yolculuk"
+    },
+    "Rock": {
+      "en": "skirt",
+      "ru": "юбка",
+      "uk": "спідниця",
+      "tr": "etek"
+    },
+    "Fest": {
+      "en": "celebration",
+      "ru": "праздник",
+      "uk": "свято",
+      "tr": "kutlama"
+    },
+    "Mitarbeiter": {
+      "en": "employee",
+      "ru": "сотрудник",
+      "uk": "працівник",
+      "tr": "çalışan"
+    },
+    "Raum": {
+      "en": "room",
+      "ru": "помещение",
+      "uk": "приміщення",
+      "tr": "oda"
+    },
+    "abgeben": {
+      "en": "submit; hand in",
+      "ru": "сдавать; подавать",
+      "uk": "здавати; подавати",
+      "tr": "teslim etmek"
+    },
+    "sich anmelden": {
+      "en": "register",
+      "ru": "регистрироваться",
+      "uk": "реєструватися",
+      "tr": "kayıt olmak"
+    },
+    "sich abmelden": {
+      "en": "deregister",
+      "ru": "сниматься с регистрации",
+      "uk": "зніматися з реєстрації",
+      "tr": "kayıt sildirmek"
+    },
+    "untersuchen": {
+      "en": "examine",
+      "ru": "обследовать",
+      "uk": "обстежувати",
+      "tr": "muayene etmek"
+    },
+    "umsteigen": {
+      "en": "change trains or buses",
+      "ru": "пересаживаться",
+      "uk": "пересідати",
+      "tr": "aktarma yapmak"
+    },
+    "vor": {
+      "en": "in front of; before",
+      "ru": "перед; до",
+      "uk": "перед; до",
+      "tr": "önünde; önce"
+    },
+    "Geschäft": {
+      "en": "shop",
+      "ru": "магазин",
+      "uk": "магазин",
+      "tr": "mağaza"
+    },
+    "gebraucht": {
+      "en": "second-hand; used",
+      "ru": "подержанный",
+      "uk": "уживаний",
+      "tr": "ikinci el"
+    },
+    "klappen": {
+      "en": "work out",
+      "ru": "получаться",
+      "uk": "вдаватися",
+      "tr": "yolunda gitmek"
+    },
+    "Schild": {
+      "en": "sign",
+      "ru": "табличка; знак",
+      "uk": "табличка; знак",
+      "tr": "levha"
+    },
+    "rein": {
+      "en": "inside",
+      "ru": "внутрь",
+      "uk": "усередину",
+      "tr": "içeri"
+    },
+    "abstellen": {
+      "en": "put down; park",
+      "ru": "ставить; парковать",
+      "uk": "ставити; паркувати",
+      "tr": "bir yere koymak; park etmek"
+    },
+    "abschließen": {
+      "en": "lock",
+      "ru": "запирать",
+      "uk": "замикати",
+      "tr": "kilitlemek"
+    },
+    "Gegenstand": {
+      "en": "object",
+      "ru": "предмет",
+      "uk": "предмет",
+      "tr": "eşya"
+    },
+    "Schicht": {
+      "en": "shift",
+      "ru": "смена",
+      "uk": "зміна",
+      "tr": "vardiya"
+    },
+    "gießen": {
+      "en": "water (plants)",
+      "ru": "поливать",
+      "uk": "поливати",
+      "tr": "sulamak"
+    },
+    "Art": {
+      "en": "kind; type",
+      "ru": "вид; тип",
+      "uk": "вид; тип",
+      "tr": "tür"
+    },
+    "Feierabend": {
+      "en": "end of the working day",
+      "ru": "конец рабочего дня",
+      "uk": "кінець робочого дня",
+      "tr": "mesai sonu"
+    },
+    "Ahnung": {
+      "en": "idea; notion",
+      "ru": "представление; понятие",
+      "uk": "уявлення; поняття",
+      "tr": "fikir"
+    },
+    "Lust": {
+      "en": "desire; inclination",
+      "ru": "желание",
+      "uk": "бажання",
+      "tr": "istek"
+    },
+    "Untersuchung": {
+      "en": "examination",
+      "ru": "обследование",
+      "uk": "обстеження",
+      "tr": "muayene"
+    },
+    "schaffen": {
+      "en": "manage; accomplish",
+      "ru": "справляться; успевать",
+      "uk": "впоратися; встигати",
+      "tr": "başarmak; yetiştirmek"
+    },
+    "bestehen": {
+      "en": "pass (an exam)",
+      "ru": "сдать (экзамен)",
+      "uk": "скласти (іспит)",
+      "tr": "sınavı geçmek"
+    },
+    "Tor": {
+      "en": "goal (football)",
+      "ru": "гол; ворота",
+      "uk": "гол; ворота",
+      "tr": "gol; kale"
+    },
+    "Löwe": {
+      "en": "lion",
+      "ru": "лев",
+      "uk": "лев",
+      "tr": "aslan"
+    },
+    "Verband": {
+      "en": "bandage",
+      "ru": "повязка",
+      "uk": "пов’язка",
+      "tr": "bandaj"
+    },
+    "krankschreiben": {
+      "en": "certify unfit for work",
+      "ru": "выдавать больничный",
+      "uk": "видавати лікарняний",
+      "tr": "istirahat raporu vermek"
+    },
+    "jemanden krankschreiben": {
+      "en": "give someone a sick note",
+      "ru": "выдавать кому-либо больничный",
+      "uk": "видавати комусь лікарняний",
+      "tr": "birine istirahat raporu vermek"
+    },
+    "nebenbei": {
+      "en": "on the side",
+      "ru": "попутно; дополнительно",
+      "uk": "попутно; додатково",
+      "tr": "bir yandan; ek olarak"
+    },
+    "möglichst": {
+      "en": "as much as possible",
+      "ru": "по возможности",
+      "uk": "за можливості",
+      "tr": "mümkün olduğunca"
+    },
+    "Prozess": {
+      "en": "trial",
+      "ru": "судебный процесс",
+      "uk": "судовий процес",
+      "tr": "dava"
+    },
+    "Kuli": {
+      "en": "ballpoint pen",
+      "ru": "шариковая ручка",
+      "uk": "кулькова ручка",
+      "tr": "tükenmez kalem"
+    },
+    "wirken": {
+      "en": "seem; have an effect",
+      "ru": "казаться; действовать",
+      "uk": "здаватися; діяти",
+      "tr": "görünmek; etki etmek"
+    },
+    "duzen": {
+      "en": "address someone as du",
+      "ru": "обращаться на ты",
+      "uk": "звертатися на ти",
+      "tr": "sen diye hitap etmek"
+    },
+    "Rechner": {
+      "en": "computer",
+      "ru": "компьютер",
+      "uk": "комп’ютер",
+      "tr": "bilgisayar"
+    },
+    "klasse": {
+      "en": "great",
+      "ru": "здорово; классный",
+      "uk": "чудово; класний",
+      "tr": "harika"
+    },
+    "fort": {
+      "en": "away",
+      "ru": "прочь; в отъезде",
+      "uk": "геть; у від’їзді",
+      "tr": "uzakta; gitmiş"
+    },
+    "streichen": {
+      "en": "paint",
+      "ru": "красить",
+      "uk": "фарбувати",
+      "tr": "boyamak"
+    },
+    "Schlange": {
+      "en": "queue",
+      "ru": "очередь",
+      "uk": "черга",
+      "tr": "sıra"
+    },
+    "Rest": {
+      "en": "remainder",
+      "ru": "остаток",
+      "uk": "решта",
+      "tr": "kalan"
+    },
+    "anzeigen": {
+      "en": "report (to the police)",
+      "ru": "заявлять (в полицию)",
+      "uk": "заявляти (в поліцію)",
+      "tr": "ihbar etmek"
+    },
+    "Zeichen": {
+      "en": "sign",
+      "ru": "знак",
+      "uk": "знак",
+      "tr": "işaret"
+    },
+    "unternehmen": {
+      "en": "do; undertake",
+      "ru": "предпринимать",
+      "uk": "робити; здійснювати",
+      "tr": "bir şey yapmak"
+    },
+    "auftreten": {
+      "en": "perform",
+      "ru": "выступать",
+      "uk": "виступати",
+      "tr": "sahneye çıkmak"
+    },
+    "entfernt": {
+      "en": "distant",
+      "ru": "далёкий; удалённый",
+      "uk": "далекий; віддалений",
+      "tr": "uzak"
+    },
+    "Sendung": {
+      "en": "consignment; package",
+      "ru": "отправление",
+      "uk": "відправлення",
+      "tr": "gönderi"
+    },
+    "Fantasie": {
+      "en": "imagination",
+      "ru": "воображение",
+      "uk": "уява",
+      "tr": "hayal gücü"
+    },
+    "was für ein": {
+      "en": "what kind of",
+      "ru": "какой; что за",
+      "uk": "який; що за",
+      "tr": "ne tür bir"
+    },
+    "Zoll": {
+      "en": "customs",
+      "ru": "таможня",
+      "uk": "митниця",
+      "tr": "gümrük"
+    },
+    "Himmel": {
+      "en": "sky",
+      "ru": "небо",
+      "uk": "небо",
+      "tr": "gökyüzü"
+    },
+    "Mailbox": {
+      "en": "voicemail",
+      "ru": "голосовая почта",
+      "uk": "голосова пошта",
+      "tr": "sesli mesaj kutusu"
+    },
+    "Knie": {
+      "en": "knee",
+      "ru": "колено",
+      "uk": "коліно",
+      "tr": "diz"
+    },
+    "Rad": {
+      "en": "bicycle",
+      "ru": "велосипед",
+      "uk": "велосипед",
+      "tr": "bisiklet"
+    },
+    "stehen bleiben": {
+      "en": "stop",
+      "ru": "останавливаться",
+      "uk": "зупинятися",
+      "tr": "durmak"
+    },
+    "Spur": {
+      "en": "lane",
+      "ru": "полоса движения",
+      "uk": "смуга руху",
+      "tr": "şerit"
+    },
+    "Eis": {
+      "en": "ice",
+      "ru": "лёд",
+      "uk": "лід",
+      "tr": "buz"
+    },
+    "sorgen": {
+      "en": "provide for; ensure",
+      "ru": "заботиться; обеспечивать",
+      "uk": "дбати; забезпечувати",
+      "tr": "sağlamak; ilgilenmek"
+    },
+    "dicht": {
+      "en": "dense; heavy",
+      "ru": "густой; плотный",
+      "uk": "густий; щільний",
+      "tr": "yoğun"
+    },
+    "danken": {
+      "en": "thank",
+      "ru": "благодарить",
+      "uk": "дякувати",
+      "tr": "teşekkür etmek"
+    },
+    "Strafe": {
+      "en": "fine; penalty",
+      "ru": "штраф; наказание",
+      "uk": "штраф; покарання",
+      "tr": "ceza"
+    },
+    "Blick": {
+      "en": "view",
+      "ru": "вид",
+      "uk": "краєвид",
+      "tr": "manzara"
+    },
+    "Angestellte": {
+      "en": "employee",
+      "ru": "служащий",
+      "uk": "службовець",
+      "tr": "çalışan"
+    },
+    "verschieben": {
+      "en": "postpone",
+      "ru": "переносить",
+      "uk": "переносити",
+      "tr": "ertelemek"
+    },
+    "abheben": {
+      "en": "withdraw (money)",
+      "ru": "снимать (деньги)",
+      "uk": "знімати гроші",
+      "tr": "para çekmek"
+    },
+    "kontrollieren": {
+      "en": "check",
+      "ru": "проверять",
+      "uk": "перевіряти",
+      "tr": "kontrol etmek"
+    },
+    "Kontrolle": {
+      "en": "inspection; check",
+      "ru": "проверка",
+      "uk": "перевірка",
+      "tr": "kontrol"
+    },
+    "sich schneiden": {
+      "en": "cut oneself",
+      "ru": "порезаться",
+      "uk": "порізатися",
+      "tr": "kendini kesmek"
+    },
+    "zufällig": {
+      "en": "by chance",
+      "ru": "случайно",
+      "uk": "випадково",
+      "tr": "tesadüfen"
+    },
+    "Lokal": {
+      "en": "restaurant; venue",
+      "ru": "ресторан; заведение",
+      "uk": "ресторан; заклад",
+      "tr": "lokanta; mekân"
+    },
+    "Erziehung": {
+      "en": "upbringing",
+      "ru": "воспитание",
+      "uk": "виховання",
+      "tr": "çocuk yetiştirme"
+    },
+    "Kosename": {
+      "en": "pet name; term of endearment",
+      "ru": "ласковое имя",
+      "uk": "пестливе ім’я",
+      "tr": "sevgi sözcüğü"
+    },
+    "Märchen": {
+      "en": "fairy tale",
+      "ru": "сказка",
+      "uk": "казка",
+      "tr": "masal"
+    },
+    "Fan": {
+      "en": "fan; supporter",
+      "ru": "поклонник",
+      "uk": "шанувальник",
+      "tr": "hayran"
+    },
+    "Tipp": {
+      "en": "tip; advice",
+      "ru": "совет",
+      "uk": "порада",
+      "tr": "ipucu; tavsiye"
+    },
+    "einzahlen": {
+      "en": "deposit (money)",
+      "ru": "вносить (деньги)",
+      "uk": "вносити гроші",
+      "tr": "para yatırmak"
+    },
+    "überweisen": {
+      "en": "transfer (money)",
+      "ru": "переводить (деньги)",
+      "uk": "переказувати гроші",
+      "tr": "havale etmek"
+    },
+    "vorhaben": {
+      "en": "intend; plan",
+      "ru": "намереваться; планировать",
+      "uk": "мати намір; планувати",
+      "tr": "planlamak"
+    },
+    "Auftrag": {
+      "en": "order; assignment",
+      "ru": "заказ; поручение",
+      "uk": "замовлення; доручення",
+      "tr": "sipariş; görev"
+    },
+    "Ansicht": {
+      "en": "opinion; view",
+      "ru": "мнение; взгляд",
+      "uk": "думка; погляд",
+      "tr": "görüş"
+    }
+  },
+  "sitov-A2.1-L03-V017": {
+    "en": {
+      "translation": "dish"
+    },
+    "ru": {
+      "translation": "блюдо"
+    },
+    "uk": {
+      "translation": "страва"
+    },
+    "tr": {
+      "translation": "yemek"
+    }
+  },
+  "sitov-B1.1-L07-V001": {
+    "en": {
+      "translation": "court"
+    },
+    "ru": {
+      "translation": "суд"
+    },
+    "uk": {
+      "translation": "суд"
+    },
+    "tr": {
+      "translation": "mahkeme"
+    }
+  },
+  "sitov-A1.2-L01-V034": {
+    "en": {
+      "translation": "department manager"
+    },
+    "ru": {
+      "translation": "руководитель отдела"
+    },
+    "uk": {
+      "translation": "керівник відділу"
+    },
+    "tr": {
+      "translation": "bölüm müdürü"
+    }
+  },
+  "sitov-B1.1-L01-V026": {
+    "en": {
+      "translation": "remedy"
+    },
+    "ru": {
+      "translation": "лечебное средство"
+    },
+    "uk": {
+      "translation": "лікувальний засіб"
+    },
+    "tr": {
+      "translation": "ilaç"
+    }
+  },
+  "sitov-B1.1-L03-V004": {
+    "en": {
+      "translation": "remedy"
+    },
+    "ru": {
+      "translation": "лечебное средство"
+    },
+    "uk": {
+      "translation": "лікувальний засіб"
+    },
+    "tr": {
+      "translation": "ilaç"
+    }
+  },
+  "sitov-A1.2-L01-C017": {
+    "en": {
+      "translation": "I work from nine a.m. to three p.m.",
+      "context_sentence": "I work from nine a.m. to three p.m."
+    },
+    "ru": {
+      "translation": "Я работаю с девяти до пятнадцати часов.",
+      "context_sentence": "Я работаю с девяти до пятнадцати часов."
+    },
+    "uk": {
+      "translation": "Я працюю з дев’ятої до п’ятнадцятої години.",
+      "context_sentence": "Я працюю з дев’ятої до п’ятнадцятої години."
+    },
+    "tr": {
+      "translation": "Saat dokuzdan on beşe kadar çalışıyorum.",
+      "context_sentence": "Saat dokuzdan on beşe kadar çalışıyorum."
+    }
+  },
+  "sitov-A2.1-L03-C016": {
+    "en": {
+      "context_sentence": "Thank you, I'm already full."
+    },
+    "ru": {
+      "context_sentence": "Спасибо, я уже сыт."
+    },
+    "uk": {
+      "context_sentence": "Дякую, я вже ситий."
+    },
+    "tr": {
+      "context_sentence": "Teşekkürler, ben zaten tokum."
+    }
+  },
+  "sitov-existing-8940864b-e1eb-4311-99a0-f94a10a9f7e6": {
+    "en": {
+      "context_sentence": "The German word “Frau” takes the article “die”."
+    },
+    "ru": {
+      "context_sentence": "Немецкое слово «Frau» употребляется с артиклем «die»."
+    },
+    "uk": {
+      "context_sentence": "Слово «Frau» вживається з артиклем «die»."
+    },
+    "tr": {
+      "context_sentence": "“Frau” kelimesinin artikeli “die”dir."
+    }
+  },
+  "sitov-existing-53aaf775-ac41-4c04-9720-2989665386e5": {
+    "en": {
+      "context_sentence": "The German word “Frau” takes the article “die”."
+    },
+    "ru": {
+      "context_sentence": "Немецкое слово «Frau» употребляется с артиклем «die»."
+    },
+    "uk": {
+      "context_sentence": "Слово «Frau» вживається з артиклем «die»."
+    },
+    "tr": {
+      "context_sentence": "“Frau” kelimesinin artikeli “die”dir."
+    }
+  },
+  "sitov-A2.1-L01-V037": {
+    "en": {
+      "context_sentence": "“Nachbarin” is the feminine counterpart of “Nachbar”."
+    },
+    "ru": {
+      "context_sentence": "«Nachbarin» — слово для женского пола, соответствующее слову «Nachbar»."
+    },
+    "uk": {
+      "context_sentence": "«Nachbarin» — слово для жіночої статі, що відповідає слову «Nachbar»."
+    },
+    "tr": {
+      "context_sentence": "“Nachbarin”, “Nachbar” kelimesinin kadınlar için kullanılan karşılığıdır."
+    }
+  },
+  "sitov-A2.1-L01-V040": {
+    "en": {
+      "context_sentence": "“Mieterin” is the feminine counterpart of “Mieter”."
+    },
+    "ru": {
+      "context_sentence": "«Mieterin» — слово для женского пола, соответствующее слову «Mieter»."
+    },
+    "uk": {
+      "context_sentence": "«Mieterin» — слово для жіночої статі, що відповідає слову «Mieter»."
+    },
+    "tr": {
+      "context_sentence": "“Mieterin”, “Mieter” kelimesinin kadınlar için kullanılan karşılığıdır."
+    }
+  },
+  "sitov-A2.1-L02-V035": {
+    "en": {
+      "context_sentence": "“Bewohnerin” is the feminine counterpart of “Bewohner”."
+    },
+    "ru": {
+      "context_sentence": "«Bewohnerin» — слово для женского пола, соответствующее слову «Bewohner»."
+    },
+    "uk": {
+      "context_sentence": "«Bewohnerin» — слово для жіночої статі, що відповідає слову «Bewohner»."
+    },
+    "tr": {
+      "context_sentence": "“Bewohnerin”, “Bewohner” kelimesinin kadınlar için kullanılan karşılığıdır."
+    }
+  },
+  "sitov-existing-6e051ca3-7d40-4440-ad14-ced329c9643e": {
+    "en": {
+      "context_sentence": "“Enkelin” is the feminine counterpart of “Enkel”."
+    },
+    "ru": {
+      "context_sentence": "«Enkelin» — слово для женского пола, соответствующее слову «Enkel»."
+    },
+    "uk": {
+      "context_sentence": "«Enkelin» — слово для жіночої статі, що відповідає слову «Enkel»."
+    },
+    "tr": {
+      "context_sentence": "“Enkelin”, “Enkel” kelimesinin kadınlar için kullanılan karşılığıdır."
+    }
+  },
+  "sitov-existing-44fa3ba5-c22a-4f85-8f40-beedd7f5bc41": {
+    "en": {
+      "context_sentence": "“Lehrerin” is the feminine counterpart of “Lehrer”."
+    },
+    "ru": {
+      "context_sentence": "«Lehrerin» — слово для женского пола, соответствующее слову «Lehrer»."
+    },
+    "uk": {
+      "context_sentence": "«Lehrerin» — слово для жіночої статі, що відповідає слову «Lehrer»."
+    },
+    "tr": {
+      "context_sentence": "“Lehrerin”, “Lehrer” kelimesinin kadınlar için kullanılan karşılığıdır."
+    }
+  },
+  "sitov-existing-5edf86d1-0666-4521-acf0-3d8dfef694a0": {
+    "en": {
+      "context_sentence": "“Schwester” is the feminine counterpart of “Bruder”."
+    },
+    "ru": {
+      "context_sentence": "«Schwester» — слово для женского пола, соответствующее слову «Bruder»."
+    },
+    "uk": {
+      "context_sentence": "«Schwester» — слово для жіночої статі, що відповідає слову «Bruder»."
+    },
+    "tr": {
+      "context_sentence": "“Schwester”, “Bruder” kelimesinin kadınlar için kullanılan karşılığıdır."
+    }
+  },
+  "sitov-existing-a3491d16-7681-40bb-9779-ecb29e4abb76": {
+    "en": {
+      "context_sentence": "“Ehefrau” is the feminine counterpart of “Ehemann”."
+    },
+    "ru": {
+      "context_sentence": "«Ehefrau» — слово для женского пола, соответствующее слову «Ehemann»."
+    },
+    "uk": {
+      "context_sentence": "«Ehefrau» — слово для жіночої статі, що відповідає слову «Ehemann»."
+    },
+    "tr": {
+      "context_sentence": "“Ehefrau”, “Ehemann” kelimesinin kadınlar için kullanılan karşılığıdır."
+    }
+  },
+  "sitov-existing-6e61fa93-ab59-4d2d-8a08-a0578f1729db": {
+    "en": {
+      "context_sentence": "“Mutter” is the feminine counterpart of “Vater”."
+    },
+    "ru": {
+      "context_sentence": "«Mutter» — слово для женского пола, соответствующее слову «Vater»."
+    },
+    "uk": {
+      "context_sentence": "«Mutter» — слово для жіночої статі, що відповідає слову «Vater»."
+    },
+    "tr": {
+      "context_sentence": "“Mutter”, “Vater” kelimesinin kadınlar için kullanılan karşılığıdır."
+    }
+  },
+  "sitov-existing-b55a295b-484c-4c22-a8d1-bcf29d5d59b8": {
+    "en": {
+      "context_sentence": "“Tochter” is the feminine counterpart of “Sohn”."
+    },
+    "ru": {
+      "context_sentence": "«Tochter» — слово для женского пола, соответствующее слову «Sohn»."
+    },
+    "uk": {
+      "context_sentence": "«Tochter» — слово для жіночої статі, що відповідає слову «Sohn»."
+    },
+    "tr": {
+      "context_sentence": "“Tochter”, “Sohn” kelimesinin kadınlar için kullanılan karşılığıdır."
+    }
+  },
+  "sitov-existing-78d9e3bb-a257-44f7-849c-0dfc4557e4c5": {
+    "en": {
+      "context_sentence": "“Ärztin” is the feminine counterpart of “Arzt”."
+    },
+    "ru": {
+      "context_sentence": "«Ärztin» — слово для женского пола, соответствующее слову «Arzt»."
+    },
+    "uk": {
+      "context_sentence": "«Ärztin» — слово для жіночої статі, що відповідає слову «Arzt»."
+    },
+    "tr": {
+      "context_sentence": "“Ärztin”, “Arzt” kelimesinin kadınlar için kullanılan karşılığıdır."
+    }
+  },
+  "sitov-existing-1dd53266-155c-467f-8af2-cfab5317c4d6": {
+    "en": {
+      "context_sentence": "“Dame” is a polite German word for a woman."
+    },
+    "ru": {
+      "context_sentence": "«Dame» — вежливое немецкое слово для обозначения женщины."
+    },
+    "uk": {
+      "context_sentence": "«Dame» — ввічливе німецьке слово на позначення жінки."
+    },
+    "tr": {
+      "context_sentence": "“Dame”, kadın anlamındaki kibar bir Almanca kelimedir."
+    }
+  },
+  "sitov-existing-9b2ad594-d4d8-4d46-a600-88109066ff4e": {
+    "en": {
+      "context_sentence": "“Oma” is another German word for “Großmutter”."
+    },
+    "ru": {
+      "context_sentence": "«Oma» — другое немецкое слово для «Großmutter» (бабушка)."
+    },
+    "uk": {
+      "context_sentence": "«Oma» — інше німецьке слово для «Großmutter» (бабуся)."
+    },
+    "tr": {
+      "context_sentence": "“Oma”, “Großmutter” (büyükanne) için kullanılan başka bir kelimedir."
+    }
+  },
+  "sitov-existing-bdf6928a-9041-410e-97ff-3cf1fdcf7a16": {
+    "en": {
+      "context_sentence": "“Mama” is another German word for “Mutter”."
+    },
+    "ru": {
+      "context_sentence": "«Mama» — другое немецкое слово для «Mutter» (мама)."
+    },
+    "uk": {
+      "context_sentence": "«Mama» — інше німецьке слово для «Mutter» (мати)."
+    },
+    "tr": {
+      "context_sentence": "“Mama”, “Mutter” (anne) için kullanılan başka bir kelimedir."
+    }
+  },
+  "sitov-existing-f0f93f58-33e0-485e-a4d7-9a858b58a844": {
+    "en": {
+      "context_sentence": "For a female person we use the German pronoun “sie”."
+    },
+    "ru": {
+      "context_sentence": "Для лица женского пола мы употребляем немецкое местоимение «sie»."
+    },
+    "uk": {
+      "context_sentence": "Для особи жіночої статі ми вживаємо німецький займенник «sie»."
+    },
+    "tr": {
+      "context_sentence": "Bir kadın için Almanca “sie” zamirini kullanırız."
+    }
+  },
+  "sitov-A1.2-L01-V038": {
+    "en": {
+      "translation": "currently; right now"
+    },
+    "ru": {
+      "translation": "сейчас; в данный момент"
+    },
+    "uk": {
+      "translation": "зараз; у цю мить"
+    },
+    "tr": {
+      "translation": "şu anda"
+    }
+  },
+  "sitov-A1.2-L04-V006": {
+    "en": {
+      "translation": "square"
+    },
+    "ru": {
+      "translation": "площадь"
+    },
+    "uk": {
+      "translation": "площа"
+    },
+    "tr": {
+      "translation": "meydan"
+    }
+  },
+  "sitov-A1.2-L06-V034": {
+    "en": {
+      "translation": "take off (clothes)"
+    },
+    "ru": {
+      "translation": "снимать (одежду)"
+    },
+    "uk": {
+      "translation": "знімати одяг"
+    },
+    "tr": {
+      "translation": "çıkarmak"
+    }
+  },
+  "sitov-A1.2-L06-V037": {
+    "en": {
+      "translation": "suit; look good on"
+    },
+    "ru": {
+      "translation": "идти; подходить (об одежде)"
+    },
+    "uk": {
+      "translation": "пасувати"
+    },
+    "tr": {
+      "translation": "yakışmak"
+    }
+  },
+  "sitov-A1.2-L06-V038": {
+    "en": {
+      "translation": "like; be pleasing to"
+    },
+    "ru": {
+      "translation": "нравиться"
+    },
+    "uk": {
+      "translation": "подобатися"
+    },
+    "tr": {
+      "translation": "hoşuna gitmek"
+    }
+  },
+  "sitov-A2.1-L01-V007": {
+    "en": {
+      "translation": "move out"
+    },
+    "ru": {
+      "translation": "выезжать из квартиры"
+    },
+    "uk": {
+      "translation": "виїжджати з квартири"
+    },
+    "tr": {
+      "translation": "evden taşınmak"
+    }
+  },
+  "sitov-A2.1-L02-V004": {
+    "en": {
+      "translation": "ceiling"
+    },
+    "ru": {
+      "translation": "потолок"
+    },
+    "uk": {
+      "translation": "стеля"
+    },
+    "tr": {
+      "translation": "tavan"
+    }
+  },
+  "sitov-A2.1-L06-V059": {
+    "en": {
+      "translation": "history"
+    },
+    "ru": {
+      "translation": "история (предмет)"
+    },
+    "uk": {
+      "translation": "історія (предмет)"
+    },
+    "tr": {
+      "translation": "tarih"
+    }
+  },
+  "sitov-A2.1-L07-V058": {
+    "en": {
+      "translation": "greeting card"
+    },
+    "ru": {
+      "translation": "поздравительная открытка"
+    },
+    "uk": {
+      "translation": "вітальна листівка"
+    },
+    "tr": {
+      "translation": "tebrik kartı"
+    }
+  },
+  "sitov-A2.2-L09-V026": {
+    "en": {
+      "translation": "than"
+    },
+    "ru": {
+      "translation": "чем"
+    },
+    "uk": {
+      "translation": "ніж"
+    },
+    "tr": {
+      "translation": "karşılaştırma sözcüğü"
+    }
+  },
+  "sitov-A2.2-L11-V083": {
+    "en": {
+      "translation": "countryside"
+    },
+    "ru": {
+      "translation": "сельская местность"
+    },
+    "uk": {
+      "translation": "сільська місцевість"
+    },
+    "tr": {
+      "translation": "kırsal bölge"
+    }
+  },
+  "sitov-B1.1-L01-V002": {
+    "en": {
+      "translation": "article (news)"
+    },
+    "ru": {
+      "translation": "статья"
+    },
+    "uk": {
+      "translation": "стаття"
+    },
+    "tr": {
+      "translation": "makale"
+    }
+  },
+  "sitov-B1.1-L03-V040": {
+    "en": {
+      "translation": "lead to"
+    },
+    "ru": {
+      "translation": "приводить к"
+    },
+    "uk": {
+      "translation": "призводити до"
+    },
+    "tr": {
+      "translation": "yol açmak"
+    }
+  },
+  "sitov-B1.2-L14-V028": {
+    "en": {
+      "translation": "dish"
+    },
+    "ru": {
+      "translation": "блюдо"
+    },
+    "uk": {
+      "translation": "страва"
+    },
+    "tr": {
+      "translation": "yemek"
+    }
+  },
+  "sitov-A1.2-L03-V036": {
+    "en": {
+      "translation": "prescription"
+    },
+    "ru": {
+      "translation": "рецепт врача"
+    },
+    "uk": {
+      "translation": "рецепт лікаря"
+    },
+    "tr": {
+      "translation": "reçete"
+    }
+  },
+  "sitov-A1.2-L03-V052": {
+    "en": {
+      "translation": "mild; slight"
+    },
+    "ru": {
+      "translation": "лёгкий; небольшой"
+    },
+    "uk": {
+      "translation": "легкий; невеликий"
+    },
+    "tr": {
+      "translation": "hafif"
+    }
+  },
+  "sitov-A1.2-L04-V023": {
+    "en": {
+      "translation": "ticket machine"
+    },
+    "ru": {
+      "translation": "билетный автомат"
+    },
+    "uk": {
+      "translation": "квитковий автомат"
+    },
+    "tr": {
+      "translation": "bilet makinesi"
+    }
+  },
+  "sitov-A1.2-L06-V042": {
+    "en": {
+      "translation": "loose (clothes)"
+    },
+    "ru": {
+      "translation": "свободный (об одежде)"
+    },
+    "uk": {
+      "translation": "вільний (про одяг)"
+    },
+    "tr": {
+      "translation": "bol (giysi)"
+    }
+  },
+  "sitov-A2.1-L02-V011": {
+    "en": {
+      "translation": "lock"
+    },
+    "ru": {
+      "translation": "замок (устройство)"
+    },
+    "uk": {
+      "translation": "замок (пристрій)"
+    },
+    "tr": {
+      "translation": "kilit"
+    }
+  },
+  "sitov-A2.1-L05-V053": {
+    "en": {
+      "translation": "membership fee"
+    },
+    "ru": {
+      "translation": "членский взнос"
+    },
+    "uk": {
+      "translation": "членський внесок"
+    },
+    "tr": {
+      "translation": "üyelik aidatı"
+    }
+  },
+  "sitov-B1.2-L12-V025": {
+    "en": {
+      "translation": "join"
+    },
+    "ru": {
+      "translation": "вступать"
+    },
+    "uk": {
+      "translation": "вступати"
+    },
+    "tr": {
+      "translation": "katılmak"
+    }
+  }
+}

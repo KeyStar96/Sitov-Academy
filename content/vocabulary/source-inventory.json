@@ -1,0 +1,519 @@
+[
+  {
+    "file": "A1.2/A1_2_App_Lektion_1_Beruf_und_Arbeit.json",
+    "sha256": "16bc967656cf500dbb898674a8561d0719bf8f7f46d29668c16bc39667e1aa02",
+    "bytes": 44664,
+    "level": "A1.2",
+    "included": true,
+    "lessons": [
+      {
+        "source_lesson": 8,
+        "app_lesson": 1,
+        "title": "Beruf und Arbeit",
+        "cards": 110,
+        "chunks": 18
+      }
+    ]
+  },
+  {
+    "file": "A1.2/A1_2_App_Lektion_1_Beruf_und_Arbeit.xlsx",
+    "sha256": "d1c7ea77214d3cb86608f267269ffeb7d13c075c56f2a664130f9fea15705316",
+    "bytes": 10556
+  },
+  {
+    "file": "A1.2/A1_2_App_Lektion_1_README.txt",
+    "sha256": "6cf358ec33f12922482d0dbd8d3a05362b6b4659d576ae5fa6b1d62881ef0521",
+    "bytes": 732
+  },
+  {
+    "file": "A2.1/A2_1_Vokabeltrainer_Master_v2.json",
+    "sha256": "5a44037acc1588def65f9b96a086d071629d8a3af35ff231f444c3661676cad4",
+    "bytes": 292601,
+    "level": "A2.1",
+    "included": true,
+    "lessons": [
+      {
+        "source_lesson": 1,
+        "app_lesson": 1,
+        "title": "Ankommen",
+        "cards": 99,
+        "chunks": 15
+      },
+      {
+        "source_lesson": 2,
+        "app_lesson": 2,
+        "title": "Zu Hause",
+        "cards": 91,
+        "chunks": 16
+      },
+      {
+        "source_lesson": 3,
+        "app_lesson": 3,
+        "title": "Essen und Trinken",
+        "cards": 101,
+        "chunks": 23
+      },
+      {
+        "source_lesson": 4,
+        "app_lesson": 4,
+        "title": "Arbeitswelt",
+        "cards": 100,
+        "chunks": 28
+      },
+      {
+        "source_lesson": 5,
+        "app_lesson": 5,
+        "title": "Sport und Fitness",
+        "cards": 113,
+        "chunks": 29
+      },
+      {
+        "source_lesson": 6,
+        "app_lesson": 6,
+        "title": "Schule und Ausbildung",
+        "cards": 89,
+        "chunks": 26
+      },
+      {
+        "source_lesson": 7,
+        "app_lesson": 7,
+        "title": "Feste und Geschenke",
+        "cards": 85,
+        "chunks": 27
+      }
+    ]
+  },
+  {
+    "file": "A2.1/A2_1_Vokabeltrainer_README_v2.txt",
+    "sha256": "956f2a61274d0e78ef6c99ec35a0e6263a3aa3cd7c9fcc8ee343641a17d0e093",
+    "bytes": 1212
+  },
+  {
+    "file": "A2.1/A2_1_Vokabeltrainer_Uebersicht_v2.xlsx",
+    "sha256": "e4c4b84b0889c1887fafc6b8e91c20ec899f3dc7510e64ddf42fdd09a41403a2",
+    "bytes": 92150
+  },
+  {
+    "file": "A2.2/A2.2_Vokabeltrainer_Lektionen_8-14.json",
+    "sha256": "d122dedb54b2f0ab44bdfea7d89edafee5ee4b6a9b8bcab1236f61b5db32ffcb",
+    "bytes": 126896,
+    "level": "A2.2",
+    "included": true,
+    "lessons": [
+      {
+        "source_lesson": 8,
+        "app_lesson": 1,
+        "title": "Am Wochenende",
+        "cards": 56,
+        "chunks": 8
+      },
+      {
+        "source_lesson": 9,
+        "app_lesson": 2,
+        "title": "Meine Sachen",
+        "cards": 52,
+        "chunks": 6
+      },
+      {
+        "source_lesson": 10,
+        "app_lesson": 3,
+        "title": "Kommunikation",
+        "cards": 69,
+        "chunks": 7
+      },
+      {
+        "source_lesson": 11,
+        "app_lesson": 4,
+        "title": "Unterwegs",
+        "cards": 90,
+        "chunks": 5
+      },
+      {
+        "source_lesson": 12,
+        "app_lesson": 5,
+        "title": "Reisen",
+        "cards": 76,
+        "chunks": 7
+      },
+      {
+        "source_lesson": 13,
+        "app_lesson": 6,
+        "title": "Auf der Bank",
+        "cards": 49,
+        "chunks": 5
+      },
+      {
+        "source_lesson": 14,
+        "app_lesson": 7,
+        "title": "Lebensstationen",
+        "cards": 39,
+        "chunks": 5
+      }
+    ]
+  },
+  {
+    "file": "A2.2/A2.2_Vokabeltrainer_Lektionen_8-14.xlsx",
+    "sha256": "1241858c8786ab6aa48fd92c28376305e6d3ccded38c7d5815e392f397df3761",
+    "bytes": 27614
+  },
+  {
+    "file": "A2.2/A2.2_Vokabeltrainer_README.txt",
+    "sha256": "cf12b9a707ce0e7b1732ae77876292fabb63b4f816b90467cf6d5a98d5cfff4f",
+    "bytes": 923
+  },
+  {
+    "file": "B1.1/B1.1_Vokabeltrainer_Lektionen_1-7.json",
+    "sha256": "ffa3f9cf477a261fde03bb31132f970f5ad222f8168b0b0e955a8b079ffd9e1f",
+    "bytes": 152567,
+    "level": "B1.1",
+    "included": true,
+    "lessons": [
+      {
+        "source_lesson": 1,
+        "app_lesson": 1,
+        "title": "Glück im Alltag",
+        "cards": 76,
+        "chunks": 8
+      },
+      {
+        "source_lesson": 2,
+        "app_lesson": 2,
+        "title": "Unterhaltung",
+        "cards": 70,
+        "chunks": 7
+      },
+      {
+        "source_lesson": 3,
+        "app_lesson": 3,
+        "title": "Gesund bleiben",
+        "cards": 81,
+        "chunks": 8
+      },
+      {
+        "source_lesson": 4,
+        "app_lesson": 4,
+        "title": "Sprachen",
+        "cards": 72,
+        "chunks": 8
+      },
+      {
+        "source_lesson": 5,
+        "app_lesson": 5,
+        "title": "Eine Arbeit finden",
+        "cards": 61,
+        "chunks": 8
+      },
+      {
+        "source_lesson": 6,
+        "app_lesson": 6,
+        "title": "Dienstleistung",
+        "cards": 73,
+        "chunks": 10
+      },
+      {
+        "source_lesson": 7,
+        "app_lesson": 7,
+        "title": "Rund ums Wohnen",
+        "cards": 81,
+        "chunks": 8
+      }
+    ]
+  },
+  {
+    "file": "B1.1/B1.1_Vokabeltrainer_Lektionen_1-7.xlsx",
+    "sha256": "5cab4cce9445934c3f60a0b6f2326d71be11ec37a1f3e0689895077bfb5fa2d5",
+    "bytes": 35590
+  },
+  {
+    "file": "B1.1/README_B1.1_Vokabeltrainer.txt",
+    "sha256": "339661be82192b0bef61bee37a35ae016ecdb68116ca9011f2dbc963fbeb2d26",
+    "bytes": 986
+  },
+  {
+    "file": "B1.2/B1.2_Lektionen_1-7.json",
+    "sha256": "50708cb7297aa4caf15b5a41b289f2d77db98ae457766997a6cff0a5dc9bfce6",
+    "bytes": 49061,
+    "level": "B1.2",
+    "included": true,
+    "lessons": [
+      {
+        "source_lesson": 8,
+        "app_lesson": 1,
+        "title": "Unter Kollegen",
+        "cards": 51,
+        "chunks": 8
+      },
+      {
+        "source_lesson": 9,
+        "app_lesson": 2,
+        "title": "Virtuelle Welt",
+        "cards": 57,
+        "chunks": 8
+      },
+      {
+        "source_lesson": 10,
+        "app_lesson": 3,
+        "title": "Werbung und Konsum",
+        "cards": 68,
+        "chunks": 10
+      },
+      {
+        "source_lesson": 11,
+        "app_lesson": 4,
+        "title": "Miteinander",
+        "cards": 68,
+        "chunks": 11
+      },
+      {
+        "source_lesson": 12,
+        "app_lesson": 5,
+        "title": "Soziales Engagement",
+        "cards": 63,
+        "chunks": 10
+      },
+      {
+        "source_lesson": 13,
+        "app_lesson": 6,
+        "title": "Aus Politik und Geschichte",
+        "cards": 51,
+        "chunks": 13
+      },
+      {
+        "source_lesson": 14,
+        "app_lesson": 7,
+        "title": "Alte und neue Heimat",
+        "cards": 44,
+        "chunks": 12
+      }
+    ]
+  },
+  {
+    "file": "B1.2/B1.2_Lektionen_1-7_Vokabeltrainer.xlsx",
+    "sha256": "3484910405901f424a81d3e987f8e2f9f2f6c7613a67c2b6fc0aaff022f2331d",
+    "bytes": 67166
+  },
+  {
+    "file": "B2.1/B2_1_Vokabeltrainer.xlsx",
+    "sha256": "49dc2aac070aec879d4755f9b721d84101931b3fa8e6841e5c7f7d328d452802",
+    "bytes": 13910
+  },
+  {
+    "file": "B2.1/B2_1_Vokabeltrainer_Import_v1.json",
+    "sha256": "08c9aa9a66f654ae1a9a12933bd7b2d5ef05358c51f41324581165b876bc8542",
+    "bytes": 59404,
+    "level": "B2.1",
+    "included": false,
+    "lessons": [
+      {
+        "source_lesson": 1,
+        "app_lesson": 1,
+        "title": "Freunde",
+        "cards": 22,
+        "chunks": 0
+      },
+      {
+        "source_lesson": 2,
+        "app_lesson": 2,
+        "title": "Arbeitswelt",
+        "cards": 22,
+        "chunks": 0
+      },
+      {
+        "source_lesson": 3,
+        "app_lesson": 3,
+        "title": "Medien",
+        "cards": 20,
+        "chunks": 0
+      },
+      {
+        "source_lesson": 4,
+        "app_lesson": 4,
+        "title": "Nach der Schule",
+        "cards": 18,
+        "chunks": 0
+      },
+      {
+        "source_lesson": 5,
+        "app_lesson": 5,
+        "title": "Körperbewusstsein",
+        "cards": 18,
+        "chunks": 0
+      },
+      {
+        "source_lesson": 6,
+        "app_lesson": 6,
+        "title": "Städte erleben",
+        "cards": 19,
+        "chunks": 0
+      }
+    ]
+  },
+  {
+    "file": "B2.2/B2_2_Vokabeltrainer.xlsx",
+    "sha256": "1a835970ef60384f00aad1d1aeab4a62601e01067d7a4467e853844d20a6f94f",
+    "bytes": 14113
+  },
+  {
+    "file": "B2.2/B2_2_Vokabeltrainer_Import_v1.json",
+    "sha256": "ed0bb38e07a64a77a223616247345d3eab418c143c9107ecc8fceb377059da1c",
+    "bytes": 60532,
+    "level": "B2.2",
+    "included": false,
+    "lessons": [
+      {
+        "source_lesson": 1,
+        "app_lesson": 1,
+        "title": "Beziehungen",
+        "cards": 20,
+        "chunks": 0
+      },
+      {
+        "source_lesson": 2,
+        "app_lesson": 2,
+        "title": "Ernährung",
+        "cards": 20,
+        "chunks": 0
+      },
+      {
+        "source_lesson": 3,
+        "app_lesson": 3,
+        "title": "An der Uni",
+        "cards": 20,
+        "chunks": 0
+      },
+      {
+        "source_lesson": 4,
+        "app_lesson": 4,
+        "title": "Service",
+        "cards": 20,
+        "chunks": 0
+      },
+      {
+        "source_lesson": 5,
+        "app_lesson": 5,
+        "title": "Gesundheit",
+        "cards": 20,
+        "chunks": 0
+      },
+      {
+        "source_lesson": 6,
+        "app_lesson": 6,
+        "title": "Sprache und Regionen",
+        "cards": 20,
+        "chunks": 0
+      }
+    ]
+  },
+  {
+    "file": "C1_1/C1_1_Vokabeltrainer.xlsx",
+    "sha256": "a6541e1e14c6d3a63eb607196e0b1ba380d07ac1423b126c637b4ff02df60a97",
+    "bytes": 14454
+  },
+  {
+    "file": "C1_1/C1_1_Vokabeltrainer_Import_v1.json",
+    "sha256": "ad5c3aa86bd371fccc38ce4a7a99caaa3d588bfcef6f9bc22283239ef4258496",
+    "bytes": 60983,
+    "level": "C1.1",
+    "included": false,
+    "lessons": [
+      {
+        "source_lesson": 1,
+        "app_lesson": 1,
+        "title": "Digitaler Wandel",
+        "cards": 20,
+        "chunks": 0
+      },
+      {
+        "source_lesson": 2,
+        "app_lesson": 2,
+        "title": "Tourismus",
+        "cards": 20,
+        "chunks": 0
+      },
+      {
+        "source_lesson": 3,
+        "app_lesson": 3,
+        "title": "Intelligenz und Wissen",
+        "cards": 20,
+        "chunks": 0
+      },
+      {
+        "source_lesson": 4,
+        "app_lesson": 4,
+        "title": "Meine Arbeitsstelle",
+        "cards": 20,
+        "chunks": 0
+      },
+      {
+        "source_lesson": 5,
+        "app_lesson": 5,
+        "title": "Kunst",
+        "cards": 20,
+        "chunks": 0
+      },
+      {
+        "source_lesson": 6,
+        "app_lesson": 6,
+        "title": "Studium",
+        "cards": 20,
+        "chunks": 0
+      }
+    ]
+  },
+  {
+    "file": "C1_2/C1_2_Vokabeltrainer.xlsx",
+    "sha256": "995525dad4c83f22ce0ccc4e605c9fa51109cf33e610d113baeffd34043adda5",
+    "bytes": 14594
+  },
+  {
+    "file": "C1_2/C1_2_Vokabeltrainer_Import_v1.json",
+    "sha256": "336e402f58b8edf3cc6619af0ee05dd2aa90bcc17a92ee9fd748a9cf8f7e6d65",
+    "bytes": 61202,
+    "level": "C1.2",
+    "included": false,
+    "lessons": [
+      {
+        "source_lesson": 1,
+        "app_lesson": 1,
+        "title": "Finanzen",
+        "cards": 20,
+        "chunks": 0
+      },
+      {
+        "source_lesson": 2,
+        "app_lesson": 2,
+        "title": "Psychologie",
+        "cards": 20,
+        "chunks": 0
+      },
+      {
+        "source_lesson": 3,
+        "app_lesson": 3,
+        "title": "Stadt und Dorf",
+        "cards": 20,
+        "chunks": 0
+      },
+      {
+        "source_lesson": 4,
+        "app_lesson": 4,
+        "title": "Literatur",
+        "cards": 20,
+        "chunks": 0
+      },
+      {
+        "source_lesson": 5,
+        "app_lesson": 5,
+        "title": "Internationale Geschäftskontakte",
+        "cards": 20,
+        "chunks": 0
+      },
+      {
+        "source_lesson": 6,
+        "app_lesson": 6,
+        "title": "Forschung und Technik",
+        "cards": 20,
+        "chunks": 0
+      }
+    ]
+  }
+]

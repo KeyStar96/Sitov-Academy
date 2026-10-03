@@ -25,7 +25,7 @@ const cardSchema = z.object({
     if (!card.translations[locale].chunk_translation) ctx.addIssue({ code: 'custom', path: ['translations', locale, 'chunk_translation'], message: 'Embedded chunk translation required.' })
   }
   for (const [path, value] of [[['word_de'], card.word_de], [['chunk_de'], card.chunk_de], [['translations', 'de', 'context_sentence'], card.translations.de.context_sentence]]) {
-    if (value && /[\u0400-\u052f\u1c80-\u1c8f\u1d2b\u1d78\u2de0-\u2dff\ua640-\ua69fığşİĞŞ]/u.test(value)) ctx.addIssue({ code: 'custom', path, message: 'German text required.' })
+    if (value && /[\u0400-\u052f\u1c80-\u1c8f\u1d2b\u1d78\u2de0-\u2dff\ua640-\ua69f\u{1e030}-\u{1e08f}ığşİĞŞ]/u.test(value)) ctx.addIssue({ code: 'custom', path, message: 'German text required.' })
   }
 })
 export const vocabularySeedSchema = z.object({ version: z.literal(1), units: z.array(z.object({

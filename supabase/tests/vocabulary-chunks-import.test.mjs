@@ -186,6 +186,46 @@ test('word/chunk imports enforce audio, retain identity/progress and use existin
       assert.equal((await call(db, stale)).error, 'invalid_vocabulary_seed')
       assert.deepEqual(await contents(db), stableBefore, 'stale baseline rejects the whole batch atomically')
     })
+    await t.test('a long historical noun still needs its article while retaining normalized forms and noun typo tolerance', async () => {
+      const legacyId = id(940)
+      const oldContext = 'Die Empfangsmitarbeiterin vereinbart einen Termin.'
+      const newContext = 'Der Empfangsmitarbeiter vereinbart einen Termin.'
+      await db.exec('RESET ROLE')
+      await db.query("INSERT INTO learning_vocabulary_cards(id,unit_id,word_de,article,plural) VALUES($1,$2,'Empfangsmitarbeiterin','die','Empfangsmitarbeiterinnen')", [legacyId, vocabularyUnit])
+      for (const locale of ['de', 'en', 'ru', 'uk', 'tr']) await db.query('INSERT INTO vocabulary_translations(card_id,locale,translation,context_sentence) VALUES($1,$2,$3,$4)', [legacyId, locale, locale === 'de' ? null : 'legacy translation', locale === 'de' ? oldContext : 'legacy context'])
+      await actor(db, student)
+      await result(db, 'SELECT initialize_vocabulary_cards($1) result', [JSON.stringify([{ cardId: legacyId, alreadyKnown: false }])])
+      const progressId = (await db.query("SELECT id FROM vocabulary_direction_progress WHERE card_id=$1 AND direction='native_to_de'", [legacyId])).rows[0].id
+      const first = await result(db, 'SELECT submit_vocabulary_answer($1,$2,$3,$4) result', [progressId, false, 'Empfangsmitarbeiterin', 'ru'])
+      assert.equal(first.isCorrect, false, JSON.stringify(first))
+      assert.equal(first.feedback, 'article_missing')
+      const before = await contents(db)
+      const revised = card(940, { word_de: 'Empfangsmitarbeiter', article: 'der', plural: 'Empfangsmitarbeiter', chunk_de: null,
+        legacy_revision: { word_de: 'Empfangsmitarbeiterin', article: 'die', context_sentence_de: oldContext },
+        translations: { ...wordCard.translations, de: { context_sentence: newContext } } })
+      for (const text of ['der Empfangsmitarbeiter', newContext]) await put(db, text)
+      assert.equal((await call(db, seed([unit([revised])]))).card_count, 1)
+      assert.deepEqual((await contents(db)).progress, before.progress)
+      // Make the revised card due again and clear spacing as on its next review.
+      // Exercise the scored RPC as well as the non-mutating retry below.
+      await db.query("UPDATE vocabulary_direction_progress SET next_review_date=now()-interval '1 minute' WHERE id=$1", [progressId])
+      await db.query('UPDATE vocabulary_learning_state SET last_card_id=NULL WHERE auth_user_id=$1', [student])
+      await actor(db, student)
+      const nextAttempt = await result(db, 'SELECT submit_vocabulary_answer($1,$2,$3,$4) result', [progressId, false, 'Empfangsmitarbeiterin', 'ru'])
+      assert.equal(nextAttempt.success, true, JSON.stringify(nextAttempt))
+      assert.equal(nextAttempt.isCorrect, false, 'a scored attempt after the revision still rejects the missing historical article')
+      await actor(db, student)
+      const check = answer => result(db, 'SELECT check_vocabulary_retry($1,$2,$3) result', [progressId, answer, 'ru'])
+      for (const answer of ['Empfangsmitarbeiterin', 'Empfangsmitarbeiterinnen', 'der Empfangsmitarbeiterin', 'das Empfangsmitarbeiterin']) {
+        const response = await check(answer)
+        assert.equal(response.success, true, JSON.stringify(response))
+        assert.equal(response.isCorrect, false, answer)
+      }
+      for (const answer of ['die Empfangsmitarbeiterin', 'DIE EMPFANGSMITARBEITERIN!', 'die Empfangsmitarbeiterinnen', 'der Empfangsmitarbeiter']) assert.equal((await check(answer)).isCorrect, true, answer)
+      const typo = await check('die Empfangsmitarbeitterin')
+      assert.equal(typo.isCorrect, true, JSON.stringify(typo))
+      assert.equal(typo.softError, 'typo', 'a noun typo remains tolerated only with its exact historical article')
+    })
     await t.test('drafts are private to staff and cannot bypass an existing active target', async () => {
       const draft = seed([unit([card(910, { word_de: 'Entwurf', chunk_de: null })], { id: id(911), label: 'Neuer Entwurf' })])
       const saved = await call(db, draft, false)

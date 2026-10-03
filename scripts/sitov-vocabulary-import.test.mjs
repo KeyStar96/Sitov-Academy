@@ -51,6 +51,19 @@ test('seed validation keeps one word card per teacher object and extracts every 
   delete revision.units[0].cards[0].legacy_revision.context_sentence_de
   assert.equal(vocabularySeedSchema.safeParse(revision).success, false, 'guarded revisions require every exact baseline field')
 })
+test('German audio fields reject every Cyrillic block including supplementary modifiers', () => {
+  for (const codePoint of [0x400, 0x52f, 0x1c80, 0x1d2b, 0x1d78, 0x2de0, 0xa640, 0x1e030, 0x1e08f]) {
+    for (const field of ['word_de', 'chunk_de', 'context_sentence']) {
+      const raw = fixture(), card = raw.units[0].cards[0]
+      if (field === 'context_sentence') card.translations.de.context_sentence += String.fromCodePoint(codePoint)
+      else card[field] += String.fromCodePoint(codePoint)
+      assert.equal(vocabularySeedSchema.safeParse(raw).success, false, `${field} U+${codePoint.toString(16)}`)
+    }
+  }
+  const translated = fixture()
+  translated.units[0].cards[0].translations.ru.translation = 'приём'
+  assert.equal(vocabularySeedSchema.safeParse(translated).success, true, 'native Cyrillic translation remains allowed')
+})
 test('import options and origins exclude accidental publication or remote secret requests', () => {
   for (const args of [[], ['seed.json', '--publish'], ['seed.json', '--import'], ['seed.json', '--backup-dir', '/tmp'], ['seed.json', '--import', '--import']]) assert.throws(() => parseArguments(args))
   for (const origin of ['https://example.com', 'http://localhost/path', 'http://user:pass@localhost', 'http://127.0.0.1/?key=secret']) assert.throws(() => localEndpoint(origin))

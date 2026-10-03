@@ -1,0 +1,86 @@
+{
+  "embedded": {
+    "buchstabieren": "den Namen buchstabieren",
+    "Anmeldeformular": "ein Anmeldeformular ausfüllen",
+    "Hausnummer": "die Hausnummer angeben",
+    "Straße": "in einer Straße wohnen",
+    "Buchstabe": "einen Buchstaben schreiben",
+    "E-Mail": "eine E-Mail schreiben",
+    "Vorname": "den Vornamen sagen",
+    "Familienname": "den Familiennamen buchstabieren",
+    "Deutsch": "Deutsch lernen",
+    "sprechen": "Deutsch sprechen",
+    "Stadt": "in einer Stadt wohnen",
+    "heißen": "Paul heißen",
+    "Telefonnummer": "die Telefonnummer sagen",
+    "Adresse": "die Adresse angeben",
+    "lernen": "jeden Tag lernen",
+    "verstehen": "eine Frage verstehen",
+    "Pause": "eine Pause machen",
+    "wohnen": "in Berlin wohnen",
+    "Familie": "eine große Familie haben",
+    "kaufen": "Brot kaufen",
+    "Apfel": "einen Apfel essen",
+    "Kaffee": "einen Kaffee bestellen",
+    "helfen": "jemandem helfen",
+    "brauchen": "eine Flasche Wasser brauchen",
+    "einkaufen": "im Supermarkt einkaufen",
+    "kosten": "fünf Euro kosten",
+    "Brot": "ein Brot kaufen",
+    "Wohnung": "eine Wohnung suchen",
+    "Balkon": "auf dem Balkon sitzen",
+    "Tisch": "am Tisch sitzen",
+    "Küche": "in der Küche kochen",
+    "Zimmer": "ein Zimmer mieten",
+    "Schrank": "einen Schrank kaufen",
+    "anfangen": "um acht Uhr anfangen",
+    "besuchen": "einen Freund besuchen",
+    "spazieren gehen": "im Park spazieren gehen",
+    "arbeiten": "im Büro arbeiten",
+    "kochen": "das Abendessen kochen",
+    "frühstücken": "um sieben Uhr frühstücken",
+    "Freizeit": "in der Freizeit lesen",
+    "schwimmen": "im See schwimmen",
+    "wandern": "in den Bergen wandern",
+    "tanzen": "gern tanzen",
+    "grillen": "im Garten grillen",
+    "telefonieren": "mit einem Freund telefonieren",
+    "Ausflug": "einen Ausflug machen",
+    "Fahrrad": "mit dem Fahrrad fahren",
+    "Fehler": "einen Fehler verbessern",
+    "Prüfung": "eine Prüfung machen",
+    "Unterricht": "zum Unterricht kommen",
+    "pünktlich": "pünktlich kommen",
+    "krank": "krank sein"
+  },
+  "standalone": {
+    "1": [
+      ["Können Sie bitte langsamer sprechen?", "Entschuldigung, können Sie bitte langsamer sprechen?"],
+      ["Wie schreibt man das?", "Mein Name ist Paul. Wie schreibt man das?"]
+    ],
+    "2": [
+      ["Wir wohnen zusammen.", "Mein Bruder und ich wohnen zusammen."],
+      ["Ich bin der jüngste Sohn.", "Ich habe zwei Brüder. Ich bin der jüngste Sohn."]
+    ],
+    "3": [
+      ["Kann ich mit Karte bezahlen?", "Das Brot kostet drei Euro. Kann ich mit Karte bezahlen?"],
+      ["Ich nehme zwei Stück.", "Die Äpfel sehen gut aus. Ich nehme zwei Stück."]
+    ],
+    "4": [
+      ["Wo steht der Schrank?", "Wo steht der Schrank? Er steht im Schlafzimmer."],
+      ["Ich suche eine kleine Wohnung.", "Ich wohne allein und suche eine kleine Wohnung."]
+    ],
+    "5": [
+      ["Wann hast du Zeit?", "Ich möchte mit dir ins Kino gehen. Wann hast du Zeit?"],
+      ["Ich komme um acht Uhr.", "Der Kurs beginnt um acht Uhr. Ich komme um acht Uhr."]
+    ],
+    "6": [
+      ["Kommst du mit?", "Wir gehen morgen wandern. Kommst du mit?"],
+      ["Das klingt gut.", "Wir machen ein Picknick. Das klingt gut."]
+    ],
+    "7": [
+      ["Kannst du mir das zeigen?", "Ich verstehe die Aufgabe nicht. Kannst du mir das zeigen?"],
+      ["Ich möchte noch einmal üben.", "Die Wörter sind neu. Ich möchte noch einmal üben."]
+    ]
+  }
+}

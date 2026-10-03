@@ -1,0 +1,2395 @@
+{
+  "sitov-A1.2-L01-V019": {
+    "ru": {
+      "translation": "ученик"
+    }
+  },
+  "sitov-A1.2-L01-V021": {
+    "ru": {
+      "translation": "учиться в вузе"
+    }
+  },
+  "sitov-A1.2-L01-V029": {
+    "ru": {
+      "translation": "длиться"
+    }
+  },
+  "sitov-A1.2-L01-V030": {
+    "ru": {
+      "chunk_translation": "уже год"
+    }
+  },
+  "sitov-A1.2-L01-V035": {
+    "ru": {
+      "chunk_translation": "работать в компании; принадлежать компании"
+    }
+  },
+  "sitov-A1.2-L01-V040": {
+    "ru": {
+      "chunk_translation": "дополнительная информация"
+    }
+  },
+  "sitov-A1.2-L01-V050": {
+    "ru": {
+      "chunk_translation": "испытывать сильный стресс"
+    }
+  },
+  "sitov-A1.2-L01-V057": {
+    "ru": {
+      "translation": "мало",
+      "chunk_translation": "иметь мало работы"
+    }
+  },
+  "sitov-A1.2-L01-V059": {
+    "ru": {
+      "translation": "зарубежье"
+    }
+  },
+  "sitov-A1.2-L01-V067": {
+    "ru": {
+      "translation": "срочный; ограниченный сроком"
+    }
+  },
+  "sitov-A1.2-L01-V072": {
+    "ru": {
+      "translation": "до полудня"
+    }
+  },
+  "sitov-A1.2-L01-V073": {
+    "ru": {
+      "translation": "после полудня"
+    }
+  },
+  "sitov-A1.2-L01-V075": {
+    "ru": {
+      "translation": "по понедельникам"
+    }
+  },
+  "sitov-A1.2-L01-V076": {
+    "ru": {
+      "translation": "по четвергам"
+    }
+  },
+  "sitov-A1.2-L01-V078": {
+    "ru": {
+      "translation": "временный работник"
+    }
+  },
+  "sitov-A1.2-L01-V079": {
+    "ru": {
+      "translation": "срочно"
+    }
+  },
+  "sitov-A1.2-L01-V081": {
+    "ru": {
+      "translation": "по вечерам"
+    }
+  },
+  "sitov-A1.2-L01-V082": {
+    "ru": {
+      "translation": "по вторникам"
+    }
+  },
+  "sitov-A1.2-L01-V083": {
+    "ru": {
+      "translation": "по средам"
+    }
+  },
+  "sitov-A1.2-L01-V084": {
+    "ru": {
+      "translation": "по пятницам"
+    }
+  },
+  "sitov-A1.2-L01-V085": {
+    "ru": {
+      "translation": "по воскресеньям"
+    }
+  },
+  "sitov-A1.2-L01-V088": {
+    "ru": {
+      "chunk_translation": "десять евро в час"
+    }
+  },
+  "sitov-A1.2-L01-V090": {
+    "ru": {
+      "chunk_translation": "иметь выходной; быть свободным от работы",
+      "translation": "свободный"
+    }
+  },
+  "sitov-A1.2-L01-V092": {
+    "ru": {
+      "translation": "по субботам"
+    }
+  },
+  "sitov-A1.2-L01-C002": {
+    "ru": {
+      "translation": "По профессии я медбрат.",
+      "context_sentence": "По профессии я медбрат."
+    }
+  },
+  "sitov-A1.2-L01-C010": {
+    "ru": {
+      "translation": "уже год"
+    }
+  },
+  "sitov-A1.2-L02-V002": {
+    "ru": {
+      "translation": "государственный орган; ведомство"
+    }
+  },
+  "sitov-A1.2-L02-V003": {
+    "ru": {
+      "translation": "центр обслуживания граждан"
+    }
+  },
+  "sitov-A1.2-L02-V005": {
+    "ru": {
+      "translation": "окно обслуживания"
+    }
+  },
+  "sitov-A1.2-L02-V009": {
+    "ru": {
+      "translation": "бланк"
+    }
+  },
+  "sitov-A1.2-L02-V017": {
+    "ru": {
+      "translation": "справка"
+    }
+  },
+  "sitov-A1.2-L02-V025": {
+    "ru": {
+      "translation": "гражданство"
+    }
+  },
+  "sitov-A1.2-L02-V027": {
+    "ru": {
+      "translation": "запись на приём; назначенное время"
+    }
+  },
+  "sitov-A1.2-L02-V030": {
+    "ru": {
+      "translation": "помещение; кабинет"
+    }
+  },
+  "sitov-A1.2-L02-V032": {
+    "ru": {
+      "translation": "подавать заявление"
+    }
+  },
+  "sitov-A1.2-L02-V034": {
+    "ru": {
+      "translation": "подписывать"
+    }
+  },
+  "sitov-A1.2-L02-V041": {
+    "ru": {
+      "translation": "ждать"
+    }
+  },
+  "sitov-A1.2-L02-V042": {
+    "ru": {
+      "translation": "должен; быть обязанным"
+    }
+  },
+  "sitov-A1.2-L02-V043": {
+    "ru": {
+      "translation": "иметь разрешение; мочь"
+    }
+  },
+  "sitov-A1.2-L02-V050": {
+    "ru": {
+      "translation": "полный"
+    }
+  },
+  "sitov-A1.2-L02-V051": {
+    "ru": {
+      "translation": "отсутствующий"
+    }
+  },
+  "sitov-A1.2-L03-V018": {
+    "ru": {
+      "translation": "ступня"
+    }
+  },
+  "sitov-A1.2-L03-V025": {
+    "ru": {
+      "translation": "простуда"
+    }
+  },
+  "sitov-A1.2-L03-V029": {
+    "ru": {
+      "translation": "врачебный кабинет"
+    }
+  },
+  "sitov-A1.2-L03-V033": {
+    "ru": {
+      "translation": "таблетка"
+    }
+  },
+  "sitov-A1.2-L03-V039": {
+    "ru": {
+      "translation": "болеть; причинять боль"
+    }
+  },
+  "sitov-A1.2-L03-V040": {
+    "ru": {
+      "translation": "кашлять"
+    }
+  },
+  "sitov-A1.2-L03-V042": {
+    "ru": {
+      "translation": "измерять"
+    }
+  },
+  "sitov-A1.2-L03-V050": {
+    "ru": {
+      "translation": "усталый"
+    }
+  },
+  "sitov-A1.2-L03-V053": {
+    "ru": {
+      "translation": "осторожный; осторожно"
+    }
+  },
+  "sitov-A1.2-L03-C004": {
+    "ru": {
+      "translation": "Как давно у вас это?"
+    }
+  },
+  "sitov-A1.2-L03-C005": {
+    "ru": {
+      "translation": "Мне нужно записаться на приём."
+    }
+  },
+  "sitov-A1.2-L04-V004": {
+    "ru": {
+      "translation": "перекрёсток"
+    }
+  },
+  "sitov-A1.2-L04-V013": {
+    "ru": {
+      "translation": "железнодорожный путь"
+    }
+  },
+  "sitov-A1.2-L04-V038": {
+    "ru": {
+      "translation": "переходить; пересекать"
+    }
+  },
+  "sitov-A1.2-L04-V039": {
+    "ru": {
+      "translation": "парковаться"
+    }
+  },
+  "sitov-A1.2-L04-V041": {
+    "ru": {
+      "translation": "искать"
+    }
+  },
+  "sitov-A1.2-L04-V042": {
+    "ru": {
+      "translation": "налево; слева"
+    }
+  },
+  "sitov-A1.2-L04-V043": {
+    "ru": {
+      "translation": "направо; справа"
+    }
+  },
+  "sitov-A1.2-L04-V045": {
+    "ru": {
+      "translation": "перед"
+    }
+  },
+  "sitov-A1.2-L04-V051": {
+    "ru": {
+      "translation": "близко"
+    }
+  },
+  "sitov-A1.2-L05-V015": {
+    "ru": {
+      "translation": "аккумулятор"
+    }
+  },
+  "sitov-A1.2-L05-V028": {
+    "ru": {
+      "translation": "заказ"
+    }
+  },
+  "sitov-A1.2-L05-V030": {
+    "ru": {
+      "translation": "посылка"
+    }
+  },
+  "sitov-A1.2-L05-V031": {
+    "ru": {
+      "translation": "назначенное время; встреча"
+    }
+  },
+  "sitov-A1.2-L05-V038": {
+    "ru": {
+      "translation": "работать; функционировать"
+    }
+  },
+  "sitov-A1.2-L05-V039": {
+    "ru": {
+      "translation": "ремонтировать"
+    }
+  },
+  "sitov-A1.2-L05-V040": {
+    "ru": {
+      "translation": "менять"
+    }
+  },
+  "sitov-A1.2-L05-V042": {
+    "ru": {
+      "translation": "возвращать"
+    }
+  },
+  "sitov-A1.2-L05-V045": {
+    "ru": {
+      "translation": "договариваться; согласовывать"
+    }
+  },
+  "sitov-A1.2-L05-V050": {
+    "ru": {
+      "translation": "бывший в употреблении"
+    }
+  },
+  "sitov-A1.2-L05-C004": {
+    "ru": {
+      "translation": "Когда вы сможете прийти?"
+    }
+  },
+  "sitov-A1.2-L06-V013": {
+    "ru": {
+      "translation": "ботинок; туфля"
+    }
+  },
+  "sitov-A1.2-L06-V014": {
+    "ru": {
+      "translation": "сапог"
+    }
+  },
+  "sitov-A1.2-L06-V017": {
+    "ru": {
+      "translation": "шапка"
+    }
+  },
+  "sitov-A1.2-L06-V026": {
+    "ru": {
+      "translation": "касса"
+    }
+  },
+  "sitov-A1.2-L06-V027": {
+    "ru": {
+      "translation": "примерочная"
+    }
+  },
+  "sitov-A1.2-L06-V034": {
+    "ru": {
+      "chunk_translation": "снимать обувь",
+      "translation": "снимать одежду"
+    }
+  },
+  "sitov-A1.2-L06-V036": {
+    "ru": {
+      "chunk_translation": "хорошо подходить по размеру",
+      "translation": "подходить по размеру"
+    }
+  },
+  "sitov-A1.2-L06-V037": {
+    "ru": {
+      "translation": "идти; быть к лицу"
+    }
+  },
+  "sitov-A1.2-L06-V040": {
+    "ru": {
+      "translation": "стоить"
+    }
+  },
+  "sitov-A1.2-L06-V042": {
+    "ru": {
+      "translation": "широкий; просторный"
+    }
+  },
+  "sitov-A1.2-L06-C004": {
+    "ru": {
+      "translation": "Это мне хорошо подходит по размеру."
+    }
+  },
+  "sitov-A1.2-L07-V003": {
+    "ru": {
+      "translation": "празднование дня рождения"
+    }
+  },
+  "sitov-A1.2-L07-V007": {
+    "ru": {
+      "translation": "хозяин; организатор праздника"
+    }
+  },
+  "sitov-A1.2-L07-V045": {
+    "ru": {
+      "translation": "дарить"
+    }
+  },
+  "sitov-A1.2-L07-C005": {
+    "ru": {
+      "translation": "Я с удовольствием приду."
+    }
+  },
+  "sitov-A2.1-L01-V004": {
+    "ru": {
+      "translation": "переезжать"
+    }
+  },
+  "sitov-A2.1-L01-V010": {
+    "ru": {
+      "translation": "воспоминание"
+    }
+  },
+  "sitov-A2.1-L01-V015": {
+    "ru": {
+      "translation": "переживать; испытывать"
+    }
+  },
+  "sitov-A2.1-L01-V016": {
+    "ru": {
+      "translation": "поломка; неприятность"
+    }
+  },
+  "sitov-A2.1-L01-V020": {
+    "ru": {
+      "translation": "сначала"
+    }
+  },
+  "sitov-A2.1-L01-V043": {
+    "ru": {
+      "translation": "зарубежье"
+    }
+  },
+  "sitov-A2.1-L01-V052": {
+    "ru": {
+      "translation": "радоваться"
+    }
+  },
+  "sitov-A2.1-L01-V053": {
+    "ru": {
+      "translation": "отсутствовать; не хватать"
+    }
+  },
+  "sitov-A2.1-L01-V054": {
+    "ru": {
+      "translation": "скучать по"
+    }
+  },
+  "sitov-A2.1-L01-V066": {
+    "ru": {
+      "translation": "означать"
+    }
+  },
+  "sitov-A2.1-L01-V068": {
+    "ru": {
+      "translation": "забывать"
+    }
+  },
+  "sitov-A2.1-L01-V070": {
+    "ru": {
+      "translation": "работать; функционировать"
+    }
+  },
+  "sitov-A2.1-L01-V071": {
+    "ru": {
+      "translation": "изменяться"
+    }
+  },
+  "sitov-A2.1-L01-V074": {
+    "ru": {
+      "chunk_translation": "потому что я …"
+    }
+  },
+  "sitov-A2.1-L01-V083": {
+    "ru": {
+      "translation": "только; лишь"
+    }
+  },
+  "sitov-A2.1-L02-V003": {
+    "ru": {
+      "translation": "менять"
+    }
+  },
+  "sitov-A2.1-L02-V006": {
+    "ru": {
+      "chunk_translation": "в благодарность"
+    }
+  },
+  "sitov-A2.1-L02-V010": {
+    "ru": {
+      "chunk_translation": "находиться в замке; торчать в замке",
+      "translation": "находиться; торчать"
+    }
+  },
+  "sitov-A2.1-L02-V011": {
+    "ru": {
+      "translation": "замок дверной",
+      "context_sentence": "Ключ всё ещё торчит в замке."
+    }
+  },
+  "sitov-A2.1-L02-V016": {
+    "ru": {
+      "translation": "класть"
+    }
+  },
+  "sitov-A2.1-L02-V020": {
+    "ru": {
+      "translation": "ставить"
+    }
+  },
+  "sitov-A2.1-L02-V023": {
+    "ru": {
+      "translation": "туда"
+    }
+  },
+  "sitov-A2.1-L02-V025": {
+    "ru": {
+      "translation": "туда"
+    }
+  },
+  "sitov-A2.1-L02-V031": {
+    "ru": {
+      "translation": "наружу"
+    }
+  },
+  "sitov-A2.1-L02-V032": {
+    "ru": {
+      "translation": "входить"
+    }
+  },
+  "sitov-A2.1-L02-V034": {
+    "ru": {
+      "translation": "житель"
+    }
+  },
+  "sitov-A2.1-L02-V036": {
+    "ru": {
+      "translation": "разделять",
+      "chunk_translation": "сортировать мусор"
+    }
+  },
+  "sitov-A2.1-L02-V039": {
+    "ru": {
+      "translation": "соблюдать; учитывать"
+    }
+  },
+  "sitov-A2.1-L02-V043": {
+    "ru": {
+      "translation": "въезд"
+    }
+  },
+  "sitov-A2.1-L02-V047": {
+    "ru": {
+      "translation": "надеяться",
+      "chunk_translation": "надеяться на понимание"
+    }
+  },
+  "sitov-A2.1-L02-V048": {
+    "ru": {
+      "chunk_translation": "просить отнестись с пониманием"
+    }
+  },
+  "sitov-A2.1-L02-V049": {
+    "ru": {
+      "translation": "завершать",
+      "chunk_translation": "завершать что-либо"
+    }
+  },
+  "sitov-A2.1-L02-V052": {
+    "ru": {
+      "translation": "увеличиваться"
+    }
+  },
+  "sitov-A2.1-L02-V055": {
+    "ru": {
+      "translation": "отапливать"
+    }
+  },
+  "sitov-A2.1-L02-V063": {
+    "ru": {
+      "chunk_translation": "иметь вопрос"
+    }
+  },
+  "sitov-A2.1-L02-V064": {
+    "ru": {
+      "translation": "просьба",
+      "chunk_translation": "иметь просьбу"
+    }
+  },
+  "sitov-A2.1-L02-V067": {
+    "ru": {
+      "chunk_translation": "поручать выполнение чего-либо",
+      "translation": "позволять; поручать",
+      "context_sentence": "Я поручаю мастеру отремонтировать отопление."
+    }
+  },
+  "sitov-A2.1-L02-V069": {
+    "ru": {
+      "translation": "присматривать; быть внимательным"
+    }
+  },
+  "sitov-A2.1-L02-V072": {
+    "ru": {
+      "translation": "звонить"
+    }
+  },
+  "sitov-A2.1-L02-C001": {
+    "ru": {
+      "translation": "в благодарность"
+    }
+  },
+  "sitov-A2.1-L02-C005": {
+    "ru": {
+      "translation": "сортировать мусор"
+    }
+  },
+  "sitov-A2.1-L02-C008": {
+    "ru": {
+      "translation": "иметь вопрос"
+    }
+  },
+  "sitov-A2.1-L02-C009": {
+    "ru": {
+      "translation": "иметь просьбу"
+    }
+  },
+  "sitov-A2.1-L02-C012": {
+    "ru": {
+      "translation": "надеяться на понимание"
+    }
+  },
+  "sitov-A2.1-L02-C016": {
+    "ru": {
+      "translation": "закончить рабочий день"
+    }
+  },
+  "sitov-A2.1-L03-V004": {
+    "ru": {
+      "translation": "редко"
+    }
+  },
+  "sitov-A2.1-L03-V005": {
+    "ru": {
+      "translation": "быть верным; соответствовать"
+    }
+  },
+  "sitov-A2.1-L03-V009": {
+    "ru": {
+      "translation": "по утрам"
+    }
+  },
+  "sitov-A2.1-L03-V011": {
+    "ru": {
+      "translation": "наверняка"
+    }
+  },
+  "sitov-A2.1-L03-V016": {
+    "ru": {
+      "translation": "вегетарианский",
+      "chunk_translation": "питаться вегетарианской пищей"
+    }
+  },
+  "sitov-A2.1-L03-V030": {
+    "ru": {
+      "translation": "кастрюля"
+    }
+  },
+  "sitov-A2.1-L03-V031": {
+    "ru": {
+      "translation": "чайник; кувшин"
+    }
+  },
+  "sitov-A2.1-L03-V035": {
+    "ru": {
+      "translation": "пахнуть"
+    }
+  },
+  "sitov-A2.1-L03-V036": {
+    "ru": {
+      "translation": "раздеваться",
+      "chunk_translation": "снимать обувь"
+    }
+  },
+  "sitov-A2.1-L03-V038": {
+    "ru": {
+      "chunk_translation": "вполне нормально"
+    }
+  },
+  "sitov-A2.1-L03-V039": {
+    "ru": {
+      "chunk_translation": "спросить заранее"
+    }
+  },
+  "sitov-A2.1-L03-V043": {
+    "ru": {
+      "translation": "иначе; другой"
+    }
+  },
+  "sitov-A2.1-L03-V045": {
+    "ru": {
+      "translation": "удивлять"
+    }
+  },
+  "sitov-A2.1-L03-V050": {
+    "ru": {
+      "translation": "жирный"
+    }
+  },
+  "sitov-A2.1-L03-V051": {
+    "ru": {
+      "translation": "руководить"
+    }
+  },
+  "sitov-A2.1-L03-V055": {
+    "ru": {
+      "translation": "вид; разновидность"
+    }
+  },
+  "sitov-A2.1-L03-V057": {
+    "ru": {
+      "translation": "плод; фрукт"
+    }
+  },
+  "sitov-A2.1-L03-V067": {
+    "ru": {
+      "translation": "планировать"
+    }
+  },
+  "sitov-A2.1-L03-V076": {
+    "ru": {
+      "translation": "занятый"
+    }
+  },
+  "sitov-A2.1-L03-V077": {
+    "ru": {
+      "translation": "чаевые",
+      "chunk_translation": "давать чаевые"
+    }
+  },
+  "sitov-A2.1-L03-C008": {
+    "ru": {
+      "translation": "питаться вегетарианской пищей"
+    }
+  },
+  "sitov-A2.1-L03-C014": {
+    "ru": {
+      "translation": "говорить с набитым ртом"
+    }
+  },
+  "sitov-A2.1-L03-C015": {
+    "ru": {
+      "translation": "спросить заранее"
+    }
+  },
+  "sitov-A2.1-L03-C022": {
+    "ru": {
+      "translation": "давать чаевые"
+    }
+  },
+  "sitov-A2.1-L04-V001": {
+    "ru": {
+      "chunk_translation": "бронировать"
+    }
+  },
+  "sitov-A2.1-L04-V012": {
+    "ru": {
+      "translation": "уверенный"
+    }
+  },
+  "sitov-A2.1-L04-V017": {
+    "ru": {
+      "translation": "обращать внимание на"
+    }
+  },
+  "sitov-A2.1-L04-V018": {
+    "ru": {
+      "translation": "записка; листок"
+    }
+  },
+  "sitov-A2.1-L04-V026": {
+    "ru": {
+      "chunk_translation": "выключать мобильный телефон"
+    }
+  },
+  "sitov-A2.1-L04-V027": {
+    "ru": {
+      "translation": "профсоюз"
+    }
+  },
+  "sitov-A2.1-L04-V042": {
+    "ru": {
+      "translation": "сообщать; рассказывать"
+    }
+  },
+  "sitov-A2.1-L04-V048": {
+    "ru": {
+      "translation": "предписание; правило",
+      "chunk_translation": "соблюдать правила"
+    }
+  },
+  "sitov-A2.1-L04-V050": {
+    "ru": {
+      "translation": "увольнять"
+    }
+  },
+  "sitov-A2.1-L04-V052": {
+    "ru": {
+      "translation": "благодарить"
+    }
+  },
+  "sitov-A2.1-L04-V053": {
+    "ru": {
+      "translation": "передавать сообщение"
+    }
+  },
+  "sitov-A2.1-L04-V055": {
+    "ru": {
+      "translation": "пытаться"
+    }
+  },
+  "sitov-A2.1-L04-V057": {
+    "ru": {
+      "chunk_translation": "закончить рабочий день"
+    }
+  },
+  "sitov-A2.1-L04-V059": {
+    "ru": {
+      "translation": "наёмный работник"
+    }
+  },
+  "sitov-A2.1-L04-V065": {
+    "ru": {
+      "translation": "предлагать"
+    }
+  },
+  "sitov-A2.1-L04-V068": {
+    "ru": {
+      "translation": "средний показатель"
+    }
+  },
+  "sitov-A2.1-L04-V071": {
+    "ru": {
+      "translation": "действовать; распространяться",
+      "chunk_translation": "распространяться на кого-либо"
+    }
+  },
+  "sitov-A2.1-L04-C001": {
+    "ru": {
+      "translation": "бронировать"
+    }
+  },
+  "sitov-A2.1-L04-C010": {
+    "ru": {
+      "translation": "выключать мобильный телефон"
+    }
+  },
+  "sitov-A2.1-L04-C018": {
+    "ru": {
+      "translation": "соблюдать правила"
+    }
+  },
+  "sitov-A2.1-L04-C021": {
+    "ru": {
+      "translation": "попробовать ещё раз"
+    }
+  },
+  "sitov-A2.1-L04-C022": {
+    "ru": {
+      "translation": "закончить рабочий день"
+    }
+  },
+  "sitov-A2.1-L04-C027": {
+    "ru": {
+      "translation": "распространяться на кого-либо"
+    }
+  },
+  "sitov-A2.1-L05-V001": {
+    "ru": {
+      "chunk_translation": "регулярно двигаться"
+    }
+  },
+  "sitov-A2.1-L05-V006": {
+    "ru": {
+      "translation": "слишком мало"
+    }
+  },
+  "sitov-A2.1-L05-V017": {
+    "ru": {
+      "translation": "в хорошей форме"
+    }
+  },
+  "sitov-A2.1-L05-V021": {
+    "ru": {
+      "translation": "питаться"
+    }
+  },
+  "sitov-A2.1-L05-V022": {
+    "ru": {
+      "translation": "сердиться на"
+    }
+  },
+  "sitov-A2.1-L05-V024": {
+    "ru": {
+      "translation": "бриться"
+    }
+  },
+  "sitov-A2.1-L05-V026": {
+    "ru": {
+      "translation": "причёсываться"
+    }
+  },
+  "sitov-A2.1-L05-V027": {
+    "ru": {
+      "translation": "мыться"
+    }
+  },
+  "sitov-A2.1-L05-V028": {
+    "ru": {
+      "translation": "торопиться"
+    }
+  },
+  "sitov-A2.1-L05-V039": {
+    "ru": {
+      "translation": "визит; посещение"
+    }
+  },
+  "sitov-A2.1-L05-V040": {
+    "ru": {
+      "chunk_translation": "заботиться о ком-нибудь"
+    }
+  },
+  "sitov-A2.1-L05-V048": {
+    "ru": {
+      "translation": "каникулы"
+    }
+  },
+  "sitov-A2.1-L05-V054": {
+    "ru": {
+      "translation": "составлять (сумму)"
+    }
+  },
+  "sitov-A2.1-L05-V061": {
+    "ru": {
+      "translation": "бегать трусцой"
+    }
+  },
+  "sitov-A2.1-L05-V062": {
+    "ru": {
+      "translation": "поддерживать себя в форме"
+    }
+  },
+  "sitov-A2.1-L05-V071": {
+    "ru": {
+      "chunk_translation": "справляться с чем-либо"
+    }
+  },
+  "sitov-A2.1-L05-V083": {
+    "ru": {
+      "chunk_translation": "не переусердствовать"
+    }
+  },
+  "sitov-A2.1-L05-C002": {
+    "ru": {
+      "translation": "кататься на лыжах"
+    }
+  },
+  "sitov-A2.1-L05-C007": {
+    "ru": {
+      "translation": "заниматься фитнесом"
+    }
+  },
+  "sitov-A2.1-L05-C014": {
+    "ru": {
+      "translation": "пойти потанцевать"
+    }
+  },
+  "sitov-A2.1-L05-C016": {
+    "ru": {
+      "translation": "Я договариваюсь о встрече с моим другом."
+    }
+  },
+  "sitov-A2.1-L05-C029": {
+    "ru": {
+      "translation": "не переусердствовать"
+    }
+  },
+  "sitov-A2.1-L06-V002": {
+    "ru": {
+      "translation": "гимназия"
+    }
+  },
+  "sitov-A2.1-L06-V009": {
+    "ru": {
+      "translation": "сдавать (экзамен)"
+    }
+  },
+  "sitov-A2.1-L06-V012": {
+    "ru": {
+      "translation": "ученик"
+    }
+  },
+  "sitov-A2.1-L06-V021": {
+    "ru": {
+      "translation": "вуз"
+    }
+  },
+  "sitov-A2.1-L06-V022": {
+    "ru": {
+      "translation": "учиться в вузе"
+    }
+  },
+  "sitov-A2.1-L06-V023": {
+    "ru": {
+      "translation": "учёба в вузе"
+    }
+  },
+  "sitov-A2.1-L06-V025": {
+    "ru": {
+      "translation": "подавать заявку",
+      "chunk_translation": "подавать заявку на место профессионального обучения"
+    }
+  },
+  "sitov-A2.1-L06-V030": {
+    "ru": {
+      "translation": "доклад"
+    }
+  },
+  "sitov-A2.1-L06-V031": {
+    "ru": {
+      "chunk_translation": "готовиться к экзамену"
+    }
+  },
+  "sitov-A2.1-L06-V032": {
+    "ru": {
+      "translation": "упражняться; тренироваться"
+    }
+  },
+  "sitov-A2.1-L06-V038": {
+    "ru": {
+      "chunk_translation": "помириться"
+    }
+  },
+  "sitov-A2.1-L06-V040": {
+    "ru": {
+      "translation": "иметь разрешение; мочь"
+    }
+  },
+  "sitov-A2.1-L06-V041": {
+    "ru": {
+      "translation": "должен; быть обязанным"
+    }
+  },
+  "sitov-A2.1-L06-V042": {
+    "ru": {
+      "translation": "хотеть"
+    }
+  },
+  "sitov-A2.1-L06-V043": {
+    "ru": {
+      "translation": "мочь; уметь"
+    }
+  },
+  "sitov-A2.1-L06-V045": {
+    "ru": {
+      "chunk_translation": "быть важным"
+    }
+  },
+  "sitov-A2.1-L06-V046": {
+    "ru": {
+      "translation": "уверенный"
+    }
+  },
+  "sitov-A2.1-L06-V049": {
+    "ru": {
+      "translation": "иметь в виду; считать"
+    }
+  },
+  "sitov-A2.1-L06-V050": {
+    "ru": {
+      "chunk_translation": "знать, что …"
+    }
+  },
+  "sitov-A2.1-L06-V051": {
+    "ru": {
+      "translation": "забывать"
+    }
+  },
+  "sitov-A2.1-L06-C004": {
+    "ru": {
+      "translation": "сдавать экзамен"
+    }
+  },
+  "sitov-A2.1-L06-C008": {
+    "ru": {
+      "translation": "готовиться к экзамену"
+    }
+  },
+  "sitov-A2.1-L06-C011": {
+    "ru": {
+      "translation": "искать место для профессионального обучения"
+    }
+  },
+  "sitov-A2.1-L06-C012": {
+    "ru": {
+      "translation": "подавать заявку на место профессионального обучения"
+    }
+  },
+  "sitov-A2.1-L06-C018": {
+    "ru": {
+      "translation": "помириться"
+    }
+  },
+  "sitov-A2.1-L06-C023": {
+    "ru": {
+      "translation": "Важно, чтобы ты учился регулярно."
+    }
+  },
+  "sitov-A2.1-L07-V002": {
+    "ru": {
+      "translation": "готовиться"
+    }
+  },
+  "sitov-A2.1-L07-V003": {
+    "ru": {
+      "translation": "мастерить"
+    }
+  },
+  "sitov-A2.1-L07-V005": {
+    "ru": {
+      "translation": "дарить",
+      "chunk_translation": "дарить кому-нибудь что-нибудь"
+    }
+  },
+  "sitov-A2.1-L07-V006": {
+    "ru": {
+      "translation": "младенец"
+    }
+  },
+  "sitov-A2.1-L07-V022": {
+    "ru": {
+      "translation": "тратить"
+    }
+  },
+  "sitov-A2.1-L07-V031": {
+    "ru": {
+      "translation": "планировать"
+    }
+  },
+  "sitov-A2.1-L07-V038": {
+    "ru": {
+      "chunk_translation": "поздравить молодожёнов"
+    }
+  },
+  "sitov-A2.1-L07-V041": {
+    "ru": {
+      "translation": "упаковывать"
+    }
+  },
+  "sitov-A2.1-L07-V044": {
+    "ru": {
+      "chunk_translation": "подходить кому-либо",
+      "translation": "подходить"
+    }
+  },
+  "sitov-A2.1-L07-V047": {
+    "ru": {
+      "translation": "удивлять"
+    }
+  },
+  "sitov-A2.1-L07-V049": {
+    "ru": {
+      "translation": "желать"
+    }
+  },
+  "sitov-A2.1-L07-V050": {
+    "ru": {
+      "chunk_translation": "иметь желание"
+    }
+  },
+  "sitov-A2.1-L07-V057": {
+    "ru": {
+      "translation": "шапка"
+    }
+  },
+  "sitov-A2.1-L07-V058": {
+    "ru": {
+      "translation": "открытка"
+    }
+  },
+  "sitov-A2.1-L07-C003": {
+    "ru": {
+      "translation": "дарить кому-нибудь что-нибудь"
+    }
+  },
+  "sitov-A2.1-L07-C004": {
+    "ru": {
+      "translation": "передать кому-нибудь привет от меня"
+    }
+  },
+  "sitov-A2.1-L07-C012": {
+    "ru": {
+      "translation": "поздравить молодожёнов"
+    }
+  },
+  "sitov-A2.1-L07-C015": {
+    "ru": {
+      "translation": "подходить кому-либо"
+    }
+  },
+  "sitov-A2.1-L07-C018": {
+    "ru": {
+      "translation": "иметь желание"
+    }
+  },
+  "sitov-A2.1-L07-C019": {
+    "ru": {
+      "translation": "Что нам подарить?"
+    }
+  },
+  "sitov-A2.1-L07-C024": {
+    "ru": {
+      "translation": "Поздравляю со свадьбой!"
+    }
+  },
+  "sitov-A2.2-L08-V004": {
+    "ru": {
+      "translation": "играть вместе; участвовать в игре"
+    }
+  },
+  "sitov-A2.2-L08-V007": {
+    "ru": {
+      "translation": "проводить (время)"
+    }
+  },
+  "sitov-A2.2-L08-V008": {
+    "ru": {
+      "translation": "бельё"
+    }
+  },
+  "sitov-A2.2-L08-V009": {
+    "ru": {
+      "translation": "предпринимать; заниматься чем-нибудь"
+    }
+  },
+  "sitov-A2.2-L08-V012": {
+    "ru": {
+      "translation": "несмотря на это; всё равно"
+    }
+  },
+  "sitov-A2.2-L08-V033": {
+    "ru": {
+      "translation": "открытый"
+    }
+  },
+  "sitov-A2.2-L08-V041": {
+    "ru": {
+      "translation": "болельщик; поклонник"
+    }
+  },
+  "sitov-A2.2-L08-V046": {
+    "ru": {
+      "translation": "по будням",
+      "chunk_translation": "быть открытым по будням"
+    }
+  },
+  "sitov-A2.2-L09-V001": {
+    "ru": {
+      "translation": "обустраивать"
+    }
+  },
+  "sitov-A2.2-L09-V006": {
+    "ru": {
+      "translation": "смотреть"
+    }
+  },
+  "sitov-A2.2-L09-V008": {
+    "ru": {
+      "translation": "зажигалка"
+    }
+  },
+  "sitov-A2.2-L09-V032": {
+    "ru": {
+      "translation": "удалённый; далёкий",
+      "chunk_translation": "быть далеко"
+    }
+  },
+  "sitov-A2.2-L09-V038": {
+    "ru": {
+      "translation": "копить; экономить"
+    }
+  },
+  "sitov-A2.2-L09-V040": {
+    "ru": {
+      "translation": "воспоминание"
+    }
+  },
+  "sitov-A2.2-L09-V042": {
+    "ru": {
+      "chunk_translation": "быть ценным"
+    }
+  },
+  "sitov-A2.2-L10-V001": {
+    "ru": {
+      "translation": "посылка"
+    }
+  },
+  "sitov-A2.2-L10-V008": {
+    "ru": {
+      "translation": "почтовое отправление"
+    }
+  },
+  "sitov-A2.2-L10-V009": {
+    "ru": {
+      "translation": "перевозить"
+    }
+  },
+  "sitov-A2.2-L10-V012": {
+    "ru": {
+      "translation": "упаковывать",
+      "chunk_translation": "надёжно упаковывать"
+    }
+  },
+  "sitov-A2.2-L10-V016": {
+    "ru": {
+      "chunk_translation": "быть мягким"
+    }
+  },
+  "sitov-A2.2-L10-V029": {
+    "ru": {
+      "translation": "мёрзнуть"
+    }
+  },
+  "sitov-A2.2-L10-V039": {
+    "ru": {
+      "translation": "точка"
+    }
+  },
+  "sitov-A2.2-L10-V046": {
+    "ru": {
+      "translation": "проверять; тестировать"
+    }
+  },
+  "sitov-A2.2-L10-V051": {
+    "ru": {
+      "chunk_translation": "быть известным во всём мире"
+    }
+  },
+  "sitov-A2.2-L10-V055": {
+    "ru": {
+      "translation": "связываться; отзываться"
+    }
+  },
+  "sitov-A2.2-L10-V062": {
+    "ru": {
+      "chunk_translation": "писать в чат"
+    }
+  },
+  "sitov-A2.2-L10-C007": {
+    "ru": {
+      "translation": "писать в чат"
+    }
+  },
+  "sitov-A2.2-L11-V004": {
+    "ru": {
+      "translation": "смотреть на; осматривать"
+    }
+  },
+  "sitov-A2.2-L11-V009": {
+    "ru": {
+      "translation": "мимо"
+    }
+  },
+  "sitov-A2.2-L11-V013": {
+    "ru": {
+      "translation": "перекрёсток"
+    }
+  },
+  "sitov-A2.2-L11-V015": {
+    "ru": {
+      "translation": "съезд; выезд"
+    }
+  },
+  "sitov-A2.2-L11-V018": {
+    "ru": {
+      "chunk_translation": "стоять в пробке"
+    }
+  },
+  "sitov-A2.2-L11-V023": {
+    "ru": {
+      "translation": "клеить"
+    }
+  },
+  "sitov-A2.2-L11-V024": {
+    "ru": {
+      "chunk_translation": "нуждаться в пластыре",
+      "translation": "пластырь"
+    }
+  },
+  "sitov-A2.2-L11-V026": {
+    "ru": {
+      "chunk_translation": "быть любимцем",
+      "translation": "любимец",
+      "context_sentence": "Маленький пёс — любимец моего дедушки."
+    }
+  },
+  "sitov-A2.2-L11-V032": {
+    "ru": {
+      "chunk_translation": "интенсивное движение"
+    }
+  },
+  "sitov-A2.2-L11-V035": {
+    "ru": {
+      "translation": "обгонять"
+    }
+  },
+  "sitov-A2.2-L11-V037": {
+    "ru": {
+      "translation": "осторожный; осторожно",
+      "chunk_translation": "ехать осторожно"
+    }
+  },
+  "sitov-A2.2-L11-V038": {
+    "ru": {
+      "chunk_translation": "из-за погоды"
+    }
+  },
+  "sitov-A2.2-L11-V039": {
+    "ru": {
+      "chunk_translation": "ехать по льду"
+    }
+  },
+  "sitov-A2.2-L11-V048": {
+    "ru": {
+      "chunk_translation": "ждать часами"
+    }
+  },
+  "sitov-A2.2-L11-V057": {
+    "ru": {
+      "translation": "вид; перспектива"
+    }
+  },
+  "sitov-A2.2-L11-V058": {
+    "ru": {
+      "translation": "обещать"
+    }
+  },
+  "sitov-A2.2-L11-V059": {
+    "ru": {
+      "translation": "летний",
+      "chunk_translation": "летняя погода"
+    }
+  },
+  "sitov-A2.2-L11-V066": {
+    "ru": {
+      "translation": "приземляться",
+      "chunk_translation": "безопасно приземляться"
+    }
+  },
+  "sitov-A2.2-L11-V068": {
+    "ru": {
+      "translation": "вылет"
+    }
+  },
+  "sitov-A2.2-L11-V072": {
+    "ru": {
+      "translation": "транспортное средство"
+    }
+  },
+  "sitov-A2.2-L11-V074": {
+    "ru": {
+      "translation": "тормозить"
+    }
+  },
+  "sitov-A2.2-L11-V076": {
+    "ru": {
+      "chunk_translation": "получить штраф"
+    }
+  },
+  "sitov-A2.2-L11-V085": {
+    "ru": {
+      "chunk_translation": "ехать по автобану"
+    }
+  },
+  "sitov-A2.2-L11-C001": {
+    "ru": {
+      "translation": "стоять в пробке"
+    }
+  },
+  "sitov-A2.2-L11-C003": {
+    "ru": {
+      "translation": "ехать по автобану"
+    }
+  },
+  "sitov-A2.2-L11-C004": {
+    "ru": {
+      "translation": "ездить на общественном транспорте"
+    }
+  },
+  "sitov-A2.2-L11-C005": {
+    "ru": {
+      "translation": "получить штраф"
+    }
+  },
+  "sitov-A2.2-L12-V015": {
+    "ru": {
+      "translation": "прохладный"
+    }
+  },
+  "sitov-A2.2-L12-V022": {
+    "ru": {
+      "translation": "достопримечательность"
+    }
+  },
+  "sitov-A2.2-L12-V027": {
+    "ru": {
+      "translation": "взгляд"
+    }
+  },
+  "sitov-A2.2-L12-V040": {
+    "ru": {
+      "chunk_translation": "многочисленные музеи"
+    }
+  },
+  "sitov-A2.2-L12-V045": {
+    "ru": {
+      "translation": "включая"
+    }
+  },
+  "sitov-A2.2-L12-V047": {
+    "ru": {
+      "translation": "бронировать"
+    }
+  },
+  "sitov-A2.2-L12-V053": {
+    "ru": {
+      "translation": "заниматься виндсёрфингом"
+    }
+  },
+  "sitov-A2.2-L12-V060": {
+    "ru": {
+      "translation": "договариваться"
+    }
+  },
+  "sitov-A2.2-L13-V008": {
+    "ru": {
+      "translation": "снимать деньги"
+    }
+  },
+  "sitov-A2.2-L13-V023": {
+    "ru": {
+      "translation": "ломаться"
+    }
+  },
+  "sitov-A2.2-L13-V032": {
+    "ru": {
+      "translation": "вносить деньги на счёт"
+    }
+  },
+  "sitov-A2.2-L13-V036": {
+    "ru": {
+      "translation": "печатать; набирать текст"
+    }
+  },
+  "sitov-A2.2-L13-V037": {
+    "ru": {
+      "translation": "переводить деньги"
+    }
+  },
+  "sitov-A2.2-L14-V012": {
+    "ru": {
+      "translation": "кафе; ресторан"
+    }
+  },
+  "sitov-A2.2-L14-V015": {
+    "ru": {
+      "translation": "противоположность"
+    }
+  },
+  "sitov-A2.2-L14-V028": {
+    "ru": {
+      "translation": "обращаться к"
+    }
+  },
+  "sitov-B1.1-L01-V014": {
+    "ru": {
+      "chunk_translation": "во время перерыва"
+    }
+  },
+  "sitov-B1.1-L01-V018": {
+    "ru": {
+      "translation": "подниматься"
+    }
+  },
+  "sitov-B1.1-L01-V019": {
+    "ru": {
+      "chunk_translation": "удивляться чему-нибудь"
+    }
+  },
+  "sitov-B1.1-L01-V024": {
+    "ru": {
+      "chunk_translation": "крепко спать"
+    }
+  },
+  "sitov-B1.1-L01-V028": {
+    "ru": {
+      "translation": "находиться"
+    }
+  },
+  "sitov-B1.1-L01-V031": {
+    "ru": {
+      "translation": "спасать"
+    }
+  },
+  "sitov-B1.1-L01-V032": {
+    "ru": {
+      "translation": "быть достаточным"
+    }
+  },
+  "sitov-B1.1-L01-V037": {
+    "ru": {
+      "translation": "звать; вызывать"
+    }
+  },
+  "sitov-B1.1-L01-V059": {
+    "ru": {
+      "chunk_translation": "связаться; установить контакт"
+    }
+  },
+  "sitov-B1.1-L01-C001": {
+    "ru": {
+      "translation": "удивляться чему-нибудь"
+    }
+  },
+  "sitov-B1.1-L01-C006": {
+    "ru": {
+      "translation": "связаться; установить контакт"
+    }
+  },
+  "sitov-B1.1-L02-V018": {
+    "ru": {
+      "chunk_translation": "рассказывать о путешествии",
+      "translation": "рассказывать; быть о чём-либо"
+    }
+  },
+  "sitov-B1.1-L02-V045": {
+    "ru": {
+      "chunk_translation": "видеть в последний раз",
+      "translation": "в последний раз"
+    }
+  },
+  "sitov-B1.1-L02-V053": {
+    "ru": {
+      "translation": "встречать"
+    }
+  },
+  "sitov-B1.1-L02-V055": {
+    "ru": {
+      "translation": "исполняться"
+    }
+  },
+  "sitov-B1.1-L02-V057": {
+    "ru": {
+      "translation": "соглашаться",
+      "chunk_translation": "соглашаться с кем-либо"
+    }
+  },
+  "sitov-B1.1-L02-C001": {
+    "ru": {
+      "translation": "заниматься чем-либо"
+    }
+  },
+  "sitov-B1.1-L02-C003": {
+    "ru": {
+      "translation": "соглашаться с кем-либо"
+    }
+  },
+  "sitov-B1.1-L03-V003": {
+    "ru": {
+      "translation": "договариваться; согласовывать"
+    }
+  },
+  "sitov-B1.1-L03-V008": {
+    "ru": {
+      "translation": "основа"
+    }
+  },
+  "sitov-B1.1-L03-V011": {
+    "ru": {
+      "chunk_translation": "использовать мало жира"
+    }
+  },
+  "sitov-B1.1-L03-V015": {
+    "ru": {
+      "translation": "неглубокий; поверхностный"
+    }
+  },
+  "sitov-B1.1-L03-V026": {
+    "ru": {
+      "translation": "измерять"
+    }
+  },
+  "sitov-B1.1-L03-V033": {
+    "ru": {
+      "chunk_translation": "такие жалобы"
+    }
+  },
+  "sitov-B1.1-L03-V034": {
+    "ru": {
+      "translation": "специалист"
+    }
+  },
+  "sitov-B1.1-L03-V037": {
+    "ru": {
+      "translation": "предполагать"
+    }
+  },
+  "sitov-B1.1-L03-V040": {
+    "ru": {
+      "chunk_translation": "приводить к проблемам"
+    }
+  },
+  "sitov-B1.1-L03-V042": {
+    "ru": {
+      "translation": "получать"
+    }
+  },
+  "sitov-B1.1-L03-V043": {
+    "ru": {
+      "chunk_translation": "вызывать стресс"
+    }
+  },
+  "sitov-B1.1-L03-V054": {
+    "ru": {
+      "translation": "плод; фрукт"
+    }
+  },
+  "sitov-B1.1-L03-V056": {
+    "ru": {
+      "translation": "творог"
+    }
+  },
+  "sitov-B1.1-L03-V058": {
+    "ru": {
+      "translation": "сообщать о болезни на работе"
+    }
+  },
+  "sitov-B1.1-L03-V059": {
+    "ru": {
+      "translation": "выписывать больничный"
+    }
+  },
+  "sitov-B1.1-L03-V068": {
+    "ru": {
+      "translation": "выписывать кому-нибудь больничный"
+    }
+  },
+  "sitov-B1.1-L03-C008": {
+    "ru": {
+      "translation": "выписывать кому-нибудь больничный"
+    }
+  },
+  "sitov-B1.1-L04-V009": {
+    "ru": {
+      "translation": "улыбаться"
+    }
+  },
+  "sitov-B1.1-L04-V013": {
+    "ru": {
+      "translation": "намереваться"
+    }
+  },
+  "sitov-B1.1-L04-V015": {
+    "ru": {
+      "translation": "лгать"
+    }
+  },
+  "sitov-B1.1-L04-V017": {
+    "ru": {
+      "chunk_translation": "искать место для профессионального обучения",
+      "translation": "место для профессионального обучения",
+      "context_sentence": "Мой брат ищет место для профессионального обучения."
+    }
+  },
+  "sitov-B1.1-L04-V037": {
+    "ru": {
+      "translation": "прятаться"
+    }
+  },
+  "sitov-B1.1-L04-V040": {
+    "ru": {
+      "translation": "грек"
+    }
+  },
+  "sitov-B1.1-L04-V041": {
+    "ru": {
+      "translation": "вперемешку; в беспорядке"
+    }
+  },
+  "sitov-B1.1-L04-V044": {
+    "ru": {
+      "translation": "происходить; быть родом"
+    }
+  },
+  "sitov-B1.1-L04-C002": {
+    "ru": {
+      "translation": "искать место для профессионального обучения",
+      "context_sentence": "Сейчас он ищет место для профессионального обучения."
+    }
+  },
+  "sitov-B1.1-L05-V004": {
+    "ru": {
+      "translation": "примерно"
+    }
+  },
+  "sitov-B1.1-L05-V006": {
+    "ru": {
+      "translation": "прекращать"
+    }
+  },
+  "sitov-B1.1-L05-V017": {
+    "ru": {
+      "translation": "привычный"
+    }
+  },
+  "sitov-B1.1-L05-V029": {
+    "ru": {
+      "translation": "успокаиваться"
+    }
+  },
+  "sitov-B1.1-L05-V030": {
+    "ru": {
+      "chunk_translation": "технические знания"
+    }
+  },
+  "sitov-B1.1-L05-V033": {
+    "ru": {
+      "chunk_translation": "брать на себя ответственность"
+    }
+  },
+  "sitov-B1.1-L05-V037": {
+    "ru": {
+      "translation": "обдумывать"
+    }
+  },
+  "sitov-B1.1-L05-V039": {
+    "ru": {
+      "translation": "попутно; вдобавок"
+    }
+  },
+  "sitov-B1.1-L05-V040": {
+    "ru": {
+      "translation": "подрабатывать"
+    }
+  },
+  "sitov-B1.1-L05-V044": {
+    "ru": {
+      "translation": "представлять; заменять"
+    }
+  },
+  "sitov-B1.1-L05-C005": {
+    "ru": {
+      "translation": "брать на себя ответственность"
+    }
+  },
+  "sitov-B1.1-L06-V013": {
+    "ru": {
+      "translation": "владеть"
+    }
+  },
+  "sitov-B1.1-L06-V020": {
+    "ru": {
+      "translation": "внимание к интересам других",
+      "chunk_translation": "учитывать интересы других"
+    }
+  },
+  "sitov-B1.1-L06-V022": {
+    "ru": {
+      "translation": "основывать"
+    }
+  },
+  "sitov-B1.1-L06-V041": {
+    "ru": {
+      "translation": "возвращаться"
+    }
+  },
+  "sitov-B1.1-L06-V045": {
+    "ru": {
+      "translation": "щётка"
+    }
+  },
+  "sitov-B1.1-L06-V046": {
+    "ru": {
+      "translation": "приветствовать"
+    }
+  },
+  "sitov-B1.1-L06-V052": {
+    "ru": {
+      "translation": "повреждать"
+    }
+  },
+  "sitov-B1.1-L06-V058": {
+    "ru": {
+      "translation": "требовать"
+    }
+  },
+  "sitov-B1.1-L06-V060": {
+    "ru": {
+      "translation": "призывать; побуждать"
+    }
+  },
+  "sitov-B1.1-L06-C004": {
+    "ru": {
+      "translation": "учитывать интересы других"
+    }
+  },
+  "sitov-B1.1-L07-V006": {
+    "ru": {
+      "translation": "земельный участок"
+    }
+  },
+  "sitov-B1.1-L07-V007": {
+    "ru": {
+      "translation": "подозревать"
+    }
+  },
+  "sitov-B1.1-L07-V011": {
+    "ru": {
+      "translation": "федеральная земля"
+    }
+  },
+  "sitov-B1.1-L07-V015": {
+    "ru": {
+      "chunk_translation": "жить в центре"
+    }
+  },
+  "sitov-B1.1-L07-V031": {
+    "ru": {
+      "chunk_translation": "действительно приходить"
+    }
+  },
+  "sitov-B1.1-L07-V040": {
+    "ru": {
+      "chunk_translation": "быть значительно больше"
+    }
+  },
+  "sitov-B1.1-L07-V041": {
+    "ru": {
+      "chunk_translation": "искать альтернативу"
+    }
+  },
+  "sitov-B1.1-L07-V044": {
+    "ru": {
+      "chunk_translation": "о чём думать"
+    }
+  },
+  "sitov-B1.1-L07-V045": {
+    "ru": {
+      "translation": "отсутствовать; не хватать"
+    }
+  },
+  "sitov-B1.1-L07-V052": {
+    "ru": {
+      "translation": "ступень"
+    }
+  },
+  "sitov-B1.1-L07-V053": {
+    "ru": {
+      "translation": "посреди"
+    }
+  },
+  "sitov-B1.1-L07-V055": {
+    "ru": {
+      "translation": "северный; к северу"
+    }
+  },
+  "sitov-B1.1-L07-V058": {
+    "ru": {
+      "translation": "увеличиваться"
+    }
+  },
+  "sitov-B1.1-L07-V062": {
+    "ru": {
+      "chunk_translation": "нуждаться в разрешении"
+    }
+  },
+  "sitov-B1.1-L07-C006": {
+    "ru": {
+      "translation": "нуждаться в разрешении"
+    }
+  },
+  "sitov-B1.1-L07-C007": {
+    "ru": {
+      "translation": "искать альтернативу"
+    }
+  },
+  "sitov-B1.2-L08-V008": {
+    "ru": {
+      "translation": "обещать; соглашаться"
+    }
+  },
+  "sitov-B1.2-L08-V013": {
+    "ru": {
+      "chunk_translation": "о чём идёт речь"
+    }
+  },
+  "sitov-B1.2-L08-V028": {
+    "ru": {
+      "translation": "влиять"
+    }
+  },
+  "sitov-B1.2-L08-V034": {
+    "ru": {
+      "translation": "обращаться на «ты»",
+      "chunk_translation": "обращаться друг к другу на «ты»"
+    }
+  },
+  "sitov-B1.2-L08-V035": {
+    "ru": {
+      "translation": "родительское собрание"
+    }
+  },
+  "sitov-B1.2-L08-C007": {
+    "ru": {
+      "translation": "обращаться друг к другу на «ты»"
+    }
+  },
+  "sitov-B1.2-L09-V017": {
+    "ru": {
+      "translation": "аккумулятор"
+    }
+  },
+  "sitov-B1.2-L09-V023": {
+    "ru": {
+      "translation": "отличный; здорово"
+    }
+  },
+  "sitov-B1.2-L09-V036": {
+    "ru": {
+      "translation": "впереди",
+      "chunk_translation": "сидеть впереди"
+    }
+  },
+  "sitov-B1.2-L09-V037": {
+    "ru": {
+      "chunk_translation": "сохранять резервные копии всех файлов"
+    }
+  },
+  "sitov-B1.2-L09-V043": {
+    "ru": {
+      "translation": "изменяться",
+      "chunk_translation": "сильно изменяться"
+    }
+  },
+  "sitov-B1.2-L09-V049": {
+    "ru": {
+      "translation": "изменяться"
+    }
+  },
+  "sitov-B1.2-L10-V005": {
+    "ru": {
+      "translation": "в прямом эфире",
+      "chunk_translation": "транслировать в прямом эфире"
+    }
+  },
+  "sitov-B1.2-L10-V010": {
+    "ru": {
+      "translation": "размещать объявление"
+    }
+  },
+  "sitov-B1.2-L10-V011": {
+    "ru": {
+      "translation": "как … так и"
+    }
+  },
+  "sitov-B1.2-L10-V012": {
+    "ru": {
+      "translation": "ни … ни"
+    }
+  },
+  "sitov-B1.2-L10-V017": {
+    "ru": {
+      "translation": "условие"
+    }
+  },
+  "sitov-B1.2-L10-V022": {
+    "ru": {
+      "translation": "нуждаться"
+    }
+  },
+  "sitov-B1.2-L10-V028": {
+    "ru": {
+      "translation": "приходить в голову"
+    }
+  },
+  "sitov-B1.2-L10-V033": {
+    "ru": {
+      "translation": "исправлять"
+    }
+  },
+  "sitov-B1.2-L10-V034": {
+    "ru": {
+      "translation": "чистить"
+    }
+  },
+  "sitov-B1.2-L10-V036": {
+    "ru": {
+      "translation": "вращаться"
+    }
+  },
+  "sitov-B1.2-L10-V047": {
+    "ru": {
+      "translation": "борьба"
+    }
+  },
+  "sitov-B1.2-L10-V050": {
+    "ru": {
+      "translation": "продолжать"
+    }
+  },
+  "sitov-B1.2-L10-V055": {
+    "ru": {
+      "translation": "задерживать; останавливать"
+    }
+  },
+  "sitov-B1.2-L10-V058": {
+    "ru": {
+      "translation": "молчать",
+      "chunk_translation": "молчать на какую-либо тему"
+    }
+  },
+  "sitov-B1.2-L10-C006": {
+    "ru": {
+      "translation": "кому-нибудь что-нибудь приходит в голову"
+    }
+  },
+  "sitov-B1.2-L10-C010": {
+    "ru": {
+      "translation": "быть полным решимости"
+    }
+  },
+  "sitov-B1.2-L11-V003": {
+    "ru": {
+      "translation": "заявлять в полицию"
+    }
+  },
+  "sitov-B1.2-L11-V009": {
+    "ru": {
+      "translation": "уходить"
+    }
+  },
+  "sitov-B1.2-L11-V013": {
+    "ru": {
+      "translation": "требование; призыв"
+    }
+  },
+  "sitov-B1.2-L11-V017": {
+    "ru": {
+      "translation": "простуда"
+    }
+  },
+  "sitov-B1.2-L11-V025": {
+    "ru": {
+      "chunk_translation": "опаздывать на десять минут"
+    }
+  },
+  "sitov-B1.2-L11-V026": {
+    "ru": {
+      "translation": "круг; раунд"
+    }
+  },
+  "sitov-B1.2-L11-V027": {
+    "ru": {
+      "translation": "скоростной поезд ICE"
+    }
+  },
+  "sitov-B1.2-L11-V038": {
+    "ru": {
+      "translation": "переходить; пересекать"
+    }
+  },
+  "sitov-B1.2-L11-V046": {
+    "ru": {
+      "translation": "оскорблять"
+    }
+  },
+  "sitov-B1.2-L11-V047": {
+    "ru": {
+      "translation": "утверждать"
+    }
+  },
+  "sitov-B1.2-L11-V054": {
+    "ru": {
+      "translation": "количество"
+    }
+  },
+  "sitov-B1.2-L12-V005": {
+    "ru": {
+      "translation": "поддерживать"
+    }
+  },
+  "sitov-B1.2-L12-V016": {
+    "ru": {
+      "translation": "читать вслух"
+    }
+  },
+  "sitov-B1.2-L12-V019": {
+    "ru": {
+      "chunk_translation": "проходить каждую неделю"
+    }
+  },
+  "sitov-B1.2-L12-V028": {
+    "ru": {
+      "chunk_translation": "пока есть время"
+    }
+  },
+  "sitov-B1.2-L12-V029": {
+    "ru": {
+      "translation": "снабжать; заботиться"
+    }
+  },
+  "sitov-B1.2-L12-C006": {
+    "ru": {
+      "translation": "раздавать продукты"
+    }
+  },
+  "sitov-B1.2-L13-V001": {
+    "ru": {
+      "translation": "повышать квалификацию",
+      "chunk_translation": "повышать профессиональную квалификацию"
+    }
+  },
+  "sitov-B1.2-L13-V002": {
+    "ru": {
+      "translation": "готовить еду"
+    }
+  },
+  "sitov-B1.2-L13-V003": {
+    "ru": {
+      "chunk_translation": "подходить к чему-либо",
+      "translation": "подходить"
+    }
+  },
+  "sitov-B1.2-L13-V013": {
+    "ru": {
+      "translation": "принимать; встречать"
+    }
+  },
+  "sitov-B1.2-L13-V022": {
+    "ru": {
+      "translation": "связь; взаимосвязь"
+    }
+  },
+  "sitov-B1.2-L13-V029": {
+    "ru": {
+      "translation": "протестовать"
+    }
+  },
+  "sitov-B1.2-L13-V031": {
+    "ru": {
+      "translation": "городской",
+      "chunk_translation": "городские учреждения"
+    }
+  },
+  "sitov-B1.2-L13-V034": {
+    "ru": {
+      "translation": "власть"
+    }
+  },
+  "sitov-B1.2-L13-V036": {
+    "ru": {
+      "translation": "официальный"
+    }
+  },
+  "sitov-B1.2-L13-C001": {
+    "ru": {
+      "translation": "повышать профессиональную квалификацию"
+    }
+  },
+  "sitov-B1.2-L13-C002": {
+    "ru": {
+      "translation": "готовить еду"
+    }
+  },
+  "sitov-B1.2-L14-V010": {
+    "ru": {
+      "translation": "местность"
+    }
+  },
+  "sitov-B1.2-L14-V015": {
+    "ru": {
+      "translation": "гражданство"
+    }
+  },
+  "sitov-B1.2-L14-V016": {
+    "ru": {
+      "translation": "профессионал"
+    }
+  },
+  "sitov-B1.2-L14-V020": {
+    "ru": {
+      "translation": "житель"
+    }
+  },
+  "sitov-B1.2-L14-V024": {
+    "ru": {
+      "translation": "иммигрант"
+    }
+  },
+  "sitov-B1.2-L14-V029": {
+    "ru": {
+      "translation": "готовить еду"
+    }
+  },
+  "sitov-B1.2-L14-C012": {
+    "ru": {
+      "translation": "подготавливать ингредиенты"
+    }
+  },
+  "sitov-A1.2-L01-V017": {
+    "ru": {
+      "translation": "медбрат",
+      "context_sentence": "Медбрат работает в больнице.",
+      "chunk_translation": "работать в больнице"
+    }
+  },
+  "sitov-B1.1-L03-V044": {
+    "ru": {
+      "context_sentence": "Медбрат заботится о благополучии пациента."
+    }
+  },
+  "sitov-B1.1-L03-V063": {
+    "ru": {
+      "context_sentence": "Медбрат накладывает повязку."
+    }
+  },
+  "sitov-B1.1-L05-V051": {
+    "ru": {
+      "translation": "медбрат",
+      "context_sentence": "Медбрат ухаживает за пациентами.",
+      "chunk_translation": "работать медбратом"
+    }
+  },
+  "sitov-A2.1-L06-V017": {
+    "ru": {
+      "translation": "место для профессионального обучения",
+      "chunk_translation": "найти место для профессионального обучения",
+      "context_sentence": "Он ищет место для профессионального обучения."
+    }
+  },
+  "sitov-A2.1-L05-V023": {
+    "ru": {
+      "translation": "наносить макияж",
+      "chunk_translation": "наносить макияж по утрам",
+      "context_sentence": "Он наносит макияж каждое утро."
+    }
+  }
+}

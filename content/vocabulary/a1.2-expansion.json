@@ -1,0 +1,3359 @@
+{
+  "version": 1,
+  "units": [
+    {
+      "id": "db2957ca-55e2-570b-aba6-c693d232b4b8",
+      "level": "A1.2",
+      "label": "Lektion 2 · Ämter und Behörden",
+      "sort_order": 2,
+      "app_lesson": 2,
+      "source_lesson": 9,
+      "cards": [
+        {
+          "id": "4aba550c-07f1-5ac0-be28-f0142549a305",
+          "source_id": "sitov-A1.2-L02-V001",
+          "content_kind": "vocabulary",
+          "word_de": "das Amt",
+          "chunk_de": "auf dem Amt",
+          "sentence_de": "Paul hat morgen einen Termin auf dem Amt.",
+          "source_word": "das Amt"
+        },
+        {
+          "id": "2872ff6d-211b-5294-a3df-6002c74e6499",
+          "source_id": "sitov-A1.2-L02-V002",
+          "content_kind": "vocabulary",
+          "word_de": "die Behörde",
+          "chunk_de": "zu einer Behörde gehen",
+          "sentence_de": "Lukas geht heute zu einer Behörde.",
+          "source_word": "die Behörde"
+        },
+        {
+          "id": "03b38cda-442d-55f0-87dd-dda6dc363247",
+          "source_id": "sitov-A1.2-L02-V003",
+          "content_kind": "vocabulary",
+          "word_de": "das Bürgerbüro",
+          "chunk_de": "im Bürgerbüro",
+          "sentence_de": "Im Bürgerbüro bekommt Amir ein Formular.",
+          "source_word": "das Bürgerbüro"
+        },
+        {
+          "id": "f7ec10ac-42ac-5440-8a08-b9d9bec4e4b4",
+          "source_id": "sitov-A1.2-L02-V004",
+          "content_kind": "vocabulary",
+          "word_de": "das Rathaus",
+          "chunk_de": "vor dem Rathaus warten",
+          "sentence_de": "Jonas wartet vor dem Rathaus.",
+          "source_word": "das Rathaus"
+        },
+        {
+          "id": "2df08890-a567-59f7-8a67-fa960f331c05",
+          "source_id": "sitov-A1.2-L02-V005",
+          "content_kind": "vocabulary",
+          "word_de": "der Schalter",
+          "chunk_de": "am Schalter fragen",
+          "sentence_de": "Paul fragt am Schalter nach dem Formular.",
+          "source_word": "der Schalter"
+        },
+        {
+          "id": "a3343ce4-d1d2-5ec9-a6b7-c68111f15458",
+          "source_id": "sitov-A1.2-L02-V006",
+          "content_kind": "vocabulary",
+          "word_de": "die Nummer",
+          "chunk_de": "eine Nummer ziehen",
+          "sentence_de": "Lukas zieht eine Nummer und wartet.",
+          "source_word": "die Nummer"
+        },
+        {
+          "id": "4747f85f-fb7c-50f9-badc-399d9fe86dfb",
+          "source_id": "sitov-A1.2-L02-V007",
+          "content_kind": "vocabulary",
+          "word_de": "der Wartebereich",
+          "chunk_de": "im Wartebereich sitzen",
+          "sentence_de": "Amir sitzt im Wartebereich.",
+          "source_word": "der Wartebereich"
+        },
+        {
+          "id": "127c5826-10d0-5ce4-a63b-b68a3464ba50",
+          "source_id": "sitov-A1.2-L02-V008",
+          "content_kind": "vocabulary",
+          "word_de": "die Öffnungszeit",
+          "chunk_de": "die Öffnungszeiten lesen",
+          "sentence_de": "Jonas liest die Öffnungszeiten an der Tür.",
+          "source_word": "die Öffnungszeit"
+        },
+        {
+          "id": "cd124732-8f1e-5786-a0bc-f38903f7dee3",
+          "source_id": "sitov-A1.2-L02-V009",
+          "content_kind": "vocabulary",
+          "word_de": "das Formular",
+          "chunk_de": "ein Formular ausfüllen",
+          "sentence_de": "Paul füllt das Formular zu Hause aus.",
+          "source_word": "das Formular"
+        },
+        {
+          "id": "c9852020-7de9-54b8-b86b-a1147320a0f5",
+          "source_id": "sitov-A1.2-L02-V010",
+          "content_kind": "vocabulary",
+          "word_de": "der Antrag",
+          "chunk_de": "einen Antrag stellen",
+          "sentence_de": "Lukas stellt einen Antrag im Bürgerbüro.",
+          "source_word": "der Antrag"
+        },
+        {
+          "id": "e6853145-54d0-5ddd-a804-17138df6d855",
+          "source_id": "sitov-A1.2-L02-V011",
+          "content_kind": "vocabulary",
+          "word_de": "der Ausweis",
+          "chunk_de": "den Ausweis zeigen",
+          "sentence_de": "Amir zeigt seinen Ausweis am Schalter.",
+          "source_word": "der Ausweis"
+        },
+        {
+          "id": "ba99de5a-081f-5a12-959b-f28f005160da",
+          "source_id": "sitov-A1.2-L02-V012",
+          "content_kind": "vocabulary",
+          "word_de": "der Reisepass",
+          "chunk_de": "einen Reisepass beantragen",
+          "sentence_de": "Jonas beantragt einen neuen Reisepass.",
+          "source_word": "der Reisepass"
+        },
+        {
+          "id": "894648ae-babd-5a33-aaff-9da9e705e79c",
+          "source_id": "sitov-A1.2-L02-V013",
+          "content_kind": "vocabulary",
+          "word_de": "das Foto",
+          "chunk_de": "ein Foto mitbringen",
+          "sentence_de": "Paul bringt ein Foto für seinen Ausweis mit.",
+          "source_word": "das Foto"
+        },
+        {
+          "id": "fd6c0130-fccf-5f44-8470-761ec8c74be2",
+          "source_id": "sitov-A1.2-L02-V014",
+          "content_kind": "vocabulary",
+          "word_de": "die Unterschrift",
+          "chunk_de": "eine Unterschrift brauchen",
+          "sentence_de": "Auf dem Formular fehlt noch eine Unterschrift.",
+          "source_word": "die Unterschrift"
+        },
+        {
+          "id": "176c75f4-4244-5122-a53b-d6d73c8c88b6",
+          "source_id": "sitov-A1.2-L02-V015",
+          "content_kind": "vocabulary",
+          "word_de": "die Gebühr",
+          "chunk_de": "eine Gebühr bezahlen",
+          "sentence_de": "Lukas bezahlt die Gebühr mit seiner Karte.",
+          "source_word": "die Gebühr"
+        },
+        {
+          "id": "4793cd2a-3e86-5440-9025-391cd8fad89a",
+          "source_id": "sitov-A1.2-L02-V016",
+          "content_kind": "vocabulary",
+          "word_de": "die Anmeldung",
+          "chunk_de": "die Anmeldung abgeben",
+          "sentence_de": "Amir gibt seine Anmeldung am Schalter ab.",
+          "source_word": "die Anmeldung"
+        },
+        {
+          "id": "ca33e6a0-7aa0-5998-afa9-f1349370c975",
+          "source_id": "sitov-A1.2-L02-V017",
+          "content_kind": "vocabulary",
+          "word_de": "die Bescheinigung",
+          "chunk_de": "eine Bescheinigung bekommen",
+          "sentence_de": "Jonas bekommt eine Bescheinigung vom Amt.",
+          "source_word": "die Bescheinigung"
+        },
+        {
+          "id": "4b104689-41d9-5d60-a1ef-3d57a00b4704",
+          "source_id": "sitov-A1.2-L02-V018",
+          "content_kind": "vocabulary",
+          "word_de": "die Unterlage",
+          "chunk_de": "die Unterlagen mitbringen",
+          "sentence_de": "Paul bringt alle Unterlagen zum Termin mit.",
+          "source_word": "die Unterlage"
+        },
+        {
+          "id": "ce0e7ad7-a496-53fd-907d-f2e0dc8fe4c5",
+          "source_id": "sitov-A1.2-L02-V019",
+          "content_kind": "vocabulary",
+          "word_de": "die Kopie",
+          "chunk_de": "eine Kopie machen",
+          "sentence_de": "Lukas macht eine Kopie von seinem Ausweis.",
+          "source_word": "die Kopie"
+        },
+        {
+          "id": "629a79e2-2e47-55ba-852d-e98056280e82",
+          "source_id": "sitov-A1.2-L02-V020",
+          "content_kind": "vocabulary",
+          "word_de": "das Original",
+          "chunk_de": "das Original zeigen",
+          "sentence_de": "Amir zeigt das Original und gibt die Kopie ab.",
+          "source_word": "das Original"
+        },
+        {
+          "id": "164a3ce3-47f6-5fa1-a731-5884e5a3bdd6",
+          "source_id": "sitov-A1.2-L02-V021",
+          "content_kind": "vocabulary",
+          "word_de": "die Adresse",
+          "chunk_de": "die neue Adresse angeben",
+          "sentence_de": "Jonas gibt auf dem Formular seine neue Adresse an.",
+          "source_word": "die Adresse"
+        },
+        {
+          "id": "55c81c57-57b8-5399-9f85-6df5b7f7bce9",
+          "source_id": "sitov-A1.2-L02-V022",
+          "content_kind": "vocabulary",
+          "word_de": "der Wohnort",
+          "chunk_de": "den Wohnort eintragen",
+          "sentence_de": "Paul trägt seinen Wohnort in das Formular ein.",
+          "source_word": "der Wohnort"
+        },
+        {
+          "id": "4fd0d409-9dbf-501c-86a4-4839bc691eb2",
+          "source_id": "sitov-A1.2-L02-V023",
+          "content_kind": "vocabulary",
+          "word_de": "das Geburtsdatum",
+          "chunk_de": "das Geburtsdatum angeben",
+          "sentence_de": "Lukas gibt sein Geburtsdatum an.",
+          "source_word": "das Geburtsdatum"
+        },
+        {
+          "id": "43dd5ab1-5754-5348-aa33-4716504ea8ff",
+          "source_id": "sitov-A1.2-L02-V024",
+          "content_kind": "vocabulary",
+          "word_de": "der Geburtsort",
+          "chunk_de": "den Geburtsort eintragen",
+          "sentence_de": "Amir trägt seinen Geburtsort ein.",
+          "source_word": "der Geburtsort"
+        },
+        {
+          "id": "a6d4f6cf-0964-5085-974d-2dd9b2dec82a",
+          "source_id": "sitov-A1.2-L02-V025",
+          "content_kind": "vocabulary",
+          "word_de": "die Staatsangehörigkeit",
+          "chunk_de": "die Staatsangehörigkeit angeben",
+          "sentence_de": "Jonas gibt seine Staatsangehörigkeit auf dem Formular an.",
+          "source_word": "die Staatsangehörigkeit"
+        },
+        {
+          "id": "90e808d2-c6ba-5283-a29a-b32bbd0caacc",
+          "source_id": "sitov-A1.2-L02-V026",
+          "content_kind": "vocabulary",
+          "word_de": "der Familienstand",
+          "chunk_de": "den Familienstand angeben",
+          "sentence_de": "Paul gibt seinen Familienstand an.",
+          "source_word": "der Familienstand"
+        },
+        {
+          "id": "3349f896-52e3-5d7c-b385-b435fbf40835",
+          "source_id": "sitov-A1.2-L02-V027",
+          "content_kind": "vocabulary",
+          "word_de": "der Termin",
+          "chunk_de": "einen Termin vereinbaren",
+          "sentence_de": "Lukas vereinbart einen Termin im Bürgerbüro.",
+          "source_word": "der Termin"
+        },
+        {
+          "id": "a6bb8a6d-3d8b-5736-8d41-73a691372c7c",
+          "source_id": "sitov-A1.2-L02-V028",
+          "content_kind": "vocabulary",
+          "word_de": "die Auskunft",
+          "chunk_de": "eine Auskunft bekommen",
+          "sentence_de": "Amir bekommt am Schalter eine Auskunft.",
+          "source_word": "die Auskunft"
+        },
+        {
+          "id": "b5bbb023-cc47-5ac1-b0b2-952f193101d8",
+          "source_id": "sitov-A1.2-L02-V029",
+          "content_kind": "vocabulary",
+          "word_de": "der Mitarbeiter",
+          "chunk_de": "einen Mitarbeiter fragen",
+          "sentence_de": "Jonas fragt einen Mitarbeiter nach dem richtigen Raum.",
+          "source_word": "der Mitarbeiter"
+        },
+        {
+          "id": "29c21e84-d891-59ae-99a9-281fa8daa687",
+          "source_id": "sitov-A1.2-L02-V030",
+          "content_kind": "vocabulary",
+          "word_de": "der Raum",
+          "chunk_de": "den richtigen Raum finden",
+          "sentence_de": "Paul findet den richtigen Raum im ersten Stock.",
+          "source_word": "der Raum"
+        },
+        {
+          "id": "75e25217-8472-56c7-86fa-7be0e4d9672e",
+          "source_id": "sitov-A1.2-L02-V031",
+          "content_kind": "vocabulary",
+          "word_de": "der Eingang",
+          "chunk_de": "am Eingang warten",
+          "sentence_de": "Lukas wartet am Eingang auf seinen Bruder.",
+          "source_word": "der Eingang"
+        },
+        {
+          "id": "26f33d57-17ff-5773-9037-306fac57d29a",
+          "source_id": "sitov-A1.2-L02-V032",
+          "content_kind": "vocabulary",
+          "word_de": "beantragen",
+          "chunk_de": "einen neuen Ausweis beantragen",
+          "sentence_de": "Amir möchte einen neuen Ausweis beantragen.",
+          "source_word": "beantragen"
+        },
+        {
+          "id": "7f23ca4a-bb01-5765-8bb7-c6313834e0a1",
+          "source_id": "sitov-A1.2-L02-V033",
+          "content_kind": "vocabulary",
+          "word_de": "ausfüllen",
+          "chunk_de": "ein Formular ausfüllen",
+          "sentence_de": "Jonas füllt das Formular mit einem Stift aus.",
+          "source_word": "ausfüllen"
+        },
+        {
+          "id": "81fbcb60-7c70-55d8-981c-8f74d82750d7",
+          "source_id": "sitov-A1.2-L02-V034",
+          "content_kind": "vocabulary",
+          "word_de": "unterschreiben",
+          "chunk_de": "einen Antrag unterschreiben",
+          "sentence_de": "Paul unterschreibt den Antrag.",
+          "source_word": "unterschreiben"
+        },
+        {
+          "id": "17a906ea-b67a-5412-87cb-e8bdda01f5d6",
+          "source_id": "sitov-A1.2-L02-V035",
+          "content_kind": "vocabulary",
+          "word_de": "abgeben",
+          "chunk_de": "die Unterlagen abgeben",
+          "sentence_de": "Lukas gibt seine Unterlagen am Schalter ab.",
+          "source_word": "abgeben"
+        },
+        {
+          "id": "adcd850b-c8fc-559a-b954-234ebfa76140",
+          "source_id": "sitov-A1.2-L02-V036",
+          "content_kind": "vocabulary",
+          "word_de": "mitbringen",
+          "chunk_de": "den Ausweis mitbringen",
+          "sentence_de": "Amir muss seinen Ausweis zum Termin mitbringen.",
+          "source_word": "mitbringen"
+        },
+        {
+          "id": "31acb177-5375-5bc3-afbc-2d12059679db",
+          "source_id": "sitov-A1.2-L02-V037",
+          "content_kind": "vocabulary",
+          "word_de": "zeigen",
+          "chunk_de": "den Reisepass zeigen",
+          "sentence_de": "Jonas zeigt dem Mitarbeiter seinen Reisepass.",
+          "source_word": "zeigen"
+        },
+        {
+          "id": "71792aec-d334-5e30-84ff-a78987a8ef61",
+          "source_id": "sitov-A1.2-L02-V038",
+          "content_kind": "vocabulary",
+          "word_de": "kopieren",
+          "chunk_de": "ein Dokument kopieren",
+          "sentence_de": "Paul kopiert das Dokument zu Hause.",
+          "source_word": "kopieren"
+        },
+        {
+          "id": "d23068b9-bc07-5dc1-9be5-4ada594eed4e",
+          "source_id": "sitov-A1.2-L02-V039",
+          "content_kind": "vocabulary",
+          "word_de": "sich anmelden",
+          "chunk_de": "sich im Bürgerbüro anmelden",
+          "sentence_de": "Lukas meldet sich im Bürgerbüro an.",
+          "source_word": "sich anmelden"
+        },
+        {
+          "id": "bae6e41c-1ea0-5ef5-a742-949ef7f93e35",
+          "source_id": "sitov-A1.2-L02-V040",
+          "content_kind": "vocabulary",
+          "word_de": "sich abmelden",
+          "chunk_de": "sich beim Amt abmelden",
+          "sentence_de": "Amir zieht ins Ausland und meldet sich beim Amt ab.",
+          "source_word": "sich abmelden"
+        },
+        {
+          "id": "8d4b7c6d-e95f-5bd3-8bde-a15be8f33911",
+          "source_id": "sitov-A1.2-L02-V041",
+          "content_kind": "vocabulary",
+          "word_de": "warten",
+          "chunk_de": "auf die Nummer warten",
+          "sentence_de": "Jonas wartet auf seine Nummer.",
+          "source_word": "warten"
+        },
+        {
+          "id": "3d190973-ada7-562e-9f9e-77a6be4a3331",
+          "source_id": "sitov-A1.2-L02-V042",
+          "content_kind": "vocabulary",
+          "word_de": "müssen",
+          "chunk_de": "einen Antrag stellen müssen",
+          "sentence_de": "Paul muss einen Antrag stellen.",
+          "source_word": "müssen"
+        },
+        {
+          "id": "4b75cbe8-7eb3-50c5-85fe-0228dd9cee4e",
+          "source_id": "sitov-A1.2-L02-V043",
+          "content_kind": "vocabulary",
+          "word_de": "dürfen",
+          "chunk_de": "hier warten dürfen",
+          "sentence_de": "Lukas darf im Wartebereich warten.",
+          "source_word": "dürfen"
+        },
+        {
+          "id": "cef97e77-5a81-5f70-842f-d0a1767185f9",
+          "source_id": "sitov-A1.2-L02-V044",
+          "content_kind": "vocabulary",
+          "word_de": "notwendig",
+          "chunk_de": "ein notwendiges Dokument",
+          "sentence_de": "Der Ausweis ist für diesen Antrag notwendig.",
+          "source_word": "notwendig"
+        },
+        {
+          "id": "ba6f7e0f-f361-5492-82e3-e547c56da1bf",
+          "source_id": "sitov-A1.2-L02-V045",
+          "content_kind": "vocabulary",
+          "word_de": "gültig",
+          "chunk_de": "ein gültiger Reisepass",
+          "sentence_de": "Amirs Reisepass ist noch gültig.",
+          "source_word": "gültig"
+        },
+        {
+          "id": "9b942113-0450-5abb-95c6-ab5f4e7cead5",
+          "source_id": "sitov-A1.2-L02-V046",
+          "content_kind": "vocabulary",
+          "word_de": "kostenlos",
+          "chunk_de": "eine kostenlose Auskunft",
+          "sentence_de": "Die Auskunft am Schalter ist kostenlos.",
+          "source_word": "kostenlos"
+        },
+        {
+          "id": "795f2d8c-792a-5a0e-ac27-e3ea0e1e9dd0",
+          "source_id": "sitov-A1.2-L02-V047",
+          "content_kind": "vocabulary",
+          "word_de": "geöffnet",
+          "chunk_de": "bis zwölf Uhr geöffnet",
+          "sentence_de": "Das Bürgerbüro ist heute bis zwölf Uhr geöffnet.",
+          "source_word": "geöffnet"
+        },
+        {
+          "id": "b6d91aa0-5147-5646-9540-8ab0a683a0ab",
+          "source_id": "sitov-A1.2-L02-V048",
+          "content_kind": "vocabulary",
+          "word_de": "geschlossen",
+          "chunk_de": "am Sonntag geschlossen",
+          "sentence_de": "Das Rathaus ist am Sonntag geschlossen.",
+          "source_word": "geschlossen"
+        },
+        {
+          "id": "f552cf93-c360-57db-bbb9-522ef752e877",
+          "source_id": "sitov-A1.2-L02-V049",
+          "content_kind": "vocabulary",
+          "word_de": "persönlich",
+          "chunk_de": "persönlich vorbeikommen",
+          "sentence_de": "Für die Unterschrift muss Jonas persönlich vorbeikommen.",
+          "source_word": "persönlich"
+        },
+        {
+          "id": "faed09d6-a440-5ed0-841d-6c8a3e300acd",
+          "source_id": "sitov-A1.2-L02-V050",
+          "content_kind": "vocabulary",
+          "word_de": "vollständig",
+          "chunk_de": "ein vollständiger Antrag",
+          "sentence_de": "Paul gibt den vollständigen Antrag ab.",
+          "source_word": "vollständig"
+        },
+        {
+          "id": "710ac5c6-18c5-5643-a206-d3548c8d16ab",
+          "source_id": "sitov-A1.2-L02-V051",
+          "content_kind": "vocabulary",
+          "word_de": "fehlend",
+          "chunk_de": "ein fehlendes Foto",
+          "sentence_de": "Das fehlende Foto bringt Lukas morgen mit.",
+          "source_word": "fehlend"
+        },
+        {
+          "id": "87e05106-b575-570d-9cf1-b9315d95146a",
+          "source_id": "sitov-A1.2-L02-V052",
+          "content_kind": "vocabulary",
+          "word_de": "zuständig",
+          "chunk_de": "für die Anmeldung zuständig",
+          "sentence_de": "Dieser Mitarbeiter ist für die Anmeldung zuständig.",
+          "source_word": "zuständig"
+        },
+        {
+          "id": "f72d4c03-4318-565a-a93b-6b455932496e",
+          "source_id": "sitov-A1.2-L02-C001",
+          "content_kind": "chunk",
+          "word_de": "Ich möchte mich anmelden.",
+          "chunk_de": null,
+          "sentence_de": "Guten Tag, ich möchte mich hier anmelden.",
+          "source_word": "Ich möchte mich anmelden."
+        },
+        {
+          "id": "05e5f932-1568-59b0-8bb9-918e18026c69",
+          "source_id": "sitov-A1.2-L02-C002",
+          "content_kind": "chunk",
+          "word_de": "Welche Unterlagen brauche ich?",
+          "chunk_de": null,
+          "sentence_de": "Welche Unterlagen brauche ich für den neuen Ausweis?",
+          "source_word": "Welche Unterlagen brauche ich?"
+        },
+        {
+          "id": "5a86ccfa-f955-526f-a32b-8d4e0c59b63c",
+          "source_id": "sitov-A1.2-L02-C003",
+          "content_kind": "chunk",
+          "word_de": "Muss ich einen Termin machen?",
+          "chunk_de": null,
+          "sentence_de": "Muss ich für die Anmeldung einen Termin machen?",
+          "source_word": "Muss ich einen Termin machen?"
+        },
+        {
+          "id": "18bceb50-b5f8-5f6b-8ade-6b771f32ddad",
+          "source_id": "sitov-A1.2-L02-C004",
+          "content_kind": "chunk",
+          "word_de": "Wo muss ich unterschreiben?",
+          "chunk_de": null,
+          "sentence_de": "Wo muss ich auf dem Formular unterschreiben?",
+          "source_word": "Wo muss ich unterschreiben?"
+        },
+        {
+          "id": "eada5cff-0a53-5880-b47f-5399bbc7f400",
+          "source_id": "sitov-A1.2-L02-C005",
+          "content_kind": "chunk",
+          "word_de": "Ich habe eine Frage.",
+          "chunk_de": null,
+          "sentence_de": "Entschuldigung, ich habe eine Frage zu diesem Antrag.",
+          "source_word": "Ich habe eine Frage."
+        },
+        {
+          "id": "3646bd6a-fb44-5fcb-b187-1011f837ec94",
+          "source_id": "sitov-A1.2-L02-C006",
+          "content_kind": "chunk",
+          "word_de": "Können Sie mir bitte helfen?",
+          "chunk_de": null,
+          "sentence_de": "Können Sie mir bitte mit dem Formular helfen?",
+          "source_word": "Können Sie mir bitte helfen?"
+        },
+        {
+          "id": "9eb0136b-f639-5163-97f5-cd9db3f02bc9",
+          "source_id": "sitov-A1.2-L02-C007",
+          "content_kind": "chunk",
+          "word_de": "Wie viel kostet das?",
+          "chunk_de": null,
+          "sentence_de": "Wie viel kostet ein neuer Reisepass?",
+          "source_word": "Wie viel kostet das?"
+        },
+        {
+          "id": "f99dce52-0d20-5e96-b773-e7fa4663ae99",
+          "source_id": "sitov-A1.2-L02-C008",
+          "content_kind": "chunk",
+          "word_de": "Ich verstehe das nicht.",
+          "chunk_de": null,
+          "sentence_de": "Ich verstehe das nicht. Können Sie es bitte noch einmal erklären?",
+          "source_word": "Ich verstehe das nicht."
+        }
+      ]
+    },
+    {
+      "id": "972c8da4-2cce-5f78-84d3-bb1b87a2f137",
+      "level": "A1.2",
+      "label": "Lektion 3 · Gesundheit und Krankheit",
+      "sort_order": 3,
+      "app_lesson": 3,
+      "source_lesson": 10,
+      "cards": [
+        {
+          "id": "c9b2d42f-024c-5b53-acd8-95c7666a421e",
+          "source_id": "sitov-A1.2-L03-V001",
+          "content_kind": "vocabulary",
+          "word_de": "der Körper",
+          "chunk_de": "den Körper bewegen",
+          "sentence_de": "Beim Sport bewegt Paul seinen ganzen Körper.",
+          "source_word": "der Körper"
+        },
+        {
+          "id": "ab474043-8c5a-526b-917a-b2664d20d155",
+          "source_id": "sitov-A1.2-L03-V002",
+          "content_kind": "vocabulary",
+          "word_de": "der Kopf",
+          "chunk_de": "den Kopf drehen",
+          "sentence_de": "Lukas dreht den Kopf nach rechts.",
+          "source_word": "der Kopf"
+        },
+        {
+          "id": "917da7ba-cd39-5767-877e-b3ec36266c28",
+          "source_id": "sitov-A1.2-L03-V003",
+          "content_kind": "vocabulary",
+          "word_de": "das Gesicht",
+          "chunk_de": "das Gesicht waschen",
+          "sentence_de": "Amir wäscht morgens sein Gesicht.",
+          "source_word": "das Gesicht"
+        },
+        {
+          "id": "0d017545-19cf-5c37-ad38-2275ed353dd6",
+          "source_id": "sitov-A1.2-L03-V004",
+          "content_kind": "vocabulary",
+          "word_de": "das Auge",
+          "chunk_de": "die Augen schließen",
+          "sentence_de": "Jonas schließt kurz die Augen.",
+          "source_word": "das Auge"
+        },
+        {
+          "id": "79bbcd95-dc40-5026-b0c2-9269911464d0",
+          "source_id": "sitov-A1.2-L03-V005",
+          "content_kind": "vocabulary",
+          "word_de": "das Ohr",
+          "chunk_de": "auf einem Ohr schlecht hören",
+          "sentence_de": "Paul hört auf einem Ohr schlecht.",
+          "source_word": "das Ohr"
+        },
+        {
+          "id": "582fdeba-b27e-5a35-82a0-4b89779c3df8",
+          "source_id": "sitov-A1.2-L03-V006",
+          "content_kind": "vocabulary",
+          "word_de": "die Nase",
+          "chunk_de": "durch die Nase atmen",
+          "sentence_de": "Lukas atmet durch die Nase.",
+          "source_word": "die Nase"
+        },
+        {
+          "id": "1015930d-66ac-546c-affc-bf96da6a3932",
+          "source_id": "sitov-A1.2-L03-V007",
+          "content_kind": "vocabulary",
+          "word_de": "der Mund",
+          "chunk_de": "den Mund öffnen",
+          "sentence_de": "Amir öffnet beim Zahnarzt den Mund.",
+          "source_word": "der Mund"
+        },
+        {
+          "id": "6367832c-33bb-54ee-aea4-97ff0eff4d07",
+          "source_id": "sitov-A1.2-L03-V008",
+          "content_kind": "vocabulary",
+          "word_de": "der Zahn",
+          "chunk_de": "einen Zahn untersuchen",
+          "sentence_de": "Der Zahnarzt untersucht Jonas' Zahn.",
+          "source_word": "der Zahn"
+        },
+        {
+          "id": "9eba609d-d0f1-514b-9be8-6ef5f9697c2c",
+          "source_id": "sitov-A1.2-L03-V009",
+          "content_kind": "vocabulary",
+          "word_de": "der Hals",
+          "chunk_de": "Schmerzen im Hals haben",
+          "sentence_de": "Paul hat Schmerzen im Hals.",
+          "source_word": "der Hals"
+        },
+        {
+          "id": "926c29c7-d0d2-52f0-a957-504b4515144e",
+          "source_id": "sitov-A1.2-L03-V010",
+          "content_kind": "vocabulary",
+          "word_de": "die Schulter",
+          "chunk_de": "die Schultern bewegen",
+          "sentence_de": "Lukas bewegt langsam die Schultern.",
+          "source_word": "die Schulter"
+        },
+        {
+          "id": "1738a634-bd3c-507f-ba6a-2e7c4e30af51",
+          "source_id": "sitov-A1.2-L03-V011",
+          "content_kind": "vocabulary",
+          "word_de": "der Arm",
+          "chunk_de": "den Arm heben",
+          "sentence_de": "Amir hebt den rechten Arm.",
+          "source_word": "der Arm"
+        },
+        {
+          "id": "e97ae7c0-d6eb-56eb-933b-070dd6649b9d",
+          "source_id": "sitov-A1.2-L03-V012",
+          "content_kind": "vocabulary",
+          "word_de": "die Hand",
+          "chunk_de": "die Hände waschen",
+          "sentence_de": "Jonas wäscht vor dem Essen die Hände.",
+          "source_word": "die Hand"
+        },
+        {
+          "id": "5deaeea5-c11d-57ae-8d9d-d00f6e8bf680",
+          "source_id": "sitov-A1.2-L03-V013",
+          "content_kind": "vocabulary",
+          "word_de": "der Finger",
+          "chunk_de": "den Finger bewegen",
+          "sentence_de": "Paul kann den Finger wieder bewegen.",
+          "source_word": "der Finger"
+        },
+        {
+          "id": "36fe77c8-95cd-5422-b274-095146bdd14c",
+          "source_id": "sitov-A1.2-L03-V014",
+          "content_kind": "vocabulary",
+          "word_de": "der Rücken",
+          "chunk_de": "Schmerzen im Rücken haben",
+          "sentence_de": "Lukas hat heute Schmerzen im Rücken.",
+          "source_word": "der Rücken"
+        },
+        {
+          "id": "df396677-6a12-5724-b2e7-b5975fba6afa",
+          "source_id": "sitov-A1.2-L03-V015",
+          "content_kind": "vocabulary",
+          "word_de": "der Bauch",
+          "chunk_de": "Bauchschmerzen haben",
+          "sentence_de": "Amir hat seit gestern Bauchschmerzen.",
+          "source_word": "der Bauch"
+        },
+        {
+          "id": "dc20495d-96f1-59c7-84e0-8c13d337c828",
+          "source_id": "sitov-A1.2-L03-V016",
+          "content_kind": "vocabulary",
+          "word_de": "das Bein",
+          "chunk_de": "das Bein strecken",
+          "sentence_de": "Jonas streckt vorsichtig das Bein.",
+          "source_word": "das Bein"
+        },
+        {
+          "id": "e4b1391b-7a49-5da8-922c-cab9560a2b59",
+          "source_id": "sitov-A1.2-L03-V017",
+          "content_kind": "vocabulary",
+          "word_de": "das Knie",
+          "chunk_de": "Schmerzen im Knie haben",
+          "sentence_de": "Paul hat nach dem Sport Schmerzen im Knie.",
+          "source_word": "das Knie"
+        },
+        {
+          "id": "29e64e5a-0162-576a-a4ae-ed193a8fb081",
+          "source_id": "sitov-A1.2-L03-V018",
+          "content_kind": "vocabulary",
+          "word_de": "der Fuß",
+          "chunk_de": "mit dem Fuß auftreten",
+          "sentence_de": "Lukas kann mit dem rechten Fuß nicht auftreten.",
+          "source_word": "der Fuß"
+        },
+        {
+          "id": "020fefe5-a2c3-542e-80b2-1d635e40995a",
+          "source_id": "sitov-A1.2-L03-V019",
+          "content_kind": "vocabulary",
+          "word_de": "die Haut",
+          "chunk_de": "trockene Haut haben",
+          "sentence_de": "Amir hat im Winter trockene Haut.",
+          "source_word": "die Haut"
+        },
+        {
+          "id": "2a158b4a-ef26-5edc-9769-8b67b26ee313",
+          "source_id": "sitov-A1.2-L03-V020",
+          "content_kind": "vocabulary",
+          "word_de": "der Schmerz",
+          "chunk_de": "starke Schmerzen haben",
+          "sentence_de": "Jonas hat starke Schmerzen im Rücken.",
+          "source_word": "der Schmerz"
+        },
+        {
+          "id": "07b0b4e2-c2c4-5873-92dd-75641787ce19",
+          "source_id": "sitov-A1.2-L03-V021",
+          "content_kind": "vocabulary",
+          "word_de": "die Kopfschmerzen",
+          "chunk_de": "Kopfschmerzen haben",
+          "sentence_de": "Paul hat heute Kopfschmerzen.",
+          "source_word": "die Kopfschmerzen"
+        },
+        {
+          "id": "be03c2e8-42f5-5898-ae83-7cbc9ccc1823",
+          "source_id": "sitov-A1.2-L03-V022",
+          "content_kind": "vocabulary",
+          "word_de": "das Fieber",
+          "chunk_de": "Fieber messen",
+          "sentence_de": "Lukas misst sein Fieber.",
+          "source_word": "das Fieber"
+        },
+        {
+          "id": "c027b122-c4b4-5e7b-9b34-5cef0467ba3f",
+          "source_id": "sitov-A1.2-L03-V023",
+          "content_kind": "vocabulary",
+          "word_de": "der Husten",
+          "chunk_de": "starken Husten haben",
+          "sentence_de": "Amir hat seit zwei Tagen starken Husten.",
+          "source_word": "der Husten"
+        },
+        {
+          "id": "859ef4e6-139b-5c04-b22c-19a0796dcf91",
+          "source_id": "sitov-A1.2-L03-V024",
+          "content_kind": "vocabulary",
+          "word_de": "der Schnupfen",
+          "chunk_de": "Schnupfen haben",
+          "sentence_de": "Jonas hat Schnupfen und bleibt zu Hause.",
+          "source_word": "der Schnupfen"
+        },
+        {
+          "id": "4e29be9a-27bd-59bf-b420-18324d2a4f92",
+          "source_id": "sitov-A1.2-L03-V025",
+          "content_kind": "vocabulary",
+          "word_de": "die Erkältung",
+          "chunk_de": "eine Erkältung haben",
+          "sentence_de": "Paul hat eine Erkältung und trinkt viel Tee.",
+          "source_word": "die Erkältung"
+        },
+        {
+          "id": "563f3cd3-ebcf-5dad-8f8c-7328e59b2b9a",
+          "source_id": "sitov-A1.2-L03-V026",
+          "content_kind": "vocabulary",
+          "word_de": "die Krankheit",
+          "chunk_de": "eine Krankheit behandeln",
+          "sentence_de": "Der Arzt behandelt Lukas' Krankheit.",
+          "source_word": "die Krankheit"
+        },
+        {
+          "id": "b94d573e-41bb-5b70-9608-8ad5b9b6bb4c",
+          "source_id": "sitov-A1.2-L03-V027",
+          "content_kind": "vocabulary",
+          "word_de": "der Arzt",
+          "chunk_de": "zum Arzt gehen",
+          "sentence_de": "Amir geht morgen zum Arzt.",
+          "source_word": "der Arzt"
+        },
+        {
+          "id": "07098e90-1955-5afa-9f7e-281bdca573d5",
+          "source_id": "sitov-A1.2-L03-V028",
+          "content_kind": "vocabulary",
+          "word_de": "der Zahnarzt",
+          "chunk_de": "einen Zahnarzt besuchen",
+          "sentence_de": "Jonas besucht heute den Zahnarzt.",
+          "source_word": "der Zahnarzt"
+        },
+        {
+          "id": "8646869f-9149-5f2d-adb5-845e74dcd0cf",
+          "source_id": "sitov-A1.2-L03-V029",
+          "content_kind": "vocabulary",
+          "word_de": "die Praxis",
+          "chunk_de": "in der Praxis anrufen",
+          "sentence_de": "Paul ruft in der Praxis an.",
+          "source_word": "die Praxis"
+        },
+        {
+          "id": "ab1fb52d-6997-570c-b767-edcf581d24d3",
+          "source_id": "sitov-A1.2-L03-V030",
+          "content_kind": "vocabulary",
+          "word_de": "das Wartezimmer",
+          "chunk_de": "im Wartezimmer sitzen",
+          "sentence_de": "Lukas sitzt im Wartezimmer und liest.",
+          "source_word": "das Wartezimmer"
+        },
+        {
+          "id": "51ee48bd-24d6-5b0a-8c4a-2990037822a0",
+          "source_id": "sitov-A1.2-L03-V031",
+          "content_kind": "vocabulary",
+          "word_de": "die Apotheke",
+          "chunk_de": "zur Apotheke gehen",
+          "sentence_de": "Amir geht nach dem Arzttermin zur Apotheke.",
+          "source_word": "die Apotheke"
+        },
+        {
+          "id": "fc68e4de-cf59-5bd7-9567-ad739d107951",
+          "source_id": "sitov-A1.2-L03-V032",
+          "content_kind": "vocabulary",
+          "word_de": "das Medikament",
+          "chunk_de": "ein Medikament nehmen",
+          "sentence_de": "Jonas nimmt das Medikament nach dem Essen.",
+          "source_word": "das Medikament"
+        },
+        {
+          "id": "457af1d3-7929-58a6-8d82-34be68bbc5f1",
+          "source_id": "sitov-A1.2-L03-V033",
+          "content_kind": "vocabulary",
+          "word_de": "die Tablette",
+          "chunk_de": "eine Tablette nehmen",
+          "sentence_de": "Paul nimmt eine Tablette mit Wasser.",
+          "source_word": "die Tablette"
+        },
+        {
+          "id": "fc47752b-7c24-550f-8247-9f94a81dc436",
+          "source_id": "sitov-A1.2-L03-V034",
+          "content_kind": "vocabulary",
+          "word_de": "die Salbe",
+          "chunk_de": "eine Salbe benutzen",
+          "sentence_de": "Lukas benutzt die Salbe für seine Hand.",
+          "source_word": "die Salbe"
+        },
+        {
+          "id": "4bd53492-e268-5331-bc2d-83ac6ac677fe",
+          "source_id": "sitov-A1.2-L03-V035",
+          "content_kind": "vocabulary",
+          "word_de": "der Tropfen",
+          "chunk_de": "zehn Tropfen nehmen",
+          "sentence_de": "Amir nimmt zehn Tropfen nach dem Essen.",
+          "source_word": "der Tropfen"
+        },
+        {
+          "id": "4716dd54-77f8-5e4b-abee-6283e83f22b7",
+          "source_id": "sitov-A1.2-L03-V036",
+          "content_kind": "vocabulary",
+          "word_de": "das Rezept",
+          "chunk_de": "ein Rezept bekommen",
+          "sentence_de": "Jonas bekommt vom Arzt ein Rezept.",
+          "source_word": "das Rezept"
+        },
+        {
+          "id": "21aa324f-4aee-546f-bb2b-cc3a661636e1",
+          "source_id": "sitov-A1.2-L03-V037",
+          "content_kind": "vocabulary",
+          "word_de": "die Krankmeldung",
+          "chunk_de": "eine Krankmeldung schicken",
+          "sentence_de": "Paul schickt seine Krankmeldung an seinen Chef.",
+          "source_word": "die Krankmeldung"
+        },
+        {
+          "id": "97e1ee2e-b22a-50b6-ba3a-4f865134ee9b",
+          "source_id": "sitov-A1.2-L03-V038",
+          "content_kind": "vocabulary",
+          "word_de": "der Notfall",
+          "chunk_de": "in einem Notfall Hilfe holen",
+          "sentence_de": "In einem Notfall holt Lukas sofort Hilfe.",
+          "source_word": "der Notfall"
+        },
+        {
+          "id": "b48b8dd5-9bb9-59d7-be7f-238b4b3fe0e2",
+          "source_id": "sitov-A1.2-L03-V039",
+          "content_kind": "vocabulary",
+          "word_de": "wehtun",
+          "chunk_de": "im Hals wehtun",
+          "sentence_de": "Beim Schlucken tut Amirs Hals weh.",
+          "source_word": "wehtun"
+        },
+        {
+          "id": "a610157a-24aa-5308-9916-a4275e29b859",
+          "source_id": "sitov-A1.2-L03-V040",
+          "content_kind": "vocabulary",
+          "word_de": "husten",
+          "chunk_de": "nachts viel husten",
+          "sentence_de": "Jonas hustet nachts viel.",
+          "source_word": "husten"
+        },
+        {
+          "id": "28fe2525-d2b1-5be6-9faf-eada76a54091",
+          "source_id": "sitov-A1.2-L03-V041",
+          "content_kind": "vocabulary",
+          "word_de": "untersuchen",
+          "chunk_de": "den Rücken untersuchen",
+          "sentence_de": "Der Arzt untersucht Pauls Rücken.",
+          "source_word": "untersuchen"
+        },
+        {
+          "id": "15e55390-625f-52b1-ae43-1af447b21a63",
+          "source_id": "sitov-A1.2-L03-V042",
+          "content_kind": "vocabulary",
+          "word_de": "messen",
+          "chunk_de": "die Temperatur messen",
+          "sentence_de": "Lukas misst seine Temperatur.",
+          "source_word": "messen"
+        },
+        {
+          "id": "3254722f-31f4-5720-861c-95da0c3189ef",
+          "source_id": "sitov-A1.2-L03-V043",
+          "content_kind": "vocabulary",
+          "word_de": "nehmen",
+          "chunk_de": "ein Medikament nehmen",
+          "sentence_de": "Amir nimmt das Medikament am Abend.",
+          "source_word": "nehmen"
+        },
+        {
+          "id": "a0e4ae3e-ba7a-55a5-9236-3d1a8221b81b",
+          "source_id": "sitov-A1.2-L03-V044",
+          "content_kind": "vocabulary",
+          "word_de": "sich ausruhen",
+          "chunk_de": "sich zu Hause ausruhen",
+          "sentence_de": "Jonas ruht sich heute zu Hause aus.",
+          "source_word": "sich ausruhen"
+        },
+        {
+          "id": "1553f437-60d5-53ef-9308-18f7e4ebc33b",
+          "source_id": "sitov-A1.2-L03-V045",
+          "content_kind": "vocabulary",
+          "word_de": "sich bewegen",
+          "chunk_de": "sich jeden Tag bewegen",
+          "sentence_de": "Paul bewegt sich jeden Tag an der frischen Luft.",
+          "source_word": "sich bewegen"
+        },
+        {
+          "id": "67d42d8d-bade-585a-9dc4-98ec317a0a06",
+          "source_id": "sitov-A1.2-L03-V046",
+          "content_kind": "vocabulary",
+          "word_de": "schlafen",
+          "chunk_de": "acht Stunden schlafen",
+          "sentence_de": "Lukas schläft heute acht Stunden.",
+          "source_word": "schlafen"
+        },
+        {
+          "id": "fc782336-d499-5776-8b23-d49ea122cbf5",
+          "source_id": "sitov-A1.2-L03-V047",
+          "content_kind": "vocabulary",
+          "word_de": "trinken",
+          "chunk_de": "viel Wasser trinken",
+          "sentence_de": "Amir trinkt bei der Arbeit viel Wasser.",
+          "source_word": "trinken"
+        },
+        {
+          "id": "bcd67e3f-8dd6-5112-8725-a632aa3f27db",
+          "source_id": "sitov-A1.2-L03-V048",
+          "content_kind": "vocabulary",
+          "word_de": "krank",
+          "chunk_de": "krank sein",
+          "sentence_de": "Jonas ist krank und bleibt im Bett.",
+          "source_word": "krank"
+        },
+        {
+          "id": "84c2be4e-29f3-5075-b954-92c4222f81d1",
+          "source_id": "sitov-A1.2-L03-V049",
+          "content_kind": "vocabulary",
+          "word_de": "gesund",
+          "chunk_de": "wieder gesund sein",
+          "sentence_de": "Nach einer Woche ist Paul wieder gesund.",
+          "source_word": "gesund"
+        },
+        {
+          "id": "46effc07-4dda-5323-8881-557f9393b21f",
+          "source_id": "sitov-A1.2-L03-V050",
+          "content_kind": "vocabulary",
+          "word_de": "müde",
+          "chunk_de": "sehr müde sein",
+          "sentence_de": "Lukas ist heute sehr müde.",
+          "source_word": "müde"
+        },
+        {
+          "id": "b6b92648-bfe7-5085-b557-1d9b2027fa1b",
+          "source_id": "sitov-A1.2-L03-V051",
+          "content_kind": "vocabulary",
+          "word_de": "stark",
+          "chunk_de": "starke Schmerzen",
+          "sentence_de": "Amir hat starke Schmerzen im Bauch.",
+          "source_word": "stark"
+        },
+        {
+          "id": "dfb9ac2a-6df6-54e1-8e8e-10e9e7e5ab73",
+          "source_id": "sitov-A1.2-L03-V052",
+          "content_kind": "vocabulary",
+          "word_de": "leicht",
+          "chunk_de": "eine leichte Erkältung",
+          "sentence_de": "Jonas hat nur eine leichte Erkältung.",
+          "source_word": "leicht"
+        },
+        {
+          "id": "85bf5a50-a2b0-5c1a-8957-726902c6912b",
+          "source_id": "sitov-A1.2-L03-V053",
+          "content_kind": "vocabulary",
+          "word_de": "vorsichtig",
+          "chunk_de": "vorsichtig aufstehen",
+          "sentence_de": "Paul steht nach der Untersuchung vorsichtig auf.",
+          "source_word": "vorsichtig"
+        },
+        {
+          "id": "9b2ddbd6-c64a-5550-9426-cae9162b31f8",
+          "source_id": "sitov-A1.2-L03-V054",
+          "content_kind": "vocabulary",
+          "word_de": "sollen",
+          "chunk_de": "viel trinken sollen",
+          "sentence_de": "Der Arzt sagt, Lukas soll viel trinken.",
+          "source_word": "sollen"
+        },
+        {
+          "id": "6fbf8c9d-c506-576c-833f-ac3eea93ee60",
+          "source_id": "sitov-A1.2-L03-C001",
+          "content_kind": "chunk",
+          "word_de": "Mir geht es nicht gut.",
+          "chunk_de": null,
+          "sentence_de": "Mir geht es heute nicht gut, ich habe Fieber.",
+          "source_word": "Mir geht es nicht gut."
+        },
+        {
+          "id": "090480a8-55f4-53ee-b664-f9634db5235a",
+          "source_id": "sitov-A1.2-L03-C002",
+          "content_kind": "chunk",
+          "word_de": "Ich habe Schmerzen.",
+          "chunk_de": null,
+          "sentence_de": "Ich habe seit gestern Schmerzen im Rücken.",
+          "source_word": "Ich habe Schmerzen."
+        },
+        {
+          "id": "662af35b-2a47-5e58-8b0c-a8ee29837c6e",
+          "source_id": "sitov-A1.2-L03-C003",
+          "content_kind": "chunk",
+          "word_de": "Mein Hals tut weh.",
+          "chunk_de": null,
+          "sentence_de": "Mein Hals tut beim Schlucken weh.",
+          "source_word": "Mein Hals tut weh."
+        },
+        {
+          "id": "2d1a26f8-d75a-5e32-a72c-7fce7074e13c",
+          "source_id": "sitov-A1.2-L03-C004",
+          "content_kind": "chunk",
+          "word_de": "Seit wann haben Sie das?",
+          "chunk_de": null,
+          "sentence_de": "Der Arzt fragt: Seit wann haben Sie diese Schmerzen?",
+          "source_word": "Seit wann haben Sie das?"
+        },
+        {
+          "id": "30b7b3c6-ac4c-54a2-85a7-43bd9a310379",
+          "source_id": "sitov-A1.2-L03-C005",
+          "content_kind": "chunk",
+          "word_de": "Ich brauche einen Termin.",
+          "chunk_de": null,
+          "sentence_de": "Guten Morgen, ich brauche einen Termin beim Arzt.",
+          "source_word": "Ich brauche einen Termin."
+        },
+        {
+          "id": "3e0ffff2-2043-5a61-9949-8554b47dd1de",
+          "source_id": "sitov-A1.2-L03-C006",
+          "content_kind": "chunk",
+          "word_de": "Wie oft soll ich das nehmen?",
+          "chunk_de": null,
+          "sentence_de": "Wie oft soll ich dieses Medikament nehmen?",
+          "source_word": "Wie oft soll ich das nehmen?"
+        },
+        {
+          "id": "0c2d0415-3a7d-544b-90c6-06c3a38d763a",
+          "source_id": "sitov-A1.2-L03-C007",
+          "content_kind": "chunk",
+          "word_de": "Gute Besserung!",
+          "chunk_de": null,
+          "sentence_de": "Paul sagt zu seinem kranken Freund: Gute Besserung!",
+          "source_word": "Gute Besserung!"
+        },
+        {
+          "id": "3f3e717b-7d39-5447-970e-8c9a2972efeb",
+          "source_id": "sitov-A1.2-L03-C008",
+          "content_kind": "chunk",
+          "word_de": "Rufen Sie bitte einen Arzt!",
+          "chunk_de": null,
+          "sentence_de": "Meinem Freund geht es sehr schlecht. Rufen Sie bitte einen Arzt!",
+          "source_word": "Rufen Sie bitte einen Arzt!"
+        }
+      ]
+    },
+    {
+      "id": "9f061d44-4ce0-58eb-8738-df37f97a0060",
+      "level": "A1.2",
+      "label": "Lektion 4 · In der Stadt unterwegs",
+      "sort_order": 4,
+      "app_lesson": 4,
+      "source_lesson": 11,
+      "cards": [
+        {
+          "id": "1b97dd4e-9038-53ed-b475-0be79afafe76",
+          "source_id": "sitov-A1.2-L04-V001",
+          "content_kind": "vocabulary",
+          "word_de": "die Stadt",
+          "chunk_de": "in die Stadt fahren",
+          "sentence_de": "Paul fährt am Samstag in die Stadt.",
+          "source_word": "die Stadt"
+        },
+        {
+          "id": "bf7d472c-71f7-5373-991e-3d10f9a3b526",
+          "source_id": "sitov-A1.2-L04-V002",
+          "content_kind": "vocabulary",
+          "word_de": "das Zentrum",
+          "chunk_de": "im Zentrum wohnen",
+          "sentence_de": "Lukas wohnt im Zentrum von Berlin.",
+          "source_word": "das Zentrum"
+        },
+        {
+          "id": "477cf6ff-9322-53d0-b6be-cdf27351a07f",
+          "source_id": "sitov-A1.2-L04-V003",
+          "content_kind": "vocabulary",
+          "word_de": "die Straße",
+          "chunk_de": "die Straße überqueren",
+          "sentence_de": "Amir überquert die Straße an der Ampel.",
+          "source_word": "die Straße"
+        },
+        {
+          "id": "1c7899a8-10e5-502b-bb7e-e8e65120e135",
+          "source_id": "sitov-A1.2-L04-V004",
+          "content_kind": "vocabulary",
+          "word_de": "die Kreuzung",
+          "chunk_de": "an der Kreuzung abbiegen",
+          "sentence_de": "Jonas biegt an der Kreuzung rechts ab.",
+          "source_word": "die Kreuzung"
+        },
+        {
+          "id": "88c8877f-cc7d-5b8b-a0ad-fab2c26fc5c1",
+          "source_id": "sitov-A1.2-L04-V005",
+          "content_kind": "vocabulary",
+          "word_de": "die Ampel",
+          "chunk_de": "an der Ampel warten",
+          "sentence_de": "Paul wartet an der roten Ampel.",
+          "source_word": "die Ampel"
+        },
+        {
+          "id": "65ef3567-a5e7-5b9f-8c39-e3bacd84289a",
+          "source_id": "sitov-A1.2-L04-V006",
+          "content_kind": "vocabulary",
+          "word_de": "der Platz",
+          "chunk_de": "über den Platz gehen",
+          "sentence_de": "Lukas geht über den Platz zum Rathaus.",
+          "source_word": "der Platz"
+        },
+        {
+          "id": "aee2004d-f821-5a58-adb6-f019f2274703",
+          "source_id": "sitov-A1.2-L04-V007",
+          "content_kind": "vocabulary",
+          "word_de": "der Weg",
+          "chunk_de": "nach dem Weg fragen",
+          "sentence_de": "Amir fragt nach dem Weg zum Bahnhof.",
+          "source_word": "der Weg"
+        },
+        {
+          "id": "4e7f8db8-96cc-53b8-98ab-96441c543b8a",
+          "source_id": "sitov-A1.2-L04-V008",
+          "content_kind": "vocabulary",
+          "word_de": "die Ecke",
+          "chunk_de": "an der Ecke stehen",
+          "sentence_de": "Jonas steht an der Ecke und wartet.",
+          "source_word": "die Ecke"
+        },
+        {
+          "id": "79a4d1a1-19e5-5218-97f1-a81563da51bb",
+          "source_id": "sitov-A1.2-L04-V009",
+          "content_kind": "vocabulary",
+          "word_de": "der Park",
+          "chunk_de": "im Park spazieren gehen",
+          "sentence_de": "Paul geht am Abend im Park spazieren.",
+          "source_word": "der Park"
+        },
+        {
+          "id": "874875de-b7ca-5f9a-a7fc-c191ecf68c6e",
+          "source_id": "sitov-A1.2-L04-V010",
+          "content_kind": "vocabulary",
+          "word_de": "die Brücke",
+          "chunk_de": "über die Brücke gehen",
+          "sentence_de": "Lukas geht über die Brücke zur Schule.",
+          "source_word": "die Brücke"
+        },
+        {
+          "id": "cadd8cc7-8eb2-5ff7-87d6-c25c9274b063",
+          "source_id": "sitov-A1.2-L04-V011",
+          "content_kind": "vocabulary",
+          "word_de": "der Bahnhof",
+          "chunk_de": "zum Bahnhof gehen",
+          "sentence_de": "Amir geht zu Fuß zum Bahnhof.",
+          "source_word": "der Bahnhof"
+        },
+        {
+          "id": "36b82144-14a0-5ed5-8708-b5bb66414249",
+          "source_id": "sitov-A1.2-L04-V012",
+          "content_kind": "vocabulary",
+          "word_de": "der Bahnsteig",
+          "chunk_de": "auf dem Bahnsteig warten",
+          "sentence_de": "Jonas wartet auf dem Bahnsteig.",
+          "source_word": "der Bahnsteig"
+        },
+        {
+          "id": "0bed1f1e-9276-5b12-a58e-d24770c41027",
+          "source_id": "sitov-A1.2-L04-V013",
+          "content_kind": "vocabulary",
+          "word_de": "das Gleis",
+          "chunk_de": "an Gleis drei",
+          "sentence_de": "Pauls Zug fährt an Gleis drei ab.",
+          "source_word": "das Gleis"
+        },
+        {
+          "id": "c8d0bc32-2cee-5581-836c-e06b59cf5d52",
+          "source_id": "sitov-A1.2-L04-V014",
+          "content_kind": "vocabulary",
+          "word_de": "die Haltestelle",
+          "chunk_de": "an der Haltestelle warten",
+          "sentence_de": "Lukas wartet an der Haltestelle auf den Bus.",
+          "source_word": "die Haltestelle"
+        },
+        {
+          "id": "1ecb3a4c-7590-5a19-a5b3-e83c81063b15",
+          "source_id": "sitov-A1.2-L04-V015",
+          "content_kind": "vocabulary",
+          "word_de": "der Bus",
+          "chunk_de": "mit dem Bus fahren",
+          "sentence_de": "Amir fährt mit dem Bus ins Zentrum.",
+          "source_word": "der Bus"
+        },
+        {
+          "id": "31373999-f55e-59db-ac43-469c9c47b5f4",
+          "source_id": "sitov-A1.2-L04-V016",
+          "content_kind": "vocabulary",
+          "word_de": "die Straßenbahn",
+          "chunk_de": "die Straßenbahn nehmen",
+          "sentence_de": "Jonas nimmt die Straßenbahn zum Bahnhof.",
+          "source_word": "die Straßenbahn"
+        },
+        {
+          "id": "422c9723-b151-581c-8274-0d57120ac00f",
+          "source_id": "sitov-A1.2-L04-V017",
+          "content_kind": "vocabulary",
+          "word_de": "die U-Bahn",
+          "chunk_de": "mit der U-Bahn fahren",
+          "sentence_de": "Paul fährt mit der U-Bahn zur Arbeit.",
+          "source_word": "die U-Bahn"
+        },
+        {
+          "id": "8af93f52-9994-5868-a10e-9520853aa15a",
+          "source_id": "sitov-A1.2-L04-V018",
+          "content_kind": "vocabulary",
+          "word_de": "der Zug",
+          "chunk_de": "in den Zug einsteigen",
+          "sentence_de": "Lukas steigt in den Zug nach Köln ein.",
+          "source_word": "der Zug"
+        },
+        {
+          "id": "6344f10d-d40d-531b-8c6a-9071b5884182",
+          "source_id": "sitov-A1.2-L04-V019",
+          "content_kind": "vocabulary",
+          "word_de": "das Taxi",
+          "chunk_de": "ein Taxi nehmen",
+          "sentence_de": "Amir nimmt ein Taxi zum Flughafen.",
+          "source_word": "das Taxi"
+        },
+        {
+          "id": "79e02ef6-dd72-5765-b66c-eaa8fc799839",
+          "source_id": "sitov-A1.2-L04-V020",
+          "content_kind": "vocabulary",
+          "word_de": "das Fahrrad",
+          "chunk_de": "mit dem Fahrrad fahren",
+          "sentence_de": "Jonas fährt mit dem Fahrrad zur Schule.",
+          "source_word": "das Fahrrad"
+        },
+        {
+          "id": "d2b89ece-9088-5806-9097-9cd94a5db9f0",
+          "source_id": "sitov-A1.2-L04-V021",
+          "content_kind": "vocabulary",
+          "word_de": "das Auto",
+          "chunk_de": "das Auto parken",
+          "sentence_de": "Paul parkt sein Auto vor dem Haus.",
+          "source_word": "das Auto"
+        },
+        {
+          "id": "a018b284-716b-5c9a-a5b9-9f4e9886db75",
+          "source_id": "sitov-A1.2-L04-V022",
+          "content_kind": "vocabulary",
+          "word_de": "die Fahrkarte",
+          "chunk_de": "eine Fahrkarte kaufen",
+          "sentence_de": "Lukas kauft eine Fahrkarte am Automaten.",
+          "source_word": "die Fahrkarte"
+        },
+        {
+          "id": "cbd9090a-8a58-594f-9a7f-851d9501e18e",
+          "source_id": "sitov-A1.2-L04-V023",
+          "content_kind": "vocabulary",
+          "word_de": "der Automat",
+          "chunk_de": "am Automaten bezahlen",
+          "sentence_de": "Amir bezahlt seine Fahrkarte am Automaten.",
+          "source_word": "der Automat"
+        },
+        {
+          "id": "c5fa4ca9-4795-5b29-a591-dbcadcc7656a",
+          "source_id": "sitov-A1.2-L04-V024",
+          "content_kind": "vocabulary",
+          "word_de": "der Fahrplan",
+          "chunk_de": "den Fahrplan lesen",
+          "sentence_de": "Jonas liest den Fahrplan an der Haltestelle.",
+          "source_word": "der Fahrplan"
+        },
+        {
+          "id": "fb8bc07a-6d63-57a1-887d-4d1dd43d3134",
+          "source_id": "sitov-A1.2-L04-V025",
+          "content_kind": "vocabulary",
+          "word_de": "die Linie",
+          "chunk_de": "die Linie fünf nehmen",
+          "sentence_de": "Paul nimmt die Linie fünf zum Bahnhof.",
+          "source_word": "die Linie"
+        },
+        {
+          "id": "9649b218-780f-596e-bb06-8d04a072d082",
+          "source_id": "sitov-A1.2-L04-V026",
+          "content_kind": "vocabulary",
+          "word_de": "die Richtung",
+          "chunk_de": "in die richtige Richtung fahren",
+          "sentence_de": "Lukas fährt mit dem Bus in die richtige Richtung.",
+          "source_word": "die Richtung"
+        },
+        {
+          "id": "8040cd97-f73f-5695-9338-97acc3c5275f",
+          "source_id": "sitov-A1.2-L04-V027",
+          "content_kind": "vocabulary",
+          "word_de": "die Fahrt",
+          "chunk_de": "eine kurze Fahrt",
+          "sentence_de": "Die Fahrt ins Zentrum dauert nur zehn Minuten.",
+          "source_word": "die Fahrt"
+        },
+        {
+          "id": "2049856f-b437-5077-99f2-c05c12659752",
+          "source_id": "sitov-A1.2-L04-V028",
+          "content_kind": "vocabulary",
+          "word_de": "die Abfahrt",
+          "chunk_de": "die Abfahrt auf der Tafel suchen",
+          "sentence_de": "Amir sucht die Abfahrt seines Zuges auf der Tafel.",
+          "source_word": "die Abfahrt"
+        },
+        {
+          "id": "1fbdf351-c6ce-5579-9014-20e26174f1cb",
+          "source_id": "sitov-A1.2-L04-V029",
+          "content_kind": "vocabulary",
+          "word_de": "die Ankunft",
+          "chunk_de": "nach der Ankunft anrufen",
+          "sentence_de": "Jonas ruft nach der Ankunft seinen Vater an.",
+          "source_word": "die Ankunft"
+        },
+        {
+          "id": "23509e38-04fc-51f7-b712-3ebe44d91892",
+          "source_id": "sitov-A1.2-L04-V030",
+          "content_kind": "vocabulary",
+          "word_de": "der Ausgang",
+          "chunk_de": "den Ausgang finden",
+          "sentence_de": "Paul findet den Ausgang zum Bahnhofsvorplatz.",
+          "source_word": "der Ausgang"
+        },
+        {
+          "id": "7fb37fd0-8245-5a5b-b00a-d6489a3bb03c",
+          "source_id": "sitov-A1.2-L04-V031",
+          "content_kind": "vocabulary",
+          "word_de": "die Treppe",
+          "chunk_de": "die Treppe hinaufgehen",
+          "sentence_de": "Lukas geht die Treppe zum Bahnsteig hinauf.",
+          "source_word": "die Treppe"
+        },
+        {
+          "id": "c7c42545-3b1f-560b-ba16-7dec95b42e9b",
+          "source_id": "sitov-A1.2-L04-V032",
+          "content_kind": "vocabulary",
+          "word_de": "der Aufzug",
+          "chunk_de": "den Aufzug benutzen",
+          "sentence_de": "Amir benutzt den Aufzug mit seinem Koffer.",
+          "source_word": "der Aufzug"
+        },
+        {
+          "id": "3e6c189e-4a81-5245-9f1a-d8c1c9133c3d",
+          "source_id": "sitov-A1.2-L04-V033",
+          "content_kind": "vocabulary",
+          "word_de": "fahren",
+          "chunk_de": "nach Hause fahren",
+          "sentence_de": "Jonas fährt nach dem Kurs nach Hause.",
+          "source_word": "fahren"
+        },
+        {
+          "id": "0b79df6a-0ddc-52de-a86c-fa8ac8ed8aa3",
+          "source_id": "sitov-A1.2-L04-V034",
+          "content_kind": "vocabulary",
+          "word_de": "einsteigen",
+          "chunk_de": "in den Bus einsteigen",
+          "sentence_de": "Paul steigt an der nächsten Haltestelle in den Bus ein.",
+          "source_word": "einsteigen"
+        },
+        {
+          "id": "2cecf083-dca8-5673-9e02-0f9e524574e8",
+          "source_id": "sitov-A1.2-L04-V035",
+          "content_kind": "vocabulary",
+          "word_de": "aussteigen",
+          "chunk_de": "am Bahnhof aussteigen",
+          "sentence_de": "Lukas steigt am Bahnhof aus.",
+          "source_word": "aussteigen"
+        },
+        {
+          "id": "a0877bb2-0005-5b3a-a3d6-35480ec4c3be",
+          "source_id": "sitov-A1.2-L04-V036",
+          "content_kind": "vocabulary",
+          "word_de": "umsteigen",
+          "chunk_de": "in Köln umsteigen",
+          "sentence_de": "Amir muss in Köln umsteigen.",
+          "source_word": "umsteigen"
+        },
+        {
+          "id": "1bfb9c59-5d72-50e0-b543-9b9c8de0e241",
+          "source_id": "sitov-A1.2-L04-V037",
+          "content_kind": "vocabulary",
+          "word_de": "abbiegen",
+          "chunk_de": "nach links abbiegen",
+          "sentence_de": "Jonas biegt an der Ampel nach links ab.",
+          "source_word": "abbiegen"
+        },
+        {
+          "id": "df932782-3f39-59a9-9ab3-681aa6721f13",
+          "source_id": "sitov-A1.2-L04-V038",
+          "content_kind": "vocabulary",
+          "word_de": "überqueren",
+          "chunk_de": "eine Straße überqueren",
+          "sentence_de": "Paul überquert die Straße vorsichtig.",
+          "source_word": "überqueren"
+        },
+        {
+          "id": "83b30e68-775d-58cc-aef0-607b6e176f4d",
+          "source_id": "sitov-A1.2-L04-V039",
+          "content_kind": "vocabulary",
+          "word_de": "parken",
+          "chunk_de": "vor dem Haus parken",
+          "sentence_de": "Lukas parkt vor dem Haus.",
+          "source_word": "parken"
+        },
+        {
+          "id": "84e9b2e5-fbae-5422-9022-7c19d1d67d6a",
+          "source_id": "sitov-A1.2-L04-V040",
+          "content_kind": "vocabulary",
+          "word_de": "finden",
+          "chunk_de": "den Weg finden",
+          "sentence_de": "Amir findet den Weg zum Park.",
+          "source_word": "finden"
+        },
+        {
+          "id": "ebadf612-59ef-5e73-afcf-3bd9a4a48cdc",
+          "source_id": "sitov-A1.2-L04-V041",
+          "content_kind": "vocabulary",
+          "word_de": "suchen",
+          "chunk_de": "eine Haltestelle suchen",
+          "sentence_de": "Jonas sucht die Haltestelle der Linie drei.",
+          "source_word": "suchen"
+        },
+        {
+          "id": "8bb58281-b520-52ff-ab77-c81ef41da25b",
+          "source_id": "sitov-A1.2-L04-V042",
+          "content_kind": "vocabulary",
+          "word_de": "links",
+          "chunk_de": "nach links gehen",
+          "sentence_de": "Paul geht an der Kreuzung nach links.",
+          "source_word": "links"
+        },
+        {
+          "id": "918c6c9a-c3c6-56e6-9979-898154de58c7",
+          "source_id": "sitov-A1.2-L04-V043",
+          "content_kind": "vocabulary",
+          "word_de": "rechts",
+          "chunk_de": "rechts abbiegen",
+          "sentence_de": "Lukas biegt rechts in die Bahnhofstraße ab.",
+          "source_word": "rechts"
+        },
+        {
+          "id": "a80aeb3d-cf8a-521e-a94c-96551f432c3b",
+          "source_id": "sitov-A1.2-L04-V044",
+          "content_kind": "vocabulary",
+          "word_de": "geradeaus",
+          "chunk_de": "geradeaus gehen",
+          "sentence_de": "Amir geht bis zur Ampel geradeaus.",
+          "source_word": "geradeaus"
+        },
+        {
+          "id": "8955839a-002b-512d-b3d0-b19ae8e51d84",
+          "source_id": "sitov-A1.2-L04-V045",
+          "content_kind": "vocabulary",
+          "word_de": "vor",
+          "chunk_de": "vor dem Bahnhof",
+          "sentence_de": "Jonas wartet vor dem Bahnhof.",
+          "source_word": "vor"
+        },
+        {
+          "id": "4ee23c09-da2f-5df0-b738-84894b07ab0f",
+          "source_id": "sitov-A1.2-L04-V046",
+          "content_kind": "vocabulary",
+          "word_de": "hinter",
+          "chunk_de": "hinter dem Rathaus",
+          "sentence_de": "Der Park liegt hinter dem Rathaus.",
+          "source_word": "hinter"
+        },
+        {
+          "id": "b596dcb3-37eb-587e-bd9f-a2351b74841f",
+          "source_id": "sitov-A1.2-L04-V047",
+          "content_kind": "vocabulary",
+          "word_de": "neben",
+          "chunk_de": "neben der Apotheke",
+          "sentence_de": "Pauls Schule ist neben der Apotheke.",
+          "source_word": "neben"
+        },
+        {
+          "id": "a3a13f4a-f053-56ea-aa91-e0e80967d8cc",
+          "source_id": "sitov-A1.2-L04-V048",
+          "content_kind": "vocabulary",
+          "word_de": "zwischen",
+          "chunk_de": "zwischen Bank und Post",
+          "sentence_de": "Die Bäckerei ist zwischen der Bank und der Post.",
+          "source_word": "zwischen"
+        },
+        {
+          "id": "ecb8342d-d38f-5220-b5e0-4dd410e184bf",
+          "source_id": "sitov-A1.2-L04-V049",
+          "content_kind": "vocabulary",
+          "word_de": "gegenüber",
+          "chunk_de": "gegenüber dem Bahnhof",
+          "sentence_de": "Das Hotel ist gegenüber dem Bahnhof.",
+          "source_word": "gegenüber"
+        },
+        {
+          "id": "04048bf3-845b-5a95-a7bb-4deeba617d23",
+          "source_id": "sitov-A1.2-L04-V050",
+          "content_kind": "vocabulary",
+          "word_de": "weit",
+          "chunk_de": "weit weg sein",
+          "sentence_de": "Der Flughafen ist weit weg.",
+          "source_word": "weit"
+        },
+        {
+          "id": "60ed65e3-6850-531a-b33f-942ebb43c8b4",
+          "source_id": "sitov-A1.2-L04-V051",
+          "content_kind": "vocabulary",
+          "word_de": "nah",
+          "chunk_de": "ganz nah sein",
+          "sentence_de": "Die Haltestelle ist ganz nah.",
+          "source_word": "nah"
+        },
+        {
+          "id": "195dfcc0-096d-5cc3-9740-1b966701f9b0",
+          "source_id": "sitov-A1.2-L04-V052",
+          "content_kind": "vocabulary",
+          "word_de": "schnell",
+          "chunk_de": "schnell nach Hause kommen",
+          "sentence_de": "Mit der U-Bahn kommt Lukas schnell nach Hause.",
+          "source_word": "schnell"
+        },
+        {
+          "id": "f3333797-1e39-51a6-8420-46d6e4b9e56f",
+          "source_id": "sitov-A1.2-L04-V053",
+          "content_kind": "vocabulary",
+          "word_de": "langsam",
+          "chunk_de": "langsam fahren",
+          "sentence_de": "Amir fährt in dieser Straße langsam.",
+          "source_word": "langsam"
+        },
+        {
+          "id": "4490a0d6-ee24-58ff-add7-3d034e0b23e6",
+          "source_id": "sitov-A1.2-L04-V054",
+          "content_kind": "vocabulary",
+          "word_de": "zu Fuß",
+          "chunk_de": "zu Fuß gehen",
+          "sentence_de": "Jonas geht heute zu Fuß zur Arbeit.",
+          "source_word": "zu Fuß"
+        },
+        {
+          "id": "514685bb-7a38-5e17-96f6-8e13b9406e3d",
+          "source_id": "sitov-A1.2-L04-C001",
+          "content_kind": "chunk",
+          "word_de": "Entschuldigung, wo ist der Bahnhof?",
+          "chunk_de": null,
+          "sentence_de": "Entschuldigung, wo ist der Bahnhof? Ich suche den Eingang.",
+          "source_word": "Entschuldigung, wo ist der Bahnhof?"
+        },
+        {
+          "id": "48b636bd-4d32-51eb-8ccd-7b6ce119787c",
+          "source_id": "sitov-A1.2-L04-C002",
+          "content_kind": "chunk",
+          "word_de": "Wie komme ich zum Rathaus?",
+          "chunk_de": null,
+          "sentence_de": "Wie komme ich zu Fuß zum Rathaus?",
+          "source_word": "Wie komme ich zum Rathaus?"
+        },
+        {
+          "id": "987a8454-e0a8-533d-bd28-1db04364fb22",
+          "source_id": "sitov-A1.2-L04-C003",
+          "content_kind": "chunk",
+          "word_de": "Gehen Sie geradeaus.",
+          "chunk_de": null,
+          "sentence_de": "Gehen Sie bis zur nächsten Ampel geradeaus.",
+          "source_word": "Gehen Sie geradeaus."
+        },
+        {
+          "id": "917b7a39-c2e1-5852-9b73-363e7ed19c97",
+          "source_id": "sitov-A1.2-L04-C004",
+          "content_kind": "chunk",
+          "word_de": "Biegen Sie rechts ab.",
+          "chunk_de": null,
+          "sentence_de": "Biegen Sie an der Kreuzung rechts ab.",
+          "source_word": "Biegen Sie rechts ab."
+        },
+        {
+          "id": "c8f4c8be-cac0-5152-9606-d7158a441b39",
+          "source_id": "sitov-A1.2-L04-C005",
+          "content_kind": "chunk",
+          "word_de": "Welche Linie muss ich nehmen?",
+          "chunk_de": null,
+          "sentence_de": "Welche Linie muss ich zum Flughafen nehmen?",
+          "source_word": "Welche Linie muss ich nehmen?"
+        },
+        {
+          "id": "d32d2740-4954-51c5-b296-d2e7b6d9fb71",
+          "source_id": "sitov-A1.2-L04-C006",
+          "content_kind": "chunk",
+          "word_de": "Wo muss ich umsteigen?",
+          "chunk_de": null,
+          "sentence_de": "Wo muss ich auf dem Weg nach Bonn umsteigen?",
+          "source_word": "Wo muss ich umsteigen?"
+        },
+        {
+          "id": "163a3ef7-e4c9-5ffe-b19d-3e7f2a0b90d3",
+          "source_id": "sitov-A1.2-L04-C007",
+          "content_kind": "chunk",
+          "word_de": "Fährt dieser Bus zum Bahnhof?",
+          "chunk_de": null,
+          "sentence_de": "Entschuldigung, fährt dieser Bus zum Bahnhof?",
+          "source_word": "Fährt dieser Bus zum Bahnhof?"
+        },
+        {
+          "id": "bde52fd6-d5a9-515c-8253-443f67b70d0e",
+          "source_id": "sitov-A1.2-L04-C008",
+          "content_kind": "chunk",
+          "word_de": "Eine Fahrkarte nach Köln, bitte.",
+          "chunk_de": null,
+          "sentence_de": "Guten Tag, eine Fahrkarte nach Köln, bitte.",
+          "source_word": "Eine Fahrkarte nach Köln, bitte."
+        }
+      ]
+    },
+    {
+      "id": "f6ecec96-01c8-5cb1-b921-a9b0439796fd",
+      "level": "A1.2",
+      "label": "Lektion 5 · Kundenservice",
+      "sort_order": 5,
+      "app_lesson": 5,
+      "source_lesson": 12,
+      "cards": [
+        {
+          "id": "244e918c-3aca-50b7-a2dd-af55e19d0c6a",
+          "source_id": "sitov-A1.2-L05-V001",
+          "content_kind": "vocabulary",
+          "word_de": "der Kunde",
+          "chunk_de": "einen Kunden beraten",
+          "sentence_de": "Der Verkäufer berät einen Kunden im Geschäft.",
+          "source_word": "der Kunde"
+        },
+        {
+          "id": "24f105ba-9ef9-537b-8209-c29f83088289",
+          "source_id": "sitov-A1.2-L05-V002",
+          "content_kind": "vocabulary",
+          "word_de": "der Service",
+          "chunk_de": "einen guten Service bieten",
+          "sentence_de": "Das Geschäft bietet einen guten Service.",
+          "source_word": "der Service"
+        },
+        {
+          "id": "ff9337c2-7e03-58b1-8679-02ab152073a8",
+          "source_id": "sitov-A1.2-L05-V003",
+          "content_kind": "vocabulary",
+          "word_de": "das Geschäft",
+          "chunk_de": "im Geschäft anrufen",
+          "sentence_de": "Paul ruft wegen seiner Bestellung im Geschäft an.",
+          "source_word": "das Geschäft"
+        },
+        {
+          "id": "2fce2ce4-6537-5342-b53c-78b7015ce370",
+          "source_id": "sitov-A1.2-L05-V004",
+          "content_kind": "vocabulary",
+          "word_de": "der Verkäufer",
+          "chunk_de": "den Verkäufer fragen",
+          "sentence_de": "Lukas fragt den Verkäufer nach dem Preis.",
+          "source_word": "der Verkäufer"
+        },
+        {
+          "id": "c41dc77d-89cb-5209-a7c6-8282b558fcb3",
+          "source_id": "sitov-A1.2-L05-V005",
+          "content_kind": "vocabulary",
+          "word_de": "das Gerät",
+          "chunk_de": "ein Gerät einschalten",
+          "sentence_de": "Amir schaltet das neue Gerät ein.",
+          "source_word": "das Gerät"
+        },
+        {
+          "id": "71fb3ecb-bbd8-5f04-a43f-6043075f6fbb",
+          "source_id": "sitov-A1.2-L05-V006",
+          "content_kind": "vocabulary",
+          "word_de": "der Computer",
+          "chunk_de": "am Computer arbeiten",
+          "sentence_de": "Jonas arbeitet zu Hause am Computer.",
+          "source_word": "der Computer"
+        },
+        {
+          "id": "95546a1b-4f26-5bb0-9dd0-cbc435adcc3a",
+          "source_id": "sitov-A1.2-L05-V007",
+          "content_kind": "vocabulary",
+          "word_de": "der Drucker",
+          "chunk_de": "den Drucker anschließen",
+          "sentence_de": "Paul schließt den Drucker an seinen Computer an.",
+          "source_word": "der Drucker"
+        },
+        {
+          "id": "b7b456f3-50cb-5673-843a-8056d7e5539d",
+          "source_id": "sitov-A1.2-L05-V008",
+          "content_kind": "vocabulary",
+          "word_de": "der Bildschirm",
+          "chunk_de": "auf den Bildschirm schauen",
+          "sentence_de": "Lukas schaut auf den Bildschirm.",
+          "source_word": "der Bildschirm"
+        },
+        {
+          "id": "73cd7605-3208-549b-b647-616087e48a28",
+          "source_id": "sitov-A1.2-L05-V009",
+          "content_kind": "vocabulary",
+          "word_de": "das Handy",
+          "chunk_de": "das Handy aufladen",
+          "sentence_de": "Amir lädt sein Handy am Abend auf.",
+          "source_word": "das Handy"
+        },
+        {
+          "id": "a388a327-9a94-55d3-9b60-1f6c9c413a85",
+          "source_id": "sitov-A1.2-L05-V010",
+          "content_kind": "vocabulary",
+          "word_de": "das Telefon",
+          "chunk_de": "am Telefon sprechen",
+          "sentence_de": "Jonas spricht mit einem Mitarbeiter am Telefon.",
+          "source_word": "das Telefon"
+        },
+        {
+          "id": "50df07ea-871d-50f7-a1f8-b5c75412cace",
+          "source_id": "sitov-A1.2-L05-V011",
+          "content_kind": "vocabulary",
+          "word_de": "das Kabel",
+          "chunk_de": "ein Kabel brauchen",
+          "sentence_de": "Paul braucht ein neues Kabel für sein Handy.",
+          "source_word": "das Kabel"
+        },
+        {
+          "id": "9a89f677-8292-545c-bd51-1f59313a7809",
+          "source_id": "sitov-A1.2-L05-V012",
+          "content_kind": "vocabulary",
+          "word_de": "der Stecker",
+          "chunk_de": "den Stecker einstecken",
+          "sentence_de": "Lukas steckt den Stecker in die Steckdose.",
+          "source_word": "der Stecker"
+        },
+        {
+          "id": "7a2f8ff7-fef5-54b1-8a56-afb463dab94c",
+          "source_id": "sitov-A1.2-L05-V013",
+          "content_kind": "vocabulary",
+          "word_de": "die Steckdose",
+          "chunk_de": "eine Steckdose suchen",
+          "sentence_de": "Amir sucht eine Steckdose für sein Ladegerät.",
+          "source_word": "die Steckdose"
+        },
+        {
+          "id": "d19ed99d-3da7-5f30-9ad1-d8b7f01c5c0f",
+          "source_id": "sitov-A1.2-L05-V014",
+          "content_kind": "vocabulary",
+          "word_de": "die Batterie",
+          "chunk_de": "eine Batterie wechseln",
+          "sentence_de": "Jonas wechselt die Batterie in der Uhr.",
+          "source_word": "die Batterie"
+        },
+        {
+          "id": "7e02f1a3-769c-5ebd-b30a-4e0ca9bc4388",
+          "source_id": "sitov-A1.2-L05-V015",
+          "content_kind": "vocabulary",
+          "word_de": "der Akku",
+          "chunk_de": "den Akku aufladen",
+          "sentence_de": "Paul lädt den Akku seines Handys auf.",
+          "source_word": "der Akku"
+        },
+        {
+          "id": "450e43bb-3e66-5a58-86bd-ec9eaf3d961a",
+          "source_id": "sitov-A1.2-L05-V016",
+          "content_kind": "vocabulary",
+          "word_de": "die Waschmaschine",
+          "chunk_de": "die Waschmaschine benutzen",
+          "sentence_de": "Lukas benutzt die Waschmaschine am Samstag.",
+          "source_word": "die Waschmaschine"
+        },
+        {
+          "id": "ae97a2b8-e6c4-5d94-884b-535ce84b0ef8",
+          "source_id": "sitov-A1.2-L05-V017",
+          "content_kind": "vocabulary",
+          "word_de": "der Kühlschrank",
+          "chunk_de": "den Kühlschrank reparieren",
+          "sentence_de": "Ein Techniker repariert Amirs Kühlschrank.",
+          "source_word": "der Kühlschrank"
+        },
+        {
+          "id": "cf65dce3-9414-50f0-9019-be99b65eefbe",
+          "source_id": "sitov-A1.2-L05-V018",
+          "content_kind": "vocabulary",
+          "word_de": "die Heizung",
+          "chunk_de": "die Heizung einschalten",
+          "sentence_de": "Jonas schaltet im Winter die Heizung ein.",
+          "source_word": "die Heizung"
+        },
+        {
+          "id": "42c20fc8-f9e6-56c9-b026-1126924da0ab",
+          "source_id": "sitov-A1.2-L05-V019",
+          "content_kind": "vocabulary",
+          "word_de": "die Lampe",
+          "chunk_de": "die Lampe ausschalten",
+          "sentence_de": "Paul schaltet vor dem Schlafen die Lampe aus.",
+          "source_word": "die Lampe"
+        },
+        {
+          "id": "f7a5d251-8f69-5774-8998-666bcce229e7",
+          "source_id": "sitov-A1.2-L05-V020",
+          "content_kind": "vocabulary",
+          "word_de": "die Anleitung",
+          "chunk_de": "die Anleitung lesen",
+          "sentence_de": "Lukas liest zuerst die Anleitung für das Gerät.",
+          "source_word": "die Anleitung"
+        },
+        {
+          "id": "a9d9436f-cba1-52aa-b34c-22590e524911",
+          "source_id": "sitov-A1.2-L05-V021",
+          "content_kind": "vocabulary",
+          "word_de": "der Fehler",
+          "chunk_de": "einen Fehler finden",
+          "sentence_de": "Der Techniker findet den Fehler im Gerät.",
+          "source_word": "der Fehler"
+        },
+        {
+          "id": "d0e892f1-d348-5df5-95fb-16cb5fe01ad0",
+          "source_id": "sitov-A1.2-L05-V022",
+          "content_kind": "vocabulary",
+          "word_de": "das Problem",
+          "chunk_de": "ein Problem lösen",
+          "sentence_de": "Amir löst das Problem mit Hilfe der Anleitung.",
+          "source_word": "das Problem"
+        },
+        {
+          "id": "ed5196fa-f7d4-534e-a3c7-c50026332c25",
+          "source_id": "sitov-A1.2-L05-V023",
+          "content_kind": "vocabulary",
+          "word_de": "die Reparatur",
+          "chunk_de": "eine Reparatur bezahlen",
+          "sentence_de": "Jonas bezahlt die Reparatur seines Computers.",
+          "source_word": "die Reparatur"
+        },
+        {
+          "id": "a26f059e-40a7-51d6-aac4-a8f31fbe8100",
+          "source_id": "sitov-A1.2-L05-V024",
+          "content_kind": "vocabulary",
+          "word_de": "der Techniker",
+          "chunk_de": "einen Techniker anrufen",
+          "sentence_de": "Paul ruft einen Techniker für die Waschmaschine an.",
+          "source_word": "der Techniker"
+        },
+        {
+          "id": "5bad60b3-1379-52f6-a879-b6c49c4b0431",
+          "source_id": "sitov-A1.2-L05-V025",
+          "content_kind": "vocabulary",
+          "word_de": "die Garantie",
+          "chunk_de": "zwei Jahre Garantie",
+          "sentence_de": "Lukas hat zwei Jahre Garantie auf das Gerät.",
+          "source_word": "die Garantie"
+        },
+        {
+          "id": "38157707-b30e-5df7-990b-1d7499aa8d74",
+          "source_id": "sitov-A1.2-L05-V026",
+          "content_kind": "vocabulary",
+          "word_de": "der Kassenbon",
+          "chunk_de": "den Kassenbon mitbringen",
+          "sentence_de": "Amir bringt den Kassenbon ins Geschäft mit.",
+          "source_word": "der Kassenbon"
+        },
+        {
+          "id": "675e43de-62c4-559a-8162-76de138cc51e",
+          "source_id": "sitov-A1.2-L05-V027",
+          "content_kind": "vocabulary",
+          "word_de": "die Rechnung",
+          "chunk_de": "eine Rechnung bekommen",
+          "sentence_de": "Jonas bekommt die Rechnung per E-Mail.",
+          "source_word": "die Rechnung"
+        },
+        {
+          "id": "33969307-13d9-5bfc-b49e-045b93be45d4",
+          "source_id": "sitov-A1.2-L05-V028",
+          "content_kind": "vocabulary",
+          "word_de": "die Bestellung",
+          "chunk_de": "eine Bestellung abholen",
+          "sentence_de": "Paul holt seine Bestellung im Geschäft ab.",
+          "source_word": "die Bestellung"
+        },
+        {
+          "id": "290c2a44-ba0c-5b25-8e01-09d847f893a2",
+          "source_id": "sitov-A1.2-L05-V029",
+          "content_kind": "vocabulary",
+          "word_de": "die Lieferung",
+          "chunk_de": "auf die Lieferung warten",
+          "sentence_de": "Lukas wartet zu Hause auf die Lieferung.",
+          "source_word": "die Lieferung"
+        },
+        {
+          "id": "e332ce72-24b9-54a3-8ddc-837984631c59",
+          "source_id": "sitov-A1.2-L05-V030",
+          "content_kind": "vocabulary",
+          "word_de": "das Paket",
+          "chunk_de": "ein Paket bekommen",
+          "sentence_de": "Amir bekommt heute ein Paket.",
+          "source_word": "das Paket"
+        },
+        {
+          "id": "84921862-5de2-5c96-be70-ac2ad68bd796",
+          "source_id": "sitov-A1.2-L05-V031",
+          "content_kind": "vocabulary",
+          "word_de": "der Termin",
+          "chunk_de": "einen Reparaturtermin machen",
+          "sentence_de": "Jonas macht einen Reparaturtermin für Freitag.",
+          "source_word": "der Termin"
+        },
+        {
+          "id": "b4d1ecae-8856-56dc-b5a1-8e2409048da3",
+          "source_id": "sitov-A1.2-L05-V032",
+          "content_kind": "vocabulary",
+          "word_de": "die Nachricht",
+          "chunk_de": "eine Nachricht hinterlassen",
+          "sentence_de": "Paul hinterlässt dem Techniker eine Nachricht.",
+          "source_word": "die Nachricht"
+        },
+        {
+          "id": "72a045a6-5889-5f94-8c93-40b1fe09a339",
+          "source_id": "sitov-A1.2-L05-V033",
+          "content_kind": "vocabulary",
+          "word_de": "die Nummer",
+          "chunk_de": "die Kundennummer angeben",
+          "sentence_de": "Lukas gibt am Telefon seine Kundennummer an.",
+          "source_word": "die Nummer"
+        },
+        {
+          "id": "a21cda9f-1d49-59dd-a0a4-23c4a418d443",
+          "source_id": "sitov-A1.2-L05-V034",
+          "content_kind": "vocabulary",
+          "word_de": "einschalten",
+          "chunk_de": "den Computer einschalten",
+          "sentence_de": "Amir schaltet seinen Computer ein.",
+          "source_word": "einschalten"
+        },
+        {
+          "id": "a041bcca-78ad-54b2-aa60-1c2ed6efe4d9",
+          "source_id": "sitov-A1.2-L05-V035",
+          "content_kind": "vocabulary",
+          "word_de": "ausschalten",
+          "chunk_de": "das Gerät ausschalten",
+          "sentence_de": "Jonas schaltet das Gerät nach der Arbeit aus.",
+          "source_word": "ausschalten"
+        },
+        {
+          "id": "5913c024-d379-59b1-818a-64a7177f31bb",
+          "source_id": "sitov-A1.2-L05-V036",
+          "content_kind": "vocabulary",
+          "word_de": "anschließen",
+          "chunk_de": "den Drucker anschließen",
+          "sentence_de": "Paul schließt den Drucker an.",
+          "source_word": "anschließen"
+        },
+        {
+          "id": "a355a22c-a785-5952-b864-16bdb362fb0a",
+          "source_id": "sitov-A1.2-L05-V037",
+          "content_kind": "vocabulary",
+          "word_de": "aufladen",
+          "chunk_de": "das Handy aufladen",
+          "sentence_de": "Lukas lädt sein Handy vor der Fahrt auf.",
+          "source_word": "aufladen"
+        },
+        {
+          "id": "4d636e5d-7302-5c78-bb60-f34fb08e24bd",
+          "source_id": "sitov-A1.2-L05-V038",
+          "content_kind": "vocabulary",
+          "word_de": "funktionieren",
+          "chunk_de": "wieder gut funktionieren",
+          "sentence_de": "Nach der Reparatur funktioniert Amirs Handy wieder gut.",
+          "source_word": "funktionieren"
+        },
+        {
+          "id": "a3c26325-58f3-58c0-b338-43fc02d3ef25",
+          "source_id": "sitov-A1.2-L05-V039",
+          "content_kind": "vocabulary",
+          "word_de": "reparieren",
+          "chunk_de": "eine Waschmaschine reparieren",
+          "sentence_de": "Der Techniker repariert Jonas' Waschmaschine.",
+          "source_word": "reparieren"
+        },
+        {
+          "id": "ee3f0311-9628-5ab6-9b68-3bb4ab955f2b",
+          "source_id": "sitov-A1.2-L05-V040",
+          "content_kind": "vocabulary",
+          "word_de": "wechseln",
+          "chunk_de": "die Batterie wechseln",
+          "sentence_de": "Paul wechselt die Batterie in der Fernbedienung.",
+          "source_word": "wechseln"
+        },
+        {
+          "id": "4a64568a-efe4-5f0b-981a-a180b1825e9b",
+          "source_id": "sitov-A1.2-L05-V041",
+          "content_kind": "vocabulary",
+          "word_de": "umtauschen",
+          "chunk_de": "ein Gerät umtauschen",
+          "sentence_de": "Lukas möchte das defekte Gerät umtauschen.",
+          "source_word": "umtauschen"
+        },
+        {
+          "id": "9a380ae9-7f52-520e-a79e-d22eae85f381",
+          "source_id": "sitov-A1.2-L05-V042",
+          "content_kind": "vocabulary",
+          "word_de": "zurückgeben",
+          "chunk_de": "eine Bestellung zurückgeben",
+          "sentence_de": "Amir gibt seine Bestellung im Geschäft zurück.",
+          "source_word": "zurückgeben"
+        },
+        {
+          "id": "7f678bdc-7324-599f-8ac9-8fb92bf04776",
+          "source_id": "sitov-A1.2-L05-V043",
+          "content_kind": "vocabulary",
+          "word_de": "abholen",
+          "chunk_de": "ein Paket abholen",
+          "sentence_de": "Jonas holt sein Paket am Nachmittag ab.",
+          "source_word": "abholen"
+        },
+        {
+          "id": "55f8e177-fd00-5192-9d4f-e285334d3c9d",
+          "source_id": "sitov-A1.2-L05-V044",
+          "content_kind": "vocabulary",
+          "word_de": "liefern",
+          "chunk_de": "einen Kühlschrank liefern",
+          "sentence_de": "Die Firma liefert Pauls Kühlschrank am Freitag.",
+          "source_word": "liefern"
+        },
+        {
+          "id": "172685cf-626e-5d42-a2fc-f5fb5aa81dea",
+          "source_id": "sitov-A1.2-L05-V045",
+          "content_kind": "vocabulary",
+          "word_de": "vereinbaren",
+          "chunk_de": "einen Termin vereinbaren",
+          "sentence_de": "Lukas vereinbart einen Termin mit dem Techniker.",
+          "source_word": "vereinbaren"
+        },
+        {
+          "id": "e9f9ec7a-8a25-51b6-834d-0a0d3a5a7e33",
+          "source_id": "sitov-A1.2-L05-V046",
+          "content_kind": "vocabulary",
+          "word_de": "erklären",
+          "chunk_de": "eine Anleitung erklären",
+          "sentence_de": "Der Mitarbeiter erklärt Amir die Anleitung.",
+          "source_word": "erklären"
+        },
+        {
+          "id": "437da519-6740-5422-bc18-e566a2ce7664",
+          "source_id": "sitov-A1.2-L05-V047",
+          "content_kind": "vocabulary",
+          "word_de": "kaputt",
+          "chunk_de": "kaputt sein",
+          "sentence_de": "Jonas' Drucker ist kaputt.",
+          "source_word": "kaputt"
+        },
+        {
+          "id": "de0c784e-34ed-5392-b6d4-2f6e58b7bc22",
+          "source_id": "sitov-A1.2-L05-V048",
+          "content_kind": "vocabulary",
+          "word_de": "defekt",
+          "chunk_de": "ein defektes Kabel",
+          "sentence_de": "Paul tauscht das defekte Kabel aus.",
+          "source_word": "defekt"
+        },
+        {
+          "id": "6c2b26f9-e41e-5609-b22d-c246fb012129",
+          "source_id": "sitov-A1.2-L05-V049",
+          "content_kind": "vocabulary",
+          "word_de": "neu",
+          "chunk_de": "neue Batterien",
+          "sentence_de": "Lukas kauft neue Batterien für seine Uhr.",
+          "source_word": "neu"
+        },
+        {
+          "id": "6ae0f5ce-9510-55e7-b1db-9531a993a1fd",
+          "source_id": "sitov-A1.2-L05-V050",
+          "content_kind": "vocabulary",
+          "word_de": "gebraucht",
+          "chunk_de": "ein gebrauchter Computer",
+          "sentence_de": "Amir kauft einen gebrauchten Computer.",
+          "source_word": "gebraucht"
+        },
+        {
+          "id": "93a47a6d-7e34-508d-bcff-f2e9180c96d3",
+          "source_id": "sitov-A1.2-L05-V051",
+          "content_kind": "vocabulary",
+          "word_de": "sofort",
+          "chunk_de": "sofort zurückrufen",
+          "sentence_de": "Jonas ruft den Kunden sofort zurück.",
+          "source_word": "sofort"
+        },
+        {
+          "id": "6a7e2ce1-c80e-5d36-91f6-bddd9c80a66e",
+          "source_id": "sitov-A1.2-L05-V052",
+          "content_kind": "vocabulary",
+          "word_de": "erreichbar",
+          "chunk_de": "am Nachmittag erreichbar",
+          "sentence_de": "Paul ist am Nachmittag telefonisch erreichbar.",
+          "source_word": "erreichbar"
+        },
+        {
+          "id": "268c6fea-4ff8-5ab2-b415-4d54f9e9bdff",
+          "source_id": "sitov-A1.2-L05-C001",
+          "content_kind": "chunk",
+          "word_de": "Mein Gerät funktioniert nicht.",
+          "chunk_de": null,
+          "sentence_de": "Guten Tag, mein Gerät funktioniert seit gestern nicht.",
+          "source_word": "Mein Gerät funktioniert nicht."
+        },
+        {
+          "id": "dc552683-491f-5390-866d-dde4b22c60b0",
+          "source_id": "sitov-A1.2-L05-C002",
+          "content_kind": "chunk",
+          "word_de": "Ich möchte das umtauschen.",
+          "chunk_de": null,
+          "sentence_de": "Ich möchte dieses Handy umtauschen. Es ist kaputt.",
+          "source_word": "Ich möchte das umtauschen."
+        },
+        {
+          "id": "c641745b-7dbe-561f-86ff-223a50e624dc",
+          "source_id": "sitov-A1.2-L05-C003",
+          "content_kind": "chunk",
+          "word_de": "Ich habe noch Garantie.",
+          "chunk_de": null,
+          "sentence_de": "Ich habe noch Garantie auf den Drucker.",
+          "source_word": "Ich habe noch Garantie."
+        },
+        {
+          "id": "6a8e1e6d-cfdf-533e-9a50-61a372d1596b",
+          "source_id": "sitov-A1.2-L05-C004",
+          "content_kind": "chunk",
+          "word_de": "Wann können Sie kommen?",
+          "chunk_de": null,
+          "sentence_de": "Meine Heizung ist kaputt. Wann können Sie kommen?",
+          "source_word": "Wann können Sie kommen?"
+        },
+        {
+          "id": "84f2c147-1a0b-57fd-9c47-4917f390c96b",
+          "source_id": "sitov-A1.2-L05-C005",
+          "content_kind": "chunk",
+          "word_de": "Bitte rufen Sie mich zurück.",
+          "chunk_de": null,
+          "sentence_de": "Ich habe eine Frage zur Reparatur. Bitte rufen Sie mich zurück.",
+          "source_word": "Bitte rufen Sie mich zurück."
+        },
+        {
+          "id": "f46f4381-52d6-532b-b62b-a5c04d0b01ff",
+          "source_id": "sitov-A1.2-L05-C006",
+          "content_kind": "chunk",
+          "word_de": "Kann ich eine Nachricht hinterlassen?",
+          "chunk_de": null,
+          "sentence_de": "Herr Weber ist nicht da. Kann ich eine Nachricht hinterlassen?",
+          "source_word": "Kann ich eine Nachricht hinterlassen?"
+        },
+        {
+          "id": "ac2f94f7-84b1-5e5d-8bf9-34038c1cbc00",
+          "source_id": "sitov-A1.2-L05-C007",
+          "content_kind": "chunk",
+          "word_de": "Ich hole es morgen ab.",
+          "chunk_de": null,
+          "sentence_de": "Vielen Dank für die Reparatur. Ich hole das Gerät morgen ab.",
+          "source_word": "Ich hole es morgen ab."
+        },
+        {
+          "id": "410befdd-413c-5ebd-b298-3358998436af",
+          "source_id": "sitov-A1.2-L05-C008",
+          "content_kind": "chunk",
+          "word_de": "Vielen Dank für Ihre Hilfe.",
+          "chunk_de": null,
+          "sentence_de": "Jetzt funktioniert der Computer wieder. Vielen Dank für Ihre Hilfe.",
+          "source_word": "Vielen Dank für Ihre Hilfe."
+        }
+      ]
+    },
+    {
+      "id": "ad5cae74-634d-5ce0-b911-ac3b478bfee2",
+      "level": "A1.2",
+      "label": "Lektion 6 · Neue Kleider",
+      "sort_order": 6,
+      "app_lesson": 6,
+      "source_lesson": 13,
+      "cards": [
+        {
+          "id": "c47c0313-b98b-5f9d-bc5a-ea7bc3b8dcff",
+          "source_id": "sitov-A1.2-L06-V001",
+          "content_kind": "vocabulary",
+          "word_de": "die Kleidung",
+          "chunk_de": "neue Kleidung kaufen",
+          "sentence_de": "Paul kauft neue Kleidung für den Winter.",
+          "source_word": "die Kleidung"
+        },
+        {
+          "id": "d14f06b3-46aa-5d61-bd0d-f4ecede2cb6c",
+          "source_id": "sitov-A1.2-L06-V002",
+          "content_kind": "vocabulary",
+          "word_de": "das Kleid",
+          "chunk_de": "ein Kleid ansehen",
+          "sentence_de": "Lukas sieht sich im Schaufenster ein Kleid an.",
+          "source_word": "das Kleid"
+        },
+        {
+          "id": "ae915b8e-eb55-5036-b0db-fbdd8baa5216",
+          "source_id": "sitov-A1.2-L06-V003",
+          "content_kind": "vocabulary",
+          "word_de": "der Rock",
+          "chunk_de": "einen Rock kaufen",
+          "sentence_de": "Amir kauft einen Rock als Geschenk.",
+          "source_word": "der Rock"
+        },
+        {
+          "id": "170b19b0-94a2-5a03-abaf-438fb235164a",
+          "source_id": "sitov-A1.2-L06-V004",
+          "content_kind": "vocabulary",
+          "word_de": "die Hose",
+          "chunk_de": "eine Hose anprobieren",
+          "sentence_de": "Jonas probiert eine blaue Hose an.",
+          "source_word": "die Hose"
+        },
+        {
+          "id": "b46d7f93-a9ed-5170-b873-bc96aec943cc",
+          "source_id": "sitov-A1.2-L06-V005",
+          "content_kind": "vocabulary",
+          "word_de": "die Jeans",
+          "chunk_de": "eine Jeans tragen",
+          "sentence_de": "Paul trägt heute eine schwarze Jeans.",
+          "source_word": "die Jeans"
+        },
+        {
+          "id": "d05ca9bd-5a96-5abd-a8bb-b3bbfa767bb3",
+          "source_id": "sitov-A1.2-L06-V006",
+          "content_kind": "vocabulary",
+          "word_de": "das Hemd",
+          "chunk_de": "ein Hemd bügeln",
+          "sentence_de": "Lukas bügelt sein Hemd für die Feier.",
+          "source_word": "das Hemd"
+        },
+        {
+          "id": "7e9eb6d7-6b47-5002-b3da-bbd28fdfc843",
+          "source_id": "sitov-A1.2-L06-V007",
+          "content_kind": "vocabulary",
+          "word_de": "die Bluse",
+          "chunk_de": "eine Bluse auswählen",
+          "sentence_de": "Amir wählt eine Bluse als Geschenk aus.",
+          "source_word": "die Bluse"
+        },
+        {
+          "id": "53c22c0b-e8d0-52fe-bda3-c009ab8a1d90",
+          "source_id": "sitov-A1.2-L06-V008",
+          "content_kind": "vocabulary",
+          "word_de": "das T-Shirt",
+          "chunk_de": "ein T-Shirt anziehen",
+          "sentence_de": "Jonas zieht ein weißes T-Shirt an.",
+          "source_word": "das T-Shirt"
+        },
+        {
+          "id": "71af54a9-337e-5d60-b863-c33186f1dd27",
+          "source_id": "sitov-A1.2-L06-V009",
+          "content_kind": "vocabulary",
+          "word_de": "der Pullover",
+          "chunk_de": "einen Pullover tragen",
+          "sentence_de": "Paul trägt im Winter einen warmen Pullover.",
+          "source_word": "der Pullover"
+        },
+        {
+          "id": "93311f6a-9177-506c-b599-76efd78d7796",
+          "source_id": "sitov-A1.2-L06-V010",
+          "content_kind": "vocabulary",
+          "word_de": "die Jacke",
+          "chunk_de": "die Jacke ausziehen",
+          "sentence_de": "Lukas zieht im Kursraum seine Jacke aus.",
+          "source_word": "die Jacke"
+        },
+        {
+          "id": "acefd6e0-ddf0-5ae6-9cc4-1f3228a73f54",
+          "source_id": "sitov-A1.2-L06-V011",
+          "content_kind": "vocabulary",
+          "word_de": "der Mantel",
+          "chunk_de": "einen Mantel brauchen",
+          "sentence_de": "Amir braucht im Winter einen warmen Mantel.",
+          "source_word": "der Mantel"
+        },
+        {
+          "id": "f1071155-bf30-55e7-8733-20103a61f676",
+          "source_id": "sitov-A1.2-L06-V012",
+          "content_kind": "vocabulary",
+          "word_de": "der Anzug",
+          "chunk_de": "einen Anzug anprobieren",
+          "sentence_de": "Jonas probiert einen Anzug für die Hochzeit an.",
+          "source_word": "der Anzug"
+        },
+        {
+          "id": "cbb19183-dfc7-5c53-b2d4-8d63265344e3",
+          "source_id": "sitov-A1.2-L06-V013",
+          "content_kind": "vocabulary",
+          "word_de": "der Schuh",
+          "chunk_de": "neue Schuhe kaufen",
+          "sentence_de": "Paul kauft neue Schuhe im Schuhgeschäft.",
+          "source_word": "der Schuh"
+        },
+        {
+          "id": "422de378-4064-5f3c-bc19-ff1672d1d38c",
+          "source_id": "sitov-A1.2-L06-V014",
+          "content_kind": "vocabulary",
+          "word_de": "der Stiefel",
+          "chunk_de": "die Stiefel anziehen",
+          "sentence_de": "Lukas zieht bei Schnee seine Stiefel an.",
+          "source_word": "der Stiefel"
+        },
+        {
+          "id": "bfe3de29-da01-5455-84a0-8d411c162123",
+          "source_id": "sitov-A1.2-L06-V015",
+          "content_kind": "vocabulary",
+          "word_de": "die Socke",
+          "chunk_de": "warme Socken tragen",
+          "sentence_de": "Amir trägt zu Hause warme Socken.",
+          "source_word": "die Socke"
+        },
+        {
+          "id": "574f6b3d-ed3f-5c42-99fd-87acd30aa175",
+          "source_id": "sitov-A1.2-L06-V016",
+          "content_kind": "vocabulary",
+          "word_de": "der Gürtel",
+          "chunk_de": "einen Gürtel tragen",
+          "sentence_de": "Jonas trägt einen braunen Gürtel.",
+          "source_word": "der Gürtel"
+        },
+        {
+          "id": "268fa7fe-c1fa-5fb7-b1bb-ff72474117b7",
+          "source_id": "sitov-A1.2-L06-V017",
+          "content_kind": "vocabulary",
+          "word_de": "die Mütze",
+          "chunk_de": "eine Mütze aufsetzen",
+          "sentence_de": "Paul setzt draußen seine Mütze auf.",
+          "source_word": "die Mütze"
+        },
+        {
+          "id": "4d087fd6-b2d1-5cdf-9b18-bc00810a6ae2",
+          "source_id": "sitov-A1.2-L06-V018",
+          "content_kind": "vocabulary",
+          "word_de": "der Hut",
+          "chunk_de": "einen Hut anprobieren",
+          "sentence_de": "Lukas probiert im Geschäft einen Hut an.",
+          "source_word": "der Hut"
+        },
+        {
+          "id": "6c6cab0e-9d58-5f3b-800b-5a2e4fca7f88",
+          "source_id": "sitov-A1.2-L06-V019",
+          "content_kind": "vocabulary",
+          "word_de": "der Schal",
+          "chunk_de": "einen Schal tragen",
+          "sentence_de": "Amir trägt einen roten Schal.",
+          "source_word": "der Schal"
+        },
+        {
+          "id": "f1b9466b-c52f-5488-9de6-5d69d9a8ca7e",
+          "source_id": "sitov-A1.2-L06-V020",
+          "content_kind": "vocabulary",
+          "word_de": "der Handschuh",
+          "chunk_de": "Handschuhe anziehen",
+          "sentence_de": "Jonas zieht vor dem Spaziergang seine Handschuhe an.",
+          "source_word": "der Handschuh"
+        },
+        {
+          "id": "5b6def2e-28f5-5cfa-b36f-956b24b84c98",
+          "source_id": "sitov-A1.2-L06-V021",
+          "content_kind": "vocabulary",
+          "word_de": "die Tasche",
+          "chunk_de": "eine Tasche mitnehmen",
+          "sentence_de": "Paul nimmt seine Tasche mit ins Geschäft.",
+          "source_word": "die Tasche"
+        },
+        {
+          "id": "5ffe6d41-992f-5903-9309-c9068d9e8fa4",
+          "source_id": "sitov-A1.2-L06-V022",
+          "content_kind": "vocabulary",
+          "word_de": "die Größe",
+          "chunk_de": "nach der Größe fragen",
+          "sentence_de": "Lukas fragt den Verkäufer nach der richtigen Größe.",
+          "source_word": "die Größe"
+        },
+        {
+          "id": "094652b5-24ee-5987-b8ed-bfc252b42aad",
+          "source_id": "sitov-A1.2-L06-V023",
+          "content_kind": "vocabulary",
+          "word_de": "die Farbe",
+          "chunk_de": "eine Farbe auswählen",
+          "sentence_de": "Amir wählt für sein Hemd eine helle Farbe aus.",
+          "source_word": "die Farbe"
+        },
+        {
+          "id": "6bccdb76-7802-59be-ab97-22637fc14bda",
+          "source_id": "sitov-A1.2-L06-V024",
+          "content_kind": "vocabulary",
+          "word_de": "der Preis",
+          "chunk_de": "nach dem Preis fragen",
+          "sentence_de": "Jonas fragt nach dem Preis der Jacke.",
+          "source_word": "der Preis"
+        },
+        {
+          "id": "96eec308-87e0-5367-bf77-59b8e0a753ac",
+          "source_id": "sitov-A1.2-L06-V025",
+          "content_kind": "vocabulary",
+          "word_de": "das Angebot",
+          "chunk_de": "ein günstiges Angebot finden",
+          "sentence_de": "Paul findet ein günstiges Angebot für Schuhe.",
+          "source_word": "das Angebot"
+        },
+        {
+          "id": "dcbc5f41-f7c5-574c-b424-e10809490924",
+          "source_id": "sitov-A1.2-L06-V026",
+          "content_kind": "vocabulary",
+          "word_de": "die Kasse",
+          "chunk_de": "an der Kasse bezahlen",
+          "sentence_de": "Lukas bezahlt seine Hose an der Kasse.",
+          "source_word": "die Kasse"
+        },
+        {
+          "id": "8cacf4fb-9b95-5b54-bb16-9489093dd8e2",
+          "source_id": "sitov-A1.2-L06-V027",
+          "content_kind": "vocabulary",
+          "word_de": "die Umkleidekabine",
+          "chunk_de": "in der Umkleidekabine",
+          "sentence_de": "Amir probiert das Hemd in der Umkleidekabine an.",
+          "source_word": "die Umkleidekabine"
+        },
+        {
+          "id": "8db62b1e-db0f-57d5-83ae-f96e3782e1ca",
+          "source_id": "sitov-A1.2-L06-V028",
+          "content_kind": "vocabulary",
+          "word_de": "das Schaufenster",
+          "chunk_de": "ins Schaufenster schauen",
+          "sentence_de": "Jonas schaut in das Schaufenster.",
+          "source_word": "das Schaufenster"
+        },
+        {
+          "id": "4476f04e-31f5-54cf-aaf0-46d488c3aba8",
+          "source_id": "sitov-A1.2-L06-V029",
+          "content_kind": "vocabulary",
+          "word_de": "der Spiegel",
+          "chunk_de": "in den Spiegel schauen",
+          "sentence_de": "Paul schaut mit der neuen Jacke in den Spiegel.",
+          "source_word": "der Spiegel"
+        },
+        {
+          "id": "0a39b37f-3841-508b-b462-72d6458fcf53",
+          "source_id": "sitov-A1.2-L06-V030",
+          "content_kind": "vocabulary",
+          "word_de": "die Baumwolle",
+          "chunk_de": "ein Hemd aus Baumwolle",
+          "sentence_de": "Lukas kauft ein Hemd aus Baumwolle.",
+          "source_word": "die Baumwolle"
+        },
+        {
+          "id": "c36f61e1-f5e3-5a0d-9cc2-4335656d64d7",
+          "source_id": "sitov-A1.2-L06-V031",
+          "content_kind": "vocabulary",
+          "word_de": "die Wolle",
+          "chunk_de": "ein Pullover aus Wolle",
+          "sentence_de": "Amirs Pullover ist aus Wolle.",
+          "source_word": "die Wolle"
+        },
+        {
+          "id": "d95d212f-0d99-5083-a619-fe979ee37da2",
+          "source_id": "sitov-A1.2-L06-V032",
+          "content_kind": "vocabulary",
+          "word_de": "tragen",
+          "chunk_de": "ein blaues Hemd tragen",
+          "sentence_de": "Jonas trägt ein blaues Hemd.",
+          "source_word": "tragen"
+        },
+        {
+          "id": "60dfb006-6373-5ec1-b589-da5e4b3e76da",
+          "source_id": "sitov-A1.2-L06-V033",
+          "content_kind": "vocabulary",
+          "word_de": "anziehen",
+          "chunk_de": "eine Jacke anziehen",
+          "sentence_de": "Paul zieht seine Jacke an.",
+          "source_word": "anziehen"
+        },
+        {
+          "id": "78bfe988-ee1f-5595-af8e-5978489fb4d8",
+          "source_id": "sitov-A1.2-L06-V034",
+          "content_kind": "vocabulary",
+          "word_de": "ausziehen",
+          "chunk_de": "die Schuhe ausziehen",
+          "sentence_de": "Lukas zieht zu Hause die Schuhe aus.",
+          "source_word": "ausziehen"
+        },
+        {
+          "id": "a31c6dac-e4d0-5065-9207-30b045511c46",
+          "source_id": "sitov-A1.2-L06-V035",
+          "content_kind": "vocabulary",
+          "word_de": "anprobieren",
+          "chunk_de": "eine Hose anprobieren",
+          "sentence_de": "Amir probiert eine Hose in Größe 50 an.",
+          "source_word": "anprobieren"
+        },
+        {
+          "id": "40816d50-31d6-5225-b889-251cd79234b9",
+          "source_id": "sitov-A1.2-L06-V036",
+          "content_kind": "vocabulary",
+          "word_de": "passen",
+          "chunk_de": "gut passen",
+          "sentence_de": "Die neue Jacke passt Jonas gut.",
+          "source_word": "passen"
+        },
+        {
+          "id": "4003a373-4dcf-5c4a-b29c-76838256b009",
+          "source_id": "sitov-A1.2-L06-V037",
+          "content_kind": "vocabulary",
+          "word_de": "stehen",
+          "chunk_de": "jemandem gut stehen",
+          "sentence_de": "Das grüne Hemd steht Paul gut.",
+          "source_word": "stehen"
+        },
+        {
+          "id": "75ebad0c-f869-5686-984f-5c45ef886e8d",
+          "source_id": "sitov-A1.2-L06-V038",
+          "content_kind": "vocabulary",
+          "word_de": "gefallen",
+          "chunk_de": "jemandem gefallen",
+          "sentence_de": "Die braunen Schuhe gefallen Lukas.",
+          "source_word": "gefallen"
+        },
+        {
+          "id": "ff296607-7fbd-5dd9-9ff0-46ced753047b",
+          "source_id": "sitov-A1.2-L06-V039",
+          "content_kind": "vocabulary",
+          "word_de": "bezahlen",
+          "chunk_de": "mit Karte bezahlen",
+          "sentence_de": "Amir bezahlt sein Hemd mit Karte.",
+          "source_word": "bezahlen"
+        },
+        {
+          "id": "87c7ce99-7212-5331-bbbd-a0e4c1698d20",
+          "source_id": "sitov-A1.2-L06-V040",
+          "content_kind": "vocabulary",
+          "word_de": "kosten",
+          "chunk_de": "zwanzig Euro kosten",
+          "sentence_de": "Das T-Shirt kostet zwanzig Euro.",
+          "source_word": "kosten"
+        },
+        {
+          "id": "01f02ba9-c1d3-5225-b3be-94fc5af4d84b",
+          "source_id": "sitov-A1.2-L06-V041",
+          "content_kind": "vocabulary",
+          "word_de": "eng",
+          "chunk_de": "zu eng sein",
+          "sentence_de": "Die Hose ist Jonas zu eng.",
+          "source_word": "eng"
+        },
+        {
+          "id": "d62bd959-5276-5606-88e0-51219db8e1b2",
+          "source_id": "sitov-A1.2-L06-V042",
+          "content_kind": "vocabulary",
+          "word_de": "weit",
+          "chunk_de": "zu weit sein",
+          "sentence_de": "Die Jacke ist Paul zu weit.",
+          "source_word": "weit"
+        },
+        {
+          "id": "73083c78-1d2e-514b-b700-3d87b3e837e5",
+          "source_id": "sitov-A1.2-L06-V043",
+          "content_kind": "vocabulary",
+          "word_de": "lang",
+          "chunk_de": "zu lang sein",
+          "sentence_de": "Die Ärmel sind Lukas zu lang.",
+          "source_word": "lang"
+        },
+        {
+          "id": "a5b66ea6-2b9d-5a3a-82b0-dca49ae0b5cf",
+          "source_id": "sitov-A1.2-L06-V044",
+          "content_kind": "vocabulary",
+          "word_de": "kurz",
+          "chunk_de": "kurze Ärmel",
+          "sentence_de": "Amir sucht ein Hemd mit kurzen Ärmeln.",
+          "source_word": "kurz"
+        },
+        {
+          "id": "d83b83e7-6ad5-5997-bbde-760c6152c713",
+          "source_id": "sitov-A1.2-L06-V045",
+          "content_kind": "vocabulary",
+          "word_de": "bequem",
+          "chunk_de": "bequeme Schuhe",
+          "sentence_de": "Jonas kauft bequeme Schuhe für die Arbeit.",
+          "source_word": "bequem"
+        },
+        {
+          "id": "ad1e7718-facd-5071-92ca-35a0f230a47c",
+          "source_id": "sitov-A1.2-L06-V046",
+          "content_kind": "vocabulary",
+          "word_de": "modern",
+          "chunk_de": "eine moderne Jacke",
+          "sentence_de": "Paul findet die Jacke modern.",
+          "source_word": "modern"
+        },
+        {
+          "id": "ad813186-373a-5b32-91ad-59810ab07c58",
+          "source_id": "sitov-A1.2-L06-V047",
+          "content_kind": "vocabulary",
+          "word_de": "günstig",
+          "chunk_de": "ein günstiger Preis",
+          "sentence_de": "Der Preis für den Pullover ist günstig.",
+          "source_word": "günstig"
+        },
+        {
+          "id": "b79d45f8-aa4c-55dc-97c4-3728baf84966",
+          "source_id": "sitov-A1.2-L06-V048",
+          "content_kind": "vocabulary",
+          "word_de": "teuer",
+          "chunk_de": "zu teuer sein",
+          "sentence_de": "Lukas findet den Mantel zu teuer.",
+          "source_word": "teuer"
+        },
+        {
+          "id": "8aca95fe-1fb3-58a3-9c6e-2f4f1f1d7127",
+          "source_id": "sitov-A1.2-L06-V049",
+          "content_kind": "vocabulary",
+          "word_de": "hell",
+          "chunk_de": "eine helle Hose",
+          "sentence_de": "Amir trägt im Sommer eine helle Hose.",
+          "source_word": "hell"
+        },
+        {
+          "id": "c073c8ce-964c-5328-ae42-0ca67d41c6ca",
+          "source_id": "sitov-A1.2-L06-V050",
+          "content_kind": "vocabulary",
+          "word_de": "dunkel",
+          "chunk_de": "eine dunkle Jacke",
+          "sentence_de": "Jonas sucht eine dunkle Jacke.",
+          "source_word": "dunkel"
+        },
+        {
+          "id": "6f3d6580-6df2-5dbf-8bce-8292a7313b51",
+          "source_id": "sitov-A1.2-L06-V051",
+          "content_kind": "vocabulary",
+          "word_de": "rot",
+          "chunk_de": "ein roter Schal",
+          "sentence_de": "Paul trägt einen roten Schal.",
+          "source_word": "rot"
+        },
+        {
+          "id": "47e00bbf-c88b-5684-b1c4-c7c3f4f43dd7",
+          "source_id": "sitov-A1.2-L06-V052",
+          "content_kind": "vocabulary",
+          "word_de": "blau",
+          "chunk_de": "eine blaue Jeans",
+          "sentence_de": "Lukas kauft eine blaue Jeans.",
+          "source_word": "blau"
+        },
+        {
+          "id": "7226716d-a27f-55bc-b7bb-2255a7f42ed1",
+          "source_id": "sitov-A1.2-L06-V053",
+          "content_kind": "vocabulary",
+          "word_de": "grün",
+          "chunk_de": "ein grünes Hemd",
+          "sentence_de": "Amir probiert ein grünes Hemd an.",
+          "source_word": "grün"
+        },
+        {
+          "id": "b7e58f1e-6d96-5b77-ae8b-0f3d4f1bf20a",
+          "source_id": "sitov-A1.2-L06-V054",
+          "content_kind": "vocabulary",
+          "word_de": "schwarz",
+          "chunk_de": "schwarze Schuhe",
+          "sentence_de": "Jonas braucht schwarze Schuhe für seinen Anzug.",
+          "source_word": "schwarz"
+        },
+        {
+          "id": "6d926a44-a93e-5390-bf46-331a988852ec",
+          "source_id": "sitov-A1.2-L06-C001",
+          "content_kind": "chunk",
+          "word_de": "Kann ich das anprobieren?",
+          "chunk_de": null,
+          "sentence_de": "Das Hemd gefällt mir. Kann ich es anprobieren?",
+          "source_word": "Kann ich das anprobieren?"
+        },
+        {
+          "id": "96a3b369-c98b-542f-8d48-927f43ff6db7",
+          "source_id": "sitov-A1.2-L06-C002",
+          "content_kind": "chunk",
+          "word_de": "Haben Sie das in Größe 50?",
+          "chunk_de": null,
+          "sentence_de": "Diese Hose gefällt mir. Haben Sie sie in Größe 50?",
+          "source_word": "Haben Sie das in Größe 50?"
+        },
+        {
+          "id": "6048aeb8-8b4d-5bb3-8536-a710c90f5bd9",
+          "source_id": "sitov-A1.2-L06-C003",
+          "content_kind": "chunk",
+          "word_de": "Das ist mir zu eng.",
+          "chunk_de": null,
+          "sentence_de": "Dieses Hemd ist mir zu eng.",
+          "source_word": "Das ist mir zu eng."
+        },
+        {
+          "id": "762e2811-3374-51c7-b6e2-15a9c32414a6",
+          "source_id": "sitov-A1.2-L06-C004",
+          "content_kind": "chunk",
+          "word_de": "Das passt mir gut.",
+          "chunk_de": null,
+          "sentence_de": "Die Jacke passt mir gut. Ich nehme sie.",
+          "source_word": "Das passt mir gut."
+        },
+        {
+          "id": "f3eef7f1-8e16-55be-b86e-476ff0862e49",
+          "source_id": "sitov-A1.2-L06-C005",
+          "content_kind": "chunk",
+          "word_de": "Gibt es das auch in Blau?",
+          "chunk_de": null,
+          "sentence_de": "Der Pullover gefällt mir. Gibt es ihn auch in Blau?",
+          "source_word": "Gibt es das auch in Blau?"
+        },
+        {
+          "id": "d9d51215-e259-5d1d-acce-caa8203d9bbd",
+          "source_id": "sitov-A1.2-L06-C006",
+          "content_kind": "chunk",
+          "word_de": "Wo sind die Umkleidekabinen?",
+          "chunk_de": null,
+          "sentence_de": "Ich möchte die Hose anprobieren. Wo sind die Umkleidekabinen?",
+          "source_word": "Wo sind die Umkleidekabinen?"
+        },
+        {
+          "id": "1807ac4a-64c6-5245-8036-2bbd2f44b5dd",
+          "source_id": "sitov-A1.2-L06-C007",
+          "content_kind": "chunk",
+          "word_de": "Ich nehme diese Schuhe.",
+          "chunk_de": null,
+          "sentence_de": "Die Schuhe sind bequem. Ich nehme diese Schuhe.",
+          "source_word": "Ich nehme diese Schuhe."
+        },
+        {
+          "id": "4ef3f971-fbf1-599a-9d65-157e4500b1f4",
+          "source_id": "sitov-A1.2-L06-C008",
+          "content_kind": "chunk",
+          "word_de": "Kann ich mit Karte bezahlen?",
+          "chunk_de": null,
+          "sentence_de": "Ich nehme das Hemd. Kann ich mit Karte bezahlen?",
+          "source_word": "Kann ich mit Karte bezahlen?"
+        }
+      ]
+    },
+    {
+      "id": "fecfd706-dbc7-5893-af6f-ed5f03d3076e",
+      "level": "A1.2",
+      "label": "Lektion 7 · Feste",
+      "sort_order": 7,
+      "app_lesson": 7,
+      "source_lesson": 14,
+      "cards": [
+        {
+          "id": "7027625a-2ac0-54a5-97b2-e93b59632478",
+          "source_id": "sitov-A1.2-L07-V001",
+          "content_kind": "vocabulary",
+          "word_de": "das Fest",
+          "chunk_de": "ein Fest feiern",
+          "sentence_de": "Paul feiert am Wochenende ein Fest mit seinen Freunden.",
+          "source_word": "das Fest"
+        },
+        {
+          "id": "d1abe9a5-8d28-5996-91a6-f7e49b04efd1",
+          "source_id": "sitov-A1.2-L07-V002",
+          "content_kind": "vocabulary",
+          "word_de": "der Geburtstag",
+          "chunk_de": "Geburtstag haben",
+          "sentence_de": "Lukas hat am dritten Mai Geburtstag.",
+          "source_word": "der Geburtstag"
+        },
+        {
+          "id": "00ea0206-255e-591e-a723-c0993ea1c6f0",
+          "source_id": "sitov-A1.2-L07-V003",
+          "content_kind": "vocabulary",
+          "word_de": "die Geburtstagsfeier",
+          "chunk_de": "eine Geburtstagsfeier planen",
+          "sentence_de": "Amir plant eine Geburtstagsfeier für seinen Bruder.",
+          "source_word": "die Geburtstagsfeier"
+        },
+        {
+          "id": "bb49f36d-017e-5d2d-af09-1af2be3b3436",
+          "source_id": "sitov-A1.2-L07-V004",
+          "content_kind": "vocabulary",
+          "word_de": "die Hochzeit",
+          "chunk_de": "zu einer Hochzeit gehen",
+          "sentence_de": "Jonas geht am Samstag zur Hochzeit seines Freundes.",
+          "source_word": "die Hochzeit"
+        },
+        {
+          "id": "490ebf41-82ee-50a2-b45d-d9773b61b5dd",
+          "source_id": "sitov-A1.2-L07-V005",
+          "content_kind": "vocabulary",
+          "word_de": "die Einladung",
+          "chunk_de": "eine Einladung schicken",
+          "sentence_de": "Paul schickt Lukas eine Einladung zur Feier.",
+          "source_word": "die Einladung"
+        },
+        {
+          "id": "7de885e0-c91b-55e7-b2b4-1a5a6dec0ff5",
+          "source_id": "sitov-A1.2-L07-V006",
+          "content_kind": "vocabulary",
+          "word_de": "der Gast",
+          "chunk_de": "einen Gast begrüßen",
+          "sentence_de": "Amir begrüßt seinen ersten Gast an der Tür.",
+          "source_word": "der Gast"
+        },
+        {
+          "id": "34386847-aac8-5b62-901e-e176f8e1b483",
+          "source_id": "sitov-A1.2-L07-V007",
+          "content_kind": "vocabulary",
+          "word_de": "der Gastgeber",
+          "chunk_de": "ein guter Gastgeber sein",
+          "sentence_de": "Jonas ist ein guter Gastgeber und kümmert sich um seine Gäste.",
+          "source_word": "der Gastgeber"
+        },
+        {
+          "id": "36d0c0e9-a802-5cec-8840-d14de4ab38f3",
+          "source_id": "sitov-A1.2-L07-V008",
+          "content_kind": "vocabulary",
+          "word_de": "das Geschenk",
+          "chunk_de": "ein Geschenk mitbringen",
+          "sentence_de": "Paul bringt ein Geschenk für seinen Freund mit.",
+          "source_word": "das Geschenk"
+        },
+        {
+          "id": "456fa77c-c263-5a1d-b75a-533d28318dac",
+          "source_id": "sitov-A1.2-L07-V009",
+          "content_kind": "vocabulary",
+          "word_de": "die Geburtstagskarte",
+          "chunk_de": "eine Geburtstagskarte schreiben",
+          "sentence_de": "Lukas schreibt seinem Bruder eine Geburtstagskarte.",
+          "source_word": "die Geburtstagskarte"
+        },
+        {
+          "id": "3c1bc838-3ab5-5c50-b9aa-9f55276fd0ad",
+          "source_id": "sitov-A1.2-L07-V010",
+          "content_kind": "vocabulary",
+          "word_de": "der Blumenstrauß",
+          "chunk_de": "einen Blumenstrauß kaufen",
+          "sentence_de": "Amir kauft einen Blumenstrauß für die Feier.",
+          "source_word": "der Blumenstrauß"
+        },
+        {
+          "id": "ce0887da-ff42-5ca7-bf62-6749d527bcb3",
+          "source_id": "sitov-A1.2-L07-V011",
+          "content_kind": "vocabulary",
+          "word_de": "der Kuchen",
+          "chunk_de": "einen Kuchen backen",
+          "sentence_de": "Jonas backt einen Kuchen für Paul.",
+          "source_word": "der Kuchen"
+        },
+        {
+          "id": "bfef4535-cbe5-549e-ba94-5d4c6aa093aa",
+          "source_id": "sitov-A1.2-L07-V012",
+          "content_kind": "vocabulary",
+          "word_de": "die Kerze",
+          "chunk_de": "eine Kerze anzünden",
+          "sentence_de": "Lukas zündet eine Kerze auf dem Kuchen an.",
+          "source_word": "die Kerze"
+        },
+        {
+          "id": "a71880b8-287c-52d7-af22-9d87157723fd",
+          "source_id": "sitov-A1.2-L07-V013",
+          "content_kind": "vocabulary",
+          "word_de": "die Musik",
+          "chunk_de": "Musik hören",
+          "sentence_de": "Die Gäste hören Musik und sprechen miteinander.",
+          "source_word": "die Musik"
+        },
+        {
+          "id": "caac8fb2-01e0-5008-bbfd-af815b60cfed",
+          "source_id": "sitov-A1.2-L07-V014",
+          "content_kind": "vocabulary",
+          "word_de": "das Lied",
+          "chunk_de": "ein Lied singen",
+          "sentence_de": "Amir singt mit seinen Freunden ein Lied.",
+          "source_word": "das Lied"
+        },
+        {
+          "id": "941df034-9375-58d8-8b63-9459ac41b914",
+          "source_id": "sitov-A1.2-L07-V015",
+          "content_kind": "vocabulary",
+          "word_de": "der Tanz",
+          "chunk_de": "einen Tanz lernen",
+          "sentence_de": "Jonas lernt für die Feier einen einfachen Tanz.",
+          "source_word": "der Tanz"
+        },
+        {
+          "id": "ddb810da-4b35-5911-a0d7-a1aa819ce6fc",
+          "source_id": "sitov-A1.2-L07-V016",
+          "content_kind": "vocabulary",
+          "word_de": "das Getränk",
+          "chunk_de": "Getränke kaufen",
+          "sentence_de": "Paul kauft Getränke für seine Gäste.",
+          "source_word": "das Getränk"
+        },
+        {
+          "id": "813fa790-a81c-5850-b087-05c3fac9b6e1",
+          "source_id": "sitov-A1.2-L07-V017",
+          "content_kind": "vocabulary",
+          "word_de": "das Glas",
+          "chunk_de": "ein Glas Wasser",
+          "sentence_de": "Lukas trinkt ein Glas Wasser.",
+          "source_word": "das Glas"
+        },
+        {
+          "id": "4df4501b-3715-596f-bf61-9a8a349b4814",
+          "source_id": "sitov-A1.2-L07-V018",
+          "content_kind": "vocabulary",
+          "word_de": "der Teller",
+          "chunk_de": "die Teller auf den Tisch stellen",
+          "sentence_de": "Amir stellt die Teller auf den Tisch.",
+          "source_word": "der Teller"
+        },
+        {
+          "id": "404d1b56-d3b4-5c99-88ad-24e6f8374f1d",
+          "source_id": "sitov-A1.2-L07-V019",
+          "content_kind": "vocabulary",
+          "word_de": "die Gabel",
+          "chunk_de": "eine Gabel holen",
+          "sentence_de": "Jonas holt eine Gabel für seinen Kuchen.",
+          "source_word": "die Gabel"
+        },
+        {
+          "id": "b85b3b82-3b86-5e62-a586-8660398db2ce",
+          "source_id": "sitov-A1.2-L07-V020",
+          "content_kind": "vocabulary",
+          "word_de": "das Messer",
+          "chunk_de": "ein Messer benutzen",
+          "sentence_de": "Paul benutzt ein Messer für den Kuchen.",
+          "source_word": "das Messer"
+        },
+        {
+          "id": "8f739385-b5a3-532c-befe-0b55f62f7662",
+          "source_id": "sitov-A1.2-L07-V021",
+          "content_kind": "vocabulary",
+          "word_de": "der Löffel",
+          "chunk_de": "einen Löffel brauchen",
+          "sentence_de": "Lukas braucht einen Löffel für das Eis.",
+          "source_word": "der Löffel"
+        },
+        {
+          "id": "a05a40da-0586-53ec-84df-6f4cd165550d",
+          "source_id": "sitov-A1.2-L07-V022",
+          "content_kind": "vocabulary",
+          "word_de": "die Serviette",
+          "chunk_de": "eine Serviette nehmen",
+          "sentence_de": "Amir nimmt eine Serviette vom Tisch.",
+          "source_word": "die Serviette"
+        },
+        {
+          "id": "b280ebb0-18b0-50ed-8c4f-d7361c63d4fe",
+          "source_id": "sitov-A1.2-L07-V023",
+          "content_kind": "vocabulary",
+          "word_de": "der Feiertag",
+          "chunk_de": "an einem Feiertag",
+          "sentence_de": "An einem Feiertag arbeitet Jonas nicht.",
+          "source_word": "der Feiertag"
+        },
+        {
+          "id": "61490d67-af10-579d-8af1-3a85ec4900ea",
+          "source_id": "sitov-A1.2-L07-V024",
+          "content_kind": "vocabulary",
+          "word_de": "Weihnachten",
+          "chunk_de": "Weihnachten feiern",
+          "sentence_de": "Paul feiert Weihnachten mit seiner Familie.",
+          "source_word": "Weihnachten"
+        },
+        {
+          "id": "ca3d3f5a-4238-5218-9ca0-0ad32e02f0f3",
+          "source_id": "sitov-A1.2-L07-V025",
+          "content_kind": "vocabulary",
+          "word_de": "Ostern",
+          "chunk_de": "an Ostern",
+          "sentence_de": "Lukas besucht an Ostern seinen Vater.",
+          "source_word": "Ostern"
+        },
+        {
+          "id": "101b2869-afa7-5348-b6ff-3fb2cad04b3b",
+          "source_id": "sitov-A1.2-L07-V026",
+          "content_kind": "vocabulary",
+          "word_de": "Silvester",
+          "chunk_de": "an Silvester feiern",
+          "sentence_de": "Amir feiert an Silvester mit seinen Freunden.",
+          "source_word": "Silvester"
+        },
+        {
+          "id": "9351d0c1-d408-5ce6-b479-74a5fc3b8f45",
+          "source_id": "sitov-A1.2-L07-V027",
+          "content_kind": "vocabulary",
+          "word_de": "Neujahr",
+          "chunk_de": "an Neujahr",
+          "sentence_de": "An Neujahr besucht Jonas seinen Bruder.",
+          "source_word": "Neujahr"
+        },
+        {
+          "id": "92870af3-b2ae-50d6-b4c9-2b94e23a4e7a",
+          "source_id": "sitov-A1.2-L07-V028",
+          "content_kind": "vocabulary",
+          "word_de": "das Datum",
+          "chunk_de": "das Datum notieren",
+          "sentence_de": "Paul notiert das Datum der Feier.",
+          "source_word": "das Datum"
+        },
+        {
+          "id": "1fc58a59-312c-5e88-9371-ee707c5d1c8d",
+          "source_id": "sitov-A1.2-L07-V029",
+          "content_kind": "vocabulary",
+          "word_de": "der Monat",
+          "chunk_de": "im nächsten Monat",
+          "sentence_de": "Lukas hat im nächsten Monat Geburtstag.",
+          "source_word": "der Monat"
+        },
+        {
+          "id": "712c331b-c8db-5612-92f9-cdaf16cf0d33",
+          "source_id": "sitov-A1.2-L07-V030",
+          "content_kind": "vocabulary",
+          "word_de": "der Januar",
+          "chunk_de": "im Januar",
+          "sentence_de": "Amir macht im Januar eine kleine Feier.",
+          "source_word": "der Januar"
+        },
+        {
+          "id": "2944eb31-a916-5e58-9619-2e0771cb28c6",
+          "source_id": "sitov-A1.2-L07-V031",
+          "content_kind": "vocabulary",
+          "word_de": "der Februar",
+          "chunk_de": "im Februar",
+          "sentence_de": "Jonas besucht im Februar ein Fest in der Stadt.",
+          "source_word": "der Februar"
+        },
+        {
+          "id": "accde173-8c78-5f9a-903e-c0de864f7856",
+          "source_id": "sitov-A1.2-L07-V032",
+          "content_kind": "vocabulary",
+          "word_de": "der März",
+          "chunk_de": "im März",
+          "sentence_de": "Paul lädt seine Freunde im März zum Essen ein.",
+          "source_word": "der März"
+        },
+        {
+          "id": "3696ab53-1afa-58d7-bba2-7999d81ccfe5",
+          "source_id": "sitov-A1.2-L07-V033",
+          "content_kind": "vocabulary",
+          "word_de": "der April",
+          "chunk_de": "im April",
+          "sentence_de": "Lukas hat im April Urlaub.",
+          "source_word": "der April"
+        },
+        {
+          "id": "c7c33dbc-475f-53a6-a086-c1f7a9b2bba3",
+          "source_id": "sitov-A1.2-L07-V034",
+          "content_kind": "vocabulary",
+          "word_de": "der Mai",
+          "chunk_de": "im Mai",
+          "sentence_de": "Amir feiert seinen Geburtstag im Mai.",
+          "source_word": "der Mai"
+        },
+        {
+          "id": "e911d611-4ed1-5815-80e7-0c043c8f16ff",
+          "source_id": "sitov-A1.2-L07-V035",
+          "content_kind": "vocabulary",
+          "word_de": "der Juni",
+          "chunk_de": "im Juni",
+          "sentence_de": "Jonas geht im Juni zu einer Hochzeit.",
+          "source_word": "der Juni"
+        },
+        {
+          "id": "e5b0021e-0ba4-509f-a9ae-af0a0c74df3a",
+          "source_id": "sitov-A1.2-L07-V036",
+          "content_kind": "vocabulary",
+          "word_de": "der Juli",
+          "chunk_de": "im Juli",
+          "sentence_de": "Paul feiert im Juli im Garten.",
+          "source_word": "der Juli"
+        },
+        {
+          "id": "d391b8f5-8699-53fd-98ea-ca8fd0bdc51d",
+          "source_id": "sitov-A1.2-L07-V037",
+          "content_kind": "vocabulary",
+          "word_de": "der August",
+          "chunk_de": "im August",
+          "sentence_de": "Lukas hat im August Geburtstag.",
+          "source_word": "der August"
+        },
+        {
+          "id": "abf757ae-0d0e-5e03-a769-616b768887ea",
+          "source_id": "sitov-A1.2-L07-V038",
+          "content_kind": "vocabulary",
+          "word_de": "der September",
+          "chunk_de": "im September",
+          "sentence_de": "Amir lädt im September seine Nachbarn ein.",
+          "source_word": "der September"
+        },
+        {
+          "id": "a97de9c8-5843-5de8-b1d3-dae2be979dc0",
+          "source_id": "sitov-A1.2-L07-V039",
+          "content_kind": "vocabulary",
+          "word_de": "der Oktober",
+          "chunk_de": "im Oktober",
+          "sentence_de": "Jonas hat im Oktober Geburtstag.",
+          "source_word": "der Oktober"
+        },
+        {
+          "id": "8faa815c-9ac2-5e88-b30e-eb936f54494d",
+          "source_id": "sitov-A1.2-L07-V040",
+          "content_kind": "vocabulary",
+          "word_de": "der November",
+          "chunk_de": "im November",
+          "sentence_de": "Paul feiert im November zu Hause.",
+          "source_word": "der November"
+        },
+        {
+          "id": "eb2d0b18-13aa-5fcd-afd9-c95dec3771ed",
+          "source_id": "sitov-A1.2-L07-V041",
+          "content_kind": "vocabulary",
+          "word_de": "der Dezember",
+          "chunk_de": "im Dezember",
+          "sentence_de": "Lukas besucht seinen Bruder im Dezember.",
+          "source_word": "der Dezember"
+        },
+        {
+          "id": "5b702791-064c-57bd-b337-5f286c1aaeac",
+          "source_id": "sitov-A1.2-L07-V042",
+          "content_kind": "vocabulary",
+          "word_de": "feiern",
+          "chunk_de": "einen Geburtstag feiern",
+          "sentence_de": "Amir feiert seinen Geburtstag mit zehn Freunden.",
+          "source_word": "feiern"
+        },
+        {
+          "id": "6eb7bf05-0748-5ebe-856e-36c463e3affa",
+          "source_id": "sitov-A1.2-L07-V043",
+          "content_kind": "vocabulary",
+          "word_de": "einladen",
+          "chunk_de": "Freunde einladen",
+          "sentence_de": "Jonas lädt seine Freunde zum Essen ein.",
+          "source_word": "einladen"
+        },
+        {
+          "id": "89619625-49e9-5175-8aa8-317ef0f2e983",
+          "source_id": "sitov-A1.2-L07-V044",
+          "content_kind": "vocabulary",
+          "word_de": "gratulieren",
+          "chunk_de": "zum Geburtstag gratulieren",
+          "sentence_de": "Paul gratuliert Lukas zum Geburtstag.",
+          "source_word": "gratulieren"
+        },
+        {
+          "id": "c9bf7a21-6c81-561b-94c0-53fc738f20a8",
+          "source_id": "sitov-A1.2-L07-V045",
+          "content_kind": "vocabulary",
+          "word_de": "schenken",
+          "chunk_de": "einen Kuchen schenken",
+          "sentence_de": "Amir schenkt seinem Bruder einen selbst gebackenen Kuchen.",
+          "source_word": "schenken"
+        },
+        {
+          "id": "562b80a1-49b4-5f0e-9422-34405f2cf078",
+          "source_id": "sitov-A1.2-L07-V046",
+          "content_kind": "vocabulary",
+          "word_de": "mitbringen",
+          "chunk_de": "ein Getränk mitbringen",
+          "sentence_de": "Jonas bringt ein Getränk zur Feier mit.",
+          "source_word": "mitbringen"
+        },
+        {
+          "id": "11b60c62-d7df-53c7-bff2-930ed6bbc671",
+          "source_id": "sitov-A1.2-L07-V047",
+          "content_kind": "vocabulary",
+          "word_de": "backen",
+          "chunk_de": "einen Kuchen backen",
+          "sentence_de": "Paul backt einen Kuchen mit Äpfeln.",
+          "source_word": "backen"
+        },
+        {
+          "id": "a1f7120d-9f0c-51bc-9004-c1912fc62020",
+          "source_id": "sitov-A1.2-L07-V048",
+          "content_kind": "vocabulary",
+          "word_de": "vorbereiten",
+          "chunk_de": "eine Feier vorbereiten",
+          "sentence_de": "Lukas bereitet die Feier am Freitag vor.",
+          "source_word": "vorbereiten"
+        },
+        {
+          "id": "eb88a187-9d38-5e1b-a5f7-d02dd1982f4d",
+          "source_id": "sitov-A1.2-L07-V049",
+          "content_kind": "vocabulary",
+          "word_de": "tanzen",
+          "chunk_de": "zusammen tanzen",
+          "sentence_de": "Amir und Jonas tanzen auf dem Fest.",
+          "source_word": "tanzen"
+        },
+        {
+          "id": "1ebbff67-e09e-541d-ab4b-f0d245aa1a3f",
+          "source_id": "sitov-A1.2-L07-V050",
+          "content_kind": "vocabulary",
+          "word_de": "singen",
+          "chunk_de": "ein Geburtstagslied singen",
+          "sentence_de": "Paul singt ein Geburtstagslied für seinen Bruder.",
+          "source_word": "singen"
+        },
+        {
+          "id": "a63355bb-c837-5f4d-b941-907a283d092a",
+          "source_id": "sitov-A1.2-L07-V051",
+          "content_kind": "vocabulary",
+          "word_de": "zusammen",
+          "chunk_de": "zusammen feiern",
+          "sentence_de": "Lukas und seine Freunde feiern zusammen.",
+          "source_word": "zusammen"
+        },
+        {
+          "id": "98f08a1a-9eec-5363-b00c-43d4a9ba7a17",
+          "source_id": "sitov-A1.2-L07-V052",
+          "content_kind": "vocabulary",
+          "word_de": "pünktlich",
+          "chunk_de": "pünktlich kommen",
+          "sentence_de": "Amir kommt pünktlich zur Geburtstagsfeier.",
+          "source_word": "pünktlich"
+        },
+        {
+          "id": "07c6f376-5010-5bfa-b152-1ee6e9396aa1",
+          "source_id": "sitov-A1.2-L07-C001",
+          "content_kind": "chunk",
+          "word_de": "Alles Gute zum Geburtstag!",
+          "chunk_de": null,
+          "sentence_de": "Lieber Paul, alles Gute zum Geburtstag!",
+          "source_word": "Alles Gute zum Geburtstag!"
+        },
+        {
+          "id": "36f09270-7be8-5722-a742-9229268abfe6",
+          "source_id": "sitov-A1.2-L07-C002",
+          "content_kind": "chunk",
+          "word_de": "Herzlichen Glückwunsch!",
+          "chunk_de": null,
+          "sentence_de": "Lieber Lukas, herzlichen Glückwunsch zu deiner Hochzeit!",
+          "source_word": "Herzlichen Glückwunsch!"
+        },
+        {
+          "id": "2bda2753-2287-557d-85b4-f88123d46a78",
+          "source_id": "sitov-A1.2-L07-C003",
+          "content_kind": "chunk",
+          "word_de": "Vielen Dank für die Einladung.",
+          "chunk_de": null,
+          "sentence_de": "Vielen Dank für die Einladung, Amir. Ich komme gern.",
+          "source_word": "Vielen Dank für die Einladung."
+        },
+        {
+          "id": "bb2cf500-061f-58b3-8221-c2bf19f891be",
+          "source_id": "sitov-A1.2-L07-C004",
+          "content_kind": "chunk",
+          "word_de": "Kannst du am Samstag kommen?",
+          "chunk_de": null,
+          "sentence_de": "Ich feiere meinen Geburtstag. Kannst du am Samstag kommen?",
+          "source_word": "Kannst du am Samstag kommen?"
+        },
+        {
+          "id": "ee3e5c7a-5d4e-5511-9d9c-86d7807983a4",
+          "source_id": "sitov-A1.2-L07-C005",
+          "content_kind": "chunk",
+          "word_de": "Ich komme gern.",
+          "chunk_de": null,
+          "sentence_de": "Danke für deine Einladung. Ich komme gern zu deinem Fest.",
+          "source_word": "Ich komme gern."
+        },
+        {
+          "id": "8b8ec140-8124-5bf0-a8fc-85cc5044b123",
+          "source_id": "sitov-A1.2-L07-C006",
+          "content_kind": "chunk",
+          "word_de": "Leider kann ich nicht kommen.",
+          "chunk_de": null,
+          "sentence_de": "Leider kann ich am Samstag nicht kommen, ich muss arbeiten.",
+          "source_word": "Leider kann ich nicht kommen."
+        },
+        {
+          "id": "7346436e-4791-5454-a34b-c2fdd6b7c636",
+          "source_id": "sitov-A1.2-L07-C007",
+          "content_kind": "chunk",
+          "word_de": "Was soll ich mitbringen?",
+          "chunk_de": null,
+          "sentence_de": "Ich komme zur Feier. Was soll ich mitbringen?",
+          "source_word": "Was soll ich mitbringen?"
+        },
+        {
+          "id": "2959dbc9-8e20-5208-9624-87adb0f8a730",
+          "source_id": "sitov-A1.2-L07-C008",
+          "content_kind": "chunk",
+          "word_de": "Frohes neues Jahr!",
+          "chunk_de": null,
+          "sentence_de": "Paul wünscht seinem Bruder ein frohes neues Jahr.",
+          "source_word": "Frohes neues Jahr!"
+        }
+      ]
+    }
+  ]
+}

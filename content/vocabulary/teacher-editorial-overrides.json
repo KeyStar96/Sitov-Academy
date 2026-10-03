@@ -1,0 +1,298 @@
+{
+  "sitov-A1.2-L01-V020": {
+    "sentence_de": "Lukas ist Student.",
+    "chunk_de": "Student sein"
+  },
+  "sitov-A1.2-L01-V015": {
+    "chunk_de": "Hausmann sein",
+    "sentence_de": "Mein Vater ist Hausmann."
+  },
+  "sitov-A1.2-L01-V089": {
+    "chunk_de": "auf Nachfrage",
+    "sentence_de": "Weitere Informationen bekommen Sie auf Nachfrage."
+  },
+  "sitov-A1.2-L01-C018": {
+    "sentence_de": "Mit freundlichen Grüßen, Paul Klein."
+  },
+  "sitov-A2.1-L01-V032": {
+    "sentence_de": "Er ist traurig, weil sein Freund wegzieht."
+  },
+  "sitov-A2.1-L01-V037": {
+    "chunk_de": "die weibliche Form Nachbarin",
+    "sentence_de": "Nachbarin ist die weibliche Form von Nachbar."
+  },
+  "sitov-A2.1-L01-V040": {
+    "chunk_de": "die weibliche Form Mieterin",
+    "sentence_de": "Mieterin ist die weibliche Form von Mieter."
+  },
+  "sitov-A2.1-L01-V044": {
+    "sentence_de": "Das Adjektiv schwanger beschreibt eine Schwangerschaft."
+  },
+  "sitov-A2.1-L01-V045": {
+    "sentence_de": "Nach der Geburt seines Sohnes bleibt Paul einige Tage zu Hause."
+  },
+  "sitov-A2.1-L01-V050": {
+    "sentence_de": "Paul hat sich in seinen Kollegen verliebt."
+  },
+  "sitov-A2.1-L01-V055": {
+    "sentence_de": "Er verdient sein Geld als Verkäufer."
+  },
+  "sitov-A2.1-L01-V059": {
+    "sentence_de": "Endlich hat er eine neue Stelle gefunden."
+  },
+  "sitov-A2.1-L01-V076": {
+    "sentence_de": "Ist jemand hier, der mir helfen kann?"
+  },
+  "sitov-A2.1-L02-V035": {
+    "chunk_de": "die weibliche Form Bewohnerin",
+    "sentence_de": "Bewohnerin ist die weibliche Form von Bewohner."
+  },
+  "sitov-A2.1-L02-C015": {
+    "sentence_de": "Er möchte seinen Mietvertrag kündigen."
+  },
+  "sitov-A2.1-L03-V029": {
+    "chunk_de": "Quartett spielen",
+    "sentence_de": "Wir spielen zusammen Quartett."
+  },
+  "sitov-A2.1-L03-V051": {
+    "sentence_de": "Herr Müller leitet unsere Kantine."
+  },
+  "sitov-A2.1-L04-V008": {
+    "sentence_de": "Der Mitarbeiter ist sehr freundlich."
+  },
+  "sitov-A2.1-L04-V039": {
+    "sentence_de": "Bei Fragen wenden Sie sich bitte an Herrn Müller."
+  },
+  "sitov-A2.1-L04-V047": {
+    "sentence_de": "Nach der Entlassung sucht er eine neue Stelle."
+  },
+  "sitov-A2.1-L04-C020": {
+    "word_de": "Kann ich ihm etwas ausrichten?",
+    "sentence_de": "Herr Klein ist nicht da. Kann ich ihm etwas ausrichten?"
+  },
+  "sitov-A2.1-L06-V012": {
+    "sentence_de": "Der Schüler lernt sehr schnell."
+  },
+  "sitov-A2.1-L06-V013": {
+    "chunk_de": "mit dem Lehrer sprechen",
+    "sentence_de": "Ich möchte mit dem Lehrer sprechen."
+  },
+  "sitov-A2.1-L06-V015": {
+    "chunk_de": "mit dem Direktor sprechen",
+    "sentence_de": "Die Väter sprechen mit dem Direktor."
+  },
+  "sitov-A2.1-L06-V039": {
+    "sentence_de": "Unser Lehrer erlaubt Handys in der Pause."
+  },
+  "sitov-A2.1-L06-V049": {
+    "sentence_de": "Mein Lehrer meint, dass ich Fortschritte mache."
+  },
+  "sitov-A2.1-L06-C026": {
+    "sentence_de": "Nach der Schule wollte ich Lehrer werden."
+  },
+  "sitov-A2.1-L07-V005": {
+    "sentence_de": "Ich schenke meinem Vater Blumen."
+  },
+  "sitov-A2.1-L07-V006": {
+    "chunk_de": "ein Baby betreuen",
+    "sentence_de": "Mein Bruder betreut das Baby."
+  },
+  "sitov-A2.1-L07-V007": {
+    "sentence_de": "Er schenkt seinem Freund eine Kette."
+  },
+  "sitov-A2.1-L07-V010": {
+    "sentence_de": "Ich möchte meinem Bruder ein Parfüm schenken."
+  },
+  "sitov-A2.1-L07-V013": {
+    "sentence_de": "Mein Kollege ist sehr zuverlässig."
+  },
+  "sitov-A2.1-L07-V017": {
+    "sentence_de": "Der Vater weint vor Freude."
+  },
+  "sitov-A2.1-L07-V021": {
+    "chunk_de": "einen Anzug tragen",
+    "sentence_de": "Er trägt auf der Hochzeit einen schönen Anzug."
+  },
+  "sitov-A2.1-L07-V025": {
+    "sentence_de": "Er überzeugt mich von seiner Idee."
+  },
+  "sitov-A2.1-L07-V036": {
+    "chunk_de": "die Braut und der Bräutigam",
+    "sentence_de": "Eine Frau, die heiratet, heißt Braut."
+  },
+  "sitov-A2.1-L07-V039": {
+    "sentence_de": "Ich brauche noch ein Geschenk für meinen Bruder."
+  },
+  "sitov-A2.1-L07-V044": {
+    "sentence_de": "Das Geschenk passt gut zu ihm."
+  },
+  "sitov-A2.1-L07-V048": {
+    "sentence_de": "Wir planen eine Überraschung für Paul."
+  },
+  "sitov-A2.1-L07-V052": {
+    "sentence_de": "Wir schenken ihm eine Schachtel Pralinen."
+  },
+  "sitov-A2.1-L07-V053": {
+    "sentence_de": "Mein Vater bekommt gern Schokolade."
+  },
+  "sitov-A2.1-L07-V055": {
+    "sentence_de": "Ich bringe dem Gastgeber Blumen mit."
+  },
+  "sitov-A2.1-L07-V056": {
+    "sentence_de": "Er schenkt seinem Freund einen Blumenstrauß."
+  },
+  "sitov-A2.1-L07-V058": {
+    "sentence_de": "Ich schreibe meinem Opa eine Geburtstagskarte."
+  },
+  "sitov-A2.1-L07-C003": {
+    "sentence_de": "Was schenken wir deinem Vater?"
+  },
+  "sitov-A2.1-L07-C008": {
+    "sentence_de": "Auf der Party habe ich mich lange mit Paul unterhalten."
+  },
+  "sitov-A2.1-L07-C015": {
+    "sentence_de": "Das Geschenk passt perfekt zu ihm."
+  },
+  "sitov-A2.1-L07-C017": {
+    "sentence_de": "Wir überraschen ihn mit einer Torte."
+  },
+  "sitov-A2.1-L07-C019": {
+    "sentence_de": "Paul hat Geburtstag. Was sollen wir ihm schenken?"
+  },
+  "sitov-A2.1-L07-C021": {
+    "sentence_de": "Wir schenken ihm Konzertkarten. Das ist eine gute Idee."
+  },
+  "sitov-A2.1-L07-C023": {
+    "sentence_de": "Alles Gute zum Geburtstag, Paul!"
+  },
+  "sitov-A2.2-L08-V043": {
+    "article": "none"
+  },
+  "sitov-A2.2-L09-V039": {
+    "word_de": "manche"
+  },
+  "sitov-A2.2-L10-V018": {
+    "word_de": "was für ein"
+  },
+  "sitov-A2.2-L10-V024": {
+    "word_de": "her"
+  },
+  "sitov-A2.2-L10-V038": {
+    "word_de": "unzufrieden"
+  },
+  "sitov-A2.2-L12-V053": {
+    "word_de": "windsurfen"
+  },
+  "sitov-A2.2-L14-V014": {
+    "word_de": "einzig"
+  },
+  "sitov-B1.1-L01-V022": {
+    "word_de": "beide"
+  },
+  "sitov-B1.1-L01-V027": {
+    "word_de": "einige"
+  },
+  "sitov-B1.1-L01-V049": {
+    "word_de": "alle"
+  },
+  "sitov-B1.1-L01-V051": {
+    "word_de": "beste"
+  },
+  "sitov-B1.1-L02-V014": {
+    "word_de": "der Kriminalfilm"
+  },
+  "sitov-B1.1-L02-V017": {
+    "word_de": "heutige"
+  },
+  "sitov-B1.1-L02-V020": {
+    "word_de": "der Sänger"
+  },
+  "sitov-B1.1-L02-V028": {
+    "word_de": "sogenannt"
+  },
+  "sitov-B1.1-L03-V033": {
+    "word_de": "solche"
+  },
+  "sitov-B1.1-L03-V049": {
+    "word_de": "Sport treiben"
+  },
+  "sitov-B1.1-L03-V058": {
+    "word_de": "sich krankmelden"
+  },
+  "sitov-B1.1-L04-V006": {
+    "word_de": "darüber"
+  },
+  "sitov-B1.1-L04-V039": {
+    "word_de": "Griechisch"
+  },
+  "sitov-B1.1-L05-V002": {
+    "word_de": "das Videogespräch"
+  },
+  "sitov-B1.1-L05-V011": {
+    "word_de": "der Serviceangestellte"
+  },
+  "sitov-B1.1-L05-V032": {
+    "word_de": "zusammenarbeiten"
+  },
+  "sitov-B1.1-L06-V002": {
+    "word_de": "erste"
+  },
+  "sitov-B1.1-L06-V015": {
+    "sentence_de": "Er entschließt sich, eine neue Ausbildung zu beginnen."
+  },
+  "sitov-B1.1-L07-V012": {
+    "word_de": "einander"
+  },
+  "sitov-B1.1-L07-V037": {
+    "word_de": "irgendjemand"
+  },
+  "sitov-B1.1-L07-V044": {
+    "word_de": "woran"
+  },
+  "sitov-B1.1-L07-V047": {
+    "word_de": "Ostdeutschland"
+  },
+  "sitov-B1.1-L07-V048": {
+    "word_de": "Westdeutschland"
+  },
+  "sitov-B1.1-L07-V058": {
+    "sentence_de": "Mit dem neuen Zimmer vergrößert sich unsere Wohnung."
+  },
+  "sitov-B1.1-L07-V064": {
+    "word_de": "gleich"
+  },
+  "sitov-A2.1-L04-V025": {
+    "word_de": "der Auszubildende"
+  },
+  "sitov-B1.2-L08-V012": {
+    "word_de": "morgige"
+  },
+  "sitov-B1.2-L10-V009": {
+    "word_de": "vorige"
+  },
+  "sitov-B1.2-L12-V009": {
+    "word_de": "sonstige"
+  },
+  "sitov-B1.2-L12-V047": {
+    "word_de": "über"
+  },
+  "sitov-B1.2-L13-V038": {
+    "word_de": "folgende"
+  },
+  "sitov-B1.2-L08-V008": {
+    "chunk_de": "seine Teilnahme zusagen",
+    "sentence_de": "Mein Kollege sagt seine Teilnahme am Treffen zu."
+  },
+  "sitov-A1.2-L01-V064": {
+    "sentence_de": "Er bekommt eine neue Stelle."
+  },
+  "sitov-A2.1-L04-V021": {
+    "sentence_de": "Er sucht auf einer Online-Plattform nach Arbeit."
+  },
+  "sitov-A2.1-L05-V023": {
+    "sentence_de": "Er schminkt sich jeden Morgen."
+  },
+  "sitov-A2.1-L06-V017": {
+    "sentence_de": "Er sucht einen Ausbildungsplatz."
+  }
+}

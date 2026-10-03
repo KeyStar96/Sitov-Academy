@@ -1,0 +1,132 @@
+[
+  {
+    "file": "A1.2/A1_2_App_Lektion_1_Beruf_und_Arbeit.xlsx",
+    "text_and_value_cells": 662,
+    "sheets": {
+      "xl/worksheets/sheet1.xml": 648,
+      "xl/worksheets/sheet2.xml": 14
+    },
+    "json_authored_strings": 300,
+    "json_strings_absent_from_workbook": 0,
+    "absent_samples": [],
+    "import_authority": "JSON; workbook is a teacher overview, not a separate corpus"
+  },
+  {
+    "file": "A2.1/A2_1_Vokabeltrainer_Uebersicht_v2.xlsx",
+    "text_and_value_cells": 9214,
+    "sheets": {
+      "xl/worksheets/sheet1.xml": 5268,
+      "xl/worksheets/sheet2.xml": 585,
+      "xl/worksheets/sheet3.xml": 536,
+      "xl/worksheets/sheet4.xml": 589,
+      "xl/worksheets/sheet5.xml": 578,
+      "xl/worksheets/sheet6.xml": 655,
+      "xl/worksheets/sheet7.xml": 514,
+      "xl/worksheets/sheet8.xml": 489
+    },
+    "json_authored_strings": 1730,
+    "json_strings_absent_from_workbook": 0,
+    "absent_samples": [],
+    "import_authority": "JSON; workbook is a teacher overview, not a separate corpus"
+  },
+  {
+    "file": "A2.2/A2.2_Vokabeltrainer_Lektionen_8-14.xlsx",
+    "text_and_value_cells": 3114,
+    "sheets": {
+      "xl/worksheets/sheet1.xml": 48,
+      "xl/worksheets/sheet2.xml": 399,
+      "xl/worksheets/sheet3.xml": 371,
+      "xl/worksheets/sheet4.xml": 490,
+      "xl/worksheets/sheet5.xml": 637,
+      "xl/worksheets/sheet6.xml": 539,
+      "xl/worksheets/sheet7.xml": 350,
+      "xl/worksheets/sheet8.xml": 280
+    },
+    "json_authored_strings": 1204,
+    "json_strings_absent_from_workbook": 0,
+    "absent_samples": [],
+    "import_authority": "JSON; workbook is a teacher overview, not a separate corpus"
+  },
+  {
+    "file": "B1.1/B1.1_Vokabeltrainer_Lektionen_1-7.xlsx",
+    "text_and_value_cells": 3703,
+    "sheets": {
+      "xl/worksheets/sheet1.xml": 547,
+      "xl/worksheets/sheet2.xml": 505,
+      "xl/worksheets/sheet3.xml": 582,
+      "xl/worksheets/sheet4.xml": 519,
+      "xl/worksheets/sheet5.xml": 442,
+      "xl/worksheets/sheet6.xml": 526,
+      "xl/worksheets/sheet7.xml": 582
+    },
+    "json_authored_strings": 1410,
+    "json_strings_absent_from_workbook": 0,
+    "absent_samples": [],
+    "import_authority": "JSON; workbook is a teacher overview, not a separate corpus"
+  },
+  {
+    "file": "B1.2/B1.2_Lektionen_1-7_Vokabeltrainer.xlsx",
+    "text_and_value_cells": 1241,
+    "sheets": {
+      "xl/worksheets/sheet1.xml": 158,
+      "xl/worksheets/sheet2.xml": 176,
+      "xl/worksheets/sheet3.xml": 209,
+      "xl/worksheets/sheet4.xml": 209,
+      "xl/worksheets/sheet5.xml": 194,
+      "xl/worksheets/sheet6.xml": 158,
+      "xl/worksheets/sheet7.xml": 137
+    },
+    "json_authored_strings": 786,
+    "json_strings_absent_from_workbook": 0,
+    "absent_samples": [],
+    "import_authority": "JSON; workbook is a teacher overview, not a separate corpus"
+  },
+  {
+    "file": "B2.1/B2_1_Vokabeltrainer.xlsx",
+    "text_and_value_cells": 851,
+    "sheets": {
+      "xl/worksheets/sheet1.xml": 840,
+      "xl/worksheets/sheet2.xml": 11
+    },
+    "json_authored_strings": 355,
+    "json_strings_absent_from_workbook": 0,
+    "absent_samples": [],
+    "import_authority": "JSON; workbook is a teacher overview, not a separate corpus"
+  },
+  {
+    "file": "B2.2/B2_2_Vokabeltrainer.xlsx",
+    "text_and_value_cells": 858,
+    "sheets": {
+      "xl/worksheets/sheet1.xml": 847,
+      "xl/worksheets/sheet2.xml": 11
+    },
+    "json_authored_strings": 360,
+    "json_strings_absent_from_workbook": 0,
+    "absent_samples": [],
+    "import_authority": "JSON; workbook is a teacher overview, not a separate corpus"
+  },
+  {
+    "file": "C1_1/C1_1_Vokabeltrainer.xlsx",
+    "text_and_value_cells": 858,
+    "sheets": {
+      "xl/worksheets/sheet1.xml": 847,
+      "xl/worksheets/sheet2.xml": 11
+    },
+    "json_authored_strings": 359,
+    "json_strings_absent_from_workbook": 0,
+    "absent_samples": [],
+    "import_authority": "JSON; workbook is a teacher overview, not a separate corpus"
+  },
+  {
+    "file": "C1_2/C1_2_Vokabeltrainer.xlsx",
+    "text_and_value_cells": 858,
+    "sheets": {
+      "xl/worksheets/sheet1.xml": 847,
+      "xl/worksheets/sheet2.xml": 11
+    },
+    "json_authored_strings": 358,
+    "json_strings_absent_from_workbook": 0,
+    "absent_samples": [],
+    "import_authority": "JSON; workbook is a teacher overview, not a separate corpus"
+  }
+]

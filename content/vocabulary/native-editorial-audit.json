@@ -1,0 +1,1541 @@
+{
+  "sitov-A1.2-L02-V018": {
+    "en": {
+      "translation": "supporting document"
+    },
+    "ru": {
+      "translation": "документ"
+    },
+    "uk": {
+      "translation": "документ"
+    },
+    "tr": {
+      "translation": "belge"
+    }
+  },
+  "sitov-A1.2-L01-V024": {
+    "en": {
+      "translation": "self-employed"
+    },
+    "ru": {
+      "translation": "работающий на себя"
+    },
+    "uk": {
+      "translation": "самозайнятий"
+    },
+    "tr": {
+      "translation": "serbest çalışan"
+    }
+  },
+  "sitov-A1.2-L01-V060": {
+    "en": {
+      "translation": "other"
+    },
+    "ru": {
+      "translation": "другой"
+    },
+    "uk": {
+      "translation": "інший"
+    },
+    "tr": {
+      "translation": "diğer"
+    }
+  },
+  "sitov-A1.2-L01-V067": {
+    "en": {
+      "translation": "fixed-term"
+    },
+    "ru": {
+      "translation": "срочный; на определённый срок"
+    },
+    "uk": {
+      "translation": "строковий; на визначений термін"
+    },
+    "tr": {
+      "translation": "belirli süreli"
+    }
+  },
+  "sitov-A1.2-L01-V072": {
+    "en": {
+      "translation": "in the morning"
+    },
+    "ru": {
+      "translation": "по утрам"
+    },
+    "uk": {
+      "translation": "уранці"
+    },
+    "tr": {
+      "translation": "sabahları"
+    }
+  },
+  "sitov-A1.2-L01-V073": {
+    "en": {
+      "translation": "in the afternoon"
+    },
+    "ru": {
+      "translation": "после полудня"
+    },
+    "uk": {
+      "translation": "після обіду"
+    },
+    "tr": {
+      "translation": "öğleden sonraları"
+    }
+  },
+  "sitov-A1.2-L01-V081": {
+    "en": {
+      "translation": "in the evening"
+    },
+    "ru": {
+      "translation": "по вечерам"
+    },
+    "uk": {
+      "translation": "увечері"
+    },
+    "tr": {
+      "translation": "akşamları"
+    }
+  },
+  "sitov-A1.2-L01-V089": {
+    "en": {
+      "translation": "inquiry; request"
+    },
+    "ru": {
+      "translation": "запрос"
+    },
+    "uk": {
+      "translation": "запит"
+    },
+    "tr": {
+      "translation": "talep"
+    }
+  },
+  "sitov-A1.2-L02-V043": {
+    "en": {
+      "translation": "be allowed to"
+    },
+    "ru": {
+      "translation": "иметь разрешение; мочь"
+    },
+    "uk": {
+      "translation": "мати дозвіл; могти"
+    },
+    "tr": {
+      "translation": "izinli olmak"
+    }
+  },
+  "sitov-A1.2-L02-V047": {
+    "en": {
+      "translation": "open"
+    },
+    "ru": {
+      "translation": "открытый"
+    },
+    "uk": {
+      "translation": "відчинений"
+    },
+    "tr": {
+      "translation": "açık"
+    }
+  },
+  "sitov-A1.2-L02-V050": {
+    "en": {
+      "translation": "complete"
+    },
+    "ru": {
+      "translation": "полный; завершённый"
+    },
+    "uk": {
+      "translation": "повний; завершений"
+    },
+    "tr": {
+      "translation": "eksiksiz"
+    }
+  },
+  "sitov-A1.2-L03-V009": {
+    "en": {
+      "translation": "throat; neck"
+    },
+    "ru": {
+      "translation": "горло; шея"
+    },
+    "uk": {
+      "translation": "горло; шия"
+    },
+    "tr": {
+      "translation": "boğaz; boyun"
+    }
+  },
+  "sitov-A1.2-L05-V025": {
+    "en": {
+      "translation": "warranty"
+    },
+    "ru": {
+      "translation": "гарантия"
+    },
+    "uk": {
+      "translation": "гарантія"
+    },
+    "tr": {
+      "translation": "garanti"
+    }
+  },
+  "sitov-A1.2-L05-V045": {
+    "en": {
+      "translation": "arrange"
+    },
+    "ru": {
+      "translation": "договариваться"
+    },
+    "uk": {
+      "translation": "домовлятися"
+    },
+    "tr": {
+      "translation": "kararlaştırmak"
+    }
+  },
+  "sitov-A1.2-L06-V049": {
+    "en": {
+      "translation": "light (colour)"
+    },
+    "ru": {
+      "translation": "светлый (цвет)"
+    },
+    "uk": {
+      "translation": "світлий (колір)"
+    },
+    "tr": {
+      "translation": "açık (renk)"
+    }
+  },
+  "sitov-A2.1-L01-V052": {
+    "en": {
+      "translation": "look forward to; be happy"
+    },
+    "ru": {
+      "translation": "радоваться; ждать с радостью"
+    },
+    "uk": {
+      "translation": "радіти; чекати з радістю"
+    },
+    "tr": {
+      "translation": "sevinmek; dört gözle beklemek"
+    }
+  },
+  "sitov-A2.1-L01-V053": {
+    "en": {
+      "translation": "be missing; be missed"
+    },
+    "ru": {
+      "translation": "отсутствовать; не хватать"
+    },
+    "uk": {
+      "translation": "бути відсутнім; бракувати"
+    },
+    "tr": {
+      "translation": "eksik olmak; özlenmek"
+    }
+  },
+  "sitov-A2.1-L01-V068": {
+    "en": {
+      "translation": "forget"
+    },
+    "ru": {
+      "translation": "забывать"
+    },
+    "uk": {
+      "translation": "забувати"
+    },
+    "tr": {
+      "translation": "unutmak"
+    }
+  },
+  "sitov-A2.1-L01-V083": {
+    "en": {
+      "translation": "only; not until"
+    },
+    "ru": {
+      "translation": "только; лишь"
+    },
+    "uk": {
+      "translation": "лише; тільки"
+    },
+    "tr": {
+      "translation": "ancak; daha yeni"
+    }
+  },
+  "sitov-A2.1-L02-V008": {
+    "en": {
+      "translation": "quantity"
+    },
+    "ru": {
+      "translation": "количество"
+    },
+    "uk": {
+      "translation": "кількість"
+    },
+    "tr": {
+      "translation": "miktar"
+    }
+  },
+  "sitov-A2.1-L02-V010": {
+    "en": {
+      "translation": "be stuck"
+    },
+    "ru": {
+      "translation": "находиться внутри; торчать"
+    },
+    "uk": {
+      "translation": "бути всередині; стирчати"
+    },
+    "tr": {
+      "translation": "bir yerde takılı durmak"
+    }
+  },
+  "sitov-A2.1-L02-V039": {
+    "en": {
+      "translation": "observe; pay attention to"
+    },
+    "ru": {
+      "translation": "соблюдать; учитывать"
+    },
+    "uk": {
+      "translation": "дотримуватися; зважати на"
+    },
+    "tr": {
+      "translation": "uymak; dikkate almak"
+    }
+  },
+  "sitov-A2.1-L02-V040": {
+    "en": {
+      "translation": "refuse collection"
+    },
+    "ru": {
+      "translation": "вывоз мусора"
+    },
+    "uk": {
+      "translation": "вивезення сміття"
+    },
+    "tr": {
+      "translation": "çöp toplama hizmeti"
+    }
+  },
+  "sitov-A2.1-L02-V049": {
+    "en": {
+      "translation": "finish; complete"
+    },
+    "ru": {
+      "translation": "завершать"
+    },
+    "uk": {
+      "translation": "завершувати"
+    },
+    "tr": {
+      "translation": "tamamlamak"
+    }
+  },
+  "sitov-A2.1-L02-V069": {
+    "en": {
+      "translation": "look after; pay attention"
+    },
+    "ru": {
+      "translation": "присматривать; быть внимательным"
+    },
+    "uk": {
+      "translation": "доглядати; бути уважним"
+    },
+    "tr": {
+      "translation": "göz kulak olmak; dikkat etmek"
+    }
+  },
+  "sitov-A2.1-L03-V004": {
+    "en": {
+      "translation": "rarely"
+    },
+    "ru": {
+      "translation": "редко"
+    },
+    "uk": {
+      "translation": "рідко"
+    },
+    "tr": {
+      "translation": "nadiren"
+    }
+  },
+  "sitov-A2.1-L03-V005": {
+    "en": {
+      "translation": "be correct"
+    },
+    "ru": {
+      "translation": "быть верным"
+    },
+    "uk": {
+      "translation": "бути правильним"
+    },
+    "tr": {
+      "translation": "doğru olmak"
+    }
+  },
+  "sitov-A2.1-L03-V009": {
+    "en": {
+      "translation": "in the morning"
+    },
+    "ru": {
+      "translation": "по утрам"
+    },
+    "uk": {
+      "translation": "уранці"
+    },
+    "tr": {
+      "translation": "sabahları"
+    }
+  },
+  "sitov-A2.1-L03-V011": {
+    "en": {
+      "translation": "definitely"
+    },
+    "ru": {
+      "translation": "определённо"
+    },
+    "uk": {
+      "translation": "безперечно"
+    },
+    "tr": {
+      "translation": "kesinlikle"
+    }
+  },
+  "sitov-A2.1-L03-V047": {
+    "en": {
+      "translation": "spicy"
+    },
+    "ru": {
+      "translation": "острый (о еде)"
+    },
+    "uk": {
+      "translation": "гострий (про їжу)"
+    },
+    "tr": {
+      "translation": "acı (yemek)"
+    }
+  },
+  "sitov-A2.1-L03-V050": {
+    "en": {
+      "translation": "fatty"
+    },
+    "ru": {
+      "translation": "жирный"
+    },
+    "uk": {
+      "translation": "жирний"
+    },
+    "tr": {
+      "translation": "yağlı"
+    }
+  },
+  "sitov-A2.1-L03-V051": {
+    "en": {
+      "translation": "run; manage"
+    },
+    "ru": {
+      "translation": "руководить"
+    },
+    "uk": {
+      "translation": "керувати"
+    },
+    "tr": {
+      "translation": "yönetmek"
+    }
+  },
+  "sitov-A2.1-L03-V053": {
+    "en": {
+      "translation": "about; approximately"
+    },
+    "ru": {
+      "translation": "примерно"
+    },
+    "uk": {
+      "translation": "приблизно"
+    },
+    "tr": {
+      "translation": "yaklaşık"
+    }
+  },
+  "sitov-A2.1-L03-V066": {
+    "en": {
+      "translation": "around (a time)"
+    },
+    "ru": {
+      "translation": "около (о времени)"
+    },
+    "uk": {
+      "translation": "близько (про час)"
+    },
+    "tr": {
+      "translation": "saat civarında"
+    }
+  },
+  "sitov-A2.1-L03-V074": {
+    "en": {
+      "translation": "cattle; beef"
+    },
+    "ru": {
+      "translation": "крупный рогатый скот; говядина"
+    },
+    "uk": {
+      "translation": "велика рогата худоба; яловичина"
+    },
+    "tr": {
+      "translation": "sığır; sığır eti"
+    }
+  },
+  "sitov-A2.1-L04-V025": {
+    "en": {
+      "translation": "apprentice"
+    },
+    "ru": {
+      "translation": "ученик на профессиональном обучении"
+    },
+    "uk": {
+      "translation": "учень на професійному навчанні"
+    },
+    "tr": {
+      "translation": "meslek öğrencisi"
+    }
+  },
+  "sitov-A2.1-L04-V044": {
+    "en": {
+      "translation": "pay scale; collective rate"
+    },
+    "ru": {
+      "translation": "тариф; ставка оплаты"
+    },
+    "uk": {
+      "translation": "тариф; ставка оплати"
+    },
+    "tr": {
+      "translation": "ücret tarifesi"
+    }
+  },
+  "sitov-A2.1-L04-V050": {
+    "en": {
+      "translation": "dismiss"
+    },
+    "ru": {
+      "translation": "увольнять"
+    },
+    "uk": {
+      "translation": "звільняти"
+    },
+    "tr": {
+      "translation": "işten çıkarmak"
+    }
+  },
+  "sitov-A2.1-L04-V052": {
+    "en": {
+      "translation": "thank"
+    },
+    "ru": {
+      "translation": "благодарить"
+    },
+    "uk": {
+      "translation": "дякувати"
+    },
+    "tr": {
+      "translation": "teşekkür etmek"
+    }
+  },
+  "sitov-A2.1-L04-V053": {
+    "en": {
+      "translation": "pass on (a message)"
+    },
+    "ru": {
+      "translation": "передавать (сообщение)"
+    },
+    "uk": {
+      "translation": "передавати (повідомлення)"
+    },
+    "tr": {
+      "translation": "mesaj iletmek"
+    }
+  },
+  "sitov-A2.1-L05-V021": {
+    "en": {
+      "translation": "eat; have a diet"
+    },
+    "ru": {
+      "translation": "питаться"
+    },
+    "uk": {
+      "translation": "харчуватися"
+    },
+    "tr": {
+      "translation": "beslenmek"
+    }
+  },
+  "sitov-A2.1-L05-V033": {
+    "en": {
+      "translation": "history"
+    },
+    "ru": {
+      "translation": "история"
+    },
+    "uk": {
+      "translation": "історія"
+    },
+    "tr": {
+      "translation": "tarih"
+    }
+  },
+  "sitov-A2.1-L05-V054": {
+    "en": {
+      "translation": "amount to"
+    },
+    "ru": {
+      "translation": "составлять"
+    },
+    "uk": {
+      "translation": "становити"
+    },
+    "tr": {
+      "translation": "tutarında olmak"
+    }
+  },
+  "sitov-A2.1-L05-V061": {
+    "en": {
+      "translation": "jog"
+    },
+    "ru": {
+      "translation": "бегать трусцой"
+    },
+    "uk": {
+      "translation": "бігати підтюпцем"
+    },
+    "tr": {
+      "translation": "hafif tempoda koşmak"
+    }
+  },
+  "sitov-A2.1-L05-V062": {
+    "en": {
+      "translation": "keep oneself"
+    },
+    "ru": {
+      "translation": "поддерживать себя"
+    },
+    "uk": {
+      "translation": "підтримувати себе"
+    },
+    "tr": {
+      "translation": "kendini korumak"
+    }
+  },
+  "sitov-A2.1-L06-V015": {
+    "en": {
+      "translation": "headteacher"
+    },
+    "ru": {
+      "translation": "директор школы"
+    },
+    "uk": {
+      "translation": "директор школи"
+    },
+    "tr": {
+      "translation": "okul müdürü"
+    }
+  },
+  "sitov-A2.1-L06-V018": {
+    "en": {
+      "translation": "apprentice"
+    },
+    "ru": {
+      "translation": "ученик на профессиональном обучении"
+    },
+    "uk": {
+      "translation": "учень на професійному навчанні"
+    },
+    "tr": {
+      "translation": "meslek öğrencisi"
+    }
+  },
+  "sitov-A2.1-L06-V023": {
+    "en": {
+      "translation": "university studies"
+    },
+    "ru": {
+      "translation": "учёба в вузе"
+    },
+    "uk": {
+      "translation": "навчання у виші"
+    },
+    "tr": {
+      "translation": "üniversite eğitimi"
+    }
+  },
+  "sitov-A2.1-L06-V030": {
+    "en": {
+      "translation": "presentation"
+    },
+    "ru": {
+      "translation": "доклад"
+    },
+    "uk": {
+      "translation": "доповідь"
+    },
+    "tr": {
+      "translation": "sunum"
+    }
+  },
+  "sitov-A2.1-L06-V040": {
+    "en": {
+      "translation": "be allowed to"
+    },
+    "ru": {
+      "translation": "иметь разрешение; мочь"
+    },
+    "uk": {
+      "translation": "мати дозвіл; могти"
+    },
+    "tr": {
+      "translation": "izinli olmak"
+    }
+  },
+  "sitov-A2.1-L06-V051": {
+    "en": {
+      "translation": "forget"
+    },
+    "ru": {
+      "translation": "забывать"
+    },
+    "uk": {
+      "translation": "забувати"
+    },
+    "tr": {
+      "translation": "unutmak"
+    }
+  },
+  "sitov-A2.1-L07-V007": {
+    "en": {
+      "translation": "necklace"
+    },
+    "ru": {
+      "translation": "цепочка; ожерелье"
+    },
+    "uk": {
+      "translation": "ланцюжок; намисто"
+    },
+    "tr": {
+      "translation": "kolye"
+    }
+  },
+  "sitov-A2.1-L07-V008": {
+    "en": {
+      "translation": "guess"
+    },
+    "ru": {
+      "translation": "угадывать"
+    },
+    "uk": {
+      "translation": "вгадувати"
+    },
+    "tr": {
+      "translation": "tahmin etmek"
+    }
+  },
+  "sitov-A2.1-L07-V022": {
+    "en": {
+      "translation": "spend"
+    },
+    "ru": {
+      "translation": "тратить"
+    },
+    "uk": {
+      "translation": "витрачати"
+    },
+    "tr": {
+      "translation": "harcamak"
+    }
+  },
+  "sitov-A2.1-L07-V041": {
+    "en": {
+      "translation": "wrap"
+    },
+    "ru": {
+      "translation": "упаковывать"
+    },
+    "uk": {
+      "translation": "пакувати"
+    },
+    "tr": {
+      "translation": "paketlemek"
+    }
+  },
+  "sitov-B1.1-L02-V002": {
+    "en": {
+      "translation": "episode"
+    },
+    "ru": {
+      "translation": "серия"
+    },
+    "uk": {
+      "translation": "серія"
+    },
+    "tr": {
+      "translation": "bölüm"
+    }
+  },
+  "sitov-B1.1-L02-V044": {
+    "en": {
+      "translation": "advice"
+    },
+    "ru": {
+      "translation": "совет"
+    },
+    "uk": {
+      "translation": "порада"
+    },
+    "tr": {
+      "translation": "tavsiye"
+    }
+  },
+  "sitov-B1.1-L01-V038": {
+    "en": {
+      "translation": "block off"
+    },
+    "ru": {
+      "translation": "перекрывать; ограждать"
+    },
+    "uk": {
+      "translation": "перекривати; огороджувати"
+    },
+    "tr": {
+      "translation": "kapatmak; çevrelemek"
+    }
+  },
+  "sitov-B1.1-L02-V018": {
+    "en": {
+      "translation": "be about"
+    },
+    "ru": {
+      "translation": "рассказывать; быть о чём-либо"
+    },
+    "uk": {
+      "translation": "розповідати; бути про щось"
+    },
+    "tr": {
+      "translation": "konusu olmak"
+    }
+  },
+  "sitov-B1.1-L02-V039": {
+    "en": {
+      "translation": "deal with; be engaged in"
+    },
+    "ru": {
+      "translation": "заниматься"
+    },
+    "uk": {
+      "translation": "займатися"
+    },
+    "tr": {
+      "translation": "ilgilenmek; uğraşmak"
+    }
+  },
+  "sitov-B1.1-L02-V023": {
+    "en": {
+      "translation": "electronic"
+    },
+    "ru": {
+      "translation": "электронный"
+    },
+    "uk": {
+      "translation": "електронний"
+    },
+    "tr": {
+      "translation": "elektronik"
+    }
+  },
+  "sitov-B1.1-L01-V032": {
+    "en": {
+      "translation": "be enough"
+    },
+    "ru": {
+      "translation": "хватать"
+    },
+    "uk": {
+      "translation": "вистачати"
+    },
+    "tr": {
+      "translation": "yeterli olmak"
+    }
+  },
+  "sitov-B1.1-L01-V028": {
+    "en": {
+      "translation": "be located"
+    },
+    "ru": {
+      "translation": "находиться"
+    },
+    "uk": {
+      "translation": "бути розташованим"
+    },
+    "tr": {
+      "translation": "bulunmak"
+    }
+  },
+  "sitov-B1.1-L02-V055": {
+    "en": {
+      "translation": "come true"
+    },
+    "ru": {
+      "translation": "сбываться"
+    },
+    "uk": {
+      "translation": "здійснюватися"
+    },
+    "tr": {
+      "translation": "gerçekleşmek"
+    }
+  },
+  "sitov-B1.1-L02-V060": {
+    "en": {
+      "translation": "narrowly"
+    },
+    "ru": {
+      "translation": "едва; с небольшим преимуществом"
+    },
+    "uk": {
+      "translation": "ледве; з невеликою перевагою"
+    },
+    "tr": {
+      "translation": "kıl payı"
+    }
+  },
+  "sitov-B1.1-L03-V015": {
+    "en": {
+      "translation": "shallow"
+    },
+    "ru": {
+      "translation": "поверхностный"
+    },
+    "uk": {
+      "translation": "поверхневий"
+    },
+    "tr": {
+      "translation": "sığ"
+    }
+  },
+  "sitov-B1.1-L03-V042": {
+    "en": {
+      "translation": "receive"
+    },
+    "ru": {
+      "translation": "получать"
+    },
+    "uk": {
+      "translation": "отримувати"
+    },
+    "tr": {
+      "translation": "almak"
+    }
+  },
+  "sitov-B1.1-L03-V047": {
+    "en": {
+      "translation": "performance"
+    },
+    "ru": {
+      "translation": "результаты; достижения"
+    },
+    "uk": {
+      "translation": "результати; досягнення"
+    },
+    "tr": {
+      "translation": "performans"
+    }
+  },
+  "sitov-B1.1-L03-V064": {
+    "en": {
+      "translation": "injection"
+    },
+    "ru": {
+      "translation": "укол"
+    },
+    "uk": {
+      "translation": "укол"
+    },
+    "tr": {
+      "translation": "iğne; enjeksiyon"
+    }
+  },
+  "sitov-B1.1-L04-V007": {
+    "en": {
+      "translation": "at all (with a negative)"
+    },
+    "ru": {
+      "translation": "совсем (с отрицанием)"
+    },
+    "uk": {
+      "translation": "зовсім (із запереченням)"
+    },
+    "tr": {
+      "translation": "hiç (olumsuz ifadede)"
+    }
+  },
+  "sitov-B1.1-L05-V001": {
+    "en": {
+      "translation": "too"
+    },
+    "ru": {
+      "translation": "слишком"
+    },
+    "uk": {
+      "translation": "занадто"
+    },
+    "tr": {
+      "translation": "fazla; çok"
+    }
+  },
+  "sitov-B1.1-L05-V017": {
+    "en": {
+      "translation": "used to"
+    },
+    "ru": {
+      "translation": "привыкший"
+    },
+    "uk": {
+      "translation": "звиклий"
+    },
+    "tr": {
+      "translation": "alışkın"
+    }
+  },
+  "sitov-B1.1-L05-V027": {
+    "en": {
+      "translation": "expect"
+    },
+    "ru": {
+      "translation": "ожидать; рассчитывать"
+    },
+    "uk": {
+      "translation": "очікувати; розраховувати"
+    },
+    "tr": {
+      "translation": "beklemek"
+    }
+  },
+  "sitov-B1.1-L05-V040": {
+    "en": {
+      "translation": "do casual work"
+    },
+    "ru": {
+      "translation": "подрабатывать"
+    },
+    "uk": {
+      "translation": "підробляти"
+    },
+    "tr": {
+      "translation": "geçici işlerde çalışmak"
+    }
+  },
+  "sitov-B1.1-L05-V044": {
+    "en": {
+      "translation": "stand in for"
+    },
+    "ru": {
+      "translation": "замещать"
+    },
+    "uk": {
+      "translation": "заміщати"
+    },
+    "tr": {
+      "translation": "yerine bakmak"
+    }
+  },
+  "sitov-B1.1-L06-V005": {
+    "en": {
+      "translation": "definitely"
+    },
+    "ru": {
+      "translation": "определённо"
+    },
+    "uk": {
+      "translation": "безперечно"
+    },
+    "tr": {
+      "translation": "kesinlikle"
+    }
+  },
+  "sitov-B1.1-L06-V025": {
+    "en": {
+      "translation": "care for"
+    },
+    "ru": {
+      "translation": "ухаживать за"
+    },
+    "uk": {
+      "translation": "доглядати за"
+    },
+    "tr": {
+      "translation": "bakımını yapmak"
+    }
+  },
+  "sitov-B1.1-L06-V035": {
+    "en": {
+      "translation": "in order to"
+    },
+    "ru": {
+      "translation": "чтобы"
+    },
+    "uk": {
+      "translation": "щоб"
+    },
+    "tr": {
+      "translation": "amacıyla"
+    }
+  },
+  "sitov-B1.1-L06-V036": {
+    "en": {
+      "translation": "as ... as possible"
+    },
+    "ru": {
+      "translation": "как можно"
+    },
+    "uk": {
+      "translation": "якнайбільше; якомога"
+    },
+    "tr": {
+      "translation": "mümkün olduğunca"
+    }
+  },
+  "sitov-A1.2-L01-V001": {
+    "en": {
+      "translation": "story"
+    },
+    "ru": {
+      "translation": "история; рассказ"
+    },
+    "uk": {
+      "translation": "історія; розповідь"
+    },
+    "tr": {
+      "translation": "hikâye"
+    }
+  },
+  "sitov-A2.1-L01-V012": {
+    "en": {
+      "translation": "story"
+    },
+    "ru": {
+      "translation": "история; рассказ"
+    },
+    "uk": {
+      "translation": "історія; розповідь"
+    },
+    "tr": {
+      "translation": "hikâye"
+    }
+  },
+  "sitov-B1.1-L07-V033": {
+    "en": {
+      "translation": "as far as I'm concerned; I don't mind"
+    },
+    "ru": {
+      "translation": "по мне; я не против"
+    },
+    "uk": {
+      "translation": "як на мене; я не проти"
+    },
+    "tr": {
+      "translation": "bana göre; benim için sorun değil"
+    }
+  },
+  "sitov-B1.1-L07-V034": {
+    "en": {
+      "translation": "concern; be someone's business"
+    },
+    "ru": {
+      "translation": "касаться; иметь отношение"
+    },
+    "uk": {
+      "translation": "стосуватися"
+    },
+    "tr": {
+      "translation": "ilgilendirmek"
+    }
+  },
+  "sitov-B1.1-L07-V040": {
+    "en": {
+      "translation": "considerably"
+    },
+    "ru": {
+      "translation": "значительно"
+    },
+    "uk": {
+      "translation": "значно"
+    },
+    "tr": {
+      "translation": "önemli ölçüde"
+    }
+  },
+  "sitov-B1.1-L07-V052": {
+    "en": {
+      "translation": "step"
+    },
+    "ru": {
+      "translation": "ступенька"
+    },
+    "uk": {
+      "translation": "сходинка"
+    },
+    "tr": {
+      "translation": "basamak"
+    }
+  },
+  "sitov-B1.2-L08-V004": {
+    "en": {
+      "translation": "boundary; limit"
+    },
+    "ru": {
+      "translation": "граница; предел"
+    },
+    "uk": {
+      "translation": "межа"
+    },
+    "tr": {
+      "translation": "sınır"
+    }
+  },
+  "sitov-B1.2-L08-V014": {
+    "en": {
+      "translation": "the ... (in comparisons)"
+    },
+    "ru": {
+      "translation": "чем ... (в сравнениях)"
+    },
+    "uk": {
+      "translation": "чим ... (у порівняннях)"
+    },
+    "tr": {
+      "translation": "ne kadar ... (karşılaştırmada)"
+    }
+  },
+  "sitov-B1.2-L08-V015": {
+    "en": {
+      "translation": "the ... (in comparisons)"
+    },
+    "ru": {
+      "translation": "тем ... (в сравнениях)"
+    },
+    "uk": {
+      "translation": "тим ... (у порівняннях)"
+    },
+    "tr": {
+      "translation": "o kadar ... (karşılaştırmada)"
+    }
+  },
+  "sitov-B1.2-L08-V020": {
+    "en": {
+      "translation": "closely; close"
+    },
+    "ru": {
+      "translation": "тесно; близкий"
+    },
+    "uk": {
+      "translation": "тісно; близький"
+    },
+    "tr": {
+      "translation": "yakından; yakın"
+    }
+  },
+  "sitov-B1.2-L10-V010": {
+    "en": {
+      "translation": "place (an advertisement)"
+    },
+    "ru": {
+      "translation": "размещать (объявление)"
+    },
+    "uk": {
+      "translation": "розміщувати (оголошення)"
+    },
+    "tr": {
+      "translation": "ilan vermek"
+    }
+  },
+  "sitov-B1.2-L12-V011": {
+    "en": {
+      "translation": "placement; matching"
+    },
+    "ru": {
+      "translation": "подбор; посредничество"
+    },
+    "uk": {
+      "translation": "підбір; посередництво"
+    },
+    "tr": {
+      "translation": "eşleştirme; aracılık"
+    }
+  },
+  "sitov-B1.2-L12-V047": {
+    "en": {
+      "translation": "over; throughout"
+    },
+    "ru": {
+      "translation": "на протяжении; в течение"
+    },
+    "uk": {
+      "translation": "протягом"
+    },
+    "tr": {
+      "translation": "boyunca"
+    }
+  },
+  "sitov-B1.2-L08-V029": {
+    "en": {
+      "translation": "sensible; meaningful"
+    },
+    "ru": {
+      "translation": "разумный; осмысленный"
+    },
+    "uk": {
+      "translation": "розумний; змістовний"
+    },
+    "tr": {
+      "translation": "mantıklı; anlamlı"
+    }
+  },
+  "sitov-B1.2-L10-V058": {
+    "en": {
+      "translation": "remain silent"
+    },
+    "ru": {
+      "translation": "молчать"
+    },
+    "uk": {
+      "translation": "мовчати"
+    },
+    "tr": {
+      "translation": "susmak"
+    }
+  },
+  "sitov-B1.2-L11-V035": {
+    "en": {
+      "translation": "clear; unambiguous"
+    },
+    "ru": {
+      "translation": "однозначный; ясный"
+    },
+    "uk": {
+      "translation": "однозначний; чіткий"
+    },
+    "tr": {
+      "translation": "açık; kesin"
+    }
+  },
+  "sitov-B1.2-L11-V037": {
+    "en": {
+      "translation": "in a hurry"
+    },
+    "ru": {
+      "translation": "спешащий; срочный"
+    },
+    "uk": {
+      "translation": "поспішний; терміновий"
+    },
+    "tr": {
+      "translation": "acele"
+    }
+  },
+  "sitov-B1.2-L13-V013": {
+    "en": {
+      "translation": "receive; welcome"
+    },
+    "ru": {
+      "translation": "принимать; встречать"
+    },
+    "uk": {
+      "translation": "приймати; зустрічати"
+    },
+    "tr": {
+      "translation": "kabul etmek; karşılamak"
+    }
+  },
+  "sitov-B1.2-L13-V037": {
+    "en": {
+      "translation": "national"
+    },
+    "ru": {
+      "translation": "национальный"
+    },
+    "uk": {
+      "translation": "національний"
+    },
+    "tr": {
+      "translation": "ulusal"
+    }
+  },
+  "sitov-B1.2-L14-V020": {
+    "en": {
+      "translation": "resident; inhabitant"
+    },
+    "ru": {
+      "translation": "житель"
+    },
+    "uk": {
+      "translation": "мешканець"
+    },
+    "tr": {
+      "translation": "sakin"
+    }
+  },
+  "sitov-B1.2-L14-V024": {
+    "en": {
+      "translation": "immigrant"
+    },
+    "ru": {
+      "translation": "иммигрант"
+    },
+    "uk": {
+      "translation": "іммігрант"
+    },
+    "tr": {
+      "translation": "göçmen"
+    }
+  },
+  "sitov-A2.1-L06-V017": {
+    "en": {
+      "chunk_translation": "find an apprenticeship placement",
+      "context_sentence": "He is looking for an apprenticeship placement."
+    },
+    "uk": {
+      "chunk_translation": "знайти місце для професійного навчання",
+      "context_sentence": "Він шукає місце для професійного навчання."
+    },
+    "tr": {
+      "chunk_translation": "mesleki eğitim yeri bulmak",
+      "context_sentence": "Mesleki eğitim için bir yer arıyor."
+    }
+  },
+  "sitov-A2.1-L05-V023": {
+    "tr": {
+      "translation": "makyaj yapmak",
+      "chunk_translation": "sabahları makyaj yapmak"
+    }
+  },
+  "sitov-A1.2-L01-V064": {
+    "tr": {
+      "chunk_translation": "iş bulmak"
+    }
+  },
+  "sitov-A2.1-L04-V021": {
+    "tr": {
+      "chunk_translation": "çevrimiçi bir platform kullanmak"
+    }
+  },
+  "sitov-existing-375c69bf-45bd-4821-840b-bf96f4347cb2": {
+    "uk": {
+      "context_sentence": "Я йду гуляти зі своїм другом."
+    }
+  },
+  "sitov-A1.2-L01-V017": {
+    "uk": {
+      "context_sentence": "Медбрат працює в лікарні."
+    }
+  },
+  "sitov-A1.2-L01-C002": {
+    "uk": {
+      "translation": "За фахом я медбрат.",
+      "context_sentence": "За фахом я медбрат."
+    }
+  },
+  "sitov-A2.1-L06-V035": {
+    "uk": {
+      "context_sentence": "Наш учитель суворий, але доброзичливий."
+    }
+  },
+  "sitov-A2.2-L09-V044": {
+    "uk": {
+      "context_sentence": "Мій сусід завжди дуже добрий до дітей."
+    }
+  },
+  "sitov-B1.1-L02-V020": {
+    "uk": {
+      "translation": "співак",
+      "chunk_translation": "співак на сцені"
+    }
+  },
+  "sitov-B1.1-L02-V029": {
+    "uk": {
+      "context_sentence": "Співак пише нову пісню."
+    }
+  },
+  "sitov-B1.1-L03-V044": {
+    "uk": {
+      "context_sentence": "Медбрат дбає про добробут пацієнта."
+    }
+  },
+  "sitov-B1.1-L03-V063": {
+    "uk": {
+      "context_sentence": "Медбрат накладає пов’язку."
+    }
+  },
+  "sitov-B1.1-L05-V051": {
+    "uk": {
+      "context_sentence": "Медбрат доглядає за пацієнтами.",
+      "chunk_translation": "працювати медбратом"
+    }
+  },
+  "sitov-B1.2-L12-V045": {
+    "uk": {
+      "context_sentence": "Мій брат працює медбратом у клініці."
+    }
+  },
+  "sitov-B1.2-L12-V033": {
+    "uk": {
+      "translation": "доглядальник дітей",
+      "chunk_translation": "працювати доглядальником дітей",
+      "context_sentence": "Мій брат працює доглядальником дітей на вихідних."
+    }
+  },
+  "sitov-B1.2-L11-V031": {
+    "uk": {
+      "translation": "спостерігати; дивитися"
+    }
+  },
+  "sitov-B1.2-L11-V017": {
+    "uk": {
+      "translation": "застуда"
+    }
+  },
+  "sitov-B1.2-L10-V008": {
+    "uk": {
+      "translation": "ставитися до когось"
+    }
+  },
+  "sitov-B1.2-L10-V033": {
+    "uk": {
+      "translation": "виправляти"
+    }
+  },
+  "sitov-A2.2-L12-V045": {
+    "en": {
+      "translation": "including"
+    },
+    "ru": {
+      "translation": "включая"
+    },
+    "uk": {
+      "translation": "включно"
+    },
+    "tr": {
+      "translation": "dahil"
+    }
+  },
+  "sitov-existing-69e48cbb-396f-459c-b4f8-34a08b1ed340": {
+    "en": {
+      "context_sentence": "The table is new. It is very nice."
+    }
+  },
+  "sitov-B1.1-L07-V016": {
+    "en": {
+      "context_sentence": "Every tenant must fulfill their obligations."
+    }
+  }
+}
