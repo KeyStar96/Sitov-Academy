@@ -32,12 +32,24 @@ export async function generateAudio(input: GenerateAudioInput): Promise<Generate
     const { language, cardId, voice } = parsed.data
     const text = normalizeAudioText(parsed.data.text)
     let card: { id: string; word_de: string; article: Tables<'learning_vocabulary_cards'>['article']; level: string; audio_url: string | null } | null = null
+    let isGermanHeadword = false
     if (cardId) {
-      const result = await supabase.from('learning_vocabulary_cards').select('id,word_de,article,audio_url,unit:learning_units!inner(level)').eq('id', cardId).maybeSingle()
+      const result = await supabase.from('learning_vocabulary_cards')
+        .select('id,word_de,article,chunk_de,audio_url,unit:learning_units!inner(level),translations:vocabulary_translations(locale,context_sentence)')
+        .eq('id', cardId).eq('translations.locale', 'de').maybeSingle()
       if (result.error || !result.data || !hasTrainerAccess(profile, result.data.unit.level, 'vocabulary')) return { success: false, error: 'forbidden' }
       card = { ...result.data, level: result.data.unit.level }
-      // audio_url represents only the canonical German headword, never translations or arbitrary text.
-      if (language === 'de' && text !== vocabularyAudioText(card)) return { success: false, error: 'invalid_input' }
+      if (language === 'de') {
+        isGermanHeadword = text === vocabularyAudioText(card)
+        // The revealed card plays its stored usage chunk and German example.
+        // Foreign translations and caller-provided text never authorize these.
+        const usageTexts = [result.data.chunk_de,
+          ...(result.data.translations ?? []).filter(translation => translation.locale === 'de').map(translation => translation.context_sentence),
+        ]
+        if (!isGermanHeadword && !usageTexts.some(value => typeof value === 'string' && normalizeAudioText(value) === text)) {
+          return { success: false, error: 'invalid_input' }
+        }
+      }
     }
     if (!(await rateLimit(`audio-read:${user.id}`, 120, '60 s')).success) return { success: false, error: 'rate_limited' }
     const path = voice ? neuralAudioPath(text, language, voice) : neuralAudioPath(text, language)
@@ -50,7 +62,7 @@ export async function generateAudio(input: GenerateAudioInput): Promise<Generate
       if (!(await rateLimit(`audio-generate:${user.id}`, 20, '60 s')).success) return { success: false, error: 'rate_limited' }
       asset = voice ? await generateCachedAudio(text, language, path, voice) : await generateCachedAudio(text, language, path)
     }
-    if (card && language === 'de' && !card.audio_url) {
+    if (card && isGermanHeadword && !card.audio_url) {
       // Guard against a concurrent content edit or teacher-supplied recording. Never overwrite either.
       let update = createAdminClient().from('learning_vocabulary_cards').update({ audio_url: asset.audioUrl })
         .eq('id', card.id).eq('word_de', card.word_de).is('audio_url', null)

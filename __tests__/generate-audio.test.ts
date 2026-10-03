@@ -15,7 +15,9 @@ import { AUDIO_MAX_TEXT_LENGTH } from '@/lib/audio/neural-config'
 const userId = '00000000-0000-4000-8000-000000000001'
 const cardId = '10000000-0000-4000-8000-000000000001'
 const audioUrl = 'https://project.supabase.co/storage/v1/object/public/audio_cache/audio.mp3'
-const baseCard = { id: cardId, article: 'die', word_de: 'Tür', unit: { level: 'A1.1' }, audio_url: null as string | null }
+const baseCard = { id: cardId, article: 'die', word_de: 'Tür', chunk_de: 'die Tür öffnen' as string | null,
+  translations: [{ locale: 'de', context_sentence: 'Die Tür ist offen.' }],
+  unit: { level: 'A1.1', is_active: true }, audio_url: null as string | null }
 const input: GenerateAudioInput = { text: 'die Tür', language: 'de', cardId }
 const allowed = { success: true, remaining: 100, limit: 120, reset: 0 }
 
@@ -96,6 +98,46 @@ describe('audio authorization and validation', () => {
     expect(findCachedAudio).not.toHaveBeenCalled()
     expect(createAdminClient).not.toHaveBeenCalled()
   })
+  it.each(['die Tür öffnen', 'Die Tür ist offen.'])('authorizes the accessible card\'s stored German usage text %s', async text => {
+    const { cardChain } = session()
+    expect(await generateAudio({ ...input, text })).toEqual({ success: true, audioUrl, cached: true })
+    expect(cardChain.select).toHaveBeenCalledWith(expect.stringContaining('translations:vocabulary_translations(locale,context_sentence)'))
+    expect(cardChain.eq).toHaveBeenCalledWith('translations.locale', 'de')
+    expect(findCachedAudio).toHaveBeenCalledWith('cache-key.mp3', text)
+    expect(generateCachedAudio).not.toHaveBeenCalled()
+    expect(createAdminClient).not.toHaveBeenCalled()
+  })
+  it.each(['die Tür öffnen', 'Die Tür ist offen.'])('checks student card access before looking up prepared usage text %s', async text => {
+    session({ levels: [] })
+    expect(await generateAudio({ ...input, text })).toEqual({ success: false, error: 'forbidden' })
+    expect(findCachedAudio).not.toHaveBeenCalled()
+    expect(createAdminClient).not.toHaveBeenCalled()
+  })
+  it('keeps headword playback available when the optional German context relation is empty', async () => {
+    session({ card: { ...baseCard, chunk_de: null, translations: [] } })
+    expect(await generateAudio(input)).toMatchObject({ success: true })
+    expect(findCachedAudio).toHaveBeenCalledWith('cache-key.mp3', input.text)
+  })
+  it('normalizes stored German chunks and contexts before comparing requested text', async () => {
+    session({ card: { ...baseCard, chunk_de: '  die\n Tu\u0308r öffnen ',
+      translations: [{ locale: 'de', context_sentence: 'Die Tu\u0308r\n ist offen. ' }] } })
+    for (const text of ['die Tür öffnen', 'Die Tür ist offen.']) {
+      expect(await generateAudio({ ...input, text })).toMatchObject({ success: true })
+      expect(findCachedAudio).toHaveBeenCalledWith('cache-key.mp3', text)
+    }
+    expect(createAdminClient).not.toHaveBeenCalled()
+  })
+  it('never treats foreign context sentences as German card-authored speech', async () => {
+    session({ card: { ...baseCard, translations: [{ locale: 'en', context_sentence: 'The door is open.' }] } })
+    expect(await generateAudio({ ...input, text: 'The door is open.' })).toEqual({ success: false, error: 'invalid_input' })
+    expect(findCachedAudio).not.toHaveBeenCalled()
+    expect(createAdminClient).not.toHaveBeenCalled()
+  })
+  it.each(['die Tür', 'die Tür öffnen', 'Die Tür ist offen.'])('retains the existing access contract for prepared staff-draft text %s', async text => {
+    session({ role: 'teacher', card: { ...baseCard, audio_url: 'https://example.org/manual.mp3', unit: { ...baseCard.unit, is_active: false } } })
+    expect(await generateAudio({ ...input, text })).toMatchObject({ success: true })
+    expect(createAdminClient).not.toHaveBeenCalled()
+  })
 })
 
 describe('audio cache and protected recording updates', () => {
@@ -119,6 +161,18 @@ describe('audio cache and protected recording updates', () => {
   it('never overwrites a teacher-provided vocabulary recording', async () => {
     session({ card: { ...baseCard, audio_url: 'https://example.org/manual.mp3' } })
     expect(await generateAudio(input)).toMatchObject({ success: true })
+    expect(createAdminClient).not.toHaveBeenCalled()
+  })
+  it.each(['die Tür öffnen', 'Die Tür ist offen.'])('preserves a teacher recording when playing prepared usage text %s', async text => {
+    session({ card: { ...baseCard, audio_url: 'https://example.org/manual.mp3' } })
+    expect(await generateAudio({ ...input, text })).toMatchObject({ success: true, audioUrl })
+    expect(createAdminClient).not.toHaveBeenCalled()
+  })
+  it.each(['die Tür öffnen', 'Die Tür ist offen.'])('fails before synthesis or URL writes when usage audio is missing: %s', async text => {
+    session()
+    jest.mocked(findCachedAudio).mockResolvedValue(null)
+    expect(await generateAudio({ ...input, text })).toEqual({ success: false, error: 'audio_unavailable' })
+    expect(generateCachedAudio).not.toHaveBeenCalled()
     expect(createAdminClient).not.toHaveBeenCalled()
   })
   it('writes only while the canonical word, article and empty audio URL still match', async () => {
