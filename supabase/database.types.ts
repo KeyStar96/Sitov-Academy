@@ -691,6 +691,30 @@ export type Database = {
           },
         ]
       }
+      sitov_verb_catalog: {
+        Row: { id: string; unit_id: string; level: string }
+        Insert: { id: string; unit_id: string; level: string }
+        Update: { id?: string; unit_id?: string; level?: string }
+        Relationships: []
+      }
+      sitov_verb_box: {
+        Row: { auth_user_id: string; verb_id: string; selected: boolean; created_at: string; updated_at: string }
+        Insert: { auth_user_id: string; verb_id: string; selected?: boolean; created_at?: string; updated_at?: string }
+        Update: { selected?: boolean; updated_at?: string }
+        Relationships: []
+      }
+      sitov_verb_progress: {
+        Row: { auth_user_id: string; verb_id: string; tense: string; box: number; attempts: number; correct: number; lapses: number; next_review_at: string; last_answered_at: string | null }
+        Insert: { auth_user_id: string; verb_id: string; tense: string; box?: number; attempts?: number; correct?: number; lapses?: number; next_review_at?: string; last_answered_at?: string | null }
+        Update: { box?: number; attempts?: number; correct?: number; lapses?: number; next_review_at?: string; last_answered_at?: string | null }
+        Relationships: []
+      }
+      sitov_verb_challenges: {
+        Row: { id: string; auth_user_id: string; verb_id: string; context_level: string; tense: string; expected: Json; solution: string; created_at: string; expires_at: string; answer: Json | null; result: Json | null }
+        Insert: { id?: string; auth_user_id: string; verb_id: string; context_level: string; tense: string; expected: Json; solution: string; created_at?: string; expires_at?: string; answer?: Json | null; result?: Json | null }
+        Update: { answer?: Json | null; result?: Json | null }
+        Relationships: []
+      }
       learning_trainer_grants: {
         Row: {
           auth_user_id: string
@@ -2451,6 +2475,8 @@ export type Database = {
         }
         Returns: Json
       }
+      sitov_set_verb_box: { Args: { p_level: string; p_verb_ids: string[]; p_selected: boolean }; Returns: Json }
+      sitov_submit_verb_answer: { Args: { p_challenge_id: string; p_answer: Json }; Returns: Json }
       set_student_level_access: {
         Args: { p_levels: string[]; p_user_id: string }
         Returns: Json
@@ -2705,7 +2731,7 @@ export type Database = {
       profile_role: "student" | "teacher" | "admin"
       submission_status: "pending" | "reviewed"
       submission_type: "audio" | "text"
-      trainer_code: "vocabulary" | "exercises" | "pronunciation" | "videos"
+      trainer_code: "vocabulary" | "exercises" | "pronunciation" | "videos" | "verbs"
       unit_access_mode: "all" | "selected"
       vocabulary_direction: "de_to_native" | "native_to_de"
       path_node_kind: "practice" | "review" | "test" | "special"
@@ -2714,7 +2740,7 @@ export type Database = {
       path_intervention_action: "unlock" | "reset_path" | "reset_test"
       path_objective_area: "grammar" | "communication" | "can_do" | "vocabulary"
       learning_seen_kind: "level" | "vocabulary_lesson" | "path" | "special_branch" | "pronunciation_text" | "media_folder" | "video" | "presentation" | "trainer"
-      learning_session_mode: "vocabulary" | "path" | "pronunciation"
+      learning_session_mode: "vocabulary" | "path" | "pronunciation" | "verbs"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -2843,7 +2869,7 @@ export const Constants = {
   public: {
     Enums: {
       learning_seen_kind: ["level", "vocabulary_lesson", "path", "special_branch", "pronunciation_text", "media_folder", "video", "presentation", "trainer"],
-      learning_session_mode: ["vocabulary", "path", "pronunciation"],
+      learning_session_mode: ["vocabulary", "path", "pronunciation", "verbs"],
       path_objective_area: ["grammar", "communication", "can_do", "vocabulary"],
       path_intervention_action: ["unlock", "reset_path", "reset_test"],
       path_run_status: ["active", "completed", "abandoned"],
@@ -2880,7 +2906,7 @@ export const Constants = {
       profile_role: ["student", "teacher", "admin"],
       submission_status: ["pending", "reviewed"],
       submission_type: ["audio", "text"],
-      trainer_code: ["vocabulary", "exercises", "pronunciation", "videos"],
+      trainer_code: ["vocabulary", "exercises", "pronunciation", "videos", "verbs"],
       unit_access_mode: ["all", "selected"],
       vocabulary_direction: ["de_to_native", "native_to_de"],
     },

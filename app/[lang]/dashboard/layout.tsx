@@ -14,7 +14,7 @@ import { loadLearningNewCounts } from '@/lib/learning-new-server'
 import { getDictionary } from '@/lib/dictionary'
 import { createDashboardTranslator, type DashboardTranslations } from '@/lib/dashboard-i18n'
 import { loadLevelAccessProfile } from '@/lib/access/server'
-import { ACCESS_LEVELS, hasLevelAccess } from '@/lib/access/levels'
+import { SITOV_VERB_LEVELS, hasLevelAccess } from '@/lib/access/levels'
 import { studentTranslator } from '@/lib/student-ui-i18n'
 import '@/components/dashboard/student.css'
 
@@ -32,7 +32,7 @@ export default async function DashboardLayout({ children, params }: { children: 
   const translations = dict.dashboard as DashboardTranslations
   const t = createDashboardTranslator(translations)
   const s = studentTranslator(lang)
-  const levels = ACCESS_LEVELS.filter(level => hasLevelAccess(access, level))
+  const levels = SITOV_VERB_LEVELS.filter(level => hasLevelAccess(access, level))
   const supportLabels = {
     whatsapp: dict.academy.support_whatsapp,
     phone: dict.Footer.Contact.phone,

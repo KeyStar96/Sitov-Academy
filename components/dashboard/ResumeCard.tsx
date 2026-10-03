@@ -1,9 +1,9 @@
-import { ArrowRight, BookOpen, Clapperboard, Mic, Route } from 'lucide-react'
+import { ArrowRight, BookOpen, Clapperboard, Mic, Route, Waypoints } from 'lucide-react'
 import PressableCard from '@/components/motion/PressableCard'
 import type { LearningMode } from '@/lib/mode-targets'
 import { studentTranslator } from '@/lib/student-ui-i18n'
 
-const ICONS = { vocabulary: BookOpen, path: Route, pronunciation: Mic, media: Clapperboard } as const
+const ICONS = { vocabulary: BookOpen, path: Route, pronunciation: Mic, media: Clapperboard, verbs: Waypoints } as const
 
 export interface ResumeTarget {
   /** Modus des Ziels (Kennfarbe und Symbol). */

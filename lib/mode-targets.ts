@@ -1,14 +1,14 @@
 import type { Trainer } from '@/lib/access/levels'
 
 /**
- * Die vier gleichberechtigten Modi eines Niveaus (D6) und ihre Ziele.
+ * Die fünf gleichberechtigten Modi eines Niveaus (D6) und ihre Ziele.
  *
  * Das ist die **einzige** Stelle mit den Routen der Modi: Modus-Dock,
  * Modus-Karten, Brotkrumen, Home und „Weiter, wo du aufgehört hast" lesen
  * sie von hier. Der Lernpfad liegt unter `path`; `exercises` bleibt als
  * Weiterleitung und Alias für alte Lesezeichen erhalten.
  */
-export const LEARNING_MODES = ['vocabulary', 'path', 'pronunciation', 'media'] as const
+export const LEARNING_MODES = ['vocabulary', 'path', 'pronunciation', 'media', 'verbs'] as const
 export type LearningMode = (typeof LEARNING_MODES)[number]
 
 export const MODE_SEGMENTS: Record<LearningMode, string> = {
@@ -16,6 +16,7 @@ export const MODE_SEGMENTS: Record<LearningMode, string> = {
   path: 'path',
   pronunciation: 'pronunciation',
   media: 'videos',
+  verbs: 'verbs',
 }
 
 /** Weitere Routen, die zu einem Modus gehören (alte Lesezeichen, Weiterleitungen). */
@@ -30,6 +31,7 @@ export const MODE_TRAINERS: Record<LearningMode, Trainer> = {
   path: 'exercises',
   pronunciation: 'pronunciation',
   media: 'videos',
+  verbs: 'verbs',
 }
 
 /** Modus der Lernhandlung aus `get_last_active_level()` (Trainer-Namen der Datenbank). */
@@ -39,6 +41,7 @@ export function modeFromActivity(value: string | null | undefined): LearningMode
     case 'exercises': case 'path': return 'path'
     case 'pronunciation': return 'pronunciation'
     case 'videos': case 'media': return 'media'
+    case 'verbs': return 'verbs'
     default: return null
   }
 }

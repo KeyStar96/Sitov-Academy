@@ -27,13 +27,14 @@ export interface LearningNewCounts {
 }
 export type LearningNewItems = Partial<Record<LearningSeenKind, string[]>>
 
-const modeRecord = <T extends z.ZodType>(value: T) => z.object({ vocabulary: value, path: value, pronunciation: value, media: value })
+const modeCounts = z.object({ vocabulary: z.number().int().nonnegative(), path: z.number().int().nonnegative(), pronunciation: z.number().int().nonnegative(), media: z.number().int().nonnegative(), verbs: z.number().int().nonnegative().default(0) })
+const modeFlags = z.object({ vocabulary: z.boolean(), path: z.boolean(), pronunciation: z.boolean(), media: z.boolean(), verbs: z.boolean().default(false) })
 const countsSchema = z.object({
   success: z.literal(true),
   any: z.boolean(),
   levels: z.record(z.string(), z.object({
     level: z.boolean(), total: z.number().int().nonnegative(),
-    modes: modeRecord(z.number().int().nonnegative()), modeNew: modeRecord(z.boolean()),
+    modes: modeCounts, modeNew: modeFlags,
   })),
   visited: z.array(z.string()).default([]),
 })

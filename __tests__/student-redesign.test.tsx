@@ -112,7 +112,7 @@ describe('Briefkasten', () => {
     expect(screen.getByText('Sehr schön!')).toBeInTheDocument()
     expect(screen.getByText(t('mailbox_waiting_hint'), { exact: false })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: new RegExp(t('mailbox_archive')) })).toHaveAttribute('aria-expanded', 'false')
-    fireEvent.click(screen.getByRole('button', { name: 'play' }))
+    await act(async () => { fireEvent.click(screen.getByRole('button', { name: 'play' })) })
     expect(markPronunciationSeen).toHaveBeenCalledWith('new')
     expect(screen.getByText(t('mailbox_heard'))).toBeInTheDocument()
     await act(async () => { jest.advanceTimersByTime(1300) })
@@ -129,11 +129,12 @@ describe('Briefkasten', () => {
 
 describe('Navigation', () => {
   it('labels every tab, marks the learning area and opens help as a sheet', () => {
+    window.localStorage.setItem('sitov:last-level', 'B1.2')
     render(<StudentNavigation lang="de" firstLevel="A1.1" levels={['A1.1', 'A1.2']} supportLabels={labels} />)
     const nav = screen.getByRole('navigation', { name: t('nav_label') })
     expect(within(nav).getByRole('link', { name: t('nav_learn') })).toHaveAttribute('aria-current', 'page')
     expect(within(nav).getByRole('link', { name: t('nav_learn') })).toHaveAttribute('href', '/de/dashboard/level/A1.2')
-    expect(window.localStorage.getItem('sitov:last-level')).toBe('A1.2')
+    expect(window.localStorage.getItem('sitov:last-level')).toBeNull()
     expect(within(nav).getByRole('link', { name: t('nav_calendar') })).toHaveAttribute('href', '/de/dashboard/calendar')
     fireEvent.click(within(nav).getByRole('button', { name: t('nav_help') }))
     expect(screen.getByRole('dialog', { name: t('help_title') })).toBeInTheDocument()

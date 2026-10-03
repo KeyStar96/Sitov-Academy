@@ -30,7 +30,7 @@ import { parseAuthStatus } from '@/lib/types/auth'
 import { loadDailyQuestStatus } from '@/lib/daily-quest-server'
 import DailyQuestEntry from '@/components/dashboard/DailyQuestEntry'
 
-const CONTINUE_TO = { vocabulary: 'continue_to_vocabulary', path: 'continue_to_path', pronunciation: 'continue_to_pronunciation', media: 'continue_to_media' } as const
+const CONTINUE_TO = { vocabulary: 'continue_to_vocabulary', path: 'continue_to_path', pronunciation: 'continue_to_pronunciation', media: 'continue_to_media', verbs: 'continue_to_verbs' } as const
 
 export default async function DashboardPage({ params, searchParams }: {
   params: Promise<{ lang: string }>
@@ -61,6 +61,7 @@ export default async function DashboardPage({ params, searchParams }: {
     { id: 'A2.2', title: dict.dashboard.level_a22_title, description: dict.dashboard.level_a22_desc },
     { id: 'B1.1', title: dict.dashboard.level_b11_title, description: dict.dashboard.level_b11_desc },
     { id: 'B1.2', title: dict.dashboard.level_b12_title, description: dict.dashboard.level_b12_desc },
+    ...['B2', 'C1'].filter(level => hasLevelAccess(accessProfile, level)).map(level => ({ id: level, title: level, description: s('level_verbs_description') })),
   ]
   const accessible = levels.filter(level => hasLevelAccess(accessProfile, level.id))
   // Das zuletzt gelernte Niveau entscheidet PostgreSQL (Migration 32). Nur wenn
@@ -149,7 +150,7 @@ export default async function DashboardPage({ params, searchParams }: {
     </div>
 
     <section aria-labelledby="academy-levels-title">
-      <div className="academy-level-heading"><h2 id="academy-levels-title">{copy.dashboard_levels}</h2><span>A1—B1</span></div>
+      <div className="academy-level-heading"><h2 id="academy-levels-title">{copy.dashboard_levels}</h2><span>{levels.some(level => level.id === 'C1') ? 'A1—C1' : levels.some(level => level.id === 'B2') ? 'A1—B2' : 'A1—B1'}</span></div>
       <div className="academy-level-grid">
         {levels.map((level, index) => <LevelCard key={level.id} id={level.id} title={level.title} description={level.description}
           index={index} href={`/${lang}/dashboard/level/${level.id}`} locked={!hasLevelAccess(accessProfile, level.id)}

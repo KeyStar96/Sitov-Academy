@@ -6,7 +6,7 @@ import { grammarLessonLabel, type AvailableLessonsResult } from '@/lib/access/un
 import { createClient } from '@/utils/supabase/server'
 import { createAdminClient } from '@/utils/supabase/admin'
 import { revalidatePath } from 'next/cache'
-import { sanitizeAllowedLevels, ACCESS_LEVELS, TRAINERS } from '@/lib/access/levels'
+import { sanitizeAllowedLevels, ACCESS_LEVELS, SITOV_VERB_LEVELS, TRAINERS } from '@/lib/access/levels'
 import { withBackendSession, checkDatabaseError, checkRpcError, revalidateBackendPages } from '@/lib/actions/backend'
 import { profileRoleSchema, uuidSchema } from '@/lib/types/backend'
 import { loadUnassignedStudents } from '@/lib/admin-new-students'
@@ -227,11 +227,12 @@ export async function deleteStudentProfile(input: DeleteStudentProfileInput): Pr
   }
 }
 
-const trainerAccessInput = z.object({ userId: z.uuid(), level: z.enum(ACCESS_LEVELS), trainer: z.enum(TRAINERS), enabled: z.boolean(), allowedLessons: z.array(z.string().trim().min(1).max(160)).max(1000).nullable().optional() }).strict()
+const trainerAccessInput = z.object({ userId: z.uuid(), level: z.enum(SITOV_VERB_LEVELS), trainer: z.enum(TRAINERS), enabled: z.boolean(), allowedLessons: z.array(z.string().trim().min(1).max(160)).max(1000).nullable().optional() }).strict()
 export async function updateStudentTrainerAccess(input: z.infer<typeof trainerAccessInput>): Promise<{ success: boolean }> {
   try {
     await requireAdmin()
     const parsed = trainerAccessInput.parse(input)
+    if ((parsed.level === 'B2' || parsed.level === 'C1') && parsed.trainer !== 'verbs') return { success: false }
     if (parsed.allowedLessons != null) {
       const catalog = await getAvailableLessons(parsed.level, parsed.trainer)
       if (!catalog.success || parsed.allowedLessons.some(id => !catalog.lessons.some(unit => unit.id === id))) return { success: false }
@@ -256,12 +257,12 @@ export async function updateStudentTrainerAccess(input: z.infer<typeof trainerAc
 export async function getAvailableLessons(level: string, trainer: string): Promise<AvailableLessonsResult> {
   try {
     await requireAdmin()
-    const validLevel = z.enum(ACCESS_LEVELS).parse(level)
+    const validLevel = z.enum(SITOV_VERB_LEVELS).parse(level)
     const validTrainer = z.enum(TRAINERS).parse(trainer)
+    if ((validLevel === 'B2' || validLevel === 'C1') && validTrainer !== 'verbs') return { success: false }
     const supabase = await createClient()
-    const { data: units, error } = await supabase.from('learning_units').select('id,label')
-      .eq('level', validLevel).eq('trainer', validTrainer).eq('is_active', true).is('owner_auth_user_id', null).order('sort_order').order('id')
-    if (error) throw error
+    const units = await readAllRows((from, to) => supabase.from('learning_units').select('id,label')
+      .eq('level', validLevel).eq('trainer', validTrainer).eq('is_active', true).is('owner_auth_user_id', null).order('sort_order').order('id').range(from, to))
     const topics = new Map<string, Set<string>>()
     if (validTrainer === 'exercises') {
       const { data, error: contentError } = await supabase.from('learning_exercises').select('unit_id,topic,unit:learning_units!inner(level)').eq('unit.level', validLevel)

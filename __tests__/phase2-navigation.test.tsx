@@ -32,10 +32,10 @@ beforeEach(() => { window.localStorage.clear(); mockPathname = '/de/dashboard' }
 
 describe('Modus-Ziele an einer Stelle', () => {
   it('führen bis Phase 3 zum bestehenden Grammatik-Trainer und erkennen jeden Modus an seiner Route', () => {
-    expect(MODE_SEGMENTS).toEqual({ vocabulary: 'vocabulary', path: 'path', pronunciation: 'pronunciation', media: 'videos' })
+    expect(MODE_SEGMENTS).toEqual({ vocabulary: 'vocabulary', path: 'path', pronunciation: 'pronunciation', media: 'videos', verbs: 'verbs' })
     expect(LEARNING_MODES.map(mode => modeHref('ru', 'A1.1', mode))).toEqual([
       '/ru/dashboard/level/A1.1/vocabulary', '/ru/dashboard/level/A1.1/path',
-      '/ru/dashboard/level/A1.1/pronunciation', '/ru/dashboard/level/A1.1/videos'])
+      '/ru/dashboard/level/A1.1/pronunciation', '/ru/dashboard/level/A1.1/videos', '/ru/dashboard/level/A1.1/verbs'])
     expect(lessonsHref('ru', 'A1.1')).toBe('/ru/dashboard/level/A1.1/vocabulary/lessons')
     expect(modeFromPathname('/ru/dashboard/level/A1.1/vocabulary/lessons')).toBe('vocabulary')
     expect(modeFromPathname('/ru/dashboard/level/A1.1/videos/123')).toBe('media')
@@ -73,12 +73,13 @@ describe('Modus-Dock', () => {
     ['/ru/dashboard/level/A1.1/path', 'area_path'],
     ['/ru/dashboard/level/A1.1/pronunciation', 'area_pronunciation'],
     ['/ru/dashboard/level/A1.1/videos', 'area_media'],
+    ['/ru/dashboard/level/A1.1/verbs', 'area_verbs'],
   ] as const)('%s: genau ein aktiver Reiter mit aria-current', (path, label) => {
     mockPathname = path
     render(<ModeDock lang="ru" level="A1.1" entries={open()} />)
     const dock = screen.getByRole('navigation', { name: t('mode_dock_label', { level: 'A1.1' }) })
     const links = within(dock).getAllByRole('link')
-    expect(links.map(link => link.textContent)).toEqual([t('area_vocabulary'), t('area_path'), t('area_pronunciation'), t('area_media')])
+    expect(links.map(link => link.textContent)).toEqual([t('area_vocabulary'), t('area_path'), t('area_pronunciation'), t('area_media'), t('area_verbs')])
     const current = links.filter(link => link.getAttribute('aria-current') === 'page')
     expect(current).toHaveLength(1)
     expect(current[0]).toHaveTextContent(t(label))
@@ -120,6 +121,7 @@ describe('Modus-Dock', () => {
       expect(screen.getByRole('link', { name: `${tl(key)}, ${tl('mode_locked_language')}` })).toHaveAttribute('data-locked', 'language')
     }
     expect(screen.getByRole('link', { name: tl('area_media') })).not.toHaveAttribute('data-locked')
+    expect(screen.getByRole('link', { name: tl('area_verbs') })).not.toHaveAttribute('data-locked')
   })
 
   it('ist mit der Tastatur in Dock-Reihenfolge erreichbar', async () => {
@@ -127,8 +129,8 @@ describe('Modus-Dock', () => {
     render(<ModeDock lang="ru" level="A1.1" entries={open({ path: { lock: 'teacher' } })} />)
     const user = userEvent.setup()
     const order: string[] = []
-    for (let index = 0; index < 4; index += 1) { await user.tab(); order.push(document.activeElement?.getAttribute('data-mode') ?? '') }
-    expect(order).toEqual(['vocabulary', 'path', 'pronunciation', 'media'])
+    for (let index = 0; index < 5; index += 1) { await user.tab(); order.push(document.activeElement?.getAttribute('data-mode') ?? '') }
+    expect(order).toEqual(['vocabulary', 'path', 'pronunciation', 'media', 'verbs'])
   })
 })
 
@@ -143,6 +145,7 @@ describe('Brotkrumen mit vollem Pfad', () => {
     ['Vokabeln / Lektionen', '/de/dashboard/level/A1.1/vocabulary/lessons', ['Start', 'A1.1', 'Vokabeln', 'Lektionen']],
     ['Aussprache', '/de/dashboard/level/A1.1/pronunciation', ['Start', 'A1.1', 'Aussprache']],
     ['Mediathek', '/de/dashboard/level/A1.1/videos', ['Start', 'A1.1', 'Mediathek']],
+    ['Verbtrainer', '/de/dashboard/level/B2/verbs', ['Start', 'B2', 'Verbtrainer']],
     ['Lernpfad', '/de/dashboard/level/A1.1/path', ['Start', 'A1.1', 'Lernpfad']],
     ['Video', '/de/dashboard/level/A1.1/videos/5f0c', ['Start', 'A1.1', 'Mediathek', 'Video']],
     ['Kalender', '/de/dashboard/calendar', ['Start', 'Kalender']],
@@ -158,7 +161,7 @@ describe('Brotkrumen mit vollem Pfad', () => {
     const crumbs = buildBreadcrumbs(`/${lang}/dashboard/level/A1.1/vocabulary`, lang, createDashboardTranslator(DICTIONARIES[lang].dashboard))
     const s = studentTranslator(lang)
     expect(crumbs[0].name).toBe(s('nav_home'))
-    for (const [segment, key] of [['vocabulary', 'area_vocabulary'], ['exercises', 'area_path'], ['pronunciation', 'area_pronunciation'], ['videos', 'area_media']] as const) {
+    for (const [segment, key] of [['vocabulary', 'area_vocabulary'], ['exercises', 'area_path'], ['pronunciation', 'area_pronunciation'], ['videos', 'area_media'], ['verbs', 'area_verbs']] as const) {
       const name = buildBreadcrumbs(`/${lang}/dashboard/level/A1.1/${segment}`, lang, createDashboardTranslator(DICTIONARIES[lang].dashboard)).at(-1)!.name
       expect(name).toBe(s(key))
     }

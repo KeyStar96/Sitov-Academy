@@ -1,6 +1,8 @@
-import type { CSSProperties } from 'react'
-import { ArrowUpRight, BookOpen, Check, Clapperboard, Lock, Mic, Route } from 'lucide-react'
+import { useId, type CSSProperties } from 'react'
+import { ArrowUpRight, BookOpen, Check, Clapperboard, Lock, Mic, Route, Waypoints } from 'lucide-react'
 import PressableCard from '@/components/motion/PressableCard'
+import SitovMotionStage from '@/components/motion/SitovMotionStage'
+import styles from './TrainerStatusTiles.module.css'
 import CountUp from '@/components/motion/CountUp'
 import NewBadge from '@/components/motion/NewBadge'
 import type { LevelLearningStatus } from '@/lib/learning-status-server'
@@ -19,7 +21,7 @@ interface Tile {
 }
 
 /**
- * Die vier Modi eines Niveaus als gleich große Karten (Phase 2), je mit einer
+ * Die fünf Modi eines Niveaus als responsive Karten, je mit einer
  * Kennzahl: fällige Karten, Position auf dem Lernpfad, neue Antworten der
  * Lehrkraft, neue Medien. Was wartet, trägt eine Zahl und die Akzentfarbe;
  * was erledigt ist, bleibt ruhig mit Haken. Gesperrte Modi zeigen den Grund
@@ -35,10 +37,11 @@ export default function TrainerStatusTiles({ lang, level, status, languageLocked
   title?: string
   /** Knopf neben der Überschrift, z. B. „Zum Lernpfad" oder zum zuletzt genutzten Modus. */
   continueLink?: { href: string; label: string }
-  /** `modes`: vier Karten nebeneinander ab Tablet-Breite (Niveau-Seite). */
+  /** `modes`: ein Mosaik aus drei und zwei Karten ab Desktop-Breite (Niveau-Seite). */
   layout?: 'compact' | 'modes'
 }) {
   const t = studentTranslator(lang)
+  const sitovId = useId()
   const lockedText = (area: 'media' | 'other') => area === 'other' && languageLocked ? t('status_language') : t('status_locked')
   const tiles: Tile[] = []
 
@@ -77,7 +80,16 @@ export default function TrainerStatusTiles({ lang, level, status, languageLocked
           : media.fresh > 0 ? { text: t.count('status_media_fresh', media.fresh), tone: 'action' as const, badge: media.fresh }
             : { text: t.count('status_media_total', media.total), tone: 'calm' as const }) })
 
-  const headingId = `areas-${level}`
+  const verbs = status?.verbs
+  tiles.push({ id: 'verbs', title: 'area_verbs', icon: Waypoints, badge: 0, ...(
+    verbs?.locked ? { text: t('status_locked'), tone: 'locked' as const }
+      : !verbs ? { text: t('status_open'), tone: 'calm' as const }
+        : verbs.total === 0 ? { text: t('status_empty'), tone: 'calm' as const }
+          : verbs.due > 0 ? { text: t.count('status_verbs_due', verbs.due), tone: 'action' as const, badge: verbs.due }
+            : verbs.selected > 0 ? { text: t.count('status_verbs_selected', verbs.selected), tone: 'calm' as const }
+              : { text: t.count('status_verbs_total', verbs.total), tone: 'action' as const }) })
+
+  const headingId = `sitov-areas-${level}-${sitovId.replace(/:/g, '')}`
   return (
     <section aria-labelledby={heading ? headingId : undefined} aria-label={heading ? undefined : t('areas_title')} className="st-areas">
       {heading && (
@@ -91,10 +103,12 @@ export default function TrainerStatusTiles({ lang, level, status, languageLocked
           )}
         </div>
       )}
-      <ul className={layout === 'modes' ? 'st-tiles st-tiles--modes' : 'st-tiles'}>
+      <SitovMotionStage className={styles.sitovStage}>
+      <ul className={`${styles.sitovTiles} ${layout === 'modes' ? styles.sitovModes : ''}`}>
         {tiles.map((tile, index) => {
           const content = (
             <>
+              <span className={styles.sitovAtmosphere} aria-hidden="true"><span className={styles.sitovRim} /><span className={styles.sitovLight} /></span>
               <span className="st-tile__top">
                 <span className="st-tile__icon" aria-hidden="true">{tile.tone === 'locked' ? <Lock size={24} /> : <tile.icon size={24} />}</span>
                 {tile.badge > 0 && <span className="st-tile__badge" aria-hidden="true"><CountUp value={tile.badge} cap={999} /></span>}
@@ -102,21 +116,25 @@ export default function TrainerStatusTiles({ lang, level, status, languageLocked
                 {tile.tone === 'done' && <span className="st-tile__check" aria-hidden="true"><Check size={16} strokeWidth={3} /></span>}
               </span>
               <span className="st-tile__title">{t(tile.title)}</span>
+              {tile.id === 'verbs' && <span className={styles.sitovDescription}>{t('area_verbs_hint')}</span>}
               <span className="st-tile__status">
                 {tile.tone === 'action' && <span className="sl-due-dot" aria-hidden="true" />}
                 {tile.text}
               </span>
+              {tile.id === 'verbs' && <span className={styles.sitovVerbOrbit} aria-hidden="true"><span className={styles.sitovOrbitRing} /><span className={styles.sitovOrbitRing} /><span className={styles.sitovOrbitWord}>ich</span><span className={styles.sitovOrbitWord}>du</span><span className={styles.sitovOrbitWord}>wir</span><Waypoints size={30} /></span>}
+              {tile.tone !== 'locked' && <span className={styles.sitovArrow} aria-hidden="true"><ArrowUpRight size={20} /></span>}
             </>
           )
           return (
-            <li key={tile.id} className="st-rise" style={{ '--i': index } as CSSProperties}>
+            <li key={tile.id} className={styles.sitovItem} data-sitov-feature={tile.id === 'verbs' ? 'true' : undefined} style={{ '--sitov-i': index } as CSSProperties}>
               {tile.tone === 'locked'
-                ? <div className="st-tile" data-tone="locked" data-area={tile.id} aria-disabled="true">{content}</div>
-                : <PressableCard href={modeHref(lang, level, tile.id)} className="st-tile" data-tone={tile.tone} data-area={tile.id}>{content}</PressableCard>}
+                ? <div className={`st-tile ${styles.sitovTile}`} data-sitov-surface="" data-tone="locked" data-area={tile.id} aria-disabled="true">{content}</div>
+                : <PressableCard href={modeHref(lang, level, tile.id)} className={`st-tile ${styles.sitovTile}`} data-sitov-surface="" data-tone={tile.tone} data-area={tile.id}>{content}</PressableCard>}
             </li>
           )
         })}
       </ul>
+      </SitovMotionStage>
     </section>
   )
 }

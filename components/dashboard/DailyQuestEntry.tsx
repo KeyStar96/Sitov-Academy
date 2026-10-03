@@ -63,6 +63,7 @@ function FlameLayers({ gradient, live, pilot }: { gradient: string; live: boolea
 export default function DailyQuestEntry({ lang, status }: { lang: string; status: DailyQuestStatus }) {
   const copy = getDailyQuestCopy(lang)
   const gradient = useId()
+  const sitovTitleId = `sitov-daily-quest-${gradient.replace(/:/g, '')}`
   const completed = status.today?.status === 'completed'
   const href = status.enabled ? `/${lang}/dashboard/daily-quest` : `/${lang}/dashboard/profile#daily-quest`
   const label = !status.enabled ? copy.openSettings
@@ -71,14 +72,14 @@ export default function DailyQuestEntry({ lang, status }: { lang: string; status
   const tier = flameTier(current)
   const digits = String(current).split('').map(Number)
   return (
-    <DailyQuestEntryStage aria-labelledby="sitov-daily-quest-entry-title" className={styles.sitovEntry} data-completed={completed} data-enabled={status.enabled} data-tier={tier} data-testid="daily-quest-entry">
+    <DailyQuestEntryStage aria-labelledby={sitovTitleId} className={styles.sitovEntry} data-completed={completed} data-enabled={status.enabled} data-tier={tier} data-testid="daily-quest-entry">
       <div className={styles.sitovScene} aria-hidden="true"><span className={styles.sitovSpot} /><span className={styles.sitovRim} /></div>
       <div className={styles.sitovHeader}>
         <p className={styles.sitovEyebrow}><Map size={18} aria-hidden="true" />{copy.settingsTitle}</p>
         {longest > current && <p className={styles.sitovBest}><Trophy size={16} aria-hidden="true" /><span>{copy.longestStreak}: {longest}</span></p>}
       </div>
       <div className={styles.sitovText}>
-        <h2 id="sitov-daily-quest-entry-title" className={styles.sitovTitle}>{status.enabled ? copy.title : copy.disabledTitle}</h2>
+        <h2 id={sitovTitleId} className={styles.sitovTitle}>{status.enabled ? copy.title : copy.disabledTitle}</h2>
         <p className={styles.sitovHint}>{status.enabled ? copy.entryHint : copy.disabledHint}</p>
         <div className={styles.sitovRoute} aria-hidden="true">
           <span className={styles.sitovSpark} />

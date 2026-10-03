@@ -1032,6 +1032,7 @@
         "nav_vocabulary": "Vocabulary",
         "nav_videos": "Videos",
         "nav_pronunciation": "Pronunciation",
+        "nav_verbs": "Verb trainer",
         "nav_train": "Learn",
         "nav_assess": "Assess",
         "nav_lessons": "Lessons",
@@ -1879,7 +1880,13 @@
         "area_students_desc": "Registrations, student list, corrections and learning analytics",
         "area_courses_desc": "Courses, lesson times, prices and cancellations",
         "area_content_desc": "Vocabulary trainer, learning path, media library and pronunciation trainer",
-        "area_administration_desc": "Billing, registrations, invoices, certificates and CSV imports"
+        "area_administration_desc": "Billing, registrations, invoices, certificates and CSV imports",
+        "trainer_verbs": "Verb trainer",
+        "verbs_access_title": "Verb access",
+        "verbs_access_button": "Select verbs",
+        "verbs_access_all": "Allow all verbs",
+        "verbs_access_selected": "{count} verbs selected",
+        "verbs_advanced_access": "This level unlocks the verb trainer only."
     },
     "academy": {
         "hero_level_range": "A1—C2",

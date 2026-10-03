@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { getAvailableLessons, updateStudentTrainerAccess } from '@/app/actions/admin'
 import { ArrowLeft, Loader2 } from 'lucide-react'
 import { useAdminTranslator } from './AdminI18nProvider'
-import type { Trainer, AccessLevel, TrainerAccessRule } from '@/lib/access/levels'
+import type { Trainer, SitovTrainerLevel, TrainerAccessRule } from '@/lib/access/levels'
 import type { AccessUnit } from '@/lib/access/units'
 import DialogActions from '@/components/ui/DialogActions'
 import { adminButton } from './ui'
@@ -12,7 +12,7 @@ import { adminButton } from './ui'
 /** The content selection occupies the existing student dialog, without a second overlay. */
 export default function LessonAccessModal({ studentId, level, trainer, rule, onClose, onSave, onBusyChange }: {
   studentId: string
-  level: AccessLevel
+  level: SitovTrainerLevel
   trainer: Trainer
   rule?: TrainerAccessRule
   onClose: () => void
@@ -86,13 +86,13 @@ export default function LessonAccessModal({ studentId, level, trainer, rule, onC
           <p className="rounded-xl border border-[var(--admin-line)] px-4 py-10 text-center text-sm text-[var(--muted)]">{t('no_lessons_found')}</p>
         ) : (
           <fieldset disabled={saving} className="space-y-4">
-            <legend className="sr-only">{t(trainer === 'pronunciation' ? 'pronunciation_access_title' : 'lesson_access_title')}</legend>
+            <legend className="sr-only">{t(trainer === 'verbs' ? 'verbs_access_title' : trainer === 'pronunciation' ? 'pronunciation_access_title' : 'lesson_access_title')}</legend>
             <label className="flex min-h-12 cursor-pointer items-center gap-3 rounded-lg bg-[var(--surface-muted)] px-3 py-2 text-sm">
               <input type="checkbox" checked={selected === null} onChange={event => setSelected(event.target.checked ? null : lessons.map(lesson => lesson.id))} className="h-5 w-5 shrink-0 accent-[var(--accent-strong)]" />
-              <span className="font-semibold">{t('access_all_units')}</span>
+              <span className="font-semibold">{t(trainer === 'verbs' ? 'verbs_access_all' : 'access_all_units')}</span>
             </label>
             <div className="flex flex-wrap items-center justify-between gap-3">
-              <p className="text-sm text-[var(--muted)]">{t('access_selected_units', { count: selected === null ? lessons.length : lessons.filter(lesson => selected.includes(lesson.id)).length })}</p>
+              <p className="text-sm text-[var(--muted)]">{t(trainer === 'verbs' ? 'verbs_access_selected' : 'access_selected_units', { count: selected === null ? lessons.length : lessons.filter(lesson => selected.includes(lesson.id)).length })}</p>
               <button type="button" onClick={() => setSelected([])} className={adminButton('secondary', 'sm')}>{t('select_none')}</button>
             </div>
             <div className="space-y-2">

@@ -26,9 +26,11 @@ it('supports precise touch/pointer seeking and disables an unavailable timeline'
   expect(screen.getByRole('slider')).toBeDisabled()
 })
 it('stops playback when a conversation player unmounts', () => {
+  const pause = jest.spyOn(HTMLMediaElement.prototype, 'pause').mockImplementation(() => {})
   const { unmount } = render(<WaveformPlayer src="test.wav" />)
   unmount()
-  expect(playback.pause).toHaveBeenCalledTimes(1)
+  expect(pause).toHaveBeenCalledTimes(1)
+  pause.mockRestore()
 })
 
 it('starts A-level references at 0.85× and retains an explicit rate across levels and remounts', () => {

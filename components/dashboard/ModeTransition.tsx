@@ -1,8 +1,9 @@
 'use client'
 
-import { useRef, type ReactNode } from 'react'
+import { useState, type ReactNode } from 'react'
 import { usePathname } from 'next/navigation'
 import { motion } from 'framer-motion'
+import SitovMotionStage from '@/components/motion/SitovMotionStage'
 import { LEARNING_MODES, modeFromPathname } from '@/lib/mode-targets'
 import { EASE_OUT_SOFT, MOTION, useIsHydrating, useReducedMotionSafe } from '@/lib/motion'
 
@@ -19,16 +20,16 @@ export default function ModeTransition({ children }: { children: ReactNode }) {
   const reduced = useReducedMotionSafe()
   const hydrating = useIsHydrating()
   const order = mode ? LEARNING_MODES.indexOf(mode) : -1
-  const previous = useRef(order)
-  const direction = order >= previous.current ? 1 : -1
-  if (previous.current !== order) previous.current = order
+  const [sitovTransition, setSitovTransition] = useState({ order, direction: 1 })
+  if (sitovTransition.order !== order) setSitovTransition({ order, direction: order >= sitovTransition.order ? 1 : -1 })
+  const direction = sitovTransition.direction
 
   return (
     <motion.div key={mode ?? 'overview'} className="st-mode-content"
-      initial={hydrating || reduced ? false : { opacity: 0, x: 8 * direction }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: MOTION.slow, ease: EASE_OUT_SOFT }}>
-      {children}
+      initial={hydrating || reduced ? false : { opacity: 0, x: 14 * direction, scale: .985 }}
+      animate={{ opacity: 1, x: 0, scale: 1 }}
+      transition={{ duration: MOTION.slower, ease: EASE_OUT_SOFT }}>
+      <SitovMotionStage className="sitov-trainer-stage" data-mode={mode ?? 'overview'} data-sitov-surface="">{children}</SitovMotionStage>
     </motion.div>
   )
 }

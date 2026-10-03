@@ -54,7 +54,7 @@
 /* ── Bühne: Zeigerlicht und laufender Lichtrand ────────────────────────── */
 .sitovScene { position: absolute; inset: 0; z-index: -1; overflow: hidden; border-radius: inherit; pointer-events: none; }
 .sitovSpot { position: absolute; inset: 0; background: radial-gradient(22rem circle at var(--sitov-mx, 50%) var(--sitov-my, 50%), color-mix(in srgb, var(--accent) 14%, transparent), transparent 70%); opacity: 0; transition: opacity .4s ease; }
-.sitovEntry[data-pointer='true'] .sitovSpot { opacity: 1; }
+.sitovEntry[data-pointer='true'] .sitovSpot, .sitovEntry:focus-within .sitovSpot { opacity: 1; }
 .sitovRim {
   position: absolute; inset: 0; overflow: hidden; border-radius: inherit; background: var(--sitov-rim); padding: 1.5px;
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor;
@@ -135,6 +135,7 @@
 .sitovAction > span:not(.sitovActionArrow) { min-width: 0; flex: 1; overflow-wrap: anywhere; }
 .sitovAction::after { content: ''; position: absolute; inset: 0 auto 0 0; width: 35%; background: linear-gradient(90deg, transparent, rgb(255 255 255 / .24), transparent); transform: translateX(-130%) skewX(-18deg); animation: sitov-sheen 6s cubic-bezier(.4, 0, .2, 1) 1.6s infinite; pointer-events: none; }
 .sitovActionArrow { display: flex; width: 2.25rem; height: 2.25rem; flex-shrink: 0; align-items: center; justify-content: center; border-radius: 50%; background: rgb(255 255 255 / .18); transition: transform var(--motion-base) var(--ease-out-soft); }
+.sitovAction:focus-visible .sitovActionArrow { transform: translateX(3px); }
 .sitovAction:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
 
 /* ── Zustände ──────────────────────────────────────────────────────────── */
@@ -155,6 +156,10 @@
 .sitovEntry:is([data-completed='true'], [data-enabled='false']) :is(.sitovLink, .sitovTrail)::before { animation: none; }
 .sitovEntry[data-enabled='false'] :is(.sitovHalo, .sitovEmbers, .sitovBurst, .sitovFlameLive) { display: none; }
 .sitovEntry[data-enabled='false'] .sitovFlameStill { display: block; }
+.sitovEntry[data-enabled='false'] *, .sitovEntry[data-enabled='false'] *::before, .sitovEntry[data-enabled='false'] *::after { animation: none !important; }
+.sitovEntry[data-enabled='false'] :is(.sitovHeader, .sitovTitle, .sitovHint, .sitovAction, .sitovFlameIgnite, .sitovStreak) { animation: none !important; opacity: 1 !important; transform: none !important; }
+.sitovEntry[data-enabled='false'] .sitovRoute { animation: none !important; opacity: .5 !important; transform: none !important; }
+.sitovEntry[data-enabled='false'] .sitovDigitStrip { animation: none !important; transform: translateY(calc(var(--sitov-d) * -1em)) !important; }
 .sitovEntry[data-enabled='false'] .sitovRim::before { display: none; }
 .sitovEntry[data-enabled='false'] :is(.sitovFlameSway, .sitovGhost) { animation: none; }
 
@@ -213,6 +218,7 @@
   .sitovFlameLive, .sitovEmbers, .sitovSpark, .sitovPulse, .sitovBurst { display: none; }
   .sitovFlameStill { display: block; }
   .sitovFlame { transform: none; }
+  .sitovEntry[data-ignite='wait'] :is(.sitovFlameIgnite, .sitovHalo, .sitovStreak, .sitovStamp) { opacity: 1; }
 }
 
 :global(html.high-contrast) .sitovEntry { --sitov-rim: var(--border); --sitov-f1a: var(--accent-strong); --sitov-f1b: var(--accent-strong); --sitov-f2a: var(--accent-strong); --sitov-f2b: var(--accent-strong); --sitov-f3a: var(--surface); --sitov-f3b: var(--surface); --sitov-ink: var(--foreground); background: var(--surface); box-shadow: none; }

@@ -1031,6 +1031,7 @@
         "nav_vocabulary": "Vokabeln",
         "nav_videos": "Videos",
         "nav_pronunciation": "Aussprache",
+        "nav_verbs": "Verbtrainer",
         "nav_train": "Lernen",
         "nav_assess": "Einstufen",
         "nav_lessons": "Lektionen",
@@ -1878,7 +1879,13 @@
         "area_students_desc": "Registrierungen, Schülerliste, Korrekturen und Lernanalyse",
         "area_courses_desc": "Kurse, Unterrichtszeiten, Preise und Ausfälle",
         "area_content_desc": "Vokabeltrainer, Lernpfad, Mediathek und Aussprache-Trainer",
-        "area_administration_desc": "Abrechnung, Anmeldungen, Rechnungen, Zertifikate und CSV-Importe"
+        "area_administration_desc": "Abrechnung, Anmeldungen, Rechnungen, Zertifikate und CSV-Importe",
+        "trainer_verbs": "Verbtrainer",
+        "verbs_access_title": "Verben freigeben",
+        "verbs_access_button": "Verben auswählen",
+        "verbs_access_all": "Alle Verben freigeben",
+        "verbs_access_selected": "{count} Verben ausgewählt",
+        "verbs_advanced_access": "Dieses Niveau gibt ausschließlich den Verbtrainer frei."
     },
     "academy": {
         "hero_level_range": "A1—C2",

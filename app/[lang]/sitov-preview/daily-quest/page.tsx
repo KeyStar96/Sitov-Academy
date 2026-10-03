@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation'
+import SitovPreviewAppearance from '@/components/dashboard/SitovPreviewAppearance'
 import DailyQuestEntry from '@/components/dashboard/DailyQuestEntry'
 import type { DailyQuestStatus } from '@/lib/daily-quest-contract'
 import '@/components/dashboard/student.css'
@@ -13,6 +14,7 @@ export default async function DailyQuestPreviewPage({ params }: { params: Promis
   if (process.env.NODE_ENV !== 'development') notFound()
   const { lang } = await params
   return <div className="academy-container" style={{ display: 'grid', gap: '1.25rem', maxWidth: 720, paddingBlock: '2rem' }}>
+    <SitovPreviewAppearance />
     {STATES.map((status, index) => <DailyQuestEntry key={index} lang={lang} status={status} />)}
   </div>
 }

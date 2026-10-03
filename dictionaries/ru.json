@@ -1031,6 +1031,7 @@
         "nav_vocabulary": "Слова",
         "nav_videos": "Видео",
         "nav_pronunciation": "Произношение",
+        "nav_verbs": "Тренажёр глаголов",
         "nav_train": "Обучение",
         "nav_assess": "Оценка",
         "nav_lessons": "Уроки",
@@ -1878,7 +1879,13 @@
         "area_students_desc": "Регистрации, список учеников, проверка работ и аналитика",
         "area_courses_desc": "Курсы, расписание, цены и отмены",
         "area_content_desc": "Тренажёр слов, учебный путь, медиатека и тренажёр произношения",
-        "area_administration_desc": "Расчёты, заявки, счета, сертификаты и импорт CSV"
+        "area_administration_desc": "Расчёты, заявки, счета, сертификаты и импорт CSV",
+        "trainer_verbs": "Тренажёр глаголов",
+        "verbs_access_title": "Доступ к глаголам",
+        "verbs_access_button": "Выбрать глаголы",
+        "verbs_access_all": "Разрешить все глаголы",
+        "verbs_access_selected": "Выбрано глаголов: {count}",
+        "verbs_advanced_access": "Этот уровень открывает только тренажёр глаголов."
     },
     "academy": {
         "hero_level_range": "A1—C2",

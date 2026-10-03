@@ -20,8 +20,8 @@ jest.mock('@/app/actions/profile', () => ({ setMailPreference: jest.fn() }))
 jest.unmock('lucide-react')
 
 const labels = { whatsapp: 'WhatsApp', phone: '+49 1', phoneLabel: 'Anrufen', telegram: 'Telegram', email: 'a@b.test', emailLabel: 'E-Mail' }
-const zero = { vocabulary: 0, path: 0, pronunciation: 0, media: 0 }
-const none = { vocabulary: false, path: false, pronunciation: false, media: false }
+const zero = { vocabulary: 0, path: 0, pronunciation: 0, media: 0, verbs: 0 }
+const none = { vocabulary: false, path: false, pronunciation: false, media: false, verbs: false }
 const answer = (levels: Record<string, unknown>) => ({ success: true, any: Object.keys(levels).length > 0, levels, visited: ['A1.1'] })
 
 beforeEach(() => {
@@ -43,7 +43,7 @@ describe('Neu-Antworten der Datenbank', () => {
 
   it('kennzeichnen einen Modus bei neuen Inhalten oder wenn der Modus selbst neu ist', () => {
     const entry = { level: false, total: 3, modes: { ...zero, media: 2 }, modeNew: { ...none, pronunciation: true } }
-    expect(LEARNING_MODES.map(mode => modeIsNew(entry, mode))).toEqual([false, false, true, true])
+    expect(LEARNING_MODES.map(mode => modeIsNew(entry, mode))).toEqual([false, false, true, true, false])
     expect(newModes(entry)).toEqual(['pronunciation', 'media'])
     expect(modeIsNew(undefined, 'media')).toBe(false)
     expect(trainerKey('A1.1', 'exercises')).toBe('A1.1:exercises')

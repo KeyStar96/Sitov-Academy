@@ -6,7 +6,7 @@
  * - Zugriff auf gebührenpflichtige Sprachniveaus wird pro Nutzer explizit über
  *   `student_level_access` (feingranular, z. B. `"A1.1"`) freigeschaltet.
  * - Pro Niveau können Trainer durch `learning_trainer_grants` gesperrt werden.
- *   Ohne Override gilt die bestehende Niveau-Freigabe für alle vier Trainer.
+ *   Ohne Override gilt die bestehende Niveau-Freigabe für alle fünf Trainer.
  * - Trainer-Niveaus sind unabhängig von Kursen und Kursanmeldungen.
  *   Ein gleichlautendes Kursniveau erzeugt oder entzieht keine Freigabe.
  * - Ein frisch registrierter Nutzer hat ein leeres Array → kein Zugriff.
@@ -31,6 +31,9 @@ export const ACCESS_LEVELS = [
 ] as const
 
 export type AccessLevel = (typeof ACCESS_LEVELS)[number]
+/** B2/C1 unlock only the independent verb trainer, never other course trainers. */
+export const SITOV_VERB_LEVELS = [...ACCESS_LEVELS, 'B2', 'C1'] as const
+export type SitovTrainerLevel = (typeof SITOV_VERB_LEVELS)[number]
 
 /** Rollen mit uneingeschränktem Zugriff auf alle Niveaus. */
 const FULL_ACCESS_ROLES: ReadonlySet<string> = new Set(['admin', 'teacher'])
@@ -74,6 +77,7 @@ export function hasLevelAccess(
   if (!profile) return false
   if (profile.role && FULL_ACCESS_ROLES.has(profile.role)) return true
   const normalized = level.trim()
+  if (normalized === 'B2' || normalized === 'C1') return profile.trainer_grants?.some(rule => rule.level === normalized && rule.trainer === 'verbs' && rule.enabled && (rule.unit_ids == null || rule.unit_ids.length > 0)) ?? false
   return (profile.allowed_levels ?? []).includes(normalized)
 }
 
@@ -83,20 +87,22 @@ export function hasFullAccessRole(role: string | null | undefined): boolean {
 }
 
 /** Missing overrides preserve the existing whole-level entitlement. */
-export const TRAINERS = ['vocabulary', 'exercises', 'pronunciation', 'videos'] as const
+export const TRAINERS = ['vocabulary', 'exercises', 'pronunciation', 'videos', 'verbs'] as const
 export type Trainer = (typeof TRAINERS)[number]
 export interface TrainerAccessRule { level: string; trainer: string; enabled: boolean; unit_ids?: string[] | null }
 
 /** Configuration shown to teachers is independent from a student's interface choice. */
 export function hasConfiguredTrainerAccess(profile: LevelAccessProfile | null | undefined, level: string, trainer: Trainer): boolean {
+  if (!profile) return false
+  if (hasFullAccessRole(profile.role)) return true
+  if (level === 'B2' || level === 'C1') return trainer === 'verbs' && (profile.trainer_grants?.find(rule => rule.level === level && rule.trainer === trainer)?.enabled ?? false)
   if (!hasLevelAccess(profile, level)) return false
-  if (hasFullAccessRole(profile?.role)) return true
   return profile?.trainer_grants?.find(rule => rule.level === level.trim() && rule.trainer === trainer)?.enabled ?? true
 }
 
 export function hasTrainerAccess(profile: LevelAccessProfile | null | undefined, level: string, trainer: Trainer): boolean {
   if (hasFullAccessRole(profile?.role)) return true
-  if (profile?.ui_language === 'de' || !hasConfiguredTrainerAccess(profile, level, trainer)) return false
+  if ((trainer !== 'verbs' && profile?.ui_language === 'de') || !hasConfiguredTrainerAccess(profile, level, trainer)) return false
   const restriction = profile?.trainer_grants?.find(rule => rule.level === level.trim() && rule.trainer === trainer)?.unit_ids
   return trainer === 'videos' || restriction == null || restriction.length > 0
 }

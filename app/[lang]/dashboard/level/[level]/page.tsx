@@ -18,12 +18,12 @@ const LEVEL_COPY: Record<string, [string, string]> = {
   'B1.1': ['level_b11_title', 'level_b11_desc'], 'B1.2': ['level_b12_title', 'level_b12_desc'],
 }
 
-const MODE_LABELS = { vocabulary: 'area_vocabulary', path: 'area_path', pronunciation: 'area_pronunciation', media: 'area_media' } as const
-const CONTINUE_TO = { vocabulary: 'continue_to_vocabulary', path: 'continue_to_path', pronunciation: 'continue_to_pronunciation', media: 'continue_to_media' } as const
+const MODE_LABELS = { vocabulary: 'area_vocabulary', path: 'area_path', pronunciation: 'area_pronunciation', media: 'area_media', verbs: 'area_verbs' } as const
+const CONTINUE_TO = { vocabulary: 'continue_to_vocabulary', path: 'continue_to_path', pronunciation: 'continue_to_pronunciation', media: 'continue_to_media', verbs: 'continue_to_verbs' } as const
 
 /**
  * Niveau-Übersicht (Phase 2): oben „Weiter, wo du aufgehört hast", darunter
- * die vier Modi als gleich große Karten mit je einer Kennzahl. Die
+ * die fünf Modi als responsive Karten mit je einer Kennzahl. Die
  * Vokabel-Lektionen liegen jetzt im Modus Vokabeln unter „Lektionen".
  */
 export default async function LevelDashboard({ params }: {
@@ -53,9 +53,9 @@ export default async function LevelDashboard({ params }: {
 
   return (
     <div className="space-y-8">
-      {lang === 'de' && <TrainerLanguageRequired lang={lang} />}
+      {lang === 'de' && decodedLevel !== 'B2' && decodedLevel !== 'C1' && <TrainerLanguageRequired lang={lang} />}
       <ResumeCard lang={lang} level={decodedLevel} title={titleKey ? copy[titleKey] ?? decodedLevel : decodedLevel}
-        description={descriptionKey ? copy[descriptionKey] ?? '' : ''} target={target} />
+        description={descriptionKey ? copy[descriptionKey] ?? '' : decodedLevel === 'B2' || decodedLevel === 'C1' ? s('level_verbs_description') : ''} target={target} />
       <TrainerStatusTiles lang={lang} level={decodedLevel} status={status} languageLocked={lang === 'de'} layout="modes" />
     </div>
   )

@@ -1,0 +1,68 @@
+/* Five learning rooms: a compact pair grid and a landscape verb studio. */
+.sitovStage { min-width: 0; }
+.sitovTiles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .8rem; }
+.sitovItem { min-width: 0; animation: sitov-arrive .65s cubic-bezier(.16, 1, .3, 1) backwards; animation-delay: calc(var(--sitov-i, 0) * 65ms); }
+.sitovItem[data-sitov-feature='true'] { grid-column: 1 / -1; }
+.sitovTile[data-sitov-surface] {
+  --sitov-tone: var(--accent-text);
+  --sitov-tint: var(--surface-muted);
+  isolation: isolate; min-height: 10.75rem; padding: 1rem; border-radius: 1.45rem;
+  border-color: color-mix(in srgb, var(--sitov-tone) 30%, var(--border));
+  background: linear-gradient(135deg, color-mix(in srgb, var(--sitov-tone) 6%, var(--surface)), var(--surface) 58%);
+  box-shadow: inset 0 3px 0 var(--sitov-tone), var(--shadow-sm);
+  transition: border-color .25s ease, box-shadow .25s ease, background-color .25s ease;
+}
+.sitovTile[data-sitov-surface][data-area='vocabulary'] { --sitov-tone: var(--mode-vocabulary-text); --sitov-tint: var(--mode-vocabulary-surface); }
+.sitovTile[data-sitov-surface][data-area='path'] { --sitov-tone: var(--mode-path-text); --sitov-tint: var(--mode-path-surface); }
+.sitovTile[data-sitov-surface][data-area='pronunciation'] { --sitov-tone: var(--mode-pronunciation-text); --sitov-tint: var(--mode-pronunciation-surface); }
+.sitovTile[data-sitov-surface][data-area='media'] { --sitov-tone: var(--mode-media-text); --sitov-tint: var(--mode-media-surface); }
+.sitovTile[data-sitov-surface][data-area='verbs'] {
+  --sitov-tone: var(--mode-verbs-text); --sitov-tint: var(--mode-verbs-surface);
+  min-height: 12rem; padding-inline-end: min(34%, 9rem);
+  background: linear-gradient(120deg, var(--surface), color-mix(in srgb, var(--sitov-tone) 11%, var(--surface)));
+}
+.sitovTile[data-sitov-surface][data-tone='action'] { border-color: color-mix(in srgb, var(--sitov-tone) 65%, var(--border)); background: linear-gradient(135deg, color-mix(in srgb, var(--sitov-tone) 8%, var(--surface)), var(--surface) 62%); }
+.sitovTile[data-sitov-surface][data-tone='locked'] { --sitov-tone: var(--muted); box-shadow: none; background: var(--surface-muted); border-color: var(--border); }
+.sitovTile[data-sitov-surface] :global(.st-tile__top), .sitovTile[data-sitov-surface] :global(.st-tile__title), .sitovTile[data-sitov-surface] :global(.st-tile__status), .sitovDescription { position: relative; z-index: 1; }
+.sitovTile[data-sitov-surface] :global(.st-tile__icon) { width: 3rem; height: 3rem; background: var(--sitov-tint); color: var(--sitov-tone); box-shadow: 0 7px 20px -14px var(--sitov-tone); }
+.sitovTile[data-sitov-surface] :global(.st-tile__title) { font-size: 1.12rem; padding-top: 1.05rem; }
+.sitovTile[data-sitov-surface][data-area='verbs'] :global(.st-tile__title) { font-size: 1.4rem; padding-top: .85rem; }
+.sitovTile[data-sitov-surface][data-tone='action'] :global(.st-tile__status) { color: var(--sitov-tone); }
+.sitovTile[data-sitov-surface] :global(.st-tile__badge) { background: var(--sitov-tone); color: var(--surface); }
+.sitovTile[data-sitov-surface] :global(.sl-due-dot) { background: var(--sitov-tone); }
+.sitovDescription { margin-top: .3rem; color: var(--muted); font-size: .95rem; line-height: 1.45; }
+.sitovAtmosphere { position: absolute; z-index: -1; inset: 0; overflow: hidden; border-radius: inherit; pointer-events: none; }
+.sitovLight { position: absolute; inset: 0; opacity: 0; background: radial-gradient(16rem circle at var(--sitov-light-x, 75%) var(--sitov-light-y, 15%), color-mix(in srgb, var(--sitov-tone) 16%, transparent), transparent 70%); transition: opacity .4s ease; }
+.sitovTile[data-sitov-surface][data-sitov-pointer='true'] .sitovLight, .sitovTile[data-sitov-surface]:focus-visible .sitovLight { opacity: 1; }
+.sitovRim { position: absolute; inset: 0; padding: 1px; border-radius: inherit; opacity: 0; background: conic-gradient(from 45deg, transparent 5% 45%, var(--sitov-tone) 55% 65%, transparent 78%); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask-composite: exclude; transition: opacity .3s ease; }
+.sitovTile[data-sitov-surface]:focus-visible { outline: 3px solid var(--sitov-tone); outline-offset: 4px; }
+.sitovTile[data-sitov-surface]:focus-visible .sitovRim { opacity: 1; }
+.sitovArrow { position: absolute; top: 1.05rem; right: 1rem; display: grid; place-items: center; color: var(--sitov-tone); opacity: .65; transition: transform .35s cubic-bezier(.22, 1, .36, 1), opacity .3s ease; }
+.sitovTile[data-sitov-surface]:has(:global(.st-tile__badge)) .sitovArrow, .sitovTile[data-sitov-surface]:has(:global(.st-tile__new)) .sitovArrow, .sitovTile[data-sitov-surface]:has(:global(.st-tile__check)) .sitovArrow { top: auto; bottom: 1.2rem; }
+.sitovTile[data-sitov-surface]:focus-visible .sitovArrow { transform: translate(2px, -2px); opacity: 1; }
+.sitovVerbOrbit { position: absolute; z-index: 0; width: 7rem; height: 7rem; right: .75rem; top: 50%; margin-top: -3rem; color: var(--sitov-tone); display: grid; place-items: center; pointer-events: none; }
+.sitovVerbOrbit > svg { filter: drop-shadow(0 0 9px color-mix(in srgb, var(--sitov-tone) 30%, transparent)); animation: sitov-breathe 5s ease-in-out infinite; }
+.sitovOrbitRing { position: absolute; inset: 12%; border: 1px solid color-mix(in srgb, var(--sitov-tone) 30%, transparent); border-radius: 50%; transform: rotate(-28deg) scaleY(.75); }
+.sitovOrbitRing:nth-child(2) { inset: 2%; transform: rotate(34deg) scaleX(.65); border-style: dashed; opacity: .75; }
+.sitovOrbitWord { position: absolute; min-width: 2.5rem; border: 1px solid color-mix(in srgb, var(--sitov-tone) 35%, var(--border)); border-radius: .6rem; background: var(--surface); box-shadow: 0 5px 12px -8px var(--sitov-tone); padding: .3rem .55rem; color: var(--sitov-tone); font-size: .85rem; font-weight: 750; line-height: 1.2; text-align: center; animation: sitov-float 5s ease-in-out infinite; }
+.sitovOrbitWord:nth-child(3) { top: -.2rem; left: 1.2rem; }
+.sitovOrbitWord:nth-child(4) { top: 2.6rem; right: -.15rem; animation-delay: -.9s; }
+.sitovOrbitWord:nth-child(5) { bottom: -.15rem; left: .2rem; animation-delay: -1.8s; }
+.sitovTile[data-sitov-surface][data-tone='locked'] .sitovVerbOrbit { opacity: .4; }
+.sitovTile[data-sitov-surface][data-tone='locked'] .sitovVerbOrbit * { animation: none; }
+.sitovStage[data-sitov-live='false'] *, .sitovStage[data-sitov-live='false'] *::before, .sitovStage[data-sitov-live='false'] *::after { animation-play-state: paused !important; }
+@media (hover: hover) and (pointer: fine) {
+  a.sitovTile[data-sitov-surface]:hover { border-color: var(--sitov-tone); transform: none; box-shadow: inset 0 3px 0 var(--sitov-tone), 0 16px 28px -20px var(--sitov-tone); }
+  a.sitovTile[data-sitov-surface]:hover .sitovRim { opacity: 1; }
+  a.sitovTile[data-sitov-surface]:hover :global(.st-tile__icon), a.sitovTile[data-sitov-surface]:focus-visible :global(.st-tile__icon) { transform: translateY(-3px) rotate(-7deg) scale(1.06); }
+  a.sitovTile[data-sitov-surface]:hover .sitovArrow { transform: translate(2px, -2px); opacity: 1; }
+}
+@media (min-width: 640px) { .sitovTile[data-sitov-surface] { min-height: 11.5rem; padding: 1.2rem; } .sitovTile[data-sitov-surface][data-area='verbs'] { padding-inline-end: 10rem; } .sitovVerbOrbit { right: 1.5rem; width: 7.5rem; height: 7.5rem; margin-top: -3.75rem; } }
+@media (min-width: 900px) { .sitovModes { grid-template-columns: repeat(3, minmax(0, 1fr)); } .sitovModes .sitovItem[data-sitov-feature='true'] { grid-column: span 2; } .sitovModes .sitovTile[data-sitov-surface] { min-height: 12rem; } }
+@media (prefers-reduced-motion: reduce) { .sitovStage *, .sitovStage *::before, .sitovStage *::after { animation: none !important; transition: none !important; } .sitovVerbOrbit > svg { filter: none; } }
+:global(html.high-contrast) .sitovTile[data-sitov-surface] { background: var(--surface); border-width: 2px; border-color: var(--sitov-tone); box-shadow: none; }
+:global(html.high-contrast) .sitovAtmosphere { display: none; }
+:global(html.high-contrast) .sitovOrbitRing { border-color: currentColor; }
+@keyframes sitov-arrive { from { opacity: 0; transform: translateY(12px) scale(.97); } }
+@keyframes sitov-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+@keyframes sitov-breathe { 0%, 100% { transform: scale(1); opacity: .85; } 50% { transform: scale(1.1); opacity: 1; } }

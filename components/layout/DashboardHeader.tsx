@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import {
-  BookOpen, CalendarDays, ChevronRight, Clapperboard, File, GraduationCap, House, ListChecks, Mic, Route, UserRound,
+  BookOpen, CalendarDays, ChevronRight, Clapperboard, File, GraduationCap, House, ListChecks, Mic, Route, UserRound, Waypoints,
 } from 'lucide-react'
 import { buildBreadcrumbs, type CrumbKind } from '@/lib/breadcrumbs'
 import { createDashboardTranslator, type DashboardTranslations } from '@/lib/dashboard-i18n'
@@ -13,7 +13,7 @@ import { EASE_OUT_SOFT, MOTION, STAGGER, STAGGER_LIMIT, useIsHydrating, useReduc
 import { studentTranslator } from '@/lib/student-ui-i18n'
 
 const ICONS: Record<CrumbKind, typeof House> = {
-  home: House, level: GraduationCap, vocabulary: BookOpen, path: Route, pronunciation: Mic, media: Clapperboard,
+  home: House, level: GraduationCap, vocabulary: BookOpen, path: Route, pronunciation: Mic, media: Clapperboard, verbs: Waypoints,
   lessons: ListChecks, calendar: CalendarDays, profile: UserRound, page: File,
 }
 

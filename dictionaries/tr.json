@@ -1028,6 +1028,7 @@
         "nav_vocabulary": "Kelimeler",
         "nav_videos": "Videolar",
         "nav_pronunciation": "Telaffuz",
+        "nav_verbs": "Fiil alıştırması",
         "nav_train": "Öğren",
         "nav_assess": "Değerlendirme",
         "nav_lessons": "Dersler",
@@ -1875,7 +1876,13 @@
         "area_students_desc": "Kayıtlar, öğrenci listesi, düzeltmeler ve öğrenme analizi",
         "area_courses_desc": "Kurslar, ders saatleri, fiyatlar ve iptaller",
         "area_content_desc": "Kelime antrenörü, öğrenme yolu, medya kütüphanesi ve telaffuz antrenörü",
-        "area_administration_desc": "Faturalandırma, başvurular, faturalar, sertifikalar ve CSV içe aktarma"
+        "area_administration_desc": "Faturalandırma, başvurular, faturalar, sertifikalar ve CSV içe aktarma",
+        "trainer_verbs": "Fiil alıştırmaları",
+        "verbs_access_title": "Fiil erişimi",
+        "verbs_access_button": "Fiilleri seç",
+        "verbs_access_all": "Tüm fiillere izin ver",
+        "verbs_access_selected": "{count} fiil seçildi",
+        "verbs_advanced_access": "Bu seviye yalnızca fiil alıştırmalarını açar."
     },
     "academy": {
         "hero_level_range": "A1—C2",

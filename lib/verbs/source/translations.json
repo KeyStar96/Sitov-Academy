@@ -1,0 +1,6722 @@
+{
+  "abholen": {
+    "de": "abholen",
+    "en": "pick up",
+    "ru": "забрать",
+    "uk": "забрати",
+    "tr": "almak"
+  },
+  "anfangen": {
+    "de": "anfangen",
+    "en": "start",
+    "ru": "начинать",
+    "uk": "починати",
+    "tr": "başlamak"
+  },
+  "ankreuzen": {
+    "de": "ankreuzen",
+    "en": "tick a box",
+    "ru": "поставить галочку",
+    "uk": "поставити галочку",
+    "tr": "bir kutuyu işaretlemek"
+  },
+  "anrufen": {
+    "de": "anrufen",
+    "en": "call by phone",
+    "ru": "позвонить по телефону",
+    "uk": "дзвонити по телефону",
+    "tr": "telefonla aramak"
+  },
+  "ansehen": {
+    "de": "ansehen",
+    "en": "look at",
+    "ru": "посмотреть",
+    "uk": "дивитися",
+    "tr": "bakmak"
+  },
+  "antworten": {
+    "de": "antworten",
+    "en": "answer",
+    "ru": "ответить",
+    "uk": "відповідати",
+    "tr": "cevaplamak"
+  },
+  "arbeiten": {
+    "de": "arbeiten",
+    "en": "work",
+    "ru": "работать",
+    "uk": "працювати",
+    "tr": "çalışmak"
+  },
+  "aufräumen": {
+    "de": "aufräumen",
+    "en": "tidy up",
+    "ru": "прибраться",
+    "uk": "навести порядок",
+    "tr": "toparlamak"
+  },
+  "aufstehen": {
+    "de": "aufstehen",
+    "en": "get up",
+    "ru": "вставать",
+    "uk": "вставати",
+    "tr": "kalkmak"
+  },
+  "ausfüllen": {
+    "de": "ausfüllen",
+    "en": "fill in",
+    "ru": "заполнить",
+    "uk": "заповнити",
+    "tr": "doldurmak"
+  },
+  "ausgehen": {
+    "de": "ausgehen",
+    "en": "go out",
+    "ru": "выйти",
+    "uk": "виходити",
+    "tr": "dışarı çıkmak"
+  },
+  "aussteigen": {
+    "de": "aussteigen",
+    "en": "get out of a vehicle",
+    "ru": "выйти из автомобиля",
+    "uk": "вийти з транспортного засобу",
+    "tr": "bir araçtan inmek"
+  },
+  "backen": {
+    "de": "backen",
+    "en": "bake",
+    "ru": "печь",
+    "uk": "пекти",
+    "tr": "fırında pişirmek"
+  },
+  "beantworten": {
+    "de": "beantworten",
+    "en": "answer a question",
+    "ru": "ответить на вопрос",
+    "uk": "відповісти на запитання",
+    "tr": "bir soruyu cevaplamak"
+  },
+  "begrüßen": {
+    "de": "begrüßen",
+    "en": "greet",
+    "ru": "приветствовать",
+    "uk": "вітати",
+    "tr": "selamlamak"
+  },
+  "benennen": {
+    "de": "benennen",
+    "en": "name",
+    "ru": "назвать",
+    "uk": "називати",
+    "tr": "isim vermek"
+  },
+  "beschreiben": {
+    "de": "beschreiben",
+    "en": "describe",
+    "ru": "описать",
+    "uk": "описати",
+    "tr": "tarif etmek"
+  },
+  "bezahlen": {
+    "de": "bezahlen",
+    "en": "pay",
+    "ru": "платить",
+    "uk": "платити",
+    "tr": "ödemek"
+  },
+  "bilden": {
+    "de": "bilden",
+    "en": "form",
+    "ru": "формировать",
+    "uk": "формувати",
+    "tr": "oluşturmak"
+  },
+  "bitten": {
+    "de": "bitten",
+    "en": "ask for something",
+    "ru": "попросить что-то",
+    "uk": "просити щось",
+    "tr": "bir şey istemek"
+  },
+  "bleiben": {
+    "de": "bleiben",
+    "en": "stay",
+    "ru": "оставаться",
+    "uk": "залишатися",
+    "tr": "kalmak"
+  },
+  "brauchen": {
+    "de": "brauchen",
+    "en": "need",
+    "ru": "нуждаться / быть нужным",
+    "uk": "потребувати",
+    "tr": "ihtiyaç duymak"
+  },
+  "bringen": {
+    "de": "bringen",
+    "en": "bring",
+    "ru": "приносить; привозить",
+    "uk": "приносити / привозити",
+    "tr": "getirmek"
+  },
+  "buchstabieren": {
+    "de": "buchstabieren",
+    "en": "spell",
+    "ru": "произносить по буквам",
+    "uk": "називати по літерах",
+    "tr": "harf harf söylemek"
+  },
+  "chatten": {
+    "de": "chatten",
+    "en": "chat",
+    "ru": "переписываться в чате",
+    "uk": "спілкуватися в чаті",
+    "tr": "sohbet etmek; mesajlaşmak"
+  },
+  "danken": {
+    "de": "danken",
+    "en": "thank",
+    "ru": "поблагодарить",
+    "uk": "дякувати",
+    "tr": "teşekkür etmek"
+  },
+  "diktieren": {
+    "de": "diktieren",
+    "en": "dictate",
+    "ru": "диктовать",
+    "uk": "диктувати",
+    "tr": "dikte etmek"
+  },
+  "einkaufen": {
+    "de": "einkaufen",
+    "en": "shop / go shopping",
+    "ru": "делать покупки",
+    "uk": "робити покупки",
+    "tr": "alışveriş yapmak"
+  },
+  "enden": {
+    "de": "enden",
+    "en": "end",
+    "ru": "заканчиваться",
+    "uk": "закінчуватися",
+    "tr": "sona ermek"
+  },
+  "sich entschuldigen": {
+    "de": "sich entschuldigen",
+    "en": "apologize",
+    "ru": "извиниться",
+    "uk": "вибачитися",
+    "tr": "özür dilemek"
+  },
+  "ergänzen": {
+    "de": "ergänzen",
+    "en": "add missing information",
+    "ru": "дополнять",
+    "uk": "доповнювати",
+    "tr": "tamamlamak"
+  },
+  "erzählen": {
+    "de": "erzählen",
+    "en": "tell a story",
+    "ru": "рассказать историю",
+    "uk": "розповісти історію",
+    "tr": "bir hikaye anlatmak"
+  },
+  "essen": {
+    "de": "essen",
+    "en": "eat",
+    "ru": "есть",
+    "uk": "їсти",
+    "tr": "yemek"
+  },
+  "fahren": {
+    "de": "fahren",
+    "en": "travel by vehicle",
+    "ru": "путешествовать на транспортном средстве",
+    "uk": "подорожувати транспортним засобом",
+    "tr": "araçla seyahat etmek"
+  },
+  "fernsehen": {
+    "de": "fernsehen",
+    "en": "watch television",
+    "ru": "смотреть телевизор",
+    "uk": "дивитися телевізор",
+    "tr": "televizyon izlemek"
+  },
+  "finden": {
+    "de": "finden",
+    "en": "find",
+    "ru": "находить (Wo finde ich …?)",
+    "uk": "знаходити",
+    "tr": "bulmak (Nerede bulabilirim …?)"
+  },
+  "fotografieren": {
+    "de": "fotografieren",
+    "en": "take photographs",
+    "ru": "фотографировать",
+    "uk": "фотографувати",
+    "tr": "fotoğraf çekmek"
+  },
+  "fragen": {
+    "de": "fragen",
+    "en": "ask a question",
+    "ru": "задать вопрос",
+    "uk": "поставити питання",
+    "tr": "soru sormak"
+  },
+  "sich freuen": {
+    "de": "sich freuen",
+    "en": "be happy",
+    "ru": "быть счастливым",
+    "uk": "бути щасливим",
+    "tr": "mutlu olmak"
+  },
+  "frühstücken": {
+    "de": "frühstücken",
+    "en": "have breakfast",
+    "ru": "завтракать",
+    "uk": "снідати",
+    "tr": "kahvaltı yapmak"
+  },
+  "führen": {
+    "de": "führen",
+    "en": "lead",
+    "ru": "вести",
+    "uk": "керувати",
+    "tr": "liderlik etmek"
+  },
+  "geben": {
+    "de": "geben",
+    "en": "give",
+    "ru": "дать",
+    "uk": "дарувати",
+    "tr": "vermek"
+  },
+  "gefallen": {
+    "de": "gefallen",
+    "en": "like; please",
+    "ru": "нравиться",
+    "uk": "подобатися",
+    "tr": "hoşa gitmek"
+  },
+  "gehen": {
+    "de": "gehen",
+    "en": "go",
+    "ru": "идти; ходить",
+    "uk": "іти / ходити",
+    "tr": "gitmek"
+  },
+  "grillen": {
+    "de": "grillen",
+    "en": "barbecue",
+    "ru": "жарить на гриле",
+    "uk": "смажити на грилі",
+    "tr": "ızgara yapmak"
+  },
+  "haben": {
+    "de": "haben",
+    "en": "have",
+    "ru": "иметь",
+    "uk": "мати",
+    "tr": "sahip olmak"
+  },
+  "heißen": {
+    "de": "heißen",
+    "en": "be called",
+    "ru": "звать(ся) (ich heiße, du heißt, Sie heißen)",
+    "uk": "зватися",
+    "tr": "adım … (ben …, sen …, siz …)"
+  },
+  "helfen": {
+    "de": "helfen",
+    "en": "help",
+    "ru": "помогать (Kann ich Ihnen helfen?)",
+    "uk": "допомагати",
+    "tr": "yardım etmek (Size yardımcı olabilir miyim?)"
+  },
+  "herumgehen": {
+    "de": "herumgehen",
+    "en": "walk around",
+    "ru": "ходить вокруг",
+    "uk": "ходити навколо",
+    "tr": "etrafta dolaşmak"
+  },
+  "hören": {
+    "de": "hören",
+    "en": "hear",
+    "ru": "слышать",
+    "uk": "чути",
+    "tr": "duymak"
+  },
+  "sich informieren": {
+    "de": "sich informieren",
+    "en": "get information",
+    "ru": "получить информацию",
+    "uk": "отримати інформацію",
+    "tr": "bilgi almak"
+  },
+  "jonglieren": {
+    "de": "jonglieren",
+    "en": "juggle",
+    "ru": "жонглировать",
+    "uk": "жонглювати",
+    "tr": "hokkabazlık yapmak"
+  },
+  "kaufen": {
+    "de": "kaufen",
+    "en": "buy",
+    "ru": "покупать",
+    "uk": "купувати",
+    "tr": "satın almak"
+  },
+  "kennen": {
+    "de": "kennen",
+    "en": "know; be familiar with",
+    "ru": "знать; быть знакомым",
+    "uk": "знати / бути знайомим з",
+    "tr": "tanımak; bilmek"
+  },
+  "klettern": {
+    "de": "klettern",
+    "en": "climb",
+    "ru": "подняться",
+    "uk": "лазити",
+    "tr": "tırmanmak"
+  },
+  "kochen": {
+    "de": "kochen",
+    "en": "cook",
+    "ru": "готовить",
+    "uk": "готувати їжу",
+    "tr": "yemek pişirmek"
+  },
+  "kommen": {
+    "de": "kommen",
+    "en": "come",
+    "ru": "приходить; приезжать",
+    "uk": "приходити / приїжджати",
+    "tr": "gelmek"
+  },
+  "können": {
+    "de": "können",
+    "en": "be able to",
+    "ru": "иметь возможность",
+    "uk": "вміти",
+    "tr": "yapabilmek"
+  },
+  "korrigieren": {
+    "de": "korrigieren",
+    "en": "correct",
+    "ru": "исправить",
+    "uk": "виправити",
+    "tr": "düzeltmek"
+  },
+  "kosten": {
+    "de": "kosten",
+    "en": "cost",
+    "ru": "стоить",
+    "uk": "коштувати",
+    "tr": "maliyeti olmak"
+  },
+  "leben": {
+    "de": "leben",
+    "en": "live",
+    "ru": "жить",
+    "uk": "жити",
+    "tr": "yaşamak"
+  },
+  "leidtun": {
+    "de": "leidtun",
+    "en": "be sorry",
+    "ru": "быть жаль",
+    "uk": "бути шкода",
+    "tr": "üzmek; üzgün olmak"
+  },
+  "lernen": {
+    "de": "lernen",
+    "en": "learn; study",
+    "ru": "учить; учиться",
+    "uk": "учити / навчатися",
+    "tr": "öğrenmek; çalışmak"
+  },
+  "lesen": {
+    "de": "lesen",
+    "en": "read",
+    "ru": "читать",
+    "uk": "читати",
+    "tr": "okumak"
+  },
+  "sich lieben": {
+    "de": "sich lieben",
+    "en": "love each other",
+    "ru": "любить друг друга",
+    "uk": "любити один одного",
+    "tr": "birbirimizi sevmek"
+  },
+  "liegen": {
+    "de": "liegen",
+    "en": "lie (be horizontal)",
+    "ru": "лежать",
+    "uk": "лежати",
+    "tr": "yatmak"
+  },
+  "losfahren": {
+    "de": "losfahren",
+    "en": "set off by vehicle",
+    "ru": "отправиться в путь на транспортном средстве",
+    "uk": "вирушити транспортним засобом",
+    "tr": "araçla yola çıkmak"
+  },
+  "losgehen": {
+    "de": "losgehen",
+    "en": "set off",
+    "ru": "отправляться; начинать путь",
+    "uk": "вирушати",
+    "tr": "yola çıkmak; başlamak"
+  },
+  "machen": {
+    "de": "machen",
+    "en": "do; make",
+    "ru": "делать",
+    "uk": "робити",
+    "tr": "yapmak"
+  },
+  "malen": {
+    "de": "malen",
+    "en": "paint",
+    "ru": "рисовать",
+    "uk": "малювати",
+    "tr": "boyamak"
+  },
+  "markieren": {
+    "de": "markieren",
+    "en": "mark",
+    "ru": "отмечать",
+    "uk": "позначати",
+    "tr": "işaretlemek"
+  },
+  "meinen": {
+    "de": "meinen",
+    "en": "mean",
+    "ru": "иметь в виду (Was meinen Sie?)",
+    "uk": "мати на увазі",
+    "tr": "demek istemek (Ne demek istiyorsunuz?)"
+  },
+  "sich merken": {
+    "de": "sich merken",
+    "en": "memorize",
+    "ru": "запоминать",
+    "uk": "запам'ятовувати",
+    "tr": "ezberlemek"
+  },
+  "missfallen": {
+    "de": "missfallen",
+    "en": "be displeasing",
+    "ru": "не нравиться",
+    "uk": "не подобатися",
+    "tr": "hoşa gitmemek"
+  },
+  "mitkommen": {
+    "de": "mitkommen",
+    "en": "come along",
+    "ru": "идти вместе",
+    "uk": "йти разом",
+    "tr": "birlikte gelmek"
+  },
+  "mögen": {
+    "de": "mögen",
+    "en": "like",
+    "ru": "нравиться",
+    "uk": "подобатися",
+    "tr": "hoşlanmak"
+  },
+  "nachfragen": {
+    "de": "nachfragen",
+    "en": "ask for clarification",
+    "ru": "попросить разъяснений",
+    "uk": "просити роз'яснення",
+    "tr": "açıklama istemek"
+  },
+  "nachsprechen": {
+    "de": "nachsprechen",
+    "en": "repeat what someone says",
+    "ru": "повторять то, что кто-то говорит",
+    "uk": "повторювати те, що хтось говорить",
+    "tr": "birinin söylediğini tekrarlamak"
+  },
+  "nehmen": {
+    "de": "nehmen",
+    "en": "take",
+    "ru": "брать",
+    "uk": "брати",
+    "tr": "almak"
+  },
+  "nennen": {
+    "de": "nennen",
+    "en": "name",
+    "ru": "назвать",
+    "uk": "називати",
+    "tr": "isim vermek"
+  },
+  "notieren": {
+    "de": "notieren",
+    "en": "note down",
+    "ru": "записать",
+    "uk": "занотовувати",
+    "tr": "not etmek"
+  },
+  "öffnen": {
+    "de": "öffnen",
+    "en": "open",
+    "ru": "открыть",
+    "uk": "відкрити",
+    "tr": "açmak"
+  },
+  "passen": {
+    "de": "passen",
+    "en": "fit",
+    "ru": "подходить",
+    "uk": "пасувати; підходити",
+    "tr": "uymak"
+  },
+  "planen": {
+    "de": "planen",
+    "en": "plan",
+    "ru": "планировать",
+    "uk": "планувати",
+    "tr": "planlamak"
+  },
+  "raten": {
+    "de": "raten",
+    "en": "guess; advise",
+    "ru": "гадать; советовать",
+    "uk": "відгадувати; радити",
+    "tr": "tahmin etmek; tavsiyede bulunmak"
+  },
+  "recherchieren": {
+    "de": "recherchieren",
+    "en": "research",
+    "ru": "исследовать",
+    "uk": "досліджувати",
+    "tr": "araştırmak"
+  },
+  "regnen": {
+    "de": "regnen",
+    "en": "rain",
+    "ru": "идти (о дожде)",
+    "uk": "йти (про дощ)",
+    "tr": "yağmur yağmak"
+  },
+  "reiten": {
+    "de": "reiten",
+    "en": "ride a horse",
+    "ru": "ездить верхом",
+    "uk": "їздити верхи",
+    "tr": "ata binmek"
+  },
+  "sagen": {
+    "de": "sagen",
+    "en": "say",
+    "ru": "сказать",
+    "uk": "сказати",
+    "tr": "söylemek"
+  },
+  "sammeln": {
+    "de": "sammeln",
+    "en": "collect",
+    "ru": "собирать",
+    "uk": "збирати",
+    "tr": "toplamak"
+  },
+  "schauen": {
+    "de": "schauen",
+    "en": "look",
+    "ru": "смотреть",
+    "uk": "дивитися",
+    "tr": "bakmak"
+  },
+  "scheinen": {
+    "de": "scheinen",
+    "en": "shine; seem",
+    "ru": "сиять; казаться",
+    "uk": "сяяти; здаватися",
+    "tr": "parlamak; görünmek"
+  },
+  "schlafen": {
+    "de": "schlafen",
+    "en": "sleep",
+    "ru": "спать",
+    "uk": "спати",
+    "tr": "uyumak"
+  },
+  "schließen": {
+    "de": "schließen",
+    "en": "close",
+    "ru": "закрыть",
+    "uk": "закрити",
+    "tr": "kapatmak"
+  },
+  "schmecken": {
+    "de": "schmecken",
+    "en": "taste",
+    "ru": "иметь вкус; нравиться на вкус",
+    "uk": "мати смак; смакувати",
+    "tr": "tadı olmak; lezzetli gelmek"
+  },
+  "schneien": {
+    "de": "schneien",
+    "en": "snow",
+    "ru": "идти (о снеге)",
+    "uk": "йти (про сніг)",
+    "tr": "kar yağmak"
+  },
+  "schreiben": {
+    "de": "schreiben",
+    "en": "write",
+    "ru": "писать",
+    "uk": "писати",
+    "tr": "yazmak"
+  },
+  "schwimmen": {
+    "de": "schwimmen",
+    "en": "swim",
+    "ru": "плавать",
+    "uk": "плавати",
+    "tr": "yüzmek"
+  },
+  "sehen": {
+    "de": "sehen",
+    "en": "see",
+    "ru": "видеть",
+    "uk": "побачити",
+    "tr": "görmek"
+  },
+  "sein": {
+    "de": "sein",
+    "en": "be",
+    "ru": "быть (ich bin, du bist, Sie sind)",
+    "uk": "бути",
+    "tr": "olmak (ben …im, sen …sin, siz …siniz)"
+  },
+  "singen": {
+    "de": "singen",
+    "en": "sing",
+    "ru": "петь",
+    "uk": "співати",
+    "tr": "şarkı söylemek"
+  },
+  "spazieren gehen": {
+    "de": "spazieren gehen",
+    "en": "go for a walk",
+    "ru": "идти гулять",
+    "uk": "гуляти / йти на прогулянку",
+    "tr": "yürüyüşe çıkmak"
+  },
+  "spielen": {
+    "de": "spielen",
+    "en": "play",
+    "ru": "играть",
+    "uk": "грати",
+    "tr": "oynamak"
+  },
+  "sprechen": {
+    "de": "sprechen",
+    "en": "speak",
+    "ru": "говорить (ich spreche, du sprichst, Sie sprechen)",
+    "uk": "говорити",
+    "tr": "konuşmak (ben konuşuyorum, sen konuşuyorsun, siz konuşuyorsunuz)"
+  },
+  "steigen": {
+    "de": "steigen",
+    "en": "rise; climb",
+    "ru": "подниматься",
+    "uk": "підніматися",
+    "tr": "yükselmek"
+  },
+  "stellen": {
+    "de": "stellen",
+    "en": "put in an upright position",
+    "ru": "поставить в вертикальное положение",
+    "uk": "поставити у вертикальне положення",
+    "tr": "dik pozisyona getirmek"
+  },
+  "stimmen": {
+    "de": "stimmen",
+    "en": "be correct",
+    "ru": "быть правильным",
+    "uk": "бути правильним",
+    "tr": "doğru olmak"
+  },
+  "stricken": {
+    "de": "stricken",
+    "en": "knit",
+    "ru": "вязать",
+    "uk": "в'язати",
+    "tr": "örgü örmek"
+  },
+  "studieren": {
+    "de": "studieren",
+    "en": "study at university",
+    "ru": "учиться в университете",
+    "uk": "вчитися в університеті",
+    "tr": "üniversitede okumak"
+  },
+  "suchen": {
+    "de": "suchen",
+    "en": "look for",
+    "ru": "искать",
+    "uk": "шукати",
+    "tr": "aramak"
+  },
+  "surfen": {
+    "de": "surfen",
+    "en": "surf",
+    "ru": "заниматься серфингом",
+    "uk": "займатися серфінгом",
+    "tr": "sörf yapmak"
+  },
+  "tanzen": {
+    "de": "tanzen",
+    "en": "dance",
+    "ru": "танцевать",
+    "uk": "танцювати",
+    "tr": "dans etmek"
+  },
+  "tauschen": {
+    "de": "tauschen",
+    "en": "exchange",
+    "ru": "обменивать",
+    "uk": "обміняти",
+    "tr": "takas etmek"
+  },
+  "telefonieren": {
+    "de": "telefonieren",
+    "en": "talk on the phone",
+    "ru": "говорить по телефону",
+    "uk": "розмовляти телефоном",
+    "tr": "telefon etmek"
+  },
+  "treffen": {
+    "de": "treffen",
+    "en": "meet",
+    "ru": "встретиться",
+    "uk": "зустрічатися",
+    "tr": "buluşmak"
+  },
+  "trinken": {
+    "de": "trinken",
+    "en": "drink",
+    "ru": "пить",
+    "uk": "пити",
+    "tr": "içmek"
+  },
+  "üben": {
+    "de": "üben",
+    "en": "practice",
+    "ru": "практиковать",
+    "uk": "практикувати",
+    "tr": "pratik yapmak"
+  },
+  "variieren": {
+    "de": "variieren",
+    "en": "vary",
+    "ru": "меняться",
+    "uk": "варіювати",
+    "tr": "değişmek"
+  },
+  "sich verabschieden": {
+    "de": "sich verabschieden",
+    "en": "say goodbye",
+    "ru": "попрощаться",
+    "uk": "попрощатися",
+    "tr": "veda etmek"
+  },
+  "verbinden": {
+    "de": "verbinden",
+    "en": "connect",
+    "ru": "соединять",
+    "uk": "з'єднувати",
+    "tr": "bağlamak"
+  },
+  "vergessen": {
+    "de": "vergessen",
+    "en": "forget",
+    "ru": "забыть",
+    "uk": "забувати",
+    "tr": "unutmak"
+  },
+  "vergleichen": {
+    "de": "vergleichen",
+    "en": "compare",
+    "ru": "сравнивать",
+    "uk": "порівнювати",
+    "tr": "karşılaştırmak"
+  },
+  "verkaufen": {
+    "de": "verkaufen",
+    "en": "sell",
+    "ru": "продать",
+    "uk": "продавати",
+    "tr": "satmak"
+  },
+  "vermieten": {
+    "de": "vermieten",
+    "en": "rent out",
+    "ru": "сдавать в аренду",
+    "uk": "здавати в оренду",
+    "tr": "kiraya vermek"
+  },
+  "verneinen": {
+    "de": "verneinen",
+    "en": "say no",
+    "ru": "сказать нет",
+    "uk": "сказати ні",
+    "tr": "hayır demek"
+  },
+  "verstehen": {
+    "de": "verstehen",
+    "en": "understand",
+    "ru": "понимать",
+    "uk": "розуміти",
+    "tr": "anlamak"
+  },
+  "sich vorstellen": {
+    "de": "sich vorstellen",
+    "en": "introduce oneself",
+    "ru": "представиться",
+    "uk": "представитися",
+    "tr": "kendini tanıtmak"
+  },
+  "wandern": {
+    "de": "wandern",
+    "en": "hike",
+    "ru": "ходить в походы; заниматься пешим туризмом",
+    "uk": "ходити в походи",
+    "tr": "doğa yürüyüşü yapmak"
+  },
+  "waschen": {
+    "de": "waschen",
+    "en": "wash",
+    "ru": "мыть",
+    "uk": "мити",
+    "tr": "yıkamak"
+  },
+  "wecken": {
+    "de": "wecken",
+    "en": "wake someone up",
+    "ru": "разбудить кого-то",
+    "uk": "розбудити когось",
+    "tr": "birini uyandırmak"
+  },
+  "wissen": {
+    "de": "wissen",
+    "en": "know a fact",
+    "ru": "знать факт",
+    "uk": "знати факт",
+    "tr": "bir gerçeği bilmek"
+  },
+  "wohnen": {
+    "de": "wohnen",
+    "en": "live (reside)",
+    "ru": "проживать / жить (по адресу)",
+    "uk": "проживати / мешкати",
+    "tr": "oturmak / ikamet etmek"
+  },
+  "wollen": {
+    "de": "wollen",
+    "en": "want",
+    "ru": "хотеть",
+    "uk": "хотіти",
+    "tr": "istemek"
+  },
+  "zählen": {
+    "de": "zählen",
+    "en": "count",
+    "ru": "считать",
+    "uk": "рахувати",
+    "tr": "saymak"
+  },
+  "zeichnen": {
+    "de": "zeichnen",
+    "en": "draw",
+    "ru": "рисовать",
+    "uk": "малювати",
+    "tr": "çizmek"
+  },
+  "zeigen": {
+    "de": "zeigen",
+    "en": "show",
+    "ru": "показать",
+    "uk": "показати",
+    "tr": "göstermek"
+  },
+  "zuordnen": {
+    "de": "zuordnen",
+    "en": "assign to a category",
+    "ru": "соотносить; распределять",
+    "uk": "співвідносити; розподіляти",
+    "tr": "eşleştirmek"
+  },
+  "zurückkommen": {
+    "de": "zurückkommen",
+    "en": "come back",
+    "ru": "вернуться",
+    "uk": "повернутися",
+    "tr": "geri gelmek"
+  },
+  "zusammenleben": {
+    "de": "zusammenleben",
+    "en": "live together",
+    "ru": "жить вместе",
+    "uk": "жити разом",
+    "tr": "birlikte yaşamak"
+  },
+  "zustimmen": {
+    "de": "zustimmen",
+    "en": "agree",
+    "ru": "согласиться",
+    "uk": "погоджуватися",
+    "tr": "kabul etmek"
+  },
+  "abfahren": {
+    "de": "abfahren",
+    "en": "depart by vehicle",
+    "ru": "уехать на машине",
+    "uk": "виїхати транспортним засобом",
+    "tr": "araçla yola çıkmak"
+  },
+  "abgeben": {
+    "de": "abgeben",
+    "en": "hand in",
+    "ru": "сдать",
+    "uk": "здати",
+    "tr": "teslim etmek"
+  },
+  "achten": {
+    "de": "achten",
+    "en": "pay attention",
+    "ru": "обратить внимание",
+    "uk": "звертати увагу",
+    "tr": "dikkat etmek"
+  },
+  "anbieten": {
+    "de": "anbieten",
+    "en": "offer",
+    "ru": "предложить",
+    "uk": "пропонувати",
+    "tr": "teklif etmek"
+  },
+  "angeben": {
+    "de": "angeben",
+    "en": "state; show off",
+    "ru": "указывать; хвастаться",
+    "uk": "вказувати; хизуватися",
+    "tr": "belirtmek; gösteriş yapmak"
+  },
+  "ankommen": {
+    "de": "ankommen",
+    "en": "arrive",
+    "ru": "прибыть",
+    "uk": "прибути",
+    "tr": "varmak"
+  },
+  "anmachen": {
+    "de": "anmachen",
+    "en": "switch on",
+    "ru": "включить",
+    "uk": "увімкнути",
+    "tr": "açmak"
+  },
+  "sich anmelden": {
+    "de": "sich anmelden",
+    "en": "register",
+    "ru": "зарегистрироваться",
+    "uk": "зареєструватися",
+    "tr": "kayıt olmak"
+  },
+  "anprobieren": {
+    "de": "anprobieren",
+    "en": "try on clothing",
+    "ru": "примерить одежду",
+    "uk": "приміряти одяг",
+    "tr": "kıyafet denemek"
+  },
+  "ansprechen": {
+    "de": "ansprechen",
+    "en": "address someone",
+    "ru": "обратиться к кому-то",
+    "uk": "звертатися до когось",
+    "tr": "birine hitap etmek"
+  },
+  "sich anziehen": {
+    "de": "sich anziehen",
+    "en": "get dressed",
+    "ru": "одеться",
+    "uk": "одягатися",
+    "tr": "giyinmek"
+  },
+  "aufmachen": {
+    "de": "aufmachen",
+    "en": "open",
+    "ru": "открыть",
+    "uk": "відкрити",
+    "tr": "açmak"
+  },
+  "aufrufen": {
+    "de": "aufrufen",
+    "en": "call up",
+    "ru": "вызывать; открывать",
+    "uk": "викликати; відкривати",
+    "tr": "çağırmak; açmak"
+  },
+  "ausdrucken": {
+    "de": "ausdrucken",
+    "en": "print out",
+    "ru": "распечатать",
+    "uk": "роздрукувати",
+    "tr": "çıktı almak"
+  },
+  "ausfallen": {
+    "de": "ausfallen",
+    "en": "be cancelled",
+    "ru": "отменяться; выходить из строя",
+    "uk": "скасовуватися; виходити з ладу",
+    "tr": "iptal olmak; arızalanmak"
+  },
+  "ausmachen": {
+    "de": "ausmachen",
+    "en": "switch off",
+    "ru": "выключить",
+    "uk": "вимкнути",
+    "tr": "kapatmak"
+  },
+  "ausschalten": {
+    "de": "ausschalten",
+    "en": "turn off",
+    "ru": "выключить",
+    "uk": "вимкнути",
+    "tr": "kapatmak"
+  },
+  "ausschlafen": {
+    "de": "ausschlafen",
+    "en": "sleep in",
+    "ru": "высыпаться",
+    "uk": "висипатися",
+    "tr": "uykusunu almak"
+  },
+  "aussehen": {
+    "de": "aussehen",
+    "en": "look; appear",
+    "ru": "выглядеть",
+    "uk": "виглядати",
+    "tr": "görünmek"
+  },
+  "auswählen": {
+    "de": "auswählen",
+    "en": "select",
+    "ru": "выбрать",
+    "uk": "вибрати",
+    "tr": "seçmek"
+  },
+  "basteln": {
+    "de": "basteln",
+    "en": "make crafts",
+    "ru": "делать поделки",
+    "uk": "робити вироби",
+    "tr": "el sanatları yapmak"
+  },
+  "beantragen": {
+    "de": "beantragen",
+    "en": "apply for",
+    "ru": "подать заявку на",
+    "uk": "подати заявку на",
+    "tr": "başvurmak"
+  },
+  "bedeuten": {
+    "de": "bedeuten",
+    "en": "mean",
+    "ru": "означать",
+    "uk": "мати на увазі",
+    "tr": "demek"
+  },
+  "beginnen": {
+    "de": "beginnen",
+    "en": "begin",
+    "ru": "начать",
+    "uk": "почати",
+    "tr": "başlamak"
+  },
+  "bekommen": {
+    "de": "bekommen",
+    "en": "receive",
+    "ru": "получать",
+    "uk": "отримати",
+    "tr": "almak"
+  },
+  "benutzen": {
+    "de": "benutzen",
+    "en": "use",
+    "ru": "использовать",
+    "uk": "використовувати",
+    "tr": "kullanmak"
+  },
+  "bestellen": {
+    "de": "bestellen",
+    "en": "order",
+    "ru": "заказывать",
+    "uk": "замовляти",
+    "tr": "sipariş etmek"
+  },
+  "besuchen": {
+    "de": "besuchen",
+    "en": "visit",
+    "ru": "посещать; навещать",
+    "uk": "відвідувати",
+    "tr": "ziyaret etmek"
+  },
+  "bewerten": {
+    "de": "bewerten",
+    "en": "evaluate",
+    "ru": "оценивать",
+    "uk": "оцінювати",
+    "tr": "değerlendirmek"
+  },
+  "brennen": {
+    "de": "brennen",
+    "en": "burn",
+    "ru": "гореть",
+    "uk": "горіти",
+    "tr": "yanmak"
+  },
+  "dauern": {
+    "de": "dauern",
+    "en": "last",
+    "ru": "длиться",
+    "uk": "тривати",
+    "tr": "sürmek"
+  },
+  "decken": {
+    "de": "decken",
+    "en": "cover",
+    "ru": "покрыть",
+    "uk": "покривати",
+    "tr": "örtmek"
+  },
+  "denken": {
+    "de": "denken",
+    "en": "think",
+    "ru": "думать",
+    "uk": "думати",
+    "tr": "düşünmek"
+  },
+  "drücken": {
+    "de": "drücken",
+    "en": "press",
+    "ru": "нажать",
+    "uk": "натиснути",
+    "tr": "basmak"
+  },
+  "dürfen": {
+    "de": "dürfen",
+    "en": "be allowed to",
+    "ru": "иметь разрешение",
+    "uk": "мати дозвіл",
+    "tr": "izinli olmak; yapabilmek"
+  },
+  "sich duschen": {
+    "de": "sich duschen",
+    "en": "take a shower",
+    "ru": "принять душ",
+    "uk": "прийняти душ",
+    "tr": "duş almak"
+  },
+  "einladen": {
+    "de": "einladen",
+    "en": "invite",
+    "ru": "пригласить",
+    "uk": "запросити",
+    "tr": "davet etmek"
+  },
+  "einschalten": {
+    "de": "einschalten",
+    "en": "switch on",
+    "ru": "включить",
+    "uk": "увімкнути",
+    "tr": "açmak"
+  },
+  "einsteigen": {
+    "de": "einsteigen",
+    "en": "get into a vehicle",
+    "ru": "сесть в транспортное средство",
+    "uk": "сісти в транспортний засіб",
+    "tr": "bir araca binmek"
+  },
+  "empfehlen": {
+    "de": "empfehlen",
+    "en": "recommend",
+    "ru": "рекомендовать",
+    "uk": "рекомендувати",
+    "tr": "tavsiye etmek"
+  },
+  "entspannen": {
+    "de": "entspannen",
+    "en": "relax",
+    "ru": "расслабиться",
+    "uk": "розслабитися",
+    "tr": "rahatlamak"
+  },
+  "erklären": {
+    "de": "erklären",
+    "en": "explain",
+    "ru": "объяснить",
+    "uk": "пояснювати",
+    "tr": "açıklamak"
+  },
+  "erlauben": {
+    "de": "erlauben",
+    "en": "allow",
+    "ru": "позволить",
+    "uk": "дозволити",
+    "tr": "izin vermek"
+  },
+  "erledigen": {
+    "de": "erledigen",
+    "en": "complete a task",
+    "ru": "выполнить задачу",
+    "uk": "виконати завдання",
+    "tr": "bir görevi tamamlamak"
+  },
+  "erreichen": {
+    "de": "erreichen",
+    "en": "reach",
+    "ru": "достичь",
+    "uk": "досягти",
+    "tr": "ulaşmak"
+  },
+  "erziehen": {
+    "de": "erziehen",
+    "en": "raise a child",
+    "ru": "воспитывать ребенка",
+    "uk": "виховувати дитину",
+    "tr": "çocuk büyütmek"
+  },
+  "feiern": {
+    "de": "feiern",
+    "en": "celebrate",
+    "ru": "праздновать",
+    "uk": "святкувати",
+    "tr": "kutlamak"
+  },
+  "fliegen": {
+    "de": "fliegen",
+    "en": "fly",
+    "ru": "летать",
+    "uk": "літати",
+    "tr": "uçmak"
+  },
+  "formulieren": {
+    "de": "formulieren",
+    "en": "formulate",
+    "ru": "сформулировать",
+    "uk": "формулювати",
+    "tr": "formüle etmek"
+  },
+  "frisieren": {
+    "de": "frisieren",
+    "en": "style hair",
+    "ru": "укладывать волосы",
+    "uk": "укладати волосся",
+    "tr": "saça şekil vermek"
+  },
+  "funktionieren": {
+    "de": "funktionieren",
+    "en": "function",
+    "ru": "функционировать",
+    "uk": "функціонувати",
+    "tr": "işlev görmek"
+  },
+  "gehören": {
+    "de": "gehören",
+    "en": "belong",
+    "ru": "принадлежать",
+    "uk": "належати",
+    "tr": "ait olmak"
+  },
+  "gewinnen": {
+    "de": "gewinnen",
+    "en": "win",
+    "ru": "выиграть",
+    "uk": "виграти",
+    "tr": "kazanmak"
+  },
+  "gliedern": {
+    "de": "gliedern",
+    "en": "structure",
+    "ru": "структурировать",
+    "uk": "структурувати",
+    "tr": "yapılandırmak"
+  },
+  "gratulieren": {
+    "de": "gratulieren",
+    "en": "congratulate",
+    "ru": "поздравить",
+    "uk": "привітати",
+    "tr": "tebrik etmek"
+  },
+  "heiraten": {
+    "de": "heiraten",
+    "en": "marry",
+    "ru": "жениться",
+    "uk": "вийти заміж",
+    "tr": "evlenmek"
+  },
+  "herunterladen": {
+    "de": "herunterladen",
+    "en": "download",
+    "ru": "скачать",
+    "uk": "завантажити",
+    "tr": "indirmek"
+  },
+  "hingehen": {
+    "de": "hingehen",
+    "en": "go there",
+    "ru": "пойти туда",
+    "uk": "піти туди",
+    "tr": "oraya gitmek"
+  },
+  "hinterlassen": {
+    "de": "hinterlassen",
+    "en": "leave behind",
+    "ru": "оставить позади",
+    "uk": "залишити позаду",
+    "tr": "geride bırakmak"
+  },
+  "holen": {
+    "de": "holen",
+    "en": "fetch",
+    "ru": "принести",
+    "uk": "приносити",
+    "tr": "getirmek"
+  },
+  "sich kennenlernen": {
+    "de": "sich kennenlernen",
+    "en": "get to know each other",
+    "ru": "знакомиться друг с другом",
+    "uk": "знайомитися одне з одним",
+    "tr": "birbirini tanımak"
+  },
+  "kopieren": {
+    "de": "kopieren",
+    "en": "copy",
+    "ru": "копировать",
+    "uk": "копіювати",
+    "tr": "kopyalamak"
+  },
+  "kühlen": {
+    "de": "kühlen",
+    "en": "cool",
+    "ru": "охладить",
+    "uk": "охолодити",
+    "tr": "soğutmak"
+  },
+  "lachen": {
+    "de": "lachen",
+    "en": "laugh",
+    "ru": "смеяться",
+    "uk": "сміятися",
+    "tr": "gülmek"
+  },
+  "leihen": {
+    "de": "leihen",
+    "en": "lend; borrow",
+    "ru": "давать взаймы; брать взаймы",
+    "uk": "позичати; позичати",
+    "tr": "ödünç vermek; ödünç almak"
+  },
+  "sich melden": {
+    "de": "sich melden",
+    "en": "get in touch",
+    "ru": "связываться; сообщать о себе",
+    "uk": "зв'язуватися; повідомляти про себе",
+    "tr": "haber vermek"
+  },
+  "mieten": {
+    "de": "mieten",
+    "en": "rent",
+    "ru": "арендовать",
+    "uk": "орендувати",
+    "tr": "kiralamak"
+  },
+  "mischen": {
+    "de": "mischen",
+    "en": "mix",
+    "ru": "смешивать",
+    "uk": "змішувати",
+    "tr": "karıştırmak"
+  },
+  "mitbringen": {
+    "de": "mitbringen",
+    "en": "bring along",
+    "ru": "приносить с собой",
+    "uk": "приносити із собою",
+    "tr": "yanında getirmek"
+  },
+  "mitmachen": {
+    "de": "mitmachen",
+    "en": "join in",
+    "ru": "присоединиться",
+    "uk": "приєднатися",
+    "tr": "katılmak"
+  },
+  "mitnehmen": {
+    "de": "mitnehmen",
+    "en": "take along",
+    "ru": "взять с собой",
+    "uk": "взяти з собою",
+    "tr": "yanına almak"
+  },
+  "mitsingen": {
+    "de": "mitsingen",
+    "en": "sing along",
+    "ru": "подпевать",
+    "uk": "підспівувати",
+    "tr": "birlikte şarkı söylemek"
+  },
+  "mixen": {
+    "de": "mixen",
+    "en": "mix",
+    "ru": "смешивать",
+    "uk": "змішувати",
+    "tr": "karıştırmak"
+  },
+  "müssen": {
+    "de": "müssen",
+    "en": "have to",
+    "ru": "быть обязанным",
+    "uk": "мусити",
+    "tr": "zorunda olmak"
+  },
+  "nachmachen": {
+    "de": "nachmachen",
+    "en": "imitate",
+    "ru": "подражать",
+    "uk": "наслідувати",
+    "tr": "taklit etmek"
+  },
+  "nähen": {
+    "de": "nähen",
+    "en": "sew",
+    "ru": "шить",
+    "uk": "шити",
+    "tr": "dikmek"
+  },
+  "organisieren": {
+    "de": "organisieren",
+    "en": "organize",
+    "ru": "организовать",
+    "uk": "організовувати",
+    "tr": "organize etmek"
+  },
+  "orientieren": {
+    "de": "orientieren",
+    "en": "give direction",
+    "ru": "дать направление",
+    "uk": "дати напрямок",
+    "tr": "yön vermek"
+  },
+  "parken": {
+    "de": "parken",
+    "en": "park a vehicle",
+    "ru": "припарковать автомобиль",
+    "uk": "паркувати автомобіль",
+    "tr": "bir aracı park etmek"
+  },
+  "passieren": {
+    "de": "passieren",
+    "en": "happen",
+    "ru": "произойти",
+    "uk": "статися",
+    "tr": "olmak"
+  },
+  "pfeifen": {
+    "de": "pfeifen",
+    "en": "whistle",
+    "ru": "свистеть",
+    "uk": "свистіти",
+    "tr": "ıslık çalmak"
+  },
+  "putzen": {
+    "de": "putzen",
+    "en": "clean",
+    "ru": "чистить",
+    "uk": "чистити",
+    "tr": "temizlemek"
+  },
+  "rauchen": {
+    "de": "rauchen",
+    "en": "smoke",
+    "ru": "курить",
+    "uk": "палити",
+    "tr": "sigara içmek"
+  },
+  "reichen": {
+    "de": "reichen",
+    "en": "be enough; hand over",
+    "ru": "быть достаточным; передать",
+    "uk": "бути достатньою; передати",
+    "tr": "yeterli olmak; teslim etmek"
+  },
+  "reinigen": {
+    "de": "reinigen",
+    "en": "clean",
+    "ru": "чистить",
+    "uk": "чистити",
+    "tr": "temizlemek"
+  },
+  "reisen": {
+    "de": "reisen",
+    "en": "travel",
+    "ru": "путешествовать",
+    "uk": "подорожувати",
+    "tr": "seyahat etmek"
+  },
+  "reparieren": {
+    "de": "reparieren",
+    "en": "repair",
+    "ru": "ремонтировать",
+    "uk": "ремонтувати",
+    "tr": "onarmak"
+  },
+  "reservieren": {
+    "de": "reservieren",
+    "en": "reserve",
+    "ru": "зарезервировать",
+    "uk": "резервувати",
+    "tr": "rezerve etmek"
+  },
+  "sauber machen": {
+    "de": "sauber machen",
+    "en": "clean",
+    "ru": "чистить",
+    "uk": "чистити",
+    "tr": "temizlemek"
+  },
+  "schaffen": {
+    "de": "schaffen",
+    "en": "manage; accomplish",
+    "ru": "справляться; выполнять",
+    "uk": "справлятися; виконувати",
+    "tr": "başarmak"
+  },
+  "schenken": {
+    "de": "schenken",
+    "en": "give a gift",
+    "ru": "подарить подарок",
+    "uk": "дарувати подарунок",
+    "tr": "hediye vermek"
+  },
+  "schicken": {
+    "de": "schicken",
+    "en": "send",
+    "ru": "отправить",
+    "uk": "відправити",
+    "tr": "göndermek"
+  },
+  "schlagen": {
+    "de": "schlagen",
+    "en": "hit",
+    "ru": "ударить",
+    "uk": "вдарити",
+    "tr": "vurmak"
+  },
+  "schneiden": {
+    "de": "schneiden",
+    "en": "cut",
+    "ru": "резать",
+    "uk": "різати",
+    "tr": "kesmek"
+  },
+  "sitzen": {
+    "de": "sitzen",
+    "en": "sit",
+    "ru": "сидеть",
+    "uk": "сидіти",
+    "tr": "oturmak"
+  },
+  "sollen": {
+    "de": "sollen",
+    "en": "be supposed to",
+    "ru": "быть должным",
+    "uk": "мати робити щось",
+    "tr": "yapması gerekmek"
+  },
+  "sortieren": {
+    "de": "sortieren",
+    "en": "sort",
+    "ru": "сортировать",
+    "uk": "сортувати",
+    "tr": "sıralamak"
+  },
+  "stehen": {
+    "de": "stehen",
+    "en": "stand",
+    "ru": "стоять",
+    "uk": "стояти",
+    "tr": "ayakta durmak"
+  },
+  "stempeln": {
+    "de": "stempeln",
+    "en": "stamp",
+    "ru": "штамповать",
+    "uk": "штампувати",
+    "tr": "damgalamak"
+  },
+  "trainieren": {
+    "de": "trainieren",
+    "en": "train",
+    "ru": "тренировать",
+    "uk": "тренуватися",
+    "tr": "eğitmek"
+  },
+  "tun": {
+    "de": "tun",
+    "en": "do",
+    "ru": "делать",
+    "uk": "робити",
+    "tr": "yapmak"
+  },
+  "umsteigen": {
+    "de": "umsteigen",
+    "en": "change trains",
+    "ru": "пересесть на поезд",
+    "uk": "пересісти на поїзд",
+    "tr": "tren değiştirmek"
+  },
+  "unterschreiben": {
+    "de": "unterschreiben",
+    "en": "sign",
+    "ru": "подписать",
+    "uk": "підписувати",
+    "tr": "imzalamak"
+  },
+  "verbieten": {
+    "de": "verbieten",
+    "en": "forbid",
+    "ru": "запретить",
+    "uk": "забороняти",
+    "tr": "yasaklamak"
+  },
+  "verdienen": {
+    "de": "verdienen",
+    "en": "earn",
+    "ru": "зарабатывать",
+    "uk": "заробляти",
+    "tr": "kazanmak"
+  },
+  "vereinbaren": {
+    "de": "vereinbaren",
+    "en": "arrange",
+    "ru": "договариваться",
+    "uk": "домовлятися",
+    "tr": "kararlaştırmak"
+  },
+  "vergeben": {
+    "de": "vergeben",
+    "en": "award; forgive",
+    "ru": "выдавать; прощать",
+    "uk": "надавати; прощати",
+    "tr": "vermek; affetmek"
+  },
+  "sich verletzen": {
+    "de": "sich verletzen",
+    "en": "injure oneself",
+    "ru": "поранить себя",
+    "uk": "поранити себе",
+    "tr": "kendine zarar vermek"
+  },
+  "verstecken": {
+    "de": "verstecken",
+    "en": "hide",
+    "ru": "спрятать",
+    "uk": "ховатися",
+    "tr": "saklamak"
+  },
+  "verwenden": {
+    "de": "verwenden",
+    "en": "use",
+    "ru": "использовать",
+    "uk": "використовувати",
+    "tr": "kullanmak"
+  },
+  "vorbeibringen": {
+    "de": "vorbeibringen",
+    "en": "drop something off",
+    "ru": "завозить; заносить",
+    "uk": "завозити; заносити",
+    "tr": "uğrayıp getirmek"
+  },
+  "vorbeikommen": {
+    "de": "vorbeikommen",
+    "en": "drop by",
+    "ru": "зайти",
+    "uk": "заскочити",
+    "tr": "uğramak"
+  },
+  "vorbereiten": {
+    "de": "vorbereiten",
+    "en": "prepare",
+    "ru": "подготовить",
+    "uk": "готувати",
+    "tr": "hazırlamak"
+  },
+  "wählen": {
+    "de": "wählen",
+    "en": "choose; vote",
+    "ru": "выбирать; голосовать",
+    "uk": "вибирати; голосувати",
+    "tr": "seçmek; oy vermek"
+  },
+  "warmhalten": {
+    "de": "warmhalten",
+    "en": "keep warm",
+    "ru": "держать тёплым",
+    "uk": "зберігати теплим",
+    "tr": "sıcak tutmak"
+  },
+  "warten": {
+    "de": "warten",
+    "en": "wait",
+    "ru": "ждать",
+    "uk": "чекати",
+    "tr": "beklemek"
+  },
+  "wehtun": {
+    "de": "wehtun",
+    "en": "hurt",
+    "ru": "причинять боль; болеть",
+    "uk": "завдавати болю; боліти",
+    "tr": "acımak; acıtmak"
+  },
+  "weitermachen": {
+    "de": "weitermachen",
+    "en": "continue",
+    "ru": "продолжать",
+    "uk": "продовжити",
+    "tr": "devam etmek"
+  },
+  "werden": {
+    "de": "werden",
+    "en": "become",
+    "ru": "стать",
+    "uk": "стати",
+    "tr": "olmak"
+  },
+  "wiederholen": {
+    "de": "wiederholen",
+    "en": "repeat",
+    "ru": "повторять",
+    "uk": "повторювати",
+    "tr": "tekrarlamak"
+  },
+  "sich wünschen": {
+    "de": "sich wünschen",
+    "en": "wish for",
+    "ru": "желать",
+    "uk": "бажати",
+    "tr": "dilemek"
+  },
+  "zahlen": {
+    "de": "zahlen",
+    "en": "pay",
+    "ru": "платить",
+    "uk": "платити",
+    "tr": "ödemek"
+  },
+  "ziehen": {
+    "de": "ziehen",
+    "en": "pull",
+    "ru": "тянуть",
+    "uk": "тягнути",
+    "tr": "çekmek"
+  },
+  "zuhören": {
+    "de": "zuhören",
+    "en": "listen",
+    "ru": "слушать",
+    "uk": "слухати",
+    "tr": "dinlemek"
+  },
+  "zumachen": {
+    "de": "zumachen",
+    "en": "close",
+    "ru": "закрыть",
+    "uk": "закрити",
+    "tr": "kapatmak"
+  },
+  "zurückgeben": {
+    "de": "zurückgeben",
+    "en": "give back",
+    "ru": "вернуть",
+    "uk": "повертати",
+    "tr": "geri vermek"
+  },
+  "zurückrufen": {
+    "de": "zurückrufen",
+    "en": "call back",
+    "ru": "перезвонить",
+    "uk": "передзвонити",
+    "tr": "geri aramak"
+  },
+  "zurückschauen": {
+    "de": "zurückschauen",
+    "en": "look back",
+    "ru": "оглянуться назад",
+    "uk": "озирнутися назад",
+    "tr": "geriye bakmak"
+  },
+  "zusammenarbeiten": {
+    "de": "zusammenarbeiten",
+    "en": "work together",
+    "ru": "работать вместе",
+    "uk": "працювати разом",
+    "tr": "birlikte çalışmak"
+  },
+  "umziehen": {
+    "de": "umziehen",
+    "en": "move house",
+    "ru": "переезжать",
+    "uk": "переїжджати",
+    "tr": "taşınmak"
+  },
+  "einziehen": {
+    "de": "einziehen",
+    "en": "move in",
+    "ru": "переехать",
+    "uk": "переїхати",
+    "tr": "taşınmak"
+  },
+  "ausziehen": {
+    "de": "ausziehen",
+    "en": "move out",
+    "ru": "съезжать; снимать",
+    "uk": "виїжджати; знімати",
+    "tr": "evden taşınmak; çıkarmak"
+  },
+  "kennenlernen": {
+    "de": "kennenlernen",
+    "en": "get to know",
+    "ru": "узнать",
+    "uk": "познайомитися",
+    "tr": "tanımak"
+  },
+  "sich erinnern": {
+    "de": "sich erinnern",
+    "en": "remember",
+    "ru": "помнить",
+    "uk": "пам'ятати",
+    "tr": "hatırlamak"
+  },
+  "erleben": {
+    "de": "erleben",
+    "en": "experience",
+    "ru": "испытать",
+    "uk": "переживати",
+    "tr": "deneyimlemek"
+  },
+  "sich verlieben": {
+    "de": "sich verlieben",
+    "en": "fall in love",
+    "ru": "влюбиться",
+    "uk": "закохатися",
+    "tr": "aşık olmak"
+  },
+  "fehlen": {
+    "de": "fehlen",
+    "en": "be missing",
+    "ru": "отсутствовать; не хватать",
+    "uk": "бути відсутнім; бракувати",
+    "tr": "eksik olmak"
+  },
+  "vermissen": {
+    "de": "vermissen",
+    "en": "miss someone",
+    "ru": "скучать по кому-то",
+    "uk": "сумувати за кимось",
+    "tr": "birini özlemek"
+  },
+  "merken": {
+    "de": "merken",
+    "en": "notice",
+    "ru": "заметить",
+    "uk": "помічати",
+    "tr": "fark etmek"
+  },
+  "klappen": {
+    "de": "klappen",
+    "en": "work out",
+    "ru": "получаться; удаваться",
+    "uk": "вдаватися",
+    "tr": "yolunda gitmek"
+  },
+  "sich ändern": {
+    "de": "sich ändern",
+    "en": "change",
+    "ru": "изменяться",
+    "uk": "змінюватися",
+    "tr": "değişmek"
+  },
+  "wechseln": {
+    "de": "wechseln",
+    "en": "change",
+    "ru": "менять",
+    "uk": "міняти",
+    "tr": "değiştirmek"
+  },
+  "hängen": {
+    "de": "hängen",
+    "en": "hang (be suspended)",
+    "ru": "висеть",
+    "uk": "висіти",
+    "tr": "asılı durmak"
+  },
+  "stecken": {
+    "de": "stecken",
+    "en": "put inside",
+    "ru": "положить внутрь",
+    "uk": "покласти всередину",
+    "tr": "içeriye koymak"
+  },
+  "legen": {
+    "de": "legen",
+    "en": "lay down",
+    "ru": "класть",
+    "uk": "класти",
+    "tr": "koymak"
+  },
+  "stören": {
+    "de": "stören",
+    "en": "disturb",
+    "ru": "беспокоить",
+    "uk": "заважати",
+    "tr": "rahatsız etmek"
+  },
+  "bauen": {
+    "de": "bauen",
+    "en": "build",
+    "ru": "строить",
+    "uk": "будувати",
+    "tr": "inşa etmek"
+  },
+  "fallen": {
+    "de": "fallen",
+    "en": "fall",
+    "ru": "падать",
+    "uk": "падати",
+    "tr": "düşmek"
+  },
+  "reinkommen": {
+    "de": "reinkommen",
+    "en": "come in",
+    "ru": "войти",
+    "uk": "зайти",
+    "tr": "içeri girmek"
+  },
+  "trennen": {
+    "de": "trennen",
+    "en": "separate",
+    "ru": "отделить",
+    "uk": "розділяти",
+    "tr": "ayırmak"
+  },
+  "beachten": {
+    "de": "beachten",
+    "en": "pay attention to",
+    "ru": "обратить внимание на",
+    "uk": "звернути увагу на",
+    "tr": "dikkat etmek"
+  },
+  "abstellen": {
+    "de": "abstellen",
+    "en": "put down; switch off",
+    "ru": "положить; выключить",
+    "uk": "покласти; вимкнути",
+    "tr": "yere koymak; kapatmak"
+  },
+  "kündigen": {
+    "de": "kündigen",
+    "en": "terminate a contract",
+    "ru": "расторгнуть договор",
+    "uk": "розірвати договір",
+    "tr": "bir sözleşmeyi feshetmek"
+  },
+  "hoffen": {
+    "de": "hoffen",
+    "en": "hope",
+    "ru": "надеяться",
+    "uk": "сподіватися",
+    "tr": "umut etmek"
+  },
+  "abschließen": {
+    "de": "abschließen",
+    "en": "lock; complete",
+    "ru": "запереть; завершить",
+    "uk": "замкнути; завершити",
+    "tr": "kilitlemek; tamamlamak"
+  },
+  "sich erhöhen": {
+    "de": "sich erhöhen",
+    "en": "increase",
+    "ru": "увеличиваться",
+    "uk": "збільшуватися",
+    "tr": "artmak"
+  },
+  "entfernen": {
+    "de": "entfernen",
+    "en": "remove",
+    "ru": "удалить",
+    "uk": "видалити",
+    "tr": "kaldırmak"
+  },
+  "heizen": {
+    "de": "heizen",
+    "en": "heat",
+    "ru": "нагревать",
+    "uk": "нагрівати",
+    "tr": "ısıtmak"
+  },
+  "lassen": {
+    "de": "lassen",
+    "en": "let; leave",
+    "ru": "позволять; оставлять",
+    "uk": "дозволяти; залишати",
+    "tr": "izin vermek; bırakmak"
+  },
+  "werfen": {
+    "de": "werfen",
+    "en": "throw",
+    "ru": "бросить",
+    "uk": "кидати",
+    "tr": "atmak"
+  },
+  "aufpassen": {
+    "de": "aufpassen",
+    "en": "pay attention",
+    "ru": "обратить внимание",
+    "uk": "звертати увагу",
+    "tr": "dikkat etmek"
+  },
+  "gießen": {
+    "de": "gießen",
+    "en": "pour; water plants",
+    "ru": "налить; поливать растения",
+    "uk": "наливати; поливати рослини",
+    "tr": "dökmek; bitkileri sulamak"
+  },
+  "klingeln": {
+    "de": "klingeln",
+    "en": "ring",
+    "ru": "звонить",
+    "uk": "дзвонити",
+    "tr": "çalmak"
+  },
+  "besprechen": {
+    "de": "besprechen",
+    "en": "discuss",
+    "ru": "обсудить",
+    "uk": "обговорювати",
+    "tr": "tartışmak"
+  },
+  "füttern": {
+    "de": "füttern",
+    "en": "feed an animal",
+    "ru": "кормить животное",
+    "uk": "годувати тварину",
+    "tr": "bir hayvanı beslemek"
+  },
+  "übernehmen": {
+    "de": "übernehmen",
+    "en": "take over",
+    "ru": "взять на себя",
+    "uk": "взяти на себе",
+    "tr": "devralmak"
+  },
+  "riechen": {
+    "de": "riechen",
+    "en": "smell",
+    "ru": "чувствовать запах",
+    "uk": "пахнути",
+    "tr": "koklamak"
+  },
+  "sich ausziehen": {
+    "de": "sich ausziehen",
+    "en": "undress",
+    "ru": "раздеваться",
+    "uk": "роздягатися",
+    "tr": "soyunmak"
+  },
+  "überraschen": {
+    "de": "überraschen",
+    "en": "surprise",
+    "ru": "удивлять",
+    "uk": "здивувати",
+    "tr": "şaşırtmak"
+  },
+  "leiten": {
+    "de": "leiten",
+    "en": "lead",
+    "ru": "вести",
+    "uk": "керувати",
+    "tr": "liderlik etmek"
+  },
+  "nutzen": {
+    "de": "nutzen",
+    "en": "use",
+    "ru": "использовать",
+    "uk": "використовувати",
+    "tr": "kullanmak"
+  },
+  "sich wenden": {
+    "de": "sich wenden",
+    "en": "turn to someone",
+    "ru": "обратиться к кому-то",
+    "uk": "звертатися до когось",
+    "tr": "birine dönmek"
+  },
+  "stattfinden": {
+    "de": "stattfinden",
+    "en": "take place",
+    "ru": "происходить",
+    "uk": "відбуватися",
+    "tr": "gerçekleşmek"
+  },
+  "berichten": {
+    "de": "berichten",
+    "en": "report",
+    "ru": "сообщить",
+    "uk": "звітувати",
+    "tr": "rapor etmek"
+  },
+  "beraten": {
+    "de": "beraten",
+    "en": "advise",
+    "ru": "советовать",
+    "uk": "радити",
+    "tr": "tavsiyede bulunmak"
+  },
+  "entlassen": {
+    "de": "entlassen",
+    "en": "dismiss",
+    "ru": "уволить",
+    "uk": "звільнити",
+    "tr": "işten çıkarmak"
+  },
+  "schützen": {
+    "de": "schützen",
+    "en": "protect",
+    "ru": "защищать",
+    "uk": "захищати",
+    "tr": "korumak"
+  },
+  "sich bedanken": {
+    "de": "sich bedanken",
+    "en": "express thanks",
+    "ru": "выразить благодарность",
+    "uk": "висловити подяку",
+    "tr": "teşekkür etmek"
+  },
+  "ausrichten": {
+    "de": "ausrichten",
+    "en": "convey; organize",
+    "ru": "передать; организовать",
+    "uk": "передати; організовувати",
+    "tr": "iletmek; organize etmek"
+  },
+  "versuchen": {
+    "de": "versuchen",
+    "en": "try",
+    "ru": "попробовать",
+    "uk": "спробувати",
+    "tr": "denemek"
+  },
+  "bieten": {
+    "de": "bieten",
+    "en": "offer",
+    "ru": "предложить",
+    "uk": "пропонувати",
+    "tr": "teklif etmek"
+  },
+  "gelten": {
+    "de": "gelten",
+    "en": "be valid",
+    "ru": "быть действительным",
+    "uk": "бути дійсним",
+    "tr": "geçerli olmak"
+  },
+  "sich bewegen": {
+    "de": "sich bewegen",
+    "en": "move one's body",
+    "ru": "двигаться",
+    "uk": "рухатися",
+    "tr": "hareket etmek"
+  },
+  "sich interessieren": {
+    "de": "sich interessieren",
+    "en": "be interested",
+    "ru": "интересоваться",
+    "uk": "зацікавитися",
+    "tr": "ilgilenmek"
+  },
+  "sich fühlen": {
+    "de": "sich fühlen",
+    "en": "feel",
+    "ru": "чувствовать",
+    "uk": "відчувати",
+    "tr": "hissetmek"
+  },
+  "hinfallen": {
+    "de": "hinfallen",
+    "en": "fall over",
+    "ru": "падать",
+    "uk": "падати",
+    "tr": "düşmek"
+  },
+  "sich verabreden": {
+    "de": "sich verabreden",
+    "en": "arrange to meet",
+    "ru": "договориться о встрече",
+    "uk": "домовитися про зустріч",
+    "tr": "buluşmayı ayarlamak"
+  },
+  "sich ausruhen": {
+    "de": "sich ausruhen",
+    "en": "rest",
+    "ru": "отдыхать",
+    "uk": "відпочивати",
+    "tr": "dinlenmek"
+  },
+  "sich ernähren": {
+    "de": "sich ernähren",
+    "en": "eat; nourish oneself",
+    "ru": "питаться",
+    "uk": "харчуватися",
+    "tr": "beslenmek"
+  },
+  "sich ärgern": {
+    "de": "sich ärgern",
+    "en": "be annoyed",
+    "ru": "раздражаться",
+    "uk": "дратуватися",
+    "tr": "sinirlenmek"
+  },
+  "sich schminken": {
+    "de": "sich schminken",
+    "en": "put on makeup",
+    "ru": "накраситься",
+    "uk": "наносити макіяж",
+    "tr": "makyaj yapmak"
+  },
+  "sich rasieren": {
+    "de": "sich rasieren",
+    "en": "shave oneself",
+    "ru": "побриться",
+    "uk": "голитися",
+    "tr": "kendini tıraş etmek"
+  },
+  "sich umziehen": {
+    "de": "sich umziehen",
+    "en": "change clothes",
+    "ru": "переодеться",
+    "uk": "переодягнутися",
+    "tr": "kıyafetleri değiştirmek"
+  },
+  "sich kämmen": {
+    "de": "sich kämmen",
+    "en": "comb one's hair",
+    "ru": "причесаться",
+    "uk": "розчісуватись",
+    "tr": "saçını taramak"
+  },
+  "sich waschen": {
+    "de": "sich waschen",
+    "en": "wash oneself",
+    "ru": "мыться",
+    "uk": "вмиватися",
+    "tr": "kendini yıkamak"
+  },
+  "sich beeilen": {
+    "de": "sich beeilen",
+    "en": "hurry",
+    "ru": "спешить",
+    "uk": "поспішати",
+    "tr": "acele etmek"
+  },
+  "sich konzentrieren": {
+    "de": "sich konzentrieren",
+    "en": "concentrate",
+    "ru": "сконцентрироваться",
+    "uk": "зосередитися",
+    "tr": "konsantre olmak"
+  },
+  "sich beschweren": {
+    "de": "sich beschweren",
+    "en": "complain",
+    "ru": "жаловаться",
+    "uk": "скаржитися",
+    "tr": "şikayet etmek"
+  },
+  "sich kümmern": {
+    "de": "sich kümmern",
+    "en": "take care",
+    "ru": "заботиться",
+    "uk": "піклуватися",
+    "tr": "ilgilenmek"
+  },
+  "betragen": {
+    "de": "betragen",
+    "en": "amount to",
+    "ru": "составлять (сумму)",
+    "uk": "становити (суму)",
+    "tr": "tutmak; miktarı olmak"
+  },
+  "joggen": {
+    "de": "joggen",
+    "en": "jog",
+    "ru": "бегать трусцой",
+    "uk": "бігати підтюпцем",
+    "tr": "koşmak"
+  },
+  "sich halten": {
+    "de": "sich halten",
+    "en": "hold on",
+    "ru": "держаться",
+    "uk": "триматися",
+    "tr": "tutunmak"
+  },
+  "laufen": {
+    "de": "laufen",
+    "en": "run",
+    "ru": "бежать",
+    "uk": "бігти",
+    "tr": "koşmak"
+  },
+  "übertreiben": {
+    "de": "übertreiben",
+    "en": "exaggerate",
+    "ru": "преувеличивать",
+    "uk": "перебільшувати",
+    "tr": "abartmak"
+  },
+  "bestehen": {
+    "de": "bestehen",
+    "en": "exist; pass a test",
+    "ru": "существовать; пройти тест",
+    "uk": "існувати; пройти тест",
+    "tr": "var olmak; bir testi geçmek"
+  },
+  "sich bewerben": {
+    "de": "sich bewerben",
+    "en": "apply for a job",
+    "ru": "подать заявку на работу",
+    "uk": "претендувати на роботу",
+    "tr": "bir işe başvurmak"
+  },
+  "verbessern": {
+    "de": "verbessern",
+    "en": "improve",
+    "ru": "улучшить",
+    "uk": "покращувати",
+    "tr": "geliştirmek"
+  },
+  "sich streiten": {
+    "de": "sich streiten",
+    "en": "argue",
+    "ru": "спорить",
+    "uk": "сперечатися",
+    "tr": "tartışmak"
+  },
+  "sich vertragen": {
+    "de": "sich vertragen",
+    "en": "get along",
+    "ru": "ладить",
+    "uk": "ладити",
+    "tr": "geçinmek"
+  },
+  "glauben": {
+    "de": "glauben",
+    "en": "believe",
+    "ru": "верить",
+    "uk": "вірити",
+    "tr": "inanmak"
+  },
+  "sich vorbereiten": {
+    "de": "sich vorbereiten",
+    "en": "prepare oneself",
+    "ru": "подготовиться",
+    "uk": "підготувати себе",
+    "tr": "kendini hazırlamak"
+  },
+  "entscheiden": {
+    "de": "entscheiden",
+    "en": "decide",
+    "ru": "решать",
+    "uk": "вирішувати",
+    "tr": "karar vermek"
+  },
+  "grüßen": {
+    "de": "grüßen",
+    "en": "greet",
+    "ru": "приветствовать",
+    "uk": "вітати",
+    "tr": "selamlamak"
+  },
+  "weinen": {
+    "de": "weinen",
+    "en": "cry",
+    "ru": "плакать",
+    "uk": "плакати",
+    "tr": "ağlamak"
+  },
+  "tragen": {
+    "de": "tragen",
+    "en": "carry; wear",
+    "ru": "нести; носить",
+    "uk": "нести; носити",
+    "tr": "taşımak; giymek"
+  },
+  "ausgeben": {
+    "de": "ausgeben",
+    "en": "spend",
+    "ru": "тратить",
+    "uk": "витрачати",
+    "tr": "harcamak"
+  },
+  "sich unterhalten": {
+    "de": "sich unterhalten",
+    "en": "have a conversation",
+    "ru": "поговорить",
+    "uk": "вести розмову",
+    "tr": "sohbet etmek"
+  },
+  "dekorieren": {
+    "de": "dekorieren",
+    "en": "decorate",
+    "ru": "украшать",
+    "uk": "прикрашати",
+    "tr": "süslemek"
+  },
+  "überzeugen": {
+    "de": "überzeugen",
+    "en": "convince",
+    "ru": "убедить",
+    "uk": "переконувати",
+    "tr": "ikna etmek"
+  },
+  "verpacken": {
+    "de": "verpacken",
+    "en": "package",
+    "ru": "упаковать",
+    "uk": "упаковувати",
+    "tr": "paketlemek"
+  },
+  "auspacken": {
+    "de": "auspacken",
+    "en": "unpack",
+    "ru": "распаковать",
+    "uk": "розпакувати",
+    "tr": "paketi açmak"
+  },
+  "wünschen": {
+    "de": "wünschen",
+    "en": "wish",
+    "ru": "желать",
+    "uk": "бажати",
+    "tr": "dilemek"
+  },
+  "mitspielen": {
+    "de": "mitspielen",
+    "en": "join in a game",
+    "ru": "присоединиться к игре",
+    "uk": "приєднатися до гри",
+    "tr": "bir oyuna katılmak"
+  },
+  "verbringen": {
+    "de": "verbringen",
+    "en": "spend time",
+    "ru": "проводить время",
+    "uk": "проводити час",
+    "tr": "vakit geçirmek"
+  },
+  "unternehmen": {
+    "de": "unternehmen",
+    "en": "undertake",
+    "ru": "предпринять",
+    "uk": "братися",
+    "tr": "üstlenmek"
+  },
+  "reagieren": {
+    "de": "reagieren",
+    "en": "react",
+    "ru": "реагировать",
+    "uk": "реагувати",
+    "tr": "tepki vermek"
+  },
+  "auftreten": {
+    "de": "auftreten",
+    "en": "appear; perform",
+    "ru": "появляться; выступать",
+    "uk": "з'являтися; виступати",
+    "tr": "ortaya çıkmak; sahne almak"
+  },
+  "einrichten": {
+    "de": "einrichten",
+    "en": "furnish; set up",
+    "ru": "обставлять; настраивать",
+    "uk": "облаштовувати; налаштовувати",
+    "tr": "döşemek; kurmak"
+  },
+  "gucken": {
+    "de": "gucken",
+    "en": "look",
+    "ru": "смотреть",
+    "uk": "дивитися",
+    "tr": "bakmak"
+  },
+  "vorschlagen": {
+    "de": "vorschlagen",
+    "en": "suggest",
+    "ru": "предложить",
+    "uk": "пропонувати",
+    "tr": "önermek"
+  },
+  "aufnehmen": {
+    "de": "aufnehmen",
+    "en": "record; take in",
+    "ru": "записывать; принимать",
+    "uk": "записувати; приймати",
+    "tr": "kaydetmek; kabul etmek"
+  },
+  "sparen": {
+    "de": "sparen",
+    "en": "save money",
+    "ru": "сэкономить деньги",
+    "uk": "заощадити гроші",
+    "tr": "para biriktirmek"
+  },
+  "verschicken": {
+    "de": "verschicken",
+    "en": "send out",
+    "ru": "отправить",
+    "uk": "розсилати",
+    "tr": "göndermek"
+  },
+  "versenden": {
+    "de": "versenden",
+    "en": "send",
+    "ru": "отправить",
+    "uk": "відправити",
+    "tr": "göndermek"
+  },
+  "transportieren": {
+    "de": "transportieren",
+    "en": "transport",
+    "ru": "перевозить",
+    "uk": "транспортувати",
+    "tr": "taşımak"
+  },
+  "wiegen": {
+    "de": "wiegen",
+    "en": "weigh",
+    "ru": "взвешивать",
+    "uk": "зважувати",
+    "tr": "tartmak"
+  },
+  "senden": {
+    "de": "senden",
+    "en": "send",
+    "ru": "отправить",
+    "uk": "відправити",
+    "tr": "göndermek"
+  },
+  "frieren": {
+    "de": "frieren",
+    "en": "feel cold",
+    "ru": "чувствовать холод",
+    "uk": "відчувати холод",
+    "tr": "üşümek"
+  },
+  "testen": {
+    "de": "testen",
+    "en": "test",
+    "ru": "тестировать",
+    "uk": "перевірити",
+    "tr": "test etmek"
+  },
+  "anschauen": {
+    "de": "anschauen",
+    "en": "look at",
+    "ru": "посмотреть",
+    "uk": "дивитися",
+    "tr": "bakmak"
+  },
+  "wegfahren": {
+    "de": "wegfahren",
+    "en": "drive away",
+    "ru": "уезжать",
+    "uk": "від'їжджати",
+    "tr": "araçla uzaklaşmak"
+  },
+  "springen": {
+    "de": "springen",
+    "en": "jump",
+    "ru": "прыгать",
+    "uk": "стрибати",
+    "tr": "atlamak"
+  },
+  "tanken": {
+    "de": "tanken",
+    "en": "refuel",
+    "ru": "заправиться",
+    "uk": "заправлятися",
+    "tr": "yakıt ikmali yapmak"
+  },
+  "abbiegen": {
+    "de": "abbiegen",
+    "en": "turn a corner",
+    "ru": "повернуть за угол",
+    "uk": "повертати за кут",
+    "tr": "köşeyi dönmek"
+  },
+  "stürzen": {
+    "de": "stürzen",
+    "en": "fall",
+    "ru": "падать",
+    "uk": "падати",
+    "tr": "düşmek"
+  },
+  "kleben": {
+    "de": "kleben",
+    "en": "stick",
+    "ru": "клеить; прилипать",
+    "uk": "клеїти; липнути",
+    "tr": "yapıştırmak; yapışmak"
+  },
+  "stehen bleiben": {
+    "de": "stehen bleiben",
+    "en": "stop; remain standing",
+    "ru": "останавливаться; оставаться стоять",
+    "uk": "зупинятися; залишатися стояти",
+    "tr": "durmak; ayakta kalmak"
+  },
+  "überholen": {
+    "de": "überholen",
+    "en": "overtake",
+    "ru": "обогнать",
+    "uk": "обганяти",
+    "tr": "sollamak"
+  },
+  "sorgen": {
+    "de": "sorgen",
+    "en": "take care",
+    "ru": "заботиться",
+    "uk": "піклуватися",
+    "tr": "ilgilenmek"
+  },
+  "vermeiden": {
+    "de": "vermeiden",
+    "en": "avoid",
+    "ru": "избегать",
+    "uk": "уникнути",
+    "tr": "kaçınmak"
+  },
+  "versprechen": {
+    "de": "versprechen",
+    "en": "promise",
+    "ru": "обещать",
+    "uk": "обіцяти",
+    "tr": "söz vermek"
+  },
+  "verhindern": {
+    "de": "verhindern",
+    "en": "prevent",
+    "ru": "предотвратить",
+    "uk": "запобігати",
+    "tr": "önlemek"
+  },
+  "starten": {
+    "de": "starten",
+    "en": "start",
+    "ru": "начать",
+    "uk": "почати",
+    "tr": "başlamak"
+  },
+  "landen": {
+    "de": "landen",
+    "en": "land",
+    "ru": "приземлиться",
+    "uk": "приземлятися",
+    "tr": "inmek"
+  },
+  "auffallen": {
+    "de": "auffallen",
+    "en": "stand out",
+    "ru": "выделяться",
+    "uk": "виділятися",
+    "tr": "öne çıkmak"
+  },
+  "hupen": {
+    "de": "hupen",
+    "en": "sound a car horn",
+    "ru": "сигналить",
+    "uk": "сигналити",
+    "tr": "korna çalmak"
+  },
+  "bremsen": {
+    "de": "bremsen",
+    "en": "brake",
+    "ru": "тормозить",
+    "uk": "гальмувати",
+    "tr": "fren yapmak"
+  },
+  "reden": {
+    "de": "reden",
+    "en": "talk",
+    "ru": "говорить",
+    "uk": "розмовляти",
+    "tr": "konuşmak"
+  },
+  "besichtigen": {
+    "de": "besichtigen",
+    "en": "visit a place of interest",
+    "ru": "посетить достопримечательность",
+    "uk": "відвідати визначне місце",
+    "tr": "ilgi çekici bir yeri ziyaret etmek"
+  },
+  "baden": {
+    "de": "baden",
+    "en": "bathe",
+    "ru": "купаться",
+    "uk": "купатися",
+    "tr": "yıkanmak"
+  },
+  "buchen": {
+    "de": "buchen",
+    "en": "book",
+    "ru": "забронировать",
+    "uk": "забронювати",
+    "tr": "rezervasyon yapmak"
+  },
+  "einpacken": {
+    "de": "einpacken",
+    "en": "pack",
+    "ru": "упаковать",
+    "uk": "пакувати",
+    "tr": "paketlemek"
+  },
+  "sich einigen": {
+    "de": "sich einigen",
+    "en": "reach an agreement",
+    "ru": "достичь соглашения",
+    "uk": "досягти згоди",
+    "tr": "bir anlaşmaya varmak"
+  },
+  "übernachten": {
+    "de": "übernachten",
+    "en": "stay overnight",
+    "ru": "остаться на ночь",
+    "uk": "залишитися на ніч",
+    "tr": "gece kalmak"
+  },
+  "annehmen": {
+    "de": "annehmen",
+    "en": "accept; assume",
+    "ru": "принять; предполагать",
+    "uk": "приймати; припускати",
+    "tr": "kabul etmek; varsaymak"
+  },
+  "ablehnen": {
+    "de": "ablehnen",
+    "en": "reject",
+    "ru": "отвергать",
+    "uk": "відхиляти",
+    "tr": "reddetmek"
+  },
+  "faulenzen": {
+    "de": "faulenzen",
+    "en": "laze around",
+    "ru": "бездельничать",
+    "uk": "байдикувати",
+    "tr": "tembellik etmek"
+  },
+  "eröffnen": {
+    "de": "eröffnen",
+    "en": "open officially",
+    "ru": "открывать официально",
+    "uk": "офіційно відкривати",
+    "tr": "açmak"
+  },
+  "besorgen": {
+    "de": "besorgen",
+    "en": "obtain",
+    "ru": "получить",
+    "uk": "отримати",
+    "tr": "elde etmek"
+  },
+  "verschieben": {
+    "de": "verschieben",
+    "en": "postpone; move",
+    "ru": "переносить; сдвигать",
+    "uk": "переносити; зсувати",
+    "tr": "ertelemek; kaydırmak"
+  },
+  "abheben": {
+    "de": "abheben",
+    "en": "withdraw money; take off",
+    "ru": "снимать деньги; взлетать",
+    "uk": "знімати гроші; злітати",
+    "tr": "para çekmek; havalanmak"
+  },
+  "kriegen": {
+    "de": "kriegen",
+    "en": "get",
+    "ru": "получить",
+    "uk": "отримати",
+    "tr": "almak"
+  },
+  "akzeptieren": {
+    "de": "akzeptieren",
+    "en": "accept",
+    "ru": "принять",
+    "uk": "приймати",
+    "tr": "kabul etmek"
+  },
+  "kontrollieren": {
+    "de": "kontrollieren",
+    "en": "check",
+    "ru": "проверить",
+    "uk": "перевірити",
+    "tr": "kontrol etmek"
+  },
+  "kaputtgehen": {
+    "de": "kaputtgehen",
+    "en": "break down",
+    "ru": "ломаться",
+    "uk": "ламатися",
+    "tr": "bozulmak"
+  },
+  "erkennen": {
+    "de": "erkennen",
+    "en": "recognize",
+    "ru": "узнавать; распознавать",
+    "uk": "впізнавати; розпізнавати",
+    "tr": "tanımak"
+  },
+  "überprüfen": {
+    "de": "überprüfen",
+    "en": "check",
+    "ru": "проверить",
+    "uk": "перевірити",
+    "tr": "kontrol etmek"
+  },
+  "renovieren": {
+    "de": "renovieren",
+    "en": "renovate",
+    "ru": "отремонтировать",
+    "uk": "відремонтувати",
+    "tr": "yenilemek"
+  },
+  "ändern": {
+    "de": "ändern",
+    "en": "change",
+    "ru": "изменить",
+    "uk": "змінитися",
+    "tr": "değiştirmek"
+  },
+  "sich schneiden": {
+    "de": "sich schneiden",
+    "en": "cut oneself",
+    "ru": "порезаться",
+    "uk": "порізатися",
+    "tr": "kendini kesmek"
+  },
+  "einzahlen": {
+    "de": "einzahlen",
+    "en": "deposit money",
+    "ru": "внести деньги",
+    "uk": "вкладати гроші",
+    "tr": "para yatırmak"
+  },
+  "tippen": {
+    "de": "tippen",
+    "en": "type",
+    "ru": "печатать",
+    "uk": "друкувати",
+    "tr": "yazmak"
+  },
+  "überweisen": {
+    "de": "überweisen",
+    "en": "transfer money",
+    "ru": "перевести деньги",
+    "uk": "переказати гроші",
+    "tr": "para transfer etmek"
+  },
+  "sterben": {
+    "de": "sterben",
+    "en": "die",
+    "ru": "умереть",
+    "uk": "померти",
+    "tr": "ölmek"
+  },
+  "sich setzen": {
+    "de": "sich setzen",
+    "en": "sit down",
+    "ru": "сесть",
+    "uk": "сісти",
+    "tr": "oturmak"
+  },
+  "verschwinden": {
+    "de": "verschwinden",
+    "en": "disappear",
+    "ru": "исчезнуть",
+    "uk": "зникати",
+    "tr": "kaybolmak"
+  },
+  "sich wundern": {
+    "de": "sich wundern",
+    "en": "be surprised",
+    "ru": "удивляться",
+    "uk": "бути здивованим",
+    "tr": "şaşırmak"
+  },
+  "verwechseln": {
+    "de": "verwechseln",
+    "en": "confuse one thing with another",
+    "ru": "путать одно с другим",
+    "uk": "плутати одне з іншим",
+    "tr": "bir şeyi başka bir şeyle karıştırmak"
+  },
+  "sich befinden": {
+    "de": "sich befinden",
+    "en": "be located",
+    "ru": "быть расположенным",
+    "uk": "бути розташованим",
+    "tr": "bulunmak"
+  },
+  "nachdenken": {
+    "de": "nachdenken",
+    "en": "think about",
+    "ru": "думать о",
+    "uk": "думати про",
+    "tr": "düşünmek"
+  },
+  "retten": {
+    "de": "retten",
+    "en": "rescue",
+    "ru": "спасти",
+    "uk": "рятувати",
+    "tr": "kurtarmak"
+  },
+  "ausreichen": {
+    "de": "ausreichen",
+    "en": "be sufficient",
+    "ru": "быть достаточным",
+    "uk": "бути достатнім",
+    "tr": "yeterli olmak"
+  },
+  "folgen": {
+    "de": "folgen",
+    "en": "follow",
+    "ru": "следовать",
+    "uk": "слідувати",
+    "tr": "takip etmek"
+  },
+  "absagen": {
+    "de": "absagen",
+    "en": "cancel",
+    "ru": "отменить",
+    "uk": "скасувати",
+    "tr": "iptal etmek"
+  },
+  "rufen": {
+    "de": "rufen",
+    "en": "call out",
+    "ru": "окликнуть",
+    "uk": "закликати",
+    "tr": "seslenmek"
+  },
+  "absperren": {
+    "de": "absperren",
+    "en": "cordon off",
+    "ru": "оцепить",
+    "uk": "огороджувати",
+    "tr": "kordon altına almak"
+  },
+  "festnehmen": {
+    "de": "festnehmen",
+    "en": "arrest",
+    "ru": "арестовать",
+    "uk": "арештовувати",
+    "tr": "tutuklamak"
+  },
+  "brechen": {
+    "de": "brechen",
+    "en": "break",
+    "ru": "сломать",
+    "uk": "зламати",
+    "tr": "kırmak"
+  },
+  "schießen": {
+    "de": "schießen",
+    "en": "shoot",
+    "ru": "стрелять",
+    "uk": "стріляти",
+    "tr": "ateş etmek"
+  },
+  "beißen": {
+    "de": "beißen",
+    "en": "bite",
+    "ru": "кусать",
+    "uk": "кусати",
+    "tr": "ısırmak"
+  },
+  "erschrecken": {
+    "de": "erschrecken",
+    "en": "get frightened",
+    "ru": "испугаться",
+    "uk": "злякатися",
+    "tr": "korkmak"
+  },
+  "erfinden": {
+    "de": "erfinden",
+    "en": "invent",
+    "ru": "изобретать",
+    "uk": "винаходити",
+    "tr": "icat etmek"
+  },
+  "veröffentlichen": {
+    "de": "veröffentlichen",
+    "en": "publish",
+    "ru": "публиковать",
+    "uk": "опублікувати",
+    "tr": "yayınlamak"
+  },
+  "handeln": {
+    "de": "handeln",
+    "en": "act; trade",
+    "ru": "действовать; торговать",
+    "uk": "діяти; торгувати",
+    "tr": "harekete geçmek; ticaret yapmak"
+  },
+  "entstehen": {
+    "de": "entstehen",
+    "en": "arise",
+    "ru": "возникать",
+    "uk": "виникати",
+    "tr": "ortaya çıkmak"
+  },
+  "produzieren": {
+    "de": "produzieren",
+    "en": "produce",
+    "ru": "производить",
+    "uk": "виробляти",
+    "tr": "üretmek"
+  },
+  "kritisieren": {
+    "de": "kritisieren",
+    "en": "criticize",
+    "ru": "критиковать",
+    "uk": "критикувати",
+    "tr": "eleştirmek"
+  },
+  "sich beschäftigen": {
+    "de": "sich beschäftigen",
+    "en": "occupy oneself",
+    "ru": "заниматься",
+    "uk": "займатися",
+    "tr": "bir şeyle uğraşmak"
+  },
+  "gelingen": {
+    "de": "gelingen",
+    "en": "succeed",
+    "ru": "добиться успеха",
+    "uk": "досягти успіху",
+    "tr": "başarılı olmak"
+  },
+  "verlassen": {
+    "de": "verlassen",
+    "en": "leave",
+    "ru": "уйти",
+    "uk": "піти",
+    "tr": "ayrılmak"
+  },
+  "begleiten": {
+    "de": "begleiten",
+    "en": "accompany",
+    "ru": "сопровождать",
+    "uk": "супроводжувати",
+    "tr": "eşlik etmek"
+  },
+  "spülen": {
+    "de": "spülen",
+    "en": "rinse",
+    "ru": "полоскать",
+    "uk": "полоскати",
+    "tr": "durulamak"
+  },
+  "begegnen": {
+    "de": "begegnen",
+    "en": "encounter",
+    "ru": "столкнуться",
+    "uk": "зіткнутися",
+    "tr": "karşılaşmak"
+  },
+  "sich erfüllen": {
+    "de": "sich erfüllen",
+    "en": "come true",
+    "ru": "сбываться",
+    "uk": "здійснюватися",
+    "tr": "gerçekleşmek"
+  },
+  "überreden": {
+    "de": "überreden",
+    "en": "persuade",
+    "ru": "убеждать",
+    "uk": "переконувати",
+    "tr": "ikna etmek"
+  },
+  "atmen": {
+    "de": "atmen",
+    "en": "breathe",
+    "ru": "дышать",
+    "uk": "дихати",
+    "tr": "nefes almak"
+  },
+  "umgehen": {
+    "de": "umgehen",
+    "en": "deal with",
+    "ru": "иметь дело с",
+    "uk": "мати справу з",
+    "tr": "başa çıkmak"
+  },
+  "aufwachen": {
+    "de": "aufwachen",
+    "en": "wake up",
+    "ru": "проснуться",
+    "uk": "прокинутися",
+    "tr": "uyanmak"
+  },
+  "messen": {
+    "de": "messen",
+    "en": "measure",
+    "ru": "измерить",
+    "uk": "вимірювати",
+    "tr": "ölçmek"
+  },
+  "abnehmen": {
+    "de": "abnehmen",
+    "en": "lose weight; take off",
+    "ru": "худеть; снимать",
+    "uk": "худнути; знімати",
+    "tr": "kilo vermek; çıkarmak"
+  },
+  "untersuchen": {
+    "de": "untersuchen",
+    "en": "examine",
+    "ru": "исследовать",
+    "uk": "досліджувати",
+    "tr": "incelemek"
+  },
+  "vermuten": {
+    "de": "vermuten",
+    "en": "suspect",
+    "ru": "подозревать",
+    "uk": "підозрювати",
+    "tr": "şüphelenmek"
+  },
+  "verschreiben": {
+    "de": "verschreiben",
+    "en": "prescribe",
+    "ru": "прописывать",
+    "uk": "прописувати",
+    "tr": "reçete yazmak"
+  },
+  "erhalten": {
+    "de": "erhalten",
+    "en": "receive",
+    "ru": "получать",
+    "uk": "отримати",
+    "tr": "almak"
+  },
+  "teilnehmen": {
+    "de": "teilnehmen",
+    "en": "participate",
+    "ru": "участвовать",
+    "uk": "брати участь",
+    "tr": "katılmak"
+  },
+  "impfen": {
+    "de": "impfen",
+    "en": "vaccinate",
+    "ru": "вакцинировать",
+    "uk": "зробити щеплення",
+    "tr": "aşılamak"
+  },
+  "treiben": {
+    "de": "treiben",
+    "en": "drive; pursue an activity",
+    "ru": "гнать; заниматься",
+    "uk": "гнати; займатися",
+    "tr": "sürüklemek; yapmak"
+  },
+  "verzichten": {
+    "de": "verzichten",
+    "en": "do without",
+    "ru": "отказываться от",
+    "uk": "відмовлятися від",
+    "tr": "vazgeçmek"
+  },
+  "krankmelden": {
+    "de": "krankmelden",
+    "en": "report someone sick",
+    "ru": "сообщать о болезни",
+    "uk": "повідомляти про хворобу",
+    "tr": "hasta olduğunu bildirmek"
+  },
+  "krankschreiben": {
+    "de": "krankschreiben",
+    "en": "certify someone unfit for work",
+    "ru": "выдавать больничный",
+    "uk": "виписувати лікарняний",
+    "tr": "hastalık raporu vermek"
+  },
+  "lächeln": {
+    "de": "lächeln",
+    "en": "smile",
+    "ru": "улыбаться",
+    "uk": "посміхатися",
+    "tr": "gülümsemek"
+  },
+  "vorhaben": {
+    "de": "vorhaben",
+    "en": "intend",
+    "ru": "намереваться",
+    "uk": "мати намір",
+    "tr": "niyet etmek"
+  },
+  "lügen": {
+    "de": "lügen",
+    "en": "lie; tell an untruth",
+    "ru": "лгать; сказать неправду",
+    "uk": "брехати; говорити неправду",
+    "tr": "yalan söylemek; yalan söylemek"
+  },
+  "beenden": {
+    "de": "beenden",
+    "en": "end",
+    "ru": "заканчивать",
+    "uk": "закінчувати",
+    "tr": "bitirmek"
+  },
+  "aussuchen": {
+    "de": "aussuchen",
+    "en": "choose",
+    "ru": "выбирать",
+    "uk": "вибирати",
+    "tr": "seçmek"
+  },
+  "übersetzen": {
+    "de": "übersetzen",
+    "en": "translate",
+    "ru": "переводить",
+    "uk": "перекладати",
+    "tr": "tercüme etmek"
+  },
+  "aufschreiben": {
+    "de": "aufschreiben",
+    "en": "write down",
+    "ru": "записать",
+    "uk": "записувати",
+    "tr": "yazmak"
+  },
+  "sich verstecken": {
+    "de": "sich verstecken",
+    "en": "hide oneself",
+    "ru": "спрятаться",
+    "uk": "ховатися",
+    "tr": "kendini gizlemek"
+  },
+  "stammen": {
+    "de": "stammen",
+    "en": "originate",
+    "ru": "возникать",
+    "uk": "виникати",
+    "tr": "kaynaklanmak"
+  },
+  "leiden": {
+    "de": "leiden",
+    "en": "suffer",
+    "ru": "страдать",
+    "uk": "страждати",
+    "tr": "acı çekmek"
+  },
+  "schimpfen": {
+    "de": "schimpfen",
+    "en": "scold",
+    "ru": "ругать",
+    "uk": "лаяти",
+    "tr": "azarlamak"
+  },
+  "genügen": {
+    "de": "genügen",
+    "en": "be enough",
+    "ru": "быть достаточно",
+    "uk": "бути достатньо",
+    "tr": "yeterli olmak"
+  },
+  "aufhören": {
+    "de": "aufhören",
+    "en": "stop",
+    "ru": "переставать; прекращать",
+    "uk": "переставати; припиняти",
+    "tr": "bırakmak; sona ermek"
+  },
+  "erwarten": {
+    "de": "erwarten",
+    "en": "expect",
+    "ru": "ожидать",
+    "uk": "очікувати",
+    "tr": "beklemek"
+  },
+  "feststellen": {
+    "de": "feststellen",
+    "en": "establish; notice",
+    "ru": "устанавливать; замечать",
+    "uk": "встановлювати; помічати",
+    "tr": "tespit etmek"
+  },
+  "entwickeln": {
+    "de": "entwickeln",
+    "en": "develop",
+    "ru": "разрабатывать; развивать",
+    "uk": "розробляти; розвивати",
+    "tr": "geliştirmek"
+  },
+  "herstellen": {
+    "de": "herstellen",
+    "en": "manufacture",
+    "ru": "производить",
+    "uk": "виготовляти",
+    "tr": "üretmek"
+  },
+  "rechnen": {
+    "de": "rechnen",
+    "en": "calculate",
+    "ru": "рассчитать",
+    "uk": "обчислювати",
+    "tr": "hesaplamak"
+  },
+  "sich beruhigen": {
+    "de": "sich beruhigen",
+    "en": "calm down",
+    "ru": "успокоиться",
+    "uk": "заспокоїтися",
+    "tr": "sakinleşmek"
+  },
+  "sich überlegen": {
+    "de": "sich überlegen",
+    "en": "consider",
+    "ru": "обдумывать",
+    "uk": "обмірковувати",
+    "tr": "düşünüp değerlendirmek"
+  },
+  "jobben": {
+    "de": "jobben",
+    "en": "work a casual job",
+    "ru": "подрабатывать",
+    "uk": "підробляти",
+    "tr": "geçici bir işte çalışmak"
+  },
+  "zurechtkommen": {
+    "de": "zurechtkommen",
+    "en": "cope",
+    "ru": "справиться",
+    "uk": "впоратися",
+    "tr": "başa çıkmak"
+  },
+  "vertreten": {
+    "de": "vertreten",
+    "en": "represent",
+    "ru": "представлять",
+    "uk": "представляти",
+    "tr": "temsil etmek"
+  },
+  "lösen": {
+    "de": "lösen",
+    "en": "solve",
+    "ru": "решить",
+    "uk": "вирішити",
+    "tr": "çözmek"
+  },
+  "sich lohnen": {
+    "de": "sich lohnen",
+    "en": "be worthwhile",
+    "ru": "быть выгодным; стоить усилий",
+    "uk": "бути вигідним; вартувати зусиль",
+    "tr": "değmek"
+  },
+  "besitzen": {
+    "de": "besitzen",
+    "en": "possess",
+    "ru": "обладать",
+    "uk": "володіти",
+    "tr": "sahip olmak"
+  },
+  "geboren werden": {
+    "de": "geboren werden",
+    "en": "be born",
+    "ru": "родиться",
+    "uk": "народитися",
+    "tr": "doğmak"
+  },
+  "sich entschließen": {
+    "de": "sich entschließen",
+    "en": "decide",
+    "ru": "решать",
+    "uk": "вирішувати",
+    "tr": "karar vermek"
+  },
+  "gründen": {
+    "de": "gründen",
+    "en": "found an organization",
+    "ru": "основать организацию",
+    "uk": "заснувати організацію",
+    "tr": "bir organizasyon kurmak"
+  },
+  "betreuen": {
+    "de": "betreuen",
+    "en": "look after",
+    "ru": "присматривать за",
+    "uk": "доглядати",
+    "tr": "bakmak"
+  },
+  "sich gewöhnen": {
+    "de": "sich gewöhnen",
+    "en": "get used to",
+    "ru": "привыкнуть к",
+    "uk": "звикнути",
+    "tr": "alışmak"
+  },
+  "pflegen": {
+    "de": "pflegen",
+    "en": "care for",
+    "ru": "заботиться о",
+    "uk": "доглядати",
+    "tr": "ilgilenmek"
+  },
+  "wiederkommen": {
+    "de": "wiederkommen",
+    "en": "come again",
+    "ru": "прийти снова",
+    "uk": "прийти знову",
+    "tr": "tekrar gelmek"
+  },
+  "bestätigen": {
+    "de": "bestätigen",
+    "en": "confirm",
+    "ru": "подтвердить",
+    "uk": "підтвердження",
+    "tr": "onaylamak"
+  },
+  "beschädigen": {
+    "de": "beschädigen",
+    "en": "damage",
+    "ru": "повредить",
+    "uk": "пошкодити",
+    "tr": "zarar vermek"
+  },
+  "umtauschen": {
+    "de": "umtauschen",
+    "en": "exchange an item",
+    "ru": "обменять предмет",
+    "uk": "обміняти товар",
+    "tr": "bir ürünü değiştirmek"
+  },
+  "fordern": {
+    "de": "fordern",
+    "en": "demand",
+    "ru": "требовать",
+    "uk": "вимагати",
+    "tr": "talep etmek"
+  },
+  "enttäuschen": {
+    "de": "enttäuschen",
+    "en": "disappoint",
+    "ru": "разочаровать",
+    "uk": "розчарувати",
+    "tr": "hayal kırıklığına uğratmak"
+  },
+  "auffordern": {
+    "de": "auffordern",
+    "en": "request; urge",
+    "ru": "просить; призывать",
+    "uk": "просити; закликати",
+    "tr": "istemek; teşvik etmek"
+  },
+  "verdächtigen": {
+    "de": "verdächtigen",
+    "en": "suspect someone",
+    "ru": "подозревать кого-то",
+    "uk": "підозрювати когось",
+    "tr": "birinden şüphelenmek"
+  },
+  "schreien": {
+    "de": "schreien",
+    "en": "scream",
+    "ru": "кричать",
+    "uk": "кричати",
+    "tr": "çığlık atmak"
+  },
+  "entdecken": {
+    "de": "entdecken",
+    "en": "discover",
+    "ru": "обнаружить",
+    "uk": "виявити",
+    "tr": "keşfetmek"
+  },
+  "abmachen": {
+    "de": "abmachen",
+    "en": "agree on; remove",
+    "ru": "договориться; удалить",
+    "uk": "домовитися про; видалити",
+    "tr": "üzerinde anlaşmak; kaldırmak"
+  },
+  "angehen": {
+    "de": "angehen",
+    "en": "concern; tackle",
+    "ru": "касаться; браться за",
+    "uk": "стосуватися; братися за",
+    "tr": "ilgilendirmek; ele almak"
+  },
+  "herrschen": {
+    "de": "herrschen",
+    "en": "rule; prevail",
+    "ru": "царить; господствовать",
+    "uk": "панувати",
+    "tr": "hüküm sürmek"
+  },
+  "sich vergrößern": {
+    "de": "sich vergrößern",
+    "en": "grow larger",
+    "ru": "расти больше",
+    "uk": "ставати більшим",
+    "tr": "daha da büyümek"
+  },
+  "wirken": {
+    "de": "wirken",
+    "en": "have an effect",
+    "ru": "иметь эффект",
+    "uk": "мати ефект",
+    "tr": "bir etkisi olmak"
+  },
+  "zusagen": {
+    "de": "zusagen",
+    "en": "agree to; promise",
+    "ru": "согласиться; обещать",
+    "uk": "погоджуватися на; обіцяти",
+    "tr": "kabul etmek; söz vermek"
+  },
+  "warnen": {
+    "de": "warnen",
+    "en": "warn",
+    "ru": "предупредить",
+    "uk": "попереджати",
+    "tr": "uyarmak"
+  },
+  "beeinflussen": {
+    "de": "beeinflussen",
+    "en": "influence",
+    "ru": "влиять",
+    "uk": "впливати",
+    "tr": "etkilemek"
+  },
+  "duzen": {
+    "de": "duzen",
+    "en": "address informally",
+    "ru": "обращаться неофициально",
+    "uk": "звернутися неофіційно",
+    "tr": "gayri resmi olarak hitap etmek"
+  },
+  "anschließen": {
+    "de": "anschließen",
+    "en": "connect",
+    "ru": "подключать",
+    "uk": "підключати",
+    "tr": "bağlamak"
+  },
+  "löschen": {
+    "de": "löschen",
+    "en": "delete; extinguish",
+    "ru": "удалить; потушить",
+    "uk": "видаляти; гасити",
+    "tr": "silmek; söndürmek"
+  },
+  "anklicken": {
+    "de": "anklicken",
+    "en": "click on",
+    "ru": "нажать на",
+    "uk": "натиснути",
+    "tr": "tıklamak"
+  },
+  "installieren": {
+    "de": "installieren",
+    "en": "install",
+    "ru": "установить",
+    "uk": "встановити",
+    "tr": "yüklemek"
+  },
+  "beschließen": {
+    "de": "beschließen",
+    "en": "decide; resolve",
+    "ru": "принимать решение",
+    "uk": "ухвалювати рішення",
+    "tr": "karar vermek"
+  },
+  "erstellen": {
+    "de": "erstellen",
+    "en": "create",
+    "ru": "создать",
+    "uk": "створювати",
+    "tr": "yaratmak"
+  },
+  "sich aufregen": {
+    "de": "sich aufregen",
+    "en": "get upset",
+    "ru": "волноваться; возмущаться",
+    "uk": "хвилюватися; обурюватися",
+    "tr": "heyecanlanmak; sinirlenmek"
+  },
+  "sich verändern": {
+    "de": "sich verändern",
+    "en": "change",
+    "ru": "изменяться",
+    "uk": "змінюватися",
+    "tr": "değişmek"
+  },
+  "diskutieren": {
+    "de": "diskutieren",
+    "en": "discuss",
+    "ru": "обсудить",
+    "uk": "обговорювати",
+    "tr": "tartışmak"
+  },
+  "behandeln": {
+    "de": "behandeln",
+    "en": "treat",
+    "ru": "лечить",
+    "uk": "лікувати",
+    "tr": "tedavi etmek"
+  },
+  "schalten": {
+    "de": "schalten",
+    "en": "switch",
+    "ru": "переключать",
+    "uk": "перемикати",
+    "tr": "anahtarlamak; değiştirmek"
+  },
+  "wegwerfen": {
+    "de": "wegwerfen",
+    "en": "throw away",
+    "ru": "выбросить",
+    "uk": "викидати",
+    "tr": "atmak"
+  },
+  "streichen": {
+    "de": "streichen",
+    "en": "paint; cross out",
+    "ru": "рисовать; вычеркнуть",
+    "uk": "малювати; викреслювати",
+    "tr": "boyamak; üstünü çizmek"
+  },
+  "benötigen": {
+    "de": "benötigen",
+    "en": "need",
+    "ru": "нуждаться",
+    "uk": "потребувати",
+    "tr": "ihtiyaç duymak"
+  },
+  "sich anstellen": {
+    "de": "sich anstellen",
+    "en": "queue up",
+    "ru": "стоять в очереди",
+    "uk": "стати в чергу",
+    "tr": "sıraya girmek"
+  },
+  "einfallen": {
+    "de": "einfallen",
+    "en": "come to mind",
+    "ru": "приходить в голову",
+    "uk": "спадати на думку",
+    "tr": "akla gelmek"
+  },
+  "wachsen": {
+    "de": "wachsen",
+    "en": "grow",
+    "ru": "расти",
+    "uk": "рости",
+    "tr": "büyümek"
+  },
+  "sich drehen": {
+    "de": "sich drehen",
+    "en": "turn around",
+    "ru": "вращаться; поворачиваться",
+    "uk": "обертатися; повертатися",
+    "tr": "dönmek"
+  },
+  "abstimmen": {
+    "de": "abstimmen",
+    "en": "vote; coordinate",
+    "ru": "голосовать; координировать",
+    "uk": "голосувати; координувати",
+    "tr": "oy vermek; koordine etmek"
+  },
+  "schütteln": {
+    "de": "schütteln",
+    "en": "shake",
+    "ru": "трясти",
+    "uk": "трясти",
+    "tr": "sallamak"
+  },
+  "aufhalten": {
+    "de": "aufhalten",
+    "en": "stop; delay",
+    "ru": "останавливать; задерживать",
+    "uk": "зупиняти; затримувати",
+    "tr": "durdurmak; geciktirmek"
+  },
+  "schweigen": {
+    "de": "schweigen",
+    "en": "remain silent",
+    "ru": "молчать",
+    "uk": "мовчати",
+    "tr": "sessiz kalmak"
+  },
+  "betrügen": {
+    "de": "betrügen",
+    "en": "cheat",
+    "ru": "обманывать",
+    "uk": "обманювати",
+    "tr": "hile yapmak"
+  },
+  "anzeigen": {
+    "de": "anzeigen",
+    "en": "display; report",
+    "ru": "отображать; сообщить",
+    "uk": "відображати; звітувати",
+    "tr": "görüntülemek; rapor etmek"
+  },
+  "bestrafen": {
+    "de": "bestrafen",
+    "en": "punish",
+    "ru": "наказать",
+    "uk": "карати",
+    "tr": "cezalandırmak"
+  },
+  "zerstören": {
+    "de": "zerstören",
+    "en": "destroy",
+    "ru": "уничтожить",
+    "uk": "знищувати",
+    "tr": "yok etmek"
+  },
+  "stehlen": {
+    "de": "stehlen",
+    "en": "steal",
+    "ru": "украсть",
+    "uk": "красти",
+    "tr": "çalmak"
+  },
+  "weggehen": {
+    "de": "weggehen",
+    "en": "go away",
+    "ru": "уйти",
+    "uk": "піти геть",
+    "tr": "gitmek"
+  },
+  "behindern": {
+    "de": "behindern",
+    "en": "hinder",
+    "ru": "препятствовать",
+    "uk": "перешкоджати",
+    "tr": "engellemek"
+  },
+  "aufgeben": {
+    "de": "aufgeben",
+    "en": "give up",
+    "ru": "сдаваться",
+    "uk": "здаватися",
+    "tr": "vazgeçmek"
+  },
+  "sich bemühen": {
+    "de": "sich bemühen",
+    "en": "make an effort",
+    "ru": "приложить усилия",
+    "uk": "докласти зусиль",
+    "tr": "çaba göstermek"
+  },
+  "sich vornehmen": {
+    "de": "sich vornehmen",
+    "en": "resolve to do something",
+    "ru": "решиться сделать что-то",
+    "uk": "вирішити щось зробити",
+    "tr": "bir şeyi yapmaya karar vermek"
+  },
+  "sich verspäten": {
+    "de": "sich verspäten",
+    "en": "be late",
+    "ru": "опаздывать",
+    "uk": "запізнюватися",
+    "tr": "geç kalmak"
+  },
+  "sich weigern": {
+    "de": "sich weigern",
+    "en": "refuse",
+    "ru": "отказаться",
+    "uk": "відмовитися",
+    "tr": "reddetmek"
+  },
+  "zuschauen": {
+    "de": "zuschauen",
+    "en": "watch",
+    "ru": "смотреть",
+    "uk": "дивитися",
+    "tr": "izlemek"
+  },
+  "überqueren": {
+    "de": "überqueren",
+    "en": "cross",
+    "ru": "пересекать",
+    "uk": "перетинати",
+    "tr": "geçmek"
+  },
+  "vorkommen": {
+    "de": "vorkommen",
+    "en": "occur",
+    "ru": "произойти",
+    "uk": "відбуватися",
+    "tr": "meydana gelmek"
+  },
+  "sich verhalten": {
+    "de": "sich verhalten",
+    "en": "behave",
+    "ru": "вести себя",
+    "uk": "поводитися",
+    "tr": "davranmak"
+  },
+  "beleidigen": {
+    "de": "beleidigen",
+    "en": "insult",
+    "ru": "оскорблять",
+    "uk": "ображати",
+    "tr": "hakaret etmek"
+  },
+  "behaupten": {
+    "de": "behaupten",
+    "en": "claim",
+    "ru": "утверждать",
+    "uk": "стверджувати",
+    "tr": "iddia etmek"
+  },
+  "beweisen": {
+    "de": "beweisen",
+    "en": "prove",
+    "ru": "доказать",
+    "uk": "довести",
+    "tr": "kanıtlamak"
+  },
+  "loben": {
+    "de": "loben",
+    "en": "praise",
+    "ru": "хвалить",
+    "uk": "хвалити",
+    "tr": "övmek"
+  },
+  "missverstehen": {
+    "de": "missverstehen",
+    "en": "misunderstand",
+    "ru": "неправильно понять",
+    "uk": "неправильно розуміти",
+    "tr": "yanlış anlamak"
+  },
+  "unterstützen": {
+    "de": "unterstützen",
+    "en": "support",
+    "ru": "поддерживать",
+    "uk": "підтримувати",
+    "tr": "desteklemek"
+  },
+  "aufführen": {
+    "de": "aufführen",
+    "en": "perform; list",
+    "ru": "исполнять; перечислять",
+    "uk": "виконувати; перелічувати",
+    "tr": "sahnelemek; listelemek"
+  },
+  "vorlesen": {
+    "de": "vorlesen",
+    "en": "read aloud",
+    "ru": "читать вслух",
+    "uk": "читати вголос",
+    "tr": "yüksek sesle okumak"
+  },
+  "eintreten": {
+    "de": "eintreten",
+    "en": "enter; occur",
+    "ru": "войти; произойти",
+    "uk": "входити; відбуватися",
+    "tr": "girmek; meydana gelmek"
+  },
+  "versorgen": {
+    "de": "versorgen",
+    "en": "supply; care for",
+    "ru": "снабжать; заботиться о",
+    "uk": "постачати; доглядати",
+    "tr": "tedarik etmek; ilgilenmek"
+  },
+  "hinweisen": {
+    "de": "hinweisen",
+    "en": "point out",
+    "ru": "указать",
+    "uk": "вказувати",
+    "tr": "belirtmek"
+  },
+  "verteilen": {
+    "de": "verteilen",
+    "en": "distribute",
+    "ru": "распространять",
+    "uk": "поширювати",
+    "tr": "dağıtmak"
+  },
+  "sich einsetzen": {
+    "de": "sich einsetzen",
+    "en": "advocate",
+    "ru": "защищать",
+    "uk": "відстоювати",
+    "tr": "savunmak"
+  },
+  "sich weiterbilden": {
+    "de": "sich weiterbilden",
+    "en": "continue one's education",
+    "ru": "продолжить образование",
+    "uk": "продовжувати навчання",
+    "tr": "eğitimine devam etmek"
+  },
+  "zubereiten": {
+    "de": "zubereiten",
+    "en": "prepare food",
+    "ru": "готовить еду",
+    "uk": "готувати їжу",
+    "tr": "yemek hazırlamak"
+  },
+  "geschehen": {
+    "de": "geschehen",
+    "en": "happen",
+    "ru": "произойти",
+    "uk": "статися",
+    "tr": "olmak"
+  },
+  "töten": {
+    "de": "töten",
+    "en": "kill",
+    "ru": "убить",
+    "uk": "вбивати",
+    "tr": "öldürmek"
+  },
+  "kämpfen": {
+    "de": "kämpfen",
+    "en": "fight",
+    "ru": "сражаться",
+    "uk": "воювати",
+    "tr": "savaşmak"
+  },
+  "empfangen": {
+    "de": "empfangen",
+    "en": "receive",
+    "ru": "получать",
+    "uk": "отримати",
+    "tr": "almak"
+  },
+  "fördern": {
+    "de": "fördern",
+    "en": "promote",
+    "ru": "продвигать",
+    "uk": "просувати",
+    "tr": "teşvik etmek"
+  },
+  "sich leisten": {
+    "de": "sich leisten",
+    "en": "afford",
+    "ru": "позволять себе",
+    "uk": "дозволяти собі",
+    "tr": "maddi olarak karşılayabilmek"
+  },
+  "protestieren": {
+    "de": "protestieren",
+    "en": "protest",
+    "ru": "протестовать",
+    "uk": "протестувати",
+    "tr": "protesto etmek"
+  },
+  "braten": {
+    "de": "braten",
+    "en": "fry; roast",
+    "ru": "жарить; жарить",
+    "uk": "смажити; смажити",
+    "tr": "kızartmak; kızartmak"
+  },
+  "rühren": {
+    "de": "rühren",
+    "en": "stir",
+    "ru": "мешать",
+    "uk": "перемішати",
+    "tr": "karıştırmak"
+  },
+  "trocknen": {
+    "de": "trocknen",
+    "en": "dry",
+    "ru": "сушить",
+    "uk": "висохнути",
+    "tr": "kurutmak"
+  },
+  "integrieren": {
+    "de": "integrieren",
+    "en": "integrate",
+    "ru": "интегрировать",
+    "uk": "інтегрувати",
+    "tr": "entegre etmek"
+  },
+  "ordnen": {
+    "de": "ordnen",
+    "en": "arrange",
+    "ru": "упорядочивать",
+    "uk": "упорядковувати",
+    "tr": "düzenlemek"
+  },
+  "abbrechen": {
+    "de": "abbrechen",
+    "en": "break off; cancel",
+    "ru": "оторваться; отменить",
+    "uk": "відламати; скасувати",
+    "tr": "kopmak; iptal etmek"
+  },
+  "abhalten": {
+    "de": "abhalten",
+    "en": "prevent; hold an event",
+    "ru": "предотвратить; провести мероприятие",
+    "uk": "запобігати; провести захід",
+    "tr": "önlemek; bir etkinlik düzenlemek"
+  },
+  "ablegen": {
+    "de": "ablegen",
+    "en": "put down; take off",
+    "ru": "класть; снимать",
+    "uk": "класти; знімати",
+    "tr": "koymak; çıkarmak"
+  },
+  "abraten": {
+    "de": "abraten",
+    "en": "advise against",
+    "ru": "отговаривать",
+    "uk": "відраджувати",
+    "tr": "yapmamasını tavsiye etmek"
+  },
+  "abrunden": {
+    "de": "abrunden",
+    "en": "round off",
+    "ru": "округлить",
+    "uk": "округляти",
+    "tr": "yuvarlamak"
+  },
+  "abschaffen": {
+    "de": "abschaffen",
+    "en": "abolish",
+    "ru": "отменить",
+    "uk": "скасувати",
+    "tr": "ortadan kaldırmak"
+  },
+  "absolvieren": {
+    "de": "absolvieren",
+    "en": "complete a course",
+    "ru": "пройти курс",
+    "uk": "завершити курс",
+    "tr": "bir kursu tamamlamak"
+  },
+  "abweichen": {
+    "de": "abweichen",
+    "en": "deviate",
+    "ru": "отклоняться",
+    "uk": "відхилятися",
+    "tr": "sapmak"
+  },
+  "anbauen": {
+    "de": "anbauen",
+    "en": "cultivate",
+    "ru": "культивировать",
+    "uk": "культивувати",
+    "tr": "yetiştirmek"
+  },
+  "angreifen": {
+    "de": "angreifen",
+    "en": "attack",
+    "ru": "атаковать",
+    "uk": "атакувати",
+    "tr": "saldırmak"
+  },
+  "animieren": {
+    "de": "animieren",
+    "en": "encourage",
+    "ru": "поощрять",
+    "uk": "заохочувати",
+    "tr": "teşvik etmek"
+  },
+  "anrechnen": {
+    "de": "anrechnen",
+    "en": "credit towards",
+    "ru": "засчитывать",
+    "uk": "зараховувати",
+    "tr": "saymak; hesaba katmak"
+  },
+  "anrühren": {
+    "de": "anrühren",
+    "en": "mix; touch",
+    "ru": "перемешать; коснуться",
+    "uk": "змішувати; торкатися",
+    "tr": "karıştırmak; dokunmak"
+  },
+  "anschaffen": {
+    "de": "anschaffen",
+    "en": "purchase",
+    "ru": "купить",
+    "uk": "придбати",
+    "tr": "satın almak"
+  },
+  "anvertrauen": {
+    "de": "anvertrauen",
+    "en": "entrust",
+    "ru": "поручить",
+    "uk": "доручати",
+    "tr": "emanet etmek"
+  },
+  "anwenden": {
+    "de": "anwenden",
+    "en": "apply",
+    "ru": "применять",
+    "uk": "застосовувати",
+    "tr": "uygulamak"
+  },
+  "applaudieren": {
+    "de": "applaudieren",
+    "en": "applaud",
+    "ru": "аплодировать",
+    "uk": "аплодувати",
+    "tr": "alkışlamak"
+  },
+  "auffrischen": {
+    "de": "auffrischen",
+    "en": "refresh",
+    "ru": "обновить",
+    "uk": "оновити",
+    "tr": "yenilemek"
+  },
+  "aufgreifen": {
+    "de": "aufgreifen",
+    "en": "pick up a topic",
+    "ru": "подхватывать тему",
+    "uk": "підхоплювати тему",
+    "tr": "bir konuyu ele almak"
+  },
+  "aufladen": {
+    "de": "aufladen",
+    "en": "charge; load up",
+    "ru": "заряжать; загрузить",
+    "uk": "заряджати; завантажитися",
+    "tr": "şarj etmek; yüklemek"
+  },
+  "auflisten": {
+    "de": "auflisten",
+    "en": "list",
+    "ru": "перечислять",
+    "uk": "перелічувати",
+    "tr": "listelemek"
+  },
+  "aufwachsen": {
+    "de": "aufwachsen",
+    "en": "grow up",
+    "ru": "вырасти",
+    "uk": "вирости",
+    "tr": "büyümek"
+  },
+  "ausgrenzen": {
+    "de": "ausgrenzen",
+    "en": "exclude",
+    "ru": "исключить",
+    "uk": "виключити",
+    "tr": "hariç tutmak"
+  },
+  "ausprobieren": {
+    "de": "ausprobieren",
+    "en": "try out",
+    "ru": "попробовать",
+    "uk": "випробувати",
+    "tr": "denemek"
+  },
+  "aussagen": {
+    "de": "aussagen",
+    "en": "testify",
+    "ru": "давать показания",
+    "uk": "свідчити",
+    "tr": "tanıklık etmek"
+  },
+  "ausschütten": {
+    "de": "ausschütten",
+    "en": "pour out",
+    "ru": "вылить",
+    "uk": "виливати",
+    "tr": "dökmek"
+  },
+  "auswerten": {
+    "de": "auswerten",
+    "en": "evaluate",
+    "ru": "оценивать",
+    "uk": "оцінювати",
+    "tr": "değerlendirmek"
+  },
+  "ausüben": {
+    "de": "ausüben",
+    "en": "practice a profession",
+    "ru": "заниматься профессией",
+    "uk": "займатися професією",
+    "tr": "bir mesleği icra etmek"
+  },
+  "befristen": {
+    "de": "befristen",
+    "en": "set a time limit",
+    "ru": "установить ограничение по времени",
+    "uk": "встановити ліміт часу",
+    "tr": "bir zaman sınırı belirlemek"
+  },
+  "begrenzen": {
+    "de": "begrenzen",
+    "en": "limit",
+    "ru": "ограничивать",
+    "uk": "обмежувати",
+    "tr": "sınırlamak"
+  },
+  "beherrschen": {
+    "de": "beherrschen",
+    "en": "master",
+    "ru": "освоить",
+    "uk": "освоїти",
+    "tr": "ustalaşmak"
+  },
+  "beifügen": {
+    "de": "beifügen",
+    "en": "enclose",
+    "ru": "прилагать",
+    "uk": "додавати",
+    "tr": "eklemek"
+  },
+  "bereuen": {
+    "de": "bereuen",
+    "en": "regret",
+    "ru": "сожалеть",
+    "uk": "шкодувати",
+    "tr": "pişman olmak"
+  },
+  "beruhen": {
+    "de": "beruhen",
+    "en": "be based on",
+    "ru": "быть основанным на",
+    "uk": "базуватися на",
+    "tr": "dayalı olmak"
+  },
+  "berühren": {
+    "de": "berühren",
+    "en": "touch",
+    "ru": "коснуться",
+    "uk": "торкатися",
+    "tr": "dokunmak"
+  },
+  "beurteilen": {
+    "de": "beurteilen",
+    "en": "judge",
+    "ru": "судить",
+    "uk": "судити",
+    "tr": "yargılamak"
+  },
+  "bewässern": {
+    "de": "bewässern",
+    "en": "irrigate",
+    "ru": "орошать",
+    "uk": "зрошувати",
+    "tr": "sulamak"
+  },
+  "bezeichnen": {
+    "de": "bezeichnen",
+    "en": "designate",
+    "ru": "обозначить",
+    "uk": "позначати",
+    "tr": "belirlemek"
+  },
+  "blockieren": {
+    "de": "blockieren",
+    "en": "block",
+    "ru": "заблокировать",
+    "uk": "блокувати",
+    "tr": "engellemek"
+  },
+  "dahinterstecken": {
+    "de": "dahinterstecken",
+    "en": "be behind something",
+    "ru": "быть за чем-то",
+    "uk": "бути за чимось",
+    "tr": "bir şeyin arkasında olmak"
+  },
+  "deklarieren": {
+    "de": "deklarieren",
+    "en": "declare",
+    "ru": "объявить",
+    "uk": "оголосити",
+    "tr": "beyan etmek"
+  },
+  "diagnostizieren": {
+    "de": "diagnostizieren",
+    "en": "diagnose",
+    "ru": "диагностировать",
+    "uk": "діагностувати",
+    "tr": "teşhis etmek"
+  },
+  "drehen": {
+    "de": "drehen",
+    "en": "turn",
+    "ru": "поворачивать",
+    "uk": "обертатися",
+    "tr": "dönmek"
+  },
+  "durchatmen": {
+    "de": "durchatmen",
+    "en": "take a deep breath",
+    "ru": "сделать глубокий вдох",
+    "uk": "зробити глибокий вдих",
+    "tr": "derin bir nefes almak"
+  },
+  "durchblättern": {
+    "de": "durchblättern",
+    "en": "leaf through",
+    "ru": "пролистывать",
+    "uk": "перегортати",
+    "tr": "sayfalarına göz atmak"
+  },
+  "eilen": {
+    "de": "eilen",
+    "en": "hurry",
+    "ru": "спешить",
+    "uk": "поспішати",
+    "tr": "acele etmek"
+  },
+  "eingehen": {
+    "de": "eingehen",
+    "en": "respond to; enter into",
+    "ru": "ответить; вступить в",
+    "uk": "відповідати на; вступати в",
+    "tr": "yanıtlamak; içine girmek"
+  },
+  "einnehmen": {
+    "de": "einnehmen",
+    "en": "take medicine; occupy",
+    "ru": "принимать лекарства; занимать",
+    "uk": "приймати ліки; займати",
+    "tr": "ilaç almak; işgal etmek"
+  },
+  "einreiben": {
+    "de": "einreiben",
+    "en": "rub in",
+    "ru": "втирать",
+    "uk": "втирати",
+    "tr": "ovalamak"
+  },
+  "einschlagen": {
+    "de": "einschlagen",
+    "en": "strike; smash in",
+    "ru": "ударять; разбивать",
+    "uk": "ударяти; розбивати",
+    "tr": "vurmak; kırmak"
+  },
+  "entkräften": {
+    "de": "entkräften",
+    "en": "refute",
+    "ru": "опровергнуть",
+    "uk": "спростовувати",
+    "tr": "çürütmek"
+  },
+  "entspringen": {
+    "de": "entspringen",
+    "en": "originate; spring from",
+    "ru": "возникать; вырастать из",
+    "uk": "виникати; випливати з",
+    "tr": "kaynaklanmak; kaynaklanmak"
+  },
+  "entwerfen": {
+    "de": "entwerfen",
+    "en": "design",
+    "ru": "проектировать",
+    "uk": "проектувати",
+    "tr": "tasarlamak"
+  },
+  "erfassen": {
+    "de": "erfassen",
+    "en": "record; grasp",
+    "ru": "записывать; схватить",
+    "uk": "записувати; схопити",
+    "tr": "kaydetmek; kavramak"
+  },
+  "erfordern": {
+    "de": "erfordern",
+    "en": "require",
+    "ru": "требовать",
+    "uk": "вимагати",
+    "tr": "gerektirmek"
+  },
+  "erfüllen": {
+    "de": "erfüllen",
+    "en": "fulfill",
+    "ru": "выполнить",
+    "uk": "виконувати",
+    "tr": "yerine getirmek"
+  },
+  "erläutern": {
+    "de": "erläutern",
+    "en": "explain",
+    "ru": "объяснить",
+    "uk": "пояснювати",
+    "tr": "açıklamak"
+  },
+  "ermöglichen": {
+    "de": "ermöglichen",
+    "en": "enable",
+    "ru": "делать возможным",
+    "uk": "уможливлювати",
+    "tr": "mümkün kılmak"
+  },
+  "erregen": {
+    "de": "erregen",
+    "en": "arouse",
+    "ru": "возбудить",
+    "uk": "збуджувати",
+    "tr": "uyandırmak"
+  },
+  "erschließen": {
+    "de": "erschließen",
+    "en": "develop; infer",
+    "ru": "развиваться; сделать вывод",
+    "uk": "розвивати; робити висновок",
+    "tr": "geliştirmek; çıkarım yapmak"
+  },
+  "erwerben": {
+    "de": "erwerben",
+    "en": "acquire",
+    "ru": "приобрести",
+    "uk": "придбати",
+    "tr": "elde etmek"
+  },
+  "erwähnen": {
+    "de": "erwähnen",
+    "en": "mention",
+    "ru": "упомянуть",
+    "uk": "згадувати",
+    "tr": "bahsetmek"
+  },
+  "erzeugen": {
+    "de": "erzeugen",
+    "en": "produce",
+    "ru": "производить",
+    "uk": "виробляти",
+    "tr": "üretmek"
+  },
+  "experimentieren": {
+    "de": "experimentieren",
+    "en": "experiment",
+    "ru": "экспериментировать",
+    "uk": "експериментувати",
+    "tr": "denemek"
+  },
+  "festlegen": {
+    "de": "festlegen",
+    "en": "determine",
+    "ru": "определить",
+    "uk": "визначити",
+    "tr": "belirlemek"
+  },
+  "fixieren": {
+    "de": "fixieren",
+    "en": "fix in place",
+    "ru": "зафиксировать на месте",
+    "uk": "закріпити на місці",
+    "tr": "yerine sabitlemek"
+  },
+  "flanieren": {
+    "de": "flanieren",
+    "en": "stroll",
+    "ru": "прогуляться",
+    "uk": "прогулятися",
+    "tr": "gezmek"
+  },
+  "flitzen": {
+    "de": "flitzen",
+    "en": "dash",
+    "ru": "броситься",
+    "uk": "кидатися",
+    "tr": "atılmak"
+  },
+  "forschen": {
+    "de": "forschen",
+    "en": "conduct research",
+    "ru": "проводить исследования",
+    "uk": "проводити дослідження",
+    "tr": "araştırma yapmak"
+  },
+  "färben": {
+    "de": "färben",
+    "en": "dye",
+    "ru": "красить",
+    "uk": "фарбувати",
+    "tr": "boyamak"
+  },
+  "gelangen": {
+    "de": "gelangen",
+    "en": "reach",
+    "ru": "достичь",
+    "uk": "досягти",
+    "tr": "ulaşmak"
+  },
+  "geraten": {
+    "de": "geraten",
+    "en": "get into a situation",
+    "ru": "попасть в ситуацию",
+    "uk": "потрапити в ситуацію",
+    "tr": "bir duruma girmek"
+  },
+  "gestalten": {
+    "de": "gestalten",
+    "en": "design",
+    "ru": "проектировать",
+    "uk": "проектувати",
+    "tr": "tasarlamak"
+  },
+  "grillieren": {
+    "de": "grillieren",
+    "en": "barbecue",
+    "ru": "готовить на гриле",
+    "uk": "готувати на грилі",
+    "tr": "ızgara yapmak"
+  },
+  "halten": {
+    "de": "halten",
+    "en": "hold",
+    "ru": "держать",
+    "uk": "тримати",
+    "tr": "tutmak"
+  },
+  "heilen": {
+    "de": "heilen",
+    "en": "heal",
+    "ru": "исцелить",
+    "uk": "зцілити",
+    "tr": "iyileşmek"
+  },
+  "herausfiltern": {
+    "de": "herausfiltern",
+    "en": "filter out",
+    "ru": "отфильтровать",
+    "uk": "фільтрувати",
+    "tr": "filtrelemek"
+  },
+  "heraushängen": {
+    "de": "heraushängen",
+    "en": "hang out",
+    "ru": "свисать наружу",
+    "uk": "звисати назовні",
+    "tr": "dışarı sarkmak"
+  },
+  "hüpfen": {
+    "de": "hüpfen",
+    "en": "hop",
+    "ru": "прыгать",
+    "uk": "стрибати",
+    "tr": "atlamak"
+  },
+  "imitieren": {
+    "de": "imitieren",
+    "en": "imitate",
+    "ru": "подражать",
+    "uk": "наслідувати",
+    "tr": "taklit etmek"
+  },
+  "in Anspruch nehmen": {
+    "de": "in Anspruch nehmen",
+    "en": "make use of",
+    "ru": "использовать",
+    "uk": "використовувати",
+    "tr": "yararlanmak"
+  },
+  "inspirieren": {
+    "de": "inspirieren",
+    "en": "inspire",
+    "ru": "вдохновлять",
+    "uk": "надихати",
+    "tr": "ilham vermek"
+  },
+  "interpretieren": {
+    "de": "interpretieren",
+    "en": "interpret",
+    "ru": "интерпретировать",
+    "uk": "тлумачити",
+    "tr": "yorumlamak"
+  },
+  "irritieren": {
+    "de": "irritieren",
+    "en": "confuse",
+    "ru": "сбить с толку",
+    "uk": "плутати",
+    "tr": "karıştırmak"
+  },
+  "klatschen": {
+    "de": "klatschen",
+    "en": "clap",
+    "ru": "хлопать",
+    "uk": "плескати",
+    "tr": "alkışlamak"
+  },
+  "klingen": {
+    "de": "klingen",
+    "en": "sound",
+    "ru": "звучать",
+    "uk": "звучати",
+    "tr": "ses çıkarmak"
+  },
+  "knüpfen": {
+    "de": "knüpfen",
+    "en": "tie; establish contacts",
+    "ru": "завязать; установить контакты",
+    "uk": "зав'язувати; налагодити контакти",
+    "tr": "bağlamak; temas kurmak"
+  },
+  "kommentieren": {
+    "de": "kommentieren",
+    "en": "comment",
+    "ru": "комментировать",
+    "uk": "коментувати",
+    "tr": "yorum yapmak"
+  },
+  "konsumieren": {
+    "de": "konsumieren",
+    "en": "consume",
+    "ru": "потреблять",
+    "uk": "споживати",
+    "tr": "tüketmek"
+  },
+  "kratzen": {
+    "de": "kratzen",
+    "en": "scratch",
+    "ru": "царапать",
+    "uk": "подряпати",
+    "tr": "çizmek"
+  },
+  "kreisen": {
+    "de": "kreisen",
+    "en": "circle",
+    "ru": "кружиться",
+    "uk": "кружляти",
+    "tr": "dairesel hareket etmek"
+  },
+  "lackieren": {
+    "de": "lackieren",
+    "en": "paint with lacquer",
+    "ru": "красить лаком",
+    "uk": "пофарбувати лаком",
+    "tr": "cila ile boyamak"
+  },
+  "leisten": {
+    "de": "leisten",
+    "en": "accomplish",
+    "ru": "выполнить",
+    "uk": "виконати",
+    "tr": "başarmak"
+  },
+  "missen": {
+    "de": "missen",
+    "en": "miss; do without",
+    "ru": "не иметь; обходиться без",
+    "uk": "не мати; обходитися без",
+    "tr": "eksikliğini hissetmek"
+  },
+  "nachkommen": {
+    "de": "nachkommen",
+    "en": "comply with; follow",
+    "ru": "соблюдать; следовать",
+    "uk": "дотримуватись; слідувати",
+    "tr": "uymak; takip etmek"
+  },
+  "naschen": {
+    "de": "naschen",
+    "en": "snack on sweets",
+    "ru": "перекусить сладостями",
+    "uk": "перекусити солодощами",
+    "tr": "tatlıları atıştırmak"
+  },
+  "nerven": {
+    "de": "nerven",
+    "en": "annoy",
+    "ru": "раздражать",
+    "uk": "дратувати",
+    "tr": "rahatsız etmek"
+  },
+  "parkieren": {
+    "de": "parkieren",
+    "en": "park a vehicle",
+    "ru": "припарковать автомобиль",
+    "uk": "паркувати автомобіль",
+    "tr": "bir aracı park etmek"
+  },
+  "pendeln": {
+    "de": "pendeln",
+    "en": "commute",
+    "ru": "ездить на работу",
+    "uk": "їздити на роботу",
+    "tr": "işe gidip gelmek"
+  },
+  "pflücken": {
+    "de": "pflücken",
+    "en": "pick fruit or flowers",
+    "ru": "собирать фрукты или цветы",
+    "uk": "збирати фрукти чи квіти",
+    "tr": "meyve veya çiçek toplamak"
+  },
+  "plädieren": {
+    "de": "plädieren",
+    "en": "argue in favor",
+    "ru": "аргументировать в пользу",
+    "uk": "аргументувати на користь",
+    "tr": "lehine tartışmak"
+  },
+  "praktizieren": {
+    "de": "praktizieren",
+    "en": "practice",
+    "ru": "практиковать",
+    "uk": "практикувати",
+    "tr": "pratik yapmak"
+  },
+  "promovieren": {
+    "de": "promovieren",
+    "en": "earn a doctorate",
+    "ru": "получить докторскую степень",
+    "uk": "отримати докторський ступінь",
+    "tr": "doktora kazanmak"
+  },
+  "prägen": {
+    "de": "prägen",
+    "en": "shape; mint",
+    "ru": "формировать; чеканить",
+    "uk": "формувати; карбувати",
+    "tr": "şekillendirmek; para basmak"
+  },
+  "quatschen": {
+    "de": "quatschen",
+    "en": "chat",
+    "ru": "поболтать",
+    "uk": "спілкуватися",
+    "tr": "sohbet etmek"
+  },
+  "regulieren": {
+    "de": "regulieren",
+    "en": "regulate",
+    "ru": "регулировать",
+    "uk": "регулювати",
+    "tr": "düzenlemek"
+  },
+  "reizen": {
+    "de": "reizen",
+    "en": "irritate; appeal to",
+    "ru": "раздражать; привлекать",
+    "uk": "дратувати; приваблювати",
+    "tr": "tahriş etmek; cezbetmek"
+  },
+  "rutschen": {
+    "de": "rutschen",
+    "en": "slide",
+    "ru": "скользить",
+    "uk": "ковзати",
+    "tr": "kaymak"
+  },
+  "sanieren": {
+    "de": "sanieren",
+    "en": "renovate; rehabilitate",
+    "ru": "отремонтировать; реабилитировать",
+    "uk": "ремонтувати; реабілітувати",
+    "tr": "yenilemek; rehabilite etmek"
+  },
+  "scheitern": {
+    "de": "scheitern",
+    "en": "fail",
+    "ru": "потерпеть неудачу",
+    "uk": "провалитися",
+    "tr": "başarısız olmak"
+  },
+  "schieflaufen": {
+    "de": "schieflaufen",
+    "en": "go wrong",
+    "ru": "пойти не так",
+    "uk": "піти не так",
+    "tr": "yanlış gitmek"
+  },
+  "schlemmen": {
+    "de": "schlemmen",
+    "en": "feast",
+    "ru": "пировать",
+    "uk": "бенкетувати",
+    "tr": "ziyafet çekmek"
+  },
+  "schälen": {
+    "de": "schälen",
+    "en": "peel",
+    "ru": "чистить",
+    "uk": "обдирати",
+    "tr": "soymak"
+  },
+  "sich abheben": {
+    "de": "sich abheben",
+    "en": "stand out",
+    "ru": "выделяться",
+    "uk": "виділятися",
+    "tr": "öne çıkmak"
+  },
+  "sich aneignen": {
+    "de": "sich aneignen",
+    "en": "acquire knowledge",
+    "ru": "приобретать знания",
+    "uk": "здобувати знання",
+    "tr": "bilgi edinmek"
+  },
+  "sich anstecken": {
+    "de": "sich anstecken",
+    "en": "catch an infection",
+    "ru": "подхватить инфекцию",
+    "uk": "підхопити інфекцію",
+    "tr": "enfeksiyon kapmak"
+  },
+  "sich auskennen": {
+    "de": "sich auskennen",
+    "en": "know one's way around",
+    "ru": "разбираться; хорошо знать местность",
+    "uk": "розумітися; знати місцевість",
+    "tr": "bir konuda bilgili olmak"
+  },
+  "sich ausleben": {
+    "de": "sich ausleben",
+    "en": "express oneself freely",
+    "ru": "свободно выражать себя",
+    "uk": "вільно висловлюватися",
+    "tr": "kendini özgürce ifade etmek"
+  },
+  "sich ausschließen": {
+    "de": "sich ausschließen",
+    "en": "be mutually exclusive",
+    "ru": "быть взаимоисключающими",
+    "uk": "бути взаємовиключними",
+    "tr": "birbirini dışlayan olmak"
+  },
+  "sich austauschen": {
+    "de": "sich austauschen",
+    "en": "exchange ideas",
+    "ru": "обмениваться идеями",
+    "uk": "обмінюватися думками",
+    "tr": "fikir alışverişinde bulunmak"
+  },
+  "sich befassen": {
+    "de": "sich befassen",
+    "en": "deal with a topic",
+    "ru": "разобраться с темой",
+    "uk": "мати справу з темою",
+    "tr": "bir konuyu ele almak"
+  },
+  "sich beschränken": {
+    "de": "sich beschränken",
+    "en": "limit oneself",
+    "ru": "ограничивать себя",
+    "uk": "обмежувати себе",
+    "tr": "kendini sınırlamak"
+  },
+  "sich bewähren": {
+    "de": "sich bewähren",
+    "en": "prove oneself",
+    "ru": "проявить себя",
+    "uk": "довести себе",
+    "tr": "kendini kanıtlamak"
+  },
+  "sich blicken lassen": {
+    "de": "sich blicken lassen",
+    "en": "show up",
+    "ru": "появиться",
+    "uk": "показатися",
+    "tr": "ortaya çıkmak"
+  },
+  "sich durchsetzen": {
+    "de": "sich durchsetzen",
+    "en": "assert oneself",
+    "ru": "самоутвердиться",
+    "uk": "самостверджуватись",
+    "tr": "kendini savunmak"
+  },
+  "sich einschreiben": {
+    "de": "sich einschreiben",
+    "en": "enroll",
+    "ru": "записываться",
+    "uk": "записуватися",
+    "tr": "kayıt yaptırmak"
+  },
+  "sich engagieren": {
+    "de": "sich engagieren",
+    "en": "get involved",
+    "ru": "принять участие",
+    "uk": "брати участь",
+    "tr": "dahil olmak"
+  },
+  "sich entfremden": {
+    "de": "sich entfremden",
+    "en": "become estranged",
+    "ru": "отдалиться",
+    "uk": "відчужуватися",
+    "tr": "yabancılaşmak"
+  },
+  "sich erarbeiten": {
+    "de": "sich erarbeiten",
+    "en": "acquire through effort",
+    "ru": "приобрести посредством усилий",
+    "uk": "здобути зусиллями",
+    "tr": "çaba harcayarak elde etmek"
+  },
+  "sich identifizieren": {
+    "de": "sich identifizieren",
+    "en": "identify oneself",
+    "ru": "идентифицировать себя",
+    "uk": "ідентифікувати себе",
+    "tr": "kendini tanımlamak"
+  },
+  "sich spezialisieren": {
+    "de": "sich spezialisieren",
+    "en": "specialize",
+    "ru": "специализироваться",
+    "uk": "спеціалізуватися",
+    "tr": "uzmanlaşmak"
+  },
+  "sich verfahren": {
+    "de": "sich verfahren",
+    "en": "get lost while driving",
+    "ru": "заблудиться за рулем",
+    "uk": "заблукати під час руху",
+    "tr": "araba kullanırken kaybolmak"
+  },
+  "sich verkleiden": {
+    "de": "sich verkleiden",
+    "en": "dress up in a costume",
+    "ru": "одеться в костюм",
+    "uk": "одягатися в костюм",
+    "tr": "kostüm giymek"
+  },
+  "sich verlassen": {
+    "de": "sich verlassen",
+    "en": "rely on",
+    "ru": "полагаться на",
+    "uk": "покладатися на",
+    "tr": "güvenmek"
+  },
+  "sich verringern": {
+    "de": "sich verringern",
+    "en": "decrease",
+    "ru": "уменьшаться",
+    "uk": "зменшуватися",
+    "tr": "azalmak"
+  },
+  "sich vertraut machen": {
+    "de": "sich vertraut machen",
+    "en": "familiarize oneself",
+    "ru": "ознакомляться",
+    "uk": "ознайомлюватися",
+    "tr": "bir şeyle aşina olmak"
+  },
+  "sich vertreiben": {
+    "de": "sich vertreiben",
+    "en": "pass the time",
+    "ru": "скоротать время",
+    "uk": "провести час",
+    "tr": "zaman geçirmek"
+  },
+  "sich vorbeugen": {
+    "de": "sich vorbeugen",
+    "en": "bend forward",
+    "ru": "наклониться вперед",
+    "uk": "нахилятися вперед",
+    "tr": "öne eğilmek"
+  },
+  "sich wandeln": {
+    "de": "sich wandeln",
+    "en": "transform",
+    "ru": "меняться; преобразовываться",
+    "uk": "змінюватися; перетворюватися",
+    "tr": "değişmek; dönüşmek"
+  },
+  "sinken": {
+    "de": "sinken",
+    "en": "sink",
+    "ru": "тонуть",
+    "uk": "тонути",
+    "tr": "batmak"
+  },
+  "spüren": {
+    "de": "spüren",
+    "en": "feel; sense",
+    "ru": "чувствовать; ощущать",
+    "uk": "відчувати",
+    "tr": "hissetmek; sezmek"
+  },
+  "stagnieren": {
+    "de": "stagnieren",
+    "en": "stagnate",
+    "ru": "застаиваться",
+    "uk": "застоюватися",
+    "tr": "durgunlaşmak"
+  },
+  "starren": {
+    "de": "starren",
+    "en": "stare",
+    "ru": "пристально смотреть",
+    "uk": "пильно дивитися",
+    "tr": "dik dik bakmak"
+  },
+  "staunen": {
+    "de": "staunen",
+    "en": "be amazed",
+    "ru": "быть пораженным",
+    "uk": "бути враженим",
+    "tr": "hayrete düşmek"
+  },
+  "Stellung nehmen": {
+    "de": "Stellung nehmen",
+    "en": "take a position on an issue",
+    "ru": "занять позицию по вопросу",
+    "uk": "зайняти позицію з якогось питання",
+    "tr": "bir konu hakkında pozisyon almak"
+  },
+  "stylen": {
+    "de": "stylen",
+    "en": "style",
+    "ru": "стилизовать",
+    "uk": "стилізувати",
+    "tr": "stil vermek"
+  },
+  "tolerieren": {
+    "de": "tolerieren",
+    "en": "tolerate",
+    "ru": "терпеть",
+    "uk": "терпіти",
+    "tr": "tahammül etmek"
+  },
+  "umschreiben": {
+    "de": "umschreiben",
+    "en": "rewrite",
+    "ru": "переписать",
+    "uk": "переписати",
+    "tr": "yeniden yazmak"
+  },
+  "verabreichen": {
+    "de": "verabreichen",
+    "en": "administer medicine",
+    "ru": "давать лекарство",
+    "uk": "вводити ліки",
+    "tr": "ilacı uygulamak"
+  },
+  "verdreifachen": {
+    "de": "verdreifachen",
+    "en": "triple",
+    "ru": "утроить",
+    "uk": "потроїти",
+    "tr": "üçe katlamak"
+  },
+  "vereinen": {
+    "de": "vereinen",
+    "en": "unite",
+    "ru": "объединять",
+    "uk": "об'єднувати",
+    "tr": "birleştirmek"
+  },
+  "verfassen": {
+    "de": "verfassen",
+    "en": "compose a text",
+    "ru": "составить текст",
+    "uk": "складати текст",
+    "tr": "bir metin oluşturmak"
+  },
+  "verfolgen": {
+    "de": "verfolgen",
+    "en": "follow; pursue",
+    "ru": "следовать; преследовать",
+    "uk": "слідувати; переслідувати",
+    "tr": "takip etmek; takip etmek"
+  },
+  "verfügen": {
+    "de": "verfügen",
+    "en": "have at one's disposal",
+    "ru": "располагать; распоряжаться",
+    "uk": "мати у розпорядженні; розпоряджатися",
+    "tr": "sahip olmak; hükmetmek"
+  },
+  "verlieren": {
+    "de": "verlieren",
+    "en": "lose",
+    "ru": "потерять",
+    "uk": "втратити",
+    "tr": "kaybetmek"
+  },
+  "vermitteln": {
+    "de": "vermitteln",
+    "en": "mediate; convey",
+    "ru": "посредничать; передавать",
+    "uk": "бути посередником; передавати",
+    "tr": "aracılık etmek; aktarmak"
+  },
+  "vernichten": {
+    "de": "vernichten",
+    "en": "destroy",
+    "ru": "уничтожить",
+    "uk": "знищувати",
+    "tr": "yok etmek"
+  },
+  "verschlucken": {
+    "de": "verschlucken",
+    "en": "swallow",
+    "ru": "проглотить",
+    "uk": "проковтнути",
+    "tr": "yutmak"
+  },
+  "verschränken": {
+    "de": "verschränken",
+    "en": "cross one's arms",
+    "ru": "скрестить руки на груди",
+    "uk": "схрестити руки",
+    "tr": "kollarını çaprazlamak"
+  },
+  "verschwenden": {
+    "de": "verschwenden",
+    "en": "waste",
+    "ru": "тратить впустую",
+    "uk": "марнувати",
+    "tr": "israf etmek"
+  },
+  "vertiefen": {
+    "de": "vertiefen",
+    "en": "deepen",
+    "ru": "углубить",
+    "uk": "поглибити",
+    "tr": "derinleştirmek"
+  },
+  "verweilen": {
+    "de": "verweilen",
+    "en": "linger",
+    "ru": "задерживаться",
+    "uk": "затримуватися",
+    "tr": "oyalanmak"
+  },
+  "verwirren": {
+    "de": "verwirren",
+    "en": "confuse",
+    "ru": "сбить с толку",
+    "uk": "плутати",
+    "tr": "karıştırmak"
+  },
+  "verzehren": {
+    "de": "verzehren",
+    "en": "consume food",
+    "ru": "потреблять еду",
+    "uk": "споживати їжу",
+    "tr": "yiyecek tüketmek"
+  },
+  "voraussagen": {
+    "de": "voraussagen",
+    "en": "predict",
+    "ru": "предсказывать",
+    "uk": "передбачати",
+    "tr": "tahmin etmek"
+  },
+  "vorführen": {
+    "de": "vorführen",
+    "en": "demonstrate",
+    "ru": "продемонстрировать",
+    "uk": "демонструвати",
+    "tr": "göstermek"
+  },
+  "vorgehen": {
+    "de": "vorgehen",
+    "en": "proceed",
+    "ru": "действовать; продвигаться",
+    "uk": "діяти; просуватися",
+    "tr": "hareket etmek; ilerlemek"
+  },
+  "vorschreiben": {
+    "de": "vorschreiben",
+    "en": "prescribe; stipulate",
+    "ru": "прописывать; оговаривать",
+    "uk": "прописувати; обумовлювати",
+    "tr": "reçete yazmak; şart koşmak"
+  },
+  "vortragen": {
+    "de": "vortragen",
+    "en": "present; recite",
+    "ru": "представить; читать",
+    "uk": "представляти; декламувати",
+    "tr": "sunmak; okumak"
+  },
+  "weiterbringen": {
+    "de": "weiterbringen",
+    "en": "help advance",
+    "ru": "помочь продвинуться",
+    "uk": "допомогти просунутися",
+    "tr": "ilerlemeye yardımcı olmak"
+  },
+  "wiedergeben": {
+    "de": "wiedergeben",
+    "en": "reproduce; recount",
+    "ru": "воспроизводить; пересказывать",
+    "uk": "відтворювати; переказувати",
+    "tr": "aktarmak; yeniden üretmek"
+  },
+  "wimmeln": {
+    "de": "wimmeln",
+    "en": "swarm",
+    "ru": "кишеть",
+    "uk": "кишіти",
+    "tr": "kaynayıp durmak"
+  },
+  "würzen": {
+    "de": "würzen",
+    "en": "season food",
+    "ru": "приправить еду",
+    "uk": "приправити їжу",
+    "tr": "yemeği baharatlamak"
+  },
+  "zudrücken": {
+    "de": "zudrücken",
+    "en": "press shut",
+    "ru": "закрывать нажимом",
+    "uk": "закривати натисканням",
+    "tr": "bastırarak kapatmak"
+  },
+  "zufriedenstellen": {
+    "de": "zufriedenstellen",
+    "en": "satisfy",
+    "ru": "удовлетворить",
+    "uk": "задовольнити",
+    "tr": "tatmin etmek"
+  },
+  "zufügen": {
+    "de": "zufügen",
+    "en": "inflict",
+    "ru": "нанести",
+    "uk": "наносити",
+    "tr": "zarar vermek"
+  },
+  "zugeben": {
+    "de": "zugeben",
+    "en": "admit; add",
+    "ru": "признаться; добавить",
+    "uk": "визнавати; додати",
+    "tr": "itiraf etmek; eklemek"
+  },
+  "zugreifen": {
+    "de": "zugreifen",
+    "en": "grab; access",
+    "ru": "схватить; получить доступ",
+    "uk": "хапати; доступу",
+    "tr": "kapmak; erişmek"
+  },
+  "zunehmen": {
+    "de": "zunehmen",
+    "en": "increase; gain weight",
+    "ru": "увеличиваться; набирать вес",
+    "uk": "збільшуватися; набирати вагу",
+    "tr": "artmak; kilo almak"
+  },
+  "zusammenkommen": {
+    "de": "zusammenkommen",
+    "en": "come together",
+    "ru": "собраться вместе",
+    "uk": "зібратися разом",
+    "tr": "bir araya gelmek"
+  },
+  "zutun": {
+    "de": "zutun",
+    "en": "close; contribute",
+    "ru": "закрыть; внести свой вклад",
+    "uk": "закривати; сприяти",
+    "tr": "kapatmak; katkıda bulunmak"
+  },
+  "zwinkern": {
+    "de": "zwinkern",
+    "en": "wink",
+    "ru": "подмигивать",
+    "uk": "підморгувати",
+    "tr": "göz kırpmak"
+  },
+  "zügeln": {
+    "de": "zügeln",
+    "en": "restrain",
+    "ru": "сдерживать",
+    "uk": "стримувати",
+    "tr": "dizginlemek"
+  },
+  "äußern": {
+    "de": "äußern",
+    "en": "express",
+    "ru": "выражать",
+    "uk": "виражати",
+    "tr": "ifade etmek"
+  },
+  "überarbeiten": {
+    "de": "überarbeiten",
+    "en": "revise",
+    "ru": "пересматривать",
+    "uk": "переглядати",
+    "tr": "gözden geçirmek"
+  },
+  "überlassen": {
+    "de": "überlassen",
+    "en": "leave to someone",
+    "ru": "оставить кому-то",
+    "uk": "залишити комусь",
+    "tr": "birine bırakmak"
+  },
+  "überschreiten": {
+    "de": "überschreiten",
+    "en": "exceed",
+    "ru": "превышать",
+    "uk": "перевищувати",
+    "tr": "aşmak"
+  },
+  "abhängen": {
+    "de": "abhängen",
+    "en": "depend on",
+    "ru": "зависеть от",
+    "uk": "залежати від",
+    "tr": "bağımlı olmak"
+  },
+  "ablenken": {
+    "de": "ablenken",
+    "en": "distract",
+    "ru": "отвлекать",
+    "uk": "відволікати",
+    "tr": "dikkatini dağıtmak"
+  },
+  "abtun": {
+    "de": "abtun",
+    "en": "dismiss; take off",
+    "ru": "отмахиваться; снимать",
+    "uk": "відмахуватися; знімати",
+    "tr": "önemsememek; çıkarmak"
+  },
+  "abverlangen": {
+    "de": "abverlangen",
+    "en": "demand from",
+    "ru": "требовать от",
+    "uk": "вимагати від",
+    "tr": "talep etmek"
+  },
+  "abwärtsgehen": {
+    "de": "abwärtsgehen",
+    "en": "go downhill",
+    "ru": "идти под гору",
+    "uk": "йти вниз",
+    "tr": "yokuş aşağı gitmek"
+  },
+  "agieren": {
+    "de": "agieren",
+    "en": "act",
+    "ru": "действовать",
+    "uk": "діяти",
+    "tr": "hareket etmek"
+  },
+  "ahnen": {
+    "de": "ahnen",
+    "en": "suspect; have a presentiment",
+    "ru": "подозревать; предчувствовать",
+    "uk": "підозрювати; мати передчуття",
+    "tr": "şüphelenmek; bir önseziye sahip olmak"
+  },
+  "anerkennen": {
+    "de": "anerkennen",
+    "en": "recognize; acknowledge",
+    "ru": "признать; признать",
+    "uk": "розпізнавати; визнати",
+    "tr": "tanımak; kabul etmek"
+  },
+  "anlocken": {
+    "de": "anlocken",
+    "en": "attract",
+    "ru": "привлечь",
+    "uk": "приваблювати",
+    "tr": "çekmek"
+  },
+  "ansetzen": {
+    "de": "ansetzen",
+    "en": "apply; set a date",
+    "ru": "прикладывать; назначать",
+    "uk": "прикладати; призначати",
+    "tr": "uygulamak; belirlemek"
+  },
+  "ansiedeln": {
+    "de": "ansiedeln",
+    "en": "settle",
+    "ru": "поселять; размещать",
+    "uk": "поселяти; розміщувати",
+    "tr": "yerleştirmek"
+  },
+  "appellieren": {
+    "de": "appellieren",
+    "en": "appeal",
+    "ru": "призывать; обращаться с призывом",
+    "uk": "закликати; звертатися із закликом",
+    "tr": "çağrıda bulunmak"
+  },
+  "aufdrücken": {
+    "de": "aufdrücken",
+    "en": "press onto; impose",
+    "ru": "надавить; навязывать",
+    "uk": "натискати на; накладати",
+    "tr": "üzerine basmak; empoze etmek"
+  },
+  "ausbauen": {
+    "de": "ausbauen",
+    "en": "expand",
+    "ru": "расширять",
+    "uk": "розширювати",
+    "tr": "genişletmek"
+  },
+  "ausführen": {
+    "de": "ausführen",
+    "en": "carry out",
+    "ru": "выполнять",
+    "uk": "виконувати",
+    "tr": "gerçekleştirmek"
+  },
+  "ausklingen": {
+    "de": "ausklingen",
+    "en": "fade away",
+    "ru": "затихать",
+    "uk": "затихати",
+    "tr": "yavaşça sona ermek"
+  },
+  "auslegen": {
+    "de": "auslegen",
+    "en": "lay out; interpret",
+    "ru": "выложить; интерпретировать",
+    "uk": "викладати; тлумачити",
+    "tr": "yerleştirmek; yorumlamak"
+  },
+  "ausloten": {
+    "de": "ausloten",
+    "en": "explore possibilities",
+    "ru": "изучить возможности",
+    "uk": "досліджувати можливості",
+    "tr": "olasılıkları keşfetmek"
+  },
+  "auslösen": {
+    "de": "auslösen",
+    "en": "trigger",
+    "ru": "вызвать",
+    "uk": "викликати",
+    "tr": "tetiklemek"
+  },
+  "ausmerzen": {
+    "de": "ausmerzen",
+    "en": "eradicate",
+    "ru": "искоренить",
+    "uk": "викорінювати",
+    "tr": "yok etmek"
+  },
+  "ausrüsten": {
+    "de": "ausrüsten",
+    "en": "equip",
+    "ru": "оборудовать",
+    "uk": "обладнати",
+    "tr": "donatmak"
+  },
+  "ausstopfen": {
+    "de": "ausstopfen",
+    "en": "stuff",
+    "ru": "набить",
+    "uk": "набивати",
+    "tr": "doldurmak"
+  },
+  "ausweichen": {
+    "de": "ausweichen",
+    "en": "evade",
+    "ru": "уклоняться",
+    "uk": "ухилятися",
+    "tr": "kaçmak"
+  },
+  "bedauern": {
+    "de": "bedauern",
+    "en": "regret",
+    "ru": "сожалеть",
+    "uk": "шкодувати",
+    "tr": "pişman olmak"
+  },
+  "beeindrucken": {
+    "de": "beeindrucken",
+    "en": "impress",
+    "ru": "произвести впечатление",
+    "uk": "вражати",
+    "tr": "etkilemek"
+  },
+  "beeinträchtigen": {
+    "de": "beeinträchtigen",
+    "en": "impair",
+    "ru": "ухудшить",
+    "uk": "погіршувати",
+    "tr": "bozmak"
+  },
+  "beibehalten": {
+    "de": "beibehalten",
+    "en": "retain",
+    "ru": "сохранить",
+    "uk": "зберігати",
+    "tr": "korumak"
+  },
+  "beinhalten": {
+    "de": "beinhalten",
+    "en": "contain",
+    "ru": "содержать",
+    "uk": "містити",
+    "tr": "içermek"
+  },
+  "beitragen": {
+    "de": "beitragen",
+    "en": "contribute",
+    "ru": "внести свой вклад",
+    "uk": "сприяти",
+    "tr": "katkıda bulunmak"
+  },
+  "beiwohnen": {
+    "de": "beiwohnen",
+    "en": "attend",
+    "ru": "присутствовать",
+    "uk": "бути присутнім",
+    "tr": "katılmak"
+  },
+  "belegen": {
+    "de": "belegen",
+    "en": "prove; occupy",
+    "ru": "доказать; занимать",
+    "uk": "доводити; займати",
+    "tr": "kanıtlamak; işgal etmek"
+  },
+  "bereiten": {
+    "de": "bereiten",
+    "en": "prepare; cause",
+    "ru": "готовить; причинять",
+    "uk": "готувати; завдавати",
+    "tr": "hazırlamak; neden olmak"
+  },
+  "blenden": {
+    "de": "blenden",
+    "en": "dazzle",
+    "ru": "ослеплять",
+    "uk": "засліплювати",
+    "tr": "göz kamaştırmak"
+  },
+  "brachliegen": {
+    "de": "brachliegen",
+    "en": "lie fallow",
+    "ru": "лежать под паром",
+    "uk": "лежати під паром",
+    "tr": "nadasa yatmak"
+  },
+  "brüllen": {
+    "de": "brüllen",
+    "en": "roar",
+    "ru": "реветь",
+    "uk": "ревіти",
+    "tr": "kükremek"
+  },
+  "darlegen": {
+    "de": "darlegen",
+    "en": "explain; set out",
+    "ru": "излагать; разъяснять",
+    "uk": "викладати; пояснювати",
+    "tr": "açıklamak; ortaya koymak"
+  },
+  "deaktivieren": {
+    "de": "deaktivieren",
+    "en": "deactivate",
+    "ru": "деактивировать",
+    "uk": "деактивувати",
+    "tr": "devre dışı bırakmak"
+  },
+  "dehydrieren": {
+    "de": "dehydrieren",
+    "en": "dehydrate",
+    "ru": "обезвоживать",
+    "uk": "зневоднювати",
+    "tr": "susuzlaştırmak"
+  },
+  "deinstallieren": {
+    "de": "deinstallieren",
+    "en": "uninstall",
+    "ru": "удалить",
+    "uk": "видалити",
+    "tr": "kaldırmak"
+  },
+  "demotivieren": {
+    "de": "demotivieren",
+    "en": "demotivate",
+    "ru": "демотивировать",
+    "uk": "демотивувати",
+    "tr": "motivasyonunu düşürmek"
+  },
+  "destabilisieren": {
+    "de": "destabilisieren",
+    "en": "destabilize",
+    "ru": "дестабилизировать",
+    "uk": "дестабілізувати",
+    "tr": "istikrarsızlaştırmak"
+  },
+  "durchlaufen": {
+    "de": "durchlaufen",
+    "en": "go through",
+    "ru": "пройти",
+    "uk": "пройти",
+    "tr": "geçmek"
+  },
+  "durchschreiten": {
+    "de": "durchschreiten",
+    "en": "walk through",
+    "ru": "пройти через",
+    "uk": "пройти через",
+    "tr": "içinden geçmek"
+  },
+  "einbauen": {
+    "de": "einbauen",
+    "en": "install; build in",
+    "ru": "установить; встроить",
+    "uk": "встановлювати; вбудовувати",
+    "tr": "yüklemek; inşa etmek"
+  },
+  "einspeisen": {
+    "de": "einspeisen",
+    "en": "feed into a system",
+    "ru": "вводить в систему",
+    "uk": "подавати в систему",
+    "tr": "bir sistemi beslemek"
+  },
+  "einstellen": {
+    "de": "einstellen",
+    "en": "adjust; hire",
+    "ru": "корректировать; нанимать",
+    "uk": "коригувати; найняти",
+    "tr": "ayarlamak; işe almak"
+  },
+  "eintauchen": {
+    "de": "eintauchen",
+    "en": "dive in",
+    "ru": "нырнуть",
+    "uk": "занурюватися",
+    "tr": "dalmak"
+  },
+  "empfinden": {
+    "de": "empfinden",
+    "en": "feel",
+    "ru": "чувствовать",
+    "uk": "відчувати",
+    "tr": "hissetmek"
+  },
+  "entgegenstehen": {
+    "de": "entgegenstehen",
+    "en": "stand in the way",
+    "ru": "препятствовать",
+    "uk": "перешкоджати",
+    "tr": "engel olmak"
+  },
+  "entgegenwirken": {
+    "de": "entgegenwirken",
+    "en": "counteract",
+    "ru": "противодействовать",
+    "uk": "протидіяти",
+    "tr": "karşı koymak"
+  },
+  "entgiften": {
+    "de": "entgiften",
+    "en": "detoxify",
+    "ru": "выводить токсины",
+    "uk": "виводити токсини",
+    "tr": "zehirden arındırmak"
+  },
+  "entkernen": {
+    "de": "entkernen",
+    "en": "remove the core",
+    "ru": "удалить ядро",
+    "uk": "видалити серцевину",
+    "tr": "çekirdeği çıkarmak"
+  },
+  "entkleiden": {
+    "de": "entkleiden",
+    "en": "undress someone",
+    "ru": "раздеть кого-то",
+    "uk": "роздягати когось",
+    "tr": "birini soymak"
+  },
+  "entmutigen": {
+    "de": "entmutigen",
+    "en": "discourage",
+    "ru": "лишать мужества",
+    "uk": "знеохочувати",
+    "tr": "cesaretini kırmak"
+  },
+  "entsaften": {
+    "de": "entsaften",
+    "en": "extract juice",
+    "ru": "выжимать сок",
+    "uk": "вичавлювати сік",
+    "tr": "suyunu sıkmak"
+  },
+  "entschlüsseln": {
+    "de": "entschlüsseln",
+    "en": "decode",
+    "ru": "декодировать",
+    "uk": "розшифрувати",
+    "tr": "şifresini çözmek"
+  },
+  "entsorgen": {
+    "de": "entsorgen",
+    "en": "dispose of",
+    "ru": "утилизировать",
+    "uk": "утилізувати",
+    "tr": "bertaraf etmek"
+  },
+  "entzaubern": {
+    "de": "entzaubern",
+    "en": "disenchant",
+    "ru": "расколдовать",
+    "uk": "розчаровувати",
+    "tr": "büyüsünü bozmak"
+  },
+  "entziehen": {
+    "de": "entziehen",
+    "en": "withdraw; deprive",
+    "ru": "лишать; изымать",
+    "uk": "позбавляти; вилучати",
+    "tr": "mahrum etmek; geri almak"
+  },
+  "erarbeiten": {
+    "de": "erarbeiten",
+    "en": "work out",
+    "ru": "разрабатывать; вырабатывать",
+    "uk": "розробляти; виробляти",
+    "tr": "çalışarak hazırlamak"
+  },
+  "ergreifen": {
+    "de": "ergreifen",
+    "en": "seize",
+    "ru": "захватить",
+    "uk": "схопити",
+    "tr": "ele geçirmek"
+  },
+  "erlangen": {
+    "de": "erlangen",
+    "en": "attain",
+    "ru": "достичь",
+    "uk": "досягти",
+    "tr": "ulaşmak"
+  },
+  "erscheinen": {
+    "de": "erscheinen",
+    "en": "appear",
+    "ru": "появиться",
+    "uk": "з'явитися",
+    "tr": "görünmek"
+  },
+  "erschweren": {
+    "de": "erschweren",
+    "en": "make harder",
+    "ru": "сделать сложнее",
+    "uk": "зробити важче",
+    "tr": "zorlaştırmak"
+  },
+  "erstehen": {
+    "de": "erstehen",
+    "en": "purchase",
+    "ru": "покупать",
+    "uk": "купувати",
+    "tr": "satın almak"
+  },
+  "ertappen": {
+    "de": "ertappen",
+    "en": "catch in the act",
+    "ru": "поймать с поличным",
+    "uk": "зловити на гарячому",
+    "tr": "iş üstünde yakalamak"
+  },
+  "erteilen": {
+    "de": "erteilen",
+    "en": "give; grant",
+    "ru": "давать; предоставлять",
+    "uk": "давати; надавати",
+    "tr": "vermek"
+  },
+  "erwidern": {
+    "de": "erwidern",
+    "en": "reply; reciprocate",
+    "ru": "ответить; отвечать взаимностью",
+    "uk": "відповісти; відповідати взаємністю",
+    "tr": "cevaplamak; karşılık vermek"
+  },
+  "fernsteuern": {
+    "de": "fernsteuern",
+    "en": "control remotely",
+    "ru": "управлять удаленно",
+    "uk": "керувати дистанційно",
+    "tr": "uzaktan kontrol etmek"
+  },
+  "fesseln": {
+    "de": "fesseln",
+    "en": "tie up; captivate",
+    "ru": "связать; очаровывать",
+    "uk": "зв'язувати; захоплювати",
+    "tr": "bağlamak; büyülemek"
+  },
+  "festhalten": {
+    "de": "festhalten",
+    "en": "hold on to",
+    "ru": "держаться за",
+    "uk": "триматися за",
+    "tr": "tutunmak"
+  },
+  "formen": {
+    "de": "formen",
+    "en": "shape",
+    "ru": "формировать",
+    "uk": "формувати",
+    "tr": "şekillendirmek"
+  },
+  "fungieren": {
+    "de": "fungieren",
+    "en": "function as",
+    "ru": "функционировать как",
+    "uk": "функціонувати як",
+    "tr": "olarak işlev görmek"
+  },
+  "grenzen": {
+    "de": "grenzen",
+    "en": "border on",
+    "ru": "граничить",
+    "uk": "межувати",
+    "tr": "sınır komşusu olmak"
+  },
+  "großschreiben": {
+    "de": "großschreiben",
+    "en": "capitalize a letter",
+    "ru": "сделать заглавную букву",
+    "uk": "писати велику літеру",
+    "tr": "bir harfi büyük harfle yazmak"
+  },
+  "gönnen": {
+    "de": "gönnen",
+    "en": "not begrudge",
+    "ru": "не жалеть для кого-то",
+    "uk": "не шкодувати для когось",
+    "tr": "birine bir şeyi layık görmek"
+  },
+  "hacken": {
+    "de": "hacken",
+    "en": "chop",
+    "ru": "рубить",
+    "uk": "рубати",
+    "tr": "doğramak"
+  },
+  "hasten": {
+    "de": "hasten",
+    "en": "hurry",
+    "ru": "спешить",
+    "uk": "поспішати",
+    "tr": "acele etmek"
+  },
+  "hineinschnuppern": {
+    "de": "hineinschnuppern",
+    "en": "get a taste of",
+    "ru": "почувствовать вкус",
+    "uk": "відчути смак",
+    "tr": "tadına bakmak"
+  },
+  "hinnehmen": {
+    "de": "hinnehmen",
+    "en": "accept; put up with",
+    "ru": "принять; мириться с",
+    "uk": "приймати; миритися з",
+    "tr": "kabul etmek; katlanmak"
+  },
+  "hinterfragen": {
+    "de": "hinterfragen",
+    "en": "question critically",
+    "ru": "критически задавать вопросы",
+    "uk": "критично поставити запитання",
+    "tr": "eleştirel sorgulamak"
+  },
+  "jetten": {
+    "de": "jetten",
+    "en": "travel by jet",
+    "ru": "путешествовать на самолете",
+    "uk": "подорожувати літаком",
+    "tr": "jetle seyahat etmek"
+  },
+  "klarmachen": {
+    "de": "klarmachen",
+    "en": "make clear",
+    "ru": "разъяснять",
+    "uk": "пояснювати",
+    "tr": "açıklığa kavuşturmak"
+  },
+  "knien": {
+    "de": "knien",
+    "en": "kneel",
+    "ru": "встать на колени",
+    "uk": "стати на коліна",
+    "tr": "diz çökmek"
+  },
+  "komponieren": {
+    "de": "komponieren",
+    "en": "compose music",
+    "ru": "сочинять музыку",
+    "uk": "складати музику",
+    "tr": "müzik bestelemek"
+  },
+  "konservieren": {
+    "de": "konservieren",
+    "en": "preserve",
+    "ru": "сохранить",
+    "uk": "зберегти",
+    "tr": "korumak"
+  },
+  "kraulen": {
+    "de": "kraulen",
+    "en": "stroke; swim the crawl",
+    "ru": "гладить; плавать кролем",
+    "uk": "гладити; плавати кролем",
+    "tr": "okşamak; serbest stil yüzmek"
+  },
+  "kreuzen": {
+    "de": "kreuzen",
+    "en": "cross",
+    "ru": "пересекать",
+    "uk": "перетинати",
+    "tr": "geçmek"
+  },
+  "lahmlegen": {
+    "de": "lahmlegen",
+    "en": "paralyze",
+    "ru": "парализовать",
+    "uk": "паралізувати",
+    "tr": "felç etmek"
+  },
+  "locken": {
+    "de": "locken",
+    "en": "lure",
+    "ru": "заманить",
+    "uk": "приманювати",
+    "tr": "cezbetmek"
+  },
+  "missachten": {
+    "de": "missachten",
+    "en": "disregard",
+    "ru": "игнорировать",
+    "uk": "зневажати",
+    "tr": "dikkate almamak"
+  },
+  "missglücken": {
+    "de": "missglücken",
+    "en": "fail",
+    "ru": "потерпеть неудачу",
+    "uk": "провалитися",
+    "tr": "başarısız olmak"
+  },
+  "missgönnen": {
+    "de": "missgönnen",
+    "en": "begrudge",
+    "ru": "завидовать; не желать добра",
+    "uk": "заздрити; не бажати добра",
+    "tr": "çekememek; kıskanmak"
+  },
+  "misslingen": {
+    "de": "misslingen",
+    "en": "fail",
+    "ru": "потерпеть неудачу",
+    "uk": "провалитися",
+    "tr": "başarısız olmak"
+  },
+  "missraten": {
+    "de": "missraten",
+    "en": "turn out badly",
+    "ru": "получиться плохо",
+    "uk": "погано вийти",
+    "tr": "kötü sonuçlanmak"
+  },
+  "mithalten": {
+    "de": "mithalten",
+    "en": "keep up",
+    "ru": "не отставать",
+    "uk": "не відставати",
+    "tr": "yetişmek"
+  },
+  "nachvollziehen": {
+    "de": "nachvollziehen",
+    "en": "understand; follow reasoning",
+    "ru": "понять; следовать рассуждениям",
+    "uk": "розуміти; стежити за міркуваннями",
+    "tr": "anlamak; mantığı takip etmek"
+  },
+  "nahebringen": {
+    "de": "nahebringen",
+    "en": "explain; introduce to",
+    "ru": "объяснить; познакомить с",
+    "uk": "пояснювати; познайомити з",
+    "tr": "açıklamak gerekirse; tanıtmak"
+  },
+  "nicken": {
+    "de": "nicken",
+    "en": "nod",
+    "ru": "кивнуть",
+    "uk": "кивати",
+    "tr": "başını sallamak"
+  },
+  "niesen": {
+    "de": "niesen",
+    "en": "sneeze",
+    "ru": "чихать",
+    "uk": "чхати",
+    "tr": "hapşırmak"
+  },
+  "pfuschen": {
+    "de": "pfuschen",
+    "en": "do shoddy work",
+    "ru": "делать дрянную работу",
+    "uk": "робити погану роботу",
+    "tr": "kalitesiz işler yapmak"
+  },
+  "platzen": {
+    "de": "platzen",
+    "en": "burst",
+    "ru": "лопнуть",
+    "uk": "лопнути",
+    "tr": "patlamak"
+  },
+  "pokern": {
+    "de": "pokern",
+    "en": "play poker",
+    "ru": "играть в покер",
+    "uk": "грати в покер",
+    "tr": "poker oynamak"
+  },
+  "präzisieren": {
+    "de": "präzisieren",
+    "en": "specify",
+    "ru": "указать",
+    "uk": "уточнювати",
+    "tr": "belirtmek"
+  },
+  "punkten": {
+    "de": "punkten",
+    "en": "score points",
+    "ru": "набрать очки",
+    "uk": "набирати очки",
+    "tr": "puan kazanmak"
+  },
+  "reflektieren": {
+    "de": "reflektieren",
+    "en": "reflect",
+    "ru": "отражать",
+    "uk": "відображати",
+    "tr": "yansıtmak"
+  },
+  "reformieren": {
+    "de": "reformieren",
+    "en": "reform",
+    "ru": "реформировать",
+    "uk": "реформувати",
+    "tr": "reform yapmak"
+  },
+  "reintegrieren": {
+    "de": "reintegrieren",
+    "en": "reintegrate",
+    "ru": "вновь интегрировать",
+    "uk": "знову інтегрувати",
+    "tr": "yeniden bütünleştirmek"
+  },
+  "repräsentieren": {
+    "de": "repräsentieren",
+    "en": "represent",
+    "ru": "представлять",
+    "uk": "представляти",
+    "tr": "temsil etmek"
+  },
+  "revidieren": {
+    "de": "revidieren",
+    "en": "revise",
+    "ru": "пересматривать",
+    "uk": "переглядати",
+    "tr": "gözden geçirmek"
+  },
+  "runden": {
+    "de": "runden",
+    "en": "round",
+    "ru": "округлять",
+    "uk": "округляти",
+    "tr": "yuvarlamak"
+  },
+  "schiefgehen": {
+    "de": "schiefgehen",
+    "en": "go wrong",
+    "ru": "пойти не так",
+    "uk": "піти не так",
+    "tr": "yanlış gitmek"
+  },
+  "schildern": {
+    "de": "schildern",
+    "en": "describe",
+    "ru": "описать",
+    "uk": "описати",
+    "tr": "tarif etmek"
+  },
+  "schmeicheln": {
+    "de": "schmeicheln",
+    "en": "flatter",
+    "ru": "льстить",
+    "uk": "лестити",
+    "tr": "pohpohlamak"
+  },
+  "schuften": {
+    "de": "schuften",
+    "en": "toil",
+    "ru": "трудиться",
+    "uk": "трудитися",
+    "tr": "çalışmak"
+  },
+  "schwanken": {
+    "de": "schwanken",
+    "en": "sway; fluctuate",
+    "ru": "покачиваться; колебаться",
+    "uk": "гойдатися; коливатися",
+    "tr": "sallanmak; dalgalanmak"
+  },
+  "schwinden": {
+    "de": "schwinden",
+    "en": "dwindle",
+    "ru": "сокращаться",
+    "uk": "зменшуватися",
+    "tr": "azalmak"
+  },
+  "sich andeuten": {
+    "de": "sich andeuten",
+    "en": "become apparent",
+    "ru": "стать очевидным",
+    "uk": "стати очевидним",
+    "tr": "belirginleşmek"
+  },
+  "sich auseinandersetzen": {
+    "de": "sich auseinandersetzen",
+    "en": "engage critically with",
+    "ru": "разбираться с; анализировать",
+    "uk": "розбиратися з; аналізувати",
+    "tr": "bir konuyu ele alıp tartışmak"
+  },
+  "sich auszeichnen": {
+    "de": "sich auszeichnen",
+    "en": "excel",
+    "ru": "преуспеть",
+    "uk": "відзначатися",
+    "tr": "üstün olmak"
+  },
+  "sich bedienen": {
+    "de": "sich bedienen",
+    "en": "help oneself",
+    "ru": "брать себе; пользоваться",
+    "uk": "брати собі; користуватися",
+    "tr": "kendine almak; yararlanmak"
+  },
+  "sich bewusst machen": {
+    "de": "sich bewusst machen",
+    "en": "become aware of",
+    "ru": "осознать",
+    "uk": "усвідомлювати",
+    "tr": "farkında olmak"
+  },
+  "sich einfinden": {
+    "de": "sich einfinden",
+    "en": "arrive; gather",
+    "ru": "прибывать; собираться",
+    "uk": "прибувати; збиратися",
+    "tr": "gelmek; toplanmak"
+  },
+  "sich einmischen": {
+    "de": "sich einmischen",
+    "en": "interfere",
+    "ru": "вмешиваться",
+    "uk": "втручатися",
+    "tr": "karışmak"
+  },
+  "sich einprägen": {
+    "de": "sich einprägen",
+    "en": "memorize",
+    "ru": "запоминать",
+    "uk": "запам'ятовувати",
+    "tr": "ezberlemek"
+  },
+  "sich erfreuen": {
+    "de": "sich erfreuen",
+    "en": "enjoy",
+    "ru": "наслаждаться",
+    "uk": "насолоджуватися",
+    "tr": "zevk almak"
+  },
+  "sich erweisen": {
+    "de": "sich erweisen",
+    "en": "turn out to be",
+    "ru": "оказаться",
+    "uk": "виявитися",
+    "tr": "olduğu ortaya çıkmak"
+  },
+  "sich fernhalten": {
+    "de": "sich fernhalten",
+    "en": "stay away",
+    "ru": "держаться подальше",
+    "uk": "триматися подалі",
+    "tr": "uzak durmak"
+  },
+  "sich herausstellen": {
+    "de": "sich herausstellen",
+    "en": "turn out",
+    "ru": "выясняться; оказываться",
+    "uk": "з'ясовуватися; виявлятися",
+    "tr": "ortaya çıkmak"
+  },
+  "sich hineinversetzen": {
+    "de": "sich hineinversetzen",
+    "en": "put oneself in another's place",
+    "ru": "поставить себя на место другого",
+    "uk": "поставити себе на місце іншого",
+    "tr": "kendini başkasının yerine koymak"
+  },
+  "sich orientieren": {
+    "de": "sich orientieren",
+    "en": "find one's bearings",
+    "ru": "сориентироваться",
+    "uk": "орієнтуватися",
+    "tr": "yönünü bulmak"
+  },
+  "sich reimen": {
+    "de": "sich reimen",
+    "en": "rhyme",
+    "ru": "рифмовать",
+    "uk": "римувати",
+    "tr": "kafiye yapmak"
+  },
+  "sich richten": {
+    "de": "sich richten",
+    "en": "be guided by",
+    "ru": "руководствоваться",
+    "uk": "керуватися",
+    "tr": "tarafından yönlendirilmek"
+  },
+  "sich sträuben": {
+    "de": "sich sträuben",
+    "en": "resist",
+    "ru": "сопротивляться",
+    "uk": "чинити опір",
+    "tr": "direnmek"
+  },
+  "sich unterziehen": {
+    "de": "sich unterziehen",
+    "en": "undergo",
+    "ru": "подвергаться; проходить процедуру",
+    "uk": "зазнавати; проходити процедуру",
+    "tr": "bir işlemden geçmek"
+  },
+  "sich verderben": {
+    "de": "sich verderben",
+    "en": "spoil something for oneself",
+    "ru": "испортить что-то себе",
+    "uk": "псувати собі щось",
+    "tr": "kendine ait bir şeyi mahvetmek"
+  },
+  "sich verschreiben": {
+    "de": "sich verschreiben",
+    "en": "make a mistake when writing",
+    "ru": "ошибиться при написании",
+    "uk": "робити помилку при написанні",
+    "tr": "yazarken hata yapmak"
+  },
+  "sich widersetzen": {
+    "de": "sich widersetzen",
+    "en": "oppose",
+    "ru": "противостоять",
+    "uk": "протистояти",
+    "tr": "karşı çıkmak"
+  },
+  "sich widmen": {
+    "de": "sich widmen",
+    "en": "devote oneself",
+    "ru": "посвятить себя",
+    "uk": "присвятити себе",
+    "tr": "kendini adamak"
+  },
+  "stabilisieren": {
+    "de": "stabilisieren",
+    "en": "stabilize",
+    "ru": "стабилизировать",
+    "uk": "стабілізувати",
+    "tr": "stabilize etmek"
+  },
+  "stimulieren": {
+    "de": "stimulieren",
+    "en": "stimulate",
+    "ru": "стимулировать",
+    "uk": "стимулювати",
+    "tr": "teşvik etmek"
+  },
+  "stoßen": {
+    "de": "stoßen",
+    "en": "push; bump",
+    "ru": "толкать; ударить",
+    "uk": "штовхати; зіткнутися",
+    "tr": "itmek; çarpmak"
+  },
+  "streben": {
+    "de": "streben",
+    "en": "strive",
+    "ru": "стремиться",
+    "uk": "прагнути",
+    "tr": "çabalamak"
+  },
+  "streuen": {
+    "de": "streuen",
+    "en": "scatter",
+    "ru": "разбрасывать",
+    "uk": "розкидати",
+    "tr": "dağıtmak"
+  },
+  "suggerieren": {
+    "de": "suggerieren",
+    "en": "suggest",
+    "ru": "внушать",
+    "uk": "навіювати",
+    "tr": "telkin etmek"
+  },
+  "surren": {
+    "de": "surren",
+    "en": "whir",
+    "ru": "жужжать",
+    "uk": "дзижчати",
+    "tr": "vızıldamak"
+  },
+  "umfahren": {
+    "de": "umfahren",
+    "en": "drive around an obstacle",
+    "ru": "объехать препятствие",
+    "uk": "об'їхати перешкоду",
+    "tr": "bir engelin etrafından geçmek"
+  },
+  "umsetzen": {
+    "de": "umsetzen",
+    "en": "implement",
+    "ru": "реализовать",
+    "uk": "реалізувати",
+    "tr": "uygulamak"
+  },
+  "unterhalten": {
+    "de": "unterhalten",
+    "en": "entertain",
+    "ru": "развлекать",
+    "uk": "розважати",
+    "tr": "eğlendirmek"
+  },
+  "untersagen": {
+    "de": "untersagen",
+    "en": "prohibit",
+    "ru": "запретить",
+    "uk": "забороняти",
+    "tr": "yasaklamak"
+  },
+  "unterschätzen": {
+    "de": "unterschätzen",
+    "en": "underestimate",
+    "ru": "недооценивать",
+    "uk": "недооцінювати",
+    "tr": "küçümsemek"
+  },
+  "veranschaulichen": {
+    "de": "veranschaulichen",
+    "en": "illustrate",
+    "ru": "проиллюстрировать",
+    "uk": "проілюструвати",
+    "tr": "göstermek"
+  },
+  "verbergen": {
+    "de": "verbergen",
+    "en": "conceal",
+    "ru": "скрывать",
+    "uk": "приховувати",
+    "tr": "gizlemek"
+  },
+  "vererben": {
+    "de": "vererben",
+    "en": "bequeath",
+    "ru": "завещать",
+    "uk": "заповідати",
+    "tr": "miras bırakmak"
+  },
+  "verhelfen": {
+    "de": "verhelfen",
+    "en": "help to achieve",
+    "ru": "помочь достичь",
+    "uk": "допомогти досягти",
+    "tr": "ulaşmaya yardımcı olmak"
+  },
+  "verknüpfen": {
+    "de": "verknüpfen",
+    "en": "link",
+    "ru": "связывать",
+    "uk": "пов'язувати",
+    "tr": "bağlamak"
+  },
+  "verschlüsseln": {
+    "de": "verschlüsseln",
+    "en": "encrypt",
+    "ru": "шифровать",
+    "uk": "шифрувати",
+    "tr": "şifrelemek"
+  },
+  "versetzen": {
+    "de": "versetzen",
+    "en": "move; transfer",
+    "ru": "перемещать; переводить",
+    "uk": "переміщати; переводити",
+    "tr": "yerini değiştirmek; nakletmek"
+  },
+  "versinken": {
+    "de": "versinken",
+    "en": "sink",
+    "ru": "тонуть",
+    "uk": "тонути",
+    "tr": "batmak"
+  },
+  "versäumen": {
+    "de": "versäumen",
+    "en": "miss an opportunity",
+    "ru": "упустить возможность",
+    "uk": "упустити можливість",
+    "tr": "bir fırsatı kaçırmak"
+  },
+  "verwöhnen": {
+    "de": "verwöhnen",
+    "en": "pamper",
+    "ru": "баловать",
+    "uk": "балувати",
+    "tr": "şımartmak"
+  },
+  "verzweifeln": {
+    "de": "verzweifeln",
+    "en": "despair",
+    "ru": "отчаиваться",
+    "uk": "зневіритися",
+    "tr": "umutsuzluğa kapılmak"
+  },
+  "vorhalten": {
+    "de": "vorhalten",
+    "en": "hold in front; reproach",
+    "ru": "держать впереди; упрекать",
+    "uk": "тримати попереду; дорікати",
+    "tr": "önde tutmak; sitem etmek"
+  },
+  "wackeln": {
+    "de": "wackeln",
+    "en": "wobble",
+    "ru": "раскачиваться",
+    "uk": "хитатися",
+    "tr": "sallanmak"
+  },
+  "wiederkehren": {
+    "de": "wiederkehren",
+    "en": "return",
+    "ru": "вернуться",
+    "uk": "повертатися",
+    "tr": "geri dönmek"
+  },
+  "zelebrieren": {
+    "de": "zelebrieren",
+    "en": "celebrate",
+    "ru": "праздновать",
+    "uk": "святкувати",
+    "tr": "kutlamak"
+  },
+  "zerdrücken": {
+    "de": "zerdrücken",
+    "en": "crush",
+    "ru": "раздавить",
+    "uk": "розчавити",
+    "tr": "ezmek"
+  },
+  "zerfallen": {
+    "de": "zerfallen",
+    "en": "disintegrate",
+    "ru": "распадаться",
+    "uk": "розпадатися",
+    "tr": "parçalanmak"
+  },
+  "zerfließen": {
+    "de": "zerfließen",
+    "en": "melt away",
+    "ru": "растаять",
+    "uk": "танути",
+    "tr": "erimek"
+  },
+  "zergehen": {
+    "de": "zergehen",
+    "en": "melt",
+    "ru": "таять",
+    "uk": "танути",
+    "tr": "erimek"
+  },
+  "zerhacken": {
+    "de": "zerhacken",
+    "en": "chop up",
+    "ru": "порубить",
+    "uk": "рубати",
+    "tr": "doğramak"
+  },
+  "zerkochen": {
+    "de": "zerkochen",
+    "en": "overcook",
+    "ru": "разваривать",
+    "uk": "розварювати",
+    "tr": "fazla pişirmek"
+  },
+  "zerlaufen": {
+    "de": "zerlaufen",
+    "en": "melt and spread",
+    "ru": "таять; растекаться",
+    "uk": "танути; розтікатися",
+    "tr": "eriyip yayılmak"
+  },
+  "zerlegen": {
+    "de": "zerlegen",
+    "en": "dismantle",
+    "ru": "демонтировать",
+    "uk": "демонтувати",
+    "tr": "sökmek"
+  },
+  "zerplatzen": {
+    "de": "zerplatzen",
+    "en": "burst",
+    "ru": "лопнуть",
+    "uk": "лопнути",
+    "tr": "patlamak"
+  },
+  "zerreden": {
+    "de": "zerreden",
+    "en": "talk something to death",
+    "ru": "забалтывать",
+    "uk": "забалакувати",
+    "tr": "fazla konuşarak bozmak"
+  },
+  "zerreißen": {
+    "de": "zerreißen",
+    "en": "tear apart",
+    "ru": "разорвать на части",
+    "uk": "розривати",
+    "tr": "parçalamak"
+  },
+  "zerschneiden": {
+    "de": "zerschneiden",
+    "en": "cut up",
+    "ru": "разрезать",
+    "uk": "розрізати",
+    "tr": "kesmek"
+  },
+  "zerspringen": {
+    "de": "zerspringen",
+    "en": "shatter",
+    "ru": "разлетаться на куски",
+    "uk": "розлітатися на шматки",
+    "tr": "parçalanmak"
+  },
+  "zerstreuen": {
+    "de": "zerstreuen",
+    "en": "disperse",
+    "ru": "рассеивать",
+    "uk": "розсіювати",
+    "tr": "dağıtmak"
+  },
+  "zittern": {
+    "de": "zittern",
+    "en": "tremble",
+    "ru": "дрожать",
+    "uk": "тремтіти",
+    "tr": "titremek"
+  },
+  "zuschreiben": {
+    "de": "zuschreiben",
+    "en": "attribute to",
+    "ru": "приписать",
+    "uk": "віднести до",
+    "tr": "atfetmek"
+  },
+  "zutreffen": {
+    "de": "zutreffen",
+    "en": "apply; be true",
+    "ru": "соответствовать действительности; относиться",
+    "uk": "відповідати дійсності; стосуватися",
+    "tr": "doğru olmak; geçerli olmak"
+  },
+  "übergehen": {
+    "de": "übergehen",
+    "en": "ignore; pass over",
+    "ru": "игнорировать; пройти мимо",
+    "uk": "ігнорувати; переминати",
+    "tr": "görmezden gelmek; geçmek"
+  },
+  "überspringen": {
+    "de": "überspringen",
+    "en": "skip; jump over",
+    "ru": "пропускать",
+    "uk": "пропускати",
+    "tr": "atlamak"
+  },
+  "übertreten": {
+    "de": "übertreten",
+    "en": "violate a rule",
+    "ru": "нарушить правило",
+    "uk": "порушувати правило",
+    "tr": "bir kuralı ihlal etmek"
+  },
+  "übertrumpfen": {
+    "de": "übertrumpfen",
+    "en": "outdo",
+    "ru": "превзойти",
+    "uk": "перевершити",
+    "tr": "aşmak"
+  }
+}

@@ -12,6 +12,13 @@ const sitovStatus: DailyQuestStatus = {
 }
 
 describe('DailyQuestEntry', () => {
+  it('labels each preview card with its own heading', () => {
+    const { container } = render(<><DailyQuestEntry lang="en" status={sitovStatus} /><DailyQuestEntry lang="en" status={{ ...sitovStatus, enabled: false }} /></>)
+    const headings = Array.from(container.querySelectorAll('h2'))
+    expect(new Set(headings.map(heading => heading.id)).size).toBe(2)
+    container.querySelectorAll('section').forEach((section, index) => expect(section).toHaveAttribute('aria-labelledby', headings[index].id))
+  })
+
   it.each(['active', 'skipped'] as const)('keeps an %s journey available from Home', status => {
     render(<DailyQuestEntry lang="en" status={{ ...sitovStatus, today: { ...sitovStatus.today!, status } }} />)
 

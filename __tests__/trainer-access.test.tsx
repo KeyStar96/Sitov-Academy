@@ -41,7 +41,8 @@ describe('Student trainer tiles', () => {
   vocabulary: { locked: false, due: 3, activeWords: 10, total: 20, learned: 0 },
   grammar: { locked, total: 0, solved: 0, topics: 0, openTopics: 0 },
   pronunciation: { locked: false, texts: 2, open: 2, waiting: 0, unread: 0 },
-  media: { locked: false, total: 1, fresh: 0 } })
+  media: { locked: false, total: 1, fresh: 0 },
+  verbs: { locked: false, total: 90, selected: 0, due: 0, mastered: 0 } })
  test.each(['de', 'en', 'ru', 'uk', 'tr'] as const)('a locked tile has a label and no navigation in %s', lang => {
   const t = studentTranslator(lang)
   render(<TrainerStatusTiles lang={lang} level="A1.1" status={status(true)} languageLocked={false} />)
@@ -49,9 +50,22 @@ describe('Student trainer tiles', () => {
   expect(locked).not.toBeNull()
   expect(within(locked as HTMLElement).getByText(t('status_locked'))).toBeVisible()
   expect(within(locked as HTMLElement).queryByRole('link')).toBeNull()
-  expect(screen.getAllByRole('link')).toHaveLength(3)
+  expect(screen.getAllByRole('link')).toHaveLength(4)
   expect(screen.getByText(t('area_media')).closest('a')).toHaveAttribute('href', `/${lang}/dashboard/level/A1.1/videos`)
   expect(screen.getByText(t('area_vocabulary')).closest('a')).toHaveTextContent(t.count('status_vocab_due', 3))
+ })
+ test('a teacher-locked verb studio stays visible without a link or due badge', () => {
+  render(<TrainerStatusTiles lang="en" level="A1.1" languageLocked={false} status={{ ...status(false), verbs: { locked: true, total: 90, selected: 10, due: 6, mastered: 0 } }} />)
+  const studio = screen.getByText('Verb trainer').closest('[data-area="verbs"]')!
+  expect(studio).toHaveAttribute('aria-disabled', 'true')
+  expect(studio.tagName).toBe('DIV')
+  expect(studio.querySelector('.st-tile__badge')).toBeNull()
+  expect(within(studio as HTMLElement).getByText('Locked')).toBeInTheDocument()
+ })
+ test('German interfaces can enter the independent verb trainer and hear its due count', () => {
+  render(<TrainerStatusTiles lang="de" level="A1.1" languageLocked status={{ ...status(true), verbs: { locked: false, total: 90, selected: 10, due: 6, mastered: 0 } }} />)
+  expect(screen.getByRole('link', { name: /Verbtrainer.*6 Verbformen zum Wiederholen/ })).toHaveAttribute('href', '/de/dashboard/level/A1.1/verbs')
+  expect(screen.getAllByRole('listitem')).toHaveLength(5)
  })
 })
 describe('Teacher trainer controls', () => {

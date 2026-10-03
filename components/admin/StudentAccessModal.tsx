@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { Loader2, Lock, LockOpen, SlidersHorizontal } from 'lucide-react'
-import { ACCESS_LEVELS, TRAINERS, hasConfiguredTrainerAccess, type Trainer, type AccessLevel } from '@/lib/access/levels'
+import { ACCESS_LEVELS, SITOV_VERB_LEVELS, TRAINERS, hasConfiguredTrainerAccess, type Trainer, type SitovTrainerLevel } from '@/lib/access/levels'
 import type { AdminStudentRow } from '@/lib/types/admin-staff'
 import { useAdminTranslator } from './AdminI18nProvider'
 import AdminDialog from './AdminDialog'
@@ -15,21 +15,22 @@ export default function StudentAccessModal({ student, loading, message, hasError
   message: string | null
   hasError: boolean
   onClose: () => void
-  onLevelToggle: (id: string, level: AccessLevel) => void
-  onTrainerToggle: (id: string, level: AccessLevel, trainer: Trainer) => void
-  onLessonsUpdate: (id: string, level: AccessLevel, trainer: Trainer, lessons: string[] | null) => void
+  onLevelToggle: (id: string, level: SitovTrainerLevel) => void
+  onTrainerToggle: (id: string, level: SitovTrainerLevel, trainer: Trainer) => void
+  onLessonsUpdate: (id: string, level: SitovTrainerLevel, trainer: Trainer, lessons: string[] | null) => void
 }) {
   const t = useAdminTranslator()
-  const [level, setLevel] = useState<AccessLevel>(ACCESS_LEVELS.find(item => student.allowed_levels?.includes(item)) ?? ACCESS_LEVELS[0])
+  const [level, setLevel] = useState<SitovTrainerLevel>(ACCESS_LEVELS.find(item => student.allowed_levels?.includes(item)) ?? ACCESS_LEVELS[0])
   const [trainer, setTrainer] = useState<Trainer | null>(null)
   const [savingLessons, setSavingLessons] = useState(false)
   const name = student.person?.display_name || student.person?.email || t('unknown_name')
-  const levelEnabled = student.allowed_levels?.includes(level) ?? false
+  const advanced = level === 'B2' || level === 'C1'
+  const levelEnabled = advanced || (student.allowed_levels?.includes(level) ?? false)
   const busy = loading || savingLessons
 
   return (
     <AdminDialog
-      title={trainer ? t(trainer === 'pronunciation' ? 'pronunciation_access_title' : 'lesson_access_title') : t('trainer_access_title')}
+      title={trainer ? t(trainer === 'verbs' ? 'verbs_access_title' : trainer === 'pronunciation' ? 'pronunciation_access_title' : 'lesson_access_title') : t('trainer_access_title')}
       subtitle={trainer ? `${name} · ${level} · ${t(`trainer_${trainer}`)}` : name}
       onClose={onClose}
       dismissible={!busy}
@@ -50,18 +51,19 @@ export default function StudentAccessModal({ student, loading, message, hasError
           <div className="flex flex-col gap-3 rounded-xl bg-[var(--surface-muted)] p-4 sm:flex-row sm:items-end">
             <label className="min-w-0 flex-1">
               <span className="mb-1.5 block text-sm font-medium">{t('access_level_select')}</span>
-              <select value={level} disabled={busy} onChange={event => setLevel(event.target.value as AccessLevel)} className={adminInput}>
-                {ACCESS_LEVELS.map(item => <option key={item} value={item}>{item}</option>)}
+              <select value={level} disabled={busy} onChange={event => setLevel(event.target.value as SitovTrainerLevel)} className={adminInput}>
+                {SITOV_VERB_LEVELS.map(item => <option key={item} value={item}>{item}</option>)}
               </select>
             </label>
-            <button type="button" role="checkbox" aria-checked={levelEnabled} aria-label={t('level_toggle_aria', { level, name, action: levelEnabled ? t('level_revoke') : t('level_grant') })} disabled={busy} onClick={() => onLevelToggle(student.id, level)} className={adminButton(levelEnabled ? 'secondary' : 'primary', 'md', 'flex-1')}>
+            {!advanced && <button type="button" role="checkbox" aria-checked={levelEnabled} aria-label={t('level_toggle_aria', { level, name, action: levelEnabled ? t('level_revoke') : t('level_grant') })} disabled={busy} onClick={() => onLevelToggle(student.id, level)} className={adminButton(levelEnabled ? 'secondary' : 'primary', 'md', 'flex-1')}>
               {levelEnabled ? <LockOpen size={20} aria-hidden="true" /> : <Lock size={20} aria-hidden="true" />}{level} · {t(levelEnabled ? 'level_revoke' : 'level_grant')}
-            </button>
+            </button>}
           </div>
+          {advanced && <p className="text-sm text-[var(--muted)]">{t('verbs_advanced_access')}</p>}
           {!levelEnabled && <p className="text-sm text-[var(--muted)]">{t('trainer_level_required')}</p>}
           <fieldset disabled={busy || !levelEnabled} className="grid gap-3 sm:grid-cols-2">
             <legend className="mb-3 text-sm font-semibold">{t('trainer_access_level', { level })}</legend>
-            {TRAINERS.map(item => {
+            {TRAINERS.filter(item => !advanced || item === 'verbs').map(item => {
               const enabled = hasConfiguredTrainerAccess(student, level, item)
               const allowedLessons = student.trainer_grants?.find(rule => rule.level === level && rule.trainer === item)?.unit_ids
               const restricted = allowedLessons !== undefined && allowedLessons !== null
@@ -74,9 +76,9 @@ export default function StudentAccessModal({ student, loading, message, hasError
                   </label>
                   {item !== 'videos' && (
                     <>
-                      <p className="mb-2 px-1 text-sm leading-relaxed text-[var(--muted)]">{restricted ? t('access_selected_units', { count: allowedLessons.length }) : t('access_all_units')}</p>
+                      <p className="mb-2 px-1 text-sm leading-relaxed text-[var(--muted)]">{restricted ? t(item === 'verbs' ? 'verbs_access_selected' : 'access_selected_units', { count: allowedLessons.length }) : t(item === 'verbs' ? 'verbs_access_all' : 'access_all_units')}</p>
                       <button type="button" disabled={!enabled || busy} onClick={() => setTrainer(item)} className={adminButton('secondary', 'sm', 'mt-auto w-full')}>
-                        <SlidersHorizontal size={18} aria-hidden="true" />{t(item === 'pronunciation' ? 'pronunciation_access_button' : 'restrict_lessons')}
+                        <SlidersHorizontal size={18} aria-hidden="true" />{t(item === 'verbs' ? 'verbs_access_button' : item === 'pronunciation' ? 'pronunciation_access_button' : 'restrict_lessons')}
                       </button>
                     </>
                   )}

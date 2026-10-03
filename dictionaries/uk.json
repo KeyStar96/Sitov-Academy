@@ -1031,6 +1031,7 @@
         "nav_vocabulary": "Слова",
         "nav_videos": "Відео",
         "nav_pronunciation": "Вимова",
+        "nav_verbs": "Тренажер дієслів",
         "nav_train": "Навчання",
         "nav_assess": "Оцінювання",
         "nav_lessons": "Уроки",
@@ -1878,7 +1879,13 @@
         "area_students_desc": "Реєстрації, список учнів, перевірка робіт і аналітика",
         "area_courses_desc": "Курси, розклад, ціни та скасування",
         "area_content_desc": "Тренажер слів, навчальний шлях, медіатека і тренажер вимови",
-        "area_administration_desc": "Розрахунки, заявки, рахунки, сертифікати та імпорт CSV"
+        "area_administration_desc": "Розрахунки, заявки, рахунки, сертифікати та імпорт CSV",
+        "trainer_verbs": "Тренажер дієслів",
+        "verbs_access_title": "Доступ до дієслів",
+        "verbs_access_button": "Вибрати дієслова",
+        "verbs_access_all": "Дозволити всі дієслова",
+        "verbs_access_selected": "Вибрано дієслів: {count}",
+        "verbs_advanced_access": "Цей рівень відкриває лише тренажер дієслів."
     },
     "academy": {
         "hero_level_range": "A1—C2",

@@ -62,6 +62,8 @@ const nextConfig: NextConfig = {
 
   // PERFORMANCE: Headers für besseres Caching
   async headers() {
+    // Development assets change in place; let Next manage their cache headers.
+    if (process.env.NODE_ENV !== 'production') return [];
     return [
       {
         // Cache statische Assets aggressiv

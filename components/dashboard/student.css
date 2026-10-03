@@ -184,6 +184,7 @@ a.st-crumb:focus-visible { outline: 3px solid var(--accent); outline-offset: -3p
 .st-crumbs__item[data-kind='path'] .st-crumb__icon { color: var(--mode-path-text); }
 .st-crumbs__item[data-kind='pronunciation'] .st-crumb__icon { color: var(--mode-pronunciation-text); }
 .st-crumbs__item[data-kind='media'] .st-crumb__icon { color: var(--mode-media-text); }
+.st-crumbs__item[data-kind='verbs'] .st-crumb__icon { color: var(--mode-verbs-text); }
 .st-crumbs__sep { flex-shrink: 0; color: var(--muted); }
 @media (hover: hover) { a.st-crumb:hover { background: var(--surface-muted); color: var(--foreground); } }
 @media (min-width: 768px) { .st-crumbs__list { flex-wrap: wrap; overflow: visible; } }
@@ -621,7 +622,7 @@ html.high-contrast .st-switch[aria-checked='true'] { background: var(--surface);
    die Modus-Leiste unter den Seitenkopf weg, beim Hochscrollen kommt sie sofort zurück. */
 .academy-student-shell[data-tabbar='hidden'] .st-mode-dock { transform: translateY(calc(-100% - 1rem)); opacity: 0; visibility: hidden; transition: transform var(--motion-slow) var(--ease-out-soft), opacity var(--motion-slow) var(--ease-out-soft), visibility 0s linear var(--motion-slow); }
 .st-mode-dock__list { pointer-events: auto; }
-.st-mode-dock__list { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .3rem; max-width: 48rem; margin: 0 auto; border: 1px solid color-mix(in srgb, var(--border) 45%, transparent); border-radius: 1.5rem; background: var(--surface); padding: .35rem; box-shadow: 0 1px 2px #0f172a14, var(--shadow-lg); }
+.st-mode-dock__list { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .3rem; max-width: 58rem; margin: 0 auto; border: 1px solid color-mix(in srgb, var(--border) 45%, transparent); border-radius: 1.5rem; background: var(--surface); padding: .35rem; box-shadow: 0 1px 2px #0f172a14, var(--shadow-lg); }
 html.high-contrast .st-mode-dock__list { border-color: var(--border); }
 .st-mode-dock__item { min-width: 0; }
 .st-mode-dock__link { position: relative; isolation: isolate; display: flex; width: 100%; height: 100%; min-height: 3.5rem; flex-direction: column; align-items: center; justify-content: center; gap: .15rem; border-radius: 1rem; padding: .4rem .2rem; color: var(--muted); font-size: 1rem; font-weight: 700; line-height: 1.2; text-align: center; }
@@ -633,6 +634,7 @@ html.high-contrast .st-mode-dock__list { border-color: var(--border); }
 .st-mode-dock__link[data-mode='path'] .st-mode-dock__icon { color: var(--mode-path-text); }
 .st-mode-dock__link[data-mode='pronunciation'] .st-mode-dock__icon { color: var(--mode-pronunciation-text); }
 .st-mode-dock__link[data-mode='media'] .st-mode-dock__icon { color: var(--mode-media-text); }
+.st-mode-dock__link[data-mode='verbs'] .st-mode-dock__icon { color: var(--mode-verbs-text); }
 .st-mode-dock__link[data-locked] .st-mode-dock__icon { color: var(--muted); }
 /* Aktiv: Kennfläche + Kontur in Modusfarbe; der Zustand steckt zusätzlich in aria-current und Schriftstärke. */
 .st-mode-dock__pill { position: absolute; z-index: -1; inset: 0; border-radius: 1rem; pointer-events: none; }
@@ -640,6 +642,7 @@ html.high-contrast .st-mode-dock__list { border-color: var(--border); }
 .st-mode-dock__link[data-mode='path'] .st-mode-dock__pill { background: var(--mode-path-surface); box-shadow: inset 0 0 0 2px var(--mode-path-text); }
 .st-mode-dock__link[data-mode='pronunciation'] .st-mode-dock__pill { background: var(--mode-pronunciation-surface); box-shadow: inset 0 0 0 2px var(--mode-pronunciation-text); }
 .st-mode-dock__link[data-mode='media'] .st-mode-dock__pill { background: var(--mode-media-surface); box-shadow: inset 0 0 0 2px var(--mode-media-text); }
+.st-mode-dock__link[data-mode='verbs'] .st-mode-dock__pill { background: var(--mode-verbs-surface); box-shadow: inset 0 0 0 2px var(--mode-verbs-text); }
 .st-mode-dock__count { position: absolute; top: .15rem; right: .25rem; min-width: 1.6rem; border-radius: 99px; background: var(--accent-strong); padding: 0 .4rem; color: var(--accent-foreground); font-size: 1rem; font-weight: 800; line-height: 1.5rem; text-align: center; font-variant-numeric: tabular-nums; }
 .st-mode-dock__new { position: absolute; top: .45rem; right: .55rem; }
 @media (hover: hover) { .st-mode-dock__link:hover { background: var(--surface-muted); color: var(--foreground); } }
@@ -670,6 +673,7 @@ html.high-contrast .st-subnav__pill { border: 2px solid var(--foreground); }
 .st-resume__place-icon[data-mode='path'] { background: var(--mode-path-surface); color: var(--mode-path-text); }
 .st-resume__place-icon[data-mode='pronunciation'] { background: var(--mode-pronunciation-surface); color: var(--mode-pronunciation-text); }
 .st-resume__place-icon[data-mode='media'] { background: var(--mode-media-surface); color: var(--mode-media-text); }
+.st-resume__place-icon[data-mode='verbs'] { background: var(--mode-verbs-surface); color: var(--mode-verbs-text); }
 .st-resume__none { margin-top: .75rem; color: var(--muted); font-size: 1.05rem; }
 
 /* ── Modus-Karten: vier gleich große Karten mit Kennfarbe ──────────────── */
@@ -735,3 +739,27 @@ button.st-focus-slot { border-radius: .6rem .6rem 0 0; background: color-mix(in 
 .st-subnav[data-count='3'] { grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 36rem; }
 .st-subnav[data-count='3'] .st-subnav__link { min-height: 3.75rem; flex-direction: column; gap: .15rem; padding: .35rem .3rem; font-size: .9rem; line-height: 1.15; overflow-wrap: anywhere; }
 @media (min-width: 30rem) { .st-subnav[data-count='3'] .st-subnav__link { min-height: 3rem; flex-direction: row; gap: .45rem; font-size: 1rem; } }
+
+/* Shared atmosphere across all five trainer rooms. Decorative motion rests
+   outside the viewport; exercise content and keyboard focus stay stable. */
+.sitov-trainer-stage { --sitov-room-color: var(--accent); position: relative; isolation: isolate; min-width: 0; }
+.sitov-trainer-stage[data-mode='vocabulary'] { --sitov-room-color: var(--mode-vocabulary-text); }
+.sitov-trainer-stage[data-mode='path'] { --sitov-room-color: var(--mode-path-text); }
+.sitov-trainer-stage[data-mode='pronunciation'] { --sitov-room-color: var(--mode-pronunciation-text); }
+.sitov-trainer-stage[data-mode='media'] { --sitov-room-color: var(--mode-media-text); }
+.sitov-trainer-stage[data-mode='verbs'] { --sitov-room-color: var(--mode-verbs-text); }
+.sitov-trainer-stage::before { content: ''; position: absolute; z-index: -1; inset: -1rem -.5rem auto; height: 22rem; pointer-events: none; background: radial-gradient(ellipse at var(--sitov-light-x, 80%) var(--sitov-light-y, 8%), color-mix(in srgb, var(--sitov-room-color) 8%, transparent), transparent 68%); opacity: .8; animation: sitov-room-light 12s ease-in-out infinite; }
+.sitov-trainer-stage[data-mode='overview']::before { display: none; }
+.sitov-trainer-stage[data-sitov-live='false'] *, .sitov-trainer-stage[data-sitov-live='false']::before, .sitov-trainer-stage[data-sitov-live='false'] *::before, .sitov-trainer-stage[data-sitov-live='false'] *::after { animation-play-state: paused !important; }
+@keyframes sitov-room-light { 0%, 100% { transform: translateY(0); opacity: .6; } 50% { transform: translateY(12px); opacity: 1; } }
+@media (max-width: 639px) {
+  .st-mode-dock__list { gap: .15rem; border-radius: 1.25rem; padding: .3rem; }
+  .st-mode-dock__link { min-height: 4.3rem; font-size: .78rem; padding-inline: .12rem; border-radius: .9rem; }
+  .st-mode-dock__label { font-size: 0; overflow-wrap: normal; hyphens: none; -webkit-hyphens: none; }
+  .st-mode-dock__label::after { content: attr(data-sitov-short-label); font-size: .86rem; letter-spacing: -.02em; white-space: nowrap; }
+  .st-mode-dock__count { top: .1rem; right: .1rem; font-size: .75rem; line-height: 1.2rem; min-width: 1.2rem; padding-inline: .25rem; }
+  .st-mode-dock__new { top: .15rem; right: .2rem; }
+}
+@media (min-width: 640px) and (max-width: 899px) { .st-mode-dock__link { flex-direction: column; gap: .2rem; padding: .5rem .25rem; font-size: .92rem; } }
+@media (prefers-reduced-motion: reduce) { .sitov-trainer-stage::before { animation: none; transform: none; } }
+html.high-contrast .sitov-trainer-stage::before { display: none; }

@@ -4,7 +4,7 @@ import { cache } from 'react'
 import { getVocabularyOverview } from '@/app/actions/vocabulary'
 import { getExercises } from '@/app/actions/exercises'
 import { getPronunciationPrompts } from '@/app/actions/pronunciation'
-import { hasLevelAccess, hasTrainerAccess, type LevelAccessProfile } from '@/lib/access/levels'
+import { hasConfiguredTrainerAccess, hasTrainerAccess, type LevelAccessProfile } from '@/lib/access/levels'
 import { mapVideo, videoQuery } from '@/lib/learning-catalog'
 import { learningResourceUrl } from '@/lib/video-links'
 import { isOwnWordsLesson } from '@/lib/vocabulary-own-words'
@@ -14,6 +14,7 @@ import { createClient } from '@/utils/supabase/server'
 import { LEARNING_MODES, MODE_TRAINERS, type LearningMode } from '@/lib/mode-targets'
 import { modeIsNew } from '@/lib/learning-new'
 import { loadLearningNewCounts } from '@/lib/learning-new-server'
+import { loadSitovVerbTrainer, sitovVerbStats } from '@/lib/verbs/server'
 import type { ModeDockEntry, ModeLock } from '@/components/dashboard/ModeDock'
 
 type Client = Awaited<ReturnType<typeof createClient>>
@@ -34,6 +35,7 @@ export interface LevelLearningStatus {
   pronunciation: { locked: boolean; texts: number; open: number; waiting: number; unread: number } | null
   media: { locked: boolean; total: number; fresh: number } | null
   /** Modi mit „Neu"-Kennzeichen (Phase 6.1): neue Inhalte oder der Modus selbst. */
+  verbs?: { locked: boolean; total: number; selected: number; due: number; mastered: number } | null
   fresh?: Record<LearningMode, boolean>
   /** Vokabel-Lektionen des Kurses in ihrer Reihenfolge — die Stationen unter „Lektionen". */
   lessons: LessonStation[]
@@ -112,14 +114,16 @@ export async function loadLevelLearningStatus({ supabase, userId, profile, level
     vocabulary: languageLocked || !hasTrainerAccess(profile, level, 'vocabulary'),
     grammar: languageLocked || !hasTrainerAccess(profile, level, 'exercises'),
     pronunciation: languageLocked || !hasTrainerAccess(profile, level, 'pronunciation'),
-    media: !hasLevelAccess(profile, level),
+    media: !hasConfiguredTrainerAccess(profile, level, 'videos'),
+    verbs: !hasTrainerAccess(profile, level, 'verbs'),
   }
-  const [vocabulary, exercises, pronunciation, media, news] = await Promise.all([
+  const [vocabulary, exercises, pronunciation, media, news, verbs] = await Promise.all([
     locked.vocabulary ? null : settle(() => vocabularyOverview(level), () => console.error('[learning-status] vocabulary_unavailable')),
     locked.grammar ? null : settle(() => getExercises(level, lang), () => console.error('[learning-status] grammar_unavailable')),
     locked.pronunciation ? null : settle(() => pronunciationStatus(userId, level), () => console.error('[learning-status] pronunciation_unavailable')),
     locked.media ? null : settle(() => loadMedia(supabase, level), () => console.error('[learning-status] media_unavailable')),
     loadLearningNewCounts(),
+    locked.verbs ? null : settle(async () => { const result = await loadSitovVerbTrainer(level, lang); if (result.error || !result.data) throw new Error('verbs_unavailable'); return sitovVerbStats(result.data) }, () => console.error('[learning-status] verbs_unavailable')),
   ])
   const levelNew = news?.levels[level]
 
@@ -148,6 +152,7 @@ export async function loadLevelLearningStatus({ supabase, userId, profile, level
       : pronunciation && { locked: false, ...pronunciation },
     // „Neu" pro Person aus der Datenbank (Migration 42); ersetzt die frühere 14-Tage-Regel der Medien.
     media: locked.media ? { locked: true, total: 0, fresh: 0 } : media && { locked: false, ...media, fresh: levelNew?.modes.media ?? 0 },
+    verbs: locked.verbs ? { locked: true, total: 0, selected: 0, due: 0, mastered: 0 } : verbs && { locked: false, ...verbs },
     fresh: Object.fromEntries(LEARNING_MODES.map(mode => [mode, modeIsNew(levelNew, mode)])) as Record<LearningMode, boolean>,
     lessons: courseLessons.map(station),
     ownWords: own ? station(own) : null,
@@ -161,7 +166,8 @@ export async function loadLevelLearningStatus({ supabase, userId, profile, level
  * deutsche Oberfläche und die Trainer-Freigabe der Lehrkraft.
  */
 export function modeLock(profile: LevelAccessProfile | null, level: string, lang: string, mode: LearningMode): ModeLock {
-  if (mode === 'media') return hasLevelAccess(profile, level) ? null : 'teacher'
+  if (mode === 'media') return hasConfiguredTrainerAccess(profile, level, 'videos') ? null : 'teacher'
+  if (mode === 'verbs') return hasTrainerAccess(profile, level, 'verbs') ? null : 'teacher'
   if (lang === 'de' || profile?.ui_language === 'de') return 'language'
   return hasTrainerAccess(profile, level, MODE_TRAINERS[mode]) ? null : 'teacher'
 }

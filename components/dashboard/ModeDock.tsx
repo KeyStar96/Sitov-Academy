@@ -2,7 +2,7 @@
 
 import { useEffect, useId, useState } from 'react'
 import { usePathname } from 'next/navigation'
-import { BookOpen, Clapperboard, Lock, Mic, Route } from 'lucide-react'
+import { BookOpen, Clapperboard, Lock, Mic, Route, Waypoints } from 'lucide-react'
 import PressableCard from '@/components/motion/PressableCard'
 import SlidingPill from '@/components/motion/SlidingPill'
 import NewBadge from '@/components/motion/NewBadge'
@@ -21,12 +21,13 @@ export interface ModeDockEntry {
   fresh?: boolean
 }
 
-const ICONS = { vocabulary: BookOpen, path: Route, pronunciation: Mic, media: Clapperboard } as const
-const LABELS = { vocabulary: 'area_vocabulary', path: 'area_path', pronunciation: 'area_pronunciation', media: 'area_media' } as const
+const ICONS = { vocabulary: BookOpen, path: Route, pronunciation: Mic, media: Clapperboard, verbs: Waypoints } as const
+const LABELS = { vocabulary: 'area_vocabulary', path: 'area_path', pronunciation: 'area_pronunciation', media: 'area_media', verbs: 'area_verbs' } as const
+const SITOV_SHORT_LABELS = { vocabulary: 'dock_short_vocabulary', path: 'dock_short_path', pronunciation: 'dock_short_pronunciation', media: 'dock_short_media', verbs: 'dock_short_verbs' } as const
 const COUNT_TEXT = { vocabulary: 'status_vocab_due', pronunciation: 'status_pron_unread' } as const
 
 /**
- * Modus-Dock (D6): Vokabeln · Lernpfad · Aussprache · Mediathek — immer
+ * Modus-Dock (D6): Vokabeln · Lernpfad · Aussprache · Mediathek · Verben — immer
  * gleichwertig oben unter dem Seitenkopf, mit Symbol und Wort.
  *
  * Jeder Modus ist ein Link; der aktive trägt `aria-current="page"` und die
@@ -63,11 +64,11 @@ export default function ModeDock({ lang, level, entries }: {
               <PressableCard href={modeHref(lang, level, entry.mode)} className="st-mode-dock__link"
                 aria-current={current ? 'page' : undefined} data-mode={entry.mode} data-locked={entry.lock ?? undefined}
                 // Der Name beginnt mit dem sichtbaren Wort (WCAG 2.5.3) und nennt Zahl, Sperrgrund bzw. „Neu".
-                aria-label={label ? `${t(LABELS[entry.mode])}, ${label}` : undefined}
+                aria-label={[t(LABELS[entry.mode]), label].filter(Boolean).join(', ')}
                 title={entry.lock ? status ?? undefined : undefined}>
                 {current && <SlidingPill group={`mode-dock-${group}`} className="st-mode-dock__pill" />}
                 <span className="st-mode-dock__icon" aria-hidden="true"><Icon size={22} /></span>
-                <span className="st-mode-dock__label">{t(LABELS[entry.mode])}</span>
+                <span className="st-mode-dock__label" data-sitov-short-label={t(SITOV_SHORT_LABELS[entry.mode])}>{t(LABELS[entry.mode])}</span>
                 {count > 0 && <span className="st-mode-dock__count" aria-hidden="true"><CountUp value={count} cap={999} /></span>}
                 {entry.fresh && !entry.lock && <NewBadge variant="dot" label={t('media_new')} className="st-mode-dock__new" />}
               </PressableCard>

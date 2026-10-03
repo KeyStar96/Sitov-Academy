@@ -17,11 +17,12 @@ function localized(value: Json | undefined, locale: string): Json {
 
 /** Map a validated editor form to the normalized write contract, not to a view. */
 export function learningWritePayload(trainer: Trainer, input: Json): Json {
+  if (trainer === 'verbs') throw new Error('Verb catalog is managed by its reviewed source')
   const form = jsonObject(input)
   const unit: Record<string, Json> = { level: form.level ?? null,
     label: (trainer === 'vocabulary' || trainer === 'exercises' ? form.lesson : form.title) ?? null }
   for (const key of ['is_active', 'sort_order']) if (form[key] !== undefined) unit[key] = form[key]
-  const fieldNames: Record<Trainer, string[]> = {
+  const fieldNames: Record<Exclude<Trainer, 'verbs'>, string[]> = {
     vocabulary: ['word_de', 'article', 'plural', 'image_url', 'audio_url', 'sentence_practice', 'alternative_answers_de', 'target_form'],
     exercises: ['topic', 'type', 'content', 'solution_audio_url'], pronunciation: ['sentence_de', 'focus', 'audio_url'],
     videos: ['description', 'source_url', 'title', 'folder_id', 'storage_path', 'file_size'],
