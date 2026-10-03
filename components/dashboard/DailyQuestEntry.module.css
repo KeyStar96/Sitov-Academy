@@ -1,143 +1,223 @@
+/* ══════════════════════════════════════════════════════════════════════
+   Tägliche Deutschreise — die Flammenkarte
+   Die Serie brennt als lebendige Flamme: drei Schichten, die ihre Form
+   wechseln, Funken, Feuerschein und ein Lichtpunkt, der über die drei
+   Stationen der Reise zur Flamme läuft. Bewegt werden nur transform und
+   opacity; außerhalb des Sichtfelds und unter „weniger Bewegung" steht
+   alles still. Farben der Karte kommen aus den Tokens, die Flamme selbst
+   hat eine feste Palette (im Kontrastmodus einfarbig).
+   ══════════════════════════════════════════════════════════════════════ */
+
 .sitovEntry {
+  --sitov-flame-w: 6.25rem;
+  --sitov-chip: 2rem;
+  --sitov-link: 1rem;
+  --sitov-size: 1;
+  --sitov-rim: color-mix(in srgb, var(--accent) 28%, var(--border));
+  --sitov-beam-a: var(--gold-via);
+  --sitov-beam-b: var(--accent);
+  --sitov-glow: color-mix(in srgb, var(--accent) 22%, transparent);
+  --sitov-f1a: #f97316; --sitov-f1b: #c2410c;
+  --sitov-f2a: #fdba74; --sitov-f2b: #f97316;
+  --sitov-f3a: #fef3c7; --sitov-f3b: #fcd34d;
+  --sitov-ink: #431407;
+  --sitov-ember: #ea580c;
+  --sitov-ember-glow: rgb(234 88 12 / .4);
   position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas: 'header header' 'text flame' 'action action';
+  align-items: center;
+  gap: 1rem .75rem;
   min-width: 0;
   overflow: hidden;
-  border: 1px solid color-mix(in srgb, var(--accent) 28%, var(--border));
   border-radius: 1.75rem;
-  background: linear-gradient(120deg, color-mix(in srgb, var(--accent) 7%, var(--surface)), var(--surface) 85%);
-  padding: 1.25rem;
+  background: linear-gradient(118deg, color-mix(in srgb, var(--accent) 8%, var(--surface)), var(--surface) 44%, color-mix(in srgb, var(--accent-strong) 16%, var(--surface)));
+  padding: calc(1.25rem + 1px);
+  box-shadow: var(--shadow-sm), 0 28px 48px -36px var(--accent-strong);
 }
 
-.sitovHeader {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: .6rem 1rem;
+:global(html.dark) .sitovEntry {
+  --sitov-beam-a: var(--accent);
+  --sitov-beam-b: var(--gold-from);
+  --sitov-glow: color-mix(in srgb, var(--accent) 34%, transparent);
+  --sitov-ember: #fed7aa;
+  --sitov-ember-glow: rgb(249 115 22 / .85);
 }
 
-.sitovEyebrow {
-  display: flex;
-  align-items: center;
-  gap: .5rem;
-  color: var(--accent-text);
-  font-size: .8rem;
-  font-weight: 800;
-  letter-spacing: .06em;
-  line-height: 1.4;
-  text-transform: uppercase;
+.sitovEntry[data-tier='0'] { --sitov-glow: color-mix(in srgb, var(--accent) 14%, transparent); }
+.sitovEntry[data-tier='1'] { --sitov-size: .88; }
+.sitovEntry[data-tier='2'] { --sitov-size: .94; }
+.sitovEntry[data-tier='4'] { --sitov-f3a: #ffffff; --sitov-f3b: #fde68a; }
+
+/* ── Bühne: Zeigerlicht und laufender Lichtrand ────────────────────────── */
+.sitovScene { position: absolute; inset: 0; z-index: -1; overflow: hidden; border-radius: inherit; pointer-events: none; }
+.sitovSpot { position: absolute; inset: 0; background: radial-gradient(22rem circle at var(--sitov-mx, 50%) var(--sitov-my, 50%), color-mix(in srgb, var(--accent) 14%, transparent), transparent 70%); opacity: 0; transition: opacity .4s ease; }
+.sitovEntry[data-pointer='true'] .sitovSpot { opacity: 1; }
+.sitovRim {
+  position: absolute; inset: 0; overflow: hidden; border-radius: inherit; background: var(--sitov-rim); padding: 1.5px;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask-composite: exclude;
+}
+.sitovRim::before {
+  content: ''; position: absolute; left: 50%; top: 50%; width: 220%; aspect-ratio: 1; margin: -110% 0 0 -110%;
+  background: conic-gradient(transparent 0turn .6turn, var(--sitov-beam-a) .76turn, var(--sitov-beam-b) .84turn, var(--sitov-beam-a) .9turn, transparent 1turn);
+  animation: sitov-turn 9s linear infinite;
 }
 
+/* ── Kopf und Text ─────────────────────────────────────────────────────── */
+.sitovHeader { grid-area: header; position: relative; z-index: 1; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .6rem 1rem; }
+.sitovEyebrow { display: flex; align-items: center; gap: .5rem; color: var(--accent-text); font-size: .8rem; font-weight: 800; letter-spacing: .06em; line-height: 1.4; text-transform: uppercase; }
 .sitovEyebrow svg { flex-shrink: 0; }
+.sitovBest { display: inline-flex; align-items: center; gap: .4rem; border: 1px solid color-mix(in srgb, var(--accent) 22%, var(--border)); border-radius: 99px; background: var(--surface); padding: .3rem .7rem; color: var(--foreground); font-size: .85rem; font-weight: 700; line-height: 1.3; }
+.sitovBest svg { flex-shrink: 0; color: var(--accent-text); }
 
-.sitovStreak {
-  display: inline-flex;
-  align-items: center;
-  gap: .35rem;
-  border-radius: 99px;
-  background: var(--surface);
-  padding: .35rem .7rem;
-  color: var(--accent-text);
-  font-size: .85rem;
-  font-weight: 700;
-  line-height: 1.3;
-}
+.sitovText { grid-area: text; position: relative; z-index: 1; min-width: 0; }
+.sitovTitle { color: var(--foreground); font-size: clamp(1.35rem, 4.8vw, 1.75rem); font-weight: 750; letter-spacing: -.025em; line-height: 1.2; overflow-wrap: anywhere; }
+.sitovHint { margin-top: .55rem; color: var(--muted); font-size: 1rem; line-height: 1.5; overflow-wrap: anywhere; }
+.sitovHeader, .sitovTitle, .sitovHint, .sitovRoute, .sitovAction { animation: sitov-rise var(--motion-slow) var(--ease-out-soft) backwards; }
+.sitovTitle { animation-delay: 60ms; }
+.sitovHint { animation-delay: 120ms; }
+.sitovRoute { animation-delay: 180ms; }
+.sitovAction { animation-delay: 240ms; }
 
-.sitovStreak svg { flex-shrink: 0; }
+/* ── Die Reise: drei Stationen, ein Lichtpunkt läuft zur Flamme ───────── */
+.sitovRoute { position: relative; display: flex; align-items: center; margin-top: 1rem; color: var(--accent-text); container-type: inline-size; }
+.sitovStation { position: relative; z-index: 1; display: flex; width: var(--sitov-chip); height: var(--sitov-chip); flex-shrink: 0; align-items: center; justify-content: center; border: 1px solid color-mix(in srgb, var(--accent) 30%, var(--border)); border-radius: .7rem; background: var(--surface); box-shadow: var(--shadow-sm); }
+.sitovStation[data-goal='true'] { border-color: transparent; background: var(--accent-strong); color: var(--accent-foreground); }
+.sitovStation::after { content: ''; position: absolute; inset: -3px; border-radius: .85rem; box-shadow: 0 0 0 2px var(--accent), 0 0 14px 2px var(--sitov-ember-glow); opacity: 0; animation: sitov-station 6s linear infinite; animation-delay: calc(1.6s + var(--sitov-step, 0) * .24s); }
+.sitovLink, .sitovTrail { position: relative; height: 2px; overflow: hidden; }
+.sitovLink { width: var(--sitov-link); flex-shrink: 0; }
+.sitovTrail { min-width: .75rem; flex: 1; -webkit-mask-image: linear-gradient(90deg, #000, transparent); mask-image: linear-gradient(90deg, #000, transparent); }
+.sitovLink::before, .sitovTrail::before { content: ''; position: absolute; inset: 0 0 0 -10px; background: repeating-linear-gradient(90deg, currentColor 0 4px, transparent 4px 10px); opacity: .6; animation: sitov-march 1.1s linear infinite; }
+.sitovSpark { position: absolute; top: 50%; inset-inline-start: calc(var(--sitov-chip) / 2 - .3rem); width: .6rem; height: .6rem; margin-top: -.3rem; border-radius: 50%; background: radial-gradient(closest-side, #fff 0 25%, var(--gold-via) 60%, transparent); box-shadow: 0 0 10px 2px var(--sitov-ember-glow); opacity: 0; animation: sitov-spark 6s linear 1.6s infinite; }
 
-.sitovBody {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-block: 1rem;
-}
+/* ── Die Flamme ────────────────────────────────────────────────────────── */
+.sitovFlame { grid-area: flame; position: relative; z-index: 0; display: flex; width: var(--sitov-flame-w); flex-direction: column; align-items: center; transform: translate3d(calc(var(--sitov-px, 0) * 6px), calc(var(--sitov-py, 0) * 4px), 0); transition: transform .5s var(--ease-out-soft); }
+.sitovFlameArt { position: relative; width: 100%; aspect-ratio: 120 / 152; transform: scale(var(--sitov-size)); transform-origin: 50% 100%; transition: transform .5s var(--ease-out-soft); }
+.sitovHalo { position: absolute; left: 50%; top: 58%; z-index: -1; width: 380%; aspect-ratio: 1; margin: -190% 0 0 -190%; border-radius: 50%; background: radial-gradient(closest-side, var(--sitov-glow), transparent); animation: sitov-bloom .9s ease-out .2s backwards, sitov-firelight 4.3s ease-in-out 1.1s infinite; }
+.sitovPulse { position: absolute; left: 50%; top: 62%; width: 130%; aspect-ratio: 1; margin: -65% 0 0 -65%; border-radius: 50%; background: radial-gradient(closest-side, transparent 52%, color-mix(in srgb, var(--accent) 45%, transparent) 74%, transparent); opacity: 0; animation: sitov-pulse 6s linear 1.6s infinite; }
+.sitovBurst { position: absolute; left: 50%; top: 62%; width: 150%; aspect-ratio: 1; margin: -75% 0 0 -75%; border-radius: 50%; background: radial-gradient(closest-side, #fff7d6, color-mix(in srgb, var(--accent) 60%, transparent) 45%, transparent); opacity: 0; pointer-events: none; }
+.sitovFlameIgnite, .sitovFlameFlare, .sitovFlameSway { position: absolute; inset: 0; }
+.sitovFlameIgnite, .sitovFlameFlare { transform-origin: 50% 96%; }
+.sitovFlameFlare { animation: sitov-flare 6s ease-in-out 1.6s infinite; }
+.sitovFlameSway { transform-origin: 50% 97%; animation: sitov-sway 5.3s ease-in-out infinite; }
+.sitovFlameSvg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.sitovFlameStill { display: none; }
+.sitovGhost { fill: color-mix(in srgb, var(--accent) 7%, transparent); stroke: color-mix(in srgb, var(--accent) 60%, var(--border)); stroke-width: 1.5; stroke-dasharray: 3 6; stroke-linecap: round; animation: sitov-dash 2.4s linear infinite; }
 
-.sitovText { min-width: 0; flex: 1; }
+.sitovEntry:not([data-ignite='wait']) .sitovFlameIgnite { animation: sitov-ignite .8s cubic-bezier(.2, 1.4, .4, 1) .2s backwards; }
+.sitovEntry:not([data-ignite='wait']) .sitovBurst { animation: sitov-burst .7s ease-out .2s both; }
+.sitovEntry:not([data-ignite='wait']) .sitovDigitStrip { animation: sitov-roll .9s cubic-bezier(.2, .8, .2, 1) backwards; animation-delay: calc(.45s + var(--sitov-i, 0) * 90ms); }
+.sitovEntry:not([data-ignite='wait']) :is(.sitovEmbers, .sitovStreak) { animation: sitov-fade .6s ease-out .8s backwards; }
+.sitovEntry:not([data-ignite='wait']) .sitovStamp { animation: sitov-pop var(--motion-slow) var(--ease-out-soft) 1.1s backwards; }
+.sitovEntry[data-ignite='wait'] :is(.sitovFlameIgnite, .sitovHalo, .sitovEmbers, .sitovStreak, .sitovStamp) { opacity: 0; animation: none; }
 
-.sitovTitle {
-  color: var(--foreground);
-  font-size: clamp(1.35rem, 4.8vw, 1.65rem);
-  font-weight: 750;
-  letter-spacing: -.025em;
-  line-height: 1.2;
-  overflow-wrap: anywhere;
-}
+/* Zähler: jede Ziffer rollt wie ein Zählwerk auf ihren Wert. */
+.sitovCount { position: absolute; left: 50%; top: 74%; display: flex; transform: translate(-50%, -50%); color: var(--sitov-ink); font-size: calc(var(--sitov-flame-w) * .3); font-weight: 800; font-variant-numeric: tabular-nums; letter-spacing: -.03em; line-height: 1; }
+.sitovFlame[data-digits='2'] .sitovCount { font-size: calc(var(--sitov-flame-w) * .26); }
+.sitovFlame[data-digits='3'] .sitovCount { font-size: calc(var(--sitov-flame-w) * .2); }
+.sitovFlame[data-digits='4'] .sitovCount { font-size: calc(var(--sitov-flame-w) * .16); }
+.sitovDigit { display: block; height: 1em; overflow: hidden; }
+.sitovDigitStrip { display: flex; flex-direction: column; transform: translateY(calc(var(--sitov-d) * -1em)); }
+.sitovDigitStrip > span { display: block; height: 1em; }
 
-.sitovHint {
-  margin-top: .55rem;
-  color: var(--muted);
-  font-size: 1rem;
-  line-height: 1.5;
-  overflow-wrap: anywhere;
-}
+.sitovEmbers { position: absolute; inset: 0; pointer-events: none; }
+.sitovEntry[data-tier='0'] .sitovEmbers { transform: translateY(40%) scale(.6); transform-origin: 50% 100%; }
+.sitovEmber { position: absolute; left: var(--x); top: var(--y); width: var(--s); height: var(--s); border-radius: 50%; background: var(--sitov-ember); box-shadow: 0 0 6px 1px var(--sitov-ember-glow); opacity: 0; animation: sitov-ember var(--t) linear var(--d) infinite; }
+.sitovStamp { position: absolute; inset-inline-end: 2%; bottom: 1%; display: flex; width: 1.75rem; height: 1.75rem; align-items: center; justify-content: center; border: 2px solid var(--surface); border-radius: 50%; background: var(--success); color: var(--surface); }
+.sitovStreak { position: relative; margin-top: .4rem; color: var(--accent-text); font-size: .85rem; font-weight: 750; line-height: 1.25; text-align: center; text-wrap: balance; }
 
-.sitovRoute {
-  position: relative;
-  width: 7.5rem;
-  height: 6.5rem;
-  flex-shrink: 0;
-  color: var(--accent-text);
-}
-
-.sitovRoutePath { position: absolute; inset: 0; width: 100%; height: 100%; opacity: .45; }
-
-.sitovRouteWord, .sitovRouteListen, .sitovRouteTalk {
-  position: absolute;
-  display: flex;
-  width: 2.65rem;
-  height: 2.65rem;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid color-mix(in srgb, var(--accent) 22%, var(--border));
-  border-radius: .9rem;
-  background: var(--surface);
-  box-shadow: var(--shadow-sm);
-}
-
-.sitovRouteWord { inset-inline-start: 0; top: 0; transform: rotate(-8deg); }
-.sitovRouteListen { inset-inline-end: 0; top: 1.15rem; transform: rotate(8deg); }
-.sitovRouteTalk { inset-inline-start: 1.25rem; bottom: 0; background: var(--accent-strong); color: var(--accent-foreground); transform: rotate(-4deg); }
-
-.sitovAction {
-  display: inline-flex;
-  min-height: 3.25rem;
-  align-items: center;
-  justify-content: center;
-  gap: .65rem;
-  border-radius: 1rem;
-  background: var(--accent-strong);
-  padding: .75rem 1rem;
-  color: var(--accent-foreground);
-  font-size: 1rem;
-  font-weight: 750;
-  line-height: 1.35;
-  text-align: center;
-}
-
+/* ── Der Knopf ─────────────────────────────────────────────────────────── */
+.sitovAction { grid-area: action; position: relative; z-index: 1; display: flex; width: 100%; min-height: 3.5rem; align-items: center; justify-content: space-between; gap: .65rem; overflow: hidden; border-radius: 1.1rem; background: var(--accent-strong); padding: .6rem .7rem .6rem 1.2rem; color: var(--accent-foreground); font-size: 1.05rem; font-weight: 750; line-height: 1.35; box-shadow: 0 14px 28px -14px var(--accent-strong); }
 .sitovAction svg { flex-shrink: 0; }
+.sitovAction > span:not(.sitovActionArrow) { min-width: 0; flex: 1; overflow-wrap: anywhere; }
+.sitovAction::after { content: ''; position: absolute; inset: 0 auto 0 0; width: 35%; background: linear-gradient(90deg, transparent, rgb(255 255 255 / .24), transparent); transform: translateX(-130%) skewX(-18deg); animation: sitov-sheen 6s cubic-bezier(.4, 0, .2, 1) 1.6s infinite; pointer-events: none; }
+.sitovActionArrow { display: flex; width: 2.25rem; height: 2.25rem; flex-shrink: 0; align-items: center; justify-content: center; border-radius: 50%; background: rgb(255 255 255 / .18); transition: transform var(--motion-base) var(--ease-out-soft); }
 .sitovAction:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
 
-.sitovEntry[data-completed='true'] { border-color: color-mix(in srgb, var(--success) 35%, var(--border)); background: color-mix(in srgb, var(--success) 5%, var(--surface)); }
-.sitovEntry[data-completed='true'] .sitovAction { border: 1px solid var(--border); background: var(--surface); color: var(--success); }
-.sitovEntry[data-completed='true'] .sitovRouteTalk { background: var(--success); color: var(--surface); }
-.sitovEntry[data-enabled='false'] { border-color: var(--border); background: var(--surface); }
-.sitovEntry[data-enabled='false'] .sitovRoute { opacity: .55; }
-.sitovEntry[data-enabled='false'] .sitovAction { border: 1px solid var(--border); background: var(--surface-muted); color: var(--foreground); }
+/* ── Zustände ──────────────────────────────────────────────────────────── */
+.sitovEntry[data-completed='true'] { --sitov-rim: color-mix(in srgb, var(--success) 35%, var(--border)); background: linear-gradient(118deg, color-mix(in srgb, var(--success) 7%, var(--surface)), var(--surface) 44%, color-mix(in srgb, var(--accent-strong) 16%, var(--surface))); }
+.sitovEntry[data-completed='true'] .sitovRoute { color: var(--success); }
+.sitovEntry[data-completed='true'] .sitovStation { border-color: color-mix(in srgb, var(--success) 40%, var(--border)); }
+.sitovEntry[data-completed='true'] .sitovStation[data-goal='true'] { border-color: transparent; background: var(--success); color: var(--surface); }
+.sitovEntry[data-completed='true'] .sitovAction { border: 1px solid var(--border); background: var(--surface); color: var(--success); box-shadow: none; }
+.sitovEntry[data-completed='true'] .sitovActionArrow { background: color-mix(in srgb, var(--success) 14%, var(--surface)); }
+.sitovEntry[data-enabled='false'] { --sitov-rim: var(--border); background: var(--surface); box-shadow: var(--shadow-sm); }
+.sitovEntry[data-enabled='false'] :is(.sitovRoute, .sitovFlameArt) { opacity: .5; filter: grayscale(1); }
+.sitovEntry[data-enabled='false'] .sitovAction { border: 1px solid var(--border); background: var(--surface-muted); color: var(--foreground); box-shadow: none; }
+.sitovEntry[data-enabled='false'] .sitovActionArrow { background: var(--surface); }
+/* Geschafft oder pausiert: kein Lichtpunkt, kein Drängen — die Flamme brennt ruhig weiter. */
+.sitovEntry:is([data-completed='true'], [data-enabled='false']) :is(.sitovSpark, .sitovPulse) { display: none; }
+.sitovEntry:is([data-completed='true'], [data-enabled='false']) :is(.sitovStation, .sitovAction)::after { display: none; }
+.sitovEntry:is([data-completed='true'], [data-enabled='false']) .sitovFlameFlare { animation: none; }
+.sitovEntry:is([data-completed='true'], [data-enabled='false']) :is(.sitovLink, .sitovTrail)::before { animation: none; }
+.sitovEntry[data-enabled='false'] :is(.sitovHalo, .sitovEmbers, .sitovBurst, .sitovFlameLive) { display: none; }
+.sitovEntry[data-enabled='false'] .sitovFlameStill { display: block; }
+.sitovEntry[data-enabled='false'] .sitovRim::before { display: none; }
+.sitovEntry[data-enabled='false'] :is(.sitovFlameSway, .sitovGhost) { animation: none; }
+
+/* Außerhalb des Sichtfelds ruht alles (gesetzt von DailyQuestEntryStage). */
+.sitovEntry[data-live='false'] *, .sitovEntry[data-live='false'] *::before, .sitovEntry[data-live='false'] *::after { animation-play-state: paused !important; }
 
 @media (hover: hover) {
   .sitovAction:hover { background: var(--accent-strong-hover); }
+  .sitovAction:hover .sitovActionArrow { transform: translateX(3px); }
+  .sitovEntry:has(.sitovAction:hover) .sitovFlameArt { transform: scale(calc(var(--sitov-size) * 1.06)); }
   .sitovEntry[data-completed='true'] .sitovAction:hover, .sitovEntry[data-enabled='false'] .sitovAction:hover { background: var(--surface-muted); }
 }
 
-@media (max-width: 479px) {
-  .sitovBody { gap: .6rem; }
-  .sitovRoute { width: 6.25rem; height: 6rem; }
-  .sitovRouteWord, .sitovRouteListen, .sitovRouteTalk { width: 2.4rem; height: 2.4rem; border-radius: .8rem; }
-  .sitovRouteTalk { inset-inline-start: .75rem; }
-  .sitovAction { display: flex; width: 100%; }
+@media (min-width: 480px) {
+  .sitovEntry { grid-template-areas: 'header header' 'text flame' 'action flame'; column-gap: 1.25rem; }
+  .sitovAction { display: inline-flex; width: auto; justify-self: start; }
+}
+@media (min-width: 640px) {
+  .sitovEntry { --sitov-flame-w: 8.5rem; --sitov-chip: 2.25rem; --sitov-link: 1.5rem; padding: calc(1.5rem + 1px); }
 }
 
-@media (min-width: 640px) { .sitovEntry { padding: 1.5rem; } }
+@keyframes sitov-rise { from { opacity: 0; transform: translateY(8px); } }
+@keyframes sitov-fade { from { opacity: 0; } }
+@keyframes sitov-pop { 0% { opacity: 0; transform: scale(.4); } 60% { opacity: 1; transform: scale(1.15); } }
+@keyframes sitov-turn { to { transform: rotate(1turn); } }
+@keyframes sitov-march { to { transform: translateX(10px); } }
+@keyframes sitov-dash { to { stroke-dashoffset: -18; } }
+@keyframes sitov-station { 0%, 9%, 100% { opacity: 0; } 2% { opacity: 1; } }
+@keyframes sitov-spark {
+  0% { opacity: 0; transform: translateX(0) scale(.4); }
+  2% { opacity: 1; transform: translateX(0) scale(1); }
+  10% { opacity: 1; transform: translateX(calc(var(--sitov-chip) * 2 + var(--sitov-link) * 2)) scale(1); }
+  19% { opacity: 1; transform: translateX(calc(100cqw - var(--sitov-chip) / 2 - .3rem)) scale(.9); }
+  21%, 100% { opacity: 0; transform: translateX(calc(100cqw - var(--sitov-chip) / 2)) scale(.2); }
+}
+@keyframes sitov-flare { 0%, 19%, 38%, 100% { transform: scale(1); } 24% { transform: scale(1.08, 1.13); } 31% { transform: scale(.985, .98); } }
+@keyframes sitov-pulse { 0%, 19% { opacity: 0; transform: scale(.5); } 22% { opacity: .9; } 34%, 100% { opacity: 0; transform: scale(1.5); } }
+@keyframes sitov-sheen { 0%, 28% { transform: translateX(-130%) skewX(-18deg); } 44%, 100% { transform: translateX(340%) skewX(-18deg); } }
+@keyframes sitov-sway { 0%, 100% { transform: rotate(-1.4deg); } 50% { transform: rotate(1.6deg) scaleY(1.025); } }
+@keyframes sitov-ignite { from { opacity: 0; transform: scale(.25, .1); } 55% { opacity: 1; } }
+@keyframes sitov-burst { 0% { opacity: 0; transform: scale(.2); } 25% { opacity: 1; } 100% { opacity: 0; transform: scale(1.7); } }
+@keyframes sitov-bloom { from { opacity: 0; transform: scale(.4); } }
+@keyframes sitov-firelight { 0%, 100% { opacity: 1; } 13% { opacity: .82; } 27% { opacity: .96; } 41% { opacity: .74; } 58% { opacity: .92; } 74% { opacity: .78; } 88% { opacity: .95; } }
+@keyframes sitov-roll { from { transform: translateY(0); } }
+@keyframes sitov-ember {
+  0% { opacity: 0; transform: translate3d(0, 0, 0) scale(.5); }
+  12% { opacity: 1; }
+  45% { transform: translate3d(calc(var(--dx) * -.35), calc(var(--dy) * .45), 0) scale(1); }
+  70% { opacity: .7; }
+  100% { opacity: 0; transform: translate3d(var(--dx), var(--dy), 0) scale(.3); }
+}
 
-:global(html.high-contrast) .sitovEntry { border-color: var(--border); background: var(--surface); }
-:global(html.high-contrast) .sitovRoutePath { opacity: 1; }
+/* Weniger Bewegung: Endzustand sofort, die Flamme steht als ruhiges Bild. */
+@media (prefers-reduced-motion: reduce) {
+  .sitovEntry *, .sitovEntry *::before, .sitovEntry *::after { animation: none !important; transition: none !important; }
+  .sitovFlameLive, .sitovEmbers, .sitovSpark, .sitovPulse, .sitovBurst { display: none; }
+  .sitovFlameStill { display: block; }
+  .sitovFlame { transform: none; }
+}
+
+:global(html.high-contrast) .sitovEntry { --sitov-rim: var(--border); --sitov-f1a: var(--accent-strong); --sitov-f1b: var(--accent-strong); --sitov-f2a: var(--accent-strong); --sitov-f2b: var(--accent-strong); --sitov-f3a: var(--surface); --sitov-f3b: var(--surface); --sitov-ink: var(--foreground); background: var(--surface); box-shadow: none; }
+:global(html.high-contrast) :is(.sitovSpot, .sitovHalo, .sitovPulse, .sitovBurst, .sitovEmbers, .sitovSpark) { display: none; }
+:global(html.high-contrast) .sitovRim { padding: 2px; }
+:global(html.high-contrast) .sitovRim::before, :global(html.high-contrast) .sitovAction::after { display: none; }
+:global(html.high-contrast) .sitovLink::before, :global(html.high-contrast) .sitovTrail::before { opacity: 1; }
+:global(html.high-contrast) .sitovActionArrow { border: 2px solid currentColor; background: transparent; }
