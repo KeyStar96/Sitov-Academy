@@ -30,22 +30,33 @@ elif name=='nice':
  os.execvp(args[2],args[2:])
 elif name=='npm':
  with open(os.environ['MOCK_LOG'],'a') as f:f.write(json.dumps(['npm-env',os.environ.get('NODE_OPTIONS'),os.environ.get('SITOV_BUILD_CPUS')])+'\n')
- if args in (['run','build'],['run','build','--','--webpack']):
+ if args==['ci','--no-audit','--no-fund']:
+  pathlib.Path('node_modules/sitov-runtime/dist').mkdir(parents=True)
+  pathlib.Path('node_modules/sitov-runtime/package.json').write_text('{}')
+  pathlib.Path('node_modules/sitov-runtime/dist/index.js').write_text('module.exports = {}')
+ elif args in (['run','build'],['run','build','--','--webpack']):
   if os.environ.get('MOCK_BUILD_FAIL')=='1':sys.exit(1)
   pathlib.Path('.next/server').mkdir(parents=True)
   pathlib.Path('.next/BUILD_ID').write_text('prepared-build\n')
   pathlib.Path('.next/required-server-files.json').write_text('{}')
   pathlib.Path('.next/server/main.js').write_text('built application')
 elif name=='install':
- values=[];directory=False;i=0
+ values=[];directory=False;mode=0o755;i=0
  while i<len(args):
   if args[i]=='-d':directory=True;i+=1
-  elif args[i] in ('-m','-o','-g'):i+=2
+  elif args[i]=='-m':mode=int(args[i+1],8);i+=2
+  elif args[i] in ('-o','-g'):i+=2
   else:values.append(args[i]);i+=1
  if directory:
-  for path in values:pathlib.Path(path).mkdir(parents=True)
+  for path in values:
+   pathlib.Path(path).mkdir(parents=True)
+   pathlib.Path(path).chmod(mode)
  else:
-  for source in values[:-1]:shutil.copy2(source,values[-1])
+  for source in values[:-1]:
+   target=pathlib.Path(values[-1])
+   if target.is_dir():target=target/pathlib.Path(source).name
+   shutil.copy2(source,target)
+   target.chmod(mode)
 elif name=='systemctl':
  if args[:2]==['is-active','--quiet']:sys.exit(0 if os.environ.get('MOCK_MAIL_ACTIVE')=='1' else 3)
  if args==['restart','sitov-app'] and os.environ.get('MOCK_START_FAIL')=='1':sys.exit(1)
@@ -120,6 +131,25 @@ class DeploymentTests(unittest.TestCase):
         self.assertTrue((release/'.sitov-prepared').is_file())
         self.assertTrue((release/'.sitov-prepared.sha256').is_file())
         self.assertFalse(any(c[0]=='systemctl' and c[1] in ('restart','stop','daemon-reload') for c in self.calls()))
+
+    def test_restrictive_caller_mask_keeps_runtime_readable_and_secrets_protected(self):
+        result=subprocess.run(
+            ['bash','-c','umask 077; exec bash "$@"','sitov-restrictive-caller',str(SCRIPT),'--prepare-only'],
+            env=self.env,text=True,capture_output=True)
+        self.assertEqual(result.returncode,0,result.stderr)
+        release=self.root/'releases'/REVISION
+        # Root installs packages; the sitov service needs read and traversal
+        # rights without owning them. Mock npm creates files under inherited mask.
+        for path in (release,release/'node_modules',release/'node_modules/sitov-runtime',
+                     release/'node_modules/sitov-runtime/dist',release/'.next',release/'.next/server'):
+            self.assertEqual(path.stat().st_mode & 0o777,0o755,str(path))
+        for path in (release/'node_modules/sitov-runtime/package.json',
+                     release/'node_modules/sitov-runtime/dist/index.js',release/'.next/server/main.js'):
+            self.assertEqual(path.stat().st_mode & 0o777,0o644,str(path))
+        self.assertEqual((release/'.env.local').stat().st_mode & 0o777,0o640)
+        for name in ('.sitov-prepared','.sitov-prepared.sha256','.sitov-build-id','.sitov-mail-was-running'):
+            self.assertEqual((release/name).stat().st_mode & 0o777,0o600,name)
+        self.assertEqual(self.current.resolve(),self.previous)
 
     def test_activate_verifies_prepared_build_without_pull_or_build_and_restores_mail(self):
         release=self.prepare(); self.log.write_text('')

@@ -77,6 +77,9 @@ run_capped() {
 
 prepare_release() {
   require_build_memory
+  # npm inherits the invoking shell's mask. Its root-owned runtime packages must
+  # remain readable/traversable by sitov; secrets and markers use explicit modes.
+  umask 0022
   cd "$SOURCE_DIR"
   # Discard only a generated cache if an older checkout still tracks it.
   if git ls-files --error-unmatch tsconfig.tsbuildinfo >/dev/null 2>&1; then
