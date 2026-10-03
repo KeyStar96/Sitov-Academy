@@ -27,7 +27,10 @@ its release SHA, activation time and final production HTTP evidence are pending.
 
 The pilot uses only local React state. It does not write learning records, call AI
 services, record a microphone, change database access or implement payments.
-Hearing examples plays seven local AAC/M4A files on explicit user interaction.
+Hearing examples plays seven local MP3 files on explicit user interaction. These
+were synthesized by the same `de_DE-thorsten-high` VPS model used in the trainers.
+The scene now depicts Martin, matching the global male learning-character rule in
+`AGENTS.md`. The previous macOS Anna recordings are no longer referenced.
 Restarting or reloading clears the round.
 
 ## Validation

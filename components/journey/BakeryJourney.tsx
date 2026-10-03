@@ -106,7 +106,7 @@ export default function BakeryJourney({ homeHref = '/de', onSpeak }: {
       catch { if (generation === audioGeneration.current) setAudioMessage('Die Hörvorschau ist gerade nicht verfügbar. Du kannst den Satz hier lesen und selbst sprechen.') }
       return
     }
-    const reference = new Audio(`/Bilder/deutschreise/audio/${filename}.m4a`)
+    const reference = new Audio(`/Bilder/deutschreise/audio/sitov-${filename}.mp3`)
     reference.onended = () => {
       if (generation === audioGeneration.current) { referenceAudio.current = null; setSpeaking(false) }
     }
@@ -154,9 +154,9 @@ export default function BakeryJourney({ homeHref = '/de', onSpeak }: {
     const correct = answer === 'Ja, bitte.'
     setDialogueFeedback({ correct, text: correct
       ? 'Genau. Mit „Ja, bitte“ nimmst du die Tüte freundlich an.'
-      : answer === 'Ich heiße Anna.'
-        ? 'So stellst du dich vor. Mia fragt gerade nach einer Tüte. Welche Antwort passt zu dieser Frage?'
-        : '„Guten Abend“ ist eine Begrüßung am Abend. Mia fragt, ob du eine Tüte möchtest. Versuch es noch einmal.' })
+      : answer === 'Ich heiße Lukas.'
+        ? 'So stellst du dich vor. Martin fragt gerade nach einer Tüte. Welche Antwort passt zu dieser Frage?'
+        : '„Guten Abend“ ist eine Begrüßung am Abend. Martin fragt, ob du eine Tüte möchtest. Versuch es noch einmal.' })
     if (correct) {
       setSpeaking(false)
       setAudioMessage('')
@@ -204,7 +204,7 @@ export default function BakeryJourney({ homeHref = '/de', onSpeak }: {
       <section className={styles.scene} aria-label="Beim Bäcker in Hannover">
         <motion.div className={styles.sceneArt} initial={false} animate={reduced ? { scale: 1, x: '0%', y: '0%' } : sceneMotion}
           transition={{ duration: reduced ? 0 : 0.8, ease: EASE_OUT_SOFT }}>
-          <Image src="/Bilder/deutschreise/bakery-scene.png" alt="Eine freundliche Bäckerin hinter einer Theke mit frischem Gebäck in einer sonnigen Bäckerei." fill preload
+          <Image src="/Bilder/deutschreise/sitov-bakery-male.png" alt="Ein freundlicher Bäcker hinter einer Theke mit frischem Gebäck in einer sonnigen Bäckerei." fill preload
             sizes="(max-width: 1000px) calc(100vw - 40px), (max-width: 1439px) 65vw, 868px" className={styles.sceneImage} />
         </motion.div>
         <div className={styles.sceneWash} aria-hidden="true" />
@@ -217,11 +217,11 @@ export default function BakeryJourney({ homeHref = '/de', onSpeak }: {
           {stage !== 'intro' && <motion.div key="scene-live" className={styles.sceneLive} initial={reduced ? false : { opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: reduced ? 0 : MOTION.slow, delay: reduced ? 0 : MOTION.base }}>
             <p className={styles.location}><MapPin size={16} aria-hidden="true" />HANNOVER · 08:30 UHR</p>
             <p className={styles.sceneStageTitle}>{stage === 'discover' ? <>Ein Morgen.<br />Deine Worte.</> : stage === 'order' ? <>Dein Frühstück.<br />Deine Bestellung.</> : stage === 'dialogue' ? <>Eine Frage.<br />Deine Antwort.</> : <>Frühstück dabei.<br />Und ein guter Anfang.</>}</p>
-            <p className={styles.sceneDescription}>{stage === 'complete' ? 'Ein kleiner Moment, den du dir erarbeitet hast.' : 'Nimm dir Zeit. Mia wartet auf dich.'}</p>
+            <p className={styles.sceneDescription}>{stage === 'complete' ? 'Ein kleiner Moment, den du dir erarbeitet hast.' : 'Nimm dir Zeit. Martin wartet auf dich.'}</p>
           </motion.div>}
         </AnimatePresence>
         <motion.div key={`${stage}-${dialogueComplete}`} className={styles.bakerSpeech} initial={reduced ? false : { opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: reduced ? 0 : MOTION.slow, ease: EASE_OUT_SOFT }}>
-          <p>MIA · DEINE BÄCKERIN</p><p className={styles.bakerText}>{bakerText}</p>
+          <p>MARTIN · DEIN BÄCKER</p><p className={styles.bakerText}>{bakerText}</p>
         </motion.div>
         <div className={styles.sceneControls}>
           <span>01 / BEIM BÄCKER</span>
@@ -276,9 +276,9 @@ export default function BakeryJourney({ homeHref = '/de', onSpeak }: {
         </>}
 
         {stage === 'dialogue' && <>
-          <p className={styles.panelDescription}>{dialogueComplete ? 'Mia gibt dir deine Bestellung. Mit einem „Danke“ wird aus dem Satz ein Gespräch.' : 'Mia fragt nach. Du möchtest eine Tüte für dein Frühstück. Welche Antwort passt?'}</p>
+          <p className={styles.panelDescription}>{dialogueComplete ? 'Martin gibt dir deine Bestellung. Mit einem „Danke“ wird aus dem Satz ein Gespräch.' : 'Martin fragt nach. Du möchtest eine Tüte für dein Frühstück. Welche Antwort passt?'}</p>
           <div className={styles.question}><MessageCircle size={20} aria-hidden="true" /><p>{dialogueComplete ? 'Hier, bitte!' : 'Möchten Sie eine Tüte?'}</p></div>
-          {!dialogueComplete && <div className={styles.answerOptions}>{['Ja, bitte.', 'Ich heiße Anna.', 'Guten Abend.'].map(answer => <PressableCard key={answer} className={styles.answerButton} onClick={() => answerDialogue(answer)}>{answer}<ArrowRight size={17} aria-hidden="true" /></PressableCard>)}</div>}
+          {!dialogueComplete && <div className={styles.answerOptions}>{['Ja, bitte.', 'Ich heiße Lukas.', 'Guten Abend.'].map(answer => <PressableCard key={answer} className={styles.answerButton} onClick={() => answerDialogue(answer)}>{answer}<ArrowRight size={17} aria-hidden="true" /></PressableCard>)}</div>}
           {dialogueFeedback && <FeedbackMotion key={dialogueFeedback.text} correct={dialogueFeedback.correct} className={styles.feedback}><p role="status">{dialogueFeedback.text}</p></FeedbackMotion>}
           {dialogueComplete && <>
             <div className={styles.thanks}><span>DEINE ANTWORT</span><p>Danke!</p></div>

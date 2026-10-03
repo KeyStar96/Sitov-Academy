@@ -2,6 +2,12 @@
 
 Die Schule und Lernplattform heißen ausschließlich **Sitov Academy**. Verwende diesen Namen in Oberflächen, Metadaten und Dokumentation. Neue technische Kennungen verwenden das Präfix `sitov`.
 
+## Lerncharaktere und deutsche Audio-Stimme
+
+Für alle fiktiven Lerncharaktere von Sitov Academy gelten ausschließlich männliche Charaktere. Das umfasst Deutschreise, Tagesaufgaben, Dialoge, Szenenbilder, Avatare und künftige Lernmodule. Namen, Rollen, Bildbeschreibungen und dargestellte Personen müssen dazu passen. Die Regel betrifft fiktive Lerncharaktere; reale Nutzerprofile und fachlich notwendige Beispiele zu grammatischem Geschlecht bleiben sachlich korrekt.
+
+Alle deutschen Hörbeispiele verwenden dieselbe Standardstimme wie Vokabel- und Aussprache-Trainer: `de_DE-thorsten-high`. Neue Lernmodule nutzen den gemeinsamen Audio-Adapter ohne weibliches Voice-Profil. Keine browserabhängige Ersatzstimme und keine anders klingenden System-TTS-Aufnahmen. Tagesaufgaben müssen die Regel im Autorenvertrag und in der Datenbank durchsetzen. Bei Inhaltsumstellungen bestehende Aufgaben-IDs, Antworten, Fortschritt und Streaks erhalten.
+
 <!-- BEGIN:nextjs-agent-rules -->
 
 # This is NOT the Next.js you know

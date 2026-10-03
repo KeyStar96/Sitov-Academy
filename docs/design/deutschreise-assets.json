@@ -3,33 +3,47 @@
   "pilot": "Deutschreise · Beim Bäcker",
   "figma": "https://www.figma.com/design/KbqXmrZJOdSSjPyRVJps7v?node-id=3-41",
   "scene": {
-    "path": "public/Bilder/deutschreise/bakery-scene.png",
-    "dimensions": [1536, 1024],
+    "path": "public/Bilder/deutschreise/sitov-bakery-male.png",
+    "dimensions": [
+      1536,
+      1024
+    ],
     "mode": "Built-in ImageGen",
-    "finalPrompt": "Use case: illustration-story\nAsset type: adult German learning web story scene, wide 3:2.\nPrimary request: transform this bakery scene into an unmistakably stylized, hand-painted premium editorial illustration with visible elegant brushwork and simplified dimensional forms; it must read as illustration rather than photography.\nComposition/framing: preserve the welcoming baker woman right of center, front-facing customer perspective, breads in the counter, and the quiet left half for a later overlay.\nLighting/mood: retain the warm cinematic golden morning sunlight, gentle atmosphere and mature natural proportions.\nConstraints: preserve the scene and its layout; no lettering, logos, signage, UI, speech bubbles, watermark, childish cartoon features or additional people."
+    "finalPrompt": "Use case: precise-object-edit\nAsset type: Sitov Academy illustrated German learning scene, landscape 3:2, 1536x1024.\nInput image: edit target, existing bakery illustration.\nPrimary request: replace only the female baker with a friendly adult male baker called Martin, about 40 years old, short brown hair, subtle short beard, naturally masculine face and build. Keep his welcoming warm smile, direct gaze to customer and exactly the same standing position behind the counter, forearms on the counter. He wears a white shirt with rolled sleeves and a beige linen apron with brown straps.\nStyle/medium: preserve the hand-painted premium editorial illustration, visible elegant brushwork and mature natural proportions.\nConstraints: preserve all bakery surroundings, bread display, shelves, glass counter, warm golden morning sunlight, color palette, composition, framing, and quiet left half. Single male character only. No text, logo, signage, UI, speech bubbles, watermark or additional people. Keep landscape 3:2 proportions.",
+    "previousPath": "public/Bilder/deutschreise/bakery-scene.png"
   },
   "audio": {
     "directory": "public/Bilder/deutschreise/audio",
-    "mode": "Local macOS text-to-speech: say and afconvert",
-    "voice": "Anna (de_DE)",
-    "wordsPerMinute": 165,
-    "encoding": "AAC in M4A, mono, 22050 Hz",
+    "mode": "Local VPS Piper, same default German synthesis as vocabulary and pronunciation trainers",
+    "voice": "de_DE-thorsten-high",
+    "encoding": "MP3, mono, 24000 Hz, 48 kbit/s",
     "texts": {
-      "intro.m4a": "Guten Morgen! Was darf es sein?",
-      "broetchen.m4a": "Das Brötchen. Ein Brötchen.",
-      "kaffee.m4a": "Der Kaffee. Ein Kaffee.",
-      "tuete.m4a": "Die Tüte. Eine Tüte.",
-      "order.m4a": "Ich möchte ein Brötchen und einen Kaffee, bitte.",
-      "question.m4a": "Möchten Sie eine Tüte?",
-      "thanks.m4a": "Hier, bitte! Guten Appetit!"
+      "sitov-intro.mp3": "Guten Morgen! Was darf es sein?",
+      "sitov-broetchen.mp3": "Das Brötchen. Ein Brötchen.",
+      "sitov-kaffee.mp3": "Der Kaffee. Ein Kaffee.",
+      "sitov-tuete.mp3": "Die Tüte. Eine Tüte.",
+      "sitov-order.mp3": "Ich möchte ein Brötchen und einen Kaffee bitte.",
+      "sitov-question.mp3": "Möchten Sie eine Tüte?",
+      "sitov-thanks.mp3": "Hier, bitte! Guten Appetit!"
     }
   },
   "motion": {
     "speechBubbleNode": "7:72",
-    "opacity": [0, 1],
-    "translateY": [8, 0],
+    "opacity": [
+      0,
+      1
+    ],
+    "translateY": [
+      8,
+      0
+    ],
     "durationSeconds": 0.32,
-    "ease": [0.22, 1, 0.36, 1],
+    "ease": [
+      0.22,
+      1,
+      0.36,
+      1
+    ],
     "lifecycle": "Figma repeats its preview timeline; the application reveals the bubble once when a dialogue state changes.",
     "reducedMotion": "Show the resting state immediately."
   }

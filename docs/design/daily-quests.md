@@ -113,32 +113,35 @@ its injected callbacks grade locally, create no assignment and award no streak.
 
 ## Speech and rollout
 
-Scene, selected word and exercise audio use independent sources. Character
-voices use female `de_DE-mls-medium-speaker2` (Piper 2, MLS donor 2037, medium,
-22,050 Hz) or male `de_DE-thorsten-high`. Local ONNX CPU synthesis uses female
-model defaults `noise_scale=0.333`, `noise_w_scale=0.333`; persona-aware caches
-and `X-TTS-Voice` prevent silently substituting the male voice. MLS is CC BY 4.0,
-Thorsten CC0, Piper GPL-3.0 and ONNX Apache-2.0; preserve attribution and model
-cards from `deploy/vps/TTS_LICENSES.md`. No subjective premium-quality claim.
+Scene, selected word and exercise audio use independent sources. All German
+learning characters now use `de_DE-thorsten-high` through the same canonical
+request and immutable audio-cache identity as the vocabulary and pronunciation
+trainers. The engine does not select a persona from authored character data.
+The DTO contract and PostgreSQL constraints require `voice: "male"` for every
+character. Names, roles and illustrated people must be male, as defined globally
+in `AGENTS.md`. The bakery host is Martin; the generated scene is
+`/Bilder/deutschreise/sitov-bakery-male.png`. All six starter levels use it.
 
-The MLS model was trained on audiobooks and garbles short phrases despite
-returning valid MP3 and word timings. The upstream [short-phrase guidance](https://github.com/rhasspy/piper-sample-generator/blob/2dbff77c61d023622b1f5450205b6e95cb34021e/README.md#short-phrases)
-requires at least 300 phoneme IDs. Female synthesis now combines the requested
-sentences, repeats their phonemes as inference context until that threshold,
-and retains only the final utterance using generated phoneme sample counts.
-Missing or inconsistent boundaries fail safely instead of playing repetitions.
-No extra words, changed voice or estimated crop durations reach the learner.
-The female cache identity includes `sitov-mls-context-v1`, and the adapter
-requires the matching `X-TTS-Revision` before caching newly generated speech.
-Old garbled recordings are bypassed; other voices retain their existing keys.
+On 2026-10-03 the user selected an immediate male-character fallback if no
+concrete female-quality repair was available. The former female source was
+`de_DE-mls-medium-speaker2`, a separate 22,050 Hz audiobook model. A previously
+shipped phoneme-context/cropping correction fixed garbled short phrases and
+passed ASR intelligibility checks, but those checks did not establish natural
+voice quality comparable to Thorsten. The fallback therefore avoids further
+speculative tuning and gives the lessons the established trainer voice.
+Historical female synthesis support and attribution remain in the local speech
+service; learning scenes no longer request it. Thorsten is CC0; preserve Piper
+GPL-3.0 and ONNX Apache-2.0 attribution in `deploy/vps/TTS_LICENSES.md`.
 
-The corrected source passed real-model integration checks on the VPS. Offline
-Whisper-small QA recognized "Guten Morgen! Was möchten Sie?" and "das Brötchen"
-exactly, with no repetitions; the fourteen-word bakery variant had one ASR word
-substitution. The MP3 samples measured 1.916 s, 0.882 s and 4.853 s respectively,
-at 24 kHz mono with five, two and fourteen sample-based timing entries.
-ASR is an optional test dependency; production synthesis remains fully local
-Piper inference with no recognition model or provider request.
+Migration `64_daily_quest_male_characters.sql` updates template content and all
+existing assignment snapshots, including completed or skipped assignments. It
+changes only character metadata, the bakery illustration/alt text and the
+incorrect self-introduction option from Anna to Lukas. Assignment IDs, step IDs,
+option IDs, private grading keys, completion state, personalization and streaks
+are preserved. Male-only constraints reject new female character payloads.
+Historical seed 59 uses the same current metadata so reapplying the complete
+migration sequence remains safe. The archived pilot uses seven new Thorsten MP3
+assets; old macOS Anna recordings are no longer referenced.
 
 Passed preparation checks include 19 DB cases, eight concurrent login and eight
 completion sessions on native PostgreSQL 17, and a full 17-schema VPS clone on

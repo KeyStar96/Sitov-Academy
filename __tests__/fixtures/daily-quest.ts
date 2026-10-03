@@ -3,9 +3,9 @@ import type { DailyQuest, DailyQuestStreak } from '@/lib/daily-quest-contract'
 export const dailyQuestFixture: DailyQuest = {
   id: 'cccccccc-cccc-4ccc-8ccc-cccccccccccc', date: '2026-10-02', status: 'active', level: 'A1',
   templateKey: 'bakery-a1', title: 'Beim Bäcker', subtitle: 'Ein kurzer Start in den Alltag.',
-  scene: { backgroundKey: 'bakery', backgroundImage: '/Bilder/deutschreise/bakery-scene.png', imageAlt: 'Bäckerei mit Brot und freundlicher Verkäuferin.',
+  scene: { backgroundKey: 'bakery', backgroundImage: '/Bilder/deutschreise/sitov-bakery-male.png', imageAlt: 'Bäckerei mit Brot und freundlichem Verkäufer.',
     location: 'Bäckerei', audioText: 'Guten Morgen! Was darf es sein?', speakerId: 'anna',
-    characters: [{ id: 'anna', name: 'Anna', voice: 'female' }] },
+    characters: [{ id: 'anna', name: 'Martin', voice: 'male' }] },
   personalization: { source: 'fallback', cardId: null },
   steps: [
     { id: 'discover', kind: 'discover', instruction: 'Entdecke die Wörter.', words: [

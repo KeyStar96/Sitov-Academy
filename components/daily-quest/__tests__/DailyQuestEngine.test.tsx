@@ -30,7 +30,7 @@ function quest(): DailyQuest {
   return {
     id: '1de39a12-9c34-4028-8e53-0af471e76254', date: '2026-10-02', status: 'active', level: 'A1', templateKey: 'test-scene',
     title: 'Ein neuer Alltag', subtitle: 'Heute lernst du im Café.',
-    scene: { backgroundKey: 'test_scene', backgroundImage: '/Bilder/deutschreise/new-scene.webp', imageAlt: 'Eine neue Alltagsszene', location: 'Berlin', audioText: 'Willkommen! Was darf es sein?', speakerId: 'person', characters: [{ id: 'person', name: 'Lea', voice: 'female' }, { id: 'learner', name: 'Alex', voice: 'male' }] },
+    scene: { backgroundKey: 'test_scene', backgroundImage: '/Bilder/deutschreise/new-scene.webp', imageAlt: 'Eine neue Alltagsszene', location: 'Berlin', audioText: 'Willkommen! Was darf es sein?', speakerId: 'person', characters: [{ id: 'person', name: 'Leo', voice: 'male' }, { id: 'learner', name: 'Alex', voice: 'male' }] },
     personalization: { source: 'fallback', cardId: null },
     steps: [
       { id: 'words', kind: 'discover', instruction: 'Entdecke das Wort.', words: [{ id: 'tea', text: 'der Tee', audioText: 'Der Tee. Ein Tee.' }] },
@@ -75,19 +75,41 @@ it('renders an authored image and keeps scene speech separate from a selected wo
   expect(screen.getByRole('heading', { name: 'Wörter entdecken' })).toHaveFocus()
   fireEvent.click(screen.getByRole('button', { name: 'der Tee' }))
   fireEvent.click(screen.getByRole('button', { name: 'Wort anhören' }))
-  await waitFor(() => expect(resolveNeuralAudio).toHaveBeenCalledWith({ text: 'Der Tee. Ein Tee.', language: 'de', voice: 'female' }, false))
+  await waitFor(() => expect(resolveNeuralAudio).toHaveBeenCalledWith({ text: 'Der Tee. Ein Tee.', language: 'de' }, false))
   fireEvent.click(screen.getByRole('button', { name: 'Szene anhören' }))
-  await waitFor(() => expect(resolveNeuralAudio).toHaveBeenLastCalledWith({ text: 'Willkommen! Was darf es sein?', language: 'de', voice: 'female' }, false))
+  await waitFor(() => expect(resolveNeuralAudio).toHaveBeenLastCalledWith({ text: 'Willkommen! Was darf es sein?', language: 'de' }, false))
 })
 
-it('resumes the first unverified station and keeps a male character voice', async () => {
+it('resumes the first unverified station with the trainers\' default German voice', async () => {
   const initial = quest()
   initial.completedStepIds = ['words']
   mount(initial)
   expect(screen.queryByRole('button', { name: 'Los geht’s' })).not.toBeInTheDocument()
   expect(screen.getByRole('heading', { name: 'Deinen Satz bauen' })).toBeInTheDocument()
   fireEvent.click(screen.getByRole('button', { name: 'Satz anhören' }))
-  await waitFor(() => expect(resolveNeuralAudio).toHaveBeenCalledWith({ text: 'Einen Tee bitte.', language: 'de', voice: 'male' }, false))
+  await waitFor(() => expect(resolveNeuralAudio).toHaveBeenCalledWith({ text: 'Einen Tee bitte.', language: 'de' }, false))
+})
+
+it.each([
+  { label: 'scene', completedStepIds: [], listen: 'Szene anhören', text: 'Willkommen! Was darf es sein?' },
+  { label: 'word', completedStepIds: [], listen: 'Wort anhören', text: 'Der Tee. Ein Tee.' },
+  { label: 'sentence', completedStepIds: ['words'], listen: 'Satz anhören', text: 'Einen Tee bitte.' },
+  { label: 'dialogue', completedStepIds: ['words', 'sentence'], listen: 'Frage anhören', text: 'Möchten Sie Zucker?' },
+])('uses the trainer voice for $label audio even with stale female character metadata and cached recordings', async ({ completedStepIds, listen, text }) => {
+  const initial = quest()
+  initial.completedStepIds = completedStepIds
+  // Simulate props retained by an old browser session, before the male-only DTO.
+  initial.scene.characters = initial.scene.characters.map(character => ({ ...character, voice: 'female' })) as unknown as DailyQuest['scene']['characters']
+  jest.mocked(cachedNeuralAudio).mockImplementation(source => source.voice === 'female' ? '/old-female-recording.mp3' : null)
+  const { container } = mount(initial)
+  if (listen === 'Wort anhören') {
+    fireEvent.click(screen.getByRole('button', { name: 'Los geht’s' }))
+    fireEvent.click(screen.getByRole('button', { name: 'der Tee' }))
+  }
+  fireEvent.click(screen.getByRole('button', { name: listen }))
+  await waitFor(() => expect(resolveNeuralAudio).toHaveBeenCalledWith({ text, language: 'de' }, false))
+  await waitFor(() => expect(container.querySelector('audio')).toHaveAttribute('src', '/voice.wav'))
+  expect(jest.mocked(cachedNeuralAudio).mock.calls.every(([source]) => source.voice === undefined)).toBe(true)
 })
 
 it('submits discovered word IDs, supports sentence undo/reset, and uses server grading for progression', async () => {

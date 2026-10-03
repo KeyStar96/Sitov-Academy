@@ -25,7 +25,7 @@ export const dailyQuestSchema = z.object({
   scene: z.object({ backgroundKey: z.string().regex(/^[a-z0-9_-]{1,80}$/),
     backgroundImage: z.string().max(300).regex(/^\/Bilder\/deutschreise\/[a-z0-9_/-]+\.(png|webp|jpe?g)$/), imageAlt: shortText,
     location: shortText, audioText: text, speakerId: stepId,
-    characters: z.array(z.object({ id: stepId, name: shortText, voice: z.enum(['female', 'male']) })).min(1).max(6) }),
+    characters: z.array(z.object({ id: stepId, name: shortText, voice: z.literal('male') })).min(1).max(6) }),
   personalization: z.object({ source: z.enum(['box1', 'recent_wrong', 'fallback']), cardId: id.nullable() }),
   steps: z.array(dailyQuestStepSchema).min(1).max(12), completedStepIds: z.array(stepId).max(12),
   completion: z.object({ title: shortText, text }),

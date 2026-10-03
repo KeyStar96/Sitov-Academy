@@ -23,3 +23,9 @@ The upstream `tr_TR-dfki-medium` model is explicitly **not installed**: its mode
 Two Piper models are retained in memory at most. One inference request is processed at a time, ONNX uses one thread, and systemd caps memory at 2 GB. A separate process is terminated after a stalled inference deadline. Inputs are limited to 3,000 characters and 16 KiB JSON, and MP3 output to 2 MiB. The HTTP listener is fixed to `127.0.0.1:9070`; keep it outside public reverse-proxy routes.
 
 Female MLS short phrases follow the upstream [Piper Sample Generator guidance](https://github.com/rhasspy/piper-sample-generator/blob/2dbff77c61d023622b1f5450205b6e95cb34021e/README.md#short-phrases): repeat the requested phonemes to provide at least 300 phoneme IDs, then crop one utterance using the model's measured durations. The service keeps the final repetition and its exact word timings, rejecting missing or inconsistent alignment. This addresses the audiobook model's short-input artifacts while preserving the pinned weights and female speaker. The female cache identity includes synthesis revision `sitov-mls-context-v1`; `X-TTS-Revision` confirms it, preventing an older service from filling the corrected cache with garbled audio. No repeated context is included in returned speech. The optional offline ASR regression is QA tooling only and is not installed in the running service.
+
+As of 2026-10-03, Sitov Academy fictional learning scenes use male characters
+and the same default `de_DE-thorsten-high` voice as the vocabulary/pronunciation
+trainers. Female MLS support remains historical service compatibility and is
+not requested by learning scenes. Preserve its attribution while its files
+remain installed. See `AGENTS.md` and `docs/design/daily-quests.md`.

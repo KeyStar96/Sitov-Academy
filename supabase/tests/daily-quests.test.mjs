@@ -3,7 +3,8 @@ import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
 import { createCurrentDatabase, currentFeatureMigrations, actor, id, student, teacher, outsider, vocabularyUnit, result } from './helpers/current-db.mjs'
 
-const migrations = [...currentFeatureMigrations, '59_daily_quests.sql', '60_daily_quest_resume.sql']
+const legacyMigrations = [...currentFeatureMigrations, '59_daily_quests.sql', '60_daily_quest_resume.sql']
+const migrations = [...legacyMigrations, '64_daily_quest_male_characters.sql']
 const as = (db, user) => actor(db, user)
 const rpc = (db, sql, params = []) => result(db, `SELECT ${sql} result`, params)
 const quest = async db => { await as(db, student); return (await rpc(db, 'get_daily_quest()')).quest }
@@ -17,9 +18,9 @@ const finishSteps = async (db, assignment) => {
   assert.equal((await submit(db, assignment, 'build', { pieceIds: keys.steps.build.accepted[0] })).correct, true)
   assert.equal((await submit(db, assignment, 'dialogue', { optionId: keys.steps.dialogue.optionId })).correct, true)
 }
-const scenario = (name, fn) => test(`daily quests: ${name}`, async () => {
+const scenario = (name, fn, latest = migrations) => test(`daily quests: ${name}`, async () => {
   let db
-  try { db = await createCurrentDatabase({ latest: migrations }); await fn(db) }
+  try { db = await createCurrentDatabase({ latest }); await fn(db) }
   catch (error) { delete error.query; throw error }
   finally { await db?.close() }
 })
@@ -48,7 +49,11 @@ scenario('six authored starter levels, frozen safe payload and isolated answers'
   const first = await quest(db)
   assert.equal(first.level, 'A1'); assert.equal(first.personalization.source, 'fallback')
   assert.equal(first.scene.audioText, 'Guten Morgen! Was möchten Sie?')
-  assert.equal(first.scene.backgroundImage, '/Bilder/deutschreise/bakery-scene.png')
+  assert.equal(first.scene.backgroundImage, '/Bilder/deutschreise/sitov-bakery-male.png')
+  assert.equal(first.scene.imageAlt, 'Ein Verkäufer hinter der Theke einer Bäckerei.')
+  assert.equal(first.scene.characters.find(character => character.id === 'host').name, 'Martin')
+  assert.ok(first.scene.characters.every(character => character.voice === 'male'))
+  assert.equal(first.steps[2].options.find(option=>option.id==='b').text,'Ich heiße Lukas.')
   assert.equal(first.steps[2].options.find(option=>option.id==='a').text,'Ja, bitte. Eine Tüte.','A1 response needs no Konjunktiv II')
   assert.ok(!first.steps[2].options.find(option=>option.id==='a').text.includes('wäre'))
   assert.ok(!JSON.stringify(first).includes('accepted'))
@@ -60,6 +65,102 @@ scenario('six authored starter levels, frozen safe payload and isolated answers'
   await assert.rejects(db.query('SELECT * FROM daily_quest_private.template_keys'), { code: '42501' })
   await assert.rejects(db.query('SELECT * FROM daily_quest_private.assignment_keys'), { code: '42501' })
   await assert.rejects(db.query('SELECT daily_quest_private.ensure_assignment($1)', [student]), { code: '42501' })
+})
+
+scenario('male character migration corrects frozen active, completed and skipped scenes without changing learning state', async db => {
+  // Reproduce the original production seed, including all six CEFR families.
+  for (const row of (await db.query('SELECT id,content FROM daily_quests')).rows) {
+    row.content.scene.backgroundImage = '/Bilder/deutschreise/bakery-scene.png'
+    row.content.scene.imageAlt = 'Eine Verkäuferin hinter der Theke einer Bäckerei.'
+    const host = row.content.scene.characters.find(character => character.id === 'host')
+    host.name = 'Mara'; host.voice = 'female'
+    for (const step of row.content.steps) for (const option of step.options ?? [])
+      if (option.text === 'Ich heiße Lukas.') option.text = 'Ich heiße Anna.'
+    await db.query('UPDATE daily_quests SET content=$2 WHERE id=$1', [row.id, row.content])
+  }
+  const assigned = await quest(db)
+  await submit(db, assigned.id, 'discover', { wordIds: ['food', 'coffee', 'bag'] })
+  await rpc(db, 'claim_daily_quest_login()')
+  await db.exec('RESET ROLE')
+  // A snapshot title differs from its template and must stay frozen. Its
+  // personalized vocabulary and all option/token IDs must stay frozen as well.
+  await db.query("UPDATE daily_quest_assignments SET snapshot=jsonb_set(snapshot,'{title}',to_jsonb('Meine eingefrorene Bestellung'::text)) WHERE id=$1", [assigned.id])
+  for (const [offset, status] of [[1, 'completed'], [2, 'skipped']]) {
+    const copied = (await db.query(`INSERT INTO daily_quest_assignments(auth_user_id,quest_date,template_id,snapshot,status,completed_step_ids,completed_at,skipped_at)
+      SELECT auth_user_id,quest_date-$2::integer,template_id,snapshot,$3,
+        CASE WHEN $3='completed' THEN ARRAY['discover','build','dialogue'] ELSE completed_step_ids END,
+        CASE WHEN $3='completed' THEN now()-interval '1 day' ELSE NULL END,
+        CASE WHEN $3='skipped' THEN now()-interval '2 days' ELSE NULL END
+      FROM daily_quest_assignments WHERE id=$1 RETURNING id`, [assigned.id, offset, status])).rows[0].id
+    await db.query('INSERT INTO daily_quest_private.assignment_keys(assignment_id,answer_key) SELECT $2,answer_key FROM daily_quest_private.assignment_keys WHERE assignment_id=$1', [assigned.id, copied])
+  }
+  await db.query('UPDATE profiles SET daily_quest_streak=2,daily_quest_longest_streak=2,daily_quest_last_completed_date=daily_quest_private.today()-1 WHERE id=$1', [student])
+  const state = () => result(db, `SELECT jsonb_build_object(
+    'assignments',(SELECT jsonb_agg(to_jsonb(a)-'snapshot' ORDER BY id) FROM daily_quest_assignments a),
+    'profiles',(SELECT jsonb_agg(to_jsonb(p) ORDER BY id) FROM profiles p),
+    'keys',(SELECT jsonb_agg(to_jsonb(k) ORDER BY assignment_id) FROM daily_quest_private.assignment_keys k),
+    'templateKeys',(SELECT jsonb_agg(to_jsonb(k) ORDER BY template_id) FROM daily_quest_private.template_keys k),
+    'claims',(SELECT jsonb_agg(to_jsonb(c) ORDER BY auth_user_id,quest_date) FROM daily_quest_private.login_claims c)) result`)
+  const before = await state()
+  const previousAssignments = (await db.query('SELECT id,snapshot FROM daily_quest_assignments ORDER BY id')).rows
+  const previousTemplates = (await db.query('SELECT id,template_key,version,content FROM daily_quests ORDER BY id')).rows
+  const corrected = content => {
+    const expected = structuredClone(content)
+    expected.scene.backgroundImage = '/Bilder/deutschreise/sitov-bakery-male.png'
+    expected.scene.imageAlt = 'Ein Verkäufer hinter der Theke einer Bäckerei.'
+    for (const character of expected.scene.characters) {
+      character.voice = 'male'
+      if (character.id === 'host' && character.name === 'Mara') character.name = 'Martin'
+    }
+    for (const step of expected.steps) for (const option of step.options ?? [])
+      if (option.text === 'Ich heiße Anna.') option.text = 'Ich heiße Lukas.'
+    return expected
+  }
+  const source = await readFile(new URL('../vps/64_daily_quest_male_characters.sql', import.meta.url), 'utf8')
+  await db.exec(source)
+  assert.deepEqual(await state(), before, 'migration changes no assignment identity, dates, progress, streak, claims or answer keys')
+  assert.deepEqual((await db.query('SELECT id,snapshot FROM daily_quest_assignments ORDER BY id')).rows,
+    previousAssignments.map(row => ({ ...row, snapshot: corrected(row.snapshot) })))
+  assert.deepEqual((await db.query('SELECT id,template_key,version,content FROM daily_quests ORDER BY id')).rows,
+    previousTemplates.map(row => ({ ...row, content: corrected(row.content) })))
+  const once = (await db.query('SELECT * FROM daily_quests ORDER BY id')).rows
+  await db.exec(source)
+  assert.deepEqual((await db.query('SELECT * FROM daily_quests ORDER BY id')).rows, once, 'reapplying does not bump versions or edit timestamps')
+  assert.deepEqual(await state(), before)
+  const resumed = await quest(db)
+  assert.equal(resumed.id, assigned.id)
+  assert.equal(resumed.title, 'Meine eingefrorene Bestellung')
+  assert.deepEqual(resumed.completedStepIds, ['discover'])
+  assert.equal((await submit(db, assigned.id, 'build', { pieceIds: ['moechte', 'ich', 'food', 'bitte'] })).correct, false)
+  await finishSteps(db, assigned.id)
+  assert.equal((await rpc(db, 'complete_daily_quest($1)', [assigned.id])).streak.current, 3)
+}, legacyMigrations)
+
+scenario('future authored templates and snapshots reject female, missing or malformed character voices', async db => {
+  const template = (await db.query("SELECT id,content FROM daily_quests WHERE level='A1'")).rows[0]
+  const assigned = await quest(db)
+  await db.exec('RESET ROLE')
+  const invalidCharacters = [
+    [{ id: 'host', name: 'Mara', voice: 'female' }],
+    [{ id: 'host', name: 'Martin' }],
+    [{ id: 'host', name: 'Martin', voice: null }],
+    [{ id: 'host', name: 'Martin', voice: 'male' }, { id: 'learner', name: 'Anna', voice: 'female' }],
+    [], null, {}, ['male'],
+  ]
+  for (const characters of invalidCharacters) {
+    const content = structuredClone(template.content)
+    content.scene.characters = characters
+    await assert.rejects(db.query('UPDATE daily_quests SET content=$2 WHERE id=$1', [template.id, content]), { code: '23514' })
+    await assert.rejects(db.query('UPDATE daily_quest_assignments SET snapshot=$2 WHERE id=$1', [assigned.id, content]), { code: '23514' })
+  }
+  const female = structuredClone(template.content); female.scene.characters[0].voice = 'female'
+  await assert.rejects(db.query("INSERT INTO daily_quests(template_key,level,category,content) VALUES('sitov-rejected-female','A1','food',$1)", [female]), { code: '23514' })
+  const constraints = (await db.query("SELECT conname,convalidated FROM pg_constraint WHERE conname IN('sitov_daily_quest_male_characters','sitov_daily_quest_snapshot_male_characters') ORDER BY conname")).rows
+  assert.equal(constraints.length, 2); assert.ok(constraints.every(row => row.convalidated))
+  await as(db, student)
+  await assert.rejects(db.query('SELECT daily_quest_private.sitov_has_male_characters($1)', [template.content]), { code: '42501' })
+  await actor(db, null, 'service_role')
+  assert.equal((await db.query('SELECT daily_quest_private.sitov_has_male_characters($1) valid', [template.content])).rows[0].valid, true)
 })
 
 scenario('first daily login exactly once; manual get preserves the claim', async db => {

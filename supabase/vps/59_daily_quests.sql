@@ -311,7 +311,7 @@ BEGIN
   ('A1','sitov-bakery-breakfast','Beim Bäcker','Hol dir ein kleines Frühstück.','Bäckerei','bakery',
    'Guten Morgen! Was möchten Sie?','Ich möchte {{accusative}}, bitte.',
    '[{"id":"ich","text":"Ich"},{"id":"moechte","text":"möchte"},{"id":"food","text":"{{accusative}}"},{"id":"bitte","text":", bitte."}]',
-   '[["ich","moechte","food","bitte"]]','Möchten Sie eine Tüte dazu?','Ja, bitte. Eine Tüte.','Ich heiße Anna.','Das ist mein Bahnhof.'),
+   '[["ich","moechte","food","bitte"]]','Möchten Sie eine Tüte dazu?','Ja, bitte. Eine Tüte.','Ich heiße Lukas.','Das ist mein Bahnhof.'),
   ('A2','sitov-picnic-plan','Ein Picknick planen','Erkläre, was du für unterwegs brauchst.','Bäckerei','bakery',
    'Was brauchen Sie für Ihr Picknick?','Ich nehme {{accusative}}, weil ich später Hunger habe.',
    '[{"id":"ich","text":"Ich"},{"id":"nehme","text":"nehme"},{"id":"food","text":"{{accusative}}"},{"id":"weil","text":", weil"},{"id":"ich2","text":"ich"},{"id":"spaeter","text":"später"},{"id":"hunger","text":"Hunger"},{"id":"habe","text":"habe."}]',
@@ -350,8 +350,8 @@ BEGIN
   ELSE choices:=jsonb_build_array(jsonb_build_object('id','a','text',item.right_answer),jsonb_build_object('id','c','text',item.wrong2),jsonb_build_object('id','b','text',item.wrong1)); END IF;
   -- Token bank is different from accepted sentence order, even on a reload.
   SELECT jsonb_agg(e.value ORDER BY md5(item.key||(e.value->>'id'))) INTO pieces FROM jsonb_array_elements(pieces) e(value);
-  content:=jsonb_build_object('title',item.title,'subtitle',item.subtitle,'scene',jsonb_build_object('backgroundKey',item.background,'backgroundImage','/Bilder/deutschreise/bakery-scene.png','imageAlt','Eine Verkäuferin hinter der Theke einer Bäckerei.',
-   'location',item.location,'audioText',item.intro,'speakerId','host','characters',jsonb_build_array(jsonb_build_object('id','host','name','Mara','voice','female'),jsonb_build_object('id','learner','name','Du','voice','male'))),
+  content:=jsonb_build_object('title',item.title,'subtitle',item.subtitle,'scene',jsonb_build_object('backgroundKey',item.background,'backgroundImage','/Bilder/deutschreise/sitov-bakery-male.png','imageAlt','Ein Verkäufer hinter der Theke einer Bäckerei.',
+   'location',item.location,'audioText',item.intro,'speakerId','host','characters',jsonb_build_array(jsonb_build_object('id','host','name','Martin','voice','male'),jsonb_build_object('id','learner','name','Du','voice','male'))),
    'steps',jsonb_build_array(jsonb_build_object('id','discover','kind','discover','instruction','Entdecke die drei Wörter. Tippe sie an.','words',words),
     jsonb_build_object('id','build','kind','sentence_build','speakerId','learner','prompt',CASE WHEN item.level='A1' THEN 'Bestelle höflich. Setze den Satz zusammen.' ELSE 'Formuliere deine Antwort. Setze den Satz zusammen.' END,'pieces',pieces,'audioText',item.sentence),
     jsonb_build_object('id','dialogue','kind','dialogue_choice','speakerId','host','prompt',item.dialogue,'options',choices,'audioText',item.dialogue)),

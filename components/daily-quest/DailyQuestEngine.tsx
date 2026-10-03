@@ -76,12 +76,14 @@ export default function DailyQuestEngine({ initialQuest, initialStreak, locale, 
   const speaker = quest.scene.characters.find(character => character.id === quest.scene.speakerId) ?? quest.scene.characters[0]
   const exerciseSpeaker = step && step.kind !== 'discover'
     ? quest.scene.characters.find(character => character.id === step.speakerId) ?? speaker : speaker
-  // Deliberately independent of selectedWord and the active exercise.
-  const sceneSource: NeuralAudioSource = { text: quest.scene.audioText, language: 'de', voice: speaker.voice }
+  // Every character uses the trainers' default German voice and cache identity,
+  // including already mounted quests whose old character metadata says female.
+  // Scene speech remains independent of selectedWord and the active exercise.
+  const sceneSource: NeuralAudioSource = { text: quest.scene.audioText, language: 'de' }
   const word = step?.kind === 'discover' ? step.words.find(item => item.id === selectedWord) : undefined
-  const wordSource: NeuralAudioSource | undefined = word ? { text: word.audioText, language: 'de', voice: speaker.voice } : undefined
+  const wordSource: NeuralAudioSource | undefined = word ? { text: word.audioText, language: 'de' } : undefined
   const exerciseSource: NeuralAudioSource | undefined = step && step.kind !== 'discover'
-    ? { text: step.audioText, language: 'de', voice: exerciseSpeaker.voice } : undefined
+    ? { text: step.audioText, language: 'de' } : undefined
   const selectedSentence = step?.kind === 'sentence_build'
     ? pieces.map(id => step.pieces.find(item => item.id === id)?.text ?? '').join(' ').replace(/\s+([,.:;!?])/gu, '$1') : ''
 

@@ -6,8 +6,8 @@ jest.mock('@/lib/audio/neural-client', () => ({
   cachedNeuralAudio: jest.fn(), resolveNeuralAudio: jest.fn(), invalidateNeuralAudio: jest.fn(),
   neuralAudioKey: (source: { text: string; voice?: string }) => JSON.stringify([source.text, source.voice]),
 }))
-const scene = { text: 'Guten Morgen!', language: 'de', voice: 'female' } as const
-const word = { text: 'Das Brötchen.', language: 'de', voice: 'female' } as const
+const scene = { text: 'Guten Morgen!', language: 'de' } as const
+const word = { text: 'Das Brötchen.', language: 'de' } as const
 function Harness({ scope = 'intro' }: { scope?: string }) {
   const { play, state, audioRef, audioEvents } = useQuestAudio(scope, 0.85)
   return <><button onClick={() => play(scene)}>Scene</button><button onClick={() => play(word)}>Word</button>

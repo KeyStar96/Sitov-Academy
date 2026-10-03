@@ -50,13 +50,17 @@ test('daily quests: native PostgreSQL concurrent login/resume/completion and mig
     await sql(statements.join('\n;\n'))
     // A different migration superuser reproduces the self-hosted runner's
     // ownership boundary: every new private helper must work from that owner.
-    const migrations = await Promise.all(['59_daily_quests.sql', '60_daily_quest_resume.sql'].map(name => readFile(new URL(`../vps/${name}`, import.meta.url), 'utf8')))
+    const migrations = await Promise.all(['59_daily_quests.sql', '60_daily_quest_resume.sql', '64_daily_quest_male_characters.sql'].map(name => readFile(new URL(`../vps/${name}`, import.meta.url), 'utf8')))
     await sql('CREATE ROLE sitov_test_migrator SUPERUSER; SET ROLE sitov_test_migrator; ' + migrations[0])
     const metadataSql = "SELECT pg_get_userbyid(proowner),proacl::text,prosecdef,proconfig::text FROM pg_proc WHERE oid='daily_quest_private.handle(text,uuid,text,jsonb,boolean)'::regprocedure"
     const previousMetadata = await sql(metadataSql)
     await sql('SET ROLE sitov_test_migrator; ' + migrations[1])
     assert.deepEqual(await sql(metadataSql), previousMetadata,'resume replacement preserves ownership, ACLs and the definer search path')
     assert.deepEqual(await sql("SELECT has_function_privilege('authenticated','daily_quest_private.handle(text,uuid,text,jsonb,boolean)','EXECUTE'),has_function_privilege('anon','daily_quest_private.handle(text,uuid,text,jsonb,boolean)','EXECUTE')"), ['t|f'])
+    await sql('SET ROLE sitov_test_migrator; ' + migrations[2])
+    assert.deepEqual(await sql(metadataSql), previousMetadata, 'male character correction preserves existing RPC ownership and permissions')
+    assert.deepEqual(await sql("SELECT pg_get_userbyid(proowner),prosecdef,provolatile FROM pg_proc WHERE oid='daily_quest_private.sitov_has_male_characters(jsonb)'::regprocedure"), ['sitov_test_migrator|f|i'])
+    assert.deepEqual(await sql("SELECT has_function_privilege('authenticated','daily_quest_private.sitov_has_male_characters(jsonb)','EXECUTE'),has_function_privilege('anon','daily_quest_private.sitov_has_male_characters(jsonb)','EXECUTE'),has_function_privilege('service_role','daily_quest_private.sitov_has_male_characters(jsonb)','EXECUTE')"), ['f|f|t'])
     const claims = await Promise.all(Array.from({length:8}, async () => decode(await sql(userSql('SELECT public.claim_daily_quest_login()')))))
     assert.equal(claims.filter(claim=>claim.shouldRedirect).length,1)
     assert.equal(new Set(claims.map(claim=>claim.assignmentId)).size,1)
