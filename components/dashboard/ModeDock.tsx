@@ -7,7 +7,7 @@ import PressableCard from '@/components/motion/PressableCard'
 import SlidingPill from '@/components/motion/SlidingPill'
 import NewBadge from '@/components/motion/NewBadge'
 import CountUp from '@/components/motion/CountUp'
-import { modeFromPathname, modeHref, type LearningMode } from '@/lib/mode-targets'
+import { LEARNING_MODES, modeFromPathname, modeHref, type LearningMode } from '@/lib/mode-targets'
 import { studentTranslator } from '@/lib/student-ui-i18n'
 
 export type ModeLock = 'language' | 'teacher' | null
@@ -27,7 +27,7 @@ const SITOV_SHORT_LABELS = { vocabulary: 'dock_short_vocabulary', path: 'dock_sh
 const COUNT_TEXT = { vocabulary: 'status_vocab_due', pronunciation: 'status_pron_unread' } as const
 
 /**
- * Modus-Dock (D6): Vokabeln · Lernpfad · Aussprache · Mediathek · Verben — immer
+ * Modus-Dock (D6): Vokabeln · Verben · Lernpfad · Aussprache · Mediathek — immer
  * gleichwertig oben unter dem Seitenkopf, mit Symbol und Wort.
  *
  * Jeder Modus ist ein Link; der aktive trägt `aria-current="page"` und die
@@ -46,11 +46,12 @@ export default function ModeDock({ lang, level, entries }: {
   const active = modeFromPathname(pathname)
   const group = useId()
   const top = useStickyTop()
+  const sitovEntries = [...entries].sort((a, b) => LEARNING_MODES.indexOf(a.mode) - LEARNING_MODES.indexOf(b.mode))
 
   return (
     <nav aria-label={t('mode_dock_label', { level })} className="st-mode-dock" style={top === null ? undefined : { top }}>
       <ul className="st-mode-dock__list">
-        {entries.map(entry => {
+        {sitovEntries.map(entry => {
           const Icon = entry.lock ? Lock : ICONS[entry.mode]
           const current = entry.mode === active
           const countKey = entry.mode === 'vocabulary' || entry.mode === 'pronunciation' ? COUNT_TEXT[entry.mode] : null

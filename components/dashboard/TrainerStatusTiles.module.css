@@ -1,4 +1,4 @@
-/* Five learning rooms: a compact pair grid and a landscape verb studio. */
+/* Each learning room has its own animated miniature; the verb studio spans both columns. */
 .sitovStage { min-width: 0; }
 .sitovTiles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .8rem; }
 .sitovItem { min-width: 0; animation: sitov-arrive .65s cubic-bezier(.16, 1, .3, 1) backwards; animation-delay: calc(var(--sitov-i, 0) * 65ms); }
@@ -6,9 +6,9 @@
 .sitovTile[data-sitov-surface] {
   --sitov-tone: var(--accent-text);
   --sitov-tint: var(--surface-muted);
-  isolation: isolate; min-height: 10.75rem; padding: 1rem; border-radius: 1.45rem;
+  isolation: isolate; min-height: 14rem; padding: 1rem; border-radius: 1.45rem;
   border-color: color-mix(in srgb, var(--sitov-tone) 30%, var(--border));
-  background: linear-gradient(135deg, color-mix(in srgb, var(--sitov-tone) 6%, var(--surface)), var(--surface) 58%);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--sitov-tone) 10%, var(--surface)), var(--surface) 72%);
   box-shadow: inset 0 3px 0 var(--sitov-tone), var(--shadow-sm);
   transition: border-color .25s ease, box-shadow .25s ease, background-color .25s ease;
 }
@@ -25,20 +25,33 @@
 .sitovTile[data-sitov-surface][data-tone='locked'] { --sitov-tone: var(--muted); box-shadow: none; background: var(--surface-muted); border-color: var(--border); }
 .sitovTile[data-sitov-surface] :global(.st-tile__top), .sitovTile[data-sitov-surface] :global(.st-tile__title), .sitovTile[data-sitov-surface] :global(.st-tile__status), .sitovDescription { position: relative; z-index: 1; }
 .sitovTile[data-sitov-surface] :global(.st-tile__icon) { width: 3rem; height: 3rem; background: var(--sitov-tint); color: var(--sitov-tone); box-shadow: 0 7px 20px -14px var(--sitov-tone); }
-.sitovTile[data-sitov-surface] :global(.st-tile__title) { font-size: 1.12rem; padding-top: 1.05rem; }
+.sitovTile[data-sitov-surface] :global(.st-tile__title) { font-size: 1.12rem; padding-top: 0; }
+.sitovCardArt { position: relative; z-index: 1; align-self: center; flex: 0 0 auto; margin-top: .2rem; margin-bottom: .65rem; }
+.sitovTile[data-sitov-surface] .sitovSceneMeta { position: absolute; inset: .9rem 2.6rem auto .9rem; justify-content: flex-start; flex-wrap: wrap; gap: .35rem; z-index: 2; pointer-events: none; }
+.sitovTile[data-sitov-surface]:not([data-area='verbs']) :global(.st-tile__status) { min-height: 2.7em; align-items: flex-start; }
+.sitovTile[data-sitov-surface]:not([data-area='verbs']) :global(.sl-due-dot) { margin-top: .48em; flex-shrink: 0; }
+.sitovSceneMeta :global(.st-tile__icon) { width: 2rem !important; height: 2rem !important; border-radius: .65rem; }
+.sitovSceneMeta :global(.st-tile__badge) { font-size: .85rem; min-width: 1.8rem; min-height: 1.8rem; padding: .25rem .45rem; }
+.sitovSceneMeta :global(.st-tile__new) { margin-inline-start: 0; }
 .sitovTile[data-sitov-surface][data-area='verbs'] :global(.st-tile__title) { font-size: 1.4rem; padding-top: .85rem; }
 .sitovTile[data-sitov-surface][data-tone='action'] :global(.st-tile__status) { color: var(--sitov-tone); }
 .sitovTile[data-sitov-surface] :global(.st-tile__badge) { background: var(--sitov-tone); color: var(--surface); }
 .sitovTile[data-sitov-surface] :global(.sl-due-dot) { background: var(--sitov-tone); }
 .sitovDescription { margin-top: .3rem; color: var(--muted); font-size: .95rem; line-height: 1.45; }
+.sitovAtmosphere::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 28%, color-mix(in srgb, var(--sitov-tone) 15%, transparent), transparent 67%); animation: sitov-aura 8s ease-in-out infinite; }
 .sitovAtmosphere { position: absolute; z-index: -1; inset: 0; overflow: hidden; border-radius: inherit; pointer-events: none; }
 .sitovLight { position: absolute; inset: 0; opacity: 0; background: radial-gradient(16rem circle at var(--sitov-light-x, 75%) var(--sitov-light-y, 15%), color-mix(in srgb, var(--sitov-tone) 16%, transparent), transparent 70%); transition: opacity .4s ease; }
 .sitovTile[data-sitov-surface][data-sitov-pointer='true'] .sitovLight, .sitovTile[data-sitov-surface]:focus-visible .sitovLight { opacity: 1; }
-.sitovRim { position: absolute; inset: 0; padding: 1px; border-radius: inherit; opacity: 0; background: conic-gradient(from 45deg, transparent 5% 45%, var(--sitov-tone) 55% 65%, transparent 78%); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask-composite: exclude; transition: opacity .3s ease; }
+.sitovRim { position: absolute; inset: 0; padding: 1.5px; border-radius: inherit; opacity: .6; background: color-mix(in srgb, var(--sitov-tone) 12%, transparent); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask-composite: exclude; transition: opacity .3s ease; }
+.sitovRim::before { content: ''; position: absolute; left: 50%; top: 50%; width: 250%; aspect-ratio: 1; margin: -125% 0 0 -125%; background: conic-gradient(transparent 0turn .67turn, color-mix(in srgb, var(--sitov-tone) 50%, transparent) .76turn, var(--sitov-tone) .83turn, transparent .94turn); animation: sitov-rim-orbit 12s linear infinite; }
+.sitovTile[data-sitov-surface][data-tone='locked'] .sitovAtmosphere { opacity: .25; }
+.sitovTile[data-sitov-surface][data-tone='locked'] .sitovAtmosphere *, .sitovTile[data-sitov-surface][data-tone='locked'] .sitovAtmosphere::before { animation: none; }
+.sitovTile[data-sitov-surface][data-tone='locked'] .sitovRim { display: none; }
+.sitovTile[data-sitov-surface][data-tone='done'] .sitovRim::before { animation-duration: 24s; }
 .sitovTile[data-sitov-surface]:focus-visible { outline: 3px solid var(--sitov-tone); outline-offset: 4px; }
 .sitovTile[data-sitov-surface]:focus-visible .sitovRim { opacity: 1; }
 .sitovArrow { position: absolute; top: 1.05rem; right: 1rem; display: grid; place-items: center; color: var(--sitov-tone); opacity: .65; transition: transform .35s cubic-bezier(.22, 1, .36, 1), opacity .3s ease; }
-.sitovTile[data-sitov-surface]:has(:global(.st-tile__badge)) .sitovArrow, .sitovTile[data-sitov-surface]:has(:global(.st-tile__new)) .sitovArrow, .sitovTile[data-sitov-surface]:has(:global(.st-tile__check)) .sitovArrow { top: auto; bottom: 1.2rem; }
+.sitovTile[data-sitov-surface][data-area='verbs']:has(:global(.st-tile__badge)) .sitovArrow, .sitovTile[data-sitov-surface][data-area='verbs']:has(:global(.st-tile__new)) .sitovArrow, .sitovTile[data-sitov-surface][data-area='verbs']:has(:global(.st-tile__check)) .sitovArrow { top: auto; bottom: 1.2rem; }
 .sitovTile[data-sitov-surface]:focus-visible .sitovArrow { transform: translate(2px, -2px); opacity: 1; }
 .sitovVerbOrbit { position: absolute; z-index: 0; width: 7rem; height: 7rem; right: .75rem; top: 50%; margin-top: -3rem; color: var(--sitov-tone); display: grid; place-items: center; pointer-events: none; }
 .sitovVerbOrbit > svg { filter: drop-shadow(0 0 9px color-mix(in srgb, var(--sitov-tone) 30%, transparent)); animation: sitov-breathe 5s ease-in-out infinite; }
@@ -57,8 +70,9 @@
   a.sitovTile[data-sitov-surface]:hover :global(.st-tile__icon), a.sitovTile[data-sitov-surface]:focus-visible :global(.st-tile__icon) { transform: translateY(-3px) rotate(-7deg) scale(1.06); }
   a.sitovTile[data-sitov-surface]:hover .sitovArrow { transform: translate(2px, -2px); opacity: 1; }
 }
-@media (min-width: 640px) { .sitovTile[data-sitov-surface] { min-height: 11.5rem; padding: 1.2rem; } .sitovTile[data-sitov-surface][data-area='verbs'] { padding-inline-end: 10rem; } .sitovVerbOrbit { right: 1.5rem; width: 7.5rem; height: 7.5rem; margin-top: -3.75rem; } }
-@media (min-width: 900px) { .sitovModes { grid-template-columns: repeat(3, minmax(0, 1fr)); } .sitovModes .sitovItem[data-sitov-feature='true'] { grid-column: span 2; } .sitovModes .sitovTile[data-sitov-surface] { min-height: 12rem; } }
+@media (max-width: 360px) { .sitovTile[data-sitov-surface]:not([data-area='verbs']) { padding: .75rem; } .sitovTile[data-sitov-surface]:not([data-area='verbs']) :global(.st-tile__title) { font-size: 1rem; } }
+@media (min-width: 640px) { .sitovTile[data-sitov-surface] { min-height: 14.5rem; padding: 1.2rem; } .sitovTile[data-sitov-surface][data-area='verbs'] { padding-inline-end: 10rem; } .sitovVerbOrbit { right: 1.5rem; width: 7.5rem; height: 7.5rem; margin-top: -3.75rem; } }
+@media (min-width: 900px) { .sitovModes { grid-template-columns: repeat(3, minmax(0, 1fr)); } .sitovModes .sitovItem[data-sitov-feature='true'] { grid-column: span 2; } .sitovModes .sitovTile[data-sitov-surface] { min-height: 14.5rem; } }
 @media (prefers-reduced-motion: reduce) { .sitovStage *, .sitovStage *::before, .sitovStage *::after { animation: none !important; transition: none !important; } .sitovVerbOrbit > svg { filter: none; } }
 :global(html.high-contrast) .sitovTile[data-sitov-surface] { background: var(--surface); border-width: 2px; border-color: var(--sitov-tone); box-shadow: none; }
 :global(html.high-contrast) .sitovAtmosphere { display: none; }
@@ -66,3 +80,16 @@
 @keyframes sitov-arrive { from { opacity: 0; transform: translateY(12px) scale(.97); } }
 @keyframes sitov-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
 @keyframes sitov-breathe { 0%, 100% { transform: scale(1); opacity: .85; } 50% { transform: scale(1.1); opacity: 1; } }
+
+@keyframes sitov-aura { 0%, 100% { opacity: .45; transform: scale(.92); } 50% { opacity: .9; transform: scale(1.06); } }
+@keyframes sitov-rim-orbit { to { transform: rotate(360deg); } }
+
+/* Home: all five rooms have the same card proportions and hierarchy. */
+.sitovTile[data-sitov-surface].sitovCarouselCard { min-height: 0; padding: 1.25rem; background: linear-gradient(135deg, color-mix(in srgb, var(--sitov-tone) 10%, var(--surface)), var(--surface) 72%); }
+.sitovTile[data-sitov-surface].sitovCarouselCard :global(.st-tile__title) { font-size: 1.3rem; padding-top: 0; margin-top: auto; }
+.sitovTile[data-sitov-surface].sitovCarouselCard :global(.st-tile__status) { min-height: 2.7em; align-items: flex-start; font-size: .95rem; }
+.sitovTile[data-sitov-surface].sitovCarouselCard :global(.sl-due-dot) { margin-top: .48em; flex-shrink: 0; }
+.sitovCarouselCard .sitovDescription { font-size: .88rem; line-height: 1.4; min-height: 2.8em; }
+.sitovCarouselCard .sitovCardArt { margin-top: .25rem; margin-bottom: .4rem; }
+.sitovTile[data-sitov-surface].sitovCarouselCard .sitovVerbOrbit { position: relative; align-self: center; flex: 0 0 auto; width: 8rem; height: 110px; top: auto; right: auto; margin: .25rem 0 .4rem; }
+.sitovTile[data-sitov-surface].sitovCarouselCard .sitovArrow { top: 1.05rem; bottom: auto; }

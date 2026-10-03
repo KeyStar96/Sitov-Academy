@@ -1,14 +1,14 @@
 import type { Trainer } from '@/lib/access/levels'
 
 /**
- * Die fünf gleichberechtigten Modi eines Niveaus (D6) und ihre Ziele.
+ * Die fünf gleichberechtigten Modi eines Niveaus (D6), ihre Anzeigereihenfolge und Ziele.
  *
  * Das ist die **einzige** Stelle mit den Routen der Modi: Modus-Dock,
  * Modus-Karten, Brotkrumen, Home und „Weiter, wo du aufgehört hast" lesen
  * sie von hier. Der Lernpfad liegt unter `path`; `exercises` bleibt als
  * Weiterleitung und Alias für alte Lesezeichen erhalten.
  */
-export const LEARNING_MODES = ['vocabulary', 'path', 'pronunciation', 'media', 'verbs'] as const
+export const LEARNING_MODES = ['vocabulary', 'verbs', 'path', 'pronunciation', 'media'] as const
 export type LearningMode = (typeof LEARNING_MODES)[number]
 
 export const MODE_SEGMENTS: Record<LearningMode, string> = {

@@ -248,6 +248,5 @@ export default function VerbTrainerClient({ initialState, lang, actions = sitovA
       </section>}
       <aside className={styles.sitovCarryover}><Layers3 size={25} aria-hidden="true" /><div><strong>{copy.cumulative}</strong><p>{copy.cumulativeHint}</p></div><span aria-hidden="true">A1 <ArrowRight size={15} /> C1</span></aside>
     </>}
-    <footer className={styles.sitovSources}>{copy.sourceForms}: <a href="https://github.com/KeyStar96/Sitov-Academy/blob/codex/vps-self-hosted/lib/verbs/DATA-SOURCES.md" target="_blank" rel="noreferrer">Morphy / LanguageTool</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noreferrer">CC BY-SA 4.0</a></footer>
   </SitovVerbStage>
 }

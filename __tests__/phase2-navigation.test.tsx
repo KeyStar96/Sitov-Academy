@@ -34,8 +34,8 @@ describe('Modus-Ziele an einer Stelle', () => {
   it('führen bis Phase 3 zum bestehenden Grammatik-Trainer und erkennen jeden Modus an seiner Route', () => {
     expect(MODE_SEGMENTS).toEqual({ vocabulary: 'vocabulary', path: 'path', pronunciation: 'pronunciation', media: 'videos', verbs: 'verbs' })
     expect(LEARNING_MODES.map(mode => modeHref('ru', 'A1.1', mode))).toEqual([
-      '/ru/dashboard/level/A1.1/vocabulary', '/ru/dashboard/level/A1.1/path',
-      '/ru/dashboard/level/A1.1/pronunciation', '/ru/dashboard/level/A1.1/videos', '/ru/dashboard/level/A1.1/verbs'])
+      '/ru/dashboard/level/A1.1/vocabulary', '/ru/dashboard/level/A1.1/verbs', '/ru/dashboard/level/A1.1/path',
+      '/ru/dashboard/level/A1.1/pronunciation', '/ru/dashboard/level/A1.1/videos'])
     expect(lessonsHref('ru', 'A1.1')).toBe('/ru/dashboard/level/A1.1/vocabulary/lessons')
     expect(modeFromPathname('/ru/dashboard/level/A1.1/vocabulary/lessons')).toBe('vocabulary')
     expect(modeFromPathname('/ru/dashboard/level/A1.1/videos/123')).toBe('media')
@@ -79,7 +79,7 @@ describe('Modus-Dock', () => {
     render(<ModeDock lang="ru" level="A1.1" entries={open()} />)
     const dock = screen.getByRole('navigation', { name: t('mode_dock_label', { level: 'A1.1' }) })
     const links = within(dock).getAllByRole('link')
-    expect(links.map(link => link.textContent)).toEqual([t('area_vocabulary'), t('area_path'), t('area_pronunciation'), t('area_media'), t('area_verbs')])
+    expect(links.map(link => link.textContent)).toEqual([t('area_vocabulary'), t('area_verbs'), t('area_path'), t('area_pronunciation'), t('area_media')])
     const current = links.filter(link => link.getAttribute('aria-current') === 'page')
     expect(current).toHaveLength(1)
     expect(current[0]).toHaveTextContent(t(label))
@@ -124,13 +124,16 @@ describe('Modus-Dock', () => {
     expect(screen.getByRole('link', { name: tl('area_verbs') })).not.toHaveAttribute('data-locked')
   })
 
-  it('ist mit der Tastatur in Dock-Reihenfolge erreichbar', async () => {
+  it('ordnet auch unsortierte Einträge für Anzeige und Tastatur mit Verben direkt nach Vokabeln', async () => {
     mockPathname = '/ru/dashboard/level/A1.1'
-    render(<ModeDock lang="ru" level="A1.1" entries={open({ path: { lock: 'teacher' } })} />)
+    const entries = open({ path: { lock: 'teacher' } }).reverse()
+    const inputOrder = entries.map(entry => entry.mode)
+    render(<ModeDock lang="ru" level="A1.1" entries={entries} />)
     const user = userEvent.setup()
     const order: string[] = []
     for (let index = 0; index < 5; index += 1) { await user.tab(); order.push(document.activeElement?.getAttribute('data-mode') ?? '') }
-    expect(order).toEqual(['vocabulary', 'path', 'pronunciation', 'media', 'verbs'])
+    expect(order).toEqual(['vocabulary', 'verbs', 'path', 'pronunciation', 'media'])
+    expect(entries.map(entry => entry.mode)).toEqual(inputOrder)
   })
 })
 

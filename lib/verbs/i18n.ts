@@ -1,7 +1,6 @@
 import { toUiLocale } from '@/lib/locale-routing'
 
 const de = {
-  sourceForms: 'Verbformen',
   title: 'Verben werden vertraut.', intro: 'Ein Verbkasten, der mit dir wächst. Von der ersten Form bis zum sicheren Abrufen.',
   eyebrow: 'Dein Verbtrainer', automatic: 'Mein Training', targeted: 'Gezielt trainieren', box: 'Mein Verbkasten',
   automaticTitle: 'Die nächste Form wartet auf dich.', automaticHint: 'Alte und neue Verben gemeinsam. Dein Lernstand bestimmt, was als Nächstes dran ist.',
@@ -27,7 +26,6 @@ const de = {
 } as const
 type Copy = { [K in keyof typeof de]: string }
 const en: Copy = {
-  sourceForms: 'Verb forms',
   title: 'Make verb forms your own.', intro: 'One verb box that grows with you. From your first form to confident recall.',
   eyebrow: 'Your verb trainer', automatic: 'My practice', targeted: 'Focused practice', box: 'My verb box',
   automaticTitle: 'Your next form is waiting.', automaticHint: 'Old and new verbs together. Your progress decides what comes next.',
@@ -52,7 +50,6 @@ const en: Copy = {
   retained: 'Progress is kept', note: 'Note', summary: 'Practice overview', umlauts: 'German characters',
 }
 const ru: Copy = {
-  sourceForms: 'Формы глаголов',
   title: 'Формы глаголов становятся привычными.', intro: 'Одна копилка глаголов, которая растёт вместе с тобой. От первой формы до уверенного ответа.',
   eyebrow: 'Твой тренажёр глаголов', automatic: 'Моя тренировка', targeted: 'Целевая тренировка', box: 'Мои глаголы',
   automaticTitle: 'Следующая форма ждёт тебя.', automaticHint: 'Новые и знакомые глаголы вместе. Твой прогресс определяет, что повторить дальше.',
@@ -77,7 +74,6 @@ const ru: Copy = {
   retained: 'Прогресс сохраняется', note: 'Примечание', summary: 'Обзор тренировки', umlauts: 'Немецкие буквы',
 }
 const uk: Copy = {
-  sourceForms: 'Форми дієслів',
   title: 'Форми дієслів стають звичними.', intro: 'Одна скарбничка дієслів, яка зростає разом із тобою. Від першої форми до впевненої відповіді.',
   eyebrow: 'Твій тренажер дієслів', automatic: 'Моє тренування', targeted: 'Цільове тренування', box: 'Мої дієслова',
   automaticTitle: 'Наступна форма чекає на тебе.', automaticHint: 'Нові та знайомі дієслова разом. Твій прогрес визначає, що повторити далі.',
@@ -102,7 +98,6 @@ const uk: Copy = {
   retained: 'Прогрес зберігається', note: 'Примітка', summary: 'Огляд тренування', umlauts: 'Німецькі літери',
 }
 const tr: Copy = {
-  sourceForms: 'Fiil biçimleri',
   title: 'Fiil biçimleri tanıdık hâle gelir.', intro: 'Seninle büyüyen tek bir fiil kutusu. İlk biçimden güvenle hatırlamaya.',
   eyebrow: 'Fiil çalışman', automatic: 'Çalışmam', targeted: 'Odaklı çalışma', box: 'Fiil kutum',
   automaticTitle: 'Sıradaki biçim seni bekliyor.', automaticHint: 'Eski ve yeni fiiller birlikte. İlerlemen, sırada ne olduğunu belirler.',

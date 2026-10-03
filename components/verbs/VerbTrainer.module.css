@@ -190,6 +190,3 @@
   .sitovHero::before, .sitovPrimary::after, .sitovCelebration { display: none; }
   .sitovTrainer button:active:not(:disabled) { transform: none; }
 }
-.sitovSources { margin-top: 1.25rem; color: var(--muted); font-size: .8rem; text-align: center; line-height: 1.7; }
-.sitovSources a { text-decoration: underline; text-underline-offset: 3px; }
-.sitovSources a:focus-visible { outline: 2px solid var(--sitov-verb-text); outline-offset: 4px; border-radius: 3px; }

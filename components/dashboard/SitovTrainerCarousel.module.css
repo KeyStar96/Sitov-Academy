@@ -1,0 +1,31 @@
+.sitovCarousel { --sitov-carousel-tone: var(--mode-vocabulary-text); min-width: 0; }
+.sitovCarousel[data-area='verbs'] { --sitov-carousel-tone: var(--mode-verbs-text); }
+.sitovCarousel[data-area='path'] { --sitov-carousel-tone: var(--mode-path-text); }
+.sitovCarousel[data-area='pronunciation'] { --sitov-carousel-tone: var(--mode-pronunciation-text); }
+.sitovCarousel[data-area='media'] { --sitov-carousel-tone: var(--mode-media-text); }
+.sitovScene { position: relative; height: 22.25rem; width: 100%; overflow: clip; perspective: 800px; perspective-origin: 50% 48%; touch-action: pan-y; cursor: grab; }
+.sitovScene[data-sitov-dragging='true'] { cursor: grabbing; }
+.sitovScene[data-sitov-dragging='true'] a { cursor: grabbing; }
+.sitovTrack { position: absolute; inset: 0; margin: 0; padding: 0; list-style: none; transform-style: preserve-3d; }
+.sitovSlide { position: absolute; top: 3.6rem; left: 50%; width: min(17rem, calc(100% - 4rem)); height: 18rem; margin-left: max(-8.5rem, calc(-50% + 2rem)); transform-style: preserve-3d; user-select: none; }
+.sitovSlide > * { width: 100%; height: 100%; }
+.sitovSlide[data-sitov-active='false'] a { cursor: pointer; }
+.sitovRing { position: absolute; left: 50%; top: 72%; width: 88%; height: 26%; border-radius: 50%; border: 1px solid color-mix(in srgb, var(--sitov-carousel-tone) 15%, transparent); transform: translateX(-50%) rotateX(63deg); background: radial-gradient(ellipse, color-mix(in srgb, var(--sitov-carousel-tone) 4%, transparent), transparent 70%); pointer-events: none; }
+.sitovSpot { position: absolute; left: 18%; right: 18%; bottom: 2%; height: 12%; border-radius: 50%; background: radial-gradient(closest-side, color-mix(in srgb, var(--sitov-carousel-tone) 13%, transparent), transparent); filter: blur(8px); pointer-events: none; }
+.sitovControls { position: relative; display: flex; align-items: center; justify-content: center; gap: .75rem; margin-top: .5rem; }
+.sitovArrow { display: grid; place-items: center; width: 2.75rem; height: 2.75rem; flex: 0 0 auto; border: 1px solid var(--border); border-radius: 50%; color: var(--foreground); background: var(--surface); box-shadow: var(--shadow-sm); transition: transform .2s ease, border-color .2s ease, background-color .2s ease; }
+.sitovArrow:active { transform: scale(.92); }
+.sitovArrow:focus-visible, .sitovDots button:focus-visible { outline: 3px solid var(--sitov-carousel-tone); outline-offset: 3px; }
+.sitovDots { display: flex; align-items: center; }
+.sitovDots button { --sitov-dot: var(--mode-vocabulary-text); display: grid; place-items: center; width: 1.7rem; min-height: 2.75rem; border-radius: 999px; }
+.sitovDots button[data-area='verbs'] { --sitov-dot: var(--mode-verbs-text); }
+.sitovDots button[data-area='path'] { --sitov-dot: var(--mode-path-text); }
+.sitovDots button[data-area='pronunciation'] { --sitov-dot: var(--mode-pronunciation-text); }
+.sitovDots button[data-area='media'] { --sitov-dot: var(--mode-media-text); }
+.sitovDots span { display: block; width: .45rem; height: .45rem; border-radius: 999px; background: var(--sitov-dot); opacity: .4; transition: width .3s ease, opacity .3s ease, box-shadow .3s ease; }
+.sitovDots [data-sitov-selected='true'] span { width: 1.2rem; opacity: 1; box-shadow: 0 0 12px -2px var(--sitov-dot); }
+.sitovHint { display: flex; align-items: center; justify-content: center; gap: .4rem; margin-top: .55rem; color: var(--muted); font-size: .8rem; line-height: 1.4; text-align: center; }
+@media (hover: hover) and (pointer: fine) { .sitovArrow:hover { border-color: var(--sitov-carousel-tone); transform: translateY(-2px); } }
+@media (prefers-reduced-motion: reduce) { .sitovCarousel *, .sitovCarousel *::before, .sitovCarousel *::after { transition: none !important; } }
+:global(html.high-contrast) .sitovRing, :global(html.high-contrast) .sitovSpot { display: none; }
+:global(html.high-contrast) .sitovArrow { border-width: 2px; box-shadow: none; }

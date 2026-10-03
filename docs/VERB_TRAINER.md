@@ -91,7 +91,7 @@ RLS ist für alle vier Tabellen aktiv. Schüler können weder Fortschritt, Chall
 
 ## Fünf Trainer und Motion Design
 
-Home verwendet vier kompakte Karten und einen breiten Verbtrainer darunter. Die Niveauübersicht wächst auf großen Displays zu einer 3+2-Anordnung; der Verbtrainer erhält zwei Spalten, auf kleinen Displays die ganze Breite. Der Mode-Dock zeigt fünf Ziele, auf Mobilgeräten mit kurzen lokalisierten Bezeichnungen und vollständigen zugänglichen Namen. Karten, Breadcrumbs, Wiederaufnahme und Status verwenden dieselben Modusfarben; der Verbtrainer erhält Magenta.
+Home verwendet ein räumliches Karussell mit fünf gleichwertigen Trainerkarten. Die aktive Karte steht im Vordergrund; die weiteren Karten liegen optisch zurückgenommen dahinter. Horizontale Scrollgesten, Wischen, Richtungsknöpfe und Tastatursteuerung wechseln die vordere Karte; diese öffnet den jeweiligen Trainer. Die Niveauübersicht wächst auf großen Displays zu einer 3+2-Anordnung; der Verbtrainer erhält dort zwei Spalten, auf kleinen Displays die ganze Breite. Der Mode-Dock zeigt fünf Ziele in der Reihenfolge Vokabeln, Verben, Lernpfad, Aussprache und Mediathek, auf Mobilgeräten mit kurzen lokalisierten Bezeichnungen und vollständigen zugänglichen Namen. Karten, Breadcrumbs, Wiederaufnahme und Status verwenden dieselben Modusfarben; der Verbtrainer erhält Magenta.
 
 Die Gestaltung übernimmt die räumliche Beleuchtung und die ruhigen kräftigen Flächen des DailyQuest-Redesigns aus Claude-Commit `28ff33d` („Redesign daily quests“). Trainerkarten besitzen gestaffelte Auftritte, Zeigerlicht, einen Lichtrand, schwebende Personenformen und deutliche Fokuszustände. Gemeinsame Trainerwechsel erhalten weichere Übergänge und eine in der jeweiligen Modusfarbe gehaltene Atmosphäre. Der Verbtrainer ergänzt Formenorbit, Aurora, Antwortfeedback und Abschlussfunken.
 
@@ -131,3 +131,29 @@ Die echte PostgreSQL-Datenbank enthält 960 Verbzeilen und 960 aktive Einheiten 
 Die native Testfixture wurde für den tatsächlichen Auth-Provisionierungstrigger korrigiert: zufällige reservierte `.invalid`-Adressen statt leerer Adressen. Interne private Rechteassertionen laufen mit DB-Administrationsrolle, sämtliche öffentlichen Schüler-RPC- und RLS-Prüfungen mit `authenticated`. Ein erster Startversuch scheiterte an von einer restriktiven Shell-Umask geerbten npm-Paketrechten. Öffentliche Paketleserechte sind korrigiert; `prepare_release` setzt nun `umask 0022`, während Env und Marker weiterhin 640/600 erhalten. Der Regressionstest reproduziert den ursprünglichen Fehler ohne Fix; insgesamt 79 VPS-Python-Tests bestanden, ein optionaler Test übersprungen.
 
 Die abschließenden Korrekturen betreffen ausschließlich Deployment-Skript, Testharness und Dokumentation. Die laufenden Appdateien und Migrationen entsprechen unverändert dem genannten geprüften Release. Das geschützte Journal liegt unter `/root/sitov-verb-release-20261003T101800Z/`; die vollständige Dokumentation einschließlich Screenshots liegt im Obsidian Vault in `25_Verbtrainer_und_Trainer_Motion_2026-10-03.md`.
+
+### Nachtrag: Quellenzeile, Trainer-Motive und 3D-Karussell
+
+Auf ausdrücklichen Nutzerwunsch entfällt die sichtbare Quellen-/Lizenzzeile im Verbtrainer. Die fünf anschließend ungenutzten Interface-Texte `sourceForms` werden ebenfalls entfernt. Die Herkunftsangaben, Bearbeitungsnotizen und Lizenztexte bleiben unverändert in [DATA-SOURCES.md](../lib/verbs/DATA-SOURCES.md) und [DATA-LICENSE.txt](../lib/verbs/DATA-LICENSE.txt) erhalten. Der Katalog umfasst weiterhin alle 960 Verben; Daten, Lernfortschritt und SQL-Freigaben werden durch diese Oberflächenänderung nicht verändert.
+
+Die fünf Home-Trainer werden als gleichwertige Karten in einem Karussell mit 3D-Tiefe angeordnet. Die jeweils aktive Karte steht vorn und ist das Navigationsziel; die übrigen Karten sind kleiner beziehungsweise zurückgenommen im Hintergrund sichtbar. Das Karussell lässt sich mit horizontalen Mausrad-/Trackpadgesten, Touch-Wischen, Richtungsknöpfen und Tastatur bedienen. Im Header steht der Verbtrainer direkt nach dem Vokabeltrainer.
+
+Die vier zusätzlichen Miniaturen auf Home und in der Niveauübersicht ersetzen die bisherigen statischen Iconflächen. Alle fünf Trainer behalten ihr eigenes Motion-Motiv:
+
+| Trainer | Miniatur |
+| --- | --- |
+| Vokabeltrainer | Drei räumlich gestaffelte Karten mit `der`, `die` und `das`, sanfter Drehung, Schweben, Glanz und warmem Leuchten |
+| Verbtrainer | Bestehender Formenorbit in der Magenta-Modusfarbe |
+| Lernpfad | Geschwungenes Lichtband mit drei gleichwertigen Stationen und einem wandernden Lichtpunkt |
+| Aussprache | Räumliches Mikrofon mit zwei elliptischen Bahnen und zwölf rhythmischen Wellenbalken |
+| Mediathek | Gestaffelte perforierte Filmstreifen, drei Hintergrundrahmen und ein Play-Fenster mit Glanzreflex |
+
+Die zusätzlichen Motive sind etwa 104–128 Pixel breit und 110 Pixel hoch. Ihre dekorativen CSS-/SVG-Ebenen sind für Screenreader verborgen und fangen keine Zeigereingaben ab. Ein umlaufender Lichtrand benötigt zwölf Sekunden pro Runde; der farbige Modusschein atmet im Achtsekundentakt. Die Effekte sind auch auf Mobilgeräten ohne Zeigerkontakt und ohne bereits vorhandene Lerninhalte sichtbar. Die tatsächlichen Statusanzeigen, Badges und Navigationsziele werden weiterhin auf den Karten angezeigt.
+
+Gesperrte Karten zeigen eine graue, statische Miniatur; abgeschlossene Zustände bewegen sich ruhiger. `prefers-reduced-motion` setzt alle neuen Effekte still. Die vorhandene `SitovMotionStage` pausiert sie außerhalb des Sichtfelds und bei verborgenem Dokument.
+
+Abschließende gezielte Nachprüfung: **111 Tests / 6 Suites** bestanden, darunter 15 neue Karussell-Verhaltenstests mit echtem Framer Motion. Geprüft werden Vordergrundnavigation, Ring-Wrap, Auswahl der hinteren Karte ohne Navigation, Tastaturfokus auch bei gesperrten Zielen, erste erlaubte Karte, Touch-Wischen und Abbruch, vertikale Scrollfreiheit, horizontale/Shift-Wheel-Gesten und reduzierte Bewegung. TypeScript, ESLint der geänderten Dateien und Diff-Prüfung sind sauber.
+
+Im Browser geprüft: 320/390-Pixel-Handyansichten und 1280-Pixel-Desktop, identische Maße aller fünf Karten, echte CSS-Tiefentransformationen, Wischen und horizontales Scrollen ohne Navigation, Tastaturwechsel mit Fokus, Vordergrund-Klick zum richtigen Trainerziel (anonym anschließend Login), Light/Dark und hoher Kontrast. Die Motivbewegung und Sichtfeldpause sind visuell beziehungsweise über den gerenderten Zustand bestätigt. Die Systemeinstellung „weniger Bewegung“ wurde durch Code und reale Komponententests abgesichert; eine manuelle Betriebssystem-Umschaltung wird nicht behauptet.
+
+Der oben dokumentierte erste Produktionsnachweis bleibt die Historie von Release `1b3ab7377469`. Der neue VPS-Build, die Aktivierung und Screenshots dieses Oberflächen-Nachtrags werden in Obsidian unter `25_Verbtrainer_und_Trainer_Motion_2026-10-03.md` dokumentiert. Für diesen Nachtrag sind keine SQL-Migrationen erforderlich.

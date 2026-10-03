@@ -1,12 +1,17 @@
+'use client'
+
 import { useId, type CSSProperties } from 'react'
 import { ArrowUpRight, BookOpen, Check, Clapperboard, Lock, Mic, Route, Waypoints } from 'lucide-react'
 import PressableCard from '@/components/motion/PressableCard'
 import SitovMotionStage from '@/components/motion/SitovMotionStage'
+import SitovTrainerCardScene from './SitovTrainerCardScene'
+import SitovTrainerCarousel from './SitovTrainerCarousel'
+import { getSitovTrainerCarouselCopy } from '@/lib/sitov-trainer-carousel-i18n'
 import styles from './TrainerStatusTiles.module.css'
 import CountUp from '@/components/motion/CountUp'
 import NewBadge from '@/components/motion/NewBadge'
 import type { LevelLearningStatus } from '@/lib/learning-status-server'
-import { modeHref, type LearningMode } from '@/lib/mode-targets'
+import { LEARNING_MODES, modeHref, type LearningMode } from '@/lib/mode-targets'
 import { studentTranslator, type StudentMessageKey } from '@/lib/student-ui-i18n'
 
 type Tone = 'action' | 'calm' | 'done' | 'locked'
@@ -21,7 +26,7 @@ interface Tile {
 }
 
 /**
- * Die fünf Modi eines Niveaus als responsive Karten, je mit einer
+ * Die fünf Modi eines Niveaus als gleichwertiges Home-Karussell oder responsive Niveaukarten, je mit einer
  * Kennzahl: fällige Karten, Position auf dem Lernpfad, neue Antworten der
  * Lehrkraft, neue Medien. Was wartet, trägt eine Zahl und die Akzentfarbe;
  * was erledigt ist, bleibt ruhig mit Haken. Gesperrte Modi zeigen den Grund
@@ -41,6 +46,8 @@ export default function TrainerStatusTiles({ lang, level, status, languageLocked
   layout?: 'compact' | 'modes'
 }) {
   const t = studentTranslator(lang)
+  const sitovCompact = layout === 'compact'
+  const sitovCarouselCopy = getSitovTrainerCarouselCopy(lang)
   const sitovId = useId()
   const lockedText = (area: 'media' | 'other') => area === 'other' && languageLocked ? t('status_language') : t('status_locked')
   const tiles: Tile[] = []
@@ -89,6 +96,35 @@ export default function TrainerStatusTiles({ lang, level, status, languageLocked
             : verbs.selected > 0 ? { text: t.count('status_verbs_selected', verbs.selected), tone: 'calm' as const }
               : { text: t.count('status_verbs_total', verbs.total), tone: 'action' as const }) })
 
+  const sitovSlides = (sitovCompact ? LEARNING_MODES.map(mode => tiles.find(tile => tile.id === mode)!) : tiles).map(tile => {
+    const sitovVerbArt = <span className={styles.sitovVerbOrbit} aria-hidden="true"><span className={styles.sitovOrbitRing} /><span className={styles.sitovOrbitRing} /><span className={styles.sitovOrbitWord}>ich</span><span className={styles.sitovOrbitWord}>du</span><span className={styles.sitovOrbitWord}>wir</span><Waypoints size={30} /></span>
+    const content = (
+            <>
+              <span className={styles.sitovAtmosphere} aria-hidden="true"><span className={styles.sitovRim} /><span className={styles.sitovLight} /></span>
+              <span className={`st-tile__top ${sitovCompact || tile.id !== 'verbs' ? styles.sitovSceneMeta : ''}`}>
+                {(!sitovCompact && tile.id === 'verbs' || tile.tone === 'locked') && <span className="st-tile__icon" aria-hidden="true">{tile.tone === 'locked' ? <Lock size={20} /> : <tile.icon size={24} />}</span>}
+                {tile.badge > 0 && <span className="st-tile__badge" aria-hidden="true"><CountUp value={tile.badge} cap={999} /></span>}
+                {tile.tone !== 'locked' && status?.fresh?.[tile.id] && <NewBadge label={t('media_new')} className="st-tile__new" />}
+                {tile.tone === 'done' && <span className="st-tile__check" aria-hidden="true"><Check size={16} strokeWidth={3} /></span>}
+              </span>
+              {tile.id !== 'verbs' ? <SitovTrainerCardScene mode={tile.id} tone={tile.tone} className={styles.sitovCardArt} /> : sitovCompact ? sitovVerbArt : null}
+              <span className="st-tile__title">{t(tile.title)}</span>
+              {(sitovCompact || tile.id === 'verbs') && <span className={styles.sitovDescription}>{sitovCompact ? sitovCarouselCopy.descriptions[tile.id] : t('area_verbs_hint')}</span>}
+              <span className="st-tile__status">
+                {tile.tone === 'action' && <span className="sl-due-dot" aria-hidden="true" />}
+                {tile.text}
+              </span>
+              {tile.id === 'verbs' && !sitovCompact && sitovVerbArt}
+              {tile.tone !== 'locked' && <span className={styles.sitovArrow} aria-hidden="true"><ArrowUpRight size={20} /></span>}
+            </>
+          )
+    const sitovClass = `st-tile ${styles.sitovTile} ${sitovCompact ? styles.sitovCarouselCard : ''}`
+    const card = tile.tone === 'locked'
+      ? <div className={sitovClass} data-sitov-surface="" data-tone="locked" data-area={tile.id} aria-disabled="true">{content}</div>
+      : <PressableCard href={modeHref(lang, level, tile.id)} className={sitovClass} data-sitov-surface="" data-tone={tile.tone} data-area={tile.id}>{content}</PressableCard>
+    return { id: tile.id, label: t(tile.title), locked: tile.tone === 'locked', card }
+  })
+
   const headingId = `sitov-areas-${level}-${sitovId.replace(/:/g, '')}`
   return (
     <section aria-labelledby={heading ? headingId : undefined} aria-label={heading ? undefined : t('areas_title')} className="st-areas">
@@ -104,36 +140,9 @@ export default function TrainerStatusTiles({ lang, level, status, languageLocked
         </div>
       )}
       <SitovMotionStage className={styles.sitovStage}>
-      <ul className={`${styles.sitovTiles} ${layout === 'modes' ? styles.sitovModes : ''}`}>
-        {tiles.map((tile, index) => {
-          const content = (
-            <>
-              <span className={styles.sitovAtmosphere} aria-hidden="true"><span className={styles.sitovRim} /><span className={styles.sitovLight} /></span>
-              <span className="st-tile__top">
-                <span className="st-tile__icon" aria-hidden="true">{tile.tone === 'locked' ? <Lock size={24} /> : <tile.icon size={24} />}</span>
-                {tile.badge > 0 && <span className="st-tile__badge" aria-hidden="true"><CountUp value={tile.badge} cap={999} /></span>}
-                {tile.tone !== 'locked' && status?.fresh?.[tile.id] && <NewBadge label={t('media_new')} className="st-tile__new" />}
-                {tile.tone === 'done' && <span className="st-tile__check" aria-hidden="true"><Check size={16} strokeWidth={3} /></span>}
-              </span>
-              <span className="st-tile__title">{t(tile.title)}</span>
-              {tile.id === 'verbs' && <span className={styles.sitovDescription}>{t('area_verbs_hint')}</span>}
-              <span className="st-tile__status">
-                {tile.tone === 'action' && <span className="sl-due-dot" aria-hidden="true" />}
-                {tile.text}
-              </span>
-              {tile.id === 'verbs' && <span className={styles.sitovVerbOrbit} aria-hidden="true"><span className={styles.sitovOrbitRing} /><span className={styles.sitovOrbitRing} /><span className={styles.sitovOrbitWord}>ich</span><span className={styles.sitovOrbitWord}>du</span><span className={styles.sitovOrbitWord}>wir</span><Waypoints size={30} /></span>}
-              {tile.tone !== 'locked' && <span className={styles.sitovArrow} aria-hidden="true"><ArrowUpRight size={20} /></span>}
-            </>
-          )
-          return (
-            <li key={tile.id} className={styles.sitovItem} data-sitov-feature={tile.id === 'verbs' ? 'true' : undefined} style={{ '--sitov-i': index } as CSSProperties}>
-              {tile.tone === 'locked'
-                ? <div className={`st-tile ${styles.sitovTile}`} data-sitov-surface="" data-tone="locked" data-area={tile.id} aria-disabled="true">{content}</div>
-                : <PressableCard href={modeHref(lang, level, tile.id)} className={`st-tile ${styles.sitovTile}`} data-sitov-surface="" data-tone={tile.tone} data-area={tile.id}>{content}</PressableCard>}
-            </li>
-          )
-        })}
-      </ul>
+      {sitovCompact ? <SitovTrainerCarousel items={sitovSlides} lang={lang} label={t('areas_title')} /> : <ul className={`${styles.sitovTiles} ${styles.sitovModes}`}>
+        {sitovSlides.map((item, index) => <li key={item.id} className={styles.sitovItem} data-sitov-feature={item.id === 'verbs' ? 'true' : undefined} style={{ '--sitov-i': index } as CSSProperties}>{item.card}</li>)}
+      </ul>}
       </SitovMotionStage>
     </section>
   )

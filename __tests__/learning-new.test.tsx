@@ -43,7 +43,7 @@ describe('Neu-Antworten der Datenbank', () => {
 
   it('kennzeichnen einen Modus bei neuen Inhalten oder wenn der Modus selbst neu ist', () => {
     const entry = { level: false, total: 3, modes: { ...zero, media: 2 }, modeNew: { ...none, pronunciation: true } }
-    expect(LEARNING_MODES.map(mode => modeIsNew(entry, mode))).toEqual([false, false, true, true, false])
+    expect(LEARNING_MODES.map(mode => modeIsNew(entry, mode))).toEqual([false, false, false, true, true])
     expect(newModes(entry)).toEqual(['pronunciation', 'media'])
     expect(modeIsNew(undefined, 'media')).toBe(false)
     expect(trainerKey('A1.1', 'exercises')).toBe('A1.1:exercises')
