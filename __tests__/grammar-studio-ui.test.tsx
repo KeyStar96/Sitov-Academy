@@ -138,6 +138,9 @@ it.each([
   jest.mocked(recordGrammarCheckpointAttempt).mockImplementationOnce(async () => commitGrade({ success: true, attempts: 1, isCorrect: false, status: 'INCORRECT', reason: null, matched: null, score: 0 }))
   render(<ExerciseClient exercises={[exercise]} lang="de" level="A1.1" />)
   await user.click(screen.getByRole('button', { name: 'Mit offenen Aufgaben starten' }))
+  // Entering the document-flow frame scrolls it below the shared header.
+  // From here, a wrong answer must still keep the current task in place.
+  jest.mocked(HTMLElement.prototype.scrollIntoView).mockClear()
   if (exercise.type === 'fill_in_blank') await user.type(screen.getByRole('textbox', { name: 'Lücke' }), wrong)
   else await user.click(screen.getByRole('button', { name: new RegExp(`Wort .${wrong}. auswählen`) }))
   await user.click(screen.getByRole('button', { name: 'Antwort prüfen' }))
