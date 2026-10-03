@@ -18,6 +18,12 @@ it('rejects cross-origin and unsupported checkpoint writes before database mutat
   expect((await POST(request({ ...body, kind: 'exercises' }))).status).toBe(400)
   expect(saveLearningCheckpoint).not.toHaveBeenCalled()
 })
+it('checks the public proxy origin when Next exposes its internal listening address', async () => {
+  jest.mocked(saveLearningCheckpoint).mockResolvedValue({ ok: true, learnerId, checkpoint: { state: {}, revision: 1, updatedAt: 'now' } })
+  const proxied = new Request('http://127.0.0.1:3000/api/learning-checkpoints', { method: 'POST', headers: { host: 'www.sitov-academy.com', 'x-forwarded-proto': 'https', origin: 'https://www.sitov-academy.com', 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
+  expect((await POST(proxied)).status).toBe(200)
+  expect(saveLearningCheckpoint).toHaveBeenCalledTimes(1)
+})
 it('surfaces account switches and concurrent device conflicts', async () => {
   jest.mocked(saveLearningCheckpoint).mockResolvedValueOnce({ ok: false, error: 'unauthorized' }).mockResolvedValueOnce({ ok: false, error: 'conflict', checkpoint: null })
   expect((await POST(request())).status).toBe(403)

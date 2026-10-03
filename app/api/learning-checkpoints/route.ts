@@ -7,7 +7,12 @@ const input = sitovCheckpointTarget.extend({ kind: z.enum(['videos', 'pronunciat
 
 /** Small authenticated keepalive writes let a paused/closing player save. */
 export async function POST(request: Request) {
-  if (request.headers.get('origin') !== new URL(request.url).origin) return NextResponse.json({ ok: false, error: 'unauthorized' }, { status: 403 })
+  // Next may construct request.url with the internal listening address.
+  // nginx sets Host and X-Forwarded-Proto to the public request origin.
+  const url = new URL(request.url)
+  const host = request.headers.get('host') ?? url.host
+  const protocol = request.headers.get('x-forwarded-proto') ?? url.protocol.slice(0, -1)
+  if (request.headers.get('origin') !== `${protocol}://${host}`) return NextResponse.json({ ok: false, error: 'unauthorized' }, { status: 403 })
   const body = await request.text()
   if (new TextEncoder().encode(body).length > 265000) return NextResponse.json({ ok: false, error: 'invalid' }, { status: 413 })
   const parsed = input.safeParse(await Promise.resolve().then(() => JSON.parse(body)).catch(() => null))
