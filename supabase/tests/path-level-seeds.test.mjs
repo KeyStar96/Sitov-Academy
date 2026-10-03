@@ -7,7 +7,8 @@ import { createCurrentDatabase, actor, student, result } from './helpers/current
 // The learning path logic (serial unlocking, test sample, 80 % rule, task translation) is
 // level-independent SQL. These seeds must run through it unchanged: imported by the same
 // service RPC as A1.1, played in every interface language and passed from 80 %.
-const LEVELS = [{ level: 'A1.2', cefr: 'A1', order: 2 }, { level: 'A2.1', cefr: 'A2', order: 3 }, { level: 'A2.2', cefr: 'A2', order: 4 }]
+const LEVELS = [{ level: 'A1.2', cefr: 'A1', order: 2 }, { level: 'A2.1', cefr: 'A2', order: 3 }, { level: 'A2.2', cefr: 'A2', order: 4 },
+  { level: 'B1.1', cefr: 'B1', order: 5 }]
 const LOCALES = ['en', 'ru', 'uk', 'tr']
 const CYRILLIC = /[Ѐ-ӿ]/
 const call = (db, fn, params = []) => result(db, `SELECT ${fn} result`, params)

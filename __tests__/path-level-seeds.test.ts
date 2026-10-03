@@ -6,7 +6,7 @@ import { learningPathSeedSchema } from '@/lib/learning-path-schema'
 import { EXERCISE_TYPES } from '@/lib/types/exercise'
 
 /**
- * Lernpfade ab A1.2 (supabase/seeds/path-<niveau>.json), derzeit A1.2, A2.1 und A2.2. Die Seeds entstehen aus den
+ * Lernpfade ab A1.2 (supabase/seeds/path-<niveau>.json), derzeit A1.2, A2.1, A2.2 und B1.1. Die Seeds entstehen aus den
  * Quellen in supabase/seeds/path-src/<niveau>/ (scripts/build-path-seed.mjs) und müssen
  * denselben Vertrag erfüllen wie A1.1: Pfade → Lektionen mit Merkkarte → Wiederholung →
  * Test, jedes Lernziel geübt, wiederholt und geprüft, alles in fünf Sprachen.
@@ -60,6 +60,17 @@ const LEVELS: Record<string, LevelRules> = {
     { from: 4, words: ['deshalb', 'entlang', 'gegenüber'] },
     // „Lass uns …“ ist in Pfad 5 eine feste Wendung; das Verb lassen folgt in Pfad 6.
     { from: 6, words: ['ob', 'lassen', 'lässt', 'lasst'] },
+  ] },
+  'B1.1': { later: [
+    { from: 2, words: ['obwohl'] },
+    // Genitiv erst ab Pfad 3; der/einer sind auch Dativformen und bleiben frei.
+    { from: 3, words: ['des', 'eines'] },
+    { from: 4, words: ['wegen'] },
+    { from: 5, words: ['während', 'innerhalb', 'außerhalb'] },
+    // „statt“ gilt auch als abgetrennte Vorsilbe von stattfinden: vor Pfad 6 gibt es kein „findet … statt“.
+    { from: 6, words: ['statt', 'anstatt'] },
+    // „trotzdem“ (Pfad 2) ist ein anderes Wort als die Präposition „trotz“.
+    { from: 7, words: ['trotz', 'entweder', 'zwar'] },
   ] },
 }
 const LOCALES: Locale[] = ['en', 'ru', 'uk', 'tr']
