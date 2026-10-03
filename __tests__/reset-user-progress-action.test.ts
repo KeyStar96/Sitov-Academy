@@ -22,6 +22,7 @@ it('requires a verified server session before starting a reset',async()=>{
 it('uses the session-bound client without a browser-provided user ID and refreshes only after completion',async()=>{
  const client=setup({id:'owner'});expect(await resetUserProgress(input)).toEqual({success:true});expect(performLearningReset).toHaveBeenCalledWith(client)
  expect(revalidatePath).toHaveBeenCalledWith('/[lang]/dashboard','layout')
+ expect(revalidatePath).toHaveBeenCalledWith('/[lang]/admin/exam-preparation','page')
 })
 it('preserves an operation failure and does not invalidate routes as if it completed',async()=>{
  setup({id:'owner'});jest.mocked(performLearningReset).mockResolvedValue({success:false,reason:'reset_failed'})

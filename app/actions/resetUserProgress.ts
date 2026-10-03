@@ -17,12 +17,13 @@ export async function resetUserProgress(input: ResetUserProgressInput): Promise<
       try {
         revalidatePath('/[lang]/dashboard', 'layout')
         revalidatePath('/[lang]/admin/submissions', 'page')
+        revalidatePath('/[lang]/admin/exam-preparation', 'page')
       } catch {
         console.error('[learning-reset] Completed reset could not refresh route cache')
       }
     }
     return result
-  } catch (error) {
+  } catch {
     console.error("[learning-reset] Reset could not complete")
     return { success: false, reason: 'reset_failed' }
   }

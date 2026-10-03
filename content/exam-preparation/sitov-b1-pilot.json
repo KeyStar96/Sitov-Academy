@@ -1,0 +1,4165 @@
+{
+  "id": "sitov-exam-b1-m01",
+  "title": "Ankommen und Kontakte",
+  "description": "Ein vollständiges Pilotmodul: Lernziele, Nachfragen, Lerntreffen und neue Kontakte. Bearbeitung und selbstständige Leistung bleiben getrennt.",
+  "order": 1,
+  "units": [
+    {
+      "id": "sitov-exam-b1-m01-u01",
+      "moduleId": "sitov-exam-b1-m01",
+      "title": "Ankommen und ein Ziel wählen",
+      "description": "Sie lernen das Lerncafé kennen und formulieren ein eigenes Ziel.",
+      "order": 1,
+      "kind": "orientation",
+      "required": true,
+      "estimatedMinutes": 14,
+      "tasks": [
+        {
+          "id": "sitov-exam-b1-m01-u01-t01",
+          "version": 1,
+          "skill": "reading",
+          "type": "choice",
+          "title": "Gemeinsam lernen",
+          "instruction": "Worum geht es in der Mitteilung?",
+          "hints": [],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "reading",
+          "formatFamily": "globalverstehen",
+          "estimatedMinutes": 2,
+          "releaseStatus": "published",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "options": [
+            {
+              "id": "a",
+              "text": "Um eine neue Lerngruppe."
+            },
+            {
+              "id": "b",
+              "text": "Um den Verkauf von Büchern."
+            },
+            {
+              "id": "c",
+              "text": "Um einen Termin beim Arzt."
+            }
+          ],
+          "correctAnswer": "a",
+          "explanation": "Daniel begrüßt eine Lerngruppe und erklärt ihre Arbeit.",
+          "evidence": "Wir treffen uns jeden Dienstag im Stadtteilzentrum.",
+          "text": "Willkommen im Lerncafé. Ich heiße Daniel und begleite heute unsere neue Gruppe. Wir treffen uns jeden Dienstag im Stadtteilzentrum. Am Anfang sprechen wir zu zweit über unseren Alltag. Später üben wir kurze Nachrichten und hören Gespräche. Sie brauchen kein eigenes Lehrbuch. Bringen Sie bitte ein Heft und einen Stift mit. Wenn Sie ein Wort nicht verstehen, fragen Sie nach. Fehler gehören zum Lernen. Heute wählen Sie ein persönliches Lernziel und lernen einen anderen Teilnehmer kennen.",
+          "words": [
+            {
+              "word": "das Lernziel",
+              "example": "Mein Lernziel ist, beim Einkaufen nachzufragen."
+            },
+            {
+              "word": "nachfragen",
+              "example": "Ich frage nach, wenn ich ein Wort nicht verstehe."
+            }
+          ]
+        },
+        {
+          "id": "sitov-exam-b1-m01-u01-t02",
+          "version": 1,
+          "skill": "reading",
+          "type": "choice",
+          "title": "Ein passendes Lernziel",
+          "instruction": "Welches Ziel beschreibt eine Handlung im Alltag?",
+          "hints": [
+            "Was möchten Sie mit Deutsch tun?"
+          ],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "reading",
+          "formatFamily": "mitteilung",
+          "estimatedMinutes": 2,
+          "releaseStatus": "published",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ich möchte immer alles fehlerfrei wissen."
+            },
+            {
+              "id": "b",
+              "text": "Ich möchte beim Arzt nachfragen können."
+            },
+            {
+              "id": "c",
+              "text": "Ich möchte keine Aufgaben mehr bearbeiten."
+            }
+          ],
+          "correctAnswer": "b",
+          "explanation": "Ein konkretes Lernziel nennt eine Situation und eine sprachliche Handlung.",
+          "evidence": "beim Arzt nachfragen"
+        },
+        {
+          "id": "sitov-exam-b1-m01-u01-t03",
+          "version": 1,
+          "skill": "vocabulary",
+          "type": "choice",
+          "title": "Höflich nachfragen",
+          "instruction": "Sie haben die Aufgabe nicht verstanden. Welche Frage passt?",
+          "hints": [],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "vocabulary",
+          "formatFamily": "sprachmittel",
+          "estimatedMinutes": 2,
+          "releaseStatus": "published",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "options": [
+            {
+              "id": "a",
+              "text": "Das müssen Sie wissen."
+            },
+            {
+              "id": "b",
+              "text": "Können Sie die Aufgabe bitte noch einmal erklären?"
+            },
+            {
+              "id": "c",
+              "text": "Ich habe den Auftrag schon erledigt."
+            }
+          ],
+          "correctAnswer": "b",
+          "explanation": "Die Frage sagt höflich, welche Hilfe benötigt wird.",
+          "evidence": "bitte noch einmal erklären"
+        },
+        {
+          "id": "sitov-exam-b1-m01-u01-t04",
+          "version": 1,
+          "skill": "reading",
+          "type": "true-false",
+          "title": "Ohne Lehrbuch",
+          "instruction": "Für das Lerncafé muss man ein eigenes Lehrbuch kaufen.",
+          "hints": [],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "reading",
+          "formatFamily": "mitteilung",
+          "estimatedMinutes": 2,
+          "releaseStatus": "published",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "options": [
+            {
+              "id": "true",
+              "text": "Richtig"
+            },
+            {
+              "id": "false",
+              "text": "Falsch"
+            }
+          ],
+          "correctAnswer": "false",
+          "explanation": "Im Text wird ein Heft verlangt, aber kein eigenes Lehrbuch.",
+          "evidence": "Sie brauchen kein eigenes Lehrbuch.",
+          "text": "Willkommen im Lerncafé. Ich heiße Daniel und begleite heute unsere neue Gruppe. Wir treffen uns jeden Dienstag im Stadtteilzentrum. Am Anfang sprechen wir zu zweit über unseren Alltag. Später üben wir kurze Nachrichten und hören Gespräche. Sie brauchen kein eigenes Lehrbuch. Bringen Sie bitte ein Heft und einen Stift mit. Wenn Sie ein Wort nicht verstehen, fragen Sie nach. Fehler gehören zum Lernen. Heute wählen Sie ein persönliches Lernziel und lernen einen anderen Teilnehmer kennen."
+        },
+        {
+          "id": "sitov-exam-b1-m01-u01-t05",
+          "version": 1,
+          "skill": "writing",
+          "type": "writing",
+          "title": "Mein Lernziel",
+          "instruction": "Schreiben Sie, in welcher Alltagssituation Sie mehr Deutsch brauchen und was Sie dort sagen möchten.",
+          "hints": [],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "writing",
+          "formatFamily": "nachricht",
+          "estimatedMinutes": 3,
+          "releaseStatus": "published",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "rubric": [
+            "Alle geforderten Inhaltspunkte sind verständlich enthalten.",
+            "Ansprache und Gruß passen zum Empfänger.",
+            "Sätze sind sinnvoll verbunden.",
+            "Wortschatz und sprachliche Mittel passen zur Situation.",
+            "Prüfen Sie nach der Rückmeldung Ihren Text und verbessern Sie eine Stelle."
+          ]
+        },
+        {
+          "id": "sitov-exam-b1-m01-u01-t06",
+          "version": 1,
+          "skill": "speaking",
+          "type": "speaking",
+          "title": "Der erste Kontakt",
+          "instruction": "Stellen Sie sich vor. Sie dürfen einen erfundenen Namen verwenden. Nennen Sie einen Wohnort, eine Tätigkeit und Ihr Lernziel. Stellen Sie danach Ihrem Lernpartner eine Frage.",
+          "hints": [
+            "Ich heiße …",
+            "Ich möchte … lernen, weil …",
+            "Und was …?"
+          ],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "speaking",
+          "formatFamily": "kontakt",
+          "estimatedMinutes": 3,
+          "releaseStatus": "published",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "rubric": [
+            "Der Auftrag wird verständlich erfüllt.",
+            "Die Aussagen hängen sinnvoll zusammen.",
+            "Eigene oder erfundene Erfahrungen werden klar erzählt.",
+            "Fragen oder Partneräußerungen werden aufgegriffen.",
+            "Nach der Rückmeldung wird eine Stelle verbessert oder eine Reflexion gespeichert."
+          ]
+        }
+      ],
+      "releaseStatus": "published"
+    },
+    {
+      "id": "sitov-exam-b1-m01-u02",
+      "moduleId": "sitov-exam-b1-m01",
+      "title": "Wörter für gute Kontakte",
+      "description": "Sie verbinden Wörter mit passenden Situationen und Sätzen.",
+      "order": 2,
+      "kind": "vocabulary",
+      "required": false,
+      "estimatedMinutes": 13,
+      "tasks": [
+        {
+          "id": "sitov-exam-b1-m01-u02-t01",
+          "version": 1,
+          "skill": "vocabulary",
+          "type": "matching",
+          "title": "Wörter im Lernalltag",
+          "instruction": "Ordnen Sie jedem Ausdruck die passende Erklärung zu.",
+          "hints": [],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "vocabulary",
+          "formatFamily": "sprachmittel",
+          "estimatedMinutes": 2,
+          "releaseStatus": "published",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "prompts": [
+            {
+              "id": "p1",
+              "text": "der Lernpartner"
+            },
+            {
+              "id": "p2",
+              "text": "nachfragen"
+            },
+            {
+              "id": "p3",
+              "text": "vereinbaren"
+            }
+          ],
+          "options": [
+            {
+              "id": "a",
+              "text": "noch eine Frage stellen"
+            },
+            {
+              "id": "b",
+              "text": "etwas gemeinsam festlegen"
+            },
+            {
+              "id": "c",
+              "text": "eine Person, mit der man lernt"
+            }
+          ],
+          "correctAnswer": [
+            "c",
+            "a",
+            "b"
+          ],
+          "explanation": "Ein Lernpartner lernt mit Ihnen. Nachfragen hilft bei Unklarheit. Einen Termin vereinbart man gemeinsam.",
+          "evidence": "Wörter und Erklärungen gehören jeweils zusammen.",
+          "words": [
+            {
+              "word": "der Lernpartner",
+              "example": "Mein Lernpartner übt mit mir ein Gespräch."
+            },
+            {
+              "word": "nachfragen",
+              "example": "Ich frage nach, wenn ich etwas nicht verstehe."
+            },
+            {
+              "word": "einen Termin vereinbaren",
+              "example": "Wir vereinbaren einen Termin für Mittwoch."
+            }
+          ]
+        },
+        {
+          "id": "sitov-exam-b1-m01-u02-t02",
+          "version": 1,
+          "skill": "vocabulary",
+          "type": "choice",
+          "title": "Ein Treffen planen",
+          "instruction": "Welche Wortverbindung ist passend?",
+          "hints": [],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "vocabulary",
+          "formatFamily": "sprachmittel",
+          "estimatedMinutes": 2,
+          "releaseStatus": "published",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "options": [
+            {
+              "id": "a",
+              "text": "einen Termin erzählen"
+            },
+            {
+              "id": "b",
+              "text": "einen Termin vereinbaren"
+            },
+            {
+              "id": "c",
+              "text": "einen Termin wohnen"
+            }
+          ],
+          "correctAnswer": "b",
+          "explanation": "Mit vereinbaren legen zwei Personen einen Termin fest.",
+          "evidence": "einen Termin vereinbaren",
+          "words": [
+            {
+              "word": "einen Termin vereinbaren",
+              "example": "Wir vereinbaren einen Termin für Mittwoch."
+            }
+          ]
+        },
+        {
+          "id": "sitov-exam-b1-m01-u02-t03",
+          "version": 1,
+          "skill": "vocabulary",
+          "type": "choice",
+          "title": "Mit eigenen Worten",
+          "instruction": "Was bedeutet „Ich möchte mein Deutsch verbessern“?",
+          "hints": [],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "vocabulary",
+          "formatFamily": "sprachmittel",
+          "estimatedMinutes": 2,
+          "releaseStatus": "published",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ich möchte besser Deutsch sprechen und verstehen."
+            },
+            {
+              "id": "b",
+              "text": "Ich möchte nur andere Sprachen sprechen."
+            },
+            {
+              "id": "c",
+              "text": "Ich möchte mein Heft verkaufen."
+            }
+          ],
+          "correctAnswer": "a",
+          "explanation": "Verbessern bedeutet, dass etwas besser werden soll.",
+          "evidence": "besser Deutsch sprechen und verstehen",
+          "words": [
+            {
+              "word": "verbessern",
+              "example": "Ich möchte mein Deutsch im Alltag verbessern."
+            }
+          ]
+        },
+        {
+          "id": "sitov-exam-b1-m01-u02-t04",
+          "version": 1,
+          "skill": "vocabulary",
+          "type": "choice",
+          "title": "Der unpassende Ausdruck",
+          "instruction": "Welcher Ausdruck passt nicht zu einer Vorstellung?",
+          "hints": [],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "vocabulary",
+          "formatFamily": "sprachmittel",
+          "estimatedMinutes": 2,
+          "releaseStatus": "published",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ich wohne seit zwei Jahren hier."
+            },
+            {
+              "id": "b",
+              "text": "In meiner Freizeit koche ich gern."
+            },
+            {
+              "id": "c",
+              "text": "Die Rechnung muss bis Freitag bezahlt werden."
+            }
+          ],
+          "correctAnswer": "c",
+          "explanation": "Eine Rechnung zu bezahlen gehört zu einer anderen Situation.",
+          "evidence": "Die Rechnung muss bis Freitag bezahlt werden."
+        },
+        {
+          "id": "sitov-exam-b1-m01-u02-t05",
+          "version": 1,
+          "skill": "vocabulary",
+          "type": "writing",
+          "title": "Eine Bitte formulieren",
+          "instruction": "Ihr Lernpartner spricht sehr schnell. Schreiben Sie eine höfliche Bitte.",
+          "hints": [
+            "Könntest du bitte …?"
+          ],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "vocabulary",
+          "formatFamily": "sprachmittel",
+          "estimatedMinutes": 2,
+          "releaseStatus": "published",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "rubric": [
+            "Die Antwort passt zur Situation.",
+            "Mehrere verständliche Formulierungen sind möglich."
+          ],
+          "explanation": "Zum Beispiel: Könntest du bitte etwas langsamer sprechen? Auch andere höfliche Bitten passen.",
+          "words": [
+            {
+              "word": "etwas langsamer sprechen",
+              "example": "Könntest du bitte etwas langsamer sprechen?"
+            }
+          ]
+        },
+        {
+          "id": "sitov-exam-b1-m01-u02-t06",
+          "version": 1,
+          "skill": "writing",
+          "type": "writing",
+          "title": "Mein eigener Beispielsatz",
+          "instruction": "Wählen Sie „nachfragen“, „ein Lernziel“ oder „einen Termin vereinbaren“. Schreiben Sie einen eigenen Satz über eine konkrete Situation.",
+          "hints": [],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "writing",
+          "formatFamily": "nachricht",
+          "estimatedMinutes": 3,
+          "releaseStatus": "published",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "rubric": [
+            "Alle geforderten Inhaltspunkte sind verständlich enthalten.",
+            "Ansprache und Gruß passen zum Empfänger.",
+            "Sätze sind sinnvoll verbunden.",
+            "Wortschatz und sprachliche Mittel passen zur Situation.",
+            "Prüfen Sie nach der Rückmeldung Ihren Text und verbessern Sie eine Stelle."
+          ]
+        }
+      ],
+      "releaseStatus": "published"
+    },
+    {
+      "id": "sitov-exam-b1-m01-u03",
+      "moduleId": "sitov-exam-b1-m01",
+      "title": "Wörter selbst benutzen",
+      "description": "Sie rufen Wörter ohne Auswahl ab und reagieren mit eigenen Sätzen.",
+      "order": 3,
+      "kind": "vocabulary",
+      "required": true,
+      "estimatedMinutes": 13,
+      "tasks": [
+        {
+          "id": "sitov-exam-b1-m01-u03-t01",
+          "version": 1,
+          "skill": "vocabulary",
+          "type": "short-text",
+          "title": "Ein Wort abrufen",
+          "instruction": "Ergänzen Sie ohne Wortliste: Ich verstehe die Erklärung nicht. Deshalb möchte ich noch einmal ___.",
+          "hints": [],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "vocabulary",
+          "formatFamily": "sprachmittel",
+          "estimatedMinutes": 2,
+          "releaseStatus": "published",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "rubric": [
+            "Die Antwort passt zur Situation.",
+            "Mehrere verständliche Formulierungen sind möglich."
+          ],
+          "correctAnswer": [
+            "nachfragen"
+          ],
+          "explanation": "Nachfragen bedeutet, eine weitere Frage zu stellen.",
+          "evidence": "Ich verstehe die Erklärung nicht.",
+          "words": [
+            {
+              "word": "einen Grund nennen",
+              "example": "Ich nenne einen Grund für meinen Lernwunsch."
+            },
+            {
+              "word": "einen Termin vereinbaren",
+              "example": "Wir vereinbaren einen Termin für Mittwoch."
+            }
+          ]
+        },
+        {
+          "id": "sitov-exam-b1-m01-u03-t02",
+          "version": 1,
+          "skill": "vocabulary",
+          "type": "short-text",
+          "title": "Eine Verbindung abrufen",
+          "instruction": "Ergänzen Sie: Wir möchten am Mittwoch üben. Dafür wollen wir einen Termin ___.",
+          "hints": [],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "vocabulary",
+          "formatFamily": "sprachmittel",
+          "estimatedMinutes": 2,
+          "releaseStatus": "published",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "rubric": [
+            "Die Antwort passt zur Situation.",
+            "Mehrere verständliche Formulierungen sind möglich."
+          ],
+          "correctAnswer": [
+            "vereinbaren"
+          ],
+          "explanation": "Einen Termin vereinbaren ist eine feste Wortverbindung.",
+          "evidence": "einen Termin vereinbaren"
+        },
+        {
+          "id": "sitov-exam-b1-m01-u03-t03",
+          "version": 1,
+          "skill": "writing",
+          "type": "writing",
+          "title": "Eine kurze Antwort",
+          "instruction": "Ihr Lernpartner fragt: Warum lernen Sie Deutsch? Antworten Sie mit einem Grund.",
+          "hints": [
+            "Ich lerne Deutsch, weil …"
+          ],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "writing",
+          "formatFamily": "nachricht",
+          "estimatedMinutes": 2,
+          "releaseStatus": "published",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "rubric": [
+            "Alle geforderten Inhaltspunkte sind verständlich enthalten.",
+            "Ansprache und Gruß passen zum Empfänger.",
+            "Sätze sind sinnvoll verbunden.",
+            "Wortschatz und sprachliche Mittel passen zur Situation.",
+            "Prüfen Sie nach der Rückmeldung Ihren Text und verbessern Sie eine Stelle."
+          ]
+        },
+        {
+          "id": "sitov-exam-b1-m01-u03-t04",
+          "version": 1,
+          "skill": "speaking",
+          "type": "speaking",
+          "title": "Eine Frage stellen",
+          "instruction": "Fragen Sie einen neuen Teilnehmer nach seinem Lernziel und seiner Erfahrung mit Deutsch. Wählen Sie „du“ oder „Sie“ und bleiben Sie dabei.",
+          "hints": [],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "speaking",
+          "formatFamily": "kontakt",
+          "estimatedMinutes": 3,
+          "releaseStatus": "published",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "rubric": [
+            "Der Auftrag wird verständlich erfüllt.",
+            "Die Aussagen hängen sinnvoll zusammen.",
+            "Eigene oder erfundene Erfahrungen werden klar erzählt.",
+            "Fragen oder Partneräußerungen werden aufgegriffen.",
+            "Nach der Rückmeldung wird eine Stelle verbessert oder eine Reflexion gespeichert."
+          ]
+        },
+        {
+          "id": "sitov-exam-b1-m01-u03-t05",
+          "version": 1,
+          "skill": "writing",
+          "type": "writing",
+          "title": "Eine Frage verständlicher machen",
+          "instruction": "Sie haben geschrieben: „Wann wir treffen?“ Schreiben Sie daraus eine verständliche Frage. Fragen Sie nach einem gemeinsamen Lerntreffen.",
+          "hints": [],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "writing",
+          "formatFamily": "nachricht",
+          "estimatedMinutes": 2,
+          "releaseStatus": "published",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "rubric": [
+            "Alle geforderten Inhaltspunkte sind verständlich enthalten.",
+            "Ansprache und Gruß passen zum Empfänger.",
+            "Sätze sind sinnvoll verbunden.",
+            "Wortschatz und sprachliche Mittel passen zur Situation.",
+            "Prüfen Sie nach der Rückmeldung Ihren Text und verbessern Sie eine Stelle."
+          ],
+          "explanation": "Zum Beispiel: Wann treffen wir uns? oder Wann können wir uns treffen?"
+        },
+        {
+          "id": "sitov-exam-b1-m01-u03-t06",
+          "version": 1,
+          "skill": "speaking",
+          "type": "speaking",
+          "title": "Ein unbekanntes Wort umschreiben",
+          "instruction": "Erklären Sie das Wort „Heft“, ohne dieses Wort zu benutzen. Sagen Sie, wofür man den Gegenstand braucht.",
+          "hints": [
+            "Das ist ein Gegenstand, in den man …"
+          ],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "speaking",
+          "formatFamily": "kontakt",
+          "estimatedMinutes": 2,
+          "releaseStatus": "published",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "rubric": [
+            "Der Auftrag wird verständlich erfüllt.",
+            "Die Aussagen hängen sinnvoll zusammen.",
+            "Eigene oder erfundene Erfahrungen werden klar erzählt.",
+            "Fragen oder Partneräußerungen werden aufgegriffen.",
+            "Nach der Rückmeldung wird eine Stelle verbessert oder eine Reflexion gespeichert."
+          ]
+        }
+      ],
+      "releaseStatus": "published"
+    },
+    {
+      "id": "sitov-exam-b1-m01-u04",
+      "moduleId": "sitov-exam-b1-m01",
+      "title": "Gut auf Schlüsselstellen hören",
+      "description": "Sie erkennen Zahlen, Änderungen und verneinte Informationen.",
+      "order": 4,
+      "kind": "listening",
+      "required": true,
+      "estimatedMinutes": 12,
+      "tasks": [
+        {
+          "id": "sitov-exam-b1-m01-u04-t01",
+          "version": 1,
+          "skill": "listening",
+          "type": "choice",
+          "title": "Ähnliche Uhrzeiten",
+          "instruction": "Wann beginnt der zweite Termin?",
+          "hints": [],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "listening",
+          "formatFamily": "zahlen",
+          "estimatedMinutes": 2,
+          "releaseStatus": "awaiting_media",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "options": [
+            {
+              "id": "a",
+              "text": "14:15 Uhr"
+            },
+            {
+              "id": "b",
+              "text": "14:50 Uhr"
+            },
+            {
+              "id": "c",
+              "text": "15:40 Uhr"
+            }
+          ],
+          "correctAnswer": "b",
+          "explanation": "Der zweite Termin beginnt um vierzehn Uhr fünfzig.",
+          "evidence": "Der zweite Termin beginnt um vierzehn Uhr fünfzig.",
+          "audio": {
+            "id": "sitov-exam-b1-m01-times-v1",
+            "script": "Der erste Termin beginnt um vierzehn Uhr fünfzehn. Der zweite Termin beginnt um vierzehn Uhr fünfzig. Unser Treffen dauert von zehn Uhr bis zwölf Uhr. Der Raum befindet sich im zweiten Stock. Bitte melden Sie sich bis Donnerstag an.",
+            "status": "awaiting_recording",
+            "route": "qwen",
+            "roles": [
+              "Männlicher Sprecher"
+            ],
+            "notes": "Lokal auf dem Mac mit Qwen3-TTS-12Hz-1.7B-Base und sitov-qwen-male-de-v1 vorberechnen; echte Forced-Alignment-Wortzeitmarken prüfen und in Audio-Storage importieren. Kein Ersatz-TTS."
+          },
+          "words": [
+            {
+              "word": "stattdessen",
+              "example": "Der Kurs findet stattdessen am Mittwoch statt."
+            },
+            {
+              "word": "bis Donnerstag",
+              "example": "Bitte melde dich bis Donnerstag an."
+            }
+          ]
+        },
+        {
+          "id": "sitov-exam-b1-m01-u04-t02",
+          "version": 1,
+          "skill": "listening",
+          "type": "choice",
+          "title": "Eine Dauer verstehen",
+          "instruction": "Wie lange dauert das Treffen?",
+          "hints": [],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "listening",
+          "formatFamily": "zahlen",
+          "estimatedMinutes": 2,
+          "releaseStatus": "awaiting_media",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "options": [
+            {
+              "id": "a",
+              "text": "Eine Stunde."
+            },
+            {
+              "id": "b",
+              "text": "Zwei Stunden."
+            },
+            {
+              "id": "c",
+              "text": "Zwölf Stunden."
+            }
+          ],
+          "correctAnswer": "b",
+          "explanation": "Von zehn bis zwölf Uhr sind zwei Stunden.",
+          "evidence": "von zehn Uhr bis zwölf Uhr",
+          "audio": {
+            "id": "sitov-exam-b1-m01-times-v1",
+            "script": "Der erste Termin beginnt um vierzehn Uhr fünfzehn. Der zweite Termin beginnt um vierzehn Uhr fünfzig. Unser Treffen dauert von zehn Uhr bis zwölf Uhr. Der Raum befindet sich im zweiten Stock. Bitte melden Sie sich bis Donnerstag an.",
+            "status": "awaiting_recording",
+            "route": "qwen",
+            "roles": [
+              "Männlicher Sprecher"
+            ],
+            "notes": "Lokal auf dem Mac mit Qwen3-TTS-12Hz-1.7B-Base und sitov-qwen-male-de-v1 vorberechnen; echte Forced-Alignment-Wortzeitmarken prüfen und in Audio-Storage importieren. Kein Ersatz-TTS."
+          }
+        },
+        {
+          "id": "sitov-exam-b1-m01-u04-t03",
+          "version": 1,
+          "skill": "listening",
+          "type": "choice",
+          "title": "Die Frist erkennen",
+          "instruction": "Bis wann soll man sich anmelden?",
+          "hints": [],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "listening",
+          "formatFamily": "zahlen",
+          "estimatedMinutes": 2,
+          "releaseStatus": "awaiting_media",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "options": [
+            {
+              "id": "a",
+              "text": "Bis Dienstag."
+            },
+            {
+              "id": "b",
+              "text": "Bis Mittwoch."
+            },
+            {
+              "id": "c",
+              "text": "Bis Donnerstag."
+            }
+          ],
+          "correctAnswer": "c",
+          "explanation": "Bis bezeichnet hier die Anmeldefrist.",
+          "evidence": "Bitte melden Sie sich bis Donnerstag an.",
+          "audio": {
+            "id": "sitov-exam-b1-m01-times-v1",
+            "script": "Der erste Termin beginnt um vierzehn Uhr fünfzehn. Der zweite Termin beginnt um vierzehn Uhr fünfzig. Unser Treffen dauert von zehn Uhr bis zwölf Uhr. Der Raum befindet sich im zweiten Stock. Bitte melden Sie sich bis Donnerstag an.",
+            "status": "awaiting_recording",
+            "route": "qwen",
+            "roles": [
+              "Männlicher Sprecher"
+            ],
+            "notes": "Lokal auf dem Mac mit Qwen3-TTS-12Hz-1.7B-Base und sitov-qwen-male-de-v1 vorberechnen; echte Forced-Alignment-Wortzeitmarken prüfen und in Audio-Storage importieren. Kein Ersatz-TTS."
+          }
+        },
+        {
+          "id": "sitov-exam-b1-m01-u04-t04",
+          "version": 1,
+          "skill": "listening",
+          "type": "choice",
+          "title": "Eine Verneinung hören",
+          "instruction": "Wann möchte der Sprecher lernen?",
+          "hints": [],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "listening",
+          "formatFamily": "absicht",
+          "estimatedMinutes": 2,
+          "releaseStatus": "awaiting_media",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "options": [
+            {
+              "id": "a",
+              "text": "Am Abend."
+            },
+            {
+              "id": "b",
+              "text": "Am Vormittag."
+            },
+            {
+              "id": "c",
+              "text": "Nur nachts."
+            }
+          ],
+          "correctAnswer": "b",
+          "explanation": "Nicht … sondern … korrigiert die erste Information.",
+          "evidence": "nicht am Abend lernen, sondern am Vormittag",
+          "audio": {
+            "id": "sitov-exam-b1-m01-contrast-v1",
+            "script": "Ich möchte nicht am Abend lernen, sondern am Vormittag. Früher habe ich allein gelernt. Jetzt treffe ich mich mit einem Lernpartner. Der Kurs findet normalerweise in Raum zwölf statt. Heute gehen wir jedoch in Raum zwanzig. Sie müssen kein Buch kaufen. Ein Heft brauchen Sie trotzdem.",
+            "status": "awaiting_recording",
+            "route": "qwen",
+            "roles": [
+              "Männlicher Sprecher"
+            ],
+            "notes": "Lokal auf dem Mac mit Qwen3-TTS-12Hz-1.7B-Base und sitov-qwen-male-de-v1 vorberechnen; echte Forced-Alignment-Wortzeitmarken prüfen und in Audio-Storage importieren. Kein Ersatz-TTS."
+          }
+        },
+        {
+          "id": "sitov-exam-b1-m01-u04-t05",
+          "version": 1,
+          "skill": "listening",
+          "type": "true-false",
+          "title": "Früher und heute",
+          "instruction": "Der Sprecher lernt jetzt immer allein.",
+          "hints": [],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "listening",
+          "formatFamily": "detailverstehen",
+          "estimatedMinutes": 2,
+          "releaseStatus": "awaiting_media",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "options": [
+            {
+              "id": "true",
+              "text": "Richtig"
+            },
+            {
+              "id": "false",
+              "text": "Falsch"
+            }
+          ],
+          "correctAnswer": "false",
+          "explanation": "Früher lernte er allein, jetzt mit einem Partner.",
+          "evidence": "Jetzt treffe ich mich mit einem Lernpartner.",
+          "audio": {
+            "id": "sitov-exam-b1-m01-contrast-v1",
+            "script": "Ich möchte nicht am Abend lernen, sondern am Vormittag. Früher habe ich allein gelernt. Jetzt treffe ich mich mit einem Lernpartner. Der Kurs findet normalerweise in Raum zwölf statt. Heute gehen wir jedoch in Raum zwanzig. Sie müssen kein Buch kaufen. Ein Heft brauchen Sie trotzdem.",
+            "status": "awaiting_recording",
+            "route": "qwen",
+            "roles": [
+              "Männlicher Sprecher"
+            ],
+            "notes": "Lokal auf dem Mac mit Qwen3-TTS-12Hz-1.7B-Base und sitov-qwen-male-de-v1 vorberechnen; echte Forced-Alignment-Wortzeitmarken prüfen und in Audio-Storage importieren. Kein Ersatz-TTS."
+          }
+        },
+        {
+          "id": "sitov-exam-b1-m01-u04-t06",
+          "version": 1,
+          "skill": "listening",
+          "type": "choice",
+          "title": "Eine Änderung erkennen",
+          "instruction": "Welcher Raum gilt heute?",
+          "hints": [
+            "Achten Sie auf „heute“ und „jedoch“."
+          ],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "listening",
+          "formatFamily": "detailverstehen",
+          "estimatedMinutes": 2,
+          "releaseStatus": "awaiting_media",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "options": [
+            {
+              "id": "a",
+              "text": "Raum 12."
+            },
+            {
+              "id": "b",
+              "text": "Raum 20."
+            },
+            {
+              "id": "c",
+              "text": "Raum 2."
+            }
+          ],
+          "correctAnswer": "b",
+          "explanation": "Heute und jedoch zeigen die geänderte Information.",
+          "evidence": "Heute gehen wir jedoch in Raum zwanzig.",
+          "audio": {
+            "id": "sitov-exam-b1-m01-contrast-v1",
+            "script": "Ich möchte nicht am Abend lernen, sondern am Vormittag. Früher habe ich allein gelernt. Jetzt treffe ich mich mit einem Lernpartner. Der Kurs findet normalerweise in Raum zwölf statt. Heute gehen wir jedoch in Raum zwanzig. Sie müssen kein Buch kaufen. Ein Heft brauchen Sie trotzdem.",
+            "status": "awaiting_recording",
+            "route": "qwen",
+            "roles": [
+              "Männlicher Sprecher"
+            ],
+            "notes": "Lokal auf dem Mac mit Qwen3-TTS-12Hz-1.7B-Base und sitov-qwen-male-de-v1 vorberechnen; echte Forced-Alignment-Wortzeitmarken prüfen und in Audio-Storage importieren. Kein Ersatz-TTS."
+          }
+        }
+      ],
+      "releaseStatus": "published"
+    },
+    {
+      "id": "sitov-exam-b1-m01-u05",
+      "moduleId": "sitov-exam-b1-m01",
+      "title": "Eine neue Mitteilung verstehen",
+      "description": "Sie hören eine vollständige Terminmitteilung und notieren Wichtiges.",
+      "order": 5,
+      "kind": "listening",
+      "required": true,
+      "estimatedMinutes": 13,
+      "tasks": [
+        {
+          "id": "sitov-exam-b1-m01-u05-t01",
+          "version": 1,
+          "skill": "listening",
+          "type": "choice",
+          "title": "Das Thema erfassen",
+          "instruction": "Warum ruft Daniel an?",
+          "hints": [],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "listening",
+          "formatFamily": "globalverstehen",
+          "estimatedMinutes": 2,
+          "releaseStatus": "awaiting_media",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "options": [
+            {
+              "id": "a",
+              "text": "Er erklärt Änderungen für das erste Treffen."
+            },
+            {
+              "id": "b",
+              "text": "Er verkauft ein neues Lehrbuch."
+            },
+            {
+              "id": "c",
+              "text": "Er sagt alle zukünftigen Treffen ab."
+            }
+          ],
+          "correctAnswer": "a",
+          "explanation": "Termin und Ort des ersten Treffens ändern sich.",
+          "evidence": "treffen wir uns diese Woche am Mittwoch um halb elf",
+          "audio": {
+            "id": "sitov-exam-b1-m01-listening-v1",
+            "script": "Guten Tag, hier spricht Daniel vom Lerncafé West. Unser erstes Treffen war für Dienstag um zehn Uhr geplant. Wegen einer Reparatur im Haus treffen wir uns diese Woche am Mittwoch um halb elf. Wir sitzen nicht im großen Saal, sondern in Raum zwölf im ersten Stock. Bitte kommen Sie zum Eingang an der Gartenstraße. Der Eingang am Parkplatz bleibt geschlossen. Bringen Sie ein Heft mit. Ein Lehrbuch ist nicht nötig. Wenn Sie einen Lernpartner suchen, bleiben Sie nach dem Treffen noch zehn Minuten. Wir bilden dann kleine Gruppen. Bitte bestätigen Sie bis morgen, ob Sie kommen können. Sie erreichen mich telefonisch oder mit einer kurzen E-Mail.",
+            "status": "awaiting_recording",
+            "route": "qwen",
+            "roles": [
+              "Männlicher Sprecher"
+            ],
+            "notes": "Lokal auf dem Mac mit Qwen3-TTS-12Hz-1.7B-Base und sitov-qwen-male-de-v1 vorberechnen; echte Forced-Alignment-Wortzeitmarken prüfen und in Audio-Storage importieren. Kein Ersatz-TTS."
+          },
+          "words": [
+            {
+              "word": "den Termin bestätigen",
+              "example": "Ich bestätige den neuen Termin per E-Mail."
+            },
+            {
+              "word": "der Eingang",
+              "example": "Der Eingang an der Gartenstraße ist geöffnet."
+            }
+          ]
+        },
+        {
+          "id": "sitov-exam-b1-m01-u05-t02",
+          "version": 1,
+          "skill": "listening",
+          "type": "choice",
+          "title": "Der neue Termin",
+          "instruction": "Wann findet das Treffen diese Woche statt?",
+          "hints": [
+            "Halb elf bedeutet 10:30 Uhr."
+          ],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "listening",
+          "formatFamily": "detailverstehen",
+          "estimatedMinutes": 2,
+          "releaseStatus": "awaiting_media",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "options": [
+            {
+              "id": "a",
+              "text": "Dienstag, 10:00 Uhr."
+            },
+            {
+              "id": "b",
+              "text": "Mittwoch, 10:30 Uhr."
+            },
+            {
+              "id": "c",
+              "text": "Mittwoch, 11:30 Uhr."
+            }
+          ],
+          "correctAnswer": "b",
+          "explanation": "Der erste Termin wird durch den neuen Mittwochstermin ersetzt.",
+          "evidence": "am Mittwoch um halb elf",
+          "audio": {
+            "id": "sitov-exam-b1-m01-listening-v1",
+            "script": "Guten Tag, hier spricht Daniel vom Lerncafé West. Unser erstes Treffen war für Dienstag um zehn Uhr geplant. Wegen einer Reparatur im Haus treffen wir uns diese Woche am Mittwoch um halb elf. Wir sitzen nicht im großen Saal, sondern in Raum zwölf im ersten Stock. Bitte kommen Sie zum Eingang an der Gartenstraße. Der Eingang am Parkplatz bleibt geschlossen. Bringen Sie ein Heft mit. Ein Lehrbuch ist nicht nötig. Wenn Sie einen Lernpartner suchen, bleiben Sie nach dem Treffen noch zehn Minuten. Wir bilden dann kleine Gruppen. Bitte bestätigen Sie bis morgen, ob Sie kommen können. Sie erreichen mich telefonisch oder mit einer kurzen E-Mail.",
+            "status": "awaiting_recording",
+            "route": "qwen",
+            "roles": [
+              "Männlicher Sprecher"
+            ],
+            "notes": "Lokal auf dem Mac mit Qwen3-TTS-12Hz-1.7B-Base und sitov-qwen-male-de-v1 vorberechnen; echte Forced-Alignment-Wortzeitmarken prüfen und in Audio-Storage importieren. Kein Ersatz-TTS."
+          }
+        },
+        {
+          "id": "sitov-exam-b1-m01-u05-t03",
+          "version": 1,
+          "skill": "listening",
+          "type": "choice",
+          "title": "Den Raum finden",
+          "instruction": "Wo sitzt die Gruppe?",
+          "hints": [],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "listening",
+          "formatFamily": "detailverstehen",
+          "estimatedMinutes": 2,
+          "releaseStatus": "awaiting_media",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "options": [
+            {
+              "id": "a",
+              "text": "Im großen Saal."
+            },
+            {
+              "id": "b",
+              "text": "In Raum 12 im ersten Stock."
+            },
+            {
+              "id": "c",
+              "text": "In Raum 12 im Erdgeschoss."
+            }
+          ],
+          "correctAnswer": "b",
+          "explanation": "Der Sprecher nennt ausdrücklich Raum und Stockwerk.",
+          "evidence": "Raum zwölf im ersten Stock",
+          "audio": {
+            "id": "sitov-exam-b1-m01-listening-v1",
+            "script": "Guten Tag, hier spricht Daniel vom Lerncafé West. Unser erstes Treffen war für Dienstag um zehn Uhr geplant. Wegen einer Reparatur im Haus treffen wir uns diese Woche am Mittwoch um halb elf. Wir sitzen nicht im großen Saal, sondern in Raum zwölf im ersten Stock. Bitte kommen Sie zum Eingang an der Gartenstraße. Der Eingang am Parkplatz bleibt geschlossen. Bringen Sie ein Heft mit. Ein Lehrbuch ist nicht nötig. Wenn Sie einen Lernpartner suchen, bleiben Sie nach dem Treffen noch zehn Minuten. Wir bilden dann kleine Gruppen. Bitte bestätigen Sie bis morgen, ob Sie kommen können. Sie erreichen mich telefonisch oder mit einer kurzen E-Mail.",
+            "status": "awaiting_recording",
+            "route": "qwen",
+            "roles": [
+              "Männlicher Sprecher"
+            ],
+            "notes": "Lokal auf dem Mac mit Qwen3-TTS-12Hz-1.7B-Base und sitov-qwen-male-de-v1 vorberechnen; echte Forced-Alignment-Wortzeitmarken prüfen und in Audio-Storage importieren. Kein Ersatz-TTS."
+          }
+        },
+        {
+          "id": "sitov-exam-b1-m01-u05-t04",
+          "version": 1,
+          "skill": "listening",
+          "type": "true-false",
+          "title": "Der richtige Eingang",
+          "instruction": "Man soll den Eingang am Parkplatz benutzen.",
+          "hints": [],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "listening",
+          "formatFamily": "detailverstehen",
+          "estimatedMinutes": 2,
+          "releaseStatus": "awaiting_media",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "options": [
+            {
+              "id": "true",
+              "text": "Richtig"
+            },
+            {
+              "id": "false",
+              "text": "Falsch"
+            }
+          ],
+          "correctAnswer": "false",
+          "explanation": "Der Parkplatzeingang bleibt geschlossen.",
+          "evidence": "Bitte kommen Sie zum Eingang an der Gartenstraße.",
+          "audio": {
+            "id": "sitov-exam-b1-m01-listening-v1",
+            "script": "Guten Tag, hier spricht Daniel vom Lerncafé West. Unser erstes Treffen war für Dienstag um zehn Uhr geplant. Wegen einer Reparatur im Haus treffen wir uns diese Woche am Mittwoch um halb elf. Wir sitzen nicht im großen Saal, sondern in Raum zwölf im ersten Stock. Bitte kommen Sie zum Eingang an der Gartenstraße. Der Eingang am Parkplatz bleibt geschlossen. Bringen Sie ein Heft mit. Ein Lehrbuch ist nicht nötig. Wenn Sie einen Lernpartner suchen, bleiben Sie nach dem Treffen noch zehn Minuten. Wir bilden dann kleine Gruppen. Bitte bestätigen Sie bis morgen, ob Sie kommen können. Sie erreichen mich telefonisch oder mit einer kurzen E-Mail.",
+            "status": "awaiting_recording",
+            "route": "qwen",
+            "roles": [
+              "Männlicher Sprecher"
+            ],
+            "notes": "Lokal auf dem Mac mit Qwen3-TTS-12Hz-1.7B-Base und sitov-qwen-male-de-v1 vorberechnen; echte Forced-Alignment-Wortzeitmarken prüfen und in Audio-Storage importieren. Kein Ersatz-TTS."
+          }
+        },
+        {
+          "id": "sitov-exam-b1-m01-u05-t05",
+          "version": 1,
+          "skill": "listening",
+          "type": "choice",
+          "title": "Nach dem Treffen",
+          "instruction": "Was passiert nach dem Treffen?",
+          "hints": [],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "listening",
+          "formatFamily": "detailverstehen",
+          "estimatedMinutes": 2,
+          "releaseStatus": "awaiting_media",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "options": [
+            {
+              "id": "a",
+              "text": "Lernpartner bilden kleine Gruppen."
+            },
+            {
+              "id": "b",
+              "text": "Alle müssen ein Buch kaufen."
+            },
+            {
+              "id": "c",
+              "text": "Daniel prüft die Ausweise."
+            }
+          ],
+          "correctAnswer": "a",
+          "explanation": "Wer einen Lernpartner sucht, bleibt für die Gruppenbildung.",
+          "evidence": "Wir bilden dann kleine Gruppen.",
+          "audio": {
+            "id": "sitov-exam-b1-m01-listening-v1",
+            "script": "Guten Tag, hier spricht Daniel vom Lerncafé West. Unser erstes Treffen war für Dienstag um zehn Uhr geplant. Wegen einer Reparatur im Haus treffen wir uns diese Woche am Mittwoch um halb elf. Wir sitzen nicht im großen Saal, sondern in Raum zwölf im ersten Stock. Bitte kommen Sie zum Eingang an der Gartenstraße. Der Eingang am Parkplatz bleibt geschlossen. Bringen Sie ein Heft mit. Ein Lehrbuch ist nicht nötig. Wenn Sie einen Lernpartner suchen, bleiben Sie nach dem Treffen noch zehn Minuten. Wir bilden dann kleine Gruppen. Bitte bestätigen Sie bis morgen, ob Sie kommen können. Sie erreichen mich telefonisch oder mit einer kurzen E-Mail.",
+            "status": "awaiting_recording",
+            "route": "qwen",
+            "roles": [
+              "Männlicher Sprecher"
+            ],
+            "notes": "Lokal auf dem Mac mit Qwen3-TTS-12Hz-1.7B-Base und sitov-qwen-male-de-v1 vorberechnen; echte Forced-Alignment-Wortzeitmarken prüfen und in Audio-Storage importieren. Kein Ersatz-TTS."
+          }
+        },
+        {
+          "id": "sitov-exam-b1-m01-u05-t06",
+          "version": 1,
+          "skill": "writing",
+          "type": "writing",
+          "title": "Eine Hörnotiz",
+          "instruction": "Notieren Sie für einen Freund: Tag und Uhrzeit, Raum und was er mitbringen soll. Hören Sie noch einmal, wenn Sie Hilfe brauchen. Die Hilfe wird gespeichert.",
+          "hints": [],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "writing",
+          "formatFamily": "hoeren_schreiben",
+          "estimatedMinutes": 3,
+          "releaseStatus": "awaiting_media",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "rubric": [
+            "Mittwoch, 10:30 Uhr ist enthalten.",
+            "Raum 12 im ersten Stock ist enthalten.",
+            "Ein Heft wird genannt.",
+            "Die Notiz ist verständlich."
+          ],
+          "audio": {
+            "id": "sitov-exam-b1-m01-listening-v1",
+            "script": "Guten Tag, hier spricht Daniel vom Lerncafé West. Unser erstes Treffen war für Dienstag um zehn Uhr geplant. Wegen einer Reparatur im Haus treffen wir uns diese Woche am Mittwoch um halb elf. Wir sitzen nicht im großen Saal, sondern in Raum zwölf im ersten Stock. Bitte kommen Sie zum Eingang an der Gartenstraße. Der Eingang am Parkplatz bleibt geschlossen. Bringen Sie ein Heft mit. Ein Lehrbuch ist nicht nötig. Wenn Sie einen Lernpartner suchen, bleiben Sie nach dem Treffen noch zehn Minuten. Wir bilden dann kleine Gruppen. Bitte bestätigen Sie bis morgen, ob Sie kommen können. Sie erreichen mich telefonisch oder mit einer kurzen E-Mail.",
+            "status": "awaiting_recording",
+            "route": "qwen",
+            "roles": [
+              "Männlicher Sprecher"
+            ],
+            "notes": "Lokal auf dem Mac mit Qwen3-TTS-12Hz-1.7B-Base und sitov-qwen-male-de-v1 vorberechnen; echte Forced-Alignment-Wortzeitmarken prüfen und in Audio-Storage importieren. Kein Ersatz-TTS."
+          }
+        }
+      ],
+      "releaseStatus": "published"
+    },
+    {
+      "id": "sitov-exam-b1-m01-u06",
+      "moduleId": "sitov-exam-b1-m01",
+      "title": "Ein Angebot genau lesen",
+      "description": "Sie suchen Belege und unterscheiden Bedingungen und Ausnahmen.",
+      "order": 6,
+      "kind": "reading",
+      "required": true,
+      "estimatedMinutes": 12,
+      "tasks": [
+        {
+          "id": "sitov-exam-b1-m01-u06-t01",
+          "version": 1,
+          "skill": "reading",
+          "type": "choice",
+          "title": "Eine Textsorte erkennen",
+          "instruction": "Welche Textsorte lesen Sie?",
+          "hints": [],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "reading",
+          "formatFamily": "textsorte",
+          "estimatedMinutes": 2,
+          "releaseStatus": "published",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "options": [
+            {
+              "id": "a",
+              "text": "Eine private Urlaubskarte."
+            },
+            {
+              "id": "b",
+              "text": "Eine öffentliche Information über ein Angebot."
+            },
+            {
+              "id": "c",
+              "text": "Eine Rechnung für einen Laptop."
+            }
+          ],
+          "correctAnswer": "b",
+          "explanation": "Der Text erklärt Angebot, Zielgruppe, Zeiten und Bedingungen.",
+          "evidence": "Lerntreff im Stadtteilzentrum West",
+          "text": "Lerntreff im Stadtteilzentrum West\nSie möchten im Alltag mehr Deutsch sprechen? Unser Lerntreff ist für Erwachsene ab 18 Jahren offen. Wir treffen uns mittwochs von 17 bis 18 Uhr in Raum 6. Eine Anmeldung ist vor dem ersten Besuch nötig. Bitte schreiben Sie bis Montag an das Stadtteilzentrum. Die Teilnahme ist kostenlos. Kaffee kostet einen Euro. Wir lesen kurze Alltagstexte und sprechen in kleinen Gruppen. Anfänger ohne erste Deutschkenntnisse besuchen bitte zuerst unseren Einführungskurs. Der Treff ersetzt keinen Sprachkurs. Wer keinen Laptop hat, kann mit einem Heft arbeiten. Am letzten Mittwoch des Monats findet der Treff in der Bibliothek statt.",
+          "words": [
+            {
+              "word": "die Anmeldung",
+              "example": "Eine Anmeldung vor dem ersten Besuch ist nötig."
+            },
+            {
+              "word": "die Teilnahme",
+              "example": "Die Teilnahme am Lerntreff ist kostenlos."
+            }
+          ]
+        },
+        {
+          "id": "sitov-exam-b1-m01-u06-t02",
+          "version": 1,
+          "skill": "reading",
+          "type": "choice",
+          "title": "Das Angebot prüfen",
+          "instruction": "Erik ist 55 Jahre alt und spricht schon etwas Deutsch. Er möchte Gespräche üben. Passt der Treff?",
+          "hints": [],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "reading",
+          "formatFamily": "anzeige_zuordnung",
+          "estimatedMinutes": 2,
+          "releaseStatus": "published",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ja, er kann nach Anmeldung teilnehmen."
+            },
+            {
+              "id": "b",
+              "text": "Nein, der Treff ist nur für junge Menschen."
+            },
+            {
+              "id": "c",
+              "text": "Ja, aber nur mit eigenem Laptop."
+            }
+          ],
+          "correctAnswer": "a",
+          "explanation": "Erwachsene mit ersten Deutschkenntnissen sind die Zielgruppe.",
+          "evidence": "für Erwachsene ab 18 Jahren offen",
+          "text": "Lerntreff im Stadtteilzentrum West\nSie möchten im Alltag mehr Deutsch sprechen? Unser Lerntreff ist für Erwachsene ab 18 Jahren offen. Wir treffen uns mittwochs von 17 bis 18 Uhr in Raum 6. Eine Anmeldung ist vor dem ersten Besuch nötig. Bitte schreiben Sie bis Montag an das Stadtteilzentrum. Die Teilnahme ist kostenlos. Kaffee kostet einen Euro. Wir lesen kurze Alltagstexte und sprechen in kleinen Gruppen. Anfänger ohne erste Deutschkenntnisse besuchen bitte zuerst unseren Einführungskurs. Der Treff ersetzt keinen Sprachkurs. Wer keinen Laptop hat, kann mit einem Heft arbeiten. Am letzten Mittwoch des Monats findet der Treff in der Bibliothek statt."
+        },
+        {
+          "id": "sitov-exam-b1-m01-u06-t03",
+          "version": 1,
+          "skill": "reading",
+          "type": "true-false",
+          "title": "Kosten unterscheiden",
+          "instruction": "Kaffee und Teilnahme sind kostenlos.",
+          "hints": [],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "reading",
+          "formatFamily": "bedingung",
+          "estimatedMinutes": 2,
+          "releaseStatus": "published",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "options": [
+            {
+              "id": "true",
+              "text": "Richtig"
+            },
+            {
+              "id": "false",
+              "text": "Falsch"
+            }
+          ],
+          "correctAnswer": "false",
+          "explanation": "Nur die Teilnahme ist kostenlos. Kaffee kostet einen Euro.",
+          "evidence": "Die Teilnahme ist kostenlos. Kaffee kostet einen Euro.",
+          "text": "Lerntreff im Stadtteilzentrum West\nSie möchten im Alltag mehr Deutsch sprechen? Unser Lerntreff ist für Erwachsene ab 18 Jahren offen. Wir treffen uns mittwochs von 17 bis 18 Uhr in Raum 6. Eine Anmeldung ist vor dem ersten Besuch nötig. Bitte schreiben Sie bis Montag an das Stadtteilzentrum. Die Teilnahme ist kostenlos. Kaffee kostet einen Euro. Wir lesen kurze Alltagstexte und sprechen in kleinen Gruppen. Anfänger ohne erste Deutschkenntnisse besuchen bitte zuerst unseren Einführungskurs. Der Treff ersetzt keinen Sprachkurs. Wer keinen Laptop hat, kann mit einem Heft arbeiten. Am letzten Mittwoch des Monats findet der Treff in der Bibliothek statt."
+        },
+        {
+          "id": "sitov-exam-b1-m01-u06-t04",
+          "version": 1,
+          "skill": "reading",
+          "type": "choice",
+          "title": "Eine Frist finden",
+          "instruction": "Bis wann soll die Anmeldung geschrieben werden?",
+          "hints": [],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "reading",
+          "formatFamily": "detailverstehen",
+          "estimatedMinutes": 2,
+          "releaseStatus": "published",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "options": [
+            {
+              "id": "a",
+              "text": "Bis Montag."
+            },
+            {
+              "id": "b",
+              "text": "Bis Mittwoch."
+            },
+            {
+              "id": "c",
+              "text": "Am ersten Besuchstag."
+            }
+          ],
+          "correctAnswer": "a",
+          "explanation": "Die Anmeldung soll vor dem ersten Besuch bis Montag erfolgen.",
+          "evidence": "Bitte schreiben Sie bis Montag",
+          "text": "Lerntreff im Stadtteilzentrum West\nSie möchten im Alltag mehr Deutsch sprechen? Unser Lerntreff ist für Erwachsene ab 18 Jahren offen. Wir treffen uns mittwochs von 17 bis 18 Uhr in Raum 6. Eine Anmeldung ist vor dem ersten Besuch nötig. Bitte schreiben Sie bis Montag an das Stadtteilzentrum. Die Teilnahme ist kostenlos. Kaffee kostet einen Euro. Wir lesen kurze Alltagstexte und sprechen in kleinen Gruppen. Anfänger ohne erste Deutschkenntnisse besuchen bitte zuerst unseren Einführungskurs. Der Treff ersetzt keinen Sprachkurs. Wer keinen Laptop hat, kann mit einem Heft arbeiten. Am letzten Mittwoch des Monats findet der Treff in der Bibliothek statt."
+        },
+        {
+          "id": "sitov-exam-b1-m01-u06-t05",
+          "version": 1,
+          "skill": "reading",
+          "type": "choice",
+          "title": "Eine Ausnahme beachten",
+          "instruction": "Wo findet der Treff am letzten Mittwoch des Monats statt?",
+          "hints": [],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "reading",
+          "formatFamily": "detailverstehen",
+          "estimatedMinutes": 2,
+          "releaseStatus": "published",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "options": [
+            {
+              "id": "a",
+              "text": "Immer in Raum 6."
+            },
+            {
+              "id": "b",
+              "text": "In der Bibliothek."
+            },
+            {
+              "id": "c",
+              "text": "In einem privaten Büro."
+            }
+          ],
+          "correctAnswer": "b",
+          "explanation": "Die letzte Zeile nennt eine Ausnahme vom üblichen Ort.",
+          "evidence": "Am letzten Mittwoch des Monats findet der Treff in der Bibliothek statt.",
+          "text": "Lerntreff im Stadtteilzentrum West\nSie möchten im Alltag mehr Deutsch sprechen? Unser Lerntreff ist für Erwachsene ab 18 Jahren offen. Wir treffen uns mittwochs von 17 bis 18 Uhr in Raum 6. Eine Anmeldung ist vor dem ersten Besuch nötig. Bitte schreiben Sie bis Montag an das Stadtteilzentrum. Die Teilnahme ist kostenlos. Kaffee kostet einen Euro. Wir lesen kurze Alltagstexte und sprechen in kleinen Gruppen. Anfänger ohne erste Deutschkenntnisse besuchen bitte zuerst unseren Einführungskurs. Der Treff ersetzt keinen Sprachkurs. Wer keinen Laptop hat, kann mit einem Heft arbeiten. Am letzten Mittwoch des Monats findet der Treff in der Bibliothek statt."
+        },
+        {
+          "id": "sitov-exam-b1-m01-u06-t06",
+          "version": 1,
+          "skill": "writing",
+          "type": "writing",
+          "title": "Mit einem Beleg begründen",
+          "instruction": "Nico hat noch keine Deutschkenntnisse. Welches Angebot wird ihm empfohlen? Begründen Sie mit einer Information aus dem Text.",
+          "hints": [],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "writing",
+          "formatFamily": "lesebeleg",
+          "estimatedMinutes": 2,
+          "releaseStatus": "published",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "text": "Lerntreff im Stadtteilzentrum West\nSie möchten im Alltag mehr Deutsch sprechen? Unser Lerntreff ist für Erwachsene ab 18 Jahren offen. Wir treffen uns mittwochs von 17 bis 18 Uhr in Raum 6. Eine Anmeldung ist vor dem ersten Besuch nötig. Bitte schreiben Sie bis Montag an das Stadtteilzentrum. Die Teilnahme ist kostenlos. Kaffee kostet einen Euro. Wir lesen kurze Alltagstexte und sprechen in kleinen Gruppen. Anfänger ohne erste Deutschkenntnisse besuchen bitte zuerst unseren Einführungskurs. Der Treff ersetzt keinen Sprachkurs. Wer keinen Laptop hat, kann mit einem Heft arbeiten. Am letzten Mittwoch des Monats findet der Treff in der Bibliothek statt.",
+          "rubric": [
+            "Der Einführungskurs wird empfohlen.",
+            "Die fehlenden ersten Deutschkenntnisse werden als Grund genannt.",
+            "Die Antwort verweist verständlich auf den Text."
+          ]
+        }
+      ],
+      "releaseStatus": "published"
+    },
+    {
+      "id": "sitov-exam-b1-m01-u07",
+      "moduleId": "sitov-exam-b1-m01",
+      "title": "Eine höfliche Nachricht schreiben",
+      "description": "Sie planen eine Nachricht und reichen Ihren eigenen Text ein.",
+      "order": 7,
+      "kind": "writing",
+      "required": true,
+      "estimatedMinutes": 16,
+      "tasks": [
+        {
+          "id": "sitov-exam-b1-m01-u07-t01",
+          "version": 1,
+          "skill": "writing",
+          "type": "choice",
+          "title": "Empfänger und Anlass",
+          "instruction": "Sie kennen Daniel vom Stadtteilzentrum noch nicht. Sie möchten sich anmelden. Welche Anrede passt?",
+          "hints": [],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "writing",
+          "formatFamily": "register",
+          "estimatedMinutes": 2,
+          "releaseStatus": "published",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "options": [
+            {
+              "id": "a",
+              "text": "Hey, alter Freund!"
+            },
+            {
+              "id": "b",
+              "text": "Guten Tag Herr Weber,"
+            },
+            {
+              "id": "c",
+              "text": "Liebe Oma,"
+            }
+          ],
+          "correctAnswer": "b",
+          "explanation": "Eine höfliche Anrede passt zu einem noch unbekannten Ansprechpartner.",
+          "evidence": "Guten Tag Herr Weber,"
+        },
+        {
+          "id": "sitov-exam-b1-m01-u07-t02",
+          "version": 1,
+          "skill": "writing",
+          "type": "ordering",
+          "title": "Eine Nachricht ordnen",
+          "instruction": "Bringen Sie die Abschnitte in eine sinnvolle Reihenfolge.",
+          "hints": [],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "writing",
+          "formatFamily": "register",
+          "estimatedMinutes": 2,
+          "releaseStatus": "published",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "options": [
+            {
+              "id": "a",
+              "text": "Könnten Sie mir bitte sagen, ob noch ein Platz frei ist?"
+            },
+            {
+              "id": "b",
+              "text": "Mit freundlichen Grüßen\nErik Stein"
+            },
+            {
+              "id": "c",
+              "text": "Guten Tag Herr Weber,"
+            },
+            {
+              "id": "d",
+              "text": "ich möchte mich für den Lerntreff am Mittwoch anmelden."
+            }
+          ],
+          "correctAnswer": [
+            "c",
+            "d",
+            "a",
+            "b"
+          ],
+          "explanation": "Anrede, Anlass, Frage und Gruß bilden eine verständliche Nachricht.",
+          "evidence": "Anrede → Anlass → Frage → Gruß"
+        },
+        {
+          "id": "sitov-exam-b1-m01-u07-t03",
+          "version": 1,
+          "skill": "writing",
+          "type": "choice",
+          "title": "Ein Inhaltspunkt fehlt",
+          "instruction": "Auftrag: anmelden, Lernziel nennen, nach Material fragen. Text: „Ich möchte am Mittwoch teilnehmen. Muss ich ein Buch mitbringen?“ Was fehlt?",
+          "hints": [],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "writing",
+          "formatFamily": "leitpunkte",
+          "estimatedMinutes": 2,
+          "releaseStatus": "published",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "options": [
+            {
+              "id": "a",
+              "text": "Das Lernziel."
+            },
+            {
+              "id": "b",
+              "text": "Die Materialfrage."
+            },
+            {
+              "id": "c",
+              "text": "Die Anmeldung."
+            }
+          ],
+          "correctAnswer": "a",
+          "explanation": "Der Text nennt Teilnahme und Material, aber noch kein Lernziel.",
+          "evidence": "Ich möchte am Mittwoch teilnehmen. Muss ich ein Buch mitbringen?"
+        },
+        {
+          "id": "sitov-exam-b1-m01-u07-t04",
+          "version": 1,
+          "skill": "writing",
+          "type": "writing",
+          "title": "Einen Grund ergänzen",
+          "instruction": "Ergänzen Sie die Nachricht um Ihr Lernziel und einen Grund. Sie können eine fiktive Situation verwenden.",
+          "hints": [],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "writing",
+          "formatFamily": "leitpunkte",
+          "estimatedMinutes": 2,
+          "releaseStatus": "published",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "text": "Ich möchte im Lerntreff …, weil …",
+          "rubric": [
+            "Alle geforderten Inhaltspunkte sind verständlich enthalten.",
+            "Ansprache und Gruß passen zum Empfänger.",
+            "Sätze sind sinnvoll verbunden.",
+            "Wortschatz und sprachliche Mittel passen zur Situation.",
+            "Prüfen Sie nach der Rückmeldung Ihren Text und verbessern Sie eine Stelle."
+          ]
+        },
+        {
+          "id": "sitov-exam-b1-m01-u07-t05",
+          "version": 1,
+          "skill": "writing",
+          "type": "writing",
+          "title": "Eine Bitte verbessern",
+          "instruction": "Schreiben Sie die Forderung höflicher: „Schicken Sie mir sofort die Adresse!“",
+          "hints": [],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "writing",
+          "formatFamily": "register",
+          "estimatedMinutes": 2,
+          "releaseStatus": "published",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "rubric": [
+            "Alle geforderten Inhaltspunkte sind verständlich enthalten.",
+            "Ansprache und Gruß passen zum Empfänger.",
+            "Sätze sind sinnvoll verbunden.",
+            "Wortschatz und sprachliche Mittel passen zur Situation.",
+            "Prüfen Sie nach der Rückmeldung Ihren Text und verbessern Sie eine Stelle."
+          ],
+          "explanation": "Zum Beispiel: Könnten Sie mir bitte die Adresse schicken? Eine andere höfliche Bitte ist ebenfalls passend."
+        },
+        {
+          "id": "sitov-exam-b1-m01-u07-t06",
+          "version": 1,
+          "skill": "writing",
+          "type": "writing",
+          "title": "Meine eigene Anmeldung",
+          "instruction": "Schreiben Sie dem Stadtteilzentrum: Stellen Sie sich kurz vor. Nennen Sie Ihr Lernziel. Fragen Sie nach einem freien Platz und nach dem Material. Verwenden Sie Anrede und Gruß. Hören Sie nach der Rückmeldung nicht auf: Verbessern Sie mindestens eine Stelle oder beschreiben Sie Ihre Prüfung des Textes.",
+          "hints": [],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "writing",
+          "formatFamily": "nachricht",
+          "estimatedMinutes": 6,
+          "releaseStatus": "published",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "rubric": [
+            "Kurze Vorstellung, Lernziel, Platzfrage und Materialfrage sind enthalten.",
+            "Ansprache und Gruß passen zum Empfänger.",
+            "Sätze sind sinnvoll verbunden.",
+            "Wortschatz und sprachliche Mittel passen zur Situation.",
+            "Prüfen Sie nach der Rückmeldung Ihren Text und verbessern Sie eine Stelle."
+          ]
+        }
+      ],
+      "releaseStatus": "published"
+    },
+    {
+      "id": "sitov-exam-b1-m01-u08",
+      "moduleId": "sitov-exam-b1-m01",
+      "title": "Beschreiben und frei sprechen",
+      "description": "Sie beschreiben ein echtes Bild, erzählen eine Erfahrung und stellen Fragen.",
+      "order": 8,
+      "kind": "speaking",
+      "required": true,
+      "estimatedMinutes": 15,
+      "tasks": [
+        {
+          "id": "sitov-exam-b1-m01-u08-t01",
+          "version": 1,
+          "skill": "speaking",
+          "type": "choice",
+          "title": "Sichtbares und Vermutungen",
+          "instruction": "Welche Aussage beschreibt sichtbare Informationen im Bild?",
+          "hints": [],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "speaking",
+          "formatFamily": "bildbeschreibung",
+          "estimatedMinutes": 2,
+          "releaseStatus": "published",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "options": [
+            {
+              "id": "a",
+              "text": "Die Männer werden morgen eine Prüfung bestehen."
+            },
+            {
+              "id": "b",
+              "text": "Zwei Männer stehen an einem Tisch."
+            },
+            {
+              "id": "c",
+              "text": "Ein Mann hat bestimmt drei Kinder."
+            }
+          ],
+          "correctAnswer": "b",
+          "explanation": "Personen und Tisch sind sichtbar. Zukunft und Familienleben sind Vermutungen.",
+          "evidence": "Zwei Männer stehen an einem Tisch.",
+          "image": {
+            "id": "sitov-exam-contacts-v1",
+            "src": "/Bilder/exam-preparation/sitov-contacts.svg",
+            "alt": "Zwei erwachsene Männer stehen an einem Tisch mit einem Blatt. Einer hebt eine Hand; im Raum sind ein Fenster und ein Aushang.",
+            "status": "prepared"
+          }
+        },
+        {
+          "id": "sitov-exam-b1-m01-u08-t02",
+          "version": 1,
+          "skill": "speaking",
+          "type": "choice",
+          "title": "Vorsichtig deuten",
+          "instruction": "Welche Formulierung kennzeichnet eine Vermutung?",
+          "hints": [],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "speaking",
+          "formatFamily": "bildbeschreibung",
+          "estimatedMinutes": 2,
+          "releaseStatus": "published",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "options": [
+            {
+              "id": "a",
+              "text": "Es könnte sein, dass sie zusammen lernen."
+            },
+            {
+              "id": "b",
+              "text": "Sie müssen immer hier wohnen."
+            },
+            {
+              "id": "c",
+              "text": "Sie haben auf jeden Fall dieselbe Arbeit."
+            }
+          ],
+          "correctAnswer": "a",
+          "explanation": "Es könnte sein markiert Unsicherheit.",
+          "evidence": "Es könnte sein, dass …"
+        },
+        {
+          "id": "sitov-exam-b1-m01-u08-t03",
+          "version": 1,
+          "skill": "speaking",
+          "type": "speaking",
+          "title": "Orte beschreiben",
+          "instruction": "Beschreiben Sie zwei wichtige Stellen im Bild. Benutzen Sie zum Beispiel „links“, „rechts“ oder „auf dem Tisch“. Nennen Sie anschließend eine Handlung.",
+          "hints": [
+            "Links sitzt …",
+            "Auf dem Tisch …"
+          ],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "speaking",
+          "formatFamily": "bildbeschreibung",
+          "estimatedMinutes": 2,
+          "releaseStatus": "published",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "rubric": [
+            "Zentrale sichtbare Personen, Orte und Handlungen werden genannt.",
+            "Die Beschreibung hat eine nachvollziehbare Reihenfolge.",
+            "Vermutungen werden als Vermutungen gekennzeichnet.",
+            "Ein passender Anschluss oder eine Rückfrage wird beantwortet.",
+            "Die eigene Aufnahme wird angehört und überarbeitet."
+          ],
+          "image": {
+            "id": "sitov-exam-contacts-v1",
+            "src": "/Bilder/exam-preparation/sitov-contacts.svg",
+            "alt": "Zwei erwachsene Männer stehen an einem Tisch mit einem Blatt. Einer hebt eine Hand; im Raum sind ein Fenster und ein Aushang.",
+            "status": "prepared"
+          }
+        },
+        {
+          "id": "sitov-exam-b1-m01-u08-t04",
+          "version": 1,
+          "skill": "speaking",
+          "type": "speaking",
+          "title": "Das Bild zusammenhängend beschreiben",
+          "instruction": "Beschreiben Sie das Bild in einer sinnvollen Reihenfolge: Situation, Personen und Ort, wichtige Handlung, eine vorsichtige Vermutung. Sie dürfen Stichwörter vorbereiten. Hören Sie danach Ihre Aufnahme an.",
+          "hints": [
+            "Auf dem Bild sehe ich …",
+            "Die beiden …",
+            "Vielleicht …"
+          ],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "speaking",
+          "formatFamily": "bildbeschreibung",
+          "estimatedMinutes": 4,
+          "releaseStatus": "published",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "rubric": [
+            "Zentrale sichtbare Personen, Orte und Handlungen werden genannt.",
+            "Die Beschreibung hat eine nachvollziehbare Reihenfolge.",
+            "Vermutungen werden als Vermutungen gekennzeichnet.",
+            "Ein passender Anschluss oder eine Rückfrage wird beantwortet.",
+            "Die eigene Aufnahme wird angehört und überarbeitet."
+          ],
+          "image": {
+            "id": "sitov-exam-contacts-v1",
+            "src": "/Bilder/exam-preparation/sitov-contacts.svg",
+            "alt": "Zwei erwachsene Männer stehen an einem Tisch mit einem Blatt. Einer hebt eine Hand; im Raum sind ein Fenster und ein Aushang.",
+            "status": "prepared"
+          }
+        },
+        {
+          "id": "sitov-exam-b1-m01-u08-t05",
+          "version": 1,
+          "skill": "speaking",
+          "type": "speaking",
+          "title": "Eine Erfahrung anschließen",
+          "instruction": "Erzählen Sie von einer Situation, in der Sie mit jemandem etwas gelernt haben. Sie dürfen eine Erfahrung erfinden. Was war hilfreich? Was war schwierig?",
+          "hints": [],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "speaking",
+          "formatFamily": "erfahrung",
+          "estimatedMinutes": 3,
+          "releaseStatus": "published",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "rubric": [
+            "Der Auftrag wird verständlich erfüllt.",
+            "Die Aussagen hängen sinnvoll zusammen.",
+            "Eigene oder erfundene Erfahrungen werden klar erzählt.",
+            "Fragen oder Partneräußerungen werden aufgegriffen.",
+            "Nach der Rückmeldung wird eine Stelle verbessert oder eine Reflexion gespeichert."
+          ]
+        },
+        {
+          "id": "sitov-exam-b1-m01-u08-t06",
+          "version": 1,
+          "skill": "speaking",
+          "type": "speaking",
+          "title": "Eine echte Rückfrage",
+          "instruction": "Ihr Lernpartner sagt: „Ich lerne lieber mit anderen, weil ich dann mehr spreche.“ Reagieren Sie kurz und stellen Sie eine passende Rückfrage.",
+          "hints": [
+            "Das finde ich …",
+            "Wie …?"
+          ],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "speaking",
+          "formatFamily": "rueckfragen",
+          "estimatedMinutes": 2,
+          "releaseStatus": "published",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "rubric": [
+            "Der Auftrag wird verständlich erfüllt.",
+            "Die Aussagen hängen sinnvoll zusammen.",
+            "Eigene oder erfundene Erfahrungen werden klar erzählt.",
+            "Fragen oder Partneräußerungen werden aufgegriffen.",
+            "Nach der Rückmeldung wird eine Stelle verbessert oder eine Reflexion gespeichert."
+          ]
+        }
+      ],
+      "releaseStatus": "published"
+    },
+    {
+      "id": "sitov-exam-b1-m01-u09",
+      "moduleId": "sitov-exam-b1-m01",
+      "title": "Einen neuen Lerntreff planen",
+      "description": "Sie übertragen Ihre Strategien auf eine neue Situation.",
+      "order": 9,
+      "kind": "transfer",
+      "required": true,
+      "estimatedMinutes": 14,
+      "tasks": [
+        {
+          "id": "sitov-exam-b1-m01-u09-t01",
+          "version": 1,
+          "skill": "listening",
+          "type": "choice",
+          "title": "Eine Einschränkung beachten",
+          "instruction": "Wann hat Yusuf Zeit?",
+          "hints": [],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "listening",
+          "formatFamily": "planung",
+          "estimatedMinutes": 2,
+          "releaseStatus": "awaiting_media",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "options": [
+            {
+              "id": "a",
+              "text": "Montag vor 18 Uhr."
+            },
+            {
+              "id": "b",
+              "text": "Donnerstag am Abend."
+            },
+            {
+              "id": "c",
+              "text": "Mittwoch ab 17 Uhr."
+            }
+          ],
+          "correctAnswer": "c",
+          "explanation": "Mittwoch ist möglich, aber erst ab siebzehn Uhr.",
+          "evidence": "Mittwoch wäre für mich gut, aber erst ab siebzehn Uhr.",
+          "audio": {
+            "id": "sitov-exam-b1-m01-transfer-v1",
+            "script": "Hallo, ich bin Yusuf. Ich möchte mit dir einmal pro Woche Deutsch üben. Am Montag arbeite ich bis achtzehn Uhr. Am Donnerstag habe ich schon einen Termin. Mittwoch wäre für mich gut, aber erst ab siebzehn Uhr. Zu Hause ist es oft laut. Können wir uns in der Bibliothek treffen? Ich bringe ein paar kurze Texte mit. Vielleicht kannst du Fragen dazu vorbereiten. Am ersten Tag würde ich gern über unsere Lernziele sprechen. Schreib mir bitte, ob das für dich passt.",
+            "status": "awaiting_recording",
+            "route": "qwen",
+            "roles": [
+              "Männlicher Sprecher"
+            ],
+            "notes": "Lokal auf dem Mac mit Qwen3-TTS-12Hz-1.7B-Base und sitov-qwen-male-de-v1 vorberechnen; echte Forced-Alignment-Wortzeitmarken prüfen und in Audio-Storage importieren. Kein Ersatz-TTS."
+          }
+        },
+        {
+          "id": "sitov-exam-b1-m01-u09-t02",
+          "version": 1,
+          "skill": "listening",
+          "type": "choice",
+          "title": "Den Ort verstehen",
+          "instruction": "Warum möchte Yusuf in der Bibliothek üben?",
+          "hints": [],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "listening",
+          "formatFamily": "planung",
+          "estimatedMinutes": 2,
+          "releaseStatus": "awaiting_media",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "options": [
+            {
+              "id": "a",
+              "text": "Weil es zu Hause oft laut ist."
+            },
+            {
+              "id": "b",
+              "text": "Weil er dort arbeitet."
+            },
+            {
+              "id": "c",
+              "text": "Weil er kein Heft hat."
+            }
+          ],
+          "correctAnswer": "a",
+          "explanation": "Die Bibliothek ist eine Alternative zum lauten Zuhause.",
+          "evidence": "Zu Hause ist es oft laut.",
+          "audio": {
+            "id": "sitov-exam-b1-m01-transfer-v1",
+            "script": "Hallo, ich bin Yusuf. Ich möchte mit dir einmal pro Woche Deutsch üben. Am Montag arbeite ich bis achtzehn Uhr. Am Donnerstag habe ich schon einen Termin. Mittwoch wäre für mich gut, aber erst ab siebzehn Uhr. Zu Hause ist es oft laut. Können wir uns in der Bibliothek treffen? Ich bringe ein paar kurze Texte mit. Vielleicht kannst du Fragen dazu vorbereiten. Am ersten Tag würde ich gern über unsere Lernziele sprechen. Schreib mir bitte, ob das für dich passt.",
+            "status": "awaiting_recording",
+            "route": "qwen",
+            "roles": [
+              "Männlicher Sprecher"
+            ],
+            "notes": "Lokal auf dem Mac mit Qwen3-TTS-12Hz-1.7B-Base und sitov-qwen-male-de-v1 vorberechnen; echte Forced-Alignment-Wortzeitmarken prüfen und in Audio-Storage importieren. Kein Ersatz-TTS."
+          }
+        },
+        {
+          "id": "sitov-exam-b1-m01-u09-t03",
+          "version": 1,
+          "skill": "speaking",
+          "type": "choice",
+          "title": "Einen Vorschlag aufgreifen",
+          "instruction": "Welche Antwort reagiert auf Yusufs Vorschlag?",
+          "hints": [],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "speaking",
+          "formatFamily": "planung",
+          "estimatedMinutes": 2,
+          "releaseStatus": "published",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "options": [
+            {
+              "id": "a",
+              "text": "Mittwoch um 17:30 Uhr passt mir. Ich bereite Fragen vor."
+            },
+            {
+              "id": "b",
+              "text": "Ich mag Kaffee und komme aus Spanien."
+            },
+            {
+              "id": "c",
+              "text": "Donnerstag ist dein freier Tag."
+            }
+          ],
+          "correctAnswer": "a",
+          "explanation": "Die Antwort berücksichtigt den möglichen Tag und übernimmt eine Aufgabe.",
+          "evidence": "Mittwoch um 17:30 Uhr … Fragen vor."
+        },
+        {
+          "id": "sitov-exam-b1-m01-u09-t04",
+          "version": 1,
+          "skill": "speaking",
+          "type": "speaking",
+          "title": "Eine Einschränkung erklären",
+          "instruction": "Sie können mittwochs erst ab 18 Uhr. Machen Sie Yusuf einen anderen Vorschlag und begründen Sie ihn. Reagieren Sie auf den Bibliotheksvorschlag.",
+          "hints": [],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "speaking",
+          "formatFamily": "planung",
+          "estimatedMinutes": 3,
+          "releaseStatus": "published",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "text": "Geführtes Reaktionstraining: Yusuf hört Ihre Antwort in dieser Übung nicht und reagiert nicht live. Ein selbstständiger Dialognachweis entsteht dadurch noch nicht.",
+          "rubric": [
+            "Der Auftrag wird verständlich erfüllt.",
+            "Die Aussagen hängen sinnvoll zusammen.",
+            "Eigene oder erfundene Erfahrungen werden klar erzählt.",
+            "Fragen oder Partneräußerungen werden aufgegriffen.",
+            "Nach der Rückmeldung wird eine Stelle verbessert oder eine Reflexion gespeichert."
+          ]
+        },
+        {
+          "id": "sitov-exam-b1-m01-u09-t05",
+          "version": 1,
+          "skill": "writing",
+          "type": "writing",
+          "title": "Eine Vereinbarung festhalten",
+          "instruction": "Notieren Sie einen möglichen Tag, eine Uhrzeit, den Ort und wer Texte beziehungsweise Fragen mitbringt. Die Vereinbarung muss zu Yusufs Nachricht passen.",
+          "hints": [],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "writing",
+          "formatFamily": "hoeren_schreiben",
+          "estimatedMinutes": 2,
+          "releaseStatus": "awaiting_media",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "rubric": [
+            "Mittwoch ab 17 Uhr ist enthalten.",
+            "Bibliothek wird genannt.",
+            "Yusuf bringt Texte mit; Sie bereiten Fragen vor.",
+            "Die Notiz ist verständlich."
+          ],
+          "audio": {
+            "id": "sitov-exam-b1-m01-transfer-v1",
+            "script": "Hallo, ich bin Yusuf. Ich möchte mit dir einmal pro Woche Deutsch üben. Am Montag arbeite ich bis achtzehn Uhr. Am Donnerstag habe ich schon einen Termin. Mittwoch wäre für mich gut, aber erst ab siebzehn Uhr. Zu Hause ist es oft laut. Können wir uns in der Bibliothek treffen? Ich bringe ein paar kurze Texte mit. Vielleicht kannst du Fragen dazu vorbereiten. Am ersten Tag würde ich gern über unsere Lernziele sprechen. Schreib mir bitte, ob das für dich passt.",
+            "status": "awaiting_recording",
+            "route": "qwen",
+            "roles": [
+              "Männlicher Sprecher"
+            ],
+            "notes": "Lokal auf dem Mac mit Qwen3-TTS-12Hz-1.7B-Base und sitov-qwen-male-de-v1 vorberechnen; echte Forced-Alignment-Wortzeitmarken prüfen und in Audio-Storage importieren. Kein Ersatz-TTS."
+          }
+        },
+        {
+          "id": "sitov-exam-b1-m01-u09-t06",
+          "version": 1,
+          "skill": "speaking",
+          "type": "speaking",
+          "title": "Den Plan zusammenfassen",
+          "instruction": "Fassen Sie Ihren Vorschlag für Yusuf zusammen. Nennen Sie Zeit, Ort und Aufgabenverteilung. Fragen Sie am Ende nach seiner Bestätigung.",
+          "hints": [],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "speaking",
+          "formatFamily": "planung",
+          "estimatedMinutes": 3,
+          "releaseStatus": "published",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "rubric": [
+            "Der Auftrag wird verständlich erfüllt.",
+            "Die Aussagen hängen sinnvoll zusammen.",
+            "Eigene oder erfundene Erfahrungen werden klar erzählt.",
+            "Fragen oder Partneräußerungen werden aufgegriffen.",
+            "Nach der Rückmeldung wird eine Stelle verbessert oder eine Reflexion gespeichert."
+          ]
+        }
+      ],
+      "releaseStatus": "published"
+    },
+    {
+      "id": "sitov-exam-b1-m01-u10",
+      "moduleId": "sitov-exam-b1-m01",
+      "title": "Mein neuer Lerncheck",
+      "description": "Fünf Hör- und fünf Leseentscheidungen plus eigene Schreib- und Sprechproben. Für einen neuen Versuch folgt eine unbekannte Variante.",
+      "order": 10,
+      "kind": "checkpoint",
+      "required": true,
+      "estimatedMinutes": 29,
+      "tasks": [
+        {
+          "id": "sitov-exam-b1-m01-u10-va-t01",
+          "version": 1,
+          "skill": "listening",
+          "type": "choice",
+          "title": "Die Änderung",
+          "instruction": "Was wird geändert?",
+          "hints": [],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "listening",
+          "formatFamily": "lerncheck_hoeren",
+          "estimatedMinutes": 2,
+          "releaseStatus": "awaiting_media",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "options": [
+            {
+              "id": "a",
+              "text": "Der Tag des Willkommensabends."
+            },
+            {
+              "id": "b",
+              "text": "Der Name der Schule."
+            },
+            {
+              "id": "c",
+              "text": "Der Preis der Getränke."
+            }
+          ],
+          "correctAnswer": "a",
+          "explanation": "Der Freitag fällt aus; der Abend findet am Samstag statt.",
+          "evidence": "Der neue Termin ist Samstag",
+          "audio": {
+            "id": "sitov-exam-b1-m01-check-a-v1",
+            "script": "Hier spricht Leon vom Stadtteilzentrum Nord. Sie haben sich für den Willkommensabend am Freitag angemeldet. Leider fällt der Freitag aus. Der neue Termin ist Samstag um sechzehn Uhr dreißig. Wir treffen uns in Raum acht, direkt neben dem Eingang. Bitte benutzen Sie die Tür an der Schulstraße. Am Anfang stellt jeder Teilnehmer sich kurz vor. Danach lernen Sie Angebote im Stadtteil kennen. Bringen Sie bitte Ihre Einladung mit. Getränke stehen kostenlos bereit. Wenn Sie nicht kommen können, rufen Sie uns bis Donnerstag an. Eine Nachricht am Samstag wäre zu spät.",
+            "status": "awaiting_recording",
+            "route": "qwen",
+            "roles": [
+              "Männlicher Sprecher"
+            ],
+            "notes": "Lokal auf dem Mac mit Qwen3-TTS-12Hz-1.7B-Base und sitov-qwen-male-de-v1 vorberechnen; echte Forced-Alignment-Wortzeitmarken prüfen und in Audio-Storage importieren. Kein Ersatz-TTS."
+          }
+        },
+        {
+          "id": "sitov-exam-b1-m01-u10-va-t02",
+          "version": 1,
+          "skill": "listening",
+          "type": "choice",
+          "title": "Die neue Uhrzeit",
+          "instruction": "Wann beginnt der neue Termin?",
+          "hints": [],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "listening",
+          "formatFamily": "lerncheck_hoeren",
+          "estimatedMinutes": 2,
+          "releaseStatus": "awaiting_media",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "options": [
+            {
+              "id": "a",
+              "text": "Samstag, 16:30 Uhr."
+            },
+            {
+              "id": "b",
+              "text": "Freitag, 16:00 Uhr."
+            },
+            {
+              "id": "c",
+              "text": "Samstag, 17:30 Uhr."
+            }
+          ],
+          "correctAnswer": "a",
+          "explanation": "Sechzehn Uhr dreißig bedeutet 16:30 Uhr.",
+          "evidence": "Samstag um sechzehn Uhr dreißig",
+          "audio": {
+            "id": "sitov-exam-b1-m01-check-a-v1",
+            "script": "Hier spricht Leon vom Stadtteilzentrum Nord. Sie haben sich für den Willkommensabend am Freitag angemeldet. Leider fällt der Freitag aus. Der neue Termin ist Samstag um sechzehn Uhr dreißig. Wir treffen uns in Raum acht, direkt neben dem Eingang. Bitte benutzen Sie die Tür an der Schulstraße. Am Anfang stellt jeder Teilnehmer sich kurz vor. Danach lernen Sie Angebote im Stadtteil kennen. Bringen Sie bitte Ihre Einladung mit. Getränke stehen kostenlos bereit. Wenn Sie nicht kommen können, rufen Sie uns bis Donnerstag an. Eine Nachricht am Samstag wäre zu spät.",
+            "status": "awaiting_recording",
+            "route": "qwen",
+            "roles": [
+              "Männlicher Sprecher"
+            ],
+            "notes": "Lokal auf dem Mac mit Qwen3-TTS-12Hz-1.7B-Base und sitov-qwen-male-de-v1 vorberechnen; echte Forced-Alignment-Wortzeitmarken prüfen und in Audio-Storage importieren. Kein Ersatz-TTS."
+          }
+        },
+        {
+          "id": "sitov-exam-b1-m01-u10-va-t03",
+          "version": 1,
+          "skill": "listening",
+          "type": "choice",
+          "title": "Der Raum",
+          "instruction": "Wo ist Raum acht?",
+          "hints": [],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "listening",
+          "formatFamily": "lerncheck_hoeren",
+          "estimatedMinutes": 2,
+          "releaseStatus": "awaiting_media",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "options": [
+            {
+              "id": "a",
+              "text": "Im dritten Stock."
+            },
+            {
+              "id": "b",
+              "text": "Neben dem Eingang."
+            },
+            {
+              "id": "c",
+              "text": "Am Parkplatz."
+            }
+          ],
+          "correctAnswer": "b",
+          "explanation": "Der Raum liegt direkt neben dem Eingang.",
+          "evidence": "Raum acht, direkt neben dem Eingang",
+          "audio": {
+            "id": "sitov-exam-b1-m01-check-a-v1",
+            "script": "Hier spricht Leon vom Stadtteilzentrum Nord. Sie haben sich für den Willkommensabend am Freitag angemeldet. Leider fällt der Freitag aus. Der neue Termin ist Samstag um sechzehn Uhr dreißig. Wir treffen uns in Raum acht, direkt neben dem Eingang. Bitte benutzen Sie die Tür an der Schulstraße. Am Anfang stellt jeder Teilnehmer sich kurz vor. Danach lernen Sie Angebote im Stadtteil kennen. Bringen Sie bitte Ihre Einladung mit. Getränke stehen kostenlos bereit. Wenn Sie nicht kommen können, rufen Sie uns bis Donnerstag an. Eine Nachricht am Samstag wäre zu spät.",
+            "status": "awaiting_recording",
+            "route": "qwen",
+            "roles": [
+              "Männlicher Sprecher"
+            ],
+            "notes": "Lokal auf dem Mac mit Qwen3-TTS-12Hz-1.7B-Base und sitov-qwen-male-de-v1 vorberechnen; echte Forced-Alignment-Wortzeitmarken prüfen und in Audio-Storage importieren. Kein Ersatz-TTS."
+          }
+        },
+        {
+          "id": "sitov-exam-b1-m01-u10-va-t04",
+          "version": 1,
+          "skill": "listening",
+          "type": "choice",
+          "title": "Mitbringen",
+          "instruction": "Was sollen die Teilnehmenden mitbringen?",
+          "hints": [],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "listening",
+          "formatFamily": "lerncheck_hoeren",
+          "estimatedMinutes": 2,
+          "releaseStatus": "awaiting_media",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ein eigenes Getränk."
+            },
+            {
+              "id": "b",
+              "text": "Ihre Einladung."
+            },
+            {
+              "id": "c",
+              "text": "Werkzeug."
+            }
+          ],
+          "correctAnswer": "b",
+          "explanation": "Die Einladung soll mitgebracht werden.",
+          "evidence": "Bringen Sie bitte Ihre Einladung mit.",
+          "audio": {
+            "id": "sitov-exam-b1-m01-check-a-v1",
+            "script": "Hier spricht Leon vom Stadtteilzentrum Nord. Sie haben sich für den Willkommensabend am Freitag angemeldet. Leider fällt der Freitag aus. Der neue Termin ist Samstag um sechzehn Uhr dreißig. Wir treffen uns in Raum acht, direkt neben dem Eingang. Bitte benutzen Sie die Tür an der Schulstraße. Am Anfang stellt jeder Teilnehmer sich kurz vor. Danach lernen Sie Angebote im Stadtteil kennen. Bringen Sie bitte Ihre Einladung mit. Getränke stehen kostenlos bereit. Wenn Sie nicht kommen können, rufen Sie uns bis Donnerstag an. Eine Nachricht am Samstag wäre zu spät.",
+            "status": "awaiting_recording",
+            "route": "qwen",
+            "roles": [
+              "Männlicher Sprecher"
+            ],
+            "notes": "Lokal auf dem Mac mit Qwen3-TTS-12Hz-1.7B-Base und sitov-qwen-male-de-v1 vorberechnen; echte Forced-Alignment-Wortzeitmarken prüfen und in Audio-Storage importieren. Kein Ersatz-TTS."
+          }
+        },
+        {
+          "id": "sitov-exam-b1-m01-u10-va-t05",
+          "version": 1,
+          "skill": "listening",
+          "type": "choice",
+          "title": "Absagen",
+          "instruction": "Bis wann soll man bei Verhinderung anrufen?",
+          "hints": [],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "listening",
+          "formatFamily": "lerncheck_hoeren",
+          "estimatedMinutes": 2,
+          "releaseStatus": "awaiting_media",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "options": [
+            {
+              "id": "a",
+              "text": "Bis Donnerstag."
+            },
+            {
+              "id": "b",
+              "text": "Am Freitagabend."
+            },
+            {
+              "id": "c",
+              "text": "Am Samstag."
+            }
+          ],
+          "correctAnswer": "a",
+          "explanation": "Eine Nachricht am Samstag wäre zu spät.",
+          "evidence": "rufen Sie uns bis Donnerstag an",
+          "audio": {
+            "id": "sitov-exam-b1-m01-check-a-v1",
+            "script": "Hier spricht Leon vom Stadtteilzentrum Nord. Sie haben sich für den Willkommensabend am Freitag angemeldet. Leider fällt der Freitag aus. Der neue Termin ist Samstag um sechzehn Uhr dreißig. Wir treffen uns in Raum acht, direkt neben dem Eingang. Bitte benutzen Sie die Tür an der Schulstraße. Am Anfang stellt jeder Teilnehmer sich kurz vor. Danach lernen Sie Angebote im Stadtteil kennen. Bringen Sie bitte Ihre Einladung mit. Getränke stehen kostenlos bereit. Wenn Sie nicht kommen können, rufen Sie uns bis Donnerstag an. Eine Nachricht am Samstag wäre zu spät.",
+            "status": "awaiting_recording",
+            "route": "qwen",
+            "roles": [
+              "Männlicher Sprecher"
+            ],
+            "notes": "Lokal auf dem Mac mit Qwen3-TTS-12Hz-1.7B-Base und sitov-qwen-male-de-v1 vorberechnen; echte Forced-Alignment-Wortzeitmarken prüfen und in Audio-Storage importieren. Kein Ersatz-TTS."
+          }
+        },
+        {
+          "id": "sitov-exam-b1-m01-u10-va-t06",
+          "version": 1,
+          "skill": "reading",
+          "type": "choice",
+          "title": "Die Textsorte",
+          "instruction": "Was ist der Text?",
+          "hints": [],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "reading",
+          "formatFamily": "lerncheck_lesen",
+          "estimatedMinutes": 2,
+          "releaseStatus": "published",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ein Hinweis auf ein Angebot."
+            },
+            {
+              "id": "b",
+              "text": "Ein persönlicher Reisebericht."
+            },
+            {
+              "id": "c",
+              "text": "Ein Kaufvertrag."
+            }
+          ],
+          "correctAnswer": "a",
+          "explanation": "Der Text nennt Zielgruppe, Zeit und Bedingungen.",
+          "evidence": "Offener Reparaturtreff",
+          "text": "Offener Reparaturtreff\nAm Samstag helfen wir Erwachsenen von 13 bis 16 Uhr mit kleinen Geräten. Die Hilfe kostet nichts; Ersatzteile bezahlen Sie selbst. Eine Anmeldung bis Mittwoch ist nötig. Pro Person ist ein Gerät erlaubt. Bitte bringen Sie das passende Kabel mit. Fahrräder nehmen wir nicht an. Der Raum ist im Erdgeschoss. Wer nur zuschauen möchte, darf ohne Gerät kommen."
+        },
+        {
+          "id": "sitov-exam-b1-m01-u10-va-t07",
+          "version": 1,
+          "skill": "reading",
+          "type": "choice",
+          "title": "Die Kosten",
+          "instruction": "Was kostet Geld?",
+          "hints": [],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "reading",
+          "formatFamily": "lerncheck_lesen",
+          "estimatedMinutes": 2,
+          "releaseStatus": "published",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "options": [
+            {
+              "id": "a",
+              "text": "Die Hilfe."
+            },
+            {
+              "id": "b",
+              "text": "Die Ersatzteile."
+            },
+            {
+              "id": "c",
+              "text": "Das Zuschauen."
+            }
+          ],
+          "correctAnswer": "b",
+          "explanation": "Die Hilfe ist kostenlos, Ersatzteile müssen bezahlt werden.",
+          "evidence": "Ersatzteile bezahlen Sie selbst.",
+          "text": "Offener Reparaturtreff\nAm Samstag helfen wir Erwachsenen von 13 bis 16 Uhr mit kleinen Geräten. Die Hilfe kostet nichts; Ersatzteile bezahlen Sie selbst. Eine Anmeldung bis Mittwoch ist nötig. Pro Person ist ein Gerät erlaubt. Bitte bringen Sie das passende Kabel mit. Fahrräder nehmen wir nicht an. Der Raum ist im Erdgeschoss. Wer nur zuschauen möchte, darf ohne Gerät kommen."
+        },
+        {
+          "id": "sitov-exam-b1-m01-u10-va-t08",
+          "version": 1,
+          "skill": "reading",
+          "type": "choice",
+          "title": "Die Anmeldung",
+          "instruction": "Wann ist die Anmeldung nötig?",
+          "hints": [],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "reading",
+          "formatFamily": "lerncheck_lesen",
+          "estimatedMinutes": 2,
+          "releaseStatus": "published",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "options": [
+            {
+              "id": "a",
+              "text": "Bis Mittwoch."
+            },
+            {
+              "id": "b",
+              "text": "Erst am Samstag."
+            },
+            {
+              "id": "c",
+              "text": "Nur nach dem Besuch."
+            }
+          ],
+          "correctAnswer": "a",
+          "explanation": "Die Anmeldung erfolgt bis Mittwoch.",
+          "evidence": "Eine Anmeldung bis Mittwoch ist nötig.",
+          "text": "Offener Reparaturtreff\nAm Samstag helfen wir Erwachsenen von 13 bis 16 Uhr mit kleinen Geräten. Die Hilfe kostet nichts; Ersatzteile bezahlen Sie selbst. Eine Anmeldung bis Mittwoch ist nötig. Pro Person ist ein Gerät erlaubt. Bitte bringen Sie das passende Kabel mit. Fahrräder nehmen wir nicht an. Der Raum ist im Erdgeschoss. Wer nur zuschauen möchte, darf ohne Gerät kommen."
+        },
+        {
+          "id": "sitov-exam-b1-m01-u10-va-t09",
+          "version": 1,
+          "skill": "reading",
+          "type": "choice",
+          "title": "Eine Bedingung",
+          "instruction": "Tom bringt zwei Geräte. Entspricht das den Regeln?",
+          "hints": [],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "reading",
+          "formatFamily": "lerncheck_lesen",
+          "estimatedMinutes": 2,
+          "releaseStatus": "published",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ja, immer."
+            },
+            {
+              "id": "b",
+              "text": "Nein, nur ein Gerät pro Person."
+            },
+            {
+              "id": "c",
+              "text": "Ja, wenn er ein Fahrrad mitbringt."
+            }
+          ],
+          "correctAnswer": "b",
+          "explanation": "Die Zahl der Geräte ist begrenzt.",
+          "evidence": "Pro Person ist ein Gerät erlaubt.",
+          "text": "Offener Reparaturtreff\nAm Samstag helfen wir Erwachsenen von 13 bis 16 Uhr mit kleinen Geräten. Die Hilfe kostet nichts; Ersatzteile bezahlen Sie selbst. Eine Anmeldung bis Mittwoch ist nötig. Pro Person ist ein Gerät erlaubt. Bitte bringen Sie das passende Kabel mit. Fahrräder nehmen wir nicht an. Der Raum ist im Erdgeschoss. Wer nur zuschauen möchte, darf ohne Gerät kommen."
+        },
+        {
+          "id": "sitov-exam-b1-m01-u10-va-t10",
+          "version": 1,
+          "skill": "reading",
+          "type": "choice",
+          "title": "Ohne Gerät",
+          "instruction": "Kann Ben ohne Gerät zuschauen?",
+          "hints": [],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "reading",
+          "formatFamily": "lerncheck_lesen",
+          "estimatedMinutes": 2,
+          "releaseStatus": "published",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "options": [
+            {
+              "id": "a",
+              "text": "Ja."
+            },
+            {
+              "id": "b",
+              "text": "Nein."
+            },
+            {
+              "id": "c",
+              "text": "Nur gegen eine Gebühr."
+            }
+          ],
+          "correctAnswer": "a",
+          "explanation": "Zuschauen ist ausdrücklich erlaubt.",
+          "evidence": "Wer nur zuschauen möchte, darf ohne Gerät kommen.",
+          "text": "Offener Reparaturtreff\nAm Samstag helfen wir Erwachsenen von 13 bis 16 Uhr mit kleinen Geräten. Die Hilfe kostet nichts; Ersatzteile bezahlen Sie selbst. Eine Anmeldung bis Mittwoch ist nötig. Pro Person ist ein Gerät erlaubt. Bitte bringen Sie das passende Kabel mit. Fahrräder nehmen wir nicht an. Der Raum ist im Erdgeschoss. Wer nur zuschauen möchte, darf ohne Gerät kommen."
+        },
+        {
+          "id": "sitov-exam-b1-m01-u10-va-t11",
+          "version": 1,
+          "skill": "writing",
+          "type": "writing",
+          "title": "Neue Schreibprobe",
+          "instruction": "Schreiben Sie dem Reparaturtreff: Nennen Sie Ihr Gerät und sein Problem. Fragen Sie nach einem Termin und nach dem Material. Bitten Sie um eine Bestätigung.",
+          "hints": [],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "writing",
+          "formatFamily": "lerncheck_schreiben",
+          "estimatedMinutes": 5,
+          "releaseStatus": "published",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "rubric": [
+            "Alle geforderten Inhaltspunkte sind verständlich enthalten.",
+            "Ansprache und Gruß passen zum Empfänger.",
+            "Sätze sind sinnvoll verbunden.",
+            "Wortschatz und sprachliche Mittel passen zur Situation.",
+            "Prüfen Sie nach der Rückmeldung Ihren Text und verbessern Sie eine Stelle."
+          ]
+        },
+        {
+          "id": "sitov-exam-b1-m01-u10-va-t12",
+          "version": 1,
+          "skill": "speaking",
+          "type": "speaking",
+          "title": "Neue Sprechprobe",
+          "instruction": "Beschreiben Sie das neue Bild. Nennen Sie sichtbare Personen, Ort und Handlung. Kennzeichnen Sie eine Vermutung und erzählen Sie eine passende eigene oder erfundene Erfahrung.",
+          "hints": [],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "speaking",
+          "formatFamily": "lerncheck_sprechen",
+          "estimatedMinutes": 4,
+          "releaseStatus": "published",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "rubric": [
+            "Zentrale sichtbare Personen, Orte und Handlungen werden genannt.",
+            "Die Beschreibung hat eine nachvollziehbare Reihenfolge.",
+            "Vermutungen werden als Vermutungen gekennzeichnet.",
+            "Ein passender Anschluss oder eine Rückfrage wird beantwortet.",
+            "Die eigene Aufnahme wird angehört und überarbeitet."
+          ],
+          "image": {
+            "id": "sitov-exam-check-repair-v1",
+            "src": "/Bilder/exam-preparation/sitov-check-repair.svg",
+            "alt": "Zwei erwachsene Männer stehen an einem Tisch mit einem Radio und Werkzeug. Einer hat graue Haare; hinter ihnen ist ein Fenster.",
+            "status": "prepared"
+          }
+        }
+      ],
+      "releaseStatus": "published",
+      "variants": [
+        [
+          {
+            "id": "sitov-exam-b1-m01-u10-vb-t01",
+            "version": 1,
+            "skill": "listening",
+            "type": "choice",
+            "title": "Das Thema",
+            "instruction": "Worum geht es in der Nachricht?",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "listening",
+            "formatFamily": "lerncheck_hoeren",
+            "estimatedMinutes": 2,
+            "releaseStatus": "awaiting_media",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "options": [
+              {
+                "id": "a",
+                "text": "Um einen geänderten Beratungstermin."
+              },
+              {
+                "id": "b",
+                "text": "Um die Bewerbung für eine Stelle."
+              },
+              {
+                "id": "c",
+                "text": "Um ein kaputtes Telefon im Büro."
+              }
+            ],
+            "correctAnswer": "a",
+            "explanation": "Paul erklärt den Termin und die Vorbereitung für die Lernberatung.",
+            "evidence": "Der Termin beginnt nun um neun Uhr vierzig",
+            "audio": {
+              "id": "sitov-exam-b1-m01-check-b-v1",
+              "script": "Guten Tag, ich bin Paul von der Lernberatung Süd. Herr Karim hat morgen einen Beratungstermin. Der Termin beginnt nun um neun Uhr vierzig statt um neun Uhr zehn. Unser Büro ist in den dritten Stock gezogen. Der Aufzug funktioniert wieder. Bitte bringen Sie einen kurzen Text mit, den Sie selbst auf Deutsch geschrieben haben. Einen Lebenslauf brauchen wir für dieses Gespräch nicht. Die Beratung kostet nichts. Gemeinsam wählen wir zwei Lernziele für den nächsten Monat. Wenn Sie Ihren Termin ändern müssen, schicken Sie heute noch eine E-Mail. Das Telefon ist heute nicht besetzt.",
+              "status": "awaiting_recording",
+              "route": "qwen",
+              "roles": [
+                "Männlicher Sprecher"
+              ],
+              "notes": "Lokal auf dem Mac mit Qwen3-TTS-12Hz-1.7B-Base und sitov-qwen-male-de-v1 vorberechnen; echte Forced-Alignment-Wortzeitmarken prüfen und in Audio-Storage importieren. Kein Ersatz-TTS."
+            }
+          },
+          {
+            "id": "sitov-exam-b1-m01-u10-vb-t02",
+            "version": 1,
+            "skill": "listening",
+            "type": "choice",
+            "title": "Die neue Uhrzeit",
+            "instruction": "Wann beginnt der Termin jetzt?",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "listening",
+            "formatFamily": "lerncheck_hoeren",
+            "estimatedMinutes": 2,
+            "releaseStatus": "awaiting_media",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "options": [
+              {
+                "id": "a",
+                "text": "9:10 Uhr."
+              },
+              {
+                "id": "b",
+                "text": "9:40 Uhr."
+              },
+              {
+                "id": "c",
+                "text": "10:40 Uhr."
+              }
+            ],
+            "correctAnswer": "b",
+            "explanation": "Die bisherige Uhrzeit 9:10 gilt nicht mehr.",
+            "evidence": "neun Uhr vierzig statt um neun Uhr zehn",
+            "audio": {
+              "id": "sitov-exam-b1-m01-check-b-v1",
+              "script": "Guten Tag, ich bin Paul von der Lernberatung Süd. Herr Karim hat morgen einen Beratungstermin. Der Termin beginnt nun um neun Uhr vierzig statt um neun Uhr zehn. Unser Büro ist in den dritten Stock gezogen. Der Aufzug funktioniert wieder. Bitte bringen Sie einen kurzen Text mit, den Sie selbst auf Deutsch geschrieben haben. Einen Lebenslauf brauchen wir für dieses Gespräch nicht. Die Beratung kostet nichts. Gemeinsam wählen wir zwei Lernziele für den nächsten Monat. Wenn Sie Ihren Termin ändern müssen, schicken Sie heute noch eine E-Mail. Das Telefon ist heute nicht besetzt.",
+              "status": "awaiting_recording",
+              "route": "qwen",
+              "roles": [
+                "Männlicher Sprecher"
+              ],
+              "notes": "Lokal auf dem Mac mit Qwen3-TTS-12Hz-1.7B-Base und sitov-qwen-male-de-v1 vorberechnen; echte Forced-Alignment-Wortzeitmarken prüfen und in Audio-Storage importieren. Kein Ersatz-TTS."
+            }
+          },
+          {
+            "id": "sitov-exam-b1-m01-u10-vb-t03",
+            "version": 1,
+            "skill": "listening",
+            "type": "choice",
+            "title": "Der neue Ort",
+            "instruction": "Wo ist das Büro?",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "listening",
+            "formatFamily": "lerncheck_hoeren",
+            "estimatedMinutes": 2,
+            "releaseStatus": "awaiting_media",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "options": [
+              {
+                "id": "a",
+                "text": "Im Erdgeschoss."
+              },
+              {
+                "id": "b",
+                "text": "Im zweiten Stock."
+              },
+              {
+                "id": "c",
+                "text": "Im dritten Stock."
+              }
+            ],
+            "correctAnswer": "c",
+            "explanation": "Das Büro ist in den dritten Stock gezogen.",
+            "evidence": "in den dritten Stock gezogen",
+            "audio": {
+              "id": "sitov-exam-b1-m01-check-b-v1",
+              "script": "Guten Tag, ich bin Paul von der Lernberatung Süd. Herr Karim hat morgen einen Beratungstermin. Der Termin beginnt nun um neun Uhr vierzig statt um neun Uhr zehn. Unser Büro ist in den dritten Stock gezogen. Der Aufzug funktioniert wieder. Bitte bringen Sie einen kurzen Text mit, den Sie selbst auf Deutsch geschrieben haben. Einen Lebenslauf brauchen wir für dieses Gespräch nicht. Die Beratung kostet nichts. Gemeinsam wählen wir zwei Lernziele für den nächsten Monat. Wenn Sie Ihren Termin ändern müssen, schicken Sie heute noch eine E-Mail. Das Telefon ist heute nicht besetzt.",
+              "status": "awaiting_recording",
+              "route": "qwen",
+              "roles": [
+                "Männlicher Sprecher"
+              ],
+              "notes": "Lokal auf dem Mac mit Qwen3-TTS-12Hz-1.7B-Base und sitov-qwen-male-de-v1 vorberechnen; echte Forced-Alignment-Wortzeitmarken prüfen und in Audio-Storage importieren. Kein Ersatz-TTS."
+            }
+          },
+          {
+            "id": "sitov-exam-b1-m01-u10-vb-t04",
+            "version": 1,
+            "skill": "listening",
+            "type": "choice",
+            "title": "Mitbringen",
+            "instruction": "Was soll Herr Karim mitbringen?",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "listening",
+            "formatFamily": "lerncheck_hoeren",
+            "estimatedMinutes": 2,
+            "releaseStatus": "awaiting_media",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "options": [
+              {
+                "id": "a",
+                "text": "Einen eigenen deutschen Text."
+              },
+              {
+                "id": "b",
+                "text": "Einen Lebenslauf."
+              },
+              {
+                "id": "c",
+                "text": "Ein neues Telefon."
+              }
+            ],
+            "correctAnswer": "a",
+            "explanation": "Ein selbst geschriebener deutscher Text wird verlangt.",
+            "evidence": "einen kurzen Text mit, den Sie selbst auf Deutsch geschrieben haben.",
+            "audio": {
+              "id": "sitov-exam-b1-m01-check-b-v1",
+              "script": "Guten Tag, ich bin Paul von der Lernberatung Süd. Herr Karim hat morgen einen Beratungstermin. Der Termin beginnt nun um neun Uhr vierzig statt um neun Uhr zehn. Unser Büro ist in den dritten Stock gezogen. Der Aufzug funktioniert wieder. Bitte bringen Sie einen kurzen Text mit, den Sie selbst auf Deutsch geschrieben haben. Einen Lebenslauf brauchen wir für dieses Gespräch nicht. Die Beratung kostet nichts. Gemeinsam wählen wir zwei Lernziele für den nächsten Monat. Wenn Sie Ihren Termin ändern müssen, schicken Sie heute noch eine E-Mail. Das Telefon ist heute nicht besetzt.",
+              "status": "awaiting_recording",
+              "route": "qwen",
+              "roles": [
+                "Männlicher Sprecher"
+              ],
+              "notes": "Lokal auf dem Mac mit Qwen3-TTS-12Hz-1.7B-Base und sitov-qwen-male-de-v1 vorberechnen; echte Forced-Alignment-Wortzeitmarken prüfen und in Audio-Storage importieren. Kein Ersatz-TTS."
+            }
+          },
+          {
+            "id": "sitov-exam-b1-m01-u10-vb-t05",
+            "version": 1,
+            "skill": "listening",
+            "type": "choice",
+            "title": "Termin ändern",
+            "instruction": "Wie kann Herr Karim heute den Termin ändern?",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "listening",
+            "formatFamily": "lerncheck_hoeren",
+            "estimatedMinutes": 2,
+            "releaseStatus": "awaiting_media",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "options": [
+              {
+                "id": "a",
+                "text": "Nur persönlich."
+              },
+              {
+                "id": "b",
+                "text": "Mit einer E-Mail."
+              },
+              {
+                "id": "c",
+                "text": "Mit einem Anruf."
+              }
+            ],
+            "correctAnswer": "b",
+            "explanation": "Das Telefon ist heute nicht besetzt.",
+            "evidence": "schicken Sie heute noch eine E-Mail",
+            "audio": {
+              "id": "sitov-exam-b1-m01-check-b-v1",
+              "script": "Guten Tag, ich bin Paul von der Lernberatung Süd. Herr Karim hat morgen einen Beratungstermin. Der Termin beginnt nun um neun Uhr vierzig statt um neun Uhr zehn. Unser Büro ist in den dritten Stock gezogen. Der Aufzug funktioniert wieder. Bitte bringen Sie einen kurzen Text mit, den Sie selbst auf Deutsch geschrieben haben. Einen Lebenslauf brauchen wir für dieses Gespräch nicht. Die Beratung kostet nichts. Gemeinsam wählen wir zwei Lernziele für den nächsten Monat. Wenn Sie Ihren Termin ändern müssen, schicken Sie heute noch eine E-Mail. Das Telefon ist heute nicht besetzt.",
+              "status": "awaiting_recording",
+              "route": "qwen",
+              "roles": [
+                "Männlicher Sprecher"
+              ],
+              "notes": "Lokal auf dem Mac mit Qwen3-TTS-12Hz-1.7B-Base und sitov-qwen-male-de-v1 vorberechnen; echte Forced-Alignment-Wortzeitmarken prüfen und in Audio-Storage importieren. Kein Ersatz-TTS."
+            }
+          },
+          {
+            "id": "sitov-exam-b1-m01-u10-vb-t06",
+            "version": 1,
+            "skill": "reading",
+            "type": "choice",
+            "title": "Die Zielgruppe",
+            "instruction": "Für wen ist der Treff?",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "reading",
+            "formatFamily": "lerncheck_lesen",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "options": [
+              {
+                "id": "a",
+                "text": "Für erwachsene Hausbewohner."
+              },
+              {
+                "id": "b",
+                "text": "Für alle Touristen der Stadt."
+              },
+              {
+                "id": "c",
+                "text": "Nur für Menschen mit Haustieren."
+              }
+            ],
+            "correctAnswer": "a",
+            "explanation": "Die Zielgruppe sind erwachsene Bewohner des Hauses.",
+            "evidence": "für erwachsene Bewohner des Hauses",
+            "text": "Nachbarschaftstreff Sonnenhof\nNeue Nachbarn lernen sich am Sonntag von 15 bis 17 Uhr im Gemeinschaftsraum kennen. Der Treff ist für erwachsene Bewohner des Hauses. Anmeldung ist nicht erforderlich. Tee und Wasser sind kostenlos. Wer Kaffee möchte, bringt ihn selbst mit. Sie können Spiele mitbringen, aber keine Haustiere. Vor dem Raum gibt es nur zwei Stufen; der Eingang über den Garten ist ohne Stufen erreichbar. Bitte verlassen Sie den Raum bis 17 Uhr, weil danach ein anderer Kurs beginnt."
+          },
+          {
+            "id": "sitov-exam-b1-m01-u10-vb-t07",
+            "version": 1,
+            "skill": "reading",
+            "type": "choice",
+            "title": "Die Anmeldung",
+            "instruction": "Muss man sich vorher anmelden?",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "reading",
+            "formatFamily": "lerncheck_lesen",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ja, bis Freitag."
+              },
+              {
+                "id": "b",
+                "text": "Nein."
+              },
+              {
+                "id": "c",
+                "text": "Nur für Tee."
+              }
+            ],
+            "correctAnswer": "b",
+            "explanation": "Der Text verlangt keine Anmeldung.",
+            "evidence": "Anmeldung ist nicht erforderlich.",
+            "text": "Nachbarschaftstreff Sonnenhof\nNeue Nachbarn lernen sich am Sonntag von 15 bis 17 Uhr im Gemeinschaftsraum kennen. Der Treff ist für erwachsene Bewohner des Hauses. Anmeldung ist nicht erforderlich. Tee und Wasser sind kostenlos. Wer Kaffee möchte, bringt ihn selbst mit. Sie können Spiele mitbringen, aber keine Haustiere. Vor dem Raum gibt es nur zwei Stufen; der Eingang über den Garten ist ohne Stufen erreichbar. Bitte verlassen Sie den Raum bis 17 Uhr, weil danach ein anderer Kurs beginnt."
+          },
+          {
+            "id": "sitov-exam-b1-m01-u10-vb-t08",
+            "version": 1,
+            "skill": "reading",
+            "type": "choice",
+            "title": "Die Getränke",
+            "instruction": "Was muss man selbst mitbringen, wenn man es möchte?",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "reading",
+            "formatFamily": "lerncheck_lesen",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "options": [
+              {
+                "id": "a",
+                "text": "Wasser."
+              },
+              {
+                "id": "b",
+                "text": "Tee."
+              },
+              {
+                "id": "c",
+                "text": "Kaffee."
+              }
+            ],
+            "correctAnswer": "c",
+            "explanation": "Tee und Wasser stehen bereit, Kaffee nicht.",
+            "evidence": "Wer Kaffee möchte, bringt ihn selbst mit.",
+            "text": "Nachbarschaftstreff Sonnenhof\nNeue Nachbarn lernen sich am Sonntag von 15 bis 17 Uhr im Gemeinschaftsraum kennen. Der Treff ist für erwachsene Bewohner des Hauses. Anmeldung ist nicht erforderlich. Tee und Wasser sind kostenlos. Wer Kaffee möchte, bringt ihn selbst mit. Sie können Spiele mitbringen, aber keine Haustiere. Vor dem Raum gibt es nur zwei Stufen; der Eingang über den Garten ist ohne Stufen erreichbar. Bitte verlassen Sie den Raum bis 17 Uhr, weil danach ein anderer Kurs beginnt."
+          },
+          {
+            "id": "sitov-exam-b1-m01-u10-vb-t09",
+            "version": 1,
+            "skill": "reading",
+            "type": "choice",
+            "title": "Der Zugang",
+            "instruction": "Welcher Eingang hat keine Stufen?",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "reading",
+            "formatFamily": "lerncheck_lesen",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "options": [
+              {
+                "id": "a",
+                "text": "Der über den Garten."
+              },
+              {
+                "id": "b",
+                "text": "Der vor dem Raum."
+              },
+              {
+                "id": "c",
+                "text": "Beide haben Stufen."
+              }
+            ],
+            "correctAnswer": "a",
+            "explanation": "Der Garteneingang ist ohne Stufen erreichbar.",
+            "evidence": "der Eingang über den Garten ist ohne Stufen erreichbar",
+            "text": "Nachbarschaftstreff Sonnenhof\nNeue Nachbarn lernen sich am Sonntag von 15 bis 17 Uhr im Gemeinschaftsraum kennen. Der Treff ist für erwachsene Bewohner des Hauses. Anmeldung ist nicht erforderlich. Tee und Wasser sind kostenlos. Wer Kaffee möchte, bringt ihn selbst mit. Sie können Spiele mitbringen, aber keine Haustiere. Vor dem Raum gibt es nur zwei Stufen; der Eingang über den Garten ist ohne Stufen erreichbar. Bitte verlassen Sie den Raum bis 17 Uhr, weil danach ein anderer Kurs beginnt."
+          },
+          {
+            "id": "sitov-exam-b1-m01-u10-vb-t10",
+            "version": 1,
+            "skill": "reading",
+            "type": "choice",
+            "title": "Das Ende",
+            "instruction": "Warum endet der Treff um 17 Uhr?",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "reading",
+            "formatFamily": "lerncheck_lesen",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "options": [
+              {
+                "id": "a",
+                "text": "Dann beginnt ein anderer Kurs."
+              },
+              {
+                "id": "b",
+                "text": "Dann fährt der letzte Bus."
+              },
+              {
+                "id": "c",
+                "text": "Dann schließen alle Wohnungen."
+              }
+            ],
+            "correctAnswer": "a",
+            "explanation": "Der Raum wird anschließend für einen Kurs gebraucht.",
+            "evidence": "weil danach ein anderer Kurs beginnt",
+            "text": "Nachbarschaftstreff Sonnenhof\nNeue Nachbarn lernen sich am Sonntag von 15 bis 17 Uhr im Gemeinschaftsraum kennen. Der Treff ist für erwachsene Bewohner des Hauses. Anmeldung ist nicht erforderlich. Tee und Wasser sind kostenlos. Wer Kaffee möchte, bringt ihn selbst mit. Sie können Spiele mitbringen, aber keine Haustiere. Vor dem Raum gibt es nur zwei Stufen; der Eingang über den Garten ist ohne Stufen erreichbar. Bitte verlassen Sie den Raum bis 17 Uhr, weil danach ein anderer Kurs beginnt."
+          },
+          {
+            "id": "sitov-exam-b1-m01-u10-vb-t11",
+            "version": 1,
+            "skill": "writing",
+            "type": "writing",
+            "title": "Neue Schreibprobe",
+            "instruction": "Schreiben Sie Ihrem Nachbarn: Stellen Sie sich vor, laden Sie ihn zum Nachbarschaftstreff ein, nennen Sie Zeit und Ort und fragen Sie, ob er mitkommen möchte.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "writing",
+            "formatFamily": "lerncheck_schreiben",
+            "estimatedMinutes": 5,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "Alle geforderten Inhaltspunkte sind verständlich enthalten.",
+              "Ansprache und Gruß passen zum Empfänger.",
+              "Sätze sind sinnvoll verbunden.",
+              "Wortschatz und sprachliche Mittel passen zur Situation.",
+              "Prüfen Sie nach der Rückmeldung Ihren Text und verbessern Sie eine Stelle."
+            ]
+          },
+          {
+            "id": "sitov-exam-b1-m01-u10-vb-t12",
+            "version": 1,
+            "skill": "speaking",
+            "type": "speaking",
+            "title": "Neue Sprechprobe",
+            "instruction": "Beschreiben Sie das Bild und erzählen Sie von einem passenden eigenen oder erfundenen Kontakt mit einem Nachbarn. Stellen Sie am Ende eine Rückfrage.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "speaking",
+            "formatFamily": "lerncheck_sprechen",
+            "estimatedMinutes": 4,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "Zentrale sichtbare Personen, Orte und Handlungen werden genannt.",
+              "Die Beschreibung hat eine nachvollziehbare Reihenfolge.",
+              "Vermutungen werden als Vermutungen gekennzeichnet.",
+              "Ein passender Anschluss oder eine Rückfrage wird beantwortet.",
+              "Die eigene Aufnahme wird angehört und überarbeitet."
+            ],
+            "image": {
+              "id": "sitov-exam-check-neighbourhood-v1",
+              "src": "/Bilder/exam-preparation/sitov-check-neighbourhood.svg",
+              "alt": "Zwei erwachsene Männer stehen in einem Raum mit einem Regal, einem Tisch und einer Kiste. Verschiedene Gegenstände liegen auf dem Tisch und in der Kiste.",
+              "status": "prepared"
+            }
+          }
+        ],
+        [
+          {
+            "id": "sitov-exam-b1-m01-u10-vc-t01",
+            "version": 1,
+            "skill": "listening",
+            "type": "choice",
+            "title": "Das Thema",
+            "instruction": "Für wen ist das neue Angebot?",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "listening",
+            "formatFamily": "lerncheck_hoeren",
+            "estimatedMinutes": 2,
+            "releaseStatus": "awaiting_media",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "options": [
+              {
+                "id": "a",
+                "text": "Für Erwachsene, die mehr Deutsch sprechen möchten."
+              },
+              {
+                "id": "b",
+                "text": "Nur für Kinder ohne Sprachkenntnisse."
+              },
+              {
+                "id": "c",
+                "text": "Nur für Fotografen."
+              }
+            ],
+            "correctAnswer": "a",
+            "explanation": "Der Gesprächstreff soll Erwachsene beim Sprechen unterstützen.",
+            "evidence": "im Alltag mehr Deutsch sprechen möchten",
+            "audio": {
+              "id": "sitov-exam-b1-m01-check-c-v1",
+              "script": "Guten Abend, hier spricht Omar vom Bürgerzentrum Ost. Unser neuer Gesprächstreff beginnt am Donnerstag um achtzehn Uhr. Bisher stand auf dem Plakat siebzehn Uhr. Wir treffen uns im kleinen Saal im Erdgeschoss. Die Gruppe ist für Erwachsene, die im Alltag mehr Deutsch sprechen möchten. Vorkenntnisse aus einem Kurs sind hilfreich, aber kein Kursabschluss ist nötig. Beim ersten Treffen bezahlen Sie nichts. Danach kostet jedes Treffen drei Euro. Bitte bringen Sie ein Foto von einem Ort mit, über den Sie sprechen möchten. Sie können auch ein Foto auf Ihrem Telefon zeigen. Anmelden können Sie sich bis Mittwoch persönlich am Empfang.",
+              "status": "awaiting_recording",
+              "route": "qwen",
+              "roles": [
+                "Männlicher Sprecher"
+              ],
+              "notes": "Lokal auf dem Mac mit Qwen3-TTS-12Hz-1.7B-Base und sitov-qwen-male-de-v1 vorberechnen; echte Forced-Alignment-Wortzeitmarken prüfen und in Audio-Storage importieren. Kein Ersatz-TTS."
+            }
+          },
+          {
+            "id": "sitov-exam-b1-m01-u10-vc-t02",
+            "version": 1,
+            "skill": "listening",
+            "type": "choice",
+            "title": "Die richtige Uhrzeit",
+            "instruction": "Wann beginnt der Treff jetzt?",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "listening",
+            "formatFamily": "lerncheck_hoeren",
+            "estimatedMinutes": 2,
+            "releaseStatus": "awaiting_media",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "options": [
+              {
+                "id": "a",
+                "text": "Um 17 Uhr."
+              },
+              {
+                "id": "b",
+                "text": "Um 18 Uhr."
+              },
+              {
+                "id": "c",
+                "text": "Um 19 Uhr."
+              }
+            ],
+            "correctAnswer": "b",
+            "explanation": "Die Plakatuhrzeit 17 Uhr wird berichtigt.",
+            "evidence": "Donnerstag um achtzehn Uhr",
+            "audio": {
+              "id": "sitov-exam-b1-m01-check-c-v1",
+              "script": "Guten Abend, hier spricht Omar vom Bürgerzentrum Ost. Unser neuer Gesprächstreff beginnt am Donnerstag um achtzehn Uhr. Bisher stand auf dem Plakat siebzehn Uhr. Wir treffen uns im kleinen Saal im Erdgeschoss. Die Gruppe ist für Erwachsene, die im Alltag mehr Deutsch sprechen möchten. Vorkenntnisse aus einem Kurs sind hilfreich, aber kein Kursabschluss ist nötig. Beim ersten Treffen bezahlen Sie nichts. Danach kostet jedes Treffen drei Euro. Bitte bringen Sie ein Foto von einem Ort mit, über den Sie sprechen möchten. Sie können auch ein Foto auf Ihrem Telefon zeigen. Anmelden können Sie sich bis Mittwoch persönlich am Empfang.",
+              "status": "awaiting_recording",
+              "route": "qwen",
+              "roles": [
+                "Männlicher Sprecher"
+              ],
+              "notes": "Lokal auf dem Mac mit Qwen3-TTS-12Hz-1.7B-Base und sitov-qwen-male-de-v1 vorberechnen; echte Forced-Alignment-Wortzeitmarken prüfen und in Audio-Storage importieren. Kein Ersatz-TTS."
+            }
+          },
+          {
+            "id": "sitov-exam-b1-m01-u10-vc-t03",
+            "version": 1,
+            "skill": "listening",
+            "type": "choice",
+            "title": "Der Raum",
+            "instruction": "Wo trifft sich die Gruppe?",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "listening",
+            "formatFamily": "lerncheck_hoeren",
+            "estimatedMinutes": 2,
+            "releaseStatus": "awaiting_media",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "options": [
+              {
+                "id": "a",
+                "text": "Im kleinen Saal im Erdgeschoss."
+              },
+              {
+                "id": "b",
+                "text": "In einem Raum im dritten Stock."
+              },
+              {
+                "id": "c",
+                "text": "In der Bibliothek."
+              }
+            ],
+            "correctAnswer": "a",
+            "explanation": "Der Ort wird vollständig genannt.",
+            "evidence": "im kleinen Saal im Erdgeschoss",
+            "audio": {
+              "id": "sitov-exam-b1-m01-check-c-v1",
+              "script": "Guten Abend, hier spricht Omar vom Bürgerzentrum Ost. Unser neuer Gesprächstreff beginnt am Donnerstag um achtzehn Uhr. Bisher stand auf dem Plakat siebzehn Uhr. Wir treffen uns im kleinen Saal im Erdgeschoss. Die Gruppe ist für Erwachsene, die im Alltag mehr Deutsch sprechen möchten. Vorkenntnisse aus einem Kurs sind hilfreich, aber kein Kursabschluss ist nötig. Beim ersten Treffen bezahlen Sie nichts. Danach kostet jedes Treffen drei Euro. Bitte bringen Sie ein Foto von einem Ort mit, über den Sie sprechen möchten. Sie können auch ein Foto auf Ihrem Telefon zeigen. Anmelden können Sie sich bis Mittwoch persönlich am Empfang.",
+              "status": "awaiting_recording",
+              "route": "qwen",
+              "roles": [
+                "Männlicher Sprecher"
+              ],
+              "notes": "Lokal auf dem Mac mit Qwen3-TTS-12Hz-1.7B-Base und sitov-qwen-male-de-v1 vorberechnen; echte Forced-Alignment-Wortzeitmarken prüfen und in Audio-Storage importieren. Kein Ersatz-TTS."
+            }
+          },
+          {
+            "id": "sitov-exam-b1-m01-u10-vc-t04",
+            "version": 1,
+            "skill": "listening",
+            "type": "choice",
+            "title": "Die Kosten",
+            "instruction": "Wie viel kostet das erste Treffen?",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "listening",
+            "formatFamily": "lerncheck_hoeren",
+            "estimatedMinutes": 2,
+            "releaseStatus": "awaiting_media",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "options": [
+              {
+                "id": "a",
+                "text": "Drei Euro."
+              },
+              {
+                "id": "b",
+                "text": "Nichts."
+              },
+              {
+                "id": "c",
+                "text": "Acht Euro."
+              }
+            ],
+            "correctAnswer": "b",
+            "explanation": "Erst die weiteren Treffen kosten drei Euro.",
+            "evidence": "Beim ersten Treffen bezahlen Sie nichts.",
+            "audio": {
+              "id": "sitov-exam-b1-m01-check-c-v1",
+              "script": "Guten Abend, hier spricht Omar vom Bürgerzentrum Ost. Unser neuer Gesprächstreff beginnt am Donnerstag um achtzehn Uhr. Bisher stand auf dem Plakat siebzehn Uhr. Wir treffen uns im kleinen Saal im Erdgeschoss. Die Gruppe ist für Erwachsene, die im Alltag mehr Deutsch sprechen möchten. Vorkenntnisse aus einem Kurs sind hilfreich, aber kein Kursabschluss ist nötig. Beim ersten Treffen bezahlen Sie nichts. Danach kostet jedes Treffen drei Euro. Bitte bringen Sie ein Foto von einem Ort mit, über den Sie sprechen möchten. Sie können auch ein Foto auf Ihrem Telefon zeigen. Anmelden können Sie sich bis Mittwoch persönlich am Empfang.",
+              "status": "awaiting_recording",
+              "route": "qwen",
+              "roles": [
+                "Männlicher Sprecher"
+              ],
+              "notes": "Lokal auf dem Mac mit Qwen3-TTS-12Hz-1.7B-Base und sitov-qwen-male-de-v1 vorberechnen; echte Forced-Alignment-Wortzeitmarken prüfen und in Audio-Storage importieren. Kein Ersatz-TTS."
+            }
+          },
+          {
+            "id": "sitov-exam-b1-m01-u10-vc-t05",
+            "version": 1,
+            "skill": "listening",
+            "type": "choice",
+            "title": "Die Anmeldung",
+            "instruction": "Wie kann man sich anmelden?",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "listening",
+            "formatFamily": "lerncheck_hoeren",
+            "estimatedMinutes": 2,
+            "releaseStatus": "awaiting_media",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "options": [
+              {
+                "id": "a",
+                "text": "Bis Mittwoch persönlich am Empfang."
+              },
+              {
+                "id": "b",
+                "text": "Am Donnerstag nur telefonisch."
+              },
+              {
+                "id": "c",
+                "text": "Bis Freitag per E-Mail."
+              }
+            ],
+            "correctAnswer": "a",
+            "explanation": "Die Anmeldung endet am Mittwoch und erfolgt persönlich.",
+            "evidence": "bis Mittwoch persönlich am Empfang",
+            "audio": {
+              "id": "sitov-exam-b1-m01-check-c-v1",
+              "script": "Guten Abend, hier spricht Omar vom Bürgerzentrum Ost. Unser neuer Gesprächstreff beginnt am Donnerstag um achtzehn Uhr. Bisher stand auf dem Plakat siebzehn Uhr. Wir treffen uns im kleinen Saal im Erdgeschoss. Die Gruppe ist für Erwachsene, die im Alltag mehr Deutsch sprechen möchten. Vorkenntnisse aus einem Kurs sind hilfreich, aber kein Kursabschluss ist nötig. Beim ersten Treffen bezahlen Sie nichts. Danach kostet jedes Treffen drei Euro. Bitte bringen Sie ein Foto von einem Ort mit, über den Sie sprechen möchten. Sie können auch ein Foto auf Ihrem Telefon zeigen. Anmelden können Sie sich bis Mittwoch persönlich am Empfang.",
+              "status": "awaiting_recording",
+              "route": "qwen",
+              "roles": [
+                "Männlicher Sprecher"
+              ],
+              "notes": "Lokal auf dem Mac mit Qwen3-TTS-12Hz-1.7B-Base und sitov-qwen-male-de-v1 vorberechnen; echte Forced-Alignment-Wortzeitmarken prüfen und in Audio-Storage importieren. Kein Ersatz-TTS."
+            }
+          },
+          {
+            "id": "sitov-exam-b1-m01-u10-vc-t06",
+            "version": 1,
+            "skill": "reading",
+            "type": "choice",
+            "title": "Der erste Schritt",
+            "instruction": "Was soll man zuerst tun?",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "reading",
+            "formatFamily": "lerncheck_lesen",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ein Formular ausfüllen."
+              },
+              {
+                "id": "b",
+                "text": "Ein Buch kaufen."
+              },
+              {
+                "id": "c",
+                "text": "Einen Raum für einen Tag buchen."
+              }
+            ],
+            "correctAnswer": "a",
+            "explanation": "Freie Zeiten werden im Formular angegeben.",
+            "evidence": "Füllen Sie am Empfang ein Formular mit Ihren freien Zeiten aus.",
+            "text": "Lernen mit einem Partner\nDie Bibliothek vermittelt erwachsenen Deutschlernenden Lernpartner. Füllen Sie am Empfang ein Formular mit Ihren freien Zeiten aus. Ein Mitarbeiter meldet sich innerhalb einer Woche. Die Treffen werden von den Lernpartnern selbst vereinbart. Räume können für höchstens zwei Stunden gebucht werden. Die Teilnahme kostet nichts. Bücher dürfen nur mit einem Bibliotheksausweis ausgeliehen werden. Für das Gespräch im Raum brauchen Sie keinen Ausweis. Wer eine Woche verhindert ist, informiert seinen Partner direkt, nicht die Bibliothek."
+          },
+          {
+            "id": "sitov-exam-b1-m01-u10-vc-t07",
+            "version": 1,
+            "skill": "reading",
+            "type": "choice",
+            "title": "Die Rückmeldung",
+            "instruction": "Wann meldet sich ein Mitarbeiter?",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "reading",
+            "formatFamily": "lerncheck_lesen",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "options": [
+              {
+                "id": "a",
+                "text": "Noch im gleichen Moment."
+              },
+              {
+                "id": "b",
+                "text": "Innerhalb einer Woche."
+              },
+              {
+                "id": "c",
+                "text": "Nach einem Monat."
+              }
+            ],
+            "correctAnswer": "b",
+            "explanation": "Die Frist ist eine Woche.",
+            "evidence": "innerhalb einer Woche",
+            "text": "Lernen mit einem Partner\nDie Bibliothek vermittelt erwachsenen Deutschlernenden Lernpartner. Füllen Sie am Empfang ein Formular mit Ihren freien Zeiten aus. Ein Mitarbeiter meldet sich innerhalb einer Woche. Die Treffen werden von den Lernpartnern selbst vereinbart. Räume können für höchstens zwei Stunden gebucht werden. Die Teilnahme kostet nichts. Bücher dürfen nur mit einem Bibliotheksausweis ausgeliehen werden. Für das Gespräch im Raum brauchen Sie keinen Ausweis. Wer eine Woche verhindert ist, informiert seinen Partner direkt, nicht die Bibliothek."
+          },
+          {
+            "id": "sitov-exam-b1-m01-u10-vc-t08",
+            "version": 1,
+            "skill": "reading",
+            "type": "choice",
+            "title": "Die Organisation",
+            "instruction": "Wer vereinbart die Treffen?",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "reading",
+            "formatFamily": "lerncheck_lesen",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "options": [
+              {
+                "id": "a",
+                "text": "Die Lernpartner selbst."
+              },
+              {
+                "id": "b",
+                "text": "Immer der Mitarbeiter."
+              },
+              {
+                "id": "c",
+                "text": "Ein Buchverlag."
+              }
+            ],
+            "correctAnswer": "a",
+            "explanation": "Die Bibliothek vermittelt, organisiert aber nicht jedes Treffen.",
+            "evidence": "von den Lernpartnern selbst vereinbart",
+            "text": "Lernen mit einem Partner\nDie Bibliothek vermittelt erwachsenen Deutschlernenden Lernpartner. Füllen Sie am Empfang ein Formular mit Ihren freien Zeiten aus. Ein Mitarbeiter meldet sich innerhalb einer Woche. Die Treffen werden von den Lernpartnern selbst vereinbart. Räume können für höchstens zwei Stunden gebucht werden. Die Teilnahme kostet nichts. Bücher dürfen nur mit einem Bibliotheksausweis ausgeliehen werden. Für das Gespräch im Raum brauchen Sie keinen Ausweis. Wer eine Woche verhindert ist, informiert seinen Partner direkt, nicht die Bibliothek."
+          },
+          {
+            "id": "sitov-exam-b1-m01-u10-vc-t09",
+            "version": 1,
+            "skill": "reading",
+            "type": "choice",
+            "title": "Der Ausweis",
+            "instruction": "Braucht man zum Gespräch im Raum einen Bibliotheksausweis?",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "reading",
+            "formatFamily": "lerncheck_lesen",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ja."
+              },
+              {
+                "id": "b",
+                "text": "Nein."
+              },
+              {
+                "id": "c",
+                "text": "Nur am Mittwoch."
+              }
+            ],
+            "correctAnswer": "b",
+            "explanation": "Ein Ausweis ist nur zum Ausleihen erforderlich.",
+            "evidence": "Für das Gespräch im Raum brauchen Sie keinen Ausweis.",
+            "text": "Lernen mit einem Partner\nDie Bibliothek vermittelt erwachsenen Deutschlernenden Lernpartner. Füllen Sie am Empfang ein Formular mit Ihren freien Zeiten aus. Ein Mitarbeiter meldet sich innerhalb einer Woche. Die Treffen werden von den Lernpartnern selbst vereinbart. Räume können für höchstens zwei Stunden gebucht werden. Die Teilnahme kostet nichts. Bücher dürfen nur mit einem Bibliotheksausweis ausgeliehen werden. Für das Gespräch im Raum brauchen Sie keinen Ausweis. Wer eine Woche verhindert ist, informiert seinen Partner direkt, nicht die Bibliothek."
+          },
+          {
+            "id": "sitov-exam-b1-m01-u10-vc-t10",
+            "version": 1,
+            "skill": "reading",
+            "type": "choice",
+            "title": "Eine Absage",
+            "instruction": "Wen informiert man bei Verhinderung?",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "reading",
+            "formatFamily": "lerncheck_lesen",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "options": [
+              {
+                "id": "a",
+                "text": "Den Lernpartner direkt."
+              },
+              {
+                "id": "b",
+                "text": "Nur die Bibliothek."
+              },
+              {
+                "id": "c",
+                "text": "Alle Mitarbeiter."
+              }
+            ],
+            "correctAnswer": "a",
+            "explanation": "Die Absage soll direkt beim Partner ankommen.",
+            "evidence": "informiert seinen Partner direkt",
+            "text": "Lernen mit einem Partner\nDie Bibliothek vermittelt erwachsenen Deutschlernenden Lernpartner. Füllen Sie am Empfang ein Formular mit Ihren freien Zeiten aus. Ein Mitarbeiter meldet sich innerhalb einer Woche. Die Treffen werden von den Lernpartnern selbst vereinbart. Räume können für höchstens zwei Stunden gebucht werden. Die Teilnahme kostet nichts. Bücher dürfen nur mit einem Bibliotheksausweis ausgeliehen werden. Für das Gespräch im Raum brauchen Sie keinen Ausweis. Wer eine Woche verhindert ist, informiert seinen Partner direkt, nicht die Bibliothek."
+          },
+          {
+            "id": "sitov-exam-b1-m01-u10-vc-t11",
+            "version": 1,
+            "skill": "writing",
+            "type": "writing",
+            "title": "Neue Schreibprobe",
+            "instruction": "Schreiben Sie einem möglichen Lernpartner: Stellen Sie sich kurz vor, nennen Sie Ihr Lernziel, schlagen Sie eine Zeit und einen Ort vor und fragen Sie nach seiner Meinung.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "writing",
+            "formatFamily": "lerncheck_schreiben",
+            "estimatedMinutes": 5,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "Alle geforderten Inhaltspunkte sind verständlich enthalten.",
+              "Ansprache und Gruß passen zum Empfänger.",
+              "Sätze sind sinnvoll verbunden.",
+              "Wortschatz und sprachliche Mittel passen zur Situation.",
+              "Prüfen Sie nach der Rückmeldung Ihren Text und verbessern Sie eine Stelle."
+            ]
+          },
+          {
+            "id": "sitov-exam-b1-m01-u10-vc-t12",
+            "version": 1,
+            "skill": "speaking",
+            "type": "speaking",
+            "title": "Neue Sprechprobe",
+            "instruction": "Beschreiben Sie das neue Bild und erzählen Sie, wie man gut mit einem Lernpartner üben kann. Nennen Sie einen Vorteil und eine mögliche Schwierigkeit.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "speaking",
+            "formatFamily": "lerncheck_sprechen",
+            "estimatedMinutes": 4,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "Zentrale sichtbare Personen, Orte und Handlungen werden genannt.",
+              "Die Beschreibung hat eine nachvollziehbare Reihenfolge.",
+              "Vermutungen werden als Vermutungen gekennzeichnet.",
+              "Ein passender Anschluss oder eine Rückfrage wird beantwortet.",
+              "Die eigene Aufnahme wird angehört und überarbeitet."
+            ],
+            "image": {
+              "id": "sitov-exam-check-learning-v1",
+              "src": "/Bilder/exam-preparation/sitov-check-learning.svg",
+              "alt": "Zwei erwachsene Männer stehen an einem Tisch mit einem geöffneten Buch und Notizen. An der Wand hängt ein Blatt; links ist ein Fenster.",
+              "status": "prepared"
+            }
+          }
+        ]
+      ]
+    }
+  ],
+  "releaseStatus": "published",
+  "fallbackUnits": [
+    {
+      "id": "sitov-exam-b1-m01-f01",
+      "moduleId": "sitov-exam-b1-m01",
+      "title": "Drei gezielte Förderübungen",
+      "description": "Dieser alternative Lernweg öffnet nach zwei nicht bestandenen neuen Lerncheckvarianten.",
+      "order": 1,
+      "kind": "reading",
+      "required": false,
+      "estimatedMinutes": 6,
+      "tasks": [
+        {
+          "id": "sitov-exam-b1-m01-f01-t01",
+          "version": 1,
+          "skill": "reading",
+          "type": "choice",
+          "title": "Die letzte Uhrzeit gilt",
+          "instruction": "Wann beginnt die Lernberatung nach der Änderung?",
+          "hints": [],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "reading",
+          "formatFamily": "foerderung_zeit",
+          "estimatedMinutes": 2,
+          "releaseStatus": "published",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "options": [
+            {
+              "id": "a",
+              "text": "9:10 Uhr."
+            },
+            {
+              "id": "b",
+              "text": "9:50 Uhr."
+            },
+            {
+              "id": "c",
+              "text": "10:50 Uhr."
+            }
+          ],
+          "correctAnswer": "b",
+          "explanation": "Die Nachricht ersetzt 9:10 durch 9:50. Achten Sie auf die letzte gültige Information.",
+          "evidence": "beginnt die Beratung stattdessen um neun Uhr fünfzig.",
+          "text": "Ihr Termin war um neun Uhr zehn geplant. Wegen einer Besprechung beginnt die Beratung stattdessen um neun Uhr fünfzig."
+        },
+        {
+          "id": "sitov-exam-b1-m01-f01-t02",
+          "version": 1,
+          "skill": "reading",
+          "type": "choice",
+          "title": "Eine Bedingung beachten",
+          "instruction": "Welche Person kann den offenen Treff nutzen?",
+          "hints": [],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "reading",
+          "formatFamily": "foerderung_bedingung",
+          "estimatedMinutes": 2,
+          "releaseStatus": "published",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "options": [
+            {
+              "id": "a",
+              "text": "Tom, 44 Jahre, hat schon erste Deutschkenntnisse."
+            },
+            {
+              "id": "b",
+              "text": "Ein Kind, das allein einen Kurs sucht."
+            },
+            {
+              "id": "c",
+              "text": "Ben, der noch kein deutsches Wort versteht."
+            }
+          ],
+          "correctAnswer": "a",
+          "explanation": "Das Angebot gilt für Erwachsene mit ersten Deutschkenntnissen. Es ersetzt keinen Einführungskurs.",
+          "evidence": "Erwachsene mit ersten Deutschkenntnissen",
+          "text": "Der offene Treff ist für Erwachsene mit ersten Deutschkenntnissen. Wer ganz neu anfängt, besucht bitte zunächst den Einführungskurs."
+        },
+        {
+          "id": "sitov-exam-b1-m01-f01-t03",
+          "version": 1,
+          "skill": "vocabulary",
+          "type": "choice",
+          "title": "Eine Absicht höflich sagen",
+          "instruction": "Sie möchten wissen, ob ein vereinbarter Termin gilt. Welche Frage passt?",
+          "hints": [],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "vocabulary",
+          "formatFamily": "foerderung_chunk",
+          "estimatedMinutes": 2,
+          "releaseStatus": "published",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "options": [
+            {
+              "id": "a",
+              "text": "Könnten Sie den Termin bitte bestätigen?"
+            },
+            {
+              "id": "b",
+              "text": "Ich habe gestern ein Regal repariert."
+            },
+            {
+              "id": "c",
+              "text": "Bitte verkaufen Sie mir Ihren Namen."
+            }
+          ],
+          "correctAnswer": "a",
+          "explanation": "Bestätigen heißt hier: sagen, dass die Vereinbarung weiterhin gilt.",
+          "evidence": "Könnten Sie den Termin bitte bestätigen?"
+        }
+      ],
+      "releaseStatus": "published"
+    },
+    {
+      "id": "sitov-exam-b1-m01-f02",
+      "moduleId": "sitov-exam-b1-m01",
+      "title": "Eine neue Situation übertragen",
+      "description": "Dieser alternative Lernweg öffnet nach zwei nicht bestandenen neuen Lerncheckvarianten.",
+      "order": 2,
+      "kind": "transfer",
+      "required": false,
+      "estimatedMinutes": 6,
+      "tasks": [
+        {
+          "id": "sitov-exam-b1-m01-f02-t01",
+          "version": 1,
+          "skill": "reading",
+          "type": "choice",
+          "title": "Eine neue Frist verstehen",
+          "instruction": "Bis wann muss die E-Mail-Anmeldung ankommen?",
+          "hints": [],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "reading",
+          "formatFamily": "foerderung_transfer",
+          "estimatedMinutes": 2,
+          "releaseStatus": "published",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "options": [
+            {
+              "id": "a",
+              "text": "Donnerstag, 18 Uhr."
+            },
+            {
+              "id": "b",
+              "text": "Freitag, 16:45 Uhr."
+            },
+            {
+              "id": "c",
+              "text": "Freitag nach dem Treffen."
+            }
+          ],
+          "correctAnswer": "a",
+          "explanation": "Freitag ist der Trefftermin. Die Anmeldung endet schon am Donnerstag.",
+          "evidence": "bis Donnerstag um 18 Uhr per E-Mail",
+          "text": "Neuer Gesprächsclub im Quartierhaus\nAm Freitag treffen sich Erwachsene von 16:45 bis 17:45 Uhr in Raum 7. Es sind noch fünf Plätze frei. Bitte melden Sie sich bis Donnerstag um 18 Uhr per E-Mail an. Beim ersten Treffen ist die Teilnahme kostenlos, danach kostet ein Treffen zwei Euro. Ein Heft genügt. Ein Laptop ist nicht nötig. Wir sprechen über Alltagsthemen; Anfänger mit ersten Deutschkenntnissen sind willkommen."
+        },
+        {
+          "id": "sitov-exam-b1-m01-f02-t02",
+          "version": 1,
+          "skill": "writing",
+          "type": "writing",
+          "title": "Eine neue eigene Anfrage",
+          "instruction": "Schreiben Sie dem Quartierhaus: Stellen Sie sich mit einem eigenen oder erfundenen Namen vor, bitten Sie um einen Platz im neuen Gesprächsclub und fragen Sie, ob Sie noch etwas mitbringen sollen. Schreiben Sie ohne Vorlage.",
+          "hints": [],
+          "profiles": [
+            "general_b1",
+            "dtz_a2_b1",
+            "telc_deutsch_b1",
+            "goethe_b1",
+            "oesd_zb1",
+            "telc_deutsch_a2_b1",
+            "oesd_zdoe_b1"
+          ],
+          "competency": "writing",
+          "formatFamily": "foerderung_transfer",
+          "estimatedMinutes": 4,
+          "releaseStatus": "published",
+          "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+          "text": "Neuer Gesprächsclub im Quartierhaus\nAm Freitag treffen sich Erwachsene von 16:45 bis 17:45 Uhr in Raum 7. Es sind noch fünf Plätze frei. Bitte melden Sie sich bis Donnerstag um 18 Uhr per E-Mail an. Beim ersten Treffen ist die Teilnahme kostenlos, danach kostet ein Treffen zwei Euro. Ein Heft genügt. Ein Laptop ist nicht nötig. Wir sprechen über Alltagsthemen; Anfänger mit ersten Deutschkenntnissen sind willkommen.",
+          "rubric": [
+            "Vorstellung und Bitte um einen Platz sind enthalten.",
+            "Eine Materialfrage wird verständlich gestellt.",
+            "Anrede und Gruß passen zur Kursstelle."
+          ]
+        }
+      ],
+      "releaseStatus": "published"
+    }
+  ]
+}

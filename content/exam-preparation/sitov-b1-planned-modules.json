@@ -1,0 +1,3005 @@
+[
+  {
+    "id": "sitov-exam-b1-m02",
+    "title": "Termine und Mobilität",
+    "description": "Termin ändern, Uhrzeiten verstehen und Verbindungen finden.",
+    "order": 2,
+    "units": [
+      {
+        "id": "sitov-exam-b1-m02-u01",
+        "moduleId": "sitov-exam-b1-m02",
+        "title": "Ein geänderter Termin",
+        "description": "Termin ändern, Uhrzeiten verstehen und Verbindungen finden.",
+        "order": 1,
+        "kind": "orientation",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m02-u01-t01",
+            "version": 1,
+            "skill": "reading",
+            "type": "short-text",
+            "title": "Ein geänderter Termin",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "reading",
+            "formatFamily": "mitteilung",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Jonas möchte zu einem Beratungstermin fahren. Eine Buslinie und die Uhrzeit ändern sich.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m02-u02",
+        "moduleId": "sitov-exam-b1-m02",
+        "title": "Uhrzeiten, Verbindungen und Fristen",
+        "description": "Termin ändern, Uhrzeiten verstehen und Verbindungen finden.",
+        "order": 2,
+        "kind": "vocabulary",
+        "required": false,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m02-u02-t01",
+            "version": 1,
+            "skill": "vocabulary",
+            "type": "short-text",
+            "title": "Uhrzeiten, Verbindungen und Fristen",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "vocabulary",
+            "formatFamily": "sprachmittel",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Jonas möchte zu einem Beratungstermin fahren. Eine Buslinie und die Uhrzeit ändern sich.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m02-u03",
+        "moduleId": "sitov-exam-b1-m02",
+        "title": "Höflich einen anderen Termin erfragen",
+        "description": "Termin ändern, Uhrzeiten verstehen und Verbindungen finden.",
+        "order": 3,
+        "kind": "vocabulary",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m02-u03-t01",
+            "version": 1,
+            "skill": "vocabulary",
+            "type": "short-text",
+            "title": "Höflich einen anderen Termin erfragen",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "vocabulary",
+            "formatFamily": "sprachmittel",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Jonas möchte zu einem Beratungstermin fahren. Eine Buslinie und die Uhrzeit ändern sich.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m02-u04",
+        "moduleId": "sitov-exam-b1-m02",
+        "title": "Zahlen und Korrektursignale hören",
+        "description": "Termin ändern, Uhrzeiten verstehen und Verbindungen finden.",
+        "order": 4,
+        "kind": "listening",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m02-u04-t01",
+            "version": 1,
+            "skill": "listening",
+            "type": "short-text",
+            "title": "Zahlen und Korrektursignale hören",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "listening",
+            "formatFamily": "kurze_meldung",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Jonas möchte zu einem Beratungstermin fahren. Eine Buslinie und die Uhrzeit ändern sich.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m02-u05",
+        "moduleId": "sitov-exam-b1-m02",
+        "title": "Neue Ansagen an Haltestelle und Telefon",
+        "description": "Termin ändern, Uhrzeiten verstehen und Verbindungen finden.",
+        "order": 5,
+        "kind": "listening",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m02-u05-t01",
+            "version": 1,
+            "skill": "listening",
+            "type": "short-text",
+            "title": "Neue Ansagen an Haltestelle und Telefon",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "listening",
+            "formatFamily": "kurze_meldung",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Jonas möchte zu einem Beratungstermin fahren. Eine Buslinie und die Uhrzeit ändern sich.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m02-u06",
+        "moduleId": "sitov-exam-b1-m02",
+        "title": "Fahrplan und Terminbestätigung lesen",
+        "description": "Termin ändern, Uhrzeiten verstehen und Verbindungen finden.",
+        "order": 6,
+        "kind": "reading",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m02-u06-t01",
+            "version": 1,
+            "skill": "reading",
+            "type": "short-text",
+            "title": "Fahrplan und Terminbestätigung lesen",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "reading",
+            "formatFamily": "mitteilung",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Jonas möchte zu einem Beratungstermin fahren. Eine Buslinie und die Uhrzeit ändern sich.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m02-u07",
+        "moduleId": "sitov-exam-b1-m02",
+        "title": "Eine Terminänderung schreiben",
+        "description": "Termin ändern, Uhrzeiten verstehen und Verbindungen finden.",
+        "order": 7,
+        "kind": "writing",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m02-u07-t01",
+            "version": 1,
+            "skill": "writing",
+            "type": "writing",
+            "title": "Eine Terminänderung schreiben",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "writing",
+            "formatFamily": "nachricht",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Jonas möchte zu einem Beratungstermin fahren. Eine Buslinie und die Uhrzeit ändern sich.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m02-u08",
+        "moduleId": "sitov-exam-b1-m02",
+        "title": "Eine Fahrt erklären und rückfragen",
+        "description": "Termin ändern, Uhrzeiten verstehen und Verbindungen finden.",
+        "order": 8,
+        "kind": "speaking",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m02-u08-t01",
+            "version": 1,
+            "skill": "speaking",
+            "type": "speaking",
+            "title": "Eine Fahrt erklären und rückfragen",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "speaking",
+            "formatFamily": "kontakt",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Jonas möchte zu einem Beratungstermin fahren. Eine Buslinie und die Uhrzeit ändern sich.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m02-u09",
+        "moduleId": "sitov-exam-b1-m02",
+        "title": "Eine andere Route gemeinsam planen",
+        "description": "Termin ändern, Uhrzeiten verstehen und Verbindungen finden.",
+        "order": 9,
+        "kind": "transfer",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m02-u09-t01",
+            "version": 1,
+            "skill": "speaking",
+            "type": "speaking",
+            "title": "Eine andere Route gemeinsam planen",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "speaking",
+            "formatFamily": "kontakt",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Jonas möchte zu einem Beratungstermin fahren. Eine Buslinie und die Uhrzeit ändern sich.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m02-u10",
+        "moduleId": "sitov-exam-b1-m02",
+        "title": "Neue Hör- und Leseaufgaben zu Mobilität",
+        "description": "Termin ändern, Uhrzeiten verstehen und Verbindungen finden.",
+        "order": 10,
+        "kind": "checkpoint",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m02-u10-t01",
+            "version": 1,
+            "skill": "reading",
+            "type": "short-text",
+            "title": "Neue Hör- und Leseaufgaben zu Mobilität",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "reading",
+            "formatFamily": "mitteilung",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Jonas möchte zu einem Beratungstermin fahren. Eine Buslinie und die Uhrzeit ändern sich.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      }
+    ],
+    "releaseStatus": "draft"
+  },
+  {
+    "id": "sitov-exam-b1-m03",
+    "title": "Wohnen und Nachbarschaft",
+    "description": "Probleme melden, höflich bitten und Absprachen treffen.",
+    "order": 3,
+    "units": [
+      {
+        "id": "sitov-exam-b1-m03-u01",
+        "moduleId": "sitov-exam-b1-m03",
+        "title": "Ein Wohnproblem erkennen",
+        "description": "Probleme melden, höflich bitten und Absprachen treffen.",
+        "order": 1,
+        "kind": "orientation",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m03-u01-t01",
+            "version": 1,
+            "skill": "reading",
+            "type": "short-text",
+            "title": "Ein Wohnproblem erkennen",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "reading",
+            "formatFamily": "mitteilung",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Martin meldet einen defekten Heizkörper. Sein Nachbar David hilft bei der Terminabsprache.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m03-u02",
+        "moduleId": "sitov-exam-b1-m03",
+        "title": "Haushalt, Reparatur und Hausregeln",
+        "description": "Probleme melden, höflich bitten und Absprachen treffen.",
+        "order": 2,
+        "kind": "vocabulary",
+        "required": false,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m03-u02-t01",
+            "version": 1,
+            "skill": "vocabulary",
+            "type": "short-text",
+            "title": "Haushalt, Reparatur und Hausregeln",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "vocabulary",
+            "formatFamily": "sprachmittel",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Martin meldet einen defekten Heizkörper. Sein Nachbar David hilft bei der Terminabsprache.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m03-u03",
+        "moduleId": "sitov-exam-b1-m03",
+        "title": "Eine Bitte mit eigenen Worten",
+        "description": "Probleme melden, höflich bitten und Absprachen treffen.",
+        "order": 3,
+        "kind": "vocabulary",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m03-u03-t01",
+            "version": 1,
+            "skill": "vocabulary",
+            "type": "short-text",
+            "title": "Eine Bitte mit eigenen Worten",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "vocabulary",
+            "formatFamily": "sprachmittel",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Martin meldet einen defekten Heizkörper. Sein Nachbar David hilft bei der Terminabsprache.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m03-u04",
+        "moduleId": "sitov-exam-b1-m03",
+        "title": "Ursache und Folge im Gespräch",
+        "description": "Probleme melden, höflich bitten und Absprachen treffen.",
+        "order": 4,
+        "kind": "listening",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m03-u04-t01",
+            "version": 1,
+            "skill": "listening",
+            "type": "short-text",
+            "title": "Ursache und Folge im Gespräch",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "listening",
+            "formatFamily": "kurze_meldung",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Martin meldet einen defekten Heizkörper. Sein Nachbar David hilft bei der Terminabsprache.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m03-u05",
+        "moduleId": "sitov-exam-b1-m03",
+        "title": "Ein Gespräch mit dem Hausmeister",
+        "description": "Probleme melden, höflich bitten und Absprachen treffen.",
+        "order": 5,
+        "kind": "listening",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m03-u05-t01",
+            "version": 1,
+            "skill": "listening",
+            "type": "short-text",
+            "title": "Ein Gespräch mit dem Hausmeister",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "listening",
+            "formatFamily": "kurze_meldung",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Martin meldet einen defekten Heizkörper. Sein Nachbar David hilft bei der Terminabsprache.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m03-u06",
+        "moduleId": "sitov-exam-b1-m03",
+        "title": "Hausordnung und Aushang prüfen",
+        "description": "Probleme melden, höflich bitten und Absprachen treffen.",
+        "order": 6,
+        "kind": "reading",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m03-u06-t01",
+            "version": 1,
+            "skill": "reading",
+            "type": "short-text",
+            "title": "Hausordnung und Aushang prüfen",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "reading",
+            "formatFamily": "mitteilung",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Martin meldet einen defekten Heizkörper. Sein Nachbar David hilft bei der Terminabsprache.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m03-u07",
+        "moduleId": "sitov-exam-b1-m03",
+        "title": "Ein Problem schriftlich melden",
+        "description": "Probleme melden, höflich bitten und Absprachen treffen.",
+        "order": 7,
+        "kind": "writing",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m03-u07-t01",
+            "version": 1,
+            "skill": "writing",
+            "type": "writing",
+            "title": "Ein Problem schriftlich melden",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "writing",
+            "formatFamily": "nachricht",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Martin meldet einen defekten Heizkörper. Sein Nachbar David hilft bei der Terminabsprache.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m03-u08",
+        "moduleId": "sitov-exam-b1-m03",
+        "title": "Hausflur beschreiben und Erfahrung erzählen",
+        "description": "Probleme melden, höflich bitten und Absprachen treffen.",
+        "order": 8,
+        "kind": "speaking",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m03-u08-t01",
+            "version": 1,
+            "skill": "speaking",
+            "type": "speaking",
+            "title": "Hausflur beschreiben und Erfahrung erzählen",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "speaking",
+            "formatFamily": "kontakt",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Martin meldet einen defekten Heizkörper. Sein Nachbar David hilft bei der Terminabsprache.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m03-u09",
+        "moduleId": "sitov-exam-b1-m03",
+        "title": "Eine gemeinsame Lösung vereinbaren",
+        "description": "Probleme melden, höflich bitten und Absprachen treffen.",
+        "order": 9,
+        "kind": "transfer",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m03-u09-t01",
+            "version": 1,
+            "skill": "speaking",
+            "type": "speaking",
+            "title": "Eine gemeinsame Lösung vereinbaren",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "speaking",
+            "formatFamily": "kontakt",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Martin meldet einen defekten Heizkörper. Sein Nachbar David hilft bei der Terminabsprache.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m03-u10",
+        "moduleId": "sitov-exam-b1-m03",
+        "title": "Unbekanntes Wohnproblem bearbeiten",
+        "description": "Probleme melden, höflich bitten und Absprachen treffen.",
+        "order": 10,
+        "kind": "checkpoint",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m03-u10-t01",
+            "version": 1,
+            "skill": "reading",
+            "type": "short-text",
+            "title": "Unbekanntes Wohnproblem bearbeiten",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "reading",
+            "formatFamily": "mitteilung",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Martin meldet einen defekten Heizkörper. Sein Nachbar David hilft bei der Terminabsprache.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      }
+    ],
+    "releaseStatus": "draft"
+  },
+  {
+    "id": "sitov-exam-b1-m04",
+    "title": "Einkaufen und Dienstleistungen",
+    "description": "Angebote prüfen, Bedingungen verstehen und reklamieren.",
+    "order": 4,
+    "units": [
+      {
+        "id": "sitov-exam-b1-m04-u01",
+        "moduleId": "sitov-exam-b1-m04",
+        "title": "Ein Angebot mit Bedingungen",
+        "description": "Angebote prüfen, Bedingungen verstehen und reklamieren.",
+        "order": 1,
+        "kind": "orientation",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m04-u01-t01",
+            "version": 1,
+            "skill": "reading",
+            "type": "short-text",
+            "title": "Ein Angebot mit Bedingungen",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "reading",
+            "formatFamily": "mitteilung",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Sami hat einen Wasserkocher gekauft. Er vergleicht Angebote und meldet einen Defekt.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m04-u02",
+        "moduleId": "sitov-exam-b1-m04",
+        "title": "Preis, Garantie und Ersatzteile",
+        "description": "Angebote prüfen, Bedingungen verstehen und reklamieren.",
+        "order": 2,
+        "kind": "vocabulary",
+        "required": false,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m04-u02-t01",
+            "version": 1,
+            "skill": "vocabulary",
+            "type": "short-text",
+            "title": "Preis, Garantie und Ersatzteile",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "vocabulary",
+            "formatFamily": "sprachmittel",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Sami hat einen Wasserkocher gekauft. Er vergleicht Angebote und meldet einen Defekt.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m04-u03",
+        "moduleId": "sitov-exam-b1-m04",
+        "title": "Eine Reklamation selbst formulieren",
+        "description": "Angebote prüfen, Bedingungen verstehen und reklamieren.",
+        "order": 3,
+        "kind": "vocabulary",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m04-u03-t01",
+            "version": 1,
+            "skill": "vocabulary",
+            "type": "short-text",
+            "title": "Eine Reklamation selbst formulieren",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "vocabulary",
+            "formatFamily": "sprachmittel",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Sami hat einen Wasserkocher gekauft. Er vergleicht Angebote und meldet einen Defekt.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m04-u04",
+        "moduleId": "sitov-exam-b1-m04",
+        "title": "Preise und Einschränkungen hören",
+        "description": "Angebote prüfen, Bedingungen verstehen und reklamieren.",
+        "order": 4,
+        "kind": "listening",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m04-u04-t01",
+            "version": 1,
+            "skill": "listening",
+            "type": "short-text",
+            "title": "Preise und Einschränkungen hören",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "listening",
+            "formatFamily": "kurze_meldung",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Sami hat einen Wasserkocher gekauft. Er vergleicht Angebote und meldet einen Defekt.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m04-u05",
+        "moduleId": "sitov-exam-b1-m04",
+        "title": "Eine neue Servicemeldung verstehen",
+        "description": "Angebote prüfen, Bedingungen verstehen und reklamieren.",
+        "order": 5,
+        "kind": "listening",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m04-u05-t01",
+            "version": 1,
+            "skill": "listening",
+            "type": "short-text",
+            "title": "Eine neue Servicemeldung verstehen",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "listening",
+            "formatFamily": "kurze_meldung",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Sami hat einen Wasserkocher gekauft. Er vergleicht Angebote und meldet einen Defekt.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m04-u06",
+        "moduleId": "sitov-exam-b1-m04",
+        "title": "Anzeigen zuordnen und Ausschlüsse prüfen",
+        "description": "Angebote prüfen, Bedingungen verstehen und reklamieren.",
+        "order": 6,
+        "kind": "reading",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m04-u06-t01",
+            "version": 1,
+            "skill": "reading",
+            "type": "short-text",
+            "title": "Anzeigen zuordnen und Ausschlüsse prüfen",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "reading",
+            "formatFamily": "mitteilung",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Sami hat einen Wasserkocher gekauft. Er vergleicht Angebote und meldet einen Defekt.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m04-u07",
+        "moduleId": "sitov-exam-b1-m04",
+        "title": "Eine Reklamation per E-Mail",
+        "description": "Angebote prüfen, Bedingungen verstehen und reklamieren.",
+        "order": 7,
+        "kind": "writing",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m04-u07-t01",
+            "version": 1,
+            "skill": "writing",
+            "type": "writing",
+            "title": "Eine Reklamation per E-Mail",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "writing",
+            "formatFamily": "nachricht",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Sami hat einen Wasserkocher gekauft. Er vergleicht Angebote und meldet einen Defekt.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m04-u08",
+        "moduleId": "sitov-exam-b1-m04",
+        "title": "Ein Geschäft beschreiben und berichten",
+        "description": "Angebote prüfen, Bedingungen verstehen und reklamieren.",
+        "order": 8,
+        "kind": "speaking",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m04-u08-t01",
+            "version": 1,
+            "skill": "speaking",
+            "type": "speaking",
+            "title": "Ein Geschäft beschreiben und berichten",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "speaking",
+            "formatFamily": "kontakt",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Sami hat einen Wasserkocher gekauft. Er vergleicht Angebote und meldet einen Defekt.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m04-u09",
+        "moduleId": "sitov-exam-b1-m04",
+        "title": "Mit dem Service eine Lösung planen",
+        "description": "Angebote prüfen, Bedingungen verstehen und reklamieren.",
+        "order": 9,
+        "kind": "transfer",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m04-u09-t01",
+            "version": 1,
+            "skill": "speaking",
+            "type": "speaking",
+            "title": "Mit dem Service eine Lösung planen",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "speaking",
+            "formatFamily": "kontakt",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Sami hat einen Wasserkocher gekauft. Er vergleicht Angebote und meldet einen Defekt.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m04-u10",
+        "moduleId": "sitov-exam-b1-m04",
+        "title": "Neue Kauf- und Servicefälle lösen",
+        "description": "Angebote prüfen, Bedingungen verstehen und reklamieren.",
+        "order": 10,
+        "kind": "checkpoint",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m04-u10-t01",
+            "version": 1,
+            "skill": "reading",
+            "type": "short-text",
+            "title": "Neue Kauf- und Servicefälle lösen",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "reading",
+            "formatFamily": "mitteilung",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Sami hat einen Wasserkocher gekauft. Er vergleicht Angebote und meldet einen Defekt.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      }
+    ],
+    "releaseStatus": "draft"
+  },
+  {
+    "id": "sitov-exam-b1-m05",
+    "title": "Gesundheit und Alltag",
+    "description": "Anliegen erklären, Informationen verstehen und Erfahrungen berichten.",
+    "order": 5,
+    "units": [
+      {
+        "id": "sitov-exam-b1-m05-u01",
+        "moduleId": "sitov-exam-b1-m05",
+        "title": "Ein Anliegen verständlich erklären",
+        "description": "Anliegen erklären, Informationen verstehen und Erfahrungen berichten.",
+        "order": 1,
+        "kind": "orientation",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m05-u01-t01",
+            "version": 1,
+            "skill": "reading",
+            "type": "short-text",
+            "title": "Ein Anliegen verständlich erklären",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "reading",
+            "formatFamily": "mitteilung",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Erik organisiert einen Arzttermin und erklärt eine Alltagssituation. Medizinische Aussagen bleiben organisatorisch; es gibt keine Diagnose.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m05-u02",
+        "moduleId": "sitov-exam-b1-m05",
+        "title": "Termin, Beschwerden und Unterlagen",
+        "description": "Anliegen erklären, Informationen verstehen und Erfahrungen berichten.",
+        "order": 2,
+        "kind": "vocabulary",
+        "required": false,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m05-u02-t01",
+            "version": 1,
+            "skill": "vocabulary",
+            "type": "short-text",
+            "title": "Termin, Beschwerden und Unterlagen",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "vocabulary",
+            "formatFamily": "sprachmittel",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Erik organisiert einen Arzttermin und erklärt eine Alltagssituation. Medizinische Aussagen bleiben organisatorisch; es gibt keine Diagnose.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m05-u03",
+        "moduleId": "sitov-exam-b1-m05",
+        "title": "Eine höfliche Frage in der Praxis",
+        "description": "Anliegen erklären, Informationen verstehen und Erfahrungen berichten.",
+        "order": 3,
+        "kind": "vocabulary",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m05-u03-t01",
+            "version": 1,
+            "skill": "vocabulary",
+            "type": "short-text",
+            "title": "Eine höfliche Frage in der Praxis",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "vocabulary",
+            "formatFamily": "sprachmittel",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Erik organisiert einen Arzttermin und erklärt eine Alltagssituation. Medizinische Aussagen bleiben organisatorisch; es gibt keine Diagnose.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m05-u04",
+        "moduleId": "sitov-exam-b1-m05",
+        "title": "Zeiten und verneinte Informationen",
+        "description": "Anliegen erklären, Informationen verstehen und Erfahrungen berichten.",
+        "order": 4,
+        "kind": "listening",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m05-u04-t01",
+            "version": 1,
+            "skill": "listening",
+            "type": "short-text",
+            "title": "Zeiten und verneinte Informationen",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "listening",
+            "formatFamily": "kurze_meldung",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Erik organisiert einen Arzttermin und erklärt eine Alltagssituation. Medizinische Aussagen bleiben organisatorisch; es gibt keine Diagnose.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m05-u05",
+        "moduleId": "sitov-exam-b1-m05",
+        "title": "Eine organisatorische Praxisnachricht",
+        "description": "Anliegen erklären, Informationen verstehen und Erfahrungen berichten.",
+        "order": 5,
+        "kind": "listening",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m05-u05-t01",
+            "version": 1,
+            "skill": "listening",
+            "type": "short-text",
+            "title": "Eine organisatorische Praxisnachricht",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "listening",
+            "formatFamily": "kurze_meldung",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Erik organisiert einen Arzttermin und erklärt eine Alltagssituation. Medizinische Aussagen bleiben organisatorisch; es gibt keine Diagnose.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m05-u06",
+        "moduleId": "sitov-exam-b1-m05",
+        "title": "Informationen zu Sprechstunden lesen",
+        "description": "Anliegen erklären, Informationen verstehen und Erfahrungen berichten.",
+        "order": 6,
+        "kind": "reading",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m05-u06-t01",
+            "version": 1,
+            "skill": "reading",
+            "type": "short-text",
+            "title": "Informationen zu Sprechstunden lesen",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "reading",
+            "formatFamily": "mitteilung",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Erik organisiert einen Arzttermin und erklärt eine Alltagssituation. Medizinische Aussagen bleiben organisatorisch; es gibt keine Diagnose.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m05-u07",
+        "moduleId": "sitov-exam-b1-m05",
+        "title": "Eine Terminbitte verfassen",
+        "description": "Anliegen erklären, Informationen verstehen und Erfahrungen berichten.",
+        "order": 7,
+        "kind": "writing",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m05-u07-t01",
+            "version": 1,
+            "skill": "writing",
+            "type": "writing",
+            "title": "Eine Terminbitte verfassen",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "writing",
+            "formatFamily": "nachricht",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Erik organisiert einen Arzttermin und erklärt eine Alltagssituation. Medizinische Aussagen bleiben organisatorisch; es gibt keine Diagnose.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m05-u08",
+        "moduleId": "sitov-exam-b1-m05",
+        "title": "Alltagsszene und Erfahrung beschreiben",
+        "description": "Anliegen erklären, Informationen verstehen und Erfahrungen berichten.",
+        "order": 8,
+        "kind": "speaking",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m05-u08-t01",
+            "version": 1,
+            "skill": "speaking",
+            "type": "speaking",
+            "title": "Alltagsszene und Erfahrung beschreiben",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "speaking",
+            "formatFamily": "kontakt",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Erik organisiert einen Arzttermin und erklärt eine Alltagssituation. Medizinische Aussagen bleiben organisatorisch; es gibt keine Diagnose.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m05-u09",
+        "moduleId": "sitov-exam-b1-m05",
+        "title": "Eine neue Alltagssituation besprechen",
+        "description": "Anliegen erklären, Informationen verstehen und Erfahrungen berichten.",
+        "order": 9,
+        "kind": "transfer",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m05-u09-t01",
+            "version": 1,
+            "skill": "speaking",
+            "type": "speaking",
+            "title": "Eine neue Alltagssituation besprechen",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "speaking",
+            "formatFamily": "kontakt",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Erik organisiert einen Arzttermin und erklärt eine Alltagssituation. Medizinische Aussagen bleiben organisatorisch; es gibt keine Diagnose.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m05-u10",
+        "moduleId": "sitov-exam-b1-m05",
+        "title": "Neue Hör- und Leseaufgaben zum Alltag",
+        "description": "Anliegen erklären, Informationen verstehen und Erfahrungen berichten.",
+        "order": 10,
+        "kind": "checkpoint",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m05-u10-t01",
+            "version": 1,
+            "skill": "reading",
+            "type": "short-text",
+            "title": "Neue Hör- und Leseaufgaben zum Alltag",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "reading",
+            "formatFamily": "mitteilung",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Erik organisiert einen Arzttermin und erklärt eine Alltagssituation. Medizinische Aussagen bleiben organisatorisch; es gibt keine Diagnose.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      }
+    ],
+    "releaseStatus": "draft"
+  },
+  {
+    "id": "sitov-exam-b1-m06",
+    "title": "Beruf, Lernen und Familie",
+    "description": "Informationen erfragen, Mitteilungen verstehen und Gründe nennen.",
+    "order": 6,
+    "units": [
+      {
+        "id": "sitov-exam-b1-m06-u01",
+        "moduleId": "sitov-exam-b1-m06",
+        "title": "Lernen und Verantwortung verbinden",
+        "description": "Informationen erfragen, Mitteilungen verstehen und Gründe nennen.",
+        "order": 1,
+        "kind": "orientation",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m06-u01-t01",
+            "version": 1,
+            "skill": "reading",
+            "type": "short-text",
+            "title": "Lernen und Verantwortung verbinden",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "reading",
+            "formatFamily": "mitteilung",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Omar sucht Weiterbildung. Sein Freund Ben hilft als Betreuungsperson einem Kind und braucht eine neue Zeit. Eigene Kinder werden nicht vorausgesetzt.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m06-u02",
+        "moduleId": "sitov-exam-b1-m06",
+        "title": "Mitteilungen, Gründe und Weiterbildung",
+        "description": "Informationen erfragen, Mitteilungen verstehen und Gründe nennen.",
+        "order": 2,
+        "kind": "vocabulary",
+        "required": false,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m06-u02-t01",
+            "version": 1,
+            "skill": "vocabulary",
+            "type": "short-text",
+            "title": "Mitteilungen, Gründe und Weiterbildung",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "vocabulary",
+            "formatFamily": "sprachmittel",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Omar sucht Weiterbildung. Sein Freund Ben hilft als Betreuungsperson einem Kind und braucht eine neue Zeit. Eigene Kinder werden nicht vorausgesetzt.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m06-u03",
+        "moduleId": "sitov-exam-b1-m06",
+        "title": "Einen Grund verständlich nennen",
+        "description": "Informationen erfragen, Mitteilungen verstehen und Gründe nennen.",
+        "order": 3,
+        "kind": "vocabulary",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m06-u03-t01",
+            "version": 1,
+            "skill": "vocabulary",
+            "type": "short-text",
+            "title": "Einen Grund verständlich nennen",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "vocabulary",
+            "formatFamily": "sprachmittel",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Omar sucht Weiterbildung. Sein Freund Ben hilft als Betreuungsperson einem Kind und braucht eine neue Zeit. Eigene Kinder werden nicht vorausgesetzt.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m06-u04",
+        "moduleId": "sitov-exam-b1-m06",
+        "title": "Absicht in kurzen Nachrichten hören",
+        "description": "Informationen erfragen, Mitteilungen verstehen und Gründe nennen.",
+        "order": 4,
+        "kind": "listening",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m06-u04-t01",
+            "version": 1,
+            "skill": "listening",
+            "type": "short-text",
+            "title": "Absicht in kurzen Nachrichten hören",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "listening",
+            "formatFamily": "kurze_meldung",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Omar sucht Weiterbildung. Sein Freund Ben hilft als Betreuungsperson einem Kind und braucht eine neue Zeit. Eigene Kinder werden nicht vorausgesetzt.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m06-u05",
+        "moduleId": "sitov-exam-b1-m06",
+        "title": "Neue Nachrichten aus Kurs und Arbeit",
+        "description": "Informationen erfragen, Mitteilungen verstehen und Gründe nennen.",
+        "order": 5,
+        "kind": "listening",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m06-u05-t01",
+            "version": 1,
+            "skill": "listening",
+            "type": "short-text",
+            "title": "Neue Nachrichten aus Kurs und Arbeit",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "listening",
+            "formatFamily": "kurze_meldung",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Omar sucht Weiterbildung. Sein Freund Ben hilft als Betreuungsperson einem Kind und braucht eine neue Zeit. Eigene Kinder werden nicht vorausgesetzt.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m06-u06",
+        "moduleId": "sitov-exam-b1-m06",
+        "title": "Weiterbildungs- und Betreuungsangebote",
+        "description": "Informationen erfragen, Mitteilungen verstehen und Gründe nennen.",
+        "order": 6,
+        "kind": "reading",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m06-u06-t01",
+            "version": 1,
+            "skill": "reading",
+            "type": "short-text",
+            "title": "Weiterbildungs- und Betreuungsangebote",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "reading",
+            "formatFamily": "mitteilung",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Omar sucht Weiterbildung. Sein Freund Ben hilft als Betreuungsperson einem Kind und braucht eine neue Zeit. Eigene Kinder werden nicht vorausgesetzt.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m06-u07",
+        "moduleId": "sitov-exam-b1-m06",
+        "title": "Informationen höflich erfragen",
+        "description": "Informationen erfragen, Mitteilungen verstehen und Gründe nennen.",
+        "order": 7,
+        "kind": "writing",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m06-u07-t01",
+            "version": 1,
+            "skill": "writing",
+            "type": "writing",
+            "title": "Informationen höflich erfragen",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "writing",
+            "formatFamily": "nachricht",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Omar sucht Weiterbildung. Sein Freund Ben hilft als Betreuungsperson einem Kind und braucht eine neue Zeit. Eigene Kinder werden nicht vorausgesetzt.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m06-u08",
+        "moduleId": "sitov-exam-b1-m06",
+        "title": "Eine Aufgabe oder Erfahrung erklären",
+        "description": "Informationen erfragen, Mitteilungen verstehen und Gründe nennen.",
+        "order": 8,
+        "kind": "speaking",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m06-u08-t01",
+            "version": 1,
+            "skill": "speaking",
+            "type": "speaking",
+            "title": "Eine Aufgabe oder Erfahrung erklären",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "speaking",
+            "formatFamily": "kontakt",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Omar sucht Weiterbildung. Sein Freund Ben hilft als Betreuungsperson einem Kind und braucht eine neue Zeit. Eigene Kinder werden nicht vorausgesetzt.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m06-u09",
+        "moduleId": "sitov-exam-b1-m06",
+        "title": "Eine Absprache mit Einschränkungen treffen",
+        "description": "Informationen erfragen, Mitteilungen verstehen und Gründe nennen.",
+        "order": 9,
+        "kind": "transfer",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m06-u09-t01",
+            "version": 1,
+            "skill": "speaking",
+            "type": "speaking",
+            "title": "Eine Absprache mit Einschränkungen treffen",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "speaking",
+            "formatFamily": "kontakt",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Omar sucht Weiterbildung. Sein Freund Ben hilft als Betreuungsperson einem Kind und braucht eine neue Zeit. Eigene Kinder werden nicht vorausgesetzt.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m06-u10",
+        "moduleId": "sitov-exam-b1-m06",
+        "title": "Neue Mitteilungen und Notizen lösen",
+        "description": "Informationen erfragen, Mitteilungen verstehen und Gründe nennen.",
+        "order": 10,
+        "kind": "checkpoint",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m06-u10-t01",
+            "version": 1,
+            "skill": "reading",
+            "type": "short-text",
+            "title": "Neue Mitteilungen und Notizen lösen",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "reading",
+            "formatFamily": "mitteilung",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Omar sucht Weiterbildung. Sein Freund Ben hilft als Betreuungsperson einem Kind und braucht eine neue Zeit. Eigene Kinder werden nicht vorausgesetzt.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      }
+    ],
+    "releaseStatus": "draft"
+  },
+  {
+    "id": "sitov-exam-b1-m07",
+    "title": "Freizeit und Zusammenleben",
+    "description": "Meinungen ausdrücken, vergleichen und gemeinsam planen.",
+    "order": 7,
+    "units": [
+      {
+        "id": "sitov-exam-b1-m07-u01",
+        "moduleId": "sitov-exam-b1-m07",
+        "title": "Ein gemeinsames Vorhaben",
+        "description": "Meinungen ausdrücken, vergleichen und gemeinsam planen.",
+        "order": 1,
+        "kind": "orientation",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m07-u01-t01",
+            "version": 1,
+            "skill": "reading",
+            "type": "short-text",
+            "title": "Ein gemeinsames Vorhaben",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "reading",
+            "formatFamily": "mitteilung",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Leon und Yusuf möchten einen Ausflug organisieren. Beide haben unterschiedliche Zeit- und Kostenwünsche.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m07-u02",
+        "moduleId": "sitov-exam-b1-m07",
+        "title": "Meinung, Vorschlag und Kompromiss",
+        "description": "Meinungen ausdrücken, vergleichen und gemeinsam planen.",
+        "order": 2,
+        "kind": "vocabulary",
+        "required": false,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m07-u02-t01",
+            "version": 1,
+            "skill": "vocabulary",
+            "type": "short-text",
+            "title": "Meinung, Vorschlag und Kompromiss",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "vocabulary",
+            "formatFamily": "sprachmittel",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Leon und Yusuf möchten einen Ausflug organisieren. Beide haben unterschiedliche Zeit- und Kostenwünsche.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m07-u03",
+        "moduleId": "sitov-exam-b1-m07",
+        "title": "Zustimmung und höfliche Ablehnung",
+        "description": "Meinungen ausdrücken, vergleichen und gemeinsam planen.",
+        "order": 3,
+        "kind": "vocabulary",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m07-u03-t01",
+            "version": 1,
+            "skill": "vocabulary",
+            "type": "short-text",
+            "title": "Zustimmung und höfliche Ablehnung",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "vocabulary",
+            "formatFamily": "sprachmittel",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Leon und Yusuf möchten einen Ausflug organisieren. Beide haben unterschiedliche Zeit- und Kostenwünsche.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m07-u04",
+        "moduleId": "sitov-exam-b1-m07",
+        "title": "Sprecherpositionen unterscheiden",
+        "description": "Meinungen ausdrücken, vergleichen und gemeinsam planen.",
+        "order": 4,
+        "kind": "listening",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m07-u04-t01",
+            "version": 1,
+            "skill": "listening",
+            "type": "short-text",
+            "title": "Sprecherpositionen unterscheiden",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "listening",
+            "formatFamily": "kurze_meldung",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Leon und Yusuf möchten einen Ausflug organisieren. Beide haben unterschiedliche Zeit- und Kostenwünsche.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m07-u05",
+        "moduleId": "sitov-exam-b1-m07",
+        "title": "Neue Meinungen verstehen",
+        "description": "Meinungen ausdrücken, vergleichen und gemeinsam planen.",
+        "order": 5,
+        "kind": "listening",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m07-u05-t01",
+            "version": 1,
+            "skill": "listening",
+            "type": "short-text",
+            "title": "Neue Meinungen verstehen",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "listening",
+            "formatFamily": "kurze_meldung",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Leon und Yusuf möchten einen Ausflug organisieren. Beide haben unterschiedliche Zeit- und Kostenwünsche.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m07-u06",
+        "moduleId": "sitov-exam-b1-m07",
+        "title": "Blogs und Veranstaltungsangebote lesen",
+        "description": "Meinungen ausdrücken, vergleichen und gemeinsam planen.",
+        "order": 6,
+        "kind": "reading",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m07-u06-t01",
+            "version": 1,
+            "skill": "reading",
+            "type": "short-text",
+            "title": "Blogs und Veranstaltungsangebote lesen",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "reading",
+            "formatFamily": "mitteilung",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Leon und Yusuf möchten einen Ausflug organisieren. Beide haben unterschiedliche Zeit- und Kostenwünsche.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m07-u07",
+        "moduleId": "sitov-exam-b1-m07",
+        "title": "Einen kurzen Meinungsbeitrag schreiben",
+        "description": "Meinungen ausdrücken, vergleichen und gemeinsam planen.",
+        "order": 7,
+        "kind": "writing",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m07-u07-t01",
+            "version": 1,
+            "skill": "writing",
+            "type": "writing",
+            "title": "Einen kurzen Meinungsbeitrag schreiben",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "writing",
+            "formatFamily": "nachricht",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Leon und Yusuf möchten einen Ausflug organisieren. Beide haben unterschiedliche Zeit- und Kostenwünsche.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m07-u08",
+        "moduleId": "sitov-exam-b1-m07",
+        "title": "Einen Kurzvortrag mit Rückfragen halten",
+        "description": "Meinungen ausdrücken, vergleichen und gemeinsam planen.",
+        "order": 8,
+        "kind": "speaking",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m07-u08-t01",
+            "version": 1,
+            "skill": "speaking",
+            "type": "speaking",
+            "title": "Einen Kurzvortrag mit Rückfragen halten",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "speaking",
+            "formatFamily": "kontakt",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Leon und Yusuf möchten einen Ausflug organisieren. Beide haben unterschiedliche Zeit- und Kostenwünsche.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m07-u09",
+        "moduleId": "sitov-exam-b1-m07",
+        "title": "Einen Ausflug aushandeln",
+        "description": "Meinungen ausdrücken, vergleichen und gemeinsam planen.",
+        "order": 9,
+        "kind": "transfer",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m07-u09-t01",
+            "version": 1,
+            "skill": "speaking",
+            "type": "speaking",
+            "title": "Einen Ausflug aushandeln",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "speaking",
+            "formatFamily": "kontakt",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Leon und Yusuf möchten einen Ausflug organisieren. Beide haben unterschiedliche Zeit- und Kostenwünsche.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m07-u10",
+        "moduleId": "sitov-exam-b1-m07",
+        "title": "Neue Positionen und Bedingungen prüfen",
+        "description": "Meinungen ausdrücken, vergleichen und gemeinsam planen.",
+        "order": 10,
+        "kind": "checkpoint",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m07-u10-t01",
+            "version": 1,
+            "skill": "reading",
+            "type": "short-text",
+            "title": "Neue Positionen und Bedingungen prüfen",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "reading",
+            "formatFamily": "mitteilung",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Leon und Yusuf möchten einen Ausflug organisieren. Beide haben unterschiedliche Zeit- und Kostenwünsche.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      }
+    ],
+    "releaseStatus": "draft"
+  },
+  {
+    "id": "sitov-exam-b1-m08",
+    "title": "Selbstständig in die Prüfung",
+    "description": "Strategien übertragen, Zeit einteilen und neue Aufgaben lösen.",
+    "order": 8,
+    "units": [
+      {
+        "id": "sitov-exam-b1-m08-u01",
+        "moduleId": "sitov-exam-b1-m08",
+        "title": "Die eigene Zielprüfung wählen",
+        "description": "Strategien übertragen, Zeit einteilen und neue Aufgaben lösen.",
+        "order": 1,
+        "kind": "orientation",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m08-u01-t01",
+            "version": 1,
+            "skill": "reading",
+            "type": "short-text",
+            "title": "Die eigene Zielprüfung wählen",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "reading",
+            "formatFamily": "mitteilung",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Daniel bereitet sich auf eine selbst gewählte Prüfung vor. Bekannte Übungen und unbekannte Nachweise bleiben getrennt.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m08-u02",
+        "moduleId": "sitov-exam-b1-m08",
+        "title": "Strategien und wichtige Redemittel",
+        "description": "Strategien übertragen, Zeit einteilen und neue Aufgaben lösen.",
+        "order": 2,
+        "kind": "vocabulary",
+        "required": false,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m08-u02-t01",
+            "version": 1,
+            "skill": "vocabulary",
+            "type": "short-text",
+            "title": "Strategien und wichtige Redemittel",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "vocabulary",
+            "formatFamily": "sprachmittel",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Daniel bereitet sich auf eine selbst gewählte Prüfung vor. Bekannte Übungen und unbekannte Nachweise bleiben getrennt.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m08-u03",
+        "moduleId": "sitov-exam-b1-m08",
+        "title": "Sprachmittel ohne Vorlage abrufen",
+        "description": "Strategien übertragen, Zeit einteilen und neue Aufgaben lösen.",
+        "order": 3,
+        "kind": "vocabulary",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m08-u03-t01",
+            "version": 1,
+            "skill": "vocabulary",
+            "type": "short-text",
+            "title": "Sprachmittel ohne Vorlage abrufen",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "vocabulary",
+            "formatFamily": "sprachmittel",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Daniel bereitet sich auf eine selbst gewählte Prüfung vor. Bekannte Übungen und unbekannte Nachweise bleiben getrennt.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m08-u04",
+        "moduleId": "sitov-exam-b1-m08",
+        "title": "Hörregeln der Zielprüfung kennenlernen",
+        "description": "Strategien übertragen, Zeit einteilen und neue Aufgaben lösen.",
+        "order": 4,
+        "kind": "listening",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m08-u04-t01",
+            "version": 1,
+            "skill": "listening",
+            "type": "short-text",
+            "title": "Hörregeln der Zielprüfung kennenlernen",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "listening",
+            "formatFamily": "kurze_meldung",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Daniel bereitet sich auf eine selbst gewählte Prüfung vor. Bekannte Übungen und unbekannte Nachweise bleiben getrennt.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m08-u05",
+        "moduleId": "sitov-exam-b1-m08",
+        "title": "Neue Hörtexte unter passenden Bedingungen",
+        "description": "Strategien übertragen, Zeit einteilen und neue Aufgaben lösen.",
+        "order": 5,
+        "kind": "listening",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m08-u05-t01",
+            "version": 1,
+            "skill": "listening",
+            "type": "short-text",
+            "title": "Neue Hörtexte unter passenden Bedingungen",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "listening",
+            "formatFamily": "kurze_meldung",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Daniel bereitet sich auf eine selbst gewählte Prüfung vor. Bekannte Übungen und unbekannte Nachweise bleiben getrennt.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m08-u06",
+        "moduleId": "sitov-exam-b1-m08",
+        "title": "Neue Texte gezielt und unter Zeit lesen",
+        "description": "Strategien übertragen, Zeit einteilen und neue Aufgaben lösen.",
+        "order": 6,
+        "kind": "reading",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m08-u06-t01",
+            "version": 1,
+            "skill": "reading",
+            "type": "short-text",
+            "title": "Neue Texte gezielt und unter Zeit lesen",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "reading",
+            "formatFamily": "mitteilung",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Daniel bereitet sich auf eine selbst gewählte Prüfung vor. Bekannte Übungen und unbekannte Nachweise bleiben getrennt.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m08-u07",
+        "moduleId": "sitov-exam-b1-m08",
+        "title": "Freie Schreibaufträge des Profils",
+        "description": "Strategien übertragen, Zeit einteilen und neue Aufgaben lösen.",
+        "order": 7,
+        "kind": "writing",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m08-u07-t01",
+            "version": 1,
+            "skill": "writing",
+            "type": "writing",
+            "title": "Freie Schreibaufträge des Profils",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "writing",
+            "formatFamily": "nachricht",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Daniel bereitet sich auf eine selbst gewählte Prüfung vor. Bekannte Übungen und unbekannte Nachweise bleiben getrennt.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m08-u08",
+        "moduleId": "sitov-exam-b1-m08",
+        "title": "Bild, Vortrag und Interaktion unterscheiden",
+        "description": "Strategien übertragen, Zeit einteilen und neue Aufgaben lösen.",
+        "order": 8,
+        "kind": "speaking",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m08-u08-t01",
+            "version": 1,
+            "skill": "speaking",
+            "type": "speaking",
+            "title": "Bild, Vortrag und Interaktion unterscheiden",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "speaking",
+            "formatFamily": "kontakt",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Daniel bereitet sich auf eine selbst gewählte Prüfung vor. Bekannte Übungen und unbekannte Nachweise bleiben getrennt.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m08-u09",
+        "moduleId": "sitov-exam-b1-m08",
+        "title": "Neue Situationen selbstständig bewältigen",
+        "description": "Strategien übertragen, Zeit einteilen und neue Aufgaben lösen.",
+        "order": 9,
+        "kind": "transfer",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m08-u09-t01",
+            "version": 1,
+            "skill": "speaking",
+            "type": "speaking",
+            "title": "Neue Situationen selbstständig bewältigen",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "speaking",
+            "formatFamily": "kontakt",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Daniel bereitet sich auf eine selbst gewählte Prüfung vor. Bekannte Übungen und unbekannte Nachweise bleiben getrennt.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      },
+      {
+        "id": "sitov-exam-b1-m08-u10",
+        "moduleId": "sitov-exam-b1-m08",
+        "title": "Neue Checkvarianten und nächste Schritte",
+        "description": "Strategien übertragen, Zeit einteilen und neue Aufgaben lösen.",
+        "order": 10,
+        "kind": "checkpoint",
+        "required": true,
+        "estimatedMinutes": 15,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-m08-u10-t01",
+            "version": 1,
+            "skill": "reading",
+            "type": "short-text",
+            "title": "Neue Checkvarianten und nächste Schritte",
+            "instruction": "Dieser Abschnitt befindet sich in der Inhaltsproduktion.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "reading",
+            "formatFamily": "mitteilung",
+            "estimatedMinutes": 15,
+            "releaseStatus": "draft",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Daniel bereitet sich auf eine selbst gewählte Prüfung vor. Bekannte Übungen und unbekannte Nachweise bleiben getrennt.",
+            "rubric": [
+              "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.",
+              "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.",
+              "Neue Varianten und produktive Proben getrennt fest versionieren."
+            ]
+          }
+        ],
+        "releaseStatus": "draft"
+      }
+    ],
+    "releaseStatus": "draft"
+  }
+]

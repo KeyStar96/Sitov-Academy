@@ -11,6 +11,7 @@ import { lessonLabel } from '@/lib/vocabulary-own-words'
 import ResumeCard, { type ResumeTarget } from '@/components/dashboard/ResumeCard'
 import TrainerStatusTiles from '@/components/dashboard/TrainerStatusTiles'
 import TrainerLanguageRequired from '@/components/dashboard/TrainerLanguageRequired'
+import ExamEntry from '@/components/exam-preparation/ExamEntry'
 
 const LEVEL_COPY: Record<string, [string, string]> = {
   'A1.1': ['level_a11_title', 'level_a11_desc'], 'A1.2': ['level_a12_title', 'level_a12_desc'],
@@ -57,6 +58,7 @@ export default async function LevelDashboard({ params }: {
       <ResumeCard lang={lang} level={decodedLevel} title={titleKey ? copy[titleKey] ?? decodedLevel : decodedLevel}
         description={descriptionKey ? copy[descriptionKey] ?? '' : decodedLevel === 'B2' || decodedLevel === 'C1' ? s('level_verbs_description') : ''} target={target} />
       <TrainerStatusTiles lang={lang} level={decodedLevel} status={status} languageLocked={lang === 'de'} />
+      {(decodedLevel === 'B1.1' || decodedLevel === 'B1.2') && <ExamEntry lang={lang} reference />}
     </div>
   )
 }

@@ -1,0 +1,2378 @@
+[
+  {
+    "audioId": "sitov-exam-b1-a01",
+    "title": "Termin im Repair-Café",
+    "learningGoal": "Terminänderung und ähnliche Uhrzeiten verstehen.",
+    "profileScope": "Allgemeines B1-Training; kein offizieller vollständiger Prüfungsteil.",
+    "script": "Herr Berg: Guten Tag, hier spricht Herr Berg vom Repair-Café Nord. Sie wollten am Mittwoch um vierzehn Uhr fünfzehn mit Ihrer Tischlampe vorbeikommen. Unser Elektriker ist an diesem Tag leider nicht da. Wir können Ihnen stattdessen am Freitag um vierzehn Uhr fünfzig einen Termin anbieten. Bitte bringen Sie auch das Stromkabel mit. Bestätigen Sie den neuen Termin bis morgen telefonisch. Vielen Dank.",
+    "spokenText": "Guten Tag, hier spricht Herr Berg vom Repair-Café Nord. Sie wollten am Mittwoch um vierzehn Uhr fünfzehn mit Ihrer Tischlampe vorbeikommen. Unser Elektriker ist an diesem Tag leider nicht da. Wir können Ihnen stattdessen am Freitag um vierzehn Uhr fünfzig einen Termin anbieten. Bitte bringen Sie auch das Stromkabel mit. Bestätigen Sie den neuen Termin bis morgen telefonisch. Vielen Dank.",
+    "roles": [
+      "Freund: fiktiver Mitarbeiter Herr Berg"
+    ],
+    "notes": "B1: klar und natürlich sprechen. Rollenkennungen und Regie nicht vorlesen. Zwei Sekunden Ruhe am Anfang und Ende. Inhalt nicht improvisieren. Keine künstliche Betonung der Lösungen. Fiktive Rollen ausschließlich männlich. Anastasia ist eine reale Lehrkraft und kann eine reale Moderation aufnehmen; fiktive Personen werden als Männer dargestellt. Vierzehn Uhr fünfzehn und vierzehn Uhr fünfzig deutlich, aber nicht als Diktat sprechen.",
+    "targetDuration": "30–45 Sekunden",
+    "session": 1,
+    "taskIds": [
+      "sitov-exam-b1-a01-author-t01",
+      "sitov-exam-b1-a01-author-t02",
+      "sitov-exam-b1-a01-author-t03"
+    ],
+    "solutions": [
+      {
+        "taskId": "sitov-exam-b1-a01-author-t01",
+        "answer": "b",
+        "evidence": "stattdessen am Freitag um vierzehn Uhr fünfzig"
+      },
+      {
+        "taskId": "sitov-exam-b1-a01-author-t02",
+        "answer": "a",
+        "evidence": "Bitte bringen Sie auch das Stromkabel mit."
+      },
+      {
+        "taskId": "sitov-exam-b1-a01-author-t03",
+        "answer": "a",
+        "evidence": "bis morgen telefonisch"
+      }
+    ],
+    "evidence": [
+      "stattdessen am Freitag um vierzehn Uhr fünfzig",
+      "Bitte bringen Sie auch das Stromkabel mit.",
+      "bis morgen telefonisch"
+    ],
+    "status": "awaiting_recording",
+    "route": "human",
+    "filename": "A01_termin_im_repair-café_de_v1_take01.m4a",
+    "productionSteps": [
+      "Rollen und vollständiges Skript durchlesen; Zahlen auf Verständlichkeit prüfen.",
+      "Tonprobe anhören; ruhigen Raum und gleichen Mikrofonabstand wählen.",
+      "Den vollständigen Wortlaut aufnehmen; bei Versprechern den ganzen Satz wiederholen.",
+      "Datei als M4A oder WAV-Master hochladen; Rohdatei und Schnittfassung zuordnen.",
+      "Schnittfassung gegen spokenText und alle Lösungsschlüssel prüfen.",
+      "Echte Wortzeitmarken am Audio messen; keine Skript-Zeitschätzungen als Alignment verwenden.",
+      "Lautstärke, Zahlen, Verständlichkeit und Aufgaben fachlich freigeben.",
+      "Erst nach technischer und fachlicher Freigabe veröffentlichen."
+    ],
+    "tasks": [
+      {
+        "id": "sitov-exam-b1-a01-author-t01",
+        "version": 1,
+        "skill": "listening",
+        "type": "choice",
+        "title": "Der neue Termin",
+        "instruction": "Wann wird der neue Termin angeboten?",
+        "hints": [],
+        "profiles": [
+          "general_b1",
+          "dtz_a2_b1",
+          "telc_deutsch_b1",
+          "goethe_b1",
+          "oesd_zb1",
+          "telc_deutsch_a2_b1",
+          "oesd_zdoe_b1"
+        ],
+        "competency": "listening",
+        "formatFamily": "allgemeines_hoertraining",
+        "estimatedMinutes": 2,
+        "releaseStatus": "awaiting_media",
+        "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Mittwoch, 14:15 Uhr."
+          },
+          {
+            "id": "b",
+            "text": "Freitag, 14:50 Uhr."
+          },
+          {
+            "id": "c",
+            "text": "Freitag, 15:15 Uhr."
+          }
+        ],
+        "correctAnswer": "b",
+        "explanation": "Stattdessen nennt den neuen Termin; Mittwoch ist der bisherige Termin.",
+        "evidence": "stattdessen am Freitag um vierzehn Uhr fünfzig",
+        "audio": {
+          "id": "sitov-exam-b1-a01-v1",
+          "script": "Guten Tag, hier spricht Herr Berg vom Repair-Café Nord. Sie wollten am Mittwoch um vierzehn Uhr fünfzehn mit Ihrer Tischlampe vorbeikommen. Unser Elektriker ist an diesem Tag leider nicht da. Wir können Ihnen stattdessen am Freitag um vierzehn Uhr fünfzig einen Termin anbieten. Bitte bringen Sie auch das Stromkabel mit. Bestätigen Sie den neuen Termin bis morgen telefonisch. Vielen Dank.",
+          "status": "awaiting_recording",
+          "route": "human",
+          "roles": [
+            "Freund: fiktiver Mitarbeiter Herr Berg"
+          ],
+          "notes": "Reale Aufnahme nach Skript, geprüftem Wortlaut und gemessenen Wortzeitmarken. Kein automatisch erzeugter Ersatz."
+        }
+      },
+      {
+        "id": "sitov-exam-b1-a01-author-t02",
+        "version": 1,
+        "skill": "listening",
+        "type": "choice",
+        "title": "Das Material",
+        "instruction": "Was soll zusätzlich mitgebracht werden?",
+        "hints": [],
+        "profiles": [
+          "general_b1",
+          "dtz_a2_b1",
+          "telc_deutsch_b1",
+          "goethe_b1",
+          "oesd_zb1",
+          "telc_deutsch_a2_b1",
+          "oesd_zdoe_b1"
+        ],
+        "competency": "listening",
+        "formatFamily": "allgemeines_hoertraining",
+        "estimatedMinutes": 2,
+        "releaseStatus": "awaiting_media",
+        "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Ein Stromkabel."
+          },
+          {
+            "id": "b",
+            "text": "Ein Fahrrad."
+          },
+          {
+            "id": "c",
+            "text": "Ein eigenes Ersatzteil."
+          }
+        ],
+        "correctAnswer": "a",
+        "explanation": "Das Stromkabel wird ausdrücklich verlangt.",
+        "evidence": "Bitte bringen Sie auch das Stromkabel mit.",
+        "audio": {
+          "id": "sitov-exam-b1-a01-v1",
+          "script": "Guten Tag, hier spricht Herr Berg vom Repair-Café Nord. Sie wollten am Mittwoch um vierzehn Uhr fünfzehn mit Ihrer Tischlampe vorbeikommen. Unser Elektriker ist an diesem Tag leider nicht da. Wir können Ihnen stattdessen am Freitag um vierzehn Uhr fünfzig einen Termin anbieten. Bitte bringen Sie auch das Stromkabel mit. Bestätigen Sie den neuen Termin bis morgen telefonisch. Vielen Dank.",
+          "status": "awaiting_recording",
+          "route": "human",
+          "roles": [
+            "Freund: fiktiver Mitarbeiter Herr Berg"
+          ],
+          "notes": "Reale Aufnahme nach Skript, geprüftem Wortlaut und gemessenen Wortzeitmarken. Kein automatisch erzeugter Ersatz."
+        }
+      },
+      {
+        "id": "sitov-exam-b1-a01-author-t03",
+        "version": 1,
+        "skill": "listening",
+        "type": "choice",
+        "title": "Die Bestätigung",
+        "instruction": "Wie soll der neue Termin bestätigt werden?",
+        "hints": [],
+        "profiles": [
+          "general_b1",
+          "dtz_a2_b1",
+          "telc_deutsch_b1",
+          "goethe_b1",
+          "oesd_zb1",
+          "telc_deutsch_a2_b1",
+          "oesd_zdoe_b1"
+        ],
+        "competency": "listening",
+        "formatFamily": "allgemeines_hoertraining",
+        "estimatedMinutes": 2,
+        "releaseStatus": "awaiting_media",
+        "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Bis morgen telefonisch."
+          },
+          {
+            "id": "b",
+            "text": "Bis Freitag schriftlich."
+          },
+          {
+            "id": "c",
+            "text": "Erst vor Ort."
+          }
+        ],
+        "correctAnswer": "a",
+        "explanation": "Frist und Kontaktweg stehen am Ende.",
+        "evidence": "bis morgen telefonisch",
+        "audio": {
+          "id": "sitov-exam-b1-a01-v1",
+          "script": "Guten Tag, hier spricht Herr Berg vom Repair-Café Nord. Sie wollten am Mittwoch um vierzehn Uhr fünfzehn mit Ihrer Tischlampe vorbeikommen. Unser Elektriker ist an diesem Tag leider nicht da. Wir können Ihnen stattdessen am Freitag um vierzehn Uhr fünfzig einen Termin anbieten. Bitte bringen Sie auch das Stromkabel mit. Bestätigen Sie den neuen Termin bis morgen telefonisch. Vielen Dank.",
+          "status": "awaiting_recording",
+          "route": "human",
+          "roles": [
+            "Freund: fiktiver Mitarbeiter Herr Berg"
+          ],
+          "notes": "Reale Aufnahme nach Skript, geprüftem Wortlaut und gemessenen Wortzeitmarken. Kein automatisch erzeugter Ersatz."
+        }
+      }
+    ]
+  },
+  {
+    "audioId": "sitov-exam-b1-a02",
+    "title": "Ein Ehrenamt nach dem Berufsleben",
+    "learningGoal": "Hauptthema, Entwicklung, Gründe und Details in einem Interview unterscheiden.",
+    "profileScope": "Allgemeines B1-Training; kein offizieller vollständiger Prüfungsteil.",
+    "script": "Interviewerin: Herr Berger, Sie helfen seit einigen Monaten im Stadtteilzentrum. Wie ist das gekommen?\n\nThomas: Im letzten Jahr bin ich in Rente gegangen. Am Anfang war die freie Zeit angenehm. Später fehlten mir die Gespräche mit anderen. Auf einem Plakat habe ich gelesen, dass das Zentrum Helfer für den Computertreff sucht. Ich habe erst einen Kennenlerntermin vereinbart.\n\nInterviewerin: Was machen Sie beim Computertreff?\n\nThomas: Jeden Dienstag von zehn bis zwölf Uhr beantworte ich Fragen. Ein Besucher möchte zum Beispiel ein Foto verschicken, ein anderer sucht eine Busverbindung. Wir schauen gemeinsam auf das Gerät und probieren den nächsten Schritt. Jeder Besucher hat andere Erfahrungen.\n\nInterviewerin: Haben Sie vorher als Computertechniker gearbeitet?\n\nThomas: Nein, ich war Verkäufer in einem Möbelgeschäft. Dort habe ich Bestellungen am Computer bearbeitet. Viele Dinge für den Treff habe ich aber erst später gelernt. Wenn ich etwas nicht weiß, frage ich meinen Kollegen David. Ich muss nicht jede Antwort allein kennen.\n\nInterviewerin: Was war am Anfang schwierig?\n\nThomas: Ich wollte zu viel auf einmal erklären. Ein Besucher sagte mir: Heute möchte ich nur ein Foto versenden. Das hat mir geholfen. Seitdem frage ich zuerst, was jemand gerade braucht. Dann üben wir nur einen oder zwei Schritte. Beim nächsten Mal können wir weitermachen.\n\nInterviewerin: Was gefällt Ihnen besonders?\n\nThomas: Wir lernen voneinander. Ein Besucher hat mir zum Beispiel ein Rezept erklärt. Ich kenne jetzt mehr Menschen im Stadtteil und freue mich auf den Dienstag. Zu Hause kann ich danach noch andere Dinge machen, weil zwei Stunden gut in meinen Alltag passen.\n\nInterviewerin: Was empfehlen Sie jemandem, der auch helfen möchte?\n\nThomas: Zuerst ein Gespräch zum Kennenlernen. Niemand muss sofort jeden Tag kommen. Man sollte ehrlich sagen, wie viel Zeit man hat. Wichtig ist, zuverlässig zu sein und zuzuhören. Ein kleines, regelmäßiges Engagement kann schon viel bewirken.",
+    "spokenText": "Herr Berger, Sie helfen seit einigen Monaten im Stadtteilzentrum. Wie ist das gekommen? Im letzten Jahr bin ich in Rente gegangen. Am Anfang war die freie Zeit angenehm. Später fehlten mir die Gespräche mit anderen. Auf einem Plakat habe ich gelesen, dass das Zentrum Helfer für den Computertreff sucht. Ich habe erst einen Kennenlerntermin vereinbart. Was machen Sie beim Computertreff? Jeden Dienstag von zehn bis zwölf Uhr beantworte ich Fragen. Ein Besucher möchte zum Beispiel ein Foto verschicken, ein anderer sucht eine Busverbindung. Wir schauen gemeinsam auf das Gerät und probieren den nächsten Schritt. Jeder Besucher hat andere Erfahrungen. Haben Sie vorher als Computertechniker gearbeitet? Nein, ich war Verkäufer in einem Möbelgeschäft. Dort habe ich Bestellungen am Computer bearbeitet. Viele Dinge für den Treff habe ich aber erst später gelernt. Wenn ich etwas nicht weiß, frage ich meinen Kollegen David. Ich muss nicht jede Antwort allein kennen. Was war am Anfang schwierig? Ich wollte zu viel auf einmal erklären. Ein Besucher sagte mir: Heute möchte ich nur ein Foto versenden. Das hat mir geholfen. Seitdem frage ich zuerst, was jemand gerade braucht. Dann üben wir nur einen oder zwei Schritte. Beim nächsten Mal können wir weitermachen. Was gefällt Ihnen besonders? Wir lernen voneinander. Ein Besucher hat mir zum Beispiel ein Rezept erklärt. Ich kenne jetzt mehr Menschen im Stadtteil und freue mich auf den Dienstag. Zu Hause kann ich danach noch andere Dinge machen, weil zwei Stunden gut in meinen Alltag passen. Was empfehlen Sie jemandem, der auch helfen möchte? Zuerst ein Gespräch zum Kennenlernen. Niemand muss sofort jeden Tag kommen. Man sollte ehrlich sagen, wie viel Zeit man hat. Wichtig ist, zuverlässig zu sein und zuzuhören. Ein kleines, regelmäßiges Engagement kann schon viel bewirken.",
+    "roles": [
+      "Anastasia: reale Interviewerin",
+      "Freund: fiktiver Thomas Berger, 61 Jahre"
+    ],
+    "notes": "B1: klar und natürlich sprechen. Rollenkennungen und Regie nicht vorlesen. Zwei Sekunden Ruhe am Anfang und Ende. Inhalt nicht improvisieren. Keine künstliche Betonung der Lösungen. Fiktive Rollen ausschließlich männlich. Anastasia ist eine reale Lehrkraft und kann eine reale Moderation aufnehmen; fiktive Personen werden als Männer dargestellt. Freundlich und interessiert. Sprecherwechsel mit kurzen natürlichen Pausen. Das Alter ist eine fiktive Rolle, keine Angabe über den realen Sprecher.",
+    "targetDuration": "2–3 Minuten",
+    "session": 2,
+    "taskIds": [
+      "sitov-exam-b1-a02-author-t01",
+      "sitov-exam-b1-a02-author-t02",
+      "sitov-exam-b1-a02-author-t03",
+      "sitov-exam-b1-a02-author-t04",
+      "sitov-exam-b1-a02-author-t05",
+      "sitov-exam-b1-a02-author-t06"
+    ],
+    "solutions": [
+      {
+        "taskId": "sitov-exam-b1-a02-author-t01",
+        "answer": "b",
+        "evidence": "Helfer für den Computertreff"
+      },
+      {
+        "taskId": "sitov-exam-b1-a02-author-t02",
+        "answer": "a",
+        "evidence": "Später fehlten mir die Gespräche mit anderen."
+      },
+      {
+        "taskId": "sitov-exam-b1-a02-author-t03",
+        "answer": "a",
+        "evidence": "Jeden Dienstag von zehn bis zwölf Uhr"
+      },
+      {
+        "taskId": "sitov-exam-b1-a02-author-t04",
+        "answer": "b",
+        "evidence": "ich war Verkäufer in einem Möbelgeschäft"
+      },
+      {
+        "taskId": "sitov-exam-b1-a02-author-t05",
+        "answer": "a",
+        "evidence": "was jemand gerade braucht"
+      },
+      {
+        "taskId": "sitov-exam-b1-a02-author-t06",
+        "answer": "b",
+        "evidence": "Zuerst ein Gespräch zum Kennenlernen."
+      }
+    ],
+    "evidence": [
+      "Helfer für den Computertreff",
+      "Später fehlten mir die Gespräche mit anderen.",
+      "Jeden Dienstag von zehn bis zwölf Uhr",
+      "ich war Verkäufer in einem Möbelgeschäft",
+      "was jemand gerade braucht",
+      "Zuerst ein Gespräch zum Kennenlernen."
+    ],
+    "status": "awaiting_recording",
+    "route": "human",
+    "filename": "A02_ein_ehrenamt_nach_dem_berufsleben_de_v1_take01.m4a",
+    "productionSteps": [
+      "Rollen und vollständiges Skript durchlesen; Zahlen auf Verständlichkeit prüfen.",
+      "Tonprobe anhören; ruhigen Raum und gleichen Mikrofonabstand wählen.",
+      "Den vollständigen Wortlaut aufnehmen; bei Versprechern den ganzen Satz wiederholen.",
+      "Datei als M4A oder WAV-Master hochladen; Rohdatei und Schnittfassung zuordnen.",
+      "Schnittfassung gegen spokenText und alle Lösungsschlüssel prüfen.",
+      "Echte Wortzeitmarken am Audio messen; keine Skript-Zeitschätzungen als Alignment verwenden.",
+      "Lautstärke, Zahlen, Verständlichkeit und Aufgaben fachlich freigeben.",
+      "Erst nach technischer und fachlicher Freigabe veröffentlichen."
+    ],
+    "tasks": [
+      {
+        "id": "sitov-exam-b1-a02-author-t01",
+        "version": 1,
+        "skill": "listening",
+        "type": "choice",
+        "title": "Das Hauptthema",
+        "instruction": "Worum geht es im Interview?",
+        "hints": [],
+        "profiles": [
+          "general_b1",
+          "dtz_a2_b1",
+          "telc_deutsch_b1",
+          "goethe_b1",
+          "oesd_zb1",
+          "telc_deutsch_a2_b1",
+          "oesd_zdoe_b1"
+        ],
+        "competency": "listening",
+        "formatFamily": "allgemeines_hoertraining",
+        "estimatedMinutes": 2,
+        "releaseStatus": "awaiting_media",
+        "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Um eine neue Berufsausbildung."
+          },
+          {
+            "id": "b",
+            "text": "Um freiwillige Hilfe im Stadtteil."
+          },
+          {
+            "id": "c",
+            "text": "Um den Verkauf eines Smartphones."
+          }
+        ],
+        "correctAnswer": "b",
+        "explanation": "Thomas erzählt von seinem Engagement im Computertreff.",
+        "evidence": "Helfer für den Computertreff",
+        "audio": {
+          "id": "sitov-exam-b1-a02-v1",
+          "script": "Herr Berger, Sie helfen seit einigen Monaten im Stadtteilzentrum. Wie ist das gekommen? Im letzten Jahr bin ich in Rente gegangen. Am Anfang war die freie Zeit angenehm. Später fehlten mir die Gespräche mit anderen. Auf einem Plakat habe ich gelesen, dass das Zentrum Helfer für den Computertreff sucht. Ich habe erst einen Kennenlerntermin vereinbart. Was machen Sie beim Computertreff? Jeden Dienstag von zehn bis zwölf Uhr beantworte ich Fragen. Ein Besucher möchte zum Beispiel ein Foto verschicken, ein anderer sucht eine Busverbindung. Wir schauen gemeinsam auf das Gerät und probieren den nächsten Schritt. Jeder Besucher hat andere Erfahrungen. Haben Sie vorher als Computertechniker gearbeitet? Nein, ich war Verkäufer in einem Möbelgeschäft. Dort habe ich Bestellungen am Computer bearbeitet. Viele Dinge für den Treff habe ich aber erst später gelernt. Wenn ich etwas nicht weiß, frage ich meinen Kollegen David. Ich muss nicht jede Antwort allein kennen. Was war am Anfang schwierig? Ich wollte zu viel auf einmal erklären. Ein Besucher sagte mir: Heute möchte ich nur ein Foto versenden. Das hat mir geholfen. Seitdem frage ich zuerst, was jemand gerade braucht. Dann üben wir nur einen oder zwei Schritte. Beim nächsten Mal können wir weitermachen. Was gefällt Ihnen besonders? Wir lernen voneinander. Ein Besucher hat mir zum Beispiel ein Rezept erklärt. Ich kenne jetzt mehr Menschen im Stadtteil und freue mich auf den Dienstag. Zu Hause kann ich danach noch andere Dinge machen, weil zwei Stunden gut in meinen Alltag passen. Was empfehlen Sie jemandem, der auch helfen möchte? Zuerst ein Gespräch zum Kennenlernen. Niemand muss sofort jeden Tag kommen. Man sollte ehrlich sagen, wie viel Zeit man hat. Wichtig ist, zuverlässig zu sein und zuzuhören. Ein kleines, regelmäßiges Engagement kann schon viel bewirken.",
+          "status": "awaiting_recording",
+          "route": "human",
+          "roles": [
+            "Anastasia: reale Interviewerin",
+            "Freund: fiktiver Thomas Berger, 61 Jahre"
+          ],
+          "notes": "Reale Aufnahme nach Skript, geprüftem Wortlaut und gemessenen Wortzeitmarken. Kein automatisch erzeugter Ersatz."
+        }
+      },
+      {
+        "id": "sitov-exam-b1-a02-author-t02",
+        "version": 1,
+        "skill": "listening",
+        "type": "choice",
+        "title": "Der Grund",
+        "instruction": "Warum begann Thomas zu helfen?",
+        "hints": [],
+        "profiles": [
+          "general_b1",
+          "dtz_a2_b1",
+          "telc_deutsch_b1",
+          "goethe_b1",
+          "oesd_zb1",
+          "telc_deutsch_a2_b1",
+          "oesd_zdoe_b1"
+        ],
+        "competency": "listening",
+        "formatFamily": "allgemeines_hoertraining",
+        "estimatedMinutes": 2,
+        "releaseStatus": "awaiting_media",
+        "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Ihm fehlten Gespräche mit anderen."
+          },
+          {
+            "id": "b",
+            "text": "Er musste ein neues Gerät kaufen."
+          },
+          {
+            "id": "c",
+            "text": "Sein Arbeitgeber verlangte es."
+          }
+        ],
+        "correctAnswer": "a",
+        "explanation": "Nach der ersten freien Zeit vermisste er Kontakte.",
+        "evidence": "Später fehlten mir die Gespräche mit anderen.",
+        "audio": {
+          "id": "sitov-exam-b1-a02-v1",
+          "script": "Herr Berger, Sie helfen seit einigen Monaten im Stadtteilzentrum. Wie ist das gekommen? Im letzten Jahr bin ich in Rente gegangen. Am Anfang war die freie Zeit angenehm. Später fehlten mir die Gespräche mit anderen. Auf einem Plakat habe ich gelesen, dass das Zentrum Helfer für den Computertreff sucht. Ich habe erst einen Kennenlerntermin vereinbart. Was machen Sie beim Computertreff? Jeden Dienstag von zehn bis zwölf Uhr beantworte ich Fragen. Ein Besucher möchte zum Beispiel ein Foto verschicken, ein anderer sucht eine Busverbindung. Wir schauen gemeinsam auf das Gerät und probieren den nächsten Schritt. Jeder Besucher hat andere Erfahrungen. Haben Sie vorher als Computertechniker gearbeitet? Nein, ich war Verkäufer in einem Möbelgeschäft. Dort habe ich Bestellungen am Computer bearbeitet. Viele Dinge für den Treff habe ich aber erst später gelernt. Wenn ich etwas nicht weiß, frage ich meinen Kollegen David. Ich muss nicht jede Antwort allein kennen. Was war am Anfang schwierig? Ich wollte zu viel auf einmal erklären. Ein Besucher sagte mir: Heute möchte ich nur ein Foto versenden. Das hat mir geholfen. Seitdem frage ich zuerst, was jemand gerade braucht. Dann üben wir nur einen oder zwei Schritte. Beim nächsten Mal können wir weitermachen. Was gefällt Ihnen besonders? Wir lernen voneinander. Ein Besucher hat mir zum Beispiel ein Rezept erklärt. Ich kenne jetzt mehr Menschen im Stadtteil und freue mich auf den Dienstag. Zu Hause kann ich danach noch andere Dinge machen, weil zwei Stunden gut in meinen Alltag passen. Was empfehlen Sie jemandem, der auch helfen möchte? Zuerst ein Gespräch zum Kennenlernen. Niemand muss sofort jeden Tag kommen. Man sollte ehrlich sagen, wie viel Zeit man hat. Wichtig ist, zuverlässig zu sein und zuzuhören. Ein kleines, regelmäßiges Engagement kann schon viel bewirken.",
+          "status": "awaiting_recording",
+          "route": "human",
+          "roles": [
+            "Anastasia: reale Interviewerin",
+            "Freund: fiktiver Thomas Berger, 61 Jahre"
+          ],
+          "notes": "Reale Aufnahme nach Skript, geprüftem Wortlaut und gemessenen Wortzeitmarken. Kein automatisch erzeugter Ersatz."
+        }
+      },
+      {
+        "id": "sitov-exam-b1-a02-author-t03",
+        "version": 1,
+        "skill": "listening",
+        "type": "choice",
+        "title": "Der Termin",
+        "instruction": "Wann findet sein Einsatz statt?",
+        "hints": [],
+        "profiles": [
+          "general_b1",
+          "dtz_a2_b1",
+          "telc_deutsch_b1",
+          "goethe_b1",
+          "oesd_zb1",
+          "telc_deutsch_a2_b1",
+          "oesd_zdoe_b1"
+        ],
+        "competency": "listening",
+        "formatFamily": "allgemeines_hoertraining",
+        "estimatedMinutes": 2,
+        "releaseStatus": "awaiting_media",
+        "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Dienstag 10–12 Uhr."
+          },
+          {
+            "id": "b",
+            "text": "Donnerstag 10–12 Uhr."
+          },
+          {
+            "id": "c",
+            "text": "Dienstag 12–14 Uhr."
+          }
+        ],
+        "correctAnswer": "a",
+        "explanation": "Tag und Zeit werden genau genannt.",
+        "evidence": "Jeden Dienstag von zehn bis zwölf Uhr",
+        "audio": {
+          "id": "sitov-exam-b1-a02-v1",
+          "script": "Herr Berger, Sie helfen seit einigen Monaten im Stadtteilzentrum. Wie ist das gekommen? Im letzten Jahr bin ich in Rente gegangen. Am Anfang war die freie Zeit angenehm. Später fehlten mir die Gespräche mit anderen. Auf einem Plakat habe ich gelesen, dass das Zentrum Helfer für den Computertreff sucht. Ich habe erst einen Kennenlerntermin vereinbart. Was machen Sie beim Computertreff? Jeden Dienstag von zehn bis zwölf Uhr beantworte ich Fragen. Ein Besucher möchte zum Beispiel ein Foto verschicken, ein anderer sucht eine Busverbindung. Wir schauen gemeinsam auf das Gerät und probieren den nächsten Schritt. Jeder Besucher hat andere Erfahrungen. Haben Sie vorher als Computertechniker gearbeitet? Nein, ich war Verkäufer in einem Möbelgeschäft. Dort habe ich Bestellungen am Computer bearbeitet. Viele Dinge für den Treff habe ich aber erst später gelernt. Wenn ich etwas nicht weiß, frage ich meinen Kollegen David. Ich muss nicht jede Antwort allein kennen. Was war am Anfang schwierig? Ich wollte zu viel auf einmal erklären. Ein Besucher sagte mir: Heute möchte ich nur ein Foto versenden. Das hat mir geholfen. Seitdem frage ich zuerst, was jemand gerade braucht. Dann üben wir nur einen oder zwei Schritte. Beim nächsten Mal können wir weitermachen. Was gefällt Ihnen besonders? Wir lernen voneinander. Ein Besucher hat mir zum Beispiel ein Rezept erklärt. Ich kenne jetzt mehr Menschen im Stadtteil und freue mich auf den Dienstag. Zu Hause kann ich danach noch andere Dinge machen, weil zwei Stunden gut in meinen Alltag passen. Was empfehlen Sie jemandem, der auch helfen möchte? Zuerst ein Gespräch zum Kennenlernen. Niemand muss sofort jeden Tag kommen. Man sollte ehrlich sagen, wie viel Zeit man hat. Wichtig ist, zuverlässig zu sein und zuzuhören. Ein kleines, regelmäßiges Engagement kann schon viel bewirken.",
+          "status": "awaiting_recording",
+          "route": "human",
+          "roles": [
+            "Anastasia: reale Interviewerin",
+            "Freund: fiktiver Thomas Berger, 61 Jahre"
+          ],
+          "notes": "Reale Aufnahme nach Skript, geprüftem Wortlaut und gemessenen Wortzeitmarken. Kein automatisch erzeugter Ersatz."
+        }
+      },
+      {
+        "id": "sitov-exam-b1-a02-author-t04",
+        "version": 1,
+        "skill": "listening",
+        "type": "choice",
+        "title": "Der frühere Beruf",
+        "instruction": "Was war Thomas früher?",
+        "hints": [],
+        "profiles": [
+          "general_b1",
+          "dtz_a2_b1",
+          "telc_deutsch_b1",
+          "goethe_b1",
+          "oesd_zb1",
+          "telc_deutsch_a2_b1",
+          "oesd_zdoe_b1"
+        ],
+        "competency": "listening",
+        "formatFamily": "allgemeines_hoertraining",
+        "estimatedMinutes": 2,
+        "releaseStatus": "awaiting_media",
+        "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Computertechniker."
+          },
+          {
+            "id": "b",
+            "text": "Verkäufer in einem Möbelgeschäft."
+          },
+          {
+            "id": "c",
+            "text": "Busfahrer."
+          }
+        ],
+        "correctAnswer": "b",
+        "explanation": "Computerkenntnisse kamen aus Bestellungen, nicht aus einer Technikerstelle.",
+        "evidence": "ich war Verkäufer in einem Möbelgeschäft",
+        "audio": {
+          "id": "sitov-exam-b1-a02-v1",
+          "script": "Herr Berger, Sie helfen seit einigen Monaten im Stadtteilzentrum. Wie ist das gekommen? Im letzten Jahr bin ich in Rente gegangen. Am Anfang war die freie Zeit angenehm. Später fehlten mir die Gespräche mit anderen. Auf einem Plakat habe ich gelesen, dass das Zentrum Helfer für den Computertreff sucht. Ich habe erst einen Kennenlerntermin vereinbart. Was machen Sie beim Computertreff? Jeden Dienstag von zehn bis zwölf Uhr beantworte ich Fragen. Ein Besucher möchte zum Beispiel ein Foto verschicken, ein anderer sucht eine Busverbindung. Wir schauen gemeinsam auf das Gerät und probieren den nächsten Schritt. Jeder Besucher hat andere Erfahrungen. Haben Sie vorher als Computertechniker gearbeitet? Nein, ich war Verkäufer in einem Möbelgeschäft. Dort habe ich Bestellungen am Computer bearbeitet. Viele Dinge für den Treff habe ich aber erst später gelernt. Wenn ich etwas nicht weiß, frage ich meinen Kollegen David. Ich muss nicht jede Antwort allein kennen. Was war am Anfang schwierig? Ich wollte zu viel auf einmal erklären. Ein Besucher sagte mir: Heute möchte ich nur ein Foto versenden. Das hat mir geholfen. Seitdem frage ich zuerst, was jemand gerade braucht. Dann üben wir nur einen oder zwei Schritte. Beim nächsten Mal können wir weitermachen. Was gefällt Ihnen besonders? Wir lernen voneinander. Ein Besucher hat mir zum Beispiel ein Rezept erklärt. Ich kenne jetzt mehr Menschen im Stadtteil und freue mich auf den Dienstag. Zu Hause kann ich danach noch andere Dinge machen, weil zwei Stunden gut in meinen Alltag passen. Was empfehlen Sie jemandem, der auch helfen möchte? Zuerst ein Gespräch zum Kennenlernen. Niemand muss sofort jeden Tag kommen. Man sollte ehrlich sagen, wie viel Zeit man hat. Wichtig ist, zuverlässig zu sein und zuzuhören. Ein kleines, regelmäßiges Engagement kann schon viel bewirken.",
+          "status": "awaiting_recording",
+          "route": "human",
+          "roles": [
+            "Anastasia: reale Interviewerin",
+            "Freund: fiktiver Thomas Berger, 61 Jahre"
+          ],
+          "notes": "Reale Aufnahme nach Skript, geprüftem Wortlaut und gemessenen Wortzeitmarken. Kein automatisch erzeugter Ersatz."
+        }
+      },
+      {
+        "id": "sitov-exam-b1-a02-author-t05",
+        "version": 1,
+        "skill": "listening",
+        "type": "choice",
+        "title": "Die Veränderung",
+        "instruction": "Was fragt Thomas heute zuerst?",
+        "hints": [],
+        "profiles": [
+          "general_b1",
+          "dtz_a2_b1",
+          "telc_deutsch_b1",
+          "goethe_b1",
+          "oesd_zb1",
+          "telc_deutsch_a2_b1",
+          "oesd_zdoe_b1"
+        ],
+        "competency": "listening",
+        "formatFamily": "allgemeines_hoertraining",
+        "estimatedMinutes": 2,
+        "releaseStatus": "awaiting_media",
+        "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Was jemand gerade braucht."
+          },
+          {
+            "id": "b",
+            "text": "Wie viel das Telefon gekostet hat."
+          },
+          {
+            "id": "c",
+            "text": "Warum jemand noch keinen Kursabschluss hat."
+          }
+        ],
+        "correctAnswer": "a",
+        "explanation": "Er richtet die Hilfe am aktuellen Bedarf aus.",
+        "evidence": "was jemand gerade braucht",
+        "audio": {
+          "id": "sitov-exam-b1-a02-v1",
+          "script": "Herr Berger, Sie helfen seit einigen Monaten im Stadtteilzentrum. Wie ist das gekommen? Im letzten Jahr bin ich in Rente gegangen. Am Anfang war die freie Zeit angenehm. Später fehlten mir die Gespräche mit anderen. Auf einem Plakat habe ich gelesen, dass das Zentrum Helfer für den Computertreff sucht. Ich habe erst einen Kennenlerntermin vereinbart. Was machen Sie beim Computertreff? Jeden Dienstag von zehn bis zwölf Uhr beantworte ich Fragen. Ein Besucher möchte zum Beispiel ein Foto verschicken, ein anderer sucht eine Busverbindung. Wir schauen gemeinsam auf das Gerät und probieren den nächsten Schritt. Jeder Besucher hat andere Erfahrungen. Haben Sie vorher als Computertechniker gearbeitet? Nein, ich war Verkäufer in einem Möbelgeschäft. Dort habe ich Bestellungen am Computer bearbeitet. Viele Dinge für den Treff habe ich aber erst später gelernt. Wenn ich etwas nicht weiß, frage ich meinen Kollegen David. Ich muss nicht jede Antwort allein kennen. Was war am Anfang schwierig? Ich wollte zu viel auf einmal erklären. Ein Besucher sagte mir: Heute möchte ich nur ein Foto versenden. Das hat mir geholfen. Seitdem frage ich zuerst, was jemand gerade braucht. Dann üben wir nur einen oder zwei Schritte. Beim nächsten Mal können wir weitermachen. Was gefällt Ihnen besonders? Wir lernen voneinander. Ein Besucher hat mir zum Beispiel ein Rezept erklärt. Ich kenne jetzt mehr Menschen im Stadtteil und freue mich auf den Dienstag. Zu Hause kann ich danach noch andere Dinge machen, weil zwei Stunden gut in meinen Alltag passen. Was empfehlen Sie jemandem, der auch helfen möchte? Zuerst ein Gespräch zum Kennenlernen. Niemand muss sofort jeden Tag kommen. Man sollte ehrlich sagen, wie viel Zeit man hat. Wichtig ist, zuverlässig zu sein und zuzuhören. Ein kleines, regelmäßiges Engagement kann schon viel bewirken.",
+          "status": "awaiting_recording",
+          "route": "human",
+          "roles": [
+            "Anastasia: reale Interviewerin",
+            "Freund: fiktiver Thomas Berger, 61 Jahre"
+          ],
+          "notes": "Reale Aufnahme nach Skript, geprüftem Wortlaut und gemessenen Wortzeitmarken. Kein automatisch erzeugter Ersatz."
+        }
+      },
+      {
+        "id": "sitov-exam-b1-a02-author-t06",
+        "version": 1,
+        "skill": "listening",
+        "type": "choice",
+        "title": "Der erste Schritt",
+        "instruction": "Was empfiehlt er neuen Helfern?",
+        "hints": [],
+        "profiles": [
+          "general_b1",
+          "dtz_a2_b1",
+          "telc_deutsch_b1",
+          "goethe_b1",
+          "oesd_zb1",
+          "telc_deutsch_a2_b1",
+          "oesd_zdoe_b1"
+        ],
+        "competency": "listening",
+        "formatFamily": "allgemeines_hoertraining",
+        "estimatedMinutes": 2,
+        "releaseStatus": "awaiting_media",
+        "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Jeden Tag helfen."
+          },
+          {
+            "id": "b",
+            "text": "Ein Kennenlerngespräch."
+          },
+          {
+            "id": "c",
+            "text": "Alle Fragen sofort beantworten."
+          }
+        ],
+        "correctAnswer": "b",
+        "explanation": "Er empfiehlt einen kleinen, verlässlichen Einstieg.",
+        "evidence": "Zuerst ein Gespräch zum Kennenlernen.",
+        "audio": {
+          "id": "sitov-exam-b1-a02-v1",
+          "script": "Herr Berger, Sie helfen seit einigen Monaten im Stadtteilzentrum. Wie ist das gekommen? Im letzten Jahr bin ich in Rente gegangen. Am Anfang war die freie Zeit angenehm. Später fehlten mir die Gespräche mit anderen. Auf einem Plakat habe ich gelesen, dass das Zentrum Helfer für den Computertreff sucht. Ich habe erst einen Kennenlerntermin vereinbart. Was machen Sie beim Computertreff? Jeden Dienstag von zehn bis zwölf Uhr beantworte ich Fragen. Ein Besucher möchte zum Beispiel ein Foto verschicken, ein anderer sucht eine Busverbindung. Wir schauen gemeinsam auf das Gerät und probieren den nächsten Schritt. Jeder Besucher hat andere Erfahrungen. Haben Sie vorher als Computertechniker gearbeitet? Nein, ich war Verkäufer in einem Möbelgeschäft. Dort habe ich Bestellungen am Computer bearbeitet. Viele Dinge für den Treff habe ich aber erst später gelernt. Wenn ich etwas nicht weiß, frage ich meinen Kollegen David. Ich muss nicht jede Antwort allein kennen. Was war am Anfang schwierig? Ich wollte zu viel auf einmal erklären. Ein Besucher sagte mir: Heute möchte ich nur ein Foto versenden. Das hat mir geholfen. Seitdem frage ich zuerst, was jemand gerade braucht. Dann üben wir nur einen oder zwei Schritte. Beim nächsten Mal können wir weitermachen. Was gefällt Ihnen besonders? Wir lernen voneinander. Ein Besucher hat mir zum Beispiel ein Rezept erklärt. Ich kenne jetzt mehr Menschen im Stadtteil und freue mich auf den Dienstag. Zu Hause kann ich danach noch andere Dinge machen, weil zwei Stunden gut in meinen Alltag passen. Was empfehlen Sie jemandem, der auch helfen möchte? Zuerst ein Gespräch zum Kennenlernen. Niemand muss sofort jeden Tag kommen. Man sollte ehrlich sagen, wie viel Zeit man hat. Wichtig ist, zuverlässig zu sein und zuzuhören. Ein kleines, regelmäßiges Engagement kann schon viel bewirken.",
+          "status": "awaiting_recording",
+          "route": "human",
+          "roles": [
+            "Anastasia: reale Interviewerin",
+            "Freund: fiktiver Thomas Berger, 61 Jahre"
+          ],
+          "notes": "Reale Aufnahme nach Skript, geprüftem Wortlaut und gemessenen Wortzeitmarken. Kein automatisch erzeugter Ersatz."
+        }
+      }
+    ]
+  },
+  {
+    "audioId": "sitov-exam-b1-a03",
+    "title": "Drei Meinungen zum Einkaufen",
+    "learningGoal": "Zustimmung, Ablehnung und Einschränkung drei Positionen zuordnen.",
+    "profileScope": "Allgemeines B1-Training; kein offizieller vollständiger Prüfungsteil.",
+    "script": "Ben: Ich kaufe oft im Internet ein, weil ich Preise in Ruhe vergleichen kann. Bei Büchern finde ich das praktisch. Kleidung kaufe ich aber lieber im Geschäft, weil ich sie anprobieren möchte. Für mich hängt es also vom Produkt ab.\n\nErik: Ich gehe am liebsten in kleine Geschäfte in meinem Stadtteil. Dort kann ich Fragen stellen und bekomme oft eine gute Beratung. Manchmal kostet etwas ein bisschen mehr. Das ist für mich in Ordnung, wenn ich dafür das richtige Produkt finde.\n\nSami: Ich schaue zuerst online nach dem Preis und gehe danach häufig in ein Geschäft. Dort möchte ich das Gerät sehen. Wenn der Unterschied nicht groß ist, kaufe ich vor Ort. Nur bei einem sehr großen Preisunterschied bestelle ich im Internet.",
+    "spokenText": "Ich kaufe oft im Internet ein, weil ich Preise in Ruhe vergleichen kann. Bei Büchern finde ich das praktisch. Kleidung kaufe ich aber lieber im Geschäft, weil ich sie anprobieren möchte. Für mich hängt es also vom Produkt ab. Ich gehe am liebsten in kleine Geschäfte in meinem Stadtteil. Dort kann ich Fragen stellen und bekomme oft eine gute Beratung. Manchmal kostet etwas ein bisschen mehr. Das ist für mich in Ordnung, wenn ich dafür das richtige Produkt finde. Ich schaue zuerst online nach dem Preis und gehe danach häufig in ein Geschäft. Dort möchte ich das Gerät sehen. Wenn der Unterschied nicht groß ist, kaufe ich vor Ort. Nur bei einem sehr großen Preisunterschied bestelle ich im Internet.",
+    "roles": [
+      "Freund: fiktiver Ben",
+      "Zweiter realer Sprecher: fiktiver Erik",
+      "Dritter realer Sprecher: fiktiver Sami"
+    ],
+    "notes": "B1: klar und natürlich sprechen. Rollenkennungen und Regie nicht vorlesen. Zwei Sekunden Ruhe am Anfang und Ende. Inhalt nicht improvisieren. Keine künstliche Betonung der Lösungen. Fiktive Rollen ausschließlich männlich. Anastasia ist eine reale Lehrkraft und kann eine reale Moderation aufnehmen; fiktive Personen werden als Männer dargestellt. Drei klar unterscheidbare reale Stimmen aufnehmen. Falls nur zwei verfügbar sind, dritte Stimme als Aufnahmeauftrag offen lassen; keine verdeckte TTS-Ersetzung. Nach jedem Beitrag drei Sekunden Pause.",
+    "targetDuration": "Drei Beiträge zu je 20–30 Sekunden",
+    "session": 3,
+    "taskIds": [
+      "sitov-exam-b1-a03-author-t01",
+      "sitov-exam-b1-a03-author-t02",
+      "sitov-exam-b1-a03-author-t03",
+      "sitov-exam-b1-a03-author-t04"
+    ],
+    "solutions": [
+      {
+        "taskId": "sitov-exam-b1-a03-author-t01",
+        "answer": "a",
+        "evidence": "Bei Büchern finde ich das praktisch. Kleidung kaufe ich aber lieber im Geschäft, weil ich sie anprobieren möchte."
+      },
+      {
+        "taskId": "sitov-exam-b1-a03-author-t02",
+        "answer": "b",
+        "evidence": "bekomme oft eine gute Beratung"
+      },
+      {
+        "taskId": "sitov-exam-b1-a03-author-t03",
+        "answer": "c",
+        "evidence": "Wenn der Unterschied nicht groß ist, kaufe ich vor Ort."
+      },
+      {
+        "taskId": "sitov-exam-b1-a03-author-t04",
+        "answer": "b",
+        "evidence": "Für mich hängt es also vom Produkt ab."
+      }
+    ],
+    "evidence": [
+      "Bei Büchern finde ich das praktisch. Kleidung kaufe ich aber lieber im Geschäft, weil ich sie anprobieren möchte.",
+      "bekomme oft eine gute Beratung",
+      "Wenn der Unterschied nicht groß ist, kaufe ich vor Ort.",
+      "Für mich hängt es also vom Produkt ab."
+    ],
+    "status": "awaiting_recording",
+    "route": "human",
+    "filename": "A03_drei_meinungen_zum_einkaufen_de_v1_take01.m4a",
+    "productionSteps": [
+      "Rollen und vollständiges Skript durchlesen; Zahlen auf Verständlichkeit prüfen.",
+      "Tonprobe anhören; ruhigen Raum und gleichen Mikrofonabstand wählen.",
+      "Den vollständigen Wortlaut aufnehmen; bei Versprechern den ganzen Satz wiederholen.",
+      "Datei als M4A oder WAV-Master hochladen; Rohdatei und Schnittfassung zuordnen.",
+      "Schnittfassung gegen spokenText und alle Lösungsschlüssel prüfen.",
+      "Echte Wortzeitmarken am Audio messen; keine Skript-Zeitschätzungen als Alignment verwenden.",
+      "Lautstärke, Zahlen, Verständlichkeit und Aufgaben fachlich freigeben.",
+      "Erst nach technischer und fachlicher Freigabe veröffentlichen."
+    ],
+    "tasks": [
+      {
+        "id": "sitov-exam-b1-a03-author-t01",
+        "version": 1,
+        "skill": "listening",
+        "type": "choice",
+        "title": "Ben zuordnen",
+        "instruction": "Wer kauft Bücher gern online, Kleidung aber lieber im Geschäft?",
+        "hints": [],
+        "profiles": [
+          "general_b1",
+          "dtz_a2_b1",
+          "telc_deutsch_b1",
+          "goethe_b1",
+          "oesd_zb1",
+          "telc_deutsch_a2_b1",
+          "oesd_zdoe_b1"
+        ],
+        "competency": "listening",
+        "formatFamily": "allgemeines_hoertraining",
+        "estimatedMinutes": 2,
+        "releaseStatus": "awaiting_media",
+        "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Ben."
+          },
+          {
+            "id": "b",
+            "text": "Erik."
+          },
+          {
+            "id": "c",
+            "text": "Sami."
+          }
+        ],
+        "correctAnswer": "a",
+        "explanation": "Ben unterscheidet die Produkte.",
+        "evidence": "Bei Büchern finde ich das praktisch. Kleidung kaufe ich aber lieber im Geschäft, weil ich sie anprobieren möchte.",
+        "audio": {
+          "id": "sitov-exam-b1-a03-v1",
+          "script": "Ich kaufe oft im Internet ein, weil ich Preise in Ruhe vergleichen kann. Bei Büchern finde ich das praktisch. Kleidung kaufe ich aber lieber im Geschäft, weil ich sie anprobieren möchte. Für mich hängt es also vom Produkt ab. Ich gehe am liebsten in kleine Geschäfte in meinem Stadtteil. Dort kann ich Fragen stellen und bekomme oft eine gute Beratung. Manchmal kostet etwas ein bisschen mehr. Das ist für mich in Ordnung, wenn ich dafür das richtige Produkt finde. Ich schaue zuerst online nach dem Preis und gehe danach häufig in ein Geschäft. Dort möchte ich das Gerät sehen. Wenn der Unterschied nicht groß ist, kaufe ich vor Ort. Nur bei einem sehr großen Preisunterschied bestelle ich im Internet.",
+          "status": "awaiting_recording",
+          "route": "human",
+          "roles": [
+            "Freund: fiktiver Ben",
+            "Zweiter realer Sprecher: fiktiver Erik",
+            "Dritter realer Sprecher: fiktiver Sami"
+          ],
+          "notes": "Reale Aufnahme nach Skript, geprüftem Wortlaut und gemessenen Wortzeitmarken. Kein automatisch erzeugter Ersatz."
+        }
+      },
+      {
+        "id": "sitov-exam-b1-a03-author-t02",
+        "version": 1,
+        "skill": "listening",
+        "type": "choice",
+        "title": "Erik zuordnen",
+        "instruction": "Wem ist persönliche Beratung besonders wichtig?",
+        "hints": [],
+        "profiles": [
+          "general_b1",
+          "dtz_a2_b1",
+          "telc_deutsch_b1",
+          "goethe_b1",
+          "oesd_zb1",
+          "telc_deutsch_a2_b1",
+          "oesd_zdoe_b1"
+        ],
+        "competency": "listening",
+        "formatFamily": "allgemeines_hoertraining",
+        "estimatedMinutes": 2,
+        "releaseStatus": "awaiting_media",
+        "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Ben."
+          },
+          {
+            "id": "b",
+            "text": "Erik."
+          },
+          {
+            "id": "c",
+            "text": "Sami."
+          }
+        ],
+        "correctAnswer": "b",
+        "explanation": "Erik nennt Fragen und Beratung im kleinen Geschäft.",
+        "evidence": "bekomme oft eine gute Beratung",
+        "audio": {
+          "id": "sitov-exam-b1-a03-v1",
+          "script": "Ich kaufe oft im Internet ein, weil ich Preise in Ruhe vergleichen kann. Bei Büchern finde ich das praktisch. Kleidung kaufe ich aber lieber im Geschäft, weil ich sie anprobieren möchte. Für mich hängt es also vom Produkt ab. Ich gehe am liebsten in kleine Geschäfte in meinem Stadtteil. Dort kann ich Fragen stellen und bekomme oft eine gute Beratung. Manchmal kostet etwas ein bisschen mehr. Das ist für mich in Ordnung, wenn ich dafür das richtige Produkt finde. Ich schaue zuerst online nach dem Preis und gehe danach häufig in ein Geschäft. Dort möchte ich das Gerät sehen. Wenn der Unterschied nicht groß ist, kaufe ich vor Ort. Nur bei einem sehr großen Preisunterschied bestelle ich im Internet.",
+          "status": "awaiting_recording",
+          "route": "human",
+          "roles": [
+            "Freund: fiktiver Ben",
+            "Zweiter realer Sprecher: fiktiver Erik",
+            "Dritter realer Sprecher: fiktiver Sami"
+          ],
+          "notes": "Reale Aufnahme nach Skript, geprüftem Wortlaut und gemessenen Wortzeitmarken. Kein automatisch erzeugter Ersatz."
+        }
+      },
+      {
+        "id": "sitov-exam-b1-a03-author-t03",
+        "version": 1,
+        "skill": "listening",
+        "type": "choice",
+        "title": "Sami zuordnen",
+        "instruction": "Wer kauft vor Ort, wenn der Preisunterschied klein ist?",
+        "hints": [],
+        "profiles": [
+          "general_b1",
+          "dtz_a2_b1",
+          "telc_deutsch_b1",
+          "goethe_b1",
+          "oesd_zb1",
+          "telc_deutsch_a2_b1",
+          "oesd_zdoe_b1"
+        ],
+        "competency": "listening",
+        "formatFamily": "allgemeines_hoertraining",
+        "estimatedMinutes": 2,
+        "releaseStatus": "awaiting_media",
+        "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Ben."
+          },
+          {
+            "id": "b",
+            "text": "Erik."
+          },
+          {
+            "id": "c",
+            "text": "Sami."
+          }
+        ],
+        "correctAnswer": "c",
+        "explanation": "Sami verbindet Preisvergleich und Anschauen.",
+        "evidence": "Wenn der Unterschied nicht groß ist, kaufe ich vor Ort.",
+        "audio": {
+          "id": "sitov-exam-b1-a03-v1",
+          "script": "Ich kaufe oft im Internet ein, weil ich Preise in Ruhe vergleichen kann. Bei Büchern finde ich das praktisch. Kleidung kaufe ich aber lieber im Geschäft, weil ich sie anprobieren möchte. Für mich hängt es also vom Produkt ab. Ich gehe am liebsten in kleine Geschäfte in meinem Stadtteil. Dort kann ich Fragen stellen und bekomme oft eine gute Beratung. Manchmal kostet etwas ein bisschen mehr. Das ist für mich in Ordnung, wenn ich dafür das richtige Produkt finde. Ich schaue zuerst online nach dem Preis und gehe danach häufig in ein Geschäft. Dort möchte ich das Gerät sehen. Wenn der Unterschied nicht groß ist, kaufe ich vor Ort. Nur bei einem sehr großen Preisunterschied bestelle ich im Internet.",
+          "status": "awaiting_recording",
+          "route": "human",
+          "roles": [
+            "Freund: fiktiver Ben",
+            "Zweiter realer Sprecher: fiktiver Erik",
+            "Dritter realer Sprecher: fiktiver Sami"
+          ],
+          "notes": "Reale Aufnahme nach Skript, geprüftem Wortlaut und gemessenen Wortzeitmarken. Kein automatisch erzeugter Ersatz."
+        }
+      },
+      {
+        "id": "sitov-exam-b1-a03-author-t04",
+        "version": 1,
+        "skill": "listening",
+        "type": "choice",
+        "title": "Eine Einschränkung",
+        "instruction": "Welche Aussage passt zu Ben?",
+        "hints": [],
+        "profiles": [
+          "general_b1",
+          "dtz_a2_b1",
+          "telc_deutsch_b1",
+          "goethe_b1",
+          "oesd_zb1",
+          "telc_deutsch_a2_b1",
+          "oesd_zdoe_b1"
+        ],
+        "competency": "listening",
+        "formatFamily": "allgemeines_hoertraining",
+        "estimatedMinutes": 2,
+        "releaseStatus": "awaiting_media",
+        "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Er kauft alles ausschließlich online."
+          },
+          {
+            "id": "b",
+            "text": "Er entscheidet je nach Produkt."
+          },
+          {
+            "id": "c",
+            "text": "Er kauft niemals Bücher."
+          }
+        ],
+        "correctAnswer": "b",
+        "explanation": "Aber und hängt vom Produkt ab begrenzen seine Zustimmung.",
+        "evidence": "Für mich hängt es also vom Produkt ab.",
+        "audio": {
+          "id": "sitov-exam-b1-a03-v1",
+          "script": "Ich kaufe oft im Internet ein, weil ich Preise in Ruhe vergleichen kann. Bei Büchern finde ich das praktisch. Kleidung kaufe ich aber lieber im Geschäft, weil ich sie anprobieren möchte. Für mich hängt es also vom Produkt ab. Ich gehe am liebsten in kleine Geschäfte in meinem Stadtteil. Dort kann ich Fragen stellen und bekomme oft eine gute Beratung. Manchmal kostet etwas ein bisschen mehr. Das ist für mich in Ordnung, wenn ich dafür das richtige Produkt finde. Ich schaue zuerst online nach dem Preis und gehe danach häufig in ein Geschäft. Dort möchte ich das Gerät sehen. Wenn der Unterschied nicht groß ist, kaufe ich vor Ort. Nur bei einem sehr großen Preisunterschied bestelle ich im Internet.",
+          "status": "awaiting_recording",
+          "route": "human",
+          "roles": [
+            "Freund: fiktiver Ben",
+            "Zweiter realer Sprecher: fiktiver Erik",
+            "Dritter realer Sprecher: fiktiver Sami"
+          ],
+          "notes": "Reale Aufnahme nach Skript, geprüftem Wortlaut und gemessenen Wortzeitmarken. Kein automatisch erzeugter Ersatz."
+        }
+      }
+    ]
+  },
+  {
+    "audioId": "sitov-exam-b1-a04",
+    "title": "Gemeinsam einen Kursausflug planen",
+    "learningGoal": "Vorschläge, Gründe und einen konkreten Kompromiss verstehen.",
+    "profileScope": "Allgemeines B1-Training; kein offizieller vollständiger Prüfungsteil.",
+    "script": "Leon: Wir sollen den Ausflug unserer Lerngruppe planen. Ich hätte Lust auf das Stadtmuseum. Wie findest du das?\n\nYusuf: Das Thema interessiert mich. Ich habe aber gehört, dass der Eintritt zwölf Euro kostet. Für einige Teilnehmer ist das vielleicht zu viel.\n\nLeon: Das stimmt. Auf der Internetseite steht, dass Gruppen ab acht Personen nur sechs Euro pro Person bezahlen. Wir sind wahrscheinlich zehn.\n\nYusuf: Dann wäre es möglich. An welchem Tag möchtest du gehen? Am Samstag arbeite ich bis dreizehn Uhr.\n\nLeon: Ich wollte am Samstag um elf Uhr starten. Aber wir könnten später gehen. Das Museum schließt erst um achtzehn Uhr.\n\nYusuf: Vierzehn Uhr wäre gut. Dann habe ich noch Zeit, nach Hause zu fahren. Sollen wir mit dem Bus kommen? Mit dem Fahrrad wäre es für mich etwas weit.\n\nLeon: Ja, die Linie sieben hält direkt vor dem Museum. Wir treffen uns um dreizehn Uhr vierzig an der Haltestelle Markt. Der Bus fährt fünf Minuten später.\n\nYusuf: Gut. Wir müssen noch prüfen, ob eine Anmeldung für die Gruppe nötig ist. Könntest du beim Museum anrufen?\n\nLeon: Das übernehme ich. Ich frage auch nach dem Gruppenpreis. Kannst du die Teilnehmer informieren und zählen, wer mitkommt?\n\nYusuf: Ja, ich schreibe heute eine Nachricht. Alle sollen bis Donnerstag antworten. Dann wissen wir, ob wir mindestens acht Personen sind.\n\nLeon: Also: Samstag, Treffpunkt Haltestelle Markt um dreizehn Uhr vierzig, Buslinie sieben. Ich rufe das Museum an, und du sammelst die Antworten bis Donnerstag.\n\nYusuf: Genau. Wenn es weniger als acht sind, müssen wir noch einmal über den Preis sprechen. Wir bestätigen den Ausflug erst danach.",
+    "spokenText": "Wir sollen den Ausflug unserer Lerngruppe planen. Ich hätte Lust auf das Stadtmuseum. Wie findest du das? Das Thema interessiert mich. Ich habe aber gehört, dass der Eintritt zwölf Euro kostet. Für einige Teilnehmer ist das vielleicht zu viel. Das stimmt. Auf der Internetseite steht, dass Gruppen ab acht Personen nur sechs Euro pro Person bezahlen. Wir sind wahrscheinlich zehn. Dann wäre es möglich. An welchem Tag möchtest du gehen? Am Samstag arbeite ich bis dreizehn Uhr. Ich wollte am Samstag um elf Uhr starten. Aber wir könnten später gehen. Das Museum schließt erst um achtzehn Uhr. Vierzehn Uhr wäre gut. Dann habe ich noch Zeit, nach Hause zu fahren. Sollen wir mit dem Bus kommen? Mit dem Fahrrad wäre es für mich etwas weit. Ja, die Linie sieben hält direkt vor dem Museum. Wir treffen uns um dreizehn Uhr vierzig an der Haltestelle Markt. Der Bus fährt fünf Minuten später. Gut. Wir müssen noch prüfen, ob eine Anmeldung für die Gruppe nötig ist. Könntest du beim Museum anrufen? Das übernehme ich. Ich frage auch nach dem Gruppenpreis. Kannst du die Teilnehmer informieren und zählen, wer mitkommt? Ja, ich schreibe heute eine Nachricht. Alle sollen bis Donnerstag antworten. Dann wissen wir, ob wir mindestens acht Personen sind. Also: Samstag, Treffpunkt Haltestelle Markt um dreizehn Uhr vierzig, Buslinie sieben. Ich rufe das Museum an, und du sammelst die Antworten bis Donnerstag. Genau. Wenn es weniger als acht sind, müssen wir noch einmal über den Preis sprechen. Wir bestätigen den Ausflug erst danach.",
+    "roles": [
+      "Freund: fiktiver Leon",
+      "Zweiter realer Sprecher: fiktiver Yusuf"
+    ],
+    "notes": "B1: klar und natürlich sprechen. Rollenkennungen und Regie nicht vorlesen. Zwei Sekunden Ruhe am Anfang und Ende. Inhalt nicht improvisieren. Keine künstliche Betonung der Lösungen. Fiktive Rollen ausschließlich männlich. Anastasia ist eine reale Lehrkraft und kann eine reale Moderation aufnehmen; fiktive Personen werden als Männer dargestellt. Natürlich aushandeln, nicht wie eine abgelesene Rollenliste. Abschluss enthält vorläufigen Plan und noch offene Bedingung.",
+    "targetDuration": "2–3 Minuten",
+    "session": 2,
+    "taskIds": [
+      "sitov-exam-b1-a04-author-t01",
+      "sitov-exam-b1-a04-author-t02",
+      "sitov-exam-b1-a04-author-t03",
+      "sitov-exam-b1-a04-author-t04",
+      "sitov-exam-b1-a04-author-t05"
+    ],
+    "solutions": [
+      {
+        "taskId": "sitov-exam-b1-a04-author-t01",
+        "answer": "a",
+        "evidence": "Gruppen ab acht Personen nur sechs Euro pro Person bezahlen"
+      },
+      {
+        "taskId": "sitov-exam-b1-a04-author-t02",
+        "answer": "a",
+        "evidence": "Am Samstag arbeite ich bis dreizehn Uhr."
+      },
+      {
+        "taskId": "sitov-exam-b1-a04-author-t03",
+        "answer": "a",
+        "evidence": "um dreizehn Uhr vierzig an der Haltestelle Markt"
+      },
+      {
+        "taskId": "sitov-exam-b1-a04-author-t04",
+        "answer": "a",
+        "evidence": "Ich frage auch nach dem Gruppenpreis."
+      },
+      {
+        "taskId": "sitov-exam-b1-a04-author-t05",
+        "answer": "a",
+        "evidence": "Wenn es weniger als acht sind, müssen wir noch einmal über den Preis sprechen."
+      }
+    ],
+    "evidence": [
+      "Gruppen ab acht Personen nur sechs Euro pro Person bezahlen",
+      "Am Samstag arbeite ich bis dreizehn Uhr.",
+      "um dreizehn Uhr vierzig an der Haltestelle Markt",
+      "Ich frage auch nach dem Gruppenpreis.",
+      "Wenn es weniger als acht sind, müssen wir noch einmal über den Preis sprechen."
+    ],
+    "status": "awaiting_recording",
+    "route": "human",
+    "filename": "A04_gemeinsam_einen_kursausflug_planen_de_v1_take01.m4a",
+    "productionSteps": [
+      "Rollen und vollständiges Skript durchlesen; Zahlen auf Verständlichkeit prüfen.",
+      "Tonprobe anhören; ruhigen Raum und gleichen Mikrofonabstand wählen.",
+      "Den vollständigen Wortlaut aufnehmen; bei Versprechern den ganzen Satz wiederholen.",
+      "Datei als M4A oder WAV-Master hochladen; Rohdatei und Schnittfassung zuordnen.",
+      "Schnittfassung gegen spokenText und alle Lösungsschlüssel prüfen.",
+      "Echte Wortzeitmarken am Audio messen; keine Skript-Zeitschätzungen als Alignment verwenden.",
+      "Lautstärke, Zahlen, Verständlichkeit und Aufgaben fachlich freigeben.",
+      "Erst nach technischer und fachlicher Freigabe veröffentlichen."
+    ],
+    "tasks": [
+      {
+        "id": "sitov-exam-b1-a04-author-t01",
+        "version": 1,
+        "skill": "listening",
+        "type": "choice",
+        "title": "Der Preis",
+        "instruction": "Wann gilt der Preis von sechs Euro?",
+        "hints": [],
+        "profiles": [
+          "general_b1",
+          "dtz_a2_b1",
+          "telc_deutsch_b1",
+          "goethe_b1",
+          "oesd_zb1",
+          "telc_deutsch_a2_b1",
+          "oesd_zdoe_b1"
+        ],
+        "competency": "listening",
+        "formatFamily": "allgemeines_hoertraining",
+        "estimatedMinutes": 2,
+        "releaseStatus": "awaiting_media",
+        "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Ab acht Personen."
+          },
+          {
+            "id": "b",
+            "text": "Für jede Einzelperson."
+          },
+          {
+            "id": "c",
+            "text": "Nur am Sonntag."
+          }
+        ],
+        "correctAnswer": "a",
+        "explanation": "Der Gruppenpreis hängt von der Personenzahl ab.",
+        "evidence": "Gruppen ab acht Personen nur sechs Euro pro Person bezahlen",
+        "audio": {
+          "id": "sitov-exam-b1-a04-v1",
+          "script": "Wir sollen den Ausflug unserer Lerngruppe planen. Ich hätte Lust auf das Stadtmuseum. Wie findest du das? Das Thema interessiert mich. Ich habe aber gehört, dass der Eintritt zwölf Euro kostet. Für einige Teilnehmer ist das vielleicht zu viel. Das stimmt. Auf der Internetseite steht, dass Gruppen ab acht Personen nur sechs Euro pro Person bezahlen. Wir sind wahrscheinlich zehn. Dann wäre es möglich. An welchem Tag möchtest du gehen? Am Samstag arbeite ich bis dreizehn Uhr. Ich wollte am Samstag um elf Uhr starten. Aber wir könnten später gehen. Das Museum schließt erst um achtzehn Uhr. Vierzehn Uhr wäre gut. Dann habe ich noch Zeit, nach Hause zu fahren. Sollen wir mit dem Bus kommen? Mit dem Fahrrad wäre es für mich etwas weit. Ja, die Linie sieben hält direkt vor dem Museum. Wir treffen uns um dreizehn Uhr vierzig an der Haltestelle Markt. Der Bus fährt fünf Minuten später. Gut. Wir müssen noch prüfen, ob eine Anmeldung für die Gruppe nötig ist. Könntest du beim Museum anrufen? Das übernehme ich. Ich frage auch nach dem Gruppenpreis. Kannst du die Teilnehmer informieren und zählen, wer mitkommt? Ja, ich schreibe heute eine Nachricht. Alle sollen bis Donnerstag antworten. Dann wissen wir, ob wir mindestens acht Personen sind. Also: Samstag, Treffpunkt Haltestelle Markt um dreizehn Uhr vierzig, Buslinie sieben. Ich rufe das Museum an, und du sammelst die Antworten bis Donnerstag. Genau. Wenn es weniger als acht sind, müssen wir noch einmal über den Preis sprechen. Wir bestätigen den Ausflug erst danach.",
+          "status": "awaiting_recording",
+          "route": "human",
+          "roles": [
+            "Freund: fiktiver Leon",
+            "Zweiter realer Sprecher: fiktiver Yusuf"
+          ],
+          "notes": "Reale Aufnahme nach Skript, geprüftem Wortlaut und gemessenen Wortzeitmarken. Kein automatisch erzeugter Ersatz."
+        }
+      },
+      {
+        "id": "sitov-exam-b1-a04-author-t02",
+        "version": 1,
+        "skill": "listening",
+        "type": "choice",
+        "title": "Die Zeitgrenze",
+        "instruction": "Warum passt elf Uhr am Samstag nicht?",
+        "hints": [],
+        "profiles": [
+          "general_b1",
+          "dtz_a2_b1",
+          "telc_deutsch_b1",
+          "goethe_b1",
+          "oesd_zb1",
+          "telc_deutsch_a2_b1",
+          "oesd_zdoe_b1"
+        ],
+        "competency": "listening",
+        "formatFamily": "allgemeines_hoertraining",
+        "estimatedMinutes": 2,
+        "releaseStatus": "awaiting_media",
+        "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Yusuf arbeitet bis 13 Uhr."
+          },
+          {
+            "id": "b",
+            "text": "Das Museum öffnet erst am Abend."
+          },
+          {
+            "id": "c",
+            "text": "Leon muss bis 18 Uhr arbeiten."
+          }
+        ],
+        "correctAnswer": "a",
+        "explanation": "Yusuf nennt seine Arbeitszeit als Einschränkung.",
+        "evidence": "Am Samstag arbeite ich bis dreizehn Uhr.",
+        "audio": {
+          "id": "sitov-exam-b1-a04-v1",
+          "script": "Wir sollen den Ausflug unserer Lerngruppe planen. Ich hätte Lust auf das Stadtmuseum. Wie findest du das? Das Thema interessiert mich. Ich habe aber gehört, dass der Eintritt zwölf Euro kostet. Für einige Teilnehmer ist das vielleicht zu viel. Das stimmt. Auf der Internetseite steht, dass Gruppen ab acht Personen nur sechs Euro pro Person bezahlen. Wir sind wahrscheinlich zehn. Dann wäre es möglich. An welchem Tag möchtest du gehen? Am Samstag arbeite ich bis dreizehn Uhr. Ich wollte am Samstag um elf Uhr starten. Aber wir könnten später gehen. Das Museum schließt erst um achtzehn Uhr. Vierzehn Uhr wäre gut. Dann habe ich noch Zeit, nach Hause zu fahren. Sollen wir mit dem Bus kommen? Mit dem Fahrrad wäre es für mich etwas weit. Ja, die Linie sieben hält direkt vor dem Museum. Wir treffen uns um dreizehn Uhr vierzig an der Haltestelle Markt. Der Bus fährt fünf Minuten später. Gut. Wir müssen noch prüfen, ob eine Anmeldung für die Gruppe nötig ist. Könntest du beim Museum anrufen? Das übernehme ich. Ich frage auch nach dem Gruppenpreis. Kannst du die Teilnehmer informieren und zählen, wer mitkommt? Ja, ich schreibe heute eine Nachricht. Alle sollen bis Donnerstag antworten. Dann wissen wir, ob wir mindestens acht Personen sind. Also: Samstag, Treffpunkt Haltestelle Markt um dreizehn Uhr vierzig, Buslinie sieben. Ich rufe das Museum an, und du sammelst die Antworten bis Donnerstag. Genau. Wenn es weniger als acht sind, müssen wir noch einmal über den Preis sprechen. Wir bestätigen den Ausflug erst danach.",
+          "status": "awaiting_recording",
+          "route": "human",
+          "roles": [
+            "Freund: fiktiver Leon",
+            "Zweiter realer Sprecher: fiktiver Yusuf"
+          ],
+          "notes": "Reale Aufnahme nach Skript, geprüftem Wortlaut und gemessenen Wortzeitmarken. Kein automatisch erzeugter Ersatz."
+        }
+      },
+      {
+        "id": "sitov-exam-b1-a04-author-t03",
+        "version": 1,
+        "skill": "listening",
+        "type": "choice",
+        "title": "Der Treffpunkt",
+        "instruction": "Wann trifft sich die Gruppe an der Haltestelle?",
+        "hints": [],
+        "profiles": [
+          "general_b1",
+          "dtz_a2_b1",
+          "telc_deutsch_b1",
+          "goethe_b1",
+          "oesd_zb1",
+          "telc_deutsch_a2_b1",
+          "oesd_zdoe_b1"
+        ],
+        "competency": "listening",
+        "formatFamily": "allgemeines_hoertraining",
+        "estimatedMinutes": 2,
+        "releaseStatus": "awaiting_media",
+        "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+        "options": [
+          {
+            "id": "a",
+            "text": "13:40 Uhr."
+          },
+          {
+            "id": "b",
+            "text": "13:45 Uhr."
+          },
+          {
+            "id": "c",
+            "text": "14:40 Uhr."
+          }
+        ],
+        "correctAnswer": "a",
+        "explanation": "Die Busabfahrt fünf Minuten später ist eine andere Zeit.",
+        "evidence": "um dreizehn Uhr vierzig an der Haltestelle Markt",
+        "audio": {
+          "id": "sitov-exam-b1-a04-v1",
+          "script": "Wir sollen den Ausflug unserer Lerngruppe planen. Ich hätte Lust auf das Stadtmuseum. Wie findest du das? Das Thema interessiert mich. Ich habe aber gehört, dass der Eintritt zwölf Euro kostet. Für einige Teilnehmer ist das vielleicht zu viel. Das stimmt. Auf der Internetseite steht, dass Gruppen ab acht Personen nur sechs Euro pro Person bezahlen. Wir sind wahrscheinlich zehn. Dann wäre es möglich. An welchem Tag möchtest du gehen? Am Samstag arbeite ich bis dreizehn Uhr. Ich wollte am Samstag um elf Uhr starten. Aber wir könnten später gehen. Das Museum schließt erst um achtzehn Uhr. Vierzehn Uhr wäre gut. Dann habe ich noch Zeit, nach Hause zu fahren. Sollen wir mit dem Bus kommen? Mit dem Fahrrad wäre es für mich etwas weit. Ja, die Linie sieben hält direkt vor dem Museum. Wir treffen uns um dreizehn Uhr vierzig an der Haltestelle Markt. Der Bus fährt fünf Minuten später. Gut. Wir müssen noch prüfen, ob eine Anmeldung für die Gruppe nötig ist. Könntest du beim Museum anrufen? Das übernehme ich. Ich frage auch nach dem Gruppenpreis. Kannst du die Teilnehmer informieren und zählen, wer mitkommt? Ja, ich schreibe heute eine Nachricht. Alle sollen bis Donnerstag antworten. Dann wissen wir, ob wir mindestens acht Personen sind. Also: Samstag, Treffpunkt Haltestelle Markt um dreizehn Uhr vierzig, Buslinie sieben. Ich rufe das Museum an, und du sammelst die Antworten bis Donnerstag. Genau. Wenn es weniger als acht sind, müssen wir noch einmal über den Preis sprechen. Wir bestätigen den Ausflug erst danach.",
+          "status": "awaiting_recording",
+          "route": "human",
+          "roles": [
+            "Freund: fiktiver Leon",
+            "Zweiter realer Sprecher: fiktiver Yusuf"
+          ],
+          "notes": "Reale Aufnahme nach Skript, geprüftem Wortlaut und gemessenen Wortzeitmarken. Kein automatisch erzeugter Ersatz."
+        }
+      },
+      {
+        "id": "sitov-exam-b1-a04-author-t04",
+        "version": 1,
+        "skill": "listening",
+        "type": "choice",
+        "title": "Die Aufgaben",
+        "instruction": "Was übernimmt Leon?",
+        "hints": [],
+        "profiles": [
+          "general_b1",
+          "dtz_a2_b1",
+          "telc_deutsch_b1",
+          "goethe_b1",
+          "oesd_zb1",
+          "telc_deutsch_a2_b1",
+          "oesd_zdoe_b1"
+        ],
+        "competency": "listening",
+        "formatFamily": "allgemeines_hoertraining",
+        "estimatedMinutes": 2,
+        "releaseStatus": "awaiting_media",
+        "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Beim Museum anrufen."
+          },
+          {
+            "id": "b",
+            "text": "Alle Teilnehmer zählen."
+          },
+          {
+            "id": "c",
+            "text": "Die Buslinie ändern."
+          }
+        ],
+        "correctAnswer": "a",
+        "explanation": "Leon fragt Anmeldung und Gruppenpreis.",
+        "evidence": "Ich frage auch nach dem Gruppenpreis.",
+        "audio": {
+          "id": "sitov-exam-b1-a04-v1",
+          "script": "Wir sollen den Ausflug unserer Lerngruppe planen. Ich hätte Lust auf das Stadtmuseum. Wie findest du das? Das Thema interessiert mich. Ich habe aber gehört, dass der Eintritt zwölf Euro kostet. Für einige Teilnehmer ist das vielleicht zu viel. Das stimmt. Auf der Internetseite steht, dass Gruppen ab acht Personen nur sechs Euro pro Person bezahlen. Wir sind wahrscheinlich zehn. Dann wäre es möglich. An welchem Tag möchtest du gehen? Am Samstag arbeite ich bis dreizehn Uhr. Ich wollte am Samstag um elf Uhr starten. Aber wir könnten später gehen. Das Museum schließt erst um achtzehn Uhr. Vierzehn Uhr wäre gut. Dann habe ich noch Zeit, nach Hause zu fahren. Sollen wir mit dem Bus kommen? Mit dem Fahrrad wäre es für mich etwas weit. Ja, die Linie sieben hält direkt vor dem Museum. Wir treffen uns um dreizehn Uhr vierzig an der Haltestelle Markt. Der Bus fährt fünf Minuten später. Gut. Wir müssen noch prüfen, ob eine Anmeldung für die Gruppe nötig ist. Könntest du beim Museum anrufen? Das übernehme ich. Ich frage auch nach dem Gruppenpreis. Kannst du die Teilnehmer informieren und zählen, wer mitkommt? Ja, ich schreibe heute eine Nachricht. Alle sollen bis Donnerstag antworten. Dann wissen wir, ob wir mindestens acht Personen sind. Also: Samstag, Treffpunkt Haltestelle Markt um dreizehn Uhr vierzig, Buslinie sieben. Ich rufe das Museum an, und du sammelst die Antworten bis Donnerstag. Genau. Wenn es weniger als acht sind, müssen wir noch einmal über den Preis sprechen. Wir bestätigen den Ausflug erst danach.",
+          "status": "awaiting_recording",
+          "route": "human",
+          "roles": [
+            "Freund: fiktiver Leon",
+            "Zweiter realer Sprecher: fiktiver Yusuf"
+          ],
+          "notes": "Reale Aufnahme nach Skript, geprüftem Wortlaut und gemessenen Wortzeitmarken. Kein automatisch erzeugter Ersatz."
+        }
+      },
+      {
+        "id": "sitov-exam-b1-a04-author-t05",
+        "version": 1,
+        "skill": "listening",
+        "type": "choice",
+        "title": "Die offene Frage",
+        "instruction": "Was ist vor der endgültigen Bestätigung noch wichtig?",
+        "hints": [],
+        "profiles": [
+          "general_b1",
+          "dtz_a2_b1",
+          "telc_deutsch_b1",
+          "goethe_b1",
+          "oesd_zb1",
+          "telc_deutsch_a2_b1",
+          "oesd_zdoe_b1"
+        ],
+        "competency": "listening",
+        "formatFamily": "allgemeines_hoertraining",
+        "estimatedMinutes": 2,
+        "releaseStatus": "awaiting_media",
+        "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Ob mindestens acht Personen teilnehmen."
+          },
+          {
+            "id": "b",
+            "text": "Welche Kleidung alle tragen."
+          },
+          {
+            "id": "c",
+            "text": "Ob Yusuf ein Fahrrad kauft."
+          }
+        ],
+        "correctAnswer": "a",
+        "explanation": "Bei weniger als acht muss der Preis neu besprochen werden.",
+        "evidence": "Wenn es weniger als acht sind, müssen wir noch einmal über den Preis sprechen.",
+        "audio": {
+          "id": "sitov-exam-b1-a04-v1",
+          "script": "Wir sollen den Ausflug unserer Lerngruppe planen. Ich hätte Lust auf das Stadtmuseum. Wie findest du das? Das Thema interessiert mich. Ich habe aber gehört, dass der Eintritt zwölf Euro kostet. Für einige Teilnehmer ist das vielleicht zu viel. Das stimmt. Auf der Internetseite steht, dass Gruppen ab acht Personen nur sechs Euro pro Person bezahlen. Wir sind wahrscheinlich zehn. Dann wäre es möglich. An welchem Tag möchtest du gehen? Am Samstag arbeite ich bis dreizehn Uhr. Ich wollte am Samstag um elf Uhr starten. Aber wir könnten später gehen. Das Museum schließt erst um achtzehn Uhr. Vierzehn Uhr wäre gut. Dann habe ich noch Zeit, nach Hause zu fahren. Sollen wir mit dem Bus kommen? Mit dem Fahrrad wäre es für mich etwas weit. Ja, die Linie sieben hält direkt vor dem Museum. Wir treffen uns um dreizehn Uhr vierzig an der Haltestelle Markt. Der Bus fährt fünf Minuten später. Gut. Wir müssen noch prüfen, ob eine Anmeldung für die Gruppe nötig ist. Könntest du beim Museum anrufen? Das übernehme ich. Ich frage auch nach dem Gruppenpreis. Kannst du die Teilnehmer informieren und zählen, wer mitkommt? Ja, ich schreibe heute eine Nachricht. Alle sollen bis Donnerstag antworten. Dann wissen wir, ob wir mindestens acht Personen sind. Also: Samstag, Treffpunkt Haltestelle Markt um dreizehn Uhr vierzig, Buslinie sieben. Ich rufe das Museum an, und du sammelst die Antworten bis Donnerstag. Genau. Wenn es weniger als acht sind, müssen wir noch einmal über den Preis sprechen. Wir bestätigen den Ausflug erst danach.",
+          "status": "awaiting_recording",
+          "route": "human",
+          "roles": [
+            "Freund: fiktiver Leon",
+            "Zweiter realer Sprecher: fiktiver Yusuf"
+          ],
+          "notes": "Reale Aufnahme nach Skript, geprüftem Wortlaut und gemessenen Wortzeitmarken. Kein automatisch erzeugter Ersatz."
+        }
+      }
+    ]
+  },
+  {
+    "audioId": "sitov-exam-b1-a05",
+    "title": "Kurzvortrag Zu Fuß im Alltag",
+    "learningGoal": "Aufbau, Erfahrung, Vor- und Nachteil sowie begründete Meinung erkennen.",
+    "profileScope": "Allgemeines B1-Training; kein offizieller vollständiger Prüfungsteil.",
+    "script": "Erik: Ich möchte heute über Wege zu Fuß im Alltag sprechen. Früher bin ich selbst für kurze Strecken oft mit dem Auto gefahren. Dann hatte ich eine Zeit lang kein Auto und musste meine Wege anders planen. Zur Bibliothek brauche ich zu Fuß ungefähr zwanzig Minuten. Dabei habe ich neue Geschäfte in meinem Stadtteil entdeckt. Ein Vorteil ist für mich, dass ich unterwegs Abstand vom Bildschirm bekomme. Außerdem kostet der Weg kein Geld. Andererseits ist Einkaufen zu Fuß schwierig, wenn ich schwere Dinge tragen muss. Bei starkem Regen nehme ich lieber den Bus. Ich finde deshalb nicht, dass jeder Weg zu Fuß gemacht werden muss. Meiner Meinung nach lohnt es sich, kurze Wege öfter auszuprobieren. Man kann klein anfangen, zum Beispiel mit dem Weg zum Bäcker. Wer wenig Zeit hat oder weit entfernt wohnt, braucht vielleicht eine andere Lösung. Für mich ist eine Mischung aus Gehen und Busfahren im Alltag gut. Ich kann so meine Termine erreichen und trotzdem manche Wege ruhig erleben. Vielen Dank fürs Zuhören. Haben Sie eine Frage?",
+    "spokenText": "Ich möchte heute über Wege zu Fuß im Alltag sprechen. Früher bin ich selbst für kurze Strecken oft mit dem Auto gefahren. Dann hatte ich eine Zeit lang kein Auto und musste meine Wege anders planen. Zur Bibliothek brauche ich zu Fuß ungefähr zwanzig Minuten. Dabei habe ich neue Geschäfte in meinem Stadtteil entdeckt. Ein Vorteil ist für mich, dass ich unterwegs Abstand vom Bildschirm bekomme. Außerdem kostet der Weg kein Geld. Andererseits ist Einkaufen zu Fuß schwierig, wenn ich schwere Dinge tragen muss. Bei starkem Regen nehme ich lieber den Bus. Ich finde deshalb nicht, dass jeder Weg zu Fuß gemacht werden muss. Meiner Meinung nach lohnt es sich, kurze Wege öfter auszuprobieren. Man kann klein anfangen, zum Beispiel mit dem Weg zum Bäcker. Wer wenig Zeit hat oder weit entfernt wohnt, braucht vielleicht eine andere Lösung. Für mich ist eine Mischung aus Gehen und Busfahren im Alltag gut. Ich kann so meine Termine erreichen und trotzdem manche Wege ruhig erleben. Vielen Dank fürs Zuhören. Haben Sie eine Frage?",
+    "roles": [
+      "Freund: fiktiver Erik als Vortragender"
+    ],
+    "notes": "B1: klar und natürlich sprechen. Rollenkennungen und Regie nicht vorlesen. Zwei Sekunden Ruhe am Anfang und Ende. Inhalt nicht improvisieren. Keine künstliche Betonung der Lösungen. Fiktive Rollen ausschließlich männlich. Anastasia ist eine reale Lehrkraft und kann eine reale Moderation aufnehmen; fiktive Personen werden als Männer dargestellt. Als eigener Kurzvortrag sprechen, mit kurzen Pausen zwischen Thema, Erfahrung, Vergleich, Meinung und Schluss. Keine musikalische Untermalung.",
+    "targetDuration": "90–120 Sekunden",
+    "session": 3,
+    "taskIds": [
+      "sitov-exam-b1-a05-author-t01",
+      "sitov-exam-b1-a05-author-t02",
+      "sitov-exam-b1-a05-author-t03",
+      "sitov-exam-b1-a05-author-t04",
+      "sitov-exam-b1-a05-author-t05"
+    ],
+    "solutions": [
+      {
+        "taskId": "sitov-exam-b1-a05-author-t01",
+        "answer": "a",
+        "evidence": "über Wege zu Fuß im Alltag sprechen"
+      },
+      {
+        "taskId": "sitov-exam-b1-a05-author-t02",
+        "answer": "a",
+        "evidence": "eine Zeit lang kein Auto"
+      },
+      {
+        "taskId": "sitov-exam-b1-a05-author-t03",
+        "answer": "a",
+        "evidence": "Abstand vom Bildschirm bekomme"
+      },
+      {
+        "taskId": "sitov-exam-b1-a05-author-t04",
+        "answer": "a",
+        "evidence": "wenn ich schwere Dinge tragen muss"
+      },
+      {
+        "taskId": "sitov-exam-b1-a05-author-t05",
+        "answer": "b",
+        "evidence": "eine Mischung aus Gehen und Busfahren"
+      }
+    ],
+    "evidence": [
+      "über Wege zu Fuß im Alltag sprechen",
+      "eine Zeit lang kein Auto",
+      "Abstand vom Bildschirm bekomme",
+      "wenn ich schwere Dinge tragen muss",
+      "eine Mischung aus Gehen und Busfahren"
+    ],
+    "status": "awaiting_recording",
+    "route": "human",
+    "filename": "A05_kurzvortrag_zu_fuß_im_alltag_de_v1_take01.m4a",
+    "productionSteps": [
+      "Rollen und vollständiges Skript durchlesen; Zahlen auf Verständlichkeit prüfen.",
+      "Tonprobe anhören; ruhigen Raum und gleichen Mikrofonabstand wählen.",
+      "Den vollständigen Wortlaut aufnehmen; bei Versprechern den ganzen Satz wiederholen.",
+      "Datei als M4A oder WAV-Master hochladen; Rohdatei und Schnittfassung zuordnen.",
+      "Schnittfassung gegen spokenText und alle Lösungsschlüssel prüfen.",
+      "Echte Wortzeitmarken am Audio messen; keine Skript-Zeitschätzungen als Alignment verwenden.",
+      "Lautstärke, Zahlen, Verständlichkeit und Aufgaben fachlich freigeben.",
+      "Erst nach technischer und fachlicher Freigabe veröffentlichen."
+    ],
+    "tasks": [
+      {
+        "id": "sitov-exam-b1-a05-author-t01",
+        "version": 1,
+        "skill": "listening",
+        "type": "choice",
+        "title": "Das Thema",
+        "instruction": "Worum geht es im Vortrag?",
+        "hints": [],
+        "profiles": [
+          "general_b1",
+          "dtz_a2_b1",
+          "telc_deutsch_b1",
+          "goethe_b1",
+          "oesd_zb1",
+          "telc_deutsch_a2_b1",
+          "oesd_zdoe_b1"
+        ],
+        "competency": "listening",
+        "formatFamily": "allgemeines_hoertraining",
+        "estimatedMinutes": 2,
+        "releaseStatus": "awaiting_media",
+        "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Um Wege zu Fuß im Alltag."
+          },
+          {
+            "id": "b",
+            "text": "Um eine Prüfung im Autofahren."
+          },
+          {
+            "id": "c",
+            "text": "Um den Kauf einer Bibliothek."
+          }
+        ],
+        "correctAnswer": "a",
+        "explanation": "Das Thema wird am Anfang genannt.",
+        "evidence": "über Wege zu Fuß im Alltag sprechen",
+        "audio": {
+          "id": "sitov-exam-b1-a05-v1",
+          "script": "Ich möchte heute über Wege zu Fuß im Alltag sprechen. Früher bin ich selbst für kurze Strecken oft mit dem Auto gefahren. Dann hatte ich eine Zeit lang kein Auto und musste meine Wege anders planen. Zur Bibliothek brauche ich zu Fuß ungefähr zwanzig Minuten. Dabei habe ich neue Geschäfte in meinem Stadtteil entdeckt. Ein Vorteil ist für mich, dass ich unterwegs Abstand vom Bildschirm bekomme. Außerdem kostet der Weg kein Geld. Andererseits ist Einkaufen zu Fuß schwierig, wenn ich schwere Dinge tragen muss. Bei starkem Regen nehme ich lieber den Bus. Ich finde deshalb nicht, dass jeder Weg zu Fuß gemacht werden muss. Meiner Meinung nach lohnt es sich, kurze Wege öfter auszuprobieren. Man kann klein anfangen, zum Beispiel mit dem Weg zum Bäcker. Wer wenig Zeit hat oder weit entfernt wohnt, braucht vielleicht eine andere Lösung. Für mich ist eine Mischung aus Gehen und Busfahren im Alltag gut. Ich kann so meine Termine erreichen und trotzdem manche Wege ruhig erleben. Vielen Dank fürs Zuhören. Haben Sie eine Frage?",
+          "status": "awaiting_recording",
+          "route": "human",
+          "roles": [
+            "Freund: fiktiver Erik als Vortragender"
+          ],
+          "notes": "Reale Aufnahme nach Skript, geprüftem Wortlaut und gemessenen Wortzeitmarken. Kein automatisch erzeugter Ersatz."
+        }
+      },
+      {
+        "id": "sitov-exam-b1-a05-author-t02",
+        "version": 1,
+        "skill": "listening",
+        "type": "choice",
+        "title": "Die Erfahrung",
+        "instruction": "Warum plante Erik seine Wege eine Zeit lang anders?",
+        "hints": [],
+        "profiles": [
+          "general_b1",
+          "dtz_a2_b1",
+          "telc_deutsch_b1",
+          "goethe_b1",
+          "oesd_zb1",
+          "telc_deutsch_a2_b1",
+          "oesd_zdoe_b1"
+        ],
+        "competency": "listening",
+        "formatFamily": "allgemeines_hoertraining",
+        "estimatedMinutes": 2,
+        "releaseStatus": "awaiting_media",
+        "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Er hatte kein Auto."
+          },
+          {
+            "id": "b",
+            "text": "Er lebte direkt in der Bibliothek."
+          },
+          {
+            "id": "c",
+            "text": "Er wollte nie wieder einen Bus nehmen."
+          }
+        ],
+        "correctAnswer": "a",
+        "explanation": "Die veränderte Situation ist der Ausgangspunkt seines Beispiels.",
+        "evidence": "eine Zeit lang kein Auto",
+        "audio": {
+          "id": "sitov-exam-b1-a05-v1",
+          "script": "Ich möchte heute über Wege zu Fuß im Alltag sprechen. Früher bin ich selbst für kurze Strecken oft mit dem Auto gefahren. Dann hatte ich eine Zeit lang kein Auto und musste meine Wege anders planen. Zur Bibliothek brauche ich zu Fuß ungefähr zwanzig Minuten. Dabei habe ich neue Geschäfte in meinem Stadtteil entdeckt. Ein Vorteil ist für mich, dass ich unterwegs Abstand vom Bildschirm bekomme. Außerdem kostet der Weg kein Geld. Andererseits ist Einkaufen zu Fuß schwierig, wenn ich schwere Dinge tragen muss. Bei starkem Regen nehme ich lieber den Bus. Ich finde deshalb nicht, dass jeder Weg zu Fuß gemacht werden muss. Meiner Meinung nach lohnt es sich, kurze Wege öfter auszuprobieren. Man kann klein anfangen, zum Beispiel mit dem Weg zum Bäcker. Wer wenig Zeit hat oder weit entfernt wohnt, braucht vielleicht eine andere Lösung. Für mich ist eine Mischung aus Gehen und Busfahren im Alltag gut. Ich kann so meine Termine erreichen und trotzdem manche Wege ruhig erleben. Vielen Dank fürs Zuhören. Haben Sie eine Frage?",
+          "status": "awaiting_recording",
+          "route": "human",
+          "roles": [
+            "Freund: fiktiver Erik als Vortragender"
+          ],
+          "notes": "Reale Aufnahme nach Skript, geprüftem Wortlaut und gemessenen Wortzeitmarken. Kein automatisch erzeugter Ersatz."
+        }
+      },
+      {
+        "id": "sitov-exam-b1-a05-author-t03",
+        "version": 1,
+        "skill": "listening",
+        "type": "choice",
+        "title": "Der Vorteil",
+        "instruction": "Welchen Vorteil nennt er?",
+        "hints": [],
+        "profiles": [
+          "general_b1",
+          "dtz_a2_b1",
+          "telc_deutsch_b1",
+          "goethe_b1",
+          "oesd_zb1",
+          "telc_deutsch_a2_b1",
+          "oesd_zdoe_b1"
+        ],
+        "competency": "listening",
+        "formatFamily": "allgemeines_hoertraining",
+        "estimatedMinutes": 2,
+        "releaseStatus": "awaiting_media",
+        "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Abstand vom Bildschirm."
+          },
+          {
+            "id": "b",
+            "text": "Immer schneller als jede Buslinie."
+          },
+          {
+            "id": "c",
+            "text": "Kostenlose Einkäufe."
+          }
+        ],
+        "correctAnswer": "a",
+        "explanation": "Der Weg schafft Abstand vom Bildschirm und kostet kein Fahrgeld.",
+        "evidence": "Abstand vom Bildschirm bekomme",
+        "audio": {
+          "id": "sitov-exam-b1-a05-v1",
+          "script": "Ich möchte heute über Wege zu Fuß im Alltag sprechen. Früher bin ich selbst für kurze Strecken oft mit dem Auto gefahren. Dann hatte ich eine Zeit lang kein Auto und musste meine Wege anders planen. Zur Bibliothek brauche ich zu Fuß ungefähr zwanzig Minuten. Dabei habe ich neue Geschäfte in meinem Stadtteil entdeckt. Ein Vorteil ist für mich, dass ich unterwegs Abstand vom Bildschirm bekomme. Außerdem kostet der Weg kein Geld. Andererseits ist Einkaufen zu Fuß schwierig, wenn ich schwere Dinge tragen muss. Bei starkem Regen nehme ich lieber den Bus. Ich finde deshalb nicht, dass jeder Weg zu Fuß gemacht werden muss. Meiner Meinung nach lohnt es sich, kurze Wege öfter auszuprobieren. Man kann klein anfangen, zum Beispiel mit dem Weg zum Bäcker. Wer wenig Zeit hat oder weit entfernt wohnt, braucht vielleicht eine andere Lösung. Für mich ist eine Mischung aus Gehen und Busfahren im Alltag gut. Ich kann so meine Termine erreichen und trotzdem manche Wege ruhig erleben. Vielen Dank fürs Zuhören. Haben Sie eine Frage?",
+          "status": "awaiting_recording",
+          "route": "human",
+          "roles": [
+            "Freund: fiktiver Erik als Vortragender"
+          ],
+          "notes": "Reale Aufnahme nach Skript, geprüftem Wortlaut und gemessenen Wortzeitmarken. Kein automatisch erzeugter Ersatz."
+        }
+      },
+      {
+        "id": "sitov-exam-b1-a05-author-t04",
+        "version": 1,
+        "skill": "listening",
+        "type": "choice",
+        "title": "Der Nachteil",
+        "instruction": "Wann ist Gehen für ihn schwierig?",
+        "hints": [],
+        "profiles": [
+          "general_b1",
+          "dtz_a2_b1",
+          "telc_deutsch_b1",
+          "goethe_b1",
+          "oesd_zb1",
+          "telc_deutsch_a2_b1",
+          "oesd_zdoe_b1"
+        ],
+        "competency": "listening",
+        "formatFamily": "allgemeines_hoertraining",
+        "estimatedMinutes": 2,
+        "releaseStatus": "awaiting_media",
+        "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Mit schweren Einkäufen."
+          },
+          {
+            "id": "b",
+            "text": "Auf dem Weg zum Bäcker ohne Tasche."
+          },
+          {
+            "id": "c",
+            "text": "Bei jedem Bibliotheksbesuch."
+          }
+        ],
+        "correctAnswer": "a",
+        "explanation": "Er unterscheidet kurze Wege und schwere Einkäufe.",
+        "evidence": "wenn ich schwere Dinge tragen muss",
+        "audio": {
+          "id": "sitov-exam-b1-a05-v1",
+          "script": "Ich möchte heute über Wege zu Fuß im Alltag sprechen. Früher bin ich selbst für kurze Strecken oft mit dem Auto gefahren. Dann hatte ich eine Zeit lang kein Auto und musste meine Wege anders planen. Zur Bibliothek brauche ich zu Fuß ungefähr zwanzig Minuten. Dabei habe ich neue Geschäfte in meinem Stadtteil entdeckt. Ein Vorteil ist für mich, dass ich unterwegs Abstand vom Bildschirm bekomme. Außerdem kostet der Weg kein Geld. Andererseits ist Einkaufen zu Fuß schwierig, wenn ich schwere Dinge tragen muss. Bei starkem Regen nehme ich lieber den Bus. Ich finde deshalb nicht, dass jeder Weg zu Fuß gemacht werden muss. Meiner Meinung nach lohnt es sich, kurze Wege öfter auszuprobieren. Man kann klein anfangen, zum Beispiel mit dem Weg zum Bäcker. Wer wenig Zeit hat oder weit entfernt wohnt, braucht vielleicht eine andere Lösung. Für mich ist eine Mischung aus Gehen und Busfahren im Alltag gut. Ich kann so meine Termine erreichen und trotzdem manche Wege ruhig erleben. Vielen Dank fürs Zuhören. Haben Sie eine Frage?",
+          "status": "awaiting_recording",
+          "route": "human",
+          "roles": [
+            "Freund: fiktiver Erik als Vortragender"
+          ],
+          "notes": "Reale Aufnahme nach Skript, geprüftem Wortlaut und gemessenen Wortzeitmarken. Kein automatisch erzeugter Ersatz."
+        }
+      },
+      {
+        "id": "sitov-exam-b1-a05-author-t05",
+        "version": 1,
+        "skill": "listening",
+        "type": "choice",
+        "title": "Die Meinung",
+        "instruction": "Welche Position vertritt Erik?",
+        "hints": [],
+        "profiles": [
+          "general_b1",
+          "dtz_a2_b1",
+          "telc_deutsch_b1",
+          "goethe_b1",
+          "oesd_zb1",
+          "telc_deutsch_a2_b1",
+          "oesd_zdoe_b1"
+        ],
+        "competency": "listening",
+        "formatFamily": "allgemeines_hoertraining",
+        "estimatedMinutes": 2,
+        "releaseStatus": "awaiting_media",
+        "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Alle müssen immer laufen."
+          },
+          {
+            "id": "b",
+            "text": "Kurze Wege öfter ausprobieren und passende Verkehrsmittel kombinieren."
+          },
+          {
+            "id": "c",
+            "text": "Niemand sollte zu Fuß gehen."
+          }
+        ],
+        "correctAnswer": "b",
+        "explanation": "Seine Meinung bleibt mit Umständen verbunden.",
+        "evidence": "eine Mischung aus Gehen und Busfahren",
+        "audio": {
+          "id": "sitov-exam-b1-a05-v1",
+          "script": "Ich möchte heute über Wege zu Fuß im Alltag sprechen. Früher bin ich selbst für kurze Strecken oft mit dem Auto gefahren. Dann hatte ich eine Zeit lang kein Auto und musste meine Wege anders planen. Zur Bibliothek brauche ich zu Fuß ungefähr zwanzig Minuten. Dabei habe ich neue Geschäfte in meinem Stadtteil entdeckt. Ein Vorteil ist für mich, dass ich unterwegs Abstand vom Bildschirm bekomme. Außerdem kostet der Weg kein Geld. Andererseits ist Einkaufen zu Fuß schwierig, wenn ich schwere Dinge tragen muss. Bei starkem Regen nehme ich lieber den Bus. Ich finde deshalb nicht, dass jeder Weg zu Fuß gemacht werden muss. Meiner Meinung nach lohnt es sich, kurze Wege öfter auszuprobieren. Man kann klein anfangen, zum Beispiel mit dem Weg zum Bäcker. Wer wenig Zeit hat oder weit entfernt wohnt, braucht vielleicht eine andere Lösung. Für mich ist eine Mischung aus Gehen und Busfahren im Alltag gut. Ich kann so meine Termine erreichen und trotzdem manche Wege ruhig erleben. Vielen Dank fürs Zuhören. Haben Sie eine Frage?",
+          "status": "awaiting_recording",
+          "route": "human",
+          "roles": [
+            "Freund: fiktiver Erik als Vortragender"
+          ],
+          "notes": "Reale Aufnahme nach Skript, geprüftem Wortlaut und gemessenen Wortzeitmarken. Kein automatisch erzeugter Ersatz."
+        }
+      }
+    ]
+  },
+  {
+    "audioId": "sitov-exam-b1-a06",
+    "title": "Eine Reklamation klären",
+    "learningGoal": "Anliegen, Nachweis, Entscheidung und nächsten Schritt verstehen.",
+    "profileScope": "Allgemeines B1-Training; kein offizieller vollständiger Prüfungsteil.",
+    "script": "Sami: Guten Tag, ich habe vor zwei Wochen bei Ihnen einen Wasserkocher gekauft. Seit gestern schaltet er sich schon nach wenigen Sekunden aus. Das Wasser bleibt kalt.\n\nHerr König: Das tut mir leid. Haben Sie den Kaufbeleg dabei?\n\nSami: Ja, hier ist die Rechnung. Ich habe das Gerät normal benutzt und möchte wissen, wie es jetzt weitergeht.\n\nHerr König: Wir prüfen es zuerst. Ein Kollege kann sich den Wasserkocher heute ansehen. Wenn der Fehler bestätigt wird, können wir ihn gegen dasselbe Modell austauschen.\n\nSami: Könnte ich stattdessen sofort das Geld zurückbekommen?\n\nHerr König: Das kann ich Ihnen heute noch nicht zusagen. Erst brauchen wir das Ergebnis der Prüfung. Der Austausch wäre bei diesem Fehler unser erster Vorschlag.\n\nSami: In Ordnung. Muss ich heute hier warten?\n\nHerr König: Nein. Lassen Sie das Gerät und die Rechnungskopie hier. Wir rufen Sie morgen bis sechzehn Uhr an. Die Prüfung kostet Sie nichts.\n\nSami: Dann gebe ich Ihnen meine Telefonnummer. Bitte rufen Sie mich auf dieser Nummer an, nicht auf meiner alten Festnetznummer.\n\nHerr König: Gern. Hier ist Ihre Abgabebestätigung. Bewahren Sie sie auf, bis Sie das Gerät wieder abholen.",
+    "spokenText": "Guten Tag, ich habe vor zwei Wochen bei Ihnen einen Wasserkocher gekauft. Seit gestern schaltet er sich schon nach wenigen Sekunden aus. Das Wasser bleibt kalt. Das tut mir leid. Haben Sie den Kaufbeleg dabei? Ja, hier ist die Rechnung. Ich habe das Gerät normal benutzt und möchte wissen, wie es jetzt weitergeht. Wir prüfen es zuerst. Ein Kollege kann sich den Wasserkocher heute ansehen. Wenn der Fehler bestätigt wird, können wir ihn gegen dasselbe Modell austauschen. Könnte ich stattdessen sofort das Geld zurückbekommen? Das kann ich Ihnen heute noch nicht zusagen. Erst brauchen wir das Ergebnis der Prüfung. Der Austausch wäre bei diesem Fehler unser erster Vorschlag. In Ordnung. Muss ich heute hier warten? Nein. Lassen Sie das Gerät und die Rechnungskopie hier. Wir rufen Sie morgen bis sechzehn Uhr an. Die Prüfung kostet Sie nichts. Dann gebe ich Ihnen meine Telefonnummer. Bitte rufen Sie mich auf dieser Nummer an, nicht auf meiner alten Festnetznummer. Gern. Hier ist Ihre Abgabebestätigung. Bewahren Sie sie auf, bis Sie das Gerät wieder abholen.",
+    "roles": [
+      "Freund: fiktiver Kunde Sami",
+      "Zweiter realer Sprecher: fiktiver Serviceberater Herr König"
+    ],
+    "notes": "B1: klar und natürlich sprechen. Rollenkennungen und Regie nicht vorlesen. Zwei Sekunden Ruhe am Anfang und Ende. Inhalt nicht improvisieren. Keine künstliche Betonung der Lösungen. Fiktive Rollen ausschließlich männlich. Anastasia ist eine reale Lehrkraft und kann eine reale Moderation aufnehmen; fiktive Personen werden als Männer dargestellt. Sachlich und freundlich. Keine rechtliche Beratung behaupten; es geht um den im Dialog beschriebenen konkreten Serviceablauf.",
+    "targetDuration": "60–90 Sekunden",
+    "session": 2,
+    "taskIds": [
+      "sitov-exam-b1-a06-author-t01",
+      "sitov-exam-b1-a06-author-t02",
+      "sitov-exam-b1-a06-author-t03",
+      "sitov-exam-b1-a06-author-t04",
+      "sitov-exam-b1-a06-author-t05"
+    ],
+    "solutions": [
+      {
+        "taskId": "sitov-exam-b1-a06-author-t01",
+        "answer": "a",
+        "evidence": "schaltet er sich schon nach wenigen Sekunden aus"
+      },
+      {
+        "taskId": "sitov-exam-b1-a06-author-t02",
+        "answer": "a",
+        "evidence": "hier ist die Rechnung"
+      },
+      {
+        "taskId": "sitov-exam-b1-a06-author-t03",
+        "answer": "a",
+        "evidence": "Wir prüfen es zuerst."
+      },
+      {
+        "taskId": "sitov-exam-b1-a06-author-t04",
+        "answer": "a",
+        "evidence": "morgen bis sechzehn Uhr"
+      },
+      {
+        "taskId": "sitov-exam-b1-a06-author-t05",
+        "answer": "a",
+        "evidence": "Hier ist Ihre Abgabebestätigung."
+      }
+    ],
+    "evidence": [
+      "schaltet er sich schon nach wenigen Sekunden aus",
+      "hier ist die Rechnung",
+      "Wir prüfen es zuerst.",
+      "morgen bis sechzehn Uhr",
+      "Hier ist Ihre Abgabebestätigung."
+    ],
+    "status": "awaiting_recording",
+    "route": "human",
+    "filename": "A06_eine_reklamation_klaeren_de_v1_take01.m4a",
+    "productionSteps": [
+      "Rollen und vollständiges Skript durchlesen; Zahlen auf Verständlichkeit prüfen.",
+      "Tonprobe anhören; ruhigen Raum und gleichen Mikrofonabstand wählen.",
+      "Den vollständigen Wortlaut aufnehmen; bei Versprechern den ganzen Satz wiederholen.",
+      "Datei als M4A oder WAV-Master hochladen; Rohdatei und Schnittfassung zuordnen.",
+      "Schnittfassung gegen spokenText und alle Lösungsschlüssel prüfen.",
+      "Echte Wortzeitmarken am Audio messen; keine Skript-Zeitschätzungen als Alignment verwenden.",
+      "Lautstärke, Zahlen, Verständlichkeit und Aufgaben fachlich freigeben.",
+      "Erst nach technischer und fachlicher Freigabe veröffentlichen."
+    ],
+    "tasks": [
+      {
+        "id": "sitov-exam-b1-a06-author-t01",
+        "version": 1,
+        "skill": "listening",
+        "type": "choice",
+        "title": "Das Problem",
+        "instruction": "Was ist mit dem Wasserkocher?",
+        "hints": [],
+        "profiles": [
+          "general_b1",
+          "dtz_a2_b1",
+          "telc_deutsch_b1",
+          "goethe_b1",
+          "oesd_zb1",
+          "telc_deutsch_a2_b1",
+          "oesd_zdoe_b1"
+        ],
+        "competency": "listening",
+        "formatFamily": "allgemeines_hoertraining",
+        "estimatedMinutes": 2,
+        "releaseStatus": "awaiting_media",
+        "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Er schaltet zu früh aus; das Wasser bleibt kalt."
+          },
+          {
+            "id": "b",
+            "text": "Er wurde noch nicht bezahlt."
+          },
+          {
+            "id": "c",
+            "text": "Er hat die falsche Farbe."
+          }
+        ],
+        "correctAnswer": "a",
+        "explanation": "Die Funktion ist das Anliegen der Reklamation.",
+        "evidence": "schaltet er sich schon nach wenigen Sekunden aus",
+        "audio": {
+          "id": "sitov-exam-b1-a06-v1",
+          "script": "Guten Tag, ich habe vor zwei Wochen bei Ihnen einen Wasserkocher gekauft. Seit gestern schaltet er sich schon nach wenigen Sekunden aus. Das Wasser bleibt kalt. Das tut mir leid. Haben Sie den Kaufbeleg dabei? Ja, hier ist die Rechnung. Ich habe das Gerät normal benutzt und möchte wissen, wie es jetzt weitergeht. Wir prüfen es zuerst. Ein Kollege kann sich den Wasserkocher heute ansehen. Wenn der Fehler bestätigt wird, können wir ihn gegen dasselbe Modell austauschen. Könnte ich stattdessen sofort das Geld zurückbekommen? Das kann ich Ihnen heute noch nicht zusagen. Erst brauchen wir das Ergebnis der Prüfung. Der Austausch wäre bei diesem Fehler unser erster Vorschlag. In Ordnung. Muss ich heute hier warten? Nein. Lassen Sie das Gerät und die Rechnungskopie hier. Wir rufen Sie morgen bis sechzehn Uhr an. Die Prüfung kostet Sie nichts. Dann gebe ich Ihnen meine Telefonnummer. Bitte rufen Sie mich auf dieser Nummer an, nicht auf meiner alten Festnetznummer. Gern. Hier ist Ihre Abgabebestätigung. Bewahren Sie sie auf, bis Sie das Gerät wieder abholen.",
+          "status": "awaiting_recording",
+          "route": "human",
+          "roles": [
+            "Freund: fiktiver Kunde Sami",
+            "Zweiter realer Sprecher: fiktiver Serviceberater Herr König"
+          ],
+          "notes": "Reale Aufnahme nach Skript, geprüftem Wortlaut und gemessenen Wortzeitmarken. Kein automatisch erzeugter Ersatz."
+        }
+      },
+      {
+        "id": "sitov-exam-b1-a06-author-t02",
+        "version": 1,
+        "skill": "listening",
+        "type": "choice",
+        "title": "Der Nachweis",
+        "instruction": "Was hat Sami dabei?",
+        "hints": [],
+        "profiles": [
+          "general_b1",
+          "dtz_a2_b1",
+          "telc_deutsch_b1",
+          "goethe_b1",
+          "oesd_zb1",
+          "telc_deutsch_a2_b1",
+          "oesd_zdoe_b1"
+        ],
+        "competency": "listening",
+        "formatFamily": "allgemeines_hoertraining",
+        "estimatedMinutes": 2,
+        "releaseStatus": "awaiting_media",
+        "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Die Rechnung."
+          },
+          {
+            "id": "b",
+            "text": "Eine Fahrkarte."
+          },
+          {
+            "id": "c",
+            "text": "Eine neue Kamera."
+          }
+        ],
+        "correctAnswer": "a",
+        "explanation": "Der Kaufbeleg liegt als Rechnung vor.",
+        "evidence": "hier ist die Rechnung",
+        "audio": {
+          "id": "sitov-exam-b1-a06-v1",
+          "script": "Guten Tag, ich habe vor zwei Wochen bei Ihnen einen Wasserkocher gekauft. Seit gestern schaltet er sich schon nach wenigen Sekunden aus. Das Wasser bleibt kalt. Das tut mir leid. Haben Sie den Kaufbeleg dabei? Ja, hier ist die Rechnung. Ich habe das Gerät normal benutzt und möchte wissen, wie es jetzt weitergeht. Wir prüfen es zuerst. Ein Kollege kann sich den Wasserkocher heute ansehen. Wenn der Fehler bestätigt wird, können wir ihn gegen dasselbe Modell austauschen. Könnte ich stattdessen sofort das Geld zurückbekommen? Das kann ich Ihnen heute noch nicht zusagen. Erst brauchen wir das Ergebnis der Prüfung. Der Austausch wäre bei diesem Fehler unser erster Vorschlag. In Ordnung. Muss ich heute hier warten? Nein. Lassen Sie das Gerät und die Rechnungskopie hier. Wir rufen Sie morgen bis sechzehn Uhr an. Die Prüfung kostet Sie nichts. Dann gebe ich Ihnen meine Telefonnummer. Bitte rufen Sie mich auf dieser Nummer an, nicht auf meiner alten Festnetznummer. Gern. Hier ist Ihre Abgabebestätigung. Bewahren Sie sie auf, bis Sie das Gerät wieder abholen.",
+          "status": "awaiting_recording",
+          "route": "human",
+          "roles": [
+            "Freund: fiktiver Kunde Sami",
+            "Zweiter realer Sprecher: fiktiver Serviceberater Herr König"
+          ],
+          "notes": "Reale Aufnahme nach Skript, geprüftem Wortlaut und gemessenen Wortzeitmarken. Kein automatisch erzeugter Ersatz."
+        }
+      },
+      {
+        "id": "sitov-exam-b1-a06-author-t03",
+        "version": 1,
+        "skill": "listening",
+        "type": "choice",
+        "title": "Die Reihenfolge",
+        "instruction": "Was passiert zuerst?",
+        "hints": [],
+        "profiles": [
+          "general_b1",
+          "dtz_a2_b1",
+          "telc_deutsch_b1",
+          "goethe_b1",
+          "oesd_zb1",
+          "telc_deutsch_a2_b1",
+          "oesd_zdoe_b1"
+        ],
+        "competency": "listening",
+        "formatFamily": "allgemeines_hoertraining",
+        "estimatedMinutes": 2,
+        "releaseStatus": "awaiting_media",
+        "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Das Gerät wird geprüft."
+          },
+          {
+            "id": "b",
+            "text": "Sami bekommt sofort sicher Geld zurück."
+          },
+          {
+            "id": "c",
+            "text": "Sami bezahlt eine neue Prüfung."
+          }
+        ],
+        "correctAnswer": "a",
+        "explanation": "Die Entscheidung folgt erst nach der Prüfung.",
+        "evidence": "Wir prüfen es zuerst.",
+        "audio": {
+          "id": "sitov-exam-b1-a06-v1",
+          "script": "Guten Tag, ich habe vor zwei Wochen bei Ihnen einen Wasserkocher gekauft. Seit gestern schaltet er sich schon nach wenigen Sekunden aus. Das Wasser bleibt kalt. Das tut mir leid. Haben Sie den Kaufbeleg dabei? Ja, hier ist die Rechnung. Ich habe das Gerät normal benutzt und möchte wissen, wie es jetzt weitergeht. Wir prüfen es zuerst. Ein Kollege kann sich den Wasserkocher heute ansehen. Wenn der Fehler bestätigt wird, können wir ihn gegen dasselbe Modell austauschen. Könnte ich stattdessen sofort das Geld zurückbekommen? Das kann ich Ihnen heute noch nicht zusagen. Erst brauchen wir das Ergebnis der Prüfung. Der Austausch wäre bei diesem Fehler unser erster Vorschlag. In Ordnung. Muss ich heute hier warten? Nein. Lassen Sie das Gerät und die Rechnungskopie hier. Wir rufen Sie morgen bis sechzehn Uhr an. Die Prüfung kostet Sie nichts. Dann gebe ich Ihnen meine Telefonnummer. Bitte rufen Sie mich auf dieser Nummer an, nicht auf meiner alten Festnetznummer. Gern. Hier ist Ihre Abgabebestätigung. Bewahren Sie sie auf, bis Sie das Gerät wieder abholen.",
+          "status": "awaiting_recording",
+          "route": "human",
+          "roles": [
+            "Freund: fiktiver Kunde Sami",
+            "Zweiter realer Sprecher: fiktiver Serviceberater Herr König"
+          ],
+          "notes": "Reale Aufnahme nach Skript, geprüftem Wortlaut und gemessenen Wortzeitmarken. Kein automatisch erzeugter Ersatz."
+        }
+      },
+      {
+        "id": "sitov-exam-b1-a06-author-t04",
+        "version": 1,
+        "skill": "listening",
+        "type": "choice",
+        "title": "Die Rückmeldung",
+        "instruction": "Bis wann soll Sami einen Anruf bekommen?",
+        "hints": [],
+        "profiles": [
+          "general_b1",
+          "dtz_a2_b1",
+          "telc_deutsch_b1",
+          "goethe_b1",
+          "oesd_zb1",
+          "telc_deutsch_a2_b1",
+          "oesd_zdoe_b1"
+        ],
+        "competency": "listening",
+        "formatFamily": "allgemeines_hoertraining",
+        "estimatedMinutes": 2,
+        "releaseStatus": "awaiting_media",
+        "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Morgen bis 16 Uhr."
+          },
+          {
+            "id": "b",
+            "text": "Heute um 16 Uhr."
+          },
+          {
+            "id": "c",
+            "text": "In zwei Wochen."
+          }
+        ],
+        "correctAnswer": "a",
+        "explanation": "Morgen und bis sechzehn Uhr werden zusammen genannt.",
+        "evidence": "morgen bis sechzehn Uhr",
+        "audio": {
+          "id": "sitov-exam-b1-a06-v1",
+          "script": "Guten Tag, ich habe vor zwei Wochen bei Ihnen einen Wasserkocher gekauft. Seit gestern schaltet er sich schon nach wenigen Sekunden aus. Das Wasser bleibt kalt. Das tut mir leid. Haben Sie den Kaufbeleg dabei? Ja, hier ist die Rechnung. Ich habe das Gerät normal benutzt und möchte wissen, wie es jetzt weitergeht. Wir prüfen es zuerst. Ein Kollege kann sich den Wasserkocher heute ansehen. Wenn der Fehler bestätigt wird, können wir ihn gegen dasselbe Modell austauschen. Könnte ich stattdessen sofort das Geld zurückbekommen? Das kann ich Ihnen heute noch nicht zusagen. Erst brauchen wir das Ergebnis der Prüfung. Der Austausch wäre bei diesem Fehler unser erster Vorschlag. In Ordnung. Muss ich heute hier warten? Nein. Lassen Sie das Gerät und die Rechnungskopie hier. Wir rufen Sie morgen bis sechzehn Uhr an. Die Prüfung kostet Sie nichts. Dann gebe ich Ihnen meine Telefonnummer. Bitte rufen Sie mich auf dieser Nummer an, nicht auf meiner alten Festnetznummer. Gern. Hier ist Ihre Abgabebestätigung. Bewahren Sie sie auf, bis Sie das Gerät wieder abholen.",
+          "status": "awaiting_recording",
+          "route": "human",
+          "roles": [
+            "Freund: fiktiver Kunde Sami",
+            "Zweiter realer Sprecher: fiktiver Serviceberater Herr König"
+          ],
+          "notes": "Reale Aufnahme nach Skript, geprüftem Wortlaut und gemessenen Wortzeitmarken. Kein automatisch erzeugter Ersatz."
+        }
+      },
+      {
+        "id": "sitov-exam-b1-a06-author-t05",
+        "version": 1,
+        "skill": "listening",
+        "type": "choice",
+        "title": "Die Aufbewahrung",
+        "instruction": "Was soll Sami aufbewahren?",
+        "hints": [],
+        "profiles": [
+          "general_b1",
+          "dtz_a2_b1",
+          "telc_deutsch_b1",
+          "goethe_b1",
+          "oesd_zb1",
+          "telc_deutsch_a2_b1",
+          "oesd_zdoe_b1"
+        ],
+        "competency": "listening",
+        "formatFamily": "allgemeines_hoertraining",
+        "estimatedMinutes": 2,
+        "releaseStatus": "awaiting_media",
+        "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Die Abgabebestätigung."
+          },
+          {
+            "id": "b",
+            "text": "Nur die alte Telefonnummer."
+          },
+          {
+            "id": "c",
+            "text": "Eine Busfahrkarte."
+          }
+        ],
+        "correctAnswer": "a",
+        "explanation": "Die Bestätigung gehört zum späteren Abholen.",
+        "evidence": "Hier ist Ihre Abgabebestätigung.",
+        "audio": {
+          "id": "sitov-exam-b1-a06-v1",
+          "script": "Guten Tag, ich habe vor zwei Wochen bei Ihnen einen Wasserkocher gekauft. Seit gestern schaltet er sich schon nach wenigen Sekunden aus. Das Wasser bleibt kalt. Das tut mir leid. Haben Sie den Kaufbeleg dabei? Ja, hier ist die Rechnung. Ich habe das Gerät normal benutzt und möchte wissen, wie es jetzt weitergeht. Wir prüfen es zuerst. Ein Kollege kann sich den Wasserkocher heute ansehen. Wenn der Fehler bestätigt wird, können wir ihn gegen dasselbe Modell austauschen. Könnte ich stattdessen sofort das Geld zurückbekommen? Das kann ich Ihnen heute noch nicht zusagen. Erst brauchen wir das Ergebnis der Prüfung. Der Austausch wäre bei diesem Fehler unser erster Vorschlag. In Ordnung. Muss ich heute hier warten? Nein. Lassen Sie das Gerät und die Rechnungskopie hier. Wir rufen Sie morgen bis sechzehn Uhr an. Die Prüfung kostet Sie nichts. Dann gebe ich Ihnen meine Telefonnummer. Bitte rufen Sie mich auf dieser Nummer an, nicht auf meiner alten Festnetznummer. Gern. Hier ist Ihre Abgabebestätigung. Bewahren Sie sie auf, bis Sie das Gerät wieder abholen.",
+          "status": "awaiting_recording",
+          "route": "human",
+          "roles": [
+            "Freund: fiktiver Kunde Sami",
+            "Zweiter realer Sprecher: fiktiver Serviceberater Herr König"
+          ],
+          "notes": "Reale Aufnahme nach Skript, geprüftem Wortlaut und gemessenen Wortzeitmarken. Kein automatisch erzeugter Ersatz."
+        }
+      }
+    ]
+  },
+  {
+    "audioId": "sitov-exam-b1-a07",
+    "title": "Drei kurze Sprachnachrichten",
+    "learningGoal": "Relevante Informationen aus drei Nachrichten auswählen und notieren.",
+    "profileScope": "Allgemeines B1-Training; kein offizieller vollständiger Prüfungsteil.",
+    "script": "Ben: Hallo Erik, unser Lerntreffen beginnt morgen erst um achtzehn Uhr dreißig. Ich muss vorher länger arbeiten. Wir treffen uns wie geplant in der Bibliothek. Bring bitte den kurzen Text über Freizeit mit. Die Fragen dazu habe ich schon vorbereitet. Sag mir heute noch kurz, ob die neue Zeit passt.\n\nPaul: Guten Tag Herr Stein, hier spricht Paul vom Kursbüro. Der Computerraum bleibt am Freitag geschlossen. Ihr Kurs findet deshalb in Raum neun statt. Die Uhrzeit von sechzehn bis achtzehn Uhr bleibt gleich. Sie brauchen keinen eigenen Laptop. Bitte bringen Sie nur Ihr Heft und Ihren Stift mit.\n\nOmar: Hallo Leon, ich kann am Samstag leider nicht beim Ausflug mitkommen. Mein Vater braucht meine Hilfe. Ich habe schon im Museum angerufen. Unsere Gruppe kann sich direkt am Eingang melden. Bitte sag den anderen, dass sie den Gruppenpreis passend bezahlen sollen. Ich wünsche euch einen schönen Tag.",
+    "spokenText": "Hallo Erik, unser Lerntreffen beginnt morgen erst um achtzehn Uhr dreißig. Ich muss vorher länger arbeiten. Wir treffen uns wie geplant in der Bibliothek. Bring bitte den kurzen Text über Freizeit mit. Die Fragen dazu habe ich schon vorbereitet. Sag mir heute noch kurz, ob die neue Zeit passt. Guten Tag Herr Stein, hier spricht Paul vom Kursbüro. Der Computerraum bleibt am Freitag geschlossen. Ihr Kurs findet deshalb in Raum neun statt. Die Uhrzeit von sechzehn bis achtzehn Uhr bleibt gleich. Sie brauchen keinen eigenen Laptop. Bitte bringen Sie nur Ihr Heft und Ihren Stift mit. Hallo Leon, ich kann am Samstag leider nicht beim Ausflug mitkommen. Mein Vater braucht meine Hilfe. Ich habe schon im Museum angerufen. Unsere Gruppe kann sich direkt am Eingang melden. Bitte sag den anderen, dass sie den Gruppenpreis passend bezahlen sollen. Ich wünsche euch einen schönen Tag.",
+    "roles": [
+      "Freund: fiktiver Ben",
+      "Zweiter realer Sprecher: fiktiver Paul",
+      "Freund: fiktiver Omar"
+    ],
+    "notes": "B1: klar und natürlich sprechen. Rollenkennungen und Regie nicht vorlesen. Zwei Sekunden Ruhe am Anfang und Ende. Inhalt nicht improvisieren. Keine künstliche Betonung der Lösungen. Fiktive Rollen ausschließlich männlich. Anastasia ist eine reale Lehrkraft und kann eine reale Moderation aufnehmen; fiktive Personen werden als Männer dargestellt. Drei getrennte Tracks oder eine Datei mit drei klaren Pausen. Namen sollen am Anfang Orientierung geben. Ein Sprecher bleibt innerhalb seiner Rolle gleich.",
+    "targetDuration": "Drei Nachrichten zu je 20–35 Sekunden",
+    "session": 1,
+    "taskIds": [
+      "sitov-exam-b1-a07-author-t01",
+      "sitov-exam-b1-a07-author-t02",
+      "sitov-exam-b1-a07-author-t03",
+      "sitov-exam-b1-a07-author-t04"
+    ],
+    "solutions": [
+      {
+        "taskId": "sitov-exam-b1-a07-author-t01",
+        "answer": "a",
+        "evidence": "morgen erst um achtzehn Uhr dreißig"
+      },
+      {
+        "taskId": "sitov-exam-b1-a07-author-t02",
+        "answer": "a",
+        "evidence": "deshalb in Raum neun"
+      },
+      {
+        "taskId": "sitov-exam-b1-a07-author-t03",
+        "answer": "a",
+        "evidence": "nur Ihr Heft und Ihren Stift"
+      },
+      {
+        "taskId": "sitov-exam-b1-a07-author-t04",
+        "answer": "a",
+        "evidence": "Ich habe schon im Museum angerufen."
+      }
+    ],
+    "evidence": [
+      "morgen erst um achtzehn Uhr dreißig",
+      "deshalb in Raum neun",
+      "nur Ihr Heft und Ihren Stift",
+      "Ich habe schon im Museum angerufen."
+    ],
+    "status": "awaiting_recording",
+    "route": "human",
+    "filename": "A07_drei_kurze_sprachnachrichten_de_v1_take01.m4a",
+    "productionSteps": [
+      "Rollen und vollständiges Skript durchlesen; Zahlen auf Verständlichkeit prüfen.",
+      "Tonprobe anhören; ruhigen Raum und gleichen Mikrofonabstand wählen.",
+      "Den vollständigen Wortlaut aufnehmen; bei Versprechern den ganzen Satz wiederholen.",
+      "Datei als M4A oder WAV-Master hochladen; Rohdatei und Schnittfassung zuordnen.",
+      "Schnittfassung gegen spokenText und alle Lösungsschlüssel prüfen.",
+      "Echte Wortzeitmarken am Audio messen; keine Skript-Zeitschätzungen als Alignment verwenden.",
+      "Lautstärke, Zahlen, Verständlichkeit und Aufgaben fachlich freigeben.",
+      "Erst nach technischer und fachlicher Freigabe veröffentlichen."
+    ],
+    "tasks": [
+      {
+        "id": "sitov-exam-b1-a07-author-t01",
+        "version": 1,
+        "skill": "listening",
+        "type": "choice",
+        "title": "Nachricht Ben",
+        "instruction": "Welche Zeit gilt für das Lerntreffen?",
+        "hints": [],
+        "profiles": [
+          "general_b1",
+          "dtz_a2_b1",
+          "telc_deutsch_b1",
+          "goethe_b1",
+          "oesd_zb1",
+          "telc_deutsch_a2_b1",
+          "oesd_zdoe_b1"
+        ],
+        "competency": "listening",
+        "formatFamily": "allgemeines_hoertraining",
+        "estimatedMinutes": 2,
+        "releaseStatus": "awaiting_media",
+        "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+        "options": [
+          {
+            "id": "a",
+            "text": "18:30 Uhr."
+          },
+          {
+            "id": "b",
+            "text": "18:00 Uhr."
+          },
+          {
+            "id": "c",
+            "text": "16:30 Uhr."
+          }
+        ],
+        "correctAnswer": "a",
+        "explanation": "Nur die Zeit ändert sich; der Ort bleibt.",
+        "evidence": "morgen erst um achtzehn Uhr dreißig",
+        "audio": {
+          "id": "sitov-exam-b1-a07-v1",
+          "script": "Hallo Erik, unser Lerntreffen beginnt morgen erst um achtzehn Uhr dreißig. Ich muss vorher länger arbeiten. Wir treffen uns wie geplant in der Bibliothek. Bring bitte den kurzen Text über Freizeit mit. Die Fragen dazu habe ich schon vorbereitet. Sag mir heute noch kurz, ob die neue Zeit passt. Guten Tag Herr Stein, hier spricht Paul vom Kursbüro. Der Computerraum bleibt am Freitag geschlossen. Ihr Kurs findet deshalb in Raum neun statt. Die Uhrzeit von sechzehn bis achtzehn Uhr bleibt gleich. Sie brauchen keinen eigenen Laptop. Bitte bringen Sie nur Ihr Heft und Ihren Stift mit. Hallo Leon, ich kann am Samstag leider nicht beim Ausflug mitkommen. Mein Vater braucht meine Hilfe. Ich habe schon im Museum angerufen. Unsere Gruppe kann sich direkt am Eingang melden. Bitte sag den anderen, dass sie den Gruppenpreis passend bezahlen sollen. Ich wünsche euch einen schönen Tag.",
+          "status": "awaiting_recording",
+          "route": "human",
+          "roles": [
+            "Freund: fiktiver Ben",
+            "Zweiter realer Sprecher: fiktiver Paul",
+            "Freund: fiktiver Omar"
+          ],
+          "notes": "Reale Aufnahme nach Skript, geprüftem Wortlaut und gemessenen Wortzeitmarken. Kein automatisch erzeugter Ersatz."
+        }
+      },
+      {
+        "id": "sitov-exam-b1-a07-author-t02",
+        "version": 1,
+        "skill": "listening",
+        "type": "choice",
+        "title": "Nachricht Paul",
+        "instruction": "Was ändert sich beim Computerkurs?",
+        "hints": [],
+        "profiles": [
+          "general_b1",
+          "dtz_a2_b1",
+          "telc_deutsch_b1",
+          "goethe_b1",
+          "oesd_zb1",
+          "telc_deutsch_a2_b1",
+          "oesd_zdoe_b1"
+        ],
+        "competency": "listening",
+        "formatFamily": "allgemeines_hoertraining",
+        "estimatedMinutes": 2,
+        "releaseStatus": "awaiting_media",
+        "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Der Raum."
+          },
+          {
+            "id": "b",
+            "text": "Die Uhrzeit."
+          },
+          {
+            "id": "c",
+            "text": "Die Kosten."
+          }
+        ],
+        "correctAnswer": "a",
+        "explanation": "Der Kurs findet in Raum neun bei gleicher Uhrzeit statt.",
+        "evidence": "deshalb in Raum neun",
+        "audio": {
+          "id": "sitov-exam-b1-a07-v1",
+          "script": "Hallo Erik, unser Lerntreffen beginnt morgen erst um achtzehn Uhr dreißig. Ich muss vorher länger arbeiten. Wir treffen uns wie geplant in der Bibliothek. Bring bitte den kurzen Text über Freizeit mit. Die Fragen dazu habe ich schon vorbereitet. Sag mir heute noch kurz, ob die neue Zeit passt. Guten Tag Herr Stein, hier spricht Paul vom Kursbüro. Der Computerraum bleibt am Freitag geschlossen. Ihr Kurs findet deshalb in Raum neun statt. Die Uhrzeit von sechzehn bis achtzehn Uhr bleibt gleich. Sie brauchen keinen eigenen Laptop. Bitte bringen Sie nur Ihr Heft und Ihren Stift mit. Hallo Leon, ich kann am Samstag leider nicht beim Ausflug mitkommen. Mein Vater braucht meine Hilfe. Ich habe schon im Museum angerufen. Unsere Gruppe kann sich direkt am Eingang melden. Bitte sag den anderen, dass sie den Gruppenpreis passend bezahlen sollen. Ich wünsche euch einen schönen Tag.",
+          "status": "awaiting_recording",
+          "route": "human",
+          "roles": [
+            "Freund: fiktiver Ben",
+            "Zweiter realer Sprecher: fiktiver Paul",
+            "Freund: fiktiver Omar"
+          ],
+          "notes": "Reale Aufnahme nach Skript, geprüftem Wortlaut und gemessenen Wortzeitmarken. Kein automatisch erzeugter Ersatz."
+        }
+      },
+      {
+        "id": "sitov-exam-b1-a07-author-t03",
+        "version": 1,
+        "skill": "listening",
+        "type": "choice",
+        "title": "Nachricht Paul Material",
+        "instruction": "Was braucht Herr Stein?",
+        "hints": [],
+        "profiles": [
+          "general_b1",
+          "dtz_a2_b1",
+          "telc_deutsch_b1",
+          "goethe_b1",
+          "oesd_zb1",
+          "telc_deutsch_a2_b1",
+          "oesd_zdoe_b1"
+        ],
+        "competency": "listening",
+        "formatFamily": "allgemeines_hoertraining",
+        "estimatedMinutes": 2,
+        "releaseStatus": "awaiting_media",
+        "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Heft und Stift."
+          },
+          {
+            "id": "b",
+            "text": "Einen eigenen Laptop."
+          },
+          {
+            "id": "c",
+            "text": "Werkzeug."
+          }
+        ],
+        "correctAnswer": "a",
+        "explanation": "Ein Laptop ist ausdrücklich nicht nötig.",
+        "evidence": "nur Ihr Heft und Ihren Stift",
+        "audio": {
+          "id": "sitov-exam-b1-a07-v1",
+          "script": "Hallo Erik, unser Lerntreffen beginnt morgen erst um achtzehn Uhr dreißig. Ich muss vorher länger arbeiten. Wir treffen uns wie geplant in der Bibliothek. Bring bitte den kurzen Text über Freizeit mit. Die Fragen dazu habe ich schon vorbereitet. Sag mir heute noch kurz, ob die neue Zeit passt. Guten Tag Herr Stein, hier spricht Paul vom Kursbüro. Der Computerraum bleibt am Freitag geschlossen. Ihr Kurs findet deshalb in Raum neun statt. Die Uhrzeit von sechzehn bis achtzehn Uhr bleibt gleich. Sie brauchen keinen eigenen Laptop. Bitte bringen Sie nur Ihr Heft und Ihren Stift mit. Hallo Leon, ich kann am Samstag leider nicht beim Ausflug mitkommen. Mein Vater braucht meine Hilfe. Ich habe schon im Museum angerufen. Unsere Gruppe kann sich direkt am Eingang melden. Bitte sag den anderen, dass sie den Gruppenpreis passend bezahlen sollen. Ich wünsche euch einen schönen Tag.",
+          "status": "awaiting_recording",
+          "route": "human",
+          "roles": [
+            "Freund: fiktiver Ben",
+            "Zweiter realer Sprecher: fiktiver Paul",
+            "Freund: fiktiver Omar"
+          ],
+          "notes": "Reale Aufnahme nach Skript, geprüftem Wortlaut und gemessenen Wortzeitmarken. Kein automatisch erzeugter Ersatz."
+        }
+      },
+      {
+        "id": "sitov-exam-b1-a07-author-t04",
+        "version": 1,
+        "skill": "listening",
+        "type": "choice",
+        "title": "Nachricht Omar",
+        "instruction": "Was hat Omar bereits erledigt?",
+        "hints": [],
+        "profiles": [
+          "general_b1",
+          "dtz_a2_b1",
+          "telc_deutsch_b1",
+          "goethe_b1",
+          "oesd_zb1",
+          "telc_deutsch_a2_b1",
+          "oesd_zdoe_b1"
+        ],
+        "competency": "listening",
+        "formatFamily": "allgemeines_hoertraining",
+        "estimatedMinutes": 2,
+        "releaseStatus": "awaiting_media",
+        "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Im Museum angerufen."
+          },
+          {
+            "id": "b",
+            "text": "Alle Eintrittspreise bezahlt."
+          },
+          {
+            "id": "c",
+            "text": "Einen neuen Bus gekauft."
+          }
+        ],
+        "correctAnswer": "a",
+        "explanation": "Die Anfrage beim Museum ist erledigt.",
+        "evidence": "Ich habe schon im Museum angerufen.",
+        "audio": {
+          "id": "sitov-exam-b1-a07-v1",
+          "script": "Hallo Erik, unser Lerntreffen beginnt morgen erst um achtzehn Uhr dreißig. Ich muss vorher länger arbeiten. Wir treffen uns wie geplant in der Bibliothek. Bring bitte den kurzen Text über Freizeit mit. Die Fragen dazu habe ich schon vorbereitet. Sag mir heute noch kurz, ob die neue Zeit passt. Guten Tag Herr Stein, hier spricht Paul vom Kursbüro. Der Computerraum bleibt am Freitag geschlossen. Ihr Kurs findet deshalb in Raum neun statt. Die Uhrzeit von sechzehn bis achtzehn Uhr bleibt gleich. Sie brauchen keinen eigenen Laptop. Bitte bringen Sie nur Ihr Heft und Ihren Stift mit. Hallo Leon, ich kann am Samstag leider nicht beim Ausflug mitkommen. Mein Vater braucht meine Hilfe. Ich habe schon im Museum angerufen. Unsere Gruppe kann sich direkt am Eingang melden. Bitte sag den anderen, dass sie den Gruppenpreis passend bezahlen sollen. Ich wünsche euch einen schönen Tag.",
+          "status": "awaiting_recording",
+          "route": "human",
+          "roles": [
+            "Freund: fiktiver Ben",
+            "Zweiter realer Sprecher: fiktiver Paul",
+            "Freund: fiktiver Omar"
+          ],
+          "notes": "Reale Aufnahme nach Skript, geprüftem Wortlaut und gemessenen Wortzeitmarken. Kein automatisch erzeugter Ersatz."
+        }
+      }
+    ]
+  },
+  {
+    "audioId": "sitov-exam-b1-a08",
+    "title": "Zwei Ankündigungen im Stadtteil",
+    "learningGoal": "Angebot, Termin, Frist und Teilnahmebedingung unterscheiden.",
+    "profileScope": "Allgemeines B1-Training; kein offizieller vollständiger Prüfungsteil.",
+    "script": "Herr Weber: Liebe Besucher, im Stadtteilzentrum beginnt nächsten Dienstag ein kostenloser Smartphone-Treff. Erwachsene können von zehn bis elf Uhr Fragen stellen und gemeinsam etwas ausprobieren. Eine Anmeldung ist nicht nötig. Bitte bringen Sie Ihr Telefon und das Ladekabel mit. Es geht um alltägliche Funktionen, zum Beispiel Fotos verschicken. Für Reparaturen am Gerät ist der Treff nicht zuständig.\n\nDavid: Am Sonntag organisiert unser Nachbarschaftsverein einen Spaziergang durch den Stadtteil. Wir starten um fünfzehn Uhr vor der Bibliothek. Der Weg dauert ungefähr eine Stunde und endet am Gemeinschaftsgarten. Bitte melden Sie sich bis Freitag an, damit wir die Gruppe planen können. Die Teilnahme kostet nichts. Bei starkem Regen informieren wir die angemeldeten Teilnehmer am Samstag über einen Ersatztermin.",
+    "spokenText": "Liebe Besucher, im Stadtteilzentrum beginnt nächsten Dienstag ein kostenloser Smartphone-Treff. Erwachsene können von zehn bis elf Uhr Fragen stellen und gemeinsam etwas ausprobieren. Eine Anmeldung ist nicht nötig. Bitte bringen Sie Ihr Telefon und das Ladekabel mit. Es geht um alltägliche Funktionen, zum Beispiel Fotos verschicken. Für Reparaturen am Gerät ist der Treff nicht zuständig. Am Sonntag organisiert unser Nachbarschaftsverein einen Spaziergang durch den Stadtteil. Wir starten um fünfzehn Uhr vor der Bibliothek. Der Weg dauert ungefähr eine Stunde und endet am Gemeinschaftsgarten. Bitte melden Sie sich bis Freitag an, damit wir die Gruppe planen können. Die Teilnahme kostet nichts. Bei starkem Regen informieren wir die angemeldeten Teilnehmer am Samstag über einen Ersatztermin.",
+    "roles": [
+      "Freund: fiktiver Mitarbeiter Herr Weber",
+      "Zweiter realer Sprecher: fiktiver Organisator David"
+    ],
+    "notes": "B1: klar und natürlich sprechen. Rollenkennungen und Regie nicht vorlesen. Zwei Sekunden Ruhe am Anfang und Ende. Inhalt nicht improvisieren. Keine künstliche Betonung der Lösungen. Fiktive Rollen ausschließlich männlich. Anastasia ist eine reale Lehrkraft und kann eine reale Moderation aufnehmen; fiktive Personen werden als Männer dargestellt. Zwei Ankündigungen mit unterschiedlichen realen Stimmen. Kostenlos und ohne Anmeldung gelten nur dort, wo sie im jeweiligen Text genannt werden.",
+    "targetDuration": "Zwei Ankündigungen zu je 30–45 Sekunden",
+    "session": 1,
+    "taskIds": [
+      "sitov-exam-b1-a08-author-t01",
+      "sitov-exam-b1-a08-author-t02",
+      "sitov-exam-b1-a08-author-t03",
+      "sitov-exam-b1-a08-author-t04"
+    ],
+    "solutions": [
+      {
+        "taskId": "sitov-exam-b1-a08-author-t01",
+        "answer": "a",
+        "evidence": "nächsten Dienstag ein kostenloser Smartphone-Treff. Erwachsene können von zehn bis elf Uhr"
+      },
+      {
+        "taskId": "sitov-exam-b1-a08-author-t02",
+        "answer": "a",
+        "evidence": "Für Reparaturen am Gerät ist der Treff nicht zuständig."
+      },
+      {
+        "taskId": "sitov-exam-b1-a08-author-t03",
+        "answer": "a",
+        "evidence": "Bitte melden Sie sich bis Freitag an"
+      },
+      {
+        "taskId": "sitov-exam-b1-a08-author-t04",
+        "answer": "a",
+        "evidence": "am Samstag über einen Ersatztermin"
+      }
+    ],
+    "evidence": [
+      "nächsten Dienstag ein kostenloser Smartphone-Treff. Erwachsene können von zehn bis elf Uhr",
+      "Für Reparaturen am Gerät ist der Treff nicht zuständig.",
+      "Bitte melden Sie sich bis Freitag an",
+      "am Samstag über einen Ersatztermin"
+    ],
+    "status": "awaiting_recording",
+    "route": "human",
+    "filename": "A08_zwei_ankuendigungen_im_stadtteil_de_v1_take01.m4a",
+    "productionSteps": [
+      "Rollen und vollständiges Skript durchlesen; Zahlen auf Verständlichkeit prüfen.",
+      "Tonprobe anhören; ruhigen Raum und gleichen Mikrofonabstand wählen.",
+      "Den vollständigen Wortlaut aufnehmen; bei Versprechern den ganzen Satz wiederholen.",
+      "Datei als M4A oder WAV-Master hochladen; Rohdatei und Schnittfassung zuordnen.",
+      "Schnittfassung gegen spokenText und alle Lösungsschlüssel prüfen.",
+      "Echte Wortzeitmarken am Audio messen; keine Skript-Zeitschätzungen als Alignment verwenden.",
+      "Lautstärke, Zahlen, Verständlichkeit und Aufgaben fachlich freigeben.",
+      "Erst nach technischer und fachlicher Freigabe veröffentlichen."
+    ],
+    "tasks": [
+      {
+        "id": "sitov-exam-b1-a08-author-t01",
+        "version": 1,
+        "skill": "listening",
+        "type": "choice",
+        "title": "Smartphone-Treff Termin",
+        "instruction": "Wann findet der Smartphone-Treff statt?",
+        "hints": [],
+        "profiles": [
+          "general_b1",
+          "dtz_a2_b1",
+          "telc_deutsch_b1",
+          "goethe_b1",
+          "oesd_zb1",
+          "telc_deutsch_a2_b1",
+          "oesd_zdoe_b1"
+        ],
+        "competency": "listening",
+        "formatFamily": "allgemeines_hoertraining",
+        "estimatedMinutes": 2,
+        "releaseStatus": "awaiting_media",
+        "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Dienstag 10–11 Uhr."
+          },
+          {
+            "id": "b",
+            "text": "Dienstag 11–12 Uhr."
+          },
+          {
+            "id": "c",
+            "text": "Sonntag 15 Uhr."
+          }
+        ],
+        "correctAnswer": "a",
+        "explanation": "Die Termine der beiden Angebote dürfen nicht vermischt werden.",
+        "evidence": "nächsten Dienstag ein kostenloser Smartphone-Treff. Erwachsene können von zehn bis elf Uhr",
+        "audio": {
+          "id": "sitov-exam-b1-a08-v1",
+          "script": "Liebe Besucher, im Stadtteilzentrum beginnt nächsten Dienstag ein kostenloser Smartphone-Treff. Erwachsene können von zehn bis elf Uhr Fragen stellen und gemeinsam etwas ausprobieren. Eine Anmeldung ist nicht nötig. Bitte bringen Sie Ihr Telefon und das Ladekabel mit. Es geht um alltägliche Funktionen, zum Beispiel Fotos verschicken. Für Reparaturen am Gerät ist der Treff nicht zuständig. Am Sonntag organisiert unser Nachbarschaftsverein einen Spaziergang durch den Stadtteil. Wir starten um fünfzehn Uhr vor der Bibliothek. Der Weg dauert ungefähr eine Stunde und endet am Gemeinschaftsgarten. Bitte melden Sie sich bis Freitag an, damit wir die Gruppe planen können. Die Teilnahme kostet nichts. Bei starkem Regen informieren wir die angemeldeten Teilnehmer am Samstag über einen Ersatztermin.",
+          "status": "awaiting_recording",
+          "route": "human",
+          "roles": [
+            "Freund: fiktiver Mitarbeiter Herr Weber",
+            "Zweiter realer Sprecher: fiktiver Organisator David"
+          ],
+          "notes": "Reale Aufnahme nach Skript, geprüftem Wortlaut und gemessenen Wortzeitmarken. Kein automatisch erzeugter Ersatz."
+        }
+      },
+      {
+        "id": "sitov-exam-b1-a08-author-t02",
+        "version": 1,
+        "skill": "listening",
+        "type": "choice",
+        "title": "Smartphone-Treff Grenze",
+        "instruction": "Was wird im Smartphone-Treff nicht angeboten?",
+        "hints": [],
+        "profiles": [
+          "general_b1",
+          "dtz_a2_b1",
+          "telc_deutsch_b1",
+          "goethe_b1",
+          "oesd_zb1",
+          "telc_deutsch_a2_b1",
+          "oesd_zdoe_b1"
+        ],
+        "competency": "listening",
+        "formatFamily": "allgemeines_hoertraining",
+        "estimatedMinutes": 2,
+        "releaseStatus": "awaiting_media",
+        "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Gerätereparaturen."
+          },
+          {
+            "id": "b",
+            "text": "Fragen zu Alltagsfunktionen."
+          },
+          {
+            "id": "c",
+            "text": "Gemeinsames Ausprobieren."
+          }
+        ],
+        "correctAnswer": "a",
+        "explanation": "Die Zuständigkeit wird am Ende begrenzt.",
+        "evidence": "Für Reparaturen am Gerät ist der Treff nicht zuständig.",
+        "audio": {
+          "id": "sitov-exam-b1-a08-v1",
+          "script": "Liebe Besucher, im Stadtteilzentrum beginnt nächsten Dienstag ein kostenloser Smartphone-Treff. Erwachsene können von zehn bis elf Uhr Fragen stellen und gemeinsam etwas ausprobieren. Eine Anmeldung ist nicht nötig. Bitte bringen Sie Ihr Telefon und das Ladekabel mit. Es geht um alltägliche Funktionen, zum Beispiel Fotos verschicken. Für Reparaturen am Gerät ist der Treff nicht zuständig. Am Sonntag organisiert unser Nachbarschaftsverein einen Spaziergang durch den Stadtteil. Wir starten um fünfzehn Uhr vor der Bibliothek. Der Weg dauert ungefähr eine Stunde und endet am Gemeinschaftsgarten. Bitte melden Sie sich bis Freitag an, damit wir die Gruppe planen können. Die Teilnahme kostet nichts. Bei starkem Regen informieren wir die angemeldeten Teilnehmer am Samstag über einen Ersatztermin.",
+          "status": "awaiting_recording",
+          "route": "human",
+          "roles": [
+            "Freund: fiktiver Mitarbeiter Herr Weber",
+            "Zweiter realer Sprecher: fiktiver Organisator David"
+          ],
+          "notes": "Reale Aufnahme nach Skript, geprüftem Wortlaut und gemessenen Wortzeitmarken. Kein automatisch erzeugter Ersatz."
+        }
+      },
+      {
+        "id": "sitov-exam-b1-a08-author-t03",
+        "version": 1,
+        "skill": "listening",
+        "type": "choice",
+        "title": "Spaziergang Anmeldung",
+        "instruction": "Bis wann meldet man sich für den Spaziergang an?",
+        "hints": [],
+        "profiles": [
+          "general_b1",
+          "dtz_a2_b1",
+          "telc_deutsch_b1",
+          "goethe_b1",
+          "oesd_zb1",
+          "telc_deutsch_a2_b1",
+          "oesd_zdoe_b1"
+        ],
+        "competency": "listening",
+        "formatFamily": "allgemeines_hoertraining",
+        "estimatedMinutes": 2,
+        "releaseStatus": "awaiting_media",
+        "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Bis Freitag."
+          },
+          {
+            "id": "b",
+            "text": "Bis Sonntag."
+          },
+          {
+            "id": "c",
+            "text": "Erst am Treffpunkt."
+          }
+        ],
+        "correctAnswer": "a",
+        "explanation": "Die Frist dient der Planung.",
+        "evidence": "Bitte melden Sie sich bis Freitag an",
+        "audio": {
+          "id": "sitov-exam-b1-a08-v1",
+          "script": "Liebe Besucher, im Stadtteilzentrum beginnt nächsten Dienstag ein kostenloser Smartphone-Treff. Erwachsene können von zehn bis elf Uhr Fragen stellen und gemeinsam etwas ausprobieren. Eine Anmeldung ist nicht nötig. Bitte bringen Sie Ihr Telefon und das Ladekabel mit. Es geht um alltägliche Funktionen, zum Beispiel Fotos verschicken. Für Reparaturen am Gerät ist der Treff nicht zuständig. Am Sonntag organisiert unser Nachbarschaftsverein einen Spaziergang durch den Stadtteil. Wir starten um fünfzehn Uhr vor der Bibliothek. Der Weg dauert ungefähr eine Stunde und endet am Gemeinschaftsgarten. Bitte melden Sie sich bis Freitag an, damit wir die Gruppe planen können. Die Teilnahme kostet nichts. Bei starkem Regen informieren wir die angemeldeten Teilnehmer am Samstag über einen Ersatztermin.",
+          "status": "awaiting_recording",
+          "route": "human",
+          "roles": [
+            "Freund: fiktiver Mitarbeiter Herr Weber",
+            "Zweiter realer Sprecher: fiktiver Organisator David"
+          ],
+          "notes": "Reale Aufnahme nach Skript, geprüftem Wortlaut und gemessenen Wortzeitmarken. Kein automatisch erzeugter Ersatz."
+        }
+      },
+      {
+        "id": "sitov-exam-b1-a08-author-t04",
+        "version": 1,
+        "skill": "listening",
+        "type": "choice",
+        "title": "Spaziergang Regen",
+        "instruction": "Was passiert bei starkem Regen?",
+        "hints": [],
+        "profiles": [
+          "general_b1",
+          "dtz_a2_b1",
+          "telc_deutsch_b1",
+          "goethe_b1",
+          "oesd_zb1",
+          "telc_deutsch_a2_b1",
+          "oesd_zdoe_b1"
+        ],
+        "competency": "listening",
+        "formatFamily": "allgemeines_hoertraining",
+        "estimatedMinutes": 2,
+        "releaseStatus": "awaiting_media",
+        "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+        "options": [
+          {
+            "id": "a",
+            "text": "Am Samstag kommt eine Information zu einem Ersatztermin."
+          },
+          {
+            "id": "b",
+            "text": "Alle müssen trotzdem kommen."
+          },
+          {
+            "id": "c",
+            "text": "Der Preis wird verdoppelt."
+          }
+        ],
+        "correctAnswer": "a",
+        "explanation": "Angemeldete Personen werden vor dem Sonntag informiert.",
+        "evidence": "am Samstag über einen Ersatztermin",
+        "audio": {
+          "id": "sitov-exam-b1-a08-v1",
+          "script": "Liebe Besucher, im Stadtteilzentrum beginnt nächsten Dienstag ein kostenloser Smartphone-Treff. Erwachsene können von zehn bis elf Uhr Fragen stellen und gemeinsam etwas ausprobieren. Eine Anmeldung ist nicht nötig. Bitte bringen Sie Ihr Telefon und das Ladekabel mit. Es geht um alltägliche Funktionen, zum Beispiel Fotos verschicken. Für Reparaturen am Gerät ist der Treff nicht zuständig. Am Sonntag organisiert unser Nachbarschaftsverein einen Spaziergang durch den Stadtteil. Wir starten um fünfzehn Uhr vor der Bibliothek. Der Weg dauert ungefähr eine Stunde und endet am Gemeinschaftsgarten. Bitte melden Sie sich bis Freitag an, damit wir die Gruppe planen können. Die Teilnahme kostet nichts. Bei starkem Regen informieren wir die angemeldeten Teilnehmer am Samstag über einen Ersatztermin.",
+          "status": "awaiting_recording",
+          "route": "human",
+          "roles": [
+            "Freund: fiktiver Mitarbeiter Herr Weber",
+            "Zweiter realer Sprecher: fiktiver Organisator David"
+          ],
+          "notes": "Reale Aufnahme nach Skript, geprüftem Wortlaut und gemessenen Wortzeitmarken. Kein automatisch erzeugter Ersatz."
+        }
+      }
+    ]
+  }
+]

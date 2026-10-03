@@ -1,0 +1,49 @@
+[
+  {
+    "id": 1,
+    "title": "Tonprobe und kurze Mitteilungen",
+    "duration": "35–50 Minuten",
+    "audioIds": [
+      "sitov-exam-b1-a01",
+      "sitov-exam-b1-a07",
+      "sitov-exam-b1-a08"
+    ],
+    "steps": [
+      "10 Minuten Tonprobe und Skriptdurchsicht.",
+      "A01, dann die drei Nachrichten A07 und die beiden Ankündigungen A08 aufnehmen.",
+      "Bei Bedarf zweiten Take erstellen.",
+      "Dateien benennen, sichern und Wortlaut gegen Lösungen prüfen."
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Interview und Dialoge",
+    "duration": "45–60 Minuten",
+    "audioIds": [
+      "sitov-exam-b1-a02",
+      "sitov-exam-b1-a04",
+      "sitov-exam-b1-a06"
+    ],
+    "steps": [
+      "Rollen und natürliches Tempo abstimmen.",
+      "A02 als Interview, A04 als Planung, A06 als Servicegespräch aufnehmen.",
+      "Sprecherwechsel und Zahlen anhören.",
+      "Zweite Takes nach Bedarf und vollständige Dateikontrolle."
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Meinungen und Kurzvortrag",
+    "duration": "30–45 Minuten plus Termin der dritten Stimme",
+    "audioIds": [
+      "sitov-exam-b1-a03",
+      "sitov-exam-b1-a05"
+    ],
+    "steps": [
+      "Dritte reale männliche Stimme für A03 organisieren; fehlenden Track offen lassen.",
+      "Drei Meinungsbeiträge aufnehmen und sauber trennen.",
+      "A05 als zusammenhängenden Kurzvortrag aufnehmen.",
+      "Fehlerhafte vollständige Sätze neu aufnehmen und alle Skripte prüfen."
+    ]
+  }
+]

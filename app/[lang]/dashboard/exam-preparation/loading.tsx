@@ -1,0 +1,1 @@
+export default function ExamLoading(){return <div className="space-y-4" role="status" aria-label="Prüfungsvorbereitung wird geladen"><div className="h-36 rounded-3xl bg-[var(--surface-muted)] animate-pulse"/><p className="text-[var(--muted)]">Deine B1-Prüfungsvorbereitung wird geladen …</p></div>}

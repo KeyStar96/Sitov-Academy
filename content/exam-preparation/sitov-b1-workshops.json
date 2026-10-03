@@ -1,0 +1,3574 @@
+[
+  {
+    "id": "sitov-exam-b1-w01",
+    "title": "Bildbeschreibung",
+    "description": "Sechs Schritte vom sichtbaren Detail bis zur neuen Aufnahme. Gemeinsames B1-Training; keine automatische Gleichsetzung mit einer Präsentationsaufgabe.",
+    "order": 1,
+    "units": [
+      {
+        "id": "sitov-exam-b1-w01-u01",
+        "moduleId": "sitov-exam-b1-w01",
+        "title": "Das Wichtige sehen",
+        "description": "Erst beobachten, danach deuten.",
+        "order": 1,
+        "kind": "speaking",
+        "required": true,
+        "estimatedMinutes": 7,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-w01-u01-t01",
+            "version": 1,
+            "skill": "speaking",
+            "type": "choice",
+            "title": "Was ist sichtbar?",
+            "instruction": "Welche Information ist im Bild erkennbar?",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "speaking",
+            "formatFamily": "bildbeschreibung",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "options": [
+              {
+                "id": "a",
+                "text": "Vor den Männern liegt ein Blatt."
+              },
+              {
+                "id": "b",
+                "text": "Die Männer werden morgen umziehen."
+              },
+              {
+                "id": "c",
+                "text": "Beide Männer sind Geschwister."
+              }
+            ],
+            "correctAnswer": "a",
+            "explanation": "Ein Blatt ist sichtbar; Zukunft und Beziehung bleiben unklar.",
+            "evidence": "Blatt auf dem Tisch",
+            "image": {
+              "id": "sitov-exam-contacts-v1",
+              "src": "/Bilder/exam-preparation/sitov-contacts.svg",
+              "alt": "Zwei erwachsene Männer stehen an einem Tisch mit einem Blatt. Einer hebt eine Hand; im Raum sind ein Fenster und ein Aushang.",
+              "status": "prepared"
+            }
+          },
+          {
+            "id": "sitov-exam-b1-w01-u01-t02",
+            "version": 1,
+            "skill": "vocabulary",
+            "type": "writing",
+            "title": "Wörter für die Handlung",
+            "instruction": "Nennen Sie drei Gegenstände oder Handlungen, die für die Situation wichtig sind.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "vocabulary",
+            "formatFamily": "bildbeschreibung",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "Drei sichtbare wichtige Gegenstände oder Handlungen werden genannt."
+            ],
+            "image": {
+              "id": "sitov-exam-contacts-v1",
+              "src": "/Bilder/exam-preparation/sitov-contacts.svg",
+              "alt": "Zwei erwachsene Männer stehen an einem Tisch mit einem Blatt. Einer hebt eine Hand; im Raum sind ein Fenster und ein Aushang.",
+              "status": "prepared"
+            }
+          },
+          {
+            "id": "sitov-exam-b1-w01-u01-t03",
+            "version": 1,
+            "skill": "speaking",
+            "type": "speaking",
+            "title": "Ein kurzer Überblick",
+            "instruction": "Beschreiben Sie die Situation mit zwei eigenen Sätzen. Sammeln Sie noch keine unwichtigen Kleidungsdetails.",
+            "hints": [
+              "Das Bild zeigt …",
+              "Die Männer …"
+            ],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "speaking",
+            "formatFamily": "bildbeschreibung",
+            "estimatedMinutes": 3,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "Zentrale sichtbare Personen, Orte und Handlungen werden genannt.",
+              "Die Beschreibung hat eine nachvollziehbare Reihenfolge.",
+              "Vermutungen werden als Vermutungen gekennzeichnet.",
+              "Ein passender Anschluss oder eine Rückfrage wird beantwortet.",
+              "Die eigene Aufnahme wird angehört und überarbeitet."
+            ],
+            "image": {
+              "id": "sitov-exam-contacts-v1",
+              "src": "/Bilder/exam-preparation/sitov-contacts.svg",
+              "alt": "Zwei erwachsene Männer stehen an einem Tisch mit einem Blatt. Einer hebt eine Hand; im Raum sind ein Fenster und ein Aushang.",
+              "status": "prepared"
+            }
+          }
+        ],
+        "releaseStatus": "published"
+      },
+      {
+        "id": "sitov-exam-b1-w01-u02",
+        "moduleId": "sitov-exam-b1-w01",
+        "title": "Im Bild Orientierung geben",
+        "description": "Orte und Handlungen sinnvoll verbinden.",
+        "order": 2,
+        "kind": "speaking",
+        "required": true,
+        "estimatedMinutes": 7,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-w01-u02-t01",
+            "version": 1,
+            "skill": "speaking",
+            "type": "choice",
+            "title": "Eine Ortsangabe wählen",
+            "instruction": "Welche Formulierung beschreibt eine räumliche Beziehung?",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "speaking",
+            "formatFamily": "bildbeschreibung",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "options": [
+              {
+                "id": "a",
+                "text": "Die Lampe liegt auf dem Tisch."
+              },
+              {
+                "id": "b",
+                "text": "Die Lampe ist wahrscheinlich billig."
+              },
+              {
+                "id": "c",
+                "text": "Die Lampe gehört seit gestern zum Mann."
+              }
+            ],
+            "correctAnswer": "a",
+            "explanation": "Auf dem Tisch beschreibt einen Ort.",
+            "evidence": "auf dem Tisch"
+          },
+          {
+            "id": "sitov-exam-b1-w01-u02-t02",
+            "version": 1,
+            "skill": "writing",
+            "type": "writing",
+            "title": "Zwei Orte notieren",
+            "instruction": "Schreiben Sie zwei Sätze zum Bild. Verwenden Sie zwei unterschiedliche Ortsangaben.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "writing",
+            "formatFamily": "bildbeschreibung",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "Ortsangaben passen zu sichtbaren Gegenständen.",
+              "Die zwei Sätze sind verständlich."
+            ],
+            "image": {
+              "id": "sitov-exam-repair-v1",
+              "src": "/Bilder/exam-preparation/sitov-repair.svg",
+              "alt": "Zwei erwachsene Männer prüfen an einem Tisch eine Tischlampe und Werkzeug.",
+              "status": "prepared"
+            }
+          },
+          {
+            "id": "sitov-exam-b1-w01-u02-t03",
+            "version": 1,
+            "skill": "speaking",
+            "type": "speaking",
+            "title": "Mit Orientierung sprechen",
+            "instruction": "Beschreiben Sie die Männer und die wichtigen Gegenstände. Beginnen Sie mit der Situation, dann nennen Sie Orte und Handlungen.",
+            "hints": [
+              "Im Vordergrund …",
+              "Neben …",
+              "Auf dem Tisch …"
+            ],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "speaking",
+            "formatFamily": "bildbeschreibung",
+            "estimatedMinutes": 3,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "Zentrale sichtbare Personen, Orte und Handlungen werden genannt.",
+              "Die Beschreibung hat eine nachvollziehbare Reihenfolge.",
+              "Vermutungen werden als Vermutungen gekennzeichnet.",
+              "Ein passender Anschluss oder eine Rückfrage wird beantwortet.",
+              "Die eigene Aufnahme wird angehört und überarbeitet."
+            ],
+            "image": {
+              "id": "sitov-exam-repair-v1",
+              "src": "/Bilder/exam-preparation/sitov-repair.svg",
+              "alt": "Zwei erwachsene Männer prüfen an einem Tisch eine Tischlampe und Werkzeug.",
+              "status": "prepared"
+            }
+          }
+        ],
+        "releaseStatus": "published"
+      },
+      {
+        "id": "sitov-exam-b1-w01-u03",
+        "moduleId": "sitov-exam-b1-w01",
+        "title": "Sätze verbinden",
+        "description": "Ein verständlicher Zusammenhang statt einer Wortliste.",
+        "order": 3,
+        "kind": "speaking",
+        "required": true,
+        "estimatedMinutes": 8,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-w01-u03-t01",
+            "version": 1,
+            "skill": "speaking",
+            "type": "ordering",
+            "title": "Eine Beschreibung ordnen",
+            "instruction": "Ordnen Sie den Überblick und die folgenden Details.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "speaking",
+            "formatFamily": "bildbeschreibung",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "options": [
+              {
+                "id": "a",
+                "text": "Vielleicht vereinbaren sie gerade ein gemeinsames Treffen."
+              },
+              {
+                "id": "b",
+                "text": "Zwei Männer sprechen im Hausflur miteinander."
+              },
+              {
+                "id": "c",
+                "text": "Neben ihnen hängt ein Aushang."
+              },
+              {
+                "id": "d",
+                "text": "Ein Mann hebt eine Hand, während der andere ihm gegenübersteht."
+              }
+            ],
+            "correctAnswer": [
+              "b",
+              "c",
+              "d",
+              "a"
+            ],
+            "explanation": "Zuerst wird die Situation genannt, dann ein wichtiges Detail und eine Handlung. Die Vermutung folgt danach.",
+            "evidence": "Situation → Detail → Handlung → Vermutung"
+          },
+          {
+            "id": "sitov-exam-b1-w01-u03-t02",
+            "version": 1,
+            "skill": "writing",
+            "type": "writing",
+            "title": "Einen Übergang finden",
+            "instruction": "Verbinden Sie: „Die Männer sprechen. Neben ihnen hängt ein Aushang.“ Schreiben Sie eine verständliche Verbindung.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "writing",
+            "formatFamily": "bildbeschreibung",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "Beide Informationen bleiben erhalten.",
+              "Mehrere Verbindungen sind möglich."
+            ]
+          },
+          {
+            "id": "sitov-exam-b1-w01-u03-t03",
+            "version": 1,
+            "skill": "speaking",
+            "type": "speaking",
+            "title": "Fünf bis sieben eigene Sätze",
+            "instruction": "Beschreiben Sie die Situation in einem zusammenhängenden Beitrag. Benutzen Sie Orte und Übergänge. Es gibt keine Satzvorlage.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "speaking",
+            "formatFamily": "bildbeschreibung",
+            "estimatedMinutes": 4,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "Zentrale sichtbare Personen, Orte und Handlungen werden genannt.",
+              "Die Beschreibung hat eine nachvollziehbare Reihenfolge.",
+              "Vermutungen werden als Vermutungen gekennzeichnet.",
+              "Ein passender Anschluss oder eine Rückfrage wird beantwortet.",
+              "Die eigene Aufnahme wird angehört und überarbeitet."
+            ],
+            "image": {
+              "id": "sitov-exam-neighbourhood-v1",
+              "src": "/Bilder/exam-preparation/sitov-neighbourhood.svg",
+              "alt": "Zwei erwachsene Männer sprechen im Hausflur neben einem Aushang miteinander.",
+              "status": "prepared"
+            }
+          }
+        ],
+        "releaseStatus": "published"
+      },
+      {
+        "id": "sitov-exam-b1-w01-u04",
+        "moduleId": "sitov-exam-b1-w01",
+        "title": "Vermuten und umschreiben",
+        "description": "Unklarheiten sagen und Wortlücken überbrücken.",
+        "order": 4,
+        "kind": "speaking",
+        "required": true,
+        "estimatedMinutes": 7,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-w01-u04-t01",
+            "version": 1,
+            "skill": "speaking",
+            "type": "choice",
+            "title": "Eine sichere Beobachtung",
+            "instruction": "Welche Aussage bleibt beim Sichtbaren?",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "speaking",
+            "formatFamily": "bildbeschreibung",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ein Mann schaut auf einen Fahrplan."
+              },
+              {
+                "id": "b",
+                "text": "Der Mann kommt bestimmt zu spät."
+              },
+              {
+                "id": "c",
+                "text": "Der Mann fährt jeden Tag zur selben Arbeit."
+              }
+            ],
+            "correctAnswer": "a",
+            "explanation": "Ein sichtbarer Fahrplan kann beschrieben werden; Gewohnheiten und Verspätung sind unklar.",
+            "evidence": "schaut auf einen Fahrplan",
+            "image": {
+              "id": "sitov-exam-mobility-v1",
+              "src": "/Bilder/exam-preparation/sitov-mobility.svg",
+              "alt": "Zwei erwachsene Männer prüfen an einer Haltestelle einen Fahrplan.",
+              "status": "prepared"
+            },
+            "words": [
+              {
+                "word": "Es könnte sein, dass …",
+                "example": "Es könnte sein, dass sie einen Ausflug planen."
+              },
+              {
+                "word": "ein Gegenstand, mit dem man …",
+                "example": "Das ist ein Gegenstand, mit dem man die Uhrzeit prüfen kann."
+              }
+            ]
+          },
+          {
+            "id": "sitov-exam-b1-w01-u04-t02",
+            "version": 1,
+            "skill": "vocabulary",
+            "type": "writing",
+            "title": "Ohne das genaue Wort",
+            "instruction": "Sie kennen das Wort „Fahrplan“ nicht. Erklären Sie den Gegenstand verständlich, ohne dieses Wort zu verwenden.",
+            "hints": [
+              "Dort kann man sehen, wann …"
+            ],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "vocabulary",
+            "formatFamily": "bildbeschreibung",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "Die Funktion des Fahrplans wird verständlich umschrieben."
+            ]
+          },
+          {
+            "id": "sitov-exam-b1-w01-u04-t03",
+            "version": 1,
+            "skill": "speaking",
+            "type": "speaking",
+            "title": "Beobachtung und Vermutung trennen",
+            "instruction": "Nennen Sie zwei sichtbare Informationen und eine vorsichtige Vermutung. Kennzeichnen Sie, was Sie nicht sicher wissen.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "speaking",
+            "formatFamily": "bildbeschreibung",
+            "estimatedMinutes": 3,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "Zentrale sichtbare Personen, Orte und Handlungen werden genannt.",
+              "Die Beschreibung hat eine nachvollziehbare Reihenfolge.",
+              "Vermutungen werden als Vermutungen gekennzeichnet.",
+              "Ein passender Anschluss oder eine Rückfrage wird beantwortet.",
+              "Die eigene Aufnahme wird angehört und überarbeitet."
+            ],
+            "image": {
+              "id": "sitov-exam-mobility-v1",
+              "src": "/Bilder/exam-preparation/sitov-mobility.svg",
+              "alt": "Zwei erwachsene Männer prüfen an einer Haltestelle einen Fahrplan.",
+              "status": "prepared"
+            }
+          }
+        ],
+        "releaseStatus": "published"
+      },
+      {
+        "id": "sitov-exam-b1-w01-u05",
+        "moduleId": "sitov-exam-b1-w01",
+        "title": "Erfahrung und Rückfragen",
+        "description": "Vom Bild zu einem passenden persönlichen Anschluss.",
+        "order": 5,
+        "kind": "speaking",
+        "required": true,
+        "estimatedMinutes": 8,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-w01-u05-t01",
+            "version": 1,
+            "skill": "speaking",
+            "type": "speaking",
+            "title": "Eine Erfahrung erzählen",
+            "instruction": "Beschreiben Sie kurz die Einkaufssituation. Erzählen Sie anschließend von einer eigenen oder erfundenen Situation, in der Sie etwas verglichen haben.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "speaking",
+            "formatFamily": "bildbeschreibung",
+            "estimatedMinutes": 4,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "Zentrale sichtbare Personen, Orte und Handlungen werden genannt.",
+              "Die Beschreibung hat eine nachvollziehbare Reihenfolge.",
+              "Vermutungen werden als Vermutungen gekennzeichnet.",
+              "Ein passender Anschluss oder eine Rückfrage wird beantwortet.",
+              "Die eigene Aufnahme wird angehört und überarbeitet."
+            ],
+            "image": {
+              "id": "sitov-exam-shopping-v1",
+              "src": "/Bilder/exam-preparation/sitov-shopping.svg",
+              "alt": "Zwei erwachsene Männer vergleichen im Geschäft ein Haushaltsgerät und ein Angebot.",
+              "status": "prepared"
+            }
+          },
+          {
+            "id": "sitov-exam-b1-w01-u05-t02",
+            "version": 1,
+            "skill": "speaking",
+            "type": "speaking",
+            "title": "Eine spontane Antwort",
+            "instruction": "Rückfrage: Wann fragen Sie beim Einkaufen lieber einen Mitarbeiter? Antworten Sie mit einem Grund und einem Beispiel.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "speaking",
+            "formatFamily": "rueckfragen",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "Der Auftrag wird verständlich erfüllt.",
+              "Die Aussagen hängen sinnvoll zusammen.",
+              "Eigene oder erfundene Erfahrungen werden klar erzählt.",
+              "Fragen oder Partneräußerungen werden aufgegriffen.",
+              "Nach der Rückmeldung wird eine Stelle verbessert oder eine Reflexion gespeichert."
+            ]
+          },
+          {
+            "id": "sitov-exam-b1-w01-u05-t03",
+            "version": 1,
+            "skill": "writing",
+            "type": "writing",
+            "title": "Meine Aufnahme prüfen",
+            "instruction": "Was war in Ihrer Beschreibung klar? Welche Stelle möchten Sie besser ordnen oder deutlicher sagen? Notieren Sie eine konkrete Verbesserung.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "writing",
+            "formatFamily": "reflexion",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "Eine konkrete gelungene Stelle wird genannt.",
+              "Eine passende Verbesserung wird geplant."
+            ]
+          }
+        ],
+        "releaseStatus": "published"
+      },
+      {
+        "id": "sitov-exam-b1-w01-u06",
+        "moduleId": "sitov-exam-b1-w01",
+        "title": "Ein neues Bild frei beschreiben",
+        "description": "Ohne Satzvorlage aufnehmen und nach Feedback verbessern.",
+        "order": 6,
+        "kind": "speaking",
+        "required": true,
+        "estimatedMinutes": 10,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-w01-u06-t01",
+            "version": 1,
+            "skill": "speaking",
+            "type": "speaking",
+            "title": "Mein neuer Beitrag",
+            "instruction": "Beschreiben Sie dieses Bild ohne Satzvorlage. Nennen Sie zentrale sichtbare Informationen und eine gekennzeichnete Vermutung. Erzählen Sie einen passenden Anschluss.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "speaking",
+            "formatFamily": "bildbeschreibung",
+            "estimatedMinutes": 4,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "Zentrale sichtbare Personen, Orte und Handlungen werden genannt.",
+              "Die Beschreibung hat eine nachvollziehbare Reihenfolge.",
+              "Vermutungen werden als Vermutungen gekennzeichnet.",
+              "Ein passender Anschluss oder eine Rückfrage wird beantwortet.",
+              "Die eigene Aufnahme wird angehört und überarbeitet."
+            ],
+            "image": {
+              "id": "sitov-exam-learning-v1",
+              "src": "/Bilder/exam-preparation/sitov-learning.svg",
+              "alt": "Zwei erwachsene Männer stehen an einem Tisch mit Unterlagen und einem Laptop.",
+              "status": "prepared"
+            }
+          },
+          {
+            "id": "sitov-exam-b1-w01-u06-t02",
+            "version": 1,
+            "skill": "speaking",
+            "type": "speaking",
+            "title": "Eine Rückfrage beantworten",
+            "instruction": "Rückfrage: Welche Form des Lernens passt gut zu Ihnen, und warum? Sie dürfen eine fiktive Erfahrung verwenden.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "speaking",
+            "formatFamily": "rueckfragen",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "Der Auftrag wird verständlich erfüllt.",
+              "Die Aussagen hängen sinnvoll zusammen.",
+              "Eigene oder erfundene Erfahrungen werden klar erzählt.",
+              "Fragen oder Partneräußerungen werden aufgegriffen.",
+              "Nach der Rückmeldung wird eine Stelle verbessert oder eine Reflexion gespeichert."
+            ]
+          },
+          {
+            "id": "sitov-exam-b1-w01-u06-t03",
+            "version": 1,
+            "skill": "speaking",
+            "type": "speaking",
+            "title": "Meine verbesserte Version",
+            "instruction": "Hören Sie Ihre erste Aufnahme an. Wählen Sie nach der Rückmeldung eine konkrete Stelle und nehmen Sie die verbesserte Beschreibung auf. Die ursprüngliche Version bleibt erhalten.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "speaking",
+            "formatFamily": "ueberarbeitung",
+            "estimatedMinutes": 4,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "Zentrale sichtbare Personen, Orte und Handlungen werden genannt.",
+              "Die Beschreibung hat eine nachvollziehbare Reihenfolge.",
+              "Vermutungen werden als Vermutungen gekennzeichnet.",
+              "Ein passender Anschluss oder eine Rückfrage wird beantwortet.",
+              "Die eigene Aufnahme wird angehört und überarbeitet."
+            ],
+            "image": {
+              "id": "sitov-exam-learning-v1",
+              "src": "/Bilder/exam-preparation/sitov-learning.svg",
+              "alt": "Zwei erwachsene Männer stehen an einem Tisch mit Unterlagen und einem Laptop.",
+              "status": "prepared"
+            }
+          }
+        ],
+        "releaseStatus": "published"
+      }
+    ],
+    "releaseStatus": "published"
+  },
+  {
+    "id": "sitov-exam-b1-w02",
+    "title": "Kurzpräsentation und Rückfragen",
+    "description": "Sechs Einheiten für Struktur, Begründung und echtes Nachfragen. Eine Bildbeschreibung ersetzt hier keinen Vortrag.",
+    "order": 2,
+    "units": [
+      {
+        "id": "sitov-exam-b1-w02-u01",
+        "moduleId": "sitov-exam-b1-w02",
+        "title": "Einen Vortrag aufbauen",
+        "description": "Thema, Erfahrung, Vergleich, Meinung und Schluss.",
+        "order": 1,
+        "kind": "speaking",
+        "required": true,
+        "estimatedMinutes": 6,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-w02-u01-t01",
+            "version": 1,
+            "skill": "speaking",
+            "type": "ordering",
+            "title": "Den Aufbau ordnen",
+            "instruction": "Ordnen Sie die Teile dieses kurzen Vortrags.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "speaking",
+            "formatFamily": "kurzpraesentation",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ein Vorteil ist der persönliche Austausch. Ein Nachteil sind feste Termine."
+              },
+              {
+                "id": "b",
+                "text": "Vielen Dank fürs Zuhören. Haben Sie eine Frage?"
+              },
+              {
+                "id": "c",
+                "text": "Ich möchte über Lernen mit einem Partner sprechen."
+              },
+              {
+                "id": "d",
+                "text": "Früher habe ich allein gelernt. Heute übe ich auch mit Ben."
+              },
+              {
+                "id": "e",
+                "text": "Ich finde eine Mischung sinnvoll, weil ich Ruhe und Gespräche brauche."
+              }
+            ],
+            "correctAnswer": [
+              "c",
+              "d",
+              "a",
+              "e",
+              "b"
+            ],
+            "explanation": "Einleitung, Erfahrung, Vor- und Nachteile, begründete Meinung und Abschluss geben Orientierung.",
+            "evidence": "Einleitung → Erfahrung → Vergleich → Meinung → Schluss"
+          },
+          {
+            "id": "sitov-exam-b1-w02-u01-t02",
+            "version": 1,
+            "skill": "writing",
+            "type": "writing",
+            "title": "Meine Stichwörter",
+            "instruction": "Wählen Sie „gemeinsam lernen“ oder „zu Fuß im Alltag“. Notieren Sie zu jedem Vortragsteil ein Stichwort statt ganzer Sätze.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "writing",
+            "formatFamily": "kurzpraesentation",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "Thema, Erfahrung, Vor-/Nachteil, Meinung und Schluss sind vorbereitet."
+            ]
+          },
+          {
+            "id": "sitov-exam-b1-w02-u01-t03",
+            "version": 1,
+            "skill": "speaking",
+            "type": "speaking",
+            "title": "Einen Einstieg aufnehmen",
+            "instruction": "Öffnen Sie Ihren Vortrag mit dem Thema und nennen Sie, worüber Sie sprechen möchten.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "speaking",
+            "formatFamily": "kurzpraesentation",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "Das Thema wird eröffnet und abgeschlossen.",
+              "Eine eigene oder erfundene Erfahrung ist enthalten.",
+              "Vor- und Nachteile werden nachvollziehbar genannt.",
+              "Die Meinung wird begründet.",
+              "Eine Rückfrage wird beantwortet; nach Rückmeldung folgt eine Überarbeitung."
+            ]
+          }
+        ],
+        "releaseStatus": "published"
+      },
+      {
+        "id": "sitov-exam-b1-w02-u02",
+        "moduleId": "sitov-exam-b1-w02",
+        "title": "Eine Erfahrung erzählen",
+        "description": "Ein konkretes Beispiel statt allgemeiner Behauptungen.",
+        "order": 2,
+        "kind": "speaking",
+        "required": true,
+        "estimatedMinutes": 7,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-w02-u02-t01",
+            "version": 1,
+            "skill": "speaking",
+            "type": "choice",
+            "title": "Die passende Erfahrung",
+            "instruction": "Welche Aussage enthält ein konkretes Erlebnis?",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "speaking",
+            "formatFamily": "erfahrung",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "options": [
+              {
+                "id": "a",
+                "text": "Lernen ist wichtig."
+              },
+              {
+                "id": "b",
+                "text": "Letzten Monat habe ich mit Ben einen Dialog geübt."
+              },
+              {
+                "id": "c",
+                "text": "Jeder Mensch muss immer viel lernen."
+              }
+            ],
+            "correctAnswer": "b",
+            "explanation": "Zeit, Partner und Handlung machen das Erlebnis konkret.",
+            "evidence": "Letzten Monat … mit Ben … Dialog"
+          },
+          {
+            "id": "sitov-exam-b1-w02-u02-t02",
+            "version": 1,
+            "skill": "writing",
+            "type": "writing",
+            "title": "Ein Erlebnis vorbereiten",
+            "instruction": "Notieren Sie drei Stichwörter: Wann war die Situation? Was haben Sie getan? Was war das Ergebnis? Sie dürfen eine Geschichte erfinden.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "writing",
+            "formatFamily": "erfahrung",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "Zeit, Handlung und Ergebnis sind als Stichwörter enthalten."
+            ]
+          },
+          {
+            "id": "sitov-exam-b1-w02-u02-t03",
+            "version": 1,
+            "skill": "speaking",
+            "type": "speaking",
+            "title": "Meine Erfahrung im Vortrag",
+            "instruction": "Erzählen Sie Ihr Beispiel und verbinden Sie es mit dem Thema „gemeinsam lernen“. Erklären Sie, was Sie daraus gelernt haben.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "speaking",
+            "formatFamily": "kurzpraesentation",
+            "estimatedMinutes": 3,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "Das Thema wird eröffnet und abgeschlossen.",
+              "Eine eigene oder erfundene Erfahrung ist enthalten.",
+              "Vor- und Nachteile werden nachvollziehbar genannt.",
+              "Die Meinung wird begründet.",
+              "Eine Rückfrage wird beantwortet; nach Rückmeldung folgt eine Überarbeitung."
+            ]
+          }
+        ],
+        "releaseStatus": "published"
+      },
+      {
+        "id": "sitov-exam-b1-w02-u03",
+        "moduleId": "sitov-exam-b1-w02",
+        "title": "Vor- und Nachteile vergleichen",
+        "description": "Beide Seiten verständlich erklären.",
+        "order": 3,
+        "kind": "speaking",
+        "required": true,
+        "estimatedMinutes": 7,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-w02-u03-t01",
+            "version": 1,
+            "skill": "vocabulary",
+            "type": "choice",
+            "title": "Einen Gegensatz zeigen",
+            "instruction": "Welcher Ausdruck verbindet Vorteil und Schwierigkeit?",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "vocabulary",
+            "formatFamily": "meinung",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "options": [
+              {
+                "id": "a",
+                "text": "Andererseits …"
+              },
+              {
+                "id": "b",
+                "text": "Guten Morgen …"
+              },
+              {
+                "id": "c",
+                "text": "Herzlichen Glückwunsch …"
+              }
+            ],
+            "correctAnswer": "a",
+            "explanation": "Andererseits eröffnet die andere Seite eines Vergleichs.",
+            "evidence": "Andererseits …",
+            "words": [
+              {
+                "word": "Ein Vorteil ist …",
+                "example": "Ein Vorteil ist, dass wir Fragen stellen können."
+              },
+              {
+                "word": "Andererseits …",
+                "example": "Andererseits müssen unsere Termine zusammenpassen."
+              }
+            ]
+          },
+          {
+            "id": "sitov-exam-b1-w02-u03-t02",
+            "version": 1,
+            "skill": "writing",
+            "type": "writing",
+            "title": "Zwei Seiten sammeln",
+            "instruction": "Thema: zu Fuß einkaufen. Nennen Sie einen Vorteil und einen möglichen Nachteil. Formulieren Sie noch keine pauschale Empfehlung für alle.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "writing",
+            "formatFamily": "meinung",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "Ein plausibler Vorteil und ein plausibler Nachteil sind enthalten."
+            ]
+          },
+          {
+            "id": "sitov-exam-b1-w02-u03-t03",
+            "version": 1,
+            "skill": "speaking",
+            "type": "speaking",
+            "title": "Mit Gründen vergleichen",
+            "instruction": "Erklären Sie einen Vor- und einen Nachteil zum Thema „zu Fuß einkaufen“. Begründen Sie beides mit einer konkreten Situation.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "speaking",
+            "formatFamily": "kurzpraesentation",
+            "estimatedMinutes": 3,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "Das Thema wird eröffnet und abgeschlossen.",
+              "Eine eigene oder erfundene Erfahrung ist enthalten.",
+              "Vor- und Nachteile werden nachvollziehbar genannt.",
+              "Die Meinung wird begründet.",
+              "Eine Rückfrage wird beantwortet; nach Rückmeldung folgt eine Überarbeitung."
+            ]
+          }
+        ],
+        "releaseStatus": "published"
+      },
+      {
+        "id": "sitov-exam-b1-w02-u04",
+        "moduleId": "sitov-exam-b1-w02",
+        "title": "Meine Meinung begründen",
+        "description": "Eine Position mit Grund und Beispiel verbinden.",
+        "order": 4,
+        "kind": "speaking",
+        "required": true,
+        "estimatedMinutes": 7,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-w02-u04-t01",
+            "version": 1,
+            "skill": "speaking",
+            "type": "choice",
+            "title": "Eine Begründung finden",
+            "instruction": "Welche Antwort begründet eine Meinung?",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "speaking",
+            "formatFamily": "meinung",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ich lerne gern mit Ben, weil wir uns gegenseitig Fragen stellen."
+              },
+              {
+                "id": "b",
+                "text": "Ich lerne gern mit Ben. Ben ist Ben."
+              },
+              {
+                "id": "c",
+                "text": "Alle müssen meine Meinung haben."
+              }
+            ],
+            "correctAnswer": "a",
+            "explanation": "Weil nennt einen Grund für die Position.",
+            "evidence": "weil wir uns gegenseitig Fragen stellen"
+          },
+          {
+            "id": "sitov-exam-b1-w02-u04-t02",
+            "version": 1,
+            "skill": "writing",
+            "type": "writing",
+            "title": "Mein Gedankengang",
+            "instruction": "Notieren Sie Position, Grund und ein Beispiel zum Thema „mit dem Smartphone lernen“. Ein Vorbehalt ist erlaubt.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "writing",
+            "formatFamily": "meinung",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "Position, Grund und Beispiel passen zusammen."
+            ]
+          },
+          {
+            "id": "sitov-exam-b1-w02-u04-t03",
+            "version": 1,
+            "skill": "speaking",
+            "type": "speaking",
+            "title": "Eine Position erklären",
+            "instruction": "Erklären Sie Ihre Meinung zu „mit dem Smartphone lernen“. Nennen Sie einen Grund, ein Beispiel und eine Grenze Ihrer Meinung.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "speaking",
+            "formatFamily": "kurzpraesentation",
+            "estimatedMinutes": 3,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "Das Thema wird eröffnet und abgeschlossen.",
+              "Eine eigene oder erfundene Erfahrung ist enthalten.",
+              "Vor- und Nachteile werden nachvollziehbar genannt.",
+              "Die Meinung wird begründet.",
+              "Eine Rückfrage wird beantwortet; nach Rückmeldung folgt eine Überarbeitung."
+            ]
+          }
+        ],
+        "releaseStatus": "published"
+      },
+      {
+        "id": "sitov-exam-b1-w02-u05",
+        "moduleId": "sitov-exam-b1-w02",
+        "title": "Zuhören und rückfragen",
+        "description": "Konkrete Rückmeldung und passende Frage.",
+        "order": 5,
+        "kind": "speaking",
+        "required": true,
+        "estimatedMinutes": 6,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-w02-u05-t01",
+            "version": 1,
+            "skill": "listening",
+            "type": "choice",
+            "title": "Die Position hören",
+            "instruction": "Was empfiehlt der Sprecher?",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "listening",
+            "formatFamily": "kurzpraesentation",
+            "estimatedMinutes": 2,
+            "releaseStatus": "awaiting_media",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "options": [
+              {
+                "id": "a",
+                "text": "Nur allein lernen."
+              },
+              {
+                "id": "b",
+                "text": "Nur mit einem Partner lernen."
+              },
+              {
+                "id": "c",
+                "text": "Allein und mit Partner lernen verbinden."
+              }
+            ],
+            "correctAnswer": "c",
+            "explanation": "Er nennt Vorteile beider Formen und empfiehlt eine Mischung.",
+            "evidence": "Meiner Meinung nach ist eine Mischung sinnvoll",
+            "audio": {
+              "id": "sitov-exam-b1-workshop-opinion-v1",
+              "script": "Ich möchte darüber sprechen, ob man allein oder mit einem Partner lernen sollte. Früher habe ich zu Hause allein Übungen gemacht. Das war praktisch, weil ich die Zeit frei wählen konnte. Beim Sprechen hatte ich aber wenig Übung. Heute treffe ich mich einmal pro Woche mit einem Lernpartner. Wir erklären uns Wörter und stellen Fragen. Ein Vorteil ist, dass wir voneinander lernen. Manchmal sind unsere Termine schwer zu finden. Deshalb lerne ich weiter auch allein. Meiner Meinung nach ist eine Mischung sinnvoll, weil man Ruhe zum Lesen und einen Partner zum Sprechen braucht. Vielen Dank fürs Zuhören.",
+              "status": "awaiting_recording",
+              "route": "qwen",
+              "roles": [
+                "Männlicher Sprecher"
+              ],
+              "notes": "Lokal auf dem Mac mit Qwen3-TTS-12Hz-1.7B-Base und sitov-qwen-male-de-v1 vorberechnen; echte Forced-Alignment-Wortzeitmarken prüfen und in Audio-Storage importieren. Kein Ersatz-TTS."
+            },
+            "words": [
+              {
+                "word": "Besonders interessant fand ich …",
+                "example": "Besonders interessant fand ich dein Beispiel aus dem Alltag."
+              },
+              {
+                "word": "Du hast gesagt, dass …",
+                "example": "Du hast gesagt, dass du mit einem Partner lernst. Wie oft trefft ihr euch?"
+              }
+            ]
+          },
+          {
+            "id": "sitov-exam-b1-w02-u05-t02",
+            "version": 1,
+            "skill": "speaking",
+            "type": "speaking",
+            "title": "Eine konkrete Rückmeldung",
+            "instruction": "Hören Sie den Vortrag. Nennen Sie eine konkrete Aussage, die Sie interessant fanden. Sagen Sie, warum.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "speaking",
+            "formatFamily": "rueckmeldung",
+            "estimatedMinutes": 2,
+            "releaseStatus": "awaiting_media",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "Der Auftrag wird verständlich erfüllt.",
+              "Die Aussagen hängen sinnvoll zusammen.",
+              "Eigene oder erfundene Erfahrungen werden klar erzählt.",
+              "Fragen oder Partneräußerungen werden aufgegriffen.",
+              "Nach der Rückmeldung wird eine Stelle verbessert oder eine Reflexion gespeichert."
+            ],
+            "audio": {
+              "id": "sitov-exam-b1-workshop-opinion-v1",
+              "script": "Ich möchte darüber sprechen, ob man allein oder mit einem Partner lernen sollte. Früher habe ich zu Hause allein Übungen gemacht. Das war praktisch, weil ich die Zeit frei wählen konnte. Beim Sprechen hatte ich aber wenig Übung. Heute treffe ich mich einmal pro Woche mit einem Lernpartner. Wir erklären uns Wörter und stellen Fragen. Ein Vorteil ist, dass wir voneinander lernen. Manchmal sind unsere Termine schwer zu finden. Deshalb lerne ich weiter auch allein. Meiner Meinung nach ist eine Mischung sinnvoll, weil man Ruhe zum Lesen und einen Partner zum Sprechen braucht. Vielen Dank fürs Zuhören.",
+              "status": "awaiting_recording",
+              "route": "qwen",
+              "roles": [
+                "Männlicher Sprecher"
+              ],
+              "notes": "Lokal auf dem Mac mit Qwen3-TTS-12Hz-1.7B-Base und sitov-qwen-male-de-v1 vorberechnen; echte Forced-Alignment-Wortzeitmarken prüfen und in Audio-Storage importieren. Kein Ersatz-TTS."
+            }
+          },
+          {
+            "id": "sitov-exam-b1-w02-u05-t03",
+            "version": 1,
+            "skill": "speaking",
+            "type": "speaking",
+            "title": "Eine echte Nachfrage",
+            "instruction": "Stellen Sie dem Sprecher eine Frage, die zu seinem Vortrag passt und eine neue Information verlangt. Dieser Sprecher reagiert hier nicht live.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "speaking",
+            "formatFamily": "rueckfragen",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "Der Auftrag wird verständlich erfüllt.",
+              "Die Aussagen hängen sinnvoll zusammen.",
+              "Eigene oder erfundene Erfahrungen werden klar erzählt.",
+              "Fragen oder Partneräußerungen werden aufgegriffen.",
+              "Nach der Rückmeldung wird eine Stelle verbessert oder eine Reflexion gespeichert."
+            ]
+          }
+        ],
+        "releaseStatus": "published"
+      },
+      {
+        "id": "sitov-exam-b1-w02-u06",
+        "moduleId": "sitov-exam-b1-w02",
+        "title": "Ein neues Thema frei präsentieren",
+        "description": "Stichwörter nutzen, sprechen, antworten und überarbeiten.",
+        "order": 6,
+        "kind": "speaking",
+        "required": true,
+        "estimatedMinutes": 10,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-w02-u06-t01",
+            "version": 1,
+            "skill": "writing",
+            "type": "writing",
+            "title": "Nur Stichwörter vorbereiten",
+            "instruction": "Thema: Soll ein Nachbarschaftstreff regelmäßig stattfinden? Notieren Sie Thema, Erfahrung, Vor- und Nachteil, Ihre Meinung und einen Schluss. Schreiben Sie keinen vollständigen Vortrag.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "writing",
+            "formatFamily": "kurzpraesentation",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "Die fünf Vortragsteile sind mit Stichwörtern vorbereitet."
+            ]
+          },
+          {
+            "id": "sitov-exam-b1-w02-u06-t02",
+            "version": 1,
+            "skill": "speaking",
+            "type": "speaking",
+            "title": "Mein freier Kurzvortrag",
+            "instruction": "Halten Sie einen Kurzvortrag über regelmäßige Nachbarschaftstreffen. Benutzen Sie Ihre Stichwörter. Begründen Sie Ihre Meinung und schließen Sie den Beitrag ab.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "speaking",
+            "formatFamily": "kurzpraesentation",
+            "estimatedMinutes": 5,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "Das Thema wird eröffnet und abgeschlossen.",
+              "Eine eigene oder erfundene Erfahrung ist enthalten.",
+              "Vor- und Nachteile werden nachvollziehbar genannt.",
+              "Die Meinung wird begründet.",
+              "Eine Rückfrage wird beantwortet; nach Rückmeldung folgt eine Überarbeitung."
+            ]
+          },
+          {
+            "id": "sitov-exam-b1-w02-u06-t03",
+            "version": 1,
+            "skill": "speaking",
+            "type": "speaking",
+            "title": "Rückfrage und Verbesserung",
+            "instruction": "Rückfrage: Wie könnten auch Menschen mit wenig Zeit teilnehmen? Antworten Sie. Hören Sie danach Ihren Vortrag und verbessern Sie eine konkrete Stelle.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "speaking",
+            "formatFamily": "rueckfragen",
+            "estimatedMinutes": 3,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "Das Thema wird eröffnet und abgeschlossen.",
+              "Eine eigene oder erfundene Erfahrung ist enthalten.",
+              "Vor- und Nachteile werden nachvollziehbar genannt.",
+              "Die Meinung wird begründet.",
+              "Eine Rückfrage wird beantwortet; nach Rückmeldung folgt eine Überarbeitung."
+            ]
+          }
+        ],
+        "releaseStatus": "published"
+      }
+    ],
+    "releaseStatus": "published"
+  },
+  {
+    "id": "sitov-exam-b1-w03",
+    "title": "Themengespräch und Planung",
+    "description": "Vorschlagen, begründen, auf Einschränkungen reagieren und ein Ergebnis festhalten. Geführte Soloaufnahmen sind Übung; freier Dialog braucht einen reagierenden Partner.",
+    "order": 3,
+    "units": [
+      {
+        "id": "sitov-exam-b1-w03-u01",
+        "moduleId": "sitov-exam-b1-w03",
+        "title": "Kontakt aufnehmen",
+        "description": "Informationen geben und Anschlussfragen stellen.",
+        "order": 1,
+        "kind": "speaking",
+        "required": true,
+        "estimatedMinutes": 6,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-w03-u01-t01",
+            "version": 1,
+            "skill": "speaking",
+            "type": "choice",
+            "title": "An einen Beitrag anschließen",
+            "instruction": "Ben sagt: „Ich gehe oft in die Bibliothek.“ Welche Frage passt?",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "speaking",
+            "formatFamily": "kontakt",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "options": [
+              {
+                "id": "a",
+                "text": "Welche Bücher liest du dort gern?"
+              },
+              {
+                "id": "b",
+                "text": "Was kostet dein Fahrradreifen?"
+              },
+              {
+                "id": "c",
+                "text": "Wann endet deine Garantie?"
+              }
+            ],
+            "correctAnswer": "a",
+            "explanation": "Die Frage knüpft direkt an die Bibliothek an.",
+            "evidence": "Welche Bücher liest du dort gern?"
+          },
+          {
+            "id": "sitov-exam-b1-w03-u01-t02",
+            "version": 1,
+            "skill": "speaking",
+            "type": "speaking",
+            "title": "Meine Vorstellung",
+            "instruction": "Stellen Sie sich einem Lernpartner vor. Nennen Sie eine Tätigkeit und ein Interesse. Verwenden Sie bei Bedarf erfundene persönliche Angaben.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "speaking",
+            "formatFamily": "kontakt",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "Der Auftrag wird verständlich erfüllt.",
+              "Die Aussagen hängen sinnvoll zusammen.",
+              "Eigene oder erfundene Erfahrungen werden klar erzählt.",
+              "Fragen oder Partneräußerungen werden aufgegriffen.",
+              "Nach der Rückmeldung wird eine Stelle verbessert oder eine Reflexion gespeichert."
+            ]
+          },
+          {
+            "id": "sitov-exam-b1-w03-u01-t03",
+            "version": 1,
+            "skill": "speaking",
+            "type": "speaking",
+            "title": "Zwei Anschlussfragen",
+            "instruction": "Ihr Partner sagt: „Ich arbeite tagsüber und lerne abends Deutsch.“ Stellen Sie zwei passende Fragen zu Zeit und Lernweise.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "speaking",
+            "formatFamily": "rueckfragen",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "Der Auftrag wird verständlich erfüllt.",
+              "Die Aussagen hängen sinnvoll zusammen.",
+              "Eigene oder erfundene Erfahrungen werden klar erzählt.",
+              "Fragen oder Partneräußerungen werden aufgegriffen.",
+              "Nach der Rückmeldung wird eine Stelle verbessert oder eine Reflexion gespeichert."
+            ]
+          }
+        ],
+        "releaseStatus": "published"
+      },
+      {
+        "id": "sitov-exam-b1-w03-u02",
+        "moduleId": "sitov-exam-b1-w03",
+        "title": "Informationen und Positionen vergleichen",
+        "description": "Fremde Information wiedergeben und eigene Meinung ergänzen.",
+        "order": 2,
+        "kind": "speaking",
+        "required": true,
+        "estimatedMinutes": 7,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-w03-u02-t01",
+            "version": 1,
+            "skill": "reading",
+            "type": "choice",
+            "title": "Wer denkt was?",
+            "instruction": "Ben: „Onlinekurse sparen mir Wege.“ Erik: „Im Kursraum kann ich leichter nachfragen.“ Wem ist der persönliche Kontakt wichtig?",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "reading",
+            "formatFamily": "themengespraech",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ben."
+              },
+              {
+                "id": "b",
+                "text": "Erik."
+              },
+              {
+                "id": "c",
+                "text": "Beide lehnen alle Kurse ab."
+              }
+            ],
+            "correctAnswer": "b",
+            "explanation": "Erik nennt Nachfragen im Kursraum als Vorteil.",
+            "evidence": "Im Kursraum kann ich leichter nachfragen.",
+            "text": "Ben: Onlinekurse sparen mir Wege. Erik: Im Kursraum kann ich leichter nachfragen."
+          },
+          {
+            "id": "sitov-exam-b1-w03-u02-t02",
+            "version": 1,
+            "skill": "speaking",
+            "type": "speaking",
+            "title": "Den anderen Standpunkt erklären",
+            "instruction": "Fassen Sie Bens und Eriks Meinungen mit eigenen Worten zusammen. Sagen Sie noch nicht, wer „recht“ hat.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "speaking",
+            "formatFamily": "themengespraech",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "Der Auftrag wird verständlich erfüllt.",
+              "Die Aussagen hängen sinnvoll zusammen.",
+              "Eigene oder erfundene Erfahrungen werden klar erzählt.",
+              "Fragen oder Partneräußerungen werden aufgegriffen.",
+              "Nach der Rückmeldung wird eine Stelle verbessert oder eine Reflexion gespeichert."
+            ]
+          },
+          {
+            "id": "sitov-exam-b1-w03-u02-t03",
+            "version": 1,
+            "skill": "speaking",
+            "type": "speaking",
+            "title": "Meine Meinung anschließen",
+            "instruction": "Welche Kursform passt zu einer eigenen oder erfundenen Situation? Begründen Sie und gehen Sie auf eine der beiden Meinungen ein.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "speaking",
+            "formatFamily": "themengespraech",
+            "estimatedMinutes": 3,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "Der Auftrag wird verständlich erfüllt.",
+              "Die Aussagen hängen sinnvoll zusammen.",
+              "Eigene oder erfundene Erfahrungen werden klar erzählt.",
+              "Fragen oder Partneräußerungen werden aufgegriffen.",
+              "Nach der Rückmeldung wird eine Stelle verbessert oder eine Reflexion gespeichert."
+            ]
+          }
+        ],
+        "releaseStatus": "published"
+      },
+      {
+        "id": "sitov-exam-b1-w03-u03",
+        "moduleId": "sitov-exam-b1-w03",
+        "title": "Vorschläge verständlich machen",
+        "description": "Eine Idee mit Grund anbieten und eine Alternative lassen.",
+        "order": 3,
+        "kind": "speaking",
+        "required": true,
+        "estimatedMinutes": 6,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-w03-u03-t01",
+            "version": 1,
+            "skill": "vocabulary",
+            "type": "choice",
+            "title": "Einen Vorschlag wählen",
+            "instruction": "Welche Formulierung bietet eine Idee zur Diskussion an?",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "vocabulary",
+            "formatFamily": "planung",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "options": [
+              {
+                "id": "a",
+                "text": "Wie wäre es, wenn wir am Samstag ins Museum gehen?"
+              },
+              {
+                "id": "b",
+                "text": "Du darfst keine andere Idee haben."
+              },
+              {
+                "id": "c",
+                "text": "Wir haben gestern alle Bücher gekauft."
+              }
+            ],
+            "correctAnswer": "a",
+            "explanation": "Wie wäre es öffnet Raum für eine Antwort.",
+            "evidence": "Wie wäre es, wenn …?",
+            "words": [
+              {
+                "word": "Wie wäre es, wenn …?",
+                "example": "Wie wäre es, wenn wir am Samstag ins Museum gehen?"
+              },
+              {
+                "word": "Wer übernimmt …?",
+                "example": "Wer übernimmt die Anmeldung für unsere Gruppe?"
+              }
+            ]
+          },
+          {
+            "id": "sitov-exam-b1-w03-u03-t02",
+            "version": 1,
+            "skill": "writing",
+            "type": "writing",
+            "title": "Ein Vorschlag mit Grund",
+            "instruction": "Schreiben Sie einen Vorschlag für einen Lerngruppenausflug. Nennen Sie einen Grund und eine mögliche Alternative.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "writing",
+            "formatFamily": "planung",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "Ein konkreter Vorschlag, ein Grund und eine Alternative sind enthalten."
+            ]
+          },
+          {
+            "id": "sitov-exam-b1-w03-u03-t03",
+            "version": 1,
+            "skill": "speaking",
+            "type": "speaking",
+            "title": "Den Vorschlag aufnehmen",
+            "instruction": "Machen Sie Ihren Vorschlag mündlich. Fragen Sie danach Ihren Partner, ob die Idee für ihn passt.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "speaking",
+            "formatFamily": "planung",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "Der Auftrag wird verständlich erfüllt.",
+              "Die Aussagen hängen sinnvoll zusammen.",
+              "Eigene oder erfundene Erfahrungen werden klar erzählt.",
+              "Fragen oder Partneräußerungen werden aufgegriffen.",
+              "Nach der Rückmeldung wird eine Stelle verbessert oder eine Reflexion gespeichert."
+            ]
+          }
+        ],
+        "releaseStatus": "published"
+      },
+      {
+        "id": "sitov-exam-b1-w03-u04",
+        "moduleId": "sitov-exam-b1-w03",
+        "title": "Auf Einschränkungen reagieren",
+        "description": "Höflich ablehnen, einen Kompromiss suchen.",
+        "order": 4,
+        "kind": "speaking",
+        "required": true,
+        "estimatedMinutes": 7,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-w03-u04-t01",
+            "version": 1,
+            "skill": "speaking",
+            "type": "choice",
+            "title": "Die Einschränkung ernst nehmen",
+            "instruction": "Ihr Partner kann erst ab 14 Uhr. Welche Antwort berücksichtigt das?",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "speaking",
+            "formatFamily": "planung",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "options": [
+              {
+                "id": "a",
+                "text": "Dann treffen wir uns um 14:30 Uhr."
+              },
+              {
+                "id": "b",
+                "text": "Dann musst du schon um 10 Uhr da sein."
+              },
+              {
+                "id": "c",
+                "text": "Dann machen wir jeden Termin ohne dich."
+              }
+            ],
+            "correctAnswer": "a",
+            "explanation": "Die neue Uhrzeit liegt nach 14 Uhr.",
+            "evidence": "14:30 Uhr",
+            "words": [
+              {
+                "word": "Das passt mir leider nicht, weil …",
+                "example": "Das passt mir leider nicht, weil ich arbeiten muss."
+              },
+              {
+                "word": "Dann schlage ich … vor.",
+                "example": "Dann schlage ich Sonntag um vierzehn Uhr vor."
+              }
+            ]
+          },
+          {
+            "id": "sitov-exam-b1-w03-u04-t02",
+            "version": 1,
+            "skill": "speaking",
+            "type": "speaking",
+            "title": "Eine Alternative anbieten",
+            "instruction": "Sie können nicht am Samstag, aber am Sonntag. Reagieren Sie höflich und bieten Sie eine konkrete Alternative an.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "speaking",
+            "formatFamily": "planung",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "Der Auftrag wird verständlich erfüllt.",
+              "Die Aussagen hängen sinnvoll zusammen.",
+              "Eigene oder erfundene Erfahrungen werden klar erzählt.",
+              "Fragen oder Partneräußerungen werden aufgegriffen.",
+              "Nach der Rückmeldung wird eine Stelle verbessert oder eine Reflexion gespeichert."
+            ]
+          },
+          {
+            "id": "sitov-exam-b1-w03-u04-t03",
+            "version": 1,
+            "skill": "speaking",
+            "type": "speaking",
+            "title": "Einen Kompromiss erklären",
+            "instruction": "Ihr Partner möchte ins Museum, Sie möchten einen Spaziergang. Schlagen Sie eine machbare Verbindung oder Alternative vor und nennen Sie einen Grund.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "speaking",
+            "formatFamily": "planung",
+            "estimatedMinutes": 3,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "Der Auftrag wird verständlich erfüllt.",
+              "Die Aussagen hängen sinnvoll zusammen.",
+              "Eigene oder erfundene Erfahrungen werden klar erzählt.",
+              "Fragen oder Partneräußerungen werden aufgegriffen.",
+              "Nach der Rückmeldung wird eine Stelle verbessert oder eine Reflexion gespeichert."
+            ]
+          }
+        ],
+        "releaseStatus": "published"
+      },
+      {
+        "id": "sitov-exam-b1-w03-u05",
+        "moduleId": "sitov-exam-b1-w03",
+        "title": "Geführt auf einen Partner reagieren",
+        "description": "Eine vorproduzierte Äußerung verstehen und beantworten.",
+        "order": 5,
+        "kind": "transfer",
+        "required": true,
+        "estimatedMinutes": 7,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-w03-u05-t01",
+            "version": 1,
+            "skill": "listening",
+            "type": "choice",
+            "title": "Die Grenze verstehen",
+            "instruction": "Warum kann der Sprecher nicht vormittags kommen?",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "listening",
+            "formatFamily": "planung",
+            "estimatedMinutes": 2,
+            "releaseStatus": "awaiting_media",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "options": [
+              {
+                "id": "a",
+                "text": "Er hilft seinem Vater."
+              },
+              {
+                "id": "b",
+                "text": "Er arbeitet in der Bibliothek."
+              },
+              {
+                "id": "c",
+                "text": "Er hat keinen Bus."
+              }
+            ],
+            "correctAnswer": "a",
+            "explanation": "Die Hilfe für seinen Vater liegt am Vormittag.",
+            "evidence": "weil ich meinem Vater helfe",
+            "audio": {
+              "id": "sitov-exam-b1-workshop-planning-v1",
+              "script": "Ich möchte am Samstag mit unserer Lerngruppe in die Bibliothek gehen. Vormittags kann ich nicht, weil ich meinem Vater helfe. Ab vierzehn Uhr habe ich Zeit. Mit dem Bus wäre es für mich leichter als mit dem Fahrrad. Könntest du prüfen, ob die Bibliothek am Samstag geöffnet ist? Ich frage die anderen Teilnehmer. Danach sollten wir einen Treffpunkt vereinbaren. Was schlägst du vor?",
+              "status": "awaiting_recording",
+              "route": "qwen",
+              "roles": [
+                "Männlicher Sprecher"
+              ],
+              "notes": "Lokal auf dem Mac mit Qwen3-TTS-12Hz-1.7B-Base und sitov-qwen-male-de-v1 vorberechnen; echte Forced-Alignment-Wortzeitmarken prüfen und in Audio-Storage importieren. Kein Ersatz-TTS."
+            }
+          },
+          {
+            "id": "sitov-exam-b1-w03-u05-t02",
+            "version": 1,
+            "skill": "speaking",
+            "type": "speaking",
+            "title": "Auf die Partneräußerung antworten",
+            "instruction": "Hören Sie die Äußerung. Schlagen Sie Zeit und Treffpunkt vor und übernehmen Sie eine Aufgabe. Der Partner ist vorproduziert und reagiert nicht auf Ihre Antwort.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "speaking",
+            "formatFamily": "gefuehrter_dialog",
+            "estimatedMinutes": 3,
+            "releaseStatus": "awaiting_media",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "Der Auftrag wird verständlich erfüllt.",
+              "Die Aussagen hängen sinnvoll zusammen.",
+              "Eigene oder erfundene Erfahrungen werden klar erzählt.",
+              "Fragen oder Partneräußerungen werden aufgegriffen.",
+              "Nach der Rückmeldung wird eine Stelle verbessert oder eine Reflexion gespeichert."
+            ],
+            "audio": {
+              "id": "sitov-exam-b1-workshop-planning-v1",
+              "script": "Ich möchte am Samstag mit unserer Lerngruppe in die Bibliothek gehen. Vormittags kann ich nicht, weil ich meinem Vater helfe. Ab vierzehn Uhr habe ich Zeit. Mit dem Bus wäre es für mich leichter als mit dem Fahrrad. Könntest du prüfen, ob die Bibliothek am Samstag geöffnet ist? Ich frage die anderen Teilnehmer. Danach sollten wir einen Treffpunkt vereinbaren. Was schlägst du vor?",
+              "status": "awaiting_recording",
+              "route": "qwen",
+              "roles": [
+                "Männlicher Sprecher"
+              ],
+              "notes": "Lokal auf dem Mac mit Qwen3-TTS-12Hz-1.7B-Base und sitov-qwen-male-de-v1 vorberechnen; echte Forced-Alignment-Wortzeitmarken prüfen und in Audio-Storage importieren. Kein Ersatz-TTS."
+            }
+          },
+          {
+            "id": "sitov-exam-b1-w03-u05-t03",
+            "version": 1,
+            "skill": "writing",
+            "type": "writing",
+            "title": "Eine vorläufige Vereinbarung",
+            "instruction": "Notieren Sie, was Sie vorgeschlagen haben und welche Bestätigung noch fehlt. Behaupten Sie keinen vereinbarten Plan ohne Antwort des Partners.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "writing",
+            "formatFamily": "planung",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "Vorschlag und noch offene Bestätigung werden unterschieden."
+            ]
+          }
+        ],
+        "releaseStatus": "published"
+      },
+      {
+        "id": "sitov-exam-b1-w03-u06",
+        "moduleId": "sitov-exam-b1-w03",
+        "title": "Gemeinsam ein Ergebnis erreichen",
+        "description": "Einen neuen Plan mit einem echten Partner aushandeln.",
+        "order": 6,
+        "kind": "transfer",
+        "required": true,
+        "estimatedMinutes": 10,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-w03-u06-t01",
+            "version": 1,
+            "skill": "writing",
+            "type": "writing",
+            "title": "Meine Rollenkarte",
+            "instruction": "Planen Sie mit einem realen Lernpartner einen kostenlosen Lerntreff. Ihre Rolle: Mittwoch ab 18 Uhr, Freitag ab 16 Uhr; Sie bringen Texte mit. Ihr Partner erhält andere Wünsche. Notieren Sie nur Ihre Grenzen und zwei Ideen.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "writing",
+            "formatFamily": "planung",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "Zeitgrenzen und Beitrag sind als Stichwörter vorbereitet."
+            ],
+            "words": [
+              {
+                "word": "Wir haben vereinbart, dass …",
+                "example": "Wir haben vereinbart, dass wir uns am Eingang treffen."
+              }
+            ]
+          },
+          {
+            "id": "sitov-exam-b1-w03-u06-t02",
+            "version": 1,
+            "skill": "speaking",
+            "type": "speaking",
+            "title": "Ein echter Planungsdialog",
+            "instruction": "Führen Sie mit einem realen Partner den Dialog und laden Sie die gemeinsame Aufnahme hoch. Partnerrolle: Mittwoch nur bis 19 Uhr, Freitag keine Zeit; ruhiger Ort; bringt Fragen mit. Vereinbaren Sie Zeit, Ort und Aufgaben. Wenn kein Partner verfügbar ist, speichern Sie eine Soloantwort als Übung.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "speaking",
+            "formatFamily": "planung",
+            "estimatedMinutes": 6,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Eine Soloantwort belegt keine freie Interaktion. Kennzeichnen Sie in Ihrer Reflexion, ob ein echter Partner reagiert hat.",
+            "rubric": [
+              "Vorschläge werden aufgegriffen.",
+              "Einschränkungen beider Rollen werden berücksichtigt.",
+              "Ein konkretes machbares Ergebnis wird zusammengefasst.",
+              "Die Aufgabenverteilung ist klar.",
+              "Der tatsächliche Partnerkontakt wird angegeben."
+            ]
+          },
+          {
+            "id": "sitov-exam-b1-w03-u06-t03",
+            "version": 1,
+            "skill": "writing",
+            "type": "writing",
+            "title": "Das Ergebnis prüfen",
+            "instruction": "Notieren Sie die Vereinbarung und eine Stelle, an der Sie auf Ihren Partner reagiert haben. Wenn Sie allein geübt haben, nennen Sie stattdessen eine noch offene Frage.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "writing",
+            "formatFamily": "reflexion",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "Ergebnis und echte Reaktion beziehungsweise offene Solo-Frage werden genannt."
+            ]
+          }
+        ],
+        "releaseStatus": "published"
+      }
+    ],
+    "releaseStatus": "published"
+  },
+  {
+    "id": "sitov-exam-b1-w04",
+    "title": "Schreibregister und Meinungsbeitrag",
+    "description": "Persönliche, höfliche und formelle Texte planen; die eigene Aussage erhalten und gezielt überarbeiten.",
+    "order": 4,
+    "units": [
+      {
+        "id": "sitov-exam-b1-w04-u01",
+        "moduleId": "sitov-exam-b1-w04",
+        "title": "Die richtige Ansprache",
+        "description": "Empfänger, Anlass und Register erkennen.",
+        "order": 1,
+        "kind": "writing",
+        "required": true,
+        "estimatedMinutes": 6,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-w04-u01-t01",
+            "version": 1,
+            "skill": "writing",
+            "type": "choice",
+            "title": "Den Empfänger beachten",
+            "instruction": "Sie schreiben einer Bibliothek, die Sie noch nicht kennen. Welche Anrede passt?",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "writing",
+            "formatFamily": "register",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "options": [
+              {
+                "id": "a",
+                "text": "Sehr geehrte Damen und Herren,"
+              },
+              {
+                "id": "b",
+                "text": "Hey Bruder!"
+              },
+              {
+                "id": "c",
+                "text": "Gute Nacht, Ben!"
+              }
+            ],
+            "correctAnswer": "a",
+            "explanation": "Eine unbekannte Institution erhält eine höfliche formelle Anrede.",
+            "evidence": "Sehr geehrte Damen und Herren,",
+            "words": [
+              {
+                "word": "Mit freundlichen Grüßen",
+                "example": "Vielen Dank für Ihre Hilfe. Mit freundlichen Grüßen Erik Stein"
+              }
+            ]
+          },
+          {
+            "id": "sitov-exam-b1-w04-u01-t02",
+            "version": 1,
+            "skill": "writing",
+            "type": "choice",
+            "title": "Eine persönliche Nachricht",
+            "instruction": "Sie laden Ihren Freund Ben zum Spaziergang ein. Welcher Beginn passt?",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "writing",
+            "formatFamily": "register",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "options": [
+              {
+                "id": "a",
+                "text": "Hallo Ben, hast du am Sonntag Zeit?"
+              },
+              {
+                "id": "b",
+                "text": "Sehr geehrtes Amt, hiermit reklamiere ich."
+              },
+              {
+                "id": "c",
+                "text": "Bitte kündigen Sie meinen Vertrag."
+              }
+            ],
+            "correctAnswer": "a",
+            "explanation": "Freund, Anlass und persönliche Ansprache passen zusammen.",
+            "evidence": "Hallo Ben"
+          },
+          {
+            "id": "sitov-exam-b1-w04-u01-t03",
+            "version": 1,
+            "skill": "writing",
+            "type": "writing",
+            "title": "Zwei passende Anfänge",
+            "instruction": "Schreiben Sie einen Anfang an einen Freund und einen Anfang an eine unbekannte Kursstelle. Nennen Sie jeweils einen passenden Anlass.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "writing",
+            "formatFamily": "register",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "Beide Empfänger werden passend angesprochen.",
+              "Die zwei Anlässe sind verständlich."
+            ]
+          }
+        ],
+        "releaseStatus": "published"
+      },
+      {
+        "id": "sitov-exam-b1-w04-u02",
+        "moduleId": "sitov-exam-b1-w04",
+        "title": "Alle Inhaltspunkte bearbeiten",
+        "description": "Planen, prüfen und fehlende Information ergänzen.",
+        "order": 2,
+        "kind": "writing",
+        "required": true,
+        "estimatedMinutes": 8,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-w04-u02-t01",
+            "version": 1,
+            "skill": "writing",
+            "type": "choice",
+            "title": "Die fehlende Frage",
+            "instruction": "Auftrag: Kurs erfragen, freie Zeiten nennen, Preis erfragen. Text: „Ich suche einen Abendkurs. Dienstags habe ich Zeit.“ Was fehlt?",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "writing",
+            "formatFamily": "leitpunkte",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "options": [
+              {
+                "id": "a",
+                "text": "Die Preisfrage."
+              },
+              {
+                "id": "b",
+                "text": "Die freie Zeit."
+              },
+              {
+                "id": "c",
+                "text": "Der gesuchte Kurs."
+              }
+            ],
+            "correctAnswer": "a",
+            "explanation": "Kurs und Dienstag sind enthalten, der Preis fehlt.",
+            "evidence": "Dienstags habe ich Zeit."
+          },
+          {
+            "id": "sitov-exam-b1-w04-u02-t02",
+            "version": 1,
+            "skill": "writing",
+            "type": "writing",
+            "title": "Eine kleine Textplanung",
+            "instruction": "Sie möchten einen Abendkurs besuchen. Notieren Sie drei Inhaltspunkte und eine passende Anrede als Stichwörter.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "writing",
+            "formatFamily": "leitpunkte",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "Kurswunsch, freie Zeit und Preisfrage sind geplant."
+            ]
+          },
+          {
+            "id": "sitov-exam-b1-w04-u02-t03",
+            "version": 1,
+            "skill": "writing",
+            "type": "writing",
+            "title": "Meine Kursanfrage",
+            "instruction": "Schreiben Sie die vollständige kurze Anfrage. Nennen Sie Kurswunsch und freie Zeit und fragen Sie nach dem Preis. Ergänzen Sie Gruß und Namen.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "writing",
+            "formatFamily": "nachricht",
+            "estimatedMinutes": 4,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "Kurswunsch, Zeit und Preisfrage sind enthalten.",
+              "Ansprache und Gruß passen zum Empfänger.",
+              "Sätze sind sinnvoll verbunden.",
+              "Wortschatz und sprachliche Mittel passen zur Situation.",
+              "Prüfen Sie nach der Rückmeldung Ihren Text und verbessern Sie eine Stelle."
+            ]
+          }
+        ],
+        "releaseStatus": "published"
+      },
+      {
+        "id": "sitov-exam-b1-w04-u03",
+        "moduleId": "sitov-exam-b1-w04",
+        "title": "Zusammenhang schaffen",
+        "description": "Gründe und Folgen verständlich verbinden.",
+        "order": 3,
+        "kind": "writing",
+        "required": true,
+        "estimatedMinutes": 7,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-w04-u03-t01",
+            "version": 1,
+            "skill": "writing",
+            "type": "choice",
+            "title": "Den Grund verbinden",
+            "instruction": "Welche Ergänzung passt? „Ich kann am Montag nicht kommen, …“",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "writing",
+            "formatFamily": "sprachbausteine",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "options": [
+              {
+                "id": "a",
+                "text": "weil ich arbeiten muss."
+              },
+              {
+                "id": "b",
+                "text": "obwohl meine Teilnahme deshalb."
+              },
+              {
+                "id": "c",
+                "text": "damit der Montag Arbeit."
+              }
+            ],
+            "correctAnswer": "a",
+            "explanation": "Weil verbindet den Termin mit seinem Grund.",
+            "evidence": "weil ich arbeiten muss."
+          },
+          {
+            "id": "sitov-exam-b1-w04-u03-t02",
+            "version": 1,
+            "skill": "writing",
+            "type": "writing",
+            "title": "Eine Folge ausdrücken",
+            "instruction": "Verbinden Sie sinnvoll: „Der Bus fährt heute nicht. Ich komme etwas später.“ Mehrere verständliche Lösungen sind möglich.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "writing",
+            "formatFamily": "sprachbausteine",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "Beide Informationen und ihre Folgebeziehung sind erhalten."
+            ]
+          },
+          {
+            "id": "sitov-exam-b1-w04-u03-t03",
+            "version": 1,
+            "skill": "writing",
+            "type": "writing",
+            "title": "Eine Nachricht verbinden",
+            "instruction": "Schreiben Sie drei bis vier zusammenhängende Sätze: Sie kommen später zu einem Lerntreff. Erklären Sie den Grund, nennen Sie eine neue Zeit und bitten Sie um Verständnis.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "writing",
+            "formatFamily": "nachricht",
+            "estimatedMinutes": 3,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "Alle geforderten Inhaltspunkte sind verständlich enthalten.",
+              "Ansprache und Gruß passen zum Empfänger.",
+              "Sätze sind sinnvoll verbunden.",
+              "Wortschatz und sprachliche Mittel passen zur Situation.",
+              "Prüfen Sie nach der Rückmeldung Ihren Text und verbessern Sie eine Stelle."
+            ]
+          }
+        ],
+        "releaseStatus": "published"
+      },
+      {
+        "id": "sitov-exam-b1-w04-u04",
+        "moduleId": "sitov-exam-b1-w04",
+        "title": "Eine Meinung schreiben",
+        "description": "Position, Grund, Beispiel und Schluss.",
+        "order": 4,
+        "kind": "writing",
+        "required": true,
+        "estimatedMinutes": 9,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-w04-u04-t01",
+            "version": 1,
+            "skill": "reading",
+            "type": "choice",
+            "title": "Eine begründete Meinung",
+            "instruction": "Welche Aussage enthält Position und Grund?",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "reading",
+            "formatFamily": "meinungsbeitrag",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "options": [
+              {
+                "id": "a",
+                "text": "Ich finde Lerngruppen hilfreich, weil man Fragen stellen kann."
+              },
+              {
+                "id": "b",
+                "text": "Lerngruppen. Das war alles."
+              },
+              {
+                "id": "c",
+                "text": "Alle finden immer dasselbe gut."
+              }
+            ],
+            "correctAnswer": "a",
+            "explanation": "Die Position hilfreich wird durch Fragenstellen begründet.",
+            "evidence": "weil man Fragen stellen kann"
+          },
+          {
+            "id": "sitov-exam-b1-w04-u04-t02",
+            "version": 1,
+            "skill": "writing",
+            "type": "writing",
+            "title": "Mein Plan für einen Beitrag",
+            "instruction": "Forumsfrage: „Soll das Stadtteilzentrum am Sonntag öffnen?“ Notieren Sie Ihre Position, einen Grund und ein Beispiel.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "writing",
+            "formatFamily": "meinungsbeitrag",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "Position, Grund und Beispiel passen zur Forumsfrage."
+            ]
+          },
+          {
+            "id": "sitov-exam-b1-w04-u04-t03",
+            "version": 1,
+            "skill": "writing",
+            "type": "writing",
+            "title": "Mein Forumsbeitrag",
+            "instruction": "Schreiben Sie einen eigenen kurzen Beitrag zur Sonntagsöffnung. Begründen Sie Ihre Meinung, nennen Sie ein Beispiel und schließen Sie verständlich ab. Eine andere begründete Meinung ist ebenso möglich.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "writing",
+            "formatFamily": "meinungsbeitrag",
+            "estimatedMinutes": 5,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "Die Position ist klar.",
+              "Ein Grund und ein Beispiel sind enthalten.",
+              "Der Zusammenhang ist verständlich.",
+              "Die Sprache passt zu einem öffentlichen Forum."
+            ]
+          }
+        ],
+        "releaseStatus": "published"
+      },
+      {
+        "id": "sitov-exam-b1-w04-u05",
+        "moduleId": "sitov-exam-b1-w04",
+        "title": "Gezielt überarbeiten",
+        "description": "Höchstens zwei Lernschwerpunkte wählen.",
+        "order": 5,
+        "kind": "writing",
+        "required": true,
+        "estimatedMinutes": 9,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-w04-u05-t01",
+            "version": 1,
+            "skill": "writing",
+            "type": "choice",
+            "title": "Die Aussage erhalten",
+            "instruction": "Original: „Dienstag kann ich erst 18 Uhr. Bitte anderer Termin.“ Welche Verbesserung erhält die Absicht?",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "writing",
+            "formatFamily": "ueberarbeitung",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "options": [
+              {
+                "id": "a",
+                "text": "Dienstags kann ich erst ab 18 Uhr. Könnten wir einen anderen Termin vereinbaren?"
+              },
+              {
+                "id": "b",
+                "text": "Dienstags möchte ich niemals mit Ihnen lernen."
+              },
+              {
+                "id": "c",
+                "text": "Ihr Kurs ist immer falsch."
+              }
+            ],
+            "correctAnswer": "a",
+            "explanation": "Die Verbesserung behält Verfügbarkeit und Terminbitte bei.",
+            "evidence": "erst ab 18 Uhr … anderen Termin"
+          },
+          {
+            "id": "sitov-exam-b1-w04-u05-t02",
+            "version": 1,
+            "skill": "writing",
+            "type": "writing",
+            "title": "Eine neue Beispielantwort verbessern",
+            "instruction": "Verbessern Sie: „Hallo Herr Weber ich will Kurs. Was kostet? Ich Dienstag Zeit.“ Behalten Sie Kurswunsch, Preisfrage und Dienstag bei.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "writing",
+            "formatFamily": "ueberarbeitung",
+            "estimatedMinutes": 3,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "Alle drei Inhaltspunkte bleiben erhalten.",
+              "Ansprache und Zusammenhang werden verbessert."
+            ]
+          },
+          {
+            "id": "sitov-exam-b1-w04-u05-t03",
+            "version": 1,
+            "skill": "writing",
+            "type": "writing",
+            "title": "Meinen Text überarbeiten",
+            "instruction": "Öffnen Sie Ihren eigenen Beitrag aus einer früheren Schreibaufgabe. Nennen Sie eine gelungene Stelle und verbessern Sie nach Feedback höchstens zwei Schwerpunkte. Speichern Sie eine neue Version.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "writing",
+            "formatFamily": "ueberarbeitung",
+            "estimatedMinutes": 4,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "Alle geforderten Inhaltspunkte sind verständlich enthalten.",
+              "Ansprache und Gruß passen zum Empfänger.",
+              "Sätze sind sinnvoll verbunden.",
+              "Wortschatz und sprachliche Mittel passen zur Situation.",
+              "Prüfen Sie nach der Rückmeldung Ihren Text und verbessern Sie eine Stelle."
+            ]
+          }
+        ],
+        "releaseStatus": "published"
+      },
+      {
+        "id": "sitov-exam-b1-w04-u06",
+        "moduleId": "sitov-exam-b1-w04",
+        "title": "Neue Schreibanlässe selbstständig",
+        "description": "Ohne Vorlage auf einen neuen Empfänger reagieren.",
+        "order": 6,
+        "kind": "transfer",
+        "required": true,
+        "estimatedMinutes": 13,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-w04-u06-t01",
+            "version": 1,
+            "skill": "writing",
+            "type": "writing",
+            "title": "Eine neue persönliche Nachricht",
+            "instruction": "Ihr Freund Leon kann nicht zum Lernabend kommen. Schreiben Sie ihm: Fragen Sie kurz nach seinem Befinden, erzählen Sie eine wichtige Information vom Abend, schlagen Sie ein anderes Treffen vor und bitten Sie um Antwort.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "writing",
+            "formatFamily": "nachricht",
+            "estimatedMinutes": 5,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "Alle geforderten Inhaltspunkte sind verständlich enthalten.",
+              "Ansprache und Gruß passen zum Empfänger.",
+              "Sätze sind sinnvoll verbunden.",
+              "Wortschatz und sprachliche Mittel passen zur Situation.",
+              "Prüfen Sie nach der Rückmeldung Ihren Text und verbessern Sie eine Stelle."
+            ]
+          },
+          {
+            "id": "sitov-exam-b1-w04-u06-t02",
+            "version": 1,
+            "skill": "writing",
+            "type": "writing",
+            "title": "Eine neue formelle Anfrage",
+            "instruction": "Sie haben sich für einen Computerkurs angemeldet, kennen aber den Raum nicht. Schreiben Sie der Kursstelle: Nennen Sie den Kurs und Termin, fragen Sie nach dem Raum und dem Zugang und bitten Sie um eine Antwort.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "writing",
+            "formatFamily": "nachricht",
+            "estimatedMinutes": 5,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "Alle geforderten Inhaltspunkte sind verständlich enthalten.",
+              "Ansprache und Gruß passen zum Empfänger.",
+              "Sätze sind sinnvoll verbunden.",
+              "Wortschatz und sprachliche Mittel passen zur Situation.",
+              "Prüfen Sie nach der Rückmeldung Ihren Text und verbessern Sie eine Stelle."
+            ]
+          },
+          {
+            "id": "sitov-exam-b1-w04-u06-t03",
+            "version": 1,
+            "skill": "writing",
+            "type": "writing",
+            "title": "Meine Selbstprüfung",
+            "instruction": "Prüfen Sie einen Ihrer neuen Texte: Sind alle Inhaltspunkte enthalten? Passt die Anrede? Welche Stelle ist besonders klar? Verbessern Sie eine konkrete Stelle oder dokumentieren Sie Ihre Prüfung.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "writing",
+            "formatFamily": "reflexion",
+            "estimatedMinutes": 3,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "Inhalt, Register und Zusammenhang werden geprüft.",
+              "Eine konkrete Reflexion oder Verbesserung wird gespeichert."
+            ]
+          }
+        ],
+        "releaseStatus": "published"
+      }
+    ],
+    "releaseStatus": "published"
+  },
+  {
+    "id": "sitov-exam-b1-w05",
+    "title": "Integrierte Aufgaben und Sprachbausteine",
+    "description": "Relevantes hören oder lesen, Informationen notieren und in einen eigenen Text übertragen. Sprachmittel werden im Zusammenhang geübt.",
+    "order": 5,
+    "units": [
+      {
+        "id": "sitov-exam-b1-w05-u01",
+        "moduleId": "sitov-exam-b1-w05",
+        "title": "Lesen und notieren",
+        "description": "Nur die für den Auftrag wichtige Information auswählen.",
+        "order": 1,
+        "kind": "reading",
+        "required": true,
+        "estimatedMinutes": 6,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-w05-u01-t01",
+            "version": 1,
+            "skill": "reading",
+            "type": "choice",
+            "title": "Wichtig für die Anmeldung",
+            "instruction": "Fotokurs: Dienstag 18–20 Uhr; 6 Termine; 60 Euro; Anmeldung bis Freitag; eigene Kamera oder Smartphone. Welche Information braucht man für die rechtzeitige Anmeldung?",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "reading",
+            "formatFamily": "lesen_schreiben",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "options": [
+              {
+                "id": "a",
+                "text": "Bis Freitag."
+              },
+              {
+                "id": "b",
+                "text": "Die Wandfarbe im Kursraum."
+              },
+              {
+                "id": "c",
+                "text": "Der Name eines anderen Teilnehmers."
+              }
+            ],
+            "correctAnswer": "a",
+            "explanation": "Die Anmeldefrist entscheidet, bis wann man handeln muss.",
+            "evidence": "Anmeldung bis Freitag",
+            "text": "Fotokurs: Dienstag 18–20 Uhr; 6 Termine; 60 Euro; Anmeldung bis Freitag; eigene Kamera oder Smartphone."
+          },
+          {
+            "id": "sitov-exam-b1-w05-u01-t02",
+            "version": 1,
+            "skill": "writing",
+            "type": "writing",
+            "title": "Eine brauchbare Notiz",
+            "instruction": "Notieren Sie Tag, Uhrzeit, Preis und Anmeldefrist für den Fotokurs in einer kurzen verständlichen Form.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "writing",
+            "formatFamily": "lesen_schreiben",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Fotokurs: Dienstag 18–20 Uhr; 6 Termine; 60 Euro; Anmeldung bis Freitag; eigene Kamera oder Smartphone.",
+            "rubric": [
+              "Dienstag 18–20 Uhr, 60 Euro und Freitag sind enthalten.",
+              "Die Notiz ist klar und kurz."
+            ]
+          },
+          {
+            "id": "sitov-exam-b1-w05-u01-t03",
+            "version": 1,
+            "skill": "writing",
+            "type": "writing",
+            "title": "Eine Information weitergeben",
+            "instruction": "Schreiben Sie Ben eine kurze Nachricht mit den wichtigsten Kursinformationen. Fragen Sie, ob er teilnehmen möchte. Verändern Sie die Angaben nicht.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "writing",
+            "formatFamily": "lesen_schreiben",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Fotokurs: Dienstag 18–20 Uhr; 6 Termine; 60 Euro; Anmeldung bis Freitag; eigene Kamera oder Smartphone.",
+            "rubric": [
+              "Tag, Zeit, Preis und Frist sind korrekt übertragen.",
+              "Eine Frage zur Teilnahme ist enthalten."
+            ]
+          }
+        ],
+        "releaseStatus": "published"
+      },
+      {
+        "id": "sitov-exam-b1-w05-u02",
+        "moduleId": "sitov-exam-b1-w05",
+        "title": "Hören und notieren",
+        "description": "Zahlen und Bedingungen in eine Notiz übertragen.",
+        "order": 2,
+        "kind": "listening",
+        "required": true,
+        "estimatedMinutes": 7,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-w05-u02-t01",
+            "version": 1,
+            "skill": "listening",
+            "type": "choice",
+            "title": "Die richtige Frist",
+            "instruction": "Bis wann soll Erik sich anmelden?",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "listening",
+            "formatFamily": "hoeren_schreiben",
+            "estimatedMinutes": 2,
+            "releaseStatus": "awaiting_media",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "options": [
+              {
+                "id": "a",
+                "text": "Bis Montag."
+              },
+              {
+                "id": "b",
+                "text": "Bis Donnerstag."
+              },
+              {
+                "id": "c",
+                "text": "Bis zum 12. November."
+              }
+            ],
+            "correctAnswer": "a",
+            "explanation": "Montag ist die Anmeldefrist; der 12. November ist der Kursbeginn.",
+            "evidence": "Melde dich bis Montag telefonisch an.",
+            "audio": {
+              "id": "sitov-exam-b1-workshop-notes-v1",
+              "script": "Hallo Erik, hier ist Ben. Ich habe im Stadtteilzentrum nach dem Fotografiekurs gefragt. Er beginnt am zwölften November und findet viermal donnerstags von neunzehn bis einundzwanzig Uhr statt. Der Kurs kostet insgesamt achtundvierzig Euro. Eine eigene Kamera ist hilfreich, aber du kannst auch dein Smartphone benutzen. Es gibt noch zwei freie Plätze. Melde dich bis Montag telefonisch an. Die Nummer steht auf der Internetseite. Ich kann leider nicht teilnehmen, weil ich donnerstags arbeite.",
+              "status": "awaiting_recording",
+              "route": "qwen",
+              "roles": [
+                "Männlicher Sprecher"
+              ],
+              "notes": "Lokal auf dem Mac mit Qwen3-TTS-12Hz-1.7B-Base und sitov-qwen-male-de-v1 vorberechnen; echte Forced-Alignment-Wortzeitmarken prüfen und in Audio-Storage importieren. Kein Ersatz-TTS."
+            }
+          },
+          {
+            "id": "sitov-exam-b1-w05-u02-t02",
+            "version": 1,
+            "skill": "writing",
+            "type": "writing",
+            "title": "Die Hörnotiz",
+            "instruction": "Notieren Sie Kursbeginn, Wochentag und Zeit, Gesamtpreis und Anmeldung. Achten Sie darauf, Beginn und Anmeldefrist zu unterscheiden.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "writing",
+            "formatFamily": "hoeren_schreiben",
+            "estimatedMinutes": 2,
+            "releaseStatus": "awaiting_media",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "12. November, Donnerstag 19–21 Uhr, 48 Euro und Anmeldung bis Montag telefonisch sind enthalten."
+            ],
+            "audio": {
+              "id": "sitov-exam-b1-workshop-notes-v1",
+              "script": "Hallo Erik, hier ist Ben. Ich habe im Stadtteilzentrum nach dem Fotografiekurs gefragt. Er beginnt am zwölften November und findet viermal donnerstags von neunzehn bis einundzwanzig Uhr statt. Der Kurs kostet insgesamt achtundvierzig Euro. Eine eigene Kamera ist hilfreich, aber du kannst auch dein Smartphone benutzen. Es gibt noch zwei freie Plätze. Melde dich bis Montag telefonisch an. Die Nummer steht auf der Internetseite. Ich kann leider nicht teilnehmen, weil ich donnerstags arbeite.",
+              "status": "awaiting_recording",
+              "route": "qwen",
+              "roles": [
+                "Männlicher Sprecher"
+              ],
+              "notes": "Lokal auf dem Mac mit Qwen3-TTS-12Hz-1.7B-Base und sitov-qwen-male-de-v1 vorberechnen; echte Forced-Alignment-Wortzeitmarken prüfen und in Audio-Storage importieren. Kein Ersatz-TTS."
+            }
+          },
+          {
+            "id": "sitov-exam-b1-w05-u02-t03",
+            "version": 1,
+            "skill": "writing",
+            "type": "writing",
+            "title": "Eine Nachricht aus dem Gehörten",
+            "instruction": "Schreiben Sie Erik eine kurze Nachricht. Geben Sie die Kursdaten weiter und erklären Sie, ob er unbedingt eine Kamera braucht.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "writing",
+            "formatFamily": "hoeren_schreiben",
+            "estimatedMinutes": 3,
+            "releaseStatus": "awaiting_media",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "Die Kursdaten sind korrekt.",
+              "Ein Smartphone kann genutzt werden.",
+              "Die Nachricht ist verständlich."
+            ],
+            "audio": {
+              "id": "sitov-exam-b1-workshop-notes-v1",
+              "script": "Hallo Erik, hier ist Ben. Ich habe im Stadtteilzentrum nach dem Fotografiekurs gefragt. Er beginnt am zwölften November und findet viermal donnerstags von neunzehn bis einundzwanzig Uhr statt. Der Kurs kostet insgesamt achtundvierzig Euro. Eine eigene Kamera ist hilfreich, aber du kannst auch dein Smartphone benutzen. Es gibt noch zwei freie Plätze. Melde dich bis Montag telefonisch an. Die Nummer steht auf der Internetseite. Ich kann leider nicht teilnehmen, weil ich donnerstags arbeite.",
+              "status": "awaiting_recording",
+              "route": "qwen",
+              "roles": [
+                "Männlicher Sprecher"
+              ],
+              "notes": "Lokal auf dem Mac mit Qwen3-TTS-12Hz-1.7B-Base und sitov-qwen-male-de-v1 vorberechnen; echte Forced-Alignment-Wortzeitmarken prüfen und in Audio-Storage importieren. Kein Ersatz-TTS."
+            }
+          }
+        ],
+        "releaseStatus": "published"
+      },
+      {
+        "id": "sitov-exam-b1-w05-u03",
+        "moduleId": "sitov-exam-b1-w05",
+        "title": "Sprachbausteine im Text",
+        "description": "Form und Bedeutung gemeinsam prüfen.",
+        "order": 3,
+        "kind": "vocabulary",
+        "required": true,
+        "estimatedMinutes": 6,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-w05-u03-t01",
+            "version": 1,
+            "skill": "vocabulary",
+            "type": "choice",
+            "title": "Ein Grund im Zusammenhang",
+            "instruction": "Ergänzen Sie: „Ich melde mich für den Kurs an, ___ ich Fotos besser machen möchte.“",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "vocabulary",
+            "formatFamily": "sprachbausteine",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "options": [
+              {
+                "id": "a",
+                "text": "weil"
+              },
+              {
+                "id": "b",
+                "text": "obwohl"
+              },
+              {
+                "id": "c",
+                "text": "trotz"
+              }
+            ],
+            "correctAnswer": "a",
+            "explanation": "Weil leitet hier den Grund ein.",
+            "evidence": "ich Fotos besser machen möchte"
+          },
+          {
+            "id": "sitov-exam-b1-w05-u03-t02",
+            "version": 1,
+            "skill": "vocabulary",
+            "type": "choice",
+            "title": "Die richtige Zeitverbindung",
+            "instruction": "Ergänzen Sie: „Der Kurs beginnt ___ 19 Uhr.“",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "vocabulary",
+            "formatFamily": "sprachbausteine",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "options": [
+              {
+                "id": "a",
+                "text": "am"
+              },
+              {
+                "id": "b",
+                "text": "um"
+              },
+              {
+                "id": "c",
+                "text": "im"
+              }
+            ],
+            "correctAnswer": "b",
+            "explanation": "Eine Uhrzeit wird mit um angegeben.",
+            "evidence": "um 19 Uhr"
+          },
+          {
+            "id": "sitov-exam-b1-w05-u03-t03",
+            "version": 1,
+            "skill": "vocabulary",
+            "type": "choice",
+            "title": "Eine höfliche Frage",
+            "instruction": "Ergänzen Sie: „Könnten Sie mir bitte sagen, ___ noch ein Platz frei ist?“",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "vocabulary",
+            "formatFamily": "sprachbausteine",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "options": [
+              {
+                "id": "a",
+                "text": "ob"
+              },
+              {
+                "id": "b",
+                "text": "weil"
+              },
+              {
+                "id": "c",
+                "text": "seit"
+              }
+            ],
+            "correctAnswer": "a",
+            "explanation": "Ob leitet die indirekte Ja-/Nein-Frage ein.",
+            "evidence": "ob noch ein Platz frei ist"
+          }
+        ],
+        "releaseStatus": "published"
+      },
+      {
+        "id": "sitov-exam-b1-w05-u04",
+        "moduleId": "sitov-exam-b1-w05",
+        "title": "Wortliste sinnvoll einsetzen",
+        "description": "Bedeutung und Satzbau statt bloßem Raten.",
+        "order": 4,
+        "kind": "vocabulary",
+        "required": true,
+        "estimatedMinutes": 6,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-w05-u04-t01",
+            "version": 1,
+            "skill": "vocabulary",
+            "type": "matching",
+            "title": "Lücken im Zusammenhang",
+            "instruction": "Ordnen Sie die Wörter den Lücken zu.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "vocabulary",
+            "formatFamily": "sprachbausteine",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Ich möchte mich für den Kurs (1). Leider kann ich am ersten Termin nicht (2). Könnten Sie mir den neuen Termin (3)?",
+            "prompts": [
+              {
+                "id": "p1",
+                "text": "Lücke 1"
+              },
+              {
+                "id": "p2",
+                "text": "Lücke 2"
+              },
+              {
+                "id": "p3",
+                "text": "Lücke 3"
+              }
+            ],
+            "options": [
+              {
+                "id": "a",
+                "text": "bestätigen"
+              },
+              {
+                "id": "b",
+                "text": "anmelden"
+              },
+              {
+                "id": "c",
+                "text": "teilnehmen"
+              }
+            ],
+            "correctAnswer": [
+              "b",
+              "c",
+              "a"
+            ],
+            "explanation": "Sich anmelden, teilnehmen und einen Termin bestätigen passen zu den jeweiligen Aussagen.",
+            "evidence": "Ich möchte mich für den Kurs (1). Leider kann ich am ersten Termin nicht (2). Könnten Sie mir den neuen Termin (3)?",
+            "words": [
+              {
+                "word": "teilnehmen",
+                "example": "Ich möchte am nächsten Lerntreff teilnehmen."
+              },
+              {
+                "word": "bestätigen",
+                "example": "Könnten Sie mir den Termin bitte bestätigen?"
+              }
+            ]
+          },
+          {
+            "id": "sitov-exam-b1-w05-u04-t02",
+            "version": 1,
+            "skill": "vocabulary",
+            "type": "writing",
+            "title": "Ein Wort aktiv einsetzen",
+            "instruction": "Schreiben Sie einen eigenen Satz mit „teilnehmen“ und eine verständliche Frage mit „bestätigen“.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "vocabulary",
+            "formatFamily": "sprachbausteine",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "Beide Wörter werden sinnvoll im Zusammenhang verwendet."
+            ]
+          },
+          {
+            "id": "sitov-exam-b1-w05-u04-t03",
+            "version": 1,
+            "skill": "writing",
+            "type": "writing",
+            "title": "Ein neuer Zusammenhang",
+            "instruction": "Schreiben Sie eine kurze Nachricht über einen Lerntreff. Verwenden Sie „anmelden“ oder „teilnehmen“ sinnvoll. Die Aussage soll zu einer selbst gewählten Situation passen.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "writing",
+            "formatFamily": "nachricht",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "Alle geforderten Inhaltspunkte sind verständlich enthalten.",
+              "Ansprache und Gruß passen zum Empfänger.",
+              "Sätze sind sinnvoll verbunden.",
+              "Wortschatz und sprachliche Mittel passen zur Situation.",
+              "Prüfen Sie nach der Rückmeldung Ihren Text und verbessern Sie eine Stelle."
+            ]
+          }
+        ],
+        "releaseStatus": "published"
+      },
+      {
+        "id": "sitov-exam-b1-w05-u05",
+        "moduleId": "sitov-exam-b1-w05",
+        "title": "Quellen nicht verwechseln",
+        "description": "Gelesene und gehörte Informationen genau übertragen.",
+        "order": 5,
+        "kind": "transfer",
+        "required": true,
+        "estimatedMinutes": 6,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-w05-u05-t01",
+            "version": 1,
+            "skill": "reading",
+            "type": "choice",
+            "title": "Die neue Angabe prüfen",
+            "instruction": "Alter Aushang: Kurs 60 Euro. Neue E-Mail: Preis jetzt 48 Euro, Termine unverändert. Was gilt laut neuer E-Mail?",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "reading",
+            "formatFamily": "lesen_schreiben",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "options": [
+              {
+                "id": "a",
+                "text": "48 Euro."
+              },
+              {
+                "id": "b",
+                "text": "60 Euro."
+              },
+              {
+                "id": "c",
+                "text": "Beide Preise gleichzeitig."
+              }
+            ],
+            "correctAnswer": "a",
+            "explanation": "Die neue E-Mail ändert nur den Preis.",
+            "evidence": "Preis jetzt 48 Euro",
+            "text": "Alter Aushang: Kurs 60 Euro. Neue E-Mail: Preis jetzt 48 Euro, Termine unverändert."
+          },
+          {
+            "id": "sitov-exam-b1-w05-u05-t02",
+            "version": 1,
+            "skill": "writing",
+            "type": "writing",
+            "title": "Eine Änderung weitergeben",
+            "instruction": "Schreiben Sie Ben: Der Preis wurde von 60 auf 48 Euro geändert. Die Termine bleiben gleich. Geben Sie beide Informationen klar weiter.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "writing",
+            "formatFamily": "lesen_schreiben",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "Neuer Preis 48 Euro und unveränderte Termine sind enthalten.",
+              "Die alte Information wird nicht als aktuelle Angabe benutzt."
+            ]
+          },
+          {
+            "id": "sitov-exam-b1-w05-u05-t03",
+            "version": 1,
+            "skill": "writing",
+            "type": "writing",
+            "title": "Eine Unsicherheit nennen",
+            "instruction": "Sie wissen nicht, ob noch Plätze frei sind. Schreiben Sie eine Frage an die Kursstelle, statt eine freie Anmeldung zu behaupten.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "writing",
+            "formatFamily": "nachricht",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "Alle geforderten Inhaltspunkte sind verständlich enthalten.",
+              "Ansprache und Gruß passen zum Empfänger.",
+              "Sätze sind sinnvoll verbunden.",
+              "Wortschatz und sprachliche Mittel passen zur Situation.",
+              "Prüfen Sie nach der Rückmeldung Ihren Text und verbessern Sie eine Stelle."
+            ]
+          }
+        ],
+        "releaseStatus": "published"
+      },
+      {
+        "id": "sitov-exam-b1-w05-u06",
+        "moduleId": "sitov-exam-b1-w05",
+        "title": "Eine neue Notiz und Nachricht",
+        "description": "Unbekannte Informationen ohne Vorlage verarbeiten.",
+        "order": 6,
+        "kind": "transfer",
+        "required": true,
+        "estimatedMinutes": 8,
+        "tasks": [
+          {
+            "id": "sitov-exam-b1-w05-u06-t01",
+            "version": 1,
+            "skill": "writing",
+            "type": "writing",
+            "title": "Neue Lesennotiz",
+            "instruction": "Notieren Sie die wichtigen Angaben: Smartphone-Sprechstunde im Stadtteilzentrum, Montag 11–12 Uhr, kostenlos, Anmeldung bis Samstag, Gerät und Ladekabel mitbringen. Wählen Sie nur Informationen, die ein Teilnehmer braucht.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "writing",
+            "formatFamily": "lesen_schreiben",
+            "estimatedMinutes": 2,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Smartphone-Sprechstunde im Stadtteilzentrum: Montag 11–12 Uhr. Kostenlos. Anmeldung bis Samstag. Bitte Gerät und Ladekabel mitbringen.",
+            "rubric": [
+              "Montag 11–12 Uhr, kostenlos, Anmeldung bis Samstag sowie Gerät und Ladekabel sind enthalten."
+            ]
+          },
+          {
+            "id": "sitov-exam-b1-w05-u06-t02",
+            "version": 1,
+            "skill": "writing",
+            "type": "writing",
+            "title": "Neue Nachricht",
+            "instruction": "Ihr Freund Tom möchte teilnehmen. Schreiben Sie ihm die wichtigen Angaben und fragen Sie, ob Sie gemeinsam gehen sollen.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "writing",
+            "formatFamily": "lesen_schreiben",
+            "estimatedMinutes": 3,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "text": "Smartphone-Sprechstunde im Stadtteilzentrum: Montag 11–12 Uhr. Kostenlos. Anmeldung bis Samstag. Bitte Gerät und Ladekabel mitbringen.",
+            "rubric": [
+              "Die Informationen werden korrekt übertragen.",
+              "Eine Frage nach gemeinsamem Besuch ist enthalten.",
+              "Die Nachricht ist verständlich."
+            ]
+          },
+          {
+            "id": "sitov-exam-b1-w05-u06-t03",
+            "version": 1,
+            "skill": "speaking",
+            "type": "speaking",
+            "title": "Informationen frei weitergeben",
+            "instruction": "Erklären Sie Tom mündlich, was er für die Sprechstunde wissen muss. Formulieren Sie mit eigenen Worten. Fragen Sie nach seinem Interesse.",
+            "hints": [],
+            "profiles": [
+              "general_b1",
+              "dtz_a2_b1",
+              "telc_deutsch_b1",
+              "goethe_b1",
+              "oesd_zb1",
+              "telc_deutsch_a2_b1",
+              "oesd_zdoe_b1"
+            ],
+            "competency": "speaking",
+            "formatFamily": "transfer",
+            "estimatedMinutes": 3,
+            "releaseStatus": "published",
+            "provenance": "Eigener Inhalt von Sitov Academy, 03.10.2026; unabhängig vom geschützten Lehrbuch erstellt. Fachliche Pilotfreigabe erforderlich.",
+            "rubric": [
+              "Der Auftrag wird verständlich erfüllt.",
+              "Die Aussagen hängen sinnvoll zusammen.",
+              "Eigene oder erfundene Erfahrungen werden klar erzählt.",
+              "Fragen oder Partneräußerungen werden aufgegriffen.",
+              "Nach der Rückmeldung wird eine Stelle verbessert oder eine Reflexion gespeichert."
+            ]
+          }
+        ],
+        "releaseStatus": "published"
+      }
+    ],
+    "releaseStatus": "published"
+  }
+]

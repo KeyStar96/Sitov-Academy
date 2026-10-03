@@ -1,0 +1,41 @@
+.shell { min-width: 0; color: var(--foreground); }
+.stack { display: grid; gap: 1.25rem; min-width: 0; }
+.tabs { display: flex; gap: .5rem; flex-wrap: wrap; }
+.filters { display: grid; gap: .75rem; grid-template-columns: 1fr; }
+.workspace { display: grid; gap: 1rem; align-items: start; min-width: 0; }
+.list { display: grid; gap: .5rem; min-width: 0; }
+.item { width: 100%; min-height: 4.5rem; padding: 1rem; border: 1px solid var(--admin-line); border-radius: .875rem; background: var(--surface); text-align: left; color: var(--foreground); transition: border-color var(--motion-fast, 120ms), background var(--motion-fast, 120ms); }
+.item[aria-pressed="true"] { border-color: var(--accent); background: var(--accent-soft); }
+.itemTitle { display: flex; gap: .65rem; justify-content: space-between; align-items: flex-start; font-weight: 600; overflow-wrap: anywhere; }
+.meta { margin-top: .35rem; display: flex; flex-wrap: wrap; gap: .35rem .75rem; font-size: .8125rem; color: var(--muted); line-height: 1.5; }
+.detail { min-width: 0; border: 1px solid var(--admin-line); border-radius: 1rem; padding: 1rem; background: var(--surface); }
+.heading { margin: 0; font-size: 1.15rem; font-weight: 650; line-height: 1.4; overflow-wrap: anywhere; }
+.muted { color: var(--muted); line-height: 1.6; font-size: .9375rem; }
+.text { white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.7; }
+.inset { border: 1px solid var(--admin-line); border-radius: .75rem; background: var(--surface-muted); padding: 1rem; min-width: 0; }
+.sectionTitle { font-size: 1rem; line-height: 1.5; font-weight: 650; margin: 0 0 .5rem; }
+.fields { display: grid; gap: 1rem; }
+.field { min-width: 0; }
+.row { display: flex; align-items: center; flex-wrap: wrap; gap: .75rem; }
+.audio { display: block; width: 100%; margin-top: .65rem; }
+.image { display: block; width: 100%; height: auto; max-height: 24rem; object-fit: contain; border-radius: .75rem; background: var(--surface-muted); }
+.empty { padding: 2rem 1.25rem; border: 1px dashed var(--admin-line-strong); border-radius: 1rem; text-align: center; }
+.notice { padding: .85rem 1rem; border-radius: .75rem; border: 1px solid var(--admin-line-strong); line-height: 1.5; }
+.notice[data-error="true"] { color: var(--danger); }
+.notice[data-error="false"] { color: var(--success); }
+.fold { border-top: 1px solid var(--admin-line); padding-top: .75rem; }
+.fold > summary { min-height: 3rem; display: flex; align-items: center; cursor: pointer; font-weight: 600; list-style: revert; }
+.fold > div { margin-top: .75rem; }
+.pill { display: inline-flex; align-items: center; gap: .35rem; font-size: .75rem; font-weight: 600; padding: .15rem .5rem; border-radius: .4rem; background: var(--surface-muted); color: var(--muted); line-height: 1.6; white-space: nowrap; }
+.rubric { display: grid; gap: .5rem; padding-left: 1.25rem; font-size: .9375rem; line-height: 1.6; }
+.check { display: flex; align-items: flex-start; gap: .65rem; min-height: 3rem; padding: .65rem 0; line-height: 1.5; }
+.check input { width: 1.15rem; height: 1.15rem; margin-top: .2rem; accent-color: var(--accent); flex: none; }
+.file { min-height: 3rem; width: 100%; border: 1px solid var(--admin-line-strong); padding: .5rem; border-radius: .75rem; font-size: 1rem; background: var(--surface); }
+.file::file-selector-button { min-height: 2.5rem; border: 0; border-radius: .5rem; padding: .25rem .75rem; margin-right: .5rem; color: var(--foreground); background: var(--surface-muted); }
+.sessions { display: grid; gap: .75rem; }
+.session { border: 1px solid var(--admin-line); border-radius: .75rem; padding: .75rem 1rem; background: var(--surface); }
+.solution { border-left: 2px solid var(--accent); padding-left: .75rem; }
+.pre { white-space: pre-wrap; overflow-wrap: anywhere; font-family: inherit; font-size: .9375rem; line-height: 1.75; }
+@media (min-width: 640px) { .filters { grid-template-columns: repeat(3, minmax(0, 1fr)); } .detail { padding: 1.5rem; } .sessions { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (min-width: 1000px) { .workspace { grid-template-columns: minmax(15rem, .8fr) minmax(0, 1.7fr); } .list { position: sticky; top: 1rem; max-height: calc(100dvh - 8rem); overflow-y: auto; overscroll-behavior: contain; padding: 2px; } }
+@media (prefers-reduced-motion: reduce) { .item { transition: none; } }

@@ -1,6 +1,7 @@
 import type { CertificateFunctions, CertificateTables } from './certificates.types'
 import type { DailyQuestTables } from './daily-quests.types'
 import type { LearningCheckpointTables } from './learning-checkpoints.types'
+import type { ExamPreparationTables } from './exam-preparation.types'
 
 export type Json =
   | string
@@ -31,7 +32,7 @@ export type Database = {
     PostgrestVersion: "14.6"
   }
   public: {
-    Tables: CertificateTables & DailyQuestTables & LearningCheckpointTables & {
+    Tables: CertificateTables & DailyQuestTables & LearningCheckpointTables & ExamPreparationTables & {
       sitov_audio_preparation_requests: {
         Row: {
           cache_path: string

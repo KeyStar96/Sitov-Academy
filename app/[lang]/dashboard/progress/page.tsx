@@ -7,6 +7,9 @@ import { ACCESS_LEVELS, hasLevelAccess, hasTrainerAccess } from '@/lib/access/le
 import { loadLastActiveLevel } from '@/lib/last-active-level'
 import StudentProgress from '@/components/progress/StudentProgress'
 import SitovProgressHeader from '@/components/progress/SitovProgressHeader'
+import { getExamState } from '@/app/actions/exam-preparation'
+import { getPublicExamCatalog } from '@/lib/exam-preparation/server'
+import ExamProgressCard from '@/components/exam-preparation/ExamProgressCard'
 
 /**
  * „Mein Fortschritt" (Phase 11.3): Tageswerte mit Prozent, Verlauf und je
@@ -24,8 +27,10 @@ export default async function ProgressPage({ params }: { params: Promise<{ lang:
   // Problemwörter gehören zum Vokabeltrainer; der braucht eine andere Oberflächensprache als Deutsch.
   const focusLevels = lang === 'de' ? [] : levels.filter(level => hasTrainerAccess(access, level, 'vocabulary'))
   const focusLevel = focusLevels.find(level => level === lastActive?.level) ?? focusLevels[0] ?? null
+  const exam = levels.some(level => level.startsWith('B1.')) ? await Promise.all([getExamState(),getPublicExamCatalog()]).catch(()=>null) : null
   return <div className="space-y-6">
     <SitovProgressHeader lang={lang} />
     <StudentProgress initial={initial.success ? initial.data : null} levels={levels} lang={lang} translations={dict.vocabulary ?? {}} focusLevel={focusLevel} focusLevels={focusLevels} />
+    {exam && <ExamProgressCard lang={lang} state={exam[0]} modules={exam[1].modules} workshops={exam[1].workshops} />}
   </div>
 }
