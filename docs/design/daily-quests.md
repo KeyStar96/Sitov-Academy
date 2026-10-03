@@ -167,3 +167,36 @@ for preparation and must be restored. The compiler choice does not disable
 TypeScript, artifact verification, memory guards or rollback protections.
 Thirteen deployment contract tests cover both compiler choices and early
 rejection of invalid values. Default preparation continues to use Turbopack.
+
+## Male-character release verification — 2026-10-03
+
+Application release `e81eb7b5c2a5` activated at **13:59:29 Europe/Berlin
+(CEST)** after the bounded Webpack build and migration 64. The protected
+backup is `/root/backups/sitov-migration-20261003T115910217143Z`; its PostgreSQL
+archive, roles, bucket metadata and 1,202 Storage objects were captured and
+checksummed by the established migration runner. Release audit files remain
+root-only in `/root/sitov-male-character-release-20261003/`.
+
+- 99 targeted Jest tests, 22 database tests (including native PostgreSQL
+  concurrency and ACL tests), and 25 deployment/migration contract tests passed.
+  TypeScript, targeted ESLint, local/VPS production builds and whitespace checks
+  passed. The build retains the existing unrelated SoftErrorBadge JSON import
+  warning.
+- All six authenticated staff preview RPC responses pass the male-character
+  checks; both database constraints are validated. No non-male character voices,
+  old bakery image references or Mara hosts remain in templates/assignments.
+- Before/after hashes confirm that all five production assignments retain
+  their complete state outside the intended snapshot edits; private grading
+  keys, login claims, preferences and streak fields are identical.
+- Real scene, word, sentence and dialogue synthesis requests all return
+  `X-TTS-Voice: male`, playable MP3 and word timings. No TTS reinstall was needed.
+- Production health, versioned illustration and male pilot MP3 return HTTPS 200.
+  App, mail and TTS are active; Studio and Analytics were restored and healthy
+  after build preparation.
+- Browser QA confirmed the male illustration and Martin/Lukas labels in the
+  actual engine with the production A1 preview payload, rendered through a
+  temporary development-only route. That route was removed after the check.
+  The archived pilot also played its new male MP3. The engine screenshot is
+  [`sitov-male-bakery-check.jpg`](./sitov-male-bakery-check.jpg). Production UI
+  playback in an authenticated browser session was not claimed; real-service
+  checks and the authenticated read-only preview RPC checks are recorded above.
