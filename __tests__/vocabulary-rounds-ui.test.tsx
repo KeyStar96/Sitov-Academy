@@ -1,3 +1,8 @@
+jest.mock('@/app/actions/learning-checkpoints', () => ({
+  loadLearningCheckpoint: jest.fn().mockResolvedValue({ ok: true, learnerId: '00000000-0000-4000-8000-000000000001', checkpoint: null }),
+  saveLearningCheckpoint: jest.fn(async (_kind, _level, state, revision) => ({ ok: true, learnerId: '00000000-0000-4000-8000-000000000001', checkpoint: { state, revision: revision + 1, updatedAt: '2026-10-03T09:00:00Z' } })),
+  clearLearningCheckpoint: jest.fn(async (_kind, _level, revision) => ({ ok: true, learnerId: '00000000-0000-4000-8000-000000000001', checkpoint: { state: {}, revision: revision + 1, updatedAt: '2026-10-03T09:00:00Z' } })),
+}))
 import React from 'react'
 import { randomUUID } from 'node:crypto'
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react'
@@ -68,7 +73,7 @@ it('repeats an unknown word inside its round and pauses after each round until t
 
   expect(await screen.findByText('Alle 12 Karten für heute geschafft – in 2 Runden.')).toBeInTheDocument()
   expect(screen.queryByRole('button', { name: /Weiter mit/ })).not.toBeInTheDocument()
-  fireEvent.click(screen.getByRole('button', { name: v.lernkasten_back }))
+  await act(async () => fireEvent.click(screen.getByRole('button', { name: v.lernkasten_back })))
   expect(back).toHaveBeenCalledWith('word-12')
 }, 20000)
 
@@ -86,7 +91,7 @@ it('offers a break with a way back to the learning box', async () => {
   const back = jest.fn()
   render(<VocabCardSession learnerId={learnerId} cards={deck(11)} translations={v} overviewHref="/ru/dashboard" roundSize={10} onBackToLernkasten={back} />)
   for (let i = 0; i < 10; i++) await rate(true)
-  fireEvent.click(await screen.findByRole('button', { name: r.round_pause }))
+  await act(async () => fireEvent.click(await screen.findByRole('button', { name: r.round_pause })))
   expect(back).toHaveBeenCalledWith('word-10')
   expect(screen.getByRole('button', { name: 'Weiter mit der letzten Karte' })).toBeInTheDocument()
 }, 20000)

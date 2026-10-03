@@ -76,6 +76,7 @@ export default function LearningPathClient({ initialPath, initialError, lang, le
   const workspace = useRef<HTMLDivElement>(null)
   const stage = useRef<HTMLDivElement>(null)
   const pending = useRef<{ key: string; requestId: string } | null>(null)
+  const resumedInitialCheckpoint = useRef(false)
   const exercise = run ? run.exercises.find(item => item.id === run.queue[0])
     : test?.exercises.find(item => item.answer === null)
   const selectedPath = map?.paths.find(path => path.id === selection?.pathId)
@@ -84,6 +85,19 @@ export default function LearningPathClient({ initialPath, initialError, lang, le
 
   useEffect(() => {
     try { setTranslationOpen(window.localStorage.getItem(TRANSLATION_KEY) === 'open') } catch { /* nur Bequemlichkeit */ }
+  }, [])
+
+  useEffect(() => {
+    if (resumedInitialCheckpoint.current) return
+    resumedInitialCheckpoint.current = true
+    const nodeId = initialPath?.resume_node_id
+    if (!nodeId) return
+    for (const path of initialPath.paths) {
+      const node = path.nodes.find(item => item.id === nodeId && item.available)
+      if (node) { openNode(node, path.title, path.id, true); return }
+    }
+    // A server checkpoint is consumed once per mount. Later map refreshes stay on the map.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   function toggleTranslation() {
@@ -130,7 +144,7 @@ export default function LearningPathClient({ initialPath, initialError, lang, le
       } else {
         const result = await startLearningNode(node.id, lang)
         if (result.error) { setError(result.error); return }
-        setRun(result.data); setTest(null); setCardShown(Boolean(result.data.merkkarte))
+        setRun(result.data); setTest(null); setCardShown(Boolean(result.data.merkkarte) && node.status !== 'in_progress')
       }
       setSelection({ node, title, pathId }); setFeedback(null); setTestResult(null); setReview(null); setStep(0); pending.current = null
       // Erst wenn der Knoten wirklich offen ist, gilt er als geöffnet; die Zähler folgen beim Zurück zur Karte.
@@ -148,11 +162,25 @@ export default function LearningPathClient({ initialPath, initialError, lang, le
         if (pending.current?.key !== key) pending.current = { key, requestId: crypto.randomUUID() }
         const result = await submitLearningAnswer({ runId: run.run_id, exerciseId: exercise.id,
           answer, requestId: pending.current.requestId, locale: lang })
-        if (result.error) { setError(result.error); return }
+        if (result.error) {
+          if (result.error === 'answer_out_of_order' || result.error === 'request_conflict') {
+            // Another device has already moved the account queue forward.
+            const current = await startLearningNode(run.node_id, lang)
+            if (current.data) { setRun(current.data); setFeedback(null); setCardShown(false); setStep(previous => previous + 1); pending.current = null }
+          }
+          setError(result.error); return
+        }
         setFeedback(result.data)
       } else if (test) {
         const result = await saveLearningTestAnswer({ attemptId: test.attempt_id, exerciseId: exercise.id, answer })
-        if (result.error) { setError(result.error); return }
+        if (result.error) {
+          if (result.error === 'request_conflict') {
+            // Restore saved answers instead of overwriting a newer device's answer.
+            const current = await startLearningTest(test.node_id, lang)
+            if (current.data) { setTest(current.data); setStep(previous => previous + 1) }
+          }
+          setError(result.error); return
+        }
         setTest({ ...test, exercises: test.exercises.map(item => item.id === exercise.id ? { ...item, answer } : item) })
         setStep(previous => previous + 1)
       }

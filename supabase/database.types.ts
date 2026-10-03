@@ -1,5 +1,6 @@
 import type { CertificateFunctions, CertificateTables } from './certificates.types'
 import type { DailyQuestTables } from './daily-quests.types'
+import type { LearningCheckpointTables } from './learning-checkpoints.types'
 
 export type Json =
   | string
@@ -28,7 +29,7 @@ export type Database = {
     PostgrestVersion: "14.6"
   }
   public: {
-    Tables: CertificateTables & DailyQuestTables & {
+    Tables: CertificateTables & DailyQuestTables & LearningCheckpointTables & {
       booking_items: {
         Row: {
           amount: number
@@ -2259,6 +2260,8 @@ export type Database = {
       [_ in never]: never
     }
     Functions: CertificateFunctions & DailyQuestFunctions & {
+      sitov_record_grammar_checkpoint_attempt: { Args: { p_exercise_id: string; p_answer: string; p_hint_shown: boolean; p_level: string; p_expected_revision: number; p_request_id: string }; Returns: Json }
+      sitov_learning_checkpoint: { Args: { p_action: string; p_kind: string; p_level: string; p_state?: Json; p_expected_revision?: number | null }; Returns: Json }
       add_own_vocabulary: {
         Args: {
           p_article: string

@@ -17,6 +17,8 @@ import { createPronunciationTranslator, type PronunciationTranslations } from '@
 import type { PronunciationConversation } from '@/lib/pronunciation-conversations'
 import type { PronunciationPrompt } from '@/lib/pronunciation-prompts'
 import { studentTranslator } from '@/lib/student-ui-i18n'
+import { usePronunciationCheckpoint } from '@/lib/audio/usePronunciationCheckpoint'
+import type { PronunciationCheckpointSnapshot } from '@/lib/pronunciation-checkpoint'
 
 export type StudioTab = 'studio' | 'mailbox'
 type TextStatus = 'new' | 'sent' | 'answered' | 'unread'
@@ -38,7 +40,7 @@ function textStatuses(conversations: readonly PronunciationConversation[]): Map<
  * Die drei Schritte leuchten nacheinander auf, die Texte stehen als Karten mit
  * ihrem Stand da, und beim Anhören des Vorbilds liest man Wort für Wort mit.
  */
-export default function PronunciationStudio({ prompts, conversations, level, lang, translations, initialTab = 'studio', newItems, focusConversation }: {
+export default function PronunciationStudio({ prompts, conversations, level, lang, translations, initialTab = 'studio', newItems, focusConversation, checkpoint, checkpointUnavailable, learnerId }: {
   prompts: readonly PronunciationPrompt[]
   conversations: PronunciationConversation[]
   level: string
@@ -49,6 +51,9 @@ export default function PronunciationStudio({ prompts, conversations, level, lan
   newItems?: LearningNewItems
   /** Gespräch aus dem Link der Benachrichtigungs-Mail; wird beim Laden geöffnet. */
   focusConversation?: string
+  checkpoint?: PronunciationCheckpointSnapshot | null
+  checkpointUnavailable?: boolean
+  learnerId?: string
 }) {
   const s = studentTranslator(lang)
   const router = useRouter()
@@ -89,16 +94,17 @@ export default function PronunciationStudio({ prompts, conversations, level, lan
         ))}
       </div>
 
-      <div role="tabpanel" id={`studio-panel-${tab}`} aria-labelledby={`studio-tab-${tab}`}>
-        {tab === 'studio'
-          ? <Studio prompts={prompts} statuses={statuses} level={level} lang={lang} translations={translations} newItems={newItems} onOpenMailbox={() => switchTab('mailbox')} />
-          : <Mailbox conversations={conversations} lang={lang} translations={translations} focusId={focusConversation} />}
+      <div role="tabpanel" id="studio-panel-studio" aria-labelledby="studio-tab-studio" hidden={tab !== 'studio'}>
+        <Studio prompts={prompts} statuses={statuses} level={level} lang={lang} translations={translations} newItems={newItems} onOpenMailbox={() => switchTab('mailbox')} checkpoint={checkpoint} checkpointUnavailable={checkpointUnavailable} learnerId={learnerId} />
+      </div>
+      <div role="tabpanel" id="studio-panel-mailbox" aria-labelledby="studio-tab-mailbox" hidden={tab !== 'mailbox'}>
+        {tab === 'mailbox' && <Mailbox conversations={conversations} lang={lang} translations={translations} focusId={focusConversation} />}
       </div>
     </div>
   )
 }
 
-function Studio({ prompts, statuses, level, lang, translations, onOpenMailbox, newItems }: {
+function Studio({ prompts, statuses, level, lang, translations, onOpenMailbox, newItems, checkpoint, checkpointUnavailable, learnerId }: {
   prompts: readonly PronunciationPrompt[]
   statuses: Map<string, TextStatus>
   level: string
@@ -106,16 +112,19 @@ function Studio({ prompts, statuses, level, lang, translations, onOpenMailbox, n
   translations: PronunciationTranslations
   onOpenMailbox: () => void
   newItems?: LearningNewItems
+  checkpoint?: PronunciationCheckpointSnapshot | null
+  checkpointUnavailable?: boolean
+  learnerId?: string
 }) {
   const t = createPronunciationTranslator(translations)
   const s = studentTranslator(lang)
   const news = useLearningNew(newItems)
   const reduced = useReducedMotion() ?? false
-  // Start beim ersten Text, der noch nicht aufgenommen ist.
-  const [selectedId, setSelectedId] = useState(() => (prompts.find(prompt => !statuses.has(prompt.id)) ?? prompts[0])?.id)
+  const saved = usePronunciationCheckpoint({ level, prompts, initial: checkpoint, initialUnavailable: checkpointUnavailable, learnerId,
+    fallbackPromptId: (prompts.find(prompt => !statuses.has(prompt.id)) ?? prompts[0])?.id })
+  const selectedId = saved.reading.promptId
   const [recordingBusy, setRecordingBusy] = useState(false)
   const [phase, setPhase] = useState<RecorderPhase>('idle')
-  const [listened, setListened] = useState(false)
   const [following, setFollowing] = useState<number | null>(null)
   const [activeWordIndex, setActiveWordIndex] = useState<number | null>(null)
   const cards = useRef<HTMLUListElement>(null)
@@ -129,15 +138,16 @@ function Studio({ prompts, statuses, level, lang, translations, onOpenMailbox, n
   }, [selected?.sentenceDe, selected?.audioUrl])
 
   useEffect(() => {
-    setListened(false); setFollowing(null); setActiveWordIndex(null); setPhase('idle')
+    setFollowing(null); setActiveWordIndex(null); setPhase('idle')
     const card = cards.current?.querySelector<HTMLElement>('[aria-pressed="true"]')
     card?.scrollIntoView?.({ block: 'nearest', inline: 'center', behavior: reduced ? 'instant' : 'smooth' })
   }, [selectedId, reduced])
 
+  const referenceProgress = saved.referenceProgress
   const onReferenceProgress = useCallback((fraction: number | null) => {
     setFollowing(fraction)
-    if (fraction !== null && fraction > 0) setListened(true)
-  }, [])
+    referenceProgress(fraction)
+  }, [referenceProgress])
 
   if (!selected) {
     return <section className="st-empty st-empty--hero"><BookOpen className="mx-auto text-[var(--accent-text)]" size={32} aria-hidden="true" /><h2>{t('prompts_empty')}</h2><p>{t('prompts_empty_hint')}</p></section>
@@ -151,7 +161,7 @@ function Studio({ prompts, statuses, level, lang, translations, onOpenMailbox, n
     : phase === 'submitted' ? 2
       : answered ? 3
         : sent ? 2
-          : listened ? 1 : 0
+          : saved.reading.listened ? 1 : 0
   const steps = [
     { key: 'studio_step_listen', icon: Headphones },
     { key: 'studio_step_record', icon: Mic },
@@ -160,6 +170,10 @@ function Studio({ prompts, statuses, level, lang, translations, onOpenMailbox, n
 
   return (
     <div className="space-y-6">
+      {saved.notice && <p role={saved.notice === 'failed' ? 'alert' : 'status'} className="flex flex-wrap items-center justify-between gap-3 text-sm text-[var(--muted)]">
+        <span>{t(saved.notice === 'failed' ? 'checkpoint_failed' : saved.notice === 'conflict' ? 'checkpoint_conflict' : saved.notice === 'saving' ? 'checkpoint_saving' : 'checkpoint_saved')}</span>
+        {saved.notice === 'failed' && <button type="button" className="st-button st-button--quiet min-h-12" onClick={() => void saved.retry()}>{t('audio_retry')}</button>}
+      </p>}
       <ol className="st-steps" aria-label={s('studio_steps')}>
         {steps.map((step, index) => {
           const state = index < active ? 'done' : index === active ? 'active' : 'todo'
@@ -184,7 +198,7 @@ function Studio({ prompts, statuses, level, lang, translations, onOpenMailbox, n
               const isSelected = prompt.id === selected.id
               return (
                 <li key={prompt.id} className="st-textcards__item" style={{ '--i': Math.min(index, 8) } as CSSProperties}>
-                  <button type="button" aria-pressed={isSelected} disabled={recordingBusy && !isSelected} onClick={() => { news.mark('pronunciation_text', prompt.id); setSelectedId(prompt.id) }}
+                  <button type="button" aria-pressed={isSelected} disabled={recordingBusy && !isSelected} onClick={() => { news.mark('pronunciation_text', prompt.id); saved.select(prompt.id) }}
                     className="st-textcard st-press" data-status={textStatus}>
                     <span className="st-textcard__number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
                     <span className="st-textcard__title">{prompt.title ?? prompt.sentenceDe}{news.isNew('pronunciation_text', prompt.id) && <NewBadge label={s('media_new')} className="st-new-item" />}</span>
@@ -219,9 +233,12 @@ function Studio({ prompts, statuses, level, lang, translations, onOpenMailbox, n
               <p className="st-reading__follow"><Headphones size={18} aria-hidden="true" />{s('studio_follow')}</p>
               <div className="mt-4 space-y-3">
                 {useOriginalReference
-                  ? <WaveformPlayer src={selected.audioUrl} level={level} t={t} label={t('reference_listen')}
-                      onProgress={state => onReferenceProgress(state.playing || (state.fraction > 0 && !state.ended) ? state.fraction : null)} />
-                  : <SolutionAudioButton text={selected.sentenceDe} audioUrl={hasTeacherReference ? null : selected.audioUrl} level={level} language="de"
+                  ? <WaveformPlayer key={`${selected.id}:${saved.restoreVersion}`} src={selected.audioUrl} level={level} t={t} label={t('reference_listen')} initialProgress={saved.initialProgress}
+                      onProgress={state => {
+                        if (state.fraction > 0) onReferenceProgress(state.fraction)
+                        if (!state.playing) onReferenceProgress(null)
+                      }} />
+                  : <SolutionAudioButton key={`${selected.id}:${saved.restoreVersion}`} text={selected.sentenceDe} audioUrl={hasTeacherReference ? null : selected.audioUrl} level={level} language="de" initialProgress={saved.initialProgress}
                       label={t('reference_listen')} ariaLabel={t('reference_listen_aria')} onProgress={onReferenceProgress} onWordChange={setActiveWordIndex} />}
               </div>
             </div>

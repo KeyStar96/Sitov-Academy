@@ -1,10 +1,10 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import type { MediaAsset } from '@/lib/media'
 import { mediaCopy } from '@/lib/media-i18n'
 
-export default function MediaAssetViewer({ asset, lang, allowVideoDownload = false, autoOpen = false, bare = false, startAt = 0, onTime }: {
+export default function MediaAssetViewer({ asset, lang, allowVideoDownload = false, autoOpen = false, bare = false, startAt = 0, onTime, onCheckpoint, paused = false }: {
   asset: MediaAsset
   lang: string
   allowVideoDownload?: boolean
@@ -15,6 +15,8 @@ export default function MediaAssetViewer({ asset, lang, allowVideoDownload = fal
   /** „Weiterschauen": Startposition in Sekunden. */
   startAt?: number
   onTime?: (seconds: number, duration: number) => void
+  onCheckpoint?: (seconds: number, duration: number) => void
+  paused?: boolean
 }) {
   const t = mediaCopy(lang)
   const canDownload = asset.kind !== 'videos' || allowVideoDownload
@@ -28,6 +30,20 @@ export default function MediaAssetViewer({ asset, lang, allowVideoDownload = fal
   const generation = useRef(0)
   const inFlight = useRef(false)
   const viewing = useRef(false)
+  const checkpoint = useRef(onCheckpoint)
+  checkpoint.current = onCheckpoint
+  function savePosition() { if (video.current) checkpoint.current?.(video.current.currentTime, video.current.duration) }
+  useLayoutEffect(() => {
+    const node = video.current
+    return () => { if (node) checkpoint.current?.(node.currentTime, node.duration) }
+  }, [url])
+  useEffect(() => { if (paused) video.current?.pause() }, [paused])
+  useEffect(() => {
+    const save = () => savePosition()
+    const hidden = () => { if (document.visibilityState === 'hidden') save() }
+    window.addEventListener('pagehide', save); document.addEventListener('visibilitychange', hidden)
+    return () => { save(); window.removeEventListener('pagehide', save); document.removeEventListener('visibilitychange', hidden) }
+  }, [])
   function close() { viewing.current = false; generation.current++; setUrl(null); if (timer.current) clearTimeout(timer.current) }
   useEffect(() => () => { viewing.current = false; generation.current++; if (timer.current) clearTimeout(timer.current) }, [])
   useEffect(() => { if (autoOpen) void open() }, [autoOpen])
@@ -66,7 +82,7 @@ export default function MediaAssetViewer({ asset, lang, allowVideoDownload = fal
       {canDownload && <button disabled={busy} onClick={() => void open(true)} className={bare ? 'st-button st-button--soft st-press' : 'min-h-12 rounded-lg border border-[var(--border)] px-4'}>{t.download}</button>}</div>
     {busy && <p role="status">{t.loading}</p>}{error && <p role="alert">{t.accessFailed}</p>}
     {url && (asset.kind === 'videos' ? <video ref={video} controls controlsList={canDownload ? undefined : 'nodownload'} onContextMenu={canDownload ? undefined : event => event.preventDefault()} playsInline preload="metadata" src={url} aria-label={asset.title} className="aspect-video w-full rounded-lg bg-black" onLoadedMetadata={() => { if (video.current) { video.current.currentTime = position.current; if (resume.current) void video.current.play().catch(() => {}) } }}
-      onTimeUpdate={() => { if (video.current && onTime) onTime(video.current.currentTime, video.current.duration) }} onError={() => { close(); setError(true) }} />
+      onTimeUpdate={() => { if (video.current && onTime) onTime(video.current.currentTime, video.current.duration) }} onPause={savePosition} onSeeked={savePosition} onEnded={savePosition} onError={() => { savePosition(); close(); setError(true) }} />
       : <iframe title={asset.title} src={url} className="h-[65vh] w-full rounded-lg border border-[var(--border)]" />)}
   </article>
 }

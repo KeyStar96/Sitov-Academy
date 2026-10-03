@@ -36,9 +36,13 @@ export async function getVocabularyFocus(level: string, lang: string): Promise<F
 export async function submitVocabularyFocusAnswer(input: unknown): Promise<FocusResult<FocusAnswerResult>> {
   const parsed = focusAnswerInputSchema.safeParse(input)
   if (!parsed.success) return { success: false, error: 'failed' }
-  const { requestId, cardId, format, answer, lang } = parsed.data
+  const { requestId, cardId, format, answer, lang, expectedLearnerId } = parsed.data
   try {
     const supabase = await createClient()
+    if (expectedLearnerId) {
+      const { data: { user }, error } = await supabase.auth.getUser()
+      if (error || user?.id !== expectedLearnerId) return { success: false, error: 'not_authenticated' }
+    }
     const { data, error } = await supabase.rpc('submit_vocabulary_focus_answer', {
       p_request_id: requestId, p_card_id: cardId, p_format: format, p_answer: answer, p_ui_language: lang,
     })

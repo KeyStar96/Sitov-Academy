@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback, useEffect, useRef, type KeyboardEvent } from 'react'
+import { useCallback, useEffect, useLayoutEffect, useRef, type KeyboardEvent } from 'react'
 import { FastForward, Loader2, Pause, Play, RotateCcw } from 'lucide-react'
 import FluidWaveform from '@/components/audio/FluidWaveform'
 import { useAudioPlayback } from '@/lib/audio/useAudioPlayback'
@@ -28,6 +28,7 @@ export default function WaveformPlayer({
   compact = false,
   fastToggle = false,
   onProgress,
+  initialProgress = 0,
 }: {
   src: string | null
   /** Rohdaten der eigenen Aufnahme – auf iOS zuverlässiger zu dekodieren als nur die Blob-URL. */
@@ -42,6 +43,8 @@ export default function WaveformPlayer({
   fastToggle?: boolean
   /** Abspielstand für Mitlese-Hervorhebung und „gehört"-Markierung. */
   onProgress?: (state: { playing: boolean; fraction: number; ended: boolean }) => void
+  /** Resume the account's saved reading position once the recording is ready. */
+  initialProgress?: number
 }) {
   const translate: PronunciationTranslator = t ?? defaultTranslator
   const [learnerSpeed, setSpeed] = usePlaybackRate(level)
@@ -49,9 +52,36 @@ export default function WaveformPlayer({
   const speed = fastToggle ? (fast ? FAST_PLAYBACK_RATE : 1) : learnerSpeed
 
   const playback = useAudioPlayback(src, speed, blob)
-  useEffect(() => () => playback.pause(), [playback.pause])
+  const { duration: referenceDuration, seek: seekReference } = playback
+  const restore = useRef(initialProgress > 0 && initialProgress < 0.99 ? initialProgress : null)
+  useEffect(() => {
+    if (restore.current === null || referenceDuration <= 0) return
+    const fraction = restore.current
+    restore.current = null
+    seekReference(fraction * referenceDuration)
+  }, [referenceDuration, seekReference])
   const progressCallback = useRef(onProgress)
   progressCallback.current = onProgress
+  const audioElement = playback.htmlAudioRef
+  useLayoutEffect(() => {
+    // React clears object refs before passive cleanup. Capture the native node
+    // now so navigation saves its actual clock, including the last fraction.
+    const audio = audioElement.current
+    const capturePosition = () => {
+      if (audio && Number.isFinite(audio.duration) && audio.duration > 0) progressCallback.current?.({
+        playing: false, fraction: Math.min(1, audio.currentTime / audio.duration), ended: audio.currentTime >= audio.duration - 0.05,
+      })
+    }
+    const hidden = () => { if (document.visibilityState === 'hidden') capturePosition() }
+    window.addEventListener('pagehide', capturePosition)
+    document.addEventListener('visibilitychange', hidden)
+    return () => {
+      capturePosition()
+      window.removeEventListener('pagehide', capturePosition)
+      document.removeEventListener('visibilitychange', hidden)
+      audio?.pause()
+    }
+  }, [audioElement, src])
   const fraction = playbackProgress(playback.currentTime, playback.duration)
   const ended = !playback.isPlaying && playback.duration > 0 && playback.currentTime >= playback.duration - 0.05
   useEffect(() => {

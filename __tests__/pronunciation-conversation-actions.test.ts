@@ -1,6 +1,7 @@
 /** @jest-environment node */
 import { queueTransactionalEmail } from '@/lib/mail'
 import { createPronunciationSubmission, getPronunciationConversations, sendPronunciationMessage } from '@/app/actions/pronunciation-conversations'
+import { revalidatePath } from 'next/cache'
 
 const owner = '6aab2f11-3456-4234-8234-123456789012'
 const other = '7aab2f11-3456-4234-8234-123456789012'
@@ -34,6 +35,7 @@ beforeEach(() => {
  process.env.NEXT_PUBLIC_SUPABASE_URL = 'https://217.154.228.254/supabase'
  process.env.SUPABASE_INTERNAL_URL = 'http://127.0.0.1:9080'
  jest.clearAllMocks()
+ jest.mocked(revalidatePath).mockReset()
  mockGetUser.mockResolvedValue({data:{user:{id:owner}}})
  mockRpc.mockResolvedValue({data:promptId,error:null})
  mockSignedUrl.mockResolvedValue({data:{signedUrl:`http://127.0.0.1:9080/storage/v1/object/sign/pronunciation_audio/${owner}/recording.webm?token=a%2Bb%3D`},error:null})
@@ -64,6 +66,15 @@ describe('authenticated pronunciation writes', () => {
   const messages = query({id:promptId}); mockFrom.mockReturnValue(messages)
   await sendPronunciationMessage({submissionId:promptId,text:'Danke!',audioPath:null})
   expect(messages.insert).toHaveBeenCalledWith({submission_id:promptId,sender_id:owner,text_content:'Danke!',audio_path:null})
+ })
+ it('acknowledges committed recordings and messages even when cache refresh fails', async () => {
+  const log = jest.spyOn(console, 'error').mockImplementation(() => {})
+  jest.mocked(revalidatePath).mockImplementation(() => { throw new Error('cache unavailable') })
+  mockFrom.mockReturnValue(query({ id: promptId }))
+  try {
+   expect(await createPronunciationSubmission({ promptId, audioPath: path })).toEqual({ success: true, id: promptId })
+   expect(await sendPronunciationMessage({ submissionId: promptId, text: 'Danke!' })).toEqual({ success: true, id: promptId })
+  } finally { log.mockRestore() }
  })
 })
 describe('teacher feedback notifications (Phase 6.2)', () => {

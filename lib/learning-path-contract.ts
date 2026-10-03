@@ -35,6 +35,7 @@ export const pathNodeSchema = z.object({ id: pathIdSchema, kind: z.enum(['practi
   tests: z.array(z.object({ id: pathIdSchema, status: z.enum(['active', 'completed', 'abandoned']),
     percentage: z.number().nullable(), passed: z.boolean().nullable(), completed_at: z.string().nullable().optional() })) })
 export const pathMapSchema = z.object({ level: pathLevelSchema, completed: z.boolean(),
+  resume_node_id: pathIdSchema.nullable().optional(),
   next_level: z.string().nullable(), next_level_available: z.boolean(),
   paths: z.array(z.object({ id: pathIdSchema, source_id: text, title: text, sort_order: z.number(),
     available: z.boolean(), completed: z.boolean(), nodes: z.array(pathNodeSchema) })) })

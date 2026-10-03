@@ -19,6 +19,15 @@ import {
 import { readAllRows } from '@/lib/supabase-read'
 import { grammarExerciseSchema, type GrammarContentRow } from '@/lib/learning-content'
 import { answerGradeSchema } from '@/lib/answer-grading'
+import { sitovCheckpointSchema, sitovCheckpointTarget, type LearningCheckpointResult, type LearningCheckpoint } from '@/lib/learning-checkpoints'
+
+const sitovGrammarGradeSchema = z.intersection(answerGradeSchema, z.object({
+  success: z.literal(true), attempts: z.number().int().nonnegative(), isCorrect: z.boolean(), score: z.number().min(0).max(100),
+})).refine(value => value.isCorrect === (value.status !== 'INCORRECT'))
+  .refine(value => value.status !== 'SOFT_ERROR' || value.score <= 90)
+
+type SitovGrammarAttemptResult = { ok: true; grade: Extract<RecordExerciseAttemptResult, { success: true }>; checkpoint: LearningCheckpoint; learnerId: string }
+  | Extract<LearningCheckpointResult, { ok: false }>
 
 type ExerciseRow = GrammarContentRow
 
@@ -260,7 +269,8 @@ export async function getExercises(level?: string, uiLanguage = 'de'): Promise<S
  * Übungsliste neu filtern und den Lernenden aus dem Kontext reißen.
  */
 export async function recordExerciseAttempt(
-  input: RecordExerciseAttemptInput
+  input: RecordExerciseAttemptInput,
+  expectedLearnerId?: string,
 ): Promise<RecordExerciseAttemptResult> {
   try {
     const supabase = await createClient()
@@ -268,7 +278,7 @@ export async function recordExerciseAttempt(
       data: { user },
     } = await supabase.auth.getUser()
 
-    if (!user) return { success: false, attempts: 0 }
+    if (!user || (expectedLearnerId !== undefined && expectedLearnerId !== user.id)) return { success: false, attempts: 0 }
 
     const parsed = z.object({
       exerciseId: z.uuid(), answer: z.string().trim().min(1).max(1000), hintShown: z.boolean(),
@@ -283,16 +293,40 @@ export async function recordExerciseAttempt(
       console.error("Grammar attempt could not be saved:")
       return { success: false, attempts: 0 }
     }
-    const result = z.intersection(answerGradeSchema, z.object({
-      success: z.literal(true), attempts: z.number().int().nonnegative(), isCorrect: z.boolean(),
-      score: z.number().min(0).max(100),
-    })).refine(value => value.isCorrect === (value.status !== 'INCORRECT'))
-      .refine(value => value.status !== 'SOFT_ERROR' || value.score <= 90).safeParse(data)
+    const result = sitovGrammarGradeSchema.safeParse(data)
     return result.success ? result.data : { success: false, attempts: 0 }
   } catch (err) {
     console.error("Unerwarteter Fehler in recordExerciseAttempt:")
     return { success: false, attempts: 0 }
   }
+}
+
+/** The verified grade, retry receipt and next account cursor share one SQL transaction. */
+export async function recordGrammarCheckpointAttempt(input: RecordExerciseAttemptInput, context: {
+  level: string; expectedRevision: number; requestId: string; expectedLearnerId?: string
+}): Promise<SitovGrammarAttemptResult> {
+  const parsed = z.object({ exerciseId: z.uuid(), answer: z.string().trim().min(1).max(1000), hintShown: z.boolean() }).safeParse(input)
+  const target = sitovCheckpointTarget.safeParse({ kind: 'exercises', level: context.level })
+  if (!parsed.success || !target.success || !z.uuid().safeParse(context.requestId).success
+    || !Number.isSafeInteger(context.expectedRevision) || context.expectedRevision < 1) return { ok: false, error: 'invalid' }
+  try {
+    const supabase = await createClient()
+    const { data: { user }, error: authError } = await supabase.auth.getUser()
+    if (authError || !user || (context.expectedLearnerId !== undefined && context.expectedLearnerId !== user.id)) return { ok: false, error: 'unauthorized' }
+    const { data, error } = await supabase.rpc('sitov_record_grammar_checkpoint_attempt', {
+      p_exercise_id: parsed.data.exerciseId, p_answer: parsed.data.answer, p_hint_shown: parsed.data.hintShown,
+      p_level: context.level, p_expected_revision: context.expectedRevision, p_request_id: context.requestId,
+    })
+    if (error) return { ok: false, error: 'unavailable' }
+    const failure = z.object({ error: z.string(), checkpoint: z.unknown().optional() }).safeParse(data)
+    if (failure.success) {
+      const checkpoint = sitovCheckpointSchema.safeParse(failure.data.checkpoint)
+      return { ok: false, error: failure.data.error === 'conflict' ? 'conflict' : ['not_authenticated', 'not_authorized'].includes(failure.data.error) ? 'unauthorized' : failure.data.error === 'invalid_input' ? 'invalid' : 'unavailable', checkpoint: checkpoint.success ? checkpoint.data : null }
+    }
+    const result = z.object({ grade: sitovGrammarGradeSchema, checkpoint: sitovCheckpointSchema }).safeParse(data)
+    return result.success ? { ok: true, grade: result.data.grade as Extract<RecordExerciseAttemptResult, { success: true }>,
+      checkpoint: result.data.checkpoint, learnerId: user.id } : { ok: false, error: 'unavailable' }
+  } catch { return { ok: false, error: 'unavailable' } }
 }
 
 /**

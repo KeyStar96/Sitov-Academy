@@ -238,10 +238,11 @@ describe('Reiter „Lernen" folgt get_last_active_level', () => {
     expect(learn()).toHaveAttribute('href', '/de/dashboard/level/A1.2')
   })
 
-  it('nutzt den Browser-Speicher nur, wenn die Abfrage scheitert', () => {
+  it('nutzt bei einer fehlgeschlagenen Abfrage einen accountneutralen Rückfall', () => {
     window.localStorage.setItem('sitov:last-level', 'A1.2')
     render(<StudentNavigation lang="de" firstLevel="A1.1" levels={['A1.1', 'A1.2']} supportLabels={labels} />)
-    expect(learn()).toHaveAttribute('href', '/de/dashboard/level/A1.2')
+    expect(learn()).toHaveAttribute('href', '/de/dashboard/level/A1.1')
+    expect(window.localStorage.getItem('sitov:last-level')).toBeNull()
   })
 
   it('fällt ohne Ergebnis auf das erste freigeschaltete Niveau zurück und ignoriert gesperrte', () => {

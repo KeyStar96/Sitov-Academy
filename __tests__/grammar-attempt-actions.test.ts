@@ -1,4 +1,4 @@
-import { recordExerciseAttempt } from '@/app/actions/exercises'
+import { recordExerciseAttempt, recordGrammarCheckpointAttempt } from '@/app/actions/exercises'
 import { createClient } from '@/utils/supabase/server'
 
 jest.mock('@/utils/supabase/server', () => ({ createClient: jest.fn() }))
@@ -45,4 +45,37 @@ it('does not treat a structured RPC error as a solved answer', async () => {
   const log = jest.spyOn(console, 'error').mockImplementation(() => {})
   try { expect(await recordExerciseAttempt(input)).toEqual({ success: false, attempts: 0 }) }
   finally { log.mockRestore() }
+})
+
+it('rejects an attempt from a stale browser after the signed-in account changes', async () => {
+  const rpc = setup(grade)
+  expect(await recordExerciseAttempt(input, 'previous-student')).toEqual({ success: false, attempts: 0 })
+  expect(rpc).not.toHaveBeenCalled()
+})
+
+const context = { level: 'A1.1', expectedRevision: 1, requestId: '00000000-0000-4000-8000-000000000010', expectedLearnerId: 'student' }
+const checkpoint = { state: { exerciseIds: [input.exerciseId], currentIndex: 1 }, revision: 2, updatedAt: '2026-10-03T10:00:00Z' }
+
+it('returns the grade and account cursor saved by one authenticated transaction', async () => {
+  const rpc = setup({ grade, checkpoint })
+  expect(await recordGrammarCheckpointAttempt(input, context)).toEqual({ ok: true, grade, checkpoint, learnerId: 'student' })
+  expect(rpc).toHaveBeenCalledWith('sitov_record_grammar_checkpoint_attempt', {
+    p_exercise_id: input.exerciseId, p_answer: input.answer, p_hint_shown: false, p_level: 'A1.1', p_expected_revision: 1, p_request_id: context.requestId,
+  })
+})
+
+it('preserves a bare SQL conflict and its authoritative checkpoint for a stale device', async () => {
+  setup({ error: 'conflict', checkpoint })
+  expect(await recordGrammarCheckpointAttempt(input, context)).toEqual({ ok: false, error: 'conflict', checkpoint })
+})
+
+it('never grades a stale account session against the replacement account', async () => {
+  const rpc = setup({ grade, checkpoint })
+  expect(await recordGrammarCheckpointAttempt(input, { ...context, expectedLearnerId: 'old-student' })).toEqual({ ok: false, error: 'unauthorized' })
+  expect(rpc).not.toHaveBeenCalled()
+})
+
+it('rejects an invalid atomic grade instead of advancing the session', async () => {
+  setup({ grade: { ...grade, score: 100 }, checkpoint })
+  expect(await recordGrammarCheckpointAttempt(input, context)).toEqual({ ok: false, error: 'unavailable' })
 })

@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback, useEffect, useRef, useState, type SyntheticEvent } from 'react'
+import { useCallback, useEffect, useLayoutEffect, useRef, useState, type SyntheticEvent } from 'react'
 import { Loader2, Pause, Volume2 } from 'lucide-react'
 import { useAudioFeedback } from '@/components/layout/RouteFeedbackProvider'
 import { cachedNeuralAudio, cachedNeuralWordTimings, invalidateNeuralAudio, neuralAudioKey, resolveNeuralAudio, type NeuralAudioSource } from '@/lib/audio/neural-client'
@@ -23,6 +23,8 @@ interface SolutionAudioButtonProps {
   onUnsupported?: () => void
   /** Abspielstand (0–1) für die Mitlese-Hervorhebung; `null`, sobald nichts mehr läuft. */
   onProgress?: (fraction: number | null) => void
+  /** Position loaded from the learner's account; applied once to native playback. */
+  initialProgress?: number
 }
 
 // 10 ms of PCM silence. An actual play() in the tap unlocks this same native
@@ -62,7 +64,7 @@ export default function SolutionAudioButton(props: SolutionAudioButtonProps) {
   </div>
 }
 
-function NeuralAudioPlayer({ text, audioUrl, cardId, language, aligned, rate, onSlowReplay, label, ariaLabel, variant = 'primary', onUnsupported, onProgress, onWordChange }: SolutionAudioButtonProps & { language: NeuralAudioLanguage; aligned?: boolean; rate: number; onSlowReplay: () => void }) {
+function NeuralAudioPlayer({ text, audioUrl, cardId, language, aligned, rate, onSlowReplay, label, ariaLabel, variant = 'primary', onUnsupported, onProgress, onWordChange, initialProgress = 0 }: SolutionAudioButtonProps & { language: NeuralAudioLanguage; aligned?: boolean; rate: number; onSlowReplay: () => void }) {
   const copy = useAudioFeedback()
   const source = useRef<NeuralAudioSource>({ text, audioUrl, cardId, language, aligned }).current
   const [url, setUrl] = useState(() => cachedNeuralAudio(source))
@@ -75,6 +77,13 @@ function NeuralAudioPlayer({ text, audioUrl, cardId, language, aligned, rate, on
   const requestRef = useRef(0)
   const pendingRef = useRef(false)
   const primingRef = useRef(false)
+  const restoreRef = useRef(initialProgress > 0 && initialProgress < 0.99 ? initialProgress : null)
+  const restorePosition = useCallback(() => {
+    const audio = audioRef.current
+    if (!audio || primingRef.current || restoreRef.current === null || !Number.isFinite(audio.duration) || audio.duration <= 0) return
+    try { audio.currentTime = audio.duration * restoreRef.current; restoreRef.current = null }
+    catch { /* A later metadata event retries a source that is not ready yet. */ }
+  }, [])
 
   const rateRef = useRef(rate)
   rateRef.current = rate
@@ -89,8 +98,7 @@ function NeuralAudioPlayer({ text, audioUrl, cardId, language, aligned, rate, on
     progressRef.current.onProgress?.(null)
     progressRef.current.onWordChange?.(null)
   }, [])
-  const reportPosition = useCallback(() => {
-    const audio = audioRef.current
+  const reportNativePosition = useCallback((audio: HTMLAudioElement | null) => {
     if (!audio || primingRef.current) return
     if (Number.isFinite(audio.duration) && audio.duration > 0) progressRef.current.onProgress?.(Math.min(1, audio.currentTime / audio.duration))
     const index = currentWordIndex(cachedNeuralWordTimings(source) ?? [], audio.currentTime)
@@ -99,6 +107,7 @@ function NeuralAudioPlayer({ text, audioUrl, cardId, language, aligned, rate, on
       progressRef.current.onWordChange?.(index)
     }
   }, [source])
+  const reportPosition = useCallback(() => reportNativePosition(audioRef.current), [reportNativePosition])
   useEffect(() => {
     if (!isPlaying) return
     const follow = () => { reportPosition(); frameRef.current = requestAnimationFrame(follow) }
@@ -111,6 +120,7 @@ function NeuralAudioPlayer({ text, audioUrl, cardId, language, aligned, rate, on
   }, [rate])
 
   const cancel = useCallback((audio = audioRef.current) => {
+    reportNativePosition(audio)
     requestRef.current += 1
     pendingRef.current = false
     primingRef.current = false
@@ -118,13 +128,21 @@ function NeuralAudioPlayer({ text, audioUrl, cardId, language, aligned, rate, on
     stopFollowing()
     audio?.pause()
     if (aliveRef.current) { setLoading(false); setIsPlaying(false) }
-  }, [stopFollowing])
+  }, [reportNativePosition, stopFollowing])
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     aliveRef.current = true
     const audio = audioRef.current
-    return () => { aliveRef.current = false; cancel(audio) }
-  }, [cancel])
+    const capturePosition = () => { reportNativePosition(audio); stopFollowing() }
+    const hidden = () => { if (document.visibilityState === 'hidden') capturePosition() }
+    window.addEventListener('pagehide', capturePosition)
+    document.addEventListener('visibilitychange', hidden)
+    return () => {
+      window.removeEventListener('pagehide', capturePosition)
+      document.removeEventListener('visibilitychange', hidden)
+      aliveRef.current = false; cancel(audio)
+    }
+  }, [cancel, reportNativePosition, stopFollowing])
 
   useEffect(() => {
     if (url || !text.trim()) return
@@ -156,6 +174,7 @@ function NeuralAudioPlayer({ text, audioUrl, cardId, language, aligned, rate, on
     if (audio.getAttribute('src') !== nextUrl) audio.src = nextUrl
     audio.preservesPitch = true
     audio.playbackRate = rateRef.current
+    restorePosition()
     try {
       await audio.play()
     } catch (reason: unknown) {
@@ -224,6 +243,7 @@ function NeuralAudioPlayer({ text, audioUrl, cardId, language, aligned, rate, on
           if (!audio) return
           audio.playbackRate = 0.75
           if (!primingRef.current) audio.currentTime = 0
+          restoreRef.current = null
           lastWordRef.current = null
           progressRef.current.onWordChange?.(null)
           if (!isPlaying && !pendingRef.current) handleClick()
@@ -245,10 +265,12 @@ function NeuralAudioPlayer({ text, audioUrl, cardId, language, aligned, rate, on
           }
         }}
         onTimeUpdate={reportPosition}
+        onLoadedMetadata={restorePosition}
+        onCanPlay={restorePosition}
         onSeeked={reportPosition}
         onWaiting={() => { if (!primingRef.current) { setLoading(true); setIsPlaying(false); stopFollowing() } }}
-        onPause={() => { if (!primingRef.current) { setIsPlaying(false); stopFollowing() } }}
-        onEnded={() => { if (!primingRef.current) { setIsPlaying(false); setLoading(false); stopFollowing() } }}
+        onPause={() => { if (!primingRef.current) { reportPosition(); setIsPlaying(false); stopFollowing() } }}
+        onEnded={() => { if (!primingRef.current) { reportPosition(); setIsPlaying(false); setLoading(false); stopFollowing() } }}
         onError={() => {
           if (!primingRef.current && audioRef.current?.getAttribute('src')) {
             cancel(); setError(true)

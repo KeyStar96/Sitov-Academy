@@ -122,6 +122,35 @@ it('resumes unanswered test items, saves without grading and shows server final 
   expect(finishLearningTest).toHaveBeenCalledWith(id, 'en')
 })
 
+it('restores newer saved test answers after a stale device conflicts', async () => {
+  const first: PathTest = { attempt_id: id, node_id: id, total: 2, exercises: [
+    { ...run.exercises[0], answer: null }, { id: nextId, type: 'fill_in_blank', answer: null, content: { text_before: 'Du', text_after: 'da.' } },
+  ] }
+  jest.mocked(startLearningTest).mockResolvedValueOnce({ data: first }).mockResolvedValueOnce({ data: {
+    ...first, exercises: first.exercises.map(item => item.id === id ? { ...item, answer: { text: 'saved on iPhone' } } : item),
+  } })
+  jest.mocked(saveLearningTestAnswer).mockResolvedValueOnce({ error: 'request_conflict' })
+  render(<LearningPathClient initialPath={{ ...map, paths: [{ ...map.paths[0], nodes: [{ ...node, kind: 'test' }] }] }} level="A1.1" lang="en" />)
+  fireEvent.click(screen.getByTestId(`path-node-${id}`))
+  fireEvent.change(await screen.findByTestId('path-answer'), { target: { value: 'stale iPad answer' } })
+  fireEvent.click(screen.getByTestId('path-check'))
+  await screen.findByRole('alert')
+  expect(startLearningTest).toHaveBeenCalledTimes(2)
+  expect(screen.getByTestId('path-exercise')).toHaveAttribute('data-exercise-id', nextId)
+  expect(screen.getByText('1 of 2 exercises completed')).toBeInTheDocument()
+})
+
+it('automatically opens the saved account node at its current server queue after a device switch', async () => {
+  jest.mocked(startLearningNode).mockResolvedValueOnce({ data: { ...run, total: 2, queue: [nextId],
+    exercises: [{ ...run.exercises[0], id: nextId }] } })
+  render(<LearningPathClient initialPath={{ ...map, resume_node_id: id, paths: [{ ...map.paths[0], nodes: [{ ...node, status: 'in_progress' }] }] }} level="A1.1" lang="en" />)
+  expect(await screen.findByTestId('path-answer')).toBeInTheDocument()
+  expect(startLearningNode).toHaveBeenCalledWith(id, 'en')
+  expect(screen.queryByTestId('path-rule-card')).not.toBeInTheDocument()
+  expect(screen.getByTestId('path-exercise')).toHaveAttribute('data-exercise-id', nextId)
+  expect(screen.getByText('1 of 2 exercises completed')).toBeInTheDocument()
+})
+
 describe('always-open section tests', () => {
   const testId = '00000000-0000-4000-8000-000000000004'
   const lockedPath: PathMap = { ...map, paths: [{ ...map.paths[0], available: false, nodes: [

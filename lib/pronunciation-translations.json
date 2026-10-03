@@ -92,7 +92,12 @@
     "undo": "Rückgängig",
     "undo_failed": "Rückgängig machen hat nicht geklappt. Bitte versuche es erneut.",
     "message_restored": "Die Nachricht ist wieder sichtbar.",
-    "submission_restored": "Aufnahme und Gespräch sind wieder sichtbar."
+    "submission_restored": "Aufnahme und Gespräch sind wieder sichtbar.",
+    "checkpoint_saving": "Dein Lernstand wird im Konto gespeichert …",
+    "checkpoint_saved": "Lernstand im Konto gespeichert.",
+    "checkpoint_failed": "Dein Lernstand konnte gerade nicht im Konto gespeichert werden. Bitte versuche es erneut.",
+    "checkpoint_conflict": "Du hast auf einem anderen Gerät weitergemacht. Der neuere Lernstand wurde geladen.",
+    "receipt_failed": "Die Lesebestätigung konnte gerade nicht im Konto gespeichert werden."
   },
   "en": {
     "subtitle": "Choose a reading passage, listen carefully and read it aloud. Improve your pronunciation step by step in a conversation with your teacher.",
@@ -187,7 +192,12 @@
     "undo": "Undo",
     "undo_failed": "Undo did not work. Please try again.",
     "message_restored": "The message is visible again.",
-    "submission_restored": "The recording and conversation are visible again."
+    "submission_restored": "The recording and conversation are visible again.",
+    "checkpoint_saving": "Saving your checkpoint to your account …",
+    "checkpoint_saved": "Checkpoint saved to your account.",
+    "checkpoint_failed": "Your checkpoint could not be saved to your account. Please try again.",
+    "checkpoint_conflict": "You continued on another device. Your newer checkpoint has been loaded.",
+    "receipt_failed": "Your read receipt could not be saved to your account."
   },
   "ru": {
     "subtitle": "Выберите текст, внимательно послушайте и прочитайте его вслух. Обсуждайте произношение с преподавателем и улучшайте его шаг за шагом.",
@@ -282,7 +292,12 @@
     "undo": "Отменить",
     "undo_failed": "Не удалось отменить действие. Повторите попытку.",
     "message_restored": "Сообщение снова отображается.",
-    "submission_restored": "Запись и диалог снова отображаются."
+    "submission_restored": "Запись и диалог снова отображаются.",
+    "checkpoint_saving": "Сохраняем прогресс в вашем аккаунте …",
+    "checkpoint_saved": "Прогресс сохранён в вашем аккаунте.",
+    "checkpoint_failed": "Не удалось сохранить прогресс в вашем аккаунте. Попробуйте ещё раз.",
+    "checkpoint_conflict": "Вы продолжили на другом устройстве. Загружен более новый прогресс.",
+    "receipt_failed": "Не удалось сохранить отметку о прочтении в вашем аккаунте."
   },
   "uk": {
     "subtitle": "Виберіть текст, уважно послухайте та прочитайте його вголос. Обговорюйте вимову з викладачем і покращуйте її крок за кроком.",
@@ -377,7 +392,12 @@
     "undo": "Скасувати дію",
     "undo_failed": "Не вдалося скасувати дію. Спробуйте ще раз.",
     "message_restored": "Повідомлення знову відображається.",
-    "submission_restored": "Запис і діалог знову відображаються."
+    "submission_restored": "Запис і діалог знову відображаються.",
+    "checkpoint_saving": "Зберігаємо прогрес у вашому акаунті …",
+    "checkpoint_saved": "Прогрес збережено у вашому акаунті.",
+    "checkpoint_failed": "Не вдалося зберегти прогрес у вашому акаунті. Спробуйте ще раз.",
+    "checkpoint_conflict": "Ви продовжили на іншому пристрої. Завантажено новіший прогрес.",
+    "receipt_failed": "Не вдалося зберегти позначку про прочитання у вашому акаунті."
   },
   "tr": {
     "subtitle": "Bir okuma metni seç, dikkatlice dinle ve sesli oku. Öğretmeninle konuşarak telaffuzunu adım adım geliştir.",
@@ -472,6 +492,11 @@
     "undo": "Geri al",
     "undo_failed": "Geri alma başarısız oldu. Lütfen yeniden dene.",
     "message_restored": "Mesaj yeniden görünüyor.",
-    "submission_restored": "Kayıt ve konuşma yeniden görünüyor."
+    "submission_restored": "Kayıt ve konuşma yeniden görünüyor.",
+    "checkpoint_saving": "İlerleme durumunuz hesabınıza kaydediliyor …",
+    "checkpoint_saved": "İlerleme durumunuz hesabınıza kaydedildi.",
+    "checkpoint_failed": "İlerleme durumunuz hesabınıza kaydedilemedi. Lütfen tekrar deneyin.",
+    "checkpoint_conflict": "Başka bir cihazda devam ettiniz. Daha yeni ilerleme durumunuz yüklendi.",
+    "receipt_failed": "Okundu bilgisi hesabınıza kaydedilemedi."
   }
 }

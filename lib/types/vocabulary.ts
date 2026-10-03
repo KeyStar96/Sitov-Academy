@@ -70,6 +70,9 @@ export interface VocabularySession {
   cards: DueVocabularyCard[]
   deferredCount: number
   previousCardId: string | null
+  /** Account checkpoint; card DTOs are freshly authorized, never read from stored JSON. */
+  checkpoint?: { state: import('@/lib/vocabulary-session-checkpoint').VocabularyCheckpoint; revision: number; cards: DueVocabularyCard[] }
+  checkpointRevision?: number
 }
 
 export interface VocabularyAssessmentSession {

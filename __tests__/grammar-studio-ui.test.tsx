@@ -3,7 +3,8 @@ import { act, fireEvent, render, screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import ExerciseClient from '@/components/exercises/ExerciseClient'
 import ExerciseCMS from '@/components/admin/ExerciseCMS'
-import { recordExerciseAttempt, finishExerciseSession } from '@/app/actions/exercises'
+import { recordGrammarCheckpointAttempt, finishExerciseSession } from '@/app/actions/exercises'
+import { loadLearningCheckpoint, saveLearningCheckpoint } from '@/app/actions/learning-checkpoints'
 import { saveGrammarExercise, removeGrammarExercise } from '@/app/actions/grammar-cms'
 import type { RecordExerciseAttemptResult, StudentExercise } from '@/lib/types/exercise'
 import type { GrammarExerciseRow } from '@/lib/grammar-validation'
@@ -13,7 +14,8 @@ jest.unmock('lucide-react')
 // Ganze Lernabläufe mit simuliertem Tippen dauern unter Last länger als 5 s.
 jest.setTimeout(20000)
 jest.mock('@/components/exercises/GrammarStudio.module.css', () => ({}))
-jest.mock('@/app/actions/exercises', () => ({ recordExerciseAttempt: jest.fn(), finishExerciseSession: jest.fn() }))
+jest.mock('@/app/actions/exercises', () => ({ recordGrammarCheckpointAttempt: jest.fn(), finishExerciseSession: jest.fn() }))
+jest.mock('@/app/actions/learning-checkpoints', () => ({ loadLearningCheckpoint: jest.fn(), saveLearningCheckpoint: jest.fn() }))
 jest.mock('@/app/actions/grammar-cms', () => ({ saveGrammarExercise: jest.fn(), removeGrammarExercise: jest.fn() }))
 jest.mock('@/components/exercises/SolutionAudioButton', () => ({ __esModule: true, default: () => null }))
 const item: StudentExercise = {
@@ -32,13 +34,32 @@ const authored: GrammarExerciseRow = {
   content: { ...item.content, instruction: 'Wähle den Artikel.' }, created_at: '2026-09-10T00:00:00Z',
   hint: null, solution_audio_url: null,
 }
+const learnerId = '00000000-0000-4000-8000-000000000010'
+let revision = 0
+let savedState: Record<string, unknown> = {}
+function commitGrade(grade: RecordExerciseAttemptResult): Awaited<ReturnType<typeof recordGrammarCheckpointAttempt>> {
+  if (!grade.success) return { ok: false, error: 'unavailable' }
+  savedState = { ...savedState, currentIndex: Number(savedState.currentIndex) + (grade.isCorrect ? 1 : 0) }
+  revision += 1
+  return { ok: true, learnerId, grade, checkpoint: { state: savedState, revision, updatedAt: '2026-10-03T10:00:00Z' } }
+}
 beforeEach(() => {
   jest.restoreAllMocks()
   jest.clearAllMocks()
-  jest.mocked(recordExerciseAttempt).mockReset().mockImplementation(async input => ({
+  jest.mocked(recordGrammarCheckpointAttempt).mockReset().mockImplementation(async input => commitGrade({
     success: true, attempts: 1, isCorrect: true, status: 'EXACT', reason: null, matched: input.answer, score: 100,
   }))
   jest.mocked(finishExerciseSession).mockResolvedValue({ success: true })
+  revision = 0; savedState = {}
+  jest.mocked(loadLearningCheckpoint).mockImplementation(async () => ({ ok: true, learnerId,
+    checkpoint: revision ? { state: savedState, revision, updatedAt: '2026-10-03T10:00:00Z' } : null }))
+  jest.mocked(saveLearningCheckpoint).mockImplementation(async (_kind, _level, state, expectedRevision) => {
+    if (expectedRevision !== revision) return { ok: false, error: 'conflict', checkpoint: { state: savedState, revision, updatedAt: '2026-10-03T10:00:00Z' } }
+    savedState = state; revision += 1
+    return { ok: true, learnerId, checkpoint: { state, revision, updatedAt: '2026-10-03T10:00:00Z' } }
+  })
+  let receipt = 0
+  Object.defineProperty(globalThis.crypto, 'randomUUID', { configurable: true, value: jest.fn(() => `00000000-0000-4000-8000-${String(++receipt).padStart(12, '0')}`) })
   HTMLElement.prototype.scrollIntoView = jest.fn()
   // Die meisten Fälle tippen; die Kärtchen haben einen eigenen Test.
   window.localStorage.setItem('sitov:grammar-input', 'typing')
@@ -86,7 +107,7 @@ it('offers word cards by default: tapping fills the gap in order and the answer 
   await user.click(screen.getByRole('button', { name: '„ein" einsetzen' }))
   await user.click(screen.getByRole('button', { name: '„Tisch" einsetzen' }))
   await user.click(screen.getByRole('button', { name: 'Antwort prüfen' }))
-  expect(recordExerciseAttempt).toHaveBeenCalledWith({ exerciseId: fill.id, answer: 'ein Tisch', hintShown: false })
+  expect(recordGrammarCheckpointAttempt).toHaveBeenCalledWith({ exerciseId: fill.id, answer: 'ein Tisch', hintShown: false }, expect.objectContaining({ expectedLearnerId: learnerId }))
   await user.click(screen.getByRole('button', { name: 'Lerneinheit abschließen' }))
   expect(screen.getByRole('heading', { name: 'Ein guter Schritt nach vorn.' })).toBeInTheDocument()
 }, 20000)
@@ -114,7 +135,7 @@ it.each([
   const user = userEvent.setup()
   const media = window.matchMedia('(prefers-reduced-motion: reduce)')
   jest.spyOn(window, 'matchMedia').mockReturnValue({ ...media, matches: reduced })
-  jest.mocked(recordExerciseAttempt).mockResolvedValueOnce({ success: true, attempts: 1, isCorrect: false, status: 'INCORRECT', reason: null, matched: null, score: 0 })
+  jest.mocked(recordGrammarCheckpointAttempt).mockImplementationOnce(async () => commitGrade({ success: true, attempts: 1, isCorrect: false, status: 'INCORRECT', reason: null, matched: null, score: 0 }))
   render(<ExerciseClient exercises={[exercise]} lang="de" level="A1.1" />)
   await user.click(screen.getByRole('button', { name: 'Mit offenen Aufgaben starten' }))
   if (exercise.type === 'fill_in_blank') await user.type(screen.getByRole('textbox', { name: 'Lücke' }), wrong)
@@ -137,10 +158,10 @@ it.each([
 })
 it('submits the chosen answer and exposes solved-topic review after completion', async () => {
   render(<ExerciseClient exercises={[item]} lang="de" level="A1.1" />)
-  fireEvent.click(screen.getByRole('button', { name: 'Mit offenen Aufgaben starten' }))
+  await act(async () => fireEvent.click(screen.getByRole('button', { name: 'Mit offenen Aufgaben starten' })))
   fireEvent.click(screen.getByRole('button', { name: /Wort .Der. auswählen/ }))
   await act(async () => fireEvent.click(screen.getByRole('button', { name: 'Antwort prüfen' })))
-  expect(recordExerciseAttempt).toHaveBeenCalledWith({ exerciseId: item.id, answer: 'Der', hintShown: false })
+  expect(recordGrammarCheckpointAttempt).toHaveBeenCalledWith({ exerciseId: item.id, answer: 'Der', hintShown: false }, expect.objectContaining({ expectedLearnerId: learnerId }))
   expect(screen.getByText('Tisch ist maskulin.')).toBeVisible()
   await act(async () => fireEvent.click(screen.getByRole('button', { name: 'Lerneinheit abschließen' })))
   fireEvent.click(screen.getByRole('button', { name: 'Zur Themenübersicht' }))
@@ -148,15 +169,15 @@ it('submits the chosen answer and exposes solved-topic review after completion',
   expect(screen.getByRole('button', { name: 'Artikel: Thema wiederholen' })).toBeVisible()
 })
 it('a failed save remains retryable and does not count as persisted completion', async () => {
-  jest.mocked(recordExerciseAttempt).mockResolvedValueOnce({ success: false, attempts: 0 })
+  jest.mocked(recordGrammarCheckpointAttempt).mockResolvedValueOnce({ ok: false, error: 'unavailable' })
   render(<ExerciseClient exercises={[item]} lang="de" level="A1.1" />)
-  fireEvent.click(screen.getByRole('button', { name: 'Mit offenen Aufgaben starten' }))
+  await act(async () => fireEvent.click(screen.getByRole('button', { name: 'Mit offenen Aufgaben starten' })))
   fireEvent.click(screen.getByRole('button', { name: /Wort .Der. auswählen/ }))
   await act(async () => fireEvent.click(screen.getByRole('button', { name: 'Antwort prüfen' })))
   expect(screen.getByText('Dein Fortschritt konnte nicht gespeichert werden. Bitte versuche es erneut.')).toBeVisible()
   expect(screen.queryByRole('button', { name: 'Lerneinheit abschließen' })).not.toBeInTheDocument()
   await act(async () => fireEvent.click(screen.getByRole('button', { name: 'Nochmal versuchen' })))
-  expect(recordExerciseAttempt).toHaveBeenCalledTimes(2)
+  expect(recordGrammarCheckpointAttempt).toHaveBeenCalledTimes(2)
   expect(screen.queryByText('Dein Fortschritt konnte nicht gespeichert werden. Bitte versuche es erneut.')).not.toBeInTheDocument()
   expect(screen.getByRole('button', { name: 'Lerneinheit abschließen' })).toBeVisible()
 })
@@ -166,9 +187,9 @@ it.each([
   { name: 'multiple-choice', exercise: item, answer: 'Der' },
 ])('waits for the server and respects rejection of a locally correct $name answer', async ({ exercise, answer }) => {
   let finish!: (result: RecordExerciseAttemptResult) => void
-  jest.mocked(recordExerciseAttempt).mockReturnValueOnce(new Promise(resolve => { finish = resolve }))
+  jest.mocked(recordGrammarCheckpointAttempt).mockReturnValueOnce(new Promise(resolve => { finish = grade => resolve(commitGrade(grade)) }))
   render(<ExerciseClient exercises={[exercise]} lang="de" level="A1.1" />)
-  fireEvent.click(screen.getByRole('button', { name: 'Mit offenen Aufgaben starten' }))
+  await act(async () => fireEvent.click(screen.getByRole('button', { name: 'Mit offenen Aufgaben starten' })))
   if (exercise.type === 'fill_in_blank') fireEvent.change(screen.getByRole('textbox', { name: 'Lücke' }), { target: { value: answer } })
   else fireEvent.click(screen.getByRole('button', { name: /Wort .Der. auswählen/ }))
   fireEvent.click(screen.getByRole('button', { name: 'Antwort prüfen' }))
@@ -183,11 +204,11 @@ it.each([
 })
 
 it('renders the confirmed soft-error reason in Russian', async () => {
-  jest.mocked(recordExerciseAttempt).mockResolvedValueOnce({
+  jest.mocked(recordGrammarCheckpointAttempt).mockImplementationOnce(async () => commitGrade({
     success: true, attempts: 1, isCorrect: true, status: 'SOFT_ERROR', matched: 'ein Tisch', reason: 'typo', score: 90,
-  })
+  }))
   render(<ExerciseClient exercises={[fill]} lang="ru" level="A1.1" translations={russian.exercises} />)
-  fireEvent.click(screen.getByRole('button', { name: 'Начать нерешённые задания' }))
+  await act(async () => fireEvent.click(screen.getByRole('button', { name: 'Начать нерешённые задания' })))
   fireEvent.change(screen.getByRole('textbox', { name: russian.exercises.blank_label }), { target: { value: 'ein Tish' } })
   await act(async () => fireEvent.click(screen.getByRole('button', { name: russian.exercises.check_answer })))
   expect(screen.getByText(russian.exercises.soft_error.typo)).toBeVisible()
@@ -196,21 +217,21 @@ it('renders the confirmed soft-error reason in Russian', async () => {
   expect(screen.getByRole('button', { name: 'Завершить занятие' })).toBeVisible()
 })
 
-it('shows the translated prompt with the authored German base form before answering', () => {
+it('shows the translated prompt with the authored German base form before answering', async () => {
   const translated: StudentExercise = { ...fill, translationPrompt: 'Как вас зовут?', promptLanguage: 'ru',
     content: { target_form: ['heißen'], text_before: '', text_after: '', correct_answer: 'Wie heißen Sie?' } }
   render(<ExerciseClient exercises={[translated]} lang="ru" level="A1.1" translations={russian.exercises} />)
-  fireEvent.click(screen.getByRole('button', { name: 'Начать нерешённые задания' }))
+  await act(async () => fireEvent.click(screen.getByRole('button', { name: 'Начать нерешённые задания' })))
   expect(screen.getByText('Как вас зовут?')).toHaveAttribute('lang', 'ru')
   expect(screen.getByText('[heißen]')).toHaveAttribute('lang', 'de')
   expect(screen.getByText('Как вас зовут?').closest('p')).toHaveTextContent('Как вас зовут? [heißen]')
   expect(screen.queryByText('Wie heißen Sie?')).not.toBeInTheDocument()
-  expect(recordExerciseAttempt).not.toHaveBeenCalled()
+  expect(recordGrammarCheckpointAttempt).not.toHaveBeenCalled()
 })
 
-it('also presents the authored target for multiple-choice grammar', () => {
+it('also presents the authored target for multiple-choice grammar', async () => {
   render(<ExerciseClient exercises={[item]} lang="de" level="A1.1" />)
-  fireEvent.click(screen.getByRole('button', { name: 'Mit offenen Aufgaben starten' }))
+  await act(async () => fireEvent.click(screen.getByRole('button', { name: 'Mit offenen Aufgaben starten' })))
   expect(screen.getByRole('heading', { name: '___ Tisch ist frei. [bestimmter Artikel]' })).toBeVisible()
 })
 it('allows teachers to edit existing exercises while preserving authored instructions', async () => {
@@ -235,14 +256,72 @@ it('requires explicit confirmation before deleting an exercise and its progress'
 })
 
 it('shows confirmed capitalization guidance neutrally through ExerciseClient', async () => {
-  jest.mocked(recordExerciseAttempt).mockResolvedValueOnce({
+  jest.mocked(recordGrammarCheckpointAttempt).mockImplementationOnce(async () => commitGrade({
     success: true, attempts: 1, isCorrect: true, status: 'EXACT', matched: 'ein Tisch', reason: null, hint: 'capitalization', score: 100,
-  })
+  }))
   const { container } = render(<ExerciseClient exercises={[fill]} lang="ru" level="A1.1" translations={russian.exercises} />)
-  fireEvent.click(screen.getByRole('button', { name: 'Начать нерешённые задания' }))
+  await act(async () => fireEvent.click(screen.getByRole('button', { name: 'Начать нерешённые задания' })))
   fireEvent.change(screen.getByRole('textbox', { name: russian.exercises.blank_label }), { target: { value: 'ein tisch' } })
   await act(async () => fireEvent.click(screen.getByRole('button', { name: russian.exercises.check_answer })))
   expect(screen.getByText('Вот как это пишется:', { exact: false })).toBeVisible()
   expect(container.querySelector('[class*=warning]')).toBeNull()
   expect(screen.getByRole('button', { name: 'Завершить занятие' })).toBeVisible()
+})
+
+it('continues the exact account session on another device, including a review of solved tasks', async () => {
+  const solved = { ...item, completed: true }
+  const next = { ...item, id: fill.id, completed: true, content: { ...item.content, question: '___ Lampe ist an.' } }
+  const first = render(<ExerciseClient exercises={[solved, next]} lang="de" level="A1.1" />)
+  await act(async () => fireEvent.click(screen.getByRole('button', { name: 'Gelöste Aufgaben wiederholen' })))
+  fireEvent.click(screen.getByRole('button', { name: /Wort .Der. auswählen/ }))
+  await act(async () => fireEvent.click(screen.getByRole('button', { name: 'Antwort prüfen' })))
+  expect(savedState).toEqual({ exerciseIds: [item.id, fill.id], currentIndex: 1 })
+  first.unmount()
+  window.localStorage.clear()
+  render(<ExerciseClient exercises={[solved, next]} lang="de" level="A1.1"
+    initialCheckpoint={{ state: savedState, revision, updatedAt: '2026-10-03T10:00:00Z' }} initialLearnerId={learnerId} />)
+  expect(screen.getByRole('heading', { name: '___ Lampe ist an. [bestimmter Artikel]' })).toBeVisible()
+  expect(screen.getByText('2/2')).toBeVisible()
+  expect(recordGrammarCheckpointAttempt).toHaveBeenCalledTimes(1)
+})
+
+it('retries a lost atomic save response with the same receipt and advances once', async () => {
+  render(<ExerciseClient exercises={[item]} lang="de" level="A1.1" />)
+  await act(async () => fireEvent.click(screen.getByRole('button', { name: 'Mit offenen Aufgaben starten' })))
+  const saved = commitGrade({ success: true, attempts: 1, isCorrect: true, status: 'EXACT', reason: null, matched: 'Der', score: 100 })
+  jest.mocked(recordGrammarCheckpointAttempt).mockResolvedValueOnce({ ok: false, error: 'unavailable' }).mockResolvedValueOnce(saved)
+  fireEvent.click(screen.getByRole('button', { name: /Wort .Der. auswählen/ }))
+  await act(async () => fireEvent.click(screen.getByRole('button', { name: 'Antwort prüfen' })))
+  expect(screen.queryByRole('button', { name: 'Lerneinheit abschließen' })).not.toBeInTheDocument()
+  await act(async () => fireEvent.click(screen.getByRole('button', { name: 'Nochmal versuchen' })))
+  const calls = jest.mocked(recordGrammarCheckpointAttempt).mock.calls
+  expect(calls).toHaveLength(2)
+  expect(calls[1][1].requestId).toBe(calls[0][1].requestId)
+  expect(calls[1][1].expectedRevision).toBe(calls[0][1].expectedRevision)
+  expect(savedState).toEqual({ exerciseIds: [item.id], currentIndex: 1 })
+  expect(revision).toBe(2)
+  expect(screen.getByRole('button', { name: 'Lerneinheit abschließen' })).toBeVisible()
+})
+
+it('does not begin an unsaved browser-only session when the account service fails', async () => {
+  jest.mocked(saveLearningCheckpoint).mockResolvedValueOnce({ ok: false, error: 'unavailable' })
+  render(<ExerciseClient exercises={[item]} lang="de" level="A1.1" />)
+  await act(async () => fireEvent.click(screen.getByRole('button', { name: 'Mit offenen Aufgaben starten' })))
+  expect(screen.queryByRole('region', { name: 'Grammatik' })).not.toBeInTheDocument()
+  expect(screen.getByText('Dein Fortschritt konnte nicht gespeichert werden. Bitte versuche es erneut.')).toBeVisible()
+  expect(recordGrammarCheckpointAttempt).not.toHaveBeenCalled()
+})
+
+it('restores the newer account cursor when an older device submits against a stale revision', async () => {
+  const checkpoint = { state: { exerciseIds: [item.id, fill.id], currentIndex: 0 }, revision: 1, updatedAt: '2026-10-03T10:00:00Z' }
+  render(<ExerciseClient exercises={[item, fill]} lang="de" level="A1.1" initialCheckpoint={checkpoint} initialLearnerId={learnerId} />)
+  jest.mocked(recordGrammarCheckpointAttempt).mockResolvedValueOnce({ ok: false, error: 'conflict', checkpoint: {
+    ...checkpoint, revision: 2, state: { ...checkpoint.state, currentIndex: 1 },
+  } })
+  fireEvent.click(screen.getByRole('button', { name: /Wort .Der. auswählen/ }))
+  await act(async () => fireEvent.click(screen.getByRole('button', { name: 'Antwort prüfen' })))
+  expect(screen.getByRole('textbox', { name: 'Lücke' })).toBeVisible()
+  expect(screen.getByText('2/2')).toBeVisible()
+  expect(recordGrammarCheckpointAttempt).toHaveBeenCalledTimes(1)
+  expect(saveLearningCheckpoint).not.toHaveBeenCalled()
 })

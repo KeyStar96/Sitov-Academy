@@ -60,6 +60,7 @@ export const focusAnswerInputSchema = z.object({
   format: z.enum(FOCUS_FORMATS),
   answer: z.string().trim().min(1).max(400),
   lang: z.enum(['en', 'ru', 'uk', 'tr']),
+  expectedLearnerId: z.string().uuid().optional(),
 }).strict()
 
 export type FocusFailure = 'not_due' | 'not_found' | 'language' | 'not_authenticated' | 'failed'

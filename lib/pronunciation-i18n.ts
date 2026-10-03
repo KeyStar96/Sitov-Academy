@@ -91,6 +91,11 @@ export const PRONUNCIATION_FALLBACKS = {
   error_title: 'Das Aussprache-Training konnte leider nicht geladen werden.',
   error_description: 'Das lag nicht an dir. Versuche es bitte noch einmal.',
   error_retry: 'Nochmal versuchen',
+  checkpoint_saving: 'Dein Lernstand wird im Konto gespeichert …',
+  checkpoint_saved: 'Lernstand im Konto gespeichert.',
+  checkpoint_failed: 'Dein Lernstand konnte gerade nicht im Konto gespeichert werden. Bitte versuche es erneut.',
+  checkpoint_conflict: 'Du hast auf einem anderen Gerät weitergemacht. Der neuere Lernstand wurde geladen.',
+  receipt_failed: 'Die Lesebestätigung konnte gerade nicht im Konto gespeichert werden.',
   ...pronunciationUpdates.de,
 } as const
 

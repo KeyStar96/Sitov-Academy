@@ -1,3 +1,8 @@
+jest.mock('@/app/actions/learning-checkpoints', () => ({
+  loadLearningCheckpoint: jest.fn().mockResolvedValue({ ok: true, learnerId: '00000000-0000-4000-8000-000000000001', checkpoint: null }),
+  saveLearningCheckpoint: jest.fn(async (_kind, _level, state, revision) => ({ ok: true, learnerId: '00000000-0000-4000-8000-000000000001', checkpoint: { state, revision: revision + 1, updatedAt: '2026-10-03T09:00:00Z' } })),
+  clearLearningCheckpoint: jest.fn(async (_kind, _level, revision) => ({ ok: true, learnerId: '00000000-0000-4000-8000-000000000001', checkpoint: { state: {}, revision: revision + 1, updatedAt: '2026-10-03T09:00:00Z' } })),
+}))
 import { act, fireEvent, render, screen, waitFor, within } from '@testing-library/react'
 import VocabularyStartGate from '@/components/vocabulary/VocabularyStartGate'
 import VocabularyCarryoverStation from '@/components/vocabulary/VocabularyCarryoverStation'
@@ -72,7 +77,7 @@ it('asks after starting a round, keeps decline left and accept right, then refre
   await act(async () => fireEvent.click(accept))
   expect(setVocabularyCarryover).toHaveBeenCalledWith('A1.2', true, learnerId)
   expect(announceVocabularyCarryoverChange).toHaveBeenCalledWith(learnerId)
-  expect(getVocabularySession).toHaveBeenCalledWith('A1.2', 'de')
+  expect(getVocabularySession).toHaveBeenCalledWith('A1.2', 'de', undefined)
   expect(jest.mocked(VocabCardSession).mock.calls[0][0]).toMatchObject({ cards: [card], level: 'A1.2' })
 })
 

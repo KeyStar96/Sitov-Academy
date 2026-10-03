@@ -30,6 +30,10 @@ import ArticleHint, { ArticleSolution } from './ArticleHint'
 import { learningFeedback } from '@/lib/learning-feedback-i18n'
 import type { SoftErrorReason, OrthographyHint, ArticleFeedback } from '@/lib/answer-grading'
 import { carryoverTranslator } from '@/lib/vocabulary-carryover-i18n'
+import { saveLearningCheckpoint, clearLearningCheckpoint } from '@/app/actions/learning-checkpoints'
+import { restoreVocabularyCheckpoint, type VocabularyCheckpoint } from '@/lib/vocabulary-session-checkpoint'
+import type { VocabularySession } from '@/lib/types/vocabulary'
+import { learningCheckpointCopy } from '@/lib/learning-checkpoint-i18n'
 
 interface VocabCardSessionProps {
   learnerId: string | null
@@ -44,6 +48,9 @@ interface VocabCardSessionProps {
   initialDeferredCount?: number
   /** Karten pro Runde; ohne Angabe gilt die auf diesem Gerät gespeicherte Wahl. */
   roundSize?: RoundSize
+  lesson?: string
+  checkpoint?: VocabularySession['checkpoint']
+  checkpointRevision?: number
   onBackToLernkasten?: (lastAnsweredCardId: string | null) => void
 }
 
@@ -58,34 +65,36 @@ function toSessionItem(card: DueVocabularyCard): SessionItem {
   return { card, retry: false, key: card.progressId }
 }
 
-export default function VocabCardSession({ learnerId, level, cards, translations = {}, softErrorTranslations, overviewHref, uiLanguage = 'de', previousCardId = null, initialDeferredCount = 0, roundSize, onBackToLernkasten }: VocabCardSessionProps) {
+export default function VocabCardSession({ learnerId, level, cards, translations = {}, softErrorTranslations, overviewHref, uiLanguage = 'de', previousCardId = null, initialDeferredCount = 0, roundSize, lesson, checkpoint, checkpointRevision, onBackToLernkasten }: VocabCardSessionProps) {
   const router = useRouter()
   const actorId = useRef(learnerId).current
   const mounted = useRef(true)
   useEffect(() => { mounted.current = true; return () => { mounted.current = false } }, [])
-  const [plan] = useState(() => scheduleVocabularyCards(cards, previousCardId))
+  const [restored] = useState(() => checkpoint ? restoreVocabularyCheckpoint(checkpoint.state, checkpoint.cards) : null)
+  const [plan] = useState(() => restored?.plan ?? scheduleVocabularyCards(cards, previousCardId))
   // Lernrunden: Der geplante Stapel wird in Runden fester Größe geteilt.
   // Jede fällige Karte kommt einmal als gewerteter Versuch. Ist er falsch,
   // hängt sich eine Wiederholung ans Ende DIESER Runde — so kommt ein
   // unbekanntes Wort nach höchstens einer Rundenlänge wieder. Wiederholungen
   // ändern die Phase nicht.
-  const [size, setSize] = useState<RoundSize>(roundSize ?? DEFAULT_ROUND_SIZE)
-  const [round, setRound] = useState(() => ({ number: 1, start: 0, length: roundLimit(roundSize ?? DEFAULT_ROUND_SIZE, plan.cards.length) }))
-  const [queue, setQueue] = useState<SessionItem[]>(() => takeRound(plan.cards, 0, roundSize ?? DEFAULT_ROUND_SIZE, previousCardId).map(toSessionItem))
+  const [size, setSize] = useState<RoundSize>(restored?.state.size ?? roundSize ?? DEFAULT_ROUND_SIZE)
+  const [round, setRound] = useState(() => restored?.state.round ?? ({ number: 1, start: 0, length: roundLimit(roundSize ?? DEFAULT_ROUND_SIZE, plan.cards.length) }))
+  const [queue, setQueue] = useState<SessionItem[]>(() => restored?.queue ?? takeRound(plan.cards, 0, roundSize ?? DEFAULT_ROUND_SIZE, previousCardId).map(toSessionItem))
   const queueRef = useRef(queue)
   const workspace = useRef<HTMLDivElement>(null)
-  const [retryCount, setRetryCount] = useState(0)
+  const [retryCount, setRetryCount] = useState(restored?.state.retryCount ?? 0)
   // Wohin die Karten gewandert sind — für die Pause und den Abschluss-Moment.
-  const [moves, setMoves] = useState<SessionMove[]>([])
-  const [roundMovesFrom, setRoundMovesFrom] = useState(0)
+  const [moves, setMoves] = useState<SessionMove[]>((restored?.state.moves ?? []) as SessionMove[])
+  const [roundMovesFrom, setRoundMovesFrom] = useState(restored?.state.roundMovesFrom ?? 0)
   const [retryFailed, setRetryFailed] = useState(false)
-  const [index, setIndex] = useState(0)
-  const indexRef = useRef(0)
+  const [index, setIndex] = useState(restored?.state.index ?? 0)
+  const indexRef = useRef(restored?.state.index ?? 0)
   const [reviewPending, setReviewPending] = useState(false)
   const reviewBusy = useRef(false)
-  const lastAnswered = useRef<string | null>(previousCardId)
+  const lastAnswered = useRef<string | null>(restored?.state.lastAnswered ?? previousCardId)
   const [saveFailed, setSaveFailed] = useState(false)
-  const [answer, setAnswer] = useState('')
+  const [saveConflict, setSaveConflict] = useState(false)
+  const [answer, setAnswer] = useState(restored?.state.answer ?? '')
   // Flashcard-Modus: erst Lösung aufdecken, dann selbst einschätzen.
   const [revealed, setRevealed] = useState(false)
   // Gewählter Weg für Karten, bei denen beide Wege offenstehen. Der Wert kommt
@@ -94,11 +103,12 @@ export default function VocabCardSession({ learnerId, level, cards, translations
   const [preferredMode, setPreferredMode] = useState<StudyMode>('flashcard')
   useEffect(() => { setPreferredMode(loadStudyMode()) }, [])
   const drafts = useRef(new Map<string, string>())
-  const [answerResult, setAnswerResult] = useState<{ correct: boolean; solution: string; isAlternative: boolean; softError: SoftErrorReason | null; hint: OrthographyHint | null; feedback: ArticleFeedback | null } | null>(null)
+  const [answerResult, setAnswerResult] = useState<{ correct: boolean; solution: string; isAlternative: boolean; softError: SoftErrorReason | null; hint: OrthographyHint | null; feedback: ArticleFeedback | null } | null>(restored?.state.feedback ?? null)
   const exitRequested = useRef(false)
   const finalized = useRef(false)
   const t = useMemo(() => createVocabularyTranslator(translations), [translations])
   const s = studentTranslator(uiLanguage)
+  const checkpointCopy = learningCheckpointCopy(uiLanguage)
   const item = queue[index]
   const current = item?.card
   const isRetry = item?.retry ?? false
@@ -109,9 +119,42 @@ export default function VocabCardSession({ learnerId, level, cards, translations
     | { kind: 'typed'; index: number; card: DueVocabularyCard; input: SubmitVocabularyAnswerInput }
     | { kind: 'self'; index: number; card: DueVocabularyCard; input: SubmitVocabularySelfRatingInput }
   const writes = useRef<OrderedWriteQueue<ReviewIntent> | null>(null)
+  const planIndexes = useRef(new Map(plan.cards.map((card, index) => [card.progressId, index]))).current
+  const serializeQueue = (items: readonly SessionItem[]): VocabularyCheckpoint['queue'] => items.map(item => [planIndexes.get(item.card.progressId)!, item.card.phase, item.retry])
+  const revision = useRef(checkpoint?.revision ?? checkpointRevision ?? 0)
+  const checkpointState = useRef<VocabularyCheckpoint>(restored?.state ?? {
+    version: 1, language: uiLanguage as VocabularyCheckpoint['language'], lesson: lesson ?? null,
+    plan: plan.cards.map(card => card.progressId), deferredCount: plan.deferredCount, size, round,
+    queue: serializeQueue(queue),
+    index, retryCount, moves, roundMovesFrom, lastAnswered: lastAnswered.current, answer, feedback: answerResult, pending: null,
+  })
+  const checkpointWrite = useRef<Promise<void>>(Promise.resolve())
+  const targetLevel = level ?? plan.cards[0]?.targetLevel ?? plan.cards[0]?.card.level
+
+  function persistCheckpoint(state: VocabularyCheckpoint = checkpointState.current) {
+    // The immutable snapshot is queued in the same order as the learner's actions.
+    const snapshot = JSON.parse(JSON.stringify(state)) as VocabularyCheckpoint
+    const task = checkpointWrite.current.catch(() => undefined).then(async () => {
+      if (!actorId || !targetLevel) return
+      const result = await saveLearningCheckpoint('vocabulary', targetLevel, snapshot, revision.current, actorId)
+      if (!result.ok || !result.checkpoint) {
+        if (result.ok === false && result.error === 'conflict' && mounted.current) setSaveConflict(true)
+        throw new Error('checkpoint_save_failed')
+      }
+      revision.current = result.checkpoint.revision
+    })
+    checkpointWrite.current = task
+    return task
+  }
+
+  function checkpointChanged(update: Partial<VocabularyCheckpoint>, save = true) {
+    checkpointState.current = { ...checkpointState.current, ...update }
+    if (save) void persistCheckpoint().catch(() => { if (mounted.current) setSaveFailed(true) })
+  }
 
   /** Setzt die Bühne auf die Runde ab `start` im geplanten Stapel. */
   function beginRound(number: number, start: number, nextSize: RoundSize, previous: string | null) {
+    if (saveConflict) return
     const next = takeRound(plan.cards, start, nextSize, previous).map(toSessionItem)
     queueRef.current = next
     setQueue(next)
@@ -125,6 +168,9 @@ export default function VocabCardSession({ learnerId, level, cards, translations
     setRevealed(false)
     setRetryFailed(false)
     setSaveFailed(false)
+    checkpointChanged({ size: nextSize, round: { number, start, length: next.length },
+      queue: serializeQueue(next),
+      roundMovesFrom: checkpointState.current.moves.length, index: 0, answer: '', feedback: null, pending: null })
     finalized.current = false
     workspace.current?.scrollTo?.({ top: 0 })
   }
@@ -132,7 +178,7 @@ export default function VocabCardSession({ learnerId, level, cards, translations
   // Ohne ausdrückliche Größe (z. B. direkter Aufruf über /train) gilt die auf
   // diesem Gerät gespeicherte Wahl — aber nur, solange noch nichts beantwortet ist.
   useEffect(() => {
-    if (roundSize !== undefined) return
+    if (roundSize !== undefined || restored) return
     const stored = loadRoundSize()
     if (stored === size || indexRef.current !== 0 || writes.current?.pending.length) return
     setSize(stored)
@@ -157,6 +203,8 @@ export default function VocabCardSession({ learnerId, level, cards, translations
     queueRef.current = next
     setQueue(next)
     setRetryCount(count => count + 1)
+    checkpointChanged({ queue: serializeQueue(next),
+      retryCount: checkpointState.current.retryCount + 1 }, false)
   }
 
   function moveToNextCard() {
@@ -166,6 +214,7 @@ export default function VocabCardSession({ learnerId, level, cards, translations
     setAnswerResult(null)
     setRevealed(false)
     setRetryFailed(false)
+    checkpointChanged({ index: indexRef.current, answer: '', feedback: null, pending: null }, false)
     finishIfReady()
   }
 
@@ -176,28 +225,61 @@ export default function VocabCardSession({ learnerId, level, cards, translations
     void finishVocabularySession().catch(() => undefined)
   }
 
+  function savePosition() {
+    const complete = indexRef.current >= queueRef.current.length && checkpointState.current.round.start
+      + checkpointState.current.round.length >= plan.cards.length
+    const task = persistCheckpoint().then(async () => {
+      if (!complete || !actorId || !targetLevel) return
+      const cleared = await clearLearningCheckpoint('vocabulary', targetLevel, revision.current, actorId)
+      if (!cleared.ok || !cleared.checkpoint) {
+        if (cleared.ok === false && cleared.error === 'conflict' && mounted.current) setSaveConflict(true)
+        throw new Error('checkpoint_clear_failed')
+      }
+      revision.current = cleared.checkpoint.revision
+    })
+    checkpointWrite.current = task
+    return task
+  }
+
   if (!writes.current) writes.current = createOrderedWriteQueue<ReviewIntent, SubmitVocabularyAnswerResult>({
-    write: item => item.kind === 'typed' ? submitVocabularyAnswer(item.input) : submitVocabularySelfRating(item.input),
+    write: async item => {
+      checkpointChanged({ pending: item.kind === 'typed'
+        ? { kind: 'typed', progressId: item.card.progressId, requestId: item.input.requestId!, answer: item.input.typedAnswer }
+        : { kind: 'self', progressId: item.card.progressId, requestId: item.input.requestId!, known: item.input.known },
+        answer: item.kind === 'typed' ? item.input.typedAnswer : '' }, false)
+      await persistCheckpoint()
+      return item.kind === 'typed' ? submitVocabularyAnswer(item.input) : submitVocabularySelfRating(item.input)
+    },
     accepted: result => result.success && typeof result.isCorrect === 'boolean' && typeof result.correctAnswer === 'string'
       && typeof result.isAlternative === 'boolean' && result.softError !== undefined,
     onAccepted: (item, result) => {
       lastAnswered.current = item.card.card.id
-      if (mounted.current) {
+      checkpointChanged({ lastAnswered: lastAnswered.current, pending: null }, false)
+      // Nur der erste Versuch zählt; war er falsch, wird bis zur ersten
+      // richtigen Antwort in dieser Sitzung wiederholt.
+      if (result.isCorrect === false) enqueueRetry(item.card, result.newPhase)
+      if (result.previousPhase && result.newPhase) {
+        const move: SessionMove = { from: result.previousPhase, to: result.newPhase, learned: result.becameLearned === true }
+        setMoves(previous => [...previous, move])
+        checkpointChanged({ moves: [...checkpointState.current.moves, move] }, false)
+      }
+      if (item.kind === 'self') {
+        moveToNextCard()
+      } else {
+        const feedback = { correct: result.isCorrect === true, solution: result.correctAnswer ?? '', isAlternative: result.isAlternative === true, softError: result.softError ?? null, hint: result.hint ?? null, feedback: result.feedback ?? null }
+        setAnswerResult(feedback)
+        checkpointChanged({ feedback }, false)
+      }
+      void savePosition().then(() => {
+        if (!mounted.current) return
         reviewBusy.current = false
         setReviewPending(false)
-        // Nur der erste Versuch zählt; war er falsch, wird bis zur ersten
-        // richtigen Antwort in dieser Sitzung wiederholt.
-        if (result.isCorrect === false) enqueueRetry(item.card, result.newPhase)
-        if (result.previousPhase && result.newPhase) {
-          const move: SessionMove = { from: result.previousPhase, to: result.newPhase, learned: result.becameLearned === true }
-          setMoves(previous => [...previous, move])
-        }
-        if (item.kind === 'self') {
-          moveToNextCard()
-        } else {
-          setAnswerResult({ correct: result.isCorrect === true, solution: result.correctAnswer ?? '', isAlternative: result.isAlternative === true, softError: result.softError ?? null, hint: result.hint ?? null, feedback: result.feedback ?? null })
-        }
-      }
+      }).catch(() => {
+        if (!mounted.current) return
+        reviewBusy.current = false
+        setReviewPending(false)
+        setSaveFailed(true)
+      })
     },
     onBlocked: pending => {
       if (!mounted.current) return
@@ -215,14 +297,30 @@ export default function VocabCardSession({ learnerId, level, cards, translations
     },
     onDrained: () => {
       finishIfReady()
-      if (exitRequested.current) navigateBack()
+      if (exitRequested.current) void checkpointWrite.current.then(navigateBack).catch(() => undefined)
     },
   })
 
   function retry() {
     const queue = writes.current
     const last = queue?.pending.at(-1)
-    if (!queue || !last) return
+    if (!queue || !last) {
+      reviewBusy.current = true
+      setReviewPending(true)
+      void savePosition().then(() => {
+        if (!mounted.current) return
+        setSaveFailed(false)
+        reviewBusy.current = false
+        setReviewPending(false)
+        if (exitRequested.current) navigateBack()
+      }).catch(() => {
+        if (!mounted.current) return
+        reviewBusy.current = false
+        setReviewPending(false)
+        setSaveFailed(true)
+      })
+      return
+    }
     indexRef.current = last.index
     setIndex(last.index)
     if (last.kind === 'typed') setAnswer(last.input.typedAnswer)
@@ -241,12 +339,25 @@ export default function VocabCardSession({ learnerId, level, cards, translations
       if (writes.current.blocked) retry()
       return
     }
-    navigateBack()
+    exitRequested.current = true
+    void savePosition().then(navigateBack).catch(() => { if (mounted.current) setSaveFailed(true) })
   }
 
   function advance() {
     if (!answerResult || reviewBusy.current || index !== indexRef.current) return
     moveToNextCard()
+    reviewBusy.current = true
+    setReviewPending(true)
+    void savePosition().then(() => {
+      if (!mounted.current) return
+      reviewBusy.current = false
+      setReviewPending(false)
+    }).catch(() => {
+      if (!mounted.current) return
+      reviewBusy.current = false
+      setReviewPending(false)
+      setSaveFailed(true)
+    })
   }
 
   /**
@@ -260,13 +371,15 @@ export default function VocabCardSession({ learnerId, level, cards, translations
     reviewBusy.current = true
     setReviewPending(true)
     setRetryFailed(false)
-    const result = await checkVocabularyRetry({ progressId: card.progressId, expectedLearnerId: actorId, typedAnswer: answer, uiLanguage, targetLevel: level ?? card.targetLevel ?? card.card.level })
+    const result = await checkVocabularyRetry({ progressId: card.progressId, expectedLearnerId: actorId, typedAnswer: answer, uiLanguage, targetLevel: level ?? card.targetLevel ?? card.card.level }).catch(() => ({ success: false } as const))
     if (!mounted.current || at !== indexRef.current) return
     reviewBusy.current = false
     setReviewPending(false)
     if (!result.success) { setRetryFailed(true); return }
     if (!result.isCorrect) enqueueRetry(card)
-    setAnswerResult({ correct: result.isCorrect === true, solution: result.correctAnswer ?? '', isAlternative: result.isAlternative === true, softError: result.softError ?? null, hint: result.hint ?? null, feedback: result.feedback ?? null })
+    const feedback = { correct: result.isCorrect === true, solution: result.correctAnswer ?? '', isAlternative: result.isAlternative === true, softError: result.softError ?? null, hint: result.hint ?? null, feedback: result.feedback ?? null }
+    setAnswerResult(feedback)
+    checkpointChanged({ feedback, answer })
   }
 
   function submitAnswer(event: React.FormEvent<HTMLFormElement>) {
@@ -288,6 +401,7 @@ export default function VocabCardSession({ learnerId, level, cards, translations
     if (isRetry) {
       if (!known) enqueueRetry(current)
       moveToNextCard()
+      void savePosition().catch(() => { if (mounted.current) setSaveFailed(true) })
       return
     }
     reviewBusy.current = true
@@ -297,6 +411,19 @@ export default function VocabCardSession({ learnerId, level, cards, translations
       progressId: current.progressId, expectedLearnerId: actorId, known, uiLanguage, targetLevel: level ?? current.targetLevel ?? current.card.level, requestId: crypto.randomUUID(),
     } })
   }
+
+  useEffect(() => {
+    const pending = restored?.state.pending
+    const card = queueRef.current[indexRef.current]?.card
+    if (!pending || !card || !actorId) return
+    reviewBusy.current = true
+    setReviewPending(true)
+    const shared = { progressId: card.progressId, requestId: pending.requestId, expectedLearnerId: actorId, uiLanguage,
+      targetLevel: level ?? card.targetLevel ?? card.card.level }
+    writes.current?.enqueue(pending.kind === 'typed'
+      ? { kind: 'typed', index: indexRef.current, card, input: { ...shared, typedAnswer: pending.answer } }
+      : { kind: 'self', index: indexRef.current, card, input: { ...shared, known: pending.known } })
+  }, [])
 
   // Stand des Tages: Karten bis zum Ende dieser Runde, übrige Karten, Runden insgesamt.
   const done = round.start + round.length
@@ -502,7 +629,7 @@ export default function VocabCardSession({ learnerId, level, cards, translations
             </div>
           </article>
           )}
-          {saveFailed ? <button type="button" className="learning-button learning-button-primary learning-button-wide" onClick={retry}>{t('error_retry')}</button> : answerResult
+          {saveFailed ? <button type="button" className="learning-button learning-button-primary learning-button-wide" onClick={saveConflict ? () => window.location.reload() : retry}>{saveConflict ? checkpointCopy.reload : t('error_retry')}</button> : answerResult
             ? <button type="button" className="learning-button learning-button-primary learning-button-wide" onClick={() => advance()}>{index + 1 < queue.length ? t('next_card') : remaining > 0 ? s('round_finish') : t('finish_session')}</button>
             : isFlashcard
             ? revealed
@@ -521,7 +648,8 @@ export default function VocabCardSession({ learnerId, level, cards, translations
           </motion.div>
         </AnimatePresence>
       </>}
-      {saveFailed && <p role="status" className="learning-status learning-error">{t('save_failed')}</p>}
+      {saveFailed && <p role="status" className="learning-status learning-error">{saveConflict ? checkpointCopy.conflict : t('save_failed')}</p>}
+      {saveFailed && !current && <button type="button" className="learning-button learning-button-primary learning-button-wide" onClick={saveConflict ? () => window.location.reload() : retry}>{saveConflict ? checkpointCopy.reload : t('error_retry')}</button>}
       {retryFailed && <p role="status" className="learning-status learning-error">{t('retry_check_failed')}</p>}
     </LearningScreen>
   )

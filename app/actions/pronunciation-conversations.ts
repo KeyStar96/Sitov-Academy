@@ -15,9 +15,13 @@ import {
 
 type Client = Awaited<ReturnType<typeof createClient>>
 function refreshPronunciation() {
-  revalidatePath('/[lang]/dashboard/level/[level]/pronunciation', 'page')
-  revalidatePath('/[lang]/admin/submissions', 'page')
-  revalidatePath('/[lang]/dashboard', 'page')
+  // The recording/message has already committed. A cache refresh cannot undo it
+  // and must not invite a duplicate submission by reporting a failed save.
+  try {
+    revalidatePath('/[lang]/dashboard/level/[level]/pronunciation', 'page')
+    revalidatePath('/[lang]/admin/submissions', 'page')
+    revalidatePath('/[lang]/dashboard', 'page')
+  } catch { console.error('Pronunciation saved, but route cache could not refresh') }
 }
 const playbackUrl = pronunciationPlaybackUrl
 export async function createPronunciationSubmission(input: CreatePronunciationSubmissionInput): Promise<PronunciationMutationResult> {
@@ -60,7 +64,8 @@ export async function markPronunciationSeen(submissionId: string): Promise<Pronu
     const { data, error } = await supabase.rpc('mark_pronunciation_seen', { p_submission_id: submissionId })
     if (error) { console.error("Marking pronunciation messages read failed"); return { success: false, reason: 'save_failed' } }
     if (getRpcError(data)) return { success: false, reason: 'save_failed' }
-    revalidatePath('/[lang]/dashboard', 'page')
+    try { revalidatePath('/[lang]/dashboard', 'page') }
+    catch { console.error('Pronunciation receipt saved, but route cache could not refresh') }
     return { success: true }
   } catch (error) { console.error("Marking pronunciation messages read failed"); return { success: false, reason: 'save_failed' } }
 }

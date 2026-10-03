@@ -16,11 +16,11 @@ export default function VocabularyTrainingStart({ level, lesson, emptyWithoutCan
   const [session, setSession] = useState<VocabularySession | null>(null)
   if (emptyWithoutCandidates) return <VocabCardSession {...props} level={level} />
   return <VocabularyStartGate level={level} lang={props.uiLanguage ?? 'de'} learnerId={props.learnerId} onReady={async () => {
-    const refreshed = await getVocabularySession(level, props.uiLanguage)
+    const refreshed = await getVocabularySession(level, props.uiLanguage, lesson)
     if (refreshed.learnerId !== props.learnerId) throw new Error('learner_changed')
     setSession(refreshed)
   }}>
     {session && <VocabCardSession {...props} level={level} cards={lesson ? session.cards.filter(item => item.card.lesson === lesson || item.originLevel) : session.cards}
-      initialDeferredCount={session.deferredCount} previousCardId={session.previousCardId} />}
+      checkpoint={session.checkpoint} checkpointRevision={session.checkpointRevision} lesson={lesson} initialDeferredCount={session.deferredCount} previousCardId={session.previousCardId} />}
   </VocabularyStartGate>
 }

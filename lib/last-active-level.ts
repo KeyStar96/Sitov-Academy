@@ -40,8 +40,7 @@ export interface LastActiveLevel {
 /**
  * Das zuletzt gelernte Niveau (Migration 32, R5/R10): PostgreSQL entscheidet
  * aus den eigenen Lernhandlungen. `null` heißt „konnte nicht geladen werden" —
- * dann greifen die bisherigen Rückfälle (erstes angefangenes Niveau auf Home,
- * Browser-Speicher im Reiter „Lernen"), nie eine erfundene Antwort.
+ * dann führt die Navigation zum ersten freigeschalteten Niveau.
  *
  * Pro Anfrage nur einmal gelesen: Layout, Home und Niveau-Seite teilen sich
  * das Ergebnis.

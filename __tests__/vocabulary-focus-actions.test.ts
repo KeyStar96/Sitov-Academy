@@ -34,3 +34,9 @@ it('sends only validated answers and never trusts a client grade', async () => {
     expect(await submitVocabularyFocusAnswer({ requestId: request, cardId: card, format: 'type', answer: 'der Tisch', lang: 'ru' })).toEqual({ success: false, error: mapped })
   }
 })
+
+it('rejects an old device answer after the signed-in account changes', async () => {
+  jest.mocked(createClient).mockResolvedValue({ rpc, auth: { getUser: jest.fn().mockResolvedValue({ data: { user: { id: '00000000-0000-4000-8000-000000000099' } }, error: null }) } } as never)
+  expect(await submitVocabularyFocusAnswer({ requestId: request, cardId: card, format: 'article', answer: 'der', lang: 'ru', expectedLearnerId: card })).toEqual({ success: false, error: 'not_authenticated' })
+  expect(rpc).not.toHaveBeenCalled()
+})

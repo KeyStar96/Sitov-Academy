@@ -1,3 +1,8 @@
+jest.mock('@/app/actions/learning-checkpoints', () => ({
+  loadLearningCheckpoint: jest.fn().mockResolvedValue({ ok: true, learnerId: '00000000-0000-4000-8000-000000000001', checkpoint: null }),
+  saveLearningCheckpoint: jest.fn(async (_kind, _level, state, revision) => ({ ok: true, learnerId: '00000000-0000-4000-8000-000000000001', checkpoint: { state, revision: revision + 1, updatedAt: '2026-10-03T09:00:00Z' } })),
+  clearLearningCheckpoint: jest.fn(async (_kind, _level, revision) => ({ ok: true, learnerId: '00000000-0000-4000-8000-000000000001', checkpoint: { state: {}, revision: revision + 1, updatedAt: '2026-10-03T09:00:00Z' } })),
+}))
 import { vocabularyDatabaseRow } from './fixtures/learning-catalog'
 jest.mock('server-only', () => ({}), { virtual: true })
 jest.mock('next/cache', () => ({ revalidatePath: jest.fn() }))
@@ -6,6 +11,7 @@ jest.mock('@/utils/supabase/server', () => ({ createClient: jest.fn() }))
 import { createClient } from '@/utils/supabase/server'
 import { getVocabularySession, submitVocabularyAnswer, submitLessonAssessment, skipVocabularyAssessment } from '@/app/actions/vocabulary'
 import type { SubmitVocabularyAnswerInput, VocabularyCardRow } from '@/lib/types/vocabulary'
+import { loadLearningCheckpoint } from '@/app/actions/learning-checkpoints'
 
 const userId = '00000000-0000-4000-8000-000000000001'
 const progressId = '10000000-0000-4000-8000-000000000001'
@@ -28,6 +34,7 @@ function session(options: {
   card?: VocabularyCardRow; nativeLanguage?: string; uiLanguage?: string;
   direction?: string; signedIn?: boolean; previousCardId?: string | null; actorId?: string
   pausedUnits?: string[] | 'missing'
+  nextReviewDate?: string
 } = {}) {
   const profile = {
     role: 'student', level_access: [{ level: 'A1.1' }], native_language: options.nativeLanguage ?? 'ru',
@@ -36,6 +43,7 @@ function session(options: {
   const rows = [{
     id: progressId, auth_user_id: userId, card_id: (options.card ?? card).id,
     direction: options.direction ?? 'native_to_de', box_number: 1,
+    next_review_date: options.nextReviewDate,
   }]
   const progress = {
     select: jest.fn().mockReturnThis(), eq: jest.fn().mockReturnThis(), lte: jest.fn().mockReturnThis(),
@@ -76,7 +84,10 @@ function session(options: {
   return { from, rpc, progress, cursor, cards }
 }
 
-beforeEach(() => jest.clearAllMocks())
+beforeEach(() => {
+  jest.clearAllMocks()
+  jest.mocked(loadLearningCheckpoint).mockResolvedValue({ ok: true, learnerId: userId, checkpoint: null })
+})
 
 describe('session DTO source language', () => {
   it('keeps native-language difficulty and UI sentences after limiting embedded translations', async () => {
@@ -125,6 +136,30 @@ describe('session DTO source language', () => {
     session({ previousCardId: card.id })
     expect(await getVocabularySession('A1.1', 'ru')).toEqual({ learnerId: userId, cards: [], deferredCount: 1, previousCardId: card.id })
   })
+})
+
+it('loads an owned, already graded direction from its account checkpoint for an in-round retry', async () => {
+  session({ nextReviewDate: '2099-10-03T08:00:00Z' })
+  const state = { version: 1, language: 'ru', lesson: null, plan: [progressId], deferredCount: 0, size: 20,
+    round: { number: 1, start: 0, length: 1 }, queue: [[0, 1, false], [0, 1, true]], index: 1, retryCount: 1,
+    moves: [], roundMovesFrom: 0, lastAnswered: card.id, answer: '', feedback: null, pending: null }
+  jest.mocked(loadLearningCheckpoint).mockResolvedValue({ ok: true, learnerId: userId, checkpoint: { state, revision: 4, updatedAt: '2026-10-03T08:00:00Z' } })
+  const resumed = await getVocabularySession('A1.1', 'ru')
+  expect(resumed.cards).toHaveLength(1)
+  expect(resumed.checkpoint).toMatchObject({ revision: 4, state: { index: 1, retryCount: 1 } })
+  expect(resumed.checkpoint?.cards[0]).toMatchObject({ progressId, prompt: card.context_sentence_ru })
+})
+
+it('does not restore an account checkpoint when its card is no longer authorized', async () => {
+  session({ nextReviewDate: '2099-10-03T08:00:00Z', pausedUnits: [card.unit_id] })
+  const state = { version: 1, language: 'ru', lesson: null, plan: [progressId], deferredCount: 0, size: 20,
+    round: { number: 1, start: 0, length: 1 }, queue: [[0, 1, true]], index: 0, retryCount: 1,
+    moves: [], roundMovesFrom: 0, lastAnswered: card.id, answer: '', feedback: null, pending: null }
+  jest.mocked(loadLearningCheckpoint).mockResolvedValue({ ok: true, learnerId: userId, checkpoint: { state, revision: 4, updatedAt: '2026-10-03T08:00:00Z' } })
+  const resumed = await getVocabularySession('A1.1', 'ru')
+  expect(resumed.cards).toEqual([])
+  expect(resumed.checkpoint).toBeUndefined()
+  expect(resumed.checkpointRevision).toBe(4)
 })
 
 describe('answer request routing', () => {

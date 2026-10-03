@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { Check, Target, X } from 'lucide-react'
 import { getVocabularyFocus, submitVocabularyFocusAnswer } from '@/app/actions/vocabulary-focus'
@@ -8,6 +8,10 @@ import { requeue, type FocusAnswerResult, type FocusItem, type FocusWord, type V
 import { vocabularyFocusCopy, type VocabularyFocusTranslator } from '@/lib/vocabulary-focus-i18n'
 import { StageDots } from '@/components/progress/LearningProgressView'
 import { ArticleTask, BuildTask, ChoiceTask, TypeTask } from './FocusTasks'
+import { loadLearningCheckpoint, saveLearningCheckpoint, clearLearningCheckpoint } from '@/app/actions/learning-checkpoints'
+import type { LearningCheckpoint } from '@/lib/learning-checkpoints'
+import { restoreVocabularyFocusCheckpoint, type VocabularyFocusCheckpoint } from '@/lib/vocabulary-focus-checkpoint'
+import { learningCheckpointCopy } from '@/lib/learning-checkpoint-i18n'
 
 /**
  * Problemwörter (Phase 11.3): oben der Stand (fällig, in Training,
@@ -15,7 +19,7 @@ import { ArticleTask, BuildTask, ChoiceTask, TypeTask } from './FocusTasks'
  * und Stufe. Die Runde zeigt eine Aufgabe nach der anderen; eine falsche
  * Antwort holt das Wort in derselben Runde noch einmal zurück (einmal).
  */
-type Attempt = { key: string; item: FocusItem }
+type Attempt = VocabularyFocusCheckpoint['queue'][number]
 type Feedback = { answer: string; data: FocusAnswerResult; dueLabel: string | null; again: boolean }
 type Outcome = { key: string; word: string; correct: boolean }
 
@@ -34,24 +38,53 @@ function dueLabelFor(dueAt: string | null | undefined, tomorrow: string, date: (
   return berlinDay(new Date(dueAt)) === berlinDay(new Date(Date.now() + 86400000)) ? tomorrow : date(dueAt)
 }
 
-export default function VocabularyFocus({ initial, lang, level }: { initial: FocusData | null; lang: string; level: string }) {
+export default function VocabularyFocus({ initial, lang, level, learnerId, checkpoint }: { initial: FocusData | null; lang: string; level: string; learnerId?: string | null; checkpoint?: LearningCheckpoint | null }) {
   const t = vocabularyFocusCopy(lang)
   const router = useRouter()
   const [data, setData] = useState(initial)
   const [loadFailed, setLoadFailed] = useState(initial === null)
   const [loading, setLoading] = useState(false)
-  const [queue, setQueue] = useState<Attempt[] | null>(null)
-  const [index, setIndex] = useState(0)
-  const [feedback, setFeedback] = useState<Feedback | null>(null)
-  const [outcomes, setOutcomes] = useState<Outcome[]>([])
+  const [restored] = useState(() => restoreVocabularyFocusCheckpoint(checkpoint?.state, initial, lang))
+  const [queue, setQueue] = useState<Attempt[] | null>(restored?.queue ?? null)
+  const [index, setIndex] = useState(restored?.index ?? 0)
+  const [feedback, setFeedback] = useState<Feedback | null>(restored?.feedback as Feedback ?? null)
+  const [outcomes, setOutcomes] = useState<Outcome[]>(restored?.outcomes ?? [])
   const [busy, setBusy] = useState(false)
+  const [conflict, setConflict] = useState(false)
+  const checkpointCopy = learningCheckpointCopy(lang)
   // Fehlermeldung; `retry`: die Antwort, die mit derselben Anfrage-ID erneut gesendet werden kann.
   const [error, setError] = useState<{ message: string; retry: string | null } | null>(null)
-  const pending = useRef<{ key: string; requestId: string; answer: string } | null>(null)
-  const requeued = useRef(new Set<string>())
+  const pending = useRef<{ key: string; requestId: string; answer: string } | null>(restored?.pending ?? null)
+  const requeued = useRef(new Set<string>(restored?.requeued ?? []))
+  const actor = useRef(learnerId ?? null)
+  const revision = useRef(checkpoint?.revision ?? 0)
+  const state = useRef<VocabularyFocusCheckpoint | null>(restored)
+  const saving = useRef<Promise<void>>(Promise.resolve())
+  const mounted = useRef(true)
+  useEffect(() => { mounted.current = true; return () => { mounted.current = false } }, [])
   // Nach Start und „Weiter“ springt der Fokus auf die Aufgabe (Screenreader, Tastatur).
   const focusTask = useRef(false)
   const date = (value: string) => new Intl.DateTimeFormat(lang, { day: '2-digit', month: '2-digit', timeZone: 'Europe/Berlin' }).format(new Date(value))
+
+  async function persist(snapshot: VocabularyFocusCheckpoint) {
+    state.current = snapshot
+    const task = saving.current.catch(() => undefined).then(async () => {
+      if (!actor.current) {
+        const loaded = await loadLearningCheckpoint('vocabulary_focus', level)
+        if (!loaded.ok) throw new Error('checkpoint_load_failed')
+        actor.current = loaded.learnerId
+        revision.current = loaded.checkpoint?.revision ?? 0
+      }
+      const saved = await saveLearningCheckpoint('vocabulary_focus', level, snapshot, revision.current, actor.current)
+      if (!saved.ok || !saved.checkpoint) {
+        if (saved.ok === false && saved.error === 'conflict' && mounted.current) setConflict(true)
+        throw new Error('checkpoint_save_failed')
+      }
+      revision.current = saved.checkpoint.revision
+    })
+    saving.current = task
+    return task
+  }
 
   async function reload() {
     setLoading(true)
@@ -61,33 +94,46 @@ export default function VocabularyFocus({ initial, lang, level }: { initial: Foc
     setLoadFailed(true)
     return null
   }
-  function start(source: FocusData | null = data) {
+  async function start(source: FocusData | null = data) {
+    if (busy) return
     if (!source?.items.length) return
-    requeued.current = new Set()
-    pending.current = null
-    setQueue(source.items.map(item => ({ key: `${item.cardId}:0`, item })))
-    setIndex(0); setFeedback(null); setOutcomes([]); setError(null)
-    focusTask.current = true
+    setBusy(true)
+    const saved = state.current && state.current.index < state.current.queue.length ? state.current : null
+    const nextState: VocabularyFocusCheckpoint = saved ?? { version: 1, language: lang as VocabularyFocusCheckpoint['language'],
+      queue: source.items.map(item => ({ key: `${item.cardId}:0`, item })), index: 0, feedback: null, outcomes: [], requeued: [], pending: null }
+    try {
+      await persist(nextState)
+      if (!mounted.current) return
+      requeued.current = new Set(nextState.requeued); pending.current = nextState.pending
+      setQueue(nextState.queue); setIndex(nextState.index); setFeedback(nextState.feedback as Feedback)
+      setOutcomes(nextState.outcomes); setError(null); focusTask.current = true
+    } catch { if (mounted.current) setLoadFailed(true) }
+    finally { if (mounted.current) setBusy(false) }
   }
   async function finish() {
+    if (busy) return
+    try { await saving.current }
+    catch { setError({ message: t('failed'), retry: null }); return }
     setQueue(null); setFeedback(null); setError(null)
     await reload()
     router.refresh()
   }
 
   async function answer(value: string) {
-    if (!queue || busy || feedback) return
+    if (!queue || busy || feedback || conflict || !state.current) return
     const attempt = queue[index]
     const requestId = pending.current?.key === attempt.key && pending.current.answer === value ? pending.current.requestId : crypto.randomUUID()
     pending.current = { key: attempt.key, requestId, answer: value }
     setBusy(true); setError(null)
     let result: Awaited<ReturnType<typeof submitVocabularyFocusAnswer>>
-    try { result = await submitVocabularyFocusAnswer({ requestId, cardId: attempt.item.cardId, format: attempt.item.format, answer: value, lang }) }
+    try {
+      await persist({ ...state.current, pending: pending.current })
+      result = await submitVocabularyFocusAnswer({ requestId, cardId: attempt.item.cardId, format: attempt.item.format, answer: value, lang, expectedLearnerId: actor.current })
+    }
     catch { result = { success: false, error: 'failed' } }
-    setBusy(false)
     if (result.success === false) {
-      if (result.error === 'not_due' || result.error === 'not_found') { pending.current = null; next(); setError({ message: t('not_due'), retry: null }); return }
-      setError({ message: t('failed'), retry: value })
+      if (result.error === 'not_due' || result.error === 'not_found') { pending.current = null; await next(true); if (mounted.current) { setBusy(false); setError({ message: t('not_due'), retry: null }) }; return }
+      if (mounted.current) { setBusy(false); setError({ message: t('failed'), retry: value }) }
       return
     }
     pending.current = null
@@ -97,16 +143,45 @@ export default function VocabularyFocus({ initial, lang, level }: { initial: Foc
       requeued.current.add(attempt.item.cardId)
       const item = attempt.item.format === 'choice' ? { ...attempt.item, options: shuffle(attempt.item.options) }
         : attempt.item.format === 'build' ? { ...attempt.item, letters: shuffle(attempt.item.letters) } : attempt.item
-      setQueue(current => current && requeue(current, index, { key: `${attempt.item.cardId}:1`, item }))
+      state.current = { ...state.current, queue: requeue(state.current.queue, index, { key: `${attempt.item.cardId}:1`, item }) }
     }
-    setOutcomes(current => [...current, { key: attempt.key, word: result.data.solution.display, correct: result.data.correct }])
-    setFeedback({ answer: value, data: result.data, dueLabel, again })
+    const nextFeedback = { answer: value, data: result.data, dueLabel, again }
+    const nextState = { ...state.current, pending: null, feedback: nextFeedback, requeued: [...requeued.current],
+      outcomes: [...state.current.outcomes, { key: attempt.key, word: result.data.solution.display, correct: result.data.correct }] }
+    try {
+      await persist(nextState)
+      if (mounted.current) { setQueue(nextState.queue); setOutcomes(nextState.outcomes); setFeedback(nextFeedback) }
+    } catch {
+      // The pending receipt in the account can recover this grade after a reload.
+      if (mounted.current) { setFeedback(nextFeedback); setError({ message: t('failed'), retry: null }) }
+    } finally { if (mounted.current) setBusy(false) }
   }
-  function next() {
-    setFeedback(null)
-    setIndex(current => current + 1)
-    focusTask.current = true
+  async function next(fromAnswer = false) {
+    if (!state.current || conflict || (busy && !fromAnswer)) return
+    setBusy(true)
+    const previousState = state.current
+    const nextState = { ...state.current, feedback: null, pending: null, index: state.current.index + 1 }
+    try {
+      await persist(nextState)
+      if (nextState.index >= nextState.queue.length && actor.current) {
+        const cleared = await clearLearningCheckpoint('vocabulary_focus', level, revision.current, actor.current)
+        if (!cleared.ok || !cleared.checkpoint) {
+          if (cleared.ok === false && cleared.error === 'conflict' && mounted.current) setConflict(true)
+          throw new Error('checkpoint_clear_failed')
+        }
+        revision.current = cleared.checkpoint.revision
+      }
+      if (mounted.current) { setFeedback(null); setIndex(nextState.index); focusTask.current = true }
+    } catch { state.current = previousState; if (mounted.current) setError({ message: t('failed'), retry: null }) }
+    finally { if (mounted.current) setBusy(false) }
   }
+
+  const recoveryStarted = useRef(false)
+  useEffect(() => {
+    if (!restored?.pending || recoveryStarted.current) return
+    recoveryStarted.current = true
+    void answer(restored.pending.answer)
+  }, [])
 
   if (queue) {
     const total = queue.length
@@ -117,7 +192,7 @@ export default function VocabularyFocus({ initial, lang, level }: { initial: Foc
     return <section className="st-focus-card space-y-5" aria-labelledby="focus-task-heading">
       <div className="flex items-center justify-between gap-3">
         <p className="text-base font-semibold text-[var(--muted)]">{t('progress', { current: index + 1, total })}</p>
-        <button type="button" className="st-link-pill st-press" onClick={() => void finish()}><X size={18} aria-hidden="true" />{t('end')}</button>
+        <button type="button" disabled={busy} className="st-link-pill st-press" onClick={() => void finish()}><X size={18} aria-hidden="true" />{t('end')}</button>
       </div>
       <div className="h-2 overflow-hidden rounded-full bg-[var(--surface-muted)]" role="progressbar" aria-valuemin={0} aria-valuemax={total} aria-valuenow={index} aria-label={t('progress', { current: index + 1, total })}>
         <div className="h-full rounded-full bg-[var(--success)] transition-[width] duration-300 motion-reduce:transition-none" style={{ width: `${index / total * 100}%` }} />
@@ -134,17 +209,18 @@ export default function VocabularyFocus({ initial, lang, level }: { initial: Foc
       {item.format === 'build' && <BuildTask key={attempt.key} item={item} {...taskProps} />}
       {item.format === 'type' && <TypeTask key={attempt.key} item={item} {...taskProps} />}
       {error && <div role="alert" className="st-focus-feedback flex flex-wrap items-center justify-between gap-3" data-tone="danger">
-        <span className="text-base">{error.message}</span>
-        {error.retry && <button type="button" className="st-button st-button--soft st-press" disabled={busy} onClick={() => error.retry && void answer(error.retry)}>{t('retry')}</button>}
+        <span className="text-base">{conflict ? checkpointCopy.conflict : error.message}</span>
+        {conflict ? <button type="button" className="st-button st-button--soft st-press" onClick={() => window.location.reload()}>{checkpointCopy.reload}</button>
+          : error.retry && <button type="button" className="st-button st-button--soft st-press" disabled={busy} onClick={() => error.retry && void answer(error.retry)}>{t('retry')}</button>}
       </div>}
-      <div aria-live="polite">{feedback && <FeedbackPanel t={t} feedback={feedback} last={index + 1 >= queue.length} onNext={next} />}</div>
+      <div aria-live="polite">{feedback && <FeedbackPanel t={t} feedback={feedback} last={index + 1 >= queue.length} disabled={busy} onNext={() => void next()} />}</div>
     </section>
   }
 
   return <Overview t={t} data={data} loadFailed={loadFailed} loading={loading} date={date} onStart={() => start()} onReload={() => void reload()} />
 }
 
-function FeedbackPanel({ t, feedback, last, onNext }: { t: VocabularyFocusTranslator; feedback: Feedback; last: boolean; onNext: () => void }) {
+function FeedbackPanel({ t, feedback, last, disabled, onNext }: { t: VocabularyFocusTranslator; feedback: Feedback; last: boolean; disabled: boolean; onNext: () => void }) {
   const { data } = feedback
   const detail = data.correct
     ? data.status === 'mastered' ? t('mastered_now') : feedback.dueLabel ? t('stage_up', { value: data.stage, date: feedback.dueLabel }) : null
@@ -158,7 +234,7 @@ function FeedbackPanel({ t, feedback, last, onNext }: { t: VocabularyFocusTransl
     {detail && <p className="text-base text-[var(--muted)]">{detail}</p>}
     <div className="flex justify-end">
       {/* Der Weiter-Knopf bekommt den Fokus: Enter führt direkt zur nächsten Aufgabe. */}
-      <button type="button" className="st-button st-button--primary st-press" autoFocus onClick={onNext}>{t(last ? 'finish' : 'next')}</button>
+      <button type="button" disabled={disabled} className="st-button st-button--primary st-press" autoFocus onClick={onNext}>{t(last ? 'finish' : 'next')}</button>
     </div>
   </div>
 }

@@ -11,16 +11,11 @@ import { levelHref } from '@/lib/mode-targets'
 import { studentTranslator } from '@/lib/student-ui-i18n'
 import { supportChannels, type SupportLabels } from '@/lib/support-channels'
 
-const LAST_LEVEL_KEY = 'sitov:last-level'
 const CHANNEL_ICONS = { whatsapp: MessageCircle, phone: Phone, telegram: Send, email: Mail } as const
 /** D8: erst ab dieser Scrolltiefe reagieren … */
 export const TABBAR_MIN_DEPTH = 56
 /** … und erst nach so viel Bewegung in eine Richtung. */
 export const TABBAR_MIN_TRAVEL = 8
-
-function readLastLevel(): string | null {
-  try { return window.localStorage.getItem(LAST_LEVEL_KEY) } catch { return null }
-}
 
 /** Eine Bildschirmtastatur ist offen: Eingabefeld mit Fokus auf einem Touch-Gerät. */
 function keyboardOpen(): boolean {
@@ -68,8 +63,8 @@ export function decideTabbar({ focusInBar, keyboard, dialog, y, viewport, height
  *
  * „Lernen" führt zum zuletzt gelernten Niveau (`get_last_active_level`, vom
  * Layout übergeben); in einem Niveau zu dessen Übersicht. Nur wenn die
- * Abfrage scheitert, hilft der Browser-Speicher aus, sonst das erste
- * freigeschaltete Niveau. „Hilfe" öffnet die Kontaktwege als Blatt.
+ * Abfrage scheitert, führt der Reiter zum ersten freigeschalteten Niveau.
+ * „Hilfe" öffnet die Kontaktwege als Blatt.
  *
  * Beim Runterscrollen macht die Leiste Platz, beim Hochscrollen kommt sie
  * zurück. Der Zustand steht als `data-tabbar` am Wurzelelement; die
@@ -96,24 +91,13 @@ export default function StudentNavigation({ lang, firstLevel, levels, supportLab
   const [helpOpen, setHelpOpen] = useState(false)
   const helpOpenRef = useRef(helpOpen)
   helpOpenRef.current = helpOpen
-  const [storedLevel, setStoredLevel] = useState<string | null>(null)
   const [tabbar, setTabbar] = useState<TabbarState>('visible')
   const base = `/${lang}/dashboard`
   const levelMatch = pathname.match(/\/dashboard\/level\/([^/]+)/)
   const currentLevel = levelMatch ? decodeURIComponent(levelMatch[1]) : null
-  const rpcFailed = lastActiveLevel === undefined
-
   useEffect(() => {
-    if (currentLevel && levels.includes(currentLevel)) {
-      // Nur noch Rückfall für den Fall, dass die Datenbankabfrage scheitert.
-      try { window.localStorage.setItem(LAST_LEVEL_KEY, currentLevel) } catch { /* nur Bequemlichkeit */ }
-      setStoredLevel(currentLevel)
-      return
-    }
-    if (!rpcFailed) return
-    const stored = readLastLevel()
-    setStoredLevel(stored && levels.includes(stored) ? stored : null)
-  }, [currentLevel, levels, rpcFailed])
+    try { window.localStorage.removeItem('sitov:last-level') } catch { /* retired unscoped fallback */ }
+  }, [])
 
   useEffect(() => {
     const root = nav.current?.closest<HTMLElement>('.academy-student-shell')
@@ -164,7 +148,7 @@ export default function StudentNavigation({ lang, firstLevel, levels, supportLab
 
   const rpcLevel = lastActiveLevel && levels.includes(lastActiveLevel) ? lastActiveLevel : null
   const learnLevel = (currentLevel && levels.includes(currentLevel) ? currentLevel : null)
-    ?? (rpcFailed ? storedLevel : rpcLevel) ?? firstLevel
+    ?? rpcLevel ?? firstLevel
   const tabs = [
     { id: 'home', label: t('nav_home'), icon: House, href: base, active: pathname === base || pathname === `${base}/` },
     { id: 'learn', label: t('nav_learn'), icon: GraduationCap, href: learnLevel ? levelHref(lang, learnLevel) : base, active: !!currentLevel, fresh: learnNew },

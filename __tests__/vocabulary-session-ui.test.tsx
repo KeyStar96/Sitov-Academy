@@ -1,3 +1,8 @@
+jest.mock('@/app/actions/learning-checkpoints', () => ({
+  loadLearningCheckpoint: jest.fn().mockResolvedValue({ ok: true, learnerId: '00000000-0000-4000-8000-000000000001', checkpoint: null }),
+  saveLearningCheckpoint: jest.fn(async (_kind, _level, state, revision) => ({ ok: true, learnerId: '00000000-0000-4000-8000-000000000001', checkpoint: { state, revision: revision + 1, updatedAt: '2026-10-03T09:00:00Z' } })),
+  clearLearningCheckpoint: jest.fn(async (_kind, _level, revision) => ({ ok: true, learnerId: '00000000-0000-4000-8000-000000000001', checkpoint: { state: {}, revision: revision + 1, updatedAt: '2026-10-03T09:00:00Z' } })),
+}))
 import React from 'react'
 import { randomUUID } from 'node:crypto'
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react'
@@ -7,6 +12,8 @@ import type { DueVocabularyCard, SubmitVocabularyAnswerResult } from '@/lib/type
 import de from '@/dictionaries/de.json'
 import ru from '@/dictionaries/ru.json'
 import { prefetchNeuralAudio } from '@/lib/audio/neural-client'
+import { saveLearningCheckpoint } from '@/app/actions/learning-checkpoints'
+import type { VocabularyCheckpoint } from '@/lib/vocabulary-session-checkpoint'
 
 jest.unmock('lucide-react')
 jest.unmock('framer-motion')
@@ -33,6 +40,8 @@ beforeEach(() => {
   jest.mocked(submitVocabularySelfRating).mockReset().mockResolvedValue(result())
   jest.mocked(checkVocabularyRetry).mockReset().mockResolvedValue({ success: true, isCorrect: true, correctAnswer: 'das Haus', isAlternative: false, softError: null })
   Object.defineProperty(crypto, 'randomUUID', { configurable: true, value: randomUUID })
+  jest.mocked(saveLearningCheckpoint).mockImplementation(async (_kind, _level, state, revision) => ({ ok: true, learnerId,
+    checkpoint: { state, revision: revision + 1, updatedAt: '2026-10-03T09:00:00Z' } }))
 })
 function mount(cards: DueVocabularyCard[]) { return render(<VocabCardSession learnerId={learnerId} cards={cards} translations={de.vocabulary} uiLanguage="ru" overviewHref="/ru/dashboard" />) }
 function deferred() {
@@ -45,7 +54,7 @@ function typeAnswer(value = 'das Haus') {
   fireEvent.click(screen.getByRole('button', { name: de.vocabulary.check_sentence }))
 }
 async function submit(value = 'das Haus') { await act(async () => typeAnswer(value)) }
-function next() { fireEvent.click(screen.getByRole('button', { name: de.vocabulary.next_card })) }
+async function next() { await act(async () => fireEvent.click(screen.getByRole('button', { name: de.vocabulary.next_card }))) }
 
 it('prepares headword audio but hides the solution and self-rating controls until server grading', () => {
   mount([word, second])
@@ -70,7 +79,7 @@ it('keeps the target level on carried typed answers, failed-write retries and pr
   expect(original).toMatchObject({ progressId: word.progressId, targetLevel: 'A1.2' })
   await act(async () => fireEvent.click(screen.getByRole('button', { name: de.vocabulary.error_retry })))
   expect(jest.mocked(submitVocabularyAnswer).mock.calls[1][0]).toEqual(original)
-  next()
+  await next()
   await submit('das Haus')
   expect(checkVocabularyRetry).toHaveBeenCalledWith(expect.objectContaining({ targetLevel: 'A1.2', progressId: word.progressId }))
 })
@@ -87,7 +96,7 @@ it.each([word, sentence])('waits for server authority for $format cards and send
   jest.mocked(submitVocabularyAnswer).mockReturnValueOnce(reply.promise)
   mount([card, second])
   typeAnswer(' das Haus \n')
-  expect(submitVocabularyAnswer).toHaveBeenCalledWith({ progressId: card.progressId, typedAnswer: ' das Haus \n', expectedLearnerId: learnerId, uiLanguage: 'ru', targetLevel: 'A1.1', requestId: expect.any(String) })
+  await waitFor(() => expect(submitVocabularyAnswer).toHaveBeenCalledWith({ progressId: card.progressId, typedAnswer: ' das Haus \n', expectedLearnerId: learnerId, uiLanguage: 'ru', targetLevel: 'A1.1', requestId: expect.any(String) }))
   expect(screen.getByRole('heading', { name: card.prompt })).toBeVisible()
   expect(screen.getByRole('textbox')).toBeDisabled()
   expect(screen.queryByRole('button', { name: de.vocabulary.next_card })).not.toBeInTheDocument()
@@ -135,7 +144,7 @@ it.each([word, sentence])('accepts only one $format submission until the respons
   fireEvent.change(screen.getByRole('textbox'), { target: { value: 'das Haus' } })
   const button = screen.getByRole('button', { name: de.vocabulary.check_sentence })
   act(() => { fireEvent.click(button); fireEvent.click(button) })
-  expect(submitVocabularyAnswer).toHaveBeenCalledTimes(1)
+  await waitFor(() => expect(submitVocabularyAnswer).toHaveBeenCalledTimes(1))
   await act(async () => reply.resolve(result()))
 })
 it('retains the failed answer and retries the identical request without revealing a solution', async () => {
@@ -149,7 +158,7 @@ it('retains the failed answer and retries the identical request without revealin
   expect(jest.mocked(submitVocabularyAnswer).mock.calls[1][0]).toEqual(original)
   expect(screen.getByText(de.vocabulary.answer_correct)).toBeVisible()
   expect(screen.queryByText(de.vocabulary.save_failed)).not.toBeInTheDocument()
-  next()
+  await next()
   expect(screen.getByRole('heading', { name: second.prompt })).toBeVisible()
 })
 it('treats an incomplete successful response as unacknowledged', async () => {
@@ -162,7 +171,7 @@ it('treats an incomplete successful response as unacknowledged', async () => {
 it('never resubmits a committed earlier card when the next card fails', async () => {
   jest.mocked(submitVocabularyAnswer).mockResolvedValueOnce(result()).mockRejectedValueOnce(new Error('offline')).mockResolvedValueOnce(result({ correctAnswer: 'lernen' }))
   mount([word, second])
-  await submit(); next(); await submit('lernen')
+  await submit(); await next(); await submit('lernen')
   await act(async () => fireEvent.click(screen.getByRole('button', { name: de.vocabulary.error_retry })))
   expect(jest.mocked(submitVocabularyAnswer).mock.calls.map(([input]) => input.progressId)).toEqual([word.progressId, second.progressId, second.progressId])
   expect(finishVocabularySession).not.toHaveBeenCalled()
@@ -209,7 +218,7 @@ it('tests both typed word directions with their target languages and only server
   mount([word, reverse, second])
   expect(screen.getByRole('heading', { name: word.prompt })).toHaveAttribute('lang', 'ru')
   expect(screen.getByRole('textbox')).toHaveAttribute('lang', 'de')
-  await submit(); next(); await submit('lernen'); next()
+  await submit(); await next(); await submit('lernen'); await next()
   expect(screen.getByRole('heading', { name: 'das Haus' })).toHaveAttribute('lang', 'de')
   expect(screen.getByRole('textbox')).toHaveAttribute('lang', 'ru')
   expect(screen.queryByText('дом')).not.toBeInTheDocument()
@@ -222,7 +231,7 @@ it('binds reviews to the initial learner even when incoming props change', async
   const { rerender } = mount([word, second])
   await submit()
   rerender(<VocabCardSession learnerId="00000000-0000-4000-8000-000000000002" cards={[word, second]} translations={de.vocabulary} overviewHref="/ru/dashboard" />)
-  next(); await submit('lernen')
+  await next(); await submit('lernen')
   expect(jest.mocked(submitVocabularyAnswer).mock.calls.map(([input]) => input.expectedLearnerId)).toEqual([learnerId, learnerId])
 })
 it('keeps an acknowledged session complete when cache finalization fails', async () => {
@@ -369,7 +378,7 @@ describe('Phase-6-Runde: falsche Vokabeln werden wiederholt, bis sie einmal sitz
     expect(screen.getByText('Karte 1 von 1, Phase 4 von 6')).toBeInTheDocument()
     await submit('das Hauss Garten')
     expect(screen.getByText(de.vocabulary.retry_scheduled)).toBeInTheDocument()
-    next()
+    await next()
     // Die Wiederholung beginnt leer – nicht mit der falschen Antwort von eben.
     expect(screen.getByRole('textbox')).toHaveValue('')
     expect(screen.getByText(de.vocabulary.retry_label)).toBeInTheDocument()
@@ -379,7 +388,7 @@ describe('Phase-6-Runde: falsche Vokabeln werden wiederholt, bis sie einmal sitz
     expect(checkVocabularyRetry).toHaveBeenCalledWith({ progressId: word.progressId, typedAnswer: 'die Haus', expectedLearnerId: learnerId, uiLanguage: 'ru', targetLevel: 'A1.1' })
     expect(submitVocabularyAnswer).toHaveBeenCalledTimes(1)
     expect(screen.getByText(de.vocabulary.answer_incorrect)).toBeVisible()
-    next()
+    await next()
     await submit('das Haus')
     expect(checkVocabularyRetry).toHaveBeenCalledTimes(2)
     expect(screen.getByText(de.vocabulary.answer_correct)).toBeVisible()
@@ -391,7 +400,7 @@ describe('Phase-6-Runde: falsche Vokabeln werden wiederholt, bis sie einmal sitz
   it('lässt eine richtig beantwortete Karte in der Runde nicht wiederkommen', async () => {
     mount([word, second])
     await submit('das Haus')
-    next()
+    await next()
     await submit('lernen')
     fireEvent.click(screen.getByRole('button', { name: de.vocabulary.finish_session }))
     expect(screen.queryByText(de.vocabulary.retry_label)).not.toBeInTheDocument()
@@ -404,7 +413,7 @@ describe('Phase-6-Runde: falsche Vokabeln werden wiederholt, bis sie einmal sitz
     jest.mocked(checkVocabularyRetry).mockResolvedValueOnce({ success: false, error: 'check_failed' })
     mount([word])
     await submit('falsch')
-    next()
+    await next()
     await submit('das Haus')
     expect(screen.getByText(de.vocabulary.retry_check_failed)).toBeInTheDocument()
     expect(screen.getByRole('textbox')).toHaveValue('das Haus')
@@ -442,4 +451,68 @@ it.each(['article_missing', 'article_wrong'] as const)('renders the server artic
   expect(screen.getByText(feedback === 'article_missing' ? 'Не забудь поставить артикль перед существительным.' : 'У этого существительного другой артикль.')).toBeVisible()
   expect(screen.getByText(de.vocabulary.answer_incorrect)).toBeVisible()
   expect(container.querySelector('.learning-sentence .text-green-700')).toHaveTextContent('das')
+})
+
+it('resumes a confirmed answer and its retry queue on a fresh device without browser storage', async () => {
+  jest.mocked(submitVocabularyAnswer).mockResolvedValueOnce(result({ isCorrect: false, newPhase: 1 }))
+  const firstDevice = mount([word, second])
+  await submit('falsch')
+  const call = jest.mocked(saveLearningCheckpoint).mock.calls.at(-1)!
+  const state = call[2] as VocabularyCheckpoint
+  expect(state.pending).toBeNull()
+  expect(state.queue.at(-1)).toEqual([0, 1, true])
+  firstDevice.unmount()
+  localStorage.clear(); sessionStorage.clear()
+  render(<VocabCardSession learnerId={learnerId} level="A1.1" cards={[second]} checkpoint={{ state, revision: call[3] + 1, cards: [word, second] }}
+    translations={de.vocabulary} uiLanguage="ru" overviewHref="/ru/dashboard" />)
+  expect(screen.getByText(de.vocabulary.answer_incorrect)).toBeVisible()
+  expect(screen.getByText(de.vocabulary.retry_scheduled)).toBeVisible()
+  expect(submitVocabularyAnswer).toHaveBeenCalledTimes(1)
+  await next()
+  expect(screen.getByRole('heading', { name: second.prompt })).toBeVisible()
+  await submit('lernen')
+  await next()
+  expect(screen.getByText(de.vocabulary.retry_label)).toBeVisible()
+  expect(screen.getByRole('textbox')).toHaveValue('')
+})
+
+it('replays the same account receipt after a device loses the grading response', async () => {
+  const response = deferred()
+  jest.mocked(submitVocabularyAnswer).mockReturnValueOnce(response.promise)
+  const firstDevice = mount([word, second])
+  typeAnswer('das Haus')
+  await waitFor(() => expect(submitVocabularyAnswer).toHaveBeenCalledTimes(1))
+  const input = jest.mocked(submitVocabularyAnswer).mock.calls[0][0]
+  const call = jest.mocked(saveLearningCheckpoint).mock.calls.at(-1)!
+  const state = call[2] as VocabularyCheckpoint
+  expect(state.pending).toMatchObject({ requestId: input.requestId, answer: 'das Haus' })
+  firstDevice.unmount()
+  localStorage.clear(); sessionStorage.clear()
+  render(<VocabCardSession learnerId={learnerId} level="A1.1" cards={[second]} checkpoint={{ state, revision: call[3] + 1, cards: [word, second] }}
+    translations={de.vocabulary} uiLanguage="ru" overviewHref="/ru/dashboard" />)
+  await waitFor(() => expect(submitVocabularyAnswer).toHaveBeenCalledTimes(2))
+  expect(jest.mocked(submitVocabularyAnswer).mock.calls[1][0]).toEqual(input)
+  expect(await screen.findByText(de.vocabulary.answer_correct)).toBeVisible()
+})
+
+it('does not grade an answer when its account checkpoint cannot be saved', async () => {
+  jest.mocked(saveLearningCheckpoint).mockResolvedValueOnce({ ok: false, error: 'unavailable' })
+  mount([word, second])
+  await submit('das Haus')
+  expect(submitVocabularyAnswer).not.toHaveBeenCalled()
+  expect(jest.mocked(saveLearningCheckpoint).mock.calls.at(-1)?.[2]).toMatchObject({ pending: { answer: 'das Haus' } })
+  expect(screen.getByText(de.vocabulary.save_failed)).toBeVisible()
+  await act(async () => fireEvent.click(screen.getByRole('button', { name: de.vocabulary.error_retry })))
+  expect(submitVocabularyAnswer).toHaveBeenCalledTimes(1)
+  expect(saveLearningCheckpoint).toHaveBeenCalledWith('vocabulary', 'A1.1', expect.any(Object), expect.any(Number), learnerId)
+})
+
+it('asks for the current account checkpoint when another device advanced and never grades stale input', async () => {
+  jest.mocked(saveLearningCheckpoint).mockResolvedValueOnce({ ok: false, error: 'conflict', checkpoint: { state: {}, revision: 20, updatedAt: '2026-10-03T09:30:00Z' } })
+  mount([word, second])
+  await submit('das Haus')
+  expect(submitVocabularyAnswer).not.toHaveBeenCalled()
+  expect(screen.getByText('Обучение продолжилось на другом устройстве. Загрузите текущую точку сохранения.')).toBeVisible()
+  expect(screen.getByRole('button', { name: 'Загрузить сохранение' })).toBeVisible()
+  expect(screen.queryByRole('button', { name: de.vocabulary.next_card })).not.toBeInTheDocument()
 })

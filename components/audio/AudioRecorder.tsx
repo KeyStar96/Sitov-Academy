@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { createPronunciationSubmission } from '@/app/actions/pronunciation-conversations'
 import { CheckCircle2, Loader2, Mic, Square, Trash2, TriangleAlert, UploadCloud } from 'lucide-react'
@@ -54,6 +54,8 @@ export default function AudioRecorder({
   const [isUploading, setIsUploading] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [uploadFailed, setUploadFailed] = useState(false)
+  const uploaded = useRef<{ blob: Blob; path: string } | null>(null)
+  const submitPending = useRef(false)
   useEffect(() => { onRecordingStateChange?.(recorder.status === 'requesting' || recorder.isRecording || isUploading || (recorder.hasRecording && !isSubmitted)) }, [recorder.status, recorder.isRecording, recorder.hasRecording, isUploading, isSubmitted, onRecordingStateChange])
   const phase = isSubmitted ? 'submitted' : recorder.isRecording ? 'recording' : recorder.hasRecording ? 'review' : 'idle'
   useEffect(() => { onPhaseChange?.(phase) }, [phase, onPhaseChange])
@@ -73,22 +75,27 @@ export default function AudioRecorder({
   }
 
   const handleSubmit = async () => {
-    if (!recorder.audioBlob || isUploading) return
+    if (!recorder.audioBlob || submitPending.current) return
 
+    submitPending.current = true
     setIsUploading(true)
     setUploadFailed(false)
 
     try {
-      const upload = await uploadPrivatePronunciationRecording(recorder.audioBlob)
-      if (upload.success === false) {
-        // Details stehen bereits im Log des privaten Uploads
-        // (Bucket, Pfad, MIME-Type, Fehlergrund) – hier nur der Ablaufkontext.
-        console.error("Einreichung abgebrochen: Audio-Upload fehlgeschlagen.")
-        setUploadFailed(true)
-        return
+      let audioPath = uploaded.current?.blob === recorder.audioBlob ? uploaded.current.path : null
+      if (!audioPath) {
+        const upload = await uploadPrivatePronunciationRecording(recorder.audioBlob)
+        if (upload.success === false) {
+          // Details stehen bereits im Log des privaten Uploads.
+          console.error("Einreichung abgebrochen: Audio-Upload fehlgeschlagen.")
+          setUploadFailed(true)
+          return
+        }
+        audioPath = upload.audioPath
+        uploaded.current = { blob: recorder.audioBlob, path: audioPath }
       }
 
-      const result = await createPronunciationSubmission({ promptId, audioPath: upload.audioPath })
+      const result = await createPronunciationSubmission({ promptId, audioPath })
 
       if (!result.success) {
         console.error("Einreichung abgebrochen: Speichern in der Datenbank fehlgeschlagen.")
@@ -97,14 +104,15 @@ export default function AudioRecorder({
       }
 
       setIsSubmitted(true)
-      onSubmitted?.()
-      router.refresh()
+      try { onSubmitted?.(); router.refresh() }
+      catch { console.error('Recording saved, but studio could not refresh') }
     } catch (err) {
       // Fängt z.B. Netzwerkabbrüche beim Aufruf der Server Action ab, die
       // sonst als unbehandelte Promise-Rejection verschwinden würden.
       console.error("Unerwarteter Fehler beim Einreichen der Aufnahme:")
       setUploadFailed(true)
     } finally {
+      submitPending.current = false
       setIsUploading(false)
     }
   }

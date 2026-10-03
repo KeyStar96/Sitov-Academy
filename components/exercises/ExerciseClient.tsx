@@ -8,10 +8,11 @@ import MultipleChoiceExerciseCard from '@/components/exercises/MultipleChoiceExe
 import { ArticleLegend, EndingsCard, exerciseUsesArticles, exerciseUsesConjugation } from '@/components/exercises/GrammarAids'
 import LearningScreen, { LearningStats, type LearningScreenKey } from '@/components/vocabulary/LearningScreen'
 import ProgressRing from '@/components/ui/ProgressRing'
-import { finishExerciseSession, recordExerciseAttempt } from '@/app/actions/exercises'
+import { finishExerciseSession, recordGrammarCheckpointAttempt } from '@/app/actions/exercises'
+import { loadLearningCheckpoint, saveLearningCheckpoint } from '@/app/actions/learning-checkpoints'
 import { createExerciseTranslator, type ExerciseTranslations } from '@/lib/exercise-i18n'
 import { grammarTranslator } from '@/lib/grammar-i18n'
-import { createGrammarSession, groupGrammarTopics } from '@/lib/grammar-session'
+import { createGrammarSession, grammarCheckpoint, groupGrammarTopics, restoreGrammarCheckpoint } from '@/lib/grammar-session'
 import { studentTranslator } from '@/lib/student-ui-i18n'
 import type { ConfirmedExerciseAttempt, RecordExerciseAttemptInput, StudentExercise } from '@/lib/types/exercise'
 
@@ -28,6 +29,9 @@ interface ExerciseClientProps {
   level: string
   /** Rahmen-Texte des Lernbildschirms (Theme-Knopf, Fortschritt); ohne sie gelten die deutschen Standardtexte. */
   learningLabels?: Partial<Record<LearningScreenKey, string>>
+  initialCheckpoint?: { state: Record<string, unknown>; revision: number; updatedAt: string } | null
+  checkpointLoadFailed?: boolean
+  initialLearnerId?: string
 }
 
 const DEFAULT_LEARNING_LABELS: Record<LearningScreenKey, string> = {
@@ -40,14 +44,19 @@ const DEFAULT_LEARNING_LABELS: Record<LearningScreenKey, string> = {
  * Knöpfe, Fortschrittsband oben, Kärtchen statt Tastatur als Standard, und
  * je nach Thema anschauliche Hilfen (Artikelfarben, Endungs-Tabelle).
  */
-export default function ExerciseClient({ exercises, translations = {}, lang, level, learningLabels }: ExerciseClientProps) {
+export default function ExerciseClient({ exercises, translations = {}, lang, level, learningLabels, initialCheckpoint, checkpointLoadFailed = false, initialLearnerId }: ExerciseClientProps) {
   const [library, setLibrary] = useState(exercises)
-  const [session, setSession] = useState<StudentExercise[] | null>(null)
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [saveFailed, setSaveFailed] = useState(false)
+  const initialSession = restoreGrammarCheckpoint(exercises, initialCheckpoint?.state)
+  const [session, setSession] = useState<StudentExercise[] | null>(initialSession?.exercises ?? null)
+  const [currentIndex, setCurrentIndex] = useState(initialSession?.currentIndex ?? 0)
+  const [saveFailed, setSaveFailed] = useState(checkpointLoadFailed)
   const [saving, setSaving] = useState(false)
   const [pendingAttempt, setPendingAttempt] = useState<RecordExerciseAttemptInput | null>(null)
   const [confirmedAttempt, setConfirmedAttempt] = useState<(ConfirmedExerciseAttempt & { exerciseId: string }) | null>(null)
+  const pendingReceipt = useRef<{ key: string; requestId: string; expectedRevision: number } | null>(null)
+  const checkpointRevision = useRef(initialCheckpoint?.revision ?? 0)
+  const checkpointKnown = useRef(!checkpointLoadFailed)
+  const learnerId = useRef(initialLearnerId)
   const [inputMode, setInputMode] = useState<GrammarInputMode>('tiles')
   const savingRef = useRef(false)
   const saveQueue = useRef<Promise<void>>(Promise.resolve())
@@ -75,14 +84,55 @@ export default function ExerciseClient({ exercises, translations = {}, lang, lev
     workspaceRef.current?.scrollTo?.({ top: 0, behavior: reduced ? 'instant' : 'smooth' })
   }, [session, currentIndex, reduced])
 
-  const startSession = useCallback((topic?: string, review = false) => {
-    const next = createGrammarSession(library, { topic, review })
-    setSession(next)
-    setCurrentIndex(0)
-    setConfirmedAttempt(null)
-    setPendingAttempt(null)
-    setSaveFailed(false)
+  const restoreAccountCheckpoint = useCallback((checkpoint: { state: Record<string, unknown>; revision: number } | null) => {
+    checkpointRevision.current = checkpoint?.revision ?? 0
+    checkpointKnown.current = true
+    const restored = restoreGrammarCheckpoint(library, checkpoint?.state)
+    setSession(restored?.exercises ?? null)
+    setCurrentIndex(restored?.currentIndex ?? 0)
+    setConfirmedAttempt(null); setPendingAttempt(null); pendingReceipt.current = null
   }, [library])
+
+  const saveCheckpoint = useCallback(async (state: Record<string, unknown>) => {
+    const result = await saveLearningCheckpoint('exercises', level, state, checkpointRevision.current, learnerId.current)
+    if (result.ok === false) {
+      setSaveFailed(true)
+      if (result.error === 'conflict') restoreAccountCheckpoint(result.checkpoint ?? null)
+      return result
+    }
+    if (!result.checkpoint) {
+      setSaveFailed(true)
+      return { ok: false as const, error: 'unavailable' as const }
+    }
+    learnerId.current = result.learnerId
+    checkpointRevision.current = result.checkpoint.revision
+    checkpointKnown.current = true
+    return result
+  }, [level, restoreAccountCheckpoint])
+
+  const startSession = useCallback(async (topic?: string, review = false) => {
+    if (savingRef.current) return
+    savingRef.current = true; setSaving(true); setSaveFailed(false)
+    try {
+      if (!checkpointKnown.current) {
+        const loaded = await loadLearningCheckpoint('exercises', level, learnerId.current)
+        if (loaded.ok === false) { setSaveFailed(true); return }
+        checkpointRevision.current = loaded.checkpoint?.revision ?? 0
+        learnerId.current = loaded.learnerId
+        checkpointKnown.current = true
+      }
+      const next = createGrammarSession(library, { topic, review })
+      const saved = await saveCheckpoint(grammarCheckpoint(next, 0))
+      if (saved.ok === false) return
+      setSession(next)
+      setCurrentIndex(0)
+      setConfirmedAttempt(null)
+      setPendingAttempt(null)
+      setSaveFailed(false)
+      pendingReceipt.current = null
+    } catch { setSaveFailed(true) }
+    finally { savingRef.current = false; setSaving(false) }
+  }, [library, level, saveCheckpoint])
 
   const saveAttempt = useCallback((input: RecordExerciseAttemptInput) => {
     if (savingRef.current) return
@@ -91,17 +141,27 @@ export default function ExerciseClient({ exercises, translations = {}, lang, lev
     setSaveFailed(false)
     setPendingAttempt(null)
     setConfirmedAttempt(null)
+    const key = JSON.stringify(input)
+    if (pendingReceipt.current?.key !== key) pendingReceipt.current = { key, requestId: crypto.randomUUID(), expectedRevision: checkpointRevision.current }
+    const receipt = pendingReceipt.current
     saveQueue.current = (async () => {
       try {
-        const result = await recordExerciseAttempt(input)
-        if (!result.success) {
+        const result = await recordGrammarCheckpointAttempt(input, {
+          level, requestId: receipt.requestId, expectedRevision: receipt.expectedRevision, expectedLearnerId: learnerId.current,
+        })
+        if (result.ok === false) {
           setSaveFailed(true)
-          setPendingAttempt(input)
+          if (result.error === 'conflict') restoreAccountCheckpoint(result.checkpoint ?? null)
+          else setPendingAttempt(input)
           return
         }
-        setConfirmedAttempt({ exerciseId: input.exerciseId, answer: input.answer, result })
+        checkpointRevision.current = result.checkpoint.revision
+        learnerId.current = result.learnerId
+        pendingReceipt.current = null
+        const grade = result.grade
+        setConfirmedAttempt({ exerciseId: input.exerciseId, answer: input.answer, result: grade })
         setLibrary(previous => previous.map(exercise => exercise.id === input.exerciseId
-          ? { ...exercise, completed: exercise.completed || result.isCorrect, attempts: result.attempts, score: result.score } : exercise))
+          ? { ...exercise, completed: exercise.completed || grade.isCorrect, attempts: grade.attempts, score: grade.score } : exercise))
       } catch {
         setSaveFailed(true)
         setPendingAttempt(input)
@@ -110,14 +170,24 @@ export default function ExerciseClient({ exercises, translations = {}, lang, lev
         setSaving(false)
       }
     })()
-  }, [])
+  }, [level, restoreAccountCheckpoint])
 
   const handleAttempt = useCallback((exerciseId: string, hintShown: boolean, answer: string) => {
     saveAttempt({ exerciseId, answer, hintShown })
   }, [saveAttempt])
 
-  const retrySave = () => {
-    if (pendingAttempt) saveAttempt(pendingAttempt)
+  const retrySave = async () => {
+    if (savingRef.current) return
+    if (pendingAttempt) { saveAttempt(pendingAttempt); return }
+    savingRef.current = true; setSaving(true)
+    try {
+      const loaded = await loadLearningCheckpoint('exercises', level, learnerId.current)
+      if (loaded.ok === false) return
+      learnerId.current = loaded.learnerId
+      restoreAccountCheckpoint(loaded.checkpoint)
+      setSaveFailed(false)
+    } catch { setSaveFailed(true) }
+    finally { savingRef.current = false; setSaving(false) }
   }
 
   const handleNext = useCallback(() => {
@@ -142,7 +212,7 @@ export default function ExerciseClient({ exercises, translations = {}, lang, lev
     {saveFailed && <div role="status" className="st-grammar-notice">
       <CloudOff className="shrink-0" size={20} aria-hidden="true" />
       <span>{g('saveFailed')}</span>
-      {pendingAttempt && <button type="button" disabled={saving} onClick={retrySave} className="st-button st-button--soft st-press">{t('error_retry')}</button>}
+      <button type="button" disabled={saving} onClick={() => void retrySave()} className="st-button st-button--soft st-press">{t('error_retry')}</button>
     </div>}
     {saving && <p role="status" className="st-grammar-notice"><Loader2 size={18} className="animate-spin" aria-hidden="true" />{g('saving')}</p>}
   </>
@@ -170,7 +240,7 @@ export default function ExerciseClient({ exercises, translations = {}, lang, lev
               <small className="text-sm font-semibold text-[var(--muted)]">/ {library.length}</small>
             </ProgressRing>
           </div>
-          <button type="button" onClick={() => startSession(undefined, allSolved)} className="st-cta st-press w-full text-left"
+          <button type="button" disabled={saving} onClick={() => void startSession(undefined, allSolved)} className="st-cta st-press w-full text-left"
             aria-labelledby="grammar-start-label" aria-describedby="grammar-start-hint">
             <span className="st-cta__text">
               <span id="grammar-start-label" className="st-cta__label">{allSolved ? g('repeat') : g('start')}</span>
@@ -191,7 +261,7 @@ export default function ExerciseClient({ exercises, translations = {}, lang, lev
             const done = topic.completed === topic.total
             return (
               <li key={topic.name} className="st-rise" style={{ '--i': Math.min(index, 8) } as CSSProperties}>
-                <button type="button" className="st-topic st-press" data-done={done} onClick={() => startSession(topic.name, done)}
+                <button type="button" disabled={saving} className="st-topic st-press" data-done={done} onClick={() => void startSession(topic.name, done)}
                   aria-label={`${topic.name}: ${done ? g('review') : g('practice')}`}>
                   <span className="st-topic__numeral" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
                   <ProgressRing value={topic.completed / topic.total} size={56} stroke={6} tone={done ? 'success' : 'accent'}>

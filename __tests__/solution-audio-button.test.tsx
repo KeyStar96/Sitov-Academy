@@ -36,6 +36,31 @@ beforeEach(() => {
 })
 afterEach(() => jest.restoreAllMocks())
 
+it('restores the account reading position once metadata arrives and preserves explicit replay', () => {
+  const input = props()
+  const { container } = render(<SolutionAudioButton {...input} audioUrl="https://media.example.com/resume.mp3" initialProgress={0.4} onProgress={jest.fn()} />)
+  const audio = container.querySelector('audio')!
+  Object.defineProperty(audio, 'duration', { configurable: true, value: 100 })
+  fireEvent.loadedMetadata(audio)
+  expect(audio.currentTime).toBe(40)
+  audio.currentTime = 65
+  fireEvent.canPlay(audio)
+  expect(audio.currentTime).toBe(65)
+  fireEvent.click(screen.getByRole('button', { name: dictionary.neural_audio.slow_repeat }))
+  expect(audio.currentTime).toBe(0)
+})
+
+it('reports the final native reading clock when closing before refs are cleared', () => {
+  const onProgress = jest.fn(), input = props()
+  const { container, unmount } = render(<SolutionAudioButton {...input} audioUrl="https://media.example.com/final-position.mp3" onProgress={onProgress} />)
+  const audio = container.querySelector('audio')!
+  Object.defineProperty(audio, 'duration', { configurable: true, value: 100 })
+  audio.currentTime = 61
+  unmount()
+  expect(onProgress).toHaveBeenCalledWith(0.61)
+  expect(onProgress).toHaveBeenLastCalledWith(null)
+})
+
 it.each(['click', 'pointerDown', 'pointerUp', 'touchStart', 'touchEnd', 'keyDown'] as const)(
   'owns the complete audio-area %s interaction without cancelling native defaults', eventType => {
     const bubbled = jest.fn()

@@ -17,6 +17,8 @@ import { readAllRows } from '@/lib/supabase-read'
 import { vocabularyQuery, mapVocabularyCard } from '@/lib/learning-catalog'
 import { resolveVocabularySentenceSource, resolveVocabularyInterfaceTranslation, resolveCardInterfaceTranslation } from '@/lib/vocabulary-languages'
 import { isOwnWordsLesson, parseGermanHeadword } from '@/lib/vocabulary-own-words'
+import { loadLearningCheckpoint } from '@/app/actions/learning-checkpoints'
+import { restoreVocabularyCheckpoint, vocabularyCheckpointSchema } from '@/lib/vocabulary-session-checkpoint'
 import {
   isHardForNativeLanguage,
   type AddCardsResult, type AddOwnWordInput, type AddOwnWordResult, type AssessmentDecision, type DueVocabularyCard,
@@ -107,13 +109,19 @@ async function setUnitsPaused(learner: Learner, unitIds: readonly string[], paus
 }
 
 /** Due dates remain intact when sibling directions have to wait for another word. */
-export async function getVocabularySession(level?: string, uiLanguage?: string): Promise<VocabularySession> {
+export async function getVocabularySession(level?: string, uiLanguage?: string, lesson?: string): Promise<VocabularySession> {
   try {
     const learner = await loadLearner()
     if (!learner || (level && !hasTrainerAccess(learner.profile, level, 'vocabulary'))) return { learnerId: null, cards: [], deferredCount: 0, previousCardId: null }
     const { supabase, user, profile } = learner
     const language = languageSchema.catch('de').parse(uiLanguage ?? profile.ui_language)
     if (language === 'de') return { learnerId: null, cards: [], deferredCount: 0, previousCardId: null }
+    const saved = level ? await loadLearningCheckpoint('vocabulary', level, user.id) : { ok: true as const, checkpoint: null }
+    if (!saved.ok) throw new Error('vocabulary_checkpoint_unavailable')
+    const parsedCheckpoint = vocabularyCheckpointSchema.safeParse(saved.checkpoint?.state)
+    const checkpoint = parsedCheckpoint.success && parsedCheckpoint.data.language === language
+      && parsedCheckpoint.data.lesson === (lesson ?? null) ? parsedCheckpoint.data : null
+    const resumedIds = new Set(checkpoint?.plan ?? [])
     // Session display needs only the interface/native sentence sources and German.
     // Keep the complete catalog shape for other callers; filter this embedded read.
     const locales = [...new Set(['de', language, profile.native_language].filter((value): value is string => !!value))]
@@ -121,17 +129,22 @@ export async function getVocabularySession(level?: string, uiLanguage?: string):
     if (level) catalogQuery = catalogQuery.eq('unit.level', level)
     const [catalog, ownProgress, { data: cursor, error: cursorError }, paused, carryover] = await Promise.all([
       readAllRows((from, to) => catalogQuery.range(from, to)),
-      readAllRows((from, to) => supabase.from('vocabulary_direction_progress').select('id,card_id,direction,box_number')
-        .eq('auth_user_id', user.id).lte('next_review_date', new Date().toISOString()).lt('box_number', LEITNER_LEARNED_BOX)
-        .order('id').range(from, to)),
+      readAllRows((from, to) => {
+        let query = supabase.from('vocabulary_direction_progress').select('id,card_id,direction,box_number,next_review_date').eq('auth_user_id', user.id)
+        // A saved round also needs already graded directions for feedback/retries.
+        if (!checkpoint) query = query.lte('next_review_date', new Date().toISOString()).lt('box_number', LEITNER_LEARNED_BOX)
+        return query.order('id').range(from, to)
+      }),
       supabase.from('vocabulary_learning_state').select('last_card_id').eq('auth_user_id', user.id).maybeSingle(),
       readPausedUnits(learner),
       level ? readCarryoverState(supabase, level) : null,
     ])
     const carried = carryover?.enabled ? await readCarryoverCatalog(supabase, carryover, user.id) : { cards: [], progress: [] }
     const carriedIds = new Set(carried.cards.map(card => card.id))
-    const progress = [...new Map([...ownProgress, ...carried.progress.filter(row => row.box_number < LEITNER_LEARNED_BOX
-      && row.next_review_date !== null && Date.parse(row.next_review_date) <= Date.now())].map(row => [row.id, row])).values()]
+    const allProgress = [...new Map([...ownProgress, ...carried.progress].map(row => [row.id, row])).values()]
+    const dueIds = new Set(allProgress.filter(row => row.box_number < LEITNER_LEARNED_BOX && (row.next_review_date === undefined
+      || (row.next_review_date !== null && Date.parse(row.next_review_date) <= Date.now()))).map(row => row.id))
+    const progress = allProgress.filter(row => resumedIds.has(row.id) || dueIds.has(row.id))
     // R10: Nur fehlender Zugriff liefert eine leere Session. Ein Lesefehler wird
     // codiert geworfen, sonst ist "Datenbank weg" von "nichts fällig" für den
     // Lernenden nicht unterscheidbar.
@@ -176,8 +189,19 @@ export async function getVocabularySession(level?: string, uiLanguage?: string):
         translation, isHardForNativeLanguage: isHardForNativeLanguage(card, profile.native_language),
       } satisfies DueVocabularyCard]
     })
-    const weighted = pickWeightedRandomOrder(cards, card => selectionWeightForBox(card.box))
-    return { learnerId: user.id, ...scheduleVocabularyCards(weighted, cursor?.last_card_id), previousCardId: cursor?.last_card_id ?? null }
+    const restored = checkpoint ? restoreVocabularyCheckpoint(checkpoint, cards) : null
+    const finished = restored && restored.state.pending === null && restored.state.index >= restored.queue.length
+      && restored.state.round.start + restored.state.round.length >= restored.plan.cards.length
+    if (restored && !finished && saved.checkpoint) {
+      const outstanding = [...restored.queue.slice(restored.state.index).map(item => item.card),
+        ...restored.plan.cards.slice(restored.state.round.start + restored.state.round.length)]
+      return { learnerId: user.id, cards: outstanding, deferredCount: restored.state.deferredCount,
+        previousCardId: restored.state.lastAnswered,
+        checkpoint: { state: restored.state, revision: saved.checkpoint.revision, cards: restored.plan.cards } }
+    }
+    const weighted = pickWeightedRandomOrder(cards.filter(card => dueIds.has(card.progressId)), card => selectionWeightForBox(card.box))
+    return { learnerId: user.id, ...scheduleVocabularyCards(weighted, cursor?.last_card_id), previousCardId: cursor?.last_card_id ?? null,
+      ...(saved.checkpoint ? { checkpointRevision: saved.checkpoint.revision } : {}) }
   } catch (error) {
     // Weiterwerfen: die Trainer-Route hat eine error.tsx-Boundary. Eine leere
     // Session hier hätte einen Ausfall als "du bist fertig" dargestellt (R10).

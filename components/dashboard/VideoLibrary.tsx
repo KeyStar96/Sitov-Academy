@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback, useEffect, useState, type CSSProperties } from 'react'
+import { useMemo, useState, type CSSProperties } from 'react'
 import Link from 'next/link'
 import { ArrowUpRight, BookOpen, Clapperboard, FileText, Globe, Play } from 'lucide-react'
 import BottomSheet from '@/components/ui/BottomSheet'
@@ -15,17 +15,9 @@ import { formatCalendarDate } from '@/lib/profile-course-calendar'
 import type { MediaAsset } from '@/lib/media'
 import { youtubeWatchUrl } from '@/lib/video-links'
 import type { LibraryGroup, LibraryLink } from '@/lib/media-library'
-
-const PROGRESS_KEY = 'sitov:media-progress'
-
-type Progress = Record<string, { t: number; d: number; at: number }>
-
-function readProgress(): Progress {
-  try { return JSON.parse(window.localStorage.getItem(PROGRESS_KEY) ?? '{}') as Progress } catch { return {} }
-}
-function writeProgress(progress: Progress) {
-  try { window.localStorage.setItem(PROGRESS_KEY, JSON.stringify(progress)) } catch { /* nur Bequemlichkeit */ }
-}
+import type { LearningCheckpoint } from '@/lib/learning-checkpoints'
+import { useVideoCheckpoint } from '@/lib/useVideoCheckpoint'
+import { learningCheckpointCopy } from '@/lib/learning-checkpoint-i18n'
 /** Pro Medium ein ruhiger, gleichbleibender Farbton für die Vorschau. */
 function hue(id: string) {
   let value = 0
@@ -40,10 +32,10 @@ function fileBadge(asset: MediaAsset) {
 /**
  * Die Mediathek: Videos und Unterlagen aus dem Unterricht an einem Ort, nach
  * Unterrichtsordnern sortiert. Videos zeigen eine große Vorschau mit Play-
- * Knopf und merken sich (nur in diesem Browser), wo man aufgehört hat —
+ * Knopf und merken sich im Account, wo man aufgehört hat —
  * daraus entsteht oben „Weiterschauen". Unterlagen erscheinen als Seite.
  */
-export default function VideoLibrary({ groups = [], links = [], lang, level, translations, failed = false, newItems }: {
+export default function VideoLibrary({ groups = [], links = [], lang, level, translations, failed = false, newItems, initialCheckpoint = null, learnerId = null }: {
   groups?: LibraryGroup[]
   links?: LibraryLink[]
   lang: string
@@ -52,35 +44,26 @@ export default function VideoLibrary({ groups = [], links = [], lang, level, tra
   failed?: boolean
   /** Was für diese Person neu ist (Phase 6.1); ersetzt die frühere 14-Tage-Regel. */
   newItems?: LearningNewItems
+  initialCheckpoint?: LearningCheckpoint | null
+  learnerId?: string | null
 }) {
   const t = createVideoTranslator(translations)
   const s = studentTranslator(lang)
   const news = useLearningNew(newItems)
-  const [progress, setProgress] = useState<Progress>({})
+  const videoIds = useMemo(() => groups.flatMap(group => group.assets.filter(asset => asset.kind === 'videos').map(asset => asset.id)), [groups])
+  const { progress, issue, ready, track, flush, reload, retry } = useVideoCheckpoint(level, initialCheckpoint, learnerId, videoIds)
+  const checkpointCopy = learningCheckpointCopy(lang)
   const [open, setOpen] = useState<MediaAsset | null>(null)
   const [sheetOpen, setSheetOpen] = useState(false)
-  useEffect(() => { setProgress(readProgress()) }, [])
 
   const levelHref = `/${lang}/dashboard/level/${encodeURIComponent(level)}`
   const assets = groups.flatMap(group => group.assets)
   const continueWatching = assets
-    .filter(asset => asset.kind === 'videos' && progress[asset.id] && progress[asset.id].t > 5 && progress[asset.id].t < progress[asset.id].d - 10)
+    .filter(asset => asset.kind === 'videos' && progress[asset.id] && progress[asset.id].t > 0 && progress[asset.id].t < progress[asset.id].d - 1)
     .sort((a, b) => progress[b.id].at - progress[a.id].at).slice(0, 3)
   const folderLinks = groups.flatMap(group => group.links)
   const videos = assets.filter(asset => asset.kind === 'videos').length + links.length + folderLinks.length
   const documents = assets.filter(asset => asset.kind === 'presentations').length
-
-  const track = useCallback((id: string, seconds: number, duration: number) => {
-    if (!Number.isFinite(duration) || duration <= 0) return
-    setProgress(previous => {
-      const last = previous[id]
-      // Nur alle paar Sekunden speichern — das Video meldet sich viermal pro Sekunde.
-      if (last && Math.abs(last.t - seconds) < 4) return previous
-      const next = { ...previous, [id]: { t: seconds, d: duration, at: Date.now() } }
-      writeProgress(next)
-      return next
-    })
-  }, [])
 
   const kindOf = (asset: MediaAsset) => asset.kind === 'videos' ? 'video' as const : 'presentation' as const
   /**
@@ -94,7 +77,7 @@ export default function VideoLibrary({ groups = [], links = [], lang, level, tra
     void recordMediaView(kind, id).catch(() => { /* still */ })
   }
   const groupOf = (id: string) => groups.find(group => group.assets.some(asset => asset.id === id) || group.links.some(link => link.id === id))?.id
-  function show(asset: MediaAsset) { opened(kindOf(asset), asset.id, groupOf(asset.id)); setOpen(asset); setSheetOpen(true) }
+  function show(asset: MediaAsset) { if (asset.kind === 'videos' && !ready) { void reload(); return }; opened(kindOf(asset), asset.id, groupOf(asset.id)); setOpen(asset); setSheetOpen(true) }
 
   const tile = (asset: MediaAsset, index: number) => {
     const watched = progress[asset.id]
@@ -213,14 +196,17 @@ export default function VideoLibrary({ groups = [], links = [], lang, level, tra
         </section>
       )}
 
-      <BottomSheet open={sheetOpen} onClose={() => setSheetOpen(false)} title={open?.title ?? ''} closeLabel={s('close')} wide
+      {issue && <div role="alert" className="st-empty"><p>{issue === 'conflict' ? checkpointCopy.conflict : checkpointCopy.failed}</p><button type="button" className="st-button st-button--soft" onClick={() => { setSheetOpen(false); void (issue === 'conflict' || !ready ? reload() : retry()) }}>{issue === 'conflict' ? checkpointCopy.reload : checkpointCopy.retry}</button></div>}
+      <BottomSheet open={sheetOpen} onClose={() => { void flush(); setSheetOpen(false) }} title={open?.title ?? ''} closeLabel={s('close')} wide
         icon={open?.kind === 'videos' ? <Play size={22} /> : <FileText size={22} />}
         description={open ? `${open.kind === 'videos' ? s('media_video') : `${s('media_document')} · ${fileBadge(open)}`} · ${(open.bytes / 1024 / 1024).toFixed(1)} MiB` : undefined}>
         {open && sheetOpen && (
           <MediaAssetViewer key={open.id} asset={open} lang={lang} bare
             autoOpen={open.kind === 'videos' || open.mime === 'application/pdf'}
-            startAt={progress[open.id] && progress[open.id].t < progress[open.id].d - 10 ? progress[open.id].t : 0}
-            onTime={(seconds, duration) => track(open.id, seconds, duration)} />
+            startAt={progress[open.id] && progress[open.id].t < progress[open.id].d - 1 ? progress[open.id].t : 0}
+            paused={issue === 'conflict'}
+            onTime={(seconds, duration) => track(open.id, seconds, duration)}
+            onCheckpoint={(seconds, duration) => track(open.id, seconds, duration, true)} />
         )}
       </BottomSheet>
     </div>

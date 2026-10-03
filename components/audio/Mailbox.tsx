@@ -125,19 +125,32 @@ function Letter({ conversation, lang, translations, onFiled, focused = false }: 
   const s = studentTranslator(lang)
   const p = createPronunciationTranslator(translations)
   const [heard, setHeard] = useState(false)
+  const [receiptFailed, setReceiptFailed] = useState(false)
   const marked = useRef(false)
+  const pendingReceipt = useRef<Promise<boolean> | null>(null)
   const filed = useRef(false)
   const message = latestTeacherMessage(conversation)
   const name = teacherFirstName(message?.senderName) ?? s('teacher_fallback_subject')
 
-  function acknowledge() {
-    if (marked.current) return
-    marked.current = true
-    setHeard(true)
-    void markPronunciationSeen(conversation.id).catch(() => { marked.current = false })
+  function acknowledge(): Promise<boolean> {
+    if (marked.current) return Promise.resolve(true)
+    if (pendingReceipt.current) return pendingReceipt.current
+    pendingReceipt.current = (async () => {
+      try {
+        const result = await markPronunciationSeen(conversation.id)
+        if (!result.success) { setReceiptFailed(true); return false }
+        marked.current = true
+        setHeard(true)
+        setReceiptFailed(false)
+        return true
+      } catch { setReceiptFailed(true); return false }
+      finally { pendingReceipt.current = null }
+    })()
+    return pendingReceipt.current
   }
-  function file() {
+  async function file() {
     if (filed.current) return
+    if (!await acknowledge() || filed.current) return
     filed.current = true
     // Kurz stehen lassen, damit man den Haken sieht — dann ab ins Archiv.
     window.setTimeout(onFiled, 1200)
@@ -156,17 +169,18 @@ function Letter({ conversation, lang, translations, onFiled, focused = false }: 
       {message?.audioUrl && (
         <div className="mt-4">
           <WaveformPlayer src={message.audioUrl} t={p} compact label={p('voice_message')}
-            onProgress={state => { if (state.playing) acknowledge(); if (state.ended) file() }} />
+            onProgress={state => { if (state.playing) void acknowledge(); if (state.ended) void file() }} />
         </div>
       )}
       {message?.text && <p className="st-mail-card__text">{message.text}</p>}
+      {receiptFailed && <p role="alert" className="mt-3 text-sm text-[var(--danger)]">{p('receipt_failed')} <button type="button" className="st-link-pill min-h-12" onClick={() => void file()}>{p('audio_retry')}</button></p>}
       <div className="mt-4 flex flex-wrap gap-3">
         {!message?.audioUrl && !heard && (
-          <button type="button" onClick={() => { acknowledge(); file() }} className="st-button st-button--soft st-press"><Check size={18} aria-hidden="true" />{s('mailbox_heard')}</button>
+          <button type="button" onClick={() => void file()} className="st-button st-button--soft st-press"><Check size={18} aria-hidden="true" />{s('mailbox_heard')}</button>
         )}
         <PronunciationConversation conversation={conversation} lang={lang} translations={translations} defaultOpen={focused}
           trigger={open => (
-            <button type="button" onClick={() => { acknowledge(); open() }} aria-haspopup="dialog" className="st-link-pill st-press">
+            <button type="button" onClick={() => { void acknowledge(); open() }} aria-haspopup="dialog" className="st-link-pill st-press">
               <MessagesSquare size={18} aria-hidden="true" />{s('mailbox_open')}
             </button>
           )} />

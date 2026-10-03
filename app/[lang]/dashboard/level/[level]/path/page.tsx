@@ -7,6 +7,7 @@ import { createVocabularyTranslator, type VocabularyTranslations } from '@/lib/v
 import { getLearningPath } from '@/app/actions/learning-path'
 import LearningPathClient from '@/components/learning-path/LearningPathClient'
 import { loadLearningNewItems } from '@/lib/learning-new-server'
+import { loadLearningCheckpoint } from '@/app/actions/learning-checkpoints'
 
 export default async function LearningPathPage({ params }: { params: Promise<{ lang: string; level: string }> }) {
   const { lang, level } = await params
@@ -20,8 +21,10 @@ export default async function LearningPathPage({ params }: { params: Promise<{ l
     return <LearningPathClient initialError={path.error} lang={lang} level={decodedLevel} />
   }
   const dict = await getDictionary(lang)
-  const exercises = await getExercises(decodedLevel, lang)
+  const [exercises, checkpoint] = await Promise.all([getExercises(decodedLevel, lang), loadLearningCheckpoint('exercises', decodedLevel)])
   const vocabulary = createVocabularyTranslator((dict.vocabulary ?? {}) as VocabularyTranslations)
   const learningLabels = { exit_learning: vocabulary('exit_learning'), theme_light: vocabulary('theme_light'), theme_dark: vocabulary('theme_dark'), overall_progress_label: vocabulary('overall_progress_label') }
-  return <ExerciseClient exercises={exercises} translations={(dict.exercises ?? {}) as ExerciseTranslations} lang={lang} level={decodedLevel} learningLabels={learningLabels} />
+  return <ExerciseClient exercises={exercises} translations={(dict.exercises ?? {}) as ExerciseTranslations} lang={lang} level={decodedLevel} learningLabels={learningLabels}
+    initialCheckpoint={checkpoint.ok ? checkpoint.checkpoint : null} checkpointLoadFailed={!checkpoint.ok}
+    initialLearnerId={checkpoint.ok ? checkpoint.learnerId : undefined} />
 }
