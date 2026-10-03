@@ -1,5 +1,5 @@
 [Unit]
-Description=Sitov Academy local speech synthesis (Piper / eSpeak-NG)
+Description=Sitov Academy translation speech only (Piper / eSpeak-NG)
 After=network.target
 
 [Service]

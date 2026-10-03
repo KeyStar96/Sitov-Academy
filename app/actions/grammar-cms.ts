@@ -1,6 +1,7 @@
 'use server'
 
 import { saveLearningContent, deleteLearningContent } from '@/lib/learning-writes'
+import { SitovPreparedAudioRequiredError } from '@/lib/audio/prepared-content'
 
 import { z } from 'zod'
 import { grammarQuery, mapGrammarExercise } from '@/lib/learning-catalog'
@@ -56,6 +57,7 @@ export async function saveGrammarExercise(input: GrammarWriteInput, id?: string)
     revalidatePath('/[lang]/dashboard/level/[level]/exercises', 'page')
     return { success: true, data }
   } catch (error) {
+    if (error instanceof SitovPreparedAudioRequiredError) return { success: false, error: 'missing_audio' }
     console.error("Grammar CMS save failed:")
     return { success: false, error: 'failed' }
   }

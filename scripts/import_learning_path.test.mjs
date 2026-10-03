@@ -186,6 +186,19 @@ await test('HTTP and RPC errors redact server messages and secret credentials', 
   }
 })
 
+await test('missing prepared audio explains local preparation and leaves no successful import receipt', async t => {
+  const ctx = await setup(t)
+  await assert.rejects(runImportCommand(ctx.args, { ...ctx.deps, fetch: async () => Response.json({ error: 'prepared_audio_required', message: secret }) }), error => {
+    assert.ok(error instanceof ImportFailure)
+    assert.equal(error.category, 'prepared_audio')
+    assert.match(error.message, /prepared_audio_required.*rolled back.*locally.*import.*fresh backup.*retrying/)
+    assert.ok(!error.message.includes(secret))
+    return true
+  })
+  assert.equal(JSON.parse(await readFile(join(ctx.backup, 'learning-path-import.json'), 'utf8')).status, 'started')
+  assert.ok(!ctx.messages.join('\n').includes(secret))
+})
+
 await test('count mismatches, missing rows, wrong identities and malformed success payloads fail verification', async t => {
   for (const change of [
     result => { result.exercise_count++ }, result => { result.paths.pop() },

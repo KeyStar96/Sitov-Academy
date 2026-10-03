@@ -128,9 +128,13 @@ its injected callbacks grade locally, create no assignment and award no streak.
 ## Speech and rollout
 
 Scene, selected word and exercise audio use independent sources. All German
-learning characters now use `de_DE-thorsten-high` through the same canonical
-request and immutable audio-cache identity as the vocabulary and pronunciation
-trainers. The engine does not select a persona from authored character data.
+learning characters use Qwen3-TTS-12Hz-1.7B-Base with the male
+`sitov-qwen-male-de-v1` profile and immutable cache identity shared with the
+vocabulary and pronunciation trainers. All existing and future German audio is
+precomputed locally on the Mac, aligned and imported into Storage before
+publication; learner playback only reads prepared files. See
+`docs/audio-authoring.md`. This includes every permitted noun-slot variant and
+frozen assignment audio text. The engine does not select a persona from authored character data.
 The DTO contract and PostgreSQL constraints require `voice: "male"` for every
 character. Names, roles and illustrated people must be male, as defined globally
 in `AGENTS.md`. The bakery host is Martin; the generated scene is
@@ -143,9 +147,10 @@ shipped phoneme-context/cropping correction fixed garbled short phrases and
 passed ASR intelligibility checks, but those checks did not establish natural
 voice quality comparable to Thorsten. The fallback therefore avoids further
 speculative tuning and gives the lessons the established trainer voice.
-Historical female synthesis support and attribution remain in the local speech
-service; learning scenes no longer request it. Thorsten is CC0; preserve Piper
-GPL-3.0 and ONNX Apache-2.0 attribution in `deploy/vps/TTS_LICENSES.md`.
+This paragraph records the earlier male-character migration. The subsequent
+Qwen selection supersedes both German Piper profiles; the VPS service now handles
+translation languages only. Preserve the Qwen Apache-2.0 notices, CC0 reference
+provenance and remaining translation-engine notices in `deploy/vps/TTS_LICENSES.md`.
 
 Migration `64_daily_quest_male_characters.sql` updates template content and all
 existing assignment snapshots, including completed or skipped assignments. It
@@ -154,8 +159,9 @@ incorrect self-introduction option from Anna to Lukas. Assignment IDs, step IDs,
 option IDs, private grading keys, completion state, personalization and streaks
 are preserved. Male-only constraints reject new female character payloads.
 Historical seed 59 uses the same current metadata so reapplying the complete
-migration sequence remains safe. The archived pilot uses seven new Thorsten MP3
-assets; old macOS Anna recordings are no longer referenced.
+migration sequence remains safe. The archived pilot has a separate seven-file
+Qwen preparation pipeline that preserves its transcripts and existing URLs; old
+macOS Anna recordings are no longer referenced.
 
 Passed preparation checks include 19 DB cases, eight concurrent login and eight
 completion sessions on native PostgreSQL 17, and a full 17-schema VPS clone on
@@ -255,8 +261,9 @@ Prompts, visual reviews and checksums are recorded in
 `content/daily-quests/sitov-scenes-provenance.json`. Verify the final assets with
 `node scripts/check-sitov-daily-quest-scenes.mjs`; no script regenerates artwork.
 All fictional hosts are male. The engine requests all new scene, word, sentence
-and question audio through the existing canonical Thorsten adapter; no new
-voice profile or audio fallback is introduced.
+and question audio through the shared, cache-only Qwen adapter. Every new task
+must include locally prepared German audio before publication. No runtime
+synthesis or alternate voice fallback is introduced.
 
 Migration 67 inserts new rows and never rewrites historical assignments, answer
 keys, login claims, preferences or streaks. Reapplying preserves existing IDs

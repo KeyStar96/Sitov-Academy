@@ -8,6 +8,7 @@ import { ACCESS_LEVELS, isAccessLevel } from '@/lib/access/levels'
 import { countWords, pronunciationTextKind, type PronunciationPrompt } from '@/lib/pronunciation-prompts'
 import { createPronunciationTranslator, type PronunciationTranslations } from '@/lib/pronunciation-i18n'
 import { adminButton, adminChip, adminInput } from './ui'
+import { preparedAudioAuthorHint } from '@/lib/audio/preparation-i18n'
 
 const LEVELS = [...ACCESS_LEVELS, 'B2', 'C1', 'C2']
 type View = 'visible' | 'archived'
@@ -25,7 +26,7 @@ export default function PronunciationCMS({ prompts, translations, lang, initialL
  const [view, setView] = useState<View>('visible')
  const [form, setForm] = useState<SavePronunciationPromptInput | null>(null)
  const [busy, setBusy] = useState<string | null>(null)
- const [notice, setNotice] = useState<'saved' | 'error' | null>(null)
+ const [notice, setNotice] = useState<'saved' | 'missing_audio' | 'error' | null>(null)
  const counts = useMemo(() => new Map(LEVELS.map(value => {
   const inLevel = prompts.filter(prompt => prompt.level === value)
   const visible = inLevel.filter(prompt => prompt.isActive).length
@@ -43,7 +44,7 @@ export default function PronunciationCMS({ prompts, translations, lang, initialL
   setBusy(key); setNotice(null)
   try {
    const result = await savePronunciationPrompt(input)
-   if (!result.success) { setNotice('error'); return false }
+   if (!result.success) { setNotice(result.reason === 'missing_audio' ? 'missing_audio' : 'error'); return false }
    setNotice('saved'); router.refresh(); return true
   } catch { console.error('Saving pronunciation form failed'); setNotice('error'); return false } finally { setBusy(null) }
  }
@@ -87,7 +88,7 @@ export default function PronunciationCMS({ prompts, translations, lang, initialL
    </div>
   </div>
 
-  {notice && <p role="status" className={`text-sm font-medium ${notice === 'error' ? 'text-[var(--danger)]' : 'text-[var(--success)]'}`}>{t(notice === 'error' ? 'cms_error' : 'cms_saved')}</p>}
+  {notice && <p role={notice === 'saved' ? 'status' : 'alert'} className={`text-sm font-medium ${notice !== 'saved' ? 'text-[var(--danger)]' : 'text-[var(--success)]'}`}>{notice === 'missing_audio' ? preparedAudioAuthorHint(lang) : t(notice === 'error' ? 'cms_error' : 'cms_saved')}</p>}
 
   {form && <form ref={formRef} onSubmit={(event) => { event.preventDefault(); void save() }} className="scroll-mt-28 space-y-5 rounded-xl border border-[var(--admin-line)] bg-[var(--surface)] p-4 sm:p-5"><h2 className="text-sm font-semibold">{t(form.id ? 'cms_edit' : 'cms_add')}</h2><div className="grid gap-5 sm:grid-cols-[1fr_150px]"><label className="text-sm font-medium">{t('cms_title_label')}<input required minLength={3} maxLength={120} className={field} value={form.title} onChange={(event) => setForm({ ...form, title:event.target.value })}/></label><label className="text-sm font-medium">{t('cms_level_label')}<select className={field} value={form.level} onChange={(event) => setForm({ ...form, level:event.target.value, isActive: isAccessLevel(event.target.value) && form.isActive })}>{LEVELS.map((value) => <option key={value} value={value}>{value}</option>)}</select></label></div><label className="block text-sm font-medium">{t('cms_text_label')}<textarea lang="de" required minLength={1} maxLength={3000} rows={8} className={`${field} leading-relaxed`} value={form.text} onChange={(event) => setForm({ ...form, text:event.target.value })}/><span className="mt-1 block text-right text-xs font-normal text-[var(--muted)]">{form.text.length} / 3000</span></label><label className="block text-sm font-medium">{t('cms_focus_label')}<input maxLength={200} className={field} value={form.focus} onChange={(event) => setForm({ ...form, focus:event.target.value })}/></label><label className="flex min-h-12 cursor-pointer items-center gap-3 text-sm"><input type="checkbox" disabled={!isAccessLevel(form.level)} checked={form.isActive} onChange={(event) => setForm({ ...form, isActive:event.target.checked })} className="h-5 w-5 accent-[var(--accent-strong)]"/>{t('cms_active_label')}</label><div className="flex flex-col gap-2 sm:flex-row sm:justify-end"><button type="button" disabled={!!busy} className={adminButton('secondary')} onClick={() => setForm(null)}>{t('cms_cancel')}</button><button type="submit" disabled={!!busy} className={adminButton('primary')}>{busy === 'form' && <Loader2 className="animate-spin motion-reduce:animate-none" size={16} aria-hidden="true"/>}{t('cms_save')}</button></div></form>}
 

@@ -14,8 +14,8 @@
   },
   "audio": {
     "directory": "public/Bilder/deutschreise/audio",
-    "mode": "Local VPS Piper, same default German synthesis as vocabulary and pronunciation trainers",
-    "voice": "de_DE-thorsten-high",
+    "mode": "Locally precomputed Qwen3-TTS with the canonical German male Sitov Academy reference; no runtime model dependency",
+    "voice": "sitov-qwen-male-de-v1",
     "encoding": "MP3, mono, 24000 Hz, 48 kbit/s",
     "texts": {
       "sitov-intro.mp3": "Guten Morgen! Was darf es sein?",
@@ -25,6 +25,60 @@
       "sitov-order.mp3": "Ich möchte ein Brötchen und einen Kaffee bitte.",
       "sitov-question.mp3": "Möchten Sie eine Tüte?",
       "sitov-thanks.mp3": "Hier, bitte! Guten Appetit!"
+    },
+    "engine": "qwen3-tts",
+    "revision": "sitov-qwen-base-bf16-v1",
+    "profile": "lib/audio/models/sitov-qwen-male-de/config.json",
+    "profileFingerprint": "96db5949cf9ba060eb5fbeeec3b472d232d55e0b22dc2512cf65dc53c8c47df5",
+    "reference": {
+      "speaker": "Thorsten Müller",
+      "license": "CC0-1.0",
+      "audioSha256": "685523fce41587b65dca813bace5782b3c0bd359d37615675decdb06bea569a1",
+      "source": "https://huggingface.co/datasets/Thorsten-Voice/TV-44kHz-Full"
+    },
+    "generatedFiles": {
+      "sitov-intro.mp3": {
+        "sha256": "2590ef1ff63ed357b4bcd33a396d172c8f27dc9f26c4ac37d6901d3e6bd2060c",
+        "textSha256": "efd8ec91a0949aa3b39d2dd2416b0136d0105cc1e3267e3e3db754316b15c571",
+        "provider": "qwen3-tts",
+        "modelRevision": "a6eb4f68e4b056f1215157bb696209bc82a6db48"
+      },
+      "sitov-broetchen.mp3": {
+        "sha256": "f747394d01cf42ecb0e81d32274f6d4d04659d9dbbade5be1850bd2ed075cc47",
+        "textSha256": "4a7421992f46eed1f3dad1d9fb360f39b09f992de2ecb507580f1f0371aac6ec",
+        "provider": "qwen3-tts",
+        "modelRevision": "a6eb4f68e4b056f1215157bb696209bc82a6db48"
+      },
+      "sitov-kaffee.mp3": {
+        "sha256": "b93ece3bb522ebe9d485220bc6d94808ea29d2cda1b924dc043cd93132f4c212",
+        "textSha256": "aa8c50de09395017eaab0828dddbb1eb5763b59e6355d20b9673656e8fc5e28e",
+        "provider": "qwen3-tts",
+        "modelRevision": "a6eb4f68e4b056f1215157bb696209bc82a6db48"
+      },
+      "sitov-tuete.mp3": {
+        "sha256": "acaf729aa620056dda227a17fadb7719a11d6c514af402a98aad048c8f60c691",
+        "textSha256": "fc487b0a5fe881474f8d730433cde535df6675e5537c3d6989623320c9df8ba3",
+        "provider": "qwen3-tts",
+        "modelRevision": "a6eb4f68e4b056f1215157bb696209bc82a6db48"
+      },
+      "sitov-order.mp3": {
+        "sha256": "7bdbda380d2511b8d9e7d37a061b63a483196ea0aedd77baddbaea97ac240705",
+        "textSha256": "8249a64a812cd351c381c6227a9ef7afd0e8bb6e563fcdaaed7104a8d19b7c6c",
+        "provider": "qwen3-tts",
+        "modelRevision": "a6eb4f68e4b056f1215157bb696209bc82a6db48"
+      },
+      "sitov-question.mp3": {
+        "sha256": "2a89acbfd2a605667d7e3b3c1ef8a76afffb1f2e5ad53893bc512c9d74fc0fe7",
+        "textSha256": "6361de991a406d94f5388dea500937a133fcd471ac7a083b400b702f175e3af7",
+        "provider": "qwen3-tts",
+        "modelRevision": "a6eb4f68e4b056f1215157bb696209bc82a6db48"
+      },
+      "sitov-thanks.mp3": {
+        "sha256": "c0a12164534984ac390f0a448a3cac928011fc934196cdd0cc3c39569d0c9f0a",
+        "textSha256": "488fd215a1f89fddb39a7858788d3d28ad557c74db5456791185fad300208772",
+        "provider": "qwen3-tts",
+        "modelRevision": "a6eb4f68e4b056f1215157bb696209bc82a6db48"
+      }
     }
   },
   "motion": {

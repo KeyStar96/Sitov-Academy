@@ -16,7 +16,7 @@ const inputSchema = z.object({
   text: z.string().trim().min(1).max(AUDIO_MAX_TEXT_LENGTH).refine(text => !/[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f]/u.test(text)),
   language: z.enum(['de', 'ru', 'uk', 'en', 'tr']),
   cardId: z.string().uuid().optional(),
-  voice: z.enum(['male', 'female']).optional(),
+  voice: z.literal('male').optional(),
 }).strict()
 
 export async function generateAudio(input: GenerateAudioInput): Promise<GenerateAudioResult> {
@@ -41,13 +41,16 @@ export async function generateAudio(input: GenerateAudioInput): Promise<Generate
     }
     if (!(await rateLimit(`audio-read:${user.id}`, 120, '60 s')).success) return { success: false, error: 'rate_limited' }
     const path = voice ? neuralAudioPath(text, language, voice) : neuralAudioPath(text, language)
-    const cachedAsset = await findCachedAudio(path)
+    const cachedAsset = language === 'de' ? await findCachedAudio(path, text) : await findCachedAudio(path)
     let asset = cachedAsset
     if (!asset) {
+      // German audio is produced and aligned on the author's Mac before publication.
+      // Student requests must never start inference or fall back to a different voice.
+      if (language === 'de') return { success: false, error: 'audio_unavailable' }
       if (!(await rateLimit(`audio-generate:${user.id}`, 20, '60 s')).success) return { success: false, error: 'rate_limited' }
       asset = voice ? await generateCachedAudio(text, language, path, voice) : await generateCachedAudio(text, language, path)
     }
-    if (card && language === 'de' && voice !== 'female' && !card.audio_url) {
+    if (card && language === 'de' && !card.audio_url) {
       // Guard against a concurrent content edit or teacher-supplied recording. Never overwrite either.
       let update = createAdminClient().from('learning_vocabulary_cards').update({ audio_url: asset.audioUrl })
         .eq('id', card.id).eq('word_de', card.word_de).is('audio_url', null)

@@ -200,7 +200,7 @@ export interface AddOwnWordInput {
 export type AddOwnWordResult =
   /** `activated`: Die Lektion lernt schon — das Wort liegt sofort in Phase 1. */
   | { success: true; cardId: string; activated: boolean }
-  | { success: false; error: 'invalid' | 'exists' | 'limit' | 'failed' }
+  | { success: false; error: 'invalid' | 'exists' | 'limit' | 'audio_pending' | 'failed' }
 
 export interface AddCardsResult {
   success: boolean

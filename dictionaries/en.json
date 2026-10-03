@@ -1362,6 +1362,7 @@
         "own_words_exists": "This word is already on your list.",
         "own_words_limit": "Your list is full (1,000 words). Delete a word first.",
         "own_words_failed": "The word could not be saved. Please try again.",
+        "own_words_audio_pending": "The pronunciation is being prepared. Your entry will stay here. Please add the word again later.",
         "own_words_delete_aria": "Delete “{word}”",
         "own_words_delete_failed": "The word could not be deleted. Please try again.",
         "own_words_waiting": "Not in the learning box yet",

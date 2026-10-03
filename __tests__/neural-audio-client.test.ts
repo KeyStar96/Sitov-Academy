@@ -92,15 +92,17 @@ it('reuses supplied recordings without synthesis and retains at most four native
 })
 
 
-it('separates simultaneous male and female requests for the same text', async () => {
-  const male = source()
-  const female = { ...male, voice: 'female' as const, audioUrl: 'https://media.example.com/male-recording.mp3' }
-  jest.mocked(generateAudio).mockImplementation(async input => ({ success: true, audioUrl: `https://media.example.com/${input.voice ?? 'male'}.mp3`, cached: false }))
-  expect(cachedNeuralAudio(female)).toBeNull()
-  const [maleUrl, femaleUrl] = await Promise.all([resolveNeuralAudio(male), resolveNeuralAudio(female)])
-  expect(maleUrl).not.toBe(femaleUrl)
-  expect(generateAudio).toHaveBeenCalledTimes(2)
-  expect(generateAudio).toHaveBeenCalledWith(expect.objectContaining({ voice: 'female' }))
-  expect(cachedNeuralAudio(male)).toBe(maleUrl)
-  expect(cachedNeuralAudio(female)).toBe(femaleUrl)
+it('shares the single male profile for implicit and explicit requests', async () => {
+  const implicit = source()
+  const explicit = { ...implicit, voice: 'male' as const }
+  const [first, second] = await Promise.all([resolveNeuralAudio(implicit), resolveNeuralAudio(explicit)])
+  expect(first).toBe(second)
+  expect(generateAudio).toHaveBeenCalledTimes(1)
+})
+
+it('discards all old generated German URLs and resolves the prepared Qwen cache', async () => {
+  const old = { ...source(), audioUrl: 'https://media.example.com/audio_cache/piper-local-v2/de/old.mp3' }
+  expect(cachedNeuralAudio(old)).toBeNull()
+  await expect(resolveNeuralAudio(old)).resolves.not.toBe(old.audioUrl)
+  expect(generateAudio).toHaveBeenCalledTimes(1)
 })

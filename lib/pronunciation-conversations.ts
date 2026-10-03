@@ -9,7 +9,7 @@ export const pronunciationMessageSchema = z.object({
 }).refine((value) => value.text.length > 0 || Boolean(value.audioPath))
 export type CreatePronunciationSubmissionInput = z.infer<typeof createPronunciationSubmissionSchema>
 export type SendPronunciationMessageInput = z.infer<typeof pronunciationMessageSchema>
-export interface PronunciationMutationResult { success: boolean; id?: string; reason?: 'not_authenticated' | 'invalid_input' | 'save_failed' }
+export interface PronunciationMutationResult { success: boolean; id?: string; reason?: 'not_authenticated' | 'invalid_input' | 'missing_audio' | 'save_failed' }
 /** Aus der Lehreransicht entfernen oder zurückholen (Migration 57). Für Lernende ändert sich nichts. */
 export type PronunciationHideResult =
   | { success: true }

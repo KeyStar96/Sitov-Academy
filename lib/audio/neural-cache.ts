@@ -1,22 +1,18 @@
 import { publicStorageUrl } from '@/lib/storage-public-url'
 import 'server-only'
-
 import { createHash } from 'node:crypto'
+
 import { createAdminClient } from '@/utils/supabase/admin'
 import { validWordTimings } from './playback-settings'
 import type { GermanAudioVoice, NeuralSpeechAsset, NeuralAudioLanguage } from '@/lib/types/audio'
-import { AUDIO_CACHE_BUCKET, AUDIO_CACHE_VERSION, AUDIO_FORMAT, AUDIO_RATE, SITOV_GERMAN_AUDIO_LEAD_IN_SECONDS, neuralVoiceName, normalizeAudioText } from './neural-config'
+import { AUDIO_CACHE_BUCKET, AUDIO_CACHE_VERSION, SITOV_QWEN_PROFILE, normalizeAudioText } from './neural-config'
+import { SITOV_QWEN_PROFILE_FINGERPRINT } from './neural-identity'
+export { neuralAudioPath } from './neural-identity'
 import { synthesizeNeuralSpeech } from './edge-tts'
 
-export function neuralAudioPath(text: string, language: NeuralAudioLanguage, voice?: GermanAudioVoice): string {
-  const hash = createHash('sha256').update(JSON.stringify({
-    text: normalizeAudioText(text), voice: neuralVoiceName(language, voice), rate: AUDIO_RATE, format: AUDIO_FORMAT,
-    ...(language === 'de' ? { leadIn: SITOV_GERMAN_AUDIO_LEAD_IN_SECONDS } : {}),
-  })).digest('hex')
-  return `${AUDIO_CACHE_VERSION}/${language}/${hash}.mp3`
-}
-
-export async function findCachedAudio(path: string): Promise<NeuralSpeechAsset | null> {
+export async function findCachedAudio(path: string, text?: string): Promise<NeuralSpeechAsset | null> {
+  // A legacy German object must never become a fallback for a new module.
+  if (/^[^/]+\/de\//u.test(path) && !path.startsWith(`${AUDIO_CACHE_VERSION}/de/`)) return null
   const storage = createAdminClient().storage.from(AUDIO_CACHE_BUCKET)
   const { data, error } = await storage.info(path)
   if (error) {
@@ -24,7 +20,13 @@ export async function findCachedAudio(path: string): Promise<NeuralSpeechAsset |
     throw error
   }
   if (!data) return null
-  const wordTimings = validWordTimings(data.metadata?.wordTimings)
+  const wordTimings = validWordTimings(data.metadata?.wordTimings, text ? normalizeAudioText(text) : undefined)
+  if (path.startsWith(`${AUDIO_CACHE_VERSION}/de/`) && (!wordTimings
+    || data.metadata?.engine !== SITOV_QWEN_PROFILE.engine
+    || data.metadata?.voice !== SITOV_QWEN_PROFILE.voice
+    || data.metadata?.revision !== SITOV_QWEN_PROFILE.revision
+    || data.metadata?.profileFingerprint !== SITOV_QWEN_PROFILE_FINGERPRINT
+    || (text && data.metadata?.textSha256 !== createHash('sha256').update(normalizeAudioText(text)).digest('hex')))) return null
   return { audioUrl: publicStorageUrl(storage.getPublicUrl(path).data.publicUrl), ...(wordTimings ? { wordTimings } : {}) }
 }
 
@@ -32,6 +34,7 @@ export async function findCachedAudio(path: string): Promise<NeuralSpeechAsset |
 const inFlight = new Map<string, Promise<NeuralSpeechAsset>>()
 
 export function generateCachedAudio(text: string, language: NeuralAudioLanguage, path: string, voice?: GermanAudioVoice): Promise<NeuralSpeechAsset> {
+  if (language === 'de') return Promise.reject(new Error('German audio requires local preparation'))
   const pending = inFlight.get(path)
   if (pending) return pending
   const work = (async () => {

@@ -2,6 +2,7 @@
 /** Offline authoring command. Never imported by learner routes or called at runtime. */
 import { createHash, randomUUID } from 'node:crypto'
 import { execFile } from 'node:child_process'
+import { readFileSync } from 'node:fs'
 import { readFile, writeFile, rename, mkdir, stat } from 'node:fs/promises'
 import { createRequire } from 'node:module'
 import { dirname, resolve } from 'node:path'
@@ -13,8 +14,26 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const AUDIO_LIMIT = 2 * 1024 * 1024
 const BUCKET = 'path-audio'
 const REFERENCE_PREFIX = `/storage/v1/object/authenticated/${BUCKET}/`
-const engine = 'piper-local-v1:de:ffmpeg-atempo-0.8:mp3-48k'
 const hash = value => createHash('sha256').update(value).digest('hex')
+export const sitovGermanAudioProfile = JSON.parse(readFileSync(resolve(root, 'lib/audio/models/sitov-qwen-male-de/config.json'), 'utf8'))
+if (sitovGermanAudioProfile.schemaVersion !== 1 || sitovGermanAudioProfile.engine !== 'qwen3-tts'
+  || sitovGermanAudioProfile.profile !== 'male' || sitovGermanAudioProfile.language !== 'German') {
+  throw new Error('The canonical German male Qwen audio profile is unavailable.')
+}
+
+function canonicalJson(value) {
+  if (Array.isArray(value)) return `[${value.map(canonicalJson).join(',')}]`
+  if (value && typeof value === 'object') return `{${Object.keys(value).sort().map(key => `${JSON.stringify(key)}:${canonicalJson(value[key])}`).join(',')}}`
+  return JSON.stringify(value)
+}
+
+export function sitovAudioProfileFingerprint(profile = sitovGermanAudioProfile) {
+  return hash(canonicalJson(profile))
+}
+
+export const SITOV_PATH_AUDIO_ENGINE = [sitovGermanAudioProfile.engine, sitovGermanAudioProfile.voice,
+  sitovGermanAudioProfile.revision, sitovAudioProfileFingerprint(), 'ffmpeg-atempo-0.8:mp3-48k'].join(':')
+const engine = SITOV_PATH_AUDIO_ENGINE
 class AudioCommandError extends Error {
   constructor(message, category) { super(message); this.category = category }
 }
@@ -47,7 +66,7 @@ export function planListeningAudio(paths) {
     exercises++
     const text = exercise.content.transcript.normalize('NFC').trim()
     if (!text || [...text].length > 3000 || /[\u0000-\u0008\u000b\u000c\u000e-\u001f]/.test(text)) {
-      throw new Error('Piper transcripts must contain 1–3000 characters without control characters.')
+      throw new Error('Qwen transcripts must contain 1–3000 characters without control characters.')
     }
     for (const speed of ['normal', 'slow']) {
       const reference = exercise.content.audio[speed]
@@ -90,12 +109,37 @@ async function boundedAudio(response) {
   return validateMp3(Buffer.concat(chunks, size))
 }
 
-async function normalAudio(text, endpoint, token) {
-  return boundedAudio(await fetch(new URL('synthesize', endpoint), {
-    method: 'POST', redirect: 'error', signal: AbortSignal.timeout(80_000),
-    headers: { 'Content-Type': 'application/json', ...(token ? { Authorization: `Bearer ${token}` } : {}) },
-    body: JSON.stringify({ text, language: 'de' }),
-  }))
+export function assertSitovQwenMetadata(metadata, text, bytes) {
+  if (metadata?.engine !== sitovGermanAudioProfile.engine
+    || metadata.voice !== sitovGermanAudioProfile.voice
+    || metadata.revision !== sitovGermanAudioProfile.revision
+    || metadata.profileFingerprint !== sitovAudioProfileFingerprint()
+    || metadata.modelRevision !== sitovGermanAudioProfile.tts.mlxRevision
+    || metadata.referenceSha256 !== sitovGermanAudioProfile.reference.audioSha256
+    || metadata.sampleRate !== sitovGermanAudioProfile.output.sampleRate
+    || metadata.bitrate !== sitovGermanAudioProfile.output.bitRate
+    || metadata.channels !== sitovGermanAudioProfile.output.channels
+    || metadata.textSha256 !== hash(text)
+    || metadata.audioSha256 !== hash(bytes)) {
+    throw new Error('Local audio does not match the canonical German male Qwen profile, text and file.')
+  }
+}
+
+/** Keep one model resident for the full local authoring batch. No runtime TTS service. */
+export async function runSitovQwenBatch(rows, output) {
+  if (!process.env.SITOV_QWEN_PYTHON || !process.env.SITOV_QWEN_MODEL_PATH || !process.env.SITOV_QWEN_ALIGNER_PATH) {
+    throw new Error('Local generation needs SITOV_QWEN_PYTHON, SITOV_QWEN_MODEL_PATH and SITOV_QWEN_ALIGNER_PATH.')
+  }
+  await mkdir(output, { recursive: true, mode: 0o700 })
+  const batchPath = resolve(output, 'sitov-qwen-batch.json')
+  await atomicWrite(batchPath, `${JSON.stringify(rows, null, 2)}\n`)
+  await run(process.env.SITOV_QWEN_PYTHON, [resolve(root, 'scripts/sitov-qwen-generate.py'),
+    '--batch-file', batchPath, '--output-dir', output, '--model-path', resolve(process.env.SITOV_QWEN_MODEL_PATH),
+    '--aligner-path', resolve(process.env.SITOV_QWEN_ALIGNER_PATH),
+    ...(process.env.PATH_AUDIO_FFMPEG ? ['--ffmpeg', process.env.PATH_AUDIO_FFMPEG] : [])], {
+    encoding: 'utf8', maxBuffer: 2 * 1024 * 1024, timeout: 4 * 60 * 60 * 1000,
+    env: { ...process.env, OMP_NUM_THREADS: '1', OPENBLAS_NUM_THREADS: '1' },
+  })
 }
 
 export function slowAudioArguments(normalPath) {
@@ -110,22 +154,29 @@ async function atomicWrite(filename, bytes) {
   await rename(temporary, filename)
 }
 
-async function generateAudio(plan, output, endpoint) {
+async function generateAudio(plan, output) {
   await mkdir(output, { recursive: true, mode: 0o700 })
   const manifest = { version: 1, engine, files: [] }
-  // Group by transcript; one existing Piper worker request, then one bounded
-  // ffmpeg process. No parallel model loading or new background service.
+  // Group by transcript: synthesize once, then derive the slower version from
+  // the same speaker recording. Existing references and learning IDs stay intact.
   const texts = new Map()
   for (const file of plan.files) {
     const group = texts.get(file.text) ?? []
     group.push(file); texts.set(file.text, group)
   }
-  for (const [text, files] of texts) {
-    const normal = await normalAudio(text, endpoint, process.env.LOCAL_TTS_TOKEN)
+  const jobs = [...texts].map(([text, files]) => {
     const normalFile = files.find(file => file.speed === 'normal')
     if (!normalFile) throw new Error('A listening transcript needs a normal audio reference.')
-    const normalPath = resolve(output, normalFile.filename)
-    await atomicWrite(normalPath, normal)
+    return { id: hash(text), text, output: resolve(output, normalFile.filename),
+      metadata: resolve(output, `${normalFile.filename}.json`), rate: 1 }
+  })
+  await runSitovQwenBatch(jobs, output)
+  for (const [text, files] of texts) {
+    const job = jobs.find(row => row.text === text)
+    const normalPath = job.output
+    const normal = await readAudio(normalPath)
+    const metadata = JSON.parse(await readFile(job.metadata, 'utf8'))
+    assertSitovQwenMetadata(metadata, text, normal)
     // execFile passes literal arguments. No transcript or filename enters a shell.
     const slow = validateMp3((await run(process.env.PATH_AUDIO_FFMPEG || 'ffmpeg', slowAudioArguments(normalPath), {
       encoding: 'buffer', maxBuffer: AUDIO_LIMIT, timeout: 30_000,
@@ -135,7 +186,9 @@ async function generateAudio(plan, output, endpoint) {
       const bytes = file.speed === 'normal' ? normal : slow
       await atomicWrite(resolve(output, file.filename), bytes)
       manifest.files.push({ key: file.key, reference: file.reference, speed: file.speed,
-        fingerprint: file.fingerprint, filename: file.filename, sha256: hash(bytes) })
+        fingerprint: file.fingerprint, filename: file.filename, sha256: hash(bytes),
+        provider: { engine: metadata.engine, voice: metadata.voice, revision: metadata.revision,
+          profileFingerprint: metadata.profileFingerprint } })
     }
   }
   await atomicWrite(resolve(output, 'manifest.json'), `${JSON.stringify(manifest, null, 2)}\n`)
@@ -194,7 +247,8 @@ async function uploadAudio(plan, output, config) {
 export async function main(args = process.argv.slice(2)) {
   if (args.includes('--help')) {
     console.log('Usage: node scripts/path-listening-audio.mjs [seed.json] [--generate] [--upload] [--output directory]')
-    console.log('Default: validate and dry-run only. --generate uses LOCAL_TTS_URL/token and local ffmpeg. --upload sends verified existing files to private local Storage.')
+    console.log('Default: validate and dry-run only. --generate runs the local canonical male Qwen batch CLI and ffmpeg. --upload sends verified existing files to private local Storage.')
+    console.log('Generation needs SITOV_QWEN_PYTHON, SITOV_QWEN_MODEL_PATH and SITOV_QWEN_ALIGNER_PATH. It never contacts a TTS service.')
     console.log('Writing requires --output. Generate and upload are separate opt-ins; the seed is never modified.')
     return
   }
@@ -217,9 +271,7 @@ export async function main(args = process.argv.slice(2)) {
   console.log(`Valid: ${plan.exercises} listening exercises, ${plan.files.length} audio files.${!generate && !upload ? ' Dry run only.' : ''}`)
   if (!plan.files.length || (!generate && !upload)) return
   const uploadConfig = upload ? uploadConfiguration() : null
-  const tts = generate ? localEndpoint(process.env.LOCAL_TTS_URL || 'http://127.0.0.1:9070') : null
-  if (tts && tts.pathname !== '/') throw new Error('The local Piper endpoint must have no path prefix.')
-  if (generate) { await generateAudio(plan, output, tts); console.log(`Generated ${plan.files.length} audio files and manifest.json.`) }
+  if (generate) { await generateAudio(plan, output); console.log(`Generated ${plan.files.length} audio files and manifest.json.`) }
   if (upload) { await uploadAudio(plan, output, uploadConfig); console.log(`Uploaded ${plan.files.length} private audio files.`) }
 }
 
@@ -228,7 +280,7 @@ if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1]
     switch (error instanceof AudioCommandError ? error.category : undefined) {
       case 'arguments': console.error('Invalid listening-audio arguments. Use --help; --generate and --upload require an explicit --output directory.'); break
       case 'validation': console.error('Seed schema validation failed. No audio was generated or uploaded.'); break
-      default: console.error('Listening audio command failed. Check the local seed, Piper/ffmpeg and private Storage configuration; no internal error details were logged.')
+      default: console.error('Listening audio command failed. Check the local seed, canonical Qwen profile/ffmpeg and private Storage configuration; no internal error details were logged.')
     }
     process.exitCode = 1
   })

@@ -19617,3 +19617,425 @@ BEGIN
     EXECUTE definition;
   END IF;
 END $sitov$;
+
+-- BEGIN SITOV PREPARED GERMAN AUDIO
+
+-- Consolidated audio migration: 20261003191609_sitov_audio_preparation_requests.sql
+-- German inference runs only in the offline authoring workflow. No learner,
+-- profile or progress identifiers are stored with these deduplicated texts.
+CREATE TABLE public.sitov_audio_preparation_requests (
+  cache_path text PRIMARY KEY,
+  text text NOT NULL CHECK (char_length(text) BETWEEN 1 AND 3000 AND text = btrim(text)),
+  profile_fingerprint text NOT NULL CHECK (profile_fingerprint ~ '^[0-9a-f]{64}$'),
+  status text NOT NULL DEFAULT 'pending' CHECK (status IN ('pending', 'prepared')),
+  created_at timestamptz NOT NULL DEFAULT now(),
+  prepared_at timestamptz,
+  CONSTRAINT sitov_audio_preparation_path CHECK (cache_path ~ '^sitov-qwen-v[0-9]+/de/[0-9a-f]{64}\.mp3$'),
+  CONSTRAINT sitov_audio_preparation_state CHECK (
+    (status = 'pending' AND prepared_at IS NULL) OR
+    (status = 'prepared' AND prepared_at IS NOT NULL)
+  )
+);
+
+CREATE INDEX sitov_audio_preparation_pending
+  ON public.sitov_audio_preparation_requests (created_at, cache_path)
+  WHERE status = 'pending';
+
+ALTER TABLE public.sitov_audio_preparation_requests ENABLE ROW LEVEL SECURITY;
+REVOKE ALL ON public.sitov_audio_preparation_requests FROM PUBLIC, anon, authenticated;
+GRANT SELECT, INSERT, UPDATE ON public.sitov_audio_preparation_requests TO service_role;
+COMMENT ON TABLE public.sitov_audio_preparation_requests IS
+  'Sitov Academy internal offline German audio preparation queue; service role only.';
+
+
+-- Consolidated audio migration: 20261003192958_sitov_prepared_own_vocabulary.sql
+-- Apply only after the complete Qwen corpus has been imported and audited.
+-- Keep both original function signatures/OIDs: existing wrappers and callers
+-- retain their dependencies. No learner state or authored IDs are rewritten.
+
+-- Prepared metadata is a service-owned proof. Restrictive write guards also
+-- hold if another module later introduces a broader permissive Storage policy.
+DROP POLICY IF EXISTS sitov_qwen_cache_service_insert ON storage.objects;
+CREATE POLICY sitov_qwen_cache_service_insert ON storage.objects AS RESTRICTIVE
+ FOR INSERT TO anon, authenticated WITH CHECK (bucket_id <> 'audio_cache');
+DROP POLICY IF EXISTS sitov_qwen_cache_service_update ON storage.objects;
+CREATE POLICY sitov_qwen_cache_service_update ON storage.objects AS RESTRICTIVE
+ FOR UPDATE TO anon, authenticated USING (bucket_id <> 'audio_cache') WITH CHECK (bucket_id <> 'audio_cache');
+DROP POLICY IF EXISTS sitov_qwen_cache_service_delete ON storage.objects;
+CREATE POLICY sitov_qwen_cache_service_delete ON storage.objects AS RESTRICTIVE
+ FOR DELETE TO anon, authenticated USING (bucket_id <> 'audio_cache');
+
+CREATE OR REPLACE FUNCTION vocabulary_private.sitov_normalize_audio_text(p_text text)
+RETURNS text LANGUAGE sql IMMUTABLE SET search_path TO '' AS $$
+ SELECT btrim(regexp_replace(pg_catalog.normalize(coalesce(p_text,''),'NFC'),
+   U&'[\0009-\000D\0020\00A0\1680\2000-\200A\2028\2029\202F\205F\3000\FEFF]+', ' ', 'g'));
+$$;
+REVOKE ALL ON FUNCTION vocabulary_private.sitov_normalize_audio_text(text) FROM PUBLIC, anon, authenticated, service_role;
+
+CREATE OR REPLACE FUNCTION vocabulary_private.sitov_prepared_german_audio_url(p_text text)
+RETURNS text LANGUAGE plpgsql SET search_path TO '' AS $$
+DECLARE
+ spoken text := vocabulary_private.sitov_normalize_audio_text(p_text);
+ fingerprint constant text := '96db5949cf9ba060eb5fbeeec3b472d232d55e0b22dc2512cf65dc53c8c47df5';
+ preimage text;
+ cache_path text;
+ authored jsonb;
+ object_metadata jsonb;
+ timings jsonb;
+ timing jsonb;
+ previous_end numeric := 0;
+ start_seconds numeric;
+ end_seconds numeric;
+BEGIN
+ -- Exact JSON.stringify key order and whitespace of neuralAudioPath().
+ preimage := '{"text":' || to_json(spoken)::text ||
+   ',"voice":"sitov-qwen-male-de-v1","rate":"qwen-native-1-lufs-18-aligned-v1","format":"audio-24khz-48kbitrate-mono-mp3","leadIn":0.35,"profile":"' || fingerprint || '"}';
+ cache_path := 'sitov-qwen-v1/de/' || encode(sha256(convert_to(preimage,'UTF8')),'hex') || '.mp3';
+ SELECT o.user_metadata, o.metadata INTO authored, object_metadata
+ FROM storage.objects o WHERE o.bucket_id='audio_cache' AND o.name=cache_path
+   AND o.archived_at IS NULL AND coalesce(o.is_delete_marker,false)=false
+ FOR SHARE;
+ IF NOT FOUND OR authored->>'engine' IS DISTINCT FROM 'qwen3-tts'
+   OR authored->>'voice' IS DISTINCT FROM 'sitov-qwen-male-de-v1'
+   OR authored->>'revision' IS DISTINCT FROM 'sitov-qwen-base-bf16-v1'
+   OR authored->>'profileFingerprint' IS DISTINCT FROM fingerprint
+   OR authored->>'textSha256' IS DISTINCT FROM encode(sha256(convert_to(spoken,'UTF8')),'hex')
+   OR coalesce(authored->>'audioSha256','') !~ '^[0-9a-f]{64}$'
+   OR object_metadata->>'mimetype' IS DISTINCT FROM 'audio/mpeg'
+   OR jsonb_typeof(object_metadata->'size') IS DISTINCT FROM 'number' THEN
+   RAISE EXCEPTION 'prepared_audio_required' USING ERRCODE='22023';
+ END IF;
+ IF (object_metadata->>'size')::numeric NOT BETWEEN 1 AND 2097152 THEN
+   RAISE EXCEPTION 'prepared_audio_required' USING ERRCODE='22023';
+ END IF;
+ timings := authored->'wordTimings';
+ IF jsonb_typeof(timings) IS DISTINCT FROM 'array' THEN
+   RAISE EXCEPTION 'prepared_audio_required' USING ERRCODE='22023';
+ END IF;
+ IF spoken='' OR jsonb_array_length(timings) NOT BETWEEN 1 AND 1500
+   OR jsonb_array_length(timings) <> cardinality(string_to_array(spoken,' ')) THEN
+   RAISE EXCEPTION 'prepared_audio_required' USING ERRCODE='22023';
+ END IF;
+ FOR timing IN SELECT value FROM jsonb_array_elements(timings) LOOP
+   IF jsonb_typeof(timing->'start') IS DISTINCT FROM 'number'
+     OR jsonb_typeof(timing->'end') IS DISTINCT FROM 'number' THEN
+     RAISE EXCEPTION 'prepared_audio_required' USING ERRCODE='22023';
+   END IF;
+   start_seconds := (timing->>'start')::numeric;
+   end_seconds := (timing->>'end')::numeric;
+   IF start_seconds < previous_end OR end_seconds < start_seconds OR end_seconds > 1200 THEN
+     RAISE EXCEPTION 'prepared_audio_required' USING ERRCODE='22023';
+   END IF;
+   previous_end := end_seconds;
+ END LOOP;
+ RETURN '/supabase/storage/v1/object/public/audio_cache/' || cache_path;
+END $$;
+REVOKE ALL ON FUNCTION vocabulary_private.sitov_prepared_german_audio_url(text) FROM PUBLIC, anon, authenticated, service_role;
+
+CREATE OR REPLACE FUNCTION vocabulary_private.add_own_word(p_level text, p_word_de text, p_article text, p_translation text, p_locale text)
+RETURNS jsonb LANGUAGE plpgsql SECURITY DEFINER SET search_path TO '' AS $$
+DECLARE actor uuid:=auth.uid(); own_unit uuid; new_card uuid; activated boolean; prepared_audio_url text;
+ word text:=vocabulary_private.sitov_normalize_audio_text(p_word_de);
+ translated text:=btrim(regexp_replace(coalesce(p_translation,''),'\s+',' ','g'));
+BEGIN
+ IF actor IS NULL THEN RAISE EXCEPTION 'authentication_required' USING ERRCODE='42501'; END IF;
+ IF NOT trainer_access_private.allowed(p_level,'vocabulary') THEN RAISE EXCEPTION 'trainer_access_denied' USING ERRCODE='42501'; END IF;
+ -- Die Übersetzung steht in der Sprache der Oberfläche: Daraus fragt der
+ -- Trainer die Richtung Deutsch → eigene Sprache ab (answer_key).
+ IF p_locale IS NULL OR p_locale NOT IN('en','ru','uk','tr') THEN RAISE EXCEPTION 'invalid_language' USING ERRCODE='22023'; END IF;
+ IF length(word) NOT BETWEEN 1 AND 120 OR length(translated) NOT BETWEEN 1 AND 200
+  OR (p_article IS NOT NULL AND p_article NOT IN('der','die','das')) THEN
+  RAISE EXCEPTION 'invalid_input' USING ERRCODE='22023'; END IF;
+ -- The prepared Storage object is required before any unit/card insert.
+ prepared_audio_url:=vocabulary_private.sitov_prepared_german_audio_url(concat(coalesce(p_article,''),' ',word));
+ PERFORM pg_advisory_xact_lock(hashtextextended('vocabulary:'||actor::text,0));
+ SELECT id INTO own_unit FROM public.learning_units WHERE owner_auth_user_id=actor AND level=p_level AND trainer='vocabulary';
+ IF own_unit IS NULL THEN
+  INSERT INTO public.learning_units(level,trainer,label,sort_order,is_active,owner_auth_user_id)
+   VALUES(p_level,'vocabulary','Eigene Wörter',1000000,true,actor) RETURNING id INTO own_unit;
+ END IF;
+ -- 1000 = eine initialize_vocabulary_cards-Anfrage aktiviert die ganze Lektion.
+ IF (SELECT count(*) FROM public.learning_vocabulary_cards c WHERE c.unit_id=own_unit)>=1000 THEN
+  RAISE EXCEPTION 'own_word_limit' USING ERRCODE='22023'; END IF;
+ IF EXISTS(SELECT 1 FROM public.learning_vocabulary_cards c WHERE c.unit_id=own_unit
+  AND lower(c.word_de)=lower(word) AND coalesce(c.article::text,'')=coalesce(p_article,'')) THEN
+  RAISE EXCEPTION 'own_word_exists' USING ERRCODE='23505'; END IF;
+ activated:=EXISTS(SELECT 1 FROM public.vocabulary_direction_progress v JOIN public.learning_vocabulary_cards c ON c.id=v.card_id
+  WHERE v.auth_user_id=actor AND c.unit_id=own_unit);
+ INSERT INTO public.learning_vocabulary_cards(unit_id,word_de,article,sentence_practice,audio_url)
+  VALUES(own_unit,word,p_article::public.grammatical_article,false,prepared_audio_url) RETURNING id INTO new_card;
+ INSERT INTO public.vocabulary_translations(card_id,locale,translation) VALUES(new_card,p_locale,translated);
+ IF activated THEN
+  INSERT INTO public.vocabulary_direction_progress(auth_user_id,card_id,direction,box_number,next_review_date)
+   SELECT actor,new_card,d::public.vocabulary_direction,1,now() FROM unnest(ARRAY['de_to_native','native_to_de']) d;
+ END IF;
+ RETURN jsonb_build_object('cardId',new_card,'activated',activated);
+END $$;
+REVOKE ALL ON FUNCTION vocabulary_private.add_own_word(text,text,text,text,text) FROM PUBLIC, anon;
+GRANT EXECUTE ON FUNCTION vocabulary_private.add_own_word(text,text,text,text,text) TO authenticated;
+
+
+CREATE OR REPLACE FUNCTION public.add_own_vocabulary(p_level text, p_word_de text, p_article text, p_translation text, p_locale text)
+RETURNS jsonb LANGUAGE plpgsql SET search_path TO '' AS $$
+DECLARE boundary_state text; boundary_message text; boundary_code text;
+BEGIN
+ RETURN vocabulary_private.add_own_word(p_level,p_word_de,p_article,p_translation,p_locale);
+ EXCEPTION WHEN OTHERS THEN
+  GET STACKED DIAGNOSTICS boundary_state=RETURNED_SQLSTATE,boundary_message=MESSAGE_TEXT;
+  boundary_code:=CASE WHEN boundary_message=ANY(ARRAY[
+   'authentication_required','trainer_access_denied','invalid_language','own_word_exists','own_word_limit','prepared_audio_required',
+   'not_authorized','not_authenticated','invalid_input','request_failed','conflict','not_found'
+  ]) THEN boundary_message
+  WHEN boundary_state='42501' THEN 'not_authorized'
+  WHEN boundary_state IN('23502','23503','23514','22P02','22023','22007') THEN 'invalid_input'
+  WHEN boundary_state IN('23505','PT409','40001') THEN 'conflict'
+  WHEN boundary_state='40P01' THEN 'retry_required'
+  WHEN boundary_state IN('P0002','02000') THEN 'not_found'
+  ELSE 'request_failed' END;
+  RETURN jsonb_build_object('error',boundary_code,'message',CASE
+   WHEN boundary_code='prepared_audio_required' THEN 'Prepare and upload the German audio before adding this word.'
+   WHEN boundary_code='own_word_exists' THEN 'This word is already in your own words.'
+   WHEN boundary_code='own_word_limit' THEN 'Your own words list is full.'
+   WHEN boundary_state='42501' THEN 'The request is not authorized.'
+   WHEN boundary_code IN('conflict','retry_required') THEN 'Reload and retry the request.'
+   WHEN boundary_code='invalid_input' THEN 'The request contains invalid data.'
+   ELSE 'The request could not be completed.' END,'sqlstate',boundary_state);
+END $$;
+REVOKE ALL ON FUNCTION public.add_own_vocabulary(text,text,text,text,text) FROM PUBLIC, anon;
+GRANT EXECUTE ON FUNCTION public.add_own_vocabulary(text,text,text,text,text) TO authenticated, service_role;
+
+
+-- Consolidated audio migration: 20261003195521_sitov_prepared_learning_publication.sql
+-- Apply after 20261003192958 and after the Qwen corpus import/audit.
+-- The CMS server action is not the only caller: authenticated staff can invoke
+-- this RPC directly. Keep its OID, invoker mode, ACLs, IDs and error contract.
+
+CREATE OR REPLACE FUNCTION learning_private.sitov_learning_audio_texts(
+ p_trainer text, p_fields jsonb, p_translations jsonb
+) RETURNS text[] LANGUAGE plpgsql IMMUTABLE SET search_path TO '' AS $$
+DECLARE
+ texts text[] := ARRAY[]::text[];
+ answer text := CASE WHEN jsonb_typeof(p_fields->'content'->'correct_answer')='string'
+   THEN p_fields->'content'->>'correct_answer' ELSE '' END;
+ question text := CASE WHEN jsonb_typeof(p_fields->'content'->'question')='string'
+   THEN p_fields->'content'->>'question' ELSE '' END;
+ before_text text := CASE WHEN jsonb_typeof(p_fields->'content'->'text_before')='string'
+   THEN p_fields->'content'->>'text_before' ELSE '' END;
+ after_text text := CASE WHEN jsonb_typeof(p_fields->'content'->'text_after')='string'
+   THEN p_fields->'content'->>'text_after' ELSE '' END;
+BEGIN
+ -- Mirror preparedLearningAudioTexts() after learningWritePayload() has moved
+ -- the editor's German context sentence into its exact-locale translation.
+ IF p_trainer='vocabulary' THEN
+  IF jsonb_typeof(p_fields->'word_de')='string' THEN
+   texts := array_append(texts, concat(CASE WHEN jsonb_typeof(p_fields->'article')='string'
+     AND p_fields->>'article'<>'none' THEN p_fields->>'article' ELSE '' END,' ',p_fields->>'word_de'));
+  END IF;
+  IF jsonb_typeof(p_translations)='array' THEN
+   SELECT texts || coalesce(array_agg(t->>'context_sentence'),'{}'::text[]) INTO texts
+   FROM jsonb_array_elements(p_translations) t
+   WHERE t->>'locale'='de' AND jsonb_typeof(t->'context_sentence')='string';
+  END IF;
+ ELSIF p_trainer='pronunciation' THEN
+  IF jsonb_typeof(p_fields->'sentence_de')='string' THEN
+   texts := array_append(texts,p_fields->>'sentence_de');
+  END IF;
+ ELSIF p_trainer='exercises' THEN
+  IF p_fields->>'type'='fill_in_blank' THEN
+   texts := ARRAY[answer,before_text || answer || after_text];
+  ELSIF p_fields->>'type'='multiple_choice' THEN
+   -- JS String.replace replaces the first literal marker, not all markers.
+   texts := ARRAY[CASE WHEN strpos(question,'___')>0 THEN
+     substr(question,1,strpos(question,'___')-1) || answer || substr(question,strpos(question,'___')+3)
+     ELSE question || ' ' || answer END];
+  ELSIF p_fields->>'type'='sentence_building' THEN
+   texts := ARRAY[answer];
+  END IF;
+ END IF;
+ RETURN ARRAY(SELECT DISTINCT vocabulary_private.sitov_normalize_audio_text(t)
+  FROM unnest(texts) t WHERE vocabulary_private.sitov_normalize_audio_text(t)<>'');
+END $$;
+REVOKE ALL ON FUNCTION learning_private.sitov_learning_audio_texts(text,jsonb,jsonb)
+ FROM PUBLIC, anon, authenticated, service_role;
+
+CREATE OR REPLACE FUNCTION learning_private.sitov_require_prepared_learning_audio(
+ p_trainer text, p_fields jsonb, p_translations jsonb, p_unit uuid
+) RETURNS void LANGUAGE plpgsql SECURITY DEFINER SET search_path TO '' AS $$
+DECLARE
+ invoking_role text := coalesce(nullif(current_setting('role',true),'none'),session_user);
+ active boolean;
+ item uuid;
+ stored_fields jsonb;
+ stored_translations jsonb := '[]'::jsonb;
+ spoken text;
+ existing_audio text;
+ prepared_audio text;
+BEGIN
+ -- Definer rights are only a bridge to the closed, service-owned Storage
+ -- metadata proof. Check the actual caller before any Storage lookup; never
+ -- trust an editable JWT role claim or return metadata to non-staff callers.
+ IF invoking_role NOT IN('service_role','postgres','supabase_admin')
+  AND (auth.uid() IS NULL OR coalesce(identity_private.current_profile_role(),'') NOT IN('teacher','admin')) THEN
+  RAISE EXCEPTION 'Staff required' USING ERRCODE='42501';
+ END IF;
+ SELECT u.is_active INTO active FROM public.learning_units u WHERE u.id=p_unit FOR SHARE;
+ IF NOT FOUND THEN RAISE EXCEPTION 'Content unavailable' USING ERRCODE='23514'; END IF;
+ IF NOT active OR p_trainer='videos' THEN RETURN; END IF;
+
+ -- The CMS supplies only its saved ID; path imports supply the actual row.
+ -- Read the authoritative, locked row and translations after their write.
+ -- Caller-provided text, translations and URLs never constitute the proof.
+ item := (p_fields->>'id')::uuid;
+ IF p_trainer='vocabulary' THEN
+  SELECT to_jsonb(c) INTO stored_fields FROM public.learning_vocabulary_cards c
+   WHERE c.id=item AND c.unit_id=p_unit FOR UPDATE;
+ ELSIF p_trainer='pronunciation' THEN
+  SELECT to_jsonb(r) INTO stored_fields FROM public.learning_reading_texts r
+   WHERE r.id=item AND r.unit_id=p_unit FOR UPDATE;
+ ELSIF p_trainer='exercises' THEN
+  SELECT to_jsonb(e) INTO stored_fields FROM public.learning_exercises e
+   WHERE e.id=item AND e.unit_id=p_unit FOR UPDATE;
+ ELSE RAISE EXCEPTION 'Content unavailable' USING ERRCODE='23514';
+ END IF;
+ IF stored_fields IS NULL THEN RAISE EXCEPTION 'Content unavailable' USING ERRCODE='23514'; END IF;
+ IF p_trainer='vocabulary' THEN
+  SELECT coalesce(jsonb_agg(jsonb_build_object('locale',t.locale,'context_sentence',t.context_sentence)),'[]'::jsonb)
+   INTO stored_translations FROM public.vocabulary_translations t WHERE t.card_id=item AND t.locale='de';
+ END IF;
+ FOR spoken IN SELECT unnest(learning_private.sitov_learning_audio_texts(p_trainer,stored_fields,stored_translations)) LOOP
+  PERFORM vocabulary_private.sitov_prepared_german_audio_url(spoken);
+ END LOOP;
+
+ -- Persist the reference within the same publication transaction. Fill's
+ -- stored URL plays its answer word; its full sentence uses a separate button.
+ -- Multiple choice has exactly one joined/replaced UI utterance.
+ IF p_trainer='vocabulary' THEN
+  spoken := concat(CASE WHEN stored_fields->>'article'<>'none' THEN stored_fields->>'article' ELSE '' END,' ',stored_fields->>'word_de');
+ ELSIF p_trainer='pronunciation' THEN spoken := stored_fields->>'sentence_de';
+ ELSIF stored_fields->>'type'='fill_in_blank' THEN spoken := stored_fields->'content'->>'correct_answer';
+ ELSIF stored_fields->>'type'='multiple_choice' THEN
+  spoken := (learning_private.sitov_learning_audio_texts(p_trainer,stored_fields,stored_translations))[1];
+ ELSE RETURN;
+ END IF;
+ existing_audio := CASE WHEN p_trainer='exercises' THEN stored_fields->>'solution_audio_url' ELSE stored_fields->>'audio_url' END;
+ IF nullif(btrim(existing_audio),'') IS NULL OR strpos(existing_audio,'/audio_cache/')>0 THEN
+  prepared_audio := vocabulary_private.sitov_prepared_german_audio_url(spoken);
+  IF p_trainer='vocabulary' THEN
+   UPDATE public.learning_vocabulary_cards SET audio_url=prepared_audio WHERE id=item AND unit_id=p_unit AND audio_url IS DISTINCT FROM prepared_audio;
+  ELSIF p_trainer='pronunciation' THEN
+   UPDATE public.learning_reading_texts SET audio_url=prepared_audio WHERE id=item AND unit_id=p_unit AND audio_url IS DISTINCT FROM prepared_audio;
+  ELSE
+   UPDATE public.learning_exercises SET solution_audio_url=prepared_audio WHERE id=item AND unit_id=p_unit AND solution_audio_url IS DISTINCT FROM prepared_audio;
+  END IF;
+ END IF;
+END $$;
+REVOKE ALL ON FUNCTION learning_private.sitov_require_prepared_learning_audio(text,jsonb,jsonb,uuid)
+ FROM PUBLIC, anon;
+GRANT EXECUTE ON FUNCTION learning_private.sitov_require_prepared_learning_audio(text,jsonb,jsonb,uuid)
+ TO authenticated, service_role;
+
+-- The production runner uses supabase_admin, also owner of the private audio
+-- proof. Refuse an incompatible owner instead of opening it to app roles.
+DO $owner$
+DECLARE bridge_owner text;
+BEGIN
+ SELECT pg_get_userbyid(proowner) INTO bridge_owner FROM pg_proc
+ WHERE oid='learning_private.sitov_require_prepared_learning_audio(text,jsonb,jsonb,uuid)'::regprocedure;
+ IF NOT has_schema_privilege(bridge_owner,'vocabulary_private','USAGE')
+  OR NOT has_function_privilege(bridge_owner,'vocabulary_private.sitov_normalize_audio_text(text)','EXECUTE')
+  OR NOT has_function_privilege(bridge_owner,'vocabulary_private.sitov_prepared_german_audio_url(text)','EXECUTE') THEN
+  RAISE EXCEPTION 'sitov_audio_bridge_owner_unavailable' USING ERRCODE='42501';
+ END IF;
+END $owner$;
+
+DO $publication$
+DECLARE definition text; before_text text; after_text text;
+BEGIN
+ definition := pg_get_functiondef('public.save_learning_content(text,jsonb,uuid)'::regprocedure);
+ IF strpos(definition,'-- sitov-prepared-learning-publication-v1')>0 THEN RETURN; END IF;
+
+ -- Existing shared vocabulary/exercise units keep their current state. Only a
+ -- newly created unit uses the requested draft flag. A false flag on a payload
+ -- cannot bypass the guard when the actual target unit remains active.
+ before_text := $before$ELSE target_unit:=learning_private.ensure_unit(NULL,unit_data->>'level',p_trainer,unit_data->>'label'); END IF;$before$;
+ after_text := $after$ELSE target_unit:=learning_private.ensure_unit(NULL,unit_data->>'level',p_trainer,unit_data->>'label',
+    coalesce((unit_data->>'is_active')::boolean,old_meta.is_active,true),coalesce((unit_data->>'sort_order')::integer,old_meta.sort_order,100)); END IF;$after$;
+ IF strpos(definition,before_text)=0 THEN
+  RAISE EXCEPTION 'sitov_audio_publication_unit_source_drift' USING ERRCODE='23514';
+ END IF;
+ definition := replace(definition,before_text,after_text);
+
+ before_text := $before$ RETURN jsonb_build_object('id',item);$before$;
+ after_text := $after$ -- sitov-prepared-learning-publication-v1
+ -- Preserve existing content-quality errors, then verify every spoken source
+ -- before this mutation can commit. A miss rolls the enclosing block back,
+ -- including newly inserted units/cards and any previous-unit cleanup.
+ PERFORM learning_private.sitov_require_prepared_learning_audio(p_trainer,jsonb_build_object('id',item),'[]'::jsonb,target_unit);
+ RETURN jsonb_build_object('id',item);$after$;
+ IF strpos(definition,before_text)=0 THEN
+  RAISE EXCEPTION 'sitov_audio_publication_guard_source_drift' USING ERRCODE='23514';
+ END IF;
+ definition := replace(definition,before_text,after_text);
+
+ before_text := $before$ WHEN OTHERS THEN RETURN jsonb_build_object('error','save_failed','message','Content could not be saved.');$before$;
+ after_text := $after$ WHEN OTHERS THEN RETURN jsonb_build_object(
+  'error',CASE WHEN SQLERRM='prepared_audio_required' THEN 'prepared_audio_required' ELSE 'save_failed' END,
+  'message',CASE WHEN SQLERRM='prepared_audio_required' THEN 'Prepare and upload the German audio before publishing this content.' ELSE 'Content could not be saved.' END);$after$;
+ IF strpos(definition,before_text)=0 THEN
+  RAISE EXCEPTION 'sitov_audio_publication_error_source_drift' USING ERRCODE='23514';
+ END IF;
+ EXECUTE replace(definition,before_text,after_text);
+END $publication$;
+
+
+-- Consolidated audio migration: 20261003201130_sitov_prepared_path_publication.sql
+-- Apply after 20261003195521. Both staff and service seed imports use this
+-- reviewed inner catalog writer. No curriculum, IDs or progress are rewritten.
+DO $path_publication$
+DECLARE definition text; before_text text; after_text text;
+BEGIN
+ definition := pg_get_functiondef('path_private.import_path_catalog(jsonb,uuid)'::regprocedure);
+ IF strpos(definition,'-- sitov-prepared-path-publication-v1')=0 THEN
+  before_text := $before$ RETURN jsonb_build_object('unit_id',unit,'node_count',node_count,'exercise_count',exercise_count);$before$;
+  after_text := $after$ -- sitov-prepared-path-publication-v1
+ -- Public wrappers authorize staff/the actual service role before this helper.
+ -- Verify after existing shape/quality/pool validation and before commit; the
+ -- wrapper exception block rolls back the entire import on an audio miss.
+ -- ExerciseClient currently plays only fill-in-blank and multiple-choice.
+ -- Include retained old rows too: its legacy query does not filter path flags.
+ FOR exercise IN SELECT to_jsonb(e) FROM public.learning_exercises e
+  WHERE e.unit_id=unit AND e.type IN('fill_in_blank','multiple_choice') LOOP
+  PERFORM learning_private.sitov_require_prepared_learning_audio('exercises',exercise,'[]'::jsonb,unit);
+ END LOOP;
+ RETURN jsonb_build_object('unit_id',unit,'node_count',node_count,'exercise_count',exercise_count);$after$;
+  IF strpos(definition,before_text)=0 THEN
+   RAISE EXCEPTION 'sitov_audio_path_publication_source_drift' USING ERRCODE='23514';
+  END IF;
+  EXECUTE replace(definition,before_text,after_text);
+ END IF;
+
+ -- Keep the installed path error allow-list, shape and all existing domain
+ -- codes. Add one explicit, safe operator response shared by both RPCs.
+ definition := pg_get_functiondef('path_private.error(text,text)'::regprocedure);
+ IF strpos(definition,'-- sitov-prepared-path-error-v1')=0 THEN
+  before_text := $before$ SELECT jsonb_build_object('error',CASE WHEN p_message=ANY($before$;
+  after_text := $after$ -- sitov-prepared-path-error-v1
+ SELECT CASE WHEN p_message='prepared_audio_required' THEN jsonb_build_object(
+  'error','prepared_audio_required','sqlstate',p_state,
+  'message','Prepare the German audio locally and import the verified recordings before retrying the seed import.')
+ ELSE jsonb_build_object('error',CASE WHEN p_message=ANY($after$;
+  IF strpos(definition,before_text)=0 THEN
+   RAISE EXCEPTION 'sitov_audio_path_error_source_drift' USING ERRCODE='23514';
+  END IF;
+  definition := replace(definition,before_text,after_text);
+  before_text := $before$ END,'sqlstate',p_state);$before$;
+  after_text := $after$ END,'sqlstate',p_state) END;$after$;
+  IF strpos(definition,before_text)=0 THEN
+   RAISE EXCEPTION 'sitov_audio_path_error_result_source_drift' USING ERRCODE='23514';
+  END IF;
+  EXECUTE replace(definition,before_text,after_text);
+ END IF;
+END $path_publication$;
+
+
+-- END SITOV PREPARED GERMAN AUDIO

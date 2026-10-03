@@ -3,6 +3,7 @@ import { act, fireEvent, render, screen } from '@testing-library/react'
 import ExerciseCMS from '@/components/admin/ExerciseCMS'
 import { saveGrammarExercise } from '@/app/actions/grammar-cms'
 import type { GrammarExerciseRow } from '@/lib/grammar-validation'
+import { preparedAudioAuthorHint } from '@/lib/audio/preparation-i18n'
 
 jest.unmock('lucide-react')
 jest.mock('@/components/exercises/GrammarStudio.module.css', () => new Proxy({}, { get: (_target, name) => String(name) }))
@@ -20,6 +21,16 @@ beforeEach(() => {
   jest.clearAllMocks()
   HTMLElement.prototype.scrollIntoView = jest.fn()
   jest.mocked(saveGrammarExercise).mockResolvedValue({ success: true, data: row })
+})
+
+it('keeps the edited form when publication is waiting for prepared audio', async () => {
+  jest.mocked(saveGrammarExercise).mockResolvedValueOnce({ success: false, error: 'missing_audio' })
+  render(<ExerciseCMS initialData={[row]} />)
+  fireEvent.click(screen.getByRole('button', { name: 'Bearbeiten: Artikel' }))
+  fireEvent.change(screen.getByLabelText('Thema'), { target: { value: 'Artikel im Alltag' } })
+  await act(async () => fireEvent.click(screen.getByRole('button', { name: 'Übung speichern' })))
+  expect(screen.getByRole('alert')).toHaveTextContent(preparedAudioAuthorHint('de'))
+  expect(screen.getByLabelText('Thema')).toHaveValue('Artikel im Alltag')
 })
 
 it('opening the editor does not steal focus after the teacher has entered another field', () => {

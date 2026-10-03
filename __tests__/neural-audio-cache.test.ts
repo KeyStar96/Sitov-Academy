@@ -36,11 +36,11 @@ afterAll(() => {
 
 describe('neural speech language and content keys', () => {
   it.each([
-    ['de', 'de_DE-thorsten-high', 'de-DE'], ['ru', 'ru_RU-denis-medium', 'ru-RU'],
+    ['de', 'sitov-qwen-male-de-v1', 'de-DE'], ['ru', 'ru_RU-denis-medium', 'ru-RU'],
     ['uk', 'uk_UA-ukrainian_tts-medium-speaker2', 'uk-UA'], ['en', 'en_US-ljspeech-high', 'en-US'], ['tr', 'espeak-ng-tr', 'tr-TR'],
   ] as const)('uses the configured %s local voice and locale', (language, voice, locale) => {
     expect(NEURAL_VOICES[language]).toEqual({ voice, locale })
-    expect(neuralAudioPath('Guten Tag.', language)).toMatch(new RegExp(`^piper-local-v2/${language}/[a-f0-9]{64}\\.mp3$`))
+    expect(neuralAudioPath('Guten Tag.', language)).toMatch(new RegExp(`^${language === 'de' ? AUDIO_CACHE_VERSION : 'piper-local-v2'}/${language}/[a-f0-9]{64}\\.mp3$`))
   })
   it('shares keys for Unicode/whitespace equivalents while preserving text and language distinctions', () => {
     expect(neuralAudioPath('  Ich öffne\n die Tür. ', 'de')).toBe(neuralAudioPath('Ich öffne die Tür.'.normalize('NFD'), 'de'))
@@ -59,9 +59,15 @@ describe('neural speech language and content keys', () => {
 describe('immutable Storage cache', () => {
   it('looks up the dedicated bucket without generating on a hit', async () => {
     const { storage, from } = storageClient()
-    expect(await findCachedAudio('piper-local-v2/de/hash.mp3')).toEqual({ audioUrl })
+    expect(await findCachedAudio('piper-local-v2/en/hash.mp3')).toEqual({ audioUrl })
     expect(from).toHaveBeenCalledWith(AUDIO_CACHE_BUCKET)
-    expect(storage.info).toHaveBeenCalledWith('piper-local-v2/de/hash.mp3')
+    expect(storage.info).toHaveBeenCalledWith('piper-local-v2/en/hash.mp3')
+    expect(synthesizeNeuralSpeech).not.toHaveBeenCalled()
+  })
+  it('rejects stored legacy German assets before looking up or synthesizing a fallback', async () => {
+    const { storage } = storageClient()
+    expect(await findCachedAudio('piper-local-v2/de/hash.mp3', 'Guten Tag.')).toBeNull()
+    expect(storage.info).not.toHaveBeenCalled()
     expect(synthesizeNeuralSpeech).not.toHaveBeenCalled()
   })
   it.each(['400', '404', 404])('treats missing object status %s as a miss', async statusCode => {
@@ -80,8 +86,8 @@ describe('immutable Storage cache', () => {
     const { storage } = storageClient()
     const data = Buffer.from('mp3 bytes')
     jest.mocked(synthesizeNeuralSpeech).mockResolvedValue({ audio: data })
-    expect(await generateCachedAudio('Guten Tag.', 'de', 'generated.mp3')).toEqual({ audioUrl })
-    expect(synthesizeNeuralSpeech).toHaveBeenCalledWith('Guten Tag.', 'de')
+    expect(await generateCachedAudio('Guten Tag.', 'en', 'generated.mp3')).toEqual({ audioUrl })
+    expect(synthesizeNeuralSpeech).toHaveBeenCalledWith('Guten Tag.', 'en')
     expect(storage.upload).toHaveBeenCalledWith('generated.mp3', data, {
       contentType: 'audio/mpeg', cacheControl: '31536000', upsert: false,
     })
@@ -90,20 +96,20 @@ describe('immutable Storage cache', () => {
     const { storage } = storageClient()
     let finish: (audio: Buffer) => void = () => undefined
     jest.mocked(synthesizeNeuralSpeech).mockReturnValueOnce(new Promise(resolve => { finish = audio => resolve({ audio }) }))
-    const first = generateCachedAudio('Hallo', 'de', 'parallel.mp3')
-    const second = generateCachedAudio('Hallo', 'de', 'parallel.mp3')
+    const first = generateCachedAudio('Hallo', 'en', 'parallel.mp3')
+    const second = generateCachedAudio('Hallo', 'en', 'parallel.mp3')
     expect(first).toBe(second)
     expect(synthesizeNeuralSpeech).toHaveBeenCalledTimes(1)
     finish(Buffer.from('audio'))
     await expect(Promise.all([first, second])).resolves.toEqual([{ audioUrl }, { audioUrl }])
     expect(storage.upload).toHaveBeenCalledTimes(1)
-    await generateCachedAudio('Hallo', 'de', 'parallel.mp3')
+    await generateCachedAudio('Hallo', 'en', 'parallel.mp3')
     expect(synthesizeNeuralSpeech).toHaveBeenCalledTimes(2)
   })
   it('uses another worker’s winning upload without overwriting it', async () => {
     const { storage } = storageClient()
     storage.upload.mockResolvedValue({ data: null, error: { statusCode: '409' } })
-    expect(await generateCachedAudio('Hallo', 'de', 'race.mp3')).toEqual({ audioUrl })
+    expect(await generateCachedAudio('Hallo', 'en', 'race.mp3')).toEqual({ audioUrl })
     expect(storage.info).toHaveBeenCalledWith('race.mp3')
     expect(storage.upload).toHaveBeenCalledTimes(1)
   })
@@ -112,34 +118,37 @@ describe('immutable Storage cache', () => {
     const error = { statusCode: '500' }
     storage.upload.mockResolvedValueOnce({ data: null, error })
     storage.info.mockResolvedValue({ data: null, error: { statusCode: '404' } })
-    await expect(generateCachedAudio('Hallo', 'de', 'retry.mp3')).rejects.toBe(error)
-    await expect(generateCachedAudio('Hallo', 'de', 'retry.mp3')).resolves.toEqual({ audioUrl })
+    await expect(generateCachedAudio('Hallo', 'en', 'retry.mp3')).rejects.toBe(error)
+    await expect(generateCachedAudio('Hallo', 'en', 'retry.mp3')).resolves.toEqual({ audioUrl })
     expect(synthesizeNeuralSpeech).toHaveBeenCalledTimes(2)
   })
 })
 
-it('revises the Thorsten cache for a silent lead-in and retains exact timings with MP3', async () => {
+it('uses only validated precomputed Qwen assets with real word timings', async () => {
+  const { SITOV_QWEN_PROFILE_FINGERPRINT } = await import('@/lib/audio/neural-identity')
   const { storage } = storageClient()
-  const hash = createHash('sha256').update(JSON.stringify({ text: 'die Tür', voice: 'de_DE-thorsten-high', rate: AUDIO_RATE, format: AUDIO_FORMAT, leadIn: SITOV_GERMAN_AUDIO_LEAD_IN_SECONDS })).digest('hex')
-  const path = `${AUDIO_CACHE_VERSION}/de/${hash}.mp3`
-  expect(neuralAudioPath('die Tür', 'de')).toBe(path)
-  const previousHash = createHash('sha256').update(JSON.stringify({ text: 'die Tür', voice: 'de_DE-thorsten-high', rate: AUDIO_RATE, format: AUDIO_FORMAT })).digest('hex')
-  expect(path).not.toBe(`${AUDIO_CACHE_VERSION}/de/${previousHash}.mp3`)
-  const wordTimings = [{ start: 0.05, end: 0.3 }, { start: 0.4, end: 1.1 }]
-  jest.mocked(synthesizeNeuralSpeech).mockResolvedValue({ audio: Buffer.from('mp3'), wordTimings })
-  expect(await generateCachedAudio('die Tür', 'de', path)).toEqual({ audioUrl, wordTimings })
-  expect(storage.upload).toHaveBeenCalledWith(path, expect.any(Buffer), expect.objectContaining({ metadata: { wordTimings }, upsert: false }))
-  storage.info.mockResolvedValue({ data: { id: 'object', metadata: { wordTimings } }, error: null })
-  expect(await findCachedAudio(path)).toEqual({ audioUrl, wordTimings })
+  const path = neuralAudioPath('die Tür', 'de')
+  const wordTimings = [{ start: 0.35, end: 0.6 }, { start: 0.7, end: 1.4 }]
+  expect(await findCachedAudio(path)).toBeNull()
+  storage.info.mockResolvedValue({ data: { id: 'object', metadata: { wordTimings, engine: 'qwen3-tts', profileFingerprint: 'wrong' } }, error: null })
+  expect(await findCachedAudio(path)).toBeNull()
+  storage.info.mockResolvedValue({ data: { id: 'object', metadata: { wordTimings, engine: 'qwen3-tts', voice: 'sitov-qwen-male-de-v1', revision: 'sitov-qwen-base-bf16-v1', textSha256: createHash('sha256').update('die Tür').digest('hex'), profileFingerprint: SITOV_QWEN_PROFILE_FINGERPRINT } }, error: null })
+  expect(await findCachedAudio(path, 'die Tür')).toEqual({ audioUrl, wordTimings })
+  expect(await findCachedAudio(path, 'falscher Text')).toBeNull()
+  expect(synthesizeNeuralSpeech).not.toHaveBeenCalled()
 })
 
+it('versions the model, reference and alignment profile while sharing one male voice', () => {
+  const { SITOV_QWEN_PROFILE_FINGERPRINT } = require('@/lib/audio/neural-identity')
+  const hash = createHash('sha256').update(JSON.stringify({ text: 'die Tür', voice: 'sitov-qwen-male-de-v1', rate: AUDIO_RATE, format: AUDIO_FORMAT, leadIn: SITOV_GERMAN_AUDIO_LEAD_IN_SECONDS, profile: SITOV_QWEN_PROFILE_FINGERPRINT })).digest('hex')
+  expect(neuralAudioPath('die Tür', 'de')).toBe(`${AUDIO_CACHE_VERSION}/de/${hash}.mp3`)
+  expect(neuralAudioPath('die Tür', 'de', 'male')).toBe(neuralAudioPath('die Tür', 'de'))
+  expect(neuralAudioPath('die Tür', 'de')).not.toContain('piper-local-v2')
+})
 
-it('uses a different immutable cache key for the female persona without invalidating existing male audio', () => {
-  const male = neuralAudioPath('Guten Morgen!', 'de')
-  expect(neuralAudioPath('Guten Morgen!', 'de', 'male')).toBe(male)
-  expect(neuralAudioPath('Guten Morgen!', 'de', 'female')).not.toBe(male)
-  // The previous MLS recordings were garbled for short Daily Journey phrases.
-  // They remain immutable; the corrected engine must never serve them again.
-  const oldHash = createHash('sha256').update(JSON.stringify({ text: 'Guten Morgen!', voice: 'de_DE-mls-medium-speaker2', rate: AUDIO_RATE, format: AUDIO_FORMAT })).digest('hex')
-  expect(neuralAudioPath('Guten Morgen!', 'de', 'female')).not.toBe(`${AUDIO_CACHE_VERSION}/de/${oldHash}.mp3`)
+it('prevents German cache misses from starting inference through any shared caller', async () => {
+  const { storage } = storageClient()
+  await expect(generateCachedAudio('Hallo', 'de', neuralAudioPath('Hallo', 'de'))).rejects.toThrow('requires local preparation')
+  expect(synthesizeNeuralSpeech).not.toHaveBeenCalled()
+  expect(storage.upload).not.toHaveBeenCalled()
 })

@@ -1,6 +1,7 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { audioObjectKey, localEndpoint, planListeningAudio, slowAudioArguments, validateMp3 } from './path-listening-audio.mjs'
+import { createHash } from 'node:crypto'
+import { assertSitovQwenMetadata, audioObjectKey, localEndpoint, planListeningAudio, sitovAudioProfileFingerprint, sitovGermanAudioProfile, SITOV_PATH_AUDIO_ENGINE, slowAudioArguments, validateMp3 } from './path-listening-audio.mjs'
 
 const prefix = '/storage/v1/object/authenticated/path-audio/'
 const exercise = text => ({ exercise_type: 'listening', content: { transcript: text, audio: { normal: `${prefix}example/normal.mp3`, slow: `${prefix}example/slow.mp3` } } })
@@ -29,7 +30,7 @@ test('audio references and service URLs cannot escape local private storage', ()
   }
 })
 
-test('bounded Piper text and literal ffmpeg arguments preserve resource and process limits', () => {
+test('bounded Qwen text and literal ffmpeg arguments preserve resource and process limits', () => {
   assert.throws(() => planListeningAudio(paths([exercise('x'.repeat(3001))])), /3000/)
   assert.throws(() => planListeningAudio(paths([exercise('hello\u0001')])), /control characters/)
   const filename = '/tmp/literal `echo SECRET` $(echo SECRET).mp3'
@@ -42,4 +43,43 @@ test('bounded Piper text and literal ffmpeg arguments preserve resource and proc
   const mp3 = Buffer.alloc(200); mp3.write('ID3')
   assert.equal(validateMp3(mp3), mp3)
   assert.throws(() => validateMp3(Buffer.concat([mp3, Buffer.alloc(2 * 1024 * 1024)])), /oversized/)
+})
+
+test('model, speaker reference and generation changes invalidate authored audio fingerprints', () => {
+  assert.ok(SITOV_PATH_AUDIO_ENGINE.startsWith(`qwen3-tts:${sitovGermanAudioProfile.voice}:${sitovGermanAudioProfile.revision}:`))
+  const sameProfile = Object.fromEntries(Object.entries(sitovGermanAudioProfile).reverse())
+  assert.equal(sitovAudioProfileFingerprint(sameProfile), sitovAudioProfileFingerprint())
+  for (const change of [
+    { revision: 'sitov-new-model-v2' },
+    { reference: { ...sitovGermanAudioProfile.reference, audioSha256: 'a'.repeat(64) } },
+    { tts: { ...sitovGermanAudioProfile.tts, seed: sitovGermanAudioProfile.tts.seed + 1 } },
+  ]) {
+    assert.notEqual(sitovAudioProfileFingerprint({ ...sitovGermanAudioProfile, ...change }), sitovAudioProfileFingerprint())
+  }
+})
+
+test('offline authoring rejects Piper, another text and mismatched Qwen files before installation', () => {
+  const text = 'Guten Tag.'
+  const bytes = Buffer.from('generated MP3 bytes')
+  const hash = value => createHash('sha256').update(value).digest('hex')
+  const metadata = {
+    engine: sitovGermanAudioProfile.engine,
+    voice: sitovGermanAudioProfile.voice,
+    revision: sitovGermanAudioProfile.revision,
+    profileFingerprint: sitovAudioProfileFingerprint(),
+    modelRevision: sitovGermanAudioProfile.tts.mlxRevision,
+    referenceSha256: sitovGermanAudioProfile.reference.audioSha256,
+    sampleRate: sitovGermanAudioProfile.output.sampleRate,
+    bitrate: sitovGermanAudioProfile.output.bitRate,
+    channels: sitovGermanAudioProfile.output.channels,
+    textSha256: hash(text), audioSha256: hash(bytes),
+  }
+  assert.doesNotThrow(() => assertSitovQwenMetadata(metadata, text, bytes))
+  for (const field of Object.keys(metadata)) {
+    assert.throws(() => assertSitovQwenMetadata({ ...metadata, [field]: 'piper-local-v2' }, text, bytes), /canonical German male Qwen/)
+    const missing = { ...metadata }; delete missing[field]
+    assert.throws(() => assertSitovQwenMetadata(missing, text, bytes), /canonical German male Qwen/)
+  }
+  assert.throws(() => assertSitovQwenMetadata(metadata, 'Guten Abend.', bytes), /text and file/)
+  assert.throws(() => assertSitovQwenMetadata(metadata, text, Buffer.from('another file')), /text and file/)
 })

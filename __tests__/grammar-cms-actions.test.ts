@@ -1,9 +1,17 @@
 import { createClient } from '@/utils/supabase/server'
 import { saveGrammarExercise } from '@/app/actions/grammar-cms'
 import { grammarWriteSchema } from '@/lib/grammar-validation'
+import { findCachedAudio } from '@/lib/audio/neural-cache'
+import { requestGermanAudioPreparation } from '@/lib/audio/preparation-queue'
 
 jest.mock('@/utils/supabase/server', () => ({ createClient: jest.fn() }))
 jest.mock('next/cache', () => ({ revalidatePath: jest.fn() }))
+jest.mock('@/lib/audio/neural-cache', () => ({
+  neuralAudioPath: (text: string) => text,
+  findCachedAudio: jest.fn(async (text: string) => ({ audioUrl: '/prepared/reference.mp3',
+    wordTimings: text.split(/\s+/u).map((_, index) => ({ start: index, end: index + 1 })) })),
+}))
+jest.mock('@/lib/audio/preparation-queue', () => ({ requestGermanAudioPreparation: jest.fn() }))
 
 const id = '00000000-0000-4000-8000-000000000001'
 const input = grammarWriteSchema.parse({
@@ -31,6 +39,15 @@ function setup(role: string) {
 }
 
 beforeEach(() => jest.clearAllMocks())
+
+test('missing prepared audio returns an authoring instruction and never publishes the exercise', async () => {
+  const { client } = setup('teacher')
+  jest.mocked(findCachedAudio).mockResolvedValueOnce(null).mockResolvedValueOnce(null)
+  expect(await saveGrammarExercise(input, id)).toEqual({ success: false, error: 'missing_audio' })
+  expect(requestGermanAudioPreparation).toHaveBeenCalledWith('Der')
+  expect(requestGermanAudioPreparation).toHaveBeenCalledWith('Der Tisch.')
+  expect(client.rpc).not.toHaveBeenCalled()
+})
 
 test('teacher updates preserve localized hints and alternatives through the normalized writer', async () => {
   const { client, write } = setup('teacher')

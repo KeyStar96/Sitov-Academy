@@ -1,25 +1,7 @@
 {
   "repository": "rhasspy/piper-voices",
   "revision": "1162a9173d0ce503555aed757976b7a9912eae4c",
-  "alignment_models": [
-    "de_DE-thorsten-high",
-    "de_DE-mls-medium"
-  ],
   "voices": {
-    "de_DE-thorsten-high": {
-      "de/de_DE/thorsten/high/de_DE-thorsten-high.onnx": {
-        "size_bytes": 113895201,
-        "md5_digest": "256505fe58fb8b9d6ed78b83f6b8a9d2"
-      },
-      "de/de_DE/thorsten/high/de_DE-thorsten-high.onnx.json": {
-        "size_bytes": 4875,
-        "md5_digest": "e81686e00a9d825e2488ead660bec6fd"
-      },
-      "de/de_DE/thorsten/high/MODEL_CARD": {
-        "size_bytes": 279,
-        "md5_digest": "19da09a2681bb31bce0f12fc16bd7033"
-      }
-    },
     "en_US-ljspeech-high": {
       "en/en_US/ljspeech/high/en_US-ljspeech-high.onnx": {
         "size_bytes": 114199011,
@@ -60,20 +42,6 @@
       "uk/uk_UA/ukrainian_tts/medium/MODEL_CARD": {
         "size_bytes": 267,
         "md5_digest": "ec29babff51fdd0e2c640d371800ee3d"
-      }
-    },
-    "de_DE-mls-medium": {
-      "de/de_DE/mls/medium/de_DE-mls-medium.onnx": {
-        "size_bytes": 76961079,
-        "md5_digest": "bb543a8e82b95993cdd2199a0049623b"
-      },
-      "de/de_DE/mls/medium/de_DE-mls-medium.onnx.json": {
-        "size_bytes": 8948,
-        "md5_digest": "3fb96c627820ac38cff6e8c3ac0e4aa0"
-      },
-      "de/de_DE/mls/medium/MODEL_CARD": {
-        "size_bytes": 223,
-        "md5_digest": "e32e1746dddda1336c1b6725afa6251d"
       }
     }
   }

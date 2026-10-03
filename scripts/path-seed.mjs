@@ -54,6 +54,7 @@ async function main() {
       body: JSON.stringify({ p_path: path }),
     })
     const payload = await response.json().catch(() => null)
+    if (response.ok && payload?.error === 'prepared_audio_required') throw new SeedCommandError('prepared_audio')
     if (!response.ok || !payload || payload.error) {
       // Do not log response bodies or credentials; database errors can include content.
       throw new SeedCommandError('import')
@@ -68,6 +69,7 @@ main().catch(error => {
     case 'validation': console.error('Seed schema validation failed. No database request was made.'); break
     case 'configuration': console.error('Staff import needs a local PATH_SEED_SUPABASE_URL, PATH_SEED_ANON_KEY and PATH_SEED_STAFF_ACCESS_TOKEN. No import was attempted.'); break
     case 'import': console.error('Staff seed import failed. Inspect the local database before repeating; earlier paths may already be committed.'); break
+    case 'prepared_audio': console.error('prepared_audio_required: Prepare the German audio locally and import the verified recordings before retrying the staff seed import. Earlier paths may already be committed.'); break
     default: console.error('Seed command failed. Check the local seed JSON and connection; no internal error details were logged.')
   }
   process.exitCode = 1

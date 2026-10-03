@@ -7,6 +7,7 @@ import { createClient } from '@/utils/supabase/server'
 import { currentUserHasTrainerAccess, loadLevelAccessProfile } from '@/lib/access/server'
 import { ACCESS_LEVELS, getAllowedLessons, isAccessLevel } from '@/lib/access/levels'
 import { saveLearningContent } from '@/lib/learning-writes'
+import { SitovPreparedAudioRequiredError } from '@/lib/audio/prepared-content'
 import { type PronunciationPrompt } from '@/lib/pronunciation-prompts'
 import type { PronunciationMutationResult } from '@/lib/pronunciation-conversations'
 import { loadSitovPronunciationReadiness } from '@/lib/sitov-pronunciation-readiness-server'
@@ -57,5 +58,8 @@ export async function savePronunciationPrompt(input: SavePronunciationPromptInpu
   const data = z.object({ id: z.string() }).parse(await saveLearningContent(supabase, 'pronunciation', payload, value.id))
   revalidatePath('/[lang]/admin/content/pronunciation', 'page'); revalidatePath('/[lang]/dashboard/level/[level]/pronunciation', 'page')
   return { success: true, id: data.id }
- } catch (error) { console.error("Saving pronunciation text failed"); return { success: false, reason: 'save_failed' } }
+ } catch (error) {
+  if (error instanceof SitovPreparedAudioRequiredError) return { success: false, reason: 'missing_audio' }
+  console.error("Saving pronunciation text failed"); return { success: false, reason: 'save_failed' }
+ }
 }

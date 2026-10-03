@@ -1358,6 +1358,7 @@
         "own_words_exists": "Bu kelime zaten listende.",
         "own_words_limit": "Listen dolu (1000 kelime). Önce bir kelime sil.",
         "own_words_failed": "Kelime kaydedilemedi. Lütfen tekrar dene.",
+        "own_words_audio_pending": "Telaffuz kaydı hazırlanıyor. Kelime ve çeviri burada kalacak. Lütfen kelimeyi daha sonra tekrar ekle.",
         "own_words_delete_aria": "“{word}” kelimesini sil",
         "own_words_delete_failed": "Kelime silinemedi. Lütfen tekrar dene.",
         "own_words_waiting": "Henüz öğrenme kutusunda değil",

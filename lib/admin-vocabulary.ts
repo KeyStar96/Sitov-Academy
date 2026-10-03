@@ -23,6 +23,8 @@ export async function readAdminVocabulary(client: SupabaseClient<Database>) {
 
 export async function writeAdminVocabulary(client: SupabaseClient<Database>, payload: VocabWriteInput, id?: string) {
   const row = { ...payload, article: payload.article === 'none' ? null : payload.article }
+  // The shared writer requires prepared German word/context audio before its
+  // RPC; the database assigns the exact cached reference atomically. No CMS inference.
   return vocabularyCardSchema.parse(await saveLearningContent(client, 'vocabulary', row, id))
 }
 

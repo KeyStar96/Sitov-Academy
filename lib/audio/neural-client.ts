@@ -9,7 +9,7 @@ export interface NeuralAudioSource {
   language: NeuralAudioLanguage
   cardId?: string
   audioUrl?: string | null
-  /** Require synthesis metadata instead of reusing old unaligned generated speech. */
+  /** Require measured timing metadata instead of reusing an unaligned recording. */
   aligned?: boolean
   voice?: GermanAudioVoice
 }
@@ -22,14 +22,14 @@ const MAX_PRELOADED_AUDIO = 4
 const MAX_PREFETCH_REQUESTS = 2
 
 export function neuralAudioKey(source: NeuralAudioSource): string {
-  return JSON.stringify([source.cardId ?? null, source.language, normalizeAudioText(source.text), source.audioUrl && !source.audioUrl.includes('/audio_cache/') ? source.audioUrl : null, ...(source.voice === 'female' ? ['female'] : [])])
+  return JSON.stringify([source.cardId ?? null, source.language, normalizeAudioText(source.text), source.audioUrl && !source.audioUrl.includes('/audio_cache/') ? source.audioUrl : null])
 }
 
 export function cachedNeuralAudio(source: NeuralAudioSource): string | null {
   const cached = resolvedUrls.get(neuralAudioKey(source))
   if (cached) return cached.audioUrl
-  // Aligned playback requires synthesis metadata instead of an old recording.
-  if (source.aligned || source.voice === 'female') return null
+  // Aligned playback requires prepared timing metadata.
+  if (source.aligned) return null
   return source.audioUrl && !source.audioUrl.includes('/audio_cache/') ? source.audioUrl : null
 }
 
@@ -117,7 +117,7 @@ function drainPrefetchQueue(): void {
   }
 }
 
-/** Never synthesize a whole deck. Cancel obsolete queued work when the learner advances. */
+/** Fetch only a small lookahead window; cancel obsolete work when the learner advances. */
 export function prefetchNeuralAudio(sources: readonly NeuralAudioSource[]): () => void {
   const jobs = sources.slice(0, 2).filter(source => source.text.trim()).map(source => ({ source, cancelled: false }))
   prefetchQueue.push(...jobs)

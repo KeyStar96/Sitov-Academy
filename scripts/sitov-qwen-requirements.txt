@@ -1,0 +1,7 @@
+# Authoring Mac only; learner audio is served from prepared storage.
+mlx-audio==0.5.7
+mlx==0.32.3
+transformers==5.18.0
+numpy==2.5.3
+miniaudio==1.71
+imageio-ffmpeg==0.6.0

@@ -1,0 +1,19 @@
+{
+  "id": "dd01c488-10f3-a683-00cf-4d215f4d9b19---8c1050a24cffde6cd4ef033db518ac06",
+  "subset": "TV-2022.10-Neutral",
+  "style": "neutral",
+  "text": "die derzeitigen geschehnisse im mittelmeer finden wissenschaftler ungewöhnlich und besorgniserregend.",
+  "samplerate": 44100,
+  "durationSeconds": 5.62890625,
+  "charsPerSecond": 17.9375,
+  "recording_year-month": "2021-08",
+  "microphone": "good_rodePodcaster",
+  "speaker": "Thorsten Müller (Thorsten-Voice)",
+  "language": "german",
+  "comment": "",
+  "dataset": "Thorsten-Voice/TV-44kHz-Full",
+  "dataset_config": "TV-2022.10-Neutral",
+  "row_index": 52,
+  "license": "CC0-1.0",
+  "source": "https://huggingface.co/datasets/Thorsten-Voice/TV-44kHz-Full"
+}

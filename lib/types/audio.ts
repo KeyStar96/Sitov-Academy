@@ -1,5 +1,5 @@
 export type NeuralAudioLanguage = 'de' | 'ru' | 'uk' | 'en' | 'tr'
-export type GermanAudioVoice = 'male' | 'female'
+export type GermanAudioVoice = 'male'
 
 /** Seconds on the media timeline, one entry per whitespace-delimited token. */
 export interface AudioWordTiming { start: number; end: number }
@@ -10,7 +10,7 @@ export interface GenerateAudioInput {
   language: NeuralAudioLanguage
   /** Only a matching German word recording may update this card's audio_url. */
   cardId?: string
-  /** German scene persona. Omission retains the vocabulary voice. */
+  /** The single male Qwen profile; omission uses the same profile. */
   voice?: GermanAudioVoice
 }
 

@@ -1,4 +1,4 @@
-"""No model downloads or real synthesis required for HTTP boundary tests."""
+"""Translation service boundaries; German is never synthesized on the VPS."""
 import http.client
 import io
 import json
@@ -6,136 +6,121 @@ import threading
 import unittest
 import wave
 from http.server import ThreadingHTTPServer
-from unittest.mock import Mock, patch
 from types import SimpleNamespace
+from unittest.mock import Mock, patch
 import tts_server
 
 
 class SpeechBoundaryTests(unittest.TestCase):
-    def test_supported_languages_and_input_limits(self):
-        for language in ['de','en','ru','uk','tr']:
-            self.assertEqual(tts_server.validate_request(json.dumps({'text':' Hallo ','language':language}).encode()),('Hallo',language,None))
-        self.assertEqual(tts_server.validate_request(json.dumps({'text':' Äpfel \n übermäßig süß. ','language':'de','voice':'male'}).encode()),('Äpfel übermäßig süß.','de','male'))
-        for body in [{},[],{'text':'','language':'de'},{'text':'Hi','language':[]},{'text':'x'*3001,'language':'de'},{'text':'hi\x00','language':'de'},{'text':'Hi','language':'de','voice':[]},{'text':'Hi','language':'de','voice':'other'},{'text':'Hi','language':'en','voice':'male'}]:
+    def test_translation_languages_and_normalization(self):
+        for language in ['en', 'ru', 'uk', 'tr']:
+            self.assertEqual(tts_server.validate_request(json.dumps({'text': ' Hello\nworld! ', 'language': language}).encode()), ('Hello world!', language, None))
+
+    def test_german_and_personas_have_no_local_synthesis_route(self):
+        for voice in [None, 'male', 'female', '../../model']:
+            body = {'text': 'Guten Morgen!', 'language': 'de'}
+            if voice is not None:
+                body['voice'] = voice
+            with self.subTest(voice=voice), self.assertRaisesRegex(ValueError, 'german_audio_prepared_offline'):
+                tts_server.validate_request(json.dumps(body).encode())
+        for language in tts_server.VOICES:
             with self.assertRaises(ValueError):
+                tts_server.validate_request(json.dumps({'text': 'Hi', 'language': language, 'voice': 'male'}).encode())
+
+    def test_input_limits_and_unknown_properties(self):
+        for body in [{}, [], {'text': '', 'language': 'en'}, {'text': 'Hi', 'language': []}, {'text': 'x' * 3001, 'language': 'en'}, {'text': 'hi\x00', 'language': 'en'}, {'text': 'Hi', 'language': 'en', 'url': 'https://example.com'}]:
+            with self.subTest(body=type(body).__name__), self.assertRaises(ValueError):
                 tts_server.validate_request(json.dumps(body).encode())
         with self.assertRaises(ValueError):
-            tts_server.validate_request(b'x'*(tts_server.MAX_BODY+1))
+            tts_server.validate_request(b'x' * (tts_server.MAX_BODY + 1))
 
     def test_wav_memory_bound(self):
-        output=tts_server.BoundedBuffer()
+        output = tts_server.BoundedBuffer()
         output.seek(tts_server.MAX_WAV)
         with self.assertRaises(ValueError):
             output.write(b'x')
 
     def test_loopback_http_auth_busy_and_mp3_contract(self):
-        engine=Mock()
-        engine.ready=True
-        engine.process.is_alive.return_value=True
-        engine.lock=threading.Lock()
-        audio=b'ID3'+b'x'*125
-        timings=[{'start':0.04,'end':0.55}]
-        engine.speak.return_value=(audio,timings)
-        handler=type('TestHandler',(tts_server.SpeechHandler,),{'engine':engine,'token':'test-only'})
-        server=ThreadingHTTPServer(('127.0.0.1',0),handler)
-        thread=threading.Thread(target=server.serve_forever,daemon=True)
+        engine = Mock()
+        engine.ready = True
+        engine.process.is_alive.return_value = True
+        engine.lock = threading.Lock()
+        audio = b'ID3' + b'x' * 125
+        engine.speak.return_value = (audio, None)
+        handler = type('TestHandler', (tts_server.SpeechHandler,), {'engine': engine, 'token': 'test-only'})
+        server = ThreadingHTTPServer(('127.0.0.1', 0), handler)
+        thread = threading.Thread(target=server.serve_forever, daemon=True)
         thread.start()
-        def post(body,token='test-only'):
-            conn=http.client.HTTPConnection('127.0.0.1',server.server_port,timeout=2)
+
+        def post(body, token='test-only'):
+            connection = http.client.HTTPConnection('127.0.0.1', server.server_port, timeout=2)
             try:
-                conn.request('POST','/synthesize',json.dumps(body),{'Content-Type':'application/json','Authorization':'Bearer '+token})
-                response=conn.getresponse()
-                return response.status,response.getheader('Content-Type'),response.getheader('X-Word-Timings'),response.getheader('X-TTS-Voice'),response.getheader('X-TTS-Revision'),response.read()
+                connection.request('POST', '/synthesize', json.dumps(body), {'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token})
+                response = connection.getresponse()
+                return response.status, response.getheader('Content-Type'), response.getheader('X-Word-Timings'), response.read()
             finally:
-                conn.close()
+                connection.close()
+
         try:
-            self.assertEqual(post({'text':'Hallo','language':'de'},'wrong')[0],401)
-            self.assertEqual(post({'text':'Hallo','language':[]})[0],400)
-            self.assertEqual(post({'text':'x'*20000,'language':'de'})[0],413)
+            self.assertEqual(post({'text': 'Hello', 'language': 'en'}, 'wrong')[0], 401)
+            self.assertEqual(post({'text': 'Hallo', 'language': 'de'})[0], 400)
+            engine.speak.assert_not_called()
+            self.assertEqual(post({'text': 'x' * 20000, 'language': 'en'})[0], 413)
             engine.lock.acquire()
-            self.assertEqual(post({'text':'Hallo','language':'de'})[0],503)
+            self.assertEqual(post({'text': 'Hello', 'language': 'en'})[0], 503)
             engine.lock.release()
-            status,content_type,header,profile,revision,body=post({'text':'Hallo','language':'de'})
-            self.assertEqual((status,content_type,profile,body),(200,'audio/mpeg','male',audio))
-            self.assertEqual(json.loads(header),timings)
-            self.assertIsNone(revision)
-            engine.speak.assert_called_once_with('Hallo','de',None)
-            female=post({'text':'Hallo','language':'de','voice':'female'})
-            self.assertEqual((female[0],female[3],female[4]),(200,'female',tts_server.FEMALE_SYNTHESIS_REVISION))
-            engine.speak.assert_called_with('Hallo','de','female')
-            engine.speak.return_value=(audio,None)
-            self.assertIsNone(post({'text':'Hello','language':'en'})[2])
-            self.assertIsNone(post({'text':'Hello','language':'en'})[3])
+            self.assertEqual(post({'text': 'Hello', 'language': 'en'}), (200, 'audio/mpeg', None, audio))
+            engine.speak.assert_called_once_with('Hello', 'en', None)
         finally:
-            server.shutdown(); server.server_close(); thread.join(2)
+            server.shutdown()
+            server.server_close()
+            thread.join(2)
 
 
-class AlignmentTests(unittest.TestCase):
-    def test_german_output_retains_initial_samples_after_silent_lead_in(self):
-        alignments = [SimpleNamespace(phoneme=p, num_samples=n) for p, n in [('^', 2), ('h', 8), ('e', 8), ('$', 2)]]
+class TranslationSynthesisTests(unittest.TestCase):
+    def test_encoding_preserves_pcm_and_ukrainian_speaker(self):
         pcm = b'\x01\x00' * 20
         voice = Mock()
         voice.config.sample_rate = 1000
-        voice.phonemize.return_value = [list('he')]
-        voice.synthesize.return_value = [SimpleNamespace(phoneme_alignments=alignments, audio_int16_array=list(range(20)), audio_int16_bytes=pcm, sample_rate=1000)]
+        voice.synthesize.return_value = [SimpleNamespace(audio_int16_bytes=pcm)]
         voices = Mock()
         voices.get.return_value = voice
         captured = []
+
         def encode(arguments, **kwargs):
-            captured.append(kwargs['input'])
+            captured.append((arguments, kwargs['input']))
             tts_server.Path(arguments[-1]).write_bytes(b'ID3' + b'x' * 125)
+
         with patch.dict('sys.modules', {'piper': SimpleNamespace(SynthesisConfig=lambda **kwargs: kwargs)}), patch.object(tts_server.subprocess, 'run', side_effect=encode):
-            audio, timings = tts_server.synthesize('he', 'de', voices)
-        with wave.open(io.BytesIO(captured[0]), 'rb') as wav:
-            self.assertEqual(wav.getnframes(), 370)
-            self.assertEqual(wav.readframes(350), b'\x00\x00' * 350)
+            audio, timings = tts_server.synthesize('Hello', 'uk', voices)
+        with wave.open(io.BytesIO(captured[0][1]), 'rb') as wav:
+            self.assertEqual(wav.getnframes(), 20)
             self.assertEqual(wav.readframes(20), pcm)
-        self.assertEqual(timings, [{'start': 0.352, 'end': 0.368}])
+        self.assertIsNone(timings)
         self.assertGreater(len(audio), 100)
-        voices.get.assert_called_once_with('de', None)
+        self.assertEqual(voice.synthesize.call_args.kwargs['syn_config']['speaker_id'], 2)
+        self.assertIn('-write_xing', captured[0][0])
+        voices.get.assert_called_once_with('uk')
 
-    def test_old_voice_composes_german_ich_phoneme(self):
-        phonemes=[['ɪ','c','̧',' ', 'y']]
-        old_map={'ɪ':[74],'c':[16],'ç':[40],' ':[3],'y':[37]}
-        self.assertEqual(tts_server.model_phonemes(phonemes,old_map),[['ɪ','ç',' ','y']])
-        new_map={**old_map,'̧':[140]}
-        self.assertEqual(tts_server.model_phonemes(phonemes,new_map),phonemes)
+    def test_german_never_loads_a_model(self):
+        voices = Mock()
+        with self.assertRaises(ValueError):
+            tts_server.synthesize('Hallo', 'de', voices)
+        voices.get.assert_not_called()
+        with self.assertRaises(ValueError):
+            tts_server.VoiceCache(tts_server.Path('/not-needed')).get('de')
 
-    def test_sample_durations_preserve_sentence_pauses(self):
-        alignments=[SimpleNamespace(phoneme=p,num_samples=n) for p,n in [('^',10),('ˈ',0),('ɛ',20),('l',30),(' ',15),('y',80),('.',100),('$',5)]]
-        self.assertEqual([{key:span[key] for key in ['start','end']} for span in tts_server.phonetic_spans(alignments,100,2)],[{'start':2.1,'end':2.6},{'start':2.75,'end':3.55}])
-
-    def test_contracted_phrase_splits_at_real_phoneme_samples(self):
-        voice=Mock()
-        voice.phonemize.side_effect=[[list('ɛs')],[list('ɪst')],[list('ʃøːn.')]]
-        alignments=[SimpleNamespace(phoneme=p,num_samples=n) for p,n in [('^',10),('ɛ',10),('s',20),('ɪ',40),('s',20),('t',10),(' ',10),('ʃ',20),('ø',30),('ː',10),('n',20),('.',40),('$',0)]]
-        spans=tts_server.phonetic_spans(alignments,100,0)
-        self.assertEqual(tts_server.token_timings('Es ist schön.',voice,spans),[{'start':0.1,'end':0.4},{'start':0.4,'end':1.1},{'start':1.2,'end':2.0}])
-
-    def test_numbers_merge_spoken_words_without_estimated_durations(self):
-        voice=Mock()
-        voice.phonemize.side_effect=[[list('a')],[list('abc def')],[list('g')]]
-        spans=[{'start':0.1,'end':0.3},{'start':0.5,'end':0.8},{'start':0.9,'end':1.3},{'start':1.5,'end':1.6}]
-        self.assertEqual(tts_server.token_timings('Äpfel 123,45 süß.',voice,spans),[{'start':0.1,'end':0.3},{'start':0.5,'end':1.3},{'start':1.5,'end':1.6}])
-
-    def test_unmatched_alignment_never_fabricates_highlighting(self):
-        voice=Mock()
-        voice.phonemize.return_value=[list('one')]
-        self.assertIsNone(tts_server.token_timings('one two',voice,[{'start':0.1,'end':1.0}]))
-
-    def test_punctuation_keeps_token_index_without_highlighting(self):
-        voice=Mock()
-        voice.phonemize.side_effect=[[list('a')],[list('.')],[list('b')]]
-        self.assertEqual(tts_server.token_timings('Äpfel . Süß',voice,[{'start':0.1,'end':0.3},{'start':0.8,'end':1.1}]),[{'start':0.1,'end':0.3},{'start':0.3,'end':0.3},{'start':0.8,'end':1.1}])
-
-    def test_cache_keys_are_actual_models_and_remain_bounded(self):
-        cache=tts_server.VoiceCache(tts_server.Path('/not-needed'))
-        german,english=object(),object()
-        cache.voices.update({'de_DE-thorsten-high':german,'en_US-ljspeech-high':english})
-        self.assertIs(cache.get('de'),german)
-        self.assertIs(cache.get('en'),english)
-        self.assertEqual(len(cache.voices),2)
+    def test_model_alphabet_compatibility_and_bounded_existing_cache(self):
+        phonemes = [['ɪ', 'c', '̧', ' ', 'y']]
+        old_map = {'ɪ': [74], 'c': [16], 'ç': [40], ' ': [3], 'y': [37]}
+        self.assertEqual(tts_server.model_phonemes(phonemes, old_map), [['ɪ', 'ç', ' ', 'y']])
+        cache = tts_server.VoiceCache(tts_server.Path('/not-needed'))
+        english, russian = object(), object()
+        cache.voices.update({'en_US-ljspeech-high': english, 'ru_RU-denis-medium': russian})
+        self.assertIs(cache.get('en'), english)
+        self.assertIs(cache.get('ru'), russian)
+        self.assertEqual(len(cache.voices), 2)
 
 
-if __name__=='__main__':
+if __name__ == '__main__':
     unittest.main()

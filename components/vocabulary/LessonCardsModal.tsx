@@ -165,7 +165,7 @@ export default function LessonCardsModal({
       try {
         const result = await addOwnWord({ level, word, translation, uiLanguage: uiLanguage ?? '' })
         if (result.success === false) {
-          setOwnMessage({ key: result.error === 'exists' ? 'own_words_exists' : result.error === 'limit' ? 'own_words_limit' : result.error === 'invalid' ? 'own_words_missing' : 'own_words_failed', tone: 'alert' })
+          setOwnMessage({ key: result.error === 'audio_pending' ? 'own_words_audio_pending' : result.error === 'exists' ? 'own_words_exists' : result.error === 'limit' ? 'own_words_limit' : result.error === 'invalid' ? 'own_words_missing' : 'own_words_failed', tone: result.error === 'audio_pending' ? 'status' : 'alert' })
           return
         }
         setOwnWord('')

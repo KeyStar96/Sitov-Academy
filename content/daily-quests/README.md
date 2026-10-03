@@ -14,9 +14,14 @@ Students receive neither this authoring source nor correctness flags.
 - Every fictional learning character is male. Names, roles, dialogue references,
   scene descriptions and depicted people must match this rule. Use the approved
   male scene hosts; grammatical gender examples and real profiles remain factual.
-- All German audio uses `de_DE-thorsten-high` through the existing shared adapter.
-  Do not add a persona, browser voice or system-TTS recording to authored content.
-  The DTO contract and migration 64 enforce male character voices in PostgreSQL.
+- All German audio uses the male Qwen3-TTS profile `sitov-qwen-male-de-v1` through
+  the shared adapter. Every rendered scene, personalized discovery word, sentence
+  and question must be precomputed locally on the Mac and imported with measured
+  word timings before publication. Follow `docs/audio-authoring.md`, including all
+  permitted noun-slot variants and frozen assignment texts. The website only
+  serves prepared recordings; no live Mac dependency, alternate persona, Piper,
+  browser voice or system-TTS fallback. The DTO contract and migration 64 continue
+  to enforce male character voices in PostgreSQL.
 - `words[0]` is a singular noun with `der`, `die` or `das`. Personalization uses
   only that template's reviewed form. Every option must be distinct and the
   dialogue must have exactly one appropriate answer given its context.

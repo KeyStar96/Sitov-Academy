@@ -4,6 +4,7 @@ import type { Json, Database } from '@/supabase/database.types'
 import type { SupabaseClient } from '@supabase/supabase-js'
 import type { Trainer } from './access/levels'
 import { vocabularyQuery, grammarQuery, readingQuery, videoQuery, mapVocabularyCard, mapGrammarExercise, mapReadingText, mapVideo } from './learning-catalog'
+import { preparedLearningAudioTexts, requirePreparedGermanAudio, SITOV_PREPARED_AUDIO_REQUIRED, SitovPreparedAudioRequiredError } from './audio/prepared-content'
 
 const locales = ['de', 'en', 'ru', 'uk', 'tr'] as const
 function jsonObject(value: Json | undefined): Record<string, Json | undefined> {
@@ -44,9 +45,17 @@ export function learningWritePayload(trainer: Trainer, input: Json): Json {
 }
 
 export async function saveLearningContent(client: SupabaseClient<Database>, trainer: Trainer, payload: Json, id?: string): Promise<Json> {
-  const { data, error } = await client.rpc('save_learning_content', { p_trainer: trainer, p_payload: learningWritePayload(trainer, payload), p_id: id })
+  const writePayload = jsonObject(learningWritePayload(trainer, payload))
+  const form = jsonObject(payload)
+  if (trainer !== 'videos' && form.is_active !== false) {
+    await requirePreparedGermanAudio(preparedLearningAudioTexts(trainer, payload))
+    // The database verifies its actual saved row and atomically writes the
+    // prepared reference, including updates, while retaining teacher recordings.
+  }
+  const { data, error } = await client.rpc('save_learning_content', { p_trainer: trainer, p_payload: writePayload, p_id: id })
   if (error) throw new Error(`Content save failed: ${error.code}`)
   const failure = getRpcError(data)
+  if (failure?.error === SITOV_PREPARED_AUDIO_REQUIRED) throw new SitovPreparedAudioRequiredError()
   if (failure) throw new Error(`Content save failed: ${failure.error}`)
   const saved = z.object({ id: z.string().uuid() }).parse(data)
   if (trainer === 'vocabulary') {

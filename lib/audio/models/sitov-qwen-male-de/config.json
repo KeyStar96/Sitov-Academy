@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "brand": "Sitov Academy",
+  "engine": "qwen3-tts",
+  "voice": "sitov-qwen-male-de-v1",
+  "revision": "sitov-qwen-base-bf16-v1",
+  "language": "German",
+  "profile": "male",
+  "tts": {
+    "sourceModel": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+    "mlxModel": "mlx-community/Qwen3-TTS-12Hz-1.7B-Base-bf16",
+    "mlxRevision": "a6eb4f68e4b056f1215157bb696209bc82a6db48",
+    "precision": "bfloat16",
+    "mlxAudioVersion": "0.5.7",
+    "mlxVersion": "0.32.3",
+    "seed": 2718,
+    "generation": {
+      "temperature": 0.9,
+      "top_k": 50,
+      "top_p": 1,
+      "repetition_penalty": 1.5,
+      "max_tokens": 2048
+    }
+  },
+  "reference": {
+    "audioFile": "reference.wav",
+    "textFile": "reference.txt",
+    "audioSha256": "685523fce41587b65dca813bace5782b3c0bd359d37615675decdb06bea569a1",
+    "textSha256": "799eaea23ec8ff193937ab97ce23be992c695c90852507d1f0ae1e234069d0f9",
+    "license": "CC0-1.0",
+    "source": "https://huggingface.co/datasets/Thorsten-Voice/TV-44kHz-Full"
+  },
+  "alignment": {
+    "sourceModel": "Qwen/Qwen3-ForcedAligner-0.6B",
+    "mlxModel": "mlx-community/Qwen3-ForcedAligner-0.6B-8bit",
+    "mlxRevision": "0e1a68e91d815300c7c9754b2a7639378b23db15",
+    "precision": "8bit",
+    "language": "German",
+    "method": "forced",
+    "timingUnit": "seconds",
+    "tokenContract": "one timing per normalized whitespace token; exact lexical coverage required"
+  },
+  "output": {
+    "sampleRate": 24000,
+    "bitRate": "48k",
+    "channels": 1,
+    "format": "mp3",
+    "loudnessLufs": -18,
+    "truePeakDb": -1,
+    "loudnessRangeLu": 11,
+    "leadInSeconds": 0.35,
+    "gapless": true
+  },
+  "limits": {
+    "maxTextLength": 3000,
+    "maxChunkCharacters": 1200,
+    "maxAudioSeconds": 300,
+    "minRate": 0.5,
+    "maxRate": 1.5
+  }
+}

@@ -8,6 +8,7 @@ import { emptyVocabForm, vocabToForm, vocabWriteSchema, type VocabWriteInput } f
 import { useAdminTranslator } from './AdminI18nProvider'
 import { cn } from '@/lib/utils'
 import { adminButton, adminInput } from './ui'
+import { preparedAudioAuthorHint } from '@/lib/audio/preparation-i18n'
 
 const fieldClass = adminInput
 const buttonClass = adminButton('secondary', 'sm')
@@ -28,7 +29,7 @@ export default function VocabCMS({ initialData }: { initialData: VocabularyCardR
   const [pending, setPending] = useState(false)
   const mutationLock = useRef(false)
   const [deleteId, setDeleteId] = useState<string | null>(null)
-  const [message, setMessage] = useState<'cms_saved' | 'cms_deleted' | 'cms_save_failed' | 'cms_delete_failed' | 'cms_invalid' | null>(null)
+  const [message, setMessage] = useState<'cms_saved' | 'cms_deleted' | 'cms_save_failed' | 'cms_delete_failed' | 'cms_invalid' | 'missing_audio' | null>(null)
   const [search, setSearch] = useState('')
   const [level, setLevel] = useState('all')
   const [page, setPage] = useState(0)
@@ -63,7 +64,11 @@ export default function VocabCMS({ initialData }: { initialData: VocabularyCardR
     setItems(previous => editingId ? previous.map(item => item.id === editingId ? optimistic : item) : [optimistic, ...previous])
     try {
       const result = editingId ? await updateVocab(editingId, parsed.data) : await addVocab(parsed.data)
-      if (result.success === false) throw new Error(result.error)
+      if (result.success === false) {
+        setItems(previousItems)
+        setMessage(result.code === 'prepared_audio_required' ? 'missing_audio' : 'cms_save_failed')
+        return
+      }
       setItems(previous => previous.map(item => item.id === optimisticId ? result.data : item))
       setMessage('cms_saved')
       setEditorOpen(false)
@@ -90,7 +95,7 @@ export default function VocabCMS({ initialData }: { initialData: VocabularyCardR
   }
   return <div className="min-w-0 space-y-4 text-[var(--foreground)]">
     <div className="flex flex-wrap items-center justify-between gap-3"><p className="text-sm text-[var(--muted)]">{t('cms_count', { count: items.length })}</p><button type="button" onClick={() => openEditor()} disabled={pending} className={primaryClass}><Plus size={17} aria-hidden="true" />{t('cms_new')}</button></div>
-    <p role="status" aria-live="polite" className={`min-h-6 text-sm ${message?.includes('failed') || message === 'cms_invalid' ? 'text-[var(--danger)]' : 'text-[var(--muted)]'}`}>{pending ? t('cms_saving') : message ? t(message) : ''}</p>
+    <p role={message === 'missing_audio' ? 'alert' : 'status'} aria-live="polite" className={`min-h-6 text-sm ${message?.includes('failed') || message === 'cms_invalid' || message === 'missing_audio' ? 'text-[var(--danger)]' : 'text-[var(--muted)]'}`}>{pending ? t('cms_saving') : message === 'missing_audio' ? preparedAudioAuthorHint('de') : message ? t(message) : ''}</p>
     {editorOpen && <form ref={editorRef} onSubmit={handleSubmit} className="scroll-mt-24 space-y-5 rounded-xl border border-[var(--admin-line)] bg-[var(--surface)] p-4 sm:p-5">
       <div className="flex flex-wrap items-center justify-between gap-2"><h2 className="text-base font-semibold">{t(editingId ? 'cms_edit_title' : 'cms_new')}</h2><button type="button" onClick={() => setEditorOpen(false)} disabled={pending} className={buttonClass}><X size={16} aria-hidden="true" />{t('cms_cancel')}</button></div>
       <fieldset disabled={pending} className="grid min-w-0 gap-3 sm:grid-cols-2 lg:grid-cols-3">

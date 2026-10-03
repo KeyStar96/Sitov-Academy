@@ -20,7 +20,7 @@ Set PATH_SEED_SUPABASE_URL to a loopback Supabase origin and PATH_SEED_SERVICE_R
 No .env files are loaded. The full batch is atomic; after any uncertain result, take a fresh backup and repeat.
 `
 
-type FailureCategory = 'arguments' | 'seed' | 'configuration' | 'backup' | 'database' | 'unverified'
+type FailureCategory = 'arguments' | 'seed' | 'configuration' | 'backup' | 'database' | 'prepared_audio' | 'unverified'
 export class ImportFailure extends Error {
   constructor(message: string, readonly category: FailureCategory = 'arguments') { super(message) }
 }
@@ -200,7 +200,10 @@ export async function runImportCommand(args: string[], dependencies: Dependencie
     let payload: unknown
     try { payload = await response.json() } catch { fail('Import returned invalid JSON. Commit status is unverified; take a fresh backup before repeating the import.', 'unverified') }
     // Never echo PostgREST or SQL errors: their detail may contain secrets or answers.
-    if (typeof payload === 'object' && payload !== null && 'error' in payload) fail('The database rejected the import and rolled back the batch. Inspect its protected local log, then take a fresh backup before retrying.', 'database')
+    if (typeof payload === 'object' && payload !== null && 'error' in payload) {
+      if (payload.error === 'prepared_audio_required') fail('prepared_audio_required: The batch was rolled back. Prepare all German audio locally and import the verified recordings, then take a fresh backup before retrying the seed import.', 'prepared_audio')
+      fail('The database rejected the import and rolled back the batch. Inspect its protected local log, then take a fresh backup before retrying.', 'database')
+    }
     const result = verifyResult(payload, paths)
     await writeFile(receipt, JSON.stringify({ status: 'complete', completed_at: new Date().toISOString(), seed_sha256: sha256, supabase_origin: endpoint.origin, result }, null, 2) + '\n', { mode: 0o600 })
     log(`Imported and verified: ${result.path_count} paths, ${result.node_count} nodes, ${result.exercise_count} exercises, ${result.objective_count} objectives; ${result.migration.archived_units} legacy units archived, ${result.migration.notes_created} teacher notes created.`)
@@ -223,6 +226,7 @@ if (require.main === module) {
       case 'configuration': console.error('Invalid local connection configuration. Check PATH_SEED_SUPABASE_URL and PATH_SEED_SERVICE_ROLE_KEY; no database request was made.'); break
       case 'backup': console.error('Backup verification failed. Use an unused, private migrate-local.py backup with valid checksums and a COMPLETE marker younger than one hour. No database request was made.'); break
       case 'database': console.error('The database rejected the import and rolled back the batch. Inspect its protected local log, then take a fresh backup before retrying.'); break
+      case 'prepared_audio': console.error('prepared_audio_required: The batch was rolled back. Prepare all German audio locally and import the verified recordings, then take a fresh backup before retrying the seed import.'); break
       case 'unverified': console.error('Import could not be verified. Commit status is unknown; inspect the local database and take a fresh backup before repeating the idempotent import.'); break
       default: console.error('The local import command failed. No internal error details were logged.')
     }

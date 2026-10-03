@@ -6,6 +6,7 @@ import { savePronunciationPrompt } from '@/app/actions/pronunciation'
 import { getPronunciationTranslations } from '@/lib/pronunciation-i18n'
 import pronunciationUpdates from '@/lib/pronunciation-translations.json'
 import type { PronunciationPrompt } from '@/lib/pronunciation-prompts'
+import { preparedAudioAuthorHint } from '@/lib/audio/preparation-i18n'
 
 jest.mock('@/app/actions/pronunciation', () => ({ savePronunciationPrompt: jest.fn() }))
 jest.unmock('lucide-react')
@@ -61,6 +62,20 @@ it('archives and republishes a text directly from its card', async () => {
   await user.click(screen.getByRole('button', { name: /Archiviert \(2\)/ }))
   await user.click(screen.getByRole('button', { name: `${de.cms_restore}: Unser Kursraum` }))
   await waitFor(() => expect(savePronunciationPrompt).toHaveBeenLastCalledWith(expect.objectContaining({ id: prompts[2].id, isActive: true })))
+})
+
+it('explains missing prepared audio without discarding the author form', async () => {
+  const user = userEvent.setup()
+  HTMLElement.prototype.scrollIntoView = jest.fn()
+  jest.mocked(savePronunciationPrompt).mockResolvedValueOnce({ success: false, reason: 'missing_audio' })
+  renderCms()
+  await user.click(screen.getByRole('button', { name: `${de.cms_edit}: Im kleinen Laden` }))
+  const text = screen.getByRole('textbox', { name: new RegExp(de.cms_text_label) })
+  await user.clear(text)
+  await user.type(text, 'Der Lehrer kommt morgen.')
+  await user.click(screen.getByRole('button', { name: de.cms_save }))
+  expect(await screen.findByRole('alert')).toHaveTextContent(preparedAudioAuthorHint('de'))
+  expect(text).toHaveValue('Der Lehrer kommt morgen.')
 })
 
 it('opens the level passed from the content hub and never offers publishing for unbookable levels', async () => {

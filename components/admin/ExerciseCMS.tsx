@@ -12,6 +12,7 @@ import { useAdminTranslator } from './AdminI18nProvider'
 import { Badge, Card, EmptyState, Notice, PageHeader, adminButton, adminInput, adminLabel } from './ui'
 import { contentAdminCopy } from '@/lib/content-admin-i18n'
 import { cn } from '@/lib/utils'
+import { preparedAudioAuthorHint } from '@/lib/audio/preparation-i18n'
 
 interface EditorState {
   id?: string
@@ -68,7 +69,7 @@ export default function ExerciseCMS({ initialData, lang = 'de', loadFailed = fal
   const [deleteId, setDeleteId] = useState<string | null>(null)
   const [query, setQuery] = useState('')
   const [level, setLevel] = useState('')
-  const [message, setMessage] = useState<'saved' | 'deleted' | 'invalid' | 'failed' | null>(loadFailed ? 'failed' : null)
+  const [message, setMessage] = useState<'saved' | 'deleted' | 'invalid' | 'missing_audio' | 'failed' | null>(loadFailed ? 'failed' : null)
   const [page, setPage] = useState(1)
   const editorRef = useRef<HTMLFormElement>(null)
   const g = useMemo(() => grammarTranslator(lang), [lang])
@@ -157,11 +158,11 @@ export default function ExerciseCMS({ initialData, lang = 'de', loadFailed = fal
   const field = 'block min-w-0'
   const wide = 'block min-w-0 sm:col-span-2'
   const label = (text: string) => <span className={adminLabel}>{text}</span>
-  const failed = message === 'invalid' || message === 'failed'
+  const failed = message === 'invalid' || message === 'failed' || message === 'missing_audio'
   return <div className="min-w-0 space-y-5 text-[var(--foreground)] sm:space-y-6">
     <PageHeader eyebrow={t('group_content')} title={t('nav_learning_path')} description={copy.pathIntro}
       actions={<button type="button" disabled={busy} onClick={() => openEditor()} className={adminButton('primary')}><Plus size={17} aria-hidden="true" />{g('newExercise')}</button>} />
-    {message && <Notice tone={failed ? 'danger' : 'success'} role={failed ? 'alert' : 'status'}><span className="inline-flex items-center gap-2"><CheckCircle2 size={16} aria-hidden="true" />{g(message)}</span></Notice>}
+    {message && <Notice tone={failed ? 'danger' : 'success'} role={failed ? 'alert' : 'status'}><span className="inline-flex items-center gap-2"><CheckCircle2 size={16} aria-hidden="true" />{message === 'missing_audio' ? preparedAudioAuthorHint(lang) : g(message)}</span></Notice>}
     {editor && <form onSubmit={handleSave} ref={editorRef} className="scroll-mt-24 space-y-5 rounded-xl border border-[var(--admin-line)] bg-[var(--surface)] p-4 sm:p-5">
       <div className="flex flex-wrap items-center justify-between gap-3"><h2 className="text-sm font-semibold">{g(editor.id ? 'editExercise' : 'newExercise')}</h2><button type="button" disabled={busy} onClick={() => setEditor(null)} className={adminButton('ghost', 'sm')}><X size={16} aria-hidden="true" />{g('cancel')}</button></div>
       <div className="grid min-w-0 gap-4 sm:grid-cols-2">

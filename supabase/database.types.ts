@@ -32,6 +32,33 @@ export type Database = {
   }
   public: {
     Tables: CertificateTables & DailyQuestTables & LearningCheckpointTables & {
+      sitov_audio_preparation_requests: {
+        Row: {
+          cache_path: string
+          text: string
+          profile_fingerprint: string
+          status: 'pending' | 'prepared'
+          created_at: string
+          prepared_at: string | null
+        }
+        Insert: {
+          cache_path: string
+          text: string
+          profile_fingerprint: string
+          status?: 'pending' | 'prepared'
+          created_at?: string
+          prepared_at?: string | null
+        }
+        Update: {
+          cache_path?: string
+          text?: string
+          profile_fingerprint?: string
+          status?: 'pending' | 'prepared'
+          created_at?: string
+          prepared_at?: string | null
+        }
+        Relationships: []
+      }
       booking_items: {
         Row: {
           amount: number

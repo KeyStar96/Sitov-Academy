@@ -107,13 +107,13 @@ describe('audio cache and protected recording updates', () => {
     expect(rateLimit).toHaveBeenCalledWith(`audio-read:${userId}`, 120, '60 s')
     expect(createAdminClient).not.toHaveBeenCalled()
   })
-  it('normalizes speech text once and generates a cache miss under a separate quota', async () => {
+  it('normalizes translation text once and generates a miss under a separate quota', async () => {
     session()
     jest.mocked(findCachedAudio).mockResolvedValue(null)
     const text = '  die\n Tür '.normalize('NFD')
-    expect(await generateAudio({ ...input, text })).toEqual({ success: true, audioUrl, cached: false })
-    expect(neuralAudioPath).toHaveBeenCalledWith('die Tür', 'de')
-    expect(generateCachedAudio).toHaveBeenCalledWith('die Tür', 'de', 'cache-key.mp3')
+    expect(await generateAudio({ ...input, text, language: 'en' })).toEqual({ success: true, audioUrl, cached: false })
+    expect(neuralAudioPath).toHaveBeenCalledWith('die Tür', 'en')
+    expect(generateCachedAudio).toHaveBeenCalledWith('die Tür', 'en', 'cache-key.mp3')
     expect(rateLimit).toHaveBeenCalledWith(`audio-generate:${userId}`, 20, '60 s')
   })
   it('never overwrites a teacher-provided vocabulary recording', async () => {
@@ -151,7 +151,7 @@ describe('audio cache and protected recording updates', () => {
     session()
     jest.mocked(findCachedAudio).mockResolvedValue(null)
     jest.mocked(rateLimit).mockResolvedValueOnce(allowed).mockResolvedValueOnce({ ...allowed, success: false })
-    expect(await generateAudio(input)).toEqual({ success: false, error: 'rate_limited' })
+    expect(await generateAudio({ ...input, language: 'en' })).toEqual({ success: false, error: 'rate_limited' })
     expect(generateCachedAudio).not.toHaveBeenCalled()
     expect(createAdminClient).not.toHaveBeenCalled()
   })
@@ -165,12 +165,19 @@ describe('audio cache and protected recording updates', () => {
   })
 })
 
-it('uses the female cache without overwriting the canonical vocabulary recording', async () => {
+it('rejects the retired female profile before authentication', async () => {
   session()
-  expect(await generateAudio({ ...input, voice: 'female' })).toMatchObject({ success: true })
-  expect(createClient).toHaveBeenCalled()
-  expect(neuralAudioPath).toHaveBeenCalledWith('die Tür', 'de', 'female')
-  expect(createAdminClient).not.toHaveBeenCalled()
+  expect(await generateAudio({ ...input, voice: 'female' } as unknown as GenerateAudioInput)).toEqual({ success: false, error: 'invalid_input' })
+  expect(createClient).not.toHaveBeenCalled()
+})
+it('never synthesizes an unprepared German text for students or staff', async () => {
+  for (const role of ['student', 'teacher', 'admin']) {
+    session({ role })
+    jest.mocked(findCachedAudio).mockResolvedValue(null)
+    expect(await generateAudio(input)).toEqual({ success: false, error: 'audio_unavailable' })
+    expect(generateCachedAudio).not.toHaveBeenCalled()
+    expect(createAdminClient).not.toHaveBeenCalled()
+  }
 })
 it('accepts the old male default during deployment and uses the canonical cache', async () => {
   session()

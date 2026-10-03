@@ -19,6 +19,9 @@ import { resolveVocabularySentenceSource, resolveVocabularyInterfaceTranslation,
 import { isOwnWordsLesson, parseGermanHeadword } from '@/lib/vocabulary-own-words'
 import { loadLearningCheckpoint } from '@/app/actions/learning-checkpoints'
 import { restoreVocabularyCheckpoint, vocabularyCheckpointSchema } from '@/lib/vocabulary-session-checkpoint'
+import { requirePreparedGermanAudio, SitovPreparedAudioRequiredError } from '@/lib/audio/prepared-content'
+import { vocabularyAudioText } from '@/lib/audio/neural-config'
+import { rateLimit } from '@/lib/ratelimit'
 import {
   isHardForNativeLanguage,
   type AddCardsResult, type AddOwnWordInput, type AddOwnWordResult, type AssessmentDecision, type DueVocabularyCard,
@@ -380,18 +383,28 @@ export async function addOwnWord(input: AddOwnWordInput): Promise<AddOwnWordResu
     const learner = await loadLearner()
     if (!learner || !hasTrainerAccess(learner.profile, parsed.data.level, 'vocabulary')) return { success: false, error: 'failed' }
     const headword = parseGermanHeadword(parsed.data.word)
+    // A new word can become active inside the RPC, so its prepared recording
+    // must exist first. The guard queues missing audio without creating a card.
+    if (!(await rateLimit(`sitov-own-word-audio:${learner.user.id}`, 20, '60 s')).success) return { success: false, error: 'failed' }
+    await requirePreparedGermanAudio([vocabularyAudioText(headword)])
     const { data, error } = await learner.supabase.rpc('add_own_vocabulary', {
       p_level: parsed.data.level, p_word_de: headword.word_de, p_article: headword.article,
       p_translation: parsed.data.translation.trim(), p_locale: parsed.data.uiLanguage,
     })
     if (error) return { success: false, error: 'failed' }
     const failure = getRpcError(data)
+    if (failure?.error === 'prepared_audio_required') {
+      const { requestGermanAudioPreparation } = await import('@/lib/audio/preparation-queue')
+      await requestGermanAudioPreparation(vocabularyAudioText(headword))
+      return { success: false, error: 'audio_pending' }
+    }
     if (failure) return { success: false, error: failure.error === 'own_word_exists' ? 'exists' : failure.error === 'own_word_limit' ? 'limit' : failure.error === 'invalid_input' ? 'invalid' : 'failed' }
     const result = z.object({ cardId: z.string().uuid(), activated: z.boolean() }).safeParse(data)
     if (!result.success) return { success: false, error: 'failed' }
     refreshVocabulary()
     return { success: true, ...result.data }
-  } catch {
+  } catch (error) {
+    if (error instanceof SitovPreparedAudioRequiredError) return { success: false, error: 'audio_pending' }
     return { success: false, error: 'failed' }
   }
 }
