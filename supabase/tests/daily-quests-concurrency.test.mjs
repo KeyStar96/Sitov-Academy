@@ -50,7 +50,7 @@ test('daily quests: native PostgreSQL concurrent login/resume/completion and mig
     await sql(statements.join('\n;\n'))
     // A different migration superuser reproduces the self-hosted runner's
     // ownership boundary: every new private helper must work from that owner.
-    const migrations = await Promise.all(['59_daily_quests.sql', '60_daily_quest_resume.sql', '64_daily_quest_male_characters.sql'].map(name => readFile(new URL(`../vps/${name}`, import.meta.url), 'utf8')))
+    const migrations = await Promise.all(['59_daily_quests.sql', '60_daily_quest_resume.sql', '64_daily_quest_male_characters.sql', '67_sitov_daily_quest_catalog.sql'].map(name => readFile(new URL(`../vps/${name}`, import.meta.url), 'utf8')))
     await sql('CREATE ROLE sitov_test_migrator SUPERUSER; SET ROLE sitov_test_migrator; ' + migrations[0])
     const metadataSql = "SELECT pg_get_userbyid(proowner),proacl::text,prosecdef,proconfig::text FROM pg_proc WHERE oid='daily_quest_private.handle(text,uuid,text,jsonb,boolean)'::regprocedure"
     const previousMetadata = await sql(metadataSql)
@@ -61,6 +61,10 @@ test('daily quests: native PostgreSQL concurrent login/resume/completion and mig
     assert.deepEqual(await sql(metadataSql), previousMetadata, 'male character correction preserves existing RPC ownership and permissions')
     assert.deepEqual(await sql("SELECT pg_get_userbyid(proowner),prosecdef,provolatile FROM pg_proc WHERE oid='daily_quest_private.sitov_has_male_characters(jsonb)'::regprocedure"), ['sitov_test_migrator|f|i'])
     assert.deepEqual(await sql("SELECT has_function_privilege('authenticated','daily_quest_private.sitov_has_male_characters(jsonb)','EXECUTE'),has_function_privilege('anon','daily_quest_private.sitov_has_male_characters(jsonb)','EXECUTE'),has_function_privilege('service_role','daily_quest_private.sitov_has_male_characters(jsonb)','EXECUTE')"), ['f|f|t'])
+    await sql('SET ROLE sitov_test_migrator; ' + migrations[3])
+    assert.deepEqual(await sql(metadataSql), previousMetadata, 'catalogue preserves the locking RPC and its ACLs')
+    assert.deepEqual(await sql('SELECT count(*) FROM public.daily_quests'), ['406'])
+    assert.deepEqual(await sql("SELECT has_function_privilege('anon','public.get_sitov_daily_quest_catalog(text)','EXECUTE'),has_function_privilege('authenticated','daily_quest_private.ensure_assignment(uuid)','EXECUTE')"), ['f|f'])
     const claims = await Promise.all(Array.from({length:8}, async () => decode(await sql(userSql('SELECT public.claim_daily_quest_login()')))))
     assert.equal(claims.filter(claim=>claim.shouldRedirect).length,1)
     assert.equal(new Set(claims.map(claim=>claim.assignmentId)).size,1)
@@ -94,6 +98,24 @@ test('daily quests: native PostgreSQL concurrent login/resume/completion and mig
     assert.deepEqual(await sql(`SELECT skipped_at IS NULL FROM public.daily_quest_assignments WHERE id='${assignment}'`), ['t'])
     const locks = await sql("SELECT position('FOR UPDATE' IN prosrc)>0 FROM pg_proc WHERE oid='daily_quest_private.handle(text,uuid,text,jsonb,boolean)'::regprocedure")
     assert.deepEqual(locks,['t'])
+    // Eight independent next-day sessions select the same NEW template once.
+    await sql("SET ROLE sitov_test_migrator; CREATE OR REPLACE FUNCTION daily_quest_private.today() RETURNS date LANGUAGE sql STABLE SET search_path TO '' AS $$ SELECT (now() AT TIME ZONE 'Europe/Berlin')::date+1 $$;")
+    const nextClaims=await Promise.all(Array.from({length:8},async()=>decode(await sql(userSql('SELECT public.claim_daily_quest_login()')))))
+    assert.equal(nextClaims.filter(claim=>claim.shouldRedirect).length,1)
+    assert.equal(new Set(nextClaims.map(claim=>claim.assignmentId)).size,1)
+    assert.notEqual(nextClaims[0].assignmentId,assignment)
+    const next=(decode(await sql(userSql('SELECT public.get_daily_quest()')))).quest
+    assert.notEqual(next.templateKey,'sitov-bakery-breakfast')
+    const nextKey=decode(await sql(`SELECT answer_key FROM daily_quest_private.assignment_keys WHERE assignment_id='${next.id}'`))
+    for(const [step,answer] of [
+      ['discover',{wordIds:next.steps[0].words.map(word=>word.id)}],
+      ['build',{pieceIds:nextKey.steps.build.accepted[0]}],['dialogue',{optionId:nextKey.steps.dialogue.optionId}],
+    ]) assert.equal(decode(await sql(userSql(`SELECT public.submit_daily_quest_step('${next.id}','${step}','${JSON.stringify(answer)}'::jsonb)`))).correct,true)
+    const nextDone=await Promise.all(Array.from({length:8},async()=>decode(await sql(userSql(`SELECT public.complete_daily_quest('${next.id}')`)))))
+    assert.ok(nextDone.every(response=>response.quest.status==='completed'&&response.streak.current===2))
+    const before=await sql(`SELECT snapshot::text,completed_step_ids::text,status,completed_at::text FROM public.daily_quest_assignments ORDER BY id`)
+    await sql('SET ROLE sitov_test_migrator; '+migrations[3])
+    assert.deepEqual(await sql(`SELECT snapshot::text,completed_step_ids::text,status,completed_at::text FROM public.daily_quest_assignments ORDER BY id`),before)
   } finally {
     if (started) await execute(join(bin,'pg_ctl'), ['-D',join(directory,'data'),'-m','immediate','-w','stop'], { cwd })
     await rm(directory, {recursive:true,force:true})

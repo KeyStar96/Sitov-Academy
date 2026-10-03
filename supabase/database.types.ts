@@ -16,6 +16,8 @@ type DailyQuestFunctions = {
   get_daily_quest: { Args: never; Returns: Json }
   get_daily_quest_status: { Args: never; Returns: Json }
   get_daily_quest_preview: { Args: { p_level?: string }; Returns: Json }
+  get_sitov_daily_quest_catalog: { Args: { p_level?: string }; Returns: Json }
+  get_sitov_daily_quest_preview: { Args: { p_level: string; p_template_key: string }; Returns: Json }
   set_daily_quest_enabled: { Args: { p_enabled: boolean }; Returns: Json }
   submit_daily_quest_step: { Args: { p_assignment_id: string; p_step_id: string; p_answer: Json }; Returns: Json }
   skip_daily_quest: { Args: { p_assignment_id: string }; Returns: Json }

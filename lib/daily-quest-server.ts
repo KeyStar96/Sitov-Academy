@@ -6,6 +6,7 @@ import {
   dailyQuestLoadSchema, dailyQuestLoginSchema, dailyQuestMutationSchema,
   dailyQuestStatusSchema, dailyQuestStepResultSchema,
   dailyQuestPreviewSchema, dailyQuestLevelSchema,
+  sitovQuestCatalogSchema, sitovQuestTemplateKeySchema, type SitovQuestCatalog,
   type DailyQuestResult, type DailyQuestStepAnswer, type DailyQuestPreview,
 } from '@/lib/daily-quest-contract'
 
@@ -65,7 +66,7 @@ export function loadDailyQuestStatus() {
 }
 
 /** Read-only staff RPC: answer keys never pass through a student load. */
-export async function loadDailyQuestPreview(level: unknown = 'A1'): Promise<DailyQuestResult<DailyQuestPreview>> {
+export async function loadDailyQuestPreview(level: unknown = 'A1', templateKey?: unknown): Promise<DailyQuestResult<DailyQuestPreview>> {
   try {
     const supabase = await createClient()
     const { data: { user }, error } = await supabase.auth.getUser()
@@ -74,10 +75,32 @@ export async function loadDailyQuestPreview(level: unknown = 'A1'): Promise<Dail
     if (profileError || (profile?.role !== 'teacher' && profile?.role !== 'admin')) throw new QuestRequestError('not_authorized')
     const parsed = dailyQuestLevelSchema.safeParse(level)
     if (!parsed.success) throw new QuestRequestError('invalid_input')
+    if (templateKey !== undefined) {
+      const key = sitovQuestTemplateKeySchema.safeParse(templateKey)
+      if (!key.success) throw new QuestRequestError('invalid_input')
+      return { data: await readRpc(supabase.rpc('get_sitov_daily_quest_preview', { p_level: parsed.data, p_template_key: key.data }), dailyQuestPreviewSchema) }
+    }
     return { data: await readRpc(supabase.rpc('get_daily_quest_preview', { p_level: parsed.data }), dailyQuestPreviewSchema) }
   } catch (error) {
     if (error instanceof QuestRequestError) return { error: error.code }
     console.error('[daily-quest] Preview unavailable')
+    return { error: 'request_failed' }
+  }
+}
+
+/** Live staff role is checked here and again by SQL. No student assignments. */
+export async function loadSitovDailyQuestCatalog(level: unknown = 'A1'): Promise<DailyQuestResult<SitovQuestCatalog>> {
+  try {
+    const supabase = await createClient()
+    const { data: { user }, error } = await supabase.auth.getUser()
+    if (error || !user) throw new QuestRequestError('not_authenticated')
+    const { data: profile, error: profileError } = await supabase.from('profiles').select('role').eq('id', user.id).single()
+    if (profileError || (profile?.role !== 'teacher' && profile?.role !== 'admin')) throw new QuestRequestError('not_authorized')
+    const parsed = dailyQuestLevelSchema.safeParse(level)
+    if (!parsed.success) throw new QuestRequestError('invalid_input')
+    return { data: await readRpc(supabase.rpc('get_sitov_daily_quest_catalog', { p_level: parsed.data }), sitovQuestCatalogSchema) }
+  } catch (error) {
+    if (error instanceof QuestRequestError) return { error: error.code }
     return { error: 'request_failed' }
   }
 }

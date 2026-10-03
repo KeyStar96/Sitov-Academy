@@ -1,0 +1,3067 @@
+[
+  {
+    "slug": "lieferung-vorbehalt",
+    "title": "Liefertermin unter Vorbehalt",
+    "goal": "Kläre, ob ein angekündigtes Produkt rechtzeitig ankommt.",
+    "setting": "supermarket",
+    "intro": "Wir erwarten die Lieferung am Freitag, können den Termin aber noch nicht verbindlich bestätigen.",
+    "words": [
+      "die Lieferung",
+      "der Vorbehalt",
+      "die Bestätigung"
+    ],
+    "pieces": [
+      "Sofern die Lieferung",
+      "wie angekündigt eintrifft,",
+      "würde ich",
+      "die benötigten Getränke",
+      "am Freitag abholen,",
+      "benötige jedoch vorher",
+      "eine verbindliche Bestätigung."
+    ],
+    "question": "Du brauchst die Getränke für Samstag. Wie sicherst du deinen Plan ab?",
+    "options": [
+      "Könnten Sie mich bis Donnerstag informieren, ob die Lieferung rechtzeitig eintrifft?",
+      "Dann hole ich die Getränke am Donnerstag ab, bevor sie geliefert werden.",
+      "Ich verstehe Ihre Aussage als verbindliche Zusage für Freitag."
+    ],
+    "explanation": "„Sofern“ nennt eine Voraussetzung. Die passende Nachfrage verlangt eine Bestätigung, ohne aus einer unsicheren Ankündigung eine Zusage zu machen.",
+    "focus": "Bedingung mit sofern und verbindliche Nachfrage"
+  },
+  {
+    "slug": "mengenrabatt-abwaegen",
+    "title": "Ein großer Einkauf",
+    "goal": "Wäge Rabatt und tatsächlichen Bedarf gegeneinander ab.",
+    "setting": "supermarket",
+    "intro": "Der Mengenrabatt gilt erst ab zwölf Packungen; für sechs Packungen gilt der reguläre Preis.",
+    "words": [
+      "der Mengenrabatt",
+      "der Bedarf",
+      "die Packung"
+    ],
+    "pieces": [
+      "Obwohl der Mengenrabatt",
+      "zunächst attraktiv erscheint,",
+      "kaufe ich",
+      "nur die sechs Packungen,",
+      "die tatsächlich benötigt werden,",
+      "damit keine Lebensmittel",
+      "unnötig übrig bleiben."
+    ],
+    "question": "Du brauchst nur sechs Packungen und möchtest nichts verschwenden. Was antwortest du?",
+    "options": [
+      "Danke, ich bleibe bei sechs Packungen, auch wenn ich dadurch keinen Rabatt erhalte.",
+      "Ich nehme sechs Packungen und erwarte trotzdem den Rabatt für zwölf.",
+      "Ich kaufe zwölf Packungen, weil der Bedarf bei sechs liegt."
+    ],
+    "explanation": "„Obwohl“ räumt einen Vorteil ein, bevor eine andere Priorität entscheidet. Der Relativsatz grenzt die wirklich benötigten Packungen ein.",
+    "focus": "Konzessivsatz und einschränkender Relativsatz"
+  },
+  {
+    "slug": "kassenfehler-belegen",
+    "title": "Ein Preis auf dem Kassenbon",
+    "goal": "Bitte anhand zweier Belege um eine Preisprüfung.",
+    "setting": "supermarket",
+    "intro": "Auf dem Kassenbon stehen fünf Euro. Wenn am Regal vier Euro angegeben waren, prüfe ich das gern.",
+    "words": [
+      "der Kassenbon",
+      "das Preisschild",
+      "die Abweichung"
+    ],
+    "pieces": [
+      "Auf dem Kassenbon",
+      "wurde ein Betrag berechnet,",
+      "der vom ausgeschilderten Preis abweicht;",
+      "könnten Sie",
+      "die beiden Angaben",
+      "bitte miteinander vergleichen",
+      "und die Abweichung klären?"
+    ],
+    "question": "Du hast ein Foto des Preisschilds. Welche Reaktion hilft bei der Prüfung?",
+    "options": [
+      "Hier ist das Foto des Preisschilds; könnten Sie den Unterschied zum Kassenbon prüfen?",
+      "Dann sollten alle Produkte auf dem Bon vier Euro kosten, unabhängig von ihren eigenen Preisschildern.",
+      "Den Bon möchte ich nicht vergleichen lassen; korrigieren Sie einfach irgendeine Position."
+    ],
+    "explanation": "Im Passiv steht der berechnete Betrag im Mittelpunkt. Beleg und höfliche Prüfbitte machen den Einwand nachvollziehbar, ohne das Ergebnis vorwegzunehmen.",
+    "focus": "Passiv und sachlicher Einwand"
+  },
+  {
+    "slug": "verpackung-alternative",
+    "title": "Eine andere Verpackung",
+    "goal": "Erkundige dich nach einer verfügbaren Alternative mit weniger Verpackung.",
+    "setting": "supermarket",
+    "intro": "Diese Tomaten gibt es nur in der Kunststoffschale. Lose Tomaten finden Sie am anderen Ende der Gemüseabteilung.",
+    "words": [
+      "die Verpackung",
+      "die Kunststoffschale",
+      "die Alternative"
+    ],
+    "pieces": [
+      "Während diese Tomaten",
+      "ausschließlich verpackt angeboten werden,",
+      "könnte ich",
+      "auf die lose Variante ausweichen,",
+      "sofern deren Preis",
+      "und Herkunft",
+      "ebenfalls am Regal",
+      "angegeben sind."
+    ],
+    "question": "Du möchtest vor dem Wechsel Preis und Herkunft vergleichen. Was fragst du?",
+    "options": [
+      "Wo finde ich die Angaben zu Preis und Herkunft der losen Tomaten?",
+      "Dann nehme ich die lose Variante, ohne ihre Herkunft noch vergleichen zu wollen.",
+      "Sind die verpackten Tomaten lose erhältlich, obwohl Sie das gerade ausgeschlossen haben?"
+    ],
+    "explanation": "„Während“ stellt zwei Angebote gegenüber. „Sofern“ macht den Wechsel von Informationen abhängig, die für den Vergleich nötig sind.",
+    "focus": "Gegenüberstellung mit während und Voraussetzung"
+  },
+  {
+    "slug": "bestand-reservierung",
+    "title": "Die letzte Packung",
+    "goal": "Bitte um eine kurze Reservierung eines noch vorhandenen Artikels.",
+    "setting": "supermarket",
+    "intro": "Eine Packung ist noch da. Ich darf sie bis heute Abend zurücklegen, aber nicht bis morgen.",
+    "words": [
+      "die Reservierung",
+      "der Bestand",
+      "die Abholung"
+    ],
+    "pieces": [
+      "Falls Sie",
+      "die letzte Packung",
+      "bis heute Abend zurücklegen könnten,",
+      "würde ich",
+      "sie nach der Arbeit abholen;",
+      "eine längere Reservierung",
+      "wäre dann",
+      "gar nicht erforderlich."
+    ],
+    "question": "Du kannst heute um 18 Uhr kommen. Wie gehst du auf das Angebot ein?",
+    "options": [
+      "Eine Reservierung bis heute Abend reicht; ich hole die Packung um 18 Uhr ab.",
+      "Bitte reservieren Sie die Packung bis morgen, denn heute Abend reicht mir.",
+      "Ich komme heute um 18 Uhr und brauche deshalb zwingend eine Reservierung bis morgen."
+    ],
+    "explanation": "Der irreale Bedingungssatz mit Konjunktiv II formuliert eine höfliche Bitte. Die Antwort respektiert die ausdrücklich genannte Reservierungsfrist.",
+    "focus": "Höfliche Bedingung mit Konjunktiv II"
+  },
+  {
+    "slug": "cafe-ruheplatz",
+    "title": "Ein Platz für ein Gespräch",
+    "goal": "Erkläre, warum du einen ruhigeren Tisch benötigst.",
+    "setting": "cafe",
+    "intro": "Am Fenster ist ein Tisch frei. Im hinteren Raum wäre es ruhiger, dort fehlen allerdings Steckdosen.",
+    "words": [
+      "der Geräuschpegel",
+      "die Steckdose",
+      "das Gespräch"
+    ],
+    "pieces": [
+      "Da ich",
+      "ein längeres Gespräch führen möchte,",
+      "ist mir",
+      "ein niedriger Geräuschpegel",
+      "wichtiger als eine Steckdose;",
+      "der hintere Tisch",
+      "wäre daher",
+      "für mich geeigneter."
+    ],
+    "question": "Du brauchst keine Steckdose und möchtest ungestört sprechen. Welchen Platz wählst du?",
+    "options": [
+      "Dann nehme ich gern den Tisch im hinteren Raum; eine Steckdose brauche ich nicht.",
+      "Ich nehme den Fenstertisch; das Licht ist mir für dieses Gespräch wichtiger als Ruhe.",
+      "Ich verzichte auf den ruhigeren Raum, weil ich den Tisch nur nach vorhandenen Steckdosen auswähle."
+    ],
+    "explanation": "„Da“ begründet die Entscheidung, „daher“ markiert die Folgerung. Die Antwort gewichtet die im Gespräch genannten Kriterien.",
+    "focus": "Begründung und Gewichtung von Kriterien"
+  },
+  {
+    "slug": "cafe-rechnung-getrennt",
+    "title": "Die Rechnung aufteilen",
+    "goal": "Kläre rechtzeitig die getrennte Abrechnung einer Gruppenbestellung.",
+    "setting": "cafe",
+    "intro": "Ich nehme gleich die Bestellung für Ihren Tisch auf. Getrennte Rechnungen sind möglich, wenn ich vorher Bescheid weiß.",
+    "words": [
+      "die Abrechnung",
+      "die Bestellung",
+      "der Anteil"
+    ],
+    "pieces": [
+      "Bevor Sie",
+      "unsere Bestellung aufnehmen,",
+      "möchte ich kurz klären,",
+      "ob jeder",
+      "seinen eigenen Anteil",
+      "getrennt bezahlen kann,",
+      "damit die spätere Abrechnung",
+      "für alle übersichtlich bleibt."
+    ],
+    "question": "Vier Kollegen möchten einzeln bezahlen. Was sagst du jetzt?",
+    "options": [
+      "Bitte rechnen Sie unsere Bestellungen getrennt ab; wir möchten jeweils selbst bezahlen.",
+      "Bitte fassen Sie alle Bestellungen auf einer einzigen Rechnung zusammen.",
+      "Ich sage Ihnen erst nach dem Bezahlen, dass getrennte Rechnungen nötig gewesen wären."
+    ],
+    "explanation": "Der vorangestellte „bevor“-Satz stellt die zeitliche Reihenfolge klar. Frühzeitige Information ermöglicht die vom Mitarbeiter angebotene Abrechnung.",
+    "focus": "Temporalsatz mit bevor und Zweck mit damit"
+  },
+  {
+    "slug": "cafe-veranstaltung-einwand",
+    "title": "Ein Gespräch während der Lesung",
+    "goal": "Formuliere einen höflichen Einwand gegen einen störenden Platz.",
+    "setting": "cafe",
+    "intro": "Heute beginnt hier um 17 Uhr eine Lesung. Sie können bleiben, müssten sich dann aber leise unterhalten.",
+    "words": [
+      "die Lesung",
+      "die Rücksicht",
+      "die Lautstärke"
+    ],
+    "pieces": [
+      "Ich verstehe,",
+      "dass wir",
+      "während der Lesung",
+      "Rücksicht nehmen müssen;",
+      "da unser Gespräch",
+      "länger dauern wird,",
+      "würden wir dennoch lieber",
+      "auf die Terrasse wechseln."
+    ],
+    "question": "Du möchtest weiter mit einem Kollegen sprechen. Welche Bitte passt?",
+    "options": [
+      "Könnten wir auf die Terrasse wechseln, damit wir die Lesung nicht stören?",
+      "Wir bleiben hier und führen unser längeres Gespräch in normaler Lautstärke weiter.",
+      "Wir möchten die Lesung nicht berücksichtigen und behalten unseren Tisch unabhängig von der Lautstärke."
+    ],
+    "explanation": "„Dennoch“ kennzeichnet eine abweichende Entscheidung, obwohl Verständnis gezeigt wurde. Ein alternativer Platz verbindet das eigene Anliegen mit Rücksicht auf andere.",
+    "focus": "Höflicher Einwand mit dennoch"
+  },
+  {
+    "slug": "cafe-bestellung-korrigieren",
+    "title": "Eine Bestellung berichtigen",
+    "goal": "Korrigiere eine Verwechslung, ohne dem Mitarbeiter Absicht zu unterstellen.",
+    "setting": "cafe",
+    "intro": "Hier ist Ihr großer Kaffee zum Mitnehmen. Ich hatte auf meinem Zettel einen großen Kaffee notiert.",
+    "words": [
+      "das Missverständnis",
+      "der Becher",
+      "die Korrektur"
+    ],
+    "pieces": [
+      "Offenbar entstand",
+      "bei der Bestellung",
+      "ein Missverständnis,",
+      "denn ich hatte",
+      "einen kleinen Kaffee bestellt;",
+      "könnten Sie",
+      "die Größe bitte korrigieren,",
+      "bevor der Kaffee zubereitet wird?"
+    ],
+    "question": "Der Kaffee ist noch nicht zubereitet. Was sagst du?",
+    "options": [
+      "Ich hatte einen kleinen Kaffee bestellt; könnten Sie die Bestellung noch entsprechend ändern?",
+      "Lassen Sie es bitte bei einem großen Kaffee; diese Größe bestätige ich Ihnen jetzt.",
+      "Ich möchte statt des kleinen Kaffees doch ausdrücklich den großen bestellen."
+    ],
+    "explanation": "„Offenbar“ beschreibt eine vermutete Ursache vorsichtig. Das Plusquamperfekt verweist auf die Bestellung, die vor der aktuellen Verwechslung lag.",
+    "focus": "Vorsichtige Einordnung und Plusquamperfekt"
+  },
+  {
+    "slug": "cafe-angebot-abstimmen",
+    "title": "Eine Pause für die Gruppe",
+    "goal": "Handle einen passenden Zeitpunkt für eine größere Gruppe aus.",
+    "setting": "cafe",
+    "intro": "Zehn Plätze bekommen wir gleichzeitig erst ab 15 Uhr frei. Um 14 Uhr könnten nur sechs Personen sitzen.",
+    "words": [
+      "die Kapazität",
+      "die Gruppe",
+      "der Zeitpunkt"
+    ],
+    "pieces": [
+      "Da unsere Gruppe",
+      "gemeinsam eine Pause machen möchte,",
+      "würden wir",
+      "den späteren Zeitpunkt bevorzugen,",
+      "sofern dann",
+      "für alle zehn Personen",
+      "ausreichend Plätze",
+      "zur Verfügung stehen."
+    ],
+    "question": "Alle zehn Kollegen möchten zusammen sitzen. Wie reagierst du?",
+    "options": [
+      "Dann würden wir um 15 Uhr kommen; könnten Sie zehn Plätze für uns vormerken?",
+      "Dann kommen wir schon um 14 Uhr und teilen uns vorerst auf.",
+      "Wir reservieren sechs Plätze um 14 Uhr und gehen davon aus, dass zehn Personen gleichzeitig sitzen können."
+    ],
+    "explanation": "„Sofern“ bindet die Entscheidung an die passende Kapazität. Die Antwort leitet aus der gewünschten Gruppengröße einen realistischen Termin ab.",
+    "focus": "Voraussetzung und Terminabstimmung"
+  },
+  {
+    "slug": "anschluss-knappe-zeit",
+    "title": "Ein unsicherer Anschluss",
+    "goal": "Bitte um eine realistische Einschätzung der Umsteigezeit.",
+    "setting": "station",
+    "intro": "Ihr Zug kommt voraussichtlich acht Minuten später an. Der Anschluss fährt drei Minuten nach der neuen Ankunftszeit ab.",
+    "words": [
+      "der Anschluss",
+      "die Verspätung",
+      "die Umsteigezeit"
+    ],
+    "pieces": [
+      "Angesichts der angekündigten Verspätung",
+      "scheint mir",
+      "die verbleibende Umsteigezeit",
+      "sehr knapp zu sein;",
+      "könnten Sie bitte prüfen,",
+      "welche spätere Verbindung",
+      "für meine Weiterfahrt",
+      "infrage käme?"
+    ],
+    "question": "Du möchtest eine Ausweichverbindung kennen. Welche Frage passt?",
+    "options": [
+      "Welche Verbindung könnte ich nehmen, falls ich den Anschluss nicht erreiche?",
+      "Können Sie bestätigen, dass der Anschluss drei Minuten vor meiner Ankunft fährt?",
+      "Welche frühere Verbindung kann ich nach dem verpassten Anschluss noch erreichen?"
+    ],
+    "explanation": "„Angesichts“ nennt den Anlass der Einschätzung. Konjunktiv II und „falls“ ermöglichen eine vorsichtige Nachfrage für einen möglichen Anschlussverlust.",
+    "focus": "Vorsichtige Einschätzung und Ausweichplan"
+  },
+  {
+    "slug": "bahn-ticket-bindung",
+    "title": "Die Bedingungen der Fahrkarte",
+    "goal": "Kläre eine Einschränkung, bevor du eine andere Verbindung nutzt.",
+    "setting": "station",
+    "intro": "Ihre Fahrkarte ist an einen bestimmten Zug gebunden. Ob die Bindung hier aufgehoben ist, muss ich erst prüfen.",
+    "words": [
+      "die Zugbindung",
+      "die Fahrkarte",
+      "die Regelung"
+    ],
+    "pieces": [
+      "Bevor ich",
+      "einen anderen Zug nehme,",
+      "möchte ich sicherstellen,",
+      "dass meine Fahrkarte",
+      "für diese Verbindung anerkannt wird,",
+      "da die Zugbindung",
+      "offenbar noch geprüft werden muss."
+    ],
+    "question": "Was musst du vor dem Einsteigen klären?",
+    "options": [
+      "Könnten Sie prüfen, ob meine Fahrkarte für den anderen Zug gilt?",
+      "Ich gehe davon aus, dass jede Fahrkarte ohne Prüfung für jeden Zug gilt.",
+      "Ich steige zunächst ein und frage erst nach der Fahrt, ob die Fahrkarte galt."
+    ],
+    "explanation": "Das Passiv lenkt den Blick auf die Gültigkeit der Fahrkarte. Die passende Antwort fragt nach den konkreten Bedingungen, statt eine unbestätigte Regel anzunehmen.",
+    "focus": "Passiv und Absicherung vor einer Handlung"
+  },
+  {
+    "slug": "bahn-gleiswechsel",
+    "title": "Ein kurzfristiger Gleiswechsel",
+    "goal": "Bestätige eine geänderte Information anhand der Anzeige.",
+    "setting": "station",
+    "intro": "Der Zug fährt heute von Gleis sieben. Auf Ihrer ausgedruckten Reiseverbindung steht noch Gleis vier.",
+    "words": [
+      "der Gleiswechsel",
+      "die Anzeige",
+      "die Reiseverbindung"
+    ],
+    "pieces": [
+      "Während auf",
+      "meiner ausgedruckten Reiseverbindung",
+      "noch Gleis vier steht,",
+      "zeigt die aktuelle Anzeige",
+      "Gleis sieben an;",
+      "ich werde",
+      "der neueren Information folgen",
+      "und wechseln."
+    ],
+    "question": "Welche Information ist für den jetzigen Weg maßgeblich?",
+    "options": [
+      "Ich orientiere mich an der aktuellen Anzeige und gehe zu Gleis sieben.",
+      "Ich gehe zu Gleis vier, weil ein alter Ausdruck aktuelle Änderungen ausschließt.",
+      "Ich bleibe auf Gleis vier, da Sie gerade bestätigt haben, dass der Zug dort fährt."
+    ],
+    "explanation": "„Während“ kontrastiert alte und aktuelle Angaben. „Daher“ führt zur Entscheidung, die im Gespräch bestätigte Änderung zu berücksichtigen.",
+    "focus": "Gegenüberstellung widersprüchlicher Angaben"
+  },
+  {
+    "slug": "bahn-gruppenreservierung",
+    "title": "Zusammen reisen",
+    "goal": "Suche einen Kompromiss bei begrenzten Sitzplätzen.",
+    "setting": "station",
+    "intro": "Vier zusammenhängende Plätze sind nicht mehr frei. Ich kann Ihnen zwei benachbarte Platzpaare im selben Wagen anbieten.",
+    "words": [
+      "die Sitzplatzreservierung",
+      "der Wagen",
+      "der Kompromiss"
+    ],
+    "pieces": [
+      "Auch wenn wir",
+      "lieber alle nebeneinandersäßen,",
+      "wären zwei Platzpaare",
+      "im selben Wagen",
+      "ein sinnvoller Kompromiss,",
+      "sofern sich",
+      "unsere Gruppe",
+      "dadurch nicht auf",
+      "mehrere Wagen verteilt."
+    ],
+    "question": "Die vier Reisenden wollen wenigstens im selben Wagen sitzen. Was passt?",
+    "options": [
+      "Dann nehmen wir die beiden Platzpaare im selben Wagen.",
+      "Dann buchen wir die vier zusammenhängenden Plätze, die Sie gerade ausgeschlossen haben.",
+      "Zwei Platzpaare im selben Wagen wären für uns eine Verteilung auf mehrere Wagen."
+    ],
+    "explanation": "„Auch wenn“ räumt einen unerfüllten Wunsch ein. „Wären“ bewertet die angebotene Alternative als Kompromiss innerhalb der wichtigsten Bedingung.",
+    "focus": "Konzessive Abwägung mit Konjunktiv II"
+  },
+  {
+    "slug": "bahn-gepaeckfund",
+    "title": "Ein vermisstes Gepäckstück",
+    "goal": "Beschreibe ein zurückgelassenes Gepäckstück zur eindeutigen Zuordnung.",
+    "setting": "station",
+    "intro": "Für die Fundmeldung brauche ich eine Beschreibung und den Zug, in dem Sie die Tasche zurückgelassen haben.",
+    "words": [
+      "das Fundbüro",
+      "das Gepäckstück",
+      "das Erkennungsmerkmal"
+    ],
+    "pieces": [
+      "Die im Zug",
+      "zurückgelassene Tasche",
+      "ist dunkelblau",
+      "und hat einen gelben Anhänger,",
+      "an dem mein Name steht;",
+      "anhand dieser Merkmale",
+      "sollte sie",
+      "zugeordnet werden können."
+    ],
+    "question": "Was hilft dem Mitarbeiter bei der Fundmeldung?",
+    "options": [
+      "Es ist eine dunkelblaue Tasche mit gelbem Namensanhänger; sie lag im Zug nach Köln.",
+      "Es ist eine Tasche; die Farbe und die Zugverbindung möchte ich nicht näher angeben.",
+      "Bitte beenden Sie die Suche, sobald Sie irgendeine dunkelblaue Tasche gefunden haben."
+    ],
+    "explanation": "Das vorangestellte Partizip „zurückgelassene“ verkürzt einen Relativsatz. Konkrete Merkmale und die Zugverbindung ermöglichen eine sachliche Zuordnung.",
+    "focus": "Partizipialattribut und präzise Beschreibung"
+  },
+  {
+    "slug": "bus-umleitung",
+    "title": "Eine geänderte Busroute",
+    "goal": "Kläre, wie du trotz einer Umleitung dein Ziel erreichst.",
+    "setting": "transport",
+    "intro": "Wegen der Baustelle hält der Bus heute nicht am Rathaus. Sie könnten am Markt aussteigen und fünf Minuten laufen.",
+    "words": [
+      "die Umleitung",
+      "die Baustelle",
+      "die Haltestelle"
+    ],
+    "pieces": [
+      "Da die",
+      "am Rathaus bediente Haltestelle",
+      "heute entfällt,",
+      "werde ich",
+      "am Markt aussteigen,",
+      "sofern sich das Rathaus",
+      "von dort",
+      "schnell",
+      "zu Fuß erreichen lässt."
+    ],
+    "question": "Du kannst fünf Minuten laufen. Wie reagierst du auf den Vorschlag?",
+    "options": [
+      "Dann steige ich am Markt aus; in welche Richtung gehe ich zum Rathaus?",
+      "Dann bleibe ich bis zur Rathaushaltestelle sitzen, die heute nicht bedient wird.",
+      "Ich steige am Markt aus, weil das Rathaus von dort grundsätzlich unerreichbar ist."
+    ],
+    "explanation": "„Bediente“ ist ein Partizipialattribut; „sofern“ nennt die Bedingung für die Alternative. Die Wegfrage hilft, den bereits genannten Fußweg umzusetzen.",
+    "focus": "Partizipialattribut und Ersatzroute"
+  },
+  {
+    "slug": "abo-pause",
+    "title": "Eine Unterbrechung beantragen",
+    "goal": "Frage nach einer möglichen Pause und ihren Bedingungen.",
+    "setting": "transport",
+    "intro": "Für Ihr Monatsabo kann ich prüfen, ob eine Unterbrechung möglich ist. Dafür brauche ich den gewünschten Zeitraum.",
+    "words": [
+      "die Unterbrechung",
+      "der Zeitraum",
+      "die Voraussetzung"
+    ],
+    "pieces": [
+      "Während meiner",
+      "mehrwöchigen Abwesenheit",
+      "werde ich",
+      "das Monatsabo kaum nutzen;",
+      "könnten Sie mir mitteilen,",
+      "unter welchen Voraussetzungen",
+      "eine vorübergehende Unterbrechung",
+      "beantragt werden kann?"
+    ],
+    "question": "Du bist den gesamten November abwesend. Was teilst du mit?",
+    "options": [
+      "Ich möchte das Abo im November unterbrechen; welche Bedingungen und Fristen gelten dafür?",
+      "Bitte unterbrechen Sie das Abo rückwirkend für einen Zeitraum, den ich noch nicht nennen kann.",
+      "Da Sie es prüfen müssen, gehe ich bereits von einer genehmigten Unterbrechung aus."
+    ],
+    "explanation": "Die indirekte Frage nach Voraussetzungen klärt die Möglichkeit, ohne eine Genehmigung vorauszusetzen. Im Passiv steht das Verfahren im Mittelpunkt.",
+    "focus": "Indirekte Frage und Passiv"
+  },
+  {
+    "slug": "tram-ausfall",
+    "title": "Weiterfahrt nach einer Störung",
+    "goal": "Vergleiche zwei Alternativen bei einer ausgefallenen Straßenbahn.",
+    "setting": "transport",
+    "intro": "Die nächste Straßenbahn fällt aus. Mit dem Bus brauchen Sie zwanzig Minuten, zu Fuß ungefähr fünfunddreißig.",
+    "words": [
+      "die Störung",
+      "die Alternative",
+      "die Fahrtdauer"
+    ],
+    "pieces": [
+      "Obwohl ich",
+      "den restlichen Weg",
+      "auch zu Fuß zurücklegen könnte,",
+      "würde ich",
+      "angesichts des Zeitunterschieds",
+      "den Bus bevorzugen,",
+      "damit ich",
+      "meinen Termin",
+      "noch rechtzeitig erreiche."
+    ],
+    "question": "Dein Termin beginnt in dreißig Minuten. Welche Entscheidung ist nachvollziehbar?",
+    "options": [
+      "Ich nehme den Bus, weil die zwanzig Minuten noch in meinen Zeitrahmen passen.",
+      "Ich gehe lieber zu Fuß und nehme eine verspätete Ankunft beim Termin in Kauf.",
+      "Ich warte zunächst auf eine spätere Straßenbahn, ohne deren Ankunftszeit zu prüfen."
+    ],
+    "explanation": "„Obwohl“ nimmt eine Alternative auf; „angesichts“ nennt das entscheidende Kriterium. „Damit“ beschreibt den Zweck der gewählten Weiterfahrt.",
+    "focus": "Konzessivsatz und zweckgerichtete Abwägung"
+  },
+  {
+    "slug": "kontrolle-nachweis",
+    "title": "Eine digitale Fahrkarte vorzeigen",
+    "goal": "Bitte bei einem technischen Problem um einen kurzen Moment.",
+    "setting": "transport",
+    "intro": "Ich muss den Code Ihrer Fahrkarte sehen. Die Bestellbestätigung allein enthält noch keinen prüfbaren Ticketcode.",
+    "words": [
+      "der Nachweis",
+      "die Bestellbestätigung",
+      "die Verbindung"
+    ],
+    "pieces": [
+      "Meine Fahrkarte",
+      "wurde gekauft,",
+      "allerdings lädt die Anwendung",
+      "wegen der schwachen Verbindung",
+      "langsam;",
+      "dürfte ich",
+      "den gespeicherten Ticketcode öffnen,",
+      "bevor die Kontrolle fortgesetzt wird?"
+    ],
+    "question": "Der Code ist offline gespeichert. Was sagst du?",
+    "options": [
+      "Einen Moment bitte; ich öffne den offline gespeicherten Ticketcode für die Prüfung.",
+      "Bitte prüfen Sie ausschließlich die Bestellbestätigung, obwohl sie keinen Ticketcode enthält.",
+      "Die Anwendung lädt langsam, deshalb muss meine Fahrkarte ohne Nachweis akzeptiert werden."
+    ],
+    "explanation": "„Allerdings“ schränkt die erste Aussage durch ein Hindernis ein. Die höfliche Bitte bietet den benötigten Nachweis an, statt ihn durch einen unpassenden Beleg zu ersetzen.",
+    "focus": "Höfliche Bitte und Einschränkung mit allerdings"
+  },
+  {
+    "slug": "rad-mitnahme",
+    "title": "Ein Fahrrad in der Bahn",
+    "goal": "Akzeptiere eine Kapazitätsgrenze und suche eine Alternative.",
+    "setting": "transport",
+    "intro": "In diesem Zug ist der Fahrradbereich voll. Im nächsten Zug in zwanzig Minuten ist die Mitnahme voraussichtlich möglich.",
+    "words": [
+      "die Mitnahme",
+      "die Kapazität",
+      "der Fahrradbereich"
+    ],
+    "pieces": [
+      "Wenn der Fahrradbereich",
+      "in diesem Zug",
+      "belegt ist,",
+      "würde ich",
+      "die spätere Verbindung nehmen,",
+      "statt mit meinem Rad",
+      "den Durchgang",
+      "für andere Reisende",
+      "zu blockieren."
+    ],
+    "question": "Du kannst zwanzig Minuten warten. Wie antwortest du?",
+    "options": [
+      "Dann warte ich auf den nächsten Zug; wo befindet sich dort der Fahrradbereich?",
+      "Ich stelle mein Rad in den Durchgang, weil der Fahrradbereich bereits voll ist.",
+      "Ich nehme diesen Zug, da Sie die freie Kapazität ausdrücklich bestätigt haben."
+    ],
+    "explanation": "„Statt … zu“ bezeichnet die vermiedene Handlung. Die passende Antwort berücksichtigt die Kapazitätsgrenze und fragt nach der angebotenen Alternative.",
+    "focus": "Alternative mit statt zu und Rücksichtnahme"
+  },
+  {
+    "slug": "restaurant-menue-anpassen",
+    "title": "Ein Menü mit Einschränkung",
+    "goal": "Kläre, ob ein Menübestandteil ausgetauscht werden kann.",
+    "setting": "restaurant",
+    "intro": "Beim heutigen Menü ist die Beilage fest vorgesehen. Der Koch kann prüfen, ob ein Austausch möglich ist.",
+    "words": [
+      "die Beilage",
+      "der Austausch",
+      "die Rückmeldung"
+    ],
+    "pieces": [
+      "Falls sich",
+      "die vorgesehene Beilage",
+      "ohne größeren Aufwand austauschen ließe,",
+      "würde ich",
+      "das Menü gern bestellen;",
+      "andernfalls wähle ich",
+      "ein anderes Gericht",
+      "von der Karte."
+    ],
+    "question": "Du möchtest vor der Bestellung wissen, ob der Austausch klappt. Was passt?",
+    "options": [
+      "Könnten Sie den Koch fragen und mir vor der Bestellung Bescheid geben?",
+      "Ich bestelle das Menü und verlange den Austausch, auch wenn er nicht möglich ist.",
+      "Da Sie es prüfen können, gilt der Austausch für mich bereits als zugesagt."
+    ],
+    "explanation": "„Ließe“ bildet den Konjunktiv II von „lassen“. „Andernfalls“ eröffnet einen Ausweichplan, falls die höflich formulierte Bedingung nicht erfüllt wird.",
+    "focus": "Irreale Bedingung und Alternative mit andernfalls"
+  },
+  {
+    "slug": "restaurant-wartezeit",
+    "title": "Ein enger Zeitplan",
+    "goal": "Gleiche die Zubereitungszeit mit deinem Zeitrahmen ab.",
+    "setting": "restaurant",
+    "intro": "Das Hauptgericht dauert ungefähr vierzig Minuten. Die Suppe könnten wir Ihnen in zehn Minuten bringen.",
+    "words": [
+      "die Zubereitungszeit",
+      "der Zeitrahmen",
+      "die Empfehlung"
+    ],
+    "pieces": [
+      "Da mir",
+      "vor meinem Termin",
+      "nur eine halbe Stunde bleibt,",
+      "würde ich",
+      "die schneller zubereitete Suppe wählen,",
+      "obwohl das Hauptgericht",
+      "meine erste Wahl",
+      "gewesen wäre."
+    ],
+    "question": "Du musst in dreißig Minuten gehen. Was bestellst du?",
+    "options": [
+      "Dann nehme ich die Suppe, damit ich innerhalb meines Zeitrahmens essen kann.",
+      "Ich bestelle trotzdem das Hauptgericht und nehme einen längeren Aufenthalt in Kauf.",
+      "Ich nehme das Hauptgericht und rechne fest mit einer Zubereitung in zehn Minuten."
+    ],
+    "explanation": "Das Partizip „zubereitete“ beschreibt die Suppe. Der irreale Rückblick „gewesen wäre“ bezeichnet eine verworfene erste Präferenz.",
+    "focus": "Partizipialattribut und irrealer Rückblick"
+  },
+  {
+    "slug": "restaurant-gruppe-aendern",
+    "title": "Eine größere Tischrunde",
+    "goal": "Informiere frühzeitig über eine veränderte Gruppengröße.",
+    "setting": "restaurant",
+    "intro": "Der Tisch ist für sechs Personen reserviert. Für acht müsste ich prüfen, ob ein größerer Tisch frei ist.",
+    "words": [
+      "die Gruppengröße",
+      "die Reservierung",
+      "die Verfügbarkeit"
+    ],
+    "pieces": [
+      "Entgegen der",
+      "Reservierung",
+      "werden wir",
+      "mit acht Personen kommen;",
+      "könnten Sie prüfen,",
+      "ob der vorgesehene Tisch",
+      "erweitert werden kann",
+      "oder eine andere Lösung",
+      "verfügbar ist?"
+    ],
+    "question": "Zwei weitere Kollegen kommen mit. Welche Nachricht passt?",
+    "options": [
+      "Unsere Gruppe wächst von sechs auf acht Personen; wäre ein größerer Tisch möglich?",
+      "Wir belassen die Reservierung bei sechs Plätzen und kommen unangekündigt zu acht.",
+      "Bitte halten Sie weiterhin nur sechs Plätze bereit; die beiden zusätzlichen Kollegen berücksichtigen wir nicht."
+    ],
+    "explanation": "„Entgegen“ markiert eine Abweichung von der bisherigen Planung. Die Frage bietet zwei mögliche Lösungen, ohne freie Kapazität zu unterstellen.",
+    "focus": "Abweichung ausdrücken und Alternativen erfragen"
+  },
+  {
+    "slug": "restaurant-reklamation",
+    "title": "Eine lauwarme Speise",
+    "goal": "Beschreibe ein konkretes Problem und bitte um Abhilfe.",
+    "setting": "restaurant",
+    "intro": "Ich frage gern beim Koch nach. Könnten Sie mir sagen, was an dem Gericht nicht in Ordnung ist?",
+    "words": [
+      "die Reklamation",
+      "die Speise",
+      "die Abhilfe"
+    ],
+    "pieces": [
+      "Die soeben",
+      "servierte Speise",
+      "ist leider nur lauwarm,",
+      "obwohl sie",
+      "als warmes Gericht",
+      "bestellt wurde;",
+      "könnten Sie bitte veranlassen,",
+      "dass sie",
+      "noch einmal erwärmt wird?"
+    ],
+    "question": "Du möchtest dasselbe Gericht warm essen. Was antwortest du?",
+    "options": [
+      "Das Gericht ist nur lauwarm; könnten Sie es bitte noch einmal erwärmen lassen?",
+      "Das Gericht ist nur lauwarm; bitte lassen Sie seine Temperatur unverändert.",
+      "Ich möchte dasselbe Gericht warm essen, deshalb soll es vollständig von der Rechnung verschwinden."
+    ],
+    "explanation": "Partizip und Passiv konzentrieren sich auf die Speise. Eine sachliche Beschreibung plus konkrete Bitte hilft dem Mitarbeiter, passende Abhilfe zu organisieren.",
+    "focus": "Passiv und konkrete Reklamation"
+  },
+  {
+    "slug": "restaurant-empfehlung-kriterium",
+    "title": "Eine passende Empfehlung",
+    "goal": "Formuliere Kriterien für eine Empfehlung, ohne widersprüchlich zu bestellen.",
+    "setting": "restaurant",
+    "intro": "Ich empfehle entweder das kräftig gewürzte Tagesgericht oder das mildere Gemüsegericht. Beide sind frisch zubereitet.",
+    "words": [
+      "das Kriterium",
+      "die Würzung",
+      "die Empfehlung"
+    ],
+    "pieces": [
+      "Während mir",
+      "eine frische Zubereitung",
+      "bei beiden Gerichten zugesichert wurde,",
+      "ist die mildere Würzung",
+      "für mich ausschlaggebend,",
+      "weshalb ich",
+      "das Gemüsegericht",
+      "dem Tagesgericht",
+      "vorziehen würde."
+    ],
+    "question": "Du möchtest heute mild essen. Welche Antwort passt?",
+    "options": [
+      "Dann nehme ich das Gemüsegericht, weil ich eine mildere Würzung bevorzuge.",
+      "Dann nehme ich das Tagesgericht; die kräftige Würzung ist mir heute wichtiger.",
+      "Bitte empfehlen Sie mir ausdrücklich das stärker gewürzte Gericht."
+    ],
+    "explanation": "„Während“ trennt ein gemeinsames Merkmal vom entscheidenden Unterschied. „Weshalb“ verbindet dieses Kriterium mit der begründeten Wahl.",
+    "focus": "Kriterienvergleich und Folgesatz mit weshalb"
+  },
+  {
+    "slug": "apotheke-abholung-bestaetigen",
+    "title": "Eine Abholung absichern",
+    "goal": "Bitte um eine Bestätigung, bevor du zur Abholung losfährst.",
+    "setting": "pharmacy",
+    "intro": "Ihre Bestellung soll heute Nachmittag eintreffen. Sobald sie da ist, können wir Sie telefonisch benachrichtigen.",
+    "words": [
+      "die Benachrichtigung",
+      "die Bestellung",
+      "die Abholung"
+    ],
+    "pieces": [
+      "Da ich",
+      "einen längeren Anfahrtsweg habe,",
+      "würde ich",
+      "erst nach Ihrer Benachrichtigung losfahren,",
+      "damit ich",
+      "die bestellte Ware",
+      "bei meinem Besuch",
+      "auch tatsächlich abholen kann."
+    ],
+    "question": "Du möchtest eine unnötige Anfahrt vermeiden. Was vereinbarst du?",
+    "options": [
+      "Bitte rufen Sie mich an, sobald die Bestellung eingetroffen ist; danach komme ich zur Abholung.",
+      "Ich fahre sofort los, weil eine angekündigte Lieferung bereits als eingetroffen gilt.",
+      "Bitte benachrichtigen Sie mich erst nach meinem Besuch, damit ich die Anfahrt planen kann."
+    ],
+    "explanation": "Der temporale Ausdruck „erst nach“ legt eine klare Reihenfolge fest. „Damit“ begründet, warum die bestätigte Ankunft für die Fahrt wichtig ist.",
+    "focus": "Zeitliche Voraussetzung und Zweck"
+  },
+  {
+    "slug": "apotheke-beleg-ergaenzen",
+    "title": "Ein genauer Beleg",
+    "goal": "Bitte um die erforderlichen Angaben auf einem Kaufbeleg.",
+    "setting": "pharmacy",
+    "intro": "Ich kann Ihnen einen ausführlicheren Beleg ausstellen. Bitte sagen Sie mir, welche Angaben darauf fehlen.",
+    "words": [
+      "der Beleg",
+      "die Angabe",
+      "das Ausstellungsdatum"
+    ],
+    "pieces": [
+      "Auf dem",
+      "ausgestellten Beleg",
+      "fehlt das Kaufdatum,",
+      "das ich",
+      "für meine Unterlagen benötige;",
+      "könnten Sie",
+      "die fehlende Angabe ergänzen",
+      "und mir",
+      "einen vollständigen Beleg ausstellen?"
+    ],
+    "question": "Du brauchst einen Beleg mit Kaufdatum. Welche Bitte ist konkret?",
+    "options": [
+      "Könnten Sie mir bitte einen neuen Beleg mit dem Kaufdatum ausstellen?",
+      "Ich behalte den Beleg ohne Kaufdatum und verzichte auf die fehlende Angabe.",
+      "Bitte notieren Sie mir nur den Produktnamen auf einem Zettel, ohne Kaufdatum."
+    ],
+    "explanation": "Das Partizip „ausgestellten“ beschreibt den vorhandenen Beleg. Der Relativsatz erklärt den Bedarf; die Antwort nennt genau die fehlende Angabe.",
+    "focus": "Partizipialattribut und präzise Ergänzungsbitte"
+  },
+  {
+    "slug": "apotheke-feiertagszeiten",
+    "title": "Öffnungszeiten vor dem Feiertag",
+    "goal": "Prüfe eine aktuelle Öffnungszeit für eine geplante Abholung.",
+    "setting": "pharmacy",
+    "intro": "Am Donnerstag schließen wir bereits um 16 Uhr. Auf unserem alten Aushang steht noch 18 Uhr.",
+    "words": [
+      "die Öffnungszeit",
+      "der Aushang",
+      "der Feiertag"
+    ],
+    "pieces": [
+      "Obwohl",
+      "der ältere Aushang",
+      "eine längere Öffnungszeit nennt,",
+      "werde ich",
+      "meine Abholung",
+      "vor 16 Uhr planen,",
+      "da Ihre aktuelle Auskunft",
+      "die frühere Angabe",
+      "ersetzt."
+    ],
+    "question": "Du kannst um 15 Uhr kommen. Was antwortest du?",
+    "options": [
+      "Dann komme ich am Donnerstag um 15 Uhr, also vor der aktuellen Schließzeit.",
+      "Ich komme gegen 17 Uhr und orientiere mich weiterhin am alten Aushang.",
+      "Ich komme erst kurz nach 16 Uhr und rechne trotzdem mit einer geöffneten Apotheke."
+    ],
+    "explanation": "„Obwohl“ nennt die widersprechende ältere Information. Die Begründung mit „da“ erklärt, warum die aktuelle Auskunft für die Planung maßgeblich ist.",
+    "focus": "Konzessivsatz und Quellenabwägung"
+  },
+  {
+    "slug": "apotheke-bestellstatus",
+    "title": "Eine ausstehende Rückmeldung",
+    "goal": "Erkundige dich sachlich nach einer noch nicht bestätigten Bestellung.",
+    "setting": "pharmacy",
+    "intro": "Ihre Bestellung ist erfasst, aber vom Lieferanten noch nicht bestätigt. Ich kann den aktuellen Status nachfragen.",
+    "words": [
+      "der Lieferstatus",
+      "der Lieferant",
+      "die Rückmeldung"
+    ],
+    "pieces": [
+      "Die gestern",
+      "aufgegebene Bestellung",
+      "wurde bisher nur erfasst,",
+      "jedoch noch nicht bestätigt;",
+      "könnten Sie",
+      "beim Lieferanten nachfragen",
+      "und mir anschließend",
+      "den voraussichtlichen Abholtermin",
+      "mitteilen?"
+    ],
+    "question": "Du willst wissen, wann die Bestellung voraussichtlich bereitliegt. Was passt?",
+    "options": [
+      "Bitte fragen Sie den Lieferstatus nach und geben Sie mir anschließend eine Rückmeldung zum Abholtermin.",
+      "Bitte behandeln Sie die erfasste Bestellung bereits als verbindlich bestätigte Lieferung.",
+      "Bitte löschen Sie die Bestellung, weil ich ausschließlich ihren Lieferstatus erfahren möchte."
+    ],
+    "explanation": "„Erfasst“ und „bestätigt“ bezeichnen unterschiedliche Verfahrensschritte. Das Passiv trennt den bekannten Status von der Information, die noch eingeholt werden muss.",
+    "focus": "Passiv und Statusunterscheidung"
+  },
+  {
+    "slug": "apotheke-vertrauliches-gespraech",
+    "title": "Ein vertrauliches Gespräch",
+    "goal": "Bitte für persönliche Unterlagen um einen diskreteren Gesprächsort.",
+    "setting": "pharmacy",
+    "intro": "Wenn Sie persönliche Unterlagen besprechen möchten, können wir den Nebenraum nutzen. Hier an der Kasse hören andere Kunden mit.",
+    "words": [
+      "die Vertraulichkeit",
+      "der Nebenraum",
+      "die Unterlage"
+    ],
+    "pieces": [
+      "Da die mitgebrachten Unterlagen",
+      "persönliche Angaben enthalten,",
+      "würde ich",
+      "unser Gespräch lieber",
+      "im Nebenraum fortsetzen,",
+      "damit diese Informationen",
+      "nicht für",
+      "die wartenden Kunden",
+      "hörbar werden."
+    ],
+    "question": "Du möchtest persönliche Angaben diskret besprechen. Welche Antwort passt?",
+    "options": [
+      "Dann würde ich gern den Nebenraum nutzen, bevor ich die persönlichen Angaben erläutere.",
+      "Dann lese ich meine persönlichen Angaben hier an der Kasse laut vor.",
+      "Ich möchte Vertraulichkeit, deshalb sollen alle wartenden Kunden die Unterlagen mithören."
+    ],
+    "explanation": "Der Partizipialausdruck „mitgebrachten Unterlagen“ verdichtet die Beschreibung. „Damit“ verbindet die Ortswahl mit dem konkreten Wunsch nach Vertraulichkeit.",
+    "focus": "Partizipialattribut und begründete Ortswahl"
+  },
+  {
+    "slug": "praxis-terminverschiebung",
+    "title": "Einen Termin verschieben",
+    "goal": "Schlage für einen bestehenden Termin einen passenden Ersatzzeitraum vor.",
+    "setting": "doctor",
+    "intro": "Ihr Termin ist am Dienstag um 10 Uhr. Als Ersatz kann ich Mittwochvormittag oder Freitagnachmittag anbieten.",
+    "words": [
+      "die Terminverschiebung",
+      "der Ersatztermin",
+      "die Verfügbarkeit"
+    ],
+    "pieces": [
+      "Da ich",
+      "den vereinbarten Termin",
+      "wegen eines beruflichen Gesprächs",
+      "nicht wahrnehmen kann,",
+      "würde ich",
+      "auf Mittwochvormittag ausweichen,",
+      "sofern dort",
+      "noch ein geeigneter Ersatztermin",
+      "verfügbar ist."
+    ],
+    "question": "Du hast Mittwochvormittag Zeit, aber am Freitag keine. Was antwortest du?",
+    "options": [
+      "Mittwochvormittag passt mir; könnten Sie den bestehenden Termin auf diesen Zeitraum verschieben?",
+      "Freitagnachmittag passt mir, obwohl ich dann ausdrücklich keine Zeit habe.",
+      "Bitte lassen Sie den Dienstagstermin bestehen und ersetzen Sie ihn zugleich durch Mittwoch."
+    ],
+    "explanation": "„Wahrnehmen“ bedeutet hier, einen Termin einzuhalten. „Sofern“ macht den Vorschlag von der tatsächlichen Verfügbarkeit eines Ersatztermins abhängig.",
+    "focus": "Formelle Terminabstimmung mit sofern"
+  },
+  {
+    "slug": "praxis-unterlagen-kopie",
+    "title": "Eine Kopie der Unterlagen",
+    "goal": "Kläre das Verfahren, um eigene Unterlagen anzufordern.",
+    "setting": "doctor",
+    "intro": "Für eine Kopie Ihrer Unterlagen brauchen wir eine schriftliche Anfrage. Ich kann Ihnen das passende Formular geben.",
+    "words": [
+      "die Kopie",
+      "das Formular",
+      "die Anfrage"
+    ],
+    "pieces": [
+      "Bevor die Unterlagen",
+      "bereitgestellt werden können,",
+      "muss offenbar",
+      "eine schriftliche Anfrage vorliegen;",
+      "könnten Sie mir",
+      "das vorgesehene Formular geben",
+      "und die erforderlichen Angaben",
+      "kurz erläutern?"
+    ],
+    "question": "Du möchtest den beschriebenen Vorgang starten. Was sagst du?",
+    "options": [
+      "Bitte geben Sie mir das Formular, damit ich die schriftliche Anfrage vollständig einreichen kann.",
+      "Bitte stellen Sie die Unterlagen ohne Anfrage bereit, obwohl diese ausdrücklich erforderlich ist.",
+      "Ich möchte die Kopie beantragen, werde das vorgesehene Formular deshalb nicht ausfüllen."
+    ],
+    "explanation": "Zwei Passivformen beschreiben das Verfahren. „Dafür vorgesehen“ verweist präzise auf das Formular, mit dem die Anfrage gestellt werden soll.",
+    "focus": "Passiv und Verfahrensklärung"
+  },
+  {
+    "slug": "praxis-sprachunterstuetzung",
+    "title": "Unterstützung beim Gespräch",
+    "goal": "Frage organisatorisch nach einer Begleitperson für einen Termin.",
+    "setting": "doctor",
+    "intro": "Sie können einen Begleiter mitbringen. Bitte nennen Sie uns vorher seinen Namen, damit wir ihn beim Termin berücksichtigen.",
+    "words": [
+      "der Begleiter",
+      "die Unterstützung",
+      "die Anmeldung"
+    ],
+    "pieces": [
+      "Da ich",
+      "bei Gesprächen",
+      "sprachliche Unterstützung benötigen könnte,",
+      "würde ich",
+      "einen deutschsprachigen Begleiter mitbringen,",
+      "sofern seine Teilnahme",
+      "vorab angemeldet",
+      "und beim Termin",
+      "berücksichtigt werden kann."
+    ],
+    "question": "Dein Bruder soll dich begleiten. Wie meldest du das an?",
+    "options": [
+      "Mein Bruder wird mich begleiten; welche Angaben brauchen Sie für seine Anmeldung?",
+      "Mein Bruder soll teilnehmen, aber seinen Namen möchte ich trotz der erforderlichen Anmeldung nicht nennen.",
+      "Ich melde meinen Bruder erst nach dem Termin an, damit er dann bereits berücksichtigt ist."
+    ],
+    "explanation": "„Benötigen könnte“ formuliert einen möglichen Bedarf vorsichtig. Die Antwort greift die genannte organisatorische Voraussetzung auf und fragt nach den nötigen Angaben.",
+    "focus": "Möglichen Bedarf ausdrücken und Anmeldung klären"
+  },
+  {
+    "slug": "praxis-wartezeit-planen",
+    "title": "Eine längere Wartezeit",
+    "goal": "Bitte bei einer Verzögerung um Informationen für deine Planung.",
+    "setting": "doctor",
+    "intro": "Heute verzögern sich die Termine um ungefähr vierzig Minuten. Falls Sie den Termin verschieben möchten, kann ich einen Ersatz suchen.",
+    "words": [
+      "die Wartezeit",
+      "die Verzögerung",
+      "die Planung"
+    ],
+    "pieces": [
+      "Angesichts der angekündigten Verzögerung",
+      "würde ich",
+      "einen Ersatztermin bevorzugen,",
+      "da ich",
+      "anschließend eine feste Verpflichtung habe,",
+      "die sich",
+      "leider nicht",
+      "kurzfristig verschieben lässt."
+    ],
+    "question": "Du musst in einer halben Stunde gehen. Was ist passend?",
+    "options": [
+      "Könnten Sie einen Ersatztermin suchen? Die zusätzliche Wartezeit passt leider nicht in meinen Zeitplan.",
+      "Ich bleibe beim heutigen Termin, kann aber insgesamt nur noch dreißig Minuten warten.",
+      "Bitte behalten wir den Termin unverändert bei; die angekündigten vierzig Minuten berücksichtige ich nicht."
+    ],
+    "explanation": "„Angesichts“ nennt den Anlass. Der Relativsatz erklärt die unflexible Folgeplanung, während „lässt sich“ eine Möglichkeit beziehungsweise Unmöglichkeit ausdrückt.",
+    "focus": "Begründete Terminentscheidung und lassen sich"
+  },
+  {
+    "slug": "praxis-daten-korrigieren",
+    "title": "Eine falsche Telefonnummer",
+    "goal": "Korrigiere veraltete Kontaktdaten vor der nächsten Benachrichtigung.",
+    "setting": "doctor",
+    "intro": "In unserer Anmeldung steht noch Ihre alte Telefonnummer. Darf ich die neue Nummer für Terminrückfragen eintragen?",
+    "words": [
+      "die Telefonnummer",
+      "die Kontaktdaten",
+      "die Benachrichtigung"
+    ],
+    "pieces": [
+      "Die bisher",
+      "gespeicherte Telefonnummer",
+      "ist nicht mehr aktuell;",
+      "bitte ersetzen Sie",
+      "diesen Eintrag",
+      "durch meine neue Nummer,",
+      "damit Rückfragen zum Termin",
+      "mich künftig",
+      "zuverlässig erreichen."
+    ],
+    "question": "Du möchtest unter deiner neuen Nummer erreichbar sein. Was sagst du?",
+    "options": [
+      "Ja, bitte ersetzen Sie die alte Nummer durch die neue, die ich Ihnen jetzt nenne.",
+      "Bitte behalten Sie die alte Nummer als einzige Kontaktmöglichkeit.",
+      "Ich nenne die neue Nummer erst nach der nächsten Rückfrage zum Termin."
+    ],
+    "explanation": "Das Partizip „gespeicherte“ beschreibt den bisherigen Datensatz. Der Zweck mit „damit“ erklärt, warum der alte Eintrag ersetzt werden soll.",
+    "focus": "Partizipialattribut und Kontaktdatenkorrektur"
+  },
+  {
+    "slug": "paket-zweiter-versuch",
+    "title": "Ein erneuter Zustellversuch",
+    "goal": "Kläre die Folgen einer verpassten Paketübergabe.",
+    "setting": "post",
+    "intro": "Ein zweiter Zustellversuch ist für morgen geplant. Alternativ kann das Paket zur Abholung in die Filiale gebracht werden.",
+    "words": [
+      "der Zustellversuch",
+      "die Filiale",
+      "die Übergabe"
+    ],
+    "pieces": [
+      "Da ich",
+      "morgen",
+      "nicht zu Hause bin,",
+      "würde ich",
+      "die Abholung in der Filiale bevorzugen,",
+      "sofern das Paket",
+      "dorthin umgeleitet",
+      "und",
+      "zurückgelegt werden kann."
+    ],
+    "question": "Du bist morgen wieder außer Haus. Welche Antwort passt?",
+    "options": [
+      "Bitte leiten Sie das Paket zur Filiale um; wann kann ich es dort abholen?",
+      "Bitte liefern Sie morgen erneut zu mir, weil ich dann ebenfalls nicht zu Hause bin.",
+      "Ich hole das Paket in der Filiale ab, ohne dass es dorthin gebracht werden muss."
+    ],
+    "explanation": "„Auch morgen“ zeigt, dass sich das Zustellproblem wiederholt. Die Bedingung mit „sofern“ verknüpft die gewünschte Abholung mit einer vorherigen Umleitung.",
+    "focus": "Begründete Alternative und Passiv"
+  },
+  {
+    "slug": "paket-status-pruefen",
+    "title": "Ein unveränderter Versandstatus",
+    "goal": "Bitte mit einer konkreten Sendungsnummer um eine Prüfung.",
+    "setting": "post",
+    "intro": "Der Status wurde seit drei Tagen nicht aktualisiert. Mit der Sendungsnummer kann ich eine Prüfung anstoßen.",
+    "words": [
+      "die Sendungsnummer",
+      "der Versandstatus",
+      "die Prüfung"
+    ],
+    "pieces": [
+      "Da der Versandstatus",
+      "seit drei Tagen",
+      "unverändert ist,",
+      "möchte ich",
+      "eine Prüfung veranlassen,",
+      "damit geklärt wird,",
+      "ob die Sendung",
+      "weitertransportiert wurde",
+      "oder vor Ort liegt."
+    ],
+    "question": "Du hast die Sendungsnummer dabei. Was sagst du?",
+    "options": [
+      "Hier ist die Sendungsnummer; könnten Sie damit die Prüfung des unveränderten Status anstoßen?",
+      "Bitte vermerken Sie die Sendung ohne weitere Prüfung bereits als zugestellt.",
+      "Bitte stornieren Sie die Sendung; eine Auskunft zum Lieferstatus brauche ich nicht."
+    ],
+    "explanation": "„Seit“ markiert einen Zeitraum bis zur Gegenwart. Die indirekte Frage mit „ob“ hält beide Möglichkeiten offen, statt aus einem fehlenden Update voreilig zu schließen.",
+    "focus": "Indirekte Frage und vorsichtige Schlussfolgerung"
+  },
+  {
+    "slug": "paket-verpackung-pruefen",
+    "title": "Eine geeignete Versandhülle",
+    "goal": "Erfrage eine konkrete Verpackungsanforderung vor dem Versand.",
+    "setting": "post",
+    "intro": "Die Mappe ist für den Versand zu dünn. Mit einem festen Karton wäre der Inhalt ausreichend gegen Knicken geschützt.",
+    "words": [
+      "die Versandhülle",
+      "der Karton",
+      "der Inhalt"
+    ],
+    "pieces": [
+      "Obwohl die Mappe",
+      "für die Aufbewahrung genügt,",
+      "scheint sie",
+      "für den Versand",
+      "ungeeignet;",
+      "ich würde",
+      "einen Karton verwenden,",
+      "um Dokumente",
+      "gegen Knicken zu schützen."
+    ],
+    "question": "Du möchtest Dokumente ohne Knicke versenden. Was antwortest du?",
+    "options": [
+      "Dann nehme ich einen festen Karton; haben Sie eine passende Größe für diese Dokumente?",
+      "Ich verschicke die Dokumente ohne Versandhülle und verzichte auf einen Schutz gegen Knicken.",
+      "Ich verwende die dünne Mappe unverändert; ihre Eignung zur Aufbewahrung reicht mir auch für den Versand."
+    ],
+    "explanation": "„Obwohl“ unterscheidet zwei Verwendungszwecke. „Um … zu“ nennt das Ziel des Materialwechsels; die Frage setzt die konkrete Empfehlung zur Verpackung um.",
+    "focus": "Zweck mit um zu und Materialabwägung"
+  },
+  {
+    "slug": "paket-vollmacht",
+    "title": "Ein Paket für den Bruder",
+    "goal": "Prüfe die nötigen Unterlagen für eine Abholung in Vertretung.",
+    "setting": "post",
+    "intro": "Für die Abholung des Pakets Ihres Bruders brauchen Sie eine Vollmacht und Ihren eigenen Ausweis.",
+    "words": [
+      "die Vollmacht",
+      "der Ausweis",
+      "die Abholberechtigung"
+    ],
+    "pieces": [
+      "Bevor ich",
+      "das Paket meines Bruders abholen kann,",
+      "müssen",
+      "seine Vollmacht",
+      "und mein eigener Ausweis",
+      "vorgelegt werden;",
+      "ich werde daher",
+      "beide Unterlagen",
+      "zum Abholtermin mitbringen."
+    ],
+    "question": "Welche Unterlagen bringst du nach dieser Auskunft mit?",
+    "options": [
+      "Ich bringe die Vollmacht meines Bruders und meinen eigenen Ausweis mit.",
+      "Ich bringe nur den Ausweis meines Bruders, weil mein eigener nicht benötigt wird.",
+      "Ich bringe keine Vollmacht mit, da die Verwandtschaft die genannte Voraussetzung automatisch ersetzt."
+    ],
+    "explanation": "Das Passiv stellt die verlangten Unterlagen in den Mittelpunkt. Die Antwort unterscheidet genau zwischen der Vollmacht des Bruders und dem eigenen Ausweis.",
+    "focus": "Passiv und präzise Besitzverhältnisse"
+  },
+  {
+    "slug": "paket-adresse-korrektur",
+    "title": "Eine Adresse rechtzeitig ändern",
+    "goal": "Kläre, ob eine Versandadresse noch korrigiert werden kann.",
+    "setting": "post",
+    "intro": "Das Versandetikett ist erstellt, die Sendung wurde aber noch nicht abgeholt. Ich prüfe, ob wir die Adresse noch ändern können.",
+    "words": [
+      "das Versandetikett",
+      "die Hausnummer",
+      "die Korrektur"
+    ],
+    "pieces": [
+      "Falls das Paket",
+      "noch nicht übergeben wurde,",
+      "könnte die",
+      "falsche Hausnummer",
+      "möglicherweise korrigiert werden;",
+      "bitte prüfen Sie",
+      "diese Änderung,",
+      "bevor das Paket",
+      "abgeholt wird."
+    ],
+    "question": "Auf dem Etikett steht Hausnummer 18 statt 81. Was sagst du?",
+    "options": [
+      "Die richtige Hausnummer lautet 81; könnten Sie prüfen, ob das Etikett vor der Abholung korrigiert werden kann?",
+      "Lassen Sie Hausnummer 18 stehen; ich gehe davon aus, dass der Zusteller die Nummer selbst berichtigt.",
+      "Ich behandle die Adressänderung bereits als abgeschlossen, bevor Sie ihre Möglichkeit geprüft haben."
+    ],
+    "explanation": "„Falls“ und „möglicherweise“ lassen die Änderbarkeit offen. Die konkrete Korrektur und die zeitliche Grenze helfen dem Mitarbeiter bei der Prüfung.",
+    "focus": "Bedingung, Vorsicht und Korrektur vor Frist"
+  },
+  {
+    "slug": "bank-termin-unterlagen",
+    "title": "Vorbereitung für einen Banktermin",
+    "goal": "Kläre benötigte Unterlagen vor einem vereinbarten Gespräch.",
+    "setting": "bank",
+    "intro": "Für Ihren Termin am Montag brauchen wir einen gültigen Ausweis. Weitere Unterlagen hängen vom Anliegen ab.",
+    "words": [
+      "der Ausweis",
+      "das Anliegen",
+      "die Vorbereitung"
+    ],
+    "pieces": [
+      "Damit der vereinbarte Termin",
+      "reibungslos",
+      "stattfinden kann,",
+      "werde ich",
+      "meinen gültigen Ausweis mitbringen",
+      "und vorher klären,",
+      "welche weiteren Unterlagen",
+      "für mein Anliegen",
+      "benötigt werden."
+    ],
+    "question": "Du möchtest gut vorbereitet zum Termin erscheinen. Welche Frage passt?",
+    "options": [
+      "Welche zusätzlichen Unterlagen sollte ich für mein Anliegen neben dem gültigen Ausweis mitbringen?",
+      "Ich bringe nur zusätzliche Unterlagen mit und lasse den ausdrücklich benötigten Ausweis zu Hause.",
+      "Ich richte mich ausschließlich nach den Unterlagen anderer Kunden, ohne mein eigenes Anliegen zu berücksichtigen."
+    ],
+    "explanation": "Der vorangestellte „damit“-Satz nennt das Ziel der Vorbereitung. Die Frage grenzt zusätzliche Unterlagen auf das eigene Anliegen ein.",
+    "focus": "Zweck und genaue Verfahrensnachfrage"
+  },
+  {
+    "slug": "bank-auszug-format",
+    "title": "Ein Dokument im passenden Format",
+    "goal": "Erfrage eine druckbare Fassung eines digitalen Dokuments.",
+    "setting": "bank",
+    "intro": "Den Kontoauszug können Sie digital herunterladen. Falls Sie Papier benötigen, kann ich Ihnen die Druckmöglichkeiten erklären.",
+    "words": [
+      "der Kontoauszug",
+      "das Format",
+      "der Ausdruck"
+    ],
+    "pieces": [
+      "Da ich",
+      "einen Ausdruck benötige,",
+      "möchte ich wissen,",
+      "in welchem Format",
+      "der digitale Kontoauszug",
+      "heruntergeladen werden kann",
+      "und wie sich",
+      "alle Seiten ausdrucken lassen."
+    ],
+    "question": "Du brauchst alle Seiten auf Papier. Was fragst du?",
+    "options": [
+      "Wie lade ich den vollständigen Kontoauszug in einem druckbaren Format herunter?",
+      "Ich lade nur die erste Seite herunter und verzichte auf den vollständigen Kontoauszug.",
+      "Ich drucke lediglich die Anmeldeseite aus, anstatt den Kontoauszug herunterzuladen."
+    ],
+    "explanation": "Die indirekten Fragen nach Format und Vorgehen bleiben organisatorisch. „Sich ausdrucken lassen“ beschreibt die technische Möglichkeit eines vollständigen Ausdrucks.",
+    "focus": "Indirekte Fragen und lassen sich"
+  },
+  {
+    "slug": "bank-adressaenderung",
+    "title": "Eine neue Postanschrift",
+    "goal": "Bitte nach einem Umzug um die Aktualisierung deiner Postadresse.",
+    "setting": "bank",
+    "intro": "Die neue Anschrift ist noch nicht eingetragen. Für die Änderung können Sie dieses Formular mit Ihrer aktuellen Adresse ausfüllen.",
+    "words": [
+      "die Anschrift",
+      "die Adressänderung",
+      "die Korrespondenz"
+    ],
+    "pieces": [
+      "Nachdem ich",
+      "umgezogen bin,",
+      "soll meine neue Anschrift",
+      "für die künftige Korrespondenz",
+      "hinterlegt werden;",
+      "könnten Sie mir",
+      "das passende Formular",
+      "zur Adressänderung",
+      "aushändigen?"
+    ],
+    "question": "Du möchtest Post an die neue Wohnung erhalten. Was sagst du?",
+    "options": [
+      "Bitte geben Sie mir das Formular, damit ich die neue Anschrift eintragen lassen kann.",
+      "Bitte schicken Sie künftige Post weiterhin ausschließlich an die alte Anschrift.",
+      "Ich möchte die Adresse ändern, werde im Formular aber absichtlich die alte Adresse bestätigen."
+    ],
+    "explanation": "„Nachdem“ verbindet den abgeschlossenen Umzug mit seiner administrativen Folge. Das Passiv stellt die Aktualisierung des Datensatzes in den Mittelpunkt.",
+    "focus": "Temporalsatz mit nachdem und Passiv"
+  },
+  {
+    "slug": "bank-gespraech-diskret",
+    "title": "Ein ruhiger Beratungsraum",
+    "goal": "Bitte für persönliche Unterlagen um einen vertraulichen Gesprächsort.",
+    "setting": "bank",
+    "intro": "Wir können Ihre Unterlagen am Schalter ansehen oder in einen freien Gesprächsraum wechseln.",
+    "words": [
+      "der Gesprächsraum",
+      "die Vertraulichkeit",
+      "der Schalter"
+    ],
+    "pieces": [
+      "Obwohl eine Rückfrage",
+      "am Schalter möglich wäre,",
+      "würde ich",
+      "wegen der persönlichen Angaben",
+      "einen Gesprächsraum bevorzugen,",
+      "damit unsere Unterhaltung",
+      "nicht von",
+      "Wartenden",
+      "mitgehört werden kann."
+    ],
+    "question": "Du möchtest persönliche Angaben diskret besprechen. Welche Antwort passt?",
+    "options": [
+      "Ich würde gern in den Gesprächsraum wechseln, bevor wir meine persönlichen Unterlagen besprechen.",
+      "Wir besprechen die Unterlagen hier am Schalter, auch wenn die Wartenden mithören könnten.",
+      "Ich verzichte auf den angebotenen Gesprächsraum und bespreche die persönlichen Angaben im Wartebereich."
+    ],
+    "explanation": "„Obwohl“ räumt die praktische Möglichkeit am Schalter ein. Der Zweck im Passiv erklärt den Wunsch nach einem anderen Ort ohne finanzielle Empfehlung.",
+    "focus": "Konzessive Ortswahl und Passiv"
+  },
+  {
+    "slug": "bank-termin-kanal",
+    "title": "Einen Rückruf vereinbaren",
+    "goal": "Vereinbare einen erreichbaren Zeitraum für einen organisatorischen Rückruf.",
+    "setting": "bank",
+    "intro": "Der Mitarbeiter für Terminfragen kann Sie morgen zurückrufen. Zwischen 9 und 12 Uhr hat er dafür Zeit.",
+    "words": [
+      "der Rückruf",
+      "das Zeitfenster",
+      "die Terminfrage"
+    ],
+    "pieces": [
+      "Während ich",
+      "morgens",
+      "beruflich nicht erreichbar bin,",
+      "könnte ich",
+      "den Rückruf ab 11 Uhr annehmen,",
+      "sofern dieser Zeitpunkt",
+      "noch innerhalb",
+      "des angebotenen Zeitfensters",
+      "liegt."
+    ],
+    "question": "Du bist morgen erst ab 11 Uhr erreichbar. Wie antwortest du?",
+    "options": [
+      "Ein Rückruf zwischen 11 und 12 Uhr wäre passend; könnten Sie das bitte vormerken?",
+      "Bitte rufen Sie mich um 8 Uhr zurück, innerhalb des angebotenen Zeitfensters von 9 bis 12 Uhr.",
+      "Ich bin erst ab 11 Uhr erreichbar, deshalb ist ein Rückruf um 10 Uhr am besten."
+    ],
+    "explanation": "„Während“ stellt zwei Erreichbarkeiten gegenüber. Die korrekte Antwort bildet die Schnittmenge aus eigener Verfügbarkeit und angebotenem Rückrufzeitraum.",
+    "focus": "Zeitfenster abstimmen und Voraussetzung"
+  },
+  {
+    "slug": "bibliothek-verlaengerung",
+    "title": "Ein Buch länger behalten",
+    "goal": "Prüfe eine Verlängerung unter einer genannten Voraussetzung.",
+    "setting": "library",
+    "intro": "Sie können die Leihfrist verlängern, sofern das Buch nicht von einem anderen Leser vorgemerkt wurde.",
+    "words": [
+      "die Leihfrist",
+      "die Vormerkung",
+      "die Verlängerung"
+    ],
+    "pieces": [
+      "Da ich",
+      "meine Recherche",
+      "nicht abgeschlossen habe,",
+      "würde ich",
+      "die Leihfrist gern verlängern,",
+      "sofern keine Vormerkung vorliegt",
+      "und das Buch",
+      "weiterhin bei mir",
+      "bleiben darf."
+    ],
+    "question": "Du möchtest das Buch länger nutzen. Welche Frage respektiert die Bedingung?",
+    "options": [
+      "Könnten Sie prüfen, ob eine Vormerkung vorliegt und eine Verlängerung noch möglich ist?",
+      "Bitte verlängern Sie die Frist unabhängig davon, ob ein anderer Leser das Buch vorgemerkt hat.",
+      "Ich behalte das Buch einfach länger, weil eine mögliche Verlängerung schon als genehmigt gilt."
+    ],
+    "explanation": "„Sofern“ übernimmt genau die genannte Voraussetzung. Die Prüfbitte unterscheidet eine mögliche Verlängerung von einer bereits erteilten Genehmigung.",
+    "focus": "Voraussetzung und höfliche Prüfbitte"
+  },
+  {
+    "slug": "bibliothek-gruppenraum",
+    "title": "Ein Raum für gemeinsames Lernen",
+    "goal": "Vergleiche verfügbare Räume anhand von Gruppengröße und Lautstärke.",
+    "setting": "library",
+    "intro": "Der kleine Raum hat vier Plätze. Im größeren Raum können sechs Personen sitzen und sich beim Lernen unterhalten.",
+    "words": [
+      "der Gruppenraum",
+      "die Lerngruppe",
+      "die Ausstattung"
+    ],
+    "pieces": [
+      "Da die Lerngruppe",
+      "sechs Personen umfasst",
+      "und diskutieren möchte,",
+      "kommt der kleine Raum",
+      "nicht infrage;",
+      "wir würden",
+      "den großen Raum reservieren,",
+      "sofern er",
+      "verfügbar ist."
+    ],
+    "question": "Sechs Teilnehmer möchten zusammen lernen. Was sagst du?",
+    "options": [
+      "Könnten Sie den größeren Raum für sechs Personen reservieren, falls er noch frei ist?",
+      "Dann reservieren wir den kleinen Raum und verteilen die sechs Teilnehmer auf seine vier Plätze.",
+      "Wir nehmen den Raum mit vier Plätzen, ohne die Größe unserer Lerngruppe zu berücksichtigen."
+    ],
+    "explanation": "„Infrage kommen“ bezeichnet eine geeignete Option. Die Begründung verbindet Kapazität und Lernform; „falls“ wahrt den Vorbehalt der Verfügbarkeit.",
+    "focus": "Begründeter Ausschluss und Reservierung unter Vorbehalt"
+  },
+  {
+    "slug": "bibliothek-quellenangabe",
+    "title": "Eine Quelle nachvollziehbar nennen",
+    "goal": "Bitte um Hilfe beim Finden der vollständigen bibliografischen Angaben.",
+    "setting": "library",
+    "intro": "Für die Quellenangabe brauchen Sie Titel, Verfasser und Erscheinungsjahr. Diese Angaben stehen meist vorne im Buch.",
+    "words": [
+      "die Quellenangabe",
+      "der Verfasser",
+      "das Erscheinungsjahr"
+    ],
+    "pieces": [
+      "Damit meine Quellenangabe",
+      "vollständig und nachvollziehbar ist,",
+      "muss ich",
+      "den Verfasser",
+      "sowie das Erscheinungsjahr ergänzen,",
+      "die in",
+      "meinen bisherigen Notizen",
+      "leider noch fehlen."
+    ],
+    "question": "Du hast bisher nur den Titel notiert. Was fragst du?",
+    "options": [
+      "Könnten Sie mir zeigen, wo ich Verfasser und Erscheinungsjahr dieses Buches finde?",
+      "Ich notiere nur den Titel und lasse die beiden fehlenden Angaben weg.",
+      "Ich übernehme das Erscheinungsjahr eines anderen Buches, ohne es hier nachzuschlagen."
+    ],
+    "explanation": "„Sowie“ verbindet gleichrangige Ergänzungen. Der Relativsatz bezieht sich auf zwei fehlende Angaben, die zur konkreten Quelle gesucht werden müssen.",
+    "focus": "Koordination und Relativsatz mit pluralischem Bezug"
+  },
+  {
+    "slug": "bibliothek-regal-fehlt",
+    "title": "Ein Buch fehlt am Regal",
+    "goal": "Kläre die mögliche Ursache einer abweichenden Katalogangabe.",
+    "setting": "library",
+    "intro": "Im Katalog ist das Buch als verfügbar markiert. Es könnte auf einem Rückgabewagen liegen oder gerade im Lesesaal genutzt werden.",
+    "words": [
+      "der Katalog",
+      "der Rückgabewagen",
+      "der Lesesaal"
+    ],
+    "pieces": [
+      "Obwohl das Buch",
+      "im Katalog",
+      "verfügbar erscheint,",
+      "fehlt es",
+      "am Regal;",
+      "prüfen wir bitte,",
+      "ob es",
+      "auf einem Rückgabewagen liegt",
+      "oder im Lesesaal benutzt wird?"
+    ],
+    "question": "Du hast den richtigen Regalplatz bereits geprüft. Was sagst du?",
+    "options": [
+      "Könnten Sie mir helfen, zuerst den Rückgabewagen und anschließend den Lesesaal zu prüfen?",
+      "Da das Buch am Regal fehlt, muss die Katalogangabe ohne weitere Prüfung endgültig falsch sein.",
+      "Ich prüfe erneut ausschließlich das leere Regal, weil andere Aufenthaltsorte ausgeschlossen wurden."
+    ],
+    "explanation": "„Obwohl“ markiert die Abweichung zwischen Anzeige und Beobachtung. Die indirekte Frage mit „ob“ hält die genannten möglichen Erklärungen offen.",
+    "focus": "Konzessivsatz und offene Ursachenprüfung"
+  },
+  {
+    "slug": "bibliothek-digital-zugang",
+    "title": "Ein digitaler Zugang",
+    "goal": "Frage nach dem Anmeldeverfahren für eine digitale Ausleihe.",
+    "setting": "library",
+    "intro": "Für die digitale Ausleihe benötigen Sie Ihren Bibliotheksausweis und eine aktivierte Anmeldung. Ihren Zugang kann ich hier prüfen.",
+    "words": [
+      "der Bibliotheksausweis",
+      "die Anmeldung",
+      "der Zugang"
+    ],
+    "pieces": [
+      "Bevor ich",
+      "die digitale Ausleihe nutzen kann,",
+      "muss die Anmeldung",
+      "offenbar aktiviert werden;",
+      "ich würde",
+      "meinen Bibliotheksausweis vorlegen",
+      "und Sie bitten,",
+      "den Zugang",
+      "zu überprüfen."
+    ],
+    "question": "Du kannst dich noch nicht anmelden. Welche Bitte hilft?",
+    "options": [
+      "Hier ist mein Bibliotheksausweis; könnten Sie prüfen, ob mein digitaler Zugang aktiviert ist?",
+      "Ich möchte den Zugang prüfen lassen, werde dafür aber keinen Bibliotheksausweis vorlegen.",
+      "Ich verzichte auf die Aktivierungsprüfung und behandle den nicht nutzbaren Zugang als funktionsfähig."
+    ],
+    "explanation": "„Bevor“ stellt den notwendigen Schritt vor die Nutzung. Die Passivform konzentriert sich auf den Status der Anmeldung und führt zu einer konkreten Prüfbitte.",
+    "focus": "Temporale Voraussetzung und Passiv"
+  },
+  {
+    "slug": "buero-frist-realistisch",
+    "title": "Eine realistische Abgabefrist",
+    "goal": "Begründe einen Terminvorschlag anhand einer noch fehlenden Voraussetzung.",
+    "setting": "office",
+    "intro": "Ich brauche den Bericht bis Donnerstag. Die dafür benötigten Zahlen bekommen wir allerdings erst am Donnerstagnachmittag.",
+    "words": [
+      "die Abgabefrist",
+      "die Datengrundlage",
+      "der Bericht"
+    ],
+    "pieces": [
+      "Da die erforderlichen Zahlen",
+      "am Donnerstagnachmittag",
+      "vorliegen werden,",
+      "halte ich",
+      "eine vollständige Abgabe",
+      "am Vormittag",
+      "für unrealistisch;",
+      "ich würde deshalb",
+      "Freitag als neuen Termin vorschlagen."
+    ],
+    "question": "Du kannst den Bericht nach Erhalt der Zahlen fertigstellen. Was sagst du?",
+    "options": [
+      "Ich kann den vollständigen Bericht am Freitag abgeben; für Donnerstagvormittag fehlen noch die Zahlen.",
+      "Ich garantiere den vollständigen Bericht am Donnerstagvormittag, bevor die notwendigen Zahlen eintreffen.",
+      "Bitte liefern Sie die Zahlen später, damit ich den Bericht früher vollständig fertigstellen kann."
+    ],
+    "explanation": "„Da“ verbindet die fehlende Datengrundlage mit dem Einwand. „Für unrealistisch halten“ bewertet den Termin sachlich und eröffnet einen begründeten Ersatzvorschlag.",
+    "focus": "Sachlicher Einwand und begründeter Terminvorschlag"
+  },
+  {
+    "slug": "buero-protokoll-berichtigen",
+    "title": "Ein Beschluss im Protokoll",
+    "goal": "Bitte um die Korrektur einer falsch wiedergegebenen Entscheidung.",
+    "setting": "office",
+    "intro": "Im Entwurf steht, dass wir Projekt B sofort starten. In der Besprechung wurde der Start aber bis zur Freigabe verschoben.",
+    "words": [
+      "das Protokoll",
+      "der Beschluss",
+      "die Freigabe"
+    ],
+    "pieces": [
+      "Der im Protokoll",
+      "festgehaltene Beschluss",
+      "entspricht nicht",
+      "unserer Vereinbarung,",
+      "da der Projektstart",
+      "von einer vorherigen Freigabe abhängt;",
+      "könnten wir",
+      "diese Voraussetzung",
+      "im Entwurf ausdrücklich ergänzen?"
+    ],
+    "question": "Welche Formulierung sollte das Protokoll enthalten?",
+    "options": [
+      "Der Projektstart erfolgt erst nach der Freigabe; bitte halten wir diese Voraussetzung im Protokoll fest.",
+      "Der Projektstart erfolgt sofort, auch wenn die vereinbarte Freigabe noch fehlt.",
+      "Die Freigabe ist Voraussetzung, darf deshalb aber im Protokoll keinesfalls erwähnt werden."
+    ],
+    "explanation": "Das Partizip „festgehaltene“ beschreibt die dokumentierte Fassung. Die Korrektur benennt den genauen Unterschied zwischen einem sofortigen und einem bedingten Projektstart.",
+    "focus": "Partizipialattribut und Beschlusskorrektur"
+  },
+  {
+    "slug": "buero-aufgaben-priorisieren",
+    "title": "Zwei Aufgaben gleichzeitig",
+    "goal": "Bitte bei konkurrierenden Aufgaben um eine klare Priorität.",
+    "setting": "office",
+    "intro": "Bitte bearbeite heute die Kundenanfrage und die Präsentation. Beide Aufgaben sind umfangreich; die Kundenanfrage ist besonders dringend.",
+    "words": [
+      "die Priorität",
+      "die Kundenanfrage",
+      "die Kapazität"
+    ],
+    "pieces": [
+      "Da meine heutige Kapazität",
+      "für beide Aufgaben",
+      "voraussichtlich nicht ausreicht,",
+      "würde ich",
+      "zunächst die dringende Kundenanfrage bearbeiten,",
+      "sofern du",
+      "mit dieser Priorisierung",
+      "einverstanden bist."
+    ],
+    "question": "Du schaffst heute nur eine Aufgabe vollständig. Welche Rückmeldung passt?",
+    "options": [
+      "Ich würde heute die Kundenanfrage abschließen und die Präsentation anschließend bearbeiten; passt diese Reihenfolge?",
+      "Ich sage beide vollständigen Ergebnisse für heute zu, ohne den bekannten Kapazitätsengpass anzusprechen.",
+      "Ich beginne mit der Präsentation; die besonders dringende Kundenanfrage bleibt heute unbearbeitet."
+    ],
+    "explanation": "„Voraussichtlich“ kennzeichnet eine Einschätzung statt einer festen Behauptung. Die Antwort benennt den Engpass und schlägt eine bestätigbare Reihenfolge vor.",
+    "focus": "Kapazität einschätzen und Prioritäten abstimmen"
+  },
+  {
+    "slug": "buero-besprechung-hybrid",
+    "title": "Ein Teilnehmer aus der Ferne",
+    "goal": "Schlage eine Teilnahmeform vor, die einen abwesenden Kollegen einbindet.",
+    "setting": "office",
+    "intro": "Unser Kollege arbeitet morgen von einem anderen Standort aus. Die Besprechung findet hier statt, aber wir können ihn digital zuschalten.",
+    "words": [
+      "die Zuschaltung",
+      "der Standort",
+      "die Teilnahme"
+    ],
+    "pieces": [
+      "Auch wenn",
+      "nicht alle Kollegen",
+      "am selben Standort arbeiten,",
+      "könnten wir",
+      "die Besprechung gemeinsam durchführen,",
+      "indem der abwesende Kollege",
+      "über eine digitale Verbindung",
+      "zugeschaltet wird."
+    ],
+    "question": "Du möchtest den Kollegen an der Besprechung beteiligen. Was schlägst du vor?",
+    "options": [
+      "Wir könnten ihn digital zuschalten und den Zugangslink vorab senden.",
+      "Wir nehmen ihn nicht in die Besprechung auf und verzichten auf die angebotene Zuschaltung.",
+      "Wir senden ihm nur die Aufzeichnung nach dem Termin, ohne eine Teilnahme an der Besprechung zu ermöglichen."
+    ],
+    "explanation": "„Indem“ beschreibt das Mittel zur gemeinsamen Teilnahme. Der konzessive Einstieg räumt die räumliche Trennung ein, ohne sie als unüberwindbares Hindernis zu behandeln.",
+    "focus": "Methode mit indem und konzessiver Einstieg"
+  },
+  {
+    "slug": "buero-dateiversion",
+    "title": "Die richtige Fassung verwenden",
+    "goal": "Kläre widersprüchliche Dateiversionen vor einer Weitergabe.",
+    "setting": "office",
+    "intro": "Im Ordner liegt Version drei, in meiner Nachricht Version vier. Version vier enthält die zuletzt vereinbarten Änderungen.",
+    "words": [
+      "die Fassung",
+      "die Änderung",
+      "die Weitergabe"
+    ],
+    "pieces": [
+      "Während im Ordner",
+      "eine ältere Fassung liegt,",
+      "enthält Version vier",
+      "die vereinbarten Änderungen;",
+      "vor der Weitergabe",
+      "sollten wir daher",
+      "die aktuelle Datei",
+      "im Ordner ersetzen."
+    ],
+    "question": "Du willst verhindern, dass Kollegen die veraltete Fassung nutzen. Was passt?",
+    "options": [
+      "Wir sollten Version vier im gemeinsamen Ordner hinterlegen und als aktuelle Fassung kennzeichnen.",
+      "Wir kennzeichnen Version drei weiterhin als aktuelle Fassung, obwohl dort die letzten Änderungen fehlen.",
+      "Wir verteilen beide Fassungen ohne Versionskennzeichnung und lassen die Empfänger selbst wählen."
+    ],
+    "explanation": "„Während“ kontrastiert zwei Fassungen, „daher“ leitet die organisatorische Konsequenz ab. Die Antwort beseitigt die widersprüchliche Kennzeichnung vor der Weitergabe.",
+    "focus": "Gegenüberstellung und Folgerung mit daher"
+  },
+  {
+    "slug": "kurs-bewertungskriterien",
+    "title": "Die Kriterien einer Aufgabe",
+    "goal": "Frage vor der Abgabe nach der Gewichtung der Bewertung.",
+    "setting": "school",
+    "intro": "Bei der Präsentation bewerten wir Inhalt, Aufbau und sprachliche Verständlichkeit. Die genaue Gewichtung steht im Aufgabenblatt.",
+    "words": [
+      "das Bewertungskriterium",
+      "die Gewichtung",
+      "die Verständlichkeit"
+    ],
+    "pieces": [
+      "Bevor ich",
+      "meine Präsentation überarbeite,",
+      "möchte ich nachvollziehen,",
+      "wie Inhalt und Aufbau",
+      "gegenüber der sprachlichen Verständlichkeit",
+      "gewichtet werden,",
+      "damit ich",
+      "die wichtigsten Bewertungskriterien",
+      "berücksichtigen kann."
+    ],
+    "question": "Du hast die Gewichtung noch nicht gelesen. Was fragst du den Kursleiter?",
+    "options": [
+      "Könnten Sie mir zeigen, wo im Aufgabenblatt die Gewichtung der drei Kriterien erklärt wird?",
+      "Ich orientiere mich ausschließlich am sprachlichen Eindruck und ignoriere Inhalt sowie Aufbau.",
+      "Ich überarbeite die Präsentation, ohne mir die Gewichtung der Kriterien anzusehen."
+    ],
+    "explanation": "Die indirekte Frage mit „wie“ verlangt eine nachvollziehbare Erklärung. „Damit“ beschreibt, wozu die Gewichtung bei der Überarbeitung gebraucht wird.",
+    "focus": "Indirekte Frage und zielgerichtete Überarbeitung"
+  },
+  {
+    "slug": "kurs-gruppenarbeit-balance",
+    "title": "Die Gruppenarbeit verteilen",
+    "goal": "Begründe eine ausgewogenere Verteilung einer gemeinsamen Aufgabe.",
+    "setting": "school",
+    "intro": "Ein Teilnehmer hat bisher den gesamten Text geschrieben. Die übrigen Teilnehmer sollen noch die Beispiele und die Präsentation übernehmen.",
+    "words": [
+      "die Aufgabenverteilung",
+      "der Beitrag",
+      "die Gruppenarbeit"
+    ],
+    "pieces": [
+      "Obwohl der Text",
+      "eine gute Grundlage bildet,",
+      "sollte die verbleibende Arbeit",
+      "gleichmäßiger verteilt werden,",
+      "damit jeder Teilnehmer",
+      "einen Beitrag leistet",
+      "und nicht",
+      "einer",
+      "alles übernimmt."
+    ],
+    "question": "Du möchtest eine faire Verteilung der restlichen Arbeit. Was schlägst du vor?",
+    "options": [
+      "Wir könnten Beispiele und Präsentation verbindlich auf die anderen Teilnehmer verteilen.",
+      "Der bisherige Verfasser übernimmt auch die restlichen Teile; die anderen bekommen keine feste Aufgabe.",
+      "Die übrigen Teilnehmer bleiben ohne eigenen Beitrag, während ein Einzelner alles fertigstellt."
+    ],
+    "explanation": "Der konzessive Satz würdigt den vorhandenen Text. Das Passiv und der Zweck mit „damit“ verbinden die Verteilungsänderung mit einem klaren gemeinsamen Ziel.",
+    "focus": "Höflicher Einwand und Zweck der Aufgabenverteilung"
+  },
+  {
+    "slug": "kurs-niveauwechsel",
+    "title": "Eine andere Kursstufe prüfen",
+    "goal": "Bitte um eine begründete Einschätzung eines möglichen Niveauwechsels.",
+    "setting": "school",
+    "intro": "Du kannst eine Einstufungsaufgabe machen. Danach bespreche ich mit dir, ob der nächste Kurs besser zu deinem aktuellen Stand passt.",
+    "words": [
+      "die Einstufung",
+      "der Lernstand",
+      "der Niveauwechsel"
+    ],
+    "pieces": [
+      "Da mir",
+      "einige Aufgaben",
+      "bereits leichtfallen,",
+      "würde ich prüfen lassen,",
+      "ob ein Niveauwechsel",
+      "zu meinem Lernstand passt,",
+      "statt allein",
+      "aus diesem Eindruck",
+      "eine Einstufung abzuleiten."
+    ],
+    "question": "Du möchtest deinen Lernstand fundiert einschätzen lassen. Wie antwortest du?",
+    "options": [
+      "Ich würde gern die Einstufungsaufgabe machen und das Ergebnis anschließend mit Ihnen besprechen.",
+      "Einige Aufgaben fallen mir leicht; deshalb brauche ich keine weitere Einschätzung für eine sichere Einstufung.",
+      "Bitte wechseln Sie mich sofort in den nächsten Kurs, bevor mein Lernstand geprüft wird."
+    ],
+    "explanation": "„Prüfen lassen“ bezeichnet eine veranlasste Beurteilung. „Statt … zu“ grenzt die fundierte Entscheidung von einer vorschnellen Schlussfolgerung aus einzelnen Aufgaben ab.",
+    "focus": "Prüfen lassen und vorsichtige Selbsteinschätzung"
+  },
+  {
+    "slug": "kurs-versaeumten-stoff",
+    "title": "Nach einer versäumten Stunde",
+    "goal": "Vereinbare gezielt das Nachholen eines verpassten Kursinhalts.",
+    "setting": "school",
+    "intro": "In der verpassten Stunde haben wir eine Debatte vorbereitet. Das Material steht online; die Argumente besprechen wir am Donnerstag.",
+    "words": [
+      "der Kursinhalt",
+      "die Debatte",
+      "das Material"
+    ],
+    "pieces": [
+      "Nachdem ich",
+      "die Kursstunde",
+      "nicht besuchen konnte,",
+      "werde ich",
+      "das bereitgestellte Material durcharbeiten,",
+      "damit ich",
+      "bei der Debatte am Donnerstag",
+      "trotz meiner Abwesenheit",
+      "vorbereitet bin."
+    ],
+    "question": "Du möchtest beim nächsten Termin mitdiskutieren können. Welche Rückmeldung passt?",
+    "options": [
+      "Ich arbeite das Material vor Donnerstag durch; könnte ich danach offene Fragen mit Ihnen klären?",
+      "Ich lese das Material erst nach der Debatte und verzichte bis dahin auf die Vorbereitung.",
+      "Ich komme am Donnerstag ohne Materialkenntnis und möchte den versäumten Stoff nicht nachholen."
+    ],
+    "explanation": "„Nachdem“ verbindet die vergangene Abwesenheit mit der Folgehandlung. „Trotz“ nimmt einen Umstand auf, der das Ziel erschwert, aber nicht verhindert.",
+    "focus": "Temporalsatz und Vorbereitung trotz Hindernis"
+  },
+  {
+    "slug": "kurs-feedback-begruenden",
+    "title": "Eine Rückmeldung konkret machen",
+    "goal": "Gib konstruktives Feedback anhand eines nachvollziehbaren Beispiels.",
+    "setting": "school",
+    "intro": "Ich finde deinen Text insgesamt verständlich. Im zweiten Absatz fehlt mir allerdings ein Beispiel für deine zentrale Behauptung.",
+    "words": [
+      "die Rückmeldung",
+      "die Behauptung",
+      "der Beleg"
+    ],
+    "pieces": [
+      "Deine Argumentation",
+      "ist grundsätzlich nachvollziehbar,",
+      "allerdings würde ein konkretes Beispiel",
+      "im zweiten Absatz",
+      "die zentrale Behauptung stützen,",
+      "sodass der Zusammenhang",
+      "für die Leser",
+      "überzeugender wird."
+    ],
+    "question": "Du sollst als Kursteilnehmer hilfreiches Feedback geben. Welche Aussage passt?",
+    "options": [
+      "Der zweite Absatz wäre mit einem konkreten Beispiel für deine zentrale Behauptung überzeugender.",
+      "Ich würde die Behauptung ohne Beispiel stehen lassen und auf einen zusätzlichen Beleg verzichten.",
+      "Der Text ist schlecht; eine konkrete Stelle oder einen Verbesserungsvorschlag möchte ich nicht nennen."
+    ],
+    "explanation": "„Allerdings“ führt einen begrenzten Verbesserungspunkt ein. Der Folgesatz mit „sodass“ erläutert die Wirkung der vorgeschlagenen Ergänzung auf die Argumentation.",
+    "focus": "Konstruktiver Einwand und Folge mit sodass"
+  },
+  {
+    "slug": "wohnung-ruhe-kompromiss",
+    "title": "Ein Besuch am Abend",
+    "goal": "Vereinbare mit dem Mitbewohner einen rücksichtsvollen Abendplan.",
+    "setting": "apartment",
+    "intro": "Deine Gäste können kommen, aber ich muss morgen früh arbeiten. Ab 22 Uhr brauche ich Ruhe in der Wohnung.",
+    "words": [
+      "der Mitbewohner",
+      "die Rücksicht",
+      "der Kompromiss"
+    ],
+    "pieces": [
+      "Auch wenn ich",
+      "meine Gäste",
+      "länger empfangen würde,",
+      "werden wir",
+      "ab 22 Uhr",
+      "in ein Café wechseln,",
+      "damit mein Mitbewohner",
+      "vor seinem Arbeitstag",
+      "schlafen kann."
+    ],
+    "question": "Du willst den Besuch ermöglichen und zugleich Ruhe zusagen. Was antwortest du?",
+    "options": [
+      "Wir bleiben bis 22 Uhr hier und gehen anschließend ins Café, damit du schlafen kannst.",
+      "Wir bleiben nach 22 Uhr laut in der Wohnung, damit du deine gewünschte Ruhe bekommst.",
+      "Ich sage allen Gästen ab, weil du ausdrücklich jeden Besuch ausgeschlossen hast."
+    ],
+    "explanation": "„Auch wenn“ räumt den eigenen Wunsch ein. Der konkrete Ortswechsel ab der vereinbarten Uhrzeit macht den Kompromiss überprüfbar.",
+    "focus": "Konzessiver Kompromiss und Zweck"
+  },
+  {
+    "slug": "wohnung-besichtigung-planen",
+    "title": "Eine Besichtigung abstimmen",
+    "goal": "Bitte für eine Wohnungsbesichtigung um einen passenden Alternativtermin.",
+    "setting": "apartment",
+    "intro": "Die Besichtigung ist am Freitag um 15 Uhr geplant. Ein weiterer Termin wäre eventuell am Samstagvormittag möglich.",
+    "words": [
+      "die Besichtigung",
+      "der Alternativtermin",
+      "die Verfügbarkeit"
+    ],
+    "pieces": [
+      "Da ich",
+      "am Freitag",
+      "beruflich gebunden bin,",
+      "könnte ich",
+      "den Besichtigungstermin",
+      "nicht wahrnehmen;",
+      "falls Samstagvormittag",
+      "noch eine Besichtigung möglich wäre,",
+      "würde ich diese Alternative",
+      "nutzen."
+    ],
+    "question": "Du kannst nur am Samstagvormittag kommen. Welche Anfrage passt?",
+    "options": [
+      "Wäre eine Besichtigung am Samstagvormittag möglich? Am Freitag bin ich beruflich verhindert.",
+      "Bitte bestätigen Sie Freitag um 15 Uhr, weil ich ausschließlich am Samstag Zeit habe.",
+      "Da Samstag eventuell möglich ist, behandle ich diesen Termin bereits als verbindlich vereinbart."
+    ],
+    "explanation": "Der Konjunktiv II formuliert eine Anfrage für einen noch unbestätigten Termin. Die Antwort erklärt die Einschränkung und lässt die Verfügbarkeit offen.",
+    "focus": "Konjunktiv II und unbestätigter Alternativtermin"
+  },
+  {
+    "slug": "wohnung-heizung-melden",
+    "title": "Eine Störung dokumentieren",
+    "goal": "Melde eine technische Störung mit überprüfbaren Beobachtungen.",
+    "setting": "apartment",
+    "intro": "Für die Meldung an den Hausmeister brauche ich den betroffenen Raum und den Zeitpunkt, seit dem die Störung besteht.",
+    "words": [
+      "die Störung",
+      "der Heizkörper",
+      "der Hausmeister"
+    ],
+    "pieces": [
+      "Der im Arbeitszimmer",
+      "installierte Heizkörper",
+      "bleibt seit gestern kalt,",
+      "während die übrigen Heizkörper",
+      "funktionieren;",
+      "bitte geben Sie",
+      "diese Beobachtung",
+      "an den zuständigen Hausmeister weiter."
+    ],
+    "question": "Du willst die Störung genau melden. Was sagst du?",
+    "options": [
+      "Der Heizkörper im Arbeitszimmer bleibt seit gestern kalt; die anderen funktionieren weiterhin.",
+      "Alle Heizkörper sind seit Wochen defekt, obwohl nur einer seit gestern kalt bleibt.",
+      "Im Arbeitszimmer ist ein Problem, aber Raum und Zeitpunkt sollen nicht an den Hausmeister gehen."
+    ],
+    "explanation": "Das Partizip „installierte“ lokalisiert den Gegenstand. „Während“ grenzt die beobachtete Störung ein, ohne eine technische Ursache oder Reparatur zu behaupten.",
+    "focus": "Partizipialattribut und sachliche Störungsmeldung"
+  },
+  {
+    "slug": "wohnung-gemeinsamer-einkauf",
+    "title": "Den Haushaltseinkauf abstimmen",
+    "goal": "Schlage ein transparentes Vorgehen für gemeinsame Haushaltsartikel vor.",
+    "setting": "apartment",
+    "intro": "Letztes Mal haben wir doppelt Reinigungsmittel gekauft. Ich würde gern eine gemeinsame Liste führen, bevor jemand einkauft.",
+    "words": [
+      "die Einkaufsliste",
+      "die Absprache",
+      "der Haushaltsartikel"
+    ],
+    "pieces": [
+      "Damit wir",
+      "Haushaltsartikel künftig",
+      "nicht doppelt kaufen,",
+      "sollten wir",
+      "vorher",
+      "die gemeinsame Liste prüfen",
+      "und besorgte Produkte markieren,",
+      "statt uns",
+      "auf unklare Erinnerungen zu verlassen."
+    ],
+    "question": "Du möchtest Doppelkäufe mit deinem Mitbewohner vermeiden. Was schlägst du vor?",
+    "options": [
+      "Wir prüfen vor dem Einkauf dieselbe Liste und markieren dort, was bereits gekauft wurde.",
+      "Wir führen getrennte Listen und tauschen uns vor dem Einkauf nicht darüber aus.",
+      "Wir aktualisieren die Liste erst nach dem nächsten Einkauf und prüfen sie vorher nicht."
+    ],
+    "explanation": "„Damit“ nennt das Ziel, „statt … zu“ benennt das ersetzte Vorgehen. Die verbindliche gemeinsame Liste löst das konkret genannte Abstimmungsproblem.",
+    "focus": "Zweck und Handlungsalternative mit statt zu"
+  },
+  {
+    "slug": "wohnung-uebergabe-protokoll",
+    "title": "Einen vorhandenen Schaden festhalten",
+    "goal": "Bitte bei der Übergabe um eine genaue Dokumentation.",
+    "setting": "apartment",
+    "intro": "Am Fensterrahmen ist ein Kratzer. Wir können ihn gleich im Übergabeprotokoll vermerken und ein Foto ergänzen.",
+    "words": [
+      "das Übergabeprotokoll",
+      "der Fensterrahmen",
+      "die Dokumentation"
+    ],
+    "pieces": [
+      "Der bereits",
+      "vor meinem Einzug",
+      "vorhandene Kratzer am Fensterrahmen",
+      "sollte im Übergabeprotokoll",
+      "beschrieben werden,",
+      "damit der Zustand",
+      "der Wohnung",
+      "zum Zeitpunkt der Übergabe",
+      "nachvollziehbar bleibt."
+    ],
+    "question": "Du willst den bestehenden Zustand dokumentieren. Was sagst du?",
+    "options": [
+      "Bitte beschreiben wir den Kratzer im Übergabeprotokoll und ergänzen das angebotene Foto.",
+      "Wir lassen den Kratzer unerwähnt und verzichten auf die Dokumentation dieses Zustands.",
+      "Wir beschreiben den Fensterrahmen trotz des sichtbaren Kratzers als unbeschädigt."
+    ],
+    "explanation": "„Vorhandene“ kennzeichnet einen bestehenden Zustand. Das Passiv und der Zweck mit „damit“ beschreiben eine Dokumentation, ohne rechtliche Folgen vorwegzunehmen.",
+    "focus": "Partizipialattribut und Zustandsdokumentation"
+  },
+  {
+    "slug": "reparatur-kostenfreigabe",
+    "title": "Vor der Reparatur nachfragen",
+    "goal": "Kläre den Umfang einer Freigabe für eine Geräteprüfung.",
+    "setting": "repair",
+    "intro": "Wir können das Gerät zunächst untersuchen. Eine Reparatur beginnen wir erst, wenn Sie dem anschließend genannten Preis zugestimmt haben.",
+    "words": [
+      "die Untersuchung",
+      "die Freigabe",
+      "der Kostenvoranschlag"
+    ],
+    "pieces": [
+      "Bevor eine Reparatur",
+      "in Auftrag gegeben wird,",
+      "möchte ich",
+      "den Kostenvoranschlag prüfen;",
+      "bitte führen Sie",
+      "nur die Untersuchung durch",
+      "und holen anschließend",
+      "meine Freigabe",
+      "ein."
+    ],
+    "question": "Du möchtest heute nur die Prüfung beauftragen. Was sagst du?",
+    "options": [
+      "Bitte untersuchen Sie das Gerät zunächst und nennen Sie mir den Preis, bevor ich eine Reparatur freigebe.",
+      "Bitte beginnen Sie jede Reparatur ohne Rückfrage, weil ich nur der Untersuchung zustimme.",
+      "Ich möchte den Preis vor der Freigabe prüfen und erteile deshalb sofort eine unbegrenzte Freigabe."
+    ],
+    "explanation": "„Bevor“ trennt Untersuchung und Reparatur zeitlich. Die Antwort begrenzt den aktuellen Auftrag und verlangt die im Gespräch angebotene Rückmeldung.",
+    "focus": "Passiv und Umfang eines Auftrags klären"
+  },
+  {
+    "slug": "reparatur-kaufbeleg",
+    "title": "Den Kaufbeleg nachreichen",
+    "goal": "Erfrage das Verfahren für noch fehlende Unterlagen.",
+    "setting": "repair",
+    "intro": "Für die Prüfung Ihrer Unterlagen fehlt noch der Kaufbeleg. Sie können ihn später als Datei nachreichen.",
+    "words": [
+      "der Kaufbeleg",
+      "die Datei",
+      "die Zuordnung"
+    ],
+    "pieces": [
+      "Da mir",
+      "der ursprüngliche Kaufbeleg",
+      "heute nicht vorliegt,",
+      "würde ich",
+      "ihn später digital nachreichen,",
+      "sofern die Datei",
+      "meinem bereits erfassten Auftrag",
+      "eindeutig zugeordnet",
+      "werden kann."
+    ],
+    "question": "Du kannst den Kaufbeleg heute Abend senden. Welche Frage hilft?",
+    "options": [
+      "An welche Adresse soll ich den Beleg senden, und welche Auftragsnummer soll ich angeben?",
+      "Wie kann ich den Beleg ohne jeden Auftragsbezug senden, damit er eindeutig zugeordnet wird?",
+      "Ich sende keinen Beleg, weil Sie das Nachreichen als Datei ausdrücklich ausgeschlossen haben."
+    ],
+    "explanation": "„Sofern“ macht das Nachreichen von eindeutiger Zuordnung abhängig. Adresse und Auftragsnummer sind konkrete Angaben, die diesen organisatorischen Schritt ermöglichen.",
+    "focus": "Voraussetzung und eindeutige Zuordnung"
+  },
+  {
+    "slug": "reparatur-zugang-termin",
+    "title": "Ein Zugang für den Techniker",
+    "goal": "Vereinbare einen Termin, an dem der Arbeitsbereich erreichbar ist.",
+    "setting": "repair",
+    "intro": "Der Techniker kann am Dienstagvormittag kommen. Er braucht Zugang zum Keller; dafür muss jemand im Haus sein.",
+    "words": [
+      "der Zugang",
+      "der Techniker",
+      "der Arbeitsbereich"
+    ],
+    "pieces": [
+      "Sofern der Techniker",
+      "am Dienstag",
+      "zwischen 9 und 11 Uhr kommt,",
+      "kann ich",
+      "ihm den Keller öffnen;",
+      "sonst",
+      "müsste jemand anderes",
+      "den Zugang",
+      "übernehmen."
+    ],
+    "question": "Du kannst nur zwischen 9 und 11 Uhr öffnen. Was teilst du mit?",
+    "options": [
+      "Ich kann den Keller zwischen 9 und 11 Uhr öffnen; lässt sich der Besuch in diesem Zeitraum einplanen?",
+      "Ich kann ausschließlich zwischen 9 und 11 Uhr öffnen; bestätigen Sie deshalb bitte 12 Uhr.",
+      "Der Techniker benötigt Zugang, weshalb niemand während seines Besuchs im Haus sein sollte."
+    ],
+    "explanation": "„Sofern“ benennt ein konkretes Zeitfenster als Bedingung. Der zweite Konjunktiv beschreibt, welche organisatorische Alternative außerhalb dieses Fensters nötig wäre.",
+    "focus": "Bedingtes Zeitfenster und Zuständigkeit"
+  },
+  {
+    "slug": "reparatur-ersatzteil-warten",
+    "title": "Ein fehlendes Ersatzteil",
+    "goal": "Bitte um eine aktualisierte Planung nach einer Lieferverzögerung.",
+    "setting": "repair",
+    "intro": "Das benötigte Ersatzteil kommt erst nächste Woche. Den ursprünglich vereinbarten Abholtermin können wir deshalb nicht einhalten.",
+    "words": [
+      "das Ersatzteil",
+      "die Lieferverzögerung",
+      "der Abholtermin"
+    ],
+    "pieces": [
+      "Da das Ersatzteil",
+      "nicht eingetroffen ist,",
+      "muss der Abholtermin",
+      "verschoben werden;",
+      "könnten Sie",
+      "mich nach der Lieferung informieren",
+      "und",
+      "einen neuen Termin",
+      "mit mir abstimmen?"
+    ],
+    "question": "Du möchtest erst nach bestätigter Lieferung neu planen. Was sagst du?",
+    "options": [
+      "Bitte melden Sie sich, sobald das Ersatzteil da ist; anschließend vereinbaren wir den neuen Abholtermin.",
+      "Ich halte am ursprünglichen Abholtermin fest und rechne trotz des fehlenden Teils mit einer fertigen Reparatur.",
+      "Bitte bestätigen Sie schon jetzt einen festen Abholtermin, ohne die noch unbestätigte Lieferung abzuwarten."
+    ],
+    "explanation": "„Da“ nennt die Ursache der Verschiebung. Die Antwort setzt eine neue Planung erst nach der entscheidenden, noch ausstehenden Lieferung an.",
+    "focus": "Passiv und Planung nach bestätigtem Ereignis"
+  },
+  {
+    "slug": "reparatur-rechnung-position",
+    "title": "Eine unklare Rechnungsposition",
+    "goal": "Bitte um Erläuterung einer nicht angekündigten Leistung.",
+    "setting": "repair",
+    "intro": "Auf der Rechnung steht zusätzlich eine Reinigung. Ich prüfe, ob sie im vereinbarten Auftrag enthalten war.",
+    "words": [
+      "die Rechnungsposition",
+      "die Reinigung",
+      "der Leistungsumfang"
+    ],
+    "pieces": [
+      "Die zusätzlich",
+      "berechnete Reinigung",
+      "war meines Wissens",
+      "nicht ausdrücklich vereinbart;",
+      "könnten Sie bitte erläutern,",
+      "auf welcher Grundlage",
+      "diese Leistung",
+      "dem ursprünglichen Auftrag",
+      "zugeordnet wurde?"
+    ],
+    "question": "Du möchtest die zusätzliche Position zuerst nachvollziehen. Was fragst du?",
+    "options": [
+      "Könnten Sie mir zeigen, wo die Reinigung im vereinbarten Leistungsumfang aufgeführt ist?",
+      "Bitte bestätigen Sie ohne Prüfung, dass die Reinigung ausdrücklich vereinbart war.",
+      "Ich möchte eine Erläuterung der Reinigung und verzichte deshalb auf jede Auskunft zu dieser Position."
+    ],
+    "explanation": "„Meines Wissens“ begrenzt die Aussage auf den eigenen Kenntnisstand. Die indirekte Frage fordert eine nachvollziehbare Grundlage, statt ein Ergebnis der Prüfung vorwegzunehmen.",
+    "focus": "Vorsichtiger Einwand und Leistungsumfang klären"
+  },
+  {
+    "slug": "park-veranstaltung-abstimmen",
+    "title": "Eine Lesung im Park",
+    "goal": "Erfrage organisatorische Bedingungen einer geplanten kleinen Veranstaltung.",
+    "setting": "park",
+    "intro": "Für Ihre kleine Lesung können wir den Pavillon vormerken. Die genauen Nutzungszeiten müssen wir vorher gemeinsam abstimmen.",
+    "words": [
+      "der Pavillon",
+      "die Nutzungszeit",
+      "die Abstimmung"
+    ],
+    "pieces": [
+      "Bevor wir",
+      "unsere Lesung öffentlich ankündigen,",
+      "möchten wir",
+      "die Nutzung des Pavillons",
+      "verbindlich abstimmen,",
+      "damit Ort und Uhrzeit",
+      "der Veranstaltung",
+      "für alle Teilnehmer",
+      "verlässlich feststehen."
+    ],
+    "question": "Du möchtest noch keine unbestätigte Uhrzeit veröffentlichen. Was sagst du?",
+    "options": [
+      "Könnten wir zuerst die Nutzungszeit festlegen und den Pavillon dafür bestätigen lassen?",
+      "Wir kündigen die Lesung sofort mit einer beliebigen Uhrzeit an, damit die Abstimmung vorher abgeschlossen ist.",
+      "Da eine Vormerkung möglich ist, gelten sämtliche Nutzungszeiten bereits als bestätigt."
+    ],
+    "explanation": "„Bevor“ ordnet Abstimmung und Ankündigung. Die Antwort unterscheidet eine Vormerkung von einer verbindlichen Bestätigung, ohne allgemeine Nutzungsregeln zu behaupten.",
+    "focus": "Verbindlichkeit unterscheiden und zeitliche Reihenfolge"
+  },
+  {
+    "slug": "park-weg-gesperrt",
+    "title": "Eine Strecke umgehen",
+    "goal": "Kläre die Eignung eines Ersatzwegs bei einer Sperrung.",
+    "setting": "park",
+    "intro": "Der direkte Weg am Teich ist gesperrt. Der Umweg durch den nördlichen Eingang ist offen und ohne Treppen erreichbar.",
+    "words": [
+      "die Wegsperrung",
+      "der Umweg",
+      "der Eingang"
+    ],
+    "pieces": [
+      "Obwohl der direkte Weg",
+      "kürzer wäre,",
+      "werden wir",
+      "den nördlichen Eingang nutzen,",
+      "da der dortige Umweg",
+      "weiterhin offen ist",
+      "und sich",
+      "ohne Treppen",
+      "zurücklegen lässt."
+    ],
+    "question": "Dein Begleiter möchte Treppen vermeiden. Welchen Weg wählst du?",
+    "options": [
+      "Wir nehmen den offenen Umweg durch den nördlichen Eingang, der ohne Treppen erreichbar ist.",
+      "Wir nehmen den gesperrten direkten Weg, weil er ausdrücklich als offen beschrieben wurde.",
+      "Wir nehmen einen Weg mit Treppen, damit mein Begleiter Treppen vermeiden kann."
+    ],
+    "explanation": "Der Konjunktiv „wäre“ beschreibt den Vorteil eines derzeit nicht nutzbaren Wegs. „Da“ begründet die Wahl mit Verfügbarkeit und der relevanten Eigenschaft.",
+    "focus": "Konzessive Wegwahl und lassen sich"
+  },
+  {
+    "slug": "park-fundgegenstand",
+    "title": "Einen Fund zuordnen",
+    "goal": "Beschreibe einen gefundenen Gegenstand, ohne ihn vorschnell jemandem zuzuordnen.",
+    "setting": "park",
+    "intro": "Ein Besucher hat eine graue Tasche verloren. Haben Sie an der Bank eine Tasche gesehen, die zu seiner Beschreibung passt?",
+    "words": [
+      "der Fundgegenstand",
+      "die Beschreibung",
+      "das Erkennungsmerkmal"
+    ],
+    "pieces": [
+      "Die an der Bank",
+      "gefundene Tasche",
+      "ist zwar grau,",
+      "hat jedoch",
+      "einen roten Verschluss;",
+      "bevor sie",
+      "dem Besucher zugeordnet wird,",
+      "sollte der Verschluss",
+      "bestätigt werden."
+    ],
+    "question": "Du hast eine graue Tasche mit rotem Verschluss gefunden. Was sagst du?",
+    "options": [
+      "Ich habe eine graue Tasche mit rotem Verschluss gefunden; passt dieses Merkmal ebenfalls zu seiner Beschreibung?",
+      "Jede graue Tasche gehört diesem Besucher, auch wenn andere Erkennungsmerkmale abweichen.",
+      "Ich erwähne den roten Verschluss nicht, damit die Zuordnung genauer geprüft werden kann."
+    ],
+    "explanation": "„Zwar … jedoch“ trennt eine Übereinstimmung von einem noch zu prüfenden Merkmal. Das Partizip „gefundene“ und das Passiv halten die Zuordnung sachlich offen.",
+    "focus": "Zwar jedoch und überprüfbare Zuordnung"
+  },
+  {
+    "slug": "park-sauberkeitsaktion",
+    "title": "Eine Aufräumaktion planen",
+    "goal": "Kläre Ausstattung und Zuständigkeit für eine gemeinsame Aktion.",
+    "setting": "park",
+    "intro": "Wir stellen Ihnen für die Aufräumaktion Handschuhe und Säcke bereit. Die gefüllten Säcke müssen danach am vereinbarten Sammelpunkt liegen.",
+    "words": [
+      "der Sammelpunkt",
+      "die Ausstattung",
+      "die Aufräumaktion"
+    ],
+    "pieces": [
+      "Damit die Aufräumaktion",
+      "reibungslos abläuft,",
+      "sollten wir",
+      "vor Beginn klären,",
+      "wo die Ausstattung",
+      "abgeholt wird",
+      "und an welchem Sammelpunkt",
+      "die gefüllten Säcke",
+      "abgelegt werden sollen."
+    ],
+    "question": "Du organisierst die freiwilligen Teilnehmer. Was fragst du?",
+    "options": [
+      "Wo holen wir Handschuhe und Säcke ab, und wo legen wir die gefüllten Säcke anschließend hin?",
+      "Wir verteilen die gefüllten Säcke beliebig im Park, anstatt sie am Sammelpunkt abzulegen.",
+      "Wir holen die Ausstattung ohne Ortsabsprache ab und lassen den Ablageort der vollen Säcke offen."
+    ],
+    "explanation": "Die beiden indirekten Fragen erfassen Vorbereitung und Abschluss. Das Passiv beschreibt die gemeinsame Organisation, ohne einzelne Teilnehmer unnötig in den Mittelpunkt zu stellen.",
+    "focus": "Passiv und zwei Verfahrensschritte koordinieren"
+  },
+  {
+    "slug": "park-hundebereich-nachfragen",
+    "title": "Eine Beschilderung verstehen",
+    "goal": "Frage nach dem Geltungsbereich einer konkreten Beschilderung.",
+    "setting": "park",
+    "intro": "Das Schild gehört zum eingezäunten Bereich neben der Wiese. Auf der Karte kann ich Ihnen dessen Grenzen zeigen.",
+    "words": [
+      "der Geltungsbereich",
+      "die Beschilderung",
+      "die Grenze"
+    ],
+    "pieces": [
+      "Da die Beschilderung",
+      "uneindeutig ist,",
+      "möchte ich klären,",
+      "auf welchen Bereich",
+      "sie sich bezieht,",
+      "bevor ich",
+      "mit meinem Hund",
+      "die angrenzende Wiese betrete."
+    ],
+    "question": "Du bist unsicher, welchen Bereich das Schild betrifft. Wie fragst du sachlich?",
+    "options": [
+      "Könnten Sie mir auf der Karte zeigen, für welchen Bereich dieses Schild gilt?",
+      "Ich gehe davon aus, dass ein unklar zugeordnetes Schild grundsätzlich nirgendwo gilt.",
+      "Ich beziehe das Schild ungeprüft auf den gesamten Park und verzichte auf die angebotene Karte."
+    ],
+    "explanation": "Die indirekte Frage grenzt den Geltungsbereich ab. „Bevor“ ordnet die Klärung vor die Handlung, ohne aus dem Schild eine allgemeine Vorschrift abzuleiten.",
+    "focus": "Indirekte Frage nach dem Geltungsbereich"
+  },
+  {
+    "slug": "sport-gruppe-passend",
+    "title": "Eine passende Trainingsgruppe",
+    "goal": "Bitte um eine Einschätzung anhand der beschriebenen Vorkenntnisse.",
+    "setting": "sports",
+    "intro": "Die fortgeschrittene Gruppe setzt Erfahrung mit den Grundübungen voraus. In der Einsteigergruppe werden diese zunächst gemeinsam erklärt.",
+    "words": [
+      "die Vorkenntnis",
+      "die Trainingsgruppe",
+      "die Grundübung"
+    ],
+    "pieces": [
+      "Obwohl ich",
+      "regelmäßig Sport treibe,",
+      "kenne ich",
+      "die hier vorausgesetzten Grundübungen",
+      "noch nicht;",
+      "ich würde daher",
+      "zunächst die Einsteigergruppe wählen,",
+      "um die Abläufe",
+      "gründlich kennenzulernen."
+    ],
+    "question": "Du kennst die geforderten Übungen noch nicht. Welche Antwort passt?",
+    "options": [
+      "Ich würde mit der Einsteigergruppe beginnen, damit ich die hier verwendeten Grundübungen kennenlerne.",
+      "Ich wähle die fortgeschrittene Gruppe, weil unbekannte Grundübungen dort ausdrücklich erklärt werden.",
+      "Regelmäßiger Sport beweist bereits, dass ich sämtliche hier vorausgesetzten Übungen kenne."
+    ],
+    "explanation": "„Obwohl“ räumt allgemeine Erfahrung ein, ohne spezielle Vorkenntnisse zu behaupten. „Um … zu“ nennt den Zweck der passenden Gruppenwahl.",
+    "focus": "Konzessive Einschätzung und Lernzweck"
+  },
+  {
+    "slug": "sport-platz-belegung",
+    "title": "Eine Trainingszeit reservieren",
+    "goal": "Finde bei einer belegten Sportfläche eine verfügbare Alternative.",
+    "setting": "sports",
+    "intro": "Das Spielfeld ist am Mittwoch bis 19 Uhr belegt. Ab 19 Uhr könnten Sie es für eine Stunde reservieren.",
+    "words": [
+      "die Belegung",
+      "die Reservierung",
+      "das Spielfeld"
+    ],
+    "pieces": [
+      "Da das Spielfeld",
+      "zur Wunschzeit",
+      "belegt ist,",
+      "würden wir",
+      "das Training auf 19 Uhr verschieben,",
+      "sofern anschließend",
+      "eine Stunde",
+      "für unsere Gruppe",
+      "reserviert werden kann."
+    ],
+    "question": "Deine Gruppe kann auch um 19 Uhr beginnen. Was sagst du?",
+    "options": [
+      "Dann würden wir das Spielfeld gern von 19 bis 20 Uhr reservieren.",
+      "Dann reservieren wir das Spielfeld von 18 bis 19 Uhr, obwohl es bis 19 Uhr belegt ist.",
+      "Wir beginnen um 19 Uhr und möchten deshalb nur die bereits belegte Stunde davor reservieren."
+    ],
+    "explanation": "„Sofern“ bindet den Ersatztermin an eine vollständige Trainingsdauer. Die Antwort übersetzt das angebotene Zeitfenster in eine eindeutige Reservierung.",
+    "focus": "Zeitliche Alternative und Voraussetzung"
+  },
+  {
+    "slug": "sport-teams-ausgleichen",
+    "title": "Ausgewogene Mannschaften",
+    "goal": "Schlage eine nachvollziehbare Verteilung erfahrener Spieler vor.",
+    "setting": "sports",
+    "intro": "In einer Mannschaft spielen bisher alle erfahrenen Teilnehmer. Wir könnten zwei von ihnen in die andere Mannschaft wechseln lassen.",
+    "words": [
+      "die Mannschaft",
+      "die Spielerfahrung",
+      "der Wechsel"
+    ],
+    "pieces": [
+      "Während eine Mannschaft",
+      "deutlich mehr Spielerfahrung hat,",
+      "fehlt sie",
+      "der anderen;",
+      "durch einen Wechsel",
+      "von zwei erfahrenen Teilnehmern",
+      "könnten die Teams",
+      "ausgewogener zusammengestellt",
+      "werden."
+    ],
+    "question": "Du möchtest ein ausgeglicheneres Spiel. Welche Idee passt?",
+    "options": [
+      "Wir könnten zwei erfahrene Teilnehmer in die andere Mannschaft wechseln lassen.",
+      "Wir lassen alle erfahrenen Teilnehmer in derselben Mannschaft und ändern die Verteilung nicht.",
+      "Wir verkleinern die weniger erfahrene Mannschaft, ohne ihre fehlende Spielerfahrung auszugleichen."
+    ],
+    "explanation": "„Während“ beschreibt das Ungleichgewicht. „Durch“ nennt das Mittel; das Passiv betont das Ergebnis einer neuen Zusammenstellung.",
+    "focus": "Vergleich, Mittel und Passiv"
+  },
+  {
+    "slug": "sport-ausruestung-teilen",
+    "title": "Begrenzte Ausrüstung nutzen",
+    "goal": "Vereinbare eine praktikable Reihenfolge für gemeinsam genutzte Geräte.",
+    "setting": "sports",
+    "intro": "Für acht Teilnehmer stehen vier Trainingsgeräte bereit. Jeweils zwei Teilnehmer können sich ein Gerät abwechselnd teilen.",
+    "words": [
+      "das Trainingsgerät",
+      "die Reihenfolge",
+      "die Nutzung"
+    ],
+    "pieces": [
+      "Obwohl nicht",
+      "für jeden Teilnehmer",
+      "ein Gerät bereitsteht,",
+      "können alle",
+      "am Training teilnehmen,",
+      "indem jeweils zwei Personen",
+      "eine Reihenfolge vereinbaren",
+      "und das Gerät",
+      "abwechselnd nutzen."
+    ],
+    "question": "Du möchtest alle acht Teilnehmer einbeziehen. Was schlägst du vor?",
+    "options": [
+      "Wir bilden vier Zweiergruppen und wechseln uns an jedem Gerät nach einer festen Reihenfolge ab.",
+      "Wir teilen nur vier Teilnehmer den Geräten zu; die übrigen vier trainieren nicht mit.",
+      "Wir schließen vier Teilnehmer aus, statt die angebotene abwechselnde Nutzung zu organisieren."
+    ],
+    "explanation": "„Indem“ zeigt, wie eine gemeinsame Nutzung funktioniert. Der konzessive Einstieg benennt die Kapazitätsgrenze, ohne daraus einen Ausschluss abzuleiten.",
+    "focus": "Methode mit indem und Kapazitätskompromiss"
+  },
+  {
+    "slug": "sport-turnier-wetter",
+    "title": "Ein Turnier bei unsicherem Wetter",
+    "goal": "Plane eine Rückmeldung, bevor Teilnehmer anreisen.",
+    "setting": "sports",
+    "intro": "Bei starkem Regen verlegen wir das Turnier in die Halle. Die endgültige Entscheidung treffen wir morgen um 8 Uhr.",
+    "words": [
+      "die Verlegung",
+      "die Halle",
+      "die Entscheidung"
+    ],
+    "pieces": [
+      "Falls das Turnier",
+      "wegen Regens",
+      "in die Halle verlegt wird,",
+      "sollten alle Teilnehmer",
+      "vor ihrer Anreise",
+      "eine Nachricht erhalten,",
+      "damit sie",
+      "zum Veranstaltungsort",
+      "fahren können."
+    ],
+    "question": "Du organisierst die Teilnehmerinformation. Wann und wie informierst du sie?",
+    "options": [
+      "Ich versende nach der Entscheidung um 8 Uhr eine Nachricht mit dem bestätigten Veranstaltungsort.",
+      "Ich bestätige schon heute verbindlich den Außenplatz, obwohl die Entscheidung erst morgen fällt.",
+      "Ich informiere die Teilnehmer erst nach ihrer Ankunft über den tatsächlich bestätigten Veranstaltungsort."
+    ],
+    "explanation": "„Falls“ beschreibt ein mögliches Ereignis; das Passiv konzentriert sich auf die Ortsänderung. Die Nachricht folgt der Bestätigung und geht der Anreise voraus.",
+    "focus": "Bedingtes Ereignis und Informationsreihenfolge"
+  },
+  {
+    "slug": "hotel-ruhiges-zimmer",
+    "title": "Ein Zimmer zur ruhigen Seite",
+    "goal": "Bitte um einen Zimmerwechsel anhand eines konkreten Störfaktors.",
+    "setting": "hotel",
+    "intro": "Ihr Zimmer liegt zur belebten Straße. Ein Zimmer zum Innenhof wäre ab morgen verfügbar.",
+    "words": [
+      "der Innenhof",
+      "der Zimmerwechsel",
+      "der Straßenlärm"
+    ],
+    "pieces": [
+      "Da der Straßenlärm",
+      "deutlich hörbar ist,",
+      "würde ich",
+      "ab morgen",
+      "ein Zimmer zum Innenhof bevorzugen,",
+      "sofern der angebotene Wechsel",
+      "ohne Umzug",
+      "am Folgetag möglich bleibt."
+    ],
+    "question": "Du willst während der übrigen Tage im ruhigeren Zimmer bleiben. Was fragst du?",
+    "options": [
+      "Könnte ich ab morgen für den restlichen Aufenthalt im Zimmer zum Innenhof bleiben?",
+      "Könnte ich heute bereits das Zimmer beziehen, das ausdrücklich erst morgen verfügbar ist?",
+      "Ich möchte weniger Straßenlärm und bevorzuge deshalb ausdrücklich das Zimmer zur belebten Straße."
+    ],
+    "explanation": "„Sofern“ ergänzt eine wichtige Bedingung zur angebotenen Lösung. Die Frage klärt die Dauer des Wechsels, statt die Verfügbarkeit für heute zu unterstellen.",
+    "focus": "Begründete Präferenz und Zusatzbedingung"
+  },
+  {
+    "slug": "hotel-spaete-anreise",
+    "title": "Eine späte Ankunft",
+    "goal": "Kläre die Schlüsselübergabe außerhalb der angekündigten Anmeldezeit.",
+    "setting": "hotel",
+    "intro": "Die Rezeption ist bis 22 Uhr besetzt. Bei späterer Ankunft senden wir Ihnen nach Absprache den Code für den Schlüsselkasten.",
+    "words": [
+      "die Ankunft",
+      "der Schlüsselkasten",
+      "die Absprache"
+    ],
+    "pieces": [
+      "Da mein Zug",
+      "voraussichtlich",
+      "nach 22 Uhr ankommt,",
+      "möchte ich",
+      "die Schlüsselübergabe vorher abstimmen,",
+      "damit ich",
+      "trotz unbesetzter Rezeption",
+      "Zugang zu",
+      "meinem gebuchten Zimmer erhalte."
+    ],
+    "question": "Du erwartest deine Ankunft um 23 Uhr. Was vereinbarst du?",
+    "options": [
+      "Ich komme voraussichtlich um 23 Uhr; könnten Sie mir nach der Absprache den Code für den Schlüsselkasten senden?",
+      "Ich komme um 23 Uhr und erwarte daher die ausdrücklich bis 22 Uhr besetzte Rezeption als geöffnet.",
+      "Bitte senden Sie den Code erst nach meiner Abreise, damit ich bei der Ankunft Zugang erhalte."
+    ],
+    "explanation": "„Voraussichtlich“ berücksichtigt eine mögliche Fahrplanänderung. „Trotz“ benennt das Hindernis, das durch die vorher vereinbarte Schlüsselübergabe überwunden wird.",
+    "focus": "Voraussichtliche Ankunft und Zugang trotz Hindernis"
+  },
+  {
+    "slug": "hotel-rechnung-firma",
+    "title": "Die Rechnung richtig ausstellen",
+    "goal": "Nenne rechtzeitig die benötigten Rechnungsdaten.",
+    "setting": "hotel",
+    "intro": "Ich stelle Ihre Rechnung beim Auschecken aus. Wenn sie an Ihren Arbeitgeber adressiert sein soll, brauche ich vorher dessen Rechnungsanschrift.",
+    "words": [
+      "die Rechnungsanschrift",
+      "der Arbeitgeber",
+      "die Ausstellung"
+    ],
+    "pieces": [
+      "Bevor die Rechnung",
+      "ausgestellt wird,",
+      "möchte ich",
+      "Ihnen die Anschrift",
+      "meines Arbeitgebers geben,",
+      "damit sie",
+      "von Anfang an",
+      "mit den gewünschten Rechnungsdaten",
+      "versehen werden kann."
+    ],
+    "question": "Die Rechnung soll an deinen Arbeitgeber gehen. Was sagst du?",
+    "options": [
+      "Hier ist die Rechnungsanschrift meines Arbeitgebers; bitte verwenden Sie diese bei der Ausstellung.",
+      "Bitte stellen Sie die Rechnung ohne die erforderliche Anschrift aus, damit sie korrekt adressiert ist.",
+      "Ich nenne die Anschrift erst nach der Ausstellung, obwohl sie vorher benötigt wird."
+    ],
+    "explanation": "Der temporale Nebensatz ordnet die Datenübergabe vor die Ausstellung. Das Passiv beschreibt den gewünschten Dokumentzustand, ohne ein späteres Korrekturverfahren vorauszusetzen.",
+    "focus": "Passiv und rechtzeitige Datenübergabe"
+  },
+  {
+    "slug": "hotel-gepaeck-aufbewahren",
+    "title": "Gepäck bis zur Abreise",
+    "goal": "Trenne Zimmerabgabe und spätere Gepäckabholung organisatorisch.",
+    "setting": "hotel",
+    "intro": "Sie müssen das Zimmer bis 11 Uhr abgeben. Ihr Gepäck können wir danach bis 18 Uhr an der Rezeption aufbewahren.",
+    "words": [
+      "die Gepäckaufbewahrung",
+      "die Zimmerabgabe",
+      "die Abreise"
+    ],
+    "pieces": [
+      "Obwohl ich",
+      "das Zimmer",
+      "am Vormittag abgeben muss,",
+      "kann mein Gepäck",
+      "bis zur Abreise",
+      "an der Rezeption bleiben,",
+      "sofern ich",
+      "es vor 18 Uhr",
+      "abhole."
+    ],
+    "question": "Dein Zug fährt um 17 Uhr. Welche Vereinbarung passt?",
+    "options": [
+      "Ich gebe das Zimmer bis 11 Uhr ab und hole das aufbewahrte Gepäck um 16 Uhr wieder ab.",
+      "Ich behalte das Zimmer bis 18 Uhr, weil die Gepäckaufbewahrung so lange möglich ist.",
+      "Ich hole mein Gepäck um 19 Uhr ab, also innerhalb der Aufbewahrung bis 18 Uhr."
+    ],
+    "explanation": "„Obwohl“ verbindet zwei unterschiedliche Fristen. Die Antwort unterscheidet die Zimmerabgabe von der Gepäckaufbewahrung und respektiert beide Zeitgrenzen.",
+    "focus": "Unterschiedliche Fristen und sofern"
+  },
+  {
+    "slug": "hotel-auschecken-verlaengern",
+    "title": "Eine spätere Zimmerabgabe prüfen",
+    "goal": "Erfrage eine mögliche Verlängerung, ohne sie als bestätigt zu behandeln.",
+    "setting": "hotel",
+    "intro": "Eine spätere Zimmerabgabe kann ich erst morgen bestätigen. Sie hängt davon ab, ob das Zimmer anschließend sofort benötigt wird.",
+    "words": [
+      "die Verlängerung",
+      "die Zimmerabgabe",
+      "die Bestätigung"
+    ],
+    "pieces": [
+      "Falls das Zimmer",
+      "morgen nicht",
+      "benötigt wird,",
+      "wäre eine spätere Abgabe",
+      "hilfreich;",
+      "bis zu Ihrer Bestätigung",
+      "plane ich jedoch",
+      "mit der ursprünglichen Uhrzeit."
+    ],
+    "question": "Du möchtest später auschecken, brauchst aber einen verlässlichen Plan. Was sagst du?",
+    "options": [
+      "Bitte prüfen Sie es morgen; bis zu Ihrer Bestätigung halte ich mich an die ursprüngliche Abgabezeit.",
+      "Ich bleibe morgen auf jeden Fall länger, weil eine Prüfung bereits eine Bestätigung ersetzt.",
+      "Bitte bestätigen Sie die Verlängerung heute, obwohl Sie sie ausdrücklich erst morgen prüfen können."
+    ],
+    "explanation": "„Falls“ macht die Verlängerung von der Zimmerplanung abhängig. „Jedoch“ zeigt, dass eine unbestätigte Möglichkeit die bisherige Vereinbarung noch nicht ersetzt.",
+    "focus": "Irreale Bedingung und bestätigte Planung"
+  },
+  {
+    "slug": "kleidung-laenge-aendern",
+    "title": "Eine passende Hosenlänge",
+    "goal": "Frage nach einer Änderung, die ein konkretes Passformproblem löst.",
+    "setting": "clothes",
+    "intro": "Die Hose sitzt am Bund gut, ist aber zu lang. Unser Schneider kann sie kürzen, ohne den Bund zu verändern.",
+    "words": [
+      "die Hosenlänge",
+      "der Bund",
+      "die Änderung"
+    ],
+    "pieces": [
+      "Während die Hose",
+      "am Bund",
+      "gut sitzt,",
+      "ist ihre Länge",
+      "noch unpassend;",
+      "ich würde sie",
+      "kürzen lassen,",
+      "sofern die übrige Passform",
+      "dabei unverändert bleibt."
+    ],
+    "question": "Du möchtest nur die Länge ändern. Welche Bitte passt?",
+    "options": [
+      "Könnten Sie die Hose kürzen lassen, ohne den bereits passenden Bund zu verändern?",
+      "Bitte verändern Sie nur den Bund und lassen Sie die Länge der Hosenbeine unverändert.",
+      "Bitte verlängern Sie die Hosenbeine, statt sie zu kürzen."
+    ],
+    "explanation": "„Während“ trennt zwei Eigenschaften der Passform. „Kürzen lassen“ bezeichnet eine beauftragte Änderung; die Bedingung schützt den bereits passenden Teil.",
+    "focus": "Eigenschaften vergleichen und lassen"
+  },
+  {
+    "slug": "kleidung-material-etikett",
+    "title": "Eine Materialangabe prüfen",
+    "goal": "Stütze eine Materialfrage auf die tatsächliche Kennzeichnung.",
+    "setting": "clothes",
+    "intro": "Das Hemd besteht laut Etikett aus Baumwolle und Polyester. Den genauen Anteil können Sie auf der Innenseite ablesen.",
+    "words": [
+      "die Materialzusammensetzung",
+      "das Etikett",
+      "der Anteil"
+    ],
+    "pieces": [
+      "Da die Materialzusammensetzung",
+      "für meine Auswahl",
+      "eine Rolle spielt,",
+      "möchte ich",
+      "die auf dem Etikett",
+      "angegebenen Anteile vergleichen,",
+      "bevor ich",
+      "mich für",
+      "dieses Hemd entscheide."
+    ],
+    "question": "Du willst den genauen Baumwollanteil wissen. Was fragst du?",
+    "options": [
+      "Könnten Sie mir zeigen, wo auf dem Etikett der Baumwollanteil angegeben ist?",
+      "Könnten Sie bestätigen, dass das Hemd ausschließlich Baumwolle enthält, obwohl Polyester genannt wurde?",
+      "Ich möchte den Anteil vergleichen und verzichte deshalb ausdrücklich auf die vorhandene Kennzeichnung."
+    ],
+    "explanation": "Das Partizipialattribut „angegebenen“ verweist auf belegbare Informationen. Die Frage sucht den tatsächlichen Anteil, statt aus einer allgemeinen Stoffbezeichnung einen Anteil abzuleiten.",
+    "focus": "Partizipialattribut und belegbarer Vergleich"
+  },
+  {
+    "slug": "kleidung-lieferfrist",
+    "title": "Ein Anzug für einen Termin",
+    "goal": "Kläre, ob eine Bestellung rechtzeitig eintreffen könnte.",
+    "setting": "clothes",
+    "intro": "Die gewünschte Größe müssten wir bestellen. Die Lieferung dauert voraussichtlich zehn Tage; einen festen Termin kann ich nicht zusagen.",
+    "words": [
+      "die Lieferfrist",
+      "die Zusage",
+      "der Anlass"
+    ],
+    "pieces": [
+      "Da ich",
+      "den Anzug",
+      "in einer Woche benötige,",
+      "wäre die voraussichtliche Lieferfrist",
+      "zu lang;",
+      "ich würde daher",
+      "nach einer sofort",
+      "verfügbaren Alternative fragen."
+    ],
+    "question": "Du brauchst den Anzug in sieben Tagen. Welche Antwort passt?",
+    "options": [
+      "Könnten Sie mir eine passende Alternative zeigen, die bereits hier verfügbar ist?",
+      "Ich bestelle die gewünschte Größe und gehe ohne Zusage davon aus, dass sie innerhalb einer Woche eintrifft.",
+      "Bitte bestätigen Sie die unverbindliche Zehntagesfrist als sichere Lieferung vor meinem Termin in sieben Tagen."
+    ],
+    "explanation": "„Voraussichtlich“ macht die Lieferangabe unverbindlich. „Daher“ leitet aus dem Zeitvergleich eine konkrete Suche nach einer verfügbaren Alternative ab.",
+    "focus": "Unverbindliche Frist und begründete Alternative"
+  },
+  {
+    "slug": "kleidung-umtausch-bedingung",
+    "title": "Eine Größe als Geschenk",
+    "goal": "Kläre die genannten Umtauschbedingungen vor einem Geschenkkauf.",
+    "setting": "clothes",
+    "intro": "Für einen Umtausch in eine andere Größe muss das Etikett dranbleiben und der Kaufbeleg mitgebracht werden.",
+    "words": [
+      "der Umtausch",
+      "der Kaufbeleg",
+      "das Etikett"
+    ],
+    "pieces": [
+      "Falls die Größe",
+      "meinem Bruder",
+      "nicht passen sollte,",
+      "möchte ich",
+      "sie umtauschen können;",
+      "ich werde deshalb",
+      "das Etikett befestigt lassen",
+      "und den Kaufbeleg",
+      "aufbewahren."
+    ],
+    "question": "Du kaufst ein Hemd für deinen Bruder. Was bestätigst du dem Mitarbeiter?",
+    "options": [
+      "Ich lasse das Etikett dran und gebe meinem Bruder den Kaufbeleg für einen möglichen Größenumtausch.",
+      "Ich entferne das Etikett und bewahre den Kaufbeleg für einen Umtausch nicht auf.",
+      "Ich gehe ohne Rückfrage davon aus, dass die genannten Bedingungen für meinen Bruder nicht gelten."
+    ],
+    "explanation": "„Sollte“ beschreibt hier einen möglichen künftigen Fall. Die Antwort übernimmt nur die konkret genannten Bedingungen und leitet keine allgemeinen Umtauschrechte daraus ab.",
+    "focus": "Möglicher Fall mit sollte und Bedingungen erfüllen"
+  },
+  {
+    "slug": "kleidung-jacke-abwaegen",
+    "title": "Zwei Jacken vergleichen",
+    "goal": "Wäge Gewicht und Stauraum anhand deiner Nutzung ab.",
+    "setting": "clothes",
+    "intro": "Die leichte Jacke hat kaum Taschen. Die schwerere hat mehrere große Taschen und eignet sich besser zum Verstauen kleiner Gegenstände.",
+    "words": [
+      "das Gewicht",
+      "der Stauraum",
+      "der Vergleich"
+    ],
+    "pieces": [
+      "Obwohl die schwerere Jacke",
+      "mehr Stauraum bietet,",
+      "würde ich",
+      "für meinen täglichen Weg",
+      "die leichtere wählen,",
+      "da ich",
+      "meine Gegenstände ohnehin",
+      "in einem Rucksack",
+      "transportiere."
+    ],
+    "question": "Du trägst ohnehin einen Rucksack und möchtest eine leichte Jacke. Was passt?",
+    "options": [
+      "Dann nehme ich die leichtere Jacke; die zusätzlichen Taschen brauche ich wegen meines Rucksacks nicht.",
+      "Dann nehme ich die schwerere Jacke, obwohl ich für meinen Weg ausdrücklich ein geringes Gewicht möchte.",
+      "Ich entscheide allein nach der Zahl der Taschen und berücksichtige meinen vorhandenen Rucksack nicht."
+    ],
+    "explanation": "„Obwohl“ erkennt einen Vorteil der anderen Option an. „Ohnehin“ zeigt, dass der eigene Rucksack diesen Vorteil für die konkrete Nutzung weniger wichtig macht.",
+    "focus": "Kriterien abwägen und ohnehin"
+  },
+  {
+    "slug": "markt-preis-gewicht",
+    "title": "Zwei Angebote richtig vergleichen",
+    "goal": "Vergleiche Angebote auf derselben Mengenbasis.",
+    "setting": "market",
+    "intro": "Der kleine Beutel wiegt 500 Gramm, der große ein Kilogramm. Die ausgezeichneten Preise gelten jeweils für den ganzen Beutel.",
+    "words": [
+      "der Grundpreis",
+      "das Gewicht",
+      "der Beutel"
+    ],
+    "pieces": [
+      "Da die Beutel",
+      "unterschiedlich viel wiegen,",
+      "lassen sich",
+      "ihre Gesamtpreise",
+      "nicht unmittelbar vergleichen;",
+      "ich möchte deshalb",
+      "den Preis",
+      "pro Kilogramm berechnen,",
+      "bevor ich mich entscheide."
+    ],
+    "question": "Du möchtest den Mengenunterschied berücksichtigen. Welche Frage passt?",
+    "options": [
+      "Wie hoch ist bei jedem Beutel der Preis pro Kilogramm?",
+      "Ich vergleiche ausschließlich die Gesamtpreise und lasse das unterschiedliche Gewicht außer Acht.",
+      "Ich behandle beide Beutel ungeprüft als gleich schwere Mengen."
+    ],
+    "explanation": "„Lassen sich“ beschreibt die Vergleichbarkeit. Die gemeinsame Mengenbasis ermöglicht einen sachgerechten Vergleich, ohne eine persönliche Kaufentscheidung vorzugeben.",
+    "focus": "Vergleichbarkeit mit lassen sich und Bezugsgröße"
+  },
+  {
+    "slug": "markt-herkunft-nachweis",
+    "title": "Die Herkunft nachvollziehen",
+    "goal": "Frage nach konkreten Herkunftsangaben statt nach einer pauschalen Aussage.",
+    "setting": "market",
+    "intro": "Ein Teil des Obstes stammt aus der Region, ein anderer von weiter her. Auf jedem Schild ist das Herkunftsgebiet angegeben.",
+    "words": [
+      "die Herkunft",
+      "das Herkunftsgebiet",
+      "die Kennzeichnung"
+    ],
+    "pieces": [
+      "Während einige Früchte",
+      "aus der Region stammen,",
+      "werden andere",
+      "von weiter her geliefert;",
+      "ich möchte",
+      "die jeweilige Kennzeichnung lesen,",
+      "um die Herkunft",
+      "der Angebote",
+      "nachzuvollziehen."
+    ],
+    "question": "Du möchtest ausschließlich regionale Früchte auswählen. Was fragst du?",
+    "options": [
+      "Könnten Sie mir zeigen, welche Angebote auf ihren Schildern eine regionale Herkunft ausweisen?",
+      "Ich gehe davon aus, dass sämtliche Früchte regional sind, obwohl unterschiedliche Herkunftsgebiete genannt wurden.",
+      "Ich wähle beliebige Früchte aus und verzichte auf die Prüfung ihrer jeweiligen Herkunftsschilder."
+    ],
+    "explanation": "„Während“ kontrastiert zwei Gruppen. „Jeweilige“ und „einzelnen“ verlangen eine Zuordnung pro Angebot statt einer unbelegten Aussage über das gesamte Sortiment.",
+    "focus": "Differenzierter Vergleich und Herkunftszuordnung"
+  },
+  {
+    "slug": "markt-menge-verkleinern",
+    "title": "Eine passende Portion",
+    "goal": "Bitte trotz eines Mengenangebots um die tatsächlich benötigte Menge.",
+    "setting": "market",
+    "intro": "Das Angebot gilt für zwei Kilogramm. Sie können auch ein halbes Kilogramm kaufen, dann gilt der reguläre Kilopreis.",
+    "words": [
+      "die Portion",
+      "der Bedarf",
+      "das Mengenangebot"
+    ],
+    "pieces": [
+      "Auch wenn",
+      "das Angebot",
+      "preislich günstiger erscheint,",
+      "brauche ich",
+      "nur ein halbes Kilogramm;",
+      "ich würde deshalb",
+      "die kleinere Portion nehmen,",
+      "damit nichts",
+      "unnötig übrig bleibt."
+    ],
+    "question": "Du benötigst nur ein halbes Kilogramm. Welche Antwort passt?",
+    "options": [
+      "Bitte wiegen Sie mir ein halbes Kilogramm zum regulären Kilopreis ab.",
+      "Bitte geben Sie mir ein halbes Kilogramm zum Gesamtpreis des Angebots für zwei Kilogramm.",
+      "Ich nehme zwei Kilogramm, weil mein Bedarf ausdrücklich bei einem halben Kilogramm liegt."
+    ],
+    "explanation": "„Auch wenn“ räumt den Preisvorteil ein. Die passende Antwort respektiert die angebotene Mengenwahl und die dafür ausdrücklich genannten Preiskonditionen.",
+    "focus": "Konzessive Mengenentscheidung und klarer Bedarf"
+  },
+  {
+    "slug": "markt-eigener-behaelter",
+    "title": "Mit einem eigenen Behälter",
+    "goal": "Kläre den Ablauf beim Befüllen eines mitgebrachten Behälters.",
+    "setting": "market",
+    "intro": "Ihren eigenen Behälter können wir verwenden. Ich muss ihn zuerst leer wiegen, damit sein Gewicht nicht zur Ware zählt.",
+    "words": [
+      "der Behälter",
+      "das Leergewicht",
+      "die Befüllung"
+    ],
+    "pieces": [
+      "Bevor der mitgebrachte Behälter",
+      "mit der Ware",
+      "befüllt wird,",
+      "sollte sein Leergewicht",
+      "erfasst werden,",
+      "damit anschließend",
+      "nur das tatsächliche Gewicht",
+      "des gekauften Inhalts",
+      "berechnet wird."
+    ],
+    "question": "Du möchtest deinen leeren Behälter nutzen. Was tust du zuerst?",
+    "options": [
+      "Ich gebe Ihnen zuerst den leeren Behälter zum Wiegen und lasse ihn danach befüllen.",
+      "Ich lasse den Behälter zuerst befüllen und frage erst danach nach seinem Leergewicht.",
+      "Ich lasse das Gewicht des Behälters bei der Berechnung zur Ware dazuzählen."
+    ],
+    "explanation": "„Bevor“ ordnet Wiegen und Befüllen. Beide Passivformen richten den Blick auf das Verfahren; „damit“ erklärt den Zweck des erfassten Leergewichts.",
+    "focus": "Temporale Reihenfolge und Passiv"
+  },
+  {
+    "slug": "markt-abholung-ende",
+    "title": "Eine Abholung zum Marktende",
+    "goal": "Vereinbare eine realistische Abholzeit vor dem Abbau.",
+    "setting": "market",
+    "intro": "Ich kann die bestellte Kiste bis 13 Uhr zurückstellen. Um 13 Uhr beginnen wir den Stand abzubauen.",
+    "words": [
+      "die Abholzeit",
+      "der Marktstand",
+      "der Abbau"
+    ],
+    "pieces": [
+      "Da der Marktstand",
+      "ab 13 Uhr",
+      "abgebaut wird,",
+      "werde ich",
+      "die Kiste",
+      "um halb eins abholen,",
+      "damit die Übergabe",
+      "noch vor",
+      "dem Abbau",
+      "stattfinden kann."
+    ],
+    "question": "Du kannst um 12:30 Uhr kommen. Welche Vereinbarung passt?",
+    "options": [
+      "Ich hole die Kiste um 12:30 Uhr ab, also vor Beginn des Abbaus.",
+      "Ich komme erst um 13:30 Uhr und rechne weiterhin mit einer möglichen Übergabe am Stand.",
+      "Bitte legen Sie die Kiste ohne weitere Absprache bis 14 Uhr zurück."
+    ],
+    "explanation": "Das Passiv beschreibt den zeitlichen Rahmen am Stand. Die gewählte Abholzeit ermöglicht eine Übergabe innerhalb der zugesagten Zeit vor Beginn des Abbaus.",
+    "focus": "Passiv und Abholung vor Zeitgrenze"
+  },
+  {
+    "slug": "stadt-buergerbuero-termin",
+    "title": "Den richtigen Schalter finden",
+    "goal": "Kläre die Zuständigkeit für einen bereits gebuchten Termin.",
+    "setting": "city",
+    "intro": "Für Ihre Anmeldung ist Schalter drei zuständig. Schalter eins bearbeitet heute ausschließlich Ausweisanträge.",
+    "words": [
+      "die Zuständigkeit",
+      "der Schalter",
+      "die Anmeldung"
+    ],
+    "pieces": [
+      "Während an Schalter eins",
+      "nur Ausweisanträge",
+      "bearbeitet werden,",
+      "ist Schalter drei",
+      "für meine Anmeldung zuständig;",
+      "ich werde mich",
+      "mit meiner Terminbestätigung",
+      "an",
+      "diesen Schalter wenden."
+    ],
+    "question": "Du hast einen Termin für die Anmeldung. Wohin gehst du?",
+    "options": [
+      "Ich gehe mit meiner Terminbestätigung zu Schalter drei, der für die Anmeldung zuständig ist.",
+      "Ich gehe zu Schalter eins, weil Ausweisanträge und meine Anmeldung ausdrücklich dieselbe Zuständigkeit haben.",
+      "Ich warte an Schalter eins, obwohl dort meine Anmeldung heute nicht bearbeitet wird."
+    ],
+    "explanation": "„Während“ unterscheidet zwei Zuständigkeiten. Das Passiv beschreibt das Angebot eines Schalters, „daher“ führt zur aus der Auskunft abgeleiteten Handlung.",
+    "focus": "Zuständigkeiten gegenüberstellen und Passiv"
+  },
+  {
+    "slug": "stadt-treffpunkt-baustelle",
+    "title": "Ein Treffpunkt trotz Baustelle",
+    "goal": "Schlage einen eindeutig erreichbaren Ersatztreffpunkt vor.",
+    "setting": "city",
+    "intro": "Der Haupteingang des Rathauses ist wegen Bauarbeiten geschlossen. Der Seiteneingang am Brunnen bleibt geöffnet.",
+    "words": [
+      "der Treffpunkt",
+      "der Seiteneingang",
+      "die Bauarbeit"
+    ],
+    "pieces": [
+      "Da der",
+      "vereinbarte Treffpunkt",
+      "am geschlossenen Haupteingang liegt,",
+      "sollten wir",
+      "zum Seiteneingang am Brunnen wechseln,",
+      "damit sich",
+      "alle Teilnehmer",
+      "trotz der Bauarbeiten",
+      "eindeutig orientieren können."
+    ],
+    "question": "Deine Gruppe trifft sich sonst am Haupteingang. Welche Nachricht passt?",
+    "options": [
+      "Wir treffen uns stattdessen am geöffneten Seiteneingang am Brunnen; bitte orientiert euch an diesem neuen Treffpunkt.",
+      "Wir behalten den geschlossenen Haupteingang als Treffpunkt und berücksichtigen den Ersatz nicht.",
+      "Wir ändern den Treffpunkt, teilen aber keinem Teilnehmer die neue Stelle mit."
+    ],
+    "explanation": "Das Partizipialattribut „vereinbarte“ verweist auf die bisherige Absprache. Die Ortsänderung und ihre klare Bekanntgabe lösen das durch Bauarbeiten entstandene Problem.",
+    "focus": "Treffpunktänderung begründen und Zweck"
+  },
+  {
+    "slug": "stadt-formular-abgrenzen",
+    "title": "Das passende Formular",
+    "goal": "Frage nach dem Formular für dein konkretes Verwaltungsanliegen.",
+    "setting": "city",
+    "intro": "Dieses Formular ist für einen Umzug innerhalb der Stadt. Für einen Zuzug aus einer anderen Stadt benötigen Sie ein anderes.",
+    "words": [
+      "das Formular",
+      "der Zuzug",
+      "das Anliegen"
+    ],
+    "pieces": [
+      "Da ich",
+      "aus einer anderen Stadt zuziehe,",
+      "scheint dieses Formular",
+      "nicht zu",
+      "meinem Anliegen zu passen;",
+      "könnten Sie mir",
+      "die passende Fassung",
+      "geben?"
+    ],
+    "question": "Du ziehst erstmals aus einer anderen Stadt hierher. Was fragst du?",
+    "options": [
+      "Könnten Sie mir bitte das Formular für einen Zuzug aus einer anderen Stadt geben?",
+      "Könnten Sie bestätigen, dass mein Zuzug aus einer anderen Stadt ein Umzug innerhalb dieser Stadt ist?",
+      "Ich verwende das ausdrücklich unpassende Formular, damit mein Anliegen korrekt zugeordnet wird."
+    ],
+    "explanation": "„Scheint“ formuliert die Einschätzung vorsichtig. Die Antwort übernimmt die vom Mitarbeiter erläuterte Unterscheidung und fragt nach dem konkret passenden Formular.",
+    "focus": "Vorsichtige Einschätzung und administrative Abgrenzung"
+  },
+  {
+    "slug": "stadt-veranstaltung-einlass",
+    "title": "Rechtzeitig bei einer Veranstaltung",
+    "goal": "Unterscheide Beginn und frühere Einlasszeit bei deiner Planung.",
+    "setting": "city",
+    "intro": "Das Konzert beginnt um 19 Uhr. Der Einlass öffnet schon um 18 Uhr, und für die Garderobe sollten Sie zusätzliche Zeit einplanen.",
+    "words": [
+      "der Einlass",
+      "die Garderobe",
+      "der Veranstaltungsbeginn"
+    ],
+    "pieces": [
+      "Obwohl das Konzert",
+      "erst um 19 Uhr beginnt,",
+      "werde ich",
+      "zum Einlass",
+      "um 18 Uhr kommen,",
+      "damit ich",
+      "vor Veranstaltungsbeginn",
+      "Zeit",
+      "für die Garderobe habe."
+    ],
+    "question": "Du möchtest deine Jacke ohne Zeitdruck abgeben. Wann kommst du?",
+    "options": [
+      "Ich komme gegen 18 Uhr zum Einlass und erledige die Garderobe vor dem Konzertbeginn.",
+      "Ich komme erst nach 19 Uhr und erledige die Garderobe während des bereits laufenden Konzerts.",
+      "Ich halte 18 Uhr für den Konzertbeginn und unterscheide ihn nicht von der Einlasszeit."
+    ],
+    "explanation": "„Obwohl“ erklärt, warum die frühe Ankunft sinnvoll ist. Die Antwort unterscheidet zwei im Gespräch ausdrücklich genannte Zeitpunkte und berücksichtigt den zusätzlichen Ablauf.",
+    "focus": "Zwei Zeitpunkte unterscheiden und Zweck"
+  },
+  {
+    "slug": "stadt-verkehrsdiskussion",
+    "title": "Einen Einwand begründen",
+    "goal": "Beteilige dich mit einem konstruktiven Vorschlag an einer lokalen Diskussion.",
+    "setting": "city",
+    "intro": "Wir diskutieren eine Sperrung der Straße am Wochenende. Der Lieferverkehr der dortigen Geschäfte müsste dabei berücksichtigt werden.",
+    "words": [
+      "der Lieferverkehr",
+      "die Straßensperrung",
+      "der Einwand"
+    ],
+    "pieces": [
+      "Auch wenn",
+      "eine verkehrsarme Straße",
+      "am Wochenende attraktiv wäre,",
+      "sollte der Lieferverkehr",
+      "berücksichtigt werden;",
+      "ein festes Zeitfenster",
+      "für Anlieferungen könnte",
+      "die unterschiedlichen Interessen",
+      "miteinander verbinden."
+    ],
+    "question": "Du unterstützt die Idee, möchtest aber Lieferungen ermöglichen. Was schlägst du vor?",
+    "options": [
+      "Ich unterstütze die Sperrung, sofern für notwendige Anlieferungen ein klar geregeltes Zeitfenster vorgesehen wird.",
+      "Ich unterstütze die Sperrung, möchte aber sämtliche Anlieferungen am Wochenende grundsätzlich ausschließen.",
+      "Ich lehne jede Diskussion über eine Sperrung ab und möchte keinen Ausgleich zwischen den Interessen suchen."
+    ],
+    "explanation": "„Auch wenn“ räumt einen Vorteil ein, bevor ein weiterer Belang ergänzt wird. Der Konjunktiv II kennzeichnet den vorgeschlagenen Ausgleich als mögliche Lösung.",
+    "focus": "Konstruktiver Einwand und Interessenausgleich"
+  }
+]

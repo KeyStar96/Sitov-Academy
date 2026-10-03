@@ -1,0 +1,2502 @@
+[
+  {
+    "slug": "find-milk",
+    "title": "Milch finden",
+    "goal": "Frag nach einem Produkt.",
+    "setting": "supermarket",
+    "intro": "Verkäufer Paul sagt: Die Milch ist hinten links.",
+    "words": [
+      "die Milch",
+      "das Regal",
+      "links"
+    ],
+    "pieces": [
+      "Wo",
+      "ist",
+      "die Milch?"
+    ],
+    "question": "Wo gehst du hin?",
+    "options": [
+      "Nach hinten links.",
+      "Nach vorne rechts.",
+      "Zur Kasse vorne."
+    ],
+    "explanation": "Hinten links bezeichnet den Ort der Milch.",
+    "focus": "Ortsangaben"
+  },
+  {
+    "slug": "buy-apples",
+    "title": "Äpfel kaufen",
+    "goal": "Nenne die gewünschte Menge.",
+    "setting": "supermarket",
+    "intro": "Verkäufer Paul fragt: Wie viele Äpfel möchten Sie? Du brauchst drei.",
+    "words": [
+      "der Apfel",
+      "die Tüte",
+      "drei"
+    ],
+    "pieces": [
+      "Ich",
+      "möchte",
+      "drei Äpfel."
+    ],
+    "question": "Was antwortest du?",
+    "options": [
+      "Drei Äpfel, bitte.",
+      "Zwei Äpfel, bitte.",
+      "Einen Apfel, bitte."
+    ],
+    "explanation": "Drei nennt die passende Anzahl; Äpfel ist der Plural.",
+    "focus": "Zahlen und Plural"
+  },
+  {
+    "slug": "check-price",
+    "title": "Den Preis fragen",
+    "goal": "Erfrage einen Preis.",
+    "setting": "supermarket",
+    "intro": "Verkäufer Paul sagt: Der Reis kostet zwei Euro.",
+    "words": [
+      "der Reis",
+      "der Preis",
+      "der Euro"
+    ],
+    "pieces": [
+      "Wie viel",
+      "kostet",
+      "der Reis?"
+    ],
+    "question": "Wie viel bezahlst du?",
+    "options": [
+      "Zwei Euro.",
+      "Drei Euro.",
+      "Vier Euro."
+    ],
+    "explanation": "Wie viel fragt nach dem Preis eines Produkts.",
+    "focus": "W-Frage mit kosten"
+  },
+  {
+    "slug": "pay-by-card",
+    "title": "Mit Karte zahlen",
+    "goal": "Wähle eine Zahlungsart.",
+    "setting": "supermarket",
+    "intro": "Kassierer Paul fragt: Bar oder mit Karte? Du hast nur deine Karte.",
+    "words": [
+      "die Karte",
+      "die Kasse",
+      "bar"
+    ],
+    "pieces": [
+      "Ich",
+      "bezahle",
+      "mit Karte."
+    ],
+    "question": "Was sagst du?",
+    "options": [
+      "Mit Karte, bitte.",
+      "Ich bezahle bar.",
+      "Ich habe Bargeld."
+    ],
+    "explanation": "Mit Karte benennt die verfügbare Zahlungsart.",
+    "focus": "Präsens und mit"
+  },
+  {
+    "slug": "bring-bag",
+    "title": "Die eigene Tasche",
+    "goal": "Reagiere auf ein Angebot.",
+    "setting": "supermarket",
+    "intro": "Kassierer Paul fragt: Brauchen Sie eine Tüte? Deine Tasche ist dabei.",
+    "words": [
+      "die Tasche",
+      "die Tüte",
+      "brauchen"
+    ],
+    "pieces": [
+      "Ich",
+      "brauche",
+      "keine Tüte."
+    ],
+    "question": "Welche Antwort passt?",
+    "options": [
+      "Nein, ich habe eine Tasche.",
+      "Ja, eine Tüte, bitte.",
+      "Ich brauche zwei Tüten."
+    ],
+    "explanation": "Keine verneint das Nomen Tüte.",
+    "focus": "Negation mit kein"
+  },
+  {
+    "slug": "free-table",
+    "title": "Ein freier Tisch",
+    "goal": "Frag nach einem Sitzplatz.",
+    "setting": "cafe",
+    "intro": "Kellner Emil sagt: Dieser Tisch ist frei. Du möchtest dort sitzen.",
+    "words": [
+      "der Tisch",
+      "der Stuhl",
+      "frei"
+    ],
+    "pieces": [
+      "Ist",
+      "dieser Tisch",
+      "frei?"
+    ],
+    "question": "Welche Antwort passt?",
+    "options": [
+      "Danke, ich setze mich hier.",
+      "Schade, hier ist kein Platz.",
+      "Dann bleibe ich draußen."
+    ],
+    "explanation": "Frei bedeutet: Du kannst den Tisch benutzen.",
+    "focus": "Ja-Nein-Frage"
+  },
+  {
+    "slug": "coffee-no-sugar",
+    "title": "Kaffee ohne Zucker",
+    "goal": "Bestelle mit einem Wunsch.",
+    "setting": "cafe",
+    "intro": "Kellner Emil fragt: Mit Zucker? Du möchtest keinen Zucker.",
+    "words": [
+      "der Kaffee",
+      "der Zucker",
+      "ohne"
+    ],
+    "pieces": [
+      "Ich möchte",
+      "einen Kaffee",
+      "ohne Zucker."
+    ],
+    "question": "Was antwortest du?",
+    "options": [
+      "Ohne Zucker, bitte.",
+      "Mit viel Zucker, bitte.",
+      "Zwei Stück Zucker, bitte."
+    ],
+    "explanation": "Ohne nennt hier etwas, das im Kaffee fehlen soll.",
+    "focus": "Akkusativ und ohne"
+  },
+  {
+    "slug": "takeaway-tea",
+    "title": "Tee zum Mitnehmen",
+    "goal": "Bestelle für unterwegs.",
+    "setting": "cafe",
+    "intro": "Kellner Emil fragt: Hier trinken? Du musst gleich gehen.",
+    "words": [
+      "der Tee",
+      "der Becher",
+      "mitnehmen"
+    ],
+    "pieces": [
+      "Ich nehme",
+      "den Tee",
+      "mit."
+    ],
+    "question": "Welche Antwort passt?",
+    "options": [
+      "Zum Mitnehmen, bitte.",
+      "Ich trinke ihn hier.",
+      "Ich bleibe am Tisch."
+    ],
+    "explanation": "Mitnehmen ist trennbar: mit steht am Satzende.",
+    "focus": "Trennbares Verb mitnehmen"
+  },
+  {
+    "slug": "ask-bill",
+    "title": "Die Rechnung",
+    "goal": "Bitte um die Rechnung.",
+    "setting": "cafe",
+    "intro": "Kellner Emil fragt: Möchten Sie noch etwas? Du bist fertig.",
+    "words": [
+      "die Rechnung",
+      "bezahlen",
+      "fertig"
+    ],
+    "pieces": [
+      "Ich möchte",
+      "jetzt",
+      "bezahlen."
+    ],
+    "question": "Was sagst du?",
+    "options": [
+      "Die Rechnung, bitte.",
+      "Noch einen Tee, bitte.",
+      "Ich möchte noch Kuchen."
+    ],
+    "explanation": "Die Rechnung ist die passende Bitte vor dem Bezahlen.",
+    "focus": "Modalverb möchten"
+  },
+  {
+    "slug": "find-toilet",
+    "title": "Die Toilette finden",
+    "goal": "Verstehe eine Ortsangabe.",
+    "setting": "cafe",
+    "intro": "Kellner Emil sagt: Die Toilette ist oben, neben der Treppe.",
+    "words": [
+      "die Toilette",
+      "die Treppe",
+      "oben"
+    ],
+    "pieces": [
+      "Wo",
+      "ist",
+      "die Toilette?"
+    ],
+    "question": "Wo gehst du hin?",
+    "options": [
+      "Nach oben zur Treppe.",
+      "Nach unten zur Tür.",
+      "Nach draußen zum Eingang."
+    ],
+    "explanation": "Oben bezeichnet eine höhere Etage.",
+    "focus": "Wo und Ortsangaben"
+  },
+  {
+    "slug": "departure-time",
+    "title": "Die Abfahrt",
+    "goal": "Frag nach der Uhrzeit.",
+    "setting": "station",
+    "intro": "Mitarbeiter Jonas sagt: Der Zug fährt um zehn Uhr ab.",
+    "words": [
+      "der Zug",
+      "die Abfahrt",
+      "die Uhr"
+    ],
+    "pieces": [
+      "Wann",
+      "fährt der Zug",
+      "ab?"
+    ],
+    "question": "Wann fährt der Zug?",
+    "options": [
+      "Um zehn Uhr.",
+      "Um neun Uhr.",
+      "Um elf Uhr."
+    ],
+    "explanation": "Um steht bei einer genauen Uhrzeit.",
+    "focus": "Uhrzeit und abfahren"
+  },
+  {
+    "slug": "right-platform",
+    "title": "Das richtige Gleis",
+    "goal": "Finde deinen Bahnsteig.",
+    "setting": "station",
+    "intro": "Mitarbeiter Jonas sagt: Ihr Zug steht auf Gleis vier.",
+    "words": [
+      "das Gleis",
+      "der Bahnhof",
+      "vier"
+    ],
+    "pieces": [
+      "Der Zug",
+      "steht",
+      "auf Gleis vier."
+    ],
+    "question": "Welches Gleis brauchst du?",
+    "options": [
+      "Gleis vier.",
+      "Gleis zwei.",
+      "Gleis sechs."
+    ],
+    "explanation": "Die Zahl vier bestimmt das richtige Gleis.",
+    "focus": "Zahlen und auf"
+  },
+  {
+    "slug": "single-ticket",
+    "title": "Eine Fahrkarte",
+    "goal": "Nenne dein Reiseziel.",
+    "setting": "station",
+    "intro": "Mitarbeiter Jonas fragt: Wohin fahren Sie? Du fährst nach Bonn.",
+    "words": [
+      "die Fahrkarte",
+      "das Ziel",
+      "fahren"
+    ],
+    "pieces": [
+      "Ich",
+      "fahre",
+      "nach Bonn."
+    ],
+    "question": "Welche Antwort passt?",
+    "options": [
+      "Eine Fahrkarte nach Bonn, bitte.",
+      "Eine Fahrkarte nach Essen, bitte.",
+      "Eine Fahrkarte nach Kiel, bitte."
+    ],
+    "explanation": "Nach steht bei Städten ohne Artikel.",
+    "focus": "Zielangabe mit nach"
+  },
+  {
+    "slug": "return-ticket",
+    "title": "Hin und zurück",
+    "goal": "Bestelle zwei Fahrten.",
+    "setting": "station",
+    "intro": "Mitarbeiter Jonas fragt: Nur hin? Du kommst heute auch zurück.",
+    "words": [
+      "die Rückfahrt",
+      "heute",
+      "zurück"
+    ],
+    "pieces": [
+      "Ich fahre",
+      "heute auch",
+      "zurück."
+    ],
+    "question": "Was bestellst du?",
+    "options": [
+      "Hin und zurück, bitte.",
+      "Nur die Hinfahrt, bitte.",
+      "Nur die Rückfahrt, bitte."
+    ],
+    "explanation": "Hin und zurück umfasst beide Richtungen.",
+    "focus": "Präsens und auch"
+  },
+  {
+    "slug": "delayed-train",
+    "title": "Der Zug kommt später",
+    "goal": "Verstehe eine Verspätung.",
+    "setting": "station",
+    "intro": "Mitarbeiter Jonas sagt: Der Zug kommt zehn Minuten später.",
+    "words": [
+      "die Minute",
+      "später",
+      "warten"
+    ],
+    "pieces": [
+      "Ich",
+      "warte",
+      "zehn Minuten."
+    ],
+    "question": "Was weißt du jetzt?",
+    "options": [
+      "Der Zug hat Verspätung.",
+      "Der Zug ist schon weg.",
+      "Der Zug kommt früher."
+    ],
+    "explanation": "Später bedeutet hier, dass der Zug Verspätung hat.",
+    "focus": "Zeitangaben"
+  },
+  {
+    "slug": "bus-destination",
+    "title": "Der Bus zur Schule",
+    "goal": "Prüfe eine Buslinie.",
+    "setting": "transport",
+    "intro": "Fahrer Tim sagt: Dieser Bus fährt zur Schule. Du hast dort Unterricht.",
+    "words": [
+      "der Bus",
+      "die Schule",
+      "die Haltestelle"
+    ],
+    "pieces": [
+      "Fährt",
+      "dieser Bus",
+      "zur Schule?"
+    ],
+    "question": "Welche Antwort passt?",
+    "options": [
+      "Gut, ich steige ein.",
+      "Dann nehme ich einen anderen Bus.",
+      "Ich warte auf den Schulbus."
+    ],
+    "explanation": "Einsteigen passt, weil der Bus zu deinem Ziel fährt.",
+    "focus": "Trennbares Verb einsteigen"
+  },
+  {
+    "slug": "next-stop",
+    "title": "Die nächste Haltestelle",
+    "goal": "Erfrage den nächsten Halt.",
+    "setting": "transport",
+    "intro": "Fahrer Tim sagt: Die nächste Haltestelle heißt Rathaus.",
+    "words": [
+      "das Rathaus",
+      "die Haltestelle",
+      "nächste"
+    ],
+    "pieces": [
+      "Wie",
+      "heißt",
+      "die nächste Haltestelle?"
+    ],
+    "question": "Wo hält der Bus als Nächstes?",
+    "options": [
+      "Am Rathaus.",
+      "Am Bahnhof.",
+      "Am Markt."
+    ],
+    "explanation": "Heißt fragt nach dem Namen der Haltestelle.",
+    "focus": "W-Frage mit heißen"
+  },
+  {
+    "slug": "change-at-center",
+    "title": "In der Mitte umsteigen",
+    "goal": "Verstehe einen Linienwechsel.",
+    "setting": "transport",
+    "intro": "Fahrer Tim sagt: Zum Zoo steigen Sie am Zentrum um.",
+    "words": [
+      "das Zentrum",
+      "der Zoo",
+      "umsteigen"
+    ],
+    "pieces": [
+      "Ich steige",
+      "am Zentrum",
+      "um."
+    ],
+    "question": "Wo wechselst du den Bus?",
+    "options": [
+      "Am Zentrum.",
+      "Am Zoo.",
+      "Am Bahnhof."
+    ],
+    "explanation": "Umsteigen bedeutet: das Verkehrsmittel oder die Linie wechseln.",
+    "focus": "Trennbares Verb umsteigen"
+  },
+  {
+    "slug": "show-ticket",
+    "title": "Die Fahrkarte zeigen",
+    "goal": "Reagiere bei der Kontrolle.",
+    "setting": "transport",
+    "intro": "Fahrer Tim sagt: Ihre Fahrkarte, bitte. Du hast sie in der Hand.",
+    "words": [
+      "die Fahrkarte",
+      "zeigen",
+      "hier"
+    ],
+    "pieces": [
+      "Hier",
+      "ist",
+      "meine Fahrkarte."
+    ],
+    "question": "Was sagst du?",
+    "options": [
+      "Hier, bitte.",
+      "Ich habe keine Fahrkarte.",
+      "Ich möchte erst eine kaufen."
+    ],
+    "explanation": "Hier, bitte begleitet das Zeigen der vorhandenen Fahrkarte.",
+    "focus": "Possessivartikel mein"
+  },
+  {
+    "slug": "offer-seat",
+    "title": "Einen Platz anbieten",
+    "goal": "Biete einen Sitzplatz an.",
+    "setting": "transport",
+    "intro": "Ein älterer Mann steht im Bus. Neben dir ist ein Sitzplatz frei.",
+    "words": [
+      "der Platz",
+      "sitzen",
+      "frei"
+    ],
+    "pieces": [
+      "Sie können",
+      "hier",
+      "sitzen."
+    ],
+    "question": "Was sagst du zu ihm?",
+    "options": [
+      "Dieser Platz ist frei.",
+      "Dieser Platz ist besetzt.",
+      "Hier können Sie nicht sitzen."
+    ],
+    "explanation": "Können drückt hier eine Möglichkeit aus.",
+    "focus": "Modalverb können"
+  },
+  {
+    "slug": "request-menu",
+    "title": "Die Speisekarte",
+    "goal": "Bitte um eine Karte.",
+    "setting": "restaurant",
+    "intro": "Kellner Leon fragt: Kennen Sie unsere Gerichte? Du möchtest zuerst lesen.",
+    "words": [
+      "die Speisekarte",
+      "das Gericht",
+      "lesen"
+    ],
+    "pieces": [
+      "Ich möchte",
+      "die Speisekarte",
+      "lesen."
+    ],
+    "question": "Was bestellst du zuerst?",
+    "options": [
+      "Die Speisekarte, bitte.",
+      "Die Rechnung, bitte.",
+      "Noch einen Teller, bitte."
+    ],
+    "explanation": "Die Speisekarte zeigt die angebotenen Gerichte.",
+    "focus": "Akkusativ mit die"
+  },
+  {
+    "slug": "vegetarian-meal",
+    "title": "Essen ohne Fleisch",
+    "goal": "Wähle ein passendes Gericht.",
+    "setting": "restaurant",
+    "intro": "Kellner Leon sagt: Die Gemüsesuppe ist ohne Fleisch. Du isst kein Fleisch.",
+    "words": [
+      "die Suppe",
+      "das Gemüse",
+      "das Fleisch"
+    ],
+    "pieces": [
+      "Ich",
+      "esse",
+      "kein Fleisch."
+    ],
+    "question": "Was möchtest du bestellen?",
+    "options": [
+      "Die Gemüsesuppe, bitte.",
+      "Das Hähnchen, bitte.",
+      "Die Wurst, bitte."
+    ],
+    "explanation": "Kein Fleisch passt zur ausdrücklich fleischlosen Gemüsesuppe.",
+    "focus": "Negation und Essen"
+  },
+  {
+    "slug": "reserved-table",
+    "title": "Der reservierte Tisch",
+    "goal": "Nenne deine Reservierung.",
+    "setting": "restaurant",
+    "intro": "Kellner Leon fragt: Haben Sie reserviert? Deine Reservierung ist auf den Namen Mark.",
+    "words": [
+      "der Name",
+      "der Tisch",
+      "reservieren"
+    ],
+    "pieces": [
+      "Ich habe",
+      "eine Reservierung",
+      "auf den Namen Mark."
+    ],
+    "question": "Was sagst du?",
+    "options": [
+      "Ja, auf den Namen Mark.",
+      "Nein, ich habe keinen Tisch.",
+      "Ja, auf den Namen Ben."
+    ],
+    "explanation": "Auf den Namen nennt den Namen der Reservierung.",
+    "focus": "Haben und Akkusativ"
+  },
+  {
+    "slug": "still-water",
+    "title": "Wasser bestellen",
+    "goal": "Wähle dein Getränk.",
+    "setting": "restaurant",
+    "intro": "Kellner Leon fragt: Wasser mit oder ohne Gas? Du möchtest stilles Wasser.",
+    "words": [
+      "das Wasser",
+      "das Glas",
+      "das Gas"
+    ],
+    "pieces": [
+      "Ich möchte",
+      "Wasser",
+      "ohne Gas."
+    ],
+    "question": "Was antwortest du?",
+    "options": [
+      "Ohne Gas, bitte.",
+      "Mit Gas, bitte.",
+      "Mit viel Gas, bitte."
+    ],
+    "explanation": "Stilles Wasser ist Wasser ohne Kohlensäure beziehungsweise Gas.",
+    "focus": "Wunsch mit möchten"
+  },
+  {
+    "slug": "shared-bill",
+    "title": "Zusammen bezahlen",
+    "goal": "Sag, wie ihr bezahlt.",
+    "setting": "restaurant",
+    "intro": "Kellner Leon fragt: Zusammen oder getrennt? Du bezahlst für dich und Omar.",
+    "words": [
+      "die Rechnung",
+      "zusammen",
+      "getrennt"
+    ],
+    "pieces": [
+      "Wir",
+      "bezahlen",
+      "zusammen."
+    ],
+    "question": "Welche Antwort passt?",
+    "options": [
+      "Zusammen, bitte.",
+      "Getrennt, bitte.",
+      "Jeder bezahlt selbst."
+    ],
+    "explanation": "Wir umfasst dich und Omar; zusammen bedeutet eine gemeinsame Zahlung.",
+    "focus": "Personalpronomen wir"
+  },
+  {
+    "slug": "pharmacy-hours",
+    "title": "Die Öffnungszeit",
+    "goal": "Frag nach der Öffnungszeit.",
+    "setting": "pharmacy",
+    "intro": "Apotheker David sagt: Morgen öffnen wir um acht Uhr.",
+    "words": [
+      "die Apotheke",
+      "öffnen",
+      "morgen"
+    ],
+    "pieces": [
+      "Wann",
+      "öffnen Sie",
+      "morgen?"
+    ],
+    "question": "Wann kannst du kommen?",
+    "options": [
+      "Ab acht Uhr.",
+      "Ab sieben Uhr.",
+      "Ab sechs Uhr."
+    ],
+    "explanation": "Ab acht Uhr bedeutet: frühestens um acht Uhr.",
+    "focus": "Uhrzeit mit ab"
+  },
+  {
+    "slug": "prescription-counter",
+    "title": "Das Rezept abgeben",
+    "goal": "Zeig das richtige Dokument.",
+    "setting": "pharmacy",
+    "intro": "Apotheker David fragt: Haben Sie das Rezept dabei? Es liegt in deiner Tasche.",
+    "words": [
+      "das Rezept",
+      "die Tasche",
+      "dabei"
+    ],
+    "pieces": [
+      "Ich habe",
+      "das Rezept",
+      "dabei."
+    ],
+    "question": "Was antwortest du?",
+    "options": [
+      "Ja, hier ist es.",
+      "Nein, es liegt zu Hause.",
+      "Nein, ich habe kein Rezept."
+    ],
+    "explanation": "Dabei haben bedeutet, etwas mitgebracht zu haben.",
+    "focus": "Präsens von haben"
+  },
+  {
+    "slug": "pickup-name",
+    "title": "Eine Bestellung abholen",
+    "goal": "Nenne den Bestellnamen.",
+    "setting": "pharmacy",
+    "intro": "Apotheker David fragt: Auf welchen Namen? Deine Bestellung ist für Lukas.",
+    "words": [
+      "die Bestellung",
+      "der Name",
+      "abholen"
+    ],
+    "pieces": [
+      "Ich hole",
+      "eine Bestellung für Lukas",
+      "ab."
+    ],
+    "question": "Was sagst du?",
+    "options": [
+      "Auf den Namen Lukas.",
+      "Auf den Namen Jonas.",
+      "Auf den Namen Tim."
+    ],
+    "explanation": "Für Lukas nennt den Empfänger; abholen ist trennbar.",
+    "focus": "Trennbares Verb abholen"
+  },
+  {
+    "slug": "pharmacy-receipt",
+    "title": "Den Beleg mitnehmen",
+    "goal": "Bitte um einen Beleg.",
+    "setting": "pharmacy",
+    "intro": "Apotheker David fragt: Möchten Sie den Beleg? Du brauchst ihn.",
+    "words": [
+      "der Beleg",
+      "brauchen",
+      "mitnehmen"
+    ],
+    "pieces": [
+      "Ich",
+      "brauche",
+      "den Beleg."
+    ],
+    "question": "Welche Antwort passt?",
+    "options": [
+      "Ja, bitte.",
+      "Nein, danke.",
+      "Sie können ihn behalten."
+    ],
+    "explanation": "Den steht im Akkusativ zum maskulinen Nomen Beleg.",
+    "focus": "Maskuliner Akkusativ"
+  },
+  {
+    "slug": "wait-for-order",
+    "title": "Auf die Bestellung warten",
+    "goal": "Verstehe eine Wartezeit.",
+    "setting": "pharmacy",
+    "intro": "Apotheker David sagt: Ihre Bestellung kommt am Freitag. Heute ist Donnerstag.",
+    "words": [
+      "der Freitag",
+      "der Donnerstag",
+      "warten"
+    ],
+    "pieces": [
+      "Ich komme",
+      "am Freitag",
+      "wieder."
+    ],
+    "question": "Wann holst du sie ab?",
+    "options": [
+      "Morgen.",
+      "Heute.",
+      "Am Mittwoch."
+    ],
+    "explanation": "Auf Donnerstag folgt Freitag; am verbindet Tag und Zeitpunkt.",
+    "focus": "Wochentage mit am"
+  },
+  {
+    "slug": "appointment-time",
+    "title": "Der Termin",
+    "goal": "Nenne deinen Termin.",
+    "setting": "doctor",
+    "intro": "Mitarbeiter Felix fragt: Wann ist Ihr Termin? Dein Termin ist um neun Uhr.",
+    "words": [
+      "der Termin",
+      "die Uhr",
+      "neun"
+    ],
+    "pieces": [
+      "Mein Termin",
+      "ist",
+      "um neun Uhr."
+    ],
+    "question": "Was antwortest du?",
+    "options": [
+      "Um neun Uhr.",
+      "Um acht Uhr.",
+      "Um zehn Uhr."
+    ],
+    "explanation": "Mein beschreibt den eigenen Termin.",
+    "focus": "Possessivartikel mein"
+  },
+  {
+    "slug": "insurance-card",
+    "title": "Die Karte vorzeigen",
+    "goal": "Reagiere am Empfang.",
+    "setting": "doctor",
+    "intro": "Mitarbeiter Felix sagt: Ihre Versichertenkarte, bitte. Du hast sie dabei.",
+    "words": [
+      "die Karte",
+      "der Empfang",
+      "zeigen"
+    ],
+    "pieces": [
+      "Ich",
+      "zeige",
+      "meine Karte."
+    ],
+    "question": "Welche Antwort passt?",
+    "options": [
+      "Hier ist meine Karte.",
+      "Meine Karte ist zu Hause.",
+      "Ich habe keine Karte."
+    ],
+    "explanation": "Meine gehört zum femininen Nomen Karte.",
+    "focus": "Possessivartikel meine"
+  },
+  {
+    "slug": "waiting-room",
+    "title": "Im Wartezimmer",
+    "goal": "Finde den richtigen Raum.",
+    "setting": "doctor",
+    "intro": "Mitarbeiter Felix sagt: Bitte warten Sie in Raum zwei.",
+    "words": [
+      "das Wartezimmer",
+      "der Raum",
+      "zwei"
+    ],
+    "pieces": [
+      "Ich",
+      "warte",
+      "in Raum zwei."
+    ],
+    "question": "Wo wartest du?",
+    "options": [
+      "In Raum zwei.",
+      "In Raum eins.",
+      "In Raum drei."
+    ],
+    "explanation": "In nennt hier den Raum, in dem du warten sollst.",
+    "focus": "Einfache Ortsangabe"
+  },
+  {
+    "slug": "spell-name",
+    "title": "Den Namen buchstabieren",
+    "goal": "Buchstabiere einen kurzen Namen.",
+    "setting": "doctor",
+    "intro": "Mitarbeiter Felix fragt: Wie schreibt man Tim? Du heißt Tim.",
+    "words": [
+      "der Name",
+      "der Buchstabe",
+      "buchstabieren"
+    ],
+    "pieces": [
+      "Mein Name",
+      "ist",
+      "Tim."
+    ],
+    "question": "Wie buchstabierst du?",
+    "options": [
+      "T–I–M.",
+      "T–O–M.",
+      "J–I–M."
+    ],
+    "explanation": "Buchstabieren nennt die einzelnen Buchstaben in der richtigen Reihenfolge.",
+    "focus": "Alphabet und Name"
+  },
+  {
+    "slug": "followup-day",
+    "title": "Ein neuer Termin",
+    "goal": "Wähle einen passenden Tag.",
+    "setting": "doctor",
+    "intro": "Mitarbeiter Felix fragt: Montag oder Dienstag? Du kannst nur am Dienstag.",
+    "words": [
+      "der Montag",
+      "der Dienstag",
+      "können"
+    ],
+    "pieces": [
+      "Ich kann",
+      "am Dienstag",
+      "kommen."
+    ],
+    "question": "Was antwortest du?",
+    "options": [
+      "Dienstag passt.",
+      "Montag passt.",
+      "Ich komme am Montag."
+    ],
+    "explanation": "Nach kann steht der Infinitiv kommen am Satzende.",
+    "focus": "Modalverb können"
+  },
+  {
+    "slug": "send-letter",
+    "title": "Einen Brief senden",
+    "goal": "Nenne deine Sendung.",
+    "setting": "post",
+    "intro": "Postmitarbeiter Ben fragt: Brief oder Paket? Du hast einen Brief dabei.",
+    "words": [
+      "der Brief",
+      "das Paket",
+      "schicken"
+    ],
+    "pieces": [
+      "Ich möchte",
+      "einen Brief",
+      "schicken."
+    ],
+    "question": "Was antwortest du?",
+    "options": [
+      "Einen Brief, bitte.",
+      "Ein Paket, bitte.",
+      "Zwei Pakete, bitte."
+    ],
+    "explanation": "Einen ist der Akkusativartikel zum maskulinen Nomen Brief.",
+    "focus": "Akkusativ mit einen"
+  },
+  {
+    "slug": "parcel-weight",
+    "title": "Das Paket wiegen",
+    "goal": "Verstehe ein Gewicht.",
+    "setting": "post",
+    "intro": "Postmitarbeiter Ben sagt: Das Paket wiegt zwei Kilo.",
+    "words": [
+      "das Paket",
+      "das Kilo",
+      "wiegen"
+    ],
+    "pieces": [
+      "Das Paket",
+      "wiegt",
+      "zwei Kilo."
+    ],
+    "question": "Wie schwer ist das Paket?",
+    "options": [
+      "Zwei Kilo.",
+      "Ein Kilo.",
+      "Drei Kilo."
+    ],
+    "explanation": "Wie schwer fragt nach dem Gewicht.",
+    "focus": "Mengen und Gewicht"
+  },
+  {
+    "slug": "buy-stamp",
+    "title": "Eine Briefmarke",
+    "goal": "Bitte um eine Briefmarke.",
+    "setting": "post",
+    "intro": "Postmitarbeiter Ben fragt: Was brauchen Sie? Du brauchst eine Briefmarke.",
+    "words": [
+      "die Briefmarke",
+      "der Brief",
+      "brauchen"
+    ],
+    "pieces": [
+      "Ich",
+      "brauche",
+      "eine Briefmarke."
+    ],
+    "question": "Was sagst du?",
+    "options": [
+      "Eine Briefmarke, bitte.",
+      "Einen Umschlag, bitte.",
+      "Einen Karton, bitte."
+    ],
+    "explanation": "Eine steht im Akkusativ vor dem femininen Nomen Briefmarke.",
+    "focus": "Akkusativ mit eine"
+  },
+  {
+    "slug": "correct-address",
+    "title": "Die Adresse prüfen",
+    "goal": "Erkenne eine Hausnummer.",
+    "setting": "post",
+    "intro": "Postmitarbeiter Ben liest: Bahnhofstraße zwölf. Deine Adresse ist Bahnhofstraße zwanzig.",
+    "words": [
+      "die Adresse",
+      "die Straße",
+      "die Hausnummer"
+    ],
+    "pieces": [
+      "Meine Hausnummer",
+      "ist",
+      "zwanzig."
+    ],
+    "question": "Wie korrigierst du ihn?",
+    "options": [
+      "Die Hausnummer ist zwanzig.",
+      "Ja, zwölf ist richtig.",
+      "Die Hausnummer ist zwei."
+    ],
+    "explanation": "Zwanzig und zwölf sind unterschiedliche Hausnummern.",
+    "focus": "Zahlen unterscheiden"
+  },
+  {
+    "slug": "collect-parcel",
+    "title": "Ein Paket abholen",
+    "goal": "Zeig den Abholschein.",
+    "setting": "post",
+    "intro": "Postmitarbeiter Ben fragt nach dem Abholschein. Du hast ihn dabei.",
+    "words": [
+      "der Abholschein",
+      "das Paket",
+      "abholen"
+    ],
+    "pieces": [
+      "Ich möchte",
+      "mein Paket",
+      "abholen."
+    ],
+    "question": "Welche Antwort passt?",
+    "options": [
+      "Hier ist mein Abholschein.",
+      "Ich möchte ein Paket verschicken.",
+      "Mein Abholschein liegt zu Hause."
+    ],
+    "explanation": "Beim Abholen unterstützt der Abholschein die Zuordnung des Pakets.",
+    "focus": "Modalverb und Infinitiv"
+  },
+  {
+    "slug": "find-atm",
+    "title": "Den Automaten finden",
+    "goal": "Frag nach einem Ort.",
+    "setting": "bank",
+    "intro": "Mitarbeiter Noah sagt: Der Geldautomat ist rechts neben der Tür.",
+    "words": [
+      "der Geldautomat",
+      "die Tür",
+      "rechts"
+    ],
+    "pieces": [
+      "Wo",
+      "ist",
+      "der Geldautomat?"
+    ],
+    "question": "Wo suchst du?",
+    "options": [
+      "Rechts neben der Tür.",
+      "Links neben der Tür.",
+      "Hinter dem Schalter."
+    ],
+    "explanation": "Rechts neben bezeichnet die genannte Position.",
+    "focus": "Ortsangabe rechts"
+  },
+  {
+    "slug": "take-queue-number",
+    "title": "Eine Nummer ziehen",
+    "goal": "Folge einer einfachen Bitte.",
+    "setting": "bank",
+    "intro": "Mitarbeiter Noah sagt: Bitte nehmen Sie eine Nummer und warten Sie.",
+    "words": [
+      "die Nummer",
+      "warten",
+      "nehmen"
+    ],
+    "pieces": [
+      "Ich",
+      "nehme",
+      "eine Nummer."
+    ],
+    "question": "Was machst du zuerst?",
+    "options": [
+      "Ich nehme eine Nummer.",
+      "Ich gehe direkt zum Schalter.",
+      "Ich gehe nach Hause."
+    ],
+    "explanation": "Zuerst nimmst du die Nummer; danach wartest du.",
+    "focus": "Präsens von nehmen"
+  },
+  {
+    "slug": "bank-appointment",
+    "title": "Einen Gesprächstermin",
+    "goal": "Nenne einen freien Zeitpunkt.",
+    "setting": "bank",
+    "intro": "Mitarbeiter Noah fragt: Wann können Sie kommen? Du hast am Mittwoch Zeit.",
+    "words": [
+      "der Mittwoch",
+      "der Termin",
+      "die Zeit"
+    ],
+    "pieces": [
+      "Ich habe",
+      "am Mittwoch",
+      "Zeit."
+    ],
+    "question": "Welche Antwort passt?",
+    "options": [
+      "Am Mittwoch kann ich kommen.",
+      "Am Dienstag kann ich kommen.",
+      "Am Montag kann ich kommen."
+    ],
+    "explanation": "Zeit haben bedeutet, zu diesem Zeitpunkt verfügbar zu sein.",
+    "focus": "Zeit haben und Wochentag"
+  },
+  {
+    "slug": "request-printout",
+    "title": "Den Ausdruck erhalten",
+    "goal": "Bitte um ein Dokument.",
+    "setting": "bank",
+    "intro": "Mitarbeiter Noah fragt: Möchten Sie den Ausdruck? Du brauchst das Papier.",
+    "words": [
+      "der Ausdruck",
+      "das Papier",
+      "brauchen"
+    ],
+    "pieces": [
+      "Ich",
+      "möchte",
+      "den Ausdruck."
+    ],
+    "question": "Was antwortest du?",
+    "options": [
+      "Ja, bitte drucken Sie ihn aus.",
+      "Nein, ich brauche kein Papier.",
+      "Bitte nicht ausdrucken."
+    ],
+    "explanation": "Ihn bezieht sich auf den maskulinen Ausdruck.",
+    "focus": "Wunsch und Objekt"
+  },
+  {
+    "slug": "closed-counter",
+    "title": "Ein geschlossener Schalter",
+    "goal": "Verstehe eine Öffnungszeit.",
+    "setting": "bank",
+    "intro": "Mitarbeiter Noah sagt: Der Schalter öffnet erst um zehn Uhr. Jetzt ist neun Uhr.",
+    "words": [
+      "der Schalter",
+      "öffnen",
+      "warten"
+    ],
+    "pieces": [
+      "Der Schalter",
+      "öffnet",
+      "um zehn Uhr."
+    ],
+    "question": "Was passt jetzt?",
+    "options": [
+      "Ich warte eine Stunde.",
+      "Der Schalter ist schon offen.",
+      "Ich komme um acht Uhr."
+    ],
+    "explanation": "Von neun bis zehn Uhr dauert es eine Stunde.",
+    "focus": "Uhrzeit und Zeitspanne"
+  },
+  {
+    "slug": "get-library-card",
+    "title": "Ein Bibliotheksausweis",
+    "goal": "Bitte um einen Ausweis.",
+    "setting": "library",
+    "intro": "Bibliothekar Oskar fragt: Haben Sie einen Ausweis? Du bist zum ersten Mal hier.",
+    "words": [
+      "der Ausweis",
+      "die Bibliothek",
+      "neu"
+    ],
+    "pieces": [
+      "Ich",
+      "brauche",
+      "einen Ausweis."
+    ],
+    "question": "Was antwortest du?",
+    "options": [
+      "Nein, ich möchte einen Ausweis.",
+      "Ja, hier ist mein Ausweis.",
+      "Ja, ich habe schon einen."
+    ],
+    "explanation": "Einen ergänzt das maskuline Objekt Ausweis.",
+    "focus": "Akkusativobjekt"
+  },
+  {
+    "slug": "borrow-book",
+    "title": "Ein Buch ausleihen",
+    "goal": "Sag, was du ausleihen willst.",
+    "setting": "library",
+    "intro": "Bibliothekar Oskar fragt: Möchten Sie dieses Buch mitnehmen? Du möchtest es lesen.",
+    "words": [
+      "das Buch",
+      "lesen",
+      "ausleihen"
+    ],
+    "pieces": [
+      "Ich möchte",
+      "dieses Buch",
+      "ausleihen."
+    ],
+    "question": "Welche Antwort passt?",
+    "options": [
+      "Ja, ich möchte es ausleihen.",
+      "Nein, ich brauche es nicht.",
+      "Ich gebe das Buch zurück."
+    ],
+    "explanation": "Ausleihen bedeutet, das Buch für eine begrenzte Zeit mitzunehmen.",
+    "focus": "Modalverb möchten"
+  },
+  {
+    "slug": "return-day",
+    "title": "Der Rückgabetag",
+    "goal": "Verstehe einen Termin.",
+    "setting": "library",
+    "intro": "Bibliothekar Oskar sagt: Bitte bringen Sie das Buch am Donnerstag zurück.",
+    "words": [
+      "der Donnerstag",
+      "das Buch",
+      "zurückbringen"
+    ],
+    "pieces": [
+      "Ich bringe",
+      "das Buch am Donnerstag",
+      "zurück."
+    ],
+    "question": "Wann gibst du es zurück?",
+    "options": [
+      "Am Donnerstag.",
+      "Am Dienstag.",
+      "Am Montag."
+    ],
+    "explanation": "Zurückbringen ist trennbar; zurück steht am Satzende.",
+    "focus": "Trennbares Verb zurückbringen"
+  },
+  {
+    "slug": "quiet-area",
+    "title": "Leise lesen",
+    "goal": "Verstehe eine Hausregel.",
+    "setting": "library",
+    "intro": "Bibliothekar Oskar sagt: Hier ist der Leseraum. Bitte sprechen Sie leise.",
+    "words": [
+      "der Leseraum",
+      "leise",
+      "sprechen"
+    ],
+    "pieces": [
+      "Wir sprechen",
+      "hier",
+      "leise."
+    ],
+    "question": "Welche Handlung passt?",
+    "options": [
+      "Ich spreche leise.",
+      "Ich telefoniere laut.",
+      "Ich rufe meinen Freund."
+    ],
+    "explanation": "Leise bezeichnet eine geringe Lautstärke.",
+    "focus": "Adverb leise"
+  },
+  {
+    "slug": "find-dictionaries",
+    "title": "Ein Wörterbuch suchen",
+    "goal": "Frag nach einer Buchart.",
+    "setting": "library",
+    "intro": "Bibliothekar Oskar sagt: Die Wörterbücher stehen im Regal fünf.",
+    "words": [
+      "das Wörterbuch",
+      "das Regal",
+      "fünf"
+    ],
+    "pieces": [
+      "Ich",
+      "suche",
+      "ein Wörterbuch."
+    ],
+    "question": "Wo gehst du hin?",
+    "options": [
+      "Zu Regal fünf.",
+      "Zu Regal drei.",
+      "Zu Regal eins."
+    ],
+    "explanation": "Suchen steht hier mit dem Akkusativ ein Wörterbuch.",
+    "focus": "Suchen mit Akkusativ"
+  },
+  {
+    "slug": "borrow-stapler",
+    "title": "Den Hefter ausleihen",
+    "goal": "Bitte einen Kollegen um etwas.",
+    "setting": "office",
+    "intro": "Kollege Lukas fragt: Was brauchst du? Du möchtest zwei Blätter heften.",
+    "words": [
+      "der Hefter",
+      "das Blatt",
+      "brauchen"
+    ],
+    "pieces": [
+      "Ich",
+      "brauche",
+      "den Hefter."
+    ],
+    "question": "Was fragst du?",
+    "options": [
+      "Hast du einen Hefter?",
+      "Hast du einen Ordner?",
+      "Hast du einen Kalender?"
+    ],
+    "explanation": "Ein Hefter verbindet die beiden Blätter.",
+    "focus": "Frage mit haben"
+  },
+  {
+    "slug": "meeting-start",
+    "title": "Die Besprechung",
+    "goal": "Nenne die Startzeit.",
+    "setting": "office",
+    "intro": "Kollege Lukas sagt: Unsere Besprechung beginnt um elf Uhr.",
+    "words": [
+      "die Besprechung",
+      "beginnen",
+      "elf"
+    ],
+    "pieces": [
+      "Die Besprechung",
+      "beginnt",
+      "um elf Uhr."
+    ],
+    "question": "Wann beginnt sie?",
+    "options": [
+      "Um elf Uhr.",
+      "Um zwölf Uhr.",
+      "Um zehn Uhr."
+    ],
+    "explanation": "Beginnt benennt den Anfang der Besprechung.",
+    "focus": "Uhrzeit und beginnen"
+  },
+  {
+    "slug": "printer-location",
+    "title": "Der Drucker",
+    "goal": "Finde ein Gerät.",
+    "setting": "office",
+    "intro": "Kollege Lukas sagt: Der Drucker steht im kleinen Büro.",
+    "words": [
+      "der Drucker",
+      "das Büro",
+      "klein"
+    ],
+    "pieces": [
+      "Der Drucker",
+      "steht",
+      "im kleinen Büro."
+    ],
+    "question": "Wo druckst du?",
+    "options": [
+      "Im kleinen Büro.",
+      "In der Küche.",
+      "Im großen Büro."
+    ],
+    "explanation": "Im ist die Verbindung aus in und dem.",
+    "focus": "Ortsangabe im"
+  },
+  {
+    "slug": "call-colleague",
+    "title": "Einen Kollegen anrufen",
+    "goal": "Erfrage eine Telefonnummer.",
+    "setting": "office",
+    "intro": "Kollege Lukas sagt: Tims interne Nummer ist hundertdreizehn.",
+    "words": [
+      "die Nummer",
+      "das Telefon",
+      "anrufen"
+    ],
+    "pieces": [
+      "Ich rufe",
+      "Tim",
+      "an."
+    ],
+    "question": "Welche Nummer wählst du?",
+    "options": [
+      "Hundertdreizehn.",
+      "Hundertdreißig.",
+      "Hundertdrei."
+    ],
+    "explanation": "Anrufen ist trennbar; Tims interne Nummer ist hundertdreizehn.",
+    "focus": "Trennbares Verb anrufen"
+  },
+  {
+    "slug": "work-end",
+    "title": "Feierabend",
+    "goal": "Sag, wann du gehst.",
+    "setting": "office",
+    "intro": "Kollege Lukas fragt: Wie lange arbeitest du heute? Du arbeitest bis fünf Uhr.",
+    "words": [
+      "die Arbeit",
+      "der Feierabend",
+      "bis"
+    ],
+    "pieces": [
+      "Ich",
+      "arbeite",
+      "bis fünf Uhr."
+    ],
+    "question": "Was antwortest du?",
+    "options": [
+      "Bis fünf Uhr.",
+      "Ab fünf Uhr.",
+      "Um sechs Uhr fange ich an."
+    ],
+    "explanation": "Bis markiert das Ende der Arbeitszeit.",
+    "focus": "Zeitangabe mit bis"
+  },
+  {
+    "slug": "classroom-number",
+    "title": "Den Kursraum finden",
+    "goal": "Erfrage eine Raumnummer.",
+    "setting": "school",
+    "intro": "Lehrer Anton sagt: Der Kurs von Sitov Academy ist in Raum sieben.",
+    "words": [
+      "der Kurs",
+      "der Raum",
+      "sieben"
+    ],
+    "pieces": [
+      "Unser Kurs",
+      "ist",
+      "in Raum sieben."
+    ],
+    "question": "Wohin gehst du?",
+    "options": [
+      "Zu Raum sieben.",
+      "Zu Raum sechs.",
+      "Zu Raum acht."
+    ],
+    "explanation": "Unser bezeichnet den gemeinsamen Kurs.",
+    "focus": "Possessivartikel unser"
+  },
+  {
+    "slug": "open-book",
+    "title": "Die richtige Seite",
+    "goal": "Folge einer Unterrichtsbitte.",
+    "setting": "school",
+    "intro": "Lehrer Anton sagt: Öffnet das Buch auf Seite zehn.",
+    "words": [
+      "das Buch",
+      "die Seite",
+      "zehn"
+    ],
+    "pieces": [
+      "Ich öffne",
+      "das Buch",
+      "auf Seite zehn."
+    ],
+    "question": "Welche Seite brauchst du?",
+    "options": [
+      "Seite zehn.",
+      "Seite zwei.",
+      "Seite zwölf."
+    ],
+    "explanation": "Auf Seite zehn nennt die passende Stelle im Buch.",
+    "focus": "Zahlen im Unterricht"
+  },
+  {
+    "slug": "borrow-pen",
+    "title": "Ein Stift fehlt",
+    "goal": "Bitte um einen Stift.",
+    "setting": "school",
+    "intro": "Mitschüler Amir hat zwei Stifte. Du hast keinen Stift.",
+    "words": [
+      "der Stift",
+      "haben",
+      "leihen"
+    ],
+    "pieces": [
+      "Kannst du",
+      "mir einen Stift",
+      "leihen?"
+    ],
+    "question": "Was sagst du?",
+    "options": [
+      "Kann ich einen Stift haben?",
+      "Ich brauche keinen Stift.",
+      "Hier ist dein Stift zurück."
+    ],
+    "explanation": "Kann ich ... haben ist eine einfache höfliche Bitte.",
+    "focus": "Bitte mit können"
+  },
+  {
+    "slug": "break-time",
+    "title": "Die Pause",
+    "goal": "Verstehe eine Dauer.",
+    "setting": "school",
+    "intro": "Lehrer Anton sagt: Die Pause dauert fünfzehn Minuten.",
+    "words": [
+      "die Pause",
+      "die Minute",
+      "dauern"
+    ],
+    "pieces": [
+      "Die Pause",
+      "dauert",
+      "fünfzehn Minuten."
+    ],
+    "question": "Wie lange ist die Pause?",
+    "options": [
+      "Fünfzehn Minuten.",
+      "Fünf Minuten.",
+      "Fünfzig Minuten."
+    ],
+    "explanation": "Fünfzehn und fünfzig bezeichnen verschiedene Zeitspannen.",
+    "focus": "Zahlen fünfzehn und fünfzig"
+  },
+  {
+    "slug": "homework-task",
+    "title": "Die Hausaufgabe",
+    "goal": "Merke dir die Aufgabe.",
+    "setting": "school",
+    "intro": "Lehrer Anton sagt: Macht zu Hause Aufgabe drei. Aufgabe vier machen wir morgen.",
+    "words": [
+      "die Aufgabe",
+      "zu Hause",
+      "morgen"
+    ],
+    "pieces": [
+      "Ich mache",
+      "zu Hause",
+      "Aufgabe drei."
+    ],
+    "question": "Was machst du heute zu Hause?",
+    "options": [
+      "Aufgabe drei.",
+      "Aufgabe vier.",
+      "Aufgabe zwei."
+    ],
+    "explanation": "Zu Hause bezeichnet hier den Ort für die Hausaufgabe.",
+    "focus": "Verbzweit mit machen"
+  },
+  {
+    "slug": "viewing-time",
+    "title": "Die Wohnungsbesichtigung",
+    "goal": "Vereinbare einen Zeitpunkt.",
+    "setting": "apartment",
+    "intro": "Nachbar Max fragt: Passt Samstag um zwei Uhr? Du hast dann Zeit.",
+    "words": [
+      "die Wohnung",
+      "der Samstag",
+      "die Zeit"
+    ],
+    "pieces": [
+      "Am Samstag",
+      "habe ich",
+      "Zeit."
+    ],
+    "question": "Was antwortest du?",
+    "options": [
+      "Ja, Samstag um zwei Uhr passt.",
+      "Nein, Samstag geht nicht.",
+      "Ich kann nur am Sonntag."
+    ],
+    "explanation": "Nach der Zeitangabe steht das Verb habe an zweiter Position.",
+    "focus": "Verbzweit nach Zeitangabe"
+  },
+  {
+    "slug": "receive-key",
+    "title": "Der Wohnungsschlüssel",
+    "goal": "Nimm den passenden Schlüssel.",
+    "setting": "apartment",
+    "intro": "Nachbar Max sagt: Der kleine Schlüssel ist für die Wohnung.",
+    "words": [
+      "der Schlüssel",
+      "die Wohnung",
+      "klein"
+    ],
+    "pieces": [
+      "Das ist",
+      "der Schlüssel",
+      "für die Wohnung."
+    ],
+    "question": "Welchen Schlüssel nimmst du?",
+    "options": [
+      "Den kleinen Schlüssel.",
+      "Den großen Schlüssel.",
+      "Beide sind nur für den Keller."
+    ],
+    "explanation": "Die Beschreibung klein ordnet den Schlüssel der Wohnung zu.",
+    "focus": "Für mit Akkusativ"
+  },
+  {
+    "slug": "visitor-doorbell",
+    "title": "An der Tür",
+    "goal": "Identifiziere einen Besucher.",
+    "setting": "apartment",
+    "intro": "Dein Freund Omar ruft: Ich bin unten an der Tür.",
+    "words": [
+      "die Tür",
+      "der Freund",
+      "unten"
+    ],
+    "pieces": [
+      "Ich",
+      "öffne",
+      "die Tür."
+    ],
+    "question": "Was machst du?",
+    "options": [
+      "Ich lasse Omar herein.",
+      "Ich suche Omar auf dem Balkon.",
+      "Ich gehe zu Omar auf das Dach."
+    ],
+    "explanation": "Unten an der Tür beschreibt, wo der Besucher wartet.",
+    "focus": "Präsens und Ortsangabe"
+  },
+  {
+    "slug": "paper-bin",
+    "title": "Papier entsorgen",
+    "goal": "Verstehe eine Zuordnung.",
+    "setting": "apartment",
+    "intro": "Nachbar Max sagt: Das Papier kommt in die blaue Tonne.",
+    "words": [
+      "das Papier",
+      "die Tonne",
+      "blau"
+    ],
+    "pieces": [
+      "Das Papier",
+      "kommt",
+      "in die blaue Tonne."
+    ],
+    "question": "Welche Tonne brauchst du hier?",
+    "options": [
+      "Die blaue Tonne.",
+      "Die schwarze Tonne.",
+      "Die braune Tonne."
+    ],
+    "explanation": "Die Farbe folgt der Regel dieses Hauses.",
+    "focus": "Farben und Akkusativ"
+  },
+  {
+    "slug": "close-window",
+    "title": "Das offene Fenster",
+    "goal": "Reagiere auf eine Bitte.",
+    "setting": "apartment",
+    "intro": "Mitbewohner Ben sagt: Es ist kalt. Mach bitte das Fenster zu.",
+    "words": [
+      "das Fenster",
+      "kalt",
+      "zumachen"
+    ],
+    "pieces": [
+      "Ich mache",
+      "das Fenster",
+      "zu."
+    ],
+    "question": "Was machst du?",
+    "options": [
+      "Ich schließe das Fenster.",
+      "Ich öffne das Fenster.",
+      "Ich lasse das Fenster offen."
+    ],
+    "explanation": "Zumachen bedeutet schließen; zu steht am Satzende.",
+    "focus": "Trennbares Verb zumachen"
+  },
+  {
+    "slug": "broken-lamp",
+    "title": "Eine kaputte Lampe",
+    "goal": "Beschreibe einen Defekt.",
+    "setting": "repair",
+    "intro": "Mechaniker Erik fragt: Was ist kaputt? Deine Lampe funktioniert nicht.",
+    "words": [
+      "die Lampe",
+      "kaputt",
+      "funktionieren"
+    ],
+    "pieces": [
+      "Meine Lampe",
+      "funktioniert",
+      "nicht."
+    ],
+    "question": "Was antwortest du?",
+    "options": [
+      "Die Lampe ist kaputt.",
+      "Die Lampe funktioniert gut.",
+      "Der Tisch ist kaputt."
+    ],
+    "explanation": "Nicht verneint hier das Verb funktioniert.",
+    "focus": "Verbnegation mit nicht"
+  },
+  {
+    "slug": "bike-flat",
+    "title": "Der Fahrradreifen",
+    "goal": "Nenne das defekte Teil.",
+    "setting": "repair",
+    "intro": "Mechaniker Erik fragt: Was fehlt? Im vorderen Reifen ist keine Luft.",
+    "words": [
+      "der Reifen",
+      "die Luft",
+      "das Fahrrad"
+    ],
+    "pieces": [
+      "Der Reifen",
+      "hat",
+      "keine Luft."
+    ],
+    "question": "Welche Antwort passt?",
+    "options": [
+      "Vorne ist der Reifen leer.",
+      "Hinten ist der Reifen leer.",
+      "Beide Reifen haben genug Luft."
+    ],
+    "explanation": "Keine verneint hier das Nomen Luft.",
+    "focus": "Negation mit keine"
+  },
+  {
+    "slug": "washing-machine-noise",
+    "title": "Die Waschmaschine",
+    "goal": "Beschreibe ein Geräusch.",
+    "setting": "repair",
+    "intro": "Mechaniker Erik fragt: Ist die Waschmaschine leise? Sie macht viel Lärm.",
+    "words": [
+      "die Waschmaschine",
+      "laut",
+      "leise"
+    ],
+    "pieces": [
+      "Die Waschmaschine",
+      "ist",
+      "sehr laut."
+    ],
+    "question": "Was antwortest du?",
+    "options": [
+      "Nein, sie ist sehr laut.",
+      "Ja, sie ist leise.",
+      "Sie macht keine Geräusche."
+    ],
+    "explanation": "Laut ist das Gegenteil von leise.",
+    "focus": "Adjektiv als Prädikativ"
+  },
+  {
+    "slug": "missing-cable",
+    "title": "Das fehlende Kabel",
+    "goal": "Erkläre, was du brauchst.",
+    "setting": "repair",
+    "intro": "Mechaniker Erik fragt: Was fehlt? Dein Laptop ist da, sein Kabel fehlt.",
+    "words": [
+      "das Kabel",
+      "der Laptop",
+      "fehlen"
+    ],
+    "pieces": [
+      "Ich",
+      "brauche",
+      "ein Kabel."
+    ],
+    "question": "Was antwortest du?",
+    "options": [
+      "Das Kabel fehlt.",
+      "Der Laptop fehlt.",
+      "Alles ist da."
+    ],
+    "explanation": "Ein Kabel nennt das benötigte Teil.",
+    "focus": "Neutrales Akkusativobjekt"
+  },
+  {
+    "slug": "repair-pickup",
+    "title": "Das Fahrrad abholen",
+    "goal": "Verstehe einen Abholtermin.",
+    "setting": "repair",
+    "intro": "Mechaniker Erik sagt: Ihr Fahrrad ist am Montag fertig.",
+    "words": [
+      "das Fahrrad",
+      "der Montag",
+      "fertig"
+    ],
+    "pieces": [
+      "Ich hole",
+      "das Fahrrad am Montag",
+      "ab."
+    ],
+    "question": "Wann kommst du wieder?",
+    "options": [
+      "Am Montag.",
+      "Am Sonntag.",
+      "Am Samstag."
+    ],
+    "explanation": "Fertig nennt hier den Abschluss der Reparatur.",
+    "focus": "Abholen und Wochentag"
+  },
+  {
+    "slug": "find-fountain",
+    "title": "Zum Brunnen",
+    "goal": "Verstehe einen kurzen Weg.",
+    "setting": "park",
+    "intro": "Spaziergänger Finn sagt: Zum Brunnen gehen Sie geradeaus.",
+    "words": [
+      "der Brunnen",
+      "der Weg",
+      "geradeaus"
+    ],
+    "pieces": [
+      "Ich gehe",
+      "geradeaus",
+      "zum Brunnen."
+    ],
+    "question": "Welcher Weg passt?",
+    "options": [
+      "Geradeaus.",
+      "Nach links.",
+      "Nach rechts."
+    ],
+    "explanation": "Geradeaus bedeutet ohne Abbiegen weitergehen.",
+    "focus": "Wegbeschreibung geradeaus"
+  },
+  {
+    "slug": "meet-bench",
+    "title": "Treffpunkt Bank",
+    "goal": "Finde einen Treffpunkt.",
+    "setting": "park",
+    "intro": "Dein Freund Finn sagt: Ich warte auf der Bank neben dem Baum.",
+    "words": [
+      "die Bank",
+      "der Baum",
+      "warten"
+    ],
+    "pieces": [
+      "Finn",
+      "wartet",
+      "auf der Bank."
+    ],
+    "question": "Wo suchst du Finn?",
+    "options": [
+      "Neben dem Baum auf der Bank.",
+      "Am Eingang beim Tor.",
+      "Neben dem Brunnen im Café."
+    ],
+    "explanation": "Auf der Bank beschreibt den Sitzplatz deines Freundes.",
+    "focus": "Ortsangabe auf"
+  },
+  {
+    "slug": "no-feeding",
+    "title": "Die Parkregel",
+    "goal": "Verstehe ein Verbot.",
+    "setting": "park",
+    "intro": "Du hältst ein Stück Brot. Finn sagt: Bitte füttern Sie die Enten hier nicht.",
+    "words": [
+      "die Ente",
+      "füttern",
+      "nicht"
+    ],
+    "pieces": [
+      "Ich füttere",
+      "die Enten",
+      "nicht."
+    ],
+    "question": "Welche Handlung passt?",
+    "options": [
+      "Ich behalte das Brot.",
+      "Ich gebe den Enten Brot.",
+      "Ich füttere die Enten weiter."
+    ],
+    "explanation": "Nicht verneint die Handlung füttern.",
+    "focus": "Negation einer Handlung"
+  },
+  {
+    "slug": "use-bin",
+    "title": "Abfall wegwerfen",
+    "goal": "Nutze einen Abfalleimer.",
+    "setting": "park",
+    "intro": "Spaziergänger Finn sagt: Der Abfalleimer steht direkt am Tor.",
+    "words": [
+      "der Abfalleimer",
+      "das Tor",
+      "der Abfall"
+    ],
+    "pieces": [
+      "Ich werfe",
+      "den Abfall",
+      "weg."
+    ],
+    "question": "Wohin gehst du mit dem Abfall?",
+    "options": [
+      "Zum Eimer am Tor.",
+      "Zur Bank am Baum.",
+      "Zum Brunnen in der Mitte."
+    ],
+    "explanation": "Wegwerfen ist trennbar; Abfall gehört hier in den genannten Eimer.",
+    "focus": "Trennbares Verb wegwerfen"
+  },
+  {
+    "slug": "park-closing",
+    "title": "Das Parktor schließt",
+    "goal": "Verstehe eine Schließzeit.",
+    "setting": "park",
+    "intro": "Finn sagt: Der Park schließt um achtzehn Uhr.",
+    "words": [
+      "das Tor",
+      "schließen",
+      "achtzehn"
+    ],
+    "pieces": [
+      "Der Park",
+      "schließt",
+      "um achtzehn Uhr."
+    ],
+    "question": "Bis wann ist der Park offen?",
+    "options": [
+      "Bis achtzehn Uhr.",
+      "Bis neunzehn Uhr.",
+      "Bis zwanzig Uhr."
+    ],
+    "explanation": "Achtzehn Uhr entspricht sechs Uhr am Abend.",
+    "focus": "24-Stunden-Uhrzeit"
+  },
+  {
+    "slug": "pool-opening",
+    "title": "Ins Schwimmbad",
+    "goal": "Erfrage die Öffnungszeit.",
+    "setting": "sports",
+    "intro": "Trainer Moritz sagt: Das Schwimmbad öffnet um sieben Uhr.",
+    "words": [
+      "das Schwimmbad",
+      "schwimmen",
+      "sieben"
+    ],
+    "pieces": [
+      "Ich gehe",
+      "um sieben Uhr",
+      "schwimmen."
+    ],
+    "question": "Wann kannst du zuerst hinein?",
+    "options": [
+      "Um sieben Uhr.",
+      "Um sechs Uhr.",
+      "Um fünf Uhr."
+    ],
+    "explanation": "Die Öffnungszeit nennt den frühesten Einlass.",
+    "focus": "Zeitangabe und Infinitiv"
+  },
+  {
+    "slug": "borrow-ball",
+    "title": "Ein Ball fürs Training",
+    "goal": "Bitte um Sportmaterial.",
+    "setting": "sports",
+    "intro": "Trainer Moritz fragt: Was brauchst du? Du möchtest Fußball spielen.",
+    "words": [
+      "der Ball",
+      "das Training",
+      "spielen"
+    ],
+    "pieces": [
+      "Ich",
+      "brauche",
+      "einen Ball."
+    ],
+    "question": "Was antwortest du?",
+    "options": [
+      "Einen Fußball, bitte.",
+      "Einen Tennisschläger, bitte.",
+      "Eine Schwimmbrille, bitte."
+    ],
+    "explanation": "Einen Ball steht als maskulines Objekt im Akkusativ.",
+    "focus": "Akkusativ beim Sport"
+  },
+  {
+    "slug": "training-day",
+    "title": "Der Trainingstag",
+    "goal": "Nenne einen regelmäßigen Tag.",
+    "setting": "sports",
+    "intro": "Trainer Moritz sagt: Wir trainieren jeden Mittwoch.",
+    "words": [
+      "der Mittwoch",
+      "trainieren",
+      "jeden"
+    ],
+    "pieces": [
+      "Wir",
+      "trainieren",
+      "jeden Mittwoch."
+    ],
+    "question": "Wann findet das Training statt?",
+    "options": [
+      "Jeden Mittwoch.",
+      "Jeden Montag.",
+      "Jeden Freitag."
+    ],
+    "explanation": "Jeden Mittwoch beschreibt eine regelmäßige Wiederholung.",
+    "focus": "Regelmäßige Zeitangabe"
+  },
+  {
+    "slug": "locker-number",
+    "title": "Der Spind",
+    "goal": "Finde deinen Schrank.",
+    "setting": "sports",
+    "intro": "Trainer Moritz sagt: Ihr Spind hat die Nummer sechzehn.",
+    "words": [
+      "der Spind",
+      "die Nummer",
+      "sechzehn"
+    ],
+    "pieces": [
+      "Mein Spind",
+      "hat",
+      "die Nummer sechzehn."
+    ],
+    "question": "Welcher Spind ist deiner?",
+    "options": [
+      "Nummer sechzehn.",
+      "Nummer sechzig.",
+      "Nummer sechs."
+    ],
+    "explanation": "Sechzehn ist eine andere Zahl als sechzig.",
+    "focus": "Zahlen sechzehn und sechzig"
+  },
+  {
+    "slug": "trial-session",
+    "title": "Ein Probetraining",
+    "goal": "Melde dich für eine Probe an.",
+    "setting": "sports",
+    "intro": "Trainer Moritz fragt: Trainierst du schon bei uns? Du bist neu.",
+    "words": [
+      "das Probetraining",
+      "neu",
+      "mitmachen"
+    ],
+    "pieces": [
+      "Ich möchte",
+      "beim Probetraining",
+      "mitmachen."
+    ],
+    "question": "Welche Antwort passt?",
+    "options": [
+      "Nein, ich möchte es ausprobieren.",
+      "Ja, ich trainiere hier jede Woche.",
+      "Ja, ich kenne den Kurs schon."
+    ],
+    "explanation": "Mitmachen ist trennbar und steht hier als Infinitiv.",
+    "focus": "Modalverb und mitmachen"
+  },
+  {
+    "slug": "hotel-reservation",
+    "title": "Die Buchung",
+    "goal": "Nenne deinen Buchungsnamen.",
+    "setting": "hotel",
+    "intro": "Rezeptionist Daniel fragt: Auf welchen Namen ist die Buchung? Sie ist für Tobias.",
+    "words": [
+      "die Buchung",
+      "der Name",
+      "das Hotel"
+    ],
+    "pieces": [
+      "Die Buchung",
+      "ist",
+      "für Tobias."
+    ],
+    "question": "Was antwortest du?",
+    "options": [
+      "Auf den Namen Tobias.",
+      "Auf den Namen Thomas.",
+      "Auf den Namen Daniel."
+    ],
+    "explanation": "Auf den Namen ordnet die Buchung der richtigen Person zu.",
+    "focus": "Name einer Buchung"
+  },
+  {
+    "slug": "single-room",
+    "title": "Ein Zimmer für dich",
+    "goal": "Wähle die Zimmerart.",
+    "setting": "hotel",
+    "intro": "Rezeptionist Daniel fragt: Einzelzimmer oder Doppelzimmer? Du reist allein.",
+    "words": [
+      "das Einzelzimmer",
+      "das Doppelzimmer",
+      "allein"
+    ],
+    "pieces": [
+      "Ich",
+      "möchte",
+      "ein Einzelzimmer."
+    ],
+    "question": "Was antwortest du?",
+    "options": [
+      "Ein Einzelzimmer, bitte.",
+      "Ein Doppelzimmer für zwei, bitte.",
+      "Zwei Einzelzimmer, bitte."
+    ],
+    "explanation": "Ein Einzelzimmer ist hier die passende Wahl für eine Person.",
+    "focus": "Neutrales Nomen mit ein"
+  },
+  {
+    "slug": "breakfast-time",
+    "title": "Frühstück im Hotel",
+    "goal": "Verstehe einen Zeitraum.",
+    "setting": "hotel",
+    "intro": "Rezeptionist Daniel sagt: Frühstück gibt es von sieben bis neun Uhr.",
+    "words": [
+      "das Frühstück",
+      "von",
+      "bis"
+    ],
+    "pieces": [
+      "Frühstück",
+      "gibt es",
+      "von sieben bis neun Uhr."
+    ],
+    "question": "Wann bekommst du Frühstück?",
+    "options": [
+      "Um acht Uhr.",
+      "Um sechs Uhr.",
+      "Um zehn Uhr."
+    ],
+    "explanation": "Acht Uhr liegt im Zeitraum von sieben bis neun Uhr.",
+    "focus": "Zeitraum von bis"
+  },
+  {
+    "slug": "wifi-password",
+    "title": "Das WLAN-Passwort",
+    "goal": "Frag nach einem Passwort.",
+    "setting": "hotel",
+    "intro": "Rezeptionist Daniel sagt: Das Passwort steht auf Ihrer Zimmerkarte.",
+    "words": [
+      "das Passwort",
+      "die Zimmerkarte",
+      "das WLAN"
+    ],
+    "pieces": [
+      "Wo",
+      "steht",
+      "das Passwort?"
+    ],
+    "question": "Wo schaust du nach?",
+    "options": [
+      "Auf meiner Zimmerkarte.",
+      "Auf dem Frühstückstisch.",
+      "An der Zimmertür."
+    ],
+    "explanation": "Auf nennt die Fläche, auf der die Information steht.",
+    "focus": "Wo mit stehen"
+  },
+  {
+    "slug": "checkout-time",
+    "title": "Das Zimmer verlassen",
+    "goal": "Verstehe eine Frist.",
+    "setting": "hotel",
+    "intro": "Rezeptionist Daniel sagt: Bitte verlassen Sie das Zimmer bis elf Uhr.",
+    "words": [
+      "das Zimmer",
+      "verlassen",
+      "elf"
+    ],
+    "pieces": [
+      "Ich verlasse",
+      "das Zimmer",
+      "bis elf Uhr."
+    ],
+    "question": "Welche Zeit passt?",
+    "options": [
+      "Um zehn Uhr.",
+      "Um zwölf Uhr.",
+      "Um dreizehn Uhr."
+    ],
+    "explanation": "Bis elf Uhr bedeutet spätestens um elf Uhr.",
+    "focus": "Frist mit bis"
+  },
+  {
+    "slug": "shirt-size",
+    "title": "Die passende Größe",
+    "goal": "Nenne deine Größe.",
+    "setting": "clothes",
+    "intro": "Verkäufer Nils fragt: Welche Größe brauchen Sie? Du trägst Größe M.",
+    "words": [
+      "das Hemd",
+      "die Größe",
+      "passen"
+    ],
+    "pieces": [
+      "Ich",
+      "brauche",
+      "Größe M."
+    ],
+    "question": "Was antwortest du?",
+    "options": [
+      "Größe M, bitte.",
+      "Größe S, bitte.",
+      "Größe L, bitte."
+    ],
+    "explanation": "Größe M bezeichnet die benötigte Kleidergröße.",
+    "focus": "Größe nennen"
+  },
+  {
+    "slug": "fitting-room",
+    "title": "Die Umkleide",
+    "goal": "Frag nach einer Kabine.",
+    "setting": "clothes",
+    "intro": "Verkäufer Nils sagt: Die Umkleide ist hinten rechts.",
+    "words": [
+      "die Umkleide",
+      "anprobieren",
+      "rechts"
+    ],
+    "pieces": [
+      "Ich möchte",
+      "das Hemd",
+      "anprobieren."
+    ],
+    "question": "Wo gehst du hin?",
+    "options": [
+      "Nach hinten rechts.",
+      "Nach vorne links.",
+      "Zum Ausgang vorne."
+    ],
+    "explanation": "Anprobieren bedeutet, Kleidung zum Testen anzuziehen.",
+    "focus": "Modalverb und anprobieren"
+  },
+  {
+    "slug": "shoe-too-small",
+    "title": "Die Schuhe passen nicht",
+    "goal": "Beschreibe die Passform.",
+    "setting": "clothes",
+    "intro": "Verkäufer Nils fragt: Passen die Schuhe? Deine Zehen haben keinen Platz.",
+    "words": [
+      "der Schuh",
+      "klein",
+      "passen"
+    ],
+    "pieces": [
+      "Die Schuhe",
+      "sind",
+      "zu klein."
+    ],
+    "question": "Was antwortest du?",
+    "options": [
+      "Nein, sie sind zu klein.",
+      "Ja, sie passen gut.",
+      "Sie sind viel zu groß."
+    ],
+    "explanation": "Zu klein bedeutet: Die Größe reicht nicht aus.",
+    "focus": "Zu mit Adjektiv"
+  },
+  {
+    "slug": "blue-jacket",
+    "title": "Eine Farbe wählen",
+    "goal": "Nenne deine Wunschfarbe.",
+    "setting": "clothes",
+    "intro": "Verkäufer Nils fragt: Blau oder schwarz? Du möchtest die blaue Jacke.",
+    "words": [
+      "die Jacke",
+      "blau",
+      "schwarz"
+    ],
+    "pieces": [
+      "Ich",
+      "nehme",
+      "die blaue Jacke."
+    ],
+    "question": "Welche Antwort passt?",
+    "options": [
+      "Die blaue, bitte.",
+      "Die schwarze, bitte.",
+      "Beide Farben, bitte."
+    ],
+    "explanation": "Die blaue bezieht sich auf die gewählte Jacke.",
+    "focus": "Farben und nehmen"
+  },
+  {
+    "slug": "try-trousers",
+    "title": "Eine Hose anprobieren",
+    "goal": "Reagiere auf ein Angebot.",
+    "setting": "clothes",
+    "intro": "Verkäufer Nils fragt: Möchten Sie die Hose anprobieren? Du möchtest die Größe prüfen.",
+    "words": [
+      "die Hose",
+      "die Größe",
+      "anprobieren"
+    ],
+    "pieces": [
+      "Ich probiere",
+      "die Hose",
+      "an."
+    ],
+    "question": "Was antwortest du?",
+    "options": [
+      "Ja, wo ist die Umkleide?",
+      "Nein, ich probiere sie nicht an.",
+      "Nein, die Größe ist egal."
+    ],
+    "explanation": "Anprobieren ist trennbar: an steht am Ende.",
+    "focus": "Trennbares Verb anprobieren"
+  },
+  {
+    "slug": "half-kilo-tomatoes",
+    "title": "Tomaten abwiegen",
+    "goal": "Nenne eine Gewichtsmenge.",
+    "setting": "market",
+    "intro": "Verkäufer Theo fragt: Wie viel möchten Sie? Du brauchst ein halbes Kilo Tomaten.",
+    "words": [
+      "die Tomate",
+      "das Kilo",
+      "halb"
+    ],
+    "pieces": [
+      "Ich",
+      "möchte",
+      "ein halbes Kilo Tomaten."
+    ],
+    "question": "Was antwortest du?",
+    "options": [
+      "Ein halbes Kilo, bitte.",
+      "Ein ganzes Kilo, bitte.",
+      "Zwei Kilo, bitte."
+    ],
+    "explanation": "Ein halbes Kilo ist die Hälfte eines Kilos.",
+    "focus": "Mengen mit halb"
+  },
+  {
+    "slug": "ripe-pears",
+    "title": "Birnen auswählen",
+    "goal": "Frage nach einer Eigenschaft.",
+    "setting": "market",
+    "intro": "Verkäufer Theo sagt: Diese Birnen sind weich, die anderen sind hart. Du möchtest weiche.",
+    "words": [
+      "die Birne",
+      "weich",
+      "hart"
+    ],
+    "pieces": [
+      "Ich",
+      "möchte",
+      "die weichen Birnen."
+    ],
+    "question": "Welche Birnen nimmst du?",
+    "options": [
+      "Diese weichen Birnen.",
+      "Die anderen harten Birnen.",
+      "Keine, ich möchte harte Birnen."
+    ],
+    "explanation": "Weich und hart beschreiben verschiedene Eigenschaften.",
+    "focus": "Adjektive bei Obst"
+  },
+  {
+    "slug": "market-change",
+    "title": "Das Rückgeld",
+    "goal": "Berechne eine einfache Differenz.",
+    "setting": "market",
+    "intro": "Verkäufer Theo sagt: Das kostet drei Euro. Du gibst fünf Euro.",
+    "words": [
+      "der Euro",
+      "das Rückgeld",
+      "kosten"
+    ],
+    "pieces": [
+      "Ich bekomme",
+      "zwei Euro",
+      "zurück."
+    ],
+    "question": "Wie viel Rückgeld bekommst du?",
+    "options": [
+      "Zwei Euro.",
+      "Drei Euro.",
+      "Fünf Euro."
+    ],
+    "explanation": "Fünf Euro minus drei Euro ergibt zwei Euro.",
+    "focus": "Zahlen und zurückbekommen"
+  },
+  {
+    "slug": "local-potatoes",
+    "title": "Woher kommen die Kartoffeln?",
+    "goal": "Erfrage die Herkunft.",
+    "setting": "market",
+    "intro": "Verkäufer Theo sagt: Die Kartoffeln kommen aus Deutschland.",
+    "words": [
+      "die Kartoffel",
+      "kommen",
+      "aus"
+    ],
+    "pieces": [
+      "Woher",
+      "kommen",
+      "die Kartoffeln?"
+    ],
+    "question": "Woher sind sie?",
+    "options": [
+      "Aus Deutschland.",
+      "Aus Italien.",
+      "Aus Spanien."
+    ],
+    "explanation": "Woher fragt nach der Herkunft; aus nennt das Herkunftsland.",
+    "focus": "Woher und aus"
+  },
+  {
+    "slug": "market-closing-day",
+    "title": "Der Markttag",
+    "goal": "Verstehe eine Wochenregel.",
+    "setting": "market",
+    "intro": "Verkäufer Theo sagt: Der Markt ist samstags offen, sonntags geschlossen.",
+    "words": [
+      "der Markt",
+      "offen",
+      "geschlossen"
+    ],
+    "pieces": [
+      "Der Markt ist",
+      "am Samstag",
+      "offen."
+    ],
+    "question": "Wann kannst du einkaufen?",
+    "options": [
+      "Am Samstag.",
+      "Am Sonntag.",
+      "Sonntags am Abend."
+    ],
+    "explanation": "Offen und geschlossen zeigen, ob du einkaufen kannst.",
+    "focus": "Wochentage und Öffnung"
+  },
+  {
+    "slug": "find-city-hall",
+    "title": "Das Rathaus suchen",
+    "goal": "Frag nach einem Gebäude.",
+    "setting": "city",
+    "intro": "Mitarbeiter Jan sagt: Das Rathaus ist neben der Kirche.",
+    "words": [
+      "das Rathaus",
+      "die Kirche",
+      "neben"
+    ],
+    "pieces": [
+      "Wo",
+      "ist",
+      "das Rathaus?"
+    ],
+    "question": "Wo suchst du das Rathaus?",
+    "options": [
+      "Neben der Kirche.",
+      "Hinter dem Bahnhof.",
+      "Gegenüber vom Kino."
+    ],
+    "explanation": "Neben beschreibt zwei Orte, die direkt beieinanderliegen.",
+    "focus": "Ortsangabe neben"
+  },
+  {
+    "slug": "cross-at-green",
+    "title": "An der Ampel",
+    "goal": "Verstehe ein Farbsignal.",
+    "setting": "city",
+    "intro": "Dein Freund Ben sagt: Die Ampel ist rot. Wir warten auf Grün.",
+    "words": [
+      "die Ampel",
+      "rot",
+      "grün"
+    ],
+    "pieces": [
+      "Wir",
+      "warten",
+      "auf Grün."
+    ],
+    "question": "Was macht ihr jetzt?",
+    "options": [
+      "Wir bleiben stehen.",
+      "Wir gehen jetzt los.",
+      "Wir gehen bei Rot."
+    ],
+    "explanation": "Die Szene nennt ausdrücklich das Warten auf Grün.",
+    "focus": "Präsens mit wir"
+  },
+  {
+    "slug": "tourist-map",
+    "title": "Einen Stadtplan bekommen",
+    "goal": "Bitte um Orientierungshilfe.",
+    "setting": "city",
+    "intro": "Mitarbeiter Jan fragt: Was brauchen Sie? Du möchtest eine Karte der Stadt.",
+    "words": [
+      "der Stadtplan",
+      "die Stadt",
+      "die Karte"
+    ],
+    "pieces": [
+      "Ich",
+      "brauche",
+      "einen Stadtplan."
+    ],
+    "question": "Was sagst du?",
+    "options": [
+      "Einen Stadtplan, bitte.",
+      "Eine Fahrkarte, bitte.",
+      "Eine Eintrittskarte, bitte."
+    ],
+    "explanation": "Ein Stadtplan zeigt die Straßen und Orte einer Stadt.",
+    "focus": "Akkusativ in einer Bitte"
+  },
+  {
+    "slug": "museum-ticket",
+    "title": "Ein Museumsticket",
+    "goal": "Nenne die Anzahl der Tickets.",
+    "setting": "city",
+    "intro": "Mitarbeiter Jan fragt: Wie viele Tickets? Du und dein Bruder möchtet hinein.",
+    "words": [
+      "das Ticket",
+      "das Museum",
+      "der Bruder"
+    ],
+    "pieces": [
+      "Wir",
+      "brauchen",
+      "zwei Tickets."
+    ],
+    "question": "Wie viele kaufst du?",
+    "options": [
+      "Zwei Tickets.",
+      "Ein Ticket.",
+      "Drei Tickets."
+    ],
+    "explanation": "Du und dein Bruder seid zwei Personen.",
+    "focus": "Personalpronomen und Anzahl"
+  },
+  {
+    "slug": "turn-left",
+    "title": "Links zum Kino",
+    "goal": "Verstehe eine Abzweigung.",
+    "setting": "city",
+    "intro": "Mitarbeiter Jan sagt: An der nächsten Straße gehen Sie links zum Kino.",
+    "words": [
+      "die Straße",
+      "das Kino",
+      "links"
+    ],
+    "pieces": [
+      "Ich gehe",
+      "an der nächsten Straße",
+      "links."
+    ],
+    "question": "Welche Richtung nimmst du?",
+    "options": [
+      "Links.",
+      "Rechts.",
+      "Geradeaus ohne abzubiegen."
+    ],
+    "explanation": "Links benennt die erforderliche Richtung an der Abzweigung.",
+    "focus": "Einfache Wegbeschreibung"
+  }
+]

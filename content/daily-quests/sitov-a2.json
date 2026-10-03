@@ -1,0 +1,2566 @@
+[
+  {
+    "slug": "empty-shelf",
+    "title": "Das leere Regal",
+    "goal": "Erkläre, was du gesucht hast.",
+    "setting": "supermarket",
+    "intro": "Verkäufer Paul fragt: Haben Sie den Reis gefunden? Das Reisregal war leer.",
+    "words": [
+      "das Regal",
+      "der Reis",
+      "leer"
+    ],
+    "pieces": [
+      "Ich habe",
+      "keinen Reis",
+      "gefunden."
+    ],
+    "question": "Was antwortest du?",
+    "options": [
+      "Nein, das Regal war leer.",
+      "Ja, ich habe Reis gekauft.",
+      "Ja, der Reis steht schon im Wagen."
+    ],
+    "explanation": "Im Perfekt steht gefunden am Satzende; keinen verneint Reis.",
+    "focus": "Perfekt mit finden"
+  },
+  {
+    "slug": "discount-mismatch",
+    "title": "Der falsche Preis",
+    "goal": "Erkläre einen Preisunterschied.",
+    "setting": "supermarket",
+    "intro": "Kassierer Paul nennt fünf Euro. Auf dem Schild stehen für genau diesen Artikel drei Euro.",
+    "words": [
+      "das Schild",
+      "der Preis",
+      "niedriger"
+    ],
+    "pieces": [
+      "Der Preis auf dem Schild",
+      "ist",
+      "niedriger."
+    ],
+    "question": "Was sagst du?",
+    "options": [
+      "Auf dem Schild stehen drei Euro.",
+      "Auf dem Schild stehen auch fünf Euro.",
+      "Auf dem Schild stehen sechs Euro."
+    ],
+    "explanation": "Niedriger vergleicht den Schildpreis mit dem genannten Kassenpreis.",
+    "focus": "Komparativ niedriger"
+  },
+  {
+    "slug": "damaged-packaging",
+    "title": "Die beschädigte Packung",
+    "goal": "Bitte um eine andere Packung.",
+    "setting": "supermarket",
+    "intro": "Verkäufer Paul sagt: Diese Packung ist beschädigt. Die daneben ist geschlossen.",
+    "words": [
+      "die Packung",
+      "beschädigt",
+      "geschlossen"
+    ],
+    "pieces": [
+      "Könnten Sie",
+      "mir die geschlossene Packung",
+      "geben?"
+    ],
+    "question": "Welche Packung möchtest du?",
+    "options": [
+      "Die geschlossene daneben, bitte.",
+      "Die beschädigte, bitte.",
+      "Ich möchte die offene Packung."
+    ],
+    "explanation": "Könnten Sie ... geben ist eine höfliche Bitte.",
+    "focus": "Höfliche Bitte mit könnten"
+  },
+  {
+    "slug": "delivery-arrival",
+    "title": "Die neue Lieferung",
+    "goal": "Verstehe eine Bedingung.",
+    "setting": "supermarket",
+    "intro": "Verkäufer Paul sagt: Wenn die Lieferung kommt, haben wir wieder Eier. Sie kommt morgen.",
+    "words": [
+      "die Lieferung",
+      "das Ei",
+      "morgen"
+    ],
+    "pieces": [
+      "Wenn",
+      "die Lieferung",
+      "kommt,",
+      "gibt es",
+      "wieder Eier."
+    ],
+    "question": "Wann kannst du wieder Eier kaufen?",
+    "options": [
+      "Morgen nach der Lieferung.",
+      "Heute vor der Lieferung.",
+      "Heute, weil sie schon da sind."
+    ],
+    "explanation": "Im wenn-Satz steht kommt am Ende; der Hauptsatz beginnt mit gibt.",
+    "focus": "Wenn-Satz und Verbzweit"
+  },
+  {
+    "slug": "receipt-exchange",
+    "title": "Der Kassenbon",
+    "goal": "Verstehe eine genannte Umtauschregel.",
+    "setting": "supermarket",
+    "intro": "Verkäufer Paul sagt: Für den Umtausch hier brauchen Sie den Kassenbon. Du hast ihn vergessen.",
+    "words": [
+      "der Kassenbon",
+      "der Umtausch",
+      "vergessen"
+    ],
+    "pieces": [
+      "Ich habe",
+      "den Kassenbon zu Hause",
+      "vergessen."
+    ],
+    "question": "Was fehlt für diesen Umtausch?",
+    "options": [
+      "Der Kassenbon.",
+      "Die Einkaufstasche.",
+      "Ein zweites Produkt."
+    ],
+    "explanation": "Vergessen bildet hier das Perfekt mit haben.",
+    "focus": "Perfekt mit vergessen"
+  },
+  {
+    "slug": "wrong-drink",
+    "title": "Das falsche Getränk",
+    "goal": "Korrigiere eine Bestellung.",
+    "setting": "cafe",
+    "intro": "Kellner Emil bringt Kaffee. Du hast einen Tee bestellt.",
+    "words": [
+      "der Tee",
+      "der Kaffee",
+      "bestellen"
+    ],
+    "pieces": [
+      "Ich habe",
+      "einen Tee",
+      "bestellt."
+    ],
+    "question": "Was sagst du?",
+    "options": [
+      "Entschuldigung, ich habe Tee bestellt.",
+      "Danke, der Kaffee ist richtig.",
+      "Ich habe zwei Kaffees bestellt."
+    ],
+    "explanation": "Bestellt ist das Partizip von bestellen und steht am Ende.",
+    "focus": "Perfekt mit bestellen"
+  },
+  {
+    "slug": "quieter-seat",
+    "title": "Ein ruhigerer Platz",
+    "goal": "Vergleiche zwei Plätze.",
+    "setting": "cafe",
+    "intro": "Kellner Emil sagt: An der Tür ist es laut, hinten ist es ruhiger. Du möchtest lesen.",
+    "words": [
+      "der Platz",
+      "die Tür",
+      "ruhiger"
+    ],
+    "pieces": [
+      "Ich sitze",
+      "lieber hinten,",
+      "weil",
+      "es dort ruhiger",
+      "ist."
+    ],
+    "question": "Welcher Platz passt zu deinem Wunsch?",
+    "options": [
+      "Der Platz hinten.",
+      "Der Platz direkt an der lauten Tür.",
+      "Ein Platz neben der lauten Tür."
+    ],
+    "explanation": "Im weil-Satz steht ist am Ende; ruhiger ist ein Komparativ.",
+    "focus": "Weil-Satz und Komparativ"
+  },
+  {
+    "slug": "missing-cake-charge",
+    "title": "Der Kuchen auf der Rechnung",
+    "goal": "Sprich einen fehlenden Posten an.",
+    "setting": "cafe",
+    "intro": "Kellner Emil bringt eine Rechnung nur für Kaffee. Du hast auch Kuchen gegessen.",
+    "words": [
+      "die Rechnung",
+      "der Kuchen",
+      "fehlen"
+    ],
+    "pieces": [
+      "Der Kuchen",
+      "fehlt",
+      "auf der Rechnung."
+    ],
+    "question": "Was sagst du?",
+    "options": [
+      "Ich habe auch einen Kuchen gegessen.",
+      "Ich habe keinen Kuchen gegessen.",
+      "Der Kaffee fehlt auf der Rechnung."
+    ],
+    "explanation": "Auch ergänzt den Kuchen zur bereits berechneten Bestellung.",
+    "focus": "Perfekt mit essen"
+  },
+  {
+    "slug": "forgotten-scarf",
+    "title": "Der vergessene Schal",
+    "goal": "Frag nach einem verlorenen Gegenstand.",
+    "setting": "cafe",
+    "intro": "Kellner Emil fragt: Was suchen Sie? Du hast gestern deinen Schal im Café liegen lassen.",
+    "words": [
+      "der Schal",
+      "gestern",
+      "liegen lassen"
+    ],
+    "pieces": [
+      "Ich habe",
+      "gestern meinen Schal hier",
+      "vergessen."
+    ],
+    "question": "Was fragst du?",
+    "options": [
+      "Haben Sie meinen Schal gefunden?",
+      "Haben Sie meinen Mantel gefunden?",
+      "Haben Sie heute meinen Schal verkauft?"
+    ],
+    "explanation": "Gestern verweist auf die Vergangenheit; das Perfekt beschreibt das Vergessen.",
+    "focus": "Perfekt mit Zeitangabe"
+  },
+  {
+    "slug": "terrace-rain",
+    "title": "Auf der Terrasse",
+    "goal": "Reagiere auf eine Wetterbedingung.",
+    "setting": "cafe",
+    "intro": "Kellner Emil sagt: Wenn es regnet, können Sie nach drinnen kommen. Jetzt beginnt es zu regnen.",
+    "words": [
+      "die Terrasse",
+      "der Regen",
+      "drinnen"
+    ],
+    "pieces": [
+      "Wenn",
+      "es",
+      "regnet,",
+      "gehen wir",
+      "nach drinnen."
+    ],
+    "question": "Was kannst du jetzt tun?",
+    "options": [
+      "Nach drinnen wechseln.",
+      "Du musst draußen bleiben.",
+      "Du darfst erst morgen hinein."
+    ],
+    "explanation": "Der wenn-Satz beschreibt die Bedingung für den Wechsel.",
+    "focus": "Bedingung mit wenn"
+  },
+  {
+    "slug": "missed-connection",
+    "title": "Der verpasste Anschluss",
+    "goal": "Erkläre eine verpasste Verbindung.",
+    "setting": "station",
+    "intro": "Mitarbeiter Jonas fragt: Warum sind Sie noch hier? Dein erster Zug kam zu spät.",
+    "words": [
+      "der Anschluss",
+      "die Verspätung",
+      "verpassen"
+    ],
+    "pieces": [
+      "Ich habe",
+      "den Anschluss",
+      "verpasst,",
+      "weil",
+      "mein Zug zu spät",
+      "kam."
+    ],
+    "question": "Warum hast du den Anschluss verpasst?",
+    "options": [
+      "Der erste Zug kam zu spät.",
+      "Du bist zu früh angekommen.",
+      "Der Anschlusszug wartet noch."
+    ],
+    "explanation": "Weil nennt den Grund; kam steht am Ende des Nebensatzes.",
+    "focus": "Grund mit weil"
+  },
+  {
+    "slug": "last-train",
+    "title": "Der letzte Zug",
+    "goal": "Verstehe eine Tagesgrenze.",
+    "setting": "station",
+    "intro": "Mitarbeiter Jonas sagt: Der letzte Zug fährt um 22 Uhr. Danach fährt heute keiner mehr.",
+    "words": [
+      "der Zug",
+      "heute",
+      "letzte"
+    ],
+    "pieces": [
+      "Nach zweiundzwanzig Uhr",
+      "fährt",
+      "heute kein Zug",
+      "mehr."
+    ],
+    "question": "Welche Abfahrt kannst du heute noch wählen?",
+    "options": [
+      "Die Abfahrt um 22 Uhr.",
+      "Eine Abfahrt um 23 Uhr.",
+      "Eine Abfahrt um Mitternacht."
+    ],
+    "explanation": "Kein ... mehr verneint weitere Fahrten nach dem genannten Zeitpunkt.",
+    "focus": "Negation mit kein mehr"
+  },
+  {
+    "slug": "broken-machine",
+    "title": "Der kaputte Automat",
+    "goal": "Erkläre, warum du zum Schalter gehst.",
+    "setting": "station",
+    "intro": "Mitarbeiter Jonas fragt: Warum kommen Sie zum Schalter? Der Fahrkartenautomat funktioniert nicht.",
+    "words": [
+      "der Automat",
+      "der Schalter",
+      "kaputt"
+    ],
+    "pieces": [
+      "Ich komme",
+      "zum Schalter,",
+      "weil",
+      "der Automat kaputt",
+      "ist."
+    ],
+    "question": "Was ist der Grund?",
+    "options": [
+      "Der Automat funktioniert nicht.",
+      "Der Schalter ist geschlossen.",
+      "Du hast schon eine Fahrkarte gekauft."
+    ],
+    "explanation": "Im weil-Satz folgt das Verb ist nach dem Adjektiv kaputt.",
+    "focus": "Weil und Verbendstellung"
+  },
+  {
+    "slug": "reserved-seat",
+    "title": "Der reservierte Sitz",
+    "goal": "Finde deinen Sitzplatz.",
+    "setting": "station",
+    "intro": "Mitarbeiter Jonas sagt: Ihre Reservierung gilt für Wagen zwei, Platz achtzehn.",
+    "words": [
+      "der Wagen",
+      "der Platz",
+      "die Reservierung"
+    ],
+    "pieces": [
+      "Ich habe",
+      "Platz achtzehn in Wagen zwei",
+      "reserviert."
+    ],
+    "question": "Wo sitzt du?",
+    "options": [
+      "Wagen zwei, Platz achtzehn.",
+      "Wagen achtzehn, Platz zwei.",
+      "Wagen zwei, Platz achtzig."
+    ],
+    "explanation": "Wagen und Platz sind zwei verschiedene Angaben auf der Reservierung.",
+    "focus": "Perfekt und Zahlverständnis"
+  },
+  {
+    "slug": "platform-change",
+    "title": "Der Gleiswechsel",
+    "goal": "Verstehe eine Planänderung.",
+    "setting": "station",
+    "intro": "Mitarbeiter Jonas sagt: Der Zug fährt heute von Gleis sechs statt von Gleis drei.",
+    "words": [
+      "das Gleis",
+      "die Änderung",
+      "statt"
+    ],
+    "pieces": [
+      "Heute",
+      "fährt der Zug",
+      "von Gleis sechs."
+    ],
+    "question": "Welches Gleis ist heute richtig?",
+    "options": [
+      "Gleis sechs.",
+      "Gleis drei.",
+      "Beide Gleise gleichzeitig."
+    ],
+    "explanation": "Statt ersetzt die bisherige Angabe; heute steht das Verb an zweiter Position.",
+    "focus": "Verbzweit nach heute"
+  },
+  {
+    "slug": "bus-detour",
+    "title": "Die Umleitung",
+    "goal": "Verstehe eine geänderte Route.",
+    "setting": "transport",
+    "intro": "Fahrer Tim sagt: Wegen der Baustelle halten wir heute nicht am Rathaus, sondern am Markt.",
+    "words": [
+      "die Baustelle",
+      "der Markt",
+      "die Umleitung"
+    ],
+    "pieces": [
+      "Heute",
+      "halten wir",
+      "am Markt statt am Rathaus."
+    ],
+    "question": "An welcher der beiden Haltestellen hält der Bus heute?",
+    "options": [
+      "Am Markt.",
+      "Am Rathaus.",
+      "An beiden Haltestellen."
+    ],
+    "explanation": "Statt am Rathaus nennt die geänderte Haltestelle.",
+    "focus": "Route mit statt"
+  },
+  {
+    "slug": "ticket-zone",
+    "title": "Die richtige Zone",
+    "goal": "Verstehe den Geltungsbereich.",
+    "setting": "transport",
+    "intro": "Fahrer Tim sagt: Ihr Ticket gilt nur in Zone A. Der Flughafen liegt in Zone B.",
+    "words": [
+      "das Ticket",
+      "die Zone",
+      "gelten"
+    ],
+    "pieces": [
+      "Für den Flughafen",
+      "brauche ich",
+      "ein anderes Ticket."
+    ],
+    "question": "Gilt dein jetziges Ticket bis zum Flughafen?",
+    "options": [
+      "Nein, dort ist Zone B.",
+      "Ja, Zone A umfasst den Flughafen.",
+      "Ja, es gilt in allen Zonen."
+    ],
+    "explanation": "Nur begrenzt das Ticket auf Zone A.",
+    "focus": "Einschränkung mit nur"
+  },
+  {
+    "slug": "child-seat",
+    "title": "Ein Platz für deinen Sohn",
+    "goal": "Bitte höflich um einen Platz.",
+    "setting": "transport",
+    "intro": "Fahrer Tim sagt: Der Platz vorne ist frei. Du möchtest dort mit deinem Sohn sitzen.",
+    "words": [
+      "der Sohn",
+      "der Platz",
+      "vorne"
+    ],
+    "pieces": [
+      "Dürfen",
+      "mein Sohn und ich",
+      "hier sitzen?"
+    ],
+    "question": "Welche Bitte passt?",
+    "options": [
+      "Dürfen wir den freien Platz nutzen?",
+      "Können wir den besetzten Platz nutzen?",
+      "Müssen wir draußen sitzen?"
+    ],
+    "explanation": "Dürfen fragt nach Erlaubnis; der Infinitiv sitzen steht am Ende.",
+    "focus": "Modalverb dürfen"
+  },
+  {
+    "slug": "bike-time-window",
+    "title": "Das Fahrrad im Bus",
+    "goal": "Verstehe eine genannte Zeitregel.",
+    "setting": "transport",
+    "intro": "Fahrer Tim sagt: Auf dieser Linie sind Fahrräder erst ab neun Uhr erlaubt. Es ist halb neun.",
+    "words": [
+      "das Fahrrad",
+      "erlaubt",
+      "halb neun"
+    ],
+    "pieces": [
+      "Ich kann",
+      "mein Fahrrad erst ab neun Uhr",
+      "mitnehmen."
+    ],
+    "question": "Was passt zu dieser Regel?",
+    "options": [
+      "Ich warte bis neun Uhr.",
+      "Ich nehme es um halb neun mit.",
+      "Ich nehme es schon um acht Uhr mit."
+    ],
+    "explanation": "Halb neun bedeutet 8:30 Uhr; erst ab neun nennt die Grenze.",
+    "focus": "Halbe Uhrzeit und erst ab"
+  },
+  {
+    "slug": "missed-stop",
+    "title": "Zu weit gefahren",
+    "goal": "Erkläre ein Missgeschick.",
+    "setting": "transport",
+    "intro": "Fahrer Tim fragt: Wollten Sie am Museum aussteigen? Du hast die Haltestelle nicht bemerkt.",
+    "words": [
+      "die Haltestelle",
+      "das Museum",
+      "verpassen"
+    ],
+    "pieces": [
+      "Ich habe",
+      "meine Haltestelle",
+      "verpasst."
+    ],
+    "question": "Was antwortest du?",
+    "options": [
+      "Ja, ich bin zu weit gefahren.",
+      "Nein, ich bin am Museum ausgestiegen.",
+      "Ja, ich bin gar nicht eingestiegen."
+    ],
+    "explanation": "Gefahren bildet das Perfekt hier mit sein.",
+    "focus": "Perfekt mit sein"
+  },
+  {
+    "slug": "change-reservation",
+    "title": "Die Reservierung ändern",
+    "goal": "Bitte um eine größere Reservierung.",
+    "setting": "restaurant",
+    "intro": "Kellner Leon hat einen Tisch für zwei vorgemerkt. Jetzt kommt ein dritter Freund mit.",
+    "words": [
+      "die Reservierung",
+      "der Freund",
+      "ändern"
+    ],
+    "pieces": [
+      "Könnten Sie",
+      "für drei Personen",
+      "reservieren?"
+    ],
+    "question": "Was möchtest du ändern?",
+    "options": [
+      "Den Tisch von zwei auf drei Personen.",
+      "Den Tisch von drei auf zwei Personen.",
+      "Den Tisch für eine Person."
+    ],
+    "explanation": "Für drei Personen nennt die neue Anzahl der Gäste.",
+    "focus": "Höfliche Bitte und Anzahl"
+  },
+  {
+    "slug": "long-wait",
+    "title": "Ein schnelleres Gericht",
+    "goal": "Vergleiche die Wartezeiten.",
+    "setting": "restaurant",
+    "intro": "Kellner Leon sagt: Das Risotto dauert 30 Minuten, die Suppe zehn. Du hast wenig Zeit.",
+    "words": [
+      "die Suppe",
+      "das Risotto",
+      "schneller"
+    ],
+    "pieces": [
+      "Die Suppe",
+      "ist",
+      "schneller fertig",
+      "als das Risotto."
+    ],
+    "question": "Was wählst du für die kürzere Wartezeit?",
+    "options": [
+      "Die Suppe.",
+      "Das Risotto.",
+      "Beides dauert gleich lange."
+    ],
+    "explanation": "Schneller ... als vergleicht die Wartezeiten zweier Gerichte.",
+    "focus": "Komparativ mit als"
+  },
+  {
+    "slug": "wrong-side-dish",
+    "title": "Die falsche Beilage",
+    "goal": "Korrigiere eine Beilage.",
+    "setting": "restaurant",
+    "intro": "Kellner Leon bringt Kartoffeln. Du hast Reis als Beilage bestellt.",
+    "words": [
+      "die Beilage",
+      "der Reis",
+      "die Kartoffel"
+    ],
+    "pieces": [
+      "Ich habe",
+      "Reis statt Kartoffeln",
+      "bestellt."
+    ],
+    "question": "Was sagst du?",
+    "options": [
+      "Könnten Sie mir bitte Reis bringen?",
+      "Die Kartoffeln sind genau richtig.",
+      "Ich hatte keine Beilage bestellt."
+    ],
+    "explanation": "Statt Kartoffeln stellt die gewünschte und die falsche Beilage gegenüber.",
+    "focus": "Perfekt und statt"
+  },
+  {
+    "slug": "garlic-preference",
+    "title": "Einen Geschmack vermeiden",
+    "goal": "Erfrage eine Zutat.",
+    "setting": "restaurant",
+    "intro": "Kellner Leon sagt: Im Salat ist Knoblauch, in der Suppe nicht. Du magst keinen Knoblauch.",
+    "words": [
+      "der Knoblauch",
+      "der Salat",
+      "die Suppe"
+    ],
+    "pieces": [
+      "Ich nehme",
+      "die Suppe,",
+      "weil",
+      "ich keinen Knoblauch",
+      "mag."
+    ],
+    "question": "Welches Gericht passt zu deinem Wunsch?",
+    "options": [
+      "Die Suppe ohne Knoblauch.",
+      "Der Salat mit Knoblauch.",
+      "Der Salat mit extra Knoblauch."
+    ],
+    "explanation": "Mag steht am Ende des weil-Satzes und erklärt deine Wahl.",
+    "focus": "Weil-Satz mit mögen"
+  },
+  {
+    "slug": "split-cost",
+    "title": "Die geteilte Rechnung",
+    "goal": "Verstehe einen gemeinsamen Betrag.",
+    "setting": "restaurant",
+    "intro": "Kellner Leon sagt: Zusammen sind es 24 Euro. Du und dein Freund teilt den Betrag gleich.",
+    "words": [
+      "die Rechnung",
+      "der Betrag",
+      "teilen"
+    ],
+    "pieces": [
+      "Jeder von uns",
+      "bezahlt",
+      "zwölf Euro."
+    ],
+    "question": "Wie viel bezahlt jeder?",
+    "options": [
+      "Zwölf Euro.",
+      "Vierundzwanzig Euro.",
+      "Sechs Euro."
+    ],
+    "explanation": "24 Euro auf zwei Personen verteilt ergibt zwölf Euro pro Person.",
+    "focus": "Zahlen und jeder"
+  },
+  {
+    "slug": "pickup-confirmation",
+    "title": "Die Abholnachricht",
+    "goal": "Verstehe eine Voraussetzung.",
+    "setting": "pharmacy",
+    "intro": "Apotheker David sagt: Wenn Sie unsere Nachricht bekommen, ist Ihre Bestellung abholbereit. Du hast sie gerade erhalten.",
+    "words": [
+      "die Nachricht",
+      "die Bestellung",
+      "abholbereit"
+    ],
+    "pieces": [
+      "Ich habe",
+      "Ihre Nachricht",
+      "bekommen."
+    ],
+    "question": "Was bedeutet die Nachricht hier?",
+    "options": [
+      "Die Bestellung ist abholbereit.",
+      "Die Bestellung ist noch nicht da.",
+      "Die Bestellung wurde nicht angenommen."
+    ],
+    "explanation": "Die Szene verbindet die Nachricht mit der fertigen Bestellung.",
+    "focus": "Perfekt mit bekommen"
+  },
+  {
+    "slug": "order-later",
+    "title": "Eine spätere Lieferung",
+    "goal": "Verstehe einen geänderten Tag.",
+    "setting": "pharmacy",
+    "intro": "Apotheker David sagt: Die Bestellung kommt nicht heute, sondern morgen.",
+    "words": [
+      "die Lieferung",
+      "heute",
+      "morgen"
+    ],
+    "pieces": [
+      "Ich komme",
+      "morgen,",
+      "weil",
+      "die Lieferung heute nicht",
+      "ankommt."
+    ],
+    "question": "Wann lohnt sich das Abholen laut Szene?",
+    "options": [
+      "Morgen.",
+      "Heute sofort.",
+      "Gestern."
+    ],
+    "explanation": "Nicht ... sondern ersetzt heute durch morgen; ankommt steht im Nebensatz zusammen.",
+    "focus": "Weil mit trennbarem Verb"
+  },
+  {
+    "slug": "replacement-receipt",
+    "title": "Der verlorene Beleg",
+    "goal": "Erkläre einen Verlust.",
+    "setting": "pharmacy",
+    "intro": "Apotheker David fragt: Haben Sie den Kaufbeleg? Du findest ihn seit gestern nicht mehr.",
+    "words": [
+      "der Kaufbeleg",
+      "verlieren",
+      "noch einmal"
+    ],
+    "pieces": [
+      "Ich habe",
+      "den Kaufbeleg",
+      "verloren."
+    ],
+    "question": "Was sagst du?",
+    "options": [
+      "Könnten Sie den Beleg noch einmal ausdrucken?",
+      "Hier ist der Beleg in meiner Hand.",
+      "Ich habe den Beleg doppelt dabei."
+    ],
+    "explanation": "Verloren beschreibt einen abgeschlossenen Verlust im Perfekt.",
+    "focus": "Perfekt und höfliche Bitte"
+  },
+  {
+    "slug": "package-label",
+    "title": "Die Packungsbeschriftung",
+    "goal": "Bitte um eine Erklärung.",
+    "setting": "pharmacy",
+    "intro": "Apotheker David zeigt auf eine unbekannte Abkürzung auf der Packung. Du verstehst sie nicht.",
+    "words": [
+      "die Abkürzung",
+      "die Packung",
+      "erklären"
+    ],
+    "pieces": [
+      "Könnten Sie",
+      "mir die Abkürzung",
+      "erklären?"
+    ],
+    "question": "Welche Bitte passt?",
+    "options": [
+      "Was bedeutet diese Abkürzung?",
+      "Könnten Sie die Packung wegwerfen?",
+      "Könnten Sie die Abkürzung entfernen?"
+    ],
+    "explanation": "Erklären richtet sich auf das Verständnis der Beschriftung.",
+    "focus": "Dativ mir in einer Bitte"
+  },
+  {
+    "slug": "reserve-bandage",
+    "title": "Eine Packung zurücklegen",
+    "goal": "Bitte um eine Reservierung.",
+    "setting": "pharmacy",
+    "intro": "Apotheker David sagt: Wir haben noch eine Packung Pflaster. Du kannst erst am Nachmittag kommen.",
+    "words": [
+      "das Pflaster",
+      "die Packung",
+      "zurücklegen"
+    ],
+    "pieces": [
+      "Könnten Sie",
+      "die Packung bis heute Nachmittag",
+      "zurücklegen?"
+    ],
+    "question": "Was möchtest du?",
+    "options": [
+      "Die Packung bis nachmittags reservieren.",
+      "Die Packung sofort mitnehmen.",
+      "Die Packung für nächste Woche bestellen."
+    ],
+    "explanation": "Zurücklegen bedeutet hier, die vorhandene Packung für dich aufzubewahren.",
+    "focus": "Höfliche Bitte mit Frist"
+  },
+  {
+    "slug": "rescheduled-appointment",
+    "title": "Der verschobene Termin",
+    "goal": "Verstehe eine Terminänderung.",
+    "setting": "doctor",
+    "intro": "Mitarbeiter Felix sagt: Ihr Termin ist jetzt um 14 Uhr, nicht mehr um 13 Uhr.",
+    "words": [
+      "der Termin",
+      "verschieben",
+      "jetzt"
+    ],
+    "pieces": [
+      "Mein Termin ist",
+      "jetzt",
+      "um vierzehn Uhr."
+    ],
+    "question": "Wann kommst du?",
+    "options": [
+      "Um 14 Uhr.",
+      "Um 13 Uhr.",
+      "Um 15 Uhr."
+    ],
+    "explanation": "Jetzt ersetzt den bisherigen Zeitpunkt durch den neuen Termin.",
+    "focus": "Terminänderung und Uhrzeit"
+  },
+  {
+    "slug": "form-name",
+    "title": "Der Name im Formular",
+    "goal": "Korrigiere einen Schreibfehler.",
+    "setting": "doctor",
+    "intro": "Mitarbeiter Felix liest: Leon Weber. Du heißt Leon Werner.",
+    "words": [
+      "das Formular",
+      "der Nachname",
+      "korrigieren"
+    ],
+    "pieces": [
+      "Mein Nachname",
+      "ist",
+      "Werner,",
+      "nicht Weber."
+    ],
+    "question": "Welche Korrektur passt?",
+    "options": [
+      "Werner, nicht Weber.",
+      "Weber ist richtig.",
+      "Mein Vorname ist Werner."
+    ],
+    "explanation": "Nachname bezeichnet hier Werner; Leon bleibt der Vorname.",
+    "focus": "Korrektur mit nicht"
+  },
+  {
+    "slug": "cancel-visit",
+    "title": "Einen Termin absagen",
+    "goal": "Erkläre eine Absage.",
+    "setting": "doctor",
+    "intro": "Mitarbeiter Felix fragt: Kommen Sie morgen? Du musst morgen arbeiten und kannst nicht kommen.",
+    "words": [
+      "der Termin",
+      "arbeiten",
+      "absagen"
+    ],
+    "pieces": [
+      "Ich muss",
+      "den Termin",
+      "absagen,",
+      "weil",
+      "ich arbeiten",
+      "muss."
+    ],
+    "question": "Was antwortest du?",
+    "options": [
+      "Nein, ich muss morgen arbeiten.",
+      "Ja, ich komme wie geplant.",
+      "Ich habe morgen den ganzen Tag frei."
+    ],
+    "explanation": "Im weil-Satz steht das Modalverb muss hinter dem Infinitiv arbeiten.",
+    "focus": "Weil mit Modalverb"
+  },
+  {
+    "slug": "repeat-instructions",
+    "title": "Die Information wiederholen",
+    "goal": "Bitte um langsameres Sprechen.",
+    "setting": "doctor",
+    "intro": "Mitarbeiter Felix hat die Information sehr schnell gesagt. Du hast sie nicht verstanden.",
+    "words": [
+      "die Information",
+      "verstehen",
+      "langsamer"
+    ],
+    "pieces": [
+      "Könnten Sie",
+      "bitte langsamer",
+      "sprechen?"
+    ],
+    "question": "Welche Bitte passt?",
+    "options": [
+      "Bitte wiederholen Sie das langsamer.",
+      "Bitte sprechen Sie noch schneller.",
+      "Bitte lassen Sie die Information weg."
+    ],
+    "explanation": "Langsamer ist der Komparativ von langsam.",
+    "focus": "Komparativ in einer Bitte"
+  },
+  {
+    "slug": "late-arrival",
+    "title": "Zehn Minuten später",
+    "goal": "Kündige eine Verspätung an.",
+    "setting": "doctor",
+    "intro": "Mitarbeiter Felix fragt am Telefon: Sind Sie pünktlich? Dein Bus hat zehn Minuten Verspätung.",
+    "words": [
+      "die Verspätung",
+      "der Bus",
+      "pünktlich"
+    ],
+    "pieces": [
+      "Ich komme",
+      "zehn Minuten später,",
+      "weil",
+      "mein Bus Verspätung",
+      "hat."
+    ],
+    "question": "Was sagst du?",
+    "options": [
+      "Ich komme etwa zehn Minuten später.",
+      "Ich bin zehn Minuten früher da.",
+      "Ich bin bereits am Empfang."
+    ],
+    "explanation": "Weil nennt den Grund für die angekündigte Verspätung.",
+    "focus": "Zeitvergleich und weil"
+  },
+  {
+    "slug": "missed-delivery",
+    "title": "Der Zustellversuch",
+    "goal": "Verstehe eine Benachrichtigung.",
+    "setting": "post",
+    "intro": "Postmitarbeiter Ben sagt: Wir konnten Sie gestern nicht antreffen. Das Paket liegt jetzt bei uns.",
+    "words": [
+      "das Paket",
+      "die Benachrichtigung",
+      "antreffen"
+    ],
+    "pieces": [
+      "Gestern",
+      "war ich",
+      "nicht zu Hause."
+    ],
+    "question": "Wo ist das Paket jetzt?",
+    "options": [
+      "In der Postfiliale.",
+      "Schon in deiner Wohnung.",
+      "Noch beim Absender."
+    ],
+    "explanation": "Nicht antreffen bedeutet, dass der Zusteller dich nicht gefunden hat.",
+    "focus": "Vergangenheit mit war"
+  },
+  {
+    "slug": "parcel-status",
+    "title": "Der Sendungsstatus",
+    "goal": "Frag nach einem laufenden Versand.",
+    "setting": "post",
+    "intro": "Postmitarbeiter Ben sagt: Ihr Paket wurde am Montag abgeschickt und ist noch unterwegs.",
+    "words": [
+      "die Sendung",
+      "unterwegs",
+      "ankommen"
+    ],
+    "pieces": [
+      "Mein Paket ist",
+      "noch nicht",
+      "angekommen."
+    ],
+    "question": "Welche Aussage passt?",
+    "options": [
+      "Es ist noch unterwegs.",
+      "Es ist schon zugestellt.",
+      "Es wurde noch nicht abgeschickt."
+    ],
+    "explanation": "Noch nicht bedeutet: Das Ankommen ist bisher nicht erfolgt.",
+    "focus": "Perfekt mit ankommen"
+  },
+  {
+    "slug": "missing-postcode",
+    "title": "Die fehlende Postleitzahl",
+    "goal": "Ergänze einen Adressteil.",
+    "setting": "post",
+    "intro": "Postmitarbeiter Ben sagt: Straße und Hausnummer sind da, aber die Postleitzahl fehlt.",
+    "words": [
+      "die Postleitzahl",
+      "die Adresse",
+      "fehlen"
+    ],
+    "pieces": [
+      "Ich habe",
+      "die Postleitzahl",
+      "vergessen."
+    ],
+    "question": "Was ergänzt du?",
+    "options": [
+      "Die Postleitzahl.",
+      "Noch einmal die Straße.",
+      "Noch einmal die Hausnummer."
+    ],
+    "explanation": "Die Postleitzahl ist laut Szene der einzige fehlende Adressteil.",
+    "focus": "Perfekt mit vergessen"
+  },
+  {
+    "slug": "postcard-stamps",
+    "title": "Briefmarken für Postkarten",
+    "goal": "Nenne eine Gesamtmenge.",
+    "setting": "post",
+    "intro": "Postmitarbeiter Ben fragt: Wie viele Marken? Du hast vier Postkarten, jede braucht eine Marke.",
+    "words": [
+      "die Postkarte",
+      "die Briefmarke",
+      "jede"
+    ],
+    "pieces": [
+      "Ich brauche",
+      "für jede Postkarte",
+      "eine Briefmarke."
+    ],
+    "question": "Wie viele Marken kaufst du?",
+    "options": [
+      "Vier Briefmarken.",
+      "Zwei Briefmarken.",
+      "Eine Briefmarke."
+    ],
+    "explanation": "Jede verbindet jeweils eine Postkarte mit einer Briefmarke.",
+    "focus": "Jede und Mengen"
+  },
+  {
+    "slug": "parcel-size-rule",
+    "title": "Der kleinere Karton",
+    "goal": "Verstehe eine Größenregel.",
+    "setting": "post",
+    "intro": "Postmitarbeiter Ben sagt: Dieser Tarif gilt hier für Kartons bis 30 cm. Deiner ist 40 cm lang.",
+    "words": [
+      "der Karton",
+      "lang",
+      "kleiner"
+    ],
+    "pieces": [
+      "Ich brauche",
+      "für diesen Tarif",
+      "einen kleineren Karton."
+    ],
+    "question": "Welche Länge passt zur genannten Grenze?",
+    "options": [
+      "25 cm.",
+      "35 cm.",
+      "40 cm."
+    ],
+    "explanation": "25 cm liegt unter der Grenze; kleiner ist der Komparativ von klein.",
+    "focus": "Komparativ und Grenze bis"
+  },
+  {
+    "slug": "move-bank-meeting",
+    "title": "Den Gesprächstermin verlegen",
+    "goal": "Bitte um einen anderen Tag.",
+    "setting": "bank",
+    "intro": "Mitarbeiter Noah bietet Dienstag an. Du kannst erst am Donnerstag kommen.",
+    "words": [
+      "der Donnerstag",
+      "der Dienstag",
+      "verschieben"
+    ],
+    "pieces": [
+      "Könnten wir",
+      "den Termin auf Donnerstag",
+      "verschieben?"
+    ],
+    "question": "Welche Bitte passt?",
+    "options": [
+      "Ich möchte den Termin am Donnerstag.",
+      "Dienstag passt für mich.",
+      "Bitte legen Sie ihn auf Montag."
+    ],
+    "explanation": "Auf Donnerstag nennt den gewünschten neuen Termin.",
+    "focus": "Höfliche Bitte mit könnten"
+  },
+  {
+    "slug": "document-check",
+    "title": "Das fehlende Dokument",
+    "goal": "Verstehe eine genannte Voraussetzung.",
+    "setting": "bank",
+    "intro": "Mitarbeiter Noah sagt: Für diesen Termin hier brauchen Sie Ihren Ausweis. Du hast nur die Bankkarte dabei.",
+    "words": [
+      "der Ausweis",
+      "die Bankkarte",
+      "mitbringen"
+    ],
+    "pieces": [
+      "Ich habe",
+      "meinen Ausweis nicht",
+      "mitgebracht."
+    ],
+    "question": "Was fehlt laut Mitarbeiter?",
+    "options": [
+      "Der Ausweis.",
+      "Die Bankkarte.",
+      "Ein Kalender."
+    ],
+    "explanation": "Mitgebracht steht am Ende des Perfekts; nicht verneint das Mitbringen.",
+    "focus": "Perfekt eines trennbaren Verbs"
+  },
+  {
+    "slug": "paperless-receipt",
+    "title": "Die digitale Bestätigung",
+    "goal": "Wähle ein Format.",
+    "setting": "bank",
+    "intro": "Mitarbeiter Noah fragt: Auf Papier oder per E-Mail? Du möchtest keine Papierkopie.",
+    "words": [
+      "die Bestätigung",
+      "das Papier",
+      "die E-Mail"
+    ],
+    "pieces": [
+      "Ich möchte",
+      "die Bestätigung per E-Mail",
+      "bekommen."
+    ],
+    "question": "Was antwortest du?",
+    "options": [
+      "Per E-Mail, bitte.",
+      "Auf Papier, bitte.",
+      "Bitte zwei Papierkopien."
+    ],
+    "explanation": "Per E-Mail nennt den gewünschten Übertragungsweg.",
+    "focus": "Wunsch mit Infinitiv"
+  },
+  {
+    "slug": "update-address",
+    "title": "Eine neue Adresse",
+    "goal": "Erkläre eine Änderung.",
+    "setting": "bank",
+    "intro": "Mitarbeiter Noah fragt: Warum möchten Sie Ihre Adresse ändern? Du bist letzte Woche umgezogen.",
+    "words": [
+      "die Adresse",
+      "umziehen",
+      "letzte Woche"
+    ],
+    "pieces": [
+      "Ich bin",
+      "letzte Woche",
+      "umgezogen."
+    ],
+    "question": "Was antwortest du?",
+    "options": [
+      "Ich wohne jetzt an einer neuen Adresse.",
+      "Meine Adresse ist unverändert.",
+      "Ich werde erst nächstes Jahr umziehen."
+    ],
+    "explanation": "Umgezogen bildet das Perfekt mit sein.",
+    "focus": "Perfekt mit umziehen"
+  },
+  {
+    "slug": "counter-or-online",
+    "title": "Die vereinbarte Beratung",
+    "goal": "Verstehe einen Gesprächsort.",
+    "setting": "bank",
+    "intro": "Mitarbeiter Noah sagt: Ihr Termin findet per Video statt. Sie brauchen nicht in die Filiale zu kommen.",
+    "words": [
+      "die Filiale",
+      "das Video",
+      "stattfinden"
+    ],
+    "pieces": [
+      "Der Termin findet",
+      "per Video",
+      "statt."
+    ],
+    "question": "Wo nimmst du teil?",
+    "options": [
+      "An einem Videogespräch.",
+      "Am Schalter in der Filiale.",
+      "Im Wartebereich der Filiale."
+    ],
+    "explanation": "Stattfinden ist trennbar; per Video nennt die Form des Gesprächs.",
+    "focus": "Trennbares Verb stattfinden"
+  },
+  {
+    "slug": "extend-loan",
+    "title": "Das Buch länger behalten",
+    "goal": "Verstehe eine Verlängerung.",
+    "setting": "library",
+    "intro": "Bibliothekar Oskar sagt: Niemand hat das Buch reserviert. Sie können es zwei Wochen länger behalten.",
+    "words": [
+      "das Buch",
+      "verlängern",
+      "behalten"
+    ],
+    "pieces": [
+      "Ich möchte",
+      "das Buch zwei Wochen länger",
+      "behalten."
+    ],
+    "question": "Was ist möglich?",
+    "options": [
+      "Die Ausleihe um zwei Wochen verlängern.",
+      "Das Buch nur noch heute behalten.",
+      "Das Buch gar nicht mehr ausleihen."
+    ],
+    "explanation": "Länger vergleicht die neue Leihdauer mit der bisherigen.",
+    "focus": "Komparativ länger"
+  },
+  {
+    "slug": "reserve-unavailable-book",
+    "title": "Ein ausgeliehenes Buch",
+    "goal": "Bitte um eine Vormerkung.",
+    "setting": "library",
+    "intro": "Bibliothekar Oskar sagt: Das Buch ist ausgeliehen. Ich kann es für Sie vormerken.",
+    "words": [
+      "die Vormerkung",
+      "ausgeliehen",
+      "zurückkommen"
+    ],
+    "pieces": [
+      "Könnten Sie",
+      "das Buch für mich",
+      "vormerken?"
+    ],
+    "question": "Was möchtest du?",
+    "options": [
+      "Eine Vormerkung für das ausgeliehene Buch.",
+      "Das Buch sofort aus dem Regal nehmen.",
+      "Das Buch heute am Schalter zurückgeben."
+    ],
+    "explanation": "Vormerken bedeutet hier, auf die nächste Ausleihe zu warten.",
+    "focus": "Höfliche Bitte und vormerken"
+  },
+  {
+    "slug": "due-tomorrow",
+    "title": "Die Rückgabefrist",
+    "goal": "Verstehe eine verbleibende Zeit.",
+    "setting": "library",
+    "intro": "Bibliothekar Oskar sagt: Das Buch ist bis Dienstag ausgeliehen. Heute ist Montag.",
+    "words": [
+      "der Dienstag",
+      "der Montag",
+      "zurückgeben"
+    ],
+    "pieces": [
+      "Ich muss",
+      "das Buch morgen",
+      "zurückgeben."
+    ],
+    "question": "Wann endet die Leihfrist?",
+    "options": [
+      "Morgen, am Dienstag.",
+      "Heute, am Montag.",
+      "Übermorgen, am Mittwoch."
+    ],
+    "explanation": "Morgen bezeichnet vom Montag aus den Dienstag.",
+    "focus": "Modalverb müssen und morgen"
+  },
+  {
+    "slug": "digital-book",
+    "title": "Das digitale Buch",
+    "goal": "Verstehe eine Medienform.",
+    "setting": "library",
+    "intro": "Bibliothekar Oskar sagt: Dieses Buch gibt es nur digital. Sie können es auf Ihrem Tablet lesen.",
+    "words": [
+      "das Tablet",
+      "das E-Book",
+      "digital"
+    ],
+    "pieces": [
+      "Ich lese",
+      "das E-Book",
+      "auf meinem Tablet."
+    ],
+    "question": "Welche Form ist verfügbar?",
+    "options": [
+      "Ein digitales Buch.",
+      "Ein gedrucktes Buch im Regal.",
+      "Nur ein Hörbuch auf CD."
+    ],
+    "explanation": "Digital nennt hier ein E-Book, das auf einem Gerät gelesen wird.",
+    "focus": "Dativ nach auf"
+  },
+  {
+    "slug": "existing-damage",
+    "title": "Der alte Riss",
+    "goal": "Beschreibe einen früheren Zustand.",
+    "setting": "library",
+    "intro": "Bibliothekar Oskar sieht einen Riss im Umschlag. Du hast ihn schon beim Ausleihen bemerkt.",
+    "words": [
+      "der Riss",
+      "der Umschlag",
+      "schon"
+    ],
+    "pieces": [
+      "Der Riss war",
+      "schon beim Ausleihen",
+      "da."
+    ],
+    "question": "Was sagst du?",
+    "options": [
+      "Der Umschlag war schon vorher beschädigt.",
+      "Ich habe ihn gerade zerrissen.",
+      "Der Umschlag ist ganz unbeschädigt."
+    ],
+    "explanation": "Schon beim Ausleihen legt den Schaden zeitlich vor die aktuelle Rückgabe.",
+    "focus": "Vergangenheit mit war"
+  },
+  {
+    "slug": "send-meeting-notes",
+    "title": "Das Besprechungsprotokoll",
+    "goal": "Berichte über eine erledigte Aufgabe.",
+    "setting": "office",
+    "intro": "Kollege Lukas fragt: Hast du das Protokoll geschickt? Du hast es vor zehn Minuten per E-Mail gesendet.",
+    "words": [
+      "das Protokoll",
+      "die E-Mail",
+      "schicken"
+    ],
+    "pieces": [
+      "Ich habe",
+      "das Protokoll schon",
+      "geschickt."
+    ],
+    "question": "Was antwortest du?",
+    "options": [
+      "Ja, vor zehn Minuten.",
+      "Nein, ich schreibe es erst morgen.",
+      "Nein, die Besprechung beginnt gleich."
+    ],
+    "explanation": "Schon markiert, dass die Aufgabe bereits erledigt ist.",
+    "focus": "Perfekt mit schon"
+  },
+  {
+    "slug": "earlier-meeting",
+    "title": "Ein früherer Beginn",
+    "goal": "Verstehe eine Zeitänderung.",
+    "setting": "office",
+    "intro": "Kollege Lukas sagt: Die Besprechung beginnt um neun statt um zehn Uhr.",
+    "words": [
+      "die Besprechung",
+      "früher",
+      "statt"
+    ],
+    "pieces": [
+      "Die Besprechung",
+      "beginnt",
+      "eine Stunde früher."
+    ],
+    "question": "Wann beginnt sie jetzt?",
+    "options": [
+      "Um neun Uhr.",
+      "Um zehn Uhr.",
+      "Um elf Uhr."
+    ],
+    "explanation": "Neun liegt eine Stunde vor zehn; früher beschreibt den Vergleich.",
+    "focus": "Komparativ früher"
+  },
+  {
+    "slug": "paper-jam",
+    "title": "Papier im Drucker",
+    "goal": "Erkläre eine Verzögerung.",
+    "setting": "office",
+    "intro": "Kollege Lukas fragt: Warum ist der Ausdruck noch nicht da? Papier steckt im Drucker fest.",
+    "words": [
+      "der Drucker",
+      "das Papier",
+      "feststecken"
+    ],
+    "pieces": [
+      "Ich kann",
+      "nicht drucken,",
+      "weil",
+      "Papier im Drucker",
+      "feststeckt."
+    ],
+    "question": "Was hält dich auf?",
+    "options": [
+      "Papier steckt im Drucker fest.",
+      "Der Ausdruck ist schon fertig.",
+      "Der Drucker hat kein Papier."
+    ],
+    "explanation": "Im Nebensatz bleibt das trennbare Verb feststecken zusammen.",
+    "focus": "Weil und feststecken"
+  },
+  {
+    "slug": "agree-task-owner",
+    "title": "Eine Aufgabe übernehmen",
+    "goal": "Bestätige eine Zuständigkeit.",
+    "setting": "office",
+    "intro": "Kollege Lukas sagt: Ich rufe den Kunden an. Du schickst ihm danach die Unterlagen.",
+    "words": [
+      "die Unterlage",
+      "der Kunde",
+      "danach"
+    ],
+    "pieces": [
+      "Ich schicke",
+      "die Unterlagen,",
+      "wenn",
+      "du angerufen",
+      "hast."
+    ],
+    "question": "Was ist deine Aufgabe?",
+    "options": [
+      "Nach dem Anruf die Unterlagen schicken.",
+      "Den Kunden selbst zuerst anrufen.",
+      "Die Unterlagen vor dem Anruf schicken."
+    ],
+    "explanation": "Wenn verbindet hier deine Aufgabe mit dem abgeschlossenen Anruf.",
+    "focus": "Wenn-Satz im Perfekt"
+  },
+  {
+    "slug": "remote-work-reason",
+    "title": "Heute von zu Hause",
+    "goal": "Begründe einen Arbeitsort.",
+    "setting": "office",
+    "intro": "Kollege Lukas fragt: Warum arbeitest du heute zu Hause? Ein Techniker repariert dort deine Heizung.",
+    "words": [
+      "die Heizung",
+      "der Techniker",
+      "zu Hause"
+    ],
+    "pieces": [
+      "Ich arbeite",
+      "zu Hause,",
+      "weil",
+      "der Techniker",
+      "kommt."
+    ],
+    "question": "Welcher Grund passt?",
+    "options": [
+      "Ein Techniker kommt zur Reparatur.",
+      "Du hast heute frei.",
+      "Die Heizung im Büro ist neu."
+    ],
+    "explanation": "Der weil-Satz nennt den Besuch des Technikers als Grund.",
+    "focus": "Begründung mit weil"
+  },
+  {
+    "slug": "explain-absence",
+    "title": "Gestern im Kurs gefehlt",
+    "goal": "Erkläre eine Abwesenheit.",
+    "setting": "school",
+    "intro": "Lehrer Anton fragt: Warum warst du gestern nicht bei Sitov Academy? Du musstest arbeiten.",
+    "words": [
+      "der Kurs",
+      "gestern",
+      "arbeiten"
+    ],
+    "pieces": [
+      "Ich war",
+      "nicht im Kurs,",
+      "weil",
+      "ich arbeiten",
+      "musste."
+    ],
+    "question": "Was antwortest du?",
+    "options": [
+      "Ich musste gestern arbeiten.",
+      "Ich war gestern im Kurs.",
+      "Ich habe den Unterricht gegeben."
+    ],
+    "explanation": "Musste ist die Vergangenheit von müssen und erklärt die Abwesenheit.",
+    "focus": "Weil mit musste"
+  },
+  {
+    "slug": "understood-rule",
+    "title": "Die Regel verstanden",
+    "goal": "Berichte über dein Verständnis.",
+    "setting": "school",
+    "intro": "Lehrer Anton fragt: Hast du die neue Regel verstanden? Du kannst sie jetzt erklären.",
+    "words": [
+      "die Regel",
+      "verstehen",
+      "erklären"
+    ],
+    "pieces": [
+      "Ich habe",
+      "die Regel",
+      "verstanden."
+    ],
+    "question": "Welche Antwort passt?",
+    "options": [
+      "Ja, ich kann sie erklären.",
+      "Nein, ich verstehe sie gar nicht.",
+      "Nein, ich habe sie noch nicht gesehen."
+    ],
+    "explanation": "Verstanden ist das Partizip von verstehen.",
+    "focus": "Perfekt mit verstehen"
+  },
+  {
+    "slug": "easier-exercise",
+    "title": "Zwei Übungen vergleichen",
+    "goal": "Vergleiche die Schwierigkeit.",
+    "setting": "school",
+    "intro": "Lehrer Anton sagt: Aufgabe eins ist einfach, Aufgabe zwei ist schwerer. Du beginnst mit der leichteren.",
+    "words": [
+      "die Aufgabe",
+      "leichter",
+      "schwerer"
+    ],
+    "pieces": [
+      "Aufgabe eins",
+      "ist",
+      "leichter",
+      "als Aufgabe zwei."
+    ],
+    "question": "Welche Aufgabe machst du zuerst?",
+    "options": [
+      "Aufgabe eins.",
+      "Aufgabe zwei.",
+      "Beide sind gleich schwer."
+    ],
+    "explanation": "Leichter ... als vergleicht die Schwierigkeit zweier Aufgaben.",
+    "focus": "Komparativ mit als"
+  },
+  {
+    "slug": "group-results",
+    "title": "Das Gruppenergebnis",
+    "goal": "Gib eine Meinung wieder.",
+    "setting": "school",
+    "intro": "Mitschüler Amir sagt: Unser Ergebnis ist richtig. Du berichtest dem Lehrer, was Amir sagt.",
+    "words": [
+      "das Ergebnis",
+      "die Gruppe",
+      "richtig"
+    ],
+    "pieces": [
+      "Amir sagt,",
+      "dass",
+      "unser Ergebnis richtig",
+      "ist."
+    ],
+    "question": "Was hat Amir gesagt?",
+    "options": [
+      "Unser Ergebnis ist richtig.",
+      "Unser Ergebnis ist falsch.",
+      "Wir haben noch kein Ergebnis."
+    ],
+    "explanation": "Dass leitet den Inhalt der Aussage ein; ist steht am Ende.",
+    "focus": "Aussage mit dass"
+  },
+  {
+    "slug": "missed-homework-page",
+    "title": "Die Seite nachfragen",
+    "goal": "Bitte um fehlende Informationen.",
+    "setting": "school",
+    "intro": "Lehrer Anton hat die Hausaufgabenseite genannt. Du hast die Zahl nicht gehört.",
+    "words": [
+      "die Hausaufgabe",
+      "die Seite",
+      "noch einmal"
+    ],
+    "pieces": [
+      "Könnten Sie",
+      "die Seitenzahl noch einmal",
+      "sagen?"
+    ],
+    "question": "Welche Bitte passt?",
+    "options": [
+      "Welche Seite sollen wir bearbeiten?",
+      "Warum habe ich die Seite schon fertig?",
+      "Welche Seite habe ich gestern gelesen?"
+    ],
+    "explanation": "Noch einmal bittet um Wiederholung der fehlenden Zahl.",
+    "focus": "Höfliche Bitte und sollen"
+  },
+  {
+    "slug": "move-in-past",
+    "title": "Neu im Haus",
+    "goal": "Berichte über deinen Einzug.",
+    "setting": "apartment",
+    "intro": "Nachbar Max fragt: Seit wann wohnen Sie hier? Du bist am Samstag eingezogen.",
+    "words": [
+      "der Samstag",
+      "einziehen",
+      "seit"
+    ],
+    "pieces": [
+      "Ich bin",
+      "am Samstag",
+      "eingezogen."
+    ],
+    "question": "Was antwortest du?",
+    "options": [
+      "Seit Samstag.",
+      "Ich ziehe erst nächste Woche ein.",
+      "Seit gestern, am Mittwoch."
+    ],
+    "explanation": "Eingezogen bildet das Perfekt mit sein; seit nennt den Beginn.",
+    "focus": "Perfekt mit einziehen"
+  },
+  {
+    "slug": "heating-not-working",
+    "title": "Die kalte Wohnung",
+    "goal": "Melde einen Defekt.",
+    "setting": "apartment",
+    "intro": "Nachbar Max fragt: Warum ist es so kalt? Die Heizung läuft seit gestern nicht.",
+    "words": [
+      "die Heizung",
+      "kalt",
+      "seit gestern"
+    ],
+    "pieces": [
+      "Es ist",
+      "kalt,",
+      "weil",
+      "die Heizung nicht",
+      "funktioniert."
+    ],
+    "question": "Was meldest du?",
+    "options": [
+      "Die Heizung funktioniert seit gestern nicht.",
+      "Die Heizung ist zu heiß.",
+      "Die Heizung funktioniert ohne Probleme."
+    ],
+    "explanation": "Der weil-Satz erklärt die kalte Wohnung durch den Defekt.",
+    "focus": "Weil und Negation"
+  },
+  {
+    "slug": "room-comparison",
+    "title": "Das größere Zimmer",
+    "goal": "Vergleiche zwei Räume.",
+    "setting": "apartment",
+    "intro": "Nachbar Max sagt: Zimmer A hat 20 Quadratmeter, Zimmer B nur 12.",
+    "words": [
+      "das Zimmer",
+      "der Quadratmeter",
+      "größer"
+    ],
+    "pieces": [
+      "Zimmer A",
+      "ist",
+      "größer",
+      "als Zimmer B."
+    ],
+    "question": "Welches Zimmer hat mehr Platz?",
+    "options": [
+      "Zimmer A.",
+      "Zimmer B.",
+      "Beide sind gleich groß."
+    ],
+    "explanation": "Größer ist der Komparativ von groß; als nennt den Vergleichspartner.",
+    "focus": "Komparativ größer als"
+  },
+  {
+    "slug": "neighbor-quiet-time",
+    "title": "Musik am Abend",
+    "goal": "Verstehe eine Hausabsprache.",
+    "setting": "apartment",
+    "intro": "Nachbar Max sagt: Wenn es nach 22 Uhr ist, hören wir hier Musik nur leise. Es ist 23 Uhr.",
+    "words": [
+      "die Musik",
+      "leise",
+      "nach"
+    ],
+    "pieces": [
+      "Wenn",
+      "es nach zweiundzwanzig Uhr",
+      "ist,",
+      "mache ich",
+      "die Musik",
+      "leiser."
+    ],
+    "question": "Was passt zur Absprache?",
+    "options": [
+      "Ich drehe die Musik leiser.",
+      "Ich drehe die Musik lauter.",
+      "Ich stelle die Boxen in den Flur."
+    ],
+    "explanation": "Leiser verringert die Lautstärke; wenn nennt die vereinbarte Bedingung.",
+    "focus": "Wenn und Komparativ"
+  },
+  {
+    "slug": "key-left-inside",
+    "title": "Der Schlüssel liegt drinnen",
+    "goal": "Erkläre ein Missgeschick.",
+    "setting": "apartment",
+    "intro": "Nachbar Max fragt: Warum stehen Sie vor der Tür? Dein Schlüssel liegt in der Wohnung.",
+    "words": [
+      "der Schlüssel",
+      "die Wohnung",
+      "vergessen"
+    ],
+    "pieces": [
+      "Ich habe",
+      "meinen Schlüssel in der Wohnung",
+      "vergessen."
+    ],
+    "question": "Was ist passiert?",
+    "options": [
+      "Der Schlüssel ist drinnen geblieben.",
+      "Du hast ihn in der Hand.",
+      "Du hast ihn beim Nachbar abgeholt."
+    ],
+    "explanation": "In der Wohnung nennt den Ort des vergessenen Schlüssels.",
+    "focus": "Perfekt und Ortsangabe"
+  },
+  {
+    "slug": "describe-last-working",
+    "title": "Seit gestern defekt",
+    "goal": "Gib den Beginn eines Problems an.",
+    "setting": "repair",
+    "intro": "Mechaniker Erik fragt: Wann hat die Lampe zuletzt funktioniert? Gestern Abend ging sie noch.",
+    "words": [
+      "die Lampe",
+      "gestern Abend",
+      "zuletzt"
+    ],
+    "pieces": [
+      "Gestern Abend",
+      "hat die Lampe",
+      "noch",
+      "funktioniert."
+    ],
+    "question": "Wann ging die Lampe zuletzt?",
+    "options": [
+      "Gestern Abend.",
+      "Heute Morgen.",
+      "Seit einer Woche gar nicht."
+    ],
+    "explanation": "Noch signalisiert, dass sie zu diesem Zeitpunkt funktionierte.",
+    "focus": "Perfekt mit noch"
+  },
+  {
+    "slug": "repair-cost-comparison",
+    "title": "Zwei Angebote vergleichen",
+    "goal": "Vergleiche genannte Preise.",
+    "setting": "repair",
+    "intro": "Mechaniker Erik sagt: Reparatur A kostet 40 Euro, Reparatur B für denselben Defekt kostet 60 Euro.",
+    "words": [
+      "die Reparatur",
+      "das Angebot",
+      "günstiger"
+    ],
+    "pieces": [
+      "Reparatur A",
+      "ist",
+      "günstiger",
+      "als Reparatur B."
+    ],
+    "question": "Welches Angebot kostet weniger?",
+    "options": [
+      "Reparatur A.",
+      "Reparatur B.",
+      "Beide kosten gleich viel."
+    ],
+    "explanation": "Günstiger bezieht sich hier ausschließlich auf die beiden genannten Preise.",
+    "focus": "Preisvergleich mit als"
+  },
+  {
+    "slug": "parts-not-arrived",
+    "title": "Das fehlende Ersatzteil",
+    "goal": "Verstehe eine Verzögerung.",
+    "setting": "repair",
+    "intro": "Mechaniker Erik sagt: Ich kann noch nicht reparieren, weil das Ersatzteil erst morgen kommt.",
+    "words": [
+      "das Ersatzteil",
+      "reparieren",
+      "erst morgen"
+    ],
+    "pieces": [
+      "Die Reparatur muss",
+      "warten,",
+      "weil",
+      "das Ersatzteil noch nicht da",
+      "ist."
+    ],
+    "question": "Warum ist die Reparatur noch nicht fertig?",
+    "options": [
+      "Das Ersatzteil fehlt noch.",
+      "Der Mechaniker hat sie schon beendet.",
+      "Das Gerät wurde bereits abgeholt."
+    ],
+    "explanation": "Noch nicht beschreibt einen bisher nicht erreichten Zustand.",
+    "focus": "Weil und noch nicht"
+  },
+  {
+    "slug": "test-after-repair",
+    "title": "Die Reparatur prüfen",
+    "goal": "Berichte über einen Test.",
+    "setting": "repair",
+    "intro": "Mechaniker Erik fragt: Haben Sie das Gerät getestet? Du hast es eingeschaltet und es lief.",
+    "words": [
+      "das Gerät",
+      "einschalten",
+      "testen"
+    ],
+    "pieces": [
+      "Ich habe",
+      "das Gerät",
+      "eingeschaltet."
+    ],
+    "question": "Welche Antwort passt?",
+    "options": [
+      "Ja, es funktioniert wieder.",
+      "Nein, ich habe es nicht getestet.",
+      "Ja, aber es geht gar nicht an."
+    ],
+    "explanation": "Eingeschaltet ist das Partizip des trennbaren Verbs einschalten.",
+    "focus": "Perfekt mit einschalten"
+  },
+  {
+    "slug": "repair-slot-choice",
+    "title": "Ein Reparaturfenster",
+    "goal": "Verstehe einen Zeitbereich.",
+    "setting": "repair",
+    "intro": "Mechaniker Erik sagt: Ich komme zwischen zehn und zwölf Uhr. Du musst in dieser Zeit zu Hause sein.",
+    "words": [
+      "der Mechaniker",
+      "zwischen",
+      "zu Hause"
+    ],
+    "pieces": [
+      "Ich bleibe",
+      "zwischen zehn und zwölf Uhr",
+      "zu Hause."
+    ],
+    "question": "Welche Uhrzeit liegt im angekündigten Bereich?",
+    "options": [
+      "Elf Uhr.",
+      "Neun Uhr.",
+      "Dreizehn Uhr."
+    ],
+    "explanation": "Zwischen zehn und zwölf umfasst hier die Uhrzeit elf.",
+    "focus": "Zeitraum mit zwischen"
+  },
+  {
+    "slug": "longer-park-route",
+    "title": "Zwei Wege zum See",
+    "goal": "Vergleiche Weglängen.",
+    "setting": "park",
+    "intro": "Spaziergänger Finn sagt: Über die Brücke sind es 500 Meter, am Wald entlang 900 Meter.",
+    "words": [
+      "die Brücke",
+      "der Wald",
+      "kürzer"
+    ],
+    "pieces": [
+      "Der Weg über die Brücke",
+      "ist",
+      "kürzer."
+    ],
+    "question": "Welcher Weg ist kürzer?",
+    "options": [
+      "Über die Brücke.",
+      "Am Wald entlang.",
+      "Beide sind gleich lang."
+    ],
+    "explanation": "Kürzer vergleicht die Weglängen von 500 und 900 Metern.",
+    "focus": "Komparativ kürzer"
+  },
+  {
+    "slug": "found-wallet",
+    "title": "Die gefundene Geldbörse",
+    "goal": "Melde einen Fund.",
+    "setting": "park",
+    "intro": "Spaziergänger Finn fragt: Was haben Sie gefunden? Auf der Bank lag eine Geldbörse.",
+    "words": [
+      "die Geldbörse",
+      "die Bank",
+      "finden"
+    ],
+    "pieces": [
+      "Ich habe",
+      "eine Geldbörse auf der Bank",
+      "gefunden."
+    ],
+    "question": "Was meldest du?",
+    "options": [
+      "Eine Geldbörse auf der Bank.",
+      "Meinen verlorenen Schlüssel.",
+      "Ein Fahrrad am Eingang."
+    ],
+    "explanation": "Gefunden steht am Ende des Perfekts mit haben.",
+    "focus": "Perfekt mit finden"
+  },
+  {
+    "slug": "wet-bench",
+    "title": "Eine nasse Bank",
+    "goal": "Begründe eine Wahl.",
+    "setting": "park",
+    "intro": "Dein Freund Finn sagt: Setzen wir uns hierhin? Die Bank ist nass, die andere ist trocken.",
+    "words": [
+      "die Bank",
+      "nass",
+      "trocken"
+    ],
+    "pieces": [
+      "Ich nehme",
+      "die andere Bank,",
+      "weil",
+      "diese nass",
+      "ist."
+    ],
+    "question": "Wo möchtest du sitzen?",
+    "options": [
+      "Auf der trockenen Bank.",
+      "Auf der nassen Bank.",
+      "Beide Bänke sind nass."
+    ],
+    "explanation": "Diese verweist auf die nasse Bank; weil erklärt den Wechsel.",
+    "focus": "Weil und Demonstrativwort"
+  },
+  {
+    "slug": "path-closed",
+    "title": "Der gesperrte Weg",
+    "goal": "Verstehe eine Ausweichroute.",
+    "setting": "park",
+    "intro": "Spaziergänger Finn sagt: Der Weg zum See ist gesperrt. Gehen Sie erst rechts und dann links.",
+    "words": [
+      "der Weg",
+      "gesperrt",
+      "danach"
+    ],
+    "pieces": [
+      "Zuerst",
+      "gehe ich",
+      "rechts,",
+      "danach links."
+    ],
+    "question": "Welche Reihenfolge stimmt?",
+    "options": [
+      "Erst rechts, dann links.",
+      "Erst links, dann rechts.",
+      "Direkt über den gesperrten Weg."
+    ],
+    "explanation": "Zuerst und danach ordnen die Schritte der Wegbeschreibung.",
+    "focus": "Reihenfolge mit zuerst danach"
+  },
+  {
+    "slug": "walk-before-rain",
+    "title": "Vor dem Regen zurück",
+    "goal": "Verstehe einen Wetterplan.",
+    "setting": "park",
+    "intro": "Dein Freund Finn sagt: Wenn es regnet, gehen wir zurück. Jetzt scheint noch die Sonne.",
+    "words": [
+      "die Sonne",
+      "der Regen",
+      "zurückgehen"
+    ],
+    "pieces": [
+      "Wenn",
+      "es",
+      "regnet,",
+      "gehen wir",
+      "zurück."
+    ],
+    "question": "Wann geht ihr laut Plan zurück?",
+    "options": [
+      "Wenn es regnet.",
+      "Sobald die Sonne scheint.",
+      "Ihr bleibt auch bei Regen immer draußen."
+    ],
+    "explanation": "Der wenn-Satz nennt die Bedingung für die Rückkehr.",
+    "focus": "Wenn als Bedingung"
+  },
+  {
+    "slug": "training-cancelled",
+    "title": "Das Training fällt aus",
+    "goal": "Verstehe eine Absage.",
+    "setting": "sports",
+    "intro": "Trainer Moritz sagt: Heute fällt das Training aus, weil die Halle geschlossen ist.",
+    "words": [
+      "die Halle",
+      "das Training",
+      "ausfallen"
+    ],
+    "pieces": [
+      "Das Training fällt",
+      "aus,",
+      "weil",
+      "die Halle geschlossen",
+      "ist."
+    ],
+    "question": "Was passiert heute?",
+    "options": [
+      "Es gibt kein Training.",
+      "Das Training läuft wie immer.",
+      "Das Training beginnt früher."
+    ],
+    "explanation": "Ausfallen bedeutet, dass der geplante Termin nicht stattfindet.",
+    "focus": "Trennbares Verb ausfallen"
+  },
+  {
+    "slug": "first-run-report",
+    "title": "Nach der Laufrunde",
+    "goal": "Berichte über eine Aktivität.",
+    "setting": "sports",
+    "intro": "Trainer Moritz fragt: Wie weit bist du gelaufen? Deine Strecke war drei Kilometer.",
+    "words": [
+      "der Kilometer",
+      "laufen",
+      "die Strecke"
+    ],
+    "pieces": [
+      "Ich bin",
+      "drei Kilometer",
+      "gelaufen."
+    ],
+    "question": "Was antwortest du?",
+    "options": [
+      "Drei Kilometer.",
+      "Drei Minuten.",
+      "Drei Runden mit unbekannter Länge."
+    ],
+    "explanation": "Gelaufen bildet das Perfekt mit sein; Kilometer benennt die Strecke.",
+    "focus": "Perfekt mit laufen"
+  },
+  {
+    "slug": "more-frequent-training",
+    "title": "Öfter trainieren",
+    "goal": "Vergleiche Häufigkeiten.",
+    "setting": "sports",
+    "intro": "Trainer Moritz sagt: Früher warst du einmal pro Woche hier, jetzt dreimal.",
+    "words": [
+      "die Woche",
+      "öfter",
+      "früher"
+    ],
+    "pieces": [
+      "Ich trainiere",
+      "jetzt öfter",
+      "als früher."
+    ],
+    "question": "Wie oft trainierst du jetzt?",
+    "options": [
+      "Dreimal pro Woche.",
+      "Einmal pro Woche.",
+      "Seltener als früher."
+    ],
+    "explanation": "Öfter ist der Komparativ von oft und beschreibt mehr Trainingstermine.",
+    "focus": "Komparativ öfter"
+  },
+  {
+    "slug": "locker-key-return",
+    "title": "Den Spindschlüssel zurückgeben",
+    "goal": "Verstehe eine Reihenfolge.",
+    "setting": "sports",
+    "intro": "Trainer Moritz sagt: Wenn Sie fertig sind, geben Sie den Spindschlüssel am Empfang ab.",
+    "words": [
+      "der Spindschlüssel",
+      "der Empfang",
+      "abgeben"
+    ],
+    "pieces": [
+      "Wenn",
+      "ich fertig",
+      "bin,",
+      "gebe ich",
+      "den Schlüssel",
+      "ab."
+    ],
+    "question": "Wann gibst du den Schlüssel zurück?",
+    "options": [
+      "Wenn ich fertig bin.",
+      "Bevor ich den Spind nutze.",
+      "Erst nächste Woche."
+    ],
+    "explanation": "Im Nebensatz steht bin am Ende; abgeben wird im Hauptsatz getrennt.",
+    "focus": "Wenn und abgeben"
+  },
+  {
+    "slug": "indoor-shoes",
+    "title": "Die passenden Sportschuhe",
+    "goal": "Verstehe eine genannte Ausrüstungsregel.",
+    "setting": "sports",
+    "intro": "Trainer Moritz sagt: In dieser Halle tragen wir nur saubere Hallenschuhe. Deine Straßenschuhe sind schmutzig.",
+    "words": [
+      "der Hallenschuh",
+      "sauber",
+      "schmutzig"
+    ],
+    "pieces": [
+      "Ich ziehe",
+      "saubere Hallenschuhe",
+      "an."
+    ],
+    "question": "Was passt zur Hallenregel?",
+    "options": [
+      "Ich wechsle zu sauberen Hallenschuhen.",
+      "Ich behalte die schmutzigen Straßenschuhe an.",
+      "Ich putze nur meine Jacke."
+    ],
+    "explanation": "Anziehen ist trennbar; saubere Hallenschuhe entsprechen der genannten Regel.",
+    "focus": "Trennbares Verb anziehen"
+  },
+  {
+    "slug": "room-not-ready",
+    "title": "Das Zimmer ist noch nicht fertig",
+    "goal": "Verstehe eine Wartezeit.",
+    "setting": "hotel",
+    "intro": "Rezeptionist Daniel sagt: Ihr Zimmer wird noch gereinigt. In 20 Minuten können Sie hinein.",
+    "words": [
+      "das Zimmer",
+      "reinigen",
+      "in zwanzig Minuten"
+    ],
+    "pieces": [
+      "Ich kann",
+      "in zwanzig Minuten",
+      "ins Zimmer."
+    ],
+    "question": "Wann kannst du hinein?",
+    "options": [
+      "In 20 Minuten.",
+      "Sofort.",
+      "Erst morgen."
+    ],
+    "explanation": "In zwanzig Minuten benennt einen zukünftigen Zeitpunkt.",
+    "focus": "Zukünftige Zeitangabe mit in"
+  },
+  {
+    "slug": "quieter-hotel-room",
+    "title": "Ein ruhigeres Zimmer",
+    "goal": "Bitte um einen Zimmerwechsel.",
+    "setting": "hotel",
+    "intro": "Rezeptionist Daniel sagt: Ihr Zimmer liegt an der Straße. Im Hof ist es ruhiger. Du möchtest ruhig schlafen.",
+    "words": [
+      "der Hof",
+      "die Straße",
+      "ruhiger"
+    ],
+    "pieces": [
+      "Könnte ich",
+      "ein Zimmer zum Hof",
+      "bekommen?"
+    ],
+    "question": "Welches Zimmer möchtest du?",
+    "options": [
+      "Ein Zimmer zum ruhigeren Hof.",
+      "Ein Zimmer zur lauten Straße.",
+      "Ein Zimmer direkt über der lauten Straße."
+    ],
+    "explanation": "Könnte ich ... bekommen ist eine höfliche Bitte um eine andere Möglichkeit.",
+    "focus": "Höfliche Bitte mit könnte"
+  },
+  {
+    "slug": "breakfast-included",
+    "title": "Das enthaltene Frühstück",
+    "goal": "Verstehe den Umfang einer Buchung.",
+    "setting": "hotel",
+    "intro": "Rezeptionist Daniel sagt: Das Frühstück ist in Ihrer Buchung enthalten. Sie zahlen dafür nichts extra.",
+    "words": [
+      "das Frühstück",
+      "die Buchung",
+      "enthalten"
+    ],
+    "pieces": [
+      "Das Frühstück ist",
+      "in meiner Buchung",
+      "enthalten."
+    ],
+    "question": "Welche Aussage stimmt?",
+    "options": [
+      "Für das Frühstück fällt kein Extrabetrag an.",
+      "Das Frühstück muss extra bezahlt werden.",
+      "Das Hotel bietet kein Frühstück an."
+    ],
+    "explanation": "Enthalten bedeutet hier, dass das Frühstück zur Buchung gehört.",
+    "focus": "Enthalten und Negation"
+  },
+  {
+    "slug": "extra-night",
+    "title": "Eine Nacht länger",
+    "goal": "Bitte um eine Verlängerung.",
+    "setting": "hotel",
+    "intro": "Rezeptionist Daniel fragt: Reisen Sie morgen ab? Du möchtest erst übermorgen abreisen.",
+    "words": [
+      "die Nacht",
+      "verlängern",
+      "übermorgen"
+    ],
+    "pieces": [
+      "Ich möchte",
+      "eine Nacht länger",
+      "bleiben."
+    ],
+    "question": "Was wünschst du?",
+    "options": [
+      "Die Buchung um eine Nacht verlängern.",
+      "Heute früher abreisen.",
+      "Wie geplant morgen abreisen."
+    ],
+    "explanation": "Übermorgen liegt einen Tag nach morgen; länger beschreibt die Verlängerung.",
+    "focus": "Komparativ länger"
+  },
+  {
+    "slug": "lost-room-card",
+    "title": "Die verlorene Zimmerkarte",
+    "goal": "Erkläre, was passiert ist.",
+    "setting": "hotel",
+    "intro": "Rezeptionist Daniel fragt: Wo ist Ihre Zimmerkarte? Du hast sie unterwegs verloren.",
+    "words": [
+      "die Zimmerkarte",
+      "unterwegs",
+      "verlieren"
+    ],
+    "pieces": [
+      "Ich habe",
+      "meine Zimmerkarte",
+      "verloren."
+    ],
+    "question": "Welche Bitte passt?",
+    "options": [
+      "Könnten Sie mir eine neue Karte geben?",
+      "Hier ist meine Karte für die Rückgabe.",
+      "Ich brauche keine Karte für mein Zimmer."
+    ],
+    "explanation": "Verloren nennt den Grund für die Bitte um eine neue Karte.",
+    "focus": "Perfekt und höfliche Bitte"
+  },
+  {
+    "slug": "larger-shirt",
+    "title": "Ein größeres Hemd",
+    "goal": "Bitte um eine andere Größe.",
+    "setting": "clothes",
+    "intro": "Verkäufer Nils fragt: Passt Größe M? Das Hemd ist zu eng, du möchtest Größe L.",
+    "words": [
+      "das Hemd",
+      "eng",
+      "größer"
+    ],
+    "pieces": [
+      "Könnten Sie",
+      "mir das Hemd in Größe L",
+      "bringen?"
+    ],
+    "question": "Was möchtest du?",
+    "options": [
+      "Eine größere Größe.",
+      "Eine kleinere Größe.",
+      "Noch einmal dieselbe Größe M."
+    ],
+    "explanation": "Größe L ist hier die gewünschte größere Alternative zu M.",
+    "focus": "Komparativ größer"
+  },
+  {
+    "slug": "jacket-length",
+    "title": "Die längere Jacke",
+    "goal": "Vergleiche zwei Längen.",
+    "setting": "clothes",
+    "intro": "Verkäufer Nils zeigt zwei Jacken. Die blaue geht bis zur Hüfte, die schwarze bis zum Knie.",
+    "words": [
+      "die Jacke",
+      "die Hüfte",
+      "länger"
+    ],
+    "pieces": [
+      "Die schwarze Jacke",
+      "ist",
+      "länger",
+      "als die blaue."
+    ],
+    "question": "Welche Jacke ist länger?",
+    "options": [
+      "Die schwarze.",
+      "Die blaue.",
+      "Beide sind gleich lang."
+    ],
+    "explanation": "Bis zum Knie bedeutet hier eine größere Länge als bis zur Hüfte.",
+    "focus": "Komparativ länger als"
+  },
+  {
+    "slug": "return-wrong-size",
+    "title": "Die falsche Größe gekauft",
+    "goal": "Erkläre einen Umtauschwunsch.",
+    "setting": "clothes",
+    "intro": "Verkäufer Nils fragt: Warum möchten Sie tauschen? Du hast gestern Größe S statt M gekauft.",
+    "words": [
+      "die Größe",
+      "tauschen",
+      "gestern"
+    ],
+    "pieces": [
+      "Ich habe",
+      "gestern die falsche Größe",
+      "gekauft."
+    ],
+    "question": "Was ist der Grund?",
+    "options": [
+      "Ich habe S gekauft, brauche aber M.",
+      "Größe S passt mir perfekt.",
+      "Ich habe noch nichts gekauft."
+    ],
+    "explanation": "Gekauft steht am Ende des Perfekts; aber verbindet den Gegensatz.",
+    "focus": "Perfekt und aber"
+  },
+  {
+    "slug": "wash-label",
+    "title": "Das Pflegeetikett",
+    "goal": "Verstehe eine konkrete Beschriftung.",
+    "setting": "clothes",
+    "intro": "Verkäufer Nils zeigt das Etikett: Bei 30 Grad waschen. Nicht bei 60 Grad.",
+    "words": [
+      "das Etikett",
+      "der Grad",
+      "waschen"
+    ],
+    "pieces": [
+      "Ich wasche",
+      "das Hemd",
+      "bei dreißig Grad."
+    ],
+    "question": "Welche Temperatur nennt das Etikett?",
+    "options": [
+      "30 Grad.",
+      "60 Grad.",
+      "90 Grad."
+    ],
+    "explanation": "Bei dreißig Grad bezeichnet die auf diesem Etikett genannte Temperatur.",
+    "focus": "Zahlen und bei"
+  },
+  {
+    "slug": "cheaper-shoes",
+    "title": "Zwei Schuhpaare vergleichen",
+    "goal": "Vergleiche zwei Preise.",
+    "setting": "clothes",
+    "intro": "Verkäufer Nils sagt: Das braune Paar kostet 70 Euro, das schwarze 90 Euro.",
+    "words": [
+      "der Schuh",
+      "das Paar",
+      "billiger"
+    ],
+    "pieces": [
+      "Das braune Paar",
+      "ist",
+      "billiger",
+      "als das schwarze."
+    ],
+    "question": "Welches Paar kostet weniger?",
+    "options": [
+      "Das braune Paar.",
+      "Das schwarze Paar.",
+      "Beide kosten 90 Euro."
+    ],
+    "explanation": "Billiger vergleicht die zwei genannten Preise.",
+    "focus": "Komparativ billiger als"
+  },
+  {
+    "slug": "seasonal-cherries",
+    "title": "Die ersten Kirschen",
+    "goal": "Verstehe einen Saisonbeginn.",
+    "setting": "market",
+    "intro": "Verkäufer Theo sagt: Seit heute haben wir wieder Kirschen. Gestern gab es noch keine.",
+    "words": [
+      "die Kirsche",
+      "seit heute",
+      "wieder"
+    ],
+    "pieces": [
+      "Seit heute",
+      "gibt es",
+      "wieder Kirschen."
+    ],
+    "question": "Seit wann gibt es wieder Kirschen?",
+    "options": [
+      "Seit heute.",
+      "Schon seit gestern.",
+      "Erst ab morgen."
+    ],
+    "explanation": "Seit heute markiert den Beginn; wieder bedeutet erneut.",
+    "focus": "Zeitangabe seit"
+  },
+  {
+    "slug": "fruit-comparison",
+    "title": "Süßere Äpfel",
+    "goal": "Vergleiche zwei Sorten.",
+    "setting": "market",
+    "intro": "Verkäufer Theo sagt: Die roten Äpfel sind süßer als die grünen. Du möchtest süße Äpfel.",
+    "words": [
+      "der Apfel",
+      "süßer",
+      "die Sorte"
+    ],
+    "pieces": [
+      "Ich nehme",
+      "die roten Äpfel,",
+      "weil",
+      "sie süßer",
+      "sind."
+    ],
+    "question": "Welche Äpfel passen besser?",
+    "options": [
+      "Die roten Äpfel.",
+      "Die grünen Äpfel.",
+      "Beide Sorten sind gleich süß."
+    ],
+    "explanation": "Süßer ist der Komparativ von süß; weil begründet die Auswahl.",
+    "focus": "Komparativ und weil"
+  },
+  {
+    "slug": "weekly-stall-location",
+    "title": "Der neue Standplatz",
+    "goal": "Verstehe einen Ortswechsel.",
+    "setting": "market",
+    "intro": "Verkäufer Theo sagt: Früher standen wir am Eingang. Jetzt finden Sie uns neben dem Brunnen.",
+    "words": [
+      "der Stand",
+      "der Eingang",
+      "der Brunnen"
+    ],
+    "pieces": [
+      "Der Stand ist",
+      "jetzt",
+      "neben dem Brunnen."
+    ],
+    "question": "Wo findest du den Stand heute?",
+    "options": [
+      "Neben dem Brunnen.",
+      "Wie früher am Eingang.",
+      "Hinter dem Parkplatz."
+    ],
+    "explanation": "Jetzt bezeichnet den aktuellen Ort im Gegensatz zu früher.",
+    "focus": "Früher und jetzt"
+  },
+  {
+    "slug": "ordered-box",
+    "title": "Die bestellte Kiste",
+    "goal": "Berichte über eine Bestellung.",
+    "setting": "market",
+    "intro": "Verkäufer Theo fragt: Haben Sie vorbestellt? Du hast gestern eine Gemüsekiste bestellt.",
+    "words": [
+      "die Kiste",
+      "das Gemüse",
+      "vorbestellen"
+    ],
+    "pieces": [
+      "Ich habe",
+      "gestern eine Gemüsekiste",
+      "vorbestellt."
+    ],
+    "question": "Welche Antwort passt?",
+    "options": [
+      "Ja, ich habe gestern eine Gemüsekiste bestellt.",
+      "Nein, ich habe nichts bestellt.",
+      "Ja, eine Obstkiste von heute."
+    ],
+    "explanation": "Vorbestellt nennt eine Bestellung vor dem jetzigen Abholen.",
+    "focus": "Perfekt mit vorbestellen"
+  },
+  {
+    "slug": "market-bag-return",
+    "title": "Die Mehrwegkiste",
+    "goal": "Verstehe eine Vereinbarung.",
+    "setting": "market",
+    "intro": "Verkäufer Theo sagt: Wenn Sie die leere Kiste zurückbringen, bekommen Sie das Pfand zurück. Deine Kiste ist leer.",
+    "words": [
+      "die Kiste",
+      "das Pfand",
+      "zurückbringen"
+    ],
+    "pieces": [
+      "Wenn",
+      "ich die Kiste",
+      "zurückbringe,",
+      "bekomme ich",
+      "das Pfand",
+      "zurück."
+    ],
+    "question": "Was musst du laut Vereinbarung tun?",
+    "options": [
+      "Die leere Kiste zurückbringen.",
+      "Die Kiste zu Hause behalten.",
+      "Nur ein Foto der Kiste zeigen."
+    ],
+    "explanation": "Im wenn-Satz bleibt zurückbringen zusammen; die Rückgabe erfüllt die Bedingung.",
+    "focus": "Wenn mit trennbarem Verb"
+  },
+  {
+    "slug": "route-two-turns",
+    "title": "Zum Bürgerbüro",
+    "goal": "Verstehe zwei Wegschritte.",
+    "setting": "city",
+    "intro": "Mitarbeiter Jan sagt: Gehen Sie bis zur Ampel, dann rechts. Dort ist das Bürgerbüro.",
+    "words": [
+      "das Bürgerbüro",
+      "die Ampel",
+      "abbiegen"
+    ],
+    "pieces": [
+      "An der Ampel",
+      "biege ich",
+      "rechts",
+      "ab."
+    ],
+    "question": "Welche Route stimmt?",
+    "options": [
+      "Bis zur Ampel, dann rechts.",
+      "Vor der Ampel links.",
+      "An der Ampel geradeaus weiter."
+    ],
+    "explanation": "Abbiegen ist trennbar; an der Ampel nennt den Abzweigpunkt.",
+    "focus": "Wegbeschreibung mit abbiegen"
+  },
+  {
+    "slug": "museum-closed-monday",
+    "title": "Der Museumstag",
+    "goal": "Verstehe eine Wochenöffnung.",
+    "setting": "city",
+    "intro": "Mitarbeiter Jan sagt: Montags ist das Museum geschlossen. Von Dienstag bis Sonntag ist es offen.",
+    "words": [
+      "das Museum",
+      "der Montag",
+      "geschlossen"
+    ],
+    "pieces": [
+      "Ich gehe",
+      "am Dienstag",
+      "ins Museum."
+    ],
+    "question": "Welcher Besuchstag ist möglich?",
+    "options": [
+      "Dienstag.",
+      "Montagvormittag.",
+      "Montagabend."
+    ],
+    "explanation": "Dienstag liegt im genannten Öffnungszeitraum.",
+    "focus": "Wochentage und Zeitraum"
+  },
+  {
+    "slug": "guided-tour-report",
+    "title": "Nach der Stadtführung",
+    "goal": "Berichte über ein Erlebnis.",
+    "setting": "city",
+    "intro": "Stadtführer Jan fragt: Haben Sie das alte Rathaus gesehen? Du hast es während der Führung besucht.",
+    "words": [
+      "das Rathaus",
+      "die Führung",
+      "besuchen"
+    ],
+    "pieces": [
+      "Ich habe",
+      "das alte Rathaus",
+      "besucht."
+    ],
+    "question": "Welche Antwort passt?",
+    "options": [
+      "Ja, während der Führung.",
+      "Nein, ich habe es noch nicht gesehen.",
+      "Nein, wir waren nur im neuen Bahnhof."
+    ],
+    "explanation": "Besucht ist ein Partizip ohne ge- und bildet das Perfekt mit haben.",
+    "focus": "Perfekt mit besuchen"
+  },
+  {
+    "slug": "office-number-system",
+    "title": "Im Bürgerbüro warten",
+    "goal": "Verstehe ein Aufrufsystem.",
+    "setting": "city",
+    "intro": "Mitarbeiter Jan sagt: Sie haben Nummer 42. Wenn diese Nummer auf dem Bildschirm steht, kommen Sie zu mir.",
+    "words": [
+      "die Nummer",
+      "der Bildschirm",
+      "aufrufen"
+    ],
+    "pieces": [
+      "Wenn",
+      "meine Nummer",
+      "erscheint,",
+      "komme ich",
+      "zum Schalter."
+    ],
+    "question": "Wann gehst du zum Schalter?",
+    "options": [
+      "Wenn 42 auf dem Bildschirm steht.",
+      "Wenn irgendeine Nummer erscheint.",
+      "Bevor eine Nummer erscheint."
+    ],
+    "explanation": "Meine Nummer begrenzt die Bedingung auf deinen eigenen Aufruf.",
+    "focus": "Wenn und Possessivartikel"
+  },
+  {
+    "slug": "nearest-stop",
+    "title": "Die nähere Haltestelle",
+    "goal": "Vergleiche Entfernungen.",
+    "setting": "city",
+    "intro": "Mitarbeiter Jan sagt: Die Haltestelle am Markt ist 200 Meter entfernt, die am Bahnhof 800 Meter.",
+    "words": [
+      "die Haltestelle",
+      "entfernt",
+      "näher"
+    ],
+    "pieces": [
+      "Die Haltestelle am Markt",
+      "ist",
+      "näher",
+      "als die am Bahnhof."
+    ],
+    "question": "Welche Haltestelle ist näher?",
+    "options": [
+      "Die am Markt.",
+      "Die am Bahnhof.",
+      "Beide sind gleich weit entfernt."
+    ],
+    "explanation": "Näher ist der Komparativ von nah; 200 Meter sind weniger als 800.",
+    "focus": "Komparativ näher als"
+  }
+]

@@ -1,0 +1,1 @@
+../vps/67_sitov_daily_quest_catalog.sql

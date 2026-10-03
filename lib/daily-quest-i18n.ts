@@ -26,6 +26,7 @@ const de = {
   discoverTitle: 'Wörter entdecken', sentenceTitle: 'Deinen Satz bauen', dialogueTitle: 'Im Gespräch',
   previewNotice: 'Eigene Lehrervorschau – ohne Schülerdaten und Streak', previewTitle: 'Deutschreise ausprobieren',
   previewEntry: 'Lehrervorschau öffnen', previewLevel: 'Niveau der Vorschau',
+  sitovPreviewQuest: 'Aufgabe auswählen', sitovPreviewJourneys: 'verfügbare Aufgaben', sitovPreviewStarter: 'Einstieg',
   progressLabel: 'Stationen',
 } satisfies Record<string, string>
 
@@ -59,6 +60,7 @@ const copies: Record<UiLocale, DailyQuestCopy> = {
     discoverTitle: 'Discover words', sentenceTitle: 'Build your sentence', dialogueTitle: 'In conversation',
     previewNotice: 'Your teacher preview — no student data or streak', previewTitle: 'Try the German journey',
     previewEntry: 'Open the teacher preview', previewLevel: 'Preview level',
+    sitovPreviewQuest: 'Choose a journey', sitovPreviewJourneys: 'available journeys', sitovPreviewStarter: 'Starter',
     progressLabel: 'stations',
   },
   ru: {
@@ -87,6 +89,7 @@ const copies: Record<UiLocale, DailyQuestCopy> = {
     discoverTitle: 'Изучаем слова', sentenceTitle: 'Составляем предложение', dialogueTitle: 'В разговоре',
     previewNotice: 'Твоя преподавательская версия — без данных учеников и серии дней', previewTitle: 'Попробовать путешествие в немецкий',
     previewEntry: 'Открыть преподавательскую версию', previewLevel: 'Уровень для просмотра',
+    sitovPreviewQuest: 'Выберите задание', sitovPreviewJourneys: 'доступных заданий', sitovPreviewStarter: 'Вводное задание',
     progressLabel: 'этапов',
   },
   uk: {
@@ -115,6 +118,7 @@ const copies: Record<UiLocale, DailyQuestCopy> = {
     discoverTitle: 'Вивчаємо слова', sentenceTitle: 'Складаємо речення', dialogueTitle: 'У розмові',
     previewNotice: 'Твоя викладацька версія — без даних учнів і серії днів', previewTitle: 'Спробувати подорож у німецьку',
     previewEntry: 'Відкрити викладацьку версію', previewLevel: 'Рівень для перегляду',
+    sitovPreviewQuest: 'Виберіть завдання', sitovPreviewJourneys: 'доступних завдань', sitovPreviewStarter: 'Вступне завдання',
     progressLabel: 'етапів',
   },
   tr: {
@@ -143,6 +147,7 @@ const copies: Record<UiLocale, DailyQuestCopy> = {
     discoverTitle: 'Kelimeleri keşfet', sentenceTitle: 'Cümleni kur', dialogueTitle: 'Konuşma zamanı',
     previewNotice: 'Öğretmen ön izlemen — öğrenci verileri ve gün serisi olmadan', previewTitle: 'Almanca yolculuğunu dene',
     previewEntry: 'Öğretmen ön izlemesini aç', previewLevel: 'Ön izleme seviyesi',
+    sitovPreviewQuest: 'Görev seç', sitovPreviewJourneys: 'mevcut görev', sitovPreviewStarter: 'Başlangıç',
     progressLabel: 'durak',
   },
 }

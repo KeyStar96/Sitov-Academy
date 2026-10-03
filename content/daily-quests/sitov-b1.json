@@ -1,0 +1,2602 @@
+[
+  {
+    "slug": "joghurt-zurueckgeben",
+    "title": "Ein Joghurt ist abgelaufen",
+    "goal": "Erkläre das Problem und bitte um eine Erstattung.",
+    "setting": "supermarket",
+    "intro": "Paul sagt: Zeigen Sie mir bitte den Joghurt und Ihren Kassenbon.",
+    "words": [
+      "der Kassenbon",
+      "das Haltbarkeitsdatum",
+      "die Erstattung"
+    ],
+    "pieces": [
+      "Ich möchte den Joghurt zurückgeben,",
+      "weil",
+      "das Haltbarkeitsdatum",
+      "schon gestern abgelaufen ist."
+    ],
+    "question": "Möchten Sie einen neuen Joghurt oder Ihr Geld zurück?",
+    "options": [
+      "Ich hätte gern mein Geld zurück; den Kassenbon habe ich dabei.",
+      "Ich tausche ihn gegen einen frischen Joghurt; Geld brauche ich nicht zurück.",
+      "Ich möchte nur nach dem Preis fragen und den Joghurt behalten."
+    ],
+    "explanation": "Die Antwort entscheidet sich eindeutig für die Erstattung und nennt den Beleg. Nach „weil“ steht das Verb am Ende.",
+    "focus": "weil und Perfekt"
+  },
+  {
+    "slug": "ersatzprodukt-vergleichen",
+    "title": "Eine Zutat fehlt",
+    "goal": "Beschreibe eine Alternative und frage nach ihren Zutaten.",
+    "setting": "supermarket",
+    "intro": "Paul sagt: Die geplante Soße ist leider ausverkauft. Diese andere ist noch da.",
+    "words": [
+      "die Zutat",
+      "die Alternative",
+      "die Verpackung"
+    ],
+    "pieces": [
+      "Ich suche eine Soße,",
+      "die",
+      "keine Nüsse enthält",
+      "und zu Nudeln passt."
+    ],
+    "question": "Welche Eigenschaft muss die Ersatzsoße unbedingt haben?",
+    "options": [
+      "Sie darf keine Nüsse enthalten; könnten wir die Zutaten prüfen?",
+      "Sie soll vor allem günstig sein; die Zutaten müssen wir nicht prüfen.",
+      "Ich möchte dieselbe Soße kaufen, auch wenn sie Nüsse enthält."
+    ],
+    "explanation": "Die Antwort greift die ausdrücklich genannte Bedingung auf. Der Relativsatz beschreibt die gesuchte Soße genauer.",
+    "focus": "Relativsatz im Nominativ"
+  },
+  {
+    "slug": "preisschild-klaeren",
+    "title": "Der Preis stimmt nicht",
+    "goal": "Vergleiche Regalpreis und Kassenpreis höflich.",
+    "setting": "supermarket",
+    "intro": "Paul sagt: Auf der Kasse steht ein höherer Preis als auf Ihrem Foto.",
+    "words": [
+      "das Preisschild",
+      "der Regalpreis",
+      "die Kasse"
+    ],
+    "pieces": [
+      "Am Regal steht ein niedrigerer Preis,",
+      "deshalb",
+      "würde ich gern",
+      "den Betrag überprüfen lassen."
+    ],
+    "question": "Auf Ihrem Foto kostet der Reis zwei Euro weniger. Was soll ich tun?",
+    "options": [
+      "Bitte prüfen Sie den Regalpreis, bevor ich bezahle.",
+      "Bitte nehmen Sie den Preis von der Kasse; eine Prüfung ist nicht nötig.",
+      "Bitte nehmen Sie den Reis von der Rechnung, statt den Preis zu prüfen."
+    ],
+    "explanation": "Die Antwort bittet um die konkrete Preisprüfung. Nach „deshalb“ folgt direkt das konjugierte Verb.",
+    "focus": "deshalb und höflicher Konjunktiv II"
+  },
+  {
+    "slug": "doppelte-buchung",
+    "title": "Ein Artikel wurde doppelt berechnet",
+    "goal": "Zeige einen Fehler auf dem Kassenbon.",
+    "setting": "supermarket",
+    "intro": "Paul sagt: Wir schauen uns den Bon gemeinsam an.",
+    "words": [
+      "der Artikel",
+      "die Zeile",
+      "die Berechnung"
+    ],
+    "pieces": [
+      "Auf meinem Bon wurde das Brot zweimal berechnet,",
+      "obwohl",
+      "ich",
+      "nur eines gekauft habe."
+    ],
+    "question": "Sie haben nur ein Brot mitgenommen. Welche Änderung wünschen Sie?",
+    "options": [
+      "Bitte erstatten Sie mir die zweite Berechnung des Brotes.",
+      "Bitte erstatten Sie den gesamten Einkauf statt nur des zweiten Brotes.",
+      "Bitte ändern Sie den Preis der Milch; die beiden Brote auf dem Bon stimmen."
+    ],
+    "explanation": "Nur die erste Antwort korrigiert die doppelte Berechnung. „Obwohl“ beschreibt den Widerspruch zwischen Einkauf und Bon.",
+    "focus": "Passiv und obwohl"
+  },
+  {
+    "slug": "einkauf-aufteilen",
+    "title": "Zwei Einkäufe getrennt bezahlen",
+    "goal": "Organisiere die Bezahlung für dich und deinen Mitbewohner.",
+    "setting": "supermarket",
+    "intro": "Paul sagt: Gehören alle Waren auf dem Band zu einem Einkauf?",
+    "words": [
+      "der Mitbewohner",
+      "der Einkauf",
+      "die Trennung"
+    ],
+    "pieces": [
+      "Diese Waren sind für meinen Mitbewohner,",
+      "deshalb",
+      "möchte ich",
+      "die beiden Einkäufe getrennt bezahlen."
+    ],
+    "question": "Welche Waren soll ich zuerst abrechnen?",
+    "options": [
+      "Zuerst bitte meine Waren links; die rechten gehören meinem Mitbewohner.",
+      "Bitte rechnen Sie alle Waren gemeinsam auf meinem Bon ab.",
+      "Bitte rechnen Sie zuerst die Waren rechts als meinen Einkauf ab."
+    ],
+    "explanation": "Die Antwort erklärt die Reihenfolge und erhält die gewünschte Trennung. „Deshalb“ verbindet Grund und Folge.",
+    "focus": "Grund und Folge"
+  },
+  {
+    "slug": "ruhiger-tisch",
+    "title": "Ein ruhiger Platz im Café",
+    "goal": "Bitte um einen Tisch für konzentriertes Arbeiten.",
+    "setting": "cafe",
+    "intro": "Emil sagt: Vorn läuft Musik. Hinten haben wir einen ruhigeren Bereich.",
+    "words": [
+      "der Bereich",
+      "die Steckdose",
+      "das Gespräch"
+    ],
+    "pieces": [
+      "Ich hätte gern einen ruhigen Tisch,",
+      "weil",
+      "ich gleich",
+      "an einem Gespräch teilnehmen muss."
+    ],
+    "question": "Möchten Sie lieber vorne bei der Musik oder hinten sitzen?",
+    "options": [
+      "Hinten wäre gut; für mein Gespräch brauche ich etwas Ruhe.",
+      "Vorne bei der Musik bitte; für mein Gespräch brauche ich keinen ruhigen Bereich.",
+      "Ich möchte keinen Sitzplatz, sondern alles zum Mitnehmen."
+    ],
+    "explanation": "Die Antwort begründet die Wahl des ruhigen Bereichs. „Ich hätte gern“ formuliert den Wunsch höflich.",
+    "focus": "Konjunktiv II und Begründung"
+  },
+  {
+    "slug": "bestellung-verwechselt",
+    "title": "Das falsche Getränk",
+    "goal": "Korrigiere eine Bestellung freundlich.",
+    "setting": "cafe",
+    "intro": "Emil sagt: Hier ist Ihr Kaffee mit normaler Milch.",
+    "words": [
+      "die Bestellung",
+      "die Hafermilch",
+      "die Verwechslung"
+    ],
+    "pieces": [
+      "Ich hatte Hafermilch bestellt,",
+      "aber",
+      "dieser Kaffee wurde offenbar",
+      "mit normaler Milch zubereitet."
+    ],
+    "question": "Entschuldigung, soll ich Ihnen einen neuen Kaffee mit Hafermilch bringen?",
+    "options": [
+      "Ja, bitte. Ich hatte ausdrücklich Hafermilch bestellt.",
+      "Nein, ich ändere meine Bestellung auf normale Milch und behalte den Kaffee.",
+      "Nein, ich möchte stattdessen einen Tee bestellen und keinen neuen Kaffee."
+    ],
+    "explanation": "Die Antwort bestätigt die passende Korrektur. Das Passiv richtet den Blick auf die Zubereitung statt auf die Person.",
+    "focus": "Bestellung korrigieren und Passiv"
+  },
+  {
+    "slug": "rechnung-aufteilen",
+    "title": "Die Rechnung mit einem Freund teilen",
+    "goal": "Erkläre, welche Getränke du bezahlst.",
+    "setting": "cafe",
+    "intro": "Emil sagt: Sie und Ihr Freund möchten bezahlen. Soll ich zusammenrechnen?",
+    "words": [
+      "die Rechnung",
+      "der Anteil",
+      "das Getränk"
+    ],
+    "pieces": [
+      "Ich bezahle meinen Kaffee und den Kuchen,",
+      "während",
+      "mein Freund",
+      "sein Getränk selbst bezahlt."
+    ],
+    "question": "Soll ich die gesamte Rechnung bei Ihnen abrechnen?",
+    "options": [
+      "Nein, bitte getrennt: meinen Kaffee und den Kuchen bei mir.",
+      "Ja, ich bezahle auch das Getränk meines Freundes.",
+      "Nein, bitte rechnen Sie meinen Kaffee bei meinem Freund und den Kuchen bei mir ab."
+    ],
+    "explanation": "Die Antwort hält die vereinbarte Aufteilung ein. „Während“ stellt die beiden Zahlungsanteile gegenüber.",
+    "focus": "während und getrennte Zahlung"
+  },
+  {
+    "slug": "kaffee-zum-mitnehmen",
+    "title": "Die Zeit wird knapp",
+    "goal": "Ändere die Bestellung, weil du bald gehen musst.",
+    "setting": "cafe",
+    "intro": "Emil sagt: Ihr Kaffee ist noch nicht fertig. Sie schauen auf die Uhr.",
+    "words": [
+      "der Becher",
+      "die Wartezeit",
+      "der Termin"
+    ],
+    "pieces": [
+      "Da mein Termin gleich beginnt,",
+      "könnten Sie",
+      "den Kaffee bitte",
+      "zum Mitnehmen vorbereiten?"
+    ],
+    "question": "Soll ich den Kaffee in einer Tasse oder in einem Becher servieren?",
+    "options": [
+      "In einem Becher bitte, damit ich ihn mitnehmen kann.",
+      "In einer Tasse bitte; ich trinke ihn hier und gehe später.",
+      "Bitte stornieren Sie das Getränk, statt es zum Mitnehmen vorzubereiten."
+    ],
+    "explanation": "Die Antwort wählt die Verpackung für die geänderte Bestellung. „Damit“ nennt das Ziel des Bechers.",
+    "focus": "da und damit"
+  },
+  {
+    "slug": "kalter-kaffee",
+    "title": "Der Kaffee ist kalt",
+    "goal": "Formuliere eine höfliche Beschwerde.",
+    "setting": "cafe",
+    "intro": "Emil sagt: Sie haben Ihren Kaffee gerade erhalten. Ist alles in Ordnung?",
+    "words": [
+      "die Temperatur",
+      "der Ersatz",
+      "die Beschwerde"
+    ],
+    "pieces": [
+      "Der Kaffee ist leider schon kalt,",
+      "obwohl",
+      "er gerade erst",
+      "an meinen Tisch gebracht wurde."
+    ],
+    "question": "Darf ich Ihnen stattdessen einen frisch zubereiteten Kaffee bringen?",
+    "options": [
+      "Ja, bitte. Ein frischer heißer Kaffee wäre mir lieber.",
+      "Nein, ich behalte den kalten Kaffee; einen heißen möchte ich nicht.",
+      "Nein, bitte bringen Sie mir stattdessen die Speisekarte für ein Mittagessen."
+    ],
+    "explanation": "Die Antwort nimmt das angebotene Ersatzgetränk an. „Obwohl“ zeigt, warum die kalte Temperatur überraschend ist.",
+    "focus": "obwohl und Vorgangspassiv"
+  },
+  {
+    "slug": "anschluss-verpasst",
+    "title": "Der Anschlusszug ist weg",
+    "goal": "Erkundige dich nach der nächsten Verbindung.",
+    "setting": "station",
+    "intro": "Jonas sagt: Ihr erster Zug hatte Verspätung und der Anschluss ist schon abgefahren.",
+    "words": [
+      "der Anschluss",
+      "die Verspätung",
+      "die Verbindung"
+    ],
+    "pieces": [
+      "Weil mein erster Zug Verspätung hatte,",
+      "habe ich",
+      "den Anschluss nach Hamburg",
+      "leider verpasst."
+    ],
+    "question": "Möchten Sie die nächste Verbindung nach Hamburg erfahren?",
+    "options": [
+      "Ja, bitte nennen Sie mir die nächste Verbindung und ihr Gleis.",
+      "Nein, bitte zeigen Sie mir nur die Rückfahrt zu meinem Ausgangsbahnhof.",
+      "Nein, bitte ändern Sie nur meinen Sitzplatz im bereits abgefahrenen Anschlusszug."
+    ],
+    "explanation": "Die Antwort führt die Reise mit einer verfügbaren Verbindung fort. Der Nebensatz erklärt die Ursache des verpassten Anschlusses.",
+    "focus": "weil und Perfekt"
+  },
+  {
+    "slug": "fahrradplatz-buchen",
+    "title": "Mit dem Fahrrad reisen",
+    "goal": "Frage nach einer notwendigen Reservierung.",
+    "setting": "station",
+    "intro": "Jonas sagt: In diesem Zug gibt es nur wenige Fahrradplätze.",
+    "words": [
+      "das Fahrrad",
+      "die Reservierung",
+      "der Stellplatz"
+    ],
+    "pieces": [
+      "Ich würde gern mein Fahrrad mitnehmen",
+      "und möchte wissen,",
+      "ob",
+      "noch ein Stellplatz reserviert werden kann."
+    ],
+    "question": "Für den Zug um zehn ist noch ein Fahrradplatz frei. Soll ich ihn reservieren?",
+    "options": [
+      "Ja, bitte reservieren Sie den Fahrradplatz für diesen Zug.",
+      "Nein, buchen Sie bitte nur einen Sitzplatz ohne Fahrradplatz.",
+      "Ja, aber bitte reservieren Sie nur einen zusätzlichen Sitzplatz für mein Gepäck."
+    ],
+    "explanation": "Die Antwort nimmt das konkrete Angebot an. Die indirekte Frage mit „ob“ erkundigt sich nach der Möglichkeit.",
+    "focus": "indirekte Frage und Passiv"
+  },
+  {
+    "slug": "gleis-ohne-treppe",
+    "title": "Ein Gleis ohne Treppe erreichen",
+    "goal": "Bitte um einen Weg mit Aufzug.",
+    "setting": "station",
+    "intro": "Jonas sagt: Ihr Zug fährt jetzt von Gleis acht. Die Treppe ist dort drüben.",
+    "words": [
+      "der Aufzug",
+      "der Koffer",
+      "der Bahnsteig"
+    ],
+    "pieces": [
+      "Da mein Koffer sehr schwer ist,",
+      "suche ich einen Weg,",
+      "der",
+      "ohne Treppen zum Bahnsteig führt."
+    ],
+    "question": "Soll ich Ihnen den Weg zum Aufzug erklären?",
+    "options": [
+      "Ja, bitte. Mit meinem schweren Koffer brauche ich den Aufzug.",
+      "Nein, bitte zeigen Sie mir den kürzesten Weg über die Treppe.",
+      "Nein, bitte zeigen Sie mir nur, wo ich einen neuen Koffer kaufen kann."
+    ],
+    "explanation": "Die Antwort passt zum Wunsch nach einem stufenlosen Weg. Der Relativsatz beschreibt den benötigten Weg.",
+    "focus": "da und Relativsatz"
+  },
+  {
+    "slug": "reservierungsdatum-aendern",
+    "title": "Die Reservierung gilt am falschen Tag",
+    "goal": "Kläre einen Datumsfehler vor der Reise.",
+    "setting": "station",
+    "intro": "Jonas sagt: Ihre Fahrkarte gilt heute, aber die Sitzplatzreservierung erst morgen.",
+    "words": [
+      "das Datum",
+      "der Sitzplatz",
+      "die Änderung"
+    ],
+    "pieces": [
+      "Ich habe versehentlich für morgen reserviert,",
+      "obwohl",
+      "ich schon heute",
+      "mit diesem Zug fahren möchte."
+    ],
+    "question": "Soll ich prüfen, ob heute noch ein Sitzplatz reserviert werden kann?",
+    "options": [
+      "Ja, bitte prüfen Sie eine Reservierung für die heutige Fahrt.",
+      "Nein, ich ändere lieber meine Fahrkarte auf morgen.",
+      "Ja, bitte bestätigen Sie die bestehende Reservierung für morgen ohne Änderung."
+    ],
+    "explanation": "Die Antwort korrigiert den Datumsfehler zur heutigen Reise. „Versehentlich“ erklärt, dass die falsche Buchung unbeabsichtigt war.",
+    "focus": "obwohl und Zeitangaben"
+  },
+  {
+    "slug": "koffer-im-zug",
+    "title": "Ein Koffer blieb im Zug",
+    "goal": "Beschreibe einen verlorenen Gegenstand genau.",
+    "setting": "station",
+    "intro": "Jonas sagt: Für die Verlustmeldung brauche ich eine Beschreibung Ihres Koffers.",
+    "words": [
+      "der Koffer",
+      "das Fundbüro",
+      "die Beschreibung"
+    ],
+    "pieces": [
+      "Ich suche einen schwarzen Koffer,",
+      "den",
+      "ich vorhin",
+      "im letzten Wagen liegen gelassen habe."
+    ],
+    "question": "Woran können wir Ihren schwarzen Koffer erkennen?",
+    "options": [
+      "Er hat ein rotes Band am Griff und ein Namensschild mit meinem Namen.",
+      "Es ist ein blauer Koffer mit einem weißen Band am Griff.",
+      "Es ist eine schwarze Umhängetasche ohne Rollen und ohne Koffergriff."
+    ],
+    "explanation": "Die Antwort ergänzt eindeutige Merkmale des beschriebenen Gegenstands. „Den“ bezieht sich im Relativsatz auf den Koffer.",
+    "focus": "Relativsatz im Akkusativ"
+  },
+  {
+    "slug": "umleitung-haltestelle",
+    "title": "Der Bus fährt eine Umleitung",
+    "goal": "Finde einen Ersatzweg zu deinem Ziel.",
+    "setting": "transport",
+    "intro": "Tim sagt: Wegen einer Baustelle halten wir heute nicht am Rathaus.",
+    "words": [
+      "die Umleitung",
+      "die Baustelle",
+      "die Ersatzhaltestelle"
+    ],
+    "pieces": [
+      "Ich muss zum Rathaus",
+      "und möchte wissen,",
+      "an welcher Haltestelle",
+      "ich wegen der Umleitung aussteigen sollte."
+    ],
+    "question": "Sie können am Markt aussteigen und fünf Minuten zum Rathaus laufen. Passt das?",
+    "options": [
+      "Ja, danke. Bitte sagen Sie mir, wenn wir den Markt erreichen.",
+      "Nein, ich bleibe im Bus und fahre an meinem Ziel vorbei.",
+      "Ja, ich warte lieber auf eine direkte Fahrt, statt den Weg vom Markt zu nehmen."
+    ],
+    "explanation": "Die Antwort bestätigt den vorgeschlagenen Ersatzweg und bittet um eine hilfreiche Ansage.",
+    "focus": "indirekte Frage mit Fragewort"
+  },
+  {
+    "slug": "ticket-gueltigkeit",
+    "title": "Das Ticket läuft bald ab",
+    "goal": "Kläre die Gültigkeit vor einem Umstieg.",
+    "setting": "transport",
+    "intro": "Tim sagt: Ihr Ticket ist zeitlich begrenzt. Wann beginnt Ihre nächste Fahrt?",
+    "words": [
+      "die Gültigkeit",
+      "der Umstieg",
+      "die Fahrtdauer"
+    ],
+    "pieces": [
+      "Mein Ticket gilt nur noch zehn Minuten,",
+      "deshalb",
+      "möchte ich",
+      "die Regeln für den Umstieg erfahren."
+    ],
+    "question": "Möchten Sie wissen, ob das Ticket für die Anschlussfahrt noch gilt?",
+    "options": [
+      "Ja, bitte erklären Sie mir die zeitliche Gültigkeit beim Umsteigen.",
+      "Nein, bitte erklären Sie mir nur, wann der nächste Bus abfährt.",
+      "Ja, bitte zeigen Sie mir nur, wie ich einen Sitzplatz reserviere."
+    ],
+    "explanation": "Die Antwort fragt gezielt nach der Gültigkeitsregel. Aus der verbleibenden Zeit wird noch keine unbelegte Schlussfolgerung gezogen.",
+    "focus": "deshalb und Klärungsfrage"
+  },
+  {
+    "slug": "voller-bus",
+    "title": "Der Bus ist schon voll",
+    "goal": "Erkundige dich nach einer späteren Fahrt.",
+    "setting": "transport",
+    "intro": "Tim sagt: Dieser Bus ist voll. Der nächste nimmt denselben Weg.",
+    "words": [
+      "die Abfahrt",
+      "der Fahrplan",
+      "der Platz"
+    ],
+    "pieces": [
+      "Wenn dieser Bus keinen Platz mehr hat,",
+      "würde ich gern",
+      "mit dem nächsten",
+      "zum Bahnhof fahren."
+    ],
+    "question": "Der nächste Bus kommt in zwölf Minuten. Möchten Sie hier auf ihn warten?",
+    "options": [
+      "Ja, ich warte hier und nehme den nächsten Bus zum Bahnhof.",
+      "Nein, ich warte auf diesen Bus für die Rückfahrt statt auf den nächsten zum Bahnhof.",
+      "Ja, ich gehe zum nächsten Bahnsteig und warte dort auf einen Zug."
+    ],
+    "explanation": "Die Antwort setzt den Wunsch nach der nächsten Fahrt um. „Wenn“ formuliert die Bedingung für diese Entscheidung.",
+    "focus": "wenn und Konjunktiv II"
+  },
+  {
+    "slug": "falsche-richtung",
+    "title": "In der falschen Straßenbahn",
+    "goal": "Bitte um einen sinnvollen Umstieg.",
+    "setting": "transport",
+    "intro": "Tim sagt: Diese Straßenbahn fährt vom Zentrum weg.",
+    "words": [
+      "die Richtung",
+      "die Gegenrichtung",
+      "der Umstieg"
+    ],
+    "pieces": [
+      "Ich habe die falsche Richtung gewählt",
+      "und suche eine Haltestelle,",
+      "an der",
+      "ich zurückfahren kann."
+    ],
+    "question": "An der nächsten Haltestelle fährt die Bahn gegenüber ins Zentrum. Was machen Sie?",
+    "options": [
+      "Ich steige dort aus und nehme die Bahn in Richtung Zentrum.",
+      "Ich bleibe in dieser Bahn und fahre weiter vom Zentrum weg.",
+      "Ich nehme gegenüber die Bahn, die ebenfalls vom Zentrum wegfährt."
+    ],
+    "explanation": "Die Antwort nutzt die angebotene Verbindung zum gewünschten Ziel. „An der“ leitet einen Relativsatz mit Ortsbezug ein.",
+    "focus": "Relativsatz mit Präposition"
+  },
+  {
+    "slug": "rampe-anfragen",
+    "title": "Mit einem Rollstuhl einsteigen",
+    "goal": "Bitte den Fahrer um Unterstützung beim Einstieg.",
+    "setting": "transport",
+    "intro": "Tim sagt: Guten Tag. Ich kann die Rampe für Sie ausklappen.",
+    "words": [
+      "die Rampe",
+      "der Einstieg",
+      "der Rollstuhl"
+    ],
+    "pieces": [
+      "Könnten Sie die Rampe ausklappen,",
+      "damit",
+      "ich mit meinem Rollstuhl",
+      "sicher einsteigen kann?"
+    ],
+    "question": "Soll ich zuerst die Rampe ausklappen und Ihnen dann beim Einstieg helfen?",
+    "options": [
+      "Ja, bitte klappen Sie zuerst die Rampe aus.",
+      "Nein, bitte warten Sie mit der Rampe; ich möchte noch nicht einsteigen.",
+      "Ja, bitte helfen Sie nur mit dem Rucksack; die Rampe brauche ich nicht."
+    ],
+    "explanation": "Die Antwort bestätigt die benötigte Unterstützung. „Damit“ erklärt das Ziel der höflichen Bitte.",
+    "focus": "Konjunktiv II und damit"
+  },
+  {
+    "slug": "gericht-ohne-fleisch",
+    "title": "Was steckt im Gericht?",
+    "goal": "Frage nach den Zutaten eines Gerichts.",
+    "setting": "restaurant",
+    "intro": "Leon sagt: Unser Gemüsegericht wird mit einer Soße serviert.",
+    "words": [
+      "das Gericht",
+      "die Soße",
+      "die Zutat"
+    ],
+    "pieces": [
+      "Ich suche ein Gericht,",
+      "das ohne Fleisch zubereitet wird,",
+      "und möchte",
+      "nach der Soße fragen."
+    ],
+    "question": "Die Soße enthält Fleischbrühe. Möchten Sie eine Variante mit Gemüsebrühe?",
+    "options": [
+      "Ja, bitte die Variante mit Gemüsebrühe und ohne Fleisch.",
+      "Ja, bitte behalten Sie die ursprüngliche Soße mit Fleischbrühe bei.",
+      "Nein, bitte ersetzen Sie das Gemüsegericht durch ein Fleischgericht."
+    ],
+    "explanation": "Die Antwort wahrt den Wunsch nach einem Gericht ohne Fleisch. Der Relativsatz beschreibt das Gericht, das gesucht wird.",
+    "focus": "Relativsatz und Passiv"
+  },
+  {
+    "slug": "suppe-reklamieren",
+    "title": "Die Suppe ist zu salzig",
+    "goal": "Erkläre eine Beschwerde und wähle einen Ersatz.",
+    "setting": "restaurant",
+    "intro": "Leon sagt: Sie haben die Suppe probiert. Schmeckt sie Ihnen?",
+    "words": [
+      "die Suppe",
+      "der Ersatz",
+      "die Portion"
+    ],
+    "pieces": [
+      "Die Suppe ist leider zu salzig,",
+      "deshalb",
+      "würde ich gern",
+      "ein anderes Gericht bestellen."
+    ],
+    "question": "Möchten Sie stattdessen den Gemüseteller zum gleichen Preis?",
+    "options": [
+      "Ja, bitte bringen Sie mir den Gemüseteller als Ersatz.",
+      "Nein, bitte bringen Sie mir dieselbe Suppe unverändert noch einmal.",
+      "Ja, aber zusätzlich zur Suppe; ich möchte beide Gerichte behalten."
+    ],
+    "explanation": "Die Antwort wählt den angebotenen Ersatz, ohne eine zweite Bestellung hinzuzufügen. „Deshalb“ verbindet Beschwerde und Konsequenz.",
+    "focus": "Beschwerde mit deshalb"
+  },
+  {
+    "slug": "tisch-spaeter",
+    "title": "Eine Reservierung verschieben",
+    "goal": "Bitte um einen späteren Tisch, weil dein Zug verspätet ist.",
+    "setting": "restaurant",
+    "intro": "Leon sagt: Ihr Tisch ist für sieben Uhr reserviert.",
+    "words": [
+      "die Reservierung",
+      "die Verspätung",
+      "die Ankunft"
+    ],
+    "pieces": [
+      "Da mein Zug Verspätung hat,",
+      "würde ich",
+      "die Reservierung gern",
+      "um eine halbe Stunde verschieben."
+    ],
+    "question": "Um halb acht ist derselbe Tisch noch frei. Soll ich die Zeit ändern?",
+    "options": [
+      "Ja, bitte ändern Sie meine Reservierung auf halb acht.",
+      "Ja, bitte ändern Sie die Reservierung auf halb sieben.",
+      "Nein, bitte sagen Sie die Reservierung vollständig ab."
+    ],
+    "explanation": "Die Antwort verschiebt den Termin um die gewünschte halbe Stunde nach hinten.",
+    "focus": "da und Terminverschiebung"
+  },
+  {
+    "slug": "fehlendes-dessert",
+    "title": "Das Dessert wurde vergessen",
+    "goal": "Frage nach einem bestellten Dessert vor dem Bezahlen.",
+    "setting": "restaurant",
+    "intro": "Leon sagt: Hier ist Ihre Rechnung. Möchten Sie gleich bezahlen?",
+    "words": [
+      "das Dessert",
+      "die Bestellung",
+      "die Rechnung"
+    ],
+    "pieces": [
+      "Ich würde gern erst bezahlen,",
+      "wenn das Dessert,",
+      "das ich bestellt habe,",
+      "auch serviert wurde."
+    ],
+    "question": "Entschuldigung, Ihr Dessert fehlt noch. Soll ich es jetzt bringen lassen?",
+    "options": [
+      "Ja, bitte. Danach bezahle ich die Rechnung.",
+      "Nein, bitte stornieren Sie das Dessert; ich möchte sofort bezahlen.",
+      "Ja, bitte bringen Sie zusätzlich ein zweites Dessert für meinen Freund."
+    ],
+    "explanation": "Die Antwort behält die Bestellung bei und nennt die gewünschte Reihenfolge. „Wenn“ setzt eine Bedingung für das Bezahlen.",
+    "focus": "wenn und eingeschobener Relativsatz"
+  },
+  {
+    "slug": "gruppenmenue-absprechen",
+    "title": "Ein Essen für eine Gruppe planen",
+    "goal": "Vereinbare ein Menü mit unterschiedlichen Wünschen.",
+    "setting": "restaurant",
+    "intro": "Leon sagt: Für Ihre fünf Kollegen können wir ein gemeinsames Menü vorbereiten.",
+    "words": [
+      "das Gruppenmenü",
+      "der Kollege",
+      "die Auswahl"
+    ],
+    "pieces": [
+      "Obwohl wir gemeinsam essen,",
+      "brauchen",
+      "zwei Kollegen eine andere Hauptspeise",
+      "als die übrigen drei."
+    ],
+    "question": "Sollen zwei Kollegen den Gemüseteller und die anderen drei das Tagesgericht bekommen?",
+    "options": [
+      "Ja, bitte planen Sie diese zwei unterschiedlichen Hauptspeisen ein.",
+      "Nein, bitte planen Sie für alle fünf ausschließlich das Tagesgericht.",
+      "Ja, bitte planen Sie drei Gemüseteller und zwei Tagesgerichte."
+    ],
+    "explanation": "Die Antwort erhält die gewünschte Aufteilung von zwei und drei Personen. „Obwohl“ stellt gemeinsames Essen und verschiedene Wünsche gegenüber.",
+    "focus": "obwohl und Mengenangaben"
+  },
+  {
+    "slug": "rezept-abholung",
+    "title": "Eine Bestellung in der Apotheke abholen",
+    "goal": "Kläre, wann die bestellte Ware bereitliegt.",
+    "setting": "pharmacy",
+    "intro": "David sagt: Ihre Bestellung ist noch nicht eingetroffen.",
+    "words": [
+      "die Bestellung",
+      "die Abholung",
+      "die Benachrichtigung"
+    ],
+    "pieces": [
+      "Ich würde gern wissen,",
+      "wann meine Bestellung ankommt",
+      "und",
+      "wie ich benachrichtigt werde."
+    ],
+    "question": "Soll ich Sie per Nachricht informieren, sobald die Bestellung da ist?",
+    "options": [
+      "Ja, bitte schicken Sie mir eine Nachricht, sobald ich sie abholen kann.",
+      "Nein, bitte melden Sie sich nur, wenn die Bestellung nicht mehr verfügbar ist.",
+      "Ja, aber bitte schicken Sie nur die Öffnungszeiten ohne Nachricht zur Bestellung."
+    ],
+    "explanation": "Die Antwort organisiert die Abholung, ohne eine Wirkung oder Einnahme zu bewerten. „Sobald“ bezeichnet den frühesten passenden Zeitpunkt.",
+    "focus": "indirekte Frage und sobald"
+  },
+  {
+    "slug": "lieferung-zeitfenster",
+    "title": "Eine Lieferung organisieren",
+    "goal": "Bitte um ein passendes Zeitfenster für die Lieferung.",
+    "setting": "pharmacy",
+    "intro": "David sagt: Unser Bote kann Ihre Bestellung morgen vorbeibringen.",
+    "words": [
+      "die Lieferung",
+      "das Zeitfenster",
+      "der Bote"
+    ],
+    "pieces": [
+      "Morgen bin ich erst nachmittags zu Hause,",
+      "deshalb",
+      "brauche ich",
+      "ein späteres Zeitfenster für die Lieferung."
+    ],
+    "question": "Unser Bote kommt zwischen vier und sechs. Sind Sie dann zu Hause?",
+    "options": [
+      "Ja, in diesem Zeitfenster kann ich die Lieferung annehmen.",
+      "Nein, bitte kommen Sie zwischen acht und zehn am Vormittag.",
+      "Ja, bitte halten Sie die Bestellung nur zur Abholung in der Apotheke bereit."
+    ],
+    "explanation": "Die Antwort passt zum ausdrücklich genannten Nachmittag. Die Aufgabe betrifft ausschließlich die Organisation der Lieferung.",
+    "focus": "deshalb und Zeitfenster"
+  },
+  {
+    "slug": "quittung-nachfordern",
+    "title": "Eine Quittung fehlt",
+    "goal": "Bitte um einen Beleg für einen früheren Kauf.",
+    "setting": "pharmacy",
+    "intro": "David sagt: Für eine Kopie des Belegs brauche ich das Kaufdatum.",
+    "words": [
+      "die Quittung",
+      "das Kaufdatum",
+      "die Kopie"
+    ],
+    "pieces": [
+      "Ich habe letzte Woche hier eingekauft",
+      "und brauche eine Quittung,",
+      "die",
+      "den bezahlten Betrag zeigt."
+    ],
+    "question": "Wissen Sie noch, an welchem Tag Sie bei uns eingekauft haben?",
+    "options": [
+      "Ja, am Dienstag. Der Betrag war zwölf Euro.",
+      "Ja, der Beleg soll für meinen geplanten Einkauf am nächsten Dienstag sein.",
+      "Nein, ich benötige nur eine Liste Ihrer Öffnungszeiten statt eines Belegs."
+    ],
+    "explanation": "Die Antwort nennt die Angaben, die zum Finden des Belegs benötigt werden. Der Relativsatz beschreibt den gesuchten Beleg.",
+    "focus": "Perfekt und Relativsatz"
+  },
+  {
+    "slug": "name-auf-paket",
+    "title": "Der Name auf dem Paket stimmt nicht",
+    "goal": "Lass eine Bestellung vor der Übergabe prüfen.",
+    "setting": "pharmacy",
+    "intro": "David sagt: Hier ist ein Paket. Auf dem Etikett steht Herr Weber.",
+    "words": [
+      "das Etikett",
+      "der Nachname",
+      "die Zuordnung"
+    ],
+    "pieces": [
+      "Auf dem Etikett steht ein anderer Nachname,",
+      "obwohl",
+      "die Bestellung",
+      "für mich gedacht sein sollte."
+    ],
+    "question": "Sie heißen Herr Berger. Soll ich die Zuordnung noch einmal überprüfen?",
+    "options": [
+      "Ja, bitte prüfen Sie, welches Paket zu meiner Bestellung gehört.",
+      "Nein, ich nehme das Paket von Herrn Weber; die Zuordnung brauchen wir nicht zu prüfen.",
+      "Ja, bitte stornieren Sie meine Bestellung, statt das richtige Paket zu suchen."
+    ],
+    "explanation": "Die Antwort fordert eine Prüfung der Zuordnung vor der Übergabe. „Obwohl“ benennt den Widerspruch beim Namen.",
+    "focus": "obwohl und Zuordnung klären"
+  },
+  {
+    "slug": "beratungstermin-planen",
+    "title": "Ein Beratungsgespräch vereinbaren",
+    "goal": "Vereinbare einen ruhigen Gesprächstermin mit dem Apotheker.",
+    "setting": "pharmacy",
+    "intro": "David sagt: Für ein längeres Gespräch können wir einen Termin im Beratungsraum vereinbaren.",
+    "words": [
+      "das Beratungsgespräch",
+      "der Termin",
+      "der Beratungsraum"
+    ],
+    "pieces": [
+      "Könnten wir einen Termin vereinbaren,",
+      "bei dem",
+      "genug Zeit für meine Fragen",
+      "eingeplant wird?"
+    ],
+    "question": "Am Freitag um drei habe ich zwanzig Minuten Zeit. Soll ich das eintragen?",
+    "options": [
+      "Ja, bitte reservieren Sie den Beratungstermin am Freitag um drei.",
+      "Ja, bitte reservieren Sie nur eine kurze Abholung ohne Gespräch.",
+      "Nein, ich komme ohne Termin vorbei und möchte nur etwas kaufen."
+    ],
+    "explanation": "Die Antwort nimmt den angebotenen Gesprächstermin an. Es werden keine medizinischen Empfehlungen gegeben.",
+    "focus": "Konjunktiv II und Relativsatz mit Präposition"
+  },
+  {
+    "slug": "arzttermin-verschieben",
+    "title": "Ein Arzttermin muss verschoben werden",
+    "goal": "Bitte um einen neuen Termin nach deinem Arbeitstag.",
+    "setting": "doctor",
+    "intro": "Felix sagt: Ihr Termin ist morgen um zehn Uhr.",
+    "words": [
+      "der Termin",
+      "die Sprechstunde",
+      "die Verschiebung"
+    ],
+    "pieces": [
+      "Ich kann morgen vormittags nicht kommen,",
+      "weil",
+      "mein Arbeitgeber",
+      "eine Besprechung angesetzt hat."
+    ],
+    "question": "Am Donnerstag um siebzehn Uhr ist ein Termin frei. Würde Ihnen das passen?",
+    "options": [
+      "Ja, nach der Arbeit kann ich kommen. Bitte tragen Sie Donnerstag ein.",
+      "Ja, bitte lassen Sie den Termin morgen um zehn unverändert.",
+      "Nein, bitte verlegen Sie ihn morgen auf neun Uhr am Vormittag."
+    ],
+    "explanation": "Die Antwort löst den zeitlichen Konflikt durch den angebotenen späteren Termin. Der „weil“-Satz nennt den organisatorischen Grund.",
+    "focus": "weil und Perfekt"
+  },
+  {
+    "slug": "unterlagen-mitbringen",
+    "title": "Unterlagen für einen Termin",
+    "goal": "Kläre, welche Dokumente du mitbringen sollst.",
+    "setting": "doctor",
+    "intro": "Felix sagt: Bitte bringen Sie zu Ihrem Termin die bisherigen Unterlagen mit.",
+    "words": [
+      "der Befund",
+      "die Unterlage",
+      "die Kopie"
+    ],
+    "pieces": [
+      "Ich habe die Befunde nur als Kopie",
+      "und möchte wissen,",
+      "ob",
+      "diese für den Termin ausreichen."
+    ],
+    "question": "Für den Termin reichen Kopien. Können Sie diese mitbringen?",
+    "options": [
+      "Ja, ich bringe die Kopien meiner bisherigen Befunde mit.",
+      "Nein, ich lasse die vorhandenen Kopien zu Hause.",
+      "Ja, ich bringe nur den Terminzettel statt der Befunde mit."
+    ],
+    "explanation": "Die Antwort bestätigt die angefragte Form der Unterlagen. Die indirekte Frage mit „ob“ klärt eine organisatorische Voraussetzung.",
+    "focus": "indirekte Frage mit ob"
+  },
+  {
+    "slug": "wartezeit-erfragen",
+    "title": "Wie lange dauert das Warten?",
+    "goal": "Erkundige dich wegen eines anschließenden Termins nach der Wartezeit.",
+    "setting": "doctor",
+    "intro": "Felix sagt: Der Arzt braucht heute etwas länger.",
+    "words": [
+      "die Wartezeit",
+      "der Folgetermin",
+      "die Anmeldung"
+    ],
+    "pieces": [
+      "Da ich später einen weiteren Termin habe,",
+      "würde ich gern",
+      "die voraussichtliche Wartezeit",
+      "erfahren."
+    ],
+    "question": "Es dauert voraussichtlich noch vierzig Minuten. Möchten Sie Ihren Folgetermin informieren?",
+    "options": [
+      "Ja, ich gebe dort Bescheid, dass ich wahrscheinlich später komme.",
+      "Nein, ich sage bei meinem Folgetermin, dass ich in fünf Minuten fertig bin.",
+      "Ja, ich sage meinen heutigen Arzttermin ab, statt den Folgetermin zu informieren."
+    ],
+    "explanation": "Die Antwort nutzt die Zeitinformation für den Folgetermin. „Voraussichtlich“ macht deutlich, dass die Dauer eine Schätzung ist.",
+    "focus": "da und voraussichtliche Zeitangabe"
+  },
+  {
+    "slug": "begleiter-anmelden",
+    "title": "Ein Bruder begleitet dich",
+    "goal": "Kläre vorab die Teilnahme eines Begleiters.",
+    "setting": "doctor",
+    "intro": "Felix sagt: Kommen Sie allein zum Termin oder begleitet Sie jemand?",
+    "words": [
+      "der Begleiter",
+      "die Unterstützung",
+      "das Gespräch"
+    ],
+    "pieces": [
+      "Mein Bruder würde mich gern begleiten,",
+      "damit",
+      "er mich beim Gespräch",
+      "sprachlich unterstützen kann."
+    ],
+    "question": "Soll ich vermerken, dass Ihr Bruder Sie zum Gespräch begleiten möchte?",
+    "options": [
+      "Ja, bitte vermerken Sie meinen Bruder als Begleiter.",
+      "Nein, bitte vermerken Sie, dass ich allein zum Gespräch komme.",
+      "Ja, bitte tragen Sie stattdessen einen eigenen Termin für meinen Bruder ein."
+    ],
+    "explanation": "Die Antwort meldet den geplanten Begleiter an. „Damit“ erklärt den Zweck seiner Anwesenheit.",
+    "focus": "Konjunktiv II und damit"
+  },
+  {
+    "slug": "bescheinigung-abholen",
+    "title": "Eine Bescheinigung abholen",
+    "goal": "Organisiere die Abholung eines bereits vorbereiteten Dokuments.",
+    "setting": "doctor",
+    "intro": "Felix sagt: Ihre besprochene Bescheinigung ist fertig und liegt an der Anmeldung.",
+    "words": [
+      "die Bescheinigung",
+      "die Abholung",
+      "die Anmeldung"
+    ],
+    "pieces": [
+      "Ich würde die Bescheinigung gern nach der Arbeit abholen,",
+      "falls",
+      "die Anmeldung",
+      "dann noch besetzt ist."
+    ],
+    "question": "Die Anmeldung ist bis achtzehn Uhr besetzt. Kommen Sie vorher?",
+    "options": [
+      "Ja, ich komme gegen siebzehn Uhr zur Abholung.",
+      "Ja, ich komme gegen neunzehn Uhr zur Abholung.",
+      "Nein, ich möchte nur einen neuen Gesprächstermin statt die Abholung vereinbaren."
+    ],
+    "explanation": "Die Antwort wählt einen Zeitpunkt innerhalb der Öffnungszeit. „Falls“ formuliert die Bedingung für die geplante Abholung.",
+    "focus": "falls und Abholzeit"
+  },
+  {
+    "slug": "paket-beschaedigt",
+    "title": "Ein beschädigtes Paket",
+    "goal": "Melde eine beschädigte Sendung mit passenden Belegen.",
+    "setting": "post",
+    "intro": "Ben sagt: Sie möchten einen Schaden an Ihrem Paket melden.",
+    "words": [
+      "der Schaden",
+      "die Verpackung",
+      "der Nachweis"
+    ],
+    "pieces": [
+      "Das Paket wurde mit beschädigter Verpackung geliefert,",
+      "deshalb",
+      "habe ich",
+      "den Zustand sofort fotografiert."
+    ],
+    "question": "Haben Sie die Verpackung und die Fotos für die Schadensmeldung dabei?",
+    "options": [
+      "Ja, ich habe beides aufbewahrt und bringe es zur Prüfung mit.",
+      "Nein, ich habe die Verpackung entsorgt und keinerlei Fotos gemacht.",
+      "Ja, ich habe nur den Kaufbeleg eines anderen Einkaufs mitgebracht."
+    ],
+    "explanation": "Die Antwort liefert die angefragten Nachweise. Das Passiv beschreibt den Zustand bei der Lieferung.",
+    "focus": "Passiv und deshalb"
+  },
+  {
+    "slug": "zweite-zustellung",
+    "title": "Eine neue Zustellung vereinbaren",
+    "goal": "Finde einen Tag, an dem du ein Paket annehmen kannst.",
+    "setting": "post",
+    "intro": "Ben sagt: Der Zusteller hat Sie gestern nicht zu Hause erreicht.",
+    "words": [
+      "die Zustellung",
+      "der Zusteller",
+      "der Wunschtag"
+    ],
+    "pieces": [
+      "Gestern war ich nicht zu Hause,",
+      "aber",
+      "am Freitag könnte ich",
+      "das Paket persönlich annehmen."
+    ],
+    "question": "Möchten Sie eine neue Zustellung für Freitag vereinbaren?",
+    "options": [
+      "Ja, bitte vereinbaren Sie die Zustellung für Freitag.",
+      "Ja, bitte vereinbaren Sie die Zustellung für Donnerstag, wenn ich nicht da bin.",
+      "Nein, bitte schicken Sie das Paket direkt an den Absender zurück."
+    ],
+    "explanation": "Die Antwort nutzt den ausdrücklich genannten verfügbaren Tag. „Könnte“ drückt eine mögliche Vereinbarung höflich aus.",
+    "focus": "Konjunktiv II und Zustelltermin"
+  },
+  {
+    "slug": "zolldokumente-klaeren",
+    "title": "Welche Unterlagen fehlen?",
+    "goal": "Frage nach Dokumenten für die Bearbeitung einer Sendung.",
+    "setting": "post",
+    "intro": "Ben sagt: Ihre Sendung wartet auf zusätzliche Unterlagen für die Bearbeitung.",
+    "words": [
+      "die Sendung",
+      "die Unterlage",
+      "die Bearbeitung"
+    ],
+    "pieces": [
+      "Könnten Sie mir erklären,",
+      "welche Unterlagen noch fehlen,",
+      "damit",
+      "meine Sendung weiterbearbeitet werden kann?"
+    ],
+    "question": "Brauchen Sie eine Liste der fehlenden Unterlagen und den zuständigen Kontakt?",
+    "options": [
+      "Ja, bitte nennen Sie mir die Unterlagen und den zuständigen Kontakt.",
+      "Nein, bitte erklären Sie mir nur die Abholung einer anderen Sendung.",
+      "Ja, bitte nennen Sie nur die Öffnungszeiten, ohne auf die fehlenden Unterlagen einzugehen."
+    ],
+    "explanation": "Die Antwort erbittet konkrete Informationen zur Organisation. Sie behauptet weder eine Freigabe noch eine rechtliche Regel.",
+    "focus": "indirekte Frage und damit"
+  },
+  {
+    "slug": "einschreiben-nachweis",
+    "title": "Ein Zustellnachweis wird gebraucht",
+    "goal": "Frage nach dem Nachweis für einen versendeten Brief.",
+    "setting": "post",
+    "intro": "Ben sagt: Sie haben den Brief letzte Woche als Einschreiben versendet.",
+    "words": [
+      "das Einschreiben",
+      "der Zustellnachweis",
+      "die Sendungsnummer"
+    ],
+    "pieces": [
+      "Ich brauche einen Nachweis,",
+      "dass mein Einschreiben beim Empfänger angekommen ist",
+      "und",
+      "übergeben wurde."
+    ],
+    "question": "Haben Sie die Sendungsnummer, damit ich den Zustellstatus prüfen kann?",
+    "options": [
+      "Ja, hier ist die Sendungsnummer von meinem Einlieferungsbeleg.",
+      "Ja, hier ist die Nummer eines Pakets, das ich heute versendet habe.",
+      "Nein, ich möchte jetzt nur neue Briefmarken für eine andere Sendung kaufen."
+    ],
+    "explanation": "Die Antwort liefert die Nummer für die konkrete Prüfung. Der „dass“-Satz benennt den benötigten Nachweis.",
+    "focus": "dass und Perfekt im Passiv"
+  },
+  {
+    "slug": "paketstatus-unveraendert",
+    "title": "Der Paketstatus ändert sich nicht",
+    "goal": "Bitte nach mehreren Tagen um eine Statusprüfung.",
+    "setting": "post",
+    "intro": "Ben sagt: In der Sendungsverfolgung steht seit Montag derselbe Eintrag.",
+    "words": [
+      "der Status",
+      "die Sendungsverfolgung",
+      "die Nachforschung"
+    ],
+    "pieces": [
+      "Der Status hat sich seit Montag nicht geändert,",
+      "obwohl",
+      "das Paket",
+      "schon unterwegs sein sollte."
+    ],
+    "question": "Soll ich die Angaben prüfen und Ihnen erklären, wie eine Nachforschung beantragt wird?",
+    "options": [
+      "Ja, bitte prüfen Sie die Angaben und erklären Sie mir den nächsten Schritt.",
+      "Nein, erklären Sie mir bitte nur die Preise für meine nächste Sendung.",
+      "Ja, bitte prüfen Sie nur die Zustellung eines anderen Pakets."
+    ],
+    "explanation": "Die Antwort fordert eine Prüfung und einen erklärten nächsten Schritt. „Obwohl“ beschreibt die Abweichung von der Erwartung.",
+    "focus": "obwohl und sich ändern"
+  },
+  {
+    "slug": "karte-abholbereit",
+    "title": "Die neue Karte ist da",
+    "goal": "Kläre die Abholung deiner bereitliegenden Bankkarte.",
+    "setting": "bank",
+    "intro": "Noah sagt: Ihre neue Karte liegt zur Abholung in dieser Filiale bereit.",
+    "words": [
+      "die Bankkarte",
+      "der Ausweis",
+      "die Abholung"
+    ],
+    "pieces": [
+      "Ich würde meine neue Karte gern abholen",
+      "und möchte wissen,",
+      "welchen Ausweis",
+      "ich dafür mitbringen soll."
+    ],
+    "question": "Bringen Sie bitte Ihren Personalausweis mit. Können Sie morgen vorbeikommen?",
+    "options": [
+      "Ja, morgen bringe ich meinen Personalausweis zur Abholung mit.",
+      "Ja, ich komme morgen, aber lasse meinen Personalausweis zu Hause.",
+      "Nein, ich möchte nur einen neuen Beratungstermin und die Karte nicht abholen."
+    ],
+    "explanation": "Die Antwort bestätigt die genannte Voraussetzung und den Abholtermin. „Welchen“ leitet die indirekte Frage nach dem Dokument ein.",
+    "focus": "indirekte Frage und Abholung"
+  },
+  {
+    "slug": "banktermin-nach-arbeit",
+    "title": "Ein Banktermin nach der Arbeit",
+    "goal": "Vereinbare einen Gesprächstermin außerhalb deiner Arbeitszeit.",
+    "setting": "bank",
+    "intro": "Noah sagt: Für Ihr Gespräch können wir einen Termin vereinbaren.",
+    "words": [
+      "der Gesprächstermin",
+      "die Filiale",
+      "die Arbeitszeit"
+    ],
+    "pieces": [
+      "Da ich bis vier Uhr arbeite,",
+      "könnte ich",
+      "erst danach",
+      "zu einem Gesprächstermin kommen."
+    ],
+    "question": "Am Mittwoch um halb fünf ist noch ein Termin frei. Soll ich ihn buchen?",
+    "options": [
+      "Ja, bitte buchen Sie den Termin am Mittwoch um halb fünf.",
+      "Ja, bitte buchen Sie am Mittwoch um halb vier.",
+      "Nein, bitte buchen Sie stattdessen morgen um zwölf."
+    ],
+    "explanation": "Halb fünf liegt nach dem genannten Arbeitsende. Die Aufgabe vereinbart lediglich einen Termin.",
+    "focus": "da und passende Uhrzeit"
+  },
+  {
+    "slug": "auszug-fehlt",
+    "title": "Ein Kontoauszug fehlt",
+    "goal": "Bitte um eine Kopie eines fehlenden Dokuments.",
+    "setting": "bank",
+    "intro": "Noah sagt: Welcher Kontoauszug fehlt in Ihren Unterlagen?",
+    "words": [
+      "der Kontoauszug",
+      "die Kopie",
+      "der Zeitraum"
+    ],
+    "pieces": [
+      "In meinen Unterlagen fehlt der Kontoauszug vom Juni,",
+      "den",
+      "ich",
+      "für meine Ablage benötige."
+    ],
+    "question": "Soll ich Ihnen eine Kopie des Kontoauszugs vom Juni bereitstellen?",
+    "options": [
+      "Ja, bitte stellen Sie mir die Kopie für Juni bereit.",
+      "Ja, bitte stellen Sie mir nur den Auszug vom Januar bereit.",
+      "Nein, bitte geben Sie mir nur die Übersicht des aktuellen Monats statt des Juniauszugs."
+    ],
+    "explanation": "Die Antwort nennt den richtigen Zeitraum und fordert nur das fehlende Dokument an. „Den“ bezieht sich auf den Kontoauszug.",
+    "focus": "Relativsatz im Akkusativ"
+  },
+  {
+    "slug": "adresse-aktualisieren",
+    "title": "Nach dem Umzug die Adresse ändern",
+    "goal": "Kläre, wie die neue Postanschrift eingetragen wird.",
+    "setting": "bank",
+    "intro": "Noah sagt: Ihre Post wird noch an die alte Anschrift geschickt.",
+    "words": [
+      "die Anschrift",
+      "der Umzug",
+      "das Formular"
+    ],
+    "pieces": [
+      "Ich bin letzten Monat umgezogen,",
+      "deshalb",
+      "muss meine neue Anschrift",
+      "für die nächste Post eingetragen werden."
+    ],
+    "question": "Möchten Sie das Formular zur Änderung Ihrer Anschrift ausfüllen?",
+    "options": [
+      "Ja, bitte geben Sie mir das Formular für die neue Anschrift.",
+      "Nein, bitte schicken Sie die nächste Post weiterhin an meine alte Wohnung.",
+      "Ja, bitte aktualisieren Sie nur meine Telefonnummer und lassen Sie die Anschrift unverändert."
+    ],
+    "explanation": "Die Antwort führt zur Änderung der Postanschrift. „Muss ... eingetragen werden“ verbindet Modalverb und Passiv.",
+    "focus": "Perfekt und Modalverb im Passiv"
+  },
+  {
+    "slug": "portal-gesperrt",
+    "title": "Der Zugang zum Portal klappt nicht",
+    "goal": "Bitte um den offiziellen Ablauf zur Wiederherstellung des Zugangs.",
+    "setting": "bank",
+    "intro": "Noah sagt: Sie können sich im Kundenportal momentan nicht anmelden.",
+    "words": [
+      "der Zugang",
+      "die Anmeldung",
+      "die Wiederherstellung"
+    ],
+    "pieces": [
+      "Nachdem mein Zugang gesperrt wurde,",
+      "möchte ich",
+      "den offiziellen Ablauf",
+      "zur Wiederherstellung erfahren."
+    ],
+    "question": "Soll ich Ihnen erklären, wie Sie die Wiederherstellung über unseren offiziellen Service starten?",
+    "options": [
+      "Ja, bitte erklären Sie mir den offiziellen Ablauf.",
+      "Nein, ich möchte nur die Öffnungszeiten der Filiale erfahren.",
+      "Ja, bitte erklären Sie nur die Bestellung einer neuen Karte statt des Portalzugangs."
+    ],
+    "explanation": "Die Antwort bittet um den vorgesehenen Serviceprozess. „Nachdem“ ordnet die Sperrung zeitlich vor der Anfrage ein.",
+    "focus": "nachdem und Serviceablauf"
+  },
+  {
+    "slug": "buch-verlaengern",
+    "title": "Ein Buch lässt sich nicht verlängern",
+    "goal": "Vereinbare eine rechtzeitige Rückgabe für ein reserviertes Buch.",
+    "setting": "library",
+    "intro": "Oskar sagt: Das Buch wurde von einem anderen Leser reserviert.",
+    "words": [
+      "die Verlängerung",
+      "die Rückgabe",
+      "die Vormerkung"
+    ],
+    "pieces": [
+      "Ich wollte das Buch verlängern,",
+      "aber",
+      "wegen der Vormerkung muss ich",
+      "es rechtzeitig zurückbringen."
+    ],
+    "question": "Eine Verlängerung ist leider nicht möglich. Schaffen Sie die Rückgabe bis Freitag?",
+    "options": [
+      "Ja, ich bringe das Buch spätestens am Freitag zurück.",
+      "Nein, ich möchte das Buch statt der Rückgabe einen weiteren Monat behalten.",
+      "Ja, ich bringe das Buch erst am Montag nach der genannten Frist zurück."
+    ],
+    "explanation": "Die Antwort berücksichtigt die nicht mögliche Verlängerung und bestätigt die Rückgabe.",
+    "focus": "Modalverb und rechtzeitig zurückbringen"
+  },
+  {
+    "slug": "buchschaden-melden",
+    "title": "Eine beschädigte Buchseite",
+    "goal": "Melde einen vorhandenen Schaden direkt bei der Ausleihe.",
+    "setting": "library",
+    "intro": "Oskar sagt: Sie haben das Buch gerade ausgeliehen und eine lose Seite entdeckt.",
+    "words": [
+      "die Buchseite",
+      "der Schaden",
+      "der Vermerk"
+    ],
+    "pieces": [
+      "Diese Seite war bereits bei der Ausleihe locker,",
+      "deshalb",
+      "möchte ich",
+      "den Schaden sofort melden."
+    ],
+    "question": "Soll ich den vorhandenen Schaden in Ihrem Ausleihvorgang vermerken?",
+    "options": [
+      "Ja, bitte vermerken Sie, dass die Seite schon bei der Ausleihe locker war.",
+      "Nein, bitte vermerken Sie nur meine gewünschte Verlängerung und keinen Schaden.",
+      "Ja, bitte notieren Sie einen beschädigten Einband statt der lockeren Seite."
+    ],
+    "explanation": "Die Antwort dokumentiert den gemeldeten Zustand zutreffend. „Bereits“ betont, dass der Schaden vorher vorhanden war.",
+    "focus": "bereits und deshalb"
+  },
+  {
+    "slug": "gruppenraum-buchen",
+    "title": "Einen Raum für eine Lerngruppe buchen",
+    "goal": "Bitte um einen Raum für ein Gespräch mit deinen Lernpartnern.",
+    "setting": "library",
+    "intro": "Oskar sagt: Im Lesesaal muss es ruhig bleiben. Für Gruppen gibt es einen separaten Raum.",
+    "words": [
+      "der Gruppenraum",
+      "der Lesesaal",
+      "die Buchung"
+    ],
+    "pieces": [
+      "Wir brauchen einen Raum,",
+      "in dem",
+      "wir unsere gemeinsame Präsentation",
+      "laut besprechen können."
+    ],
+    "question": "Der Gruppenraum ist morgen von zwei bis drei frei. Soll ich ihn für Sie buchen?",
+    "options": [
+      "Ja, bitte buchen Sie den Gruppenraum für unsere Besprechung.",
+      "Nein, wir möchten für unsere Besprechung im stillen Lesesaal sitzen.",
+      "Ja, bitte reservieren Sie nur einen Einzelplatz statt eines Gruppenraums."
+    ],
+    "explanation": "Die Antwort wählt den Raum, der zum Arbeitsziel passt. „In dem“ beschreibt, was in diesem Raum möglich sein muss.",
+    "focus": "Relativsatz mit in dem"
+  },
+  {
+    "slug": "digitales-buch-finden",
+    "title": "Eine digitale Ausgabe suchen",
+    "goal": "Frage nach einer digitalen Alternative zu einem ausgeliehenen Buch.",
+    "setting": "library",
+    "intro": "Oskar sagt: Die gedruckte Ausgabe ist ausgeliehen. Es könnte eine digitale Ausgabe geben.",
+    "words": [
+      "die Ausgabe",
+      "das E-Book",
+      "der Katalog"
+    ],
+    "pieces": [
+      "Obwohl die gedruckte Ausgabe ausgeliehen ist,",
+      "würde ich gern",
+      "im Katalog",
+      "nach einem E-Book suchen."
+    ],
+    "question": "Soll ich Ihnen zeigen, wie Sie die digitale Ausgabe im Katalog finden?",
+    "options": [
+      "Ja, bitte zeigen Sie mir die Suche nach der digitalen Ausgabe.",
+      "Nein, bitte suchen Sie nur nach einer gedruckten Ausgabe.",
+      "Ja, bitte zeigen Sie mir ausschließlich, wie ich das ausgeliehene Druckexemplar verlängere."
+    ],
+    "explanation": "Die Antwort nimmt die Hilfe bei der alternativen Ausgabe an. „Obwohl“ verbindet die fehlende Druckausgabe mit dem weiteren Suchwunsch.",
+    "focus": "obwohl und Alternative suchen"
+  },
+  {
+    "slug": "vormerkung-abholen",
+    "title": "Ein vorgemerktes Buch liegt bereit",
+    "goal": "Kläre eine knappe Abholfrist.",
+    "setting": "library",
+    "intro": "Oskar sagt: Ihr vorgemerktes Buch liegt bis Donnerstag für Sie bereit.",
+    "words": [
+      "die Abholfrist",
+      "die Vormerkung",
+      "die Bereitstellung"
+    ],
+    "pieces": [
+      "Ich kann erst am Freitag kommen",
+      "und möchte wissen,",
+      "ob",
+      "die Abholfrist ausnahmsweise verlängert werden kann."
+    ],
+    "question": "Ich kann das Buch einen Tag länger bereithalten. Holen Sie es am Freitag ab?",
+    "options": [
+      "Ja, am Freitag hole ich das vorgemerkte Buch ab.",
+      "Ja, ich hole es erst in zwei Wochen ab.",
+      "Nein, bitte halten Sie es nur bis Mittwoch bereit, obwohl ich erst Freitag komme."
+    ],
+    "explanation": "Die Antwort nutzt die ausdrücklich angebotene Verlängerung um einen Tag. „Ob“ fragt höflich nach der Möglichkeit.",
+    "focus": "indirekte Frage und Passiv"
+  },
+  {
+    "slug": "abgabe-mehr-zeit",
+    "title": "Mehr Zeit für einen Bericht",
+    "goal": "Bitte mit einer konkreten Begründung um eine neue Frist.",
+    "setting": "office",
+    "intro": "Lukas sagt: Der Bericht soll heute fertig sein. Fehlen noch Informationen?",
+    "words": [
+      "die Abgabefrist",
+      "der Bericht",
+      "die Rückmeldung"
+    ],
+    "pieces": [
+      "Da die Rückmeldung noch fehlt,",
+      "könnte ich",
+      "den Bericht",
+      "erst morgen vollständig abgeben."
+    ],
+    "question": "Soll ich die Abgabefrist auf morgen verschieben, damit die Angaben vollständig sind?",
+    "options": [
+      "Ja, bitte. Morgen kann ich den vollständigen Bericht abgeben.",
+      "Nein, ich gebe den Bericht heute ohne die fehlenden Angaben ab.",
+      "Ja, bitte verschieben Sie ausschließlich die Besprechung; die heutige Abgabefrist bleibt."
+    ],
+    "explanation": "Die Antwort nennt eine konkrete neue Frist und bewahrt das Ziel eines vollständigen Berichts.",
+    "focus": "da und Konjunktiv II"
+  },
+  {
+    "slug": "hybrides-meeting",
+    "title": "Eine Besprechung mit zugeschalteten Kollegen",
+    "goal": "Kläre die Ausstattung des gebuchten Raums.",
+    "setting": "office",
+    "intro": "Lukas sagt: Zwei Kollegen nehmen heute per Video an unserer Besprechung teil.",
+    "words": [
+      "die Kamera",
+      "der Besprechungsraum",
+      "die Verbindung"
+    ],
+    "pieces": [
+      "Wir brauchen einen Besprechungsraum,",
+      "der eine Kamera hat,",
+      "damit",
+      "alle Kollegen teilnehmen können."
+    ],
+    "question": "Soll ich den Raum mit Kamera und Bildschirm statt des kleinen Raums buchen?",
+    "options": [
+      "Ja, bitte buchen Sie den Raum mit Kamera und Bildschirm.",
+      "Nein, buchen Sie den kleinen Raum ohne Kamera oder Bildschirm.",
+      "Ja, bitte sagen Sie die Teilnahme der zugeschalteten Kollegen ab."
+    ],
+    "explanation": "Die Antwort ermöglicht die geplante Teilnahme aller Kollegen. „Damit“ beschreibt den Zweck der Ausstattung.",
+    "focus": "Relativsatz und damit"
+  },
+  {
+    "slug": "alte-datei-ersetzen",
+    "title": "Die falsche Dateiversion wurde verschickt",
+    "goal": "Korrigiere eine Nachricht mit einem veralteten Anhang.",
+    "setting": "office",
+    "intro": "Lukas sagt: In deiner Nachricht war noch die alte Fassung des Plans.",
+    "words": [
+      "die Fassung",
+      "der Anhang",
+      "die Korrektur"
+    ],
+    "pieces": [
+      "Ich habe versehentlich die alte Fassung verschickt,",
+      "deshalb",
+      "sende ich",
+      "jetzt die überarbeitete Datei nach."
+    ],
+    "question": "Soll ich für unsere weitere Arbeit die neue Datei verwenden?",
+    "options": [
+      "Ja, bitte verwenden Sie nur die überarbeitete Datei aus meiner zweiten Nachricht.",
+      "Nein, bitte arbeiten Sie weiterhin nur mit dem alten Anhang.",
+      "Ja, verwenden Sie bitte beide Fassungen gleichzeitig, ohne sie zu unterscheiden."
+    ],
+    "explanation": "Die Antwort erklärt eindeutig, welche Version maßgeblich ist. „Nachsenden“ bezeichnet das spätere Ergänzen einer Sendung.",
+    "focus": "Perfekt und trennbares Verb nachsenden"
+  },
+  {
+    "slug": "vertretung-absprechen",
+    "title": "Eine Vertretung organisieren",
+    "goal": "Bitte einen Kollegen um eine klar begrenzte Vertretung.",
+    "setting": "office",
+    "intro": "Lukas sagt: Du bist morgen nicht im Büro. Wer betreut den Kundenanruf?",
+    "words": [
+      "die Vertretung",
+      "der Kundenanruf",
+      "die Notiz"
+    ],
+    "pieces": [
+      "Könntest du morgen den Kundenanruf übernehmen,",
+      "während",
+      "ich",
+      "bei einem Termin außer Haus bin?"
+    ],
+    "question": "Soll ich den Anruf übernehmen und dir danach die wichtigsten Punkte schicken?",
+    "options": [
+      "Ja, bitte übernimm den Anruf und schicke mir danach die Notiz.",
+      "Nein, bitte sage den Kundenanruf ab, statt ihn zu übernehmen.",
+      "Ja, übernimm bitte nur den Anruf nächste Woche statt morgen."
+    ],
+    "explanation": "Die Antwort bestätigt die Aufgabe und einen sinnvollen Informationsfluss danach. „Während“ beschreibt die gleichzeitige Abwesenheit.",
+    "focus": "Konjunktiv II und während"
+  },
+  {
+    "slug": "feedback-klaeren",
+    "title": "Eine Rückmeldung genauer verstehen",
+    "goal": "Bitte um ein konkretes Beispiel für eine Verbesserung.",
+    "setting": "office",
+    "intro": "Lukas sagt: In deinem Bericht sollte die Begründung deutlicher sein.",
+    "words": [
+      "die Begründung",
+      "das Beispiel",
+      "die Rückmeldung"
+    ],
+    "pieces": [
+      "Ich würde gern verstehen,",
+      "welche Begründung noch unklar ist,",
+      "damit",
+      "ich den Bericht gezielt verbessern kann."
+    ],
+    "question": "Soll ich Ihnen eine unklare Stelle zeigen und erklären, welche Information fehlt?",
+    "options": [
+      "Ja, ein konkretes Beispiel hilft mir bei der Überarbeitung.",
+      "Nein, ich möchte den Bericht ohne weitere Erklärung unverändert lassen.",
+      "Ja, bitte geben Sie mir ausschließlich eine Rückmeldung zum Deckblatt."
+    ],
+    "explanation": "Die Antwort fordert die Information an, die für eine gezielte Überarbeitung nötig ist.",
+    "focus": "indirekte Frage und damit"
+  },
+  {
+    "slug": "unterricht-verpasst",
+    "title": "Eine verpasste Stunde nachholen",
+    "goal": "Erkundige dich nach dem Stoff einer versäumten Unterrichtsstunde.",
+    "setting": "school",
+    "intro": "Anton sagt: Du konntest gestern nicht zur Stunde bei Sitov Academy kommen.",
+    "words": [
+      "die Unterrichtsstunde",
+      "die Zusammenfassung",
+      "die Hausaufgabe"
+    ],
+    "pieces": [
+      "Weil mein Zug ausgefallen ist,",
+      "habe ich die Stunde verpasst",
+      "und möchte",
+      "den Stoff nachholen."
+    ],
+    "question": "Möchtest du die Zusammenfassung und die Hausaufgabe der gestrigen Stunde bekommen?",
+    "options": [
+      "Ja, bitte schicken Sie mir beides, damit ich die Stunde nacharbeiten kann.",
+      "Nein, ich möchte den Stoff der verpassten Stunde nicht nachholen.",
+      "Ja, bitte schicken Sie mir nur das Programm für die nächste Unterrichtswoche."
+    ],
+    "explanation": "Die Antwort bittet um die Materialien zum Nachholen. Die Begründung steht als „weil“-Satz vor dem Hauptsatz.",
+    "focus": "weil und Perfekt"
+  },
+  {
+    "slug": "kurszeit-wechseln",
+    "title": "Zu einem anderen Kurstermin wechseln",
+    "goal": "Frage wegen einer neuen Arbeitszeit nach einem passenden Kurs.",
+    "setting": "school",
+    "intro": "Anton sagt: Deine neue Schicht überschneidet sich mit dem bisherigen Kurs.",
+    "words": [
+      "die Schicht",
+      "der Kurswechsel",
+      "der Abendkurs"
+    ],
+    "pieces": [
+      "Seit meine Schicht geändert wurde,",
+      "kann ich den bisherigen Kurs nicht besuchen",
+      "und suche",
+      "einen Abendkurs."
+    ],
+    "question": "Bei Sitov Academy gibt es denselben Kurs am Dienstagabend. Möchtest du wechseln?",
+    "options": [
+      "Ja, bitte prüfen Sie meinen Wechsel in den Kurs am Dienstagabend.",
+      "Ja, bitte behalten Sie meinen bisherigen Kurstermin bei.",
+      "Nein, bitte wechseln Sie mich in einen Vormittagskurs während meiner Arbeitszeit."
+    ],
+    "explanation": "Die Antwort greift den zeitlich passenden Abendkurs auf. „Seit“ markiert den Beginn der neuen Situation.",
+    "focus": "seit und Passiv"
+  },
+  {
+    "slug": "projektrolle-vereinbaren",
+    "title": "Aufgaben in einer Lerngruppe verteilen",
+    "goal": "Übernimm einen konkreten Teil einer Gruppenpräsentation.",
+    "setting": "school",
+    "intro": "Anton sagt: Für unsere Präsentation fehlen noch die Beispiele und die Einleitung.",
+    "words": [
+      "die Einleitung",
+      "das Beispiel",
+      "die Aufgabenverteilung"
+    ],
+    "pieces": [
+      "Ich könnte die Beispiele vorbereiten,",
+      "während du die Einleitung schreibst,",
+      "damit",
+      "wir rechtzeitig fertig werden."
+    ],
+    "question": "Sollen wir es so aufteilen: du die Beispiele und ich die Einleitung?",
+    "options": [
+      "Ja, ich kümmere mich um die Beispiele und du um die Einleitung.",
+      "Ja, wir bereiten beide nur die Einleitung vor und lassen die Beispiele weg.",
+      "Nein, du übernimmst beide Teile und ich keinen."
+    ],
+    "explanation": "Die Antwort wiederholt die vereinbarte Aufgabenverteilung korrekt. „Während“ trennt die parallelen Aufgaben.",
+    "focus": "Konjunktiv II und Aufgabenverteilung"
+  },
+  {
+    "slug": "korrektur-erfragen",
+    "title": "Eine Korrektur verstehen",
+    "goal": "Bitte den Lehrer um eine Erklärung zur Satzstellung.",
+    "setting": "school",
+    "intro": "Anton sagt: In diesem Satz musst du die Stellung des Verbs ändern.",
+    "words": [
+      "die Satzstellung",
+      "die Korrektur",
+      "der Nebensatz"
+    ],
+    "pieces": [
+      "Könnten Sie mir erklären,",
+      "warum das Verb",
+      "in diesem Nebensatz",
+      "ganz am Ende stehen muss?"
+    ],
+    "question": "Soll ich den Satz markieren und die Regel für den Nebensatz erklären?",
+    "options": [
+      "Ja, bitte zeigen Sie mir die Stelle und erklären Sie die Regel.",
+      "Nein, bitte markieren Sie nur den Fehler und erklären Sie die Regel nicht.",
+      "Ja, bitte erklären Sie mir nur die Bedeutung des Wortes statt der Satzstellung."
+    ],
+    "explanation": "Die Antwort erbittet die Erklärung zur tatsächlich unklaren Satzstellung. „Warum“ leitet die indirekte Frage ein.",
+    "focus": "indirekte Frage mit warum"
+  },
+  {
+    "slug": "zertifikat-korrigieren",
+    "title": "Ein Schreibfehler im Zertifikat",
+    "goal": "Bitte um die Korrektur deines Nachnamens auf einem Dokument.",
+    "setting": "school",
+    "intro": "Anton sagt: Auf deinem Zertifikat von Sitov Academy wurde der Nachname falsch geschrieben.",
+    "words": [
+      "das Zertifikat",
+      "der Nachname",
+      "der Schreibfehler"
+    ],
+    "pieces": [
+      "Mein Nachname wurde auf dem Zertifikat falsch geschrieben,",
+      "deshalb",
+      "brauche ich",
+      "eine korrigierte Fassung des Dokuments."
+    ],
+    "question": "Soll ich den Nachnamen anhand deiner Anmeldung prüfen und das Zertifikat korrigieren?",
+    "options": [
+      "Ja, bitte prüfen Sie die Schreibweise und erstellen Sie eine korrigierte Fassung.",
+      "Nein, bitte ändern Sie nur das Datum und lassen Sie den Nachnamen unverändert.",
+      "Ja, bitte ändern Sie nur den Vornamen; der Nachname bleibt wie bisher."
+    ],
+    "explanation": "Die Antwort benennt die richtige Korrektur und eine passende Grundlage zur Prüfung.",
+    "focus": "Passiv und deshalb"
+  },
+  {
+    "slug": "umzug-absprechen",
+    "title": "Den Einzug organisieren",
+    "goal": "Stimme die Nutzung des Aufzugs mit dem Hausmeister ab.",
+    "setting": "apartment",
+    "intro": "Max sagt: Für Ihren Einzug können Sie den großen Aufzug nach Absprache nutzen.",
+    "words": [
+      "der Einzug",
+      "der Aufzug",
+      "die Absprache"
+    ],
+    "pieces": [
+      "Könnten wir eine Zeit vereinbaren,",
+      "zu der",
+      "ich den großen Aufzug",
+      "für meine Möbel nutzen darf?"
+    ],
+    "question": "Am Samstag zwischen zehn und zwölf ist der Aufzug für Ihren Einzug frei. Passt das?",
+    "options": [
+      "Ja, ich organisiere den Möbeltransport für dieses Zeitfenster.",
+      "Ja, ich plane den Transport stattdessen für Samstagabend.",
+      "Nein, ich nutze für die Möbel lieber die Treppe statt des Aufzugs."
+    ],
+    "explanation": "Die Antwort stimmt den Transport mit dem angebotenen Zeitfenster ab. „Zu der“ bezieht sich auf die vereinbarte Zeit.",
+    "focus": "Konjunktiv II und Relativsatz"
+  },
+  {
+    "slug": "heizungstermin",
+    "title": "Ein Reparaturtermin für die Heizung",
+    "goal": "Melde eine ausgefallene Heizung und ermögliche den Zugang.",
+    "setting": "apartment",
+    "intro": "Max sagt: Sie haben gemeldet, dass Ihre Heizung seit gestern nicht funktioniert.",
+    "words": [
+      "die Heizung",
+      "der Techniker",
+      "der Zugang"
+    ],
+    "pieces": [
+      "Die Heizung funktioniert seit gestern nicht mehr,",
+      "deshalb",
+      "möchte ich",
+      "einen Termin mit dem Techniker vereinbaren."
+    ],
+    "question": "Der Techniker kann morgen um neun kommen. Können Sie ihn in die Wohnung lassen?",
+    "options": [
+      "Ja, morgen um neun bin ich da und lasse den Techniker hinein.",
+      "Nein, morgen um neun ist niemand da, aber den Termin lasse ich unverändert.",
+      "Ja, ich möchte morgen nur die Abrechnung besprechen und keinen Techniker empfangen."
+    ],
+    "explanation": "Die Antwort sichert den Zugang zum vereinbarten Reparaturtermin. „Seit“ beschreibt den Beginn des Problems.",
+    "focus": "seit und Reparaturorganisation"
+  },
+  {
+    "slug": "putzplan-tauschen",
+    "title": "Eine Aufgabe im Putzplan tauschen",
+    "goal": "Vereinbare einen Tausch mit deinem Mitbewohner.",
+    "setting": "apartment",
+    "intro": "Max sagt: Du bist am Samstag für die Küche eingetragen.",
+    "words": [
+      "der Putzplan",
+      "der Tausch",
+      "die Küche"
+    ],
+    "pieces": [
+      "Weil ich am Samstag wegfahre,",
+      "würde ich gern",
+      "meine Küchenaufgabe",
+      "mit deinem Termin am Mittwoch tauschen."
+    ],
+    "question": "Soll ich am Samstag die Küche übernehmen und du am Mittwoch?",
+    "options": [
+      "Ja, so tauschen wir die beiden Termine miteinander.",
+      "Ja, bitte übernimm beide Termine; ich übernehme keinen davon.",
+      "Nein, bitte verschiebe nur meinen Termin und lass deinen Termin am Mittwoch unverändert."
+    ],
+    "explanation": "Die Antwort bestätigt einen gegenseitigen Tausch und lässt beide Aufgaben abgedeckt.",
+    "focus": "weil und Konjunktiv II"
+  },
+  {
+    "slug": "musik-leiser",
+    "title": "Musik am späten Abend",
+    "goal": "Bitte deinen Nachbarn freundlich um weniger Lautstärke.",
+    "setting": "apartment",
+    "intro": "Max sagt: Ich habe heute Freunde zu Besuch und höre Musik.",
+    "words": [
+      "die Lautstärke",
+      "der Nachbar",
+      "die Nachtruhe"
+    ],
+    "pieces": [
+      "Könntest du die Musik etwas leiser stellen,",
+      "weil",
+      "ich morgen früh",
+      "zur Arbeit gehen muss?"
+    ],
+    "question": "Soll ich die Lautstärke jetzt reduzieren und später die Musik ausschalten?",
+    "options": [
+      "Ja, danke. Leisere Musik würde mir beim Einschlafen helfen.",
+      "Nein, du kannst die Lautstärke unverändert lassen, auch wenn ich schlafen möchte.",
+      "Ja, bitte schalte die Musik erst morgen früh leiser."
+    ],
+    "explanation": "Die Antwort bestätigt die erbetene Rücksichtnahme. Die Bitte nennt einen nachvollziehbaren persönlichen Grund.",
+    "focus": "Konjunktiv II und weil"
+  },
+  {
+    "slug": "paket-beim-nachbarn",
+    "title": "Ein Nachbar hat dein Paket",
+    "goal": "Vereinbare eine passende Abholzeit.",
+    "setting": "apartment",
+    "intro": "Max sagt: Ich habe dein Paket angenommen, bin aber heute lange unterwegs.",
+    "words": [
+      "das Paket",
+      "die Abholzeit",
+      "die Übergabe"
+    ],
+    "pieces": [
+      "Ich würde das Paket gern abholen,",
+      "wenn",
+      "du heute Abend",
+      "wieder zu Hause bist."
+    ],
+    "question": "Ich bin ab acht wieder da. Möchtest du dann kurz vorbeikommen?",
+    "options": [
+      "Ja, ich komme nach acht kurz vorbei und hole das Paket ab.",
+      "Ja, ich komme schon um sechs, wenn du noch nicht zu Hause bist.",
+      "Nein, bitte schick das Paket zurück, statt eine Abholung zu vereinbaren."
+    ],
+    "explanation": "Die Antwort orientiert sich an der Anwesenheit des Nachbarn. „Wenn“ nennt die Bedingung für die Abholung.",
+    "focus": "wenn und trennbares Verb abholen"
+  },
+  {
+    "slug": "fahrrad-fertig",
+    "title": "Wann ist das Fahrrad fertig?",
+    "goal": "Bitte um eine Einschätzung für den Abholtermin.",
+    "setting": "repair",
+    "intro": "Erik sagt: Wir haben Ihr Fahrrad geprüft und reparieren die Bremse.",
+    "words": [
+      "die Reparatur",
+      "die Bremse",
+      "der Abholtermin"
+    ],
+    "pieces": [
+      "Ich brauche das Fahrrad am Wochenende",
+      "und möchte wissen,",
+      "ob",
+      "die Reparatur bis Freitag abgeschlossen wird."
+    ],
+    "question": "Bis Freitagmittag sollte es fertig sein. Soll ich Sie dann zur Abholung anrufen?",
+    "options": [
+      "Ja, bitte rufen Sie mich an, sobald das Fahrrad fertig ist.",
+      "Nein, ich kann das Fahrrad erst in einem Monat abholen.",
+      "Ja, bitte rufen Sie mich nur wegen eines neuen Fahrrads statt der fertigen Reparatur an."
+    ],
+    "explanation": "Die Antwort organisiert die Abholung anhand der angekündigten Fertigstellung. „Abgeschlossen wird“ beschreibt die Reparatur im Passiv.",
+    "focus": "indirekte Frage und Passiv"
+  },
+  {
+    "slug": "handy-daten-klaeren",
+    "title": "Vor einer Handyreparatur nachfragen",
+    "goal": "Kläre, ob bei einer Reparatur Daten gelöscht werden müssen.",
+    "setting": "repair",
+    "intro": "Erik sagt: Wir tauschen das beschädigte Display Ihres Handys aus.",
+    "words": [
+      "das Display",
+      "die Datei",
+      "die Datensicherung"
+    ],
+    "pieces": [
+      "Bevor ich das Handy abgebe,",
+      "möchte ich wissen,",
+      "ob",
+      "bei der Reparatur meine Dateien gelöscht werden."
+    ],
+    "question": "Soll ich Ihnen zuerst erklären, welche Arbeitsschritte Ihre gespeicherten Dateien betreffen?",
+    "options": [
+      "Ja, bitte erklären Sie das, bevor ich das Handy zur Reparatur abgebe.",
+      "Nein, beginnen Sie gleich; ich möchte die Schritte vorher nicht erfahren.",
+      "Ja, bitte erklären Sie nur die Abholzeit und nichts über meine gespeicherten Dateien."
+    ],
+    "explanation": "Die Antwort klärt den Ablauf vor der Übergabe. „Bevor“ macht die gewünschte zeitliche Reihenfolge deutlich.",
+    "focus": "bevor und indirekte Frage"
+  },
+  {
+    "slug": "schuhe-abholung",
+    "title": "Reparierte Schuhe abholen",
+    "goal": "Vereinbare eine Abholung nach Ladenschluss durch Absprache.",
+    "setting": "repair",
+    "intro": "Erik sagt: Ihre Schuhe sind fertig. Unser Laden schließt heute um sechs.",
+    "words": [
+      "der Schuh",
+      "die Abholung",
+      "die Öffnungszeit"
+    ],
+    "pieces": [
+      "Ich schaffe es heute nicht vor sechs,",
+      "deshalb",
+      "würde ich",
+      "die reparierten Schuhe lieber morgen abholen."
+    ],
+    "question": "Morgen öffnen wir um neun. Möchten Sie dann zur Abholung kommen?",
+    "options": [
+      "Ja, ich komme morgen nach neun und hole die Schuhe ab.",
+      "Ja, ich komme heute nach Ladenschluss statt morgen.",
+      "Nein, ich möchte die Schuhe nicht abholen, sondern eine zweite Reparatur beauftragen."
+    ],
+    "explanation": "Die Antwort wählt die nächste passende Öffnungszeit. Das Partizip „reparierten“ beschreibt den Zustand der Schuhe.",
+    "focus": "deshalb und Partizip als Adjektiv"
+  },
+  {
+    "slug": "kostenvoranschlag-pruefen",
+    "title": "Vor der Reparatur den Umfang klären",
+    "goal": "Bitte um einen schriftlichen Kostenvoranschlag vor der Entscheidung.",
+    "setting": "repair",
+    "intro": "Erik sagt: Bei Ihrer Waschmaschine müssten mehrere Teile ersetzt werden.",
+    "words": [
+      "der Kostenvoranschlag",
+      "das Ersatzteil",
+      "die Freigabe"
+    ],
+    "pieces": [
+      "Bevor die Teile ersetzt werden,",
+      "möchte ich",
+      "einen schriftlichen Kostenvoranschlag",
+      "mit den geplanten Arbeiten bekommen."
+    ],
+    "question": "Soll ich Ihnen den Kostenvoranschlag schicken und mit der Reparatur auf Ihre Freigabe warten?",
+    "options": [
+      "Ja, bitte warten Sie mit der Reparatur, bis ich den Vorschlag geprüft habe.",
+      "Nein, beginnen Sie mit allen Arbeiten, bevor ich den Vorschlag geprüft habe.",
+      "Ja, schicken Sie erst nach der fertigen Reparatur die vollständige Rechnung."
+    ],
+    "explanation": "Die Antwort hält die gewünschte Reihenfolge ein: Information, Prüfung, anschließend Entscheidung. Sie bewertet keine finanziellen Optionen.",
+    "focus": "bevor und Vorgangspassiv"
+  },
+  {
+    "slug": "beleg-reparatur",
+    "title": "Ein Beleg für die Reparaturanfrage",
+    "goal": "Reiche das angefragte Kaufdokument nach.",
+    "setting": "repair",
+    "intro": "Erik sagt: Zur Prüfung Ihrer Reparaturanfrage benötigen wir den Kaufbeleg.",
+    "words": [
+      "der Kaufbeleg",
+      "die Anfrage",
+      "das Kaufdatum"
+    ],
+    "pieces": [
+      "Ich habe den Kaufbeleg zu Hause gefunden",
+      "und kann",
+      "ihn für die Prüfung",
+      "als Kopie nachreichen."
+    ],
+    "question": "Können Sie uns die Kopie mit sichtbarem Kaufdatum schicken?",
+    "options": [
+      "Ja, ich schicke eine lesbare Kopie mit dem Kaufdatum.",
+      "Nein, ich schicke nur ein Foto des Geräts ohne Kaufbeleg.",
+      "Ja, ich schicke die Kopie so, dass das Kaufdatum nicht sichtbar ist."
+    ],
+    "explanation": "Die Antwort stellt das angefragte Dokument mit der relevanten Angabe bereit. Es wird keine Aussage über einen Anspruch gemacht.",
+    "focus": "Perfekt und nachreichen"
+  },
+  {
+    "slug": "picknick-regenplan",
+    "title": "Ein Picknick bei unsicherem Wetter",
+    "goal": "Vereinbare eine Alternative für einen regnerischen Tag.",
+    "setting": "park",
+    "intro": "Finn sagt: Für unser Picknick morgen ist Regen angekündigt.",
+    "words": [
+      "das Picknick",
+      "der Regen",
+      "die Alternative"
+    ],
+    "pieces": [
+      "Falls es morgen regnet,",
+      "könnten wir unser Picknick verschieben",
+      "und",
+      "uns stattdessen im Café treffen."
+    ],
+    "question": "Wollen wir bei Regen ins Café gehen und das Picknick später nachholen?",
+    "options": [
+      "Ja, bei Regen treffen wir uns im Café und verschieben das Picknick.",
+      "Ja, bei Regen gehen wir wie geplant zum Picknick in den Park.",
+      "Nein, wir treffen uns auch im Café nicht und sagen jeden Plan ab."
+    ],
+    "explanation": "Die Antwort bestätigt den vorgesehenen Plan für die genannte Bedingung. „Falls“ beschreibt eine mögliche Situation.",
+    "focus": "falls und Konjunktiv II"
+  },
+  {
+    "slug": "parkweg-gesperrt",
+    "title": "Ein Weg im Park ist gesperrt",
+    "goal": "Frage nach einer Alternative zum See.",
+    "setting": "park",
+    "intro": "Finn sagt: Der direkte Weg zum See ist wegen Bauarbeiten gesperrt.",
+    "words": [
+      "der Weg",
+      "die Sperrung",
+      "der Umweg"
+    ],
+    "pieces": [
+      "Obwohl der direkte Weg gesperrt ist,",
+      "möchte ich",
+      "den See",
+      "über einen anderen Weg erreichen."
+    ],
+    "question": "Über die Brücke gelangen Sie auf einen offenen Rundweg zum See. Soll ich ihn zeigen?",
+    "options": [
+      "Ja, bitte zeigen Sie mir den offenen Weg über die Brücke.",
+      "Nein, ich gehe direkt über den gesperrten Weg.",
+      "Ja, bitte zeigen Sie mir nur den Weg aus dem Park statt zum See."
+    ],
+    "explanation": "Die Antwort nutzt die zugängliche Alternative zum gleichen Ziel. „Obwohl“ beschreibt das Hindernis, das den Wunsch nicht aufhebt.",
+    "focus": "obwohl und Alternative erfragen"
+  },
+  {
+    "slug": "hundebereich-finden",
+    "title": "Den passenden Bereich für den Hund finden",
+    "goal": "Frage einen Mitarbeiter nach dem ausgewiesenen Hundebereich.",
+    "setting": "park",
+    "intro": "Finn sagt: Ihr Hund darf nicht auf die Spielwiese. Für Hunde gibt es einen eigenen Bereich.",
+    "words": [
+      "der Hundebereich",
+      "die Spielwiese",
+      "das Hinweisschild"
+    ],
+    "pieces": [
+      "Ich suche den Bereich,",
+      "in dem mein Hund laufen darf,",
+      "ohne",
+      "die Spielwiese zu betreten."
+    ],
+    "question": "Soll ich Ihnen den ausgeschilderten Hundebereich neben dem Eingang zeigen?",
+    "options": [
+      "Ja, bitte zeigen Sie mir den ausgewiesenen Hundebereich.",
+      "Nein, ich möchte mit dem Hund direkt auf die Spielwiese gehen.",
+      "Ja, bitte zeigen Sie mir nur den Spielbereich statt des Hundebereichs."
+    ],
+    "explanation": "Die Antwort berücksichtigt die vor Ort genannte Regel und fragt nach dem passenden Bereich.",
+    "focus": "Relativsatz und ohne zu"
+  },
+  {
+    "slug": "schluessel-gefunden",
+    "title": "Verlorene Schlüssel im Park",
+    "goal": "Beschreibe einen Schlüsselbund im Fundbüro.",
+    "setting": "park",
+    "intro": "Finn sagt: Heute wurde ein Schlüsselbund beim Spielplatz gefunden.",
+    "words": [
+      "der Schlüsselbund",
+      "der Anhänger",
+      "das Fundbüro"
+    ],
+    "pieces": [
+      "Ich habe meinen Schlüsselbund verloren,",
+      "an dem",
+      "ein blauer Anhänger",
+      "und drei kleine Schlüssel befestigt sind."
+    ],
+    "question": "Der gefundene Bund hat einen blauen Anhänger und drei Schlüssel. Möchten Sie ihn ansehen?",
+    "options": [
+      "Ja, bitte. Ich möchte prüfen, ob das mein Schlüsselbund ist.",
+      "Nein, ich suche einen Schlüsselbund ohne Anhänger und mit fünf Schlüsseln.",
+      "Ja, ich möchte nur einen neuen Schlüssel anfertigen lassen, statt den gefundenen anzusehen."
+    ],
+    "explanation": "Die Antwort nutzt die übereinstimmenden Merkmale zur Prüfung. „An dem“ beschreibt, was am Schlüsselbund befestigt ist.",
+    "focus": "Perfekt und Relativsatz mit an dem"
+  },
+  {
+    "slug": "park-aktion-treffpunkt",
+    "title": "Bei einer Parkaktion mithelfen",
+    "goal": "Kläre Treffpunkt und Beginn einer freiwilligen Aktion.",
+    "setting": "park",
+    "intro": "Finn sagt: Am Samstag sammeln wir gemeinsam Müll im Park.",
+    "words": [
+      "die Sammelaktion",
+      "der Treffpunkt",
+      "der Organisator"
+    ],
+    "pieces": [
+      "Ich würde gern bei der Sammelaktion mithelfen",
+      "und möchte wissen,",
+      "wo",
+      "wir uns am Samstag treffen."
+    ],
+    "question": "Wir treffen uns um zehn am Haupteingang. Kannst du dort hinkommen?",
+    "options": [
+      "Ja, ich komme am Samstag um zehn zum Haupteingang.",
+      "Ja, ich komme am Sonntag um zehn zum Seiteneingang.",
+      "Nein, ich komme am Samstag erst mittags an einen anderen Eingang."
+    ],
+    "explanation": "Die Antwort bestätigt den richtigen Treffpunkt und Zeitpunkt. „Wo“ leitet die indirekte Frage nach dem Ort ein.",
+    "focus": "Konjunktiv II und indirekte Ortsfrage"
+  },
+  {
+    "slug": "probetraining-anmelden",
+    "title": "Ein Probetraining vereinbaren",
+    "goal": "Frage nach einem Training für Einsteiger.",
+    "setting": "sports",
+    "intro": "Moritz sagt: Bei uns gibt es Gruppen für Einsteiger und Fortgeschrittene.",
+    "words": [
+      "das Probetraining",
+      "der Einsteiger",
+      "die Trainingsgruppe"
+    ],
+    "pieces": [
+      "Da ich noch wenig Erfahrung habe,",
+      "würde ich gern",
+      "ein Probetraining",
+      "in der Einsteigergruppe vereinbaren."
+    ],
+    "question": "Die Einsteigergruppe trainiert am Montag um sechs. Möchtest du dort probeweise teilnehmen?",
+    "options": [
+      "Ja, ich möchte am Montag in der Einsteigergruppe mitmachen.",
+      "Ja, bitte melden Sie mich nur für das Training der Fortgeschrittenen an.",
+      "Nein, bitte buchen Sie gleich eine feste Teilnahme statt eines Probetrainings."
+    ],
+    "explanation": "Die Antwort wählt die Gruppe, die zum beschriebenen Erfahrungsstand passt.",
+    "focus": "da und höflicher Trainingswunsch"
+  },
+  {
+    "slug": "tempo-absprechen",
+    "title": "Das Lauftempo gemeinsam planen",
+    "goal": "Vereinbare mit einem Trainingspartner ein ruhigeres Tempo.",
+    "setting": "sports",
+    "intro": "Moritz sagt: Heute könnten wir dieselbe schnelle Runde wie letzte Woche laufen.",
+    "words": [
+      "das Tempo",
+      "die Runde",
+      "die Pause"
+    ],
+    "pieces": [
+      "Ich würde gern langsamer beginnen,",
+      "weil",
+      "ich seit einigen Wochen",
+      "nicht mehr mitgelaufen bin."
+    ],
+    "question": "Sollen wir eine ruhige Runde wählen und bei Bedarf eine Pause machen?",
+    "options": [
+      "Ja, eine ruhige Runde mit der Möglichkeit einer Pause passt zu meinem Wunsch.",
+      "Nein, wir beginnen heute schneller als letzte Woche und machen keine Pause.",
+      "Ja, wir laufen sofort die schnelle Runde statt der ruhigen."
+    ],
+    "explanation": "Die Antwort vereinbart das gewünschte Tempo, ohne gesundheitliche Wirkungen zu versprechen.",
+    "focus": "weil und Perfekt"
+  },
+  {
+    "slug": "platz-doppelt-gebucht",
+    "title": "Ein Sportplatz wurde doppelt gebucht",
+    "goal": "Kläre eine doppelte Reservierung mit dem Mitarbeiter.",
+    "setting": "sports",
+    "intro": "Moritz sagt: Der Tennisplatz wurde für dieselbe Stunde auch von einem anderen Spieler reserviert.",
+    "words": [
+      "die Platzreservierung",
+      "die Buchungsbestätigung",
+      "der Ersatzplatz"
+    ],
+    "pieces": [
+      "Ich habe eine Buchungsbestätigung für diese Stunde,",
+      "obwohl",
+      "der Platz",
+      "offenbar noch einmal reserviert wurde."
+    ],
+    "question": "Ein anderer Platz ist zur gleichen Zeit frei. Möchten Sie dorthin wechseln?",
+    "options": [
+      "Ja, ich nehme den freien Ersatzplatz zur gleichen Zeit.",
+      "Nein, bitte lassen Sie uns beide Gruppen auf dem schon belegten Platz eintragen.",
+      "Ja, bitte verlegen Sie uns ausschließlich auf morgen statt auf dieselbe Stunde."
+    ],
+    "explanation": "Die Antwort nimmt eine verfügbare Alternative an, die die gewünschte Zeit beibehält.",
+    "focus": "obwohl und Passiv"
+  },
+  {
+    "slug": "spindschluessel-fehlt",
+    "title": "Ein Spind lässt sich nicht öffnen",
+    "goal": "Bitte um Hilfe bei einem klemmenden Schloss.",
+    "setting": "sports",
+    "intro": "Moritz sagt: Dein Schlüssel passt zum Spind, aber das Schloss klemmt.",
+    "words": [
+      "der Spind",
+      "das Schloss",
+      "der Schlüssel"
+    ],
+    "pieces": [
+      "Obwohl ich den richtigen Schlüssel habe,",
+      "lässt sich mein Spind nicht öffnen,",
+      "deshalb",
+      "brauche ich Hilfe."
+    ],
+    "question": "Soll ich das Schloss prüfen und dir beim Öffnen helfen?",
+    "options": [
+      "Ja, bitte prüfen Sie das Schloss meines Spinds.",
+      "Nein, bitte tauschen Sie nur den Schlüssel, ohne das klemmende Schloss zu prüfen.",
+      "Ja, bitte zeigen Sie mir nur einen freien Spind für den nächsten Besuch."
+    ],
+    "explanation": "Die Antwort bittet um Hilfe am richtigen Spind. „Lässt sich öffnen“ beschreibt, ob das Öffnen möglich ist.",
+    "focus": "obwohl und sich lassen"
+  },
+  {
+    "slug": "turnier-verschoben",
+    "title": "Ein Turnier beginnt später",
+    "goal": "Kläre die neue Ankunftszeit nach einer Planänderung.",
+    "setting": "sports",
+    "intro": "Moritz sagt: Wegen des Regens beginnt das Turnier heute zwei Stunden später.",
+    "words": [
+      "das Turnier",
+      "der Beginn",
+      "die Anmeldung"
+    ],
+    "pieces": [
+      "Da der Beginn verschoben wurde,",
+      "möchte ich wissen,",
+      "wann",
+      "wir zur Anmeldung vor Ort sein sollen."
+    ],
+    "question": "Die Anmeldung öffnet jetzt um zwölf. Könnt ihr bis halb eins da sein?",
+    "options": [
+      "Ja, wir kommen zwischen zwölf und halb eins zur Anmeldung.",
+      "Ja, wir kommen erst um drei zur Anmeldung.",
+      "Nein, wir bleiben bei der alten Ankunftszeit, ohne den neuen Plan zu berücksichtigen."
+    ],
+    "explanation": "Die Antwort richtet die Ankunft nach der neuen Zeit aus. „Wann“ fragt nach dem Zeitpunkt nach der Verschiebung.",
+    "focus": "da und indirekte Zeitfrage"
+  },
+  {
+    "slug": "gepaeck-vor-checkin",
+    "title": "Vor dem Einchecken ankommen",
+    "goal": "Frage nach der Aufbewahrung deines Gepäcks.",
+    "setting": "hotel",
+    "intro": "Daniel sagt: Ihr Zimmer ist erst ab drei Uhr bereit. Sie sind bereits um zwölf angekommen.",
+    "words": [
+      "das Gepäck",
+      "die Aufbewahrung",
+      "die Ankunft"
+    ],
+    "pieces": [
+      "Obwohl mein Zimmer noch nicht bereit ist,",
+      "würde ich",
+      "mein Gepäck gern",
+      "bis zum Einchecken hierlassen."
+    ],
+    "question": "Soll ich Ihr Gepäck bis drei Uhr in unserem Gepäckraum aufbewahren?",
+    "options": [
+      "Ja, bitte bewahren Sie es auf, bis ich einchecken kann.",
+      "Nein, ich möchte das Gepäck erst nach dem Auschecken hier aufbewahren.",
+      "Ja, bitte bringen Sie das Gepäck sofort in ein Zimmer, das noch nicht bereit ist."
+    ],
+    "explanation": "Die Antwort nimmt die Aufbewahrung für den Zeitraum vor dem Einchecken an. „Bis“ bezeichnet das Ende dieses Zeitraums.",
+    "focus": "obwohl und bis"
+  },
+  {
+    "slug": "hotelzimmer-wechseln",
+    "title": "Ein lautes Hotelzimmer",
+    "goal": "Bitte wegen Baulärm um ein ruhigeres Zimmer.",
+    "setting": "hotel",
+    "intro": "Daniel sagt: Neben Ihrem Zimmer finden heute laute Bauarbeiten statt.",
+    "words": [
+      "das Zimmer",
+      "der Baulärm",
+      "der Wechsel"
+    ],
+    "pieces": [
+      "Wegen der Bauarbeiten ist mein Zimmer laut,",
+      "deshalb",
+      "würde ich gern",
+      "in ein ruhigeres wechseln."
+    ],
+    "question": "Ein Zimmer zum Innenhof ist frei. Möchten Sie dorthin wechseln?",
+    "options": [
+      "Ja, bitte geben Sie mir das ruhigere Zimmer zum Innenhof.",
+      "Nein, bitte geben Sie mir ein Zimmer direkt neben den Bauarbeiten.",
+      "Ja, bitte geben Sie mir nur eine neue Zimmerkarte für das bisherige Zimmer."
+    ],
+    "explanation": "Die Antwort wählt die angebotene Lösung zum Lärmproblem. „In ein ruhigeres“ meint ein ruhigeres Zimmer.",
+    "focus": "deshalb und höfliche Beschwerde"
+  },
+  {
+    "slug": "aufenthalt-verlaengern",
+    "title": "Eine zusätzliche Nacht im Hotel",
+    "goal": "Frage nach einer Verlängerung im selben Zimmer.",
+    "setting": "hotel",
+    "intro": "Daniel sagt: Ihr gebuchter Aufenthalt endet morgen.",
+    "words": [
+      "die Verlängerung",
+      "die Übernachtung",
+      "die Verfügbarkeit"
+    ],
+    "pieces": [
+      "Ich würde gern eine weitere Nacht bleiben",
+      "und möchte wissen,",
+      "ob",
+      "mein Zimmer noch verfügbar ist."
+    ],
+    "question": "Ihr Zimmer ist auch morgen frei. Soll ich die zusätzliche Nacht eintragen?",
+    "options": [
+      "Ja, bitte verlängern Sie meinen Aufenthalt um eine Nacht im selben Zimmer.",
+      "Ja, bitte verkürzen Sie meinen Aufenthalt um eine Nacht.",
+      "Nein, bitte buchen Sie ein zweites Zimmer nur für heute ohne Verlängerung."
+    ],
+    "explanation": "Die Antwort verlängert genau den bestehenden Aufenthalt um eine Nacht. „Ob“ fragt nach der Verfügbarkeit.",
+    "focus": "Konjunktiv II und indirekte Frage"
+  },
+  {
+    "slug": "hotelrechnung-korrigieren",
+    "title": "Die Rechnung braucht eine andere Anschrift",
+    "goal": "Bitte um eine korrekte Firmenanschrift auf der Rechnung.",
+    "setting": "hotel",
+    "intro": "Daniel sagt: Auf Ihrer Rechnung steht noch Ihre private Anschrift.",
+    "words": [
+      "die Firmenanschrift",
+      "die Rechnung",
+      "die Korrektur"
+    ],
+    "pieces": [
+      "Die Rechnung soll an meine Firma ausgestellt werden,",
+      "deshalb",
+      "müsste die Anschrift",
+      "noch geändert werden."
+    ],
+    "question": "Haben Sie die genaue Firmenanschrift für die korrigierte Rechnung dabei?",
+    "options": [
+      "Ja, hier sind der Firmenname und die vollständige Firmenanschrift.",
+      "Nein, lassen Sie bitte weiterhin nur meine private Anschrift stehen.",
+      "Ja, ändern Sie bitte nur das Datum und lassen Sie die Anschrift unverändert."
+    ],
+    "explanation": "Die Antwort liefert die Angaben für die angefragte Korrektur. Das Passiv betont das Dokument statt seines Ausstellers.",
+    "focus": "Modalverb im Passiv"
+  },
+  {
+    "slug": "taxi-am-morgen",
+    "title": "Die Abreise am frühen Morgen",
+    "goal": "Organisiere ein Taxi mit ausreichend Vorlauf.",
+    "setting": "hotel",
+    "intro": "Daniel sagt: Ihr Zug fährt morgen um sieben vom Bahnhof ab.",
+    "words": [
+      "die Abreise",
+      "das Taxi",
+      "die Fahrtzeit"
+    ],
+    "pieces": [
+      "Da mein Zug früh abfährt,",
+      "würde ich gern",
+      "ein Taxi",
+      "für halb sechs bestellen."
+    ],
+    "question": "Soll das Taxi Sie morgen um halb sechs vor dem Hoteleingang abholen?",
+    "options": [
+      "Ja, bitte bestellen Sie es für morgen um halb sechs zum Hoteleingang.",
+      "Ja, bitte bestellen Sie es für morgen um halb acht.",
+      "Nein, bestellen Sie bitte nur ein Taxi für heute Nachmittag."
+    ],
+    "explanation": "Die Antwort bestätigt den gewünschten Tag, Zeitpunkt und Abholort. „Da“ begründet die frühe Bestellung.",
+    "focus": "da und konkrete Zeitvereinbarung"
+  },
+  {
+    "slug": "groesse-umtauschen",
+    "title": "Eine Hose in anderer Größe",
+    "goal": "Bitte um einen Größenumtausch mit vorhandenem Beleg.",
+    "setting": "clothes",
+    "intro": "Nils sagt: Sie haben die Hose gestern gekauft, aber zu Hause war sie zu klein.",
+    "words": [
+      "die Größe",
+      "der Umtausch",
+      "der Kaufbeleg"
+    ],
+    "pieces": [
+      "Ich möchte die Hose umtauschen,",
+      "weil sie zu klein ist,",
+      "und brauche",
+      "dieselbe eine Nummer größer."
+    ],
+    "question": "Soll ich prüfen, ob dieselbe Hose eine Nummer größer vorrätig ist?",
+    "options": [
+      "Ja, bitte prüfen Sie die größere Größe des gleichen Modells.",
+      "Nein, geben Sie mir bitte dasselbe Modell eine Nummer kleiner.",
+      "Ja, bitte tauschen Sie die Hose gegen dasselbe Modell in unveränderter Größe."
+    ],
+    "explanation": "Die Antwort behält das gewünschte Modell bei und ändert die Größe in die passende Richtung.",
+    "focus": "weil und Größenvergleich"
+  },
+  {
+    "slug": "jacke-mit-taschen",
+    "title": "Eine passende Jacke suchen",
+    "goal": "Beschreibe eine funktionale Anforderung an eine Jacke.",
+    "setting": "clothes",
+    "intro": "Nils sagt: Wofür möchten Sie die neue Jacke hauptsächlich tragen?",
+    "words": [
+      "die Jacke",
+      "die Innentasche",
+      "der Reißverschluss"
+    ],
+    "pieces": [
+      "Ich suche eine Jacke,",
+      "die verschließbare Innentaschen hat,",
+      "weil",
+      "ich oft mit dem Zug reise."
+    ],
+    "question": "Diese Jacke hat zwei Innentaschen mit Reißverschluss. Möchten Sie sie anprobieren?",
+    "options": [
+      "Ja, die verschließbaren Taschen passen zu meinem Wunsch. Ich probiere sie an.",
+      "Nein, ich nehme lieber eine Jacke ohne verschließbare Taschen.",
+      "Ja, bitte zeigen Sie mir nur die Jacke mit offenen Außentaschen."
+    ],
+    "explanation": "Die Antwort greift die genannte Anforderung auf. Der Relativsatz beschreibt die gewünschte Eigenschaft der Jacke.",
+    "focus": "Relativsatz und weil"
+  },
+  {
+    "slug": "aermel-kuerzen",
+    "title": "Die Ärmel sind zu lang",
+    "goal": "Erkundige dich nach einer Änderung der Länge.",
+    "setting": "clothes",
+    "intro": "Nils sagt: Die Jacke passt an den Schultern, aber die Ärmel sind zu lang.",
+    "words": [
+      "der Ärmel",
+      "die Änderung",
+      "die Länge"
+    ],
+    "pieces": [
+      "Die Jacke passt sonst gut,",
+      "aber ich möchte wissen,",
+      "ob",
+      "die Ärmel etwas gekürzt werden können."
+    ],
+    "question": "Unser Änderungsservice kann die Ärmel kürzen. Soll ich die gewünschte Länge markieren?",
+    "options": [
+      "Ja, bitte markieren Sie die passende Länge zum Kürzen.",
+      "Ja, bitte verlängern Sie die Ärmel noch etwas.",
+      "Nein, ändern Sie bitte nur die Schultern und lassen Sie die Ärmel unverändert."
+    ],
+    "explanation": "Die Antwort betrifft genau den unpassenden Teil des Kleidungsstücks. „Gekürzt werden können“ beschreibt die mögliche Änderung im Passiv.",
+    "focus": "indirekte Frage und Passiv"
+  },
+  {
+    "slug": "reservierte-kleidung",
+    "title": "Eine reservierte Jacke später abholen",
+    "goal": "Bitte um eine kurze Verlängerung der Reservierung.",
+    "setting": "clothes",
+    "intro": "Nils sagt: Ihre online reservierte Jacke wird nur bis heute für Sie zurückgelegt.",
+    "words": [
+      "die Reservierung",
+      "die Abholfrist",
+      "die Filiale"
+    ],
+    "pieces": [
+      "Ich kann erst morgen kommen,",
+      "deshalb",
+      "würde ich gern",
+      "die Reservierung um einen Tag verlängern."
+    ],
+    "question": "Ich kann die Jacke bis morgen Abend zurücklegen. Holen Sie sie dann ab?",
+    "options": [
+      "Ja, morgen komme ich vor Ladenschluss zur Abholung.",
+      "Ja, ich komme erst nächste Woche zur Abholung.",
+      "Nein, bitte beenden Sie die Reservierung noch heute, statt sie zu verlängern."
+    ],
+    "explanation": "Die Antwort nutzt die angebotene Verlängerung um einen Tag. „Zurücklegen“ bedeutet hier, die Ware für einen Kunden aufzubewahren.",
+    "focus": "deshalb und Reservierung verlängern"
+  },
+  {
+    "slug": "offene-naht",
+    "title": "Eine beschädigte Naht entdecken",
+    "goal": "Bitte vor dem Kauf um ein unbeschädigtes Exemplar.",
+    "setting": "clothes",
+    "intro": "Nils sagt: Sie haben beim Anprobieren eine offene Naht am Hemd entdeckt.",
+    "words": [
+      "die Naht",
+      "der Mangel",
+      "das Exemplar"
+    ],
+    "pieces": [
+      "An diesem Hemd ist eine Naht offen,",
+      "deshalb",
+      "hätte ich gern",
+      "ein unbeschädigtes in derselben Größe."
+    ],
+    "question": "Im Lager liegt dasselbe Hemd ohne Schaden. Soll ich es holen?",
+    "options": [
+      "Ja, bitte holen Sie das unbeschädigte Hemd in derselben Größe.",
+      "Nein, bitte packen Sie genau das Hemd mit der offenen Naht ein.",
+      "Ja, holen Sie das gleiche Hemd, aber in einer anderen Größe."
+    ],
+    "explanation": "Die Antwort behält Modell und Größe bei und beseitigt den genannten Mangel. „Hätte gern“ formuliert den Wunsch höflich.",
+    "focus": "höflicher Wunsch und gleiche Größe"
+  },
+  {
+    "slug": "herkunft-gemuese",
+    "title": "Woher kommt das Gemüse?",
+    "goal": "Frage vor dem Kauf nach der Herkunft der Ware.",
+    "setting": "market",
+    "intro": "Theo sagt: Heute haben wir Kartoffeln von zwei verschiedenen Betrieben.",
+    "words": [
+      "die Herkunft",
+      "der Betrieb",
+      "die Region"
+    ],
+    "pieces": [
+      "Ich würde gern Kartoffeln kaufen,",
+      "die aus der Region stammen,",
+      "und möchte",
+      "nach ihrer Herkunft fragen."
+    ],
+    "question": "Diese Kartoffeln kommen von einem Betrieb im Nachbarort. Möchten Sie davon nehmen?",
+    "options": [
+      "Ja, bitte geben Sie mir Kartoffeln von diesem regionalen Betrieb.",
+      "Nein, ich möchte nur die Ware vom weiter entfernten Betrieb.",
+      "Ja, bitte mischen Sie die Kartoffeln aus beiden Herkunftsorten."
+    ],
+    "explanation": "Die Antwort wählt die ausdrücklich benannte regionale Ware. Der Relativsatz beschreibt das Auswahlkriterium.",
+    "focus": "Relativsatz und Herkunft erfragen"
+  },
+  {
+    "slug": "reife-fruechte",
+    "title": "Früchte für morgen kaufen",
+    "goal": "Beschreibe, wann du die Früchte essen möchtest.",
+    "setting": "market",
+    "intro": "Theo sagt: Diese Birnen sind schon sehr weich, die anderen werden morgen reif.",
+    "words": [
+      "die Birne",
+      "die Reife",
+      "die Auswahl"
+    ],
+    "pieces": [
+      "Ich esse die Birnen erst morgen,",
+      "deshalb suche ich Früchte,",
+      "die",
+      "noch nicht zu weich sind."
+    ],
+    "question": "Soll ich Ihnen die Birnen geben, die bis morgen noch etwas fester bleiben?",
+    "options": [
+      "Ja, bitte wählen Sie die etwas festeren Birnen für morgen.",
+      "Nein, bitte geben Sie mir die sehr weichen Birnen für heute.",
+      "Ja, bitte wählen Sie Birnen, die erst nächste Woche reif werden."
+    ],
+    "explanation": "Die Antwort verbindet den geplanten Verzehr am nächsten Tag mit dem passenden Reifegrad.",
+    "focus": "deshalb und Relativsatz"
+  },
+  {
+    "slug": "kleinere-menge",
+    "title": "Eine kleinere Menge einkaufen",
+    "goal": "Bitte um eine kleinere Portion statt einer großen Packung.",
+    "setting": "market",
+    "intro": "Theo sagt: Die Pilze liegen hier in großen Schalen zu je einem Kilogramm.",
+    "words": [
+      "die Portion",
+      "die Schale",
+      "das Gewicht"
+    ],
+    "pieces": [
+      "Da ich nur für mich koche,",
+      "würde ich gern",
+      "eine kleinere Portion",
+      "statt der Schale kaufen."
+    ],
+    "question": "Ich kann Ihnen auch dreihundert Gramm abwiegen. Wäre das passend?",
+    "options": [
+      "Ja, bitte wiegen Sie mir dreihundert Gramm ab.",
+      "Nein, bitte geben Sie mir die ganze Kilogrammschale.",
+      "Ja, bitte geben Sie mir zwei volle Schalen statt einer kleinen Portion."
+    ],
+    "explanation": "Die Antwort nimmt die kleinere abgewogene Menge an. „Statt der Schale“ beschreibt die gewünschte Alternative zur ganzen Packung.",
+    "focus": "da und Mengenangabe"
+  },
+  {
+    "slug": "kartenzahlung-pruefen",
+    "title": "Am Markt bezahlen",
+    "goal": "Kläre die akzeptierte Zahlungsart vor dem Einkauf.",
+    "setting": "market",
+    "intro": "Theo sagt: Unser Kartenlesegerät ist heute außer Betrieb.",
+    "words": [
+      "die Zahlungsart",
+      "das Kartenlesegerät",
+      "das Bargeld"
+    ],
+    "pieces": [
+      "Obwohl ich meist mit Karte bezahle,",
+      "möchte ich wissen,",
+      "welche andere Zahlungsart",
+      "heute hier möglich ist."
+    ],
+    "question": "Heute nehmen wir nur Bargeld an. Haben Sie ausreichend Bargeld dabei?",
+    "options": [
+      "Ja, ich habe genug Bargeld und bezahle damit.",
+      "Nein, ich habe nur meine Karte und möchte trotzdem mit ihr bezahlen.",
+      "Ja, ich möchte die Ware nur reservieren und heute noch gar nicht bezahlen."
+    ],
+    "explanation": "Die Antwort berücksichtigt die vor Ort genannte Zahlungsart. Die Aufgabe macht keine Empfehlung zu finanziellen Produkten.",
+    "focus": "obwohl und indirekte Frage"
+  },
+  {
+    "slug": "eigener-korb",
+    "title": "Den Einkauf im eigenen Korb mitnehmen",
+    "goal": "Bitte um eine Verpackung ohne zusätzliche Tüten.",
+    "setting": "market",
+    "intro": "Theo sagt: Soll ich Ihr Gemüse in einzelne Tüten packen?",
+    "words": [
+      "der Korb",
+      "die Verpackung",
+      "die Tüte"
+    ],
+    "pieces": [
+      "Ich habe meinen eigenen Korb dabei,",
+      "deshalb",
+      "brauche ich",
+      "keine zusätzlichen Tüten für das gekaufte Gemüse."
+    ],
+    "question": "Soll ich das Gemüse direkt in Ihren mitgebrachten Korb legen?",
+    "options": [
+      "Ja, bitte legen Sie es ohne zusätzliche Tüten in meinen Korb.",
+      "Nein, bitte packen Sie jedes Gemüse einzeln in eine neue Tüte.",
+      "Ja, bitte legen Sie das Gemüse zuerst in zusätzliche Tüten und dann in den Korb."
+    ],
+    "explanation": "Die Antwort setzt den Verpackungswunsch eindeutig um. „Mitgebracht“ beschreibt den bereits vorhandenen Korb.",
+    "focus": "deshalb und Verpackungswunsch"
+  },
+  {
+    "slug": "museum-zugang",
+    "title": "Einen zugänglichen Museumseingang finden",
+    "goal": "Frage nach einem Eingang ohne Treppen.",
+    "setting": "city",
+    "intro": "Jan sagt: Das Museum hat einen Haupteingang mit Treppen und einen Seiteneingang mit Rampe.",
+    "words": [
+      "der Seiteneingang",
+      "die Rampe",
+      "der Zugang"
+    ],
+    "pieces": [
+      "Ich suche einen Museumseingang,",
+      "den mein Begleiter",
+      "mit seinem Rollstuhl",
+      "ohne Treppen erreichen kann."
+    ],
+    "question": "Soll ich Ihnen den Weg zum Seiteneingang mit Rampe zeigen?",
+    "options": [
+      "Ja, bitte zeigen Sie uns den Weg zum Eingang mit Rampe.",
+      "Nein, zeigen Sie uns den Haupteingang mit der Treppe.",
+      "Ja, bitte zeigen Sie uns nur den Ausgang statt des Zugangs mit Rampe."
+    ],
+    "explanation": "Die Antwort wählt den genannten Zugang ohne Treppen. „Den“ bezieht sich im Relativsatz auf den Eingang.",
+    "focus": "Relativsatz und Zugänglichkeit"
+  },
+  {
+    "slug": "stadtfuehrung-sprache",
+    "title": "Eine Stadtführung passend zum Sprachniveau",
+    "goal": "Frage nach einer verständlichen Führung auf Deutsch.",
+    "setting": "city",
+    "intro": "Jan sagt: Unsere Führungen unterscheiden sich in Länge und Sprache.",
+    "words": [
+      "die Stadtführung",
+      "die Erklärung",
+      "das Sprachniveau"
+    ],
+    "pieces": [
+      "Ich lerne Deutsch auf B1",
+      "und suche eine Führung,",
+      "bei der",
+      "die Erklärungen langsam gesprochen werden."
+    ],
+    "question": "Wir haben eine deutsche Führung mit langsameren Erklärungen und Zeit für Fragen. Passt das?",
+    "options": [
+      "Ja, diese deutsche Führung mit Zeit für Fragen würde ich gern buchen.",
+      "Nein, bitte buchen Sie die schnelle Führung ohne Zeit für Fragen.",
+      "Ja, ich möchte ausschließlich eine Führung auf Englisch statt auf Deutsch."
+    ],
+    "explanation": "Die Antwort passt zu den beschriebenen sprachlichen Bedürfnissen. Das Passiv beschreibt, wie die Erklärungen gesprochen werden.",
+    "focus": "Relativsatz und Passiv"
+  },
+  {
+    "slug": "veranstaltung-alternative",
+    "title": "Eine Veranstaltung ist ausverkauft",
+    "goal": "Suche einen späteren Termin für dieselbe Veranstaltung.",
+    "setting": "city",
+    "intro": "Jan sagt: Für die heutige Abendveranstaltung gibt es keine Karten mehr.",
+    "words": [
+      "die Veranstaltung",
+      "der Ersatztermin",
+      "die Eintrittskarte"
+    ],
+    "pieces": [
+      "Obwohl der heutige Abend ausverkauft ist,",
+      "würde ich gern",
+      "einen späteren Termin",
+      "für dieselbe Veranstaltung finden."
+    ],
+    "question": "Für nächsten Samstag sind noch Karten verfügbar. Möchten Sie diesen Termin wählen?",
+    "options": [
+      "Ja, bitte nehmen Sie den verfügbaren Termin am nächsten Samstag.",
+      "Nein, ich möchte nur Karten für den ausverkauften heutigen Abend.",
+      "Ja, buchen Sie bitte eine ganz andere Veranstaltung statt eines späteren Termins."
+    ],
+    "explanation": "Die Antwort behält die gewünschte Veranstaltung bei und wählt einen verfügbaren Termin.",
+    "focus": "obwohl und Terminwahl"
+  },
+  {
+    "slug": "treffpunkt-praezisieren",
+    "title": "Welcher Brunnen ist der Treffpunkt?",
+    "goal": "Kläre einen mehrdeutigen Treffpunkt im Stadtzentrum.",
+    "setting": "city",
+    "intro": "Jan sagt: Auf dem Platz gibt es zwei Brunnen. Ihr Freund wartet am Brunnen vor dem Rathaus.",
+    "words": [
+      "der Treffpunkt",
+      "der Brunnen",
+      "das Rathaus"
+    ],
+    "pieces": [
+      "Mein Freund wartet an einem Brunnen,",
+      "aber ich möchte wissen,",
+      "welcher",
+      "vor dem Rathaus steht."
+    ],
+    "question": "Der kleine Brunnen direkt neben der Rathaustreppe ist gemeint. Soll ich ihn zeigen?",
+    "options": [
+      "Ja, bitte zeigen Sie mir den kleinen Brunnen neben der Rathaustreppe.",
+      "Nein, bitte zeigen Sie mir den anderen Brunnen statt des Brunnens am Rathaus.",
+      "Ja, bitte nennen Sie mir nur die Öffnungszeiten des Rathauses."
+    ],
+    "explanation": "Die Antwort klärt den richtigen Ort anhand eindeutiger Merkmale. „Welcher“ fragt nach der passenden Auswahl.",
+    "focus": "indirekte Frage und Orientierung"
+  },
+  {
+    "slug": "radweg-umleitung",
+    "title": "Ein gesperrter Radweg im Zentrum",
+    "goal": "Bitte um eine geeignete alternative Strecke.",
+    "setting": "city",
+    "intro": "Jan sagt: Der Radweg durch die Fußgängerzone ist wegen einer Veranstaltung heute gesperrt.",
+    "words": [
+      "der Radweg",
+      "die Umleitung",
+      "die Strecke"
+    ],
+    "pieces": [
+      "Da der Radweg heute gesperrt ist,",
+      "suche ich eine alternative Strecke,",
+      "auf der",
+      "ich weiterfahren darf."
+    ],
+    "question": "Die ausgeschilderte Umleitung führt über die Bahnhofstraße. Soll ich sie auf der Karte markieren?",
+    "options": [
+      "Ja, bitte markieren Sie die erlaubte Umleitung über die Bahnhofstraße.",
+      "Nein, bitte markieren Sie den gesperrten Weg durch die Fußgängerzone.",
+      "Ja, bitte markieren Sie nur einen Fußweg, auf dem ich nicht weiterfahren darf."
+    ],
+    "explanation": "Die Antwort nimmt die genannte Umleitung auf. „Auf der“ bezieht sich auf die gesuchte alternative Strecke.",
+    "focus": "da und Relativsatz mit auf der"
+  }
+]

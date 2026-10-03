@@ -8,6 +8,7 @@ import {
   loadDailyQuest, loadDailyQuestStatus, resolveDailyQuestLoginTarget,
   submitDailyQuestAnswer, finishDailyQuest,
   loadDailyQuestPreview,
+  loadSitovDailyQuestCatalog,
 } from '@/lib/daily-quest-server'
 
 const getUser = jest.fn()
@@ -141,4 +142,23 @@ it('validates both the preview level and private answer-key shape', async () => 
   expect(rpc).not.toHaveBeenCalled()
   rpc.mockResolvedValue({ data: { ...previewData, answerKey: { steps: { build: { accepted: ['i', 'want'] } } } }, error: null })
   expect(await loadDailyQuestPreview('A1')).toEqual({ error: 'request_failed' })
+})
+
+it('checks staff authorization before fetching the full catalogue', async () => {
+  expect(await loadSitovDailyQuestCatalog('A1')).toEqual({ error: 'not_authorized' })
+  expect(rpc).not.toHaveBeenCalled()
+  single.mockResolvedValue({ data: { role: 'teacher' }, error: null })
+  const data = { success: true as const, templates: [{ templateKey: 'sitov-a1-train-ticket', level: 'A1' as const, day: 3, title: 'Fahrkarte', subtitle: 'Ein Ticket kaufen.' }] }
+  rpc.mockResolvedValue({ data, error: null })
+  expect(await loadSitovDailyQuestCatalog('A1')).toEqual({ data })
+  expect(rpc).toHaveBeenCalledWith('get_sitov_daily_quest_catalog', { p_level: 'A1' })
+})
+
+it('loads only a validated staff-selected template, with the level checked by SQL', async () => {
+  single.mockResolvedValue({ data: { role: 'teacher' }, error: null })
+  expect(await loadDailyQuestPreview('A1', ['sitov-a1-ticket'])).toEqual({ error: 'invalid_input' })
+  expect(rpc).not.toHaveBeenCalled()
+  rpc.mockResolvedValue({ data: previewData, error: null })
+  expect(await loadDailyQuestPreview('A1', 'sitov-a1-ticket')).toEqual({ data: previewData })
+  expect(rpc).toHaveBeenCalledWith('get_sitov_daily_quest_preview', { p_level: 'A1', p_template_key: 'sitov-a1-ticket' })
 })

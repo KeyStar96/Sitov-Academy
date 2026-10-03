@@ -1,0 +1,23 @@
+/** Original Sitov Academy scene metadata. Fictional hosts are exclusively male. */
+export const sitovQuestSettings = {
+  supermarket: ['Supermarkt', 'Paul', 'Ein Verkäufer im Supermarkt.', 'Einkaufen', '#cee0cf'],
+  cafe: ['Café', 'Emil', 'Ein Kellner im Café.', 'Kaffeepause', '#ecd8c0'],
+  station: ['Bahnhof', 'Jonas', 'Ein Mitarbeiter am Bahnhof.', 'Unterwegs', '#cddfea'],
+  transport: ['Haltestelle', 'Tim', 'Ein Busfahrer an der Haltestelle.', 'Nahverkehr', '#d4dfec'],
+  restaurant: ['Restaurant', 'Leon', 'Ein Kellner im Restaurant.', 'Essen gehen', '#e9d5c2'],
+  pharmacy: ['Apotheke', 'David', 'Ein Apotheker am Beratungstresen.', 'Gesundheit', '#d1e6df'],
+  doctor: ['Arztpraxis', 'Felix', 'Ein Mitarbeiter am Empfang einer Arztpraxis.', 'Termine', '#d1e3e8'],
+  post: ['Postfiliale', 'Ben', 'Ein Mitarbeiter am Schalter der Post.', 'Post versenden', '#ecdcb5'],
+  bank: ['Bankfiliale', 'Noah', 'Ein Mitarbeiter in einer Bankfiliale.', 'Zahlungen', '#d7ddea'],
+  library: ['Bibliothek', 'Oskar', 'Ein Bibliothekar vor Bücherregalen.', 'Lesen', '#dddac9'],
+  office: ['Büro', 'Lukas', 'Ein Kollege im Büro.', 'Zusammenarbeiten', '#d3ddd8'],
+  school: ['Sitov Academy', 'Anton', 'Ein Lehrer in einem Unterrichtsraum der Sitov Academy.', 'Lernen', '#e7ddcb'],
+  apartment: ['Wohnhaus', 'Max', 'Ein Nachbar im Eingangsbereich eines Wohnhauses.', 'Wohnen', '#e0d5cb'],
+  repair: ['Werkstatt', 'Erik', 'Ein Mechaniker in seiner Werkstatt.', 'Reparaturen', '#cfdadf'],
+  park: ['Stadtpark', 'Finn', 'Ein Spaziergänger auf einem Weg im Park.', 'Draußen', '#caddbe'],
+  sports: ['Sportzentrum', 'Moritz', 'Ein Trainer im Sportzentrum.', 'Sport', '#d2e2d5'],
+  hotel: ['Hotel', 'Daniel', 'Ein Mitarbeiter an der Hotelrezeption.', 'Übernachten', '#e2d4c1'],
+  clothes: ['Bekleidungsgeschäft', 'Nils', 'Ein Verkäufer im Bekleidungsgeschäft.', 'Kleidung', '#e3d7e0'],
+  market: ['Wochenmarkt', 'Theo', 'Ein Verkäufer an einem Marktstand.', 'Auf dem Markt', '#e5ddb7'],
+  city: ['Stadtzentrum', 'Jan', 'Ein Mitarbeiter an einem Informationsstand im Stadtzentrum.', 'Orientierung', '#d7e0df'],
+}

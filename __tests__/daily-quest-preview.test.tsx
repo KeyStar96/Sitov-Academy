@@ -53,6 +53,26 @@ it('rejects assignment impersonation and incomplete answer shapes', async () => 
   expect(await actions.submit({ assignmentId: dailyQuestFixture.id, stepId: 'build', answer: { pieceIds: ['i'] } })).toEqual({ error: 'invalid_input' })
 })
 
+it('keeps preview grading progress when a server refresh returns identical data', async () => {
+  const view = render(<DailyQuestPreview preview={preview} locale="de" />)
+  const actions = jest.mocked(DailyQuestEngine).mock.calls[0][0].actions!
+  await discover(actions)
+  view.rerender(<DailyQuestPreview preview={JSON.parse(JSON.stringify(preview))} locale="de" />)
+  const refreshed = jest.mocked(DailyQuestEngine).mock.calls.at(-1)![0].actions!
+  expect(refreshed).toBe(actions)
+  expect((await refreshed.submit({ assignmentId: dailyQuestFixture.id, stepId: 'build', answer: { pieceIds: ['i', 'want', 'bread'] } })).data?.correct).toBe(true)
+})
+
+it('starts a new local grader when the same template receives different content', async () => {
+  const view = render(<DailyQuestPreview preview={preview} locale="de" />)
+  const actions = jest.mocked(DailyQuestEngine).mock.calls[0][0].actions!
+  await discover(actions)
+  view.rerender(<DailyQuestPreview preview={{ ...preview, quest: { ...preview.quest, title: 'Aktualisierte Vorschau' } }} locale="de" />)
+  const refreshed = jest.mocked(DailyQuestEngine).mock.calls.at(-1)![0].actions!
+  expect(refreshed).not.toBe(actions)
+  expect(await refreshed.submit({ assignmentId: dailyQuestFixture.id, stepId: 'build', answer: { pieceIds: ['i', 'want', 'bread'] } })).toEqual({ error: 'step_out_of_order' })
+})
+
 it.each(['de', 'en', 'ru', 'uk', 'tr'])('has an explicit staff preview notice in %s', locale => {
   render(<p>{getDailyQuestCopy(locale).previewNotice}</p>)
   expect(screen.getByText(getDailyQuestCopy(locale).previewNotice)).toBeInTheDocument()

@@ -25,7 +25,7 @@ backup and final HTTP evidence; this document describes the release design.
   the existing UI infrastructure. UI labels cover de, en, ru, uk and tr;
   authored learning content stays German. No microphone or scoring AI is used.
 
-## Six authored starter templates
+## Starter templates and the 100-day catalogue
 
 | CEFR | Template key | Learning situation |
 |---|---|---|
@@ -36,8 +36,10 @@ backup and final HTTP evidence; this document describes the release design.
 | C1 | `sitov-local-sourcing` | Regional einkaufen: weigh origin and additional cost |
 | C2 | `sitov-menu-deliberation` | Ein Konzept präzisieren: a diplomatic qualification |
 
-These are six real scenes, one per CEFR family, sharing the bakery illustration.
-They are starter content, not a claim that hundreds of scenes already exist.
+These six starter scenes remain intact. Migration 67 adds **100 new journeys
+per A1, A2, B1 and B2**: 400 journeys and 1,200 interactive stations. Each of
+these levels has 101 published templates including its original starter; C1 and
+C2 retain their existing single starter.
 The CEFR labels guide authored difficulty; they do not certify a full curriculum.
 The final A1/B1/B2/C1 starters are version 2: A1 avoids Konjunktiv II, and the
 private keys accept the reviewed B1/B2/C1 word-order alternatives.
@@ -63,7 +65,13 @@ workflow; no new browser-based content editor is part of this release.
 substituted recursively in JSON strings. For example, `der Apfel` becomes
 `einen Apfel` in a request. Unreviewed card labels use the template fallback.
 Today's assignment freezes rendered content and private keys; later edits affect
-new assignments. Daily rotation hashes template key and Berlin date.
+new assignments. Migration 67 selects never-assigned templates before the
+learner's least recently assigned template, independently for each level.
+The starter has order zero. The 100 new catalogue days interleave twenty settings
+in five rounds, so adjacent days change their setting. Missed calendar days do
+not consume catalogue entries; any created assignment counts as seen. Today's
+assignment remains frozen even when the learner changes their active level.
+The `(auth_user_id, template_id, quest_date DESC)` index bounds history lookups.
 
 ## Level and word selection
 
@@ -108,7 +116,13 @@ with Zod. Student DTOs strip authoring keys. No service key is sent to clients.
 Completion awards at most one day. Consecutive completions increment the current
 streak; a gap starts it at one. Status displays zero once the last completion is
 older than yesterday, preserving the longest streak. Leaving does not affect it.
-Staff preview at `/[lang]/admin/daily-quest` exposes keys only after staff checks;
+Staff preview at `/[lang]/admin/daily-quest` includes a level-specific catalogue
+selector for every published journey. The optional `template` query parameter
+selects one concrete template; SQL also checks that it belongs to the requested
+level. The new `get_sitov_daily_quest_catalog(text)` and
+`get_sitov_daily_quest_preview(text,text)` RPCs use verified live staff roles,
+explicit ACLs and an empty search path. The original preview RPC remains
+compatible. Preview exposes keys only after staff checks;
 its injected callbacks grade locally, create no assignment and award no streak.
 
 ## Speech and rollout
@@ -200,3 +214,87 @@ root-only in `/root/sitov-male-character-release-20261003/`.
   [`sitov-male-bakery-check.jpg`](./sitov-male-bakery-check.jpg). Production UI
   playback in an authenticated browser session was not claimed; real-service
   checks and the authenticated read-only preview RPC checks are recorded above.
+
+
+## 100-day catalogue preparation — 2026-10-03
+
+The source is `content/daily-quests/sitov-{a1,a2,b1,b2}.json`. Twenty settings
+cover shopping, cafés, stations, public transport, restaurants, pharmacy and
+practice reception, post, bank services, libraries, work, Sitov Academy classes,
+housing, repairs, parks, sport, hotels, clothes, markets and city orientation.
+Each setting has five distinct communicative goals at each level. These are
+practical scenes, not a certified complete CEFR course.
+
+| Level | New journeys | Interactive stations | Language focus |
+|---|---:|---:|---|
+| A1 | 100 | 300 | Present tense, questions, numbers, articles, requests, separable verbs |
+| A2 | 100 | 300 | Perfect tense, comparison, `weil`, `dass`, `wenn`, polite requests |
+| B1 | 100 | 300 | Complaints, appointments, reasons, relative clauses, Konjunktiv II |
+| B2 | 100 | 300 | Arguments, conditions, compromise, passive voice, formal clarification |
+
+`node scripts/build-sitov-daily-quests.mjs` validates every authored row and
+generates `supabase/vps/67_sitov_daily_quest_catalog.sql`; `--check` rejects stale
+outputs. The CLI migration created by Supabase is
+`20261003165500_sitov_daily_quest_catalog.sql`, a symlink to that canonical file.
+The generator separates public content from private solutions, derives stable
+opaque IDs, shuffles token banks and dialogue options, and supports explicitly
+reviewed alternative piece orders. Sentence chunks bind movable phrases to
+avoid rejecting equally natural word orders.
+
+New vocabulary personalization is deliberately conservative: each template
+has its own reviewed noun category. A permitted focus card can supply the exact
+discovery noun; sentence and dialogue stay authored, so an unrelated word cannot
+change an intended fact or grammatical gender. The existing starter lexicon and
+mastery-based CEFR selection remain unchanged.
+
+Twenty detailed, realistic scene images are generated individually with the
+built-in Imagegen tool. Every generation uses the original bakery image as its
+style and quality reference: realistic characters, warm natural light, detailed
+environments and subtle painterly textures. Simplified vector scenes are excluded.
+Prompts, visual reviews and checksums are recorded in
+`content/daily-quests/sitov-scenes-provenance.json`. Verify the final assets with
+`node scripts/check-sitov-daily-quest-scenes.mjs`; no script regenerates artwork.
+All fictional hosts are male. The engine requests all new scene, word, sentence
+and question audio through the existing canonical Thorsten adapter; no new
+voice profile or audio fallback is introduced.
+
+Migration 67 inserts new rows and never rewrites historical assignments, answer
+keys, login claims, preferences or streaks. Reapplying preserves existing IDs
+and editorial versions. The rollback restores the old selection function and
+retains the catalogue and learner data; retain the new scene assets during an
+application rollback. New staff RPCs are harmless when the older application
+does not call them. No grants to courses or additional CEFR access are made.
+
+Preparation checks exercise all 400 new templates through real PostgreSQL
+grading in the isolated PGlite fixture: each level runs its starter plus 100
+new assignment days, wrong answers remain retryable, completion is idempotent,
+and only the 102nd assignment may repeat. A separate native PostgreSQL 17
+fixture tests eight concurrent login and completion sessions on both the
+starter and the next catalogue day, including migration-owner ACLs. A before/after
+comparison verifies that migration/reapplication preserve a live partially
+completed starter, its private keys and earned streak. Browser QA uses temporary
+local preview fixtures and never claims authenticated production playback.
+
+Deployment is owned by the parallel trainer session. Apply 65/66 and then 67
+through the existing backup/migration runner, deploy all twenty scene assets
+with the matching application, and verify staff catalogue counts (101 for
+A1/A2/B1/B2, one for C1/C2) after activation. This section records prepared
+implementation; it does not assert production activation.
+
+Final local preparation: **117 Daily Quest Jest tests and 27 database cases**
+passed, including the complete migration 65/66/67 stack. TypeScript, targeted
+ESLint, Python runner compilation, generator reproducibility and whitespace
+checks passed. Final B2 browser QA at 320px completed all three stations,
+rejected a wrong dialogue response, allowed retry, loaded every image and
+reported `scrollWidth === innerWidth`. The temporary QA route was removed.
+
+After the image quality correction, all twenty final PNGs passed visual review
+and the provenance/checksum verifier. The local optimizer cache for these twenty
+replaced development assets was cleared before browser verification. Updated
+mobile (320px) and desktop (1280px) previews load the realistic school scene and
+have no horizontal overflow. The screenshots are
+`docs/design/sitov-daily-quest-b2-mobile.jpg` and
+`docs/design/sitov-daily-quest-catalog-desktop.jpg`. The temporary preview fixtures
+were removed again; no unauthenticated authoring route ships with the catalogue.
+The local completion screenshot is
+[`sitov-daily-quest-b2-mobile.jpg`](./sitov-daily-quest-b2-mobile.jpg).

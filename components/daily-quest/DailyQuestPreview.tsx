@@ -44,7 +44,11 @@ export function createDailyQuestPreviewActions(preview: PreviewData): DailyQuest
 }
 
 export default function DailyQuestPreview({ preview, locale }: { preview: PreviewData; locale: string }) {
-  const actions = useMemo(() => createDailyQuestPreviewActions(preview), [preview])
-  return <DailyQuestEngine key={preview.quest.id} initialQuest={preview.quest} initialStreak={PREVIEW_STREAK} locale={locale}
+  // A server refresh can deliver an identical object with a new reference.
+  // Keep the local grader and rendered progress in the same preview session.
+  // Changed content/keys reset both together, even when the template ID is stable.
+  const sitovPreviewIdentity = JSON.stringify(preview)
+  const actions = useMemo(() => createDailyQuestPreviewActions(JSON.parse(sitovPreviewIdentity) as PreviewData), [sitovPreviewIdentity])
+  return <DailyQuestEngine key={sitovPreviewIdentity} initialQuest={preview.quest} initialStreak={PREVIEW_STREAK} locale={locale}
     dashboardHref={`/${locale}/admin`} actions={actions} preview />
 }
