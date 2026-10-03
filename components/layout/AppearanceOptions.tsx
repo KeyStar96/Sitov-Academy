@@ -1,11 +1,11 @@
 'use client'
 
 import { useId, useSyncExternalStore } from 'react'
-import { Check, Contrast, LaptopMinimal, Moon, Sun } from 'lucide-react'
+import { Check, Contrast, Moon, Sun } from 'lucide-react'
 import styles from './SitovAppearance.module.css'
 import { useAppearanceCopy } from './AppearanceProvider'
 import {
-  APPEARANCE_CHANGE_EVENT, getContrastPreference, getThemePreference,
+  APPEARANCE_CHANGE_EVENT,
   setContrastPreference, setThemePreference,
 } from '@/lib/theme'
 
@@ -16,13 +16,13 @@ function subscribe(listener: () => void) {
 
 function appearanceSnapshot() {
   const root = document.documentElement
-  return `${root.dataset.theme ?? 'light'}:${root.dataset.contrast ?? 'standard'}:${getThemePreference() === 'system' && getContrastPreference() === 'system'}`
+  return `${root.dataset.theme ?? 'light'}:${root.dataset.contrast ?? 'standard'}`
 }
 
 export function useAppearance() {
-  const snapshot = useSyncExternalStore(subscribe, appearanceSnapshot, () => 'light:standard:true')
-  const [theme, contrast, system] = snapshot.split(':')
-  return { dark: theme === 'dark', high: contrast === 'high', system: system === 'true' }
+  const snapshot = useSyncExternalStore(subscribe, appearanceSnapshot, () => 'light:standard')
+  const [theme, contrast] = snapshot.split(':')
+  return { dark: theme === 'dark', high: contrast === 'high' }
 }
 
 export default function AppearanceOptions({ lightLabel, darkLabel }: { lightLabel?: string; darkLabel?: string }) {
@@ -45,18 +45,11 @@ export default function AppearanceOptions({ lightLabel, darkLabel }: { lightLabe
         </div>
       </fieldset>
       <div>
-        <button type="button" role="switch" aria-checked={state.high} aria-labelledby={`${id}-contrast-label`} aria-describedby={`${id}-contrast-description`} onClick={() => setContrastPreference(state.high ? 'standard' : 'high')}
+        <button type="button" role="switch" aria-checked={state.high} aria-labelledby={`${id}-contrast-label`} onClick={() => setContrastPreference(state.high ? 'standard' : 'high')}
           className={`academy-contrast-switch ${styles.contrastSwitch}`}>
           <span className="flex min-w-0 items-center gap-2"><Contrast size={21} className="shrink-0" aria-hidden="true" /><span id={`${id}-contrast-label`}>{copy.contrast}</span></span>
           <span className={`academy-contrast-indicator ${styles.switchTrack}`} aria-hidden="true"><span className={styles.switchThumb}>{state.high && <Check size={13} />}</span></span>
         </button>
-        <p id={`${id}-contrast-description`} className={styles.description}>{copy.contrast_description}</p>
-      </div>
-      <div className={styles.systemArea}>
-        <button type="button" className={`academy-appearance-system ${styles.systemButton}`} onClick={() => { setThemePreference('system'); setContrastPreference('system') }} aria-pressed={state.system}>
-          <LaptopMinimal size={19} className="shrink-0" aria-hidden="true" /><span>{copy.system}</span>{state.system && <Check size={16} className="shrink-0" aria-hidden="true" />}
-        </button>
-        {state.system && <p className={styles.description}>{copy.system_description}</p>}
       </div>
     </div>
   )

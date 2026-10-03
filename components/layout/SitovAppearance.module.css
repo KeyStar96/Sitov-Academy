@@ -38,11 +38,8 @@
 .switchThumb { display: grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; background: var(--muted); color: var(--surface); transition: transform .35s cubic-bezier(.22,1,.36,1), background .25s; }
 [aria-checked='true'] .switchTrack { background: var(--foreground); border-color: var(--foreground); }
 [aria-checked='true'] .switchThumb { transform: translateX(18px); background: var(--surface); color: var(--foreground); }
-.description { margin: 9px 2px 0; font-size: 1rem; line-height: 1.5; color: var(--muted); }
-.systemArea { border-top: 1px solid color-mix(in srgb, var(--border) 60%, transparent); padding-top: 12px; }
-.systemButton { display: flex; align-items: center; justify-content: center; gap: 9px; min-height: 48px; width: 100%; padding: 8px; border-radius: 14px; font-size: 1rem; font-weight: 650; color: var(--foreground); transition: background .25s; }
 .options button:focus-visible { outline: 3px solid var(--accent-text); outline-offset: 4px; }
-@media (hover: hover) { .themeChoice:hover { transform: translateY(-3px); border-color: var(--accent-text); } .themeChoice:hover .sceneCard { transform: rotate(2deg) translateY(-5px); } .systemButton:hover { background: var(--surface-muted); } }
+@media (hover: hover) { .themeChoice:hover { transform: translateY(-3px); border-color: var(--accent-text); } .themeChoice:hover .sceneCard { transform: rotate(2deg) translateY(-5px); } }
 @media (max-width: 640px) { .panel { width: calc(100vw - 24px); padding: 18px; border-radius: 28px; transform-origin: bottom center; box-shadow: 0 -10px 70px -20px #0f172a66; } .panelHead { margin-bottom: 18px; } }
 @media (max-width: 360px) { .panelHead { gap: 8px; } .panelHead h2 { font-size: 1.05rem; } .panelMark { width: 34px; height: 38px; } .themes { gap: 8px; } .choiceLabel { font-size: .86rem; gap: 5px; padding-inline: 4px; } }
 :global(html.high-contrast) .panel { border: 2px solid var(--border); box-shadow: none; }
