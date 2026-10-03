@@ -9,6 +9,9 @@ import { articleColorClass, phaseBadgeClasses } from '@/lib/vocabulary-ui'
 import type { LessonCardView } from '@/lib/types/vocabulary'
 import { cn } from '@/lib/utils'
 import PhaseDistributionChart from '@/components/vocabulary/PhaseDistributionChart'
+import { SitovVocabularyKindBadge, SitovVocabularyKindPicker, SitovVocabularyUsage } from './SitovVocabularyContent'
+import { sitovFilterVocabularyCards, sitovVocabularyCardKind, sitovVocabularyKindCounts, type SitovVocabularyKindFilter } from '@/lib/vocabulary-chunks'
+import { sitovVocabularyChunksTranslator } from '@/lib/vocabulary-chunks-i18n'
 
 type CardsState = 'loading' | 'error' | LessonCardView[]
 type ModalTab = 'words' | 'phases'
@@ -33,6 +36,8 @@ export default function LessonCardsModal({
   level,
   uiLanguage,
   translations = {},
+  initialOwnWord = '',
+  initialOwnExample = '',
   onClose,
   onCardAdded,
 }: {
@@ -40,11 +45,14 @@ export default function LessonCardsModal({
   level: string
   uiLanguage?: string
   translations?: VocabularyTranslations
+  initialOwnWord?: string
+  initialOwnExample?: string
   onClose: () => void
   /** Wird nach jeder Änderung (Übernahme, eigenes Wort, Löschen, Zurücksetzen) aufgerufen, damit die Seite dahinter aktualisiert. */
   onCardAdded: () => void
 }) {
   const t = createVocabularyTranslator(translations)
+  const ct = sitovVocabularyChunksTranslator(uiLanguage)
   const tabIds = useId()
   const dialog = useRef<HTMLDivElement>(null)
   const wordsTabId = `${tabIds}-words`
@@ -59,7 +67,8 @@ export default function LessonCardsModal({
   const [pendingCardId, setPendingCardId] = useState<string | null>(null)
   const [addFailed, setAddFailed] = useState(false)
   const [activeTab, setActiveTab] = useState<ModalTab>('words')
-  const [ownWord, setOwnWord] = useState('')
+  const [kindFilter, setKindFilter] = useState<SitovVocabularyKindFilter>('all')
+  const [ownWord, setOwnWord] = useState(own ? initialOwnWord : '')
   const [ownTranslation, setOwnTranslation] = useState('')
   const [ownSaving, setOwnSaving] = useState(false)
   const [ownMessage, setOwnMessage] = useState<OwnMessage | null>(null)
@@ -70,6 +79,7 @@ export default function LessonCardsModal({
   useEffect(() => {
     let cancelled = false
     setCardsState('loading')
+    setKindFilter('all')
 
     void getLessonCards(lesson, level, uiLanguage)
       .then((cards) => {
@@ -117,6 +127,8 @@ export default function LessonCardsModal({
   }, [])
 
   const displayCards = useMemo(() => Array.isArray(cardsState) ? cardsState : [], [cardsState])
+  const kindCounts = useMemo(() => sitovVocabularyKindCounts(displayCards), [displayCards])
+  const visibleCards = useMemo(() => sitovFilterVocabularyCards(displayCards, kindFilter), [displayCards, kindFilter])
 
   const handleAddSingleCard = useCallback(
     async (cardId: string) => {
@@ -279,7 +291,7 @@ export default function LessonCardsModal({
               onClick={() => setActiveTab('words')}
               className="academy-lesson-tab"
             >
-              {t('tab_words')}
+              {own ? t('tab_words') : ct('title')}
             </button>
             <button
               type="button"
@@ -294,6 +306,9 @@ export default function LessonCardsModal({
               {t('tab_phases')}
             </button>
           </div>
+          {activeTab === 'words' && !own && kindCounts.chunk > 0 && <div className="px-4 pb-3 pt-2 sm:px-5">
+            <SitovVocabularyKindPicker value={kindFilter} counts={kindCounts} lang={uiLanguage} onChange={setKindFilter} />
+          </div>}
         </div>
 
         <div
@@ -320,6 +335,7 @@ export default function LessonCardsModal({
                 <div className="space-y-4">
                   {own && (
                     <form onSubmit={handleAddOwn} className="space-y-4 rounded-2xl border-2 border-[var(--border)] p-4" noValidate>
+                      {initialOwnExample && <p lang="de" className="text-sm leading-relaxed text-[var(--muted)]">{initialOwnExample}</p>}
                       <p className="text-base leading-relaxed text-[var(--muted)]">{t('own_words_hint')}</p>
                       <div>
                         <label htmlFor={`${tabIds}-own-word`} className="mb-2 block text-base font-bold text-[var(--foreground)]">
@@ -379,7 +395,7 @@ export default function LessonCardsModal({
                   )}
 
                   <ul className="space-y-3">
-                    {displayCards.map((card) => {
+                    {visibleCards.map((card) => {
                       const displayWord =
                         card.article && card.article !== 'none'
                           ? `${card.article} ${card.word_de}`
@@ -389,9 +405,11 @@ export default function LessonCardsModal({
                       return (
                         <li
                           key={card.id}
-                          className="flex min-w-0 flex-col gap-3 rounded-2xl bg-[var(--surface-muted)] p-4 shadow-sm ring-1 ring-[var(--border)] sm:flex-row sm:items-center sm:justify-between"
+                          className="min-w-0 rounded-2xl bg-[var(--surface-muted)] p-4 shadow-sm ring-1 ring-[var(--border)]"
                         >
+                          <div className="flex min-w-0 flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                           <div className="min-w-0">
+                            {!own && <div className="mb-1.5"><SitovVocabularyKindBadge kind={sitovVocabularyCardKind(card)} lang={uiLanguage} /></div>}
                             <p lang="de" className={cn('break-words text-base font-bold', articleColorClass(card.article))}>
                               {displayWord}
                             </p>
@@ -447,10 +465,14 @@ export default function LessonCardsModal({
                               </button>
                             )}
                           </div>
+                          </div>
+                          <SitovVocabularyUsage word={displayWord} usageChunk={card.usageChunk} usageChunkTranslation={card.usageChunkTranslation}
+                            example={card.contextSentence} exampleTranslation={card.exampleTranslation} lang={uiLanguage} presentation="list" />
                         </li>
                       )
                     })}
                   </ul>
+                  {!own && visibleCards.length === 0 && <p role="status" className="text-base text-[var(--muted)]">{ct('list_empty')}</p>}
                 </div>
               )}
 

@@ -2,6 +2,7 @@ import { act, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import LessonCardsModal from '@/components/vocabulary/LessonCardsModal'
 import { addCardsToTrainer, addOwnWord, deleteOwnWord, getLessonCards, resetLessonProgress } from '@/app/actions/vocabulary'
 import { VOCABULARY_FALLBACKS } from '@/lib/vocabulary-i18n'
+import { SITOV_VOCABULARY_CHUNKS_MESSAGES } from '@/lib/vocabulary-chunks-i18n'
 import type { AddCardsResult, LessonCardView } from '@/lib/types/vocabulary'
 
 jest.unmock('lucide-react')
@@ -40,7 +41,7 @@ it('shows manual additions immediately and restores the previous state after a f
 
 it('switches tabs with arrow keys and keeps focus inside the modal', async () => {
   render(<LessonCardsModal lesson="Lektion 1" level="A1.1" onClose={onClose} onCardAdded={onCardAdded} />)
-  const words = screen.getByRole('tab', { name: VOCABULARY_FALLBACKS.tab_words })
+  const words = screen.getByRole('tab', { name: SITOV_VOCABULARY_CHUNKS_MESSAGES.de.title })
   words.focus()
   fireEvent.keyDown(words, { key: 'ArrowRight' })
   const phases = screen.getByRole('tab', { name: VOCABULARY_FALLBACKS.tab_phases })
@@ -92,6 +93,7 @@ describe('„Eigene Wörter"', () => {
     jest.mocked(addOwnWord).mockResolvedValue({ success: true, cardId: 'own-1', activated: true })
     render(<LessonCardsModal lesson={own} level="A1.1" uiLanguage="ru" onClose={onClose} onCardAdded={onCardAdded} />)
     expect(screen.getByRole('dialog')).toHaveAccessibleName(VOCABULARY_FALLBACKS.own_words_title)
+    expect(screen.getByRole('tab', { name: VOCABULARY_FALLBACKS.tab_words })).toHaveAttribute('aria-selected', 'true')
     expect(await screen.findByText(VOCABULARY_FALLBACKS.own_words_empty)).toBeInTheDocument()
     fireEvent.change(word(''), { target: { value: 'das Brot' } })
     fireEvent.change(translation(), { target: { value: 'хлеб' } })

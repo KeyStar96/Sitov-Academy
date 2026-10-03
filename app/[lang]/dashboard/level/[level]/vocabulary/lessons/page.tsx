@@ -16,10 +16,14 @@ import VocabularyLessons, { type LessonsNext } from '@/components/vocabulary/Voc
  * fälligen Karten in der Lernbox oder beginnt die nächste Lektion.
  * Die Sperre (Oberflächensprache, Trainer-Freigabe) prüft das Layout.
  */
-export default async function VocabularyLessonsPage({ params }: {
+export default async function VocabularyLessonsPage({ params, searchParams }: {
   params: Promise<{ lang: string; level: string }>
+  searchParams: Promise<Record<string, string | string[] | undefined>>
 }) {
   const { lang, level } = await params
+  const query = await searchParams
+  const sitovInitialWord = typeof query.sitovWord === 'string' && query.sitovWord.trim().length <= 160 ? query.sitovWord.trim() : ''
+  const sitovInitialExample = typeof query.sitovExample === 'string' && query.sitovExample.trim().length <= 1000 ? query.sitovExample.trim() : ''
   const decodedLevel = decodeURIComponent(level)
   const { supabase, user } = await requestSession()
   const [profile, dict] = await Promise.all([
@@ -46,6 +50,7 @@ export default async function VocabularyLessonsPage({ params }: {
 
   return (
     <VocabularyLessons lang={lang} level={decodedLevel} stations={stations} next={next}
+      initialOwnWord={open ? sitovInitialWord : ''} initialOwnExample={open ? sitovInitialExample : ''}
       carryover={open ? status?.carryover : null} learnerId={user?.id} newItems={news.items} lessonIds={news.lessonIds}
       vocabularyHref={open ? vocabularyHref : null} vocabularyTranslations={translations}
       ownWords={open ? status?.ownWords ?? { lesson: OWN_WORDS_LESSON, total: 0, active: 0, learned: 0, untouched: 0, due: 0 } : undefined} />

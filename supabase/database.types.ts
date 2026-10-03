@@ -971,6 +971,9 @@ export type Database = {
           alternative_answers_de: string[]
           article: Database["public"]["Enums"]["grammatical_article"] | null
           audio_url: string | null
+          content_kind: "vocabulary" | "chunk"
+          chunk_de: string | null
+          source_id: string | null
           created_at: string | null
           id: string
           image_url: string | null
@@ -984,6 +987,9 @@ export type Database = {
           alternative_answers_de?: string[]
           article?: Database["public"]["Enums"]["grammatical_article"] | null
           audio_url?: string | null
+          content_kind?: "vocabulary" | "chunk"
+          chunk_de?: string | null
+          source_id?: string | null
           created_at?: string | null
           id?: string
           image_url?: string | null
@@ -997,6 +1003,9 @@ export type Database = {
           alternative_answers_de?: string[]
           article?: Database["public"]["Enums"]["grammatical_article"] | null
           audio_url?: string | null
+          content_kind?: "vocabulary" | "chunk"
+          chunk_de?: string | null
+          source_id?: string | null
           created_at?: string | null
           id?: string
           image_url?: string | null
@@ -1663,6 +1672,7 @@ export type Database = {
       vocabulary_translations: {
         Row: {
           card_id: string
+          chunk_translation: string | null
           context_sentence: string | null
           is_difficult: boolean
           locale: string
@@ -1670,6 +1680,7 @@ export type Database = {
         }
         Insert: {
           card_id: string
+          chunk_translation?: string | null
           context_sentence?: string | null
           is_difficult?: boolean
           locale: string
@@ -1677,6 +1688,7 @@ export type Database = {
         }
         Update: {
           card_id?: string
+          chunk_translation?: string | null
           context_sentence?: string | null
           is_difficult?: boolean
           locale?: string
@@ -2313,6 +2325,7 @@ export type Database = {
       [_ in never]: never
     }
     Functions: CertificateFunctions & DailyQuestFunctions & {
+      sitov_import_vocabulary_seed: { Args: { p_seed: Json; p_publish?: boolean }; Returns: Json }
       sitov_record_grammar_checkpoint_attempt: { Args: { p_exercise_id: string; p_answer: string; p_hint_shown: boolean; p_level: string; p_expected_revision: number; p_request_id: string }; Returns: Json }
       sitov_learning_checkpoint: { Args: { p_action: string; p_kind: string; p_level: string; p_state?: Json; p_expected_revision?: number | null }; Returns: Json }
       add_own_vocabulary: {

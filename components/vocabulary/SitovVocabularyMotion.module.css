@@ -74,6 +74,14 @@
 .sitovCard:global(.learning-card):not(:global(.learning-card-flip)),
 .sitovCard :global(.learning-flip-face) { background: radial-gradient(ellipse at var(--sitov-light-x, 50%) var(--sitov-light-y, 0%), color-mix(in srgb, var(--accent) 4%, var(--surface)), var(--surface) 68%); box-shadow: 0 16px 38px -26px color-mix(in srgb, var(--accent-text) 20%, transparent), 0 3px 0 -1px var(--surface), 0 4px 0 -1px var(--border), 0 7px 0 -3px var(--surface), 0 8px 0 -3px var(--border); transition: border-color .35s ease, box-shadow .45s ease; }
 .sitovCard :global(.learning-card-content) { position: relative; z-index: 1; }
+.sitovCard:global(.is-revealed) :global(.learning-card-content) { gap: .65rem; }
+/* The embedded back grows with its usage instead of painting over the ratings. */
+:global(.learning-screen[data-presentation='embedded']) .sitovCard:global(.learning-card-flip.is-revealed) { flex-basis: auto; }
+:global(.learning-screen[data-presentation='embedded']) .sitovCard:global(.is-revealed) :global(.learning-flip-back) { position: relative; inset: auto; min-height: 20rem; }
+@media (max-width: 420px) {
+  .sitovCard:global(.is-revealed) :global(.learning-flip-face) { padding: 1rem .85rem; }
+  .sitovCard:global(.is-revealed) :global(.learning-card-content) { gap: .5rem; }
+}
 .sitovCard :global(.learning-flip-inner) { transition-duration: 760ms; transition-timing-function: cubic-bezier(.2, .82, .22, 1); }
 .sitovCard :global(.learning-flip-cue) { transition: transform .5s cubic-bezier(.22, 1, .36, 1), color .3s ease; }
 .sitovCard:global(.is-revealed) :global(.learning-flip-cue) { color: var(--accent-text); transform: rotate(180deg); }

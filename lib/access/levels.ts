@@ -31,7 +31,7 @@ export const ACCESS_LEVELS = [
 ] as const
 
 export type AccessLevel = (typeof ACCESS_LEVELS)[number]
-/** B2/C1 unlock only the independent verb trainer, never other course trainers. */
+/** Advanced verb content stays stored; student navigation and grants currently stop at B1.2. */
 export const SITOV_VERB_LEVELS = [...ACCESS_LEVELS, 'B2', 'C1'] as const
 export type SitovTrainerLevel = (typeof SITOV_VERB_LEVELS)[number]
 
@@ -77,7 +77,9 @@ export function hasLevelAccess(
   if (!profile) return false
   if (profile.role && FULL_ACCESS_ROLES.has(profile.role)) return true
   const normalized = level.trim()
-  if (normalized === 'B2' || normalized === 'C1') return profile.trainer_grants?.some(rule => rule.level === normalized && rule.trainer === 'verbs' && rule.enabled && (rule.unit_ids == null || rule.unit_ids.length > 0)) ?? false
+  // Retain stored grants for later publication; advanced levels are currently
+  // outside the student catalog, including direct links to the verb trainer.
+  if (!isAccessLevel(normalized)) return false
   return (profile.allowed_levels ?? []).includes(normalized)
 }
 
@@ -95,7 +97,7 @@ export interface TrainerAccessRule { level: string; trainer: string; enabled: bo
 export function hasConfiguredTrainerAccess(profile: LevelAccessProfile | null | undefined, level: string, trainer: Trainer): boolean {
   if (!profile) return false
   if (hasFullAccessRole(profile.role)) return true
-  if (level === 'B2' || level === 'C1') return trainer === 'verbs' && (profile.trainer_grants?.find(rule => rule.level === level && rule.trainer === trainer)?.enabled ?? false)
+  if (!isAccessLevel(level.trim())) return false
   if (!hasLevelAccess(profile, level)) return false
   return profile?.trainer_grants?.find(rule => rule.level === level.trim() && rule.trainer === trainer)?.enabled ?? true
 }

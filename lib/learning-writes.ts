@@ -24,7 +24,7 @@ export function learningWritePayload(trainer: Trainer, input: Json): Json {
     label: (trainer === 'vocabulary' || trainer === 'exercises' ? form.lesson : form.title) ?? null }
   for (const key of ['is_active', 'sort_order']) if (form[key] !== undefined) unit[key] = form[key]
   const fieldNames: Record<Exclude<Trainer, 'verbs'>, string[]> = {
-    vocabulary: ['word_de', 'article', 'plural', 'image_url', 'audio_url', 'sentence_practice', 'alternative_answers_de', 'target_form'],
+    vocabulary: ['word_de', 'article', 'plural', 'image_url', 'audio_url', 'sentence_practice', 'alternative_answers_de', 'target_form', 'content_kind', 'chunk_de'],
     exercises: ['topic', 'type', 'content', 'solution_audio_url'], pronunciation: ['sentence_de', 'focus', 'audio_url'],
     videos: ['description', 'source_url', 'title', 'folder_id', 'storage_path', 'file_size'],
   }
@@ -33,6 +33,7 @@ export function learningWritePayload(trainer: Trainer, input: Json): Json {
   let translations: Json[] = []
   if (trainer === 'vocabulary') translations = locales.map(locale => ({ locale,
     translation: form[`translation_${locale}`] ?? null, context_sentence: form[`context_sentence_${locale}`] ?? null,
+    ...(form[`chunk_translation_${locale}`] !== undefined ? { chunk_translation: form[`chunk_translation_${locale}`] } : {}),
     is_difficult: form[`is_hard_for_${locale}`] ?? false }))
   if (trainer === 'exercises') {
     const { smart_hint, explanation, ...content } = jsonObject(form.content)

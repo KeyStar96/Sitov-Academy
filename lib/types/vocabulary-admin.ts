@@ -7,6 +7,10 @@ export const vocabWriteSchema = z.object({
   level: z.enum(['A1.1', 'A1.2', 'A2.1', 'A2.2', 'B1.1', 'B1.2']),
   lesson: z.string().trim().min(1).max(120),
   word_de: z.string().trim().min(1).max(300),
+  content_kind: z.enum(['vocabulary', 'chunk']).optional(),
+  chunk_de: shortText.optional(),
+  chunk_translation_en: shortText.optional(), chunk_translation_ru: shortText.optional(),
+  chunk_translation_uk: shortText.optional(), chunk_translation_tr: shortText.optional(),
   article: z.enum(['none', 'der', 'die', 'das']),
   plural: shortText,
   translation_ru: shortText,
@@ -22,6 +26,9 @@ export const vocabWriteSchema = z.object({
   target_form: z.array(z.string().trim().min(1).max(120)).max(12).optional(),
   alternative_answers_de: z.array(z.string().trim().min(1).max(1000)).max(20).optional(),
 }).strict().superRefine((value, context) => {
+  if (value.content_kind === 'chunk' && value.article !== 'none') {
+    context.addIssue({ code: 'custom', path: ['article'], message: 'chunk_article_not_separate' })
+  }
   if (value.sentence_practice && ![value.context_sentence_de, value.context_sentence_en, value.context_sentence_ru, value.context_sentence_uk, value.context_sentence_tr].every(Boolean)) {
     context.addIssue({ code: 'custom', path: ['sentence_practice'], message: 'sentence_context_required' })
   }
@@ -31,10 +38,13 @@ export type VocabWriteInput = z.infer<typeof vocabWriteSchema>
 export type VocabSaveResult = { success: true; data: VocabularyCardRow } | { success: false; error: 'invalid_input' | 'save_failed'; code?: string }
 
 export function emptyVocabForm(): VocabWriteInput {
-  return { level: 'A1.1', lesson: '', word_de: '', article: 'none', plural: '', translation_ru: '', translation_tr: '', translation_en: '', translation_uk: '', context_sentence_de: '', context_sentence_en: '', context_sentence_ru: '', context_sentence_uk: '', context_sentence_tr: '', sentence_practice: false, target_form: [], alternative_answers_de: [] }
+  return { level: 'A1.1', lesson: '', word_de: '', content_kind: 'vocabulary', chunk_de: '', chunk_translation_en: '', chunk_translation_ru: '', chunk_translation_uk: '', chunk_translation_tr: '', article: 'none', plural: '', translation_ru: '', translation_tr: '', translation_en: '', translation_uk: '', context_sentence_de: '', context_sentence_en: '', context_sentence_ru: '', context_sentence_uk: '', context_sentence_tr: '', sentence_practice: false, target_form: [], alternative_answers_de: [] }
 }
 export function vocabToForm(card: VocabularyCardRow): VocabWriteInput {
   const candidate = { ...emptyVocabForm(), level: card.level, lesson: card.lesson, word_de: card.word_de, article: card.article || 'none', plural: card.plural || '', translation_ru: card.translation_ru || '', translation_en: card.translation_en || '', translation_tr: card.translation_tr || '', translation_uk: card.translation_uk || '', context_sentence_de: card.context_sentence_de || '', context_sentence_en: card.context_sentence_en || '', context_sentence_ru: card.context_sentence_ru || '', context_sentence_uk: card.context_sentence_uk || '', context_sentence_tr: card.context_sentence_tr || '', sentence_practice: card.sentence_practice, target_form: card.target_form ?? [], alternative_answers_de: card.alternative_answers_de ?? [] }
+  Object.assign(candidate, { content_kind: card.content_kind ?? 'vocabulary', chunk_de: card.chunk_de ?? '',
+    chunk_translation_en: card.chunk_translation_en ?? '', chunk_translation_ru: card.chunk_translation_ru ?? '',
+    chunk_translation_uk: card.chunk_translation_uk ?? '', chunk_translation_tr: card.chunk_translation_tr ?? '' })
   const parsed = vocabWriteSchema.safeParse(candidate)
   return parsed.success ? parsed.data : { ...candidate, level: 'A1.1', article: 'none', sentence_practice: false, target_form: [], alternative_answers_de: [] }
 }

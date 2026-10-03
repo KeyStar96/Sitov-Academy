@@ -26,8 +26,11 @@ export function mapVocabularyCard(row: VocabularyRow) {
   const translation = (locale: string) => row.translations.find(item => item.locale === locale)
   return vocabularyCardSchema.parse({
     ...row, unit_id: row.unit.id, level: row.unit.level, lesson: row.unit.label, is_own: row.unit.owner_auth_user_id != null,
+    content_kind: row.content_kind ?? 'vocabulary',
     translation_en: translation('en')?.translation ?? null, translation_ru: translation('ru')?.translation ?? null,
     translation_uk: translation('uk')?.translation ?? null, translation_tr: translation('tr')?.translation ?? null,
+    chunk_translation_en: translation('en')?.chunk_translation ?? null, chunk_translation_ru: translation('ru')?.chunk_translation ?? null,
+    chunk_translation_uk: translation('uk')?.chunk_translation ?? null, chunk_translation_tr: translation('tr')?.chunk_translation ?? null,
     context_sentence_de: translation('de')?.context_sentence ?? null, context_sentence_en: translation('en')?.context_sentence ?? null,
     context_sentence_ru: translation('ru')?.context_sentence ?? null, context_sentence_uk: translation('uk')?.context_sentence ?? null,
     context_sentence_tr: translation('tr')?.context_sentence ?? null,

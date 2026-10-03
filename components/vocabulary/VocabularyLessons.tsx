@@ -18,6 +18,7 @@ import type { LessonStation } from '@/lib/learning-status-server'
 import type { PathStation } from '@/lib/lesson-stations'
 import type { VocabularyCarryoverSummary } from '@/lib/types/vocabulary'
 import VocabularyCarryoverStation from './VocabularyCarryoverStation'
+import { sitovVocabularyChunksTranslator } from '@/lib/vocabulary-chunks-i18n'
 
 /** Der große Weiter-Knopf: ein Ziel oder „diese Lektion beginnen" (öffnet die Startwahl). */
 export type LessonsNext = { href: string; hint: string } | { lesson: string; hint: string }
@@ -61,7 +62,7 @@ function BoxSwitch({ on, busy, disabled, label, hint, ariaLabel, onToggle }: {
  * „Eigene Wörter" stehen als eigene Station darunter: einschalten, eintragen,
  * löschen. Die Lernbox-Seite zeigt danach nur noch die Box selbst.
  */
-export default function VocabularyLessons({ lang, level, stations, next, vocabularyHref, vocabularyTranslations, ownWords, carryover, learnerId, newItems, lessonIds }: {
+export default function VocabularyLessons({ lang, level, stations, next, vocabularyHref, vocabularyTranslations, ownWords, carryover, learnerId, newItems, lessonIds, initialOwnWord, initialOwnExample }: {
   lang: string
   level: string
   stations: PathStation[]
@@ -71,6 +72,8 @@ export default function VocabularyLessons({ lang, level, stations, next, vocabul
   vocabularyTranslations?: VocabularyTranslations
   /** „Eigene Wörter" des Niveaus; fehlt, wenn der Vokabeltrainer nicht offen ist. */
   ownWords?: LessonStation
+  initialOwnWord?: string
+  initialOwnExample?: string
   carryover?: VocabularyCarryoverSummary | null
   learnerId?: string | null
   /** Neue Objekte dieses Niveaus (Phase 6.1) und Lektionsname → Objekt-Schlüssel der neuen Lektionen. */
@@ -82,6 +85,7 @@ export default function VocabularyLessons({ lang, level, stations, next, vocabul
   const lessonNew = (lesson: string) => news.isNew('vocabulary_lesson', lessonIds?.[lesson])
   const openLesson = (lesson: string) => news.mark('vocabulary_lesson', lessonIds?.[lesson])
   const vt = createVocabularyTranslator(vocabularyTranslations ?? {})
+  const ct = sitovVocabularyChunksTranslator(lang)
   const router = useRouter()
   const [, startRefresh] = useTransition()
   // Die Station bleibt nach dem Schließen gesetzt, damit das Blatt mit Inhalt hinausfährt.
@@ -92,6 +96,8 @@ export default function VocabularyLessons({ lang, level, stations, next, vocabul
   const [startPending, setStartPending] = useState<'assess' | 'all' | null>(null)
   const [startFailed, setStartFailed] = useState(false)
   const [cardsFor, setCardsFor] = useState<string | null>(null)
+  const sitovOwnLesson = ownWords?.lesson
+  useEffect(() => { if (initialOwnWord && sitovOwnLesson) setCardsFor(sitovOwnLesson) }, [initialOwnWord, sitovOwnLesson])
   // Schalterstellung sofort zeigen, bis der Server sie bestätigt hat.
   const [override, setOverride] = useState<Record<string, boolean>>({})
   const [pending, setPending] = useState<string | null>(null)
@@ -194,8 +200,8 @@ export default function VocabularyLessons({ lang, level, stations, next, vocabul
           <p className="st-eyebrow !mt-0">{t('areas_level', { level })}</p>
           <div className="st-path-hero__row">
             <div className="min-w-0 flex-1">
-              <h2 id="lessons-title" className="st-path-hero__title">{t('lessons_title')}</h2>
-              <p className="st-path-hero__text">{t('lessons_hint')}</p>
+              <h2 id="lessons-title" className="st-path-hero__title">{ct('title')}</h2>
+              <p className="st-path-hero__text">{ct('overview_hint')}</p>
             </div>
             {stations.length > 0 && (
               <ProgressRing value={done / stations.length} size={84} stroke={8} tone={done === stations.length ? 'success' : 'accent'}
@@ -247,7 +253,7 @@ export default function VocabularyLessons({ lang, level, stations, next, vocabul
                             <span className="st-path__meta">
                               <span className="st-path__state">{t(station.state === 'done' ? 'station_done' : station.state === 'current' ? 'station_current' : 'station_open')}</span>
                               <span aria-hidden="true">·</span>
-                              <span>{t('station_words', { count: station.total })}</span>
+                              <span>{ct('count', { count: station.total })}</span>
                             </span>
                             {on && station.due > 0 && <span className="st-path__due">{t('station_due', { count: station.due })}</span>}
                             <span className="st-path__bar" aria-hidden="true">
@@ -303,7 +309,7 @@ export default function VocabularyLessons({ lang, level, stations, next, vocabul
         footer={selected && vocabularyHref ? (
           <div className="grid gap-3">
             <button type="button" onClick={() => { setSheetOpen(false); setCardsFor(selected.lesson) }} className="st-button st-button--soft st-press">
-              <Eye size={20} aria-hidden="true" />{t('station_show_words')}
+              <Eye size={20} aria-hidden="true" />{ct('title')}
             </button>
             {started(selected) && selected.untouched > 0 && (
               <button type="button" onClick={() => openStart(selected, selected.label)} className="st-button st-button--soft st-press">
@@ -347,6 +353,7 @@ export default function VocabularyLessons({ lang, level, stations, next, vocabul
 
       {cardsFor && vocabularyTranslations && (
         <LessonCardsModal lesson={cardsFor} level={level} uiLanguage={lang} translations={vocabularyTranslations}
+          initialOwnWord={initialOwnWord} initialOwnExample={initialOwnExample}
           onClose={() => setCardsFor(null)} onCardAdded={refresh} />
       )}
     </div>

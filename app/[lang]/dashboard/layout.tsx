@@ -7,7 +7,7 @@ import { loadLearningNewCounts } from '@/lib/learning-new-server'
 import { getDictionary } from '@/lib/dictionary'
 import { type DashboardTranslations } from '@/lib/dashboard-i18n'
 import { loadLevelAccessProfile } from '@/lib/access/server'
-import { SITOV_VERB_LEVELS, hasLevelAccess } from '@/lib/access/levels'
+import { ACCESS_LEVELS, hasLevelAccess } from '@/lib/access/levels'
 import '@/components/dashboard/student.css'
 
 export const dynamic = 'force-dynamic'
@@ -22,7 +22,7 @@ export default async function DashboardLayout({ children, params }: { children: 
   ])
   if (profile?.role === 'teacher' || profile?.role === 'admin') redirect(`/${lang}/admin`)
   const translations = dict.dashboard as DashboardTranslations
-  const levels = SITOV_VERB_LEVELS.filter(level => hasLevelAccess(access, level))
+  const levels = ACCESS_LEVELS.filter(level => hasLevelAccess(access, level))
   const supportLabels = {
     whatsapp: dict.academy.support_whatsapp,
     phone: dict.Footer.Contact.phone,

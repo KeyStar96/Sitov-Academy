@@ -78,6 +78,16 @@ it('offers no shortcut that skips the assessment', () => {
   renderAssessment()
   expect(screen.queryByRole('button', { name: de.vocabulary.skip_assessment })).not.toBeInTheDocument()
 })
+
+it('identifies an explicit chunk and keeps its German phrase hidden until revealed', () => {
+  render(<LessonAssessmentClient learnerId={learnerId} cards={[{ ...cards[0], article: null, plural: null,
+    word_de: 'Könnten Sie mir bitte helfen?', translation: 'Could you please help me?', contentKind: 'chunk' }]}
+    lessonName="Lektion 2" level="A1.2" lang="de" translations={de.vocabulary} />)
+  expect(screen.getByText('Chunk')).toBeInTheDocument()
+  expect(screen.queryByText('Könnten Sie mir bitte helfen?')).not.toBeInTheDocument()
+  fireEvent.click(screen.getByRole('button', { name: de.vocabulary.reveal_solution }))
+  expect(screen.getByText('Könnten Sie mir bitte helfen?')).toHaveAttribute('lang', 'de')
+})
 function deferred<Result>() {
   let resolve!: (result: Result) => void
   const promise = new Promise<Result>(done => { resolve = done })

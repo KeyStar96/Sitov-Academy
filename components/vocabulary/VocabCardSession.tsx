@@ -37,6 +37,9 @@ import { saveLearningCheckpoint, clearLearningCheckpoint } from '@/app/actions/l
 import { restoreVocabularyCheckpoint, type VocabularyCheckpoint } from '@/lib/vocabulary-session-checkpoint'
 import type { VocabularySession } from '@/lib/types/vocabulary'
 import { learningCheckpointCopy } from '@/lib/learning-checkpoint-i18n'
+import { SitovVocabularyUsage } from './SitovVocabularyContent'
+import { sitovVocabularyCardKind } from '@/lib/vocabulary-chunks'
+import { sitovVocabularyChunksTranslator } from '@/lib/vocabulary-chunks-i18n'
 
 interface VocabCardSessionProps {
   learnerId: string | null
@@ -436,6 +439,8 @@ export default function VocabCardSession({ learnerId, level, cards, translations
 
   const targetWord = current && (current.card.article && current.card.article !== 'none'
     ? `${current.card.article} ${current.card.word_de}` : current.card.word_de)
+  const ct = sitovVocabularyChunksTranslator(uiLanguage)
+  const isChunk = current ? sitovVocabularyCardKind(current.card) === 'chunk' : false
   const isSentence = current?.format === 'sentence'
   const isToGerman = current?.direction === 'native_to_de'
   const answerLanguage = isSentence || isToGerman ? 'de' : uiLanguage
@@ -563,7 +568,7 @@ export default function VocabCardSession({ learnerId, level, cards, translations
                   <SitovVocabularyCardMark />
                   <div ref={flipFrontRef} tabIndex={0} onKeyDown={onCardKeyDown} aria-keyshortcuts="Enter Space" className={cn('learning-card-content', denseCard && 'learning-card-content-dense')}>
                     {!isSentence && current.card.image_url && <img className="learning-card-image" src={current.card.image_url} alt={t('image_alt')} />}
-                    <span className="learning-eyebrow">{t(isSentence ? 'sentence_format' : 'word_format')}</span>
+                    <span className="learning-eyebrow">{isChunk && !isSentence ? ct('chunk') : t(isSentence ? 'sentence_format' : 'word_format')}</span>
                     <h2 lang={current.promptLanguage} className={cn(isSentence ? 'learning-sentence' : 'learning-word', !isToGerman && articleColorClass(current.card.article))}>{prompt}</h2>
                   </div>
                   <RotateCw size={20} aria-hidden="true" className="learning-flip-cue" />
@@ -579,8 +584,11 @@ export default function VocabCardSession({ learnerId, level, cards, translations
                     <div className="learning-divider" />
                     <span className="learning-eyebrow">{t('correct_sentence_label')}</span>
                     <p className={cn(isSentence ? 'learning-sentence' : 'learning-solution', !isSentence && isToGerman && articleColorClass(current.card.article))} lang={answerLanguage}>{flashcardSolution}</p>
-                    {current.contextSentence && <p className="learning-context learning-example" lang="de"><span className="sr-only">{t('context_label')}: </span>{current.contextSentence}</p>}
-                    {!isSentence && <SolutionAudioButton level={level ?? current.card.level} cardId={current.card.id} language="de" text={targetWord ?? ''} audioUrl={current.card.audio_url} label={t('listen_word')} ariaLabel={t('listen_word_aria', { word: current.card.word_de })} variant="secondary" />}
+                    <SitovVocabularyUsage word={targetWord ?? ''} usageChunk={current.card.usageChunk} usageChunkTranslation={current.card.usageChunkTranslation}
+                      example={current.contextSentence} exampleTranslation={current.card.exampleTranslation} lang={uiLanguage}
+                      renderAudio={text => <SolutionAudioButton language="de" cardId={current.card.id} level={level ?? current.card.level}
+                        text={text} label={ct('listen_usage')} ariaLabel={ct('listen_usage_aria', { text })} variant="secondary" />} />
+                    {!isSentence && <SolutionAudioButton level={level ?? current.card.level} cardId={current.card.id} language="de" text={targetWord ?? ''} audioUrl={current.card.audio_url} label={isChunk ? ct('listen_chunk') : t('listen_word')} ariaLabel={isChunk ? ct('listen_chunk_aria', { word: current.card.word_de }) : t('listen_word_aria', { word: current.card.word_de })} variant="secondary" />}
                     </>}
                   </div>
                   <RotateCw size={20} aria-hidden="true" className="learning-flip-cue" />
@@ -592,7 +600,7 @@ export default function VocabCardSession({ learnerId, level, cards, translations
             {answerResult ? <SitovVocabularyFeedback key={`${item.key}-${answerResult.correct}`} correct={answerResult.correct} /> : <SitovVocabularyCardMark />}
             <div key={item.key} tabIndex={0} className={cn('learning-card-content', denseCard && 'learning-card-content-dense')}>
               {!isSentence && !answerResult && current.card.image_url && <img className="learning-card-image" src={current.card.image_url} alt={t('image_alt')} />}
-              <span className="learning-eyebrow">{t(isSentence ? 'sentence_format' : 'word_format')}</span>
+              <span className="learning-eyebrow">{isChunk && !isSentence ? ct('chunk') : t(isSentence ? 'sentence_format' : 'word_format')}</span>
               <h2 lang={current.promptLanguage} className={cn(isSentence ? 'learning-sentence' : 'learning-word', !isToGerman && articleColorClass(current.card.article))}>{prompt}</h2>
               {answerResult && <>
                 <div className="learning-divider" />
@@ -631,8 +639,11 @@ export default function VocabCardSession({ learnerId, level, cards, translations
                   <p className={cn(isSentence ? 'learning-sentence' : 'learning-solution', !isSentence && isToGerman && articleColorClass(current.card.article))} lang={answerLanguage}><ArticleSolution solution={answerResult.solution} /></p>
                 </>}
                 {!isSentence && <>
-                  {current.contextSentence && <p className="learning-context learning-example" lang="de"><span className="sr-only">{t('context_label')}: </span>{current.contextSentence}</p>}
-                  <SolutionAudioButton level={level ?? current.card.level} cardId={current.card.id} language="de" text={targetWord ?? ''} audioUrl={current.card.audio_url} label={t('listen_word')} ariaLabel={t('listen_word_aria', { word: current.card.word_de })} variant="secondary" />
+                  <SitovVocabularyUsage word={targetWord ?? ''} usageChunk={current.card.usageChunk} usageChunkTranslation={current.card.usageChunkTranslation}
+                    example={current.contextSentence} exampleTranslation={current.card.exampleTranslation} lang={uiLanguage}
+                    renderAudio={text => <SolutionAudioButton language="de" cardId={current.card.id} level={level ?? current.card.level}
+                      text={text} label={ct('listen_usage')} ariaLabel={ct('listen_usage_aria', { text })} variant="secondary" />} />
+                  <SolutionAudioButton level={level ?? current.card.level} cardId={current.card.id} language="de" text={targetWord ?? ''} audioUrl={current.card.audio_url} label={isChunk ? ct('listen_chunk') : t('listen_word')} ariaLabel={isChunk ? ct('listen_chunk_aria', { word: current.card.word_de }) : t('listen_word_aria', { word: current.card.word_de })} variant="secondary" />
                 </>}
               </>}
             </div>

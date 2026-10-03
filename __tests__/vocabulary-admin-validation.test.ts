@@ -2,6 +2,15 @@ import { learningWritePayload } from '@/lib/learning-writes'
 import { emptyVocabForm, vocabWriteSchema } from '@/lib/types/vocabulary-admin'
 
 const valid = { ...emptyVocabForm(), word_de: 'lernen', lesson: 'Lektion 1' }
+it('keeps an attached chunk and its translation on the same normalized card payload', () => {
+  const parsed = vocabWriteSchema.parse({ ...valid, chunk_de: 'Deutsch lernen', chunk_translation_uk: 'вивчати німецьку' })
+  expect(learningWritePayload('vocabulary', parsed)).toMatchObject({
+    fields: { word_de: 'lernen', content_kind: 'vocabulary', chunk_de: 'Deutsch lernen' },
+    translations: expect.arrayContaining([{ locale: 'uk', translation: '', context_sentence: '', is_difficult: false, chunk_translation: 'вивчати німецьку' }]),
+  })
+  expect(vocabWriteSchema.safeParse({ ...valid, content_kind: 'chunk', article: 'der' }).success).toBe(false)
+  expect(vocabWriteSchema.safeParse({ ...valid, content_kind: 'chunk', word_de: 'einen Termin vereinbaren' }).success).toBe(true)
+})
 describe('vocabulary editor server validation', () => {
   it('rejects unknown fields and rejects blank mandatory values', () => {
     expect(vocabWriteSchema.safeParse({ ...valid, id: 'forged' }).success).toBe(false)

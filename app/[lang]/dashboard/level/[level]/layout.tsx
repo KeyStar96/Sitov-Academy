@@ -1,9 +1,9 @@
 import { Suspense } from 'react'
-import { redirect } from 'next/navigation'
+import { notFound, redirect } from 'next/navigation'
 import { requestSession } from '@/lib/request-session'
 import { getDictionary } from '@/lib/dictionary'
 import type { DashboardTranslations } from '@/lib/dashboard-i18n'
-import { hasLevelAccess } from '@/lib/access/levels'
+import { hasLevelAccess, isAccessLevel } from '@/lib/access/levels'
 import { loadLevelAccessProfile } from '@/lib/access/server'
 import LevelLocked from '@/components/dashboard/LevelLocked'
 import ModeDock from '@/components/dashboard/ModeDock'
@@ -37,6 +37,7 @@ export default async function LevelAccessLayout({
 }) {
   const { lang, level } = await params
   const decodedLevel = decodeURIComponent(level)
+  if (!isAccessLevel(decodedLevel)) notFound()
 
   const { supabase, user } = await requestSession()
 

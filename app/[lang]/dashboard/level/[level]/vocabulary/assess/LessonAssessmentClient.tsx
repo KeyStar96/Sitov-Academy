@@ -10,6 +10,8 @@ import { createOrderedWriteQueue, type OrderedWriteQueue } from '@/lib/vocabular
 import { cn, stripLessonPrefix } from '@/lib/utils'
 import LearningScreen, { LearningStats } from '@/components/vocabulary/LearningScreen'
 import { AssessmentResult } from '@/components/vocabulary/SuccessMoments'
+import { sitovVocabularyCardKind } from '@/lib/vocabulary-chunks'
+import { sitovVocabularyChunksTranslator } from '@/lib/vocabulary-chunks-i18n'
 
 export type AssessmentCard = VocabularyAssessmentCard
 interface LessonAssessmentClientProps {
@@ -135,7 +137,7 @@ export default function LessonAssessmentClient({ learnerId, cards, lessonName, l
         {/* Wie beim Lernen: Ein Tipp irgendwo auf die Karte deckt die Lösung auf. */}
         <div className={cn('learning-card', !revealed && !saveFailed && 'learning-card-tappable')} onClick={() => { if (!saveFailed) setRevealed(true) }}>
           <div className="learning-card-content" aria-live="polite" aria-atomic="true">
-            <span className="learning-eyebrow">{t('assessment_word_label')}</span>
+            <span className="learning-eyebrow">{sitovVocabularyCardKind(current) === 'chunk' ? sitovVocabularyChunksTranslator(lang)('chunk') : t('assessment_word_label')}</span>
             <h2 lang={current.translationLanguage} className="learning-word">{current.translation}</h2>
             {revealed && <>
               <div className="learning-divider" />

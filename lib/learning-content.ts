@@ -13,6 +13,11 @@ export const vocabularyCardSchema = z.object({
   sentence_practice: z.boolean(), is_hard_for_ru: z.boolean().nullable(), is_hard_for_tr: z.boolean().nullable(),
   alternative_answers_de: z.array(z.string()),
   target_form: z.array(z.string()).nullable().optional(),
+  content_kind: z.enum(['vocabulary', 'chunk']).optional(),
+  chunk_de: optionalText.optional(),
+  chunk_translation_en: optionalText.optional(), chunk_translation_ru: optionalText.optional(),
+  chunk_translation_uk: optionalText.optional(), chunk_translation_tr: optionalText.optional(),
+  source_id: optionalText.optional(),
   /** „Eigene Wörter" einer lernenden Person (Migration 23), nie Kursinhalt. */
   is_own: z.boolean().optional(),
 })

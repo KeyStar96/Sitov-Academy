@@ -1,6 +1,6 @@
 import React from 'react'
 import { render, screen, fireEvent, waitFor, within } from '@testing-library/react'
-import { hasTrainerAccess, hasConfiguredTrainerAccess, getAllowedLessons, TRAINERS, type LevelAccessProfile } from '@/lib/access/levels'
+import { hasLevelAccess, hasTrainerAccess, hasConfiguredTrainerAccess, getAllowedLessons, TRAINERS, type LevelAccessProfile } from '@/lib/access/levels'
 import TrainerStatusTiles from '@/components/dashboard/TrainerStatusTiles'
 import { studentTranslator } from '@/lib/student-ui-i18n'
 import { getSitovTrainerCarouselCopy } from '@/lib/sitov-trainer-carousel-i18n'
@@ -16,6 +16,13 @@ const student: LevelAccessProfile = { role: 'student', allowed_levels: ['A1.1','
 const denied = { ...student, trainer_grants: [{ level: 'A1.1', trainer: 'exercises', enabled: false }] }
 
 describe('Trainer entitlement decisions', () => {
+ test.each(['B2', 'C1'])('keeps %s unpublished even when an old verb grant exists', level => {
+  const profile = { ...student, allowed_levels: [level], trainer_grants: [{ level, trainer: 'verbs', enabled: true }] }
+  expect(hasLevelAccess(profile, level)).toBe(false)
+  expect(hasTrainerAccess(profile, level, 'verbs')).toBe(false)
+  expect(getAllowedLessons(profile, level, 'verbs')).toEqual([])
+  expect(hasConfiguredTrainerAccess({ ...profile, role: 'teacher' }, level, 'verbs')).toBe(true)
+ })
  test.each(TRAINERS)('inherits existing level rights for %s', trainer => {
   expect(hasTrainerAccess(student,'A1.1',trainer)).toBe(true)
   expect(hasTrainerAccess(student,'B1.2',trainer)).toBe(false)

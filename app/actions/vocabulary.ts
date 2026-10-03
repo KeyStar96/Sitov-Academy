@@ -157,6 +157,9 @@ export async function getVocabularySession(level?: string, uiLanguage?: string, 
     const displayCards = new Map([...catalogById].map(([id, card]) => [id, {
       id: card.id, level: card.level, lesson: card.lesson, word_de: card.word_de,
       article: card.article, plural: card.plural, image_url: card.image_url, audio_url: card.audio_url, target_form: card.target_form ?? null,
+      contentKind: card.content_kind ?? 'vocabulary', usageChunk: card.chunk_de ?? null,
+      usageChunkTranslation: card[`chunk_translation_${language}`] ?? null,
+      exampleTranslation: card[`context_sentence_${language}`] ?? null,
     }]))
     const cards: DueVocabularyCard[] = progress.flatMap(row => {
       const card = catalogById.get(row.card_id)
@@ -241,6 +244,7 @@ export async function getVocabularyAssessment(lessonName: string, level: string,
         const translation = resolveVocabularyInterfaceTranslation(card, language)
         if (!translation || assessed.has(`${card.id}:${direction}`)) return []
         return [{ id: card.id, word_de: card.word_de, article: card.article, plural: card.plural,
+          contentKind: card.content_kind,
           translation: translation.text, translationLanguage: translation.language, direction }]
       })),
     }
@@ -544,7 +548,10 @@ export async function getLessonCards(lessonName: string, level?: string, uiLangu
     const phase = states.length ? Math.min(...states.map(row => Math.min(6, normalizeBox(row.box_number)))) as LeitnerPhase : null
     return { id: card.id, word_de: card.word_de, article: card.article, plural: card.plural,
       translation: resolveCardInterfaceTranslation(card, language)?.text ?? '', image_url: card.image_url, audio_url: card.audio_url,
-      phase, isLearned: learned, contextSentence: card.context_sentence_de }
+      phase, isLearned: learned, contextSentence: card.context_sentence_de,
+      contentKind: card.content_kind ?? 'vocabulary', usageChunk: card.chunk_de ?? null,
+      usageChunkTranslation: card[`chunk_translation_${language}`] ?? null,
+      exampleTranslation: card[`context_sentence_${language}`] ?? null }
   }).sort((a, b) => a.word_de.localeCompare(b.word_de, 'de-DE'))
 }
 

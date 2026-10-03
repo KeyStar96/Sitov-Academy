@@ -12,6 +12,10 @@ export type VocabularyCardRow = import('@/lib/learning-content').VocabularyConte
 
 /** Felder der Vokabelkarte, die der Trainer tatsächlich benötigt. */
 export interface VocabularyCardView {
+  contentKind?: 'vocabulary' | 'chunk'
+  usageChunk?: string | null
+  usageChunkTranslation?: string | null
+  exampleTranslation?: string | null
   /** Optional German target forms shown before a typed sentence answer. */
   target_form?: string[] | null
   id: string
@@ -82,6 +86,7 @@ export interface VocabularyAssessmentSession {
 
 /** One uninitialized direction, so interrupted assessments resume precisely. */
 export interface VocabularyAssessmentCard {
+  contentKind?: 'vocabulary' | 'chunk'
   plural: string | null
   id: string
   word_de: string
@@ -175,6 +180,10 @@ export interface InitializeLessonResult {
  * per Einstufung in den Karteikasten übernommen wurde.
  */
 export interface LessonCardView {
+  contentKind?: 'vocabulary' | 'chunk'
+  usageChunk?: string | null
+  usageChunkTranslation?: string | null
+  exampleTranslation?: string | null
   id: string
   word_de: string
   article: string | null
