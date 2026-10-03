@@ -25,6 +25,7 @@ export function preparedLearningAudioTexts(trainer: Trainer, input: Json): strin
   const add = (value: Json | undefined) => { if (typeof value === 'string' && value.trim()) texts.push(normalizeAudioText(value)) }
   if (trainer === 'vocabulary') {
     if (typeof form.word_de === 'string') add(vocabularyAudioText({ word_de: form.word_de, article: typeof form.article === 'string' ? form.article : null }))
+    add(form.chunk_de)
     add(form.context_sentence_de)
   }
   if (trainer === 'pronunciation') add(form.sentence_de)

@@ -1,6 +1,6 @@
 -- German inference runs only in the offline authoring workflow. No learner,
 -- profile or progress identifiers are stored with these deduplicated texts.
-CREATE TABLE public.sitov_audio_preparation_requests (
+CREATE TABLE IF NOT EXISTS public.sitov_audio_preparation_requests (
   cache_path text PRIMARY KEY,
   text text NOT NULL CHECK (char_length(text) BETWEEN 1 AND 3000 AND text = btrim(text)),
   profile_fingerprint text NOT NULL CHECK (profile_fingerprint ~ '^[0-9a-f]{64}$'),
@@ -14,7 +14,7 @@ CREATE TABLE public.sitov_audio_preparation_requests (
   )
 );
 
-CREATE INDEX sitov_audio_preparation_pending
+CREATE INDEX IF NOT EXISTS sitov_audio_preparation_pending
   ON public.sitov_audio_preparation_requests (created_at, cache_path)
   WHERE status = 'pending';
 

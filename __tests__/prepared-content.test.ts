@@ -44,6 +44,17 @@ test('normalizes/de-duplicates lookups and only accepts complete measured word t
   await expect(requirePreparedGermanAudio(['Guten Morgen!'])).rejects.toMatchObject({ code: SITOV_PREPARED_AUDIO_REQUIRED })
 })
 
+test('vocabulary publication includes the spoken usage chunk and queues a missing chunk before mutation', async () => {
+  const vocabulary = { level: 'A2.1', lesson: '01', word_de: 'Termin', article: 'der', chunk_de: 'einen Termin vereinbaren', context_sentence_de: 'Ich möchte einen Termin vereinbaren.' }
+  expect(preparedLearningAudioTexts('vocabulary', vocabulary)).toEqual(['der Termin', 'einen Termin vereinbaren', 'Ich möchte einen Termin vereinbaren.'])
+  const { value, typed } = client()
+  jest.mocked(findCachedAudio).mockImplementation(async text => text === vocabulary.chunk_de ? null : prepared(text))
+  await expect(saveLearningContent(typed, 'vocabulary', vocabulary, id)).rejects.toMatchObject({ code: SITOV_PREPARED_AUDIO_REQUIRED })
+  expect(value.rpc).not.toHaveBeenCalled()
+  expect(requestGermanAudioPreparation).toHaveBeenCalledTimes(1)
+  expect(requestGermanAudioPreparation).toHaveBeenCalledWith(vocabulary.chunk_de)
+})
+
 test('missing prepared audio rejects active publication before the content RPC', async () => {
   const { value, typed } = client()
   jest.mocked(findCachedAudio).mockResolvedValue(null)

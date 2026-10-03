@@ -1,8 +1,9 @@
 /** @jest-environment node */
 import { createHash } from 'node:crypto'
+import { spawnSync } from 'node:child_process'
 import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
-import { join } from 'node:path'
+import { join, resolve } from 'node:path'
 import { bundleSitovAudio, collectSitovAudioCatalog, missingSitovAudioCatalog, sitovExerciseAudioTexts } from '../scripts/sitov-audio-catalog'
 import { neuralAudioPath, SITOV_QWEN_PROFILE_FINGERPRINT } from '../lib/audio/neural-identity'
 import { SITOV_QWEN_PROFILE, vocabularyAudioText } from '../lib/audio/neural-config'
@@ -251,4 +252,206 @@ test('explicit source manifest directory blocks recovery before output metadata 
   rmSync(manifest.entries[catalog.rows[0].id].metadata)
   expect(() => bundleSitovAudio(catalog, manifest, destination, sourceDirectory)).toThrow('--recover')
   expect(existsSync(join(destination, 'sitov-audio-bundle.json'))).toBe(false)
+})
+
+function prospectiveVocabularySeed() {
+  const translations = Object.fromEntries(['de', 'en', 'ru', 'uk', 'tr'].map(locale => [locale, {
+    translation: locale === 'de' ? null : 'Coffee', chunk_translation: locale === 'de' ? null : 'order a coffee',
+    context_sentence: locale === 'de' ? 'Ich bestelle einen Kaffee.' : 'I order a coffee.',
+  }]))
+  return { version: 1, units: [{ id: '00000000-0000-5000-8000-000000000100', level: 'A1.2', label: 'Lektion 1 · Im Café', sort_order: 1,
+    cards: [{ id: '00000000-0000-5000-8000-000000000101', source_id: 'sitov-vocabulary-coffee', content_kind: 'vocabulary',
+      word_de: ' Kaffee ', article: 'der', plural: 'die Kaffees', chunk_de: 'einen Kaffee bestellen', sentence_practice: false,
+      sentence_de: 'Dieser Teacher-Quellsatz wird nicht importiert.', target_form: ['Akkusativ'], alternative_answers_de: ['Kaffee bestellen'], translations }] }] }
+}
+
+test('exported word cards include same-card chunks and German contexts without creating audio for other card fields', () => {
+  const catalog = collectSitovAudioCatalog({
+    learning_vocabulary_cards: [{ id: 'same-card', word_de: 'Kaffee', article: 'der', chunk_de: 'einen Kaffee bestellen', plural: 'die Kaffees', alternative_answers_de: ['Ersatz'], target_form: ['Akkusativ'] }],
+    vocabulary_translations: [{ card_id: 'same-card', locale: 'de', context_sentence: 'Ich bestelle einen Kaffee.' }, { card_id: 'same-card', locale: 'en', context_sentence: 'I order a coffee.' }],
+  })
+  expect(catalog.rows.map(row => row.text).sort()).toEqual(['der Kaffee', 'einen Kaffee bestellen', 'Ich bestelle einen Kaffee.'].sort())
+  expect(catalog.rows.find(row => row.text === 'einen Kaffee bestellen')?.sources).toEqual(['vocabulary:same-card:chunk'])
+})
+
+test('named authored records combine repeatedly with NFC deduplication, canonical paths and filename/audio-ID provenance', () => {
+  const input = { authoredTextFiles: [
+    { name: '/private/sitov-first.json', value: { 'sitov-audio-1': '  Das Bro\u0308tchen.\n' } },
+    { name: '/private/sitov-second.json', value: { 'sitov-audio-2': 'Das Brötchen.', 'sitov-audio-3': 'Ein neues Hörbeispiel.' } },
+  ] }
+  const before = JSON.stringify(input)
+  const catalog = collectSitovAudioCatalog({}, {}, {}, undefined, input)
+  expect(catalog.rows).toHaveLength(2)
+  const shared = catalog.rows.find(row => row.text === 'Das Brötchen.')!
+  expect(shared.cachePath).toBe(neuralAudioPath('Das Brötchen.', 'de'))
+  expect(shared.sources).toEqual(['authored-file:sitov-first.json:sitov-audio-1', 'authored-file:sitov-second.json:sitov-audio-2'])
+  expect(JSON.stringify(catalog)).not.toContain('/private/')
+  expect(JSON.stringify(input)).toBe(before)
+  for (const value of [null, [], {}, { id: 3 }, { id: '' }, { id: '{{unrendered}}' }]) {
+    expect(() => collectSitovAudioCatalog({}, {}, {}, undefined, { authoredTextFiles: [{ name: 'invalid.json', value }] })).toThrow()
+  }
+})
+
+test('all eleven frozen B1 texts use canonical proof paths without modifying their manifest', () => {
+  const filename = resolve(__dirname, '../scripts/sitov-exam-audio-manifest.json')
+  const before = readFileSync(filename)
+  const texts: Record<string, string> = JSON.parse(before.toString())
+  const catalog = collectSitovAudioCatalog({}, {}, {}, undefined, { authoredTextFiles: [{ name: filename, value: texts }] })
+  expect(Object.keys(texts)).toHaveLength(11)
+  expect(catalog.rows).toHaveLength(11)
+  expect(Object.values(texts).reduce((count, text) => count + text.length, 0)).toBe(5371)
+  for (const [id, text] of Object.entries(texts)) {
+    const row = catalog.rows.find(item => item.cachePath === neuralAudioPath(text, 'de'))!
+    expect(row.text).toBe(text.normalize('NFC').trim().replace(/\s+/gu, ' '))
+    expect(row.sources).toEqual([`authored-file:sitov-exam-audio-manifest.json:${id}`])
+  }
+  expect(readFileSync(filename)).toEqual(before)
+})
+
+test('prospective vocabulary extraction follows importable version/units and authoritative de translations with one card identity', () => {
+  const seed = prospectiveVocabularySeed()
+  const before = JSON.stringify(seed)
+  const catalog = collectSitovAudioCatalog({}, {}, {}, undefined, { vocabularySeed: { name: '/private/importable-vocabulary.json', value: seed } })
+  expect(catalog.rows.map(row => row.text).sort()).toEqual(['der Kaffee', 'einen Kaffee bestellen', 'Ich bestelle einen Kaffee.'].sort())
+  expect(catalog.rows.every(row => row.sources.length === 1 && row.sources[0].startsWith('vocabulary-seed:importable-vocabulary.json:sitov-vocabulary-coffee:'))).toBe(true)
+  expect(JSON.stringify(seed)).toBe(before)
+  const card: any = seed.units[0].cards[0]
+  card.content_kind = 'chunk'; card.article = 'none'; card.word_de = 'Alles klar!'; card.chunk_de = null
+  const chunk = collectSitovAudioCatalog({}, {}, {}, undefined, { vocabularySeed: { name: 'chunk-seed.json', value: seed } })
+  expect(chunk.rows.map(row => row.text).sort()).toEqual(['Alles klar!', 'Ich bestelle einen Kaffee.'].sort())
+})
+
+test('unimportable vocabulary stages, duplicate identities and invalid authoritative audio fields fail before preparation', () => {
+  const failures: unknown[] = [
+    { schema_version: 1, locales: ['de'], levels: [] },
+    { version: 1, units: [] },
+  ]
+  for (const kind of ['duplicate-source', 'duplicate-id', 'teacher-stage', 'de-context', 'word', 'chunk', 'article', 'translations-array']) {
+    const seed = prospectiveVocabularySeed()
+    const card: any = seed.units[0].cards[0]
+    if (kind === 'duplicate-source') seed.units[0].cards.push(structuredClone(card))
+    else if (kind === 'duplicate-id') seed.units[0].cards.push({ ...structuredClone(card), source_id: 'sitov-other-source' })
+    else if (kind === 'teacher-stage') delete card.translations
+    else if (kind === 'de-context') card.translations.de.context_sentence = ''
+    else if (kind === 'word') card.word_de = 42
+    else if (kind === 'chunk') card.chunk_de = '{{slot}}'
+    else if (kind === 'article') { card.content_kind = 'chunk'; card.article = 'der' }
+    else card.translations = Object.entries(card.translations).map(([locale, value]) => ({ locale, ...(value as object) }))
+    failures.push(seed)
+  }
+  for (const value of failures) expect(() => collectSitovAudioCatalog({}, {}, {}, undefined, { vocabularySeed: { name: 'invalid-seed.json', value } })).toThrow()
+})
+
+test('frozen German vocabulary paths and sources remain identical when ignored foreign fields are completed', () => {
+  const seed = prospectiveVocabularySeed()
+  const card: any = seed.units[0].cards[0]
+  const allTranslations = structuredClone(card.translations)
+  card.translations = { de: allTranslations.de }
+  const plan = () => collectSitovAudioCatalog({}, {}, {}, undefined, { vocabularySeed: { name: 'same-import-payload.json', value: seed } })
+  const germanOnly = plan()
+  card.translations = { ...card.translations, en: null, ru: ['still pending'], uk: 42, tr: {} }
+  expect(plan()).toEqual(germanOnly)
+  card.translations = allTranslations
+  expect(plan()).toEqual(germanOnly)
+  card.translations.de.context_sentence = 'Heute bestelle ich einen Kaffee.'
+  const changed = plan()
+  expect(changed.rows.find(row => row.text === 'Heute bestelle ich einen Kaffee.')?.cachePath)
+    .not.toBe(germanOnly.rows.find(row => row.text === 'Ich bestelle einen Kaffee.')?.cachePath)
+  expect(changed.rows.some(row => row.text === 'Ich bestelle einen Kaffee.')).toBe(false)
+})
+
+test('actual CLI repeats authored text files and combines importable vocabulary before missing-only planning', () => {
+  const owner = directory()
+  const file = (name: string, value: unknown) => { const path = join(owner, name); writeFileSync(path, JSON.stringify(value)); return path }
+  const exported = file('export.json', { storage_audio_inventory: [] })
+  const first = file('sitov-first.json', { 'sitov-one': 'Ein neues Hörbeispiel.' })
+  const second = file('sitov-second.json', { 'sitov-two': 'Ein neues Hörbeispiel.', 'sitov-three': 'Noch ein neuer Text.' })
+  const vocabulary = file('vocabulary.json', prospectiveVocabularySeed())
+  const output = join(owner, 'missing.json'), full = join(owner, 'full.json')
+  const command = resolve(__dirname, '../node_modules/.bin/ts-node')
+  const argumentsBase = ['--transpile-only', '--compiler-options', '{"module":"CommonJS","moduleResolution":"node"}', resolve(__dirname, '../scripts/sitov-audio-catalog.ts'), '--export', exported]
+  const result = spawnSync(command, [...argumentsBase, '--authored-texts', first, '--authored-texts', second,
+    '--vocabulary-seed', vocabulary, '--missing-only', '--output', output, '--full-output', full], { encoding: 'utf8' })
+  expect(result.status).toBe(0)
+  const catalog = JSON.parse(readFileSync(output, 'utf8'))
+  expect(catalog.preparationScope).toBe('missing-only')
+  expect(JSON.parse(readFileSync(full, 'utf8')).preparationScope).toBe('full')
+  expect(catalog.rows.find((row: any) => row.text === 'Ein neues Hörbeispiel.').sources).toHaveLength(2)
+  expect(catalog.rows.some((row: any) => row.text === 'einen Kaffee bestellen')).toBe(true)
+  const invalidOutput = join(owner, 'must-not-exist.json')
+  const invalid = spawnSync(command, [...argumentsBase, '--authored-texts', '--output', invalidOutput], { encoding: 'utf8' })
+  expect(invalid.status).toBe(1)
+  expect(invalid.stderr).toContain('Missing --authored-texts filename')
+  expect(existsSync(invalidOutput)).toBe(false)
+})
+
+test('German extraction agrees with the actual vocabulary importer on normalized identities, sorting, source guards and limits', () => {
+  const cases: { seed: ReturnType<typeof prospectiveVocabularySeed>; accepted: boolean }[] = []
+  const variant = (accepted: boolean, change: (seed: ReturnType<typeof prospectiveVocabularySeed>, card: any) => void) => {
+    const seed = prospectiveVocabularySeed(); change(seed, seed.units[0].cards[0]); cases.push({ seed, accepted })
+  }
+  variant(true, seed => { seed.units[0].sort_order = 0 })
+  variant(true, seed => { seed.units[0].sort_order = 1000000 })
+  variant(false, seed => { seed.units[0].sort_order = 1000001 })
+  variant(true, (seed, card) => {
+    seed.units[0].label = '  Lektion\n 1 · Café  '; card.source_id = '  sitov-cafe\u0301\n '; card.word_de = '  Bro\u0308tchen  '
+  })
+  variant(false, (seed, card) => { seed.units[0].cards.push({ ...structuredClone(card), id: '00000000-0000-5000-8000-000000000102', source_id: ` ${card.source_id}\n ` }) })
+  variant(false, (seed, card) => {
+    const unit = structuredClone(seed.units[0]); unit.id = '00000000-0000-5000-8000-000000000103'; unit.label = ` ${unit.label}\n `
+    unit.cards = [{ ...structuredClone(card), id: '00000000-0000-5000-8000-000000000104', source_id: 'sitov-distinct-card' }]; seed.units.push(unit)
+  })
+  variant(false, seed => { seed.units[0].label = '  Eigene\n Wörter  ' })
+  for (const field of ['word_de', 'chunk_de', 'context'] as const) {
+    for (const text of ['Я назначаю встречу.', 'ı', 's\u0327', '\u1d2b', '\ua640']) {
+      variant(false, (_, card) => { if (field === 'context') card.translations.de.context_sentence = text; else card[field] = text })
+    }
+  }
+  for (const [field, limit] of [['word_de', 500], ['chunk_de', 500], ['context', 1000], ['source_id', 160], ['label', 200]] as const) {
+    for (const accepted of [true, false]) variant(accepted, (seed, card) => {
+      const text = 'a'.repeat(limit + (accepted ? 0 : 1))
+      if (field === 'label') seed.units[0].label = ` ${text}\n `
+      else if (field === 'context') card.translations.de.context_sentence = ` ${text}\n `
+      else card[field] = ` ${text}\n `
+    })
+  }
+  const script = `import {readFileSync} from 'node:fs';import {pathToFileURL} from 'node:url';
+    const {vocabularySeedSchema,germanAudioTexts}=await import(pathToFileURL(process.argv[2]).href);
+    const cases=JSON.parse(readFileSync(0,'utf8'));console.log(JSON.stringify(cases.map(({seed})=>{
+      const parsed=vocabularySeedSchema.safeParse(seed);return {accepted:parsed.success,texts:parsed.success?germanAudioTexts(parsed.data).sort():[]};})));`
+  const result = spawnSync(process.execPath, ['--input-type=module', '-e', script, 'sitov-audio-contract-check', resolve(__dirname, '../scripts/sitov-vocabulary-import.mjs')], {
+    input: JSON.stringify(cases), encoding: 'utf8',
+  })
+  expect(result.status).toBe(0)
+  const imported = JSON.parse(result.stdout)
+  cases.forEach(({ seed, accepted }, index) => {
+    expect(imported[index].accepted).toBe(accepted)
+    const extract = () => collectSitovAudioCatalog({}, {}, {}, undefined, { vocabularySeed: { name: 'same-contract.json', value: seed } })
+    if (accepted) expect(extract().rows.map(row => row.text).sort()).toEqual(imported[index].texts)
+    else expect(extract).toThrow()
+  })
+  const normalized = collectSitovAudioCatalog({}, {}, {}, undefined, { vocabularySeed: { name: 'same-contract.json', value: cases[3].seed } })
+  expect(normalized.rows.some(row => row.sources.includes('vocabulary-seed:same-contract.json:sitov-café:word'))).toBe(true)
+})
+
+test('the German seed matches every currently frozen reviewed audio text and rejects database-blocked Extended-D Cyrillic', () => {
+  const filename = resolve(__dirname, '../content/vocabulary/german-seed.json')
+  const before = readFileSync(filename)
+  const seed = JSON.parse(before.toString())
+  expect(seed.units).toHaveLength(42)
+  expect(seed.units.reduce((count: number, unit: any) => count + unit.cards.length, 0)).toBe(3027)
+  const catalog = collectSitovAudioCatalog({}, {}, {}, undefined, { vocabularySeed: { name: filename, value: seed } })
+  const frozen = JSON.parse(readFileSync(resolve(__dirname, '../content/vocabulary/german-audio-texts.json'), 'utf8'))
+  const texts = catalog.rows.map(row => row.text).sort()
+  expect(texts).toEqual(frozen.texts)
+  expect(hash(JSON.stringify(texts))).toBe(frozen.sha256)
+  const fields = seed.units.flatMap((unit: any) => unit.cards).map((card: any) => ({ source_id: card.source_id,
+    word_de: card.word_de, article: card.article, chunk_de: card.chunk_de, context_sentence: card.translations.de.context_sentence,
+  })).sort((a: any, b: any) => a.source_id.localeCompare(b.source_id))
+  expect(hash(JSON.stringify(fields))).toBe(frozen.german_fields_sha256)
+  expect(catalog.rows.every(row => row.cachePath === neuralAudioPath(row.text, 'de'))).toBe(true)
+  expect(readFileSync(filename)).toEqual(before)
+  const invalid = prospectiveVocabularySeed()
+  invalid.units[0].cards[0].translations.de.context_sentence = '\u{1e030}'
+  expect(() => collectSitovAudioCatalog({}, {}, {}, undefined, { vocabularySeed: { name: 'invalid.json', value: invalid } })).toThrow('German context')
 })

@@ -31,7 +31,7 @@ Modell- und Paketlizenzen stehen in `deploy/vps/TTS_LICENSES.md`.
 
 ## Katalog und neue Inhalte
 
-Der schreibgeschützte SQL-Export erfasst Vokabeln, deutsche Kontextsätze,
+Der schreibgeschützte SQL-Export erfasst Vokabeln, Chunks auf derselben Karte, deutsche Kontextsätze,
 Aussprachetexte, tatsächlich abgespielte Grammatiklösungen sowie alle zulässigen
 Wortvarianten der Tagesaufgaben. Bestehende Tagesaufgaben-Snapshots werden für ihre
 Audio-Texte berücksichtigt, ohne Accounts, Schülerantworten oder Fortschritte zu
@@ -74,6 +74,92 @@ planen. Ein älterer Export enthält später vorgemerkte Texte noch nicht. Auch
 außerhalb des CMS verfasste SQL-Seeds müssen vor ihrer Veröffentlichung den
 vollständigen Vorbereitungs- und Importablauf durchlaufen; direkte SQL-Schreibrechte
 sind kein Ersatz für diese Autorenregel.
+
+### Zusätzliche eingefrorene Hörtexte
+
+Mit `--authored-texts` lassen sich weitere JSON-Dateien vor der Veröffentlichung
+in denselben Gesamtplan aufnehmen. Das Argument ist wiederholbar. Jede Datei
+enthält ausschließlich ein nichtleeres Objekt `Record<Audio-ID,string>`, also
+stabile Audio-IDs als Schlüssel und die endgültigen gesprochenen Texte als Werte.
+Beispielsweise enthält `scripts/sitov-exam-audio-manifest.json` die elf eingefrorenen
+B1-Hörtexte. Die Datei wird beim Planen gelesen und bleibt unverändert.
+
+```sh
+npx ts-node --transpile-only --compiler-options '{"module":"CommonJS","moduleResolution":"node"}' \
+  scripts/sitov-audio-catalog.ts --export /absolute/private/sitov-catalog-export.json \
+  --authored-texts scripts/sitov-exam-audio-manifest.json \
+  --authored-texts /absolute/private/sitov-additional-audio.json \
+  --missing-only --output /absolute/private/sitov-missing-audio.json \
+  --full-output /absolute/private/sitov-complete-catalog.json
+```
+
+Für jedes Objekt gelten dieselbe NFC- und Leerzeichen-Normalisierung, Längen- und
+Platzhalterprüfung sowie dieselben kanonischen Qwen-Pfade. Identische Hörtexte
+werden über alle Dateien und Inhaltsarten hinweg einmal vorbereitet. Ihre
+Quellen bleiben als `authored-file:<Dateiname>:<Audio-ID>` erhalten. Audio-IDs
+erzeugen keine eigenen Karten oder Player; die veröffentlichende Inhaltsfunktion
+muss weiterhin den gemeinsamen Storage-Proof für den tatsächlichen Text erfüllen.
+Beim späteren Bündeln dieselben `--authored-texts`-Dateien erneut angeben, damit
+Plan und Veröffentlichung dieselben eingefrorenen Texte enthalten.
+
+### Vokabeln und Chunks vor dem Import vorbereiten
+
+`--vocabulary-seed` nimmt denselben Payload entgegen, der anschließend
+an den bestehenden Vokabelimport übergeben wird: `{version: 1, units: [...]}`.
+Eine Unit enthält `id`, `level`, `label`, `sort_order` und `cards`. Jede Karte hat
+eine eindeutige `source_id`, `id`, `content_kind` (`vocabulary` oder `chunk`),
+`word_de`, gegebenenfalls `article` und `chunk_de` sowie ein `translations`-Objekt
+mit dem fertigen deutschen `de.context_sentence`. Die Audio-Extraktion prüft nur
+diesen gesprochenen deutschen Vertrag und die stabilen eindeutigen IDs.
+Anderssprachige Felder dürfen zu diesem Zeitpunkt noch fehlen oder unfertig sein;
+sie werden vollständig ignoriert. Ihre Vollständigkeit, `sentence_practice` und
+die übrigen Inhalts- und Datenbankregeln prüft der echte Importer vor Veröffentlichung.
+Die Audio-Extraktion ist keine vollständige Importvalidierung und kein zweites Seedformat.
+
+Wie der tatsächliche Importer normalisiert die Extraktion Vokabeltexte,
+`source_id` und Unit-Labels zuerst mit NFC und vereinheitlichten Leerzeichen.
+Eindeutigkeit wird erst danach geprüft. Sortierungen von `0` bis `1000000` sind
+zulässig. Die Grenzen gelten auf den normalisierten Werten: Wort und Chunk jeweils
+500 Zeichen, deutscher Kontext 1000, Quellen-ID 160 und Unit-Label 200. Alle drei
+gesprochenen deutschen Felder erfüllen zusätzlich den gemeinsamen deutschen
+Quelltext-Guard, einschließlich der gesperrten kyrillischen Unicode-Bereiche.
+Diese Regeln werden nicht auf die ignorierten anderssprachigen Felder angewandt.
+
+Der Audioplan verwendet exakt `vocabularyAudioText` für das Wort mit Artikel,
+den optionalen `chunk_de` und `translations.de.context_sentence`. Ein Chunk auf
+einer Vokabelkarte bleibt Bestandteil derselben Karte und behält deren
+`source_id`; nur eine ausdrücklich als `content_kind: "chunk"` verfasste Karte
+ist eine eigenständige Chunk-Karte. Plural, Zielformen, alternative Antworten und
+anderssprachige Kontexte erzeugen keine zusätzlichen deutschen Aufnahmen.
+
+```sh
+npx ts-node --transpile-only --compiler-options '{"module":"CommonJS","moduleResolution":"node"}' \
+  scripts/sitov-audio-catalog.ts --export /absolute/private/sitov-catalog-export.json \
+  --vocabulary-seed /absolute/private/sitov-importable-vocabulary.json \
+  --missing-only --output /absolute/private/sitov-missing-audio.json \
+  --full-output /absolute/private/sitov-complete-catalog.json
+```
+
+Auch hier erfolgt die Vorbereitung vor dem Import: den deutschen Teil der Datei
+einfrieren, frischen Export ergänzen, fehlende Aufnahmen auf dem Mac erzeugen,
+mit denselben Seed-Optionen bündeln, Storage importieren und auditieren, danach
+erst den vollständig validierten Seed mit demselben eingefrorenen deutschen Teil
+veröffentlichen. Das Ergänzen anderssprachiger Felder ändert Audio-Pfade und Quellen
+nicht; jede Änderung an einem gesprochenen deutschen Text erfordert neue Vorbereitung.
+Der aktuelle Export enthält
+zusätzlich vorhandene deutsche Texte, die der Importer für bestehende Karten
+beibehält. Quellen-IDs im Plan lauten
+`vocabulary-seed:<Dateiname>:<source_id>:word`, `:chunk` oder `:sentence`.
+
+`content/vocabulary/teacher-source.json` ist eine rohe Autoren-Vorstufe und darf
+nicht unmittelbar synthetisiert werden. Wort/Artikel/Chunk und den fertigen
+deutschen Übersetzungskontext muss der zuständige Builder zuerst in den tatsächlichen
+Importvertrag überführen.
+Das abweichende Format `schema_version/locales/levels/lessons` wird nicht als
+zweiter Importvertrag angenommen. Ein alleiniger Teacher-Wert `sentence_de`
+ersetzt den maßgeblichen gespeicherten deutschen Kontext nicht. Für unabhängig
+fertige Hörtexte kann bis zur finalen Seed-Datei ein ausdrückliches
+`--authored-texts`-Objekt verwendet werden.
 
 ### Folgeläufe und ein anderer Mac
 

@@ -1,7 +1,8 @@
 /** Authoring CLI. Production never imports this file or loads a speech model. */
 import { createHash } from 'node:crypto'
 import { readFileSync, writeFileSync, mkdirSync, statSync, lstatSync } from 'node:fs'
-import { resolve, dirname } from 'node:path'
+import { resolve, dirname, basename } from 'node:path'
+import { z } from 'zod'
 import { neuralAudioPath, SITOV_QWEN_PROFILE_FINGERPRINT } from '../lib/audio/neural-identity'
 import { SITOV_QWEN_PROFILE, normalizeAudioText, vocabularyAudioText, AUDIO_MAX_TEXT_LENGTH, AUDIO_MAX_BYTES, AUDIO_CACHE_BUCKET } from '../lib/audio/neural-config'
 import { validWordTimings } from '../lib/audio/playback-settings'
@@ -10,6 +11,65 @@ import { learningPathSeedSchema } from '../lib/learning-path-schema'
 type Row = { id: string; text: string; cachePath: string; sources: string[] }
 type Source = Record<string, any>
 const sha256 = (value: string | Buffer) => createHash('sha256').update(value).digest('hex')
+type NamedAuthoringInput = { name: string; value: unknown }
+type ProspectiveAudioInputs = { authoredTextFiles?: NamedAuthoringInput[]; vocabularySeed?: NamedAuthoringInput }
+const nonblank = z.string().refine(value => value.trim().length > 0, 'Text must not be blank')
+const vocabularySeedText = (maximum: number) => z.string().transform(normalizeAudioText).pipe(z.string().min(1).max(maximum))
+// Same NFC-aware German source guard as learning_private.german_text_allowed;
+// include its Cyrillic Extended-D range as well as the import CLI's BMP ranges.
+const notGermanSource = /[\u0400-\u052f\u1c80-\u1c8f\u1d2b\u1d78\u2de0-\u2dff\ua640-\ua69f\u{1e030}-\u{1e08f}ığşİĞŞ]/u
+// Extraction contract for the actual version:1/units payload consumed by 74.
+// It does not replace the importer's complete authoring/database validation.
+const vocabularyAudioSeedSchema = z.object({
+  version: z.literal(1),
+  units: z.array(z.object({
+    id: z.uuid(), level: z.enum(['A1.1', 'A1.2', 'A2.1', 'A2.2', 'B1.1', 'B1.2']),
+    label: vocabularySeedText(200).refine(value => value !== 'Eigene Wörter'), sort_order: z.number().int().min(0).max(1000000),
+    cards: z.array(z.object({
+      id: z.uuid(), source_id: vocabularySeedText(160), content_kind: z.enum(['vocabulary', 'chunk']),
+      word_de: vocabularySeedText(500), article: z.enum(['der', 'die', 'das', 'none']).nullable().optional().transform(value => value === 'none' ? null : value ?? null),
+      chunk_de: vocabularySeedText(500).nullable().optional().transform(value => value ?? null),
+      translations: z.object({ de: z.object({ context_sentence: vocabularySeedText(1000) }).passthrough() }).passthrough(),
+    }).passthrough().superRefine((card, context) => {
+      if (card.content_kind === 'chunk' && card.article !== null) context.addIssue({ code: 'custom', message: 'Standalone chunks have no article' })
+      for (const value of [card.word_de, card.chunk_de, card.translations.de.context_sentence]) {
+        if (value && notGermanSource.test(value)) context.addIssue({ code: 'custom', message: 'German spoken source text required' })
+      }
+    })).min(1).max(1000),
+  }).passthrough()).min(1).max(100),
+}).passthrough().superRefine((seed, context) => {
+  const units = new Set<string>(), unitIds = new Set<string>(), identities = new Set<string>(), cardIds = new Set<string>()
+  let count = 0
+  for (const unit of seed.units) {
+    const identity = JSON.stringify([unit.level, unit.label])
+    if (units.has(identity)) context.addIssue({ code: 'custom', message: 'Duplicate vocabulary unit' })
+    if (unitIds.has(unit.id)) context.addIssue({ code: 'custom', message: 'Duplicate vocabulary unit ID' })
+    units.add(identity)
+    unitIds.add(unit.id)
+    for (const card of unit.cards) {
+      if (identities.has(card.source_id)) context.addIssue({ code: 'custom', message: 'Duplicate vocabulary source_id' })
+      if (cardIds.has(card.id)) context.addIssue({ code: 'custom', message: 'Duplicate vocabulary card ID' })
+      identities.add(card.source_id)
+      cardIds.add(card.id)
+      count++
+    }
+  }
+  if (count > 10000) context.addIssue({ code: 'custom', message: 'Too many vocabulary cards' })
+})
+
+function authoredTextRecord(value: unknown): Record<string, string> {
+  const record = z.record(nonblank, nonblank).safeParse(value)
+  if (!record.success || !Object.keys(record.data).length) throw new Error('Authored text file must be a nonempty Record<Audio-ID,string>')
+  return record.data
+}
+
+function readAuthoringJson(filename: string, label: string): unknown {
+  const info = statSync(filename)
+  if (!info.isFile() || info.size > 64 * 1024 * 1024) throw new Error(`${label} must be a regular file no larger than 64 MiB`)
+  const bytes = readFileSync(filename)
+  if (bytes.length > 64 * 1024 * 1024) throw new Error(`${label} exceeds 64 MiB`)
+  return JSON.parse(new TextDecoder('utf-8', { fatal: true }).decode(bytes))
+}
 
 /** These are the exact strings played by the grammar components. */
 export function sitovExerciseAudioTexts(type: string, content: Source): string[] {
@@ -21,7 +81,7 @@ export function sitovExerciseAudioTexts(type: string, content: Source): string[]
   return type === 'sentence_building' ? [answer] : []
 }
 
-export function collectSitovAudioCatalog(source: Source, staticTexts: Record<string, string> = {}, authoredTexts: Record<string, string> = {}, pathSeed?: unknown) {
+export function collectSitovAudioCatalog(source: Source, staticTexts: Record<string, string> = {}, authoredTexts: Record<string, string> = {}, pathSeed?: unknown, prospective: ProspectiveAudioInputs = {}) {
   const rows = new Map<string, Row>()
   function add(input: unknown, origin: string) {
     if (typeof input !== 'string') return
@@ -41,7 +101,10 @@ export function collectSitovAudioCatalog(source: Source, staticTexts: Record<str
       else audioFields(entry, `${origin}/${key}`)
     }
   }
-  for (const card of source.learning_vocabulary_cards ?? []) add(vocabularyAudioText(card), `vocabulary:${card.id}:word`)
+  for (const card of source.learning_vocabulary_cards ?? []) {
+    add(vocabularyAudioText(card), `vocabulary:${card.id}:word`)
+    add(card.chunk_de, `vocabulary:${card.id}:chunk`)
+  }
   for (const entry of source.vocabulary_translations ?? []) if (entry.locale === 'de') add(entry.context_sentence, `vocabulary:${entry.card_id}:sentence`)
   for (const reading of source.learning_reading_texts ?? []) add(reading.sentence_de, `pronunciation:${reading.id}`)
   for (const exercise of source.learning_exercises ?? []) sitovExerciseAudioTexts(exercise.type, exercise.content).forEach((text, index) => add(text, `grammar:${exercise.id}:${index}`))
@@ -50,6 +113,22 @@ export function collectSitovAudioCatalog(source: Source, staticTexts: Record<str
   for (const job of source.pending_audio_preparations ?? []) add(job.text, 'requested:local-preparation')
   for (const [filename, text] of Object.entries(staticTexts)) add(text, `deutschreise:${filename}`)
   for (const [id, text] of Object.entries(authoredTexts)) add(text, `authored:${id}`)
+  for (const file of prospective.authoredTextFiles ?? []) {
+    for (const [id, text] of Object.entries(authoredTextRecord(file.value))) add(text, `authored-file:${basename(file.name)}:${id}`)
+  }
+  if (prospective.vocabularySeed) {
+    const file = prospective.vocabularySeed
+    const parsed = vocabularyAudioSeedSchema.safeParse(file.value)
+    if (!parsed.success) throw new Error(`Invalid vocabulary audio-extraction payload (${parsed.error.issues.length} issues; expected version:1/units with German context)`)
+    for (const unit of parsed.data.units) for (const card of unit.cards) {
+      const origin = `vocabulary-seed:${basename(file.name)}:${card.source_id}`
+      add(vocabularyAudioText({ word_de: card.word_de, article: card.article ?? null }), `${origin}:word`)
+      add(card.chunk_de, `${origin}:chunk`)
+      // The actual importer stores/proofs this field. Teacher sentence_de is
+      // a source-stage field; it must be mapped into this import payload first.
+      add(card.translations.de.context_sentence, `${origin}:sentence`)
+    }
+  }
   if (pathSeed !== undefined) {
     const parsed = learningPathSeedSchema.safeParse(pathSeed)
     if (!parsed.success) throw new Error(`Invalid prospective learning-path seed (${parsed.error.issues.length} schema issues)`)
@@ -167,10 +246,17 @@ if (require.main === module) {
   try {
     const args = process.argv.slice(2)
     const value = (flag: string) => { const index = args.indexOf(flag); return index < 0 ? undefined : args[index + 1] }
+    const values = (flag: string) => args.flatMap((argument, index) => {
+      if (argument !== flag) return []
+      if (!args[index + 1] || args[index + 1].startsWith('--')) throw new Error(`Missing ${flag} filename`)
+      return [args[index + 1]]
+    })
     if (args.includes('--help') || !value('--export')) {
       console.log('Plan: ts-node scripts/sitov-audio-catalog.ts --export private-export.json --output catalog.json')
       console.log('Follow-up/new Mac: add --missing-only --full-output complete-catalog.json; requires fresh Storage inventory. First activation still requires the complete catalog.')
       console.log('Before path import: add --path-seed seed.json; the existing Seed schema validates prospective active Fill/MC audio before the seed RPC.')
+      console.log('Additional frozen audio: repeat --authored-texts texts.json for nonempty Record<Audio-ID,string> files.')
+      console.log('Before vocabulary import: add --vocabulary-seed importable.json; expects version:1/units with translations.de.context_sentence. The real importer checks foreign completeness before publication.')
       console.log('Bundle: add --manifest prepared/sitov-qwen-manifest.json --bundle output-directory')
       console.log('Use ts-node --transpile-only --compiler-options \'{"module":"CommonJS","moduleResolution":"node"}\'. Export with deploy/vps/export-sitov-audio-catalog.sql; no keys belong in the catalog.')
     } else {
@@ -182,11 +268,13 @@ if (require.main === module) {
       let pathSeed: unknown
       if (value('--path-seed')) {
         const filename = resolve(value('--path-seed')!)
-        const info = statSync(filename)
-        if (!info.isFile() || info.size > 64 * 1024 * 1024) throw new Error('Path seed must be a regular file no larger than 64 MiB')
-        pathSeed = JSON.parse(new TextDecoder('utf-8', { fatal: true }).decode(readFileSync(filename)))
+        pathSeed = readAuthoringJson(filename, 'Path seed')
       }
-      const fullCatalog = collectSitovAudioCatalog(raw, staticTexts, authoredTexts, pathSeed)
+      const authoredTextFiles = values('--authored-texts').map(name => ({ name, value: readAuthoringJson(resolve(name), 'Authored text file') }))
+      const vocabularySeeds = values('--vocabulary-seed')
+      if (vocabularySeeds.length > 1) throw new Error('Use one normalized importable --vocabulary-seed file')
+      const vocabularySeed = vocabularySeeds.length ? { name: vocabularySeeds[0], value: readAuthoringJson(resolve(vocabularySeeds[0]), 'Vocabulary seed') } : undefined
+      const fullCatalog = collectSitovAudioCatalog(raw, staticTexts, authoredTexts, pathSeed, { authoredTextFiles, vocabularySeed })
       const catalog = args.includes('--missing-only') ? missingSitovAudioCatalog(fullCatalog, raw.storage_audio_inventory) : fullCatalog
       if (value('--full-output')) writeFileSync(resolve(value('--full-output')!), `${JSON.stringify(fullCatalog, null, 2)}\n`, { mode: 0o600 })
       if (value('--output')) writeFileSync(resolve(value('--output')!), `${JSON.stringify(catalog, null, 2)}\n`, { mode: 0o600 })

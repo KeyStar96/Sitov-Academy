@@ -31,8 +31,12 @@ SELECT jsonb_build_object(
     'verbReferences', (SELECT count(*) FROM public.sitov_verb_catalog)
   ),
   'learning_vocabulary_cards', coalesce((SELECT jsonb_agg(to_jsonb(v) ORDER BY v.id)
-    FROM (SELECT id, word_de, article, plural, audio_url, sentence_practice,
-      alternative_answers_de, target_form FROM public.learning_vocabulary_cards) v), '[]'::jsonb),
+    FROM (SELECT c.id, c.word_de, c.article, c.plural, c.audio_url, c.sentence_practice,
+      c.alternative_answers_de, c.target_form,
+      -- Works before and after additive chunk migration 74 without exporting
+      -- the rest of the private card row or requiring a schema change first.
+      to_jsonb(c)->>'chunk_de' AS chunk_de
+      FROM public.learning_vocabulary_cards c) v), '[]'::jsonb),
   'vocabulary_translations', coalesce((SELECT jsonb_agg(to_jsonb(v) ORDER BY v.card_id)
     FROM (SELECT card_id, locale, translation, context_sentence
       FROM public.vocabulary_translations WHERE locale = 'de') v), '[]'::jsonb),
