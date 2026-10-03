@@ -2,7 +2,9 @@ import { fireEvent, render, screen, within } from '@testing-library/react'
 import LessonCardsModal from '@/components/vocabulary/LessonCardsModal'
 import VocabCardSession from '@/components/vocabulary/VocabCardSession'
 import { SitovVocabularyUsage } from '@/components/vocabulary/SitovVocabularyContent'
+import SolutionAudioButton from '@/components/exercises/SolutionAudioButton'
 import { getLessonCards } from '@/app/actions/vocabulary'
+import { prefetchNeuralAudio } from '@/lib/audio/neural-client'
 import { sitovFilterVocabularyCards, sitovVocabularyCardKind, sitovVocabularyKindCounts } from '@/lib/vocabulary-chunks'
 import { SITOV_VOCABULARY_CHUNKS_MESSAGES } from '@/lib/vocabulary-chunks-i18n'
 import type { DueVocabularyCard, LessonCardView } from '@/lib/types/vocabulary'
@@ -18,7 +20,7 @@ jest.mock('@/app/actions/learning-checkpoints', () => ({
   clearLearningCheckpoint: jest.fn(),
 }))
 jest.mock('@/components/layout/ThemeToggle', () => ({ __esModule: true, default: () => null }))
-jest.mock('@/components/exercises/SolutionAudioButton', () => ({ __esModule: true, default: ({ label, text, cardId }: { label: string; text: string; cardId?: string }) => <button data-audio-text={text} data-audio-card={cardId}>{label}</button> }))
+jest.mock('@/components/exercises/SolutionAudioButton', () => ({ __esModule: true, default: jest.fn(({ label, text, cardId }: { label: string; text: string; cardId?: string }) => <button data-audio-text={text} data-audio-card={cardId}>{label}</button>) }))
 jest.mock('@/lib/audio/neural-client', () => ({ prefetchNeuralAudio: jest.fn().mockReturnValue(jest.fn()) }))
 
 const word: LessonCardView = {
@@ -123,6 +125,37 @@ it('does not expose German usage when switching to a typed prompt', () => {
   expect(screen.queryByText('einen Termin vereinbaren')).not.toBeInTheDocument()
   expect(screen.queryByText('Paul vereinbart einen Termin.')).not.toBeInTheDocument()
   expect(screen.getByText('Chunk')).toBeInTheDocument()
+})
+
+it('passes each revealed usage text with its card scope and never prefetches hidden usage', () => {
+  const cardId = 'fc5ff112-e442-4e86-a4f9-bda38f09089f'
+  const headwordAudio = '/prepared/termin.mp3'
+  session({ id: cardId, audio_url: headwordAudio })
+  // The existing lookahead loads the headword only. Neither German usage text
+  // reaches the shared player or the prefetch queue before the learner reveals it.
+  expect(SolutionAudioButton).not.toHaveBeenCalled()
+  expect(prefetchNeuralAudio).toHaveBeenCalledWith([
+    { text: 'der Termin', language: 'de', cardId, audioUrl: headwordAudio },
+  ])
+  const lookaheadCalls = jest.mocked(prefetchNeuralAudio).mock.calls.length
+
+  fireEvent.click(screen.getByRole('button', { name: de.vocabulary.reveal_solution }))
+  const usageSources = () => jest.mocked(SolutionAudioButton).mock.calls
+    .map(([props]) => props).filter(props => props.label === 'Anhören')
+  expect(usageSources()).toEqual([
+    expect.objectContaining({ text: word.usageChunk, cardId, language: 'de', level: 'A2.1' }),
+  ])
+  // A chunk/example must resolve its own prepared recording, rather than
+  // accidentally inheriting the headword's explicit recording URL.
+  expect(usageSources()[0].audioUrl).toBeUndefined()
+  expect(usageSources().some(props => props.text === word.contextSentence)).toBe(false)
+
+  fireEvent.click(screen.getByRole('tab', { name: 'Beispiel' }))
+  expect(usageSources().at(-1)).toEqual(expect.objectContaining({
+    text: word.contextSentence, cardId, language: 'de', level: 'A2.1',
+  }))
+  expect(usageSources().at(-1)?.audioUrl).toBeUndefined()
+  expect(prefetchNeuralAudio).toHaveBeenCalledTimes(lookaheadCalls)
 })
 
 it('provides the chunk distinction in every supported UI language', () => {
