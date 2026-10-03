@@ -5,6 +5,7 @@ import BakeryJourney from '@/components/journey/BakeryJourney'
 import { cachedNeuralAudio, resolveNeuralAudio } from '@/lib/audio/neural-client'
 import type { DailyQuest, DailyQuestStepResult, DailyQuestStreak } from '@/lib/daily-quest-contract'
 import { getDailyQuestCopy } from '@/lib/daily-quest-i18n'
+import { skipDailyQuest } from '@/app/actions/daily-quests'
 
 const replace = jest.fn()
 const refresh = jest.fn()
@@ -39,7 +40,7 @@ function quest(): DailyQuest {
   }
 }
 function actions(): jest.Mocked<DailyQuestActions> {
-  return { submit: jest.fn(), complete: jest.fn(), skip: jest.fn() }
+  return { submit: jest.fn(), complete: jest.fn() }
 }
 function deferred<T>() {
   let resolve!: (value: T) => void
@@ -182,16 +183,20 @@ it('announces a recoverable server error and only shows the database streak afte
   expect(refresh).toHaveBeenCalled()
 })
 
-it('keeps skip recoverable and navigates softly only after a saved skip', async () => {
+it('returns home without a skip mutation and resumes verified station progress on re-entry', async () => {
   const initial = quest(); const callbacks = actions()
-  callbacks.skip.mockResolvedValueOnce({ error: 'unavailable' })
-  callbacks.skip.mockResolvedValueOnce({ data: { success: true, quest: { ...initial, status: 'skipped' }, streak } })
-  mount(initial, callbacks)
-  fireEvent.click(screen.getByRole('button', { name: 'Heute überspringen' }))
-  await screen.findByRole('alert')
-  expect(replace).not.toHaveBeenCalled()
-  fireEvent.click(screen.getByRole('button', { name: 'Heute überspringen' }))
+  initial.completedStepIds = ['words']
+  const { unmount } = mount(initial, callbacks)
+  fireEvent.click(screen.getByRole('button', { name: 'Später machen' }))
   await waitFor(() => expect(replace).toHaveBeenCalledWith('/de/dashboard'))
+  expect(skipDailyQuest).not.toHaveBeenCalled()
+  expect(callbacks.submit).not.toHaveBeenCalled()
+  expect(callbacks.complete).not.toHaveBeenCalled()
+  expect(initial.status).toBe('active')
+  unmount()
+  mount(initial, callbacks)
+  expect(screen.getByRole('heading', { name: 'Deinen Satz bauen' })).toBeInTheDocument()
+  expect(screen.getByText('1 von 3 Stationen')).toBeInTheDocument()
 })
 
 it('labels the teacher preview and shows no student streak in its completion screen', () => {

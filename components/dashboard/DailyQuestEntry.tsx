@@ -1,31 +1,41 @@
 import Link from 'next/link'
-import { ArrowRight, Flame, Map } from 'lucide-react'
+import { ArrowRight, BookOpen, Check, Flame, Headphones, Map, MessageCircle } from 'lucide-react'
 import { getDailyQuestCopy } from '@/lib/daily-quest-i18n'
 import type { DailyQuestStatus } from '@/lib/daily-quest-contract'
+import styles from './DailyQuestEntry.module.css'
 
 export default function DailyQuestEntry({ lang, status }: { lang: string; status: DailyQuestStatus }) {
   const copy = getDailyQuestCopy(lang)
+  const completed = status.today?.status === 'completed'
   const href = status.enabled ? `/${lang}/dashboard/daily-quest` : `/${lang}/dashboard/profile#daily-quest`
   const label = !status.enabled ? copy.openSettings
-    : status.today?.status === 'completed' ? copy.entryDone
-      : status.today?.status === 'skipped' ? copy.entrySkipped : copy.entryStart
+    : completed ? copy.entryDone : copy.entryStart
   return (
-    <section aria-labelledby="daily-quest-entry-title" className="rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-5 shadow-sm sm:p-6" data-testid="daily-quest-entry">
-      <div className="flex flex-wrap items-center justify-between gap-4">
-        <div className="flex min-w-0 items-start gap-3">
-          <Map className="mt-1 shrink-0 text-[var(--accent-text)]" size={26} aria-hidden="true" />
-          <div className="min-w-0">
-            <h2 id="daily-quest-entry-title" className="text-xl font-bold text-[var(--foreground)]">{copy.eyebrow}</h2>
-            <p className="mt-1 text-base text-[var(--muted)]">{status.enabled ? copy.entryHint : copy.disabledHint}</p>
-            <p className="mt-3 inline-flex items-center gap-2 text-base font-semibold text-[var(--foreground)]">
-              <Flame size={20} aria-hidden="true" />{status.streak.current} {copy.streakDays}
-            </p>
-          </div>
-        </div>
-        <Link href={href} className="inline-flex min-h-14 items-center justify-center gap-3 rounded-2xl bg-[var(--accent-strong)] px-5 py-3 text-base font-bold text-[var(--accent-foreground)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent)]">
-          {label}<ArrowRight size={20} aria-hidden="true" />
-        </Link>
+    <section aria-labelledby="sitov-daily-quest-entry-title" className={styles.sitovEntry} data-completed={completed} data-enabled={status.enabled} data-testid="daily-quest-entry">
+      <div className={styles.sitovHeader}>
+        <p className={styles.sitovEyebrow}><Map size={18} aria-hidden="true" />{copy.settingsTitle}</p>
+        {status.streak.current > 0 && <p className={styles.sitovStreak}>
+          <Flame size={17} aria-hidden="true" /><span>{status.streak.current} {copy.streakDays}</span>
+        </p>}
       </div>
+      <div className={styles.sitovBody}>
+        <div className={styles.sitovText}>
+          <h2 id="sitov-daily-quest-entry-title" className={styles.sitovTitle}>{status.enabled ? copy.title : copy.disabledTitle}</h2>
+          <p className={styles.sitovHint}>{status.enabled ? copy.entryHint : copy.disabledHint}</p>
+        </div>
+        <div className={styles.sitovRoute} aria-hidden="true">
+          <svg className={styles.sitovRoutePath} viewBox="0 0 120 104" fill="none">
+            <path d="M23 23H78C108 23 108 77 78 77H44" stroke="currentColor" strokeWidth="2" strokeDasharray="3 5" strokeLinecap="round" />
+          </svg>
+          <span className={styles.sitovRouteWord}><BookOpen size={20} /></span>
+          <span className={styles.sitovRouteListen}><Headphones size={20} /></span>
+          <span className={styles.sitovRouteTalk}>{completed ? <Check size={23} /> : <MessageCircle size={21} />}</span>
+        </div>
+      </div>
+      <Link href={href} className={`${styles.sitovAction} st-press`}>
+        {completed && status.enabled && <Check size={19} aria-hidden="true" />}
+        <span>{label}</span><ArrowRight size={19} aria-hidden="true" />
+      </Link>
     </section>
   )
 }

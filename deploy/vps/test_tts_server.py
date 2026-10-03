@@ -12,9 +12,9 @@ import tts_server
 class SpeechBoundaryTests(unittest.TestCase):
     def test_supported_languages_and_input_limits(self):
         for language in ['de','en','ru','uk','tr']:
-            self.assertEqual(tts_server.validate_request(json.dumps({'text':' Hallo ','language':language}).encode()),('Hallo',language))
-        self.assertEqual(tts_server.validate_request(json.dumps({'text':' Äpfel \n übermäßig süß. ','language':'de','voice':'male'}).encode()),('Äpfel übermäßig süß.','de'))
-        for body in [{},[],{'text':'','language':'de'},{'text':'Hi','language':[]},{'text':'x'*3001,'language':'de'},{'text':'hi\x00','language':'de'},{'text':'Hi','language':'de','voice':[]},{'text':'Hi','language':'de','voice':'other'},{'text':'Hi','language':'de','voice':'female'},{'text':'Hi','language':'en','voice':'male'}]:
+            self.assertEqual(tts_server.validate_request(json.dumps({'text':' Hallo ','language':language}).encode()),('Hallo',language,None))
+        self.assertEqual(tts_server.validate_request(json.dumps({'text':' Äpfel \n übermäßig süß. ','language':'de','voice':'male'}).encode()),('Äpfel übermäßig süß.','de','male'))
+        for body in [{},[],{'text':'','language':'de'},{'text':'Hi','language':[]},{'text':'x'*3001,'language':'de'},{'text':'hi\x00','language':'de'},{'text':'Hi','language':'de','voice':[]},{'text':'Hi','language':'de','voice':'other'},{'text':'Hi','language':'en','voice':'male'}]:
             with self.assertRaises(ValueError):
                 tts_server.validate_request(json.dumps(body).encode())
         with self.assertRaises(ValueError):
@@ -43,7 +43,7 @@ class SpeechBoundaryTests(unittest.TestCase):
             try:
                 conn.request('POST','/synthesize',json.dumps(body),{'Content-Type':'application/json','Authorization':'Bearer '+token})
                 response=conn.getresponse()
-                return response.status,response.getheader('Content-Type'),response.getheader('X-Word-Timings'),response.getheader('X-TTS-Voice'),response.read()
+                return response.status,response.getheader('Content-Type'),response.getheader('X-Word-Timings'),response.getheader('X-TTS-Voice'),response.getheader('X-TTS-Revision'),response.read()
             finally:
                 conn.close()
         try:
@@ -53,12 +53,14 @@ class SpeechBoundaryTests(unittest.TestCase):
             engine.lock.acquire()
             self.assertEqual(post({'text':'Hallo','language':'de'})[0],503)
             engine.lock.release()
-            status,content_type,header,profile,body=post({'text':'Hallo','language':'de'})
+            status,content_type,header,profile,revision,body=post({'text':'Hallo','language':'de'})
             self.assertEqual((status,content_type,profile,body),(200,'audio/mpeg','male',audio))
             self.assertEqual(json.loads(header),timings)
-            engine.speak.assert_called_once_with('Hallo','de')
-            self.assertEqual(post({'text':'Hallo','language':'de','voice':'female'})[0],400)
-            engine.speak.assert_called_once_with('Hallo','de')
+            self.assertIsNone(revision)
+            engine.speak.assert_called_once_with('Hallo','de',None)
+            female=post({'text':'Hallo','language':'de','voice':'female'})
+            self.assertEqual((female[0],female[3],female[4]),(200,'female',tts_server.FEMALE_SYNTHESIS_REVISION))
+            engine.speak.assert_called_with('Hallo','de','female')
             engine.speak.return_value=(audio,None)
             self.assertIsNone(post({'text':'Hello','language':'en'})[2])
             self.assertIsNone(post({'text':'Hello','language':'en'})[3])

@@ -20,7 +20,7 @@ it('injects local preview actions, a zero streak and the admin return destinatio
   expect(jest.mocked(DailyQuestEngine).mock.calls[0][0]).toEqual(expect.objectContaining({
     preview: true, dashboardHref: '/de/admin', initialQuest: dailyQuestFixture,
     initialStreak: { current: 0, longest: 0, lastCompletedDate: null },
-    actions: { submit: expect.any(Function), complete: expect.any(Function), skip: expect.any(Function) },
+    actions: { submit: expect.any(Function), complete: expect.any(Function) },
   }))
 })
 
@@ -45,13 +45,6 @@ it('requires ordered stations and server-authored dialogue keys before local com
   expect(finished.data?.streak).toEqual({ current: 0, longest: 0, lastCompletedDate: null })
   expect(dailyQuestFixture.status).toBe('active')
   expect(dailyQuestFixture.completedStepIds).toEqual([])
-})
-
-it('only skips local state and does not reactivate a skipped preview', async () => {
-  const actions = createDailyQuestPreviewActions(preview)
-  expect((await actions.skip(dailyQuestFixture.id)).data?.quest.status).toBe('skipped')
-  expect(await discover(actions)).toEqual({ error: 'not_active' })
-  expect(await actions.complete(dailyQuestFixture.id)).toEqual({ error: 'not_active' })
 })
 
 it('rejects assignment impersonation and incomplete answer shapes', async () => {

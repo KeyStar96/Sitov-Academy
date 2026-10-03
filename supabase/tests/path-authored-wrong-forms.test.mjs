@@ -48,7 +48,7 @@ await test('authored wrong forms of a gap withdraw the typing tolerance (58)', a
       assert.deepEqual(helper[0].proconfig, ['search_path=""'])
       const timestamped = await readFile(new URL('../migrations/20261002164126_path_authored_wrong_forms.sql', import.meta.url), 'utf8')
       assert.equal(timestamped, await readFile(new URL(`../vps/${migration}`, import.meta.url), 'utf8'))
-      assert.ok((await readFile(new URL('../schema.sql', import.meta.url), 'utf8')).endsWith(`-- Consolidated correction: ${migration}\n${timestamped}`))
+      assert.ok((await readFile(new URL('../schema.sql', import.meta.url), 'utf8')).includes(`-- Consolidated correction: ${migration}\n${timestamped}`))
     })
 
     await t.test('a tolerated answer that equals a stored wrong form is incorrect', async () => {

@@ -136,4 +136,8 @@ it('uses a different immutable cache key for the female persona without invalida
   const male = neuralAudioPath('Guten Morgen!', 'de')
   expect(neuralAudioPath('Guten Morgen!', 'de', 'male')).toBe(male)
   expect(neuralAudioPath('Guten Morgen!', 'de', 'female')).not.toBe(male)
+  // The previous MLS recordings were garbled for short Daily Journey phrases.
+  // They remain immutable; the corrected engine must never serve them again.
+  const oldHash = createHash('sha256').update(JSON.stringify({ text: 'Guten Morgen!', voice: 'de_DE-mls-medium-speaker2', rate: AUDIO_RATE, format: AUDIO_FORMAT })).digest('hex')
+  expect(neuralAudioPath('Guten Morgen!', 'de', 'female')).not.toBe(`${AUDIO_CACHE_VERSION}/de/${oldHash}.mp3`)
 })

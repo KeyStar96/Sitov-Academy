@@ -1,6 +1,6 @@
 import 'server-only'
 
-import { AUDIO_MAX_BYTES, AUDIO_MAX_TEXT_LENGTH, NEURAL_VOICES, normalizeAudioText } from './neural-config'
+import { AUDIO_MAX_BYTES, AUDIO_MAX_TEXT_LENGTH, GERMAN_FEMALE_SYNTHESIS_REVISION, NEURAL_VOICES, normalizeAudioText } from './neural-config'
 import { validWordTimings } from './playback-settings'
 import type { AudioWordTiming, GermanAudioVoice, NeuralAudioLanguage } from '@/lib/types/audio'
 
@@ -37,7 +37,7 @@ export async function synthesizeNeuralSpeech(input: string, language: NeuralAudi
       })
     }
     if (!response.ok || !response.body || !response.headers.get('Content-Type')?.startsWith('audio/mpeg')) throw new Error('Local speech service unavailable')
-    if (voice === 'female' && response.headers.get('X-TTS-Voice') !== 'female') {
+    if (voice === 'female' && (response.headers.get('X-TTS-Voice') !== 'female' || response.headers.get('X-TTS-Revision') !== GERMAN_FEMALE_SYNTHESIS_REVISION)) {
       await response.body.cancel()
       throw new Error('Local speech service unavailable')
     }

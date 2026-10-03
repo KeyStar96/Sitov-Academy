@@ -10,8 +10,9 @@ export const NEURAL_VOICES = {
 
 // MLS speaker 2037 (Piper ID 2), female in the original MLS metadata.
 export const GERMAN_FEMALE_VOICE = 'de_DE-mls-medium-speaker2'
+export const GERMAN_FEMALE_SYNTHESIS_REVISION = 'sitov-mls-context-v1'
 export function neuralVoiceName(language: NeuralAudioLanguage, voice?: GermanAudioVoice): string {
-  return language === 'de' && voice === 'female' ? GERMAN_FEMALE_VOICE : NEURAL_VOICES[language].voice
+  return language === 'de' && voice === 'female' ? `${GERMAN_FEMALE_VOICE}-${GERMAN_FEMALE_SYNTHESIS_REVISION}` : NEURAL_VOICES[language].voice
 }
 
 export const AUDIO_CACHE_BUCKET = 'audio_cache'

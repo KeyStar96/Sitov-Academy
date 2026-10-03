@@ -15,8 +15,12 @@ backup and final HTTP evidence; this document describes the release design.
 - Intro, word discovery, sentence building and dialogue lead to a travel stamp.
   The three exercise stations are checked by PostgreSQL, in order. Wrong answers
   stay retryable; only a confirmed completion increases the streak.
-- Skip saves `skipped` for today and transitions to the dashboard through the
-  client router. It neither awards a streak nor reopens today's assignment.
+- “Do it later” transitions to the dashboard through the client router without
+  a server mutation. Today's journey stays available, and verified stations
+  resume when the learner returns. Migration 60 restores current-day legacy
+  skips without changing their progress or historical assignments.
+- Home shows the journey card below the greeting and today's learning plan,
+  with a persistent entry action until completion.
 - Mobile controls, focus changes, reduced motion, theme and high contrast use
   the existing UI infrastructure. UI labels cover de, en, ru, uk and tr;
   authored learning content stays German. No microphone or scoring AI is used.
@@ -90,7 +94,7 @@ The CLI migration symlinks to that canonical VPS file; its frozen SHA-256 is
 | `get_daily_quest_status()` | Read preference, today's status and streak |
 | `set_daily_quest_enabled(boolean)` | Change the authenticated student's preference |
 | `submit_daily_quest_step(uuid,text,jsonb)` | Validate an ordered station answer |
-| `skip_daily_quest(uuid)` | Persist today's soft skip |
+| `skip_daily_quest(uuid)` | Compatibility no-op for older clients; returns current assignment |
 | `complete_daily_quest(uuid)` | Complete all verified stations idempotently |
 | `get_daily_quest_preview(text)` | Read-only teacher/admin template and answer keys |
 
@@ -103,7 +107,7 @@ with Zod. Student DTOs strip authoring keys. No service key is sent to clients.
 
 Completion awards at most one day. Consecutive completions increment the current
 streak; a gap starts it at one. Status displays zero once the last completion is
-older than yesterday, preserving the longest streak. Skip does not freeze it.
+older than yesterday, preserving the longest streak. Leaving does not affect it.
 Staff preview at `/[lang]/admin/daily-quest` exposes keys only after staff checks;
 its injected callbacks grade locally, create no assignment and award no streak.
 
@@ -116,11 +120,25 @@ model defaults `noise_scale=0.333`, `noise_w_scale=0.333`; persona-aware caches
 and `X-TTS-Voice` prevent silently substituting the male voice. MLS is CC BY 4.0,
 Thorsten CC0, Piper GPL-3.0 and ONNX Apache-2.0; preserve attribution and model
 cards from `deploy/vps/TTS_LICENSES.md`. No subjective premium-quality claim.
-Both real personas passed an isolated HTTP probe on `127.0.0.1:19070`: MP3 at
-24 kHz mono, distinct waveform hashes, six/seven timing entries within media
-duration, invalid requests 400 and missing authorization 401. The six-token
-greeting measured 1.944 s male and 7.200 s female; the seven-token variant measured
-2.376 s and 6.384 s. These are audio durations, not network response times.
+
+The MLS model was trained on audiobooks and garbles short phrases despite
+returning valid MP3 and word timings. The upstream [short-phrase guidance](https://github.com/rhasspy/piper-sample-generator/blob/2dbff77c61d023622b1f5450205b6e95cb34021e/README.md#short-phrases)
+requires at least 300 phoneme IDs. Female synthesis now combines the requested
+sentences, repeats their phonemes as inference context until that threshold,
+and retains only the final utterance using generated phoneme sample counts.
+Missing or inconsistent boundaries fail safely instead of playing repetitions.
+No extra words, changed voice or estimated crop durations reach the learner.
+The female cache identity includes `sitov-mls-context-v1`, and the adapter
+requires the matching `X-TTS-Revision` before caching newly generated speech.
+Old garbled recordings are bypassed; other voices retain their existing keys.
+
+The corrected source passed real-model integration checks on the VPS. Offline
+Whisper-small QA recognized "Guten Morgen! Was möchten Sie?" and "das Brötchen"
+exactly, with no repetitions; the fourteen-word bakery variant had one ASR word
+substitution. The MP3 samples measured 1.916 s, 0.882 s and 4.853 s respectively,
+at 24 kHz mono with five, two and fourteen sample-based timing entries.
+ASR is an optional test dependency; production synthesis remains fully local
+Piper inference with no recognition model or provider request.
 
 Passed preparation checks include 19 DB cases, eight concurrent login and eight
 completion sessions on native PostgreSQL 17, and a full 17-schema VPS clone on

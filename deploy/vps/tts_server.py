@@ -15,12 +15,15 @@ import time
 import unicodedata
 import wave
 from collections import OrderedDict
+from dataclasses import replace
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
 VOICES = {"de": "de_DE-thorsten-high", "en": "en_US-ljspeech-high", "ru": "ru_RU-denis-medium", "uk": "uk_UA-ukrainian_tts-medium", "tr": "espeak-ng-tr"}
 FEMALE_MODEL = "de_DE-mls-medium"
 FEMALE_SPEAKER_ID = 2  # MLS donor 2037: female in metainfo.txt (CC BY 4.0).
+FEMALE_SYNTHESIS_REVISION = "sitov-mls-context-v1"
+FEMALE_MIN_PHONEME_IDS = 300
 MAX_BODY = 16 * 1024
 MAX_CHARS = 3000
 MAX_AUDIO = 2 * 1024 * 1024
@@ -226,6 +229,50 @@ def token_timings(text: str, voice, spans: list[dict]) -> list[dict[str, float]]
     return result
 
 
+def female_context_chunks(text: str, voice, syn_config):
+    """Give the audiobook MLS model enough context, returning one utterance.
+
+    Upstream documents that MLS short phrases need at least 300 phoneme IDs.
+    Repetitions are inference context only: generated phoneme durations locate
+    the final repetition exactly, so no extra words reach the MP3 or timings.
+    """
+    phonemes = []
+    for sentence in voice.phonemize(text):
+        if phonemes:
+            phonemes.append(" ")
+        phonemes.extend(sentence)
+    if not phonemes:
+        raise ValueError("invalid_phonemes")
+    padded = list(phonemes)
+    last_start = 0
+    while len(voice.phonemes_to_ids(padded)) < FEMALE_MIN_PHONEME_IDS:
+        padded.append(" ")
+        last_start = len(padded)
+        padded.extend(phonemes)
+    # A raw phoneme block bypasses Piper's sentence splitter. Even a request
+    # containing several short sentences must reach the model as one context.
+    chunks = list(voice.synthesize("[[" + "".join(padded) + "]]", syn_config=syn_config, include_alignments=True))
+    if len(chunks) != 1:
+        raise RuntimeError("context_alignment_required")
+    chunk = chunks[0]
+    alignments = chunk.phoneme_alignments
+    if (not alignments or len(alignments) != len(padded) + 2
+            or [item.phoneme for item in alignments] != ["^", *padded, "$"]
+            or any(int(item.num_samples) < 0 for item in alignments)
+            or sum(int(item.num_samples) for item in alignments) != len(chunk.audio_float_array)):
+        raise RuntimeError("context_alignment_required")
+    first = last_start + 1  # BOS is the first alignment entry.
+    sample_start = sum(int(item.num_samples) for item in alignments[:first])
+    if sample_start >= len(chunk.audio_float_array):
+        raise RuntimeError("context_alignment_required")
+    kept = alignments[first:]
+    id_start = sum(len(item.phoneme_ids) for item in alignments[:first])
+    yield replace(chunk, audio_float_array=chunk.audio_float_array[sample_start:],
+                  phonemes=phonemes, phoneme_ids=chunk.phoneme_ids[id_start:],
+                  phoneme_id_samples=chunk.phoneme_id_samples[id_start:] if chunk.phoneme_id_samples is not None else None,
+                  phoneme_alignments=kept, _audio_int16_array=None, _audio_int16_bytes=None)
+
+
 def synthesize(text: str, language: str, voices: VoiceCache, profile: str | None = None) -> tuple[bytes, list[dict[str, float]] | None]:
     timings = None
     if language == "tr":
@@ -239,11 +286,14 @@ def synthesize(text: str, language: str, voices: VoiceCache, profile: str | None
         spans = []
         samples = 0
         aligned = language == "de"
+        female = language == "de" and profile == "female"
+        config = SynthesisConfig(length_scale=1.0, noise_scale=0.333 if female else 0.667, noise_w_scale=0.333 if female else 0.8, speaker_id=FEMALE_SPEAKER_ID if female else 2 if language == "uk" else None)
+        chunks = female_context_chunks(text, voice, config) if female else voice.synthesize(text, syn_config=config, include_alignments=aligned)
         with wave.open(output, "wb") as wav_file:
             wav_file.setframerate(voice.config.sample_rate)
             wav_file.setsampwidth(2)
             wav_file.setnchannels(1)
-            for chunk in voice.synthesize(text, syn_config=SynthesisConfig(length_scale=1.0, noise_scale=0.333 if language == "de" and profile == "female" else 0.667, noise_w_scale=0.333 if language == "de" and profile == "female" else 0.8, speaker_id=FEMALE_SPEAKER_ID if language == "de" and profile == "female" else 2 if language == "uk" else None), include_alignments=aligned):
+            for chunk in chunks:
                 if aligned:
                     if not chunk.phoneme_alignments or sum(int(item.num_samples) for item in chunk.phoneme_alignments) != len(chunk.audio_int16_array):
                         aligned = False
@@ -373,6 +423,8 @@ class SpeechHandler(BaseHTTPRequestHandler):
                 self.send_header("X-Word-Timings", header)
         if profile:
             self.send_header("X-TTS-Voice", profile)
+        if profile == "female":
+            self.send_header("X-TTS-Revision", FEMALE_SYNTHESIS_REVISION)
         self.end_headers()
         self.wfile.write(body)
 

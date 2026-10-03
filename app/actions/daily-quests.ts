@@ -38,6 +38,7 @@ export async function completeDailyQuest(assignmentId: unknown): Promise<DailyQu
   return result
 }
 
+/** Compatibility with older clients; the current engine leaves through navigation. */
 export async function skipDailyQuest(assignmentId: unknown): Promise<DailyQuestResult<DailyQuestMutation>> {
   const parsed = assignmentIdSchema.safeParse(assignmentId)
   if (!parsed.success) return { error: 'invalid_input' } as const

@@ -1,0 +1,1 @@
+../vps/60_daily_quest_resume.sql

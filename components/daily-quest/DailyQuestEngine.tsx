@@ -9,7 +9,7 @@ import BrandLogo from '@/components/layout/BrandLogo'
 import MotionProvider from '@/components/motion/MotionProvider'
 import PressableCard from '@/components/motion/PressableCard'
 import FeedbackMotion from '@/components/motion/FeedbackMotion'
-import { completeDailyQuest, skipDailyQuest, submitDailyQuestStep } from '@/app/actions/daily-quests'
+import { completeDailyQuest, submitDailyQuestStep } from '@/app/actions/daily-quests'
 import type { DailyQuest, DailyQuestMutation, DailyQuestResult, DailyQuestStep, DailyQuestStepAnswer, DailyQuestStepResult, DailyQuestStreak } from '@/lib/daily-quest-contract'
 import { getDailyQuestCopy } from '@/lib/daily-quest-i18n'
 import { neuralAudioKey, type NeuralAudioSource } from '@/lib/audio/neural-client'
@@ -22,7 +22,6 @@ import styles from './DailyQuestEngine.module.css'
 export interface DailyQuestActions {
   submit: (input: { assignmentId: string; stepId: string; answer: DailyQuestStepAnswer }) => Promise<DailyQuestResult<DailyQuestStepResult>>
   complete: (assignmentId: string) => Promise<DailyQuestResult<DailyQuestMutation>>
-  skip: (assignmentId: string) => Promise<DailyQuestResult<DailyQuestMutation>>
 }
 export interface DailyQuestEngineProps {
   initialQuest: DailyQuest
@@ -33,7 +32,7 @@ export interface DailyQuestEngineProps {
   /** The production defaults are authenticated server actions. */
   actions?: DailyQuestActions
 }
-const DEFAULT_ACTIONS: DailyQuestActions = { submit: submitDailyQuestStep, complete: completeDailyQuest, skip: skipDailyQuest }
+const DEFAULT_ACTIONS: DailyQuestActions = { submit: submitDailyQuestStep, complete: completeDailyQuest }
 
 function firstOpenStep(quest: DailyQuest) {
   const index = quest.steps.findIndex(step => !quest.completedStepIds.includes(step.id))
@@ -152,18 +151,6 @@ export default function DailyQuestEngine({ initialQuest, initialStreak, locale, 
     } catch { if (alive.current) setError(copy.requestError) }
     finally { busyRef.current = false; if (alive.current) setBusy(false) }
   }
-  async function skip() {
-    if (busyRef.current || leaving) return
-    if (quest.status !== 'active') { goDashboard(); return }
-    busyRef.current = true; setBusy(true); setError(''); audio.stop()
-    try {
-      const result = await actions.skip(quest.id)
-      if (!alive.current) return
-      if (result.error || !result.data || result.data.quest.status !== 'skipped') { setError(copy.requestError); return }
-      setQuest(result.data.quest); setStreak(result.data.streak); goDashboard()
-    } catch { if (alive.current) setError(copy.requestError) }
-    finally { busyRef.current = false; if (alive.current) setBusy(false) }
-  }
   function selectWord(id: string) {
     if (busyRef.current || stationComplete) return
     audio.stop()
@@ -191,7 +178,7 @@ export default function DailyQuestEngine({ initialQuest, initialStreak, locale, 
     <div className={styles.shell}>
       <header className={styles.header}>
         <BrandLogo name="Sitov Academy" />
-        <PressableCard className={styles.skip} disabled={busy || leaving} onClick={() => { void skip() }}>{complete || skipped ? copy.dashboard : copy.skip}</PressableCard>
+        <PressableCard className={styles.skip} disabled={busy || leaving} onClick={goDashboard}>{complete || skipped ? copy.dashboard : copy.skip}</PressableCard>
       </header>
       {preview && <aside className={styles.reference} style={{ marginBottom: 20 }}><p className={styles.note}>{copy.previewNotice}</p></aside>}
       <div className={styles.heading}>

@@ -40,12 +40,6 @@ export function createDailyQuestPreviewActions(preview: PreviewData): DailyQuest
       quest = { ...quest, status: 'completed' }
       return mutation()
     },
-    async skip(assignmentId): Promise<DailyQuestResult<DailyQuestMutation>> {
-      if (assignmentId !== quest.id) return { error: 'invalid_input' }
-      if (quest.status === 'completed') return mutation()
-      quest = { ...quest, status: 'skipped' }
-      return mutation()
-    },
   }
 }
 

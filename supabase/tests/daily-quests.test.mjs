@@ -3,7 +3,7 @@ import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
 import { createCurrentDatabase, currentFeatureMigrations, actor, id, student, teacher, outsider, vocabularyUnit, result } from './helpers/current-db.mjs'
 
-const migrations = [...currentFeatureMigrations, '59_daily_quests.sql']
+const migrations = [...currentFeatureMigrations, '59_daily_quests.sql', '60_daily_quest_resume.sql']
 const as = (db, user) => actor(db, user)
 const rpc = (db, sql, params = []) => result(db, `SELECT ${sql} result`, params)
 const quest = async db => { await as(db, student); return (await rpc(db, 'get_daily_quest()')).quest }
@@ -162,14 +162,39 @@ scenario('completion is idempotent per day, contiguous days grow, gaps reset', a
   assert.equal((await rpc(db, 'complete_daily_quest($1)', [first.id])).error, 'expired')
 })
 
-scenario('soft skip is durable, replay-safe and earns no streak', async db => {
+scenario('leaving preserves active status, verified steps and later completion without a streak award', async db => {
   const assigned = await quest(db)
+  await submit(db, assigned.id, 'discover', { wordIds: ['food', 'coffee', 'bag'] })
   const skipped = await rpc(db, 'skip_daily_quest($1)', [assigned.id])
-  assert.equal(skipped.quest.status, 'skipped'); assert.equal(skipped.streak.current, 0)
-  assert.equal((await rpc(db, 'skip_daily_quest($1)', [assigned.id])).quest.status, 'skipped')
-  assert.equal((await rpc(db, 'complete_daily_quest($1)', [assigned.id])).error, 'not_active')
+  assert.equal(skipped.quest.status, 'active'); assert.equal(skipped.streak.current, 0)
+  assert.deepEqual(skipped.quest.completedStepIds, ['discover'])
+  assert.equal((await rpc(db, 'skip_daily_quest($1)', [assigned.id])).quest.status, 'active')
+  assert.equal((await rpc(db, 'complete_daily_quest($1)', [assigned.id])).error, 'steps_incomplete')
+  assert.equal((await rpc(db, 'get_daily_quest()')).quest.status, 'active')
+  assert.equal((await rpc(db, 'get_daily_quest_status()')).today.status, 'active')
+  await rpc(db, 'claim_daily_quest_login()')
   assert.equal((await rpc(db, 'claim_daily_quest_login()')).shouldRedirect, false)
-  assert.equal((await rpc(db, 'get_daily_quest()')).quest.status, 'skipped')
+  await finishSteps(db, assigned.id)
+  assert.equal((await rpc(db, 'complete_daily_quest($1)', [assigned.id])).streak.current, 1)
+  assert.equal((await rpc(db, 'skip_daily_quest($1)', [assigned.id])).quest.status, 'completed')
+})
+
+scenario('resume migration restores today’s old skips while preserving historical rows and progress', async db => {
+  const assigned = await quest(db)
+  await submit(db, assigned.id, 'discover', { wordIds: ['food', 'coffee', 'bag'] })
+  await db.exec('RESET ROLE')
+  await db.query("UPDATE daily_quest_assignments SET status='skipped',skipped_at=now() WHERE id=$1", [assigned.id])
+  await db.query("INSERT INTO daily_quest_assignments(auth_user_id,quest_date,template_id,snapshot,status,skipped_at) SELECT auth_user_id,quest_date-1,template_id,snapshot,'skipped',now() FROM daily_quest_assignments WHERE id=$1", [assigned.id])
+  const source = await readFile(new URL('../vps/60_daily_quest_resume.sql', import.meta.url), 'utf8')
+  await db.exec(source); await db.exec(source)
+  const rows = (await db.query('SELECT status,skipped_at,completed_step_ids FROM daily_quest_assignments ORDER BY quest_date')).rows
+  assert.equal(rows[0].status, 'skipped'); assert.ok(rows[0].skipped_at)
+  assert.equal(rows[1].status, 'active'); assert.equal(rows[1].skipped_at, null)
+  assert.deepEqual(rows[1].completed_step_ids, ['discover'])
+  await as(db, student)
+  assert.equal((await rpc(db, 'get_daily_quest()')).quest.id, assigned.id)
+  await finishSteps(db, assigned.id)
+  assert.equal((await rpc(db, 'complete_daily_quest($1)', [assigned.id])).quest.status, 'completed')
 })
 
 scenario('partial or empty sublevels cannot advance; all active tests must reach 80', async db => {

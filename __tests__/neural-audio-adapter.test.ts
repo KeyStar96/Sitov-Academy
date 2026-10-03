@@ -1,7 +1,7 @@
 /** @jest-environment node */
 jest.mock('server-only', () => ({}), { virtual: true })
 import { synthesizeNeuralAudio } from '@/lib/audio/edge-tts'
-import { AUDIO_MAX_BYTES, AUDIO_MAX_TEXT_LENGTH } from '@/lib/audio/neural-config'
+import { AUDIO_MAX_BYTES, AUDIO_MAX_TEXT_LENGTH, GERMAN_FEMALE_SYNTHESIS_REVISION } from '@/lib/audio/neural-config'
 const fetchMock = jest.fn<ReturnType<typeof fetch>, Parameters<typeof fetch>>()
 const originalFetch = global.fetch
 function mp3(length=128) { const result=Buffer.alloc(length,1); result.write('ID3'); return result }
@@ -71,9 +71,17 @@ it('ignores invalid alignment rather than inventing word timings', async () => {
 
 it('requests the female persona and requires the service to confirm it', async () => {
   const { synthesizeNeuralSpeech } = await import('@/lib/audio/edge-tts')
-  fetchMock.mockResolvedValueOnce(new Response(mp3(), { headers: { 'Content-Type': 'audio/mpeg', 'X-TTS-Voice': 'female' } }))
+  fetchMock.mockResolvedValueOnce(new Response(mp3(), { headers: { 'Content-Type': 'audio/mpeg', 'X-TTS-Voice': 'female', 'X-TTS-Revision': GERMAN_FEMALE_SYNTHESIS_REVISION } }))
   await expect(synthesizeNeuralSpeech('Guten Morgen!', 'de', 'female')).resolves.toEqual({ audio: mp3() })
   expect(fetchMock.mock.calls[0][1]?.body).toBe(JSON.stringify({ text: 'Guten Morgen!', language: 'de', voice: 'female' }))
   fetchMock.mockResolvedValueOnce(new Response(mp3(), { headers: { 'Content-Type': 'audio/mpeg', 'X-TTS-Voice': 'male' } }))
   await expect(synthesizeNeuralSpeech('Guten Morgen!', 'de', 'female')).rejects.toThrow('Local speech service unavailable')
+})
+
+it('refuses the old female service so garbled recordings cannot enter the corrected cache', async () => {
+  const { synthesizeNeuralSpeech } = await import('@/lib/audio/edge-tts')
+  for (const revision of [undefined, 'old-voice-revision']) {
+    fetchMock.mockResolvedValueOnce(new Response(mp3(), { headers: { 'Content-Type': 'audio/mpeg', 'X-TTS-Voice': 'female', ...(revision ? { 'X-TTS-Revision': revision } : {}) } }))
+    await expect(synthesizeNeuralSpeech('Guten Morgen!', 'de', 'female')).rejects.toThrow('Local speech service unavailable')
+  }
 })

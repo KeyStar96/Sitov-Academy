@@ -135,10 +135,10 @@ export default async function DashboardPage({ params, searchParams }: {
 
   return <div className="space-y-8">
     {confirmed && <AuthStatusMessage status="confirm_success" title={auth('signup_thanks')} message={authStatusMessage(auth, 'confirm_success')} />}
-    {dailyQuest && <DailyQuestEntry lang={lang} status={dailyQuest} />}
     <div className="grid grid-cols-1 items-start gap-5 lg:grid-cols-12">
-      <div className="min-w-0 lg:col-span-7">
+      <div className="flex min-w-0 flex-col gap-5 lg:col-span-7">
         <TodayPlan lang={lang} name={displayName} items={items} fallbackHref={levelBase} week={week} noLevel={!recommended} />
+        {dailyQuest && <DailyQuestEntry lang={lang} status={dailyQuest} />}
       </div>
       <div className="flex min-w-0 flex-col gap-5 lg:col-span-5">
         {progress && <ProgressTeaser progress={progress} lang={lang} focus={focus} />}
