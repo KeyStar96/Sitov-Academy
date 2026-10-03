@@ -6,7 +6,7 @@ import { learningPathSeedSchema } from '@/lib/learning-path-schema'
 import { EXERCISE_TYPES } from '@/lib/types/exercise'
 
 /**
- * Lernpfade ab A1.2 (supabase/seeds/path-<niveau>.json), derzeit A1.2 und A2.1. Die Seeds entstehen aus den
+ * Lernpfade ab A1.2 (supabase/seeds/path-<niveau>.json), derzeit A1.2, A2.1 und A2.2. Die Seeds entstehen aus den
  * Quellen in supabase/seeds/path-src/<niveau>/ (scripts/build-path-seed.mjs) und müssen
  * denselben Vertrag erfüllen wie A1.1: Pfade → Lektionen mit Merkkarte → Wiederholung →
  * Test, jedes Lernziel geübt, wiederholt und geprüft, alles in fünf Sprachen.
@@ -51,6 +51,15 @@ const LEVELS: Record<string, LevelRules> = {
     { from: 5, words: ['dafür', 'darauf', 'daran', 'darüber', 'damit', 'davon', 'wofür', 'worauf', 'woran', 'worüber', 'womit', 'wovon'] },
     { from: 6, words: ['dass', 'musste', 'musstest', 'mussten', 'musstet', 'konnte', 'konntest', 'konnten', 'konntet',
       'wollte', 'wolltest', 'wollten', 'wolltet', 'durfte', 'durftest', 'durften', 'durftet'] },
+  ] },
+  'A2.2': { later: [
+    // Vergleichspartikel „als“ (schöner als …) erst ab Pfad 2.
+    { from: 2, words: ['als'] },
+    // Passiv mit wird/werden erst ab Pfad 3; würde/würden (Pfad 1) sind andere Formen.
+    { from: 3, words: ['wird', 'werden'] },
+    { from: 4, words: ['deshalb', 'entlang', 'gegenüber'] },
+    // „Lass uns …“ ist in Pfad 5 eine feste Wendung; das Verb lassen folgt in Pfad 6.
+    { from: 6, words: ['ob', 'lassen', 'lässt', 'lasst'] },
   ] },
 }
 const LOCALES: Locale[] = ['en', 'ru', 'uk', 'tr']

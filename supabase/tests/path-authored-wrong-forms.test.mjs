@@ -5,7 +5,7 @@ import { createCurrentDatabase, currentFeatureMigrations, apply, actor, id, stud
 
 const migration = '58_path_authored_wrong_forms.sql'
 // Every released path seed: no stored wrong form of any gap may pass, in lessons, reviews and tests.
-const SEEDS = ['path-a1.1.json', 'path-a1.2.json', 'path-a2.1.json']
+const SEEDS = ['path-a1.1.json', 'path-a1.2.json', 'path-a2.1.json', 'path-a2.2.json']
 const unit = id(58100), node = id(58101)
 const base = { target_form: ['Dativ'], instruction: 'Ergänze die Form.' }
 const dative = { ...base, text_before: 'Ich arbeite seit ', text_after: ' Jahr hier.', gap_hint: 'ein', correct_answer: 'einem', options: ['einen', 'einem', 'einer'], accepted_answers: ['einem'] }
