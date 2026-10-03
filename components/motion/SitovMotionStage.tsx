@@ -33,14 +33,16 @@ export default function SitovMotionStage(props: ComponentPropsWithoutRef<'div'>)
 
     const move = (event: PointerEvent) => {
       if (!visible || document.hidden || sitovReduced || event.pointerType === 'touch' || !window.matchMedia?.('(hover: hover) and (pointer: fine)').matches) { clear(); return }
-      const surface = (event.target as Element).closest<HTMLElement>('[data-sitov-surface]')
+      const surface = event.target instanceof Element ? event.target.closest<HTMLElement>('[data-sitov-surface]') : null
       if (!surface || surface.closest('[data-sitov-motion-stage]') !== stage || surface.getAttribute('aria-disabled') === 'true' || surface.matches(':disabled')) { clear(); return }
       if (surface !== active) { clear(); active = surface }
       cancelAnimationFrame(frame)
       frame = requestAnimationFrame(() => {
         const box = surface.getBoundingClientRect()
-        surface.style.setProperty('--sitov-light-x', `${((event.clientX - box.left) / box.width * 100).toFixed(1)}%`)
-        surface.style.setProperty('--sitov-light-y', `${((event.clientY - box.top) / box.height * 100).toFixed(1)}%`)
+        if (box.width <= 0 || box.height <= 0) { clear(); return }
+        const position = (value: number) => `${Math.min(100, Math.max(0, value)).toFixed(1)}%`
+        surface.style.setProperty('--sitov-light-x', position((event.clientX - box.left) / box.width * 100))
+        surface.style.setProperty('--sitov-light-y', position((event.clientY - box.top) / box.height * 100))
         surface.dataset.sitovPointer = 'true'
       })
     }

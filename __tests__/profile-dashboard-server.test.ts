@@ -1,7 +1,8 @@
+jest.mock('@/lib/profile-monthly-access', () => ({ hasConfirmedCourseRegistration: jest.fn().mockResolvedValue(true) }))
 jest.mock('server-only',()=>({}),{virtual:true})
 jest.mock('next/cache',()=>({revalidatePath:jest.fn()}))
 jest.mock('@/utils/supabase/server',()=>({createClient:jest.fn()}))
-jest.mock('@/lib/profile-person',()=>({resolveVerifiedPerson:jest.fn().mockResolvedValue({id:null,unresolved:false})}))
+jest.mock('@/lib/profile-person',()=>({resolveVerifiedPerson:jest.fn().mockResolvedValue({id:'trusted-person',unresolved:false})}))
 jest.mock('@/lib/site-url',()=>({getOutboundSiteUrl:async()=> 'https://example.invalid',buildSiteUrl:()=> 'https://example.invalid/auth/callback?lang=uk'}))
 import { createClient } from '@/utils/supabase/server'
 import { updatePersonalDetails } from '@/app/actions/profile'

@@ -5,12 +5,13 @@ import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import {
-  BookOpen, CalendarDays, ChevronRight, Clapperboard, File, GraduationCap, House, ListChecks, Mic, Route, UserRound, Waypoints,
+  BookOpen, CalendarDays, ChevronRight, Clapperboard, File, GraduationCap, House, ListChecks, Map, Mic, Route, UserRound, Waypoints,
 } from 'lucide-react'
 import { buildBreadcrumbs, type CrumbKind } from '@/lib/breadcrumbs'
 import { createDashboardTranslator, type DashboardTranslations } from '@/lib/dashboard-i18n'
 import { EASE_OUT_SOFT, MOTION, STAGGER, STAGGER_LIMIT, useIsHydrating, useReducedMotionSafe } from '@/lib/motion'
 import { studentTranslator } from '@/lib/student-ui-i18n'
+import { getDailyQuestCopy } from '@/lib/daily-quest-i18n'
 
 const ICONS: Record<CrumbKind, typeof House> = {
   home: House, level: GraduationCap, vocabulary: BookOpen, path: Route, pronunciation: Mic, media: Clapperboard, verbs: Waypoints,
@@ -34,24 +35,23 @@ export default function DashboardHeader({
   lang,
   translations,
   breadcrumbLabel,
+  sitovPathname,
 }: {
   lang: string
   translations: DashboardTranslations
   breadcrumbLabel?: string
+  /** Development previews use the same shell with a synthetic learner route. */
+  sitovPathname?: string
 }) {
-  const pathname = usePathname() ?? ''
+  const sitovCurrentPath = usePathname() ?? ''
+  const pathname = sitovPathname ?? sitovCurrentPath
   const t = createDashboardTranslator(translations)
   const s = studentTranslator(lang)
-  const crumbs = buildBreadcrumbs(pathname, lang, t, s('media_video'))
+  const crumbs = buildBreadcrumbs(pathname, lang, t, s('media_video')).map(crumb =>
+    crumb.href.endsWith('/daily-quest') ? { ...crumb, name: getDailyQuestCopy(lang).navJourney } : crumb)
   const reduced = useReducedMotionSafe()
   const hydrating = useIsHydrating()
   const list = useRef<HTMLOListElement>(null)
-  const known = useRef<Set<string> | null>(null)
-  if (known.current === null) known.current = new Set(crumbs.map(crumb => crumb.href))
-  const firstNew = crumbs.findIndex(crumb => !known.current!.has(crumb.href))
-
-  useEffect(() => { known.current = new Set(crumbs.map(crumb => crumb.href)) })
-
   useClientLayoutEffect(() => {
     const track = list.current
     if (!track || track.scrollWidth <= track.clientWidth) return
@@ -65,13 +65,15 @@ export default function DashboardHeader({
       <ol ref={list} className="st-crumbs__list">
         {crumbs.map((crumb, index) => {
           const isLast = index === crumbs.length - 1
-          const Icon = ICONS[crumb.kind]
-          const entering = !hydrating && !reduced && firstNew !== -1 && index >= firstNew
+          const Icon = crumb.href.endsWith('/daily-quest') ? Map : ICONS[crumb.kind]
+          // Stable href keys preserve existing crumbs; Framer applies initial
+          // only to newly mounted items after a route change.
+          const entering = !hydrating && !reduced
           const content = <><Icon size={18} aria-hidden="true" className="st-crumb__icon" /><span className="st-crumb__text">{crumb.name}</span></>
           return (
             <motion.li key={crumb.href} className="st-crumbs__item" data-kind={crumb.kind}
               initial={entering ? { opacity: 0, x: -8 } : false} animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: MOTION.base, ease: EASE_OUT_SOFT, delay: entering ? Math.min(index - firstNew, STAGGER_LIMIT - 1) * STAGGER : 0 }}>
+              transition={{ duration: MOTION.base, ease: EASE_OUT_SOFT, delay: entering ? Math.min(index, STAGGER_LIMIT - 1) * STAGGER : 0 }}>
               {isLast
                 ? <h1 aria-current="page" className="st-crumb st-crumb--current">{content}</h1>
                 : <Link href={crumb.href} className="st-crumb st-press">{content}</Link>}

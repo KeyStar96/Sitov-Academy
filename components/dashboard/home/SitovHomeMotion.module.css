@@ -4,6 +4,9 @@
 .sitovTeaser { --sitov-home-tone: var(--success); padding: 1.25rem; }
 .sitovPlan::before, .sitovTeaser::before { content: ''; position: absolute; z-index: -1; inset: 0; pointer-events: none; background: radial-gradient(ellipse at var(--sitov-light-x, 85%) var(--sitov-light-y, 12%), color-mix(in srgb, var(--sitov-home-tone) 12%, transparent), transparent 65%); opacity: .65; }
 .sitovContent { position: relative; z-index: 1; }
+.sitovPlan { display: flex; flex-direction: column; }
+.sitovPlan > .sitovContent { display: flex; flex: 1; flex-direction: column; }
+.sitovPlan :global(.st-week) { margin-top: auto; padding-top: 1.1rem; }
 /* Actions from the server are readable even before the stage hydrates. */
 .sitovPlan :global(.st-rise) { animation: none; }
 .sitovRim { position: absolute; inset: 0; padding: 1px; pointer-events: none; border-radius: inherit; overflow: hidden; -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask-composite: exclude; }

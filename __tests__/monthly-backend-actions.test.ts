@@ -1,3 +1,5 @@
+jest.mock('@/lib/profile-monthly-access', () => ({ hasConfirmedCourseRegistration: jest.fn().mockResolvedValue(true) }))
+jest.mock('@/lib/profile-person', () => ({ resolveVerifiedPerson: jest.fn().mockResolvedValue({id:'trusted-person',unresolved:false}) }))
 jest.mock('server-only', () => ({}), { virtual: true })
 jest.mock('next/cache', () => ({ revalidatePath: jest.fn() }))
 jest.mock('@/utils/supabase/server', () => ({ createClient: jest.fn() }))
@@ -10,6 +12,7 @@ import { getNextMonthStaffOverview } from '@/app/actions/admin-operations'
 import { updateStudentRole } from '@/app/actions/admin'
 import { updateProfileContact } from '@/app/actions/profile'
 import { revalidatePath } from 'next/cache'
+import { hasConfirmedCourseRegistration } from '@/lib/profile-monthly-access'
 
 const uid = '00000000-0000-4000-8000-000000000001'
 const other = '00000000-0000-4000-8000-000000000002'
@@ -34,9 +37,15 @@ function session(role: string | null = 'student', signedIn = true, queryError: {
   return { chain, from, client, profileChain, rpc }
 }
 
-beforeEach(() => jest.clearAllMocks())
+beforeEach(() => { jest.clearAllMocks(); jest.mocked(hasConfirmedCourseRegistration).mockResolvedValue(true) })
 
 describe('monthly backend action authorization', () => {
+  it('rejects an unconfirmed registration before calling the monthly mutation', async () => {
+    const { rpc } = session()
+    jest.mocked(hasConfirmedCourseRegistration).mockResolvedValue(false)
+    expect(await saveNextMonthBooking(bookingInput)).toEqual({ success: false, error: 'not_authorized' })
+    expect(rpc).not.toHaveBeenCalled()
+  })
   it('rejects a missing session before accessing tables', async () => {
     const { from } = session('student', false)
     expect(await saveNextMonthBooking(bookingInput)).toEqual({ success: false, error: 'not_authenticated' })

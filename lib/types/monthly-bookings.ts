@@ -26,12 +26,15 @@ export interface ProfileCourse {
   available: boolean
   /** Planmäßige Termine im Buchungsmonat (Ausfälle nicht abgezogen); `null` ohne festen Wochentag. */
   sessions?: number | null
+  /** Calendar quote after already-known cancellations; private lessons use unitPrice. */
+  monthlyAmount?: number | null
 }
 export interface MonthlySelection {
   courseSelections: CourseSelection[]
   paused: boolean
 }
 export interface ProfileMonthlyState {
+  hasConfirmedRegistration: boolean
   targetMonth: string
   booking: MonthlyCourseBooking | null
   selection: MonthlySelection

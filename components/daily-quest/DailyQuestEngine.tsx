@@ -5,7 +5,6 @@ import { useRouter } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowRight, Check, Flame, Loader2, MapPin, Pause, RotateCcw, Sparkles, Undo2, Volume2 } from 'lucide-react'
-import BrandLogo from '@/components/layout/BrandLogo'
 import MotionProvider from '@/components/motion/MotionProvider'
 import PressableCard from '@/components/motion/PressableCard'
 import FeedbackMotion from '@/components/motion/FeedbackMotion'
@@ -176,15 +175,14 @@ export default function DailyQuestEngine({ initialQuest, initialStreak, locale, 
     </PressableCard>
   }
 
-  return <MotionProvider><main className={`${styles.quest} ${leaving ? styles.leaving : ''}`} aria-busy={busy || leaving}>
+  return <MotionProvider><section className={`${styles.quest} ${leaving ? styles.leaving : ''}`} aria-busy={busy || leaving}>
     <div className={styles.shell}>
-      <header className={styles.header}>
-        <BrandLogo name="Sitov Academy" />
-        <PressableCard className={styles.skip} disabled={busy || leaving} onClick={goDashboard}>{complete || skipped ? copy.dashboard : copy.skip}</PressableCard>
-      </header>
       {preview && <aside className={styles.reference} style={{ marginBottom: 20 }}><p className={styles.note}>{copy.previewNotice}</p></aside>}
       <div className={styles.heading}>
+        <div className={styles.headingTop}>
         <p className={styles.eyebrow}>{copy.eyebrow}</p>
+        <PressableCard className={styles.skip} disabled={busy || leaving} onClick={goDashboard}>{complete || skipped ? copy.dashboard : copy.skip}<ArrowRight size={16} aria-hidden="true" /></PressableCard>
+        </div>
         <h1 lang="de">{quest.title}</h1><p className={styles.subtitle} lang="de">{quest.subtitle}</p>
         <div className={styles.meta}><span className={styles.level}>{quest.level}</span><span className={styles.progressLabel}>{quest.completedStepIds.length} {copy.of} {quest.steps.length} {copy.progressLabel}</span></div>
       </div>
@@ -240,8 +238,10 @@ export default function DailyQuestEngine({ initialQuest, initialStreak, locale, 
           {!intro && !step && !complete && !skipped && <><p className={styles.description} lang="de">{quest.completion.text}</p><PressableCard className={styles.primary} disabled={busy} onClick={() => { void finish() }}>{busy ? copy.saving : copy.finish}<Check size={19} aria-hidden="true" /></PressableCard></>}
           {complete && <>
             <p className={styles.description} lang="de">{quest.completion.text}</p>
-            <motion.div className={styles.stamp} initial={reduced ? false : { opacity: 0, scale: 1.12, rotate: -14 }} animate={{ opacity: 1, scale: 1, rotate: -6 }} transition={{ duration: reduced ? 0 : MOTION.slower, ease: EASE_OUT_SOFT }}><Sparkles size={28} aria-hidden="true" /><span>{copy.completed}</span><strong lang="de">{quest.completion.title}</strong><span>{quest.level}</span></motion.div>
+            <div className={styles.achievement}>
+            <motion.div className={styles.stamp} aria-hidden="true" data-sitov-seal initial={reduced ? false : { opacity: 0, scale: 1.12, rotate: -14 }} animate={{ opacity: 1, scale: 1, rotate: reduced ? 0 : -6 }} transition={{ duration: reduced ? 0 : MOTION.slower, ease: EASE_OUT_SOFT }}><Sparkles size={20} /><strong>{quest.level}</strong><span>{copy.completed}</span></motion.div>
             {!preview && <div className={styles.streak}><Flame size={28} aria-hidden="true" /><strong>{streak.current}</strong><span>{copy.streakDays}</span></div>}
+            </div>
             <div className={styles.bottom}><PressableCard className={styles.primary} disabled={leaving} onClick={goDashboard}>{copy.dashboard}<ArrowRight size={19} aria-hidden="true" /></PressableCard></div>
           </>}
           {skipped && <><p className={styles.description}>{copy.skipText}</p><PressableCard className={styles.primary} disabled={leaving} onClick={goDashboard}>{copy.dashboard}<ArrowRight size={19} aria-hidden="true" /></PressableCard></>}
@@ -255,5 +255,5 @@ export default function DailyQuestEngine({ initialQuest, initialStreak, locale, 
       <p className={styles.srOnly} role="status" aria-live="polite" aria-atomic="true">{busy ? copy.checking : leaving ? copy.dashboard : `${copy.step}: ${complete ? copy.completed : skipped ? copy.skipTitle : intro ? copy.title : step ? stepTitle(step) : copy.completionTitle}`}</p>
       <p className={styles.srOnly} role="status" aria-live="polite">{audio.state.phase === 'loading' ? copy.loadingAudio : audio.state.phase === 'playing' ? `${copy.audioPlaying} ${audio.state.text}` : copy.audioIdle}</p>
     </div>
-  </main></MotionProvider>
+  </section></MotionProvider>
 }

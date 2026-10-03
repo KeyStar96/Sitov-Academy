@@ -498,10 +498,10 @@
                     "many": "{count} Kurse gewählt",
                     "other": "{count} Kurse gewählt"
                 },
-                "first_month": "Erster Monat: {price}"
+                "first_month": "Voraussichtlich im ersten Monat: {price}"
             },
             "costs": {
-                "title": "Deine Kosten",
+                "title": "Voraussichtlicher Preis",
                 "title_trial": "Deine Probestunde",
                 "first_month": "Erster Monat: {month}",
                 "counted_from": "Gerechnet ab {date}.",
@@ -516,14 +516,16 @@
                 "cancelled": "{date}: {reason} – fällt aus und wird nicht berechnet",
                 "later_title": "Danach",
                 "later_month": "{month}: etwa {price}",
-                "renewal": "Der Kurs verlängert sich jeden Monat. Du kannst jederzeit zum Monatsende kündigen – per E-Mail oder mit dem Kündigungsformular.",
+                "renewal": "Nach dem ersten Unterrichtsmonat läuft der Kursvertrag auf unbestimmte Zeit weiter und wird monatlich abgerechnet. Du kannst jederzeit zum Ende des laufenden Abrechnungsmonats kündigen – per E-Mail oder mit dem Kündigungsformular.",
                 "how_title": "Wie wird bezahlt?",
                 "how_text": "Du bekommst eine Rechnung und bezahlst per Überweisung. Die Rechnung für den nächsten Monat kommt jeweils zum Monatsende. Die Einzelheiten stehen in den AGB.",
                 "agb_link": "AGB lesen",
                 "vat": "Alle Preise inklusive Mehrwertsteuer.",
                 "trial_price": "Kostenlos",
                 "trial_free": "Die Probestunde ist kostenlos und unverbindlich.",
-                "trial_date": "Termin: {date}"
+                "trial_date": "Termin: {date}",
+                "estimate_note": "Der voraussichtliche Preis basiert auf den aktuell geplanten Terminen. Sagt Sitov Academy weitere Termine ab, sinkt der Rechnungsbetrag entsprechend.",
+                "month_end": "Diese Monatstermine gelten bis {date}. Nicht besuchte Termine werden nicht übertragen."
             },
             "review": {
                 "courses_title": "Deine Kurse",
@@ -568,6 +570,18 @@
                 "step_check_trial": "Wir bestätigen dir den Termin per E-Mail.",
                 "step_trial_free": "Die Probestunde ist kostenlos und unverbindlich.",
                 "trial_date": "Dein Wunschtermin: {date}"
+            },
+            "hero": {
+                "kicker": "Dein nächster Schritt",
+                "title_lead": "Dein Deutsch.",
+                "title_accent": "Dein neuer Anfang.",
+                "description": "Finde deinen Kurs. Lerne mit echten Menschen. Und mach aus guten Vorsätzen deinen nächsten Schritt.",
+                "trial_lead": "Ein Hallo.",
+                "trial_accent": "Ein neuer Anfang.",
+                "trial_description": "Erlebe Sitov Academy bei einer kostenlosen Probestunde. Lerne uns kennen und finde deinen passenden Kurs.",
+                "navigation": "Schritte der Kursanmeldung",
+                "policy_title": "Feste Termine. Ein Kalendermonat.",
+                "policy_text": "Du buchst die vereinbarten Kurstermine im jeweiligen Kalendermonat – kein frei einlösbares Stundenkontingent. Wenn du einen Termin nicht besuchst, wird er nicht in den nächsten Monat übertragen. Gesetzliche Ansprüche bleiben unberührt."
             }
         }
     },
@@ -604,7 +618,7 @@
     "agb": {
         "title": "Allgemeine Geschäftsbedingungen",
         "school_name": "Sitov Academy",
-        "status_date": "Stand: 10. September 2026",
+        "status_date": "Stand: 3. Oktober 2026",
         "sections": [
             {
                 "title": "§ 1 Geltungsbereich, Anbieter",
@@ -625,7 +639,8 @@
                     "(1) Vertragsgegenstand sind die in der jeweiligen Kursbeschreibung angegebenen Leistungen (Leistungsumfang, Kursdauer, Termine, Lehrmaterialien). Die Kursbeschreibung ist Bestandteil des Vertrags.",
                     "(2) Geringfügige Änderungen im Kursablauf, bei Dozent:innen oder Unterrichtszeiten sind zulässig, sofern der Gesamtcharakter des Kurses nicht wesentlich beeinträchtigt wird.",
                     "(3) Online-Unterricht wird über gängige Videokonferenz-Software (z. B. Microsoft Teams) durchgeführt. Der Teilnehmer ist für eine geeignete Internetverbindung und technische Ausstattung selbst verantwortlich.",
-                    "(4) Zur Qualitätsbegleitung und zur Nachbereitung für die Teilnehmer werden Online-Sitzungen aufgezeichnet. Die Einzelheiten zur Nutzung dieser Aufzeichnungen ergeben sich aus § 9 dieser AGB."
+                    "(4) Zur Qualitätsbegleitung und zur Nachbereitung für die Teilnehmer werden Online-Sitzungen aufgezeichnet. Die Einzelheiten zur Nutzung dieser Aufzeichnungen ergeben sich aus § 9 dieser AGB.",
+                    "(5) Die Kursteilnahme bezieht sich auf die konkret vereinbarten Termine im jeweiligen Kalendermonat. Die ausgewiesene Zahl der Unterrichtseinheiten beschreibt die Berechnung dieses Monats; sie ist kein zeitlich unbegrenzt oder nach freier Wahl einlösbares Stundenkontingent. Bei Einzelunterricht werden die Termine innerhalb des gebuchten Monats individuell vereinbart; abweichende Absprachen bleiben möglich."
                 ]
             },
             {
@@ -641,7 +656,7 @@
                 "title": "§ 4 Preise, Zahlungsbedingungen, Abo-Modell",
                 "content": [
                     "(1) Die jeweils gültigen Preise ergeben sich aus der auf der Webseite veröffentlichten Preisübersicht. Alle Preise sind Endpreise. Gemäß § 19 UStG wird keine Umsatzsteuer berechnet.",
-                    "(2) Die Kursgebühr wird monatlich im Voraus in Rechnung gestellt. Der Vertrag verlängert sich automatisch um jeweils einen weiteren Monat, sofern der Teilnehmer nicht aktiv kündigt oder die Rechnung für den Folgemonat nicht fristgerecht begleicht.",
+                    "(2) Die Kursgebühr wird monatlich im Voraus in Rechnung gestellt. Nach dem ersten gebuchten Unterrichtsmonat wird der Kursvertrag auf unbestimmte Zeit fortgeführt, sofern er nicht beendet wird. Die Abrechnung und die Teilnahmeberechtigung beziehen sich jeweils auf die vereinbarten Termine des betreffenden Kalendermonats; ein übertragbares Stundenkonto entsteht nicht.",
                     "(3) Die Bezahlung der Folgerechnung gilt als aktive Zustimmung zur Fortsetzung der Kursteilnahme im jeweiligen Folgemonat.",
                     "(4) Die Nichtzahlung einer Folgerechnung innerhalb von 14 Tagen nach Rechnungserhalt wird als automatische Kündigung zum Ende des laufenden Abrechnungsmonats gewertet. In diesem Fall entstehen dem Teilnehmer keine weiteren Kosten.",
                     "(5) Die Zahlung erfolgt per Überweisung nach Rechnungserhalt, sofern nicht anders vereinbart.",
@@ -652,7 +667,8 @@
                     "Bank: N26 Bank SE",
                     "Verwendungszweck: Rechnungsnummer",
                     "(6) Bei verspäteter Zahlung gelten die gesetzlichen Verzugsregelungen (§ 288 BGB) nur dann, wenn die Zahlung angekündigt, aber nicht fristgerecht geleistet wurde.",
-                    "(7) Folgerechnungen werden regelmäßig zum Monatsende für den folgenden Unterrichtsmonat erstellt. Die Zahlung erfolgt im Voraus nach den Angaben auf der Rechnung. Ein interner Vermerk im Lehrer-Dashboard über die Rechnungserstellung ist keine Bestätigung ihres Versands oder eines Zahlungseingangs."
+                    "(7) Folgerechnungen werden regelmäßig zum Monatsende für den folgenden Unterrichtsmonat erstellt. Die Zahlung erfolgt im Voraus nach den Angaben auf der Rechnung. Ein interner Vermerk im Lehrer-Dashboard über die Rechnungserstellung ist keine Bestätigung ihres Versands oder eines Zahlungseingangs.",
+                    "(8) Der bei der Anmeldung und der Monatsauswahl angezeigte voraussichtliche Preis ergibt sich aus den aktuell geplanten Terminen, deren Dauer und den angegebenen Einheitspreisen. Bereits bekannte Unterrichtsausfälle sind abgezogen. Weitere von Sitov Academy abgesagte Termine vermindern den Rechnungsbetrag entsprechend; bereits bezahlte, nicht ersetzte Leistungen werden anteilig erstattet. Alle Preise sind Endpreise ohne zusätzliche Gebühren."
                 ]
             },
             {
@@ -676,7 +692,7 @@
             {
                 "title": "§ 6 Nichtteilnahme / Krankheit",
                 "content": [
-                    "(1) Die Kursgebühr deckt den Zugang zu den Kursen im jeweiligen Monat ab. Bei Nichtteilnahme an einzelnen Unterrichtseinheiten (z. B. wegen Krankheit oder Urlaub) besteht kein Anspruch auf Erstattung oder Ersatzstunden.",
+                    "(1) Versäumt der Teilnehmer einen vereinbarten Termin aus seinem Verantwortungsbereich, etwa wegen Urlaub oder Krankheit, besteht kein automatischer Anspruch auf Nachholen, Übertragung in einen Folgemonat oder Nutzung anderer Kurstermine. Die Teilnahmeberechtigung gilt für die gebuchten Termine des jeweiligen Kalendermonats und endet hierfür mit dessen Ablauf. Ein bei Annahmeverzug fortbestehender Vergütungsanspruch richtet sich nach § 615 BGB, einschließlich der Anrechnung ersparter Aufwendungen und anderweitigen Erwerbs; gesetzliche Rechte bleiben unberührt.",
                     "(2) Auf Kulanzbasis kann die Sprachschule Nachholmöglichkeiten oder Ersatztermine anbieten, sofern organisatorisch möglich."
                 ]
             },
@@ -684,7 +700,7 @@
                 "title": "§ 7 Ausfall durch die Sprachschule / Ersatzleistungen",
                 "content": [
                     "(1) Fällt Unterricht aus Gründen aus, die die Sprachschule zu vertreten hat (z. B. Erkrankung der Lehrkraft) und kein Ersatztermin angeboten werden kann, wird die anteilige Kursgebühr erstattet.",
-                    "(2) Weitergehende Ansprüche, insbesondere Schadensersatz, sind ausgeschlossen, soweit nicht Vorsatz oder grobe Fahrlässigkeit vorliegt."
+                    "(2) Gesetzliche Rechte bei Leistungsstörungen, einschließlich Erstattung, Rücktritt und Schadensersatz, bleiben unberührt."
                 ]
             },
             {
@@ -707,11 +723,12 @@
             {
                 "title": "§ 10 Vertragsdauer und Kündigung",
                 "content": [
-                    "(1) Mit der erstmaligen Zahlung der Kursgebühr wird ein fortlaufender Vertrag über die Teilnahme am Kursangebot geschlossen.",
-                    "(2) Der Vertrag verlängert sich automatisch jeweils um einen weiteren Monat, es sei denn, der Teilnehmer kündigt aktiv oder die Rechnung für den Folgemonat wird nicht fristgerecht beglichen. Die Nichtzahlung der Folgerechnung gilt als automatische Kündigung (vgl. § 4 Abs. 4).",
+                    "(1) Der Kursvertrag kommt nach den Regeln in § 3 zustande. Kursgebühren und Vorauszahlung richten sich nach § 4.",
+                    "(2) Nach dem ersten gebuchten Unterrichtsmonat wird der Vertrag auf unbestimmte Zeit fortgeführt und monatlich abgerechnet. Der Teilnehmer kann jederzeit zum Ende des laufenden Abrechnungsmonats kündigen. Die Nichtzahlung einer Folgerechnung wird gemäß § 4 Absatz 4 als Kündigung behandelt; daraus entstehen keine weiteren Kosten.",
                     "(3) Die Kündigung kann jederzeit formlos (z. B. per E-Mail, über das Kündigungsformular auf der Webseite oder per Nachricht über einen Messenger-Dienst) erklärt werden und wird zum Ende des laufenden Abrechnungsmonats wirksam.",
-                    "(4) Nach einer Kündigung – gleich ob aktiv oder durch Nichtzahlung – kann die Kursteilnahme nur durch eine erneute Anmeldung wiederaufgenommen werden.",
-                    "(5) Durch dieses Abo-Modell sollen unnötiger Verwaltungsaufwand für beide Seiten vermieden und die Kursteilnahme so unkompliziert wie möglich gestaltet werden."
+                    "(4) Nach einer Kündigung – gleich ob aktiv oder durch Nichtzahlung – kann die Kursteilnahme nur durch eine erneute Anmeldung wiederaufgenommen werden. Eine ausdrücklich als Monatspause gespeicherte Auswahl innerhalb eines fortbestehenden Vertrags betrifft hingegen nur die Kursbelegung des bezeichneten Monats und beendet nicht den gesamten Kursvertrag. Für den pausierten Monat werden keine Kurse bestellt; eine spätere Kursauswahl ist erneut zu bestätigen.",
+                    "(5) Durch dieses Abo-Modell sollen unnötiger Verwaltungsaufwand für beide Seiten vermieden und die Kursteilnahme so unkompliziert wie möglich gestaltet werden.",
+                    "(6) Änderungen dieser AGB gelten nicht automatisch für bereits geschlossene Verträge. Maßgeblich bleibt die vereinbarte Fassung, sofern eine Änderung nicht wirksam mit dem Teilnehmer vereinbart wird."
                 ]
             },
             {
@@ -1144,9 +1161,9 @@
         "pending_email": "Bestätigung ausstehend für {email}.",
         "email_hint": "Bei einem E-Mail-Wechsel erhältst du Bestätigungslinks.",
         "next_month_title": "Meine Kurse für nächsten Monat",
-        "next_month_intro": "Wähle deine Kurse für {month}. Änderungen werden sofort gespeichert.",
+        "next_month_intro": "Prüfe deine Kurse für {month}. Erst die abschließende Bestätigung speichert deine Auswahl.",
         "inherited_courses": "Deine bisherige Kursauswahl wurde übernommen. Ohne Änderung gilt sie auch für den nächsten Monat.",
-        "unresolved_courses": "Deine bisherigen Anmeldungen konnten nicht eindeutig zugeordnet werden. Bitte wähle deine Kurse oder kontaktiere deine Lehrkraft.",
+        "unresolved_courses": "Deine Kursanmeldung konnte deinem Konto noch nicht eindeutig zugeordnet werden. Bitte wende dich an Sitov Academy, damit wir die Zuordnung prüfen können.",
         "pause_next_month": "Nächsten Monat pausieren",
         "pause_description": "Du meldest dich für {month} von allen Kursen ab. Deine Auswahl bleibt zum Fortsetzen erhalten.",
         "paused_notice": "Du pausierst im {month}. Wähle einen Kurs oder schalte die Pause aus, um weiterzulernen.",
@@ -1176,7 +1193,19 @@
         "ui_locale_uk": "Українська",
         "ui_locale_tr": "Türkçe",
         "teacher_progress_notice": "Deine Lehrkraft sieht deinen Lernfortschritt, damit sie dich gezielt unterstützen kann.",
-        "teacher_progress_privacy": "Datenschutzerklärung"
+        "teacher_progress_privacy": "Datenschutzerklärung",
+        "registration_required_title": "Für bestätigte Kursteilnehmer",
+        "registration_required": "Die Monatsplanung wird freigeschaltet, sobald Sitov Academy deine Kursanmeldung bestätigt hat. Ein Lernkonto oder eine Probestunde allein genügt dafür nicht.",
+        "registration_link": "Zur Kursanmeldung",
+        "booking_estimated_price": "Voraussichtlicher Preis",
+        "booking_unit_rate": "{price} je {minutes} Minuten",
+        "booking_price_note": "Endpreis ohne zusätzliche Gebühren. Grundlage sind die aktuell geplanten Kurstermine und die oben genannten Einheitspreise. Bereits bekannte Ausfälle sind abgezogen; weitere Absagen durch Sitov Academy senken den Rechnungsbetrag entsprechend.",
+        "booking_month_terms": "Die Auswahl gilt für die vereinbarten Kurstermine im {month}. Nicht besuchte Termine werden nicht in den nächsten Monat übertragen. Du buchst kein frei einlösbares Stundenkontingent. Gesetzliche Ansprüche bleiben unberührt.",
+        "booking_renewal_terms": "Nach deiner bestätigten Anmeldung läuft der Kursvertrag gemäß den vereinbarten AGB monatlich weiter. Du kannst zum Ende des laufenden Abrechnungsmonats kündigen. Zahlung per Überweisung nach Rechnungserhalt; die Nichtzahlung einer Folgerechnung innerhalb von 14 Tagen gilt gemäß AGB als Kündigung ohne weitere Kosten.",
+        "booking_contract_note": "Mit der Buchung gibst du eine verbindliche Auswahl ab. Sitov Academy prüft und bestätigt sie vor der Rechnungsstellung. Eine Pause verursacht keine neue Kursgebühr.",
+        "booking_terms_link": "AGB und Widerrufsbelehrung lesen",
+        "booking_paid_confirm": "Zahlungspflichtig buchen",
+        "booking_price_unavailable": "Preis wird noch ermittelt"
     },
     "pronunciation": {
         "title": "Aussprache-Training",

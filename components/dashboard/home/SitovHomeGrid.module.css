@@ -1,0 +1,12 @@
+.sitovGrid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.25rem; }
+.sitovColumn { display: flex; min-width: 0; flex-direction: column; gap: 1.25rem; }
+
+/* Let content decide the height, then stretch both columns to one baseline. */
+@media (min-width: 1024px) {
+  .sitovGrid { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); align-items: stretch; }
+  .sitovPrimary > :first-child { display: flex; flex: 1; flex-direction: column; }
+  .sitovPrimary > :first-child > section { flex: 1; }
+  .sitovSecondary > :last-child { flex: 1; }
+  .sitovSecondary > [data-sitov-motion-stage]:last-child { display: flex; flex-direction: column; }
+  .sitovSecondary > [data-sitov-motion-stage]:last-child > section { flex: 1; }
+}

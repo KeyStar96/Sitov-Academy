@@ -1699,7 +1699,7 @@ html:not([data-consent="open"]) .consent-banner[data-prompt="auto"] { display: n
   mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor; mask-composite: exclude;
 }
-.premium-cta-spotlight { position: absolute; inset: 0; z-index: -1; opacity: 0; transition: opacity .3s ease; pointer-events: none; }
+.premium-cta-spotlight { position: absolute; inset: 0; z-index: -1; border-radius: inherit; overflow: hidden; opacity: 0; transition: opacity .3s ease; pointer-events: none; }
 @media (hover: hover) { .premium-cta:hover .premium-cta-spotlight { opacity: 1; } }
 .premium-cta:hover { border-color: var(--border-strong); box-shadow: var(--shadow-lg), 0 0 0 1px var(--accent-ring); }
 .premium-cta-body { max-width: 40rem; }

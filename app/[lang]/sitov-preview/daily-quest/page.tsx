@@ -1,20 +1,31 @@
 import { notFound } from 'next/navigation'
 import SitovPreviewAppearance from '@/components/dashboard/SitovPreviewAppearance'
-import DailyQuestEntry from '@/components/dashboard/DailyQuestEntry'
-import type { DailyQuestStatus } from '@/lib/daily-quest-contract'
+import SitovLearningShell from '@/components/layout/SitovLearningShell'
+import SitovDailyQuestShellPreview from '@/components/daily-quest/SitovDailyQuestShellPreview'
+import { getDictionary } from '@/lib/dictionary'
+import { getDailyQuestCopy } from '@/lib/daily-quest-i18n'
+import Link from 'next/link'
 import '@/components/dashboard/student.css'
 
-const id = 'c9e3e3ca-69ac-4383-90cd-3788dc1e3104'
-const state = (current: number, longest: number, status: 'active' | 'completed', enabled = true): DailyQuestStatus =>
-  ({ success: true, enabled, streak: { current, longest, lastCompletedDate: null }, today: { assignmentId: id, status } })
-const STATES = [state(0, 0, 'active'), state(3, 5, 'active'), state(12, 12, 'completed'), state(128, 128, 'active'), state(2, 9, 'active', false)]
-
-/** Nur in der Entwicklung: alle Zustände der Deutschreise-Karte nebeneinander. */
-export default async function DailyQuestPreviewPage({ params }: { params: Promise<{ lang: string }> }) {
+/** Local synthetic learner shell and active/completed quest for responsive QA. */
+export default async function DailyQuestPreviewPage({ params, searchParams }: {
+  params: Promise<{ lang: string }>
+  searchParams: Promise<{ state?: string }>
+}) {
   if (process.env.NODE_ENV !== 'development') notFound()
   const { lang } = await params
-  return <div className="academy-container" style={{ display: 'grid', gap: '1.25rem', maxWidth: 720, paddingBlock: '2rem' }}>
-    <SitovPreviewAppearance />
-    {STATES.map((status, index) => <DailyQuestEntry key={index} lang={lang} status={status} />)}
-  </div>
+  const [sitovDict, sitovSearch] = await Promise.all([getDictionary(lang), searchParams])
+  const sitovCopy = getDailyQuestCopy(lang)
+  const sitovCompleted = sitovSearch.state === 'completed'
+  const sitovSupportLabels = { whatsapp: sitovDict.academy.support_whatsapp, phone: sitovDict.Footer.Contact.phone,
+    phoneLabel: sitovDict.Footer.Contact.phone_label, telegram: sitovDict.Footer.Contact.telegram_button,
+    email: sitovDict.Footer.Contact.email, emailLabel: sitovDict.Footer.Contact.email_button }
+  return <SitovLearningShell lang={lang} translations={sitovDict.dashboard} displayName="Dennis" levels={['A1.1']}
+    supportLabels={sitovSupportLabels} sitovPreviewPathname={`/${lang}/dashboard/daily-quest`}>
+    <div className="mb-5 flex flex-wrap items-center gap-3"><SitovPreviewAppearance />
+      <Link href={`/${lang}/sitov-preview/daily-quest`} className="st-link-pill">{sitovCopy.start}</Link>
+      <Link href={`/${lang}/sitov-preview/daily-quest?state=completed`} className="st-link-pill">{sitovCopy.completed}</Link>
+    </div>
+    <SitovDailyQuestShellPreview lang={lang} completed={sitovCompleted} />
+  </SitovLearningShell>
 }

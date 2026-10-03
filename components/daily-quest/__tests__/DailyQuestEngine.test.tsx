@@ -100,7 +100,7 @@ it.each([
   initial.completedStepIds = completedStepIds
   // Simulate props retained by an old browser session, before the male-only DTO.
   initial.scene.characters = initial.scene.characters.map(character => ({ ...character, voice: 'female' })) as unknown as DailyQuest['scene']['characters']
-  jest.mocked(cachedNeuralAudio).mockImplementation(source => source.voice === 'female' ? '/old-female-recording.mp3' : null)
+  jest.mocked(cachedNeuralAudio).mockImplementation(source => (source as { voice?: string }).voice === 'female' ? '/old-female-recording.mp3' : null)
   const { container } = mount(initial)
   if (listen === 'Wort anhören') {
     fireEvent.click(screen.getByRole('button', { name: 'Los geht’s' }))

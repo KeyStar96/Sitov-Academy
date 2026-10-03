@@ -163,7 +163,7 @@ html.high-contrast .st-cta__arrow { background: transparent; border: 2px solid c
 
 /* ── Kopfzeile: Symbole immer mit Wort ─────────────────────────────────── */
 .st-toolbar-button { display: inline-flex; min-width: 3.6rem; min-height: 3.4rem; flex-direction: column; flex-shrink: 0; align-items: center; justify-content: center; gap: .15rem; border-radius: 1rem; padding: .3rem .45rem; color: var(--foreground); font-size: .78rem; font-weight: 700; line-height: 1.1; }
-.st-toolbar-button > span { max-width: 5.5rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.st-toolbar-button > span { white-space: nowrap; }
 @media (min-width: 768px) {
   .st-toolbar-button { min-height: 48px; flex-direction: row; gap: .5rem; border: 1px solid var(--border); border-radius: 99px; padding: .35rem 1rem; font-size: .95rem; background: var(--surface); }
 }
@@ -193,29 +193,38 @@ a.st-crumb:focus-visible { outline: 3px solid var(--accent); outline-offset: -3p
    StudentNavigation setzt data-tabbar="visible|hidden" am Wurzelelement.
    --st-tabbar-visible ist die gerade sichtbare Leistenhöhe; alles, was über
    der Leiste schwebt (Aufnahme-Dock), richtet sich danach und wandert mit. */
-.academy-student-shell { --st-tabbar-h: calc(4.6rem + env(safe-area-inset-bottom, 0px)); --st-tabbar-visible: var(--st-tabbar-h); --sitov-nav-duration: 480ms; --sitov-nav-fade: 300ms; --sitov-nav-ease: cubic-bezier(.22, .68, 0, 1); }
+.academy-student-shell { --st-tabbar-h: calc(5.5rem + env(safe-area-inset-bottom, 0px)); --st-tabbar-visible: var(--st-tabbar-h); --sitov-nav-duration: 320ms; --sitov-nav-fade: 200ms; --sitov-nav-ease: cubic-bezier(.22, 1, .36, 1); }
 .academy-student-shell[data-tabbar='hidden'] { --st-tabbar-visible: 0px; --sitov-nav-duration: 360ms; --sitov-nav-fade: 260ms; --sitov-nav-ease: cubic-bezier(.4, 0, .2, 1); }
-.st-tabbar { position: fixed; inset: auto 0 0; z-index: 60; border-top: 1px solid var(--border); background: color-mix(in srgb, var(--surface) 90%, transparent); padding: .35rem .5rem calc(.35rem + env(safe-area-inset-bottom, 0px)); box-shadow: 0 -12px 30px -18px rgb(15 23 42 / .35); -webkit-backdrop-filter: blur(16px) saturate(160%); backdrop-filter: blur(16px) saturate(160%); transform: translate3d(0, 0, 0) scale(1); transform-origin: center bottom; opacity: 1; transition: transform var(--sitov-nav-duration) var(--sitov-nav-ease), opacity var(--sitov-nav-fade) ease, visibility 0s; }
+.st-tabbar { position: fixed; inset: auto 12px max(10px, env(safe-area-inset-bottom, 0px)); z-index: 60; border: 1px solid color-mix(in srgb, var(--border) 65%, transparent); border-radius: 1.65rem; background: color-mix(in srgb, var(--surface) 95%, transparent); padding: .35rem; box-shadow: 0 14px 40px -14px rgb(15 23 42 / .3), inset 0 1px 0 color-mix(in srgb, var(--surface) 80%, transparent); -webkit-backdrop-filter: blur(20px) saturate(160%); backdrop-filter: blur(20px) saturate(160%); transform: translate3d(0, 0, 0); transform-origin: center bottom; opacity: 1; transition: transform var(--sitov-nav-duration) var(--sitov-nav-ease), opacity var(--sitov-nav-fade) ease, visibility 0s; }
 /* Verborgen: aus dem Bild geschoben und aus der Tab-Reihenfolge genommen. */
 .academy-student-shell[data-tabbar='hidden'] .st-tabbar { transform: translate3d(0, calc(100% + 1rem), 0) scale(.98); opacity: 0; visibility: hidden; pointer-events: none; transition: transform var(--sitov-nav-duration) var(--sitov-nav-ease), opacity var(--sitov-nav-fade) ease, visibility 0s linear var(--sitov-nav-duration); }
 html.high-contrast .st-tabbar { background: var(--surface); -webkit-backdrop-filter: none; backdrop-filter: none; }
-.st-tabbar__list { position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .25rem; max-width: 32rem; margin: 0 auto; }
+.st-tabbar__list { position: relative; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .15rem; max-width: 36rem; margin: 0 auto; }
 .st-tabbar__item { min-width: 0; }
-.st-tabbar__link { position: relative; z-index: 1; isolation: isolate; display: flex; width: 100%; min-height: 3.75rem; flex-direction: column; align-items: center; justify-content: center; gap: .2rem; border-radius: 1.1rem; color: var(--muted); font-size: .85rem; font-weight: 700; }
+.st-tabbar__link { position: relative; z-index: 1; isolation: isolate; display: flex; width: 100%; min-height: 3.75rem; flex-direction: column; align-items: center; justify-content: center; gap: .25rem; border-radius: 1.2rem; color: var(--muted); font-size: clamp(.63rem, 2.5vw, .8rem); font-weight: 700; }
 .st-tabbar__link[aria-current='page'] { color: var(--accent-text); }
 /* Die Pille wandert per layoutId zum aktiven Reiter (SlidingPill). */
-.st-tabbar__pill { position: absolute; z-index: -1; inset: .15rem; border-radius: 1rem; background: color-mix(in srgb, var(--accent) 13%, var(--surface)); pointer-events: none; }
+.st-tabbar__pill { position: absolute; z-index: -1; inset: .1rem; border-radius: 1.1rem; background: var(--accent-soft); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent-text) 22%, transparent); pointer-events: none; }
 html.high-contrast .st-tabbar__pill { background: transparent; border: 2px solid var(--accent-text); }
 .st-tabbar__icon { transition: transform var(--motion-base) var(--ease-out-soft); }
 .st-tabbar__link[aria-current='page'] .st-tabbar__icon { transform: translateY(-1px) scale(1.08); }
-.st-tabbar__label { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.st-tabbar__label { max-width: 100%; line-height: 1.2; overflow-wrap: anywhere; text-align: center; }
 @media (max-width: 767.98px) {
   .academy-student-content { padding-bottom: calc(var(--st-tabbar-h) + 1.5rem); }
   /* Die schwebende Aufnahme-Bedienung sitzt über der App-Leiste und wandert mit ihr. */
   .academy-student-shell .pronunciation-recorder-dock { bottom: 0; transform: translateY(calc(-1 * var(--st-tabbar-visible))); transition: transform var(--sitov-nav-duration) var(--sitov-nav-ease); }
   .academy-student-shell .pronunciation-practice { padding-bottom: calc(6.5rem + var(--st-tabbar-h)); }
 }
-@media (min-width: 768px) { .st-tabbar { display: none; } }
+@media (min-width: 768px) {
+  .academy-student-shell { --st-tabbar-visible: 0px; }
+  .st-tabbar { position: relative; inset: auto; z-index: auto; flex: 0 0 auto; border-radius: 1.25rem; padding: .25rem; box-shadow: none; background: var(--surface-muted); -webkit-backdrop-filter: none; backdrop-filter: none; }
+  .st-tabbar__list { display: flex; max-width: none; gap: .1rem; }
+  .st-tabbar__link { min-height: 44px; flex-direction: row; gap: .45rem; border-radius: .95rem; padding: .5rem .7rem; font-size: .85rem; }
+  .st-tabbar__icon { width: 19px; height: 19px; flex: 0 0 auto; }
+  .st-tabbar__pill { border-radius: .9rem; background: var(--surface); box-shadow: 0 2px 6px rgb(15 23 42 / .06), inset 0 0 0 1px color-mix(in srgb, var(--accent-text) 25%, var(--border)); }
+  .st-tabbar__label { overflow-wrap: normal; white-space: nowrap; }
+  .academy-student-shell[data-tabbar='hidden'] .st-tabbar { transform: none; opacity: 1; visibility: visible; pointer-events: auto; }
+}
 body:has(.learning-screen[data-presentation='fullscreen']) .st-tabbar { display: none; }
 
 /* Hilfe-Blatt */
@@ -618,17 +627,13 @@ html.high-contrast .st-switch[aria-checked='true'] { background: var(--surface);
    Kennfarbe erscheint nur im aktiven Reiter und in den Symbolen. */
 /* Schwebt frei: kein Band über die ganze Breite, nur die Leiste selbst mit Schatten. */
 .st-mode-dock { position: sticky; top: 0; z-index: 25; margin: -1.25rem 0 1.5rem; padding: .75rem 0; pointer-events: none; transform: translate3d(0, 0, 0) scale(1); transform-origin: center top; opacity: 1; transition: transform var(--sitov-nav-duration) var(--sitov-nav-ease), opacity var(--sitov-nav-fade) ease, visibility 0s; }
-/* Wie die untere Leiste (data-tabbar, StudentNavigation): beim Runterscrollen gleitet
-   die Modus-Leiste unter den Seitenkopf weg, beim Hochscrollen kommt sie weich zurück. */
-.academy-student-shell[data-tabbar='hidden'] .st-mode-dock { transform: translate3d(0, calc(-100% - 1rem), 0) scale(.98); opacity: 0; visibility: hidden; transition: transform var(--sitov-nav-duration) var(--sitov-nav-ease), opacity var(--sitov-nav-fade) ease, visibility 0s linear var(--sitov-nav-duration); }
-.academy-student-shell[data-tabbar='hidden'] .st-mode-dock__list { pointer-events: none; }
 /* Kleine Folgebewegung der Symbole und Beschriftungen beim Wiedererscheinen. */
 .st-tabbar__item, .st-mode-dock__item { --sitov-nav-item-delay: 0ms; transform: translate3d(0, 0, 0); opacity: 1; transition: transform 340ms var(--sitov-nav-ease) var(--sitov-nav-item-delay), opacity 260ms ease var(--sitov-nav-item-delay); }
 .st-tabbar__item:nth-child(2), .st-mode-dock__item:nth-child(2) { --sitov-nav-item-delay: 24ms; }
 .st-tabbar__item:nth-child(3), .st-mode-dock__item:nth-child(3) { --sitov-nav-item-delay: 48ms; }
 .st-tabbar__item:nth-child(4), .st-mode-dock__item:nth-child(4) { --sitov-nav-item-delay: 72ms; }
 .st-mode-dock__item:nth-child(5) { --sitov-nav-item-delay: 96ms; }
-.academy-student-shell[data-tabbar='hidden'] :is(.st-tabbar__item, .st-mode-dock__item) { --sitov-nav-item-delay: 0ms; opacity: 0; transform: translate3d(0, 6px, 0); }
+@media (max-width: 767.98px) { .academy-student-shell[data-tabbar='hidden'] .st-tabbar__item { --sitov-nav-item-delay: 0ms; opacity: 0; transform: translate3d(0, 6px, 0); } }
 .st-mode-dock__list { pointer-events: auto; }
 .st-mode-dock__list { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .3rem; max-width: 58rem; margin: 0 auto; border: 1px solid color-mix(in srgb, var(--border) 45%, transparent); border-radius: 1.5rem; background: var(--surface); padding: .35rem; box-shadow: 0 1px 2px #0f172a14, var(--shadow-lg); }
 html.high-contrast .st-mode-dock__list { border-color: var(--border); }
@@ -756,11 +761,6 @@ button.st-focus-slot { border-radius: .6rem .6rem 0 0; background: color-mix(in 
 .sitov-trainer-stage[data-mode='pronunciation'] { --sitov-room-color: var(--mode-pronunciation-text); }
 .sitov-trainer-stage[data-mode='media'] { --sitov-room-color: var(--mode-media-text); }
 .sitov-trainer-stage[data-mode='verbs'] { --sitov-room-color: var(--mode-verbs-text); }
-.sitov-trainer-stage::before { content: ''; position: absolute; z-index: -1; inset: -1rem -.5rem auto; height: 22rem; pointer-events: none; background: radial-gradient(ellipse at var(--sitov-light-x, 80%) var(--sitov-light-y, 8%), color-mix(in srgb, var(--sitov-room-color) 8%, transparent), transparent 68%); opacity: .8; animation: sitov-room-light 12s ease-in-out infinite; }
-.sitov-trainer-stage[data-mode='overview']::before { display: none; }
-/* Nested scenes own their pauses; first-paint content must remain readable. */
-.sitov-trainer-stage[data-sitov-live='false']::before { animation-play-state: paused; }
-@keyframes sitov-room-light { 0%, 100% { transform: translateY(0); opacity: .6; } 50% { transform: translateY(12px); opacity: 1; } }
 @media (max-width: 639px) {
   .st-mode-dock__list { gap: .15rem; border-radius: 1.25rem; padding: .3rem; }
   .st-mode-dock__link { min-height: 4.3rem; font-size: .78rem; padding-inline: .12rem; border-radius: .9rem; }
@@ -770,5 +770,72 @@ button.st-focus-slot { border-radius: .6rem .6rem 0 0; background: color-mix(in 
   .st-mode-dock__new { top: .15rem; right: .2rem; }
 }
 @media (min-width: 640px) and (max-width: 899px) { .st-mode-dock__link { flex-direction: column; gap: .2rem; padding: .5rem .25rem; font-size: .92rem; } }
-@media (prefers-reduced-motion: reduce) { .sitov-trainer-stage::before { animation: none; transform: none; } }
-html.high-contrast .sitov-trainer-stage::before { display: none; }
+
+/* Persistent Sitov Academy anchors: a restrained glass frame, moving active
+   pills and a contained route ribbon. Controls never disappear on scroll. */
+.sitov-learning-shell .academy-student-header { background: transparent; border-bottom: 1px solid color-mix(in srgb, var(--border) 55%, transparent); box-shadow: 0 8px 28px -22px rgb(15 23 42 / .2); -webkit-backdrop-filter: none; backdrop-filter: none; }
+/* Blur only the background: putting it on the header itself would trap the
+   mobile fixed dock in the header's containing block in Safari/Chromium. */
+.sitov-learning-shell .academy-student-header::before { content: ''; position: absolute; z-index: -1; inset: 0; pointer-events: none; background: color-mix(in srgb, var(--canvas) 94%, transparent); -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px); }
+.sitov-shell-frame { position: relative; }
+.sitov-learning-shell .academy-student-toolbar { gap: .6rem; min-height: 70px; padding-block: .5rem; }
+.sitov-shell-brand { flex: 0 0 auto; border-radius: 1rem; }
+.sitov-shell-brand .academy-logo { gap: .5rem; }
+.sitov-shell-brand .academy-logo-mark { width: 30px; height: 30px; }
+.sitov-shell-brand .academy-logo-name { font-size: 1rem; letter-spacing: -.035em; }
+.sitov-shell-account { display: flex; min-width: 0; align-items: center; gap: 1.2rem; }
+.sitov-shell-greeting { display: none; max-width: 20rem; color: var(--muted); font-size: .84rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sitov-shell-tools { display: flex; align-items: center; gap: .2rem; }
+.sitov-learning-shell .st-toolbar-button { min-width: 48px; min-height: 48px; gap: .2rem; border: 1px solid transparent; border-radius: .9rem; padding: .4rem .35rem; background: transparent; font-size: .64rem; }
+.sitov-learning-shell .st-toolbar-button > svg { flex: 0 0 auto; width: 20px; height: 20px; transition: transform var(--motion-base) var(--ease-out-soft); }
+.sitov-learning-shell .st-toolbar-button > span { max-width: none; overflow: visible; text-overflow: clip; }
+.sitov-learning-shell .sitov-shell-profile { color: var(--accent-text); background: var(--accent-soft); border-color: color-mix(in srgb, var(--accent-text) 20%, transparent); }
+.sitov-shell-navigation-row { display: flex; min-width: 0; align-items: center; gap: 1rem; padding-bottom: .5rem; }
+.sitov-learning-shell .academy-student-breadcrumb { min-width: 0; width: 100%; min-height: auto; border-top: 0; padding: 0; }
+.sitov-learning-shell .st-crumb { min-height: 40px; padding-inline: .6rem; font-size: .8rem; }
+.sitov-learning-shell .st-crumb--current { background: var(--surface-muted); border-color: transparent; border-radius: .75rem; }
+.sitov-shell-motion-track { position: absolute; inset: auto 24px 0; height: 2px; overflow: hidden; border-radius: 99px; pointer-events: none; }
+.sitov-shell-motion-track > span { display: block; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, var(--accent-text) 25%, var(--gold-via, var(--accent)) 65%, transparent); opacity: .6; }
+.sitov-learning-shell .st-crumbs__list { flex-wrap: nowrap; overflow-x: auto; }
+.sitov-learning-shell .st-tabbar__link:focus-visible, .sitov-shell-brand:focus-visible, .sitov-learning-shell .st-toolbar-button:focus-visible { outline: 3px solid var(--accent-text); outline-offset: 2px; }
+.sitov-learning-shell .st-mode-dock { margin-top: -1rem; padding-block: .65rem; }
+.sitov-learning-shell .st-mode-dock__list { max-width: 66rem; border-radius: 1.4rem; background: color-mix(in srgb, var(--surface) 96%, transparent); border-color: color-mix(in srgb, var(--border) 65%, transparent); box-shadow: 0 8px 30px -16px rgb(15 23 42 / .25); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); }
+.sitov-learning-shell .st-mode-dock__pill { box-shadow: inset 0 0 0 1px currentColor; }
+.sitov-learning-shell .learning-screen[data-presentation='embedded'] { scroll-margin-top: calc(var(--sitov-shell-header-height, 120px) + 100px); }
+@media (hover: hover) {
+  .sitov-learning-shell .st-toolbar-button:hover { background: var(--surface-muted); border-color: var(--border); }
+  .sitov-learning-shell .st-toolbar-button:hover > svg { transform: translateY(-2px) rotate(-6deg); }
+  .sitov-learning-shell .st-tabbar__link:hover .st-tabbar__icon { transform: translateY(-2px); }
+}
+@media (min-width: 640px) {
+  .sitov-shell-brand .academy-logo-mark { width: 36px; height: 36px; }
+  .sitov-shell-brand .academy-logo-name { font-size: 1.2rem; }
+  .sitov-learning-shell .st-toolbar-button { flex-direction: row; gap: .5rem; padding: .5rem .8rem; font-size: .82rem; }
+}
+@media (min-width: 768px) {
+  .sitov-learning-shell .academy-student-toolbar { min-height: 76px; }
+  .sitov-learning-shell .academy-student-breadcrumb { flex: 1 1 auto; width: auto; }
+  .sitov-learning-shell .st-crumbs__list { justify-content: flex-start; }
+  /* Auto margin end-aligns short trails and becomes zero on overflow, so the
+     first crumb remains reachable in long Ukrainian/Russian/media paths. */
+  .sitov-learning-shell .st-crumbs__item:first-child { margin-inline-start: auto; }
+}
+@media (min-width: 1100px) {
+  .sitov-shell-greeting { display: block; }
+  .sitov-learning-shell .st-toolbar-button { padding-inline: 1rem; font-size: .9rem; }
+  .st-tabbar__link { padding-inline: 1rem; font-size: .9rem; }
+}
+@media (max-width: 359px) {
+  .sitov-shell-brand .academy-logo-name { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
+  .sitov-learning-shell .st-toolbar-button { padding-inline: .5rem; font-size: .7rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sitov-learning-shell :is(.st-tabbar, .st-tabbar__item, .st-tabbar__icon, .st-mode-dock, .st-mode-dock__item, .st-toolbar-button, .st-toolbar-button > svg) { transition: none; }
+}
+html.high-contrast .sitov-learning-shell :is(.academy-student-header, .st-tabbar, .st-mode-dock__list) { background: var(--surface); -webkit-backdrop-filter: none; backdrop-filter: none; border-color: var(--border); }
+html.high-contrast .sitov-learning-shell .academy-student-header::before { display: none; }
+html.high-contrast .sitov-shell-motion-track { display: none; }
+@media (forced-colors: active) {
+  .sitov-learning-shell :is(.st-toolbar-button, .st-tabbar, .st-tabbar__pill, .st-mode-dock__list, .st-mode-dock__pill) { border: 1px solid ButtonText; }
+  .sitov-shell-motion-track { display: none; }
+}

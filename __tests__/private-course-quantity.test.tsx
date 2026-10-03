@@ -6,6 +6,10 @@ import { calculateMonthlyStats } from '@/lib/course-calculations'
 import { courseSelectionsSchema, courseSelectionsForRpc } from '@/lib/course-selection'
 import type { CourseConfig } from '@/lib/course-config'
 import de from '@/dictionaries/de.json'
+import en from '@/dictionaries/en.json'
+import ru from '@/dictionaries/ru.json'
+import uk from '@/dictionaries/uk.json'
+import tr from '@/dictionaries/tr.json'
 
 jest.unmock('lucide-react')
 const id='00000000-0000-4000-8000-000000000001'
@@ -52,4 +56,14 @@ it('sends quantity only when selected and retains one canonical UUID key',()=>{
 it('scheduled groups keep their computed lesson count even if passed a requested quantity',()=>{
  const scheduled={...course,category:'german' as const,sessions:[{day:'Mo' as const,startTime:'10:00',endTime:'11:30'}]}
  expect(calculateMonthlyStats(scheduled,'de',9,2026,[],1,999).totalUnits).toBe(8)
+})
+
+it.each(Object.entries({de,en,ru,uk,tr}))('shows the estimate and cancellation adjustment in %s without hiding the unit price', (lang, dictionary)=>{
+ render(<EnrollmentCosts courses={[course]} selections={[{courseId:id,requestedUnits:1}]} startIso="2028-02-15" startChosen exceptions={[]} lang={lang} copy={dictionary.registration.flow} agbHref={`/${lang}/agb`} referenceYear="2028" />)
+ expect(screen.getByRole('heading', {name:dictionary.registration.flow.costs.title})).toBeInTheDocument()
+ expect(screen.getByText(dictionary.registration.flow.costs.estimate_note)).toBeVisible()
+ const expiry = document.querySelector('.sitov-registration-month-end')
+ expect(expiry).toHaveTextContent('29')
+ expect(expiry?.textContent).not.toContain('{date}')
+ expect(screen.getAllByText('25,00 €').length).toBeGreaterThan(0)
 })

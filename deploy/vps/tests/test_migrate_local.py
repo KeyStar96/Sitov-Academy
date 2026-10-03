@@ -127,6 +127,12 @@ class MigrationFailureTests(unittest.TestCase):
         self.assert_services_stopped()
         self.assertIn('07_content_quality.sql', (self.backup / 'applied.json').read_text())
 
+    def test_confirmed_registration_guard_has_identical_cli_and_vps_migrations(self):
+        name = '68_sitov_confirmed_registration_monthly_access.sql'
+        source = SQL_DIR.parent / 'migrations/20261003184422_sitov_confirmed_registration_monthly_access.sql'
+        self.assertIn(name, MIGRATION.ORDER)
+        self.assertEqual((SQL_DIR / name).read_text(), source.read_text())
+
     def test_concurrent_indexes_use_bounded_autocommit_and_next_file_is_transactional(self):
         (self.root / '08_performance_indexes.sql').write_text('CREATE INDEX CONCURRENTLY x ON t(id);\n')
         (self.root / '09_progress_aggregate.sql').write_text('SELECT 9;\n')

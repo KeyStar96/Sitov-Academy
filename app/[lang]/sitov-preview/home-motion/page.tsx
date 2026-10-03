@@ -7,7 +7,10 @@ import SupportWidget from '@/components/dashboard/home/SupportWidget'
 import SitovPreviewAppearance from '@/components/dashboard/SitovPreviewAppearance'
 import LearningProgressView from '@/components/progress/LearningProgressView'
 import SitovProgressHeader from '@/components/progress/SitovProgressHeader'
-import MotionProvider from '@/components/motion/MotionProvider'
+import SitovLearningShell from '@/components/layout/SitovLearningShell'
+import DailyQuestEntry from '@/components/dashboard/DailyQuestEntry'
+import TrainerStatusTiles from '@/components/dashboard/TrainerStatusTiles'
+import sitovHomeGrid from '@/components/dashboard/home/SitovHomeGrid.module.css'
 import { getDictionary } from '@/lib/dictionary'
 import { createDashboardTranslator } from '@/lib/dashboard-i18n'
 import { studentTranslator } from '@/lib/student-ui-i18n'
@@ -86,19 +89,34 @@ export default async function SitovHomeMotionPreviewPage({ params, searchParams 
     telegram: dict.Footer.Contact.telegram_button, email: dict.Footer.Contact.email, emailLabel: dict.Footer.Contact.email_button,
   }
   const route = `/${lang}/sitov-preview/home-motion`
-  return <MotionProvider><div className="academy-student-shell" data-tabbar="hidden">
-    <div className="academy-container academy-student-content space-y-8">
-      <div className="space-y-3">
-        <p className="text-lg font-bold">Sitov Academy · Home motion preview</p>
+  return <SitovLearningShell lang={lang} translations={dict.dashboard} displayName="Dennis Kostjuk"
+    levels={noLevel ? [] : ['A1.1', 'A1.2']} lastActiveLevel="A1.1" supportLabels={support}
+    sitovPreviewPathname={`/${lang}/dashboard`}>
+    <div className="space-y-8">
+      <details className="space-y-3">
+        <summary className="text-sm font-bold cursor-pointer">Sitov Academy · Preview fixtures</summary>
         <SitovPreviewAppearance />
         <nav aria-label="Preview fixtures" className="flex flex-wrap gap-2">
           {['active', 'empty', 'done', 'no-access'].map(state => <Link key={state} href={`${route}?state=${state}&days=${days}`} className="st-link-pill">{state}</Link>)}
           {[7, 30, 90].map(range => <Link key={range} href={`${route}?state=${query.state ?? 'active'}&days=${range}`} className="st-link-pill">{range} days</Link>)}
         </nav>
-      </div>
-      <div className="grid grid-cols-1 items-start gap-5 lg:grid-cols-12">
-        <div className="min-w-0 lg:col-span-7"><TodayPlan lang={lang} name="Dennis Kostjuk" items={items} fallbackHref={noLevel ? null : base} week={week} noLevel={noLevel} /></div>
-        <div className="min-w-0 lg:col-span-5"><ProgressTeaser progress={progress} lang={lang} focus={null} /></div>
+      </details>
+      <div className={sitovHomeGrid.sitovGrid}>
+        <div className={`${sitovHomeGrid.sitovColumn} ${sitovHomeGrid.sitovPrimary}`}>
+          <TodayPlan lang={lang} name="Dennis Kostjuk" items={items} fallbackHref={noLevel ? null : base} week={week} noLevel={noLevel} />
+          <DailyQuestEntry lang={lang} status={{ success: true, enabled: true,
+            today: { assignmentId: '00000000-0000-4000-8000-000000000003', status: query.state === 'done' ? 'completed' : 'active' },
+            streak: { current: empty ? 0 : 1, longest: 3, lastCompletedDate: query.state === 'done' ? '2026-10-03' : '2026-10-02' } }} />
+        </div>
+        <div className={`${sitovHomeGrid.sitovColumn} ${sitovHomeGrid.sitovSecondary}`}>
+          <ProgressTeaser progress={progress} lang={lang} focus={null} />
+          {!noLevel && <TrainerStatusTiles lang={lang} level="A1.1" languageLocked={false}
+            title={s('areas_title_level', { level: 'A1.1' })} continueLink={{ href: `${base}/pronunciation`, label: s('continue_to_pronunciation') }}
+            status={{ level: 'A1.1', vocabulary: { locked: noLevel, due: empty ? 0 : 24, activeWords: empty ? 0 : 128, total: 240, learned: empty ? 0 : 87 },
+              grammar: { locked: noLevel, total: 60, solved: empty ? 0 : 24, topics: 8, openTopics: 5 },
+              pronunciation: { locked: noLevel, texts: 18, open: 8, waiting: 0, unread: 0 },
+              media: { locked: noLevel, total: 20, fresh: 0 }, verbs: { locked: noLevel, total: 140, selected: 20, due: 28, mastered: 4 }, lessons: [], ownWords: null }} />}
+        </div>
       </div>
       <section aria-labelledby="academy-levels-title">
         <div className="academy-level-heading"><h2 id="academy-levels-title">{dict.academy.dashboard_levels}</h2><span>A1—B1</span></div>
@@ -112,5 +130,5 @@ export default async function SitovHomeMotionPreviewPage({ params, searchParams 
         <LearningProgressView progress={progress} lang={lang} skin="student" audience="student" translations={dict.vocabulary ?? {}} />
       </section>
     </div>
-  </div></MotionProvider>
+  </SitovLearningShell>
 }

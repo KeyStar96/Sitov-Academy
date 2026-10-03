@@ -62,12 +62,15 @@ it('asks for the course first, in plain words, and says why "Weiter" cannot go o
   expect(screen.getByText('Das ist gewählt')).toBeInTheDocument()
   expect(screen.queryByText('Wähle zuerst mindestens einen Kurs.')).not.toBeInTheDocument()
 
-  const costs = screen.getByRole('complementary', { name: 'Deine Kosten' })
+  const costs = screen.getByRole('complementary', { name: 'Voraussichtlicher Preis' })
   expect(costs).toHaveTextContent('Erster Monat: September 2026')
   expect(costs).toHaveTextContent('Du zahlst zuerst nur diesen ersten Monat.')
   // 14 and 28 September (the 21st is cancelled), 2 units each at 2.50 €.
   expect(within(costs).getAllByText('10,00 €').length).toBeGreaterThanOrEqual(1)
   expect(costs).toHaveTextContent('Herbstferien – fällt aus und wird nicht berechnet')
+  expect(costs).toHaveTextContent('Sagt Sitov Academy weitere Termine ab, sinkt der Rechnungsbetrag entsprechend.')
+  expect(costs).toHaveTextContent('Diese Monatstermine gelten bis Mittwoch, 30. September.')
+  expect(screen.getByText(/kein frei einlösbares Stundenkontingent/)).toHaveTextContent('Gesetzliche Ansprüche bleiben unberührt.')
 })
 
 it('offers only real lesson days as start dates and shows errors as sentences under the fields', async () => {
@@ -97,6 +100,19 @@ it('offers only real lesson days as start dates and shows errors as sentences un
   expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Deine Angaben')
 })
 
+it('lets learners revisit a previous answer without skipping required later steps or losing the selection', () => {
+  renderFlow()
+  const steps = screen.getByRole('navigation', { name: de.registration.flow.hero.navigation })
+  expect(within(steps).getByRole('button', { name: 'Start wählen' })).toBeDisabled()
+  fireEvent.click(screen.getByRole('checkbox', { name: 'Deutsch A1' }))
+  next()
+  expect(within(steps).getByRole('button', { name: 'Start wählen' })).toHaveAttribute('aria-current', 'step')
+  expect(within(steps).getByRole('button', { name: 'Deine Angaben' })).toBeDisabled()
+  fireEvent.click(within(steps).getByRole('button', { name: 'Kurs wählen' }))
+  expect(screen.getByRole('checkbox', { name: 'Deutsch A1' })).toBeChecked()
+  expect(screen.getByRole('complementary')).toHaveAccessibleName('Voraussichtlicher Preis')
+})
+
 it('lets names in any alphabet through and sends a complete registration', async () => {
   jest.mocked(submitEnrollment).mockResolvedValue({ success: true, message: 'registration_success' })
   renderFlow()
@@ -118,6 +134,8 @@ it('lets names in any alphabet through and sends a complete registration', async
   await waitFor(() => expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Bitte prüfe deine Anmeldung'))
   expect(screen.getByText('04.03.1958')).toBeInTheDocument()
   expect(screen.getByText('Start: Montag, 14. September')).toBeInTheDocument()
+  const policy = screen.getByRole('region', { name: de.registration.flow.hero.policy_title })
+  expect(policy).toHaveTextContent('Wenn du einen Termin nicht besuchst, wird er nicht in den nächsten Monat übertragen.')
 
   // Online course → four consents; nothing is sent before all are ticked.
   expect(screen.getAllByRole('checkbox')).toHaveLength(4)

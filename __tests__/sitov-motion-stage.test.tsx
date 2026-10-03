@@ -35,6 +35,23 @@ beforeEach(() => {
 
 afterEach(() => { jest.restoreAllMocks(); jest.useRealTimers() })
 
+it('keeps a pointer from an overflowing child within the card and ignores zero-size surfaces', () => {
+  render(<SitovMotionStage data-testid="stage"><button data-sitov-surface=""><span>Card</span></button></SitovMotionStage>)
+  const stage = screen.getByTestId('stage')
+  const card = screen.getByRole('button')
+  visibility(stage, true)
+  const event = new Event('pointermove', { bubbles: true })
+  Object.assign(event, { pointerType: 'mouse', clientX: -30, clientY: 200 })
+  fireEvent(screen.getByText('Card'), event)
+  act(() => jest.advanceTimersByTime(32))
+  expect(card.style.getPropertyValue('--sitov-light-x')).toBe('0.0%')
+  expect(card.style.getPropertyValue('--sitov-light-y')).toBe('100.0%')
+  jest.spyOn(card, 'getBoundingClientRect').mockReturnValue({ left: 0, top: 0, width: 0, height: 0 } as DOMRect)
+  pointer(card)
+  expect(card).toHaveAttribute('data-sitov-pointer', 'false')
+  expect(card.style.cssText).not.toMatch(/NaN|Infinity/)
+})
+
 it('pauses decoration outside the viewport and when the page is hidden', () => {
   render(<SitovMotionStage data-testid="stage"><button data-sitov-surface="">Card</button></SitovMotionStage>)
   const stage = screen.getByTestId('stage')

@@ -2,8 +2,9 @@
 
 import { useEffect, useRef, useState, type CSSProperties } from 'react'
 import { useRouter } from 'next/navigation'
+import Link from 'next/link'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
-import { ArrowLeft, ArrowRight, CalendarCheck, CalendarDays, Check, CirclePause, Loader2, Pencil, Plus, Sparkles } from 'lucide-react'
+import { ArrowLeft, ArrowRight, CalendarCheck, CalendarDays, Check, CirclePause, Loader2, LockKeyhole, Pencil, Plus, Sparkles } from 'lucide-react'
 import { createProfileTranslator, type ProfileTranslations } from '@/lib/profile-i18n'
 import { formatProfileMonth, profileMonthWindow } from '@/lib/profile-month'
 import type { MonthlySelection, ProfileMonthlyState } from '@/lib/types/monthly-bookings'
@@ -88,15 +89,19 @@ export default function ProfileMonthlyCourses({ initial, lang, translations, cou
     })
   }
   function confirm() {
+    if (!state.hasConfirmedRegistration) return
     pendingSave.current = true
     change(draft)
   }
 
   const summary = (selection: MonthlySelection) => {
     const chosen = selection.courseSelections.map(item => ({ item, course: state.courses.find(course => course.id === item.courseId) }))
-    const dates = chosen.reduce((sum, { item, course }) => sum + (course?.category === 'private' ? 0 : course?.sessions ?? 0), 0)
+    const dates = chosen.reduce((sum, { course }) => sum + (course?.category === 'private' ? 0 : course?.sessions ?? 0), 0)
     const units = chosen.reduce((sum, { item, course }) => sum + (course?.category === 'private' ? item.requestedUnits ?? 1 : 0), 0)
-    return { chosen, dates, units }
+    const priced = chosen.length > 0 && chosen.every(({ course }) => course && (course.category === 'private' || typeof course.monthlyAmount === 'number'))
+    const amount = ({ item, course }: typeof chosen[number]) => course?.category === 'private' ? (item.requestedUnits ?? 1) * course.unitPrice : course?.monthlyAmount ?? 0
+    const total = Math.round(chosen.reduce((sum, entry) => sum + amount(entry), 0) * 100) / 100
+    return { chosen, dates, units, priced, amount, total }
   }
   const stepMotion = {
     initial: reduced ? false : { opacity: 0, x: 24 }, animate: { opacity: 1, x: 0 },
@@ -114,6 +119,7 @@ export default function ProfileMonthlyCourses({ initial, lang, translations, cou
 
   const current = summary(state.selection)
   const review = summary(draft)
+  const money = (amount: number) => new Intl.NumberFormat(lang, { style: 'currency', currency: 'EUR' }).format(amount)
 
   return (
     <div className="min-w-0 space-y-6">
@@ -126,9 +132,13 @@ export default function ProfileMonthlyCourses({ initial, lang, translations, cou
             <h2 id="monthly-title" className="break-words text-xl font-bold text-[var(--foreground)]">{t('next_month_title')}</h2>
           </div>
         </div>
-        {state.source === 'unresolved' && <p className="mt-4 rounded-xl bg-amber-50 p-3 text-base text-amber-900 dark:bg-amber-950 dark:text-amber-200">{t('unresolved_courses')}</p>}
+        {!state.hasConfirmedRegistration && <div className="st-plan mt-5">
+          <p className="flex items-center gap-2 font-bold text-[var(--foreground)]"><LockKeyhole size={20} aria-hidden="true" />{t('registration_required_title')}</p>
+          <p className="mt-2 text-base leading-relaxed text-[var(--muted)]">{t(state.source === 'unresolved' ? 'unresolved_courses' : 'registration_required')}</p>
+          <Link href={`/${lang}/registration`} className="st-button st-button--soft st-press mt-4">{t('registration_link')}<ArrowRight size={18} aria-hidden="true" /></Link>
+        </div>}
 
-        <AnimatePresence mode="wait" initial={false}>
+        {state.hasConfirmedRegistration && <AnimatePresence mode="wait" initial={false}>
           {!editing ? (
             <motion.div key="plan" {...stepMotion} className="mt-5">
               <div className="st-plan" data-paused={state.selection.paused}>
@@ -184,7 +194,7 @@ export default function ProfileMonthlyCourses({ initial, lang, translations, cou
                         <button type="button" role="checkbox" aria-checked={selected} aria-label={titleOf(course.id)}
                           disabled={monthExpired || (!course.available && !selected)} onClick={() => toggleCourse(course.id)}
                           data-selected={selected} className="sl-card st-press flex min-h-16 w-full items-center gap-3 px-3 py-2.5 pl-4 text-left disabled:opacity-60">
-                          <span aria-hidden="true" data-selected={selected} className="sl-chip h-10 min-h-10 w-10 shrink-0 px-0">{selected ? <Check size={18} /> : <Plus size={18} />}</span>
+                          <span aria-hidden="true" data-selected={selected} className="sl-chip h-10 min-h-10 w-10 shrink-0" style={{ padding: 0 }}>{selected ? <Check size={22} strokeWidth={2.5} className="h-[22px] w-[22px] shrink-0" /> : <Plus size={22} className="h-[22px] w-[22px] shrink-0" />}</span>
                           <span className="min-w-0 flex-1">
                             <span className="block break-words text-base font-semibold leading-snug text-[var(--foreground)]">{titleOf(course.id)}</span>
                             <span className="mt-0.5 block text-base leading-snug text-[var(--muted)]">
@@ -219,22 +229,32 @@ export default function ProfileMonthlyCourses({ initial, lang, translations, cou
                     </p>
                     <ul className="st-plan__list">{review.chosen.map(({ item, course }) => (
                       <li key={item.courseId}><Check size={18} aria-hidden="true" />
-                        <span>{titleOf(item.courseId)}{course?.category === 'private' ? ` · ${s.count('booking_units', item.requestedUnits ?? 1)}` : course?.sessions ? ` · ${s.count('booking_dates', course.sessions)}` : ''}</span>
+                        <span className="min-w-0 flex-1"><span className="block">{titleOf(item.courseId)}{course?.category === 'private' ? ` · ${s.count('booking_units', item.requestedUnits ?? 1)}` : course?.sessions ? ` · ${s.count('booking_dates', course.sessions)}` : ''}</span>
+                          {course && <span className="mt-1 block text-base font-normal text-[var(--muted)]">{t('booking_unit_rate', { price: money(course.unitPrice), minutes: course.unitMinutes })} · {money(review.amount({ item, course }))}</span>}
+                        </span>
                       </li>
                     ))}</ul>
                   </>}
                 </div>
+                {!draft.paused && <div className="mt-4 rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-4 text-base leading-relaxed">
+                  <p className="flex flex-wrap items-baseline justify-between gap-2 font-bold text-[var(--foreground)]"><span>{t('booking_estimated_price')}</span><strong className="text-2xl">{review.priced ? money(review.total) : t('booking_price_unavailable')}</strong></p>
+                  <p className="mt-2 text-[var(--muted)]">{t('booking_price_note')}</p>
+                  <p className="mt-3 font-semibold text-[var(--foreground)]">{t('booking_month_terms', { month })}</p>
+                  <p className="mt-2 text-[var(--muted)]">{t('booking_renewal_terms')}</p>
+                  <p className="mt-2 text-[var(--muted)]">{t('booking_contract_note')}</p>
+                  <Link href={`/${lang}/agb`} className="mt-3 inline-flex min-h-11 items-center font-bold text-[var(--accent-text)] underline underline-offset-4">{t('booking_terms_link')}</Link>
+                </div>}
                 <div className="st-booking__nav">
                   <button type="button" onClick={() => setStep(draft.paused ? 1 : 2)} disabled={saving} className="st-button st-button--soft st-press"><ArrowLeft size={18} aria-hidden="true" />{s('booking_back')}</button>
-                  <button type="button" onClick={confirm} disabled={saving || monthExpired} className="st-button st-button--primary st-press">
+                  <button type="button" onClick={confirm} disabled={saving || monthExpired || (!draft.paused && !review.priced)} className="st-button st-button--primary st-press">
                     {saving ? <Loader2 size={18} className="animate-spin" aria-hidden="true" /> : <CalendarCheck size={18} aria-hidden="true" />}
-                    {draft.paused ? s('booking_confirm_pause') : s('booking_confirm')}
+                    {draft.paused ? s('booking_confirm_pause') : t('booking_paid_confirm')}
                   </button>
                 </div>
               </>}
             </motion.div>
           )}
-        </AnimatePresence>
+        </AnimatePresence>}
         {statusArea}
       </section>
     </div>

@@ -1,7 +1,7 @@
 import { toUiLocale, type UiLocale } from '@/lib/locale-routing'
 
 const de = {
-  eyebrow: 'Deine Deutschreise', title: 'Ein kleiner Moment Deutsch', start: 'Los geht’s',
+  navJourney: 'Deutschreise', eyebrow: 'Deine Deutschreise', title: 'Ein kleiner Moment Deutsch', start: 'Los geht’s',
   skip: 'Später machen', sceneListen: 'Szene anhören', wordListen: 'Wort anhören',
   pauseAudio: 'Audio stoppen', loadingAudio: 'Audio wird vorbereitet', audioError: 'Audio konnte nicht geladen werden.',
   audioReady: 'Audio bereit', audioPlaying: 'Audio läuft', audioIdle: 'Audio anhören', instruction: 'Deine Aufgabe',
@@ -35,7 +35,7 @@ export type DailyQuestCopy = { [Key in keyof typeof de]: string }
 const copies: Record<UiLocale, DailyQuestCopy> = {
   de,
   en: {
-    eyebrow: 'Your German journey', title: 'A little moment of German', start: 'Let’s begin',
+    navJourney: 'Journey', eyebrow: 'Your German journey', title: 'A little moment of German', start: 'Let’s begin',
     skip: 'Do it later', sceneListen: 'Listen to the scene', wordListen: 'Listen to the word',
     pauseAudio: 'Stop audio', loadingAudio: 'Preparing audio', audioError: 'The audio could not be loaded.',
     audioReady: 'Audio ready', audioPlaying: 'Audio playing', audioIdle: 'Listen', instruction: 'Your task',
@@ -64,7 +64,7 @@ const copies: Record<UiLocale, DailyQuestCopy> = {
     progressLabel: 'stations',
   },
   ru: {
-    eyebrow: 'Твоё путешествие в немецкий', title: 'Немного немецкого каждый день', start: 'Начнём',
+    navJourney: 'Путешествие', eyebrow: 'Твоё путешествие в немецкий', title: 'Немного немецкого каждый день', start: 'Начнём',
     skip: 'Сделать позже', sceneListen: 'Послушать сцену', wordListen: 'Послушать слово',
     pauseAudio: 'Остановить аудио', loadingAudio: 'Подготовка аудио', audioError: 'Не удалось загрузить аудио.',
     audioReady: 'Аудио готово', audioPlaying: 'Воспроизведение аудио', audioIdle: 'Послушать', instruction: 'Твоё задание',
@@ -93,7 +93,7 @@ const copies: Record<UiLocale, DailyQuestCopy> = {
     progressLabel: 'этапов',
   },
   uk: {
-    eyebrow: 'Твоя подорож у німецьку', title: 'Трохи німецької щодня', start: 'Почнімо',
+    navJourney: 'Подорож', eyebrow: 'Твоя подорож у німецьку', title: 'Трохи німецької щодня', start: 'Почнімо',
     skip: 'Зробити пізніше', sceneListen: 'Послухати сцену', wordListen: 'Послухати слово',
     pauseAudio: 'Зупинити аудіо', loadingAudio: 'Підготовка аудіо', audioError: 'Не вдалося завантажити аудіо.',
     audioReady: 'Аудіо готове', audioPlaying: 'Відтворення аудіо', audioIdle: 'Послухати', instruction: 'Твоє завдання',
@@ -122,7 +122,7 @@ const copies: Record<UiLocale, DailyQuestCopy> = {
     progressLabel: 'етапів',
   },
   tr: {
-    eyebrow: 'Almanca yolculuğun', title: 'Her gün küçük bir Almanca anı', start: 'Başlayalım',
+    navJourney: 'Yolculuk', eyebrow: 'Almanca yolculuğun', title: 'Her gün küçük bir Almanca anı', start: 'Başlayalım',
     skip: 'Daha sonra yap', sceneListen: 'Sahneyi dinle', wordListen: 'Kelimeyi dinle',
     pauseAudio: 'Sesi durdur', loadingAudio: 'Ses hazırlanıyor', audioError: 'Ses yüklenemedi.',
     audioReady: 'Ses hazır', audioPlaying: 'Ses çalıyor', audioIdle: 'Dinle', instruction: 'Görevin',

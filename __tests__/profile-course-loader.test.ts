@@ -11,9 +11,12 @@ const month=profileMonthWindow()
 const user={id:'verified-user',email:'verified@example.invalid',email_confirmed_at:'2026-01-01'} as User
 const booking=(ids=['course-uuid'],status='pending',target=month.next)=>({id:'booking',target_month:target,booking_items:ids.map(course_id=>({course_id,requested_units:null})),status,revision:2})
 function client(rows:ReturnType<typeof booking>[]=[],error:{code:string}|null=null){
- const catalog={select:jest.fn().mockReturnThis(),is:jest.fn().mockReturnThis(),order:jest.fn().mockResolvedValue({data:[{id:'course-uuid',title:'Test',slug:'test',course_translations:[],unit_price:25,unit_minutes:45,category:'private',type:'online',start_date:null,end_date:null},{id:'ended-uuid',title:'Old',slug:'old',course_translations:[],unit_price:25,unit_minutes:45,category:'private',type:'online',start_date:null,end_date:'2000-01-01'}],error})}
+ const catalog={select:jest.fn().mockReturnThis(),is:jest.fn().mockReturnThis(),order:jest.fn().mockResolvedValue({data:[{id:'course-uuid',title:'Test',slug:'test',course_translations:[],unit_price:25,unit_minutes:45,course_schedules:[],category:'private',type:'online',start_date:null,end_date:null},{id:'ended-uuid',title:'Old',slug:'old',course_translations:[],unit_price:25,unit_minutes:45,course_schedules:[],category:'private',type:'online',start_date:null,end_date:'2000-01-01'}],error})}
+ const eligibility={select:jest.fn().mockReturnThis(),eq:jest.fn().mockReturnThis(),neq:jest.fn().mockReturnThis(),or:jest.fn().mockReturnThis(),limit:jest.fn().mockReturnThis(),maybeSingle:jest.fn().mockResolvedValue({data:rows.some(row=>row.status==='confirmed')?{id:'confirmed-registration'}:null,error:null})}
+ const exceptions={select:jest.fn().mockReturnThis(),gte:jest.fn().mockReturnThis(),lt:jest.fn().mockReturnThis(),order:jest.fn().mockReturnThis(),range:jest.fn().mockResolvedValue({data:[],error:null})}
  const bookings={select:jest.fn().mockReturnThis(),eq:jest.fn().mockReturnThis(),neq:jest.fn().mockReturnThis(),order:jest.fn().mockResolvedValue({data:rows,error:null})}
- return {from:jest.fn((table:string)=>table==='courses'?catalog:bookings)} as unknown as Awaited<ReturnType<typeof createClient>>
+ const bookingQuery={...bookings,select:jest.fn((fields:string)=>fields==='id'?eligibility:bookings)}
+ return {from:jest.fn((table:string)=>table==='courses'?catalog:table==='course_exceptions'?exceptions:bookingQuery)} as unknown as Awaited<ReturnType<typeof createClient>>
 }
 beforeEach(()=>{jest.clearAllMocks();jest.mocked(resolveVerifiedPerson).mockResolvedValue({id:'trusted-person',unresolved:false})})
 it('uses canonical UUID selections and a server revision',async()=>{

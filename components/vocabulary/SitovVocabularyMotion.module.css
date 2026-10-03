@@ -55,14 +55,14 @@
 .sitovScene :global(.lb-cell:focus-visible) .sitovHoleLight,
 .sitovScene :global(.lb-cell[data-open]) .sitovHoleLight { opacity: 1; }
 .sitovScene :global(.lb-cell span.lb-plate) { transition: border-color .3s ease, box-shadow .4s ease, background-color .3s ease, transform .45s cubic-bezier(.22, 1, .36, 1); }
-.sitovScene :global(.lb-plate)::after { content: ''; position: absolute; inset: 0; background: radial-gradient(8rem circle at var(--sitov-light-x, 50%) var(--sitov-light-y, 50%), color-mix(in srgb, var(--accent) 11%, transparent), transparent); opacity: 0; pointer-events: none; transition: opacity .4s ease; }
+.sitovScene :global(.lb-plate)::after { content: ''; position: absolute; inset: 0; border-radius: inherit; background: radial-gradient(8rem circle at var(--sitov-light-x, 50%) var(--sitov-light-y, 50%), color-mix(in srgb, var(--accent) 11%, transparent), transparent); opacity: 0; pointer-events: none; transition: opacity .4s ease; }
 .sitovScene :global(.lb-cell[data-sitov-pointer='true'] .lb-plate)::after { opacity: 1; }
 .sitovScene :global(.lb-cell:focus-visible .lb-stack),
 .sitovScene :global(.lb-cell[data-open] .lb-stack) { transform: translateX(-50%) translateZ(calc(var(--u) * -.2)); }
 .sitovScene :global(.lb-cell:focus-visible .lb-stack__card),
 .sitovScene :global(.lb-cell[data-open] .lb-stack__card) { transform: rotateX(90deg) translateZ(3px) translateY(calc(var(--u) * 4.2)) rotateZ(-7deg); animation: none; translate: none; }
 .sitovAction :global(.lb-cta) { transition: background-color .3s ease, box-shadow .4s ease; }
-.sitovAction :global(.lb-cta)::before { content: ''; position: absolute; inset: 0; background: radial-gradient(18rem circle at var(--sitov-light-x, 50%) var(--sitov-light-y, 50%), rgb(255 255 255 / .15), transparent 70%); opacity: 0; transition: opacity .4s ease; pointer-events: none; }
+.sitovAction :global(.lb-cta)::before { content: ''; position: absolute; inset: 0; border-radius: inherit; background: radial-gradient(18rem circle at var(--sitov-light-x, 50%) var(--sitov-light-y, 50%), rgb(255 255 255 / .15), transparent 70%); opacity: 0; transition: opacity .4s ease; pointer-events: none; }
 .sitovAction :global(.lb-cta[data-sitov-pointer='true'])::before { opacity: 1; }
 .sitovAction :global(.lb-cta__icon) { transition: transform .5s cubic-bezier(.22, 1, .36, 1), color .3s ease; }
 .sitovAction :global(.lb-cta:focus-visible .lb-cta__icon) { transform: translateX(4px); }

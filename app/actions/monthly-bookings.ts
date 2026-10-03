@@ -6,12 +6,16 @@ import {saveNextMonthSchema,type MonthlyCourseBooking,type ProfileMonthlyState} 
 import {loadProfileMonthlyState} from '@/lib/profile-dashboard-server'
 import {courseSelectionsForRpc} from '@/lib/course-selection'
 import {monthlyBooking} from '@/lib/business-bookings'
+import {resolveVerifiedPerson} from '@/lib/profile-person'
+import {hasConfirmedCourseRegistration} from '@/lib/profile-monthly-access'
 export async function getProfileMonthlyState():Promise<BackendActionResult<ProfileMonthlyState>> {
  return withBackendSession(({supabase,user})=>loadProfileMonthlyState(supabase,user))
 }
 export async function saveNextMonthBooking(input:unknown):Promise<BackendActionResult<MonthlyCourseBooking>> {
- return withBackendSession(async({supabase,userId})=>{
+ return withBackendSession(async({supabase,userId,user})=>{
   const fields=saveNextMonthSchema.parse(input)
+  const person=await resolveVerifiedPerson(user)
+  if(!person.id||person.unresolved||!await hasConfirmedCourseRegistration(supabase,person.id))throw new BackendError('not_authorized')
   const {data:id,error}=await supabase.rpc('save_business_month',{p_month:fields.targetMonth,p_course_selections:courseSelectionsForRpc(fields.courseSelections),p_paused:fields.paused,p_expected:fields.expected?.id??undefined,p_revision:fields.expected?.revision??undefined})
   checkDatabaseError(error)
   checkRpcError(id)

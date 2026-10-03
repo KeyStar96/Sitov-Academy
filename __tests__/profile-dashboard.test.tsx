@@ -21,8 +21,9 @@ jest.mock('@/app/actions/profile-calendar',()=>({getProfileCourseCalendar:jest.f
 
 const one='00000000-0000-4000-8000-000000000001',two='00000000-0000-4000-8000-000000000002'
 const initial: ProfileMonthlyState = {
+  hasConfirmedRegistration:true,
   targetMonth:profileMonthWindow().next, booking:null,source:'previous',selection:{courseSelections:[{courseId:one}],paused:false},
-  courses:[{id:one,title:'A1',slug:'a1',translations:[],unitPrice:25,unitMinutes:45,category:'online',type:'online',available:true},{id:two,title:'A2',slug:'a2',translations:[],unitPrice:25,unitMinutes:45,category:'german',type:'presence',available:true}],
+  courses:[{id:one,title:'A1',slug:'a1',translations:[],unitPrice:25,unitMinutes:45,monthlyAmount:100,category:'online',type:'online',available:true},{id:two,title:'A2',slug:'a2',translations:[],unitPrice:25,unitMinutes:45,monthlyAmount:100,category:'german',type:'presence',available:true}],
 }
 const row=(ids:string[],paused=false):MonthlyCourseBooking=>({id:two,userId:one,targetMonth:initial.targetMonth,courseSelections:ids.map(courseId=>({courseId})),revision:1,status:paused?'cancelled':'pending'})
 const renderCourses=(state=initial,lang='de',translations=de.profile)=>render(<ProfileMonthlyCourses initial={state} lang={lang} translations={translations} courseTitles={{[one]:'A1',[two]:'A2'}} />)
@@ -51,6 +52,23 @@ it.each([['de',de],['en',en],['ru',ru],['uk',uk],['tr',tr]] as const)('all profi
 const s=studentTranslator('de')
 const edit=()=>fireEvent.click(screen.getByRole('button',{name:s('booking_change')}))
 const next=()=>fireEvent.click(screen.getByRole('button',{name:s('booking_next')}))
+it('locks monthly selection until an original course registration has been confirmed',()=>{
+  renderCourses({...initial,hasConfirmedRegistration:false})
+  expect(screen.getByText(de.profile.registration_required_title)).toBeInTheDocument()
+  expect(screen.getByRole('link',{name:de.profile.registration_link})).toHaveAttribute('href','/de/registration')
+  expect(screen.queryByRole('button',{name:s('booking_change')})).not.toBeInTheDocument()
+  expect(screen.queryByRole('checkbox')).not.toBeInTheDocument()
+  expect(saveNextMonthBooking).not.toHaveBeenCalled()
+})
+it('shows the monthly price, rates, attendance scope and paid confirmation together',()=>{
+  renderCourses()
+  edit();next()
+  expect(screen.getByText(de.profile.booking_estimated_price)).toBeInTheDocument()
+  expect(screen.getByText('100,00 €')).toBeInTheDocument()
+  expect(screen.getByText('25,00 € je 45 Minuten · 100,00 €')).toBeInTheDocument()
+  expect(screen.getByText(/kein frei einlösbares Stundenkontingent/)).toBeInTheDocument()
+  expect(screen.getByRole('button',{name:de.profile.booking_paid_confirm})).toBeEnabled()
+})
 it('shows inherited current courses as the plan until the learner changes it',()=>{
   renderCourses()
   expect(screen.getByText('A1')).toBeInTheDocument()
@@ -70,7 +88,7 @@ it('keeps choices as a draft, summarises courses and dates, and saves once on co
   expect(screen.getByText(s('booking_summary',{month:formatProfileMonth(initial.targetMonth,'de')}))).toBeInTheDocument()
   expect(screen.getByText('2 Kurse')).toBeInTheDocument()
   expect(screen.getByText('8 Termine')).toBeInTheDocument()
-  fireEvent.click(screen.getByRole('button',{name:s('booking_confirm')}))
+  fireEvent.click(screen.getByRole('button',{name:de.profile.booking_paid_confirm}))
   expect(saveNextMonthBooking).toHaveBeenCalledTimes(1)
   expect(jest.mocked(saveNextMonthBooking).mock.calls[0][0]).toMatchObject({courseSelections:[{courseId:one},{courseId:two}],paused:false,expected:null})
   await act(async()=>resolveFirst({success:true,data:row([one,two])}))
@@ -78,7 +96,7 @@ it('keeps choices as a draft, summarises courses and dates, and saves once on co
   edit()
   fireEvent.click(screen.getByRole('checkbox',{name:'A1'}))
   next()
-  fireEvent.click(screen.getByRole('button',{name:s('booking_confirm')}))
+  fireEvent.click(screen.getByRole('button',{name:de.profile.booking_paid_confirm}))
   await waitFor(()=>expect(saveNextMonthBooking).toHaveBeenCalledTimes(2))
   expect(jest.mocked(saveNextMonthBooking).mock.calls[1][0]).toMatchObject({courseSelections:[{courseId:two}],expected:{id:two,revision:1}})
 })
@@ -88,10 +106,10 @@ it('keeps the draft and reconciles after a failed save',async()=>{
   edit()
   fireEvent.click(screen.getByRole('checkbox',{name:'A2'}))
   next()
-  fireEvent.click(screen.getByRole('button',{name:s('booking_confirm')}))
+  fireEvent.click(screen.getByRole('button',{name:de.profile.booking_paid_confirm}))
   expect(await screen.findByRole('alert')).toHaveTextContent(de.profile.save_failed)
   expect(getProfileMonthlyState).toHaveBeenCalled()
-  expect(screen.getByRole('button',{name:s('booking_confirm')})).toBeInTheDocument()
+  expect(screen.getByRole('button',{name:de.profile.booking_paid_confirm})).toBeInTheDocument()
 })
 it('persists a pause with no selected courses and restores it on reload',async()=>{
   jest.mocked(saveNextMonthBooking).mockResolvedValue({success:true,data:row([],true)})
@@ -134,7 +152,7 @@ it('saves the chosen private lesson quantity with the acknowledged revision',asy
   expect(screen.getByText('100,00 €')).toBeInTheDocument()
   next()
   expect(screen.getByText('4 Einzelstunden')).toBeInTheDocument()
-  fireEvent.click(screen.getByRole('button',{name:s('booking_confirm')}))
+  fireEvent.click(screen.getByRole('button',{name:de.profile.booking_paid_confirm}))
   await waitFor(()=>expect(saveNextMonthBooking).toHaveBeenCalledWith({targetMonth:initial.targetMonth,courseSelections:[{courseId:one,requestedUnits:4}],paused:false,expected:{id:two,revision:1}}))
 })
 it('keeps confirmed contact values after an email-only failure',async()=>{

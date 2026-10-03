@@ -496,10 +496,10 @@
                     "many": "{count} courses selected",
                     "other": "{count} courses selected"
                 },
-                "first_month": "First month: {price}"
+                "first_month": "Estimated first month: {price}"
             },
             "costs": {
-                "title": "Your costs",
+                "title": "Estimated price",
                 "title_trial": "Your trial lesson",
                 "first_month": "First month: {month}",
                 "counted_from": "Calculated from {date}.",
@@ -514,14 +514,16 @@
                 "cancelled": "{date}: {reason} – cancelled and not charged",
                 "later_title": "After that",
                 "later_month": "{month}: about {price}",
-                "renewal": "The course renews every month. You can cancel at any time to the end of the month – by email or with the cancellation form.",
+                "renewal": "After the first teaching month, the course agreement continues indefinitely and is billed monthly. You can cancel at any time with effect at the end of the current billing month, by email or using the cancellation form.",
                 "how_title": "How do I pay?",
                 "how_text": "You receive an invoice and pay by bank transfer. The invoice for the next month arrives at the end of each month. The details are in the Terms.",
                 "agb_link": "Read the Terms",
                 "vat": "All prices include VAT.",
                 "trial_price": "Free",
                 "trial_free": "The trial lesson is free and without obligation.",
-                "trial_date": "Date: {date}"
+                "trial_date": "Date: {date}",
+                "estimate_note": "The estimated price is based on the dates currently planned. If Sitov Academy cancels further dates, your invoice amount decreases accordingly.",
+                "month_end": "These monthly course dates are valid until {date}. Missed dates do not transfer."
             },
             "review": {
                 "courses_title": "Your courses",
@@ -566,6 +568,18 @@
                 "step_check_trial": "We confirm the date by email.",
                 "step_trial_free": "The trial lesson is free and without obligation.",
                 "trial_date": "Your preferred date: {date}"
+            },
+            "hero": {
+                "kicker": "Your next step",
+                "title_lead": "Your German.",
+                "title_accent": "Your new beginning.",
+                "description": "Find your course. Learn with real people. Turn your good intentions into your next step.",
+                "trial_lead": "One hello.",
+                "trial_accent": "A new beginning.",
+                "trial_description": "Experience Sitov Academy in a free trial lesson. Get to know us and find the course that suits you.",
+                "navigation": "Course registration steps",
+                "policy_title": "Fixed dates. One calendar month.",
+                "policy_text": "You book the agreed course dates in the relevant calendar month, rather than a flexible credit of lessons. If you miss a date, it does not transfer to the next month. Your statutory rights remain unaffected."
             }
         }
     },
@@ -602,7 +616,7 @@
     "agb": {
         "title": "General Terms and Conditions (GTC)",
         "school_name": "Sitov Academy",
-        "status_date": "Updated: 10 September 2026",
+        "status_date": "Updated: 3 October 2026",
         "sections": [
             {
                 "title": "§ 1 Scope of Application, Provider",
@@ -623,7 +637,8 @@
                     "(1) The subject of the contract is the services specified in the respective course description (scope of services, course duration, dates, teaching materials). The course description is an integral part of the contract.",
                     "(2) Minor changes in the course schedule, teaching staff, or class times are permissible, provided that the overall character of the course is not significantly impaired.",
                     "(3) Online instruction is conducted via common video conferencing software (e.g., Microsoft Teams). The participant is responsible for a suitable internet connection and technical equipment.",
-                    "(4) For quality assurance and review purposes for participants, online sessions are recorded. The details regarding the use of these recordings are set out in § 9 of these GTC."
+                    "(4) For quality assurance and review purposes for participants, online sessions are recorded. The details regarding the use of these recordings are set out in § 9 of these GTC.",
+                    "(5) Course participation covers the specifically agreed dates in the relevant calendar month. The displayed number of teaching units describes the calculation for that month; it is not an unlimited or freely redeemable balance of hours. Private lesson dates are individually agreed within the booked month; separate arrangements remain possible."
                 ]
             },
             {
@@ -639,7 +654,7 @@
                 "title": "§ 4 Prices, Payment Conditions, Subscription Model",
                 "content": [
                     "(1) The currently valid prices are those listed in the price overview published on the website. All prices are final prices. According to § 19 UStG, no sales tax is charged.",
-                    "(2) The course fee is invoiced monthly in advance. The contract is automatically renewed for one additional month unless the participant actively cancels or fails to pay the invoice for the following month within the specified period.",
+                    "(2) Course fees are invoiced monthly in advance. After the first booked teaching month, the course agreement continues for an indefinite period unless terminated. Billing and participation entitlement cover the agreed dates of the respective calendar month; no transferable balance of hours is created.",
                     "(3) Payment of the follow-up invoice constitutes active consent to continued course participation for the respective following month.",
                     "(4) Non-payment of a follow-up invoice within 14 days of receipt is treated as automatic cancellation effective at the end of the current billing month. In this case, no additional costs are incurred by the participant.",
                     "(5) Payment is made by bank transfer after receipt of invoice, unless otherwise agreed.",
@@ -650,7 +665,8 @@
                     "Bank: N26 Bank SE",
                     "Reason for payment: Invoice number",
                     "(6) In case of late payment, statutory default regulations (§ 288 BGB) apply only if the payment was announced but not made within the specified period.",
-                    "(7) Subsequent invoices are usually prepared at month-end for the following teaching month. Payment is due in advance as stated on the invoice. An internal dashboard mark for invoice creation does not confirm delivery or receipt of payment."
+                    "(7) Subsequent invoices are usually prepared at month-end for the following teaching month. Payment is due in advance as stated on the invoice. An internal dashboard mark for invoice creation does not confirm delivery or receipt of payment.",
+                    "(8) The estimated price shown during registration and monthly selection is calculated from the currently planned lessons, their duration and the stated unit rates. Known cancellations are deducted. Further lessons cancelled by Sitov Academy reduce the invoice accordingly; paid services that are not replaced are refunded proportionally. All prices are final prices without additional fees."
                 ]
             },
             {
@@ -677,7 +693,7 @@
             {
                 "title": "§ 6 Non-participation / Illness",
                 "content": [
-                    "(1) The course fee covers access to the courses in the respective month. In case of non-participation in individual teaching units (e.g., due to illness or vacation), there is no claim for reimbursement or replacement hours.",
+                    "(1) If a participant misses an agreed appointment for reasons within their responsibility, such as holiday or illness, there is no automatic right to a replacement lesson, transfer to a later month or attendance at different dates. Participation covers the booked dates of the relevant calendar month and ends for those dates at month-end. Any continuing payment claim in the event of default of acceptance is governed by section 615 BGB, including deduction of saved expenses and alternative earnings; statutory rights remain unaffected.",
                     "(2) On a goodwill basis, the Language School may offer make-up opportunities or replacement dates, provided this is organizationally possible."
                 ]
             },
@@ -685,7 +701,7 @@
                 "title": "§ 7 Cancellation by the Language School / Replacement Services",
                 "content": [
                     "(1) If classes are cancelled for reasons for which the Language School is responsible (e.g., illness of the teacher) and no replacement date can be offered, the pro rata course fee will be refunded.",
-                    "(2) Further claims, in particular damages, are excluded, unless there is intent or gross negligence."
+                    "(2) Statutory rights concerning failures of performance, including refunds, withdrawal from the contract and damages, remain unaffected."
                 ]
             },
             {
@@ -708,11 +724,12 @@
             {
                 "title": "§ 10 Contract Duration and Cancellation",
                 "content": [
-                    "(1) With the initial payment of the course fee, an ongoing contract for participation in the course programme is concluded.",
-                    "(2) The contract is automatically renewed for one additional month at a time, unless the participant actively cancels or the invoice for the following month is not paid within the specified period. Non-payment of the follow-up invoice constitutes automatic cancellation (cf. § 4 para. 4).",
+                    "(1) The course agreement is concluded under the rules in section 3. Fees and advance payment are governed by section 4.",
+                    "(2) After the first booked teaching month, the agreement continues indefinitely and is billed monthly. The participant may cancel at any time with effect at the end of the current billing month. Non-payment of a renewal invoice is treated as cancellation under section 4(4); no further costs arise from it.",
                     "(3) Cancellation may be declared at any time without any particular form (e.g. by e-mail, via the cancellation form on the website, or by message via a messenger service) and takes effect at the end of the current billing month.",
-                    "(4) After cancellation — whether active or by non-payment — course participation can only be resumed through a new registration.",
-                    "(5) This subscription model is designed to minimise unnecessary administrative effort for both parties and to make course participation as straightforward as possible."
+                    "(4) After cancellation, whether active or due to non-payment, course participation can only resume through a new registration. A choice explicitly saved as a monthly pause within an ongoing agreement concerns only attendance in the specified month and does not terminate the entire agreement. No courses are booked for the paused month; a later course choice must be confirmed again.",
+                    "(5) This subscription model is designed to minimise unnecessary administrative effort for both parties and to make course participation as straightforward as possible.",
+                    "(6) Changes to these terms do not automatically apply to existing contracts. The agreed version remains applicable unless a change is validly agreed with the participant."
                 ]
             },
             {
@@ -1145,9 +1162,9 @@
         "pending_email": "Confirmation pending for {email}.",
         "email_hint": "You will receive confirmation links when you change your email address.",
         "next_month_title": "My courses for next month",
-        "next_month_intro": "Choose your courses for {month}. Changes are saved immediately.",
+        "next_month_intro": "Review your courses for {month}. Your choice is saved only when you confirm the final step.",
         "inherited_courses": "Your previous course selection has been carried forward. It also applies next month unless you change it.",
-        "unresolved_courses": "We could not reliably match your previous registrations. Please choose your courses or contact your teacher.",
+        "unresolved_courses": "Your course registration could not yet be uniquely linked to your account. Please contact Sitov Academy so we can check the association.",
         "pause_next_month": "Pause next month",
         "pause_description": "You will withdraw from all courses for {month}. Your selection is kept so you can resume.",
         "paused_notice": "You are taking a break in {month}. Select a course or turn off the pause to continue learning.",
@@ -1177,7 +1194,19 @@
         "ui_locale_uk": "Українська",
         "ui_locale_tr": "Türkçe",
         "teacher_progress_notice": "Your teacher can see your learning progress so they can give you targeted support.",
-        "teacher_progress_privacy": "Privacy policy"
+        "teacher_progress_privacy": "Privacy policy",
+        "registration_required_title": "For confirmed course participants",
+        "registration_required": "Monthly planning opens once Sitov Academy has confirmed your course registration. A learning account or trial lesson alone is not sufficient.",
+        "registration_link": "Course registration",
+        "booking_estimated_price": "Estimated price",
+        "booking_unit_rate": "{price} per {minutes} minutes",
+        "booking_price_note": "Final price with no additional fees. Based on the currently scheduled lessons and the unit rates shown above. Known cancellations are deducted; further cancellations by Sitov Academy reduce the invoice accordingly.",
+        "booking_month_terms": "This choice covers the agreed course dates in {month}. Missed lessons do not transfer to the following month. You are not booking a flexible balance of hours. Statutory rights remain unaffected.",
+        "booking_renewal_terms": "After your registration is confirmed, the course agreement continues monthly under the agreed terms. You can cancel at the end of the current billing month. Pay by bank transfer after receiving the invoice; under the terms, leaving a renewal invoice unpaid for 14 days counts as cancellation with no further costs.",
+        "booking_contract_note": "Booking submits a binding course choice. Sitov Academy reviews and confirms it before invoicing. A pause does not create a new course fee.",
+        "booking_terms_link": "Read the terms and withdrawal information",
+        "booking_paid_confirm": "Book with obligation to pay",
+        "booking_price_unavailable": "Price is still being calculated"
     },
     "pronunciation": {
         "title": "Pronunciation Training",

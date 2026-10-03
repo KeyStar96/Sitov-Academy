@@ -495,10 +495,10 @@
                     "many": "{count} kurs seçildi",
                     "other": "{count} kurs seçildi"
                 },
-                "first_month": "İlk ay: {price}"
+                "first_month": "İlk ay için tahmini fiyat: {price}"
             },
             "costs": {
-                "title": "Maliyetleriniz",
+                "title": "Tahmini fiyat",
                 "title_trial": "Deneme dersiniz",
                 "first_month": "İlk ay: {month}",
                 "counted_from": "Hesaplama başlangıcı: {date}.",
@@ -513,14 +513,16 @@
                 "cancelled": "{date}: {reason} – ders yapılmaz, ücret alınmaz",
                 "later_title": "Sonrasında",
                 "later_month": "{month}: yaklaşık {price}",
-                "renewal": "Kurs her ay uzar. İstediğiniz zaman ay sonu itibarıyla iptal edebilirsiniz – e-posta ile veya iptal formuyla.",
+                "renewal": "İlk eğitim ayından sonra kurs sözleşmesi belirsiz süreyle devam eder ve aylık faturalandırılır. Mevcut fatura ayının sonunda geçerli olmak üzere istediğin zaman e-posta veya iptal formuyla iptal edebilirsin.",
                 "how_title": "Ödeme nasıl yapılır?",
                 "how_text": "Bir fatura alırsınız ve banka havalesiyle ödersiniz. Bir sonraki ayın faturası her ayın sonunda gelir. Ayrıntılar sözleşme koşullarında (AGB) yer alır.",
                 "agb_link": "Koşulları (AGB) oku",
                 "vat": "Tüm fiyatlara KDV dahildir.",
                 "trial_price": "Ücretsiz",
                 "trial_free": "Deneme dersi ücretsizdir ve hiçbir yükümlülük getirmez.",
-                "trial_date": "Tarih: {date}"
+                "trial_date": "Tarih: {date}",
+                "estimate_note": "Tahmini fiyat, şu anda planlanan tarihlere dayanır. Sitov Academy başka dersleri iptal ederse fatura tutarınız buna göre azalır.",
+                "month_end": "Bu aylık ders tarihleri {date} tarihine kadar geçerlidir. Kaçırılan dersler aktarılmaz."
             },
             "review": {
                 "courses_title": "Kurslarınız",
@@ -565,6 +567,18 @@
                 "step_check_trial": "Tarihi size e-posta ile onaylayacağız.",
                 "step_trial_free": "Deneme dersi ücretsizdir ve hiçbir yükümlülük getirmez.",
                 "trial_date": "İstediğiniz tarih: {date}"
+            },
+            "hero": {
+                "kicker": "Bir sonraki adımınız",
+                "title_lead": "Sizin Almancanız.",
+                "title_accent": "Sizin yeni başlangıcınız.",
+                "description": "Kursunuzu bulun. Gerçek insanlarla öğrenin. İyi niyetlerinizi bir sonraki adımınıza dönüştürün.",
+                "trial_lead": "Bir merhaba.",
+                "trial_accent": "Yeni bir başlangıç.",
+                "trial_description": "Ücretsiz bir deneme dersinde Sitov Academy ile tanışın ve size uygun kursu bulun.",
+                "navigation": "Kurs kayıt adımları",
+                "policy_title": "Sabit tarihler. Bir takvim ayı.",
+                "policy_text": "Serbestçe kullanabileceğiniz bir ders saati kotası değil, ilgili takvim ayındaki kararlaştırılmış kurs tarihlerini rezerve edersiniz. Katılmadığınız dersler bir sonraki aya aktarılmaz. Yasal haklarınız saklıdır."
             }
         }
     },
@@ -601,7 +615,7 @@
     "agb": {
         "title": "Genel İşlem Koşulları (GİK)",
         "school_name": "Sitov Academy",
-        "status_date": "Güncelleme: 10 Eylül 2026",
+        "status_date": "Güncelleme: 3 Ekim 2026",
         "sections": [
             {
                 "title": "§ 1 Kapsam, Sağlayıcı",
@@ -622,7 +636,8 @@
                     "(1) Sözleşmenin konusu, ilgili kurs açıklamasında belirtilen hizmetlerdir (hizmet kapsamı, kurs süresi, tarihler, öğretim materyalleri). Kurs açıklaması, sözleşmenin ayrılmaz bir parçasıdır.",
                     "(2) Kursun genel karakteri önemli ölçüde bozulmadığı sürece, kursun akışında, eğitmenlerde veya ders saatlerinde küçük değişiklikler yapılmasına izin verilir.",
                     "(3) Online dersler, yaygın video konferans yazılımları (örneğin, Microsoft Teams) üzerinden gerçekleştirilir. Katılımcı, uygun bir internet bağlantısı ve teknik donanımdan sorumludur.",
-                    "(4) Kalite güvencesi ve katılımcılar tarafından tekrar amacıyla çevrimiçi oturumlar kaydedilir. Bu kayıtların kullanımına ilişkin ayrıntılar bu GİK'in § 9'unda düzenlenmiştir."
+                    "(4) Kalite güvencesi ve katılımcılar tarafından tekrar amacıyla çevrimiçi oturumlar kaydedilir. Bu kayıtların kullanımına ilişkin ayrıntılar bu GİK'in § 9'unda düzenlenmiştir.",
+                    "(5) Kurs katılımı, ilgili takvim ayında kararlaştırılan belirli ders tarihlerini kapsar. Gösterilen ders birimi sayısı o ayın hesaplamasını açıklar; süresiz veya serbestçe kullanılabilen bir saat bakiyesi değildir. Özel ders tarihleri rezervasyon yapılan ay içinde bireysel olarak kararlaştırılır; ayrı anlaşmalar mümkündür."
                 ]
             },
             {
@@ -638,7 +653,7 @@
                 "title": "§ 4 Fiyatlar, Ödeme Koşulları, Abonelik Modeli",
                 "content": [
                     "(1) Geçerli fiyatlar, web sitesinde yayınlanan fiyat listesinden anlaşılmaktadır. Tüm fiyatlar son fiyatlardır. § 19 UStG uyarınca satış vergisi alınmamaktadır.",
-                    "(2) Kurs ücreti aylık olarak peşin faturalandırılır. Katılımcı aktif olarak iptal etmediği veya bir sonraki aya ait faturayı belirlenen süre içinde ödemediği sürece, sözleşme otomatik olarak bir ay daha yenilenir.",
+                    "(2) Kurs ücreti aylık olarak peşin faturalandırılır. İlk rezervasyon yapılan eğitim ayından sonra sözleşme, sona erdirilmediği sürece belirsiz süreyle devam eder. Faturalama ve katılım hakkı ilgili takvim ayında kararlaştırılan ders tarihlerini kapsar; aktarılabilir bir saat bakiyesi oluşmaz.",
                     "(3) Takip faturasının ödenmesi, ilgili sonraki ay için kursa devam etmeye aktif onay niteliğindedir.",
                     "(4) Takip faturasının alınmasından itibaren 14 gün içinde ödenmemesi, mevcut fatura döneminin sonunda geçerli olmak üzere otomatik iptal olarak değerlendirilir. Bu durumda katılımcıya herhangi bir ek maliyet yansıtılmaz.",
                     "(5) Ödeme, aksi kararlaştırılmadıkça fatura alındıktan sonra banka havalesi ile yapılır.",
@@ -649,7 +664,8 @@
                     "Banka: N26 Bank SE",
                     "Açıklama: Fatura Numarası",
                     "(6) Geç ödeme durumunda, yasal temerrüt düzenlemeleri (§ 288 BGB) yalnızca ödemenin beyan edildiği ancak belirlenen süre içinde yapılmadığı durumlarda geçerlidir.",
-                    "(7) Sonraki faturalar genellikle ay sonunda bir sonraki eğitim ayı için hazırlanır. Ödeme faturadaki bilgilere göre peşin yapılır. Panelde faturanın oluşturulduğuna ilişkin iç kayıt, gönderim veya ödeme alındığını doğrulamaz."
+                    "(7) Sonraki faturalar genellikle ay sonunda bir sonraki eğitim ayı için hazırlanır. Ödeme faturadaki bilgilere göre peşin yapılır. Panelde faturanın oluşturulduğuna ilişkin iç kayıt, gönderim veya ödeme alındığını doğrulamaz.",
+                    "(8) Kayıt ve aylık seçim sırasında gösterilen tahmini fiyat, planlanan derslere, sürelerine ve belirtilen birim fiyatlara göre hesaplanır. Bilinen iptaller düşülür. Sitov Academy’nin sonraki ders iptalleri fatura tutarını uygun şekilde azaltır; ödenmiş ve yerine başka ders sunulmamış hizmetler orantılı olarak iade edilir. Tüm fiyatlar ek ücret içermeyen son fiyatlardır."
                 ]
             },
             {
@@ -673,7 +689,7 @@
             {
                 "title": "§ 6 Katılmama / Hastalık",
                 "content": [
-                    "(1) Kurs ücreti, ilgili aydaki kurslara erişimi kapsar. Bireysel ders birimlerine (örneğin, hastalık veya tatil nedeniyle) katılmama durumunda, geri ödeme veya telafi dersi hakkı yoktur.",
+                    "(1) Katılımcı, tatil veya hastalık gibi kendi sorumluluk alanındaki nedenlerle kararlaştırılan bir dersi kaçırırsa, otomatik telafi, sonraki aya aktarım veya farklı tarihte katılım hakkı doğmaz. Katılım hakkı ilgili takvim ayındaki rezervasyon yapılan tarihler için geçerlidir ve bu tarihler için ay sonunda biter. Hizmeti kabulde temerrüt hâlinde devam eden ödeme talebi, tasarruf edilen giderler ve başka kazançların düşülmesi dahil § 615 BGB’ye tabidir; yasal haklar saklıdır.",
                     "(2) İyi niyet çerçevesinde, Dil Okulu organizasyonel olarak mümkünse telafi imkanları veya yedek tarihler sunabilir."
                 ]
             },
@@ -681,7 +697,7 @@
                 "title": "§ 7 Dil Okulu Tarafından İptal / İkame Hizmetler",
                 "content": [
                     "(1) Dersler, Dil Okulu'nun sorumlu olduğu nedenlerle (örneğin, öğretmenin hastalığı) iptal edilirse ve yedek bir tarih sunulamazsa, orantılı kurs ücreti iade edilir.",
-                    "(2) Özellikle tazminat talepleri olmak üzere daha ileri talepler, kasıt veya ağır ihmal olmadıkça hariç tutulmuştur."
+                    "(2) İfa aksaklıklarında iade, sözleşmeden dönme ve tazminat dahil yasal haklar saklıdır."
                 ]
             },
             {
@@ -704,11 +720,12 @@
             {
                 "title": "§ 10 Sözleşme Süresi ve İptal",
                 "content": [
-                    "(1) İlk kurs ücreti ödemesiyle, kurs programına katılım için sürekli bir sözleşme kurulmuş olur.",
-                    "(2) Sözleşme, katılımcı aktif olarak iptal etmediği veya bir sonraki aya ait faturayı belirlenen süre içinde ödemediği sürece, her seferinde bir ay daha otomatik olarak yenilenir. Takip faturasının ödenmemesi, otomatik iptal niteliğindedir (bkz. § 4 fıkra 4).",
+                    "(1) Kurs sözleşmesi § 3’teki kurallara göre kurulur. Kurs ücretleri ve peşin ödeme § 4’e tabidir.",
+                    "(2) İlk rezervasyon yapılan eğitim ayından sonra sözleşme belirsiz süreyle devam eder ve aylık faturalandırılır. Katılımcı, mevcut fatura ayının sonunda geçerli olmak üzere istediği zaman iptal edebilir. Sonraki ayın faturasının ödenmemesi § 4 fıkra 4 uyarınca iptal sayılır; bundan dolayı ek masraf doğmaz.",
                     "(3) İptal, herhangi bir şekil şartına bağlı olmaksızın (örneğin e-posta ile, web sitesindeki iptal formu aracılığıyla veya bir mesajlaşma hizmeti üzerinden mesaj ile) her zaman beyan edilebilir ve mevcut fatura döneminin sonunda yürürlüğe girer.",
-                    "(4) İptalden sonra — ister aktif ister ödeme yapılmamasından kaynaklansın — kursa katılım yalnızca yeni bir kayıt ile yeniden başlatılabilir.",
-                    "(5) Bu abonelik modeli, her iki taraf için gereksiz idari yükü en aza indirmek ve kursa katılımı mümkün olduğunca kolay hale getirmek amacıyla tasarlanmıştır."
+                    "(4) Aktif iptal veya ödememe nedeniyle sözleşme sona erdikten sonra kursa katılım yalnızca yeni kayıtla yeniden başlayabilir. Devam eden sözleşme kapsamında açıkça aylık ara olarak kaydedilen seçim ise yalnızca belirtilen ayın katılımını ilgilendirir ve tüm sözleşmeyi sona erdirmez. Ara verilen ay için kurs rezervasyonu yapılmaz; sonraki kurs seçimi yeniden onaylanmalıdır.",
+                    "(5) Bu abonelik modeli, her iki taraf için gereksiz idari yükü en aza indirmek ve kursa katılımı mümkün olduğunca kolay hale getirmek amacıyla tasarlanmıştır.",
+                    "(6) Bu koşullardaki değişiklikler mevcut sözleşmelere otomatik olarak uygulanmaz. Katılımcıyla geçerli şekilde bir değişiklik kararlaştırılmadıkça, kabul edilen sürüm geçerli kalır."
                 ]
             },
             {
@@ -1141,9 +1158,9 @@
         "pending_email": "{email} adresi için doğrulama bekleniyor.",
         "email_hint": "E-posta adresini değiştirdiğinde doğrulama bağlantıları alacaksın.",
         "next_month_title": "Gelecek ayki kurslarım",
-        "next_month_intro": "{month} için kurslarını seç. Değişiklikler hemen kaydedilir.",
+        "next_month_intro": "{month} için kurslarını kontrol et. Seçimin yalnızca son adımı onayladığında kaydedilir.",
         "inherited_courses": "Önceki kurs seçimin gelecek aya aktarıldı. Değiştirmediğin sürece gelecek ay da geçerli olur.",
-        "unresolved_courses": "Önceki kayıtlarını kesin olarak eşleştiremedik. Lütfen kurslarını seç veya öğretmeninle iletişime geç.",
+        "unresolved_courses": "Kurs kaydın henüz hesabınla kesin olarak eşleştirilemedi. Eşleştirmeyi kontrol edebilmemiz için Sitov Academy ile iletişime geç.",
         "pause_next_month": "Gelecek ay ara ver",
         "pause_description": "{month} için tüm kurslardan kaydını iptal edersin. Devam edebilmen için seçimin saklanır.",
         "paused_notice": "{month} için ara veriyorsun. Öğrenmeye devam etmek için bir kurs seç veya arayı kapat.",
@@ -1173,7 +1190,19 @@
         "ui_locale_uk": "Українська",
         "ui_locale_tr": "Türkçe",
         "teacher_progress_notice": "Öğretmenin, sana ihtiyacına uygun destek verebilmek için öğrenme ilerlemeni görür.",
-        "teacher_progress_privacy": "Gizlilik politikası"
+        "teacher_progress_privacy": "Gizlilik politikası",
+        "registration_required_title": "Onaylı kurs katılımcıları için",
+        "registration_required": "Aylık planlama, Sitov Academy kurs kaydını onayladığında açılır. Yalnızca öğrenme hesabı veya deneme dersi yeterli değildir.",
+        "registration_link": "Kurs kaydı",
+        "booking_estimated_price": "Tahmini fiyat",
+        "booking_unit_rate": "{minutes} dakika başına {price}",
+        "booking_price_note": "Ek ücret içermeyen son fiyat, planlanan derslere ve yukarıdaki birim fiyatlarına göre hesaplanır. Bilinen iptaller düşülmüştür; Sitov Academy’nin daha sonraki iptalleri fatura tutarını uygun şekilde azaltır.",
+        "booking_month_terms": "Seçim, {month} ayındaki kararlaştırılan kurs tarihleri için geçerlidir. Katılmadığın dersler bir sonraki aya aktarılmaz. Serbestçe kullanılabilen bir saat bakiyesi satın almıyorsun. Yasal haklar saklıdır.",
+        "booking_renewal_terms": "Kaydın onaylandıktan sonra sözleşme, kararlaştırılan koşullara göre aylık olarak devam eder. Mevcut fatura ayının sonunda iptal edebilirsin. Fatura alındıktan sonra banka havalesiyle ödenir; sonraki ayın faturasının 14 gün içinde ödenmemesi, koşullara göre ek masraf olmadan iptal sayılır.",
+        "booking_contract_note": "Rezervasyon, bağlayıcı bir kurs seçimi gönderir. Sitov Academy faturadan önce seçimini kontrol edip onaylar. Ara verme yeni bir kurs ücreti oluşturmaz.",
+        "booking_terms_link": "Koşulları ve cayma hakkı bilgisini oku",
+        "booking_paid_confirm": "Ödeme yükümlülüğüyle rezervasyon yap",
+        "booking_price_unavailable": "Fiyat henüz hesaplanıyor"
     },
     "pronunciation": {
         "title": "Telaffuz Çalışması",

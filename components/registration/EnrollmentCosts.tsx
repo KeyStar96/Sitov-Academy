@@ -30,6 +30,8 @@ export default function EnrollmentCosts({ courses, selections, startIso, startCh
   exceptions: CourseException[]; lang: string; copy: FlowCopy; agbHref: string; referenceYear: string
 }) {
   const costs = copy.costs
+  const [startYear, startMonth] = startIso.split('-').map(Number)
+  const monthEndIso = new Date(Date.UTC(startYear, startMonth, 0)).toISOString().slice(0, 10)
   const first = useMemo(() => monthCost(courses, selections, startIso, exceptions, lang), [courses, selections, startIso, exceptions, lang])
   const later = useMemo(() => [1, 2].map(offset => {
     const [year, month] = startIso.split('-').map(Number)
@@ -49,9 +51,11 @@ export default function EnrollmentCosts({ courses, selections, startIso, startCh
         <span>{fill(startChosen ? costs.counted_from : costs.counted_from_next, { date: formatDay(startIso, lang, referenceYear) })}</span>
       </p>
       <p className="reg-costs__note">{costs.pay_first}</p>
+      <p className="sitov-registration-estimate">{costs.estimate_note}</p>
 
       {/* On a desktop the amount above stays in view; these details scroll inside the box if the window is short. */}
       <div className="reg-costs__details">
+        <p className="sitov-registration-month-end"><CalendarDays size={19} aria-hidden="true" /><span>{fill(costs.month_end, { date: formatDay(monthEndIso, lang, referenceYear) })}</span></p>
         <ul className="reg-costs__lines">
           {first.lines.map(({ course, stats, price }) => (
             <li key={course.id}>

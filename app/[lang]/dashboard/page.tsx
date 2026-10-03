@@ -29,6 +29,7 @@ import { authStatusMessage, authTranslations, createAuthTranslator } from '@/lib
 import { parseAuthStatus } from '@/lib/types/auth'
 import { loadDailyQuestStatus } from '@/lib/daily-quest-server'
 import DailyQuestEntry from '@/components/dashboard/DailyQuestEntry'
+import sitovHomeGrid from '@/components/dashboard/home/SitovHomeGrid.module.css'
 
 const CONTINUE_TO = { vocabulary: 'continue_to_vocabulary', path: 'continue_to_path', pronunciation: 'continue_to_pronunciation', media: 'continue_to_media', verbs: 'continue_to_verbs' } as const
 
@@ -136,12 +137,12 @@ export default async function DashboardPage({ params, searchParams }: {
 
   return <div className="space-y-8">
     {confirmed && <AuthStatusMessage status="confirm_success" title={auth('signup_thanks')} message={authStatusMessage(auth, 'confirm_success')} />}
-    <div className="grid grid-cols-1 items-start gap-5 lg:grid-cols-12">
-      <div className="flex min-w-0 flex-col gap-5 lg:col-span-7">
+    <div className={sitovHomeGrid.sitovGrid}>
+      <div className={`${sitovHomeGrid.sitovColumn} ${sitovHomeGrid.sitovPrimary}`}>
         <TodayPlan lang={lang} name={displayName} items={items} fallbackHref={levelBase} week={week} noLevel={!recommended} />
         {dailyQuest && <DailyQuestEntry lang={lang} status={dailyQuest} />}
       </div>
-      <div className="flex min-w-0 flex-col gap-5 lg:col-span-5">
+      <div className={`${sitovHomeGrid.sitovColumn} ${sitovHomeGrid.sitovSecondary}`}>
         {progress && <ProgressTeaser progress={progress} lang={lang} focus={focus} />}
         <MailboxPreview summary={unseenFeedback} lang={lang} translations={dict.pronunciation as PronunciationTranslations} />
         {recommended && <TrainerStatusTiles lang={lang} level={recommended.id} status={status} languageLocked={lang === 'de'}

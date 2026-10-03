@@ -7,5 +7,8 @@ export default async function SitovTrainerFramePreviewPage({ params }: { params:
   if (process.env.NODE_ENV !== 'development') notFound()
   const { lang } = await params
   const dict = await getDictionary(lang)
-  return <SitovTrainerFramePreview lang={lang} copy={dict.accessibility} />
+  const sitovSupportLabels = { whatsapp: dict.academy.support_whatsapp, phone: dict.Footer.Contact.phone,
+    phoneLabel: dict.Footer.Contact.phone_label, telegram: dict.Footer.Contact.telegram_button,
+    email: dict.Footer.Contact.email, emailLabel: dict.Footer.Contact.email_button }
+  return <SitovTrainerFramePreview lang={lang} copy={dict.accessibility} translations={dict.dashboard} supportLabels={sitovSupportLabels} />
 }

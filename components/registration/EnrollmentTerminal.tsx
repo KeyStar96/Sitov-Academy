@@ -1,12 +1,10 @@
 "use client";
 
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { AlertCircle, ArrowLeft, ArrowRight, CalendarDays, Check, Gift, Info, Loader2, MapPin, Mic, Monitor, Send } from "lucide-react";
-import BrandLogo from "@/components/layout/BrandLogo";
 import type { CourseConfig, CourseException } from "@/lib/course-config";
 import type { CourseSelection } from "@/lib/course-selection";
 import { calculateMonthlyStats } from "@/lib/course-calculations";
@@ -26,6 +24,8 @@ import EnrollmentConsents, { type ConsentItem, type ConsentKey } from "./Enrollm
 import { BirthDateField, PhoneField, TextField } from "./EnrollmentFields";
 import { EnrollmentDone, EnrollmentTrialUsed } from "./EnrollmentResult";
 import { countLabel, fill, formatDay, formatEuro, type RegistrationDictionary } from "./registration-copy";
+import SitovRegistrationHero from "./SitovRegistrationHero";
+import SitovRegistrationHeader from "./SitovRegistrationHeader";
 import "./registration.css";
 
 export type { RegistrationDictionary };
@@ -273,11 +273,9 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
     return (
         <div data-lenis-prevent className="registration-flow">
             <div className="reg-glow" aria-hidden="true" />
-            <header className="reg-bar">
-                <Link href={`/${lang}`} className="reg-home"><ArrowLeft size={20} aria-hidden="true" /><span>{copy.home}</span></Link>
-                <div className="reg-brand"><BrandLogo name={dictionary.academy.brand_name} /></div>
-            </header>
+            <SitovRegistrationHeader lang={lang} home={copy.home} brand={dictionary.academy.brand_name} />
             <form className="reg-layout" data-step={step} noValidate onSubmit={onFormSubmit}>
+                {step === 1 && <SitovRegistrationHero copy={copy} trial={isTrial} monthIso={costStart} lang={lang} />}
                 <div className="reg-head">
                     {isTrial && <p className="reg-badge"><Gift size={20} aria-hidden="true" />{t.trial.badge}</p>}
                     <div className="reg-progress">
@@ -285,9 +283,19 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                         <div className="reg-progress__bar" aria-hidden="true">
                             {[1, 2, 3, 4].map(value => <span key={value} data-done={value < step} data-current={value === step} />)}
                         </div>
+                        <nav className="sitov-registration-steps" aria-label={copy.hero.navigation}>
+                            {(["course", "start", "details", "review"] as const).map((key, index) => (
+                                <button key={key} type="button" disabled={index + 1 > step || submitting} onClick={() => goTo((index + 1) as Step)}
+                                    aria-current={index + 1 === step ? "step" : undefined} data-complete={index + 1 < step || undefined}>
+                                    <span aria-hidden="true">{index + 1 < step ? <Check size={16} strokeWidth={3} /> : `0${index + 1}`}</span>
+                                    <span>{key === "start" && isTrial ? copy.steps.start_trial : copy.steps[key]}</span>
+                                </button>
+                            ))}
+                        </nav>
                     </div>
                     <h1 key={`title-${step}`} id="reg-step-title" ref={headingRef} tabIndex={-1} className="reg-title reg-enter">{title}</h1>
                     <p key={`intro-${step}`} className="reg-intro reg-enter">{intro}</p>
+                    {!isTrial && step === 1 && <p className="sitov-registration-policy"><CalendarDays size={22} aria-hidden="true" /><span><strong>{copy.hero.policy_title}</strong>{copy.hero.policy_text}</span></p>}
                 </div>
 
                 <div key={step} className="reg-main">
@@ -384,6 +392,8 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                                     <button type="button" className="reg-button reg-button--soft" onClick={() => goTo(3)}>{copy.review.change_details}</button>
                                 </div>
                             </section>
+
+                            {!isTrial && <section className="sitov-registration-policy" aria-labelledby="sitov-registration-policy-title"><CalendarDays size={24} aria-hidden="true" /><div><h2 id="sitov-registration-policy-title">{copy.hero.policy_title}</h2><p>{copy.hero.policy_text}</p></div></section>}
 
                             <EnrollmentConsents items={consentItems} values={consents} copy={copy}
                                 onChange={(key, value) => { setConsents(current => ({ ...current, [key]: value })); setNudge(false); }}

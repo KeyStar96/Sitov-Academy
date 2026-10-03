@@ -4,9 +4,9 @@ module.exports = {
     testEnvironment: 'jsdom', // Changed from node to jsdom for React tests
     setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'], // Add setup file
     moduleNameMapper: {
-        '^@/(.*)$': '<rootDir>/$1',
         // Handle CSS imports (common in Next.js)
-        '\\.(css|less|scss|sass)$': 'identity-obj-proxy'
+        '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
+        '^@/(.*)$': '<rootDir>/$1'
     },
     transform: {
         '^.+\\.tsx?$': ['ts-jest', {

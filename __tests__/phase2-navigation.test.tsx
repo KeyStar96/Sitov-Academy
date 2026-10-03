@@ -1,6 +1,6 @@
 import { readFileSync, readdirSync, statSync } from 'node:fs'
 import { join, resolve } from 'node:path'
-import { fireEvent, render, screen, waitFor, within } from '@testing-library/react'
+import { act, fireEvent, render, screen, waitFor, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import ModeDock, { type ModeDockEntry } from '@/components/dashboard/ModeDock'
 import DashboardHeader from '@/components/layout/DashboardHeader'
@@ -184,103 +184,59 @@ describe('Brotkrumen mit vollem Pfad', () => {
   })
 })
 
-describe('Untere Leiste (D8)', () => {
-  const base = { focusInBar: false, keyboard: false, dialog: false, travel: 20 }
-
-  it('verschwindet beim Runterscrollen und kommt beim Hochscrollen zurück — erst ab 56 px Tiefe und 8 px Weg', () => {
-    expect(decideTabbar({ ...base, y: 400, direction: 1 })).toBe('hidden')
-    expect(decideTabbar({ ...base, y: 400, direction: -1 })).toBe('visible')
-    expect(decideTabbar({ ...base, y: 400, direction: 1, travel: 7 })).toBeNull()
-    expect(decideTabbar({ ...base, y: 56, direction: 1 })).toBe('visible')
+describe('Feste Hauptnavigation', () => {
+  it('bleibt beim Scrollen verfügbar und macht nur für eine Bildschirmtastatur Platz', () => {
+    expect(decideTabbar({ focusInBar: false, keyboard: false })).toBe('visible')
+    expect(decideTabbar({ focusInBar: false, keyboard: true })).toBe('hidden')
+    expect(decideTabbar({ focusInBar: true, keyboard: true })).toBe('visible')
   })
 
-  it('bleibt oben, bei Tastaturfokus in der Leiste und bei offenem Blatt sichtbar; folgt am Seitenende weiter der Richtung', () => {
-    expect(decideTabbar({ ...base, y: 0, direction: 1 })).toBe('visible')
-    expect(decideTabbar({ ...base, y: 2200, direction: 1 })).toBe('hidden')
-    expect(decideTabbar({ ...base, y: 2200, direction: -1 })).toBe('visible')
-    expect(decideTabbar({ ...base, y: 400, direction: 1, focusInBar: true })).toBe('visible')
-    expect(decideTabbar({ ...base, y: 400, direction: 1, dialog: true })).toBe('visible')
-  })
-
-  it('macht bei offener Bildschirmtastatur Platz — außer der Fokus liegt in der Leiste selbst', () => {
-    expect(decideTabbar({ ...base, y: 0, direction: -1, keyboard: true })).toBe('hidden')
-    expect(decideTabbar({ ...base, y: 400, direction: -1, keyboard: true, dialog: true })).toBe('hidden')
-    expect(decideTabbar({ ...base, y: 400, direction: 1, keyboard: true, focusInBar: true })).toBe('visible')
-  })
-
-  it('setzt den Zustand als Attribut am Wurzelelement', () => {
-    render(<div className="academy-student-shell"><StudentNavigation lang="de" firstLevel="A1.1" levels={['A1.1']} supportLabels={labels} lastActiveLevel="A1.1" /></div>)
-    expect(document.querySelector('.academy-student-shell')).toHaveAttribute('data-tabbar', 'visible')
-  })
-
-  it('nimmt die Modus-Leiste oben mit: runter → weg, hoch → sofort zurück, Fokus darin → sichtbar (Phase 8)', async () => {
-    const scrollTo = (y: number) => { Object.defineProperty(window, 'scrollY', { configurable: true, value: y }); window.dispatchEvent(new Event('scroll')) }
-    Object.defineProperty(document.documentElement, 'scrollHeight', { configurable: true, value: 4000 })
-    render(<div className="academy-student-shell">
-      <nav className="st-mode-dock"><a href="#vocabulary">Vokabeln</a></nav>
-      <StudentNavigation lang="de" firstLevel="A1.1" levels={['A1.1']} supportLabels={labels} lastActiveLevel="A1.1" />
-    </div>)
-    const shell = document.querySelector('.academy-student-shell')!
-    scrollTo(300); scrollTo(600)
-    await waitFor(() => expect(shell).toHaveAttribute('data-tabbar', 'hidden'))
-    scrollTo(580)
-    await waitFor(() => expect(shell).toHaveAttribute('data-tabbar', 'visible'))
-    scrollTo(900)
-    await waitFor(() => expect(shell).toHaveAttribute('data-tabbar', 'hidden'))
-    screen.getByRole('link', { name: 'Vokabeln' }).focus()
-    await waitFor(() => expect(shell).toHaveAttribute('data-tabbar', 'visible'))
-    Object.defineProperty(window, 'scrollY', { configurable: true, value: 0 })
-  })
-
-  it('blendet nach dem Tippen auf Lernen und einem Seitenwechsel trotz erhaltenem Linkfokus beide Leisten aus', async () => {
-    const scrollTo = (y: number) => { Object.defineProperty(window, 'scrollY', { configurable: true, value: y }); fireEvent.scroll(window) }
-    Object.defineProperty(document.documentElement, 'scrollHeight', { configurable: true, value: 4000 })
+  it('bleibt bei Scrollen, Seitenwechsel und anschließendem Moduswechsel sichtbar', async () => {
     const view = () => <div className="academy-student-shell">
       <nav className="st-mode-dock"><a href="#vocabulary">Vokabeln</a></nav>
       <StudentNavigation lang="de" firstLevel="A1.1" levels={['A1.1']} supportLabels={labels} lastActiveLevel="A1.1" />
     </div>
     const { rerender } = render(view())
-    const learn = screen.getByRole('link', { name: 'Lernen' })
-    fireEvent.pointerDown(learn, { pointerType: 'touch' })
-    learn.focus()
+    const shell = document.querySelector('.academy-student-shell')!
+    fireEvent.pointerDown(screen.getByRole('link', { name: 'Lernen' }), { pointerType: 'touch' })
     mockPathname = '/de/dashboard/level/A1.1'
     rerender(view())
-    expect(learn).toHaveFocus()
-    const shell = document.querySelector('.academy-student-shell')!
-    scrollTo(300)
-    await waitFor(() => expect(shell).toHaveAttribute('data-tabbar', 'hidden'))
-    scrollTo(280)
-    await waitFor(() => expect(shell).toHaveAttribute('data-tabbar', 'visible'))
-
-    const mode = screen.getByRole('link', { name: 'Vokabeln' })
-    fireEvent.pointerDown(mode, { pointerType: 'mouse' })
-    mode.focus()
-    scrollTo(500)
-    await waitFor(() => expect(shell).toHaveAttribute('data-tabbar', 'hidden'))
-    fireEvent.keyDown(document, { key: 'Tab' })
-    await waitFor(() => expect(shell).toHaveAttribute('data-tabbar', 'visible'))
-    scrollTo(700)
-    await waitFor(() => expect(shell).toHaveAttribute('data-tabbar', 'visible'))
-    scrollTo(0)
+    for (const y of [300, 600, 580, 900, 4000, 0]) {
+      Object.defineProperty(window, 'scrollY', { configurable: true, value: y })
+      fireEvent.scroll(window)
+      await act(async () => { await new Promise(resolve => requestAnimationFrame(resolve)) })
+      expect(shell).toHaveAttribute('data-tabbar', 'visible')
+    }
+    await act(async () => {
+      screen.getByRole('link', { name: 'Vokabeln' }).focus()
+      await new Promise(resolve => requestAnimationFrame(resolve))
+    })
+    expect(shell).toHaveAttribute('data-tabbar', 'visible')
   })
 
-  it('behandelt elastisches Scrollen über das Seitenende nicht als Hochscrollen', async () => {
-    const scrollTo = (y: number) => { Object.defineProperty(window, 'scrollY', { configurable: true, value: y }); fireEvent.scroll(window) }
-    Object.defineProperty(window, 'scrollY', { configurable: true, value: 0 })
-    Object.defineProperty(document.documentElement, 'scrollHeight', { configurable: true, value: 4000 })
-    render(<div className="academy-student-shell"><StudentNavigation lang="de" firstLevel="A1.1" levels={['A1.1']} supportLabels={labels} /></div>)
-    const shell = document.querySelector('.academy-student-shell')!
-    const end = 4000 - window.innerHeight
-    scrollTo(end)
-    await waitFor(() => expect(shell).toHaveAttribute('data-tabbar', 'hidden'))
-    scrollTo(end + 60)
-    await new Promise(resolve => requestAnimationFrame(resolve))
-    scrollTo(end)
-    await new Promise(resolve => requestAnimationFrame(resolve))
-    expect(shell).toHaveAttribute('data-tabbar', 'hidden')
-    scrollTo(end - 20)
-    await waitFor(() => expect(shell).toHaveAttribute('data-tabbar', 'visible'))
-    scrollTo(0)
+  it('verschwindet bei einer Touch-Eingabe und kehrt beim Verlassen des Felds zurück', async () => {
+    const original = window.matchMedia
+    window.matchMedia = jest.fn(query => ({ ...original(query), matches: query === '(pointer: coarse)' }))
+    try {
+      render(<div className="academy-student-shell"><input aria-label="Antwort" />
+        <StudentNavigation lang="de" firstLevel="A1.1" levels={['A1.1']} supportLabels={labels} />
+      </div>)
+      const shell = document.querySelector('.academy-student-shell')!
+      const input = screen.getByRole('textbox', { name: 'Antwort' })
+      input.focus()
+      await waitFor(() => expect(shell).toHaveAttribute('data-tabbar', 'hidden'))
+      input.blur()
+      await waitFor(() => expect(shell).toHaveAttribute('data-tabbar', 'visible'))
+    } finally { window.matchMedia = original }
+  })
+
+  it.each(['de', 'en', 'ru', 'uk', 'tr'])('macht die Deutschreise in %s direkt erreichbar', lang => {
+    mockPathname = `/${lang}/dashboard/daily-quest`
+    render(<StudentNavigation lang={lang} firstLevel="A1.1" levels={['A1.1']} supportLabels={labels} />)
+    const journey = screen.getAllByRole('link').find(link => link.getAttribute('href') === `/${lang}/dashboard/daily-quest`)!
+    expect(journey).toHaveAttribute('aria-current', 'page')
+    expect(journey).not.toHaveTextContent('daily-quest')
+    expect(screen.getAllByRole('link').filter(link => link.hasAttribute('aria-current'))).toHaveLength(1)
   })
 })
 
