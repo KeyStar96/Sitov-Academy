@@ -10,7 +10,7 @@ export const dynamic = 'force-dynamic'
 export default async function DailyQuestPage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang: requestedLang } = await params
   const lang = toUiLocale(requestedLang)
-  const result = await loadDailyQuest()
+  const result = await loadDailyQuest(lang)
   if (result.error === 'not_authenticated') redirect(`/${lang}/login?next=${encodeURIComponent(`/${lang}/dashboard/daily-quest`)}`)
   if (result.error === 'not_authorized') redirect(`/${lang}/dashboard`)
   const copy = getDailyQuestCopy(lang)

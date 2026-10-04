@@ -162,3 +162,23 @@ it('loads only a validated staff-selected template, with the level checked by SQ
   expect(await loadDailyQuestPreview('A1', 'sitov-a1-ticket')).toEqual({ data: previewData })
   expect(rpc).toHaveBeenCalledWith('get_sitov_daily_quest_preview', { p_level: 'A1', p_template_key: 'sitov-a1-ticket' })
 })
+
+
+it.each(['en', 'ru', 'uk', 'tr'])('localizes the validated student payload for UI language %s without a new RPC', async sitovLocale => {
+  const result = await loadDailyQuest(sitovLocale)
+  expect(result.data?.quest?.sitovUiLocale).toBe(sitovLocale)
+  expect(result.data?.quest?.scene.audioText).toBe(dailyQuestFixture.scene.audioText)
+  expect(result.data?.quest?.steps[0]).not.toHaveProperty('answerKey')
+  expect(rpc).toHaveBeenCalledTimes(1)
+  expect(rpc).toHaveBeenCalledWith('get_daily_quest')
+})
+
+it('localizes the grading result after the same owner-checked RPC, preserving IDs and streak', async () => {
+  const returned = { success: true, correct: false, feedback: 'Prüfe die Reihenfolge.', quest: dailyQuestFixture, streak: dailyQuestStreakFixture }
+  rpc.mockResolvedValue({ data: returned, error: null })
+  const result = await submitDailyQuestAnswer({ assignmentId: dailyQuestFixture.id, stepId: 'build', answer: { pieceIds: ['i', 'want'] } }, 'en')
+  expect(result.data?.feedback).toBe('Check the order. Pay attention to the position of the verb.')
+  expect(result.data?.quest.id).toBe(dailyQuestFixture.id)
+  expect(result.data?.streak).toEqual(dailyQuestStreakFixture)
+  expect(rpc).toHaveBeenCalledTimes(1)
+})

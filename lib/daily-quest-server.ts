@@ -1,5 +1,6 @@
 import 'server-only'
 
+import { localizeSitovDailyQuest, localizeSitovDailyQuestStepResult } from '@/lib/sitov-daily-quest-localization'
 import { z } from 'zod'
 import { createClient } from '@/utils/supabase/server'
 import {
@@ -57,8 +58,11 @@ async function withStudent<T>(work: (supabase: QuestClient) => Promise<T>): Prom
   }
 }
 
-export function loadDailyQuest() {
-  return withStudent(client => readRpc(client.rpc('get_daily_quest'), dailyQuestLoadSchema))
+export function loadDailyQuest(sitovLocale = 'de') {
+  return withStudent(async client => {
+    const result = await readRpc(client.rpc('get_daily_quest'), dailyQuestLoadSchema)
+    return { ...result, quest: result.quest ? localizeSitovDailyQuest(result.quest, sitovLocale) : null }
+  })
 }
 
 export function loadDailyQuestStatus() {
@@ -66,7 +70,7 @@ export function loadDailyQuestStatus() {
 }
 
 /** Read-only staff RPC: answer keys never pass through a student load. */
-export async function loadDailyQuestPreview(level: unknown = 'A1', templateKey?: unknown): Promise<DailyQuestResult<DailyQuestPreview>> {
+export async function loadDailyQuestPreview(level: unknown = 'A1', templateKey?: unknown, sitovLocale = 'de'): Promise<DailyQuestResult<DailyQuestPreview>> {
   try {
     const supabase = await createClient()
     const { data: { user }, error } = await supabase.auth.getUser()
@@ -78,9 +82,11 @@ export async function loadDailyQuestPreview(level: unknown = 'A1', templateKey?:
     if (templateKey !== undefined) {
       const key = sitovQuestTemplateKeySchema.safeParse(templateKey)
       if (!key.success) throw new QuestRequestError('invalid_input')
-      return { data: await readRpc(supabase.rpc('get_sitov_daily_quest_preview', { p_level: parsed.data, p_template_key: key.data }), dailyQuestPreviewSchema) }
+      const result = await readRpc(supabase.rpc('get_sitov_daily_quest_preview', { p_level: parsed.data, p_template_key: key.data }), dailyQuestPreviewSchema)
+      return { data: { ...result, quest: localizeSitovDailyQuest(result.quest, sitovLocale) } }
     }
-    return { data: await readRpc(supabase.rpc('get_daily_quest_preview', { p_level: parsed.data }), dailyQuestPreviewSchema) }
+    const result = await readRpc(supabase.rpc('get_daily_quest_preview', { p_level: parsed.data }), dailyQuestPreviewSchema)
+    return { data: { ...result, quest: localizeSitovDailyQuest(result.quest, sitovLocale) } }
   } catch (error) {
     if (error instanceof QuestRequestError) return { error: error.code }
     console.error('[daily-quest] Preview unavailable')
@@ -109,14 +115,20 @@ export function updateDailyQuestEnabled(enabled: boolean) {
   return withStudent(client => readRpc(client.rpc('set_daily_quest_enabled', { p_enabled: enabled }), dailyQuestStatusSchema))
 }
 
-export function submitDailyQuestAnswer(input: { assignmentId: string; stepId: string; answer: DailyQuestStepAnswer }) {
-  return withStudent(client => readRpc(client.rpc('submit_daily_quest_step', {
-    p_assignment_id: input.assignmentId, p_step_id: input.stepId, p_answer: input.answer,
-  }), dailyQuestStepResultSchema))
+export function submitDailyQuestAnswer(input: { assignmentId: string; stepId: string; answer: DailyQuestStepAnswer }, sitovLocale = 'de') {
+  return withStudent(async client => {
+    const result = await readRpc(client.rpc('submit_daily_quest_step', {
+      p_assignment_id: input.assignmentId, p_step_id: input.stepId, p_answer: input.answer,
+    }), dailyQuestStepResultSchema)
+    return localizeSitovDailyQuestStepResult(result, input.stepId, sitovLocale)
+  })
 }
 
-export function finishDailyQuest(assignmentId: string) {
-  return withStudent(client => readRpc(client.rpc('complete_daily_quest', { p_assignment_id: assignmentId }), dailyQuestMutationSchema))
+export function finishDailyQuest(assignmentId: string, sitovLocale = 'de') {
+  return withStudent(async client => {
+    const result = await readRpc(client.rpc('complete_daily_quest', { p_assignment_id: assignmentId }), dailyQuestMutationSchema)
+    return { ...result, quest: localizeSitovDailyQuest(result.quest, sitovLocale) }
+  })
 }
 
 export function dismissDailyQuest(assignmentId: string) {

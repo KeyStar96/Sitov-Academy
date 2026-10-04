@@ -56,6 +56,14 @@ function touchTap(target: Element) {
   fireEvent.click(target, { detail: 1 })
 }
 
+// JSDOM has no native PointerEvent constructor; populate the browser fields
+// explicitly so these tests exercise travel, cancellation and scrollbar hits.
+function cardPointer(target: Element, type: 'pointerdown' | 'pointermove' | 'pointerup' | 'pointercancel', values: Partial<PointerEvent> = {}) {
+  const event = new Event(type, { bubbles: true })
+  Object.assign(event, { pointerId: 1, pointerType: 'touch', isPrimary: true, button: 0, clientX: 150, clientY: 100, ...values })
+  fireEvent(target, event)
+}
+
 it.each(['button', 'text', 'svg'] as const)('plays once from a touch tap on the pronunciation %s without flipping the card', async target => {
   const { card } = mount()
   const button = screen.getByRole('button', { name: /Haus.*anhören/ })
@@ -107,4 +115,56 @@ it('preserves keyboard pronunciation and normal card flipping with touch, Enter 
   const back = container.querySelector('.learning-flip-back .learning-card-content')!
   expect(fireEvent.keyDown(back, { key: ' ' })).toBe(false)
   expect(card).not.toHaveClass('is-revealed')
+})
+
+it.each(['travel', 'scroll', 'cancel'] as const)('does not flip after a %s gesture in a scrollable solution, then accepts a fresh tap', gesture => {
+  const { card, container } = mount()
+  const solution = container.querySelector('.learning-flip-back .learning-solution')!
+  const body = container.querySelector('.learning-flip-back .learning-card-content')!
+  cardPointer(solution, 'pointerdown')
+  if (gesture === 'travel') cardPointer(solution, 'pointermove', { clientY: 130 })
+  if (gesture === 'scroll') fireEvent.scroll(body, { target: { scrollTop: 35 } })
+  if (gesture === 'cancel') cardPointer(solution, 'pointercancel')
+  cardPointer(solution, 'pointerup')
+  fireEvent.click(solution, { detail: 1 })
+  expect(card).toHaveClass('is-revealed')
+
+  cardPointer(solution, 'pointerdown')
+  cardPointer(solution, 'pointerup', { clientX: 152, clientY: 102 })
+  fireEvent.click(solution, { detail: 1 })
+  expect(card).not.toHaveClass('is-revealed')
+})
+
+it('keeps a card revealed when its native scrollbar is clicked and allows the next content tap', () => {
+  const { card, container } = mount()
+  const body = container.querySelector('.learning-flip-back .learning-card-content')!
+  Object.defineProperties(body, {
+    scrollHeight: { configurable: true, value: 800 }, clientHeight: { configurable: true, value: 250 },
+    offsetWidth: { configurable: true, value: 300 }, clientWidth: { configurable: true, value: 284 },
+  })
+  jest.spyOn(body, 'getBoundingClientRect').mockReturnValue({ left: 40, right: 340, top: 80, bottom: 330, width: 300, height: 250, x: 40, y: 80, toJSON: () => ({}) })
+  cardPointer(body, 'pointerdown', { clientX: 335, pointerType: 'mouse' })
+  cardPointer(body, 'pointerup', { clientX: 335, pointerType: 'mouse' })
+  fireEvent.click(body, { clientX: 335, detail: 1 })
+  expect(card).toHaveClass('is-revealed')
+
+  cardPointer(body, 'pointerdown')
+  cardPointer(body, 'pointerup')
+  fireEvent.click(body, { detail: 1 })
+  expect(card).not.toHaveClass('is-revealed')
+})
+
+it('allows keyboard and assistive activation after a cancelled scroll gesture', () => {
+  const { card, container } = mount()
+  const body = container.querySelector('.learning-flip-back .learning-card-content')!
+  cardPointer(body, 'pointerdown')
+  cardPointer(body, 'pointercancel')
+  fireEvent.keyDown(body, { key: ' ' })
+  expect(card).not.toHaveClass('is-revealed')
+
+  const front = container.querySelector('.learning-flip-front .learning-card-content')!
+  cardPointer(front, 'pointerdown')
+  cardPointer(front, 'pointercancel')
+  fireEvent.click(front, { detail: 0 })
+  expect(card).toHaveClass('is-revealed')
 })

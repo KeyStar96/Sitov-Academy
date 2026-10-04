@@ -10,6 +10,8 @@ import PressableCard from '@/components/motion/PressableCard'
 import FeedbackMotion from '@/components/motion/FeedbackMotion'
 import { completeDailyQuest, submitDailyQuestStep } from '@/app/actions/daily-quests'
 import type { DailyQuest, DailyQuestMutation, DailyQuestResult, DailyQuestStep, DailyQuestStepAnswer, DailyQuestStepResult, DailyQuestStreak } from '@/lib/daily-quest-contract'
+import { getSitovDailyQuestPresentation, getSitovDailyQuestFeedbackFallback } from '@/lib/sitov-daily-quest-presentation'
+import { toUiLocale } from '@/lib/locale-routing'
 import { getDailyQuestCopy } from '@/lib/daily-quest-i18n'
 import { neuralAudioKey, type NeuralAudioSource } from '@/lib/audio/neural-client'
 import { PLAYBACK_RATES } from '@/lib/audio/playback-settings'
@@ -31,7 +33,6 @@ export interface DailyQuestEngineProps {
   /** The production defaults are authenticated server actions. */
   actions?: DailyQuestActions
 }
-const DEFAULT_ACTIONS: DailyQuestActions = { submit: submitDailyQuestStep, complete: completeDailyQuest }
 
 function firstOpenStep(quest: DailyQuest) {
   const index = quest.steps.findIndex(step => !quest.completedStepIds.includes(step.id))
@@ -42,11 +43,13 @@ function pieceOrder(id: string) {
 }
 
 /** The server owns grading, resume state and streaks; this engine owns interaction. */
-export default function DailyQuestEngine({ initialQuest, initialStreak, locale, dashboardHref, actions = DEFAULT_ACTIONS, preview = false }: DailyQuestEngineProps) {
+export default function DailyQuestEngine({ initialQuest, initialStreak, locale, dashboardHref, actions, preview = false }: DailyQuestEngineProps) {
   const router = useRouter()
   const copy = getDailyQuestCopy(locale)
+  const sitovLocale = toUiLocale(locale)
+  const sitovActions: DailyQuestActions = actions ?? { submit: input => submitDailyQuestStep(input, sitovLocale), complete: id => completeDailyQuest(id, sitovLocale) }
   const reduced = useReducedMotionSafe()
-  const [quest, setQuest] = useState(initialQuest)
+  const [quest, setQuest] = useState(() => getSitovDailyQuestPresentation(initialQuest, sitovLocale))
   const [streak, setStreak] = useState(initialStreak)
   const [intro, setIntro] = useState(() => initialQuest.status === 'active' && firstOpenStep(initialQuest) === 0)
   const [index, setIndex] = useState(() => firstOpenStep(initialQuest))
@@ -130,13 +133,13 @@ export default function DailyQuestEngine({ initialQuest, initialStreak, locale, 
     if (!step || busyRef.current || stationComplete || quest.status !== 'active') return
     busyRef.current = true; setBusy(true); setError(''); setFeedback(null); audio.stop()
     try {
-      const result = await actions.submit({ assignmentId: quest.id, stepId: step.id, answer })
+      const result = await sitovActions.submit({ assignmentId: quest.id, stepId: step.id, answer })
       if (!alive.current) return
       if (result.error || !result.data) { setError(copy.requestError); return }
       // Never unlock a station from a client-side comparison or feedback alone.
       const verified = result.data.correct && result.data.quest.completedStepIds.includes(step.id)
-      setQuest(result.data.quest); setStreak(result.data.streak)
-      setFeedback({ correct: verified, text: result.data.feedback || (verified ? copy.stationComplete : copy.retry) })
+      setQuest(getSitovDailyQuestPresentation(result.data.quest, sitovLocale)); setStreak(result.data.streak)
+      setFeedback({ correct: verified, text: (sitovLocale === 'de' || result.data.quest.sitovUiLocale === sitovLocale ? result.data.feedback : '') || getSitovDailyQuestFeedbackFallback(step.kind, verified, sitovLocale) })
       if (result.data.correct && !verified) setError(copy.requestError)
     } catch { if (alive.current) setError(copy.requestError) }
     finally { busyRef.current = false; if (alive.current) setBusy(false) }
@@ -145,10 +148,10 @@ export default function DailyQuestEngine({ initialQuest, initialStreak, locale, 
     if (busyRef.current || quest.status !== 'active' || !quest.steps.every(item => quest.completedStepIds.includes(item.id))) return
     busyRef.current = true; setBusy(true); setError(''); audio.stop()
     try {
-      const result = await actions.complete(quest.id)
+      const result = await sitovActions.complete(quest.id)
       if (!alive.current) return
       if (result.error || !result.data || result.data.quest.status !== 'completed') { setError(copy.requestError); return }
-      setQuest(result.data.quest); setStreak(result.data.streak)
+      setQuest(getSitovDailyQuestPresentation(result.data.quest, sitovLocale)); setStreak(result.data.streak)
     } catch { if (alive.current) setError(copy.requestError) }
     finally { busyRef.current = false; if (alive.current) setBusy(false) }
   }
@@ -175,7 +178,7 @@ export default function DailyQuestEngine({ initialQuest, initialStreak, locale, 
     </PressableCard>
   }
 
-  return <MotionProvider><section className={`${styles.quest} ${leaving ? styles.leaving : ''}`} aria-busy={busy || leaving}>
+  return <MotionProvider><section lang={sitovLocale} className={`${styles.quest} ${leaving ? styles.leaving : ''}`} aria-busy={busy || leaving}>
     <div className={styles.shell}>
       {preview && <aside className={styles.reference} style={{ marginBottom: 20 }}><p className={styles.note}>{copy.previewNotice}</p></aside>}
       <div className={styles.heading}>
@@ -183,14 +186,14 @@ export default function DailyQuestEngine({ initialQuest, initialStreak, locale, 
         <p className={styles.eyebrow}>{copy.eyebrow}</p>
         <PressableCard className={styles.skip} disabled={busy || leaving} onClick={goDashboard}>{complete || skipped ? copy.dashboard : copy.skip}<ArrowRight size={16} aria-hidden="true" /></PressableCard>
         </div>
-        <h1 lang="de">{quest.title}</h1><p className={styles.subtitle} lang="de">{quest.subtitle}</p>
+        <h1 lang="de">{quest.title}</h1><p className={styles.subtitle}>{quest.subtitle}</p>
         <div className={styles.meta}><span className={styles.level}>{quest.level}</span><span className={styles.progressLabel}>{quest.completedStepIds.length} {copy.of} {quest.steps.length} {copy.progressLabel}</span></div>
       </div>
       <div className={styles.layout}>
         <section className={styles.scene} aria-label={copy.sceneListen}>
           <div className={styles.art}>
             <Image src={quest.scene.backgroundImage} alt={quest.scene.imageAlt} fill preload sizes="(min-width: 900px) 600px, (min-width: 600px) calc(100vw - 56px), calc(100vw - 32px)" className={styles.image} />
-            <p className={styles.location} lang="de"><MapPin size={14} aria-hidden="true" />{quest.scene.location}</p>
+            <p className={styles.location}><MapPin size={14} aria-hidden="true" />{quest.scene.location}</p>
           </div>
           <div className={styles.sceneBody}>
             <p className={styles.speaker}>{speaker.name}</p>
@@ -208,7 +211,7 @@ export default function DailyQuestEngine({ initialQuest, initialStreak, locale, 
             <ol className={styles.stationList}>{quest.steps.map((item, position) => <li key={item.id}><span className={styles.number}>{position + 1}</span>{stepTitle(item)}</li>)}</ol>
           </>}
           {!intro && !complete && !skipped && step?.kind === 'discover' && <>
-            <p className={styles.description} lang="de">{step.instruction}</p>
+            <p className={styles.description}>{step.instruction}</p>
             <div className={styles.words}>{step.words.map(item => <PressableCard key={item.id} className={styles.word} disabled={busy || stationComplete} aria-pressed={selectedWord === item.id} onClick={() => selectWord(item.id)}>
               <span lang="de">{item.text}</span>{discovered.includes(item.id) && <Check size={18} className={styles.wordCheck} aria-label={copy.discovered} />}
             </PressableCard>)}</div>
@@ -216,28 +219,29 @@ export default function DailyQuestEngine({ initialQuest, initialStreak, locale, 
             <p className={styles.note}>{discovered.length} {copy.of} {step.words.length} · {copy.discovered}</p>
           </>}
           {!intro && !complete && !skipped && step?.kind === 'sentence_build' && <>
-            <p className={styles.description} lang="de">{step.prompt}</p>
+            <p className={styles.description}>{step.prompt}</p>
             {exerciseSource && <div className={styles.reference}><p lang="de">{step.audioText}</p>{listenButton(exerciseSource, copy.sentenceListen)}</div>}
             <div className={styles.sentence} aria-label={copy.sentenceLabel} aria-live="polite" lang="de">
-              {pieces.length === 0 && <p className={styles.placeholder}>{copy.sentencePlaceholder}</p>}
+              {pieces.length === 0 && <p className={styles.placeholder} lang={sitovLocale}>{copy.sentencePlaceholder}</p>}
               {pieces.length > 0 && <span className={styles.selectedPiece}>{selectedSentence}</span>}
             </div>
             <div className={styles.pool}>{[...step.pieces].sort((a, b) => pieceOrder(`${step.id}:${b.id}`) - pieceOrder(`${step.id}:${a.id}`)).map(piece => <PressableCard key={piece.id} className={`${styles.chip} ${pieces.includes(piece.id) ? styles.selectedChip : ''}`} disabled={busy || stationComplete || pieces.includes(piece.id)} onClick={() => choosePiece(piece.id)} lang="de">{piece.text}</PressableCard>)}</div>
             {!stationComplete && <div className={styles.actions}><PressableCard className={styles.textButton} disabled={busy || !pieces.length} onClick={() => { setPieces(previous => previous.slice(0, -1)); setFeedback(null) }}><Undo2 size={16} aria-hidden="true" />{copy.undo}</PressableCard><PressableCard className={styles.textButton} disabled={busy || !pieces.length} onClick={() => { setPieces([]); setFeedback(null) }}><RotateCcw size={16} aria-hidden="true" />{copy.reset}</PressableCard></div>}
           </>}
           {!intro && !complete && !skipped && step?.kind === 'dialogue_choice' && <>
-            <p className={styles.description} lang="de">{step.prompt}</p>
+            <p className={styles.description}>{step.sitovPromptLocale && step.sitovPromptLocale !== 'de' ? step.prompt : step.sitovInstruction ?? copy.choicesLabel}</p>
+            {(step.sitovPromptLocale ?? 'de') === 'de' && step.prompt !== step.audioText && <p className={styles.description} lang="de">{step.prompt}</p>}
             {exerciseSource && <div className={styles.reference}><span className={styles.speaker}>{exerciseSpeaker.name}</span><p lang="de">{step.audioText}</p>{listenButton(exerciseSource, copy.questionListen)}</div>}
             <div className={styles.choices} aria-label={copy.choicesLabel}>{step.options.map(option => <PressableCard key={option.id} className={styles.choice} aria-pressed={selectedOption === option.id} disabled={busy || stationComplete} onClick={() => { setSelectedOption(option.id); void submit({ optionId: option.id }) }}><span lang="de">{option.text}</span>{stationComplete && selectedOption === option.id ? <Check size={18} aria-hidden="true" /> : <ArrowRight size={17} aria-hidden="true" />}</PressableCard>)}</div>
           </>}
-          {feedback && !intro && !complete && !skipped && <FeedbackMotion correct={feedback.correct} className={styles.feedback}><div ref={feedbackRef} tabIndex={-1} role="status"><p lang="de">{feedback.text}</p></div></FeedbackMotion>}
+          {feedback && !intro && !complete && !skipped && <FeedbackMotion correct={feedback.correct} className={styles.feedback}><div ref={feedbackRef} tabIndex={-1} role="status"><p>{feedback.text}</p></div></FeedbackMotion>}
           {!intro && !complete && !skipped && step && <div className={styles.bottom}>
             {stationComplete ? <PressableCard ref={continueRef} className={styles.primary} disabled={busy} onClick={next}>{busy ? copy.saving : index === quest.steps.length - 1 ? copy.finish : copy.continue}<ArrowRight size={19} aria-hidden="true" /></PressableCard>
               : step.kind !== 'dialogue_choice' && <PressableCard className={styles.primary} disabled={busy || (step.kind === 'discover' ? discovered.length !== step.words.length : pieces.length !== step.pieces.length)} onClick={() => { void submit(step.kind === 'discover' ? { wordIds: discovered } : { pieceIds: pieces }) }}>{busy ? copy.checking : copy.check}{busy ? <Loader2 size={19} aria-hidden="true" /> : <ArrowRight size={19} aria-hidden="true" />}</PressableCard>}
           </div>}
-          {!intro && !step && !complete && !skipped && <><p className={styles.description} lang="de">{quest.completion.text}</p><PressableCard className={styles.primary} disabled={busy} onClick={() => { void finish() }}>{busy ? copy.saving : copy.finish}<Check size={19} aria-hidden="true" /></PressableCard></>}
+          {!intro && !step && !complete && !skipped && <><p className={styles.description}>{quest.completion.text}</p><PressableCard className={styles.primary} disabled={busy} onClick={() => { void finish() }}>{busy ? copy.saving : copy.finish}<Check size={19} aria-hidden="true" /></PressableCard></>}
           {complete && <>
-            <p className={styles.description} lang="de">{quest.completion.text}</p>
+            <p className={styles.description}>{quest.completion.text}</p>
             <div className={styles.achievement}>
             <motion.div className={styles.stamp} aria-hidden="true" data-sitov-seal initial={reduced ? false : { opacity: 0, scale: 1.12, rotate: -14 }} animate={{ opacity: 1, scale: 1, rotate: reduced ? 0 : -6 }} transition={{ duration: reduced ? 0 : MOTION.slower, ease: EASE_OUT_SOFT }}><Sparkles size={20} /><strong>{quest.level}</strong><span>{copy.completed}</span></motion.div>
             {!preview && <div className={styles.streak}><Flame size={28} aria-hidden="true" /><strong>{streak.current}</strong><span>{copy.streakDays}</span></div>}
@@ -253,7 +257,7 @@ export default function DailyQuestEngine({ initialQuest, initialStreak, locale, 
       </div>
       <p className={styles.footer}>{copy.allWords}</p>
       <p className={styles.srOnly} role="status" aria-live="polite" aria-atomic="true">{busy ? copy.checking : leaving ? copy.dashboard : `${copy.step}: ${complete ? copy.completed : skipped ? copy.skipTitle : intro ? copy.title : step ? stepTitle(step) : copy.completionTitle}`}</p>
-      <p className={styles.srOnly} role="status" aria-live="polite">{audio.state.phase === 'loading' ? copy.loadingAudio : audio.state.phase === 'playing' ? `${copy.audioPlaying} ${audio.state.text}` : copy.audioIdle}</p>
+      <p className={styles.srOnly} role="status" aria-live="polite">{audio.state.phase === 'loading' ? copy.loadingAudio : audio.state.phase === 'playing' ? <>{copy.audioPlaying} <span lang="de">{audio.state.text}</span></> : copy.audioIdle}</p>
     </div>
   </section></MotionProvider>
 }

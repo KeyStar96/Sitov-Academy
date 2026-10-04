@@ -24,7 +24,7 @@ export default async function SitovVocabularyChunksPreview({ params, searchParam
   const width = Math.max(320, Math.min(768, Number(query.width) || 390))
   if (query.frame !== '1') return <main className="grid justify-items-center gap-4 p-4">
     <h1 className="text-base font-semibold">Sitov Academy · {width} × 844</h1>
-    <iframe title="Sitov Academy vocabulary mobile preview" src={`/${lang}/sitov-preview/vocabulary-chunks?frame=1&kind=${chunk ? 'chunk' : 'word'}`}
+    <iframe title="Sitov Academy vocabulary mobile preview" src={`/${lang}/sitov-preview/vocabulary-chunks?frame=1&kind=${sentence ? 'sentence' : chunk ? 'chunk' : 'word'}${query.shell === '1' ? '&shell=1' : ''}`}
       style={{ width, maxWidth: '100%', height: 844, border: '1px solid var(--border)', borderRadius: 24 }} />
   </main>
   const card: DueVocabularyCard = {

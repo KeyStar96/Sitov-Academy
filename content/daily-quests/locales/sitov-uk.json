@@ -1,0 +1,2402 @@
+{
+  "sitov-a1-find-milk": {
+    "goal": "Запитай про товар.",
+    "explanation": "«Hinten links» указує, де стоїть молоко.",
+    "focus": "Позначення місця",
+    "question": "Куди ти йдеш?"
+  },
+  "sitov-a1-buy-apples": {
+    "goal": "Назви потрібну кількість.",
+    "explanation": "«Drei» називає потрібну кількість; «Äpfel» — форма множини.",
+    "focus": "Числа та множина",
+    "question": "Що ти відповідаєш?"
+  },
+  "sitov-a1-check-price": {
+    "goal": "Запитай про ціну.",
+    "explanation": "«Wie viel» використовується, щоб запитати про ціну товару.",
+    "focus": "Питання з питальним словом і дієсловом «kosten»",
+    "question": "Скільки ти платиш?"
+  },
+  "sitov-a1-pay-by-card": {
+    "goal": "Обери спосіб оплати.",
+    "explanation": "«Mit Karte» називає доступний спосіб оплати.",
+    "focus": "Теперішній час і «mit»",
+    "question": "Що ти кажеш?"
+  },
+  "sitov-a1-bring-bag": {
+    "goal": "Відреагуй на пропозицію.",
+    "explanation": "«Keine» заперечує іменник «Tüte».",
+    "focus": "Заперечення з «kein»",
+    "question": "Яка відповідь підходить?"
+  },
+  "sitov-a1-free-table": {
+    "goal": "Запитай про місце для сидіння.",
+    "explanation": "«Frei» означає, що ти можеш користуватися цим столиком.",
+    "focus": "Питання з відповіддю «так» або «ні»",
+    "question": "Яка відповідь підходить?"
+  },
+  "sitov-a1-coffee-no-sugar": {
+    "goal": "Зроби замовлення з побажанням.",
+    "explanation": "«Ohne» тут називає те, чого не має бути в каві.",
+    "focus": "Знахідний відмінок і «ohne»",
+    "question": "Що ти відповідаєш?"
+  },
+  "sitov-a1-takeaway-tea": {
+    "goal": "Замов напій із собою.",
+    "explanation": "«Mitnehmen» має відокремлюваний префікс: «mit» стоїть у кінці речення.",
+    "focus": "Дієслово з відокремлюваним префіксом «mitnehmen»",
+    "question": "Яка відповідь підходить?"
+  },
+  "sitov-a1-ask-bill": {
+    "goal": "Попроси рахунок.",
+    "explanation": "«Die Rechnung» — доречне прохання перед оплатою.",
+    "focus": "Модальне дієслово «möchten»",
+    "question": "Що ти кажеш?"
+  },
+  "sitov-a1-find-toilet": {
+    "goal": "Зрозумій позначення місця.",
+    "explanation": "«Oben» указує на вищий поверх.",
+    "focus": "«Wo» та позначення місця",
+    "question": "Куди ти йдеш?"
+  },
+  "sitov-a1-departure-time": {
+    "goal": "Запитай про час.",
+    "explanation": "«Um» вживається з точним часом.",
+    "focus": "Час і «abfahren»",
+    "question": "Коли відправляється потяг?"
+  },
+  "sitov-a1-right-platform": {
+    "goal": "Знайди свою платформу.",
+    "explanation": "Число «vier» указує на потрібну колію.",
+    "focus": "Числа та «auf»",
+    "question": "Яка колія тобі потрібна?"
+  },
+  "sitov-a1-single-ticket": {
+    "goal": "Назви місце призначення.",
+    "explanation": "«Nach» вживається з назвами міст без артикля.",
+    "focus": "Місце призначення з «nach»",
+    "question": "Яка відповідь підходить?"
+  },
+  "sitov-a1-return-ticket": {
+    "goal": "Замов квиток на дві поїздки.",
+    "explanation": "«Hin und zurück» охоплює обидва напрямки.",
+    "focus": "Теперішній час і «auch»",
+    "question": "Що ти замовляєш?"
+  },
+  "sitov-a1-delayed-train": {
+    "goal": "Зрозумій повідомлення про затримку.",
+    "explanation": "«Später» тут означає, що потяг запізнюється.",
+    "focus": "Позначення часу",
+    "question": "Що ти тепер знаєш?"
+  },
+  "sitov-a1-bus-destination": {
+    "goal": "Перевір автобусний маршрут.",
+    "explanation": "«Einsteigen» підходить, тому що автобус їде до твого місця призначення.",
+    "focus": "Дієслово з відокремлюваним префіксом «einsteigen»",
+    "question": "Яка відповідь підходить?"
+  },
+  "sitov-a1-next-stop": {
+    "goal": "Запитай про наступну зупинку.",
+    "explanation": "«Heißt» використовується в запитанні про назву зупинки.",
+    "focus": "Питання з питальним словом і дієсловом «heißen»",
+    "question": "Де автобус зупиниться наступного разу?"
+  },
+  "sitov-a1-change-at-center": {
+    "goal": "Зрозумій, де потрібно пересісти на інший маршрут.",
+    "explanation": "«Umsteigen» означає змінити транспорт або маршрут.",
+    "focus": "Дієслово з відокремлюваним префіксом «umsteigen»",
+    "question": "Де ти пересідаєш на інший автобус?"
+  },
+  "sitov-a1-show-ticket": {
+    "goal": "Відреагуй під час перевірки квитків.",
+    "explanation": "«Hier, bitte» кажуть, коли показують наявний квиток.",
+    "focus": "Присвійний артикль «mein»",
+    "question": "Що ти кажеш?"
+  },
+  "sitov-a1-offer-seat": {
+    "goal": "Запропонуй місце для сидіння.",
+    "explanation": "«Können» тут виражає можливість.",
+    "focus": "Модальне дієслово «können»",
+    "question": "Що ти йому кажеш?"
+  },
+  "sitov-a1-request-menu": {
+    "goal": "Попроси меню.",
+    "explanation": "«Die Speisekarte» показує, які страви пропонують.",
+    "focus": "Знахідний відмінок з «die»",
+    "question": "Що ти замовляєш спочатку?"
+  },
+  "sitov-a1-vegetarian-meal": {
+    "goal": "Обери відповідну страву.",
+    "explanation": "«Kein Fleisch» підходить до овочевого супу, який за умовою не містить м’яса.",
+    "focus": "Заперечення та їжа",
+    "question": "Що ти хочеш замовити?"
+  },
+  "sitov-a1-reserved-table": {
+    "goal": "Повідом про своє бронювання.",
+    "explanation": "«Auf den Namen» указує, на яке ім’я зроблено бронювання.",
+    "focus": "«Haben» і знахідний відмінок",
+    "question": "Що ти кажеш?"
+  },
+  "sitov-a1-still-water": {
+    "goal": "Обери напій.",
+    "explanation": "«Stilles Wasser» — вода без вуглекислого газу, тобто негазована вода.",
+    "focus": "Побажання з «möchten»",
+    "question": "Що ти відповідаєш?"
+  },
+  "sitov-a1-shared-bill": {
+    "goal": "Скажи, як ви платитимете.",
+    "explanation": "«Wir» охоплює тебе й Омара; «zusammen» означає спільну оплату.",
+    "focus": "Особовий займенник «wir»",
+    "question": "Яка відповідь підходить?"
+  },
+  "sitov-a1-pharmacy-hours": {
+    "goal": "Запитай про час відкриття.",
+    "explanation": "«Ab acht Uhr» означає не раніше восьмої години.",
+    "focus": "Час з «ab»",
+    "question": "Коли ти можеш прийти?"
+  },
+  "sitov-a1-prescription-counter": {
+    "goal": "Покажи потрібний документ.",
+    "explanation": "«Dabei haben» означає мати щось із собою.",
+    "focus": "Дієслово «haben» у теперішньому часі",
+    "question": "Що ти відповідаєш?"
+  },
+  "sitov-a1-pickup-name": {
+    "goal": "Назви ім’я, на яке зроблено замовлення.",
+    "explanation": "«Für Lukas» називає одержувача; «abholen» має відокремлюваний префікс.",
+    "focus": "Дієслово з відокремлюваним префіксом «abholen»",
+    "question": "Що ти кажеш?"
+  },
+  "sitov-a1-pharmacy-receipt": {
+    "goal": "Попроси квитанцію.",
+    "explanation": "«Den» — артикль у знахідному відмінку при іменнику чоловічого роду «Beleg».",
+    "focus": "Знахідний відмінок чоловічого роду",
+    "question": "Яка відповідь підходить?"
+  },
+  "sitov-a1-wait-for-order": {
+    "goal": "Зрозумій, скільки потрібно чекати.",
+    "explanation": "Після четверга настає п’ятниця; «am» поєднується з назвою дня, щоб позначити час.",
+    "focus": "Дні тижня з «am»",
+    "question": "Коли ти забереш замовлення?"
+  },
+  "sitov-a1-appointment-time": {
+    "goal": "Назви час свого прийому.",
+    "explanation": "«Mein» указує на власний запис на прийом.",
+    "focus": "Присвійний артикль «mein»",
+    "question": "Що ти відповідаєш?"
+  },
+  "sitov-a1-insurance-card": {
+    "goal": "Відреагуй на стійці реєстрації.",
+    "explanation": "«Meine» узгоджується з іменником жіночого роду «Karte».",
+    "focus": "Присвійний артикль «meine»",
+    "question": "Яка відповідь підходить?"
+  },
+  "sitov-a1-waiting-room": {
+    "goal": "Знайди потрібну кімнату.",
+    "explanation": "«In» тут називає кімнату, у якій потрібно чекати.",
+    "focus": "Просте позначення місця",
+    "question": "Де ти чекаєш?"
+  },
+  "sitov-a1-spell-name": {
+    "goal": "Назви коротке ім’я по літерах.",
+    "explanation": "«Buchstabieren» означає називати окремі літери в правильному порядку.",
+    "focus": "Алфавіт та ім’я",
+    "question": "Як ти називаєш ім’я по літерах?"
+  },
+  "sitov-a1-followup-day": {
+    "goal": "Обери відповідний день.",
+    "explanation": "Після «kann» інфінітив «kommen» стоїть у кінці речення.",
+    "focus": "Модальне дієслово «können»",
+    "question": "Що ти відповідаєш?"
+  },
+  "sitov-a1-send-letter": {
+    "goal": "Назви своє поштове відправлення.",
+    "explanation": "«Einen» — артикль у знахідному відмінку при іменнику чоловічого роду «Brief».",
+    "focus": "Знахідний відмінок з «einen»",
+    "question": "Що ти відповідаєш?"
+  },
+  "sitov-a1-parcel-weight": {
+    "goal": "Зрозумій, яка вага посилки.",
+    "explanation": "«Wie schwer» використовується, щоб запитати про вагу.",
+    "focus": "Кількість і вага",
+    "question": "Скільки важить посилка?"
+  },
+  "sitov-a1-buy-stamp": {
+    "goal": "Попроси поштову марку.",
+    "explanation": "«Eine» стоїть у знахідному відмінку перед іменником жіночого роду «Briefmarke».",
+    "focus": "Знахідний відмінок з «eine»",
+    "question": "Що ти кажеш?"
+  },
+  "sitov-a1-correct-address": {
+    "goal": "Розрізни номер будинку.",
+    "explanation": "«Zwanzig» і «zwölf» — різні номери будинків.",
+    "focus": "Розрізнення чисел",
+    "question": "Як ти його виправляєш?"
+  },
+  "sitov-a1-collect-parcel": {
+    "goal": "Покажи повідомлення для отримання посилки.",
+    "explanation": "Під час отримання посилки повідомлення допомагає визначити, яка посилка твоя.",
+    "focus": "Модальне дієслово та інфінітив",
+    "question": "Яка відповідь підходить?"
+  },
+  "sitov-a1-find-atm": {
+    "goal": "Запитай, де знаходиться потрібне місце.",
+    "explanation": "«Rechts neben» указує на назване розташування.",
+    "focus": "Позначення місця з «rechts»",
+    "question": "Де ти шукаєш?"
+  },
+  "sitov-a1-take-queue-number": {
+    "goal": "Виконай просте прохання.",
+    "explanation": "Спочатку ти береш номер, а потім чекаєш.",
+    "focus": "Дієслово «nehmen» у теперішньому часі",
+    "question": "Що ти робиш спочатку?"
+  },
+  "sitov-a1-bank-appointment": {
+    "goal": "Назви час, коли ти вільний.",
+    "explanation": "«Zeit haben» означає бути вільним у цей час.",
+    "focus": "«Zeit haben» і день тижня",
+    "question": "Яка відповідь підходить?"
+  },
+  "sitov-a1-request-printout": {
+    "goal": "Попроси документ.",
+    "explanation": "«Ihn» стосується іменника чоловічого роду «Ausdruck».",
+    "focus": "Побажання та додаток",
+    "question": "Що ти відповідаєш?"
+  },
+  "sitov-a1-closed-counter": {
+    "goal": "Зрозумій час роботи.",
+    "explanation": "Від дев’ятої до десятої години минає одна година.",
+    "focus": "Час і тривалість",
+    "question": "Що зараз підходить?"
+  },
+  "sitov-a1-get-library-card": {
+    "goal": "Попроси читацький квиток.",
+    "explanation": "«Einen» стоїть перед додатком чоловічого роду «Ausweis».",
+    "focus": "Додаток у знахідному відмінку",
+    "question": "Що ти відповідаєш?"
+  },
+  "sitov-a1-borrow-book": {
+    "goal": "Скажи, що ти хочеш позичити.",
+    "explanation": "«Ausleihen» означає взяти книжку на обмежений час.",
+    "focus": "Модальне дієслово «möchten»",
+    "question": "Яка відповідь підходить?"
+  },
+  "sitov-a1-return-day": {
+    "goal": "Зрозумій термін повернення.",
+    "explanation": "«Zurückbringen» має відокремлюваний префікс; «zurück» стоїть у кінці речення.",
+    "focus": "Дієслово з відокремлюваним префіксом «zurückbringen»",
+    "question": "Коли ти повертаєш книжку?"
+  },
+  "sitov-a1-quiet-area": {
+    "goal": "Зрозумій правило закладу.",
+    "explanation": "«Leise» означає тихо, з невеликою гучністю.",
+    "focus": "Прислівник «leise»",
+    "question": "Яка дія підходить?"
+  },
+  "sitov-a1-find-dictionaries": {
+    "goal": "Запитай про вид книжок.",
+    "explanation": "«Suchen» тут вживається з додатком у знахідному відмінку «ein Wörterbuch».",
+    "focus": "«Suchen» зі знахідним відмінком",
+    "question": "Куди ти йдеш?"
+  },
+  "sitov-a1-borrow-stapler": {
+    "goal": "Попроси щось у колеги.",
+    "explanation": "Степлер скріплює два аркуші.",
+    "focus": "Питання з «haben»",
+    "question": "Що ти запитуєш?"
+  },
+  "sitov-a1-meeting-start": {
+    "goal": "Назви час початку.",
+    "explanation": "«Beginnt» називає початок наради.",
+    "focus": "Час і «beginnen»",
+    "question": "Коли вона починається?"
+  },
+  "sitov-a1-printer-location": {
+    "goal": "Знайди пристрій.",
+    "explanation": "«Im» — поєднання «in» і «dem».",
+    "focus": "Позначення місця з «im»",
+    "question": "Де ти друкуєш?"
+  },
+  "sitov-a1-call-colleague": {
+    "goal": "Запитай номер телефону.",
+    "explanation": "«Anrufen» має відокремлюваний префікс; внутрішній номер Тіма — сто тринадцять.",
+    "focus": "Дієслово з відокремлюваним префіксом «anrufen»",
+    "question": "Який номер ти набираєш?"
+  },
+  "sitov-a1-work-end": {
+    "goal": "Скажи, коли ти йдеш.",
+    "explanation": "«Bis» позначає кінець робочого часу.",
+    "focus": "Позначення часу з «bis»",
+    "question": "Що ти відповідаєш?"
+  },
+  "sitov-a1-classroom-number": {
+    "goal": "Запитай номер аудиторії.",
+    "explanation": "«Unser» указує на спільний курс.",
+    "focus": "Присвійний артикль «unser»",
+    "question": "Куди ти йдеш?"
+  },
+  "sitov-a1-open-book": {
+    "goal": "Виконай прохання на уроці.",
+    "explanation": "«Auf Seite zehn» називає потрібне місце в книжці.",
+    "focus": "Числа на уроці",
+    "question": "Яка сторінка тобі потрібна?"
+  },
+  "sitov-a1-borrow-pen": {
+    "goal": "Попроси ручку.",
+    "explanation": "«Kann ich ... haben» — просте ввічливе прохання.",
+    "focus": "Прохання з «können»",
+    "question": "Що ти кажеш?"
+  },
+  "sitov-a1-break-time": {
+    "goal": "Зрозумій тривалість.",
+    "explanation": "«Fünfzehn» і «fünfzig» позначають різну тривалість.",
+    "focus": "Числа «fünfzehn» і «fünfzig»",
+    "question": "Скільки триває перерва?"
+  },
+  "sitov-a1-homework-task": {
+    "goal": "Запам’ятай завдання.",
+    "explanation": "«Zu Hause» тут указує на місце виконання домашнього завдання.",
+    "focus": "Дієслово на другому місці з «machen»",
+    "question": "Що ти робиш сьогодні вдома?"
+  },
+  "sitov-a1-viewing-time": {
+    "goal": "Домовся про час.",
+    "explanation": "Після позначення часу дієслово «habe» стоїть на другому місці.",
+    "focus": "Дієслово на другому місці після позначення часу",
+    "question": "Що ти відповідаєш?"
+  },
+  "sitov-a1-receive-key": {
+    "goal": "Візьми потрібний ключ.",
+    "explanation": "Опис «klein» указує, який ключ належить до квартири.",
+    "focus": "«Für» зі знахідним відмінком",
+    "question": "Який ключ ти береш?"
+  },
+  "sitov-a1-visitor-doorbell": {
+    "goal": "Визнач, хто прийшов.",
+    "explanation": "«Unten an der Tür» описує, де чекає відвідувач.",
+    "focus": "Теперішній час і позначення місця",
+    "question": "Що ти робиш?"
+  },
+  "sitov-a1-paper-bin": {
+    "goal": "Зрозумій, що куди належить.",
+    "explanation": "Колір контейнера визначається правилом цього будинку.",
+    "focus": "Кольори та знахідний відмінок",
+    "question": "Який контейнер тобі тут потрібен?"
+  },
+  "sitov-a1-close-window": {
+    "goal": "Відреагуй на прохання.",
+    "explanation": "«Zumachen» означає закрити; «zu» стоїть у кінці речення.",
+    "focus": "Дієслово з відокремлюваним префіксом «zumachen»",
+    "question": "Що ти робиш?"
+  },
+  "sitov-a1-broken-lamp": {
+    "goal": "Опиши несправність.",
+    "explanation": "«Nicht» тут заперечує дієслово «funktioniert».",
+    "focus": "Заперечення дієслова з «nicht»",
+    "question": "Що ти відповідаєш?"
+  },
+  "sitov-a1-bike-flat": {
+    "goal": "Назви несправну деталь.",
+    "explanation": "«Keine» тут заперечує іменник «Luft».",
+    "focus": "Заперечення з «keine»",
+    "question": "Яка відповідь підходить?"
+  },
+  "sitov-a1-washing-machine-noise": {
+    "goal": "Опиши шум.",
+    "explanation": "«Laut» — протилежність «leise».",
+    "focus": "Прикметник як іменна частина присудка",
+    "question": "Що ти відповідаєш?"
+  },
+  "sitov-a1-missing-cable": {
+    "goal": "Поясни, що тобі потрібно.",
+    "explanation": "«Ein Kabel» називає потрібну деталь.",
+    "focus": "Додаток середнього роду у знахідному відмінку",
+    "question": "Що ти відповідаєш?"
+  },
+  "sitov-a1-repair-pickup": {
+    "goal": "Зрозумій, коли можна забрати річ.",
+    "explanation": "«Fertig» тут указує на завершення ремонту.",
+    "focus": "«Abholen» і день тижня",
+    "question": "Коли ти прийдеш знову?"
+  },
+  "sitov-a1-find-fountain": {
+    "goal": "Зрозумій короткий опис шляху.",
+    "explanation": "«Geradeaus» означає продовжувати йти, не повертаючи.",
+    "focus": "Опис шляху з «geradeaus»",
+    "question": "Який шлях підходить?"
+  },
+  "sitov-a1-meet-bench": {
+    "goal": "Знайди місце зустрічі.",
+    "explanation": "«Auf der Bank» описує, де сидить твій друг.",
+    "focus": "Позначення місця з «auf»",
+    "question": "Де ти шукаєш Фінна?"
+  },
+  "sitov-a1-no-feeding": {
+    "goal": "Зрозумій заборону.",
+    "explanation": "«Nicht» заперечує дію «füttern».",
+    "focus": "Заперечення дії",
+    "question": "Яка дія підходить?"
+  },
+  "sitov-a1-use-bin": {
+    "goal": "Скористайся смітником.",
+    "explanation": "«Wegwerfen» має відокремлюваний префікс; сміття тут слід викинути в названий смітник.",
+    "focus": "Дієслово з відокремлюваним префіксом «wegwerfen»",
+    "question": "Куди ти йдеш зі сміттям?"
+  },
+  "sitov-a1-park-closing": {
+    "goal": "Зрозумій час закриття.",
+    "explanation": "Вісімнадцята година відповідає шостій годині вечора.",
+    "focus": "Час у 24-годинному форматі",
+    "question": "До котрої години парк відкритий?"
+  },
+  "sitov-a1-pool-opening": {
+    "goal": "Запитай про час відкриття.",
+    "explanation": "Час відкриття називає найраніший час, коли можна увійти.",
+    "focus": "Позначення часу та інфінітив",
+    "question": "Коли ти можеш увійти найраніше?"
+  },
+  "sitov-a1-borrow-ball": {
+    "goal": "Попроси спортивне спорядження.",
+    "explanation": "«Einen Ball» — додаток чоловічого роду у знахідному відмінку.",
+    "focus": "Знахідний відмінок у темі спорту",
+    "question": "Що ти відповідаєш?"
+  },
+  "sitov-a1-training-day": {
+    "goal": "Назви день регулярних занять.",
+    "explanation": "«Jeden Mittwoch» описує регулярне повторення.",
+    "focus": "Позначення регулярного часу",
+    "question": "Коли проходить тренування?"
+  },
+  "sitov-a1-locker-number": {
+    "goal": "Знайди свою шафку.",
+    "explanation": "«Sechzehn» і «sechzig» — різні числа.",
+    "focus": "Числа «sechzehn» і «sechzig»",
+    "question": "Яка шафка твоя?"
+  },
+  "sitov-a1-trial-session": {
+    "goal": "Запишися на пробне заняття.",
+    "explanation": "«Mitmachen» має відокремлюваний префікс і тут стоїть в інфінітиві.",
+    "focus": "Модальне дієслово та «mitmachen»",
+    "question": "Яка відповідь підходить?"
+  },
+  "sitov-a1-hotel-reservation": {
+    "goal": "Назви ім’я, на яке зроблено бронювання.",
+    "explanation": "«Auf den Namen» допомагає знайти бронювання потрібної особи.",
+    "focus": "Ім’я у бронюванні",
+    "question": "Що ти відповідаєш?"
+  },
+  "sitov-a1-single-room": {
+    "goal": "Обери тип номера.",
+    "explanation": "Одномісний номер тут підходить для однієї особи.",
+    "focus": "Іменник середнього роду з «ein»",
+    "question": "Що ти відповідаєш?"
+  },
+  "sitov-a1-breakfast-time": {
+    "goal": "Зрозумій часовий проміжок.",
+    "explanation": "Восьма година входить у проміжок від сьомої до дев’ятої години.",
+    "focus": "Часовий проміжок з «von ... bis»",
+    "question": "Коли ти можеш поснідати?"
+  },
+  "sitov-a1-wifi-password": {
+    "goal": "Запитай про пароль.",
+    "explanation": "«Auf» називає поверхню, на якій міститься інформація.",
+    "focus": "«Wo» з «stehen»",
+    "question": "Де ти перевіряєш інформацію?"
+  },
+  "sitov-a1-checkout-time": {
+    "goal": "Зрозумій кінцевий термін.",
+    "explanation": "«Bis elf Uhr» означає не пізніше одинадцятої години.",
+    "focus": "Кінцевий термін з «bis»",
+    "question": "Який час підходить?"
+  },
+  "sitov-a1-shirt-size": {
+    "goal": "Назви свій розмір.",
+    "explanation": "«Größe M» позначає потрібний розмір одягу.",
+    "focus": "Як назвати розмір",
+    "question": "Що ти відповідаєш?"
+  },
+  "sitov-a1-fitting-room": {
+    "goal": "Запитай про примірочну.",
+    "explanation": "«Anprobieren» означає одягнути річ, щоб її приміряти.",
+    "focus": "Модальне дієслово та «anprobieren»",
+    "question": "Куди ти йдеш?"
+  },
+  "sitov-a1-shoe-too-small": {
+    "goal": "Опиши, як підходить розмір.",
+    "explanation": "«Zu klein» означає, що розмір замалий.",
+    "focus": "«Zu» з прикметником",
+    "question": "Що ти відповідаєш?"
+  },
+  "sitov-a1-blue-jacket": {
+    "goal": "Назви бажаний колір.",
+    "explanation": "«Die blaue» стосується обраної куртки.",
+    "focus": "Кольори та «nehmen»",
+    "question": "Яка відповідь підходить?"
+  },
+  "sitov-a1-try-trousers": {
+    "goal": "Відреагуй на пропозицію.",
+    "explanation": "«Anprobieren» має відокремлюваний префікс: «an» стоїть у кінці.",
+    "focus": "Дієслово з відокремлюваним префіксом «anprobieren»",
+    "question": "Що ти відповідаєш?"
+  },
+  "sitov-a1-half-kilo-tomatoes": {
+    "goal": "Назви потрібну вагу.",
+    "explanation": "«Ein halbes Kilo» — половина кілограма.",
+    "focus": "Кількість з «halb»",
+    "question": "Що ти відповідаєш?"
+  },
+  "sitov-a1-ripe-pears": {
+    "goal": "Запитай про властивість.",
+    "explanation": "«Weich» і «hart» описують різні властивості.",
+    "focus": "Прикметники в темі фруктів",
+    "question": "Які груші ти береш?"
+  },
+  "sitov-a1-market-change": {
+    "goal": "Обчисли просту різницю.",
+    "explanation": "П’ять євро мінус три євро дорівнює двом євро.",
+    "focus": "Числа та «zurückbekommen»",
+    "question": "Скільки решти ти отримуєш?"
+  },
+  "sitov-a1-local-potatoes": {
+    "goal": "Запитай про походження.",
+    "explanation": "«Woher» використовується для питання про походження; «aus» називає країну походження.",
+    "focus": "«Woher» і «aus»",
+    "question": "Звідки вони?"
+  },
+  "sitov-a1-market-closing-day": {
+    "goal": "Зрозумій тижневий графік.",
+    "explanation": "«Offen» і «geschlossen» указують, чи можна зробити покупки.",
+    "focus": "Дні тижня та час роботи",
+    "question": "Коли ти можеш зробити покупки?"
+  },
+  "sitov-a1-find-city-hall": {
+    "goal": "Запитай про будівлю.",
+    "explanation": "«Neben» описує два місця, розташовані безпосередньо поруч.",
+    "focus": "Позначення місця з «neben»",
+    "question": "Де ти шукаєш ратушу?"
+  },
+  "sitov-a1-cross-at-green": {
+    "goal": "Зрозумій сигнал кольору.",
+    "explanation": "У сцені прямо сказано, що потрібно чекати зеленого світла.",
+    "focus": "Теперішній час з «wir»",
+    "question": "Що ви зараз робите?"
+  },
+  "sitov-a1-tourist-map": {
+    "goal": "Попроси допомогу для орієнтування.",
+    "explanation": "Карта міста показує вулиці й місця в місті.",
+    "focus": "Знахідний відмінок у проханні",
+    "question": "Що ти кажеш?"
+  },
+  "sitov-a1-museum-ticket": {
+    "goal": "Назви кількість квитків.",
+    "explanation": "Ти й твій брат — дві особи.",
+    "focus": "Особові займенники та кількість",
+    "question": "Скільки квитків ти купуєш?"
+  },
+  "sitov-a1-turn-left": {
+    "goal": "Зрозумій, куди повернути.",
+    "explanation": "«Links» називає потрібний напрямок на розвилці.",
+    "focus": "Простий опис шляху",
+    "question": "Який напрямок ти обираєш?"
+  },
+  "sitov-a2-empty-shelf": {
+    "goal": "Поясни, що ти шукав.",
+    "explanation": "У Perfekt «gefunden» стоїть у кінці речення; «keinen» заперечує «Reis».",
+    "focus": "Минулий час Perfekt з «finden»",
+    "question": "Що ти відповідаєш?"
+  },
+  "sitov-a2-discount-mismatch": {
+    "goal": "Поясни різницю в ціні.",
+    "explanation": "«Niedriger» порівнює ціну на ціннику з названою ціною на касі.",
+    "focus": "Вищий ступінь порівняння «niedriger»",
+    "question": "Що ти кажеш?"
+  },
+  "sitov-a2-damaged-packaging": {
+    "goal": "Попроси іншу упаковку.",
+    "explanation": "«Könnten Sie ... geben» — ввічливе прохання.",
+    "focus": "Ввічливе прохання з «könnten»",
+    "question": "Яку упаковку ти хочеш?"
+  },
+  "sitov-a2-delivery-arrival": {
+    "goal": "Зрозумій умову.",
+    "explanation": "У реченні з «wenn» дієслово «kommt» стоїть у кінці; головне речення починається з «gibt».",
+    "focus": "Речення з «wenn» і дієслово на другому місці",
+    "question": "Коли ти знову зможеш купити яйця?"
+  },
+  "sitov-a2-receipt-exchange": {
+    "goal": "Зрозумій назване правило обміну.",
+    "explanation": "«Vergessen» тут утворює Perfekt з «haben».",
+    "focus": "Минулий час Perfekt з «vergessen»",
+    "question": "Чого бракує для цього обміну?"
+  },
+  "sitov-a2-wrong-drink": {
+    "goal": "Виправ замовлення.",
+    "explanation": "«Bestellt» — дієприкметник від «bestellen», який стоїть у кінці речення.",
+    "focus": "Минулий час Perfekt з «bestellen»",
+    "question": "Що ти кажеш?"
+  },
+  "sitov-a2-quieter-seat": {
+    "goal": "Порівняй два місця.",
+    "explanation": "У реченні з «weil» дієслово «ist» стоїть у кінці; «ruhiger» — вищий ступінь порівняння.",
+    "focus": "Речення з «weil» і вищий ступінь порівняння",
+    "question": "Яке місце відповідає твоєму побажанню?"
+  },
+  "sitov-a2-missing-cake-charge": {
+    "goal": "Зверни увагу на відсутню позицію в рахунку.",
+    "explanation": "«Auch» додає тістечко до замовлення, яке вже включили в рахунок.",
+    "focus": "Минулий час Perfekt з «essen»",
+    "question": "Що ти кажеш?"
+  },
+  "sitov-a2-forgotten-scarf": {
+    "goal": "Запитай про загублену річ.",
+    "explanation": "«Gestern» указує на минуле; Perfekt описує, як ти забув річ.",
+    "focus": "Минулий час Perfekt з позначенням часу",
+    "question": "Що ти запитуєш?"
+  },
+  "sitov-a2-terrace-rain": {
+    "goal": "Відреагуй на погодну умову.",
+    "explanation": "Речення з «wenn» описує умову для зміни місця.",
+    "focus": "Умова з «wenn»",
+    "question": "Що ти можеш зараз зробити?"
+  },
+  "sitov-a2-missed-connection": {
+    "goal": "Поясни, чому ти пропустив пересадку.",
+    "explanation": "«Weil» називає причину; «kam» стоїть у кінці підрядного речення.",
+    "focus": "Причина з «weil»",
+    "question": "Чому ти пропустив пересадку?"
+  },
+  "sitov-a2-last-train": {
+    "goal": "Зрозумій, коли закінчуються поїздки на сьогодні.",
+    "explanation": "«Kein ... mehr» заперечує подальші рейси після названого часу.",
+    "focus": "Заперечення з «kein ... mehr»",
+    "question": "Який рейс ти ще можеш обрати сьогодні?"
+  },
+  "sitov-a2-broken-machine": {
+    "goal": "Поясни, чому ти йдеш до каси.",
+    "explanation": "У реченні з «weil» дієслово «ist» стоїть після прикметника «kaputt».",
+    "focus": "«Weil» і дієслово в кінці речення",
+    "question": "Яка причина?"
+  },
+  "sitov-a2-reserved-seat": {
+    "goal": "Знайди своє місце.",
+    "explanation": "Вагон і місце — дві різні дані в бронюванні.",
+    "focus": "Минулий час Perfekt і розуміння чисел",
+    "question": "Де ти сидиш?"
+  },
+  "sitov-a2-platform-change": {
+    "goal": "Зрозумій зміну плану.",
+    "explanation": "«Statt» замінює попередню інформацію; після «heute» дієслово стоїть на другому місці.",
+    "focus": "Дієслово на другому місці після «heute»",
+    "question": "Яка колія сьогодні правильна?"
+  },
+  "sitov-a2-bus-detour": {
+    "goal": "Зрозумій змінений маршрут.",
+    "explanation": "«Statt am Rathaus» указує, що зупинку змінили.",
+    "focus": "Маршрут з «statt»",
+    "question": "На якій із двох зупинок автобус зупиняється сьогодні?"
+  },
+  "sitov-a2-ticket-zone": {
+    "goal": "Зрозумій, де діє квиток.",
+    "explanation": "«Nur» обмежує дію квитка зоною A.",
+    "focus": "Обмеження з «nur»",
+    "question": "Чи діє твій теперішній квиток до аеропорту?"
+  },
+  "sitov-a2-child-seat": {
+    "goal": "Ввічливо попроси місце.",
+    "explanation": "«Dürfen» використовується для запиту дозволу; інфінітив «sitzen» стоїть у кінці.",
+    "focus": "Модальне дієслово «dürfen»",
+    "question": "Яке прохання підходить?"
+  },
+  "sitov-a2-bike-time-window": {
+    "goal": "Зрозумій назване правило щодо часу.",
+    "explanation": "«Halb neun» означає 8:30; «erst ab neun» указує на часову межу.",
+    "focus": "Час з «halb» і «erst ab»",
+    "question": "Що відповідає цьому правилу?"
+  },
+  "sitov-a2-missed-stop": {
+    "goal": "Поясни прикру випадковість.",
+    "explanation": "«Gefahren» тут утворює Perfekt з «sein».",
+    "focus": "Минулий час Perfekt з «sein»",
+    "question": "Що ти відповідаєш?"
+  },
+  "sitov-a2-change-reservation": {
+    "goal": "Попроси збільшити кількість місць у бронюванні.",
+    "explanation": "«Für drei Personen» називає нову кількість гостей.",
+    "focus": "Ввічливе прохання та кількість",
+    "question": "Що ти хочеш змінити?"
+  },
+  "sitov-a2-long-wait": {
+    "goal": "Порівняй час очікування.",
+    "explanation": "«Schneller ... als» порівнює час очікування двох страв.",
+    "focus": "Вищий ступінь порівняння з «als»",
+    "question": "Що ти обираєш, щоб чекати менше?"
+  },
+  "sitov-a2-wrong-side-dish": {
+    "goal": "Виправ помилку з гарніром.",
+    "explanation": "«Statt Kartoffeln» протиставляє бажаний гарнір неправильному.",
+    "focus": "Минулий час Perfekt і «statt»",
+    "question": "Що ти кажеш?"
+  },
+  "sitov-a2-garlic-preference": {
+    "goal": "Запитай про інгредієнт.",
+    "explanation": "«Mag» стоїть у кінці речення з «weil» і пояснює твій вибір.",
+    "focus": "Речення з «weil» і «mögen»",
+    "question": "Яка страва відповідає твоєму побажанню?"
+  },
+  "sitov-a2-split-cost": {
+    "goal": "Зрозумій, як розподілити спільну суму.",
+    "explanation": "24 євро, поділені між двома особами, становлять дванадцять євро з кожного.",
+    "focus": "Числа та «jeder»",
+    "question": "Скільки платить кожен?"
+  },
+  "sitov-a2-pickup-confirmation": {
+    "goal": "Зрозумій необхідну умову.",
+    "explanation": "У сцені повідомлення пов’язане з готовим замовленням.",
+    "focus": "Минулий час Perfekt з «bekommen»",
+    "question": "Що тут означає повідомлення?"
+  },
+  "sitov-a2-order-later": {
+    "goal": "Зрозумій зміну дня.",
+    "explanation": "«Nicht ... sondern» замінює сьогодні на завтра; у підрядному реченні «ankommt» пишеться разом.",
+    "focus": "«Weil» з дієсловом з відокремлюваним префіксом",
+    "question": "Коли за умовами сцени варто забрати замовлення?"
+  },
+  "sitov-a2-replacement-receipt": {
+    "goal": "Поясни втрату.",
+    "explanation": "«Verloren» описує завершену втрату в Perfekt.",
+    "focus": "Минулий час Perfekt і ввічливе прохання",
+    "question": "Що ти кажеш?"
+  },
+  "sitov-a2-package-label": {
+    "goal": "Попроси пояснення.",
+    "explanation": "«Erklären» тут допомагає зрозуміти напис.",
+    "focus": "Давальний відмінок «mir» у проханні",
+    "question": "Яке прохання підходить?"
+  },
+  "sitov-a2-reserve-bandage": {
+    "goal": "Попроси відкласти товар.",
+    "explanation": "«Zurücklegen» тут означає зберегти наявну упаковку для тебе.",
+    "focus": "Ввічливе прохання з терміном",
+    "question": "Що ти хочеш?"
+  },
+  "sitov-a2-rescheduled-appointment": {
+    "goal": "Зрозумій зміну часу прийому.",
+    "explanation": "«Jetzt» замінює попередній час новим часом прийому.",
+    "focus": "Зміна часу прийому та час",
+    "question": "Коли ти приходиш?"
+  },
+  "sitov-a2-form-name": {
+    "goal": "Виправ помилку в написанні.",
+    "explanation": "Прізвище тут — Вернер; Леон залишається ім’ям.",
+    "focus": "Виправлення з «nicht»",
+    "question": "Яке виправлення підходить?"
+  },
+  "sitov-a2-cancel-visit": {
+    "goal": "Поясни скасування візиту.",
+    "explanation": "У реченні з «weil» модальне дієслово «muss» стоїть після інфінітива «arbeiten».",
+    "focus": "«Weil» з модальним дієсловом",
+    "question": "Що ти відповідаєш?"
+  },
+  "sitov-a2-repeat-instructions": {
+    "goal": "Попроси говорити повільніше.",
+    "explanation": "«Langsamer» — вищий ступінь порівняння від «langsam».",
+    "focus": "Вищий ступінь порівняння у проханні",
+    "question": "Яке прохання підходить?"
+  },
+  "sitov-a2-late-arrival": {
+    "goal": "Повідом, що запізнишся.",
+    "explanation": "«Weil» називає причину оголошеного запізнення.",
+    "focus": "Порівняння часу та «weil»",
+    "question": "Що ти кажеш?"
+  },
+  "sitov-a2-missed-delivery": {
+    "goal": "Зрозумій повідомлення про доставку.",
+    "explanation": "«Nicht antreffen» означає, що кур’єр не застав тебе.",
+    "focus": "Минулий час з «war»",
+    "question": "Де зараз посилка?"
+  },
+  "sitov-a2-parcel-status": {
+    "goal": "Запитай про відправлення, яке ще в дорозі.",
+    "explanation": "«Noch nicht» означає, що посилка поки не прибула.",
+    "focus": "Минулий час Perfekt з «ankommen»",
+    "question": "Яке твердження підходить?"
+  },
+  "sitov-a2-missing-postcode": {
+    "goal": "Додай відсутню частину адреси.",
+    "explanation": "За умовами сцени поштовий індекс — єдина відсутня частина адреси.",
+    "focus": "Минулий час Perfekt з «vergessen»",
+    "question": "Що ти додаєш?"
+  },
+  "sitov-a2-postcard-stamps": {
+    "goal": "Назви загальну кількість.",
+    "explanation": "«Jede» пов’язує кожну листівку з однією поштовою маркою.",
+    "focus": "«Jede» та кількість",
+    "question": "Скільки марок ти купуєш?"
+  },
+  "sitov-a2-parcel-size-rule": {
+    "goal": "Зрозумій обмеження розміру.",
+    "explanation": "25 см менше за граничне значення; «kleiner» — вищий ступінь порівняння від «klein».",
+    "focus": "Вищий ступінь порівняння та межа з «bis»",
+    "question": "Яка довжина відповідає названій межі?"
+  },
+  "sitov-a2-move-bank-meeting": {
+    "goal": "Попроси перенести зустріч на інший день.",
+    "explanation": "«Auf Donnerstag» називає бажаний новий день зустрічі.",
+    "focus": "Ввічливе прохання з «könnten»",
+    "question": "Яке прохання підходить?"
+  },
+  "sitov-a2-document-check": {
+    "goal": "Зрозумій названу необхідну умову.",
+    "explanation": "«Mitgebracht» стоїть у кінці речення в Perfekt; «nicht» заперечує, що ти щось приніс.",
+    "focus": "Минулий час Perfekt дієслова з відокремлюваним префіксом",
+    "question": "Чого бракує, за словами працівника?"
+  },
+  "sitov-a2-paperless-receipt": {
+    "goal": "Обери формат.",
+    "explanation": "«Per E-Mail» називає бажаний спосіб передавання.",
+    "focus": "Побажання з інфінітивом",
+    "question": "Що ти відповідаєш?"
+  },
+  "sitov-a2-update-address": {
+    "goal": "Поясни зміну.",
+    "explanation": "«Umgezogen» утворює Perfekt з «sein».",
+    "focus": "Минулий час Perfekt з «umziehen»",
+    "question": "Що ти відповідаєш?"
+  },
+  "sitov-a2-counter-or-online": {
+    "goal": "Зрозумій, де проходитиме розмова.",
+    "explanation": "«Stattfinden» має відокремлюваний префікс; «per Video» називає формат розмови.",
+    "focus": "Дієслово з відокремлюваним префіксом «stattfinden»",
+    "question": "Де ти береш участь?"
+  },
+  "sitov-a2-extend-loan": {
+    "goal": "Зрозумій продовження терміну.",
+    "explanation": "«Länger» порівнює новий термін користування з попереднім.",
+    "focus": "Вищий ступінь порівняння «länger»",
+    "question": "Що можливо?"
+  },
+  "sitov-a2-reserve-unavailable-book": {
+    "goal": "Попроси стати в чергу на книжку.",
+    "explanation": "«Vormerken» тут означає чекати на наступну можливість позичити книжку.",
+    "focus": "Ввічливе прохання та «vormerken»",
+    "question": "Що ти хочеш?"
+  },
+  "sitov-a2-due-tomorrow": {
+    "goal": "Зрозумій, скільки часу залишилося.",
+    "explanation": "Якщо сьогодні понеділок, «morgen» означає вівторок.",
+    "focus": "Модальне дієслово «müssen» і «morgen»",
+    "question": "Коли закінчується термін користування книжкою?"
+  },
+  "sitov-a2-digital-book": {
+    "goal": "Зрозумій формат матеріалу.",
+    "explanation": "«Digital» тут означає електронну книжку, яку читають на пристрої.",
+    "focus": "Давальний відмінок після «auf»",
+    "question": "Який формат доступний?"
+  },
+  "sitov-a2-existing-damage": {
+    "goal": "Опиши попередній стан.",
+    "explanation": "«Schon beim Ausleihen» указує, що пошкодження існувало ще до теперішнього повернення.",
+    "focus": "Минулий час з «war»",
+    "question": "Що ти кажеш?"
+  },
+  "sitov-a2-send-meeting-notes": {
+    "goal": "Розкажи про виконане завдання.",
+    "explanation": "«Schon» позначає, що завдання вже виконано.",
+    "focus": "Минулий час Perfekt з «schon»",
+    "question": "Що ти відповідаєш?"
+  },
+  "sitov-a2-earlier-meeting": {
+    "goal": "Зрозумій зміну часу.",
+    "explanation": "Дев’ята година на годину раніше за десяту; «früher» виражає це порівняння.",
+    "focus": "Вищий ступінь порівняння «früher»",
+    "question": "Коли вона тепер починається?"
+  },
+  "sitov-a2-paper-jam": {
+    "goal": "Поясни затримку.",
+    "explanation": "У підрядному реченні дієслово з відокремлюваним префіксом «feststecken» пишеться разом.",
+    "focus": "«Weil» і «feststecken»",
+    "question": "Що тебе затримує?"
+  },
+  "sitov-a2-agree-task-owner": {
+    "goal": "Підтвердь, за що ти відповідаєш.",
+    "explanation": "«Wenn» тут пов’язує твоє завдання із завершеним дзвінком.",
+    "focus": "Речення з «wenn» у Perfekt",
+    "question": "Яке твоє завдання?"
+  },
+  "sitov-a2-remote-work-reason": {
+    "goal": "Обґрунтуй місце роботи.",
+    "explanation": "Речення з «weil» називає прихід майстра як причину.",
+    "focus": "Обґрунтування з «weil»",
+    "question": "Яка причина підходить?"
+  },
+  "sitov-a2-explain-absence": {
+    "goal": "Поясни свою відсутність.",
+    "explanation": "«Musste» — минула форма «müssen», яка пояснює відсутність.",
+    "focus": "«Weil» з «musste»",
+    "question": "Що ти відповідаєш?"
+  },
+  "sitov-a2-understood-rule": {
+    "goal": "Скажи, чи ти зрозумів правило.",
+    "explanation": "«Verstanden» — дієприкметник від «verstehen».",
+    "focus": "Минулий час Perfekt з «verstehen»",
+    "question": "Яка відповідь підходить?"
+  },
+  "sitov-a2-easier-exercise": {
+    "goal": "Порівняй складність.",
+    "explanation": "«Leichter ... als» порівнює складність двох завдань.",
+    "focus": "Вищий ступінь порівняння з «als»",
+    "question": "Яке завдання ти виконуєш спочатку?"
+  },
+  "sitov-a2-group-results": {
+    "goal": "Передай чужу думку.",
+    "explanation": "«Dass» вводить зміст висловлювання; «ist» стоїть у кінці.",
+    "focus": "Висловлювання з «dass»",
+    "question": "Що сказав Амір?"
+  },
+  "sitov-a2-missed-homework-page": {
+    "goal": "Попроси відсутню інформацію.",
+    "explanation": "«Noch einmal» використовується, щоб попросити повторити пропущене число.",
+    "focus": "Ввічливе прохання та «sollen»",
+    "question": "Яке прохання підходить?"
+  },
+  "sitov-a2-move-in-past": {
+    "goal": "Розкажи про своє заселення.",
+    "explanation": "«Eingezogen» утворює Perfekt з «sein»; «seit» називає початок періоду.",
+    "focus": "Минулий час Perfekt з «einziehen»",
+    "question": "Що ти відповідаєш?"
+  },
+  "sitov-a2-heating-not-working": {
+    "goal": "Повідом про несправність.",
+    "explanation": "Речення з «weil» пояснює, що у квартирі холодно через несправність.",
+    "focus": "«Weil» і заперечення",
+    "question": "Про що ти повідомляєш?"
+  },
+  "sitov-a2-room-comparison": {
+    "goal": "Порівняй дві кімнати.",
+    "explanation": "«Größer» — вищий ступінь порівняння від «groß»; «als» називає те, з чим порівнюють.",
+    "focus": "Вищий ступінь порівняння «größer als»",
+    "question": "У якій кімнаті більше місця?"
+  },
+  "sitov-a2-neighbor-quiet-time": {
+    "goal": "Зрозумій домовленість у будинку.",
+    "explanation": "«Leiser» означає зменшити гучність; «wenn» називає узгоджену умову.",
+    "focus": "«Wenn» і вищий ступінь порівняння",
+    "question": "Що відповідає домовленості?"
+  },
+  "sitov-a2-key-left-inside": {
+    "goal": "Поясни прикру випадковість.",
+    "explanation": "«In der Wohnung» називає місце, де залишився забутий ключ.",
+    "focus": "Минулий час Perfekt і позначення місця",
+    "question": "Що сталося?"
+  },
+  "sitov-a2-describe-last-working": {
+    "goal": "Назви, коли почалася проблема.",
+    "explanation": "«Noch» показує, що в цей момент лампа ще працювала.",
+    "focus": "Минулий час Perfekt з «noch»",
+    "question": "Коли лампа востаннє працювала?"
+  },
+  "sitov-a2-repair-cost-comparison": {
+    "goal": "Порівняй названі ціни.",
+    "explanation": "«Günstiger» тут стосується лише двох названих цін.",
+    "focus": "Порівняння цін з «als»",
+    "question": "Яка пропозиція коштує менше?"
+  },
+  "sitov-a2-parts-not-arrived": {
+    "goal": "Зрозумій причину затримки.",
+    "explanation": "«Noch nicht» описує стан, якого поки не досягнуто.",
+    "focus": "«Weil» і «noch nicht»",
+    "question": "Чому ремонт ще не завершено?"
+  },
+  "sitov-a2-test-after-repair": {
+    "goal": "Розкажи про перевірку.",
+    "explanation": "«Eingeschaltet» — дієприкметник дієслова з відокремлюваним префіксом «einschalten».",
+    "focus": "Минулий час Perfekt з «einschalten»",
+    "question": "Яка відповідь підходить?"
+  },
+  "sitov-a2-repair-slot-choice": {
+    "goal": "Зрозумій часовий проміжок.",
+    "explanation": "«Zwischen zehn und zwölf» тут охоплює одинадцяту годину.",
+    "focus": "Часовий проміжок з «zwischen»",
+    "question": "Який час входить у зазначений проміжок?"
+  },
+  "sitov-a2-longer-park-route": {
+    "goal": "Порівняй довжину маршрутів.",
+    "explanation": "«Kürzer» порівнює довжину маршрутів у 500 і 900 метрів.",
+    "focus": "Вищий ступінь порівняння «kürzer»",
+    "question": "Який шлях коротший?"
+  },
+  "sitov-a2-found-wallet": {
+    "goal": "Повідом про знахідку.",
+    "explanation": "«Gefunden» стоїть у кінці речення в Perfekt з «haben».",
+    "focus": "Минулий час Perfekt з «finden»",
+    "question": "Про що ти повідомляєш?"
+  },
+  "sitov-a2-wet-bench": {
+    "goal": "Обґрунтуй свій вибір.",
+    "explanation": "«Diese» указує на мокру лавку; «weil» пояснює зміну місця.",
+    "focus": "«Weil» і вказівне слово",
+    "question": "Де ти хочеш сидіти?"
+  },
+  "sitov-a2-path-closed": {
+    "goal": "Зрозумій обхідний маршрут.",
+    "explanation": "«Zuerst» і «danach» упорядковують кроки в описі шляху.",
+    "focus": "Послідовність з «zuerst» і «danach»",
+    "question": "Яка послідовність правильна?"
+  },
+  "sitov-a2-walk-before-rain": {
+    "goal": "Зрозумій план на випадок зміни погоди.",
+    "explanation": "Речення з «wenn» називає умову для повернення.",
+    "focus": "«Wenn» як умова",
+    "question": "Коли за планом ви повертаєтеся?"
+  },
+  "sitov-a2-training-cancelled": {
+    "goal": "Зрозумій повідомлення про скасування.",
+    "explanation": "«Ausfallen» означає, що заплановане заняття не відбудеться.",
+    "focus": "Дієслово з відокремлюваним префіксом «ausfallen»",
+    "question": "Що відбувається сьогодні?"
+  },
+  "sitov-a2-first-run-report": {
+    "goal": "Розкажи про свою активність.",
+    "explanation": "«Gelaufen» утворює Perfekt з «sein»; «Kilometer» називає відстань.",
+    "focus": "Минулий час Perfekt з «laufen»",
+    "question": "Що ти відповідаєш?"
+  },
+  "sitov-a2-more-frequent-training": {
+    "goal": "Порівняй частоту занять.",
+    "explanation": "«Öfter» — вищий ступінь порівняння від «oft», який описує більшу кількість тренувань.",
+    "focus": "Вищий ступінь порівняння «öfter»",
+    "question": "Як часто ти тепер тренуєшся?"
+  },
+  "sitov-a2-locker-key-return": {
+    "goal": "Зрозумій послідовність.",
+    "explanation": "У підрядному реченні «bin» стоїть у кінці; у головному реченні префікс «abgeben» відокремлюється.",
+    "focus": "«Wenn» і «abgeben»",
+    "question": "Коли ти повертаєш ключ?"
+  },
+  "sitov-a2-indoor-shoes": {
+    "goal": "Зрозумій назване правило щодо спорядження.",
+    "explanation": "«Anziehen» має відокремлюваний префікс; чисте взуття для залу відповідає названому правилу.",
+    "focus": "Дієслово з відокремлюваним префіксом «anziehen»",
+    "question": "Що відповідає правилу спортивного залу?"
+  },
+  "sitov-a2-room-not-ready": {
+    "goal": "Зрозумій час очікування.",
+    "explanation": "«In zwanzig Minuten» називає майбутній момент.",
+    "focus": "Майбутній час з «in»",
+    "question": "Коли ти можеш увійти?"
+  },
+  "sitov-a2-quieter-hotel-room": {
+    "goal": "Попроси змінити номер.",
+    "explanation": "«Könnte ich ... bekommen» — ввічливе прохання про інший варіант.",
+    "focus": "Ввічливе прохання з «könnte»",
+    "question": "Який номер ти хочеш?"
+  },
+  "sitov-a2-breakfast-included": {
+    "goal": "Зрозумій, що входить у бронювання.",
+    "explanation": "«Enthalten» тут означає, що сніданок входить у бронювання.",
+    "focus": "«Enthalten» і заперечення",
+    "question": "Яке твердження правильне?"
+  },
+  "sitov-a2-extra-night": {
+    "goal": "Попроси продовжити перебування.",
+    "explanation": "«Übermorgen» — день після завтра; «länger» описує продовження.",
+    "focus": "Вищий ступінь порівняння «länger»",
+    "question": "Чого ти бажаєш?"
+  },
+  "sitov-a2-lost-room-card": {
+    "goal": "Поясни, що сталося.",
+    "explanation": "«Verloren» називає причину прохання про нову картку.",
+    "focus": "Минулий час Perfekt і ввічливе прохання",
+    "question": "Яке прохання підходить?"
+  },
+  "sitov-a2-larger-shirt": {
+    "goal": "Попроси інший розмір.",
+    "explanation": "Розмір L тут — бажаний більший варіант замість M.",
+    "focus": "Вищий ступінь порівняння «größer»",
+    "question": "Що ти хочеш?"
+  },
+  "sitov-a2-jacket-length": {
+    "goal": "Порівняй дві довжини.",
+    "explanation": "«Bis zum Knie» тут означає більшу довжину, ніж «bis zur Hüfte».",
+    "focus": "Вищий ступінь порівняння «länger als»",
+    "question": "Яка куртка довша?"
+  },
+  "sitov-a2-return-wrong-size": {
+    "goal": "Поясни, чому ти хочеш обміняти річ.",
+    "explanation": "«Gekauft» стоїть у кінці речення в Perfekt; «aber» поєднує протилежні твердження.",
+    "focus": "Минулий час Perfekt і «aber»",
+    "question": "Яка причина?"
+  },
+  "sitov-a2-wash-label": {
+    "goal": "Зрозумій конкретний напис.",
+    "explanation": "«Bei dreißig Grad» позначає температуру, названу на цій етикетці.",
+    "focus": "Числа та «bei»",
+    "question": "Яку температуру названо на етикетці?"
+  },
+  "sitov-a2-cheaper-shoes": {
+    "goal": "Порівняй дві ціни.",
+    "explanation": "«Billiger» порівнює дві названі ціни.",
+    "focus": "Вищий ступінь порівняння «billiger als»",
+    "question": "Яка пара коштує менше?"
+  },
+  "sitov-a2-seasonal-cherries": {
+    "goal": "Зрозумій початок сезону.",
+    "explanation": "«Seit heute» позначає початок; «wieder» означає знову.",
+    "focus": "Позначення часу з «seit»",
+    "question": "Відколи знову є вишні?"
+  },
+  "sitov-a2-fruit-comparison": {
+    "goal": "Порівняй два сорти.",
+    "explanation": "«Süßer» — вищий ступінь порівняння від «süß»; «weil» обґрунтовує вибір.",
+    "focus": "Вищий ступінь порівняння та «weil»",
+    "question": "Які яблука краще підходять?"
+  },
+  "sitov-a2-weekly-stall-location": {
+    "goal": "Зрозумій зміну місця.",
+    "explanation": "«Jetzt» указує на теперішнє місце на відміну від колишнього.",
+    "focus": "«Früher» і «jetzt»",
+    "question": "Де ти знайдеш ятку сьогодні?"
+  },
+  "sitov-a2-ordered-box": {
+    "goal": "Розкажи про замовлення.",
+    "explanation": "«Vorbestellt» називає замовлення, зроблене до теперішнього отримання.",
+    "focus": "Минулий час Perfekt з «vorbestellen»",
+    "question": "Яка відповідь підходить?"
+  },
+  "sitov-a2-market-bag-return": {
+    "goal": "Зрозумій домовленість.",
+    "explanation": "У реченні з «wenn» «zurückbringen» пишеться разом; повернення виконує умову.",
+    "focus": "«Wenn» з дієсловом з відокремлюваним префіксом",
+    "question": "Що ти маєш зробити за домовленістю?"
+  },
+  "sitov-a2-route-two-turns": {
+    "goal": "Зрозумій два кроки маршруту.",
+    "explanation": "«Abbiegen» має відокремлюваний префікс; «an der Ampel» називає місце повороту.",
+    "focus": "Опис шляху з «abbiegen»",
+    "question": "Який маршрут правильний?"
+  },
+  "sitov-a2-museum-closed-monday": {
+    "goal": "Зрозумій тижневий графік роботи.",
+    "explanation": "Вівторок входить у названий період роботи.",
+    "focus": "Дні тижня та часовий проміжок",
+    "question": "У який день можна прийти?"
+  },
+  "sitov-a2-guided-tour-report": {
+    "goal": "Розкажи про враження.",
+    "explanation": "«Besucht» — дієприкметник без «ge-», який утворює Perfekt з «haben».",
+    "focus": "Минулий час Perfekt з «besuchen»",
+    "question": "Яка відповідь підходить?"
+  },
+  "sitov-a2-office-number-system": {
+    "goal": "Зрозумій систему виклику.",
+    "explanation": "«Meine Nummer» обмежує умову викликом саме твого номера.",
+    "focus": "«Wenn» і присвійний артикль",
+    "question": "Коли ти йдеш до віконця?"
+  },
+  "sitov-a2-nearest-stop": {
+    "goal": "Порівняй відстані.",
+    "explanation": "«Näher» — вищий ступінь порівняння від «nah»; 200 метрів менше за 800.",
+    "focus": "Вищий ступінь порівняння «näher als»",
+    "question": "Яка зупинка ближча?"
+  },
+  "sitov-b1-joghurt-zurueckgeben": {
+    "goal": "Поясни проблему й попроси повернути гроші.",
+    "explanation": "Відповідь однозначно обирає повернення грошей і згадує чек. Після «weil» дієслово стоїть у кінці.",
+    "focus": "«Weil» і минулий час Perfekt",
+    "question": "Ви хочете новий йогурт чи повернення грошей?"
+  },
+  "sitov-b1-ersatzprodukt-vergleichen": {
+    "goal": "Опиши альтернативу й запитай про її інгредієнти.",
+    "explanation": "Відповідь враховує прямо названу умову. Відносне підрядне речення точніше описує потрібний соус.",
+    "focus": "Відносне підрядне речення в називному відмінку",
+    "question": "Яку властивість обов’язково має мати соус на заміну?"
+  },
+  "sitov-b1-preisschild-klaeren": {
+    "goal": "Ввічливо порівняй ціну на полиці з ціною на касі.",
+    "explanation": "Відповідь просить конкретно перевірити ціну. Після «deshalb» відразу стоїть дієслово в особовій формі.",
+    "focus": "«Deshalb» і ввічливе прохання з Konjunktiv II",
+    "question": "На вашому фото рис коштує на два євро менше. Що мені зробити?"
+  },
+  "sitov-b1-doppelte-buchung": {
+    "goal": "Укажи на помилку в касовому чеку.",
+    "explanation": "Лише перша відповідь виправляє подвійне нарахування. «Obwohl» описує суперечність між покупкою та чеком.",
+    "focus": "Пасивний стан і «obwohl»",
+    "question": "Ви взяли лише один хліб. Яке виправлення ви бажаєте?"
+  },
+  "sitov-b1-einkauf-aufteilen": {
+    "goal": "Організуй оплату для себе й сусіда по квартирі.",
+    "explanation": "Відповідь пояснює порядок і зберігає бажаний розподіл. «Deshalb» поєднує причину й наслідок.",
+    "focus": "Причина та наслідок",
+    "question": "Які товари мені порахувати спочатку?"
+  },
+  "sitov-b1-ruhiger-tisch": {
+    "goal": "Попроси столик, за яким можна зосереджено працювати.",
+    "explanation": "Відповідь обґрунтовує вибір тихої зони. «Ich hätte gern» ввічливо виражає побажання.",
+    "focus": "Konjunktiv II та обґрунтування",
+    "question": "Ви бажаєте сидіти спереду біля музики чи позаду?"
+  },
+  "sitov-b1-bestellung-verwechselt": {
+    "goal": "Доброзичливо виправ замовлення.",
+    "explanation": "Відповідь підтверджує доречне виправлення. Пасивний стан зосереджує увагу на приготуванні, а не на особі.",
+    "focus": "Виправлення замовлення та пасивний стан",
+    "question": "Перепрошую, принести вам нову каву з вівсяним молоком?"
+  },
+  "sitov-b1-rechnung-aufteilen": {
+    "goal": "Поясни, за які напої ти платиш.",
+    "explanation": "Відповідь дотримується узгодженого розподілу. «Während» протиставляє дві частини оплати.",
+    "focus": "«Während» і роздільна оплата",
+    "question": "Порахувати вам увесь рахунок?"
+  },
+  "sitov-b1-kaffee-zum-mitnehmen": {
+    "goal": "Зміни замовлення, тому що скоро потрібно йти.",
+    "explanation": "Відповідь обирає упаковку для зміненого замовлення. «Damit» називає призначення стаканчика.",
+    "focus": "«Da» і «damit»",
+    "question": "Подати каву в чашці чи в стаканчику?"
+  },
+  "sitov-b1-kalter-kaffee": {
+    "goal": "Сформулюй ввічливу скаргу.",
+    "explanation": "Відповідь приймає запропонований напій на заміну. «Obwohl» показує, чому низька температура несподівана.",
+    "focus": "«Obwohl» і пасив дії",
+    "question": "Можна принести вам натомість свіжоприготовану каву?"
+  },
+  "sitov-b1-anschluss-verpasst": {
+    "goal": "Запитай про наступне сполучення.",
+    "explanation": "Відповідь продовжує подорож доступним сполученням. Підрядне речення пояснює причину пропущеної пересадки.",
+    "focus": "«Weil» і минулий час Perfekt",
+    "question": "Ви хочете дізнатися про наступне сполучення до Гамбурга?"
+  },
+  "sitov-b1-fahrradplatz-buchen": {
+    "goal": "Запитай про необхідне бронювання.",
+    "explanation": "Відповідь приймає конкретну пропозицію. Непряме питання з «ob» уточнює можливість.",
+    "focus": "Непряме питання та пасивний стан",
+    "question": "У потязі о десятій ще є вільне місце для велосипеда. Забронювати його?"
+  },
+  "sitov-b1-gleis-ohne-treppe": {
+    "goal": "Попроси пояснити шлях із ліфтом.",
+    "explanation": "Відповідь відповідає побажанню пройти без сходинок. Відносне підрядне речення описує потрібний шлях.",
+    "focus": "«Da» і відносне підрядне речення",
+    "question": "Пояснити вам шлях до ліфта?"
+  },
+  "sitov-b1-reservierungsdatum-aendern": {
+    "goal": "З’ясуй помилку в даті перед поїздкою.",
+    "explanation": "Відповідь виправляє дату на сьогоднішню поїздку. «Versehentlich» пояснює, що неправильне бронювання було випадковим.",
+    "focus": "«Obwohl» і позначення часу",
+    "question": "Перевірити, чи можна ще забронювати місце на сьогодні?"
+  },
+  "sitov-b1-koffer-im-zug": {
+    "goal": "Точно опиши загублену річ.",
+    "explanation": "Відповідь додає чіткі ознаки описаної речі. «Den» у відносному підрядному реченні стосується валізи.",
+    "focus": "Відносне підрядне речення у знахідному відмінку",
+    "question": "За якими ознаками ми можемо впізнати вашу чорну валізу?"
+  },
+  "sitov-b1-umleitung-haltestelle": {
+    "goal": "Знайди альтернативний шлях до свого місця призначення.",
+    "explanation": "Відповідь підтверджує запропонований альтернативний шлях і просить корисне оголошення.",
+    "focus": "Непряме питання з питальним словом",
+    "question": "Ви можете вийти на ринку й пройти п’ять хвилин до ратуші. Вам це підходить?"
+  },
+  "sitov-b1-ticket-gueltigkeit": {
+    "goal": "Уточни дію квитка перед пересадкою.",
+    "explanation": "Відповідь цілеспрямовано запитує про правило дії квитка. Час, що залишився, ще не дає підстав для непідтвердженого висновку.",
+    "focus": "«Deshalb» і уточнювальне питання",
+    "question": "Ви хочете знати, чи квиток ще діє для поїздки після пересадки?"
+  },
+  "sitov-b1-voller-bus": {
+    "goal": "Запитай про пізніший рейс.",
+    "explanation": "Відповідь реалізує бажання скористатися наступним рейсом. «Wenn» формулює умову цього рішення.",
+    "focus": "«Wenn» і Konjunktiv II",
+    "question": "Наступний автобус буде за дванадцять хвилин. Ви хочете почекати його тут?"
+  },
+  "sitov-b1-falsche-richtung": {
+    "goal": "Попроси зручну пересадку.",
+    "explanation": "Відповідь використовує запропоноване сполучення до потрібного місця. «An der» вводить відносне підрядне речення з указанням місця.",
+    "focus": "Відносне підрядне речення з прийменником",
+    "question": "На наступній зупинці трамвай навпроти їде до центру. Що ви робите?"
+  },
+  "sitov-b1-rampe-anfragen": {
+    "goal": "Попроси водія допомогти під час посадки.",
+    "explanation": "Відповідь підтверджує потрібну допомогу. «Damit» пояснює мету ввічливого прохання.",
+    "focus": "Konjunktiv II та «damit»",
+    "question": "Спочатку розкласти пандус, а потім допомогти вам зайти?"
+  },
+  "sitov-b1-gericht-ohne-fleisch": {
+    "goal": "Запитай про інгредієнти страви.",
+    "explanation": "Відповідь зберігає побажання отримати страву без м’яса. Відносне підрядне речення описує потрібну страву.",
+    "focus": "Відносне підрядне речення та пасивний стан",
+    "question": "Соус містить м’ясний бульйон. Ви хочете варіант з овочевим бульйоном?"
+  },
+  "sitov-b1-suppe-reklamieren": {
+    "goal": "Поясни скаргу й обери заміну.",
+    "explanation": "Відповідь обирає запропоновану заміну, не додаючи другого замовлення. «Deshalb» поєднує скаргу та її наслідок.",
+    "focus": "Скарга з «deshalb»",
+    "question": "Ви хочете натомість овочеву страву за ту саму ціну?"
+  },
+  "sitov-b1-tisch-spaeter": {
+    "goal": "Попроси столик на пізніший час, тому що твій потяг запізнюється.",
+    "explanation": "Відповідь переносить час на бажані пів години пізніше.",
+    "focus": "«Da» і перенесення часу",
+    "question": "О пів на восьму той самий столик ще вільний. Змінити час?"
+  },
+  "sitov-b1-fehlendes-dessert": {
+    "goal": "Запитай про замовлений десерт перед оплатою.",
+    "explanation": "Відповідь зберігає замовлення й називає бажаний порядок. «Wenn» встановлює умову для оплати.",
+    "focus": "«Wenn» і вставлене відносне підрядне речення",
+    "question": "Перепрошую, ваш десерт ще не принесли. Попросити принести його зараз?"
+  },
+  "sitov-b1-gruppenmenue-absprechen": {
+    "goal": "Узгодь меню з різними побажаннями.",
+    "explanation": "Відповідь зберігає бажаний розподіл між двома та трьома особами. «Obwohl» протиставляє спільну трапезу різним побажанням.",
+    "focus": "«Obwohl» і кількість",
+    "question": "Двом колегам подати овочеву страву, а іншим трьом — страву дня?"
+  },
+  "sitov-b1-rezept-abholung": {
+    "goal": "З’ясуй, коли замовлений товар буде готовий до отримання.",
+    "explanation": "Відповідь організовує отримання, не оцінюючи дію препарату чи спосіб його приймання. «Sobald» називає найраніший відповідний момент.",
+    "focus": "Непряме питання та «sobald»",
+    "question": "Повідомити вам, щойно замовлення надійде?"
+  },
+  "sitov-b1-lieferung-zeitfenster": {
+    "goal": "Попроси зручний часовий проміжок для доставки.",
+    "explanation": "Відповідь відповідає прямо названому часу після обіду. Завдання стосується лише організації доставки.",
+    "focus": "«Deshalb» і часовий проміжок",
+    "question": "Наш кур’єр прийде між четвертою та шостою. Ви тоді будете вдома?"
+  },
+  "sitov-b1-quittung-nachfordern": {
+    "goal": "Попроси чек за попередню покупку.",
+    "explanation": "Відповідь називає дані, потрібні для пошуку чека. Відносне підрядне речення описує потрібний чек.",
+    "focus": "Минулий час Perfekt і відносне підрядне речення",
+    "question": "Ви ще пам’ятаєте, у який день робили в нас покупки?"
+  },
+  "sitov-b1-name-auf-paket": {
+    "goal": "Попроси перевірити замовлення перед видачею.",
+    "explanation": "Відповідь просить перевірити, кому належить замовлення, перед його видачею. «Obwohl» указує на розбіжність в імені.",
+    "focus": "«Obwohl» і перевірка належності",
+    "question": "Ви пан Бергер. Перевірити ще раз, кому належить замовлення?"
+  },
+  "sitov-b1-beratungstermin-planen": {
+    "goal": "Домовся про спокійну розмову з аптекарем.",
+    "explanation": "Відповідь приймає запропонований час розмови. Медичних рекомендацій тут немає.",
+    "focus": "Konjunktiv II та відносне підрядне речення з прийменником",
+    "question": "У п’ятницю о третій у мене є двадцять хвилин. Записати це?"
+  },
+  "sitov-b1-arzttermin-verschieben": {
+    "goal": "Попроси новий час прийому після робочого дня.",
+    "explanation": "Відповідь розв’язує суперечність у часі завдяки запропонованому пізнішому прийому. Речення з «weil» називає організаційну причину.",
+    "focus": "«Weil» і минулий час Perfekt",
+    "question": "У четвер о сімнадцятій є вільний час прийому. Вам це підійде?"
+  },
+  "sitov-b1-unterlagen-mitbringen": {
+    "goal": "Уточни, які документи потрібно принести.",
+    "explanation": "Відповідь підтверджує потрібний формат документів. Непряме питання з «ob» уточнює організаційну умову.",
+    "focus": "Непряме питання з «ob»",
+    "question": "Для прийому достатньо копій. Ви можете їх принести?"
+  },
+  "sitov-b1-wartezeit-erfragen": {
+    "goal": "Запитай про час очікування, бо після цього маєш іншу зустріч.",
+    "explanation": "Відповідь використовує дані про час для наступної зустрічі. «Voraussichtlich» показує, що тривалість є приблизною.",
+    "focus": "«Da» і приблизний час",
+    "question": "Очікування триватиме ще приблизно сорок хвилин. Ви хочете попередити тих, з ким маєте наступну зустріч?"
+  },
+  "sitov-b1-begleiter-anmelden": {
+    "goal": "Заздалегідь уточни участь супровідника.",
+    "explanation": "Відповідь повідомляє про запланованого супровідника. «Damit» пояснює мету його присутності.",
+    "focus": "Konjunktiv II та «damit»",
+    "question": "Записати, що ваш брат хоче супроводжувати вас на розмову?"
+  },
+  "sitov-b1-bescheinigung-abholen": {
+    "goal": "Організуй отримання вже підготовленого документа.",
+    "explanation": "Відповідь обирає момент у межах робочого часу. «Falls» формулює умову для запланованого отримання.",
+    "focus": "«Falls» і час отримання",
+    "question": "Реєстратура працює до вісімнадцятої. Ви прийдете до цього часу?"
+  },
+  "sitov-b1-paket-beschaedigt": {
+    "goal": "Повідом про пошкоджене відправлення й надай потрібні докази.",
+    "explanation": "Відповідь надає запитані докази. Пасивний стан описує стан під час доставки.",
+    "focus": "Пасивний стан і «deshalb»",
+    "question": "Ви маєте із собою упаковку й фото для повідомлення про пошкодження?"
+  },
+  "sitov-b1-zweite-zustellung": {
+    "goal": "Знайди день, коли зможеш прийняти посилку.",
+    "explanation": "Відповідь використовує прямо названий вільний день. «Könnte» ввічливо виражає можливу домовленість.",
+    "focus": "Konjunktiv II та день доставки",
+    "question": "Ви хочете домовитися про повторну доставку в п’ятницю?"
+  },
+  "sitov-b1-zolldokumente-klaeren": {
+    "goal": "Запитай про документи для оформлення відправлення.",
+    "explanation": "Відповідь просить конкретну організаційну інформацію. Вона не стверджує, що відправлення вже дозволено видати, і не називає правового правила.",
+    "focus": "Непряме питання та «damit»",
+    "question": "Вам потрібні список відсутніх документів і контакт відповідальної особи?"
+  },
+  "sitov-b1-einschreiben-nachweis": {
+    "goal": "Запитай про підтвердження доставки відправленого листа.",
+    "explanation": "Відповідь надає номер для конкретної перевірки. Речення з «dass» називає потрібне підтвердження.",
+    "focus": "«Dass» і минулий час Perfekt у пасивному стані",
+    "question": "Ви маєте номер відправлення, щоб я міг перевірити статус доставки?"
+  },
+  "sitov-b1-paketstatus-unveraendert": {
+    "goal": "Після кількох днів попроси перевірити статус.",
+    "explanation": "Відповідь просить перевірку й пояснення наступного кроку. «Obwohl» описує відхилення від очікування.",
+    "focus": "«Obwohl» і «sich ändern»",
+    "question": "Перевірити дані й пояснити вам, як подати запит на розшук відправлення?"
+  },
+  "sitov-b1-karte-abholbereit": {
+    "goal": "Уточни, як забрати вже готову банківську картку.",
+    "explanation": "Відповідь підтверджує названу умову й час отримання. «Welchen» вводить непряме питання про документ.",
+    "focus": "Непряме питання та отримання",
+    "question": "Будь ласка, принесіть посвідчення особи. Ви можете зайти завтра?"
+  },
+  "sitov-b1-banktermin-nach-arbeit": {
+    "goal": "Домовся про розмову поза своїм робочим часом.",
+    "explanation": "Пів на п’яту — після названого закінчення роботи. Завдання лише узгоджує час зустрічі.",
+    "focus": "«Da» і відповідний час",
+    "question": "У середу о пів на п’яту ще є вільний час. Записати вас?"
+  },
+  "sitov-b1-auszug-fehlt": {
+    "goal": "Попроси копію відсутнього документа.",
+    "explanation": "Відповідь називає правильний період і просить лише відсутній документ. «Den» стосується банківської виписки.",
+    "focus": "Відносне підрядне речення у знахідному відмінку",
+    "question": "Підготувати вам копію банківської виписки за червень?"
+  },
+  "sitov-b1-adresse-aktualisieren": {
+    "goal": "Уточни, як внести нову поштову адресу.",
+    "explanation": "Відповідь веде до зміни поштової адреси. «Muss ... eingetragen werden» поєднує модальне дієслово та пасивний стан.",
+    "focus": "Минулий час Perfekt і модальне дієслово в пасивному стані",
+    "question": "Ви хочете заповнити форму для зміни адреси?"
+  },
+  "sitov-b1-portal-gesperrt": {
+    "goal": "Попроси пояснити офіційний порядок відновлення доступу.",
+    "explanation": "Відповідь просить передбачену процедуру обслуговування. «Nachdem» показує, що блокування відбулося до звернення.",
+    "focus": "«Nachdem» і порядок обслуговування",
+    "question": "Пояснити вам, як розпочати відновлення доступу через нашу офіційну службу?"
+  },
+  "sitov-b1-buch-verlaengern": {
+    "goal": "Домовся про своєчасне повернення зарезервованої книжки.",
+    "explanation": "Відповідь враховує неможливість продовження терміну й підтверджує повернення.",
+    "focus": "Модальне дієслово та своєчасне повернення з «zurückbringen»",
+    "question": "На жаль, продовження неможливе. Ви встигнете повернути книжку до п’ятниці?"
+  },
+  "sitov-b1-buchschaden-melden": {
+    "goal": "Повідом про наявне пошкодження відразу під час отримання книжки.",
+    "explanation": "Відповідь правильно документує заявлений стан. «Bereits» підкреслює, що пошкодження вже було раніше.",
+    "focus": "«Bereits» і «deshalb»",
+    "question": "Записати наявне пошкодження у вашому записі про видачу книжки?"
+  },
+  "sitov-b1-gruppenraum-buchen": {
+    "goal": "Попроси кімнату для розмови з партнерами з навчання.",
+    "explanation": "Відповідь обирає кімнату, що відповідає меті роботи. «In dem» описує, що має бути можливим у цій кімнаті.",
+    "focus": "Відносне підрядне речення з «in dem»",
+    "question": "Кімната для груп вільна завтра від другої до третьої. Забронювати її для вас?"
+  },
+  "sitov-b1-digitales-buch-finden": {
+    "goal": "Запитай про цифровий варіант книжки, яку вже видали іншому читачеві.",
+    "explanation": "Відповідь приймає допомогу з альтернативним виданням. «Obwohl» поєднує відсутність друкованого видання з бажанням продовжити пошук.",
+    "focus": "«Obwohl» і пошук альтернативи",
+    "question": "Показати вам, як знайти цифрове видання в каталозі?"
+  },
+  "sitov-b1-vormerkung-abholen": {
+    "goal": "Уточни короткий термін отримання.",
+    "explanation": "Відповідь використовує прямо запропоноване продовження на один день. «Ob» ввічливо запитує про можливість.",
+    "focus": "Непряме питання та пасивний стан",
+    "question": "Я можу відкласти книжку ще на один день. Ви заберете її в п’ятницю?"
+  },
+  "sitov-b1-abgabe-mehr-zeit": {
+    "goal": "Попроси новий термін, наводячи конкретну причину.",
+    "explanation": "Відповідь називає конкретний новий термін і зберігає мету підготувати повний звіт.",
+    "focus": "«Da» і Konjunktiv II",
+    "question": "Перенести термін подання на завтра, щоб дані були повними?"
+  },
+  "sitov-b1-hybrides-meeting": {
+    "goal": "Уточни обладнання заброньованої кімнати.",
+    "explanation": "Відповідь забезпечує заплановану участь усіх колег. «Damit» описує призначення обладнання.",
+    "focus": "Відносне підрядне речення та «damit»",
+    "question": "Забронювати кімнату з камерою й екраном замість маленької кімнати?"
+  },
+  "sitov-b1-alte-datei-ersetzen": {
+    "goal": "Виправ повідомлення із застарілим вкладенням.",
+    "explanation": "Відповідь чітко пояснює, яка версія є актуальною для роботи. «Nachsenden» означає надіслати додатковий матеріал пізніше.",
+    "focus": "Минулий час Perfekt і дієслово з відокремлюваним префіксом «nachsenden»",
+    "question": "Використовувати новий файл для нашої подальшої роботи?"
+  },
+  "sitov-b1-vertretung-absprechen": {
+    "goal": "Попроси колегу підмінити тебе в чітко визначених межах.",
+    "explanation": "Відповідь підтверджує завдання й доречне передавання інформації після нього. «Während» описує одночасну відсутність.",
+    "focus": "Konjunktiv II та «während»",
+    "question": "Відповісти на дзвінок і потім надіслати тобі головні пункти?"
+  },
+  "sitov-b1-feedback-klaeren": {
+    "goal": "Попроси конкретний приклад того, що можна покращити.",
+    "explanation": "Відповідь просить інформацію, потрібну для цілеспрямованого доопрацювання.",
+    "focus": "Непряме питання та «damit»",
+    "question": "Показати вам незрозуміле місце й пояснити, якої інформації бракує?"
+  },
+  "sitov-b1-unterricht-verpasst": {
+    "goal": "Запитай про матеріал пропущеного уроку.",
+    "explanation": "Відповідь просить матеріали, щоб надолужити пропущене. Причина подана реченням з «weil» перед головним реченням.",
+    "focus": "«Weil» і минулий час Perfekt",
+    "question": "Ти хочеш отримати короткий виклад і домашнє завдання вчорашнього уроку?"
+  },
+  "sitov-b1-kurszeit-wechseln": {
+    "goal": "Через новий робочий графік запитай про відповідний курс.",
+    "explanation": "Відповідь обирає вечірній курс, який підходить за часом. «Seit» позначає початок нової ситуації.",
+    "focus": "«Seit» і пасивний стан",
+    "question": "У Sitov Academy такий самий курс є у вівторок увечері. Ти хочеш перейти?"
+  },
+  "sitov-b1-projektrolle-vereinbaren": {
+    "goal": "Візьми на себе конкретну частину групової презентації.",
+    "explanation": "Відповідь правильно повторює узгоджений розподіл завдань. «Während» розділяє паралельні завдання.",
+    "focus": "Konjunktiv II та розподіл завдань",
+    "question": "Розподілимо так: ти готуєш приклади, а я — вступ?"
+  },
+  "sitov-b1-korrektur-erfragen": {
+    "goal": "Попроси викладача пояснити порядок слів у реченні.",
+    "explanation": "Відповідь просить пояснити саме той порядок слів, який незрозумілий. «Warum» вводить непряме питання.",
+    "focus": "Непряме питання з «warum»",
+    "question": "Позначити речення й пояснити правило для підрядного речення?"
+  },
+  "sitov-b1-zertifikat-korrigieren": {
+    "goal": "Попроси виправити своє прізвище в документі.",
+    "explanation": "Відповідь називає правильне виправлення й відповідне джерело для перевірки.",
+    "focus": "Пасивний стан і «deshalb»",
+    "question": "Перевірити прізвище за твоєю реєстрацією й виправити сертифікат?"
+  },
+  "sitov-b1-umzug-absprechen": {
+    "goal": "Узгодь користування ліфтом із доглядачем будинку.",
+    "explanation": "Відповідь узгоджує перевезення з запропонованим часовим проміжком. «Zu der» стосується узгодженого часу.",
+    "focus": "Konjunktiv II та відносне підрядне речення",
+    "question": "У суботу між десятою та дванадцятою ліфт вільний для вашого заселення. Вам це підходить?"
+  },
+  "sitov-b1-heizungstermin": {
+    "goal": "Повідом про непрацююче опалення й забезпеч доступ.",
+    "explanation": "Відповідь забезпечує доступ у погоджений час ремонту. «Seit» описує початок проблеми.",
+    "focus": "«Seit» і організація ремонту",
+    "question": "Майстер може прийти завтра о дев’ятій. Ви зможете впустити його до квартири?"
+  },
+  "sitov-b1-putzplan-tauschen": {
+    "goal": "Домовся про обмін обов’язками із сусідом по квартирі.",
+    "explanation": "Відповідь підтверджує взаємний обмін, за якого обидва завдання залишаються виконаними.",
+    "focus": "«Weil» і Konjunktiv II",
+    "question": "Я приберу кухню в суботу, а ти — в середу?"
+  },
+  "sitov-b1-musik-leiser": {
+    "goal": "Доброзичливо попроси сусіда зменшити гучність.",
+    "explanation": "Відповідь підтверджує прохання врахувати потреби іншого. Прохання називає зрозумілу особисту причину.",
+    "focus": "Konjunktiv II та «weil»",
+    "question": "Зменшити гучність зараз, а пізніше вимкнути музику?"
+  },
+  "sitov-b1-paket-beim-nachbarn": {
+    "goal": "Домовся про зручний час отримання.",
+    "explanation": "Відповідь враховує, коли сусід буде вдома. «Wenn» називає умову для отримання.",
+    "focus": "«Wenn» і дієслово з відокремлюваним префіксом «abholen»",
+    "question": "Я знову буду вдома з восьмої. Ти хочеш тоді ненадовго зайти?"
+  },
+  "sitov-b1-fahrrad-fertig": {
+    "goal": "Попроси приблизно визначити час отримання.",
+    "explanation": "Відповідь організовує отримання відповідно до оголошеного завершення ремонту. «Abgeschlossen wird» описує ремонт у пасивному стані.",
+    "focus": "Непряме питання та пасивний стан",
+    "question": "До п’ятниці опівдні має бути готово. Зателефонувати вам тоді, щоб ви забрали велосипед?"
+  },
+  "sitov-b1-handy-daten-klaeren": {
+    "goal": "Уточни, чи потрібно видаляти дані під час ремонту.",
+    "explanation": "Відповідь уточнює порядок дій перед передаванням пристрою. «Bevor» чітко показує бажану часову послідовність.",
+    "focus": "«Bevor» і непряме питання",
+    "question": "Спочатку пояснити вам, які етапи роботи стосуються ваших збережених файлів?"
+  },
+  "sitov-b1-schuhe-abholung": {
+    "goal": "Узгодь отримання після закриття магазину.",
+    "explanation": "Відповідь обирає наступний відповідний час роботи. Дієприкметник «reparierten» описує стан взуття.",
+    "focus": "«Deshalb» і дієприкметник як прикметник",
+    "question": "Завтра ми відкриваємося о дев’ятій. Ви хочете тоді прийти за взуттям?"
+  },
+  "sitov-b1-kostenvoranschlag-pruefen": {
+    "goal": "Попроси письмовий кошторис перед ухваленням рішення.",
+    "explanation": "Відповідь дотримується потрібного порядку: інформація, перевірка, потім рішення. Вона не оцінює фінансові варіанти.",
+    "focus": "«Bevor» і пасив дії",
+    "question": "Надіслати вам кошторис і зачекати з ремонтом на ваш дозвіл?"
+  },
+  "sitov-b1-beleg-reparatur": {
+    "goal": "Додатково надай запитаний документ про покупку.",
+    "explanation": "Відповідь надає запитаний документ із важливими даними. Вона не робить висновку про право на якусь вимогу.",
+    "focus": "Минулий час Perfekt і «nachreichen»",
+    "question": "Ви можете надіслати нам копію, на якій видно дату покупки?"
+  },
+  "sitov-b1-picknick-regenplan": {
+    "goal": "Домовся про альтернативу на дощовий день.",
+    "explanation": "Відповідь підтверджує передбачений план для названої умови. «Falls» описує можливу ситуацію.",
+    "focus": "«Falls» і Konjunktiv II",
+    "question": "У разі дощу підемо до кафе, а пікнік проведемо пізніше?"
+  },
+  "sitov-b1-parkweg-gesperrt": {
+    "goal": "Запитай про інший шлях до озера.",
+    "explanation": "Відповідь використовує доступний альтернативний шлях до тієї самої мети. «Obwohl» описує перешкоду, яка не скасовує бажання.",
+    "focus": "«Obwohl» і запит про альтернативу",
+    "question": "Через міст ви потрапите на відкриту кільцеву стежку до озера. Показати її?"
+  },
+  "sitov-b1-hundebereich-finden": {
+    "goal": "Запитай працівника про позначену зону для собак.",
+    "explanation": "Відповідь враховує назване на місці правило й запитує про відповідну зону.",
+    "focus": "Відносне підрядне речення та «ohne zu»",
+    "question": "Показати вам позначену зону для собак біля входу?"
+  },
+  "sitov-b1-schluessel-gefunden": {
+    "goal": "Опиши зв’язку ключів у бюро знахідок.",
+    "explanation": "Відповідь використовує збіг ознак для перевірки. «An dem» описує те, що прикріплено до зв’язки ключів.",
+    "focus": "Минулий час Perfekt і відносне підрядне речення з «an dem»",
+    "question": "На знайденій зв’язці синій брелок і три ключі. Ви хочете її оглянути?"
+  },
+  "sitov-b1-park-aktion-treffpunkt": {
+    "goal": "Уточни місце зустрічі й початок добровільної акції.",
+    "explanation": "Відповідь підтверджує правильне місце зустрічі та час. «Wo» вводить непряме питання про місце.",
+    "focus": "Konjunktiv II та непряме питання про місце",
+    "question": "Ми зустрічаємося о десятій біля головного входу. Ти можеш туди прийти?"
+  },
+  "sitov-b1-probetraining-anmelden": {
+    "goal": "Запитай про тренування для початківців.",
+    "explanation": "Відповідь обирає групу, що відповідає описаному рівню досвіду.",
+    "focus": "«Da» і ввічливе побажання щодо тренування",
+    "question": "Група для початківців тренується в понеділок о шостій. Ти хочеш прийти на пробне заняття?"
+  },
+  "sitov-b1-tempo-absprechen": {
+    "goal": "Домовся з партнером по тренуванню про повільніший темп.",
+    "explanation": "Відповідь узгоджує бажаний темп, не обіцяючи впливу на здоров’я.",
+    "focus": "«Weil» і минулий час Perfekt",
+    "question": "Обрати спокійне коло й за потреби зробити перерву?"
+  },
+  "sitov-b1-platz-doppelt-gebucht": {
+    "goal": "Уточни подвійне бронювання з працівником.",
+    "explanation": "Відповідь приймає доступну альтернативу, яка зберігає бажаний час.",
+    "focus": "«Obwohl» і пасивний стан",
+    "question": "Інший майданчик вільний у той самий час. Ви хочете перейти туди?"
+  },
+  "sitov-b1-spindschluessel-fehlt": {
+    "goal": "Попроси допомогти із замком, який заїдає.",
+    "explanation": "Відповідь просить допомогу біля правильної шафки. «Lässt sich öffnen» описує, чи можливо її відкрити.",
+    "focus": "«Obwohl» і «sich lassen»",
+    "question": "Перевірити замок і допомогти тобі відкрити шафку?"
+  },
+  "sitov-b1-turnier-verschoben": {
+    "goal": "Уточни новий час прибуття після зміни плану.",
+    "explanation": "Відповідь узгоджує прибуття з новим часом. «Wann» запитує про час після перенесення.",
+    "focus": "«Da» і непряме питання про час",
+    "question": "Реєстрація тепер відкривається о дванадцятій. Ви можете бути тут до пів на першу?"
+  },
+  "sitov-b1-gepaeck-vor-checkin": {
+    "goal": "Запитай про зберігання багажу.",
+    "explanation": "Відповідь приймає зберігання на час перед заселенням. «Bis» позначає кінець цього періоду.",
+    "focus": "«Obwohl» і «bis»",
+    "question": "Зберегти ваш багаж до третьої години в нашій багажній кімнаті?"
+  },
+  "sitov-b1-hotelzimmer-wechseln": {
+    "goal": "Через будівельний шум попроси тихіший номер.",
+    "explanation": "Відповідь обирає запропоноване розв’язання проблеми шуму. «In ein ruhigeres» означає в тихіший номер.",
+    "focus": "«Deshalb» і ввічлива скарга",
+    "question": "Номер із вікнами у внутрішній двір вільний. Ви хочете перейти туди?"
+  },
+  "sitov-b1-aufenthalt-verlaengern": {
+    "goal": "Запитай про продовження перебування в тому самому номері.",
+    "explanation": "Відповідь продовжує саме теперішнє перебування на одну ніч. «Ob» запитує про наявність вільного номера.",
+    "focus": "Konjunktiv II та непряме питання",
+    "question": "Ваш номер вільний і завтра. Додати ще одну ніч?"
+  },
+  "sitov-b1-hotelrechnung-korrigieren": {
+    "goal": "Попроси вказати правильну адресу компанії в рахунку.",
+    "explanation": "Відповідь надає дані для запитаного виправлення. Пасивний стан підкреслює документ, а не того, хто його видав.",
+    "focus": "Модальне дієслово в пасивному стані",
+    "question": "Ви маєте точну адресу компанії для виправленого рахунку?"
+  },
+  "sitov-b1-taxi-am-morgen": {
+    "goal": "Заздалегідь організуй таксі.",
+    "explanation": "Відповідь підтверджує бажаний день, час і місце посадки. «Da» обґрунтовує раннє замовлення.",
+    "focus": "«Da» і конкретна домовленість про час",
+    "question": "Таксі має забрати вас завтра о пів на шосту перед входом у готель?"
+  },
+  "sitov-b1-groesse-umtauschen": {
+    "goal": "Попроси обміняти розмір, маючи чек.",
+    "explanation": "Відповідь зберігає бажану модель і змінює розмір у потрібний бік.",
+    "focus": "«Weil» і порівняння розмірів",
+    "question": "Перевірити, чи є такі самі штани на розмір більші?"
+  },
+  "sitov-b1-jacke-mit-taschen": {
+    "goal": "Опиши практичну вимогу до куртки.",
+    "explanation": "Відповідь враховує названу вимогу. Відносне підрядне речення описує бажану властивість куртки.",
+    "focus": "Відносне підрядне речення та «weil»",
+    "question": "Ця куртка має дві внутрішні кишені на блискавці. Ви хочете її приміряти?"
+  },
+  "sitov-b1-aermel-kuerzen": {
+    "goal": "Запитай про зміну довжини.",
+    "explanation": "Відповідь стосується саме тієї частини одягу, яка не підходить. «Gekürzt werden können» описує можливу зміну в пасивному стані.",
+    "focus": "Непряме питання та пасивний стан",
+    "question": "Наша служба підгонки одягу може вкоротити рукави. Позначити бажану довжину?"
+  },
+  "sitov-b1-reservierte-kleidung": {
+    "goal": "Попроси ненадовго продовжити бронювання.",
+    "explanation": "Відповідь використовує запропоноване продовження на один день. «Zurücklegen» тут означає відкласти товар для покупця.",
+    "focus": "«Deshalb» і продовження бронювання",
+    "question": "Я можу відкласти куртку до завтра ввечері. Ви тоді її заберете?"
+  },
+  "sitov-b1-offene-naht": {
+    "goal": "Перед покупкою попроси непошкоджений екземпляр.",
+    "explanation": "Відповідь зберігає модель і розмір та усуває названий недолік. «Hätte gern» ввічливо виражає побажання.",
+    "focus": "Ввічливе побажання та той самий розмір",
+    "question": "На складі є така сама сорочка без пошкодження. Принести її?"
+  },
+  "sitov-b1-herkunft-gemuese": {
+    "goal": "Перед покупкою запитай про походження товару.",
+    "explanation": "Відповідь обирає прямо названий місцевий товар. Відносне підрядне речення описує критерій вибору.",
+    "focus": "Відносне підрядне речення та запит про походження",
+    "question": "Ця картопля з господарства в сусідньому населеному пункті. Ви хочете її взяти?"
+  },
+  "sitov-b1-reife-fruechte": {
+    "goal": "Поясни, коли ти хочеш з’їсти фрукти.",
+    "explanation": "Відповідь пов’язує заплановане споживання наступного дня з відповідною стиглістю.",
+    "focus": "«Deshalb» і відносне підрядне речення",
+    "question": "Дати вам груші, які до завтра залишаться трохи твердішими?"
+  },
+  "sitov-b1-kleinere-menge": {
+    "goal": "Попроси меншу порцію замість великої упаковки.",
+    "explanation": "Відповідь приймає меншу відважену кількість. «Statt der Schale» описує бажану альтернативу цілій упаковці.",
+    "focus": "«Da» і кількість",
+    "question": "Я можу відважити вам і триста грамів. Це підійде?"
+  },
+  "sitov-b1-kartenzahlung-pruefen": {
+    "goal": "Уточни прийнятний спосіб оплати перед покупкою.",
+    "explanation": "Відповідь враховує названий на місці спосіб оплати. Завдання не дає рекомендацій щодо фінансових продуктів.",
+    "focus": "«Obwohl» і непряме питання",
+    "question": "Сьогодні ми приймаємо лише готівку. Ви маєте достатньо готівки із собою?"
+  },
+  "sitov-b1-eigener-korb": {
+    "goal": "Попроси упаковку без додаткових пакетів.",
+    "explanation": "Відповідь однозначно реалізує побажання щодо упаковки. «Mitgebracht» описує кошик, який уже є із собою.",
+    "focus": "«Deshalb» і побажання щодо упаковки",
+    "question": "Покласти овочі відразу у ваш кошик, який ви принесли?"
+  },
+  "sitov-b1-museum-zugang": {
+    "goal": "Запитай про вхід без сходів.",
+    "explanation": "Відповідь обирає названий вхід без сходів. «Den» у відносному підрядному реченні стосується входу.",
+    "focus": "Відносне підрядне речення та доступність",
+    "question": "Показати вам шлях до бічного входу з пандусом?"
+  },
+  "sitov-b1-stadtfuehrung-sprache": {
+    "goal": "Запитай про зрозумілу екскурсію німецькою.",
+    "explanation": "Відповідь відповідає описаним мовним потребам. Пасивний стан описує, як озвучують пояснення.",
+    "focus": "Відносне підрядне речення та пасивний стан",
+    "question": "У нас є екскурсія німецькою з повільнішими поясненнями й часом для запитань. Вам це підходить?"
+  },
+  "sitov-b1-veranstaltung-alternative": {
+    "goal": "Знайди пізнішу дату тієї самої події.",
+    "explanation": "Відповідь зберігає бажану подію й обирає доступну дату.",
+    "focus": "«Obwohl» і вибір дати",
+    "question": "На наступну суботу ще є квитки. Ви хочете обрати цю дату?"
+  },
+  "sitov-b1-treffpunkt-praezisieren": {
+    "goal": "Уточни неоднозначне місце зустрічі в центрі міста.",
+    "explanation": "Відповідь уточнює правильне місце за чіткими ознаками. «Welcher» запитує про потрібний варіант.",
+    "focus": "Непряме питання та орієнтування",
+    "question": "Мається на увазі маленький фонтан безпосередньо біля сходів ратуші. Показати його?"
+  },
+  "sitov-b1-radweg-umleitung": {
+    "goal": "Попроси відповідний альтернативний маршрут.",
+    "explanation": "Відповідь використовує названий об’їзд. «Auf der» стосується потрібного альтернативного маршруту.",
+    "focus": "«Da» і відносне підрядне речення з «auf der»",
+    "question": "Позначений об’їзд проходить через Bahnhofstraße. Позначити його на карті?"
+  },
+  "sitov-b2-lieferung-vorbehalt": {
+    "goal": "Уточни, чи оголошений товар надійде вчасно.",
+    "explanation": "«Sofern» називає необхідну умову. Доречне уточнення просить підтвердження, не перетворюючи непевне повідомлення на обіцянку.",
+    "focus": "Умова з «sofern» і запит на чітке підтвердження",
+    "question": "Тобі потрібні напої на суботу. Як ти робиш свій план надійним?"
+  },
+  "sitov-b2-mengenrabatt-abwaegen": {
+    "goal": "Зістав знижку зі своїми справжніми потребами.",
+    "explanation": "«Obwohl» визнає перевагу, перш ніж інший пріоритет визначить рішення. Відносне підрядне речення обмежує вибір упаковками, які справді потрібні.",
+    "focus": "Допустове підрядне речення та обмежувальне відносне підрядне речення",
+    "question": "Тобі потрібні лише шість упаковок, і ти не хочеш нічого марнувати. Що ти відповідаєш?"
+  },
+  "sitov-b2-kassenfehler-belegen": {
+    "goal": "Попроси перевірити ціну, спираючись на два докази.",
+    "explanation": "У пасивному стані увага зосереджена на нарахованій сумі. Доказ і ввічливе прохання про перевірку роблять заперечення зрозумілим, не визначаючи результат наперед.",
+    "focus": "Пасивний стан і об’єктивне заперечення",
+    "question": "Ти маєш фото цінника. Яка реакція допоможе перевірці?"
+  },
+  "sitov-b2-verpackung-alternative": {
+    "goal": "Запитай про доступну альтернативу з меншою кількістю упаковки.",
+    "explanation": "«Während» зіставляє дві пропозиції. «Sofern» ставить зміну в залежність від інформації, потрібної для порівняння.",
+    "focus": "Зіставлення з «während» і необхідна умова",
+    "question": "Перед зміною ти хочеш порівняти ціну й походження. Що ти запитуєш?"
+  },
+  "sitov-b2-bestand-reservierung": {
+    "goal": "Попроси ненадовго відкласти товар, який ще є в наявності.",
+    "explanation": "Нереальне умовне речення з Konjunktiv II формулює ввічливе прохання. Відповідь дотримується прямо названого терміну резервування.",
+    "focus": "Ввічлива умова з Konjunktiv II",
+    "question": "Ти можеш прийти сьогодні о 18:00. Як ти реагуєш на пропозицію?"
+  },
+  "sitov-b2-cafe-ruheplatz": {
+    "goal": "Поясни, чому тобі потрібен тихіший столик.",
+    "explanation": "«Da» обґрунтовує рішення, а «daher» позначає висновок. Відповідь визначає важливість названих у розмові критеріїв.",
+    "focus": "Обґрунтування та важливість критеріїв",
+    "question": "Тобі не потрібна розетка, і ти хочеш розмовляти без перешкод. Яке місце ти обираєш?"
+  },
+  "sitov-b2-cafe-rechnung-getrennt": {
+    "goal": "Вчасно узгодь роздільну оплату групового замовлення.",
+    "explanation": "Речення з «bevor» на початку чітко визначає часовий порядок. Завчасна інформація дає змогу оплатити так, як запропонував працівник.",
+    "focus": "Підрядне речення часу з «bevor» і мета з «damit»",
+    "question": "Четверо колег хочуть заплатити окремо. Що ти зараз кажеш?"
+  },
+  "sitov-b2-cafe-veranstaltung-einwand": {
+    "goal": "Сформулюй ввічливе заперечення щодо незручного місця.",
+    "explanation": "«Dennoch» позначає інше рішення, попри висловлене розуміння. Альтернативне місце поєднує власну потребу з увагою до інших.",
+    "focus": "Ввічливе заперечення з «dennoch»",
+    "question": "Ти хочеш продовжити розмову з колегою. Яке прохання підходить?"
+  },
+  "sitov-b2-cafe-bestellung-korrigieren": {
+    "goal": "Виправ плутанину, не приписуючи працівникові навмисних дій.",
+    "explanation": "«Offenbar» обережно описує ймовірну причину. Plusquamperfekt указує на замовлення, зроблене до теперішньої плутанини.",
+    "focus": "Обережне пояснення та давноминулий час Plusquamperfekt",
+    "question": "Каву ще не приготували. Що ти кажеш?"
+  },
+  "sitov-b2-cafe-angebot-abstimmen": {
+    "goal": "Узгодь відповідний час для великої групи.",
+    "explanation": "«Sofern» пов’язує рішення з достатньою кількістю місць. Відповідь визначає реалістичний час, виходячи з бажаного розміру групи.",
+    "focus": "Необхідна умова та узгодження часу",
+    "question": "Усі десятеро колег хочуть сидіти разом. Як ти реагуєш?"
+  },
+  "sitov-b2-anschluss-knappe-zeit": {
+    "goal": "Попроси реалістично оцінити час на пересадку.",
+    "explanation": "«Angesichts» називає підставу для оцінки. Konjunktiv II та «falls» дають змогу обережно запитати про випадок, коли пересадку можна пропустити.",
+    "focus": "Обережна оцінка та запасний план",
+    "question": "Ти хочеш знати про запасне сполучення. Яке питання підходить?"
+  },
+  "sitov-b2-bahn-ticket-bindung": {
+    "goal": "Уточни обмеження перед тим, як скористатися іншим сполученням.",
+    "explanation": "Пасивний стан зосереджує увагу на дії квитка. Доречна відповідь запитує про конкретні умови, а не припускає непідтверджене правило.",
+    "focus": "Пасивний стан і перевірка перед дією",
+    "question": "Що потрібно уточнити перед посадкою?"
+  },
+  "sitov-b2-bahn-gleiswechsel": {
+    "goal": "Підтвердь змінену інформацію за табло.",
+    "explanation": "«Während» протиставляє старі й актуальні дані. «Daher» веде до рішення врахувати зміну, підтверджену в розмові.",
+    "focus": "Зіставлення суперечливих даних",
+    "question": "Яка інформація визначає теперішній шлях?"
+  },
+  "sitov-b2-bahn-gruppenreservierung": {
+    "goal": "Знайди компроміс за обмеженої кількості місць.",
+    "explanation": "«Auch wenn» визнає невиконане побажання. «Wären» оцінює запропоновану альтернативу як компроміс, що дотримується найважливішої умови.",
+    "focus": "Зіставлення з визнанням іншого аргументу та Konjunktiv II",
+    "question": "Четверо пасажирів хочуть сидіти хоча б в одному вагоні. Що підходить?"
+  },
+  "sitov-b2-bahn-gepaeckfund": {
+    "goal": "Опиши залишений багаж так, щоб його можна було однозначно визначити.",
+    "explanation": "Дієприкметник «zurückgelassene» перед іменником скорочує відносне підрядне речення. Конкретні ознаки й дані про потяг дають змогу об’єктивно визначити належність багажу.",
+    "focus": "Дієприкметникове означення та точний опис",
+    "question": "Що допоможе працівникові оформити повідомлення про знахідку?"
+  },
+  "sitov-b2-bus-umleitung": {
+    "goal": "Уточни, як дістатися до мети попри об’їзд.",
+    "explanation": "«Bediente» — дієприкметникове означення; «sofern» називає умову для альтернативи. Запит про шлях допомагає пройти вже названий пішохідний відрізок.",
+    "focus": "Дієприкметникове означення та альтернативний маршрут",
+    "question": "Ти можеш пройти п’ять хвилин пішки. Як ти реагуєш на пропозицію?"
+  },
+  "sitov-b2-abo-pause": {
+    "goal": "Запитай про можливу паузу та її умови.",
+    "explanation": "Непряме питання про умови уточнює можливість, не припускаючи наявного дозволу. У пасивному стані увага зосереджена на процедурі.",
+    "focus": "Непряме питання та пасивний стан",
+    "question": "Тебе не буде весь листопад. Що ти повідомляєш?"
+  },
+  "sitov-b2-tram-ausfall": {
+    "goal": "Порівняй дві альтернативи, коли трамвай не курсує.",
+    "explanation": "«Obwohl» враховує один із варіантів; «angesichts» називає вирішальний критерій. «Damit» описує мету обраного продовження поїздки.",
+    "focus": "Допустове підрядне речення та вибір відповідно до мети",
+    "question": "Твоя зустріч починається за тридцять хвилин. Яке рішення можна обґрунтувати?"
+  },
+  "sitov-b2-kontrolle-nachweis": {
+    "goal": "За технічної проблеми попроси трохи часу.",
+    "explanation": "«Allerdings» обмежує перше твердження, називаючи перешкоду. Ввічливе прохання пропонує потрібне підтвердження, а не замінює його невідповідним документом.",
+    "focus": "Ввічливе прохання та обмеження з «allerdings»",
+    "question": "Код збережено для перегляду без інтернету. Що ти кажеш?"
+  },
+  "sitov-b2-rad-mitnahme": {
+    "goal": "Прийми обмеження місткості та знайди альтернативу.",
+    "explanation": "«Statt … zu» називає дію, якої уникають. Доречна відповідь враховує обмеження місткості й запитує про запропоновану альтернативу.",
+    "focus": "Альтернатива з «statt zu» та увага до інших",
+    "question": "Ти можеш почекати двадцять хвилин. Як ти відповідаєш?"
+  },
+  "sitov-b2-restaurant-menue-anpassen": {
+    "goal": "Уточни, чи можна замінити частину меню.",
+    "explanation": "«Ließe» — форма Konjunktiv II від «lassen». «Andernfalls» пропонує запасний план, якщо ввічливо сформульовану умову не виконано.",
+    "focus": "Нереальна умова та альтернатива з «andernfalls»",
+    "question": "Перед замовленням ти хочеш знати, чи можлива заміна. Що підходить?"
+  },
+  "sitov-b2-restaurant-wartezeit": {
+    "goal": "Зістав час приготування з часом, який ти маєш.",
+    "explanation": "Дієприкметник «zubereitete» описує суп. Нереальна минула ситуація «gewesen wäre» позначає відкинуте початкове побажання.",
+    "focus": "Дієприкметникове означення та нереальна минула ситуація",
+    "question": "Тобі потрібно піти за тридцять хвилин. Що ти замовляєш?"
+  },
+  "sitov-b2-restaurant-gruppe-aendern": {
+    "goal": "Завчасно повідом про зміну кількості людей у групі.",
+    "explanation": "«Entgegen» позначає відхилення від попереднього плану. Питання пропонує два можливі рішення, не припускаючи наявності вільних місць.",
+    "focus": "Вираження відхилення та запит про альтернативи",
+    "question": "З вами йдуть ще двоє колег. Яке повідомлення підходить?"
+  },
+  "sitov-b2-restaurant-reklamation": {
+    "goal": "Опиши конкретну проблему й попроси її усунути.",
+    "explanation": "Дієприкметник і пасивний стан зосереджуються на страві. Об’єктивний опис і конкретне прохання допомагають працівникові організувати потрібне виправлення.",
+    "focus": "Пасивний стан і конкретна скарга",
+    "question": "Ти хочеш з’їсти ту саму страву теплою. Що ти відповідаєш?"
+  },
+  "sitov-b2-restaurant-empfehlung-kriterium": {
+    "goal": "Сформулюй критерії для рекомендації, не суперечачи власному замовленню.",
+    "explanation": "«Während» відділяє спільну ознаку від вирішальної різниці. «Weshalb» пов’язує цей критерій з обґрунтованим вибором.",
+    "focus": "Порівняння критеріїв і наслідок з «weshalb»",
+    "question": "Сьогодні ти хочеш негостру їжу. Яка відповідь підходить?"
+  },
+  "sitov-b2-apotheke-abholung-bestaetigen": {
+    "goal": "Попроси підтвердження, перш ніж вирушити за замовленням.",
+    "explanation": "Часовий вираз «erst nach» встановлює чіткий порядок. «Damit» обґрунтовує, чому підтверджене надходження важливе для поїздки.",
+    "focus": "Часова умова та мета",
+    "question": "Ти хочеш уникнути зайвої поїздки. Про що ти домовляєшся?"
+  },
+  "sitov-b2-apotheke-beleg-ergaenzen": {
+    "goal": "Попроси потрібні дані в чеку про покупку.",
+    "explanation": "Дієприкметник «ausgestellten» описує наявний чек. Відносне підрядне речення пояснює потребу; відповідь називає саме відсутні дані.",
+    "focus": "Дієприкметникове означення та точне прохання доповнити дані",
+    "question": "Тобі потрібен чек із датою покупки. Яке прохання є конкретним?"
+  },
+  "sitov-b2-apotheke-feiertagszeiten": {
+    "goal": "Перевір актуальний час роботи для запланованого отримання.",
+    "explanation": "«Obwohl» називає старішу інформацію, яка суперечить новій. Обґрунтування з «da» пояснює, чому актуальне повідомлення визначає план.",
+    "focus": "Допустове підрядне речення та оцінка джерел",
+    "question": "Ти можеш прийти о 15:00. Що ти відповідаєш?"
+  },
+  "sitov-b2-apotheke-bestellstatus": {
+    "goal": "Об’єктивно запитай про ще не підтверджене замовлення.",
+    "explanation": "«Erfasst» і «bestätigt» позначають різні етапи процедури. Пасивний стан відділяє відомий статус від інформації, яку ще потрібно отримати.",
+    "focus": "Пасивний стан і розрізнення статусів",
+    "question": "Ти хочеш знати, коли замовлення приблизно буде готове до отримання. Що підходить?"
+  },
+  "sitov-b2-apotheke-vertrauliches-gespraech": {
+    "goal": "Попроси більш приватне місце для розмови про особисті документи.",
+    "explanation": "Дієприкметниковий вираз «mitgebrachten Unterlagen» стисло передає опис. «Damit» пов’язує вибір місця з конкретним бажанням конфіденційності.",
+    "focus": "Дієприкметникове означення та обґрунтований вибір місця",
+    "question": "Ти хочеш конфіденційно обговорити особисті дані. Яка відповідь підходить?"
+  },
+  "sitov-b2-praxis-terminverschiebung": {
+    "goal": "Запропонуй відповідний проміжок часу для перенесення вже призначеного прийому.",
+    "explanation": "«Wahrnehmen» тут означає прийти на призначений прийом. «Sofern» ставить пропозицію в залежність від справжньої наявності іншого часу прийому.",
+    "focus": "Офіційне узгодження часу з «sofern»",
+    "question": "Ти маєш час у середу до обіду, але не в п’ятницю. Що ти відповідаєш?"
+  },
+  "sitov-b2-praxis-unterlagen-kopie": {
+    "goal": "Уточни процедуру запиту власних документів.",
+    "explanation": "Дві пасивні форми описують процедуру. «Dafür vorgesehen» точно вказує на форму, за допомогою якої потрібно подати запит.",
+    "focus": "Пасивний стан і уточнення процедури",
+    "question": "Ти хочеш розпочати описану процедуру. Що ти кажеш?"
+  },
+  "sitov-b2-praxis-sprachunterstuetzung": {
+    "goal": "Уточни організаційні умови для супровідника на прийомі.",
+    "explanation": "«Benötigen könnte» обережно формулює можливу потребу. Відповідь враховує названу організаційну умову й запитує про потрібні дані.",
+    "focus": "Вираження можливої потреби та уточнення реєстрації",
+    "question": "Тебе має супроводжувати брат. Як ти про це повідомляєш?"
+  },
+  "sitov-b2-praxis-wartezeit-planen": {
+    "goal": "У разі затримки попроси інформацію для свого плану.",
+    "explanation": "«Angesichts» називає підставу. Відносне підрядне речення пояснює подальший план, який не можна змінити, а «lässt sich» виражає можливість або неможливість.",
+    "focus": "Обґрунтоване рішення щодо прийому та «lassen sich»",
+    "question": "Тобі потрібно піти за пів години. Що буде доречним?"
+  },
+  "sitov-b2-praxis-daten-korrigieren": {
+    "goal": "Виправ застарілі контактні дані до наступного повідомлення.",
+    "explanation": "Дієприкметник «gespeicherte» описує наявний запис даних. Мета з «damit» пояснює, чому старий запис потрібно замінити.",
+    "focus": "Дієприкметникове означення та виправлення контактних даних",
+    "question": "Ти хочеш, щоб із тобою можна було зв’язатися за новим номером. Що ти кажеш?"
+  },
+  "sitov-b2-paket-zweiter-versuch": {
+    "goal": "Уточни наслідки пропущеної видачі посилки.",
+    "explanation": "«Auch morgen» показує, що проблема з доставкою повториться. Умова з «sofern» пов’язує бажане отримання з попереднім перенаправленням.",
+    "focus": "Обґрунтована альтернатива та пасивний стан",
+    "question": "Завтра тебе знову не буде вдома. Яка відповідь підходить?"
+  },
+  "sitov-b2-paket-status-pruefen": {
+    "goal": "Попроси перевірку, називаючи конкретний номер відправлення.",
+    "explanation": "«Seit» позначає період до теперішнього моменту. Непряме питання з «ob» залишає обидві можливості відкритими, а не робить поспішний висновок через відсутність оновлення.",
+    "focus": "Непряме питання та обережний висновок",
+    "question": "Ти маєш із собою номер відправлення. Що ти кажеш?"
+  },
+  "sitov-b2-paket-verpackung-pruefen": {
+    "goal": "Перед відправленням уточни конкретну вимогу до упаковки.",
+    "explanation": "«Obwohl» розрізняє два способи використання. «Um … zu» називає мету зміни матеріалу; питання реалізує конкретну рекомендацію щодо упаковки.",
+    "focus": "Мета з «um zu» та вибір матеріалу",
+    "question": "Ти хочеш надіслати документи без згинів. Що ти відповідаєш?"
+  },
+  "sitov-b2-paket-vollmacht": {
+    "goal": "Перевір потрібні документи для отримання від імені іншої особи.",
+    "explanation": "Пасивний стан зосереджує увагу на потрібних документах. Відповідь чітко розрізняє довіреність брата та власне посвідчення особи.",
+    "focus": "Пасивний стан і точне позначення належності",
+    "question": "Які документи ти береш із собою після цього пояснення?"
+  },
+  "sitov-b2-paket-adresse-korrektur": {
+    "goal": "Уточни, чи ще можна виправити адресу доставки.",
+    "explanation": "«Falls» і «möglicherweise» залишають можливість зміни відкритою. Конкретне виправлення й часова межа допомагають працівникові перевірити запит.",
+    "focus": "Умова, обережність і виправлення до терміну",
+    "question": "На етикетці номер будинку 18 замість 81. Що ти кажеш?"
+  },
+  "sitov-b2-bank-termin-unterlagen": {
+    "goal": "Уточни потрібні документи перед узгодженою розмовою.",
+    "explanation": "Речення з «damit» на початку називає мету підготовки. Питання обмежує додаткові документи власним питанням, яке потрібно вирішити.",
+    "focus": "Мета та точне уточнення процедури",
+    "question": "Ти хочеш прийти на зустріч добре підготовленим. Яке питання підходить?"
+  },
+  "sitov-b2-bank-auszug-format": {
+    "goal": "Запитай про придатну для друку версію цифрового документа.",
+    "explanation": "Непрямі питання про формат і порядок дій залишаються організаційними. «Sich ausdrucken lassen» описує технічну можливість повного друку.",
+    "focus": "Непрямі питання та «lassen sich»",
+    "question": "Тобі потрібні всі сторінки на папері. Що ти запитуєш?"
+  },
+  "sitov-b2-bank-adressaenderung": {
+    "goal": "Після переїзду попроси оновити поштову адресу.",
+    "explanation": "«Nachdem» поєднує завершений переїзд із його адміністративним наслідком. Пасивний стан зосереджує увагу на оновленні запису даних.",
+    "focus": "Підрядне речення часу з «nachdem» і пасивний стан",
+    "question": "Ти хочеш отримувати пошту до нової квартири. Що ти кажеш?"
+  },
+  "sitov-b2-bank-gespraech-diskret": {
+    "goal": "Попроси приватне місце для розмови про особисті документи.",
+    "explanation": "«Obwohl» визнає практичну можливість розмови біля стійки. Мета в пасивному стані пояснює бажання іншого місця, не даючи фінансової рекомендації.",
+    "focus": "Вибір місця з визнанням іншої можливості та пасивний стан",
+    "question": "Ти хочеш конфіденційно обговорити особисті дані. Яка відповідь підходить?"
+  },
+  "sitov-b2-bank-termin-kanal": {
+    "goal": "Узгодь час, коли ти будеш доступний для організаційного дзвінка.",
+    "explanation": "«Während» зіставляє два проміжки доступності. Правильна відповідь знаходить спільний проміжок між власною доступністю та запропонованим часом дзвінка.",
+    "focus": "Узгодження часового проміжку та необхідна умова",
+    "question": "Завтра з тобою можна зв’язатися лише з 11:00. Як ти відповідаєш?"
+  },
+  "sitov-b2-bibliothek-verlaengerung": {
+    "goal": "Перевір можливість продовження за названої умови.",
+    "explanation": "«Sofern» точно передає названу умову. Прохання перевірити розрізняє можливе продовження та вже наданий дозвіл.",
+    "focus": "Необхідна умова та ввічливе прохання перевірити",
+    "question": "Ти хочеш користуватися книжкою довше. Яке питання враховує умову?"
+  },
+  "sitov-b2-bibliothek-gruppenraum": {
+    "goal": "Порівняй доступні кімнати за кількістю людей і гучністю.",
+    "explanation": "«Infrage kommen» позначає відповідний варіант. Обґрунтування поєднує місткість і форму навчання; «falls» зберігає умову наявності вільної кімнати.",
+    "focus": "Обґрунтоване відхилення варіанта та умовне бронювання",
+    "question": "Шестеро учасників хочуть навчатися разом. Що ти кажеш?"
+  },
+  "sitov-b2-bibliothek-quellenangabe": {
+    "goal": "Попроси допомогти знайти повні бібліографічні дані.",
+    "explanation": "«Sowie» поєднує рівнозначні доповнення. Відносне підрядне речення стосується двох відсутніх даних, які потрібно знайти для конкретного джерела.",
+    "focus": "Поєднання та відносне підрядне речення з множиною",
+    "question": "Ти поки записав лише назву. Що ти запитуєш?"
+  },
+  "sitov-b2-bibliothek-regal-fehlt": {
+    "goal": "Уточни можливу причину розбіжності з даними каталогу.",
+    "explanation": "«Obwohl» позначає розбіжність між записом і спостереженням. Непряме питання з «ob» залишає названі можливі пояснення відкритими.",
+    "focus": "Допустове підрядне речення та відкрита перевірка причин",
+    "question": "Ти вже перевірив правильне місце на полиці. Що ти кажеш?"
+  },
+  "sitov-b2-bibliothek-digital-zugang": {
+    "goal": "Запитай про процедуру входу для цифрового позичання.",
+    "explanation": "«Bevor» ставить необхідний крок перед користуванням. Пасивна форма зосереджується на статусі реєстрації та веде до конкретного прохання перевірити.",
+    "focus": "Часова умова та пасивний стан",
+    "question": "Ти ще не можеш увійти. Яке прохання допоможе?"
+  },
+  "sitov-b2-buero-frist-realistisch": {
+    "goal": "Обґрунтуй пропозицію терміну, враховуючи ще не виконану умову.",
+    "explanation": "«Da» пов’язує відсутність потрібних даних із запереченням. «Für unrealistisch halten» об’єктивно оцінює термін і відкриває можливість обґрунтованої альтернативної пропозиції.",
+    "focus": "Об’єктивне заперечення та обґрунтована пропозиція терміну",
+    "question": "Ти можеш завершити звіт після отримання чисел. Що ти кажеш?"
+  },
+  "sitov-b2-buero-protokoll-berichtigen": {
+    "goal": "Попроси виправити неправильно передане рішення.",
+    "explanation": "Дієприкметник «festgehaltene» описує задокументовану версію. Виправлення називає точну різницю між негайним початком проєкту та початком за певної умови.",
+    "focus": "Дієприкметникове означення та виправлення рішення",
+    "question": "Яке формулювання має бути в протоколі?"
+  },
+  "sitov-b2-buero-aufgaben-priorisieren": {
+    "goal": "За конкуруючих завдань попроси визначити чіткий пріоритет.",
+    "explanation": "«Voraussichtlich» позначає оцінку, а не тверде твердження. Відповідь називає обмеження й пропонує порядок, який можна підтвердити.",
+    "focus": "Оцінка можливостей та узгодження пріоритетів",
+    "question": "Сьогодні ти встигаєш повністю виконати лише одне завдання. Яке повідомлення підходить?"
+  },
+  "sitov-b2-buero-besprechung-hybrid": {
+    "goal": "Запропонуй формат участі, який залучає відсутнього колегу.",
+    "explanation": "«Indem» описує спосіб спільної участі. Допустовий початок визнає перебування в різних місцях, не вважаючи це нездоланною перешкодою.",
+    "focus": "Спосіб з «indem» і початок з визнанням перешкоди",
+    "question": "Ти хочеш залучити колегу до наради. Що ти пропонуєш?"
+  },
+  "sitov-b2-buero-dateiversion": {
+    "goal": "Уточни суперечливі версії файлу перед його передаванням.",
+    "explanation": "«Während» протиставляє дві версії, а «daher» виводить організаційний наслідок. Відповідь усуває суперечливе позначення перед передаванням.",
+    "focus": "Зіставлення та висновок з «daher»",
+    "question": "Ти хочеш запобігти використанню застарілої версії колегами. Що підходить?"
+  },
+  "sitov-b2-kurs-bewertungskriterien": {
+    "goal": "Перед поданням запитай про вагу критеріїв оцінювання.",
+    "explanation": "Непряме питання з «wie» просить зрозуміле пояснення. «Damit» описує, для чого під час доопрацювання потрібна вага критеріїв.",
+    "focus": "Непряме питання та цілеспрямоване доопрацювання",
+    "question": "Ти ще не прочитав про вагу критеріїв. Що ти запитуєш у керівника курсу?"
+  },
+  "sitov-b2-kurs-gruppenarbeit-balance": {
+    "goal": "Обґрунтуй більш рівномірний розподіл спільного завдання.",
+    "explanation": "Допустове речення визнає цінність наявного тексту. Пасивний стан і мета з «damit» пов’язують зміну розподілу з чіткою спільною метою.",
+    "focus": "Ввічливе заперечення та мета розподілу завдань",
+    "question": "Ти хочеш справедливого розподілу роботи, що залишилася. Що ти пропонуєш?"
+  },
+  "sitov-b2-kurs-niveauwechsel": {
+    "goal": "Попроси обґрунтовано оцінити можливість переходу на інший рівень.",
+    "explanation": "«Prüfen lassen» означає доручити оцінювання. «Statt … zu» відрізняє обґрунтоване рішення від поспішного висновку за окремими завданнями.",
+    "focus": "«Prüfen lassen» і обережна самооцінка",
+    "question": "Ти хочеш отримати обґрунтовану оцінку свого рівня. Як ти відповідаєш?"
+  },
+  "sitov-b2-kurs-versaeumten-stoff": {
+    "goal": "Цілеспрямовано домовся, як надолужити пропущений матеріал курсу.",
+    "explanation": "«Nachdem» поєднує минулу відсутність із подальшою дією. «Trotz» враховує обставину, яка ускладнює досягнення мети, але не перешкоджає йому.",
+    "focus": "Підрядне речення часу та підготовка попри перешкоду",
+    "question": "Ти хочеш мати змогу брати участь в обговоренні на наступному занятті. Яке повідомлення підходить?"
+  },
+  "sitov-b2-kurs-feedback-begruenden": {
+    "goal": "Дай конструктивний відгук із зрозумілим прикладом.",
+    "explanation": "«Allerdings» вводить обмежений пункт для покращення. Речення наслідку з «sodass» пояснює вплив запропонованого доповнення на аргументацію.",
+    "focus": "Конструктивне заперечення та наслідок з «sodass»",
+    "question": "Як учасник курсу ти маєш дати корисний відгук. Яке твердження підходить?"
+  },
+  "sitov-b2-wohnung-ruhe-kompromiss": {
+    "goal": "Домовся із сусідом по квартирі про вечірній план з увагою до потреб іншого.",
+    "explanation": "«Auch wenn» визнає власне бажання. Конкретна зміна місця з узгодженої години робить виконання компромісу перевірним.",
+    "focus": "Компроміс з визнанням іншого аргументу та мета",
+    "question": "Ти хочеш уможливити візит і водночас пообіцяти тишу. Що ти відповідаєш?"
+  },
+  "sitov-b2-wohnung-besichtigung-planen": {
+    "goal": "Попроси відповідний альтернативний час для огляду квартири.",
+    "explanation": "Konjunktiv II формулює запит на ще не підтверджений час. Відповідь пояснює обмеження й не припускає наявності вільного часу.",
+    "focus": "Konjunktiv II та непідтверджений альтернативний час",
+    "question": "Ти можеш прийти лише в суботу до обіду. Який запит підходить?"
+  },
+  "sitov-b2-wohnung-heizung-melden": {
+    "goal": "Повідом про технічну несправність за допомогою спостережень, які можна перевірити.",
+    "explanation": "Дієприкметник «installierte» уточнює розташування предмета. «Während» конкретизує спостережувану несправність, не стверджуючи її технічної причини чи способу ремонту.",
+    "focus": "Дієприкметникове означення та об’єктивне повідомлення про несправність",
+    "question": "Ти хочеш точно повідомити про несправність. Що ти кажеш?"
+  },
+  "sitov-b2-wohnung-gemeinsamer-einkauf": {
+    "goal": "Запропонуй прозорий порядок придбання спільних побутових товарів.",
+    "explanation": "«Damit» називає мету, а «statt … zu» — спосіб дій, який замінюють. Обов’язковий для всіх спільний список розв’язує конкретно названу проблему узгодження.",
+    "focus": "Мета та альтернатива дії з «statt zu»",
+    "question": "Ти хочеш уникнути подвійних покупок із сусідом по квартирі. Що ти пропонуєш?"
+  },
+  "sitov-b2-wohnung-uebergabe-protokoll": {
+    "goal": "Під час передавання квартири попроси точну документацію.",
+    "explanation": "«Vorhandene» позначає наявний стан. Пасивний стан і мета з «damit» описують документування, не визначаючи наперед правових наслідків.",
+    "focus": "Дієприкметникове означення та документування стану",
+    "question": "Ти хочеш задокументувати наявний стан. Що ти кажеш?"
+  },
+  "sitov-b2-reparatur-kostenfreigabe": {
+    "goal": "Уточни обсяг дозволу на перевірку пристрою.",
+    "explanation": "«Bevor» розділяє огляд і ремонт у часі. Відповідь обмежує поточне замовлення й просить зворотний зв’язок, запропонований у розмові.",
+    "focus": "Пасивний стан і уточнення обсягу замовлення",
+    "question": "Сьогодні ти хочеш замовити лише перевірку. Що ти кажеш?"
+  },
+  "sitov-b2-reparatur-kaufbeleg": {
+    "goal": "Запитай про процедуру надання ще відсутніх документів.",
+    "explanation": "«Sofern» ставить додаткове надання в залежність від однозначного визначення замовлення. Адреса й номер замовлення — конкретні дані, які дають змогу виконати цей організаційний крок.",
+    "focus": "Необхідна умова та однозначне визначення належності",
+    "question": "Ти можеш надіслати документ про покупку сьогодні ввечері. Яке питання допоможе?"
+  },
+  "sitov-b2-reparatur-zugang-termin": {
+    "goal": "Узгодь час, коли робоча зона буде доступна.",
+    "explanation": "«Sofern» називає конкретний часовий проміжок як умову. Друга форма Konjunktiv описує, яка організаційна альтернатива була б потрібна поза цим проміжком.",
+    "focus": "Умовний часовий проміжок і відповідальність",
+    "question": "Ти можеш відчинити лише між 9:00 і 11:00. Що ти повідомляєш?"
+  },
+  "sitov-b2-reparatur-ersatzteil-warten": {
+    "goal": "Попроси оновити план після затримки доставки.",
+    "explanation": "«Da» називає причину перенесення. Відповідь передбачає нове планування лише після вирішальної доставки, яка ще не відбулася.",
+    "focus": "Пасивний стан і планування після підтвердженої події",
+    "question": "Ти хочеш перепланувати лише після підтвердженої доставки. Що ти кажеш?"
+  },
+  "sitov-b2-reparatur-rechnung-position": {
+    "goal": "Попроси пояснити послугу, про яку не повідомляли заздалегідь.",
+    "explanation": "«Meines Wissens» обмежує твердження власними знаннями. Непряме питання просить зрозумілу підставу, а не визначає результат перевірки наперед.",
+    "focus": "Обережне заперечення та уточнення обсягу послуг",
+    "question": "Ти хочеш спочатку зрозуміти додаткову позицію. Що ти запитуєш?"
+  },
+  "sitov-b2-park-veranstaltung-abstimmen": {
+    "goal": "Запитай про організаційні умови запланованої невеликої події.",
+    "explanation": "«Bevor» упорядковує узгодження й оголошення. Відповідь відрізняє попередню заявку від остаточного підтвердження, не стверджуючи загальних правил користування.",
+    "focus": "Розрізнення підтвердження та часовий порядок",
+    "question": "Ти поки не хочеш публікувати непідтверджений час. Що ти кажеш?"
+  },
+  "sitov-b2-park-weg-gesperrt": {
+    "goal": "Уточни, чи підходить альтернативний шлях за перекриття.",
+    "explanation": "Форма Konjunktiv «wäre» описує перевагу шляху, яким зараз не можна скористатися. «Da» обґрунтовує вибір доступністю та важливою властивістю.",
+    "focus": "Вибір шляху з визнанням іншої переваги та «lassen sich»",
+    "question": "Твій супутник хоче уникнути сходів. Який шлях ти обираєш?"
+  },
+  "sitov-b2-park-fundgegenstand": {
+    "goal": "Опиши знайдену річ, не поспішаючи приписувати її комусь.",
+    "explanation": "«Zwar … jedoch» відділяє збіг від ознаки, яку ще потрібно перевірити. Дієприкметник «gefundene» і пасивний стан об’єктивно залишають належність невизначеною.",
+    "focus": "«Zwar ... jedoch» і визначення належності за перевірними ознаками",
+    "question": "Ти знайшов сіру сумку з червоною застібкою. Що ти кажеш?"
+  },
+  "sitov-b2-park-sauberkeitsaktion": {
+    "goal": "Уточни спорядження та відповідальність для спільної акції.",
+    "explanation": "Два непрямі питання охоплюють підготовку й завершення. Пасивний стан описує спільну організацію, не зосереджуючи зайву увагу на окремих учасниках.",
+    "focus": "Пасивний стан і узгодження двох етапів процедури",
+    "question": "Ти організовуєш добровільних учасників. Що ти запитуєш?"
+  },
+  "sitov-b2-park-hundebereich-nachfragen": {
+    "goal": "Запитай, на яку територію поширюється конкретна табличка.",
+    "explanation": "Непряме питання визначає межі дії. «Bevor» ставить уточнення перед дією, не виводячи з таблички загального правила.",
+    "focus": "Непряме питання про межі дії",
+    "question": "Ти не впевнений, якої зони стосується табличка. Як ти запитуєш об’єктивно?"
+  },
+  "sitov-b2-sport-gruppe-passend": {
+    "goal": "Попроси оцінку на основі описаних початкових знань.",
+    "explanation": "«Obwohl» визнає загальний досвід, не стверджуючи спеціальних попередніх знань. «Um … zu» називає мету вибору відповідної групи.",
+    "focus": "Оцінка з визнанням іншого аргументу та навчальна мета",
+    "question": "Ти ще не знаєш потрібних вправ. Яка відповідь підходить?"
+  },
+  "sitov-b2-sport-platz-belegung": {
+    "goal": "Знайди доступну альтернативу, коли спортивний майданчик зайнятий.",
+    "explanation": "«Sofern» пов’язує альтернативний час із повною тривалістю тренування. Відповідь перетворює запропонований часовий проміжок на однозначне бронювання.",
+    "focus": "Альтернативний час і необхідна умова",
+    "question": "Твоя група може почати й о 19:00. Що ти кажеш?"
+  },
+  "sitov-b2-sport-teams-ausgleichen": {
+    "goal": "Запропонуй зрозумілий розподіл досвідчених гравців.",
+    "explanation": "«Während» описує нерівність. «Durch» називає спосіб; пасивний стан підкреслює результат нового розподілу.",
+    "focus": "Порівняння, спосіб і пасивний стан",
+    "question": "Ти хочеш більш рівної гри. Яка ідея підходить?"
+  },
+  "sitov-b2-sport-ausruestung-teilen": {
+    "goal": "Узгодь практичний порядок користування спільними пристроями.",
+    "explanation": "«Indem» показує, як працює спільне користування. Допустовий початок називає обмеження кількості, не роблячи з нього висновок про виключення учасників.",
+    "focus": "Спосіб з «indem» і компроміс за обмеженої місткості",
+    "question": "Ти хочеш залучити всіх вісьмох учасників. Що ти пропонуєш?"
+  },
+  "sitov-b2-sport-turnier-wetter": {
+    "goal": "Сплануй повідомлення до того, як учасники вирушать у дорогу.",
+    "explanation": "«Falls» описує можливу подію; пасивний стан зосереджується на зміні місця. Повідомлення йде після підтвердження та перед поїздкою.",
+    "focus": "Умовна подія та порядок інформування",
+    "question": "Ти організовуєш інформування учасників. Коли і як ти їх повідомляєш?"
+  },
+  "sitov-b2-hotel-ruhiges-zimmer": {
+    "goal": "Попроси змінити номер, називаючи конкретне джерело незручності.",
+    "explanation": "«Sofern» додає важливу умову до запропонованого рішення. Питання уточнює тривалість зміни, а не припускає доступність номера на сьогодні.",
+    "focus": "Обґрунтоване побажання та додаткова умова",
+    "question": "Ти хочеш залишитися в тихішому номері на решту днів. Що ти запитуєш?"
+  },
+  "sitov-b2-hotel-spaete-anreise": {
+    "goal": "Уточни передавання ключа поза оголошеним часом роботи стійки.",
+    "explanation": "«Voraussichtlich» враховує можливу зміну розкладу. «Trotz» називає перешкоду, яку долають завдяки заздалегідь узгодженому передаванню ключа.",
+    "focus": "Приблизний час прибуття та доступ попри перешкоду",
+    "question": "Ти очікуєш прибути о 23:00. Про що ти домовляєшся?"
+  },
+  "sitov-b2-hotel-rechnung-firma": {
+    "goal": "Вчасно назви потрібні дані для рахунку.",
+    "explanation": "Підрядне речення часу ставить передавання даних перед видачею рахунку. Пасивний стан описує бажаний стан документа, не припускаючи подальшої процедури виправлення.",
+    "focus": "Пасивний стан і своєчасне передавання даних",
+    "question": "Рахунок має бути адресований твоєму роботодавцеві. Що ти кажеш?"
+  },
+  "sitov-b2-hotel-gepaeck-aufbewahren": {
+    "goal": "Організаційно розділи звільнення номера та пізніше отримання багажу.",
+    "explanation": "«Obwohl» поєднує два різні терміни. Відповідь розрізняє звільнення номера та зберігання багажу й дотримується обох часових меж.",
+    "focus": "Різні терміни та «sofern»",
+    "question": "Твій потяг відправляється о 17:00. Яка домовленість підходить?"
+  },
+  "sitov-b2-hotel-auschecken-verlaengern": {
+    "goal": "Запитай про можливе продовження, не вважаючи його вже підтвердженим.",
+    "explanation": "«Falls» ставить продовження в залежність від плану використання номера. «Jedoch» показує, що непідтверджена можливість ще не замінює попередньої домовленості.",
+    "focus": "Нереальна умова та підтверджений план",
+    "question": "Ти хочеш виселитися пізніше, але потребуєш надійного плану. Що ти кажеш?"
+  },
+  "sitov-b2-kleidung-laenge-aendern": {
+    "goal": "Запитай про зміну, яка розв’яже конкретну проблему посадки одягу.",
+    "explanation": "«Während» розділяє дві властивості посадки. «Kürzen lassen» означає замовити вкорочення; умова захищає частину, яка вже підходить.",
+    "focus": "Порівняння властивостей і «lassen»",
+    "question": "Ти хочеш змінити лише довжину. Яке прохання підходить?"
+  },
+  "sitov-b2-kleidung-material-etikett": {
+    "goal": "Обґрунтуй запитання про матеріал справжнім маркуванням.",
+    "explanation": "Дієприкметникове означення «angegebenen» указує на підтверджені дані. Питання з’ясовує справжню частку, а не визначає її за загальною назвою тканини.",
+    "focus": "Дієприкметникове означення та порівняння на основі даних",
+    "question": "Ти хочеш знати точну частку бавовни. Що ти запитуєш?"
+  },
+  "sitov-b2-kleidung-lieferfrist": {
+    "goal": "Уточни, чи може замовлення надійти вчасно.",
+    "explanation": "«Voraussichtlich» робить строк доставки орієнтовним. «Daher» виводить із порівняння часу конкретний пошук доступної альтернативи.",
+    "focus": "Орієнтовний термін і обґрунтована альтернатива",
+    "question": "Тобі потрібен костюм за сім днів. Яка відповідь підходить?"
+  },
+  "sitov-b2-kleidung-umtausch-bedingung": {
+    "goal": "Уточни названі умови обміну перед купівлею подарунка.",
+    "explanation": "«Sollte» тут описує можливий майбутній випадок. Відповідь враховує лише конкретно названі умови й не виводить із них загальних прав на обмін.",
+    "focus": "Можливий випадок з «sollte» та виконання умов",
+    "question": "Ти купуєш сорочку для брата. Що ти підтверджуєш працівникові?"
+  },
+  "sitov-b2-kleidung-jacke-abwaegen": {
+    "goal": "Зістав вагу й місце для речей відповідно до свого використання.",
+    "explanation": "«Obwohl» визнає перевагу іншого варіанта. «Ohnehin» показує, що власний рюкзак робить цю перевагу менш важливою для конкретного використання.",
+    "focus": "Оцінка критеріїв і «ohnehin»",
+    "question": "Ти й так носиш рюкзак і хочеш легку куртку. Що підходить?"
+  },
+  "sitov-b2-markt-preis-gewicht": {
+    "goal": "Порівняй пропозиції за однакової кількості товару.",
+    "explanation": "«Lassen sich» описує можливість порівняння. Однакова кількість товару дає змогу об’єктивно порівняти пропозиції, не визначаючи особистого рішення про покупку.",
+    "focus": "Можливість порівняння з «lassen sich» і спільна одиниця кількості",
+    "question": "Ти хочеш врахувати різницю в кількості. Яке питання підходить?"
+  },
+  "sitov-b2-markt-herkunft-nachweis": {
+    "goal": "Запитай про конкретне походження, а не про загальне твердження.",
+    "explanation": "«Während» протиставляє дві групи. «Jeweilige» і «einzelnen» вимагають визначення походження для кожної пропозиції, а не непідтвердженого твердження про весь асортимент.",
+    "focus": "Детальне порівняння та визначення походження",
+    "question": "Ти хочеш обрати лише місцеві фрукти. Що ти запитуєш?"
+  },
+  "sitov-b2-markt-menge-verkleinern": {
+    "goal": "Попри вигідну пропозицію більшої кількості попроси саме потрібну кількість.",
+    "explanation": "«Auch wenn» визнає вигоду в ціні. Доречна відповідь дотримується запропонованого вибору кількості та прямо названих для нього цінових умов.",
+    "focus": "Вибір кількості з визнанням іншої переваги та чітка потреба",
+    "question": "Тобі потрібні лише пів кілограма. Яка відповідь підходить?"
+  },
+  "sitov-b2-markt-eigener-behaelter": {
+    "goal": "Уточни порядок наповнення контейнера, який ти приніс.",
+    "explanation": "«Bevor» упорядковує зважування й наповнення. Обидві пасивні форми зосереджують увагу на процедурі; «damit» пояснює мету записаної ваги порожнього контейнера.",
+    "focus": "Часовий порядок і пасивний стан",
+    "question": "Ти хочеш скористатися своїм порожнім контейнером. Що ти робиш спочатку?"
+  },
+  "sitov-b2-markt-abholung-ende": {
+    "goal": "Домовся про реалістичний час отримання до розбирання ятки.",
+    "explanation": "Пасивний стан описує часові межі роботи ятки. Обраний час отримання дає змогу передати товар у межах обіцяного часу до початку розбирання.",
+    "focus": "Пасивний стан і отримання до часової межі",
+    "question": "Ти можеш прийти о 12:30. Яка домовленість підходить?"
+  },
+  "sitov-b2-stadt-buergerbuero-termin": {
+    "goal": "Уточни, хто відповідає за вже заброньований прийом.",
+    "explanation": "«Während» розрізняє дві сфери відповідальності. Пасивний стан описує послугу стійки, а «daher» веде до дії, що випливає з пояснення.",
+    "focus": "Зіставлення сфер відповідальності та пасивний стан",
+    "question": "Ти маєш прийом для реєстрації місця проживання. Куди ти йдеш?"
+  },
+  "sitov-b2-stadt-treffpunkt-baustelle": {
+    "goal": "Запропонуй альтернативне місце зустрічі, до якого можна однозначно дістатися.",
+    "explanation": "Дієприкметникове означення «vereinbarte» указує на попередню домовленість. Зміна місця та її чітке оголошення розв’язують проблему, спричинену будівельними роботами.",
+    "focus": "Обґрунтування зміни місця зустрічі та мета",
+    "question": "Зазвичай твоя група зустрічається біля головного входу. Яке повідомлення підходить?"
+  },
+  "sitov-b2-stadt-formular-abgrenzen": {
+    "goal": "Запитай про форму для своєї конкретної адміністративної справи.",
+    "explanation": "«Scheint» обережно формулює оцінку. Відповідь враховує розрізнення, пояснене працівником, і запитує про саме ту форму, яка підходить.",
+    "focus": "Обережна оцінка та розрізнення адміністративних справ",
+    "question": "Ти вперше переїжджаєш сюди з іншого міста. Що ти запитуєш?"
+  },
+  "sitov-b2-stadt-veranstaltung-einlass": {
+    "goal": "Під час планування розрізняй початок події та раніший час входу.",
+    "explanation": "«Obwohl» пояснює, чому раннє прибуття доречне. Відповідь розрізняє два прямо названі в розмові моменти й враховує додаткові дії.",
+    "focus": "Розрізнення двох моментів часу та мета",
+    "question": "Ти хочеш здати куртку без поспіху. Коли ти приходиш?"
+  },
+  "sitov-b2-stadt-verkehrsdiskussion": {
+    "goal": "Долучися до місцевого обговорення з конструктивною пропозицією.",
+    "explanation": "«Auch wenn» визнає перевагу перед тим, як додати інший важливий аспект. Konjunktiv II позначає запропоноване узгодження інтересів як можливе рішення.",
+    "focus": "Конструктивне заперечення та узгодження інтересів",
+    "question": "Ти підтримуєш ідею, але хочеш уможливити доставки. Що ти пропонуєш?"
+  }
+}

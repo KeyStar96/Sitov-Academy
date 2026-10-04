@@ -181,7 +181,11 @@ export default function VocabCardSession({ learnerId, level, cards, translations
     finalized.current = false
   }
 
-  useEffect(() => { scrollLearningWorkspace(workspace.current) }, [index, round.number])
+  useEffect(() => {
+    // Embedded cards retain the learner's document position across words.
+    // Their bodies are recreated at scrollTop 0; the stable frame does not move.
+    if (!workspace.current?.closest(".learning-screen[data-presentation='embedded']")) scrollLearningWorkspace(workspace.current)
+  }, [index, round.number])
 
   // Ohne ausdrückliche Größe (z. B. direkter Aufruf über /train) gilt die auf
   // diesem Gerät gespeicherte Wahl — aber nur, solange noch nichts beantwortet ist.
@@ -456,6 +460,9 @@ export default function VocabCardSession({ learnerId, level, cards, translations
    * Regel erneut ab (R5).
    */
   const canChooseMode = current?.mode === 'learner_choice'
+  // Keep the mode row in the same place when a round changes direction or phase.
+  // A round that only offers flashcards does not need an empty control row.
+  const reservesStudyMode = plan.cards.some(card => card.mode === 'learner_choice')
   const effectiveMode: StudyMode = canChooseMode ? preferredMode : current?.mode === 'flashcard' ? 'flashcard' : 'typed'
   const isFlashcard = effectiveMode === 'flashcard'
   // Der Wechsel des Weges deckt nichts auf: Die nächste Ansicht fängt wieder
@@ -476,6 +483,7 @@ export default function VocabCardSession({ learnerId, level, cards, translations
   const flipBackRef = useRef<HTMLDivElement>(null)
 
   const flipFrontRef = useRef<HTMLDivElement>(null)
+  const cardGesture = useRef<{ cardKey: string; pointerId: number; x: number; y: number; suppressClick: boolean } | null>(null)
 
   function revealFlashcard() {
     setSitovRevealedCardKey(item?.key ?? null)
@@ -499,7 +507,45 @@ export default function VocabCardSession({ learnerId, level, cards, translations
     requestAnimationFrame(() => flipFrontRef.current?.focus({ preventScroll: true }))
   }
 
+  function onCardPointerDown(event: React.PointerEvent<HTMLElement>) {
+    // A new tap starts fresh after a cancelled pan; do not capture the pointer
+    // or prevent defaults because the card body needs native scrolling.
+    cardGesture.current = null
+    if (!item || event.button > 0 || event.isPrimary === false || !(event.target instanceof Element)
+      || event.target.closest('button, a, input, textarea, select, label, audio, [data-card-interactive]')) return
+    const body = event.target.closest<HTMLElement>('.learning-card-content')
+    let scrollbar = false
+    if (body) {
+      const rect = body.getBoundingClientRect()
+      const verticalGutter = body.offsetWidth - body.clientWidth
+      const horizontalGutter = body.offsetHeight - body.clientHeight
+      const rtl = getComputedStyle(body).direction === 'rtl'
+      scrollbar = body.scrollHeight > body.clientHeight && verticalGutter > 0
+        && (rtl ? event.clientX <= rect.left + verticalGutter : event.clientX >= rect.right - verticalGutter)
+        || body.scrollWidth > body.clientWidth && horizontalGutter > 0 && event.clientY >= rect.bottom - horizontalGutter
+    }
+    cardGesture.current = { cardKey: item.key, pointerId: event.pointerId, x: event.clientX, y: event.clientY, suppressClick: scrollbar }
+  }
+
+  function onCardPointerMove(event: React.PointerEvent<HTMLElement>) {
+    const gesture = cardGesture.current
+    if (!gesture || gesture.cardKey !== item?.key || gesture.pointerId !== event.pointerId) return
+    if (Math.hypot(event.clientX - gesture.x, event.clientY - gesture.y) > 8) gesture.suppressClick = true
+  }
+
+  function onCardPointerCancel(event: React.PointerEvent<HTMLElement>) {
+    const gesture = cardGesture.current
+    if (gesture && gesture.cardKey === item?.key && gesture.pointerId === event.pointerId) gesture.suppressClick = true
+  }
+
+  function onCardScroll() {
+    if (cardGesture.current && cardGesture.current.cardKey === item?.key) cardGesture.current.suppressClick = true
+  }
+
   function onCardClick(event: React.MouseEvent<HTMLElement>) {
+    const gesture = cardGesture.current
+    cardGesture.current = null
+    if (event.detail !== 0 && gesture?.cardKey === item?.key && gesture?.suppressClick) return
     if (!(event.target instanceof Element)
       || event.target.closest('button, a, input, textarea, select, label, audio, [data-card-interactive]')) return
     // Markierter Text ist kein Tipp zum Umdrehen.
@@ -510,13 +556,14 @@ export default function VocabCardSession({ learnerId, level, cards, translations
   function onCardKeyDown(event: React.KeyboardEvent<HTMLDivElement>) {
     if (event.target !== event.currentTarget || (event.key !== 'Enter' && event.key !== ' ')) return
     event.preventDefault()
+    cardGesture.current = null
     turnCard()
   }
 
   return (
     <LearningScreen title={t('title')}
       subtitle={current ? lessonLabel(current.card.lesson, t) : undefined}
-      progress={queue.length ? index / queue.length * 100 : 100} onExit={goBack} t={t} workspaceRef={workspace}>
+      progress={queue.length ? index / queue.length * 100 : 100} onExit={goBack} t={t} workspaceRef={workspace} sitovStableFrame>
       {!current ? remaining > 0
         ? <RoundBreak key={round.number} lang={uiLanguage} round={round.number} rounds={totalRounds} roundCards={round.length}
             done={done} total={plan.cards.length} nextCount={roundLimit(size, remaining)} moves={moves.slice(roundMovesFrom)}
@@ -535,11 +582,13 @@ export default function VocabCardSession({ learnerId, level, cards, translations
         <SessionBoxMoves lang={uiLanguage} moves={moves} />
         <button type="button" className="learning-button learning-button-primary" onClick={goBack}>{t('lernkasten_back')}</button>
       </SitovMotionStage> : <>
-        <div className="learning-meta">
+        <div className="learning-meta learning-session-meta">
           <div className="learning-meta-pills">
-            {current.originLevel && <span className="learning-pill" data-testid="carryover-origin">{carryoverTranslator(uiLanguage)('origin', { level: current.originLevel })}</span>}
             <span className="learning-pill">{t(isSentence ? 'sentence_format' : isToGerman ? 'direction_to_de' : 'direction_from_de')}</span>
-            {isRetry && <span className="learning-pill learning-pill-retry">{t('retry_label')}</span>}
+            {(current.originLevel || isRetry) && <div className="learning-meta-flags">
+              {current.originLevel && <span className="learning-pill" data-testid="carryover-origin">{carryoverTranslator(uiLanguage)('origin', { level: current.originLevel })}</span>}
+              {isRetry && <span className="learning-pill learning-pill-retry">{t('retry_label')}</span>}
+            </div>}
           </div>
           <LearningStats label={`${totalRounds > 1 ? `${s('round_label', { round: round.number, rounds: totalRounds })}, ` : ''}${t('card_progress', { current: index + 1, total: queue.length })}, ${t('phase_label', { phase: current.phase })}`}
             items={[
@@ -547,11 +596,12 @@ export default function VocabCardSession({ learnerId, level, cards, translations
               { label: t('stat_card'), value: `${index + 1}/${queue.length}` }, { label: t('stat_phase'), value: `${current.phase}/6` },
             ]} />
         </div>
-        {isRetry && !answerResult && <p className="learning-mode-locked" role="note">{t('retry_hint')}</p>}
         {/* Nur wo es wirklich eine Wahl gibt, steht der Umschalter. Karten mit
             nur einem Weg bleiben ohne Erklärtext — die Karte selbst zeigt, was zu tun ist. */}
-        {!answerResult && !saveFailed && canChooseMode && <StudyModeToggle mode={preferredMode} disabled={reviewPending} t={t}
-          onChange={mode => { setPreferredMode(mode); saveStudyMode(mode) }} />}
+        {reservesStudyMode && <div className="learning-session-mode-slot">
+          {!answerResult && !saveFailed && canChooseMode && <StudyModeToggle mode={preferredMode} disabled={reviewPending} t={t}
+            onChange={mode => { setPreferredMode(mode); saveStudyMode(mode) }} />}
+        </div>}
         {/* Buehnenwechsel: Karte und Aktionsflaeche blenden als ein Block ueber,
             statt dass die Karte stehen bleibt und nur die Knoepfe springen. */}
         <AnimatePresence mode="wait" initial={false}>
@@ -565,7 +615,9 @@ export default function VocabCardSession({ learnerId, level, cards, translations
             /* Karteikarte: Vorderseite fragt, Rückseite zeigt Frage und Lösung.
                Der `key` setzt die Drehung bei jeder neuen Karte hart zurück,
                damit die nächste Frage nicht rückwärts hereindreht. */
-            <article key={item.key} className={cn('learning-card learning-card-flip', styles.sitovCard, revealed && 'is-revealed', sitovRevealedCardKey === item.key && 'has-answer-content')} onClick={onCardClick}
+            <article key={item.key} className={cn('learning-card learning-card-flip learning-session-card', styles.sitovCard, revealed && 'is-revealed')} onClick={onCardClick}
+              onPointerDown={onCardPointerDown} onPointerMove={onCardPointerMove} onPointerUp={onCardPointerMove}
+              onPointerCancel={onCardPointerCancel} onScrollCapture={onCardScroll}
               onTransitionEnd={event => {
                 if (event.propertyName !== 'visibility') return
                 const face = revealed ? flipBackRef.current : flipFrontRef.current
@@ -578,6 +630,7 @@ export default function VocabCardSession({ learnerId, level, cards, translations
                 <div className="learning-flip-face learning-flip-front" aria-hidden={revealed} inert={revealed}>
                   <SitovVocabularyCardMark />
                   <div ref={flipFrontRef} tabIndex={0} onKeyDown={onCardKeyDown} aria-keyshortcuts="Enter Space" className={cn('learning-card-content', denseCard && 'learning-card-content-dense')}>
+                    {isRetry && <p className="learning-context" role="note">{t('retry_hint')}</p>}
                     {!isSentence && current.card.image_url && <img className="learning-card-image" src={current.card.image_url} alt={t('image_alt')} />}
                     <span className="learning-eyebrow">{isChunk && !isSentence ? ct('chunk') : t(isSentence ? 'sentence_format' : 'word_format')}</span>
                     <h2 lang={current.promptLanguage} className={cn(isSentence ? 'learning-sentence' : 'learning-word', !isToGerman && articleColorClass(current.card.article))}>{prompt}</h2>
@@ -607,9 +660,10 @@ export default function VocabCardSession({ learnerId, level, cards, translations
               </div>
             </article>
           ) : (
-          <article key={item.key} className={cn('learning-card', styles.sitovCard)} data-sitov-surface data-sitov-result={answerResult ? answerResult.correct ? 'correct' : 'review' : 'waiting'}>
+          <article key={item.key} className={cn('learning-card learning-session-card', styles.sitovCard)} data-sitov-surface data-sitov-result={answerResult ? answerResult.correct ? 'correct' : 'review' : 'waiting'}>
             {answerResult ? <SitovVocabularyFeedback key={`${item.key}-${answerResult.correct}`} correct={answerResult.correct} /> : <SitovVocabularyCardMark />}
             <div key={item.key} tabIndex={0} className={cn('learning-card-content', denseCard && 'learning-card-content-dense')}>
+              {isRetry && !answerResult && <p className="learning-context" role="note">{t('retry_hint')}</p>}
               {!isSentence && !answerResult && current.card.image_url && <img className="learning-card-image" src={current.card.image_url} alt={t('image_alt')} />}
               <span className="learning-eyebrow">{isChunk && !isSentence ? ct('chunk') : t(isSentence ? 'sentence_format' : 'word_format')}</span>
               <h2 lang={current.promptLanguage} className={cn(isSentence ? 'learning-sentence' : 'learning-word', !isToGerman && articleColorClass(current.card.article))}>{prompt}</h2>
@@ -660,6 +714,7 @@ export default function VocabCardSession({ learnerId, level, cards, translations
             </div>
           </article>
           )}
+          <div className="learning-session-action-slot" data-study-mode={isFlashcard ? 'flashcard' : 'typed'}>
           {saveFailed ? <button type="button" className="learning-button learning-button-primary learning-button-wide" onClick={saveConflict ? () => window.location.reload() : retry}>{saveConflict ? checkpointCopy.reload : t('error_retry')}</button> : answerResult
             ? <button type="button" className="learning-button learning-button-primary learning-button-wide" onClick={() => advance()}>{index + 1 < queue.length ? t('next_card') : remaining > 0 ? s('round_finish') : t('finish_session')}</button>
             : isFlashcard
@@ -676,6 +731,7 @@ export default function VocabCardSession({ learnerId, level, cards, translations
               <textarea id="vocabulary-answer" aria-describedby={!isSentence && isToGerman && current.card.article && current.card.article !== 'none' ? 'vocabulary-article-hint' : undefined} lang={answerLanguage} value={answer} onChange={event => { drafts.current.set(current.progressId, event.target.value); setAnswer(event.target.value) }} rows={isSentence ? 2 : 1} maxLength={4000} autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck={false} disabled={reviewPending} />
               <button className="learning-button learning-button-primary" disabled={reviewPending || !answer.trim().length}>{t('check_sentence')}</button>
             </form>}
+          </div>
           </SitovMotionStage>
           </motion.div>
         </AnimatePresence>

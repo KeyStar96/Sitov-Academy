@@ -22,6 +22,10 @@
 .usage[data-presentation='trainer'] :global([data-card-interactive] label > span:first-child) { display: none; }
 .usage[data-presentation='trainer'] .usageTab { padding-inline: .35rem; overflow-wrap: normal; }
 .usageLabel { display: block; margin-bottom: .2rem; color: var(--muted); font-size: .8125rem; font-weight: 650; }
+@media (max-width: 639px) {
+  .usage[data-presentation='trainer'] .usagePanel { padding: .4rem .65rem .5rem; }
+  .usage[data-presentation='trainer'] .usagePanel > :global(.mt-2) { margin-top: .25rem; }
+}
 :is(.filterOption, .usageTab):focus-visible { outline: 3px solid var(--violet); outline-offset: 2px; }
 @media (prefers-reduced-motion: reduce) { .usageTab { transition: none; } }
 :global(html.high-contrast) :is(.badge, .filter, .filterPill, .usage, .usageTab[aria-selected='true']) { border-color: currentColor; background: var(--surface); box-shadow: none; }

@@ -3,6 +3,7 @@ import { z } from 'zod'
 const id = z.string().uuid()
 const shortText = z.string().min(1).max(500)
 const text = z.string().min(1).max(3000)
+const sitovUiLocaleSchema = z.enum(['de', 'en', 'ru', 'uk', 'tr'])
 const stepId = z.string().min(1).max(80).regex(/^[a-zA-Z0-9_-]+$/)
 export const dailyQuestDateSchema = z.string().regex(/^\d{4}-\d{2}-\d{2}$/)
 export const dailyQuestLevelSchema = z.enum(['A1', 'A2', 'B1', 'B2', 'C1', 'C2'])
@@ -24,11 +25,13 @@ export const dailyQuestStepSchema = z.discriminatedUnion('kind', [
   z.object({ id: stepId, kind: z.literal('sentence_build'), speakerId: stepId, prompt: text,
     pieces: z.array(z.object({ id: stepId, text: shortText })).min(2).max(20), audioText: text }),
   z.object({ id: stepId, kind: z.literal('dialogue_choice'), speakerId: stepId, prompt: text,
+    sitovInstruction: text.optional(), sitovPromptLocale: sitovUiLocaleSchema.optional(),
     options: z.array(z.object({ id: stepId, text })).min(2).max(8), audioText: text }),
 ])
 /** An explicit allowlist: authoring solutions and row ownership never reach the client. */
 export const dailyQuestSchema = z.object({
   id, date: dailyQuestDateSchema, status: z.enum(['active', 'completed', 'skipped']),
+  sitovUiLocale: sitovUiLocaleSchema.optional(),
   level: dailyQuestLevelSchema, templateKey: shortText, title: shortText, subtitle: text,
   scene: z.object({ backgroundKey: z.string().regex(/^[a-z0-9_-]{1,80}$/),
     backgroundImage: z.string().max(300).regex(/^\/Bilder\/deutschreise\/[a-z0-9_/-]+\.(png|webp|jpe?g)$/), imageAlt: shortText,

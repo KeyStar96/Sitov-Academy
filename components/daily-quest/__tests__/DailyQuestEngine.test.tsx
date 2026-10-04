@@ -4,6 +4,7 @@ import DailyQuestEngine, { type DailyQuestActions } from '../DailyQuestEngine'
 import BakeryJourney from '@/components/journey/BakeryJourney'
 import { cachedNeuralAudio, resolveNeuralAudio } from '@/lib/audio/neural-client'
 import type { DailyQuest, DailyQuestStepResult, DailyQuestStreak } from '@/lib/daily-quest-contract'
+import { getSitovDailyQuestPresentationCopy } from '@/lib/sitov-daily-quest-presentation'
 import { getDailyQuestCopy } from '@/lib/daily-quest-i18n'
 import { skipDailyQuest } from '@/app/actions/daily-quests'
 
@@ -239,4 +240,38 @@ it('fixes the original bakery word/scene audio-source regression', async () => {
   await waitFor(() => expect(speak).toHaveBeenLastCalledWith('Das Brötchen. Ein Brötchen.'))
   fireEvent.click(screen.getByRole('button', { name: 'Deutsche Referenz anhören' }))
   await waitFor(() => expect(speak).toHaveBeenLastCalledWith('Guten Morgen! Was darf es sein?'))
+})
+
+
+it.each(['en', 'ru', 'uk', 'tr'])('uses UI-language directions, feedback and completion while exercises stay German (%s)', async locale => {
+  const copy = getDailyQuestCopy(locale)
+  const presentation = getSitovDailyQuestPresentationCopy(locale)
+  const initial = quest()
+  initial.completedStepIds = ['words']
+  const callbacks = actions()
+  callbacks.submit.mockResolvedValue({ data: { success: true, correct: false, feedback: 'Deutsche Rückmeldung.', quest: initial, streak } })
+  const view = render(<DailyQuestEngine initialQuest={initial} initialStreak={streak} locale={locale} dashboardHref={`/${locale}/dashboard`} actions={callbacks} />)
+  expect(screen.getByText(presentation.build)).toBeInTheDocument()
+  expect(screen.queryByText('Baue deine Bestellung.')).not.toBeInTheDocument()
+  expect(screen.getByText(copy.sentencePlaceholder)).toHaveAttribute('lang', locale)
+  expect(screen.getByRole('button', { name: 'Einen Tee' })).toHaveAttribute('lang', 'de')
+  fireEvent.click(screen.getByRole('button', { name: 'Einen Tee' }))
+  fireEvent.click(screen.getByRole('button', { name: 'bitte' }))
+  fireEvent.click(screen.getByRole('button', { name: copy.check }))
+  await waitFor(() => expect(screen.getByText(presentation.buildWrong)).toBeInTheDocument())
+  expect(screen.queryByText('Deutsche Rückmeldung.')).not.toBeInTheDocument()
+  view.unmount()
+  render(<DailyQuestEngine initialQuest={{ ...initial, status: 'completed' }} initialStreak={streak} locale={locale} dashboardHref={`/${locale}/dashboard`} actions={callbacks} />)
+  expect(screen.getByText(presentation.completionText)).toBeInTheDocument()
+  expect(screen.queryByText('Du hast deinen Tee bestellt.')).not.toBeInTheDocument()
+})
+
+it('keeps actual German character questions alongside localized dialogue directions', () => {
+  const initial = quest()
+  initial.completedStepIds = ['words', 'sentence']
+  initial.steps[2] = { ...initial.steps[2] as Extract<typeof initial.steps[number], { kind: 'dialogue_choice' }>, prompt: 'Möchten Sie Zucker?' }
+  render(<DailyQuestEngine initialQuest={initial} initialStreak={streak} locale="en" dashboardHref="/en/dashboard" actions={actions()} />)
+  expect(screen.getByText(getSitovDailyQuestPresentationCopy('en').dialogue)).toBeInTheDocument()
+  expect(screen.getAllByText('Möchten Sie Zucker?')[0]).toHaveAttribute('lang', 'de')
+  expect(screen.getByRole('button', { name: 'Ja, bitte.' }).querySelector('[lang="de"]')).toBeInTheDocument()
 })

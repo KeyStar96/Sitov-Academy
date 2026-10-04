@@ -14,7 +14,7 @@ const params = Promise.resolve({ lang: 'de' })
 it('renders a genuine staff template, its preview notice and all CEFR choices', async () => {
   jest.mocked(loadDailyQuestPreview).mockResolvedValue({ data: { success: true, quest: dailyQuestFixture, answerKey: { steps: { build: { accepted: [['i', 'want', 'bread']] }, dialogue: { optionId: 'yes' } } } } })
   render(await DailyQuestPreviewPage({ params, searchParams: Promise.resolve({ level: 'B2' }) }))
-  expect(loadDailyQuestPreview).toHaveBeenCalledWith('B2')
+  expect(loadDailyQuestPreview).toHaveBeenCalledWith('B2', undefined, 'de')
   expect(screen.getByRole('heading', { name: 'Beim Bäcker' })).toBeInTheDocument()
   expect(screen.getByText(getDailyQuestCopy('de').previewNotice)).toBeInTheDocument()
   expect(screen.getByRole('link', { name: 'B2' })).toHaveAttribute('aria-current', 'page')
@@ -34,7 +34,7 @@ it('redirects an anonymous visitor to login while preserving the requested previ
 it.each(['A1.1', 'not-a-level', ['A1', 'C2']])('uses a safe A1 fallback for invalid level %s', async level => {
   jest.mocked(loadDailyQuestPreview).mockResolvedValue({ error: 'no_template' })
   render(await DailyQuestPreviewPage({ params, searchParams: Promise.resolve({ level }) }))
-  expect(loadDailyQuestPreview).toHaveBeenCalledWith('A1')
+  expect(loadDailyQuestPreview).toHaveBeenCalledWith('A1', undefined, 'de')
   expect(screen.getByRole('link', { name: getDailyQuestCopy('de').dashboard })).toHaveAttribute('href', '/de/admin')
 })
 
@@ -46,7 +46,7 @@ it('lets staff choose an individual journey while retaining the selected CEFR fa
     { templateKey, level: 'A1', day: 3, title: 'Eine Fahrkarte kaufen', subtitle: 'Am Bahnhof' },
   ] } })
   render(await DailyQuestPreviewPage({ params, searchParams: Promise.resolve({ level: 'A1', template: templateKey }) }))
-  expect(loadDailyQuestPreview).toHaveBeenCalledWith('A1', templateKey)
+  expect(loadDailyQuestPreview).toHaveBeenCalledWith('A1', templateKey, 'de')
   expect(screen.getByRole('combobox', { name: 'Aufgabe auswählen' })).toHaveValue(templateKey)
   expect(screen.getByRole('option', { name: '3. Eine Fahrkarte kaufen' })).toBeInTheDocument()
   expect(screen.getByText('2 verfügbare Aufgaben')).toBeInTheDocument()

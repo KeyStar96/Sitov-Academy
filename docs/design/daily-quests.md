@@ -23,7 +23,7 @@ backup and final HTTP evidence; this document describes the release design.
   with a persistent entry action until completion.
 - Mobile controls, focus changes, reduced motion, theme and high contrast use
   the existing UI infrastructure. UI labels cover de, en, ru, uk and tr;
-  authored learning content stays German. No microphone or scoring AI is used.
+  directions, goals, grammar explanations and completion copy use the interface language. German scene transcripts, vocabulary, sentence pieces, dialogue answers and actual character questions stay German. No microphone or scoring AI is used.
 
 ## Starter templates and the 100-day catalogue
 
@@ -305,3 +305,32 @@ have no horizontal overflow. The screenshots are
 were removed again; no unauthenticated authoring route ships with the catalogue.
 The local completion screenshot is
 [`sitov-daily-quest-b2-mobile.jpg`](./sitov-daily-quest-b2-mobile.jpg).
+
+## Language boundary (2026-10-04)
+
+Students must understand how to do a task in their selected interface language,
+including A1.1. The 400 catalogue journeys have reviewed English, Russian,
+Ukrainian and Turkish presentation sidecars in `content/daily-quests/locales/`.
+The six starters use localized directions and learning goals as well.
+German task titles and the actual language exercises remain German.
+
+`content/daily-quests/sitov-question-roles.json` records whether each dialogue
+prompt is a direction or a German exercise question. B1 host utterances remain
+German; B2 instructions include all contextual conditions in the UI language.
+Instructions such as “Welche Antwort passt?” use the UI language, while concrete
+comprehension questions such as “Wann fährt der Zug?” stay German with a localized
+instruction beside them. Quoted German grammar examples stay German inside
+localized explanations.
+
+The server-only localization layer overlays the validated DTO at load, grading
+and completion. Source checks protect frozen versions. It never rewrites database
+snapshots, IDs, answers, progress, streaks or German audio text. Correct-answer
+explanations are translated only after the authenticated RPC grades the station;
+the sidecars and authoring sources must never be imported into client components.
+UI language is validated before server-action mutations. Changing interface
+language also changes directions when a quest resumes.
+
+New or revised directions require all four sidecar translations and a reviewed
+question role. Keep locale resources synchronized with the authored source;
+localization coverage and feedback privacy are checked by
+`__tests__/sitov-daily-quest-localization.test.ts`.

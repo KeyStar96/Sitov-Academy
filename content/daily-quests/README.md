@@ -6,7 +6,7 @@ A1, A2, B1 and B2. Existing starter keys and learner records stay intact.
 Each JSON file contains 100 rows: five distinct situations for every setting in
 `scripts/lib/sitov-daily-quest-settings.mjs`. Rows have stable `slug`, German
 `title`, actionable `goal`, `setting`, contextual `intro`, three `words`, ordered
-`pieces`, a dialogue `question`, three `options`, `explanation` and `focus`.
+`pieces`, a dialogue `question`, three `options`, `explanation` and `focus`. Directions and explanations are translated into the selected interface language; German exercises remain German.
 `options[0]` is the reviewed correct response **in this server-side source only**.
 The generator shuffles public options and writes the key into the private schema.
 Students receive neither this authoring source nor correctness flags.
@@ -50,3 +50,19 @@ are not acceptable. Every new scene requires visual review, a recorded prompt an
 an asset checksum in `sitov-scenes-provenance.json`. Verify the shipped artwork
 with `node scripts/check-sitov-daily-quest-scenes.mjs`; this only checks files and
 never regenerates or overwrites them. Preserve the PNGs during application rollback.
+
+## Interface-language presentation
+
+Provide goal, explanation, focus and question translations for `en`, `ru`, `uk`
+and `tr` in `locales/sitov-<locale>.json`, keyed by the unchanged template key.
+German lexical examples in explanations must remain German. Review the question
+role in `sitov-question-roles.json`: `instruction` renders in the UI language;
+`german` denotes an actual character utterance or a German comprehension question.
+Include every condition of a contextual instruction in its translation.
+
+These sidecars are server-only because correct-answer explanations may reveal
+solutions. The student receives the relevant explanation only after grading.
+Never import authoring JSON or locale sidecars into a client component. General
+UI copy belongs in `lib/sitov-daily-quest-presentation.ts`. The server overlays
+validated display fields; no frozen assignment or audio transcript is rewritten.
+Run the localization coverage/privacy suite after any authoring change.

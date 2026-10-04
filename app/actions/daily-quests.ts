@@ -8,9 +8,10 @@ import {
   submitDailyQuestAnswer, finishDailyQuest, dismissDailyQuest,
 } from '@/lib/daily-quest-server'
 
+const sitovUiLocaleSchema = z.enum(['de', 'en', 'ru', 'uk', 'tr'])
 const assignmentIdSchema = z.string().uuid()
 
-export async function getDailyQuest() { return loadDailyQuest() }
+export async function getDailyQuest(sitovLocale = 'de') { return loadDailyQuest(sitovLocale) }
 export async function getDailyQuestStatus() { return loadDailyQuestStatus() }
 
 export async function setDailyQuestEnabled(enabled: unknown): Promise<DailyQuestResult<DailyQuestStatus>> {
@@ -24,16 +25,18 @@ export async function setDailyQuestEnabled(enabled: unknown): Promise<DailyQuest
   return result
 }
 
-export async function submitDailyQuestStep(input: unknown): Promise<DailyQuestResult<DailyQuestStepResult>> {
+export async function submitDailyQuestStep(input: unknown, sitovLocale: unknown = 'de'): Promise<DailyQuestResult<DailyQuestStepResult>> {
+  const sitovLanguage = sitovUiLocaleSchema.safeParse(sitovLocale)
   const parsed = dailyQuestSubmissionSchema.safeParse(input)
-  if (!parsed.success) return { error: 'invalid_input' } as const
-  return submitDailyQuestAnswer({ assignmentId: parsed.data.assignmentId, stepId: parsed.data.stepId, answer: parsed.data.answer })
+  if (!parsed.success || !sitovLanguage.success) return { error: 'invalid_input' } as const
+  return submitDailyQuestAnswer({ assignmentId: parsed.data.assignmentId, stepId: parsed.data.stepId, answer: parsed.data.answer }, sitovLanguage.data)
 }
 
-export async function completeDailyQuest(assignmentId: unknown): Promise<DailyQuestResult<DailyQuestMutation>> {
+export async function completeDailyQuest(assignmentId: unknown, sitovLocale: unknown = 'de'): Promise<DailyQuestResult<DailyQuestMutation>> {
+  const sitovLanguage = sitovUiLocaleSchema.safeParse(sitovLocale)
   const parsed = assignmentIdSchema.safeParse(assignmentId)
-  if (!parsed.success) return { error: 'invalid_input' } as const
-  const result = await finishDailyQuest(parsed.data)
+  if (!parsed.success || !sitovLanguage.success) return { error: 'invalid_input' } as const
+  const result = await finishDailyQuest(parsed.data, sitovLanguage.data)
   if (result.data) revalidatePath('/[lang]/dashboard', 'page')
   return result
 }

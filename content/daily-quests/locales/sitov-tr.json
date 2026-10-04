@@ -1,0 +1,2402 @@
+{
+  "sitov-a1-find-milk": {
+    "goal": "Bir ürünün nerede olduğunu sor.",
+    "explanation": "“Hinten links”, sütün bulunduğu yeri belirtir.",
+    "focus": "Yer bildiren ifadeler",
+    "question": "Nereye gidiyorsun?"
+  },
+  "sitov-a1-buy-apples": {
+    "goal": "İstediğin miktarı söyle.",
+    "explanation": "“Drei” doğru sayıyı belirtir; “Äpfel” çoğul biçimdir.",
+    "focus": "Sayılar ve çoğul",
+    "question": "Ne yanıt verirsin?"
+  },
+  "sitov-a1-check-price": {
+    "goal": "Bir ürünün fiyatını sor.",
+    "explanation": "“Wie viel”, bir ürünün fiyatını sormak için kullanılır.",
+    "focus": "“kosten” ile soru sözcüklü soru",
+    "question": "Ne kadar ödersin?"
+  },
+  "sitov-a1-pay-by-card": {
+    "goal": "Bir ödeme yöntemi seç.",
+    "explanation": "“Mit Karte”, kullanılabilen ödeme yöntemini belirtir.",
+    "focus": "Şimdiki zaman ve “mit”",
+    "question": "Ne söylersin?"
+  },
+  "sitov-a1-bring-bag": {
+    "goal": "Bir teklife yanıt ver.",
+    "explanation": "“Keine”, “Tüte” ismini olumsuz yapar.",
+    "focus": "“kein” ile olumsuzluk",
+    "question": "Hangi yanıt uygundur?"
+  },
+  "sitov-a1-free-table": {
+    "goal": "Oturabileceğin bir yeri sor.",
+    "explanation": "“Frei”, masayı kullanabileceğin anlamına gelir.",
+    "focus": "Evet-hayır sorusu",
+    "question": "Hangi yanıt uygundur?"
+  },
+  "sitov-a1-coffee-no-sugar": {
+    "goal": "Bir isteğini belirterek sipariş ver.",
+    "explanation": "“Ohne”, burada kahvede bulunmasını istemediğin şeyi belirtir.",
+    "focus": "Akkusativ ve “ohne”",
+    "question": "Ne yanıt verirsin?"
+  },
+  "sitov-a1-takeaway-tea": {
+    "goal": "Dışarıda içmek için sipariş ver.",
+    "explanation": "“Mitnehmen” ayrılabilen bir fiildir; “mit” cümlenin sonunda yer alır.",
+    "focus": "Ayrılabilen “mitnehmen” fiili",
+    "question": "Hangi yanıt uygundur?"
+  },
+  "sitov-a1-ask-bill": {
+    "goal": "Hesabı iste.",
+    "explanation": "“Die Rechnung”, ödeme yapmadan önce istenmesi gereken şeydir.",
+    "focus": "“möchten” yardımcı fiili",
+    "question": "Ne söylersin?"
+  },
+  "sitov-a1-find-toilet": {
+    "goal": "Bir yer tarifini anla.",
+    "explanation": "“Oben”, daha üstteki bir katı belirtir.",
+    "focus": "“wo” ve yer bildiren ifadeler",
+    "question": "Nereye gidiyorsun?"
+  },
+  "sitov-a1-departure-time": {
+    "goal": "Saati sor.",
+    "explanation": "“Um”, tam bir saat belirtilirken kullanılır.",
+    "focus": "Saat ve “abfahren”",
+    "question": "Tren ne zaman kalkıyor?"
+  },
+  "sitov-a1-right-platform": {
+    "goal": "Doğru peronu bul.",
+    "explanation": "“Vier” sayısı doğru peronu belirler.",
+    "focus": "Sayılar ve “auf”",
+    "question": "Hangi peronu kullanman gerekiyor?"
+  },
+  "sitov-a1-single-ticket": {
+    "goal": "Gideceğin yeri söyle.",
+    "explanation": "Artikelsiz şehir adlarıyla “nach” kullanılır.",
+    "focus": "“nach” ile gidilecek yeri belirtme",
+    "question": "Hangi yanıt uygundur?"
+  },
+  "sitov-a1-return-ticket": {
+    "goal": "İki yön için bilet iste.",
+    "explanation": "“Hin und zurück”, gidiş ve dönüşü birlikte kapsar.",
+    "focus": "Şimdiki zaman ve “auch”",
+    "question": "Ne sipariş edersin?"
+  },
+  "sitov-a1-delayed-train": {
+    "goal": "Bir gecikmeyi anla.",
+    "explanation": "“Später”, burada trenin geciktiği anlamına gelir.",
+    "focus": "Zaman bildiren ifadeler",
+    "question": "Şimdi ne biliyorsun?"
+  },
+  "sitov-a1-bus-destination": {
+    "goal": "Bir otobüs hattını kontrol et.",
+    "explanation": "Otobüs gideceğin yere gittiği için “einsteigen” uygundur.",
+    "focus": "Ayrılabilen “einsteigen” fiili",
+    "question": "Hangi yanıt uygundur?"
+  },
+  "sitov-a1-next-stop": {
+    "goal": "Bir sonraki durağı sor.",
+    "explanation": "“Heißt”, durağın adını sormak için kullanılır.",
+    "focus": "“heißen” ile soru sözcüklü soru",
+    "question": "Otobüsün bir sonraki durağı neresi?"
+  },
+  "sitov-a1-change-at-center": {
+    "goal": "Bir hat değişikliğini anla.",
+    "explanation": "“Umsteigen”, ulaşım aracını veya hattı değiştirmek demektir.",
+    "focus": "Ayrılabilen “umsteigen” fiili",
+    "question": "Otobüsü nerede değiştiriyorsun?"
+  },
+  "sitov-a1-show-ticket": {
+    "goal": "Bilet kontrolünde yanıt ver.",
+    "explanation": "“Hier, bitte”, elindeki bileti gösterirken söylenir.",
+    "focus": "“mein” iyelik artikeli",
+    "question": "Ne söylersin?"
+  },
+  "sitov-a1-offer-seat": {
+    "goal": "Birine oturması için yer teklif et.",
+    "explanation": "“Können”, burada bir olanak belirtir.",
+    "focus": "“können” yardımcı fiili",
+    "question": "Ona ne söylersin?"
+  },
+  "sitov-a1-request-menu": {
+    "goal": "Menüyü iste.",
+    "explanation": "“Die Speisekarte”, sunulan yemekleri gösterir.",
+    "focus": "“die” ile Akkusativ",
+    "question": "Önce ne sipariş edersin?"
+  },
+  "sitov-a1-vegetarian-meal": {
+    "goal": "Uygun bir yemek seç.",
+    "explanation": "“Kein Fleisch”, açıkça etsiz olduğu belirtilen sebze çorbasına uygundur.",
+    "focus": "Olumsuzluk ve yemek",
+    "question": "Ne sipariş etmek istersin?"
+  },
+  "sitov-a1-reserved-table": {
+    "goal": "Rezervasyonunu belirt.",
+    "explanation": "“Auf den Namen”, rezervasyonun hangi adla yapıldığını belirtir.",
+    "focus": "“haben” ve Akkusativ",
+    "question": "Ne söylersin?"
+  },
+  "sitov-a1-still-water": {
+    "goal": "İçeceğini seç.",
+    "explanation": "“Stilles Wasser”, karbondioksit yani gaz içermeyen sudur.",
+    "focus": "“möchten” ile istek belirtme",
+    "question": "Ne yanıt verirsin?"
+  },
+  "sitov-a1-shared-bill": {
+    "goal": "Nasıl ödeme yapacağınızı söyle.",
+    "explanation": "“Wir”, seni ve Omar'ı kapsar; “zusammen”, ödemenin birlikte yapılacağını belirtir.",
+    "focus": "“wir” kişi zamiri",
+    "question": "Hangi yanıt uygundur?"
+  },
+  "sitov-a1-pharmacy-hours": {
+    "goal": "Açılış saatini sor.",
+    "explanation": "“Ab acht Uhr”, en erken saat sekizde demektir.",
+    "focus": "“ab” ile saat belirtme",
+    "question": "Ne zaman gelebilirsin?"
+  },
+  "sitov-a1-prescription-counter": {
+    "goal": "Doğru belgeyi göster.",
+    "explanation": "“Dabei haben”, bir şeyi yanında getirmiş olmak demektir.",
+    "focus": "“haben” fiilinin şimdiki zaman biçimi",
+    "question": "Ne yanıt verirsin?"
+  },
+  "sitov-a1-pickup-name": {
+    "goal": "Siparişin hangi adla verildiğini söyle.",
+    "explanation": "“Für Lukas”, alıcıyı belirtir; “abholen” ayrılabilen bir fiildir.",
+    "focus": "Ayrılabilen “abholen” fiili",
+    "question": "Ne söylersin?"
+  },
+  "sitov-a1-pharmacy-receipt": {
+    "goal": "Bir fiş iste.",
+    "explanation": "“Den”, eril “Beleg” isminin Akkusativ artikelidir.",
+    "focus": "Eril isimlerde Akkusativ",
+    "question": "Hangi yanıt uygundur?"
+  },
+  "sitov-a1-wait-for-order": {
+    "goal": "Bir bekleme süresini anla.",
+    "explanation": "Perşembeden sonra cuma gelir; “am”, gün ile zamanı birleştirir.",
+    "focus": "“am” ile haftanın günleri",
+    "question": "Ne zaman teslim alıyorsun?"
+  },
+  "sitov-a1-appointment-time": {
+    "goal": "Randevunu belirt.",
+    "explanation": "“Mein”, kişinin kendi randevusunu belirtir.",
+    "focus": "“mein” iyelik artikeli",
+    "question": "Ne yanıt verirsin?"
+  },
+  "sitov-a1-insurance-card": {
+    "goal": "Danışmada yanıt ver.",
+    "explanation": "“Meine”, dişil “Karte” ismine aittir.",
+    "focus": "“meine” iyelik artikeli",
+    "question": "Hangi yanıt uygundur?"
+  },
+  "sitov-a1-waiting-room": {
+    "goal": "Doğru odayı bul.",
+    "explanation": "“In”, burada beklemen gereken odayı belirtir.",
+    "focus": "Basit yer bildirme",
+    "question": "Nerede bekliyorsun?"
+  },
+  "sitov-a1-spell-name": {
+    "goal": "Kısa bir adı harf harf söyle.",
+    "explanation": "Bir adı harf harf söylemek, harfleri doğru sırayla tek tek belirtmektir.",
+    "focus": "Alfabe ve ad",
+    "question": "Harf harf nasıl söylersin?"
+  },
+  "sitov-a1-followup-day": {
+    "goal": "Uygun bir gün seç.",
+    "explanation": "“Kann” ile kullanılan “kommen” mastarı cümlenin sonunda yer alır.",
+    "focus": "“können” yardımcı fiili",
+    "question": "Ne yanıt verirsin?"
+  },
+  "sitov-a1-send-letter": {
+    "goal": "Gönderini belirt.",
+    "explanation": "“Einen”, eril “Brief” isminin Akkusativ artikelidir.",
+    "focus": "“einen” ile Akkusativ",
+    "question": "Ne yanıt verirsin?"
+  },
+  "sitov-a1-parcel-weight": {
+    "goal": "Bir ağırlık bilgisini anla.",
+    "explanation": "“Wie schwer”, ağırlığı sormak için kullanılır.",
+    "focus": "Miktarlar ve ağırlık",
+    "question": "Paketin ağırlığı ne kadar?"
+  },
+  "sitov-a1-buy-stamp": {
+    "goal": "Bir posta pulu iste.",
+    "explanation": "“Eine”, dişil “Briefmarke” isminin önünde Akkusativ biçiminde yer alır.",
+    "focus": "“eine” ile Akkusativ",
+    "question": "Ne söylersin?"
+  },
+  "sitov-a1-correct-address": {
+    "goal": "Bir kapı numarasını ayırt et.",
+    "explanation": "“Zwanzig” ve “zwölf” farklı kapı numaralarıdır.",
+    "focus": "Sayıları ayırt etme",
+    "question": "Onun söylediğini nasıl düzeltirsin?"
+  },
+  "sitov-a1-collect-parcel": {
+    "goal": "Teslim alma belgesini göster.",
+    "explanation": "Paketi teslim alırken teslim alma belgesi, doğru paketin belirlenmesine yardımcı olur.",
+    "focus": "Yardımcı fiil ve mastar",
+    "question": "Hangi yanıt uygundur?"
+  },
+  "sitov-a1-find-atm": {
+    "goal": "Bir yerin nerede olduğunu sor.",
+    "explanation": "“Rechts neben”, belirtilen konumu anlatır.",
+    "focus": "“rechts” ile yer belirtme",
+    "question": "Nerede arıyorsun?"
+  },
+  "sitov-a1-take-queue-number": {
+    "goal": "Basit bir ricayı yerine getir.",
+    "explanation": "Önce numarayı alırsın, sonra beklersin.",
+    "focus": "“nehmen” fiilinin şimdiki zaman biçimi",
+    "question": "Önce ne yapıyorsun?"
+  },
+  "sitov-a1-bank-appointment": {
+    "goal": "Müsait olduğun bir zamanı söyle.",
+    "explanation": "“Zeit haben”, o zamanda müsait olmak demektir.",
+    "focus": "“Zeit haben” ve haftanın günü",
+    "question": "Hangi yanıt uygundur?"
+  },
+  "sitov-a1-request-printout": {
+    "goal": "Bir belge iste.",
+    "explanation": "“Ihn”, eril ifadeye gönderme yapar.",
+    "focus": "İstek ve nesne",
+    "question": "Ne yanıt verirsin?"
+  },
+  "sitov-a1-closed-counter": {
+    "goal": "Bir açılış saatini anla.",
+    "explanation": "Saat dokuzdan ona kadar bir saat vardır.",
+    "focus": "Saat ve zaman aralığı",
+    "question": "Şimdi hangisi uygundur?"
+  },
+  "sitov-a1-get-library-card": {
+    "goal": "Bir kart iste.",
+    "explanation": "“Einen”, eril “Ausweis” nesnesiyle kullanılır.",
+    "focus": "Akkusativ nesnesi",
+    "question": "Ne yanıt verirsin?"
+  },
+  "sitov-a1-borrow-book": {
+    "goal": "Ne ödünç almak istediğini söyle.",
+    "explanation": "“Ausleihen”, kitabı sınırlı bir süre için yanında götürmek demektir.",
+    "focus": "“möchten” yardımcı fiili",
+    "question": "Hangi yanıt uygundur?"
+  },
+  "sitov-a1-return-day": {
+    "goal": "Bir teslim tarihini anla.",
+    "explanation": "“Zurückbringen” ayrılabilen bir fiildir; “zurück” cümlenin sonunda yer alır.",
+    "focus": "Ayrılabilen “zurückbringen” fiili",
+    "question": "Onu ne zaman geri veriyorsun?"
+  },
+  "sitov-a1-quiet-area": {
+    "goal": "Bir kullanım kuralını anla.",
+    "explanation": "“Leise”, düşük ses düzeyini belirtir.",
+    "focus": "“leise” zarfı",
+    "question": "Hangi davranış uygundur?"
+  },
+  "sitov-a1-find-dictionaries": {
+    "goal": "Bir kitap türünün yerini sor.",
+    "explanation": "“Suchen”, burada Akkusativ nesnesi “ein Wörterbuch” ile kullanılır.",
+    "focus": "Akkusativ ile “suchen”",
+    "question": "Nereye gidiyorsun?"
+  },
+  "sitov-a1-borrow-stapler": {
+    "goal": "Bir iş arkadaşından bir şey iste.",
+    "explanation": "Bir zımba, iki kâğıdı birbirine tutturur.",
+    "focus": "“haben” ile soru",
+    "question": "Ne sorarsın?"
+  },
+  "sitov-a1-meeting-start": {
+    "goal": "Başlangıç saatini söyle.",
+    "explanation": "“Beginnt”, toplantının başlangıcını belirtir.",
+    "focus": "Saat ve “beginnen”",
+    "question": "Ne zaman başlıyor?"
+  },
+  "sitov-a1-printer-location": {
+    "goal": "Bir cihazı bul.",
+    "explanation": "“Im”, “in” ile “dem” sözcüklerinin birleşimidir.",
+    "focus": "“im” ile yer belirtme",
+    "question": "Nerede çıktı alıyorsun?"
+  },
+  "sitov-a1-call-colleague": {
+    "goal": "Bir telefon numarasını sor.",
+    "explanation": "“Anrufen” ayrılabilen bir fiildir; Tim'in dahili numarası yüz on üçtür.",
+    "focus": "Ayrılabilen “anrufen” fiili",
+    "question": "Hangi numarayı çeviriyorsun?"
+  },
+  "sitov-a1-work-end": {
+    "goal": "Ne zaman ayrılacağını söyle.",
+    "explanation": "“Bis”, çalışma süresinin bitişini belirtir.",
+    "focus": "“bis” ile zaman belirtme",
+    "question": "Ne yanıt verirsin?"
+  },
+  "sitov-a1-classroom-number": {
+    "goal": "Bir oda numarasını sor.",
+    "explanation": "“Unser”, birlikte katıldığınız kursu belirtir.",
+    "focus": "“unser” iyelik artikeli",
+    "question": "Nereye gidiyorsun?"
+  },
+  "sitov-a1-open-book": {
+    "goal": "Derste söylenen bir ricayı yerine getir.",
+    "explanation": "“Auf Seite zehn”, kitabın doğru sayfasını belirtir.",
+    "focus": "Derste kullanılan sayılar",
+    "question": "Hangi sayfayı açman gerekiyor?"
+  },
+  "sitov-a1-borrow-pen": {
+    "goal": "Bir kalem iste.",
+    "explanation": "“Kann ich ... haben”, basit ve nazik bir ricadır.",
+    "focus": "“können” ile rica",
+    "question": "Ne söylersin?"
+  },
+  "sitov-a1-break-time": {
+    "goal": "Bir süreyi anla.",
+    "explanation": "“Fünfzehn” ve “fünfzig” farklı süreleri belirtir.",
+    "focus": "“fünfzehn” ve “fünfzig” sayıları",
+    "question": "Ara ne kadar sürüyor?"
+  },
+  "sitov-a1-homework-task": {
+    "goal": "Ödevi aklında tut.",
+    "explanation": "“Zu Hause”, burada ödevin yapılacağı yeri belirtir.",
+    "focus": "“machen” ile fiilin ikinci sırada olması",
+    "question": "Bugün evde ne yapıyorsun?"
+  },
+  "sitov-a1-viewing-time": {
+    "goal": "Bir zaman kararlaştır.",
+    "explanation": "Zaman ifadesinden sonra “habe” fiili ikinci sırada yer alır.",
+    "focus": "Zaman ifadesinden sonra fiilin ikinci sırada olması",
+    "question": "Ne yanıt verirsin?"
+  },
+  "sitov-a1-receive-key": {
+    "goal": "Doğru anahtarı al.",
+    "explanation": "“Klein” açıklaması, hangi anahtarın daireye ait olduğunu belirtir.",
+    "focus": "Akkusativ ile “für”",
+    "question": "Hangi anahtarı alıyorsun?"
+  },
+  "sitov-a1-visitor-doorbell": {
+    "goal": "Bir ziyaretçinin kim olduğunu belirle.",
+    "explanation": "“Unten an der Tür”, ziyaretçinin nerede beklediğini anlatır.",
+    "focus": "Şimdiki zaman ve yer belirtme",
+    "question": "Ne yapıyorsun?"
+  },
+  "sitov-a1-paper-bin": {
+    "goal": "Hangi şeyin nereye ait olduğunu anla.",
+    "explanation": "Renk, bu binanın kuralına göre belirlenir.",
+    "focus": "Renkler ve Akkusativ",
+    "question": "Burada hangi çöp kutusunu kullanmalısın?"
+  },
+  "sitov-a1-close-window": {
+    "goal": "Bir ricaya yanıt ver.",
+    "explanation": "“Zumachen”, kapatmak demektir; “zu” cümlenin sonunda yer alır.",
+    "focus": "Ayrılabilen “zumachen” fiili",
+    "question": "Ne yapıyorsun?"
+  },
+  "sitov-a1-broken-lamp": {
+    "goal": "Bir arızayı tarif et.",
+    "explanation": "“Nicht”, burada “funktioniert” fiilini olumsuz yapar.",
+    "focus": "“nicht” ile fiili olumsuz yapma",
+    "question": "Ne yanıt verirsin?"
+  },
+  "sitov-a1-bike-flat": {
+    "goal": "Arızalı parçayı belirt.",
+    "explanation": "“Keine”, burada “Luft” ismini olumsuz yapar.",
+    "focus": "“keine” ile olumsuzluk",
+    "question": "Hangi yanıt uygundur?"
+  },
+  "sitov-a1-washing-machine-noise": {
+    "goal": "Bir sesi tarif et.",
+    "explanation": "“Laut”, “leise” sözcüğünün karşıtıdır.",
+    "focus": "Yüklemde kullanılan sıfat",
+    "question": "Ne yanıt verirsin?"
+  },
+  "sitov-a1-missing-cable": {
+    "goal": "Neye ihtiyacın olduğunu açıkla.",
+    "explanation": "“Ein Kabel”, gereken parçayı belirtir.",
+    "focus": "Nötr isimle Akkusativ nesnesi",
+    "question": "Ne yanıt verirsin?"
+  },
+  "sitov-a1-repair-pickup": {
+    "goal": "Bir teslim alma tarihini anla.",
+    "explanation": "“Fertig”, burada tamirin tamamlandığını belirtir.",
+    "focus": "“abholen” ve haftanın günü",
+    "question": "Ne zaman geri geliyorsun?"
+  },
+  "sitov-a1-find-fountain": {
+    "goal": "Kısa bir yol tarifini anla.",
+    "explanation": "“Geradeaus”, dönmeden ilerlemek demektir.",
+    "focus": "“geradeaus” ile yol tarifi",
+    "question": "Hangi yol uygundur?"
+  },
+  "sitov-a1-meet-bench": {
+    "goal": "Bir buluşma yerini bul.",
+    "explanation": "“Auf der Bank”, arkadaşının oturduğu yeri anlatır.",
+    "focus": "“auf” ile yer belirtme",
+    "question": "Finn'i nerede arıyorsun?"
+  },
+  "sitov-a1-no-feeding": {
+    "goal": "Bir yasağı anla.",
+    "explanation": "“Nicht”, “füttern” eylemini olumsuz yapar.",
+    "focus": "Bir eylemi olumsuz yapma",
+    "question": "Hangi davranış uygundur?"
+  },
+  "sitov-a1-use-bin": {
+    "goal": "Bir çöp kutusu kullan.",
+    "explanation": "“Wegwerfen” ayrılabilen bir fiildir; çöp burada belirtilen kutuya atılmalıdır.",
+    "focus": "Ayrılabilen “wegwerfen” fiili",
+    "question": "Çöple nereye gidiyorsun?"
+  },
+  "sitov-a1-park-closing": {
+    "goal": "Bir kapanış saatini anla.",
+    "explanation": "Saat on sekiz, akşam altıya karşılık gelir.",
+    "focus": "24 saatlik saat sistemi",
+    "question": "Park saat kaça kadar açık?"
+  },
+  "sitov-a1-pool-opening": {
+    "goal": "Açılış saatini sor.",
+    "explanation": "Açılış saati, içeri girebileceğin en erken saati belirtir.",
+    "focus": "Zaman belirtme ve mastar",
+    "question": "En erken ne zaman içeri girebilirsin?"
+  },
+  "sitov-a1-borrow-ball": {
+    "goal": "Spor malzemesi iste.",
+    "explanation": "“Einen Ball”, eril bir nesne olarak Akkusativ biçimindedir.",
+    "focus": "Spor bağlamında Akkusativ",
+    "question": "Ne yanıt verirsin?"
+  },
+  "sitov-a1-training-day": {
+    "goal": "Düzenli olarak tekrarlanan bir günü söyle.",
+    "explanation": "“Jeden Mittwoch”, düzenli bir tekrarı anlatır.",
+    "focus": "Düzenli zaman belirtme",
+    "question": "Antrenman ne zaman yapılıyor?"
+  },
+  "sitov-a1-locker-number": {
+    "goal": "Dolabını bul.",
+    "explanation": "“Sechzehn”, “sechzig” sayısından farklıdır.",
+    "focus": "“sechzehn” ve “sechzig” sayıları",
+    "question": "Hangi dolap senin?"
+  },
+  "sitov-a1-trial-session": {
+    "goal": "Bir deneme dersine katılmak istediğini belirt.",
+    "explanation": "“Mitmachen” ayrılabilen bir fiildir ve burada mastar olarak kullanılır.",
+    "focus": "Yardımcı fiil ve “mitmachen”",
+    "question": "Hangi yanıt uygundur?"
+  },
+  "sitov-a1-hotel-reservation": {
+    "goal": "Rezervasyonun hangi adla yapıldığını söyle.",
+    "explanation": "“Auf den Namen”, rezervasyonun doğru kişiye ait olduğunu belirtir.",
+    "focus": "Rezervasyondaki ad",
+    "question": "Ne yanıt verirsin?"
+  },
+  "sitov-a1-single-room": {
+    "goal": "Oda türünü seç.",
+    "explanation": "Tek kişilik bir oda, burada bir kişi için uygun seçimdir.",
+    "focus": "“ein” ile nötr isim",
+    "question": "Ne yanıt verirsin?"
+  },
+  "sitov-a1-breakfast-time": {
+    "goal": "Bir zaman aralığını anla.",
+    "explanation": "Saat sekiz, yedi ile dokuz arasındaki zaman aralığındadır.",
+    "focus": "“von ... bis” ile zaman aralığı",
+    "question": "Kahvaltıyı ne zaman alabilirsin?"
+  },
+  "sitov-a1-wifi-password": {
+    "goal": "Bir şifreyi sor.",
+    "explanation": "“Auf”, bilginin üzerinde yazılı olduğu yüzeyi belirtir.",
+    "focus": "“stehen” ile “wo” sorusu",
+    "question": "Nereden bakıyorsun?"
+  },
+  "sitov-a1-checkout-time": {
+    "goal": "Bir son saati anla.",
+    "explanation": "“Bis elf Uhr”, en geç saat on birde demektir.",
+    "focus": "“bis” ile son zaman belirtme",
+    "question": "Hangi saat uygundur?"
+  },
+  "sitov-a1-shirt-size": {
+    "goal": "Bedenini söyle.",
+    "explanation": "M beden, gereken giysi bedenini belirtir.",
+    "focus": "Beden belirtme",
+    "question": "Ne yanıt verirsin?"
+  },
+  "sitov-a1-fitting-room": {
+    "goal": "Bir deneme kabininin yerini sor.",
+    "explanation": "“Anprobieren”, giysiyi denemek için üzerine giymek demektir.",
+    "focus": "Yardımcı fiil ve “anprobieren”",
+    "question": "Nereye gidiyorsun?"
+  },
+  "sitov-a1-shoe-too-small": {
+    "goal": "Giysinin veya ayakkabının nasıl oturduğunu tarif et.",
+    "explanation": "“Zu klein”, boyutun yeterli olmadığı anlamına gelir.",
+    "focus": "Sıfatla “zu”",
+    "question": "Ne yanıt verirsin?"
+  },
+  "sitov-a1-blue-jacket": {
+    "goal": "İstediğin rengi söyle.",
+    "explanation": "“Die blaue”, seçilen cekete gönderme yapar.",
+    "focus": "Renkler ve “nehmen”",
+    "question": "Hangi yanıt uygundur?"
+  },
+  "sitov-a1-try-trousers": {
+    "goal": "Bir teklife yanıt ver.",
+    "explanation": "“Anprobieren” ayrılabilen bir fiildir; “an” sonda yer alır.",
+    "focus": "Ayrılabilen “anprobieren” fiili",
+    "question": "Ne yanıt verirsin?"
+  },
+  "sitov-a1-half-kilo-tomatoes": {
+    "goal": "Ağırlıkla belirtilen bir miktarı söyle.",
+    "explanation": "Yarım kilo, bir kilonun yarısıdır.",
+    "focus": "“halb” ile miktar belirtme",
+    "question": "Ne yanıt verirsin?"
+  },
+  "sitov-a1-ripe-pears": {
+    "goal": "Bir özelliği sor.",
+    "explanation": "“Weich” ve “hart” farklı özellikleri anlatır.",
+    "focus": "Meyveleri tarif eden sıfatlar",
+    "question": "Hangi armutları alıyorsun?"
+  },
+  "sitov-a1-market-change": {
+    "goal": "Basit bir fark hesapla.",
+    "explanation": "Beş avrodan üç avro çıkınca iki avro kalır.",
+    "focus": "Sayılar ve “zurückbekommen”",
+    "question": "Ne kadar para üstü alırsın?"
+  },
+  "sitov-a1-local-potatoes": {
+    "goal": "Bir ürünün nereden geldiğini sor.",
+    "explanation": "“Woher”, kökeni sormak için kullanılır; “aus”, geldiği ülkeyi belirtir.",
+    "focus": "“woher” ve “aus”",
+    "question": "Nereden geliyorlar?"
+  },
+  "sitov-a1-market-closing-day": {
+    "goal": "Haftanın günleriyle ilgili bir kuralı anla.",
+    "explanation": "“Offen” ve “geschlossen”, alışveriş yapıp yapamayacağını gösterir.",
+    "focus": "Haftanın günleri ve açık olma durumu",
+    "question": "Ne zaman alışveriş yapabilirsin?"
+  },
+  "sitov-a1-find-city-hall": {
+    "goal": "Bir binanın yerini sor.",
+    "explanation": "“Neben”, doğrudan yan yana bulunan iki yeri anlatır.",
+    "focus": "“neben” ile yer belirtme",
+    "question": "Belediye binasını nerede arıyorsun?"
+  },
+  "sitov-a1-cross-at-green": {
+    "goal": "Bir renk işaretini anla.",
+    "explanation": "Sahnede açıkça yeşil ışığı beklemek gerektiği söylenir.",
+    "focus": "“wir” ile şimdiki zaman",
+    "question": "Şimdi ne yapıyorsunuz?"
+  },
+  "sitov-a1-tourist-map": {
+    "goal": "Yolunu bulmak için yardım iste.",
+    "explanation": "Bir şehir planı, şehrin sokaklarını ve yerlerini gösterir.",
+    "focus": "Bir ricada Akkusativ",
+    "question": "Ne söylersin?"
+  },
+  "sitov-a1-museum-ticket": {
+    "goal": "Bilet sayısını söyle.",
+    "explanation": "Sen ve erkek kardeşin iki kişisiniz.",
+    "focus": "Kişi zamiri ve sayı",
+    "question": "Kaç tane alıyorsun?"
+  },
+  "sitov-a1-turn-left": {
+    "goal": "Bir yol ayrımını anla.",
+    "explanation": "“Links”, yol ayrımında gidilmesi gereken yönü belirtir.",
+    "focus": "Basit yol tarifi",
+    "question": "Hangi yöne gidiyorsun?"
+  },
+  "sitov-a2-empty-shelf": {
+    "goal": "Ne aradığını açıkla.",
+    "explanation": "Perfekt zamanda “gefunden” cümlenin sonunda yer alır; “keinen”, “Reis” ismini olumsuz yapar.",
+    "focus": "“finden” ile geçmiş zaman (Perfekt)",
+    "question": "Ne yanıt verirsin?"
+  },
+  "sitov-a2-discount-mismatch": {
+    "goal": "Bir fiyat farkını açıkla.",
+    "explanation": "“Niedriger”, etiketteki fiyatı söylenen kasa fiyatıyla karşılaştırır.",
+    "focus": "“niedriger” karşılaştırma biçimi",
+    "question": "Ne söylersin?"
+  },
+  "sitov-a2-damaged-packaging": {
+    "goal": "Başka bir paket iste.",
+    "explanation": "“Könnten Sie ... geben”, nazik bir ricadır.",
+    "focus": "“könnten” ile nazik rica",
+    "question": "Hangi paketi istersin?"
+  },
+  "sitov-a2-delivery-arrival": {
+    "goal": "Bir koşulu anla.",
+    "explanation": "“Wenn” yan cümlesinde “kommt” sonda yer alır; ana cümle “gibt” ile başlar.",
+    "focus": "“wenn” yan cümlesi ve fiilin ikinci sırada olması",
+    "question": "Ne zaman yeniden yumurta alabilirsin?"
+  },
+  "sitov-a2-receipt-exchange": {
+    "goal": "Belirtilen bir değişim kuralını anla.",
+    "explanation": "“Vergessen”, burada Perfekt zamanda “haben” ile kullanılır.",
+    "focus": "“vergessen” ile geçmiş zaman (Perfekt)",
+    "question": "Bu değişim için ne eksik?"
+  },
+  "sitov-a2-wrong-drink": {
+    "goal": "Bir siparişi düzelt.",
+    "explanation": "“Bestellt”, “bestellen” fiilinin ortaç biçimidir ve sonda yer alır.",
+    "focus": "“bestellen” ile geçmiş zaman (Perfekt)",
+    "question": "Ne söylersin?"
+  },
+  "sitov-a2-quieter-seat": {
+    "goal": "İki oturma yerini karşılaştır.",
+    "explanation": "“Weil” yan cümlesinde “ist” sonda yer alır; “ruhiger” bir karşılaştırma biçimidir.",
+    "focus": "“weil” yan cümlesi ve karşılaştırma",
+    "question": "Hangi yer isteğine uygundur?"
+  },
+  "sitov-a2-missing-cake-charge": {
+    "goal": "Eksik bir kalemi dile getir.",
+    "explanation": "“Auch”, daha önce hesaplanan siparişe pastayı ekler.",
+    "focus": "“essen” ile geçmiş zaman (Perfekt)",
+    "question": "Ne söylersin?"
+  },
+  "sitov-a2-forgotten-scarf": {
+    "goal": "Kaybolan bir eşyayı sor.",
+    "explanation": "“Gestern”, geçmişi belirtir; Perfekt zaman, unutma olayını anlatır.",
+    "focus": "Zaman ifadesiyle geçmiş zaman (Perfekt)",
+    "question": "Ne sorarsın?"
+  },
+  "sitov-a2-terrace-rain": {
+    "goal": "Bir hava koşuluna yanıt ver.",
+    "explanation": "“Wenn” yan cümlesi, yer değiştirme koşulunu anlatır.",
+    "focus": "“wenn” ile koşul",
+    "question": "Şimdi ne yapabilirsin?"
+  },
+  "sitov-a2-missed-connection": {
+    "goal": "Kaçırdığın bir bağlantıyı açıkla.",
+    "explanation": "“Weil”, nedeni belirtir; “kam” yan cümlenin sonunda yer alır.",
+    "focus": "“weil” ile neden belirtme",
+    "question": "Bağlantıyı neden kaçırdın?"
+  },
+  "sitov-a2-last-train": {
+    "goal": "Günün son sefer sınırını anla.",
+    "explanation": "“Kein ... mehr”, belirtilen saatten sonra başka sefer olmadığını anlatır.",
+    "focus": "“kein ... mehr” ile olumsuzluk",
+    "question": "Bugün hâlâ hangi seferi seçebilirsin?"
+  },
+  "sitov-a2-broken-machine": {
+    "goal": "Neden gişeye gittiğini açıkla.",
+    "explanation": "“Weil” yan cümlesinde “ist” fiili, “kaputt” sıfatından sonra gelir.",
+    "focus": "“weil” ve fiilin sonda olması",
+    "question": "Nedeni nedir?"
+  },
+  "sitov-a2-reserved-seat": {
+    "goal": "Koltuk yerini bul.",
+    "explanation": "Vagon ve koltuk, rezervasyonda yer alan iki ayrı bilgidir.",
+    "focus": "Geçmiş zaman (Perfekt) ve sayıları anlama",
+    "question": "Nerede oturuyorsun?"
+  },
+  "sitov-a2-platform-change": {
+    "goal": "Bir plan değişikliğini anla.",
+    "explanation": "“Statt”, önceki bilginin yerine yenisini koyar; “heute” ile başlayan cümlede fiil ikinci sıradadır.",
+    "focus": "“heute” sonrasında fiilin ikinci sırada olması",
+    "question": "Bugün doğru peron hangisi?"
+  },
+  "sitov-a2-bus-detour": {
+    "goal": "Değişen bir güzergâhı anla.",
+    "explanation": "“Statt am Rathaus”, değişen durağı belirtir.",
+    "focus": "“statt” ile güzergâh belirtme",
+    "question": "Otobüs bugün iki duraktan hangisinde duruyor?"
+  },
+  "sitov-a2-ticket-zone": {
+    "goal": "Geçerlilik alanını anla.",
+    "explanation": "“Nur”, bileti A bölgesiyle sınırlar.",
+    "focus": "“nur” ile sınırlama",
+    "question": "Mevcut biletin havaalanına kadar geçerli mi?"
+  },
+  "sitov-a2-child-seat": {
+    "goal": "Nazikçe bir yer iste.",
+    "explanation": "“Dürfen”, izin sormak için kullanılır; “sitzen” mastarı sonda yer alır.",
+    "focus": "“dürfen” yardımcı fiili",
+    "question": "Hangi rica uygundur?"
+  },
+  "sitov-a2-bike-time-window": {
+    "goal": "Belirtilen bir saat kuralını anla.",
+    "explanation": "“Halb neun”, saat 8.30 demektir; “erst ab neun”, sınırın dokuz olduğunu belirtir.",
+    "focus": "Buçuklu saatler ve “erst ab”",
+    "question": "Bu kurala hangisi uygundur?"
+  },
+  "sitov-a2-missed-stop": {
+    "goal": "Başına gelen küçük bir aksiliği açıkla.",
+    "explanation": "“Gefahren”, burada Perfekt zamanda “sein” ile kullanılır.",
+    "focus": "“sein” ile geçmiş zaman (Perfekt)",
+    "question": "Ne yanıt verirsin?"
+  },
+  "sitov-a2-change-reservation": {
+    "goal": "Daha fazla kişi için rezervasyon iste.",
+    "explanation": "“Für drei Personen”, yeni konuk sayısını belirtir.",
+    "focus": "Nazik rica ve sayı",
+    "question": "Neyi değiştirmek istersin?"
+  },
+  "sitov-a2-long-wait": {
+    "goal": "Bekleme sürelerini karşılaştır.",
+    "explanation": "“Schneller ... als”, iki yemeğin bekleme sürelerini karşılaştırır.",
+    "focus": "“als” ile karşılaştırma",
+    "question": "Daha kısa beklemek için hangisini seçersin?"
+  },
+  "sitov-a2-wrong-side-dish": {
+    "goal": "Yemeğin yanındaki garnitürü düzelt.",
+    "explanation": "“Statt Kartoffeln”, istediğin garnitürle yanlış garnitürü karşı karşıya getirir.",
+    "focus": "Geçmiş zaman (Perfekt) ve “statt”",
+    "question": "Ne söylersin?"
+  },
+  "sitov-a2-garlic-preference": {
+    "goal": "Bir malzemeyi sor.",
+    "explanation": "“Mag”, “weil” yan cümlesinin sonunda yer alır ve seçimini açıklar.",
+    "focus": "“mögen” ile “weil” yan cümlesi",
+    "question": "Hangi yemek isteğine uygundur?"
+  },
+  "sitov-a2-split-cost": {
+    "goal": "Ortak bir tutarı anla.",
+    "explanation": "24 avro iki kişiye bölündüğünde kişi başına on iki avro düşer.",
+    "focus": "Sayılar ve “jeder”",
+    "question": "Herkes ne kadar öder?"
+  },
+  "sitov-a2-pickup-confirmation": {
+    "goal": "Bir ön koşulu anla.",
+    "explanation": "Sahne, gelen mesajı siparişin hazır olmasıyla ilişkilendirir.",
+    "focus": "“bekommen” ile geçmiş zaman (Perfekt)",
+    "question": "Burada mesajın anlamı nedir?"
+  },
+  "sitov-a2-order-later": {
+    "goal": "Değişen bir günü anla.",
+    "explanation": "“Nicht ... sondern”, bugünün yerine yarını koyar; “ankommt” yan cümlede ayrılmaz.",
+    "focus": "Ayrılabilen fiille “weil”",
+    "question": "Sahneye göre ne zaman teslim almak anlamlı olur?"
+  },
+  "sitov-a2-replacement-receipt": {
+    "goal": "Bir kaybı açıkla.",
+    "explanation": "“Verloren”, Perfekt zamanda tamamlanmış bir kaybı anlatır.",
+    "focus": "Geçmiş zaman (Perfekt) ve nazik rica",
+    "question": "Ne söylersin?"
+  },
+  "sitov-a2-package-label": {
+    "goal": "Bir açıklama iste.",
+    "explanation": "“Erklären”, yazıyı anlamaya yöneliktir.",
+    "focus": "Ricada Dativ biçimi “mir”",
+    "question": "Hangi rica uygundur?"
+  },
+  "sitov-a2-reserve-bandage": {
+    "goal": "Bir ürünün senin için ayrılmasını iste.",
+    "explanation": "“Zurücklegen”, burada mevcut paketi senin için saklamak demektir.",
+    "focus": "Son zaman belirterek nazikçe rica etme",
+    "question": "Ne istersin?"
+  },
+  "sitov-a2-rescheduled-appointment": {
+    "goal": "Bir randevu değişikliğini anla.",
+    "explanation": "“Jetzt”, önceki saatin yerine yeni randevu saatini koyar.",
+    "focus": "Randevu değişikliği ve saat",
+    "question": "Ne zaman geliyorsun?"
+  },
+  "sitov-a2-form-name": {
+    "goal": "Bir yazım hatasını düzelt.",
+    "explanation": "Burada soyadı Werner'dir; Leon, ad olarak kalır.",
+    "focus": "“nicht” ile düzeltme",
+    "question": "Hangi düzeltme uygundur?"
+  },
+  "sitov-a2-cancel-visit": {
+    "goal": "Bir iptalin nedenini açıkla.",
+    "explanation": "“Weil” yan cümlesinde “muss” yardımcı fiili, “arbeiten” mastarından sonra yer alır.",
+    "focus": "Yardımcı fiille “weil”",
+    "question": "Ne yanıt verirsin?"
+  },
+  "sitov-a2-repeat-instructions": {
+    "goal": "Daha yavaş konuşulmasını iste.",
+    "explanation": "“Langsamer”, “langsam” sözcüğünün karşılaştırma biçimidir.",
+    "focus": "Ricada karşılaştırma biçimi",
+    "question": "Hangi rica uygundur?"
+  },
+  "sitov-a2-late-arrival": {
+    "goal": "Gecikeceğini haber ver.",
+    "explanation": "“Weil”, haber verdiğin gecikmenin nedenini belirtir.",
+    "focus": "Zaman karşılaştırması ve “weil”",
+    "question": "Ne söylersin?"
+  },
+  "sitov-a2-missed-delivery": {
+    "goal": "Bir bildirimi anla.",
+    "explanation": "“Nicht antreffen”, kuryenin seni bulamadığı anlamına gelir.",
+    "focus": "“war” ile geçmiş zaman",
+    "question": "Paket şimdi nerede?"
+  },
+  "sitov-a2-parcel-status": {
+    "goal": "Gönderilmekte olan bir paketi sor.",
+    "explanation": "“Noch nicht”, varışın henüz gerçekleşmediği anlamına gelir.",
+    "focus": "“ankommen” ile geçmiş zaman (Perfekt)",
+    "question": "Hangi ifade uygundur?"
+  },
+  "sitov-a2-missing-postcode": {
+    "goal": "Bir adres bilgisini tamamla.",
+    "explanation": "Sahneye göre posta kodu, adreste eksik olan tek bilgidir.",
+    "focus": "“vergessen” ile geçmiş zaman (Perfekt)",
+    "question": "Neyi eklersin?"
+  },
+  "sitov-a2-postcard-stamps": {
+    "goal": "Toplam bir miktar belirt.",
+    "explanation": "“Jede”, her bir kartpostalı bir pulla eşleştirir.",
+    "focus": "“jede” ve miktarlar",
+    "question": "Kaç pul alıyorsun?"
+  },
+  "sitov-a2-parcel-size-rule": {
+    "goal": "Bir boyut kuralını anla.",
+    "explanation": "25 cm sınırın altındadır; “kleiner”, “klein” sözcüğünün karşılaştırma biçimidir.",
+    "focus": "Karşılaştırma ve “bis” ile sınır",
+    "question": "Hangi uzunluk belirtilen sınıra uygundur?"
+  },
+  "sitov-a2-move-bank-meeting": {
+    "goal": "Başka bir gün iste.",
+    "explanation": "“Auf Donnerstag”, istediğin yeni randevu gününü belirtir.",
+    "focus": "“könnten” ile nazik rica",
+    "question": "Hangi rica uygundur?"
+  },
+  "sitov-a2-document-check": {
+    "goal": "Belirtilen bir ön koşulu anla.",
+    "explanation": "“Mitgebracht”, Perfekt cümlesinin sonunda yer alır; “nicht”, yanında getirmeyi olumsuz yapar.",
+    "focus": "Ayrılabilen bir fiille geçmiş zaman (Perfekt)",
+    "question": "Görevliye göre ne eksik?"
+  },
+  "sitov-a2-paperless-receipt": {
+    "goal": "Bir biçim seç.",
+    "explanation": "“Per E-Mail”, istediğin iletim yolunu belirtir.",
+    "focus": "Mastarla istek belirtme",
+    "question": "Ne yanıt verirsin?"
+  },
+  "sitov-a2-update-address": {
+    "goal": "Bir değişikliği açıkla.",
+    "explanation": "“Umgezogen”, Perfekt zamanda “sein” ile kullanılır.",
+    "focus": "“umziehen” ile geçmiş zaman (Perfekt)",
+    "question": "Ne yanıt verirsin?"
+  },
+  "sitov-a2-counter-or-online": {
+    "goal": "Bir görüşmenin nerede yapılacağını anla.",
+    "explanation": "“Stattfinden” ayrılabilen bir fiildir; “per Video”, görüşmenin biçimini belirtir.",
+    "focus": "Ayrılabilen “stattfinden” fiili",
+    "question": "Nereden katılıyorsun?"
+  },
+  "sitov-a2-extend-loan": {
+    "goal": "Bir süre uzatımını anla.",
+    "explanation": "“Länger”, yeni ödünç alma süresini önceki süreyle karşılaştırır.",
+    "focus": "“länger” karşılaştırma biçimi",
+    "question": "Ne mümkün?"
+  },
+  "sitov-a2-reserve-unavailable-book": {
+    "goal": "Bir kitabın senin için ayırtılmasını iste.",
+    "explanation": "“Vormerken”, burada kitabı bir sonraki ödünç alma fırsatını beklemek demektir.",
+    "focus": "Nazik rica ve “vormerken”",
+    "question": "Ne istersin?"
+  },
+  "sitov-a2-due-tomorrow": {
+    "goal": "Kalan süreyi anla.",
+    "explanation": "Pazartesi günü söylenen “morgen”, salı gününü belirtir.",
+    "focus": "“müssen” yardımcı fiili ve “morgen”",
+    "question": "Ödünç alma süresi ne zaman bitiyor?"
+  },
+  "sitov-a2-digital-book": {
+    "goal": "Bir yayın biçimini anla.",
+    "explanation": "“Digital”, burada bir cihazda okunan e-kitabı belirtir.",
+    "focus": "“auf” sonrasında Dativ",
+    "question": "Hangi biçim mevcut?"
+  },
+  "sitov-a2-existing-damage": {
+    "goal": "Daha önceki bir durumu tarif et.",
+    "explanation": "“Schon beim Ausleihen”, hasarın şimdiki iadeden önce var olduğunu belirtir.",
+    "focus": "“war” ile geçmiş zaman",
+    "question": "Ne söylersin?"
+  },
+  "sitov-a2-send-meeting-notes": {
+    "goal": "Tamamladığın bir görev hakkında bilgi ver.",
+    "explanation": "“Schon”, görevin zaten tamamlandığını belirtir.",
+    "focus": "“schon” ile geçmiş zaman (Perfekt)",
+    "question": "Ne yanıt verirsin?"
+  },
+  "sitov-a2-earlier-meeting": {
+    "goal": "Bir saat değişikliğini anla.",
+    "explanation": "Dokuz, ondan bir saat öncedir; “früher” bu karşılaştırmayı anlatır.",
+    "focus": "“früher” karşılaştırma biçimi",
+    "question": "Artık ne zaman başlıyor?"
+  },
+  "sitov-a2-paper-jam": {
+    "goal": "Bir gecikmeyi açıkla.",
+    "explanation": "Yan cümlede ayrılabilen “feststecken” fiili ayrılmaz.",
+    "focus": "“weil” ve “feststecken”",
+    "question": "Seni ne geciktiriyor?"
+  },
+  "sitov-a2-agree-task-owner": {
+    "goal": "Bir sorumluluğu onayla.",
+    "explanation": "“Wenn”, burada görevini tamamlanmış telefon görüşmesiyle ilişkilendirir.",
+    "focus": "Perfekt zamanda “wenn” yan cümlesi",
+    "question": "Senin görevin nedir?"
+  },
+  "sitov-a2-remote-work-reason": {
+    "goal": "Çalışacağın yerin nedenini açıkla.",
+    "explanation": "“Weil” yan cümlesi, teknisyenin ziyaretini neden olarak belirtir.",
+    "focus": "“weil” ile gerekçe belirtme",
+    "question": "Hangi gerekçe uygundur?"
+  },
+  "sitov-a2-explain-absence": {
+    "goal": "Neden gelemediğini açıkla.",
+    "explanation": "“Musste”, “müssen” fiilinin geçmiş zaman biçimidir ve neden gelemediğini açıklar.",
+    "focus": "“musste” ile “weil”",
+    "question": "Ne yanıt verirsin?"
+  },
+  "sitov-a2-understood-rule": {
+    "goal": "Ne anladığını anlat.",
+    "explanation": "“Verstanden”, “verstehen” fiilinin ortaç biçimidir.",
+    "focus": "“verstehen” ile geçmiş zaman (Perfekt)",
+    "question": "Hangi yanıt uygundur?"
+  },
+  "sitov-a2-easier-exercise": {
+    "goal": "Zorluk derecelerini karşılaştır.",
+    "explanation": "“Leichter ... als”, iki görevin zorluk derecesini karşılaştırır.",
+    "focus": "“als” ile karşılaştırma",
+    "question": "Önce hangi görevi yapıyorsun?"
+  },
+  "sitov-a2-group-results": {
+    "goal": "Bir görüşü aktar.",
+    "explanation": "“Dass”, söylenen görüşün içeriğini başlatır; “ist” sonda yer alır.",
+    "focus": "“dass” ile bir görüş aktarma",
+    "question": "Amir ne söyledi?"
+  },
+  "sitov-a2-missed-homework-page": {
+    "goal": "Eksik bilgileri iste.",
+    "explanation": "“Noch einmal”, eksik sayının tekrar söylenmesini istemektir.",
+    "focus": "Nazik rica ve “sollen”",
+    "question": "Hangi rica uygundur?"
+  },
+  "sitov-a2-move-in-past": {
+    "goal": "Taşınıp yerleştiğin zamanı anlat.",
+    "explanation": "“Eingezogen”, Perfekt zamanda “sein” ile kullanılır; “seit”, başlangıcı belirtir.",
+    "focus": "“einziehen” ile geçmiş zaman (Perfekt)",
+    "question": "Ne yanıt verirsin?"
+  },
+  "sitov-a2-heating-not-working": {
+    "goal": "Bir arızayı bildir.",
+    "explanation": "“Weil” yan cümlesi, evin soğuk olmasını arızayla açıklar.",
+    "focus": "“weil” ve olumsuzluk",
+    "question": "Neyi bildirirsin?"
+  },
+  "sitov-a2-room-comparison": {
+    "goal": "İki odayı karşılaştır.",
+    "explanation": "“Größer”, “groß” sözcüğünün karşılaştırma biçimidir; “als”, karşılaştırılan diğer odayı belirtir.",
+    "focus": "“größer als” ile karşılaştırma",
+    "question": "Hangi oda daha geniş?"
+  },
+  "sitov-a2-neighbor-quiet-time": {
+    "goal": "Binadaki bir anlaşmayı anla.",
+    "explanation": "“Leiser”, ses düzeyini azaltır; “wenn”, üzerinde anlaşılan koşulu belirtir.",
+    "focus": "“wenn” ve karşılaştırma",
+    "question": "Anlaşmaya hangisi uygundur?"
+  },
+  "sitov-a2-key-left-inside": {
+    "goal": "Başına gelen küçük bir aksiliği açıkla.",
+    "explanation": "“In der Wohnung”, unutulan anahtarın bulunduğu yeri belirtir.",
+    "focus": "Geçmiş zaman (Perfekt) ve yer belirtme",
+    "question": "Ne oldu?"
+  },
+  "sitov-a2-describe-last-working": {
+    "goal": "Bir sorunun ne zaman başladığını belirt.",
+    "explanation": "“Noch”, o sırada hâlâ çalıştığını gösterir.",
+    "focus": "“noch” ile geçmiş zaman (Perfekt)",
+    "question": "Lamba en son ne zaman çalıştı?"
+  },
+  "sitov-a2-repair-cost-comparison": {
+    "goal": "Belirtilen fiyatları karşılaştır.",
+    "explanation": "“Günstiger”, burada yalnızca söylenen iki fiyatla ilgilidir.",
+    "focus": "“als” ile fiyat karşılaştırma",
+    "question": "Hangi teklif daha ucuz?"
+  },
+  "sitov-a2-parts-not-arrived": {
+    "goal": "Bir gecikmeyi anla.",
+    "explanation": "“Noch nicht”, henüz ulaşılmamış bir durumu anlatır.",
+    "focus": "“weil” ve “noch nicht”",
+    "question": "Tamir neden henüz bitmedi?"
+  },
+  "sitov-a2-test-after-repair": {
+    "goal": "Yaptığın bir denemeyi anlat.",
+    "explanation": "“Eingeschaltet”, ayrılabilen “einschalten” fiilinin ortaç biçimidir.",
+    "focus": "“einschalten” ile geçmiş zaman (Perfekt)",
+    "question": "Hangi yanıt uygundur?"
+  },
+  "sitov-a2-repair-slot-choice": {
+    "goal": "Bir zaman aralığını anla.",
+    "explanation": "“Zwischen zehn und zwölf”, burada saat on biri kapsar.",
+    "focus": "“zwischen” ile zaman aralığı",
+    "question": "Hangi saat bildirilen aralıkta yer alıyor?"
+  },
+  "sitov-a2-longer-park-route": {
+    "goal": "Yolların uzunluklarını karşılaştır.",
+    "explanation": "“Kürzer”, 500 ve 900 metrelik yolların uzunluklarını karşılaştırır.",
+    "focus": "“kürzer” karşılaştırma biçimi",
+    "question": "Hangi yol daha kısa?"
+  },
+  "sitov-a2-found-wallet": {
+    "goal": "Bulduğun bir eşyayı bildir.",
+    "explanation": "“Gefunden”, “haben” ile kurulan Perfekt cümlesinin sonunda yer alır.",
+    "focus": "“finden” ile geçmiş zaman (Perfekt)",
+    "question": "Neyi bildirirsin?"
+  },
+  "sitov-a2-wet-bench": {
+    "goal": "Bir seçimin nedenini açıkla.",
+    "explanation": "“Diese”, ıslak banka gönderme yapar; “weil”, yer değiştirmeyi açıklar.",
+    "focus": "“weil” ve işaret sözcüğü",
+    "question": "Nerede oturmak istersin?"
+  },
+  "sitov-a2-path-closed": {
+    "goal": "Alternatif bir güzergâhı anla.",
+    "explanation": "“Zuerst” ve “danach”, yol tarifindeki adımları sıraya koyar.",
+    "focus": "“zuerst” ve “danach” ile sıralama",
+    "question": "Hangi sıra doğru?"
+  },
+  "sitov-a2-walk-before-rain": {
+    "goal": "Hava durumuna göre yapılan bir planı anla.",
+    "explanation": "“Wenn” yan cümlesi, geri dönme koşulunu belirtir.",
+    "focus": "Koşul bildiren “wenn”",
+    "question": "Plana göre ne zaman geri dönüyorsunuz?"
+  },
+  "sitov-a2-training-cancelled": {
+    "goal": "Bir iptali anla.",
+    "explanation": "“Ausfallen”, planlanan etkinliğin gerçekleşmemesi demektir.",
+    "focus": "Ayrılabilen “ausfallen” fiili",
+    "question": "Bugün ne oluyor?"
+  },
+  "sitov-a2-first-run-report": {
+    "goal": "Yaptığın bir etkinliği anlat.",
+    "explanation": "“Gelaufen”, Perfekt zamanda “sein” ile kullanılır; kilometre, mesafeyi belirtir.",
+    "focus": "“laufen” ile geçmiş zaman (Perfekt)",
+    "question": "Ne yanıt verirsin?"
+  },
+  "sitov-a2-more-frequent-training": {
+    "goal": "Tekrarlanma sıklığını karşılaştır.",
+    "explanation": "“Öfter”, “oft” sözcüğünün karşılaştırma biçimidir ve daha fazla antrenman günü olduğunu anlatır.",
+    "focus": "“öfter” karşılaştırma biçimi",
+    "question": "Şimdi ne sıklıkla antrenman yapıyorsun?"
+  },
+  "sitov-a2-locker-key-return": {
+    "goal": "Bir sırayı anla.",
+    "explanation": "Yan cümlede “bin” sonda yer alır; ana cümlede “abgeben” ayrılır.",
+    "focus": "“wenn” ve “abgeben”",
+    "question": "Anahtarı ne zaman geri veriyorsun?"
+  },
+  "sitov-a2-indoor-shoes": {
+    "goal": "Belirtilen bir malzeme kuralını anla.",
+    "explanation": "“Anziehen” ayrılabilen bir fiildir; temiz salon ayakkabıları belirtilen kurala uygundur.",
+    "focus": "Ayrılabilen “anziehen” fiili",
+    "question": "Salon kuralına hangisi uygundur?"
+  },
+  "sitov-a2-room-not-ready": {
+    "goal": "Bir bekleme süresini anla.",
+    "explanation": "“In zwanzig Minuten”, gelecekteki bir zamanı belirtir.",
+    "focus": "“in” ile gelecekteki zamanı belirtme",
+    "question": "Ne zaman içeri girebilirsin?"
+  },
+  "sitov-a2-quieter-hotel-room": {
+    "goal": "Oda değişikliği iste.",
+    "explanation": "“Könnte ich ... bekommen”, başka bir seçenek için nazik bir ricadır.",
+    "focus": "“könnte” ile nazik rica",
+    "question": "Hangi odayı istersin?"
+  },
+  "sitov-a2-breakfast-included": {
+    "goal": "Bir rezervasyonun kapsamını anla.",
+    "explanation": "“Enthalten”, burada kahvaltının rezervasyona dâhil olduğu anlamına gelir.",
+    "focus": "“enthalten” ve olumsuzluk",
+    "question": "Hangi ifade doğru?"
+  },
+  "sitov-a2-extra-night": {
+    "goal": "Bir süre uzatımı iste.",
+    "explanation": "“Übermorgen”, yarından bir gün sonradır; “länger”, uzatmayı anlatır.",
+    "focus": "“länger” karşılaştırma biçimi",
+    "question": "Ne istersin?"
+  },
+  "sitov-a2-lost-room-card": {
+    "goal": "Ne olduğunu açıkla.",
+    "explanation": "“Verloren”, yeni bir kart istemenin nedenini belirtir.",
+    "focus": "Geçmiş zaman (Perfekt) ve nazik rica",
+    "question": "Hangi rica uygundur?"
+  },
+  "sitov-a2-larger-shirt": {
+    "goal": "Başka bir beden iste.",
+    "explanation": "L beden, burada M'ye göre istenen daha büyük seçenektir.",
+    "focus": "“größer” karşılaştırma biçimi",
+    "question": "Ne istersin?"
+  },
+  "sitov-a2-jacket-length": {
+    "goal": "İki uzunluğu karşılaştır.",
+    "explanation": "“Bis zum Knie”, burada “bis zur Hüfte” ifadesinden daha uzun olduğunu belirtir.",
+    "focus": "“länger als” ile karşılaştırma",
+    "question": "Hangi ceket daha uzun?"
+  },
+  "sitov-a2-return-wrong-size": {
+    "goal": "Bir ürünü neden değiştirmek istediğini açıkla.",
+    "explanation": "“Gekauft”, Perfekt cümlesinin sonunda yer alır; “aber”, karşıtlığı bağlar.",
+    "focus": "Geçmiş zaman (Perfekt) ve “aber”",
+    "question": "Nedeni nedir?"
+  },
+  "sitov-a2-wash-label": {
+    "goal": "Belirli bir etikette yazanı anla.",
+    "explanation": "“Bei dreißig Grad”, bu etikette belirtilen sıcaklığı anlatır.",
+    "focus": "Sayılar ve “bei”",
+    "question": "Etikette hangi sıcaklık belirtiliyor?"
+  },
+  "sitov-a2-cheaper-shoes": {
+    "goal": "İki fiyatı karşılaştır.",
+    "explanation": "“Billiger”, söylenen iki fiyatı karşılaştırır.",
+    "focus": "“billiger als” ile karşılaştırma",
+    "question": "Hangi çift daha ucuz?"
+  },
+  "sitov-a2-seasonal-cherries": {
+    "goal": "Bir mevsimin başlangıcını anla.",
+    "explanation": "“Seit heute”, başlangıcı belirtir; “wieder”, yeniden demektir.",
+    "focus": "“seit” ile zaman belirtme",
+    "question": "Ne zamandan beri yeniden kiraz var?"
+  },
+  "sitov-a2-fruit-comparison": {
+    "goal": "İki çeşidi karşılaştır.",
+    "explanation": "“Süßer”, “süß” sözcüğünün karşılaştırma biçimidir; “weil”, seçimin nedenini belirtir.",
+    "focus": "Karşılaştırma ve “weil”",
+    "question": "Hangi elmalar daha uygun?"
+  },
+  "sitov-a2-weekly-stall-location": {
+    "goal": "Bir yer değişikliğini anla.",
+    "explanation": "“Jetzt”, önceki yerin aksine mevcut yeri belirtir.",
+    "focus": "“früher” ve “jetzt”",
+    "question": "Bugün tezgâhı nerede bulursun?"
+  },
+  "sitov-a2-ordered-box": {
+    "goal": "Bir siparişi anlat.",
+    "explanation": "“Vorbestellt”, şu anki teslim alma işleminden önce verilen siparişi belirtir.",
+    "focus": "“vorbestellen” ile geçmiş zaman (Perfekt)",
+    "question": "Hangi yanıt uygundur?"
+  },
+  "sitov-a2-market-bag-return": {
+    "goal": "Bir anlaşmayı anla.",
+    "explanation": "“Wenn” yan cümlesinde “zurückbringen” ayrılmaz; geri verme işlemi koşulu yerine getirir.",
+    "focus": "Ayrılabilen fiille “wenn”",
+    "question": "Anlaşmaya göre ne yapmalısın?"
+  },
+  "sitov-a2-route-two-turns": {
+    "goal": "İki yol tarifi adımını anla.",
+    "explanation": "“Abbiegen” ayrılabilen bir fiildir; “an der Ampel”, dönülecek noktayı belirtir.",
+    "focus": "“abbiegen” ile yol tarifi",
+    "question": "Hangi güzergâh doğru?"
+  },
+  "sitov-a2-museum-closed-monday": {
+    "goal": "Haftalık açılış günlerini anla.",
+    "explanation": "Salı, belirtilen açık günler arasındadır.",
+    "focus": "Haftanın günleri ve zaman aralığı",
+    "question": "Hangi gün ziyaret etmek mümkün?"
+  },
+  "sitov-a2-guided-tour-report": {
+    "goal": "Yaşadığın bir deneyimi anlat.",
+    "explanation": "“Besucht”, “ge-” almayan bir ortaçtır ve Perfekt zamanda “haben” ile kullanılır.",
+    "focus": "“besuchen” ile geçmiş zaman (Perfekt)",
+    "question": "Hangi yanıt uygundur?"
+  },
+  "sitov-a2-office-number-system": {
+    "goal": "Bir sıra çağırma sistemini anla.",
+    "explanation": "“Meine Nummer”, koşulu senin numaranın çağrılmasıyla sınırlar.",
+    "focus": "“wenn” ve iyelik artikeli",
+    "question": "Gişeye ne zaman gidiyorsun?"
+  },
+  "sitov-a2-nearest-stop": {
+    "goal": "Mesafeleri karşılaştır.",
+    "explanation": "“Näher”, “nah” sözcüğünün karşılaştırma biçimidir; 200 metre, 800 metreden azdır.",
+    "focus": "“näher als” ile karşılaştırma",
+    "question": "Hangi durak daha yakın?"
+  },
+  "sitov-b1-joghurt-zurueckgeben": {
+    "goal": "Sorunu açıkla ve para iadesi iste.",
+    "explanation": "Yanıt, açıkça para iadesini seçer ve fişi belirtir. “weil” sonrasında fiil sonda yer alır.",
+    "focus": "“weil” ve geçmiş zaman (Perfekt)",
+    "question": "Yeni bir yoğurt mu istersiniz, yoksa paranızı geri mi almak istersiniz?"
+  },
+  "sitov-b1-ersatzprodukt-vergleichen": {
+    "goal": "Bir alternatifi tarif et ve içindeki malzemeleri sor.",
+    "explanation": "Yanıt, açıkça belirtilen koşulu dikkate alır. İlgi cümlesi, aranan sosu daha ayrıntılı tarif eder.",
+    "focus": "Nominativ ile ilgi cümlesi",
+    "question": "Yerine verilecek sosta mutlaka hangi özellik olmalı?"
+  },
+  "sitov-b1-preisschild-klaeren": {
+    "goal": "Raf fiyatını ve kasa fiyatını nazikçe karşılaştır.",
+    "explanation": "Yanıt, ilgili fiyatın kontrol edilmesini ister. “deshalb” sonrasında doğrudan çekimli fiil gelir.",
+    "focus": "“deshalb” ve nazik Konjunktiv II",
+    "question": "Fotoğrafınızda pirincin fiyatı iki avro daha düşük. Ne yapmamı istersiniz?"
+  },
+  "sitov-b1-doppelte-buchung": {
+    "goal": "Kasa fişindeki bir hatayı göster.",
+    "explanation": "Yalnızca ilk yanıt, aynı ürünün iki kez hesaplanmasını düzeltir. “Obwohl”, alışveriş ile fiş arasındaki çelişkiyi anlatır.",
+    "focus": "Edilgen yapı ve “obwohl”",
+    "question": "Yalnızca bir ekmek aldınız. Hangi değişikliği istersiniz?"
+  },
+  "sitov-b1-einkauf-aufteilen": {
+    "goal": "Kendin ve ev arkadaşın için ödemeyi düzenle.",
+    "explanation": "Yanıt, sırayı açıklar ve istenen ayrı ödemeyi korur. “Deshalb”, neden ile sonucu bağlar.",
+    "focus": "Neden ve sonuç",
+    "question": "Önce hangi ürünlerin hesabını yapayım?"
+  },
+  "sitov-b1-ruhiger-tisch": {
+    "goal": "Odaklanarak çalışabileceğin bir masa iste.",
+    "explanation": "Yanıt, sessiz bölümü seçmenin nedenini açıklar. “Ich hätte gern”, isteği nazikçe ifade eder.",
+    "focus": "Konjunktiv II ve gerekçe",
+    "question": "Önde müziğin yanında mı, yoksa arkada mı oturmayı tercih edersiniz?"
+  },
+  "sitov-b1-bestellung-verwechselt": {
+    "goal": "Bir siparişi dostça düzelt.",
+    "explanation": "Yanıt, uygun düzeltmeyi onaylar. Edilgen yapı, kişiden çok hazırlanışa dikkat çeker.",
+    "focus": "Sipariş düzeltme ve edilgen yapı",
+    "question": "Affedersiniz, size yulaf sütlü yeni bir kahve getireyim mi?"
+  },
+  "sitov-b1-rechnung-aufteilen": {
+    "goal": "Hangi içeceklerin parasını ödeyeceğini açıkla.",
+    "explanation": "Yanıt, üzerinde anlaşılan paylaşımı korur. “Während”, iki ödeme payını karşılaştırır.",
+    "focus": "“während” ve ayrı ödeme",
+    "question": "Hesabın tamamını sizden alayım mı?"
+  },
+  "sitov-b1-kaffee-zum-mitnehmen": {
+    "goal": "Yakında ayrılman gerektiği için siparişi değiştir.",
+    "explanation": "Yanıt, değiştirilen sipariş için ambalajı seçer. “Damit”, bardağın hangi amaçla kullanılacağını belirtir.",
+    "focus": "“da” ve “damit”",
+    "question": "Kahveyi fincanda mı, yoksa götürmelik bardakta mı servis edeyim?"
+  },
+  "sitov-b1-kalter-kaffee": {
+    "goal": "Nazik bir şikâyet dile getir.",
+    "explanation": "Yanıt, teklif edilen yeni içeceği kabul eder. “Obwohl”, içeceğin soğuk olmasının neden şaşırtıcı olduğunu gösterir.",
+    "focus": "“obwohl” ve süreç bildiren edilgen yapı",
+    "question": "Onun yerine size taze hazırlanmış bir kahve getirebilir miyim?"
+  },
+  "sitov-b1-anschluss-verpasst": {
+    "goal": "Bir sonraki bağlantıyı sor.",
+    "explanation": "Yanıt, yolculuğu mevcut bir bağlantıyla sürdürür. Yan cümle, bağlantının neden kaçırıldığını açıklar.",
+    "focus": "“weil” ve geçmiş zaman (Perfekt)",
+    "question": "Hamburg'a bir sonraki bağlantıyı öğrenmek ister misiniz?"
+  },
+  "sitov-b1-fahrradplatz-buchen": {
+    "goal": "Gerekli bir rezervasyonu sor.",
+    "explanation": "Yanıt, somut teklifi kabul eder. “ob” ile dolaylı soru, bunun mümkün olup olmadığını sorar.",
+    "focus": "Dolaylı soru ve edilgen yapı",
+    "question": "Saat ondaki trende bir bisiklet yeri hâlâ boş. Onu ayırtayım mı?"
+  },
+  "sitov-b1-gleis-ohne-treppe": {
+    "goal": "Asansörlü bir yol iste.",
+    "explanation": "Yanıt, basamaksız bir yol isteğine uygundur. İlgi cümlesi, gereken yolu tarif eder.",
+    "focus": "“da” ve ilgi cümlesi",
+    "question": "Size asansöre giden yolu tarif edeyim mi?"
+  },
+  "sitov-b1-reservierungsdatum-aendern": {
+    "goal": "Yolculuktan önce bir tarih hatasını netleştir.",
+    "explanation": "Yanıt, tarih hatasını bugünkü yolculuğa uygun olarak düzeltir. “Versehentlich”, yanlış rezervasyonun istemeden yapıldığını açıklar.",
+    "focus": "“obwohl” ve zaman bildiren ifadeler",
+    "question": "Bugün için hâlâ koltuk rezervasyonu yapılıp yapılamayacağını kontrol edeyim mi?"
+  },
+  "sitov-b1-koffer-im-zug": {
+    "goal": "Kaybolan bir eşyayı ayrıntılı tarif et.",
+    "explanation": "Yanıt, tarif edilen eşyanın ayırt edici özelliklerini ekler. İlgi cümlesindeki “Den”, valize gönderme yapar.",
+    "focus": "Akkusativ ile ilgi cümlesi",
+    "question": "Siyah valizinizi hangi özelliklerinden tanıyabiliriz?"
+  },
+  "sitov-b1-umleitung-haltestelle": {
+    "goal": "Gideceğin yere ulaşmak için alternatif bir yol bul.",
+    "explanation": "Yanıt, önerilen alternatif yolu onaylar ve yardımcı olacak bir anons ister.",
+    "focus": "Soru sözcüklü dolaylı soru",
+    "question": "Pazar durağında inip belediye binasına beş dakika yürüyebilirsiniz. Uygun mu?"
+  },
+  "sitov-b1-ticket-gueltigkeit": {
+    "goal": "Aktarma yapmadan önce geçerliliği netleştir.",
+    "explanation": "Yanıt, doğrudan geçerlilik kuralını sorar. Kalan süreden henüz dayanağı olmayan bir sonuç çıkarılmaz.",
+    "focus": "“deshalb” ve netleştirme sorusu",
+    "question": "Biletin devam yolculuğunda hâlâ geçerli olup olmadığını öğrenmek ister misiniz?"
+  },
+  "sitov-b1-voller-bus": {
+    "goal": "Daha sonraki bir seferi sor.",
+    "explanation": "Yanıt, bir sonraki sefer isteğini yerine getirir. “Wenn”, bu kararın koşulunu belirtir.",
+    "focus": "“wenn” ve Konjunktiv II",
+    "question": "Bir sonraki otobüs on iki dakika sonra geliyor. Burada onu beklemek ister misiniz?"
+  },
+  "sitov-b1-falsche-richtung": {
+    "goal": "Uygun bir aktarma iste.",
+    "explanation": "Yanıt, istenen yere giden teklif edilmiş bağlantıyı kullanır. “An der”, yerle ilgili bir ilgi cümlesini başlatır.",
+    "focus": "Edatlı ilgi cümlesi",
+    "question": "Bir sonraki durakta, karşı taraftaki tramvay merkeze gidiyor. Ne yaparsınız?"
+  },
+  "sitov-b1-rampe-anfragen": {
+    "goal": "Şoförden binerken yardım iste.",
+    "explanation": "Yanıt, gereken yardımı onaylar. “Damit”, nazik ricanın amacını açıklar.",
+    "focus": "Konjunktiv II ve “damit”",
+    "question": "Önce rampayı açıp sonra binmenize yardım edeyim mi?"
+  },
+  "sitov-b1-gericht-ohne-fleisch": {
+    "goal": "Bir yemeğin malzemelerini sor.",
+    "explanation": "Yanıt, etsiz yemek isteğini korur. İlgi cümlesi, aranan yemeği tarif eder.",
+    "focus": "İlgi cümlesi ve edilgen yapı",
+    "question": "Sosta et suyu var. Sebze suyuyla hazırlanan bir seçenek ister misiniz?"
+  },
+  "sitov-b1-suppe-reklamieren": {
+    "goal": "Bir şikâyeti açıkla ve yerine başka bir ürün seç.",
+    "explanation": "Yanıt, ikinci bir sipariş eklemeden teklif edilen ürünü seçer. “Deshalb”, şikâyet ile sonucunu bağlar.",
+    "focus": "“deshalb” ile şikâyet",
+    "question": "Onun yerine aynı fiyata sebze tabağı ister misiniz?"
+  },
+  "sitov-b1-tisch-spaeter": {
+    "goal": "Trenin geciktiği için daha geç bir masa rezervasyonu iste.",
+    "explanation": "Yanıt, rezervasyonu istenen şekilde yarım saat sonraya alır.",
+    "focus": "“da” ve randevuyu erteleme",
+    "question": "Aynı masa saat yedi buçukta hâlâ boş. Saati değiştireyim mi?"
+  },
+  "sitov-b1-fehlendes-dessert": {
+    "goal": "Ödeme yapmadan önce sipariş ettiğin tatlıyı sor.",
+    "explanation": "Yanıt, siparişi korur ve istenen sırayı belirtir. “Wenn”, ödeme için bir koşul koyar.",
+    "focus": "“wenn” ve araya giren ilgi cümlesi",
+    "question": "Affedersiniz, tatlınız henüz gelmemiş. Şimdi getirttireyim mi?"
+  },
+  "sitov-b1-gruppenmenue-absprechen": {
+    "goal": "Farklı istekleri dikkate alan bir menü kararlaştır.",
+    "explanation": "Yanıt, istenen iki ve üç kişilik dağılımı korur. “Obwohl”, birlikte yemek yemeyi farklı isteklerle karşılaştırır.",
+    "focus": "“obwohl” ve miktar belirtme",
+    "question": "İki iş arkadaşınıza sebze tabağı, diğer üç kişiye günün yemeği verilsin mi?"
+  },
+  "sitov-b1-rezept-abholung": {
+    "goal": "Sipariş edilen ürünün ne zaman hazır olacağını netleştir.",
+    "explanation": "Yanıt, etkiyi veya kullanımı değerlendirmeden teslim almayı düzenler. “Sobald”, uygun olan en erken zamanı belirtir.",
+    "focus": "Dolaylı soru ve “sobald”",
+    "question": "Sipariş gelir gelmez size mesajla haber vereyim mi?"
+  },
+  "sitov-b1-lieferung-zeitfenster": {
+    "goal": "Teslimat için uygun bir zaman aralığı iste.",
+    "explanation": "Yanıt, açıkça belirtilen öğleden sonraya uygundur. Görev yalnızca teslimatın düzenlenmesiyle ilgilidir.",
+    "focus": "“deshalb” ve zaman aralığı",
+    "question": "Kuryemiz dört ile altı arasında geliyor. O sırada evde olur musunuz?"
+  },
+  "sitov-b1-quittung-nachfordern": {
+    "goal": "Daha önceki bir alışveriş için fiş iste.",
+    "explanation": "Yanıt, fişi bulmak için gereken bilgileri belirtir. İlgi cümlesi, aranan fişi tarif eder.",
+    "focus": "Geçmiş zaman (Perfekt) ve ilgi cümlesi",
+    "question": "Bizden hangi gün alışveriş yaptığınızı hâlâ hatırlıyor musunuz?"
+  },
+  "sitov-b1-name-auf-paket": {
+    "goal": "Teslimden önce siparişin kontrol edilmesini iste.",
+    "explanation": "Yanıt, teslimden önce siparişin doğru kişiye ait olduğunun kontrolünü ister. “Obwohl”, addaki uyuşmazlığı belirtir.",
+    "focus": "“obwohl” ve kime ait olduğunu netleştirme",
+    "question": "Adınız Bay Berger. Siparişin kime ait olduğunu yeniden kontrol edeyim mi?"
+  },
+  "sitov-b1-beratungstermin-planen": {
+    "goal": "Eczacıyla sakin bir görüşme için randevu kararlaştır.",
+    "explanation": "Yanıt, teklif edilen görüşme randevusunu kabul eder. Tıbbi öneri verilmez.",
+    "focus": "Konjunktiv II ve edatlı ilgi cümlesi",
+    "question": "Cuma günü saat üçte yirmi dakikam var. Bunu kaydedeyim mi?"
+  },
+  "sitov-b1-arzttermin-verschieben": {
+    "goal": "İş gününden sonra yeni bir randevu iste.",
+    "explanation": "Yanıt, teklif edilen daha geç randevuyla zaman çakışmasını çözer. “weil” cümlesi, planlamayla ilgili nedeni belirtir.",
+    "focus": "“weil” ve geçmiş zaman (Perfekt)",
+    "question": "Perşembe günü saat on yedide bir randevu boş. Sizin için uygun olur mu?"
+  },
+  "sitov-b1-unterlagen-mitbringen": {
+    "goal": "Hangi belgeleri getirmen gerektiğini netleştir.",
+    "explanation": "Yanıt, belgeler için sorulan biçimi onaylar. “ob” ile dolaylı soru, hazırlıkla ilgili bir ön koşulu netleştirir.",
+    "focus": "“ob” ile dolaylı soru",
+    "question": "Randevu için fotokopiler yeterli. Bunları getirebilir misiniz?"
+  },
+  "sitov-b1-wartezeit-erfragen": {
+    "goal": "Ardından başka bir randevun olduğu için bekleme süresini sor.",
+    "explanation": "Yanıt, sonraki randevu için süre bilgisini kullanır. “Voraussichtlich”, sürenin tahmin olduğunu açıkça belirtir.",
+    "focus": "“da” ve tahmini zaman belirtme",
+    "question": "Tahminen kırk dakika daha sürecek. Sonraki randevunuz için haber vermek ister misiniz?"
+  },
+  "sitov-b1-begleiter-anmelden": {
+    "goal": "Bir refakatçinin katılmasını önceden netleştir.",
+    "explanation": "Yanıt, gelmesi planlanan refakatçiyi bildirir. “Damit”, orada bulunmasının amacını açıklar.",
+    "focus": "Konjunktiv II ve “damit”",
+    "question": "Erkek kardeşinizin görüşmede size eşlik etmek istediğini not edeyim mi?"
+  },
+  "sitov-b1-bescheinigung-abholen": {
+    "goal": "Hazırlanmış bir belgeyi teslim almayı düzenle.",
+    "explanation": "Yanıt, açık olunan saatler içinde bir zaman seçer. “Falls”, planlanan teslim alma işleminin koşulunu belirtir.",
+    "focus": "“falls” ve teslim alma zamanı",
+    "question": "Kayıt bölümünde saat on sekize kadar görevli var. Daha önce gelir misiniz?"
+  },
+  "sitov-b1-paket-beschaedigt": {
+    "goal": "Hasarlı bir gönderiyi uygun kanıtlarla bildir.",
+    "explanation": "Yanıt, istenen kanıtları sunar. Edilgen yapı, teslimat sırasındaki durumu anlatır.",
+    "focus": "Edilgen yapı ve “deshalb”",
+    "question": "Hasar bildirimi için ambalajı ve fotoğrafları yanınızda getirdiniz mi?"
+  },
+  "sitov-b1-zweite-zustellung": {
+    "goal": "Bir paketi teslim alabileceğin bir gün bul.",
+    "explanation": "Yanıt, açıkça belirtilen müsait günü kullanır. “Könnte”, olası bir anlaşmayı nazikçe ifade eder.",
+    "focus": "Konjunktiv II ve teslimat randevusu",
+    "question": "Cuma günü için yeni bir teslimat kararlaştırmak ister misiniz?"
+  },
+  "sitov-b1-zolldokumente-klaeren": {
+    "goal": "Bir gönderinin işleme alınması için gereken belgeleri sor.",
+    "explanation": "Yanıt, işlemin düzenlenmesi hakkında somut bilgiler ister. Ne bir onay verildiğini ne de hukuki bir kuralı ileri sürer.",
+    "focus": "Dolaylı soru ve “damit”",
+    "question": "Eksik belgelerin listesini ve sorumlu kişinin iletişim bilgisini ister misiniz?"
+  },
+  "sitov-b1-einschreiben-nachweis": {
+    "goal": "Gönderilen bir mektuba ait kanıtı sor.",
+    "explanation": "Yanıt, somut kontrol için numarayı verir. “dass” cümlesi, gereken kanıtı belirtir.",
+    "focus": "“dass” ve edilgen Perfekt",
+    "question": "Teslimat durumunu kontrol edebilmem için gönderi numarası yanınızda mı?"
+  },
+  "sitov-b1-paketstatus-unveraendert": {
+    "goal": "Birkaç gün geçtikten sonra durum kontrolü iste.",
+    "explanation": "Yanıt, kontrol yapılmasını ve sonraki adımın açıklanmasını ister. “Obwohl”, beklenenden farklı olan durumu anlatır.",
+    "focus": "“obwohl” ve “sich ändern”",
+    "question": "Bilgileri kontrol edip araştırma başvurusunun nasıl yapıldığını açıklayayım mı?"
+  },
+  "sitov-b1-karte-abholbereit": {
+    "goal": "Hazır olan banka kartını teslim almayı netleştir.",
+    "explanation": "Yanıt, belirtilen ön koşulu ve teslim alma tarihini onaylar. “Welchen”, belgeyle ilgili dolaylı soruyu başlatır.",
+    "focus": "Dolaylı soru ve teslim alma",
+    "question": "Lütfen kimlik kartınızı getirin. Yarın uğrayabilir misiniz?"
+  },
+  "sitov-b1-banktermin-nach-arbeit": {
+    "goal": "Çalışma saatlerin dışında bir görüşme randevusu kararlaştır.",
+    "explanation": "“Halb fünf”, belirtilen iş bitiş saatinden sonradır. Görev yalnızca bir randevu kararlaştırır.",
+    "focus": "“da” ve uygun saat",
+    "question": "Çarşamba günü saat dört buçukta bir randevu hâlâ boş. Onu ayırtayım mı?"
+  },
+  "sitov-b1-auszug-fehlt": {
+    "goal": "Eksik bir belgenin kopyasını iste.",
+    "explanation": "Yanıt, doğru dönemi belirtir ve yalnızca eksik belgeyi ister. “Den”, hesap özetine gönderme yapar.",
+    "focus": "Akkusativ ile ilgi cümlesi",
+    "question": "Size haziran ayı hesap özetinin bir kopyasını hazırlayayım mı?"
+  },
+  "sitov-b1-adresse-aktualisieren": {
+    "goal": "Yeni posta adresinin nasıl kaydedileceğini netleştir.",
+    "explanation": "Yanıt, posta adresinin değiştirilmesini sağlar. “Muss ... eingetragen werden”, yardımcı fiil ile edilgen yapıyı birleştirir.",
+    "focus": "Geçmiş zaman (Perfekt) ve edilgen yapıda yardımcı fiil",
+    "question": "Adresinizi değiştirmek için formu doldurmak ister misiniz?"
+  },
+  "sitov-b1-portal-gesperrt": {
+    "goal": "Erişimi yeniden sağlamak için resmî işlem sürecini sor.",
+    "explanation": "Yanıt, öngörülen hizmet sürecini ister. “Nachdem”, erişimin engellenmesini zaman açısından başvurudan önceye yerleştirir.",
+    "focus": "“nachdem” ve hizmet süreci",
+    "question": "Resmî hizmetimiz üzerinden erişimi yeniden sağlama işlemini nasıl başlatacağınızı açıklayayım mı?"
+  },
+  "sitov-b1-buch-verlaengern": {
+    "goal": "Ayırtılmış bir kitabın zamanında iadesini kararlaştır.",
+    "explanation": "Yanıt, uzatmanın mümkün olmadığını dikkate alır ve iadeyi onaylar.",
+    "focus": "Yardımcı fiil ve zamanında “zurückbringen”",
+    "question": "Maalesef süreyi uzatmak mümkün değil. Cuma gününe kadar iade edebilir misiniz?"
+  },
+  "sitov-b1-buchschaden-melden": {
+    "goal": "Mevcut bir hasarı kitabı ödünç alırken hemen bildir.",
+    "explanation": "Yanıt, bildirilen durumu doğru şekilde kaydeder. “Bereits”, hasarın önceden var olduğunu vurgular.",
+    "focus": "“bereits” ve “deshalb”",
+    "question": "Mevcut hasarı ödünç alma kaydınıza yazayım mı?"
+  },
+  "sitov-b1-gruppenraum-buchen": {
+    "goal": "Birlikte ders çalıştığın kişilerle konuşmak için bir oda iste.",
+    "explanation": "Yanıt, çalışma amacına uygun odayı seçer. “In dem”, bu odada neyin mümkün olması gerektiğini anlatır.",
+    "focus": "“in dem” ile ilgi cümlesi",
+    "question": "Grup odası yarın iki ile üç arasında boş. Sizin için ayırtayım mı?"
+  },
+  "sitov-b1-digitales-buch-finden": {
+    "goal": "Ödünç verilmiş bir kitabın dijital alternatifini sor.",
+    "explanation": "Yanıt, alternatif baskıyı bulmak için yardımı kabul eder. “Obwohl”, basılı kitabın mevcut olmamasını aramayı sürdürme isteğiyle bağlar.",
+    "focus": "“obwohl” ve alternatif arama",
+    "question": "Dijital baskıyı katalogda nasıl bulacağınızı göstereyim mi?"
+  },
+  "sitov-b1-vormerkung-abholen": {
+    "goal": "Kısa bir teslim alma süresini netleştir.",
+    "explanation": "Yanıt, açıkça teklif edilen bir günlük uzatmayı kullanır. “Ob”, olanağı nazikçe sorar.",
+    "focus": "Dolaylı soru ve edilgen yapı",
+    "question": "Kitabı bir gün daha sizin için bekletebilirim. Cuma günü teslim alır mısınız?"
+  },
+  "sitov-b1-abgabe-mehr-zeit": {
+    "goal": "Somut bir gerekçeyle yeni bir son tarih iste.",
+    "explanation": "Yanıt, somut bir yeni son tarih belirtir ve eksiksiz rapor hedefini korur.",
+    "focus": "“da” ve Konjunktiv II",
+    "question": "Bilgilerin eksiksiz olması için teslim tarihini yarına erteleyeyim mi?"
+  },
+  "sitov-b1-hybrides-meeting": {
+    "goal": "Rezerve edilen odanın donanımını netleştir.",
+    "explanation": "Yanıt, tüm iş arkadaşlarının planlanan katılımını mümkün kılar. “Damit”, donanımın amacını anlatır.",
+    "focus": "İlgi cümlesi ve “damit”",
+    "question": "Küçük oda yerine kamera ve ekran bulunan odayı ayırtayım mı?"
+  },
+  "sitov-b1-alte-datei-ersetzen": {
+    "goal": "Eski bir ek dosya içeren mesajı düzelt.",
+    "explanation": "Yanıt, hangi sürümün esas alınacağını açıkça belirtir. “Nachsenden”, gönderiye daha sonra bir ek yapmayı anlatır.",
+    "focus": "Geçmiş zaman (Perfekt) ve ayrılabilen “nachsenden” fiili",
+    "question": "Bundan sonraki çalışmamızda yeni dosyayı kullanayım mı?"
+  },
+  "sitov-b1-vertretung-absprechen": {
+    "goal": "Bir iş arkadaşından sınırları belli bir görevde yerine bakmasını iste.",
+    "explanation": "Yanıt, görevi ve sonrasında bilgilerin uygun şekilde aktarılmasını onaylar. “Während”, aynı sıradaki yokluğunu anlatır.",
+    "focus": "Konjunktiv II ve “während”",
+    "question": "Telefon görüşmesini üstlenip ardından en önemli noktaları sana göndereyim mi?"
+  },
+  "sitov-b1-feedback-klaeren": {
+    "goal": "Bir iyileştirme için somut bir örnek iste.",
+    "explanation": "Yanıt, hedefe yönelik düzeltme için gereken bilgiyi ister.",
+    "focus": "Dolaylı soru ve “damit”",
+    "question": "Size anlaşılmayan bir yeri gösterip hangi bilginin eksik olduğunu açıklayayım mı?"
+  },
+  "sitov-b1-unterricht-verpasst": {
+    "goal": "Kaçırdığın derste işlenen konuyu sor.",
+    "explanation": "Yanıt, eksikleri tamamlamak için materyalleri ister. Gerekçe, ana cümleden önce bir “weil” cümlesi olarak yer alır.",
+    "focus": "“weil” ve geçmiş zaman (Perfekt)",
+    "question": "Dünkü dersin özetini ve ödevini almak ister misin?"
+  },
+  "sitov-b1-kurszeit-wechseln": {
+    "goal": "Yeni çalışma saatlerin nedeniyle uygun bir kurs sor.",
+    "explanation": "Yanıt, saat bakımından uygun akşam kursunu dikkate alır. “Seit”, yeni durumun başlangıcını belirtir.",
+    "focus": "“seit” ve edilgen yapı",
+    "question": "Sitov Academy'de aynı kurs salı akşamı da var. Geçmek ister misin?"
+  },
+  "sitov-b1-projektrolle-vereinbaren": {
+    "goal": "Bir grup sunumunun belirli bir bölümünü üstlen.",
+    "explanation": "Yanıt, kararlaştırılan görev dağılımını doğru şekilde tekrarlar. “Während”, paralel görevleri birbirinden ayırır.",
+    "focus": "Konjunktiv II ve görev dağılımı",
+    "question": "Şöyle paylaşalım mı: örnekleri sen, girişi ben hazırlayayım?"
+  },
+  "sitov-b1-korrektur-erfragen": {
+    "goal": "Öğretmenden cümledeki sözcük sırasını açıklamasını iste.",
+    "explanation": "Yanıt, gerçekten anlaşılmayan sözcük sırasını açıklamasını ister. “Warum”, dolaylı soruyu başlatır.",
+    "focus": "“warum” ile dolaylı soru",
+    "question": "Cümleyi işaretleyip yan cümle kuralını açıklayayım mı?"
+  },
+  "sitov-b1-zertifikat-korrigieren": {
+    "goal": "Bir belgedeki soyadının düzeltilmesini iste.",
+    "explanation": "Yanıt, doğru düzeltmeyi ve kontrol için uygun bir dayanağı belirtir.",
+    "focus": "Edilgen yapı ve “deshalb”",
+    "question": "Soyadını kayıt bilgilerinle kontrol edip sertifikayı düzelteyim mi?"
+  },
+  "sitov-b1-umzug-absprechen": {
+    "goal": "Asansörün kullanımını bina görevlisiyle kararlaştır.",
+    "explanation": "Yanıt, taşımayı teklif edilen zaman aralığına uygun düzenler. “Zu der”, kararlaştırılan zamana gönderme yapar.",
+    "focus": "Konjunktiv II ve ilgi cümlesi",
+    "question": "Cumartesi günü on ile on iki arasında taşınmanız için asansör boş. Uygun mu?"
+  },
+  "sitov-b1-heizungstermin": {
+    "goal": "Çalışmayan ısıtmayı bildir ve içeri girişi mümkün kıl.",
+    "explanation": "Yanıt, kararlaştırılan tamir randevusunda içeri girilebilmesini sağlar. “Seit”, sorunun başlangıcını anlatır.",
+    "focus": "“seit” ve tamiri düzenleme",
+    "question": "Teknisyen yarın saat dokuzda gelebilir. Onu daireye alabilir misiniz?"
+  },
+  "sitov-b1-putzplan-tauschen": {
+    "goal": "Ev arkadaşınla görevlerinizi değiştirmeyi kararlaştır.",
+    "explanation": "Yanıt, karşılıklı görev değişikliğini onaylar ve iki görevin de yerine getirilmesini sağlar.",
+    "focus": "“weil” ve Konjunktiv II",
+    "question": "Mutfak işini cumartesi ben, çarşamba sen üstlenelim mi?"
+  },
+  "sitov-b1-musik-leiser": {
+    "goal": "Komşundan dostça daha az ses yapmasını iste.",
+    "explanation": "Yanıt, istenen anlayışlı davranışı onaylar. Rica, anlaşılır bir kişisel neden belirtir.",
+    "focus": "Konjunktiv II ve “weil”",
+    "question": "Şimdi sesi azaltıp daha sonra müziği kapatayım mı?"
+  },
+  "sitov-b1-paket-beim-nachbarn": {
+    "goal": "Uygun bir teslim alma saati kararlaştır.",
+    "explanation": "Yanıt, komşunun evde olduğu zamanı dikkate alır. “Wenn”, teslim alma koşulunu belirtir.",
+    "focus": "“wenn” ve ayrılabilen “abholen” fiili",
+    "question": "Saat sekizden itibaren yeniden evdeyim. O zaman kısaca uğramak ister misin?"
+  },
+  "sitov-b1-fahrrad-fertig": {
+    "goal": "Teslim alma zamanı için bir tahmin iste.",
+    "explanation": "Yanıt, haber verilen bitiş zamanına göre teslim almayı düzenler. “Abgeschlossen wird”, tamiri edilgen yapıyla anlatır.",
+    "focus": "Dolaylı soru ve edilgen yapı",
+    "question": "Cuma öğlene kadar hazır olması gerekiyor. O zaman teslim almanız için arayayım mı?"
+  },
+  "sitov-b1-handy-daten-klaeren": {
+    "goal": "Bir tamirde verilerin silinmesinin gerekip gerekmediğini netleştir.",
+    "explanation": "Yanıt, teslimden önce işlem sürecini netleştirir. “Bevor”, istenen zaman sırasını açıkça gösterir.",
+    "focus": "“bevor” ve dolaylı soru",
+    "question": "Önce hangi işlem adımlarının kayıtlı dosyalarınızı ilgilendirdiğini açıklayayım mı?"
+  },
+  "sitov-b1-schuhe-abholung": {
+    "goal": "Kapanış sonrasına kalan teslim alma işini anlaşarak düzenle.",
+    "explanation": "Yanıt, bir sonraki uygun açılış saatini seçer. “reparierten” ortacı, ayakkabıların durumunu anlatır.",
+    "focus": "“deshalb” ve sıfat olarak kullanılan ortaç",
+    "question": "Yarın saat dokuzda açıyoruz. O zaman teslim almaya gelmek ister misiniz?"
+  },
+  "sitov-b1-kostenvoranschlag-pruefen": {
+    "goal": "Karar vermeden önce yazılı bir fiyat teklifi iste.",
+    "explanation": "Yanıt, istenen sırayı korur: bilgi, inceleme, ardından karar. Finansal seçenekleri değerlendirmez.",
+    "focus": "“bevor” ve süreç bildiren edilgen yapı",
+    "question": "Size fiyat teklifini gönderip tamir için onayınızı bekleyeyim mi?"
+  },
+  "sitov-b1-beleg-reparatur": {
+    "goal": "İstenen satın alma belgesini daha sonra gönder.",
+    "explanation": "Yanıt, istenen belgeyi ilgili bilgiyle birlikte sunar. Herhangi bir hak konusunda iddiada bulunulmaz.",
+    "focus": "Geçmiş zaman (Perfekt) ve “nachreichen”",
+    "question": "Satın alma tarihi görünecek şekilde kopyasını bize gönderebilir misiniz?"
+  },
+  "sitov-b1-picknick-regenplan": {
+    "goal": "Yağmurlu bir gün için alternatif kararlaştır.",
+    "explanation": "Yanıt, belirtilen koşul için öngörülen planı onaylar. “Falls”, olası bir durumu anlatır.",
+    "focus": "“falls” ve Konjunktiv II",
+    "question": "Yağmur yağarsa kafeye gidip pikniği daha sonra yapalım mı?"
+  },
+  "sitov-b1-parkweg-gesperrt": {
+    "goal": "Göle gitmek için alternatif bir yol sor.",
+    "explanation": "Yanıt, aynı yere giden erişilebilir alternatifi kullanır. “Obwohl”, isteği ortadan kaldırmayan engeli anlatır.",
+    "focus": "“obwohl” ve alternatif sorma",
+    "question": "Köprüden geçince göle giden açık bir yürüyüş yoluna ulaşırsınız. Size göstereyim mi?"
+  },
+  "sitov-b1-hundebereich-finden": {
+    "goal": "Bir görevliye belirlenmiş köpek alanını sor.",
+    "explanation": "Yanıt, orada belirtilen kuralı dikkate alır ve uygun alanı sorar.",
+    "focus": "İlgi cümlesi ve “ohne zu”",
+    "question": "Girişin yanındaki tabelayla belirtilmiş köpek alanını göstereyim mi?"
+  },
+  "sitov-b1-schluessel-gefunden": {
+    "goal": "Kayıp eşya bürosunda bir anahtarlığı tarif et.",
+    "explanation": "Yanıt, kontrol için eşleşen özellikleri kullanır. “An dem”, anahtarlığa neyin takılı olduğunu anlatır.",
+    "focus": "Geçmiş zaman (Perfekt) ve “an dem” ile ilgi cümlesi",
+    "question": "Bulunan anahtarlıkta mavi bir süs ve üç anahtar var. Bakmak ister misiniz?"
+  },
+  "sitov-b1-park-aktion-treffpunkt": {
+    "goal": "Gönüllü bir etkinliğin buluşma yerini ve başlangıcını netleştir.",
+    "explanation": "Yanıt, doğru buluşma yerini ve saati onaylar. “Wo”, yerle ilgili dolaylı soruyu başlatır.",
+    "focus": "Konjunktiv II ve yerle ilgili dolaylı soru",
+    "question": "Saat onda ana girişte buluşuyoruz. Oraya gelebilir misin?"
+  },
+  "sitov-b1-probetraining-anmelden": {
+    "goal": "Yeni başlayanlar için bir antrenman sor.",
+    "explanation": "Yanıt, tarif edilen deneyim düzeyine uygun grubu seçer.",
+    "focus": "“da” ve nazik antrenman isteği",
+    "question": "Yeni başlayanlar grubu pazartesi saat altıda antrenman yapıyor. Denemek için katılmak ister misin?"
+  },
+  "sitov-b1-tempo-absprechen": {
+    "goal": "Antrenman arkadaşınla daha sakin bir tempo kararlaştır.",
+    "explanation": "Yanıt, sağlıkla ilgili bir etki sözü vermeden istenen tempoyu kararlaştırır.",
+    "focus": "“weil” ve geçmiş zaman (Perfekt)",
+    "question": "Sakin bir tur seçip gerekirse ara verelim mi?"
+  },
+  "sitov-b1-platz-doppelt-gebucht": {
+    "goal": "Çift rezervasyonu görevliyle netleştir.",
+    "explanation": "Yanıt, istenen saati koruyan mevcut bir alternatifi kabul eder.",
+    "focus": "“obwohl” ve edilgen yapı",
+    "question": "Aynı saatte başka bir alan boş. Oraya geçmek ister misiniz?"
+  },
+  "sitov-b1-spindschluessel-fehlt": {
+    "goal": "Sıkışan bir kilit için yardım iste.",
+    "explanation": "Yanıt, doğru dolap için yardım ister. “Lässt sich öffnen”, açmanın mümkün olup olmadığını anlatır.",
+    "focus": "“obwohl” ve “sich lassen”",
+    "question": "Kilidi kontrol edip açmana yardım edeyim mi?"
+  },
+  "sitov-b1-turnier-verschoben": {
+    "goal": "Bir plan değişikliğinden sonra yeni varış saatini netleştir.",
+    "explanation": "Yanıt, varışı yeni saate göre düzenler. “Wann”, ertelemeden sonraki zamanı sorar.",
+    "focus": "“da” ve zamanla ilgili dolaylı soru",
+    "question": "Kayıt bölümü artık saat on ikide açılıyor. On iki buçuğa kadar orada olabilir misiniz?"
+  },
+  "sitov-b1-gepaeck-vor-checkin": {
+    "goal": "Bagajının saklanmasını sor.",
+    "explanation": "Yanıt, giriş yapmadan önceki süre için bagajın saklanmasını kabul eder. “Bis”, bu sürenin bitişini belirtir.",
+    "focus": "“obwohl” ve “bis”",
+    "question": "Bagajınızı saat üçe kadar bagaj odamızda saklayayım mı?"
+  },
+  "sitov-b1-hotelzimmer-wechseln": {
+    "goal": "İnşaat gürültüsü nedeniyle daha sessiz bir oda iste.",
+    "explanation": "Yanıt, gürültü sorununa teklif edilen çözümü seçer. “In ein ruhigeres”, daha sessiz bir oda anlamına gelir.",
+    "focus": "“deshalb” ve nazik şikâyet",
+    "question": "İç avluya bakan bir oda boş. Oraya geçmek ister misiniz?"
+  },
+  "sitov-b1-aufenthalt-verlaengern": {
+    "goal": "Aynı odada kalışını uzatmayı sor.",
+    "explanation": "Yanıt, yalnızca mevcut konaklamayı bir gece uzatır. “Ob”, müsaitliği sorar.",
+    "focus": "Konjunktiv II ve dolaylı soru",
+    "question": "Odanız yarın da boş. Ek geceyi kaydedeyim mi?"
+  },
+  "sitov-b1-hotelrechnung-korrigieren": {
+    "goal": "Faturada doğru şirket adresinin yazılmasını iste.",
+    "explanation": "Yanıt, istenen düzeltme için bilgileri verir. Edilgen yapı, belgeyi düzenleyen kişiden çok belgeyi vurgular.",
+    "focus": "Edilgen yapıda yardımcı fiil",
+    "question": "Düzeltilen fatura için şirketin tam adresi yanınızda mı?"
+  },
+  "sitov-b1-taxi-am-morgen": {
+    "goal": "Yeterince önceden taksi ayarla.",
+    "explanation": "Yanıt, istenen günü, saati ve alınacak yeri onaylar. “Da”, erken siparişin gerekçesini belirtir.",
+    "focus": "“da” ve belirli bir saat kararlaştırma",
+    "question": "Taksi sizi yarın saat beş buçukta otel girişinin önünden alsın mı?"
+  },
+  "sitov-b1-groesse-umtauschen": {
+    "goal": "Elindeki fişle beden değişikliği iste.",
+    "explanation": "Yanıt, istenen modeli korur ve bedeni uygun yönde değiştirir.",
+    "focus": "“weil” ve beden karşılaştırma",
+    "question": "Aynı pantolonun bir büyük bedeninin stokta olup olmadığını kontrol edeyim mi?"
+  },
+  "sitov-b1-jacke-mit-taschen": {
+    "goal": "Bir ceketten beklediğin işlevsel özelliği tarif et.",
+    "explanation": "Yanıt, belirtilen gereksinimi dikkate alır. İlgi cümlesi, ceketin istenen özelliğini anlatır.",
+    "focus": "İlgi cümlesi ve “weil”",
+    "question": "Bu ceketin fermuarlı iki iç cebi var. Denemek ister misiniz?"
+  },
+  "sitov-b1-aermel-kuerzen": {
+    "goal": "Uzunluğun değiştirilmesini sor.",
+    "explanation": "Yanıt, giysinin tam olarak uymayan bölümüyle ilgilidir. “Gekürzt werden können”, olası değişikliği edilgen yapıyla anlatır.",
+    "focus": "Dolaylı soru ve edilgen yapı",
+    "question": "Tadilat hizmetimiz kolları kısaltabilir. İstediğiniz uzunluğu işaretleyeyim mi?"
+  },
+  "sitov-b1-reservierte-kleidung": {
+    "goal": "Ürün ayırma süresinin kısa süre uzatılmasını iste.",
+    "explanation": "Yanıt, teklif edilen bir günlük uzatmayı kullanır. “Zurücklegen”, burada ürünü bir müşteri için saklamak demektir.",
+    "focus": "“deshalb” ve ayırma süresini uzatma",
+    "question": "Ceketi yarın akşama kadar sizin için ayırabilirim. O zaman teslim alır mısınız?"
+  },
+  "sitov-b1-offene-naht": {
+    "goal": "Satın almadan önce hasarsız bir ürün iste.",
+    "explanation": "Yanıt, modeli ve bedeni korur ve belirtilen kusuru giderir. “Hätte gern”, isteği nazikçe ifade eder.",
+    "focus": "Nazik istek ve aynı beden",
+    "question": "Depoda aynı gömleğin hasarsız bir tanesi var. Getireyim mi?"
+  },
+  "sitov-b1-herkunft-gemuese": {
+    "goal": "Satın almadan önce ürünün nereden geldiğini sor.",
+    "explanation": "Yanıt, açıkça belirtilen yöresel ürünü seçer. İlgi cümlesi, seçim ölçütünü anlatır.",
+    "focus": "İlgi cümlesi ve köken sorma",
+    "question": "Bu patatesler komşu yerleşimdeki bir işletmeden geliyor. Bunlardan almak ister misiniz?"
+  },
+  "sitov-b1-reife-fruechte": {
+    "goal": "Meyveleri ne zaman yemek istediğini anlat.",
+    "explanation": "Yanıt, ertesi gün yemeyi planlamayı uygun olgunluk derecesiyle ilişkilendirir.",
+    "focus": "“deshalb” ve ilgi cümlesi",
+    "question": "Size yarına kadar biraz daha sert kalacak armutları vereyim mi?"
+  },
+  "sitov-b1-kleinere-menge": {
+    "goal": "Büyük bir paket yerine daha küçük bir porsiyon iste.",
+    "explanation": "Yanıt, tartılmış daha küçük miktarı kabul eder. “Statt der Schale”, bütün paket yerine istenen alternatifi anlatır.",
+    "focus": "“da” ve miktar belirtme",
+    "question": "Size üç yüz gram da tartabilirim. Uygun olur mu?"
+  },
+  "sitov-b1-kartenzahlung-pruefen": {
+    "goal": "Alışverişten önce kabul edilen ödeme yöntemini netleştir.",
+    "explanation": "Yanıt, orada belirtilen ödeme yöntemini dikkate alır. Görev, finansal ürünler hakkında öneri yapmaz.",
+    "focus": "“obwohl” ve dolaylı soru",
+    "question": "Bugün yalnızca nakit kabul ediyoruz. Yanınızda yeterli nakit var mı?"
+  },
+  "sitov-b1-eigener-korb": {
+    "goal": "Ek poşet kullanılmadan paketlenmesini iste.",
+    "explanation": "Yanıt, paketleme isteğini açıkça yerine getirir. “Mitgebracht”, zaten yanında bulunan sepeti anlatır.",
+    "focus": "“deshalb” ve paketleme isteği",
+    "question": "Sebzeleri doğrudan yanınızda getirdiğiniz sepete koyayım mı?"
+  },
+  "sitov-b1-museum-zugang": {
+    "goal": "Merdivensiz bir girişi sor.",
+    "explanation": "Yanıt, belirtilen merdivensiz girişi seçer. İlgi cümlesindeki “Den”, girişe gönderme yapar.",
+    "focus": "İlgi cümlesi ve erişilebilirlik",
+    "question": "Rampalı yan girişe giden yolu göstereyim mi?"
+  },
+  "sitov-b1-stadtfuehrung-sprache": {
+    "goal": "Anlaşılır bir Almanca rehberli tur sor.",
+    "explanation": "Yanıt, tarif edilen dil ihtiyaçlarına uygundur. Edilgen yapı, açıklamaların nasıl söylendiğini anlatır.",
+    "focus": "İlgi cümlesi ve edilgen yapı",
+    "question": "Açıklamaların daha yavaş yapıldığı ve sorulara zaman ayrılan bir Almanca rehberli turumuz var. Uygun mu?"
+  },
+  "sitov-b1-veranstaltung-alternative": {
+    "goal": "Aynı etkinlik için daha sonraki bir tarih bul.",
+    "explanation": "Yanıt, istenen etkinliği korur ve müsait bir tarih seçer.",
+    "focus": "“obwohl” ve tarih seçme",
+    "question": "Gelecek cumartesi için hâlâ bilet var. Bu tarihi seçmek ister misiniz?"
+  },
+  "sitov-b1-treffpunkt-praezisieren": {
+    "goal": "Şehir merkezindeki belirsiz bir buluşma yerini netleştir.",
+    "explanation": "Yanıt, ayırt edici özelliklerden yararlanarak doğru yeri netleştirir. “Welcher”, uygun seçeneği sorar.",
+    "focus": "Dolaylı soru ve yön bulma",
+    "question": "Belediye binasının merdivenlerinin hemen yanındaki küçük çeşme kastediliyor. Göstereyim mi?"
+  },
+  "sitov-b1-radweg-umleitung": {
+    "goal": "Uygun bir alternatif güzergâh iste.",
+    "explanation": "Yanıt, belirtilen alternatif yolu dikkate alır. “Auf der”, aranan alternatif güzergâha gönderme yapar.",
+    "focus": "“da” ve “auf der” ile ilgi cümlesi",
+    "question": "Tabelayla belirtilen alternatif yol Bahnhofstraße üzerinden geçiyor. Haritada işaretleyeyim mi?"
+  },
+  "sitov-b2-lieferung-vorbehalt": {
+    "goal": "Haber verilen ürünün zamanında gelip gelmeyeceğini netleştir.",
+    "explanation": "“Sofern”, bir ön koşul belirtir. Uygun soru, belirsiz bir duyuruyu söz verilmiş gibi sunmadan onay ister.",
+    "focus": "“sofern” ile koşul ve kesin onay isteme",
+    "question": "İçeceklere cumartesi günü ihtiyacın var. Planını nasıl güvenceye alırsın?"
+  },
+  "sitov-b2-mengenrabatt-abwaegen": {
+    "goal": "İndirimi gerçek ihtiyacınla karşılaştırarak değerlendir.",
+    "explanation": "“Obwohl”, başka bir öncelik karar vermeden önce bir avantajı kabul eder. İlgi cümlesi, gerçekten gereken paketleri sınırlar.",
+    "focus": "Kabul bildiren yan cümle ve sınırlayıcı ilgi cümlesi",
+    "question": "Yalnızca altı pakete ihtiyacın var ve hiçbir şeyi israf etmek istemiyorsun. Ne yanıt verirsin?"
+  },
+  "sitov-b2-kassenfehler-belegen": {
+    "goal": "İki belgeye dayanarak fiyat kontrolü iste.",
+    "explanation": "Edilgen yapıda hesaplanan tutar öne çıkar. Belgeler ve nazik kontrol isteği, sonucu önceden belirlemeden itirazı anlaşılır kılar.",
+    "focus": "Edilgen yapı ve nesnel itiraz",
+    "question": "Fiyat etiketinin fotoğrafı sende var. Hangi tepki kontrol etmeye yardımcı olur?"
+  },
+  "sitov-b2-verpackung-alternative": {
+    "goal": "Daha az ambalajlı, mevcut bir alternatifi sor.",
+    "explanation": "“Während”, iki ürünü karşılaştırır. “Sofern”, değişikliği karşılaştırma için gereken bilgilere bağlar.",
+    "focus": "“während” ile karşılaştırma ve ön koşul",
+    "question": "Değiştirmeden önce fiyatı ve kökeni karşılaştırmak istiyorsun. Ne sorarsın?"
+  },
+  "sitov-b2-bestand-reservierung": {
+    "goal": "Hâlâ mevcut olan bir ürünün kısa süreliğine ayrılmasını iste.",
+    "explanation": "Konjunktiv II ile varsayımsal koşul cümlesi, nazik bir rica ifade eder. Yanıt, açıkça belirtilen ayırma süresine uyar.",
+    "focus": "Konjunktiv II ile nazik koşul",
+    "question": "Bugün saat 18.00'de gelebilirsin. Teklife nasıl yanıt verirsin?"
+  },
+  "sitov-b2-cafe-ruheplatz": {
+    "goal": "Neden daha sessiz bir masaya ihtiyacın olduğunu açıkla.",
+    "explanation": "“Da”, kararın nedenini belirtir; “daher”, çıkarımı gösterir. Yanıt, konuşmada belirtilen ölçütleri önemlerine göre değerlendirir.",
+    "focus": "Gerekçe ve ölçütlerin önemini değerlendirme",
+    "question": "Prize ihtiyacın yok ve rahatsız edilmeden konuşmak istiyorsun. Hangi yeri seçersin?"
+  },
+  "sitov-b2-cafe-rechnung-getrennt": {
+    "goal": "Bir grup siparişinin ayrı hesaplanmasını zamanında netleştir.",
+    "explanation": "Başta yer alan “bevor” cümlesi, zaman sırasını netleştirir. Erken bilgi vermek, görevlinin sunduğu hesaplamayı mümkün kılar.",
+    "focus": "“bevor” ile zaman yan cümlesi ve “damit” ile amaç",
+    "question": "Dört iş arkadaşın ayrı ayrı ödeme yapmak istiyor. Şimdi ne söylersin?"
+  },
+  "sitov-b2-cafe-veranstaltung-einwand": {
+    "goal": "Rahatsız edici bir yere nazikçe itiraz et.",
+    "explanation": "“Dennoch”, anlayış gösterilmesine rağmen farklı bir kararı belirtir. Alternatif bir yer, kendi isteğini başkalarını düşünmekle birleştirir.",
+    "focus": "“dennoch” ile nazik itiraz",
+    "question": "Bir iş arkadaşınla konuşmaya devam etmek istiyorsun. Hangi rica uygundur?"
+  },
+  "sitov-b2-cafe-bestellung-korrigieren": {
+    "goal": "Görevlinin bilerek yaptığını varsaymadan bir karışıklığı düzelt.",
+    "explanation": "“Offenbar”, tahmin edilen nedeni temkinli biçimde anlatır. Plusquamperfekt, mevcut karışıklıktan önce verilen siparişe gönderme yapar.",
+    "focus": "Temkinli yorum ve önceki geçmiş zaman (Plusquamperfekt)",
+    "question": "Kahve henüz hazırlanmadı. Ne söylersin?"
+  },
+  "sitov-b2-cafe-angebot-abstimmen": {
+    "goal": "Daha büyük bir grup için uygun bir zaman üzerinde anlaş.",
+    "explanation": "“Sofern”, kararı uygun kapasiteye bağlar. Yanıt, istenen grup büyüklüğünden gerçekçi bir zaman çıkarır.",
+    "focus": "Ön koşul ve zamanı kararlaştırma",
+    "question": "On iş arkadaşının hepsi birlikte oturmak istiyor. Nasıl yanıt verirsin?"
+  },
+  "sitov-b2-anschluss-knappe-zeit": {
+    "goal": "Aktarma süresi hakkında gerçekçi bir değerlendirme iste.",
+    "explanation": "“Angesichts”, değerlendirmenin nedenini belirtir. Konjunktiv II ve “falls”, bağlantının kaçırılması olasılığı için temkinli bir soru sormayı sağlar.",
+    "focus": "Temkinli değerlendirme ve alternatif plan",
+    "question": "Alternatif bir bağlantıyı öğrenmek istiyorsun. Hangi soru uygundur?"
+  },
+  "sitov-b2-bahn-ticket-bindung": {
+    "goal": "Başka bir bağlantıyı kullanmadan önce bir kısıtlamayı netleştir.",
+    "explanation": "Edilgen yapı, biletin geçerliliğine dikkat çeker. Uygun yanıt, doğrulanmamış bir kuralı varsaymak yerine somut koşulları sorar.",
+    "focus": "Edilgen yapı ve eylemden önce doğrulama",
+    "question": "Binmeden önce neyi netleştirmelisin?"
+  },
+  "sitov-b2-bahn-gleiswechsel": {
+    "goal": "Değişen bilgiyi ekrandaki bilgiye dayanarak doğrula.",
+    "explanation": "“Während”, eski ve güncel bilgileri karşılaştırır. “Daher”, konuşmada doğrulanan değişikliği dikkate alma kararına götürür.",
+    "focus": "Çelişkili bilgileri karşılaştırma",
+    "question": "Şu anki yol için hangi bilgi esas alınır?"
+  },
+  "sitov-b2-bahn-gruppenreservierung": {
+    "goal": "Koltuk sayısı sınırlıyken bir uzlaşma bul.",
+    "explanation": "“Auch wenn”, karşılanmayan bir isteği kabul eder. “Wären”, sunulan alternatifi en önemli koşulu koruyan bir uzlaşma olarak değerlendirir.",
+    "focus": "Konjunktiv II ile farklı yönleri değerlendirerek uzlaşma",
+    "question": "Dört yolcu en azından aynı vagonda oturmak istiyor. Hangisi uygundur?"
+  },
+  "sitov-b2-bahn-gepaeckfund": {
+    "goal": "Geride bıraktığın bagajı açıkça tanınacak şekilde tarif et.",
+    "explanation": "İsimden önceki “zurückgelassene” ortacı, bir ilgi cümlesini kısaltır. Somut özellikler ve tren bağlantısı, nesnel eşleştirmeyi mümkün kılar.",
+    "focus": "İsmi niteleyen ortaç ve ayrıntılı tarif",
+    "question": "Bulunan eşyanın bildiriminde görevliye ne yardımcı olur?"
+  },
+  "sitov-b2-bus-umleitung": {
+    "goal": "Bir güzergâh değişikliğine rağmen hedefine nasıl ulaşacağını netleştir.",
+    "explanation": "“Bediente”, ismi niteleyen bir ortaçtır; “sofern”, alternatifin koşulunu belirtir. Yol sorusu, belirtilmiş yürüme yolunu kullanmaya yardımcı olur.",
+    "focus": "İsmi niteleyen ortaç ve alternatif güzergâh",
+    "question": "Beş dakika yürüyebilirsin. Öneriye nasıl yanıt verirsin?"
+  },
+  "sitov-b2-abo-pause": {
+    "goal": "Olası bir duraklamayı ve koşullarını sor.",
+    "explanation": "Ön koşullarla ilgili dolaylı soru, izin verilmiş olduğunu varsaymadan olanağı netleştirir. Edilgen yapıda işlem süreci öne çıkar.",
+    "focus": "Dolaylı soru ve edilgen yapı",
+    "question": "Kasım ayının tamamında burada olmayacaksın. Neyi bildirirsin?"
+  },
+  "sitov-b2-tram-ausfall": {
+    "goal": "İptal edilen tramvay için iki alternatifi karşılaştır.",
+    "explanation": "“Obwohl”, bir alternatifi dikkate alır; “angesichts”, belirleyici ölçütü belirtir. “Damit”, seçilen devam yolculuğunun amacını anlatır.",
+    "focus": "Kabul bildiren yan cümle ve amaca göre değerlendirme",
+    "question": "Randevun otuz dakika sonra başlıyor. Hangi karar anlaşılır?"
+  },
+  "sitov-b2-kontrolle-nachweis": {
+    "goal": "Teknik bir sorun olduğunda kısa bir süre iste.",
+    "explanation": "“Allerdings”, ilk ifadeyi bir engelle sınırlar. Nazik rica, gereken kanıtı uygunsuz bir belgeyle değiştirmek yerine sunmayı teklif eder.",
+    "focus": "Nazik rica ve “allerdings” ile sınırlama",
+    "question": "Kod çevrimdışı olarak kayıtlı. Ne söylersin?"
+  },
+  "sitov-b2-rad-mitnahme": {
+    "goal": "Kapasite sınırını kabul et ve bir alternatif ara.",
+    "explanation": "“Statt … zu”, kaçınılan eylemi belirtir. Uygun yanıt, kapasite sınırını dikkate alır ve teklif edilen alternatifi sorar.",
+    "focus": "“statt zu” ile alternatif ve başkalarını düşünme",
+    "question": "Yirmi dakika bekleyebilirsin. Nasıl yanıt verirsin?"
+  },
+  "sitov-b2-restaurant-menue-anpassen": {
+    "goal": "Menüdeki bir parçanın değiştirilip değiştirilemeyeceğini netleştir.",
+    "explanation": "“Ließe”, “lassen” fiilinin Konjunktiv II biçimidir. “Andernfalls”, nazikçe ifade edilen koşul gerçekleşmezse alternatif bir plan sunar.",
+    "focus": "Varsayımsal koşul ve “andernfalls” ile alternatif",
+    "question": "Siparişten önce değişikliğin mümkün olup olmadığını öğrenmek istiyorsun. Hangisi uygundur?"
+  },
+  "sitov-b2-restaurant-wartezeit": {
+    "goal": "Hazırlama süresini kendi zamanınla karşılaştır.",
+    "explanation": "“zubereitete” ortacı, çorbayı tarif eder. “gewesen wäre” ile varsayımsal geçmiş, artık seçilmeyen ilk tercihi belirtir.",
+    "focus": "İsmi niteleyen ortaç ve varsayımsal geçmiş",
+    "question": "Otuz dakika sonra ayrılman gerekiyor. Ne sipariş edersin?"
+  },
+  "sitov-b2-restaurant-gruppe-aendern": {
+    "goal": "Grup büyüklüğündeki değişikliği erkenden bildir.",
+    "explanation": "“Entgegen”, önceki plandan farklı bir durumu belirtir. Soru, boş yer olduğunu varsaymadan iki olası çözüm sunar.",
+    "focus": "Değişikliği ifade etme ve alternatifleri sorma",
+    "question": "İki iş arkadaşın daha geliyor. Hangi mesaj uygundur?"
+  },
+  "sitov-b2-restaurant-reklamation": {
+    "goal": "Somut bir sorunu tarif et ve çözülmesini iste.",
+    "explanation": "Ortaç ve edilgen yapı, yemeğe odaklanır. Nesnel tarif ve somut rica, görevlinin uygun çözümü düzenlemesine yardımcı olur.",
+    "focus": "Edilgen yapı ve somut şikâyet",
+    "question": "Aynı yemeği sıcak yemek istiyorsun. Ne yanıt verirsin?"
+  },
+  "sitov-b2-restaurant-empfehlung-kriterium": {
+    "goal": "Çelişkili bir sipariş vermeden öneri için ölçütlerini belirt.",
+    "explanation": "“Während”, ortak bir özelliği belirleyici farktan ayırır. “Weshalb”, bu ölçütü gerekçeli seçimle ilişkilendirir.",
+    "focus": "Ölçüt karşılaştırma ve “weshalb” ile sonuç cümlesi",
+    "question": "Bugün acısız yemek istiyorsun. Hangi yanıt uygundur?"
+  },
+  "sitov-b2-apotheke-abholung-bestaetigen": {
+    "goal": "Teslim almaya gitmeden önce onay iste.",
+    "explanation": "“erst nach” zaman ifadesi, açık bir sıra belirler. “Damit”, varışın doğrulanmasının yolculuk için neden önemli olduğunu açıklar.",
+    "focus": "Zamanla ilgili ön koşul ve amaç",
+    "question": "Gereksiz bir yolculuktan kaçınmak istiyorsun. Ne kararlaştırırsın?"
+  },
+  "sitov-b2-apotheke-beleg-ergaenzen": {
+    "goal": "Satın alma belgesine gereken bilgilerin yazılmasını iste.",
+    "explanation": "“ausgestellten” ortacı, mevcut belgeyi tarif eder. İlgi cümlesi, ihtiyacı açıklar; yanıt tam olarak eksik bilgiyi belirtir.",
+    "focus": "İsmi niteleyen ortaç ve belirli bir ek bilgi isteme",
+    "question": "Satın alma tarihi yazan bir belgeye ihtiyacın var. Hangi rica somuttur?"
+  },
+  "sitov-b2-apotheke-feiertagszeiten": {
+    "goal": "Planladığın teslim alma işlemi için güncel açılış saatini kontrol et.",
+    "explanation": "“Obwohl”, çelişen eski bilgiyi belirtir. “da” ile gerekçe, planlama için neden güncel bilginin esas alınacağını açıklar.",
+    "focus": "Kabul bildiren yan cümle ve bilgi kaynaklarını değerlendirme",
+    "question": "Saat 15.00'te gelebilirsin. Ne yanıt verirsin?"
+  },
+  "sitov-b2-apotheke-bestellstatus": {
+    "goal": "Henüz onaylanmamış bir siparişi nesnel biçimde sor.",
+    "explanation": "“Erfasst” ve “bestätigt”, farklı işlem adımlarını belirtir. Edilgen yapı, bilinen durumu hâlâ alınması gereken bilgiden ayırır.",
+    "focus": "Edilgen yapı ve durumları ayırt etme",
+    "question": "Siparişin tahminen ne zaman hazır olacağını öğrenmek istiyorsun. Hangisi uygundur?"
+  },
+  "sitov-b2-apotheke-vertrauliches-gespraech": {
+    "goal": "Kişisel belgelerin için daha özel bir görüşme yeri iste.",
+    "explanation": "“mitgebrachten Unterlagen” ortaçlı ifadesi, tarifi kısaltır. “Damit”, yer seçimini somut gizlilik isteğiyle ilişkilendirir.",
+    "focus": "İsmi niteleyen ortaç ve gerekçeli yer seçimi",
+    "question": "Kişisel bilgilerini özel olarak konuşmak istiyorsun. Hangi yanıt uygundur?"
+  },
+  "sitov-b2-praxis-terminverschiebung": {
+    "goal": "Mevcut bir randevu için uygun bir alternatif zaman aralığı öner.",
+    "explanation": "“Wahrnehmen”, burada bir randevuya gitmek demektir. “Sofern”, öneriyi alternatif randevunun gerçekten müsait olmasına bağlar.",
+    "focus": "“sofern” ile resmî randevu kararlaştırma",
+    "question": "Çarşamba sabahı müsaitsin ama cuma günü değilsin. Ne yanıt verirsin?"
+  },
+  "sitov-b2-praxis-unterlagen-kopie": {
+    "goal": "Kendi belgelerini isteme sürecini netleştir.",
+    "explanation": "İki edilgen biçim, işlem sürecini anlatır. “Dafür vorgesehen”, başvuruda kullanılması gereken formu açıkça belirtir.",
+    "focus": "Edilgen yapı ve işlem sürecini netleştirme",
+    "question": "Tarif edilen işlemi başlatmak istiyorsun. Ne söylersin?"
+  },
+  "sitov-b2-praxis-sprachunterstuetzung": {
+    "goal": "Bir randevuya refakatçi getirmeyi düzenlemek için bilgi iste.",
+    "explanation": "“Benötigen könnte”, olası bir ihtiyacı temkinli biçimde ifade eder. Yanıt, belirtilen ön koşulu dikkate alır ve gereken bilgileri sorar.",
+    "focus": "Olası ihtiyacı ifade etme ve katılım kaydını netleştirme",
+    "question": "Erkek kardeşin sana eşlik edecek. Bunu nasıl bildirirsin?"
+  },
+  "sitov-b2-praxis-wartezeit-planen": {
+    "goal": "Bir gecikmede plan yapabilmek için bilgi iste.",
+    "explanation": "“Angesichts”, nedeni belirtir. İlgi cümlesi, sonrasındaki değiştirilemeyen planı açıklar; “lässt sich” ise bir olanak veya olanaksızlık ifade eder.",
+    "focus": "Gerekçeli randevu kararı ve “lassen sich”",
+    "question": "Yarım saat sonra ayrılman gerekiyor. Hangisi uygundur?"
+  },
+  "sitov-b2-praxis-daten-korrigieren": {
+    "goal": "Bir sonraki bildirimden önce eski iletişim bilgilerini düzelt.",
+    "explanation": "“gespeicherte” ortacı, önceki kaydı tarif eder. “damit” ile amaç, eski kaydın neden değiştirilmesi gerektiğini açıklar.",
+    "focus": "İsmi niteleyen ortaç ve iletişim bilgilerini düzeltme",
+    "question": "Yeni numarandan ulaşılabilir olmak istiyorsun. Ne söylersin?"
+  },
+  "sitov-b2-paket-zweiter-versuch": {
+    "goal": "Kaçırılan paket tesliminin sonuçlarını netleştir.",
+    "explanation": "“Auch morgen”, teslimat sorununun tekrarlanacağını gösterir. “sofern” koşulu, istenen teslim alma işlemini önce farklı yere yönlendirmeye bağlar.",
+    "focus": "Gerekçeli alternatif ve edilgen yapı",
+    "question": "Yarın yine evde olmayacaksın. Hangi yanıt uygundur?"
+  },
+  "sitov-b2-paket-status-pruefen": {
+    "goal": "Belirli bir gönderi numarasıyla kontrol iste.",
+    "explanation": "“Seit”, bugüne kadar süren bir zaman aralığını belirtir. “ob” ile dolaylı soru, güncelleme yokluğundan aceleyle sonuç çıkarmak yerine iki olasılığı da açık tutar.",
+    "focus": "Dolaylı soru ve temkinli sonuç çıkarma",
+    "question": "Gönderi numarası yanındadır. Ne söylersin?"
+  },
+  "sitov-b2-paket-verpackung-pruefen": {
+    "goal": "Göndermeden önce somut bir ambalaj gereksinimini sor.",
+    "explanation": "“Obwohl”, iki kullanım amacını ayırır. “Um … zu”, malzeme değişikliğinin amacını belirtir; soru, somut ambalaj önerisini uygular.",
+    "focus": "“um zu” ile amaç ve malzemeleri değerlendirme",
+    "question": "Belgeleri katlanmadan göndermek istiyorsun. Ne yanıt verirsin?"
+  },
+  "sitov-b2-paket-vollmacht": {
+    "goal": "Başkası adına teslim almak için gereken belgeleri kontrol et.",
+    "explanation": "Edilgen yapı, istenen belgelere odaklanır. Yanıt, erkek kardeşinin verdiği vekâletle kendi kimliğini açıkça ayırt eder.",
+    "focus": "Edilgen yapı ve kime ait olduğunu açıkça belirtme",
+    "question": "Bu bilgiye göre hangi belgeleri getirirsin?"
+  },
+  "sitov-b2-paket-adresse-korrektur": {
+    "goal": "Bir gönderi adresinin hâlâ düzeltilip düzeltilemeyeceğini netleştir.",
+    "explanation": "“Falls” ve “möglicherweise”, değişikliğin mümkün olup olmadığını açık bırakır. Somut düzeltme ve zaman sınırı, görevlinin kontrolüne yardımcı olur.",
+    "focus": "Koşul, temkin ve süre dolmadan düzeltme",
+    "question": "Etikette kapı numarası 81 yerine 18 yazıyor. Ne söylersin?"
+  },
+  "sitov-b2-bank-termin-unterlagen": {
+    "goal": "Kararlaştırılmış bir görüşmeden önce gereken belgeleri netleştir.",
+    "explanation": "Baştaki “damit” cümlesi, hazırlığın amacını belirtir. Soru, ek belgeleri kendi konusuyla sınırlar.",
+    "focus": "Amaç ve işlem süreci hakkında belirli soru",
+    "question": "Randevuya iyi hazırlanmış olarak gelmek istiyorsun. Hangi soru uygundur?"
+  },
+  "sitov-b2-bank-auszug-format": {
+    "goal": "Dijital bir belgenin yazdırılabilir sürümünü sor.",
+    "explanation": "Biçim ve işlemle ilgili dolaylı sorular, düzenlemeyle sınırlıdır. “Sich ausdrucken lassen”, eksiksiz çıktının teknik olarak mümkün olmasını anlatır.",
+    "focus": "Dolaylı sorular ve “lassen sich”",
+    "question": "Bütün sayfaların kâğıtta olmasına ihtiyacın var. Ne sorarsın?"
+  },
+  "sitov-b2-bank-adressaenderung": {
+    "goal": "Taşındıktan sonra posta adresinin güncellenmesini iste.",
+    "explanation": "“Nachdem”, tamamlanmış taşınmayı idari sonucuyla ilişkilendirir. Edilgen yapı, kaydın güncellenmesine odaklanır.",
+    "focus": "“nachdem” ile zaman yan cümlesi ve edilgen yapı",
+    "question": "Postalarının yeni daireye gelmesini istiyorsun. Ne söylersin?"
+  },
+  "sitov-b2-bank-gespraech-diskret": {
+    "goal": "Kişisel belgelerin için gizli bir görüşme yeri iste.",
+    "explanation": "“Obwohl”, gişede işlem yapılmasının pratikte mümkün olduğunu kabul eder. Edilgen yapıdaki amaç, finansal öneri yapmadan farklı yer isteğini açıklar.",
+    "focus": "Farklı yönleri dikkate alarak yer seçme ve edilgen yapı",
+    "question": "Kişisel bilgilerini özel olarak konuşmak istiyorsun. Hangi yanıt uygundur?"
+  },
+  "sitov-b2-bank-termin-kanal": {
+    "goal": "İşlemle ilgili geri arama için ulaşılabilir olduğun bir zaman aralığı kararlaştır.",
+    "explanation": "“Während”, iki ulaşılabilirlik durumunu karşılaştırır. Doğru yanıt, kendi müsaitliğinle teklif edilen geri arama aralığının kesişimini oluşturur.",
+    "focus": "Zaman aralığını kararlaştırma ve ön koşul",
+    "question": "Yarın ancak saat 11.00'den itibaren ulaşılabilirsin. Nasıl yanıt verirsin?"
+  },
+  "sitov-b2-bibliothek-verlaengerung": {
+    "goal": "Belirtilen bir ön koşula bağlı uzatmayı kontrol et.",
+    "explanation": "“Sofern”, belirtilen ön koşulu aynen kullanır. Kontrol isteği, olası uzatmayı zaten verilmiş onaydan ayırır.",
+    "focus": "Ön koşul ve nazik kontrol isteği",
+    "question": "Kitabı daha uzun kullanmak istiyorsun. Hangi soru koşula uyar?"
+  },
+  "sitov-b2-bibliothek-gruppenraum": {
+    "goal": "Mevcut odaları grup büyüklüğü ve ses düzeyine göre karşılaştır.",
+    "explanation": "“Infrage kommen”, uygun bir seçenek olmak demektir. Gerekçe, kapasiteyi çalışma biçimiyle ilişkilendirir; “falls”, müsait olma koşulunu korur.",
+    "focus": "Gerekçeli eleme ve koşullu rezervasyon",
+    "question": "Altı katılımcı birlikte çalışmak istiyor. Ne söylersin?"
+  },
+  "sitov-b2-bibliothek-quellenangabe": {
+    "goal": "Eksiksiz bibliyografik bilgileri bulmak için yardım iste.",
+    "explanation": "“Sowie”, eşdeğer ek bilgileri birleştirir. İlgi cümlesi, ilgili kaynak için bulunması gereken iki eksik bilgiye gönderme yapar.",
+    "focus": "Bağlama ve çoğul ifadeye gönderme yapan ilgi cümlesi",
+    "question": "Şimdiye kadar yalnızca başlığı not ettin. Ne sorarsın?"
+  },
+  "sitov-b2-bibliothek-regal-fehlt": {
+    "goal": "Katalogdaki farklı bilginin olası nedenini netleştir.",
+    "explanation": "“Obwohl”, ekran ile gözlem arasındaki farkı belirtir. “ob” ile dolaylı soru, belirtilen olası açıklamaları açık tutar.",
+    "focus": "Kabul bildiren yan cümle ve nedeni açıkça araştırma",
+    "question": "Doğru raf yerini zaten kontrol ettin. Ne söylersin?"
+  },
+  "sitov-b2-bibliothek-digital-zugang": {
+    "goal": "Dijital ödünç alma için kayıt sürecini sor.",
+    "explanation": "“Bevor”, gerekli adımı kullanımdan önceye yerleştirir. Edilgen biçim, kayıt durumuna odaklanır ve somut bir kontrol isteğine götürür.",
+    "focus": "Zamanla ilgili ön koşul ve edilgen yapı",
+    "question": "Henüz giriş yapamıyorsun. Hangi rica yardımcı olur?"
+  },
+  "sitov-b2-buero-frist-realistisch": {
+    "goal": "Henüz eksik olan bir ön koşula dayanarak tarih önerini gerekçelendir.",
+    "explanation": "“Da”, eksik verileri itirazla ilişkilendirir. “Für unrealistisch halten”, tarihi nesnel biçimde değerlendirir ve gerekçeli bir alternatif öneriye olanak tanır.",
+    "focus": "Nesnel itiraz ve gerekçeli tarih önerisi",
+    "question": "Sayıları aldıktan sonra raporu tamamlayabilirsin. Ne söylersin?"
+  },
+  "sitov-b2-buero-protokoll-berichtigen": {
+    "goal": "Yanlış aktarılmış bir kararın düzeltilmesini iste.",
+    "explanation": "“festgehaltene” ortacı, kaydedilmiş sürümü tarif eder. Düzeltme, projenin hemen başlamasıyla koşula bağlı başlaması arasındaki farkı açıkça belirtir.",
+    "focus": "İsmi niteleyen ortaç ve karar düzeltme",
+    "question": "Tutanakta hangi ifade yer almalı?"
+  },
+  "sitov-b2-buero-aufgaben-priorisieren": {
+    "goal": "Birbiriyle yarışan görevler için açık bir öncelik iste.",
+    "explanation": "“Voraussichtlich”, kesin iddia yerine tahmini belirtir. Yanıt, kapasite sorununu belirtir ve onaylanabilecek bir sıra önerir.",
+    "focus": "Kapasiteyi değerlendirme ve öncelikleri kararlaştırma",
+    "question": "Bugün yalnızca bir görevi tamamen bitirebilirsin. Hangi geri bildirim uygundur?"
+  },
+  "sitov-b2-buero-besprechung-hybrid": {
+    "goal": "Orada olmayan bir iş arkadaşını dâhil edecek katılım biçimi öner.",
+    "explanation": "“Indem”, birlikte katılmanın yolunu anlatır. Başlangıçtaki kabul ifadesi, fiziksel ayrılığı aşılmaz bir engel olarak görmeden kabul eder.",
+    "focus": "“indem” ile yöntem ve farklı bir durumu kabul eden başlangıç",
+    "question": "İş arkadaşını toplantıya dâhil etmek istiyorsun. Ne önerirsin?"
+  },
+  "sitov-b2-buero-dateiversion": {
+    "goal": "Dosyaları paylaşmadan önce çelişen sürümleri netleştir.",
+    "explanation": "“Während”, iki sürümü karşılaştırır; “daher”, düzenlemeyle ilgili sonucu belirtir. Yanıt, paylaşmadan önce çelişen etiketlemeyi giderir.",
+    "focus": "Karşılaştırma ve “daher” ile sonuç çıkarma",
+    "question": "İş arkadaşlarının eski sürümü kullanmasını önlemek istiyorsun. Hangisi uygundur?"
+  },
+  "sitov-b2-kurs-bewertungskriterien": {
+    "goal": "Teslimden önce değerlendirme ölçütlerinin ağırlığını sor.",
+    "explanation": "“wie” ile dolaylı soru, anlaşılır bir açıklama ister. “Damit”, ağırlıkların düzeltme sırasında ne için gerekli olduğunu anlatır.",
+    "focus": "Dolaylı soru ve hedefe yönelik düzeltme",
+    "question": "Değerlendirme ağırlıklarını henüz okumadın. Kurs öğretmenine ne sorarsın?"
+  },
+  "sitov-b2-kurs-gruppenarbeit-balance": {
+    "goal": "Ortak bir görevin daha dengeli dağıtılması için gerekçe belirt.",
+    "explanation": "Kabul bildiren cümle, mevcut metnin değerini teslim eder. Edilgen yapı ve “damit” ile amaç, dağılım değişikliğini açık bir ortak hedefle ilişkilendirir.",
+    "focus": "Nazik itiraz ve görev dağılımının amacı",
+    "question": "Kalan işin adil dağıtılmasını istiyorsun. Ne önerirsin?"
+  },
+  "sitov-b2-kurs-niveauwechsel": {
+    "goal": "Olası seviye değişikliğin için gerekçeli değerlendirme iste.",
+    "explanation": "“Prüfen lassen”, bir değerlendirme yapılmasını sağlamak demektir. “Statt … zu”, sağlam temelli kararı tek tek görevlerden aceleyle sonuç çıkarmaktan ayırır.",
+    "focus": "“prüfen lassen” ve temkinli öz değerlendirme",
+    "question": "Öğrenme düzeyinin sağlam temellere dayanarak değerlendirilmesini istiyorsun. Nasıl yanıt verirsin?"
+  },
+  "sitov-b2-kurs-versaeumten-stoff": {
+    "goal": "Kaçırılan kurs içeriğini tamamlamayı amaçlı biçimde kararlaştır.",
+    "explanation": "“Nachdem”, geçmişteki yokluğu sonraki eylemle ilişkilendirir. “Trotz”, hedefi zorlaştıran ama engellemeyen bir durumu dikkate alır.",
+    "focus": "Zaman yan cümlesi ve engele rağmen hazırlık",
+    "question": "Bir sonraki derste tartışmaya katılabilmek istiyorsun. Hangi geri bildirim uygundur?"
+  },
+  "sitov-b2-kurs-feedback-begruenden": {
+    "goal": "Anlaşılır bir örnekle yapıcı geri bildirim ver.",
+    "explanation": "“Allerdings”, sınırlı bir iyileştirme noktasını ekler. “sodass” sonuç cümlesi, önerilen ekin savunmaya etkisini açıklar.",
+    "focus": "Yapıcı itiraz ve “sodass” ile sonuç",
+    "question": "Kurs katılımcısı olarak yararlı geri bildirim vermelisin. Hangi ifade uygundur?"
+  },
+  "sitov-b2-wohnung-ruhe-kompromiss": {
+    "goal": "Ev arkadaşınla birbirinizi gözeten bir akşam planı kararlaştır.",
+    "explanation": "“Auch wenn”, kendi isteğini kabul eder. Kararlaştırılan saatten itibaren somut yer değişikliği, uzlaşmayı kontrol edilebilir kılar.",
+    "focus": "Farklı yönleri dikkate alan uzlaşma ve amaç",
+    "question": "Ziyareti mümkün kılmak ve aynı zamanda sessizlik sözü vermek istiyorsun. Ne yanıt verirsin?"
+  },
+  "sitov-b2-wohnung-besichtigung-planen": {
+    "goal": "Ev görme için uygun bir alternatif randevu iste.",
+    "explanation": "Konjunktiv II, henüz doğrulanmamış bir randevu için isteği ifade eder. Yanıt, kısıtlamayı açıklar ve müsaitliği açık bırakır.",
+    "focus": "Konjunktiv II ve doğrulanmamış alternatif randevu",
+    "question": "Yalnızca cumartesi sabahı gelebilirsin. Hangi istek uygundur?"
+  },
+  "sitov-b2-wohnung-heizung-melden": {
+    "goal": "Teknik bir arızayı kontrol edilebilir gözlemlerle bildir.",
+    "explanation": "“installierte” ortacı, eşyanın yerini belirtir. “Während”, teknik neden veya tamir iddia etmeden gözlenen arızayı sınırlar.",
+    "focus": "İsmi niteleyen ortaç ve nesnel arıza bildirimi",
+    "question": "Arızayı ayrıntılı bildirmek istiyorsun. Ne söylersin?"
+  },
+  "sitov-b2-wohnung-gemeinsamer-einkauf": {
+    "goal": "Ortak ev malzemeleri için açık bir işlem yöntemi öner.",
+    "explanation": "“Damit”, amacı belirtir; “statt … zu”, yerine yenisi konan yöntemi adlandırır. Uyulacak ortak liste, somut koordinasyon sorununu çözer.",
+    "focus": "Amaç ve “statt zu” ile eylem alternatifi",
+    "question": "Ev arkadaşınla aynı ürünü iki kez almaktan kaçınmak istiyorsun. Ne önerirsin?"
+  },
+  "sitov-b2-wohnung-uebergabe-protokoll": {
+    "goal": "Teslim sırasında ayrıntılı kayıt tutulmasını iste.",
+    "explanation": "“Vorhandene”, mevcut bir durumu belirtir. Edilgen yapı ve “damit” ile amaç, hukuki sonuçları önceden belirlemeden kaydı anlatır.",
+    "focus": "İsmi niteleyen ortaç ve durum kaydı",
+    "question": "Mevcut durumu kaydetmek istiyorsun. Ne söylersin?"
+  },
+  "sitov-b2-reparatur-kostenfreigabe": {
+    "goal": "Cihazın incelenmesi için verilen iznin kapsamını netleştir.",
+    "explanation": "“Bevor”, inceleme ile tamiri zaman bakımından ayırır. Yanıt, mevcut işi sınırlar ve konuşmada teklif edilen geri bildirimi ister.",
+    "focus": "Edilgen yapı ve iş kapsamını netleştirme",
+    "question": "Bugün yalnızca inceleme yapılmasını istiyorsun. Ne söylersin?"
+  },
+  "sitov-b2-reparatur-kaufbeleg": {
+    "goal": "Hâlâ eksik olan belgeler için işlem sürecini sor.",
+    "explanation": "“Sofern”, belgelerin sonradan sunulmasını kesin eşleştirmeye bağlar. Adres ve iş numarası, bu düzenleme adımını mümkün kılan somut bilgilerdir.",
+    "focus": "Ön koşul ve kesin eşleştirme",
+    "question": "Satın alma belgesini bu akşam gönderebilirsin. Hangi soru yardımcı olur?"
+  },
+  "sitov-b2-reparatur-zugang-termin": {
+    "goal": "Çalışma alanına girilebilecek bir randevu kararlaştır.",
+    "explanation": "“Sofern”, koşul olarak belirli bir zaman aralığı belirtir. İkinci Konjunktiv biçimi, bu aralığın dışında hangi alternatif düzenlemenin gerekeceğini anlatır.",
+    "focus": "Koşullu zaman aralığı ve sorumluluk",
+    "question": "Kapıyı yalnızca saat 9.00 ile 11.00 arasında açabilirsin. Neyi bildirirsin?"
+  },
+  "sitov-b2-reparatur-ersatzteil-warten": {
+    "goal": "Teslimat gecikmesinden sonra güncel bir plan iste.",
+    "explanation": "“Da”, ertelemenin nedenini belirtir. Yanıt, yeni planı ancak belirleyici olan, henüz beklenen teslimattan sonra başlatır.",
+    "focus": "Edilgen yapı ve doğrulanmış olaydan sonra planlama",
+    "question": "Ancak teslimat doğrulandıktan sonra yeniden plan yapmak istiyorsun. Ne söylersin?"
+  },
+  "sitov-b2-reparatur-rechnung-position": {
+    "goal": "Önceden haber verilmeyen bir hizmetin açıklanmasını iste.",
+    "explanation": "“Meines Wissens”, ifadeyi kendi bildiklerinle sınırlar. Dolaylı soru, kontrol sonucunu önceden belirlemek yerine anlaşılır bir dayanak ister.",
+    "focus": "Temkinli itiraz ve hizmet kapsamını netleştirme",
+    "question": "Önce ek kalemin ne olduğunu anlamak istiyorsun. Ne sorarsın?"
+  },
+  "sitov-b2-park-veranstaltung-abstimmen": {
+    "goal": "Planlanan küçük bir etkinliğin düzenleme koşullarını sor.",
+    "explanation": "“Bevor”, anlaşmayı ve duyuruyu sıraya koyar. Yanıt, genel kullanım kuralları ileri sürmeden ön ayırmayı kesin onaydan ayırır.",
+    "focus": "Kesinlik derecesini ayırt etme ve zaman sırası",
+    "question": "Henüz doğrulanmamış bir saati yayımlamak istemiyorsun. Ne söylersin?"
+  },
+  "sitov-b2-park-weg-gesperrt": {
+    "goal": "Bir yol kapalıyken alternatif yolun uygunluğunu netleştir.",
+    "explanation": "“wäre”, şu an kullanılamayan yolun avantajını anlatır. “Da”, seçimi kullanılabilirlik ve ilgili özellik ile gerekçelendirir.",
+    "focus": "Farklı yönleri dikkate alarak yol seçme ve “lassen sich”",
+    "question": "Refakatçin merdivenlerden kaçınmak istiyor. Hangi yolu seçersin?"
+  },
+  "sitov-b2-park-fundgegenstand": {
+    "goal": "Bulunan bir eşyayı aceleyle birine ait saymadan tarif et.",
+    "explanation": "“Zwar … jedoch”, eşleşen bir özelliği henüz kontrol edilmesi gereken özellikten ayırır. “gefundene” ortacı ve edilgen yapı, kime ait olduğunu nesnel biçimde açık tutar.",
+    "focus": "“zwar ... jedoch” ve kontrol edilebilir eşleştirme",
+    "question": "Kırmızı tokalı gri bir çanta buldun. Ne söylersin?"
+  },
+  "sitov-b2-park-sauberkeitsaktion": {
+    "goal": "Ortak bir etkinliğin malzemelerini ve sorumluluğunu netleştir.",
+    "explanation": "İki dolaylı soru, hazırlığı ve bitişi kapsar. Edilgen yapı, tek tek katılımcıları gereksizce öne çıkarmadan ortak düzenlemeyi anlatır.",
+    "focus": "Edilgen yapı ve iki işlem adımını koordine etme",
+    "question": "Gönüllü katılımcıları organize ediyorsun. Ne sorarsın?"
+  },
+  "sitov-b2-park-hundebereich-nachfragen": {
+    "goal": "Belirli bir tabelanın hangi alan için geçerli olduğunu sor.",
+    "explanation": "Dolaylı soru, geçerlilik alanını sınırlar. “Bevor”, tabeladan genel kural çıkarmadan netleştirmeyi eylemden önceye koyar.",
+    "focus": "Geçerlilik alanıyla ilgili dolaylı soru",
+    "question": "Tabelanın hangi alanı kapsadığından emin değilsin. Nasıl nesnel biçimde sorarsın?"
+  },
+  "sitov-b2-sport-gruppe-passend": {
+    "goal": "Tarif edilen ön bilgine dayanarak değerlendirme iste.",
+    "explanation": "“Obwohl”, özel ön bilgi iddia etmeden genel deneyimi kabul eder. “Um … zu”, uygun grup seçiminin amacını belirtir.",
+    "focus": "Farklı yönleri değerlendirme ve öğrenme amacı",
+    "question": "İstenen alıştırmaları henüz bilmiyorsun. Hangi yanıt uygundur?"
+  },
+  "sitov-b2-sport-platz-belegung": {
+    "goal": "Dolu bir spor alanı için mevcut bir alternatif bul.",
+    "explanation": "“Sofern”, alternatif randevuyu tam antrenman süresine bağlar. Yanıt, sunulan zaman aralığını açık bir rezervasyona dönüştürür.",
+    "focus": "Zamanla ilgili alternatif ve ön koşul",
+    "question": "Grubun saat 19.00'da da başlayabilir. Ne söylersin?"
+  },
+  "sitov-b2-sport-teams-ausgleichen": {
+    "goal": "Deneyimli oyuncuların anlaşılır bir dağılımını öner.",
+    "explanation": "“Während”, dengesizliği anlatır. “Durch”, yöntemi belirtir; edilgen yapı, yeni bir düzenlemenin sonucunu vurgular.",
+    "focus": "Karşılaştırma, yöntem ve edilgen yapı",
+    "question": "Daha dengeli bir oyun istiyorsun. Hangi fikir uygundur?"
+  },
+  "sitov-b2-sport-ausruestung-teilen": {
+    "goal": "Ortak kullanılan cihazlar için uygulanabilir bir sıra kararlaştır.",
+    "explanation": "“Indem”, ortak kullanımın nasıl işlediğini gösterir. Başlangıçtaki kabul ifadesi, kapasite sınırından dışlama sonucu çıkarmadan sınırı belirtir.",
+    "focus": "“indem” ile yöntem ve kapasite uzlaşması",
+    "question": "Sekiz katılımcının tümünü dâhil etmek istiyorsun. Ne önerirsin?"
+  },
+  "sitov-b2-sport-turnier-wetter": {
+    "goal": "Katılımcılar yola çıkmadan önce bilgi verilmesini planla.",
+    "explanation": "“Falls”, olası bir olayı anlatır; edilgen yapı, yer değişikliğine odaklanır. Mesaj, onaydan sonra ve yolculuktan önce gelir.",
+    "focus": "Koşullu olay ve bilgi verme sırası",
+    "question": "Katılımcılara bilgi verilmesini düzenliyorsun. Onlara ne zaman ve nasıl bilgi verirsin?"
+  },
+  "sitov-b2-hotel-ruhiges-zimmer": {
+    "goal": "Somut bir rahatsızlık nedenine dayanarak oda değişikliği iste.",
+    "explanation": "“Sofern”, sunulan çözüme önemli bir koşul ekler. Soru, bugün için müsaitlik varsaymak yerine değişikliğin süresini netleştirir.",
+    "focus": "Gerekçeli tercih ve ek koşul",
+    "question": "Kalan günlerde daha sessiz odada kalmak istiyorsun. Ne sorarsın?"
+  },
+  "sitov-b2-hotel-spaete-anreise": {
+    "goal": "Belirtilen giriş saatleri dışında anahtar teslimini netleştir.",
+    "explanation": "“Voraussichtlich”, olası bir sefer değişikliğini dikkate alır. “Trotz”, önceden kararlaştırılmış anahtar teslimiyle aşılacak engeli belirtir.",
+    "focus": "Tahmini varış ve engele rağmen giriş",
+    "question": "Saat 23.00'te varmayı bekliyorsun. Ne kararlaştırırsın?"
+  },
+  "sitov-b2-hotel-rechnung-firma": {
+    "goal": "Gereken fatura bilgilerini zamanında belirt.",
+    "explanation": "Zaman yan cümlesi, bilgilerin verilmesini belgenin düzenlenmesinden önceye koyar. Edilgen yapı, daha sonraki düzeltme sürecini varsaymadan istenen belge durumunu anlatır.",
+    "focus": "Edilgen yapı ve bilgileri zamanında verme",
+    "question": "Fatura işverenine gönderilmeli. Ne söylersin?"
+  },
+  "sitov-b2-hotel-gepaeck-aufbewahren": {
+    "goal": "Odayı teslim etmeyi ve bagajı daha sonra almayı ayrı düzenle.",
+    "explanation": "“Obwohl”, iki farklı son zamanı ilişkilendirir. Yanıt, odayı teslim etmeyle bagajın saklanmasını ayırır ve iki zaman sınırına da uyar.",
+    "focus": "Farklı son zamanlar ve “sofern”",
+    "question": "Trenin saat 17.00'de kalkıyor. Hangi anlaşma uygundur?"
+  },
+  "sitov-b2-hotel-auschecken-verlaengern": {
+    "goal": "Olası uzatmayı, onaylanmış gibi görmeden sor.",
+    "explanation": "“Falls”, uzatmayı oda planına bağlar. “Jedoch”, doğrulanmamış bir olanağın önceki anlaşmanın yerini henüz almadığını gösterir.",
+    "focus": "Varsayımsal koşul ve onaylanmış plan",
+    "question": "Daha geç çıkış yapmak istiyorsun ama güvenilir bir plana ihtiyacın var. Ne söylersin?"
+  },
+  "sitov-b2-kleidung-laenge-aendern": {
+    "goal": "Somut bir uyum sorununu çözecek değişikliği sor.",
+    "explanation": "“Während”, giysinin oturuşuyla ilgili iki özelliği ayırır. “Kürzen lassen”, bir değişiklik yaptırmayı belirtir; koşul, zaten uygun olan kısmı korur.",
+    "focus": "Özellikleri karşılaştırma ve “lassen”",
+    "question": "Yalnızca uzunluğu değiştirmek istiyorsun. Hangi rica uygundur?"
+  },
+  "sitov-b2-kleidung-material-etikett": {
+    "goal": "Malzemeyle ilgili sorunu gerçek etikete dayandır.",
+    "explanation": "“angegebenen” niteleyici ortacı, kanıtlanabilir bilgilere gönderme yapar. Soru, genel kumaş adından oran çıkarmak yerine gerçek oranı araştırır.",
+    "focus": "İsmi niteleyen ortaç ve kanıtlanabilir karşılaştırma",
+    "question": "Pamuk oranını tam olarak öğrenmek istiyorsun. Ne sorarsın?"
+  },
+  "sitov-b2-kleidung-lieferfrist": {
+    "goal": "Bir siparişin zamanında gelebilip gelemeyeceğini netleştir.",
+    "explanation": "“Voraussichtlich”, teslimat bilgisinin kesin olmadığını gösterir. “Daher”, zaman karşılaştırmasından mevcut alternatif arayışını çıkarır.",
+    "focus": "Kesin olmayan süre ve gerekçeli alternatif",
+    "question": "Takım elbiseye yedi gün içinde ihtiyacın var. Hangi yanıt uygundur?"
+  },
+  "sitov-b2-kleidung-umtausch-bedingung": {
+    "goal": "Hediye almadan önce belirtilen değişim koşullarını netleştir.",
+    "explanation": "“Sollte”, burada gelecekte olabilecek bir durumu anlatır. Yanıt, yalnızca belirtilen koşulları kullanır ve bunlardan genel değişim hakları çıkarmaz.",
+    "focus": "“sollte” ile olası durum ve koşulları yerine getirme",
+    "question": "Erkek kardeşin için gömlek alıyorsun. Görevliye neyi onaylarsın?"
+  },
+  "sitov-b2-kleidung-jacke-abwaegen": {
+    "goal": "Kullanımına göre ağırlığı ve saklama alanını değerlendir.",
+    "explanation": "“Obwohl”, diğer seçeneğin bir avantajını kabul eder. “Ohnehin”, kendi sırt çantanın bu avantajı söz konusu kullanım için daha az önemli kıldığını gösterir.",
+    "focus": "Ölçütleri değerlendirme ve “ohnehin”",
+    "question": "Zaten sırt çantası taşıyorsun ve hafif bir ceket istiyorsun. Hangisi uygundur?"
+  },
+  "sitov-b2-markt-preis-gewicht": {
+    "goal": "Ürünleri aynı miktar üzerinden karşılaştır.",
+    "explanation": "“Lassen sich”, karşılaştırılabilirliği anlatır. Ortak miktar temeli, kişisel satın alma kararı vermeden doğru bir karşılaştırmayı mümkün kılar.",
+    "focus": "“lassen sich” ile karşılaştırılabilirlik ve referans miktarı",
+    "question": "Miktar farkını dikkate almak istiyorsun. Hangi soru uygundur?"
+  },
+  "sitov-b2-markt-herkunft-nachweis": {
+    "goal": "Genel bir ifade yerine somut köken bilgilerini sor.",
+    "explanation": "“Während”, iki grubu karşılaştırır. “Jeweilige” ve “einzelnen”, bütün ürünlere dair kanıtsız ifade yerine her ürün için ayrı eşleştirme ister.",
+    "focus": "Ayrıntılı karşılaştırma ve kökeni eşleştirme",
+    "question": "Yalnızca yöresel meyveleri seçmek istiyorsun. Ne sorarsın?"
+  },
+  "sitov-b2-markt-menge-verkleinern": {
+    "goal": "Toplu miktar teklifine rağmen gerçekten gereken miktarı iste.",
+    "explanation": "“Auch wenn”, fiyat avantajını kabul eder. Uygun yanıt, teklif edilen miktar seçimine ve bunun açıkça belirtilen fiyat koşullarına uyar.",
+    "focus": "Farklı yönleri değerlendirerek miktar seçme ve açık ihtiyaç",
+    "question": "Yalnızca yarım kiloya ihtiyacın var. Hangi yanıt uygundur?"
+  },
+  "sitov-b2-markt-eigener-behaelter": {
+    "goal": "Yanında getirdiğin kabın doldurulma işlemini netleştir.",
+    "explanation": "“Bevor”, tartmayı ve doldurmayı sıraya koyar. İki edilgen biçim de işlem sürecine odaklanır; “damit”, kaydedilen boş ağırlığın amacını açıklar.",
+    "focus": "Zaman sırası ve edilgen yapı",
+    "question": "Boş kabını kullanmak istiyorsun. Önce ne yaparsın?"
+  },
+  "sitov-b2-markt-abholung-ende": {
+    "goal": "Tezgâh toplanmadan önce gerçekçi bir teslim alma saati kararlaştır.",
+    "explanation": "Edilgen yapı, tezgâhtaki zaman çerçevesini anlatır. Seçilen teslim alma saati, toplanma başlamadan önce söz verilen süre içinde teslimi mümkün kılar.",
+    "focus": "Edilgen yapı ve zaman sınırından önce teslim alma",
+    "question": "Saat 12.30'da gelebilirsin. Hangi anlaşma uygundur?"
+  },
+  "sitov-b2-stadt-buergerbuero-termin": {
+    "goal": "Daha önce alınmış bir randevu için kimin sorumlu olduğunu netleştir.",
+    "explanation": "“Während”, iki sorumluluk alanını ayırır. Edilgen yapı, bir gişenin sunduğu hizmeti anlatır; “daher”, verilen bilgiden çıkarılan eyleme götürür.",
+    "focus": "Sorumlulukları karşılaştırma ve edilgen yapı",
+    "question": "Kayıt için bir randevun var. Nereye gidiyorsun?"
+  },
+  "sitov-b2-stadt-treffpunkt-baustelle": {
+    "goal": "Ulaşılması açıkça mümkün olan alternatif bir buluşma yeri öner.",
+    "explanation": "“vereinbarte” niteleyici ortacı, önceki anlaşmaya gönderme yapar. Yer değişikliği ve bunun açık duyurusu, inşaat çalışmalarının yarattığı sorunu çözer.",
+    "focus": "Buluşma yeri değişikliğini gerekçelendirme ve amaç",
+    "question": "Grubun normalde ana girişte buluşuyor. Hangi mesaj uygundur?"
+  },
+  "sitov-b2-stadt-formular-abgrenzen": {
+    "goal": "Somut idari işlemin için gereken formu sor.",
+    "explanation": "“Scheint”, değerlendirmeyi temkinli ifade eder. Yanıt, görevlinin açıkladığı ayrımı kullanır ve tam olarak uygun formu sorar.",
+    "focus": "Temkinli değerlendirme ve idari ayrım",
+    "question": "Başka bir şehirden buraya ilk kez taşınıyorsun. Ne sorarsın?"
+  },
+  "sitov-b2-stadt-veranstaltung-einlass": {
+    "goal": "Plan yaparken başlangıç saatini daha erken giriş saatinden ayır.",
+    "explanation": "“Obwohl”, erken gelmenin neden yararlı olduğunu açıklar. Yanıt, konuşmada açıkça belirtilen iki zamanı ayırır ve ek işlemi dikkate alır.",
+    "focus": "İki zamanı ayırt etme ve amaç",
+    "question": "Ceketini zaman baskısı olmadan bırakmak istiyorsun. Ne zaman gelirsin?"
+  },
+  "sitov-b2-stadt-verkehrsdiskussion": {
+    "goal": "Yerel bir tartışmaya yapıcı bir öneriyle katıl.",
+    "explanation": "“Auch wenn”, başka bir konu eklenmeden önce bir avantajı kabul eder. Konjunktiv II, önerilen dengeyi olası çözüm olarak belirtir.",
+    "focus": "Yapıcı itiraz ve çıkarları dengeleme",
+    "question": "Fikri destekliyorsun ama teslimatları da mümkün kılmak istiyorsun. Ne önerirsin?"
+  }
+}

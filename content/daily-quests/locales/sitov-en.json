@@ -1,0 +1,2402 @@
+{
+  "sitov-a1-find-milk": {
+    "goal": "Ask where to find a product.",
+    "explanation": "“Hinten links” tells you where the milk is.",
+    "focus": "Locations",
+    "question": "Where do you go?"
+  },
+  "sitov-a1-buy-apples": {
+    "goal": "Say how many you would like.",
+    "explanation": "“Drei” gives the right quantity; “Äpfel” is the plural.",
+    "focus": "Numbers and plurals",
+    "question": "What do you reply?"
+  },
+  "sitov-a1-check-price": {
+    "goal": "Ask for a price.",
+    "explanation": "“Wie viel” asks about the price of a product.",
+    "focus": "W-question with “kosten”",
+    "question": "How much do you pay?"
+  },
+  "sitov-a1-pay-by-card": {
+    "goal": "Choose a payment method.",
+    "explanation": "“Mit Karte” names the available payment method.",
+    "focus": "Present tense and “mit”",
+    "question": "What do you say?"
+  },
+  "sitov-a1-bring-bag": {
+    "goal": "Respond to an offer.",
+    "explanation": "“Keine” negates the noun “Tüte”.",
+    "focus": "Negation with “kein”",
+    "question": "Which reply fits?"
+  },
+  "sitov-a1-free-table": {
+    "goal": "Ask for a seat.",
+    "explanation": "“Frei” means you can use the table.",
+    "focus": "Yes/no question",
+    "question": "Which reply fits?"
+  },
+  "sitov-a1-coffee-no-sugar": {
+    "goal": "Order with a special request.",
+    "explanation": "Here, “ohne” names something you do not want in your coffee.",
+    "focus": "Accusative and “ohne”",
+    "question": "What do you reply?"
+  },
+  "sitov-a1-takeaway-tea": {
+    "goal": "Order something to take away.",
+    "explanation": "“Mitnehmen” is separable: “mit” goes at the end of the sentence.",
+    "focus": "Separable verb “mitnehmen”",
+    "question": "Which reply fits?"
+  },
+  "sitov-a1-ask-bill": {
+    "goal": "Ask for the bill.",
+    "explanation": "“Die Rechnung” is what you ask for before paying.",
+    "focus": "Modal verb “möchten”",
+    "question": "What do you say?"
+  },
+  "sitov-a1-find-toilet": {
+    "goal": "Understand a location.",
+    "explanation": "“Oben” refers to a higher floor.",
+    "focus": "“Wo” and locations",
+    "question": "Where do you go?"
+  },
+  "sitov-a1-departure-time": {
+    "goal": "Ask about the time.",
+    "explanation": "“Um” is used with an exact time.",
+    "focus": "Time and “abfahren”",
+    "question": "When does the train leave?"
+  },
+  "sitov-a1-right-platform": {
+    "goal": "Find your platform.",
+    "explanation": "The number “vier” identifies the right platform.",
+    "focus": "Numbers and “auf”",
+    "question": "Which platform do you need?"
+  },
+  "sitov-a1-single-ticket": {
+    "goal": "Say where you are travelling to.",
+    "explanation": "“Nach” is used with city names without an article.",
+    "focus": "Destination with “nach”",
+    "question": "Which reply fits?"
+  },
+  "sitov-a1-return-ticket": {
+    "goal": "Order tickets for both journeys.",
+    "explanation": "“Hin und zurück” covers both directions.",
+    "focus": "Present tense and “auch”",
+    "question": "What do you order?"
+  },
+  "sitov-a1-delayed-train": {
+    "goal": "Understand a delay.",
+    "explanation": "Here, “später” means the train is delayed.",
+    "focus": "Time expressions",
+    "question": "What do you know now?"
+  },
+  "sitov-a1-bus-destination": {
+    "goal": "Check a bus route.",
+    "explanation": "“Einsteigen” fits because the bus goes to your destination.",
+    "focus": "Separable verb “einsteigen”",
+    "question": "Which reply fits?"
+  },
+  "sitov-a1-next-stop": {
+    "goal": "Ask about the next stop.",
+    "explanation": "“Heißt” asks for the name of the stop.",
+    "focus": "W-question with “heißen”",
+    "question": "Where does the bus stop next?"
+  },
+  "sitov-a1-change-at-center": {
+    "goal": "Understand a change of route.",
+    "explanation": "“Umsteigen” means changing the vehicle or route.",
+    "focus": "Separable verb “umsteigen”",
+    "question": "Where do you change buses?"
+  },
+  "sitov-a1-show-ticket": {
+    "goal": "Respond during a ticket check.",
+    "explanation": "“Hier, bitte” accompanies showing the ticket you have.",
+    "focus": "Possessive article “mein”",
+    "question": "What do you say?"
+  },
+  "sitov-a1-offer-seat": {
+    "goal": "Offer someone a seat.",
+    "explanation": "Here, “können” expresses a possibility.",
+    "focus": "Modal verb “können”",
+    "question": "What do you say to him?"
+  },
+  "sitov-a1-request-menu": {
+    "goal": "Ask for a menu.",
+    "explanation": "“Die Speisekarte” shows the dishes on offer.",
+    "focus": "Accusative with “die”",
+    "question": "What do you order first?"
+  },
+  "sitov-a1-vegetarian-meal": {
+    "goal": "Choose a suitable dish.",
+    "explanation": "“Kein Fleisch” fits the vegetable soup, which is explicitly meat-free.",
+    "focus": "Negation and food",
+    "question": "What would you like to order?"
+  },
+  "sitov-a1-reserved-table": {
+    "goal": "Give your reservation details.",
+    "explanation": "“Auf den Namen” gives the name on the reservation.",
+    "focus": "“Haben” and the accusative",
+    "question": "What do you say?"
+  },
+  "sitov-a1-still-water": {
+    "goal": "Choose your drink.",
+    "explanation": "“Stilles Wasser” is water without carbonation or gas.",
+    "focus": "Expressing a wish with “möchten”",
+    "question": "What do you reply?"
+  },
+  "sitov-a1-shared-bill": {
+    "goal": "Say how you will pay.",
+    "explanation": "“Wir” includes you and Omar; “zusammen” means paying together.",
+    "focus": "Personal pronoun “wir”",
+    "question": "Which reply fits?"
+  },
+  "sitov-a1-pharmacy-hours": {
+    "goal": "Ask about opening hours.",
+    "explanation": "“Ab acht Uhr” means no earlier than eight o’clock.",
+    "focus": "Time with “ab”",
+    "question": "When can you come?"
+  },
+  "sitov-a1-prescription-counter": {
+    "goal": "Show the right document.",
+    "explanation": "“Dabei haben” means having brought something with you.",
+    "focus": "Present tense of “haben”",
+    "question": "What do you reply?"
+  },
+  "sitov-a1-pickup-name": {
+    "goal": "Give the name on the order.",
+    "explanation": "“Für Lukas” names the recipient; “abholen” is separable.",
+    "focus": "Separable verb “abholen”",
+    "question": "What do you say?"
+  },
+  "sitov-a1-pharmacy-receipt": {
+    "goal": "Ask for a receipt.",
+    "explanation": "“Den” is the accusative article for the masculine noun “Beleg”.",
+    "focus": "Masculine accusative",
+    "question": "Which reply fits?"
+  },
+  "sitov-a1-wait-for-order": {
+    "goal": "Understand a waiting time.",
+    "explanation": "Friday follows Thursday; “am” connects a day with a time.",
+    "focus": "Weekdays with “am”",
+    "question": "When do you collect it?"
+  },
+  "sitov-a1-appointment-time": {
+    "goal": "Give your appointment time.",
+    "explanation": "“Mein” describes your own appointment.",
+    "focus": "Possessive article “mein”",
+    "question": "What do you reply?"
+  },
+  "sitov-a1-insurance-card": {
+    "goal": "Respond at reception.",
+    "explanation": "“Meine” agrees with the feminine noun “Karte”.",
+    "focus": "Possessive article “meine”",
+    "question": "Which reply fits?"
+  },
+  "sitov-a1-waiting-room": {
+    "goal": "Find the right room.",
+    "explanation": "Here, “in” names the room where you should wait.",
+    "focus": "Simple location",
+    "question": "Where do you wait?"
+  },
+  "sitov-a1-spell-name": {
+    "goal": "Spell a short name.",
+    "explanation": "“Buchstabieren” means saying the individual letters in the right order.",
+    "focus": "Alphabet and names",
+    "question": "How do you spell it?"
+  },
+  "sitov-a1-followup-day": {
+    "goal": "Choose a suitable day.",
+    "explanation": "After “kann”, the infinitive “kommen” goes at the end of the sentence.",
+    "focus": "Modal verb “können”",
+    "question": "What do you reply?"
+  },
+  "sitov-a1-send-letter": {
+    "goal": "Say what you are sending.",
+    "explanation": "“Einen” is the accusative article for the masculine noun “Brief”.",
+    "focus": "Accusative with “einen”",
+    "question": "What do you reply?"
+  },
+  "sitov-a1-parcel-weight": {
+    "goal": "Understand a weight.",
+    "explanation": "“Wie schwer” asks about weight.",
+    "focus": "Quantities and weight",
+    "question": "How heavy is the parcel?"
+  },
+  "sitov-a1-buy-stamp": {
+    "goal": "Ask for a stamp.",
+    "explanation": "“Eine” is used in the accusative before the feminine noun “Briefmarke”.",
+    "focus": "Accusative with “eine”",
+    "question": "What do you say?"
+  },
+  "sitov-a1-correct-address": {
+    "goal": "Recognize a house number.",
+    "explanation": "“Zwanzig” and “zwölf” are different house numbers.",
+    "focus": "Distinguishing numbers",
+    "question": "How do you correct him?"
+  },
+  "sitov-a1-collect-parcel": {
+    "goal": "Show the collection slip.",
+    "explanation": "The collection slip helps identify the parcel when you collect it.",
+    "focus": "Modal verb and infinitive",
+    "question": "Which reply fits?"
+  },
+  "sitov-a1-find-atm": {
+    "goal": "Ask where something is.",
+    "explanation": "“Rechts neben” describes the stated position.",
+    "focus": "Location: “rechts”",
+    "question": "Where do you look?"
+  },
+  "sitov-a1-take-queue-number": {
+    "goal": "Follow a simple request.",
+    "explanation": "First you take the number; then you wait.",
+    "focus": "Present tense of “nehmen”",
+    "question": "What do you do first?"
+  },
+  "sitov-a1-bank-appointment": {
+    "goal": "Say when you are available.",
+    "explanation": "“Zeit haben” means being available at that time.",
+    "focus": "“Zeit haben” and weekdays",
+    "question": "Which reply fits?"
+  },
+  "sitov-a1-request-printout": {
+    "goal": "Ask for a document.",
+    "explanation": "“Ihn” refers to the masculine “Ausdruck”.",
+    "focus": "Expressing a wish and an object",
+    "question": "What do you reply?"
+  },
+  "sitov-a1-closed-counter": {
+    "goal": "Understand opening hours.",
+    "explanation": "From nine to ten o’clock is one hour.",
+    "focus": "Time and time spans",
+    "question": "What fits now?"
+  },
+  "sitov-a1-get-library-card": {
+    "goal": "Ask for a library card.",
+    "explanation": "“Einen” accompanies the masculine object “Ausweis”.",
+    "focus": "Accusative object",
+    "question": "What do you reply?"
+  },
+  "sitov-a1-borrow-book": {
+    "goal": "Say what you want to borrow.",
+    "explanation": "“Ausleihen” means taking the book with you for a limited time.",
+    "focus": "Modal verb “möchten”",
+    "question": "Which reply fits?"
+  },
+  "sitov-a1-return-day": {
+    "goal": "Understand a deadline.",
+    "explanation": "“Zurückbringen” is separable; “zurück” goes at the end of the sentence.",
+    "focus": "Separable verb “zurückbringen”",
+    "question": "When do you return it?"
+  },
+  "sitov-a1-quiet-area": {
+    "goal": "Understand a house rule.",
+    "explanation": "“Leise” describes a low volume.",
+    "focus": "Adverb “leise”",
+    "question": "Which action fits?"
+  },
+  "sitov-a1-find-dictionaries": {
+    "goal": "Ask about a type of book.",
+    "explanation": "Here, “suchen” takes the accusative “ein Wörterbuch”.",
+    "focus": "“Suchen” with the accusative",
+    "question": "Where do you go?"
+  },
+  "sitov-a1-borrow-stapler": {
+    "goal": "Ask a colleague for something.",
+    "explanation": "“Ein Hefter” joins the two sheets.",
+    "focus": "Question with “haben”",
+    "question": "What do you ask?"
+  },
+  "sitov-a1-meeting-start": {
+    "goal": "Give the start time.",
+    "explanation": "“Beginnt” names the start of the meeting.",
+    "focus": "Time and “beginnen”",
+    "question": "When does it start?"
+  },
+  "sitov-a1-printer-location": {
+    "goal": "Find a device.",
+    "explanation": "“Im” combines “in” and “dem”.",
+    "focus": "Location with “im”",
+    "question": "Where do you print?"
+  },
+  "sitov-a1-call-colleague": {
+    "goal": "Ask for a phone number.",
+    "explanation": "“Anrufen” is separable; Tim’s internal number is “hundertdreizehn”.",
+    "focus": "Separable verb “anrufen”",
+    "question": "Which number do you dial?"
+  },
+  "sitov-a1-work-end": {
+    "goal": "Say when you leave.",
+    "explanation": "“Bis” marks the end of the working hours.",
+    "focus": "Time with “bis”",
+    "question": "What do you reply?"
+  },
+  "sitov-a1-classroom-number": {
+    "goal": "Ask for a room number.",
+    "explanation": "“Unser” refers to the course you share.",
+    "focus": "Possessive article “unser”",
+    "question": "Where do you go?"
+  },
+  "sitov-a1-open-book": {
+    "goal": "Follow a classroom request.",
+    "explanation": "“Auf Seite zehn” names the right place in the book.",
+    "focus": "Numbers in class",
+    "question": "Which page do you need?"
+  },
+  "sitov-a1-borrow-pen": {
+    "goal": "Ask for a pen.",
+    "explanation": "“Kann ich ... haben” is a simple polite request.",
+    "focus": "Request with “können”",
+    "question": "What do you say?"
+  },
+  "sitov-a1-break-time": {
+    "goal": "Understand a duration.",
+    "explanation": "“Fünfzehn” and “fünfzig” describe different lengths of time.",
+    "focus": "Numbers “fünfzehn” and “fünfzig”",
+    "question": "How long is the break?"
+  },
+  "sitov-a1-homework-task": {
+    "goal": "Remember the task.",
+    "explanation": "Here, “zu Hause” names the place where you do the homework.",
+    "focus": "Verb in second position with “machen”",
+    "question": "What do you do at home today?"
+  },
+  "sitov-a1-viewing-time": {
+    "goal": "Arrange a time.",
+    "explanation": "After the time expression, the verb “habe” is in second position.",
+    "focus": "Verb in second position after a time expression",
+    "question": "What do you reply?"
+  },
+  "sitov-a1-receive-key": {
+    "goal": "Take the right key.",
+    "explanation": "The description “klein” identifies the key for the apartment.",
+    "focus": "“Für” with the accusative",
+    "question": "Which key do you take?"
+  },
+  "sitov-a1-visitor-doorbell": {
+    "goal": "Identify a visitor.",
+    "explanation": "“Unten an der Tür” describes where the visitor is waiting.",
+    "focus": "Present tense and location",
+    "question": "What do you do?"
+  },
+  "sitov-a1-paper-bin": {
+    "goal": "Understand which bin to use.",
+    "explanation": "The colour follows this building’s rule.",
+    "focus": "Colours and the accusative",
+    "question": "Which bin do you need here?"
+  },
+  "sitov-a1-close-window": {
+    "goal": "Respond to a request.",
+    "explanation": "“Zumachen” means closing; “zu” goes at the end of the sentence.",
+    "focus": "Separable verb “zumachen”",
+    "question": "What do you do?"
+  },
+  "sitov-a1-broken-lamp": {
+    "goal": "Describe a fault.",
+    "explanation": "Here, “nicht” negates the verb “funktioniert”.",
+    "focus": "Negating a verb with “nicht”",
+    "question": "What do you reply?"
+  },
+  "sitov-a1-bike-flat": {
+    "goal": "Name the faulty part.",
+    "explanation": "Here, “keine” negates the noun “Luft”.",
+    "focus": "Negation with “keine”",
+    "question": "Which reply fits?"
+  },
+  "sitov-a1-washing-machine-noise": {
+    "goal": "Describe a noise.",
+    "explanation": "“Laut” is the opposite of “leise”.",
+    "focus": "Adjective as a predicate",
+    "question": "What do you reply?"
+  },
+  "sitov-a1-missing-cable": {
+    "goal": "Explain what you need.",
+    "explanation": "“Ein Kabel” names the part you need.",
+    "focus": "Neuter accusative object",
+    "question": "What do you reply?"
+  },
+  "sitov-a1-repair-pickup": {
+    "goal": "Understand a collection date.",
+    "explanation": "Here, “fertig” means the repair is complete.",
+    "focus": "“Abholen” and weekdays",
+    "question": "When do you come back?"
+  },
+  "sitov-a1-find-fountain": {
+    "goal": "Understand a short route.",
+    "explanation": "“Geradeaus” means continuing without turning.",
+    "focus": "Directions: “geradeaus”",
+    "question": "Which route fits?"
+  },
+  "sitov-a1-meet-bench": {
+    "goal": "Find a meeting point.",
+    "explanation": "“Auf der Bank” describes where your friend is sitting.",
+    "focus": "Location with “auf”",
+    "question": "Where do you look for Finn?"
+  },
+  "sitov-a1-no-feeding": {
+    "goal": "Understand a prohibition.",
+    "explanation": "“Nicht” negates the action “füttern”.",
+    "focus": "Negating an action",
+    "question": "Which action fits?"
+  },
+  "sitov-a1-use-bin": {
+    "goal": "Use a rubbish bin.",
+    "explanation": "“Wegwerfen” is separable; here, the rubbish goes in the stated bin.",
+    "focus": "Separable verb “wegwerfen”",
+    "question": "Where do you take the rubbish?"
+  },
+  "sitov-a1-park-closing": {
+    "goal": "Understand a closing time.",
+    "explanation": "“Achtzehn Uhr” is six o’clock in the evening.",
+    "focus": "24-hour time",
+    "question": "Until when is the park open?"
+  },
+  "sitov-a1-pool-opening": {
+    "goal": "Ask about opening time.",
+    "explanation": "The opening time gives the earliest time you can enter.",
+    "focus": "Time and infinitive",
+    "question": "When can you first go in?"
+  },
+  "sitov-a1-borrow-ball": {
+    "goal": "Ask for sports equipment.",
+    "explanation": "“Einen Ball” is a masculine object in the accusative.",
+    "focus": "Accusative in sport",
+    "question": "What do you reply?"
+  },
+  "sitov-a1-training-day": {
+    "goal": "Name a regular day.",
+    "explanation": "“Jeden Mittwoch” describes something that repeats regularly.",
+    "focus": "Regular time expression",
+    "question": "When does training take place?"
+  },
+  "sitov-a1-locker-number": {
+    "goal": "Find your locker.",
+    "explanation": "“Sechzehn” is a different number from “sechzig”.",
+    "focus": "Numbers “sechzehn” and “sechzig”",
+    "question": "Which locker is yours?"
+  },
+  "sitov-a1-trial-session": {
+    "goal": "Sign up for a trial session.",
+    "explanation": "“Mitmachen” is separable and is used here as an infinitive.",
+    "focus": "Modal verb and “mitmachen”",
+    "question": "Which reply fits?"
+  },
+  "sitov-a1-hotel-reservation": {
+    "goal": "Give the name on your booking.",
+    "explanation": "“Auf den Namen” links the booking to the right person.",
+    "focus": "Name on a booking",
+    "question": "What do you reply?"
+  },
+  "sitov-a1-single-room": {
+    "goal": "Choose a room type.",
+    "explanation": "Here, “ein Einzelzimmer” is the right choice for one person.",
+    "focus": "Neuter noun with “ein”",
+    "question": "What do you reply?"
+  },
+  "sitov-a1-breakfast-time": {
+    "goal": "Understand a time span.",
+    "explanation": "Eight o’clock is within the period from seven to nine.",
+    "focus": "Time span with “von ... bis”",
+    "question": "When do you get breakfast?"
+  },
+  "sitov-a1-wifi-password": {
+    "goal": "Ask for a password.",
+    "explanation": "“Auf” names the surface where the information is written.",
+    "focus": "“Wo” with “stehen”",
+    "question": "Where do you check?"
+  },
+  "sitov-a1-checkout-time": {
+    "goal": "Understand a deadline.",
+    "explanation": "“Bis elf Uhr” means no later than eleven o’clock.",
+    "focus": "Deadline with “bis”",
+    "question": "Which time fits?"
+  },
+  "sitov-a1-shirt-size": {
+    "goal": "Give your size.",
+    "explanation": "“Größe M” names the clothing size you need.",
+    "focus": "Giving a size",
+    "question": "What do you reply?"
+  },
+  "sitov-a1-fitting-room": {
+    "goal": "Ask for a fitting room.",
+    "explanation": "“Anprobieren” means putting on clothes to try them.",
+    "focus": "Modal verb and “anprobieren”",
+    "question": "Where do you go?"
+  },
+  "sitov-a1-shoe-too-small": {
+    "goal": "Describe the fit.",
+    "explanation": "“Zu klein” means the size is not large enough.",
+    "focus": "“Zu” with an adjective",
+    "question": "What do you reply?"
+  },
+  "sitov-a1-blue-jacket": {
+    "goal": "Say which colour you want.",
+    "explanation": "“Die blaue” refers to the jacket you have chosen.",
+    "focus": "Colours and “nehmen”",
+    "question": "Which reply fits?"
+  },
+  "sitov-a1-try-trousers": {
+    "goal": "Respond to an offer.",
+    "explanation": "“Anprobieren” is separable: “an” goes at the end.",
+    "focus": "Separable verb “anprobieren”",
+    "question": "What do you reply?"
+  },
+  "sitov-a1-half-kilo-tomatoes": {
+    "goal": "Give a quantity by weight.",
+    "explanation": "“Ein halbes Kilo” is half of one kilogram.",
+    "focus": "Quantities with “halb”",
+    "question": "What do you reply?"
+  },
+  "sitov-a1-ripe-pears": {
+    "goal": "Ask about a quality.",
+    "explanation": "“Weich” and “hart” describe different qualities.",
+    "focus": "Adjectives for fruit",
+    "question": "Which pears do you take?"
+  },
+  "sitov-a1-market-change": {
+    "goal": "Calculate a simple difference.",
+    "explanation": "Five euros minus three euros is two euros.",
+    "focus": "Numbers and “zurückbekommen”",
+    "question": "How much change do you get?"
+  },
+  "sitov-a1-local-potatoes": {
+    "goal": "Ask where something comes from.",
+    "explanation": "“Woher” asks about origin; “aus” names the country of origin.",
+    "focus": "“Woher” and “aus”",
+    "question": "Where are they from?"
+  },
+  "sitov-a1-market-closing-day": {
+    "goal": "Understand a weekly rule.",
+    "explanation": "“Offen” and “geschlossen” show whether you can shop.",
+    "focus": "Weekdays and opening",
+    "question": "When can you shop?"
+  },
+  "sitov-a1-find-city-hall": {
+    "goal": "Ask about a building.",
+    "explanation": "“Neben” describes two places directly next to each other.",
+    "focus": "Location with “neben”",
+    "question": "Where do you look for the town hall?"
+  },
+  "sitov-a1-cross-at-green": {
+    "goal": "Understand a colour signal.",
+    "explanation": "The scene explicitly says to wait for green.",
+    "focus": "Present tense with “wir”",
+    "question": "What do you do now?"
+  },
+  "sitov-a1-tourist-map": {
+    "goal": "Ask for help finding your way.",
+    "explanation": "“Ein Stadtplan” shows a city’s streets and places.",
+    "focus": "Accusative in a request",
+    "question": "What do you say?"
+  },
+  "sitov-a1-museum-ticket": {
+    "goal": "Give the number of tickets.",
+    "explanation": "You and your brother are two people.",
+    "focus": "Personal pronouns and quantity",
+    "question": "How many do you buy?"
+  },
+  "sitov-a1-turn-left": {
+    "goal": "Understand a turn in the route.",
+    "explanation": "“Links” names the direction you need at the junction.",
+    "focus": "Simple directions",
+    "question": "Which direction do you take?"
+  },
+  "sitov-a2-empty-shelf": {
+    "goal": "Explain what you looked for.",
+    "explanation": "In the perfect tense, “gefunden” goes at the end; “keinen” negates “Reis”.",
+    "focus": "Perfect tense with “finden”",
+    "question": "What do you reply?"
+  },
+  "sitov-a2-discount-mismatch": {
+    "goal": "Explain a price difference.",
+    "explanation": "“Niedriger” compares the shelf price with the stated checkout price.",
+    "focus": "Comparative “niedriger”",
+    "question": "What do you say?"
+  },
+  "sitov-a2-damaged-packaging": {
+    "goal": "Ask for another package.",
+    "explanation": "“Könnten Sie ... geben” is a polite request.",
+    "focus": "Polite request with “könnten”",
+    "question": "Which package would you like?"
+  },
+  "sitov-a2-delivery-arrival": {
+    "goal": "Understand a condition.",
+    "explanation": "In the “wenn” clause, “kommt” goes at the end; the main clause begins with “gibt”.",
+    "focus": "“Wenn” clause and verb in second position",
+    "question": "When can you buy eggs again?"
+  },
+  "sitov-a2-receipt-exchange": {
+    "goal": "Understand the stated exchange rule.",
+    "explanation": "Here, “vergessen” forms the perfect tense with “haben”.",
+    "focus": "Perfect tense with “vergessen”",
+    "question": "What is missing for this exchange?"
+  },
+  "sitov-a2-wrong-drink": {
+    "goal": "Correct an order.",
+    "explanation": "“Bestellt” is the participle of “bestellen” and goes at the end.",
+    "focus": "Perfect tense with “bestellen”",
+    "question": "What do you say?"
+  },
+  "sitov-a2-quieter-seat": {
+    "goal": "Compare two seats.",
+    "explanation": "In the “weil” clause, “ist” goes at the end; “ruhiger” is a comparative.",
+    "focus": "“Weil” clause and comparative",
+    "question": "Which seat fits your wish?"
+  },
+  "sitov-a2-missing-cake-charge": {
+    "goal": "Point out a missing item.",
+    "explanation": "“Auch” adds the cake to the order already on the bill.",
+    "focus": "Perfect tense with “essen”",
+    "question": "What do you say?"
+  },
+  "sitov-a2-forgotten-scarf": {
+    "goal": "Ask about a lost item.",
+    "explanation": "“Gestern” refers to the past; the perfect tense describes forgetting.",
+    "focus": "Perfect tense with a time expression",
+    "question": "What do you ask?"
+  },
+  "sitov-a2-terrace-rain": {
+    "goal": "Respond to a weather condition.",
+    "explanation": "The “wenn” clause describes the condition for moving.",
+    "focus": "Condition with “wenn”",
+    "question": "What can you do now?"
+  },
+  "sitov-a2-missed-connection": {
+    "goal": "Explain a missed connection.",
+    "explanation": "“Weil” gives the reason; “kam” goes at the end of the subordinate clause.",
+    "focus": "Reason with “weil”",
+    "question": "Why did you miss the connection?"
+  },
+  "sitov-a2-last-train": {
+    "goal": "Understand a limit for the day.",
+    "explanation": "“Kein ... mehr” means there are no more departures after the stated time.",
+    "focus": "Negation with “kein ... mehr”",
+    "question": "Which departure can you still take today?"
+  },
+  "sitov-a2-broken-machine": {
+    "goal": "Explain why you go to the counter.",
+    "explanation": "In the “weil” clause, the verb “ist” follows the adjective “kaputt”.",
+    "focus": "“Weil” and verb at the end",
+    "question": "What is the reason?"
+  },
+  "sitov-a2-reserved-seat": {
+    "goal": "Find your seat.",
+    "explanation": "The carriage and seat are two different details on the reservation.",
+    "focus": "Perfect tense and understanding numbers",
+    "question": "Where do you sit?"
+  },
+  "sitov-a2-platform-change": {
+    "goal": "Understand a change of plan.",
+    "explanation": "“Statt” replaces the previous information; with “heute”, the verb is in second position.",
+    "focus": "Verb in second position after “heute”",
+    "question": "Which platform is correct today?"
+  },
+  "sitov-a2-bus-detour": {
+    "goal": "Understand a changed route.",
+    "explanation": "“Statt am Rathaus” gives the changed stop.",
+    "focus": "Route with “statt”",
+    "question": "At which of the two stops does the bus stop today?"
+  },
+  "sitov-a2-ticket-zone": {
+    "goal": "Understand the area of validity.",
+    "explanation": "“Nur” limits the ticket to Zone A.",
+    "focus": "Limitation with “nur”",
+    "question": "Is your current ticket valid as far as the airport?"
+  },
+  "sitov-a2-child-seat": {
+    "goal": "Politely ask for a seat.",
+    "explanation": "“Dürfen” asks for permission; the infinitive “sitzen” goes at the end.",
+    "focus": "Modal verb “dürfen”",
+    "question": "Which request fits?"
+  },
+  "sitov-a2-bike-time-window": {
+    "goal": "Understand the stated time rule.",
+    "explanation": "“Halb neun” means 8:30; “erst ab neun” gives the earliest permitted time.",
+    "focus": "Half-hour times and “erst ab”",
+    "question": "What fits this rule?"
+  },
+  "sitov-a2-missed-stop": {
+    "goal": "Explain a mishap.",
+    "explanation": "Here, “gefahren” forms the perfect tense with “sein”.",
+    "focus": "Perfect tense with “sein”",
+    "question": "What do you reply?"
+  },
+  "sitov-a2-change-reservation": {
+    "goal": "Ask for a larger reservation.",
+    "explanation": "“Für drei Personen” gives the new number of guests.",
+    "focus": "Polite request and quantity",
+    "question": "What would you like to change?"
+  },
+  "sitov-a2-long-wait": {
+    "goal": "Compare waiting times.",
+    "explanation": "“Schneller ... als” compares the waiting times for two dishes.",
+    "focus": "Comparative with “als”",
+    "question": "What do you choose for the shorter wait?"
+  },
+  "sitov-a2-wrong-side-dish": {
+    "goal": "Correct a side dish.",
+    "explanation": "“Statt Kartoffeln” contrasts the desired side dish with the wrong one.",
+    "focus": "Perfect tense and “statt”",
+    "question": "What do you say?"
+  },
+  "sitov-a2-garlic-preference": {
+    "goal": "Ask about an ingredient.",
+    "explanation": "“Mag” goes at the end of the “weil” clause and explains your choice.",
+    "focus": "“Weil” clause with “mögen”",
+    "question": "Which dish fits your wish?"
+  },
+  "sitov-a2-split-cost": {
+    "goal": "Understand a shared amount.",
+    "explanation": "24 euros divided between two people is twelve euros per person.",
+    "focus": "Numbers and “jeder”",
+    "question": "How much does each person pay?"
+  },
+  "sitov-a2-pickup-confirmation": {
+    "goal": "Understand a prerequisite.",
+    "explanation": "The scene connects the message with the completed order.",
+    "focus": "Perfect tense with “bekommen”",
+    "question": "What does the message mean here?"
+  },
+  "sitov-a2-order-later": {
+    "goal": "Understand a changed day.",
+    "explanation": "“Nicht ... sondern” replaces today with tomorrow; “ankommt” stays together in the subordinate clause.",
+    "focus": "“Weil” with a separable verb",
+    "question": "When is collection worthwhile according to the scene?"
+  },
+  "sitov-a2-replacement-receipt": {
+    "goal": "Explain a loss.",
+    "explanation": "“Verloren” describes a completed loss in the perfect tense.",
+    "focus": "Perfect tense and a polite request",
+    "question": "What do you say?"
+  },
+  "sitov-a2-package-label": {
+    "goal": "Ask for an explanation.",
+    "explanation": "“Erklären” focuses on understanding the label.",
+    "focus": "Dative “mir” in a request",
+    "question": "Which request fits?"
+  },
+  "sitov-a2-reserve-bandage": {
+    "goal": "Ask for a reservation.",
+    "explanation": "Here, “zurücklegen” means keeping the available package for you.",
+    "focus": "Polite request with a deadline",
+    "question": "What would you like?"
+  },
+  "sitov-a2-rescheduled-appointment": {
+    "goal": "Understand an appointment change.",
+    "explanation": "“Jetzt” replaces the previous time with the new appointment.",
+    "focus": "Appointment changes and time",
+    "question": "When do you come?"
+  },
+  "sitov-a2-form-name": {
+    "goal": "Correct a spelling mistake.",
+    "explanation": "Here, “Nachname” refers to Werner; Leon remains the first name.",
+    "focus": "Correction with “nicht”",
+    "question": "Which correction fits?"
+  },
+  "sitov-a2-cancel-visit": {
+    "goal": "Explain a cancellation.",
+    "explanation": "In the “weil” clause, the modal verb “muss” follows the infinitive “arbeiten”.",
+    "focus": "“Weil” with a modal verb",
+    "question": "What do you reply?"
+  },
+  "sitov-a2-repeat-instructions": {
+    "goal": "Ask someone to speak more slowly.",
+    "explanation": "“Langsamer” is the comparative of “langsam”.",
+    "focus": "Comparative in a request",
+    "question": "Which request fits?"
+  },
+  "sitov-a2-late-arrival": {
+    "goal": "Say that you will be late.",
+    "explanation": "“Weil” gives the reason for the announced delay.",
+    "focus": "Comparing times and “weil”",
+    "question": "What do you say?"
+  },
+  "sitov-a2-missed-delivery": {
+    "goal": "Understand a notification.",
+    "explanation": "“Nicht antreffen” means the delivery worker did not find you.",
+    "focus": "Past tense with “war”",
+    "question": "Where is the parcel now?"
+  },
+  "sitov-a2-parcel-status": {
+    "goal": "Ask about a shipment in progress.",
+    "explanation": "“Noch nicht” means it has not arrived so far.",
+    "focus": "Perfect tense with “ankommen”",
+    "question": "Which statement fits?"
+  },
+  "sitov-a2-missing-postcode": {
+    "goal": "Add part of an address.",
+    "explanation": "According to the scene, the postcode is the only missing part of the address.",
+    "focus": "Perfect tense with “vergessen”",
+    "question": "What do you add?"
+  },
+  "sitov-a2-postcard-stamps": {
+    "goal": "Give a total quantity.",
+    "explanation": "“Jede” connects each postcard with one stamp.",
+    "focus": "“Jede” and quantities",
+    "question": "How many stamps do you buy?"
+  },
+  "sitov-a2-parcel-size-rule": {
+    "goal": "Understand a size rule.",
+    "explanation": "25 cm is below the limit; “kleiner” is the comparative of “klein”.",
+    "focus": "Comparative and a limit with “bis”",
+    "question": "Which length fits the stated limit?"
+  },
+  "sitov-a2-move-bank-meeting": {
+    "goal": "Ask for a different day.",
+    "explanation": "“Auf Donnerstag” gives the desired new appointment.",
+    "focus": "Polite request with “könnten”",
+    "question": "Which request fits?"
+  },
+  "sitov-a2-document-check": {
+    "goal": "Understand the stated prerequisite.",
+    "explanation": "“Mitgebracht” goes at the end in the perfect tense; “nicht” negates bringing the item.",
+    "focus": "Perfect tense of a separable verb",
+    "question": "What is missing according to the employee?"
+  },
+  "sitov-a2-paperless-receipt": {
+    "goal": "Choose a format.",
+    "explanation": "“Per E-Mail” names the desired delivery method.",
+    "focus": "Expressing a wish with an infinitive",
+    "question": "What do you reply?"
+  },
+  "sitov-a2-update-address": {
+    "goal": "Explain a change.",
+    "explanation": "“Umgezogen” forms the perfect tense with “sein”.",
+    "focus": "Perfect tense with “umziehen”",
+    "question": "What do you reply?"
+  },
+  "sitov-a2-counter-or-online": {
+    "goal": "Understand where a conversation takes place.",
+    "explanation": "“Stattfinden” is separable; “per Video” gives the form of the conversation.",
+    "focus": "Separable verb “stattfinden”",
+    "question": "Where do you take part?"
+  },
+  "sitov-a2-extend-loan": {
+    "goal": "Understand an extension.",
+    "explanation": "“Länger” compares the new loan period with the previous one.",
+    "focus": "Comparative “länger”",
+    "question": "What is possible?"
+  },
+  "sitov-a2-reserve-unavailable-book": {
+    "goal": "Ask to reserve a book.",
+    "explanation": "Here, “vormerken” means waiting for the next chance to borrow it.",
+    "focus": "Polite request and “vormerken”",
+    "question": "What would you like?"
+  },
+  "sitov-a2-due-tomorrow": {
+    "goal": "Understand the time remaining.",
+    "explanation": "From Monday, “morgen” means Tuesday.",
+    "focus": "Modal verb “müssen” and “morgen”",
+    "question": "When does the loan period end?"
+  },
+  "sitov-a2-digital-book": {
+    "goal": "Understand a media format.",
+    "explanation": "Here, “digital” means an e-book read on a device.",
+    "focus": "Dative after “auf”",
+    "question": "Which format is available?"
+  },
+  "sitov-a2-existing-damage": {
+    "goal": "Describe an earlier condition.",
+    "explanation": "“Schon beim Ausleihen” places the damage before the current return.",
+    "focus": "Past tense with “war”",
+    "question": "What do you say?"
+  },
+  "sitov-a2-send-meeting-notes": {
+    "goal": "Report a completed task.",
+    "explanation": "“Schon” marks that the task has already been completed.",
+    "focus": "Perfect tense with “schon”",
+    "question": "What do you reply?"
+  },
+  "sitov-a2-earlier-meeting": {
+    "goal": "Understand a time change.",
+    "explanation": "Nine is one hour before ten; “früher” describes the comparison.",
+    "focus": "Comparative “früher”",
+    "question": "When does it start now?"
+  },
+  "sitov-a2-paper-jam": {
+    "goal": "Explain a delay.",
+    "explanation": "In the subordinate clause, the separable verb “feststecken” stays together.",
+    "focus": "“Weil” and “feststecken”",
+    "question": "What is holding you up?"
+  },
+  "sitov-a2-agree-task-owner": {
+    "goal": "Confirm who is responsible.",
+    "explanation": "Here, “wenn” connects your task with the completed phone call.",
+    "focus": "“Wenn” clause in the perfect tense",
+    "question": "What is your task?"
+  },
+  "sitov-a2-remote-work-reason": {
+    "goal": "Give a reason for a work location.",
+    "explanation": "The “weil” clause gives the technician’s visit as the reason.",
+    "focus": "Giving a reason with “weil”",
+    "question": "Which reason fits?"
+  },
+  "sitov-a2-explain-absence": {
+    "goal": "Explain an absence.",
+    "explanation": "“Musste” is the past tense of “müssen” and explains the absence.",
+    "focus": "“Weil” with “musste”",
+    "question": "What do you reply?"
+  },
+  "sitov-a2-understood-rule": {
+    "goal": "Report what you understood.",
+    "explanation": "“Verstanden” is the participle of “verstehen”.",
+    "focus": "Perfect tense with “verstehen”",
+    "question": "Which reply fits?"
+  },
+  "sitov-a2-easier-exercise": {
+    "goal": "Compare difficulty.",
+    "explanation": "“Leichter ... als” compares the difficulty of two tasks.",
+    "focus": "Comparative with “als”",
+    "question": "Which task do you do first?"
+  },
+  "sitov-a2-group-results": {
+    "goal": "Report an opinion.",
+    "explanation": "“Dass” introduces the content of the statement; “ist” goes at the end.",
+    "focus": "Statement with “dass”",
+    "question": "What did Amir say?"
+  },
+  "sitov-a2-missed-homework-page": {
+    "goal": "Ask for missing information.",
+    "explanation": "“Noch einmal” asks for the missing number to be repeated.",
+    "focus": "Polite request and “sollen”",
+    "question": "Which request fits?"
+  },
+  "sitov-a2-move-in-past": {
+    "goal": "Report when you moved in.",
+    "explanation": "“Eingezogen” forms the perfect tense with “sein”; “seit” gives the starting point.",
+    "focus": "Perfect tense with “einziehen”",
+    "question": "What do you reply?"
+  },
+  "sitov-a2-heating-not-working": {
+    "goal": "Report a fault.",
+    "explanation": "The “weil” clause explains that the apartment is cold because of the fault.",
+    "focus": "“Weil” and negation",
+    "question": "What do you report?"
+  },
+  "sitov-a2-room-comparison": {
+    "goal": "Compare two rooms.",
+    "explanation": "“Größer” is the comparative of “groß”; “als” names what it is compared with.",
+    "focus": "Comparative “größer ... als”",
+    "question": "Which room has more space?"
+  },
+  "sitov-a2-neighbor-quiet-time": {
+    "goal": "Understand an agreement in the building.",
+    "explanation": "“Leiser” reduces the volume; “wenn” gives the agreed condition.",
+    "focus": "“Wenn” and comparative",
+    "question": "What fits the agreement?"
+  },
+  "sitov-a2-key-left-inside": {
+    "goal": "Explain a mishap.",
+    "explanation": "“In der Wohnung” gives the location of the forgotten key.",
+    "focus": "Perfect tense and location",
+    "question": "What happened?"
+  },
+  "sitov-a2-describe-last-working": {
+    "goal": "Say when a problem began.",
+    "explanation": "“Noch” signals that it was working at that time.",
+    "focus": "Perfect tense with “noch”",
+    "question": "When did the lamp last work?"
+  },
+  "sitov-a2-repair-cost-comparison": {
+    "goal": "Compare the stated prices.",
+    "explanation": "Here, “günstiger” refers only to the two stated prices.",
+    "focus": "Comparing prices with “als”",
+    "question": "Which offer costs less?"
+  },
+  "sitov-a2-parts-not-arrived": {
+    "goal": "Understand a delay.",
+    "explanation": "“Noch nicht” describes a state that has not been reached so far.",
+    "focus": "“Weil” and “noch nicht”",
+    "question": "Why is the repair not finished yet?"
+  },
+  "sitov-a2-test-after-repair": {
+    "goal": "Report a test.",
+    "explanation": "“Eingeschaltet” is the participle of the separable verb “einschalten”.",
+    "focus": "Perfect tense with “einschalten”",
+    "question": "Which reply fits?"
+  },
+  "sitov-a2-repair-slot-choice": {
+    "goal": "Understand a time range.",
+    "explanation": "Here, between ten and twelve includes eleven o’clock.",
+    "focus": "Time span with “zwischen”",
+    "question": "Which time is within the stated range?"
+  },
+  "sitov-a2-longer-park-route": {
+    "goal": "Compare route lengths.",
+    "explanation": "“Kürzer” compares routes of 500 and 900 metres.",
+    "focus": "Comparative “kürzer”",
+    "question": "Which route is shorter?"
+  },
+  "sitov-a2-found-wallet": {
+    "goal": "Report a found item.",
+    "explanation": "“Gefunden” goes at the end of the perfect tense with “haben”.",
+    "focus": "Perfect tense with “finden”",
+    "question": "What do you report?"
+  },
+  "sitov-a2-wet-bench": {
+    "goal": "Give a reason for a choice.",
+    "explanation": "“Diese” refers to the wet bench; “weil” explains the change.",
+    "focus": "“Weil” and a demonstrative word",
+    "question": "Where would you like to sit?"
+  },
+  "sitov-a2-path-closed": {
+    "goal": "Understand an alternative route.",
+    "explanation": "“Zuerst” and “danach” put the directions in order.",
+    "focus": "Sequence with “zuerst” and “danach”",
+    "question": "Which order is correct?"
+  },
+  "sitov-a2-walk-before-rain": {
+    "goal": "Understand a plan for the weather.",
+    "explanation": "The “wenn” clause gives the condition for returning.",
+    "focus": "“Wenn” as a condition",
+    "question": "When do you return according to the plan?"
+  },
+  "sitov-a2-training-cancelled": {
+    "goal": "Understand a cancellation.",
+    "explanation": "“Ausfallen” means the planned session does not take place.",
+    "focus": "Separable verb “ausfallen”",
+    "question": "What happens today?"
+  },
+  "sitov-a2-first-run-report": {
+    "goal": "Report an activity.",
+    "explanation": "“Gelaufen” forms the perfect tense with “sein”; “Kilometer” names the distance.",
+    "focus": "Perfect tense with “laufen”",
+    "question": "What do you reply?"
+  },
+  "sitov-a2-more-frequent-training": {
+    "goal": "Compare how often something happens.",
+    "explanation": "“Öfter” is the comparative of “oft” and describes more training sessions.",
+    "focus": "Comparative “öfter”",
+    "question": "How often do you train now?"
+  },
+  "sitov-a2-locker-key-return": {
+    "goal": "Understand a sequence.",
+    "explanation": "In the subordinate clause, “bin” goes at the end; “abgeben” separates in the main clause.",
+    "focus": "“Wenn” and “abgeben”",
+    "question": "When do you return the key?"
+  },
+  "sitov-a2-indoor-shoes": {
+    "goal": "Understand the stated equipment rule.",
+    "explanation": "“Anziehen” is separable; clean indoor shoes meet the stated rule.",
+    "focus": "Separable verb “anziehen”",
+    "question": "What fits the indoor rule?"
+  },
+  "sitov-a2-room-not-ready": {
+    "goal": "Understand a waiting time.",
+    "explanation": "“In zwanzig Minuten” names a future time.",
+    "focus": "Future time with “in”",
+    "question": "When can you go in?"
+  },
+  "sitov-a2-quieter-hotel-room": {
+    "goal": "Ask to change rooms.",
+    "explanation": "“Könnte ich ... bekommen” is a polite request for an alternative.",
+    "focus": "Polite request with “könnte”",
+    "question": "Which room would you like?"
+  },
+  "sitov-a2-breakfast-included": {
+    "goal": "Understand what a booking includes.",
+    "explanation": "Here, “enthalten” means breakfast is included in the booking.",
+    "focus": "“Enthalten” and negation",
+    "question": "Which statement is correct?"
+  },
+  "sitov-a2-extra-night": {
+    "goal": "Ask for an extension.",
+    "explanation": "“Übermorgen” is the day after tomorrow; “länger” describes the extension.",
+    "focus": "Comparative “länger”",
+    "question": "What would you like?"
+  },
+  "sitov-a2-lost-room-card": {
+    "goal": "Explain what happened.",
+    "explanation": "“Verloren” gives the reason for asking for a new card.",
+    "focus": "Perfect tense and a polite request",
+    "question": "Which request fits?"
+  },
+  "sitov-a2-larger-shirt": {
+    "goal": "Ask for another size.",
+    "explanation": "Here, “Größe L” is the desired larger alternative to M.",
+    "focus": "Comparative “größer”",
+    "question": "What would you like?"
+  },
+  "sitov-a2-jacket-length": {
+    "goal": "Compare two lengths.",
+    "explanation": "Here, “bis zum Knie” is a greater length than “bis zur Hüfte”.",
+    "focus": "Comparative “länger ... als”",
+    "question": "Which jacket is longer?"
+  },
+  "sitov-a2-return-wrong-size": {
+    "goal": "Explain why you want an exchange.",
+    "explanation": "“Gekauft” goes at the end of the perfect tense; “aber” connects the contrast.",
+    "focus": "Perfect tense and “aber”",
+    "question": "What is the reason?"
+  },
+  "sitov-a2-wash-label": {
+    "goal": "Understand a specific label.",
+    "explanation": "“Bei dreißig Grad” gives the temperature stated on this label.",
+    "focus": "Numbers and “bei”",
+    "question": "Which temperature does the label give?"
+  },
+  "sitov-a2-cheaper-shoes": {
+    "goal": "Compare two prices.",
+    "explanation": "“Billiger” compares the two stated prices.",
+    "focus": "Comparative “billiger ... als”",
+    "question": "Which pair costs less?"
+  },
+  "sitov-a2-seasonal-cherries": {
+    "goal": "Understand the start of a season.",
+    "explanation": "“Seit heute” marks the starting point; “wieder” means again.",
+    "focus": "Time with “seit”",
+    "question": "Since when have cherries been available again?"
+  },
+  "sitov-a2-fruit-comparison": {
+    "goal": "Compare two varieties.",
+    "explanation": "“Süßer” is the comparative of “süß”; “weil” gives the reason for the choice.",
+    "focus": "Comparative and “weil”",
+    "question": "Which apples fit better?"
+  },
+  "sitov-a2-weekly-stall-location": {
+    "goal": "Understand a change of location.",
+    "explanation": "“Jetzt” describes the current location in contrast to the earlier one.",
+    "focus": "“Früher” and “jetzt”",
+    "question": "Where do you find the stall today?"
+  },
+  "sitov-a2-ordered-box": {
+    "goal": "Report an order.",
+    "explanation": "“Vorbestellt” describes an order placed before the current collection.",
+    "focus": "Perfect tense with “vorbestellen”",
+    "question": "Which reply fits?"
+  },
+  "sitov-a2-market-bag-return": {
+    "goal": "Understand an agreement.",
+    "explanation": "In the “wenn” clause, “zurückbringen” stays together; returning it fulfils the condition.",
+    "focus": "“Wenn” with a separable verb",
+    "question": "What must you do according to the agreement?"
+  },
+  "sitov-a2-route-two-turns": {
+    "goal": "Understand two steps in a route.",
+    "explanation": "“Abbiegen” is separable; “an der Ampel” gives the place to turn.",
+    "focus": "Directions with “abbiegen”",
+    "question": "Which route is correct?"
+  },
+  "sitov-a2-museum-closed-monday": {
+    "goal": "Understand weekly opening hours.",
+    "explanation": "Tuesday falls within the stated opening period.",
+    "focus": "Weekdays and time spans",
+    "question": "Which day can you visit?"
+  },
+  "sitov-a2-guided-tour-report": {
+    "goal": "Report an experience.",
+    "explanation": "“Besucht” is a participle without “ge-” and forms the perfect tense with “haben”.",
+    "focus": "Perfect tense with “besuchen”",
+    "question": "Which reply fits?"
+  },
+  "sitov-a2-office-number-system": {
+    "goal": "Understand a queueing system.",
+    "explanation": "“Meine Nummer” limits the condition to your own number being called.",
+    "focus": "“Wenn” and a possessive article",
+    "question": "When do you go to the counter?"
+  },
+  "sitov-a2-nearest-stop": {
+    "goal": "Compare distances.",
+    "explanation": "“Näher” is the comparative of “nah”; 200 metres is less than 800.",
+    "focus": "Comparative “näher ... als”",
+    "question": "Which stop is nearer?"
+  },
+  "sitov-b1-joghurt-zurueckgeben": {
+    "goal": "Explain the problem and ask for a refund.",
+    "explanation": "The answer clearly chooses a refund and mentions the receipt. After “weil”, the verb goes at the end.",
+    "focus": "“weil” and the perfect tense",
+    "question": "Would you like a new yogurt or your money back?"
+  },
+  "sitov-b1-ersatzprodukt-vergleichen": {
+    "goal": "Describe an alternative and ask about its ingredients.",
+    "explanation": "The answer takes up the condition that was explicitly stated. The relative clause describes the sauce you are looking for more precisely.",
+    "focus": "Relative clause in the nominative",
+    "question": "What essential feature must the replacement sauce have?"
+  },
+  "sitov-b1-preisschild-klaeren": {
+    "goal": "Politely compare the shelf price with the checkout price.",
+    "explanation": "The answer asks for the specific price to be checked. After “deshalb”, the conjugated verb comes immediately next.",
+    "focus": "“deshalb” and polite Konjunktiv II",
+    "question": "In your photo, the rice costs two euros less. What would you like me to do?"
+  },
+  "sitov-b1-doppelte-buchung": {
+    "goal": "Point out an error on the receipt.",
+    "explanation": "Only the first answer corrects the duplicate charge. “Obwohl” describes the contradiction between the purchase and the receipt.",
+    "focus": "Passive voice and “obwohl”",
+    "question": "You only took one loaf of bread. What change would you like?"
+  },
+  "sitov-b1-einkauf-aufteilen": {
+    "goal": "Organize payment for yourself and your flatmate.",
+    "explanation": "The answer explains the order and keeps the payments separate as requested. “Deshalb” connects a reason with its result.",
+    "focus": "Reason and result",
+    "question": "Which items should I charge for first?"
+  },
+  "sitov-b1-ruhiger-tisch": {
+    "goal": "Ask for a table where you can concentrate on your work.",
+    "explanation": "The answer gives a reason for choosing the quiet area. “Ich hätte gern” expresses the wish politely.",
+    "focus": "Konjunktiv II and giving a reason",
+    "question": "Would you prefer to sit at the front near the music or at the back?"
+  },
+  "sitov-b1-bestellung-verwechselt": {
+    "goal": "Correct an order in a friendly way.",
+    "explanation": "The answer confirms the appropriate correction. The passive voice focuses on the preparation rather than the person.",
+    "focus": "Correcting an order and passive voice",
+    "question": "Sorry, should I bring you a new coffee with oat milk?"
+  },
+  "sitov-b1-rechnung-aufteilen": {
+    "goal": "Explain which drinks you are paying for.",
+    "explanation": "The answer follows the agreed split. “Während” contrasts the two shares of the payment.",
+    "focus": "“während” and separate payment",
+    "question": "Should I charge you for the whole bill?"
+  },
+  "sitov-b1-kaffee-zum-mitnehmen": {
+    "goal": "Change the order because you need to leave soon.",
+    "explanation": "The answer chooses the packaging for the changed order. “Damit” states the purpose of the takeaway cup.",
+    "focus": "“da” and “damit”",
+    "question": "Should I serve the coffee in a china cup or a takeaway cup?"
+  },
+  "sitov-b1-kalter-kaffee": {
+    "goal": "Make a polite complaint.",
+    "explanation": "The answer accepts the replacement drink offered. “Obwohl” shows why the cold temperature is surprising.",
+    "focus": "“obwohl” and the passive voice for actions",
+    "question": "May I bring you a freshly prepared coffee instead?"
+  },
+  "sitov-b1-anschluss-verpasst": {
+    "goal": "Ask about the next connection.",
+    "explanation": "The answer continues the journey with an available connection. The subordinate clause explains why the connection was missed.",
+    "focus": "“weil” and the perfect tense",
+    "question": "Would you like to hear about the next connection to Hamburg?"
+  },
+  "sitov-b1-fahrradplatz-buchen": {
+    "goal": "Ask about a necessary reservation.",
+    "explanation": "The answer accepts the specific offer. The indirect question with “ob” asks whether it is possible.",
+    "focus": "Indirect question and passive voice",
+    "question": "There is still a bicycle space available on the ten o’clock train. Should I reserve it?"
+  },
+  "sitov-b1-gleis-ohne-treppe": {
+    "goal": "Ask for a route with a lift.",
+    "explanation": "The answer fits the wish for a route without steps. The relative clause describes the route needed.",
+    "focus": "“da” and a relative clause",
+    "question": "Should I explain the way to the lift?"
+  },
+  "sitov-b1-reservierungsdatum-aendern": {
+    "goal": "Clarify an incorrect date before the journey.",
+    "explanation": "The answer corrects the date for today’s journey. “Versehentlich” explains that the incorrect booking was unintentional.",
+    "focus": "“obwohl” and time expressions",
+    "question": "Should I check whether a seat can still be reserved for today?"
+  },
+  "sitov-b1-koffer-im-zug": {
+    "goal": "Describe a lost item precisely.",
+    "explanation": "The answer adds clear identifying features of the item described. In the relative clause, “Den” refers to the suitcase.",
+    "focus": "Relative clause in the accusative",
+    "question": "How can we recognize your black suitcase?"
+  },
+  "sitov-b1-umleitung-haltestelle": {
+    "goal": "Find an alternative route to your destination.",
+    "explanation": "The answer confirms the proposed alternative route and asks for a helpful announcement.",
+    "focus": "Indirect question with a question word",
+    "question": "You can get off at the market and walk five minutes to the town hall. Does that work for you?"
+  },
+  "sitov-b1-ticket-gueltigkeit": {
+    "goal": "Clarify validity before changing to another service.",
+    "explanation": "The answer asks specifically about the validity rule. It does not yet draw an unsupported conclusion from the time remaining.",
+    "focus": "“deshalb” and a clarification question",
+    "question": "Would you like to know whether the ticket is still valid for the connecting journey?"
+  },
+  "sitov-b1-voller-bus": {
+    "goal": "Ask about a later service.",
+    "explanation": "The answer follows through on the wish to take the next service. “Wenn” states the condition for this decision.",
+    "focus": "“wenn” and Konjunktiv II",
+    "question": "The next bus arrives in twelve minutes. Would you like to wait for it here?"
+  },
+  "sitov-b1-falsche-richtung": {
+    "goal": "Ask for a sensible transfer.",
+    "explanation": "The answer uses the connection offered to the desired destination. “An der” introduces a relative clause referring to a place.",
+    "focus": "Relative clause with a preposition",
+    "question": "At the next stop, the train on the opposite side goes to the city center. What will you do?"
+  },
+  "sitov-b1-rampe-anfragen": {
+    "goal": "Ask the driver for help boarding.",
+    "explanation": "The answer confirms the assistance needed. “Damit” explains the purpose of the polite request.",
+    "focus": "Konjunktiv II and “damit”",
+    "question": "Should I unfold the ramp first and then help you board?"
+  },
+  "sitov-b1-gericht-ohne-fleisch": {
+    "goal": "Ask about the ingredients of a dish.",
+    "explanation": "The answer maintains the wish for a dish without meat. The relative clause describes the dish you are looking for.",
+    "focus": "Relative clause and passive voice",
+    "question": "The sauce contains meat stock. Would you like a version with vegetable stock?"
+  },
+  "sitov-b1-suppe-reklamieren": {
+    "goal": "Explain a complaint and choose a replacement.",
+    "explanation": "The answer chooses the replacement offered without adding a second order. “Deshalb” connects the complaint with its consequence.",
+    "focus": "Complaint with “deshalb”",
+    "question": "Would you like the vegetable plate at the same price instead?"
+  },
+  "sitov-b1-tisch-spaeter": {
+    "goal": "Ask to move your table booking to a later time because your train is delayed.",
+    "explanation": "The answer moves the booking half an hour later, as requested.",
+    "focus": "“da” and rescheduling",
+    "question": "The same table is still available at half past seven. Should I change the time?"
+  },
+  "sitov-b1-fehlendes-dessert": {
+    "goal": "Ask about a dessert you ordered before paying.",
+    "explanation": "The answer keeps the order and states the desired sequence. “Wenn” sets a condition for paying.",
+    "focus": "“wenn” and an embedded relative clause",
+    "question": "Sorry, your dessert is still missing. Should I have it brought now?"
+  },
+  "sitov-b1-gruppenmenue-absprechen": {
+    "goal": "Agree on a menu that accommodates different wishes.",
+    "explanation": "The answer preserves the desired split of two people and three people. “Obwohl” contrasts eating together with having different wishes.",
+    "focus": "“obwohl” and quantities",
+    "question": "Should two colleagues get the vegetable plate and the other three the dish of the day?"
+  },
+  "sitov-b1-rezept-abholung": {
+    "goal": "Clarify when the ordered goods will be ready.",
+    "explanation": "The answer organizes collection without assessing any effects or how to take a medicine. “Sobald” describes the earliest suitable time.",
+    "focus": "Indirect question and “sobald”",
+    "question": "Should I send you a message as soon as the order arrives?"
+  },
+  "sitov-b1-lieferung-zeitfenster": {
+    "goal": "Ask for a suitable delivery time window.",
+    "explanation": "The answer matches the afternoon that was explicitly mentioned. The task is solely about organizing delivery.",
+    "focus": "“deshalb” and a time window",
+    "question": "Our courier comes between four and six. Will you be at home then?"
+  },
+  "sitov-b1-quittung-nachfordern": {
+    "goal": "Ask for a receipt for an earlier purchase.",
+    "explanation": "The answer gives the information needed to find the receipt. The relative clause describes the receipt you are looking for.",
+    "focus": "Perfect tense and a relative clause",
+    "question": "Do you remember which day you shopped with us?"
+  },
+  "sitov-b1-name-auf-paket": {
+    "goal": "Have an order checked before it is handed over.",
+    "explanation": "The answer asks for the assignment of the order to be checked before handover. “Obwohl” states the contradiction in the name.",
+    "focus": "“obwohl” and clarifying who an order belongs to",
+    "question": "Your name is Mr. Berger. Should I check who the order belongs to again?"
+  },
+  "sitov-b1-beratungstermin-planen": {
+    "goal": "Arrange a quiet consultation with the pharmacist.",
+    "explanation": "The answer accepts the consultation offered. No medical recommendations are given.",
+    "focus": "Konjunktiv II and a relative clause with a preposition",
+    "question": "I have twenty minutes available on Friday at three. Should I enter that in the schedule?"
+  },
+  "sitov-b1-arzttermin-verschieben": {
+    "goal": "Ask for a new appointment after your working day.",
+    "explanation": "The answer resolves the scheduling conflict with the later appointment offered. The “weil” clause gives the organizational reason.",
+    "focus": "“weil” and the perfect tense",
+    "question": "There is an appointment available on Thursday at five p.m. Would that suit you?"
+  },
+  "sitov-b1-unterlagen-mitbringen": {
+    "goal": "Clarify which documents you should bring.",
+    "explanation": "The answer confirms the requested form of the documents. The indirect question with “ob” clarifies an organizational requirement.",
+    "focus": "Indirect question with “ob”",
+    "question": "Copies are enough for the appointment. Can you bring them?"
+  },
+  "sitov-b1-wartezeit-erfragen": {
+    "goal": "Ask about the waiting time because you have another appointment afterwards.",
+    "explanation": "The answer uses the time information to plan for the next appointment. “Voraussichtlich” makes clear that the duration is an estimate.",
+    "focus": "“da” and an estimated time",
+    "question": "It will probably take another forty minutes. Would you like to let the people at your next appointment know?"
+  },
+  "sitov-b1-begleiter-anmelden": {
+    "goal": "Clarify in advance whether someone can accompany you.",
+    "explanation": "The answer registers the planned companion. “Damit” explains the purpose of his presence.",
+    "focus": "Konjunktiv II and “damit”",
+    "question": "Should I note that your brother would like to accompany you to the consultation?"
+  },
+  "sitov-b1-bescheinigung-abholen": {
+    "goal": "Organize collection of a document that is already prepared.",
+    "explanation": "The answer chooses a time within the opening hours. “Falls” states the condition for the planned collection.",
+    "focus": "“falls” and collection time",
+    "question": "Reception is staffed until six p.m. Will you come before then?"
+  },
+  "sitov-b1-paket-beschaedigt": {
+    "goal": "Report a damaged shipment with suitable evidence.",
+    "explanation": "The answer supplies the evidence requested. The passive voice describes the condition on delivery.",
+    "focus": "Passive voice and “deshalb”",
+    "question": "Do you have the packaging and photos with you for the damage report?"
+  },
+  "sitov-b1-zweite-zustellung": {
+    "goal": "Find a day when you can receive a parcel.",
+    "explanation": "The answer uses the available day that was explicitly mentioned. “Könnte” politely expresses a possible arrangement.",
+    "focus": "Konjunktiv II and delivery date",
+    "question": "Would you like to arrange a new delivery for Friday?"
+  },
+  "sitov-b1-zolldokumente-klaeren": {
+    "goal": "Ask about documents needed to process a shipment.",
+    "explanation": "The answer asks for specific organizational information. It does not claim that clearance has been granted or state a legal rule.",
+    "focus": "Indirect question and “damit”",
+    "question": "Do you need a list of the missing documents and the relevant contact?"
+  },
+  "sitov-b1-einschreiben-nachweis": {
+    "goal": "Ask about proof for a letter you sent.",
+    "explanation": "The answer provides the number for the specific check. The “dass” clause states the proof needed.",
+    "focus": "“dass” and the perfect tense in the passive voice",
+    "question": "Do you have the tracking number so I can check the delivery status?"
+  },
+  "sitov-b1-paketstatus-unveraendert": {
+    "goal": "After several days, ask for a status check.",
+    "explanation": "The answer asks for a check and an explanation of the next step. “Obwohl” describes the difference from what was expected.",
+    "focus": "“obwohl” and “sich ändern”",
+    "question": "Should I check the details and explain how to request an investigation?"
+  },
+  "sitov-b1-karte-abholbereit": {
+    "goal": "Clarify collection of your bank card, which is ready for you.",
+    "explanation": "The answer confirms the stated requirement and the collection date. “Welchen” introduces the indirect question about the document.",
+    "focus": "Indirect question and collection",
+    "question": "Please bring your identity card. Can you come by tomorrow?"
+  },
+  "sitov-b1-banktermin-nach-arbeit": {
+    "goal": "Arrange a consultation outside your working hours.",
+    "explanation": "Half past four is after the stated end of the working day. The task only arranges an appointment.",
+    "focus": "“da” and a suitable time",
+    "question": "There is still an appointment available on Wednesday at half past four. Should I book it?"
+  },
+  "sitov-b1-auszug-fehlt": {
+    "goal": "Ask for a copy of a missing document.",
+    "explanation": "The answer states the correct period and requests only the missing document. “Den” refers to the bank statement.",
+    "focus": "Relative clause in the accusative",
+    "question": "Should I provide a copy of your bank statement for June?"
+  },
+  "sitov-b1-adresse-aktualisieren": {
+    "goal": "Clarify how your new postal address is recorded.",
+    "explanation": "The answer leads to a change of postal address. “Muss ... eingetragen werden” combines a modal verb with the passive voice.",
+    "focus": "Perfect tense and a modal verb in the passive voice",
+    "question": "Would you like to fill in the form to change your address?"
+  },
+  "sitov-b1-portal-gesperrt": {
+    "goal": "Ask for the official process to restore access.",
+    "explanation": "The answer asks for the designated service process. “Nachdem” places the account lock before the request in time.",
+    "focus": "“nachdem” and a service process",
+    "question": "Should I explain how to start restoring access through our official service?"
+  },
+  "sitov-b1-buch-verlaengern": {
+    "goal": "Arrange to return a reserved book on time.",
+    "explanation": "The answer takes account of the fact that renewal is not possible and confirms the return.",
+    "focus": "Modal verb and returning something on time",
+    "question": "Unfortunately, renewal is not possible. Can you return it by Friday?"
+  },
+  "sitov-b1-buchschaden-melden": {
+    "goal": "Report existing damage when borrowing a book.",
+    "explanation": "The answer accurately records the condition reported. “Bereits” emphasizes that the damage was already there.",
+    "focus": "“bereits” and “deshalb”",
+    "question": "Should I record the existing damage in your borrowing record?"
+  },
+  "sitov-b1-gruppenraum-buchen": {
+    "goal": "Ask for a room to talk with your study partners.",
+    "explanation": "The answer chooses the room that fits the purpose of the work. “In dem” describes what must be possible in this room.",
+    "focus": "Relative clause with “in dem”",
+    "question": "The group room is free tomorrow from two to three. Should I book it for you?"
+  },
+  "sitov-b1-digitales-buch-finden": {
+    "goal": "Ask for a digital alternative to a book that is on loan.",
+    "explanation": "The answer accepts help with the alternative edition. “Obwohl” connects the unavailable printed edition with the wish to keep searching.",
+    "focus": "“obwohl” and looking for an alternative",
+    "question": "Should I show you how to find the digital edition in the catalog?"
+  },
+  "sitov-b1-vormerkung-abholen": {
+    "goal": "Clarify a short collection deadline.",
+    "explanation": "The answer uses the one-day extension that was explicitly offered. “Ob” politely asks whether it is possible.",
+    "focus": "Indirect question and passive voice",
+    "question": "I can hold the book for one more day. Will you collect it on Friday?"
+  },
+  "sitov-b1-abgabe-mehr-zeit": {
+    "goal": "Give a specific reason and ask for a new deadline.",
+    "explanation": "The answer states a specific new deadline and keeps the goal of a complete report.",
+    "focus": "“da” and Konjunktiv II",
+    "question": "Should I move the deadline to tomorrow so that all the information is complete?"
+  },
+  "sitov-b1-hybrides-meeting": {
+    "goal": "Clarify the equipment in the room you booked.",
+    "explanation": "The answer enables all colleagues to participate as planned. “Damit” describes the purpose of the equipment.",
+    "focus": "Relative clause and “damit”",
+    "question": "Should I book the room with a camera and screen instead of the small room?"
+  },
+  "sitov-b1-alte-datei-ersetzen": {
+    "goal": "Correct a message with an outdated attachment.",
+    "explanation": "The answer clearly explains which version should be used. “Nachsenden” means adding something to a delivery afterwards.",
+    "focus": "Perfect tense and the separable verb “nachsenden”",
+    "question": "Should I use the new file for our work from now on?"
+  },
+  "sitov-b1-vertretung-absprechen": {
+    "goal": "Ask a colleague to cover a clearly defined task.",
+    "explanation": "The answer confirms the task and a sensible flow of information afterwards. “Während” describes the absence at the same time.",
+    "focus": "Konjunktiv II and “während”",
+    "question": "Should I take the call and then send you the main points?"
+  },
+  "sitov-b1-feedback-klaeren": {
+    "goal": "Ask for a specific example of an improvement.",
+    "explanation": "The answer requests the information needed for a focused revision.",
+    "focus": "Indirect question and “damit”",
+    "question": "Should I show you an unclear passage and explain which information is missing?"
+  },
+  "sitov-b1-unterricht-verpasst": {
+    "goal": "Ask about the material from a lesson you missed.",
+    "explanation": "The answer asks for the materials to catch up. The reason is given as a “weil” clause before the main clause.",
+    "focus": "“weil” and the perfect tense",
+    "question": "Would you like to receive the summary and homework from yesterday’s lesson?"
+  },
+  "sitov-b1-kurszeit-wechseln": {
+    "goal": "Ask for a suitable course because your working hours have changed.",
+    "explanation": "The answer takes up the evening course that fits the schedule. “Seit” marks the beginning of the new situation.",
+    "focus": "“seit” and passive voice",
+    "question": "Sitov Academy offers the same course on Tuesday evenings. Would you like to switch?"
+  },
+  "sitov-b1-projektrolle-vereinbaren": {
+    "goal": "Take responsibility for a specific part of a group presentation.",
+    "explanation": "The answer correctly repeats the agreed division of tasks. “Während” separates the parallel tasks.",
+    "focus": "Konjunktiv II and dividing tasks",
+    "question": "Shall we divide it this way: you do the examples, and I do the introduction?"
+  },
+  "sitov-b1-korrektur-erfragen": {
+    "goal": "Ask the teacher to explain the word order.",
+    "explanation": "The answer asks for an explanation of the word order that is actually unclear. “Warum” introduces the indirect question.",
+    "focus": "Indirect question with “warum”",
+    "question": "Should I mark the sentence and explain the rule for the subordinate clause?"
+  },
+  "sitov-b1-zertifikat-korrigieren": {
+    "goal": "Ask for your surname to be corrected on a document.",
+    "explanation": "The answer states the correct change and an appropriate basis for checking it.",
+    "focus": "Passive voice and “deshalb”",
+    "question": "Should I check your surname against your registration and correct the certificate?"
+  },
+  "sitov-b1-umzug-absprechen": {
+    "goal": "Coordinate use of the lift with the caretaker.",
+    "explanation": "The answer fits the move into the time window offered. “Zu der” refers to the agreed time.",
+    "focus": "Konjunktiv II and a relative clause",
+    "question": "On Saturday between ten and twelve, the lift is available for your move. Does that work for you?"
+  },
+  "sitov-b1-heizungstermin": {
+    "goal": "Report a broken heating system and make access possible.",
+    "explanation": "The answer ensures access at the agreed repair time. “Seit” describes when the problem began.",
+    "focus": "“seit” and organizing a repair",
+    "question": "The technician can come tomorrow at nine. Can you let him into the apartment?"
+  },
+  "sitov-b1-putzplan-tauschen": {
+    "goal": "Agree on a swap with your flatmate.",
+    "explanation": "The answer confirms a mutual swap and keeps both tasks covered.",
+    "focus": "“weil” and Konjunktiv II",
+    "question": "Should I take care of the kitchen on Saturday, and you on Wednesday?"
+  },
+  "sitov-b1-musik-leiser": {
+    "goal": "Ask your neighbor politely to lower the volume.",
+    "explanation": "The answer confirms the consideration requested. The request gives an understandable personal reason.",
+    "focus": "Konjunktiv II and “weil”",
+    "question": "Should I lower the volume now and turn the music off later?"
+  },
+  "sitov-b1-paket-beim-nachbarn": {
+    "goal": "Agree on a suitable collection time.",
+    "explanation": "The answer is based on when the neighbor is at home. “Wenn” states the condition for collection.",
+    "focus": "“wenn” and the separable verb “abholen”",
+    "question": "I’ll be back from eight. Would you like to come by briefly then?"
+  },
+  "sitov-b1-fahrrad-fertig": {
+    "goal": "Ask for an estimate of when you can collect it.",
+    "explanation": "The answer organizes collection based on the announced completion time. “Abgeschlossen wird” describes the repair in the passive voice.",
+    "focus": "Indirect question and passive voice",
+    "question": "It should be ready by Friday lunchtime. Should I call you then to collect it?"
+  },
+  "sitov-b1-handy-daten-klaeren": {
+    "goal": "Clarify whether data must be deleted during a repair.",
+    "explanation": "The answer clarifies the process before handover. “Bevor” makes the desired order in time clear.",
+    "focus": "“bevor” and an indirect question",
+    "question": "Should I first explain which steps affect your saved files?"
+  },
+  "sitov-b1-schuhe-abholung": {
+    "goal": "Arrange collection after closing by agreeing on a time.",
+    "explanation": "The answer chooses the next suitable opening time. The participle “reparierten” describes the condition of the shoes.",
+    "focus": "“deshalb” and a participle used as an adjective",
+    "question": "We open tomorrow at nine. Would you like to come and collect them then?"
+  },
+  "sitov-b1-kostenvoranschlag-pruefen": {
+    "goal": "Ask for a written estimate before deciding.",
+    "explanation": "The answer follows the requested order: information, review, then a decision. It does not assess financial options.",
+    "focus": "“bevor” and the passive voice for actions",
+    "question": "Should I send you the estimate and wait for your approval before repairing it?"
+  },
+  "sitov-b1-beleg-reparatur": {
+    "goal": "Send the requested purchase document afterwards.",
+    "explanation": "The answer provides the requested document with the relevant information. It makes no statement about an entitlement.",
+    "focus": "Perfect tense and “nachreichen”",
+    "question": "Can you send us the copy with the purchase date visible?"
+  },
+  "sitov-b1-picknick-regenplan": {
+    "goal": "Agree on an alternative for a rainy day.",
+    "explanation": "The answer confirms the intended plan for the stated condition. “Falls” describes a possible situation.",
+    "focus": "“falls” and Konjunktiv II",
+    "question": "Shall we go to the café if it rains and have the picnic another time?"
+  },
+  "sitov-b1-parkweg-gesperrt": {
+    "goal": "Ask for an alternative route to the lake.",
+    "explanation": "The answer uses the accessible alternative to the same destination. “Obwohl” describes an obstacle that does not cancel the wish.",
+    "focus": "“obwohl” and asking for an alternative",
+    "question": "You can cross the bridge to reach an open circular path to the lake. Should I show you?"
+  },
+  "sitov-b1-hundebereich-finden": {
+    "goal": "Ask an employee about the designated dog area.",
+    "explanation": "The answer takes account of the rule stated at the location and asks for the appropriate area.",
+    "focus": "Relative clause and “ohne … zu”",
+    "question": "Should I show you the signposted dog area next to the entrance?"
+  },
+  "sitov-b1-schluessel-gefunden": {
+    "goal": "Describe a set of keys at the lost property office.",
+    "explanation": "The answer uses matching features for the check. “An dem” describes what is attached to the set of keys.",
+    "focus": "Perfect tense and a relative clause with “an dem”",
+    "question": "The set we found has a blue keyring and three keys. Would you like to look at it?"
+  },
+  "sitov-b1-park-aktion-treffpunkt": {
+    "goal": "Clarify the meeting point and start time for a voluntary activity.",
+    "explanation": "The answer confirms the correct meeting point and time. “Wo” introduces the indirect question about the location.",
+    "focus": "Konjunktiv II and an indirect question about location",
+    "question": "We’re meeting at ten at the main entrance. Can you get there?"
+  },
+  "sitov-b1-probetraining-anmelden": {
+    "goal": "Ask about training for beginners.",
+    "explanation": "The answer chooses the group that matches the level of experience described.",
+    "focus": "“da” and a polite wish to train",
+    "question": "The beginners’ group trains on Monday at six. Would you like to join a trial session?"
+  },
+  "sitov-b1-tempo-absprechen": {
+    "goal": "Agree on a gentler pace with a training partner.",
+    "explanation": "The answer agrees on the desired pace without promising health effects.",
+    "focus": "“weil” and the perfect tense",
+    "question": "Shall we choose an easy circuit and take a break if needed?"
+  },
+  "sitov-b1-platz-doppelt-gebucht": {
+    "goal": "Clarify a duplicate reservation with an employee.",
+    "explanation": "The answer accepts an available alternative that keeps the desired time.",
+    "focus": "“obwohl” and passive voice",
+    "question": "Another court is free at the same time. Would you like to move there?"
+  },
+  "sitov-b1-spindschluessel-fehlt": {
+    "goal": "Ask for help with a jammed lock.",
+    "explanation": "The answer asks for help at the correct locker. “Lässt sich öffnen” describes whether opening it is possible.",
+    "focus": "“obwohl” and “sich lassen”",
+    "question": "Should I check the lock and help you open it?"
+  },
+  "sitov-b1-turnier-verschoben": {
+    "goal": "Clarify the new arrival time after a change of plan.",
+    "explanation": "The answer aligns arrival with the new time. “Wann” asks about the time after the rescheduling.",
+    "focus": "“da” and an indirect question about time",
+    "question": "Registration now opens at twelve. Can you be there by half past twelve?"
+  },
+  "sitov-b1-gepaeck-vor-checkin": {
+    "goal": "Ask about storage for your luggage.",
+    "explanation": "The answer accepts storage for the period before check-in. “Bis” marks the end of this period.",
+    "focus": "“obwohl” and “bis”",
+    "question": "Should I keep your luggage in our luggage room until three o’clock?"
+  },
+  "sitov-b1-hotelzimmer-wechseln": {
+    "goal": "Ask for a quieter room because of construction noise.",
+    "explanation": "The answer chooses the solution offered for the noise problem. “In ein ruhigeres” means into a quieter room.",
+    "focus": "“deshalb” and a polite complaint",
+    "question": "A room facing the courtyard is available. Would you like to move there?"
+  },
+  "sitov-b1-aufenthalt-verlaengern": {
+    "goal": "Ask to extend your stay in the same room.",
+    "explanation": "The answer extends the existing stay by exactly one night. “Ob” asks about availability.",
+    "focus": "Konjunktiv II and an indirect question",
+    "question": "Your room is also available tomorrow. Should I add the extra night?"
+  },
+  "sitov-b1-hotelrechnung-korrigieren": {
+    "goal": "Ask for the correct company address on the invoice.",
+    "explanation": "The answer supplies the details for the requested correction. The passive voice emphasizes the document rather than the person issuing it.",
+    "focus": "Modal verb in the passive voice",
+    "question": "Do you have the exact company address with you for the corrected invoice?"
+  },
+  "sitov-b1-taxi-am-morgen": {
+    "goal": "Organize a taxi with enough notice.",
+    "explanation": "The answer confirms the desired day, time, and pickup location. “Da” gives the reason for booking early.",
+    "focus": "“da” and a specific time arrangement",
+    "question": "Should the taxi collect you tomorrow at half past five in front of the hotel entrance?"
+  },
+  "sitov-b1-groesse-umtauschen": {
+    "goal": "Ask to exchange a size, using the receipt you have.",
+    "explanation": "The answer keeps the desired model and changes the size in the appropriate direction.",
+    "focus": "“weil” and comparing sizes",
+    "question": "Should I check whether the same trousers are in stock one size larger?"
+  },
+  "sitov-b1-jacke-mit-taschen": {
+    "goal": "Describe a practical requirement for a jacket.",
+    "explanation": "The answer takes up the stated requirement. The relative clause describes the desired feature of the jacket.",
+    "focus": "Relative clause and “weil”",
+    "question": "This jacket has two inside pockets with zips. Would you like to try it on?"
+  },
+  "sitov-b1-aermel-kuerzen": {
+    "goal": "Ask about changing the length.",
+    "explanation": "The answer concerns exactly the part of the garment that does not fit. “Gekürzt werden können” describes the possible alteration in the passive voice.",
+    "focus": "Indirect question and passive voice",
+    "question": "Our alteration service can shorten the sleeves. Should I mark the desired length?"
+  },
+  "sitov-b1-reservierte-kleidung": {
+    "goal": "Ask for a short extension of the reservation.",
+    "explanation": "The answer uses the one-day extension offered. Here, “Zurücklegen” means keeping an item aside for a customer.",
+    "focus": "“deshalb” and extending a reservation",
+    "question": "I can keep the jacket aside until tomorrow evening. Will you collect it then?"
+  },
+  "sitov-b1-offene-naht": {
+    "goal": "Ask for an undamaged item before buying.",
+    "explanation": "The answer keeps the model and size and removes the defect mentioned. “Hätte gern” expresses the wish politely.",
+    "focus": "Polite wish and the same size",
+    "question": "The same shirt is in the stockroom without any damage. Should I get it?"
+  },
+  "sitov-b1-herkunft-gemuese": {
+    "goal": "Ask where the goods come from before buying.",
+    "explanation": "The answer chooses the regional goods explicitly identified. The relative clause describes the selection criterion.",
+    "focus": "Relative clause and asking about origin",
+    "question": "These potatoes come from a farm in the neighboring village. Would you like some of them?"
+  },
+  "sitov-b1-reife-fruechte": {
+    "goal": "Describe when you want to eat the fruit.",
+    "explanation": "The answer connects eating the fruit the next day with the appropriate ripeness.",
+    "focus": "“deshalb” and a relative clause",
+    "question": "Should I give you the pears that will stay a little firmer until tomorrow?"
+  },
+  "sitov-b1-kleinere-menge": {
+    "goal": "Ask for a smaller portion instead of a large pack.",
+    "explanation": "The answer accepts the smaller weighed amount. “Statt der Schale” describes the desired alternative to the whole pack.",
+    "focus": "“da” and a quantity",
+    "question": "I can also weigh out three hundred grams for you. Would that be suitable?"
+  },
+  "sitov-b1-kartenzahlung-pruefen": {
+    "goal": "Clarify the accepted payment method before shopping.",
+    "explanation": "The answer takes account of the payment method stated at the location. The task does not recommend financial products.",
+    "focus": "“obwohl” and an indirect question",
+    "question": "Today we only accept cash. Do you have enough cash with you?"
+  },
+  "sitov-b1-eigener-korb": {
+    "goal": "Ask for packing without extra bags.",
+    "explanation": "The answer clearly follows the packaging request. “Mitgebracht” describes the basket that is already there.",
+    "focus": "“deshalb” and a packaging request",
+    "question": "Should I put the vegetables directly into the basket you brought?"
+  },
+  "sitov-b1-museum-zugang": {
+    "goal": "Ask about an entrance without stairs.",
+    "explanation": "The answer chooses the stated entrance without stairs. In the relative clause, “Den” refers to the entrance.",
+    "focus": "Relative clause and accessibility",
+    "question": "Should I show you the way to the side entrance with a ramp?"
+  },
+  "sitov-b1-stadtfuehrung-sprache": {
+    "goal": "Ask for an understandable guided tour in German.",
+    "explanation": "The answer matches the language needs described. The passive voice describes how the explanations are spoken.",
+    "focus": "Relative clause and passive voice",
+    "question": "We have a German tour with slower explanations and time for questions. Does that work for you?"
+  },
+  "sitov-b1-veranstaltung-alternative": {
+    "goal": "Look for a later date for the same event.",
+    "explanation": "The answer keeps the desired event and chooses an available date.",
+    "focus": "“obwohl” and choosing a date",
+    "question": "Tickets are still available for next Saturday. Would you like to choose that date?"
+  },
+  "sitov-b1-treffpunkt-praezisieren": {
+    "goal": "Clarify an ambiguous meeting point in the city center.",
+    "explanation": "The answer clarifies the correct location using clear identifying features. “Welcher” asks which choice is the right one.",
+    "focus": "Indirect question and finding your way",
+    "question": "We mean the small fountain right next to the town hall steps. Should I show you?"
+  },
+  "sitov-b1-radweg-umleitung": {
+    "goal": "Ask for a suitable alternative route.",
+    "explanation": "The answer takes up the detour mentioned. “Auf der” refers to the alternative route being sought.",
+    "focus": "“da” and a relative clause with “auf der”",
+    "question": "The signposted detour goes along Bahnhofstraße. Should I mark it on the map?"
+  },
+  "sitov-b2-lieferung-vorbehalt": {
+    "goal": "Check whether an announced product will arrive in time.",
+    "explanation": "“Sofern” states a requirement. The appropriate follow-up asks for confirmation without turning an uncertain announcement into a promise.",
+    "focus": "Condition with “sofern” and a firm request for confirmation",
+    "question": "You need the drinks for Saturday. How do you make sure your plan will work?"
+  },
+  "sitov-b2-mengenrabatt-abwaegen": {
+    "goal": "Weigh the discount against what you actually need.",
+    "explanation": "“Obwohl” acknowledges an advantage before another priority determines the decision. The relative clause limits the choice to the packs actually needed.",
+    "focus": "Concessive clause and limiting relative clause",
+    "question": "You only need six packs and do not want to waste anything. What do you reply?"
+  },
+  "sitov-b2-kassenfehler-belegen": {
+    "goal": "Use two pieces of evidence to request a price check.",
+    "explanation": "The passive focuses on the amount charged. Evidence and a polite request for a check make the objection clear without assuming the outcome.",
+    "focus": "Passive and a factual objection",
+    "question": "You have a photo of the price label. Which response helps with the check?"
+  },
+  "sitov-b2-verpackung-alternative": {
+    "goal": "Ask about an available alternative with less packaging.",
+    "explanation": "“Während” contrasts two offers. “Sofern” makes switching depend on the information needed for the comparison.",
+    "focus": "Contrast with “während” and a requirement",
+    "question": "You want to compare price and origin before switching. What do you ask?"
+  },
+  "sitov-b2-bestand-reservierung": {
+    "goal": "Ask for a short reservation of an item still in stock.",
+    "explanation": "The hypothetical conditional with Konjunktiv II expresses a polite request. The response respects the explicitly stated reservation deadline.",
+    "focus": "Polite condition with Konjunktiv II",
+    "question": "You can come at 6 p.m. today. How do you respond to the offer?"
+  },
+  "sitov-b2-cafe-ruheplatz": {
+    "goal": "Explain why you need a quieter table.",
+    "explanation": "“Da” gives the reason for the decision, and “daher” marks the conclusion. The response weighs the criteria mentioned in the conversation.",
+    "focus": "Giving reasons and weighing criteria",
+    "question": "You do not need a socket and want to talk without being disturbed. Which seat do you choose?"
+  },
+  "sitov-b2-cafe-rechnung-getrennt": {
+    "goal": "Arrange separate bills for a group order in good time.",
+    "explanation": "The opening “bevor” clause makes the sequence clear. Giving the information early makes the billing arrangement offered by the staff member possible.",
+    "focus": "Time clause with “bevor” and purpose with “damit”",
+    "question": "Four colleagues want to pay separately. What do you say now?"
+  },
+  "sitov-b2-cafe-veranstaltung-einwand": {
+    "goal": "Politely object to a seat where you would be disturbed.",
+    "explanation": "“Dennoch” marks a different decision despite showing understanding. An alternative seat combines your own concern with consideration for others.",
+    "focus": "Polite objection with “dennoch”",
+    "question": "You want to continue talking to a colleague. Which request fits?"
+  },
+  "sitov-b2-cafe-bestellung-korrigieren": {
+    "goal": "Correct a mix-up without suggesting that the staff member did it deliberately.",
+    "explanation": "“Offenbar” cautiously describes a suspected cause. The Plusquamperfekt refers to the order placed before the current mix-up.",
+    "focus": "Cautious interpretation and the past perfect",
+    "question": "The coffee has not been prepared yet. What do you say?"
+  },
+  "sitov-b2-cafe-angebot-abstimmen": {
+    "goal": "Negotiate a suitable time for a larger group.",
+    "explanation": "“Sofern” links the decision to suitable capacity. The response uses the requested group size to propose a realistic time.",
+    "focus": "Requirement and agreeing on a time",
+    "question": "All ten colleagues want to sit together. How do you respond?"
+  },
+  "sitov-b2-anschluss-knappe-zeit": {
+    "goal": "Ask for a realistic estimate of the time needed to change trains.",
+    "explanation": "“Angesichts” states why the estimate is needed. Konjunktiv II and “falls” allow a cautious question about possibly missing a connection.",
+    "focus": "Cautious estimate and a backup plan",
+    "question": "You want to know an alternative connection. Which question fits?"
+  },
+  "sitov-b2-bahn-ticket-bindung": {
+    "goal": "Clarify a restriction before taking another connection.",
+    "explanation": "The passive focuses on the ticket's validity. The appropriate response asks about the specific conditions rather than assuming an unconfirmed rule.",
+    "focus": "Passive and checking before acting",
+    "question": "What do you need to clarify before boarding?"
+  },
+  "sitov-b2-bahn-gleiswechsel": {
+    "goal": "Confirm changed information using the display.",
+    "explanation": "“Während” contrasts the old and current information. “Daher” leads to the decision to follow the change confirmed in the conversation.",
+    "focus": "Contrasting conflicting information",
+    "question": "Which information should guide your route now?"
+  },
+  "sitov-b2-bahn-gruppenreservierung": {
+    "goal": "Find a compromise when seats are limited.",
+    "explanation": "“Auch wenn” acknowledges an unmet wish. “Wären” presents the offered alternative as a compromise that preserves the most important condition.",
+    "focus": "Weighing a concession with Konjunktiv II",
+    "question": "The four travellers want at least to sit in the same carriage. Which response fits?"
+  },
+  "sitov-b2-bahn-gepaeckfund": {
+    "goal": "Describe luggage you left behind so it can be identified clearly.",
+    "explanation": "The participle “zurückgelassene” before the noun shortens a relative clause. Specific features and the train connection allow a factual identification.",
+    "focus": "Participial modifier and a precise description",
+    "question": "What helps the staff member with the lost-property report?"
+  },
+  "sitov-b2-bus-umleitung": {
+    "goal": "Clarify how to reach your destination despite a diversion.",
+    "explanation": "“Bediente” is a participial modifier; “sofern” gives the condition for the alternative. Asking for directions helps you follow the walking route already mentioned.",
+    "focus": "Participial modifier and an alternative route",
+    "question": "You can walk for five minutes. How do you respond to the suggestion?"
+  },
+  "sitov-b2-abo-pause": {
+    "goal": "Ask about a possible break and its conditions.",
+    "explanation": "The indirect question about requirements clarifies the possibility without assuming permission. The passive focuses on the procedure.",
+    "focus": "Indirect question and passive",
+    "question": "You will be away for the whole of November. What do you tell them?"
+  },
+  "sitov-b2-tram-ausfall": {
+    "goal": "Compare two alternatives when a tram is cancelled.",
+    "explanation": "“Obwohl” acknowledges an alternative; “angesichts” states the decisive criterion. “Damit” describes the purpose of the chosen onward journey.",
+    "focus": "Concessive clause and weighing options for a purpose",
+    "question": "Your appointment starts in thirty minutes. Which decision makes sense?"
+  },
+  "sitov-b2-kontrolle-nachweis": {
+    "goal": "Ask for a moment when there is a technical problem.",
+    "explanation": "“Allerdings” limits the first statement by adding an obstacle. The polite request offers the required proof rather than replacing it with an unsuitable document.",
+    "focus": "Polite request and restriction with “allerdings”",
+    "question": "The code is saved offline. What do you say?"
+  },
+  "sitov-b2-rad-mitnahme": {
+    "goal": "Accept a capacity limit and look for an alternative.",
+    "explanation": "“Statt … zu” describes the action avoided. The appropriate response respects the capacity limit and asks about the alternative offered.",
+    "focus": "Alternative with “statt zu” and consideration for others",
+    "question": "You can wait twenty minutes. How do you reply?"
+  },
+  "sitov-b2-restaurant-menue-anpassen": {
+    "goal": "Clarify whether part of a set menu can be replaced.",
+    "explanation": "“Ließe” is the Konjunktiv II form of “lassen”. “Andernfalls” introduces a backup plan if the politely expressed condition cannot be met.",
+    "focus": "Hypothetical condition and an alternative with “andernfalls”",
+    "question": "Before ordering, you want to know whether the substitution is possible. Which response fits?"
+  },
+  "sitov-b2-restaurant-wartezeit": {
+    "goal": "Compare the preparation time with the time you have available.",
+    "explanation": "The participle “zubereitete” describes the soup. The hypothetical past “gewesen wäre” refers to an initial preference that has been rejected.",
+    "focus": "Participial modifier and a hypothetical past",
+    "question": "You have to leave in thirty minutes. What do you order?"
+  },
+  "sitov-b2-restaurant-gruppe-aendern": {
+    "goal": "Give early notice of a change in the group size.",
+    "explanation": "“Entgegen” signals a change from the previous plan. The question offers two possible solutions without assuming that space is available.",
+    "focus": "Expressing a change and asking about alternatives",
+    "question": "Two more colleagues are coming. Which message fits?"
+  },
+  "sitov-b2-restaurant-reklamation": {
+    "goal": "Describe a specific problem and ask for it to be resolved.",
+    "explanation": "The participle and passive focus on the food. A factual description and a specific request help the staff member arrange a suitable solution.",
+    "focus": "Passive and a specific complaint",
+    "question": "You want to eat the same dish hot. What do you reply?"
+  },
+  "sitov-b2-restaurant-empfehlung-kriterium": {
+    "goal": "State criteria for a recommendation without making a contradictory order.",
+    "explanation": "“Während” separates a shared feature from the decisive difference. “Weshalb” links that criterion to the reasoned choice.",
+    "focus": "Comparing criteria and a result clause with “weshalb”",
+    "question": "You want mild food today. Which response fits?"
+  },
+  "sitov-b2-apotheke-abholung-bestaetigen": {
+    "goal": "Ask for confirmation before setting off to collect the order.",
+    "explanation": "The time expression “erst nach” establishes a clear sequence. “Damit” explains why confirmed arrival matters for the journey.",
+    "focus": "Time requirement and purpose",
+    "question": "You want to avoid an unnecessary journey. What do you arrange?"
+  },
+  "sitov-b2-apotheke-beleg-ergaenzen": {
+    "goal": "Ask for the required information on a purchase receipt.",
+    "explanation": "The participle “ausgestellten” describes the existing receipt. The relative clause explains the need; the response names exactly the information missing.",
+    "focus": "Participial modifier and a precise request for additional information",
+    "question": "You need a receipt showing the purchase date. Which request is specific?"
+  },
+  "sitov-b2-apotheke-feiertagszeiten": {
+    "goal": "Check the current opening hours for a planned collection.",
+    "explanation": "“Obwohl” mentions the conflicting older information. The reason with “da” explains why the current information matters for the plan.",
+    "focus": "Concessive clause and weighing information sources",
+    "question": "You can come at 3 p.m. What do you reply?"
+  },
+  "sitov-b2-apotheke-bestellstatus": {
+    "goal": "Ask factually about an order that has not yet been confirmed.",
+    "explanation": "“Erfasst” and “bestätigt” describe different steps in a procedure. The passive separates the known status from the information still needed.",
+    "focus": "Passive and distinguishing statuses",
+    "question": "You want to know when the order is expected to be ready. Which response fits?"
+  },
+  "sitov-b2-apotheke-vertrauliches-gespraech": {
+    "goal": "Ask for a more private place to discuss personal documents.",
+    "explanation": "The participial expression “mitgebrachten Unterlagen” makes the description more concise. “Damit” links the choice of place to the specific wish for confidentiality.",
+    "focus": "Participial modifier and a reasoned choice of location",
+    "question": "You want to discuss personal information privately. Which response fits?"
+  },
+  "sitov-b2-praxis-terminverschiebung": {
+    "goal": "Suggest a suitable alternative time window for an existing appointment.",
+    "explanation": "“Wahrnehmen” here means to attend an appointment. “Sofern” makes the suggestion depend on an alternative appointment actually being available.",
+    "focus": "Formal appointment arrangements with “sofern”",
+    "question": "You are available on Wednesday morning but not on Friday. What do you reply?"
+  },
+  "sitov-b2-praxis-unterlagen-kopie": {
+    "goal": "Clarify the procedure for requesting your own documents.",
+    "explanation": "Two passive forms describe the procedure. “Dafür vorgesehen” refers precisely to the form to be used for the request.",
+    "focus": "Passive and clarifying a procedure",
+    "question": "You want to start the procedure described. What do you say?"
+  },
+  "sitov-b2-praxis-sprachunterstuetzung": {
+    "goal": "Ask about arrangements for someone to accompany you to an appointment.",
+    "explanation": "“Benötigen könnte” cautiously expresses a possible need. The response addresses the stated organisational requirement and asks what information is needed.",
+    "focus": "Expressing a possible need and arranging registration",
+    "question": "Your brother is to accompany you. How do you register this?"
+  },
+  "sitov-b2-praxis-wartezeit-planen": {
+    "goal": "When there is a delay, ask for information to help you plan.",
+    "explanation": "“Angesichts” states the reason. The relative clause explains the inflexible later commitment, while “lässt sich” expresses whether something is possible.",
+    "focus": "A reasoned appointment decision and “lassen sich”",
+    "question": "You have to leave in half an hour. Which response fits?"
+  },
+  "sitov-b2-praxis-daten-korrigieren": {
+    "goal": "Correct outdated contact details before the next notification.",
+    "explanation": "The participle “gespeicherte” describes the existing record. The purpose with “damit” explains why the old entry should be replaced.",
+    "focus": "Participial modifier and correcting contact details",
+    "question": "You want to be reachable on your new number. What do you say?"
+  },
+  "sitov-b2-paket-zweiter-versuch": {
+    "goal": "Clarify the consequences of a missed parcel delivery.",
+    "explanation": "“Auch morgen” shows that the delivery problem will happen again. The condition with “sofern” links the desired collection to a previous redirection.",
+    "focus": "A reasoned alternative and passive",
+    "question": "You will be out again tomorrow. Which response fits?"
+  },
+  "sitov-b2-paket-status-pruefen": {
+    "goal": "Give a specific tracking number and ask for a check.",
+    "explanation": "“Seit” marks a period continuing into the present. The indirect question with “ob” leaves both possibilities open instead of jumping to a conclusion from a missing update.",
+    "focus": "Indirect question and a cautious conclusion",
+    "question": "You have the tracking number with you. What do you say?"
+  },
+  "sitov-b2-paket-verpackung-pruefen": {
+    "goal": "Ask about a specific packaging requirement before sending an item.",
+    "explanation": "“Obwohl” distinguishes two uses. “Um … zu” gives the purpose of changing the material; the question follows the specific packaging recommendation.",
+    "focus": "Purpose with “um zu” and weighing materials",
+    "question": "You want to send documents without creases. What do you reply?"
+  },
+  "sitov-b2-paket-vollmacht": {
+    "goal": "Check which documents you need to collect an item on someone else's behalf.",
+    "explanation": "The passive focuses on the required documents. The response carefully distinguishes your brother's authorisation from your own identity document.",
+    "focus": "Passive and precise ownership",
+    "question": "Which documents do you bring based on this information?"
+  },
+  "sitov-b2-paket-adresse-korrektur": {
+    "goal": "Clarify whether a delivery address can still be corrected.",
+    "explanation": "“Falls” and “möglicherweise” leave it open whether a change is possible. The specific correction and deadline help the staff member check.",
+    "focus": "Condition, caution and correcting before a deadline",
+    "question": "The label shows house number 18 instead of 81. What do you say?"
+  },
+  "sitov-b2-bank-termin-unterlagen": {
+    "goal": "Clarify which documents are needed before an agreed meeting.",
+    "explanation": "The opening “damit” clause gives the purpose of preparing. The question limits additional documents to your own request.",
+    "focus": "Purpose and a precise question about the procedure",
+    "question": "You want to arrive well prepared for the appointment. Which question fits?"
+  },
+  "sitov-b2-bank-auszug-format": {
+    "goal": "Ask for a printable version of a digital document.",
+    "explanation": "The indirect questions about format and procedure concern arrangements. “Sich ausdrucken lassen” describes the technical possibility of printing the complete document.",
+    "focus": "Indirect questions and “lassen sich”",
+    "question": "You need every page on paper. What do you ask?"
+  },
+  "sitov-b2-bank-adressaenderung": {
+    "goal": "After moving, ask for your postal address to be updated.",
+    "explanation": "“Nachdem” links the completed move to its administrative consequence. The passive focuses on updating the record.",
+    "focus": "Time clause with “nachdem” and passive",
+    "question": "You want to receive mail at your new flat. What do you say?"
+  },
+  "sitov-b2-bank-gespraech-diskret": {
+    "goal": "Ask for a confidential place to discuss personal documents.",
+    "explanation": "“Obwohl” acknowledges the practical possibility of using the counter. The purpose in the passive explains the wish for another place without giving financial advice.",
+    "focus": "Choosing a place while acknowledging another option, and passive",
+    "question": "You want to discuss personal information privately. Which response fits?"
+  },
+  "sitov-b2-bank-termin-kanal": {
+    "goal": "Agree on a time when you can be reached for an organisational callback.",
+    "explanation": "“Während” contrasts two periods of availability. The correct response finds the overlap between your availability and the callback window offered.",
+    "focus": "Agreeing on a time window and a requirement",
+    "question": "You cannot be reached until 11 a.m. tomorrow. How do you reply?"
+  },
+  "sitov-b2-bibliothek-verlaengerung": {
+    "goal": "Check whether an extension is possible under a stated condition.",
+    "explanation": "“Sofern” uses the exact condition stated. The request for a check distinguishes a possible extension from permission already granted.",
+    "focus": "Requirement and a polite request for a check",
+    "question": "You want to use the book for longer. Which question respects the condition?"
+  },
+  "sitov-b2-bibliothek-gruppenraum": {
+    "goal": "Compare available rooms by group size and noise level.",
+    "explanation": "“Infrage kommen” means to be a suitable option. The reason connects capacity with the way the group will study; “falls” preserves the condition of availability.",
+    "focus": "A reasoned rejection and a conditional reservation",
+    "question": "Six participants want to study together. What do you say?"
+  },
+  "sitov-b2-bibliothek-quellenangabe": {
+    "goal": "Ask for help finding complete bibliographic details.",
+    "explanation": "“Sowie” links additions of equal importance. The relative clause refers to two missing details that must be found for the specific source.",
+    "focus": "Coordination and a relative clause with a plural reference",
+    "question": "So far you have only written down the title. What do you ask?"
+  },
+  "sitov-b2-bibliothek-regal-fehlt": {
+    "goal": "Clarify the possible cause of a different catalogue entry.",
+    "explanation": "“Obwohl” marks the difference between the display and the observation. The indirect question with “ob” leaves the possible explanations mentioned open.",
+    "focus": "Concessive clause and keeping possible causes open",
+    "question": "You have already checked the correct shelf location. What do you say?"
+  },
+  "sitov-b2-bibliothek-digital-zugang": {
+    "goal": "Ask about registration for digital borrowing.",
+    "explanation": "“Bevor” places the necessary step before use. The passive focuses on registration status and leads to a specific request for a check.",
+    "focus": "Time requirement and passive",
+    "question": "You cannot log in yet. Which request helps?"
+  },
+  "sitov-b2-buero-frist-realistisch": {
+    "goal": "Justify a proposed deadline using a requirement that is still missing.",
+    "explanation": "“Da” links the missing data to the objection. “Für unrealistisch halten” evaluates the deadline factually and opens the way to a reasoned alternative.",
+    "focus": "Factual objection and a reasoned deadline proposal",
+    "question": "You can finish the report after receiving the figures. What do you say?"
+  },
+  "sitov-b2-buero-protokoll-berichtigen": {
+    "goal": "Ask for an incorrectly recorded decision to be corrected.",
+    "explanation": "The participle “festgehaltene” describes the recorded version. The correction states the exact difference between an immediate and a conditional project start.",
+    "focus": "Participial modifier and correcting a decision",
+    "question": "Which wording should the minutes contain?"
+  },
+  "sitov-b2-buero-aufgaben-priorisieren": {
+    "goal": "When tasks compete, ask for a clear priority.",
+    "explanation": "“Voraussichtlich” signals an estimate rather than a firm claim. The response names the bottleneck and proposes a sequence that can be confirmed.",
+    "focus": "Estimating capacity and agreeing on priorities",
+    "question": "You can only complete one task today. Which response fits?"
+  },
+  "sitov-b2-buero-besprechung-hybrid": {
+    "goal": "Suggest a way for an absent colleague to take part.",
+    "explanation": "“Indem” describes the means of joint participation. The concessive opening acknowledges the physical separation without treating it as an insurmountable obstacle.",
+    "focus": "Method with “indem” and a concessive opening",
+    "question": "You want the colleague to take part in the meeting. What do you suggest?"
+  },
+  "sitov-b2-buero-dateiversion": {
+    "goal": "Clarify conflicting file versions before sharing them.",
+    "explanation": "“Während” contrasts two versions, and “daher” introduces the organisational consequence. The response removes the conflicting labels before sharing.",
+    "focus": "Contrast and a conclusion with “daher”",
+    "question": "You want to prevent colleagues from using the outdated version. Which response fits?"
+  },
+  "sitov-b2-kurs-bewertungskriterien": {
+    "goal": "Before submitting your work, ask how assessment criteria are weighted.",
+    "explanation": "The indirect question with “wie” requests a clear explanation. “Damit” describes why the weighting is needed for revision.",
+    "focus": "Indirect question and focused revision",
+    "question": "You have not yet read how the criteria are weighted. What do you ask the course teacher?"
+  },
+  "sitov-b2-kurs-gruppenarbeit-balance": {
+    "goal": "Explain why a shared task should be distributed more evenly.",
+    "explanation": "The concessive clause recognises the existing text. The passive and the purpose with “damit” connect the change in distribution to a clear shared goal.",
+    "focus": "Polite objection and the purpose of task distribution",
+    "question": "You want the remaining work to be shared fairly. What do you suggest?"
+  },
+  "sitov-b2-kurs-niveauwechsel": {
+    "goal": "Ask for a reasoned assessment of a possible move to another level.",
+    "explanation": "“Prüfen lassen” means to arrange an assessment. “Statt … zu” distinguishes a well-founded decision from a hasty conclusion based on individual exercises.",
+    "focus": "“Prüfen lassen” and cautious self-assessment",
+    "question": "You want a well-founded assessment of your learning level. How do you reply?"
+  },
+  "sitov-b2-kurs-versaeumten-stoff": {
+    "goal": "Arrange a focused way to catch up on missed course content.",
+    "explanation": "“Nachdem” connects the past absence with the action that follows. “Trotz” acknowledges a circumstance that makes the goal harder but does not prevent it.",
+    "focus": "Time clause and preparation despite an obstacle",
+    "question": "You want to be able to join the discussion next time. Which response fits?"
+  },
+  "sitov-b2-kurs-feedback-begruenden": {
+    "goal": "Give constructive feedback using a clear example.",
+    "explanation": "“Allerdings” introduces a limited point for improvement. The result clause with “sodass” explains how the proposed addition affects the argument.",
+    "focus": "Constructive objection and a result with “sodass”",
+    "question": "As a course participant, you should give helpful feedback. Which statement fits?"
+  },
+  "sitov-b2-wohnung-ruhe-kompromiss": {
+    "goal": "Agree on a considerate evening plan with your housemate.",
+    "explanation": "“Auch wenn” acknowledges your own wish. Moving to another location from the agreed time makes the compromise specific and checkable.",
+    "focus": "A concessive compromise and purpose",
+    "question": "You want to allow the visit while also promising quiet. What do you reply?"
+  },
+  "sitov-b2-wohnung-besichtigung-planen": {
+    "goal": "Ask for a suitable alternative appointment to view a flat.",
+    "explanation": "Konjunktiv II expresses a request for an appointment that is not yet confirmed. The response explains the restriction and leaves availability open.",
+    "focus": "Konjunktiv II and an unconfirmed alternative appointment",
+    "question": "You can only come on Saturday morning. Which request fits?"
+  },
+  "sitov-b2-wohnung-heizung-melden": {
+    "goal": "Report a technical fault using observations that can be checked.",
+    "explanation": "The participle “installierte” identifies the object's location. “Während” narrows down the observed fault without claiming a technical cause or repair.",
+    "focus": "Participial modifier and a factual fault report",
+    "question": "You want to report the fault precisely. What do you say?"
+  },
+  "sitov-b2-wohnung-gemeinsamer-einkauf": {
+    "goal": "Suggest a clear process for shared household supplies.",
+    "explanation": "“Damit” gives the goal, and “statt … zu” names the process being replaced. A shared list that everyone follows resolves the specific coordination problem.",
+    "focus": "Purpose and an alternative action with “statt zu”",
+    "question": "You want to avoid buying the same items twice with your housemate. What do you suggest?"
+  },
+  "sitov-b2-wohnung-uebergabe-protokoll": {
+    "goal": "Ask for precise documentation at a handover.",
+    "explanation": "“Vorhandene” indicates an existing condition. The passive and purpose with “damit” describe documentation without anticipating legal consequences.",
+    "focus": "Participial modifier and documenting a condition",
+    "question": "You want to document the existing condition. What do you say?"
+  },
+  "sitov-b2-reparatur-kostenfreigabe": {
+    "goal": "Clarify the scope of permission to inspect a device.",
+    "explanation": "“Bevor” separates inspection and repair in time. The response limits the current job and requests the feedback offered in the conversation.",
+    "focus": "Passive and clarifying the scope of a job",
+    "question": "Today you only want to commission the inspection. What do you say?"
+  },
+  "sitov-b2-reparatur-kaufbeleg": {
+    "goal": "Ask about the procedure for documents that are still missing.",
+    "explanation": "“Sofern” makes sending the documents later depend on clear identification. The address and job number are specific details that make this organisational step possible.",
+    "focus": "Requirement and clear identification",
+    "question": "You can send the purchase receipt this evening. Which question helps?"
+  },
+  "sitov-b2-reparatur-zugang-termin": {
+    "goal": "Agree on an appointment when the work area is accessible.",
+    "explanation": "“Sofern” gives a specific time window as a condition. The second subjunctive describes the organisational alternative that would be needed outside that window.",
+    "focus": "Conditional time window and responsibility",
+    "question": "You can only open the door between 9 and 11 a.m. What do you tell them?"
+  },
+  "sitov-b2-reparatur-ersatzteil-warten": {
+    "goal": "Ask for an updated plan after a delivery delay.",
+    "explanation": "“Da” gives the reason for the postponement. The response only schedules a new plan after the crucial delivery that is still outstanding.",
+    "focus": "Passive and planning after a confirmed event",
+    "question": "You do not want to make a new plan until the delivery is confirmed. What do you say?"
+  },
+  "sitov-b2-reparatur-rechnung-position": {
+    "goal": "Ask for an explanation of a service that was not announced.",
+    "explanation": "“Meines Wissens” limits the statement to what you know. The indirect question asks for a clear basis rather than assuming the outcome of a check.",
+    "focus": "Cautious objection and clarifying the scope of a service",
+    "question": "You first want to understand the additional item. What do you ask?"
+  },
+  "sitov-b2-park-veranstaltung-abstimmen": {
+    "goal": "Ask about arrangements for a planned small event.",
+    "explanation": "“Bevor” orders coordination and the announcement. The response distinguishes a provisional reservation from firm confirmation without claiming general rules of use.",
+    "focus": "Distinguishing commitments and time order",
+    "question": "You do not want to announce an unconfirmed time yet. What do you say?"
+  },
+  "sitov-b2-park-weg-gesperrt": {
+    "goal": "Check whether an alternative route is suitable during a closure.",
+    "explanation": "The subjunctive “wäre” describes the benefit of a route that is currently unavailable. “Da” justifies the choice using availability and the relevant feature.",
+    "focus": "Choosing a route while acknowledging another option, and “lassen sich”",
+    "question": "The person accompanying you wants to avoid stairs. Which route do you choose?"
+  },
+  "sitov-b2-park-fundgegenstand": {
+    "goal": "Describe a found item without assigning it to someone too quickly.",
+    "explanation": "“Zwar … jedoch” separates a matching feature from one still to be checked. The participle “gefundene” and passive keep identification factually open.",
+    "focus": "“Zwar … jedoch” and identification that can be checked",
+    "question": "You have found a grey bag with a red fastener. What do you say?"
+  },
+  "sitov-b2-park-sauberkeitsaktion": {
+    "goal": "Clarify equipment and responsibilities for a shared activity.",
+    "explanation": "The two indirect questions cover preparation and completion. The passive describes joint organisation without unnecessarily focusing on individual participants.",
+    "focus": "Passive and coordinating two steps in a procedure",
+    "question": "You are organising the volunteers. What do you ask?"
+  },
+  "sitov-b2-park-hundebereich-nachfragen": {
+    "goal": "Ask about the area covered by a specific sign.",
+    "explanation": "The indirect question limits the scope. “Bevor” places clarification before the action without deriving a general rule from the sign.",
+    "focus": "Indirect question about scope",
+    "question": "You are unsure which area the sign applies to. How do you ask factually?"
+  },
+  "sitov-b2-sport-gruppe-passend": {
+    "goal": "Ask for an assessment based on the experience described.",
+    "explanation": "“Obwohl” acknowledges general experience without claiming specific prior knowledge. “Um … zu” gives the purpose of choosing a suitable group.",
+    "focus": "A concessive assessment and a learning purpose",
+    "question": "You do not know the required exercises yet. Which response fits?"
+  },
+  "sitov-b2-sport-platz-belegung": {
+    "goal": "Find an available alternative when a sports area is occupied.",
+    "explanation": "“Sofern” links the alternative booking to a full training session. The response turns the offered time window into a clear reservation.",
+    "focus": "Alternative time and a requirement",
+    "question": "Your group can also start at 7 p.m. What do you say?"
+  },
+  "sitov-b2-sport-teams-ausgleichen": {
+    "goal": "Suggest a clear distribution of experienced players.",
+    "explanation": "“Während” describes the imbalance. “Durch” gives the means, and the passive emphasises the result of a new team arrangement.",
+    "focus": "Comparison, means and passive",
+    "question": "You want a more balanced game. Which idea fits?"
+  },
+  "sitov-b2-sport-ausruestung-teilen": {
+    "goal": "Agree on a practical sequence for using shared equipment.",
+    "explanation": "“Indem” shows how shared use works. The concessive opening states the capacity limit without deriving exclusion from it.",
+    "focus": "Method with “indem” and a capacity compromise",
+    "question": "You want to include all eight participants. What do you suggest?"
+  },
+  "sitov-b2-sport-turnier-wetter": {
+    "goal": "Plan an update before participants travel to the event.",
+    "explanation": "“Falls” describes a possible event, and the passive focuses on the change of venue. The message follows confirmation and precedes the journey.",
+    "focus": "Conditional event and the order of information",
+    "question": "You are arranging information for participants. When and how do you inform them?"
+  },
+  "sitov-b2-hotel-ruhiges-zimmer": {
+    "goal": "Ask to change rooms because of a specific disturbance.",
+    "explanation": "“Sofern” adds an important condition to the offered solution. The question clarifies how long the change will last instead of assuming availability for today.",
+    "focus": "A reasoned preference and an additional condition",
+    "question": "You want to stay in the quieter room for the remaining days. What do you ask?"
+  },
+  "sitov-b2-hotel-spaete-anreise": {
+    "goal": "Clarify the key handover outside the stated check-in hours.",
+    "explanation": "“Voraussichtlich” allows for a possible timetable change. “Trotz” states the obstacle overcome by arranging the key handover in advance.",
+    "focus": "Expected arrival and access despite an obstacle",
+    "question": "You expect to arrive at 11 p.m. What do you arrange?"
+  },
+  "sitov-b2-hotel-rechnung-firma": {
+    "goal": "Provide the required invoice details in good time.",
+    "explanation": "The time clause places giving the details before issuing the invoice. The passive describes the desired document without assuming a later correction procedure.",
+    "focus": "Passive and providing details in time",
+    "question": "The invoice should go to your employer. What do you say?"
+  },
+  "sitov-b2-hotel-gepaeck-aufbewahren": {
+    "goal": "Arrange room checkout separately from collecting luggage later.",
+    "explanation": "“Obwohl” connects two different deadlines. The response distinguishes leaving the room from luggage storage and respects both time limits.",
+    "focus": "Different deadlines and “sofern”",
+    "question": "Your train leaves at 5 p.m. Which arrangement fits?"
+  },
+  "sitov-b2-hotel-auschecken-verlaengern": {
+    "goal": "Ask about a possible extension without treating it as confirmed.",
+    "explanation": "“Falls” makes the extension depend on room planning. “Jedoch” shows that an unconfirmed possibility does not yet replace the existing arrangement.",
+    "focus": "Hypothetical condition and a confirmed plan",
+    "question": "You want to check out later, but need a reliable plan. What do you say?"
+  },
+  "sitov-b2-kleidung-laenge-aendern": {
+    "goal": "Ask for an alteration that solves a specific fit problem.",
+    "explanation": "“Während” separates two aspects of the fit. “Kürzen lassen” describes commissioning an alteration; the condition protects the part that already fits.",
+    "focus": "Comparing features and “lassen”",
+    "question": "You only want to change the length. Which request fits?"
+  },
+  "sitov-b2-kleidung-material-etikett": {
+    "goal": "Base a question about the material on the actual label.",
+    "explanation": "The participial modifier “angegebenen” refers to information that can be verified. The question seeks the actual proportion instead of inferring it from a general fabric description.",
+    "focus": "Participial modifier and a verifiable comparison",
+    "question": "You want to know the exact cotton content. What do you ask?"
+  },
+  "sitov-b2-kleidung-lieferfrist": {
+    "goal": "Clarify whether an order could arrive in time.",
+    "explanation": "“Voraussichtlich” makes the delivery information tentative. “Daher” leads from the time comparison to a specific search for an available alternative.",
+    "focus": "Tentative deadline and a reasoned alternative",
+    "question": "You need the suit in seven days. Which response fits?"
+  },
+  "sitov-b2-kleidung-umtausch-bedingung": {
+    "goal": "Clarify the stated exchange conditions before buying a gift.",
+    "explanation": "“Sollte” here describes a possible future case. The response uses only the specific conditions stated and does not derive general exchange rights from them.",
+    "focus": "Possible case with “sollte” and meeting conditions",
+    "question": "You are buying a shirt for your brother. What do you confirm to the staff member?"
+  },
+  "sitov-b2-kleidung-jacke-abwaegen": {
+    "goal": "Weigh weight against storage space for your intended use.",
+    "explanation": "“Obwohl” acknowledges an advantage of the other option. “Ohnehin” shows that your own backpack makes that advantage less important for this particular use.",
+    "focus": "Weighing criteria and “ohnehin”",
+    "question": "You carry a backpack anyway and want a lightweight jacket. Which response fits?"
+  },
+  "sitov-b2-markt-preis-gewicht": {
+    "goal": "Compare offers using the same quantity as a basis.",
+    "explanation": "“Lassen sich” describes comparability. The shared quantity basis allows a fair comparison without prescribing a personal buying decision.",
+    "focus": "Comparability with “lassen sich” and a reference quantity",
+    "question": "You want to account for the difference in quantities. Which question fits?"
+  },
+  "sitov-b2-markt-herkunft-nachweis": {
+    "goal": "Ask for specific origins rather than a blanket statement.",
+    "explanation": "“Während” contrasts two groups. “Jeweilige” and “einzelnen” require identifying each offer rather than making an unsupported claim about the entire range.",
+    "focus": "Detailed comparison and identifying origins",
+    "question": "You only want to choose local fruit. What do you ask?"
+  },
+  "sitov-b2-markt-menge-verkleinern": {
+    "goal": "Ask for the amount you actually need despite a bulk offer.",
+    "explanation": "“Auch wenn” acknowledges the price advantage. The appropriate response respects the quantity choice offered and the pricing conditions explicitly stated for it.",
+    "focus": "A concessive quantity decision and a clear need",
+    "question": "You only need half a kilogram. Which response fits?"
+  },
+  "sitov-b2-markt-eigener-behaelter": {
+    "goal": "Clarify the procedure for filling a container you brought.",
+    "explanation": "“Bevor” orders weighing and filling. Both passive forms focus on the procedure; “damit” explains the purpose of recording the empty weight.",
+    "focus": "Time order and passive",
+    "question": "You want to use your empty container. What do you do first?"
+  },
+  "sitov-b2-markt-abholung-ende": {
+    "goal": "Agree on a realistic collection time before the stall is packed away.",
+    "explanation": "The passive describes the time frame at the stall. The chosen collection time allows a handover within the promised period before packing away begins.",
+    "focus": "Passive and collection before a time limit",
+    "question": "You can come at 12:30 p.m. Which arrangement fits?"
+  },
+  "sitov-b2-stadt-buergerbuero-termin": {
+    "goal": "Clarify who is responsible for an appointment already booked.",
+    "explanation": "“Während” distinguishes two responsibilities. The passive describes the service a counter offers, and “daher” leads to the action derived from the information.",
+    "focus": "Contrasting responsibilities and passive",
+    "question": "You have an appointment to register. Where do you go?"
+  },
+  "sitov-b2-stadt-treffpunkt-baustelle": {
+    "goal": "Suggest a clearly accessible alternative meeting point.",
+    "explanation": "The participial modifier “vereinbarte” refers to the previous arrangement. Changing the location and clearly announcing it resolve the problem caused by construction work.",
+    "focus": "Explaining a change of meeting point and purpose",
+    "question": "Your group normally meets at the main entrance. Which message fits?"
+  },
+  "sitov-b2-stadt-formular-abgrenzen": {
+    "goal": "Ask for the form for your specific administrative request.",
+    "explanation": "“Scheint” expresses the assessment cautiously. The response uses the distinction explained by the staff member and asks for the specifically suitable form.",
+    "focus": "Cautious assessment and an administrative distinction",
+    "question": "You are moving here from another city for the first time. What do you ask?"
+  },
+  "sitov-b2-stadt-veranstaltung-einlass": {
+    "goal": "When planning, distinguish the start time from earlier admission.",
+    "explanation": "“Obwohl” explains why arriving early is useful. The response distinguishes two times explicitly mentioned in the conversation and takes the additional procedure into account.",
+    "focus": "Distinguishing two times and purpose",
+    "question": "You want to leave your jacket without feeling rushed. When do you arrive?"
+  },
+  "sitov-b2-stadt-verkehrsdiskussion": {
+    "goal": "Join a local discussion with a constructive suggestion.",
+    "explanation": "“Auch wenn” acknowledges an advantage before adding another concern. Konjunktiv II presents the proposed balance as a possible solution.",
+    "focus": "Constructive objection and balancing interests",
+    "question": "You support the idea, but want to allow deliveries. What do you suggest?"
+  }
+}

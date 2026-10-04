@@ -17,7 +17,7 @@ export default async function DailyQuestPreviewPage({ params, searchParams }: {
   const query = await searchParams
   const level = dailyQuestLevelSchema.catch('A1').parse(query?.level)
   const template = sitovQuestTemplateKeySchema.safeParse(query?.template)
-  const result = template.success ? await loadDailyQuestPreview(level, template.data) : await loadDailyQuestPreview(level)
+  const result = template.success ? await loadDailyQuestPreview(level, template.data, lang) : await loadDailyQuestPreview(level, undefined, lang)
   const destination = `/${lang}/admin/daily-quest?level=${level}${template.success ? `&template=${template.data}` : ''}`
   if (result.error === 'not_authenticated') redirect(`/${lang}/login?next=${encodeURIComponent(destination)}`)
   if (result.error === 'not_authorized') redirect(`/${lang}/dashboard`)

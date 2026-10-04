@@ -314,23 +314,50 @@ it('dreht die Karteikarte um und haelt immer nur die sichtbare Seite bedienbar',
   expect(screen.getByRole('button', { name: de.vocabulary.reveal_solution })).toBeInTheDocument()
 })
 
-it('behält beim Zurückdrehen den Inhalt bis zum Seitenwechsel und verkleinert danach die Karte', () => {
+it('behält beim Zurückdrehen den Inhalt bis zum Seitenwechsel ohne die Kartengeometrie zu ändern', () => {
   const { container } = mount([flashcard])
   const scene = container.querySelector('.learning-card-flip')!
+  const actionSlot = container.querySelector('.learning-session-action-slot')!
+  const stableClasses = scene.className
   const front = container.querySelector('.learning-flip-front')!
   const back = container.querySelector('.learning-flip-back')!
   fireEvent.click(screen.getByRole('button', { name: de.vocabulary.reveal_solution }))
   fireEvent.click(scene)
   expect(scene).not.toHaveClass('is-revealed')
-  expect(scene).toHaveClass('has-answer-content')
+  expect(scene.className).toBe(stableClasses)
+  expect(container.querySelector('.learning-session-action-slot')).toBe(actionSlot)
   expect(back).toHaveTextContent('das Haus')
   expect(back).toHaveAttribute('inert')
   const midpoint = new Event('transitionend', { bubbles: true })
   Object.defineProperty(midpoint, 'propertyName', { value: 'visibility' })
   fireEvent(front, midpoint)
-  expect(scene).not.toHaveClass('has-answer-content')
+  expect(scene.className).toBe(stableClasses)
   expect(back).not.toHaveTextContent('das Haus')
   expect(front.querySelector('.learning-card-content')).toHaveFocus()
+})
+
+it('reserves the same control and action slots when a round moves from a word to a locked sentence card', async () => {
+  const choice: DueVocabularyCard = { ...flashcard, mode: 'learner_choice' }
+  const lockedSentence: DueVocabularyCard = { ...sentence, progressId: 'sentence-stable', mode: 'flashcard',
+    prompt: 'Какой у Вас номер телефона?', solution: 'Wie ist Ihre Telefonnummer?', card: { ...sentence.card, id: 'sentence-stable' } }
+  const { container } = mount([choice, lockedSentence])
+  const meta = container.querySelector('.learning-session-meta')!
+  const modeSlot = container.querySelector('.learning-session-mode-slot')!
+  const actionSlot = container.querySelector('.learning-session-action-slot')!
+  expect(screen.getByRole('radiogroup')).toBeInTheDocument()
+  expect(container.querySelector('.learning-session-card')).toBeInTheDocument()
+  fireEvent.click(screen.getByRole('button', { name: de.vocabulary.reveal_solution }))
+  expect(container.querySelector('.learning-session-action-slot')).toBe(actionSlot)
+  expect(actionSlot).toHaveAttribute('data-study-mode', 'flashcard')
+  await act(async () => { fireEvent.click(screen.getByRole('button', { name: de.vocabulary.knew_it })) })
+  await screen.findByRole('heading', { name: lockedSentence.prompt })
+  expect(screen.queryByRole('radiogroup')).not.toBeInTheDocument()
+  expect(container.querySelector('.learning-session-meta')).toBe(meta)
+  expect(container.querySelector('.learning-session-mode-slot')).toBe(modeSlot)
+  expect(container.querySelector('.learning-session-action-slot')).toBe(actionSlot)
+  fireEvent.click(screen.getByRole('button', { name: de.vocabulary.reveal_solution }))
+  expect(screen.getByText(lockedSentence.solution!)).toBeInTheDocument()
+  expect(container.querySelector('.learning-session-action-slot')).toBe(actionSlot)
 })
 
 it('haelt die getippte Karte ohne Drehung im bisherigen Aufbau', async () => {

@@ -87,7 +87,7 @@
 /* --- Karteikarte: echte 3D-Drehung -------------------------------------- */
 /* Die Karte selbst wird zur Bühne: sie gibt Rahmen, Polster und Hintergrund an
    die beiden Seiten ab und haelt nur noch Groesse und Perspektive. */
-.learning-card-flip { --sitov-flip-duration: 640ms; padding: 0; border: 0; background: none; box-shadow: none; }
+.learning-card-flip { --sitov-flip-duration: 200ms; padding: 0; border: 0; background: none; box-shadow: none; }
 .learning-flip-inner {
   position: relative; flex: 1; min-height: 0; perspective: 1800px;
 }
@@ -114,22 +114,14 @@
 @media (hover: hover) { .learning-card-flip:hover .learning-flip-face { border-color: color-mix(in srgb, var(--learn-accent) 45%, var(--learn-border)); } }
 /* Die Frage bleibt auf der Rueckseite lesbar, tritt aber hinter die Loesung zurueck. */
 .learning-flip-echo { font-size: clamp(15px, 2.2dvh, 19px); font-weight: 600; line-height: 1.3; color: var(--learn-muted); overflow-wrap: anywhere; }
-/* Der Inhalt der Rueckseite steigt nach der halben Drehung gestaffelt auf. */
-@keyframes learning-face-rise { from { opacity: 0; transform: translateY(9px); } to { opacity: 1; transform: none; } }
-.learning-card-flip.is-revealed .learning-flip-back .learning-card-content > * { animation: learning-face-rise 420ms cubic-bezier(.22, 1, .36, 1) both; }
-.learning-card-flip.is-revealed .learning-flip-back .learning-card-content > :nth-child(1) { animation-delay: 300ms; }
-.learning-card-flip.is-revealed .learning-flip-back .learning-card-content > :nth-child(2) { animation-delay: 340ms; }
-.learning-card-flip.is-revealed .learning-flip-back .learning-card-content > :nth-child(3) { animation-delay: 370ms; }
-.learning-card-flip.is-revealed .learning-flip-back .learning-card-content > :nth-child(4) { animation-delay: 400ms; }
-.learning-card-flip.is-revealed .learning-flip-back .learning-card-content > :nth-child(n+5) { animation-delay: 430ms; }
+/* Revealed text is immediately readable; only the paper turns. */
 /* Ohne 3D-Unterstuetzung bleibt es beim harten Wechsel statt einer halben Drehung. */
 @supports not (transform-style: preserve-3d) {
   .learning-flip-face { transition: none; backface-visibility: visible; }
   .learning-card-flip .learning-flip-face { transform: none; }
 }
 
-/* Mobile task first: compact controls, content-sized cards, and one document
-   scroll only when long content or enlarged text really needs it. */
+/* Mobile task first: compact controls and one document scroll only when needed. */
 @media (max-width: 639px) {
   .learning-screen[data-presentation='embedded'] { min-height: 0; }
   .learning-screen[data-presentation='embedded'] .learning-header { min-height: 48px; gap: 8px; padding: 0; border: 0; border-radius: 0; background: transparent; }
@@ -151,6 +143,36 @@
   .learning-screen[data-presentation='embedded'] :is(.learning-word, .learning-sentence, .learning-solution) { font-size: clamp(22px, 3.5dvh, 30px); }
   .learning-screen[data-presentation='embedded'] .learning-flip-echo { font-size: .9375rem; }
   .learning-screen[data-presentation='embedded'] .learning-eyebrow { font-size: .875rem; }
+}
+
+/* A vocabulary round reserves the same geometry before and after revealing and
+   across words, sentences and directions. Overflow belongs to the card body,
+   so a long example never pushes the self-rating buttons away from the thumb. */
+.learning-session-meta { block-size: 3.5rem; flex: none; }
+.learning-session-meta .learning-meta-pills { flex-direction: column; align-items: flex-start; flex-wrap: nowrap; max-block-size: 100%; overflow-y: auto; gap: 3px; }
+.learning-session-meta .learning-meta-pills > .learning-pill { line-height: 1.2; }
+.learning-meta-flags { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.learning-session-meta .learning-meta-flags .learning-pill { border: 0; padding: 0; font-size: .75rem; line-height: 1.2; }
+.learning-session-mode-slot { block-size: 3.375rem; flex: none; display: flex; align-items: center; justify-content: center; }
+.learning-screen:has(.learning-session-card) { overflow-anchor: none; }
+.learning-screen:has(.learning-session-card) .learning-header { block-size: 76px; min-block-size: 76px; max-block-size: 76px; }
+.learning-screen:has(.learning-session-card) .learning-heading :is(h2, p) { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.learning-screen .learning-session-card { --sitov-session-card-height: clamp(18rem, calc(100svh - 33rem), 24rem); block-size: var(--sitov-session-card-height); min-block-size: var(--sitov-session-card-height); max-block-size: var(--sitov-session-card-height); flex: 0 0 var(--sitov-session-card-height); }
+.learning-screen .learning-session-card .learning-card-content { overflow-y: auto; scrollbar-width: thin; }
+.learning-session-action-slot { flex: none; width: 100%; }
+.learning-session-action-slot[data-study-mode='flashcard'] { block-size: 3.75rem; }
+.learning-session-action-slot[data-study-mode='flashcard'] > .learning-button,
+.learning-session-action-slot[data-study-mode='flashcard'] .learning-flashcard-actions { block-size: 100%; }
+.learning-session-action-slot[data-study-mode='flashcard'] .learning-button { min-block-size: 0; block-size: 100%; padding-block: 8px; line-height: 1.25; }
+@media (max-width: 639px) {
+  .learning-screen:has(.learning-session-card) .learning-header { block-size: 48px; min-block-size: 48px; max-block-size: 48px; }
+  .learning-session-mode-slot { block-size: 3.125rem; }
+  .learning-screen .learning-session-card .learning-flip-face { padding: 12px 12px 24px; }
+  .learning-screen .learning-session-card .learning-card-content { gap: 8px; }
+  .learning-screen .learning-session-card .learning-flip-back .learning-card-content { gap: 6px; }
+  .learning-screen .learning-session-card .learning-flip-back :is(.learning-sentence, .learning-solution) { font-size: clamp(22px, 3svh, 26px); }
+  .learning-screen .learning-session-card .learning-flip-back > .learning-card-content > [data-card-interactive] { flex-wrap: nowrap; gap: 6px; }
+  .learning-screen .learning-session-card .learning-flip-back > .learning-card-content > [data-card-interactive] label > span:first-child { display: none; }
 }
 
 /* Flashcard-Selbsteinschätzung: zwei gleich breite Tasten nebeneinander. */

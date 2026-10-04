@@ -28,7 +28,7 @@ it('passes a valid answer to the student-only DAL without invalidating the curre
   const input = { assignmentId: dailyQuestFixture.id, stepId: 'build', answer: { pieceIds: ['i', 'want'] } }
   jest.mocked(submitDailyQuestAnswer).mockResolvedValue({ data: { ...success.data, correct: false, feedback: 'Noch einmal.' } })
   expect((await submitDailyQuestStep(input)).data?.correct).toBe(false)
-  expect(submitDailyQuestAnswer).toHaveBeenCalledWith(input)
+  expect(submitDailyQuestAnswer).toHaveBeenCalledWith(input, 'de')
   expect(revalidatePath).not.toHaveBeenCalled()
 })
 
@@ -55,4 +55,22 @@ it('accepts boolean preferences only and relies on the returned DB status', asyn
   expect((await setDailyQuestEnabled(false)).data?.enabled).toBe(false)
   expect(updateDailyQuestEnabled).toHaveBeenCalledWith(false)
   expect(revalidatePath).toHaveBeenCalledWith('/[lang]/dashboard/profile', 'page')
+})
+
+
+it.each(['en', 'ru', 'uk', 'tr'])('passes the selected UI language %s through grading and completion', async sitovLocale => {
+  const input = { assignmentId: dailyQuestFixture.id, stepId: 'build', answer: { pieceIds: ['i', 'want'] } }
+  await submitDailyQuestStep(input, sitovLocale)
+  expect(submitDailyQuestAnswer).toHaveBeenCalledWith(input, sitovLocale)
+  jest.mocked(finishDailyQuest).mockResolvedValue(success)
+  await completeDailyQuest(dailyQuestFixture.id, sitovLocale)
+  expect(finishDailyQuest).toHaveBeenCalledWith(dailyQuestFixture.id, sitovLocale)
+})
+
+it.each(['xx', {}, null])('rejects invalid UI languages before a grading mutation (%s)', async sitovLocale => {
+  const input = { assignmentId: dailyQuestFixture.id, stepId: 'build', answer: { pieceIds: ['i', 'want'] } }
+  expect(await submitDailyQuestStep(input, sitovLocale)).toEqual({ error: 'invalid_input' })
+  expect(await completeDailyQuest(dailyQuestFixture.id, sitovLocale)).toEqual({ error: 'invalid_input' })
+  expect(submitDailyQuestAnswer).not.toHaveBeenCalled()
+  expect(finishDailyQuest).not.toHaveBeenCalled()
 })

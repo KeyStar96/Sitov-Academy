@@ -19,6 +19,8 @@ interface LearningScreenProps {
   workspaceRef?: Ref<HTMLDivElement>
   /** Dashboard exercises stay in document flow with the common header and navigation. */
   presentation?: 'embedded' | 'fullscreen'
+  /** Keep a visible vocabulary frame still; only bring it into view when necessary. */
+  sitovStableFrame?: boolean
   children: ReactNode
 }
 
@@ -51,11 +53,17 @@ export function scrollLearningWorkspace(workspace: HTMLElement | null, behavior:
 }
 
 /** Shared exercise frame. Fullscreen is reserved for explicitly isolated experiences. */
-export default function LearningScreen({ title, subtitle, progress, onExit, exitDisabled = false, t, workspaceRef, presentation = 'embedded', children }: LearningScreenProps) {
+export default function LearningScreen({ title, subtitle, progress, onExit, exitDisabled = false, t, workspaceRef, presentation = 'embedded', sitovStableFrame = false, children }: LearningScreenProps) {
   const screen = useRef<HTMLElement>(null)
   useEffect(() => {
     if (presentation === 'embedded') {
-      screen.current?.scrollIntoView?.({ block: 'start', behavior: 'instant' })
+      const sitovBounds = screen.current?.getBoundingClientRect()
+      const sitovNav = document.querySelector<HTMLElement>('.st-tabbar')
+      const sitovNavVisible = sitovNav && getComputedStyle(sitovNav).visibility !== 'hidden' && getComputedStyle(sitovNav).display !== 'none'
+      const sitovVisibleBottom = sitovNavVisible ? sitovNav.getBoundingClientRect().top : window.innerHeight
+      if (!sitovStableFrame || (sitovBounds && (sitovBounds.top < 0 || sitovBounds.bottom > sitovVisibleBottom))) {
+        screen.current?.scrollIntoView?.({ block: 'start', behavior: 'instant' })
+      }
       screen.current?.focus({ preventScroll: true })
       return
     }
@@ -78,7 +86,7 @@ export default function LearningScreen({ title, subtitle, progress, onExit, exit
       changed.forEach(({ element, inert }) => { element.inert = inert })
       document.body.style.overflow = overflow
     }
-  }, [presentation])
+  }, [presentation, sitovStableFrame])
 
   return (
     <section ref={screen} tabIndex={-1} className="learning-screen" data-presentation={presentation} aria-label={title}>
