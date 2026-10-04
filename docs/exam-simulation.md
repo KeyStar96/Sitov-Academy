@@ -1,7 +1,7 @@
 # Sitov Academy: Simulierte Prüfung und Prüfungsvorbereitung
 
 Stand: **4. Oktober 2026, produktiv veröffentlicht**. Release
-**`fb8df5491a91`** ist aktiv; der Produktionsnachweis wurde um **15:03 Uhr CEST**
+**`09452efafb1a`** ist aktiv; der Freigabe-/Motion-Nachtrag wurde um **17:02:18 Uhr CEST**
 bestätigt. Implementiert ist eine eigene,
 umfassende Sitov-Prüfung je Niveau **A1 bis C2**. Die Simulation verlangt alle
 Pflichtgebiete und nachgewiesene vorberechnete Hörmedien; bei fehlenden Medien
@@ -36,11 +36,33 @@ Alte `area=practice`-/`area=exam`-Links, gespeicherte Präferenzen, Aufgaben-IDs
 Antworten und Lernregeln bleiben erhalten. Details:
 [exam-preparation.md](exam-preparation.md).
 
-Alle Lernenden-Texte beider Prüfungsbereiche bleiben Deutsch, einschließlich
-Schülernavigation, Brotkrumen, Skip-Link, Kontoaktionen und Darstellungsoptionen.
-Der UI-Sprachumschalter ist ausgeblendet. Profil und Links des übrigen Lernraums
-behalten ihre bisherige Sprache. Brotkrumen heißen „Prüfungsvorbereitung“
-beziehungsweise „Simulierte Prüfung“; der frühere Fallback „Video“ entfällt.
+## Oberflächensprache und deutsche Prüfungsinhalte
+
+Die Nutzerkorrektur vom 4. Oktober 2026 ersetzt die frühere pauschal deutsche
+Prüfungsoberfläche. Die gewählte Interface-Sprache **de/en/ru/uk/tr** gilt auch
+für Home-Karten, den Lernraumrahmen, Hinweise vor dem Start, Bedienung,
+Auswertung, Review und Lehrkraftverwaltung. Ausschließlich der tatsächliche
+deutsche Prüfungsinhalt bleibt Deutsch. Die Sprachkorrektur wird separat vom
+oben dokumentierten Freigabe-/Motion-Release umgesetzt; dessen historische
+Abnahmen werden nicht nachträglich als mehrsprachige Abnahme dargestellt.
+
+| Textrolle | Sprache |
+| --- | --- |
+| Home-Karten, Überschriften, Einstiegserklärung und Handlungslinks | Gewählte Interface-Sprache |
+| Navigation, Brotkrumen, Skip-Link, Profil, Logout, Darstellung und Sprachwahl | Gewählte Interface-Sprache, ohne pauschale Deutsch-Sonderregel für Prüfungsrouten |
+| Freigabe-/Sperrhinweise, Niveauwahl, Startregeln, Lade- und Fehlerzustände | Gewählte Interface-Sprache |
+| Bedienlabels, Zeit-/Fortschrittsanzeige, Auswertung, generische Ergebnisbeschreibung und Review-Rahmen | Gewählte Interface-Sprache |
+| Lehrkraftfreigaben, Zuordnung, Filter, Status, Bewertung und Resetdialog | Gewählte Interface-Sprache |
+| Tatsächliche Aufgabenstellung des Prüfungsblatts, deutscher Quelltext, Dialog, Hörtext, Frage und Antwortoptionen | Deutsch, Wortlaut und IDs erhalten |
+| Schülerantwort, deutscher Lösungstext, reale Aufnahme und frei verfasste Lehrkraftrückmeldung | Originalinhalt erhalten; keine automatische Umformulierung |
+
+Der äußere UI-Rahmen erhält die gewählte Sprache. Nur die eigentlichen
+Prüfungsinhalte erhalten gezielt `lang="de"` und `translate="no"`. Die Textrolle
+entscheidet, auch wenn Aufgabe und UI-Hinweis in derselben Ansicht stehen.
+Übersetzte Beschriftungen ändern weder deutsche Aufgaben-/Hörtexte noch
+Antwortschlüssel, Bewertungen, gespeicherte Antworten, Fortschritt oder
+vorberechnete Qwen-Medien. Brotkrumen verwenden die übersetzten Prüfungslabels;
+der frühere Fallback „Video“ bleibt entfernt.
 
 Vorhandene Sitov-Motion-Komponenten, kurze Bereichs-/Aufgabenwechsel,
 Fertigkeitssymbole, Fortschrittsbalken und ein animierter Ergebnisring begleiten

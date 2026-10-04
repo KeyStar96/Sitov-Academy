@@ -15,8 +15,10 @@ Der globale Trainer liegt unter `/{lang}/dashboard/exam-preparation`. Die
 Prüfungsniveauauswahl zeigt A1 bis C2; ausschließlich B1 ist verfügbar. Bestehende
 B1.1- oder B1.2-Berechtigungen öffnen den gemeinsamen B1-Trainer. Die Kursseiten
 verweisen darauf, führen aber keinen eigenen Prüfungstrainer pro Teilniveau.
-Aufgaben, Hilfen und Traineroberfläche bleiben Deutsch, unabhängig von `{lang}`;
-eine Übersetzung in die Interfacesprache ist nicht vorgesehen.
+Die Oberfläche folgt `{lang}` (Deutsch, Englisch, Russisch, Ukrainisch, Türkisch).
+Aufgabentexte, Antwortoptionen, Sprachbeispiele und Hörtranskripte bleiben als
+deutsche Lerninhalte erhalten. Katalogbeschreibungen, Bedienhinweise, Status,
+Bewertungskriterien und erklärende Rückmeldung erscheinen in der Interfacesprache.
 
 Die fünf Bereiche heißen „Mein Lernweg“, „Gezielt üben“, „Sprechen & Abgeben“,
 „Prüfung üben“ und „Mein Fortschritt“. Eine Aufgabe wird jeweils einzeln geöffnet.
@@ -251,10 +253,10 @@ als eigener Reiter. Ein direkter Link führt zur simulierten Prüfung. Alte
 Aufgaben-, Einheiten- und Bereichskennungen, Antworten, Lernchecks, Förderregeln
 und gespeicherten Lernleistungen werden nicht geändert.
 
-Beide Prüfungsrouten verwenden Deutsch auch für Brotkrumen, Schülernavigation,
-Profilaktionen und Darstellungsoptionen. Der Sprachumschalter ist dort
-ausgeblendet; ein Profil mit russischer oder anderer Interfacesprache behält
-seine Sprache und die ursprünglichen Routenlinks für den übrigen Lernraum.
+Beide Prüfungsrouten verwenden die gewählte Interfacesprache für Brotkrumen,
+Schülernavigation, Profilaktionen und Darstellungsoptionen. Der Sprachumschalter
+bleibt verfügbar. Nur die eigentlichen deutschen Lern- und Prüfungsinhalte bleiben
+auf Deutsch; diese Bereiche sind gezielt mit `lang="de"` und `translate="no"` markiert.
 Der falsche Brotkrumen-Fallback „Video“ wurde durch eindeutige Prüfungslabels
 ersetzt. Vorhandene `PressableCard`- und `SitovMotionStage`-Komponenten begleiten
 den Einstieg und die Bereichswechsel; reduzierte Bewegung bleibt berücksichtigt.
@@ -298,3 +300,22 @@ generierte fotorealistische WebP-Dateien mit jeweils zwei männlichen Personen.
 Sie gehören zum tatsächlich nachgewiesenen Bestand von 18 neuen Dateien für
 beide Prüfungsbereiche; Bildpfade und sachliche Alttexte sind aktualisiert.
 Die Aufgaben-IDs, Lösungen, Hörskripte und Lernstände bleiben erhalten.
+
+## Interfacesprache und deutsche Lerninhalte (4. Oktober 2026)
+
+Die Sprachgrenze gilt vor und nach dem Prüfungsinhalt für den gesamten Trainer:
+Einstieg, Lernweg, Übungsauswahl, Modul- und Einheitenbeschreibungen, eigene Beiträge,
+Aufnahme- und Uploadbedienung, Fortschritt, Ladezustände und Fehler verwenden
+Deutsch, Englisch, Russisch, Ukrainisch oder Türkisch gemäß der aktuellen Route.
+Deterministische Erklärungen und Bewertungskriterien werden ebenfalls übersetzt;
+deutsche zitierte Redemittel, Belege und Lösungen bleiben fachlich unverändert.
+Freie Nachrichten der Lehrkraft und eigene Texte sind Autoreninhalte und behalten
+ihre ursprüngliche Sprache.
+
+`lib/exam-preparation/ui-copy.ts` übersetzt Oberflächen-, Katalog- und Kriterientexte
+getrennt von den versionierten Inhaltsdateien. `feedback-copy.ts` verwendet die
+gemeinsamen Rückmeldungstexte und ergänzende Vorbereitungserklärungen. Neue Inhalte
+müssen diese Übersetzungen ergänzen; Tests prüfen vollständige Abdeckung der
+Modulbeschreibungen und Kriterien in allen vier weiteren Interfacesprachen.
+Aufgabenkennungen, Antworten, Versuchsversionen, Audio und gespeicherte Fortschritte
+bleiben erhalten.

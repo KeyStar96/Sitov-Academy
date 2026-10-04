@@ -1,4 +1,5 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react'
+import pilotModule from '@/content/exam-preparation/sitov-b1-pilot.json'
 import type { ComponentProps, ReactNode } from 'react'
 jest.mock('lucide-react',()=>jest.requireActual('lucide-react'))
 jest.mock('@/components/motion/PressableCard',()=>({__esModule:true,default:({children,href,...props}:{children:ReactNode;href?:string}&ComponentProps<'button'>)=>href?<a href={href}>{children}</a>:<button {...props}>{children}</button>}))
@@ -6,6 +7,7 @@ jest.mock('@/components/motion/SitovMotionStage',()=>({__esModule:true,default:(
 jest.mock('@/components/exam-preparation/ExamSubmissionEditor',()=>({__esModule:true,default:()=> <p>Eigener Beitrag</p>}))
 jest.mock('@/app/actions/exam-preparation',()=>({getExamHint:jest.fn(),getExamState:jest.fn(),getExamCheckpointFeedback:jest.fn(),saveExamProfile:jest.fn(),submitExamAnswer:jest.fn(),markExamFeedbackViewed:jest.fn(),deleteExamSubmission:jest.fn(),activateExamFallback:jest.fn()}))
 import { getExamHint, getExamCheckpointFeedback, submitExamAnswer, markExamFeedbackViewed, saveExamProfile } from '@/app/actions/exam-preparation'
+import { localizeExamPrepExplanation } from '@/lib/exam-preparation/feedback-copy'
 import ExamTrainer from '@/components/exam-preparation/ExamTrainer'
 import type { ExamAttempt, ExamModule, ExamState, ExamTask, ExamUnit } from '@/lib/exam-preparation/types'
 
@@ -18,23 +20,23 @@ function fixture(checkpoint=false){
  return {unit,module:courseModule}
 }
 beforeEach(()=>{jest.clearAllMocks();window.scrollTo=jest.fn();Object.defineProperty(globalThis.crypto,'randomUUID',{configurable:true,value:()=> '00000000-0000-4000-8000-000000000001'})})
-it('opens B1 preparation immediately with three clear areas and no task translations',()=>{
+it('opens preparation in Russian with three clear areas and retains localized links',()=>{
  const {module}=fixture();const view=render(<ExamTrainer lang="ru" initial={empty} modules={[module]} workshops={[]} boxLevel="B1.1" />)
- expect(screen.getByRole('heading',{name:'Prüfungsvorbereitung'})).toBeInTheDocument()
+ expect(screen.getByRole('heading',{name:'Подготовка к экзамену'})).toBeInTheDocument()
  expect(screen.queryByLabelText('Meine Zielprüfung')).not.toBeInTheDocument()
- expect(screen.getByRole('button',{name:'Lernen'})).toBeInTheDocument()
- expect(screen.getByRole('button',{name:'Meine Beiträge'})).toBeInTheDocument()
- expect(screen.getByRole('button',{name:'Fortschritt'})).toBeInTheDocument()
+ expect(screen.getByRole('button',{name:'Учиться'})).toBeInTheDocument()
+ expect(screen.getByRole('button',{name:'Мои работы'})).toBeInTheDocument()
+ expect(screen.getByRole('button',{name:'Прогресс'})).toBeInTheDocument()
  expect(screen.queryByRole('button',{name:'Prüfung üben'})).not.toBeInTheDocument()
- expect(screen.getByRole('link',{name:'Zur simulierten Prüfung'})).toHaveAttribute('href','/ru/dashboard/exam-simulation?level=B1')
- fireEvent.click(screen.getByRole('button',{name:'Eine Fertigkeit üben'}))
- expect(screen.getByRole('heading',{name:'Was möchtest du üben?'})).toBeInTheDocument()
- fireEvent.click(screen.getByRole('button',{name:'Zurück zum Lernen'}))
- expect(screen.getByRole('heading',{name:'Dein nächster Schritt'})).toBeInTheDocument()
+ expect(screen.getByRole('link',{name:'К пробному экзамену'})).toHaveAttribute('href','/ru/dashboard/exam-simulation?level=B1')
+ fireEvent.click(screen.getByRole('button',{name:'Тренировать навык'}))
+ expect(screen.getByRole('heading',{name:'Что вы хотите потренировать?'})).toBeInTheDocument()
+ fireEvent.click(screen.getByRole('button',{name:'Вернуться к обучению'}))
+ expect(screen.getByRole('heading',{name:'Ваш следующий шаг'})).toBeInTheDocument()
  expect(screen.queryByRole('button',{name:/übersetzen|translate/i})).not.toBeInTheDocument()
  view.rerender(<ExamTrainer preview lang="ru" initial={empty} modules={[module]} workshops={[]} boxLevel="B1.1" />)
- expect(screen.getByRole('link',{name:'Zur simulierten Prüfung'})).toHaveAttribute('href','/ru/sitov-preview/exam-simulation?level=B1')
- expect(screen.getByRole('status')).toHaveTextContent('Vorschau · Eingaben werden nicht gespeichert.')
+ expect(screen.getByRole('link',{name:'К пробному экзамену'})).toHaveAttribute('href','/ru/sitov-preview/exam-simulation?level=B1')
+ expect(screen.getByRole('status')).toHaveTextContent('Предпросмотр · Введённые данные не сохраняются.')
 })
 it('stores an answer before completion and counts feedback only after the explicit read action',async()=>{
  const {module,unit}=fixture(),t=unit.tasks[0],attempt={...receipt(t),mode:'practice' as const,correct:true}
@@ -102,4 +104,70 @@ it('offers the listening transcript only after the learner has submitted an answ
  fireEvent.click(screen.getByRole('button',{name:'A Erste Antwort'}));fireEvent.click(screen.getByRole('button',{name:/Antwort prüfen/}))
  fireEvent.click(await screen.findByRole('button',{name:'Hörtext nach deiner Antwort mitlesen'}));expect(await screen.findByText('Jetzt darfst du den Hörtext mitlesen.')).toBeInTheDocument()
  expect(getExamHint).toHaveBeenCalledWith({taskId:t.id,unitId:unit.id})
+})
+
+const sitovPrepLocales = [
+ {lang:'de',heading:'Prüfungsvorbereitung',start:'Weiterlernen:',overview:'Zur Übersicht',check:'Antwort prüfen',positive:'Das passt.'},
+ {lang:'en',heading:'Exam preparation',start:'Continue learning:',overview:'Overview',check:'Check answer',positive:'That’s right.'},
+ {lang:'ru',heading:'Подготовка к экзамену',start:'Продолжить обучение:',overview:'К обзору',check:'Проверить ответ',positive:'Верно.'},
+ {lang:'uk',heading:'Підготовка до іспиту',start:'Продовжити навчання:',overview:'До огляду',check:'Перевірити відповідь',positive:'Правильно.'},
+ {lang:'tr',heading:'Sınava hazırlık',start:'Öğrenmeye devam et:',overview:'Genel bakış',check:'Yanıtı kontrol et',positive:'Doğru.'},
+] as const
+
+it.each(sitovPrepLocales)('uses $lang UI before and after the unchanged German preparation task',async locale=>{
+ const pilot = pilotModule as unknown as ExamModule
+ const originalTask=pilot.units[0].tasks[0]
+ const unit={...pilot.units[0],tasks:[originalTask]}
+ const courseModule={...pilot,units:[unit]}
+ const attempt={...receipt(originalTask),unitId:unit.id,mode:'practice' as const,correct:true}
+ jest.mocked(submitExamAnswer).mockResolvedValue({success:true,attempt,feedback:{explanation:originalTask.explanation??'',evidence:originalTask.evidence??''},state:{...empty,attempts:[attempt]}})
+ const {container}=render(<ExamTrainer lang={locale.lang} initial={empty} modules={[courseModule]} workshops={[]} boxLevel="B1.1" />)
+ expect(screen.getByRole('heading',{name:locale.heading})).toBeInTheDocument()
+ expect(container.firstElementChild).toHaveAttribute('lang',locale.lang)
+ fireEvent.click(screen.getByRole('button',{name:new RegExp(locale.start)}))
+ expect(screen.getByRole('button',{name:locale.overview})).toBeInTheDocument()
+ const heading=screen.getByRole('heading',{name:originalTask.title})
+ expect(heading).toHaveAttribute('lang','de')
+ expect(heading).toHaveAttribute('translate','no')
+ expect(screen.getByText(originalTask.instruction)).toHaveAttribute('lang','de')
+ const answer=screen.getByText(originalTask.options![0].text)
+ expect(answer).toHaveAttribute('lang','de')
+ fireEvent.click(answer.closest('button')!)
+ fireEvent.click(screen.getByRole('button',{name:locale.check}))
+ expect(await screen.findByText(locale.positive)).toBeInTheDocument()
+ expect(screen.getByText(localizeExamPrepExplanation(locale.lang,originalTask.explanation??''))).toBeInTheDocument()
+ expect(screen.getByText(originalTask.evidence!)).toHaveAttribute('lang','de')
+ expect(screen.getByText(originalTask.evidence!)).toHaveAttribute('translate','no')
+ expect(submitExamAnswer).toHaveBeenCalledWith(expect.objectContaining({taskId:originalTask.id,answer:originalTask.options![0].id}))
+})
+
+it('translates explanatory audio hints after answering while retaining the German transcript',async()=>{
+ const {module,unit}=fixture(),t=unit.tasks[0]
+ t.audio={id:'sitov-audio-test',script:'',status:'prepared',route:'qwen',roles:['Männlicher Sprecher'],notes:'',src:'/prepared.mp3'}
+ const attempt={...receipt(t),mode:'practice' as const,correct:true}
+ jest.mocked(submitExamAnswer).mockResolvedValue({success:true,attempt,state:{...empty,attempts:[attempt]}})
+ jest.mocked(getExamHint).mockResolvedValue({success:true,hints:['Halb elf bedeutet 10:30 Uhr.'],transcript:'Wir treffen uns morgen um halb elf.'})
+ render(<ExamTrainer lang="en" initial={empty} modules={[module]} workshops={[]} boxLevel="B1.1" />)
+ fireEvent.click(screen.getByRole('button',{name:/Continue learning:/}))
+ fireEvent.click(screen.getByRole('button',{name:'A Erste Antwort'}))
+ fireEvent.click(screen.getByRole('button',{name:'Check answer'}))
+ fireEvent.click(await screen.findByRole('button',{name:'Read the transcript after answering'}))
+ const hint=await screen.findByText('“Halb elf” means 10:30.')
+ expect(hint).toHaveAttribute('lang','en')
+ expect(hint).not.toHaveAttribute('translate','no')
+ const transcript=screen.getByText('Wir treffen uns morgen um halb elf.')
+ expect(transcript).toHaveAttribute('lang','de')
+ expect(transcript).toHaveAttribute('translate','no')
+})
+
+it('localizes authored explanatory evidence without translating German source quotes',async()=>{
+ const {module,unit}=fixture(),task=unit.tasks[0],attempt={...receipt(task),mode:'practice' as const,correct:true}
+ jest.mocked(submitExamAnswer).mockResolvedValue({success:true,attempt,feedback:{explanation:'',evidence:'Wörter und Erklärungen gehören jeweils zusammen.'},state:{...empty,attempts:[attempt]}})
+ render(<ExamTrainer lang="en" initial={empty} modules={[module]} workshops={[]} boxLevel="B1.1" />)
+ fireEvent.click(screen.getByRole('button',{name:/Continue learning:/}))
+ fireEvent.click(screen.getByRole('button',{name:'A Erste Antwort'}))
+ fireEvent.click(screen.getByRole('button',{name:'Check answer'}))
+ const evidence=await screen.findByText('Each word matches its explanation.')
+ expect(evidence).toHaveAttribute('lang','en')
+ expect(evidence).not.toHaveAttribute('translate','no')
 })

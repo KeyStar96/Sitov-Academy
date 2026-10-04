@@ -1,0 +1,2720 @@
+{
+  "Prüfungsvorbereitung": {
+    "en": "Exam preparation",
+    "ru": "Подготовка к экзамену",
+    "uk": "Підготовка до іспиту",
+    "tr": "Sınava hazırlık"
+  },
+  "Schritt für Schritt üben und Rückmeldung verstehen.": {
+    "en": "Practise step by step and understand your feedback.",
+    "ru": "Практикуйтесь шаг за шагом и разбирайте обратную связь.",
+    "uk": "Практикуйте крок за кроком і розбирайте відгуки.",
+    "tr": "Adım adım çalış ve geri bildirimini anla."
+  },
+  "Vorschau · Eingaben werden nicht gespeichert.": {
+    "en": "Preview · Your input is not saved.",
+    "ru": "Предпросмотр · Введённые данные не сохраняются.",
+    "uk": "Попередній перегляд · Введені дані не зберігаються.",
+    "tr": "Önizleme · Girdiler kaydedilmez."
+  },
+  "Der Prüfungsfortschritt ist gerade nicht verfügbar. Bitte lade die Seite erneut.": {
+    "en": "Exam progress is unavailable. Please reload the page.",
+    "ru": "Прогресс экзамена сейчас недоступен. Обновите страницу.",
+    "uk": "Прогрес іспиту зараз недоступний. Оновіть сторінку.",
+    "tr": "Sınav ilerlemesi şu anda kullanılamıyor. Sayfayı yeniden yükle."
+  },
+  "B1-Prüfungstraining": {
+    "en": "B1 exam practice",
+    "ru": "Тренировка к экзамену B1",
+    "uk": "Тренування до іспиту B1",
+    "tr": "B1 sınav çalışması"
+  },
+  "Lernen": {
+    "en": "Learn",
+    "ru": "Учиться",
+    "uk": "Навчатися",
+    "tr": "Öğren"
+  },
+  "Meine Beiträge": {
+    "en": "My submissions",
+    "ru": "Мои работы",
+    "uk": "Мої роботи",
+    "tr": "Çalışmalarım"
+  },
+  "Fortschritt": {
+    "en": "Progress",
+    "ru": "Прогресс",
+    "uk": "Прогрес",
+    "tr": "İlerleme"
+  },
+  "Dein nächster Schritt": {
+    "en": "Your next step",
+    "ru": "Ваш следующий шаг",
+    "uk": "Ваш наступний крок",
+    "tr": "Sonraki adımın"
+  },
+  "{count} Einheiten bearbeitet": {
+    "en": "{count} units completed",
+    "ru": "Выполнено разделов: {count}",
+    "uk": "Виконано розділів: {count}",
+    "tr": "{count} ünite tamamlandı"
+  },
+  "Beginne mit deiner nächsten Einheit.": {
+    "en": "Start your next unit.",
+    "ru": "Начните следующий раздел.",
+    "uk": "Почніть наступний розділ.",
+    "tr": "Sonraki ünitenle başla."
+  },
+  "Weiterlernen:": {
+    "en": "Continue learning:",
+    "ru": "Продолжить обучение:",
+    "uk": "Продовжити навчання:",
+    "tr": "Öğrenmeye devam et:"
+  },
+  "Deine nächsten Inhalte werden vorbereitet. Du kannst inzwischen gezielt üben oder deine Beiträge verbessern.": {
+    "en": "Your next units are being prepared. Practise a skill or improve your submissions meanwhile.",
+    "ru": "Следующие разделы готовятся. Пока тренируйте навыки или улучшайте свои работы.",
+    "uk": "Наступні розділи готуються. Поки тренуйте навички або покращуйте свої роботи.",
+    "tr": "Sonraki ünitelerin hazırlanıyor. Bu arada bir beceriyi çalış veya çalışmalarını geliştir."
+  },
+  "Eine Fertigkeit üben": {
+    "en": "Practise a skill",
+    "ru": "Тренировать навык",
+    "uk": "Тренувати навичку",
+    "tr": "Bir beceriyi çalış"
+  },
+  "Die Aufgaben werden vorbereitet.": {
+    "en": "Tasks are being prepared.",
+    "ru": "Задания готовятся.",
+    "uk": "Завдання готуються.",
+    "tr": "Görevler hazırlanıyor."
+  },
+  "Öffnet nach dem vorherigen Lerncheck. Hören, Lesen, Schreiben und Sprechen gehören dazu.": {
+    "en": "Opens after the previous learning check, including listening, reading, writing and speaking.",
+    "ru": "Откроется после предыдущей проверки: аудирование, чтение, письмо и говорение.",
+    "uk": "Відкриється після попередньої перевірки: аудіювання, читання, письмо й говоріння.",
+    "tr": "Dinleme, okuma, yazma ve konuşmayı içeren önceki öğrenme kontrolünden sonra açılır."
+  },
+  "Selbstständig geschafft": {
+    "en": "Completed independently",
+    "ru": "Выполнено самостоятельно",
+    "uk": "Виконано самостійно",
+    "tr": "Bağımsız tamamlandı"
+  },
+  "Bearbeitet": {
+    "en": "Completed",
+    "ru": "Выполнено",
+    "uk": "Виконано",
+    "tr": "Tamamlandı"
+  },
+  "In Arbeit": {
+    "en": "In progress",
+    "ru": "В процессе",
+    "uk": "У процесі",
+    "tr": "Devam ediyor"
+  },
+  "Offen": {
+    "en": "Available",
+    "ru": "Доступно",
+    "uk": "Доступно",
+    "tr": "Açık"
+  },
+  "{status} · ca. {minutes} Minuten": {
+    "en": "{status} · about {minutes} minutes",
+    "ru": "{status} · около {minutes} мин.",
+    "uk": "{status} · приблизно {minutes} хв.",
+    "tr": "{status} · yaklaşık {minutes} dakika"
+  },
+  "Zwei neue Lernchecks waren noch schwer. Bearbeite drei Förderübungen und einen neuen Transferauftrag. Danach kannst du weiterlernen; dieser Bereich bleibt zum Wiederholen markiert.": {
+    "en": "Two new checks were challenging. Complete three support exercises and a new transfer task to continue. This area stays marked for revision.",
+    "ru": "Две новые проверки пока были сложными. Выполните три поддерживающих упражнения и новое задание на перенос навыков, чтобы продолжить. Раздел останется отмеченным для повторения.",
+    "uk": "Дві нові перевірки поки були складними. Виконайте три допоміжні вправи й нове завдання на перенесення навичок, щоб продовжити. Розділ залишиться позначеним для повторення.",
+    "tr": "İki yeni kontrol zor geldi. Devam etmek için üç destek alıştırması ve yeni bir aktarım görevi tamamla. Bu alan tekrar için işaretli kalır."
+  },
+  "Neue Aufgabe für deinen nächsten Schritt": {
+    "en": "A new task for your next step",
+    "ru": "Новое задание для следующего шага",
+    "uk": "Нове завдання для наступного кроку",
+    "tr": "Sonraki adımın için yeni bir görev"
+  },
+  "Es fehlen noch Förderübungen oder der Transferauftrag.": {
+    "en": "Some support exercises or the transfer task are still missing.",
+    "ru": "Ещё нужны поддерживающие упражнения или задание на перенос навыков.",
+    "uk": "Ще потрібні допоміжні вправи або завдання на перенесення навичок.",
+    "tr": "Destek alıştırmaları veya aktarım görevi henüz tamamlanmadı."
+  },
+  "Der nächste Schritt konnte nicht freigeschaltet werden. Bitte versuche es erneut.": {
+    "en": "The next step could not be unlocked. Please try again.",
+    "ru": "Не удалось открыть следующий шаг. Попробуйте ещё раз.",
+    "uk": "Не вдалося відкрити наступний крок. Спробуйте ще раз.",
+    "tr": "Sonraki adım açılamadı. Lütfen tekrar dene."
+  },
+  "Ich möchte weiterlernen": {
+    "en": "Continue learning",
+    "ru": "Продолжить обучение",
+    "uk": "Продовжити навчання",
+    "tr": "Öğrenmeye devam et"
+  },
+  "Der weitere B1-Lernweg · {count} Module in Vorbereitung": {
+    "en": "The B1 learning path ahead · {count} modules being prepared",
+    "ru": "Дальнейший путь B1 · Готовятся модули: {count}",
+    "uk": "Подальший шлях B1 · Готуються модулі: {count}",
+    "tr": "B1 öğrenme yolunun devamı · {count} modül hazırlanıyor"
+  },
+  "Zur simulierten Prüfung": {
+    "en": "Go to the simulated exam",
+    "ru": "К пробному экзамену",
+    "uk": "До пробного іспиту",
+    "tr": "Deneme sınavına git"
+  },
+  "Zurück zum Lernen": {
+    "en": "Back to learning",
+    "ru": "Вернуться к обучению",
+    "uk": "Повернутися до навчання",
+    "tr": "Öğrenmeye dön"
+  },
+  "Was möchtest du üben?": {
+    "en": "What would you like to practise?",
+    "ru": "Что вы хотите потренировать?",
+    "uk": "Що ви хочете потренувати?",
+    "tr": "Neyi çalışmak istersin?"
+  },
+  "Gezielt {skill} üben": {
+    "en": "Practise {skill}",
+    "ru": "Тренировать: {skill}",
+    "uk": "Тренувати: {skill}",
+    "tr": "{skill} çalış"
+  },
+  "Weitere Übungen anzeigen": {
+    "en": "Show more exercises",
+    "ru": "Показать ещё упражнения",
+    "uk": "Показати ще вправи",
+    "tr": "Daha fazla alıştırma göster"
+  },
+  "Weitere Aufgabenformen üben": {
+    "en": "Practise more task formats",
+    "ru": "Тренировать другие форматы заданий",
+    "uk": "Тренувати інші формати завдань",
+    "tr": "Diğer görev türlerini çalış"
+  },
+  "Schritt für Schritt üben": {
+    "en": "Practise step by step",
+    "ru": "Практиковаться шаг за шагом",
+    "uk": "Практикувати крок за кроком",
+    "tr": "Adım adım çalış"
+  },
+  "In Vorbereitung": {
+    "en": "Being prepared",
+    "ru": "В подготовке",
+    "uk": "Готується",
+    "tr": "Hazırlanıyor"
+  },
+  "Hier findest du deine Texte, Aufnahmen und die Rückmeldungen deiner Lehrkraft.": {
+    "en": "Find your texts, recordings and teacher feedback here.",
+    "ru": "Здесь ваши тексты, записи и отзывы преподавателя.",
+    "uk": "Тут ваші тексти, записи й відгуки викладача.",
+    "tr": "Metinlerini, kayıtlarını ve öğretmeninin geri bildirimlerini burada bulabilirsin."
+  },
+  "Hier findest du bald deine Texte, Aufnahmen und Rückmeldungen. Sprechen beginnt schon in der ersten Einheit.": {
+    "en": "Your texts, recordings and feedback will appear here. Speaking starts in the first unit.",
+    "ru": "Здесь появятся ваши тексты, записи и отзывы. Говорение начинается уже в первом разделе.",
+    "uk": "Тут з’являться ваші тексти, записи й відгуки. Говоріння починається вже в першому розділі.",
+    "tr": "Metinlerin, kayıtların ve geri bildirimlerin burada görünecek. Konuşma ilk ünitede başlar."
+  },
+  "Löschen fehlgeschlagen.": {
+    "en": "Deletion failed.",
+    "ru": "Не удалось удалить.",
+    "uk": "Не вдалося видалити.",
+    "tr": "Silme işlemi başarısız oldu."
+  },
+  "Eine Sprechaufgabe wählen": {
+    "en": "Choose a speaking task",
+    "ru": "Выбрать задание по говорению",
+    "uk": "Обрати завдання з говоріння",
+    "tr": "Bir konuşma görevi seç"
+  },
+  "Deinen Prüfungsstand prüfen": {
+    "en": "Check your exam readiness",
+    "ru": "Проверить готовность к экзамену",
+    "uk": "Перевірити готовність до іспиту",
+    "tr": "Sınava hazırlığını kontrol et"
+  },
+  "Wähle in der simulierten Prüfung dein Niveau und dein Prüfungsformat.": {
+    "en": "Choose your level and format in the simulated exam.",
+    "ru": "Выберите уровень и формат в пробном экзамене.",
+    "uk": "Оберіть рівень і формат у пробному іспиті.",
+    "tr": "Deneme sınavında seviyeni ve sınav türünü seç."
+  },
+  "Dein Text": {
+    "en": "Your text",
+    "ru": "Ваш текст",
+    "uk": "Ваш текст",
+    "tr": "Metnin"
+  },
+  "Deine Aufnahme": {
+    "en": "Your recording",
+    "ru": "Ваша запись",
+    "uk": "Ваш запис",
+    "tr": "Kaydın"
+  },
+  "Entwurf": {
+    "en": "Draft",
+    "ru": "Черновик",
+    "uk": "Чернетка",
+    "tr": "Taslak"
+  },
+  "Rückmeldung ausstehend": {
+    "en": "Feedback pending",
+    "ru": "Ожидается отзыв",
+    "uk": "Очікується відгук",
+    "tr": "Geri bildirim bekleniyor"
+  },
+  "Rückmeldung da": {
+    "en": "Feedback received",
+    "ru": "Отзыв получен",
+    "uk": "Відгук отримано",
+    "tr": "Geri bildirim geldi"
+  },
+  "Gespeicherte Aufnahme": {
+    "en": "Saved recording",
+    "ru": "Сохранённая запись",
+    "uk": "Збережений запис",
+    "tr": "Kaydedilmiş ses kaydı"
+  },
+  "Dein handschriftlicher Text": {
+    "en": "Your handwritten text",
+    "ru": "Ваш рукописный текст",
+    "uk": "Ваш рукописний текст",
+    "tr": "El yazısı metnin"
+  },
+  "Vorherige Version vergleichen": {
+    "en": "Compare the previous version",
+    "ru": "Сравнить с предыдущей версией",
+    "uk": "Порівняти з попередньою версією",
+    "tr": "Önceki sürümle karşılaştır"
+  },
+  "Vorherige handschriftliche Version": {
+    "en": "Previous handwritten version",
+    "ru": "Предыдущая рукописная версия",
+    "uk": "Попередня рукописна версія",
+    "tr": "Önceki el yazısı sürümü"
+  },
+  "Rückmeldung deiner Lehrkraft": {
+    "en": "Your teacher’s feedback",
+    "ru": "Отзыв преподавателя",
+    "uk": "Відгук викладача",
+    "tr": "Öğretmeninin geri bildirimi"
+  },
+  "Überarbeiten": {
+    "en": "Revise",
+    "ru": "Доработать",
+    "uk": "Доопрацювати",
+    "tr": "Düzenle"
+  },
+  "Löschen": {
+    "en": "Delete",
+    "ru": "Удалить",
+    "uk": "Видалити",
+    "tr": "Sil"
+  },
+  "Die Hilfe ist gerade nicht verfügbar.": {
+    "en": "Help is currently unavailable.",
+    "ru": "Помощь сейчас недоступна.",
+    "uk": "Допомога зараз недоступна.",
+    "tr": "Yardım şu anda kullanılamıyor."
+  },
+  "Die Hilfe konnte nicht geladen werden. Deine Antwort bleibt erhalten.": {
+    "en": "Help could not be loaded. Your answer is kept.",
+    "ru": "Не удалось загрузить помощь. Ваш ответ сохранён.",
+    "uk": "Не вдалося завантажити допомогу. Ваша відповідь збережена.",
+    "tr": "Yardım yüklenemedi. Yanıtın korunur."
+  },
+  "Du kennst diese Lerncheckvarianten schon": {
+    "en": "You have already seen these check variants",
+    "ru": "Вы уже знакомы с этими вариантами проверки",
+    "uk": "Ви вже знайомі з цими варіантами перевірки",
+    "tr": "Bu kontrol sürümlerini zaten gördün"
+  },
+  "Neue unabhängige Aufgaben werden vorbereitet. Du kannst gezielt weiterüben oder deine Lehrkraft um einen nächsten Schritt bitten.": {
+    "en": "New independent tasks are being prepared. Keep practising or ask your teacher for a next step.",
+    "ru": "Готовятся новые задания для самостоятельной работы. Продолжайте практику или попросите преподавателя о следующем шаге.",
+    "uk": "Готуються нові завдання для самостійної роботи. Продовжуйте практику або попросіть викладача про наступний крок.",
+    "tr": "Yeni bağımsız görevler hazırlanıyor. Çalışmaya devam edebilir veya öğretmeninden bir sonraki adımı isteyebilirsin."
+  },
+  "Zur Übersicht": {
+    "en": "Overview",
+    "ru": "К обзору",
+    "uk": "До огляду",
+    "tr": "Genel bakış"
+  },
+  "Ende dieses Lernschritts": {
+    "en": "This learning step is complete",
+    "ru": "Этот учебный шаг завершён",
+    "uk": "Цей навчальний крок завершено",
+    "tr": "Bu öğrenme adımı tamamlandı"
+  },
+  "Deine gespeicherten Antworten bleiben erhalten. Geschlossene Antworten und eigene Beiträge werden getrennt betrachtet. Überarbeite deinen Text oder deine Aufnahme nach der Rückmeldung.": {
+    "en": "Your saved answers are kept. Closed answers and your own submissions are assessed separately. Revise your text or recording after feedback.",
+    "ru": "Сохранённые ответы остаются. Ответы с выбором и собственные работы оцениваются отдельно. Доработайте текст или запись после отзыва.",
+    "uk": "Збережені відповіді залишаються. Відповіді з вибором і власні роботи оцінюються окремо. Доопрацюйте текст або запис після відгуку.",
+    "tr": "Kaydedilmiş yanıtların korunur. Kapalı yanıtlar ve kendi çalışmaların ayrı değerlendirilir. Geri bildirimden sonra metnini veya kaydını düzenle."
+  },
+  "Die Rückmeldung konnte nicht geladen werden.": {
+    "en": "Feedback could not be loaded.",
+    "ru": "Не удалось загрузить отзыв.",
+    "uk": "Не вдалося завантажити відгук.",
+    "tr": "Geri bildirim yüklenemedi."
+  },
+  "Die Rückmeldung konnte nicht geladen werden. Bitte versuche es erneut.": {
+    "en": "Feedback could not be loaded. Please try again.",
+    "ru": "Не удалось загрузить отзыв. Попробуйте ещё раз.",
+    "uk": "Не вдалося завантажити відгук. Спробуйте ще раз.",
+    "tr": "Geri bildirim yüklenemedi. Lütfen tekrar dene."
+  },
+  "Lerncheck abgeschlossen · Rückmeldungen ansehen": {
+    "en": "Check completed · View feedback",
+    "ru": "Проверка завершена · Посмотреть отзывы",
+    "uk": "Перевірку завершено · Переглянути відгуки",
+    "tr": "Kontrol tamamlandı · Geri bildirimleri gör"
+  },
+  "{correct}/{total} geschlossene Antworten richtig": {
+    "en": "{correct}/{total} closed answers correct",
+    "ru": "Верных ответов с выбором: {correct}/{total}",
+    "uk": "Правильних відповідей з вибором: {correct}/{total}",
+    "tr": "{correct}/{total} kapalı yanıt doğru"
+  },
+  "Aufgabe {number}: {status}": {
+    "en": "Task {number}: {status}",
+    "ru": "Задание {number}: {status}",
+    "uk": "Завдання {number}: {status}",
+    "tr": "Görev {number}: {status}"
+  },
+  "Richtig": {
+    "en": "Correct",
+    "ru": "Правильно",
+    "uk": "Правильно",
+    "tr": "Doğru"
+  },
+  "Noch üben": {
+    "en": "Keep practising",
+    "ru": "Ещё потренироваться",
+    "uk": "Ще потренуватися",
+    "tr": "Çalışmaya devam et"
+  },
+  "Die Rückmeldung konnte nicht gespeichert werden.": {
+    "en": "Feedback could not be saved.",
+    "ru": "Не удалось сохранить отзыв.",
+    "uk": "Не вдалося зберегти відгук.",
+    "tr": "Geri bildirim kaydedilemedi."
+  },
+  "Die Rückmeldung konnte nicht gespeichert werden. Bitte versuche es erneut.": {
+    "en": "Feedback could not be saved. Please try again.",
+    "ru": "Не удалось сохранить отзыв. Попробуйте ещё раз.",
+    "uk": "Не вдалося зберегти відгук. Спробуйте ще раз.",
+    "tr": "Geri bildirim kaydedilemedi. Lütfen tekrar dene."
+  },
+  "Rückmeldungen gelesen · Zur Übersicht": {
+    "en": "Feedback read · Overview",
+    "ru": "Отзывы прочитаны · К обзору",
+    "uk": "Відгуки прочитано · До огляду",
+    "tr": "Geri bildirimler okundu · Genel bakış"
+  },
+  "Zurück zur Übersicht": {
+    "en": "Back to overview",
+    "ru": "Вернуться к обзору",
+    "uk": "Повернутися до огляду",
+    "tr": "Genel bakışa dön"
+  },
+  "Schritt in der Einheit": {
+    "en": "Step in this unit",
+    "ru": "Шаг в разделе",
+    "uk": "Крок у розділі",
+    "tr": "Ünitedeki adım"
+  },
+  "Neuer Lerncheck": {
+    "en": "New learning check",
+    "ru": "Новая проверка знаний",
+    "uk": "Нова перевірка знань",
+    "tr": "Yeni öğrenme kontrolü"
+  },
+  "Ohne Hilfen. Die Rückmeldung erscheint nach deinem Lerncheck.": {
+    "en": "Without help. Feedback appears after your learning check.",
+    "ru": "Без подсказок. Отзыв появится после проверки.",
+    "uk": "Без підказок. Відгук з’явиться після перевірки.",
+    "tr": "Yardımsız. Geri bildirim öğrenme kontrolünden sonra görünür."
+  },
+  "Dieses Medium wird noch vorbereitet.": {
+    "en": "This media is still being prepared.",
+    "ru": "Этот материал ещё готовится.",
+    "uk": "Цей матеріал ще готується.",
+    "tr": "Bu medya hâlâ hazırlanıyor."
+  },
+  "Die Aufgabe öffnet erst nach Aufnahme und Prüfung. Hier zählt noch kein Versuch.": {
+    "en": "The task opens after recording and review. No attempt is counted here yet.",
+    "ru": "Задание откроется после записи и проверки. Здесь пока попытка не учитывается.",
+    "uk": "Завдання відкриється після запису й перевірки. Тут поки спроба не враховується.",
+    "tr": "Görev, kayıt ve incelemeden sonra açılır. Burada henüz deneme sayılmaz."
+  },
+  "Nächste Aufgabe": {
+    "en": "Next task",
+    "ru": "Следующее задание",
+    "uk": "Наступне завдання",
+    "tr": "Sonraki görev"
+  },
+  "Hörtext abspielen": {
+    "en": "Play the listening text",
+    "ru": "Воспроизвести аудиотекст",
+    "uk": "Відтворити аудіотекст",
+    "tr": "Dinleme metnini oynat"
+  },
+  "Der Hörtext konnte nicht geladen werden. Lade ihn erneut, bevor du antwortest. Deine Auswahl bleibt erhalten.": {
+    "en": "The audio could not be loaded. Reload it before answering. Your selection is kept.",
+    "ru": "Не удалось загрузить аудио. Загрузите его снова перед ответом. Ваш выбор сохранён.",
+    "uk": "Не вдалося завантажити аудіо. Завантажте його знову перед відповіддю. Ваш вибір збережено.",
+    "tr": "Ses yüklenemedi. Yanıtlamadan önce yeniden yükle. Seçimin korunur."
+  },
+  "Hörtext erneut laden": {
+    "en": "Reload the listening text",
+    "ru": "Загрузить аудиотекст снова",
+    "uk": "Завантажити аудіотекст знову",
+    "tr": "Dinleme metnini yeniden yükle"
+  },
+  "Deine Antwort": {
+    "en": "Your answer",
+    "ru": "Ваш ответ",
+    "uk": "Ваша відповідь",
+    "tr": "Yanıtın"
+  },
+  "Tippe die Teile in der passenden Reihenfolge an. Tippe erneut, um einen Teil zu entfernen.": {
+    "en": "Tap the parts in the right order. Tap again to remove a part.",
+    "ru": "Нажмите части в нужном порядке. Нажмите снова, чтобы удалить часть.",
+    "uk": "Натисніть частини в потрібному порядку. Натисніть знову, щоб видалити частину.",
+    "tr": "Parçalara uygun sırayla dokun. Bir parçayı kaldırmak için tekrar dokun."
+  },
+  "Bitte zuordnen …": {
+    "en": "Choose a match …",
+    "ru": "Выберите соответствие …",
+    "uk": "Оберіть відповідність …",
+    "tr": "Eşleştir …"
+  },
+  "Hilfe ansehen (wird vermerkt)": {
+    "en": "View help (recorded)",
+    "ru": "Посмотреть подсказку (учитывается)",
+    "uk": "Переглянути підказку (враховується)",
+    "tr": "Yardımı gör (kayda geçer)"
+  },
+  "Deine Antwort konnte nicht gespeichert werden.": {
+    "en": "Your answer could not be saved.",
+    "ru": "Не удалось сохранить ответ.",
+    "uk": "Не вдалося зберегти відповідь.",
+    "tr": "Yanıtın kaydedilemedi."
+  },
+  "Speichern fehlgeschlagen. Deine Antwort bleibt erhalten. Bitte versuche es erneut.": {
+    "en": "Saving failed. Your answer is kept. Please try again.",
+    "ru": "Не удалось сохранить. Ваш ответ остаётся. Попробуйте ещё раз.",
+    "uk": "Не вдалося зберегти. Ваша відповідь залишається. Спробуйте ще раз.",
+    "tr": "Kaydetme başarısız oldu. Yanıtın korunur. Lütfen tekrar dene."
+  },
+  "Wird gespeichert …": {
+    "en": "Saving …",
+    "ru": "Сохранение …",
+    "uk": "Збереження …",
+    "tr": "Kaydediliyor …"
+  },
+  "Antwort speichern": {
+    "en": "Save answer",
+    "ru": "Сохранить ответ",
+    "uk": "Зберегти відповідь",
+    "tr": "Yanıtı kaydet"
+  },
+  "Antwort prüfen": {
+    "en": "Check answer",
+    "ru": "Проверить ответ",
+    "uk": "Перевірити відповідь",
+    "tr": "Yanıtı kontrol et"
+  },
+  "Antwort gespeichert": {
+    "en": "Answer saved",
+    "ru": "Ответ сохранён",
+    "uk": "Відповідь збережена",
+    "tr": "Yanıt kaydedildi"
+  },
+  "Das passt.": {
+    "en": "That’s right.",
+    "ru": "Верно.",
+    "uk": "Правильно.",
+    "tr": "Doğru."
+  },
+  "Schau dir die entscheidende Stelle an.": {
+    "en": "Look at the key passage.",
+    "ru": "Посмотрите на ключевой фрагмент.",
+    "uk": "Подивіться на ключовий фрагмент.",
+    "tr": "Önemli bölüme bak."
+  },
+  "Beleg:": {
+    "en": "Evidence:",
+    "ru": "Подтверждение:",
+    "uk": "Підтвердження:",
+    "tr": "Kanıt:"
+  },
+  "Du hast mit Hilfe geübt. Das zählt als Bearbeitung.": {
+    "en": "You practised with help. This counts as completion.",
+    "ru": "Вы использовали помощь. Это учитывается как выполненная работа.",
+    "uk": "Ви скористалися допомогою. Це враховується як виконана робота.",
+    "tr": "Yardımla çalıştın. Bu, tamamlanmış çalışma sayılır."
+  },
+  "Hörtext nach deiner Antwort mitlesen": {
+    "en": "Read the transcript after answering",
+    "ru": "Прочитать аудиотекст после ответа",
+    "uk": "Прочитати аудіотекст після відповіді",
+    "tr": "Yanıtından sonra dinleme metnini oku"
+  },
+  "Weiter": {
+    "en": "Continue",
+    "ru": "Далее",
+    "uk": "Далі",
+    "tr": "Devam et"
+  },
+  "Rückmeldung gelesen · Weiter": {
+    "en": "Feedback read · Continue",
+    "ru": "Отзыв прочитан · Далее",
+    "uk": "Відгук прочитано · Далі",
+    "tr": "Geri bildirim okundu · Devam et"
+  },
+  "Dein Beitrag wurde eingereicht.": {
+    "en": "Your submission was sent.",
+    "ru": "Ваша работа отправлена.",
+    "uk": "Вашу роботу надіслано.",
+    "tr": "Çalışman gönderildi."
+  },
+  "Dein Entwurf ist gespeichert.": {
+    "en": "Your draft is saved.",
+    "ru": "Черновик сохранён.",
+    "uk": "Чернетку збережено.",
+    "tr": "Taslağın kaydedildi."
+  },
+  "Nach deiner Rückmeldung kannst du den Beitrag verbessern. Du findest alle Versionen unter „Meine Beiträge“.": {
+    "en": "Improve your submission after feedback. All versions are under “My submissions”.",
+    "ru": "Доработайте работу после отзыва. Все версии находятся в разделе «Мои работы».",
+    "uk": "Доопрацюйте роботу після відгуку. Усі версії містяться в розділі «Мої роботи».",
+    "tr": "Geri bildirimden sonra çalışmanı geliştirebilirsin. Tüm sürümler “Çalışmalarım” bölümündedir."
+  },
+  "Wortschatz": {
+    "en": "Vocabulary",
+    "ru": "Словарный запас",
+    "uk": "Словниковий запас",
+    "tr": "Kelime bilgisi"
+  },
+  "Hören": {
+    "en": "Listening",
+    "ru": "Аудирование",
+    "uk": "Аудіювання",
+    "tr": "Dinleme"
+  },
+  "Lesen": {
+    "en": "Reading",
+    "ru": "Чтение",
+    "uk": "Читання",
+    "tr": "Okuma"
+  },
+  "Schreiben": {
+    "en": "Writing",
+    "ru": "Письмо",
+    "uk": "Письмо",
+    "tr": "Yazma"
+  },
+  "Sprechen": {
+    "en": "Speaking",
+    "ru": "Говорение",
+    "uk": "Говоріння",
+    "tr": "Konuşma"
+  },
+  "B1-Prüfungsvorbereitung": {
+    "en": "B1 exam preparation",
+    "ru": "Подготовка к экзамену B1",
+    "uk": "Підготовка до іспиту B1",
+    "tr": "B1 sınavına hazırlık"
+  },
+  "Globales B1-Training · Pilot": {
+    "en": "General B1 training · Pilot",
+    "ru": "Общая тренировка B1 · Пилот",
+    "uk": "Загальне тренування B1 · Пілот",
+    "tr": "Genel B1 çalışması · Pilot"
+  },
+  "Gesamtstand über alle Lerntage · {minutes} Minuten dokumentierte Lernzeit. Bearbeitung und selbstständige Leistung sind getrennte Werte.": {
+    "en": "Overall progress across all study days · {minutes} minutes recorded. Completion and independent performance are separate measures.",
+    "ru": "Общий прогресс за все дни · Учтено {minutes} мин. Выполнение и самостоятельный результат оцениваются отдельно.",
+    "uk": "Загальний прогрес за всі дні · Враховано {minutes} хв. Виконання й самостійний результат оцінюються окремо.",
+    "tr": "Tüm çalışma günlerinin toplam ilerlemesi · {minutes} dakika kaydedildi. Tamamlama ve bağımsız başarı ayrı ölçülür."
+  },
+  "Der Prüfungsfortschritt konnte noch nicht geladen werden.": {
+    "en": "Exam progress has not loaded yet.",
+    "ru": "Прогресс экзамена ещё не загружен.",
+    "uk": "Прогрес іспиту ще не завантажено.",
+    "tr": "Sınav ilerlemesi henüz yüklenemedi."
+  },
+  "Verfügbare Einheiten bearbeitet": {
+    "en": "Available units completed",
+    "ru": "Доступные разделы выполнены",
+    "uk": "Доступні розділи виконано",
+    "tr": "Mevcut üniteler tamamlandı"
+  },
+  "Aufgaben mit Rückmeldung": {
+    "en": "Tasks with feedback",
+    "ru": "Задания с отзывом",
+    "uk": "Завдання з відгуком",
+    "tr": "Geri bildirimli görevler"
+  },
+  "Neue Aufgaben selbstständig geschafft": {
+    "en": "New tasks completed independently",
+    "ru": "Новые задания выполнены самостоятельно",
+    "uk": "Нові завдання виконано самостійно",
+    "tr": "Yeni görevler bağımsız tamamlandı"
+  },
+  "Rückmeldungen ausstehend": {
+    "en": "Feedback pending",
+    "ru": "Ожидаемые отзывы",
+    "uk": "Очікувані відгуки",
+    "tr": "Beklenen geri bildirimler"
+  },
+  "{completed}/{total} bearbeitet": {
+    "en": "{completed}/{total} completed",
+    "ru": "Выполнено: {completed}/{total}",
+    "uk": "Виконано: {completed}/{total}",
+    "tr": "{completed}/{total} tamamlandı"
+  },
+  "{skill}: Bearbeitung": {
+    "en": "{skill}: completion",
+    "ru": "{skill}: выполнение",
+    "uk": "{skill}: виконання",
+    "tr": "{skill}: tamamlama"
+  },
+  "{count} selbstständig · Hilfen und Rückmeldungen bleiben sichtbar.": {
+    "en": "{count} independently · Help and feedback stay visible.",
+    "ru": "Самостоятельно: {count} · Помощь и отзывы остаются видны.",
+    "uk": "Самостійно: {count} · Допомога й відгуки залишаються видимими.",
+    "tr": "{count} bağımsız · Yardımlar ve geri bildirimler görünür kalır."
+  },
+  "Bildbeschreibung, Präsentation und Interaktion": {
+    "en": "Picture description, presentation and interaction",
+    "ru": "Описание изображения, презентация и взаимодействие",
+    "uk": "Опис зображення, презентація і взаємодія",
+    "tr": "Resim betimleme, sunum ve etkileşim"
+  },
+  "Bildbeschreibung": {
+    "en": "Picture description",
+    "ru": "Описание изображения",
+    "uk": "Опис зображення",
+    "tr": "Resim betimleme"
+  },
+  "Kurzpräsentation": {
+    "en": "Short presentation",
+    "ru": "Краткая презентация",
+    "uk": "Коротка презентація",
+    "tr": "Kısa sunum"
+  },
+  "Interaktion und Planung": {
+    "en": "Interaction and planning",
+    "ru": "Взаимодействие и планирование",
+    "uk": "Взаємодія і планування",
+    "tr": "Etkileşim ve planlama"
+  },
+  "{format} · {count} selbstständig": {
+    "en": "{format} · {count} independently",
+    "ru": "{format} · Самостоятельно: {count}",
+    "uk": "{format} · Самостійно: {count}",
+    "tr": "{format} · {count} bağımsız"
+  },
+  "Lernchecks und nächste Schritte": {
+    "en": "Learning checks and next steps",
+    "ru": "Проверки знаний и следующие шаги",
+    "uk": "Перевірки знань і наступні кроки",
+    "tr": "Öğrenme kontrolleri ve sonraki adımlar"
+  },
+  "{completed}/{total} Einheiten bearbeitet": {
+    "en": "{completed}/{total} units completed",
+    "ru": "Разделов выполнено: {completed}/{total}",
+    "uk": "Розділів виконано: {completed}/{total}",
+    "tr": "{completed}/{total} ünite tamamlandı"
+  },
+  "Neuer Lerncheck: {percent} %": {
+    "en": "New learning check: {percent}%",
+    "ru": "Новая проверка: {percent}%",
+    "uk": "Нова перевірка: {percent}%",
+    "tr": "Yeni öğrenme kontrolü: %{percent}"
+  },
+  "Wiederholen": {
+    "en": "Revise",
+    "ru": "Повторить",
+    "uk": "Повторити",
+    "tr": "Tekrar et"
+  },
+  "Nächster Schritt offen": {
+    "en": "Next step available",
+    "ru": "Следующий шаг доступен",
+    "uk": "Наступний крок доступний",
+    "tr": "Sonraki adım açık"
+  },
+  "Weiter üben": {
+    "en": "Keep practising",
+    "ru": "Продолжить практику",
+    "uk": "Продовжити практику",
+    "tr": "Çalışmaya devam et"
+  },
+  "Noch nötig: {items}": {
+    "en": "Still needed: {items}",
+    "ru": "Ещё требуется: {items}",
+    "uk": "Ще потрібно: {items}",
+    "tr": "Hâlâ gerekli: {items}"
+  },
+  "Lerncheck": {
+    "en": "Learning check",
+    "ru": "Проверка знаний",
+    "uk": "Перевірка знань",
+    "tr": "Öğrenme kontrolü"
+  },
+  "Der Lernweg misst deine Bearbeitung. Er zeigt keine Bestehenswahrscheinlichkeit. Eine selbstständige offene Leistung braucht eine verlässliche Rückmeldung.": {
+    "en": "The learning path measures completion, not your chance of passing. Independent open performance needs reliable feedback.",
+    "ru": "Учебный путь измеряет выполнение, а не вероятность сдачи. Самостоятельная работа с открытым ответом требует надёжного отзыва.",
+    "uk": "Навчальний шлях вимірює виконання, а не ймовірність складання. Самостійна робота з відкритою відповіддю потребує надійного відгуку.",
+    "tr": "Öğrenme yolu tamamlamayı ölçer, sınavı geçme olasılığını göstermez. Bağımsız açık yanıtlı çalışma güvenilir geri bildirim gerektirir."
+  },
+  "Zum Prüfungstrainer": {
+    "en": "Go to exam practice",
+    "ru": "К тренировке экзамена",
+    "uk": "До тренування іспиту",
+    "tr": "Sınav çalışmasına git"
+  },
+  "Bitte wähle eine Datei bis 20 MB. Deine bisherige Antwort bleibt erhalten.": {
+    "en": "Choose a file up to 20 MB. Your current answer is kept.",
+    "ru": "Выберите файл до 20 МБ. Текущий ответ сохранён.",
+    "uk": "Оберіть файл до 20 МБ. Поточну відповідь збережено.",
+    "tr": "20 MB’a kadar bir dosya seç. Mevcut yanıtın korunur."
+  },
+  "Dieses Dateiformat wird nicht unterstützt.": {
+    "en": "This file format is not supported.",
+    "ru": "Этот формат файла не поддерживается.",
+    "uk": "Цей формат файлу не підтримується.",
+    "tr": "Bu dosya türü desteklenmiyor."
+  },
+  "Speichern fehlgeschlagen. Bitte versuche es erneut.": {
+    "en": "Saving failed. Please try again.",
+    "ru": "Не удалось сохранить. Попробуйте ещё раз.",
+    "uk": "Не вдалося зберегти. Спробуйте ще раз.",
+    "tr": "Kaydetme başarısız oldu. Lütfen tekrar dene."
+  },
+  "Die Datei konnte nicht gespeichert werden. Deine Antwort bleibt hier erhalten. Bitte versuche es erneut.": {
+    "en": "The file could not be saved. Your answer stays here. Please try again.",
+    "ru": "Не удалось сохранить файл. Ваш ответ остаётся здесь. Попробуйте ещё раз.",
+    "uk": "Не вдалося зберегти файл. Ваша відповідь залишається тут. Спробуйте ще раз.",
+    "tr": "Dosya kaydedilemedi. Yanıtın burada korunur. Lütfen tekrar dene."
+  },
+  "Das Mikrofon ist gesperrt. Du kannst eine vorhandene Aufnahme hochladen.": {
+    "en": "Microphone access is blocked. Upload an existing recording.",
+    "ru": "Доступ к микрофону заблокирован. Загрузите готовую запись.",
+    "uk": "Доступ до мікрофона заблоковано. Завантажте готовий запис.",
+    "tr": "Mikrofon erişimi engellendi. Mevcut bir kaydı yükleyebilirsin."
+  },
+  "Dieser Browser kann nicht aufnehmen. Lade eine Audiodatei hoch.": {
+    "en": "This browser cannot record. Upload an audio file.",
+    "ru": "Браузер не может записывать. Загрузите аудиофайл.",
+    "uk": "Браузер не може записувати. Завантажте аудіофайл.",
+    "tr": "Bu tarayıcı kayıt yapamıyor. Bir ses dosyası yükle."
+  },
+  "Die Aufnahme hat nicht funktioniert. Bitte starte neu oder lade eine Datei hoch.": {
+    "en": "Recording failed. Start again or upload a file.",
+    "ru": "Не удалось записать. Начните снова или загрузите файл.",
+    "uk": "Не вдалося записати. Почніть знову або завантажте файл.",
+    "tr": "Kayıt başarısız oldu. Yeniden başla veya bir dosya yükle."
+  },
+  "Deine Aufnahme bleibt privat. Du entscheidest selbst, ob du sie an deine Lehrkraft sendest. Hier kannst du bis zu 5 Minuten aufnehmen. Audiodateien bis 20 MB: MP3, M4A, WAV, WebM oder Ogg. Höre deine Aufnahme vor dem Senden an.": {
+    "en": "Your recording stays private. You decide whether to send it to your teacher. Record up to 5 minutes or upload MP3, M4A, WAV, WebM or Ogg up to 20 MB. Listen before sending.",
+    "ru": "Запись остаётся приватной. Вы решаете, отправлять ли её преподавателю. Запишите до 5 минут или загрузите MP3, M4A, WAV, WebM или Ogg до 20 МБ. Прослушайте перед отправкой.",
+    "uk": "Запис залишається приватним. Ви вирішуєте, чи надсилати його викладачу. Запишіть до 5 хвилин або завантажте MP3, M4A, WAV, WebM чи Ogg до 20 МБ. Прослухайте перед надсиланням.",
+    "tr": "Kaydın özel kalır. Öğretmenine gönderip göndermemeye sen karar verirsin. En fazla 5 dakika kaydet veya 20 MB’a kadar MP3, M4A, WAV, WebM ya da Ogg yükle. Göndermeden önce dinle."
+  },
+  "Aufnahme stoppen · {seconds} s": {
+    "en": "Stop recording · {seconds} s",
+    "ru": "Остановить запись · {seconds} с",
+    "uk": "Зупинити запис · {seconds} с",
+    "tr": "Kaydı durdur · {seconds} sn"
+  },
+  "Neu aufnehmen": {
+    "en": "Record again",
+    "ru": "Записать заново",
+    "uk": "Записати знову",
+    "tr": "Yeniden kaydet"
+  },
+  "Mikrofon testen / aufnehmen": {
+    "en": "Test microphone / record",
+    "ru": "Проверить микрофон / записать",
+    "uk": "Перевірити мікрофон / записати",
+    "tr": "Mikrofonu dene / kaydet"
+  },
+  "Lautstärke deiner Aufnahme": {
+    "en": "Recording volume",
+    "ru": "Громкость записи",
+    "uk": "Гучність запису",
+    "tr": "Kayıt ses düzeyi"
+  },
+  "Eigene Aufnahme anhören": {
+    "en": "Listen to your recording",
+    "ru": "Прослушать свою запись",
+    "uk": "Прослухати свій запис",
+    "tr": "Kaydını dinle"
+  },
+  "Aufnahme verwerfen": {
+    "en": "Discard recording",
+    "ru": "Удалить запись",
+    "uk": "Відкинути запис",
+    "tr": "Kaydı sil"
+  },
+  "Schreibe hier deine eigene Antwort …": {
+    "en": "Write your own answer here …",
+    "ru": "Напишите свой ответ здесь …",
+    "uk": "Напишіть свою відповідь тут …",
+    "tr": "Kendi yanıtını buraya yaz …"
+  },
+  "Vorhandene Audiodatei hochladen": {
+    "en": "Upload an existing audio file",
+    "ru": "Загрузить готовый аудиофайл",
+    "uk": "Завантажити готовий аудіофайл",
+    "tr": "Mevcut bir ses dosyası yükle"
+  },
+  "Handschriftlichen Text als Foto hochladen (bis 20 MB)": {
+    "en": "Upload a photo of handwritten text (up to 20 MB)",
+    "ru": "Загрузить фото рукописного текста (до 20 МБ)",
+    "uk": "Завантажити фото рукописного тексту (до 20 МБ)",
+    "tr": "El yazısı metnin fotoğrafını yükle (20 MB’a kadar)"
+  },
+  "Was hast du nach der Rückmeldung verändert?": {
+    "en": "What did you change after feedback?",
+    "ru": "Что вы изменили после отзыва?",
+    "uk": "Що ви змінили після відгуку?",
+    "tr": "Geri bildirimden sonra neyi değiştirdin?"
+  },
+  "Nenne eine Verbesserung oder deinen nächsten Lernschritt.": {
+    "en": "Describe an improvement or your next learning step.",
+    "ru": "Назовите улучшение или следующий учебный шаг.",
+    "uk": "Назвіть покращення або наступний навчальний крок.",
+    "tr": "Bir geliştirmeyi veya sonraki öğrenme adımını belirt."
+  },
+  "Worauf kommt es bei dieser Aufgabe an?": {
+    "en": "What matters in this task?",
+    "ru": "Что важно в этом задании?",
+    "uk": "Що важливо в цьому завданні?",
+    "tr": "Bu görevde ne önemlidir?"
+  },
+  "Erfülle den Auftrag.": {
+    "en": "Complete the task.",
+    "ru": "Выполните задание.",
+    "uk": "Виконайте завдання.",
+    "tr": "Görevi tamamla."
+  },
+  "Formuliere verständlich.": {
+    "en": "Express yourself clearly.",
+    "ru": "Выражайтесь понятно.",
+    "uk": "Висловлюйтеся зрозуміло.",
+    "tr": "Anlaşılır ifade et."
+  },
+  "Verbinde deine Gedanken.": {
+    "en": "Connect your ideas.",
+    "ru": "Связывайте мысли.",
+    "uk": "Пов’язуйте думки.",
+    "tr": "Düşüncelerini bağla."
+  },
+  "Rückmeldung von {name}, voraussichtlich innerhalb von {days} Tagen.": {
+    "en": "Feedback from {name}, expected within {days} days.",
+    "ru": "Отзыв от {name}, ожидается в течение {days} дней.",
+    "uk": "Відгук від {name}, очікується протягом {days} днів.",
+    "tr": "{name} tarafından geri bildirim, yaklaşık {days} gün içinde."
+  },
+  "Es ist noch keine Lehrkraft zugewiesen. Du kannst deine Antwort als Entwurf speichern.": {
+    "en": "No teacher is assigned yet. Save your answer as a draft.",
+    "ru": "Преподаватель ещё не назначен. Сохраните ответ как черновик.",
+    "uk": "Викладача ще не призначено. Збережіть відповідь як чернетку.",
+    "tr": "Henüz öğretmen atanmadı. Yanıtını taslak olarak kaydedebilirsin."
+  },
+  "Als Entwurf speichern": {
+    "en": "Save as draft",
+    "ru": "Сохранить как черновик",
+    "uk": "Зберегти як чернетку",
+    "tr": "Taslak olarak kaydet"
+  },
+  "An {name} senden": {
+    "en": "Send to {name}",
+    "ru": "Отправить: {name}",
+    "uk": "Надіслати: {name}",
+    "tr": "{name} kişisine gönder"
+  },
+  "Meine Wörter und Wendungen": {
+    "en": "My words and phrases",
+    "ru": "Мои слова и выражения",
+    "uk": "Мої слова й вирази",
+    "tr": "Kelimelerim ve ifadelerim"
+  },
+  "Übe diese Wörter mit einem eigenen Beispielsatz. Du kannst sie in deiner vorhandenen Lernbox speichern.": {
+    "en": "Practise these words in your own example sentence. Save them in your existing learning box.",
+    "ru": "Тренируйте эти слова в собственном предложении. Сохраните их в своей учебной картотеке.",
+    "uk": "Тренуйте ці слова у власному реченні. Збережіть їх у своїй навчальній картотеці.",
+    "tr": "Bu kelimeleri kendi örnek cümlenle çalış. Mevcut öğrenme kutuna kaydedebilirsin."
+  },
+  "Zur Lernbox · Wort übernehmen": {
+    "en": "Learning box · Add word",
+    "ru": "Картотека · Добавить слово",
+    "uk": "Картотека · Додати слово",
+    "tr": "Öğrenme kutusu · Kelimeyi ekle"
+  },
+  "Die Lernbox verwendet die Erstsprache aus deinem Profil.": {
+    "en": "The learning box uses the native language in your profile.",
+    "ru": "Картотека использует родной язык из вашего профиля.",
+    "uk": "Картотека використовує рідну мову з вашого профілю.",
+    "tr": "Öğrenme kutusu profilindeki ana dili kullanır."
+  },
+  "Prüfungsvorbereitung wird geladen": {
+    "en": "Loading exam preparation",
+    "ru": "Загрузка подготовки к экзамену",
+    "uk": "Завантаження підготовки до іспиту",
+    "tr": "Sınava hazırlık yükleniyor"
+  },
+  "Deine B1-Prüfungsvorbereitung wird geladen …": {
+    "en": "Your B1 exam preparation is loading …",
+    "ru": "Ваша подготовка к экзамену B1 загружается …",
+    "uk": "Ваша підготовка до іспиту B1 завантажується …",
+    "tr": "B1 sınavına hazırlığın yükleniyor …"
+  },
+  "Dein Prüfungstrainer konnte nicht geladen werden": {
+    "en": "Your exam practice could not be loaded",
+    "ru": "Не удалось загрузить тренировку экзамена",
+    "uk": "Не вдалося завантажити тренування іспиту",
+    "tr": "Sınav çalışman yüklenemedi"
+  },
+  "Bitte versuche es erneut. Deine gespeicherten Antworten bleiben erhalten.": {
+    "en": "Please try again. Your saved answers are kept.",
+    "ru": "Попробуйте ещё раз. Сохранённые ответы остаются.",
+    "uk": "Спробуйте ще раз. Збережені відповіді залишаються.",
+    "tr": "Lütfen tekrar dene. Kaydedilmiş yanıtların korunur."
+  },
+  "Erneut laden": {
+    "en": "Reload",
+    "ru": "Загрузить снова",
+    "uk": "Завантажити знову",
+    "tr": "Yeniden yükle"
+  },
+  "Ankommen und Kontakte": {
+    "en": "Getting started and making contact",
+    "ru": "Знакомство и общение",
+    "uk": "Знайомство та спілкування",
+    "tr": "Başlangıç ve iletişim"
+  },
+  "Ein vollständiges Pilotmodul: Lernziele, Nachfragen, Lerntreffen und neue Kontakte. Bearbeitung und selbstständige Leistung bleiben getrennt.": {
+    "en": "A complete pilot module: learning goals, follow-up questions, study meetings and new contacts. Completion and independent performance stay separate.",
+    "ru": "Полный пилотный модуль: учебные цели, уточняющие вопросы, учебные встречи и новые знакомства. Выполнение и самостоятельный результат учитываются отдельно.",
+    "uk": "Повний пілотний модуль: навчальні цілі, уточнювальні запитання, навчальні зустрічі й нові знайомства. Виконання й самостійний результат враховуються окремо.",
+    "tr": "Tam bir pilot modül: öğrenme hedefleri, ek sorular, çalışma buluşmaları ve yeni tanışmalar. Tamamlama ve bağımsız başarı ayrı tutulur."
+  },
+  "Ankommen und ein Ziel wählen": {
+    "en": "Get started and choose a goal",
+    "ru": "Освоиться и выбрать цель",
+    "uk": "Освоїтися й обрати ціль",
+    "tr": "Başla ve bir hedef seç"
+  },
+  "Sie lernen das Lerncafé kennen und formulieren ein eigenes Ziel.": {
+    "en": "Get to know the learning café and set your own goal.",
+    "ru": "Познакомьтесь с учебным кафе и сформулируйте свою цель.",
+    "uk": "Познайомтеся з навчальним кафе й сформулюйте свою ціль.",
+    "tr": "Öğrenme kafesini tanı ve kendi hedefini belirle."
+  },
+  "Wörter für gute Kontakte": {
+    "en": "Words for making contact",
+    "ru": "Слова для общения",
+    "uk": "Слова для спілкування",
+    "tr": "İletişim için kelimeler"
+  },
+  "Sie verbinden Wörter mit passenden Situationen und Sätzen.": {
+    "en": "Match words to suitable situations and sentences.",
+    "ru": "Соотнесите слова с подходящими ситуациями и предложениями.",
+    "uk": "Зіставте слова з відповідними ситуаціями й реченнями.",
+    "tr": "Kelimeleri uygun durumlar ve cümlelerle eşleştir."
+  },
+  "Wörter selbst benutzen": {
+    "en": "Use words independently",
+    "ru": "Самостоятельно использовать слова",
+    "uk": "Самостійно використовувати слова",
+    "tr": "Kelimeleri bağımsız kullan"
+  },
+  "Sie rufen Wörter ohne Auswahl ab und reagieren mit eigenen Sätzen.": {
+    "en": "Recall words without options and respond in your own sentences.",
+    "ru": "Вспомните слова без вариантов выбора и ответьте своими предложениями.",
+    "uk": "Згадайте слова без варіантів вибору й дайте відповідь власними реченнями.",
+    "tr": "Seçenek olmadan kelimeleri hatırla ve kendi cümlelerinle yanıt ver."
+  },
+  "Gut auf Schlüsselstellen hören": {
+    "en": "Listen for key information",
+    "ru": "Слушать ключевую информацию",
+    "uk": "Слухати ключову інформацію",
+    "tr": "Önemli bilgileri dinle"
+  },
+  "Sie erkennen Zahlen, Änderungen und verneinte Informationen.": {
+    "en": "Identify numbers, changes and negative statements.",
+    "ru": "Распознайте числа, изменения и отрицания.",
+    "uk": "Розпізнайте числа, зміни й заперечення.",
+    "tr": "Sayıları, değişiklikleri ve olumsuz bilgileri fark et."
+  },
+  "Eine neue Mitteilung verstehen": {
+    "en": "Understand a new message",
+    "ru": "Понять новое сообщение",
+    "uk": "Зрозуміти нове повідомлення",
+    "tr": "Yeni bir mesajı anla"
+  },
+  "Sie hören eine vollständige Terminmitteilung und notieren Wichtiges.": {
+    "en": "Listen to a complete appointment message and note the key points.",
+    "ru": "Прослушайте полное сообщение о встрече и запишите важное.",
+    "uk": "Прослухайте повне повідомлення про зустріч і запишіть важливе.",
+    "tr": "Tam bir randevu mesajını dinle ve önemli noktaları not et."
+  },
+  "Ein Angebot genau lesen": {
+    "en": "Read an offer carefully",
+    "ru": "Внимательно прочитать предложение",
+    "uk": "Уважно прочитати пропозицію",
+    "tr": "Bir teklifi dikkatle oku"
+  },
+  "Sie suchen Belege und unterscheiden Bedingungen und Ausnahmen.": {
+    "en": "Find evidence and distinguish conditions from exceptions.",
+    "ru": "Найдите подтверждения и различайте условия и исключения.",
+    "uk": "Знайдіть підтвердження й розрізняйте умови та винятки.",
+    "tr": "Kanıtları bul, koşulları ve istisnaları ayırt et."
+  },
+  "Eine höfliche Nachricht schreiben": {
+    "en": "Write a polite message",
+    "ru": "Написать вежливое сообщение",
+    "uk": "Написати ввічливе повідомлення",
+    "tr": "Kibar bir mesaj yaz"
+  },
+  "Sie planen eine Nachricht und reichen Ihren eigenen Text ein.": {
+    "en": "Plan a message and submit your own text.",
+    "ru": "Спланируйте сообщение и отправьте свой текст.",
+    "uk": "Сплануйте повідомлення й надішліть власний текст.",
+    "tr": "Bir mesaj planla ve kendi metnini gönder."
+  },
+  "Beschreiben und frei sprechen": {
+    "en": "Describe and speak freely",
+    "ru": "Описывать и свободно говорить",
+    "uk": "Описувати й вільно говорити",
+    "tr": "Betimle ve serbest konuş"
+  },
+  "Sie beschreiben ein echtes Bild, erzählen eine Erfahrung und stellen Fragen.": {
+    "en": "Describe a real picture, share an experience and ask questions.",
+    "ru": "Опишите настоящее изображение, расскажите об опыте и задайте вопросы.",
+    "uk": "Опишіть справжнє зображення, розкажіть про досвід і поставте запитання.",
+    "tr": "Gerçek bir resmi betimle, bir deneyimini anlat ve sorular sor."
+  },
+  "Einen neuen Lerntreff planen": {
+    "en": "Plan a new study meeting",
+    "ru": "Спланировать новую учебную встречу",
+    "uk": "Спланувати нову навчальну зустріч",
+    "tr": "Yeni bir çalışma buluşması planla"
+  },
+  "Sie übertragen Ihre Strategien auf eine neue Situation.": {
+    "en": "Apply your strategies to a new situation.",
+    "ru": "Примените свои стратегии в новой ситуации.",
+    "uk": "Застосуйте свої стратегії в новій ситуації.",
+    "tr": "Stratejilerini yeni bir duruma uygula."
+  },
+  "Mein neuer Lerncheck": {
+    "en": "My new learning check",
+    "ru": "Моя новая проверка знаний",
+    "uk": "Моя нова перевірка знань",
+    "tr": "Yeni öğrenme kontrolüm"
+  },
+  "Fünf Hör- und fünf Leseentscheidungen plus eigene Schreib- und Sprechproben. Für einen neuen Versuch folgt eine unbekannte Variante.": {
+    "en": "Five listening and five reading decisions, plus your own writing and speaking samples. Each new attempt uses an unseen variant.",
+    "ru": "Пять решений по аудированию и пять по чтению, плюс собственные письменные и устные работы. Новая попытка использует незнакомый вариант.",
+    "uk": "П’ять рішень з аудіювання й п’ять із читання, плюс власні письмові й усні роботи. Нова спроба використовує незнайомий варіант.",
+    "tr": "Beş dinleme ve beş okuma kararı, ayrıca kendi yazma ve konuşma örneklerin. Yeni denemede daha önce görülmemiş bir sürüm kullanılır."
+  },
+  "Drei gezielte Förderübungen": {
+    "en": "Three targeted support exercises",
+    "ru": "Три поддерживающих упражнения",
+    "uk": "Три допоміжні вправи",
+    "tr": "Üç hedefli destek alıştırması"
+  },
+  "Dieser alternative Lernweg öffnet nach zwei nicht bestandenen neuen Lerncheckvarianten.": {
+    "en": "This alternative path opens after two unsuccessful new check variants.",
+    "ru": "Этот альтернативный путь открывается после двух неудачных новых вариантов проверки.",
+    "uk": "Цей альтернативний шлях відкривається після двох невдалих нових варіантів перевірки.",
+    "tr": "Bu alternatif yol, iki yeni kontrol sürümünde başarısız olduktan sonra açılır."
+  },
+  "Eine neue Situation übertragen": {
+    "en": "Transfer your skills to a new situation",
+    "ru": "Перенести навыки в новую ситуацию",
+    "uk": "Перенести навички в нову ситуацію",
+    "tr": "Becerilerini yeni bir duruma aktar"
+  },
+  "Termine und Mobilität": {
+    "en": "Appointments and getting around",
+    "ru": "Встречи и передвижение",
+    "uk": "Зустрічі й пересування",
+    "tr": "Randevular ve ulaşım"
+  },
+  "Termin ändern, Uhrzeiten verstehen und Verbindungen finden.": {
+    "en": "Change an appointment, understand times and find connections.",
+    "ru": "Изменять время встречи, понимать часы и находить маршруты.",
+    "uk": "Змінювати час зустрічі, розуміти години й знаходити маршрути.",
+    "tr": "Randevu değiştir, saatleri anla ve ulaşım bağlantıları bul."
+  },
+  "Ein geänderter Termin": {
+    "en": "A changed appointment",
+    "ru": "Изменённая встреча",
+    "uk": "Змінена зустріч",
+    "tr": "Değişen bir randevu"
+  },
+  "Uhrzeiten, Verbindungen und Fristen": {
+    "en": "Times, connections and deadlines",
+    "ru": "Время, маршруты и сроки",
+    "uk": "Час, маршрути й строки",
+    "tr": "Saatler, bağlantılar ve son tarihler"
+  },
+  "Höflich einen anderen Termin erfragen": {
+    "en": "Politely request another appointment",
+    "ru": "Вежливо попросить другое время",
+    "uk": "Ввічливо попросити інший час",
+    "tr": "Kibarca başka bir randevu iste"
+  },
+  "Zahlen und Korrektursignale hören": {
+    "en": "Listen for numbers and corrections",
+    "ru": "Слушать числа и сигналы исправления",
+    "uk": "Слухати числа й сигнали виправлення",
+    "tr": "Sayıları ve düzeltme işaretlerini dinle"
+  },
+  "Neue Ansagen an Haltestelle und Telefon": {
+    "en": "New announcements at stops and on the phone",
+    "ru": "Новые объявления на остановке и по телефону",
+    "uk": "Нові оголошення на зупинці й телефоном",
+    "tr": "Durakta ve telefonda yeni duyurular"
+  },
+  "Fahrplan und Terminbestätigung lesen": {
+    "en": "Read a timetable and appointment confirmation",
+    "ru": "Читать расписание и подтверждение встречи",
+    "uk": "Читати розклад і підтвердження зустрічі",
+    "tr": "Tarife ve randevu onayını oku"
+  },
+  "Eine Terminänderung schreiben": {
+    "en": "Write about a changed appointment",
+    "ru": "Написать об изменении встречи",
+    "uk": "Написати про зміну зустрічі",
+    "tr": "Randevu değişikliği yaz"
+  },
+  "Eine Fahrt erklären und rückfragen": {
+    "en": "Explain a journey and ask follow-up questions",
+    "ru": "Объяснить поездку и задать уточняющие вопросы",
+    "uk": "Пояснити поїздку й поставити уточнювальні запитання",
+    "tr": "Bir yolculuğu anlat ve ek sorular sor"
+  },
+  "Eine andere Route gemeinsam planen": {
+    "en": "Plan another route together",
+    "ru": "Вместе спланировать другой маршрут",
+    "uk": "Разом спланувати інший маршрут",
+    "tr": "Birlikte başka bir rota planla"
+  },
+  "Neue Hör- und Leseaufgaben zu Mobilität": {
+    "en": "New listening and reading tasks about travel",
+    "ru": "Новые задания по аудированию и чтению о передвижении",
+    "uk": "Нові завдання з аудіювання й читання про пересування",
+    "tr": "Ulaşımla ilgili yeni dinleme ve okuma görevleri"
+  },
+  "Wohnen und Nachbarschaft": {
+    "en": "Housing and neighbourhood",
+    "ru": "Жильё и соседи",
+    "uk": "Житло й сусіди",
+    "tr": "Ev ve komşuluk"
+  },
+  "Probleme melden, höflich bitten und Absprachen treffen.": {
+    "en": "Report problems, make polite requests and agree on arrangements.",
+    "ru": "Сообщать о проблемах, вежливо просить и договариваться.",
+    "uk": "Повідомляти про проблеми, ввічливо просити й домовлятися.",
+    "tr": "Sorunları bildir, kibarca rica et ve anlaşmalar yap."
+  },
+  "Ein Wohnproblem erkennen": {
+    "en": "Identify a housing problem",
+    "ru": "Определить проблему с жильём",
+    "uk": "Визначити проблему з житлом",
+    "tr": "Evle ilgili bir sorunu tanı"
+  },
+  "Haushalt, Reparatur und Hausregeln": {
+    "en": "Household, repairs and house rules",
+    "ru": "Хозяйство, ремонт и правила дома",
+    "uk": "Господарство, ремонт і правила будинку",
+    "tr": "Ev işleri, onarım ve ev kuralları"
+  },
+  "Eine Bitte mit eigenen Worten": {
+    "en": "Make a request in your own words",
+    "ru": "Просьба своими словами",
+    "uk": "Прохання власними словами",
+    "tr": "Kendi sözlerinle rica et"
+  },
+  "Ursache und Folge im Gespräch": {
+    "en": "Cause and effect in conversation",
+    "ru": "Причина и следствие в разговоре",
+    "uk": "Причина й наслідок у розмові",
+    "tr": "Konuşmada neden ve sonuç"
+  },
+  "Ein Gespräch mit dem Hausmeister": {
+    "en": "A conversation with the caretaker",
+    "ru": "Разговор с управляющим дома",
+    "uk": "Розмова з управителем будинку",
+    "tr": "Bina görevlisiyle konuşma"
+  },
+  "Hausordnung und Aushang prüfen": {
+    "en": "Check house rules and a notice",
+    "ru": "Изучить правила дома и объявление",
+    "uk": "Вивчити правила будинку й оголошення",
+    "tr": "Bina kurallarını ve duyuruyu incele"
+  },
+  "Ein Problem schriftlich melden": {
+    "en": "Report a problem in writing",
+    "ru": "Письменно сообщить о проблеме",
+    "uk": "Письмово повідомити про проблему",
+    "tr": "Bir sorunu yazılı bildir"
+  },
+  "Hausflur beschreiben und Erfahrung erzählen": {
+    "en": "Describe a hallway and share an experience",
+    "ru": "Описать коридор и рассказать об опыте",
+    "uk": "Описати коридор і розповісти про досвід",
+    "tr": "Koridoru betimle ve deneyimini anlat"
+  },
+  "Eine gemeinsame Lösung vereinbaren": {
+    "en": "Agree on a shared solution",
+    "ru": "Договориться об общем решении",
+    "uk": "Домовитися про спільне рішення",
+    "tr": "Ortak bir çözüm üzerinde anlaş"
+  },
+  "Unbekanntes Wohnproblem bearbeiten": {
+    "en": "Work through an unfamiliar housing problem",
+    "ru": "Разобрать незнакомую жилищную проблему",
+    "uk": "Розібрати незнайому житлову проблему",
+    "tr": "Yeni bir ev sorununu çöz"
+  },
+  "Einkaufen und Dienstleistungen": {
+    "en": "Shopping and services",
+    "ru": "Покупки и услуги",
+    "uk": "Покупки й послуги",
+    "tr": "Alışveriş ve hizmetler"
+  },
+  "Angebote prüfen, Bedingungen verstehen und reklamieren.": {
+    "en": "Review offers, understand conditions and make complaints.",
+    "ru": "Проверять предложения, понимать условия и подавать рекламации.",
+    "uk": "Перевіряти пропозиції, розуміти умови й подавати рекламації.",
+    "tr": "Teklifleri incele, koşulları anla ve şikâyette bulun."
+  },
+  "Ein Angebot mit Bedingungen": {
+    "en": "An offer with conditions",
+    "ru": "Предложение с условиями",
+    "uk": "Пропозиція з умовами",
+    "tr": "Koşullu bir teklif"
+  },
+  "Preis, Garantie und Ersatzteile": {
+    "en": "Price, warranty and spare parts",
+    "ru": "Цена, гарантия и запчасти",
+    "uk": "Ціна, гарантія й запчастини",
+    "tr": "Fiyat, garanti ve yedek parçalar"
+  },
+  "Eine Reklamation selbst formulieren": {
+    "en": "Write your own complaint",
+    "ru": "Самостоятельно сформулировать рекламацию",
+    "uk": "Самостійно сформулювати рекламацію",
+    "tr": "Kendi şikâyetini yaz"
+  },
+  "Preise und Einschränkungen hören": {
+    "en": "Listen for prices and restrictions",
+    "ru": "Слушать цены и ограничения",
+    "uk": "Слухати ціни й обмеження",
+    "tr": "Fiyatları ve kısıtlamaları dinle"
+  },
+  "Eine neue Servicemeldung verstehen": {
+    "en": "Understand a new service message",
+    "ru": "Понять новое сервисное сообщение",
+    "uk": "Зрозуміти нове сервісне повідомлення",
+    "tr": "Yeni bir hizmet mesajını anla"
+  },
+  "Anzeigen zuordnen und Ausschlüsse prüfen": {
+    "en": "Match advertisements and check exclusions",
+    "ru": "Сопоставить объявления и проверить исключения",
+    "uk": "Зіставити оголошення й перевірити винятки",
+    "tr": "İlanları eşleştir ve istisnaları incele"
+  },
+  "Eine Reklamation per E-Mail": {
+    "en": "A complaint by email",
+    "ru": "Рекламация по электронной почте",
+    "uk": "Рекламація електронною поштою",
+    "tr": "E-posta ile şikâyet"
+  },
+  "Ein Geschäft beschreiben und berichten": {
+    "en": "Describe a shop and share a report",
+    "ru": "Описать магазин и рассказать о нём",
+    "uk": "Описати магазин і розповісти про нього",
+    "tr": "Bir mağazayı betimle ve anlat"
+  },
+  "Mit dem Service eine Lösung planen": {
+    "en": "Plan a solution with customer service",
+    "ru": "Спланировать решение со службой поддержки",
+    "uk": "Спланувати рішення зі службою підтримки",
+    "tr": "Müşteri hizmetleriyle çözüm planla"
+  },
+  "Neue Kauf- und Servicefälle lösen": {
+    "en": "Solve new shopping and service cases",
+    "ru": "Решить новые случаи покупок и услуг",
+    "uk": "Розв’язати нові випадки покупок і послуг",
+    "tr": "Yeni alışveriş ve hizmet durumlarını çöz"
+  },
+  "Gesundheit und Alltag": {
+    "en": "Health and daily life",
+    "ru": "Здоровье и повседневная жизнь",
+    "uk": "Здоров’я й повсякденне життя",
+    "tr": "Sağlık ve günlük yaşam"
+  },
+  "Anliegen erklären, Informationen verstehen und Erfahrungen berichten.": {
+    "en": "Explain your needs, understand information and share experiences.",
+    "ru": "Объяснять просьбы, понимать информацию и рассказывать об опыте.",
+    "uk": "Пояснювати прохання, розуміти інформацію й розповідати про досвід.",
+    "tr": "İhtiyaçlarını açıkla, bilgileri anla ve deneyimlerini anlat."
+  },
+  "Ein Anliegen verständlich erklären": {
+    "en": "Explain a need clearly",
+    "ru": "Понятно объяснить просьбу",
+    "uk": "Зрозуміло пояснити прохання",
+    "tr": "Bir isteği anlaşılır açıkla"
+  },
+  "Termin, Beschwerden und Unterlagen": {
+    "en": "Appointments, symptoms and documents",
+    "ru": "Приём, жалобы и документы",
+    "uk": "Прийом, скарги й документи",
+    "tr": "Randevu, şikâyetler ve belgeler"
+  },
+  "Eine höfliche Frage in der Praxis": {
+    "en": "A polite question at the clinic",
+    "ru": "Вежливый вопрос в клинике",
+    "uk": "Ввічливе запитання в клініці",
+    "tr": "Muayenehanede kibar bir soru"
+  },
+  "Zeiten und verneinte Informationen": {
+    "en": "Times and negative statements",
+    "ru": "Время и отрицания",
+    "uk": "Час і заперечення",
+    "tr": "Saatler ve olumsuz bilgiler"
+  },
+  "Eine organisatorische Praxisnachricht": {
+    "en": "An administrative message from the clinic",
+    "ru": "Организационное сообщение клиники",
+    "uk": "Організаційне повідомлення клініки",
+    "tr": "Muayenehaneden idari mesaj"
+  },
+  "Informationen zu Sprechstunden lesen": {
+    "en": "Read information about consultation hours",
+    "ru": "Читать информацию о часах приёма",
+    "uk": "Читати інформацію про години прийому",
+    "tr": "Muayene saatleri bilgisini oku"
+  },
+  "Eine Terminbitte verfassen": {
+    "en": "Write an appointment request",
+    "ru": "Написать просьбу о приёме",
+    "uk": "Написати прохання про прийом",
+    "tr": "Randevu isteği yaz"
+  },
+  "Alltagsszene und Erfahrung beschreiben": {
+    "en": "Describe an everyday scene and experience",
+    "ru": "Описать повседневную сцену и опыт",
+    "uk": "Описати повсякденну сцену й досвід",
+    "tr": "Günlük bir sahneyi ve deneyimini betimle"
+  },
+  "Eine neue Alltagssituation besprechen": {
+    "en": "Discuss a new everyday situation",
+    "ru": "Обсудить новую повседневную ситуацию",
+    "uk": "Обговорити нову повсякденну ситуацію",
+    "tr": "Yeni bir günlük durumu konuş"
+  },
+  "Neue Hör- und Leseaufgaben zum Alltag": {
+    "en": "New listening and reading tasks about daily life",
+    "ru": "Новые задания по аудированию и чтению о повседневности",
+    "uk": "Нові завдання з аудіювання й читання про повсякденність",
+    "tr": "Günlük yaşamla ilgili yeni dinleme ve okuma görevleri"
+  },
+  "Beruf, Lernen und Familie": {
+    "en": "Work, learning and family",
+    "ru": "Работа, учёба и семья",
+    "uk": "Робота, навчання й сім’я",
+    "tr": "İş, öğrenme ve aile"
+  },
+  "Informationen erfragen, Mitteilungen verstehen und Gründe nennen.": {
+    "en": "Request information, understand messages and give reasons.",
+    "ru": "Запрашивать информацию, понимать сообщения и называть причины.",
+    "uk": "Запитувати інформацію, розуміти повідомлення й називати причини.",
+    "tr": "Bilgi iste, mesajları anla ve neden belirt."
+  },
+  "Lernen und Verantwortung verbinden": {
+    "en": "Combine learning and responsibility",
+    "ru": "Совмещать учёбу и ответственность",
+    "uk": "Поєднувати навчання й відповідальність",
+    "tr": "Öğrenme ve sorumluluğu birleştir"
+  },
+  "Mitteilungen, Gründe und Weiterbildung": {
+    "en": "Messages, reasons and further education",
+    "ru": "Сообщения, причины и повышение квалификации",
+    "uk": "Повідомлення, причини й підвищення кваліфікації",
+    "tr": "Mesajlar, nedenler ve ileri eğitim"
+  },
+  "Einen Grund verständlich nennen": {
+    "en": "Give a reason clearly",
+    "ru": "Понятно назвать причину",
+    "uk": "Зрозуміло назвати причину",
+    "tr": "Bir nedeni anlaşılır belirt"
+  },
+  "Absicht in kurzen Nachrichten hören": {
+    "en": "Identify intentions in short messages",
+    "ru": "Распознать намерение в коротких сообщениях",
+    "uk": "Розпізнати намір у коротких повідомленнях",
+    "tr": "Kısa mesajlarda amacı dinle"
+  },
+  "Neue Nachrichten aus Kurs und Arbeit": {
+    "en": "New messages from class and work",
+    "ru": "Новые сообщения с курса и работы",
+    "uk": "Нові повідомлення з курсу й роботи",
+    "tr": "Kurs ve işten yeni mesajlar"
+  },
+  "Weiterbildungs- und Betreuungsangebote": {
+    "en": "Further education and care services",
+    "ru": "Образовательные программы и услуги ухода",
+    "uk": "Освітні програми й послуги догляду",
+    "tr": "İleri eğitim ve bakım hizmetleri"
+  },
+  "Informationen höflich erfragen": {
+    "en": "Politely request information",
+    "ru": "Вежливо запросить информацию",
+    "uk": "Ввічливо запитати інформацію",
+    "tr": "Kibarca bilgi iste"
+  },
+  "Eine Aufgabe oder Erfahrung erklären": {
+    "en": "Explain a task or experience",
+    "ru": "Объяснить задачу или опыт",
+    "uk": "Пояснити завдання чи досвід",
+    "tr": "Bir görevi veya deneyimi açıkla"
+  },
+  "Eine Absprache mit Einschränkungen treffen": {
+    "en": "Reach an agreement with limitations",
+    "ru": "Договориться с учётом ограничений",
+    "uk": "Домовитися з урахуванням обмежень",
+    "tr": "Kısıtlamaları dikkate alarak anlaş"
+  },
+  "Neue Mitteilungen und Notizen lösen": {
+    "en": "Work through new messages and notes",
+    "ru": "Разобрать новые сообщения и заметки",
+    "uk": "Розібрати нові повідомлення й нотатки",
+    "tr": "Yeni mesajları ve notları çöz"
+  },
+  "Freizeit und Zusammenleben": {
+    "en": "Leisure and living together",
+    "ru": "Досуг и совместная жизнь",
+    "uk": "Дозвілля й спільне життя",
+    "tr": "Boş zaman ve birlikte yaşam"
+  },
+  "Meinungen ausdrücken, vergleichen und gemeinsam planen.": {
+    "en": "Express opinions, compare and plan together.",
+    "ru": "Выражать мнения, сравнивать и вместе планировать.",
+    "uk": "Висловлювати думки, порівнювати й разом планувати.",
+    "tr": "Görüşlerini ifade et, karşılaştır ve birlikte planla."
+  },
+  "Ein gemeinsames Vorhaben": {
+    "en": "A shared project",
+    "ru": "Общее начинание",
+    "uk": "Спільний задум",
+    "tr": "Ortak bir plan"
+  },
+  "Meinung, Vorschlag und Kompromiss": {
+    "en": "Opinions, suggestions and compromise",
+    "ru": "Мнение, предложение и компромисс",
+    "uk": "Думка, пропозиція й компроміс",
+    "tr": "Görüş, öneri ve uzlaşma"
+  },
+  "Zustimmung und höfliche Ablehnung": {
+    "en": "Agreement and polite disagreement",
+    "ru": "Согласие и вежливый отказ",
+    "uk": "Згода й ввічлива відмова",
+    "tr": "Kabul ve kibarca reddetme"
+  },
+  "Sprecherpositionen unterscheiden": {
+    "en": "Distinguish speakers’ positions",
+    "ru": "Различать позиции говорящих",
+    "uk": "Розрізняти позиції мовців",
+    "tr": "Konuşmacıların görüşlerini ayırt et"
+  },
+  "Neue Meinungen verstehen": {
+    "en": "Understand new opinions",
+    "ru": "Понять новые мнения",
+    "uk": "Зрозуміти нові думки",
+    "tr": "Yeni görüşleri anla"
+  },
+  "Blogs und Veranstaltungsangebote lesen": {
+    "en": "Read blogs and event offers",
+    "ru": "Читать блоги и предложения мероприятий",
+    "uk": "Читати блоги й пропозиції заходів",
+    "tr": "Blogları ve etkinlik tekliflerini oku"
+  },
+  "Einen kurzen Meinungsbeitrag schreiben": {
+    "en": "Write a short opinion piece",
+    "ru": "Написать короткий текст с мнением",
+    "uk": "Написати короткий текст із думкою",
+    "tr": "Kısa bir görüş yazısı yaz"
+  },
+  "Einen Kurzvortrag mit Rückfragen halten": {
+    "en": "Give a short talk and take questions",
+    "ru": "Сделать короткий доклад и ответить на вопросы",
+    "uk": "Зробити коротку доповідь і відповісти на запитання",
+    "tr": "Kısa bir sunum yap ve soruları yanıtla"
+  },
+  "Einen Ausflug aushandeln": {
+    "en": "Agree on an outing",
+    "ru": "Договориться о поездке",
+    "uk": "Домовитися про поїздку",
+    "tr": "Bir gezi üzerinde anlaş"
+  },
+  "Neue Positionen und Bedingungen prüfen": {
+    "en": "Review new positions and conditions",
+    "ru": "Рассмотреть новые позиции и условия",
+    "uk": "Розглянути нові позиції й умови",
+    "tr": "Yeni görüşleri ve koşulları incele"
+  },
+  "Selbstständig in die Prüfung": {
+    "en": "Approach the exam independently",
+    "ru": "Самостоятельно к экзамену",
+    "uk": "Самостійно до іспиту",
+    "tr": "Sınava bağımsız hazırlan"
+  },
+  "Strategien übertragen, Zeit einteilen und neue Aufgaben lösen.": {
+    "en": "Apply strategies, manage your time and solve new tasks.",
+    "ru": "Переносить стратегии, распределять время и решать новые задания.",
+    "uk": "Переносити стратегії, розподіляти час і розв’язувати нові завдання.",
+    "tr": "Stratejileri uygula, zamanı yönet ve yeni görevleri çöz."
+  },
+  "Die eigene Zielprüfung wählen": {
+    "en": "Choose your target exam",
+    "ru": "Выбрать свой экзамен",
+    "uk": "Обрати свій іспит",
+    "tr": "Hedef sınavını seç"
+  },
+  "Strategien und wichtige Redemittel": {
+    "en": "Strategies and useful phrases",
+    "ru": "Стратегии и полезные выражения",
+    "uk": "Стратегії й корисні вирази",
+    "tr": "Stratejiler ve önemli ifadeler"
+  },
+  "Sprachmittel ohne Vorlage abrufen": {
+    "en": "Recall language without a template",
+    "ru": "Вспомнить языковые средства без образца",
+    "uk": "Згадати мовні засоби без зразка",
+    "tr": "Örnek olmadan dil kalıplarını hatırla"
+  },
+  "Hörregeln der Zielprüfung kennenlernen": {
+    "en": "Learn your exam’s listening rules",
+    "ru": "Изучить правила аудирования своего экзамена",
+    "uk": "Вивчити правила аудіювання свого іспиту",
+    "tr": "Hedef sınavın dinleme kurallarını öğren"
+  },
+  "Neue Hörtexte unter passenden Bedingungen": {
+    "en": "New listening texts under exam conditions",
+    "ru": "Новые аудиотексты в подходящих условиях",
+    "uk": "Нові аудіотексти у відповідних умовах",
+    "tr": "Uygun koşullarda yeni dinleme metinleri"
+  },
+  "Neue Texte gezielt und unter Zeit lesen": {
+    "en": "Read new texts with a purpose and time limit",
+    "ru": "Целенаправленно читать новые тексты на время",
+    "uk": "Цілеспрямовано читати нові тексти з обмеженням часу",
+    "tr": "Yeni metinleri hedefli ve süreli oku"
+  },
+  "Freie Schreibaufträge des Profils": {
+    "en": "Open writing tasks for your exam profile",
+    "ru": "Открытые письменные задания профиля",
+    "uk": "Відкриті письмові завдання профілю",
+    "tr": "Sınav türüne göre serbest yazma görevleri"
+  },
+  "Bild, Vortrag und Interaktion unterscheiden": {
+    "en": "Distinguish picture description, talk and interaction",
+    "ru": "Различать описание, доклад и взаимодействие",
+    "uk": "Розрізняти опис, доповідь і взаємодію",
+    "tr": "Resim, sunum ve etkileşimi ayırt et"
+  },
+  "Neue Situationen selbstständig bewältigen": {
+    "en": "Handle new situations independently",
+    "ru": "Самостоятельно справляться с новыми ситуациями",
+    "uk": "Самостійно долати нові ситуації",
+    "tr": "Yeni durumların bağımsız üstesinden gel"
+  },
+  "Neue Checkvarianten und nächste Schritte": {
+    "en": "New check variants and next steps",
+    "ru": "Новые варианты проверки и следующие шаги",
+    "uk": "Нові варіанти перевірки й наступні кроки",
+    "tr": "Yeni kontrol sürümleri ve sonraki adımlar"
+  },
+  "Sechs Schritte vom sichtbaren Detail bis zur neuen Aufnahme. Gemeinsames B1-Training; keine automatische Gleichsetzung mit einer Präsentationsaufgabe.": {
+    "en": "Six steps from visible details to a new recording. General B1 practice; not automatically equivalent to a presentation task.",
+    "ru": "Шесть шагов от видимой детали до новой записи. Общая практика B1; не приравнивается автоматически к презентации.",
+    "uk": "Шість кроків від видимої деталі до нового запису. Загальна практика B1; не прирівнюється автоматично до презентації.",
+    "tr": "Görünen ayrıntıdan yeni kayda altı adım. Genel B1 çalışması; otomatik olarak sunum göreviyle eşdeğer değildir."
+  },
+  "Das Wichtige sehen": {
+    "en": "See what matters",
+    "ru": "Увидеть главное",
+    "uk": "Побачити головне",
+    "tr": "Önemli olanı gör"
+  },
+  "Erst beobachten, danach deuten.": {
+    "en": "Observe first, interpret afterwards.",
+    "ru": "Сначала наблюдайте, затем интерпретируйте.",
+    "uk": "Спочатку спостерігайте, потім тлумачте.",
+    "tr": "Önce gözlemle, sonra yorumla."
+  },
+  "Im Bild Orientierung geben": {
+    "en": "Guide the listener through a picture",
+    "ru": "Дать ориентиры на изображении",
+    "uk": "Дати орієнтири на зображенні",
+    "tr": "Resimde yön belirt"
+  },
+  "Orte und Handlungen sinnvoll verbinden.": {
+    "en": "Connect places and actions meaningfully.",
+    "ru": "Осмысленно связывайте места и действия.",
+    "uk": "Осмислено пов’язуйте місця й дії.",
+    "tr": "Yerleri ve eylemleri anlamlı bağla."
+  },
+  "Sätze verbinden": {
+    "en": "Connect sentences",
+    "ru": "Связывать предложения",
+    "uk": "Пов’язувати речення",
+    "tr": "Cümleleri bağla"
+  },
+  "Ein verständlicher Zusammenhang statt einer Wortliste.": {
+    "en": "Create clear connections rather than a word list.",
+    "ru": "Создавайте понятные связи вместо списка слов.",
+    "uk": "Створюйте зрозумілі зв’язки замість списку слів.",
+    "tr": "Kelime listesi yerine anlaşılır bir bütün oluştur."
+  },
+  "Vermuten und umschreiben": {
+    "en": "Make guesses and paraphrase",
+    "ru": "Предполагать и перефразировать",
+    "uk": "Припускати й перефразовувати",
+    "tr": "Tahmin et ve başka sözlerle anlat"
+  },
+  "Unklarheiten sagen und Wortlücken überbrücken.": {
+    "en": "Express uncertainty and work around missing words.",
+    "ru": "Обозначайте неясность и обходите пробелы в словах.",
+    "uk": "Позначайте невизначеність і обходьте прогалини в словах.",
+    "tr": "Belirsizliği ifade et ve bilmediğin kelimeleri dolaylı anlat."
+  },
+  "Erfahrung und Rückfragen": {
+    "en": "Experience and follow-up questions",
+    "ru": "Опыт и уточняющие вопросы",
+    "uk": "Досвід і уточнювальні запитання",
+    "tr": "Deneyim ve ek sorular"
+  },
+  "Vom Bild zu einem passenden persönlichen Anschluss.": {
+    "en": "Connect the picture to a relevant personal experience.",
+    "ru": "Свяжите изображение с подходящим личным опытом.",
+    "uk": "Пов’яжіть зображення з відповідним особистим досвідом.",
+    "tr": "Resmi uygun bir kişisel deneyimle bağla."
+  },
+  "Ein neues Bild frei beschreiben": {
+    "en": "Describe a new picture freely",
+    "ru": "Свободно описать новое изображение",
+    "uk": "Вільно описати нове зображення",
+    "tr": "Yeni bir resmi serbestçe betimle"
+  },
+  "Ohne Satzvorlage aufnehmen und nach Feedback verbessern.": {
+    "en": "Record without a sentence template and improve after feedback.",
+    "ru": "Запишите без шаблона предложений и улучшите после отзыва.",
+    "uk": "Запишіть без шаблону речень і покращте після відгуку.",
+    "tr": "Cümle örneği olmadan kaydet ve geri bildirimden sonra geliştir."
+  },
+  "Kurzpräsentation und Rückfragen": {
+    "en": "Short presentation and follow-up questions",
+    "ru": "Краткая презентация и уточняющие вопросы",
+    "uk": "Коротка презентація й уточнювальні запитання",
+    "tr": "Kısa sunum ve ek sorular"
+  },
+  "Sechs Einheiten für Struktur, Begründung und echtes Nachfragen. Eine Bildbeschreibung ersetzt hier keinen Vortrag.": {
+    "en": "Six units on structure, reasoning and genuine follow-up questions. A picture description does not replace a talk here.",
+    "ru": "Шесть разделов о структуре, обосновании и настоящих уточняющих вопросах. Описание изображения здесь не заменяет доклад.",
+    "uk": "Шість розділів про структуру, обґрунтування й справжні уточнювальні запитання. Опис зображення тут не замінює доповідь.",
+    "tr": "Yapı, gerekçe ve gerçek ek sorular için altı ünite. Burada resim betimleme sunumun yerini tutmaz."
+  },
+  "Einen Vortrag aufbauen": {
+    "en": "Structure a talk",
+    "ru": "Построить доклад",
+    "uk": "Побудувати доповідь",
+    "tr": "Sunumu yapılandır"
+  },
+  "Thema, Erfahrung, Vergleich, Meinung und Schluss.": {
+    "en": "Topic, experience, comparison, opinion and conclusion.",
+    "ru": "Тема, опыт, сравнение, мнение и заключение.",
+    "uk": "Тема, досвід, порівняння, думка й висновок.",
+    "tr": "Konu, deneyim, karşılaştırma, görüş ve sonuç."
+  },
+  "Eine Erfahrung erzählen": {
+    "en": "Share an experience",
+    "ru": "Рассказать об опыте",
+    "uk": "Розповісти про досвід",
+    "tr": "Bir deneyimi anlat"
+  },
+  "Ein konkretes Beispiel statt allgemeiner Behauptungen.": {
+    "en": "Use a concrete example rather than general claims.",
+    "ru": "Используйте конкретный пример вместо общих утверждений.",
+    "uk": "Використовуйте конкретний приклад замість загальних тверджень.",
+    "tr": "Genel iddialar yerine somut bir örnek kullan."
+  },
+  "Vor- und Nachteile vergleichen": {
+    "en": "Compare advantages and disadvantages",
+    "ru": "Сравнить преимущества и недостатки",
+    "uk": "Порівняти переваги й недоліки",
+    "tr": "Avantajları ve dezavantajları karşılaştır"
+  },
+  "Beide Seiten verständlich erklären.": {
+    "en": "Explain both sides clearly.",
+    "ru": "Понятно объясняйте обе стороны.",
+    "uk": "Зрозуміло пояснюйте обидві сторони.",
+    "tr": "Her iki tarafı anlaşılır açıkla."
+  },
+  "Meine Meinung begründen": {
+    "en": "Give reasons for my opinion",
+    "ru": "Обосновать своё мнение",
+    "uk": "Обґрунтувати свою думку",
+    "tr": "Görüşümü gerekçelendir"
+  },
+  "Eine Position mit Grund und Beispiel verbinden.": {
+    "en": "Connect a position to a reason and example.",
+    "ru": "Связывайте позицию с причиной и примером.",
+    "uk": "Пов’язуйте позицію з причиною й прикладом.",
+    "tr": "Bir görüşü neden ve örnekle bağla."
+  },
+  "Zuhören und rückfragen": {
+    "en": "Listen and ask follow-up questions",
+    "ru": "Слушать и задавать уточняющие вопросы",
+    "uk": "Слухати й ставити уточнювальні запитання",
+    "tr": "Dinle ve ek sorular sor"
+  },
+  "Konkrete Rückmeldung und passende Frage.": {
+    "en": "Give specific feedback and a suitable question.",
+    "ru": "Дайте конкретный отзыв и подходящий вопрос.",
+    "uk": "Дайте конкретний відгук і відповідне запитання.",
+    "tr": "Somut geri bildirim ve uygun bir soru."
+  },
+  "Ein neues Thema frei präsentieren": {
+    "en": "Present a new topic freely",
+    "ru": "Свободно представить новую тему",
+    "uk": "Вільно представити нову тему",
+    "tr": "Yeni bir konuyu serbest sun"
+  },
+  "Stichwörter nutzen, sprechen, antworten und überarbeiten.": {
+    "en": "Use keywords, speak, respond and revise.",
+    "ru": "Используйте ключевые слова, говорите, отвечайте и дорабатывайте.",
+    "uk": "Використовуйте ключові слова, говоріть, відповідайте й доопрацьовуйте.",
+    "tr": "Anahtar kelimeler kullan, konuş, yanıtla ve düzenle."
+  },
+  "Themengespräch und Planung": {
+    "en": "Topic discussion and planning",
+    "ru": "Обсуждение темы и планирование",
+    "uk": "Обговорення теми й планування",
+    "tr": "Konu konuşması ve planlama"
+  },
+  "Vorschlagen, begründen, auf Einschränkungen reagieren und ein Ergebnis festhalten. Geführte Soloaufnahmen sind Übung; freier Dialog braucht einen reagierenden Partner.": {
+    "en": "Suggest, give reasons, respond to limitations and record an outcome. Guided solo recordings are practice; free dialogue needs a responsive partner.",
+    "ru": "Предлагайте, обосновывайте, реагируйте на ограничения и фиксируйте результат. Управляемые одиночные записи — практика; свободный диалог требует реагирующего партнёра.",
+    "uk": "Пропонуйте, обґрунтовуйте, реагуйте на обмеження й фіксуйте результат. Керовані одиночні записи — практика; вільний діалог потребує партнера, який реагує.",
+    "tr": "Öner, gerekçelendir, kısıtlamalara yanıt ver ve sonucu kaydet. Yönlendirilmiş tek kişilik kayıtlar alıştırmadır; serbest diyalog yanıt veren bir partner gerektirir."
+  },
+  "Kontakt aufnehmen": {
+    "en": "Make contact",
+    "ru": "Начать общение",
+    "uk": "Почати спілкування",
+    "tr": "İletişim kur"
+  },
+  "Informationen geben und Anschlussfragen stellen.": {
+    "en": "Give information and ask follow-up questions.",
+    "ru": "Сообщайте информацию и задавайте уточняющие вопросы.",
+    "uk": "Повідомляйте інформацію й ставте уточнювальні запитання.",
+    "tr": "Bilgi ver ve ek sorular sor."
+  },
+  "Informationen und Positionen vergleichen": {
+    "en": "Compare information and positions",
+    "ru": "Сравнивать информацию и позиции",
+    "uk": "Порівнювати інформацію й позиції",
+    "tr": "Bilgileri ve görüşleri karşılaştır"
+  },
+  "Fremde Information wiedergeben und eigene Meinung ergänzen.": {
+    "en": "Report someone else’s information and add your opinion.",
+    "ru": "Передавайте чужую информацию и добавляйте своё мнение.",
+    "uk": "Передавайте чужу інформацію й додавайте свою думку.",
+    "tr": "Başkasının bilgisini aktar ve kendi görüşünü ekle."
+  },
+  "Vorschläge verständlich machen": {
+    "en": "Make clear suggestions",
+    "ru": "Понятно формулировать предложения",
+    "uk": "Зрозуміло формулювати пропозиції",
+    "tr": "Önerileri anlaşılır yap"
+  },
+  "Eine Idee mit Grund anbieten und eine Alternative lassen.": {
+    "en": "Offer an idea with a reason and leave an alternative.",
+    "ru": "Предлагайте идею с обоснованием и оставляйте альтернативу.",
+    "uk": "Пропонуйте ідею з обґрунтуванням і залишайте альтернативу.",
+    "tr": "Bir fikri gerekçeyle sun ve alternatif bırak."
+  },
+  "Auf Einschränkungen reagieren": {
+    "en": "Respond to limitations",
+    "ru": "Реагировать на ограничения",
+    "uk": "Реагувати на обмеження",
+    "tr": "Kısıtlamalara yanıt ver"
+  },
+  "Höflich ablehnen, einen Kompromiss suchen.": {
+    "en": "Decline politely and seek a compromise.",
+    "ru": "Вежливо отказывайте и ищите компромисс.",
+    "uk": "Ввічливо відмовляйте й шукайте компроміс.",
+    "tr": "Kibarca reddet ve uzlaşma ara."
+  },
+  "Geführt auf einen Partner reagieren": {
+    "en": "Respond to a partner with guidance",
+    "ru": "Отвечать партнёру с подсказкой",
+    "uk": "Відповідати партнеру з підказкою",
+    "tr": "Yönlendirmeyle partnere yanıt ver"
+  },
+  "Eine vorproduzierte Äußerung verstehen und beantworten.": {
+    "en": "Understand and respond to a prerecorded statement.",
+    "ru": "Поймите предварительно записанную реплику и ответьте.",
+    "uk": "Зрозумійте попередньо записану репліку й дайте відповідь.",
+    "tr": "Önceden kaydedilmiş ifadeyi anla ve yanıtla."
+  },
+  "Gemeinsam ein Ergebnis erreichen": {
+    "en": "Reach an outcome together",
+    "ru": "Вместе достичь результата",
+    "uk": "Разом досягти результату",
+    "tr": "Birlikte sonuca ulaş"
+  },
+  "Einen neuen Plan mit einem echten Partner aushandeln.": {
+    "en": "Agree on a new plan with a real partner.",
+    "ru": "Договоритесь о новом плане с реальным партнёром.",
+    "uk": "Домовтеся про новий план із реальним партнером.",
+    "tr": "Gerçek bir partnerle yeni bir plan üzerinde anlaş."
+  },
+  "Schreibregister und Meinungsbeitrag": {
+    "en": "Writing registers and opinion pieces",
+    "ru": "Стиль письма и выражение мнения",
+    "uk": "Стиль письма й висловлення думки",
+    "tr": "Yazı üslubu ve görüş yazısı"
+  },
+  "Persönliche, höfliche und formelle Texte planen; die eigene Aussage erhalten und gezielt überarbeiten.": {
+    "en": "Plan personal, polite and formal texts; preserve your meaning and revise with a focus.",
+    "ru": "Планируйте личные, вежливые и официальные тексты; сохраняйте свою мысль и целенаправленно дорабатывайте.",
+    "uk": "Плануйте особисті, ввічливі й офіційні тексти; зберігайте свою думку й цілеспрямовано доопрацьовуйте.",
+    "tr": "Kişisel, kibar ve resmî metinler planla; kendi anlamını koru ve hedefli düzenle."
+  },
+  "Die richtige Ansprache": {
+    "en": "The right form of address",
+    "ru": "Правильное обращение",
+    "uk": "Правильне звертання",
+    "tr": "Doğru hitap"
+  },
+  "Empfänger, Anlass und Register erkennen.": {
+    "en": "Identify the recipient, purpose and register.",
+    "ru": "Определите получателя, повод и стиль.",
+    "uk": "Визначте одержувача, привід і стиль.",
+    "tr": "Alıcıyı, amacı ve üslubu belirle."
+  },
+  "Alle Inhaltspunkte bearbeiten": {
+    "en": "Cover all content points",
+    "ru": "Раскрыть все пункты содержания",
+    "uk": "Розкрити всі пункти змісту",
+    "tr": "Tüm içerik noktalarını ele al"
+  },
+  "Planen, prüfen und fehlende Information ergänzen.": {
+    "en": "Plan, review and add missing information.",
+    "ru": "Планируйте, проверяйте и дополняйте недостающую информацию.",
+    "uk": "Плануйте, перевіряйте й доповнюйте відсутню інформацію.",
+    "tr": "Planla, kontrol et ve eksik bilgiyi ekle."
+  },
+  "Zusammenhang schaffen": {
+    "en": "Create coherence",
+    "ru": "Создать связность",
+    "uk": "Створити зв’язність",
+    "tr": "Tutarlılık oluştur"
+  },
+  "Gründe und Folgen verständlich verbinden.": {
+    "en": "Connect reasons and consequences clearly.",
+    "ru": "Понятно связывайте причины и последствия.",
+    "uk": "Зрозуміло пов’язуйте причини й наслідки.",
+    "tr": "Nedenleri ve sonuçları anlaşılır bağla."
+  },
+  "Eine Meinung schreiben": {
+    "en": "Write an opinion",
+    "ru": "Написать своё мнение",
+    "uk": "Написати свою думку",
+    "tr": "Bir görüş yaz"
+  },
+  "Position, Grund, Beispiel und Schluss.": {
+    "en": "Position, reason, example and conclusion.",
+    "ru": "Позиция, причина, пример и заключение.",
+    "uk": "Позиція, причина, приклад і висновок.",
+    "tr": "Görüş, neden, örnek ve sonuç."
+  },
+  "Gezielt überarbeiten": {
+    "en": "Revise with a focus",
+    "ru": "Целенаправленно доработать",
+    "uk": "Цілеспрямовано доопрацювати",
+    "tr": "Hedefli düzenle"
+  },
+  "Höchstens zwei Lernschwerpunkte wählen.": {
+    "en": "Choose at most two learning priorities.",
+    "ru": "Выберите не больше двух учебных приоритетов.",
+    "uk": "Оберіть не більше двох навчальних пріоритетів.",
+    "tr": "En fazla iki öğrenme önceliği seç."
+  },
+  "Neue Schreibanlässe selbstständig": {
+    "en": "Handle new writing situations independently",
+    "ru": "Самостоятельно писать в новых ситуациях",
+    "uk": "Самостійно писати в нових ситуаціях",
+    "tr": "Yeni yazma durumlarını bağımsız ele al"
+  },
+  "Ohne Vorlage auf einen neuen Empfänger reagieren.": {
+    "en": "Respond to a new recipient without a template.",
+    "ru": "Ответьте новому получателю без шаблона.",
+    "uk": "Дайте відповідь новому одержувачу без шаблону.",
+    "tr": "Yeni bir alıcıya örnek olmadan yanıt ver."
+  },
+  "Integrierte Aufgaben und Sprachbausteine": {
+    "en": "Integrated tasks and language structures",
+    "ru": "Комплексные задания и языковые конструкции",
+    "uk": "Комплексні завдання й мовні конструкції",
+    "tr": "Bütünleşik görevler ve dil yapıları"
+  },
+  "Relevantes hören oder lesen, Informationen notieren und in einen eigenen Text übertragen. Sprachmittel werden im Zusammenhang geübt.": {
+    "en": "Listen or read for relevant details, take notes and use them in your own text. Practise language in context.",
+    "ru": "Слушайте или читайте важное, делайте заметки и переносите их в свой текст. Языковые средства тренируются в контексте.",
+    "uk": "Слухайте або читайте важливе, робіть нотатки й переносьте їх у свій текст. Мовні засоби тренуються в контексті.",
+    "tr": "İlgili bilgiyi dinle veya oku, not al ve kendi metnine aktar. Dil yapılarını bağlam içinde çalış."
+  },
+  "Lesen und notieren": {
+    "en": "Read and take notes",
+    "ru": "Читать и делать заметки",
+    "uk": "Читати й робити нотатки",
+    "tr": "Oku ve not al"
+  },
+  "Nur die für den Auftrag wichtige Information auswählen.": {
+    "en": "Select only the information relevant to the task.",
+    "ru": "Выбирайте только нужную для задания информацию.",
+    "uk": "Обирайте лише потрібну для завдання інформацію.",
+    "tr": "Yalnızca görev için önemli bilgiyi seç."
+  },
+  "Hören und notieren": {
+    "en": "Listen and take notes",
+    "ru": "Слушать и делать заметки",
+    "uk": "Слухати й робити нотатки",
+    "tr": "Dinle ve not al"
+  },
+  "Zahlen und Bedingungen in eine Notiz übertragen.": {
+    "en": "Transfer numbers and conditions into a note.",
+    "ru": "Переносите числа и условия в заметку.",
+    "uk": "Переносьте числа й умови в нотатку.",
+    "tr": "Sayıları ve koşulları nota aktar."
+  },
+  "Sprachbausteine im Text": {
+    "en": "Language structures in a text",
+    "ru": "Языковые конструкции в тексте",
+    "uk": "Мовні конструкції в тексті",
+    "tr": "Metindeki dil yapıları"
+  },
+  "Form und Bedeutung gemeinsam prüfen.": {
+    "en": "Check form and meaning together.",
+    "ru": "Проверяйте форму и значение вместе.",
+    "uk": "Перевіряйте форму й значення разом.",
+    "tr": "Biçim ve anlamı birlikte kontrol et."
+  },
+  "Wortliste sinnvoll einsetzen": {
+    "en": "Use a word list meaningfully",
+    "ru": "Осмысленно использовать список слов",
+    "uk": "Осмислено використовувати список слів",
+    "tr": "Kelime listesini anlamlı kullan"
+  },
+  "Bedeutung und Satzbau statt bloßem Raten.": {
+    "en": "Focus on meaning and sentence structure rather than guessing.",
+    "ru": "Сосредоточьтесь на значении и строении предложения вместо угадывания.",
+    "uk": "Зосередьтеся на значенні й будові речення замість вгадування.",
+    "tr": "Tahmin yerine anlam ve cümle yapısına odaklan."
+  },
+  "Quellen nicht verwechseln": {
+    "en": "Keep sources separate",
+    "ru": "Не путать источники",
+    "uk": "Не плутати джерела",
+    "tr": "Kaynakları karıştırma"
+  },
+  "Gelesene und gehörte Informationen genau übertragen.": {
+    "en": "Transfer information you read and hear accurately.",
+    "ru": "Точно переносите прочитанную и услышанную информацию.",
+    "uk": "Точно переносьте прочитану й почуту інформацію.",
+    "tr": "Okunan ve duyulan bilgileri doğru aktar."
+  },
+  "Eine neue Notiz und Nachricht": {
+    "en": "A new note and message",
+    "ru": "Новая заметка и сообщение",
+    "uk": "Нова нотатка й повідомлення",
+    "tr": "Yeni bir not ve mesaj"
+  },
+  "Unbekannte Informationen ohne Vorlage verarbeiten.": {
+    "en": "Process unfamiliar information without a template.",
+    "ru": "Обработайте незнакомую информацию без шаблона.",
+    "uk": "Опрацюйте незнайому інформацію без шаблону.",
+    "tr": "Yeni bilgileri örnek olmadan işle."
+  },
+  "Weitere Hörübungen": {
+    "en": "More listening exercises",
+    "ru": "Дополнительные упражнения по аудированию",
+    "uk": "Додаткові вправи з аудіювання",
+    "tr": "Daha fazla dinleme alıştırması"
+  },
+  "Acht eigene Hörpakete mit echten Stimmen. Eine Übung öffnet erst nach Aufnahme, geprüften Wortzeitmarken und fachlicher Medienfreigabe.": {
+    "en": "Eight original listening packages with real voices. Exercises open after recording, verified word timings and expert media review.",
+    "ru": "Восемь собственных аудиопакетов с настоящими голосами. Упражнения открываются после записи, проверки временных меток слов и экспертного одобрения материала.",
+    "uk": "Вісім власних аудіопакетів зі справжніми голосами. Вправи відкриваються після запису, перевірки часових міток слів і експертного схвалення матеріалу.",
+    "tr": "Gerçek seslerle sekiz özgün dinleme paketi. Alıştırmalar kayıt, doğrulanmış kelime zamanları ve uzman medya onayından sonra açılır."
+  },
+  "Termin im Repair-Café": {
+    "en": "An appointment at the repair café",
+    "ru": "Встреча в ремонтном кафе",
+    "uk": "Зустріч у ремонтному кафе",
+    "tr": "Tamir kafesinde randevu"
+  },
+  "Terminänderung und ähnliche Uhrzeiten verstehen.": {
+    "en": "Understand appointment changes and similar times.",
+    "ru": "Понимать изменения встречи и похожее время.",
+    "uk": "Розуміти зміни зустрічі й схожий час.",
+    "tr": "Randevu değişikliklerini ve benzer saatleri anla."
+  },
+  "Ein Ehrenamt nach dem Berufsleben": {
+    "en": "Volunteering after working life",
+    "ru": "Волонтёрство после трудовой жизни",
+    "uk": "Волонтерство після трудового життя",
+    "tr": "İş hayatından sonra gönüllülük"
+  },
+  "Hauptthema, Entwicklung, Gründe und Details in einem Interview unterscheiden.": {
+    "en": "Distinguish the main topic, development, reasons and details in an interview.",
+    "ru": "Различать главную тему, развитие, причины и детали интервью.",
+    "uk": "Розрізняти головну тему, розвиток, причини й деталі інтерв’ю.",
+    "tr": "Bir röportajda ana konuyu, gelişimi, nedenleri ve ayrıntıları ayırt et."
+  },
+  "Drei Meinungen zum Einkaufen": {
+    "en": "Three opinions about shopping",
+    "ru": "Три мнения о покупках",
+    "uk": "Три думки про покупки",
+    "tr": "Alışveriş hakkında üç görüş"
+  },
+  "Zustimmung, Ablehnung und Einschränkung drei Positionen zuordnen.": {
+    "en": "Match agreement, disagreement and reservations to three positions.",
+    "ru": "Соотносить согласие, несогласие и оговорки с тремя позициями.",
+    "uk": "Зіставляти згоду, незгоду й застереження з трьома позиціями.",
+    "tr": "Kabul, ret ve kısıtlamaları üç görüşle eşleştir."
+  },
+  "Gemeinsam einen Kursausflug planen": {
+    "en": "Plan a class outing together",
+    "ru": "Вместе спланировать поездку курса",
+    "uk": "Разом спланувати поїздку курсу",
+    "tr": "Birlikte kurs gezisi planla"
+  },
+  "Vorschläge, Gründe und einen konkreten Kompromiss verstehen.": {
+    "en": "Understand suggestions, reasons and a concrete compromise.",
+    "ru": "Понимать предложения, причины и конкретный компромисс.",
+    "uk": "Розуміти пропозиції, причини й конкретний компроміс.",
+    "tr": "Önerileri, nedenleri ve somut bir uzlaşmayı anla."
+  },
+  "Kurzvortrag Zu Fuß im Alltag": {
+    "en": "Short talk: Walking in daily life",
+    "ru": "Короткий доклад: пешком в повседневной жизни",
+    "uk": "Коротка доповідь: пішки в повсякденному житті",
+    "tr": "Kısa sunum: Günlük yaşamda yürümek"
+  },
+  "Aufbau, Erfahrung, Vor- und Nachteil sowie begründete Meinung erkennen.": {
+    "en": "Identify structure, experience, advantages, disadvantages and a reasoned opinion.",
+    "ru": "Распознавать структуру, опыт, преимущества, недостатки и обоснованное мнение.",
+    "uk": "Розпізнавати структуру, досвід, переваги, недоліки й обґрунтовану думку.",
+    "tr": "Yapıyı, deneyimi, avantajı, dezavantajı ve gerekçeli görüşü fark et."
+  },
+  "Eine Reklamation klären": {
+    "en": "Resolve a complaint",
+    "ru": "Разобраться с рекламацией",
+    "uk": "Розібратися з рекламацією",
+    "tr": "Bir şikâyeti çöz"
+  },
+  "Anliegen, Nachweis, Entscheidung und nächsten Schritt verstehen.": {
+    "en": "Understand the issue, evidence, decision and next step.",
+    "ru": "Понимать проблему, подтверждение, решение и следующий шаг.",
+    "uk": "Розуміти проблему, підтвердження, рішення й наступний крок.",
+    "tr": "İsteği, kanıtı, kararı ve sonraki adımı anla."
+  },
+  "Drei kurze Sprachnachrichten": {
+    "en": "Three short voice messages",
+    "ru": "Три коротких голосовых сообщения",
+    "uk": "Три короткі голосові повідомлення",
+    "tr": "Üç kısa sesli mesaj"
+  },
+  "Relevante Informationen aus drei Nachrichten auswählen und notieren.": {
+    "en": "Select and note relevant information from three messages.",
+    "ru": "Выбирать и записывать важную информацию из трёх сообщений.",
+    "uk": "Обирати й записувати важливу інформацію з трьох повідомлень.",
+    "tr": "Üç mesajdan ilgili bilgiyi seç ve not et."
+  },
+  "Zwei Ankündigungen im Stadtteil": {
+    "en": "Two neighbourhood announcements",
+    "ru": "Два объявления в районе",
+    "uk": "Два оголошення в районі",
+    "tr": "Mahallede iki duyuru"
+  },
+  "Angebot, Termin, Frist und Teilnahmebedingung unterscheiden.": {
+    "en": "Distinguish the offer, date, deadline and participation condition.",
+    "ru": "Различать предложение, дату, срок и условие участия.",
+    "uk": "Розрізняти пропозицію, дату, строк і умову участі.",
+    "tr": "Teklifi, tarihi, son tarihi ve katılım koşulunu ayırt et."
+  },
+  "12. November, Donnerstag 19–21 Uhr, 48 Euro und Anmeldung bis Montag telefonisch sind enthalten.": {
+    "en": "Include 12 November, Thursday 19:00–21:00, €48 and telephone registration by Monday.",
+    "ru": "Указаны 12 ноября, четверг 19–21, 48 евро и запись по телефону до понедельника.",
+    "uk": "Указані 12 листопада, четвер 19–21, 48 євро й запис телефоном до понеділка.",
+    "tr": "12 Kasım, perşembe 19–21, 48 avro ve pazartesiye kadar telefonla kayıt belirtilmiş."
+  },
+  "Alle drei Inhaltspunkte bleiben erhalten.": {
+    "en": "All three content points are preserved.",
+    "ru": "Все три пункта содержания сохранены.",
+    "uk": "Усі три пункти змісту збережено.",
+    "tr": "Üç içerik noktasının tümü korunmuş."
+  },
+  "Alle geforderten Inhaltspunkte sind verständlich enthalten.": {
+    "en": "All requested content points are included clearly.",
+    "ru": "Все требуемые пункты понятно раскрыты.",
+    "uk": "Усі потрібні пункти зрозуміло розкрито.",
+    "tr": "İstenen tüm içerik noktaları anlaşılır biçimde yer alıyor."
+  },
+  "Anrede und Gruß passen zur Kursstelle.": {
+    "en": "The greeting and closing suit the course office.",
+    "ru": "Обращение и прощание подходят для учебного центра.",
+    "uk": "Звертання й прощання відповідають навчальному центру.",
+    "tr": "Hitap ve kapanış kurs bürosuna uygun."
+  },
+  "Ansprache und Gruß passen zum Empfänger.": {
+    "en": "The greeting and closing suit the recipient.",
+    "ru": "Обращение и прощание подходят получателю.",
+    "uk": "Звертання й прощання відповідають одержувачу.",
+    "tr": "Hitap ve kapanış alıcıya uygun."
+  },
+  "Ansprache und Zusammenhang werden verbessert.": {
+    "en": "The form of address and coherence are improved.",
+    "ru": "Обращение и связность улучшены.",
+    "uk": "Звертання й зв’язність покращено.",
+    "tr": "Hitap ve tutarlılık geliştirilmiş."
+  },
+  "Beide Empfänger werden passend angesprochen.": {
+    "en": "Both recipients are addressed appropriately.",
+    "ru": "К обоим получателям обращаются уместно.",
+    "uk": "До обох одержувачів звертаються доречно.",
+    "tr": "Her iki alıcıya uygun hitap ediliyor."
+  },
+  "Beide Informationen bleiben erhalten.": {
+    "en": "Both pieces of information are preserved.",
+    "ru": "Обе части информации сохранены.",
+    "uk": "Обидві частини інформації збережено.",
+    "tr": "Her iki bilgi korunmuş."
+  },
+  "Beide Informationen und ihre Folgebeziehung sind erhalten.": {
+    "en": "Both facts and their cause-and-effect link are preserved.",
+    "ru": "Обе части информации и их причинная связь сохранены.",
+    "uk": "Обидві частини інформації та їхній причинний зв’язок збережено.",
+    "tr": "Her iki bilgi ve sonuç ilişkisi korunmuş."
+  },
+  "Beide Wörter werden sinnvoll im Zusammenhang verwendet.": {
+    "en": "Both words are used meaningfully in context.",
+    "ru": "Оба слова осмысленно использованы в контексте.",
+    "uk": "Обидва слова осмислено використані в контексті.",
+    "tr": "Her iki kelime bağlamda anlamlı kullanılmış."
+  },
+  "Bibliothek wird genannt.": {
+    "en": "The library is mentioned.",
+    "ru": "Библиотека названа.",
+    "uk": "Бібліотеку названо.",
+    "tr": "Kütüphane belirtilmiş."
+  },
+  "Das Thema wird eröffnet und abgeschlossen.": {
+    "en": "The topic has an introduction and conclusion.",
+    "ru": "Тема имеет вступление и заключение.",
+    "uk": "Тема має вступ і висновок.",
+    "tr": "Konu açılmış ve sonuçlandırılmış."
+  },
+  "Der Auftrag wird verständlich erfüllt.": {
+    "en": "The task is completed clearly.",
+    "ru": "Задание понятно выполнено.",
+    "uk": "Завдання зрозуміло виконано.",
+    "tr": "Görev anlaşılır biçimde tamamlanmış."
+  },
+  "Der Einführungskurs wird empfohlen.": {
+    "en": "The introductory course is recommended.",
+    "ru": "Рекомендован вводный курс.",
+    "uk": "Рекомендовано вступний курс.",
+    "tr": "Giriş kursu önerilmiş."
+  },
+  "Der Zusammenhang ist verständlich.": {
+    "en": "The connections are clear.",
+    "ru": "Связность понятна.",
+    "uk": "Зв’язність зрозуміла.",
+    "tr": "Bağlantılar anlaşılır."
+  },
+  "Der tatsächliche Partnerkontakt wird angegeben.": {
+    "en": "Actual contact with a partner is specified.",
+    "ru": "Указан реальный контакт с партнёром.",
+    "uk": "Указано реальний контакт із партнером.",
+    "tr": "Gerçek partner iletişimi belirtilmiş."
+  },
+  "Die Antwort passt zur Situation.": {
+    "en": "The answer fits the situation.",
+    "ru": "Ответ соответствует ситуации.",
+    "uk": "Відповідь відповідає ситуації.",
+    "tr": "Yanıt duruma uygun."
+  },
+  "Die Antwort verweist verständlich auf den Text.": {
+    "en": "The answer refers clearly to the text.",
+    "ru": "Ответ понятно ссылается на текст.",
+    "uk": "Відповідь зрозуміло посилається на текст.",
+    "tr": "Yanıt metne anlaşılır atıfta bulunuyor."
+  },
+  "Die Aufgabenverteilung ist klar.": {
+    "en": "Responsibilities are clear.",
+    "ru": "Распределение задач ясно.",
+    "uk": "Розподіл завдань зрозумілий.",
+    "tr": "Görev dağılımı açık."
+  },
+  "Die Aussagen hängen sinnvoll zusammen.": {
+    "en": "The statements connect meaningfully.",
+    "ru": "Высказывания осмысленно связаны.",
+    "uk": "Висловлювання осмислено пов’язані.",
+    "tr": "İfadeler anlamlı biçimde bağlı."
+  },
+  "Die Beschreibung hat eine nachvollziehbare Reihenfolge.": {
+    "en": "The description follows a clear sequence.",
+    "ru": "Описание имеет понятную последовательность.",
+    "uk": "Опис має зрозумілу послідовність.",
+    "tr": "Betimleme anlaşılır bir sırayı izliyor."
+  },
+  "Die Funktion des Fahrplans wird verständlich umschrieben.": {
+    "en": "The timetable’s purpose is paraphrased clearly.",
+    "ru": "Функция расписания понятно описана другими словами.",
+    "uk": "Функцію розкладу зрозуміло описано іншими словами.",
+    "tr": "Tarifenin işlevi başka sözlerle anlaşılır anlatılmış."
+  },
+  "Die Informationen werden korrekt übertragen.": {
+    "en": "Information is transferred accurately.",
+    "ru": "Информация передана правильно.",
+    "uk": "Інформацію передано правильно.",
+    "tr": "Bilgiler doğru aktarılmış."
+  },
+  "Die Kursdaten sind korrekt.": {
+    "en": "The course details are correct.",
+    "ru": "Данные курса верны.",
+    "uk": "Дані курсу правильні.",
+    "tr": "Kurs bilgileri doğru."
+  },
+  "Die Meinung wird begründet.": {
+    "en": "The opinion is supported with reasons.",
+    "ru": "Мнение обосновано.",
+    "uk": "Думку обґрунтовано.",
+    "tr": "Görüş gerekçelendirilmiş."
+  },
+  "Die Nachricht ist verständlich.": {
+    "en": "The message is understandable.",
+    "ru": "Сообщение понятно.",
+    "uk": "Повідомлення зрозуміле.",
+    "tr": "Mesaj anlaşılır."
+  },
+  "Die Notiz ist klar und kurz.": {
+    "en": "The note is clear and brief.",
+    "ru": "Заметка ясная и краткая.",
+    "uk": "Нотатка зрозуміла й коротка.",
+    "tr": "Not açık ve kısa."
+  },
+  "Die Notiz ist verständlich.": {
+    "en": "The note is understandable.",
+    "ru": "Заметка понятна.",
+    "uk": "Нотатка зрозуміла.",
+    "tr": "Not anlaşılır."
+  },
+  "Die Position ist klar.": {
+    "en": "The position is clear.",
+    "ru": "Позиция ясна.",
+    "uk": "Позиція зрозуміла.",
+    "tr": "Görüş açık."
+  },
+  "Die Sprache passt zu einem öffentlichen Forum.": {
+    "en": "The language suits a public forum.",
+    "ru": "Язык подходит публичному форуму.",
+    "uk": "Мова відповідає публічному форуму.",
+    "tr": "Dil herkese açık bir foruma uygun."
+  },
+  "Die alte Information wird nicht als aktuelle Angabe benutzt.": {
+    "en": "Old information is not presented as current.",
+    "ru": "Старая информация не используется как актуальная.",
+    "uk": "Стара інформація не використовується як актуальна.",
+    "tr": "Eski bilgi güncel bilgi olarak kullanılmamış."
+  },
+  "Die eigene Aufnahme wird angehört und überarbeitet.": {
+    "en": "Your recording is listened to and revised.",
+    "ru": "Своя запись прослушана и доработана.",
+    "uk": "Власний запис прослухано й доопрацьовано.",
+    "tr": "Kendi kaydın dinlenmiş ve düzenlenmiş."
+  },
+  "Die fehlenden ersten Deutschkenntnisse werden als Grund genannt.": {
+    "en": "The lack of basic German knowledge is given as the reason.",
+    "ru": "Отсутствие начальных знаний немецкого названо причиной.",
+    "uk": "Відсутність початкових знань німецької названа причиною.",
+    "tr": "Temel Almanca bilgisinin eksikliği neden olarak belirtilmiş."
+  },
+  "Die fünf Vortragsteile sind mit Stichwörtern vorbereitet.": {
+    "en": "All five parts of the talk are prepared with keywords.",
+    "ru": "Пять частей доклада подготовлены ключевыми словами.",
+    "uk": "П’ять частин доповіді підготовлені ключовими словами.",
+    "tr": "Sunumun beş bölümü anahtar kelimelerle hazırlanmış."
+  },
+  "Die zwei Anlässe sind verständlich.": {
+    "en": "The two purposes are clear.",
+    "ru": "Два повода понятны.",
+    "uk": "Два приводи зрозумілі.",
+    "tr": "İki amaç anlaşılır."
+  },
+  "Die zwei Sätze sind verständlich.": {
+    "en": "Both sentences are understandable.",
+    "ru": "Оба предложения понятны.",
+    "uk": "Обидва речення зрозумілі.",
+    "tr": "İki cümle anlaşılır."
+  },
+  "Dienstag 18–20 Uhr, 60 Euro und Freitag sind enthalten.": {
+    "en": "Include Tuesday 18:00–20:00, €60 and Friday.",
+    "ru": "Указаны вторник 18–20, 60 евро и пятница.",
+    "uk": "Указані вівторок 18–20, 60 євро й п’ятниця.",
+    "tr": "Salı 18–20, 60 avro ve cuma belirtilmiş."
+  },
+  "Drei sichtbare wichtige Gegenstände oder Handlungen werden genannt.": {
+    "en": "Three important visible objects or actions are named.",
+    "ru": "Названы три важных видимых предмета или действия.",
+    "uk": "Названо три важливі видимі предмети чи дії.",
+    "tr": "Görünen üç önemli nesne veya eylem belirtilmiş."
+  },
+  "Eigene oder erfundene Erfahrungen werden klar erzählt.": {
+    "en": "Personal or invented experiences are told clearly.",
+    "ru": "Собственный или вымышленный опыт ясно рассказан.",
+    "uk": "Власний або вигаданий досвід зрозуміло розказано.",
+    "tr": "Kişisel veya uydurulmuş deneyimler açık anlatılmış."
+  },
+  "Ein Grund und ein Beispiel sind enthalten.": {
+    "en": "A reason and example are included.",
+    "ru": "Есть причина и пример.",
+    "uk": "Є причина й приклад.",
+    "tr": "Bir neden ve örnek yer alıyor."
+  },
+  "Ein Heft wird genannt.": {
+    "en": "A notebook is mentioned.",
+    "ru": "Названа тетрадь.",
+    "uk": "Названо зошит.",
+    "tr": "Defter belirtilmiş."
+  },
+  "Ein Smartphone kann genutzt werden.": {
+    "en": "A smartphone can be used.",
+    "ru": "Можно использовать смартфон.",
+    "uk": "Можна використовувати смартфон.",
+    "tr": "Akıllı telefon kullanılabilir."
+  },
+  "Ein konkreter Vorschlag, ein Grund und eine Alternative sind enthalten.": {
+    "en": "Include a concrete suggestion, reason and alternative.",
+    "ru": "Есть конкретное предложение, причина и альтернатива.",
+    "uk": "Є конкретна пропозиція, причина й альтернатива.",
+    "tr": "Somut bir öneri, neden ve alternatif yer alıyor."
+  },
+  "Ein konkretes machbares Ergebnis wird zusammengefasst.": {
+    "en": "A concrete, feasible outcome is summarised.",
+    "ru": "Подведён итог конкретному осуществимому результату.",
+    "uk": "Підсумовано конкретний здійсненний результат.",
+    "tr": "Somut ve uygulanabilir bir sonuç özetlenmiş."
+  },
+  "Ein passender Anschluss oder eine Rückfrage wird beantwortet.": {
+    "en": "A relevant follow-up or question is answered.",
+    "ru": "Есть ответ на подходящий уточняющий вопрос.",
+    "uk": "Є відповідь на доречне уточнювальне запитання.",
+    "tr": "Uygun bir devam veya ek soru yanıtlanmış."
+  },
+  "Ein plausibler Vorteil und ein plausibler Nachteil sind enthalten.": {
+    "en": "Include a plausible advantage and disadvantage.",
+    "ru": "Есть правдоподобное преимущество и недостаток.",
+    "uk": "Є правдоподібна перевага й недолік.",
+    "tr": "Makul bir avantaj ve dezavantaj yer alıyor."
+  },
+  "Eine Frage nach gemeinsamem Besuch ist enthalten.": {
+    "en": "A question about visiting together is included.",
+    "ru": "Есть вопрос о совместном посещении.",
+    "uk": "Є запитання про спільне відвідування.",
+    "tr": "Birlikte ziyaret etme sorusu yer alıyor."
+  },
+  "Eine Frage zur Teilnahme ist enthalten.": {
+    "en": "A question about participation is included.",
+    "ru": "Есть вопрос об участии.",
+    "uk": "Є запитання про участь.",
+    "tr": "Katılımla ilgili bir soru yer alıyor."
+  },
+  "Eine Materialfrage wird verständlich gestellt.": {
+    "en": "A question about materials is asked clearly.",
+    "ru": "Вопрос о материалах задан понятно.",
+    "uk": "Запитання про матеріали поставлено зрозуміло.",
+    "tr": "Malzemelerle ilgili soru anlaşılır sorulmuş."
+  },
+  "Eine Rückfrage wird beantwortet; nach Rückmeldung folgt eine Überarbeitung.": {
+    "en": "A follow-up question is answered; revision follows feedback.",
+    "ru": "Уточняющий вопрос отвечен; после отзыва работа дорабатывается.",
+    "uk": "На уточнювальне запитання відповіли; після відгуку роботу доопрацьовують.",
+    "tr": "Ek soru yanıtlanmış; geri bildirimden sonra düzenleme yapılır."
+  },
+  "Eine eigene oder erfundene Erfahrung ist enthalten.": {
+    "en": "A personal or invented experience is included.",
+    "ru": "Есть собственный или вымышленный опыт.",
+    "uk": "Є власний або вигаданий досвід.",
+    "tr": "Kişisel veya uydurulmuş bir deneyim yer alıyor."
+  },
+  "Eine konkrete Reflexion oder Verbesserung wird gespeichert.": {
+    "en": "A concrete reflection or improvement is saved.",
+    "ru": "Сохранено конкретное размышление или улучшение.",
+    "uk": "Збережено конкретне міркування чи покращення.",
+    "tr": "Somut bir değerlendirme veya geliştirme kaydedilmiş."
+  },
+  "Eine konkrete gelungene Stelle wird genannt.": {
+    "en": "A specific successful passage is identified.",
+    "ru": "Назван конкретный удачный фрагмент.",
+    "uk": "Названо конкретний вдалий фрагмент.",
+    "tr": "Başarılı bir bölüm somut olarak belirtilmiş."
+  },
+  "Eine passende Verbesserung wird geplant.": {
+    "en": "An appropriate improvement is planned.",
+    "ru": "Спланировано подходящее улучшение.",
+    "uk": "Сплановано відповідне покращення.",
+    "tr": "Uygun bir geliştirme planlanmış."
+  },
+  "Einschränkungen beider Rollen werden berücksichtigt.": {
+    "en": "Both roles’ limitations are considered.",
+    "ru": "Ограничения обеих ролей учтены.",
+    "uk": "Обмеження обох ролей враховано.",
+    "tr": "Her iki rolün kısıtlamaları dikkate alınmış."
+  },
+  "Ergebnis und echte Reaktion beziehungsweise offene Solo-Frage werden genannt.": {
+    "en": "Name the outcome and genuine response, or the open question in solo practice.",
+    "ru": "Названы результат и реальная реакция либо открытый вопрос в одиночной практике.",
+    "uk": "Названо результат і справжню реакцію або відкрите запитання в одиночній практиці.",
+    "tr": "Sonuç ve gerçek yanıt ya da tek kişilik çalışmadaki açık soru belirtilmiş."
+  },
+  "Fragen oder Partneräußerungen werden aufgegriffen.": {
+    "en": "Questions or a partner’s statements are addressed.",
+    "ru": "Вопросы или реплики партнёра подхвачены.",
+    "uk": "Запитання чи репліки партнера підхоплено.",
+    "tr": "Sorular veya partnerin ifadeleri ele alınmış."
+  },
+  "Hörmedien lokal vorberechnen oder echte Aufnahme freigeben; Wortzeitmarken prüfen.": {
+    "en": "Prepare listening audio locally or approve a real recording; verify word timings.",
+    "ru": "Подготовьте аудио локально или одобрите настоящую запись; проверьте временные метки слов.",
+    "uk": "Підготуйте аудіо локально або схваліть справжній запис; перевірте часові мітки слів.",
+    "tr": "Dinleme sesini yerel hazırla veya gerçek kaydı onayla; kelime zamanlarını kontrol et."
+  },
+  "Inhalt, Register und Zusammenhang werden geprüft.": {
+    "en": "Content, register and coherence are reviewed.",
+    "ru": "Содержание, стиль и связность проверены.",
+    "uk": "Зміст, стиль і зв’язність перевірено.",
+    "tr": "İçerik, üslup ve tutarlılık kontrol edilmiş."
+  },
+  "Kurswunsch, Zeit und Preisfrage sind enthalten.": {
+    "en": "Include the desired course, time and price question.",
+    "ru": "Есть желаемый курс, время и вопрос о цене.",
+    "uk": "Є бажаний курс, час і запитання про ціну.",
+    "tr": "İstenen kurs, saat ve fiyat sorusu yer alıyor."
+  },
+  "Kurswunsch, freie Zeit und Preisfrage sind geplant.": {
+    "en": "Plan the desired course, available time and price question.",
+    "ru": "Спланированы желаемый курс, свободное время и вопрос о цене.",
+    "uk": "Сплановано бажаний курс, вільний час і запитання про ціну.",
+    "tr": "İstenen kurs, boş zaman ve fiyat sorusu planlanmış."
+  },
+  "Kurze Vorstellung, Lernziel, Platzfrage und Materialfrage sind enthalten.": {
+    "en": "Include a short introduction, learning goal, question about a place and materials.",
+    "ru": "Есть краткое представление, учебная цель, вопросы о месте и материалах.",
+    "uk": "Є коротке представлення, навчальна ціль, запитання про місце й матеріали.",
+    "tr": "Kısa tanıtım, öğrenme hedefi, yer ve malzeme soruları yer alıyor."
+  },
+  "Mehrere Verbindungen sind möglich.": {
+    "en": "Several connections are possible.",
+    "ru": "Возможны несколько связей.",
+    "uk": "Можливі кілька зв’язків.",
+    "tr": "Birden fazla bağlantı mümkün."
+  },
+  "Mehrere verständliche Formulierungen sind möglich.": {
+    "en": "Several clear wordings are possible.",
+    "ru": "Возможны разные понятные формулировки.",
+    "uk": "Можливі різні зрозумілі формулювання.",
+    "tr": "Birden fazla anlaşılır ifade mümkün."
+  },
+  "Mittwoch ab 17 Uhr ist enthalten.": {
+    "en": "Include Wednesday from 17:00.",
+    "ru": "Указана среда с 17 часов.",
+    "uk": "Указана середа з 17 години.",
+    "tr": "Çarşamba 17’den itibaren belirtilmiş."
+  },
+  "Mittwoch, 10:30 Uhr ist enthalten.": {
+    "en": "Include Wednesday at 10:30.",
+    "ru": "Указана среда, 10:30.",
+    "uk": "Указана середа, 10:30.",
+    "tr": "Çarşamba 10:30 belirtilmiş."
+  },
+  "Montag 11–12 Uhr, kostenlos, Anmeldung bis Samstag sowie Gerät und Ladekabel sind enthalten.": {
+    "en": "Include Monday 11:00–12:00, free of charge, registration by Saturday, the device and charging cable.",
+    "ru": "Указаны понедельник 11–12, бесплатно, запись до субботы, устройство и зарядный кабель.",
+    "uk": "Указані понеділок 11–12, безкоштовно, запис до суботи, пристрій і зарядний кабель.",
+    "tr": "Pazartesi 11–12, ücretsiz, cumartesiye kadar kayıt, cihaz ve şarj kablosu belirtilmiş."
+  },
+  "Nach der Rückmeldung wird eine Stelle verbessert oder eine Reflexion gespeichert.": {
+    "en": "After feedback, improve a passage or save a reflection.",
+    "ru": "После отзыва улучшите фрагмент или сохраните размышление.",
+    "uk": "Після відгуку покращте фрагмент або збережіть міркування.",
+    "tr": "Geri bildirimden sonra bir bölümü geliştir veya değerlendirme kaydet."
+  },
+  "Neue Varianten und produktive Proben getrennt fest versionieren.": {
+    "en": "Version new variants and productive samples separately.",
+    "ru": "Отдельно фиксируйте версии новых вариантов и продуктивных работ.",
+    "uk": "Окремо фіксуйте версії нових варіантів і продуктивних робіт.",
+    "tr": "Yeni sürümleri ve üretim örneklerini ayrı sürümle."
+  },
+  "Neuer Preis 48 Euro und unveränderte Termine sind enthalten.": {
+    "en": "Include the new price of €48 and unchanged dates.",
+    "ru": "Указаны новая цена 48 евро и неизменные даты.",
+    "uk": "Указані нова ціна 48 євро й незмінні дати.",
+    "tr": "Yeni fiyat 48 avro ve değişmeyen tarihler belirtilmiş."
+  },
+  "Ortsangaben passen zu sichtbaren Gegenständen.": {
+    "en": "Location descriptions match visible objects.",
+    "ru": "Указания места соответствуют видимым предметам.",
+    "uk": "Указівки місця відповідають видимим предметам.",
+    "tr": "Yer ifadeleri görünen nesnelere uygun."
+  },
+  "Position, Grund und Beispiel passen zur Forumsfrage.": {
+    "en": "The position, reason and example suit the forum question.",
+    "ru": "Позиция, причина и пример соответствуют вопросу форума.",
+    "uk": "Позиція, причина й приклад відповідають запитанню форуму.",
+    "tr": "Görüş, neden ve örnek forum sorusuna uygun."
+  },
+  "Position, Grund und Beispiel passen zusammen.": {
+    "en": "The position, reason and example fit together.",
+    "ru": "Позиция, причина и пример согласованы.",
+    "uk": "Позиція, причина й приклад узгоджені.",
+    "tr": "Görüş, neden ve örnek birbirine uygun."
+  },
+  "Prüfen Sie nach der Rückmeldung Ihren Text und verbessern Sie eine Stelle.": {
+    "en": "Review your text after feedback and improve one passage.",
+    "ru": "После отзыва проверьте текст и улучшите один фрагмент.",
+    "uk": "Після відгуку перевірте текст і покращте один фрагмент.",
+    "tr": "Geri bildirimden sonra metnini incele ve bir bölümü geliştir."
+  },
+  "Raum 12 im ersten Stock ist enthalten.": {
+    "en": "Include room 12 on the first floor.",
+    "ru": "Указана комната 12 на первом этаже над входным.",
+    "uk": "Указана кімната 12 на першому поверсі над вхідним.",
+    "tr": "Birinci kattaki 12 numaralı oda belirtilmiş."
+  },
+  "Sätze sind sinnvoll verbunden.": {
+    "en": "Sentences are connected meaningfully.",
+    "ru": "Предложения осмысленно связаны.",
+    "uk": "Речення осмислено пов’язані.",
+    "tr": "Cümleler anlamlı bağlanmış."
+  },
+  "Tag, Zeit, Preis und Frist sind korrekt übertragen.": {
+    "en": "The day, time, price and deadline are transferred correctly.",
+    "ru": "День, время, цена и срок переданы правильно.",
+    "uk": "День, час, ціну й строк передано правильно.",
+    "tr": "Gün, saat, fiyat ve son tarih doğru aktarılmış."
+  },
+  "Thema, Erfahrung, Vor-/Nachteil, Meinung und Schluss sind vorbereitet.": {
+    "en": "Topic, experience, advantage/disadvantage, opinion and conclusion are prepared.",
+    "ru": "Подготовлены тема, опыт, преимущество/недостаток, мнение и заключение.",
+    "uk": "Підготовлені тема, досвід, перевага/недолік, думка й висновок.",
+    "tr": "Konu, deneyim, avantaj/dezavantaj, görüş ve sonuç hazırlanmış."
+  },
+  "Vermutungen werden als Vermutungen gekennzeichnet.": {
+    "en": "Guesses are identified as guesses.",
+    "ru": "Предположения обозначены как предположения.",
+    "uk": "Припущення позначені як припущення.",
+    "tr": "Tahminler tahmin olarak belirtilmiş."
+  },
+  "Vor Veröffentlichung eigene Aufgaben, Lösungen und Belege fachlich prüfen.": {
+    "en": "Review original tasks, answers and evidence before publication.",
+    "ru": "Перед публикацией проверьте свои задания, решения и подтверждения.",
+    "uk": "Перед публікацією перевірте власні завдання, розв’язки й підтвердження.",
+    "tr": "Yayımlamadan önce özgün görevleri, yanıtları ve kanıtları uzman olarak incele."
+  },
+  "Vor- und Nachteile werden nachvollziehbar genannt.": {
+    "en": "Advantages and disadvantages are stated clearly.",
+    "ru": "Преимущества и недостатки названы понятно.",
+    "uk": "Переваги й недоліки названо зрозуміло.",
+    "tr": "Avantajlar ve dezavantajlar anlaşılır belirtilmiş."
+  },
+  "Vorschlag und noch offene Bestätigung werden unterschieden.": {
+    "en": "The suggestion is distinguished from pending confirmation.",
+    "ru": "Предложение отличается от ещё ожидаемого подтверждения.",
+    "uk": "Пропозиція відрізняється від ще очікуваного підтвердження.",
+    "tr": "Öneri ve beklenen onay ayırt edilmiş."
+  },
+  "Vorschläge werden aufgegriffen.": {
+    "en": "Suggestions are addressed.",
+    "ru": "Предложения подхвачены.",
+    "uk": "Пропозиції підхоплено.",
+    "tr": "Öneriler ele alınmış."
+  },
+  "Vorstellung und Bitte um einen Platz sind enthalten.": {
+    "en": "Include an introduction and request for a place.",
+    "ru": "Есть представление и просьба о месте.",
+    "uk": "Є представлення й прохання про місце.",
+    "tr": "Tanıtım ve yer isteği yer alıyor."
+  },
+  "Wortschatz und sprachliche Mittel passen zur Situation.": {
+    "en": "Vocabulary and language suit the situation.",
+    "ru": "Слова и языковые средства подходят ситуации.",
+    "uk": "Слова й мовні засоби відповідають ситуації.",
+    "tr": "Kelime bilgisi ve dil yapıları duruma uygun."
+  },
+  "Yusuf bringt Texte mit; Sie bereiten Fragen vor.": {
+    "en": "Yusuf brings texts; you prepare questions.",
+    "ru": "Юсуф приносит тексты; вы готовите вопросы.",
+    "uk": "Юсуф приносить тексти; ви готуєте запитання.",
+    "tr": "Yusuf metinleri getirir; sen soruları hazırlarsın."
+  },
+  "Zeit, Handlung und Ergebnis sind als Stichwörter enthalten.": {
+    "en": "Time, action and outcome are included as keywords.",
+    "ru": "Время, действие и результат указаны ключевыми словами.",
+    "uk": "Час, дію й результат указано ключовими словами.",
+    "tr": "Zaman, eylem ve sonuç anahtar kelimeler olarak yer alıyor."
+  },
+  "Zeitgrenzen und Beitrag sind als Stichwörter vorbereitet.": {
+    "en": "Time limits and contribution are prepared as keywords.",
+    "ru": "Ограничения времени и вклад подготовлены ключевыми словами.",
+    "uk": "Обмеження часу й внесок підготовлені ключовими словами.",
+    "tr": "Zaman sınırları ve katkı anahtar kelimelerle hazırlanmış."
+  },
+  "Zentrale sichtbare Personen, Orte und Handlungen werden genannt.": {
+    "en": "Key visible people, places and actions are named.",
+    "ru": "Названы основные видимые люди, места и действия.",
+    "uk": "Названо основних видимих людей, місця й дії.",
+    "tr": "Görünen temel kişiler, yerler ve eylemler belirtilmiş."
+  },
+  "Wörter und Erklärungen gehören jeweils zusammen.": {
+    "en": "Each word matches its explanation.",
+    "ru": "Каждое слово соответствует своему объяснению.",
+    "uk": "Кожне слово відповідає своєму поясненню.",
+    "tr": "Her kelime kendi açıklamasıyla eşleşir."
+  }
+}

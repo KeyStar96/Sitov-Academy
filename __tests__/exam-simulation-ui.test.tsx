@@ -8,6 +8,7 @@ jest.mock('@/app/actions/exam-simulation',()=>({startExamSimulation:jest.fn(),sa
 import * as actions from '@/app/actions/exam-simulation'
 import ExamSimulation, { FeedbackCard } from '@/components/exam-simulation/ExamSimulation'
 import { SIMULATION_UNIVERSAL_PROFILES } from '@/lib/exam-simulation/catalogue'
+import { sitovSimulationCopy } from '@/lib/exam-simulation/ui-copy'
 import type { SimulationSession, SimulationTask, SimulationState, SimulationResult } from '@/lib/exam-simulation/types'
 
 const readyCatalog=SIMULATION_UNIVERSAL_PROFILES.map(profile=>({...profile,fullExamReleased:true,blockers:[]}))
@@ -18,23 +19,26 @@ const session:SimulationSession={id:'00000000-0000-4000-8000-000000000001',versi
 const result:SimulationResult={status:'teacher-review-required',headline:'Deine Lehrkraft ergänzt die Bewertung',description:'Geschlossene Aufgaben sind ausgewertet. Die Gesamteinschätzung ist noch offen.',examPass:null,percentage:100,reviewedPoints:1,reviewedMaxPoints:1,totalMaxPoints:11,pendingTeacherTasks:1,missingSkills:['listening'],skills:[{skill:'reading',title:'Lesen',points:1,maxPoints:1,percentage:100,pendingTeacherTasks:0,correctTasks:1,wrongTasks:0},{skill:'writing',title:'Schreiben',points:0,maxPoints:10,percentage:null,pendingTeacherTasks:1,correctTasks:0,wrongTasks:0}],feedback:[{taskId:task.id,title:task.title,skill:task.skill,family:task.family,answer:'a',correct:true,points:1,maxPoints:1,expectedAnswer:'a',explanation:'Dienstag ist der neue Termin.',evidence:'Der Kurs beginnt am Dienstag um 10 Uhr.'},{taskId:second.id,title:second.title,skill:second.skill,family:second.family,answer:{text:'Meine Antwort.'},correct:null,points:null,maxPoints:10,explanation:'Die Lehrkraft prüft diesen Text.',criteria:['Inhalt und Verständlichkeit']}],nextSteps:['Warte auf die Rückmeldung deiner Lehrkraft.']}
 beforeEach(()=>{jest.clearAllMocks();window.scrollTo=jest.fn();Object.defineProperty(globalThis.crypto,'randomUUID',{configurable:true,value:()=> '00000000-0000-4000-8000-000000000011'})})
 
-it('offers only level and start, with no institute choice, entirely in German for a Russian UI preference',()=>{
+it('offers level and start in the Russian interface while announcing that the exam is in German',()=>{
+  const copy=sitovSimulationCopy('ru')
   render(<ExamSimulation lang="ru" initial={empty} catalog={readyCatalog}/>)
   expect(screen.getAllByRole('button',{name:/^(A1|A2|B1|B2|C1|C2) –/})).toHaveLength(6)
   fireEvent.click(screen.getByRole('button',{name:/A1 –/}))
-  expect(screen.getByRole('heading',{name:'Deine simulierte Prüfung · A1'})).toBeInTheDocument()
-  expect(screen.getByRole('button',{name:'Prüfung starten'})).toBeInTheDocument()
+  expect(screen.getByRole('heading',{name:copy.t('selectedExam',{level:'A1'})})).toBeInTheDocument()
+  expect(screen.getByRole('button',{name:copy.t('startExam')})).toBeInTheDocument()
+  expect(screen.getByText(copy.t('germanNotice'))).toBeInTheDocument()
   expect(screen.queryByText(/Goethe|telc|ÖSD/)).not.toBeInTheDocument()
   expect(screen.queryByRole('button',{name:/DTZ/})).not.toBeInTheDocument()
   expect(screen.queryByRole('button',{name:/translate|übersetzen/i})).not.toBeInTheDocument()
 })
 it('shows the teacher release gate without levels, start or retained run answers while access is locked',()=>{
+  const copy=sitovSimulationCopy('ru')
   render(<ExamSimulation lang="ru" initial={{...empty,available:false,accessLocked:true,active:session}} initialLevel="B1" catalog={readyCatalog}/>)
-  expect(screen.getByRole('heading',{name:'Deine Lehrkraft schaltet dich frei'})).toBeInTheDocument()
+  expect(screen.getByRole('heading',{name:copy.t('gateTitle')})).toBeInTheDocument()
   expect(screen.queryByRole('button',{name:'Prüfung starten'})).not.toBeInTheDocument()
   expect(screen.queryByRole('button',{name:/^(A1|A2|B1|B2|C1|C2) –/})).not.toBeInTheDocument()
   expect(screen.queryByRole('heading',{name:task.title})).not.toBeInTheDocument()
-  expect(screen.getByRole('link',{name:'Zur Prüfungsvorbereitung'})).toHaveAttribute('href','/ru/dashboard/exam-preparation')
+  expect(screen.getByRole('link',{name:copy.t('preparation')})).toHaveAttribute('href','/ru/dashboard/exam-preparation')
 })
 it('starts a full universal exam directly from the chosen level',async()=>{
   jest.mocked(actions.startExamSimulation).mockResolvedValue({success:true,session})

@@ -2,7 +2,7 @@ import { defineConfig, devices } from '@playwright/test'
 
 export default defineConfig({
   testDir: '.',
-  testMatch: 'sitov-exam-home-motion.spec.ts',
+  testMatch: ['sitov-exam-home-motion.spec.ts', 'sitov-exam-language.spec.ts'],
   fullyParallel: false,
   workers: 1,
   reporter: 'list',

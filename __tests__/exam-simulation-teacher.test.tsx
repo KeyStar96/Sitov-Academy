@@ -69,10 +69,10 @@ it('allows zero points for a missing dialogue but requires explicit interaction 
 
 it('keeps the feature gate closed before separate advanced level controls',()=>{
  render(<ExamSimulationTeacher initial={state()} lang="ru"/> )
- expect(screen.getByRole('button',{name:'Freigaben'})).toHaveAttribute('aria-pressed','true')
- expect(screen.getByText('Max: Prüfung gesperrt')).toBeInTheDocument()
- expect(screen.getByRole('button',{name:'Prüfung für Max freigeben'})).toBeEnabled()
- expect(screen.getByRole('button',{name:'B2 freigeben'})).toBeDisabled()
+ expect(screen.getByRole('button',{name:'Доступ'})).toHaveAttribute('aria-pressed','true')
+ expect(screen.getByText('Max: Экзамен закрыт')).toBeInTheDocument()
+ expect(screen.getByRole('button',{name:'Открыть экзамен для Max'})).toBeEnabled()
+ expect(screen.getByRole('button',{name:'Открыть B2'})).toBeDisabled()
  expect(grantSimulationFeature).not.toHaveBeenCalled()
 })
 it('grants and revokes only the selected learner through an authoritative refresh',async()=>{
@@ -145,7 +145,7 @@ it('displays all completed answers separately and masks partial productive perce
  fireEvent.click(screen.getByRole('button',{name:'Ergebnisse'}))
  expect(screen.getAllByText('Bewertung offen')).toHaveLength(2)
  expect(screen.queryByText('100 %')).not.toBeInTheDocument()
- expect(screen.getByText('1 Leistung wartet auf eine fachliche Bewertung.')).toBeInTheDocument()
+ expect(screen.getByText('Eine Leistung wartet auf eine fachliche Bewertung.')).toBeInTheDocument()
  expect(screen.getByText('1 Bewertung offen')).toBeInTheDocument()
  expect(screen.getByText('Meine Antwort')).toBeInTheDocument()
  expect(screen.getByLabelText('Ergebnis auswählen')).toBeInTheDocument()

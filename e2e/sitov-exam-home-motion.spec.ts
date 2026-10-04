@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test'
 import AxeBuilder from '@axe-core/playwright'
+import { getSitovExamEntryCopy } from '../lib/exam-entry-i18n'
 
 test.beforeEach(async ({ page }) => {
   await page.addInitScript(() => {
@@ -9,8 +10,38 @@ test.beforeEach(async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'no-preference' })
 })
 
+for (const lang of ['de', 'en', 'ru', 'uk', 'tr']) {
+  test(`home exam cards and skill graphics use ${lang} and fit all widths`, async ({ page }) => {
+    const copy = getSitovExamEntryCopy(lang)
+    await page.emulateMedia({ reducedMotion: 'reduce' })
+    await page.goto(`/${lang}/sitov-preview/home-motion`)
+    const region = page.getByRole('region', { name: copy.region, exact: true })
+    const card = region.locator('[data-sitov-exam-entry]')
+    await expect(region).toHaveAttribute('lang', lang)
+    await expect(region.getByRole('heading', { name: copy.title, exact: true })).toBeVisible()
+    await expect(region.getByRole('link', { name: new RegExp(copy.preparationAction) })).toHaveAttribute('href', `/${lang}/dashboard/exam-preparation`)
+    for (const width of [320, 390, 1440]) {
+      await page.setViewportSize({ width, height: 1000 })
+      await card.scrollIntoViewIfNeeded()
+      expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true)
+      for (const skill of [copy.reading, copy.listening, copy.writing, copy.speaking]) {
+        const label = card.locator('[data-sitov-exam-graphic]').getByText(skill, { exact: true })
+        await expect(label).toBeVisible()
+        const bounds = (await label.boundingBox())!
+        const cardBounds = (await card.boundingBox())!
+        expect(bounds.x).toBeGreaterThanOrEqual(cardBounds.x)
+        expect(bounds.x + bounds.width).toBeLessThanOrEqual(cardBounds.x + cardBounds.width)
+      }
+    }
+    await region.screenshot({ path: `artifacts/sitov-exam-language-${lang}-desktop.png` })
+  })
+}
+
 test('exam motion runs in view, follows the pointer and sleeps outside the viewport', async ({ page }) => {
   await page.goto('/de/sitov-preview/home-motion')
+  // The motion contract intentionally pauses decoration in hidden documents.
+  await page.bringToFront()
+  await expect.poll(() => page.evaluate(() => document.visibilityState)).toBe('visible')
   const card = page.locator('[data-sitov-exam-entry]')
   const stage = page.locator('[data-sitov-motion-stage]').filter({ has: card })
   const graphic = page.locator('[data-sitov-exam-graphic]')

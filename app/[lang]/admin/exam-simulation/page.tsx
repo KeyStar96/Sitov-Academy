@@ -2,8 +2,12 @@ import { redirect } from 'next/navigation'
 import { getSimulationTeacherState } from '@/app/actions/exam-simulation'
 import { createClient } from '@/utils/supabase/server'
 import ExamSimulationTeacher from '@/components/exam-simulation/ExamSimulationTeacher'
+import { sitovTeacherText } from '@/lib/exam-simulation/teacher-ui-copy'
 
-export const metadata={title:'Simulierte Prüfung · Lehrkraft · Sitov Academy'}
+export async function generateMetadata({params}:{params:Promise<{lang:string}>}){
+ const {lang}=await params
+ return {title:sitovTeacherText(lang,'Simulierte Prüfung · Lehrkraft · Sitov Academy')}
+}
 export const dynamic='force-dynamic'
 export default async function SimulationTeacherPage({params}:{params:Promise<{lang:string}>}){
  const {lang}=await params,client=await createClient(),{data:{user}}=await client.auth.getUser()

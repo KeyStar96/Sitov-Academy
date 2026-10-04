@@ -1,0 +1,1836 @@
+{
+  "Entwurf": [
+    "Entwurf",
+    "Draft",
+    "Черновик",
+    "Чернетка",
+    "Taslak"
+  ],
+  "Rückmeldung ausstehend": [
+    "Rückmeldung ausstehend",
+    "Feedback pending",
+    "Ожидает отзыва",
+    "Очікує відгуку",
+    "Geri bildirim bekleniyor"
+  ],
+  "Rückmeldung gegeben": [
+    "Rückmeldung gegeben",
+    "Feedback given",
+    "Отзыв дан",
+    "Відгук надано",
+    "Geri bildirim verildi"
+  ],
+  "Noch üben": [
+    "Noch üben",
+    "Keep practising",
+    "Ещё потренироваться",
+    "Ще потренуватися",
+    "Çalışmaya devam et"
+  ],
+  "Mit Hilfe gelungen": [
+    "Mit Hilfe gelungen",
+    "Completed with help",
+    "Выполнено с помощью",
+    "Виконано з допомогою",
+    "Yardımla başarıldı"
+  ],
+  "Selbstständig gelungen": [
+    "Selbstständig gelungen",
+    "Completed independently",
+    "Выполнено самостоятельно",
+    "Виконано самостійно",
+    "Bağımsız başarıldı"
+  ],
+  "Inhaltspunkte beantwortet": [
+    "Inhaltspunkte beantwortet",
+    "Content points addressed",
+    "Содержание раскрыто",
+    "Зміст розкрито",
+    "İçerik maddeleri yanıtlandı"
+  ],
+  "Ansprache und Register passen": [
+    "Ansprache und Register passen",
+    "Appropriate address and register",
+    "Обращение и стиль подходят",
+    "Звертання та стиль доречні",
+    "Hitap ve üslup uygun"
+  ],
+  "Verständlicher Zusammenhang": [
+    "Verständlicher Zusammenhang",
+    "Clear connections",
+    "Понятная связность",
+    "Зрозуміла зв’язність",
+    "Anlaşılır bağlantılar"
+  ],
+  "Passende sprachliche Mittel": [
+    "Passende sprachliche Mittel",
+    "Appropriate language",
+    "Подходящие языковые средства",
+    "Доречні мовні засоби",
+    "Uygun dil kullanımı"
+  ],
+  "Sprachliche Korrektheit": [
+    "Sprachliche Korrektheit",
+    "Language accuracy",
+    "Языковая точность",
+    "Мовна правильність",
+    "Dil doğruluğu"
+  ],
+  "Auftrag erfüllt": [
+    "Auftrag erfüllt",
+    "Task completed",
+    "Задание выполнено",
+    "Завдання виконано",
+    "Görev tamamlandı"
+  ],
+  "Verständlich gesprochen": [
+    "Verständlich gesprochen",
+    "Clear speech",
+    "Понятная речь",
+    "Зрозуміле мовлення",
+    "Anlaşılır konuşma"
+  ],
+  "Zusammenhängend gesprochen": [
+    "Zusammenhängend gesprochen",
+    "Coherent speech",
+    "Связная речь",
+    "Зв’язне мовлення",
+    "Tutarlı konuşma"
+  ],
+  "Auf Fragen oder Partner reagiert": [
+    "Auf Fragen oder Partner reagiert",
+    "Responded to questions or partner",
+    "Ответы на вопросы и реплики партнёра",
+    "Відповіді на запитання й репліки партнера",
+    "Sorulara veya konuşma arkadaşına yanıt verildi"
+  ],
+  "Die Abgaben konnten nicht geladen werden. Bitte lade die Seite erneut.": [
+    "Die Abgaben konnten nicht geladen werden. Bitte lade die Seite erneut.",
+    "Submissions could not be loaded. Reload the page.",
+    "Не удалось загрузить работы. Перезагрузи страницу.",
+    "Не вдалося завантажити роботи. Перезавантаж сторінку.",
+    "Çalışmalar yüklenemedi. Sayfayı yeniden yükle."
+  ],
+  "Status": [
+    "Status",
+    "Status",
+    "Статус",
+    "Статус",
+    "Durum"
+  ],
+  "Alle Abgaben": [
+    "Alle Abgaben",
+    "All submissions",
+    "Все работы",
+    "Усі роботи",
+    "Tüm çalışmalar"
+  ],
+  "Fertigkeit": [
+    "Fertigkeit",
+    "Skill",
+    "Навык",
+    "Навичка",
+    "Beceri"
+  ],
+  "Schreiben und Sprechen": [
+    "Schreiben und Sprechen",
+    "Writing and speaking",
+    "Письмо и говорение",
+    "Письмо й говоріння",
+    "Yazma ve konuşma"
+  ],
+  "Schreiben": [
+    "Schreiben",
+    "Writing",
+    "Письмо",
+    "Письмо",
+    "Yazma"
+  ],
+  "Sprechen": [
+    "Sprechen",
+    "Speaking",
+    "Говорение",
+    "Говоріння",
+    "Konuşma"
+  ],
+  "Kurs": [
+    "Kurs",
+    "Course",
+    "Курс",
+    "Курс",
+    "Kurs"
+  ],
+  "Alle Kurse": [
+    "Alle Kurse",
+    "All courses",
+    "Все курсы",
+    "Усі курси",
+    "Tüm kurslar"
+  ],
+  "Ohne Kurszuordnung": [
+    "Ohne Kurszuordnung",
+    "No course assigned",
+    "Без курса",
+    "Без курсу",
+    "Kurs atanmamış"
+  ],
+  "Abgabe": [
+    "Abgabe",
+    "submission",
+    "работа",
+    "робота",
+    "çalışma"
+  ],
+  "Abgaben": [
+    "Abgaben",
+    "submissions",
+    "работ",
+    "робіт",
+    "çalışma"
+  ],
+  "· Sprech- und Schreibprodukte aus dem gemeinsamen B1-Lernweg.": [
+    "· Sprech- und Schreibprodukte aus dem gemeinsamen B1-Lernweg.",
+    "· Speaking and writing submissions from the B1 learning path.",
+    "· Устные и письменные работы по общему пути B1.",
+    "· Усні й письмові роботи зі спільного шляху B1.",
+    "· Ortak B1 öğrenim yolundaki konuşma ve yazma çalışmaları."
+  ],
+  "B1-Abgaben": [
+    "B1-Abgaben",
+    "B1 submissions",
+    "Работы B1",
+    "Роботи B1",
+    "B1 çalışmaları"
+  ],
+  "Lernender": [
+    "Lernender",
+    "Learner",
+    "Ученик",
+    "Учень",
+    "Öğrenci"
+  ],
+  "Keine Abgaben für diese Auswahl": [
+    "Keine Abgaben für diese Auswahl",
+    "No submissions for this selection",
+    "Нет работ для этого выбора",
+    "Немає робіт для цього вибору",
+    "Bu seçimde çalışma yok"
+  ],
+  "Mit „Alle Abgaben“ findest du bereits besprochene Arbeiten.": [
+    "Mit „Alle Abgaben“ findest du bereits besprochene Arbeiten.",
+    "Choose “All submissions” to find reviewed work.",
+    "Выбери «Все работы», чтобы найти уже проверенные работы.",
+    "Обери «Усі роботи», щоб знайти вже перевірені роботи.",
+    "İncelenen çalışmalar için “Tüm çalışmalar”ı seç."
+  ],
+  "Zur Abgabenliste": [
+    "Zur Abgabenliste",
+    "Back to submissions",
+    "К списку работ",
+    "До списку робіт",
+    "Çalışma listesine dön"
+  ],
+  "Lehrkraft und Rückmeldezeit zuordnen": [
+    "Lehrkraft und Rückmeldezeit zuordnen",
+    "Assign teacher and response time",
+    "Назначить преподавателя и срок ответа",
+    "Призначити викладача й строк відповіді",
+    "Öğretmen ve yanıt süresi ata"
+  ],
+  "Deine Rückmeldung wurde gespeichert. Die Originalabgabe bleibt erhalten.": [
+    "Deine Rückmeldung wurde gespeichert. Die Originalabgabe bleibt erhalten.",
+    "Feedback saved. The original submission is kept.",
+    "Отзыв сохранён. Исходная работа остаётся.",
+    "Відгук збережено. Початкова робота залишається.",
+    "Geri bildirim kaydedildi. Asıl çalışma korunur."
+  ],
+  "Die Rückmeldung konnte nicht gespeichert werden. Dein Text bleibt hier stehen.": [
+    "Die Rückmeldung konnte nicht gespeichert werden. Dein Text bleibt hier stehen.",
+    "Feedback could not be saved. Your text is kept here.",
+    "Отзыв не сохранён. Текст остаётся здесь.",
+    "Відгук не збережено. Текст залишається тут.",
+    "Geri bildirim kaydedilemedi. Metnin burada korunur."
+  ],
+  "Die Verbindung ist unterbrochen. Deine Rückmeldung bleibt hier stehen; bitte erneut speichern.": [
+    "Die Verbindung ist unterbrochen. Deine Rückmeldung bleibt hier stehen; bitte erneut speichern.",
+    "Connection lost. Your feedback is kept; try saving again.",
+    "Связь прервана. Отзыв сохранён здесь; попробуй снова.",
+    "Зв’язок перервано. Відгук залишився тут; спробуй знову.",
+    "Bağlantı kesildi. Geri bildirimin korunur; tekrar kaydet."
+  ],
+  "Das Modul ist mit deiner Begründung freigeschaltet.": [
+    "Das Modul ist mit deiner Begründung freigeschaltet.",
+    "Module unlocked with your reason.",
+    "Модуль открыт с указанной причиной.",
+    "Модуль відкрито з указаною причиною.",
+    "Modül gerekçenle açıldı."
+  ],
+  "Die Freischaltung konnte nicht gespeichert werden.": [
+    "Die Freischaltung konnte nicht gespeichert werden.",
+    "Access change could not be saved.",
+    "Не удалось сохранить доступ.",
+    "Не вдалося зберегти доступ.",
+    "Erişim değişikliği kaydedilemedi."
+  ],
+  "Die Verbindung ist unterbrochen. Bitte versuche die Freischaltung erneut.": [
+    "Die Verbindung ist unterbrochen. Bitte versuche die Freischaltung erneut.",
+    "Connection lost. Try granting access again.",
+    "Связь прервана. Попробуй открыть доступ снова.",
+    "Зв’язок перервано. Спробуй відкрити доступ знову.",
+    "Bağlantı kesildi. Erişim vermeyi tekrar dene."
+  ],
+  "· Aufgabe Version": [
+    "· Aufgabe Version",
+    "· Task version",
+    "· Версия задания",
+    "· Версія завдання",
+    "· Soru sürümü"
+  ],
+  "B1-Auftrag": [
+    "B1-Auftrag",
+    "B1 task",
+    "Задание B1",
+    "Завдання B1",
+    "B1 görevi"
+  ],
+  "Aufgaben-ID:": [
+    "Aufgaben-ID:",
+    "Task ID:",
+    "ID задания:",
+    "ID завдання:",
+    "Soru kimliği:"
+  ],
+  ". Der Inhalt dieser älteren Aufgabenfassung ist im aktuellen Katalog nicht vorhanden. Beurteile die Abgabe anhand ihres gespeicherten Auftragsstands.": [
+    ". Der Inhalt dieser älteren Aufgabenfassung ist im aktuellen Katalog nicht vorhanden. Beurteile die Abgabe anhand ihres gespeicherten Auftragsstands.",
+    ". This older task version is absent from the current catalog. Assess the saved submission version.",
+    ". Этой старой версии нет в текущем каталоге. Оцени работу по сохранённой версии задания.",
+    ". Цієї старої версії немає в поточному каталозі. Оціни роботу за збереженою версією завдання.",
+    ". Bu eski sürüm güncel katalogda yok. Kaydedilen görev sürümüne göre değerlendir."
+  ],
+  "Bei diesem Beitrag wurden Lernhilfen genutzt. Er kann als „Mit Hilfe gelungen“ bewertet werden und zählt als Übungsleistung.": [
+    "Bei diesem Beitrag wurden Lernhilfen genutzt. Er kann als „Mit Hilfe gelungen“ bewertet werden und zählt als Übungsleistung.",
+    "Learning aids were used. Rate as “Completed with help”; this counts as practice.",
+    "Использовались подсказки. Можно оценить «Выполнено с помощью»; это учебная работа.",
+    "Використовувалися підказки. Можна оцінити «Виконано з допомогою»; це навчальна робота.",
+    "Yardım kullanıldı. “Yardımla başarıldı” olarak değerlendirilebilir; alıştırma sayılır."
+  ],
+  "Selbstreflexion": [
+    "Selbstreflexion",
+    "Self-reflection",
+    "Самоанализ",
+    "Самоаналіз",
+    "Öz değerlendirme"
+  ],
+  "Frühere Versionen vergleichen (": [
+    "Frühere Versionen vergleichen (",
+    "Compare earlier versions (",
+    "Сравнить прежние версии (",
+    "Порівняти попередні версії (",
+    "Önceki sürümleri karşılaştır ("
+  ],
+  "· Version": [
+    "· Version",
+    "· Version",
+    "· Версия",
+    "· Версія",
+    "· Sürüm"
+  ],
+  "Gespeicherte Lehrkraftrückmeldung": [
+    "Gespeicherte Lehrkraftrückmeldung",
+    "Saved teacher feedback",
+    "Сохранённый отзыв преподавателя",
+    "Збережений відгук викладача",
+    "Kaydedilen öğretmen geri bildirimi"
+  ],
+  "Lernfeedback geben": [
+    "Lernfeedback geben",
+    "Give learning feedback",
+    "Дать учебный отзыв",
+    "Надати навчальний відгук",
+    "Öğrenim geri bildirimi ver"
+  ],
+  "Eine gelungene Stelle, höchstens zwei Lernschwerpunkte und eine kleine Überarbeitung. Dieses Lernraster beschreibt die konkrete Arbeit.": [
+    "Eine gelungene Stelle, höchstens zwei Lernschwerpunkte und eine kleine Überarbeitung. Dieses Lernraster beschreibt die konkrete Arbeit.",
+    "One strength, up to two priorities and a short revision task. The rubric describes this work.",
+    "Одна удачная часть, до двух приоритетов и небольшая доработка. Критерии описывают эту работу.",
+    "Одна вдала частина, до двох пріоритетів і невелика доробка. Критерії описують цю роботу.",
+    "Bir güçlü nokta, en fazla iki öncelik ve kısa düzeltme görevi. Ölçütler bu çalışmayı tanımlar."
+  ],
+  "Eigenes Lernraster ·": [
+    "Eigenes Lernraster ·",
+    "Learning rubric ·",
+    "Учебные критерии ·",
+    "Навчальні критерії ·",
+    "Öğrenim ölçütleri ·"
+  ],
+  "Noch nicht bewertet": [
+    "Noch nicht bewertet",
+    "Not assessed yet",
+    "Пока не оценено",
+    "Ще не оцінено",
+    "Henüz değerlendirilmedi"
+  ],
+  "Beurteile Verständlichkeit beim Sprechen anhand der Aufnahme. Ein Akzent allein ist kein Fehler.": [
+    "Beurteile Verständlichkeit beim Sprechen anhand der Aufnahme. Ein Akzent allein ist kein Fehler.",
+    "Assess speech clarity using the recording. An accent alone is not an error.",
+    "Оцени понятность речи по записи. Акцент сам по себе не ошибка.",
+    "Оціни зрозумілість мовлення за записом. Акцент сам по собі не помилка.",
+    "Konuşmanın anlaşılırlığını kayıtla değerlendir. Aksan tek başına hata değildir."
+  ],
+  "Vorlage für die Überarbeitungsaufgabe wählen": [
+    "Vorlage für die Überarbeitungsaufgabe wählen",
+    "Choose a revision task template",
+    "Выбрать шаблон задания на исправление",
+    "Обрати шаблон завдання на виправлення",
+    "Düzeltme görevi şablonu seç"
+  ],
+  "Alle Inhaltspunkte beantworten": [
+    "Alle Inhaltspunkte beantworten",
+    "Address all content points",
+    "Раскрыть все пункты содержания",
+    "Розкрити всі пункти змісту",
+    "Tüm içerik maddelerini yanıtla"
+  ],
+  "Ergänze den fehlenden Inhaltspunkt in einer eigenen neuen Version. Vergleiche danach beide Fassungen.": [
+    "Ergänze den fehlenden Inhaltspunkt in einer eigenen neuen Version. Vergleiche danach beide Fassungen.",
+    "Add the missing content point in a new version. Then compare both versions.",
+    "Добавь недостающий пункт в новой собственной версии. Затем сравни обе версии.",
+    "Додай відсутній пункт у новій власній версії. Потім порівняй обидві версії.",
+    "Eksik içerik maddesini kendi yeni sürümüne ekle. Sonra iki sürümü karşılaştır."
+  ],
+  "Inhalt ergänzen": [
+    "Inhalt ergänzen",
+    "Add content",
+    "Дополнить содержание",
+    "Доповнити зміст",
+    "İçerik ekle"
+  ],
+  "Den Beitrag klar gliedern": [
+    "Den Beitrag klar gliedern",
+    "Structure the submission clearly",
+    "Чётко структурировать работу",
+    "Чітко структурувати роботу",
+    "Çalışmayı açıkça yapılandır"
+  ],
+  "Gliedere deinen Text mit einem passenden Anfang, verbundenen Inhaltspunkten und einem Schluss. Behalte deine eigenen Aussagen.": [
+    "Gliedere deinen Text mit einem passenden Anfang, verbundenen Inhaltspunkten und einem Schluss. Behalte deine eigenen Aussagen.",
+    "Structure your text with an opening, connected points and a conclusion. Keep your own statements.",
+    "Добавь подходящее начало, связанные пункты и заключение. Сохрани свои мысли.",
+    "Додай доречний початок, пов’язані пункти й висновок. Збережи власні думки.",
+    "Metnine giriş, bağlantılı içerik ve sonuç ekle. Kendi ifadelerini koru."
+  ],
+  "Nimm deinen Beitrag neu auf: kurzer Einstieg, zwei geordnete Gedanken und ein Schluss. Nutze nur Stichwörter als Hilfe.": [
+    "Nimm deinen Beitrag neu auf: kurzer Einstieg, zwei geordnete Gedanken und ein Schluss. Nutze nur Stichwörter als Hilfe.",
+    "Record again with a short opening, two ordered ideas and a conclusion. Use keywords only.",
+    "Запиши снова: короткое начало, две упорядоченные мысли и заключение. Используй только ключевые слова.",
+    "Запиши знову: короткий початок, дві впорядковані думки й висновок. Користуйся лише ключовими словами.",
+    "Kısa giriş, sıralı iki düşünce ve sonuçla yeniden kaydet. Yalnızca anahtar kelimelerden yardım al."
+  ],
+  "Klar gliedern": [
+    "Klar gliedern",
+    "Structure clearly",
+    "Чётко структурировать",
+    "Чітко структурувати",
+    "Açıkça yapılandır"
+  ],
+  "Die Aussage begründen": [
+    "Die Aussage begründen",
+    "Support your statement",
+    "Обосновать мысль",
+    "Обґрунтувати думку",
+    "İfadeyi gerekçelendir"
+  ],
+  "Ergänze einen passenden Grund und ein eigenes Beispiel. Speichere danach eine neue Fassung.": [
+    "Ergänze einen passenden Grund und ein eigenes Beispiel. Speichere danach eine neue Fassung.",
+    "Add a reason and your own example, then save a new version.",
+    "Добавь подходящую причину и свой пример. Сохрани новую версию.",
+    "Додай доречну причину та власний приклад. Збережи нову версію.",
+    "Uygun bir gerekçe ve kendi örneğini ekle. Sonra yeni sürümü kaydet."
+  ],
+  "Begründung vertiefen": [
+    "Begründung vertiefen",
+    "Develop the reasoning",
+    "Развить обоснование",
+    "Розвинути обґрунтування",
+    "Gerekçeyi geliştir"
+  ],
+  "Passe die Vorlage an die konkrete Abgabe an.": [
+    "Passe die Vorlage an die konkrete Abgabe an.",
+    "Adapt the template to this submission.",
+    "Адаптируй шаблон к этой работе.",
+    "Адаптуй шаблон до цієї роботи.",
+    "Şablonu bu çalışmaya uyarla."
+  ],
+  "Was ist konkret gelungen?": [
+    "Was ist konkret gelungen?",
+    "What specifically went well?",
+    "Что именно удалось?",
+    "Що саме вдалося?",
+    "Tam olarak neler iyi yapıldı?"
+  ],
+  "Nenne eine gelungene Stelle aus der Abgabe.": [
+    "Nenne eine gelungene Stelle aus der Abgabe.",
+    "Name one successful passage.",
+    "Назови удачный фрагмент работы.",
+    "Назви вдалий фрагмент роботи.",
+    "Çalışmadan başarılı bir bölüm belirt."
+  ],
+  "Lernschwerpunkt": [
+    "Lernschwerpunkt",
+    "Learning priority",
+    "Учебный приоритет",
+    "Навчальний пріоритет",
+    "Öğrenim önceliği"
+  ],
+  " (optional)": [
+    " (optional)",
+    " (optional)",
+    " (необязательно)",
+    " (необов’язково)",
+    " (isteğe bağlı)"
+  ],
+  "Kommentar und passende Verbesserung": [
+    "Kommentar und passende Verbesserung",
+    "Comment and suitable improvement",
+    "Комментарий и подходящее улучшение",
+    "Коментар і доречне поліпшення",
+    "Yorum ve uygun iyileştirme"
+  ],
+  "Welche Inhaltspunkte fehlen? Zeige eine Verbesserung, die die Aussageabsicht erhält.": [
+    "Welche Inhaltspunkte fehlen? Zeige eine Verbesserung, die die Aussageabsicht erhält.",
+    "Which points are missing? Suggest an improvement that keeps the intended meaning.",
+    "Какие пункты отсутствуют? Предложи улучшение, сохраняя смысл.",
+    "Яких пунктів бракує? Запропонуй поліпшення, зберігаючи зміст.",
+    "Hangi maddeler eksik? Anlamı koruyan bir iyileştirme öner."
+  ],
+  "Kleine Überarbeitungsaufgabe": [
+    "Kleine Überarbeitungsaufgabe",
+    "Short revision task",
+    "Небольшая доработка",
+    "Невелика доробка",
+    "Kısa düzeltme görevi"
+  ],
+  "Was soll in der nächsten Text- oder Aufnahmeversion verbessert werden?": [
+    "Was soll in der nächsten Text- oder Aufnahmeversion verbessert werden?",
+    "What should improve in the next text or recording?",
+    "Что улучшить в следующем тексте или записи?",
+    "Що поліпшити в наступному тексті чи записі?",
+    "Sonraki metin veya kayıtta neler iyileştirilmeli?"
+  ],
+  "Lernstatus dieser Leistung": [
+    "Lernstatus dieser Leistung",
+    "Learning status of this work",
+    "Учебный статус работы",
+    "Навчальний статус роботи",
+    "Çalışmanın öğrenim durumu"
+  ],
+  "Das Lernraster beschreibt die konkrete Leistung. „Selbstständig gelungen“ setzt einen eigenen Beitrag ohne übernommene Vorlage voraus.": [
+    "Das Lernraster beschreibt die konkrete Leistung. „Selbstständig gelungen“ setzt einen eigenen Beitrag ohne übernommene Vorlage voraus.",
+    "The rubric describes this work. Independent success requires original work without a copied template.",
+    "Критерии описывают работу. Самостоятельный успех требует собственной работы без заимствованного шаблона.",
+    "Критерії описують роботу. Самостійний успіх потребує власної роботи без запозиченого шаблону.",
+    "Ölçütler bu çalışmayı tanımlar. Bağımsız başarı, kopyalanan şablon olmadan özgün çalışma gerektirir."
+  ],
+  "Rückmeldung speichern": [
+    "Rückmeldung speichern",
+    "Save feedback",
+    "Сохранить отзыв",
+    "Зберегти відгук",
+    "Geri bildirimi kaydet"
+  ],
+  "Modul mit Begründung freischalten": [
+    "Modul mit Begründung freischalten",
+    "Unlock module with a reason",
+    "Открыть модуль с обоснованием",
+    "Відкрити модуль з обґрунтуванням",
+    "Modülü gerekçeyle aç"
+  ],
+  "Die Freischaltung ermöglicht das Weiterlernen. Sie ersetzt keinen selbstständigen Kompetenznachweis.": [
+    "Die Freischaltung ermöglicht das Weiterlernen. Sie ersetzt keinen selbstständigen Kompetenznachweis.",
+    "Unlocking permits continued learning; it does not prove independent ability.",
+    "Доступ позволяет продолжить обучение, но не доказывает самостоятельную компетенцию.",
+    "Доступ дозволяє продовжити навчання, але не доводить самостійну компетенцію.",
+    "Erişim öğrenmeye devam etmeyi sağlar; bağımsız yeterliliği kanıtlamaz."
+  ],
+  "Modul": [
+    "Modul",
+    "Module",
+    "Модуль",
+    "Модуль",
+    "Modül"
+  ],
+  " · in Vorbereitung": [
+    " · in Vorbereitung",
+    " · being prepared",
+    " · в подготовке",
+    " · у підготовці",
+    " · hazırlanıyor"
+  ],
+  "Fachliche Begründung": [
+    "Fachliche Begründung",
+    "Educational reason",
+    "Учебное обоснование",
+    "Навчальне обґрунтування",
+    "Eğitsel gerekçe"
+  ],
+  "Freischaltung speichern": [
+    "Freischaltung speichern",
+    "Save access change",
+    "Сохранить доступ",
+    "Зберегти доступ",
+    "Erişim değişikliğini kaydet"
+  ],
+  "Eigene Aufnahme": [
+    "Eigene Aufnahme",
+    "Original recording",
+    "Собственная запись",
+    "Власний запис",
+    "Özgün kayıt"
+  ],
+  "Originaltext": [
+    "Originaltext",
+    "Original text",
+    "Исходный текст",
+    "Початковий текст",
+    "Asıl metin"
+  ],
+  "Handschriftlicher Originaltext der Abgabe": [
+    "Handschriftlicher Originaltext der Abgabe",
+    "Original handwritten submission",
+    "Рукописный оригинал работы",
+    "Рукописний оригінал роботи",
+    "Çalışmanın el yazısı aslı"
+  ],
+  "Dein Browser kann die Aufnahme nicht abspielen.": [
+    "Dein Browser kann die Aufnahme nicht abspielen.",
+    "Your browser cannot play this recording.",
+    "Браузер не может воспроизвести запись.",
+    "Браузер не може відтворити запис.",
+    "Tarayıcın bu kaydı oynatamıyor."
+  ],
+  "Die private Datei konnte nicht geladen werden. Lade die Seite erneut, um einen neuen sicheren Wiedergabelink zu erhalten.": [
+    "Die private Datei konnte nicht geladen werden. Lade die Seite erneut, um einen neuen sicheren Wiedergabelink zu erhalten.",
+    "Private file unavailable. Reload for a new secure playback link.",
+    "Личный файл не загружен. Перезагрузи для новой защищённой ссылки.",
+    "Приватний файл не завантажено. Перезавантаж для нового захищеного посилання.",
+    "Özel dosya yüklenemedi. Yeni güvenli bağlantı için sayfayı yeniden yükle."
+  ],
+  "Lehrkraft ·": [
+    "Lehrkraft ·",
+    "Teacher ·",
+    "Преподаватель ·",
+    "Викладач ·",
+    "Öğretmen ·"
+  ],
+  "Gelungen": [
+    "Gelungen",
+    "Strengths",
+    "Удалось",
+    "Вдалося",
+    "Güçlü yönler"
+  ],
+  "Lernschwerpunkte": [
+    "Lernschwerpunkte",
+    "Learning priorities",
+    "Учебные приоритеты",
+    "Навчальні пріоритети",
+    "Öğrenim öncelikleri"
+  ],
+  "Nächste Überarbeitung": [
+    "Nächste Überarbeitung",
+    "Next revision",
+    "Следующая доработка",
+    "Наступна доробка",
+    "Sonraki düzeltme"
+  ],
+  "Kriterien dieser Rückmeldung": [
+    "Kriterien dieser Rückmeldung",
+    "Feedback criteria",
+    "Критерии отзыва",
+    "Критерії відгуку",
+    "Geri bildirim ölçütleri"
+  ],
+  "Die Lehrkraftzuordnung wurde gespeichert.": [
+    "Die Lehrkraftzuordnung wurde gespeichert.",
+    "Teacher assignment saved.",
+    "Преподаватель назначен.",
+    "Викладача призначено.",
+    "Öğretmen ataması kaydedildi."
+  ],
+  "Die Zuordnung konnte nicht gespeichert werden. Bitte versuche es erneut.": [
+    "Die Zuordnung konnte nicht gespeichert werden. Bitte versuche es erneut.",
+    "Assignment could not be saved. Try again.",
+    "Назначение не сохранено. Попробуй снова.",
+    "Призначення не збережено. Спробуй знову.",
+    "Atama kaydedilemedi. Tekrar dene."
+  ],
+  "Zuständige Lehrkraft": [
+    "Zuständige Lehrkraft",
+    "Assigned teacher",
+    "Ответственный преподаватель",
+    "Відповідальний викладач",
+    "Sorumlu öğretmen"
+  ],
+  "Rückmeldung innerhalb von Tagen": [
+    "Rückmeldung innerhalb von Tagen",
+    "Response within days",
+    "Срок ответа в днях",
+    "Строк відповіді в днях",
+    "Gün olarak yanıt süresi"
+  ],
+  "Aktuell:": [
+    "Aktuell:",
+    "Currently:",
+    "Сейчас:",
+    "Зараз:",
+    "Şu anda:"
+  ],
+  "Tage": [
+    "Tage",
+    "days",
+    "дней",
+    "днів",
+    "gün"
+  ],
+  "Lehrkraft verbindlich zuordnen": [
+    "Lehrkraft verbindlich zuordnen",
+    "Assign teacher",
+    "Назначить преподавателя",
+    "Призначити викладача",
+    "Öğretmeni ata"
+  ],
+  "B1-Prüfungsvorbereitung · Lehrkraft · Sitov Academy": [
+    "B1-Prüfungsvorbereitung · Lehrkraft · Sitov Academy",
+    "B1 exam preparation · Teacher · Sitov Academy",
+    "Подготовка к экзамену B1 · Преподаватель · Sitov Academy",
+    "Підготовка до іспиту B1 · Викладач · Sitov Academy",
+    "B1 sınav hazırlığı · Öğretmen · Sitov Academy"
+  ],
+  "Sitov Academy · B1-Pilot": [
+    "Sitov Academy · B1-Pilot",
+    "Sitov Academy · B1 pilot",
+    "Sitov Academy · Пилот B1",
+    "Sitov Academy · Пілот B1",
+    "Sitov Academy · B1 pilotu"
+  ],
+  "B1-Prüfungsvorbereitung": [
+    "B1-Prüfungsvorbereitung",
+    "B1 exam preparation",
+    "Подготовка к экзамену B1",
+    "Підготовка до іспиту B1",
+    "B1 sınav hazırlığı"
+  ],
+  "Eigene Hörtexte produzieren, Aufgaben gegen die Aufnahme prüfen und die geprüfte Fassung freigeben.": [
+    "Eigene Hörtexte produzieren, Aufgaben gegen die Aufnahme prüfen und die geprüfte Fassung freigeben.",
+    "Produce listening recordings, check tasks against the audio and approve the reviewed version.",
+    "Создавай аудиозаписи, проверяй задания по записи и публикуй проверенную версию.",
+    "Створюй аудіозаписи, перевіряй завдання за записом і публікуй перевірену версію.",
+    "Dinleme kayıtları hazırla, görevleri kayıtla karşılaştır ve incelenmiş sürümü onayla."
+  ],
+  "Schreib- und Sprechprodukte besprechen, Überarbeitungen vergleichen und den Lernweg begründet freischalten.": [
+    "Schreib- und Sprechprodukte besprechen, Überarbeitungen vergleichen und den Lernweg begründet freischalten.",
+    "Discuss writing and speaking submissions, compare revisions and unlock the learning path with a reason.",
+    "Обсуждай письменные и устные работы, сравнивай исправления и открывай учебный путь с обоснованием.",
+    "Обговорюй письмові й усні роботи, порівнюй виправлення та відкривай навчальний шлях з обґрунтуванням.",
+    "Yazılı ve sözlü çalışmaları görüş, düzeltmeleri karşılaştır ve öğrenme yolunu gerekçeyle aç."
+  ],
+  "Zu den Lerninhalten": [
+    "Zu den Lerninhalten",
+    "Back to learning content",
+    "К учебным материалам",
+    "До навчальних матеріалів",
+    "Öğrenme içeriklerine dön"
+  ],
+  "Zu den Abgaben": [
+    "Zu den Abgaben",
+    "Back to submissions",
+    "К работам",
+    "До робіт",
+    "Teslim edilen çalışmalara dön"
+  ],
+  "Prüfungsvorbereitung verwalten": [
+    "Prüfungsvorbereitung verwalten",
+    "Manage exam preparation",
+    "Управление подготовкой к экзамену",
+    "Керування підготовкою до іспиту",
+    "Sınav hazırlığını yönet"
+  ],
+  "Simulierte Prüfungen bewerten": [
+    "Simulierte Prüfungen bewerten",
+    "Assess simulated exams",
+    "Оценивать пробные экзамены",
+    "Оцінювати пробні іспити",
+    "Deneme sınavlarını değerlendir"
+  ],
+  "Aufnahmeaufträge": [
+    "Aufnahmeaufträge",
+    "Recording assignments",
+    "Задания на запись",
+    "Завдання на запис",
+    "Kayıt görevleri"
+  ],
+  "Briefing": [
+    "Briefing",
+    "Briefing",
+    "Инструктаж",
+    "Інструктаж",
+    "Bilgilendirme"
+  ],
+  "Skript in Prüfung": [
+    "Skript in Prüfung",
+    "Script under review",
+    "Сценарий на проверке",
+    "Сценарій на перевірці",
+    "Metin inceleniyor"
+  ],
+  "Aufnahmebereit": [
+    "Aufnahmebereit",
+    "Ready to record",
+    "Готово к записи",
+    "Готово до запису",
+    "Kayda hazır"
+  ],
+  "Aufnahme fehlt": [
+    "Aufnahme fehlt",
+    "Recording missing",
+    "Записи нет",
+    "Запису немає",
+    "Kayıt eksik"
+  ],
+  "Datei hochgeladen": [
+    "Datei hochgeladen",
+    "File uploaded",
+    "Файл загружен",
+    "Файл завантажено",
+    "Dosya yüklendi"
+  ],
+  "Audio geprüft": [
+    "Audio geprüft",
+    "Audio reviewed",
+    "Аудио проверено",
+    "Аудіо перевірено",
+    "Ses incelendi"
+  ],
+  "Veröffentlicht": [
+    "Veröffentlicht",
+    "Published",
+    "Опубликовано",
+    "Опубліковано",
+    "Yayınlandı"
+  ],
+  "Skript und Auftrag lesen": [
+    "Skript und Auftrag lesen",
+    "Read script and brief",
+    "Прочитать сценарий и задание",
+    "Прочитати сценарій і завдання",
+    "Metni ve görevi oku"
+  ],
+  "Skript fachlich prüfen": [
+    "Skript fachlich prüfen",
+    "Review script",
+    "Проверить сценарий",
+    "Перевірити сценарій",
+    "Metni incele"
+  ],
+  "Rohaufnahme aufnehmen": [
+    "Rohaufnahme aufnehmen",
+    "Make raw recording",
+    "Сделать исходную запись",
+    "Зробити початковий запис",
+    "Ham kayıt yap"
+  ],
+  "Rohaufnahme hochladen": [
+    "Rohaufnahme hochladen",
+    "Upload raw recording",
+    "Загрузить исходную запись",
+    "Завантажити початковий запис",
+    "Ham kaydı yükle"
+  ],
+  "Schnitt und Wortzeitmarken prüfen": [
+    "Schnitt und Wortzeitmarken prüfen",
+    "Check edit and word timings",
+    "Проверить монтаж и метки слов",
+    "Перевірити монтаж і мітки слів",
+    "Düzenlemeyi ve sözcük zamanlarını kontrol et"
+  ],
+  "Geprüfte Schnittfassung veröffentlichen": [
+    "Geprüfte Schnittfassung veröffentlichen",
+    "Publish reviewed edit",
+    "Опубликовать проверенный монтаж",
+    "Опублікувати перевірений монтаж",
+    "İncelenen düzenlemeyi yayınla"
+  ],
+  "Freigegebene Fassung im Training": [
+    "Freigegebene Fassung im Training",
+    "Approved version in training",
+    "Проверенная версия в обучении",
+    "Перевірена версія в навчанні",
+    "Onaylı sürüm eğitimde"
+  ],
+  "Gesamte Schnittfassung angehört; Wortlaut entspricht dem Skript.": [
+    "Gesamte Schnittfassung angehört; Wortlaut entspricht dem Skript.",
+    "Full edit listened to; wording matches the script.",
+    "Монтаж прослушан полностью; текст соответствует сценарию.",
+    "Монтаж прослухано повністю; текст відповідає сценарію.",
+    "Düzenlemenin tamamı dinlendi; sözler metne uyuyor."
+  ],
+  "Zahlen, Namen und entscheidende Informationen sind klar verständlich.": [
+    "Zahlen, Namen und entscheidende Informationen sind klar verständlich.",
+    "Numbers, names and key details are clear.",
+    "Числа, имена и важные сведения понятны.",
+    "Числа, імена й важливі відомості зрозумілі.",
+    "Sayılar, adlar ve önemli bilgiler anlaşılır."
+  ],
+  "Alle zugeordneten Aufgaben gegen die Aufnahme gelöst; Lösungen und Belege stimmen.": [
+    "Alle zugeordneten Aufgaben gegen die Aufnahme gelöst; Lösungen und Belege stimmen.",
+    "All linked tasks solved using the recording; solutions and evidence match.",
+    "Все задания решены по записи; решения и доказательства совпадают.",
+    "Усі завдання розв’язано за записом; рішення й докази збігаються.",
+    "İlgili sorular kayıtla çözüldü; çözümler ve kanıtlar uyuyor."
+  ],
+  "Lautstärke, Schnitt, Pausen und Tonqualität geprüft.": [
+    "Lautstärke, Schnitt, Pausen und Tonqualität geprüft.",
+    "Volume, edit, pauses and audio quality checked.",
+    "Громкость, монтаж, паузы и качество проверены.",
+    "Гучність, монтаж, паузи й якість перевірено.",
+    "Ses düzeyi, düzenleme, duraklamalar ve kalite kontrol edildi."
+  ],
+  "Wortzeitmarken stammen aus der echten Schnittfassung und passen zur Wiedergabe.": [
+    "Wortzeitmarken stammen aus der echten Schnittfassung und passen zur Wiedergabe.",
+    "Word timings come from the actual edit and match playback.",
+    "Метки слов получены из настоящего монтажа и совпадают с воспроизведением.",
+    "Мітки слів отримано зі справжнього монтажу й узгоджено з відтворенням.",
+    "Sözcük zamanları gerçek düzenlemeden alınmış ve oynatmaya uyuyor."
+  ],
+  "Die Nutzung der menschlichen Stimmen ist freigegeben und dokumentiert.": [
+    "Die Nutzung der menschlichen Stimmen ist freigegeben und dokumentiert.",
+    "Human voice use is approved and documented.",
+    "Использование человеческих голосов разрешено и задокументировано.",
+    "Використання людських голосів дозволено й задокументовано.",
+    "İnsan seslerinin kullanımı onaylandı ve belgelendi."
+  ],
+  "Der Produktionsstand konnte nicht geladen werden.": [
+    "Der Produktionsstand konnte nicht geladen werden.",
+    "Production state could not be loaded.",
+    "Не удалось загрузить состояние производства.",
+    "Не вдалося завантажити стан виробництва.",
+    "Üretim durumu yüklenemedi."
+  ],
+  "Acht eigene Hörpakete für den B1-Pilot. Skripte und Aufgaben gehören zusammen. Die realen Aufnahmen werden nach dem Schnitt geprüft und ausdrücklich veröffentlicht.": [
+    "Acht eigene Hörpakete für den B1-Pilot. Skripte und Aufgaben gehören zusammen. Die realen Aufnahmen werden nach dem Schnitt geprüft und ausdrücklich veröffentlicht.",
+    "Eight audio packages for the B1 pilot. Scripts and tasks belong together. Real recordings are reviewed after editing and explicitly published.",
+    "Восемь аудиопакетов для пилота B1. Сценарии и задания связаны. Реальные записи после монтажа проверяются и явно публикуются.",
+    "Вісім аудіопакетів для пілота B1. Сценарії та завдання пов’язані. Реальні записи після монтажу перевіряються й явно публікуються.",
+    "B1 pilotu için sekiz ses paketi. Metinler ve sorular birlikte kullanılır. Gerçek kayıtlar düzenlemeden sonra incelenip açıkça yayınlanır."
+  ],
+  "Drei konkrete Aufnahmesitzungen": [
+    "Drei konkrete Aufnahmesitzungen",
+    "Three recording sessions",
+    "Три сессии записи",
+    "Три сесії запису",
+    "Üç kayıt oturumu"
+  ],
+  "Produktionsstatus": [
+    "Produktionsstatus",
+    "Production status",
+    "Статус производства",
+    "Статус виробництва",
+    "Üretim durumu"
+  ],
+  "Alle Aufträge": [
+    "Alle Aufträge",
+    "All orders",
+    "Все задания",
+    "Усі завдання",
+    "Tüm görevler"
+  ],
+  "Aufnahmesitzung": [
+    "Aufnahmesitzung",
+    "Recording session",
+    "Сессия записи",
+    "Сесія запису",
+    "Kayıt oturumu"
+  ],
+  "Alle Sitzungen": [
+    "Alle Sitzungen",
+    "All sessions",
+    "Все сессии",
+    "Усі сесії",
+    "Tüm oturumlar"
+  ],
+  "Sitzung": [
+    "Sitzung",
+    "Session",
+    "Сессия",
+    "Сесія",
+    "Oturum"
+  ],
+  "Keine Aufnahmeaufträge für diese Auswahl.": [
+    "Keine Aufnahmeaufträge für diese Auswahl.",
+    "No recording orders for this selection.",
+    "Нет заданий на запись для этого выбора.",
+    "Немає завдань на запис для цього вибору.",
+    "Bu seçimde kayıt görevi yok."
+  ],
+  "Zum Aufnahmeplan": [
+    "Zum Aufnahmeplan",
+    "Back to recording plan",
+    "К плану записи",
+    "До плану запису",
+    "Kayıt planına dön"
+  ],
+  "Der Produktionsstand konnte nicht gespeichert werden.": [
+    "Der Produktionsstand konnte nicht gespeichert werden.",
+    "Production state could not be saved.",
+    "Не удалось сохранить состояние производства.",
+    "Не вдалося зберегти стан виробництва.",
+    "Üretim durumu kaydedilemedi."
+  ],
+  "Die Verbindung ist unterbrochen. Deine Eingaben bleiben hier; bitte erneut speichern.": [
+    "Die Verbindung ist unterbrochen. Deine Eingaben bleiben hier; bitte erneut speichern.",
+    "Connection lost. Your entries are kept; try saving again.",
+    "Связь прервана. Введённое сохранено здесь; попробуй снова.",
+    "Зв’язок перервано. Введене залишилося тут; спробуй знову.",
+    "Bağlantı kesildi. Girdilerin korunur; tekrar kaydet."
+  ],
+  "· B1 ·": [
+    "· B1 ·",
+    "· B1 ·",
+    "· B1 ·",
+    "· B1 ·",
+    "· B1 ·"
+  ],
+  "· Sitzung": [
+    "· Sitzung",
+    "· Session",
+    "· Сессия",
+    "· Сесія",
+    "· Oturum"
+  ],
+  "· Menschliche Aufnahme": [
+    "· Menschliche Aufnahme",
+    "· Human recording",
+    "· Человеческая запись",
+    "· Людський запис",
+    "· İnsan kaydı"
+  ],
+  "Das Skript wurde verändert. Die gespeicherte ältere Aufnahme bleibt intern erhalten; für diese Fassung sind eine neue Aufnahme und Freigabe nötig.": [
+    "Das Skript wurde verändert. Die gespeicherte ältere Aufnahme bleibt intern erhalten; für diese Fassung sind eine neue Aufnahme und Freigabe nötig.",
+    "The script changed. The old recording is kept internally; this version requires a new recording and approval.",
+    "Сценарий изменён. Старая запись сохранена; нужна новая запись и проверка.",
+    "Сценарій змінено. Старий запис збережено; потрібен новий запис і перевірка.",
+    "Metin değişti. Eski kayıt içeride korunur; bu sürüm için yeni kayıt ve onay gerekir."
+  ],
+  "Produktionsschritte": [
+    "Produktionsschritte",
+    "Production steps",
+    "Этапы производства",
+    "Етапи виробництва",
+    "Üretim adımları"
+  ],
+  "1. Auftrag": [
+    "1. Auftrag",
+    "1. Brief",
+    "1. Задание",
+    "1. Завдання",
+    "1. Görev"
+  ],
+  "2. Dateien": [
+    "2. Dateien",
+    "2. Files",
+    "2. Файлы",
+    "2. Файли",
+    "2. Dosyalar"
+  ],
+  "3. Freigabe": [
+    "3. Freigabe",
+    "3. Approval",
+    "3. Проверка",
+    "3. Перевірка",
+    "3. Onay"
+  ],
+  "Lernziel und Einsatz": [
+    "Lernziel und Einsatz",
+    "Learning goal and use",
+    "Учебная цель и применение",
+    "Навчальна мета й використання",
+    "Öğrenim hedefi ve kullanım"
+  ],
+  "Dateiname:": [
+    "Dateiname:",
+    "Filename:",
+    "Имя файла:",
+    "Назва файлу:",
+    "Dosya adı:"
+  ],
+  "Rollen und Regie": [
+    "Rollen und Regie",
+    "Roles and direction",
+    "Роли и режиссура",
+    "Ролі й режисура",
+    "Roller ve yönetim"
+  ],
+  "Vollständiges finales Skript": [
+    "Vollständiges finales Skript",
+    "Complete final script",
+    "Полный итоговый сценарий",
+    "Повний підсумковий сценарій",
+    "Tam son metin"
+  ],
+  "Aufgaben, Lösungen und Belegstellen (": [
+    "Aufgaben, Lösungen und Belegstellen (",
+    "Tasks, solutions and evidence (",
+    "Задания, решения и доказательства (",
+    "Завдання, розв’язання й докази (",
+    "Sorular, çözümler ve kanıtlar ("
+  ],
+  "Lösung:": [
+    "Lösung:",
+    "Solution:",
+    "Решение:",
+    "Розв’язання:",
+    "Çözüm:"
+  ],
+  "Offener Auftrag nach Lernraster": [
+    "Offener Auftrag nach Lernraster",
+    "Open task assessed using the rubric",
+    "Открытое задание по учебным критериям",
+    "Відкрите завдання за навчальними критеріями",
+    "Öğrenim ölçütleriyle değerlendirilen açık görev"
+  ],
+  "Beleg:": [
+    "Beleg:",
+    "Evidence:",
+    "Доказательство:",
+    "Доказ:",
+    "Kanıt:"
+  ],
+  "Inhaltlich anhand der Aufnahme prüfen.": [
+    "Inhaltlich anhand der Aufnahme prüfen.",
+    "Check content using the recording.",
+    "Проверить содержание по записи.",
+    "Перевірити зміст за записом.",
+    "İçeriği kayıtla kontrol et."
+  ],
+  "Aufnahme, Schnitt und Upload vorbereiten": [
+    "Aufnahme, Schnitt und Upload vorbereiten",
+    "Prepare recording, edit and upload",
+    "Подготовить запись, монтаж и загрузку",
+    "Підготувати запис, монтаж і завантаження",
+    "Kayıt, düzenleme ve yüklemeyi hazırla"
+  ],
+  "Ruhiger Raum, gleicher Mikrofonabstand, keine Hintergrundmusik. Zwei Sekunden Ruhe am Anfang und Ende. Bei Versprechern pausieren und den ganzen Satz wiederholen.": [
+    "Ruhiger Raum, gleicher Mikrofonabstand, keine Hintergrundmusik. Zwei Sekunden Ruhe am Anfang und Ende. Bei Versprechern pausieren und den ganzen Satz wiederholen.",
+    "Use a quiet room, consistent microphone distance and no background music. Leave two seconds silence at each end. Pause and repeat the full sentence after mistakes.",
+    "Тихая комната, постоянное расстояние до микрофона, без музыки. Две секунды тишины в начале и конце. После оговорки повторить всё предложение.",
+    "Тиха кімната, стала відстань до мікрофона, без музики. Дві секунди тиші на початку й наприкінці. Після обмовки повторити все речення.",
+    "Sessiz oda, sabit mikrofon mesafesi ve müziksiz ortam kullan. Başta ve sonda iki saniye sessizlik bırak. Hatalarda durup tüm cümleyi tekrarla."
+  ],
+  "Vorbereitung dokumentieren": [
+    "Vorbereitung dokumentieren",
+    "Document preparation",
+    "Документировать подготовку",
+    "Документувати підготовку",
+    "Hazırlığı belgele"
+  ],
+  "Nächster Produktionsstand": [
+    "Nächster Produktionsstand",
+    "Next production state",
+    "Следующее состояние производства",
+    "Наступний стан виробництва",
+    "Sonraki üretim durumu"
+  ],
+  "Produktionsstand speichern": [
+    "Produktionsstand speichern",
+    "Save production state",
+    "Сохранить состояние",
+    "Зберегти стан",
+    "Üretim durumunu kaydet"
+  ],
+  "Zu Aufnahme und Upload": [
+    "Zu Aufnahme und Upload",
+    "Go to recording and upload",
+    "К записи и загрузке",
+    "До запису й завантаження",
+    "Kayıt ve yüklemeye git"
+  ],
+  "1. Rohaufnahme": [
+    "1. Rohaufnahme",
+    "1. Raw recording",
+    "1. Исходная запись",
+    "1. Початковий запис",
+    "1. Ham kayıt"
+  ],
+  " · ältere Skriptfassung": [
+    " · ältere Skriptfassung",
+    " · older script version",
+    " · старая версия сценария",
+    " · стара версія сценарію",
+    " · eski metin sürümü"
+  ],
+  "Eine neue Rohaufnahme setzt Schnittfassung und Freigabe zurück. Der nächste Stand wird erneut geprüft.": [
+    "Eine neue Rohaufnahme setzt Schnittfassung und Freigabe zurück. Der nächste Stand wird erneut geprüft.",
+    "A new raw recording resets the edit and approval. The next version is reviewed again.",
+    "Новая исходная запись сбрасывает монтаж и разрешение. Новая версия проверяется заново.",
+    "Новий початковий запис скидає монтаж і дозвіл. Нова версія перевіряється заново.",
+    "Yeni ham kayıt düzenlemeyi ve onayı sıfırlar. Sonraki sürüm yeniden incelenir."
+  ],
+  "2. Schnittfassung mit echten Wortzeitmarken": [
+    "2. Schnittfassung mit echten Wortzeitmarken",
+    "2. Edited recording with actual word timings",
+    "2. Монтаж с реальными метками слов",
+    "2. Монтаж із реальними мітками слів",
+    "2. Gerçek sözcük zamanlarıyla düzenlenmiş kayıt"
+  ],
+  "Wortzeitmarken": [
+    "Wortzeitmarken",
+    "word timings",
+    "меток слов",
+    "міток слів",
+    "sözcük zamanı"
+  ],
+  "Bereite Schnittfassung und Wortzeitmarken lokal auf dem Mac vor. Lade danach die endgültige Audiodatei und die dazugehörige JSON-Datei hoch. Ein Eintrag": [
+    "Bereite Schnittfassung und Wortzeitmarken lokal auf dem Mac vor. Lade danach die endgültige Audiodatei und die dazugehörige JSON-Datei hoch. Ein Eintrag",
+    "Prepare the edit and word timings locally on the Mac. Then upload the final audio and matching JSON file. One entry",
+    "Подготовь монтаж и метки слов локально на Mac. Затем загрузи итоговое аудио и соответствующий JSON. Одна запись",
+    "Підготуй монтаж і мітки слів локально на Mac. Потім завантаж підсумкове аудіо й відповідний JSON. Один запис",
+    "Düzenlemeyi ve sözcük zamanlarını Mac’te yerel olarak hazırla. Son ses ve ilgili JSON dosyasını yükle. Bir giriş"
+  ],
+  "pro gesprochenem Wort, in Sekunden. Sprecherkennungen und Regie werden nicht eingesprochen.": [
+    "pro gesprochenem Wort, in Sekunden. Sprecherkennungen und Regie werden nicht eingesprochen.",
+    "per spoken word, in seconds. Do not read speaker IDs or stage directions aloud.",
+    "на каждое слово, в секундах. Идентификаторы говорящих и ремарки не произносятся.",
+    "на кожне слово, у секундах. Ідентифікатори мовців і ремарки не вимовляються.",
+    "her sözcük için, saniye cinsinden. Konuşmacı kimlikleri ve yönetim notları seslendirilmez."
+  ],
+  "Die Rohaufnahme des aktuellen Skripts wird zuerst benötigt.": [
+    "Die Rohaufnahme des aktuellen Skripts wird zuerst benötigt.",
+    "The raw recording for the current script is required first.",
+    "Сначала нужна исходная запись текущего сценария.",
+    "Спочатку потрібен початковий запис поточного сценарію.",
+    "Önce güncel metnin ham kaydı gerekir."
+  ],
+  "Schnittfassung fachlich prüfen": [
+    "Schnittfassung fachlich prüfen",
+    "Review edited recording",
+    "Проверить монтаж",
+    "Перевірити монтаж",
+    "Düzenlenmiş kaydı incele"
+  ],
+  "3. Fachlich freigeben": [
+    "3. Fachlich freigeben",
+    "3. Review and approve",
+    "3. Проверить и разрешить",
+    "3. Перевірити й дозволити",
+    "3. İncele ve onayla"
+  ],
+  "Dokumentierte Freigabe": [
+    "Dokumentierte Freigabe",
+    "Documented approval",
+    "Документированное разрешение",
+    "Задокументований дозвіл",
+    "Belgelenmiş onay"
+  ],
+  "Freigabevermerk, Version und Nutzungsfreigabe": [
+    "Freigabevermerk, Version und Nutzungsfreigabe",
+    "Approval note, version and usage permission",
+    "Отметка проверки, версия и право использования",
+    "Позначка перевірки, версія й право використання",
+    "Onay notu, sürüm ve kullanım izni"
+  ],
+  "Wer hat welche Fassung geprüft? Wo ist die Zustimmung zur Stimmnutzung dokumentiert?": [
+    "Wer hat welche Fassung geprüft? Wo ist die Zustimmung zur Stimmnutzung dokumentiert?",
+    "Who reviewed which version? Where is voice-use consent documented?",
+    "Кто проверил какую версию? Где разрешение на использование голоса?",
+    "Хто перевірив яку версію? Де дозвіл на використання голосу?",
+    "Hangi sürümü kim inceledi? Ses kullanım onayı nerede belgelenmiş?"
+  ],
+  "Audio geprüft bestätigen": [
+    "Audio geprüft bestätigen",
+    "Confirm audio review",
+    "Подтвердить проверку аудио",
+    "Підтвердити перевірку аудіо",
+    "Ses incelemesini onayla"
+  ],
+  "4. Für den B1-Trainer veröffentlichen": [
+    "4. Für den B1-Trainer veröffentlichen",
+    "4. Publish for B1 training",
+    "4. Опубликовать для B1",
+    "4. Опублікувати для B1",
+    "4. B1 eğitimi için yayınla"
+  ],
+  "Die freigegebene Schnittfassung wird mit ihren Aufgaben verbunden. Rohaufnahmen bleiben im Inhaltsbereich.": [
+    "Die freigegebene Schnittfassung wird mit ihren Aufgaben verbunden. Rohaufnahmen bleiben im Inhaltsbereich.",
+    "The approved edit is linked to its tasks. Raw recordings stay in content management.",
+    "Проверенный монтаж связывается с заданиями. Исходные записи остаются в управлении содержимым.",
+    "Перевірений монтаж пов’язується із завданнями. Початкові записи залишаються в керуванні вмістом.",
+    "Onaylı düzenleme sorularıyla bağlanır. Ham kayıtlar içerik yönetiminde kalır."
+  ],
+  "Wird veröffentlicht …": [
+    "Wird veröffentlicht …",
+    "Publishing …",
+    "Публикуем …",
+    "Публікуємо …",
+    "Yayınlanıyor …"
+  ],
+  "Geprüfte Audiofassung veröffentlichen": [
+    "Geprüfte Audiofassung veröffentlichen",
+    "Publish reviewed audio",
+    "Опубликовать проверенное аудио",
+    "Опублікувати перевірене аудіо",
+    "İncelenen sesi yayınla"
+  ],
+  "Diese Aufnahme ist nach fachlicher Prüfung veröffentlicht.": [
+    "Diese Aufnahme ist nach fachlicher Prüfung veröffentlicht.",
+    "This recording was published after review.",
+    "Запись опубликована после проверки.",
+    "Запис опубліковано після перевірки.",
+    "Bu kayıt incelemeden sonra yayınlandı."
+  ],
+  "Bitte wähle eine unterstützte Audiodatei bis 20 MB.": [
+    "Bitte wähle eine unterstützte Audiodatei bis 20 MB.",
+    "Choose a supported audio file up to 20 MB.",
+    "Выбери поддерживаемое аудио до 20 МБ.",
+    "Обери підтримуване аудіо до 20 МБ.",
+    "Desteklenen en fazla 20 MB ses dosyası seç."
+  ],
+  "Bitte wähle die passende JSON-Datei mit Wortzeitmarken (bis 256 KB).": [
+    "Bitte wähle die passende JSON-Datei mit Wortzeitmarken (bis 256 KB).",
+    "Choose the matching word-timing JSON file, up to 256 KB.",
+    "Выбери соответствующий JSON с метками слов до 256 КБ.",
+    "Обери відповідний JSON із мітками слів до 256 КБ.",
+    "En fazla 256 KB ilgili sözcük zamanı JSON dosyasını seç."
+  ],
+  "Die JSON-Datei benötigt eine Liste aus {start,end}-Einträgen oder ein Objekt mit der Liste „wordTimings“.": [
+    "Die JSON-Datei benötigt eine Liste aus {start,end}-Einträgen oder ein Objekt mit der Liste „wordTimings“.",
+    "JSON must contain a list of {start,end} entries or an object containing “wordTimings”.",
+    "JSON должен содержать список {start,end} или объект со списком «wordTimings».",
+    "JSON має містити список {start,end} або об’єкт зі списком «wordTimings».",
+    "JSON, {start,end} listesi veya “wordTimings” listesini içeren nesne olmalıdır."
+  ],
+  "Privaten Upload vorbereiten …": [
+    "Privaten Upload vorbereiten …",
+    "Preparing private upload …",
+    "Готовим приватную загрузку …",
+    "Готуємо приватне завантаження …",
+    "Özel yükleme hazırlanıyor …"
+  ],
+  "Der Upload konnte nicht vorbereitet werden.": [
+    "Der Upload konnte nicht vorbereitet werden.",
+    "Upload could not be prepared.",
+    "Не удалось подготовить загрузку.",
+    "Не вдалося підготувати завантаження.",
+    "Yükleme hazırlanamadı."
+  ],
+  "Audiodatei wird hochgeladen …": [
+    "Audiodatei wird hochgeladen …",
+    "Uploading audio …",
+    "Загружаем аудио …",
+    "Завантажуємо аудіо …",
+    "Ses yükleniyor …"
+  ],
+  "Die Audiodatei konnte nicht hochgeladen werden. Die ausgewählte Datei bleibt für einen neuen Versuch erhalten.": [
+    "Die Audiodatei konnte nicht hochgeladen werden. Die ausgewählte Datei bleibt für einen neuen Versuch erhalten.",
+    "Audio upload failed. The selected file is kept for retrying.",
+    "Аудио не загружено. Выбранный файл сохранён для повторной попытки.",
+    "Аудіо не завантажено. Обраний файл збережено для повторної спроби.",
+    "Ses yüklenemedi. Seçilen dosya yeniden denemek için korunur."
+  ],
+  "Upload und Zeitmarken speichern …": [
+    "Upload und Zeitmarken speichern …",
+    "Saving upload and timings …",
+    "Сохраняем загрузку и метки …",
+    "Зберігаємо завантаження й мітки …",
+    "Yükleme ve zamanlar kaydediliyor …"
+  ],
+  "Der Upload konnte nicht abgeschlossen werden.": [
+    "Der Upload konnte nicht abgeschlossen werden.",
+    "Upload could not be completed.",
+    "Не удалось завершить загрузку.",
+    "Не вдалося завершити завантаження.",
+    "Yükleme tamamlanamadı."
+  ],
+  "Die Rohaufnahme wurde privat gespeichert. Als Nächstes: Schnittfassung mit Wortzeitmarken hochladen.": [
+    "Die Rohaufnahme wurde privat gespeichert. Als Nächstes: Schnittfassung mit Wortzeitmarken hochladen.",
+    "Raw recording saved privately. Next upload the edit with word timings.",
+    "Исходная запись сохранена приватно. Далее загрузи монтаж с метками слов.",
+    "Початковий запис збережено приватно. Далі завантаж монтаж із мітками слів.",
+    "Ham kayıt özel olarak kaydedildi. Ardından düzenlemeyi sözcük zamanlarıyla yükle."
+  ],
+  "Die Schnittfassung und Wortzeitmarken wurden gespeichert. Als Nächstes: Aufnahme gegen Skript und Aufgaben prüfen.": [
+    "Die Schnittfassung und Wortzeitmarken wurden gespeichert. Als Nächstes: Aufnahme gegen Skript und Aufgaben prüfen.",
+    "Edit and word timings saved. Next check the recording against script and tasks.",
+    "Монтаж и метки сохранены. Далее проверь запись по сценарию и заданиям.",
+    "Монтаж і мітки збережено. Далі перевір запис за сценарієм і завданнями.",
+    "Düzenleme ve sözcük zamanları kaydedildi. Ardından kaydı metin ve sorularla kontrol et."
+  ],
+  "Der Upload konnte nicht abgeschlossen werden. Bitte versuche es erneut.": [
+    "Der Upload konnte nicht abgeschlossen werden. Bitte versuche es erneut.",
+    "Upload could not finish. Try again.",
+    "Загрузка не завершена. Попробуй снова.",
+    "Завантаження не завершено. Спробуй знову.",
+    "Yükleme tamamlanamadı. Tekrar dene."
+  ],
+  "Rohdatei auswählen oder ersetzen": [
+    "Rohdatei auswählen oder ersetzen",
+    "Choose or replace raw file",
+    "Выбрать или заменить исходный файл",
+    "Обрати чи замінити початковий файл",
+    "Ham dosyayı seç veya değiştir"
+  ],
+  "Schnittdatei auswählen oder ersetzen": [
+    "Schnittdatei auswählen oder ersetzen",
+    "Choose or replace edited file",
+    "Выбрать или заменить монтаж",
+    "Обрати чи замінити монтаж",
+    "Düzenlenmiş dosyayı seç veya değiştir"
+  ],
+  "M4A, MP3, WAV, OGG oder WebM · maximal 20 MB. Upload direkt in den privaten Medienspeicher.": [
+    "M4A, MP3, WAV, OGG oder WebM · maximal 20 MB. Upload direkt in den privaten Medienspeicher.",
+    "M4A, MP3, WAV, OGG or WebM · up to 20 MB. Upload directly to private storage.",
+    "M4A, MP3, WAV, OGG или WebM · до 20 МБ. Загрузка в приватное хранилище.",
+    "M4A, MP3, WAV, OGG або WebM · до 20 МБ. Завантаження в приватне сховище.",
+    "M4A, MP3, WAV, OGG veya WebM · en fazla 20 MB. Doğrudan özel depoya yüklenir."
+  ],
+  "Wortzeitmarken der Schnittfassung (.json)": [
+    "Wortzeitmarken der Schnittfassung (.json)",
+    "Word timings for the edit (.json)",
+    "Метки слов монтажа (.json)",
+    "Мітки слів монтажу (.json)",
+    "Düzenlemenin sözcük zamanları (.json)"
+  ],
+  "Schnittfassung und Zeitmarken hochladen": [
+    "Schnittfassung und Zeitmarken hochladen",
+    "Upload edit and timings",
+    "Загрузить монтаж и метки",
+    "Завантажити монтаж і мітки",
+    "Düzenlemeyi ve zamanları yükle"
+  ],
+  "Bitte lasse diese Ansicht bis zum Abschluss des Uploads geöffnet.": [
+    "Bitte lasse diese Ansicht bis zum Abschluss des Uploads geöffnet.",
+    "Keep this view open until upload finishes.",
+    "Оставь эту страницу открытой до завершения загрузки.",
+    "Залиш цю сторінку відкритою до завершення завантаження.",
+    "Yükleme tamamlanana kadar bu görünümü açık tut."
+  ],
+  "Produktionsstand gespeichert: {status}.": [
+    "Produktionsstand gespeichert: {status}.",
+    "Production state saved: {status}.",
+    "Состояние сохранено: {status}.",
+    "Стан збережено: {status}.",
+    "Üretim durumu kaydedildi: {status}."
+  ],
+  "Sitzung {count}": [
+    "Sitzung {count}",
+    "Session {count}",
+    "Сессия {count}",
+    "Сесія {count}",
+    "Oturum {count}"
+  ],
+  "{count} Wortzeitmarken": [
+    "{count} Wortzeitmarken",
+    "{count} word timings",
+    "{count} временных меток слов",
+    "{count} часових міток слів",
+    "{count} kelime zaman damgası"
+  ],
+  "Allgemeines B1-Training; kein offizieller vollständiger Prüfungsteil.": [
+    "Allgemeines B1-Training; kein offizieller vollständiger Prüfungsteil.",
+    "General B1 practice; not a complete official exam section.",
+    "Общая практика B1; это не полный официальный раздел экзамена.",
+    "Загальна практика B1; це не повний офіційний розділ іспиту.",
+    "Genel B1 alıştırması; tam bir resmî sınav bölümü değildir."
+  ],
+  "30–45 Sekunden": [
+    "30–45 Sekunden",
+    "30–45 seconds",
+    "30–45 секунд",
+    "30–45 секунд",
+    "30–45 saniye"
+  ],
+  "2–3 Minuten": [
+    "2–3 Minuten",
+    "2–3 minutes",
+    "2–3 минуты",
+    "2–3 хвилини",
+    "2–3 dakika"
+  ],
+  "Drei Beiträge zu je 20–30 Sekunden": [
+    "Drei Beiträge zu je 20–30 Sekunden",
+    "Three contributions, 20–30 seconds each",
+    "Три выступления по 20–30 секунд",
+    "Три виступи по 20–30 секунд",
+    "Her biri 20–30 saniyelik üç konuşma"
+  ],
+  "90–120 Sekunden": [
+    "90–120 Sekunden",
+    "90–120 seconds",
+    "90–120 секунд",
+    "90–120 секунд",
+    "90–120 saniye"
+  ],
+  "60–90 Sekunden": [
+    "60–90 Sekunden",
+    "60–90 seconds",
+    "60–90 секунд",
+    "60–90 секунд",
+    "60–90 saniye"
+  ],
+  "Drei Nachrichten zu je 20–35 Sekunden": [
+    "Drei Nachrichten zu je 20–35 Sekunden",
+    "Three messages, 20–35 seconds each",
+    "Три сообщения по 20–35 секунд",
+    "Три повідомлення по 20–35 секунд",
+    "Her biri 20–35 saniyelik üç mesaj"
+  ],
+  "Zwei Ankündigungen zu je 30–45 Sekunden": [
+    "Zwei Ankündigungen zu je 30–45 Sekunden",
+    "Two announcements, 30–45 seconds each",
+    "Два объявления по 30–45 секунд",
+    "Два оголошення по 30–45 секунд",
+    "Her biri 30–45 saniyelik iki duyuru"
+  ],
+  "Freund: fiktiver Mitarbeiter Herr Berg": [
+    "Freund: fiktiver Mitarbeiter Herr Berg",
+    "Friend: fictional employee Herr Berg",
+    "Друг: вымышленный сотрудник Herr Berg",
+    "Друг: вигаданий співробітник Herr Berg",
+    "Arkadaş: kurgusal çalışan Herr Berg"
+  ],
+  "Anastasia: reale Interviewerin": [
+    "Anastasia: reale Interviewerin",
+    "Anastasia: real interviewer",
+    "Anastasia: реальная интервьюер",
+    "Anastasia: реальна інтерв'юерка",
+    "Anastasia: gerçek görüşmeci"
+  ],
+  "Freund: fiktiver Thomas Berger, 61 Jahre": [
+    "Freund: fiktiver Thomas Berger, 61 Jahre",
+    "Friend: fictional Thomas Berger, age 61",
+    "Друг: вымышленный Thomas Berger, 61 год",
+    "Друг: вигаданий Thomas Berger, 61 рік",
+    "Arkadaş: kurgusal Thomas Berger, 61 yaşında"
+  ],
+  "Freund: fiktiver Ben": [
+    "Freund: fiktiver Ben",
+    "Friend: fictional Ben",
+    "Друг: вымышленный Ben",
+    "Друг: вигаданий Ben",
+    "Arkadaş: kurgusal Ben"
+  ],
+  "Zweiter realer Sprecher: fiktiver Erik": [
+    "Zweiter realer Sprecher: fiktiver Erik",
+    "Second real speaker: fictional Erik",
+    "Второй реальный диктор: вымышленный Erik",
+    "Другий реальний диктор: вигаданий Erik",
+    "İkinci gerçek konuşmacı: kurgusal Erik"
+  ],
+  "Dritter realer Sprecher: fiktiver Sami": [
+    "Dritter realer Sprecher: fiktiver Sami",
+    "Third real speaker: fictional Sami",
+    "Третий реальный диктор: вымышленный Sami",
+    "Третій реальний диктор: вигаданий Sami",
+    "Üçüncü gerçek konuşmacı: kurgusal Sami"
+  ],
+  "Freund: fiktiver Leon": [
+    "Freund: fiktiver Leon",
+    "Friend: fictional Leon",
+    "Друг: вымышленный Leon",
+    "Друг: вигаданий Leon",
+    "Arkadaş: kurgusal Leon"
+  ],
+  "Zweiter realer Sprecher: fiktiver Yusuf": [
+    "Zweiter realer Sprecher: fiktiver Yusuf",
+    "Second real speaker: fictional Yusuf",
+    "Второй реальный диктор: вымышленный Yusuf",
+    "Другий реальний диктор: вигаданий Yusuf",
+    "İkinci gerçek konuşmacı: kurgusal Yusuf"
+  ],
+  "Freund: fiktiver Erik als Vortragender": [
+    "Freund: fiktiver Erik als Vortragender",
+    "Friend: fictional Erik as presenter",
+    "Друг: вымышленный Erik в роли докладчика",
+    "Друг: вигаданий Erik у ролі доповідача",
+    "Arkadaş: sunucu rolünde kurgusal Erik"
+  ],
+  "Freund: fiktiver Kunde Sami": [
+    "Freund: fiktiver Kunde Sami",
+    "Friend: fictional customer Sami",
+    "Друг: вымышленный клиент Sami",
+    "Друг: вигаданий клієнт Sami",
+    "Arkadaş: kurgusal müşteri Sami"
+  ],
+  "Zweiter realer Sprecher: fiktiver Serviceberater Herr König": [
+    "Zweiter realer Sprecher: fiktiver Serviceberater Herr König",
+    "Second real speaker: fictional service adviser Herr König",
+    "Второй реальный диктор: вымышленный консультант Herr König",
+    "Другий реальний диктор: вигаданий консультант Herr König",
+    "İkinci gerçek konuşmacı: kurgusal müşteri danışmanı Herr König"
+  ],
+  "Zweiter realer Sprecher: fiktiver Paul": [
+    "Zweiter realer Sprecher: fiktiver Paul",
+    "Second real speaker: fictional Paul",
+    "Второй реальный диктор: вымышленный Paul",
+    "Другий реальний диктор: вигаданий Paul",
+    "İkinci gerçek konuşmacı: kurgusal Paul"
+  ],
+  "Freund: fiktiver Omar": [
+    "Freund: fiktiver Omar",
+    "Friend: fictional Omar",
+    "Друг: вымышленный Omar",
+    "Друг: вигаданий Omar",
+    "Arkadaş: kurgusal Omar"
+  ],
+  "Freund: fiktiver Mitarbeiter Herr Weber": [
+    "Freund: fiktiver Mitarbeiter Herr Weber",
+    "Friend: fictional employee Herr Weber",
+    "Друг: вымышленный сотрудник Herr Weber",
+    "Друг: вигаданий співробітник Herr Weber",
+    "Arkadaş: kurgusal çalışan Herr Weber"
+  ],
+  "Zweiter realer Sprecher: fiktiver Organisator David": [
+    "Zweiter realer Sprecher: fiktiver Organisator David",
+    "Second real speaker: fictional organiser David",
+    "Второй реальный диктор: вымышленный организатор David",
+    "Другий реальний диктор: вигаданий організатор David",
+    "İkinci gerçek konuşmacı: kurgusal organizatör David"
+  ],
+  "Rollen und vollständiges Skript durchlesen; Zahlen auf Verständlichkeit prüfen.": [
+    "Rollen und vollständiges Skript durchlesen; Zahlen auf Verständlichkeit prüfen.",
+    "Read all roles and the full script; check that numbers are clear.",
+    "Прочитай роли и полный сценарий; проверь понятность чисел.",
+    "Прочитай ролі й повний сценарій; перевір зрозумілість чисел.",
+    "Rolleri ve tam senaryoyu oku; sayıların anlaşılır olduğunu kontrol et."
+  ],
+  "Tonprobe anhören; ruhigen Raum und gleichen Mikrofonabstand wählen.": [
+    "Tonprobe anhören; ruhigen Raum und gleichen Mikrofonabstand wählen.",
+    "Listen to the sound test; choose a quiet room and consistent microphone distance.",
+    "Прослушай пробную запись; выбери тихое помещение и постоянное расстояние до микрофона.",
+    "Прослухай пробний запис; обери тихе приміщення й однакову відстань до мікрофона.",
+    "Ses denemesini dinle; sessiz bir oda ve sabit mikrofon mesafesi seç."
+  ],
+  "Den vollständigen Wortlaut aufnehmen; bei Versprechern den ganzen Satz wiederholen.": [
+    "Den vollständigen Wortlaut aufnehmen; bei Versprechern den ganzen Satz wiederholen.",
+    "Record the complete wording; repeat the whole sentence after a slip.",
+    "Запиши полный текст; при оговорке повтори всё предложение.",
+    "Запиши повний текст; у разі обмовки повтори все речення.",
+    "Tam metni kaydet; dil sürçmesinde cümlenin tamamını tekrarla."
+  ],
+  "Datei als M4A oder WAV-Master hochladen; Rohdatei und Schnittfassung zuordnen.": [
+    "Datei als M4A oder WAV-Master hochladen; Rohdatei und Schnittfassung zuordnen.",
+    "Upload an M4A or WAV master; link the raw recording and edited version.",
+    "Загрузи мастер в M4A или WAV; свяжи исходную и монтажную записи.",
+    "Завантаж майстер у M4A або WAV; пов'яжи вихідний і монтажний записи.",
+    "M4A veya WAV ana dosyasını yükle; ham kaydı ve düzenlenmiş sürümü eşleştir."
+  ],
+  "Schnittfassung gegen spokenText und alle Lösungsschlüssel prüfen.": [
+    "Schnittfassung gegen spokenText und alle Lösungsschlüssel prüfen.",
+    "Check the edited version against spokenText and all answer keys.",
+    "Сверь монтаж со spokenText и всеми ключами ответов.",
+    "Звір монтаж зі spokenText та всіма ключами відповідей.",
+    "Düzenlenmiş sürümü spokenText ve tüm cevap anahtarlarıyla karşılaştır."
+  ],
+  "Echte Wortzeitmarken am Audio messen; keine Skript-Zeitschätzungen als Alignment verwenden.": [
+    "Echte Wortzeitmarken am Audio messen; keine Skript-Zeitschätzungen als Alignment verwenden.",
+    "Measure real word timings from the audio; do not use estimated script timings as alignment.",
+    "Измерь реальные временные метки слов по аудио; не используй оценку по сценарию для выравнивания.",
+    "Виміряй реальні часові мітки слів за аудіо; не використовуй оцінку за сценарієм для вирівнювання.",
+    "Gerçek kelime zamanlarını ses kaydından ölç; senaryo tahminlerini hizalama olarak kullanma."
+  ],
+  "Lautstärke, Zahlen, Verständlichkeit und Aufgaben fachlich freigeben.": [
+    "Lautstärke, Zahlen, Verständlichkeit und Aufgaben fachlich freigeben.",
+    "Approve volume, numbers, intelligibility and tasks after expert review.",
+    "После проверки подтверди громкость, числа, понятность и задания.",
+    "Після перевірки підтвердь гучність, числа, зрозумілість і завдання.",
+    "Ses düzeyini, sayıları, anlaşılabilirliği ve görevleri uzman incelemesinden sonra onayla."
+  ],
+  "Erst nach technischer und fachlicher Freigabe veröffentlichen.": [
+    "Erst nach technischer und fachlicher Freigabe veröffentlichen.",
+    "Publish only after technical and expert approval.",
+    "Публикуй только после технического и методического одобрения.",
+    "Публікуй лише після технічного й методичного схвалення.",
+    "Yalnızca teknik ve uzman onayından sonra yayınla."
+  ],
+  "Tonprobe und kurze Mitteilungen": [
+    "Tonprobe und kurze Mitteilungen",
+    "Sound test and short messages",
+    "Пробная запись и короткие сообщения",
+    "Пробний запис і короткі повідомлення",
+    "Ses denemesi ve kısa mesajlar"
+  ],
+  "35–50 Minuten": [
+    "35–50 Minuten",
+    "35–50 minutes",
+    "35–50 минут",
+    "35–50 хвилин",
+    "35–50 dakika"
+  ],
+  "10 Minuten Tonprobe und Skriptdurchsicht.": [
+    "10 Minuten Tonprobe und Skriptdurchsicht.",
+    "10 minutes for a sound test and script review.",
+    "10 минут на пробную запись и проверку сценария.",
+    "10 хвилин на пробний запис і перевірку сценарію.",
+    "Ses denemesi ve senaryo incelemesi için 10 dakika."
+  ],
+  "A01, dann die drei Nachrichten A07 und die beiden Ankündigungen A08 aufnehmen.": [
+    "A01, dann die drei Nachrichten A07 und die beiden Ankündigungen A08 aufnehmen.",
+    "Record A01, then the three A07 messages and two A08 announcements.",
+    "Запиши A01, затем три сообщения A07 и два объявления A08.",
+    "Запиши A01, потім три повідомлення A07 і два оголошення A08.",
+    "A01'i, ardından üç A07 mesajını ve iki A08 duyurusunu kaydet."
+  ],
+  "Bei Bedarf zweiten Take erstellen.": [
+    "Bei Bedarf zweiten Take erstellen.",
+    "Record a second take if needed.",
+    "При необходимости запиши второй дубль.",
+    "За потреби запиши другий дубль.",
+    "Gerekirse ikinci çekimi kaydet."
+  ],
+  "Dateien benennen, sichern und Wortlaut gegen Lösungen prüfen.": [
+    "Dateien benennen, sichern und Wortlaut gegen Lösungen prüfen.",
+    "Name and back up files; check wording against answers.",
+    "Назови и сохрани файлы; сверь текст с ответами.",
+    "Назви й збережи файли; звір текст із відповідями.",
+    "Dosyaları adlandır ve yedekle; metni cevaplarla karşılaştır."
+  ],
+  "Interview und Dialoge": [
+    "Interview und Dialoge",
+    "Interview and dialogues",
+    "Интервью и диалоги",
+    "Інтерв'ю й діалоги",
+    "Görüşme ve diyaloglar"
+  ],
+  "45–60 Minuten": [
+    "45–60 Minuten",
+    "45–60 minutes",
+    "45–60 минут",
+    "45–60 хвилин",
+    "45–60 dakika"
+  ],
+  "Rollen und natürliches Tempo abstimmen.": [
+    "Rollen und natürliches Tempo abstimmen.",
+    "Agree on roles and a natural pace.",
+    "Согласуй роли и естественный темп.",
+    "Узгодь ролі й природний темп.",
+    "Rolleri ve doğal tempoyu belirle."
+  ],
+  "A02 als Interview, A04 als Planung, A06 als Servicegespräch aufnehmen.": [
+    "A02 als Interview, A04 als Planung, A06 als Servicegespräch aufnehmen.",
+    "Record A02 as an interview, A04 as planning and A06 as a service conversation.",
+    "Запиши A02 как интервью, A04 как планирование, A06 как разговор с сервисом.",
+    "Запиши A02 як інтерв'ю, A04 як планування, A06 як розмову із сервісом.",
+    "A02'yi görüşme, A04'ü planlama ve A06'yı hizmet görüşmesi olarak kaydet."
+  ],
+  "Sprecherwechsel und Zahlen anhören.": [
+    "Sprecherwechsel und Zahlen anhören.",
+    "Listen to speaker changes and numbers.",
+    "Прослушай смену говорящих и числа.",
+    "Прослухай зміну мовців і числа.",
+    "Konuşmacı değişimlerini ve sayıları dinle."
+  ],
+  "Zweite Takes nach Bedarf und vollständige Dateikontrolle.": [
+    "Zweite Takes nach Bedarf und vollständige Dateikontrolle.",
+    "Record second takes as needed and check every file.",
+    "При необходимости запиши вторые дубли и проверь все файлы.",
+    "За потреби запиши другі дублі й перевір усі файли.",
+    "Gerekirse ikinci çekimler yap ve tüm dosyaları kontrol et."
+  ],
+  "Meinungen und Kurzvortrag": [
+    "Meinungen und Kurzvortrag",
+    "Opinions and a short presentation",
+    "Мнения и короткий доклад",
+    "Думки й коротка доповідь",
+    "Görüşler ve kısa sunum"
+  ],
+  "30–45 Minuten plus Termin der dritten Stimme": [
+    "30–45 Minuten plus Termin der dritten Stimme",
+    "30–45 minutes plus the third speaker's recording slot",
+    "30–45 минут плюс запись третьего диктора",
+    "30–45 хвилин плюс запис третього диктора",
+    "30–45 dakika ve üçüncü konuşmacının kayıt zamanı"
+  ],
+  "Dritte reale männliche Stimme für A03 organisieren; fehlenden Track offen lassen.": [
+    "Dritte reale männliche Stimme für A03 organisieren; fehlenden Track offen lassen.",
+    "Arrange a third real male speaker for A03; leave the missing track open.",
+    "Найди третьего реального мужского диктора для A03; оставь отсутствующую дорожку незавершённой.",
+    "Знайди третього реального чоловічого диктора для A03; залиш відсутню доріжку незавершеною.",
+    "A03 için üçüncü gerçek erkek konuşmacıyı ayarla; eksik kaydı açık bırak."
+  ],
+  "Drei Meinungsbeiträge aufnehmen und sauber trennen.": [
+    "Drei Meinungsbeiträge aufnehmen und sauber trennen.",
+    "Record three opinions and separate them clearly.",
+    "Запиши три мнения и чётко раздели их.",
+    "Запиши три думки й чітко розділи їх.",
+    "Üç görüşü kaydet ve net biçimde ayır."
+  ],
+  "A05 als zusammenhängenden Kurzvortrag aufnehmen.": [
+    "A05 als zusammenhängenden Kurzvortrag aufnehmen.",
+    "Record A05 as a coherent short presentation.",
+    "Запиши A05 как связный короткий доклад.",
+    "Запиши A05 як зв'язну коротку доповідь.",
+    "A05'i bütünlüklü kısa sunum olarak kaydet."
+  ],
+  "Fehlerhafte vollständige Sätze neu aufnehmen und alle Skripte prüfen.": [
+    "Fehlerhafte vollständige Sätze neu aufnehmen und alle Skripte prüfen.",
+    "Rerecord complete sentences with mistakes and check all scripts.",
+    "Перезапиши полные предложения с ошибками и проверь все сценарии.",
+    "Перезапиши повні речення з помилками й перевір усі сценарії.",
+    "Hatalı cümleleri tamamen yeniden kaydet ve tüm senaryoları kontrol et."
+  ],
+  "B1: klar und natürlich sprechen. Rollenkennungen und Regie nicht vorlesen. Zwei Sekunden Ruhe am Anfang und Ende. Inhalt nicht improvisieren. Keine künstliche Betonung der Lösungen. Fiktive Rollen ausschließlich männlich. Anastasia ist eine reale Lehrkraft und kann eine reale Moderation aufnehmen; fiktive Personen werden als Männer dargestellt. Vierzehn Uhr fünfzehn und vierzehn Uhr fünfzig deutlich, aber nicht als Diktat sprechen.": [
+    "B1: klar und natürlich sprechen. Rollenkennungen und Regie nicht vorlesen. Zwei Sekunden Ruhe am Anfang und Ende. Inhalt nicht improvisieren. Keine künstliche Betonung der Lösungen. Fiktive Rollen ausschließlich männlich. Anastasia ist eine reale Lehrkraft und kann eine reale Moderation aufnehmen; fiktive Personen werden als Männer dargestellt. Vierzehn Uhr fünfzehn und vierzehn Uhr fünfzig deutlich, aber nicht als Diktat sprechen.",
+    "B1: speak clearly and naturally. Do not read role labels or directions aloud. Leave two seconds of silence at the start and end. Do not improvise the content or emphasise answers artificially. All fictional roles are male. Anastasia is a real teacher and may record a real introduction; fictional people are depicted as men. Say “vierzehn Uhr fünfzehn” and “vierzehn Uhr fünfzig” clearly, without dictating them.",
+    "B1: говори чётко и естественно. Не читай обозначения ролей и режиссёрские указания. Оставь две секунды тишины в начале и конце. Не импровизируй текст и не выделяй ответы искусственно. Все вымышленные роли мужские. Anastasia — реальный преподаватель и может записать реальное вступление; вымышленные персонажи представлены мужчинами. Произноси «vierzehn Uhr fünfzehn» и «vierzehn Uhr fünfzig» чётко, но не как диктант.",
+    "B1: говори чітко й природно. Не читай позначення ролей і режисерські вказівки. Залиш дві секунди тиші на початку й наприкінці. Не імпровізуй текст і не виділяй відповіді штучно. Усі вигадані ролі чоловічі. Anastasia — реальна викладачка й може записати реальний вступ; вигадані персонажі представлені чоловіками. Вимовляй «vierzehn Uhr fünfzehn» і «vierzehn Uhr fünfzig» чітко, але не як диктант.",
+    "B1: net ve doğal konuş. Rol adlarını veya yönergeleri sesli okuma. Başta ve sonda iki saniye sessizlik bırak. İçeriği doğaçlama yapma veya cevapları yapay biçimde vurgulama. Tüm kurgusal roller erkektir. Anastasia gerçek bir öğretmendir ve gerçek bir giriş kaydedebilir; kurgusal kişiler erkek olarak gösterilir. “Vierzehn Uhr fünfzehn” ve “vierzehn Uhr fünfzig” ifadelerini net söyle, dikte eder gibi okuma."
+  ],
+  "B1: klar und natürlich sprechen. Rollenkennungen und Regie nicht vorlesen. Zwei Sekunden Ruhe am Anfang und Ende. Inhalt nicht improvisieren. Keine künstliche Betonung der Lösungen. Fiktive Rollen ausschließlich männlich. Anastasia ist eine reale Lehrkraft und kann eine reale Moderation aufnehmen; fiktive Personen werden als Männer dargestellt. Freundlich und interessiert. Sprecherwechsel mit kurzen natürlichen Pausen. Das Alter ist eine fiktive Rolle, keine Angabe über den realen Sprecher.": [
+    "B1: klar und natürlich sprechen. Rollenkennungen und Regie nicht vorlesen. Zwei Sekunden Ruhe am Anfang und Ende. Inhalt nicht improvisieren. Keine künstliche Betonung der Lösungen. Fiktive Rollen ausschließlich männlich. Anastasia ist eine reale Lehrkraft und kann eine reale Moderation aufnehmen; fiktive Personen werden als Männer dargestellt. Freundlich und interessiert. Sprecherwechsel mit kurzen natürlichen Pausen. Das Alter ist eine fiktive Rolle, keine Angabe über den realen Sprecher.",
+    "B1: speak clearly and naturally. Do not read role labels or directions aloud. Leave two seconds of silence at the start and end. Do not improvise the content or emphasise answers artificially. All fictional roles are male. Anastasia is a real teacher and may record a real introduction; fictional people are depicted as men. Sound friendly and interested, with short natural pauses between speakers. The age belongs to the fictional role, not the real speaker.",
+    "B1: говори чётко и естественно. Не читай обозначения ролей и режиссёрские указания. Оставь две секунды тишины в начале и конце. Не импровизируй текст и не выделяй ответы искусственно. Все вымышленные роли мужские. Anastasia — реальный преподаватель и может записать реальное вступление; вымышленные персонажи представлены мужчинами. Говори дружелюбно и заинтересованно, с короткими естественными паузами между говорящими. Возраст относится к вымышленной роли, а не к реальному диктору.",
+    "B1: говори чітко й природно. Не читай позначення ролей і режисерські вказівки. Залиш дві секунди тиші на початку й наприкінці. Не імпровізуй текст і не виділяй відповіді штучно. Усі вигадані ролі чоловічі. Anastasia — реальна викладачка й може записати реальний вступ; вигадані персонажі представлені чоловіками. Говори доброзичливо й зацікавлено, з короткими природними паузами між мовцями. Вік стосується вигаданої ролі, а не реального диктора.",
+    "B1: net ve doğal konuş. Rol adlarını veya yönergeleri sesli okuma. Başta ve sonda iki saniye sessizlik bırak. İçeriği doğaçlama yapma veya cevapları yapay biçimde vurgulama. Tüm kurgusal roller erkektir. Anastasia gerçek bir öğretmendir ve gerçek bir giriş kaydedebilir; kurgusal kişiler erkek olarak gösterilir. Samimi ve ilgili konuş; konuşmacılar arasında kısa doğal duraklamalar yap. Yaş, gerçek konuşmacıya değil kurgusal role aittir."
+  ],
+  "B1: klar und natürlich sprechen. Rollenkennungen und Regie nicht vorlesen. Zwei Sekunden Ruhe am Anfang und Ende. Inhalt nicht improvisieren. Keine künstliche Betonung der Lösungen. Fiktive Rollen ausschließlich männlich. Anastasia ist eine reale Lehrkraft und kann eine reale Moderation aufnehmen; fiktive Personen werden als Männer dargestellt. Drei klar unterscheidbare reale Stimmen aufnehmen. Falls nur zwei verfügbar sind, dritte Stimme als Aufnahmeauftrag offen lassen; keine verdeckte TTS-Ersetzung. Nach jedem Beitrag drei Sekunden Pause.": [
+    "B1: klar und natürlich sprechen. Rollenkennungen und Regie nicht vorlesen. Zwei Sekunden Ruhe am Anfang und Ende. Inhalt nicht improvisieren. Keine künstliche Betonung der Lösungen. Fiktive Rollen ausschließlich männlich. Anastasia ist eine reale Lehrkraft und kann eine reale Moderation aufnehmen; fiktive Personen werden als Männer dargestellt. Drei klar unterscheidbare reale Stimmen aufnehmen. Falls nur zwei verfügbar sind, dritte Stimme als Aufnahmeauftrag offen lassen; keine verdeckte TTS-Ersetzung. Nach jedem Beitrag drei Sekunden Pause.",
+    "B1: speak clearly and naturally. Do not read role labels or directions aloud. Leave two seconds of silence at the start and end. Do not improvise the content or emphasise answers artificially. All fictional roles are male. Anastasia is a real teacher and may record a real introduction; fictional people are depicted as men. Record three clearly distinct real voices. If only two are available, leave the third recording assignment open; do not secretly replace it with TTS. Pause for three seconds after each contribution.",
+    "B1: говори чётко и естественно. Не читай обозначения ролей и режиссёрские указания. Оставь две секунды тишины в начале и конце. Не импровизируй текст и не выделяй ответы искусственно. Все вымышленные роли мужские. Anastasia — реальный преподаватель и может записать реальное вступление; вымышленные персонажи представлены мужчинами. Запиши три явно различимых реальных голоса. Если доступны только два, оставь третье задание на запись открытым; не подменяй его скрытым TTS. После каждого выступления оставь три секунды паузы.",
+    "B1: говори чітко й природно. Не читай позначення ролей і режисерські вказівки. Залиш дві секунди тиші на початку й наприкінці. Не імпровізуй текст і не виділяй відповіді штучно. Усі вигадані ролі чоловічі. Anastasia — реальна викладачка й може записати реальний вступ; вигадані персонажі представлені чоловіками. Запиши три чітко відмінні реальні голоси. Якщо доступні лише два, залиш третє завдання на запис відкритим; не підміняй його прихованим TTS. Після кожного виступу залиш три секунди паузи.",
+    "B1: net ve doğal konuş. Rol adlarını veya yönergeleri sesli okuma. Başta ve sonda iki saniye sessizlik bırak. İçeriği doğaçlama yapma veya cevapları yapay biçimde vurgulama. Tüm kurgusal roller erkektir. Anastasia gerçek bir öğretmendir ve gerçek bir giriş kaydedebilir; kurgusal kişiler erkek olarak gösterilir. Üç belirgin farklı gerçek ses kaydet. Yalnızca iki ses varsa üçüncü kayıt görevini açık bırak; gizlice TTS ile değiştirme. Her konuşmadan sonra üç saniye durakla."
+  ],
+  "B1: klar und natürlich sprechen. Rollenkennungen und Regie nicht vorlesen. Zwei Sekunden Ruhe am Anfang und Ende. Inhalt nicht improvisieren. Keine künstliche Betonung der Lösungen. Fiktive Rollen ausschließlich männlich. Anastasia ist eine reale Lehrkraft und kann eine reale Moderation aufnehmen; fiktive Personen werden als Männer dargestellt. Natürlich aushandeln, nicht wie eine abgelesene Rollenliste. Abschluss enthält vorläufigen Plan und noch offene Bedingung.": [
+    "B1: klar und natürlich sprechen. Rollenkennungen und Regie nicht vorlesen. Zwei Sekunden Ruhe am Anfang und Ende. Inhalt nicht improvisieren. Keine künstliche Betonung der Lösungen. Fiktive Rollen ausschließlich männlich. Anastasia ist eine reale Lehrkraft und kann eine reale Moderation aufnehmen; fiktive Personen werden als Männer dargestellt. Natürlich aushandeln, nicht wie eine abgelesene Rollenliste. Abschluss enthält vorläufigen Plan und noch offene Bedingung.",
+    "B1: speak clearly and naturally. Do not read role labels or directions aloud. Leave two seconds of silence at the start and end. Do not improvise the content or emphasise answers artificially. All fictional roles are male. Anastasia is a real teacher and may record a real introduction; fictional people are depicted as men. Negotiate naturally, rather than reading a list of roles. End with a provisional plan and the remaining condition.",
+    "B1: говори чётко и естественно. Не читай обозначения ролей и режиссёрские указания. Оставь две секунды тишины в начале и конце. Не импровизируй текст и не выделяй ответы искусственно. Все вымышленные роли мужские. Anastasia — реальный преподаватель и может записать реальное вступление; вымышленные персонажи представлены мужчинами. Обсуждай естественно, а не зачитывай список ролей. В конце — предварительный план и ещё не выполненное условие.",
+    "B1: говори чітко й природно. Не читай позначення ролей і режисерські вказівки. Залиш дві секунди тиші на початку й наприкінці. Не імпровізуй текст і не виділяй відповіді штучно. Усі вигадані ролі чоловічі. Anastasia — реальна викладачка й може записати реальний вступ; вигадані персонажі представлені чоловіками. Обговорюй природно, а не зачитуй список ролей. Наприкінці — попередній план і ще не виконана умова.",
+    "B1: net ve doğal konuş. Rol adlarını veya yönergeleri sesli okuma. Başta ve sonda iki saniye sessizlik bırak. İçeriği doğaçlama yapma veya cevapları yapay biçimde vurgulama. Tüm kurgusal roller erkektir. Anastasia gerçek bir öğretmendir ve gerçek bir giriş kaydedebilir; kurgusal kişiler erkek olarak gösterilir. Rol listesini okur gibi değil doğal biçimde müzakere et. Sonuçta geçici plan ve açık kalan koşul yer alır."
+  ],
+  "B1: klar und natürlich sprechen. Rollenkennungen und Regie nicht vorlesen. Zwei Sekunden Ruhe am Anfang und Ende. Inhalt nicht improvisieren. Keine künstliche Betonung der Lösungen. Fiktive Rollen ausschließlich männlich. Anastasia ist eine reale Lehrkraft und kann eine reale Moderation aufnehmen; fiktive Personen werden als Männer dargestellt. Als eigener Kurzvortrag sprechen, mit kurzen Pausen zwischen Thema, Erfahrung, Vergleich, Meinung und Schluss. Keine musikalische Untermalung.": [
+    "B1: klar und natürlich sprechen. Rollenkennungen und Regie nicht vorlesen. Zwei Sekunden Ruhe am Anfang und Ende. Inhalt nicht improvisieren. Keine künstliche Betonung der Lösungen. Fiktive Rollen ausschließlich männlich. Anastasia ist eine reale Lehrkraft und kann eine reale Moderation aufnehmen; fiktive Personen werden als Männer dargestellt. Als eigener Kurzvortrag sprechen, mit kurzen Pausen zwischen Thema, Erfahrung, Vergleich, Meinung und Schluss. Keine musikalische Untermalung.",
+    "B1: speak clearly and naturally. Do not read role labels or directions aloud. Leave two seconds of silence at the start and end. Do not improvise the content or emphasise answers artificially. All fictional roles are male. Anastasia is a real teacher and may record a real introduction; fictional people are depicted as men. Deliver it as a short presentation, with brief pauses between topic, experience, comparison, opinion and conclusion. No background music.",
+    "B1: говори чётко и естественно. Не читай обозначения ролей и режиссёрские указания. Оставь две секунды тишины в начале и конце. Не импровизируй текст и не выделяй ответы искусственно. Все вымышленные роли мужские. Anastasia — реальный преподаватель и может записать реальное вступление; вымышленные персонажи представлены мужчинами. Произноси как короткий доклад, с небольшими паузами между темой, опытом, сравнением, мнением и заключением. Без фоновой музыки.",
+    "B1: говори чітко й природно. Не читай позначення ролей і режисерські вказівки. Залиш дві секунди тиші на початку й наприкінці. Не імпровізуй текст і не виділяй відповіді штучно. Усі вигадані ролі чоловічі. Anastasia — реальна викладачка й може записати реальний вступ; вигадані персонажі представлені чоловіками. Вимовляй як коротку доповідь, із невеликими паузами між темою, досвідом, порівнянням, думкою й висновком. Без фонової музики.",
+    "B1: net ve doğal konuş. Rol adlarını veya yönergeleri sesli okuma. Başta ve sonda iki saniye sessizlik bırak. İçeriği doğaçlama yapma veya cevapları yapay biçimde vurgulama. Tüm kurgusal roller erkektir. Anastasia gerçek bir öğretmendir ve gerçek bir giriş kaydedebilir; kurgusal kişiler erkek olarak gösterilir. Konu, deneyim, karşılaştırma, görüş ve sonuç arasında kısa duraklamalarla kısa sunum olarak konuş. Arka plan müziği kullanma."
+  ],
+  "B1: klar und natürlich sprechen. Rollenkennungen und Regie nicht vorlesen. Zwei Sekunden Ruhe am Anfang und Ende. Inhalt nicht improvisieren. Keine künstliche Betonung der Lösungen. Fiktive Rollen ausschließlich männlich. Anastasia ist eine reale Lehrkraft und kann eine reale Moderation aufnehmen; fiktive Personen werden als Männer dargestellt. Sachlich und freundlich. Keine rechtliche Beratung behaupten; es geht um den im Dialog beschriebenen konkreten Serviceablauf.": [
+    "B1: klar und natürlich sprechen. Rollenkennungen und Regie nicht vorlesen. Zwei Sekunden Ruhe am Anfang und Ende. Inhalt nicht improvisieren. Keine künstliche Betonung der Lösungen. Fiktive Rollen ausschließlich männlich. Anastasia ist eine reale Lehrkraft und kann eine reale Moderation aufnehmen; fiktive Personen werden als Männer dargestellt. Sachlich und freundlich. Keine rechtliche Beratung behaupten; es geht um den im Dialog beschriebenen konkreten Serviceablauf.",
+    "B1: speak clearly and naturally. Do not read role labels or directions aloud. Leave two seconds of silence at the start and end. Do not improvise the content or emphasise answers artificially. All fictional roles are male. Anastasia is a real teacher and may record a real introduction; fictional people are depicted as men. Be factual and friendly. Do not claim to provide legal advice; this is the specific service process described in the dialogue.",
+    "B1: говори чётко и естественно. Не читай обозначения ролей и режиссёрские указания. Оставь две секунды тишины в начале и конце. Не импровизируй текст и не выделяй ответы искусственно. Все вымышленные роли мужские. Anastasia — реальный преподаватель и может записать реальное вступление; вымышленные персонажи представлены мужчинами. Говори по делу и дружелюбно. Не представляй это юридической консультацией; речь о конкретном процессе обслуживания из диалога.",
+    "B1: говори чітко й природно. Не читай позначення ролей і режисерські вказівки. Залиш дві секунди тиші на початку й наприкінці. Не імпровізуй текст і не виділяй відповіді штучно. Усі вигадані ролі чоловічі. Anastasia — реальна викладачка й може записати реальний вступ; вигадані персонажі представлені чоловіками. Говори по суті й доброзичливо. Не представляй це юридичною консультацією; йдеться про конкретний процес обслуговування з діалогу.",
+    "B1: net ve doğal konuş. Rol adlarını veya yönergeleri sesli okuma. Başta ve sonda iki saniye sessizlik bırak. İçeriği doğaçlama yapma veya cevapları yapay biçimde vurgulama. Tüm kurgusal roller erkektir. Anastasia gerçek bir öğretmendir ve gerçek bir giriş kaydedebilir; kurgusal kişiler erkek olarak gösterilir. Nesnel ve samimi konuş. Hukuki danışmanlık sunduğunu söyleme; konu diyalogdaki belirli hizmet sürecidir."
+  ],
+  "B1: klar und natürlich sprechen. Rollenkennungen und Regie nicht vorlesen. Zwei Sekunden Ruhe am Anfang und Ende. Inhalt nicht improvisieren. Keine künstliche Betonung der Lösungen. Fiktive Rollen ausschließlich männlich. Anastasia ist eine reale Lehrkraft und kann eine reale Moderation aufnehmen; fiktive Personen werden als Männer dargestellt. Drei getrennte Tracks oder eine Datei mit drei klaren Pausen. Namen sollen am Anfang Orientierung geben. Ein Sprecher bleibt innerhalb seiner Rolle gleich.": [
+    "B1: klar und natürlich sprechen. Rollenkennungen und Regie nicht vorlesen. Zwei Sekunden Ruhe am Anfang und Ende. Inhalt nicht improvisieren. Keine künstliche Betonung der Lösungen. Fiktive Rollen ausschließlich männlich. Anastasia ist eine reale Lehrkraft und kann eine reale Moderation aufnehmen; fiktive Personen werden als Männer dargestellt. Drei getrennte Tracks oder eine Datei mit drei klaren Pausen. Namen sollen am Anfang Orientierung geben. Ein Sprecher bleibt innerhalb seiner Rolle gleich.",
+    "B1: speak clearly and naturally. Do not read role labels or directions aloud. Leave two seconds of silence at the start and end. Do not improvise the content or emphasise answers artificially. All fictional roles are male. Anastasia is a real teacher and may record a real introduction; fictional people are depicted as men. Use three separate tracks or one file with three clear pauses. Names at the start provide context. Keep the same speaker for each role.",
+    "B1: говори чётко и естественно. Не читай обозначения ролей и режиссёрские указания. Оставь две секунды тишины в начале и конце. Не импровизируй текст и не выделяй ответы искусственно. Все вымышленные роли мужские. Anastasia — реальный преподаватель и может записать реальное вступление; вымышленные персонажи представлены мужчинами. Используй три отдельные дорожки или один файл с тремя чёткими паузами. Имена в начале дают ориентир. Один диктор остаётся в своей роли.",
+    "B1: говори чітко й природно. Не читай позначення ролей і режисерські вказівки. Залиш дві секунди тиші на початку й наприкінці. Не імпровізуй текст і не виділяй відповіді штучно. Усі вигадані ролі чоловічі. Anastasia — реальна викладачка й може записати реальний вступ; вигадані персонажі представлені чоловіками. Використовуй три окремі доріжки або один файл із трьома чіткими паузами. Імена на початку дають орієнтир. Один диктор залишається у своїй ролі.",
+    "B1: net ve doğal konuş. Rol adlarını veya yönergeleri sesli okuma. Başta ve sonda iki saniye sessizlik bırak. İçeriği doğaçlama yapma veya cevapları yapay biçimde vurgulama. Tüm kurgusal roller erkektir. Anastasia gerçek bir öğretmendir ve gerçek bir giriş kaydedebilir; kurgusal kişiler erkek olarak gösterilir. Üç ayrı kayıt veya üç net duraklama içeren tek dosya kullan. Başlangıçtaki isimler yön verir. Her rolde aynı konuşmacı kalır."
+  ],
+  "B1: klar und natürlich sprechen. Rollenkennungen und Regie nicht vorlesen. Zwei Sekunden Ruhe am Anfang und Ende. Inhalt nicht improvisieren. Keine künstliche Betonung der Lösungen. Fiktive Rollen ausschließlich männlich. Anastasia ist eine reale Lehrkraft und kann eine reale Moderation aufnehmen; fiktive Personen werden als Männer dargestellt. Zwei Ankündigungen mit unterschiedlichen realen Stimmen. Kostenlos und ohne Anmeldung gelten nur dort, wo sie im jeweiligen Text genannt werden.": [
+    "B1: klar und natürlich sprechen. Rollenkennungen und Regie nicht vorlesen. Zwei Sekunden Ruhe am Anfang und Ende. Inhalt nicht improvisieren. Keine künstliche Betonung der Lösungen. Fiktive Rollen ausschließlich männlich. Anastasia ist eine reale Lehrkraft und kann eine reale Moderation aufnehmen; fiktive Personen werden als Männer dargestellt. Zwei Ankündigungen mit unterschiedlichen realen Stimmen. Kostenlos und ohne Anmeldung gelten nur dort, wo sie im jeweiligen Text genannt werden.",
+    "B1: speak clearly and naturally. Do not read role labels or directions aloud. Leave two seconds of silence at the start and end. Do not improvise the content or emphasise answers artificially. All fictional roles are male. Anastasia is a real teacher and may record a real introduction; fictional people are depicted as men. Use different real voices for the two announcements. “Free” and “no registration” apply only where stated in the respective text.",
+    "B1: говори чётко и естественно. Не читай обозначения ролей и режиссёрские указания. Оставь две секунды тишины в начале и конце. Не импровизируй текст и не выделяй ответы искусственно. Все вымышленные роли мужские. Anastasia — реальный преподаватель и может записать реальное вступление; вымышленные персонажи представлены мужчинами. Используй разные реальные голоса для двух объявлений. «Бесплатно» и «без регистрации» действуют только там, где это указано в соответствующем тексте.",
+    "B1: говори чітко й природно. Не читай позначення ролей і режисерські вказівки. Залиш дві секунди тиші на початку й наприкінці. Не імпровізуй текст і не виділяй відповіді штучно. Усі вигадані ролі чоловічі. Anastasia — реальна викладачка й може записати реальний вступ; вигадані персонажі представлені чоловіками. Використовуй різні реальні голоси для двох оголошень. «Безкоштовно» й «без реєстрації» діють лише там, де це зазначено у відповідному тексті.",
+    "B1: net ve doğal konuş. Rol adlarını veya yönergeleri sesli okuma. Başta ve sonda iki saniye sessizlik bırak. İçeriği doğaçlama yapma veya cevapları yapay biçimde vurgulama. Tüm kurgusal roller erkektir. Anastasia gerçek bir öğretmendir ve gerçek bir giriş kaydedebilir; kurgusal kişiler erkek olarak gösterilir. İki duyuruda farklı gerçek sesler kullan. “Ücretsiz” ve “kayıt gerektirmez” yalnızca ilgili metinde belirtildiğinde geçerlidir."
+  ]
+}

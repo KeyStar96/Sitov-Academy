@@ -5,6 +5,7 @@ import type {SimulationAnswer} from '@/lib/exam-simulation/types'
 import {createSimulationUpload} from '@/app/actions/exam-simulation'
 import {createClient} from '@/utils/supabase/client'
 import {useAudioRecorder} from '@/lib/audio/useAudioRecorder'
+import {SITOV_SIMULATION_UI_LANGUAGES,sitovSimulationCopy} from '@/lib/exam-simulation/ui-copy'
 jest.unmock('lucide-react')
 jest.mock('@/app/actions/exam-simulation',()=>({createSimulationUpload:jest.fn()}))
 jest.mock('@/utils/supabase/client',()=>({createClient:jest.fn()}))
@@ -94,4 +95,20 @@ it('keeps a resumed recording playable while editing its optional notes',()=>{
  expect(screen.getByLabelText('Eigene Sprechaufnahme anhören')).toHaveAttribute('src','https://private.test/old.webm')
  expect(change).toHaveBeenCalledWith({text:'Überarbeitete Notizen',audioPath:oldPath,audioUrl:'https://private.test/old.webm'})
  expect(createSimulationUpload).not.toHaveBeenCalled()
+})
+
+it.each(SITOV_SIMULATION_UI_LANGUAGES)('uses %s recording controls and keeps the German notes unchanged',lang=>{
+ const copy=sitovSimulationCopy(lang)
+ const notes='Meine deutschen Notizen bleiben erhalten.'
+ const {container}=render(<SimulationRecording lang={lang} runId="00000000-0000-4000-8000-000000000001" taskId="sitov-speaking" value={{text:notes,audioPath:oldPath,audioUrl:'https://private.test/old.webm'}} preview={false} disabled={false} onBusy={busy} onChange={change}/>)
+ expect(container.firstElementChild).toHaveAttribute('lang',lang)
+ expect(screen.getByRole('button',{name:copy.t('recordAgain')})).toBeInTheDocument()
+ expect(screen.getByLabelText(copy.t('playRecording'))).toHaveAttribute('src','https://private.test/old.webm')
+ const input=screen.getByLabelText(copy.t('notes'))
+ expect(input).toHaveValue(notes)
+ expect(input).toHaveAttribute('lang','de')
+ expect(input).toHaveAttribute('translate','no')
+ fireEvent.change(screen.getByLabelText(copy.t('audioFile')),{target:{files:[new File(['not audio'],'image.png',{type:'image/png'})]}})
+ expect(screen.getByRole('alert')).toHaveTextContent(copy.t('errorFile'))
+ expect(change).not.toHaveBeenCalled()
 })

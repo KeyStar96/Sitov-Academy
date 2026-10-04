@@ -7,11 +7,13 @@ import BrandLogo from '@/components/layout/BrandLogo'
 import { getDictionary } from '@/lib/dictionary'
 import type { SimulationTeacherState } from '@/lib/exam-simulation/server'
 import type { SimulationTask } from '@/lib/exam-simulation/types'
+import { sitovSimulationCopy } from '@/lib/exam-simulation/ui-copy'
 
 export default async function SimulationTeacherPreview({ params }: { params: Promise<{ lang: string }> }) {
   if (process.env.NODE_ENV !== 'development') notFound()
   const { lang } = await params
-  const dictionary = await getDictionary('de')
+  const dictionary = await getDictionary(lang)
+  const copy = sitovSimulationCopy(lang)
   const reading: SimulationTask = { id: 'sitov-preview-reading', version: 1, level: 'B1', skill: 'reading', family: 'reading-rules', type: 'true-false', title: 'Die Öffnungszeit verstehen', instruction: 'Lesen Sie die Mitteilung. Ist die Aussage richtig oder falsch?', text: 'Die Bibliothek öffnet am Samstag um neun Uhr.', options: [{ id: 'true', text: 'Richtig' }, { id: 'false', text: 'Falsch' }], maxPoints: 20, minutes: 5 }
   const writing: SimulationTask = { id: 'sitov-preview-writing', version: 1, level: 'B1', skill: 'writing', family: 'writing-message', type: 'writing', title: 'Eine Nachricht schreiben', instruction: 'Schreiben Sie Ihrem Freund Leon eine Nachricht und schlagen Sie einen neuen Termin vor.', criteria: ['Anlass verständlich erklären', 'Einen passenden neuen Termin vorschlagen'], maxPoints: 20, minutes: 15 }
   const initial: SimulationTeacherState = {
@@ -22,5 +24,5 @@ export default async function SimulationTeacherPreview({ params }: { params: Pro
     } }],
   }
   const brand = <Link href={`/${lang}/sitov-preview/exam-simulation/teacher`}><BrandLogo name="Sitov Academy" /></Link>
-  return <AdminI18nProvider translations={dictionary.admin}><TeacherLayout lang={lang} brand={brand} controls={<span className="text-sm text-[var(--muted)]">Vorschau</span>} account={{ name: 'Jonas', role: 'Lehrkraft · Vorschau' }} sitovPreviewPathname={`/${lang}/admin/exam-simulation`}><ExamSimulationTeacher initial={initial} lang={lang} preview /></TeacherLayout></AdminI18nProvider>
+  return <AdminI18nProvider translations={dictionary.admin}><TeacherLayout lang={lang} brand={brand} controls={<span className="text-sm text-[var(--muted)]">{copy.t('preview')}</span>} account={{ name: 'Jonas', role: dictionary.admin.role_teacher }} sitovPreviewPathname={`/${lang}/admin/exam-simulation`}><ExamSimulationTeacher initial={initial} lang={lang} preview /></TeacherLayout></AdminI18nProvider>
 }

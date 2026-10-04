@@ -5,7 +5,6 @@ import { usePathname } from 'next/navigation'
 import { Loader2 } from 'lucide-react'
 import { updateUiLanguage } from '@/app/actions/profile'
 import { LOCALES, UI_LOCALE_ENDONYMS, toUiLocale, type UiLocale } from '@/lib/locale-routing'
-import { isSitovExamPath } from '@/lib/exam-navigation'
 
 /**
  * Kompakter Header-Sprachumschalter: 48px-Trigger mit Sprachkürzel, geöffnete
@@ -50,8 +49,6 @@ export default function HeaderLanguageSwitcher({
     setIsPending(true)
     setOpen(false)
   }
-
-  if (pathname && isSitovExamPath(pathname)) return null
 
   return (
     <div ref={rootRef} className="relative shrink-0">

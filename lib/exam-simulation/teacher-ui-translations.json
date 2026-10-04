@@ -1,0 +1,877 @@
+{
+  "Die Prüfungsdaten konnten nicht geladen werden.": [
+    "Die Prüfungsdaten konnten nicht geladen werden.",
+    "Exam data could not be loaded.",
+    "Не удалось загрузить данные экзамена.",
+    "Не вдалося завантажити дані іспиту.",
+    "Sınav verileri yüklenemedi."
+  ],
+  "Die Prüfungsfreigabe konnte nicht geändert werden.": [
+    "Die Prüfungsfreigabe konnte nicht geändert werden.",
+    "Exam access could not be changed.",
+    "Не удалось изменить доступ к экзамену.",
+    "Не вдалося змінити доступ до іспиту.",
+    "Sınav erişimi değiştirilemedi."
+  ],
+  "Die Niveau-Freigabe konnte nicht geändert werden.": [
+    "Die Niveau-Freigabe konnte nicht geändert werden.",
+    "Level access could not be changed.",
+    "Не удалось изменить доступ к уровню.",
+    "Не вдалося змінити доступ до рівня.",
+    "Seviye erişimi değiştirilemedi."
+  ],
+  "Die Prüfungszuordnung konnte nicht gespeichert werden.": [
+    "Die Prüfungszuordnung konnte nicht gespeichert werden.",
+    "The exam assignment could not be saved.",
+    "Не удалось сохранить назначение преподавателя.",
+    "Не вдалося зберегти призначення викладача.",
+    "Sınav öğretmeni ataması kaydedilemedi."
+  ],
+  "Die Bewertung konnte nicht gespeichert werden.": [
+    "Die Bewertung konnte nicht gespeichert werden.",
+    "The assessment could not be saved.",
+    "Не удалось сохранить оценку.",
+    "Не вдалося зберегти оцінювання.",
+    "Değerlendirme kaydedilemedi."
+  ],
+  "Die Bewertung konnte nicht gespeichert werden. Deine Eingaben bleiben erhalten.": [
+    "Die Bewertung konnte nicht gespeichert werden. Deine Eingaben bleiben erhalten.",
+    "Assessment could not be saved. Your entries are kept.",
+    "Оценка не сохранена. Введённые данные сохранены.",
+    "Оцінювання не збережено. Введені дані залишилися.",
+    "Değerlendirme kaydedilemedi. Girdilerin korunur."
+  ],
+  "Sitov Academy · Lehrkraft": [
+    "Sitov Academy · Lehrkraft",
+    "Sitov Academy · Teacher",
+    "Sitov Academy · Преподаватель",
+    "Sitov Academy · Викладач",
+    "Sitov Academy · Öğretmen"
+  ],
+  "Simulierte Prüfung": [
+    "Simulierte Prüfung",
+    "Simulated exam",
+    "Пробный экзамен",
+    "Пробний іспит",
+    "Deneme sınavı"
+  ],
+  "Lernende einzeln freigeben, Antworten bewerten und Prüfungsergebnisse ansehen.": [
+    "Lernende einzeln freigeben, Antworten bewerten und Prüfungsergebnisse ansehen.",
+    "Grant individual access, assess answers and view results.",
+    "Открывай доступ ученикам, оценивай ответы и просматривай результаты.",
+    "Відкривай доступ учням, оцінюй відповіді та переглядай результати.",
+    "Öğrencilere erişim ver, yanıtları değerlendir ve sonuçları görüntüle."
+  ],
+  "Vorschau mit fiktiven Lernenden. Freigaben und Bewertungen können hier nicht gespeichert werden.": [
+    "Vorschau mit fiktiven Lernenden. Freigaben und Bewertungen können hier nicht gespeichert werden.",
+    "Preview with fictional learners. Access changes and assessments are not saved here.",
+    "Предпросмотр с вымышленными учениками. Доступ и оценки здесь не сохраняются.",
+    "Попередній перегляд із вигаданими учнями. Доступ і оцінювання тут не зберігаються.",
+    "Kurgusal öğrencilerle önizleme. Erişim ve değerlendirmeler burada kaydedilmez."
+  ],
+  "Prüfungsbereich": [
+    "Prüfungsbereich",
+    "Exam area",
+    "Раздел экзаменов",
+    "Розділ іспитів",
+    "Sınav alanı"
+  ],
+  "Freigaben": [
+    "Freigaben",
+    "Access",
+    "Доступ",
+    "Доступ",
+    "Erişim"
+  ],
+  "Antworten bewerten": [
+    "Antworten bewerten",
+    "Assess answers",
+    "Оценить ответы",
+    "Оцінити відповіді",
+    "Yanıtları değerlendir"
+  ],
+  "Ergebnisse": [
+    "Ergebnisse",
+    "Results",
+    "Результаты",
+    "Результати",
+    "Sonuçlar"
+  ],
+  "Die Änderung ist gespeichert.": [
+    "Die Änderung ist gespeichert.",
+    "Change saved.",
+    "Изменение сохранено.",
+    "Зміну збережено.",
+    "Değişiklik kaydedildi."
+  ],
+  "offene Bewertung": [
+    "offene Bewertung",
+    "pending assessment",
+    "оценка ожидает проверки",
+    "оцінювання очікує перевірки",
+    "bekleyen değerlendirme"
+  ],
+  "offene Bewertungen": [
+    "offene Bewertungen",
+    "pending assessments",
+    "оценок ожидают проверки",
+    "оцінювань очікують перевірки",
+    "bekleyen değerlendirme"
+  ],
+  "Aktualisieren": [
+    "Aktualisieren",
+    "Refresh",
+    "Обновить",
+    "Оновити",
+    "Yenile"
+  ],
+  "Abgabe auswählen": [
+    "Abgabe auswählen",
+    "Choose a submission",
+    "Выбрать работу",
+    "Обрати роботу",
+    "Teslim edilen çalışmayı seç"
+  ],
+  "Hörimpuls der Aufgabe": [
+    "Hörimpuls der Aufgabe",
+    "Task audio",
+    "Аудио задания",
+    "Аудіо завдання",
+    "Soru sesi"
+  ],
+  "Antwort von": [
+    "Antwort von",
+    "Answer by",
+    "Ответ ученика",
+    "Відповідь учня",
+    "Yanıtlayan"
+  ],
+  "Keine schriftliche Antwort": [
+    "Keine schriftliche Antwort",
+    "No written answer",
+    "Нет письменного ответа",
+    "Немає письмової відповіді",
+    "Yazılı yanıt yok"
+  ],
+  "Private Sprechaufnahme anhören": [
+    "Private Sprechaufnahme anhören",
+    "Listen to private recording",
+    "Прослушать личную запись",
+    "Прослухати приватний запис",
+    "Özel konuşma kaydını dinle"
+  ],
+  "Eine Sprechbewertung braucht eine Aufnahme. Ein geschriebenes Sprechskript ist dafür kein Nachweis.": [
+    "Eine Sprechbewertung braucht eine Aufnahme. Ein geschriebenes Sprechskript ist dafür kein Nachweis.",
+    "Speaking assessment requires a recording. A written script is not evidence of speaking.",
+    "Для оценки устной речи нужна запись. Письменный сценарий её не заменяет.",
+    "Для оцінювання мовлення потрібен запис. Письмовий сценарій його не замінює.",
+    "Konuşma değerlendirmesi için kayıt gerekir. Yazılı metin konuşmanın kanıtı değildir."
+  ],
+  "Die Aufnahme ist gerade nicht verfügbar. Bitte aktualisiere die Abgaben, bevor du diese Sprechleistung bewertest.": [
+    "Die Aufnahme ist gerade nicht verfügbar. Bitte aktualisiere die Abgaben, bevor du diese Sprechleistung bewertest.",
+    "Recording unavailable. Refresh submissions before assessing this speaking task.",
+    "Запись недоступна. Обнови работы перед оценкой устной речи.",
+    "Запис недоступний. Онови роботи перед оцінюванням мовлення.",
+    "Kayıt kullanılamıyor. Konuşmayı değerlendirmeden önce çalışmaları yenile."
+  ],
+  "Bewertungskriterien": [
+    "Bewertungskriterien",
+    "Assessment criteria",
+    "Критерии оценки",
+    "Критерії оцінювання",
+    "Değerlendirme ölçütleri"
+  ],
+  "Ich habe eine tatsächliche Gesprächsleistung geprüft: Der Teilnehmende reagiert auf seinen Gesprächspartner und beteiligt sich am Dialog.": [
+    "Ich habe eine tatsächliche Gesprächsleistung geprüft: Der Teilnehmende reagiert auf seinen Gesprächspartner und beteiligt sich am Dialog.",
+    "I reviewed a real conversation: the learner responds to their partner and participates in the dialogue.",
+    "Я проверил реальный разговор: ученик отвечает собеседнику и участвует в диалоге.",
+    "Я перевірив справжню розмову: учень відповідає співрозмовнику й бере участь у діалозі.",
+    "Gerçek bir konuşmayı değerlendirdim: öğrenci konuşma arkadaşına yanıt veriyor ve diyaloğa katılıyor."
+  ],
+  "Punkte (0 bis": [
+    "Punkte (0 bis",
+    "Points (0 to",
+    "Баллы (от 0 до",
+    "Бали (від 0 до",
+    "Puan (0 ile"
+  ],
+  "Stärken und nächster Übungsschritt": [
+    "Stärken und nächster Übungsschritt",
+    "Strengths and next practice step",
+    "Сильные стороны и следующий шаг",
+    "Сильні сторони й наступний крок",
+    "Güçlü yönler ve sonraki alıştırma"
+  ],
+  "Was ist gelungen? Was sollte der Teilnehmende konkret üben?": [
+    "Was ist gelungen? Was sollte der Teilnehmende konkret üben?",
+    "What went well? What should the learner practise?",
+    "Что удалось? Что ученику следует потренировать?",
+    "Що вдалося? Що учневі варто потренувати?",
+    "Neler iyi yapıldı? Öğrenci ne üzerinde çalışmalı?"
+  ],
+  "Wird gespeichert …": [
+    "Wird gespeichert …",
+    "Saving …",
+    "Сохраняем …",
+    "Зберігаємо …",
+    "Kaydediliyor …"
+  ],
+  "Bewertung speichern": [
+    "Bewertung speichern",
+    "Save assessment",
+    "Сохранить оценку",
+    "Зберегти оцінювання",
+    "Değerlendirmeyi kaydet"
+  ],
+  "Alle eingereichten Antworten sind bewertet. Neue abgeschlossene Durchgänge erscheinen hier.": [
+    "Alle eingereichten Antworten sind bewertet. Neue abgeschlossene Durchgänge erscheinen hier.",
+    "All submitted answers are assessed. New completed attempts appear here.",
+    "Все сданные ответы оценены. Здесь появятся новые завершённые попытки.",
+    "Усі подані відповіді оцінено. Тут з’являться нові завершені спроби.",
+    "Teslim edilen tüm yanıtlar değerlendirildi. Yeni tamamlanan denemeler burada görünür."
+  ],
+  "Prüfungslehrkraft verwalten": [
+    "Prüfungslehrkraft verwalten",
+    "Manage exam teacher",
+    "Управление преподавателем экзамена",
+    "Керування викладачем іспиту",
+    "Sınav öğretmenini yönet"
+  ],
+  "Ordne einen Teilnehmenden einer Lehrkraft zu oder ändere die bestehende Zuständigkeit. Die persönliche Prüfungsfreigabe bleibt erhalten.": [
+    "Ordne einen Teilnehmenden einer Lehrkraft zu oder ändere die bestehende Zuständigkeit. Die persönliche Prüfungsfreigabe bleibt erhalten.",
+    "Assign a learner to a teacher or change responsibility. Personal exam access is kept.",
+    "Назначь ученику преподавателя или измени назначение. Личный доступ к экзамену сохранится.",
+    "Признач учневі викладача або зміни призначення. Особистий доступ до іспиту збережеться.",
+    "Öğrenciye öğretmen ata veya mevcut atamayı değiştir. Kişisel sınav erişimi korunur."
+  ],
+  "Teilnehmender": [
+    "Teilnehmender",
+    "Learner",
+    "Ученик",
+    "Учень",
+    "Öğrenci"
+  ],
+  "Lehrkraft": [
+    "Lehrkraft",
+    "Teacher",
+    "Преподаватель",
+    "Викладач",
+    "Öğretmen"
+  ],
+  "Die Zuordnung konnte nicht gespeichert werden.": [
+    "Die Zuordnung konnte nicht gespeichert werden.",
+    "Assignment could not be saved.",
+    "Не удалось сохранить назначение.",
+    "Не вдалося зберегти призначення.",
+    "Atama kaydedilemedi."
+  ],
+  "Zuordnung speichern": [
+    "Zuordnung speichern",
+    "Save assignment",
+    "Сохранить назначение",
+    "Зберегти призначення",
+    "Atamayı kaydet"
+  ],
+  "Abgaben aus der Prüfungsvorbereitung": [
+    "Abgaben aus der Prüfungsvorbereitung",
+    "Exam preparation submissions",
+    "Работы по подготовке к экзамену",
+    "Роботи з підготовки до іспиту",
+    "Sınav hazırlığı çalışmaları"
+  ],
+  "Freigaben verwalten": [
+    "Freigaben verwalten",
+    "Manage access",
+    "Управление доступом",
+    "Керування доступом",
+    "Erişimi yönet"
+  ],
+  "Alle Lernenden sind zunächst gesperrt, unabhängig von ihrem Niveau. Öffne die simulierte Prüfung gezielt für einen Teilnehmenden.": [
+    "Alle Lernenden sind zunächst gesperrt, unabhängig von ihrem Niveau. Öffne die simulierte Prüfung gezielt für einen Teilnehmenden.",
+    "All learners start with exam access locked, regardless of level. Grant access individually.",
+    "Изначально экзамен закрыт для всех независимо от уровня. Открой доступ выбранному ученику.",
+    "Спочатку іспит закритий для всіх незалежно від рівня. Відкрий доступ обраному учневі.",
+    "Seviyeden bağımsız olarak başlangıçta erişim kapalıdır. Öğrencilere tek tek erişim ver."
+  ],
+  "Freigabeübersicht": [
+    "Freigabeübersicht",
+    "Access overview",
+    "Обзор доступа",
+    "Огляд доступу",
+    "Erişim özeti"
+  ],
+  "Lernende": [
+    "Lernende",
+    "Learners",
+    "Ученики",
+    "Учні",
+    "Öğrenciler"
+  ],
+  "zugeordnete Lernende": [
+    "zugeordnete Lernende",
+    "assigned learners",
+    "назначенные ученики",
+    "призначені учні",
+    "atanan öğrenciler"
+  ],
+  "freigegeben": [
+    "freigegeben",
+    "unlocked",
+    "доступ открыт",
+    "доступ відкрито",
+    "erişim açık"
+  ],
+  "gesperrt": [
+    "gesperrt",
+    "locked",
+    "доступ закрыт",
+    "доступ закрито",
+    "erişim kapalı"
+  ],
+  "Es sind noch keine Lernenden vorhanden.": [
+    "Es sind noch keine Lernenden vorhanden.",
+    "No learners yet.",
+    "Учеников пока нет.",
+    "Учнів поки немає.",
+    "Henüz öğrenci yok."
+  ],
+  "Dir sind noch keine Lernenden zugeordnet. Wähle unten einen Teilnehmenden und übernimm die Prüfungsbetreuung direkt.": [
+    "Dir sind noch keine Lernenden zugeordnet. Wähle unten einen Teilnehmenden und übernimm die Prüfungsbetreuung direkt.",
+    "No learners are assigned to you yet. Choose a learner below to take responsibility.",
+    "У тебя пока нет назначенных учеников. Выбери ученика ниже и возьми экзамен под своё сопровождение.",
+    "Тобі поки не призначено учнів. Обери учня нижче й візьми супровід іспиту на себе.",
+    "Henüz sana atanmış öğrenci yok. Aşağıdan öğrenci seçerek sınav sorumluluğunu üstlen."
+  ],
+  "Dir sind noch keine Lernenden zugeordnet. Die Administration kann eine bestehende Prüfungszuordnung ändern.": [
+    "Dir sind noch keine Lernenden zugeordnet. Die Administration kann eine bestehende Prüfungszuordnung ändern.",
+    "No learners assigned yet. An administrator can change an existing assignment.",
+    "Ученики пока не назначены. Администратор может изменить существующее назначение.",
+    "Учнів поки не призначено. Адміністратор може змінити наявне призначення.",
+    "Henüz öğrenci atanmadı. Yönetici mevcut atamayı değiştirebilir."
+  ],
+  "Teilnehmender für die Prüfung": [
+    "Teilnehmender für die Prüfung",
+    "Exam learner",
+    "Ученик для экзамена",
+    "Учень для іспиту",
+    "Sınava girecek öğrenci"
+  ],
+  "Freigegeben": [
+    "Freigegeben",
+    "Unlocked",
+    "Открыт",
+    "Відкрито",
+    "Açık"
+  ],
+  "Gesperrt": [
+    "Gesperrt",
+    "Locked",
+    "Закрыт",
+    "Закрито",
+    "Kapalı"
+  ],
+  "Prüfung freigegeben": [
+    "Prüfung freigegeben",
+    "Exam unlocked",
+    "Экзамен открыт",
+    "Іспит відкрито",
+    "Sınav erişimi açık"
+  ],
+  "Prüfung gesperrt": [
+    "Prüfung gesperrt",
+    "Exam locked",
+    "Экзамен закрыт",
+    "Іспит закрито",
+    "Sınav erişimi kapalı"
+  ],
+  "Der Prüfungsbereich ist geöffnet. Die bestehenden Niveaurechte bestimmen die erreichbaren Prüfungen.": [
+    "Der Prüfungsbereich ist geöffnet. Die bestehenden Niveaurechte bestimmen die erreichbaren Prüfungen.",
+    "Exam access is open. Existing level permissions determine available exams.",
+    "Экзамен открыт. Доступные экзамены зависят от прав на уровни.",
+    "Іспит відкрито. Доступні іспити залежать від прав на рівні.",
+    "Sınav alanı açıktır. Mevcut seviye izinleri kullanılabilecek sınavları belirler."
+  ],
+  "Auch freigegebene Lernniveaus öffnen die simulierte Prüfung erst nach dieser persönlichen Freigabe.": [
+    "Auch freigegebene Lernniveaus öffnen die simulierte Prüfung erst nach dieser persönlichen Freigabe.",
+    "Level access alone does not open the exam; personal exam access is also required.",
+    "Доступ к уровню не открывает экзамен без личного разрешения.",
+    "Доступ до рівня не відкриває іспит без особистого дозволу.",
+    "Seviye izni tek başına yeterli değildir; kişisel sınav izni de gerekir."
+  ],
+  "Prüfungslehrkraft:": [
+    "Prüfungslehrkraft:",
+    "Exam teacher:",
+    "Преподаватель экзамена:",
+    "Викладач іспиту:",
+    "Sınav öğretmeni:"
+  ],
+  "Noch nicht zugeordnet": [
+    "Noch nicht zugeordnet",
+    "Not assigned yet",
+    "Пока не назначен",
+    "Ще не призначено",
+    "Henüz atanmadı"
+  ],
+  "Zusätzliche Niveaurechte: B2, C1 und C2": [
+    "Zusätzliche Niveaurechte: B2, C1 und C2",
+    "Additional level access: B2, C1 and C2",
+    "Дополнительный доступ: B2, C1 и C2",
+    "Додатковий доступ: B2, C1 і C2",
+    "Ek seviye izinleri: B2, C1 ve C2"
+  ],
+  "Erst die persönliche Prüfungsfreigabe, dann das passende Niveau. A1 bis B1 verwenden die vorhandenen Lernniveaurechte.": [
+    "Erst die persönliche Prüfungsfreigabe, dann das passende Niveau. A1 bis B1 verwenden die vorhandenen Lernniveaurechte.",
+    "Personal exam access first, then level access. A1 to B1 use existing learning-level permissions.",
+    "Сначала личный доступ к экзамену, затем уровень. Для A1–B1 используются существующие права на учебные уровни.",
+    "Спочатку особистий доступ до іспиту, потім рівень. Для A1–B1 діють наявні права на навчальні рівні.",
+    "Önce kişisel sınav izni, ardından seviye izni. A1–B1 mevcut öğrenim izinlerini kullanır."
+  ],
+  "Prüfungsniveau": [
+    "Prüfungsniveau",
+    "Exam level",
+    "Уровень экзамена",
+    "Рівень іспиту",
+    "Sınav seviyesi"
+  ],
+  "Niveau freigegeben": [
+    "Niveau freigegeben",
+    "Level unlocked",
+    "Уровень открыт",
+    "Рівень відкрито",
+    "Seviye erişimi açık"
+  ],
+  "Niveau noch gesperrt": [
+    "Niveau noch gesperrt",
+    "Level still locked",
+    "Уровень пока закрыт",
+    "Рівень поки закрито",
+    "Seviye erişimi hâlâ kapalı"
+  ],
+  "Prüfungsbetreuung übernehmen": [
+    "Prüfungsbetreuung übernehmen",
+    "Take exam responsibility",
+    "Взять сопровождение экзамена",
+    "Взяти супровід іспиту",
+    "Sınav sorumluluğunu üstlen"
+  ],
+  "Weitere Lernende freigeben": [
+    "Weitere Lernende freigeben",
+    "Grant access to more learners",
+    "Открыть доступ другим ученикам",
+    "Відкрити доступ іншим учням",
+    "Diğer öğrencilere erişim ver"
+  ],
+  "Für": [
+    "Für",
+    "For",
+    "Для",
+    "Для",
+    "Şu sayıdaki"
+  ],
+  "Teilnehmenden ist": [
+    "Teilnehmenden ist",
+    "learner",
+    "ученика",
+    "учня",
+    "öğrenci için"
+  ],
+  "Teilnehmende ist": [
+    "Teilnehmende ist",
+    "learners",
+    "учеников",
+    "учнів",
+    "öğrenci için"
+  ],
+  "noch keine Prüfungslehrkraft hinterlegt. Mit der Freigabe wirst du die zuständige Lehrkraft für Prüfungen und Bewertungen.": [
+    "noch keine Prüfungslehrkraft hinterlegt. Mit der Freigabe wirst du die zuständige Lehrkraft für Prüfungen und Bewertungen.",
+    "no exam teacher is assigned yet. Granting access assigns you responsibility for exams and assessments.",
+    "преподаватель экзамена ещё не назначен. Открывая доступ, ты берёшь на себя экзамены и оценки.",
+    "викладача іспиту ще не призначено. Відкриваючи доступ, ти береш на себе іспити й оцінювання.",
+    "henüz sınav öğretmeni atanmadı. Erişim verdiğinde sınav ve değerlendirme sorumluluğunu üstlenirsin."
+  ],
+  "Lernende suchen": [
+    "Lernende suchen",
+    "Search learners",
+    "Найти учеников",
+    "Знайти учнів",
+    "Öğrenci ara"
+  ],
+  "Name eingeben": [
+    "Name eingeben",
+    "Enter a name",
+    "Введи имя",
+    "Введи ім’я",
+    "Ad gir"
+  ],
+  "Teilnehmender ohne Prüfungslehrkraft": [
+    "Teilnehmender ohne Prüfungslehrkraft",
+    "Learner without exam teacher",
+    "Ученик без преподавателя экзамена",
+    "Учень без викладача іспиту",
+    "Sınav öğretmeni olmayan öğrenci"
+  ],
+  "Keine Lernenden mit diesem Namen gefunden.": [
+    "Keine Lernenden mit diesem Namen gefunden.",
+    "No learners found with this name.",
+    "Учеников с таким именем не найдено.",
+    "Учнів із таким ім’ям не знайдено.",
+    "Bu adla öğrenci bulunamadı."
+  ],
+  "Bestehende Zuordnungen zu anderen Lehrkräften kann die Administration verwalten. Antworten, Prüfungsergebnisse und Lernfortschritt bleiben erhalten.": [
+    "Bestehende Zuordnungen zu anderen Lehrkräften kann die Administration verwalten. Antworten, Prüfungsergebnisse und Lernfortschritt bleiben erhalten.",
+    "Administrators manage assignments to other teachers. Answers, results and progress are kept.",
+    "Назначения другим преподавателям меняет администратор. Ответы, результаты и прогресс сохраняются.",
+    "Призначення іншим викладачам змінює адміністратор. Відповіді, результати й прогрес зберігаються.",
+    "Diğer öğretmenlere atamalar yönetici tarafından değiştirilir. Yanıtlar, sonuçlar ve ilerleme korunur."
+  ],
+  "Bewertung offen": [
+    "Bewertung offen",
+    "Assessment pending",
+    "Оценка ожидается",
+    "Оцінювання очікується",
+    "Değerlendirme bekleniyor"
+  ],
+  "Abgeschlossener Durchgang": [
+    "Abgeschlossener Durchgang",
+    "Completed attempt",
+    "Завершённая попытка",
+    "Завершена спроба",
+    "Tamamlanan deneme"
+  ],
+  "Antworten und Ergebnisse": [
+    "Antworten und Ergebnisse",
+    "Answers and results",
+    "Ответы и результаты",
+    "Відповіді та результати",
+    "Yanıtlar ve sonuçlar"
+  ],
+  "Hier siehst du abgeschlossene Prüfungen mit allen Antworten, Lösungen und Lehrkraft-Rückmeldungen.": [
+    "Hier siehst du abgeschlossene Prüfungen mit allen Antworten, Lösungen und Lehrkraft-Rückmeldungen.",
+    "View completed exams with answers, solutions and teacher feedback.",
+    "Здесь завершённые экзамены со всеми ответами, решениями и отзывами преподавателя.",
+    "Тут завершені іспити з усіма відповідями, розв’язаннями й відгуками викладача.",
+    "Tamamlanan sınavları yanıtlar, çözümler ve öğretmen geri bildirimiyle görüntüle."
+  ],
+  "Ergebnisse nach Teilnehmendem filtern": [
+    "Ergebnisse nach Teilnehmendem filtern",
+    "Filter results by learner",
+    "Результаты по ученику",
+    "Результати за учнем",
+    "Sonuçları öğrenciye göre filtrele"
+  ],
+  "Alle zugeordneten Lernenden": [
+    "Alle zugeordneten Lernenden",
+    "All assigned learners",
+    "Все назначенные ученики",
+    "Усі призначені учні",
+    "Atanan tüm öğrenciler"
+  ],
+  "Noch keine abgeschlossene Prüfung vorhanden. Nach der persönlichen Freigabe erscheinen die Ergebnisse deiner Lernenden hier.": [
+    "Noch keine abgeschlossene Prüfung vorhanden. Nach der persönlichen Freigabe erscheinen die Ergebnisse deiner Lernenden hier.",
+    "No completed exams yet. Your learners’ results appear here after personal access is granted.",
+    "Завершённых экзаменов пока нет. После открытия личного доступа здесь появятся результаты учеников.",
+    "Завершених іспитів поки немає. Після відкриття особистого доступу тут з’являться результати учнів.",
+    "Henüz tamamlanan sınav yok. Kişisel erişim açıldıktan sonra öğrencilerinin sonuçları burada görünür."
+  ],
+  "Ergebnis auswählen": [
+    "Ergebnis auswählen",
+    "Choose a result",
+    "Выбрать результат",
+    "Обрати результат",
+    "Sonuç seç"
+  ],
+  "Leistung wartet": [
+    "Leistung wartet",
+    "submission awaits",
+    "работа ожидает",
+    "робота очікує",
+    "çalışma"
+  ],
+  "Leistungen warten": [
+    "Leistungen warten",
+    "submissions await",
+    "работ ожидают",
+    "робіт очікують",
+    "çalışma"
+  ],
+  "auf eine fachliche Bewertung.": [
+    "auf eine fachliche Bewertung.",
+    "teacher assessment.",
+    "оценки преподавателя.",
+    "оцінювання викладача.",
+    "öğretmen değerlendirmesini bekliyor."
+  ],
+  "Bewertungen offen": [
+    "Bewertungen offen",
+    "assessments pending",
+    "оценок ожидается",
+    "оцінювань очікується",
+    "değerlendirme bekleniyor"
+  ],
+  "Alle": [
+    "Alle",
+    "All",
+    "Все",
+    "Усі",
+    "Tüm"
+  ],
+  "Antworten ansehen": [
+    "Antworten ansehen",
+    "view answers",
+    "посмотреть ответы",
+    "переглянути відповіді",
+    "yanıtları görüntüle"
+  ],
+  "Für diesen gespeicherten Durchgang ist noch keine Auswertung verfügbar.": [
+    "Für diesen gespeicherten Durchgang ist noch keine Auswertung verfügbar.",
+    "No assessment is available for this saved attempt yet.",
+    "Оценка сохранённой попытки пока недоступна.",
+    "Оцінювання збереженої спроби поки недоступне.",
+    "Kaydedilen bu deneme için henüz değerlendirme yok."
+  ],
+  "Das Zurücksetzen wird noch abgeschlossen. Prüfe den Abschluss mit derselben Bestätigung erneut.": [
+    "Das Zurücksetzen wird noch abgeschlossen. Prüfe den Abschluss mit derselben Bestätigung erneut.",
+    "Reset is still finishing. Check again using the same confirmation.",
+    "Сброс ещё завершается. Проверь снова с тем же подтверждением.",
+    "Скидання ще завершується. Перевір знову з тим самим підтвердженням.",
+    "Sıfırlama tamamlanıyor. Aynı onayla tekrar kontrol et."
+  ],
+  "Der Prüfungsfortschritt konnte nicht zurückgesetzt werden. Deine Bestätigung bleibt für einen erneuten Versuch erhalten.": [
+    "Der Prüfungsfortschritt konnte nicht zurückgesetzt werden. Deine Bestätigung bleibt für einen erneuten Versuch erhalten.",
+    "Exam progress could not be reset. Your confirmation is kept for retrying.",
+    "Не удалось сбросить прогресс экзамена. Подтверждение сохранено для повторной попытки.",
+    "Не вдалося скинути прогрес іспиту. Підтвердження збережено для повторної спроби.",
+    "Sınav ilerlemesi sıfırlanamadı. Onayın yeniden denemek için korunur."
+  ],
+  "Das Zurücksetzen konnte nicht bestätigt werden. Deine Bestätigung bleibt für einen erneuten Versuch erhalten.": [
+    "Das Zurücksetzen konnte nicht bestätigt werden. Deine Bestätigung bleibt für einen erneuten Versuch erhalten.",
+    "Reset could not be confirmed. Your confirmation is kept for retrying.",
+    "Сброс не подтверждён. Подтверждение сохранено для повторной попытки.",
+    "Скидання не підтверджено. Підтвердження збережено для повторної спроби.",
+    "Sıfırlama doğrulanamadı. Onayın yeniden denemek için korunur."
+  ],
+  "Prüfungsfortschritt zurücksetzen": [
+    "Prüfungsfortschritt zurücksetzen",
+    "Reset exam progress",
+    "Сбросить прогресс экзамена",
+    "Скинути прогрес іспиту",
+    "Sınav ilerlemesini sıfırla"
+  ],
+  "Nur für": [
+    "Nur für",
+    "Only for",
+    "Только для",
+    "Лише для",
+    "Yalnızca"
+  ],
+  "Dieser Schritt löscht den gesamten Fortschritt der simulierten Prüfung.": [
+    "Dieser Schritt löscht den gesamten Fortschritt der simulierten Prüfung.",
+    "This deletes all simulated exam progress.",
+    "Этот шаг удалит весь прогресс пробного экзамена.",
+    "Цей крок видалить увесь прогрес пробного іспиту.",
+    "Bu işlem tüm deneme sınavı ilerlemesini siler."
+  ],
+  "Alle laufenden und abgeschlossenen Prüfungsdurchgänge": [
+    "Alle laufenden und abgeschlossenen Prüfungsdurchgänge",
+    "All active and completed attempts",
+    "Все текущие и завершённые попытки",
+    "Усі поточні й завершені спроби",
+    "Devam eden ve tamamlanan tüm denemeler"
+  ],
+  "Alle Antworten, Ergebnisse und Lehrkraftbewertungen": [
+    "Alle Antworten, Ergebnisse und Lehrkraftbewertungen",
+    "All answers, results and teacher assessments",
+    "Все ответы, результаты и оценки преподавателя",
+    "Усі відповіді, результати й оцінювання викладача",
+    "Tüm yanıtlar, sonuçlar ve öğretmen değerlendirmeleri"
+  ],
+  "Private Sprechaufnahmen dieser Prüfungsdurchgänge": [
+    "Private Sprechaufnahmen dieser Prüfungsdurchgänge",
+    "Private speaking recordings from these attempts",
+    "Личные устные записи этих попыток",
+    "Приватні усні записи цих спроб",
+    "Bu denemelerin özel konuşma kayıtları"
+  ],
+  "Prüfungshistorie und bisher verwendete Aufgabenpakete": [
+    "Prüfungshistorie und bisher verwendete Aufgabenpakete",
+    "Exam history and previously used task sets",
+    "История экзаменов и использованные наборы заданий",
+    "Історія іспитів і використані набори завдань",
+    "Sınav geçmişi ve daha önce kullanılan soru paketleri"
+  ],
+  "Die persönliche Prüfungsfreigabe, Niveaurechte und alle anderen Trainer bleiben erhalten. Nach dem Reset können wieder frische Prüfungsdurchgänge begonnen werden.": [
+    "Die persönliche Prüfungsfreigabe, Niveaurechte und alle anderen Trainer bleiben erhalten. Nach dem Reset können wieder frische Prüfungsdurchgänge begonnen werden.",
+    "Personal exam access, level permissions and other trainers are kept. New exam attempts are available after reset.",
+    "Личный доступ, права на уровни и другие тренажёры сохраняются. После сброса доступны новые попытки.",
+    "Особистий доступ, права на рівні й інші тренажери зберігаються. Після скидання доступні нові спроби.",
+    "Kişisel erişim, seviye izinleri ve diğer eğitimler korunur. Sıfırlamadan sonra yeni denemeler başlatılabilir."
+  ],
+  "Der Prüfungsfortschritt von": [
+    "Der Prüfungsfortschritt von",
+    "Exam progress for",
+    "Прогресс экзамена ученика",
+    "Прогрес іспиту учня",
+    "Sınav ilerlemesi sıfırlanan öğrenci:"
+  ],
+  "wurde vollständig zurückgesetzt.": [
+    "wurde vollständig zurückgesetzt.",
+    "has been fully reset.",
+    "полностью сброшен.",
+    "повністю скинуто.",
+    "tamamen sıfırlandı."
+  ],
+  "Reset für": [
+    "Reset für",
+    "Prepare reset for",
+    "Подготовить сброс для",
+    "Підготувати скидання для",
+    "Sıfırlamayı hazırla:"
+  ],
+  "Name zur Reset-Bestätigung": [
+    "Name zur Reset-Bestätigung",
+    "Name to confirm reset",
+    "Имя для подтверждения сброса",
+    "Ім’я для підтвердження скидання",
+    "Sıfırlamayı onaylamak için ad"
+  ],
+  "Gib „": [
+    "Gib „",
+    "Enter “",
+    "Введи «",
+    "Введи «",
+    "“"
+  ],
+  "“ ein und bestätige anschließend die vollständige Löschung der oben genannten Prüfungsdaten.": [
+    "“ ein und bestätige anschließend die vollständige Löschung der oben genannten Prüfungsdaten.",
+    "” and confirm complete deletion of the exam data listed above.",
+    "» и подтверди полное удаление перечисленных данных экзамена.",
+    "» і підтвердь повне видалення перелічених даних іспиту.",
+    "” adını gir ve yukarıdaki sınav verilerinin tamamen silinmesini onayla."
+  ],
+  "Prüfungsdaten werden gelöscht …": [
+    "Prüfungsdaten werden gelöscht …",
+    "Deleting exam data …",
+    "Удаляем данные экзамена …",
+    "Видаляємо дані іспиту …",
+    "Sınav verileri siliniyor …"
+  ],
+  "Abbrechen": [
+    "Abbrechen",
+    "Cancel",
+    "Отмена",
+    "Скасувати",
+    "İptal"
+  ],
+  "Prüfung für {name} sperren": [
+    "Prüfung für {name} sperren",
+    "Block exam access for {name}",
+    "Закрыть экзамен для {name}",
+    "Закрити іспит для {name}",
+    "{name} için sınavı kapat"
+  ],
+  "Prüfung für {name} freigeben": [
+    "Prüfung für {name} freigeben",
+    "Grant exam access to {name}",
+    "Открыть экзамен для {name}",
+    "Відкрити іспит для {name}",
+    "{name} için sınavı aç"
+  ],
+  "{level}-Freigabe entfernen": [
+    "{level}-Freigabe entfernen",
+    "Remove {level} access",
+    "Закрыть доступ к {level}",
+    "Закрити доступ до {level}",
+    "{level} erişimini kaldır"
+  ],
+  "{level} freigeben": [
+    "{level} freigeben",
+    "Grant {level} access",
+    "Открыть {level}",
+    "Відкрити {level}",
+    "{level} erişimini aç"
+  ],
+  "Übernehmen und für {name} freigeben": [
+    "Übernehmen und für {name} freigeben",
+    "Take responsibility and grant access to {name}",
+    "Взять сопровождение и открыть доступ для {name}",
+    "Взяти супровід і відкрити доступ для {name}",
+    "{name} için sorumluluğu al ve erişimi aç"
+  ],
+  "Für {count} Teilnehmende ist noch keine Prüfungslehrkraft hinterlegt. Mit der Freigabe wirst du die zuständige Lehrkraft für Prüfungen und Bewertungen.": [
+    "Für {count} Teilnehmende ist noch keine Prüfungslehrkraft hinterlegt. Mit der Freigabe wirst du die zuständige Lehrkraft für Prüfungen und Bewertungen.",
+    "{count} learners do not yet have an exam teacher. Granting access makes you their teacher for exams and assessment.",
+    "Для {count} учащихся ещё не назначен преподаватель по экзаменам. Открывая доступ, ты берёшь на себя сопровождение экзаменов и оценивание.",
+    "Для {count} учнів ще не призначено викладача з іспитів. Відкриваючи доступ, ти береш на себе супровід іспитів та оцінювання.",
+    "{count} öğrencinin henüz bir sınav öğretmeni yok. Erişim açtığında sınav ve değerlendirme sorumluluğunu üstlenirsin."
+  ],
+  "Prüfungsfortschritt von {name} endgültig löschen": [
+    "Prüfungsfortschritt von {name} endgültig löschen",
+    "Permanently delete {name}'s exam progress",
+    "Окончательно удалить прогресс экзаменов: {name}",
+    "Остаточно видалити прогрес іспитів: {name}",
+    "{name} adlı öğrencinin sınav ilerlemesini kalıcı olarak sil"
+  ],
+  "Reset für {name} vorbereiten": [
+    "Reset für {name} vorbereiten",
+    "Prepare a reset for {name}",
+    "Подготовить сброс для {name}",
+    "Підготувати скидання для {name}",
+    "{name} için sıfırlamayı hazırla"
+  ],
+  "Der Prüfungsfortschritt von {name} wurde vollständig zurückgesetzt.": [
+    "Der Prüfungsfortschritt von {name} wurde vollständig zurückgesetzt.",
+    "{name}'s exam progress has been fully reset.",
+    "Прогресс экзаменов учащегося {name} полностью сброшен.",
+    "Прогрес іспитів учня {name} повністю скинуто.",
+    "{name} adlı öğrencinin sınav ilerlemesi tamamen sıfırlandı."
+  ],
+  "Gib „{name}“ ein und bestätige anschließend die vollständige Löschung der oben genannten Prüfungsdaten.": [
+    "Gib „{name}“ ein und bestätige anschließend die vollständige Löschung der oben genannten Prüfungsdaten.",
+    "Enter “{name}” and then confirm permanent deletion of the exam data listed above.",
+    "Введи «{name}», затем подтверди полное удаление перечисленных выше данных экзамена.",
+    "Введи «{name}», а потім підтвердь повне видалення перелічених вище даних іспиту.",
+    "“{name}” yaz ve ardından yukarıda belirtilen sınav verilerinin tamamen silinmesini onayla."
+  ],
+  "Simulierte Prüfung · Lehrkraft · Sitov Academy": [
+    "Simulierte Prüfung · Lehrkraft · Sitov Academy",
+    "Simulated exam · Teacher · Sitov Academy",
+    "Пробный экзамен · Преподаватель · Sitov Academy",
+    "Пробний іспит · Викладач · Sitov Academy",
+    "Deneme sınavı · Öğretmen · Sitov Academy"
+  ],
+  "Für einen Teilnehmenden ist noch keine Prüfungslehrkraft hinterlegt. Mit der Freigabe wirst du die zuständige Lehrkraft für Prüfungen und Bewertungen.": [
+    "Für einen Teilnehmenden ist noch keine Prüfungslehrkraft hinterlegt. Mit der Freigabe wirst du die zuständige Lehrkraft für Prüfungen und Bewertungen.",
+    "One learner does not yet have an exam teacher. Granting access makes you their teacher for exams and assessment.",
+    "Для одного учащегося ещё не назначен преподаватель по экзаменам. Открывая доступ, ты берёшь на себя сопровождение экзаменов и оценивание.",
+    "Для одного учня ще не призначено викладача з іспитів. Відкриваючи доступ, ти береш на себе супровід іспитів та оцінювання.",
+    "Bir öğrencinin henüz sınav öğretmeni yok. Erişim açtığında sınav ve değerlendirme sorumluluğunu üstlenirsin."
+  ],
+  "Alle {count} Antworten ansehen": [
+    "Alle {count} Antworten ansehen",
+    "View all {count} answers",
+    "Посмотреть все ответы ({count})",
+    "Переглянути всі відповіді ({count})",
+    "Tüm {count} yanıtı görüntüle"
+  ],
+  "Eine Leistung wartet auf eine fachliche Bewertung.": [
+    "Eine Leistung wartet auf eine fachliche Bewertung.",
+    "One performance is awaiting teacher assessment.",
+    "Одна работа ожидает оценки преподавателя.",
+    "Одна робота очікує оцінювання викладача.",
+    "Bir çalışma öğretmen değerlendirmesini bekliyor."
+  ],
+  "{count} Leistungen warten auf eine fachliche Bewertung.": [
+    "{count} Leistungen warten auf eine fachliche Bewertung.",
+    "{count} performances are awaiting teacher assessment.",
+    "Работы, ожидающие оценки преподавателя: {count}.",
+    "Роботи, що очікують оцінювання викладача: {count}.",
+    "Öğretmen değerlendirmesini bekleyen çalışmalar: {count}."
+  ],
+  "Punkte (0 bis {count})": [
+    "Punkte (0 bis {count})",
+    "Points (0 to {count})",
+    "Баллы (от 0 до {count})",
+    "Бали (від 0 до {count})",
+    "Puanlar (0 ile {count} arası)"
+  ]
+}

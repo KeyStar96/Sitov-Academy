@@ -1,8 +1,9 @@
 import { BookOpen, Headphones, Mic, PenLine } from 'lucide-react'
+import type { SitovExamEntryCopy } from '@/lib/exam-entry-i18n'
 import styles from './ExamEntry.module.css'
 
 /** Decorative exam journey, never a student's score or access status. */
-export default function SitovExamEntryGraphics() {
+export default function SitovExamEntryGraphics({ copy }: { copy: Pick<SitovExamEntryCopy, 'reading' | 'listening' | 'writing' | 'speaking'> }) {
   return <div className={styles.sitovScene} aria-hidden="true" data-sitov-exam-graphic="">
     <div className={styles.sitovParallax}>
       <span className={styles.sitovHalo} />
@@ -26,10 +27,10 @@ export default function SitovExamEntryGraphics() {
           <svg viewBox="0 0 48 48" fill="none" focusable="false"><path d="m13 24 8 8 16-18" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" pathLength="1" className={styles.sitovCheck} /></svg>
         </span>
       </div>
-      <span className={`${styles.sitovSkill} ${styles.sitovReading}`}><BookOpen size={20} /><span>Lesen</span><i /></span>
-      <span className={`${styles.sitovSkill} ${styles.sitovListening}`}><Headphones size={20} /><span>Hören</span><span className={styles.sitovWave}>{[0,1,2,3,4].map(i => <i key={i} style={{ animationDelay: `${i * -.16}s` }} />)}</span></span>
-      <span className={`${styles.sitovSkill} ${styles.sitovWriting}`}><PenLine size={20} /><span>Schreiben</span><i /></span>
-      <span className={`${styles.sitovSkill} ${styles.sitovSpeaking}`}><Mic size={20} /><span>Sprechen</span><i /></span>
+      <span className={`${styles.sitovSkill} ${styles.sitovReading}`}><BookOpen size={20} /><span>{copy.reading}</span><i /></span>
+      <span className={`${styles.sitovSkill} ${styles.sitovListening}`}><Headphones size={20} /><span>{copy.listening}</span><span className={styles.sitovWave}>{[0,1,2,3,4].map(i => <i key={i} style={{ animationDelay: `${i * -.16}s` }} />)}</span></span>
+      <span className={`${styles.sitovSkill} ${styles.sitovWriting}`}><PenLine size={20} /><span>{copy.writing}</span><i /></span>
+      <span className={`${styles.sitovSkill} ${styles.sitovSpeaking}`}><Mic size={20} /><span>{copy.speaking}</span><i /></span>
       <span className={`${styles.sitovSpark} ${styles.sitovSparkOne}`} />
       <span className={`${styles.sitovSpark} ${styles.sitovSparkTwo}`} />
       <span className={`${styles.sitovSpark} ${styles.sitovSparkThree}`} />

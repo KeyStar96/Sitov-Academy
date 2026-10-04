@@ -19,16 +19,18 @@ it('keeps the trigger compact and lists endonyms when opened', () => {
   expect(screen.getByRole('option', { name: 'Русский' })).toHaveAttribute('aria-selected', 'true')
 })
 
-it.each(['exam-preparation', 'exam-simulation'])('offers no UI translation switch on %s', route => {
+it.each(['exam-preparation', 'exam-simulation'])('offers interface language selection on %s', route => {
   mockPathname = `/ru/dashboard/${route}`
   render(<HeaderLanguageSwitcher current="ru" ariaLabel={de.admin.ui_language_aria} />)
-  expect(screen.queryByRole('button')).not.toBeInTheDocument()
+  fireEvent.click(screen.getByRole('button'))
+  expect(screen.getByRole('option', { name: 'Русский' })).toHaveAttribute('aria-selected', 'true')
+  expect(screen.getByRole('option', { name: 'English' })).toBeInTheDocument()
 })
 
-it.each(['dashboard', 'sitov-preview'])('keeps the exam skip link German in %s without changing other pages', surface => {
+it.each(['dashboard', 'sitov-preview'])('keeps the supplied interface skip label in %s', surface => {
   mockPathname = `/ru/${surface}/exam-simulation`
   const view = render(<AcademySkipLink label="Перейти к содержимому" />)
-  expect(screen.getByRole('link', { name: 'Zum Inhalt' })).toHaveAttribute('lang', 'de')
+  expect(screen.getByRole('link', { name: 'Перейти к содержимому' })).not.toHaveAttribute('lang', 'de')
   mockPathname = '/ru/dashboard'
   view.rerender(<AcademySkipLink label="Перейти к содержимому" />)
   expect(screen.getByRole('link', { name: 'Перейти к содержимому' })).toBeInTheDocument()

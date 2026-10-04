@@ -6,8 +6,12 @@ import { hasLevelAccess } from '@/lib/access/levels'
 import { getExamState } from '@/app/actions/exam-preparation'
 import { getPublicExamCatalog } from '@/lib/exam-preparation/server'
 import ExamTrainer from '@/components/exam-preparation/ExamTrainer'
+import { getSitovExamEntryCopy } from '@/lib/exam-entry-i18n'
 
-export const metadata: Metadata = { title: 'Prüfungsvorbereitung | Sitov Academy', robots: { index: false, follow: false } }
+export async function generateMetadata({params}:{params:Promise<{lang:string}>}):Promise<Metadata>{
+  const {lang}=await params
+  return {title:`${getSitovExamEntryCopy(lang).preparation} | Sitov Academy`,robots:{index:false,follow:false}}
+}
 export default async function ExamPreparationPage({params,searchParams}: {
   params:Promise<{lang:string}>;searchParams:Promise<{level?:string;area?:string}>
 }) {

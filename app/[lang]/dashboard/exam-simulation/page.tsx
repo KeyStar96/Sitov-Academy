@@ -5,8 +5,12 @@ import { getSimulationState } from '@/app/actions/exam-simulation'
 import { getSimulationActor, simulationCatalog } from '@/lib/exam-simulation/server'
 import { SIMULATION_UNIVERSAL_PROFILES } from '@/lib/exam-simulation/catalogue'
 import ExamSimulation from '@/components/exam-simulation/ExamSimulation'
+import { getSitovExamEntryCopy } from '@/lib/exam-entry-i18n'
 
-export const metadata:Metadata={title:'Simulierte Prüfung | Sitov Academy',robots:{index:false,follow:false}}
+export async function generateMetadata({params}:{params:Promise<{lang:string}>}):Promise<Metadata>{
+ const {lang}=await params
+ return {title:`${getSitovExamEntryCopy(lang).simulation} | Sitov Academy`,robots:{index:false,follow:false}}
+}
 export const dynamic='force-dynamic'
 export default async function SimulationPage({params,searchParams}:{params:Promise<{lang:string}>;searchParams:Promise<{level?:string}>}){
  const {lang}=await params,query=await searchParams,{user}=await requestSession()

@@ -7,7 +7,6 @@ import { studentTranslator } from '@/lib/student-ui-i18n'
 import { getDailyQuestCopy } from '@/lib/daily-quest-i18n'
 import de from '@/dictionaries/de.json'
 import ru from '@/dictionaries/ru.json'
-import { APPEARANCE_FALLBACKS } from '@/lib/appearance-i18n'
 
 let mockPathname = '/de/dashboard'
 jest.mock('next/navigation', () => ({ usePathname: () => mockPathname, useRouter: () => ({ refresh: jest.fn(), push: jest.fn() }) }))
@@ -64,19 +63,20 @@ it('öffnet die Darstellung und die Hilfe aus jedem Modul ohne den Lerninhalt zu
   expect(screen.getByText('Deine Lerninhalte')).toBeInTheDocument()
 })
 
-it.each([['exam-preparation', 'Prüfungsvorbereitung'], ['exam-simulation', 'Simulierte Prüfung']])
-  ('zeigt die gesamte Prüfungsnavigation auf Deutsch, auch mit russischer Profileinstellung (%s)', async (route, title) => {
+it.each([['exam-preparation', ru.dashboard.nav_exam_preparation], ['exam-simulation', ru.dashboard.nav_exam_simulation]])
+  ('zeigt die Prüfungsnavigation in der russischen Interface-Sprache (%s)', async (route, title) => {
     mockPathname = `/ru/dashboard/${route}`
     const { container } = render(<AppearanceProvider copy={ru.accessibility}><SitovLearningShell lang="ru" translations={ru.dashboard}
-      displayName="Dennis" levels={['B1.1']} supportLabels={sitovSupport}><p>Deutsche Prüfungsaufgabe</p></SitovLearningShell></AppearanceProvider>)
-    expect(container.querySelector('.sitov-learning-shell')).toHaveAttribute('lang', 'de')
+      displayName="Dennis" levels={['B1.1']} supportLabels={sitovSupport}><p lang="de" translate="no">Deutsche Prüfungsaufgabe</p></SitovLearningShell></AppearanceProvider>)
+    expect(container.querySelector('.sitov-learning-shell')).toHaveAttribute('lang', 'ru')
+    expect(screen.getByText('Deutsche Prüfungsaufgabe')).toHaveAttribute('lang', 'de')
     expect(screen.getByRole('heading', { name: title, level: 1 })).toHaveAttribute('aria-current', 'page')
-    const navigation = screen.getByRole('navigation', { name: sitovS('nav_label') })
-    expect(within(navigation).getByRole('link', { name: sitovS('nav_home') })).toHaveAttribute('href', '/ru/dashboard')
-    expect(screen.getByRole('link', { name: 'Profil öffnen' })).toHaveAttribute('href', '/ru/dashboard/profile')
-    expect(screen.getByRole('button', { name: sitovS('nav_logout') })).toBeInTheDocument()
+    const navigation = screen.getByRole('navigation', { name: studentTranslator('ru')('nav_label') })
+    expect(within(navigation).getByRole('link', { name: studentTranslator('ru')('nav_home') })).toHaveAttribute('href', '/ru/dashboard')
+    expect(screen.getByRole('link', { name: createDashboardTranslator(ru.dashboard)('open_profile_aria') })).toHaveAttribute('href', '/ru/dashboard/profile')
+    expect(screen.getByRole('button', { name: studentTranslator('ru')('nav_logout') })).toBeInTheDocument()
     expect(screen.queryByRole('heading', { name: /Video/i })).not.toBeInTheDocument()
     const user = userEvent.setup()
-    await user.click(screen.getByRole('button', { name: APPEARANCE_FALLBACKS.title }))
-    expect(screen.getByRole('dialog', { name: APPEARANCE_FALLBACKS.title })).toBeInTheDocument()
+    await user.click(screen.getByRole('button', { name: ru.accessibility.title }))
+    expect(screen.getByRole('dialog', { name: ru.accessibility.title })).toBeInTheDocument()
   })

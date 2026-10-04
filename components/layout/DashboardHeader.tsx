@@ -12,7 +12,6 @@ import { createDashboardTranslator, type DashboardTranslations } from '@/lib/das
 import { EASE_OUT_SOFT, MOTION, STAGGER, STAGGER_LIMIT, useIsHydrating, useReducedMotionSafe } from '@/lib/motion'
 import { studentTranslator } from '@/lib/student-ui-i18n'
 import { getDailyQuestCopy } from '@/lib/daily-quest-i18n'
-import { isSitovExamPath } from '@/lib/exam-navigation'
 
 const ICONS: Record<CrumbKind, typeof House> = {
   home: House, level: GraduationCap, vocabulary: BookOpen, path: Route, pronunciation: Mic, media: Clapperboard, verbs: Waypoints,
@@ -46,9 +45,8 @@ export default function DashboardHeader({
 }) {
   const sitovCurrentPath = usePathname() ?? ''
   const pathname = sitovPathname ?? sitovCurrentPath
-  const sitovExam = isSitovExamPath(pathname)
-  const t = createDashboardTranslator(sitovExam ? {} : translations)
-  const s = studentTranslator(sitovExam ? 'de' : lang)
+  const t = createDashboardTranslator(translations)
+  const s = studentTranslator(lang)
   const crumbs = buildBreadcrumbs(pathname, lang, t, s('media_video')).map(crumb =>
     crumb.href.endsWith('/daily-quest') ? { ...crumb, name: getDailyQuestCopy(lang).navJourney } : crumb)
   const reduced = useReducedMotionSafe()
@@ -63,7 +61,7 @@ export default function DashboardHeader({
   if (crumbs.length === 0) return null
 
   return (
-    <nav className="st-crumbs" aria-label={sitovExam ? s('crumbs_label') : breadcrumbLabel || s('crumbs_label')}>
+    <nav className="st-crumbs" aria-label={breadcrumbLabel || s('crumbs_label')}>
       <ol ref={list} className="st-crumbs__list">
         {crumbs.map((crumb, index) => {
           const isLast = index === crumbs.length - 1
