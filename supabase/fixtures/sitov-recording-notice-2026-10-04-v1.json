@@ -1,0 +1,175 @@
+{
+  "version": "sitov-recording-2026-10-04-v1",
+  "translations": {
+    "de": {
+      "registration": {
+        "summary": "Ich stimme der Aufzeichnung meiner Stimme und meines Bildes in Microsoft Teams zur späteren Ansicht durch die Teilnehmer der ausgewählten Online-Gruppenkurse zu.",
+        "notice": "Reguläre Online-Gruppenkurse und Online-Probestunden werden immer in Microsoft Teams aufgezeichnet. Diese Zustimmung ist Voraussetzung für diese Buchung und muss einzeln bestätigt werden. Online-Privatunterricht ist ausgenommen.",
+        "full": "Ich stimme der Aufzeichnung meiner Stimme und meines Bildes im gebuchten regulären Online-Gruppenkurs oder in der Online-Probestunde über Microsoft Teams zu. Die Aufnahme dient den Teilnehmern desselben Kurses zur späteren Wiederholung. Diese Zustimmung ist Voraussetzung für diese Buchung; Online-Privatunterricht ist ausgenommen. Ich kann die Zustimmung jederzeit für die Zukunft unter info@sitov-academy.com oder gegenüber der Lehrkraft widerrufen."
+      },
+      "monthly": {
+        "summary": "Ich stimme der Aufzeichnung meiner Stimme und meines Bildes in Microsoft Teams zur späteren Ansicht durch die Teilnehmer der ausgewählten Online-Gruppenkurse zu.",
+        "notice": "Reguläre Online-Gruppenkurse und Online-Probestunden werden immer in Microsoft Teams aufgezeichnet. Diese Zustimmung ist Voraussetzung für diese Buchung und muss einzeln bestätigt werden. Online-Privatunterricht ist ausgenommen.",
+        "withdrawal": "Du kannst die Zustimmung jederzeit für die Zukunft unter info@sitov-academy.com oder gegenüber der Lehrkraft widerrufen."
+      },
+      "privacy": {
+        "title": "9. Videokonferenz-Tools und Unterrichtsaufzeichnungen (Microsoft Teams)",
+        "content": [
+          "Für unseren Online-Unterricht nutzen wir Microsoft Teams. Reguläre Online-Gruppenkurse und Online-Probestunden werden immer für die spätere Ansicht durch die Teilnehmer desselben Kurses aufgezeichnet. Online-Privatunterricht ist von dieser Aufzeichnungsregel ausgenommen.",
+          "Anbieter: Microsoft Ireland Operations Limited, One Microsoft Place, South County Business Park, Leopardstown, Dublin 18, Irland (Mutterunternehmen: Microsoft Corporation, USA).",
+          "9.1 Art und Zweck der Verarbeitung",
+          "Bei der Nutzung von Microsoft Teams werden verschiedene Datenarten verarbeitet. Der Umfang der Daten hängt dabei auch davon ab, welche Angaben zu Daten Sie vor bzw. bei der Teilnahme an einer Online-Sitzung machen.",
+          "Verarbeitete Daten: Meeting-Metadaten (z.B. Datum, Uhrzeit, Meeting-ID), Audio- und Videodaten (Ihre Stimme und Ihr Bild), Texteingaben (Chatfunktion) sowie Videoaufzeichnungen der Unterrichtssitzungen.",
+          "Zweck der Aufzeichnung: Die Aufzeichnungen dienen ausschließlich den Teilnehmern des jeweiligen Kurses zur Nachbereitung und Wiederholung der Lerninhalte.",
+          "9.2 Rechtsgrundlage",
+          "Die Nutzung von Microsoft Teams zur allgemeinen Durchführung des Unterrichts basiert auf Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung).",
+          "Für die Aufzeichnung Ihrer Stimme und Ihres Bildes holen wir bei der Anmeldung eine gesonderte ausdrückliche Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO ein. Die Anmeldung zu regulären Online-Gruppenkursen und Online-Probestunden setzt diese Zustimmung voraus. Die Checkbox ist anfangs nicht ausgewählt und muss einzeln bestätigt werden; die Bestätigung anderer Pflichtpunkte setzt sie nicht. Online-Privatunterricht ist ausgenommen.",
+          "9.3 Speicherdauer und Zugriff",
+          "Die Videoaufzeichnungen werden in einer geschützten Umgebung (z.B. passwortgeschützter Cloud-Speicher von Microsoft) gespeichert. Der Zugriff ist streng auf die Lehrkraft und die angemeldeten Teilnehmer desselben Kurses beschränkt. Eine Weitergabe an Dritte erfolgt nicht.",
+          "Die Aufnahmen werden spätestens 30 Tage nach Abschluss des jeweiligen Kurses dauerhaft gelöscht.",
+          "9.4 Widerruf der Einwilligung",
+          "Sie können Ihre Einwilligung zur Aufzeichnung jederzeit mit Wirkung für die Zukunft unter info@sitov-academy.com oder gegenüber der Lehrkraft widerrufen. Informieren Sie die Lehrkraft vor der Online-Sitzung über eine fehlende oder widerrufene Einwilligung. Vor einer Aufnahme muss die Lehrkraft prüfen, dass nur Personen mit wirksamer Einwilligung erfasst werden; andernfalls darf die betreffende Aufnahme nicht stattfinden.",
+          "9.5 Datenübertragung in Drittländer (USA)",
+          "Bei der Nutzung von Microsoft Teams kann es zu einer Datenverarbeitung in den USA kommen. Die Übermittlung basiert auf dem EU-US Data Privacy Framework (DPF) sowie ergänzend auf Standardvertragsklauseln (SCCs). Microsoft ist nach dem DPF zertifiziert. Bitte beachten Sie die allgemeinen Risiken eines Drittlandtransfers (theoretische Zugriffsmöglichkeiten durch US-Behörden).",
+          "Weitere Informationen: https://privacy.microsoft.com/de-de/privacystatement"
+        ]
+      }
+    },
+    "en": {
+      "registration": {
+        "summary": "I consent to my voice and image being recorded in Microsoft Teams for later viewing by participants of the selected online group courses.",
+        "notice": "Regular online group courses and online trial lessons are always recorded in Microsoft Teams. This consent is required for this booking and must be confirmed individually. Online private lessons are exempt.",
+        "full": "I consent to my voice and image being recorded in the booked regular online group course or online trial lesson using Microsoft Teams. The recording is for participants of the same course to review later. This consent is required for this booking; online private lessons are exempt. I can withdraw consent for the future at any time by contacting info@sitov-academy.com or my teacher."
+      },
+      "monthly": {
+        "summary": "I consent to my voice and image being recorded in Microsoft Teams for later viewing by participants of the selected online group courses.",
+        "notice": "Regular online group courses and online trial lessons are always recorded in Microsoft Teams. This consent is required for this booking and must be confirmed individually. Online private lessons are exempt.",
+        "withdrawal": "You can withdraw consent for the future at any time by contacting info@sitov-academy.com or your teacher."
+      },
+      "privacy": {
+        "title": "9. Video Conferencing Tools and Lesson Recordings (Microsoft Teams)",
+        "content": [
+          "We use Microsoft Teams for online teaching. Regular online group courses and online trial lessons are always recorded for later viewing by participants of the same course. Online private lessons are exempt from this recording rule.",
+          "Provider: Microsoft Ireland Operations Limited, One Microsoft Place, South County Business Park, Leopardstown, Dublin 18, Ireland (parent company: Microsoft Corporation, USA).",
+          "9.1 Type and Purpose of Processing",
+          "When using Microsoft Teams, various types of data are processed. The scope of data also depends on the information you provide before or during participation in an online session.",
+          "Processed data: Meeting metadata (e.g. date, time, meeting ID), audio and video data (your voice and image), text inputs (chat function) as well as video recordings of the teaching sessions.",
+          "Purpose of recording: The recordings serve exclusively the participants of the respective course for review and revision of the learning content.",
+          "9.2 Legal Basis",
+          "The use of Microsoft Teams for the general delivery of instruction is based on Art. 6 Para. 1 lit. b GDPR (performance of contract).",
+          "For recording your voice and image, we obtain separate explicit consent at registration under Article 6(1)(a) GDPR. Registration for regular online group courses and online trial lessons requires this consent. The checkbox starts unchecked and must be confirmed individually; confirming the other required points does not select it. Online private lessons are exempt.",
+          "9.3 Storage Duration and Access",
+          "The video recordings are stored in a protected environment (e.g. password-protected cloud storage from Microsoft). Access is strictly limited to the instructor and the registered participants of the same course. No disclosure to third parties takes place.",
+          "The recordings are permanently deleted no later than 30 days after the completion of the respective course.",
+          "9.4 Withdrawal of Consent",
+          "You may withdraw your recording consent at any time for the future by contacting info@sitov-academy.com or your teacher. Tell your teacher before the online session if consent is absent or withdrawn. Before recording, the teacher must check that only people with valid consent are captured; otherwise that recording must not take place.",
+          "9.5 Data Transfer to Third Countries (USA)",
+          "When using Microsoft Teams, data processing in the USA may occur. The transfer is based on the EU-US Data Privacy Framework (DPF) as well as supplementary Standard Contractual Clauses (SCCs). Microsoft is DPF-certified. Please note the general risks of third-country transfers (theoretical access possibilities by US authorities).",
+          "Further information: https://privacy.microsoft.com/de-de/privacystatement"
+        ]
+      }
+    },
+    "ru": {
+      "registration": {
+        "summary": "Я соглашаюсь на запись моего голоса и изображения в Microsoft Teams для последующего просмотра участниками выбранных групповых онлайн-курсов.",
+        "notice": "Регулярные групповые онлайн-курсы и пробные онлайн-занятия всегда записываются в Microsoft Teams. Это согласие необходимо для данной записи на занятие и подтверждается отдельно. Индивидуальные онлайн-занятия исключены.",
+        "full": "Я соглашаюсь на запись моего голоса и изображения на забронированном регулярном групповом онлайн-курсе или пробном онлайн-занятии в Microsoft Teams. Запись предназначена для последующего повторения участниками того же курса. Это согласие необходимо для данного бронирования; индивидуальные онлайн-занятия исключены. Я могу в любое время отозвать согласие на будущее, написав на info@sitov-academy.com или сообщив преподавателю."
+      },
+      "monthly": {
+        "summary": "Я соглашаюсь на запись моего голоса и изображения в Microsoft Teams для последующего просмотра участниками выбранных групповых онлайн-курсов.",
+        "notice": "Регулярные групповые онлайн-курсы и пробные онлайн-занятия всегда записываются в Microsoft Teams. Это согласие необходимо для данной записи на занятие и подтверждается отдельно. Индивидуальные онлайн-занятия исключены.",
+        "withdrawal": "Вы можете в любое время отозвать согласие на будущее, написав на info@sitov-academy.com или сообщив преподавателю."
+      },
+      "privacy": {
+        "title": "9. Инструменты видеоконференций и записи занятий (Microsoft Teams)",
+        "content": [
+          "Для онлайн-обучения мы используем Microsoft Teams. Регулярные групповые онлайн-курсы и пробные онлайн-занятия всегда записываются для последующего просмотра участниками того же курса. Индивидуальные онлайн-занятия исключены из этого правила записи.",
+          "Провайдер: Microsoft Ireland Operations Limited, One Microsoft Place, South County Business Park, Leopardstown, Dublin 18, Ирландия (материнская компания: Microsoft Corporation, США).",
+          "9.1 Вид и цель обработки",
+          "При использовании Microsoft Teams обрабатываются различные виды данных. Объём данных зависит также от того, какие сведения вы предоставляете до или во время участия в онлайн-сессии.",
+          "Обрабатываемые данные: Метаданные встречи (напр., дата, время, идентификатор встречи), аудио- и видеоданные (ваш голос и изображение), текстовые вводы (функция чата), а также видеозаписи учебных занятий.",
+          "Цель записи: Записи служат исключительно участникам соответствующего курса для повторения и закрепления учебного материала.",
+          "9.2 Правовое основание",
+          "Использование Microsoft Teams для общего проведения занятий основано на ст. 6 абз. 1 лит. b DSGVO (исполнение договора).",
+          "Для записи вашего голоса и изображения при регистрации мы получаем отдельное явное согласие в соответствии со статьёй 6(1)(a) GDPR. Для записи на регулярные групповые онлайн-курсы и пробные онлайн-занятия это согласие необходимо. Флажок изначально снят и подтверждается отдельно; подтверждение других обязательных пунктов его не устанавливает. Индивидуальные онлайн-занятия исключены.",
+          "9.3 Срок хранения и доступ",
+          "Видеозаписи хранятся в защищённой среде (напр., защищённое паролем облачное хранилище Microsoft). Доступ строго ограничен преподавателем и зарегистрированными участниками того же курса. Передача третьим лицам не осуществляется.",
+          "Записи удаляются безвозвратно не позднее 30 дней после завершения соответствующего курса.",
+          "9.4 Отзыв согласия",
+          "Вы можете в любое время отозвать согласие на запись на будущее, написав на info@sitov-academy.com или сообщив преподавателю. До онлайн-занятия сообщите преподавателю об отсутствии или отзыве согласия. Перед записью преподаватель должен убедиться, что записываются только люди с действительным согласием; иначе такая запись не должна проводиться.",
+          "9.5 Передача данных в третьи страны (США)",
+          "При использовании Microsoft Teams может происходить обработка данных в США. Передача основана на EU-US Data Privacy Framework (DPF), а также дополнительно на стандартных договорных условиях (SCC). Microsoft сертифицирована по DPF. Пожалуйста, учитывайте общие риски передачи данных в третьи страны (теоретические возможности доступа со стороны властей США).",
+          "Дополнительная информация: https://privacy.microsoft.com/de-de/privacystatement"
+        ]
+      }
+    },
+    "uk": {
+      "registration": {
+        "summary": "Я погоджуюся на запис мого голосу й зображення в Microsoft Teams для подальшого перегляду учасниками вибраних групових онлайн-курсів.",
+        "notice": "Регулярні групові онлайн-курси й пробні онлайн-заняття завжди записуються в Microsoft Teams. Ця згода є умовою цього бронювання та підтверджується окремо. Індивідуальні онлайн-заняття не підпадають під цю вимогу.",
+        "full": "Я погоджуюся на запис мого голосу й зображення на заброньованому регулярному груповому онлайн-курсі або пробному онлайн-занятті в Microsoft Teams. Запис призначений для подальшого повторення учасниками того самого курсу. Ця згода є умовою цього бронювання; індивідуальні онлайн-заняття не підпадають під цю вимогу. Я можу будь-коли відкликати згоду на майбутнє, написавши на info@sitov-academy.com або повідомивши викладача."
+      },
+      "monthly": {
+        "summary": "Я погоджуюся на запис мого голосу й зображення в Microsoft Teams для подальшого перегляду учасниками вибраних групових онлайн-курсів.",
+        "notice": "Регулярні групові онлайн-курси й пробні онлайн-заняття завжди записуються в Microsoft Teams. Ця згода є умовою цього бронювання та підтверджується окремо. Індивідуальні онлайн-заняття не підпадають під цю вимогу.",
+        "withdrawal": "Ви можете будь-коли відкликати згоду на майбутнє, написавши на info@sitov-academy.com або повідомивши викладача."
+      },
+      "privacy": {
+        "title": "9. Інструменти відеоконференцій та записи занять (Microsoft Teams)",
+        "content": [
+          "Для онлайн-навчання ми використовуємо Microsoft Teams. Регулярні групові онлайн-курси й пробні онлайн-заняття завжди записуються для подальшого перегляду учасниками того самого курсу. Індивідуальні онлайн-заняття не підпадають під це правило запису.",
+          "Провайдер: Microsoft Ireland Operations Limited, One Microsoft Place, South County Business Park, Leopardstown, Dublin 18, Ірландія (материнська компанія: Microsoft Corporation, США).",
+          "9.1 Вид та мета обробки",
+          "При використанні Microsoft Teams обробляються різні види даних. Обсяг даних залежить також від того, які відомості ви надаєте до або під час участі в онлайн-сесії.",
+          "Оброблювані дані: Метадані зустрічі (напр., дата, час, ідентифікатор зустрічі), аудіо- та відеодані (ваш голос та зображення), текстові введення (функція чату), а також відеозаписи навчальних занять.",
+          "Мета запису: Записи призначені виключно для учасників відповідного курсу для повторення та закріплення навчального матеріалу.",
+          "9.2 Правова підстава",
+          "Використання Microsoft Teams для загального проведення занять базується на ст. 6 абз. 1 літ. b DSGVO (виконання договору).",
+          "Для запису вашого голосу й зображення під час реєстрації ми отримуємо окрему явну згоду відповідно до статті 6(1)(a) GDPR. Для реєстрації на регулярні групові онлайн-курси й пробні онлайн-заняття ця згода потрібна. Прапорець спочатку знятий і підтверджується окремо; підтвердження інших обов’язкових пунктів не встановлює його. Індивідуальні онлайн-заняття не підпадають під цю вимогу.",
+          "9.3 Термін зберігання та доступ",
+          "Відеозаписи зберігаються в захищеному середовищі (напр., захищене паролем хмарне сховище Microsoft). Доступ суворо обмежений викладачем та зареєстрованими учасниками того ж курсу. Передача третім особам не здійснюється.",
+          "Записи видаляються безповоротно не пізніше 30 днів після завершення відповідного курсу.",
+          "9.4 Відкликання згоди",
+          "Ви можете будь-коли відкликати згоду на запис на майбутнє, написавши на info@sitov-academy.com або повідомивши викладача. До онлайн-заняття повідомте викладача про відсутність або відкликання згоди. Перед записом викладач має переконатися, що записуються лише особи з чинною згодою; інакше такий запис не повинен проводитися.",
+          "9.5 Передача даних в треті країни (США)",
+          "При використанні Microsoft Teams може відбуватися обробка даних в США. Передача базується на EU-US Data Privacy Framework (DPF), а також додатково на стандартних договірних умовах (SCC). Microsoft сертифікована по DPF. Будь ласка, враховуйте загальні ризики передачі даних в треті країни (теоретичні можливості доступу з боку влади США).",
+          "Додаткова інформація: https://privacy.microsoft.com/de-de/privacystatement"
+        ]
+      }
+    },
+    "tr": {
+      "registration": {
+        "summary": "Sesimin ve görüntümün, seçilen çevrimiçi grup kurslarının katılımcılarının daha sonra izlemesi için Microsoft Teams üzerinde kaydedilmesine onay veriyorum.",
+        "notice": "Düzenli çevrimiçi grup kursları ve çevrimiçi deneme dersleri her zaman Microsoft Teams üzerinde kaydedilir. Bu onay, bu ders kaydı için zorunludur ve ayrı olarak verilmelidir. Çevrimiçi özel dersler bu koşulun dışındadır.",
+        "full": "Rezervasyon yaptığım düzenli çevrimiçi grup kursunda veya çevrimiçi deneme dersinde sesimin ve görüntümün Microsoft Teams üzerinde kaydedilmesine onay veriyorum. Kayıt, aynı kursun katılımcılarının daha sonra tekrar yapması içindir. Bu onay bu rezervasyon için zorunludur; çevrimiçi özel dersler bu koşulun dışındadır. Onayımı geleceğe yönelik olarak istediğim zaman info@sitov-academy.com adresine yazarak veya öğretmenime bildirerek geri çekebilirim."
+      },
+      "monthly": {
+        "summary": "Sesimin ve görüntümün, seçilen çevrimiçi grup kurslarının katılımcılarının daha sonra izlemesi için Microsoft Teams üzerinde kaydedilmesine onay veriyorum.",
+        "notice": "Düzenli çevrimiçi grup kursları ve çevrimiçi deneme dersleri her zaman Microsoft Teams üzerinde kaydedilir. Bu onay, bu ders kaydı için zorunludur ve ayrı olarak verilmelidir. Çevrimiçi özel dersler bu koşulun dışındadır.",
+        "withdrawal": "Onayınızı geleceğe yönelik olarak istediğiniz zaman info@sitov-academy.com adresine yazarak veya öğretmeninize bildirerek geri çekebilirsiniz."
+      },
+      "privacy": {
+        "title": "9. Video Konferans Araçları ve Ders Kayıtları (Microsoft Teams)",
+        "content": [
+          "Çevrimiçi eğitim için Microsoft Teams kullanıyoruz. Düzenli çevrimiçi grup kursları ve çevrimiçi deneme dersleri, aynı kursun katılımcılarının daha sonra izlemesi için her zaman kaydedilir. Çevrimiçi özel dersler bu kayıt kuralının dışındadır.",
+          "Sağlayıcı: Microsoft Ireland Operations Limited, One Microsoft Place, South County Business Park, Leopardstown, Dublin 18, İrlanda (ana şirket: Microsoft Corporation, ABD).",
+          "9.1 İşlemenin Türü ve Amacı",
+          "Microsoft Teams kullanılırken çeşitli veri türleri işlenir. Verilerin kapsamı, çevrimiçi bir oturuma katılmadan önce veya katılım sırasında hangi bilgileri sağladığınıza da bağlıdır.",
+          "İşlenen veriler: Toplantı meta verileri (örn. tarih, saat, toplantı kimliği), ses ve video verileri (sesiniz ve görüntünüz), metin girişleri (sohbet işlevi) ve ders oturumlarının video kayıtları.",
+          "Kaydın amacı: Kayıtlar, yalnızca ilgili kursun katılımcılarına öğrenme içeriklerini tekrarlama ve pekiştirme amacıyla hizmet eder.",
+          "9.2 Yasal Dayanak",
+          "Microsoft Teams'in genel ders yürütümü için kullanımı DSGVO Madde 6 Fıkra 1 bent b'ye (sözleşmenin ifası) dayanmaktadır.",
+          "Sesinizin ve görüntünüzün kaydı için ders kaydı sırasında GDPR Madde 6(1)(a) uyarınca ayrı ve açık onayınızı alıyoruz. Düzenli çevrimiçi grup kurslarına ve çevrimiçi deneme derslerine kayıt için bu onay gerekir. Onay kutusu başlangıçta işaretli değildir ve ayrı olarak onaylanmalıdır; diğer zorunlu maddeleri onaylamak bu kutuyu işaretlemez. Çevrimiçi özel dersler bu koşulun dışındadır.",
+          "9.3 Saklama Süresi ve Erişim",
+          "Video kayıtları korumalı bir ortamda (örn. Microsoft'un parola korumalı bulut depolaması) saklanır. Erişim, yalnızca eğitmenle ve aynı kursun kayıtlı katılımcılarıyla sınırlıdır. Üçüncü taraflara ifşa edilmez.",
+          "Kayıtlar, ilgili kursun tamamlanmasından en geç 30 gün sonra kalıcı olarak silinir.",
+          "9.4 Rızanın Geri Çekilmesi",
+          "Kayda ilişkin rızanızı info@sitov-academy.com adresine yazarak veya öğretmene bildirerek geleceğe yönelik olarak her zaman geri alabilirsiniz. Rıza yoksa veya geri alınmışsa çevrimiçi oturumdan önce öğretmene bildirin. Kayıttan önce öğretmen, yalnızca geçerli rızası olan kişilerin kayda alındığını kontrol etmelidir; aksi halde ilgili kayıt yapılmamalıdır.",
+          "9.5 Üçüncü Ülkelere Veri Aktarımı (ABD)",
+          "Microsoft Teams kullanılırken ABD'de veri işleme gerçekleşebilir. Aktarım, EU-US Data Privacy Framework (DPF) ve ek olarak Standart Sözleşme Maddeleri (SCC'ler) temelinde yapılmaktadır. Microsoft DPF sertifikalıdır. Lütfen üçüncü ülke transferlerinin genel risklerini (ABD makamlarının teorik erişim olasılıkları) dikkate alın.",
+          "Daha fazla bilgi: https://privacy.microsoft.com/de-de/privacystatement"
+        ]
+      }
+    }
+  }
+}

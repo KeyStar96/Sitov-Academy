@@ -32,6 +32,8 @@ export interface ProfileCourse {
 export interface MonthlySelection {
   courseSelections: CourseSelection[]
   paused: boolean
+  recordingAccepted?: boolean
+  locale?: 'de' | 'en' | 'ru' | 'uk' | 'tr'
 }
 export interface ProfileMonthlyState {
   hasConfirmedRegistration: boolean
@@ -45,5 +47,7 @@ export const saveNextMonthSchema = z.object({
   targetMonth: targetMonthSchema,
   courseSelections: courseSelectionsSchema,
   paused: z.boolean(),
+  recordingAccepted: z.boolean().optional(),
+  locale: z.enum(['de', 'en', 'ru', 'uk', 'tr']).optional(),
   expected: z.object({id: uuidSchema, revision: z.number().int().positive()}).strict().nullable(),
 }).strict().refine(value => value.paused ? value.courseSelections.length === 0 : value.courseSelections.length > 0)

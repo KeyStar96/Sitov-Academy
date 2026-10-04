@@ -2,6 +2,7 @@ import {submitEnrollment} from '@/app/actions/submit-enrollment'
 import {getCourses} from '@/app/actions/get-courses'
 import {createAdminClient} from '@/utils/supabase/admin'
 import {rateLimit} from '@/lib/ratelimit'
+jest.mock('server-only',()=>({}),{virtual:true})
 const mockCatalog={from:jest.fn()}
 jest.mock('@supabase/supabase-js',()=>({createClient:jest.fn(()=>mockCatalog)}))
 jest.mock('@/lib/supabase-env',()=>({readSupabaseServerConfig:()=>({url:'http://127.0.0.1:8000',anonKey:'isolated-mock'})}))
@@ -13,7 +14,8 @@ const id='00000000-0000-4000-8000-000000000001'
 const form={personal:{firstName:'Anna',lastName:'Test',email:' ANNA@example.test ',birthDate:'01.01.1980',street:'Teststraße 1',zip:'30165',city:'Hannover',phone:''}}
 const consents={privacy:true,agb:true,revocation:false}
 const rpc=jest.fn()
-beforeEach(()=>{jest.clearAllMocks();jest.mocked(rateLimit).mockResolvedValue({success:true,limit:3,remaining:2,reset:0});jest.mocked(createAdminClient).mockReturnValue({rpc} as unknown as ReturnType<typeof createAdminClient>);rpc.mockResolvedValue({data:id,error:null})})
+const recordingCourses={select:jest.fn().mockReturnThis(),in:jest.fn().mockReturnThis(),is:jest.fn()}
+beforeEach(()=>{jest.clearAllMocks();jest.mocked(rateLimit).mockResolvedValue({success:true,limit:3,remaining:2,reset:0});recordingCourses.is.mockResolvedValue({data:[{id,type:'online',category:'private',archived_at:null}],error:null});jest.mocked(createAdminClient).mockReturnValue({rpc,from:()=>recordingCourses} as unknown as ReturnType<typeof createAdminClient>);rpc.mockResolvedValue({data:id,error:null})})
 it('saves registration in one RPC and never trusts browser totals or prices',async()=>{
  expect(await submitEnrollment(form,[{courseId:id,requestedUnits:3}],'01.10.2026',consents,'uk')).toEqual({success:true,message:'registration_success'})
  expect(rpc).toHaveBeenCalledWith('submit_business_registration',{p_contact:{name:'Anna Test',email:'anna@example.test',birth_date:'1980-01-01',phone:null,street:'Teststraße 1',postal_code:'30165',city:'Hannover'},p_course_selections:[{course_id:id,requested_units:3}],p_start:'2026-10-01',p_consents:{privacy:true,agb:true,revocation:false,recording:null},p_locale:'uk',p_trial:false})

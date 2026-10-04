@@ -339,12 +339,19 @@ describe('Wörterbücher', () => {
     expect(privacy).toContain(CONSENT_STORAGE_KEY)
     expect(Object.values(dict.consent).every(value => typeof value === 'string' && value.trim().length > 0)).toBe(true)
   })
-  it.each(['de', 'en', 'uk', 'ru', 'tr'])('%s: erklärt die separate freiwillige Aufnahmeeinwilligung und Widerrufsmöglichkeit', locale => {
+  it.each(['de', 'en', 'uk', 'ru', 'tr'])('%s: erklärt die gesonderte Aufnahmevoraussetzung und Widerrufsmöglichkeit ohne Freiwilligkeitsversprechen', locale => {
     const dict = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'dictionaries', `${locale}.json`), 'utf-8'))
     expect(dict.registration.flow.consents.recording_notice).toBeTruthy()
     expect(dict.registration.legal.video_recording).toContain('info@sitov-academy.com')
     const recordingSection = dict.privacy.sections.find((section: { title: string }) => section.title.startsWith('9.'))
-    expect(recordingSection.content[8]).not.toMatch(/mandatory checkbox|verpflichtende Checkbox|обязательный чекбокс|обов'язковий чекбокс|zorunlu bir onay kutusu/)
+    const recordingCopy = [dict.registration.flow.consents.intro, dict.registration.flow.consents.video_recording,
+      dict.registration.flow.consents.recording_notice, dict.registration.legal.video_recording,
+      recordingSection.content[0], recordingSection.content[8], dict.agb.sections[1].content[3],
+      ...dict.sections.courses.categories.online.map((course: { description: string }) => course.description)].join(' ')
+    expect(recordingCopy).toContain('Microsoft Teams')
+    expect(recordingCopy).not.toMatch(/freiwillig|voluntary|optional|without this consent|без этого согласия|добровольн|добровільн|gönüllü|isteğe bağlı/i)
+    expect(recordingSection.content[8]).toMatch(/Privatunterricht|private lessons|Индивидуальн|Індивідуальн|özel dersler/i)
+    expect(recordingSection.content[11]).toContain('30')
     expect(recordingSection.content[13]).toContain('info@sitov-academy.com')
   })
 })

@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState, type CSSProperties } from 'react'
+import { useEffect, useId, useRef, useState, type CSSProperties } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
@@ -13,6 +13,8 @@ import { studentTranslator } from '@/lib/student-ui-i18n'
 import { useMonthlySelection } from './useMonthlySelection'
 import ProfileCourseCalendar from './ProfileCourseCalendar'
 import type { ProfileCourseCalendarState } from '@/lib/profile-course-calendar'
+import { requiresSitovRecordingConsent } from '@/lib/sitov-recording-consent'
+import { toUiLocale } from '@/lib/locale-routing'
 
 type Step = 1 | 2 | 3
 const EASE = [0.22, 1, 0.36, 1] as const
@@ -40,7 +42,8 @@ export default function ProfileMonthlyCourses({ initial, lang, translations, cou
   const planned = state.source === 'booking' || state.source === 'previous'
   const [editing, setEditing] = useState(!planned)
   const [step, setStep] = useState<Step>(1)
-  const [draft, setDraft] = useState<MonthlySelection>(state.selection)
+  const [draft, setDraft] = useState<MonthlySelection>(() => ({ courseSelections: state.selection.courseSelections, paused: state.selection.paused }))
+  const recordingId = useId()
   const [justSaved, setJustSaved] = useState(false)
   const pendingSave = useRef(false)
   const month = formatProfileMonth(state.targetMonth, lang)
@@ -67,7 +70,8 @@ export default function ProfileMonthlyCourses({ initial, lang, translations, cou
   }, [saving, hasError])
 
   function startEditing() {
-    setDraft(state.selection)
+    // Every new confirmation starts without an inherited recording decision.
+    setDraft({ courseSelections: state.selection.courseSelections, paused: state.selection.paused })
     setStep(state.selection.paused || state.selection.courseSelections.length === 0 ? 1 : 2)
     setJustSaved(false)
     setEditing(true)
@@ -89,9 +93,11 @@ export default function ProfileMonthlyCourses({ initial, lang, translations, cou
     })
   }
   function confirm() {
-    if (!state.hasConfirmedRegistration) return
+    if (!state.hasConfirmedRegistration || (needsRecording && draft.recordingAccepted !== true)) return
     pendingSave.current = true
-    change(draft)
+    // Evidence follows the language of the displayed checkbox, which can differ
+    // from the account's saved interface-language preference.
+    change({ ...draft, locale: toUiLocale(lang) })
   }
 
   const summary = (selection: MonthlySelection) => {
@@ -119,6 +125,7 @@ export default function ProfileMonthlyCourses({ initial, lang, translations, cou
 
   const current = summary(state.selection)
   const review = summary(draft)
+  const needsRecording = !draft.paused && review.chosen.some(({ course }) => course && requiresSitovRecordingConsent(course))
   const money = (amount: number) => new Intl.NumberFormat(lang, { style: 'currency', currency: 'EUR' }).format(amount)
 
   return (
@@ -245,9 +252,21 @@ export default function ProfileMonthlyCourses({ initial, lang, translations, cou
                   <p className="mt-2 text-[var(--muted)]">{t('booking_contract_note')}</p>
                   <Link href={`/${lang}/agb`} className="mt-3 inline-flex min-h-11 items-center font-bold text-[var(--accent-text)] underline underline-offset-4">{t('booking_terms_link')}</Link>
                 </div>}
+                {needsRecording && <div className="sl-card mt-4 rounded-2xl p-4 text-base leading-relaxed">
+                  <label className="st-press flex min-h-12 cursor-pointer items-start gap-3 rounded-xl p-2 font-semibold text-[var(--foreground)]">
+                    <input type="checkbox" required checked={draft.recordingAccepted === true} disabled={saving || monthExpired}
+                      onChange={event => setDraft(current => ({ ...current, recordingAccepted: event.target.checked }))}
+                      aria-describedby={`${recordingId}-notice ${recordingId}-withdrawal`}
+                      className="mt-1 h-6 w-6 shrink-0 accent-[var(--accent)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent)]" />
+                    <span>{t('recording_consent')}</span>
+                  </label>
+                  <p id={`${recordingId}-notice`} className="mt-2 text-[var(--muted)]">{t('recording_notice')}</p>
+                  <p id={`${recordingId}-withdrawal`} className="mt-2 text-[var(--muted)]">{t('recording_withdrawal')}</p>
+                  <Link href={`/${lang}/privacy`} className="mt-3 inline-flex min-h-11 items-center font-bold text-[var(--accent-text)] underline underline-offset-4">{t('recording_privacy_link')}</Link>
+                </div>}
                 <div className="st-booking__nav">
-                  <button type="button" onClick={() => setStep(draft.paused ? 1 : 2)} disabled={saving} className="st-button st-button--soft st-press"><ArrowLeft size={18} aria-hidden="true" />{s('booking_back')}</button>
-                  <button type="button" onClick={confirm} disabled={saving || monthExpired || (!draft.paused && !review.priced)} className="st-button st-button--primary st-press">
+                  <button type="button" onClick={() => { setDraft(current => ({ courseSelections: current.courseSelections, paused: current.paused })); setStep(draft.paused ? 1 : 2) }} disabled={saving} className="st-button st-button--soft st-press"><ArrowLeft size={18} aria-hidden="true" />{s('booking_back')}</button>
+                  <button type="button" onClick={confirm} disabled={saving || monthExpired || (!draft.paused && !review.priced) || (needsRecording && draft.recordingAccepted !== true)} className="st-button st-button--primary st-press">
                     {saving ? <Loader2 size={18} className="animate-spin" aria-hidden="true" /> : <CalendarCheck size={18} aria-hidden="true" />}
                     {draft.paused ? s('booking_confirm_pause') : t('booking_paid_confirm')}
                   </button>

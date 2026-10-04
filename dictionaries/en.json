@@ -202,7 +202,7 @@
                         "price": "15€",
                         "price_unit": "/ 90 Min",
                         "price_note": "",
-                        "description": "Comfortably from home. In small groups (max. 10 people). Lesson recordings for review are possible if everyone captured voluntarily consents. Intensive 24/7 Telegram support from the teacher is available for grammar and language questions.",
+                        "description": "Comfortably from home. In small groups (max. 10 people). Lessons are always recorded in Microsoft Teams and made available to participants of the same course for later review. Separate recording consent is required for registration. Intensive 24/7 Telegram support from the teacher is available for grammar and language questions.",
                         "max_participants": "Max: 10 People",
                         "badge": "Online Course"
                     },
@@ -217,7 +217,7 @@
                         "price": "15€",
                         "price_unit": "/ 90 Min",
                         "price_note": "",
-                        "description": "Intermediate level for advanced learners. In small groups (max. 10 people). Lesson recordings for review are possible if everyone captured voluntarily consents. Intensive 24/7 Telegram support from the teacher is available for grammar and language questions.",
+                        "description": "Intermediate level for advanced learners. In small groups (max. 10 people). Lessons are always recorded in Microsoft Teams and made available to participants of the same course for later review. Separate recording consent is required for registration. Intensive 24/7 Telegram support from the teacher is available for grammar and language questions.",
                         "max_participants": "",
                         "badge": "Online Course"
                     }
@@ -401,7 +401,7 @@
             "privacy": "I agree that my data will be stored and used to process my request in accordance with the Privacy Policy. Course administration runs on our self-managed server.",
             "agb": "I have read and accept the General Terms and Conditions (AGB).",
             "revocation": "I expressly request and agree that you begin the execution of the service (start of the course) before the end of the withdrawal period. I am aware that I lose my right of withdrawal upon complete performance of the contract and that I must pay compensation for the services already rendered if I withdraw after the course has started.",
-            "video_recording": "I voluntarily consent to my voice and image being recorded in online sessions via Microsoft Teams exclusively for internal teaching purposes. This consent is not required for registration and can be withdrawn for the future at any time by contacting info@sitov-academy.com."
+            "video_recording": "I consent to my voice and image being recorded in the booked regular online group course or online trial lesson using Microsoft Teams. The recording is for participants of the same course to review later. This consent is required for this booking; online private lessons are exempt. I can withdraw consent for the future at any time by contacting info@sitov-academy.com or my teacher."
         },
         "flow": {
             "home": "Back to homepage",
@@ -543,18 +543,18 @@
             },
             "consents": {
                 "title": "Please confirm these points",
-                "intro": "Confirm the required points. Consent to lesson recordings is voluntary and is selected separately.",
-                "accept_all": "Confirm required points",
+                "intro": "Confirm the privacy and contract terms. For regular online group courses and online trial lessons, confirm recording consent separately as well. Online private lessons are exempt.",
+                "accept_all": "Confirm privacy and contract terms",
                 "more": "Read more",
                 "less": "Show less",
                 "privacy": "My data may be stored and used for the registration.",
                 "agb": "I have read the Terms and agree to them.",
                 "revocation": "My course may start before the withdrawal period ends. If I withdraw after the course has started, I pay for the lessons that have already taken place.",
-                "video_recording": "Optional: My voice and image may be recorded during online lessons for internal teaching purposes.",
+                "video_recording": "I consent to my voice and image being recorded in Microsoft Teams for later viewing by participants of the selected online group courses.",
                 "privacy_link": "Read the privacy policy",
                 "agb_link": "Read the Terms",
                 "new_tab": "(opens in a new tab)",
-                "recording_notice": "You can register without this consent. Tell your teacher about your choice before the online lesson so they can check who may be included before making a recording."
+                "recording_notice": "Regular online group courses and online trial lessons are always recorded in Microsoft Teams. This consent is required for this booking and must be confirmed individually. Online private lessons are exempt."
             },
             "submit_failed": "Unfortunately, that did not work. Please try again in a few minutes. If it still does not work, write to us at info@sitov-academy.com.",
             "done": {
@@ -638,7 +638,7 @@
                     "(1) The subject of the contract is the services specified in the respective course description (scope of services, course duration, dates, teaching materials). The course description is an integral part of the contract.",
                     "(2) Minor changes in the course schedule, teaching staff, or class times are permissible, provided that the overall character of the course is not significantly impaired.",
                     "(3) Online instruction is conducted via common video conferencing software (e.g., Microsoft Teams). The participant is responsible for a suitable internet connection and technical equipment.",
-                    "(4) Online sessions may be recorded for participants to review if everyone captured has voluntarily consented. Registration does not require consent to recording. Details of permitted recordings are set out in § 9 of these Terms and the privacy policy.",
+                    "(4) Regular online group courses and online trial lessons are always recorded in Microsoft Teams so participants of the respective course can watch the lessons later. Registration requires separate consent to recording. Online private lessons are exempt. Further details are set out in § 9 of these Terms and the privacy policy.",
                     "(5) Course participation covers the specifically agreed dates in the relevant calendar month. The displayed number of teaching units describes the calculation for that month; it is not an unlimited or freely redeemable balance of hours. Private lesson dates are individually agreed within the booked month; separate arrangements remain possible."
                 ]
             },
@@ -961,7 +961,7 @@
             {
                 "title": "9. Video Conferencing Tools and Lesson Recordings (Microsoft Teams)",
                 "content": [
-                    "For the delivery of our online courses, we use Microsoft Teams.",
+                    "We use Microsoft Teams for online teaching. Regular online group courses and online trial lessons are always recorded for later viewing by participants of the same course. Online private lessons are exempt from this recording rule.",
                     "Provider: Microsoft Ireland Operations Limited, One Microsoft Place, South County Business Park, Leopardstown, Dublin 18, Ireland (parent company: Microsoft Corporation, USA).",
                     "9.1 Type and Purpose of Processing",
                     "When using Microsoft Teams, various types of data are processed. The scope of data also depends on the information you provide before or during participation in an online session.",
@@ -969,7 +969,7 @@
                     "Purpose of recording: The recordings serve exclusively the participants of the respective course for review and revision of the learning content.",
                     "9.2 Legal Basis",
                     "The use of Microsoft Teams for the general delivery of instruction is based on Art. 6 Para. 1 lit. b GDPR (performance of contract).",
-                    "Recording your voice and image requires your explicit, voluntary consent under Article 6(1)(a) GDPR. The separate registration checkbox is optional and is not selected by confirming the required points. You can register without consenting to recording.",
+                    "For recording your voice and image, we obtain separate explicit consent at registration under Article 6(1)(a) GDPR. Registration for regular online group courses and online trial lessons requires this consent. The checkbox starts unchecked and must be confirmed individually; confirming the other required points does not select it. Online private lessons are exempt.",
                     "9.3 Storage Duration and Access",
                     "The video recordings are stored in a protected environment (e.g. password-protected cloud storage from Microsoft). Access is strictly limited to the instructor and the registered participants of the same course. No disclosure to third parties takes place.",
                     "The recordings are permanently deleted no later than 30 days after the completion of the respective course.",
@@ -1209,7 +1209,11 @@
         "booking_contract_note": "Booking submits a binding course choice. Sitov Academy reviews and confirms it before invoicing. A pause does not create a new course fee.",
         "booking_terms_link": "Read the terms and withdrawal information",
         "booking_paid_confirm": "Book with obligation to pay",
-        "booking_price_unavailable": "Price is still being calculated"
+        "booking_price_unavailable": "Price is still being calculated",
+        "recording_consent": "I consent to my voice and image being recorded in Microsoft Teams for later viewing by participants of the selected online group courses.",
+        "recording_notice": "Regular online group courses and online trial lessons are always recorded in Microsoft Teams. This consent is required for this booking and must be confirmed individually. Online private lessons are exempt.",
+        "recording_withdrawal": "You can withdraw consent for the future at any time by contacting info@sitov-academy.com or your teacher.",
+        "recording_privacy_link": "Read the privacy policy"
     },
     "pronunciation": {
         "title": "Pronunciation Training",

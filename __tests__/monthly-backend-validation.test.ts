@@ -15,6 +15,19 @@ describe('monthly backend validation', () => {
   it('keeps first-of-month date strings without UTC conversion', () => {
     expect(targetMonthSchema.parse('2026-09-01')).toBe('2026-09-01')
   })
+  it.each([true,false,undefined])('accepts an independent recording choice: %s',recordingAccepted=>{
+    const fields={targetMonth:'2026-10-01',courseSelections:[{courseId:course}],paused:false,expected:null,recordingAccepted}
+    expect(saveNextMonthSchema.parse(fields).recordingAccepted).toBe(recordingAccepted)
+  })
+  it.each(['true',1,null])('does not coerce a recording choice into consent: %s',recordingAccepted=>{
+    expect(saveNextMonthSchema.safeParse({targetMonth:'2026-10-01',courseSelections:[{courseId:course}],paused:false,expected:null,recordingAccepted}).success).toBe(false)
+  })
+  it.each(['de','en','ru','uk','tr',undefined])('preserves the displayed notice locale: %s',locale=>{
+    expect(saveNextMonthSchema.parse({targetMonth:'2026-10-01',courseSelections:[{courseId:course}],paused:false,expected:null,locale}).locale).toBe(locale)
+  })
+  it.each(['fr','EN',' en ',null,1,{},[]])('rejects unsupported or coerced notice locale: %j',locale=>{
+    expect(saveNextMonthSchema.safeParse({targetMonth:'2026-10-01',courseSelections:[{courseId:course}],paused:false,expected:null,locale}).success).toBe(false)
+  })
   it.each([[], ['legacy-text-id'], [course, course], [null], Array(101).fill(course)].map(value => [value]))('rejects invalid course array %j', value => {
     expect(saveNextMonthSchema.safeParse({ targetMonth: '2026-09-01', courseSelections: value.map(courseId=>({courseId})), paused:false, expected:null }).success).toBe(false)
   })

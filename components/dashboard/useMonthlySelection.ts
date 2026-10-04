@@ -48,6 +48,8 @@ export function useMonthlySelection(initial: ProfileMonthlyState) {
           if (result.success === false) {
             throw new Error(result.error)
           }
+          // Recording confirmation and its displayed locale belong to this
+          // request only; later edits must not inherit either from the response.
           confirmed.current = { ...previous, booking: result.data, source: 'booking',
             selection: { courseSelections: result.data.courseSelections, paused: result.data.status === 'cancelled' } }
           if (mounted.current && !queued.current) {
@@ -79,8 +81,9 @@ export function useMonthlySelection(initial: ProfileMonthlyState) {
   }
 
   function change(selection: MonthlySelection) {
-    queued.current = selection
-    setState(current => ({ ...current, selection }))
+    const intent: MonthlySelection = { ...selection, courseSelections: selection.courseSelections.map(course => ({ ...course })) }
+    queued.current = intent
+    setState(current => ({ ...current, selection: intent }))
     setHasError(false)
     setMessage(null)
     setSaving(true)

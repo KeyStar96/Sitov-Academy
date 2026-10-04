@@ -9,6 +9,7 @@ import type { CourseConfig, CourseException } from "@/lib/course-config";
 import type { CourseSelection } from "@/lib/course-selection";
 import { calculateMonthlyStats } from "@/lib/course-calculations";
 import { courseText } from "@/lib/business-courses";
+import { requiresSitovRecordingConsent } from "@/lib/sitov-recording-consent";
 import { formatCourseQuantity } from "@/lib/course-quantity-i18n";
 import { createSchema, type EnrollmentFormData } from "@/lib/registration-schema";
 import { firstStartDate, isoToGerman, monthStarts, upcomingCourseDays } from "@/lib/registration-start-dates";
@@ -111,6 +112,7 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
 
     useEffect(() => {
         if (initialCourseId && catalog.some(course => course.id === initialCourseId)) {
+            setConsents(current => ({ ...current, videoRecording: false }));
             setSelectedIds(current => current.includes(initialCourseId) ? current : [initialCourseId]);
         }
     }, [initialCourseId, catalog]);
@@ -137,13 +139,13 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
     const costStart = startIso || startOptions[0]?.iso || firstIso;
     const firstMonthTotal = useMemo(() => isTrial || selectedCourses.length === 0 ? 0
         : monthCost(selectedCourses, courseSelections, costStart, exceptions, lang).total, [isTrial, selectedCourses, courseSelections, costStart, exceptions, lang]);
-    const needsVideo = selectedCourses.some(course => course.type === "online");
+    const needsVideo = selectedCourses.some(requiresSitovRecordingConsent);
     const consentItems: ConsentItem[] = [
         { key: "privacy", short: copy.consents.privacy, full: t.legal.privacy, link: { href: `/${lang}/privacy`, label: copy.consents.privacy_link } },
         { key: "agb", short: copy.consents.agb, full: t.legal.agb, link: { href: `/${lang}/agb`, label: copy.consents.agb_link } },
         // A free trial lesson has nothing to withdraw from; the server never stored this consent for trials.
         ...(isTrial ? [] : [{ key: "revocation" as const, short: copy.consents.revocation, full: t.legal.revocation, link: { href: `/${lang}/agb`, label: copy.consents.agb_link } }]),
-        ...(needsVideo ? [{ key: "videoRecording" as const, short: copy.consents.video_recording, full: t.legal.video_recording, optional: true, notice: copy.consents.recording_notice, link: { href: `/${lang}/privacy`, label: copy.consents.privacy_link } }] : []),
+        ...(needsVideo ? [{ key: "videoRecording" as const, short: copy.consents.video_recording, full: t.legal.video_recording, individual: true, notice: copy.consents.recording_notice, link: { href: `/${lang}/privacy`, label: copy.consents.privacy_link } }] : []),
     ];
     const consentsValid = consentItems.every(item => item.optional || consents[item.key]);
 
@@ -164,6 +166,9 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
 
     const toggleCourse = (id: string) => {
         setNudge(false);
+        // Recording applies to the chosen courses; a changed selection needs a
+        // new individual confirmation while the other terms remain independent.
+        setConsents(current => ({ ...current, videoRecording: false }));
         setSelectedIds(current => isTrial ? [id] : current.includes(id) ? current.filter(value => value !== id) : [...current, id]);
     };
 
@@ -399,7 +404,7 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
 
                             <EnrollmentConsents items={consentItems} values={consents} copy={copy}
                                 onChange={(key, value) => { setConsents(current => ({ ...current, [key]: value })); setNudge(false); }}
-                                onAcceptAll={() => { setConsents(current => ({ ...current, ...Object.fromEntries(consentItems.filter(item => !item.optional).map(item => [item.key, true])) })); setNudge(false); }} />
+                                onAcceptAll={() => { setConsents(current => ({ ...current, ...Object.fromEntries(consentItems.filter(item => !item.optional && !item.individual).map(item => [item.key, true])) })); setNudge(false); }} />
 
                             {submitFailed && <p role="alert" className="reg-alert"><AlertCircle size={24} aria-hidden="true" /><span>{copy.submit_failed}</span></p>}
                         </div>

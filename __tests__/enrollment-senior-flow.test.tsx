@@ -2,16 +2,18 @@ import React from 'react'
 import { render, screen, fireEvent, waitFor, within } from '@testing-library/react'
 import EnrollmentTerminal from '@/components/registration/EnrollmentTerminal'
 import { submitEnrollment } from '@/app/actions/submit-enrollment'
+import { submitTrialLesson } from '@/app/actions/submit-trial'
 import type { CourseConfig } from '@/lib/course-config'
 import { monthStarts, upcomingCourseDays } from '@/lib/registration-start-dates'
 import de from '@/dictionaries/de.json'
 
 jest.unmock('lucide-react')
-jest.mock('next/navigation', () => ({ useSearchParams: () => ({ get: () => null }) }))
+let mockTrial=false
+jest.mock('next/navigation', () => ({ useSearchParams: () => ({ get: (key:string) => key==='trial' && mockTrial ? '1' : null }) }))
 jest.mock('@/app/actions/validate-email', () => ({ validateEmail: jest.fn().mockResolvedValue({ isValid: true }) }))
 jest.mock('@/app/actions/submit-enrollment', () => ({ submitEnrollment: jest.fn() }))
 jest.mock('@/app/actions/submit-trial', () => ({ submitTrialLesson: jest.fn() }))
-jest.mock('@/app/actions/trialEligibilityHint', () => ({ trialEligibilityHint: jest.fn() }))
+jest.mock('@/app/actions/trialEligibilityHint', () => ({ trialEligibilityHint: jest.fn().mockResolvedValue({eligible:true}) }))
 jest.mock('@/app/actions/auth', () => ({ signup: jest.fn() }))
 jest.mock('@/lib/analytics/meta-pixel', () => ({ trackMetaEvent: jest.fn() }))
 
@@ -26,8 +28,8 @@ const online: CourseConfig = {
 const serverTime = new Date('2026-09-13T10:00:00Z').getTime() // a Sunday
 const next = () => fireEvent.click(screen.getByRole('button', { name: 'Weiter' }))
 
-function renderFlow() {
-  render(<EnrollmentTerminal dictionary={de} lang="de" courses={[monday, online]} serverTime={serverTime}
+function renderFlow(courses:CourseConfig[]=[monday,online]) {
+  render(<EnrollmentTerminal dictionary={de} lang="de" courses={courses} serverTime={serverTime}
     exceptions={[{ date: '2026-09-21', reason: 'Herbstferien', courseIds: [monday.id] }]} />)
 }
 
@@ -37,7 +39,21 @@ function fill(label: string, value: string) {
   fireEvent.blur(field)
 }
 
-beforeEach(() => jest.mocked(submitEnrollment).mockReset())
+beforeEach(() => {mockTrial=false; jest.mocked(submitEnrollment).mockReset(); jest.mocked(submitTrialLesson).mockReset()})
+
+async function reviewSingleCourse(course:CourseConfig,trial=false) {
+  mockTrial=trial
+  renderFlow([course])
+  fireEvent.click(screen.getByRole(trial?'radio':'checkbox',{name:course.title}))
+  next()
+  fireEvent.click(screen.getAllByRole('radio')[0])
+  next()
+  fill('Vorname','Anna'); fill('Nachname','Schmidt'); fill('E-Mail-Adresse','anna@web.de')
+  fill('Tag','24'); fill('Monat','12'); fill('Jahr','1950')
+  fill('Straße und Hausnummer','Hauptstraße 5'); fill('Postleitzahl','30159'); fill('Wohnort','Hannover')
+  next()
+  await screen.findByRole('heading',{level:1,name:trial?de.registration.flow.titles.review_trial:de.registration.flow.titles.review})
+}
 
 it('asks for the course first, in plain words, and says why "Weiter" cannot go on yet', () => {
   renderFlow()
@@ -113,7 +129,7 @@ it('lets learners revisit a previous answer without skipping required later step
   expect(screen.getByRole('complementary')).toHaveAccessibleName('Voraussichtlicher Preis')
 })
 
-it.each([false, true])('sends an online registration with an independent voluntary recording choice: %s', async recording => {
+it('requires separate affirmative recording consent for an online group before sending registration', async () => {
   jest.mocked(submitEnrollment).mockResolvedValue({ success: true, message: 'registration_success' })
   renderFlow()
   fireEvent.click(screen.getByRole('checkbox', { name: 'Deutsch A1' }))
@@ -137,7 +153,7 @@ it.each([false, true])('sends an online registration with an independent volunta
   const policy = screen.getByRole('region', { name: de.registration.flow.hero.policy_title })
   expect(policy).toHaveTextContent('Wenn du einen Termin nicht besuchst, wird er nicht in den nächsten Monat übertragen.')
 
-  // Three required points and one independent optional recording choice.
+  // The recording prerequisite needs its own action, apart from the three terms.
   expect(screen.getAllByRole('checkbox')).toHaveLength(4)
   fireEvent.click(screen.getByRole('button', { name: 'Kostenpflichtig bestellen' }))
   expect(submitEnrollment).not.toHaveBeenCalled()
@@ -146,12 +162,19 @@ it.each([false, true])('sends an online registration with an independent volunta
   fireEvent.click(screen.getAllByRole('button', { name: 'Mehr lesen' })[0])
   expect(screen.getByText(/gemäß der Datenschutzerklärung/)).toBeVisible()
   fireEvent.click(screen.getByRole('button', { name: de.registration.flow.consents.accept_all }))
-  screen.getAllByRole('checkbox').filter(box => box.hasAttribute('required')).forEach(box => expect(box).toBeChecked())
-  const recordingBox = screen.getByRole('checkbox', { name: /Freiwillig/ })
+  screen.getAllByRole('checkbox').filter(box => box.id !== 'reg-consent-videoRecording').forEach(box => expect(box).toBeChecked())
+  const recordingBox = screen.getByRole('checkbox', { name: de.registration.flow.consents.video_recording })
   expect(recordingBox).not.toBeChecked()
-  expect(recordingBox).not.toBeRequired()
+  expect(recordingBox).toBeRequired()
   expect(recordingBox).toHaveAccessibleDescription(de.registration.flow.consents.recording_notice)
-  if (recording) fireEvent.click(recordingBox)
+  fireEvent.click(screen.getByRole('button', { name: 'Kostenpflichtig bestellen' }))
+  expect(submitEnrollment).not.toHaveBeenCalled()
+  fireEvent.click(recordingBox)
+  const privacyBox = screen.getByRole('checkbox', { name: de.registration.flow.consents.privacy })
+  fireEvent.click(privacyBox)
+  fireEvent.click(screen.getByRole('button', { name: 'Kostenpflichtig bestellen' }))
+  expect(submitEnrollment).not.toHaveBeenCalled()
+  fireEvent.click(privacyBox)
 
   fireEvent.click(screen.getByRole('button', { name: 'Kostenpflichtig bestellen' }))
   await waitFor(() => expect(submitEnrollment).toHaveBeenCalledTimes(1))
@@ -159,7 +182,7 @@ it.each([false, true])('sends an online registration with an independent volunta
   expect(data.personal).toMatchObject({ firstName: 'Ayşe', lastName: 'Ağaoğlu', birthDate: '04.03.1958', zip: '30165' })
   expect(selections).toEqual([{ courseId: monday.id }, { courseId: online.id }])
   expect(start).toBe('14.09.2026')
-  expect(consents).toEqual({ privacy: true, agb: true, revocation: true, videoRecording: recording })
+  expect(consents).toEqual({ privacy: true, agb: true, revocation: true, videoRecording: true })
 
   expect(await screen.findByRole('heading', { level: 1, name: 'Danke für deine Anmeldung!' })).toHaveFocus()
   expect(screen.getByText('So geht es weiter')).toBeInTheDocument()
@@ -186,6 +209,58 @@ it('explains a failed submission on the page instead of a browser alert', async 
   expect(await screen.findByRole('alert')).toHaveTextContent('Das hat leider nicht geklappt.')
   expect(alert).not.toHaveBeenCalled()
   alert.mockRestore()
+})
+
+const recordingExemptCourses:Array<[string,CourseConfig]>=[
+  ['online private lessons',{...online,category:'private',sessions:[],trialLessons:false}],
+  ['presence speaking lessons',{...monday,category:'speaking'}],
+]
+it.each(recordingExemptCourses)('does not require recording for %s',async(_kind,course)=>{
+  jest.mocked(submitEnrollment).mockResolvedValue({success:true,message:'registration_success'})
+  await reviewSingleCourse(course)
+  expect(screen.queryByRole('checkbox',{name:de.registration.flow.consents.video_recording})).not.toBeInTheDocument()
+  fireEvent.click(screen.getByRole('button',{name:de.registration.flow.consents.accept_all}))
+  fireEvent.click(screen.getByRole('button',{name:de.registration.flow.nav.submit}))
+  await waitFor(()=>expect(submitEnrollment).toHaveBeenCalledTimes(1))
+  expect(jest.mocked(submitEnrollment).mock.calls[0][3]).toEqual({privacy:true,agb:true,revocation:true,videoRecording:undefined})
+})
+
+it('requires recording for online speaking courses and clears consent when the chosen course changes',async()=>{
+  const speaking={...online,category:'speaking' as const}
+  await reviewSingleCourse(speaking)
+  fireEvent.click(screen.getByRole('button',{name:de.registration.flow.consents.accept_all}))
+  fireEvent.click(screen.getByRole('checkbox',{name:de.registration.flow.consents.video_recording}))
+  fireEvent.click(screen.getByRole('button',{name:de.registration.flow.review.change_courses}))
+  fireEvent.click(screen.getByRole('checkbox',{name:speaking.title}))
+  fireEvent.click(screen.getByRole('checkbox',{name:speaking.title}))
+  next()
+  fireEvent.click(screen.getAllByRole('radio')[0])
+  next();next()
+  await screen.findByRole('heading',{level:1,name:de.registration.flow.titles.review})
+  expect(screen.getByRole('checkbox',{name:de.registration.flow.consents.video_recording})).not.toBeChecked()
+  expect(screen.getByRole('checkbox',{name:de.registration.flow.consents.privacy})).toBeChecked()
+  fireEvent.click(screen.getByRole('button',{name:de.registration.flow.nav.submit}))
+  expect(submitEnrollment).not.toHaveBeenCalled()
+})
+
+it.each([['online group',online,true],['presence group',monday,false]] as const)('handles a %s trial with the correct separate recording prerequisite',async(_kind,course,requiresRecording)=>{
+  jest.mocked(submitTrialLesson).mockResolvedValue({success:true,message:'trial_success'})
+  await reviewSingleCourse(course,true)
+  fireEvent.click(screen.getByRole('button',{name:de.registration.flow.consents.accept_all}))
+  if(requiresRecording){
+    const recording=screen.getByRole('checkbox',{name:de.registration.flow.consents.video_recording})
+    expect(recording).not.toBeChecked()
+    expect(recording).toBeRequired()
+    fireEvent.click(screen.getByRole('button',{name:de.registration.flow.nav.submit_trial}))
+    expect(submitTrialLesson).not.toHaveBeenCalled()
+    fireEvent.click(recording)
+  }else{
+    expect(screen.queryByRole('checkbox',{name:de.registration.flow.consents.video_recording})).not.toBeInTheDocument()
+  }
+  fireEvent.click(screen.getByRole('button',{name:de.registration.flow.nav.submit_trial}))
+  await waitFor(()=>expect(submitTrialLesson).toHaveBeenCalledTimes(1))
+  expect(jest.mocked(submitTrialLesson).mock.calls[0][0]).toMatchObject({courseId:course.id,videoRecordingAccepted:requiresRecording?true:undefined,privacyAccepted:true,agbAccepted:true})
+  expect(submitEnrollment).not.toHaveBeenCalled()
 })
 
 describe('start date suggestions', () => {

@@ -1,5 +1,6 @@
 /** @jest-environment node */
 jest.mock('next/headers', () => ({ headers: jest.fn() }))
+jest.mock('server-only', () => ({}), { virtual: true })
 jest.mock('@/utils/supabase/admin', () => ({ createAdminClient: jest.fn() }))
 jest.mock('@/lib/ratelimit', () => ({ rateLimit: jest.fn() }))
 import { headers } from 'next/headers'

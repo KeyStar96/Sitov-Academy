@@ -6,19 +6,19 @@ import type { FlowCopy } from './registration-copy'
 
 export type ConsentKey = 'privacy' | 'agb' | 'revocation' | 'videoRecording'
 
-export interface ConsentItem { key: ConsentKey; short: string; full: string; optional?: boolean; notice?: string; link?: { href: string; label: string } }
+export interface ConsentItem { key: ConsentKey; short: string; full: string; optional?: boolean; individual?: boolean; notice?: string; link?: { href: string; label: string } }
 
 /**
  * Each consent is a large card with one short sentence; the full legal wording
- * stays one tap away ("Mehr lesen"). The bulk button confirms required points
- * only. Recording consent always needs its own voluntary choice.
+ * stays one tap away ("Mehr lesen"). Recording consent requires an individual
+ * confirmation even when the selected course makes it a booking prerequisite.
  */
 export default function EnrollmentConsents({ items, values, onChange, onAcceptAll, copy }: {
   items: ConsentItem[]; values: Record<ConsentKey, boolean>
   onChange: (key: ConsentKey, value: boolean) => void; onAcceptAll: () => void; copy: FlowCopy
 }) {
   const [open, setOpen] = useState<ConsentKey | null>(null)
-  const allChecked = items.filter(item => !item.optional).every(item => values[item.key])
+  const allChecked = items.filter(item => !item.optional && !item.individual).every(item => values[item.key])
   return (
     <section className="reg-panel" aria-labelledby="reg-consents-title">
       <h2 id="reg-consents-title" className="reg-panel__title">{copy.consents.title}</h2>

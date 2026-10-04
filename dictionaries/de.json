@@ -204,7 +204,7 @@
                         "price": "15€",
                         "price_unit": "/ 90 Min",
                         "price_note": "",
-                        "description": "Bequem von zu Hause. In kleinen Gruppen (max. 10 Personen). Unterrichtsaufzeichnungen zur Wiederholung sind möglich, wenn alle erfassten Personen freiwillig einwilligen. Dazu gibt es intensiven 24/7 Telegram-Support durch die Lehrkraft bei Fragen zur Grammatik und Sprache.",
+                        "description": "Bequem von zu Hause. In kleinen Gruppen (max. 10 Personen). Die Stunden werden immer in Microsoft Teams aufgezeichnet und den Teilnehmern desselben Kurses zur späteren Wiederholung zugänglich gemacht. Die gesonderte Aufnahmezustimmung ist Voraussetzung für die Anmeldung. Dazu gibt es intensiven 24/7 Telegram-Support durch die Lehrkraft bei Fragen zur Grammatik und Sprache.",
                         "max_participants": "Max: 10 Pers.",
                         "badge": "Online"
                     },
@@ -219,7 +219,7 @@
                         "price": "15€",
                         "price_unit": "/ 90 Min",
                         "price_note": "",
-                        "description": "Mittelstufe für Fortgeschrittene. In kleinen Gruppen (max. 10 Personen). Unterrichtsaufzeichnungen zur Wiederholung sind möglich, wenn alle erfassten Personen freiwillig einwilligen. Dazu gibt es intensiven 24/7 Telegram-Support durch die Lehrkraft bei Fragen zur Grammatik und Sprache.",
+                        "description": "Mittelstufe für Fortgeschrittene. In kleinen Gruppen (max. 10 Personen). Die Stunden werden immer in Microsoft Teams aufgezeichnet und den Teilnehmern desselben Kurses zur späteren Wiederholung zugänglich gemacht. Die gesonderte Aufnahmezustimmung ist Voraussetzung für die Anmeldung. Dazu gibt es intensiven 24/7 Telegram-Support durch die Lehrkraft bei Fragen zur Grammatik und Sprache.",
                         "max_participants": "",
                         "badge": "Online"
                     }
@@ -403,7 +403,7 @@
             "privacy": "Ich stimme zu, dass meine Daten gemäß der Datenschutzerklärung zur Bearbeitung meiner Anfrage gespeichert und verwendet werden. Die Kursverwaltung erfolgt auf unserem eigenverwalteten Server.",
             "agb": "Ich habe die AGB gelesen und akzeptiere diese.",
             "revocation": "Ich verlange ausdrücklich und stimme zu, dass die Sitov Academy mit der Ausführung der Dienstleistung (Kursbeginn) vor Ablauf der Widerrufsfrist beginnt. Mir ist bekannt, dass ich bei vollständiger Vertragserfüllung mein Widerrufsrecht verliere und bei einem Widerruf nach Kursbeginn Wertersatz für die bereits erbrachten Leistungen zahlen muss.",
-            "video_recording": "Ich willige freiwillig in die Aufzeichnung meiner Stimme und meines Bildes in Online-Sitzungen via Microsoft Teams ausschließlich für interne Lehrzwecke ein. Diese Einwilligung ist keine Voraussetzung für die Anmeldung und kann jederzeit für die Zukunft unter info@sitov-academy.com widerrufen werden."
+            "video_recording": "Ich stimme der Aufzeichnung meiner Stimme und meines Bildes im gebuchten regulären Online-Gruppenkurs oder in der Online-Probestunde über Microsoft Teams zu. Die Aufnahme dient den Teilnehmern desselben Kurses zur späteren Wiederholung. Diese Zustimmung ist Voraussetzung für diese Buchung; Online-Privatunterricht ist ausgenommen. Ich kann die Zustimmung jederzeit für die Zukunft unter info@sitov-academy.com oder gegenüber der Lehrkraft widerrufen."
         },
         "flow": {
             "home": "Zur Startseite",
@@ -545,18 +545,18 @@
             },
             "consents": {
                 "title": "Bitte bestätige diese Punkte",
-                "intro": "Die Pflichtpunkte müssen bestätigt werden. Die Einwilligung in Unterrichtsaufnahmen ist freiwillig und wird separat ausgewählt.",
-                "accept_all": "Pflichtpunkte bestätigen",
+                "intro": "Bestätige die Datenschutz- und Vertragsbedingungen. Für reguläre Online-Gruppenkurse und Online-Probestunden bestätigst du die Aufnahmezustimmung zusätzlich einzeln. Online-Privatunterricht ist ausgenommen.",
+                "accept_all": "Datenschutz und Vertragsbedingungen bestätigen",
                 "more": "Mehr lesen",
                 "less": "Weniger anzeigen",
                 "privacy": "Meine Daten dürfen für die Anmeldung gespeichert und genutzt werden.",
                 "agb": "Ich habe die AGB gelesen und bin einverstanden.",
                 "revocation": "Mein Kurs darf schon vor Ende der Widerrufsfrist beginnen. Widerrufe ich nach Kursbeginn, zahle ich für die Stunden, die schon stattgefunden haben.",
-                "video_recording": "Freiwillig: Meine Stimme und mein Bild dürfen in Online-Stunden für interne Unterrichtszwecke aufgezeichnet werden.",
+                "video_recording": "Ich stimme der Aufzeichnung meiner Stimme und meines Bildes in Microsoft Teams zur späteren Ansicht durch die Teilnehmer der ausgewählten Online-Gruppenkurse zu.",
                 "privacy_link": "Datenschutzerklärung lesen",
                 "agb_link": "AGB lesen",
                 "new_tab": "(öffnet in neuem Tab)",
-                "recording_notice": "Du kannst dich auch ohne diese Einwilligung anmelden. Informiere die Lehrkraft vor dem Online-Unterricht über deine Entscheidung, damit sie vor einer Aufnahme klären kann, wer aufgenommen werden darf."
+                "recording_notice": "Reguläre Online-Gruppenkurse und Online-Probestunden werden immer in Microsoft Teams aufgezeichnet. Diese Zustimmung ist Voraussetzung für diese Buchung und muss einzeln bestätigt werden. Online-Privatunterricht ist ausgenommen."
             },
             "submit_failed": "Das hat leider nicht geklappt. Bitte versuche es in ein paar Minuten noch einmal. Wenn es wieder nicht klappt, schreib uns an info@sitov-academy.com.",
             "done": {
@@ -640,7 +640,7 @@
                     "(1) Vertragsgegenstand sind die in der jeweiligen Kursbeschreibung angegebenen Leistungen (Leistungsumfang, Kursdauer, Termine, Lehrmaterialien). Die Kursbeschreibung ist Bestandteil des Vertrags.",
                     "(2) Geringfügige Änderungen im Kursablauf, bei Dozent:innen oder Unterrichtszeiten sind zulässig, sofern der Gesamtcharakter des Kurses nicht wesentlich beeinträchtigt wird.",
                     "(3) Online-Unterricht wird über gängige Videokonferenz-Software (z. B. Microsoft Teams) durchgeführt. Der Teilnehmer ist für eine geeignete Internetverbindung und technische Ausstattung selbst verantwortlich.",
-                    "(4) Online-Sitzungen können zur Nachbereitung für die Teilnehmer aufgezeichnet werden, sofern alle dabei erfassten Personen freiwillig eingewilligt haben. Die Anmeldung setzt keine Aufnahmeeinwilligung voraus. Einzelheiten zu zulässigen Aufzeichnungen ergeben sich aus § 9 dieser AGB und der Datenschutzerklärung.",
+                    "(4) Reguläre Online-Gruppenkurse und Online-Probestunden werden in Microsoft Teams immer aufgezeichnet, damit die Teilnehmer des jeweiligen Kurses die Stunden später ansehen können. Die Anmeldung setzt die gesonderte Zustimmung zur Aufzeichnung voraus. Online-Privatunterricht ist ausgenommen. Weitere Einzelheiten stehen in § 9 dieser AGB und in der Datenschutzerklärung.",
                     "(5) Die Kursteilnahme bezieht sich auf die konkret vereinbarten Termine im jeweiligen Kalendermonat. Die ausgewiesene Zahl der Unterrichtseinheiten beschreibt die Berechnung dieses Monats; sie ist kein zeitlich unbegrenzt oder nach freier Wahl einlösbares Stundenkontingent. Bei Einzelunterricht werden die Termine innerhalb des gebuchten Monats individuell vereinbart; abweichende Absprachen bleiben möglich."
                 ]
             },
@@ -960,7 +960,7 @@
             {
                 "title": "9. Videokonferenz-Tools und Unterrichtsaufzeichnungen (Microsoft Teams)",
                 "content": [
-                    "Für die Durchführung unserer Online-Kurse nutzen wir Microsoft Teams.",
+                    "Für unseren Online-Unterricht nutzen wir Microsoft Teams. Reguläre Online-Gruppenkurse und Online-Probestunden werden immer für die spätere Ansicht durch die Teilnehmer desselben Kurses aufgezeichnet. Online-Privatunterricht ist von dieser Aufzeichnungsregel ausgenommen.",
                     "Anbieter: Microsoft Ireland Operations Limited, One Microsoft Place, South County Business Park, Leopardstown, Dublin 18, Irland (Mutterunternehmen: Microsoft Corporation, USA).",
                     "9.1 Art und Zweck der Verarbeitung",
                     "Bei der Nutzung von Microsoft Teams werden verschiedene Datenarten verarbeitet. Der Umfang der Daten hängt dabei auch davon ab, welche Angaben zu Daten Sie vor bzw. bei der Teilnahme an einer Online-Sitzung machen.",
@@ -968,7 +968,7 @@
                     "Zweck der Aufzeichnung: Die Aufzeichnungen dienen ausschließlich den Teilnehmern des jeweiligen Kurses zur Nachbereitung und Wiederholung der Lerninhalte.",
                     "9.2 Rechtsgrundlage",
                     "Die Nutzung von Microsoft Teams zur allgemeinen Durchführung des Unterrichts basiert auf Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung).",
-                    "Die Aufzeichnung Ihrer Stimme und Ihres Bildes erfolgt nur mit Ihrer ausdrücklichen, freiwilligen Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO. Die gesonderte Checkbox bei der Anmeldung ist optional und wird nicht durch das Bestätigen der Pflichtpunkte ausgewählt. Eine Anmeldung ist auch ohne Aufnahmeeinwilligung möglich.",
+                    "Für die Aufzeichnung Ihrer Stimme und Ihres Bildes holen wir bei der Anmeldung eine gesonderte ausdrückliche Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO ein. Die Anmeldung zu regulären Online-Gruppenkursen und Online-Probestunden setzt diese Zustimmung voraus. Die Checkbox ist anfangs nicht ausgewählt und muss einzeln bestätigt werden; die Bestätigung anderer Pflichtpunkte setzt sie nicht. Online-Privatunterricht ist ausgenommen.",
                     "9.3 Speicherdauer und Zugriff",
                     "Die Videoaufzeichnungen werden in einer geschützten Umgebung (z.B. passwortgeschützter Cloud-Speicher von Microsoft) gespeichert. Der Zugriff ist streng auf die Lehrkraft und die angemeldeten Teilnehmer desselben Kurses beschränkt. Eine Weitergabe an Dritte erfolgt nicht.",
                     "Die Aufnahmen werden spätestens 30 Tage nach Abschluss des jeweiligen Kurses dauerhaft gelöscht.",
@@ -1208,7 +1208,11 @@
         "booking_contract_note": "Mit der Buchung gibst du eine verbindliche Auswahl ab. Sitov Academy prüft und bestätigt sie vor der Rechnungsstellung. Eine Pause verursacht keine neue Kursgebühr.",
         "booking_terms_link": "AGB und Widerrufsbelehrung lesen",
         "booking_paid_confirm": "Zahlungspflichtig buchen",
-        "booking_price_unavailable": "Preis wird noch ermittelt"
+        "booking_price_unavailable": "Preis wird noch ermittelt",
+        "recording_consent": "Ich stimme der Aufzeichnung meiner Stimme und meines Bildes in Microsoft Teams zur späteren Ansicht durch die Teilnehmer der ausgewählten Online-Gruppenkurse zu.",
+        "recording_notice": "Reguläre Online-Gruppenkurse und Online-Probestunden werden immer in Microsoft Teams aufgezeichnet. Diese Zustimmung ist Voraussetzung für diese Buchung und muss einzeln bestätigt werden. Online-Privatunterricht ist ausgenommen.",
+        "recording_withdrawal": "Du kannst die Zustimmung jederzeit für die Zukunft unter info@sitov-academy.com oder gegenüber der Lehrkraft widerrufen.",
+        "recording_privacy_link": "Datenschutzerklärung lesen"
     },
     "pronunciation": {
         "title": "Aussprache-Training",

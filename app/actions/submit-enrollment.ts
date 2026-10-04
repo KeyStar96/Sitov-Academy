@@ -7,6 +7,7 @@ import { createAdminClient } from '@/utils/supabase/admin'
 import { type EnrollmentFormData } from '@/lib/registration-schema'
 import { rateLimit } from '@/lib/ratelimit'
 import { getRpcError } from '@/lib/rpc-errors'
+import { sitovCoursesRequireRecordingConsent } from '@/lib/sitov-recording-consent-server'
 
 export interface SubmitEnrollmentResult { success: boolean; message: string; error?: 'generic_error' }
 const field = (max: number) => z.string().trim().min(1).max(max).refine(value => !/[<>\u0000-\u001f]/.test(value))
@@ -41,6 +42,8 @@ export async function submitEnrollment(
     if (!limit.success) return { success: false, message: 'generic_error' }
     const admin = createAdminClient()
     const { personal, courseSelections: selections, consents: accepted } = input.data
+    const recordingRequired = await sitovCoursesRequireRecordingConsent(admin, selections.map(selection => selection.courseId))
+    if (recordingRequired && accepted.videoRecording !== true) return { success: false, message: 'generic_error' }
     const iso=(value:string)=>value.split('.').reverse().join('-')
     const {data:result,error}=await admin.rpc('submit_business_registration',{
       p_contact:{name:`${personal.firstName} ${personal.lastName}`,email:personal.email,birth_date:iso(personal.birthDate),phone:personal.phone||null,street:personal.street,postal_code:personal.zip,city:personal.city},

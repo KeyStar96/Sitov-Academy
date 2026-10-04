@@ -2512,6 +2512,18 @@ export type Database = {
         }
         Returns: Json
       }
+      sitov_save_business_month: {
+        Args: {
+          p_course_selections: Json
+          p_expected?: string
+          p_locale?: string | null
+          p_month: string
+          p_paused: boolean
+          p_recording_accepted?: boolean | null
+          p_revision?: number
+        }
+        Returns: Json
+      }
       save_course_exception: {
         Args: { p_course_id: string; p_date: string; p_reason: string }
         Returns: Json

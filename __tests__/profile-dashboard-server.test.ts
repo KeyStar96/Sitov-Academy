@@ -54,7 +54,7 @@ it('rejects privilege fields before saving or sending confirmation',async()=>{
 it('saves pauses through the atomic RPC without taking an owner from the client',async()=>{
   const {client}=setup()
   expect((await saveNextMonthBooking({targetMonth:profileMonthWindow().next,courseSelections:[],paused:true,expected:null})).success).toBe(true)
-  expect(client.rpc).toHaveBeenCalledWith('save_business_month',{p_month:profileMonthWindow().next,p_course_selections:[],p_paused:true,p_expected:undefined,p_revision:undefined})
+  expect(client.rpc).toHaveBeenCalledWith('sitov_save_business_month',{p_month:profileMonthWindow().next,p_course_selections:[],p_paused:true,p_expected:undefined,p_revision:undefined,p_recording_accepted:null,p_locale:null})
 })
 it('maps concurrent-session conflicts without exposing SQL detail',async()=>{
   const {rpc}=setup()

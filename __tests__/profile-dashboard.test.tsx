@@ -1,13 +1,14 @@
 import React from 'react'
-import { render, screen, fireEvent, waitFor, act } from '@testing-library/react'
+import { render, renderHook, screen, fireEvent, waitFor, act } from '@testing-library/react'
 import { createProfileTranslator, PROFILE_FALLBACKS } from '@/lib/profile-i18n'
 import { formatProfileMonth, profileMonthWindow } from '@/lib/profile-month'
 import { studentTranslator } from '@/lib/student-ui-i18n'
 import ProfileMonthlyCourses from '@/components/dashboard/ProfileMonthlyCourses'
+import { useMonthlySelection } from '@/components/dashboard/useMonthlySelection'
 import ProfileDetailsForm from '@/components/dashboard/ProfileDetailsForm'
 import { saveNextMonthBooking, getProfileMonthlyState } from '@/app/actions/monthly-bookings'
 import { updatePersonalDetails } from '@/app/actions/profile'
-import type { ProfileMonthlyState, MonthlyCourseBooking } from '@/lib/types/monthly-bookings'
+import type { ProfileMonthlyState, MonthlyCourseBooking, MonthlySelection } from '@/lib/types/monthly-bookings'
 import type { BackendActionResult } from '@/lib/types/backend'
 import de from '@/dictionaries/de.json'
 import en from '@/dictionaries/en.json'
@@ -71,20 +72,83 @@ it.each([['de',de],['en',en],['ru',ru],['uk',uk],['tr',tr]] as const)('opens cou
   expect(registration).not.toHaveAttribute('target')
   expect(saveNextMonthBooking).not.toHaveBeenCalled()
 })
-it('shows the monthly price, rates, attendance scope and paid confirmation together',()=>{
+it('shows price and separate unchecked recording prerequisite before online group confirmation',()=>{
   renderCourses()
   edit();next()
   expect(screen.getByText(de.profile.booking_estimated_price)).toBeInTheDocument()
   expect(screen.getByText('100,00 €')).toBeInTheDocument()
   expect(screen.getByText('25,00 € je 45 Minuten · 100,00 €')).toBeInTheDocument()
   expect(screen.getByText(/kein frei einlösbares Stundenkontingent/)).toBeInTheDocument()
-  expect(screen.getByRole('button',{name:de.profile.booking_paid_confirm})).toBeEnabled()
+  const recording=screen.getByRole('checkbox',{name:de.profile.recording_consent})
+  expect(recording).not.toBeChecked()
+  expect(recording).toBeRequired()
+  expect(recording).toHaveAccessibleDescription(`${de.profile.recording_notice} ${de.profile.recording_withdrawal}`)
+  const confirm=screen.getByRole('button',{name:de.profile.booking_paid_confirm})
+  expect(confirm).toBeDisabled()
+  fireEvent.click(confirm)
+  expect(saveNextMonthBooking).not.toHaveBeenCalled()
+  fireEvent.click(recording)
+  expect(confirm).toBeEnabled()
 })
 it('shows inherited current courses as the plan until the learner changes it',()=>{
   renderCourses()
   expect(screen.getByText('A1')).toBeInTheDocument()
   expect(screen.getByText(de.profile.inherited_courses)).toBeInTheDocument()
   expect(saveNextMonthBooking).not.toHaveBeenCalled()
+})
+it.each([['de',de],['en',en],['ru',ru],['uk',uk],['tr',tr]] as const)('sends the actual displayed recording language in %s',async(lang,dict)=>{
+  renderCourses(initial,lang,dict.profile)
+  const local=studentTranslator(lang)
+  fireEvent.click(screen.getByRole('button',{name:local('booking_change')}))
+  fireEvent.click(screen.getByRole('button',{name:local('booking_next')}))
+  expect(screen.getByRole('checkbox',{name:dict.profile.recording_consent})).not.toBeChecked()
+  expect(screen.getByRole('checkbox',{name:dict.profile.recording_consent})).toHaveAccessibleDescription(`${dict.profile.recording_notice} ${dict.profile.recording_withdrawal}`)
+  expect(screen.getByRole('link',{name:dict.profile.recording_privacy_link})).toHaveAttribute('href',`/${lang}/privacy`)
+  expect(screen.getByRole('button',{name:dict.profile.booking_paid_confirm})).toBeDisabled()
+  fireEvent.click(screen.getByRole('checkbox',{name:dict.profile.recording_consent}))
+  fireEvent.click(screen.getByRole('button',{name:dict.profile.booking_paid_confirm}))
+  await waitFor(()=>expect(saveNextMonthBooking).toHaveBeenCalledWith(expect.objectContaining({locale:lang,recordingAccepted:true})))
+})
+it('requires a fresh recording action after returning to course selection or starting a new edit',async()=>{
+  renderCourses({...initial,selection:{...initial.selection,recordingAccepted:true}})
+  edit();next()
+  const recording=()=>screen.getByRole('checkbox',{name:de.profile.recording_consent})
+  expect(recording()).not.toBeChecked()
+  fireEvent.click(recording())
+  fireEvent.click(screen.getByRole('button',{name:s('booking_back')}))
+  next()
+  expect(recording()).not.toBeChecked()
+  expect(screen.getByRole('button',{name:de.profile.booking_paid_confirm})).toBeDisabled()
+  fireEvent.click(recording())
+  fireEvent.click(screen.getByRole('button',{name:de.profile.booking_paid_confirm}))
+  await screen.findByText(s('booking_saved'))
+  edit();next()
+  expect(recording()).not.toBeChecked()
+  expect(screen.getByRole('button',{name:de.profile.booking_paid_confirm})).toBeDisabled()
+})
+it('preserves each queued recording decision and revision without inheriting the acknowledged choice',async()=>{
+  let resolveFirst:(value:BackendActionResult<MonthlyCourseBooking>)=>void=()=>{}
+  let resolveSecond:(value:BackendActionResult<MonthlyCourseBooking>)=>void=()=>{}
+  jest.mocked(saveNextMonthBooking).mockImplementationOnce(()=>new Promise(resolve=>{resolveFirst=resolve}))
+    .mockImplementationOnce(()=>new Promise(resolve=>{resolveSecond=resolve}))
+  const {result,rerender}=renderHook(({value})=>useMonthlySelection(value),{initialProps:{value:initial}})
+  act(()=>result.current.change({courseSelections:[{courseId:one}],paused:false,recordingAccepted:true,locale:'ru'}))
+  const latest:MonthlySelection={courseSelections:[{courseId:two}],paused:false,recordingAccepted:false,locale:'en'}
+  act(()=>result.current.change(latest))
+  latest.recordingAccepted=true
+  latest.locale='tr'
+  latest.courseSelections[0].courseId=one
+  rerender({value:{...initial,selection:{courseSelections:[],paused:true}}})
+  expect(result.current.state.selection).toEqual({courseSelections:[{courseId:two}],paused:false,recordingAccepted:false,locale:'en'})
+  expect(saveNextMonthBooking).toHaveBeenCalledTimes(1)
+  expect(jest.mocked(saveNextMonthBooking).mock.calls[0][0]).toMatchObject({courseSelections:[{courseId:one}],recordingAccepted:true,locale:'ru',expected:null})
+  await act(async()=>resolveFirst({success:true,data:row([one])}))
+  expect(saveNextMonthBooking).toHaveBeenCalledTimes(2)
+  expect(jest.mocked(saveNextMonthBooking).mock.calls[1][0]).toMatchObject({courseSelections:[{courseId:two}],recordingAccepted:false,locale:'en',expected:{id:two,revision:1}})
+  expect(result.current.state.selection).toEqual({courseSelections:[{courseId:two}],paused:false,recordingAccepted:false,locale:'en'})
+  await act(async()=>resolveSecond({success:true,data:{...row([two]),revision:2}}))
+  expect(result.current.saving).toBe(false)
+  expect(result.current.state.selection).toEqual({courseSelections:[{courseId:two}],paused:false})
 })
 it('keeps choices as a draft, summarises courses and dates, and saves once on confirmation',async()=>{
   let resolveFirst: (value:BackendActionResult<MonthlyCourseBooking>)=>void=()=>{}
@@ -99,17 +163,20 @@ it('keeps choices as a draft, summarises courses and dates, and saves once on co
   expect(screen.getByText(s('booking_summary',{month:formatProfileMonth(initial.targetMonth,'de')}))).toBeInTheDocument()
   expect(screen.getByText('2 Kurse')).toBeInTheDocument()
   expect(screen.getByText('8 Termine')).toBeInTheDocument()
+  fireEvent.click(screen.getByRole('checkbox',{name:de.profile.recording_consent}))
   fireEvent.click(screen.getByRole('button',{name:de.profile.booking_paid_confirm}))
   expect(saveNextMonthBooking).toHaveBeenCalledTimes(1)
-  expect(jest.mocked(saveNextMonthBooking).mock.calls[0][0]).toMatchObject({courseSelections:[{courseId:one},{courseId:two}],paused:false,expected:null})
+  expect(jest.mocked(saveNextMonthBooking).mock.calls[0][0]).toMatchObject({courseSelections:[{courseId:one},{courseId:two}],paused:false,recordingAccepted:true,expected:null})
   await act(async()=>resolveFirst({success:true,data:row([one,two])}))
   expect(await screen.findByText(s('booking_saved'))).toBeInTheDocument()
   edit()
   fireEvent.click(screen.getByRole('checkbox',{name:'A1'}))
   next()
+  expect(screen.queryByRole('checkbox',{name:de.profile.recording_consent})).not.toBeInTheDocument()
   fireEvent.click(screen.getByRole('button',{name:de.profile.booking_paid_confirm}))
   await waitFor(()=>expect(saveNextMonthBooking).toHaveBeenCalledTimes(2))
   expect(jest.mocked(saveNextMonthBooking).mock.calls[1][0]).toMatchObject({courseSelections:[{courseId:two}],expected:{id:two,revision:1}})
+  expect(jest.mocked(saveNextMonthBooking).mock.calls[1][0]).not.toHaveProperty('recordingAccepted')
 })
 it('keeps the draft and reconciles after a failed save',async()=>{
   jest.mocked(saveNextMonthBooking).mockResolvedValue({success:false,error:'request_failed'})
@@ -117,6 +184,7 @@ it('keeps the draft and reconciles after a failed save',async()=>{
   edit()
   fireEvent.click(screen.getByRole('checkbox',{name:'A2'}))
   next()
+  fireEvent.click(screen.getByRole('checkbox',{name:de.profile.recording_consent}))
   fireEvent.click(screen.getByRole('button',{name:de.profile.booking_paid_confirm}))
   expect(await screen.findByRole('alert')).toHaveTextContent(de.profile.save_failed)
   expect(getProfileMonthlyState).toHaveBeenCalled()
@@ -126,6 +194,7 @@ it('persists a pause with no selected courses and restores it on reload',async()
   jest.mocked(saveNextMonthBooking).mockResolvedValue({success:true,data:row([],true)})
   const view=renderCourses({...initial,selection:{courseSelections:[],paused:false},source:'empty'})
   fireEvent.click(screen.getByRole('button',{name:new RegExp(s('booking_pause'))}))
+  expect(screen.queryByRole('checkbox',{name:de.profile.recording_consent})).not.toBeInTheDocument()
   fireEvent.click(screen.getByRole('button',{name:s('booking_confirm_pause')}))
   await waitFor(()=>expect(saveNextMonthBooking).toHaveBeenCalledWith(expect.objectContaining({courseSelections:[],paused:true})))
   expect(await screen.findByText(s('booking_saved'))).toBeInTheDocument()
@@ -149,7 +218,7 @@ it('clears the selected courses when explicitly pausing the next month',async()=
   fireEvent.click(screen.getByRole('button',{name:s('booking_back')}))
   fireEvent.click(screen.getByRole('button',{name:new RegExp(s('booking_pause'))}))
   fireEvent.click(screen.getByRole('button',{name:s('booking_confirm_pause')}))
-  await waitFor(()=>expect(saveNextMonthBooking).toHaveBeenCalledWith({targetMonth:initial.targetMonth,courseSelections:[],paused:true,expected:null}))
+  await waitFor(()=>expect(saveNextMonthBooking).toHaveBeenCalledWith({targetMonth:initial.targetMonth,courseSelections:[],paused:true,locale:'de',expected:null}))
 })
 it('saves the chosen private lesson quantity with the acknowledged revision',async()=>{
   const privateState:ProfileMonthlyState={...initial,source:'booking',booking:{...row([one]),courseSelections:[{courseId:one,requestedUnits:3}]},
@@ -163,8 +232,9 @@ it('saves the chosen private lesson quantity with the acknowledged revision',asy
   expect(screen.getByText('100,00 €')).toBeInTheDocument()
   next()
   expect(screen.getByText('4 Einzelstunden')).toBeInTheDocument()
+  expect(screen.queryByRole('checkbox',{name:de.profile.recording_consent})).not.toBeInTheDocument()
   fireEvent.click(screen.getByRole('button',{name:de.profile.booking_paid_confirm}))
-  await waitFor(()=>expect(saveNextMonthBooking).toHaveBeenCalledWith({targetMonth:initial.targetMonth,courseSelections:[{courseId:one,requestedUnits:4}],paused:false,expected:{id:two,revision:1}}))
+  await waitFor(()=>expect(saveNextMonthBooking).toHaveBeenCalledWith({targetMonth:initial.targetMonth,courseSelections:[{courseId:one,requestedUnits:4}],paused:false,locale:'de',expected:{id:two,revision:1}}))
 })
 it('keeps confirmed contact values after an email-only failure',async()=>{
   jest.mocked(updatePersonalDetails).mockResolvedValue({success:true,data:{profile:{...profile,display_name:'Anna Neu'},pendingEmail:null,emailChange:'failed'}})

@@ -201,7 +201,7 @@
                         "price": "15€",
                         "price_unit": "/ 90 Dk",
                         "price_note": "",
-                        "description": "Evinizin rahatlığında. Küçük gruplarda (en fazla 10 kişi). Ders tekrarı için kayıtlar, kayda alınan herkes gönüllü olarak rıza verirse mümkündür. Ayrıca gramer ve dil soruları için öğretmenden Telegram üzerinden yoğun 7/24 destek alabilirsiniz.",
+                        "description": "Evinizin rahatlığında. Küçük gruplarda (en fazla 10 kişi). Dersler her zaman Microsoft Teams üzerinde kaydedilir ve aynı kursun katılımcılarının daha sonra tekrar yapması için erişime sunulur. Ders kaydı için ayrıca kayıt onayı gerekir. Ayrıca gramer ve dil soruları için öğretmenden Telegram üzerinden yoğun 7/24 destek alabilirsiniz.",
                         "max_participants": "Maks: 10 Kişi",
                         "badge": "Çevrimiçi"
                     },
@@ -216,7 +216,7 @@
                         "price": "15€",
                         "price_unit": "/ 90 Dk",
                         "price_note": "",
-                        "description": "İleri seviye orta düzey. Küçük gruplarda (en fazla 10 kişi). Ders tekrarı için kayıtlar, kayda alınan herkes gönüllü olarak rıza verirse mümkündür. Ayrıca gramer ve dil soruları için öğretmenden Telegram üzerinden yoğun 7/24 destek alabilirsiniz.",
+                        "description": "İleri seviye orta düzey. Küçük gruplarda (en fazla 10 kişi). Dersler her zaman Microsoft Teams üzerinde kaydedilir ve aynı kursun katılımcılarının daha sonra tekrar yapması için erişime sunulur. Ders kaydı için ayrıca kayıt onayı gerekir. Ayrıca gramer ve dil soruları için öğretmenden Telegram üzerinden yoğun 7/24 destek alabilirsiniz.",
                         "max_participants": "",
                         "badge": "Çevrimiçi"
                     }
@@ -400,7 +400,7 @@
             "privacy": "Verilerimin Gizlilik Politikasına uygun olarak talebimi işleme koymak amacıyla saklanacağını ve kullanılacağını kabul ediyorum. Kurs yönetimi kendi yönettiğimiz sunucuda yürütülür.",
             "agb": "Genel İşletme Şartlarını (AGB) okudum ve kabul ediyorum.",
             "revocation": "Hizmetin ifasına (kurs başlangıcı) cayma süresi dolmadan önce başlamanızı açıkça talep ediyor ve kabul ediyorum. Sözleşmenin tam olarak ifa edilmesiyle cayma hakkımı kaybedeceğimi ve kurs başladıktan sonra cayma durumunda, halihazırda sunulan hizmetler için tazminat ödemem gerektiğini biliyorum.",
-            "video_recording": "Microsoft Teams üzerinden yapılan çevrimiçi derslerde sesimin ve görüntümün yalnızca dahili eğitim amaçlarıyla kaydedilmesine gönüllü olarak rıza veriyorum. Bu rıza kayıt başvurusu için zorunlu değildir ve info@sitov-academy.com adresine yazarak geleceğe yönelik olarak her zaman geri alınabilir."
+            "video_recording": "Rezervasyon yaptığım düzenli çevrimiçi grup kursunda veya çevrimiçi deneme dersinde sesimin ve görüntümün Microsoft Teams üzerinde kaydedilmesine onay veriyorum. Kayıt, aynı kursun katılımcılarının daha sonra tekrar yapması içindir. Bu onay bu rezervasyon için zorunludur; çevrimiçi özel dersler bu koşulun dışındadır. Onayımı geleceğe yönelik olarak istediğim zaman info@sitov-academy.com adresine yazarak veya öğretmenime bildirerek geri çekebilirim."
         },
         "flow": {
             "home": "Ana sayfaya dön",
@@ -542,18 +542,18 @@
             },
             "consents": {
                 "title": "Lütfen bu maddeleri onaylayın",
-                "intro": "Zorunlu maddeleri onaylayın. Ders kaydına ilişkin rıza isteğe bağlıdır ve ayrı seçilir.",
-                "accept_all": "Zorunlu maddeleri onayla",
+                "intro": "Gizlilik ve sözleşme koşullarını onaylayın. Düzenli çevrimiçi grup kursları ve çevrimiçi deneme dersleri için kayıt onayını ayrıca ve tek tek verin. Çevrimiçi özel dersler bu koşulun dışındadır.",
+                "accept_all": "Gizlilik ve sözleşme koşullarını onayla",
                 "more": "Devamını oku",
                 "less": "Daha az göster",
                 "privacy": "Verilerim kayıt için saklanabilir ve kullanılabilir.",
                 "agb": "Koşulları (AGB) okudum ve kabul ediyorum.",
                 "revocation": "Kursum cayma süresi dolmadan başlayabilir. Kurs başladıktan sonra cayarsam, yapılmış olan dersleri öderim.",
-                "video_recording": "İsteğe bağlı: Sesim ve görüntüm çevrimiçi derslerde yalnızca dahili eğitim amaçlarıyla kaydedilebilir.",
+                "video_recording": "Sesimin ve görüntümün, seçilen çevrimiçi grup kurslarının katılımcılarının daha sonra izlemesi için Microsoft Teams üzerinde kaydedilmesine onay veriyorum.",
                 "privacy_link": "Gizlilik politikasını oku",
                 "agb_link": "Koşulları (AGB) oku",
                 "new_tab": "(yeni sekmede açılır)",
-                "recording_notice": "Bu rızayı vermeden de kayıt başvurusu yapabilirsiniz. Çevrimiçi dersten önce seçiminizi öğretmene bildirin; böylece kayıt başlamadan kimin kaydedilebileceğini kontrol edebilir."
+                "recording_notice": "Düzenli çevrimiçi grup kursları ve çevrimiçi deneme dersleri her zaman Microsoft Teams üzerinde kaydedilir. Bu onay, bu ders kaydı için zorunludur ve ayrı olarak verilmelidir. Çevrimiçi özel dersler bu koşulun dışındadır."
             },
             "submit_failed": "Maalesef olmadı. Lütfen birkaç dakika sonra tekrar deneyin. Yine olmazsa bize info@sitov-academy.com adresinden yazın.",
             "done": {
@@ -637,7 +637,7 @@
                     "(1) Sözleşmenin konusu, ilgili kurs açıklamasında belirtilen hizmetlerdir (hizmet kapsamı, kurs süresi, tarihler, öğretim materyalleri). Kurs açıklaması, sözleşmenin ayrılmaz bir parçasıdır.",
                     "(2) Kursun genel karakteri önemli ölçüde bozulmadığı sürece, kursun akışında, eğitmenlerde veya ders saatlerinde küçük değişiklikler yapılmasına izin verilir.",
                     "(3) Online dersler, yaygın video konferans yazılımları (örneğin, Microsoft Teams) üzerinden gerçekleştirilir. Katılımcı, uygun bir internet bağlantısı ve teknik donanımdan sorumludur.",
-                    "(4) Çevrimiçi oturumlar, kayda alınan herkes gönüllü olarak rıza vermişse katılımcıların tekrar yapması için kaydedilebilir. Kayıt başvurusu için ders kaydına rıza gerekli değildir. İzin verilen kayıtların ayrıntıları bu koşulların § 9 bölümünde ve gizlilik politikasında yer alır.",
+                    "(4) Düzenli çevrimiçi grup kursları ve çevrimiçi deneme dersleri, ilgili kursun katılımcılarının daha sonra izlemesi için her zaman Microsoft Teams üzerinde kaydedilir. Ders kaydı için ayrıca kayıt onayı gerekir. Çevrimiçi özel dersler bu koşulun dışındadır. Ayrıntılar bu koşulların § 9 maddesinde ve gizlilik politikasında yer alır.",
                     "(5) Kurs katılımı, ilgili takvim ayında kararlaştırılan belirli ders tarihlerini kapsar. Gösterilen ders birimi sayısı o ayın hesaplamasını açıklar; süresiz veya serbestçe kullanılabilen bir saat bakiyesi değildir. Özel ders tarihleri rezervasyon yapılan ay içinde bireysel olarak kararlaştırılır; ayrı anlaşmalar mümkündür."
                 ]
             },
@@ -957,7 +957,7 @@
             {
                 "title": "9. Video Konferans Araçları ve Ders Kayıtları (Microsoft Teams)",
                 "content": [
-                    "Çevrimiçi kurslarımızın yürütülmesi için Microsoft Teams kullanıyoruz.",
+                    "Çevrimiçi eğitim için Microsoft Teams kullanıyoruz. Düzenli çevrimiçi grup kursları ve çevrimiçi deneme dersleri, aynı kursun katılımcılarının daha sonra izlemesi için her zaman kaydedilir. Çevrimiçi özel dersler bu kayıt kuralının dışındadır.",
                     "Sağlayıcı: Microsoft Ireland Operations Limited, One Microsoft Place, South County Business Park, Leopardstown, Dublin 18, İrlanda (ana şirket: Microsoft Corporation, ABD).",
                     "9.1 İşlemenin Türü ve Amacı",
                     "Microsoft Teams kullanılırken çeşitli veri türleri işlenir. Verilerin kapsamı, çevrimiçi bir oturuma katılmadan önce veya katılım sırasında hangi bilgileri sağladığınıza da bağlıdır.",
@@ -965,7 +965,7 @@
                     "Kaydın amacı: Kayıtlar, yalnızca ilgili kursun katılımcılarına öğrenme içeriklerini tekrarlama ve pekiştirme amacıyla hizmet eder.",
                     "9.2 Yasal Dayanak",
                     "Microsoft Teams'in genel ders yürütümü için kullanımı DSGVO Madde 6 Fıkra 1 bent b'ye (sözleşmenin ifası) dayanmaktadır.",
-                    "Sesinizin ve görüntünüzün kaydı yalnızca DSGVO Madde 6(1)(a) uyarınca açık ve gönüllü rızanızla yapılabilir. Kayıt başvurusundaki ayrı onay kutusu isteğe bağlıdır ve zorunlu maddeler onaylanırken seçilmez. Kayda rıza vermeden de başvuru yapabilirsiniz.",
+                    "Sesinizin ve görüntünüzün kaydı için ders kaydı sırasında GDPR Madde 6(1)(a) uyarınca ayrı ve açık onayınızı alıyoruz. Düzenli çevrimiçi grup kurslarına ve çevrimiçi deneme derslerine kayıt için bu onay gerekir. Onay kutusu başlangıçta işaretli değildir ve ayrı olarak onaylanmalıdır; diğer zorunlu maddeleri onaylamak bu kutuyu işaretlemez. Çevrimiçi özel dersler bu koşulun dışındadır.",
                     "9.3 Saklama Süresi ve Erişim",
                     "Video kayıtları korumalı bir ortamda (örn. Microsoft'un parola korumalı bulut depolaması) saklanır. Erişim, yalnızca eğitmenle ve aynı kursun kayıtlı katılımcılarıyla sınırlıdır. Üçüncü taraflara ifşa edilmez.",
                     "Kayıtlar, ilgili kursun tamamlanmasından en geç 30 gün sonra kalıcı olarak silinir.",
@@ -1205,7 +1205,11 @@
         "booking_contract_note": "Rezervasyon, bağlayıcı bir kurs seçimi gönderir. Sitov Academy faturadan önce seçimini kontrol edip onaylar. Ara verme yeni bir kurs ücreti oluşturmaz.",
         "booking_terms_link": "Koşulları ve cayma hakkı bilgisini oku",
         "booking_paid_confirm": "Ödeme yükümlülüğüyle rezervasyon yap",
-        "booking_price_unavailable": "Fiyat henüz hesaplanıyor"
+        "booking_price_unavailable": "Fiyat henüz hesaplanıyor",
+        "recording_consent": "Sesimin ve görüntümün, seçilen çevrimiçi grup kurslarının katılımcılarının daha sonra izlemesi için Microsoft Teams üzerinde kaydedilmesine onay veriyorum.",
+        "recording_notice": "Düzenli çevrimiçi grup kursları ve çevrimiçi deneme dersleri her zaman Microsoft Teams üzerinde kaydedilir. Bu onay, bu ders kaydı için zorunludur ve ayrı olarak verilmelidir. Çevrimiçi özel dersler bu koşulun dışındadır.",
+        "recording_withdrawal": "Onayınızı geleceğe yönelik olarak istediğiniz zaman info@sitov-academy.com adresine yazarak veya öğretmeninize bildirerek geri çekebilirsiniz.",
+        "recording_privacy_link": "Gizlilik politikasını oku"
     },
     "pronunciation": {
         "title": "Telaffuz Çalışması",
