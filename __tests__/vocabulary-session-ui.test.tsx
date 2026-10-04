@@ -314,6 +314,25 @@ it('dreht die Karteikarte um und haelt immer nur die sichtbare Seite bedienbar',
   expect(screen.getByRole('button', { name: de.vocabulary.reveal_solution })).toBeInTheDocument()
 })
 
+it('behält beim Zurückdrehen den Inhalt bis zum Seitenwechsel und verkleinert danach die Karte', () => {
+  const { container } = mount([flashcard])
+  const scene = container.querySelector('.learning-card-flip')!
+  const front = container.querySelector('.learning-flip-front')!
+  const back = container.querySelector('.learning-flip-back')!
+  fireEvent.click(screen.getByRole('button', { name: de.vocabulary.reveal_solution }))
+  fireEvent.click(scene)
+  expect(scene).not.toHaveClass('is-revealed')
+  expect(scene).toHaveClass('has-answer-content')
+  expect(back).toHaveTextContent('das Haus')
+  expect(back).toHaveAttribute('inert')
+  const midpoint = new Event('transitionend', { bubbles: true })
+  Object.defineProperty(midpoint, 'propertyName', { value: 'visibility' })
+  fireEvent(front, midpoint)
+  expect(scene).not.toHaveClass('has-answer-content')
+  expect(back).not.toHaveTextContent('das Haus')
+  expect(front.querySelector('.learning-card-content')).toHaveFocus()
+})
+
 it('haelt die getippte Karte ohne Drehung im bisherigen Aufbau', async () => {
   const { container } = mount([word])
   expect(container.querySelector('.learning-card-flip')).toBeNull()

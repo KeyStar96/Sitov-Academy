@@ -14,9 +14,10 @@ import { studentTranslator } from '@/lib/student-ui-i18n'
  * gezielt trainieren, Phase 11.3). Nur auf diesen Seiten sichtbar —
  * Einstufung und Lernrunde füllen den ganzen Bildschirm.
  */
-export default function VocabularyTabs({ lang, level }: { lang: string; level: string }) {
+export default function VocabularyTabs({ lang, level, sitovPreviewPathname }: { lang: string; level: string; sitovPreviewPathname?: string }) {
   const t = studentTranslator(lang)
-  const pathname = usePathname() ?? ''
+  const currentPathname = usePathname() ?? ''
+  const pathname = sitovPreviewPathname ?? currentPathname
   const group = useId()
   const box = modeHref(lang, level, 'vocabulary')
   const lessons = lessonsHref(lang, level)
@@ -29,7 +30,7 @@ export default function VocabularyTabs({ lang, level }: { lang: string; level: s
     { href: focus, label: t('vocab_tab_focus'), icon: Target },
   ]
   return (
-    <nav aria-label={t('vocab_tabs_label')} className="st-subnav" data-count={tabs.length}>
+    <nav aria-label={t('vocab_tabs_label')} className="st-subnav" data-count={tabs.length} data-sitov-vocabulary-tabs>
       {tabs.map(tab => {
         const current = at(tab.href)
         return (

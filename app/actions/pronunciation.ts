@@ -4,8 +4,9 @@ import { revalidatePath } from 'next/cache'
 import { z } from 'zod'
 import { readingQuery, mapReadingText } from '@/lib/learning-catalog'
 import { createClient } from '@/utils/supabase/server'
-import { currentUserHasTrainerAccess, loadLevelAccessProfile } from '@/lib/access/server'
-import { ACCESS_LEVELS, getAllowedLessons, isAccessLevel } from '@/lib/access/levels'
+import { loadLevelAccessProfile } from '@/lib/access/server'
+import { ACCESS_LEVELS, getAllowedLessons, hasTrainerAccess, isAccessLevel } from '@/lib/access/levels'
+import { requestSession } from '@/lib/request-session'
 import { saveLearningContent } from '@/lib/learning-writes'
 import { SitovPreparedAudioRequiredError } from '@/lib/audio/prepared-content'
 import { type PronunciationPrompt } from '@/lib/pronunciation-prompts'
@@ -14,19 +15,21 @@ import { loadSitovPronunciationReadiness } from '@/lib/sitov-pronunciation-readi
 
 export async function getPronunciationPrompts(level: string): Promise<PronunciationPrompt[]> {
  try {
-  if (!(await currentUserHasTrainerAccess(level, 'pronunciation'))) return []
-  const supabase = await createClient()
-  const { data: { user } } = await supabase.auth.getUser()
+  const { supabase, user } = await requestSession()
   if (!user) return []
   const accessProfile = await loadLevelAccessProfile(supabase, user.id)
+  if (!hasTrainerAccess(accessProfile, level, 'pronunciation')) return []
   const allowedLessons = getAllowedLessons(accessProfile, level, 'pronunciation')
   const readiness = await loadSitovPronunciationReadiness(supabase, level)
   if (!readiness) return []
-  const readyIds = new Set(readiness.texts.filter(text => text.ready).map(text => text.id))
+  const readyIds = readiness.texts.filter(text => text.ready).map(text => text.id)
+  // The readiness metadata also drives the locked-text UI. Do not scan text
+  // bodies (and repeat their evidence-based RLS checks) when none are ready.
+  if (!readyIds.length) return []
 
-  const { data, error } = await readingQuery(supabase).eq('unit.level', level).eq('unit.is_active', true).order('sort_order', { referencedTable: 'unit' })
+  const { data, error } = await readingQuery(supabase).in('id', readyIds).eq('unit.level', level).eq('unit.is_active', true).order('sort_order', { referencedTable: 'unit' })
   if (error) { console.error("Loading pronunciation texts failed"); return [] }
-  return (data ?? []).map(mapReadingText).filter((prompt): prompt is PronunciationPrompt => prompt !== null && readyIds.has(prompt.id) && (!allowedLessons || allowedLessons.includes(prompt.unitId)))
+  return (data ?? []).map(mapReadingText).filter((prompt): prompt is PronunciationPrompt => prompt !== null && readyIds.includes(prompt.id) && (!allowedLessons || allowedLessons.includes(prompt.unitId)))
  } catch (error) { console.error("Loading pronunciation texts failed"); return [] }
 }
 export interface SavePronunciationPromptInput { id?: string; level: string; title: string; text: string; focus: string; isActive: boolean }

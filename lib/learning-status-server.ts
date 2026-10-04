@@ -4,6 +4,7 @@ import { cache } from 'react'
 import { getVocabularyOverview } from '@/app/actions/vocabulary'
 import { getExercises } from '@/app/actions/exercises'
 import { loadSitovPronunciationReadiness } from '@/lib/sitov-pronunciation-readiness-server'
+import { requestSession } from '@/lib/request-session'
 import { hasConfiguredTrainerAccess, hasTrainerAccess, type LevelAccessProfile } from '@/lib/access/levels'
 import { mapVideo, videoQuery } from '@/lib/learning-catalog'
 import { learningResourceUrl } from '@/lib/video-links'
@@ -66,7 +67,7 @@ async function settle<T>(work: () => Promise<T>, report: () => void): Promise<T 
  * Seite darunter brauchen dieselben Zahlen.
  */
 const vocabularyOverview = cache((level: string) => getVocabularyOverview(level))
-const pronunciationStatus = cache(async (userId: string, level: string) => loadPronunciation(await createClient(), userId, level))
+const pronunciationStatus = cache(async (userId: string, level: string) => loadPronunciation((await requestSession()).supabase, userId, level))
 
 async function loadPronunciation(supabase: Client, userId: string, level: string) {
   const [readiness, submissions] = await Promise.all([

@@ -87,24 +87,25 @@
 /* --- Karteikarte: echte 3D-Drehung -------------------------------------- */
 /* Die Karte selbst wird zur Bühne: sie gibt Rahmen, Polster und Hintergrund an
    die beiden Seiten ab und haelt nur noch Groesse und Perspektive. */
-.learning-card-flip { padding: 0; border: 0; background: none; box-shadow: none; perspective: 1800px; }
+.learning-card-flip { --sitov-flip-duration: 640ms; padding: 0; border: 0; background: none; box-shadow: none; }
 .learning-flip-inner {
-  position: relative; flex: 1; min-height: 0;
-  /* Kein will-change: die Ebene wird waehrend der Transition ohnehin promotet,
-     dauerhaft gehalten liefert sie auf iOS/Chromium veraltete Frames. */
-  transform-style: preserve-3d;
-  /* Leicht ueberschwingende Kurve – die Karte faellt am Ende weich ein. */
-  transition: transform 640ms cubic-bezier(.22, 1, .36, 1);
+  position: relative; flex: 1; min-height: 0; perspective: 1800px;
 }
-.learning-card-flip.is-revealed .learning-flip-inner { transform: rotateY(180deg); }
+/* Each face turns independently. A transformed parent with a growing back
+   was unreliable in iOS Safari: both faces could paint mirrored text. Explicit
+   visibility changes at the midpoint also protect flattened compositing. */
 .learning-flip-face {
   position: absolute; inset: 0; display: flex; flex-direction: column;
   -webkit-backface-visibility: hidden; backface-visibility: hidden;
   border: 1px solid var(--learn-border); border-radius: 24px;
   padding: clamp(12px, 3dvh, 28px);
   background: var(--learn-surface); box-shadow: 0 12px 48px #20232106;
+  transition: transform var(--sitov-flip-duration) linear, visibility 0s linear calc(var(--sitov-flip-duration) / 2);
 }
-.learning-flip-back { transform: rotateY(180deg); }
+.learning-flip-front { transform: rotateY(0deg); visibility: visible; }
+.learning-flip-back { transform: rotateY(180deg); visibility: hidden; }
+.learning-card-flip.is-revealed .learning-flip-front { transform: rotateY(-180deg); visibility: hidden; }
+.learning-card-flip.is-revealed .learning-flip-back { transform: rotateY(0deg); visibility: visible; }
 /* Die ganze Karte dreht sich per Tipp um; das kleine Dreh-Zeichen in der Ecke
    verrät es, ohne einen weiteren Satz auf die Karte zu schreiben. */
 .learning-card-flip, .learning-card-tappable { cursor: pointer; -webkit-tap-highlight-color: transparent; }
@@ -123,11 +124,33 @@
 .learning-card-flip.is-revealed .learning-flip-back .learning-card-content > :nth-child(n+5) { animation-delay: 430ms; }
 /* Ohne 3D-Unterstuetzung bleibt es beim harten Wechsel statt einer halben Drehung. */
 @supports not (transform-style: preserve-3d) {
-  .learning-flip-inner { transition: none; }
-  .learning-flip-face { backface-visibility: visible; }
-  .learning-card-flip .learning-flip-back { transform: none; visibility: hidden; }
-  .learning-card-flip.is-revealed .learning-flip-front { visibility: hidden; }
-  .learning-card-flip.is-revealed .learning-flip-back { visibility: visible; }
+  .learning-flip-face { transition: none; backface-visibility: visible; }
+  .learning-card-flip .learning-flip-face { transform: none; }
+}
+
+/* Mobile task first: compact controls, content-sized cards, and one document
+   scroll only when long content or enlarged text really needs it. */
+@media (max-width: 639px) {
+  .learning-screen[data-presentation='embedded'] { min-height: 0; }
+  .learning-screen[data-presentation='embedded'] .learning-header { min-height: 48px; gap: 8px; padding: 0; border: 0; border-radius: 0; background: transparent; }
+  .learning-screen[data-presentation='embedded'] .learning-exit { min-height: 48px; padding: 4px 8px; border: 0; background: transparent; }
+  .learning-screen[data-presentation='embedded'] .learning-heading :is(h2, p) { font-size: .875rem; line-height: 1.25; }
+  .learning-screen[data-presentation='embedded'] .learning-progress { margin-top: 4px; height: 3px; }
+  .learning-screen[data-presentation='embedded'] .learning-workspace { gap: 8px; padding: 8px 0; }
+  .learning-screen[data-presentation='embedded'] .learning-stage { min-height: 0; gap: 8px; }
+  .learning-screen[data-presentation='embedded'] .learning-card { min-height: clamp(11rem, 28dvh, 15rem); flex-basis: auto; }
+  .learning-screen[data-presentation='embedded'] .learning-card-content { overflow-y: visible; gap: 8px; }
+  .learning-screen[data-presentation='embedded'] .learning-meta { gap: 8px; font-size: .875rem; }
+  .learning-screen[data-presentation='embedded'] .learning-pill { padding: 3px 6px; }
+  .learning-screen[data-presentation='embedded'] .learning-stats { gap: 8px; }
+  .learning-screen[data-presentation='embedded'] .learning-stat-label { font-size: .75rem; }
+  .learning-screen[data-presentation='embedded'] .learning-stat-value { font-size: .9375rem; }
+  .learning-screen[data-presentation='embedded'] .learning-mode-track { padding: 2px; }
+  .learning-screen[data-presentation='embedded'] .learning-mode-option { min-height: 44px; padding: 6px 12px; font-size: .9375rem; }
+  .learning-screen[data-presentation='embedded'] .learning-flip-face { padding: 14px 12px 28px; }
+  .learning-screen[data-presentation='embedded'] :is(.learning-word, .learning-sentence, .learning-solution) { font-size: clamp(22px, 3.5dvh, 30px); }
+  .learning-screen[data-presentation='embedded'] .learning-flip-echo { font-size: .9375rem; }
+  .learning-screen[data-presentation='embedded'] .learning-eyebrow { font-size: .875rem; }
 }
 
 /* Flashcard-Selbsteinschätzung: zwei gleich breite Tasten nebeneinander. */

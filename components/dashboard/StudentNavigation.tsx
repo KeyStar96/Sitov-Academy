@@ -28,14 +28,20 @@ function keyboardOpen(): boolean {
 
 export type TabbarState = 'visible' | 'hidden'
 
-/** The navigation stays available during scrolling; only a touch keyboard makes room. */
-export function decideTabbar({ focusInBar, keyboard }: {
+/** Directional hysteresis keeps the bars still through small thumb movements. */
+export function decideTabbar({ focusInBar, keyboard, scrollY = 0, scrollDistance = 0, previous = 'visible' }: {
   focusInBar: boolean
   keyboard: boolean
+  scrollY?: number
+  scrollDistance?: number
+  previous?: TabbarState
 }): TabbarState {
   if (focusInBar) return 'visible'
   if (keyboard) return 'hidden'
-  return 'visible'
+  if (scrollY <= 24) return 'visible'
+  if (scrollDistance <= -12) return 'visible'
+  if (scrollY > 96 && scrollDistance >= 16) return 'hidden'
+  return previous
 }
 
 /**
@@ -47,7 +53,7 @@ export function decideTabbar({ focusInBar, keyboard }: {
  * Abfrage scheitert, führt der Reiter zum ersten freigeschalteten Niveau.
  * „Hilfe" öffnet die Kontaktwege als Blatt.
  *
- * Die Leiste bleibt beim Scrollen verfügbar. Der Zustand steht als `data-tabbar` am Wurzelelement; die
+ * Runterscrollen macht Platz, Hochscrollen zeigt beide Navigationsleisten. Der Zustand steht als `data-tabbar` am Wurzelelement; die
  * CSS-Variable `--st-tabbar-visible` richtet alles aus, was über der Leiste
  * schwebt (z. B. das Aufnahme-Dock). Bei einer Bildschirmtastatur macht nur
  * die mobile Leiste Platz, bis das Eingabefeld verlassen wird.
@@ -69,6 +75,7 @@ export default function StudentNavigation({ lang, firstLevel, levels, supportLab
   const pathname = sitovPathname ?? sitovCurrentPath
   const group = useId()
   const nav = useRef<HTMLElement>(null)
+  const sitovKeyboardNavigation = useRef(false)
   const [helpOpen, setHelpOpen] = useState(false)
   const [sitovTabbar, setSitovTabbar] = useState({ pathname, state: 'visible' as TabbarState })
   // A newly opened learner route begins with its navigation available.
@@ -87,25 +94,60 @@ export default function StudentNavigation({ lang, firstLevel, levels, supportLab
 
   useEffect(() => {
     let frame = 0
+    let lastY = Math.max(0, window.scrollY)
+    let distance = 0
+    let scrollState: TabbarState = 'visible'
     const decide = () => {
       frame = 0
+      // Clamp Safari's elastic overscroll so bouncing at the page end cannot
+      // look like an intentional change in scroll direction.
+      const scrolling = document.scrollingElement ?? document.documentElement
+      const maxY = Math.max(0, scrolling.scrollHeight - window.innerHeight)
+      const y = Math.max(0, maxY > 0 ? Math.min(window.scrollY, maxY) : window.scrollY)
+      const delta = y - lastY
+      if (delta) distance = Math.sign(delta) === Math.sign(distance) ? distance + delta : delta
+      if (y <= 24) distance = 0
+      lastY = y
+      scrollState = decideTabbar({ focusInBar: false, keyboard: false, scrollY: y, scrollDistance: distance, previous: scrollState })
+      const focused = document.activeElement
+      const root = nav.current?.closest<HTMLElement>('.academy-student-shell')
+      const focusInNavigation = !!nav.current?.contains(focused)
+        || !!root?.querySelector('.st-mode-dock')?.contains(focused)
       const next = decideTabbar({
-        focusInBar: !!nav.current?.contains(document.activeElement),
+        // Tapping a persistent Link leaves browser focus on it after a route
+        // change. Only keyboard focus holds the bars open while scrolling.
+        focusInBar: sitovKeyboardNavigation.current && focusInNavigation,
         keyboard: keyboardOpen(),
+        scrollY: y,
+        previous: scrollState,
       })
       setSitovTabbar(current => current.pathname === pathname && current.state === next
         ? current : { pathname, state: next })
     }
     const schedule = () => { if (!frame) frame = requestAnimationFrame(decide) }
+    const pointer = () => { sitovKeyboardNavigation.current = false; schedule() }
+    const key = (event: KeyboardEvent) => {
+      if (event.key !== 'Tab') return
+      sitovKeyboardNavigation.current = true
+      scrollState = 'visible'
+      distance = 0
+      schedule()
+    }
+    window.addEventListener('scroll', schedule, { passive: true })
     window.addEventListener('resize', schedule)
     window.visualViewport?.addEventListener('resize', schedule)
+    document.addEventListener('pointerdown', pointer, true)
+    document.addEventListener('keydown', key, true)
     document.addEventListener('focusin', schedule)
     document.addEventListener('focusout', schedule)
     schedule()
     return () => {
       cancelAnimationFrame(frame)
+      window.removeEventListener('scroll', schedule)
       window.removeEventListener('resize', schedule)
       window.visualViewport?.removeEventListener('resize', schedule)
+      document.removeEventListener('pointerdown', pointer, true)
+      document.removeEventListener('keydown', key, true)
       document.removeEventListener('focusin', schedule)
       document.removeEventListener('focusout', schedule)
     }

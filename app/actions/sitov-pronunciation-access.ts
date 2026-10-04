@@ -3,6 +3,7 @@
 import { z } from 'zod'
 import { revalidatePath } from 'next/cache'
 import { createClient } from '@/utils/supabase/server'
+import { requestSession } from '@/lib/request-session'
 import { ACCESS_LEVELS } from '@/lib/access/levels'
 import { loadSitovPronunciationReadiness } from '@/lib/sitov-pronunciation-readiness-server'
 import { sitovPronunciationModeSchema, type SitovPronunciationMode, type SitovPronunciationReadiness } from '@/lib/sitov-pronunciation-readiness'
@@ -10,9 +11,8 @@ import { sitovPronunciationModeSchema, type SitovPronunciationMode, type SitovPr
 export async function getSitovPronunciationReadiness(level: string, studentId?: string): Promise<SitovPronunciationReadiness | null> {
   if (!z.enum(ACCESS_LEVELS).safeParse(level).success || (studentId && !z.uuid().safeParse(studentId).success)) return null
   try {
-    const client = await createClient()
-    const { data: { user } } = await client.auth.getUser()
-    return user ? loadSitovPronunciationReadiness(client, level, studentId) : null
+    const { supabase, user } = await requestSession()
+    return user ? loadSitovPronunciationReadiness(supabase, level, studentId) : null
   } catch { return null }
 }
 

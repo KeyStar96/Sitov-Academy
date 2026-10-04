@@ -19,6 +19,31 @@ export async function pronunciationPlaybackUrl(client: Client, reference: string
   } catch (error) { console.error("Signing pronunciation recording failed"); return null }
 }
 
+/** Sign a conversation history in bounded batches instead of one Storage
+ * round trip per message. Invalid, denied or missing recordings remain null;
+ * the authenticated Storage policy still decides access to every object. */
+export async function sitovPronunciationPlaybackUrls(client: Client, references: readonly (string | null)[]): Promise<Map<string, string>> {
+  const paths = [...new Set(references.flatMap(reference => {
+    const path = reference && pronunciationAudioObjectPath(reference)
+    return path ? [path] : []
+  }))]
+  const urls = new Map<string, string>()
+  const batches: string[][] = []
+  for (let offset = 0; offset < paths.length; offset += 100) batches.push(paths.slice(offset, offset + 100))
+  await Promise.all(batches.map(async batch => {
+    try {
+      const { data, error } = await client.storage.from(PRIVATE_PRONUNCIATION_BUCKET).createSignedUrls(batch, 3600)
+      if (error) { console.error('Signing pronunciation recordings failed'); return }
+      for (const recording of data ?? []) {
+        if (recording.error || !recording.path || !recording.signedUrl || !batch.includes(recording.path)) continue
+        try { urls.set(`storage://${PRIVATE_PRONUNCIATION_BUCKET}/${recording.path}`, publicStorageUrl(recording.signedUrl)) }
+        catch { console.error('Signing pronunciation recording failed') }
+      }
+    } catch { console.error('Signing pronunciation recordings failed') }
+  }))
+  return urls
+}
+
 /** Namen der Lehrkräfte, die der angemeldeten Person geantwortet haben. Ohne Migration 24 bleibt die Liste leer. */
 export async function loadReplySenderNames(client: Client): Promise<Map<string, string>> {
   try {

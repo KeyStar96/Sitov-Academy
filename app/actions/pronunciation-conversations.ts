@@ -1,9 +1,10 @@
 'use server'
 
-import { loadReplySenderNames, loadStaffPronunciationView, pronunciationPlaybackUrl } from '@/lib/pronunciation-playback-server'
+import { loadReplySenderNames, loadStaffPronunciationView, sitovPronunciationPlaybackUrls } from '@/lib/pronunciation-playback-server'
 import { revalidatePath } from 'next/cache'
 import { z } from 'zod'
 import { createClient } from '@/utils/supabase/server'
+import { requestSession } from '@/lib/request-session'
 import { getRpcError } from '@/lib/rpc-errors'
 import { sitovPronunciationConversationTitle } from '@/lib/sitov-pronunciation-legacy-title'
 import { loadSitovPronunciationConversationTitles } from '@/lib/sitov-pronunciation-readiness-server'
@@ -25,7 +26,6 @@ function refreshPronunciation() {
     revalidatePath('/[lang]/dashboard', 'page')
   } catch { console.error('Pronunciation saved, but route cache could not refresh') }
 }
-const playbackUrl = pronunciationPlaybackUrl
 export async function createPronunciationSubmission(input: CreatePronunciationSubmissionInput): Promise<PronunciationMutationResult> {
   const parsed = createPronunciationSubmissionSchema.safeParse(input)
   if (!parsed.success) return { success: false, reason: 'invalid_input' }
@@ -103,8 +103,7 @@ export async function setPronunciationMessageHidden(messageId: string, hidden: b
 }
 export async function getPronunciationConversations(level?: string, submissionId?: string): Promise<PronunciationConversation[]> {
   try {
-    const supabase = await createClient()
-    const { data: { user } } = await supabase.auth.getUser()
+    const { supabase, user } = await requestSession()
     if (!user) return []
     const { data: profile } = await supabase.from('profiles').select('role').eq('id', user.id).single()
     const staff = profile?.role === 'teacher' || profile?.role === 'admin'
@@ -116,6 +115,7 @@ export async function getPronunciationConversations(level?: string, submissionId
     if (submissionId) query = query.eq('id', submissionId)
     const { data, error } = await query.order('created_at', { ascending: false })
     if (error) { console.error("Loading pronunciation conversations failed"); return [] }
+    if (!data?.length) return []
     const studentIds = [...new Set((data ?? []).map(row => row.auth_user_id))]
     const [{ data: profiles }, senderNames, staffView, conversationTitles] = await Promise.all([
       studentIds.length ? supabase.from('people').select('auth_user_id,display_name,email').in('auth_user_id', studentIds) : Promise.resolve({ data: [] }),
@@ -126,20 +126,24 @@ export async function getPronunciationConversations(level?: string, submissionId
     ])
     const people = new Map((profiles ?? []).map(profile => [profile.auth_user_id, profile]))
     const rows = (data ?? []).filter(row => !staffView?.hiddenSubmissions.has(row.id))
-    const conversations = await Promise.all(rows.map(async (row): Promise<PronunciationConversation> => {
+    const playbackUrls = await sitovPronunciationPlaybackUrls(supabase, rows.flatMap(row => [
+      row.content_url,
+      ...(row.pronunciation_messages ?? []).filter(message => !staffView?.hiddenMessages.has(message.id)).map(message => message.audio_path),
+    ]))
+    const conversations = rows.map((row): PronunciationConversation => {
       const all = row.pronunciation_messages ?? []
       const visible = all.filter(message => !staffView?.hiddenMessages.has(message.id))
         .sort((a, b) => a.created_at.localeCompare(b.created_at) || a.id.localeCompare(b.id))
       const status = staffView ? staffConversationStatus(row.status ?? 'pending', visible.map(message => message.sender_role), all.length - visible.length) : row.status ?? 'pending'
-      const messages: PronunciationMessage[] = [{ id: `recording-${row.id}`, senderRole: 'student', text: '', audioUrl: await playbackUrl(supabase, row.content_url), createdAt: row.created_at ?? '', unseen: false }]
+      const messages: PronunciationMessage[] = [{ id: `recording-${row.id}`, senderRole: 'student', text: '', audioUrl: row.content_url ? playbackUrls.get(row.content_url) ?? null : null, createdAt: row.created_at ?? '', unseen: false }]
       for (const message of visible) {
         const senderRole = message.sender_role === 'teacher' || message.sender_role === 'admin' ? message.sender_role : 'student'
-        messages.push({ id: message.id, senderRole, text: message.text_content, audioUrl: await playbackUrl(supabase, message.audio_path), createdAt: message.created_at, unseen: !message.seen_at && (staff ? senderRole === 'student' : senderRole !== 'student'),
+        messages.push({ id: message.id, senderRole, text: message.text_content, audioUrl: message.audio_path ? playbackUrls.get(message.audio_path) ?? null : null, createdAt: message.created_at, unseen: !message.seen_at && (staff ? senderRole === 'student' : senderRole !== 'student'),
           ...(staff || senderRole === 'student' ? {} : { senderName: senderNames.get(message.sender_id) ?? null }) })
       }
       messages.sort((a, b) => a.createdAt.localeCompare(b.createdAt) || a.id.localeCompare(b.id))
       return { id: row.id, level: row.level, title: sitovPronunciationConversationTitle(row.prompt_id, row.text_content, row.prompt?.unit?.label ?? conversationTitles.get(row.id) ?? null), promptId: row.prompt_id, readingText: row.text_content, status, studentName: people.get(row.auth_user_id)?.display_name ?? null, studentEmail: staff ? people.get(row.auth_user_id)?.email ?? null : null, createdAt: row.created_at ?? '', messages, hasUnseen: messages.some((message) => message.unseen) }
-    }))
+    })
     return conversations.sort((a, b) => (b.messages.at(-1)?.createdAt ?? '').localeCompare(a.messages.at(-1)?.createdAt ?? ''))
   } catch (error) { console.error("Loading pronunciation conversations failed"); return [] }
 }

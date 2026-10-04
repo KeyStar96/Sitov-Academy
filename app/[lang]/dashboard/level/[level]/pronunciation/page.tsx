@@ -16,9 +16,8 @@ export default async function PronunciationDashboard({ params, searchParams }: {
   if (lang === 'de') return <TrainerLanguageRequired lang={lang} />
   const { tab, conversation } = await searchParams
   const decodedLevel = decodeURIComponent(level)
-  const dict = await getDictionary(lang)
+  const [dict, conversations, prompts, news, checkpoint, readiness] = await Promise.all([getDictionary(lang), getPronunciationConversations(decodedLevel), getPronunciationPrompts(decodedLevel), loadLearningNewItems(decodedLevel), loadLearningCheckpoint('pronunciation', decodedLevel), getSitovPronunciationReadiness(decodedLevel)])
   const translations = getPronunciationTranslations(lang, dict.pronunciation)
-  const [conversations, prompts, news, checkpoint, readiness] = await Promise.all([getPronunciationConversations(decodedLevel), getPronunciationPrompts(decodedLevel), loadLearningNewItems(decodedLevel), loadLearningCheckpoint('pronunciation', decodedLevel), getSitovPronunciationReadiness(decodedLevel)])
   // Der Link aus der Benachrichtigungs-Mail nennt das Gespräch; nur ein eigenes, vorhandenes wird geöffnet.
   const focus = conversation && conversations.some(entry => entry.id === conversation) ? conversation : undefined
   return <PronunciationStudio key={`${decodedLevel}:${checkpoint.ok ? checkpoint.learnerId : 'unavailable'}`} prompts={prompts} conversations={conversations} level={decodedLevel} lang={lang}

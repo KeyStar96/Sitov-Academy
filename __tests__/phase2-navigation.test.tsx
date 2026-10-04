@@ -28,7 +28,11 @@ const open = (overrides: Partial<Record<ModeDockEntry['mode'], Partial<ModeDockE
   LEARNING_MODES.map(mode => ({ mode, lock: null, ...overrides[mode] }))
 const labels = { whatsapp: 'WhatsApp', phone: '+49 1', phoneLabel: 'Anrufen', telegram: 'Telegram', email: 'a@b.test', emailLabel: 'E-Mail' }
 
-beforeEach(() => { window.localStorage.clear(); mockPathname = '/de/dashboard' })
+beforeEach(() => {
+  window.localStorage.clear()
+  mockPathname = '/de/dashboard'
+  Object.defineProperty(window, 'scrollY', { configurable: true, value: 0 })
+})
 
 describe('Modus-Ziele an einer Stelle', () => {
   it('führen bis Phase 3 zum bestehenden Grammatik-Trainer und erkennen jeden Modus an seiner Route', () => {
@@ -185,32 +189,50 @@ describe('Brotkrumen mit vollem Pfad', () => {
 })
 
 describe('Feste Hauptnavigation', () => {
-  it('bleibt beim Scrollen verfügbar und macht nur für eine Bildschirmtastatur Platz', () => {
+  it('macht beim Runterscrollen Platz und schützt Tastaturfokus vor dem Ausblenden', () => {
     expect(decideTabbar({ focusInBar: false, keyboard: false })).toBe('visible')
     expect(decideTabbar({ focusInBar: false, keyboard: true })).toBe('hidden')
     expect(decideTabbar({ focusInBar: true, keyboard: true })).toBe('visible')
+    expect(decideTabbar({ focusInBar: false, keyboard: false, scrollY: 300, scrollDistance: 16 })).toBe('hidden')
+    expect(decideTabbar({ focusInBar: false, keyboard: false, scrollY: 300, scrollDistance: -12, previous: 'hidden' })).toBe('visible')
+    expect(decideTabbar({ focusInBar: false, keyboard: false, scrollY: 20, previous: 'hidden' })).toBe('visible')
+    expect(decideTabbar({ focusInBar: false, keyboard: false, scrollY: 300, scrollDistance: -3, previous: 'hidden' })).toBe('hidden')
+    expect(decideTabbar({ focusInBar: true, keyboard: false, scrollY: 300, scrollDistance: 200 })).toBe('visible')
   })
 
-  it('bleibt bei Scrollen, Seitenwechsel und anschließendem Moduswechsel sichtbar', async () => {
+  it('folgt nach Pointer-Seitenwechsel weiter dem Scrollen und hält echten Tastaturfokus sichtbar', async () => {
     const view = () => <div className="academy-student-shell">
       <nav className="st-mode-dock"><a href="#vocabulary">Vokabeln</a></nav>
       <StudentNavigation lang="de" firstLevel="A1.1" levels={['A1.1']} supportLabels={labels} lastActiveLevel="A1.1" />
     </div>
     const { rerender } = render(view())
     const shell = document.querySelector('.academy-student-shell')!
-    fireEvent.pointerDown(screen.getByRole('link', { name: 'Lernen' }), { pointerType: 'touch' })
+    const learn = screen.getByRole('link', { name: 'Lernen' })
+    fireEvent.pointerDown(learn, { pointerType: 'touch' })
+    learn.focus()
     mockPathname = '/de/dashboard/level/A1.1'
     rerender(view())
-    for (const y of [300, 600, 580, 900, 4000, 0]) {
+    for (const [y, state] of [[300, 'hidden'], [600, 'hidden'], [580, 'visible'], [900, 'hidden'], [4000, 'hidden'], [0, 'visible']] as const) {
       Object.defineProperty(window, 'scrollY', { configurable: true, value: y })
       fireEvent.scroll(window)
       await act(async () => { await new Promise(resolve => requestAnimationFrame(resolve)) })
-      expect(shell).toHaveAttribute('data-tabbar', 'visible')
+      expect(shell).toHaveAttribute('data-tabbar', state)
     }
     await act(async () => {
+      fireEvent.keyDown(document, { key: 'Tab' })
       screen.getByRole('link', { name: 'Vokabeln' }).focus()
       await new Promise(resolve => requestAnimationFrame(resolve))
     })
+    Object.defineProperty(window, 'scrollY', { configurable: true, value: 300 })
+    fireEvent.scroll(window)
+    await act(async () => { await new Promise(resolve => requestAnimationFrame(resolve)) })
+    expect(shell).toHaveAttribute('data-tabbar', 'visible')
+    fireEvent.pointerDown(screen.getByRole('link', { name: 'Vokabeln' }), { pointerType: 'touch' })
+    await act(async () => { await new Promise(resolve => requestAnimationFrame(resolve)) })
+    expect(shell).toHaveAttribute('data-tabbar', 'hidden')
+    mockPathname = '/de/dashboard/level/A1.1/vocabulary'
+    rerender(view())
+    await act(async () => { await new Promise(resolve => requestAnimationFrame(resolve)) })
     expect(shell).toHaveAttribute('data-tabbar', 'visible')
   })
 

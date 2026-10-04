@@ -1,10 +1,13 @@
 import 'server-only'
+import { cache } from 'react'
 import { z } from 'zod'
 import { sitovPronunciationReadinessSchema, type SitovPronunciationReadiness } from './sitov-pronunciation-readiness'
 import type { createClient } from '@/utils/supabase/server'
 
-/** Fail closed: an absent migration or unavailable evidence cannot unlock a text. */
-export async function loadSitovPronunciationReadiness(client: Awaited<ReturnType<typeof createClient>>, level: string, studentId?: string): Promise<SitovPronunciationReadiness | null> {
+/** Share expensive evidence reads within this render only, keyed by the
+ * authenticated client, level and optional student. No permissions are cached
+ * between requests. Missing evidence still fails closed. */
+const sitovPronunciationReadinessForRequest = cache(async (client: Awaited<ReturnType<typeof createClient>>, level: string, studentId: string | undefined): Promise<SitovPronunciationReadiness | null> => {
   try {
     const { data, error } = await client.rpc('sitov_get_pronunciation_readiness', {
       p_level: level, ...(studentId ? { p_student_id: studentId } : {}),
@@ -12,6 +15,11 @@ export async function loadSitovPronunciationReadiness(client: Awaited<ReturnType
     if (error) return null
     return sitovPronunciationReadinessSchema.safeParse(data).data ?? null
   } catch { return null }
+})
+
+export function loadSitovPronunciationReadiness(client: Awaited<ReturnType<typeof createClient>>, level: string, studentId?: string): Promise<SitovPronunciationReadiness | null> {
+  // Normalize omitted and explicit undefined arguments to the same cache key.
+  return sitovPronunciationReadinessForRequest(client, level, studentId)
 }
 
 /** Title-only metadata keeps past recordings identifiable when their current text is gated. */

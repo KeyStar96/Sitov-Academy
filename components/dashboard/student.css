@@ -627,6 +627,8 @@ html.high-contrast .st-switch[aria-checked='true'] { background: var(--surface);
    Kennfarbe erscheint nur im aktiven Reiter und in den Symbolen. */
 /* Schwebt frei: kein Band über die ganze Breite, nur die Leiste selbst mit Schatten. */
 .st-mode-dock { position: sticky; top: 0; z-index: 25; margin: -1.25rem 0 1.5rem; padding: .75rem 0; pointer-events: none; transform: translate3d(0, 0, 0) scale(1); transform-origin: center top; opacity: 1; transition: transform var(--sitov-nav-duration) var(--sitov-nav-ease), opacity var(--sitov-nav-fade) ease, visibility 0s; }
+.academy-student-shell[data-tabbar='hidden'] .st-mode-dock { transform: translate3d(0, -.75rem, 0) scale(.98); opacity: 0; visibility: hidden; transition: transform var(--sitov-nav-duration) var(--sitov-nav-ease), opacity var(--sitov-nav-fade) ease, visibility 0s linear var(--sitov-nav-duration); }
+.academy-student-shell[data-tabbar='hidden'] .st-mode-dock__list { pointer-events: none; }
 /* Kleine Folgebewegung der Symbole und Beschriftungen beim Wiedererscheinen. */
 .st-tabbar__item, .st-mode-dock__item { --sitov-nav-item-delay: 0ms; transform: translate3d(0, 0, 0); opacity: 1; transition: transform 340ms var(--sitov-nav-ease) var(--sitov-nav-item-delay), opacity 260ms ease var(--sitov-nav-item-delay); }
 .st-tabbar__item:nth-child(2), .st-mode-dock__item:nth-child(2) { --sitov-nav-item-delay: 24ms; }
@@ -752,6 +754,13 @@ button.st-focus-slot { border-radius: .6rem .6rem 0 0; background: color-mix(in 
 .st-subnav[data-count='3'] { grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 36rem; }
 .st-subnav[data-count='3'] .st-subnav__link { min-height: 3.75rem; flex-direction: column; gap: .15rem; padding: .35rem .3rem; font-size: .9rem; line-height: 1.15; overflow-wrap: anywhere; }
 @media (min-width: 30rem) { .st-subnav[data-count='3'] .st-subnav__link { min-height: 3rem; flex-direction: row; gap: .45rem; font-size: 1rem; } }
+@media (max-width: 639px) {
+  .st-subnav[data-sitov-vocabulary-tabs] { margin-bottom: .75rem; padding: .2rem; }
+  .st-subnav[data-sitov-vocabulary-tabs] .st-subnav__link { min-height: 3rem; gap: .25rem; padding: .2rem; font-size: .8125rem; }
+  /* During a round Back returns to the box. The three overview tabs would
+     duplicate navigation and push the actual exercise below the viewport. */
+  .academy-student-content:has(.learning-screen[data-presentation='embedded']) > .st-subnav[data-sitov-vocabulary-tabs] { display: none; }
+}
 
 /* Shared atmosphere across all five trainer rooms. Decorative motion rests
    outside the viewport; exercise content and keyboard focus stay stable. */
@@ -772,7 +781,7 @@ button.st-focus-slot { border-radius: .6rem .6rem 0 0; background: color-mix(in 
 @media (min-width: 640px) and (max-width: 899px) { .st-mode-dock__link { flex-direction: column; gap: .2rem; padding: .5rem .25rem; font-size: .92rem; } }
 
 /* Persistent Sitov Academy anchors: a restrained glass frame, moving active
-   pills and a contained route ribbon. Controls never disappear on scroll. */
+   pills and a contained route ribbon. Directional scroll makes room to learn. */
 .sitov-learning-shell .academy-student-header { background: transparent; border-bottom: 1px solid color-mix(in srgb, var(--border) 55%, transparent); box-shadow: 0 8px 28px -22px rgb(15 23 42 / .2); -webkit-backdrop-filter: none; backdrop-filter: none; }
 /* Blur only the background: putting it on the header itself would trap the
    mobile fixed dock in the header's containing block in Safari/Chromium. */
@@ -802,6 +811,20 @@ button.st-focus-slot { border-radius: .6rem .6rem 0 0; background: color-mix(in 
 .sitov-learning-shell .st-mode-dock__list { max-width: 66rem; border-radius: 1.4rem; background: color-mix(in srgb, var(--surface) 96%, transparent); border-color: color-mix(in srgb, var(--border) 65%, transparent); box-shadow: 0 8px 30px -16px rgb(15 23 42 / .25); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); }
 .sitov-learning-shell .st-mode-dock__pill { box-shadow: inset 0 0 0 1px currentColor; }
 .sitov-learning-shell .learning-screen[data-presentation='embedded'] { scroll-margin-top: calc(var(--sitov-shell-header-height, 120px) + 100px); }
+@media (max-width: 639px) {
+  .sitov-learning-shell .academy-student-toolbar { min-height: 56px; padding-block: .25rem; }
+  .sitov-shell-tools { gap: .1rem; }
+  /* Keep the accessible labels while the 48px buttons use one compact row. */
+  .sitov-shell-tools .st-toolbar-button > span { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
+  .sitov-shell-navigation-row { padding-bottom: .1rem; }
+  .sitov-learning-shell .academy-student-content { padding-top: .65rem; }
+  .sitov-learning-shell .st-mode-dock { margin-top: -.4rem; margin-bottom: .5rem; padding-block: .25rem; }
+  .sitov-learning-shell .st-mode-dock__list { padding: .25rem; border-radius: 1.1rem; }
+  .sitov-learning-shell .st-mode-dock__link { min-height: 3rem; gap: .1rem; padding-block: .2rem; }
+  .sitov-learning-shell .st-mode-dock__icon > svg { width: 19px; height: 19px; }
+  .sitov-learning-shell .st-mode-dock__label::after { font-size: .75rem; }
+  .sitov-learning-shell .learning-screen[data-presentation='embedded'] { scroll-margin-top: calc(var(--sitov-shell-header-height, 102px) + 72px); }
+}
 @media (hover: hover) {
   .sitov-learning-shell .st-toolbar-button:hover { background: var(--surface-muted); border-color: var(--border); }
   .sitov-learning-shell .st-toolbar-button:hover > svg { transform: translateY(-2px) rotate(-6deg); }

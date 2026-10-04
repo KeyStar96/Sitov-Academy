@@ -11,7 +11,8 @@ const mockGetUser = jest.fn()
 const mockRpc = jest.fn()
 const mockFrom = jest.fn()
 const mockSignedUrl = jest.fn()
-const mockClient = { auth:{getUser:mockGetUser}, rpc:mockRpc, from:mockFrom, storage:{from:jest.fn(() => ({createSignedUrl:mockSignedUrl}))} }
+const mockSignedUrls = jest.fn()
+const mockClient = { auth:{getUser:mockGetUser}, rpc:mockRpc, from:mockFrom, storage:{from:jest.fn(() => ({createSignedUrl:mockSignedUrl,createSignedUrls:mockSignedUrls}))} }
 jest.mock('server-only', () => ({}), {virtual:true})
 jest.mock('@/utils/supabase/server', () => ({createClient:jest.fn(async () => mockClient)}))
 jest.mock('@/lib/mail', () => ({ queueTransactionalEmail: jest.fn().mockResolvedValue({success:true}) }))
@@ -37,8 +38,9 @@ beforeEach(() => {
  jest.clearAllMocks()
  jest.mocked(revalidatePath).mockReset()
  mockGetUser.mockResolvedValue({data:{user:{id:owner}}})
- mockRpc.mockResolvedValue({data:promptId,error:null})
+ mockRpc.mockImplementation(async (name: string) => ({data:name === 'pronunciation_reply_senders' || name === 'sitov_pronunciation_conversation_titles' ? [] : name === 'get_staff_pronunciation_view' ? {success:true,hiddenSubmissions:[],hiddenMessages:[],pendingCount:0} : promptId,error:null}))
  mockSignedUrl.mockResolvedValue({data:{signedUrl:`http://127.0.0.1:9080/storage/v1/object/sign/pronunciation_audio/${owner}/recording.webm?token=a%2Bb%3D`},error:null})
+ mockSignedUrls.mockImplementation(async (paths: string[]) => ({data: paths.map(path => ({path,error:null,signedUrl:`http://127.0.0.1:9080/storage/v1/object/sign/pronunciation_audio/${owner}/recording.webm?token=a%2Bb%3D`})),error:null}))
 })
 describe('authenticated pronunciation writes', () => {
  it('does not create a submission without a verified server session', async () => {
@@ -101,7 +103,8 @@ describe('canonical conversation history', () => {
   expect(result[0].messages.map((item) => item.id)).toEqual([`recording-${promptId}`,'new-message'])
   expect(result[0].messages[0].audioUrl).toBeNull()
   expect(result[0].messages.at(-1)?.audioUrl).toBe(`https://217.154.228.254/supabase/storage/v1/object/sign/pronunciation_audio/${owner}/recording.webm?token=a%2Bb%3D`)
-  expect(mockSignedUrl).toHaveBeenCalledWith(`${owner}/2aab2f11-3456-4234-8234-123456789012.webm`,3600)
+  expect(mockSignedUrls).toHaveBeenCalledWith([`${owner}/2aab2f11-3456-4234-8234-123456789012.webm`],3600)
+  expect(mockSignedUrl).not.toHaveBeenCalled()
   expect(result[0].studentEmail).toBeNull()
   expect(result[0].title).toBeNull()
  })
@@ -119,5 +122,25 @@ describe('canonical conversation history', () => {
   expect((await getPronunciationConversations())[0].title).toBe('Renamed lesson')
   expect(submissions.select.mock.calls[0][0]).toContain('prompt:learning_reading_texts(unit:learning_units(label))')
   expect(submissions.select.mock.calls[0][0]).not.toContain('prompt_title')
+ })
+ it('skips history metadata and Storage requests when there are no recordings', async () => {
+  mockFrom.mockImplementation((table:string) => table === 'profiles' ? query({role:'student'}) : query([]))
+  expect(await getPronunciationConversations('A1.1')).toEqual([])
+  expect(mockRpc).not.toHaveBeenCalled()
+  expect(mockSignedUrls).not.toHaveBeenCalled()
+  expect(mockFrom.mock.calls.map(call => call[0])).toEqual(['profiles','submissions'])
+ })
+ it('signs the complete message history in one deduplicated Storage request', async () => {
+  const secondPath = path.replace('2aab2f11', '4aab2f11')
+  const history = {...row,content_url:path,pronunciation_messages:[
+   ...row.pronunciation_messages,
+   {...row.pronunciation_messages[0],id:'later-message',audio_path:secondPath,created_at:'2026-08-05T10:00:00Z'},
+  ]}
+  mockFrom.mockImplementation((table:string) => table === 'profiles' ? query({role:'student'}) : table === 'people' ? query([]) : query([history]))
+  const result = await getPronunciationConversations('A1.1')
+  expect(result[0].messages).toHaveLength(3)
+  expect(result[0].messages.every(message => message.audioUrl !== null)).toBe(true)
+  expect(mockSignedUrls).toHaveBeenCalledTimes(1)
+  expect(mockSignedUrls).toHaveBeenCalledWith([path.slice('storage://pronunciation_audio/'.length),secondPath.slice('storage://pronunciation_audio/'.length)],3600)
  })
 })

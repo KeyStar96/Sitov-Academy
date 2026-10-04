@@ -103,6 +103,7 @@ export default function VocabCardSession({ learnerId, level, cards, translations
   const [answer, setAnswer] = useState(restored?.state.answer ?? '')
   // Flashcard-Modus: erst Lösung aufdecken, dann selbst einschätzen.
   const [revealed, setRevealed] = useState(false)
+  const [sitovRevealedCardKey, setSitovRevealedCardKey] = useState<string | null>(null)
   // Gewählter Weg für Karten, bei denen beide Wege offenstehen. Der Wert kommt
   // erst nach dem Mounten aus dem localStorage – Server und erster Client-Render
   // müssen übereinstimmen.
@@ -477,10 +478,11 @@ export default function VocabCardSession({ learnerId, level, cards, translations
   const flipFrontRef = useRef<HTMLDivElement>(null)
 
   function revealFlashcard() {
+    setSitovRevealedCardKey(item?.key ?? null)
     setRevealed(true)
     // Nach dem Umdrehen liegt der Fokus auf der Rückseite: Screenreader lesen
     // Frage und Lösung vor, und der scrollbare Bereich bleibt bedienbar.
-    requestAnimationFrame(() => flipBackRef.current?.focus())
+    requestAnimationFrame(() => flipBackRef.current?.focus({ preventScroll: true }))
   }
 
   /**
@@ -493,7 +495,8 @@ export default function VocabCardSession({ learnerId, level, cards, translations
     if (reviewPending || saveFailed) return
     if (!revealed) { revealFlashcard(); return }
     setRevealed(false)
-    requestAnimationFrame(() => flipFrontRef.current?.focus())
+    if (reducedMotion) setSitovRevealedCardKey(null)
+    requestAnimationFrame(() => flipFrontRef.current?.focus({ preventScroll: true }))
   }
 
   function onCardClick(event: React.MouseEvent<HTMLElement>) {
@@ -562,7 +565,15 @@ export default function VocabCardSession({ learnerId, level, cards, translations
             /* Karteikarte: Vorderseite fragt, Rückseite zeigt Frage und Lösung.
                Der `key` setzt die Drehung bei jeder neuen Karte hart zurück,
                damit die nächste Frage nicht rückwärts hereindreht. */
-            <article key={item.key} className={cn('learning-card learning-card-flip', styles.sitovCard, revealed && 'is-revealed')} onClick={onCardClick} data-sitov-surface>
+            <article key={item.key} className={cn('learning-card learning-card-flip', styles.sitovCard, revealed && 'is-revealed', sitovRevealedCardKey === item.key && 'has-answer-content')} onClick={onCardClick}
+              onTransitionEnd={event => {
+                if (event.propertyName !== 'visibility') return
+                const face = revealed ? flipBackRef.current : flipFrontRef.current
+                if (event.target === face?.parentElement) {
+                  face.focus({ preventScroll: true })
+                  if (!revealed) setSitovRevealedCardKey(null)
+                }
+              }} data-sitov-surface>
               <div className="learning-flip-inner">
                 <div className="learning-flip-face learning-flip-front" aria-hidden={revealed} inert={revealed}>
                   <SitovVocabularyCardMark />
@@ -578,7 +589,7 @@ export default function VocabCardSession({ learnerId, level, cards, translations
                   {/* Die Rueckseite fuellt sich erst beim Aufdecken: bis 90 Grad ist sie
                       ohnehin unsichtbar, und die Loesung steht vorher nicht im DOM. */}
                   <div ref={flipBackRef} tabIndex={0} onKeyDown={onCardKeyDown} aria-keyshortcuts="Enter Space" className={cn('learning-card-content', denseFlipBack && 'learning-card-content-dense')}>
-                    {revealed && <>
+                    {(revealed || sitovRevealedCardKey === item.key) && <>
                     {/* Die Frage bleibt auf der Rückseite stehen, nur zurückgenommen. */}
                     <p className="learning-flip-echo" lang={current.promptLanguage}>{prompt}</p>
                     <div className="learning-divider" />
