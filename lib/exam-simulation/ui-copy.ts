@@ -176,6 +176,7 @@ const messages = {
   errorAudio: ['Der Hörtext lädt nicht. Bitte lade ihn erneut, bevor du antwortest.','The audio is not loading. Reload it before answering.','Аудио не загружается. Загрузи его снова перед ответом.','Аудіо не завантажується. Завантаж його знову перед відповіддю.','Ses kaydı yüklenmiyor. Yanıtlamadan önce yeniden yükle.'],
   errorFile: ['Bitte wähle eine Audiodatei bis 20 MB: MP3, M4A, WAV, WebM oder Ogg.','Choose an audio file up to 20 MB: MP3, M4A, WAV, WebM or Ogg.','Выбери аудиофайл до 20 МБ: MP3, M4A, WAV, WebM или Ogg.','Обери аудіофайл до 20 МБ: MP3, M4A, WAV, WebM або Ogg.','En fazla 20 MB boyutunda MP3, M4A, WAV, WebM veya Ogg ses dosyası seç.'],
   errorRecordingPrepare: ['Deine Aufnahme konnte nicht vorbereitet werden.','Your recording could not be prepared.','Не удалось подготовить запись.','Не вдалося підготувати запис.','Kaydın hazırlanamadı.'],
+  errorUploadQuota: ['Dein Uploadkontingent ist erreicht. Bitte versuche es später erneut.','You have reached your upload allowance. Please try again later.','Лимит загрузок исчерпан. Попробуй позже.','Ліміт завантажень вичерпано. Спробуй пізніше.','Yükleme sınırına ulaştın. Lütfen daha sonra tekrar dene.'],
   errorRecordingUpload: ['Die Aufnahme konnte nicht hochgeladen werden. Sie bleibt hier zum erneuten Speichern erhalten.','The recording could not be uploaded. It stays here so you can retry.','Не удалось загрузить запись. Она остаётся здесь для повторной попытки.','Не вдалося завантажити запис. Він залишається тут для повторної спроби.','Kayıt yüklenemedi. Tekrar deneyebilmen için burada korunur.'],
   micDenied: ['Dein Mikrofon ist gesperrt. Du kannst eine Audiodatei hochladen.','Your microphone is blocked. You can upload an audio file.','Микрофон заблокирован. Можно загрузить аудиофайл.','Мікрофон заблокований. Можна завантажити аудіофайл.','Mikrofonun engellendi. Bir ses dosyası yükleyebilirsin.'],
   micUnsupported: ['Dieser Browser kann nicht aufnehmen. Lade eine Audiodatei hoch.','This browser cannot record. Upload an audio file.','Браузер не поддерживает запись. Загрузи аудиофайл.','Браузер не підтримує запис. Завантаж аудіофайл.','Bu tarayıcı kayıt yapamıyor. Bir ses dosyası yükle.'],
@@ -203,6 +204,7 @@ export function sitovSimulationError(lang: string, message?: string, fallback: S
   if (copy.lang === 'de' && message) return message
   if (!message) return copy.t(fallback)
   const patterns: [RegExp, SitovSimulationCopyKey][] = [
+    [/Uploadkontingent/i,'errorUploadQuota'],
     [/melde dich an/i,'errorLogin'], [/noch nicht freigegeben|noch gesperrt/i,'gateBody'], [/Niveau-Freigabe/i,'levelLocked'],
     [/gerade zurück|Reset.*fort|gerade zurückgesetzt/i,'errorReset'], [/wurde.*zurückgesetzt/i,'errorReload'],
     [/Prüfungszeit.*(?:abgelaufen|beendet)|Zeit ist abgelaufen/i,'errorExpired'], [/laufenden Durchgang/i,'errorActive'],

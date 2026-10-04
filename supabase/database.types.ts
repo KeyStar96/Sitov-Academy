@@ -1212,6 +1212,7 @@ export type Database = {
       }
       profiles: {
         Row: {
+          sitov_mfa_required: boolean
           daily_quests_enabled: boolean
           daily_quest_streak: number
           daily_quest_longest_streak: number
@@ -1227,6 +1228,7 @@ export type Database = {
           updated_at: string | null
         }
         Insert: {
+          sitov_mfa_required?: boolean
           daily_quests_enabled?: boolean
           daily_quest_streak?: number
           daily_quest_longest_streak?: number
@@ -1242,6 +1244,7 @@ export type Database = {
           updated_at?: string | null
         }
         Update: {
+          sitov_mfa_required?: boolean
           daily_quests_enabled?: boolean
           daily_quest_streak?: number
           daily_quest_longest_streak?: number
@@ -2327,6 +2330,9 @@ export type Database = {
       [_ in never]: never
     }
     Functions: CertificateFunctions & DailyQuestFunctions & ExamSimulationFunctions & {
+      sitov_staff_mfa_status: { Args: Record<string, never>; Returns: Json }
+      sitov_enable_staff_mfa: { Args: Record<string, never>; Returns: boolean }
+      sitov_reserve_audio_generation: { Args: { p_user_id: string; p_characters: number }; Returns: boolean }
       sitov_import_vocabulary_seed: { Args: { p_seed: Json; p_publish?: boolean }; Returns: Json }
       sitov_record_grammar_checkpoint_attempt: { Args: { p_exercise_id: string; p_answer: string; p_hint_shown: boolean; p_level: string; p_expected_revision: number; p_request_id: string }; Returns: Json }
       sitov_learning_checkpoint: { Args: { p_action: string; p_kind: string; p_level: string; p_state?: Json; p_expected_revision?: number | null }; Returns: Json }

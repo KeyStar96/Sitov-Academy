@@ -202,7 +202,7 @@
                         "price": "15€",
                         "price_unit": "/ 90 Min",
                         "price_note": "",
-                        "description": "Comfortably from home. In small groups (max. 10 people), including lesson recordings for your own review afterwards and intensive 24/7 Telegram support from the teacher for questions about grammar and language.",
+                        "description": "Comfortably from home. In small groups (max. 10 people). Lesson recordings for review are possible if everyone captured voluntarily consents. Intensive 24/7 Telegram support from the teacher is available for grammar and language questions.",
                         "max_participants": "Max: 10 People",
                         "badge": "Online Course"
                     },
@@ -217,7 +217,7 @@
                         "price": "15€",
                         "price_unit": "/ 90 Min",
                         "price_note": "",
-                        "description": "Intermediate level for advanced learners. In small groups (max. 10 people), including lesson recordings for your own review afterwards and intensive 24/7 Telegram support from the teacher for questions about grammar and language.",
+                        "description": "Intermediate level for advanced learners. In small groups (max. 10 people). Lesson recordings for review are possible if everyone captured voluntarily consents. Intensive 24/7 Telegram support from the teacher is available for grammar and language questions.",
                         "max_participants": "",
                         "badge": "Online Course"
                     }
@@ -401,7 +401,7 @@
             "privacy": "I agree that my data will be stored and used to process my request in accordance with the Privacy Policy. Course administration runs on our self-managed server.",
             "agb": "I have read and accept the General Terms and Conditions (AGB).",
             "revocation": "I expressly request and agree that you begin the execution of the service (start of the course) before the end of the withdrawal period. I am aware that I lose my right of withdrawal upon complete performance of the contract and that I must pay compensation for the services already rendered if I withdraw after the course has started.",
-            "video_recording": "I consent to the recording of online sessions via Microsoft Teams (audio and video) exclusively for internal teaching purposes."
+            "video_recording": "I voluntarily consent to my voice and image being recorded in online sessions via Microsoft Teams exclusively for internal teaching purposes. This consent is not required for registration and can be withdrawn for the future at any time by contacting info@sitov-academy.com."
         },
         "flow": {
             "home": "Back to homepage",
@@ -487,7 +487,7 @@
                 "need_start": "First choose when you would like to start.",
                 "need_start_trial": "First choose a date.",
                 "need_details": "Please check the fields marked in red. We have taken you to the first one.",
-                "need_consents": "Please confirm all points first."
+                "need_consents": "Please confirm the required points first."
             },
             "dock": {
                 "chosen": {
@@ -543,17 +543,18 @@
             },
             "consents": {
                 "title": "Please confirm these points",
-                "intro": "All points are required so that we can accept your registration.",
-                "accept_all": "Accept all",
+                "intro": "Confirm the required points. Consent to lesson recordings is voluntary and is selected separately.",
+                "accept_all": "Confirm required points",
                 "more": "Read more",
                 "less": "Show less",
                 "privacy": "My data may be stored and used for the registration.",
                 "agb": "I have read the Terms and agree to them.",
                 "revocation": "My course may start before the withdrawal period ends. If I withdraw after the course has started, I pay for the lessons that have already taken place.",
-                "video_recording": "The online lessons may be recorded (sound and picture), only internally for teaching.",
+                "video_recording": "Optional: My voice and image may be recorded during online lessons for internal teaching purposes.",
                 "privacy_link": "Read the privacy policy",
                 "agb_link": "Read the Terms",
-                "new_tab": "(opens in a new tab)"
+                "new_tab": "(opens in a new tab)",
+                "recording_notice": "You can register without this consent. Tell your teacher about your choice before the online lesson so they can check who may be included before making a recording."
             },
             "submit_failed": "Unfortunately, that did not work. Please try again in a few minutes. If it still does not work, write to us at info@sitov-academy.com.",
             "done": {
@@ -637,7 +638,7 @@
                     "(1) The subject of the contract is the services specified in the respective course description (scope of services, course duration, dates, teaching materials). The course description is an integral part of the contract.",
                     "(2) Minor changes in the course schedule, teaching staff, or class times are permissible, provided that the overall character of the course is not significantly impaired.",
                     "(3) Online instruction is conducted via common video conferencing software (e.g., Microsoft Teams). The participant is responsible for a suitable internet connection and technical equipment.",
-                    "(4) For quality assurance and review purposes for participants, online sessions are recorded. The details regarding the use of these recordings are set out in § 9 of these GTC.",
+                    "(4) Online sessions may be recorded for participants to review if everyone captured has voluntarily consented. Registration does not require consent to recording. Details of permitted recordings are set out in § 9 of these Terms and the privacy policy.",
                     "(5) Course participation covers the specifically agreed dates in the relevant calendar month. The displayed number of teaching units describes the calculation for that month; it is not an unlimited or freely redeemable balance of hours. Private lesson dates are individually agreed within the booked month; separate arrangements remain possible."
                 ]
             },
@@ -950,7 +951,7 @@
                     "8.6 Meta Pixel (only with consent)",
                     "Only with your express consent do we use the Meta Pixel on our website. The provider is Meta Platforms Ireland Limited, Merrion Road, Dublin 4, D04 X2K5, Ireland (parent company: Meta Platforms, Inc., 1 Meta Way, Menlo Park, CA 94025, USA).",
                     "Purpose: measuring the effectiveness of our ads on Facebook and Instagram (e.g. whether a click on an ad leads to a trial lesson request or a course registration) and delivering these ads, for example to people who have already visited our website.",
-                    "Data processed: IP address, browser and device information, pages visited with time and referrer, the events we trigger (page view, trial lesson request or course registration with course ID and amount) and cookie identifiers such as “_fbp” (stored for up to 90 days). If you are logged in to Facebook or Instagram, Meta may link the visit to your account.",
+                    "Processed data: IP address and browser information transmitted technically, time, only the public home or course registration page without URL parameters or fragments, and explicit events (page view, trial lesson request or course registration with public course IDs and amount). Referring pages and form field data are not transmitted. A valid Facebook click identifier from an advertising link is retained in memory for the current registration journey only after consent; existing valid Meta identifiers “_fbc” and “_fbp” may be transmitted. We do not set new identifier cookies for this. Meta may associate requests with a Facebook or Instagram account using its own cookies. Learning, administration, sign-in and password pages are excluded.",
                     "Legal basis: your consent pursuant to Art. 6(1)(a) GDPR and § 25(1) TDDDG. You can withdraw your consent at any time with effect for the future via “Cookie settings” in the footer; the lawfulness of processing carried out before the withdrawal remains unaffected.",
                     "Joint controllership: we and Meta Platforms Ireland Limited are jointly responsible for collecting the data on our website and transmitting it to Meta (Art. 26 GDPR). The details are set out in the joint controller agreement: https://www.facebook.com/legal/controller_addendum. Meta is solely responsible for any subsequent processing.",
                     "Transfer to third countries: Meta may transfer data to the USA. Meta Platforms, Inc. is certified under the EU-US Data Privacy Framework; the transfer is based on the European Commission’s adequacy decision (Art. 45 GDPR) and additionally on standard contractual clauses (Art. 46(2)(c) GDPR). Please note the general risks of a transfer to third countries (theoretical access by US authorities).",
@@ -968,12 +969,12 @@
                     "Purpose of recording: The recordings serve exclusively the participants of the respective course for review and revision of the learning content.",
                     "9.2 Legal Basis",
                     "The use of Microsoft Teams for the general delivery of instruction is based on Art. 6 Para. 1 lit. b GDPR (performance of contract).",
-                    "The video recording of sessions takes place exclusively on the basis of your express consent pursuant to Art. 6 Para. 1 lit. a GDPR, which you grant during course registration via a mandatory checkbox.",
+                    "Recording your voice and image requires your explicit, voluntary consent under Article 6(1)(a) GDPR. The separate registration checkbox is optional and is not selected by confirming the required points. You can register without consenting to recording.",
                     "9.3 Storage Duration and Access",
                     "The video recordings are stored in a protected environment (e.g. password-protected cloud storage from Microsoft). Access is strictly limited to the instructor and the registered participants of the same course. No disclosure to third parties takes place.",
                     "The recordings are permanently deleted no later than 30 days after the completion of the respective course.",
                     "9.4 Withdrawal of Consent",
-                    "You may withdraw your consent to recording at any time with effect for the future. Please note that the course concept of our online B1 courses is based on these recordings; a withdrawal may therefore result in further participation in online instruction being technically or organizationally no longer possible.",
+                    "You may withdraw your recording consent at any time for the future by contacting info@sitov-academy.com or your teacher. Tell your teacher before the online session if consent is absent or withdrawn. Before recording, the teacher must check that only people with valid consent are captured; otherwise that recording must not take place.",
                     "9.5 Data Transfer to Third Countries (USA)",
                     "When using Microsoft Teams, data processing in the USA may occur. The transfer is based on the EU-US Data Privacy Framework (DPF) as well as supplementary Standard Contractual Clauses (SCCs). Microsoft is DPF-certified. Please note the general risks of third-country transfers (theoretical access possibilities by US authorities).",
                     "Further information: https://privacy.microsoft.com/de-de/privacystatement"

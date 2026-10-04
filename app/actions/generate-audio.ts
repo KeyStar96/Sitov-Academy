@@ -31,12 +31,15 @@ export async function generateAudio(input: GenerateAudioInput): Promise<Generate
 
     const { language, cardId, voice } = parsed.data
     const text = normalizeAudioText(parsed.data.text)
+    // Every new foreign recording must belong to an accessible authored card.
+    // Cached recordings use the same authorization, so caching is no bypass.
+    if (language !== 'de' && !cardId) return { success: false, error: 'invalid_input' }
     let card: { id: string; word_de: string; article: Tables<'learning_vocabulary_cards'>['article']; level: string; audio_url: string | null } | null = null
     let isGermanHeadword = false
     if (cardId) {
       const result = await supabase.from('learning_vocabulary_cards')
-        .select('id,word_de,article,chunk_de,audio_url,unit:learning_units!inner(level),translations:vocabulary_translations(locale,context_sentence)')
-        .eq('id', cardId).eq('translations.locale', 'de').maybeSingle()
+        .select('id,word_de,article,chunk_de,audio_url,unit:learning_units!inner(level),translations:vocabulary_translations(locale,translation,chunk_translation,context_sentence)')
+        .eq('id', cardId).eq('translations.locale', language).maybeSingle()
       if (result.error || !result.data || !hasTrainerAccess(profile, result.data.unit.level, 'vocabulary')) return { success: false, error: 'forbidden' }
       card = { ...result.data, level: result.data.unit.level }
       if (language === 'de') {
@@ -47,6 +50,12 @@ export async function generateAudio(input: GenerateAudioInput): Promise<Generate
           ...(result.data.translations ?? []).filter(translation => translation.locale === 'de').map(translation => translation.context_sentence),
         ]
         if (!isGermanHeadword && !usageTexts.some(value => typeof value === 'string' && normalizeAudioText(value) === text)) {
+          return { success: false, error: 'invalid_input' }
+        }
+      } else {
+        const authoredTexts = (result.data.translations ?? []).filter(translation => translation.locale === language)
+          .flatMap(translation => [translation.translation, translation.chunk_translation, translation.context_sentence])
+        if (!authoredTexts.some(value => typeof value === 'string' && normalizeAudioText(value) === text)) {
           return { success: false, error: 'invalid_input' }
         }
       }
@@ -60,6 +69,9 @@ export async function generateAudio(input: GenerateAudioInput): Promise<Generate
       // Student requests must never start inference or fall back to a different voice.
       if (language === 'de') return { success: false, error: 'audio_unavailable' }
       if (!(await rateLimit(`audio-generate:${user.id}`, 20, '60 s')).success) return { success: false, error: 'rate_limited' }
+      const quota = await createAdminClient().rpc('sitov_reserve_audio_generation', { p_user_id: user.id, p_characters: text.length })
+      if (quota.error) return { success: false, error: 'audio_unavailable' }
+      if (quota.data !== true) return { success: false, error: 'rate_limited' }
       asset = voice ? await generateCachedAudio(text, language, path, voice) : await generateCachedAudio(text, language, path)
     }
     if (card && isGermanHeadword && !card.audio_url) {

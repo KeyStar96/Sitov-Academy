@@ -1,0 +1,9 @@
+[Unit]
+Description=Check Sitov Academy shared disk reserve every minute
+
+[Timer]
+OnBootSec=15s
+OnUnitActiveSec=60s
+
+[Install]
+WantedBy=timers.target

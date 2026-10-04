@@ -4,6 +4,7 @@ import { z } from 'zod'
 import { readAllRows } from '@/lib/supabase-read'
 import { grammarLessonLabel, type AvailableLessonsResult } from '@/lib/access/units'
 import { createClient } from '@/utils/supabase/server'
+import { requireSitovStaffMfa } from '@/lib/sitov-staff-mfa'
 import { createAdminClient } from '@/utils/supabase/admin'
 import { revalidatePath } from 'next/cache'
 import { sanitizeAllowedLevels, ACCESS_LEVELS, SITOV_VERB_LEVELS, TRAINERS } from '@/lib/access/levels'
@@ -23,13 +24,14 @@ async function requireAdmin() {
   
   const { data: profile } = await supabase
     .from('profiles')
-    .select('role')
+    .select('role,sitov_mfa_required')
     .eq('id', user.id)
     .single()
     
   if (profile?.role !== 'admin' && profile?.role !== 'teacher') {
     throw new Error('Not authorized')
   }
+  await requireSitovStaffMfa(supabase, profile)
 }
 
 export async function getAdminStats() {

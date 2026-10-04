@@ -15,6 +15,10 @@ it('stores trials through the atomic business RPC with explicit consents',async(
  expect(await submitTrialLesson(input)).toEqual({success:true,message:'trial_success'})
  expect(rpc).toHaveBeenCalledWith('submit_business_registration',expect.objectContaining({p_course_selections:[{course_id:id}],p_start:'2026-10-05',p_trial:true,p_locale:'uk',p_consents:{privacy:true,agb:true,recording:null}}))
 })
+it.each([false,true])('stores a voluntary trial recording choice without rejecting false: %s',async recording=>{
+ expect(await submitTrialLesson({...input,videoRecordingAccepted:recording})).toEqual({success:true,message:'trial_success'})
+ expect(rpc).toHaveBeenCalledWith('submit_business_registration',expect.objectContaining({p_consents:{privacy:true,agb:true,recording}}))
+})
 it('rejects missing consents and legacy course IDs before database access',async()=>{
  expect((await submitTrialLesson({...input,privacyAccepted:false})).success).toBe(false)
  expect((await submitTrialLesson({...input,courseId:'legacy-course'})).success).toBe(false);expect(createAdminClient).not.toHaveBeenCalled()

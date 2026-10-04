@@ -73,10 +73,10 @@ export async function createExamUpload(input:{mimeType:string;bytes:number;kind:
  if(!allowed.includes(type))throw new Error('Bitte verwende eine unterstützte Audio- oder Bilddatei.')
  const extension:Record<string,string>={'audio/webm':'webm','audio/mp4':'m4a','audio/mpeg':'mp3','audio/ogg':'ogg','audio/wav':'wav','audio/x-wav':'wav','audio/x-m4a':'m4a','image/jpeg':'jpg','image/png':'png','image/webp':'webp'}
  const path=`${actor.userId}/${data.kind}/${randomUUID()}.${extension[type]}`
- const admin=createAdminClient(),ticket=await admin.from('sitov_exam_upload_tickets').insert({path,student_id:actor.userId,kind:data.kind})
- if(ticket.error)throw new Error('Der Upload kann während eines Lerndaten-Resets nicht begonnen werden.')
+ const admin=createAdminClient(),ticket=await admin.from('sitov_exam_upload_tickets').insert({path,student_id:actor.userId,kind:data.kind,expected_bytes:data.bytes})
+ if(ticket.error){if(ticket.error.code==='PT429')throw new Error('Dein Uploadkontingent ist erreicht. Bitte versuche es später erneut.');throw new Error('Der Upload kann derzeit nicht begonnen werden. Bitte versuche es später erneut.')}
  const {data:signed,error}=await admin.storage.from(EXAM_BUCKET).createSignedUploadUrl(path,{upsert:false})
- if(error||!signed)throw new Error('Der Upload konnte nicht vorbereitet werden. Dein Entwurf bleibt erhalten.')
+ if(error||!signed){await admin.from('sitov_exam_upload_tickets').delete().eq('path',path);throw new Error('Der Upload konnte nicht vorbereitet werden. Dein Entwurf bleibt erhalten.')}
  return {success:true,path,token:signed.token,signedUrl:signed.signedUrl}
 }catch(error){return {success:false,error:failure(error).error}}}
 export async function saveExamSubmission(form:FormData):Promise<ExamActionResult>{try{

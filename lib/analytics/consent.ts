@@ -74,7 +74,7 @@ export function saveConsent(marketing: boolean): ConsentRecord {
   try {
     window.localStorage.setItem(CONSENT_STORAGE_KEY, JSON.stringify(record))
   } catch {
-    // Privater Modus o. Ä.: Die Entscheidung gilt dann nur für diese Seite.
+    // If browser storage is unavailable, readConsent remains unset: fail closed.
   }
   document.documentElement.dataset.consent = 'set'
   window.dispatchEvent(new Event(CHANGE_EVENT))
@@ -83,12 +83,32 @@ export function saveConsent(marketing: boolean): ConsentRecord {
 
 /** Für `useSyncExternalStore`: Änderungen in diesem und in anderen Tabs. */
 export function subscribeConsent(onChange: () => void): () => void {
-  const onStorage = (event: StorageEvent) => { if (event.key === null || event.key === CONSENT_STORAGE_KEY) onChange() }
-  window.addEventListener(CHANGE_EVENT, onChange)
+  let expiryTimer: ReturnType<typeof setTimeout> | undefined
+  const sync = () => {
+    if (expiryTimer !== undefined) clearTimeout(expiryTimer)
+    const record = readConsent()
+    document.documentElement.dataset.consent = record ? 'set' : 'open'
+    onChange()
+    // Browser timers overflow for long delays. Recheck at least daily and at
+    // expiry; focus/visibility also cover suspended background tabs.
+    if (record) {
+      const remaining = Date.parse(record.decidedAt) + CONSENT_MAX_AGE_MS - Date.now()
+      expiryTimer = setTimeout(sync, Math.min(Math.max(remaining + 1, 1), 24 * 60 * 60 * 1000))
+    }
+  }
+  const onStorage = (event: StorageEvent) => { if (event.key === null || event.key === CONSENT_STORAGE_KEY) sync() }
+  const onVisible = () => { if (document.visibilityState === 'visible') sync() }
+  window.addEventListener(CHANGE_EVENT, sync)
   window.addEventListener('storage', onStorage)
+  window.addEventListener('focus', sync)
+  document.addEventListener('visibilitychange', onVisible)
+  sync()
   return () => {
-    window.removeEventListener(CHANGE_EVENT, onChange)
+    if (expiryTimer !== undefined) clearTimeout(expiryTimer)
+    window.removeEventListener(CHANGE_EVENT, sync)
     window.removeEventListener('storage', onStorage)
+    window.removeEventListener('focus', sync)
+    document.removeEventListener('visibilitychange', onVisible)
   }
 }
 

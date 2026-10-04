@@ -1,0 +1,15 @@
+.sitovPanel { min-width: 0; display: grid; gap: 1.25rem; }
+.sitovState { animation: sitov-mfa-enter var(--motion-slow) var(--ease-out-soft) both; }
+.sitovQr { width: min(100%, 240px); height: auto; padding: .75rem; border-radius: .75rem; background: white; }
+.sitovKey { display: block; overflow-wrap: anywhere; padding: .75rem; border: 1px solid var(--border); border-radius: .75rem; user-select: all; font-family: var(--font-mono), monospace; }
+.sitovField { width: 100%; min-height: 48px; padding: .75rem 1rem; border: 1px solid var(--border); border-radius: .75rem; color: var(--foreground); background: var(--surface); }
+.sitovField:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.sitovCode { font-variant-numeric: tabular-nums; font-size: 1.5rem; letter-spacing: .18em; }
+.sitovFeedback { min-height: 1.5rem; font-size: .875rem; line-height: 1.5; }
+.sitovRecovery { color: var(--muted); font-size: .875rem; line-height: 1.5; }
+.sitovButton { transition: transform var(--motion-fast) var(--ease-out-soft), background var(--motion-base) ease; }
+.sitovButton:active:not(:disabled) { transform: scale(.97); }
+.sitovButton:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.sitovButton:disabled { opacity: .55; cursor: not-allowed; }
+@keyframes sitov-mfa-enter { from { opacity: .8; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) { .sitovState { animation: none; } .sitovButton, .sitovButton:active:not(:disabled) { transition: none; transform: none; } }

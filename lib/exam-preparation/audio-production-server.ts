@@ -3,6 +3,7 @@ import 'server-only'
 import { createHash, randomUUID } from 'node:crypto'
 import { cache } from 'react'
 import { createClient } from '@/utils/supabase/server'
+import { requireSitovStaffMfa } from '@/lib/sitov-staff-mfa'
 import { createAdminClient } from '@/utils/supabase/admin'
 import { validWordTimings } from '@/lib/audio/playback-settings'
 import type { AudioWordTiming } from '@/lib/types/audio'
@@ -28,8 +29,9 @@ async function staffContext() {
   const session = await createClient()
   const { data: { user } } = await session.auth.getUser()
   if (!user) throw new Error('Bitte melde dich erneut an.')
-  const { data: profile, error } = await session.from('profiles').select('role').eq('id', user.id).single()
+  const { data: profile, error } = await session.from('profiles').select('role,sitov_mfa_required').eq('id', user.id).single()
   if (error || (profile?.role !== 'admin' && profile?.role !== 'teacher')) throw new Error('Nur Lehrkräfte können Aufnahmeaufträge verwalten.')
+  await requireSitovStaffMfa(session, profile)
   return { user, admin: createAdminClient() }
 }
 

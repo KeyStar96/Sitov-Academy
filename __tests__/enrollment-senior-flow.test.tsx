@@ -113,7 +113,7 @@ it('lets learners revisit a previous answer without skipping required later step
   expect(screen.getByRole('complementary')).toHaveAccessibleName('Voraussichtlicher Preis')
 })
 
-it('lets names in any alphabet through and sends a complete registration', async () => {
+it.each([false, true])('sends an online registration with an independent voluntary recording choice: %s', async recording => {
   jest.mocked(submitEnrollment).mockResolvedValue({ success: true, message: 'registration_success' })
   renderFlow()
   fireEvent.click(screen.getByRole('checkbox', { name: 'Deutsch A1' }))
@@ -137,20 +137,21 @@ it('lets names in any alphabet through and sends a complete registration', async
   const policy = screen.getByRole('region', { name: de.registration.flow.hero.policy_title })
   expect(policy).toHaveTextContent('Wenn du einen Termin nicht besuchst, wird er nicht in den nächsten Monat übertragen.')
 
-  // Online course → four consents; nothing is sent before all are ticked.
+  // Three required points and one independent optional recording choice.
   expect(screen.getAllByRole('checkbox')).toHaveLength(4)
   fireEvent.click(screen.getByRole('button', { name: 'Kostenpflichtig bestellen' }))
   expect(submitEnrollment).not.toHaveBeenCalled()
-  expect(screen.getByText('Bitte bestätige zuerst alle Punkte.')).toBeInTheDocument()
+  expect(screen.getByText(de.registration.flow.nav.need_consents)).toBeInTheDocument()
 
   fireEvent.click(screen.getAllByRole('button', { name: 'Mehr lesen' })[0])
   expect(screen.getByText(/gemäß der Datenschutzerklärung/)).toBeVisible()
-  fireEvent.click(screen.getByRole('button', { name: 'Alle akzeptieren' }))
-  screen.getAllByRole('checkbox').forEach(box => expect(box).toBeChecked())
-  // Each box stays individually visible and can be unticked again.
-  fireEvent.click(screen.getByRole('checkbox', { name: /aufgezeichnet/ }))
-  expect(screen.getByRole('checkbox', { name: /aufgezeichnet/ })).not.toBeChecked()
-  fireEvent.click(screen.getByRole('checkbox', { name: /aufgezeichnet/ }))
+  fireEvent.click(screen.getByRole('button', { name: de.registration.flow.consents.accept_all }))
+  screen.getAllByRole('checkbox').filter(box => box.hasAttribute('required')).forEach(box => expect(box).toBeChecked())
+  const recordingBox = screen.getByRole('checkbox', { name: /Freiwillig/ })
+  expect(recordingBox).not.toBeChecked()
+  expect(recordingBox).not.toBeRequired()
+  expect(recordingBox).toHaveAccessibleDescription(de.registration.flow.consents.recording_notice)
+  if (recording) fireEvent.click(recordingBox)
 
   fireEvent.click(screen.getByRole('button', { name: 'Kostenpflichtig bestellen' }))
   await waitFor(() => expect(submitEnrollment).toHaveBeenCalledTimes(1))
@@ -158,7 +159,7 @@ it('lets names in any alphabet through and sends a complete registration', async
   expect(data.personal).toMatchObject({ firstName: 'Ayşe', lastName: 'Ağaoğlu', birthDate: '04.03.1958', zip: '30165' })
   expect(selections).toEqual([{ courseId: monday.id }, { courseId: online.id }])
   expect(start).toBe('14.09.2026')
-  expect(consents).toEqual({ privacy: true, agb: true, revocation: true, videoRecording: true })
+  expect(consents).toEqual({ privacy: true, agb: true, revocation: true, videoRecording: recording })
 
   expect(await screen.findByRole('heading', { level: 1, name: 'Danke für deine Anmeldung!' })).toHaveFocus()
   expect(screen.getByText('So geht es weiter')).toBeInTheDocument()
@@ -180,7 +181,7 @@ it('explains a failed submission on the page instead of a browser alert', async 
   next()
   await screen.findByRole('heading', { level: 1, name: 'Bitte prüfe deine Anmeldung' })
   expect(screen.getAllByRole('checkbox')).toHaveLength(3)
-  fireEvent.click(screen.getByRole('button', { name: 'Alle akzeptieren' }))
+  fireEvent.click(screen.getByRole('button', { name: de.registration.flow.consents.accept_all }))
   fireEvent.click(screen.getByRole('button', { name: 'Kostenpflichtig bestellen' }))
   expect(await screen.findByRole('alert')).toHaveTextContent('Das hat leider nicht geklappt.')
   expect(alert).not.toHaveBeenCalled()

@@ -44,6 +44,35 @@ it.each(['en', 'ru', 'uk', 'tr', 'de'])('uses saved %s for deep links and keeps 
 it.each(['/de/login', '/de/register'])('uses the profile when an authenticated visitor opens %s', async path => {
   expect((await visit(path)).headers.get('location')).toBe('https://school.example/en/dashboard')
 })
+it.each(['de', 'en', 'ru', 'uk', 'tr'])('refreshes the %s MFA page session without redirecting a signed-in visitor', async locale => {
+  const request = new NextRequest(`https://school.example/${locale}/staff-security`, {
+    headers: { cookie: 'sb-sitov-auth-token=expired' },
+  })
+  const response = await proxy(request)
+  expect(mockServerClient).toHaveBeenCalledTimes(1)
+  expect(response.headers.get('location')).toBeNull()
+  expect(request.cookies.get('sb-sitov-auth-token')?.value).toBe('refreshed')
+  expect(response.cookies.get('sb-sitov-auth-token')).toMatchObject({ value: 'refreshed', httpOnly: true, path: '/' })
+  expect(response.headers.get('cache-control')).toBe('private, no-store')
+})
+it('preserves MFA refresh cookies while adding the saved locale to an unprefixed link', async () => {
+  language = 'uk'
+  const response = await visit('/staff-security?return=admin')
+  expect(response.headers.get('location')).toBe('https://school.example/uk/staff-security?return=admin')
+  expect(response.cookies.get('sb-sitov-auth-token')?.value).toBe('refreshed')
+  expect(response.headers.get('cache-control')).toBe('private, no-store')
+})
+it('refreshes MFA page actions without redirecting them or reading language preferences', async () => {
+  const response = await visit('/de/staff-security', 'POST')
+  expect(mockServerClient).toHaveBeenCalledTimes(1)
+  expect(from).not.toHaveBeenCalled()
+  expect(response.headers.get('location')).toBeNull()
+  expect(response.cookies.get('sb-sitov-auth-token')?.value).toBe('refreshed')
+})
+it('does not treat a public route with a similar name as the MFA page', async () => {
+  expect((await visit('/de/staff-security-information')).headers.get('location')).toBeNull()
+  expect(mockServerClient).not.toHaveBeenCalled()
+})
 it('also canonicalizes staff pages and paths without a language prefix', async () => {
   language = 'uk'
   expect((await visit('/de/admin/content/media?folder=1')).headers.get('location')).toBe('https://school.example/uk/admin/content/media?folder=1')

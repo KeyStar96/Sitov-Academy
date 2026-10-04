@@ -25,7 +25,7 @@ export default async function ImprintPage({ params }: { params: Promise<{ lang: 
         <div className="min-h-screen bg-transparent text-foreground font-sans selection:bg-[color-mix(in_srgb,var(--primary-orange)_30%,transparent)]">
             <Header dictionary={dictionary} lang={lang} />
 
-            <main className="container mx-auto px-4 pt-32 pb-16 max-w-4xl relative">
+            <div className="container mx-auto px-4 pt-32 pb-16 max-w-4xl relative">
                 <div className="mb-12">
                     <Link href={`/${lang}`} className="inline-flex min-h-12 items-center px-5 py-2.5 bg-white/60 dark:bg-[#1a1a1a]/60 backdrop-blur-md border border-white/40 dark:border-white/10 rounded-full text-muted hover:text-accent-text hover:shadow-lg transition-all duration-300 gap-3 group">
                         <span className="text-xl group-hover:-translate-x-1 transition-transform">←</span>
@@ -57,7 +57,7 @@ export default async function ImprintPage({ params }: { params: Promise<{ lang: 
                         </section>
                     ))}
                 </div>
-            </main>
+            </div>
 
             <AcademyFooter dictionary={dictionary} lang={lang} />
         </div>

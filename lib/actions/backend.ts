@@ -5,6 +5,7 @@ import { z } from 'zod'
 import type { User } from '@supabase/supabase-js'
 import { createClient } from '@/utils/supabase/server'
 import { getRpcError } from '@/lib/rpc-errors'
+import { requireSitovStaffMfa, SitovStaffMfaRequiredError } from '@/lib/sitov-staff-mfa'
 import {
   profileRoleSchema,
   type ProfileRole, type BackendActionError, type BackendActionResult,
@@ -32,16 +33,18 @@ export async function withBackendSession<T>(
     const { data: { user }, error } = await supabase.auth.getUser()
     if (error || !user) throw new BackendError('not_authenticated')
     const { data: profile, error: profileError } = await supabase.from('profiles')
-      .select('role').eq('id', user.id).single()
+      .select('role,sitov_mfa_required').eq('id', user.id).single()
     if (profileError || !profile) throw new BackendError('not_authorized')
     const parsedRole = profileRoleSchema.nullable().safeParse(profile.role)
     if (parsedRole.success === false) throw new BackendError('not_authorized')
     const role = parsedRole.data
     if (access === 'admin' && role !== 'admin') throw new BackendError('not_authorized')
     if (access === 'staff' && role !== 'teacher' && role !== 'admin') throw new BackendError('not_authorized')
+    await requireSitovStaffMfa(supabase, profile)
     return { success: true, data: await work({ supabase, userId: user.id, user, role }) }
   } catch (error: unknown) {
     if (error instanceof BackendError) return { success: false, error: error.code }
+    if (error instanceof SitovStaffMfaRequiredError) return { success: false, error: 'not_authorized' }
     if (error instanceof z.ZodError) return { success: false, error: 'invalid_input' }
     // Do not expose database errors or contact/note text to clients or logs.
     console.error('[backend] Request failed')

@@ -48,6 +48,23 @@ await test('canonical business model and explicit private lesson quantities',asy
   assert.equal((await db.query("SELECT count(*)::int n FROM course_translations WHERE locale='de'")).rows[0].n,0)
   assert.equal((await db.query("SELECT count(*)::int n FROM pg_proc p JOIN pg_namespace n ON n.oid=p.pronamespace WHERE n.nspname='public' AND p.proname IN('submit_business_registration','save_business_month')")).rows[0].n,2)
  })
+ await t.test('online applications preserve true, false and absent recording consent independently of registration',async()=>{
+  await actor(null,'service_role')
+  const onlineCourse='33061240-08d7-45b9-aa6a-c06c7b63ac9b'
+  const snapshots=[]
+  for(const recording of [true,false,null]){
+   const date=(await db.query('SELECT ($1::date+make_interval(months => $2))::date::text date',[start,snapshots.length])).rows[0].date
+   const id=(await db.query('SELECT submit_business_registration($1,$2,$3,$4,$5,false) id',[
+    JSON.stringify({name:'Recording Learner',email:'recording-learner@example.test'}),
+    JSON.stringify([{course_id:onlineCourse}]),date,
+    JSON.stringify({privacy:true,agb:true,revocation:true,recording}),'de',
+   ])).rows[0].id
+   assert.equal((await db.query('SELECT recording_accepted FROM bookings WHERE id=$1',[id])).rows[0].recording_accepted,recording)
+   snapshots.push({id,recording_accepted:recording})
+   // A later application for the same person must not rewrite prior consent.
+   assert.deepEqual((await db.query('SELECT id,recording_accepted FROM bookings WHERE id=ANY($1)',[snapshots.map(row=>row.id)])).rows.sort((a,b)=>a.id.localeCompare(b.id)),[...snapshots].sort((a,b)=>a.id.localeCompare(b.id)))
+  }
+ })
  let booking
  await t.test('three requested private units create an immutable 75 euro snapshot and detailed mail',async()=>{
   booking=await register('Student')

@@ -143,9 +143,9 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
         { key: "agb", short: copy.consents.agb, full: t.legal.agb, link: { href: `/${lang}/agb`, label: copy.consents.agb_link } },
         // A free trial lesson has nothing to withdraw from; the server never stored this consent for trials.
         ...(isTrial ? [] : [{ key: "revocation" as const, short: copy.consents.revocation, full: t.legal.revocation, link: { href: `/${lang}/agb`, label: copy.consents.agb_link } }]),
-        ...(needsVideo ? [{ key: "videoRecording" as const, short: copy.consents.video_recording, full: t.legal.video_recording }] : []),
+        ...(needsVideo ? [{ key: "videoRecording" as const, short: copy.consents.video_recording, full: t.legal.video_recording, optional: true, notice: copy.consents.recording_notice, link: { href: `/${lang}/privacy`, label: copy.consents.privacy_link } }] : []),
     ];
-    const consentsValid = consentItems.every(item => consents[item.key]);
+    const consentsValid = consentItems.every(item => item.optional || consents[item.key]);
 
     const blocker = step === 1 && selectedIds.length === 0 ? (isTrial ? copy.nav.need_course_trial : copy.nav.need_course)
         : step === 2 && !startIso ? (isTrial ? copy.nav.need_start_trial : copy.nav.need_start)
@@ -220,7 +220,9 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
                 } else if (result.message === "trial_already_used") setTrialUsed(true);
                 else setSubmitFailed(true);
             } else {
-                const result = await submitEnrollment(data, courseSelections, isoToGerman(startIso), consents, lang);
+                const result = await submitEnrollment(data, courseSelections, isoToGerman(startIso), {
+                    ...consents, videoRecording: needsVideo ? consents.videoRecording : undefined,
+                }, lang);
                 if (result.success) {
                     trackMetaEvent("Purchase", {
                         content_name: "Kurseinschreibung", content_category: "Course Enrollment", content_ids: selectedIds, currency: "EUR",
@@ -240,7 +242,7 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
     function onFormSubmit(event: React.FormEvent) {
         event.preventDefault();
         if (step < 4) { void next(); return; }
-        if (!consentsValid) { setNudge(true); focusFirst(".reg-consent input:not(:checked)"); return; }
+        if (!consentsValid) { setNudge(true); focusFirst(".reg-consent input[required]:not(:checked)"); return; }
         void handleSubmit(send, () => { setDetailsInvalid(true); goTo(3); })();
     }
 
@@ -397,7 +399,7 @@ export default function EnrollmentTerminal({ dictionary, lang = "de", serverTime
 
                             <EnrollmentConsents items={consentItems} values={consents} copy={copy}
                                 onChange={(key, value) => { setConsents(current => ({ ...current, [key]: value })); setNudge(false); }}
-                                onAcceptAll={() => { setConsents(current => ({ ...current, ...Object.fromEntries(consentItems.map(item => [item.key, true])) })); setNudge(false); }} />
+                                onAcceptAll={() => { setConsents(current => ({ ...current, ...Object.fromEntries(consentItems.filter(item => !item.optional).map(item => [item.key, true])) })); setNudge(false); }} />
 
                             {submitFailed && <p role="alert" className="reg-alert"><AlertCircle size={24} aria-hidden="true" /><span>{copy.submit_failed}</span></p>}
                         </div>

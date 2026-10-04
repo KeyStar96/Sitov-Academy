@@ -1,4 +1,16 @@
 {
+  "Dein Uploadkontingent ist erreicht. Bitte versuche es später erneut.": {
+    "en": "You have reached your upload allowance. Please try again later.",
+    "ru": "Лимит загрузок исчерпан. Попробуй позже.",
+    "uk": "Ліміт завантажень вичерпано. Спробуй пізніше.",
+    "tr": "Yükleme sınırına ulaştın. Lütfen daha sonra tekrar dene."
+  },
+  "Der Upload kann derzeit nicht begonnen werden. Bitte versuche es später erneut.": {
+    "en": "The upload cannot start right now. Please try again later.",
+    "ru": "Сейчас не удалось начать загрузку. Попробуй позже.",
+    "uk": "Зараз не вдалося почати завантаження. Спробуй пізніше.",
+    "tr": "Yükleme şu anda başlatılamıyor. Lütfen daha sonra tekrar dene."
+  },
   "Prüfungsvorbereitung": {
     "en": "Exam preparation",
     "ru": "Подготовка к экзамену",

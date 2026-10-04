@@ -1,7 +1,6 @@
 'use client'
 
 import Link from 'next/link'
-import Script from 'next/script'
 import { usePathname } from 'next/navigation'
 import { useEffect, useId, useRef, useState, useSyncExternalStore } from 'react'
 import {
@@ -11,7 +10,7 @@ import {
   subscribeConsentSettings,
   type ConsentStatus,
 } from '@/lib/analytics/consent'
-import { META_PIXEL_BOOTSTRAP, revokeMetaPixel } from '@/lib/analytics/meta-pixel'
+import { isMetaMarketingPath, revokeMetaPixel, trackMetaEvent } from '@/lib/analytics/meta-pixel'
 
 export interface ConsentCopy {
   title: string
@@ -29,8 +28,8 @@ export interface ConsentCopy {
   settings_button: string
 }
 
-/** Lernraum und Lehrerbereich: kein automatisches Banner über der Lern-Oberfläche. */
-const APP_AREA = /^\/[a-z]{2}\/(dashboard|admin)(\/|$)/
+/** Learning, administration and MFA: keep the task surface unobstructed. */
+const APP_AREA = /^\/[a-z]{2}\/(dashboard|admin|staff-security)(\/|$)/
 
 const serverStatus = (): ConsentStatus | 'pending' => 'pending'
 
@@ -53,10 +52,22 @@ export default function ConsentManager({ lang, copy }: { lang: string; copy: Con
     setReopened(true)
   }), [])
 
-  // Erneute Einwilligung in derselben Sitzung: das bereits geladene Pixel wieder freigeben.
+  const marketingPath = isMetaMarketingPath(pathname)
+  const lastPageView = useRef<string | null>(null)
+
+  // Explicit public page events. Withdrawal, removal, expiry and private-route
+  // navigation also revoke an SDK left resident by an earlier release.
   useEffect(() => {
-    if (status === 'granted' && typeof window.fbq === 'function') window.fbq('consent', 'grant')
-  }, [status])
+    if (status !== 'granted' || !marketingPath) {
+      revokeMetaPixel()
+      lastPageView.current = null
+      return
+    }
+    if (lastPageView.current !== pathname) {
+      trackMetaEvent('PageView')
+      lastPageView.current = pathname
+    }
+  }, [status, marketingPath, pathname])
 
   useEffect(() => {
     if (reopened) panel.current?.focus()
@@ -85,9 +96,6 @@ export default function ConsentManager({ lang, copy }: { lang: string; copy: Con
   }
 
   return <>
-    {status === 'granted' && (
-      <Script id="meta-pixel" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: META_PIXEL_BOOTSTRAP }} />
-    )}
     {visible && (
       <section ref={panel} tabIndex={-1} aria-labelledby={titleId} className="consent-banner" data-prompt={reopened ? 'manual' : 'auto'} data-testid="consent-banner">
         <h2 id={titleId} className="consent-title">{copy.title}</h2>

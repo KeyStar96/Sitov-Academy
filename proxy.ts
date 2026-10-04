@@ -38,12 +38,20 @@ function redirectPreservingSession(
   return response
 }
 
+function isSitovStaffSecurityPath(pathname: string): boolean {
+  const locale = localeFromPathname(pathname)
+  const path = locale ? pathname.slice(locale.length + 1) : pathname
+  return path === '/staff-security' || path.startsWith('/staff-security/')
+}
+
 export async function proxy(request: NextRequest) {
   const pathname = request.nextUrl.pathname
   const searchParams = request.nextUrl.searchParams
 
   // 1. Supabase-Session aktualisieren (setzt ggf. neue Cookies)
-  const { supabaseResponse, user, uiLanguage } = isProtectedPath(pathname) || isAuthPath(pathname)
+  // Die MFA-Seite braucht frische Cookies, bleibt aber für angemeldete
+  // Staff-Konten erreichbar, ohne die Login-/Register-Weiterleitung.
+  const { supabaseResponse, user, uiLanguage } = isProtectedPath(pathname) || isAuthPath(pathname) || isSitovStaffSecurityPath(pathname)
     ? await updateSession(request)
     : { supabaseResponse: NextResponse.next({ request }), user: null, uiLanguage: null }
 

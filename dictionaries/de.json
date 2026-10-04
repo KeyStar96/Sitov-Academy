@@ -204,7 +204,7 @@
                         "price": "15€",
                         "price_unit": "/ 90 Min",
                         "price_note": "",
-                        "description": "Bequem von zu Hause. In kleinen Gruppen (max. 10 Personen), inklusive Unterrichtsaufzeichnung für die eigene Wiederholung im Anschluss und intensivem 24/7 Telegram-Support durch die Lehrerin bei Fragen zur Grammatik und Sprache.",
+                        "description": "Bequem von zu Hause. In kleinen Gruppen (max. 10 Personen). Unterrichtsaufzeichnungen zur Wiederholung sind möglich, wenn alle erfassten Personen freiwillig einwilligen. Dazu gibt es intensiven 24/7 Telegram-Support durch die Lehrkraft bei Fragen zur Grammatik und Sprache.",
                         "max_participants": "Max: 10 Pers.",
                         "badge": "Online"
                     },
@@ -219,7 +219,7 @@
                         "price": "15€",
                         "price_unit": "/ 90 Min",
                         "price_note": "",
-                        "description": "Mittelstufe für Fortgeschrittene. In kleinen Gruppen (max. 10 Personen), inklusive Unterrichtsaufzeichnung für die eigene Wiederholung im Anschluss und intensivem 24/7 Telegram-Support durch die Lehrerin bei Fragen zur Grammatik und Sprache.",
+                        "description": "Mittelstufe für Fortgeschrittene. In kleinen Gruppen (max. 10 Personen). Unterrichtsaufzeichnungen zur Wiederholung sind möglich, wenn alle erfassten Personen freiwillig einwilligen. Dazu gibt es intensiven 24/7 Telegram-Support durch die Lehrkraft bei Fragen zur Grammatik und Sprache.",
                         "max_participants": "",
                         "badge": "Online"
                     }
@@ -403,7 +403,7 @@
             "privacy": "Ich stimme zu, dass meine Daten gemäß der Datenschutzerklärung zur Bearbeitung meiner Anfrage gespeichert und verwendet werden. Die Kursverwaltung erfolgt auf unserem eigenverwalteten Server.",
             "agb": "Ich habe die AGB gelesen und akzeptiere diese.",
             "revocation": "Ich verlange ausdrücklich und stimme zu, dass die Sitov Academy mit der Ausführung der Dienstleistung (Kursbeginn) vor Ablauf der Widerrufsfrist beginnt. Mir ist bekannt, dass ich bei vollständiger Vertragserfüllung mein Widerrufsrecht verliere und bei einem Widerruf nach Kursbeginn Wertersatz für die bereits erbrachten Leistungen zahlen muss.",
-            "video_recording": "Ich willige in die Aufzeichnung der Online-Sitzungen via Microsoft Teams (Audio und Video) ausschließlich zu internen Lehrzwecken ein."
+            "video_recording": "Ich willige freiwillig in die Aufzeichnung meiner Stimme und meines Bildes in Online-Sitzungen via Microsoft Teams ausschließlich für interne Lehrzwecke ein. Diese Einwilligung ist keine Voraussetzung für die Anmeldung und kann jederzeit für die Zukunft unter info@sitov-academy.com widerrufen werden."
         },
         "flow": {
             "home": "Zur Startseite",
@@ -489,7 +489,7 @@
                 "need_start": "Wähle zuerst, wann du anfangen möchtest.",
                 "need_start_trial": "Wähle zuerst einen Termin.",
                 "need_details": "Bitte prüfe die rot markierten Felder. Wir haben dich zum ersten Feld gebracht.",
-                "need_consents": "Bitte bestätige zuerst alle Punkte."
+                "need_consents": "Bitte bestätige zuerst die Pflichtpunkte."
             },
             "dock": {
                 "chosen": {
@@ -545,17 +545,18 @@
             },
             "consents": {
                 "title": "Bitte bestätige diese Punkte",
-                "intro": "Alle Punkte sind nötig, damit wir deine Anmeldung annehmen können.",
-                "accept_all": "Alle akzeptieren",
+                "intro": "Die Pflichtpunkte müssen bestätigt werden. Die Einwilligung in Unterrichtsaufnahmen ist freiwillig und wird separat ausgewählt.",
+                "accept_all": "Pflichtpunkte bestätigen",
                 "more": "Mehr lesen",
                 "less": "Weniger anzeigen",
                 "privacy": "Meine Daten dürfen für die Anmeldung gespeichert und genutzt werden.",
                 "agb": "Ich habe die AGB gelesen und bin einverstanden.",
                 "revocation": "Mein Kurs darf schon vor Ende der Widerrufsfrist beginnen. Widerrufe ich nach Kursbeginn, zahle ich für die Stunden, die schon stattgefunden haben.",
-                "video_recording": "Die Online-Stunden dürfen aufgezeichnet werden (Ton und Bild), nur intern für den Unterricht.",
+                "video_recording": "Freiwillig: Meine Stimme und mein Bild dürfen in Online-Stunden für interne Unterrichtszwecke aufgezeichnet werden.",
                 "privacy_link": "Datenschutzerklärung lesen",
                 "agb_link": "AGB lesen",
-                "new_tab": "(öffnet in neuem Tab)"
+                "new_tab": "(öffnet in neuem Tab)",
+                "recording_notice": "Du kannst dich auch ohne diese Einwilligung anmelden. Informiere die Lehrkraft vor dem Online-Unterricht über deine Entscheidung, damit sie vor einer Aufnahme klären kann, wer aufgenommen werden darf."
             },
             "submit_failed": "Das hat leider nicht geklappt. Bitte versuche es in ein paar Minuten noch einmal. Wenn es wieder nicht klappt, schreib uns an info@sitov-academy.com.",
             "done": {
@@ -639,7 +640,7 @@
                     "(1) Vertragsgegenstand sind die in der jeweiligen Kursbeschreibung angegebenen Leistungen (Leistungsumfang, Kursdauer, Termine, Lehrmaterialien). Die Kursbeschreibung ist Bestandteil des Vertrags.",
                     "(2) Geringfügige Änderungen im Kursablauf, bei Dozent:innen oder Unterrichtszeiten sind zulässig, sofern der Gesamtcharakter des Kurses nicht wesentlich beeinträchtigt wird.",
                     "(3) Online-Unterricht wird über gängige Videokonferenz-Software (z. B. Microsoft Teams) durchgeführt. Der Teilnehmer ist für eine geeignete Internetverbindung und technische Ausstattung selbst verantwortlich.",
-                    "(4) Zur Qualitätsbegleitung und zur Nachbereitung für die Teilnehmer werden Online-Sitzungen aufgezeichnet. Die Einzelheiten zur Nutzung dieser Aufzeichnungen ergeben sich aus § 9 dieser AGB.",
+                    "(4) Online-Sitzungen können zur Nachbereitung für die Teilnehmer aufgezeichnet werden, sofern alle dabei erfassten Personen freiwillig eingewilligt haben. Die Anmeldung setzt keine Aufnahmeeinwilligung voraus. Einzelheiten zu zulässigen Aufzeichnungen ergeben sich aus § 9 dieser AGB und der Datenschutzerklärung.",
                     "(5) Die Kursteilnahme bezieht sich auf die konkret vereinbarten Termine im jeweiligen Kalendermonat. Die ausgewiesene Zahl der Unterrichtseinheiten beschreibt die Berechnung dieses Monats; sie ist kein zeitlich unbegrenzt oder nach freier Wahl einlösbares Stundenkontingent. Bei Einzelunterricht werden die Termine innerhalb des gebuchten Monats individuell vereinbart; abweichende Absprachen bleiben möglich."
                 ]
             },
@@ -949,7 +950,7 @@
                     "8.6 Meta-Pixel (nur mit Einwilligung)",
                     "Ausschließlich nach Ihrer ausdrücklichen Einwilligung setzen wir auf unserer Website das Meta-Pixel ein. Anbieter ist die Meta Platforms Ireland Limited, Merrion Road, Dublin 4, D04 X2K5, Irland (Mutterunternehmen: Meta Platforms, Inc., 1 Meta Way, Menlo Park, CA 94025, USA).",
                     "Zweck: Messung der Wirksamkeit unserer Werbeanzeigen auf Facebook und Instagram (z. B. ob nach einem Klick auf eine Anzeige eine Anfrage für eine Probestunde oder eine Kursanmeldung erfolgt) sowie die Aussteuerung dieser Anzeigen, etwa an Personen, die unsere Website bereits besucht haben.",
-                    "Verarbeitete Daten: IP-Adresse, Browser- und Geräteinformationen, aufgerufene Seiten mit Zeitpunkt und Referrer, die von uns ausgelösten Ereignisse (Seitenaufruf, Anfrage einer Probestunde bzw. Kursanmeldung mit Kurskennung und Betrag) sowie Cookie-Kennungen wie „_fbp“ (Speicherdauer bis zu 90 Tage). Sind Sie bei Facebook oder Instagram angemeldet, kann Meta den Besuch Ihrem Konto zuordnen.",
+                    "Verarbeitete Daten: IP-Adresse und technisch übermittelte Browserinformationen, Zeitpunkt, ausschließlich die öffentliche Start- oder Kursanmeldeseite ohne URL-Parameter und Fragment sowie explizite Ereignisse (Seitenaufruf, Probestundenanfrage oder Kursanmeldung mit öffentlichen Kurskennungen und Betrag). Die verweisende Seite und Angaben aus Formularfeldern werden nicht übertragen. Ein gültiger Facebook-Klickbezeichner aus einem Werbelink wird erst nach Einwilligung für den aktuellen Anmeldeweg im Arbeitsspeicher gehalten; vorhandene gültige Meta-Kennungen „_fbc“ und „_fbp“ können übermittelt werden. Wir setzen dafür keine neuen Kennungs-Cookies. Meta kann Anfragen anhand eigener Cookies einem Facebook- oder Instagram-Konto zuordnen. Lernraum, Verwaltung, Kontoanmelde- und Passwortseiten werden nicht erfasst.",
                     "Rechtsgrundlage: Ihre Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1 TDDDG. Sie können die Einwilligung jederzeit mit Wirkung für die Zukunft über „Cookie-Einstellungen“ im Seitenfuß widerrufen; die Rechtmäßigkeit der bis zum Widerruf erfolgten Verarbeitung bleibt unberührt.",
                     "Gemeinsame Verantwortlichkeit: Für die Erhebung der Daten auf unserer Website und ihre Übermittlung an Meta sind wir gemeinsam mit der Meta Platforms Ireland Limited verantwortlich (Art. 26 DSGVO). Die Einzelheiten regelt die Vereinbarung über die gemeinsame Verantwortlichkeit: https://www.facebook.com/legal/controller_addendum. Für die anschließende Verarbeitung ist Meta allein verantwortlich.",
                     "Drittlandtransfer: Meta kann Daten in die USA übertragen. Meta Platforms, Inc. ist nach dem EU-US Data Privacy Framework zertifiziert; die Übermittlung stützt sich auf den Angemessenheitsbeschluss der EU-Kommission (Art. 45 DSGVO) und ergänzend auf Standardvertragsklauseln (Art. 46 Abs. 2 lit. c DSGVO). Bitte beachten Sie die allgemeinen Risiken eines Drittlandtransfers (theoretische Zugriffsmöglichkeiten durch US-Behörden).",
@@ -967,12 +968,12 @@
                     "Zweck der Aufzeichnung: Die Aufzeichnungen dienen ausschließlich den Teilnehmern des jeweiligen Kurses zur Nachbereitung und Wiederholung der Lerninhalte.",
                     "9.2 Rechtsgrundlage",
                     "Die Nutzung von Microsoft Teams zur allgemeinen Durchführung des Unterrichts basiert auf Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung).",
-                    "Die Videoaufzeichnung der Sitzungen erfolgt ausschließlich auf Grundlage Ihrer ausdrücklichen Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO, die Sie im Rahmen der Kursanmeldung über eine verpflichtende Checkbox erteilen.",
+                    "Die Aufzeichnung Ihrer Stimme und Ihres Bildes erfolgt nur mit Ihrer ausdrücklichen, freiwilligen Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO. Die gesonderte Checkbox bei der Anmeldung ist optional und wird nicht durch das Bestätigen der Pflichtpunkte ausgewählt. Eine Anmeldung ist auch ohne Aufnahmeeinwilligung möglich.",
                     "9.3 Speicherdauer und Zugriff",
                     "Die Videoaufzeichnungen werden in einer geschützten Umgebung (z.B. passwortgeschützter Cloud-Speicher von Microsoft) gespeichert. Der Zugriff ist streng auf die Lehrkraft und die angemeldeten Teilnehmer desselben Kurses beschränkt. Eine Weitergabe an Dritte erfolgt nicht.",
                     "Die Aufnahmen werden spätestens 30 Tage nach Abschluss des jeweiligen Kurses dauerhaft gelöscht.",
                     "9.4 Widerruf der Einwilligung",
-                    "Sie können Ihre Einwilligung zur Aufzeichnung jederzeit mit Wirkung für die Zukunft widerrufen. Bitte beachten Sie, dass das Kurskonzept unserer Online-B1-Kurse auf diesen Aufzeichnungen basiert; ein Widerruf kann daher dazu führen, dass eine weitere Teilnahme am Online-Unterricht technisch oder organisatorisch nicht mehr möglich ist.",
+                    "Sie können Ihre Einwilligung zur Aufzeichnung jederzeit mit Wirkung für die Zukunft unter info@sitov-academy.com oder gegenüber der Lehrkraft widerrufen. Informieren Sie die Lehrkraft vor der Online-Sitzung über eine fehlende oder widerrufene Einwilligung. Vor einer Aufnahme muss die Lehrkraft prüfen, dass nur Personen mit wirksamer Einwilligung erfasst werden; andernfalls darf die betreffende Aufnahme nicht stattfinden.",
                     "9.5 Datenübertragung in Drittländer (USA)",
                     "Bei der Nutzung von Microsoft Teams kann es zu einer Datenverarbeitung in den USA kommen. Die Übermittlung basiert auf dem EU-US Data Privacy Framework (DPF) sowie ergänzend auf Standardvertragsklauseln (SCCs). Microsoft ist nach dem DPF zertifiziert. Bitte beachten Sie die allgemeinen Risiken eines Drittlandtransfers (theoretische Zugriffsmöglichkeiten durch US-Behörden).",
                     "Weitere Informationen: https://privacy.microsoft.com/de-de/privacystatement"

@@ -1,0 +1,15 @@
+[Unit]
+Description=Sitov Academy public ingress firewall (host and Docker)
+After=network-online.target docker.service
+Wants=network-online.target
+Requires=docker.service
+PartOf=docker.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/bin/python3 /var/www/sitov-academy/deploy/vps/sitov-firewall.py --apply
+ExecReload=/usr/bin/python3 /var/www/sitov-academy/deploy/vps/sitov-firewall.py --apply
+
+[Install]
+WantedBy=multi-user.target docker.service

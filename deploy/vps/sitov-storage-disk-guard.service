@@ -1,0 +1,12 @@
+[Unit]
+Description=Sitov Academy Storage disk reserve guard
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python3 /var/www/sitov-academy/deploy/vps/sitov-storage-disk-guard.py
+User=root
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+ReadWritePaths=/run
+NoNewPrivileges=yes

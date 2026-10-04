@@ -93,10 +93,10 @@ export async function createSimulationUpload(input:{runId:string;taskId:string;m
  if(!(EXAM_AUDIO_MIME_TYPES as readonly string[]).includes(mime))throw new Error('Bitte verwende eine unterstützte Audiodatei.')
  const extensions:Record<string,string>={'audio/webm':'webm','audio/mp4':'m4a','audio/mpeg':'mp3','audio/ogg':'ogg','audio/wav':'wav','audio/x-wav':'wav','audio/x-m4a':'m4a'}
  const path=`${actor.userId}/speaking/${randomUUID()}.${extensions[mime]}`,admin=createAdminClient()
- const ticket=await admin.from('sitov_exam_upload_tickets').insert({path,student_id:actor.userId,kind:'speaking',simulation_run_id:snapshot.id})
- if(ticket.error)throw new Error('Die Aufnahme kann während eines Lerndaten-Resets nicht hochgeladen werden.')
+ const ticket=await admin.from('sitov_exam_upload_tickets').insert({path,student_id:actor.userId,kind:'speaking',simulation_run_id:snapshot.id,expected_bytes:value.bytes})
+ if(ticket.error){if(ticket.error.code==='PT429')throw new Error('Dein Uploadkontingent ist erreicht. Bitte versuche es später erneut.');throw new Error('Die Aufnahme kann derzeit nicht hochgeladen werden. Bitte versuche es später erneut.')}
  const {data,error}=await admin.storage.from(EXAM_BUCKET).createSignedUploadUrl(path,{upsert:false})
- if(error||!data)throw new Error('Die Aufnahme konnte nicht zum Hochladen vorbereitet werden.')
+ if(error||!data){await admin.from('sitov_exam_upload_tickets').delete().eq('path',path);throw new Error('Die Aufnahme konnte nicht zum Hochladen vorbereitet werden.')}
  return {success:true,path,token:data.token,signedUrl:data.signedUrl,bucket:EXAM_BUCKET}
 }catch(error){return {success:false,error:message(error)}}}
 

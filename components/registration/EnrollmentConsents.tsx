@@ -6,19 +6,19 @@ import type { FlowCopy } from './registration-copy'
 
 export type ConsentKey = 'privacy' | 'agb' | 'revocation' | 'videoRecording'
 
-export interface ConsentItem { key: ConsentKey; short: string; full: string; link?: { href: string; label: string } }
+export interface ConsentItem { key: ConsentKey; short: string; full: string; optional?: boolean; notice?: string; link?: { href: string; label: string } }
 
 /**
  * Each consent is a large card with one short sentence; the full legal wording
- * stays one tap away ("Mehr lesen"). "Alle akzeptieren" only ticks the boxes –
- * every box remains visible and can be unticked on its own.
+ * stays one tap away ("Mehr lesen"). The bulk button confirms required points
+ * only. Recording consent always needs its own voluntary choice.
  */
 export default function EnrollmentConsents({ items, values, onChange, onAcceptAll, copy }: {
   items: ConsentItem[]; values: Record<ConsentKey, boolean>
   onChange: (key: ConsentKey, value: boolean) => void; onAcceptAll: () => void; copy: FlowCopy
 }) {
   const [open, setOpen] = useState<ConsentKey | null>(null)
-  const allChecked = items.every(item => values[item.key])
+  const allChecked = items.filter(item => !item.optional).every(item => values[item.key])
   return (
     <section className="reg-panel" aria-labelledby="reg-consents-title">
       <h2 id="reg-consents-title" className="reg-panel__title">{copy.consents.title}</h2>
@@ -33,11 +33,12 @@ export default function EnrollmentConsents({ items, values, onChange, onAcceptAl
           return (
             <li key={item.key} className="reg-consent reg-enter" data-checked={checked} style={{ '--i': index } as CSSProperties}>
               <label className="reg-consent__main">
-                <input id={`reg-consent-${item.key}`} type="checkbox" checked={checked} onChange={event => onChange(item.key, event.target.checked)}
-                  className="reg-visually-hidden" aria-describedby={expanded ? `reg-consent-${item.key}-full` : undefined} />
+                <input id={`reg-consent-${item.key}`} type="checkbox" required={!item.optional} checked={checked} onChange={event => onChange(item.key, event.target.checked)}
+                  className="reg-visually-hidden" aria-describedby={[item.notice ? `reg-consent-${item.key}-notice` : '', expanded ? `reg-consent-${item.key}-full` : ''].filter(Boolean).join(' ') || undefined} />
                 <span className="reg-check" aria-hidden="true">{checked && <Check size={26} strokeWidth={3} />}</span>
                 <span className="reg-consent__text">{item.short}</span>
               </label>
+              {item.notice && <p id={`reg-consent-${item.key}-notice`} className="sitov-recording-consent-notice">{item.notice}</p>}
               <button type="button" className="reg-consent__more" aria-expanded={expanded} aria-controls={`reg-consent-${item.key}-full`}
                 onClick={() => setOpen(expanded ? null : item.key)}>
                 {expanded ? copy.consents.less : copy.consents.more}

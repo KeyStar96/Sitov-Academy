@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { sitovSecurityHeaders } from './lib/sitov-security-headers';
 
 const nextConfig: NextConfig = {
   // One full Git revision per VPS release, shared by next build and next start.
@@ -68,6 +69,10 @@ const nextConfig: NextConfig = {
     // Development assets change in place; let Next manage their cache headers.
     if (process.env.NODE_ENV !== 'production') return [];
     return [
+      {
+        source: '/:path*',
+        headers: sitovSecurityHeaders(),
+      },
       {
         // Cache statische Assets aggressiv
         source: "/:all*(svg|jpg|jpeg|png|webp|avif|gif|ico|woff|woff2)",

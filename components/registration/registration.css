@@ -477,6 +477,7 @@ html.high-contrast .reg-input:focus { outline: 3px solid var(--violet); outline-
 html.high-contrast .reg-consent[data-checked="true"] { background: var(--surface); }
 .reg-consent__main { display: flex; align-items: flex-start; gap: 14px; min-height: 76px; padding: 16px; font-size: 18px; font-weight: 600; }
 .reg-consent__text { padding-top: 10px; }
+.sitov-recording-consent-notice { margin: 0 16px 12px; color: var(--muted); font-size: 16px; line-height: 1.6; }
 .reg-consent__more {
   display: inline-flex; width: fit-content; align-items: center; gap: 6px; min-height: 48px; margin: -6px 16px 10px 68px; padding: 4px 10px;
   border-radius: 10px; color: var(--accent-text); font-size: 17px; font-weight: 700; text-decoration: underline; text-underline-offset: 4px;

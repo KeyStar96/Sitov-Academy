@@ -37,6 +37,17 @@ class RetentionTest(unittest.TestCase):
                 self.make(root, day)
             self.assertEqual(MODULE.expired(list(root.iterdir()), keep=14), [])
 
+    def test_current_backup_counts_toward_retention_and_size_is_bounded(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            backups = [self.make(root, day) for day in range(1, 16)]
+            for path in backups:
+                (path / 'postgres.dump').write_bytes(b'x' * 20)
+            self.assertEqual(MODULE.expired(backups, keep=14), backups[:1])
+            doomed = MODULE.bounded_expired(backups, max_bytes=70)
+            self.assertEqual(doomed, backups[:12])
+            self.assertNotIn(backups[-1], MODULE.bounded_expired(backups, max_bytes=1))
+
 
 if __name__ == '__main__':
     unittest.main()

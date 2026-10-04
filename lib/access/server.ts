@@ -2,6 +2,7 @@ import 'server-only'
 import { cache } from 'react'
 
 import { createClient } from '@/utils/supabase/server'
+import { requireSitovStaffMfa } from '@/lib/sitov-staff-mfa'
 import {
   hasLevelAccess, hasTrainerAccess, type Trainer,
   type LevelAccessProfile,
@@ -21,13 +22,14 @@ export const loadLevelAccessProfile = cache(async function loadLevelAccessProfil
 ): Promise<LevelAccessProfile | null> {
   try {
     const [{ data, error }, rules] = await Promise.all([
-      supabase.from('profiles').select('role,native_language,ui_language,level_access:student_level_access(level)').eq('id', userId).single(),
+      supabase.from('profiles').select('role,sitov_mfa_required,native_language,ui_language,level_access:student_level_access(level)').eq('id', userId).single(),
       supabase.from('learning_trainer_grants').select('level,trainer,enabled,unit_mode,units:learning_unit_grants(unit_id)').eq('auth_user_id', userId),
     ])
     if (error || rules.error || !data) {
       console.error("Zugriffsprofil für Nutzer nicht ladbar:")
       return null
     }
+    await requireSitovStaffMfa(supabase, data)
     return { role: data.role, native_language: data.native_language, ui_language: data.ui_language,
       allowed_levels: data.level_access.map(item => item.level),
       trainer_grants: (rules.data ?? []).map(rule => ({ level: rule.level, trainer: rule.trainer,

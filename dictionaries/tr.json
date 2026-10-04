@@ -201,7 +201,7 @@
                         "price": "15€",
                         "price_unit": "/ 90 Dk",
                         "price_note": "",
-                        "description": "Evinizin rahatlığında. Küçük gruplar halinde (en fazla 10 kişi), dersin kaydını daha sonra tekrar izlemeniz için dahil ve gramer ve dil ile ilgili sorularınız için öğretmen tarafından 7/24 yoğun Telegram desteği.",
+                        "description": "Evinizin rahatlığında. Küçük gruplarda (en fazla 10 kişi). Ders tekrarı için kayıtlar, kayda alınan herkes gönüllü olarak rıza verirse mümkündür. Ayrıca gramer ve dil soruları için öğretmenden Telegram üzerinden yoğun 7/24 destek alabilirsiniz.",
                         "max_participants": "Maks: 10 Kişi",
                         "badge": "Çevrimiçi"
                     },
@@ -216,7 +216,7 @@
                         "price": "15€",
                         "price_unit": "/ 90 Dk",
                         "price_note": "",
-                        "description": "İleri seviye orta düzey. Küçük gruplar halinde (en fazla 10 kişi), dersin kaydını daha sonra kendi başınıza tekrar edebilmeniz için sunuyoruz; ayrıca gramer ve dil ile ilgili sorularınız için öğretmenimizden 7/24 Telegram üzerinden yoğun destek alabilirsiniz.",
+                        "description": "İleri seviye orta düzey. Küçük gruplarda (en fazla 10 kişi). Ders tekrarı için kayıtlar, kayda alınan herkes gönüllü olarak rıza verirse mümkündür. Ayrıca gramer ve dil soruları için öğretmenden Telegram üzerinden yoğun 7/24 destek alabilirsiniz.",
                         "max_participants": "",
                         "badge": "Çevrimiçi"
                     }
@@ -400,7 +400,7 @@
             "privacy": "Verilerimin Gizlilik Politikasına uygun olarak talebimi işleme koymak amacıyla saklanacağını ve kullanılacağını kabul ediyorum. Kurs yönetimi kendi yönettiğimiz sunucuda yürütülür.",
             "agb": "Genel İşletme Şartlarını (AGB) okudum ve kabul ediyorum.",
             "revocation": "Hizmetin ifasına (kurs başlangıcı) cayma süresi dolmadan önce başlamanızı açıkça talep ediyor ve kabul ediyorum. Sözleşmenin tam olarak ifa edilmesiyle cayma hakkımı kaybedeceğimi ve kurs başladıktan sonra cayma durumunda, halihazırda sunulan hizmetler için tazminat ödemem gerektiğini biliyorum.",
-            "video_recording": "Microsoft Teams üzerinden yapılan çevrimiçi derslerin dahili eğitim amaçlı olarak kaydedilmesine (ses ve video) onay veriyorum."
+            "video_recording": "Microsoft Teams üzerinden yapılan çevrimiçi derslerde sesimin ve görüntümün yalnızca dahili eğitim amaçlarıyla kaydedilmesine gönüllü olarak rıza veriyorum. Bu rıza kayıt başvurusu için zorunlu değildir ve info@sitov-academy.com adresine yazarak geleceğe yönelik olarak her zaman geri alınabilir."
         },
         "flow": {
             "home": "Ana sayfaya dön",
@@ -486,7 +486,7 @@
                 "need_start": "Önce ne zaman başlamak istediğinizi seçin.",
                 "need_start_trial": "Önce bir tarih seçin.",
                 "need_details": "Lütfen kırmızı ile işaretli alanları kontrol edin. Sizi ilk alana götürdük.",
-                "need_consents": "Lütfen önce tüm maddeleri onaylayın."
+                "need_consents": "Lütfen önce zorunlu maddeleri onaylayın."
             },
             "dock": {
                 "chosen": {
@@ -542,17 +542,18 @@
             },
             "consents": {
                 "title": "Lütfen bu maddeleri onaylayın",
-                "intro": "Kaydınızı kabul edebilmemiz için tüm maddeler gereklidir.",
-                "accept_all": "Tümünü kabul et",
+                "intro": "Zorunlu maddeleri onaylayın. Ders kaydına ilişkin rıza isteğe bağlıdır ve ayrı seçilir.",
+                "accept_all": "Zorunlu maddeleri onayla",
                 "more": "Devamını oku",
                 "less": "Daha az göster",
                 "privacy": "Verilerim kayıt için saklanabilir ve kullanılabilir.",
                 "agb": "Koşulları (AGB) okudum ve kabul ediyorum.",
                 "revocation": "Kursum cayma süresi dolmadan başlayabilir. Kurs başladıktan sonra cayarsam, yapılmış olan dersleri öderim.",
-                "video_recording": "Çevrimiçi dersler kaydedilebilir (ses ve görüntü), yalnızca dahili eğitim amacıyla.",
+                "video_recording": "İsteğe bağlı: Sesim ve görüntüm çevrimiçi derslerde yalnızca dahili eğitim amaçlarıyla kaydedilebilir.",
                 "privacy_link": "Gizlilik politikasını oku",
                 "agb_link": "Koşulları (AGB) oku",
-                "new_tab": "(yeni sekmede açılır)"
+                "new_tab": "(yeni sekmede açılır)",
+                "recording_notice": "Bu rızayı vermeden de kayıt başvurusu yapabilirsiniz. Çevrimiçi dersten önce seçiminizi öğretmene bildirin; böylece kayıt başlamadan kimin kaydedilebileceğini kontrol edebilir."
             },
             "submit_failed": "Maalesef olmadı. Lütfen birkaç dakika sonra tekrar deneyin. Yine olmazsa bize info@sitov-academy.com adresinden yazın.",
             "done": {
@@ -636,7 +637,7 @@
                     "(1) Sözleşmenin konusu, ilgili kurs açıklamasında belirtilen hizmetlerdir (hizmet kapsamı, kurs süresi, tarihler, öğretim materyalleri). Kurs açıklaması, sözleşmenin ayrılmaz bir parçasıdır.",
                     "(2) Kursun genel karakteri önemli ölçüde bozulmadığı sürece, kursun akışında, eğitmenlerde veya ders saatlerinde küçük değişiklikler yapılmasına izin verilir.",
                     "(3) Online dersler, yaygın video konferans yazılımları (örneğin, Microsoft Teams) üzerinden gerçekleştirilir. Katılımcı, uygun bir internet bağlantısı ve teknik donanımdan sorumludur.",
-                    "(4) Kalite güvencesi ve katılımcılar tarafından tekrar amacıyla çevrimiçi oturumlar kaydedilir. Bu kayıtların kullanımına ilişkin ayrıntılar bu GİK'in § 9'unda düzenlenmiştir.",
+                    "(4) Çevrimiçi oturumlar, kayda alınan herkes gönüllü olarak rıza vermişse katılımcıların tekrar yapması için kaydedilebilir. Kayıt başvurusu için ders kaydına rıza gerekli değildir. İzin verilen kayıtların ayrıntıları bu koşulların § 9 bölümünde ve gizlilik politikasında yer alır.",
                     "(5) Kurs katılımı, ilgili takvim ayında kararlaştırılan belirli ders tarihlerini kapsar. Gösterilen ders birimi sayısı o ayın hesaplamasını açıklar; süresiz veya serbestçe kullanılabilen bir saat bakiyesi değildir. Özel ders tarihleri rezervasyon yapılan ay içinde bireysel olarak kararlaştırılır; ayrı anlaşmalar mümkündür."
                 ]
             },
@@ -946,7 +947,7 @@
                     "8.6 Meta Pixel (yalnızca onayla)",
                     "Web sitemizde Meta Pixel’i yalnızca açık onayınızla kullanırız. Sağlayıcı: Meta Platforms Ireland Limited, Merrion Road, Dublin 4, D04 X2K5, İrlanda (ana şirket: Meta Platforms, Inc., 1 Meta Way, Menlo Park, CA 94025, ABD).",
                     "Amaç: Facebook ve Instagram’daki reklamlarımızın etkinliğinin ölçülmesi (örneğin bir reklama tıklandıktan sonra deneme dersi talebi veya kurs kaydı yapılıp yapılmadığı) ve bu reklamların, örneğin web sitemizi daha önce ziyaret etmiş kişilere gösterilmesi.",
-                    "İşlenen veriler: IP adresi, tarayıcı ve cihaz bilgileri, ziyaret edilen sayfalar (zaman ve yönlendiren sayfa ile), tarafımızdan tetiklenen olaylar (sayfa görüntüleme, deneme dersi talebi veya kurs kimliği ve tutarla kurs kaydı) ve “_fbp” gibi çerez tanımlayıcıları (saklama süresi 90 güne kadar). Facebook veya Instagram’da oturum açmışsanız Meta, ziyareti hesabınızla ilişkilendirebilir.",
+                    "İşlenen veriler: IP adresi ve teknik olarak iletilen tarayıcı bilgileri, zaman, yalnızca URL parametreleri ve parçaları olmadan herkese açık ana sayfa veya kurs başvuru sayfası ve açıkça belirlenen olaylar (sayfa görüntüleme, deneme dersi talebi veya herkese açık kurs kimlikleri ve tutarla kurs başvurusu). Yönlendiren sayfa ve form alanları iletilmez. Reklam bağlantısındaki geçerli Facebook tıklama kimliği yalnızca onaydan sonra ve mevcut başvuru süresince bellekte tutulur; mevcut geçerli Meta kimlikleri “_fbc” ve “_fbp” iletilebilir. Bunun için yeni kimlik çerezleri ayarlanmaz. Meta, kendi çerezleri aracılığıyla istekleri Facebook veya Instagram hesabıyla ilişkilendirebilir. Öğrenme alanı, yönetim, giriş ve parola sayfaları kapsam dışıdır.",
                     "Yasal dayanak: Art. 6(1)(a) DSGVO ve § 25(1) TDDDG uyarınca onayınız. Onayınızı istediğiniz zaman, ileriye dönük olarak sayfanın altındaki “Çerez ayarları” üzerinden geri alabilirsiniz; geri almadan önce gerçekleştirilen işlemenin hukuka uygunluğu etkilenmez.",
                     "Ortak sorumluluk: Web sitemizde verilerin toplanması ve Meta’ya aktarılmasından Meta Platforms Ireland Limited ile birlikte ortaklaşa sorumluyuz (Art. 26 DSGVO). Ayrıntılar ortak sorumluluk sözleşmesinde düzenlenmiştir: https://www.facebook.com/legal/controller_addendum. Sonraki işlemeden yalnızca Meta sorumludur.",
                     "Üçüncü ülkelere aktarım: Meta verileri ABD’ye aktarabilir. Meta Platforms, Inc., EU-US Data Privacy Framework kapsamında sertifikalıdır; aktarım, AB Komisyonu’nun yeterlilik kararına (Art. 45 DSGVO) ve ek olarak standart sözleşme maddelerine (Art. 46(2)(c) DSGVO) dayanır. Lütfen üçüncü ülkelere aktarımın genel risklerine (ABD makamlarının teorik erişim olanakları) dikkat edin.",
@@ -964,12 +965,12 @@
                     "Kaydın amacı: Kayıtlar, yalnızca ilgili kursun katılımcılarına öğrenme içeriklerini tekrarlama ve pekiştirme amacıyla hizmet eder.",
                     "9.2 Yasal Dayanak",
                     "Microsoft Teams'in genel ders yürütümü için kullanımı DSGVO Madde 6 Fıkra 1 bent b'ye (sözleşmenin ifası) dayanmaktadır.",
-                    "Oturumların video kaydı, yalnızca kurs kaydı sırasında zorunlu bir onay kutusu aracılığıyla verdiğiniz DSGVO Madde 6 Fıkra 1 bent a uyarınca açık rızanıza dayanmaktadır.",
+                    "Sesinizin ve görüntünüzün kaydı yalnızca DSGVO Madde 6(1)(a) uyarınca açık ve gönüllü rızanızla yapılabilir. Kayıt başvurusundaki ayrı onay kutusu isteğe bağlıdır ve zorunlu maddeler onaylanırken seçilmez. Kayda rıza vermeden de başvuru yapabilirsiniz.",
                     "9.3 Saklama Süresi ve Erişim",
                     "Video kayıtları korumalı bir ortamda (örn. Microsoft'un parola korumalı bulut depolaması) saklanır. Erişim, yalnızca eğitmenle ve aynı kursun kayıtlı katılımcılarıyla sınırlıdır. Üçüncü taraflara ifşa edilmez.",
                     "Kayıtlar, ilgili kursun tamamlanmasından en geç 30 gün sonra kalıcı olarak silinir.",
                     "9.4 Rızanın Geri Çekilmesi",
-                    "Kayda ilişkin rızanızı gelecek için geçerli olmak üzere istediğiniz zaman geri çekebilirsiniz. Lütfen çevrimiçi B1 kurslarımızın kurs konseptinin bu kayıtlara dayandığını unutmayın; geri çekilme, çevrimiçi derslere daha fazla katılımın teknik veya organizasyonel olarak artık mümkün olmamasına yol açabilir.",
+                    "Kayda ilişkin rızanızı info@sitov-academy.com adresine yazarak veya öğretmene bildirerek geleceğe yönelik olarak her zaman geri alabilirsiniz. Rıza yoksa veya geri alınmışsa çevrimiçi oturumdan önce öğretmene bildirin. Kayıttan önce öğretmen, yalnızca geçerli rızası olan kişilerin kayda alındığını kontrol etmelidir; aksi halde ilgili kayıt yapılmamalıdır.",
                     "9.5 Üçüncü Ülkelere Veri Aktarımı (ABD)",
                     "Microsoft Teams kullanılırken ABD'de veri işleme gerçekleşebilir. Aktarım, EU-US Data Privacy Framework (DPF) ve ek olarak Standart Sözleşme Maddeleri (SCC'ler) temelinde yapılmaktadır. Microsoft DPF sertifikalıdır. Lütfen üçüncü ülke transferlerinin genel risklerini (ABD makamlarının teorik erişim olasılıkları) dikkate alın.",
                     "Daha fazla bilgi: https://privacy.microsoft.com/de-de/privacystatement"

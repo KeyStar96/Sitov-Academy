@@ -2,7 +2,7 @@ import { logout } from '@/app/actions/auth'
 import Link from 'next/link'
 import { redirect } from 'next/navigation'
 import BrandLogo from '@/components/layout/BrandLogo'
-import { LogOut } from 'lucide-react'
+import { LogOut, ShieldCheck } from 'lucide-react'
 import ThemeToggle from '@/components/layout/ThemeToggle'
 import HeaderLanguageSwitcher from '@/components/layout/HeaderLanguageSwitcher'
 import TeacherLayout from '@/components/admin/TeacherLayout'
@@ -13,6 +13,8 @@ import { createClient } from '@/utils/supabase/server'
 import { getDictionary } from '@/lib/dictionary'
 import { createAdminTranslator, type AdminTranslations } from '@/lib/admin-i18n'
 import { toUiLocale } from '@/lib/locale-routing'
+import { requireSitovStaffMfa } from '@/lib/sitov-staff-mfa'
+import { sitovStaffMfaCopy } from '@/lib/sitov-staff-mfa-copy'
 
 export const dynamic = 'force-dynamic'
 
@@ -32,13 +34,15 @@ export default async function AdminLayout({
   }
 
   const [{ data: profile }, dict] = await Promise.all([
-    supabase.from('profiles').select('role,ui_language,person:people(display_name)').eq('id', user.id).single(),
+    supabase.from('profiles').select('role,sitov_mfa_required,ui_language,person:people(display_name)').eq('id', user.id).single(),
     getDictionary(lang),
   ])
 
   if (profile?.role !== 'teacher' && profile?.role !== 'admin') {
     redirect(`/${lang}/dashboard`)
   }
+  try { await requireSitovStaffMfa(supabase, profile) }
+  catch { redirect(`/${lang}/staff-security`) }
 
   const counts = await getAdminNavCounts()
   const translations = (dict.admin ?? {}) as AdminTranslations
@@ -62,6 +66,9 @@ export default async function AdminLayout({
     <>
       <HeaderLanguageSwitcher current={toUiLocale(profile?.ui_language ?? lang)} ariaLabel={t('ui_language_aria')} />
       <ThemeToggle lightLabel={t('toggle_theme_light')} darkLabel={t('toggle_theme_dark')} />
+      <Link href={`/${lang}/staff-security`} className={adminButton('secondary', 'md')} aria-label={sitovStaffMfaCopy(lang).title}>
+        <ShieldCheck size={17} aria-hidden="true" />
+      </Link>
       <form action={async () => {
         'use server'
         await logout(lang)
