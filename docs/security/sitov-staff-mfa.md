@@ -44,6 +44,6 @@ UPDATE public.profiles SET sitov_mfa_required=false WHERE id='<geprüfte Konto-U
 
 Danach den verlorenen Faktor über die Auth-Verwaltung entfernen, vorhandene Sitzungen widerrufen und das Konto erneut einrichten lassen. Das Zurücksetzen der Pflicht allein entfernt keinen Faktor und ersetzt keine Identitätsprüfung.
 
-Die SQL-Migration verändert keine Authenticator-Schlüssel in Auth. Vor der produktiven Umstellung gab es keinen verifizierten Lehrkraftfaktor. Die eine noch unbestätigte Einrichtung wird bei der Veröffentlichung über die offizielle Auth-Admin-API entfernt, damit ein alter QR-Code sie nicht nachträglich bestätigt.
+Die SQL-Migration verändert keine Authenticator-Schlüssel in Auth. Bei der produktiven Umstellung gab es keinen verifizierten Lehrkraftfaktor. Die eine noch unbestätigte Einrichtung wurde über die offizielle Auth-Admin-API entfernt, damit ein alter QR-Code sie nicht nachträglich bestätigt. Beide realen Lehrkraftkonten wurden danach mit `aal1` über Auth, den öffentlichen REST-Endpunkt und die tatsächliche Verwaltungsseite geprüft; es gibt keine verbliebenen Lehrkraftfaktoren.
 
 Die Implementierung verwendet die offiziellen [Supabase-TOTP-APIs](https://supabase.com/docs/guides/auth/auth-mfa/totp) und die dokumentierte [PostgREST-Konfiguration](https://docs.postgrest.org/en/stable/references/configuration.html#db-pre-request). Lokale Prüfung: `node --test supabase/tests/sitov-staff-mfa.test.mjs` und `npx jest --runInBand __tests__/sitov-staff-mfa.test.ts __tests__/sitov-staff-mfa-ui.test.tsx`.
