@@ -1,6 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // One full Git revision per VPS release, shared by next build and next start.
+  // Local development/builds keep Next's normal behavior when no ID is supplied.
+  deploymentId: process.env.SITOV_DEPLOYMENT_ID || undefined,
   serverExternalPackages: ['@react-pdf/renderer'],
   outputFileTracingIncludes: { '/api/certificates': ['./lib/certificates/fonts/**/*'] },
   // PERFORMANCE: Compiler-Optimierungen

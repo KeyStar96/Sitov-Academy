@@ -46,9 +46,13 @@ it('keeps a pointer from an overflowing child within the card and ignores zero-s
   act(() => jest.advanceTimersByTime(32))
   expect(card.style.getPropertyValue('--sitov-light-x')).toBe('0.0%')
   expect(card.style.getPropertyValue('--sitov-light-y')).toBe('100.0%')
+  expect(card.style.getPropertyValue('--sitov-pointer-x')).toBe('-1.000')
+  expect(card.style.getPropertyValue('--sitov-pointer-y')).toBe('1.000')
   jest.spyOn(card, 'getBoundingClientRect').mockReturnValue({ left: 0, top: 0, width: 0, height: 0 } as DOMRect)
   pointer(card)
   expect(card).toHaveAttribute('data-sitov-pointer', 'false')
+  expect(card.style.getPropertyValue('--sitov-pointer-x')).toBe('0')
+  expect(card.style.getPropertyValue('--sitov-pointer-y')).toBe('0')
   expect(card.style.cssText).not.toMatch(/NaN|Infinity/)
 })
 

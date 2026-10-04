@@ -5,7 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle2, MessageCircle } from 'lucide-react'
 import { assignExamTeacher } from '@/app/actions/exam-preparation'
-import { getSimulationTeacherState, grantSimulationFeature, grantSimulationLevel, reviewExamSimulationTask } from '@/app/actions/exam-simulation'
+import { getSimulationTeacherState, grantSimulationFeature, grantSimulationLevel, reviewExamSimulationTask, sitovAssignSimulationStudent } from '@/app/actions/exam-simulation'
 import type { SimulationTeacherState } from '@/lib/exam-simulation/server'
 import { SIMULATION_SKILL_LABELS } from '@/lib/exam-simulation/catalogue'
 import PressableCard from '@/components/motion/PressableCard'
@@ -51,6 +51,15 @@ export default function ExamSimulationTeacher({initial,lang,preview=false}:{init
     setError('');setSaved(false)
     try{const result=await grantSimulationLevel({studentId,level:accessLevel,enabled});if(!result.success){setError(result.error??'Die Niveau-Freigabe konnte nicht geändert werden.');return}if(await refresh())setSaved(true)}catch{setError('Die Niveau-Freigabe konnte nicht geändert werden.')}
   })
+  const assignStudent=(id:string)=>startTransition(async()=>{
+    if(preview)return
+    setError('');setSaved(false)
+    try{
+      const result=await sitovAssignSimulationStudent({studentId:id})
+      if(!result.success){setError(result.error??'Die Prüfungszuordnung konnte nicht gespeichert werden.');return}
+      if(await refresh()){setStudentId(id);setSaved(true)}
+    }catch{setError('Die Prüfungszuordnung konnte nicht gespeichert werden.')}
+  })
   const save=()=>startTransition(async()=>{
     if(!active||preview)return
     setError('');setSaved(false)
@@ -66,7 +75,7 @@ export default function ExamSimulationTeacher({initial,lang,preview=false}:{init
     <div className={teacherStyles.views} role="group" aria-label="Prüfungsbereich">{([{id:'access',label:'Freigaben'},{id:'reviews',label:'Antworten bewerten'},{id:'results',label:'Ergebnisse'}] as const).map(item=><button type="button" key={item.id} aria-pressed={view===item.id} disabled={pending} onClick={()=>{setView(item.id);setSaved(false);setError('')}}>{item.label}</button>)}</div>
     {(!state.success||error)&&<p className={styles.error} role="alert">{error||state.error}</p>}
     {saved&&<p className={styles.note} role="status"><CheckCircle2 size={22}/>Die Änderung ist gespeichert.</p>}
-    {view==='access'&&<TeacherExamSimulationPanel state={state} studentId={studentId} accessLevel={accessLevel} pending={pending} preview={preview} onStudentChange={id=>{setStudentId(id);setSaved(false);setError('')}} onLevelChange={setAccessLevel} onFeatureChange={changeFeatureAccess} onLevelAccessChange={changeLevelAccess}/>}
+    {view==='access'&&<TeacherExamSimulationPanel state={state} studentId={studentId} accessLevel={accessLevel} pending={pending} preview={preview} onStudentChange={id=>{setStudentId(id);setSaved(false);setError('')}} onLevelChange={setAccessLevel} onFeatureChange={changeFeatureAccess} onLevelAccessChange={changeLevelAccess} onAssignStudent={assignStudent} onRefresh={()=>startTransition(async()=>{setError('');setSaved(false);await refresh()})}/>}
     {view==='access'&&<TeacherSimulationReset key={studentId} student={state.students.find(student=>student.id===studentId)} pending={pending} preview={preview} onBusyChange={setResetPending} onComplete={async()=>{setSelected('');setScore('');setComment('');setInteractionConfirmed(false);return refresh()}}/>}
     {view==='results'&&<SimulationResultsPanel state={state}/>}
     {view==='reviews'&&<section className={styles.panel}><div className={`${styles.row} ${styles.between}`}><h2>{waiting.length} {waiting.length === 1 ? 'offene Bewertung' : 'offene Bewertungen'}</h2><button className={styles.link} disabled={pending||preview} onClick={()=>startTransition(async()=>{setScore('');setInteractionConfirmed(false);setComment('');setSelected('');setFailedRecording('');setSaved(false);await refresh()})}>Aktualisieren</button></div>
@@ -84,7 +93,7 @@ export default function ExamSimulationTeacher({initial,lang,preview=false}:{init
         <PressableCard className={styles.primary} onClick={save} disabled={pending||preview||(active.task.interactionRequired&&Number(score)>0&&!interactionConfirmed)||score===''||!Number.isFinite(Number(score))||Number(score)<0||Number(score)>active.task.maxPoints||comment.trim().length<3||(active.task.type==='speaking'&&(!productive?.audioUrl||failedRecording===active.key))}><MessageCircle size={20}/>{pending?'Wird gespeichert …':'Bewertung speichern'}</PressableCard>
         {feedback?.teacherReview&&<FeedbackCard feedback={feedback} task={active.task}/>}</> : <p className={styles.muted}>Alle eingereichten Antworten sind bewertet. Neue abgeschlossene Durchgänge erscheinen hier.</p>}
     </section>}
-    {view==='access'&&state.actorRole==='admin'&&<details className={styles.details}><summary>Lehrkraft zuordnen</summary><label className={styles.label}>Teilnehmender<select className={styles.select} value={studentId} onChange={event=>setStudentId(event.target.value)}>{state.students.map(student=><option key={student.id} value={student.id}>{student.name}</option>)}</select></label><label className={styles.label}>Lehrkraft<select className={styles.select} value={teacherId} onChange={event=>setTeacherId(event.target.value)}>{state.teachers.map(teacher=><option key={teacher.id} value={teacher.id}>{teacher.name}</option>)}</select></label><PressableCard className={styles.secondary} disabled={pending||preview||!studentId||!teacherId} onClick={()=>startTransition(async()=>{try{const result=await assignExamTeacher({studentId,teacherId,responseDays:7});if(result.success)await refresh();else setError(result.error??'Die Zuordnung konnte nicht gespeichert werden.')}catch{setError('Die Zuordnung konnte nicht gespeichert werden.')}})}>Zuordnung speichern<ArrowRight size={18}/></PressableCard></details>}
+    {view==='access'&&state.actorRole==='admin'&&<details className={styles.details} open><summary>Prüfungslehrkraft verwalten</summary><p className={styles.muted}>Ordne einen Teilnehmenden einer Lehrkraft zu oder ändere die bestehende Zuständigkeit. Die persönliche Prüfungsfreigabe bleibt erhalten.</p><label className={styles.label}>Teilnehmender<select className={styles.select} value={studentId} disabled={pending||preview} onChange={event=>setStudentId(event.target.value)}>{state.students.map(student=><option key={student.id} value={student.id}>{student.name}</option>)}</select></label><label className={styles.label}>Lehrkraft<select className={styles.select} value={teacherId} disabled={pending||preview} onChange={event=>setTeacherId(event.target.value)}>{state.teachers.map(teacher=><option key={teacher.id} value={teacher.id}>{teacher.name}</option>)}</select></label><PressableCard className={styles.secondary} disabled={pending||preview||!studentId||!teacherId} onClick={()=>startTransition(async()=>{setError('');setSaved(false);try{const result=await assignExamTeacher({studentId,teacherId,responseDays:7});if(result.success){if(await refresh())setSaved(true)}else setError(result.error??'Die Zuordnung konnte nicht gespeichert werden.')}catch{setError('Die Zuordnung konnte nicht gespeichert werden.')}})}>Zuordnung speichern<ArrowRight size={18}/></PressableCard></details>}
 
     <Link className={styles.link} href={`/${lang}/admin/exam-preparation`}><ArrowRight size={18}/>Abgaben aus der Prüfungsvorbereitung</Link>
   </div>

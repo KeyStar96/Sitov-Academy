@@ -11,7 +11,7 @@ import {findCachedAudio} from '@/lib/audio/neural-cache'
 import {hasSimulationFeatureAccess,hasSimulationLevelAccess} from '@/lib/exam-simulation/server'
 import * as simulationServer from '@/lib/exam-simulation/server'
 import {buildSimulation,finishSimulation,publicSimulation,type StoredSimulationSession} from '@/lib/exam-simulation/engine'
-import {getSimulationState,startExamSimulation,saveSimulationAnswer,finishExamSimulation,startPreviewExamSimulation,savePreviewSimulationAnswer,finishPreviewExamSimulation,reviewExamSimulationTask,createSimulationUpload,grantSimulationFeature,resetStudentSimulationProgress} from '@/app/actions/exam-simulation'
+import {getSimulationState,startExamSimulation,saveSimulationAnswer,finishExamSimulation,startPreviewExamSimulation,savePreviewSimulationAnswer,finishPreviewExamSimulation,reviewExamSimulationTask,createSimulationUpload,grantSimulationFeature,resetStudentSimulationProgress,sitovAssignSimulationStudent,getSimulationTeacherState} from '@/app/actions/exam-simulation'
 import {SIMULATION_TASK_POOL} from '@/lib/exam-simulation/content'
 import type {SimulationRunRow} from '@/supabase/exam-simulation.types'
 import type {Json} from '@/supabase/database.types'
@@ -19,16 +19,17 @@ const student='00000000-0000-4000-8000-000000000001',outsider='00000000-0000-400
 const request='00000000-0000-4000-8000-000000000060'
 let runs:SimulationRunRow[]=[],receipts:Record<string,unknown>[]=[],mutations:Record<string,unknown>[]=[]
 function row(snapshot:StoredSimulationSession,owner=student):SimulationRunRow {return {id:snapshot.id,student_id:owner,level:snapshot.level,provider:snapshot.provider,mode:snapshot.mode,status:snapshot.status,started_at:snapshot.startedAt,expires_at:snapshot.expiresAt,completed_at:snapshot.completedAt??null,revision:0,generation:0,start_request_id:request,start_request_hash:'hash',server_snapshot:snapshot as unknown as Json}}
-function setup({authenticated=true,role='student',levels=['B1.2'],featureGranted=true,advancedLevels=[] as string[],assignedStudentIds=[] as string[],generation=0,resetPending=false}={}){
+function setup({authenticated=true,role='student',levels=['B1.2'],featureGranted=true,advancedLevels=[] as string[],assignedStudentIds=[] as string[],otherAssignedStudentIds=[] as string[],extraStudents=[] as string[],generation=0,resetPending=false}={}){
  runs=[];receipts=[];mutations=[]
  let featureGrants:Record<string,unknown>[]=featureGranted?[{student_id:student}]:[]
  const from=jest.fn((table:string)=>{
   const filters:Record<string,unknown>={};let inserted:Record<string,unknown>|undefined,removed=false
   const matching=()=>{
-   const rows:Record<string,unknown>[]=table==='sitov_simulation_runs'?runs as unknown as Record<string,unknown>[]:table==='sitov_simulation_receipts'?receipts:table==='sitov_simulation_feature_grants'?featureGrants:table==='sitov_simulation_level_grants'?advancedLevels.map(level=>({student_id:student,level})):table==='sitov_simulation_learning_state'?[{student_id:student,generation,reset_pending:resetPending?request:null}]:table==='profiles'?[{id:student,role},{id:outsider,role:'student'}]:table==='sitov_exam_teacher_assignments'?assignedStudentIds.map(student_id=>({student_id,teacher_id:student})):[]
-   return rows.filter(item=>Object.entries(filters).every(([key,value])=>item[key]===value))
+   const rows:Record<string,unknown>[]=table==='sitov_simulation_runs'?runs as unknown as Record<string,unknown>[]:table==='sitov_simulation_receipts'?receipts:table==='sitov_simulation_feature_grants'?featureGrants:table==='sitov_simulation_level_grants'?advancedLevels.map(level=>({student_id:student,level})):table==='sitov_simulation_learning_state'?[{student_id:student,generation,reset_pending:resetPending?request:null}]:table==='profiles'?[{id:student,role},{id:outsider,role:'student'},...extraStudents.map(id=>({id,role:'student'}))]:table==='sitov_exam_teacher_assignments'?[...assignedStudentIds.map(student_id=>({student_id,teacher_id:student})),...otherAssignedStudentIds.map(student_id=>({student_id,teacher_id:request}))]:[]
+   return rows.filter(item=>Object.entries(filters).every(([key,value])=>Array.isArray(value)?value.includes(item[key]):item[key]===value))
   }
   const builder={select:jest.fn().mockReturnThis(),order:jest.fn().mockReturnThis(),eq:jest.fn((key:string,value:unknown)=>{filters[key]=value;return builder}),
+   in:jest.fn((key:string,value:unknown[])=>{filters[key]=value;return builder}),
    insert:jest.fn((value:Record<string,unknown>)=>{inserted=value;mutations.push(value);return builder}),
    upsert:jest.fn((value:Record<string,unknown>)=>{if(table==='sitov_simulation_feature_grants')featureGrants=[...featureGrants.filter(row=>row.student_id!==value.student_id),value];mutations.push(value);return builder}),
    delete:jest.fn(()=>{removed=true;return builder}),
@@ -87,6 +88,35 @@ it('feature grants can only be changed by assigned teachers or administrators an
  expect(mutations[0]).toMatchObject({student_id:outsider,granted_by:student})
  expect(await grantSimulationFeature({studentId:outsider,enabled:false})).toEqual({success:true})
  expect(mutations[1]).toMatchObject({table:'sitov_simulation_feature_grants',student_id:outsider,deleted:true})
+})
+it('claims through one atomic database RPC with the authenticated staff identity and rejects students',async()=>{
+ let client=setup()
+ expect(await sitovAssignSimulationStudent({studentId:outsider})).toMatchObject({success:false})
+ expect(client.rpc).not.toHaveBeenCalled()
+ client=setup({role:'teacher'})
+ client.rpc.mockResolvedValue({data:true,error:null} as unknown as Awaited<ReturnType<typeof client.rpc>>)
+ expect(await sitovAssignSimulationStudent({studentId:outsider})).toEqual({success:true})
+ expect(client.rpc).toHaveBeenCalledWith('sitov_assign_simulation_student',{p_student_id:outsider,p_staff_id:student})
+ expect(mutations).toEqual([])
+})
+it('reports assignment races without opening the feature gate',async()=>{
+ const client=setup({role:'teacher'})
+ client.rpc.mockResolvedValue({data:null,error:{message:'simulation_student_already_assigned'}})
+ expect(await sitovAssignSimulationStudent({studentId:outsider})).toMatchObject({success:false,error:expect.stringContaining('anderen Lehrkraft')})
+ expect(mutations).toEqual([])
+})
+it('lists unassigned names without exposing another teachers candidates, runs or grants',async()=>{
+ const fresh='00000000-0000-4000-8000-000000000080',claimed='00000000-0000-4000-8000-000000000081'
+ setup({role:'teacher',assignedStudentIds:[claimed],otherAssignedStudentIds:[outsider],extraStudents:[fresh,claimed]})
+ const snapshot=finishSimulation(buildSimulation({level:'B1',provider:'telc',mode:'practice'}))
+ runs.push(row(snapshot,outsider))
+ const value=await getSimulationTeacherState()
+ expect(value.success).toBe(true)
+ expect(value.students.map(item=>item.id)).toEqual([claimed])
+ expect(value.unassignedStudents?.map(item=>item.id)).toEqual([fresh])
+ expect(value.runs).toEqual([])
+ expect(value.featureGrants).toEqual([])
+ expect(value.assignments).toEqual([{studentId:claimed,teacherId:student}])
 })
 it('does not misreport infrastructure failures as a personal feature lock',async()=>{
  setup({authenticated:false})

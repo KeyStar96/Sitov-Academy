@@ -29,3 +29,11 @@ Der Zugang wird in der Oberfläche, der Server Action und der bestehenden atomar
 Für den bestehenden VPS-Migrationsablauf liegt dieselbe SQL-Datei als `supabase/vps/68_sitov_confirmed_registration_monthly_access.sql` vor und ist in `deploy/vps/migrate-local.py` registriert. Der lokale Datenbanktest prüft die identischen Inhalte, führt die VPS-Datei innerhalb der äußeren Runner-Transaktion aus und prüft anschließend die wiederholte Anwendung.
 
 Geprüft wurden die bestätigte Eigentümerzuordnung, Sperren für Konten ohne Anmeldung und für Probestunden, offene Anmeldungen und reine Monatsbuchungen, mehrdeutige Identitäten, kostenlose Pausen, unveränderte Quelldatensätze, Preisberechnung samt Ausfällen, fünf Sprachfassungen sowie Preisübersicht und abschließende Bestätigung.
+
+## Kursanmeldung aus einem offenen Lernkonto
+
+Der Link „Kursanmeldung“ im gesperrten Monatsplan öffnet `/{lang}/registration` als vollständigen Dokumentwechsel. Damit startet das Anmeldeformular mit einem frischen Browser-Dokument, auch wenn der offene Kalender ein vorheriges Deployment überlebt hat. Die Anmeldung schreibt erst bei der ausdrücklichen Bestätigung; dieser Seitenwechsel legt keine Buchung an und verändert die vorhandene Monatsplanung nicht.
+
+Jedes VPS-Release setzt `SITOV_DEPLOYMENT_ID` beim Build auf seine vollständige Git-Revision. `next.config.ts` gibt diesen Wert als `deploymentId` an Next weiter. Die gesonderte, nicht geheime `.sitov-runtime.env` im Release liefert systemd dieselbe ID für `next start`; sie gehört zur geprüften Artefaktliste. Das optionale `EnvironmentFile` lässt ältere Releases ohne diese Datei beim Rollback startbar. Lokale Entwicklung und Builds ohne Release-ID behalten die normale Next-Konfiguration.
+
+Next erkennt damit bei späteren Deployments Versionsunterschiede zwischen Browser und Server und lädt das Dokument vollständig neu, statt inkompatible Seitendaten oder Assets zu kombinieren. Die manuelle Safari-Reproduktion am 4. Oktober 2026 zeigte den Kalender-Link in der Fehlergrenze und eine funktionierende Anmeldung nach vollständigem Neuladen. Ein Versionskonflikt ist aus diesem Vergleich abgeleitet; ein ursprünglicher JavaScript-Stack lag nicht vor. Der Dokumentwechsel am konkreten Link beseitigt die fehleranfällige Wiederverwendung unabhängig von dieser Diagnose.

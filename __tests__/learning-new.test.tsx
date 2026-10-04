@@ -69,9 +69,11 @@ describe('Kennzeichen an den genannten Stellen', () => {
     expect(screen.queryByText('Neu')).not.toBeInTheDocument()
   })
 
-  it('untere Leiste: Punkt am Reiter Lernen nur, wenn irgendwo etwas neu ist', () => {
+  it('Hauptnavigation: Lernen bleibt auch bei neuen Inhalten ohne überlagernden Punkt', () => {
     const { rerender } = render(<StudentNavigation lang="de" firstLevel="A1.1" levels={['A1.1']} supportLabels={labels} lastActiveLevel="A1.1" learnNew />)
-    expect(screen.getByRole('link', { name: /Lernen.*Neue Lerninhalte/ })).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: 'Lernen' })).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: 'Lernen' }).querySelector('.st-tabbar__new')).toBeNull()
+    expect(screen.queryByText('Neue Lerninhalte')).not.toBeInTheDocument()
     rerender(<StudentNavigation lang="de" firstLevel="A1.1" levels={['A1.1']} supportLabels={labels} lastActiveLevel="A1.1" />)
     expect(screen.queryByText('Neue Lerninhalte')).not.toBeInTheDocument()
   })

@@ -10,6 +10,7 @@ import SitovProgressHeader from '@/components/progress/SitovProgressHeader'
 import SitovLearningShell from '@/components/layout/SitovLearningShell'
 import DailyQuestEntry from '@/components/dashboard/DailyQuestEntry'
 import TrainerStatusTiles from '@/components/dashboard/TrainerStatusTiles'
+import ExamEntry from '@/components/exam-preparation/ExamEntry'
 import sitovHomeGrid from '@/components/dashboard/home/SitovHomeGrid.module.css'
 import { getDictionary } from '@/lib/dictionary'
 import { createDashboardTranslator } from '@/lib/dashboard-i18n'
@@ -118,6 +119,7 @@ export default async function SitovHomeMotionPreviewPage({ params, searchParams 
               media: { locked: noLevel, total: 20, fresh: 0 }, verbs: { locked: noLevel, total: 140, selected: 20, due: 28, mastered: 4 }, lessons: [], ownWords: null }} />}
         </div>
       </div>
+      <ExamEntry lang={lang} />
       <section aria-labelledby="academy-levels-title">
         <div className="academy-level-heading"><h2 id="academy-levels-title">{dict.academy.dashboard_levels}</h2><span>A1—B1</span></div>
         <div className="academy-level-grid">{levels.map((level, index) => <LevelCard key={level.id} {...level} index={index}

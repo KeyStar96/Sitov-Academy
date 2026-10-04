@@ -100,10 +100,14 @@ prepare_release() {
   git archive "$FULL_REVISION" | tar -x -C "$RELEASE_DIR"
   install -m 640 -o root -g sitov "$ENV_FILE" "$RELEASE_DIR/.env.local"
   cd "$RELEASE_DIR"
+  # next start reloads next.config; preserve the build's release identity without
+  # rewriting app credentials. systemd loads this optional, non-secret sidecar.
+  printf 'SITOV_DEPLOYMENT_ID=%s\n' "$FULL_REVISION" > .sitov-runtime.env
+  chmod 644 .sitov-runtime.env
   run_capped npm ci --no-audit --no-fund
   local build_command=(npm run build)
   if [[ "$BUILD_BUNDLER" == webpack ]]; then build_command+=(-- --webpack); fi
-  run_capped env NODE_OPTIONS="--max-old-space-size=${BUILD_HEAP_MB}" SITOV_BUILD_CPUS="$BUILD_CPUS" "${build_command[@]}"
+  run_capped env NODE_OPTIONS="--max-old-space-size=${BUILD_HEAP_MB}" SITOV_BUILD_CPUS="$BUILD_CPUS" SITOV_DEPLOYMENT_ID="$FULL_REVISION" "${build_command[@]}"
   test -s .next/BUILD_ID
   test -s .next/required-server-files.json
   chown -R sitov:sitov .next
@@ -117,7 +121,7 @@ prepare_release() {
   # caches are excluded because Next.js owns them; node_modules is lockfile-built.
   git -C "$SOURCE_DIR" ls-tree -r --name-only -z "$FULL_REVISION" | xargs -0 sha256sum -- > .sitov-prepared.sha256
   find .next -path .next/cache -prune -o -type f -print0 | sort -z | xargs -0 sha256sum -- >> .sitov-prepared.sha256
-  sha256sum -- .sitov-build-id .sitov-mail-was-running >> .sitov-prepared.sha256
+  sha256sum -- .sitov-build-id .sitov-mail-was-running .sitov-runtime.env >> .sitov-prepared.sha256
   chmod 600 .sitov-prepared.sha256 .sitov-build-id .sitov-mail-was-running
   # Publish readiness last, only after build and manifest creation succeeded.
   printf '%s\n' "$FULL_REVISION" > .sitov-prepared.tmp

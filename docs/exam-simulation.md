@@ -115,6 +115,32 @@ Prüfungsbereich nicht. Beide Freigaben öffnen keine anderen Trainer. Ein Entzu
 sperrt Schülerzugriffe und weitere Änderungen; die zugeordnete Lehrkraft kann
 gespeicherte abgeschlossene Durchgänge weiterhin fachlich prüfen.
 
+## Freigaben im Bereich Prüfungen
+
+Unter **Prüfungen → Simulierte Prüfung → Freigaben** verwalten Lehrkräfte ihre
+Lernenden mit einer Übersicht über gesperrte und freigegebene Zugänge. Für den
+ausgewählten Teilnehmenden lassen sich die persönliche Freigabe und zusätzliche
+Niveaurechte einzeln ändern. „Aktualisieren“ lädt die aktuellen Zuordnungen und
+Freigaben erneut. Die Administration sieht alle Lernenden und kann die
+Prüfungslehrkraft in derselben Ansicht zuordnen oder wechseln.
+
+Die frühere leere Liste entstand, weil eine separate, ausschließlich durch die
+Administration angelegte Prüfungszuordnung erforderlich war. Lehrkräfte können
+jetzt unzugeordnete Lernende nach Namen suchen und mit **„Übernehmen und für …
+freigeben“** selbst betreuen. Die Serveraktion leitet ihre Lehrkraft-ID aus der
+authentifizierten Sitzung ab; Migration **78** speichert Zuordnung und persönliche
+Freigabe in einer Transaktion. Die bestehende Zuordnung zu einer anderen
+Lehrkraft kann dabei nicht überschrieben werden. Bei konkurrierenden Freigaben
+erhält die zweite Lehrkraft einen Hinweis und kann die Liste aktualisieren.
+
+Vor der Übernahme liefert der Server ausschließlich Namen und IDs unzugeordneter
+Lernender. Deren Antworten, Ergebnisse, Aufnahmen und Freigaben werden erst nach
+bestätigter Zuordnung zugänglich. Browserrollen dürfen die Zuordnung nicht direkt
+ändern oder den internen RPC aufrufen. Bestehende Freigaben, Aufgaben, Antworten,
+Prüfungsdurchgänge, Trainerrechte, Fortschritt und Streaks bleiben erhalten.
+Migration 78 ist im Repository vorbereitet; der oben genannte Produktionsstand
+bezieht sich weiterhin auf Migrationen 75–77.
+
 ## Inhalte und neue Durchgänge
 
 Zwölf Alltagsszenarien besitzen eigene A1–C2-Quelltexte. Für C1 und C2 ersetzen

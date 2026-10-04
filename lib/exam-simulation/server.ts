@@ -129,7 +129,7 @@ export async function verifySimulationAnswerMedia(answer:SimulationAnswer,userId
 export interface SimulationTeacherState {
  success:boolean;error?:string;actorRole:'teacher'|'admin';
  runs:{studentId:string;studentName:string;session:SimulationSession}[];
- students:{id:string;name:string}[];assignments:{studentId:string;teacherId:string}[];teachers:{id:string;name:string}[];levelGrants:{studentId:string;level:SimulationLevel}[];featureGrants:{studentId:string}[]
+ students:{id:string;name:string}[];unassignedStudents?:{id:string;name:string}[];assignments:{studentId:string;teacherId:string}[];teachers:{id:string;name:string}[];levelGrants:{studentId:string;level:SimulationLevel}[];featureGrants:{studentId:string}[]
 }
 export async function requireSimulationStudentManagement(actor:Awaited<ReturnType<typeof getSimulationActor>>,studentId:string) {
  if(actor.role==='admin')return
@@ -138,11 +138,13 @@ export async function requireSimulationStudentManagement(actor:Awaited<ReturnTyp
 }
 export async function loadSimulationTeacherState(actor:Awaited<ReturnType<typeof getSimulationActor>>):Promise<SimulationTeacherState> {
  const admin=createAdminClient()
- const [assignments,profiles,people]=await Promise.all([
-  allExamRows((from,to)=>{let query=admin.from('sitov_exam_teacher_assignments').select('*').order('student_id');if(actor.role!=='admin')query=query.eq('teacher_id',actor.userId);return query.range(from,to)}),
+ const [allAssignments,profiles,people]=await Promise.all([
+  allExamRows((from,to)=>admin.from('sitov_exam_teacher_assignments').select('*').order('student_id').range(from,to)),
   allExamRows((from,to)=>admin.from('profiles').select('id,role').order('id').range(from,to)),
   allExamRows((from,to)=>admin.from('people').select('auth_user_id,display_name').order('id').range(from,to)),
  ])
+ const assignments=allAssignments.filter(assignment=>actor.role==='admin'||assignment.teacher_id===actor.userId)
+ const alreadyAssigned=new Set(allAssignments.map(assignment=>assignment.student_id))
  const assignedIds=assignments.map(assignment=>assignment.student_id)
  const rows=actor.role==='admin'||assignedIds.length?await allExamRows((from,to)=>{let query=admin.from('sitov_simulation_runs').select('*').eq('status','completed').order('completed_at',{ascending:false}).order('id');if(actor.role!=='admin')query=query.in('student_id',assignedIds);return query.range(from,to)}):[]
  const grantRows=actor.role==='admin'||assignedIds.length?await allExamRows((from,to)=>{let query=admin.from('sitov_simulation_level_grants').select('student_id,level').order('student_id').order('level');if(actor.role!=='admin')query=query.in('student_id',assignedIds);return query.range(from,to)}):[]
@@ -151,6 +153,9 @@ export async function loadSimulationTeacherState(actor:Awaited<ReturnType<typeof
  return {success:true,actorRole:actor.role as 'admin'|'teacher',featureGrants:featureRows.map(grant=>({studentId:grant.student_id})),levelGrants:grantRows.map(grant=>({studentId:grant.student_id,level:grant.level as SimulationLevel})),
   runs:await Promise.all(rows.map(async row=>({studentId:row.student_id,studentName:names.get(row.student_id)??'Lernender',session:await presentSimulation(simulationSnapshot(row))}))),
   students:profiles.filter(profile=>profile.role==='student'&&(actor.role==='admin'||assignedIds.includes(profile.id))).map(profile=>({id:profile.id,name:names.get(profile.id)??'Lernender'})),
+  // Only names of unassigned candidates leave the server. Their runs, grants and
+  // private recordings remain unavailable until the database confirms assignment.
+  unassignedStudents:actor.role==='teacher'?profiles.filter(profile=>profile.role==='student'&&!alreadyAssigned.has(profile.id)).map(profile=>({id:profile.id,name:names.get(profile.id)??'Lernender'})):[],
   assignments:assignments.map(assignment=>({studentId:assignment.student_id,teacherId:assignment.teacher_id})),
   teachers:profiles.filter(profile=>['admin','teacher'].includes(profile.role??'')).map(profile=>({id:profile.id,name:names.get(profile.id)??'Lehrkraft'}))}
 }

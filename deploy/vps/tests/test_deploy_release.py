@@ -30,6 +30,7 @@ elif name=='nice':
  os.execvp(args[2],args[2:])
 elif name=='npm':
  with open(os.environ['MOCK_LOG'],'a') as f:f.write(json.dumps(['npm-env',os.environ.get('NODE_OPTIONS'),os.environ.get('SITOV_BUILD_CPUS')])+'\n')
+ with open(os.environ['MOCK_LOG'],'a') as f:f.write(json.dumps(['npm-deployment-id',args,os.environ.get('SITOV_DEPLOYMENT_ID')])+'\n')
  if args==['ci','--no-audit','--no-fund']:
   pathlib.Path('node_modules/sitov-runtime/dist').mkdir(parents=True)
   pathlib.Path('node_modules/sitov-runtime/package.json').write_text('{}')
@@ -208,6 +209,26 @@ class DeploymentTests(unittest.TestCase):
         self.assertIn(['npm-env','--max-old-space-size=2048','1'],self.calls())
         self.assertIn(['npm','run','build'],self.calls())
         self.assertFalse(any(c[0]=='npm' for c in self.calls() if c[0]!='npm-env' and 'systemd-run' not in json.dumps(scopes)))
+
+    def test_build_and_runtime_share_the_full_release_revision_without_rewriting_credentials(self):
+        release=self.prepare()
+        full_revision=REVISION+'0'*28
+        self.assertIn(['npm-deployment-id',['run','build'],full_revision],self.calls())
+        self.assertEqual((release/'.sitov-runtime.env').read_text(),f'SITOV_DEPLOYMENT_ID={full_revision}\n')
+        self.assertEqual((release/'.sitov-runtime.env').stat().st_mode & 0o777,0o644)
+        self.assertEqual((release/'.env.local').read_bytes(),self.env_file.read_bytes())
+        service=(SCRIPT.parent/'sitov-app.service').read_text()
+        self.assertIn('EnvironmentFile=-/var/www/sitov-current/.sitov-runtime.env',service)
+        self.assertLess(service.index('EnvironmentFile=/etc/sitov-academy/app.env'),service.index('EnvironmentFile=-/var/www/sitov-current/.sitov-runtime.env'))
+
+    def test_tampered_runtime_release_identity_cannot_activate(self):
+        release=self.prepare(); self.log.write_text('')
+        (release/'.sitov-runtime.env').write_text('SITOV_DEPLOYMENT_ID=wrong-release\n')
+        result=self.run_script('--activate',REVISION)
+        self.assertNotEqual(result.returncode,0)
+        self.assertIn('artifact verification',result.stderr)
+        self.assertEqual(self.current.resolve(),self.previous)
+        self.assertFalse(any(c[0]=='systemctl' for c in self.calls()))
 
     def test_webpack_flag_reaches_the_capped_build_without_switching_live(self):
         result=self.run_script('--prepare-only',SITOV_BUILD_BUNDLER='webpack')

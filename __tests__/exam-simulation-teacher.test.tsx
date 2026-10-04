@@ -1,11 +1,11 @@
 import React from 'react'
 import {fireEvent,render,screen,waitFor} from '@testing-library/react'
 import ExamSimulationTeacher from '@/components/exam-simulation/ExamSimulationTeacher'
-import {getSimulationTeacherState,grantSimulationFeature,grantSimulationLevel,reviewExamSimulationTask,resetStudentSimulationProgress} from '@/app/actions/exam-simulation'
+import {getSimulationTeacherState,grantSimulationFeature,grantSimulationLevel,reviewExamSimulationTask,resetStudentSimulationProgress,sitovAssignSimulationStudent} from '@/app/actions/exam-simulation'
 import type {SimulationTeacherState} from '@/lib/exam-simulation/server'
 import type {SimulationSession,SimulationTask} from '@/lib/exam-simulation/types'
 jest.unmock('lucide-react')
-jest.mock('@/app/actions/exam-simulation',()=>({getSimulationTeacherState:jest.fn(),reviewExamSimulationTask:jest.fn(),grantSimulationLevel:jest.fn(),grantSimulationFeature:jest.fn(),resetStudentSimulationProgress:jest.fn()}))
+jest.mock('@/app/actions/exam-simulation',()=>({getSimulationTeacherState:jest.fn(),reviewExamSimulationTask:jest.fn(),grantSimulationLevel:jest.fn(),grantSimulationFeature:jest.fn(),resetStudentSimulationProgress:jest.fn(),sitovAssignSimulationStudent:jest.fn()}))
 jest.mock('@/app/actions/exam-preparation',()=>({assignExamTeacher:jest.fn()}))
 jest.mock('@/components/exam-simulation/ExamSimulation',()=>({FeedbackCard:({feedback}:{feedback:{title:string;answerText?:string|string[]}})=><div>{feedback.title}<span>{feedback.answerText}</span></div>}))
 const task:SimulationTask={id:'sitov-speaking',version:1,level:'B1',skill:'speaking',family:'speaking-opinion',type:'speaking',title:'Eine Meinung vorstellen',instruction:'Stellen Sie Ihre Meinung vor.',maxPoints:20,minutes:3,criteria:['Verständliche Gründe nennen']}
@@ -102,6 +102,42 @@ it('a teacher with no assigned pupils has no grant or level controls',()=>{
  expect(screen.getByText(/Dir sind noch keine Lernenden zugeordnet/)).toBeInTheDocument()
  expect(screen.queryByRole('button',{name:/Prüfung für/})).not.toBeInTheDocument()
  expect(grantSimulationFeature).not.toHaveBeenCalled()
+})
+it('lets teachers find and take over an unassigned learner even when their assigned list is empty',async()=>{
+ const initial=state();initial.students=[];initial.runs=[];initial.unassignedStudents=[{id:'max-id',name:'Max'},{id:'daniel-id',name:'Daniel'}]
+ const next=state();next.students=[{id:'daniel-id',name:'Daniel'}];next.runs=[];next.featureGrants=[{studentId:'daniel-id'}];next.unassignedStudents=[{id:'max-id',name:'Max'}]
+ jest.mocked(sitovAssignSimulationStudent).mockResolvedValue({success:true})
+ jest.mocked(getSimulationTeacherState).mockResolvedValue(next)
+ render(<ExamSimulationTeacher initial={initial} lang="de"/> )
+ expect(screen.getByText(/übernimm die Prüfungsbetreuung direkt/)).toBeInTheDocument()
+ fireEvent.change(screen.getByLabelText('Lernende suchen'),{target:{value:'DAN'}})
+ expect(screen.getByLabelText('Teilnehmender ohne Prüfungslehrkraft')).toHaveValue('daniel-id')
+ fireEvent.click(screen.getByRole('button',{name:'Übernehmen und für Daniel freigeben'}))
+ await waitFor(()=>expect(screen.getByText('Daniel: Prüfung freigegeben')).toBeInTheDocument())
+ expect(sitovAssignSimulationStudent).toHaveBeenCalledWith({studentId:'daniel-id'})
+ expect(screen.getByLabelText('Teilnehmender für die Prüfung')).toHaveValue('daniel-id')
+ expect(grantSimulationFeature).not.toHaveBeenCalled()
+})
+it('keeps a conflicting assignment closed and offers an authoritative access refresh',async()=>{
+ const initial=state();initial.unassignedStudents=[{id:'daniel-id',name:'Daniel'}]
+ jest.mocked(sitovAssignSimulationStudent).mockResolvedValue({success:false,error:'Dieser Lernende wurde bereits einer anderen Lehrkraft zugeordnet.'})
+ const refreshed=state();refreshed.unassignedStudents=[]
+ jest.mocked(getSimulationTeacherState).mockResolvedValue(refreshed)
+ render(<ExamSimulationTeacher initial={initial} lang="de"/> )
+ fireEvent.click(screen.getByRole('button',{name:'Übernehmen und für Daniel freigeben'}))
+ await waitFor(()=>expect(screen.getByRole('alert')).toHaveTextContent('anderen Lehrkraft'))
+ expect(screen.queryByText('Daniel: Prüfung freigegeben')).not.toBeInTheDocument()
+ fireEvent.click(screen.getByRole('button',{name:'Aktualisieren'}))
+ await waitFor(()=>expect(screen.queryByLabelText('Lernende suchen')).not.toBeInTheDocument())
+ expect(screen.getByText('Max: Prüfung gesperrt')).toBeInTheDocument()
+})
+it('keeps candidate assignment disabled in preview and handles a search without matches',()=>{
+ const initial=state();initial.unassignedStudents=[{id:'daniel-id',name:'Daniel'}]
+ render(<ExamSimulationTeacher initial={initial} lang="de" preview/> )
+ expect(screen.getByRole('button',{name:'Übernehmen und für Daniel freigeben'})).toBeDisabled()
+ fireEvent.change(screen.getByLabelText('Lernende suchen'),{target:{value:'Nicht vorhanden'}})
+ expect(screen.getByText('Keine Lernenden mit diesem Namen gefunden.')).toBeInTheDocument()
+ expect(sitovAssignSimulationStudent).not.toHaveBeenCalled()
 })
 it('displays all completed answers separately and masks partial productive percentages while pending',()=>{
  const initial=state();initial.runs[0].session.result={status:'teacher-review-required',headline:'Bewertung offen',description:'Die Lehrkraft prüft die Leistungen.',examPass:null,percentage:null,reviewedPoints:10,reviewedMaxPoints:10,totalMaxPoints:20,pendingTeacherTasks:1,missingSkills:[],skills:[{skill:'writing',title:'Schreiben',points:10,maxPoints:20,percentage:100,pendingTeacherTasks:1,correctTasks:1,wrongTasks:0}],feedback:[{taskId:task.id,title:'Gespeicherte Antwort',skill:'speaking',family:task.family,answer:'Meine Antwort',answerText:'Meine Antwort',correct:null,points:null,maxPoints:20,explanation:'Fachliche Bewertung steht aus.'}],nextSteps:[]}

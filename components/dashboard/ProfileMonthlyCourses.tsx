@@ -135,7 +135,8 @@ export default function ProfileMonthlyCourses({ initial, lang, translations, cou
         {!state.hasConfirmedRegistration && <div className="st-plan mt-5">
           <p className="flex items-center gap-2 font-bold text-[var(--foreground)]"><LockKeyhole size={20} aria-hidden="true" />{t('registration_required_title')}</p>
           <p className="mt-2 text-base leading-relaxed text-[var(--muted)]">{t(state.source === 'unresolved' ? 'unresolved_courses' : 'registration_required')}</p>
-          <Link href={`/${lang}/registration`} className="st-button st-button--soft st-press mt-4">{t('registration_link')}<ArrowRight size={18} aria-hidden="true" /></Link>
+          {/* Enrollment starts with a fresh document, including after an open dashboard tab outlives a deployment. */}
+          <a href={`/${lang}/registration`} className="st-button st-button--soft st-press mt-4">{t('registration_link')}<ArrowRight size={18} aria-hidden="true" /></a>
         </div>}
 
         {state.hasConfirmedRegistration && <AnimatePresence mode="wait" initial={false}>

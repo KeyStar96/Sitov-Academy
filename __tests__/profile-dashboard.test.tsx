@@ -18,6 +18,7 @@ jest.unmock('lucide-react')
 jest.mock('@/app/actions/monthly-bookings',()=>({saveNextMonthBooking:jest.fn(),getProfileMonthlyState:jest.fn()}))
 jest.mock('@/app/actions/profile',()=>({updatePersonalDetails:jest.fn()}))
 jest.mock('@/app/actions/profile-calendar',()=>({getProfileCourseCalendar:jest.fn()}))
+jest.mock('next/link',()=>({__esModule:true,default:({children,...props}:React.ComponentProps<'a'>)=><a {...props} data-sitov-client-navigation>{children}</a>}))
 
 const one='00000000-0000-4000-8000-000000000001',two='00000000-0000-4000-8000-000000000002'
 const initial: ProfileMonthlyState = {
@@ -58,6 +59,16 @@ it('locks monthly selection until an original course registration has been confi
   expect(screen.getByRole('link',{name:de.profile.registration_link})).toHaveAttribute('href','/de/registration')
   expect(screen.queryByRole('button',{name:s('booking_change')})).not.toBeInTheDocument()
   expect(screen.queryByRole('checkbox')).not.toBeInTheDocument()
+  expect(saveNextMonthBooking).not.toHaveBeenCalled()
+})
+it.each([['de',de],['en',en],['ru',ru],['uk',uk],['tr',tr]] as const)('opens course registration with a fresh document from the monthly gate in %s',(lang,dict)=>{
+  renderCourses({...initial,hasConfirmedRegistration:false},lang,dict.profile)
+  const registration=screen.getByRole('link',{name:dict.profile.registration_link})
+  expect(registration).toHaveAttribute('href',`/${lang}/registration`)
+  // A Next Link intercepts the document transition and can reuse stale page data
+  // from the open dashboard. The gate must use an ordinary anchor instead.
+  expect(registration).not.toHaveAttribute('data-sitov-client-navigation')
+  expect(registration).not.toHaveAttribute('target')
   expect(saveNextMonthBooking).not.toHaveBeenCalled()
 })
 it('shows the monthly price, rates, attendance scope and paid confirmation together',()=>{

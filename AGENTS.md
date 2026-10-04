@@ -2,6 +2,10 @@
 
 Die Schule und Lernplattform heißen ausschließlich **Sitov Academy**. Verwende diesen Namen in Oberflächen, Metadaten und Dokumentation. Neue technische Kennungen verwenden das Präfix `sitov`.
 
+## Motion-Design
+
+**Motion-Design ist eine zentrale Regel für die gesamte Webseite.** Die Oberfläche soll sich lebendig anfühlen und auf Berührung, Pointer, Tastatur und Zustandswechsel unmittelbar und dynamisch reagieren. Neue und überarbeitete Oberflächen verwenden bewusste Auftritte, Druckfeedback, bewegte Auswahl und verständliche Lade-, Erfolgs- und Übergangszustände; wichtige Einstiegskarten dürfen eigenständige Motion-Graphics mit nachvollziehbarer Choreografie erhalten. Gemeinsame Werte und Muster aus `lib/motion.ts`, `components/motion/` und den CSS-Motion-Tokens verwenden; die verbindlichen Gestaltungsregeln stehen in `docs/design/sitov-motion-design.md`. Bewegung darf Text, Fokus und Bedienbarkeit nicht überdecken, Eingaben nicht verzögern und keinen Layoutsprung auslösen. `prefers-reduced-motion` muss eine gleichwertige, ruhige und vollständig bedienbare Darstellung erhalten. Fortlaufende dekorative Bewegung läuft nur im sichtbaren Bereich und bei sichtbarem Browserfenster; Animationen bevorzugen `transform` und `opacity` und räumen Listener, Frames und Timer beim Verlassen auf.
+
 ## Lerncharaktere und deutsche Audio-Stimme
 
 Für alle fiktiven Lerncharaktere von Sitov Academy gelten ausschließlich männliche Charaktere. Das umfasst Deutschreise, Tagesaufgaben, Dialoge, Szenenbilder, Avatare und künftige Lernmodule. Namen, Rollen, Bildbeschreibungen und dargestellte Personen müssen dazu passen. Die Regel betrifft fiktive Lerncharaktere; reale Nutzerprofile und fachlich notwendige Beispiele zu grammatischem Geschlecht bleiben sachlich korrekt.

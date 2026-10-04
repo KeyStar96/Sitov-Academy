@@ -6,7 +6,6 @@ import { CalendarDays, GraduationCap, House, LifeBuoy, Mail, Map, MessageCircle,
 import BottomSheet from '@/components/ui/BottomSheet'
 import PressableCard from '@/components/motion/PressableCard'
 import SlidingPill from '@/components/motion/SlidingPill'
-import NewBadge from '@/components/motion/NewBadge'
 import { levelHref } from '@/lib/mode-targets'
 import { studentTranslator } from '@/lib/student-ui-i18n'
 import { supportChannels, type SupportLabels } from '@/lib/support-channels'
@@ -59,7 +58,7 @@ export function decideTabbar({ focusInBar, keyboard, scrollY = 0, scrollDistance
  * schwebt (z. B. das Aufnahme-Dock). Bei einer Bildschirmtastatur macht nur
  * die mobile Leiste Platz, bis das Eingabefeld verlassen wird.
  */
-export default function StudentNavigation({ lang, firstLevel, levels, supportLabels, lastActiveLevel, learnNew = false, sitovPathname }: {
+export default function StudentNavigation({ lang, firstLevel, levels, supportLabels, lastActiveLevel, sitovPathname }: {
   lang: string
   firstLevel: string | null
   /** Freigeschaltete Niveaus — nur diese darf „Lernen" ansteuern. */
@@ -67,7 +66,7 @@ export default function StudentNavigation({ lang, firstLevel, levels, supportLab
   supportLabels: SupportLabels
   /** Ergebnis von `get_last_active_level`; `undefined`, wenn die Abfrage scheiterte. */
   lastActiveLevel?: string | null
-  /** In irgendeinem freigeschalteten Niveau ist etwas neu (Phase 6.1): Punkt am Reiter „Lernen". */
+  /** @deprecated Neuheiten stehen an den Lerninhalten; die Hauptnavigation zeigt keinen Punkt. */
   learnNew?: boolean
   sitovPathname?: string
 }) {
@@ -161,7 +160,7 @@ export default function StudentNavigation({ lang, firstLevel, levels, supportLab
     ?? rpcLevel ?? firstLevel
   const tabs = [
     { id: 'home', label: t('nav_home'), icon: House, href: base, active: pathname === base || pathname === `${base}/` },
-    { id: 'learn', label: t('nav_learn'), icon: GraduationCap, href: learnLevel ? levelHref(lang, learnLevel) : base, active: !!currentLevel, fresh: learnNew },
+    { id: 'learn', label: t('nav_learn'), icon: GraduationCap, href: learnLevel ? levelHref(lang, learnLevel) : base, active: !!currentLevel },
     { id: 'journey', label: getDailyQuestCopy(sitovUiLanguage).navJourney, icon: Map, href: `${base}/daily-quest`, active: pathname.startsWith(`${base}/daily-quest`) },
     { id: 'calendar', label: t('nav_calendar'), icon: CalendarDays, href: `${base}/calendar`, active: pathname.startsWith(`${base}/calendar`) },
   ]
@@ -176,7 +175,6 @@ export default function StudentNavigation({ lang, firstLevel, levels, supportLab
                 {tab.active && <SlidingPill group={`tabbar-${group}`} className="st-tabbar__pill" />}
                 <tab.icon size={24} aria-hidden="true" className="st-tabbar__icon" />
                 <span className="st-tabbar__label">{tab.label}</span>
-                {'fresh' in tab && tab.fresh && <NewBadge variant="dot" label={t('nav_learn_new')} className="st-tabbar__new" />}
               </PressableCard>
             </li>
           ))}

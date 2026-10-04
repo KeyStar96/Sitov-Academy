@@ -133,6 +133,18 @@ class MigrationFailureTests(unittest.TestCase):
         self.assertIn(name, MIGRATION.ORDER)
         self.assertEqual((SQL_DIR / name).read_text(), source.read_text())
 
+    def test_simulation_teacher_management_is_mirrored_and_native_smoke_rolls_back(self):
+        name = '78_sitov_simulation_teacher_management.sql'
+        source = SQL_DIR.parent / 'migrations/20261004143857_sitov_simulation_teacher_management.sql'
+        self.assertIn(name, MIGRATION.ORDER)
+        self.assertEqual((SQL_DIR / name).read_text(), source.read_text())
+        smoke = (SCRIPT.parent / 'tests/sitov-exam-teacher-management.sql').read_text()
+        self.assertIn('\\set ON_ERROR_STOP on', smoke)
+        self.assertIn('BEGIN;', smoke)
+        self.assertIn('ROLLBACK;', smoke)
+        self.assertNotIn('COMMIT;', smoke)
+        self.assertIn("SELECT 'sitov_exam_teacher_management_ok' AS result", smoke)
+
     def test_concurrent_indexes_use_bounded_autocommit_and_next_file_is_transactional(self):
         (self.root / '08_performance_indexes.sql').write_text('CREATE INDEX CONCURRENTLY x ON t(id);\n')
         (self.root / '09_progress_aggregate.sql').write_text('SELECT 9;\n')

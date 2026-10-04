@@ -16,7 +16,12 @@ export default function SitovMotionStage(props: ComponentPropsWithoutRef<'div'>)
     let active: HTMLElement | null = null
     const clear = () => {
       cancelAnimationFrame(frame)
-      if (active) { active.dataset.sitovPointer = 'false'; active = null }
+      if (active) {
+        active.dataset.sitovPointer = 'false'
+        active.style.setProperty('--sitov-pointer-x', '0')
+        active.style.setProperty('--sitov-pointer-y', '0')
+        active = null
+      }
     }
     const updateLive = () => {
       const live = visible && !document.hidden && !sitovReduced
@@ -43,6 +48,9 @@ export default function SitovMotionStage(props: ComponentPropsWithoutRef<'div'>)
         const position = (value: number) => `${Math.min(100, Math.max(0, value)).toFixed(1)}%`
         surface.style.setProperty('--sitov-light-x', position((event.clientX - box.left) / box.width * 100))
         surface.style.setProperty('--sitov-light-y', position((event.clientY - box.top) / box.height * 100))
+        const axis = (value: number) => Math.min(1, Math.max(-1, value)).toFixed(3)
+        surface.style.setProperty('--sitov-pointer-x', axis((event.clientX - box.left) / box.width * 2 - 1))
+        surface.style.setProperty('--sitov-pointer-y', axis((event.clientY - box.top) / box.height * 2 - 1))
         surface.dataset.sitovPointer = 'true'
       })
     }

@@ -12,6 +12,7 @@ export type ExamSimulationTables = {
  sitov_simulation_receipts:Table<{student_id:string;request_id:string;run_id:string;kind:'answer'|'finish'|'review';payload_hash:string;created_at:string},'student_id'|'request_id'|'run_id'|'kind'|'payload_hash'>
 }
 export type ExamSimulationFunctions = {
+ sitov_assign_simulation_student:{Args:{p_student_id:string;p_staff_id:string};Returns:boolean}
  sitov_begin_simulation_reset:{Args:{p_student_id:string;p_staff_id:string;p_request_id:string};Returns:Json}
  sitov_finish_simulation_reset:{Args:{p_job_id:string;p_staff_id:string};Returns:boolean}
  sitov_store_simulation_change:{Args:{p_run_id:string;p_student_id:string;p_revision:number;p_snapshot:Json;p_request_id:string;p_kind:string;p_payload_hash:string};Returns:Json}

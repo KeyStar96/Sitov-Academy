@@ -18,7 +18,7 @@ const uuid=z.uuid(),key=z.string().min(1).max(160)
 const startSchema=z.object({level:z.enum(SIMULATION_LEVELS as [SimulationLevel,...SimulationLevel[]]),provider:z.literal('sitov').default('sitov'),mode:z.enum(['practice','exam']).default('exam'),requestId:uuid})
 const answerSchema=z.union([z.string().max(20000),z.array(z.string().max(1000)).max(100),z.object({text:z.string().max(20000),audioPath:z.string().max(300).optional()})])
 const saveSchema=z.object({runId:uuid,taskId:key,answer:answerSchema,requestId:uuid})
-const refresh=()=>{try{revalidatePath('/[lang]/dashboard/exam-simulation','page');revalidatePath('/[lang]/admin/exam-simulation','page')}catch{console.error('Simulation saved; refresh failed')}}
+const refresh=()=>{try{revalidatePath('/[lang]/dashboard/exam-simulation','page');revalidatePath('/[lang]/admin/exam-simulation','page');revalidatePath('/[lang]/dashboard','page')}catch{console.error('Simulation saved; refresh failed')}}
 function message(error:unknown):string {
  if(error instanceof z.ZodError)return 'Bitte prüfe deine Eingaben.'
  if(error instanceof Error&&!/postgres|supabase|secret|service_role|relation|column|violates|fingerprint/i.test(error.message))return error.message
@@ -101,6 +101,18 @@ export async function createSimulationUpload(input:{runId:string;taskId:string;m
 }catch(error){return {success:false,error:message(error)}}}
 
 export async function getSimulationTeacherState():Promise<SimulationTeacherState>{try{return await loadSimulationTeacherState(await getSimulationActor(true))}catch(error){return {success:false,error:message(error),actorRole:'teacher',runs:[],students:[],assignments:[],teachers:[],levelGrants:[],featureGrants:[]}}}
+/** Claim an unassigned learner and open the exam in one database transaction. */
+export async function sitovAssignSimulationStudent(input:{studentId:string}):Promise<{success:boolean;error?:string}>{try{
+ const value=z.object({studentId:uuid}).parse(input),actor=await getSimulationActor(true)
+ const {data,error}=await createAdminClient().rpc('sitov_assign_simulation_student',{p_student_id:value.studentId,p_staff_id:actor.userId})
+ if(error){
+  if(error.message.includes('simulation_student_already_assigned'))throw new Error('Dieser Lernende wurde bereits einer anderen Lehrkraft zugeordnet. Bitte aktualisiere die Freigaben.')
+  if(error.message.includes('invalid_simulation_student'))throw new Error('Bitte wähle ein bestehendes Schülerprofil.')
+  throw new Error('Die Prüfungszuordnung und Freigabe konnten nicht gespeichert werden.')
+ }
+ if(data!==true)throw new Error('Die Prüfungszuordnung und Freigabe konnten nicht bestätigt werden.')
+ refresh();return {success:true}
+}catch(error){return {success:false,error:message(error)}}}
 export async function grantSimulationFeature(input:{studentId:string;enabled:boolean}):Promise<{success:boolean;error?:string}>{try{
  const value=z.object({studentId:uuid,enabled:z.boolean()}).parse(input),actor=await getSimulationActor(true)
  await requireSimulationStudentManagement(actor,value.studentId)
