@@ -8,7 +8,7 @@ Pflichtgebiete und nachgewiesene vorberechnete Hörmedien; bei fehlenden Medien
 startet kein verkürzter Durchgang. Alle 144 Hörquellen sind lokal vollständig
 vorbereitet; eine Quelle wurde nach verweigerter echter Alignment-Validierung
 erfolgreich neu erzeugt. Alle 144 Quellen sind in den Datenbank-Audiospeicher
-importiert und gegen Storage zurückgelesen. **Migrationen 75–77 sind produktiv
+importiert und gegen Storage zurückgelesen. **Migrationen 75–78 sind produktiv
 angewandt. Alle Schüler sind zunächst gesperrt**, bis die zugeordnete Lehrkraft
 oder Administration einzeln freigibt.
 
@@ -138,8 +138,8 @@ Lernender. Deren Antworten, Ergebnisse, Aufnahmen und Freigaben werden erst nach
 bestätigter Zuordnung zugänglich. Browserrollen dürfen die Zuordnung nicht direkt
 ändern oder den internen RPC aufrufen. Bestehende Freigaben, Aufgaben, Antworten,
 Prüfungsdurchgänge, Trainerrechte, Fortschritt und Streaks bleiben erhalten.
-Migration 78 ist im Repository vorbereitet; der oben genannte Produktionsstand
-bezieht sich weiterhin auf Migrationen 75–77.
+Migration 78 ist seit dem 4. Oktober 2026 produktiv. Der Nachweis für das
+gemeinsame Release steht im abschließenden Freigabe-/Motion-Nachtrag.
 
 ## Inhalte und neue Durchgänge
 
@@ -472,3 +472,46 @@ Schülerresets wurden durchgeführt.
 Das neue Ehrenamtsfoto liefert **200 / WebP**, das gelöschte Kontakt-SVG **404**.
 Es wurden nach dem ausdrücklichen Ende der automatisierten Tests keine neuen
 Tests ausgeführt; die Produktionsnachweise sind Status- und Leseprüfungen.
+
+## Produktiver Freigabe- und Motion-Nachtrag, 4. Oktober 2026
+
+Code und laufender VPS-Release: `09452efafb1afcec79b68f669d18cc898cef83cc`,
+aktiviert um **17:02:18 Uhr Europe/Berlin (CEST)**. Der begrenzte Webpack-Build,
+TypeScript, Build-Prüfsummen und die gemeinsame Build-/Runtime-Deployment-ID
+sind bestätigt. App, Mail, TTS und nginx sind aktiv; öffentliche und interne
+Health liefern **HTTP 200 / ready**. Studio und Analytics wurden nach der
+Vorbereitung wieder aufgenommen und sind gesund.
+
+Die Migration **78** wurde erst nach dem vollständigen PostgreSQL-/Rollen-/
+Storage-Backup unter `/root/backups/sitov-migration-20261004T145855104693Z`
+mit **16.948 Speicherobjekten** angewandt. Der native Test
+`deploy/vps/tests/sitov-exam-teacher-management.sql` auf der echten
+VPS-Datenbank endet mit `ROLLBACK` und `sitov_exam_teacher_management_ok`.
+Die Vergleichsabfragen vor und nach Migration/Test sind identisch:
+47 Profile, vier vorhandene Prüfungsantworten einschließlich unveränderter
+Prüfsumme, keine Durchgänge/Zuordnungen/Freigaben und keine zurückgebliebenen
+synthetischen Konten. Der neue RPC ist über PostgREST erreichbar, verweigert
+unbekannte Staff-IDs und anonyme Browseraufrufe und legte bei dieser Prüfung
+keine echte Zuordnung an. Beide verwendeten Entwicklungsrouten liefern
+produktiv **404**.
+
+Die gemeinsame lokale Abnahme umfasst **168/168 Jest-Tests in zwölf Suites**,
+**7/7 Browserfälle** für Motion/Bedienung/Darstellung, **6/6 neue
+Management-Datenbanktests**, **29/29 bestehende Prüfungs-/Reset-Datenbanktests**
+sowie **29/29 Deployment-/Migration-Vertragstests**. TypeScript und gezieltes
+ESLint bestehen; die bestehende Effect-Warnung in `ProfileMonthlyCourses`
+bleibt. Der vollständige Jest-Lauf enthält zwei bereits am unveränderten
+Ausgangscommit `62f1fdb` reproduzierte Fehler: die Audio-URL-Mock-Erwartung in
+`deletion-actions.test.ts` und die dynamische CLI-Fehlerausgabe in
+`scripts/sitov-simulation-audio.ts:33`, geprüft durch `pii-logging.test.ts`.
+Die zwei Altfehler werden nicht als bestanden ausgewiesen.
+
+Die [Motion-Regel](design/sitov-motion-design.md) gilt zentral für die ganze
+Webseite. Die Home-Karte erhält Prüfungsmappe, vier Kompetenzkarten,
+Zeiger-Perspektive, Licht und eine abgestimmte Kurven-/Häkchenanimation.
+Der Neuheitenpunkt am Reiter „Lernen“ entfällt. Der Kalender-Anmeldelink
+wechselt vollständig das Dokument; künftige Releases tragen identische
+Build-/Runtime-Kennungen. Der öffentliche Live-Anmeldekatalog zeigt neun Kurse
+ohne Browserfehler. Eine erneute angemeldete Safari-Navigation konnte während
+paralleler Browserbenutzung nicht abgeschlossen werden; der ursprüngliche
+Versionskonflikt bleibt eine begründete Inferenz ohne ursprünglichen Stack.
