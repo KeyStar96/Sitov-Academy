@@ -55,7 +55,8 @@ wiederholen nicht die parallel ausgewählten Sprachgebrauchssätze.
 `sitov-upper-coherence.json` enthält 24 eigene Argumentationsketten mit fünf
 beziehungsweise sieben klar aufeinander bezogenen Schritten. Ihre Rückverweise
 begründen die Reihenfolge; bloße Absatzpositionen sind kein Lösungskriterium.
-Zwölf originale SVG-Bildimpulse zeigen ausschließlich männliche Figuren.
+Zwölf Szenen mit fotorealistischen WebP-Bildimpulsen zeigen ausschließlich
+männliche Figuren. Die neun alten Vorbereitungs-SVGs wurden entfernt.
 
 ## Hörvertrag und Varianten
 
