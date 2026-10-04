@@ -74,7 +74,8 @@ function isRecordingSupported(): boolean {
   )
 }
 
-export function useAudioRecorder(): UseAudioRecorderResult {
+export function useAudioRecorder(options: { wavSampleRate?: number; maxWavBytes?: number } = {}): UseAudioRecorderResult {
+  const { wavSampleRate, maxWavBytes } = options
   const [status, setStatus] = useState<RecorderStatus>('idle')
   const [levels, setLevels] = useState<readonly number[]>([])
   const [elapsedSeconds, setElapsedSeconds] = useState(0)
@@ -162,7 +163,7 @@ export function useAudioRecorder(): UseAudioRecorderResult {
     // Prepare playback during the gesture; recording itself never waits for autoplay.
     try {
       resumeAudioContextWithoutBlocking(ensureAudioContext())
-    } catch (error) {
+    } catch {
       console.error("Wiedergabe-Context konnte nicht vorbereitet werden:")
     }
 
@@ -200,7 +201,7 @@ export function useAudioRecorder(): UseAudioRecorderResult {
       let recordStream = stream
       try {
         recordStream = stream.clone()
-      } catch (err) {
+      } catch {
         console.error("MediaStream.clone() nicht möglich, nutze denselben Stream:")
       }
       recordStreamRef.current = recordStream
@@ -223,14 +224,25 @@ export function useAudioRecorder(): UseAudioRecorderResult {
             const running = ensureAudioContext()
             if (running) {
               const decoded = await decodeFromSource(running, '', output)
-              const channels: Float32Array[] = []
-              for (let channel = 0; channel < decoded.numberOfChannels; channel += 1) {
-                channels.push(decoded.getChannelData(channel))
+              let normalized = decoded
+              // Long exam responses must fit the private upload limit. Native Web
+              // Audio resampling retains the entire captured response and duration.
+              if (wavSampleRate && Number.isFinite(wavSampleRate) && wavSampleRate >= 8000 && wavSampleRate < decoded.sampleRate) {
+                const offline = new OfflineAudioContext(1, Math.ceil(decoded.length * wavSampleRate / decoded.sampleRate), wavSampleRate)
+                const source = offline.createBufferSource()
+                source.buffer = decoded
+                source.connect(offline.destination)
+                source.start()
+                normalized = await offline.startRendering()
               }
-              const wav = wavBlobFromMono(mixDownToMono(channels), decoded.sampleRate)
-              if (wav.size > 0) output = wav
+              const channels: Float32Array[] = []
+              for (let channel = 0; channel < normalized.numberOfChannels; channel += 1) {
+                channels.push(normalized.getChannelData(channel))
+              }
+              const wav = wavBlobFromMono(mixDownToMono(channels), normalized.sampleRate)
+              if (wav.size > 0 && (!maxWavBytes || wav.size <= maxWavBytes)) output = wav
             }
-          } catch (err) {
+          } catch {
             console.error("Aufnahme konnte nicht nach WAV gewandelt werden:")
           }
 
@@ -269,7 +281,7 @@ export function useAudioRecorder(): UseAudioRecorderResult {
           sourceNodeRef.current = source
           analyserRef.current = analyser
         }
-      } catch (error) {
+      } catch {
         // A visualizer failure must not discard an otherwise valid microphone recording.
         console.error("Mikrofon-Waveform konnte nicht verbunden werden:")
       }
@@ -288,14 +300,14 @@ export function useAudioRecorder(): UseAudioRecorderResult {
         frameRef.current = requestAnimationFrame(tick)
       }
       frameRef.current = requestAnimationFrame(tick)
-    } catch (err) {
+    } catch {
       console.error("Aufnahme konnte nicht gestartet werden:")
       teardown()
       if (mountedRef.current && generation === generationRef.current) setStatus('failed')
     } finally {
       startPendingRef.current = false
     }
-  }, [releaseObjectUrl, teardown])
+  }, [releaseObjectUrl, teardown, wavSampleRate, maxWavBytes])
 
   const stop = useCallback(() => {
     const recorder = recorderRef.current

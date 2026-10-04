@@ -13,14 +13,16 @@ import { cn } from '@/lib/utils'
  * Aktiv ist genau ein Ziel (längster passender Pfad): dezente Fläche plus
  * orangefarbener Indikator, Zähler als kleine Badges.
  */
-export default function TeacherSidebar({ lang, counts, onNavigate, size = 'compact' }: {
+export default function TeacherSidebar({ lang, counts, onNavigate, size = 'compact', sitovPreviewPathname }: {
   lang: string
+  sitovPreviewPathname?: string
   counts?: AdminNavCounts
   onNavigate?: () => void
   /** `comfortable` = 48-px-Zeilen für Touch im Menü-Blatt. */
   size?: 'compact' | 'comfortable'
 }) {
-  const pathname = usePathname()
+  const actualPathname = usePathname()
+  const pathname = sitovPreviewPathname ?? actualPathname
   const t = useAdminTranslator()
   const sections = buildAdminNav(lang)
   const active = findActiveNavItem(pathname, sections)

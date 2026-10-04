@@ -1,0 +1,23 @@
+.views { display:flex; gap:.5rem; flex-wrap:wrap; }
+.views button { min-height:48px; padding:.7rem 1rem; border:1px solid var(--border); border-radius:1rem; background:var(--surface); color:var(--foreground); font-weight:700; }
+.views button[aria-pressed='true'] { border-color:var(--accent); background:var(--surface-muted); color:var(--accent-text); }
+.views button:focus-visible { outline:3px solid var(--accent); outline-offset:3px; }
+.accessStatus { display:flex; align-items:flex-start; gap:.65rem; border:1px solid var(--border); background:var(--surface-muted); border-radius:1rem; padding:1rem; }
+.accessStatus svg { flex:none; margin-top:3px; color:var(--muted); }
+.accessStatus[data-enabled='true'] svg { color:var(--success); }
+.accessStatus strong,.accessStatus small { display:block; }
+.accessStatus small { margin-top:.3rem; color:var(--muted); }
+.resultStatus { display:grid; gap:.5rem; padding:1rem; border:1px solid var(--border); border-radius:1rem; background:var(--surface-muted); }
+.resultStatus[data-status='passed'] { border-color:var(--success); }
+.resultStatus span { color:var(--muted); }
+.skillResults { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.6rem; }
+.skillResults > div { padding:.8rem; border:1px solid var(--border); border-radius:1rem; }
+.skillResults dt { font-weight:700; }
+.skillResults dd { margin:0; padding-top:.3rem; font-variant-numeric:tabular-nums; }
+.skillResults small { display:block; color:var(--muted); }
+.feedbackList { display:grid; gap:.7rem; padding-top:.7rem; }
+@media (max-width:520px) { .views { display:grid; grid-template-columns:1fr; gap:.4rem; } .views button { text-align:left; } .skillResults { grid-template-columns:1fr; } }
+.resetConfirmation { display:grid; gap:.75rem; margin-top:1rem; }
+.resetButton { min-height:52px; padding:.75rem 1rem; border:1px solid var(--danger); border-radius:1rem; background:var(--surface); color:var(--danger); font-weight:750; }
+.resetButton:disabled { opacity:.5; cursor:not-allowed; }
+.resetButton:focus-visible { outline:3px solid var(--danger); outline-offset:3px; }

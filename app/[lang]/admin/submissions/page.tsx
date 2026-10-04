@@ -10,5 +10,5 @@ export default async function AdminSubmissionsPage({ params, searchParams }: { p
  const query = await searchParams
  const conversationId = z.string().uuid().safeParse(query.conversation).data
  const [conversations, dictionary] = await Promise.all([getPronunciationConversations(undefined, conversationId), getDictionary(lang)])
- return <div className="min-w-0 space-y-5"><Link href={`/${lang}/admin/exam-preparation`} className={adminButton('secondary')}>B1-Prüfungsvorbereitung: Abgaben und Rückmeldungen</Link><PronunciationInbox conversations={conversations} lang={lang} translations={getPronunciationTranslations(lang, dictionary.pronunciation)} staff initialFilter={conversationId ? 'all' : 'pending'}/></div>
+ return <div className="min-w-0 space-y-5"><div className="flex flex-wrap gap-3"><Link href={`/${lang}/admin/exam-simulation`} className={adminButton('primary')}>Simulierte Prüfungen bewerten</Link><Link href={`/${lang}/admin/exam-preparation`} className={adminButton('secondary')}>Prüfungsvorbereitung: Abgaben und Rückmeldungen</Link></div><PronunciationInbox conversations={conversations} lang={lang} translations={getPronunciationTranslations(lang, dictionary.pronunciation)} staff initialFilter={conversationId ? 'all' : 'pending'}/></div>
 }

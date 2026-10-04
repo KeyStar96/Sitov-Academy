@@ -8,6 +8,7 @@ import { authStatusMessage, authTranslations, createAuthTranslator } from '@/lib
 import { getDictionary } from '@/lib/dictionary'
 import { parseAuthStatus, safeInternalPath, type AuthStatusCode } from '@/lib/types/auth'
 import { registrationLabels } from '@/lib/admin-registration-i18n'
+import sitovStyles from '@/components/auth/SitovLoginShell.module.css'
 
 export const dynamic = 'force-dynamic'
 
@@ -47,6 +48,7 @@ export default async function LoginPage({
 
   return (
     <AuthShell
+      sitovLogin
       lang={lang}
       title={t('login_title')}
       description={
@@ -63,8 +65,6 @@ export default async function LoginPage({
     >
       {status && <AuthStatusMessage status={status} message={authStatusMessage(t, status)}
         title={status === 'signup_email_sent' || status === 'confirm_success' ? t('signup_thanks') : undefined} />}
-      <p className="rounded-2xl bg-[var(--canvas)] p-4 text-sm leading-relaxed text-[var(--muted)]">{learning.auth_existing}</p>
-
       <AuthForm
         action={login}
         lang={lang}
@@ -89,7 +89,7 @@ export default async function LoginPage({
         ]}
       />
 
-      <div className="border-t-2 border-slate-200 pt-4 dark:border-slate-800">
+      <div className={sitovStyles.sitovRecovery}>
         <Link
           href={`/${lang}/forgot-password`}
           className="inline-flex min-h-14 items-center text-lg font-semibold text-[var(--accent-text)] underline decoration-2 underline-offset-4 hover:text-[var(--foreground)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
@@ -97,6 +97,8 @@ export default async function LoginPage({
           {t('login_forgot_password')}
         </Link>
       </div>
+
+      <p className={sitovStyles.sitovHint}>{learning.auth_existing}</p>
 
       {showResend && (
         <section

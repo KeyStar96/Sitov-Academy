@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test'
 import de from '../dictionaries/de.json'
+import uk from '../dictionaries/uk.json'
 
 // Regression für den zuletzt ungetesteten Commit 6bdb3c9.
 for (const route of ['/de/login', '/de/register']) {
@@ -7,17 +8,27 @@ for (const route of ['/de/login', '/de/register']) {
     await page.goto(route)
     await expect(page.locator('html')).toHaveAttribute('translate', 'no')
     await expect(page.locator('meta[name="google"]')).toHaveAttribute('content', 'notranslate')
-    const language = page.locator('header').getByRole('combobox')
+    const language = page.locator('header').getByRole('button', { name: `${de.academy.language}: Deutsch` })
     await expect(language).toBeVisible()
-    await expect(language).toHaveAccessibleName(de.academy.language)
-    await expect(language.locator('option')).toHaveCount(5)
-    await expect(language).toHaveValue('de')
-    await language.selectOption('uk')
+    await language.click()
+    const menu = page.getByRole('menu', { name: de.academy.language })
+    await expect(menu.getByRole('menuitemradio')).toHaveCount(5)
+    await expect(menu.getByRole('menuitemradio', { name: 'Deutsch' })).toHaveAttribute('aria-checked', 'true')
+    await menu.getByRole('menuitemradio', { name: 'Українська' }).click()
     await expect(page).toHaveURL(route.replace('/de/', '/uk/'))
     await expect(page.locator('html')).toHaveAttribute('lang', 'uk')
-    await expect(page.locator('header').getByRole('combobox')).toHaveValue('uk')
+    await expect(page.locator('header').getByRole('button', { name: `${uk.academy.language}: Українська` })).toBeVisible()
   })
 }
+
+test('Anmeldesprachwechsel erhält Rückkehrziel, Status und Seitenanker', async ({ page }) => {
+  const context = '?next=%2Fde%2Fdashboard&status=signup_email_sent#sitov-login'
+  await page.goto(`/de/login${context}`)
+  await page.locator('header').getByRole('button', { name: `${de.academy.language}: Deutsch` }).click()
+  await page.getByRole('menuitemradio', { name: 'Українська' }).click()
+  await expect(page).toHaveURL(`/uk/login${context}`)
+  await expect(page.locator('input[name="next"]')).toHaveValue('/de/dashboard')
+})
 
 test('Browsersprache leitet ohne Sprachpräfix temporär um und erhält Suchparameter', async ({ request }) => {
   const response = await request.get('/?utm_source=phase2', {

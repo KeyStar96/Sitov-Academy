@@ -1915,7 +1915,7 @@
           "evidence": "Zwei Männer stehen an einem Tisch.",
           "image": {
             "id": "sitov-exam-contacts-v1",
-            "src": "/Bilder/exam-preparation/sitov-contacts.svg",
+            "src": "/Bilder/exam-preparation/sitov-contacts-photo-v2.webp",
             "alt": "Zwei erwachsene Männer stehen an einem Tisch mit einem Blatt. Einer hebt eine Hand; im Raum sind ein Fenster und ein Aushang.",
             "status": "prepared"
           }
@@ -1994,7 +1994,7 @@
           ],
           "image": {
             "id": "sitov-exam-contacts-v1",
-            "src": "/Bilder/exam-preparation/sitov-contacts.svg",
+            "src": "/Bilder/exam-preparation/sitov-contacts-photo-v2.webp",
             "alt": "Zwei erwachsene Männer stehen an einem Tisch mit einem Blatt. Einer hebt eine Hand; im Raum sind ein Fenster und ein Aushang.",
             "status": "prepared"
           }
@@ -2034,7 +2034,7 @@
           ],
           "image": {
             "id": "sitov-exam-contacts-v1",
-            "src": "/Bilder/exam-preparation/sitov-contacts.svg",
+            "src": "/Bilder/exam-preparation/sitov-contacts-photo-v2.webp",
             "alt": "Zwei erwachsene Männer stehen an einem Tisch mit einem Blatt. Einer hebt eine Hand; im Raum sind ein Fenster und ein Aushang.",
             "status": "prepared"
           }
@@ -2884,8 +2884,8 @@
           ],
           "image": {
             "id": "sitov-exam-check-repair-v1",
-            "src": "/Bilder/exam-preparation/sitov-check-repair.svg",
-            "alt": "Zwei erwachsene Männer stehen an einem Tisch mit einem Radio und Werkzeug. Einer hat graue Haare; hinter ihnen ist ein Fenster.",
+            "src": "/Bilder/exam-preparation/sitov-check-repair-photo-v2.webp",
+            "alt": "Zwei erwachsene Männer prüfen an einem Tisch ein Radio mit Werkzeug. Einer hat graue Haare; hinter ihnen ist ein Fenster.",
             "status": "prepared"
           }
         }
@@ -3409,7 +3409,7 @@
             ],
             "image": {
               "id": "sitov-exam-check-neighbourhood-v1",
-              "src": "/Bilder/exam-preparation/sitov-check-neighbourhood.svg",
+              "src": "/Bilder/exam-preparation/sitov-check-neighbourhood-photo-v2.webp",
               "alt": "Zwei erwachsene Männer stehen in einem Raum mit einem Regal, einem Tisch und einer Kiste. Verschiedene Gegenstände liegen auf dem Tisch und in der Kiste.",
               "status": "prepared"
             }
@@ -3932,8 +3932,8 @@
             ],
             "image": {
               "id": "sitov-exam-check-learning-v1",
-              "src": "/Bilder/exam-preparation/sitov-check-learning.svg",
-              "alt": "Zwei erwachsene Männer stehen an einem Tisch mit einem geöffneten Buch und Notizen. An der Wand hängt ein Blatt; links ist ein Fenster.",
+              "src": "/Bilder/exam-preparation/sitov-check-learning-photo-v2.webp",
+              "alt": "Zwei erwachsene Männer lernen an einem Tisch mit einem geöffneten Buch und Notizen. An der Wand hängt ein Blatt; links ist ein Fenster.",
               "status": "prepared"
             }
           }

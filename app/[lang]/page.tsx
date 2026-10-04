@@ -10,6 +10,7 @@ import AcademyFooter from "@/components/sections/AcademyFooter";
 import PremiumCtaCard from "@/components/ui/PremiumCtaCard";
 import BetaBadge from "@/components/ui/BetaBadge";
 import AcademyFaq from "@/components/sections/AcademyFaq";
+import SitovHomepageMotion from "@/components/sections/SitovHomepageMotion";
 import { CANONICAL_SITE_URL } from "@/lib/site-url";
 import { OG_IMAGE, absoluteUrl, buildFaqPageJsonLd, buildPageMetadata, localizedUrl, serializeJsonLd } from "@/lib/seo";
 
@@ -144,7 +145,7 @@ export default async function HomePage({
 
       <Header lang={lang} dictionary={dictionary} />
 
-      <div className="academy-home">
+      <SitovHomepageMotion>
         <Hero dictionary={dictionary} lang={lang} />
         <AcademyStory dictionary={dictionary} lang={lang} />
         <Suspense fallback={<section id="courses" className="academy-section academy-container min-h-[30rem]" aria-busy="true"><p role="status">{dictionary.academy.course_loading}</p></section>}>
@@ -161,7 +162,7 @@ export default async function HomePage({
           />
         </section>
         <AcademyFaq dictionary={dictionary} />
-      </div>
+      </SitovHomepageMotion>
       <AcademyFooter dictionary={dictionary} lang={lang} />
     </>
   );

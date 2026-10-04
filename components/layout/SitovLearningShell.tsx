@@ -15,6 +15,9 @@ import { createDashboardTranslator, type DashboardTranslations } from '@/lib/das
 import { EASE_OUT_SOFT, MOTION, useIsHydrating, useReducedMotionSafe } from '@/lib/motion'
 import { studentTranslator } from '@/lib/student-ui-i18n'
 import type { SupportLabels } from '@/lib/support-channels'
+import { isSitovExamPath } from '@/lib/exam-navigation'
+import { AppearanceProvider, useAppearanceCopy } from './AppearanceProvider'
+import { APPEARANCE_FALLBACKS } from '@/lib/appearance-i18n'
 
 /** A single persistent learner shell for every module, round and daily journey. */
 export default function SitovLearningShell({ lang, translations, displayName, levels, lastActiveLevel, supportLabels,
@@ -33,10 +36,12 @@ export default function SitovLearningShell({ lang, translations, displayName, le
 }) {
   const sitovCurrentPath = usePathname() ?? ''
   const sitovPathname = sitovPreviewPathname ?? sitovCurrentPath
+  const sitovExam = isSitovExamPath(sitovPathname)
   const sitovReduced = useReducedMotionSafe()
   const sitovHydrating = useIsHydrating()
-  const sitovT = createDashboardTranslator(translations)
-  const sitovS = studentTranslator(lang)
+  const sitovT = createDashboardTranslator(sitovExam ? {} : translations)
+  const sitovS = studentTranslator(sitovExam ? 'de' : lang)
+  const sitovAppearance = useAppearanceCopy()
   const sitovShell = useRef<HTMLDivElement>(null)
   const sitovHeader = useRef<HTMLElement>(null)
 
@@ -50,7 +55,7 @@ export default function SitovLearningShell({ lang, translations, displayName, le
     return () => sitovObserver.disconnect()
   }, [])
 
-  return <MotionProvider><div ref={sitovShell} className="academy-student-shell sitov-learning-shell" data-tabbar="visible">
+  return <AppearanceProvider copy={sitovExam ? APPEARANCE_FALLBACKS : sitovAppearance}><MotionProvider><div ref={sitovShell} className="academy-student-shell sitov-learning-shell" data-tabbar="visible" lang={sitovExam ? 'de' : lang} translate="no">
     <header ref={sitovHeader} className="academy-student-header">
       <div className="academy-container sitov-shell-frame">
         <div className="academy-student-toolbar">
@@ -64,7 +69,7 @@ export default function SitovLearningShell({ lang, translations, displayName, le
                 <UserRound size={21} aria-hidden="true" /><span aria-hidden="true">{sitovS('nav_profile')}</span>
               </Link>
               <ThemeToggle lightLabel={sitovT('toggle_theme_light')} darkLabel={sitovT('toggle_theme_dark')} label={sitovS('settings_appearance')} />
-              <LogoutButton lang={lang} />
+              <LogoutButton lang={lang} uiLanguage={sitovExam ? 'de' : lang} />
             </div>
           </div>
         </div>
@@ -81,5 +86,5 @@ export default function SitovLearningShell({ lang, translations, displayName, le
       </div>
     </header>
     <div className="academy-student-content academy-container">{children}</div>
-  </div></MotionProvider>
+  </div></MotionProvider></AppearanceProvider>
 }

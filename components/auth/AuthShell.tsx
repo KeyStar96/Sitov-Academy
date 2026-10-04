@@ -5,14 +5,16 @@ import { registrationLabels } from '@/lib/admin-registration-i18n'
 import { ArrowLeft, BookOpen, MessageCircle, ShieldCheck, Sparkles } from 'lucide-react'
 import Link from 'next/link'
 import type { ReactNode } from 'react'
+import SitovLoginShell from './SitovLoginShell'
 
-export default async function AuthShell({lang,title,description,children}:{lang:string;title:string;description?:ReactNode;children:ReactNode}) {
+export default async function AuthShell({lang,title,description,children,sitovLogin=false}:{lang:string;title:string;description?:ReactNode;children:ReactNode;sitovLogin?:boolean}) {
   const dict=await getDictionary(lang)
   const t=registrationLabels(lang)
+  if (sitovLogin) return <SitovLoginShell lang={lang} title={title} description={description} dictionary={dict}>{children}</SitovLoginShell>
   return <div className="relative min-h-dvh overflow-hidden bg-[var(--canvas)] px-4 pt-[calc(env(safe-area-inset-top,0px)+1.25rem)] pb-[calc(env(safe-area-inset-bottom,0px)+1.25rem)] text-[var(--foreground)] sm:px-7 sm:pt-[calc(env(safe-area-inset-top,0px)+1.75rem)] sm:pb-[calc(env(safe-area-inset-bottom,0px)+1.75rem)]">
     {/* Dezente, warme Deko-Glow — gibt der Glass-Karte etwas zum Bluren. */}
     <div aria-hidden className="pointer-events-none absolute inset-0 z-0" style={{ background: 'radial-gradient(42rem 42rem at 12% 8%, color-mix(in srgb, var(--violet) 12%, transparent), transparent 60%), radial-gradient(38rem 38rem at 92% 96%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 62%)' }} />
-    <header className="relative z-10 mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-4">
+    <header className="relative z-30 mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-4">
       <Link href={`/${lang}`} className="inline-flex min-h-14 items-center rounded-xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent)]"><BrandLogo name={dict.academy.brand_name} descriptor={dict.academy.brand_descriptor}/></Link>
       <div className="flex flex-wrap items-center gap-3"><AuthLanguageSelect lang={lang} label={dict.academy.language}/>
       <Link href={`/${lang}`} className="inline-flex min-h-12 items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--surface)] px-5 text-sm font-semibold hover:border-[var(--violet)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent)]"><ArrowLeft size={18} aria-hidden="true"/>{t.home}</Link></div>

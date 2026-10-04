@@ -8,8 +8,8 @@ import DialogActions from '@/components/ui/DialogActions'
 import { studentTranslator } from '@/lib/student-ui-i18n'
 
 /** Abmelden nur nach kurzer Rückfrage — ein versehentlicher Tipp wirft niemanden aus der Lernsitzung. */
-export default function LogoutButton({ lang }: { lang: string }) {
-  const t = studentTranslator(lang)
+export default function LogoutButton({ lang, uiLanguage = lang }: { lang: string; uiLanguage?: string }) {
+  const t = studentTranslator(uiLanguage)
   const [open, setOpen] = useState(false)
   const [pending, start] = useTransition()
   return (

@@ -1,0 +1,208 @@
+{
+  "brand": "Sitov Academy",
+  "tool": "built-in image_gen",
+  "generatedOn": "2026-10-04",
+  "reference": "public/Bilder/deutschreise/sitov-bakery-male.png",
+  "quality": "Photorealistic scenes with exactly two adult male characters; warm natural light and detailed environments. Actual photographic texture rather than painted brush strokes.",
+  "scenes": [
+    {
+      "id": "sitov-contacts",
+      "prompt": "Use case: photorealistic-natural. Asset type: Sitov Academy German exam picture-description stimulus, landscape 3:2. The supplied bakery image is only a reference for rich detail, warm inviting natural light, lifelike people and professional quality. Create a NEW actual photorealistic scene with photographic skin and materials, without painted brush strokes. Scene: two adult men standing at a wooden table in a German community learning room, one man around 55 with grey hair and a short grey beard in a blue overshirt, one around 35 with short dark hair in a sage-green shirt. One man raises an open hand gently while explaining something, the other listens. A single sheet of paper lies clearly on the table in front of them. Window on the left, a noticeboard with unlettered papers on the wall behind. Candid believable conversation, both faces and natural hands visible. Eye-level medium-wide photo, the table, paper, window and noticeboard all recognizable. Beautiful soft warm daylight, realistic spatial depth and natural anatomy. Exactly TWO visible humans, both MEN, no other people, no women, no figures in reflections or posters. No readable text, logos, overlays, watermarks, cartoons, vectors, simplified silhouettes, collages or painted texture. This image must support the factual correct answer 'Zwei Männer stehen an einem Tisch' and 'Vor den Männern liegt ein Blatt'.",
+      "assetPath": "public/Bilder/exam-preparation/sitov-contacts-photo-v2.webp",
+      "review": "Visually inspected: exactly two adult male characters, natural anatomy, photorealistic detail, appropriate props and task facts, no women or overlays.",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 219526,
+      "sha256": "22fcfaa66d1abd0e9779ce613a5abfceec0a2667c1127065d361b9c12bf761b3",
+      "originalOutput": "01a10626-1765-77a1-b9ca-c9997c55c555/exec-04c230ec-1f19-4c9c-b693-534d236f3eb0.png"
+    },
+    {
+      "id": "sitov-repair",
+      "prompt": "Use case: photorealistic-natural. Asset: Sitov Academy German exam picture-description photograph, landscape 3:2. The attached bakery image is only a reference for premium richness, lifelike people and warm natural light; generate an entirely new actual PHOTOGRAPH, without painting or brush strokes. Exactly TWO adult MALE people in the whole image, no other humans, women, silhouettes, reflections or human pictures. Natural anatomy, real skin, believable hands, detailed authentic everyday German environment, candid interaction, eye-level medium-wide composition showing relevant props clearly. Warm daylight, real spatial depth. No readable text, branding, logos, watermark, overlays, collages, cartoons, vectors or symbolic illustration. Two men around 55 and 35 stand at a wooden workbench in a community repair workshop. They examine a disconnected table lamp with a cream shade, a clearly unplugged power cord, a screwdriver and pliers laid on the table. Older grey-haired man points to the lamp while the dark-haired younger man listens. Show the men, the table lamp and ordinary tools clearly. Friendly collaborative repair, no unsafe live electrics.",
+      "assetPath": "public/Bilder/exam-preparation/sitov-repair-photo-v2.webp",
+      "review": "Visually inspected: exactly two adult male characters, natural anatomy, photorealistic detail, appropriate props and task facts, no women or overlays.",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 292594,
+      "sha256": "8861d8fb60440d8f7c6f9bd7a2e84ac3db463e91005c8c7f5df6a040c1768b22",
+      "originalOutput": "01a10626-1765-77a1-b9ca-c9997c55c555/exec-8b4af210-83e6-4c39-a53d-0455557f59fc.png"
+    },
+    {
+      "id": "sitov-neighbourhood",
+      "prompt": "Use case: photorealistic-natural. Asset: Sitov Academy German exam picture-description photograph, landscape 3:2. The attached bakery image is only a reference for premium richness, lifelike people and warm natural light; generate an entirely new actual PHOTOGRAPH, without painting or brush strokes. Exactly TWO adult MALE people in the whole image, no other humans, women, silhouettes, reflections or human pictures. Natural anatomy, real skin, believable hands, detailed authentic everyday German environment, candid interaction, eye-level medium-wide composition showing relevant props clearly. Warm daylight, real spatial depth. No readable text, branding, logos, watermark, overlays, collages, cartoons, vectors or symbolic illustration. Two male neighbours, one about 55 with grey hair and one about 35 with short dark hair, stand speaking in a bright tidy apartment-building entrance hallway in Germany. An ordinary noticeboard with unlettered papers is beside them, wooden mailboxes and a staircase visible farther back, natural daylight through the front entrance. One neighbour gestures gently toward the noticeboard, the other listens. Show actual hallway architecture and the noticeboard, no table.",
+      "assetPath": "public/Bilder/exam-preparation/sitov-neighbourhood-photo-v2.webp",
+      "review": "Visually inspected: exactly two adult male characters, natural anatomy, photorealistic detail, appropriate props and task facts, no women or overlays.",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 195812,
+      "sha256": "ba1e7689d066bae605b4d6d703505d4ccfa5cd978ac3ba7dba16359b97a1f681",
+      "originalOutput": "01a10626-1765-77a1-b9ca-c9997c55c555/exec-3b4058c0-344e-4c58-8ef0-d2c5f324f17e.png"
+    },
+    {
+      "id": "sitov-mobility",
+      "prompt": "Use case: photorealistic-natural. Asset: Sitov Academy German exam picture-description photograph, landscape 3:2. The attached bakery image is only a reference for premium richness, lifelike people and warm natural light; generate an entirely new actual PHOTOGRAPH, without painting or brush strokes. Exactly TWO adult MALE people in the whole image, no other humans, women, silhouettes, reflections or human pictures. Natural anatomy, real skin, believable hands, detailed authentic everyday German environment, candid interaction, eye-level medium-wide composition showing relevant props clearly. Warm daylight, real spatial depth. No readable text, branding, logos, watermark, overlays, collages, cartoons, vectors or symbolic illustration. Two adult men, one about 50 with grey hair and one about 30 with short dark hair, stand at an outdoor German bus stop examining a clearly visible timetable board. One looks at and points to the timetable grid, the other follows his finger. Glass bus shelter, curb, quiet street and a parked city bus in background, completely empty of other people. Timetable has indistinct tiny lines and time-grid shapes without legible words. Show their natural pointing hands and the timetable board.",
+      "assetPath": "public/Bilder/exam-preparation/sitov-mobility-photo-v2.webp",
+      "review": "Visually inspected: exactly two adult male characters, natural anatomy, photorealistic detail, appropriate props and task facts, no women or overlays.",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 250024,
+      "sha256": "33c12d97d4d93ca783ac2b6359231a83b012df6011a43f39ab1267727f43126c",
+      "originalOutput": "01a10626-1765-77a1-b9ca-c9997c55c555/exec-b8b66d6f-faba-4964-b1c7-b598a82fd013.png"
+    },
+    {
+      "id": "sitov-shopping",
+      "prompt": "Use case: photorealistic-natural. Asset: Sitov Academy German exam picture-description photograph, landscape 3:2. The supplied bakery image is only a reference for premium visual detail, natural lifelike people and warm daylight. Create a new ACTUAL PHOTOGRAPH, without painted texture. Exactly TWO adult MALE people, no other humans, women, silhouettes, reflected people or portraits. Eye-level medium-wide candid scene, natural anatomy and hands, authentic richly detailed German everyday environment. Make the task props and physical setting clear and visible. No readable text, branding, logos, overlays, watermark, cartoon, vectors, symbolism or collage. Two men around 35 and 55 stand in a modern German household-appliance shop comparing a compact unbranded electric kettle and a printed offer sheet placed on a wooden display counter. The younger man gently points to the kettle, older grey-haired man looks at the offer. Clear metal kettle with handle and spout and a sheet with indistinct product diagrams, no legible letters or prices. Shelves of small household appliances behind them. Real warm window light, tangible wood and metal.",
+      "assetPath": "public/Bilder/exam-preparation/sitov-shopping-photo-v2.webp",
+      "review": "Visually inspected: exactly two adult male characters, natural anatomy, photorealistic detail, appropriate props and task facts, no women or overlays.",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 233454,
+      "sha256": "cce00267b9298ed05a6081589ac36045d366171be57eb62739778e4b3b1bc929",
+      "originalOutput": "01a10626-1765-77a1-b9ca-c9997c55c555/exec-ccbe0353-228b-4bcf-ac33-34d163a481fc.png"
+    },
+    {
+      "id": "sitov-learning",
+      "prompt": "Use case: photorealistic-natural. Asset: Sitov Academy German exam picture-description photograph, landscape 3:2. The supplied bakery image is only a reference for premium visual detail, natural lifelike people and warm daylight. Create a new ACTUAL PHOTOGRAPH, without painted texture. Exactly TWO adult MALE people, no other humans, women, silhouettes, reflected people or portraits. Eye-level medium-wide candid scene, natural anatomy and hands, authentic richly detailed German everyday environment. Make the task props and physical setting clear and visible. No readable text, branding, logos, overlays, watermark, cartoon, vectors, symbolism or collage. Two men, one about 35 with dark hair and one about 55 with grey hair, stand studying together at a wooden table in a quiet German adult learning room. An open laptop, loose study papers and a pencil lie clearly on the table. One man points to a study paper while the other thoughtfully listens. Bookshelves and daylight through a window in the background. Laptop screen and papers contain indistinct shapes without legible text. Exactly two standing men, not seated.",
+      "assetPath": "public/Bilder/exam-preparation/sitov-learning-photo-v2.webp",
+      "review": "Visually inspected: exactly two adult male characters, natural anatomy, photorealistic detail, appropriate props and task facts, no women or overlays.",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 217414,
+      "sha256": "141467df84c2d41201003829115885524452f6e85c1870adf10fc4b71a665536",
+      "originalOutput": "01a10626-1765-77a1-b9ca-c9997c55c555/exec-2e63dcb5-4f34-41fc-846b-07bfe170b236.png"
+    },
+    {
+      "id": "sitov-check-repair",
+      "prompt": "Use case: photorealistic-natural. Asset: Sitov Academy German exam picture-description photograph, landscape 3:2. The supplied bakery image is only a reference for premium visual detail, natural lifelike people and warm daylight. Create a new ACTUAL PHOTOGRAPH, without painted texture. Exactly TWO adult MALE people, no other humans, women, silhouettes, reflected people or portraits. Eye-level medium-wide candid scene, natural anatomy and hands, authentic richly detailed German everyday environment. Make the task props and physical setting clear and visible. No readable text, branding, logos, overlays, watermark, cartoon, vectors, symbolism or collage. Two men stand at a wooden table in a friendly German neighbourhood repair cafe. One about 60 has clearly grey hair and a neatly trimmed grey beard, the other about 35 has short black hair. They examine a small vintage portable RADIO on the table, with clearly visible tuning dial, speaker grille and carrying handle; a screwdriver and pliers lie beside it. Older man gestures explaining the repair and younger man watches. A bright window is behind the men, detailed workshop shelves farther back. Radio is unplugged, no live electrical work. Distinct from a table-lamp repair: show an actual radio, no lamp.",
+      "assetPath": "public/Bilder/exam-preparation/sitov-check-repair-photo-v2.webp",
+      "review": "Visually inspected: exactly two adult male characters, natural anatomy, photorealistic detail, appropriate props and task facts, no women or overlays.",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 278814,
+      "sha256": "b9e51bc4e006275b22639b5b826930efcd88ebb8ec12491c43aa2388e6cd91e3",
+      "originalOutput": "01a10626-1765-77a1-b9ca-c9997c55c555/exec-435463e3-ade8-4b70-8be6-dce7899705e7.png"
+    },
+    {
+      "id": "sitov-check-neighbourhood",
+      "prompt": "Use case: photorealistic-natural. Asset: Sitov Academy German exam picture-description photograph, landscape 3:2. The supplied bakery image is only a reference for premium visual detail, natural lifelike people and warm daylight. Create a new ACTUAL PHOTOGRAPH, without painted texture. Exactly TWO adult MALE people, no other humans, women, silhouettes, reflected people or portraits. Eye-level medium-wide candid scene, natural anatomy and hands, authentic richly detailed German everyday environment. Make the task props and physical setting clear and visible. No readable text, branding, logos, overlays, watermark, cartoon, vectors, symbolism or collage. Two male neighbours, one about 60 with grey hair and one about 35 with dark hair, stand beside a wooden table in a shared apartment-building community room. A clearly visible cardboard box contains ordinary household objects on the table: a mug, a folded cloth and a small closed book. A shelf with household items is behind them. One man holds a mug while the other gestures toward the box, friendly neighbourly conversation. Show both men standing, the table, shelf, box and visible objects clearly, no hallway.",
+      "assetPath": "public/Bilder/exam-preparation/sitov-check-neighbourhood-photo-v2.webp",
+      "review": "Visually inspected: exactly two adult male characters, natural anatomy, photorealistic detail, appropriate props and task facts, no women or overlays.",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 268474,
+      "sha256": "77be2ee41c44da78708a1ee14910462af3abeb6e4b502d7a3bba730f7750b2bf",
+      "originalOutput": "01a10626-1765-77a1-b9ca-c9997c55c555/exec-34699fec-ebfc-4bed-a80d-03f760ce1d90.png"
+    },
+    {
+      "id": "sitov-check-learning",
+      "prompt": "Use case: photorealistic-natural. Asset: Sitov Academy German exam picture-description photograph, landscape 3:2. The supplied bakery image is only a reference for premium visual detail, natural lifelike people and warm daylight. Create a new ACTUAL PHOTOGRAPH, without painted texture. Exactly TWO adult MALE people, no other humans, women, silhouettes, reflected people or portraits. Eye-level medium-wide candid scene, natural anatomy and hands, authentic richly detailed German everyday environment. Make the task props and physical setting clear and visible. No readable text, branding, logos, overlays, watermark, cartoon, vectors, symbolism or collage. Two men, one about 55 with grey hair and one about 35 with short dark hair, stand at a wooden table studying together. A clearly OPEN BOOK, handwritten-style indistinct notes and pencils are visible on the table. One man points to the open book and the other listens with interest. A plain study sheet with indistinct lines hangs on the wall behind; a large bright window is clearly on the LEFT of the scene. Quiet welcoming adult-learning room in Germany. No laptop: focus on the open book, study notes, wall sheet and left window.",
+      "assetPath": "public/Bilder/exam-preparation/sitov-check-learning-photo-v2.webp",
+      "review": "Visually inspected: exactly two adult male characters, natural anatomy, photorealistic detail, appropriate props and task facts, no women or overlays.",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 222130,
+      "sha256": "349cf5c9ecb23ffec70cc073c6f3273fa885aac1ae7fb0e7db88091fe7180155",
+      "originalOutput": "01a10626-1765-77a1-b9ca-c9997c55c555/exec-374d4777-3ba0-4832-8b6a-4d6fb60bbfa4.png"
+    },
+    {
+      "id": "sitov-fahrrad",
+      "prompt": "Use case: photorealistic-natural. Asset: Sitov Academy German exam picture-description photograph, landscape 3:2. The supplied bakery image is only a reference for premium visual detail, natural lifelike people and warm daylight. Create a new ACTUAL PHOTOGRAPH, without painted texture. Exactly TWO adult MALE people, no other humans, women, silhouettes, reflected people or portraits. Eye-level medium-wide candid scene, natural anatomy and hands, authentic richly detailed German everyday environment. Make the task props and physical setting clear and visible. No readable text, branding, logos, overlays, watermark, cartoon, vectors, symbolism or collage. Two men, a grey-haired mechanic about 55 in a practical navy work shirt and a dark-haired customer about 35 in a sage-green jacket, discuss an actual city bicycle at a bright German bicycle workshop. The upright bicycle has exactly two realistic wheels, handlebars, pedals, chain and saddle; mechanic gently points at the front brake while the customer listens. Ordinary bicycle tools on a nearby workbench and bike parts shelves behind. Natural warm daylight, clear believable bicycle geometry. The bicycle and the conversation must be prominent, no vehicles or people in the background.",
+      "assetPath": "public/Bilder/exam-simulation/sitov-fahrrad-photo-v2.webp",
+      "review": "Visually inspected: exactly two adult male characters, natural anatomy, photorealistic detail, appropriate props and task facts, no women or overlays.",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 305260,
+      "sha256": "27fb0566f0ee98867ad51a9c436ebfa0b2ce06cfec47e17efd6fc802210a04e1",
+      "originalOutput": "01a10626-1765-77a1-b9ca-c9997c55c555/exec-eeb20bde-92ab-4d93-9e3e-92586d54a4c2.png"
+    },
+    {
+      "id": "sitov-wohnung",
+      "prompt": "Use case: photorealistic-natural. Asset: Sitov Academy German exam picture-description photograph, landscape 3:2. The supplied bakery image is only a reference for premium visual detail, natural lifelike people and warm daylight. Create a new ACTUAL PHOTOGRAPH, without painted texture. Exactly TWO adult MALE people, no other humans, women, silhouettes, reflected people or portraits. Eye-level medium-wide candid scene, natural anatomy and hands, authentic richly detailed German everyday environment. Make the task props and physical setting clear and visible. No readable text, branding, logos, overlays, watermark, cartoon, vectors, symbolism or collage. A male apartment agent about 50 with grey hair and a male prospective tenant about 35 with short dark hair stand talking in a bright unfurnished German apartment living room. The agent holds a small set of house keys and gestures toward a large window while the visitor looks thoughtfully around. Visible clean wood floor, plain cream walls, radiator under the window, an open doorway to a small kitchen. A simple floor-plan sheet without readable text rests on a narrow ledge. Clear physical context of viewing an apartment, not a workplace or classroom.",
+      "assetPath": "public/Bilder/exam-simulation/sitov-wohnung-photo-v2.webp",
+      "review": "Visually inspected: exactly two adult male characters, natural anatomy, photorealistic detail, appropriate props and task facts, no women or overlays.",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 170832,
+      "sha256": "b6cfb23e0530cc7528033322eabf6af601658df256f3c67313b4c4c00ed18b7d",
+      "originalOutput": "01a10626-1765-77a1-b9ca-c9997c55c555/exec-cdf8c834-638a-4180-a503-f0b9c498c8b9.png"
+    },
+    {
+      "id": "sitov-bibliothek",
+      "prompt": "Use case: photorealistic-natural. Asset: Sitov Academy German exam picture-description photograph, landscape 3:2. The supplied bakery image is only a reference for premium visual detail, natural lifelike people and warm daylight. Create a new ACTUAL PHOTOGRAPH, without painted texture. Exactly TWO adult MALE people, no other humans, women, silhouettes, reflected people or portraits. Eye-level medium-wide candid scene, natural anatomy and hands, authentic richly detailed German everyday environment. Make the task props and physical setting clear and visible. No readable text, branding, logos, overlays, watermark, cartoon, vectors, symbolism or collage. Two men, one library employee around 50 with grey hair and one visitor around 35 with short dark hair, stand by a wooden checkout counter in a welcoming German public library. The visitor holds two clearly visible closed books and the librarian points toward a shelf of books. Richly detailed bookshelves, an unoccupied reading desk and large windows behind. Library card and an unlettered return slip lie on the counter. Natural friendly conversation, no other people anywhere.",
+      "assetPath": "public/Bilder/exam-simulation/sitov-bibliothek-photo-v2.webp",
+      "review": "Visually inspected: exactly two adult male characters, natural anatomy, photorealistic detail, appropriate props and task facts, no women or overlays.",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 260950,
+      "sha256": "3627997a03faa5cd1d37b0ff443c215377bfb7bd901a7f3ecb5bbc1bdf930536",
+      "originalOutput": "01a10626-1765-77a1-b9ca-c9997c55c555/exec-048da635-55df-434b-abe2-2081fa5f731e.png"
+    },
+    {
+      "id": "sitov-zug",
+      "prompt": "Use case: photorealistic-natural. Asset: Sitov Academy German exam picture-description photograph, landscape 3:2. The supplied bakery image is only a reference for premium visual detail, natural lifelike people and warm daylight. Create a new ACTUAL PHOTOGRAPH, without painted texture. Exactly TWO adult MALE people, no other humans, women, silhouettes, reflected people or portraits. Eye-level medium-wide candid scene, natural anatomy and hands, authentic richly detailed German everyday environment. Make the task props and physical setting clear and visible. No readable text, branding, logos, overlays, watermark, cartoon, vectors, symbolism or collage. Two male travellers, one about 55 with grey hair and one about 30 with short dark hair, stand on a quiet German railway station platform discussing their journey. A realistic parked passenger train and platform canopy are clearly behind them, one man has a small wheeled suitcase and holds an unlettered paper ticket while the other points toward the carriage entrance. Platform otherwise completely empty, train windows and distant platform show no people. Natural soft afternoon daylight, believable train and station architecture, no visible words or branding.",
+      "assetPath": "public/Bilder/exam-simulation/sitov-zug-photo-v2.webp",
+      "review": "Visually inspected: exactly two adult male characters, natural anatomy, photorealistic detail, appropriate props and task facts, no women or overlays.",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 213590,
+      "sha256": "f02ab6038a14ad29b1c4fa4d583942e316b8078fc6f48160d63cf93c97f9b310",
+      "originalOutput": "01a10626-1765-77a1-b9ca-c9997c55c555/exec-132f0d32-02db-4a35-aa64-0e68716352de.png"
+    },
+    {
+      "id": "sitov-sport",
+      "prompt": "Use case: photorealistic-natural. Asset: Sitov Academy German exam picture-description photograph, landscape 3:2. The supplied bakery image is only a reference for premium visual detail, natural lifelike people and warm daylight. Create a new ACTUAL PHOTOGRAPH, without painted texture. Exactly TWO adult MALE people, no other humans, women, silhouettes, reflected people or portraits. Eye-level medium-wide candid scene, natural anatomy and hands, authentic richly detailed German everyday environment. Make the task props and physical setting clear and visible. No readable text, branding, logos, overlays, watermark, cartoon, vectors, symbolism or collage. Two adult men, a friendly grey-haired trainer about 55 in a navy sports shirt and a learner about 35 with short dark hair in a muted green sports shirt, discuss joining an everyday fitness course in a bright modest German community sports room. A rolled exercise mat, a small dumbbell and an unlettered course sheet lie on a bench beside them. One man holds a water bottle and the trainer gently gestures toward the exercise area. Wooden gym floor and large high windows, no mirrors or other people, no action posing or exaggerated muscles. Clearly recognizable friendly recreational sports context.",
+      "assetPath": "public/Bilder/exam-simulation/sitov-sport-photo-v2.webp",
+      "review": "Visually inspected: exactly two adult male characters, natural anatomy, photorealistic detail, appropriate props and task facts, no women or overlays.",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 227782,
+      "sha256": "d393d2c4021a003a8f384881a211d47a29d1f5adb47e61fa73838cc37a9c8720",
+      "originalOutput": "01a10626-1765-77a1-b9ca-c9997c55c555/exec-17833f92-58a6-438c-9c7c-493954a7c434.png"
+    },
+    {
+      "id": "sitov-ehrenamt",
+      "prompt": "Use case: photorealistic-natural. Asset: Sitov Academy German exam picture-description photograph, landscape 3:2. The supplied bakery image is only a reference for premium visual detail, natural lifelike people and warm daylight. Create a new ACTUAL PHOTOGRAPH, without painted texture. Exactly TWO adult MALE people, no other humans, women, silhouettes, reflected people or portraits. Eye-level medium-wide candid scene, natural anatomy and hands, authentic richly detailed German everyday environment. Make the task props and physical setting clear and visible. No readable text, branding, logos, overlays, watermark, cartoon, vectors, symbolism or collage. Two men around 55 and 35 volunteer together in a friendly German community donation centre. They stand by a wooden table sorting clean folded men's clothing and closed books into cardboard boxes. Older man with grey hair holds a folded blue sweater; younger man with short dark hair places a plain book into a box. Behind them tidy shelving with neatly arranged labelled-looking but unlettered boxes, a window and a noticeboard with indistinct papers. Warm, respectful teamwork, real ordinary objects, no recipients or other people, no female clothes or portraits. Clearly a community volunteering activity.",
+      "assetPath": "public/Bilder/exam-simulation/sitov-ehrenamt-photo-v2.webp",
+      "review": "Original-resolution independent QA, then targeted built-in image_gen correction of background noticeboard. Final visually inspected: exactly two adult male characters, natural anatomy, accurate volunteering props, no additional people or background portraits.",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 229808,
+      "sha256": "72a1366e832455bd4e54440b8b28a52a232c18d64cc5b05c5b2d6c7843e06494",
+      "originalOutput": "01a10626-1765-77a1-b9ca-c9997c55c555/exec-dcef9eea-822f-49f3-8e08-cae3f65b490b.png",
+      "refinementPrompt": "Use case: precise-object-edit. Remove the small group-portrait sheet from the cork noticeboard and replace it with only simple blurred colored rectangular diagrams. Preserve the two adult male volunteers, faces, natural hands, sweater, books, boxes, clothes, warm light and 3:2 framing. Exactly two men, no additional people, portraits, heads, silhouettes or human depictions in background, papers or reflections. No logos, readable text or overlays."
+    },
+    {
+      "id": "sitov-amt",
+      "prompt": "Use case: photorealistic-natural. Asset: Sitov Academy German exam picture-description photograph, landscape 3:2. The supplied bakery image is only a reference for premium visual detail, natural lifelike people and warm daylight. Create a new ACTUAL PHOTOGRAPH, without painted texture. Exactly TWO adult MALE people, no other humans, women, silhouettes, reflected people or portraits. Eye-level medium-wide candid scene, natural anatomy and hands, authentic richly detailed German everyday environment. Make the task props and physical setting clear and visible. No readable text, branding, logos, overlays, watermark, cartoon, vectors, symbolism or collage. A male municipal-office employee about 50 with grey hair in a simple pale-blue shirt sits behind a desk speaking to a male visitor about 35 with short dark hair seated across the desk in a German citizen service office. Both men clearly visible in natural three-quarter profile. An application form with indistinct non-legible lines, a pen, a closed document folder and a small unlettered ID card lie between them. The employee points to the signature line and the visitor listens. Office window, modest filing cabinet and a potted plant behind. No official seals or flags, no readable text, no mirrors, no additional people.",
+      "assetPath": "public/Bilder/exam-simulation/sitov-amt-photo-v2.webp",
+      "review": "Visually inspected: exactly two adult male characters, natural anatomy, photorealistic detail, appropriate props and task facts, no women or overlays.",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 154862,
+      "sha256": "2c8a2b8919b23467fd726835a3008fbf07c2cf97b3410865981788319f1fda55",
+      "originalOutput": "01a10626-1765-77a1-b9ca-c9997c55c555/exec-4e70ee05-82a5-479f-bb02-007b570c3ab9.png"
+    },
+    {
+      "id": "sitov-paket",
+      "prompt": "Use case: photorealistic-natural. Asset: Sitov Academy German exam picture-description photograph, landscape 3:2. The supplied bakery image is only a reference for premium visual detail, natural lifelike people and warm daylight. Create a new ACTUAL PHOTOGRAPH, without painted texture. Exactly TWO adult MALE people, no other humans, women, silhouettes, reflected people or portraits. Eye-level medium-wide candid scene, natural anatomy and hands, authentic richly detailed German everyday environment. Make the task props and physical setting clear and visible. No readable text, branding, logos, overlays, watermark, cartoon, vectors, symbolism or collage. Two men, a parcel-shop employee about 50 with grey hair and a customer about 35 with short dark hair, stand at a counter in a small German parcel service shop discussing a return shipment. A clearly visible CLOSED cardboard parcel, a roll of packing tape and a small unlettered shipping label sit on the counter. The customer holds an unlettered paper receipt and points gently to the parcel; employee listens. Tidy shelves of closed cardboard packages behind, natural warm window light. No open package contents, no brand logos, no other customers or people.",
+      "assetPath": "public/Bilder/exam-simulation/sitov-paket-photo-v2.webp",
+      "review": "Visually inspected: exactly two adult male characters, natural anatomy, photorealistic detail, appropriate props and task facts, no women or overlays.",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 207424,
+      "sha256": "b676da0fc4580e07b4a64bf4ef73d8c0e410b1c1b82457eb4e54b58e6f3fb482",
+      "originalOutput": "01a10626-1765-77a1-b9ca-c9997c55c555/exec-54c8d950-ca35-4687-a7d0-efc131037f7d.png"
+    },
+    {
+      "id": "sitov-museum",
+      "prompt": "Use case: photorealistic-natural. Asset: Sitov Academy German exam picture-description photograph, landscape 3:2. The supplied bakery image is only a reference for premium visual detail, natural lifelike people and warm daylight. Create a new ACTUAL PHOTOGRAPH, without painted texture. Exactly TWO adult MALE people, no other humans, women, silhouettes, reflected people or portraits. Eye-level medium-wide candid scene, natural anatomy and hands, authentic richly detailed German everyday environment. Make the task props and physical setting clear and visible. No readable text, branding, logos, overlays, watermark, cartoon, vectors, symbolism or collage. Two men, one about 55 with grey hair and one about 35 with short dark hair, stand in a bright modern German museum gallery discussing a cultural exhibition. One gently points toward an abstract geometric sculpture on a low pedestal while the other holds an unlettered folded exhibition leaflet. Visible framed abstract nonfigurative artwork, museum display case with ceramic vessels, warm natural gallery light and believable spacious architecture. The artwork and sculptures must have NO depictions of human figures, faces or bodies. Exactly two male visitors, completely empty gallery beyond them, no reflected people, no readable labels or brands.",
+      "assetPath": "public/Bilder/exam-simulation/sitov-museum-photo-v2.webp",
+      "review": "Visually inspected: exactly two adult male characters, natural anatomy, photorealistic detail, appropriate props and task facts, no women or overlays.",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 164248,
+      "sha256": "9ceff43c765b307ea3f475c225d5933b146f78e0ff4f3424c9b4fb53869e705e",
+      "originalOutput": "01a10626-1765-77a1-b9ca-c9997c55c555/exec-40d0f6aa-9d5e-43f9-a745-6968712803b8.png"
+    }
+  ]
+}

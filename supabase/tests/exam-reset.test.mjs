@@ -136,7 +136,9 @@ test('reset and account deletion each drain a union of exam files and legacy pro
   assert.equal((await db.query('SELECT count(*)::int n FROM storage.objects WHERE name=$1',[foreignPronunciation])).rows[0].n,1)
   // Fresh learning/recording after reset is protected from replayed reset calls.
   const fresh=`${student}/photo/${id(333)}.jpg`
-  await db.query("INSERT INTO sitov_exam_upload_tickets(path,student_id,kind) VALUES($1,$2,'photo')",[fresh,student])
+  // PGlite's clock may reuse one millisecond for both statements. This fixture
+  // deliberately represents a new ticket issued after the completed reset.
+  await db.query("INSERT INTO sitov_exam_upload_tickets(path,student_id,kind,created_at) SELECT $1,$2,'photo',completed_at+interval '1 millisecond' FROM learning_reset_private.jobs WHERE auth_user_id=$2",[fresh,student])
   await db.query("INSERT INTO storage.objects(bucket_id,name) VALUES('sitov-exam-submissions',$1)",[fresh])
   await db.query("INSERT INTO storage.objects(bucket_id,name,owner_id) VALUES('pronunciation_audio',$1,$2)",[ownPronunciation,student])
   await as(db,student);const examPending=await rpc(db,'delete_own_learning_profile',["'DELETE_LEARNING_PROFILE'"])

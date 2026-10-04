@@ -1,0 +1,3638 @@
+[
+  {
+    "id": "sitov-simulation-a1-listening-announcement-v1",
+    "level": "A1",
+    "family": "listening-announcement",
+    "scenarioId": "fahrrad",
+    "roles": [
+      "Paul"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Ein Fahrrad reparieren lassen",
+    "question": "Welche Aussage über Ben ist richtig?",
+    "correct": "Er kann das Fahrrad am Donnerstag abholen.",
+    "wrong": [
+      "Er kann das Fahrrad heute Abend abholen.",
+      "Er muss ein neues Fahrrad kaufen."
+    ],
+    "global": "Eine verzögerte Reparatur und eine Übergangslösung",
+    "globalWrong": [
+      "Die Eröffnung einer neuen Werkstatt",
+      "Ein Vergleich verschiedener Fahrradmarken"
+    ],
+    "criteria": "Ersatzräder müssen vor der Abfahrt am Empfang registriert werden. Eine telefonische Reservierung ersetzt diese Registrierung nicht."
+  },
+  {
+    "id": "sitov-simulation-a1-listening-announcement-v2",
+    "level": "A1",
+    "family": "listening-announcement",
+    "scenarioId": "wohnung",
+    "roles": [
+      "Paul"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Eine Wohnung besichtigen",
+    "question": "Welche Aussage über Amir ist richtig?",
+    "correct": "Er besichtigt die Wohnung am Samstag um elf Uhr.",
+    "wrong": [
+      "Er besichtigt die Wohnung am Freitag um elf Uhr.",
+      "Er unterschreibt den Mietvertrag ohne Besichtigung."
+    ],
+    "global": "Eine Wohnungsbesichtigung mit klaren Bedingungen",
+    "globalWrong": [
+      "Ein Bericht über den Bau neuer Häuser",
+      "Tipps zum Kauf von Möbeln"
+    ],
+    "criteria": "Besichtigung nur nach bestätigtem Termin. Bitte bringen Sie einen Ausweis mit. Zusätzliche Besucher melden Sie vorher per E-Mail an."
+  },
+  {
+    "id": "sitov-simulation-a1-listening-announcement-v3",
+    "level": "A1",
+    "family": "listening-announcement",
+    "scenarioId": "bibliothek",
+    "roles": [
+      "Paul"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Ein ausgeliehenes Buch verlängern",
+    "question": "Welche Aussage über Leon ist richtig?",
+    "correct": "Er muss das Buch bis Dienstag zurückgeben.",
+    "wrong": [
+      "Er darf das Buch automatisch einen Monat länger behalten.",
+      "Er kann das Buch erst im nächsten Jahr zurückgeben."
+    ],
+    "global": "Eine abgelehnte Verlängerung und eine Alternative",
+    "globalWrong": [
+      "Die Anmeldung zu einem Lesewettbewerb",
+      "Die Reparatur eines beschädigten Buches"
+    ],
+    "criteria": "Vorgemerkte Bücher können nicht verlängert werden. Rückgaben außerhalb der Öffnungszeit sind im Rückgabekasten möglich. Wer eine digitale Ausgabe nutzt, muss das gedruckte Exemplar trotzdem fristgerecht zurückgeben."
+  },
+  {
+    "id": "sitov-simulation-a1-listening-detail-v1",
+    "level": "A1",
+    "family": "listening-detail",
+    "scenarioId": "arbeit",
+    "roles": [
+      "Daniel"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Eine Schicht tauschen",
+    "question": "Welche Aussage über Yusuf ist richtig?",
+    "correct": "Er übernimmt die Frühschicht am Freitag.",
+    "wrong": [
+      "Er arbeitet am Freitag überhaupt nicht.",
+      "Er übernimmt zusätzlich die Nachtschicht am Freitag."
+    ],
+    "global": "Ein vereinbarter Schichttausch mit Zustimmung des Betriebs",
+    "globalWrong": [
+      "Eine Bewerbung bei einem neuen Arbeitgeber",
+      "Die endgültige Schließung eines Betriebs"
+    ],
+    "criteria": "Schichttausch nur mit Zustimmung der Leitung. Änderungen müssen vor Beginn der betroffenen Schicht im Dienstplan stehen. Private Nachrichten unter Kollegen reichen nicht aus."
+  },
+  {
+    "id": "sitov-simulation-a1-listening-detail-v2",
+    "level": "A1",
+    "family": "listening-detail",
+    "scenarioId": "zug",
+    "roles": [
+      "Daniel"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Eine Zugreise ändern",
+    "question": "Welche Aussage über Paul ist richtig?",
+    "correct": "Er fährt um 10.20 Uhr von Gleis vier ab.",
+    "wrong": [
+      "Er fährt um 9.40 Uhr von Gleis zwei ab.",
+      "Er muss ein neues Ticket kaufen, um fahren zu dürfen."
+    ],
+    "global": "Eine geänderte Zugverbindung bei weiterhin gültigem Ticket",
+    "globalWrong": [
+      "Eine kostenlose Reise für alle Fahrgäste",
+      "Die Reservierung eines Hotelzimmers"
+    ],
+    "criteria": "Tickets für den ausgefallenen Zug gelten im angekündigten Ersatzzug. Sitzplatzreservierungen werden nicht übertragen. Prüfen Sie vor dem Einstieg die aktuelle Gleisanzeige."
+  },
+  {
+    "id": "sitov-simulation-a1-listening-detail-v3",
+    "level": "A1",
+    "family": "listening-detail",
+    "scenarioId": "sport",
+    "roles": [
+      "Daniel"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Einen Sportkurs ausprobieren",
+    "question": "Welche Aussage über Erik ist richtig?",
+    "correct": "Er besucht zunächst eine kostenlose Probestunde am Mittwoch.",
+    "wrong": [
+      "Er muss vor der ersten Stunde den ganzen Jahresbeitrag zahlen.",
+      "Er besucht die Probestunde am Sonntag ohne Anmeldung."
+    ],
+    "global": "Ein unverbindlicher Einstieg in einen Sportkurs",
+    "globalWrong": [
+      "Die Absage eines Sportturniers",
+      "Ein Bericht über einen Profisportler"
+    ],
+    "criteria": "Probestunden sind kostenlos, aber nur mit bestätigter Anmeldung möglich. Bringen Sie eigene Sportschuhe mit. Eine Anmeldung zur Probe verpflichtet nicht zur Kursbuchung."
+  },
+  {
+    "id": "sitov-simulation-a1-listening-conversation-v1",
+    "level": "A1",
+    "family": "listening-conversation",
+    "scenarioId": "ehrenamt",
+    "roles": [
+      "Ben",
+      "Leon"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Bei einem Nachbarschaftsfest helfen",
+    "question": "Welche Aussage über Omar ist richtig?",
+    "correct": "Er hilft am Samstag von zwölf bis fünfzehn Uhr am Informationsstand.",
+    "wrong": [
+      "Er organisiert am Freitag allein das gesamte Fest.",
+      "Er bezahlt Eintritt, um am Informationsstand arbeiten zu dürfen."
+    ],
+    "global": "Ein begrenzter ehrenamtlicher Einsatz bei einem Fest",
+    "globalWrong": [
+      "Eine Bewerbung für eine Vollzeitstelle",
+      "Die Schließung eines Nachbarschaftszentrums"
+    ],
+    "criteria": "Bitte erscheinen Sie zehn Minuten vor Ihrer Schicht zur Einführung. Verlassen Sie den Stand erst nach der Übergabe an den nächsten Helfer. Bei Verhinderung informieren Sie die Organisation frühzeitig."
+  },
+  {
+    "id": "sitov-simulation-a1-listening-conversation-v2",
+    "level": "A1",
+    "family": "listening-conversation",
+    "scenarioId": "amt",
+    "roles": [
+      "Ben",
+      "Leon"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Einen Termin beim Bürgerbüro vorbereiten",
+    "question": "Welche Aussage über Daniel ist richtig?",
+    "correct": "Er muss den unterschriebenen Antrag und seinen Ausweis mitbringen.",
+    "wrong": [
+      "Er braucht nur seine Terminbestätigung auf dem Handy.",
+      "Er kann die Unterschrift grundsätzlich nach dem Termin per Telefon geben."
+    ],
+    "global": "Die Vorbereitung eines Behördentermins mit vollständigen Unterlagen",
+    "globalWrong": [
+      "Die Anmeldung zu einer Stadtführung",
+      "Ein Bericht über neue Öffnungszeiten aller Geschäfte"
+    ],
+    "criteria": "Zum Termin sind der ausgefüllte und unterschriebene Antrag und ein Ausweis mitzubringen. Terminbestätigungen dienen nur dem Zugang. Bei fehlenden Unterlagen kann die Bearbeitung nicht abgeschlossen werden."
+  },
+  {
+    "id": "sitov-simulation-a1-listening-conversation-v3",
+    "level": "A1",
+    "family": "listening-conversation",
+    "scenarioId": "paket",
+    "roles": [
+      "Ben",
+      "Leon"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Eine falsche Lieferung zurückgeben",
+    "question": "Welche Aussage über Karim ist richtig?",
+    "correct": "Er soll zuerst den Kundenservice kontaktieren und das Retourenetikett anfordern.",
+    "wrong": [
+      "Er soll das Paket ohne Rücksprache auf eigene Kosten versenden.",
+      "Er soll das falsche Gerät benutzen und die Verpackung sofort wegwerfen."
+    ],
+    "global": "Eine fehlerhafte Lieferung und der organisierte Rückversand",
+    "globalWrong": [
+      "Die Einrichtung eines neuen Benutzerkontos",
+      "Eine Anleitung zur Reparatur eines Geräts"
+    ],
+    "criteria": "Bei Falschlieferungen kontaktieren Sie zuerst den Kundenservice. Fordern Sie ein Retourenetikett an und geben Sie die Bestellnummer an. Senden Sie das Paket erst mit dem bereitgestellten Etikett zurück."
+  },
+  {
+    "id": "sitov-simulation-a1-listening-opinion-v1",
+    "level": "A1",
+    "family": "listening-opinion",
+    "scenarioId": "haus",
+    "roles": [
+      "Felix"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Wasserarbeiten im Haus organisieren",
+    "question": "Welche Aussage über Nils ist richtig?",
+    "correct": "Das Wasser ist am Dienstag von neun bis zwölf Uhr abgestellt.",
+    "wrong": [
+      "Das Wasser ist das gesamte Wochenende abgestellt.",
+      "Nur Nils muss für die Arbeiten die Wohnung verlassen."
+    ],
+    "global": "Eine zeitlich begrenzte Unterbrechung der Wasserversorgung",
+    "globalWrong": [
+      "Ein Angebot für den Verkauf aller Wohnungen",
+      "Eine Einladung zu einer privaten Geburtstagsfeier"
+    ],
+    "criteria": "Wasserunterbrechung Dienstag 9–12 Uhr. Bitte vorher Trinkwasser bereitstellen und Waschmaschinen während der Arbeiten nicht starten. Ein Verlassen der Wohnungen ist nicht nötig."
+  },
+  {
+    "id": "sitov-simulation-a1-listening-opinion-v2",
+    "level": "A1",
+    "family": "listening-opinion",
+    "scenarioId": "lernen",
+    "roles": [
+      "Felix"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Eine Lerngruppe vereinbaren",
+    "question": "Welche Aussage über Felix ist richtig?",
+    "correct": "Die Gruppe trifft sich donnerstags um achtzehn Uhr in der Bibliothek.",
+    "wrong": [
+      "Die Gruppe trifft sich jeden Morgen in Felix' Wohnung.",
+      "Die Gruppe übt nur im Internet und vereinbart keine Termine."
+    ],
+    "global": "Eine regelmäßige Lerngruppe mit verteilten Aufgaben",
+    "globalWrong": [
+      "Die Anmeldung zu einer Prüfung ohne Vorbereitung",
+      "Ein Bericht über den Verkauf von Schulbüchern"
+    ],
+    "criteria": "Für den Gruppenraum gilt: Termin vorher reservieren, leise arbeiten und den Raum am Ende aufräumen. Essen ist im Gruppenraum nicht erlaubt; Getränke in geschlossenen Flaschen sind möglich."
+  },
+  {
+    "id": "sitov-simulation-a1-listening-opinion-v3",
+    "level": "A1",
+    "family": "listening-opinion",
+    "scenarioId": "museum",
+    "roles": [
+      "Felix"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Einen Museumsbesuch vorbereiten",
+    "question": "Welche Aussage über Timo ist richtig?",
+    "correct": "Er bucht die Führung für Sonntag um vierzehn Uhr vorher online.",
+    "wrong": [
+      "Er kommt ohne Anmeldung am Samstagmorgen zur Führung.",
+      "Er darf mit seinem Eintrittsticket automatisch an jeder Führung teilnehmen."
+    ],
+    "global": "Eine Museumsführung mit zusätzlicher Anmeldung",
+    "globalWrong": [
+      "Die Renovierung eines Museumsgebäudes",
+      "Ein Bericht über den Kauf eines Kunstwerks"
+    ],
+    "criteria": "Führungen nur mit bestätigter Onlinebuchung. Eintrittstickets ersetzen die Reservierung nicht. Fotografieren ohne Blitz ist erlaubt, wenn andere Besucher nicht gestört werden."
+  },
+  {
+    "id": "sitov-simulation-a2-listening-announcement-v1",
+    "level": "A2",
+    "family": "listening-announcement",
+    "scenarioId": "fahrrad",
+    "roles": [
+      "Paul"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Ein Fahrrad reparieren lassen",
+    "question": "Welche Aussage über Ben ist richtig?",
+    "correct": "Er kann das Fahrrad am Donnerstag abholen.",
+    "wrong": [
+      "Er kann das Fahrrad heute Abend abholen.",
+      "Er muss ein neues Fahrrad kaufen."
+    ],
+    "global": "Eine verzögerte Reparatur und eine Übergangslösung",
+    "globalWrong": [
+      "Die Eröffnung einer neuen Werkstatt",
+      "Ein Vergleich verschiedener Fahrradmarken"
+    ],
+    "criteria": "Ersatzräder müssen vor der Abfahrt am Empfang registriert werden. Eine telefonische Reservierung ersetzt diese Registrierung nicht."
+  },
+  {
+    "id": "sitov-simulation-a2-listening-announcement-v2",
+    "level": "A2",
+    "family": "listening-announcement",
+    "scenarioId": "wohnung",
+    "roles": [
+      "Paul"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Eine Wohnung besichtigen",
+    "question": "Welche Aussage über Amir ist richtig?",
+    "correct": "Er besichtigt die Wohnung am Samstag um elf Uhr.",
+    "wrong": [
+      "Er besichtigt die Wohnung am Freitag um elf Uhr.",
+      "Er unterschreibt den Mietvertrag ohne Besichtigung."
+    ],
+    "global": "Eine Wohnungsbesichtigung mit klaren Bedingungen",
+    "globalWrong": [
+      "Ein Bericht über den Bau neuer Häuser",
+      "Tipps zum Kauf von Möbeln"
+    ],
+    "criteria": "Besichtigung nur nach bestätigtem Termin. Bitte bringen Sie einen Ausweis mit. Zusätzliche Besucher melden Sie vorher per E-Mail an."
+  },
+  {
+    "id": "sitov-simulation-a2-listening-announcement-v3",
+    "level": "A2",
+    "family": "listening-announcement",
+    "scenarioId": "bibliothek",
+    "roles": [
+      "Paul"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Ein ausgeliehenes Buch verlängern",
+    "question": "Welche Aussage über Leon ist richtig?",
+    "correct": "Er muss das Buch bis Dienstag zurückgeben.",
+    "wrong": [
+      "Er darf das Buch automatisch einen Monat länger behalten.",
+      "Er kann das Buch erst im nächsten Jahr zurückgeben."
+    ],
+    "global": "Eine abgelehnte Verlängerung und eine Alternative",
+    "globalWrong": [
+      "Die Anmeldung zu einem Lesewettbewerb",
+      "Die Reparatur eines beschädigten Buches"
+    ],
+    "criteria": "Vorgemerkte Bücher können nicht verlängert werden. Rückgaben außerhalb der Öffnungszeit sind im Rückgabekasten möglich. Wer eine digitale Ausgabe nutzt, muss das gedruckte Exemplar trotzdem fristgerecht zurückgeben."
+  },
+  {
+    "id": "sitov-simulation-a2-listening-detail-v1",
+    "level": "A2",
+    "family": "listening-detail",
+    "scenarioId": "arbeit",
+    "roles": [
+      "Daniel"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Eine Schicht tauschen",
+    "question": "Welche Aussage über Yusuf ist richtig?",
+    "correct": "Er übernimmt die Frühschicht am Freitag.",
+    "wrong": [
+      "Er arbeitet am Freitag überhaupt nicht.",
+      "Er übernimmt zusätzlich die Nachtschicht am Freitag."
+    ],
+    "global": "Ein vereinbarter Schichttausch mit Zustimmung des Betriebs",
+    "globalWrong": [
+      "Eine Bewerbung bei einem neuen Arbeitgeber",
+      "Die endgültige Schließung eines Betriebs"
+    ],
+    "criteria": "Schichttausch nur mit Zustimmung der Leitung. Änderungen müssen vor Beginn der betroffenen Schicht im Dienstplan stehen. Private Nachrichten unter Kollegen reichen nicht aus."
+  },
+  {
+    "id": "sitov-simulation-a2-listening-detail-v2",
+    "level": "A2",
+    "family": "listening-detail",
+    "scenarioId": "zug",
+    "roles": [
+      "Daniel"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Eine Zugreise ändern",
+    "question": "Welche Aussage über Paul ist richtig?",
+    "correct": "Er fährt um 10.20 Uhr von Gleis vier ab.",
+    "wrong": [
+      "Er fährt um 9.40 Uhr von Gleis zwei ab.",
+      "Er muss ein neues Ticket kaufen, um fahren zu dürfen."
+    ],
+    "global": "Eine geänderte Zugverbindung bei weiterhin gültigem Ticket",
+    "globalWrong": [
+      "Eine kostenlose Reise für alle Fahrgäste",
+      "Die Reservierung eines Hotelzimmers"
+    ],
+    "criteria": "Tickets für den ausgefallenen Zug gelten im angekündigten Ersatzzug. Sitzplatzreservierungen werden nicht übertragen. Prüfen Sie vor dem Einstieg die aktuelle Gleisanzeige."
+  },
+  {
+    "id": "sitov-simulation-a2-listening-detail-v3",
+    "level": "A2",
+    "family": "listening-detail",
+    "scenarioId": "sport",
+    "roles": [
+      "Daniel"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Einen Sportkurs ausprobieren",
+    "question": "Welche Aussage über Erik ist richtig?",
+    "correct": "Er besucht zunächst eine kostenlose Probestunde am Mittwoch.",
+    "wrong": [
+      "Er muss vor der ersten Stunde den ganzen Jahresbeitrag zahlen.",
+      "Er besucht die Probestunde am Sonntag ohne Anmeldung."
+    ],
+    "global": "Ein unverbindlicher Einstieg in einen Sportkurs",
+    "globalWrong": [
+      "Die Absage eines Sportturniers",
+      "Ein Bericht über einen Profisportler"
+    ],
+    "criteria": "Probestunden sind kostenlos, aber nur mit bestätigter Anmeldung möglich. Bringen Sie eigene Sportschuhe mit. Eine Anmeldung zur Probe verpflichtet nicht zur Kursbuchung."
+  },
+  {
+    "id": "sitov-simulation-a2-listening-conversation-v1",
+    "level": "A2",
+    "family": "listening-conversation",
+    "scenarioId": "ehrenamt",
+    "roles": [
+      "Ben",
+      "Leon"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Bei einem Nachbarschaftsfest helfen",
+    "question": "Welche Aussage über Omar ist richtig?",
+    "correct": "Er hilft am Samstag von zwölf bis fünfzehn Uhr am Informationsstand.",
+    "wrong": [
+      "Er organisiert am Freitag allein das gesamte Fest.",
+      "Er bezahlt Eintritt, um am Informationsstand arbeiten zu dürfen."
+    ],
+    "global": "Ein begrenzter ehrenamtlicher Einsatz bei einem Fest",
+    "globalWrong": [
+      "Eine Bewerbung für eine Vollzeitstelle",
+      "Die Schließung eines Nachbarschaftszentrums"
+    ],
+    "criteria": "Bitte erscheinen Sie zehn Minuten vor Ihrer Schicht zur Einführung. Verlassen Sie den Stand erst nach der Übergabe an den nächsten Helfer. Bei Verhinderung informieren Sie die Organisation frühzeitig."
+  },
+  {
+    "id": "sitov-simulation-a2-listening-conversation-v2",
+    "level": "A2",
+    "family": "listening-conversation",
+    "scenarioId": "amt",
+    "roles": [
+      "Ben",
+      "Leon"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Einen Termin beim Bürgerbüro vorbereiten",
+    "question": "Welche Aussage über Daniel ist richtig?",
+    "correct": "Er muss den unterschriebenen Antrag und seinen Ausweis mitbringen.",
+    "wrong": [
+      "Er braucht nur seine Terminbestätigung auf dem Handy.",
+      "Er kann die Unterschrift grundsätzlich nach dem Termin per Telefon geben."
+    ],
+    "global": "Die Vorbereitung eines Behördentermins mit vollständigen Unterlagen",
+    "globalWrong": [
+      "Die Anmeldung zu einer Stadtführung",
+      "Ein Bericht über neue Öffnungszeiten aller Geschäfte"
+    ],
+    "criteria": "Zum Termin sind der ausgefüllte und unterschriebene Antrag und ein Ausweis mitzubringen. Terminbestätigungen dienen nur dem Zugang. Bei fehlenden Unterlagen kann die Bearbeitung nicht abgeschlossen werden."
+  },
+  {
+    "id": "sitov-simulation-a2-listening-conversation-v3",
+    "level": "A2",
+    "family": "listening-conversation",
+    "scenarioId": "paket",
+    "roles": [
+      "Ben",
+      "Leon"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Eine falsche Lieferung zurückgeben",
+    "question": "Welche Aussage über Karim ist richtig?",
+    "correct": "Er soll zuerst den Kundenservice kontaktieren und das Retourenetikett anfordern.",
+    "wrong": [
+      "Er soll das Paket ohne Rücksprache auf eigene Kosten versenden.",
+      "Er soll das falsche Gerät benutzen und die Verpackung sofort wegwerfen."
+    ],
+    "global": "Eine fehlerhafte Lieferung und der organisierte Rückversand",
+    "globalWrong": [
+      "Die Einrichtung eines neuen Benutzerkontos",
+      "Eine Anleitung zur Reparatur eines Geräts"
+    ],
+    "criteria": "Bei Falschlieferungen kontaktieren Sie zuerst den Kundenservice. Fordern Sie ein Retourenetikett an und geben Sie die Bestellnummer an. Senden Sie das Paket erst mit dem bereitgestellten Etikett zurück."
+  },
+  {
+    "id": "sitov-simulation-a2-listening-opinion-v1",
+    "level": "A2",
+    "family": "listening-opinion",
+    "scenarioId": "haus",
+    "roles": [
+      "Felix"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Wasserarbeiten im Haus organisieren",
+    "question": "Welche Aussage über Nils ist richtig?",
+    "correct": "Das Wasser ist am Dienstag von neun bis zwölf Uhr abgestellt.",
+    "wrong": [
+      "Das Wasser ist das gesamte Wochenende abgestellt.",
+      "Nur Nils muss für die Arbeiten die Wohnung verlassen."
+    ],
+    "global": "Eine zeitlich begrenzte Unterbrechung der Wasserversorgung",
+    "globalWrong": [
+      "Ein Angebot für den Verkauf aller Wohnungen",
+      "Eine Einladung zu einer privaten Geburtstagsfeier"
+    ],
+    "criteria": "Wasserunterbrechung Dienstag 9–12 Uhr. Bitte vorher Trinkwasser bereitstellen und Waschmaschinen während der Arbeiten nicht starten. Ein Verlassen der Wohnungen ist nicht nötig."
+  },
+  {
+    "id": "sitov-simulation-a2-listening-opinion-v2",
+    "level": "A2",
+    "family": "listening-opinion",
+    "scenarioId": "lernen",
+    "roles": [
+      "Felix"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Eine Lerngruppe vereinbaren",
+    "question": "Welche Aussage über Felix ist richtig?",
+    "correct": "Die Gruppe trifft sich donnerstags um achtzehn Uhr in der Bibliothek.",
+    "wrong": [
+      "Die Gruppe trifft sich jeden Morgen in Felix' Wohnung.",
+      "Die Gruppe übt nur im Internet und vereinbart keine Termine."
+    ],
+    "global": "Eine regelmäßige Lerngruppe mit verteilten Aufgaben",
+    "globalWrong": [
+      "Die Anmeldung zu einer Prüfung ohne Vorbereitung",
+      "Ein Bericht über den Verkauf von Schulbüchern"
+    ],
+    "criteria": "Für den Gruppenraum gilt: Termin vorher reservieren, leise arbeiten und den Raum am Ende aufräumen. Essen ist im Gruppenraum nicht erlaubt; Getränke in geschlossenen Flaschen sind möglich."
+  },
+  {
+    "id": "sitov-simulation-a2-listening-opinion-v3",
+    "level": "A2",
+    "family": "listening-opinion",
+    "scenarioId": "museum",
+    "roles": [
+      "Felix"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Einen Museumsbesuch vorbereiten",
+    "question": "Welche Aussage über Timo ist richtig?",
+    "correct": "Er bucht die Führung für Sonntag um vierzehn Uhr vorher online.",
+    "wrong": [
+      "Er kommt ohne Anmeldung am Samstagmorgen zur Führung.",
+      "Er darf mit seinem Eintrittsticket automatisch an jeder Führung teilnehmen."
+    ],
+    "global": "Eine Museumsführung mit zusätzlicher Anmeldung",
+    "globalWrong": [
+      "Die Renovierung eines Museumsgebäudes",
+      "Ein Bericht über den Kauf eines Kunstwerks"
+    ],
+    "criteria": "Führungen nur mit bestätigter Onlinebuchung. Eintrittstickets ersetzen die Reservierung nicht. Fotografieren ohne Blitz ist erlaubt, wenn andere Besucher nicht gestört werden."
+  },
+  {
+    "id": "sitov-simulation-b1-listening-announcement-v1",
+    "level": "B1",
+    "family": "listening-announcement",
+    "scenarioId": "fahrrad",
+    "roles": [
+      "Paul"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Ein Fahrrad reparieren lassen",
+    "question": "Welche Aussage über Ben ist richtig?",
+    "correct": "Er kann das Fahrrad am Donnerstag abholen.",
+    "wrong": [
+      "Er kann das Fahrrad heute Abend abholen.",
+      "Er muss ein neues Fahrrad kaufen."
+    ],
+    "global": "Eine verzögerte Reparatur und eine Übergangslösung",
+    "globalWrong": [
+      "Die Eröffnung einer neuen Werkstatt",
+      "Ein Vergleich verschiedener Fahrradmarken"
+    ],
+    "criteria": "Ersatzräder müssen vor der Abfahrt am Empfang registriert werden. Eine telefonische Reservierung ersetzt diese Registrierung nicht."
+  },
+  {
+    "id": "sitov-simulation-b1-listening-announcement-v2",
+    "level": "B1",
+    "family": "listening-announcement",
+    "scenarioId": "wohnung",
+    "roles": [
+      "Paul"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Eine Wohnung besichtigen",
+    "question": "Welche Aussage über Amir ist richtig?",
+    "correct": "Er besichtigt die Wohnung am Samstag um elf Uhr.",
+    "wrong": [
+      "Er besichtigt die Wohnung am Freitag um elf Uhr.",
+      "Er unterschreibt den Mietvertrag ohne Besichtigung."
+    ],
+    "global": "Eine Wohnungsbesichtigung mit klaren Bedingungen",
+    "globalWrong": [
+      "Ein Bericht über den Bau neuer Häuser",
+      "Tipps zum Kauf von Möbeln"
+    ],
+    "criteria": "Besichtigung nur nach bestätigtem Termin. Bitte bringen Sie einen Ausweis mit. Zusätzliche Besucher melden Sie vorher per E-Mail an."
+  },
+  {
+    "id": "sitov-simulation-b1-listening-announcement-v3",
+    "level": "B1",
+    "family": "listening-announcement",
+    "scenarioId": "bibliothek",
+    "roles": [
+      "Paul"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Ein ausgeliehenes Buch verlängern",
+    "question": "Welche Aussage über Leon ist richtig?",
+    "correct": "Er muss das Buch bis Dienstag zurückgeben.",
+    "wrong": [
+      "Er darf das Buch automatisch einen Monat länger behalten.",
+      "Er kann das Buch erst im nächsten Jahr zurückgeben."
+    ],
+    "global": "Eine abgelehnte Verlängerung und eine Alternative",
+    "globalWrong": [
+      "Die Anmeldung zu einem Lesewettbewerb",
+      "Die Reparatur eines beschädigten Buches"
+    ],
+    "criteria": "Vorgemerkte Bücher können nicht verlängert werden. Rückgaben außerhalb der Öffnungszeit sind im Rückgabekasten möglich. Wer eine digitale Ausgabe nutzt, muss das gedruckte Exemplar trotzdem fristgerecht zurückgeben."
+  },
+  {
+    "id": "sitov-simulation-b1-listening-detail-v1",
+    "level": "B1",
+    "family": "listening-detail",
+    "scenarioId": "arbeit",
+    "roles": [
+      "Daniel"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Eine Schicht tauschen",
+    "question": "Welche Aussage über Yusuf ist richtig?",
+    "correct": "Er übernimmt die Frühschicht am Freitag.",
+    "wrong": [
+      "Er arbeitet am Freitag überhaupt nicht.",
+      "Er übernimmt zusätzlich die Nachtschicht am Freitag."
+    ],
+    "global": "Ein vereinbarter Schichttausch mit Zustimmung des Betriebs",
+    "globalWrong": [
+      "Eine Bewerbung bei einem neuen Arbeitgeber",
+      "Die endgültige Schließung eines Betriebs"
+    ],
+    "criteria": "Schichttausch nur mit Zustimmung der Leitung. Änderungen müssen vor Beginn der betroffenen Schicht im Dienstplan stehen. Private Nachrichten unter Kollegen reichen nicht aus."
+  },
+  {
+    "id": "sitov-simulation-b1-listening-detail-v2",
+    "level": "B1",
+    "family": "listening-detail",
+    "scenarioId": "zug",
+    "roles": [
+      "Daniel"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Eine Zugreise ändern",
+    "question": "Welche Aussage über Paul ist richtig?",
+    "correct": "Er fährt um 10.20 Uhr von Gleis vier ab.",
+    "wrong": [
+      "Er fährt um 9.40 Uhr von Gleis zwei ab.",
+      "Er muss ein neues Ticket kaufen, um fahren zu dürfen."
+    ],
+    "global": "Eine geänderte Zugverbindung bei weiterhin gültigem Ticket",
+    "globalWrong": [
+      "Eine kostenlose Reise für alle Fahrgäste",
+      "Die Reservierung eines Hotelzimmers"
+    ],
+    "criteria": "Tickets für den ausgefallenen Zug gelten im angekündigten Ersatzzug. Sitzplatzreservierungen werden nicht übertragen. Prüfen Sie vor dem Einstieg die aktuelle Gleisanzeige."
+  },
+  {
+    "id": "sitov-simulation-b1-listening-detail-v3",
+    "level": "B1",
+    "family": "listening-detail",
+    "scenarioId": "sport",
+    "roles": [
+      "Daniel"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Einen Sportkurs ausprobieren",
+    "question": "Welche Aussage über Erik ist richtig?",
+    "correct": "Er besucht zunächst eine kostenlose Probestunde am Mittwoch.",
+    "wrong": [
+      "Er muss vor der ersten Stunde den ganzen Jahresbeitrag zahlen.",
+      "Er besucht die Probestunde am Sonntag ohne Anmeldung."
+    ],
+    "global": "Ein unverbindlicher Einstieg in einen Sportkurs",
+    "globalWrong": [
+      "Die Absage eines Sportturniers",
+      "Ein Bericht über einen Profisportler"
+    ],
+    "criteria": "Probestunden sind kostenlos, aber nur mit bestätigter Anmeldung möglich. Bringen Sie eigene Sportschuhe mit. Eine Anmeldung zur Probe verpflichtet nicht zur Kursbuchung."
+  },
+  {
+    "id": "sitov-simulation-b1-listening-conversation-v1",
+    "level": "B1",
+    "family": "listening-conversation",
+    "scenarioId": "ehrenamt",
+    "roles": [
+      "Ben",
+      "Leon"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Bei einem Nachbarschaftsfest helfen",
+    "question": "Welche Aussage über Omar ist richtig?",
+    "correct": "Er hilft am Samstag von zwölf bis fünfzehn Uhr am Informationsstand.",
+    "wrong": [
+      "Er organisiert am Freitag allein das gesamte Fest.",
+      "Er bezahlt Eintritt, um am Informationsstand arbeiten zu dürfen."
+    ],
+    "global": "Ein begrenzter ehrenamtlicher Einsatz bei einem Fest",
+    "globalWrong": [
+      "Eine Bewerbung für eine Vollzeitstelle",
+      "Die Schließung eines Nachbarschaftszentrums"
+    ],
+    "criteria": "Bitte erscheinen Sie zehn Minuten vor Ihrer Schicht zur Einführung. Verlassen Sie den Stand erst nach der Übergabe an den nächsten Helfer. Bei Verhinderung informieren Sie die Organisation frühzeitig."
+  },
+  {
+    "id": "sitov-simulation-b1-listening-conversation-v2",
+    "level": "B1",
+    "family": "listening-conversation",
+    "scenarioId": "amt",
+    "roles": [
+      "Ben",
+      "Leon"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Einen Termin beim Bürgerbüro vorbereiten",
+    "question": "Welche Aussage über Daniel ist richtig?",
+    "correct": "Er muss den unterschriebenen Antrag und seinen Ausweis mitbringen.",
+    "wrong": [
+      "Er braucht nur seine Terminbestätigung auf dem Handy.",
+      "Er kann die Unterschrift grundsätzlich nach dem Termin per Telefon geben."
+    ],
+    "global": "Die Vorbereitung eines Behördentermins mit vollständigen Unterlagen",
+    "globalWrong": [
+      "Die Anmeldung zu einer Stadtführung",
+      "Ein Bericht über neue Öffnungszeiten aller Geschäfte"
+    ],
+    "criteria": "Zum Termin sind der ausgefüllte und unterschriebene Antrag und ein Ausweis mitzubringen. Terminbestätigungen dienen nur dem Zugang. Bei fehlenden Unterlagen kann die Bearbeitung nicht abgeschlossen werden."
+  },
+  {
+    "id": "sitov-simulation-b1-listening-conversation-v3",
+    "level": "B1",
+    "family": "listening-conversation",
+    "scenarioId": "paket",
+    "roles": [
+      "Ben",
+      "Leon"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Eine falsche Lieferung zurückgeben",
+    "question": "Welche Aussage über Karim ist richtig?",
+    "correct": "Er soll zuerst den Kundenservice kontaktieren und das Retourenetikett anfordern.",
+    "wrong": [
+      "Er soll das Paket ohne Rücksprache auf eigene Kosten versenden.",
+      "Er soll das falsche Gerät benutzen und die Verpackung sofort wegwerfen."
+    ],
+    "global": "Eine fehlerhafte Lieferung und der organisierte Rückversand",
+    "globalWrong": [
+      "Die Einrichtung eines neuen Benutzerkontos",
+      "Eine Anleitung zur Reparatur eines Geräts"
+    ],
+    "criteria": "Bei Falschlieferungen kontaktieren Sie zuerst den Kundenservice. Fordern Sie ein Retourenetikett an und geben Sie die Bestellnummer an. Senden Sie das Paket erst mit dem bereitgestellten Etikett zurück."
+  },
+  {
+    "id": "sitov-simulation-b1-listening-opinion-v1",
+    "level": "B1",
+    "family": "listening-opinion",
+    "scenarioId": "haus",
+    "roles": [
+      "Felix"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Wasserarbeiten im Haus organisieren",
+    "question": "Welche Aussage über Nils ist richtig?",
+    "correct": "Das Wasser ist am Dienstag von neun bis zwölf Uhr abgestellt.",
+    "wrong": [
+      "Das Wasser ist das gesamte Wochenende abgestellt.",
+      "Nur Nils muss für die Arbeiten die Wohnung verlassen."
+    ],
+    "global": "Eine zeitlich begrenzte Unterbrechung der Wasserversorgung",
+    "globalWrong": [
+      "Ein Angebot für den Verkauf aller Wohnungen",
+      "Eine Einladung zu einer privaten Geburtstagsfeier"
+    ],
+    "criteria": "Wasserunterbrechung Dienstag 9–12 Uhr. Bitte vorher Trinkwasser bereitstellen und Waschmaschinen während der Arbeiten nicht starten. Ein Verlassen der Wohnungen ist nicht nötig."
+  },
+  {
+    "id": "sitov-simulation-b1-listening-opinion-v2",
+    "level": "B1",
+    "family": "listening-opinion",
+    "scenarioId": "lernen",
+    "roles": [
+      "Felix"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Eine Lerngruppe vereinbaren",
+    "question": "Welche Aussage über Felix ist richtig?",
+    "correct": "Die Gruppe trifft sich donnerstags um achtzehn Uhr in der Bibliothek.",
+    "wrong": [
+      "Die Gruppe trifft sich jeden Morgen in Felix' Wohnung.",
+      "Die Gruppe übt nur im Internet und vereinbart keine Termine."
+    ],
+    "global": "Eine regelmäßige Lerngruppe mit verteilten Aufgaben",
+    "globalWrong": [
+      "Die Anmeldung zu einer Prüfung ohne Vorbereitung",
+      "Ein Bericht über den Verkauf von Schulbüchern"
+    ],
+    "criteria": "Für den Gruppenraum gilt: Termin vorher reservieren, leise arbeiten und den Raum am Ende aufräumen. Essen ist im Gruppenraum nicht erlaubt; Getränke in geschlossenen Flaschen sind möglich."
+  },
+  {
+    "id": "sitov-simulation-b1-listening-opinion-v3",
+    "level": "B1",
+    "family": "listening-opinion",
+    "scenarioId": "museum",
+    "roles": [
+      "Felix"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Einen Museumsbesuch vorbereiten",
+    "question": "Welche Aussage über Timo ist richtig?",
+    "correct": "Er bucht die Führung für Sonntag um vierzehn Uhr vorher online.",
+    "wrong": [
+      "Er kommt ohne Anmeldung am Samstagmorgen zur Führung.",
+      "Er darf mit seinem Eintrittsticket automatisch an jeder Führung teilnehmen."
+    ],
+    "global": "Eine Museumsführung mit zusätzlicher Anmeldung",
+    "globalWrong": [
+      "Die Renovierung eines Museumsgebäudes",
+      "Ein Bericht über den Kauf eines Kunstwerks"
+    ],
+    "criteria": "Führungen nur mit bestätigter Onlinebuchung. Eintrittstickets ersetzen die Reservierung nicht. Fotografieren ohne Blitz ist erlaubt, wenn andere Besucher nicht gestört werden."
+  },
+  {
+    "id": "sitov-simulation-b2-listening-announcement-v1",
+    "level": "B2",
+    "family": "listening-announcement",
+    "scenarioId": "fahrrad",
+    "roles": [
+      "Paul"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Ein Fahrrad reparieren lassen",
+    "question": "Welche Aussage über Ben ist richtig?",
+    "correct": "Er kann das Fahrrad am Donnerstag abholen.",
+    "wrong": [
+      "Er kann das Fahrrad heute Abend abholen.",
+      "Er muss ein neues Fahrrad kaufen."
+    ],
+    "global": "Eine verzögerte Reparatur und eine Übergangslösung",
+    "globalWrong": [
+      "Die Eröffnung einer neuen Werkstatt",
+      "Ein Vergleich verschiedener Fahrradmarken"
+    ],
+    "criteria": "Ersatzräder müssen vor der Abfahrt am Empfang registriert werden. Eine telefonische Reservierung ersetzt diese Registrierung nicht."
+  },
+  {
+    "id": "sitov-simulation-b2-listening-announcement-v2",
+    "level": "B2",
+    "family": "listening-announcement",
+    "scenarioId": "wohnung",
+    "roles": [
+      "Paul"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Eine Wohnung besichtigen",
+    "question": "Welche Aussage über Amir ist richtig?",
+    "correct": "Er besichtigt die Wohnung am Samstag um elf Uhr.",
+    "wrong": [
+      "Er besichtigt die Wohnung am Freitag um elf Uhr.",
+      "Er unterschreibt den Mietvertrag ohne Besichtigung."
+    ],
+    "global": "Eine Wohnungsbesichtigung mit klaren Bedingungen",
+    "globalWrong": [
+      "Ein Bericht über den Bau neuer Häuser",
+      "Tipps zum Kauf von Möbeln"
+    ],
+    "criteria": "Besichtigung nur nach bestätigtem Termin. Bitte bringen Sie einen Ausweis mit. Zusätzliche Besucher melden Sie vorher per E-Mail an."
+  },
+  {
+    "id": "sitov-simulation-b2-listening-announcement-v3",
+    "level": "B2",
+    "family": "listening-announcement",
+    "scenarioId": "bibliothek",
+    "roles": [
+      "Paul"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Ein ausgeliehenes Buch verlängern",
+    "question": "Welche Aussage über Leon ist richtig?",
+    "correct": "Er muss das Buch bis Dienstag zurückgeben.",
+    "wrong": [
+      "Er darf das Buch automatisch einen Monat länger behalten.",
+      "Er kann das Buch erst im nächsten Jahr zurückgeben."
+    ],
+    "global": "Eine abgelehnte Verlängerung und eine Alternative",
+    "globalWrong": [
+      "Die Anmeldung zu einem Lesewettbewerb",
+      "Die Reparatur eines beschädigten Buches"
+    ],
+    "criteria": "Vorgemerkte Bücher können nicht verlängert werden. Rückgaben außerhalb der Öffnungszeit sind im Rückgabekasten möglich. Wer eine digitale Ausgabe nutzt, muss das gedruckte Exemplar trotzdem fristgerecht zurückgeben."
+  },
+  {
+    "id": "sitov-simulation-b2-listening-detail-v1",
+    "level": "B2",
+    "family": "listening-detail",
+    "scenarioId": "arbeit",
+    "roles": [
+      "Daniel"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Eine Schicht tauschen",
+    "question": "Welche Aussage über Yusuf ist richtig?",
+    "correct": "Er übernimmt die Frühschicht am Freitag.",
+    "wrong": [
+      "Er arbeitet am Freitag überhaupt nicht.",
+      "Er übernimmt zusätzlich die Nachtschicht am Freitag."
+    ],
+    "global": "Ein vereinbarter Schichttausch mit Zustimmung des Betriebs",
+    "globalWrong": [
+      "Eine Bewerbung bei einem neuen Arbeitgeber",
+      "Die endgültige Schließung eines Betriebs"
+    ],
+    "criteria": "Schichttausch nur mit Zustimmung der Leitung. Änderungen müssen vor Beginn der betroffenen Schicht im Dienstplan stehen. Private Nachrichten unter Kollegen reichen nicht aus."
+  },
+  {
+    "id": "sitov-simulation-b2-listening-detail-v2",
+    "level": "B2",
+    "family": "listening-detail",
+    "scenarioId": "zug",
+    "roles": [
+      "Daniel"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Eine Zugreise ändern",
+    "question": "Welche Aussage über Paul ist richtig?",
+    "correct": "Er fährt um 10.20 Uhr von Gleis vier ab.",
+    "wrong": [
+      "Er fährt um 9.40 Uhr von Gleis zwei ab.",
+      "Er muss ein neues Ticket kaufen, um fahren zu dürfen."
+    ],
+    "global": "Eine geänderte Zugverbindung bei weiterhin gültigem Ticket",
+    "globalWrong": [
+      "Eine kostenlose Reise für alle Fahrgäste",
+      "Die Reservierung eines Hotelzimmers"
+    ],
+    "criteria": "Tickets für den ausgefallenen Zug gelten im angekündigten Ersatzzug. Sitzplatzreservierungen werden nicht übertragen. Prüfen Sie vor dem Einstieg die aktuelle Gleisanzeige."
+  },
+  {
+    "id": "sitov-simulation-b2-listening-detail-v3",
+    "level": "B2",
+    "family": "listening-detail",
+    "scenarioId": "sport",
+    "roles": [
+      "Daniel"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Einen Sportkurs ausprobieren",
+    "question": "Welche Aussage über Erik ist richtig?",
+    "correct": "Er besucht zunächst eine kostenlose Probestunde am Mittwoch.",
+    "wrong": [
+      "Er muss vor der ersten Stunde den ganzen Jahresbeitrag zahlen.",
+      "Er besucht die Probestunde am Sonntag ohne Anmeldung."
+    ],
+    "global": "Ein unverbindlicher Einstieg in einen Sportkurs",
+    "globalWrong": [
+      "Die Absage eines Sportturniers",
+      "Ein Bericht über einen Profisportler"
+    ],
+    "criteria": "Probestunden sind kostenlos, aber nur mit bestätigter Anmeldung möglich. Bringen Sie eigene Sportschuhe mit. Eine Anmeldung zur Probe verpflichtet nicht zur Kursbuchung."
+  },
+  {
+    "id": "sitov-simulation-b2-listening-conversation-v1",
+    "level": "B2",
+    "family": "listening-conversation",
+    "scenarioId": "ehrenamt",
+    "roles": [
+      "Ben",
+      "Leon"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Bei einem Nachbarschaftsfest helfen",
+    "question": "Welche Aussage über Omar ist richtig?",
+    "correct": "Er hilft am Samstag von zwölf bis fünfzehn Uhr am Informationsstand.",
+    "wrong": [
+      "Er organisiert am Freitag allein das gesamte Fest.",
+      "Er bezahlt Eintritt, um am Informationsstand arbeiten zu dürfen."
+    ],
+    "global": "Ein begrenzter ehrenamtlicher Einsatz bei einem Fest",
+    "globalWrong": [
+      "Eine Bewerbung für eine Vollzeitstelle",
+      "Die Schließung eines Nachbarschaftszentrums"
+    ],
+    "criteria": "Bitte erscheinen Sie zehn Minuten vor Ihrer Schicht zur Einführung. Verlassen Sie den Stand erst nach der Übergabe an den nächsten Helfer. Bei Verhinderung informieren Sie die Organisation frühzeitig."
+  },
+  {
+    "id": "sitov-simulation-b2-listening-conversation-v2",
+    "level": "B2",
+    "family": "listening-conversation",
+    "scenarioId": "amt",
+    "roles": [
+      "Ben",
+      "Leon"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Einen Termin beim Bürgerbüro vorbereiten",
+    "question": "Welche Aussage über Daniel ist richtig?",
+    "correct": "Er muss den unterschriebenen Antrag und seinen Ausweis mitbringen.",
+    "wrong": [
+      "Er braucht nur seine Terminbestätigung auf dem Handy.",
+      "Er kann die Unterschrift grundsätzlich nach dem Termin per Telefon geben."
+    ],
+    "global": "Die Vorbereitung eines Behördentermins mit vollständigen Unterlagen",
+    "globalWrong": [
+      "Die Anmeldung zu einer Stadtführung",
+      "Ein Bericht über neue Öffnungszeiten aller Geschäfte"
+    ],
+    "criteria": "Zum Termin sind der ausgefüllte und unterschriebene Antrag und ein Ausweis mitzubringen. Terminbestätigungen dienen nur dem Zugang. Bei fehlenden Unterlagen kann die Bearbeitung nicht abgeschlossen werden."
+  },
+  {
+    "id": "sitov-simulation-b2-listening-conversation-v3",
+    "level": "B2",
+    "family": "listening-conversation",
+    "scenarioId": "paket",
+    "roles": [
+      "Ben",
+      "Leon"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Eine falsche Lieferung zurückgeben",
+    "question": "Welche Aussage über Karim ist richtig?",
+    "correct": "Er soll zuerst den Kundenservice kontaktieren und das Retourenetikett anfordern.",
+    "wrong": [
+      "Er soll das Paket ohne Rücksprache auf eigene Kosten versenden.",
+      "Er soll das falsche Gerät benutzen und die Verpackung sofort wegwerfen."
+    ],
+    "global": "Eine fehlerhafte Lieferung und der organisierte Rückversand",
+    "globalWrong": [
+      "Die Einrichtung eines neuen Benutzerkontos",
+      "Eine Anleitung zur Reparatur eines Geräts"
+    ],
+    "criteria": "Bei Falschlieferungen kontaktieren Sie zuerst den Kundenservice. Fordern Sie ein Retourenetikett an und geben Sie die Bestellnummer an. Senden Sie das Paket erst mit dem bereitgestellten Etikett zurück."
+  },
+  {
+    "id": "sitov-simulation-b2-listening-opinion-v1",
+    "level": "B2",
+    "family": "listening-opinion",
+    "scenarioId": "haus",
+    "roles": [
+      "Felix"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Wasserarbeiten im Haus organisieren",
+    "question": "Welche Aussage über Nils ist richtig?",
+    "correct": "Das Wasser ist am Dienstag von neun bis zwölf Uhr abgestellt.",
+    "wrong": [
+      "Das Wasser ist das gesamte Wochenende abgestellt.",
+      "Nur Nils muss für die Arbeiten die Wohnung verlassen."
+    ],
+    "global": "Eine zeitlich begrenzte Unterbrechung der Wasserversorgung",
+    "globalWrong": [
+      "Ein Angebot für den Verkauf aller Wohnungen",
+      "Eine Einladung zu einer privaten Geburtstagsfeier"
+    ],
+    "criteria": "Wasserunterbrechung Dienstag 9–12 Uhr. Bitte vorher Trinkwasser bereitstellen und Waschmaschinen während der Arbeiten nicht starten. Ein Verlassen der Wohnungen ist nicht nötig."
+  },
+  {
+    "id": "sitov-simulation-b2-listening-opinion-v2",
+    "level": "B2",
+    "family": "listening-opinion",
+    "scenarioId": "lernen",
+    "roles": [
+      "Felix"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Eine Lerngruppe vereinbaren",
+    "question": "Welche Aussage über Felix ist richtig?",
+    "correct": "Die Gruppe trifft sich donnerstags um achtzehn Uhr in der Bibliothek.",
+    "wrong": [
+      "Die Gruppe trifft sich jeden Morgen in Felix' Wohnung.",
+      "Die Gruppe übt nur im Internet und vereinbart keine Termine."
+    ],
+    "global": "Eine regelmäßige Lerngruppe mit verteilten Aufgaben",
+    "globalWrong": [
+      "Die Anmeldung zu einer Prüfung ohne Vorbereitung",
+      "Ein Bericht über den Verkauf von Schulbüchern"
+    ],
+    "criteria": "Für den Gruppenraum gilt: Termin vorher reservieren, leise arbeiten und den Raum am Ende aufräumen. Essen ist im Gruppenraum nicht erlaubt; Getränke in geschlossenen Flaschen sind möglich."
+  },
+  {
+    "id": "sitov-simulation-b2-listening-opinion-v3",
+    "level": "B2",
+    "family": "listening-opinion",
+    "scenarioId": "museum",
+    "roles": [
+      "Felix"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Einen Museumsbesuch vorbereiten",
+    "question": "Welche Aussage über Timo ist richtig?",
+    "correct": "Er bucht die Führung für Sonntag um vierzehn Uhr vorher online.",
+    "wrong": [
+      "Er kommt ohne Anmeldung am Samstagmorgen zur Führung.",
+      "Er darf mit seinem Eintrittsticket automatisch an jeder Führung teilnehmen."
+    ],
+    "global": "Eine Museumsführung mit zusätzlicher Anmeldung",
+    "globalWrong": [
+      "Die Renovierung eines Museumsgebäudes",
+      "Ein Bericht über den Kauf eines Kunstwerks"
+    ],
+    "criteria": "Führungen nur mit bestätigter Onlinebuchung. Eintrittstickets ersetzen die Reservierung nicht. Fotografieren ohne Blitz ist erlaubt, wenn andere Besucher nicht gestört werden."
+  },
+  {
+    "id": "sitov-simulation-c1-listening-announcement-v1",
+    "level": "C1",
+    "family": "listening-announcement",
+    "scenarioId": "fahrrad",
+    "roles": [
+      "Paul"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Ein Fahrrad reparieren lassen",
+    "question": "Welcher Schluss lässt sich aus Bens Reaktion ziehen?",
+    "correct": "Die Annahme der Zwischenlösung bedeutet nicht, dass er die ursprüngliche Zusage für verlässlich hält.",
+    "wrong": [
+      "Mit dem Ersatzrad verzichtet Ben auf weitere Informationen über Verzögerungen.",
+      "Allein die unveränderte Rechnung ist entscheidend; die Kommunikation spielt keine Rolle."
+    ],
+    "global": "Praktische Abhilfe bei weiterhin begrenztem Vertrauen",
+    "globalWrong": [
+      "Die Eröffnung einer neuen Werkstatt",
+      "Ein Vergleich verschiedener Fahrradmarken"
+    ],
+    "criteria": "Ersatzräder stehen nur für die Reparaturdauer zur Verfügung. Eine Verlängerung nach Abschluss setzt eine ausdrückliche Bestätigung voraus; die Ankündigung eines späteren Abholtermins genügt nicht. Vor der Ausleihe ist eine Registrierung erforderlich."
+  },
+  {
+    "id": "sitov-simulation-c1-listening-announcement-v2",
+    "level": "C1",
+    "family": "listening-announcement",
+    "scenarioId": "wohnung",
+    "roles": [
+      "Paul"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Eine Wohnung besichtigen",
+    "question": "Warum legt Amir sich trotz passender Lage noch nicht fest?",
+    "correct": "Er will den Lagevorteil nicht mit einer wirtschaftlich noch unklaren Gesamtbelastung verwechseln.",
+    "wrong": [
+      "Der fehlende Garagenplatz ist für ihn ein grundsätzliches Hindernis.",
+      "Die Nähe zur Arbeit ist für ihn unwichtig, sobald ein Balkon vorhanden ist."
+    ],
+    "global": "Attraktive Lage als Ausgangspunkt einer weiterhin offenen Kostenabwägung",
+    "globalWrong": [
+      "Ein Bericht über den Bau neuer Häuser",
+      "Tipps zum Kauf von Möbeln"
+    ],
+    "criteria": "Die Vorauszahlung beruht auf dem Vorjahresverbrauch und stellt keine Kostenobergrenze dar. Eine feste Miete schließt variable Nebenkosten nur ein, wenn dies ausdrücklich vereinbart ist. Angaben zur Garage begründen ohne gesonderte Zusage keinen Stellplatzanspruch."
+  },
+  {
+    "id": "sitov-simulation-c1-listening-announcement-v3",
+    "level": "C1",
+    "family": "listening-announcement",
+    "scenarioId": "bibliothek",
+    "roles": [
+      "Paul"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Ein ausgeliehenes Buch verlängern",
+    "question": "Welche Funktion hat die digitale Alternative?",
+    "correct": "Sie ermöglicht die weitere Lektüre, ohne den Anspruch des wartenden Lesers auf das gedruckte Exemplar auszusetzen.",
+    "wrong": [
+      "Sie begründet eine Ausnahme von der Rückgabepflicht des gedruckten Buches.",
+      "Sie soll die technische Undurchführbarkeit der Vormerkregel nachweisen."
+    ],
+    "global": "Ein alternatives Medium zur Vereinbarkeit konkurrierender Nutzungsinteressen",
+    "globalWrong": [
+      "Die Anmeldung zu einem Lesewettbewerb",
+      "Die Reparatur eines beschädigten Buches"
+    ],
+    "criteria": "Vormerkungen schließen eine Verlängerung des Exemplars aus. Eine digitale Ausleihe ändert weder dessen Frist noch die Vormerkreihenfolge. Rückgaben im Kasten werden am nächsten Öffnungstag verbucht; maßgeblich ist jedoch der tatsächliche Einwurfzeitpunkt."
+  },
+  {
+    "id": "sitov-simulation-c1-listening-detail-v1",
+    "level": "C1",
+    "family": "listening-detail",
+    "scenarioId": "arbeit",
+    "roles": [
+      "Daniel"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Eine Schicht tauschen",
+    "question": "Welche Bedeutung hat die formale Genehmigung?",
+    "correct": "Sie macht die flexible Absprache verbindlich, ohne die Arbeitsverpflichtung aufzuheben.",
+    "wrong": [
+      "Sie wandelt die getauschte Schicht automatisch in zusätzlichen Urlaub um.",
+      "Sie ersetzt die Zustimmung des Kollegen und erhöht die Vergütung."
+    ],
+    "global": "Flexibilität durch verbindlich dokumentierte Zuständigkeit",
+    "globalWrong": [
+      "Eine Bewerbung bei einem neuen Arbeitgeber",
+      "Die endgültige Schließung eines Betriebs"
+    ],
+    "criteria": "Tauschanträge gelten erst nach Genehmigung und Veröffentlichung im Dienstplan. Eine Eingangsbestätigung enthält noch keine Zustimmung. Bis zur Veröffentlichung bleiben die bisherigen Schichten verbindlich. Bei abweichenden privaten Nachrichten hat der freigegebene Plan Vorrang."
+  },
+  {
+    "id": "sitov-simulation-c1-listening-detail-v2",
+    "level": "C1",
+    "family": "listening-detail",
+    "scenarioId": "zug",
+    "roles": [
+      "Daniel"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Eine Zugreise ändern",
+    "question": "Welche Folgerung weist der Text als zu weitgehend zurück?",
+    "correct": "Dass die Gültigkeit des Tickets zugleich einen garantierten Sitzplatz im Ersatzzug einschließt.",
+    "wrong": [
+      "Dass eine Ersatzverbindung die Weiterreise ermöglichen kann.",
+      "Dass Paul seinen Gastgeber über die verspätete Ankunft informieren kann."
+    ],
+    "global": "Gültige Beförderung ohne automatisch übertragene Platzgarantie",
+    "globalWrong": [
+      "Eine kostenlose Reise für alle Fahrgäste",
+      "Die Reservierung eines Hotelzimmers"
+    ],
+    "criteria": "Für die Ersatzverbindung wird die Zugbindung aufgehoben. Dies umfasst weder eine automatische Platzreservierung noch eine höhere Wagenklasse. Reservierungen unterliegen einem gesonderten Verfahren; die gebuchte Klasse bleibt maßgeblich, sofern keine abweichende Freigabe erfolgt."
+  },
+  {
+    "id": "sitov-simulation-c1-listening-detail-v3",
+    "level": "C1",
+    "family": "listening-detail",
+    "scenarioId": "sport",
+    "roles": [
+      "Daniel"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Einen Sportkurs ausprobieren",
+    "question": "Warum widerspricht die Anmeldung nicht dem unverbindlichen Angebot?",
+    "correct": "Sie betrifft die einzelne Probestunde, ohne eine längerfristige Kursbuchung zu begründen.",
+    "wrong": [
+      "Kostenfreie Angebote können grundsätzlich keine organisatorischen Regeln haben.",
+      "Die Anmeldung bindet bereits für das ganze Jahr, auch ohne Zahlungsforderung."
+    ],
+    "global": "Organisatorische Verbindlichkeit bei offener Teilnahmeentscheidung",
+    "globalWrong": [
+      "Die Absage eines Sportturniers",
+      "Ein Bericht über einen Profisportler"
+    ],
+    "criteria": "Die bestätigte Anmeldung sichert genau eine Probestunde und enthält keine Folgebuchung. Ein regulärer Kursplatz wird gesondert bestätigt; die Probe begründet keinen Vorrang. Absagen müssen bis zum Vorabend eingehen."
+  },
+  {
+    "id": "sitov-simulation-c1-listening-conversation-v1",
+    "level": "C1",
+    "family": "listening-conversation",
+    "scenarioId": "ehrenamt",
+    "roles": [
+      "Ben",
+      "Leon"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Bei einem Nachbarschaftsfest helfen",
+    "question": "Was macht den Einsatz für Omar vor allem tragfähig?",
+    "correct": "Eine begrenzte, verlässliche Verpflichtung, die zu seiner beruflichen Situation passt.",
+    "wrong": [
+      "Allein der kostenfreie Eintritt; die Einsatzdauer ist bedeutungslos.",
+      "Die Pflicht, unabhängig von seiner Zusage jederzeit bis zum Festende zu bleiben."
+    ],
+    "global": "Engagement durch verlässliche Begrenzung statt offene Erwartungen",
+    "globalWrong": [
+      "Eine Bewerbung für eine Vollzeitstelle",
+      "Die Schließung eines Nachbarschaftszentrums"
+    ],
+    "criteria": "Einsätze sind auf die bestätigte Schicht begrenzt. Eine freiwillige Verlängerung erfordert eine neue Absprache. Die Übergabe ist innerhalb der Schicht vorgesehen. Bei fehlender Ablösung informieren Helfer die Koordination, die eine Ersatzlösung organisiert."
+  },
+  {
+    "id": "sitov-simulation-c1-listening-conversation-v2",
+    "level": "C1",
+    "family": "listening-conversation",
+    "scenarioId": "amt",
+    "roles": [
+      "Ben",
+      "Leon"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Einen Termin beim Bürgerbüro vorbereiten",
+    "question": "Welches Missverständnis wird durch den einfachen Zugang begünstigt?",
+    "correct": "Von der digitalen Terminbuchung wird fälschlich auf bereits erfüllte Voraussetzungen der Bearbeitung geschlossen.",
+    "wrong": [
+      "Ein einfacher Zugang macht es grundsätzlich unmöglich, Hinweise zu lesen.",
+      "Die erforderliche Vorlage eines Ausweises widerlegt jede digitale Buchungsmöglichkeit."
+    ],
+    "global": "Digitaler Zugang und weiterhin eigenständige Bearbeitungsvoraussetzungen",
+    "globalWrong": [
+      "Die Anmeldung zu einer Stadtführung",
+      "Ein Bericht über neue Öffnungszeiten aller Geschäfte"
+    ],
+    "criteria": "Die Bestätigung reserviert ausschließlich den Termin. Hochgeladene Kopien dienen der Vorbereitung und ersetzen Originale nur bei ausdrücklichem Hinweis. Die Möglichkeit, Angaben vorab zu ergänzen, garantiert keinen Abschluss ohne die geforderten Nachweise."
+  },
+  {
+    "id": "sitov-simulation-c1-listening-conversation-v3",
+    "level": "C1",
+    "family": "listening-conversation",
+    "scenarioId": "paket",
+    "roles": [
+      "Ben",
+      "Leon"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Eine falsche Lieferung zurückgeben",
+    "question": "Warum kann ein später abgesandtes Rückpaket dennoch zweckmäßiger sein?",
+    "correct": "Die vorherige Abstimmung kann unklare Zuordnungen und dadurch spätere Verzögerungen vermeiden.",
+    "wrong": [
+      "Der spätere Versand beweist, dass die Falschlieferung akzeptiert wurde.",
+      "Allein die Versandgeschwindigkeit bestimmt unabhängig vom Verfahren die Bearbeitung."
+    ],
+    "global": "Abgestimmter Ablauf als Voraussetzung wirksamer Korrektur",
+    "globalWrong": [
+      "Die Einrichtung eines neuen Benutzerkontos",
+      "Eine Anleitung zur Reparatur eines Geräts"
+    ],
+    "criteria": "Retourenetiketten gelten nur für den zugeordneten Vorgang. Ein Versandnachweis ersetzt die Bestellnummer nicht. Bei mehreren Falschlieferungen sind getrennte Vorgänge anzulegen, sofern der Service keine Zusammenführung bestätigt."
+  },
+  {
+    "id": "sitov-simulation-c1-listening-opinion-v1",
+    "level": "C1",
+    "family": "listening-opinion",
+    "scenarioId": "haus",
+    "roles": [
+      "Felix"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Wasserarbeiten im Haus organisieren",
+    "question": "Welche Bedeutung hat die angekündigte Aktualisierung bei Verzögerungen?",
+    "correct": "Sie regelt den Umgang mit Abweichungen, ohne die ursprüngliche Zeitangabe beliebig werden zu lassen.",
+    "wrong": [
+      "Sie erlaubt grundsätzlich den Verzicht auf weitere Informationen.",
+      "Sie hebt die Unterscheidung zwischen Versorgung und Wohnungszugang auf."
+    ],
+    "global": "Begrenzte Einschränkung mit geregelter Information bei Abweichungen",
+    "globalWrong": [
+      "Ein Angebot für den Verkauf aller Wohnungen",
+      "Eine Einladung zu einer privaten Geburtstagsfeier"
+    ],
+    "criteria": "Die Unterbrechung betrifft nur Wasser. Wohnungszutritt ist nur bei individuell bestätigten Arbeiten nötig. Verzögerungen werden zentral bekanntgegeben; das Ausbleiben einer Nachricht vor dem vorgesehenen Ende stellt keine vorzeitige Freigabe der Versorgung dar."
+  },
+  {
+    "id": "sitov-simulation-c1-listening-opinion-v2",
+    "level": "C1",
+    "family": "listening-opinion",
+    "scenarioId": "lernen",
+    "roles": [
+      "Felix"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Eine Lerngruppe vereinbaren",
+    "question": "Welche Gefahr soll die gleichmäßige Vorbereitung verhindern?",
+    "correct": "Dass formell gemeinsames Lernen tatsächlich von einer einseitigen, wenig sichtbaren Arbeitsleistung abhängt.",
+    "wrong": [
+      "Dass unterschiedliche Lösungen überhaupt miteinander verglichen werden.",
+      "Dass jeder Teilnehmer eine eigene Verantwortung für den Lernprozess übernimmt."
+    ],
+    "global": "Wechselseitige Verantwortung statt bloßer gemeinsamer Anwesenheit",
+    "globalWrong": [
+      "Die Anmeldung zu einer Prüfung ohne Vorbereitung",
+      "Ein Bericht über den Verkauf von Schulbüchern"
+    ],
+    "criteria": "Reservierungen gelten für den bestätigten Zeitraum. Ein danach leerer Raum darf nicht automatisch weiter genutzt werden. Änderungen benötigen die Freigabe des Personals; der Verzicht eines anderen Nutzers ersetzt diese nicht. Alle Mitglieder tragen Verantwortung für die Übergabe."
+  },
+  {
+    "id": "sitov-simulation-c1-listening-opinion-v3",
+    "level": "C1",
+    "family": "listening-opinion",
+    "scenarioId": "museum",
+    "roles": [
+      "Felix"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Einen Museumsbesuch vorbereiten",
+    "question": "Welches Prinzip verbindet Führungs- und Fotoregel?",
+    "correct": "Bedingungen einzelner Nutzungsformen stimmen unterschiedliche Interessen trotz allgemeinen Zugangs aufeinander ab.",
+    "wrong": [
+      "Jeder Zusatzhinweis soll den Zugang zur Ausstellung vollständig verhindern.",
+      "Ein Eintrittsticket umfasst automatisch sämtliche denkbaren Nutzungen."
+    ],
+    "global": "Differenzierte Nutzung zur Abstimmung konkurrierender Besuchsinteressen",
+    "globalWrong": [
+      "Die Renovierung eines Museumsgebäudes",
+      "Ein Bericht über den Kauf eines Kunstwerks"
+    ],
+    "criteria": "Die Eintrittskarte umfasst nicht gesondert zu reservierende Angebote. Private Fotos sind ohne Blitz und Störung erlaubt; kommerzielle Veröffentlichung bedarf zusätzlicher Zustimmung. Eine Führungsbuchung erweitert die Fotorechte nicht."
+  },
+  {
+    "id": "sitov-simulation-c2-listening-announcement-v1",
+    "level": "C2",
+    "family": "listening-announcement",
+    "scenarioId": "fahrrad",
+    "roles": [
+      "Paul"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Ein Fahrrad reparieren lassen",
+    "question": "Welcher Schluss lässt sich aus Bens Reaktion ziehen?",
+    "correct": "Die Annahme der Zwischenlösung bedeutet nicht, dass er die ursprüngliche Zusage für verlässlich hält.",
+    "wrong": [
+      "Mit dem Ersatzrad verzichtet Ben auf weitere Informationen über Verzögerungen.",
+      "Allein die unveränderte Rechnung ist entscheidend; die Kommunikation spielt keine Rolle."
+    ],
+    "global": "Praktische Abhilfe bei weiterhin begrenztem Vertrauen",
+    "globalWrong": [
+      "Die Eröffnung einer neuen Werkstatt",
+      "Ein Vergleich verschiedener Fahrradmarken"
+    ],
+    "criteria": "Ersatzräder stehen nur für die Reparaturdauer zur Verfügung. Eine Verlängerung nach Abschluss setzt eine ausdrückliche Bestätigung voraus; die Ankündigung eines späteren Abholtermins genügt nicht. Vor der Ausleihe ist eine Registrierung erforderlich."
+  },
+  {
+    "id": "sitov-simulation-c2-listening-announcement-v2",
+    "level": "C2",
+    "family": "listening-announcement",
+    "scenarioId": "wohnung",
+    "roles": [
+      "Paul"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Eine Wohnung besichtigen",
+    "question": "Warum legt Amir sich trotz passender Lage noch nicht fest?",
+    "correct": "Er will den Lagevorteil nicht mit einer wirtschaftlich noch unklaren Gesamtbelastung verwechseln.",
+    "wrong": [
+      "Der fehlende Garagenplatz ist für ihn ein grundsätzliches Hindernis.",
+      "Die Nähe zur Arbeit ist für ihn unwichtig, sobald ein Balkon vorhanden ist."
+    ],
+    "global": "Attraktive Lage als Ausgangspunkt einer weiterhin offenen Kostenabwägung",
+    "globalWrong": [
+      "Ein Bericht über den Bau neuer Häuser",
+      "Tipps zum Kauf von Möbeln"
+    ],
+    "criteria": "Die Vorauszahlung beruht auf dem Vorjahresverbrauch und stellt keine Kostenobergrenze dar. Eine feste Miete schließt variable Nebenkosten nur ein, wenn dies ausdrücklich vereinbart ist. Angaben zur Garage begründen ohne gesonderte Zusage keinen Stellplatzanspruch."
+  },
+  {
+    "id": "sitov-simulation-c2-listening-announcement-v3",
+    "level": "C2",
+    "family": "listening-announcement",
+    "scenarioId": "bibliothek",
+    "roles": [
+      "Paul"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Ein ausgeliehenes Buch verlängern",
+    "question": "Welche Funktion hat die digitale Alternative?",
+    "correct": "Sie ermöglicht die weitere Lektüre, ohne den Anspruch des wartenden Lesers auf das gedruckte Exemplar auszusetzen.",
+    "wrong": [
+      "Sie begründet eine Ausnahme von der Rückgabepflicht des gedruckten Buches.",
+      "Sie soll die technische Undurchführbarkeit der Vormerkregel nachweisen."
+    ],
+    "global": "Ein alternatives Medium zur Vereinbarkeit konkurrierender Nutzungsinteressen",
+    "globalWrong": [
+      "Die Anmeldung zu einem Lesewettbewerb",
+      "Die Reparatur eines beschädigten Buches"
+    ],
+    "criteria": "Vormerkungen schließen eine Verlängerung des Exemplars aus. Eine digitale Ausleihe ändert weder dessen Frist noch die Vormerkreihenfolge. Rückgaben im Kasten werden am nächsten Öffnungstag verbucht; maßgeblich ist jedoch der tatsächliche Einwurfzeitpunkt."
+  },
+  {
+    "id": "sitov-simulation-c2-listening-detail-v1",
+    "level": "C2",
+    "family": "listening-detail",
+    "scenarioId": "arbeit",
+    "roles": [
+      "Daniel"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Eine Schicht tauschen",
+    "question": "Welche Bedeutung hat die formale Genehmigung?",
+    "correct": "Sie macht die flexible Absprache verbindlich, ohne die Arbeitsverpflichtung aufzuheben.",
+    "wrong": [
+      "Sie wandelt die getauschte Schicht automatisch in zusätzlichen Urlaub um.",
+      "Sie ersetzt die Zustimmung des Kollegen und erhöht die Vergütung."
+    ],
+    "global": "Flexibilität durch verbindlich dokumentierte Zuständigkeit",
+    "globalWrong": [
+      "Eine Bewerbung bei einem neuen Arbeitgeber",
+      "Die endgültige Schließung eines Betriebs"
+    ],
+    "criteria": "Tauschanträge gelten erst nach Genehmigung und Veröffentlichung im Dienstplan. Eine Eingangsbestätigung enthält noch keine Zustimmung. Bis zur Veröffentlichung bleiben die bisherigen Schichten verbindlich. Bei abweichenden privaten Nachrichten hat der freigegebene Plan Vorrang."
+  },
+  {
+    "id": "sitov-simulation-c2-listening-detail-v2",
+    "level": "C2",
+    "family": "listening-detail",
+    "scenarioId": "zug",
+    "roles": [
+      "Daniel"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Eine Zugreise ändern",
+    "question": "Welche Folgerung weist der Text als zu weitgehend zurück?",
+    "correct": "Dass die Gültigkeit des Tickets zugleich einen garantierten Sitzplatz im Ersatzzug einschließt.",
+    "wrong": [
+      "Dass eine Ersatzverbindung die Weiterreise ermöglichen kann.",
+      "Dass Paul seinen Gastgeber über die verspätete Ankunft informieren kann."
+    ],
+    "global": "Gültige Beförderung ohne automatisch übertragene Platzgarantie",
+    "globalWrong": [
+      "Eine kostenlose Reise für alle Fahrgäste",
+      "Die Reservierung eines Hotelzimmers"
+    ],
+    "criteria": "Für die Ersatzverbindung wird die Zugbindung aufgehoben. Dies umfasst weder eine automatische Platzreservierung noch eine höhere Wagenklasse. Reservierungen unterliegen einem gesonderten Verfahren; die gebuchte Klasse bleibt maßgeblich, sofern keine abweichende Freigabe erfolgt."
+  },
+  {
+    "id": "sitov-simulation-c2-listening-detail-v3",
+    "level": "C2",
+    "family": "listening-detail",
+    "scenarioId": "sport",
+    "roles": [
+      "Daniel"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Einen Sportkurs ausprobieren",
+    "question": "Warum widerspricht die Anmeldung nicht dem unverbindlichen Angebot?",
+    "correct": "Sie betrifft die einzelne Probestunde, ohne eine längerfristige Kursbuchung zu begründen.",
+    "wrong": [
+      "Kostenfreie Angebote können grundsätzlich keine organisatorischen Regeln haben.",
+      "Die Anmeldung bindet bereits für das ganze Jahr, auch ohne Zahlungsforderung."
+    ],
+    "global": "Organisatorische Verbindlichkeit bei offener Teilnahmeentscheidung",
+    "globalWrong": [
+      "Die Absage eines Sportturniers",
+      "Ein Bericht über einen Profisportler"
+    ],
+    "criteria": "Die bestätigte Anmeldung sichert genau eine Probestunde und enthält keine Folgebuchung. Ein regulärer Kursplatz wird gesondert bestätigt; die Probe begründet keinen Vorrang. Absagen müssen bis zum Vorabend eingehen."
+  },
+  {
+    "id": "sitov-simulation-c2-listening-conversation-v1",
+    "level": "C2",
+    "family": "listening-conversation",
+    "scenarioId": "ehrenamt",
+    "roles": [
+      "Ben",
+      "Leon"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Bei einem Nachbarschaftsfest helfen",
+    "question": "Was macht den Einsatz für Omar vor allem tragfähig?",
+    "correct": "Eine begrenzte, verlässliche Verpflichtung, die zu seiner beruflichen Situation passt.",
+    "wrong": [
+      "Allein der kostenfreie Eintritt; die Einsatzdauer ist bedeutungslos.",
+      "Die Pflicht, unabhängig von seiner Zusage jederzeit bis zum Festende zu bleiben."
+    ],
+    "global": "Engagement durch verlässliche Begrenzung statt offene Erwartungen",
+    "globalWrong": [
+      "Eine Bewerbung für eine Vollzeitstelle",
+      "Die Schließung eines Nachbarschaftszentrums"
+    ],
+    "criteria": "Einsätze sind auf die bestätigte Schicht begrenzt. Eine freiwillige Verlängerung erfordert eine neue Absprache. Die Übergabe ist innerhalb der Schicht vorgesehen. Bei fehlender Ablösung informieren Helfer die Koordination, die eine Ersatzlösung organisiert."
+  },
+  {
+    "id": "sitov-simulation-c2-listening-conversation-v2",
+    "level": "C2",
+    "family": "listening-conversation",
+    "scenarioId": "amt",
+    "roles": [
+      "Ben",
+      "Leon"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Einen Termin beim Bürgerbüro vorbereiten",
+    "question": "Welches Missverständnis wird durch den einfachen Zugang begünstigt?",
+    "correct": "Von der digitalen Terminbuchung wird fälschlich auf bereits erfüllte Voraussetzungen der Bearbeitung geschlossen.",
+    "wrong": [
+      "Ein einfacher Zugang macht es grundsätzlich unmöglich, Hinweise zu lesen.",
+      "Die erforderliche Vorlage eines Ausweises widerlegt jede digitale Buchungsmöglichkeit."
+    ],
+    "global": "Digitaler Zugang und weiterhin eigenständige Bearbeitungsvoraussetzungen",
+    "globalWrong": [
+      "Die Anmeldung zu einer Stadtführung",
+      "Ein Bericht über neue Öffnungszeiten aller Geschäfte"
+    ],
+    "criteria": "Die Bestätigung reserviert ausschließlich den Termin. Hochgeladene Kopien dienen der Vorbereitung und ersetzen Originale nur bei ausdrücklichem Hinweis. Die Möglichkeit, Angaben vorab zu ergänzen, garantiert keinen Abschluss ohne die geforderten Nachweise."
+  },
+  {
+    "id": "sitov-simulation-c2-listening-conversation-v3",
+    "level": "C2",
+    "family": "listening-conversation",
+    "scenarioId": "paket",
+    "roles": [
+      "Ben",
+      "Leon"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Eine falsche Lieferung zurückgeben",
+    "question": "Warum kann ein später abgesandtes Rückpaket dennoch zweckmäßiger sein?",
+    "correct": "Die vorherige Abstimmung kann unklare Zuordnungen und dadurch spätere Verzögerungen vermeiden.",
+    "wrong": [
+      "Der spätere Versand beweist, dass die Falschlieferung akzeptiert wurde.",
+      "Allein die Versandgeschwindigkeit bestimmt unabhängig vom Verfahren die Bearbeitung."
+    ],
+    "global": "Abgestimmter Ablauf als Voraussetzung wirksamer Korrektur",
+    "globalWrong": [
+      "Die Einrichtung eines neuen Benutzerkontos",
+      "Eine Anleitung zur Reparatur eines Geräts"
+    ],
+    "criteria": "Retourenetiketten gelten nur für den zugeordneten Vorgang. Ein Versandnachweis ersetzt die Bestellnummer nicht. Bei mehreren Falschlieferungen sind getrennte Vorgänge anzulegen, sofern der Service keine Zusammenführung bestätigt."
+  },
+  {
+    "id": "sitov-simulation-c2-listening-opinion-v1",
+    "level": "C2",
+    "family": "listening-opinion",
+    "scenarioId": "haus",
+    "roles": [
+      "Felix"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Wasserarbeiten im Haus organisieren",
+    "question": "Welche Bedeutung hat die angekündigte Aktualisierung bei Verzögerungen?",
+    "correct": "Sie regelt den Umgang mit Abweichungen, ohne die ursprüngliche Zeitangabe beliebig werden zu lassen.",
+    "wrong": [
+      "Sie erlaubt grundsätzlich den Verzicht auf weitere Informationen.",
+      "Sie hebt die Unterscheidung zwischen Versorgung und Wohnungszugang auf."
+    ],
+    "global": "Begrenzte Einschränkung mit geregelter Information bei Abweichungen",
+    "globalWrong": [
+      "Ein Angebot für den Verkauf aller Wohnungen",
+      "Eine Einladung zu einer privaten Geburtstagsfeier"
+    ],
+    "criteria": "Die Unterbrechung betrifft nur Wasser. Wohnungszutritt ist nur bei individuell bestätigten Arbeiten nötig. Verzögerungen werden zentral bekanntgegeben; das Ausbleiben einer Nachricht vor dem vorgesehenen Ende stellt keine vorzeitige Freigabe der Versorgung dar."
+  },
+  {
+    "id": "sitov-simulation-c2-listening-opinion-v2",
+    "level": "C2",
+    "family": "listening-opinion",
+    "scenarioId": "lernen",
+    "roles": [
+      "Felix"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Eine Lerngruppe vereinbaren",
+    "question": "Welche Gefahr soll die gleichmäßige Vorbereitung verhindern?",
+    "correct": "Dass formell gemeinsames Lernen tatsächlich von einer einseitigen, wenig sichtbaren Arbeitsleistung abhängt.",
+    "wrong": [
+      "Dass unterschiedliche Lösungen überhaupt miteinander verglichen werden.",
+      "Dass jeder Teilnehmer eine eigene Verantwortung für den Lernprozess übernimmt."
+    ],
+    "global": "Wechselseitige Verantwortung statt bloßer gemeinsamer Anwesenheit",
+    "globalWrong": [
+      "Die Anmeldung zu einer Prüfung ohne Vorbereitung",
+      "Ein Bericht über den Verkauf von Schulbüchern"
+    ],
+    "criteria": "Reservierungen gelten für den bestätigten Zeitraum. Ein danach leerer Raum darf nicht automatisch weiter genutzt werden. Änderungen benötigen die Freigabe des Personals; der Verzicht eines anderen Nutzers ersetzt diese nicht. Alle Mitglieder tragen Verantwortung für die Übergabe."
+  },
+  {
+    "id": "sitov-simulation-c2-listening-opinion-v3",
+    "level": "C2",
+    "family": "listening-opinion",
+    "scenarioId": "museum",
+    "roles": [
+      "Felix"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Einen Museumsbesuch vorbereiten",
+    "question": "Welches Prinzip verbindet Führungs- und Fotoregel?",
+    "correct": "Bedingungen einzelner Nutzungsformen stimmen unterschiedliche Interessen trotz allgemeinen Zugangs aufeinander ab.",
+    "wrong": [
+      "Jeder Zusatzhinweis soll den Zugang zur Ausstellung vollständig verhindern.",
+      "Ein Eintrittsticket umfasst automatisch sämtliche denkbaren Nutzungen."
+    ],
+    "global": "Differenzierte Nutzung zur Abstimmung konkurrierender Besuchsinteressen",
+    "globalWrong": [
+      "Die Renovierung eines Museumsgebäudes",
+      "Ein Bericht über den Kauf eines Kunstwerks"
+    ],
+    "criteria": "Die Eintrittskarte umfasst nicht gesondert zu reservierende Angebote. Private Fotos sind ohne Blitz und Störung erlaubt; kommerzielle Veröffentlichung bedarf zusätzlicher Zustimmung. Eine Führungsbuchung erweitert die Fotorechte nicht."
+  },
+  {
+    "id": "sitov-simulation-a1-listening-announcement-v4",
+    "level": "A1",
+    "family": "listening-announcement",
+    "scenarioId": "arbeit",
+    "roles": [
+      "Paul"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Eine Schicht tauschen",
+    "question": "Welche Aussage über Yusuf ist richtig?",
+    "correct": "Er übernimmt die Frühschicht am Freitag.",
+    "wrong": [
+      "Er arbeitet am Freitag überhaupt nicht.",
+      "Er übernimmt zusätzlich die Nachtschicht am Freitag."
+    ],
+    "global": "Ein vereinbarter Schichttausch mit Zustimmung des Betriebs",
+    "globalWrong": [
+      "Eine Bewerbung bei einem neuen Arbeitgeber",
+      "Die endgültige Schließung eines Betriebs"
+    ],
+    "criteria": "Schichttausch nur mit Zustimmung der Leitung. Änderungen müssen vor Beginn der betroffenen Schicht im Dienstplan stehen. Private Nachrichten unter Kollegen reichen nicht aus."
+  },
+  {
+    "id": "sitov-simulation-a1-listening-announcement-v5",
+    "level": "A1",
+    "family": "listening-announcement",
+    "scenarioId": "zug",
+    "roles": [
+      "Paul"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Eine Zugreise ändern",
+    "question": "Welche Aussage über Paul ist richtig?",
+    "correct": "Er fährt um 10.20 Uhr von Gleis vier ab.",
+    "wrong": [
+      "Er fährt um 9.40 Uhr von Gleis zwei ab.",
+      "Er muss ein neues Ticket kaufen, um fahren zu dürfen."
+    ],
+    "global": "Eine geänderte Zugverbindung bei weiterhin gültigem Ticket",
+    "globalWrong": [
+      "Eine kostenlose Reise für alle Fahrgäste",
+      "Die Reservierung eines Hotelzimmers"
+    ],
+    "criteria": "Tickets für den ausgefallenen Zug gelten im angekündigten Ersatzzug. Sitzplatzreservierungen werden nicht übertragen. Prüfen Sie vor dem Einstieg die aktuelle Gleisanzeige."
+  },
+  {
+    "id": "sitov-simulation-a1-listening-announcement-v6",
+    "level": "A1",
+    "family": "listening-announcement",
+    "scenarioId": "sport",
+    "roles": [
+      "Paul"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Einen Sportkurs ausprobieren",
+    "question": "Welche Aussage über Erik ist richtig?",
+    "correct": "Er besucht zunächst eine kostenlose Probestunde am Mittwoch.",
+    "wrong": [
+      "Er muss vor der ersten Stunde den ganzen Jahresbeitrag zahlen.",
+      "Er besucht die Probestunde am Sonntag ohne Anmeldung."
+    ],
+    "global": "Ein unverbindlicher Einstieg in einen Sportkurs",
+    "globalWrong": [
+      "Die Absage eines Sportturniers",
+      "Ein Bericht über einen Profisportler"
+    ],
+    "criteria": "Probestunden sind kostenlos, aber nur mit bestätigter Anmeldung möglich. Bringen Sie eigene Sportschuhe mit. Eine Anmeldung zur Probe verpflichtet nicht zur Kursbuchung."
+  },
+  {
+    "id": "sitov-simulation-a1-listening-detail-v4",
+    "level": "A1",
+    "family": "listening-detail",
+    "scenarioId": "ehrenamt",
+    "roles": [
+      "Daniel"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Bei einem Nachbarschaftsfest helfen",
+    "question": "Welche Aussage über Omar ist richtig?",
+    "correct": "Er hilft am Samstag von zwölf bis fünfzehn Uhr am Informationsstand.",
+    "wrong": [
+      "Er organisiert am Freitag allein das gesamte Fest.",
+      "Er bezahlt Eintritt, um am Informationsstand arbeiten zu dürfen."
+    ],
+    "global": "Ein begrenzter ehrenamtlicher Einsatz bei einem Fest",
+    "globalWrong": [
+      "Eine Bewerbung für eine Vollzeitstelle",
+      "Die Schließung eines Nachbarschaftszentrums"
+    ],
+    "criteria": "Bitte erscheinen Sie zehn Minuten vor Ihrer Schicht zur Einführung. Verlassen Sie den Stand erst nach der Übergabe an den nächsten Helfer. Bei Verhinderung informieren Sie die Organisation frühzeitig."
+  },
+  {
+    "id": "sitov-simulation-a1-listening-detail-v5",
+    "level": "A1",
+    "family": "listening-detail",
+    "scenarioId": "amt",
+    "roles": [
+      "Daniel"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Einen Termin beim Bürgerbüro vorbereiten",
+    "question": "Welche Aussage über Daniel ist richtig?",
+    "correct": "Er muss den unterschriebenen Antrag und seinen Ausweis mitbringen.",
+    "wrong": [
+      "Er braucht nur seine Terminbestätigung auf dem Handy.",
+      "Er kann die Unterschrift grundsätzlich nach dem Termin per Telefon geben."
+    ],
+    "global": "Die Vorbereitung eines Behördentermins mit vollständigen Unterlagen",
+    "globalWrong": [
+      "Die Anmeldung zu einer Stadtführung",
+      "Ein Bericht über neue Öffnungszeiten aller Geschäfte"
+    ],
+    "criteria": "Zum Termin sind der ausgefüllte und unterschriebene Antrag und ein Ausweis mitzubringen. Terminbestätigungen dienen nur dem Zugang. Bei fehlenden Unterlagen kann die Bearbeitung nicht abgeschlossen werden."
+  },
+  {
+    "id": "sitov-simulation-a1-listening-detail-v6",
+    "level": "A1",
+    "family": "listening-detail",
+    "scenarioId": "paket",
+    "roles": [
+      "Daniel"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Eine falsche Lieferung zurückgeben",
+    "question": "Welche Aussage über Karim ist richtig?",
+    "correct": "Er soll zuerst den Kundenservice kontaktieren und das Retourenetikett anfordern.",
+    "wrong": [
+      "Er soll das Paket ohne Rücksprache auf eigene Kosten versenden.",
+      "Er soll das falsche Gerät benutzen und die Verpackung sofort wegwerfen."
+    ],
+    "global": "Eine fehlerhafte Lieferung und der organisierte Rückversand",
+    "globalWrong": [
+      "Die Einrichtung eines neuen Benutzerkontos",
+      "Eine Anleitung zur Reparatur eines Geräts"
+    ],
+    "criteria": "Bei Falschlieferungen kontaktieren Sie zuerst den Kundenservice. Fordern Sie ein Retourenetikett an und geben Sie die Bestellnummer an. Senden Sie das Paket erst mit dem bereitgestellten Etikett zurück."
+  },
+  {
+    "id": "sitov-simulation-a1-listening-conversation-v4",
+    "level": "A1",
+    "family": "listening-conversation",
+    "scenarioId": "haus",
+    "roles": [
+      "Ben",
+      "Leon"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Wasserarbeiten im Haus organisieren",
+    "question": "Welche Aussage über Nils ist richtig?",
+    "correct": "Das Wasser ist am Dienstag von neun bis zwölf Uhr abgestellt.",
+    "wrong": [
+      "Das Wasser ist das gesamte Wochenende abgestellt.",
+      "Nur Nils muss für die Arbeiten die Wohnung verlassen."
+    ],
+    "global": "Eine zeitlich begrenzte Unterbrechung der Wasserversorgung",
+    "globalWrong": [
+      "Ein Angebot für den Verkauf aller Wohnungen",
+      "Eine Einladung zu einer privaten Geburtstagsfeier"
+    ],
+    "criteria": "Wasserunterbrechung Dienstag 9–12 Uhr. Bitte vorher Trinkwasser bereitstellen und Waschmaschinen während der Arbeiten nicht starten. Ein Verlassen der Wohnungen ist nicht nötig."
+  },
+  {
+    "id": "sitov-simulation-a1-listening-conversation-v5",
+    "level": "A1",
+    "family": "listening-conversation",
+    "scenarioId": "lernen",
+    "roles": [
+      "Ben",
+      "Leon"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Eine Lerngruppe vereinbaren",
+    "question": "Welche Aussage über Felix ist richtig?",
+    "correct": "Die Gruppe trifft sich donnerstags um achtzehn Uhr in der Bibliothek.",
+    "wrong": [
+      "Die Gruppe trifft sich jeden Morgen in Felix' Wohnung.",
+      "Die Gruppe übt nur im Internet und vereinbart keine Termine."
+    ],
+    "global": "Eine regelmäßige Lerngruppe mit verteilten Aufgaben",
+    "globalWrong": [
+      "Die Anmeldung zu einer Prüfung ohne Vorbereitung",
+      "Ein Bericht über den Verkauf von Schulbüchern"
+    ],
+    "criteria": "Für den Gruppenraum gilt: Termin vorher reservieren, leise arbeiten und den Raum am Ende aufräumen. Essen ist im Gruppenraum nicht erlaubt; Getränke in geschlossenen Flaschen sind möglich."
+  },
+  {
+    "id": "sitov-simulation-a1-listening-conversation-v6",
+    "level": "A1",
+    "family": "listening-conversation",
+    "scenarioId": "museum",
+    "roles": [
+      "Ben",
+      "Leon"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Einen Museumsbesuch vorbereiten",
+    "question": "Welche Aussage über Timo ist richtig?",
+    "correct": "Er bucht die Führung für Sonntag um vierzehn Uhr vorher online.",
+    "wrong": [
+      "Er kommt ohne Anmeldung am Samstagmorgen zur Führung.",
+      "Er darf mit seinem Eintrittsticket automatisch an jeder Führung teilnehmen."
+    ],
+    "global": "Eine Museumsführung mit zusätzlicher Anmeldung",
+    "globalWrong": [
+      "Die Renovierung eines Museumsgebäudes",
+      "Ein Bericht über den Kauf eines Kunstwerks"
+    ],
+    "criteria": "Führungen nur mit bestätigter Onlinebuchung. Eintrittstickets ersetzen die Reservierung nicht. Fotografieren ohne Blitz ist erlaubt, wenn andere Besucher nicht gestört werden."
+  },
+  {
+    "id": "sitov-simulation-a1-listening-opinion-v4",
+    "level": "A1",
+    "family": "listening-opinion",
+    "scenarioId": "fahrrad",
+    "roles": [
+      "Felix"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Ein Fahrrad reparieren lassen",
+    "question": "Welche Aussage über Ben ist richtig?",
+    "correct": "Er kann das Fahrrad am Donnerstag abholen.",
+    "wrong": [
+      "Er kann das Fahrrad heute Abend abholen.",
+      "Er muss ein neues Fahrrad kaufen."
+    ],
+    "global": "Eine verzögerte Reparatur und eine Übergangslösung",
+    "globalWrong": [
+      "Die Eröffnung einer neuen Werkstatt",
+      "Ein Vergleich verschiedener Fahrradmarken"
+    ],
+    "criteria": "Ersatzräder müssen vor der Abfahrt am Empfang registriert werden. Eine telefonische Reservierung ersetzt diese Registrierung nicht."
+  },
+  {
+    "id": "sitov-simulation-a1-listening-opinion-v5",
+    "level": "A1",
+    "family": "listening-opinion",
+    "scenarioId": "wohnung",
+    "roles": [
+      "Felix"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Eine Wohnung besichtigen",
+    "question": "Welche Aussage über Amir ist richtig?",
+    "correct": "Er besichtigt die Wohnung am Samstag um elf Uhr.",
+    "wrong": [
+      "Er besichtigt die Wohnung am Freitag um elf Uhr.",
+      "Er unterschreibt den Mietvertrag ohne Besichtigung."
+    ],
+    "global": "Eine Wohnungsbesichtigung mit klaren Bedingungen",
+    "globalWrong": [
+      "Ein Bericht über den Bau neuer Häuser",
+      "Tipps zum Kauf von Möbeln"
+    ],
+    "criteria": "Besichtigung nur nach bestätigtem Termin. Bitte bringen Sie einen Ausweis mit. Zusätzliche Besucher melden Sie vorher per E-Mail an."
+  },
+  {
+    "id": "sitov-simulation-a1-listening-opinion-v6",
+    "level": "A1",
+    "family": "listening-opinion",
+    "scenarioId": "bibliothek",
+    "roles": [
+      "Felix"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Ein ausgeliehenes Buch verlängern",
+    "question": "Welche Aussage über Leon ist richtig?",
+    "correct": "Er muss das Buch bis Dienstag zurückgeben.",
+    "wrong": [
+      "Er darf das Buch automatisch einen Monat länger behalten.",
+      "Er kann das Buch erst im nächsten Jahr zurückgeben."
+    ],
+    "global": "Eine abgelehnte Verlängerung und eine Alternative",
+    "globalWrong": [
+      "Die Anmeldung zu einem Lesewettbewerb",
+      "Die Reparatur eines beschädigten Buches"
+    ],
+    "criteria": "Vorgemerkte Bücher können nicht verlängert werden. Rückgaben außerhalb der Öffnungszeit sind im Rückgabekasten möglich. Wer eine digitale Ausgabe nutzt, muss das gedruckte Exemplar trotzdem fristgerecht zurückgeben."
+  },
+  {
+    "id": "sitov-simulation-a2-listening-announcement-v4",
+    "level": "A2",
+    "family": "listening-announcement",
+    "scenarioId": "arbeit",
+    "roles": [
+      "Paul"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Eine Schicht tauschen",
+    "question": "Welche Aussage über Yusuf ist richtig?",
+    "correct": "Er übernimmt die Frühschicht am Freitag.",
+    "wrong": [
+      "Er arbeitet am Freitag überhaupt nicht.",
+      "Er übernimmt zusätzlich die Nachtschicht am Freitag."
+    ],
+    "global": "Ein vereinbarter Schichttausch mit Zustimmung des Betriebs",
+    "globalWrong": [
+      "Eine Bewerbung bei einem neuen Arbeitgeber",
+      "Die endgültige Schließung eines Betriebs"
+    ],
+    "criteria": "Schichttausch nur mit Zustimmung der Leitung. Änderungen müssen vor Beginn der betroffenen Schicht im Dienstplan stehen. Private Nachrichten unter Kollegen reichen nicht aus."
+  },
+  {
+    "id": "sitov-simulation-a2-listening-announcement-v5",
+    "level": "A2",
+    "family": "listening-announcement",
+    "scenarioId": "zug",
+    "roles": [
+      "Paul"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Eine Zugreise ändern",
+    "question": "Welche Aussage über Paul ist richtig?",
+    "correct": "Er fährt um 10.20 Uhr von Gleis vier ab.",
+    "wrong": [
+      "Er fährt um 9.40 Uhr von Gleis zwei ab.",
+      "Er muss ein neues Ticket kaufen, um fahren zu dürfen."
+    ],
+    "global": "Eine geänderte Zugverbindung bei weiterhin gültigem Ticket",
+    "globalWrong": [
+      "Eine kostenlose Reise für alle Fahrgäste",
+      "Die Reservierung eines Hotelzimmers"
+    ],
+    "criteria": "Tickets für den ausgefallenen Zug gelten im angekündigten Ersatzzug. Sitzplatzreservierungen werden nicht übertragen. Prüfen Sie vor dem Einstieg die aktuelle Gleisanzeige."
+  },
+  {
+    "id": "sitov-simulation-a2-listening-announcement-v6",
+    "level": "A2",
+    "family": "listening-announcement",
+    "scenarioId": "sport",
+    "roles": [
+      "Paul"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Einen Sportkurs ausprobieren",
+    "question": "Welche Aussage über Erik ist richtig?",
+    "correct": "Er besucht zunächst eine kostenlose Probestunde am Mittwoch.",
+    "wrong": [
+      "Er muss vor der ersten Stunde den ganzen Jahresbeitrag zahlen.",
+      "Er besucht die Probestunde am Sonntag ohne Anmeldung."
+    ],
+    "global": "Ein unverbindlicher Einstieg in einen Sportkurs",
+    "globalWrong": [
+      "Die Absage eines Sportturniers",
+      "Ein Bericht über einen Profisportler"
+    ],
+    "criteria": "Probestunden sind kostenlos, aber nur mit bestätigter Anmeldung möglich. Bringen Sie eigene Sportschuhe mit. Eine Anmeldung zur Probe verpflichtet nicht zur Kursbuchung."
+  },
+  {
+    "id": "sitov-simulation-a2-listening-detail-v4",
+    "level": "A2",
+    "family": "listening-detail",
+    "scenarioId": "ehrenamt",
+    "roles": [
+      "Daniel"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Bei einem Nachbarschaftsfest helfen",
+    "question": "Welche Aussage über Omar ist richtig?",
+    "correct": "Er hilft am Samstag von zwölf bis fünfzehn Uhr am Informationsstand.",
+    "wrong": [
+      "Er organisiert am Freitag allein das gesamte Fest.",
+      "Er bezahlt Eintritt, um am Informationsstand arbeiten zu dürfen."
+    ],
+    "global": "Ein begrenzter ehrenamtlicher Einsatz bei einem Fest",
+    "globalWrong": [
+      "Eine Bewerbung für eine Vollzeitstelle",
+      "Die Schließung eines Nachbarschaftszentrums"
+    ],
+    "criteria": "Bitte erscheinen Sie zehn Minuten vor Ihrer Schicht zur Einführung. Verlassen Sie den Stand erst nach der Übergabe an den nächsten Helfer. Bei Verhinderung informieren Sie die Organisation frühzeitig."
+  },
+  {
+    "id": "sitov-simulation-a2-listening-detail-v5",
+    "level": "A2",
+    "family": "listening-detail",
+    "scenarioId": "amt",
+    "roles": [
+      "Daniel"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Einen Termin beim Bürgerbüro vorbereiten",
+    "question": "Welche Aussage über Daniel ist richtig?",
+    "correct": "Er muss den unterschriebenen Antrag und seinen Ausweis mitbringen.",
+    "wrong": [
+      "Er braucht nur seine Terminbestätigung auf dem Handy.",
+      "Er kann die Unterschrift grundsätzlich nach dem Termin per Telefon geben."
+    ],
+    "global": "Die Vorbereitung eines Behördentermins mit vollständigen Unterlagen",
+    "globalWrong": [
+      "Die Anmeldung zu einer Stadtführung",
+      "Ein Bericht über neue Öffnungszeiten aller Geschäfte"
+    ],
+    "criteria": "Zum Termin sind der ausgefüllte und unterschriebene Antrag und ein Ausweis mitzubringen. Terminbestätigungen dienen nur dem Zugang. Bei fehlenden Unterlagen kann die Bearbeitung nicht abgeschlossen werden."
+  },
+  {
+    "id": "sitov-simulation-a2-listening-detail-v6",
+    "level": "A2",
+    "family": "listening-detail",
+    "scenarioId": "paket",
+    "roles": [
+      "Daniel"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Eine falsche Lieferung zurückgeben",
+    "question": "Welche Aussage über Karim ist richtig?",
+    "correct": "Er soll zuerst den Kundenservice kontaktieren und das Retourenetikett anfordern.",
+    "wrong": [
+      "Er soll das Paket ohne Rücksprache auf eigene Kosten versenden.",
+      "Er soll das falsche Gerät benutzen und die Verpackung sofort wegwerfen."
+    ],
+    "global": "Eine fehlerhafte Lieferung und der organisierte Rückversand",
+    "globalWrong": [
+      "Die Einrichtung eines neuen Benutzerkontos",
+      "Eine Anleitung zur Reparatur eines Geräts"
+    ],
+    "criteria": "Bei Falschlieferungen kontaktieren Sie zuerst den Kundenservice. Fordern Sie ein Retourenetikett an und geben Sie die Bestellnummer an. Senden Sie das Paket erst mit dem bereitgestellten Etikett zurück."
+  },
+  {
+    "id": "sitov-simulation-a2-listening-conversation-v4",
+    "level": "A2",
+    "family": "listening-conversation",
+    "scenarioId": "haus",
+    "roles": [
+      "Ben",
+      "Leon"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Wasserarbeiten im Haus organisieren",
+    "question": "Welche Aussage über Nils ist richtig?",
+    "correct": "Das Wasser ist am Dienstag von neun bis zwölf Uhr abgestellt.",
+    "wrong": [
+      "Das Wasser ist das gesamte Wochenende abgestellt.",
+      "Nur Nils muss für die Arbeiten die Wohnung verlassen."
+    ],
+    "global": "Eine zeitlich begrenzte Unterbrechung der Wasserversorgung",
+    "globalWrong": [
+      "Ein Angebot für den Verkauf aller Wohnungen",
+      "Eine Einladung zu einer privaten Geburtstagsfeier"
+    ],
+    "criteria": "Wasserunterbrechung Dienstag 9–12 Uhr. Bitte vorher Trinkwasser bereitstellen und Waschmaschinen während der Arbeiten nicht starten. Ein Verlassen der Wohnungen ist nicht nötig."
+  },
+  {
+    "id": "sitov-simulation-a2-listening-conversation-v5",
+    "level": "A2",
+    "family": "listening-conversation",
+    "scenarioId": "lernen",
+    "roles": [
+      "Ben",
+      "Leon"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Eine Lerngruppe vereinbaren",
+    "question": "Welche Aussage über Felix ist richtig?",
+    "correct": "Die Gruppe trifft sich donnerstags um achtzehn Uhr in der Bibliothek.",
+    "wrong": [
+      "Die Gruppe trifft sich jeden Morgen in Felix' Wohnung.",
+      "Die Gruppe übt nur im Internet und vereinbart keine Termine."
+    ],
+    "global": "Eine regelmäßige Lerngruppe mit verteilten Aufgaben",
+    "globalWrong": [
+      "Die Anmeldung zu einer Prüfung ohne Vorbereitung",
+      "Ein Bericht über den Verkauf von Schulbüchern"
+    ],
+    "criteria": "Für den Gruppenraum gilt: Termin vorher reservieren, leise arbeiten und den Raum am Ende aufräumen. Essen ist im Gruppenraum nicht erlaubt; Getränke in geschlossenen Flaschen sind möglich."
+  },
+  {
+    "id": "sitov-simulation-a2-listening-conversation-v6",
+    "level": "A2",
+    "family": "listening-conversation",
+    "scenarioId": "museum",
+    "roles": [
+      "Ben",
+      "Leon"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Einen Museumsbesuch vorbereiten",
+    "question": "Welche Aussage über Timo ist richtig?",
+    "correct": "Er bucht die Führung für Sonntag um vierzehn Uhr vorher online.",
+    "wrong": [
+      "Er kommt ohne Anmeldung am Samstagmorgen zur Führung.",
+      "Er darf mit seinem Eintrittsticket automatisch an jeder Führung teilnehmen."
+    ],
+    "global": "Eine Museumsführung mit zusätzlicher Anmeldung",
+    "globalWrong": [
+      "Die Renovierung eines Museumsgebäudes",
+      "Ein Bericht über den Kauf eines Kunstwerks"
+    ],
+    "criteria": "Führungen nur mit bestätigter Onlinebuchung. Eintrittstickets ersetzen die Reservierung nicht. Fotografieren ohne Blitz ist erlaubt, wenn andere Besucher nicht gestört werden."
+  },
+  {
+    "id": "sitov-simulation-a2-listening-opinion-v4",
+    "level": "A2",
+    "family": "listening-opinion",
+    "scenarioId": "fahrrad",
+    "roles": [
+      "Felix"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Ein Fahrrad reparieren lassen",
+    "question": "Welche Aussage über Ben ist richtig?",
+    "correct": "Er kann das Fahrrad am Donnerstag abholen.",
+    "wrong": [
+      "Er kann das Fahrrad heute Abend abholen.",
+      "Er muss ein neues Fahrrad kaufen."
+    ],
+    "global": "Eine verzögerte Reparatur und eine Übergangslösung",
+    "globalWrong": [
+      "Die Eröffnung einer neuen Werkstatt",
+      "Ein Vergleich verschiedener Fahrradmarken"
+    ],
+    "criteria": "Ersatzräder müssen vor der Abfahrt am Empfang registriert werden. Eine telefonische Reservierung ersetzt diese Registrierung nicht."
+  },
+  {
+    "id": "sitov-simulation-a2-listening-opinion-v5",
+    "level": "A2",
+    "family": "listening-opinion",
+    "scenarioId": "wohnung",
+    "roles": [
+      "Felix"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Eine Wohnung besichtigen",
+    "question": "Welche Aussage über Amir ist richtig?",
+    "correct": "Er besichtigt die Wohnung am Samstag um elf Uhr.",
+    "wrong": [
+      "Er besichtigt die Wohnung am Freitag um elf Uhr.",
+      "Er unterschreibt den Mietvertrag ohne Besichtigung."
+    ],
+    "global": "Eine Wohnungsbesichtigung mit klaren Bedingungen",
+    "globalWrong": [
+      "Ein Bericht über den Bau neuer Häuser",
+      "Tipps zum Kauf von Möbeln"
+    ],
+    "criteria": "Besichtigung nur nach bestätigtem Termin. Bitte bringen Sie einen Ausweis mit. Zusätzliche Besucher melden Sie vorher per E-Mail an."
+  },
+  {
+    "id": "sitov-simulation-a2-listening-opinion-v6",
+    "level": "A2",
+    "family": "listening-opinion",
+    "scenarioId": "bibliothek",
+    "roles": [
+      "Felix"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Ein ausgeliehenes Buch verlängern",
+    "question": "Welche Aussage über Leon ist richtig?",
+    "correct": "Er muss das Buch bis Dienstag zurückgeben.",
+    "wrong": [
+      "Er darf das Buch automatisch einen Monat länger behalten.",
+      "Er kann das Buch erst im nächsten Jahr zurückgeben."
+    ],
+    "global": "Eine abgelehnte Verlängerung und eine Alternative",
+    "globalWrong": [
+      "Die Anmeldung zu einem Lesewettbewerb",
+      "Die Reparatur eines beschädigten Buches"
+    ],
+    "criteria": "Vorgemerkte Bücher können nicht verlängert werden. Rückgaben außerhalb der Öffnungszeit sind im Rückgabekasten möglich. Wer eine digitale Ausgabe nutzt, muss das gedruckte Exemplar trotzdem fristgerecht zurückgeben."
+  },
+  {
+    "id": "sitov-simulation-b1-listening-announcement-v4",
+    "level": "B1",
+    "family": "listening-announcement",
+    "scenarioId": "arbeit",
+    "roles": [
+      "Paul"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Eine Schicht tauschen",
+    "question": "Welche Aussage über Yusuf ist richtig?",
+    "correct": "Er übernimmt die Frühschicht am Freitag.",
+    "wrong": [
+      "Er arbeitet am Freitag überhaupt nicht.",
+      "Er übernimmt zusätzlich die Nachtschicht am Freitag."
+    ],
+    "global": "Ein vereinbarter Schichttausch mit Zustimmung des Betriebs",
+    "globalWrong": [
+      "Eine Bewerbung bei einem neuen Arbeitgeber",
+      "Die endgültige Schließung eines Betriebs"
+    ],
+    "criteria": "Schichttausch nur mit Zustimmung der Leitung. Änderungen müssen vor Beginn der betroffenen Schicht im Dienstplan stehen. Private Nachrichten unter Kollegen reichen nicht aus."
+  },
+  {
+    "id": "sitov-simulation-b1-listening-announcement-v5",
+    "level": "B1",
+    "family": "listening-announcement",
+    "scenarioId": "zug",
+    "roles": [
+      "Paul"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Eine Zugreise ändern",
+    "question": "Welche Aussage über Paul ist richtig?",
+    "correct": "Er fährt um 10.20 Uhr von Gleis vier ab.",
+    "wrong": [
+      "Er fährt um 9.40 Uhr von Gleis zwei ab.",
+      "Er muss ein neues Ticket kaufen, um fahren zu dürfen."
+    ],
+    "global": "Eine geänderte Zugverbindung bei weiterhin gültigem Ticket",
+    "globalWrong": [
+      "Eine kostenlose Reise für alle Fahrgäste",
+      "Die Reservierung eines Hotelzimmers"
+    ],
+    "criteria": "Tickets für den ausgefallenen Zug gelten im angekündigten Ersatzzug. Sitzplatzreservierungen werden nicht übertragen. Prüfen Sie vor dem Einstieg die aktuelle Gleisanzeige."
+  },
+  {
+    "id": "sitov-simulation-b1-listening-announcement-v6",
+    "level": "B1",
+    "family": "listening-announcement",
+    "scenarioId": "sport",
+    "roles": [
+      "Paul"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Einen Sportkurs ausprobieren",
+    "question": "Welche Aussage über Erik ist richtig?",
+    "correct": "Er besucht zunächst eine kostenlose Probestunde am Mittwoch.",
+    "wrong": [
+      "Er muss vor der ersten Stunde den ganzen Jahresbeitrag zahlen.",
+      "Er besucht die Probestunde am Sonntag ohne Anmeldung."
+    ],
+    "global": "Ein unverbindlicher Einstieg in einen Sportkurs",
+    "globalWrong": [
+      "Die Absage eines Sportturniers",
+      "Ein Bericht über einen Profisportler"
+    ],
+    "criteria": "Probestunden sind kostenlos, aber nur mit bestätigter Anmeldung möglich. Bringen Sie eigene Sportschuhe mit. Eine Anmeldung zur Probe verpflichtet nicht zur Kursbuchung."
+  },
+  {
+    "id": "sitov-simulation-b1-listening-detail-v4",
+    "level": "B1",
+    "family": "listening-detail",
+    "scenarioId": "ehrenamt",
+    "roles": [
+      "Daniel"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Bei einem Nachbarschaftsfest helfen",
+    "question": "Welche Aussage über Omar ist richtig?",
+    "correct": "Er hilft am Samstag von zwölf bis fünfzehn Uhr am Informationsstand.",
+    "wrong": [
+      "Er organisiert am Freitag allein das gesamte Fest.",
+      "Er bezahlt Eintritt, um am Informationsstand arbeiten zu dürfen."
+    ],
+    "global": "Ein begrenzter ehrenamtlicher Einsatz bei einem Fest",
+    "globalWrong": [
+      "Eine Bewerbung für eine Vollzeitstelle",
+      "Die Schließung eines Nachbarschaftszentrums"
+    ],
+    "criteria": "Bitte erscheinen Sie zehn Minuten vor Ihrer Schicht zur Einführung. Verlassen Sie den Stand erst nach der Übergabe an den nächsten Helfer. Bei Verhinderung informieren Sie die Organisation frühzeitig."
+  },
+  {
+    "id": "sitov-simulation-b1-listening-detail-v5",
+    "level": "B1",
+    "family": "listening-detail",
+    "scenarioId": "amt",
+    "roles": [
+      "Daniel"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Einen Termin beim Bürgerbüro vorbereiten",
+    "question": "Welche Aussage über Daniel ist richtig?",
+    "correct": "Er muss den unterschriebenen Antrag und seinen Ausweis mitbringen.",
+    "wrong": [
+      "Er braucht nur seine Terminbestätigung auf dem Handy.",
+      "Er kann die Unterschrift grundsätzlich nach dem Termin per Telefon geben."
+    ],
+    "global": "Die Vorbereitung eines Behördentermins mit vollständigen Unterlagen",
+    "globalWrong": [
+      "Die Anmeldung zu einer Stadtführung",
+      "Ein Bericht über neue Öffnungszeiten aller Geschäfte"
+    ],
+    "criteria": "Zum Termin sind der ausgefüllte und unterschriebene Antrag und ein Ausweis mitzubringen. Terminbestätigungen dienen nur dem Zugang. Bei fehlenden Unterlagen kann die Bearbeitung nicht abgeschlossen werden."
+  },
+  {
+    "id": "sitov-simulation-b1-listening-detail-v6",
+    "level": "B1",
+    "family": "listening-detail",
+    "scenarioId": "paket",
+    "roles": [
+      "Daniel"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Eine falsche Lieferung zurückgeben",
+    "question": "Welche Aussage über Karim ist richtig?",
+    "correct": "Er soll zuerst den Kundenservice kontaktieren und das Retourenetikett anfordern.",
+    "wrong": [
+      "Er soll das Paket ohne Rücksprache auf eigene Kosten versenden.",
+      "Er soll das falsche Gerät benutzen und die Verpackung sofort wegwerfen."
+    ],
+    "global": "Eine fehlerhafte Lieferung und der organisierte Rückversand",
+    "globalWrong": [
+      "Die Einrichtung eines neuen Benutzerkontos",
+      "Eine Anleitung zur Reparatur eines Geräts"
+    ],
+    "criteria": "Bei Falschlieferungen kontaktieren Sie zuerst den Kundenservice. Fordern Sie ein Retourenetikett an und geben Sie die Bestellnummer an. Senden Sie das Paket erst mit dem bereitgestellten Etikett zurück."
+  },
+  {
+    "id": "sitov-simulation-b1-listening-conversation-v4",
+    "level": "B1",
+    "family": "listening-conversation",
+    "scenarioId": "haus",
+    "roles": [
+      "Ben",
+      "Leon"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Wasserarbeiten im Haus organisieren",
+    "question": "Welche Aussage über Nils ist richtig?",
+    "correct": "Das Wasser ist am Dienstag von neun bis zwölf Uhr abgestellt.",
+    "wrong": [
+      "Das Wasser ist das gesamte Wochenende abgestellt.",
+      "Nur Nils muss für die Arbeiten die Wohnung verlassen."
+    ],
+    "global": "Eine zeitlich begrenzte Unterbrechung der Wasserversorgung",
+    "globalWrong": [
+      "Ein Angebot für den Verkauf aller Wohnungen",
+      "Eine Einladung zu einer privaten Geburtstagsfeier"
+    ],
+    "criteria": "Wasserunterbrechung Dienstag 9–12 Uhr. Bitte vorher Trinkwasser bereitstellen und Waschmaschinen während der Arbeiten nicht starten. Ein Verlassen der Wohnungen ist nicht nötig."
+  },
+  {
+    "id": "sitov-simulation-b1-listening-conversation-v5",
+    "level": "B1",
+    "family": "listening-conversation",
+    "scenarioId": "lernen",
+    "roles": [
+      "Ben",
+      "Leon"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Eine Lerngruppe vereinbaren",
+    "question": "Welche Aussage über Felix ist richtig?",
+    "correct": "Die Gruppe trifft sich donnerstags um achtzehn Uhr in der Bibliothek.",
+    "wrong": [
+      "Die Gruppe trifft sich jeden Morgen in Felix' Wohnung.",
+      "Die Gruppe übt nur im Internet und vereinbart keine Termine."
+    ],
+    "global": "Eine regelmäßige Lerngruppe mit verteilten Aufgaben",
+    "globalWrong": [
+      "Die Anmeldung zu einer Prüfung ohne Vorbereitung",
+      "Ein Bericht über den Verkauf von Schulbüchern"
+    ],
+    "criteria": "Für den Gruppenraum gilt: Termin vorher reservieren, leise arbeiten und den Raum am Ende aufräumen. Essen ist im Gruppenraum nicht erlaubt; Getränke in geschlossenen Flaschen sind möglich."
+  },
+  {
+    "id": "sitov-simulation-b1-listening-conversation-v6",
+    "level": "B1",
+    "family": "listening-conversation",
+    "scenarioId": "museum",
+    "roles": [
+      "Ben",
+      "Leon"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Einen Museumsbesuch vorbereiten",
+    "question": "Welche Aussage über Timo ist richtig?",
+    "correct": "Er bucht die Führung für Sonntag um vierzehn Uhr vorher online.",
+    "wrong": [
+      "Er kommt ohne Anmeldung am Samstagmorgen zur Führung.",
+      "Er darf mit seinem Eintrittsticket automatisch an jeder Führung teilnehmen."
+    ],
+    "global": "Eine Museumsführung mit zusätzlicher Anmeldung",
+    "globalWrong": [
+      "Die Renovierung eines Museumsgebäudes",
+      "Ein Bericht über den Kauf eines Kunstwerks"
+    ],
+    "criteria": "Führungen nur mit bestätigter Onlinebuchung. Eintrittstickets ersetzen die Reservierung nicht. Fotografieren ohne Blitz ist erlaubt, wenn andere Besucher nicht gestört werden."
+  },
+  {
+    "id": "sitov-simulation-b1-listening-opinion-v4",
+    "level": "B1",
+    "family": "listening-opinion",
+    "scenarioId": "fahrrad",
+    "roles": [
+      "Felix"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Ein Fahrrad reparieren lassen",
+    "question": "Welche Aussage über Ben ist richtig?",
+    "correct": "Er kann das Fahrrad am Donnerstag abholen.",
+    "wrong": [
+      "Er kann das Fahrrad heute Abend abholen.",
+      "Er muss ein neues Fahrrad kaufen."
+    ],
+    "global": "Eine verzögerte Reparatur und eine Übergangslösung",
+    "globalWrong": [
+      "Die Eröffnung einer neuen Werkstatt",
+      "Ein Vergleich verschiedener Fahrradmarken"
+    ],
+    "criteria": "Ersatzräder müssen vor der Abfahrt am Empfang registriert werden. Eine telefonische Reservierung ersetzt diese Registrierung nicht."
+  },
+  {
+    "id": "sitov-simulation-b1-listening-opinion-v5",
+    "level": "B1",
+    "family": "listening-opinion",
+    "scenarioId": "wohnung",
+    "roles": [
+      "Felix"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Eine Wohnung besichtigen",
+    "question": "Welche Aussage über Amir ist richtig?",
+    "correct": "Er besichtigt die Wohnung am Samstag um elf Uhr.",
+    "wrong": [
+      "Er besichtigt die Wohnung am Freitag um elf Uhr.",
+      "Er unterschreibt den Mietvertrag ohne Besichtigung."
+    ],
+    "global": "Eine Wohnungsbesichtigung mit klaren Bedingungen",
+    "globalWrong": [
+      "Ein Bericht über den Bau neuer Häuser",
+      "Tipps zum Kauf von Möbeln"
+    ],
+    "criteria": "Besichtigung nur nach bestätigtem Termin. Bitte bringen Sie einen Ausweis mit. Zusätzliche Besucher melden Sie vorher per E-Mail an."
+  },
+  {
+    "id": "sitov-simulation-b1-listening-opinion-v6",
+    "level": "B1",
+    "family": "listening-opinion",
+    "scenarioId": "bibliothek",
+    "roles": [
+      "Felix"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Ein ausgeliehenes Buch verlängern",
+    "question": "Welche Aussage über Leon ist richtig?",
+    "correct": "Er muss das Buch bis Dienstag zurückgeben.",
+    "wrong": [
+      "Er darf das Buch automatisch einen Monat länger behalten.",
+      "Er kann das Buch erst im nächsten Jahr zurückgeben."
+    ],
+    "global": "Eine abgelehnte Verlängerung und eine Alternative",
+    "globalWrong": [
+      "Die Anmeldung zu einem Lesewettbewerb",
+      "Die Reparatur eines beschädigten Buches"
+    ],
+    "criteria": "Vorgemerkte Bücher können nicht verlängert werden. Rückgaben außerhalb der Öffnungszeit sind im Rückgabekasten möglich. Wer eine digitale Ausgabe nutzt, muss das gedruckte Exemplar trotzdem fristgerecht zurückgeben."
+  },
+  {
+    "id": "sitov-simulation-b2-listening-announcement-v4",
+    "level": "B2",
+    "family": "listening-announcement",
+    "scenarioId": "arbeit",
+    "roles": [
+      "Paul"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Eine Schicht tauschen",
+    "question": "Welche Aussage über Yusuf ist richtig?",
+    "correct": "Er übernimmt die Frühschicht am Freitag.",
+    "wrong": [
+      "Er arbeitet am Freitag überhaupt nicht.",
+      "Er übernimmt zusätzlich die Nachtschicht am Freitag."
+    ],
+    "global": "Ein vereinbarter Schichttausch mit Zustimmung des Betriebs",
+    "globalWrong": [
+      "Eine Bewerbung bei einem neuen Arbeitgeber",
+      "Die endgültige Schließung eines Betriebs"
+    ],
+    "criteria": "Schichttausch nur mit Zustimmung der Leitung. Änderungen müssen vor Beginn der betroffenen Schicht im Dienstplan stehen. Private Nachrichten unter Kollegen reichen nicht aus."
+  },
+  {
+    "id": "sitov-simulation-b2-listening-announcement-v5",
+    "level": "B2",
+    "family": "listening-announcement",
+    "scenarioId": "zug",
+    "roles": [
+      "Paul"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Eine Zugreise ändern",
+    "question": "Welche Aussage über Paul ist richtig?",
+    "correct": "Er fährt um 10.20 Uhr von Gleis vier ab.",
+    "wrong": [
+      "Er fährt um 9.40 Uhr von Gleis zwei ab.",
+      "Er muss ein neues Ticket kaufen, um fahren zu dürfen."
+    ],
+    "global": "Eine geänderte Zugverbindung bei weiterhin gültigem Ticket",
+    "globalWrong": [
+      "Eine kostenlose Reise für alle Fahrgäste",
+      "Die Reservierung eines Hotelzimmers"
+    ],
+    "criteria": "Tickets für den ausgefallenen Zug gelten im angekündigten Ersatzzug. Sitzplatzreservierungen werden nicht übertragen. Prüfen Sie vor dem Einstieg die aktuelle Gleisanzeige."
+  },
+  {
+    "id": "sitov-simulation-b2-listening-announcement-v6",
+    "level": "B2",
+    "family": "listening-announcement",
+    "scenarioId": "sport",
+    "roles": [
+      "Paul"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Einen Sportkurs ausprobieren",
+    "question": "Welche Aussage über Erik ist richtig?",
+    "correct": "Er besucht zunächst eine kostenlose Probestunde am Mittwoch.",
+    "wrong": [
+      "Er muss vor der ersten Stunde den ganzen Jahresbeitrag zahlen.",
+      "Er besucht die Probestunde am Sonntag ohne Anmeldung."
+    ],
+    "global": "Ein unverbindlicher Einstieg in einen Sportkurs",
+    "globalWrong": [
+      "Die Absage eines Sportturniers",
+      "Ein Bericht über einen Profisportler"
+    ],
+    "criteria": "Probestunden sind kostenlos, aber nur mit bestätigter Anmeldung möglich. Bringen Sie eigene Sportschuhe mit. Eine Anmeldung zur Probe verpflichtet nicht zur Kursbuchung."
+  },
+  {
+    "id": "sitov-simulation-b2-listening-detail-v4",
+    "level": "B2",
+    "family": "listening-detail",
+    "scenarioId": "ehrenamt",
+    "roles": [
+      "Daniel"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Bei einem Nachbarschaftsfest helfen",
+    "question": "Welche Aussage über Omar ist richtig?",
+    "correct": "Er hilft am Samstag von zwölf bis fünfzehn Uhr am Informationsstand.",
+    "wrong": [
+      "Er organisiert am Freitag allein das gesamte Fest.",
+      "Er bezahlt Eintritt, um am Informationsstand arbeiten zu dürfen."
+    ],
+    "global": "Ein begrenzter ehrenamtlicher Einsatz bei einem Fest",
+    "globalWrong": [
+      "Eine Bewerbung für eine Vollzeitstelle",
+      "Die Schließung eines Nachbarschaftszentrums"
+    ],
+    "criteria": "Bitte erscheinen Sie zehn Minuten vor Ihrer Schicht zur Einführung. Verlassen Sie den Stand erst nach der Übergabe an den nächsten Helfer. Bei Verhinderung informieren Sie die Organisation frühzeitig."
+  },
+  {
+    "id": "sitov-simulation-b2-listening-detail-v5",
+    "level": "B2",
+    "family": "listening-detail",
+    "scenarioId": "amt",
+    "roles": [
+      "Daniel"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Einen Termin beim Bürgerbüro vorbereiten",
+    "question": "Welche Aussage über Daniel ist richtig?",
+    "correct": "Er muss den unterschriebenen Antrag und seinen Ausweis mitbringen.",
+    "wrong": [
+      "Er braucht nur seine Terminbestätigung auf dem Handy.",
+      "Er kann die Unterschrift grundsätzlich nach dem Termin per Telefon geben."
+    ],
+    "global": "Die Vorbereitung eines Behördentermins mit vollständigen Unterlagen",
+    "globalWrong": [
+      "Die Anmeldung zu einer Stadtführung",
+      "Ein Bericht über neue Öffnungszeiten aller Geschäfte"
+    ],
+    "criteria": "Zum Termin sind der ausgefüllte und unterschriebene Antrag und ein Ausweis mitzubringen. Terminbestätigungen dienen nur dem Zugang. Bei fehlenden Unterlagen kann die Bearbeitung nicht abgeschlossen werden."
+  },
+  {
+    "id": "sitov-simulation-b2-listening-detail-v6",
+    "level": "B2",
+    "family": "listening-detail",
+    "scenarioId": "paket",
+    "roles": [
+      "Daniel"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Eine falsche Lieferung zurückgeben",
+    "question": "Welche Aussage über Karim ist richtig?",
+    "correct": "Er soll zuerst den Kundenservice kontaktieren und das Retourenetikett anfordern.",
+    "wrong": [
+      "Er soll das Paket ohne Rücksprache auf eigene Kosten versenden.",
+      "Er soll das falsche Gerät benutzen und die Verpackung sofort wegwerfen."
+    ],
+    "global": "Eine fehlerhafte Lieferung und der organisierte Rückversand",
+    "globalWrong": [
+      "Die Einrichtung eines neuen Benutzerkontos",
+      "Eine Anleitung zur Reparatur eines Geräts"
+    ],
+    "criteria": "Bei Falschlieferungen kontaktieren Sie zuerst den Kundenservice. Fordern Sie ein Retourenetikett an und geben Sie die Bestellnummer an. Senden Sie das Paket erst mit dem bereitgestellten Etikett zurück."
+  },
+  {
+    "id": "sitov-simulation-b2-listening-conversation-v4",
+    "level": "B2",
+    "family": "listening-conversation",
+    "scenarioId": "haus",
+    "roles": [
+      "Ben",
+      "Leon"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Wasserarbeiten im Haus organisieren",
+    "question": "Welche Aussage über Nils ist richtig?",
+    "correct": "Das Wasser ist am Dienstag von neun bis zwölf Uhr abgestellt.",
+    "wrong": [
+      "Das Wasser ist das gesamte Wochenende abgestellt.",
+      "Nur Nils muss für die Arbeiten die Wohnung verlassen."
+    ],
+    "global": "Eine zeitlich begrenzte Unterbrechung der Wasserversorgung",
+    "globalWrong": [
+      "Ein Angebot für den Verkauf aller Wohnungen",
+      "Eine Einladung zu einer privaten Geburtstagsfeier"
+    ],
+    "criteria": "Wasserunterbrechung Dienstag 9–12 Uhr. Bitte vorher Trinkwasser bereitstellen und Waschmaschinen während der Arbeiten nicht starten. Ein Verlassen der Wohnungen ist nicht nötig."
+  },
+  {
+    "id": "sitov-simulation-b2-listening-conversation-v5",
+    "level": "B2",
+    "family": "listening-conversation",
+    "scenarioId": "lernen",
+    "roles": [
+      "Ben",
+      "Leon"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Eine Lerngruppe vereinbaren",
+    "question": "Welche Aussage über Felix ist richtig?",
+    "correct": "Die Gruppe trifft sich donnerstags um achtzehn Uhr in der Bibliothek.",
+    "wrong": [
+      "Die Gruppe trifft sich jeden Morgen in Felix' Wohnung.",
+      "Die Gruppe übt nur im Internet und vereinbart keine Termine."
+    ],
+    "global": "Eine regelmäßige Lerngruppe mit verteilten Aufgaben",
+    "globalWrong": [
+      "Die Anmeldung zu einer Prüfung ohne Vorbereitung",
+      "Ein Bericht über den Verkauf von Schulbüchern"
+    ],
+    "criteria": "Für den Gruppenraum gilt: Termin vorher reservieren, leise arbeiten und den Raum am Ende aufräumen. Essen ist im Gruppenraum nicht erlaubt; Getränke in geschlossenen Flaschen sind möglich."
+  },
+  {
+    "id": "sitov-simulation-b2-listening-conversation-v6",
+    "level": "B2",
+    "family": "listening-conversation",
+    "scenarioId": "museum",
+    "roles": [
+      "Ben",
+      "Leon"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Einen Museumsbesuch vorbereiten",
+    "question": "Welche Aussage über Timo ist richtig?",
+    "correct": "Er bucht die Führung für Sonntag um vierzehn Uhr vorher online.",
+    "wrong": [
+      "Er kommt ohne Anmeldung am Samstagmorgen zur Führung.",
+      "Er darf mit seinem Eintrittsticket automatisch an jeder Führung teilnehmen."
+    ],
+    "global": "Eine Museumsführung mit zusätzlicher Anmeldung",
+    "globalWrong": [
+      "Die Renovierung eines Museumsgebäudes",
+      "Ein Bericht über den Kauf eines Kunstwerks"
+    ],
+    "criteria": "Führungen nur mit bestätigter Onlinebuchung. Eintrittstickets ersetzen die Reservierung nicht. Fotografieren ohne Blitz ist erlaubt, wenn andere Besucher nicht gestört werden."
+  },
+  {
+    "id": "sitov-simulation-b2-listening-opinion-v4",
+    "level": "B2",
+    "family": "listening-opinion",
+    "scenarioId": "fahrrad",
+    "roles": [
+      "Felix"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Ein Fahrrad reparieren lassen",
+    "question": "Welche Aussage über Ben ist richtig?",
+    "correct": "Er kann das Fahrrad am Donnerstag abholen.",
+    "wrong": [
+      "Er kann das Fahrrad heute Abend abholen.",
+      "Er muss ein neues Fahrrad kaufen."
+    ],
+    "global": "Eine verzögerte Reparatur und eine Übergangslösung",
+    "globalWrong": [
+      "Die Eröffnung einer neuen Werkstatt",
+      "Ein Vergleich verschiedener Fahrradmarken"
+    ],
+    "criteria": "Ersatzräder müssen vor der Abfahrt am Empfang registriert werden. Eine telefonische Reservierung ersetzt diese Registrierung nicht."
+  },
+  {
+    "id": "sitov-simulation-b2-listening-opinion-v5",
+    "level": "B2",
+    "family": "listening-opinion",
+    "scenarioId": "wohnung",
+    "roles": [
+      "Felix"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Eine Wohnung besichtigen",
+    "question": "Welche Aussage über Amir ist richtig?",
+    "correct": "Er besichtigt die Wohnung am Samstag um elf Uhr.",
+    "wrong": [
+      "Er besichtigt die Wohnung am Freitag um elf Uhr.",
+      "Er unterschreibt den Mietvertrag ohne Besichtigung."
+    ],
+    "global": "Eine Wohnungsbesichtigung mit klaren Bedingungen",
+    "globalWrong": [
+      "Ein Bericht über den Bau neuer Häuser",
+      "Tipps zum Kauf von Möbeln"
+    ],
+    "criteria": "Besichtigung nur nach bestätigtem Termin. Bitte bringen Sie einen Ausweis mit. Zusätzliche Besucher melden Sie vorher per E-Mail an."
+  },
+  {
+    "id": "sitov-simulation-b2-listening-opinion-v6",
+    "level": "B2",
+    "family": "listening-opinion",
+    "scenarioId": "bibliothek",
+    "roles": [
+      "Felix"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Ein ausgeliehenes Buch verlängern",
+    "question": "Welche Aussage über Leon ist richtig?",
+    "correct": "Er muss das Buch bis Dienstag zurückgeben.",
+    "wrong": [
+      "Er darf das Buch automatisch einen Monat länger behalten.",
+      "Er kann das Buch erst im nächsten Jahr zurückgeben."
+    ],
+    "global": "Eine abgelehnte Verlängerung und eine Alternative",
+    "globalWrong": [
+      "Die Anmeldung zu einem Lesewettbewerb",
+      "Die Reparatur eines beschädigten Buches"
+    ],
+    "criteria": "Vorgemerkte Bücher können nicht verlängert werden. Rückgaben außerhalb der Öffnungszeit sind im Rückgabekasten möglich. Wer eine digitale Ausgabe nutzt, muss das gedruckte Exemplar trotzdem fristgerecht zurückgeben."
+  },
+  {
+    "id": "sitov-simulation-c1-listening-announcement-v4",
+    "level": "C1",
+    "family": "listening-announcement",
+    "scenarioId": "arbeit",
+    "roles": [
+      "Paul"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Eine Schicht tauschen",
+    "question": "Welche Bedeutung hat die formale Genehmigung?",
+    "correct": "Sie macht die flexible Absprache verbindlich, ohne die Arbeitsverpflichtung aufzuheben.",
+    "wrong": [
+      "Sie wandelt die getauschte Schicht automatisch in zusätzlichen Urlaub um.",
+      "Sie ersetzt die Zustimmung des Kollegen und erhöht die Vergütung."
+    ],
+    "global": "Flexibilität durch verbindlich dokumentierte Zuständigkeit",
+    "globalWrong": [
+      "Eine Bewerbung bei einem neuen Arbeitgeber",
+      "Die endgültige Schließung eines Betriebs"
+    ],
+    "criteria": "Tauschanträge gelten erst nach Genehmigung und Veröffentlichung im Dienstplan. Eine Eingangsbestätigung enthält noch keine Zustimmung. Bis zur Veröffentlichung bleiben die bisherigen Schichten verbindlich. Bei abweichenden privaten Nachrichten hat der freigegebene Plan Vorrang."
+  },
+  {
+    "id": "sitov-simulation-c1-listening-announcement-v5",
+    "level": "C1",
+    "family": "listening-announcement",
+    "scenarioId": "zug",
+    "roles": [
+      "Paul"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Eine Zugreise ändern",
+    "question": "Welche Folgerung weist der Text als zu weitgehend zurück?",
+    "correct": "Dass die Gültigkeit des Tickets zugleich einen garantierten Sitzplatz im Ersatzzug einschließt.",
+    "wrong": [
+      "Dass eine Ersatzverbindung die Weiterreise ermöglichen kann.",
+      "Dass Paul seinen Gastgeber über die verspätete Ankunft informieren kann."
+    ],
+    "global": "Gültige Beförderung ohne automatisch übertragene Platzgarantie",
+    "globalWrong": [
+      "Eine kostenlose Reise für alle Fahrgäste",
+      "Die Reservierung eines Hotelzimmers"
+    ],
+    "criteria": "Für die Ersatzverbindung wird die Zugbindung aufgehoben. Dies umfasst weder eine automatische Platzreservierung noch eine höhere Wagenklasse. Reservierungen unterliegen einem gesonderten Verfahren; die gebuchte Klasse bleibt maßgeblich, sofern keine abweichende Freigabe erfolgt."
+  },
+  {
+    "id": "sitov-simulation-c1-listening-announcement-v6",
+    "level": "C1",
+    "family": "listening-announcement",
+    "scenarioId": "sport",
+    "roles": [
+      "Paul"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Einen Sportkurs ausprobieren",
+    "question": "Warum widerspricht die Anmeldung nicht dem unverbindlichen Angebot?",
+    "correct": "Sie betrifft die einzelne Probestunde, ohne eine längerfristige Kursbuchung zu begründen.",
+    "wrong": [
+      "Kostenfreie Angebote können grundsätzlich keine organisatorischen Regeln haben.",
+      "Die Anmeldung bindet bereits für das ganze Jahr, auch ohne Zahlungsforderung."
+    ],
+    "global": "Organisatorische Verbindlichkeit bei offener Teilnahmeentscheidung",
+    "globalWrong": [
+      "Die Absage eines Sportturniers",
+      "Ein Bericht über einen Profisportler"
+    ],
+    "criteria": "Die bestätigte Anmeldung sichert genau eine Probestunde und enthält keine Folgebuchung. Ein regulärer Kursplatz wird gesondert bestätigt; die Probe begründet keinen Vorrang. Absagen müssen bis zum Vorabend eingehen."
+  },
+  {
+    "id": "sitov-simulation-c1-listening-detail-v4",
+    "level": "C1",
+    "family": "listening-detail",
+    "scenarioId": "ehrenamt",
+    "roles": [
+      "Daniel"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Bei einem Nachbarschaftsfest helfen",
+    "question": "Was macht den Einsatz für Omar vor allem tragfähig?",
+    "correct": "Eine begrenzte, verlässliche Verpflichtung, die zu seiner beruflichen Situation passt.",
+    "wrong": [
+      "Allein der kostenfreie Eintritt; die Einsatzdauer ist bedeutungslos.",
+      "Die Pflicht, unabhängig von seiner Zusage jederzeit bis zum Festende zu bleiben."
+    ],
+    "global": "Engagement durch verlässliche Begrenzung statt offene Erwartungen",
+    "globalWrong": [
+      "Eine Bewerbung für eine Vollzeitstelle",
+      "Die Schließung eines Nachbarschaftszentrums"
+    ],
+    "criteria": "Einsätze sind auf die bestätigte Schicht begrenzt. Eine freiwillige Verlängerung erfordert eine neue Absprache. Die Übergabe ist innerhalb der Schicht vorgesehen. Bei fehlender Ablösung informieren Helfer die Koordination, die eine Ersatzlösung organisiert."
+  },
+  {
+    "id": "sitov-simulation-c1-listening-detail-v5",
+    "level": "C1",
+    "family": "listening-detail",
+    "scenarioId": "amt",
+    "roles": [
+      "Daniel"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Einen Termin beim Bürgerbüro vorbereiten",
+    "question": "Welches Missverständnis wird durch den einfachen Zugang begünstigt?",
+    "correct": "Von der digitalen Terminbuchung wird fälschlich auf bereits erfüllte Voraussetzungen der Bearbeitung geschlossen.",
+    "wrong": [
+      "Ein einfacher Zugang macht es grundsätzlich unmöglich, Hinweise zu lesen.",
+      "Die erforderliche Vorlage eines Ausweises widerlegt jede digitale Buchungsmöglichkeit."
+    ],
+    "global": "Digitaler Zugang und weiterhin eigenständige Bearbeitungsvoraussetzungen",
+    "globalWrong": [
+      "Die Anmeldung zu einer Stadtführung",
+      "Ein Bericht über neue Öffnungszeiten aller Geschäfte"
+    ],
+    "criteria": "Die Bestätigung reserviert ausschließlich den Termin. Hochgeladene Kopien dienen der Vorbereitung und ersetzen Originale nur bei ausdrücklichem Hinweis. Die Möglichkeit, Angaben vorab zu ergänzen, garantiert keinen Abschluss ohne die geforderten Nachweise."
+  },
+  {
+    "id": "sitov-simulation-c1-listening-detail-v6",
+    "level": "C1",
+    "family": "listening-detail",
+    "scenarioId": "paket",
+    "roles": [
+      "Daniel"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Eine falsche Lieferung zurückgeben",
+    "question": "Warum kann ein später abgesandtes Rückpaket dennoch zweckmäßiger sein?",
+    "correct": "Die vorherige Abstimmung kann unklare Zuordnungen und dadurch spätere Verzögerungen vermeiden.",
+    "wrong": [
+      "Der spätere Versand beweist, dass die Falschlieferung akzeptiert wurde.",
+      "Allein die Versandgeschwindigkeit bestimmt unabhängig vom Verfahren die Bearbeitung."
+    ],
+    "global": "Abgestimmter Ablauf als Voraussetzung wirksamer Korrektur",
+    "globalWrong": [
+      "Die Einrichtung eines neuen Benutzerkontos",
+      "Eine Anleitung zur Reparatur eines Geräts"
+    ],
+    "criteria": "Retourenetiketten gelten nur für den zugeordneten Vorgang. Ein Versandnachweis ersetzt die Bestellnummer nicht. Bei mehreren Falschlieferungen sind getrennte Vorgänge anzulegen, sofern der Service keine Zusammenführung bestätigt."
+  },
+  {
+    "id": "sitov-simulation-c1-listening-conversation-v4",
+    "level": "C1",
+    "family": "listening-conversation",
+    "scenarioId": "haus",
+    "roles": [
+      "Ben",
+      "Leon"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Wasserarbeiten im Haus organisieren",
+    "question": "Welche Bedeutung hat die angekündigte Aktualisierung bei Verzögerungen?",
+    "correct": "Sie regelt den Umgang mit Abweichungen, ohne die ursprüngliche Zeitangabe beliebig werden zu lassen.",
+    "wrong": [
+      "Sie erlaubt grundsätzlich den Verzicht auf weitere Informationen.",
+      "Sie hebt die Unterscheidung zwischen Versorgung und Wohnungszugang auf."
+    ],
+    "global": "Begrenzte Einschränkung mit geregelter Information bei Abweichungen",
+    "globalWrong": [
+      "Ein Angebot für den Verkauf aller Wohnungen",
+      "Eine Einladung zu einer privaten Geburtstagsfeier"
+    ],
+    "criteria": "Die Unterbrechung betrifft nur Wasser. Wohnungszutritt ist nur bei individuell bestätigten Arbeiten nötig. Verzögerungen werden zentral bekanntgegeben; das Ausbleiben einer Nachricht vor dem vorgesehenen Ende stellt keine vorzeitige Freigabe der Versorgung dar."
+  },
+  {
+    "id": "sitov-simulation-c1-listening-conversation-v5",
+    "level": "C1",
+    "family": "listening-conversation",
+    "scenarioId": "lernen",
+    "roles": [
+      "Ben",
+      "Leon"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Eine Lerngruppe vereinbaren",
+    "question": "Welche Gefahr soll die gleichmäßige Vorbereitung verhindern?",
+    "correct": "Dass formell gemeinsames Lernen tatsächlich von einer einseitigen, wenig sichtbaren Arbeitsleistung abhängt.",
+    "wrong": [
+      "Dass unterschiedliche Lösungen überhaupt miteinander verglichen werden.",
+      "Dass jeder Teilnehmer eine eigene Verantwortung für den Lernprozess übernimmt."
+    ],
+    "global": "Wechselseitige Verantwortung statt bloßer gemeinsamer Anwesenheit",
+    "globalWrong": [
+      "Die Anmeldung zu einer Prüfung ohne Vorbereitung",
+      "Ein Bericht über den Verkauf von Schulbüchern"
+    ],
+    "criteria": "Reservierungen gelten für den bestätigten Zeitraum. Ein danach leerer Raum darf nicht automatisch weiter genutzt werden. Änderungen benötigen die Freigabe des Personals; der Verzicht eines anderen Nutzers ersetzt diese nicht. Alle Mitglieder tragen Verantwortung für die Übergabe."
+  },
+  {
+    "id": "sitov-simulation-c1-listening-conversation-v6",
+    "level": "C1",
+    "family": "listening-conversation",
+    "scenarioId": "museum",
+    "roles": [
+      "Ben",
+      "Leon"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Einen Museumsbesuch vorbereiten",
+    "question": "Welches Prinzip verbindet Führungs- und Fotoregel?",
+    "correct": "Bedingungen einzelner Nutzungsformen stimmen unterschiedliche Interessen trotz allgemeinen Zugangs aufeinander ab.",
+    "wrong": [
+      "Jeder Zusatzhinweis soll den Zugang zur Ausstellung vollständig verhindern.",
+      "Ein Eintrittsticket umfasst automatisch sämtliche denkbaren Nutzungen."
+    ],
+    "global": "Differenzierte Nutzung zur Abstimmung konkurrierender Besuchsinteressen",
+    "globalWrong": [
+      "Die Renovierung eines Museumsgebäudes",
+      "Ein Bericht über den Kauf eines Kunstwerks"
+    ],
+    "criteria": "Die Eintrittskarte umfasst nicht gesondert zu reservierende Angebote. Private Fotos sind ohne Blitz und Störung erlaubt; kommerzielle Veröffentlichung bedarf zusätzlicher Zustimmung. Eine Führungsbuchung erweitert die Fotorechte nicht."
+  },
+  {
+    "id": "sitov-simulation-c1-listening-opinion-v4",
+    "level": "C1",
+    "family": "listening-opinion",
+    "scenarioId": "fahrrad",
+    "roles": [
+      "Felix"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Ein Fahrrad reparieren lassen",
+    "question": "Welcher Schluss lässt sich aus Bens Reaktion ziehen?",
+    "correct": "Die Annahme der Zwischenlösung bedeutet nicht, dass er die ursprüngliche Zusage für verlässlich hält.",
+    "wrong": [
+      "Mit dem Ersatzrad verzichtet Ben auf weitere Informationen über Verzögerungen.",
+      "Allein die unveränderte Rechnung ist entscheidend; die Kommunikation spielt keine Rolle."
+    ],
+    "global": "Praktische Abhilfe bei weiterhin begrenztem Vertrauen",
+    "globalWrong": [
+      "Die Eröffnung einer neuen Werkstatt",
+      "Ein Vergleich verschiedener Fahrradmarken"
+    ],
+    "criteria": "Ersatzräder stehen nur für die Reparaturdauer zur Verfügung. Eine Verlängerung nach Abschluss setzt eine ausdrückliche Bestätigung voraus; die Ankündigung eines späteren Abholtermins genügt nicht. Vor der Ausleihe ist eine Registrierung erforderlich."
+  },
+  {
+    "id": "sitov-simulation-c1-listening-opinion-v5",
+    "level": "C1",
+    "family": "listening-opinion",
+    "scenarioId": "wohnung",
+    "roles": [
+      "Felix"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Eine Wohnung besichtigen",
+    "question": "Warum legt Amir sich trotz passender Lage noch nicht fest?",
+    "correct": "Er will den Lagevorteil nicht mit einer wirtschaftlich noch unklaren Gesamtbelastung verwechseln.",
+    "wrong": [
+      "Der fehlende Garagenplatz ist für ihn ein grundsätzliches Hindernis.",
+      "Die Nähe zur Arbeit ist für ihn unwichtig, sobald ein Balkon vorhanden ist."
+    ],
+    "global": "Attraktive Lage als Ausgangspunkt einer weiterhin offenen Kostenabwägung",
+    "globalWrong": [
+      "Ein Bericht über den Bau neuer Häuser",
+      "Tipps zum Kauf von Möbeln"
+    ],
+    "criteria": "Die Vorauszahlung beruht auf dem Vorjahresverbrauch und stellt keine Kostenobergrenze dar. Eine feste Miete schließt variable Nebenkosten nur ein, wenn dies ausdrücklich vereinbart ist. Angaben zur Garage begründen ohne gesonderte Zusage keinen Stellplatzanspruch."
+  },
+  {
+    "id": "sitov-simulation-c1-listening-opinion-v6",
+    "level": "C1",
+    "family": "listening-opinion",
+    "scenarioId": "bibliothek",
+    "roles": [
+      "Felix"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Ein ausgeliehenes Buch verlängern",
+    "question": "Welche Funktion hat die digitale Alternative?",
+    "correct": "Sie ermöglicht die weitere Lektüre, ohne den Anspruch des wartenden Lesers auf das gedruckte Exemplar auszusetzen.",
+    "wrong": [
+      "Sie begründet eine Ausnahme von der Rückgabepflicht des gedruckten Buches.",
+      "Sie soll die technische Undurchführbarkeit der Vormerkregel nachweisen."
+    ],
+    "global": "Ein alternatives Medium zur Vereinbarkeit konkurrierender Nutzungsinteressen",
+    "globalWrong": [
+      "Die Anmeldung zu einem Lesewettbewerb",
+      "Die Reparatur eines beschädigten Buches"
+    ],
+    "criteria": "Vormerkungen schließen eine Verlängerung des Exemplars aus. Eine digitale Ausleihe ändert weder dessen Frist noch die Vormerkreihenfolge. Rückgaben im Kasten werden am nächsten Öffnungstag verbucht; maßgeblich ist jedoch der tatsächliche Einwurfzeitpunkt."
+  },
+  {
+    "id": "sitov-simulation-c2-listening-announcement-v4",
+    "level": "C2",
+    "family": "listening-announcement",
+    "scenarioId": "arbeit",
+    "roles": [
+      "Paul"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Eine Schicht tauschen",
+    "question": "Welche Bedeutung hat die formale Genehmigung?",
+    "correct": "Sie macht die flexible Absprache verbindlich, ohne die Arbeitsverpflichtung aufzuheben.",
+    "wrong": [
+      "Sie wandelt die getauschte Schicht automatisch in zusätzlichen Urlaub um.",
+      "Sie ersetzt die Zustimmung des Kollegen und erhöht die Vergütung."
+    ],
+    "global": "Flexibilität durch verbindlich dokumentierte Zuständigkeit",
+    "globalWrong": [
+      "Eine Bewerbung bei einem neuen Arbeitgeber",
+      "Die endgültige Schließung eines Betriebs"
+    ],
+    "criteria": "Tauschanträge gelten erst nach Genehmigung und Veröffentlichung im Dienstplan. Eine Eingangsbestätigung enthält noch keine Zustimmung. Bis zur Veröffentlichung bleiben die bisherigen Schichten verbindlich. Bei abweichenden privaten Nachrichten hat der freigegebene Plan Vorrang."
+  },
+  {
+    "id": "sitov-simulation-c2-listening-announcement-v5",
+    "level": "C2",
+    "family": "listening-announcement",
+    "scenarioId": "zug",
+    "roles": [
+      "Paul"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Eine Zugreise ändern",
+    "question": "Welche Folgerung weist der Text als zu weitgehend zurück?",
+    "correct": "Dass die Gültigkeit des Tickets zugleich einen garantierten Sitzplatz im Ersatzzug einschließt.",
+    "wrong": [
+      "Dass eine Ersatzverbindung die Weiterreise ermöglichen kann.",
+      "Dass Paul seinen Gastgeber über die verspätete Ankunft informieren kann."
+    ],
+    "global": "Gültige Beförderung ohne automatisch übertragene Platzgarantie",
+    "globalWrong": [
+      "Eine kostenlose Reise für alle Fahrgäste",
+      "Die Reservierung eines Hotelzimmers"
+    ],
+    "criteria": "Für die Ersatzverbindung wird die Zugbindung aufgehoben. Dies umfasst weder eine automatische Platzreservierung noch eine höhere Wagenklasse. Reservierungen unterliegen einem gesonderten Verfahren; die gebuchte Klasse bleibt maßgeblich, sofern keine abweichende Freigabe erfolgt."
+  },
+  {
+    "id": "sitov-simulation-c2-listening-announcement-v6",
+    "level": "C2",
+    "family": "listening-announcement",
+    "scenarioId": "sport",
+    "roles": [
+      "Paul"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Einen Sportkurs ausprobieren",
+    "question": "Warum widerspricht die Anmeldung nicht dem unverbindlichen Angebot?",
+    "correct": "Sie betrifft die einzelne Probestunde, ohne eine längerfristige Kursbuchung zu begründen.",
+    "wrong": [
+      "Kostenfreie Angebote können grundsätzlich keine organisatorischen Regeln haben.",
+      "Die Anmeldung bindet bereits für das ganze Jahr, auch ohne Zahlungsforderung."
+    ],
+    "global": "Organisatorische Verbindlichkeit bei offener Teilnahmeentscheidung",
+    "globalWrong": [
+      "Die Absage eines Sportturniers",
+      "Ein Bericht über einen Profisportler"
+    ],
+    "criteria": "Die bestätigte Anmeldung sichert genau eine Probestunde und enthält keine Folgebuchung. Ein regulärer Kursplatz wird gesondert bestätigt; die Probe begründet keinen Vorrang. Absagen müssen bis zum Vorabend eingehen."
+  },
+  {
+    "id": "sitov-simulation-c2-listening-detail-v4",
+    "level": "C2",
+    "family": "listening-detail",
+    "scenarioId": "ehrenamt",
+    "roles": [
+      "Daniel"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Bei einem Nachbarschaftsfest helfen",
+    "question": "Was macht den Einsatz für Omar vor allem tragfähig?",
+    "correct": "Eine begrenzte, verlässliche Verpflichtung, die zu seiner beruflichen Situation passt.",
+    "wrong": [
+      "Allein der kostenfreie Eintritt; die Einsatzdauer ist bedeutungslos.",
+      "Die Pflicht, unabhängig von seiner Zusage jederzeit bis zum Festende zu bleiben."
+    ],
+    "global": "Engagement durch verlässliche Begrenzung statt offene Erwartungen",
+    "globalWrong": [
+      "Eine Bewerbung für eine Vollzeitstelle",
+      "Die Schließung eines Nachbarschaftszentrums"
+    ],
+    "criteria": "Einsätze sind auf die bestätigte Schicht begrenzt. Eine freiwillige Verlängerung erfordert eine neue Absprache. Die Übergabe ist innerhalb der Schicht vorgesehen. Bei fehlender Ablösung informieren Helfer die Koordination, die eine Ersatzlösung organisiert."
+  },
+  {
+    "id": "sitov-simulation-c2-listening-detail-v5",
+    "level": "C2",
+    "family": "listening-detail",
+    "scenarioId": "amt",
+    "roles": [
+      "Daniel"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Einen Termin beim Bürgerbüro vorbereiten",
+    "question": "Welches Missverständnis wird durch den einfachen Zugang begünstigt?",
+    "correct": "Von der digitalen Terminbuchung wird fälschlich auf bereits erfüllte Voraussetzungen der Bearbeitung geschlossen.",
+    "wrong": [
+      "Ein einfacher Zugang macht es grundsätzlich unmöglich, Hinweise zu lesen.",
+      "Die erforderliche Vorlage eines Ausweises widerlegt jede digitale Buchungsmöglichkeit."
+    ],
+    "global": "Digitaler Zugang und weiterhin eigenständige Bearbeitungsvoraussetzungen",
+    "globalWrong": [
+      "Die Anmeldung zu einer Stadtführung",
+      "Ein Bericht über neue Öffnungszeiten aller Geschäfte"
+    ],
+    "criteria": "Die Bestätigung reserviert ausschließlich den Termin. Hochgeladene Kopien dienen der Vorbereitung und ersetzen Originale nur bei ausdrücklichem Hinweis. Die Möglichkeit, Angaben vorab zu ergänzen, garantiert keinen Abschluss ohne die geforderten Nachweise."
+  },
+  {
+    "id": "sitov-simulation-c2-listening-detail-v6",
+    "level": "C2",
+    "family": "listening-detail",
+    "scenarioId": "paket",
+    "roles": [
+      "Daniel"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Eine falsche Lieferung zurückgeben",
+    "question": "Warum kann ein später abgesandtes Rückpaket dennoch zweckmäßiger sein?",
+    "correct": "Die vorherige Abstimmung kann unklare Zuordnungen und dadurch spätere Verzögerungen vermeiden.",
+    "wrong": [
+      "Der spätere Versand beweist, dass die Falschlieferung akzeptiert wurde.",
+      "Allein die Versandgeschwindigkeit bestimmt unabhängig vom Verfahren die Bearbeitung."
+    ],
+    "global": "Abgestimmter Ablauf als Voraussetzung wirksamer Korrektur",
+    "globalWrong": [
+      "Die Einrichtung eines neuen Benutzerkontos",
+      "Eine Anleitung zur Reparatur eines Geräts"
+    ],
+    "criteria": "Retourenetiketten gelten nur für den zugeordneten Vorgang. Ein Versandnachweis ersetzt die Bestellnummer nicht. Bei mehreren Falschlieferungen sind getrennte Vorgänge anzulegen, sofern der Service keine Zusammenführung bestätigt."
+  },
+  {
+    "id": "sitov-simulation-c2-listening-conversation-v4",
+    "level": "C2",
+    "family": "listening-conversation",
+    "scenarioId": "haus",
+    "roles": [
+      "Ben",
+      "Leon"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Wasserarbeiten im Haus organisieren",
+    "question": "Welche Bedeutung hat die angekündigte Aktualisierung bei Verzögerungen?",
+    "correct": "Sie regelt den Umgang mit Abweichungen, ohne die ursprüngliche Zeitangabe beliebig werden zu lassen.",
+    "wrong": [
+      "Sie erlaubt grundsätzlich den Verzicht auf weitere Informationen.",
+      "Sie hebt die Unterscheidung zwischen Versorgung und Wohnungszugang auf."
+    ],
+    "global": "Begrenzte Einschränkung mit geregelter Information bei Abweichungen",
+    "globalWrong": [
+      "Ein Angebot für den Verkauf aller Wohnungen",
+      "Eine Einladung zu einer privaten Geburtstagsfeier"
+    ],
+    "criteria": "Die Unterbrechung betrifft nur Wasser. Wohnungszutritt ist nur bei individuell bestätigten Arbeiten nötig. Verzögerungen werden zentral bekanntgegeben; das Ausbleiben einer Nachricht vor dem vorgesehenen Ende stellt keine vorzeitige Freigabe der Versorgung dar."
+  },
+  {
+    "id": "sitov-simulation-c2-listening-conversation-v5",
+    "level": "C2",
+    "family": "listening-conversation",
+    "scenarioId": "lernen",
+    "roles": [
+      "Ben",
+      "Leon"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Eine Lerngruppe vereinbaren",
+    "question": "Welche Gefahr soll die gleichmäßige Vorbereitung verhindern?",
+    "correct": "Dass formell gemeinsames Lernen tatsächlich von einer einseitigen, wenig sichtbaren Arbeitsleistung abhängt.",
+    "wrong": [
+      "Dass unterschiedliche Lösungen überhaupt miteinander verglichen werden.",
+      "Dass jeder Teilnehmer eine eigene Verantwortung für den Lernprozess übernimmt."
+    ],
+    "global": "Wechselseitige Verantwortung statt bloßer gemeinsamer Anwesenheit",
+    "globalWrong": [
+      "Die Anmeldung zu einer Prüfung ohne Vorbereitung",
+      "Ein Bericht über den Verkauf von Schulbüchern"
+    ],
+    "criteria": "Reservierungen gelten für den bestätigten Zeitraum. Ein danach leerer Raum darf nicht automatisch weiter genutzt werden. Änderungen benötigen die Freigabe des Personals; der Verzicht eines anderen Nutzers ersetzt diese nicht. Alle Mitglieder tragen Verantwortung für die Übergabe."
+  },
+  {
+    "id": "sitov-simulation-c2-listening-conversation-v6",
+    "level": "C2",
+    "family": "listening-conversation",
+    "scenarioId": "museum",
+    "roles": [
+      "Ben",
+      "Leon"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Einen Museumsbesuch vorbereiten",
+    "question": "Welches Prinzip verbindet Führungs- und Fotoregel?",
+    "correct": "Bedingungen einzelner Nutzungsformen stimmen unterschiedliche Interessen trotz allgemeinen Zugangs aufeinander ab.",
+    "wrong": [
+      "Jeder Zusatzhinweis soll den Zugang zur Ausstellung vollständig verhindern.",
+      "Ein Eintrittsticket umfasst automatisch sämtliche denkbaren Nutzungen."
+    ],
+    "global": "Differenzierte Nutzung zur Abstimmung konkurrierender Besuchsinteressen",
+    "globalWrong": [
+      "Die Renovierung eines Museumsgebäudes",
+      "Ein Bericht über den Kauf eines Kunstwerks"
+    ],
+    "criteria": "Die Eintrittskarte umfasst nicht gesondert zu reservierende Angebote. Private Fotos sind ohne Blitz und Störung erlaubt; kommerzielle Veröffentlichung bedarf zusätzlicher Zustimmung. Eine Führungsbuchung erweitert die Fotorechte nicht."
+  },
+  {
+    "id": "sitov-simulation-c2-listening-opinion-v4",
+    "level": "C2",
+    "family": "listening-opinion",
+    "scenarioId": "fahrrad",
+    "roles": [
+      "Felix"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Ein Fahrrad reparieren lassen",
+    "question": "Welcher Schluss lässt sich aus Bens Reaktion ziehen?",
+    "correct": "Die Annahme der Zwischenlösung bedeutet nicht, dass er die ursprüngliche Zusage für verlässlich hält.",
+    "wrong": [
+      "Mit dem Ersatzrad verzichtet Ben auf weitere Informationen über Verzögerungen.",
+      "Allein die unveränderte Rechnung ist entscheidend; die Kommunikation spielt keine Rolle."
+    ],
+    "global": "Praktische Abhilfe bei weiterhin begrenztem Vertrauen",
+    "globalWrong": [
+      "Die Eröffnung einer neuen Werkstatt",
+      "Ein Vergleich verschiedener Fahrradmarken"
+    ],
+    "criteria": "Ersatzräder stehen nur für die Reparaturdauer zur Verfügung. Eine Verlängerung nach Abschluss setzt eine ausdrückliche Bestätigung voraus; die Ankündigung eines späteren Abholtermins genügt nicht. Vor der Ausleihe ist eine Registrierung erforderlich."
+  },
+  {
+    "id": "sitov-simulation-c2-listening-opinion-v5",
+    "level": "C2",
+    "family": "listening-opinion",
+    "scenarioId": "wohnung",
+    "roles": [
+      "Felix"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Eine Wohnung besichtigen",
+    "question": "Warum legt Amir sich trotz passender Lage noch nicht fest?",
+    "correct": "Er will den Lagevorteil nicht mit einer wirtschaftlich noch unklaren Gesamtbelastung verwechseln.",
+    "wrong": [
+      "Der fehlende Garagenplatz ist für ihn ein grundsätzliches Hindernis.",
+      "Die Nähe zur Arbeit ist für ihn unwichtig, sobald ein Balkon vorhanden ist."
+    ],
+    "global": "Attraktive Lage als Ausgangspunkt einer weiterhin offenen Kostenabwägung",
+    "globalWrong": [
+      "Ein Bericht über den Bau neuer Häuser",
+      "Tipps zum Kauf von Möbeln"
+    ],
+    "criteria": "Die Vorauszahlung beruht auf dem Vorjahresverbrauch und stellt keine Kostenobergrenze dar. Eine feste Miete schließt variable Nebenkosten nur ein, wenn dies ausdrücklich vereinbart ist. Angaben zur Garage begründen ohne gesonderte Zusage keinen Stellplatzanspruch."
+  },
+  {
+    "id": "sitov-simulation-c2-listening-opinion-v6",
+    "level": "C2",
+    "family": "listening-opinion",
+    "scenarioId": "bibliothek",
+    "roles": [
+      "Felix"
+    ],
+    "route": "qwen",
+    "profile": "sitov-qwen-male-de-v1",
+    "plays": 1,
+    "title": "Ein ausgeliehenes Buch verlängern",
+    "question": "Welche Funktion hat die digitale Alternative?",
+    "correct": "Sie ermöglicht die weitere Lektüre, ohne den Anspruch des wartenden Lesers auf das gedruckte Exemplar auszusetzen.",
+    "wrong": [
+      "Sie begründet eine Ausnahme von der Rückgabepflicht des gedruckten Buches.",
+      "Sie soll die technische Undurchführbarkeit der Vormerkregel nachweisen."
+    ],
+    "global": "Ein alternatives Medium zur Vereinbarkeit konkurrierender Nutzungsinteressen",
+    "globalWrong": [
+      "Die Anmeldung zu einem Lesewettbewerb",
+      "Die Reparatur eines beschädigten Buches"
+    ],
+    "criteria": "Vormerkungen schließen eine Verlängerung des Exemplars aus. Eine digitale Ausleihe ändert weder dessen Frist noch die Vormerkreihenfolge. Rückgaben im Kasten werden am nächsten Öffnungstag verbucht; maßgeblich ist jedoch der tatsächliche Einwurfzeitpunkt."
+  }
+]

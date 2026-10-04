@@ -1,0 +1,135 @@
+.graphic {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  height: 104px;
+  overflow: hidden;
+  pointer-events: none;
+  contain: layout paint;
+}
+
+.scene, .compactScene { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.scene { display: none; }
+.constellation { stroke: color-mix(in srgb, var(--violet) 17%, transparent); stroke-width: .75; }
+.constellation circle { fill: color-mix(in srgb, var(--violet) 44%, var(--surface)); stroke: none; }
+.streamTrack { stroke-width: .8; opacity: .23; }
+.highTrack { stroke-dasharray: 1 5; opacity: .5; }
+
+.signal { --sitov-stream-duration: 8s; --sitov-stream-delay: -2.4s; }
+.returnSignal { --sitov-stream-duration: 10.5s; --sitov-stream-delay: -6s; }
+.highSignal { --sitov-stream-duration: 13s; --sitov-stream-delay: -3.5s; opacity: .6; }
+.trailAura, .trailBody, .trailCore, .trailHead {
+  stroke-linecap: round;
+  animation: sitov-login-stream var(--sitov-stream-duration) linear var(--sitov-stream-delay) infinite;
+  animation-play-state: var(--sitov-motion-play-state, paused);
+}
+.trailAura { --sitov-signal-start: 0; stroke-width: 13; stroke-dasharray: 19 81; opacity: .07; }
+.trailBody { --sitov-signal-start: -5; stroke-width: 4.5; stroke-dasharray: 14 86; opacity: .24; }
+.trailCore { --sitov-signal-start: -8; stroke-width: 1.5; stroke-dasharray: 11 89; opacity: .8; }
+.trailHead { --sitov-signal-start: -18.7; stroke-width: 3.4; stroke-dasharray: .3 99.7; opacity: .95; }
+
+.orbitTrack { stroke: color-mix(in srgb, var(--violet) 19%, transparent); stroke-width: .6; }
+.orbitTrackSecondary { stroke: color-mix(in srgb, var(--accent) 20%, transparent); stroke-width: .6; stroke-dasharray: 1 4; }
+.orbitLight {
+  stroke: var(--violet);
+  stroke-width: 1.3;
+  stroke-dasharray: 6 94;
+  stroke-dashoffset: -39;
+  stroke-linecap: round;
+  opacity: .7;
+  animation: sitov-login-orbit 18s linear infinite;
+  animation-play-state: var(--sitov-motion-play-state, paused);
+}
+.orbitNode { fill: var(--accent); }
+.orbitNodeSecondary { fill: var(--violet); opacity: .6; }
+.orb {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: sitov-login-orb-breathe 10s ease-in-out infinite;
+  animation-play-state: var(--sitov-motion-play-state, paused);
+}
+.orbBody { stroke: color-mix(in srgb, var(--violet) 14%, transparent); stroke-width: .8; }
+.sphereMesh { stroke: color-mix(in srgb, var(--violet) 15%, transparent); stroke-width: .6; }
+.lattice { stroke: color-mix(in srgb, var(--violet) 48%, var(--surface)); stroke-width: .7; }
+.lattice circle { fill: var(--violet); stroke: none; opacity: .76; }
+.lattice circle:nth-last-child(3n) { fill: var(--accent); opacity: .88; }
+.core { fill: var(--accent); }
+.coreAura {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: sitov-login-core-breathe 6.5s ease-in-out infinite;
+  animation-play-state: var(--sitov-motion-play-state, paused);
+}
+.specular { stroke: var(--surface); stroke-width: 2.4; stroke-linecap: round; opacity: .84; }
+
+.plaquePosition { position: absolute; transform: translate(-50%, -50%); }
+.bookPosition { left: 14%; top: 53%; }
+.messagePosition { left: 86%; top: 48%; }
+.audioPosition { display: none; }
+.plaque {
+  position: relative;
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--violet) 19%, var(--surface));
+  border-radius: 13px;
+  background:
+    linear-gradient(140deg, color-mix(in srgb, var(--surface) 96%, white), color-mix(in srgb, var(--surface) 94%, var(--violet)));
+  box-shadow:
+    0 2px 3px color-mix(in srgb, var(--violet) 5%, transparent),
+    0 12px 25px -12px color-mix(in srgb, var(--violet) 28%, transparent),
+    inset 0 1px 0 color-mix(in srgb, var(--surface) 75%, white);
+  color: var(--violet);
+  animation: sitov-login-plaque-float 8s ease-in-out infinite;
+  animation-play-state: var(--sitov-motion-play-state, paused);
+}
+.plaque > svg { width: 21px; height: 21px; }
+.bookPlaque { color: var(--accent); transform: rotate(-9deg); --sitov-plaque-angle: -9deg; }
+.messagePlaque { transform: rotate(7deg); --sitov-plaque-angle: 7deg; animation-delay: -3s; }
+.messagePlaque i {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  width: 7px;
+  height: 7px;
+  border: 2px solid var(--surface);
+  border-radius: 50%;
+  background: var(--accent);
+  box-sizing: content-box;
+}
+.audioPlaque { --sitov-plaque-angle: -4deg; transform: rotate(-4deg); animation-delay: -5s; }
+
+@media (min-width: 641px) {
+  .graphic { height: auto; aspect-ratio: 15 / 8; min-height: 200px; max-height: 280px; }
+  .scene { display: block; }
+  .compactScene { display: none; }
+  .bookPosition { left: 18.5%; top: 58.75%; }
+  .messagePosition { left: 81.5%; top: 41.25%; }
+  .audioPosition { display: block; left: 74.5%; top: 22%; }
+  .plaque { width: 54px; height: 54px; border-radius: 17px; }
+  .plaque > svg { width: 28px; height: 28px; }
+  .audioPlaque { width: 37px; height: 37px; border-radius: 12px; }
+  .audioPlaque > svg { width: 21px; height: 21px; }
+}
+
+@keyframes sitov-login-stream {
+  from { stroke-dashoffset: var(--sitov-signal-start); }
+  to { stroke-dashoffset: calc(var(--sitov-signal-start) - 100); }
+}
+@keyframes sitov-login-orbit { from { stroke-dashoffset: -39; } to { stroke-dashoffset: -139; } }
+@keyframes sitov-login-orb-breathe { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.025); } }
+@keyframes sitov-login-core-breathe { 0%, 100% { transform: scale(1); opacity: .78; } 50% { transform: scale(1.16); opacity: 1; } }
+@keyframes sitov-login-plaque-float {
+  0%, 100% { transform: translateY(0) rotate(var(--sitov-plaque-angle, 0deg)); }
+  50% { transform: translateY(-5px) rotate(calc(var(--sitov-plaque-angle, 0deg) + 2deg)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trailAura, .trailBody, .trailCore, .trailHead, .orbitLight, .orb, .coreAura, .plaque { animation: none; }
+  .signal .trailAura, .signal .trailBody, .signal .trailCore, .signal .trailHead { stroke-dashoffset: var(--sitov-signal-start); }
+}
+
+@media (forced-colors: active) {
+  .graphic { display: none; }
+}

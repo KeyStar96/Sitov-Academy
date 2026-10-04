@@ -2,6 +2,7 @@ import Image from 'next/image'
 import { ArrowUpRight, BookOpen, GraduationCap, HeartHandshake, Repeat2 } from 'lucide-react'
 import type { getDictionary } from '@/lib/dictionary'
 import Reveal from '@/components/ui/Reveal'
+import SitovMethodGraphic from './SitovMethodGraphic'
 
 type Dictionary = Awaited<ReturnType<typeof getDictionary>>
 // Die Abschluss-CTA ("Learning-Bridge") wandert als PremiumCtaCard vor den Footer (siehe page.tsx).
@@ -15,7 +16,7 @@ export default function AcademyStory({ dictionary }: { dictionary: Dictionary; l
   return <>
     <section id="science" className="academy-section academy-container">
       <Reveal className="academy-section-heading"><p className="academy-eyebrow">{copy.method_eyebrow}</p><h2>{copy.method_title}</h2><p>{copy.method_description}</p></Reveal>
-      <Reveal className="academy-method-grid" delay={0.05}>{method.map((item, index) => <article key={item.title} className="academy-method-card"><div className="academy-method-meta"><item.icon size={25} strokeWidth={1.5} aria-hidden="true" /><span aria-hidden="true">0{index + 1}</span></div><h3>{item.title}</h3><p>{item.text}</p></article>)}</Reveal>
+      <Reveal className="academy-method-grid" delay={0.05}>{method.map((item, index) => <article key={item.title} className="academy-method-card" data-sitov-home-motion><div className="academy-method-meta"><item.icon size={25} strokeWidth={1.5} aria-hidden="true" /><SitovMethodGraphic variant={index} /><span aria-hidden="true">0{index + 1}</span></div><h3>{item.title}</h3><p>{item.text}</p></article>)}</Reveal>
     </section>
     <section id="about" className="academy-section academy-container">
       <Reveal className="academy-teacher-card">

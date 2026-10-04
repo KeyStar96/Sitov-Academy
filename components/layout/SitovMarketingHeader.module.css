@@ -1,0 +1,128 @@
+.sitovHeader:global(.academy-header) {
+  --academy-header-height: 128px;
+  border-bottom-color: color-mix(in srgb, var(--border) 25%, transparent);
+  background: color-mix(in srgb, var(--canvas) 88%, transparent);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+}
+
+.sitovHeader:global(.academy-header)::after {
+  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--accent) 35%, transparent), transparent);
+  opacity: 1;
+}
+
+.sitovHeader.sitovScrolled {
+  background: color-mix(in srgb, var(--canvas) 95%, transparent);
+  box-shadow: 0 8px 28px -22px color-mix(in srgb, var(--foreground) 40%, transparent);
+}
+
+.sitovInner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: .55rem .65rem;
+  padding-block: .7rem;
+}
+
+.sitovBrand { min-width: 0; }
+.sitovBrand :global(.academy-logo) { gap: .45rem; }
+.sitovBrand :global(.academy-logo-mark) { width: 32px; height: 32px; border-radius: 9px; }
+.sitovBrand :global(.academy-logo-name) { font-size: .94rem; }
+.sitovDesktopNav { display: none; }
+.sitovControls { display: flex; align-items: center; gap: .4rem; }
+.sitovDesktopTheme { display: none; }
+.sitovPrimaryActions { grid-column: 1 / -1; display: flex; min-width: 0; gap: .6rem; }
+.sitovHeader .sitovBooking { width: 100%; height: 44px; min-height: 44px; padding: .55rem 1rem; font-size: .82rem; }
+.sitovHeader .sitovLearning { display: none; }
+.sitovHeader .sitovMenuToggle { min-width: 44px; width: 44px; min-height: 44px; height: 44px; border-color: color-mix(in srgb, var(--border) 60%, transparent); background: transparent; }
+.sitovMenuIcon { position: relative; display: block; width: 21px; height: 21px; }
+.sitovMenuIcon svg { position: absolute; inset: 0; transition: opacity .18s ease, transform .26s cubic-bezier(.22, 1, .36, 1); }
+.sitovMenuIcon svg:last-child { opacity: 0; transform: rotate(-60deg) scale(.7); }
+.sitovMenuIcon[data-open='true'] svg:first-child { opacity: 0; transform: rotate(60deg) scale(.7); }
+.sitovMenuIcon[data-open='true'] svg:last-child { opacity: 1; transform: rotate(0) scale(1); }
+.sitovReadingProgress { position: absolute; inset-inline: 0; bottom: -1px; height: 2px; transform-origin: left; background: linear-gradient(90deg, var(--accent), #ffb861 65%, var(--violet)); pointer-events: none; }
+
+.sitovLanguage { position: relative; flex-shrink: 0; }
+.sitovLanguageTrigger { display: inline-flex; min-height: 44px; height: 44px; align-items: center; justify-content: center; gap: .35rem; padding: .5rem .55rem; border: 1px solid color-mix(in srgb, var(--border) 60%, transparent); border-radius: 99px; background: color-mix(in srgb, var(--surface) 75%, transparent); color: var(--foreground); font-size: .73rem; font-weight: 750; line-height: 1; transition: background .2s ease, border-color .2s ease; }
+.sitovLanguageTrigger[aria-expanded='true'] { border-color: var(--accent); background: var(--accent-soft); }
+.sitovLanguageGlobe { display: none; color: var(--muted); }
+.sitovLanguageName { display: none; }
+.sitovLanguageChevron { color: var(--muted); transition: transform .25s cubic-bezier(.22, 1, .36, 1); }
+.sitovLanguageTrigger[aria-expanded='true'] .sitovLanguageChevron { transform: rotate(180deg); }
+.sitovLanguagePanel { position: absolute; top: calc(100% + .6rem); right: 0; z-index: 3; width: 210px; max-width: calc(100vw - 2rem); padding: .4rem; border: 1px solid color-mix(in srgb, var(--border) 50%, transparent); border-radius: 1.15rem; background: var(--surface); box-shadow: 0 18px 55px -20px color-mix(in srgb, var(--foreground) 35%, transparent); transform-origin: top right; }
+.sitovLanguageOption { display: flex; width: 100%; min-height: 46px; gap: .65rem; align-items: center; border-radius: .75rem; padding: .5rem .7rem; text-align: left; font-size: .85rem; font-weight: 650; color: var(--foreground); transition: background .18s ease, color .18s ease; }
+.sitovLanguageOption > svg { margin-left: auto; color: var(--accent-text); }
+.sitovLanguageOption[aria-checked='true'] { background: var(--accent-soft); color: var(--accent-text); }
+.sitovLocaleMark { display: flex; width: 25px; justify-content: center; flex-shrink: 0; font-size: .66rem; letter-spacing: .025em; color: var(--muted); }
+.sitovLanguageOption:focus-visible { outline-offset: -3px; }
+
+.sitovMobileMenu { position: absolute; top: 100%; inset-inline: 0; max-height: calc(100dvh - var(--academy-header-height) - env(safe-area-inset-top)); overflow-y: auto; overscroll-behavior: contain; background: var(--surface); border-bottom: 1px solid color-mix(in srgb, var(--border) 40%, transparent); box-shadow: 0 18px 28px -24px color-mix(in srgb, var(--foreground) 35%, transparent); }
+.sitovMobileNav { padding-block: .5rem 1rem; }
+.sitovMenuLink { display: flex; min-height: 58px; align-items: center; justify-content: space-between; gap: 1rem; border-bottom: 1px solid color-mix(in srgb, var(--border) 23%, transparent); font-size: 1rem; font-weight: 650; }
+.sitovMenuLink > svg { color: var(--accent-text); }
+.sitovMenuFooter { display: flex; align-items: center; gap: .65rem; padding-top: 1rem; }
+.sitovHeader .sitovMenuLearning { flex: 1; min-width: 0; min-height: 48px; padding: .6rem .75rem; gap: .5rem; font-size: .8rem; }
+.sitovMobileTheme { flex-shrink: 0; }
+
+@media (min-width: 375px) {
+  .sitovLanguageGlobe { display: block; }
+  .sitovLanguageTrigger { padding-inline: .65rem; }
+}
+
+@media (min-width: 480px) {
+  .sitovBrand :global(.academy-logo-mark) { width: 36px; height: 36px; }
+  .sitovBrand :global(.academy-logo-name) { font-size: 1.05rem; }
+  .sitovControls { gap: .5rem; }
+}
+
+@media (min-width: 640px) {
+  .sitovHeader:global(.academy-header) { --academy-header-height: 80px; }
+  .sitovInner { grid-template-columns: auto minmax(0, 1fr) auto; min-height: 80px; padding-block: .85rem; gap: 1rem; }
+  .sitovControls { grid-column: 3; grid-row: 1; }
+  .sitovPrimaryActions { grid-column: 2; grid-row: 1; justify-content: end; }
+  .sitovHeader .sitovBooking { width: auto; height: 46px; min-height: 46px; padding-inline: 1.15rem; }
+  .sitovLanguageTrigger { min-height: 46px; height: 46px; padding-inline: .75rem; }
+  .sitovHeader .sitovMenuToggle { width: 46px; min-width: 46px; height: 46px; min-height: 46px; }
+}
+
+@media (min-width: 960px) {
+  .sitovDesktopTheme { display: block; }
+  .sitovDesktopTheme :global(.academy-icon-button) { min-width: 46px; width: 46px; min-height: 46px; height: 46px; border-color: transparent; background: transparent; }
+  .sitovMobileTheme { display: none; }
+}
+
+@media (min-width: 1280px) {
+  .sitovInner { grid-template-columns: auto minmax(0, 1fr) auto auto; gap: 1rem; min-height: 88px; }
+  .sitovBrand :global(.academy-logo-mark) { width: 38px; height: 38px; }
+  .sitovBrand :global(.academy-logo-name) { font-size: 1.08rem; }
+  .sitovDesktopNav { display: flex; gap: .15rem; justify-content: center; }
+  .sitovDesktopNav a { display: flex; min-height: 46px; align-items: center; border-radius: 99px; padding-inline: .85rem; color: var(--muted); font-size: .8rem; font-weight: 650; white-space: nowrap; transition: color .2s ease, background .2s ease; }
+  .sitovDesktopNav span { position: relative; }
+  .sitovDesktopNav span::after { content: ''; position: absolute; inset-inline: 0; bottom: -.35rem; height: 2px; border-radius: 99px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform .3s cubic-bezier(.22, 1, .36, 1); }
+  .sitovControls { grid-column: 3; }
+  .sitovPrimaryActions { grid-column: 4; gap: .55rem; }
+  .sitovLanguageCode { display: none; }
+  .sitovLanguageName { display: inline; }
+  .sitovHeader .sitovLearning { display: inline-flex; min-height: 46px; height: 46px; padding: .6rem 1rem; gap: .55rem; font-size: .8rem; border-color: color-mix(in srgb, var(--border) 55%, transparent); background: transparent; }
+  .sitovHeader .sitovMenuToggle, .sitovMobileMenu { display: none; }
+}
+
+@media (hover: hover) {
+  .sitovLanguageTrigger:hover { border-color: var(--accent); background: var(--surface); }
+  .sitovLanguageOption:hover { background: var(--surface-muted); }
+  .sitovLanguageOption[aria-checked='true']:hover { background: var(--accent-soft); }
+  .sitovHeader .sitovMenuToggle:hover { background: var(--surface); }
+  .sitovDesktopNav a:hover { color: var(--foreground); background: color-mix(in srgb, var(--surface) 70%, transparent); }
+  .sitovDesktopNav a:hover span::after { transform: scaleX(1); }
+  .sitovMenuLink:hover { color: var(--accent-text); }
+  .sitovHeader .sitovBooking:hover { background: var(--accent-strong-hover); }
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .sitovHeader:global(.academy-header) { background: var(--canvas); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sitovHeader, .sitovHeader *, .sitovHeader *::after { transition: none; }
+  .sitovReadingProgress { display: none; }
+}

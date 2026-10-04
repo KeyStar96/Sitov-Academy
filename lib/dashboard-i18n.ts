@@ -40,6 +40,8 @@ export const DASHBOARD_FALLBACKS = {
   nav_calendar: 'Kalender',
   nav_progress: 'Mein Fortschritt',
   nav_focus: 'Problemwörter',
+  nav_exam_preparation: 'Prüfungsvorbereitung',
+  nav_exam_simulation: 'Simulierte Prüfung',
   nav_back: 'Zurück',
   nav_back_aria: 'Eine Seite zurück',
   open_profile: 'Profil',
@@ -96,6 +98,8 @@ export const DASHBOARD_ROUTE_KEYS = {
   lessons: 'nav_lessons',
   progress: 'nav_progress',
   focus: 'nav_focus',
+  'exam-preparation': 'nav_exam_preparation',
+  'exam-simulation': 'nav_exam_simulation',
 } as const
 
 export type DashboardRouteSegment = keyof typeof DASHBOARD_ROUTE_KEYS

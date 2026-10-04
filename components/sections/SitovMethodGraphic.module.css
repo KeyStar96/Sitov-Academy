@@ -1,0 +1,23 @@
+.graphic { width: clamp(90px, 36%, 144px); height: 58px; overflow: visible; }
+.track { stroke: color-mix(in srgb, var(--violet) 22%, transparent); stroke-width: 1.2; }
+.signal {
+  stroke: var(--accent-text);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 13 87;
+  stroke-dashoffset: 15;
+  animation: sitov-signal-travel 7s cubic-bezier(.4, 0, .2, 1) infinite;
+  animation-play-state: var(--sitov-motion-play-state, paused);
+}
+.loop { animation-duration: 8s; }
+.nodes { fill: var(--surface); stroke: var(--violet); stroke-width: 1.5; }
+.context { stroke: color-mix(in srgb, var(--violet) 60%, transparent); stroke-linecap: round; stroke-width: 2; }
+@keyframes sitov-signal-travel {
+  0%, 12% { stroke-dashoffset: 15; opacity: 0; }
+  20% { opacity: 1; }
+  70% { stroke-dashoffset: -100; opacity: 1; }
+  78%, 100% { stroke-dashoffset: -100; opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .signal { animation: none; stroke-dashoffset: -35; }
+}

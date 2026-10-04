@@ -1,0 +1,38 @@
+.home {
+  position: relative;
+  isolation: isolate;
+}
+
+.home :global(.academy-method-card) {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(145deg, var(--surface), color-mix(in srgb, var(--violet) 3%, var(--surface)));
+}
+
+.home :global(.academy-method-meta) {
+  position: relative;
+  min-height: 3.4rem;
+  gap: .75rem;
+  margin-bottom: 1.1rem;
+}
+
+.home :global(.academy-method-meta) > svg { flex-shrink: 0; }
+.home :global(.academy-method-meta) > span { flex-shrink: 0; }
+
+.home :global(.academy-hero-actions .academy-button) { position: relative; }
+
+@media (hover: hover) and (pointer: fine) {
+  .home :global(.academy-hero-actions .academy-button:hover) > svg {
+    transform: translate(2px, -1px);
+  }
+  .home :global(.academy-hero-actions .academy-button) > svg {
+    transition: transform .3s cubic-bezier(.22, 1, .36, 1);
+  }
+  .home :global(.academy-method-card:hover) {
+    border-color: color-mix(in srgb, var(--violet) 40%, var(--border));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home :global(.academy-hero-actions .academy-button) > svg { transition: none; transform: none; }
+}

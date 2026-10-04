@@ -20,6 +20,7 @@ export interface NeuralGeometry {
   nodes: BufferGeometry
   fibers: BufferGeometry
   pathways: BufferGeometry[]
+  flarePaths: BufferGeometry[]
   stats: { nodeCount: number; edgeCount: number; pathwayCount: number }
 }
 
@@ -80,6 +81,7 @@ function createCorticalSheet(): BufferGeometry {
   const latitudes = 112
   const longitudes = 160
   const positions: number[] = []
+  const relief: number[] = []
   const indices: number[] = []
   for (const hemisphere of [-1, 1] as const) {
     const offset = positions.length / 3
@@ -87,7 +89,9 @@ function createCorticalSheet(): BufferGeometry {
       const latitude = -Math.PI / 2 + Math.PI * row / latitudes
       for (let column = 0; column <= longitudes; column++) {
         const longitude = -Math.PI / 2 + Math.PI * column / longitudes
-        sampleCortex(hemisphere, latitude, longitude).point.toArray(positions, positions.length)
+        const sampled = sampleCortex(hemisphere, latitude, longitude)
+        sampled.point.toArray(positions, positions.length)
+        relief.push(sampled.sulcus)
         if (row === latitudes || column === longitudes) continue
         const a = offset + row * (longitudes + 1) + column
         const b = a + longitudes + 1
@@ -98,6 +102,7 @@ function createCorticalSheet(): BufferGeometry {
   }
   const geometry = new BufferGeometry()
   geometry.setAttribute('position', new BufferAttribute(new Float32Array(positions), 3))
+  geometry.setAttribute('aRelief', new BufferAttribute(new Float32Array(relief), 1))
   geometry.setIndex(indices)
   geometry.computeVertexNormals()
   return finishGeometry(geometry)
@@ -372,10 +377,10 @@ export function createNeuralGeometry(): NeuralGeometry {
   }
 
   const routeTargets: readonly (readonly [Point3, Point3])[] = [
-    [[-.22, .72, .25], [-.75, -.35, .31]],
-    [[.78, .31, .29], [.24, -.61, .31]],
-    [[-.82, -.06, .36], [-.23, .56, .46]],
-    [[.24, .66, .37], [.86, -.16, .29]],
+    [[-.31, .5, -.72], [-.75, -.35, .31]],
+    [[.7, .23, -.64], [.24, -.61, .31]],
+    [[-.82, -.06, .36], [-.23, .54, -.72]],
+    [[.24, .52, -.76], [.86, -.16, .29]],
     [[-.22, -.59, .32], [-.67, .43, .35]],
     [[.84, -.2, .32], [.3, .51, .48]],
     [[-.87, .23, .21], [-.26, -.41, .52]],
@@ -390,6 +395,7 @@ export function createNeuralGeometry(): NeuralGeometry {
     [[.61, -.43, .35], [-.65, .37, .39]],
   ]
   const pathways: BufferGeometry[] = []
+  const flarePaths: BufferGeometry[] = []
   for (const [from, to] of routeTargets) {
     const route = findRoute(nearest(from, Math.sign(from[0]), true), nearest(to, Math.sign(to[0]), true), neurons, neighbors)
     if (route.length < 3) continue
@@ -400,7 +406,15 @@ export function createNeuralGeometry(): NeuralGeometry {
     const points = curve.getSpacedPoints(PATH_SAMPLES - 1)
     const seed = random()
     for (let index = 1; index < points.length; index++) addFiber(points[index - 1], points[index], seed, .65)
-    pathways.push(createPathway(points))
+    const pathway = createPathway(points)
+    pathways.push(pathway)
+    // The unindexed companion draws each bloom sample once. Reusing the ribbon's
+    // triangle index for points would stack six sprites at every leading neuron.
+    const flares = new BufferGeometry()
+    for (const attribute of ['position', 'aAlong', 'aSide']) {
+      flares.setAttribute(attribute, pathway.getAttribute(attribute))
+    }
+    flarePaths.push(finishGeometry(flares))
   }
 
   const nodes = new BufferGeometry()
@@ -413,7 +427,7 @@ export function createNeuralGeometry(): NeuralGeometry {
   fibers.setAttribute('aDensity', new BufferAttribute(new Float32Array(fiberDensities), 1))
 
   return {
-    cortex: createCorticalSheet(), nodes: finishGeometry(nodes), fibers: finishGeometry(fibers), pathways,
+    cortex: createCorticalSheet(), nodes: finishGeometry(nodes), fibers: finishGeometry(fibers), pathways, flarePaths,
     stats: { nodeCount: neurons.length, edgeCount: connections.length, pathwayCount: pathways.length },
   }
 }

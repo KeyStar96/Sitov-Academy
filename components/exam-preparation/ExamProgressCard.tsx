@@ -1,6 +1,6 @@
 import { ArrowUpRight } from 'lucide-react'
 import PressableCard from '@/components/motion/PressableCard'
-import { EXAM_SKILL_LABELS, examProfile } from '@/lib/exam-preparation/profiles'
+import { EXAM_SKILL_LABELS } from '@/lib/exam-preparation/profiles'
 import { getExamProgress, isExamTaskCompleted, isExamTaskIndependent } from '@/lib/exam-preparation/progression'
 import type { ExamModule, ExamState } from '@/lib/exam-preparation/types'
 import styles from './ExamTrainer.module.css'
@@ -12,7 +12,7 @@ export default function ExamProgressCard({lang,state,modules,workshops=[]}: {lan
   const publishedUnits=[...modules,...workshops].flatMap(m=>m.units).filter(u=>u.releaseStatus==='published').length
   return <section className={styles.panel} aria-labelledby="sitov-exam-progress-heading">
     <div className={styles.row}><h2 id="sitov-exam-progress-heading">B1-Prüfungsvorbereitung</h2><span className={styles.badge}>Globales B1-Training · Pilot</span></div>
-    <p className={`${styles.muted} mb-4`}>{examProfile(state.profileId).title}. Gesamtstand über alle Lerntage · {Math.round(progress.seconds/60)} Minuten dokumentierte Lernzeit. Bearbeitung und selbstständige Leistung sind getrennte Werte.</p>
+    <p className={`${styles.muted} mb-4`}>Gesamtstand über alle Lerntage · {Math.round(progress.seconds/60)} Minuten dokumentierte Lernzeit. Bearbeitung und selbstständige Leistung sind getrennte Werte.</p>
     {!state.available&&<p className={styles.warning} role="status">{state.error??'Der Prüfungsfortschritt konnte noch nicht geladen werden.'}</p>}
     <div className={styles.stats}>
       <div className={styles.stat}><strong>{progress.completedUnits}/{publishedUnits}</strong><span>Verfügbare Einheiten bearbeitet</span></div>

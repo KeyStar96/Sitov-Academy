@@ -105,7 +105,12 @@ export async function deleteExamSubmission(input:{submissionId:string}):Promise<
  for(const path of [row.media_path,row.photo_path].filter((p):p is string=>!!p)){
   const {count,error:referenceError}=await admin.from('sitov_exam_submissions').select('id',{count:'exact',head:true}).neq('id',row.id).or(`media_path.eq.${path},photo_path.eq.${path}`)
   if(referenceError)throw new Error('Die Datei konnte nicht sicher zur Löschung geprüft werden.')
-  if(count===0){
+  const simulationRuns=await allExamRows((from,to)=>admin.from('sitov_simulation_runs').select('server_snapshot').eq('student_id',actor.userId).order('id').range(from,to))
+  const referencedInSimulation=simulationRuns.some(run=>{
+   const snapshot=run.server_snapshot as {answers?:Record<string,unknown>}
+   return Object.values(snapshot.answers??{}).some(answer=>typeof answer==='object'&&answer!==null&&!Array.isArray(answer)&&'audioPath' in answer&&answer.audioPath===path)
+  })
+  if(count===0&&!referencedInSimulation){
    // Fence any still-valid signed upload URL before removing its immutable object.
    const ticket=await admin.from('sitov_exam_upload_tickets').delete().eq('path',path).eq('student_id',actor.userId)
    if(ticket.error)throw new Error('Die Datei konnte nicht für die Löschung gesperrt werden.')

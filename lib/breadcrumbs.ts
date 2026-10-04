@@ -5,7 +5,7 @@ import {
 } from '@/lib/dashboard-i18n'
 
 export type CrumbKind = 'home' | 'level' | 'vocabulary' | 'path' | 'pronunciation' | 'media'
-  | 'verbs' | 'lessons' | 'calendar' | 'profile' | 'page'
+  | 'verbs' | 'lessons' | 'calendar' | 'profile' | 'exam' | 'page'
 
 export interface Crumb {
   name: string
@@ -17,6 +17,7 @@ const KINDS: Partial<Record<string, CrumbKind>> = {
   dashboard: 'home', vocabulary: 'vocabulary', exercises: 'path', path: 'path',
   pronunciation: 'pronunciation', videos: 'media', media: 'media', lessons: 'lessons',
   verbs: 'verbs', calendar: 'calendar', profile: 'profile', focus: 'vocabulary',
+  'exam-preparation': 'exam', 'exam-simulation': 'exam',
 }
 
 /**

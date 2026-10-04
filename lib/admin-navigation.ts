@@ -16,6 +16,7 @@ export type AdminNavIcon =
   | 'newStudents'
   | 'students'
   | 'corrections'
+  | 'examSimulation'
   | 'analytics'
   | 'courses'
   | 'cancellations'
@@ -35,7 +36,7 @@ export type AdminNavIcon =
 export type AdminNavBadge = 'newStudents' | 'corrections'
 export type AdminNavCounts = Partial<Record<AdminNavBadge, number | null>>
 
-export type AdminSectionId = 'overview' | 'students' | 'courses' | 'content' | 'administration'
+export type AdminSectionId = 'overview' | 'students' | 'exams' | 'courses' | 'content' | 'administration'
 
 export interface AdminNavItem {
   /** i18n-Schlüssel aus dem `admin`-Dictionary. */
@@ -76,6 +77,11 @@ export function buildAdminNav(lang: string): AdminNavSection[] {
         { labelKey: 'nav_corrections', href: `${base}/submissions`, icon: 'corrections', badge: 'corrections' },
         { labelKey: 'nav_analytics', href: `${base}/analytics`, icon: 'analytics' },
       ],
+    },
+    {
+      id: 'exams',
+      labelKey: 'group_exams',
+      items: [{ labelKey: 'nav_exam_simulation', href: `${base}/exam-simulation`, icon: 'examSimulation' }],
     },
     {
       id: 'courses',

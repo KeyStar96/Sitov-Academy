@@ -1,0 +1,194 @@
+.sitovShell {
+  position: relative;
+  isolation: isolate;
+  min-height: 100dvh;
+  padding: calc(env(safe-area-inset-top, 0px) + 1rem) 1rem calc(env(safe-area-inset-bottom, 0px) + 1.5rem);
+  color: var(--foreground);
+  background: var(--canvas);
+  overflow: clip;
+}
+
+.sitovAtmosphere {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 8% 8%, color-mix(in srgb, var(--violet) 9%, transparent), transparent 46%),
+    radial-gradient(ellipse at 93% 72%, color-mix(in srgb, var(--accent) 6%, transparent), transparent 40%);
+}
+
+.sitovHeader {
+  position: relative;
+  z-index: 30;
+  display: flex;
+  width: min(100%, 1200px);
+  min-width: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: .7rem;
+  margin-inline: auto;
+}
+
+.sitovBrand { display: inline-flex; min-height: 48px; min-width: 0; align-items: center; border-radius: .75rem; }
+.sitovBrand :global(.academy-logo) { gap: .5rem; }
+.sitovBrand :global(.academy-logo-mark) { width: 32px; height: 32px; border-radius: 9px; }
+.sitovBrand :global(.academy-logo-name) { font-size: .94rem; }
+.sitovBrand :global(.academy-logo-descriptor) { font-size: .65rem; }
+.sitovHeaderActions { display: flex; flex-shrink: 0; align-items: center; gap: .4rem; }
+.sitovHome {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  gap: .6rem;
+  border: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+  border-radius: 99px;
+  background: color-mix(in srgb, var(--surface) 70%, transparent);
+  font-size: .8rem;
+  font-weight: 650;
+  transition: background .2s ease, border-color .2s ease;
+}
+.sitovHome span { display: none; }
+
+.sitovLayout {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  width: min(100%, 1200px);
+  min-width: 0;
+  align-items: center;
+  gap: 1.1rem;
+  margin: 1.6rem auto 0;
+}
+
+.sitovFormStage, .sitovGraphicStage { min-width: 0; --sitov-motion-play-state: paused; }
+.sitovFormStage { grid-row: 2; }
+.sitovGraphicStage { grid-row: 1; margin-block: -.6rem -.7rem; }
+.sitovFormStage[data-sitov-live='true'], .sitovGraphicStage[data-sitov-live='true'] { --sitov-motion-play-state: running; }
+.sitovCard {
+  position: relative;
+  isolation: isolate;
+  min-width: 0;
+  overflow: hidden;
+  padding: 1.25rem;
+  border: 1px solid color-mix(in srgb, var(--border) 85%, transparent);
+  border-radius: 1.75rem;
+  background: var(--surface);
+  box-shadow: var(--shadow-lg), 0 16px 70px -45px color-mix(in srgb, var(--violet) 35%, transparent);
+}
+.sitovCard::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(380px circle at var(--sitov-light-x, 65%) var(--sitov-light-y, 25%), color-mix(in srgb, var(--violet) 6%, transparent), transparent 70%);
+  transition: opacity .35s ease;
+}
+.sitovCard[data-sitov-pointer='true']::before { opacity: 1; }
+.sitovCardBeam {
+  position: absolute;
+  top: 0;
+  inset-inline: 0;
+  height: 2px;
+  overflow: hidden;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--violet) 50%, transparent), color-mix(in srgb, var(--accent) 55%, transparent), transparent);
+}
+.sitovCardBeam::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 20%, var(--violet) 45%, #ffe0b5 50%, var(--accent) 55%, transparent 80%);
+  animation: sitov-card-light 10s cubic-bezier(.45, 0, .55, 1) infinite;
+  animation-play-state: var(--sitov-motion-play-state, paused);
+  transform: translateX(-100%);
+}
+.sitovCardHeading { margin-bottom: 1.4rem; }
+.sitovEyebrow { display: flex; align-items: center; gap: .5rem; color: var(--violet); font-size: .67rem; font-weight: 750; line-height: 1.6; letter-spacing: .12em; text-transform: uppercase; }
+.sitovEyebrow svg { flex-shrink: 0; }
+.sitovCardHeading h1 { margin-top: .5rem; font-size: clamp(1.65rem, 6.5vw, 2.1rem); font-weight: 700; letter-spacing: -.045em; line-height: 1.2; overflow-wrap: anywhere; }
+.sitovDescription { margin-top: .75rem; color: var(--muted); font-size: .9rem; line-height: 1.75; }
+.sitovDescription a { display: inline; }
+.sitovFormContent { display: grid; gap: 1.1rem; }
+.sitovFormContent :global(form) { display: grid; gap: 1.2rem; }
+.sitovFormContent :global(form.space-y-6) > :global(:not([hidden])) { margin-top: 0; }
+.sitovFormContent :global(input:not([type='hidden'])), .sitovFormContent :global(select) {
+  min-height: 56px;
+  border-radius: 1rem;
+  border-width: 1.5px;
+  background: color-mix(in srgb, var(--canvas) 38%, var(--surface));
+  transition: border-color .2s ease, background .2s ease, box-shadow .2s ease;
+}
+.sitovFormContent :global(input:not([type='hidden']):focus), .sitovFormContent :global(select:focus) {
+  border-color: var(--violet);
+  background: var(--surface);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--violet) 8%, transparent);
+}
+.sitovFormContent :global(button[type='submit']) { position: relative; overflow: hidden; min-height: 56px; border-radius: 1rem; font-size: 1.1rem; transition: background .2s ease, box-shadow .25s ease, transform .2s ease; }
+.sitovFormContent :global(button[type='submit'])::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(105deg, transparent 25%, rgb(255 255 255 / .16) 48%, transparent 72%); transform: translateX(-110%); transition: transform .65s cubic-bezier(.22, 1, .36, 1); }
+.sitovFormContent :global(button[type='submit']:active) { transform: scale(.985); }
+.sitovFormContent :global(button[type='submit']:focus-visible)::after { transform: translateX(110%); }
+.sitovSecurity { display: flex; align-items: start; gap: .65rem; margin-top: 1.5rem; padding-top: 1.1rem; border-top: 1px solid var(--border); color: var(--muted); font-size: .75rem; line-height: 1.7; }
+.sitovSecurity svg { flex-shrink: 0; margin-top: .1rem; color: var(--violet); }
+
+.sitovWelcome { display: contents; }
+.sitovWelcomeCopy { grid-row: 3; max-width: 33rem; padding: 1rem .5rem 0; }
+.sitovWelcome h2 { margin-top: .8rem; font-size: clamp(1.75rem, 5.5vw, 4rem); font-weight: 650; line-height: 1.1; letter-spacing: -.055em; overflow-wrap: anywhere; }
+.sitovIntro { max-width: 29rem; margin-top: 1rem; color: var(--muted); font-size: 1rem; line-height: 1.8; }
+.sitovStatusDot { display: block; width: 6px; height: 6px; flex-shrink: 0; border-radius: 50%; background: var(--accent); }
+.sitovHint { padding: .9rem 1rem; border: 1px solid color-mix(in srgb, var(--border) 30%, transparent); border-radius: 1rem; background: color-mix(in srgb, var(--canvas) 65%, var(--surface)); color: var(--muted); font-size: .8rem; line-height: 1.75; }
+.sitovRecovery { padding-top: .2rem; }
+.sitovRecovery a { display: inline-flex; align-items: center; min-height: 44px; font-size: 1rem; }
+
+@media (min-width: 520px) {
+  .sitovShell { padding-inline: 1.5rem; }
+  .sitovBrand :global(.academy-logo-mark) { width: 40px; height: 40px; border-radius: 11px; }
+  .sitovBrand :global(.academy-logo-name) { font-size: 1.1rem; }
+  .sitovBrand :global(.academy-logo-descriptor) { font-size: .75rem; }
+  .sitovHeaderActions { gap: .7rem; }
+  .sitovHome { padding-inline: 1rem; }
+  .sitovHome span { display: inline; }
+  .sitovCard { padding: 1.75rem; }
+  .sitovLayout { max-width: 36rem; margin-top: 2rem; }
+}
+
+@media (min-width: 1024px) {
+  .sitovShell { padding: calc(env(safe-area-inset-top, 0px) + 1.5rem) 2rem 2.5rem; }
+  .sitovLayout { max-width: 1200px; grid-template-columns: minmax(0, 1fr) minmax(0, .95fr); gap: clamp(2rem, 5vw, 5.5rem); margin-top: clamp(2rem, 5vh, 4rem); }
+  .sitovFormStage { grid-column: 2; grid-row: 1; }
+  .sitovWelcome { display: flex; grid-column: 1; grid-row: 1; flex-direction: column; min-width: 0; gap: 1rem; padding: 0; }
+  .sitovWelcomeCopy { padding: 0; }
+  .sitovGraphicStage { grid-row: auto; margin: 0; }
+  .sitovWelcome h2 { font-size: clamp(2.75rem, 4.5vw, 4rem); }
+  .sitovIntro { font-size: 1.05rem; }
+  .sitovCard { padding: 2rem; border-radius: 2rem; }
+  .sitovCardHeading { margin-bottom: 1.75rem; }
+  .sitovDescription { font-size: .95rem; }
+  .sitovSecurity { font-size: .8rem; }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .sitovHome:hover { border-color: var(--violet); background: var(--surface); }
+  .sitovFormContent :global(button[type='submit']:hover) { box-shadow: 0 6px 22px -10px var(--accent); }
+  .sitovFormContent :global(button[type='submit']:hover)::after { transform: translateX(110%); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .sitovCard { animation: sitov-login-enter .75s cubic-bezier(.22, 1, .36, 1); }
+  .sitovWelcomeCopy { animation: sitov-login-enter .95s cubic-bezier(.22, 1, .36, 1); }
+}
+@keyframes sitov-login-enter { from { opacity: .55; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes sitov-card-light { 0%, 20% { transform: translateX(-100%); } 70%, 100% { transform: translateX(100%); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .sitovShell *, .sitovShell *::before, .sitovShell *::after { animation: none !important; transition: none !important; }
+  .sitovFormContent :global(button[type='submit']:active) { transform: none; }
+}
+@media (forced-colors: active) {
+  .sitovAtmosphere, .sitovCardBeam { display: none; }
+  .sitovCard, .sitovHome { border-color: CanvasText; }
+}

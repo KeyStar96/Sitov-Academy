@@ -18,13 +18,23 @@ function fixture(checkpoint=false){
  return {unit,module:courseModule}
 }
 beforeEach(()=>{jest.clearAllMocks();window.scrollTo=jest.fn();Object.defineProperty(globalThis.crypto,'randomUUID',{configurable:true,value:()=> '00000000-0000-4000-8000-000000000001'})})
-it('offers global levels, only B1 is active, and does not offer task translations',()=>{
- const {module}=fixture();render(<ExamTrainer lang="ru" initial={empty} modules={[module]} workshops={[]} boxLevel="B1.1" />)
- expect(screen.getByRole('button',{name:/A1 Prüfung/})).toBeDisabled();expect(screen.getByRole('button',{name:/A2 Prüfung/})).toBeDisabled()
- fireEvent.click(screen.getByRole('button',{name:/B1 Prüfung/}))
- expect(screen.getByLabelText('Meine Zielprüfung')).toHaveValue('general_b1')
- expect(screen.getByRole('button',{name:'Mein Lernweg'})).toBeInTheDocument()
+it('opens B1 preparation immediately with three clear areas and no task translations',()=>{
+ const {module}=fixture();const view=render(<ExamTrainer lang="ru" initial={empty} modules={[module]} workshops={[]} boxLevel="B1.1" />)
+ expect(screen.getByRole('heading',{name:'Prüfungsvorbereitung'})).toBeInTheDocument()
+ expect(screen.queryByLabelText('Meine Zielprüfung')).not.toBeInTheDocument()
+ expect(screen.getByRole('button',{name:'Lernen'})).toBeInTheDocument()
+ expect(screen.getByRole('button',{name:'Meine Beiträge'})).toBeInTheDocument()
+ expect(screen.getByRole('button',{name:'Fortschritt'})).toBeInTheDocument()
+ expect(screen.queryByRole('button',{name:'Prüfung üben'})).not.toBeInTheDocument()
+ expect(screen.getByRole('link',{name:'Zur simulierten Prüfung'})).toHaveAttribute('href','/ru/dashboard/exam-simulation?level=B1')
+ fireEvent.click(screen.getByRole('button',{name:'Eine Fertigkeit üben'}))
+ expect(screen.getByRole('heading',{name:'Was möchtest du üben?'})).toBeInTheDocument()
+ fireEvent.click(screen.getByRole('button',{name:'Zurück zum Lernen'}))
+ expect(screen.getByRole('heading',{name:'Dein nächster Schritt'})).toBeInTheDocument()
  expect(screen.queryByRole('button',{name:/übersetzen|translate/i})).not.toBeInTheDocument()
+ view.rerender(<ExamTrainer preview lang="ru" initial={empty} modules={[module]} workshops={[]} boxLevel="B1.1" />)
+ expect(screen.getByRole('link',{name:'Zur simulierten Prüfung'})).toHaveAttribute('href','/ru/sitov-preview/exam-simulation?level=B1')
+ expect(screen.getByRole('status')).toHaveTextContent('Vorschau · Eingaben werden nicht gespeichert.')
 })
 it('stores an answer before completion and counts feedback only after the explicit read action',async()=>{
  const {module,unit}=fixture(),t=unit.tasks[0],attempt={...receipt(t),mode:'practice' as const,correct:true}
@@ -63,11 +73,14 @@ it('resumes the same incomplete checkpoint variant, hides help and feedback, and
  expect(await screen.findByText('10/10 geschlossene Antworten richtig')).toBeInTheDocument()
  expect(markExamFeedbackViewed).not.toHaveBeenCalled()
 })
-it('keeps common attempts when changing the exam profile',async()=>{
- const {module}=fixture(),old=receipt(module.units[0].tasks[0]);jest.mocked(saveExamProfile).mockResolvedValue({success:true,state:{...empty,profileId:'goethe_b1',attempts:[old]}})
- render(<ExamTrainer lang="de" initial={{...empty,attempts:[old]}} modules={[module]} workshops={[]} boxLevel="B1.1" initialLevel="B1"/>)
- fireEvent.change(screen.getByLabelText('Meine Zielprüfung'),{target:{value:'goethe_b1'}})
- await waitFor(()=>expect(saveExamProfile).toHaveBeenCalledWith({profileId:'goethe_b1'}));await waitFor(()=>expect(screen.getByLabelText('Meine Zielprüfung')).toHaveValue('goethe_b1'))
+it('retains common attempts and an existing preference without offering a provider picker',()=>{
+ const {module}=fixture(),old={...receipt(module.units[0].tasks[0]),mode:'practice' as const,correct:true,feedbackViewed:true}
+ render(<ExamTrainer lang="de" initial={{...empty,profileId:'goethe_b1',attempts:[old]}} modules={[module]} workshops={[]} boxLevel="B1.1" initialLevel="B1"/>)
+ expect(screen.queryByLabelText('Meine Zielprüfung')).not.toBeInTheDocument()
+ expect(saveExamProfile).not.toHaveBeenCalled()
+ fireEvent.click(screen.getByRole('button',{name:'Fortschritt'}))
+ expect(screen.getByText('Aufgaben mit Rückmeldung').previousElementSibling).toHaveTextContent('1')
+ expect(screen.queryByText(/Goethe-Zertifikat/)).not.toBeInTheDocument()
 })
 it('blocks grading after an audio failure and preserves the selected answer for recovery',()=>{
  const {module}=fixture();module.units[0].tasks[0].audio={id:'sitov-audio-test',script:'',status:'prepared',route:'qwen',roles:['Männlicher Sprecher'],notes:'',src:'/prepared.mp3'}

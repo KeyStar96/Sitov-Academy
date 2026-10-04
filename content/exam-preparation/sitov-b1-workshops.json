@@ -56,7 +56,7 @@
             "evidence": "Blatt auf dem Tisch",
             "image": {
               "id": "sitov-exam-contacts-v1",
-              "src": "/Bilder/exam-preparation/sitov-contacts.svg",
+              "src": "/Bilder/exam-preparation/sitov-contacts-photo-v2.webp",
               "alt": "Zwei erwachsene Männer stehen an einem Tisch mit einem Blatt. Einer hebt eine Hand; im Raum sind ein Fenster und ein Aushang.",
               "status": "prepared"
             }
@@ -88,7 +88,7 @@
             ],
             "image": {
               "id": "sitov-exam-contacts-v1",
-              "src": "/Bilder/exam-preparation/sitov-contacts.svg",
+              "src": "/Bilder/exam-preparation/sitov-contacts-photo-v2.webp",
               "alt": "Zwei erwachsene Männer stehen an einem Tisch mit einem Blatt. Einer hebt eine Hand; im Raum sind ein Fenster und ein Aushang.",
               "status": "prepared"
             }
@@ -127,7 +127,7 @@
             ],
             "image": {
               "id": "sitov-exam-contacts-v1",
-              "src": "/Bilder/exam-preparation/sitov-contacts.svg",
+              "src": "/Bilder/exam-preparation/sitov-contacts-photo-v2.webp",
               "alt": "Zwei erwachsene Männer stehen an einem Tisch mit einem Blatt. Einer hebt eine Hand; im Raum sind ein Fenster und ein Aushang.",
               "status": "prepared"
             }
@@ -213,7 +213,7 @@
             ],
             "image": {
               "id": "sitov-exam-repair-v1",
-              "src": "/Bilder/exam-preparation/sitov-repair.svg",
+              "src": "/Bilder/exam-preparation/sitov-repair-photo-v2.webp",
               "alt": "Zwei erwachsene Männer prüfen an einem Tisch eine Tischlampe und Werkzeug.",
               "status": "prepared"
             }
@@ -253,7 +253,7 @@
             ],
             "image": {
               "id": "sitov-exam-repair-v1",
-              "src": "/Bilder/exam-preparation/sitov-repair.svg",
+              "src": "/Bilder/exam-preparation/sitov-repair-photo-v2.webp",
               "alt": "Zwei erwachsene Männer prüfen an einem Tisch eine Tischlampe und Werkzeug.",
               "status": "prepared"
             }
@@ -378,7 +378,7 @@
             ],
             "image": {
               "id": "sitov-exam-neighbourhood-v1",
-              "src": "/Bilder/exam-preparation/sitov-neighbourhood.svg",
+              "src": "/Bilder/exam-preparation/sitov-neighbourhood-photo-v2.webp",
               "alt": "Zwei erwachsene Männer sprechen im Hausflur neben einem Aushang miteinander.",
               "status": "prepared"
             }
@@ -437,7 +437,7 @@
             "evidence": "schaut auf einen Fahrplan",
             "image": {
               "id": "sitov-exam-mobility-v1",
-              "src": "/Bilder/exam-preparation/sitov-mobility.svg",
+              "src": "/Bilder/exam-preparation/sitov-mobility-photo-v2.webp",
               "alt": "Zwei erwachsene Männer prüfen an einer Haltestelle einen Fahrplan.",
               "status": "prepared"
             },
@@ -511,7 +511,7 @@
             ],
             "image": {
               "id": "sitov-exam-mobility-v1",
-              "src": "/Bilder/exam-preparation/sitov-mobility.svg",
+              "src": "/Bilder/exam-preparation/sitov-mobility-photo-v2.webp",
               "alt": "Zwei erwachsene Männer prüfen an einer Haltestelle einen Fahrplan.",
               "status": "prepared"
             }
@@ -560,7 +560,7 @@
             ],
             "image": {
               "id": "sitov-exam-shopping-v1",
-              "src": "/Bilder/exam-preparation/sitov-shopping.svg",
+              "src": "/Bilder/exam-preparation/sitov-shopping-photo-v2.webp",
               "alt": "Zwei erwachsene Männer vergleichen im Geschäft ein Haushaltsgerät und ein Angebot.",
               "status": "prepared"
             }
@@ -666,7 +666,7 @@
             ],
             "image": {
               "id": "sitov-exam-learning-v1",
-              "src": "/Bilder/exam-preparation/sitov-learning.svg",
+              "src": "/Bilder/exam-preparation/sitov-learning-photo-v2.webp",
               "alt": "Zwei erwachsene Männer stehen an einem Tisch mit Unterlagen und einem Laptop.",
               "status": "prepared"
             }
@@ -732,7 +732,7 @@
             ],
             "image": {
               "id": "sitov-exam-learning-v1",
-              "src": "/Bilder/exam-preparation/sitov-learning.svg",
+              "src": "/Bilder/exam-preparation/sitov-learning-photo-v2.webp",
               "alt": "Zwei erwachsene Männer stehen an einem Tisch mit Unterlagen und einem Laptop.",
               "status": "prepared"
             }

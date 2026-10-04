@@ -1,0 +1,218 @@
+{
+  "fahrrad": {
+    "C1": [
+      "Ben muss nach der verzögerten Fahrradreparatur seinen Arbeitsweg planen und möchte wissen, wie verlässlich die neue Übergabezusage ist.",
+      "Für diese Planung schlägt Leon vor, künftig jede Zusage mit einer besonders langen Sicherheitsfrist zu versehen, damit Termine fast immer eingehalten werden.",
+      "Gegen diesen Sicherheitszuschlag wendet Jonas ein, dass Kunden dann unnötig lange ohne ihr eigenes Rad bleiben und eine gute Terminquote deshalb nicht unbedingt guten Service bedeutet.",
+      "Auf diesen Einwand reagiert Leon mit einem geänderten Vorschlag: Die Werkstatt nennt eine realistische Zeitspanne, erklärt deren Bedingungen und teilt Veränderungen rechtzeitig mit.",
+      "Diese Kombination aus realistischer Angabe und laufender Information akzeptiert Ben als Verbesserungsversuch; er erwartet eine brauchbare Planungshilfe, keine Garantie gegen sämtliche Lieferprobleme."
+    ],
+    "C2": [
+      "Die verspätete Fahrradübergabe zwingt Ben dazu, zwischen dem technischen Lieferproblem und der Qualität der zuvor gegebenen Zusage zu unterscheiden.",
+      "Um die Qualität solcher Zusagen künftig messbar zu machen, schlägt Leon die Quote der eingehaltenen Termine als zentrale Kennzahl vor.",
+      "Diese Kennzahl kritisiert Jonas, weil eine Werkstatt sie durch überlange Fristen verbessern könnte, ohne den Kunden einen besseren Service zu bieten.",
+      "Jonas' Kritik begegnet Leon mit einer Ergänzung: Neben der Terminquote sollen die Länge der genannten Fristen und die rechtzeitige Erklärung ihrer Bedingungen erfasst werden.",
+      "Diese ergänzten Angaben hält Ben für hilfreicher, warnt aber vor einer weiteren Verkürzung: Auch ein termingerecht angebotenes Ersatzrad nützt wenig, wenn es nicht für den tatsächlichen Arbeitsweg geeignet ist.",
+      "Um den von Ben beschriebenen Unterschied zwischen vorhandenem Angebot und praktischem Nutzen zu prüfen, möchte die Werkstatt Kunden gezielt nach ihren Handlungsmöglichkeiten während der Wartezeit fragen.",
+      "Aus dieser Prüfung soll ein begrenztes Urteil über die Unterstützung entstehen; es darf weder die ursprüngliche Kommunikationsschwäche nachträglich aufheben noch aus einer einzelnen gelungenen Hilfe ein uneingeschränkt positives Gesamturteil machen."
+    ]
+  },
+  "wohnung": {
+    "C1": [
+      "Amir interessiert sich wegen des kurzen Arbeitswegs für eine Wohnung, kennt aber den Umfang der zusätzlich anfallenden Heizkosten noch nicht.",
+      "Zur Klärung dieser Kostenfrage möchte Jonas ihm eine Aufstellung des bisherigen Durchschnittsverbrauchs geben und damit eine erste Vergleichsgrundlage schaffen.",
+      "An dieser Vergleichsgrundlage bemängelt Leon, dass sie wie eine sichere Vorhersage wirken könnte, obwohl Amirs späterer Verbrauch davon abweichen kann.",
+      "Um diese mögliche Fehlinterpretation zu verhindern, soll die Aufstellung bekannte feste Kosten von verbrauchsabhängigen Schätzungen trennen und deren Voraussetzungen erläutern.",
+      "Mit dieser Unterscheidung kann Amir den Lagevorteil gegen eine erkennbare Unsicherheit abwägen; eine günstige erste Einschätzung ersetzt für ihn nicht die eigene Entscheidung."
+    ],
+    "C2": [
+      "Die passende Lage macht die angebotene Wohnung für Amir attraktiv, lässt jedoch die noch ungeklärten Heizkosten nicht bedeutungslos werden.",
+      "Für die Abwägung dieses Vorteils gegen die laufenden Kosten empfiehlt Leon, jede eingesparte Pendelstunde in einen festen Geldbetrag umzurechnen.",
+      "Eine solche Umrechnung hält Amir für zu allgemein, weil freie Zeit, verlässliche Wege und persönliche Verpflichtungen für verschiedene Menschen einen unterschiedlichen Wert haben.",
+      "Als Reaktion auf diesen Einwand möchte Leon die Rechnung nur als Vergleichshilfe verwenden und ihren persönlichen Geltungsbereich ausdrücklich kennzeichnen.",
+      "Die so begrenzte Vergleichshilfe erscheint Jonas sinnvoll; er ergänzt, dass auch seine Nebenkostenaufstellung auf bisherigen Bedingungen beruht und keine künftige Verbrauchsgarantie darstellt.",
+      "Um diese beiden Grenzen angemessen zu berücksichtigen, will Amir die persönlichen Vorteile und die unsicheren laufenden Kosten getrennt dokumentieren und nach der Besichtigung erneut gegeneinander abwägen.",
+      "Aus dieser erneuten Abwägung soll eine tragbare Entscheidung hervorgehen; sie verlangt verständlich benannte Unsicherheit, ohne jede offene Einzelheit mit derselben Bedeutung zu belasten."
+    ]
+  },
+  "bibliothek": {
+    "C1": [
+      "Leon muss sein vorgemerktes Bibliotheksbuch zurückgeben, obwohl seine Lektüre noch nicht abgeschlossen ist.",
+      "Für die Fortsetzung dieser Lektüre bietet Jonas eine verfügbare digitale Ausgabe an, die mit dem bestehenden Bibliothekszugang genutzt werden kann.",
+      "Zu diesem Angebot gibt Amir zu bedenken, dass technische Verfügbarkeit allein noch keinen geeigneten eigenen Bildschirm und einen sicheren Umgang mit dem Zugang gewährleistet.",
+      "Auf diese Zugangsschwierigkeiten antwortet Jonas mit verständlichen Hinweisen und einem Unterstützungsangebot, statt die digitale Fassung als mühelosen Ersatz für jeden Leser darzustellen.",
+      "Mit dieser ergänzten Hilfe soll geprüft werden, ob die Lektüre tatsächlich fortgesetzt werden kann; Leons Rückgabepflicht bleibt dabei bestehen."
+    ],
+    "C2": [
+      "Die Vormerkung eines anderen Lesers begrenzt Leons Nutzung des gedruckten Buches und schützt zugleich den vorhersehbaren Zugang des Wartenden.",
+      "Um diese Zugangsregel mit Leons unvollendeter Lektüre zu vereinbaren, verweist Jonas auf eine sofort verfügbare digitale Ausgabe.",
+      "Den Verweis auf sofortige Verfügbarkeit problematisiert Leon, weil er technische Voraussetzungen ausblenden kann und dadurch eingeschränkten Zugang als persönliches Versagen erscheinen lässt.",
+      "Leons Einwand greift Jonas mit dem Vorschlag auf, die benötigten Geräte und Zugangsschritte ausdrücklich zu nennen und Unterstützung anzubieten.",
+      "Eine solche Unterstützung begrüßt Amir, warnt jedoch vor dem umgekehrten Schluss, digitale Nutzung sei grundsätzlich weniger angemessen als gedruckte Ausleihe; auch letztere setzt Wege, Öffnungszeiten und freie Exemplare voraus.",
+      "Um die von Amir verlangte ausgewogene Bewertung zu ermöglichen, sollen beide Medien danach geprüft werden, ob Leser ihren konkreten Lesezweck unter ihren tatsächlichen Bedingungen erreichen.",
+      "Diese zweckbezogene Prüfung behandelt das digitale Angebot als zusätzliche Handlungsmöglichkeit und die Rückgabe als Verteilungsregel; keine der beiden Funktionen wird dadurch zum vollständigen Ersatz für die andere."
+    ]
+  },
+  "arbeit": {
+    "C1": [
+      "Yusuf und Omar lösen einen privaten Terminkonflikt durch einen genehmigten Schichttausch, der ihre Wochenarbeitszeit unverändert lässt.",
+      "Um solche Tausche künftig übersichtlich zu behandeln, möchte der Chef eine Liste führen, wie häufig jeder Mitarbeiter eine andere Schicht übernimmt.",
+      "Dieser Häufigkeitsliste hält Yusuf entgegen, dass eine gleiche Zahl von Tauschen wegen unterschiedlicher Schichtbelastungen noch keine gerechte Verteilung beweist.",
+      "Aus Yusufs Einwand leitet Omar den Vorschlag ab, die Liste als Gesprächsanlass zu nutzen und schwierige Schichten sowie wiederkehrende Probleme im Grundplan zusätzlich zu betrachten.",
+      "Diese erweiterte Betrachtung soll freiwillige Hilfe anerkennen und organisatorische Schwächen sichtbar machen; sie begründet weder eine Pflicht zum nächsten Tausch noch eine Ausnahme von genehmigten Zusagen."
+    ],
+    "C2": [
+      "Der genehmigte Schichttausch verbindet Yusufs privates Anliegen mit der betrieblichen Pflicht, Zuständigkeiten und Arbeitszeit verlässlich zu organisieren.",
+      "Um diese Form der Flexibilität zu fördern, schlägt der Chef vor, besonders häufig einspringende Kollegen in einer Übersicht als Vorbilder hervorzuheben.",
+      "Die vorgeschlagene Vorbildrolle lehnt Omar ab, weil freiwilliges Entgegenkommen dadurch zu einer stillschweigenden Erwartung werden könnte, deren spätere Ablehnung als mangelnde Kollegialität gilt.",
+      "Omars Befürchtung begegnet der Chef mit einer geänderten Übersicht, die keine Personenrangfolge erstellt, sondern wiederkehrende Planungsprobleme zum Gespräch macht.",
+      "Diese problembezogene Übersicht hält Yusuf für sinnvoll, weist aber darauf hin, dass auch sie Belastungen und unterschiedliche persönliche Möglichkeiten erklären muss, statt bloße Fallzahlen als Ursachen auszugeben.",
+      "Um die von Yusuf benannten Erklärungen zu prüfen, sollen die Beteiligten konkrete Schichten und den Grundplan betrachten, ohne private Terminbegründungen allgemein zugänglich zu machen.",
+      "Die so begrenzte Auswertung dient der Organisation; sie erhält die freiwillige Zustimmung vor einer Zusage und die verbindliche Umsetzung nach deren Genehmigung als unterschiedliche, gleichermaßen notwendige Ebenen."
+    ]
+  },
+  "zug": {
+    "C1": [
+      "Paul kann nach einem Zugausfall mit seinem gültigen Ticket eine Ersatzverbindung nutzen, übernimmt dabei aber nicht seine bisherige Sitzplatzreservierung.",
+      "Für diese Ersatzlösung möchte Leon die Durchsage auf Abfahrtszeit und Gleis beschränken, damit Fahrgäste schnell handeln können.",
+      "Zu dieser Verkürzung merkt Paul an, dass Fahrgäste dann aus der gültigen Fahrkarte irrtümlich eine unveränderte Platzgarantie ableiten könnten.",
+      "Um diese falsche Erwartung zu vermeiden, soll Jonas die gesicherte Weiterfahrt und die nicht übertragene Reservierung ausdrücklich unterscheiden.",
+      "Mit dieser klaren Unterscheidung kann Paul seine Reise und die Nachricht an den Gastgeber anpassen, ohne aus der brauchbaren Ersatzverbindung eine vollständige Wiederherstellung aller Leistungen abzuleiten."
+    ],
+    "C2": [
+      "Nach dem Zugausfall muss Paul bekannte Reisealternativen nutzen und zugleich unterscheiden, welche Bestandteile seiner ursprünglichen Buchung weitergelten.",
+      "Zur schnellen Orientierung in dieser Situation empfiehlt Leon eine möglichst knappe Nachricht, die nur Abfahrtszeit und Gleis der Ersatzverbindung nennt.",
+      "Dieser knappen Nachricht widerspricht Paul, weil ihr Schweigen zur Reservierung eine weitergehende Leistungszusage nahelegen könnte, obwohl nur die Fahrkarte gültig bleibt.",
+      "Pauls Kritik beantwortet Jonas mit einer gestuften Mitteilung: zuerst die nutzbare Verbindung, zugleich deren wesentliche Grenze und später ausdrücklich gekennzeichnete neue Erkenntnisse.",
+      "Eine solche gestufte Mitteilung begrüßt Leon, weist jedoch darauf hin, dass verschiedene Kanäle widersprüchliche Zwischenstände verbreiten können und zusätzliche Nachrichten deshalb nicht automatisch helfen.",
+      "Um diese möglichen Widersprüche zu beurteilen, will Jonas prüfen, ob Stand, Zeitpunkt und Bezug jeder Aktualisierung erkennbar sind und Fahrgäste eine falsche Sitzplatzerwartung berichtigen können.",
+      "Diese Prüfung setzt sichtbaren Einstieg und vollständiges Verständnis nicht gleich: Paul kann im richtigen Zug sitzen und dennoch eine unzutreffende Erwartung an eine andere Leistung haben."
+    ]
+  },
+  "sport": {
+    "C1": [
+      "Erik möchte einen Kurs ohne langfristige Bindung kennenlernen, während der Sportverein seine begrenzten Probeplätze planen muss.",
+      "Für diese Planung verlangt Jonas eine vorherige Anmeldung, die lediglich den Platz in einer kostenlosen Probestunde sichern soll.",
+      "An dieser Anmeldung kritisiert Leon, dass sie wie eine verbindliche Entscheidung für den regulären Kurs wirken könnte.",
+      "Um diesen Eindruck zu korrigieren, soll das Formular ausdrücklich erklären, was reserviert wird und dass die spätere Kursentscheidung weiterhin bei Erik liegt.",
+      "Mit dieser Erklärung bleibt die Anmeldung eine organisatorische Voraussetzung der Erprobung; sie ersetzt weder Eriks Erfahrung noch seine Entscheidung nach dem Kennenlernen."
+    ],
+    "C2": [
+      "Die kostenlose Probestunde soll Erik eine informierte Kursentscheidung ermöglichen und dem Verein gleichzeitig eine verlässliche Planung begrenzter Plätze erlauben.",
+      "Zur Nutzung dieser Plätze schlägt Leon vor, die Anmeldung mit einem deutlichen Hinweis auf knappe Chancen zu verbinden, damit Interessenten schneller zusagen.",
+      "Den Hinweis als Entscheidungshilfe kritisiert Erik, weil die Begrenzung der Probeplätze dadurch Druck zu einer langfristigen Bindung erzeugen könnte.",
+      "Auf Eriks Kritik reagiert Jonas mit einer Trennung im Formular: Es sichert nur die Erprobungsmöglichkeit und erklärt, welche weitere Entscheidung bewusst offenbleibt.",
+      "Diese Trennung erkennt Leon an, erwartet aber weiterhin, dass die einzige Probestunde anschließend ein zuverlässiges Gesamturteil über den Kurs ermöglicht.",
+      "Um die Reichweite dieses Gesamturteils zu prüfen, möchte Erik konkrete Eindrücke, persönliche Ziele und organisatorische Passung vergleichen, statt allein eine Buchung als Zustimmung zu zählen.",
+      "Diese begrenzte Auswertung erhält den Wert der Probe, ohne Gewissheit zu versprechen; Anmeldung, Erfahrung und spätere persönliche Entscheidung erfüllen weiterhin unterschiedliche Funktionen."
+    ]
+  },
+  "ehrenamt": {
+    "C1": [
+      "Omar kann beim Nachbarschaftsfest verlässlich helfen, wenn sein Einsatz mit Einführung und Ablösung auf eine vereinbarte Schicht begrenzt bleibt.",
+      "Für kurzfristige Ausfälle möchte Jonas zusätzlich Ansprechpartner benennen, statt spontan auf längere Anwesenheit aller Helfer zu setzen.",
+      "Den zusätzlichen Ansprechpartnern hält Leon entgegen, dass ihre Planung Aufwand erzeuge und engagierte Helfer bei Bedarf ohnehin länger blieben.",
+      "Auf diesen Einwand antwortet Omar, dass spontane Hilfe anerkannt werden kann, aber nicht die fehlende Organisation einer zugesagten Ablösung ersetzen darf.",
+      "Diese Trennung von freiwilligem Entgegenkommen und organisatorischer Verantwortung soll in die Auswertung eingehen; die vereinbarte Schichtgrenze bleibt ein verlässlicher Rahmen."
+    ],
+    "C2": [
+      "Omars begrenzte Helferschicht ermöglicht freiwilliges Engagement, ohne berufliche und andere persönliche Verpflichtungen stillschweigend nachrangig zu behandeln.",
+      "Zur Würdigung dieses Engagements schlägt Leon vor, vor allem die Zahl geleisteter Stunden als Ausdruck persönlicher Einsatzbereitschaft zu vergleichen.",
+      "Dem Stundenvergleich widerspricht Omar, weil eine kurze, vorbereitete Schicht wirksamer sein kann als viele ungeplante Stunden und Zeitgrenzen keine geringe Überzeugung beweisen.",
+      "Omars Einwand nimmt Jonas auf, indem er zusätzlich Vorbereitung, geordnete Übergaben und nicht geplante Verlängerungen dokumentieren möchte.",
+      "Diese Dokumentation begrüßt Leon, warnt aber davor, freiwillige Verlängerungen zu tadeln, obwohl sie akute Probleme lösen und einen anerkennenswerten Beitrag leisten können.",
+      "Um die von Leon geforderte Anerkennung mit der Ursachenprüfung zu verbinden, sollen Entgegenkommen und die organisatorischen Gründe einer fehlenden Ablösung getrennt besprochen werden.",
+      "Die so getrennte Bewertung würdigt einzelne Helfer, ohne ihre zusätzliche Verfügbarkeit zur dauerhaften Voraussetzung des Festes zu erklären; Verlässlichkeit bleibt eine gegenseitige Verpflichtung."
+    ]
+  },
+  "amt": {
+    "C1": [
+      "Daniel hat einen Bürgerbürotermin online reserviert, muss den unterschriebenen Antrag und seinen Ausweis aber weiterhin selbst vorbereiten.",
+      "Zur Erklärung dieser verbleibenden Vorbereitung möchte Jonas die Terminbestätigung um eine ausführliche Checkliste ergänzen.",
+      "An der ausführlichen Checkliste bemängelt Leon, dass wichtige Unterlagen zwischen zahlreichen Ausnahmen schwer erkennbar werden könnten.",
+      "Um diese Unübersichtlichkeit zu vermeiden, soll die Bestätigung zuerst die unbedingt benötigten Unterlagen nennen und besondere Fälle anschließend erläutern.",
+      "Mit dieser gestuften Erklärung kann Daniel erkennen, welcher Schritt abgeschlossen ist und was noch zu tun bleibt; digitale Terminbuchung wird damit nicht mit vollständiger digitaler Bearbeitung gleichgesetzt."
+    ],
+    "C2": [
+      "Daniels digitale Terminbestätigung erleichtert den Zugang zum Bürgerbüro, erfüllt aber nicht die getrennte Voraussetzung eines vollständigen und unterschriebenen Antrags.",
+      "Um diese Grenze für Nutzer sichtbar zu machen, schlägt Jonas vor, in der Bestätigung sämtliche technischen Arbeitsschritte des Verfahrens ausführlich zu beschreiben.",
+      "Der technischen Beschreibung hält Daniel entgegen, dass interne Abläufe allein keine verständliche Antwort auf die Frage geben, welche Handlung er als Nächstes ausführen muss.",
+      "Daniels Einwand greift Jonas auf, indem er die Darstellung nach erledigtem Schritt, verbleibenden Unterlagen und konkreter Vorbereitung ordnen möchte.",
+      "Diese handlungsbezogene Darstellung begrüßt Leon, erinnert aber daran, dass ein leichterer digitaler Zugang für Personen ohne sichere Gerätenutzung trotzdem Unterstützung erfordern kann.",
+      "Um den von Leon benannten Bedarf zu beurteilen, sollen Rückfragen sowohl auf individuelle Zugangsschwierigkeiten als auch auf unklare Begriffe und widersprüchliche Hinweise geprüft werden.",
+      "Diese doppelte Prüfung behandelt Unterstützung als Bestandteil guter Gestaltung und erkennt den begrenzten Fortschritt an, ohne aus einer gelungenen Buchung eine bereits vollständig digitalisierte Sachbearbeitung abzuleiten."
+    ]
+  },
+  "paket": {
+    "C1": [
+      "Karim erhält eine falsche Lampe und soll vor dem Rückversand ein Retourenetikett beim Kundenservice anfordern.",
+      "Zur Beschleunigung dieses Rückversands empfiehlt Leon, das Paket sofort selbst zu frankieren und auf den Weg zu bringen.",
+      "Dem Vorschlag zur sofortigen Absendung hält Jonas entgegen, dass ohne das Etikett die eindeutige Zuordnung zur Bestellung fehlen und eine spätere Bearbeitung länger dauern kann.",
+      "Um diese spätere Verzögerung zu vermeiden, fordert Karim zuerst das Etikett an und erwartet zugleich eine nachvollziehbare Information zum nächsten Schritt.",
+      "Mit dieser Verbindung aus korrekter Vorbereitung und erkennbarem Folgeschritt kann der Ablauf zweckmäßig sein; das vorläufige Warten bedeutet keine Zustimmung zur Falschlieferung."
+    ],
+    "C2": [
+      "Karim möchte die Falschlieferung korrigieren und muss dabei die schnelle Ausführung einer Einzelhandlung von einer wirksamen Lösung des ganzen Vorgangs unterscheiden.",
+      "Als sichtbares Zeichen der geforderten Korrektur empfiehlt Leon die sofortige, selbst frankierte Rücksendung der Lampe.",
+      "Dieser sofortigen Rücksendung widerspricht Jonas, weil das fehlende Retourenetikett die Zuordnung erschweren kann und sichtbare Entschlossenheit somit noch keine schnelle Bearbeitung gewährleistet.",
+      "Auf Jonas' Einwand reagiert Karim mit einer vorbereitenden Wartephase, fordert aber eine zuständige Stelle und eine begründete Zeitspanne für die Ausstellung des Etiketts.",
+      "Eine solche begrenzte Wartephase akzeptiert Leon, warnt jedoch davor, bereits das Versenden des Etiketts als erfolgreiche Lösung zu verbuchen, obwohl der eigentliche Lieferfehler noch besteht.",
+      "Um diesen Unterschied zwischen intern erledigtem Schritt und erreichtem Zweck zu prüfen, soll die Serviceauswertung Rückfragen, weitere Wartezeiten und das tatsächliche Ergebnis berücksichtigen.",
+      "Diese Ergebnisprüfung kann zweckmäßiges Warten von bloßer Verzögerung unterscheiden; sie rechtfertigt keine unbegrenzte Geduld und ersetzt Karims fortbestehendes Anliegen nicht durch eine Vorgangsnummer."
+    ]
+  },
+  "haus": {
+    "C1": [
+      "Nils bereitet sich auf eine begrenzte Unterbrechung der Wasserversorgung vor und braucht bei wesentlichen Änderungen eine aktuelle Information.",
+      "Für diese Aktualisierungen schlägt Leon ausschließlich die digitale Hausgruppe vor, weil Nachrichten dort schnell verteilt werden können.",
+      "An diesem einzigen Informationsweg kritisiert Nils, dass Bewohner ohne Teilnahme an der Gruppe eine wichtige Änderung verpassen würden.",
+      "Um diese Bewohner ebenfalls zu erreichen, will Jonas wesentliche Änderungen zusätzlich durch einen klar gekennzeichneten neuen Aushang mitteilen.",
+      "Mit dieser Verbindung geeigneter Wege soll die Vorbereitung tatsächlich möglich bleiben; die Zahl versendeter Nachrichten allein zeigt noch nicht, ob ihre Empfänger den aktuellen Stand verstanden haben."
+    ],
+    "C2": [
+      "Die angekündigte Wasserunterbrechung betrifft konkrete Tätigkeiten in Nils' Wohnung, ohne deren allgemeinen Zugang oder Aufenthalt aufzuheben.",
+      "Um die Verlässlichkeit dieser Ankündigung zu zeigen, schlägt Leon eine möglichst genaue Endzeit ohne weitere Hinweise auf Unsicherheit vor.",
+      "Der scheinbaren Genauigkeit widerspricht Nils, weil eine präzise Zahl über den tatsächlichen Kenntnisstand hinausgehen und eine unbegründete Sicherheit vermitteln könnte.",
+      "Nils' Kritik beantwortet Jonas mit einer realistischen Zeitangabe und einer ausdrücklich geregelten Aktualisierung für wesentliche Abweichungen.",
+      "Diese geregelte Aktualisierung begrüßt Leon, möchte sie aber nur digital verbreiten, wodurch Nils erneut auf die unterschiedlichen tatsächlichen Zugangsmöglichkeiten der Bewohner hinweist.",
+      "Um den von Nils benannten Zugangsvergleich zu prüfen, sollen Aushang und Hausgruppe danach beurteilt werden, ob die aktuelle Einschränkung verständlich ist und notwendige Vorkehrungen ermöglicht.",
+      "Die so geprüfte Verständlichkeit wird weder aus einer genauen ersten Uhrzeit noch aus vielen Nachrichten abgeleitet; maßgeblich bleibt deren nutzbarer Zusammenhang mit Kenntnisstand und Vorbereitung."
+    ]
+  },
+  "lernen": {
+    "C1": [
+      "Felix möchte mit Leon und Amir so lernen, dass alle ihre späteren Lösungen selbst erklären können und die Vorbereitung gemeinsam tragen.",
+      "Für einen schnellen gemeinsamen Abschluss schlägt Leon vor, Aufgaben vom stärksten Teilnehmer auswählen zu lassen und übereinstimmende Antworten sofort zu übernehmen.",
+      "Diesem schnellen Vorgehen widerspricht Amir, weil Einigkeit auf derselben falschen Annahme beruhen kann und die Auswahl dauerhaft zusätzliche Arbeit bei nur einer Person hinterlässt.",
+      "Aus Amirs Einwand leitet Felix wechselnde Vorbereitung und einen begründeten Vergleich ab; offene Fragen werden dabei ausdrücklich für eine spätere Klärung festgehalten.",
+      "Diese Verbindung aus geteilter Arbeit und nachvollziehbarer Erklärung soll zeigen, ob das Gelernte selbstständig übertragbar ist; eine hohe Abschlusszahl allein reicht dafür nicht aus."
+    ],
+    "C2": [
+      "Felix' Lerngruppe verbindet gemeinsame Aufgabenbearbeitung mit dem Anspruch, selbstständige Kompetenz und eine faire Verteilung der vorbereitenden Arbeit zu entwickeln.",
+      "Zum Nachweis dieses Lernerfolgs möchte Leon vor allem gemeinsam erledigte Aufgaben und die regelmäßige Anwesenheit der drei Teilnehmer zählen.",
+      "Den beiden sichtbaren Zahlen widerspricht Amir, weil übernommene Lösungen ohne Verständnis abgeschlossen werden können und gleiche Anwesenheit eine ungleiche Hintergrundarbeit verdeckt.",
+      "Amirs Kritik greift Felix mit dem Vorschlag auf, Begründungen zu vergleichen und die Zuständigkeiten für Materialsuche und offene Fragen ausdrücklich zu benennen.",
+      "Diese benannten Zuständigkeiten begrüßt Leon, warnt aber vor einer rein rechnerisch gleichen Verteilung, die unterschiedliche Vorkenntnisse und verfügbare Zeit ignoriert.",
+      "Um Leons Einwand zu berücksichtigen, sollen Beiträge gemeinsam nach ihrer tatsächlichen Belastung vereinbart und anschließend sowohl ihr Verständnis als auch ihre dauerhafte Tragfähigkeit geprüft werden.",
+      "Diese zweifache Prüfung bewertet Zusammenarbeit an ihren Voraussetzungen und Folgen; sie setzt weder schnellen Abschluss mit Lernen noch identische Tätigkeiten mit einer fairen Beteiligung gleich."
+    ]
+  },
+  "museum": {
+    "C1": [
+      "Timo möchte eine Museumsführung besuchen und erfährt, dass sein Eintrittsticket noch keinen Platz in der begrenzten Führungsgruppe sichert.",
+      "Um mehr Besuchern diese Führung zu ermöglichen, schlägt Leon vor, die Gruppe deutlich zu vergrößern.",
+      "Der vorgeschlagenen Vergrößerung hält Jonas entgegen, dass weniger Rückfragen und schlechter hörbare Erklärungen die Vermittlungsleistung verändern könnten.",
+      "Als Antwort auf diese Qualitätssorge empfiehlt Timo eine kurze Einführung für viele Besucher und gesonderte kleinere Gespräche mit eigener Reservierung.",
+      "Diese unterschiedlichen Angebote sollen Zugang und Verständlichkeit zusammenbringen; ihre Bedingungen müssen bereits bei der Buchung erkennbar sein und dürfen keine unerwarteten Zusatzansprüche erzeugen."
+    ],
+    "C2": [
+      "Timos Museumsbesuch umfasst allgemeinen Ausstellungseintritt und den Wunsch nach einer betreuten Führung, deren begrenzte Gruppengröße eine eigene Reservierung verlangt.",
+      "Zur Erweiterung dieses Zugangs empfiehlt Leon, jeden Besitzer eines Eintrittstickets ohne zusätzliche Bedingung an derselben Führung teilnehmen zu lassen.",
+      "Dem bedingungslosen Führungszugang widerspricht Jonas, weil eine beliebig große Gruppe dieselbe räumliche Möglichkeit nutzt, aber weniger persönliche Vermittlung und Rückfragen ermöglicht.",
+      "Jonas' Einwand beantwortet Timo mit mehreren Vermittlungsformen, die allgemeine Einführung und kleinere, gesondert reservierte Gespräche ausdrücklich unterscheiden.",
+      "Diese Differenzierung begrüßt Leon, warnt jedoch davor, ihren organisatorischen Zweck als ausreichende Rechtfertigung unklarer Buchungsinformationen zu behandeln.",
+      "Um die von Leon geforderte Verständlichkeit zu prüfen, sollen Besucher vor einer Entscheidung erkennen können, welche Leistung zugesagt ist, welche weitere Anmeldung nötig wird und welche Alternative tatsächlich offensteht.",
+      "Diese Prüfung lässt zusätzliche Bedingungen als begründbare, weiterhin überprüfbare Regeln gelten; weder ihr Zweck noch ein gelungenes Einzelangebot hebt Kritik an ihrer Reichweite und Kommunikation auf."
+    ]
+  }
+}

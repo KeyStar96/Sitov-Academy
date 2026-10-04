@@ -3,8 +3,8 @@
 import { useEffect, useRef, useState, useTransition } from 'react'
 import Image from 'next/image'
 import { ArrowLeft, ArrowRight, BookOpen, Check, Headphones, Map, MessageCircle, Pencil, BarChart3, ChevronRight, Lightbulb } from 'lucide-react'
-import { getExamHint, getExamState, getExamCheckpointFeedback, saveExamProfile, submitExamAnswer, markExamFeedbackViewed, deleteExamSubmission, activateExamFallback } from '@/app/actions/exam-preparation'
-import { EXAM_LEVELS, EXAM_PROFILES, EXAM_SKILL_LABELS, examProfile } from '@/lib/exam-preparation/profiles'
+import { getExamHint, getExamState, getExamCheckpointFeedback, submitExamAnswer, markExamFeedbackViewed, deleteExamSubmission, activateExamFallback } from '@/app/actions/exam-preparation'
+import { EXAM_SKILL_LABELS } from '@/lib/exam-preparation/profiles'
 import { getExamProgress, getExamUnitProgress, isExamUnitAvailable } from '@/lib/exam-preparation/progression'
 import type { ExamActionResult, ExamModule, ExamSkill, ExamState, ExamSubmission, ExamTask, ExamUnit } from '@/lib/exam-preparation/types'
 import PressableCard from '@/components/motion/PressableCard'
@@ -16,18 +16,18 @@ import ExamWordBox from './ExamWordBox'
 import styles from './ExamTrainer.module.css'
 
 const AREAS = [
-  {id:'path',label:'Mein Lernweg',icon:Map}, {id:'practice',label:'Gezielt üben',icon:Headphones},
-  {id:'submissions',label:'Sprechen & Abgeben',icon:MessageCircle}, {id:'exam',label:'Prüfung üben',icon:BookOpen},
-  {id:'progress',label:'Mein Fortschritt',icon:BarChart3},
+  {id:'path',label:'Lernen',icon:Map},
+  {id:'submissions',label:'Meine Beiträge',icon:MessageCircle},
+  {id:'progress',label:'Fortschritt',icon:BarChart3},
 ] as const
-type Area = typeof AREAS[number]['id']
+/** Keep existing deep links valid while the visible navigation has only three choices. */
+type Area = 'path' | 'practice' | 'submissions' | 'exam' | 'progress'
 const skillIcon = (skill: ExamSkill) => skill === 'listening' ? Headphones : skill === 'speaking' ? MessageCircle : skill === 'writing' ? Pencil : BookOpen
 
-export default function ExamTrainer({ lang, initial, modules, workshops, initialLevel, initialArea = 'path', boxLevel, preview = false }: {
+export default function ExamTrainer({ lang, initial, modules, workshops, initialArea = 'path', boxLevel, preview = false }: {
   lang: string; initial: ExamState; modules: ExamModule[]; workshops: ExamModule[]; initialLevel?: string; initialArea?: Area; boxLevel: string | null; preview?: boolean
 }) {
   const [state,setState] = useState(initial)
-  const [level,setLevel] = useState(initialLevel === 'B1' ? 'B1' : null)
   const [area,setArea] = useState<Area>(initialArea)
   const [activeUnit,setActiveUnit] = useState<ExamUnit|null>(null)
   const [skill,setSkill] = useState<ExamSkill>('listening')
@@ -35,7 +35,7 @@ export default function ExamTrainer({ lang, initial, modules, workshops, initial
   const [error,setError] = useState('')
   const [pending,startTransition] = useTransition()
   const [revision,setRevision] = useState<ExamSubmission|undefined>()
-  const profile = examProfile(state.profileId)
+  const simulationHref = `/${lang}/${preview ? 'sitov-preview' : 'dashboard'}/exam-simulation?level=B1`
   const all = [...modules,...workshops]
   const progress = getExamProgress(state,modules,workshops)
   const refresh = async (result?: ExamActionResult) => {
@@ -45,30 +45,20 @@ export default function ExamTrainer({ lang, initial, modules, workshops, initial
   const openUnit = (unit: ExamUnit, previous?: ExamSubmission) => {setRevision(previous);setActiveUnit(unit);setError('');window.scrollTo({top:0,behavior:'instant'})}
   if (activeUnit) return <ExamUnitRunner key={`${activeUnit.id}-${revision?.id ?? ''}`} unit={activeUnit} state={state} revision={revision} preview={preview}
     onClose={()=>{setActiveUnit(null);setRevision(undefined)}} onChange={refresh} boxLevel={boxLevel} lang={lang} />
-  return <SitovMotionStage className={styles.root}>
-    <header className={styles.hero}><div><span className={styles.eyebrow}>Sitov Academy · {level?'B1-Training':'Prüfungen'}</span>
-      <h1>{level ? 'Dein Weg zur B1-Prüfung' : 'Welche Prüfung ist dein Ziel?'}</h1><p>{level ? 'Verstehen. Antworten. Weiterlernen.' : 'Wähle dein Prüfungsniveau. Wir starten mit B1.'}</p></div><ExamGraphics /></header>
-    {!level ? <>
-      <div className={styles.levels} aria-label="Prüfungsniveau wählen">{EXAM_LEVELS.map(item=><PressableCard key={item} className={styles.level} disabled={item !== 'B1'} data-active={item==='B1'} onClick={()=>setLevel(item)}>
-        <strong>{item} Prüfung</strong><span>{item==='B1' ? 'Lernweg und Formatwerkstätten · Pilot' : 'Noch nicht verfügbar'}</span>{item==='B1' && <ArrowRight size={22} aria-hidden="true" />}
-      </PressableCard>)}</div><p className={styles.muted}>Jedes Prüfungsniveau erhält passende Aufgaben. Der B1-Trainer gilt für das gesamte Niveau B1.</p>
-    </> : <>
-      <div className={styles.row}><PressableCard onClick={()=>setLevel(null)} className={styles.link}><ArrowLeft size={18} />Prüfungsniveaus</PressableCard><span className={styles.badge}>B1 · Pilot</span></div>
-      <label className={styles.label}>Meine Zielprüfung<select className={styles.select} value={state.profileId} disabled={pending} onChange={event=>startTransition(async()=>{
-        const profileId=event.target.value as ExamState['profileId']
-        if (preview||!state.available) {setState({...state,profileId});return}
-        try {const result=await saveExamProfile({profileId}); if(result.success) await refresh(result);else setError(result.error??'Die Auswahl konnte nicht gespeichert werden.')}
-        catch {setError('Die Auswahl konnte nicht gespeichert werden. Bitte versuche es erneut.')}
-      })}>{EXAM_PROFILES.map(p=><option key={p.id} value={p.id}>{p.title}</option>)}</select></label>
-      <details className={styles.details}><summary>Über deine Zielprüfung</summary><p className={styles.muted}>{profile.description} Deine gemeinsamen Lernleistungen bleiben bei einem Wechsel erhalten.</p></details>
-      {(!state.available||preview) && <p className={styles.warning} role="status">{preview ? 'Vorschau: Antworten und Aufnahmen werden hier nicht gespeichert.' : state.error ?? 'Der Prüfungsfortschritt ist gerade nicht verfügbar. Bitte lade die Seite erneut.'}</p>}
+  return <SitovMotionStage className={styles.root} lang="de" translate="no">
+    <header className={styles.hero}><div><span className={styles.eyebrow}>Sitov Academy · B1</span>
+      <h1>Prüfungsvorbereitung</h1><p>Schritt für Schritt üben und Rückmeldung verstehen.</p></div><ExamGraphics /></header>
+    <>
+      {(!state.available||preview) && <p className={preview ? styles.previewNotice : styles.warning} role="status">{preview ? 'Vorschau · Eingaben werden nicht gespeichert.' : state.error ?? 'Der Prüfungsfortschritt ist gerade nicht verfügbar. Bitte lade die Seite erneut.'}</p>}
       {error && <p className={styles.error} role="alert">{error}</p>}
-      <nav className={styles.menu} aria-label="B1-Prüfungstraining">{AREAS.map(item=><PressableCard key={item.id} onClick={()=>setArea(item.id)} aria-pressed={area===item.id}><item.icon size={20} aria-hidden="true" />{item.label}</PressableCard>)}</nav>
+      <nav className={styles.menu} aria-label="B1-Prüfungstraining">{AREAS.map(item=><PressableCard key={item.id} onClick={()=>setArea(item.id)} aria-pressed={area===item.id||(item.id==='path'&&['practice','exam'].includes(area))}><item.icon size={20} aria-hidden="true" />{item.label}</PressableCard>)}</nav>
+      <SitovMotionStage key={area} className={styles.root}>
       {area==='path' && <>
         <section className={styles.panel}><div className={styles.row}><h2>Dein nächster Schritt</h2><span className={styles.badge}>{progress.completedUnits} Einheiten bearbeitet</span></div>
-          <p className={styles.muted}>Ein neuer Lernschritt verbindet Verstehen mit einer eigenen Antwort. Rückmeldungen helfen dir beim Überarbeiten.</p>
+          <p className={styles.muted}>Beginne mit deiner nächsten Einheit.</p>
           {(()=>{const next=modules.flatMap(m=>m.units).find(u=>u.releaseStatus==='published'&&isExamUnitAvailable(u,state,modules)&&getExamUnitProgress(u,state).completed!==true)
             return next ? <PressableCard onClick={()=>openUnit(next)} className="st-button st-button--primary mt-4">Weiterlernen: {next.title}<ArrowRight size={20} /></PressableCard> : <p className={styles.warning}>Deine nächsten Inhalte werden vorbereitet. Du kannst inzwischen gezielt üben oder deine Beiträge verbessern.</p>})()}
+          <PressableCard className="st-button st-button--soft mt-3" onClick={()=>setArea('practice')}><Headphones size={20} aria-hidden="true" />Eine Fertigkeit üben<ArrowRight size={20} aria-hidden="true" /></PressableCard>
         </section>
         {modules.filter(m=>m.releaseStatus==='published').map(module=><details key={module.id} className={styles.details} open={(progress.modules.find(m=>m.moduleId===module.id)?.failedVariants??0)>=2 || undefined}><summary>{module.order}. {module.title}</summary>
           <p className={`${styles.muted} mb-3`}>{module.description}</p><div className={styles.grid} style={{gridTemplateColumns:'1fr'}}>{module.units.map(unit=>{
@@ -79,32 +69,32 @@ export default function ExamTrainer({ lang, initial, modules, workshops, initial
           })}</div>{(()=>{const mp=progress.modules.find(m=>m.moduleId===module.id);return (mp?.failedVariants??0)>=2&&<div className="mt-3"><p className={styles.warning}>Zwei neue Lernchecks waren noch schwer. Bearbeite drei Förderübungen und einen neuen Transferauftrag. Danach kannst du weiterlernen; dieser Bereich bleibt zum Wiederholen markiert.</p>{module.fallbackUnits?.map(u=><PressableCard key={u.id} className={`${styles.unit} mt-3`} onClick={()=>openUnit(u)} disabled={!isExamUnitAvailable(u,state,modules)}><span><strong>{u.title}</strong><small>Neue Aufgabe für deinen nächsten Schritt</small></span><ChevronRight size={20}/></PressableCard>)}<PressableCard className="st-button st-button--soft mt-3" disabled={pending||!state.available||!mp?.canActivateFallback} onClick={()=>startTransition(async()=>{try{const r=await activateExamFallback({moduleId:module.id,confirmed:true});if(r.success)await refresh(r);else setError(r.error??'Es fehlen noch Förderübungen oder der Transferauftrag.')}catch{setError('Der nächste Schritt konnte nicht freigeschaltet werden. Bitte versuche es erneut.')}})}>Ich möchte weiterlernen</PressableCard></div>})()}
         </details>)}
         {modules.some(m=>m.releaseStatus==='draft')&&<details className={styles.details}><summary>Der weitere B1-Lernweg · {modules.filter(m=>m.releaseStatus==='draft').length} Module in Vorbereitung</summary><ul className={styles.list}>{modules.filter(m=>m.releaseStatus==='draft').map(m=><li key={m.id}><strong>{m.title}</strong><p>{m.description}</p></li>)}</ul></details>}
+        <PressableCard href={simulationHref} className={styles.link}>Zur simulierten Prüfung<ArrowRight size={20} aria-hidden="true" /></PressableCard>
       </>}
       {area==='practice' && <>
+        <PressableCard className={styles.link} onClick={()=>setArea('path')}><ArrowLeft size={18} aria-hidden="true" />Zurück zum Lernen</PressableCard>
         <section className={styles.panel}><h2>Was möchtest du üben?</h2><div className={styles.filters}>{(Object.keys(EXAM_SKILL_LABELS) as ExamSkill[]).map(s=><PressableCard key={s} aria-pressed={skill===s} onClick={()=>{setSkill(s);setPracticeCount(4)}}>{EXAM_SKILL_LABELS[s]}</PressableCard>)}</div></section>
         <div className={styles.grid}>{all.flatMap(m=>m.units).filter(u=>u.releaseStatus==='published'&&u.kind!=='checkpoint'&&u.tasks.some(t=>t.skill===skill)).slice(0,practiceCount).map(u=>{
           const Icon=skillIcon(skill);return <PressableCard key={u.id} onClick={()=>openUnit({...u,tasks:u.tasks.filter(t=>t.skill===skill)})} className={styles.card}><Icon size={24} /><strong>{u.title}</strong><span>{u.description}</span><span>Gezielt {EXAM_SKILL_LABELS[skill].toLowerCase()} üben</span></PressableCard>
         })}</div>
         {all.flatMap(m=>m.units).filter(u=>u.releaseStatus==='published'&&u.kind!=='checkpoint'&&u.tasks.some(t=>t.skill===skill)).length>practiceCount&&<PressableCard className="st-button st-button--soft" onClick={()=>setPracticeCount(n=>n+4)}>Weitere Übungen anzeigen</PressableCard>}
-        <h2 className="text-xl font-bold">Formatwerkstätten</h2><div className={styles.grid}>{workshops.map(w=><details key={w.id} className={styles.details}><summary>{w.title}</summary><p className={`${styles.muted} mb-3`}>{w.description}</p>{w.units.map(u=><PressableCard key={u.id} className={`${styles.unit} mb-2`} disabled={u.releaseStatus!=='published'} onClick={()=>openUnit(u)}><span><strong>{u.title}</strong><small>{u.releaseStatus==='published' ? 'Schritt für Schritt üben' : 'In Vorbereitung'}</small></span><ChevronRight size={20} /></PressableCard>)}</details>)}</div>
+        <details className={styles.details}><summary>Weitere Aufgabenformen üben</summary><div className={styles.grid}>{workshops.map(w=><details key={w.id} className={styles.details}><summary>{w.title}</summary><p className={`${styles.muted} mb-3`}>{w.description}</p>{w.units.map(u=><PressableCard key={u.id} className={`${styles.unit} mb-2`} disabled={u.releaseStatus!=='published'} onClick={()=>openUnit(u)}><span><strong>{u.title}</strong><small>{u.releaseStatus==='published' ? 'Schritt für Schritt üben' : 'In Vorbereitung'}</small></span><ChevronRight size={20} /></PressableCard>)}</details>)}</div></details>
       </>}
-      {area==='submissions' && <section className={styles.panel}><h2>Sprechen & Abgeben</h2><p className={`${styles.muted} mb-4`}>Du kannst deine Antwort anhören, speichern und bewusst senden. Eine Überarbeitung erhält eine eigene Version.</p>
+      {area==='submissions' && <section className={styles.panel}><h2>Meine Beiträge</h2><p className={`${styles.muted} mb-4`}>Hier findest du deine Texte, Aufnahmen und die Rückmeldungen deiner Lehrkraft.</p>
         {!state.submissions.length && <p className={styles.warning}>Hier findest du bald deine Texte, Aufnahmen und Rückmeldungen. Sprechen beginnt schon in der ersten Einheit.</p>}
         <div className={styles.grid}>{state.submissions.filter(s=>!state.submissions.some(next=>next.previousId===s.id)).map(s=><SubmissionCard key={s.id} submission={s} all={state.submissions} onRevise={()=>{const u=all.flatMap(m=>m.units).find(u=>u.id===s.unitId);if(u)openUnit(u,s)}}
           onDelete={()=>startTransition(async()=>{const r=await deleteExamSubmission({submissionId:s.id});if(r.success)await refresh(r);else setError(r.error??'Löschen fehlgeschlagen.')})} pending={pending} />)}</div>
         <PressableCard className="st-button st-button--soft mt-4" onClick={()=>{setSkill('speaking');setArea('practice')}}><MicLabel />Eine Sprechaufgabe wählen</PressableCard>
       </section>}
       {area==='exam' && <>
-        <section className={styles.panel}><h2>{profile.title}</h2><p className={styles.muted}>{profile.times}</p><p className={`${styles.muted} mt-2`}>{profile.preparation}</p>
-          {profile.source&&<a className={styles.link} href={profile.source} target="_blank" rel="noopener noreferrer">Offizielle Informationen<ArrowRight size={16} /></a>}
-          <p className={styles.warning}>Im Pilot übst du Aufgabenformen. Vollständige Simulationen werden nach Prüfung aller Teilregeln, eigenen Aufgaben und Medien freigegeben. Die App stellt kein Prüfungszertifikat aus.</p>
+        <PressableCard className={styles.link} onClick={()=>setArea('path')}><ArrowLeft size={18} aria-hidden="true" />Zurück zum Lernen</PressableCard>
+        <section className={styles.panel}><h2>Deinen Prüfungsstand prüfen</h2><p className={styles.muted}>Wähle in der simulierten Prüfung dein Niveau und dein Prüfungsformat.</p>
+          <PressableCard href={simulationHref} className="st-button st-button--primary mt-4">Zur simulierten Prüfung<ArrowRight size={20} aria-hidden="true" /></PressableCard>
         </section>
-        <section className={styles.panel}><h2>Deine Teilformate</h2><p className={`${styles.muted} mb-3`}>Gemeinsame Übungen bereiten dich vor. Ein bearbeitetes Thema zählt noch nicht als vollständiger Prüfungsteil.</p>
-          <div className={styles.grid}>{(Object.keys(EXAM_SKILL_LABELS) as ExamSkill[]).filter(s=>profile.parts.some(p=>p.skill===s)).map(s=><details key={s} className={styles.details}><summary>{EXAM_SKILL_LABELS[s]} · {profile.parts.filter(p=>p.skill===s).length} Teilformate</summary>{profile.parts.filter(p=>p.skill===s).map(part=><div className={`${styles.card} mb-2`} key={part.id}><strong>{part.title}</strong><span>{part.verified ? `Formatregel geprüft${part.playback ? ` · ${part.playback} Hörwiedergabe` : ''}` : 'Teilregeln vor Simulation noch zu prüfen'}</span><span>Eigene vollständige Transfer-Sets: 0/3 · in Vorbereitung</span></div>)}<PressableCard className={styles.link} onClick={()=>{setSkill(s);setPracticeCount(4);setArea('practice')}}>Gemeinsame Vorübungen<ArrowRight size={16}/></PressableCard></details>)}</div>
-        </section><details className={styles.details}><summary>Weitere Prüfungen</summary><p className={styles.muted}>ÖIF-Integrationsprüfung, Deutschtest Österreich und Deutsch-Test für den Beruf B1 erhalten eigene Profile. Im Pilot sind dafür noch keine vollständigen Simulationen verfügbar.</p></details>
       </>}
       {area==='progress'&&<ExamProgressCard lang={lang} state={state} modules={modules} workshops={workshops} />}
-    </>}
+      </SitovMotionStage>
+    </>
   </SitovMotionStage>
 }
 
@@ -164,7 +154,7 @@ function ExamUnitRunner({ unit, state, revision, preview, onClose, onChange, box
     {checkpoint&&<p className={styles.muted}>Ohne Hilfen. Die Rückmeldung erscheint nach deinem Lerncheck.</p>}
     {missing?<div className={styles.warning}><strong>Dieses Medium wird noch vorbereitet.</strong><p>Die Aufgabe öffnet erst nach Aufnahme und Prüfung. Hier zählt noch kein Versuch.</p><PressableCard className="st-button st-button--soft mt-3" onClick={next}>Nächste Aufgabe</PressableCard></div>:<>
       {task.text&&<div className={styles.text}>{task.text}</div>}
-      {task.image&&<Image unoptimized width={640} height={360} className={styles.scene} src={task.image.src} alt={task.image.alt}/>}
+      {task.image&&<Image width={1536} height={1024} sizes="(max-width: 700px) calc(100vw - 40px), 720px" className={styles.scene} src={task.image.src} alt={task.image.alt}/>}
       {task.audio&&<audio ref={audioPlayer} className={styles.audio} src={task.audio.src} controls preload="none" aria-label="Hörtext abspielen" onCanPlay={()=>{if(audioFailed){setAudioFailed(false);setError('')}}} onError={()=>{setAudioFailed(true);setError('Der Hörtext konnte nicht geladen werden. Lade ihn erneut, bevor du antwortest. Deine Auswahl bleibt erhalten.')}}/>}
       {audioFailed&&<PressableCard className="st-button st-button--soft" onClick={()=>audioPlayer.current?.load()}>Hörtext erneut laden</PressableCard>}
       {closed&&!result&&<>
@@ -186,7 +176,7 @@ function ExamUnitRunner({ unit, state, revision, preview, onClose, onChange, box
         <PressableCard className="st-button st-button--primary" disabled={pending} onClick={()=>startTransition(async()=>{try{if(result.attempt&&!checkpoint){const r=await markExamFeedbackViewed({attemptId:result.attempt.id});if(!r.success){setError(r.error??'Die Rückmeldung konnte nicht gespeichert werden.');return}await onChange(r)}next()}catch{setError('Die Rückmeldung konnte nicht gespeichert werden. Bitte versuche es erneut.')}})}>{checkpoint?'Weiter':'Rückmeldung gelesen · Weiter'}<ArrowRight size={20}/></PressableCard>
       </div>}
       {!closed&&!result&&<ExamSubmissionEditor task={task} unit={unit} state={{...state,available:state.available&&!preview}} previous={revision} onSaved={r=>{setResult(r);void onChange(r)}}/>}
-      {!closed&&result&&<div className={styles.feedback} role="status"><strong>{result.submission?.status==='submitted'?'Dein Beitrag wurde eingereicht.':'Dein Entwurf ist gespeichert.'}</strong><p>Nach deiner Rückmeldung kannst du den Beitrag verbessern. Du findest alle Versionen unter „Sprechen & Abgeben“.</p><PressableCard className="st-button st-button--primary" onClick={next}>Weiter<ArrowRight size={20}/></PressableCard></div>}
+      {!closed&&result&&<div className={styles.feedback} role="status"><strong>{result.submission?.status==='submitted'?'Dein Beitrag wurde eingereicht.':'Dein Entwurf ist gespeichert.'}</strong><p>Nach deiner Rückmeldung kannst du den Beitrag verbessern. Du findest alle Versionen unter „Meine Beiträge“.</p><PressableCard className="st-button st-button--primary" onClick={next}>Weiter<ArrowRight size={20}/></PressableCard></div>}
       {task.words?.length>0&&!checkpoint&&<ExamWordBox words={task.words??[]} lang={lang} level={boxLevel}/>}
     </>}
     {error&&<p className={styles.error} role="alert">{error}</p>}

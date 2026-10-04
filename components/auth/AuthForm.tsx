@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, type FormEvent } from 'react'
+import { useId, useState, type FormEvent } from 'react'
 import { Loader2 } from 'lucide-react'
 
 /**
@@ -51,6 +51,7 @@ export default function AuthForm({
   lang: string
   hiddenFields?: Readonly<Record<string, string>>
 }) {
+  const sitovFormId = useId()
   const [isPending, setIsPending] = useState(false)
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -71,12 +72,13 @@ export default function AuthForm({
       ))}
 
       {fields.map(field => {
-        const hintId = field.hint ? `${field.name}-hint` : undefined
+        const sitovFieldId = `sitov-auth-${sitovFormId}-${field.name}`
+        const hintId = field.hint ? `${sitovFieldId}-hint` : undefined
 
         return (
           <div key={field.name} className="space-y-2">
             <label
-              htmlFor={field.name}
+              htmlFor={sitovFieldId}
               className="block text-lg font-semibold text-[var(--foreground)]"
             >
               {field.label}
@@ -84,7 +86,7 @@ export default function AuthForm({
 
             {field.type === 'select' ? (
               <select
-                id={field.name}
+                id={sitovFieldId}
                 name={field.name}
                 required
                 defaultValue=""
@@ -102,7 +104,7 @@ export default function AuthForm({
               </select>
             ) : (
               <input
-                id={field.name}
+                id={sitovFieldId}
                 name={field.name}
                 type={field.type}
                 required

@@ -24,6 +24,7 @@ export default async function ExamPreparationTeacherPage({ params, searchParams 
   return <div className={`${styles.shell} ${styles.stack}`}>
     <PageHeader eyebrow="Sitov Academy · B1-Pilot" title="B1-Prüfungsvorbereitung" description={audioView ? 'Eigene Hörtexte produzieren, Aufgaben gegen die Aufnahme prüfen und die geprüfte Fassung freigeben.' : 'Schreib- und Sprechprodukte besprechen, Überarbeitungen vergleichen und den Lernweg begründet freischalten.'} back={{ href: `/${lang}/admin/${audioView ? 'content' : 'submissions'}`, label: audioView ? 'Zu den Lerninhalten' : 'Zu den Abgaben' }} />
     <nav aria-label="Prüfungsvorbereitung verwalten" className={styles.tabs}>
+      <Link href={`/${lang}/admin/exam-simulation`} className={adminChip(false)}>Simulierte Prüfungen bewerten</Link>
       <Link href={`/${lang}/admin/exam-preparation`} className={adminChip(!audioView)} aria-current={!audioView ? 'page' : undefined}>B1-Abgaben</Link>
       <Link href={`/${lang}/admin/exam-preparation?view=audio`} className={adminChip(audioView)} aria-current={audioView ? 'page' : undefined}>Aufnahmeaufträge</Link>
     </nav>

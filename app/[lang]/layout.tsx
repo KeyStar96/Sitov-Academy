@@ -16,6 +16,7 @@ import ConsentManager from "@/components/analytics/ConsentManager";
 import { CONSENT_BOOTSTRAP_SCRIPT } from "@/lib/analytics/consent";
 import { CANONICAL_SITE_URL } from "@/lib/site-url";
 import { LOCALES } from "@/lib/locale-routing";
+import AcademySkipLink from "@/components/layout/AcademySkipLink";
 
 /* ─── Global metadata defaults (inherited by all pages) ─── */
 export const metadata: Metadata = {
@@ -122,7 +123,7 @@ export default async function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: CONSENT_BOOTSTRAP_SCRIPT }} />
       </head>
       <body className={`${inter.variable} ${jetbrainsMono.variable} font-sans bg-[var(--canvas)] text-[var(--foreground)] antialiased overflow-x-clip w-full`}>
-        <a className="academy-skip-link" href="#main-content">{dictionary.academy.skip_content}</a>
+        <AcademySkipLink label={dictionary.academy.skip_content} />
         <Preloader label={dictionary.academy.preloader_label} name={dictionary.academy.brand_name} descriptor={dictionary.academy.brand_descriptor} />
         {/* Navigation progress bar — instant visual feedback during page transitions */}
         <NavigationProgress />

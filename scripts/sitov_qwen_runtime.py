@@ -330,7 +330,7 @@ class SitovQwenBatch:
                 self.save(force=True)
         return self.manifest
 
-    def save_raw(self, row, values, elapsed, batch_size=1):
+    def save_raw(self, row, values, elapsed, batch_size=1, chunks=1, chunk_records=None):
         import mlx.core as mx
         import numpy as np
         raw = Path(row["raw"])
@@ -348,65 +348,208 @@ class SitovQwenBatch:
             output.setframerate(self.config["output"]["sampleRate"])
             output.writeframes((np.clip(audio, -1, 1) * 32767).astype("<i2").tobytes())
         temporary.replace(raw)
-        self.set_entry(row["id"], {**row, "status": "raw", "rawSha256": sha256_file(raw), "rawSeconds": duration, "generationSeconds": elapsed, "chunks": 1, "nativeBatchSize": batch_size, "peakMlxBytes": int(mx.get_peak_memory())})
+        self.set_entry(row["id"], {**row, "status": "raw", "rawSha256": sha256_file(raw), "rawSeconds": duration, "generationSeconds": elapsed, "chunks": chunks, "nativeBatchSize": batch_size, "peakMlxBytes": int(mx.get_peak_memory()), **({"nativeChunkRecords": chunk_records} if chunk_records is not None else {})})
         self.save()
         print(canonical_json({"id": row["id"], "stage": "raw", "seconds": duration, "batchSize": batch_size}), flush=True)
 
+    def native_chunk_specs(self, row):
+        """Independent model inputs retain the exact existing sentence/token split."""
+        chunks = text_chunks(row["text"], self.config["limits"]["maxChunkCharacters"])
+        directory = self.output_dir / "raw" / "native-chunks" / hashlib.sha256(row["text"].encode()).hexdigest()
+        return [{"index": index, "text": text, "textSha256": hashlib.sha256(text.encode()).hexdigest(),
+                 "path": str(directory / f"{index}-{hashlib.sha256(text.encode()).hexdigest()}.npy")}
+                for index, text in enumerate(chunks)]
+
+    def load_native_chunk(self, spec, record):
+        """Only checksummed, exact-text, non-pickled float samples are resumable."""
+        import numpy as np
+        if not record or any(record.get(key) != spec[key] for key in ("index", "textSha256", "path")):
+            return None
+        path = Path(spec["path"])
+        try:
+            if not math.isfinite(record.get("generationSeconds", -1)) or record.get("generationSeconds", -1) < 0:
+                return None
+            if not isinstance(record.get("nativeBatchSize"), int) or not 1 <= record["nativeBatchSize"] <= 20:
+                return None
+            if not path.is_file() or path.stat().st_size > self.config["limits"]["maxAudioSeconds"] * self.config["output"]["sampleRate"] * 4 + 4096:
+                return None
+            if record.get("sha256") != sha256_file(path):
+                return None
+            values = np.load(path, allow_pickle=False, mmap_mode="r")
+            if values.dtype != np.dtype("float32") or values.ndim != 1 or values.size != record.get("samples") or not values.size:
+                return None
+            if not np.isfinite(values).all() or not np.max(np.abs(values)) > 0:
+                return None
+            if not 0 < values.size / self.config["output"]["sampleRate"] <= self.config["limits"]["maxAudioSeconds"]:
+                return None
+            return values
+        except (OSError, ValueError, EOFError, TypeError):
+            return None
+
+    def save_native_chunk(self, row, spec, values, elapsed, batch_size, records, chunk_count):
+        """Fsync genuine model samples before the existing durable progress receipt."""
+        import numpy as np
+        values = np.asarray(values, dtype=np.float32).reshape(-1)
+        if not values.size or not np.isfinite(values).all() or not np.max(np.abs(values)) > 0:
+            raise RuntimeError("Model returned invalid/silent audio.")
+        if not 0 < values.size / self.config["output"]["sampleRate"] <= self.config["limits"]["maxAudioSeconds"]:
+            raise RuntimeError("Raw audio duration exceeds the alignment limit.")
+        path = Path(spec["path"])
+        path.parent.mkdir(parents=True, exist_ok=True)
+        temporary = None
+        try:
+            with tempfile.NamedTemporaryFile(dir=path.parent, prefix=".sitov-chunk-", delete=False) as handle:
+                temporary = Path(handle.name)
+                np.save(handle, values, allow_pickle=False)
+                handle.flush()
+                os.fsync(handle.fileno())
+            temporary.replace(path)
+        finally:
+            if temporary is not None:
+                temporary.unlink(missing_ok=True)
+        record = {"index": spec["index"], "textSha256": spec["textSha256"], "path": spec["path"],
+                  "sha256": sha256_file(path), "samples": int(values.size), "generationSeconds": elapsed, "nativeBatchSize": batch_size}
+        records[spec["index"]] = record
+        self.set_entry(row["id"], {**row, "status": "raw-chunks", "chunks": chunk_count,
+                                  "nativeChunkRecords": [records[index] for index in sorted(records)]})
+        self.save()
+        print(canonical_json({"id": row["id"], "stage": "raw-chunk", "chunk": spec["index"] + 1,
+                              "chunks": chunk_count, "seconds": values.size / self.config["output"]["sampleRate"], "batchSize": batch_size}), flush=True)
+
+    def assemble_native_chunks(self, row, specs, records):
+        """Concatenate once in authored order; whole-recording forced alignment follows."""
+        import numpy as np
+        if len(records) != len(specs):
+            return False
+        outputs = [self.load_native_chunk(spec, records.get(spec["index"])) for spec in specs]
+        if any(values is None for values in outputs):
+            raise RuntimeError("A prepared native chunk changed before assembly.")
+        ordered = [records[spec["index"]] for spec in specs]
+        self.save_raw(row, np.concatenate(outputs), sum(record["generationSeconds"] for record in ordered),
+                      max(record["nativeBatchSize"] for record in ordered), len(specs), ordered)
+        return True
+
     def synthesize_native_batch(self, planned):
-        """Real independent ICL sequences and KV caches; never concatenate text jobs."""
+        """Batch independent ICL chunks, including long rows; never join text jobs."""
         import mlx.core as mx
         import numpy as np
         from mlx_audio.tts.utils import load_model
         raw_states = {e["raw"]: e for e in self.manifest["entries"].values() if e.get("rawSha256")}
-        jobs = {}
+        jobs, completed_raw = {}, set()
         for row in planned:
             raw = Path(row["raw"])
             state = raw_states.get(str(raw), {})
             if raw.exists() and state.get("rawSha256") == sha256_file(raw):
+                completed_raw.add(row["raw"])
                 previous = self.manifest["entries"].get(row["id"], {})
                 if previous.get("itemFingerprint") != row["itemFingerprint"]:
                     self.set_entry(row["id"], {**row, "status": "raw", **{k: state[k] for k in ("rawSha256", "rawSeconds", "generationSeconds", "chunks")}})
                 continue
-            if len(row["text"]) <= self.config["limits"]["maxChunkCharacters"]:
-                jobs.setdefault(row["raw"], row)
+            jobs.setdefault(row["raw"], row)
         self.save()
-        pending = sorted(jobs.values(), key=lambda row: len(row["text"]))
+        chunk_states = {e["raw"]: e for e in self.manifest["entries"].values() if e.get("nativeChunkRecords")}
+        rows, specs_by_raw, records_by_raw, pending = {}, {}, {}, []
+        for row in jobs.values():
+            raw_key = row["raw"]
+            rows[raw_key] = row
+            specs = specs_by_raw[raw_key] = self.native_chunk_specs(row)
+            stored = {record.get("index"): record for record in chunk_states.get(raw_key, {}).get("nativeChunkRecords", [])}
+            records = records_by_raw[raw_key] = {spec["index"]: stored[spec["index"]] for spec in specs
+                                                if self.load_native_chunk(spec, stored.get(spec["index"])) is not None}
+            if len(records) == len(specs):
+                try:
+                    self.assemble_native_chunks(row, specs, records)
+                    completed_raw.add(raw_key)
+                except Exception as error:
+                    self.set_entry(row["id"], {**row, "status": "failed", "failedStage": "chunk-assembly", "error": str(error),
+                                              "chunks": len(specs), "nativeChunkRecords": [records[index] for index in sorted(records)]})
+                    self.save()
+                    if not self.continue_on_error:
+                        raise
+            else:
+                pending.extend({"row": row, "spec": spec} for spec in specs if spec["index"] not in records)
+        pending.sort(key=lambda job: len(job["spec"]["text"]))
         model = load_model(str(self.model_path)) if pending else None
         cursor = 0
+        retries = []
+
+        def save_result(job, values, elapsed, width):
+            row, spec = job["row"], job["spec"]
+            raw_key = row["raw"]
+            self.save_native_chunk(row, spec, values, elapsed, width, records_by_raw[raw_key], len(specs_by_raw[raw_key]))
+            if self.assemble_native_chunks(row, specs_by_raw[raw_key], records_by_raw[raw_key]):
+                completed_raw.add(raw_key)
+
+        def failed(job, error):
+            row = job["row"]
+            self.set_entry(row["id"], {**row, "status": "failed", "failedStage": "batched-synthesis", "error": str(error),
+                                      "chunks": len(specs_by_raw[row["raw"]]),
+                                      "nativeChunkRecords": [records_by_raw[row["raw"]][index] for index in sorted(records_by_raw[row["raw"]])]})
+            self.save()
+
         try:
             while cursor < len(pending):
                 # Long utterance vocoders use more temporary memory; short catalog
                 # entries can share a wider batched token generation pass.
-                width = min(self.batch_size, 4 if len(pending[cursor]["text"]) > 250 else self.batch_size)
+                width = min(self.batch_size, len(pending) - cursor, 4 if len(pending[cursor]["spec"]["text"]) > 250 else self.batch_size)
+                while width > 4 and len(pending[cursor + width - 1]["spec"]["text"]) > 250:
+                    width -= 1
                 group = pending[cursor:cursor + width]
                 mx.random.seed(self.config["tts"]["seed"])
                 began = time.monotonic()
                 seen = set()
                 try:
-                    for result in model.batch_generate(texts=[r["text"] for r in group], ref_audio=str(self.reference), ref_text=self.reference_text, lang_code="German", stream=False, verbose=False, **self.config["tts"]["generation"]):
+                    for result in model.batch_generate(texts=[job["spec"]["text"] for job in group], ref_audio=str(self.reference), ref_text=self.reference_text, lang_code="German", stream=False, verbose=False, **self.config["tts"]["generation"]):
                         if result.sequence_idx in seen or not 0 <= result.sequence_idx < len(group):
                             raise RuntimeError("Native batched synthesis returned an invalid sequence identity.")
                         mx.eval(result.audio)
-                        self.save_raw(group[result.sequence_idx], np.asarray(result.audio), time.monotonic() - began, len(group))
+                        if getattr(result, "sample_rate", self.config["output"]["sampleRate"]) != self.config["output"]["sampleRate"]:
+                            raise RuntimeError("Native batched synthesis returned a different sample rate.")
+                        save_result(group[result.sequence_idx], np.asarray(result.audio), time.monotonic() - began, len(group))
                         seen.add(result.sequence_idx)
                     if len(seen) != len(group):
                         raise RuntimeError("Native batched synthesis did not return every authored sequence.")
                 except Exception as error:
-                    for index, row in enumerate(group):
+                    for index, job in enumerate(group):
                         if index not in seen:
-                            self.set_entry(row["id"], {**row, "status": "failed", "failedStage": "batched-synthesis", "error": str(error)})
+                            failed(job, error)
+                            retries.append(job)
                     self.save()
                     if not self.continue_on_error:
                         raise
-                    print(canonical_json({"stage": "batch-failed", "ids": [row["id"] for i, row in enumerate(group) if i not in seen], "error": str(error), "retry": "individual-after-batch"}), flush=True)
+                    print(canonical_json({"stage": "batch-failed", "ids": [job["row"]["id"] for i, job in enumerate(group) if i not in seen], "error": str(error), "retry": "individual-chunk-after-batch"}), flush=True)
                 mx.clear_cache()
                 cursor += len(group)
+            # Retry only missing independent chunks, keeping already committed speech.
+            for job in retries:
+                try:
+                    mx.random.seed(self.config["tts"]["seed"])
+                    began, outputs = time.monotonic(), []
+                    for result in model.generate(text=job["spec"]["text"], ref_audio=str(self.reference), ref_text=self.reference_text,
+                                                 lang_code="German", speed=1.0, stream=False, verbose=False, **self.config["tts"]["generation"]):
+                        mx.eval(result.audio)
+                        values = np.asarray(result.audio, dtype=np.float32).reshape(-1)
+                        if getattr(result, "sample_rate", self.config["output"]["sampleRate"]) != self.config["output"]["sampleRate"]:
+                            raise RuntimeError("Individual synthesis returned a different sample rate.")
+                        if not values.size or not np.isfinite(values).all() or not np.max(np.abs(values)) > 0:
+                            raise RuntimeError("Model returned invalid/silent audio.")
+                        outputs.append(values)
+                    if not outputs:
+                        raise RuntimeError("Individual synthesis did not return its authored chunk.")
+                    save_result(job, np.concatenate(outputs), time.monotonic() - began, 1)
+                except Exception as error:
+                    failed(job, error)
+                    print(canonical_json({"id": job["row"]["id"], "stage": "failed", "error": str(error)}), flush=True)
+                mx.clear_cache()
+            for raw_key, row in rows.items():
+                if raw_key not in completed_raw:
+                    failed({"row": row}, RuntimeError("Not every authored chunk has valid prepared speech; this recording must not be published."))
         finally:
             del model
             gc.collect()
             mx.clear_cache()
         # Populate other IDs/rates that share one exact raw text recording.
-        self.synthesize(planned)
+        self.synthesize([row for row in planned if row["raw"] in completed_raw])
 
     def synthesize(self, planned):
         import mlx.core as mx

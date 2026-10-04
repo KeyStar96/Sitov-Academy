@@ -56,7 +56,7 @@ test('Anatomical NeuralBrain geometry', async t => {
       }
     })
     await t.test('all positions/normals/tangents are finite and every comet has a continuous normalized ribbon', () => {
-      for (const mesh of [geometry.nodes, geometry.cortex, geometry.fibers, ...geometry.pathways]) {
+      for (const mesh of [geometry.nodes, geometry.cortex, geometry.fibers, ...geometry.pathways, ...geometry.flarePaths]) {
         for (const attribute of Object.values(mesh.attributes)) {
           for (const number of attribute.array) assert.ok(Number.isFinite(number))
         }
@@ -70,6 +70,19 @@ test('Anatomical NeuralBrain geometry', async t => {
         assert.equal(pathway.index.count, (192 - 1) * 6)
       }
     })
+    await t.test('bloom sprites share each route but never reuse its triangle index', () => {
+      assert.equal(geometry.flarePaths.length, geometry.pathways.length)
+      for (let index = 0; index < geometry.pathways.length; index++) {
+        const ribbon = geometry.pathways[index]
+        const flare = geometry.flarePaths[index]
+        assert.equal(flare.index, null)
+        for (const attribute of ['position', 'aAlong', 'aSide']) {
+          assert.equal(flare.getAttribute(attribute), ribbon.getAttribute(attribute))
+        }
+      }
+      assert.equal(geometry.cortex.attributes.aRelief.count, geometry.cortex.attributes.position.count)
+      for (const relief of geometry.cortex.attributes.aRelief.array) assert.ok(relief >= 0 && relief <= 1)
+    })
     await t.test('identical construction is deterministic across renders', () => {
       const second = createNeuralGeometry()
       try {
@@ -77,10 +90,10 @@ test('Anatomical NeuralBrain geometry', async t => {
         assert.deepEqual(second.nodes.attributes.position.array, geometry.nodes.attributes.position.array)
         assert.deepEqual(second.cortex.attributes.normal.array, geometry.cortex.attributes.normal.array)
       } finally {
-        for (const mesh of [second.nodes, second.cortex, second.fibers, ...second.pathways]) mesh.dispose()
+        for (const mesh of [second.nodes, second.cortex, second.fibers, ...second.pathways, ...second.flarePaths]) mesh.dispose()
       }
     })
   } finally {
-    for (const mesh of [geometry.nodes, geometry.cortex, geometry.fibers, ...geometry.pathways]) mesh.dispose()
+    for (const mesh of [geometry.nodes, geometry.cortex, geometry.fibers, ...geometry.pathways, ...geometry.flarePaths]) mesh.dispose()
   }
 })

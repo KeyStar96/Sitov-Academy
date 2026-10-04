@@ -47,26 +47,15 @@ const assert = require('node:assert/strict');
     await page.waitForFunction(() => window.brainFrames.at(-1)?.comets > 0);
     await page.waitForTimeout(650);
     await panel.screenshot({ path: join(output, 'anatomy-light-pulse.png') });
-    await page.getByRole('button', { name: 'Dunkles Design aktivieren' }).click();
+    await page.evaluate(() => document.documentElement.classList.add('dark'));
     await page.waitForTimeout(300);
     await panel.screenshot({ path: join(output, 'anatomy-dark.png') });
-    await page.waitForFunction(() => window.brainFrames.some(frame => frame.comets === 3), null, { timeout: 45000 });
+    await page.waitForFunction(() => window.brainFrames.at(-1)?.time > 6);
     const frames = await page.evaluate(() => window.brainFrames);
     const maximum = Math.max(...frames.map(frame => frame.comets));
-    assert.equal(maximum, 3);
-    const bursts = [];
-    let active = false;
-    for (const frame of frames) {
-      if (frame.comets && !active) { bursts.push({ start: frame.time, end: frame.time, maximum: frame.comets }); active = true; }
-      if (frame.comets) { const burst = bursts.at(-1); burst.end = frame.time; burst.maximum = Math.max(burst.maximum, frame.comets); }
-      else active = false;
-    }
-    assert.ok(bursts.length >= 4);
-    for (let i = 1; i < bursts.length; i++) {
-      const interval = bursts[i].start - bursts[i - 1].start;
-      assert.ok(interval >= 5.95 && interval <= 8.1, `Burst interval ${interval} should remain 6–8 seconds`);
-      assert.ok(bursts[i].start - bursts[i - 1].end >= 2.9, 'Rest remains between bursts');
-    }
+    assert.ok(maximum > 3 && maximum <= 9, `Desktop keeps a bounded stream of ribbons (${maximum})`);
+    const variations = new Set(frames.map(frame => frame.comets));
+    assert.ok(variations.size > 3, 'Independent ribbon clocks create varied activity');
     await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
     await page.waitForTimeout(400);
     const offscreen = await page.evaluate(() => window.brainFrames.length);
@@ -77,10 +66,11 @@ const assert = require('node:assert/strict');
     await page.waitForTimeout(400);
     const staticFrame = await panel.locator('canvas').screenshot();
     const reduced = await page.evaluate(() => window.brainFrames.length);
+    assert.equal(await page.evaluate(() => window.brainFrames.at(-1).comets), 3, 'Reduced-motion scene retains three composed still connections');
     await page.waitForTimeout(450);
     assert.equal(await page.evaluate(() => window.brainFrames.length), reduced, 'Reduced motion uses a still frame');
     assert.ok(staticFrame.equals(await panel.locator('canvas').screenshot()), 'Reduced-motion pixels do not drift');
-    await page.getByRole('button', { name: 'Helles Design aktivieren' }).click();
+    await page.evaluate(() => document.documentElement.classList.remove('dark'));
     await page.waitForTimeout(250);
     assert.ok(await page.evaluate(() => window.brainFrames.length) > reduced, 'Theme changes repaint a static canvas');
     await panel.screenshot({ path: join(output, 'anatomy-reduced.png') });
@@ -95,12 +85,19 @@ const assert = require('node:assert/strict');
         await panel.screenshot({ path: join(output, `anatomy-mobile-${width}-${theme}.png`) });
       }
     }
+    await page.emulateMedia({ reducedMotion: 'no-preference' });
+    const mobileStart = await page.evaluate(() => window.brainFrames.length);
+    await page.waitForTimeout(2900);
+    const mobileFrames = await page.evaluate(start => window.brainFrames.slice(start), mobileStart);
+    const mobileMaximum = Math.max(...mobileFrames.map(frame => frame.comets));
+    assert.ok(mobileMaximum > 0 && mobileMaximum <= 6, `Smartphones cap simultaneous ribbons at six (${mobileMaximum})`);
+    await panel.screenshot({ path: join(output, 'anatomy-mobile-motion.png') });
     await panel.locator('canvas').evaluate(canvas => canvas.getContext('webgl2').getExtension('WEBGL_lose_context').loseContext());
     await page.waitForFunction(() => !document.querySelector('[data-neural-brain-panel] canvas'));
-    assert.equal(await panel.locator('svg').count(), 2, 'Graceful anatomy SVG remains after context loss');
+    assert.equal(await panel.locator('[data-sitov-brain-fallback]').count(), 1, 'Graceful anatomy SVG remains after context loss');
     await panel.screenshot({ path: join(output, 'anatomy-fallback.png') });
     assert.deepEqual(errors, []);
-    const result = { maximum, bursts, reducedMotion: true, offscreenPause: true, mobileWidths: [390, 320], lightDark: true, contextLossFallback: true, errors, output };
+    const result = { maximum, mobileMaximum, independentActivity: true, reducedMotion: true, offscreenPause: true, mobileWidths: [390, 320], lightDark: true, contextLossFallback: true, errors, output };
     writeFileSync(join(output, 'anatomy-validation.json'), JSON.stringify(result, null, 2));
     console.log(JSON.stringify(result, null, 2));
   } finally { await browser.close(); }

@@ -1,6 +1,6 @@
 import { Suspense } from 'react'
 import Link from 'next/link'
-import { ArrowRight, BookOpen, CheckCircle2, LibraryBig, Map, MessageSquareText, UserCheck, UserPlus, Users, CalendarRange } from 'lucide-react'
+import { ArrowRight, BookOpen, CheckCircle2, LibraryBig, Map, MessageSquareText, UserCheck, UserPlus, Users, CalendarRange, ClipboardCheck } from 'lucide-react'
 import { MediaStorageUsage } from '@/components/admin/MediaStorageUsage'
 import { ListCard, ListLink, Notice, PageHeader, StatTile, adminButton } from '@/components/admin/ui'
 import { getAdminStats } from '@/app/actions/admin'
@@ -97,6 +97,7 @@ export default async function AdminDashboardPage({ params }: { params: Promise<{
         <h2 id="areas-heading" className="text-sm font-semibold">{t('overview_areas_title')}</h2>
         <ListCard>
           <ListLink href={`${base}/students`} icon={Users} title={t('group_students')} description={t('area_students_desc')} />
+          <ListLink href={`${base}/exam-simulation`} icon={ClipboardCheck} title={t('nav_exam_simulation')} description={t('area_exam_simulation_desc')} />
           <ListLink href={`${base}/courses`} icon={BookOpen} title={t('group_courses')} description={t('area_courses_desc')} />
           <ListLink href={`${base}/content`} icon={LibraryBig} title={t('group_content')} description={t('area_content_desc')} />
           <ListLink href={`${base}/finance`} icon={CalendarRange} title={t('group_administration')} description={t('area_administration_desc')} />

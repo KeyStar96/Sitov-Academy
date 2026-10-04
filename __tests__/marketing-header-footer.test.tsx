@@ -9,10 +9,11 @@ import uk from '@/dictionaries/uk.json'
 import tr from '@/dictionaries/tr.json'
 
 const mockPush = jest.fn()
+let mockPathname = '/de'
 
 jest.unmock('lucide-react')
 jest.mock('next/navigation', () => ({
-  usePathname: () => '/de',
+  usePathname: () => mockPathname,
   useRouter: () => ({ push: mockPush }),
 }))
 jest.mock('next/link', () => ({
@@ -32,6 +33,12 @@ const locales = [
   { lang: 'uk', dictionary: uk },
   { lang: 'tr', dictionary: tr },
 ]
+
+beforeEach(() => {
+  mockPush.mockClear()
+  mockPathname = '/de'
+  window.history.replaceState({}, '', '/de')
+})
 
 describe.each(locales)('$lang marketing navigation and contact details', ({ lang, dictionary }) => {
   it('orders method, teacher and courses consistently in the desktop and mobile menus', () => {
@@ -73,11 +80,48 @@ describe.each(locales)('$lang marketing navigation and contact details', ({ lang
   })
 })
 
-it('switches language from the mobile menu in one interaction and closes the menu', () => {
+it('keeps the language control available when the mobile menu is open and closes both after selection', () => {
   render(<Header lang="de" dictionary={de} />)
   fireEvent.click(screen.getByRole('button', { name: de.academy.menu_open }))
-  const mobileNavigation = screen.getAllByRole('navigation')[1]
-  fireEvent.change(within(mobileNavigation).getByRole('combobox', { name: de.academy.language }), { target: { value: 'tr' } })
+  fireEvent.click(screen.getByRole('button', { name: `${de.academy.language}: Deutsch` }))
+  fireEvent.click(screen.getByRole('menuitemradio', { name: 'Türkçe' }))
   expect(mockPush).toHaveBeenCalledWith('/tr')
   expect(screen.getAllByRole('navigation')).toHaveLength(1)
+  expect(screen.queryByRole('menu')).not.toBeInTheDocument()
+})
+
+it('preserves the page, query and anchor when changing the public-site language', () => {
+  mockPathname = '/de/imprint'
+  window.history.replaceState({}, '', '/de/imprint?utm_source=homepage#contact')
+  render(<Header lang="de" dictionary={de} />)
+  fireEvent.click(screen.getByRole('button', { name: `${de.academy.language}: Deutsch` }))
+  expect(screen.getAllByRole('menuitemradio')).toHaveLength(5)
+  expect(screen.getByRole('menuitemradio', { name: 'Deutsch' })).toHaveAttribute('aria-checked', 'true')
+  fireEvent.click(screen.getByRole('menuitemradio', { name: 'English' }))
+  expect(mockPush).toHaveBeenCalledWith('/en/imprint?utm_source=homepage#contact')
+})
+
+it('supports arrow navigation and Escape with focus returned to the language pill', () => {
+  render(<Header lang="de" dictionary={de} />)
+  const trigger = screen.getByRole('button', { name: `${de.academy.language}: Deutsch` })
+  fireEvent.keyDown(trigger, { key: 'ArrowDown' })
+  expect(screen.getByRole('menuitemradio', { name: 'Deutsch' })).toHaveFocus()
+  fireEvent.keyDown(document.activeElement!, { key: 'ArrowDown' })
+  expect(screen.getByRole('menuitemradio', { name: 'English' })).toHaveFocus()
+  fireEvent.keyDown(document.activeElement!, { key: 'End' })
+  expect(screen.getByRole('menuitemradio', { name: 'Türkçe' })).toHaveFocus()
+  fireEvent.keyDown(document.activeElement!, { key: 'Escape' })
+  expect(screen.queryByRole('menu')).not.toBeInTheDocument()
+  expect(trigger).toHaveFocus()
+  expect(mockPush).not.toHaveBeenCalled()
+})
+
+it('dismisses the language popover on an outside touch and keeps the current locale unchanged', () => {
+  render(<Header lang="de" dictionary={de} />)
+  const trigger = screen.getByRole('button', { name: `${de.academy.language}: Deutsch` })
+  fireEvent.click(trigger)
+  fireEvent.pointerDown(document.body)
+  expect(trigger).toHaveAttribute('aria-expanded', 'false')
+  expect(screen.queryByRole('menu')).not.toBeInTheDocument()
+  expect(mockPush).not.toHaveBeenCalled()
 })

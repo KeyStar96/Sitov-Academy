@@ -1,6 +1,7 @@
 import type { CertificateFunctions, CertificateTables } from './certificates.types'
 import type { DailyQuestTables } from './daily-quests.types'
 import type { LearningCheckpointTables } from './learning-checkpoints.types'
+import type { ExamSimulationFunctions, ExamSimulationTables } from './exam-simulation.types'
 import type { ExamPreparationTables } from './exam-preparation.types'
 
 export type Json =
@@ -32,7 +33,7 @@ export type Database = {
     PostgrestVersion: "14.6"
   }
   public: {
-    Tables: CertificateTables & DailyQuestTables & LearningCheckpointTables & ExamPreparationTables & {
+    Tables: CertificateTables & DailyQuestTables & LearningCheckpointTables & ExamPreparationTables & ExamSimulationTables & {
       sitov_audio_preparation_requests: {
         Row: {
           cache_path: string
@@ -2325,7 +2326,7 @@ export type Database = {
     Views: {
       [_ in never]: never
     }
-    Functions: CertificateFunctions & DailyQuestFunctions & {
+    Functions: CertificateFunctions & DailyQuestFunctions & ExamSimulationFunctions & {
       sitov_import_vocabulary_seed: { Args: { p_seed: Json; p_publish?: boolean }; Returns: Json }
       sitov_record_grammar_checkpoint_attempt: { Args: { p_exercise_id: string; p_answer: string; p_hint_shown: boolean; p_level: string; p_expected_revision: number; p_request_id: string }; Returns: Json }
       sitov_learning_checkpoint: { Args: { p_action: string; p_kind: string; p_level: string; p_state?: Json; p_expected_revision?: number | null }; Returns: Json }

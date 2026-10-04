@@ -4,6 +4,11 @@ Implementierungsstand: 3. Oktober 2026, Inhaltsversion 1, **Pilot**. Diese Datei
 beschreibt den implementierten Bestand und seine Freigaberegeln. Sie bestätigt
 weder einen erfolgten Audioimport noch eine Datenbankmigration oder ein Deployment.
 
+**Oberflächenupdate am 4. Oktober 2026:** Der folgende Pilotbestand bleibt
+erhalten. Die aktuelle lokale Navigation wird im Abschnitt
+[Trennung der Prüfungsbereiche](#trennung-der-prüfungsbereiche-4-oktober-2026)
+beschrieben; die frühere Fünf-Bereiche-Navigation ist damit historisch.
+
 ## Einstieg und Oberfläche
 
 Der globale Trainer liegt unter `/{lang}/dashboard/exam-preparation`. Die
@@ -16,7 +21,7 @@ eine Übersetzung in die Interfacesprache ist nicht vorgesehen.
 Die fünf Bereiche heißen „Mein Lernweg“, „Gezielt üben“, „Sprechen & Abgeben“,
 „Prüfung üben“ und „Mein Fortschritt“. Eine Aufgabe wird jeweils einzeln geöffnet.
 Die Oberfläche verwendet die vorhandenen Sitov-Komponenten `PressableCard` und
-`SitovMotionStage`, ergänzende SVG-Grafiken und das mobile Layout in
+`SitovMotionStage`, ergänzende Motion-Grafiken und das mobile Layout in
 `components/exam-preparation/`. Zusätzliche Übungen erscheinen in kleinen Gruppen;
 Modullisten und Details lassen sich aufklappen. Der Fortschritt ist auch in
 „View Progress“ eingebunden; der direkte Einstieg lautet
@@ -41,8 +46,11 @@ den Konzeptplan von 80 Lernweg- und 30 Werkstatteinheiten.
 Alle Texte und Szenen sind eigene Inhalte; das geschützte Lehrbuch wurde nicht als
 Generierungsquelle verwendet. Fiktive Personen sind ausschließlich Männer. Sechs
 eigene Werkstattbilder und drei gesonderte, erstmals im Lerncheck verwendete
-SVG-Szenen liegen unter `public/Bilder/exam-preparation/`. Die drei Checkbilder
-zeigen Radioreparatur, gemeinsames Sortieren und Lernen mit Buch/Notizen.
+fotorealistische WebP-Szenen liegen unter `public/Bilder/exam-preparation/`.
+Die neun früheren SVG-Szenen sind im lokalen Arbeitsstand vom 4. Oktober 2026
+tatsächlich gelöscht; alte Bild-URLs werden nicht als Archiv weitergeführt.
+Die drei neuen Checkbilder zeigen Radioreparatur, gemeinsames Sortieren und
+Lernen mit Buch/Notizen. Aufgaben-IDs und Lösungen bleiben erhalten.
 
 ## Inhaltsvertrag und serverseitige Bewertung
 
@@ -214,15 +222,55 @@ Noch ungeprüfte Teilbedingungen bleiben `verified: false`, unbekannte Zahlen
 `null`. Insbesondere dürfen DTZ, telc A2–B1 und die beiden ÖSD-Formate nicht
 gegenseitig als Regelvorlage verwendet werden.
 
-Alle Profile behalten `simulationReleased: false`. Die Oberfläche zeigt pro
-Teilformat **0/3 vollständige eigene Transfer-Sets**. Allgemeine Übungsergebnisse
+Alle Profile behalten `simulationReleased: false`. Die frühere Pilotoberfläche
+zeigte pro Teilformat **0/3 vollständige eigene Transfer-Sets**. Allgemeine Übungsergebnisse
 gelten nicht als geprüfte Teilformatabdeckung. Weitere österreichische und
 berufliche Prüfungen sind angekündigt, aber noch keine fertigen Profile.
 
-Gegenüber dem Vollausbau fehlen die sieben fertig ausformulierten Module, die
-vollständigen drei neuen Transfersätze je Teilformat und vollständig geprüfte
-eigene Simulationen einschließlich Zeit-, Vorbereitungs-, Wiedergabe- und
-Bewertungsregeln. Die Konzeptziele von 700–900 Aufgaben, 50–70 Hörskripten und
+## Trennung der Prüfungsbereiche, 4. Oktober 2026
+
+Der Lernraum bietet jetzt zwei getrennte Einstiege: **Simulierte Prüfung**
+unter `/{lang}/dashboard/exam-simulation` und **Prüfungsvorbereitung** unter
+`/{lang}/dashboard/exam-preparation`. Der bestehende B1-Pilot bleibt die
+Prüfungsvorbereitung und wird nicht mit einer vollständigen Prüfung verwechselt.
+Die spätere Digitalisierung des Lehrbuchs gehört in diesen Lernbereich; sie
+wurde durch dieses Update nicht vorgenommen.
+
+Die Vorbereitung öffnet unmittelbar B1, ohne sechs überwiegend gesperrte
+Niveaukarten. Drei verständliche Bereiche ersetzen die fünf ständig sichtbaren
+Reiter: **Lernen**, **Meine Beiträge**, **Fortschritt**. „Weiterlernen“ führt zur
+passenden nächsten Einheit; „Eine Fertigkeit üben“ öffnet die gezielte Auswahl
+mit einem sichtbaren Rückweg. Weitere Aufgabenformen sind eingeklappt. Ein
+Prüfungsanbieter muss nicht gewählt werden; der frühere Zielprüfungswähler und
+seine Erklärung sind entfernt. Bestehende Zielprofilpräferenzen bleiben intern
+erhalten.
+
+„Prüfung üben“ und die wiederholten 0/3-Detailzählungen erscheinen nicht mehr
+als eigener Reiter. Ein direkter Link führt zur simulierten Prüfung. Alte
+`area=practice`- und `area=exam`-Links bleiben verständlich nutzbar; die
+Aufgaben-, Einheiten- und Bereichskennungen, Antworten, Lernchecks, Förderregeln
+und gespeicherten Lernleistungen werden nicht geändert.
+
+Beide Prüfungsrouten verwenden Deutsch auch für Brotkrumen, Schülernavigation,
+Profilaktionen und Darstellungsoptionen. Der Sprachumschalter ist dort
+ausgeblendet; ein Profil mit russischer oder anderer Interfacesprache behält
+seine Sprache und die ursprünglichen Routenlinks für den übrigen Lernraum.
+Der falsche Brotkrumen-Fallback „Video“ wurde durch eindeutige Prüfungslabels
+ersetzt. Vorhandene `PressableCard`- und `SitovMotionStage`-Komponenten begleiten
+den Einstieg und die Bereichswechsel; reduzierte Bewegung bleibt berücksichtigt.
+
+Gezielte Navigation-/Vorbereitungstests: **74 Tests in vier Jest-Suites**
+bestanden; ESLint der geänderten Dateien ohne Befunde. Die neue lokale
+universelle Vollsimulation, tatsächliche Aufgabenpools und Audiofreigabeschritte
+stehen in [exam-simulation.md](exam-simulation.md). Diese Notiz bestätigt kein
+neues Deployment und keinen neuen Audioimport.
+
+Im schrittweisen Vorbereitungsbereich fehlen weiterhin sieben fertig
+ausformulierte Module und vollständige drei neue Transfersätze je Teilformat.
+Die separate universelle Prüfung hat eigene vollständige Pflichtfamilien,
+Zeiten und Bewertungsregeln; ihr aktueller Audio-/Betriebsnachweis steht in
+der verlinkten Simulationsdokumentation. Die ursprünglichen Konzeptziele
+der Vorbereitung von 700–900 Aufgaben, 50–70 Hörskripten und
 18 Szenenbildern sind mit diesem Pilot nicht erreicht. Geführte Soloantworten
 ersetzen keinen freien Partnerdialog. Die Fünf-Minuten-Aufnahme unterstützt
 kurze Produktionen; ein längerer Dialogablauf ist noch auszubauen.
@@ -235,3 +283,16 @@ Progression, Backend, Lehreroberfläche, Schüleroberfläche und Audioproduktion
 haben eigene Tests unter `__tests__/exam-*.test.*`; die Datenbankregeln werden
 in `supabase/tests/exam-preparation.test.mjs` geprüft. Die endgültige gemeinsame
 Abnahme, Migration und Veröffentlichung erfolgen im koordinierten Release.
+
+
+Die separate simulierte Prüfung benötigt unabhängig vom Niveau eine persönliche
+Lehrkraftfreigabe. Vollständige Simulationsfortschritte können nur zugeordnete
+Lehrkräfte oder Administration zurücksetzen; die Schüleroberfläche enthält
+keinen solchen Reset. Die bestehende B1-Vorbereitung und andere Trainer bleiben
+davon getrennt. Details: [exam-simulation.md](exam-simulation.md).
+
+Die vorhandenen neun Bildsituationen der Vorbereitung verwenden nun neu
+generierte fotorealistische WebP-Dateien mit jeweils zwei männlichen Personen.
+Sie gehören zum tatsächlich nachgewiesenen Bestand von 18 neuen Dateien für
+beide Prüfungsbereiche; Bildpfade und sachliche Alttexte sind aktualisiert.
+Die Aufgaben-IDs, Lösungen, Hörskripte und Lernstände bleiben erhalten.

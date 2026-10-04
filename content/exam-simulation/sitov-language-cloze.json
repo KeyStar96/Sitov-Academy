@@ -1,0 +1,518 @@
+{
+  "A1": [
+    [
+      "Hallo, ich bin Samir. Ich ___ in Bonn. Meine Wohnung ist klein.",
+      "wohne",
+      "wohnt",
+      "wohnst",
+      "Das Subjekt ich verlangt wohne."
+    ],
+    [
+      "Das ist mein Vater. ___ arbeitet in einem Hotel.",
+      "Er",
+      "Sie",
+      "Es",
+      "Vater wird hier mit dem männlichen Pronomen er wiederaufgenommen."
+    ],
+    [
+      "Ich habe einen Kurs. Der Kurs beginnt ___ acht Uhr.",
+      "um",
+      "im",
+      "am",
+      "Vor einer Uhrzeit steht um."
+    ],
+    [
+      "Wir kaufen zwei Bücher. Die Bücher ___ zwölf Euro.",
+      "kosten",
+      "kostet",
+      "koste",
+      "Das Subjekt die Bücher steht im Plural."
+    ],
+    [
+      "Ich suche meinen Stift. Liegt ___ auf dem Tisch?",
+      "er",
+      "sie",
+      "es",
+      "Stift ist maskulin; das Pronomen lautet er."
+    ],
+    [
+      "Heute ist Sonntag. Morgen ist ___.",
+      "Montag",
+      "Freitag",
+      "Samstag",
+      "Auf Sonntag folgt Montag."
+    ],
+    [
+      "Ich trinke Wasser. Mein Freund trinkt ___ Kaffee.",
+      "einen",
+      "eine",
+      "ein",
+      "Kaffee ist maskulin und hier Akkusativobjekt."
+    ],
+    [
+      "Wir sind müde. Wir ___ jetzt nach Hause.",
+      "gehen",
+      "geht",
+      "gehst",
+      "Bei wir lautet die Verbform gehen."
+    ],
+    [
+      "Entschuldigung, ___ ist die Haltestelle? Ich suche sie.",
+      "wo",
+      "wer",
+      "wie",
+      "Nach einem Ort fragt man mit wo."
+    ],
+    [
+      "Die Tür ist offen. Bitte ___ Sie sie.",
+      "schließen",
+      "schließt",
+      "schließt du",
+      "Der höfliche Imperativ lautet schließen Sie."
+    ],
+    [
+      "Ich kaufe drei Äpfel. Ein Apfel kostet einen Euro. Ich bezahle ___ Euro.",
+      "drei",
+      "zwei",
+      "vier",
+      "Drei Äpfel zu einem Euro ergeben drei Euro."
+    ],
+    [
+      "Mein Freund heißt Ali. Ich kenne ___ gut.",
+      "ihn",
+      "er",
+      "ihm",
+      "Kennen verlangt hier den Akkusativ ihn."
+    ]
+  ],
+  "A2": [
+    [
+      "Ich kann heute nicht zum Kurs kommen. Ich bleibe im Bett, ___ ich Fieber habe.",
+      "weil",
+      "damit",
+      "obwohl",
+      "Weil nennt den Grund für das Zuhausebleiben."
+    ],
+    [
+      "Amir ist gestern nach Köln gefahren. Dort ___ er seinen Bruder besucht.",
+      "hat",
+      "ist",
+      "wird",
+      "Besuchen bildet das Perfekt mit haben."
+    ],
+    [
+      "Die Schuhe sind zu klein. Ich möchte eine größere ___.",
+      "Größe",
+      "Uhrzeit",
+      "Farbe",
+      "Ein Größenproblem verlangt hier eine andere Größe."
+    ],
+    [
+      "Ich warte an der Haltestelle. Der Bus kommt ___ zehn Minuten.",
+      "in",
+      "seit",
+      "vor",
+      "In nennt den zeitlichen Abstand bis zu einem künftigen Ereignis."
+    ],
+    [
+      "Ich habe meinen Schlüssel verloren. Deshalb kann ich die Tür nicht ___.",
+      "öffnen",
+      "geöffnet",
+      "öffnete",
+      "Nach kann steht der Infinitiv öffnen."
+    ],
+    [
+      "Die Prüfung ist am Freitag. Ich lerne jeden Tag, ___ gut vorbereitet zu sein.",
+      "um",
+      "weil",
+      "denn",
+      "Um ... zu nennt hier das Ziel des Lernens."
+    ],
+    [
+      "Das Essen schmeckt gut, aber es ist ___ warm. Können Sie es bitte aufwärmen?",
+      "nicht",
+      "kein",
+      "keine",
+      "Ein Adjektiv wird hier mit nicht verneint."
+    ],
+    [
+      "Ich suche eine Wohnung. Sie soll näher ___ meinem Arbeitsplatz sein.",
+      "an",
+      "aus",
+      "für",
+      "Die Ortsverbindung lautet näher an etwas sein."
+    ],
+    [
+      "Die Rechnung liegt auf dem Tisch. Hast du sie schon ___?",
+      "bezahlt",
+      "bezahlen",
+      "bezahlst",
+      "Im Perfekt wird das Partizip bezahlt benötigt."
+    ],
+    [
+      "Heute regnet es. Nimm bitte einen Regenschirm ___!",
+      "mit",
+      "aus",
+      "vor",
+      "Die trennbare Verbindung lautet einen Schirm mitnehmen."
+    ],
+    [
+      "Ich bleibe bis Donnerstag. Am Freitag fahre ich ___.",
+      "zurück",
+      "dort",
+      "zusammen",
+      "Zurückfahren bezeichnet die Rückreise."
+    ],
+    [
+      "Der Termin passt nicht. ___ wir ihn auf Dienstag verschieben?",
+      "Können",
+      "Kann",
+      "Könnt",
+      "Das Subjekt wir verlangt können."
+    ]
+  ],
+  "B1": [
+    [
+      "Hallo Leon, ich komme morgen etwas später. Der Kurs beginnt wie geplant. Bitte fangt schon ___ mich an; ich stoße danach dazu.",
+      "ohne",
+      "gegen",
+      "anstatt",
+      "Ohne mich anfangen bedeutet, nicht auf den Absender zu warten."
+    ],
+    [
+      "Sehr geehrter Herr Meyer, ich interessiere mich für den Kurs. Können Sie mir mitteilen, ___ noch Plätze frei sind? Eine kurze Antwort wäre hilfreich.",
+      "ob",
+      "dass",
+      "denn",
+      "Eine indirekte Ja-Nein-Frage beginnt mit ob."
+    ],
+    [
+      "Das Treffen fällt nicht aus. Wir ändern nur den Ort. Es findet im Gruppenraum ___ im Café statt.",
+      "statt",
+      "seit",
+      "trotz",
+      "Statt bezeichnet die ersetzte Ortsalternative."
+    ],
+    [
+      "Ich habe die Adresse notiert, ___ ich sie nicht wieder vergesse. Die Notiz liegt in meiner Tasche.",
+      "damit",
+      "obwohl",
+      "während",
+      "Damit bezeichnet das ausdrückliche Ziel der Notiz."
+    ],
+    [
+      "Der Kollege, ___ ich gestern geholfen habe, bedankt sich heute. Er konnte das Problem danach selbst lösen.",
+      "dem",
+      "den",
+      "der",
+      "Helfen verlangt den Dativ; dem bezieht sich auf den Kollegen."
+    ],
+    [
+      "Der Kurs ist leider voll. ___ können wir Ihnen einen Platz im nächsten Monat anbieten.",
+      "Allerdings",
+      "Obwohl",
+      "Sodass",
+      "Allerdings leitet die einschränkende positive Alternative ein."
+    ],
+    [
+      "Ich habe mich früh angemeldet. ___ habe ich eine Bestätigung erhalten. Erst danach habe ich bezahlt.",
+      "Anschließend",
+      "Während",
+      "Bevor",
+      "Anschließend verbindet aufeinanderfolgende abgeschlossene Schritte."
+    ],
+    [
+      "Die Gruppe hat beschlossen, regelmäßig ___. Alle möchten einmal pro Woche gemeinsam üben.",
+      "zu lernen",
+      "gelernt",
+      "lernt",
+      "Nach beschlossen folgt hier ein Infinitiv mit zu."
+    ],
+    [
+      "Der Raum ist ruhig. Er eignet sich gut ___ gemeinsame Gespräche und kurze Übungen.",
+      "für",
+      "an",
+      "über",
+      "Sich für etwas eignen ist die passende Verbindung."
+    ],
+    [
+      "Ich wohne hier ___ drei Jahren. Der Zeitraum dauert bis heute an.",
+      "seit",
+      "für",
+      "in",
+      "Seit beschreibt einen Zeitraum vom vergangenen Beginn bis zur Gegenwart."
+    ],
+    [
+      "Wir planen sorgfältig. Je mehr Zeit wir jetzt investieren, ___ weniger Probleme erwarten wir später.",
+      "desto",
+      "wie",
+      "ob",
+      "Die Vergleichsverbindung lautet je ... desto."
+    ],
+    [
+      "Vielen Dank für Ihre Nachricht. Ich freue mich ___ die guten Neuigkeiten, die Sie mir heute geschickt haben.",
+      "über",
+      "auf",
+      "an",
+      "Über bezieht sich hier auf bereits erhaltene erfreuliche Informationen."
+    ]
+  ],
+  "B2": [
+    [
+      "Die Genehmigung steht noch aus. Der Antrag ist zwar vollständig, ___ darf mit der Nutzung vorerst nicht begonnen werden.",
+      "dennoch",
+      "deshalb",
+      "damit",
+      "Dennoch verbindet die vollständige Vorbereitung mit der weiterhin geltenden Einschränkung."
+    ],
+    [
+      "Wir haben eine Alternative vereinbart. Falls der Raum belegt ist, ___ wir auf den Nebenraum aus.",
+      "weichen",
+      "gleichen",
+      "führen",
+      "Die feste Verbindung lautet auf etwas ausweichen."
+    ],
+    [
+      "Alle Rückmeldungen wurden berücksichtigt. Die endgültige Entscheidung weicht deshalb von der ersten ___ ab.",
+      "Fassung",
+      "Erstattung",
+      "Sendung",
+      "Fassung bezeichnet hier die Version eines Vorschlags."
+    ],
+    [
+      "Der Zugang bleibt offen, ___ die Arbeiten ausschließlich im Hof stattfinden. Das ist der tatsächliche Grund für die Freigabe.",
+      "weil",
+      "obwohl",
+      "damit",
+      "Weil nennt den ausdrücklich gegebenen Grund."
+    ],
+    [
+      "Wir möchten die Folgen begrenzen. Die Maßnahme dient ___, weitere Verzögerungen zu vermeiden.",
+      "dazu",
+      "darauf",
+      "daran",
+      "Die Konstruktion lautet dazu dienen, etwas zu tun."
+    ],
+    [
+      "Die Informationen reichen noch nicht aus. ___ eine verbindliche Zusage möglich ist, müssen die Kosten geklärt werden.",
+      "Bevor",
+      "Nachdem",
+      "Sodass",
+      "Bevor beschreibt die zeitlich vorgelagerte notwendige Klärung."
+    ],
+    [
+      "Der Vorschlag ist praktisch. Er lässt jedoch ___ Acht, dass manche Teilnehmer keinen digitalen Zugang haben.",
+      "außer",
+      "ohne",
+      "über",
+      "Die feste Wendung lautet etwas außer Acht lassen."
+    ],
+    [
+      "Die Änderung wurde deutlich angekündigt. ___ gingen mehrere Teilnehmer von der alten Regelung aus.",
+      "Trotzdem",
+      "Somit",
+      "Infolgedessen",
+      "Trotzdem kennzeichnet die unerwartete gegenteilige Folge."
+    ],
+    [
+      "Die Rückgabe ist möglich, sofern das Gerät unbenutzt ist. Diese ___ gilt für alle betreffenden Geräte.",
+      "Bedingung",
+      "Behauptung",
+      "Erfindung",
+      "Die Formulierung sofern nennt eine Bedingung."
+    ],
+    [
+      "Die Leitung bittet ___ Verständnis für die begrenzte Zahl der Plätze. Weitere Angebote sind in Planung.",
+      "um",
+      "auf",
+      "von",
+      "Die feste Verbindung lautet um Verständnis bitten."
+    ],
+    [
+      "Niemand soll dauerhaft die ganze Vorbereitung übernehmen. Die Aufgaben werden gleichmäßig ___.",
+      "verteilt",
+      "verschwiegen",
+      "entnommen",
+      "Verteilen beschreibt die Aufteilung der Arbeit auf Beteiligte."
+    ],
+    [
+      "Eine kurze Nachricht ist ausreichend. Sie muss sich aber eindeutig ___ den gebuchten Termin beziehen.",
+      "auf",
+      "für",
+      "an",
+      "Die feste Verbindung lautet sich auf etwas beziehen."
+    ]
+  ],
+  "C1": [
+    [
+      "Eine vorläufige Einschätzung ist hilfreich. Sie darf jedoch nicht ___ verbindliche Zusage ausgegeben werden, solange die Voraussetzungen offen sind.",
+      "als",
+      "für",
+      "mit",
+      "Etwas als etwas ausgeben bezeichnet die behauptete Einordnung."
+    ],
+    [
+      "Die Frist bleibt bestehen. Die neue Alternative erweitert den Zugang, ___ sie den Anspruch des nächsten Nutzers einschränkt.",
+      "ohne dass",
+      "zumal",
+      "sodass",
+      "Ohne dass verneint den ausdrücklich nicht eintretenden Begleitumstand."
+    ],
+    [
+      "Es geht nicht um eine Abschaffung der Regel, ___ um eine klarere Darstellung ihres Geltungsbereichs.",
+      "sondern",
+      "denn",
+      "gleichwohl",
+      "Nicht ... sondern korrigiert die verneinte Deutung."
+    ],
+    [
+      "Die Zustimmung bezieht sich ausschließlich auf den angekündigten Zeitraum. Eine weitergehende Nutzung ist davon nicht ___.",
+      "gedeckt",
+      "gedeihen",
+      "gedacht",
+      "Von einer Zustimmung gedeckt sein bezeichnet deren Reichweite."
+    ],
+    [
+      "Die Angabe ist nachvollziehbar, ___ sie als vorläufig erkennbar bleibt. Genau darin liegt die Grenze ihrer Verlässlichkeit.",
+      "sofern",
+      "obgleich",
+      "sodass",
+      "Sofern formuliert die entscheidende Voraussetzung."
+    ],
+    [
+      "Die Rückmeldungen sollen ausgewertet werden, ___ die Entscheidung anschließend begründet getroffen werden kann.",
+      "damit",
+      "obwohl",
+      "während",
+      "Damit nennt den Zweck der vorgeschalteten Auswertung."
+    ],
+    [
+      "Die Beteiligten haben unterschiedliche Interessen. Eine tragfähige Lösung muss beiden Seiten ___ tragen.",
+      "Rechnung",
+      "Auskunft",
+      "Verzicht",
+      "Die feste Wendung lautet Interessen Rechnung tragen."
+    ],
+    [
+      "Die Eingangsbestätigung dokumentiert nur den Empfang. Daraus ___ keine Genehmigung ableiten.",
+      "lässt sich",
+      "hat sich",
+      "ist sich",
+      "Lässt sich ableiten drückt die Möglichkeit eines Schlusses aus."
+    ],
+    [
+      "Die Mitteilung unterscheidet Tatsachen und Erwartungen. Diese Unterscheidung ist für ihre Bewertung ___.",
+      "maßgeblich",
+      "maßlos",
+      "maßstäblich",
+      "Maßgeblich bezeichnet den entscheidenden Einfluss auf die Bewertung."
+    ],
+    [
+      "Die Maßnahme ist akzeptabel, ___ sie nicht als Ersatz für eine langfristige Lösung missverstanden wird.",
+      "vorausgesetzt, dass",
+      "indem",
+      "zumal",
+      "Vorausgesetzt, dass benennt die Bedingung der Akzeptanz."
+    ],
+    [
+      "Es gibt keinen Anlass, die Absage als Desinteresse zu ___. Die Gründe sind nachvollziehbar dokumentiert.",
+      "deuten",
+      "klären",
+      "kündigen",
+      "Als etwas deuten bezeichnet eine interpretierende Einordnung."
+    ],
+    [
+      "Die Vorgaben sollen transparent sein. Das gilt ___ für Ausnahmen, deren Gründe sonst schwer verständlich bleiben.",
+      "insbesondere",
+      "keinesfalls",
+      "stattdessen",
+      "Insbesondere hebt die wichtige Teilgruppe hervor."
+    ]
+  ],
+  "C2": [
+    [
+      "Die Regel soll Orientierung geben, keine unberechtigten Erwartungen erzeugen. Ihre Reichweite ist deshalb präzise ___.",
+      "abzugrenzen",
+      "abgegrenzt haben",
+      "abzugrenzen gewesen",
+      "Die Konstruktion sein + zu-Infinitiv nennt hier eine notwendige Abgrenzung."
+    ],
+    [
+      "Ein praktikabler Ausweg ist nicht bereits der Beweis gelungener Planung. Beides muss analytisch auseinander___ werden.",
+      "gehalten",
+      "halten",
+      "gehalten haben",
+      "Auseinandergehalten werden bildet das passende Vorgangspassiv."
+    ],
+    [
+      "Die Kritik zielt nicht auf die Maßnahme selbst. Sie richtet sich gegen den Eindruck, deren Nutzen mache jede vorherige Prüfung ___.",
+      "entbehrlich",
+      "unentbehrlich",
+      "unverzichtbar",
+      "Entbehrlich bezeichnet das vermeintliche Nicht-mehr-Nötigsein, das hier kritisiert wird."
+    ],
+    [
+      "Eine Annahme kann plausibel sein, ohne bereits belegt zu sein. Dieser Unterschied darf nicht ___ werden.",
+      "eingeebnet",
+      "eingetreten",
+      "eingenommen",
+      "Eine Differenz einebnen bedeutet, sie nicht mehr angemessen zu berücksichtigen."
+    ],
+    [
+      "Die Entscheidung bleibt nachvollziehbar, ___ ihre Voraussetzungen offengelegt werden. Eine weitergehende Behauptung wird damit nicht getroffen.",
+      "insoweit als",
+      "als ob",
+      "wenngleich",
+      "Insoweit als begrenzt die Geltung auf die genannte Voraussetzung."
+    ],
+    [
+      "Die Ausnahme trägt einem konkreten Bedarf Rechnung. Aus ihr eine allgemeine Berechtigung abzuleiten, würde ihre Tragweite ___.",
+      "überdehnen",
+      "überbrücken",
+      "übergeben",
+      "Überdehnen bezeichnet das ungerechtfertigte Ausweiten der Reichweite."
+    ],
+    [
+      "Die Anpassung ist weder willkürlich noch zwingend in jeder Lage sinnvoll. Ihr Wert ergibt sich aus dem jeweiligen ___.",
+      "Zusammenhang",
+      "Zusammentritt",
+      "Zusammenbruch",
+      "Zusammenhang bezeichnet hier den Kontext der Bewertung."
+    ],
+    [
+      "Die Zusage bleibt an Bedingungen gebunden. Deren Auslassung in einer vereinfachten Darstellung liefe auf eine Sinn___ hinaus.",
+      "verschiebung",
+      "verteilung",
+      "herkunft",
+      "Sinnverschiebung bezeichnet eine Veränderung der vermittelten Bedeutung."
+    ],
+    [
+      "Der Zugang wird erweitert, die Verteilungsregel aber beibehalten. Der behauptete Gegensatz erweist sich daher als nur ___.",
+      "scheinbar",
+      "offenkundig",
+      "unvermeidlich",
+      "Nur scheinbar bedeutet, dass der Gegensatz bei genauerer Prüfung nicht besteht."
+    ],
+    [
+      "Dass ein Verfahren klar ist, schließt Verbesserungsbedarf nicht aus. Transparenz und Weiterentwicklung stehen nicht notwendigerweise in einem ___ zueinander.",
+      "Widerspruch",
+      "Zuspruch",
+      "Anspruch",
+      "In einem Widerspruch zueinander stehen bezeichnet Unvereinbarkeit, die hier verneint wird."
+    ],
+    [
+      "Die Darstellung soll vereinfachen, ohne Einschränkungen zu unterschlagen. Erst dann wird sie dem Gegenstand ___.",
+      "gerecht",
+      "zugestimmt",
+      "bewusst",
+      "Einem Gegenstand gerecht werden bedeutet, ihn angemessen wiederzugeben."
+    ],
+    [
+      "Eine konkrete Erfahrung begründet die Kritik, reicht jedoch nicht für deren Verallgemeinerung. Die Schlussfolgerung bedarf einer zusätzlichen ___.",
+      "Absicherung",
+      "Absage",
+      "Abgabe",
+      "Absicherung bezeichnet die zusätzliche Begründung oder Überprüfung eines Schlusses."
+    ]
+  ]
+}

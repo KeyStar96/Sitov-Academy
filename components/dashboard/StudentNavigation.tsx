@@ -11,6 +11,7 @@ import { levelHref } from '@/lib/mode-targets'
 import { studentTranslator } from '@/lib/student-ui-i18n'
 import { supportChannels, type SupportLabels } from '@/lib/support-channels'
 import { getDailyQuestCopy } from '@/lib/daily-quest-i18n'
+import { isSitovExamPath } from '@/lib/exam-navigation'
 
 const CHANNEL_ICONS = { whatsapp: MessageCircle, phone: Phone, telegram: Send, email: Mail } as const
 
@@ -70,9 +71,11 @@ export default function StudentNavigation({ lang, firstLevel, levels, supportLab
   learnNew?: boolean
   sitovPathname?: string
 }) {
-  const t = studentTranslator(lang)
   const sitovCurrentPath = usePathname() ?? ''
   const pathname = sitovPathname ?? sitovCurrentPath
+  const sitovExam = isSitovExamPath(pathname)
+  const sitovUiLanguage = sitovExam ? 'de' : lang
+  const t = studentTranslator(sitovUiLanguage)
   const group = useId()
   const nav = useRef<HTMLElement>(null)
   const sitovKeyboardNavigation = useRef(false)
@@ -159,7 +162,7 @@ export default function StudentNavigation({ lang, firstLevel, levels, supportLab
   const tabs = [
     { id: 'home', label: t('nav_home'), icon: House, href: base, active: pathname === base || pathname === `${base}/` },
     { id: 'learn', label: t('nav_learn'), icon: GraduationCap, href: learnLevel ? levelHref(lang, learnLevel) : base, active: !!currentLevel, fresh: learnNew },
-    { id: 'journey', label: getDailyQuestCopy(lang).navJourney, icon: Map, href: `${base}/daily-quest`, active: pathname.startsWith(`${base}/daily-quest`) },
+    { id: 'journey', label: getDailyQuestCopy(sitovUiLanguage).navJourney, icon: Map, href: `${base}/daily-quest`, active: pathname.startsWith(`${base}/daily-quest`) },
     { id: 'calendar', label: t('nav_calendar'), icon: CalendarDays, href: `${base}/calendar`, active: pathname.startsWith(`${base}/calendar`) },
   ]
 
@@ -188,7 +191,7 @@ export default function StudentNavigation({ lang, firstLevel, levels, supportLab
       <BottomSheet open={helpOpen} onClose={() => setHelpOpen(false)} title={t('help_title')} closeLabel={t('close')}
         icon={<LifeBuoy size={24} />}>
         <ul className="grid gap-3">
-          {supportChannels(supportLabels).map((channel, index) => {
+          {supportChannels(sitovExam ? { ...supportLabels, whatsapp: 'WhatsApp öffnen', phoneLabel: 'Anrufen', telegram: 'Telegram öffnen', emailLabel: 'E-Mail schreiben' } : supportLabels).map((channel, index) => {
             const Icon = CHANNEL_ICONS[channel.kind]
             return (
               <li key={channel.kind} className="st-rise" style={{ '--i': index } as CSSProperties}>

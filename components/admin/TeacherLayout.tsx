@@ -44,6 +44,7 @@ export default function TeacherLayout({
   account,
   counts,
   children,
+  sitovPreviewPathname,
 }: {
   lang: string
   brand: ReactNode
@@ -53,9 +54,12 @@ export default function TeacherLayout({
   account?: { name: string; role: string }
   counts?: AdminNavCounts
   children: ReactNode
+  /** Safe development preview callers only. */
+  sitovPreviewPathname?: string
 }) {
   const t = useAdminTranslator()
-  const pathname = usePathname()
+  const actualPathname = usePathname()
+  const pathname = sitovPreviewPathname ?? actualPathname
   // Das Menü gilt nur für die Seite, auf der es geöffnet wurde: Jeder
   // Seitenwechsel schließt es ohne zusätzlichen Effekt.
   const [menuPath, setMenuPath] = useState<string | null>(null)
@@ -80,7 +84,7 @@ export default function TeacherLayout({
       <aside className="sticky top-0 hidden h-dvh flex-col border-r border-[var(--admin-line)] bg-[var(--surface)] lg:flex">
         <div className="flex h-16 shrink-0 items-center px-4">{brand}</div>
         <div className="min-h-0 flex-1 overflow-y-auto px-2.5 pb-6 pt-2" data-lenis-prevent>
-          <TeacherSidebar lang={lang} counts={counts} />
+          <TeacherSidebar lang={lang} counts={counts} sitovPreviewPathname={sitovPreviewPathname} />
         </div>
         {account && (
           <div className="shrink-0 border-t border-[var(--admin-line)] px-4 py-3">
@@ -177,7 +181,7 @@ export default function TeacherLayout({
       </nav>
 
       <MenuSheet id={menuId} open={menuOpen} onClose={() => setMenuOpen(false)} title={t('menu_title')} closeLabel={t('sidebar_menu_close')}>
-        <TeacherSidebar lang={lang} counts={counts} onNavigate={() => setMenuOpen(false)} size="comfortable" />
+        <TeacherSidebar lang={lang} counts={counts} sitovPreviewPathname={sitovPreviewPathname} onNavigate={() => setMenuOpen(false)} size="comfortable" />
         <section aria-label={t('menu_account')} className="mt-6 space-y-3 border-t border-[var(--admin-line)] pt-5">
           <p className="px-1 text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-[var(--muted)]">{t('menu_account')}</p>
           {account && (
