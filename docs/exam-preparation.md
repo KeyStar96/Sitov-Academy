@@ -1,15 +1,15 @@
 # Sitov Academy: B1-Prüfungsvorbereitung
 
 Implementierungsstand: 3. Oktober 2026, Inhaltsversion 1, **Pilot**. Diese Datei
-beschreibt den implementierten Bestand und seine Freigaberegeln. Sie bestätigt
-weder einen erfolgten Audioimport noch eine Datenbankmigration oder ein Deployment.
+beschreibt den implementierten Bestand und seine Freigaberegeln.
 
-**Oberflächenupdate am 4. Oktober 2026:** Der folgende Pilotbestand bleibt
-erhalten. Die aktuelle lokale Navigation wird im Abschnitt
+**Produktives Oberflächenupdate am 4. Oktober 2026:** Release
+**`fb8df5491a91`** ist aktiv und um 15:03 Uhr CEST bestätigt. Der folgende
+Pilotbestand bleibt erhalten. Die aktuelle Navigation wird im Abschnitt
 [Trennung der Prüfungsbereiche](#trennung-der-prüfungsbereiche-4-oktober-2026)
 beschrieben; die frühere Fünf-Bereiche-Navigation ist damit historisch.
 
-## Einstieg und Oberfläche
+## Ursprünglicher Einstieg und Oberfläche des Piloten
 
 Der globale Trainer liegt unter `/{lang}/dashboard/exam-preparation`. Die
 Prüfungsniveauauswahl zeigt A1 bis C2; ausschließlich B1 ist verfügbar. Bestehende
@@ -47,7 +47,7 @@ Alle Texte und Szenen sind eigene Inhalte; das geschützte Lehrbuch wurde nicht 
 Generierungsquelle verwendet. Fiktive Personen sind ausschließlich Männer. Sechs
 eigene Werkstattbilder und drei gesonderte, erstmals im Lerncheck verwendete
 fotorealistische WebP-Szenen liegen unter `public/Bilder/exam-preparation/`.
-Die neun früheren SVG-Szenen sind im lokalen Arbeitsstand vom 4. Oktober 2026
+Die neun früheren SVG-Szenen sind im Release vom 4. Oktober 2026
 tatsächlich gelöscht; alte Bild-URLs werden nicht als Archiv weitergeführt.
 Die drei neuen Checkbilder zeigen Radioreparatur, gemeinsames Sortieren und
 Lernen mit Buch/Notizen. Aufgaben-IDs und Lösungen bleiben erhalten.
@@ -260,10 +260,12 @@ ersetzt. Vorhandene `PressableCard`- und `SitovMotionStage`-Komponenten begleite
 den Einstieg und die Bereichswechsel; reduzierte Bewegung bleibt berücksichtigt.
 
 Gezielte Navigation-/Vorbereitungstests: **74 Tests in vier Jest-Suites**
-bestanden; ESLint der geänderten Dateien ohne Befunde. Die neue lokale
+bestanden; ESLint der geänderten Dateien ohne Befunde. Die neue produktive
 universelle Vollsimulation, tatsächliche Aufgabenpools und Audiofreigabeschritte
-stehen in [exam-simulation.md](exam-simulation.md). Diese Notiz bestätigt kein
-neues Deployment und keinen neuen Audioimport.
+stehen in [exam-simulation.md](exam-simulation.md). Dieses Update umfasst
+den vollständigen Import von 144 neuen Hörquellen und das gemeinsame
+Deployment; Migrationen 75–77 sind produktiv angewandt. Details und
+Produktionsnachweise stehen in der verlinkten Simulationsdokumentation.
 
 Im schrittweisen Vorbereitungsbereich fehlen weiterhin sieben fertig
 ausformulierte Module und vollständige drei neue Transfersätze je Teilformat.

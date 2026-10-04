@@ -5,6 +5,17 @@ Academy. Sie verbindet wichtige Aufgabenformen mehrerer Institute. Eine
 Anbieterwahl gehört nicht zum neuen Ablauf. Alte Anbieterkennungen bleiben
 für bereits gespeicherte, unveränderliche Durchgänge lesbar.
 
+**Produktiver Stand am 4. Oktober 2026, 15:03 Uhr CEST:** Release
+`fb8df5491a91` ist aktiv; Migrationen 75–77 sind angewandt. Alle 144 neuen
+Qwen-Hörquellen wurden vor dem Deployment samt tatsächlichen Wortmarken in
+Datenbank/Storage importiert und zurückgelesen. Alle Schüler sind zunächst
+für die Simulation gesperrt. Erst die persönliche Freigabe durch zugeordnete
+Lehrkraft oder Administration öffnet den Bereich; danach gelten die Niveaurechte.
+Nur diese Lehrkräfte oder Administration können den gesamten Prüfungsfortschritt
+zurücksetzen. Freigaben und andere Trainer bleiben dabei erhalten; der
+allgemeine Schülerreset bewahrt den Simulationsbestand. Produktionsnachweise:
+`docs/exam-simulation.md`.
+
 Der Start prüft zur Laufzeit alle Pflichtfamilien und Hörquellen. Ein Niveau
 wird erst freigegeben, wenn sechs vollständige Varianten je Hörgenre als
 lokal vorberechnete Qwen-Aufnahmen mit geprüften Wortzeitmarken im

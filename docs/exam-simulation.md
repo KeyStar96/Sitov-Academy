@@ -1,13 +1,16 @@
 # Sitov Academy: Simulierte Prüfung und Prüfungsvorbereitung
 
-Stand: **4. Oktober 2026, lokaler Arbeitsstand**. Implementiert ist eine eigene,
+Stand: **4. Oktober 2026, produktiv veröffentlicht**. Release
+**`fb8df5491a91`** ist aktiv; der Produktionsnachweis wurde um **15:03 Uhr CEST**
+bestätigt. Implementiert ist eine eigene,
 umfassende Sitov-Prüfung je Niveau **A1 bis C2**. Die Simulation verlangt alle
 Pflichtgebiete und nachgewiesene vorberechnete Hörmedien; bei fehlenden Medien
 startet kein verkürzter Durchgang. Alle 144 Hörquellen sind lokal vollständig
 vorbereitet; eine Quelle wurde nach verweigerter echter Alignment-Validierung
 erfolgreich neu erzeugt. Alle 144 Quellen sind in den Datenbank-Audiospeicher
-importiert und gegen Storage zurückgelesen. Die neuen Feature-/Resetmigrationen und
-Webdeployment dieses Updates sind weiterhin nicht ausgeführt.
+importiert und gegen Storage zurückgelesen. **Migrationen 75–77 sind produktiv
+angewandt. Alle Schüler sind zunächst gesperrt**, bis die zugeordnete Lehrkraft
+oder Administration einzeln freigibt.
 
 ## Zwei klare Einstiege
 
@@ -277,8 +280,8 @@ den Simulationsbestand einschließlich Poolhistorie, verknüpfter und aus der
 Vorbereitung geliehener Aufnahmen sowie Uploadtickets. „Neuer Durchgang“ und
 „Niveau ändern“ erhalten die Prüfungshistorie. Die Löschung eines Kontos entfernt
 weiterhin dessen gesamte Daten. Niveaurechte entfallen bei Profillöschung.
-Migrationen 75–77 sind im VPS-Runner registriert und noch nicht produktiv
-angewandt. Bestehende B1-Vorbereitungs-IDs,
+Migrationen 75–77 sind im VPS-Runner registriert und produktiv angewandt.
+Bestehende B1-Vorbereitungs-IDs,
 Antworten und reale Aufnahmen bleiben erhalten.
 
 ## Deutsches Audio und Betriebsfreigabe
@@ -342,9 +345,8 @@ Die Runtime-Bereitschaft verlangt sechs tatsächlich importierte, wortlautgenaue
 Quellen pro Hörgenre und Niveau mit gemessenen Wortzeitmarken.
 `fullExamReleased` im statischen Autorenkatalog ist kein Freigabeschalter; der
 Server ermittelt die Startbereitschaft anhand dieser Nachweise und sämtlicher
-Pflichtfamilien. Die 144 neuen Quellen erfüllen nun diesen Audiovertrag. Die neuen Migrationen und
-Webveröffentlichung bleiben separate, noch nicht ausgeführte Betriebsschritte;
-der Audioimport veröffentlicht die neue Prüfungsfunktion nicht.
+Pflichtfamilien. Die 144 neuen Quellen erfüllten diesen Audiovertrag bereits vor
+dem Deployment; Migrationen und Webveröffentlichung sind inzwischen abgeschlossen.
 
 ## Fachliche Referenzen und Prüfung
 
@@ -390,9 +392,9 @@ Lehrkraftreset, die neuen Bilddateien, die korrekte Fortschrittsanzeige für
 Sprech-Notizen ohne Aufnahme und die reale 24-kHz-Aufnahmespeicherung.
 Dashboard- und Adminrouten der Simulation sind enthalten; die
 Entwicklungsvorschau ist außerhalb von Development mit 404 gesperrt.
-Kein Build wurde produktiv ausgeliefert. Technisches Audio-QC ist abgeschlossen;
+Das gemeinsame Release ist produktiv ausgeliefert. Technisches Audio-QC ist abgeschlossen;
 der vollständig verifizierte Import der 144 Quellen ist bestätigt.
-Die neuen Migrationen und Webdeployment bleiben nicht ausgeführt. Technische Tests
+Migrationen 75–77 und Webdeployment sind abgeschlossen. Technische Tests
 ersetzen keine fachliche Abnahme mit realen Lernenden und kein menschliches
 Gegenhören.
 
@@ -421,5 +423,26 @@ Der abschließende fokussierte Jest-Lauf bestätigt **12 Suites / 137 Tests**
 für Simulation, Vorbereitung, Lehrkraftbereich und Resetregressionen.
 Gezieltes ESLint und der oben beschriebene gemeinsame Produktionsbuild sind
 sauber. Diese Zahlen überlappen die Einzel-/Zwischenläufe.
-Die abschließende vollständige B1-Browserabnahme folgt separat; hierfür wird
-kein bereits durchlaufener kompletter Prüfungsgang behauptet.
+Der vollständige sichere B1-Browserdurchlauf erreichte alle 29 Aufgabengruppen
+und die Auswertung: 24 Antworten, fünf bewusst ausgelassene Sprechaufgaben ohne
+private Aufnahme. Alle acht Hörfragen spielten vier echte importierte MP3s ohne
+Medienfehler. Bekannte Pflichtfehler ergaben korrekt „noch gezielt üben“, trotz
+drei offener Schreibbewertungen. Es wurden keine echten Schülerleistungen verändert.
+
+## Produktiver Abschluss
+
+Codecommit: `fb8df5491a9125b9cda241463b512feaa7dcbee8`. VPS-Vorbereitung und
+Aktivierung endeten mit Exit 0. Der Webpack-Build mit einem Worker kompilierte
+in 52 Sekunden; TypeScript 37,1 Sekunden und 278/278 Seiten in 6,8 Sekunden.
+App und Mail sind aktiv; Studio und Analytics wurden wieder aufgenommen.
+Vor Migrationen 75–77 wurde ein vollständiges Backup unter
+`/root/backups/sitov-migration-20261004T125429402922Z` mit **16.948 Storageobjekten**
+erstellt. Eine reine Produktionsabfrage bestätigt null persönliche
+Prüfungsfreigaben, null Durchgänge und null Resetaufträge; keine echten
+Schülerresets wurden durchgeführt.
+
+Öffentlich bestätigt: Health **200 / ready**, Homepage und Login unter `/ru`
+**200**, geschützte Schüler-/Lehrkraftrouten führen ohne Anmeldung zum Login.
+Das neue Ehrenamtsfoto liefert **200 / WebP**, das gelöschte Kontakt-SVG **404**.
+Es wurden nach dem ausdrücklichen Ende der automatisierten Tests keine neuen
+Tests ausgeführt; die Produktionsnachweise sind Status- und Leseprüfungen.
