@@ -759,7 +759,7 @@ button.st-focus-slot { border-radius: .6rem .6rem 0 0; background: color-mix(in 
   .st-subnav[data-sitov-vocabulary-tabs] .st-subnav__link { min-height: 3rem; gap: .25rem; padding: .2rem; font-size: .8125rem; }
   /* During a round Back returns to the box. The three overview tabs would
      duplicate navigation and push the actual exercise below the viewport. */
-  .academy-student-content:has(.learning-screen[data-presentation='embedded']) > .st-subnav[data-sitov-vocabulary-tabs] { display: none; }
+  .academy-student-content:has(.learning-screen[data-presentation='embedded']) .st-subnav[data-sitov-vocabulary-tabs] { display: none; }
 }
 
 /* Shared atmosphere across all five trainer rooms. Decorative motion rests

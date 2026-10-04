@@ -5,6 +5,7 @@ import { getDictionary } from '@/lib/dictionary'
 import { AppearanceProvider } from '@/components/layout/AppearanceProvider'
 import SitovLearningShell from '@/components/layout/SitovLearningShell'
 import ModeDock from '@/components/dashboard/ModeDock'
+import ModeTransition from '@/components/dashboard/ModeTransition'
 import VocabularyTabs from '@/components/vocabulary/VocabularyTabs'
 import { LEARNING_MODES, modeHref } from '@/lib/mode-targets'
 import '@/components/dashboard/student.css'
@@ -50,7 +51,9 @@ export default async function SitovVocabularyChunksPreview({ params, searchParam
       telegram: dictionary.Footer.Contact.telegram_button, email: dictionary.Footer.Contact.email, emailLabel: dictionary.Footer.Contact.email_button,
     }}>
     <ModeDock lang={lang} level="A1.1" entries={LEARNING_MODES.map(mode => ({ mode, lock: null }))} />
-    <VocabularyTabs lang={lang} level="A1.1" sitovPreviewPathname={pathname} />
-    {session}
+    <ModeTransition>
+      <VocabularyTabs lang={lang} level="A1.1" sitovPreviewPathname={pathname} />
+      {session}
+    </ModeTransition>
   </SitovLearningShell></AppearanceProvider>
 }
