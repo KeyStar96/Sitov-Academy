@@ -1,7 +1,7 @@
 # Sitov Academy: Simulierte Prüfung und Prüfungsvorbereitung
 
 Stand: **4. Oktober 2026, produktiv veröffentlicht**. Release
-**`09452efafb1a`** ist aktiv; der Freigabe-/Motion-Nachtrag wurde um **17:02:18 Uhr CEST**
+**`f79ee90b0513`** ist aktiv; der Sprach-/Proxy-Nachtrag wurde um **18:35:45 Uhr CEST**
 bestätigt. Implementiert ist eine eigene,
 umfassende Sitov-Prüfung je Niveau **A1 bis C2**. Die Simulation verlangt alle
 Pflichtgebiete und nachgewiesene vorberechnete Hörmedien; bei fehlenden Medien
@@ -537,3 +537,40 @@ Build-/Runtime-Kennungen. Der öffentliche Live-Anmeldekatalog zeigt neun Kurse
 ohne Browserfehler. Eine erneute angemeldete Safari-Navigation konnte während
 paralleler Browserbenutzung nicht abgeschlossen werden; der ursprüngliche
 Versionskonflikt bleibt eine begründete Inferenz ohne ursprünglichen Stack.
+
+## Produktiver Sprach- und Proxy-Nachtrag, 4. Oktober 2026
+
+Codecommit `f79ee90b0513734aa24cfdac3efcac6ba8076ee4` ist auf
+`codex/vps-self-hosted` gepusht und seit **18:35:45 Uhr CEST / 16:35:45 UTC**
+als Release `f79ee90b0513` aktiv. Home-Karten, Einstieg, Start-Hinweis,
+Bedienung, Auswertung und Lehrkraftverwaltung folgen de/en/ru/uk/tr.
+Die eigentlichen deutschen Aufgaben, Lösungen, Antworten, Kennungen und
+Aufnahmen bleiben unverändert. Es gab keine Migration und keine Änderung
+echter Schülerleistungen.
+
+Der begrenzte Webpack-Build verwendet einen Worker, 1.536 MiB Heap,
+2.304 MiB Build-Cgroup und unverändert 1.024 MiB Hostreserve; bei Start waren
+3.811 MiB verfügbar. Er kompiliert in 52 Sekunden, beendet TypeScript in
+37,1 Sekunden und erzeugt 278/278 Seiten. Die bestehende JSON-Exportwarnung
+in `SoftErrorBadge` bleibt. Vorbereitungs- und Aktivierungsprozess enden mit
+Exit 0; Build-Prüfsummen, Build-ID und identische Build-/Runtime-Deployment-ID
+sind bestätigt. App, Mail, TTS und nginx sind aktiv. Studio und Analytics
+wurden in ihren ursprünglichen laufenden Zustand zurückversetzt und danach
+als gesund beobachtet; Studio war bereits vor dieser Vorbereitung ungesund.
+
+Interne und öffentliche Health liefern **HTTP 200 / ready**, englischer
+Login und Kursanmeldung **200**, alle drei geprüften Entwicklungsansichten
+**404**. Die lokalen Prüfungen bestätigen **343/343 gezielte Jest-Tests in
+24 Suites**, TypeScript, ESLint aller geänderten TypeScript-Dateien,
+Diffprüfung und **3/3 Proxy-Konfigurationsprüfungen**. Im gemeinsamen
+Browserlauf bestehen 26 Fälle; der verbleibende Motion-Fall besteht separat
+nach expliziter Prüfung eines sichtbaren Browserdokuments. Damit liegt für
+alle 27 Fälle erfolgreicher Nachweis vor, kein gemeinsamer 27/27-Lauf.
+Frühere vollständig belegte Altfehler der Gesamtsuite bleiben oben dokumentiert.
+
+Die [separat belegte sporadische 502-Ursache](vps-proxy-headers.md) waren
+Antwortheaderüberläufe im nginx-Proxy. Der Puffer wurde bereits um
+**18:28:39 Uhr CEST** auf 32 KiB erhöht, mit Syntaxprüfung und Reload bei
+unverändertem App-Prozess. Die Vorlage entspricht der aktiven Konfiguration.
+Die serverseitigen Release-Protokolle liegen unter
+`/root/sitov-exam-language-release-20261004T163200Z`.

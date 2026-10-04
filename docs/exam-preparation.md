@@ -4,7 +4,7 @@ Implementierungsstand: 3. Oktober 2026, Inhaltsversion 1, **Pilot**. Diese Datei
 beschreibt den implementierten Bestand und seine Freigaberegeln.
 
 **Produktives Oberflächenupdate am 4. Oktober 2026:** Release
-**`fb8df5491a91`** ist aktiv und um 15:03 Uhr CEST bestätigt. Der folgende
+**`f79ee90b0513`** ist aktiv und um 18:35:45 Uhr CEST bestätigt. Der folgende
 Pilotbestand bleibt erhalten. Die aktuelle Navigation wird im Abschnitt
 [Trennung der Prüfungsbereiche](#trennung-der-prüfungsbereiche-4-oktober-2026)
 beschrieben; die frühere Fünf-Bereiche-Navigation ist damit historisch.
@@ -319,3 +319,8 @@ müssen diese Übersetzungen ergänzen; Tests prüfen vollständige Abdeckung de
 Modulbeschreibungen und Kriterien in allen vier weiteren Interfacesprachen.
 Aufgabenkennungen, Antworten, Versuchsversionen, Audio und gespeicherte Fortschritte
 bleiben erhalten.
+
+Die mehrsprachige Oberfläche ist im Release `f79ee90b0513` veröffentlicht.
+Der [Sprach-/Proxy-Produktionsnachweis](exam-simulation.md#produktiver-sprach--und-proxy-nachtrag-4-oktober-2026)
+enthält die genaue Abnahme, Build-Grenzen und Health-Prüfung. Für diesen
+Nachtrag wurden weder Inhaltsdateien noch Audio oder Datenbankschema geändert.
