@@ -66,9 +66,9 @@ export default async function AdminLayout({
     <>
       <HeaderLanguageSwitcher current={toUiLocale(profile?.ui_language ?? lang)} ariaLabel={t('ui_language_aria')} />
       <ThemeToggle lightLabel={t('toggle_theme_light')} darkLabel={t('toggle_theme_dark')} />
-      <Link href={`/${lang}/staff-security`} className={adminButton('secondary', 'md')} aria-label={sitovStaffMfaCopy(lang).title}>
+      {profile.role === 'admin' && <Link href={`/${lang}/staff-security`} className={adminButton('secondary', 'md')} aria-label={sitovStaffMfaCopy(lang).title}>
         <ShieldCheck size={17} aria-hidden="true" />
-      </Link>
+      </Link>}
       <form action={async () => {
         'use server'
         await logout(lang)

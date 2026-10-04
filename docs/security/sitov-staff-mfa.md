@@ -1,28 +1,30 @@
-# Sitov Academy: zweite Anmeldung für Lehrkräfte und Verwaltung
+# Sitov Academy: zweite Anmeldung für Administratorkonten
 
-Die Seite `/{Sprache}/staff-security` bietet die Einrichtung und Bestätigung einer TOTP-Authenticator-App in Deutsch, Englisch, Russisch, Ukrainisch und Türkisch. Die Verwaltung verlinkt sie über das Schildsymbol. Der QR-Code und Einrichtungsschlüssel bleiben nur im aktuellen Bildschirm; sie werden nicht in Logs oder Local Storage gespeichert. Nach erfolgreicher Codeprüfung aktiviert die Anwendung die Datenbankpflicht für das eigene Konto. Andere Sitzungen dieses Kontos benötigen dann ebenfalls die zweite Anmeldung.
+**Aktueller Stand nach Nutzerentscheidung vom 4. Oktober 2026:** Lehrkräfte melden sich ausschließlich mit E-Mail und Passwort an. Migration 83 entfernt ihre MFA-Pflicht für bestehende und neue Konten. Das MFA-Symbol wird für Lehrkräfte nicht mehr gezeigt; ältere Einrichtungslinks führen zur Lehrkraftverwaltung. Die zweite Anmeldung bleibt für Administratorkonten bestehen.
 
-Migration `80_sitov_staff_mfa.sql` lässt die Pflicht für **bestehende** Lehrkraft-/Adminprofile zunächst aus, damit die Einrichtung vor der Umstellung geprüft werden kann. Neue Lehrkraft-/Adminprofile und spätere Beförderungen verlangen sie automatisch. Eine noch nicht aktivierte Pflicht ist keine vollständige MFA-Absicherung dieses Kontos.
+Die Seite `/{Sprache}/staff-security` bietet für Administratoren die Einrichtung und Bestätigung einer TOTP-Authenticator-App in Deutsch, Englisch, Russisch, Ukrainisch und Türkisch. Die Verwaltung verlinkt sie über das Schildsymbol. Der QR-Code und Einrichtungsschlüssel bleiben nur im aktuellen Bildschirm; sie werden nicht in Logs oder Local Storage gespeichert. Nach erfolgreicher Codeprüfung aktiviert die Anwendung die Datenbankpflicht für das eigene Konto. Andere Sitzungen dieses Kontos benötigen dann ebenfalls die zweite Anmeldung.
+
+Migration 80 führte ursprünglich MFA für Staff ein. Die spätere Migration `83_sitov_teacher_password_login.sql` begrenzt die Pflicht auf Administratoren. Neue Administratorkonten und Beförderungen von Schülern oder Lehrkräften zu Administratoren verlangen sie automatisch. Ein Wechsel zur Lehrkraftrolle entfernt die Pflicht. Bestehende Adminflags und deren geprüfter SQL-Wiederherstellungsweg bleiben erhalten.
 
 ## Einführung
 
 1. Migration anwenden, danach Anwendung veröffentlichen. Auth muss TOTP-Einrichtung und -Prüfung erlauben (`GOTRUE_MFA_TOTP_ENROLL_ENABLED=true`, `GOTRUE_MFA_TOTP_VERIFY_ENABLED=true`). Der PostgREST-Hook `sitov_security_private.sitov_pre_request` muss nach dem Konfigurationsreload aktiv sein; bestehende abweichende Hooks werden von der Migration nicht überschrieben.
 2. In einer isolierten Auth-/Datenbankkopie die vollständige Einrichtung, Abmeldung und erneute Codeprüfung testen. Prüfen, dass `aal1` private Daten/RPCs verweigert, die eigene Profillesung und MFA-Seite aber funktionieren. Ein `aal2`-Token ohne verbliebenen verifizierten TOTP-Faktor wird ebenfalls abgewiesen.
-3. Bestehende Lehrkräfte öffnen die Sicherheitsseite und richten ihre eigene App ein. Ein bestätigter Faktor aktiviert die Pflicht automatisch. Nach geprüfter Einrichtung und vorhandenem SQL-Wiederherstellungszugang kann der Betreiber sie für alle übrigen bestehenden Staff-Konten einschalten:
+3. Bestehende Administratoren öffnen die Sicherheitsseite und richten ihre eigene App ein. Ein bestätigter Faktor aktiviert die Pflicht automatisch. Nach geprüfter Einrichtung und vorhandenem SQL-Wiederherstellungszugang kann der Betreiber sie für alle übrigen bestehenden Administratorkonten einschalten:
 
 ```sql
 UPDATE public.profiles
 SET sitov_mfa_required=true
-WHERE role IN ('teacher','admin');
+WHERE role='admin';
 ```
 
 Bei noch nicht eingerichteten Konten führt die nächste Verwaltungsanmeldung zur Einrichtung. Die MFA-Seite liegt außerhalb des geschützten Verwaltungslayouts.
 
 ## Schutzbereiche
 
-Der PostgREST-Hook schützt angemeldete, verpflichtete Staff-Konten vor jeder REST-/RPC-Abfrage mit unzureichender Authentifizierung, einschließlich `SECURITY DEFINER`-RPCs. Die eigene Profillesung und die beiden geprüften MFA-RPCs bleiben erreichbar. Restriktive Regeln ergänzen die bisherigen Eigentums- und Freigaberegeln für alle bei der Migration vorhandenen öffentlichen RLS-Tabellen sowie `storage.objects` und `storage.buckets`; die Profilregel erlaubt vor der zweiten Anmeldung ausschließlich das eigene Profil zu lesen.
+Der PostgREST-Hook schützt angemeldete, verpflichtete Administratorkonten vor jeder REST-/RPC-Abfrage mit unzureichender Authentifizierung, einschließlich `SECURITY DEFINER`-RPCs. Die eigene Profillesung und die beiden geprüften MFA-RPCs bleiben erreichbar. Restriktive Regeln ergänzen die bisherigen Eigentums- und Freigaberegeln für alle bei der Migration vorhandenen öffentlichen RLS-Tabellen sowie `storage.objects` und `storage.buckets`; die Profilregel erlaubt vor der zweiten Anmeldung ausschließlich das eigene Profil zu lesen.
 
-Serverguards prüfen vor Verwaltungszugriffen und vor Service-Client-Abfragen die Pflicht aus der Datenbank. Erfasst sind das Verwaltungslayout, der gemeinsame Backendkontext, der ältere Verwaltungshelfer, die gemeinsame Niveau-Zugriffsprüfung (einschließlich Prüfungsserver) sowie die Verwaltung von Hörproduktionen. Schülerrollen behalten ihre bisherigen Berechtigungen. Öffentliche Formulare und ausschließlich eigene Schülerfunktionen sind keine zusätzlichen Staff-Rechte.
+Serverguards prüfen vor Verwaltungszugriffen und vor Service-Client-Abfragen die Pflicht aus der Datenbank. Erfasst sind das Verwaltungslayout, der gemeinsame Backendkontext, der ältere Verwaltungshelfer, die gemeinsame Niveau-Zugriffsprüfung (einschließlich Prüfungsserver) sowie die Verwaltung von Hörproduktionen. Lehrkraft- und Schülerrollen behalten ihre bisherigen Berechtigungen ohne MFA-Pflicht. Öffentliche Formulare und ausschließlich eigene Schülerfunktionen sind keine zusätzlichen Staff-Rechte.
 
 Neue ausdrücklich freigegebene Tabellen müssen dieselbe restriktive RLS-Regel erhalten; der API-Hook schützt bereits neue REST-/RPC-Endpunkte. Direkter privilegierter SQL-Zugriff und der geheime Service-Key bleiben betriebliche Vertrauensgrenzen. Sie müssen weiterhin ausschließlich serverseitig verfügbar sein.
 
@@ -41,5 +43,7 @@ UPDATE public.profiles SET sitov_mfa_required=false WHERE id='<geprüfte Konto-U
 ```
 
 Danach den verlorenen Faktor über die Auth-Verwaltung entfernen, vorhandene Sitzungen widerrufen und das Konto erneut einrichten lassen. Das Zurücksetzen der Pflicht allein entfernt keinen Faktor und ersetzt keine Identitätsprüfung.
+
+Die SQL-Migration verändert keine Authenticator-Schlüssel in Auth. Vor der produktiven Umstellung gab es keinen verifizierten Lehrkraftfaktor. Die eine noch unbestätigte Einrichtung wird bei der Veröffentlichung über die offizielle Auth-Admin-API entfernt, damit ein alter QR-Code sie nicht nachträglich bestätigt.
 
 Die Implementierung verwendet die offiziellen [Supabase-TOTP-APIs](https://supabase.com/docs/guides/auth/auth-mfa/totp) und die dokumentierte [PostgREST-Konfiguration](https://docs.postgrest.org/en/stable/references/configuration.html#db-pre-request). Lokale Prüfung: `node --test supabase/tests/sitov-staff-mfa.test.mjs` und `npx jest --runInBand __tests__/sitov-staff-mfa.test.ts __tests__/sitov-staff-mfa-ui.test.tsx`.

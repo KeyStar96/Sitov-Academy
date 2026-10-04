@@ -20,7 +20,8 @@ export default async function SitovStaffSecurityPage({ params }: { params: Promi
   const { data: { user }, error } = await client.auth.getUser()
   if (error || !user) redirect(`/${lang}/login`)
   const { data: profile } = await client.from('profiles').select('role,sitov_mfa_required').eq('id', user.id).single()
-  if (profile?.role !== 'teacher' && profile?.role !== 'admin') redirect(`/${lang}/dashboard`)
+  if (profile?.role === 'teacher') redirect(`/${lang}/admin`)
+  if (profile?.role !== 'admin') redirect(`/${lang}/dashboard`)
   const copy = sitovStaffMfaCopy(lang)
   const dictionary = await getDictionary(lang)
   return <AuthShell lang={lang} title={copy.title} description={copy.description}>
