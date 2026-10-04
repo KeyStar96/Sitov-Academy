@@ -5,14 +5,16 @@ import type {SimulationAnswer} from '@/lib/exam-simulation/types'
 import {createSimulationUpload} from '@/app/actions/exam-simulation'
 import {createClient} from '@/utils/supabase/client'
 import {useAudioRecorder} from '@/lib/audio/useAudioRecorder'
+import LiveWaveform from '@/components/audio/LiveWaveform'
 import {SITOV_SIMULATION_UI_LANGUAGES,sitovSimulationCopy} from '@/lib/exam-simulation/ui-copy'
 jest.unmock('lucide-react')
 jest.mock('@/app/actions/exam-simulation',()=>({createSimulationUpload:jest.fn()}))
 jest.mock('@/utils/supabase/client',()=>({createClient:jest.fn()}))
 jest.mock('@/lib/audio/useAudioRecorder',()=>({useAudioRecorder:jest.fn()}))
-jest.mock('@/components/audio/LiveWaveform',()=>({__esModule:true,default:()=>null}))
+jest.mock('@/components/audio/LiveWaveform',()=>({__esModule:true,default:jest.fn(()=>null)}))
 const oldPath='student/speaking/old.webm',newPath='student/speaking/new.webm'
 const uploaded=jest.fn(),busy=jest.fn(),change=jest.fn()
+let recorder:ReturnType<typeof useAudioRecorder>
 function Harness({preview=false,disabled=false}:{preview?:boolean;disabled?:boolean}){
  const [answer,setAnswer]=useState<SimulationAnswer>({text:'Meine ursprünglichen Notizen',audioPath:oldPath,audioUrl:'https://private.test/old.webm'})
  return <><SimulationRecording runId="00000000-0000-4000-8000-000000000001" taskId="sitov-speaking" value={answer} preview={preview} disabled={disabled} onBusy={busy} onChange={value=>{change(value);setAnswer(value)}}/><output aria-label="Aktuelle gespeicherte Antwort">{JSON.stringify(answer)}</output></>
@@ -24,7 +26,8 @@ beforeEach(()=>{
  jest.clearAllMocks()
  Object.defineProperty(URL,'createObjectURL',{value:jest.fn(()=> 'blob:local-recording'),configurable:true})
  Object.defineProperty(URL,'revokeObjectURL',{value:jest.fn(),configurable:true})
- jest.mocked(useAudioRecorder).mockReturnValue({status:'idle',levels:[],elapsedSeconds:0,audioUrl:null,audioBlob:null,isRecording:false,hasRecording:false,analyserRef:{current:null},start:jest.fn(async()=>{}),stop:jest.fn(),reset:jest.fn()})
+ recorder={status:'idle',levels:[],elapsedSeconds:0,audioUrl:null,audioBlob:null,isRecording:false,hasRecording:false,analyserRef:{current:null},start:jest.fn(async()=>{}),stop:jest.fn(),reset:jest.fn()}
+ jest.mocked(useAudioRecorder).mockImplementation(()=>recorder)
  jest.mocked(createSimulationUpload).mockResolvedValue({success:true,path:newPath,token:'private-upload-token',bucket:'sitov-exam-submissions'})
  uploaded.mockResolvedValue({error:null})
  jest.mocked(createClient).mockReturnValue({storage:{from:jest.fn(()=>({uploadToSignedUrl:uploaded}))}} as unknown as ReturnType<typeof createClient>)
@@ -95,6 +98,54 @@ it('keeps a resumed recording playable while editing its optional notes',()=>{
  expect(screen.getByLabelText('Eigene Sprechaufnahme anhören')).toHaveAttribute('src','https://private.test/old.webm')
  expect(change).toHaveBeenCalledWith({text:'Überarbeitete Notizen',audioPath:oldPath,audioUrl:'https://private.test/old.webm'})
  expect(createSimulationUpload).not.toHaveBeenCalled()
+})
+
+it('displays whole recording seconds without float artifacts and keeps the stop action stable',()=>{
+ recorder={...recorder,status:'recording',isRecording:true,elapsedSeconds:9.01}
+ const renderRecorder=()=> <SimulationRecording lang="en" runId="00000000-0000-4000-8000-000000000001" taskId="sitov-speaking" value="" preview={false} disabled={false} onBusy={busy} onChange={change}/>
+ const view=render(renderRecorder())
+ const stopButton=screen.getByRole('button',{name:'Stop recording'})
+ const clock=screen.getByText('0:09')
+ const label=screen.getByText('Stop recording')
+ expect(stopButton).toHaveTextContent('Stop recording·0:09')
+
+ for(const [elapsedSeconds,display] of [[9.999,'0:09'],[10.653999999999971,'0:10'],[59.999,'0:59'],[60.051,'1:00'],[299.999,'4:59']] as const){
+  recorder={...recorder,elapsedSeconds}
+  view.rerender(renderRecorder())
+  expect(screen.getByRole('button',{name:'Stop recording'})).toBe(stopButton)
+  expect(screen.getByText('Stop recording')).toBe(label)
+  expect(screen.getByText(display)).toBe(clock)
+  expect(clock).toHaveAttribute('aria-hidden','true')
+  expect(stopButton.textContent).not.toContain(String(elapsedSeconds))
+  expect(jest.mocked(LiveWaveform).mock.calls.at(-1)?.[0].elapsedSeconds).toBe(elapsedSeconds)
+ }
+
+ expect(recorder.stop).not.toHaveBeenCalled()
+ fireEvent.click(stopButton)
+ expect(recorder.stop).toHaveBeenCalledTimes(1)
+ expect(change).not.toHaveBeenCalled()
+ expect(busy).toHaveBeenLastCalledWith(true)
+ view.unmount()
+ expect(busy).toHaveBeenLastCalledWith(false)
+})
+
+it('uses precise elapsed time for the five-minute recording limit',()=>{
+ recorder={...recorder,status:'recording',isRecording:true,elapsedSeconds:299.999}
+ const view=render(<Harness/>)
+ expect(recorder.stop).not.toHaveBeenCalled()
+ recorder={...recorder,elapsedSeconds:300.001}
+ view.rerender(<Harness/>)
+ expect(recorder.stop).toHaveBeenCalledTimes(1)
+})
+
+it.each(SITOV_SIMULATION_UI_LANGUAGES)('keeps the %s stop action label independent of the recording clock',lang=>{
+ recorder={...recorder,status:'recording',isRecording:true,elapsedSeconds:4.051}
+ const copy=sitovSimulationCopy(lang)
+ render(<SimulationRecording lang={lang} runId="00000000-0000-4000-8000-000000000001" taskId="sitov-speaking" value="" preview={false} disabled={false} onBusy={busy} onChange={change}/>)
+ const button=screen.getByRole('button',{name:copy.t('stopRecording')})
+ expect(button).toHaveTextContent(copy.t('stopRecording'))
+ expect(button).toHaveTextContent('0:04')
+ expect(button).not.toHaveTextContent('4.051')
 })
 
 it.each(SITOV_SIMULATION_UI_LANGUAGES)('uses %s recording controls and keeps the German notes unchanged',lang=>{

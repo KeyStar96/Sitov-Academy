@@ -150,7 +150,7 @@ const messages = {
   explanationFallback: ['Vergleiche deine Antwort mit der passenden Lösung und der entscheidenden Stelle.','Compare your answer with the correct solution and key passage.','Сравни свой ответ с правильным решением и ключевым фрагментом.','Порівняй свою відповідь із правильним розв’язанням і ключовим фрагментом.','Yanıtını doğru çözümle ve belirleyici bölümle karşılaştır.'],
   recordingHint: ['Maximal 5 Minuten. Deine Lehrkraft bewertet die private Aufnahme.','Up to 5 minutes. Your teacher assesses the private recording.','До 5 минут. Личную запись оценит преподаватель.','До 5 хвилин. Особистий запис оцінить викладач.','En fazla 5 dakika. Özel kaydı öğretmenin değerlendirir.'],
   recordingPreview: ['Vorschau: Aufnahmen werden hier nicht gespeichert. Notizen ersetzen keine Sprechleistung.','Preview: recordings are not saved here. Notes do not replace a speaking performance.','Предпросмотр: записи здесь не сохраняются. Заметки не заменяют устный ответ.','Попередній перегляд: записи тут не зберігаються. Нотатки не замінюють усну відповідь.','Önizleme: kayıtlar burada saklanmaz. Notlar konuşma performansının yerini tutmaz.'],
-  stopRecording: ['Aufnahme stoppen · {count} s','Stop recording · {count} s','Остановить запись · {count} с','Зупинити запис · {count} с','Kaydı durdur · {count} sn'],
+  stopRecording: ['Aufnahme stoppen','Stop recording','Остановить запись','Зупинити запис','Kaydı durdur'],
   openingMic: ['Mikrofon wird geöffnet …','Opening microphone …','Включаем микрофон …','Вмикаємо мікрофон …','Mikrofon açılıyor …'],
   recordAgain: ['Neu aufnehmen','Record again','Записать заново','Записати знову','Yeniden kaydet'],
   record: ['Aufnahme starten','Start recording','Начать запись','Почати запис','Kaydı başlat'],

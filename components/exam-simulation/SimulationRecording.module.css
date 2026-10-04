@@ -1,0 +1,13 @@
+.sitovStopAction > svg {
+  flex-shrink: 0;
+}
+
+/* Reserve the entire timer width so second and minute changes never move the label. */
+.sitovRecordingClock {
+  display: inline-block;
+  flex: 0 0 5ch;
+  inline-size: 5ch;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+  white-space: nowrap;
+}

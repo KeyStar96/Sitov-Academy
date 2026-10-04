@@ -5,11 +5,13 @@ import { CheckCircle2, Mic, Square, Upload, X } from 'lucide-react'
 import { createSimulationUpload } from '@/app/actions/exam-simulation'
 import { createClient } from '@/utils/supabase/client'
 import { useAudioRecorder } from '@/lib/audio/useAudioRecorder'
+import { formatDuration } from '@/lib/audio/waveform'
 import LiveWaveform from '@/components/audio/LiveWaveform'
 import PressableCard from '@/components/motion/PressableCard'
 import { sitovSimulationCopy, sitovSimulationError } from '@/lib/exam-simulation/ui-copy'
 import type { SimulationAnswer } from '@/lib/exam-simulation/types'
 import styles from './ExamSimulation.module.css'
+import recordingStyles from './SimulationRecording.module.css'
 
 const allowed=['audio/mpeg','audio/mp4','audio/x-m4a','audio/webm','audio/wav','audio/x-wav','audio/ogg']
 export default function SimulationRecording({runId,taskId,value,preview,disabled,onChange,onBusy,lang='de'}: {
@@ -54,7 +56,7 @@ export default function SimulationRecording({runId,taskId,value,preview,disabled
   return <div className={styles.recording} lang={copy.lang}>
     {!preview&&<p className={styles.muted}>{copy.t('recordingHint')}</p>}
     {preview ? <p className={styles.note}>{copy.t('recordingPreview')}</p> : <>
-      <div className={styles.recorderActions}>{recorder.isRecording ? <PressableCard className={styles.primary} onClick={recorder.stop}><Square size={20} aria-hidden="true"/>{copy.t('stopRecording',{count:recorder.elapsedSeconds})}</PressableCard> : <PressableCard className={styles.secondary} disabled={disabled||pending||recorder.status==='requesting'} onClick={async()=>{setFile(null);setError('');uploaded.current=null;await recorder.start()}}><Mic size={20} aria-hidden="true"/>{recorder.status==='requesting'?copy.t('openingMic'):recorder.hasRecording||saved?.audioPath?copy.t('recordAgain'):copy.t('record')}</PressableCard>}</div>
+      <div className={styles.recorderActions}>{recorder.isRecording ? <PressableCard className={`${styles.primary} ${recordingStyles.sitovStopAction}`} aria-label={copy.t('stopRecording')} onClick={recorder.stop}><Square size={20} aria-hidden="true"/><span>{copy.t('stopRecording')}</span><span aria-hidden="true">·</span><span className={recordingStyles.sitovRecordingClock} aria-hidden="true">{formatDuration(recorder.elapsedSeconds)}</span></PressableCard> : <PressableCard className={styles.secondary} disabled={disabled||pending||recorder.status==='requesting'} onClick={async()=>{setFile(null);setError('');uploaded.current=null;await recorder.start()}}><Mic size={20} aria-hidden="true"/>{recorder.status==='requesting'?copy.t('openingMic'):recorder.hasRecording||saved?.audioPath?copy.t('recordAgain'):copy.t('record')}</PressableCard>}</div>
       {recorder.isRecording&&<LiveWaveform levels={recorder.levels} isActive elapsedSeconds={recorder.elapsedSeconds} ariaLabel={copy.t('volume')} analyserRef={recorder.analyserRef}/>}
       {source&&<audio className={styles.audio} src={source} controls aria-label={copy.t('playRecording')}/>}
       {blob&&uploaded.current?.blob!==blob&&<PressableCard className={styles.primary} disabled={disabled||pending||recorder.isRecording} onClick={save}><Upload size={20} aria-hidden="true"/>{pending?copy.t('uploading'):copy.t('useRecording')}</PressableCard>}

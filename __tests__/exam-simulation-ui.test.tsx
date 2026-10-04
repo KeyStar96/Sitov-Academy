@@ -143,6 +143,39 @@ it('compares selected option labels with the readable matching solutions',()=>{
   expect(screen.queryByText('Noch üben')).not.toBeInTheDocument()
 })
 
+it.each(['de','en','ru','uk','tr'])('uses a custom matching menu in %s and saves the original answer IDs',async lang=>{
+  const copy=sitovSimulationCopy(lang)
+  const matching:SimulationTask={...task,type:'matching',prompts:[{id:'sitov-first-prompt',text:'Der neue Termin'},{id:'sitov-second-prompt',text:'Der alte Termin'}]}
+  const matchingSession={...session,tasks:[matching,second]}
+  jest.mocked(actions.saveSimulationAnswer).mockResolvedValue({success:true,session:{...matchingSession,answers:{[matching.id]:['a','b']}}})
+  const {container}=render(<ExamSimulation lang={lang} initial={{...empty,active:matchingSession}} catalog={readyCatalog}/>)
+  expect(container.querySelector('select')).toBeNull()
+  const first=screen.getByRole('combobox',{name:'Der neue Termin'})
+  const secondMenu=screen.getByRole('combobox',{name:'Der alte Termin'})
+  expect(first).toHaveTextContent(copy.t('choose'))
+  fireEvent.click(first)
+  expect(screen.getByRole('listbox')).toHaveAttribute('lang',lang)
+  const original=screen.getByRole('option',{name:'Dienstag um 10 Uhr'})
+  expect(original).toHaveAttribute('lang','de')
+  expect(original).toHaveAttribute('translate','no')
+  fireEvent.click(original)
+  fireEvent.click(secondMenu)
+  expect(screen.getByRole('option',{name:'Dienstag um 10 Uhr'})).toHaveAttribute('aria-disabled','true')
+  fireEvent.click(screen.getByRole('option',{name:'Dienstag um 10 Uhr'}))
+  expect(secondMenu).toHaveTextContent(copy.t('choose'))
+  fireEvent.click(screen.getByRole('option',{name:'Montag um 9 Uhr'}))
+  fireEvent.click(first)
+  fireEvent.click(screen.getByRole('option',{name:copy.t('choose')}))
+  expect(first).toHaveTextContent(copy.t('choose'))
+  fireEvent.click(secondMenu)
+  expect(screen.getByRole('option',{name:'Dienstag um 10 Uhr'})).not.toHaveAttribute('aria-disabled','true')
+  fireEvent.keyDown(secondMenu,{key:'Escape'})
+  fireEvent.click(first)
+  fireEvent.click(screen.getByRole('option',{name:'Dienstag um 10 Uhr'}))
+  fireEvent.click(screen.getByRole('button',{name:copy.t('saveNext')}))
+  await waitFor(()=>expect(actions.saveSimulationAnswer).toHaveBeenCalledWith({runId:session.id,taskId:matching.id,answer:['a','b'],requestId:'00000000-0000-4000-8000-000000000011'}))
+})
+
 it('builds a text order only from explicit choices and allows correcting the sequence',()=>{
   const ordered:SimulationTask={...task,type:'ordering',title:'Textteile ordnen',options:[{id:'a',text:'Zuerst planen'},{id:'b',text:'Dann umsetzen'},{id:'c',text:'Zum Schluss prüfen'}]}
   render(<ExamSimulation lang="de" initial={{...empty,active:{...session,tasks:[ordered,second]}}} catalog={readyCatalog}/>)
