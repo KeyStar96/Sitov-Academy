@@ -31,6 +31,17 @@ export const ACCESS_LEVELS = [
 ] as const
 
 export type AccessLevel = (typeof ACCESS_LEVELS)[number]
+/**
+ * Niveaus in Vorbereitung: Sie existieren als Grundstruktur (inaktive Zeilen in `learning_levels`,
+ * Migration 85), Lehrkräfte können Inhalte vorbereiten und Lernpfad-Seeds importieren. Für
+ * Lernende sind sie unsichtbar und nicht freischaltbar, solange sie nicht in ACCESS_LEVELS stehen.
+ * Freigabe eines Niveaus: hier nach ACCESS_LEVELS verschieben, in der Datenbank `is_active` setzen
+ * und die Schüler-Niveaulisten der Zugriffsfunktionen erweitern.
+ */
+export const SITOV_UPCOMING_LEVELS = ['B2.1', 'B2.2', 'C1.1', 'C1.2'] as const
+/** Alle feingranularen Niveaus der Plattform in Lernreihenfolge: freigegebene, dann vorbereitete. */
+export const SITOV_PLATFORM_LEVELS = [...ACCESS_LEVELS, ...SITOV_UPCOMING_LEVELS] as const
+export type SitovPlatformLevel = (typeof SITOV_PLATFORM_LEVELS)[number]
 /** Advanced verb content stays stored; student navigation and grants currently stop at B1.2. */
 export const SITOV_VERB_LEVELS = [...ACCESS_LEVELS, 'B2', 'C1'] as const
 export type SitovTrainerLevel = (typeof SITOV_VERB_LEVELS)[number]
@@ -41,6 +52,17 @@ const FULL_ACCESS_ROLES: ReadonlySet<string> = new Set(['admin', 'teacher'])
 /** Prüft, ob ein Wert ein bekanntes, verwaltbares Sprachniveau ist. */
 export function isAccessLevel(value: unknown): value is AccessLevel {
   return typeof value === 'string' && (ACCESS_LEVELS as readonly string[]).includes(value)
+}
+
+/** Prüft, ob ein Wert ein Niveau der Plattform ist – freigegeben oder noch in Vorbereitung. */
+export function isSitovPlatformLevel(value: unknown): value is SitovPlatformLevel {
+  return typeof value === 'string' && (SITOV_PLATFORM_LEVELS as readonly string[]).includes(value)
+}
+
+/** Schlüssel in `dictionaries/*.json` → `dashboard` für Titel und Beschreibung: B2.1 → level_b21_title, level_b21_desc. */
+export function sitovLevelCopyKeys(level: SitovPlatformLevel): readonly [title: string, description: string] {
+  const key = level.replace('.', '').toLowerCase()
+  return [`level_${key}_title`, `level_${key}_desc`]
 }
 
 /**

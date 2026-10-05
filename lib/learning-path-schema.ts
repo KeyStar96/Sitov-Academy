@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { ACCESS_LEVELS } from './access/levels'
+import { SITOV_PLATFORM_LEVELS } from './access/levels'
 
 /** Authoring/import contracts only. PostgreSQL alone grades submitted answers. */
 export const LEARNING_PATH_EXERCISE_TYPES = [
@@ -238,11 +238,12 @@ export const learningPathSeedNodeSchema = z.strictObject({
 })
 
 export const learningPathSeedPathSchema = z.strictObject({
-  id: sourceId, level: z.enum(ACCESS_LEVELS), path: positiveInteger,
+  // Seeds may be authored and imported for levels that are not released to learners yet.
+  id: sourceId, level: z.enum(SITOV_PLATFORM_LEVELS), path: positiveInteger,
   is_active: z.boolean().optional(),
   slug: z.string().min(1).max(160).regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
   title: germanText, translations: titleTranslations,
-  unit: z.strictObject({ level: z.enum(ACCESS_LEVELS), trainer: z.literal('exercises'), label: germanText, sort_order: positiveInteger }),
+  unit: z.strictObject({ level: z.enum(SITOV_PLATFORM_LEVELS), trainer: z.literal('exercises'), label: germanText, sort_order: positiveInteger }),
   objectives: z.array(z.strictObject({ id: sourceId, area: z.enum(LEARNING_PATH_OBJECTIVE_AREAS), description: germanText })).min(1).max(128),
   nodes: z.array(learningPathSeedNodeSchema).min(3),
 }).superRefine((value, ctx) => {

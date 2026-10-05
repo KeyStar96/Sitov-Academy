@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { ACCESS_LEVELS } from '@/lib/access/levels'
+import { SITOV_PLATFORM_LEVELS } from '@/lib/access/levels'
 import type { AnswerGrade, SoftErrorReason } from '@/lib/answer-grading'
 
 const answer = z.string().trim().min(1).max(1000)
@@ -10,7 +10,8 @@ const targetFormSchema = z.array(z.string().trim().min(1)).min(1)
 const translationPromptSchema = z.partialRecord(z.enum(['de', 'en', 'ru', 'uk', 'tr']), z.string().trim().min(1).max(2000))
 
 const metadata = {
-  level: z.enum(ACCESS_LEVELS),
+  // Staff may prepare content for levels that are not released to learners yet.
+  level: z.enum(SITOV_PLATFORM_LEVELS),
   lesson: z.string().trim().min(1).max(120),
   topic: z.string().trim().min(1).max(160),
   hint: localizedTextSchema.nullable().optional(),

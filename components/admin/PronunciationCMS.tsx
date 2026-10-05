@@ -4,13 +4,13 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { AlignLeft, Archive, ArrowRight, Eye, Loader2, Mic, Pencil, Plus, Quote, RotateCcw } from 'lucide-react'
 import { savePronunciationPrompt, type SavePronunciationPromptInput } from '@/app/actions/pronunciation'
-import { ACCESS_LEVELS, isAccessLevel } from '@/lib/access/levels'
+import { SITOV_PLATFORM_LEVELS, isAccessLevel } from '@/lib/access/levels'
 import { countWords, pronunciationTextKind, type PronunciationPrompt } from '@/lib/pronunciation-prompts'
 import { createPronunciationTranslator, type PronunciationTranslations } from '@/lib/pronunciation-i18n'
 import { adminButton, adminChip, adminInput } from './ui'
 import { preparedAudioAuthorHint } from '@/lib/audio/preparation-i18n'
 
-const LEVELS = [...ACCESS_LEVELS, 'B2', 'C1', 'C2']
+const LEVELS = [...SITOV_PLATFORM_LEVELS, 'B2', 'C1', 'C2']
 type View = 'visible' | 'archived'
 
 /**

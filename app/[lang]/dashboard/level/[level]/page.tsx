@@ -1,5 +1,6 @@
 import { requestSession } from '@/lib/request-session'
 import { loadLevelAccessProfile } from '@/lib/access/server'
+import { isSitovPlatformLevel, sitovLevelCopyKeys } from '@/lib/access/levels'
 import { getDictionary } from '@/lib/dictionary'
 import { loadLastActiveLevel, type LevelActivity } from '@/lib/last-active-level'
 import { loadLevelLearningStatus, modeLock, type LevelLearningStatus } from '@/lib/learning-status-server'
@@ -12,12 +13,6 @@ import ResumeCard, { type ResumeTarget } from '@/components/dashboard/ResumeCard
 import TrainerStatusTiles from '@/components/dashboard/TrainerStatusTiles'
 import TrainerLanguageRequired from '@/components/dashboard/TrainerLanguageRequired'
 import ExamEntry from '@/components/exam-preparation/ExamEntry'
-
-const LEVEL_COPY: Record<string, [string, string]> = {
-  'A1.1': ['level_a11_title', 'level_a11_desc'], 'A1.2': ['level_a12_title', 'level_a12_desc'],
-  'A2.1': ['level_a21_title', 'level_a21_desc'], 'A2.2': ['level_a22_title', 'level_a22_desc'],
-  'B1.1': ['level_b11_title', 'level_b11_desc'], 'B1.2': ['level_b12_title', 'level_b12_desc'],
-}
 
 const MODE_LABELS = { vocabulary: 'area_vocabulary', path: 'area_path', pronunciation: 'area_pronunciation', media: 'area_media', verbs: 'area_verbs' } as const
 const CONTINUE_TO = { vocabulary: 'continue_to_vocabulary', path: 'continue_to_path', pronunciation: 'continue_to_pronunciation', media: 'continue_to_media', verbs: 'continue_to_verbs' } as const
@@ -42,7 +37,7 @@ export default async function LevelDashboard({ params }: {
   const s = studentTranslator(lang)
   const vocabularyT = createVocabularyTranslator((dict.vocabulary ?? {}) as VocabularyTranslations)
   const copy = dict.dashboard as Record<string, string>
-  const [titleKey, descriptionKey] = LEVEL_COPY[decodedLevel] ?? []
+  const [titleKey, descriptionKey] = isSitovPlatformLevel(decodedLevel) ? sitovLevelCopyKeys(decodedLevel) : []
   const locked = (mode: LearningMode) => modeLock(profile, decodedLevel, lang, mode) !== null
   const activity = last?.levels.find(entry => entry.level === decodedLevel) ?? null
   const place = (entry: LevelActivity) => {

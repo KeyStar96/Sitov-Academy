@@ -5,7 +5,7 @@ import { z } from 'zod'
 import { readingQuery, mapReadingText } from '@/lib/learning-catalog'
 import { createClient } from '@/utils/supabase/server'
 import { loadLevelAccessProfile } from '@/lib/access/server'
-import { ACCESS_LEVELS, getAllowedLessons, hasTrainerAccess, isAccessLevel } from '@/lib/access/levels'
+import { SITOV_PLATFORM_LEVELS, getAllowedLessons, hasTrainerAccess, isAccessLevel } from '@/lib/access/levels'
 import { requestSession } from '@/lib/request-session'
 import { saveLearningContent } from '@/lib/learning-writes'
 import { SitovPreparedAudioRequiredError } from '@/lib/audio/prepared-content'
@@ -33,7 +33,7 @@ export async function getPronunciationPrompts(level: string): Promise<Pronunciat
  } catch (error) { console.error("Loading pronunciation texts failed"); return [] }
 }
 export interface SavePronunciationPromptInput { id?: string; level: string; title: string; text: string; focus: string; isActive: boolean }
-const promptSchema = z.object({ id: z.uuid().optional(), level: z.enum([...ACCESS_LEVELS, 'B2', 'C1', 'C2']), title: z.string().trim().min(3).max(120), text: z.string().trim().min(1).max(3000), focus: z.string().trim().max(200), isActive: z.boolean() })
+const promptSchema = z.object({ id: z.uuid().optional(), level: z.enum([...SITOV_PLATFORM_LEVELS, 'B2', 'C1', 'C2']), title: z.string().trim().min(3).max(120), text: z.string().trim().min(1).max(3000), focus: z.string().trim().max(200), isActive: z.boolean() })
 async function staffClient() {
  const supabase = await createClient()
  const { data: { user } } = await supabase.auth.getUser()

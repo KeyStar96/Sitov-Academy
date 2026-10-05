@@ -5,7 +5,7 @@ import { createDashboardTranslator, type DashboardTranslations } from '@/lib/das
 import type { PronunciationTranslations } from '@/lib/pronunciation-i18n'
 import { createClient } from '@/utils/supabase/server'
 import { loadLevelAccessProfile } from '@/lib/access/server'
-import { hasLevelAccess, hasTrainerAccess } from '@/lib/access/levels'
+import { ACCESS_LEVELS, hasLevelAccess, hasTrainerAccess, sitovLevelCopyKeys } from '@/lib/access/levels'
 import { loadProfileMonthlyState } from '@/lib/profile-dashboard-server'
 import { loadProfileCourseCalendar } from '@/lib/profile-course-calendar-server'
 import { formatCalendarDate } from '@/lib/profile-course-calendar'
@@ -56,14 +56,12 @@ export default async function DashboardPage({ params, searchParams }: {
   const s = studentTranslator(lang)
   const copy = dict.academy
   const displayName = profileRow?.data?.person?.display_name || user?.email || ''
-  const levels = [
-    { id: 'A1.1', title: dict.dashboard.level_a11_title, description: dict.dashboard.level_a11_desc },
-    { id: 'A1.2', title: dict.dashboard.level_a12_title, description: dict.dashboard.level_a12_desc },
-    { id: 'A2.1', title: dict.dashboard.level_a21_title, description: dict.dashboard.level_a21_desc },
-    { id: 'A2.2', title: dict.dashboard.level_a22_title, description: dict.dashboard.level_a22_desc },
-    { id: 'B1.1', title: dict.dashboard.level_b11_title, description: dict.dashboard.level_b11_desc },
-    { id: 'B1.2', title: dict.dashboard.level_b12_title, description: dict.dashboard.level_b12_desc },
-  ]
+  // Only released levels: levels in preparation (SITOV_UPCOMING_LEVELS) never reach a learner's home.
+  const levelCopy = dict.dashboard as Record<string, string>
+  const levels = ACCESS_LEVELS.map(id => {
+    const [title, description] = sitovLevelCopyKeys(id)
+    return { id, title: levelCopy[title], description: levelCopy[description] }
+  })
   const accessible = levels.filter(level => hasLevelAccess(accessProfile, level.id))
   // Das zuletzt gelernte Niveau entscheidet PostgreSQL (Migration 32). Nur wenn
   // die Abfrage scheitert, gilt der alte Rückfall: erstes angefangenes Niveau.
