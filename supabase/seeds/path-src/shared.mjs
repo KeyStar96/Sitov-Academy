@@ -45,6 +45,7 @@ export const I = {
   read: i('Lies den Text und wähle die richtige Antwort.', 'Read the text and choose the correct answer.', 'Прочитайте текст и выберите правильный ответ.', 'Прочитайте текст і виберіть правильну відповідь.', 'Metni okuyun ve doğru cevabı seçin.'),
   odd: i('Welches Wort passt nicht in die Gruppe?', 'Which word does not belong to the group?', 'Какое слово лишнее в этой группе?', 'Яке слово зайве в цій групі?', 'Hangi kelime bu gruba uymuyor?'),
   sentence: i('Welcher Satz ist richtig?', 'Which sentence is correct?', 'Какое предложение правильное?', 'Яке речення правильне?', 'Hangi cümle doğru?'),
+  natural: i('Welcher Satz klingt am natürlichsten?', 'Which sentence sounds most natural?', 'Какое предложение звучит наиболее естественно?', 'Яке речення звучить найприродніше?', 'Hangi cümle en doğal duruyor?'),
   matchQuestion: i('Welche Frage passt zur Antwort?', 'Which question fits the answer?', 'Какой вопрос подходит к ответу?', 'Яке запитання підходить до відповіді?', 'Cevaba hangi soru uyuyor?'),
   sign: i('Was bedeutet das Schild? Wähle die richtige Antwort.', 'What does the sign mean? Choose the correct answer.', 'Что означает эта табличка? Выберите правильный ответ.', 'Що означає ця табличка? Виберіть правильну відповідь.', 'Tabela ne anlama geliyor? Doğru cevabı seçin.'),
 

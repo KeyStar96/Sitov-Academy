@@ -17,7 +17,7 @@ import { buildLevelSeed, serializeSeed, RULES, SeedBuildError } from './lib/path
 
 const require = createRequire(import.meta.url)
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..')
-const LEVELS = ['A1.2', 'A2.1', 'A2.2', 'B1.1', 'B1.2']
+const LEVELS = ['A1.2', 'A2.1', 'A2.2', 'B1.1', 'B1.2', 'B2.1']
 
 export const seedFile = level => resolve(root, `supabase/seeds/path-${level.toLowerCase()}.json`)
 export const sourceDir = level => resolve(root, `supabase/seeds/path-src/${level.toLowerCase()}`)
