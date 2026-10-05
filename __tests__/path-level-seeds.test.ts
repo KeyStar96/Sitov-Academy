@@ -6,7 +6,7 @@ import { learningPathSeedSchema } from '@/lib/learning-path-schema'
 import { EXERCISE_TYPES } from '@/lib/types/exercise'
 
 /**
- * Lernpfade ab A1.2 (supabase/seeds/path-<niveau>.json), derzeit A1.2, A2.1, A2.2 und B1.1. Die Seeds entstehen aus den
+ * Lernpfade ab A1.2 (supabase/seeds/path-<niveau>.json), derzeit A1.2, A2.1, A2.2, B1.1 und B1.2. Die Seeds entstehen aus den
  * Quellen in supabase/seeds/path-src/<niveau>/ (scripts/build-path-seed.mjs) und müssen
  * denselben Vertrag erfüllen wie A1.1: Pfade → Lektionen mit Merkkarte → Wiederholung →
  * Test, jedes Lernziel geübt, wiederholt und geprüft, alles in fünf Sprachen.
@@ -71,6 +71,16 @@ const LEVELS: Record<string, LevelRules> = {
     { from: 6, words: ['statt', 'anstatt'] },
     // „trotzdem“ (Pfad 2) ist ein anderes Wort als die Präposition „trotz“.
     { from: 7, words: ['trotz', 'entweder', 'zwar'] },
+  ] },
+  'B1.2': { later: [
+    // „während“ ist seit B1.1 als Präposition bekannt; als Konjunktion folgt es mit nachdem und bevor in Pfad 2.
+    { from: 2, words: ['während', 'nachdem', 'bevor'] },
+    { from: 3, words: ['sowohl', 'weder'] },
+    // Futur I und „da“ (Pfad 4) lassen sich nicht am Wort erkennen: werden steht auch im Passiv, da ist auch Adverb.
+    // „außerdem“ und „außerhalb“ sind andere Wörter als die Präposition „außer“.
+    { from: 5, words: ['seitdem', 'indem', 'außer'] },
+    // Passiv Perfekt (ist … worden) erst ab Pfad 6.
+    { from: 6, words: ['worden'] },
   ] },
 }
 const LOCALES: Locale[] = ['en', 'ru', 'uk', 'tr']
