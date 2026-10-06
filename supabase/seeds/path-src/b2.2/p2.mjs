@@ -1,7 +1,7 @@
 import { I, gap, mc, sb } from '../shared.mjs'
 
-const MELDUNG = 'Zeitungsmeldung: „Ein Restaurant in der Altstadt soll jahrelang abgelaufene Lebensmittel verwendet haben. Das berichten mehrere frühere Mitarbeiter. Der Besitzer soll von den Problemen gewusst haben, bestreitet das aber. Sicher ist bisher nur: Das Amt hat die Küche am Montag geschlossen. Falls sich die Vorwürfe bestätigen, droht dem Besitzer eine hohe Strafe.“'
-const TIPP = 'Verbrauchertipp: „Viele Menschen greifen trotz guter Vorsätze zu Fertiggerichten, obwohl sie wissen, dass diese viel Salz und Zucker enthalten. Dabei ist eine ausgewogene Ernährung keine Frage der Zeit. Bei guter Planung reichen zwanzig Minuten für ein frisches Essen. Sollten Sie abends keine Lust zum Kochen haben, bereiten Sie am Wochenende größere Mengen vor. Der Verzicht auf Zusatzstoffe gelingt am leichtesten, wenn man die Zutatenliste liest.“'
+const MELDUNG = 'Zeitungsmeldung: „Ein Restaurant in der Altstadt soll jahrelang abgelaufene Lebensmittel verwendet haben. Das berichten mehrere frühere Mitarbeiter. Angeblich wurden Etiketten mit dem Haltbarkeitsdatum entfernt und durch neue ersetzt. Der Besitzer soll von den Problemen gewusst haben, bestreitet das aber. Sicher ist bisher nur: Das Amt hat die Küche am Montag geschlossen. Falls sich die Vorwürfe bestätigen, droht dem Besitzer eine hohe Strafe. Trotz der Schließung will er das Lokal so bald wie möglich wieder öffnen.“'
+const TIPP = 'Verbrauchertipp: „Viele Menschen greifen trotz guter Vorsätze zu Fertiggerichten, obwohl sie wissen, dass diese viel Salz und Zucker enthalten. Dabei ist eine ausgewogene Ernährung keine Frage der Zeit. Bei guter Planung reichen zwanzig Minuten für ein frisches Essen. Sollten Sie abends keine Lust zum Kochen haben, bereiten Sie am Wochenende größere Mengen vor. Tiefgekühltes Gemüse ist dabei eine gute Hilfe: Es soll fast so viele Vitamine enthalten wie frisches. Der Verzicht auf Zusatzstoffe gelingt am leichtesten, wenn man die Zutatenliste liest.“'
 
 /** B2.2 · Pfad 2 · Ernährung – Lektionen. Wiederholung und Test: p2-check.mjs */
 const path = {
@@ -393,7 +393,7 @@ const path = {
           ['Although he has been on a diet for weeks, he has not lost a single kilo yet.', 'Хотя он уже несколько недель на диете, он не сбросил ещё ни килограмма.', 'Хоча він уже кілька тижнів на дієті, він не скинув іще жодного кілограма.', 'Haftalardır diyet yaptığı hâlde henüz bir kilo bile vermedi.'], { h: 'logik' }),
         mc('G8', 'falls (Bedingung)', I.choose, '… du später Hunger bekommst, steht noch Suppe im Kühlschrank.', ['Falls', 'Obwohl', 'Trotzdem'],
           ['If you get hungry later, there is still some soup in the fridge.', 'Если ты позже проголодаешься, в холодильнике ещё есть суп.', 'Якщо ти пізніше зголоднієш, у холодильнику ще є суп.', 'Sonra acıkırsan buzdolabında hâlâ çorba var.'], { h: 'logik' }),
-        mc('G8', 'trotz (Gegengrund)', I.choose, '… des schlechten Wetters war der Biergarten voll.', ['Trotz', 'Bei', 'Wegen'],
+        mc('G8', 'trotz (Gegengrund)', I.choose, '… des schlechten Wetters war der Biergarten voll.', ['Trotz', 'Bei', 'Obwohl'],
           ['In spite of the bad weather the beer garden was full.', 'Несмотря на плохую погоду, пивной сад был полон.', 'Попри погану погоду, пивний сад був повний.', 'Kötü havaya rağmen bira bahçesi doluydu.'], { h: 'logik' }),
         mc('G8', 'bei (Bedingung)', I.choose, '… schlechtem Wetter bleibt der Biergarten geschlossen.', ['Bei', 'Trotz', 'Obwohl'],
           ['In bad weather the beer garden stays closed.', 'В плохую погоду пивной сад закрыт.', 'У погану погоду пивний сад зачинений.', 'Kötü havada bira bahçesi kapalı kalır.'], { h: 'logik' }),

@@ -1,6 +1,6 @@
 import { I, gap, mc, sb } from '../shared.mjs'
 
-const AUSHANG = 'Aushang im Waschsalon: „Die Maschinen sind nur mit Münzen zu bedienen. Geld lässt sich am Automaten neben der Tür wechseln. Nach 22 Uhr wird nicht mehr gewaschen. Die Wäsche ist sofort nach Programmende aus der Maschine zu nehmen. Bei Störungen wird Ihnen unter der Nummer auf dem Schild geholfen. Für vergessene Kleidung wird nicht gehaftet.“'
+const AUSHANG = 'Aushang im Waschsalon: „Die Maschinen sind nur mit Münzen zu bedienen. Geld lässt sich am Automaten neben der Tür wechseln. Nach 22 Uhr wird nicht mehr gewaschen. Die Wäsche ist sofort nach Programmende aus der Maschine zu nehmen. Waschmittel ist am Automaten erhältlich. Es wird darum gebeten, die Trockner nach Gebrauch zu reinigen. Bei Störungen wird Ihnen unter der Nummer auf dem Schild geholfen. Für vergessene Kleidung wird nicht gehaftet.“'
 
 /** B2.2 · Pfad 4 · Service – Wiederholung und Testpool. */
 const check = {

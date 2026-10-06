@@ -9,9 +9,10 @@ import { createCurrentDatabase, apply, actor, student, result } from './helpers/
 // service RPC as A1.1, played in every interface language and passed from 80 %.
 const LEVELS = [{ level: 'A1.2', cefr: 'A1', order: 2 }, { level: 'A2.1', cefr: 'A2', order: 3 }, { level: 'A2.2', cefr: 'A2', order: 4 },
   { level: 'B1.1', cefr: 'B1', order: 5 }, { level: 'B1.2', cefr: 'B1', order: 6 },
-  // B2.1 exists since migration 85, which also lets the import accept the level. It is not released
-  // to learners yet; the grant below stands for that later release.
-  { level: 'B2.1', cefr: 'B2', order: 7, migrations: ['85_sitov_upper_levels.sql'] }]
+  // B2.1 and B2.2 exist since migration 85, which also lets the import accept the levels. They are not
+  // released to learners yet; the grant below stands for that later release.
+  { level: 'B2.1', cefr: 'B2', order: 7, migrations: ['85_sitov_upper_levels.sql'] },
+  { level: 'B2.2', cefr: 'B2', order: 8, migrations: ['85_sitov_upper_levels.sql'] }]
 const LOCALES = ['en', 'ru', 'uk', 'tr']
 const CYRILLIC = /[Ѐ-ӿ]/
 const call = (db, fn, params = []) => result(db, `SELECT ${fn} result`, params)

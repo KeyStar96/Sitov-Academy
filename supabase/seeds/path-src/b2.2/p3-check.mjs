@@ -1,6 +1,6 @@
 import { I, gap, mc, sb } from '../shared.mjs'
 
-const FORUM = 'Forumsbeitrag von Daniel: „Ich habe mich zu spät für das Seminar eingeschrieben, sodass ich nur noch einen Platz auf der Warteliste bekam. Der Dozent war so freundlich, dass er mich trotzdem zur ersten Sitzung einlud. Zwei Kommilitonen sind inzwischen abgesprungen; folglich bin ich jetzt regulär dabei. Mein Rat: Stellt eure Fragen früh in der Sprechstunde – das spielt eine größere Rolle, als man denkt.“'
+const FORUM = 'Forumsbeitrag von Daniel: „Ich habe mich zu spät für das Seminar eingeschrieben, sodass ich nur noch einen Platz auf der Warteliste bekam. Der Dozent war so freundlich, dass er mich trotzdem zur ersten Sitzung einlud. Zwei Kommilitonen sind inzwischen abgesprungen; folglich bin ich jetzt regulär dabei. Infolge dieser Erfahrung trage ich mir alle Fristen jetzt sofort in den Kalender ein. Mein Rat: Stellt eure Fragen früh in der Sprechstunde – das spielt eine größere Rolle, als man denkt.“'
 const FOLGE = ['folglich', 'also', 'deshalb', 'daher', 'deswegen', 'infolgedessen', 'somit', 'darum']
 
 /** B2.2 · Pfad 3 · An der Uni – Wiederholung und Testpool. */

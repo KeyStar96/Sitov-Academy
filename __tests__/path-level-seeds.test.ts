@@ -6,12 +6,12 @@ import { learningPathSeedSchema } from '@/lib/learning-path-schema'
 import { EXERCISE_TYPES } from '@/lib/types/exercise'
 
 /**
- * Lernpfade ab A1.2 (supabase/seeds/path-<niveau>.json), derzeit A1.2, A2.1, A2.2, B1.1, B1.2 und B2.1. Die Seeds entstehen aus den
+ * Lernpfade ab A1.2 (supabase/seeds/path-<niveau>.json), derzeit A1.2, A2.1, A2.2, B1.1, B1.2, B2.1 und B2.2. Die Seeds entstehen aus den
  * Quellen in supabase/seeds/path-src/<niveau>/ (scripts/build-path-seed.mjs) und müssen
  * denselben Vertrag erfüllen wie A1.1: Pfade → Lektionen mit Merkkarte → Wiederholung →
  * Test, jedes Lernziel geübt, wiederholt und geprüft, alles in fünf Sprachen.
  * „from“ in LATER: erst ab diesem Pfad eingeführte Formen dürfen vorher in keiner Aufgabe stehen.
- * „paths“: Anzahl der Pfade eines Niveaus, wenn es nicht sieben sind (B2.1 folgt sechs Modulen).
+ * „paths“: Anzahl der Pfade eines Niveaus, wenn es nicht sieben sind (B2.1 und B2.2 folgen sechs Modulen).
  */
 type Locale = 'en' | 'ru' | 'uk' | 'tr'
 interface SeedExercise {
@@ -90,6 +90,14 @@ const LEVELS: Record<string, LevelRules> = {
     // lassen und das Futur II mit „wohl“ folgen in Pfad 5; „verlassen“, „entlassen“ und „sowohl“ sind andere Wörter.
     // Die irrealen Vergleiche mit „als ob“ (Pfad 6) lassen sich nicht an einem einzelnen Wort erkennen.
     { from: 5, words: ['lassen', 'lasse', 'lässt', 'lasst', 'ließ', 'ließen', 'gelassen', 'wohl'] },
+  ] },
+  'B2.2': { paths: 6, later: [
+    // Konsekutive Konnektoren sind Stoff von Pfad 3; „so … dass“ lässt sich nicht an einem einzelnen Wort erkennen.
+    { from: 3, words: ['sodass', 'infolgedessen', 'folglich', 'infolge'] },
+    // Modalsätze und „anstatt … zu“ folgen in Pfad 5; das kürzere „statt“ ist auch Präposition.
+    { from: 5, words: ['indem', 'anstatt'] },
+    // Adversative Konnektoren folgen in Pfad 6; „während“ und „dagegen“ kommen schon vorher in anderer Bedeutung vor.
+    { from: 6, words: ['wohingegen', 'hingegen'] },
   ] },
 }
 const LOCALES: Locale[] = ['en', 'ru', 'uk', 'tr']

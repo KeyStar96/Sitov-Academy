@@ -1,6 +1,6 @@
 import { I, gap, mc, sb } from '../shared.mjs'
 
-const BLOG = 'Blogbeitrag von Emil: „Seit einem Monat verzichte ich auf Zucker. Mein Kollege hatte mir erzählt, das wirke Wunder: Man soll besser schlafen und sich wacher fühlen. Ehrlich gesagt merke ich davon wenig. Trotz des Verzichts bin ich nachmittags müde wie immer. Abgenommen habe ich allerdings zwei Kilo. Falls ich bis zum Sommer durchhalte, schreibe ich hier einen zweiten Bericht.“'
+const BLOG = 'Blogbeitrag von Emil: „Seit einem Monat verzichte ich auf Zucker. Mein Kollege hatte mir erzählt, das wirke Wunder: Man soll besser schlafen und sich wacher fühlen. Ehrlich gesagt merke ich davon wenig. Trotz des Verzichts bin ich nachmittags müde wie immer. Abgenommen habe ich allerdings zwei Kilo. Am schwersten fällt mir der Verzicht im Büro, obwohl ich dort extra Nüsse und Obst bereitgelegt habe. Falls ich bis zum Sommer durchhalte, schreibe ich hier einen zweiten Bericht.“'
 
 /** B2.2 · Pfad 2 · Ernährung – Wiederholung und Testpool. */
 const check = {

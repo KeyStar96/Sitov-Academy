@@ -8,7 +8,7 @@ import { answerKey, buildLevelSeed, RULES, serializeSeed, SeedBuildError, stable
 import { I, asChoice, gap, mc, sb } from '../supabase/seeds/path-src/shared.mjs'
 
 // Levels whose seed is generated from supabase/seeds/path-src/<level>/.
-const LEVELS = ['A1.2', 'A2.1', 'A2.2', 'B1.1', 'B1.2', 'B2.1']
+const LEVELS = ['A1.2', 'A2.1', 'A2.2', 'B1.1', 'B1.2', 'B2.1', 'B2.2']
 const four = text => [`${text} en`, `${text} ру`, `${text} ук`, `${text} tr`]
 
 /** The smallest valid path: one lesson with five tasks, a review and a test pool of 24. */

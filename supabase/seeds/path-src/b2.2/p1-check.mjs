@@ -1,6 +1,6 @@
 import { I, gap, mc, sb } from '../shared.mjs'
 
-const LESERBRIEF = 'Leserbrief von Herrn Aksoy: „In Ihrem Artikel heißt es, junge Leute hätten kein Interesse mehr an festen Beziehungen. Das sehe ich anders. Mein Sohn und seine Freunde sagen, ihnen sei Verlässlichkeit sehr wichtig. Sie wollten nur nicht so früh heiraten wie wir damals. Wer daraus schließt, die Jugend könne nicht lieben, der macht es sich zu einfach.“'
+const LESERBRIEF = 'Leserbrief von Herrn Aksoy: „In Ihrem Artikel heißt es, junge Leute hätten kein Interesse mehr an festen Beziehungen. Das sehe ich anders. Mein Sohn und seine Freunde sagen, ihnen sei Verlässlichkeit sehr wichtig. Sie wollten nur nicht so früh heiraten wie wir damals. Je länger ich ihnen zuhöre, desto größer wird mein Respekt vor ihrer Ehrlichkeit. Wer daraus schließt, die Jugend könne nicht lieben, der macht es sich zu einfach. Ich wünsche mir von Ihrer Zeitung mehr Vertrauen in die nächste Generation.“'
 const WER = 'Wer / Wen / Wem'
 const DER = 'der / den / dem'
 

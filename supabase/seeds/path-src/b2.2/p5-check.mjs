@@ -1,6 +1,6 @@
 import { I, gap, mc, sb } from '../shared.mjs'
 
-const MERKBLATT = 'Merkblatt einer Praxis: „Bitte kommen Sie nicht in die Sprechstunde, ohne vorher einen Termin zu vereinbaren. Wenn man Fieber hat, sollte man die Praxis anrufen, anstatt im Wartezimmer zu sitzen. Rezepte kann jemand aus der Familie für Sie abholen. Durch die Anmeldung per Telefon vermeiden Sie lange Wartezeiten. Niemand muss sich für eine Frage schämen: Fragen Sie nach, wenn Ihnen etwas unklar ist.“'
+const MERKBLATT = 'Merkblatt einer Praxis: „Bitte kommen Sie nicht in die Sprechstunde, ohne vorher einen Termin zu vereinbaren. Wenn man Fieber hat, sollte man die Praxis anrufen, anstatt im Wartezimmer zu sitzen. Rezepte kann jemand aus der Familie für Sie abholen. Durch die Anmeldung per Telefon vermeiden Sie lange Wartezeiten. Man wird am Empfang aufgerufen, sobald ein Behandlungsraum frei ist. Niemand muss sich für eine Frage schämen: Fragen Sie nach, wenn Ihnen etwas unklar ist.“'
 const MAN = 'man / einen / einem'
 
 /** B2.2 · Pfad 5 · Gesundheit – Wiederholung und Testpool. */
