@@ -2,13 +2,16 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { randomUUID } from 'node:crypto'
 import { readFile } from 'node:fs/promises'
-import { createCurrentDatabase, actor, student, result } from './helpers/current-db.mjs'
+import { createCurrentDatabase, apply, actor, student, result } from './helpers/current-db.mjs'
 
 // The learning path logic (serial unlocking, test sample, 80 % rule, task translation) is
 // level-independent SQL. These seeds must run through it unchanged: imported by the same
 // service RPC as A1.1, played in every interface language and passed from 80 %.
 const LEVELS = [{ level: 'A1.2', cefr: 'A1', order: 2 }, { level: 'A2.1', cefr: 'A2', order: 3 }, { level: 'A2.2', cefr: 'A2', order: 4 },
-  { level: 'B1.1', cefr: 'B1', order: 5 }, { level: 'B1.2', cefr: 'B1', order: 6 }]
+  { level: 'B1.1', cefr: 'B1', order: 5 }, { level: 'B1.2', cefr: 'B1', order: 6 },
+  // B2.1 exists since migration 85, which also lets the import accept the level. It is not released
+  // to learners yet; the grant below stands for that later release.
+  { level: 'B2.1', cefr: 'B2', order: 7, migrations: ['85_sitov_upper_levels.sql'] }]
 const LOCALES = ['en', 'ru', 'uk', 'tr']
 const CYRILLIC = /[Ѐ-ӿ]/
 const call = (db, fn, params = []) => result(db, `SELECT ${fn} result`, params)
@@ -42,7 +45,7 @@ function answerFor(shown, source, correct) {
   return { indices: correct ? order : [...order.slice(1), order[0]] }
 }
 
-for (const { level, cefr, order } of LEVELS) {
+for (const { level, cefr, order, migrations = [] } of LEVELS) {
   await test(`${level} learning path seed runs through the existing path logic`, async t => {
     const seed = JSON.parse(await readFile(new URL(`../seeds/path-${level.toLowerCase()}.json`, import.meta.url), 'utf8'))
     const source = new Map(seed.flatMap(path => path.nodes.flatMap(node => node.exercises.map(exercise => [exercise.id, exercise]))))
@@ -61,6 +64,7 @@ for (const { level, cefr, order } of LEVELS) {
     }
     try {
       await db.query('INSERT INTO cefr_levels VALUES($1) ON CONFLICT DO NOTHING', [cefr])
+      await apply(db, migrations)
       await db.query('INSERT INTO learning_levels(code,cefr_level,sort_order) VALUES($1,$2,$3) ON CONFLICT DO NOTHING', [level, cefr, order])
       await db.query('INSERT INTO student_level_access VALUES($1,$2) ON CONFLICT DO NOTHING', [student, level])
 

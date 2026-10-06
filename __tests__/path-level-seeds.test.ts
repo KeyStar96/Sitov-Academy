@@ -6,11 +6,12 @@ import { learningPathSeedSchema } from '@/lib/learning-path-schema'
 import { EXERCISE_TYPES } from '@/lib/types/exercise'
 
 /**
- * Lernpfade ab A1.2 (supabase/seeds/path-<niveau>.json), derzeit A1.2, A2.1, A2.2, B1.1 und B1.2. Die Seeds entstehen aus den
+ * Lernpfade ab A1.2 (supabase/seeds/path-<niveau>.json), derzeit A1.2, A2.1, A2.2, B1.1, B1.2 und B2.1. Die Seeds entstehen aus den
  * Quellen in supabase/seeds/path-src/<niveau>/ (scripts/build-path-seed.mjs) und müssen
  * denselben Vertrag erfüllen wie A1.1: Pfade → Lektionen mit Merkkarte → Wiederholung →
  * Test, jedes Lernziel geübt, wiederholt und geprüft, alles in fünf Sprachen.
  * „from“ in LATER: erst ab diesem Pfad eingeführte Formen dürfen vorher in keiner Aufgabe stehen.
+ * „paths“: Anzahl der Pfade eines Niveaus, wenn es nicht sieben sind (B2.1 folgt sechs Modulen).
  */
 type Locale = 'en' | 'ru' | 'uk' | 'tr'
 interface SeedExercise {
@@ -33,7 +34,7 @@ interface SeedPath {
   unit: { level: string; trainer: string; label: string; sort_order: number }
   objectives: { id: string; area: string; description: string }[]; nodes: SeedNode[]
 }
-interface LevelRules { later: { from: number; words: string[] }[] }
+interface LevelRules { paths?: number; later: { from: number; words: string[] }[] }
 
 const LEVELS: Record<string, LevelRules> = {
   'A1.2': { later: [
@@ -82,6 +83,14 @@ const LEVELS: Record<string, LevelRules> = {
     // Passiv Perfekt (ist … worden) erst ab Pfad 6.
     { from: 6, words: ['worden'] },
   ] },
+  'B2.1': { paths: 6, later: [
+    // Temporale Konnektoren und Adverbien auf -weise sind Stoff von Pfad 4.
+    { from: 4, words: ['solange', 'ehe', 'sobald', 'glücklicherweise', 'möglicherweise', 'normalerweise', 'erstaunlicherweise',
+      'bedauerlicherweise', 'dummerweise', 'ausnahmsweise', 'probeweise', 'stundenweise', 'teilweise', 'schrittweise', 'beispielsweise'] },
+    // lassen und das Futur II mit „wohl“ folgen in Pfad 5; „verlassen“, „entlassen“ und „sowohl“ sind andere Wörter.
+    // Die irrealen Vergleiche mit „als ob“ (Pfad 6) lassen sich nicht an einem einzelnen Wort erkennen.
+    { from: 5, words: ['lassen', 'lasse', 'lässt', 'lasst', 'ließ', 'ließen', 'gelassen', 'wohl'] },
+  ] },
 }
 const LOCALES: Locale[] = ['en', 'ru', 'uk', 'tr']
 const TYPE_ORDER = ['multiple_choice', 'fill_in_blank', 'sentence_building']
@@ -110,8 +119,8 @@ describe.each(Object.entries(LEVELS))('%s learning path seed', (level, rules) =>
     expect(learningPathSeedSchema.parse(paths)).toEqual(paths)
   })
 
-  it('builds seven paths from lessons, one review and one final test', () => {
-    expect(paths.map(path => path.path)).toEqual([1, 2, 3, 4, 5, 6, 7])
+  it('builds its paths from lessons, one review and one final test', () => {
+    expect(paths.map(path => path.path)).toEqual(Array.from({ length: rules.paths ?? 7 }, (_, index) => index + 1))
     for (const path of paths) {
       expect(path).toMatchObject({ id: `P${path.path}`, level, unit: { level, trainer: 'exercises', sort_order: path.path } })
       expect(path.unit.label).toBe(`${level} · Pfad ${path.path} · ${path.title}`)
