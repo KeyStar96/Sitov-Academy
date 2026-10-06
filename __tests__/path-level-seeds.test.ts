@@ -6,12 +6,12 @@ import { learningPathSeedSchema } from '@/lib/learning-path-schema'
 import { EXERCISE_TYPES } from '@/lib/types/exercise'
 
 /**
- * Lernpfade ab A1.2 (supabase/seeds/path-<niveau>.json), derzeit A1.2, A2.1, A2.2, B1.1, B1.2, B2.1 und B2.2. Die Seeds entstehen aus den
+ * Lernpfade ab A1.2 (supabase/seeds/path-<niveau>.json), derzeit A1.2, A2.1, A2.2, B1.1, B1.2, B2.1, B2.2 und C1.1. Die Seeds entstehen aus den
  * Quellen in supabase/seeds/path-src/<niveau>/ (scripts/build-path-seed.mjs) und müssen
  * denselben Vertrag erfüllen wie A1.1: Pfade → Lektionen mit Merkkarte → Wiederholung →
  * Test, jedes Lernziel geübt, wiederholt und geprüft, alles in fünf Sprachen.
  * „from“ in LATER: erst ab diesem Pfad eingeführte Formen dürfen vorher in keiner Aufgabe stehen.
- * „paths“: Anzahl der Pfade eines Niveaus, wenn es nicht sieben sind (B2.1 und B2.2 folgen sechs Modulen).
+ * „paths“: Anzahl der Pfade eines Niveaus, wenn es nicht sieben sind (B2.1 bis C1.1 folgen sechs Modulen).
  */
 type Locale = 'en' | 'ru' | 'uk' | 'tr'
 interface SeedExercise {
@@ -98,6 +98,18 @@ const LEVELS: Record<string, LevelRules> = {
     { from: 5, words: ['indem', 'anstatt'] },
     // Adversative Konnektoren folgen in Pfad 6; „während“ und „dagegen“ kommen schon vorher in anderer Bedeutung vor.
     { from: 6, words: ['wohingegen', 'hingegen'] },
+  ] },
+  'C1.1': { paths: 6, later: [
+    // Formelle konzessive und restriktive Ausdrücke sind Stoff von Pfad 2; „so … auch“ lässt sich nicht an einem Wort erkennen.
+    { from: 2, words: ['wenngleich', 'obgleich', 'insofern', 'insoweit', 'gleichwohl', 'nichtsdestotrotz', 'ungeachtet'] },
+    // Umschreibungen der Modalverben folgen in Pfad 3; „in der Lage sein“ besteht aus mehreren Wörtern.
+    { from: 3, words: ['imstande', 'befugt'] },
+    // Gradadverbien folgen in Pfad 4; die Funktionen von „es“ lassen sich nicht am Wort erkennen.
+    { from: 4, words: ['äußerst', 'überaus', 'ungemein'] },
+    // „laut“ ist seit B2.2 bekannt und auch Adjektiv; neu ist in Pfad 5 das nachgestellte „zufolge“.
+    { from: 5, words: ['zufolge'] },
+    // Schriftsprachliche Präpositionen folgen in Pfad 6.
+    { from: 6, words: ['mithilfe', 'anhand', 'mittels', 'hinsichtlich', 'bezüglich', 'anlässlich', 'zwecks', 'gemäß'] },
   ] },
 }
 const LOCALES: Locale[] = ['en', 'ru', 'uk', 'tr']

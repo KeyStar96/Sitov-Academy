@@ -8,6 +8,8 @@ import p4 from './p4.mjs'
 import p4Check from './p4-check.mjs'
 import p5 from './p5.mjs'
 import p5Check from './p5-check.mjs'
+import p6 from './p6.mjs'
+import p6Check from './p6-check.mjs'
 
 /** A path = its lessons (pN.mjs) followed by one review and one test (pN-check.mjs). */
 const path = (lessons, check) => ({
@@ -22,6 +24,7 @@ const paths = [
   path(p3, p3Check),
   path(p4, p4Check),
   path(p5, p5Check),
+  path(p6, p6Check),
 ]
 
 export default paths
