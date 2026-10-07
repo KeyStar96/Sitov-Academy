@@ -1,0 +1,111 @@
+import { I, gap, mc, sb } from '../shared.mjs'
+
+const INTERPRETATION = 'Aus einer Interpretation: „In Kellers Erzählung treffen die Brüder Anton und Emil aufeinander: Ersterer ist in der Heimat geblieben, Letzterer kehrt nach zwanzig Jahren zurück. Der Erzähler nennt keinen Grund für die Rückkehr. Dadurch entsteht eine Lücke, die der Leser selbst füllen muss. Die Brüder sprechen kaum miteinander, was ihre Fremdheit deutlicher zeigt als jede Erklärung. Um das Schweigen spürbar zu machen, beschreibt Keller ausführlich den Schauplatz, ein verfallenes Bauernhaus. Anton repariert das Dach, damit Emil bleiben kann; dieser reist dennoch ab. Daran wird sichtbar, dass Nähe sich nicht erzwingen lässt. Das Werk gehört damit zu den leisen, aber eindringlichen Texten seiner Gattung.“'
+
+/** C1.2 · Pfad 4 · Literatur – Wiederholung und Testpool. */
+const check = {
+  review: [
+    mc('W1', 'Gattung', I.choose, 'Zu welcher … gehört das Werk – ist es ein Roman oder eine Erzählung?', ['Gattung', 'Gestaltung', 'Gaststätte'],
+      ['To which … does the work belong – is it a novel or a story?', 'К какому … относится произведение – это роман или рассказ?', 'До якого … належить твір – це роман чи оповідання?', 'Yapıt hangi … giriyor – roman mı, öykü mü?']),
+    mc('G1', 'um … einzufangen', I.form, 'Er besuchte den Schauplatz seines Romans, um die Stimmung des Ortes …', ['einzufangen', 'zu einfangen', 'einfangen zu'],
+      ['He visited the setting of his novel in order to capture the atmosphere of the place.', 'Он посетил место действия своего романа, чтобы уловить атмосферу этого места.', 'Він відвідав місце дії свого роману, щоб уловити атмосферу цього місця.', 'Yerin havasını yakalamak için romanının geçtiği yeri ziyaret etti.'], { h: 'form' }),
+    mc('G2', 'damit bei neuem Subjekt', I.conjunction, 'Der Autor schreibt in kurzen Sätzen, … auch junge Leser der Handlung folgen können.', ['damit', 'um', 'ob'],
+      ['The author writes in short sentences so that young readers too can follow the plot.', 'Автор пишет короткими предложениями, чтобы и юные читатели могли следить за сюжетом.', 'Автор пише короткими реченнями, щоб і юні читачі могли стежити за сюжетом.', 'Yazar, genç okurlar da olay örgüsünü izleyebilsin diye kısa cümlelerle yazıyor.'], { h: 'subjekt' }),
+    mc('G3', 'damit → um … zu können', I.choose, 'Er zog sich zurück, damit er in Ruhe arbeiten konnte. = Er zog sich zurück, …', ['um in Ruhe arbeiten zu können.', 'um er in Ruhe arbeiten zu können.', 'um in Ruhe zu arbeiten können.'],
+      ['He withdrew so that he could work in peace.', 'Он уединился, чтобы спокойно работать.', 'Він усамітнився, щоб спокійно працювати.', 'Rahatça çalışabilmek için inzivaya çekildi.'], { h: 'gleich' }),
+    mc('G4', 'um … zu → zur Verleihung', I.choose, 'Um den Preis zu verleihen, kommt der Bürgermeister ins Literaturhaus. = … kommt der Bürgermeister ins Literaturhaus.', ['Zur Verleihung des Preises', 'Zu verleihen des Preises', 'Zwecks den Preis'],
+      ['In order to present the prize the mayor is coming to the house of literature.', 'Чтобы вручить премию, бургомистр приезжает в дом литературы.', 'Щоб вручити премію, бургомістр приїжджає до будинку літератури.', 'Ödülü vermek için belediye başkanı edebiyat evine geliyor.'], { h: 'umformen' }),
+    mc('G5', 'ungewollte Folge', I.choose, 'Welcher Satz nennt eine Folge, die niemand beabsichtigt hat?', ['Der Verlag druckte zu wenige Exemplare, sodass das Buch wochenlang nicht lieferbar war.', 'Der Verlag druckte wenige Exemplare, um das Risiko gering zu halten.', 'Der Verlag druckte wenige Exemplare, damit keine Bücher übrig bleiben.'],
+      ['Which sentence names a consequence that nobody intended?', 'Какое предложение называет следствие, которого никто не добивался?', 'Яке речення називає наслідок, якого ніхто не прагнув?', 'Hangi cümle kimsenin amaçlamadığı bir sonucu bildiriyor?'], { h: 'folge' }),
+    mc('G6', 'Dadurch', I.choose, 'Der Erzähler spricht den Leser direkt an. … entsteht der Eindruck eines vertrauten Gesprächs.', ['Dadurch', 'Darüber', 'Dafür'],
+      ['The narrator addresses the reader directly. This creates the impression of an intimate conversation.', 'Рассказчик обращается к читателю напрямую. Благодаря этому возникает впечатление доверительной беседы.', 'Оповідач звертається до читача безпосередньо. Завдяки цьому виникає враження довірливої розмови.', 'Anlatıcı okura doğrudan sesleniyor. Böylece samimi bir sohbet izlenimi doğuyor.'], { h: 'praep' }),
+    mc('G7', 'indem', I.choose, 'Der Autor hält die Spannung, … er jedes Kapitel mit einer offenen Frage beendet.', ['indem', 'in dem', 'in den'],
+      ['The author keeps up the suspense by ending each chapter with an open question.', 'Автор поддерживает напряжение, заканчивая каждую главу открытым вопросом.', 'Автор підтримує напругу, закінчуючи кожен розділ відкритим запитанням.', 'Yazar her bölümü açık bir soruyla bitirerek gerilimi koruyor.'], { h: 'indem' }),
+    mc('G8', 'wodurch', I.choose, 'Der Roman wurde verboten, … er erst recht bekannt wurde.', ['wodurch', 'worüber', 'wofür'],
+      ['The novel was banned, as a result of which it became all the better known.', 'Роман запретили, из-за чего он стал ещё известнее.', 'Роман заборонили, через що він став ще відомішим.', 'Roman yasaklandı; bu yüzden daha da çok tanındı.'], { h: 'wo' }),
+    mc('G9', 'Letzterer', I.choose, '„Der Dichter und sein Verleger waren Freunde. Letzterer zahlte jahrelang die Miete.“ – Wer zahlte die Miete?', ['der Verleger', 'der Dichter', 'das lässt der Satz offen'],
+      ['“Der Dichter und sein Verleger waren Freunde. Letzterer zahlte jahrelang die Miete.” – Who paid the rent?', '«Der Dichter und sein Verleger waren Freunde. Letzterer zahlte jahrelang die Miete.» – Кто платил за квартиру?', '«Der Dichter und sein Verleger waren Freunde. Letzterer zahlte jahrelang die Miete.» – Хто платив за квартиру?', '“Der Dichter und sein Verleger waren Freunde. Letzterer zahlte jahrelang die Miete.” – Kirayı kim ödedi?'], { h: 'ersterer' }),
+    mc('Z1', 'Interpretation: Letzterer', I.read, `${INTERPRETATION} Auf wen bezieht sich „Letzterer“?`, ['auf Emil', 'auf Anton', 'auf Keller'],
+      ['Who does “Letzterer” refer to?', 'К кому относится «Letzterer»?', 'Кого стосується «Letzterer»?', '“Letzterer” kime gönderme yapıyor?']),
+    gap('G2', 'damit', I.conjunction, 'Der Lektor markiert unklare Stellen, ', ' der Autor sie überarbeitet.', 'damit', ['um', 'ob'],
+      ['The editor marks unclear passages so that the author revises them.', 'Редактор отмечает неясные места, чтобы автор их переработал.', 'Редактор позначає неясні місця, щоб автор їх переробив.', 'Editör, yazar yeniden ele alsın diye belirsiz yerleri işaretliyor.'], 'damit / um / ob', { h: 'subjekt' }),
+    sb('G8', 'woraufhin + Verb am Ende', I.order, 'Der Kritiker / lobte / das Buch, / woraufhin / die Verkaufszahlen / stiegen.',
+      ['The critic praised the book, whereupon sales rose.', 'Критик похвалил книгу, после чего продажи выросли.', 'Критик похвалив книжку, після чого продажі зросли.', 'Eleştirmen kitabı övdü; bunun üzerine satışlar arttı.'], { h: 'folge' }),
+  ],
+  size: 13,
+  test: [
+    mc('W1', 'Erzählperspektive', I.choose, 'Was ist die „Erzählperspektive“?', ['der Blickwinkel, aus dem eine Geschichte erzählt wird', 'die Zeit, in der die Handlung einer Geschichte spielt', 'der Ort, an dem ein Buch gedruckt und verkauft wird'],
+      ['What is the “Erzählperspektive”?', 'Что такое «Erzählperspektive»?', 'Що таке «Erzählperspektive»?', '“Erzählperspektive” nedir?']),
+    mc('W1', 'Neuerscheinung', I.choose, 'Was ist eine „Neuerscheinung“?', ['ein Buch, das gerade erst herausgekommen ist', 'ein Buch, das nicht mehr gedruckt wird', 'ein Buch, das man in der Bibliothek ausleiht'],
+      ['What is a “Neuerscheinung”?', 'Что такое «Neuerscheinung»?', 'Що таке «Neuerscheinung»?', '“Neuerscheinung” nedir?']),
+    gap('W1', 'Protagonist', I.word, 'Der ', ' des Romans, ein alter Fischer, kämpft drei Tage lang mit einem riesigen Fisch.', ['Protagonist', 'Held'], ['Prospekt', 'Produzent'],
+      ['The protagonist of the novel, an old fisherman, struggles for three days with a huge fish.', 'Главный герой романа, старый рыбак, три дня борется с огромной рыбой.', 'Головний герой роману, старий рибалка, три дні бореться з величезною рибою.', 'Romanın başkahramanı yaşlı bir balıkçı, üç gün boyunca dev bir balıkla boğuşuyor.'],
+      ['protagonist, main character', 'главный герой', 'головний герой', 'başkahraman']),
+
+    mc('G1', 'um … teilzunehmen', I.form, 'Er fuhr nach Weimar, um an einer Tagung über Goethe …', ['teilzunehmen', 'zu teilnehmen', 'teilnehmen zu'],
+      ['He went to Weimar in order to take part in a conference on Goethe.', 'Он поехал в Веймар, чтобы принять участие в конференции о Гёте.', 'Він поїхав до Веймара, щоб узяти участь у конференції про Ґете.', 'Goethe üzerine bir toplantıya katılmak için Weimar’a gitti.'], { h: 'form' }),
+    mc('G1', 'um-zu-Satz mit zu', I.sentence, 'Welcher Satz ist richtig?', ['Um den Roman zu beenden, zog er sich in ein Kloster zurück.', 'Um den Roman beenden, zog er sich in ein Kloster zurück.', 'Um zu beenden den Roman, er zog sich in ein Kloster zurück.'],
+      ['Which sentence is correct?', 'Какое предложение правильное?', 'Яке речення правильне?', 'Hangi cümle doğru?'], { h: 'form' }),
+    gap('G1', 'um … lesen zu können', I.conjunction, 'Er lernte Russisch, ', ' Tolstoi im Original lesen zu können.', 'um', ['damit', 'weil'],
+      ['He learned Russian in order to be able to read Tolstoy in the original.', 'Он выучил русский, чтобы читать Толстого в оригинале.', 'Він вивчив російську, щоб читати Толстого в оригіналі.', 'Tolstoy’u aslından okuyabilmek için Rusça öğrendi.'], 'um / damit / weil', { h: 'subjekt' }),
+
+    mc('G2', 'kein wollen im damit-Satz', I.sentence, 'Welcher Satz ist richtig?', ['Der Verlag verschickt Einladungen, damit viele Gäste zur Lesung kommen.', 'Der Verlag verschickt Einladungen, damit viele Gäste zur Lesung kommen wollen.', 'Der Verlag verschickt Einladungen, um viele Gäste zur Lesung kommen.'],
+      ['Which sentence is correct?', 'Какое предложение правильное?', 'Яке речення правильне?', 'Hangi cümle doğru?'], { h: 'modal' }),
+    mc('G2', 'Verb am Ende des damit-Satzes', I.choose, 'Der Autor signiert die Bücher, damit die Leser ein Andenken …', ['haben', 'haben sie', 'zu haben'],
+      ['The author signs the books so that the readers have a souvenir.', 'Автор подписывает книги, чтобы у читателей осталась память.', 'Автор підписує книжки, щоб у читачів залишилася пам’ять.', 'Yazar, okurların bir hatırası olsun diye kitapları imzalıyor.'], { h: 'stellung' }),
+    gap('G2', 'damit … verstehen', I.conjunction, 'Der Übersetzer fügt Anmerkungen hinzu, ', ' ausländische Leser die Anspielungen verstehen.', 'damit', ['um', 'ob'],
+      ['The translator adds notes so that foreign readers understand the allusions.', 'Переводчик добавляет примечания, чтобы зарубежные читатели понимали намёки.', 'Перекладач додає примітки, щоб закордонні читачі розуміли натяки.', 'Çevirmen, yabancı okurlar göndermeleri anlasın diye notlar ekliyor.'], 'damit / um / ob', { h: 'subjekt' }),
+
+    mc('G3', 'damit durch um … zu ersetzbar', I.choose, 'In welchem Satz kann man „damit“ durch „um … zu“ ersetzen?', ['Er kürzte den Text, damit er ihn rechtzeitig abgeben konnte.', 'Er kürzte den Text, damit der Verlag ihn rechtzeitig drucken konnte.', 'Er kürzte den Text, damit die Leser nicht ermüden.'],
+      ['In which sentence can “damit” be replaced by “um … zu”?', 'В каком предложении «damit» можно заменить на «um … zu»?', 'У якому реченні «damit» можна замінити на «um … zu»?', 'Hangi cümlede “damit” yerine “um … zu” kullanılabilir?'], { h: 'gleich' }),
+    mc('G3', 'falscher um-zu-Satz', I.choose, 'Welcher Satz ist falsch?', ['Der Autor nennt Quellen, um die Leser seine Angaben prüfen zu können.', 'Der Autor nennt Quellen, damit die Leser seine Angaben prüfen können.', 'Der Autor nennt Quellen, um seine Angaben zu belegen.'],
+      ['Which sentence is wrong?', 'Какое предложение неправильное?', 'Яке речення неправильне?', 'Hangi cümle yanlış?'], { h: 'verschieden' }),
+    gap('G3', 'damit vor konjugiertem Verb', I.conjunction, 'Der Buchhändler bestellt hundert Exemplare, ', ' er am Erscheinungstag genug vorrätig hat.', 'damit', ['um', 'ob'],
+      ['The bookseller is ordering a hundred copies so that he has enough in stock on the day of publication.', 'Продавец заказывает сто экземпляров, чтобы в день выхода книги у него был достаточный запас.', 'Продавець замовляє сто примірників, щоб у день виходу книжки мати достатній запас.', 'Kitapçı, yayın gününde elinde yeterince bulunsun diye yüz adet sipariş ediyor.'], 'damit / um / ob', { h: 'probe' }),
+
+    mc('G4', 'zwecks ohne Artikel', I.choose, 'Zwecks … wenden Sie sich bitte an das Büro des Verlags.', ['Terminvereinbarung', 'Termin vereinbaren', 'zu vereinbaren Termin'],
+      ['To arrange an appointment please contact the publisher’s office.', 'Для согласования встречи обращайтесь, пожалуйста, в офис издательства.', 'Для узгодження зустрічі звертайтеся, будь ласка, до офісу видавництва.', 'Randevu ayarlamak için lütfen yayınevinin bürosuna başvurun.'], { h: 'zwecks' }),
+    mc('G4', 'zum Verständnis', I.choose, 'Zum … des Romans braucht man gute Kenntnisse der Geschichte.', ['Verständnis', 'Verstehend', 'Verstand'],
+      ['To understand the novel you need a good knowledge of history.', 'Для понимания романа нужны хорошие знания истории.', 'Для розуміння роману потрібні добрі знання історії.', 'Romanı anlamak için iyi bir tarih bilgisi gerekir.'], { h: 'zu' }),
+    gap('G4', 'Für die Übersetzung', I.prep, '', ' die Übersetzung des Romans erhielt er ein Stipendium.', 'Für', ['Zur', 'Zwecks'],
+      ['He received a grant for the translation of the novel.', 'Для перевода романа он получил стипендию.', 'Для перекладу роману він отримав стипендію.', 'Romanın çevirisi için burs aldı.'], 'Für / Zur / Zwecks', { h: 'zu' }),
+
+    mc('G5', 'Frage nach dem Zweck', I.qword, 'Welche Frage passt zu einem Zweck?', ['Wozu?', 'Warum?', 'Mit welchem Ergebnis?'],
+      ['Which question goes with a purpose?', 'Какой вопрос соответствует цели?', 'Яке запитання відповідає меті?', 'Hangi soru bir amaca uygundur?'], { h: 'zweck' }),
+    mc('G5', 'so nervös, dass', I.conjunction, 'Der Autor war so nervös, … er beim Lesen mehrmals die Zeile verlor.', ['dass', 'damit', 'um'],
+      ['The author was so nervous that he lost his place several times while reading.', 'Автор так волновался, что во время чтения несколько раз сбивался со строки.', 'Автор так хвилювався, що під час читання кілька разів збивався з рядка.', 'Yazar o kadar heyecanlıydı ki okurken birkaç kez satırı kaçırdı.'], { h: 'folge' }),
+
+    mc('G6', 'sich unterscheiden in → Darin', I.choose, 'Der Autor nennt den Mörder schon auf der ersten Seite. … unterscheidet sich der Roman von gewöhnlichen Krimis.', ['Darin', 'Darauf', 'Dazu'],
+      ['The author names the murderer on the very first page. In this the novel differs from ordinary crime stories.', 'Автор называет убийцу уже на первой странице. Этим роман отличается от обычных детективов.', 'Автор називає вбивцю вже на першій сторінці. Цим роман відрізняється від звичайних детективів.', 'Yazar katili daha ilk sayfada açıklıyor. Roman bu yönüyle sıradan polisiyelerden ayrılıyor.'], { h: 'praep' }),
+    mc('G6', 'Bezug von Dadurch', I.choose, 'Worauf bezieht sich „Dadurch“? „Der Erzähler springt zwischen den Zeiten. Dadurch wirkt die Handlung zunächst verwirrend.“', ['darauf, dass der Erzähler zwischen den Zeiten springt', 'auf die Handlung des gesamten Romans', 'auf den Leser, der verwirrt ist'],
+      ['What does “Dadurch” refer to? “Der Erzähler springt zwischen den Zeiten. Dadurch wirkt die Handlung zunächst verwirrend.”', 'К чему относится «Dadurch»? «Der Erzähler springt zwischen den Zeiten. Dadurch wirkt die Handlung zunächst verwirrend.»', 'Чого стосується «Dadurch»? «Der Erzähler springt zwischen den Zeiten. Dadurch wirkt die Handlung zunächst verwirrend.»', '“Dadurch” neye gönderme yapıyor? “Der Erzähler springt zwischen den Zeiten. Dadurch wirkt die Handlung zunächst verwirrend.”'], { h: 'bezug' }),
+    gap('G6', 'erkennen an → Daran', I.word, 'Der Autor korrigiert jeden Satz mehrfach. ', ' erkennt man, wie wichtig ihm die Sprache ist.', 'Daran', ['Darauf', 'Dafür'],
+      ['The author corrects every sentence several times. From this you can tell how important language is to him.', 'Автор по нескольку раз правит каждое предложение. По этому видно, как важен для него язык.', 'Автор по кілька разів виправляє кожне речення. З цього видно, наскільки важлива для нього мова.', 'Yazar her cümleyi defalarca düzeltiyor. Dilin onun için ne kadar önemli olduğu bundan anlaşılıyor.'], 'Daran / Darauf / Dafür', { h: 'praep' }),
+
+    mc('G7', 'damit als Verweiswort', I.choose, 'In welchem Satz ist „damit“ ein Verweiswort (= mit dieser Sache)?', ['Der Preis ist mit 20 000 Euro verbunden. Damit kann er ein Jahr lang schreiben.', 'Er spart Geld, damit er ein Jahr lang schreiben kann.', 'Er arbeitet nachts, damit ihn niemand stört.'],
+      ['In which sentence is “damit” a referring word (= with this)?', 'В каком предложении «damit» – отсылочное слово (= этим)?', 'У якому реченні «damit» – відсильне слово (= цим)?', 'Hangi cümlede “damit” bir gönderme sözcüğüdür (= bununla)?'], { h: 'damit' }),
+    mc('G7', 'in der = Relativsatz', I.choose, 'Das ist die Szene, … der Protagonist die Wahrheit erfährt.', ['in der', 'indem', 'in dem'],
+      ['That is the scene in which the protagonist learns the truth.', 'Это та сцена, в которой главный герой узнаёт правду.', 'Це та сцена, у якій головний герой дізнається правду.', 'Bu, başkahramanın gerçeği öğrendiği sahne.'], { h: 'indem' }),
+
+    mc('G8', 'was nach ganzer Aussage', I.pronoun, 'Der Roman endet ohne Auflösung, … viele Leser verärgert.', ['was', 'das', 'wer'],
+      ['The novel ends without a resolution, which annoys many readers.', 'Роман заканчивается без развязки, что раздражает многих читателей.', 'Роман закінчується без розв’язки, що дратує багатьох читачів.', 'Roman çözüme kavuşmadan bitiyor; bu da birçok okuru kızdırıyor.'], { h: 'was' }),
+    mc('G8', 'worüber', I.choose, 'Er bekam ein Stipendium, … er sich sehr gefreut hat.', ['worüber', 'womit', 'wodurch'],
+      ['He received a grant, which he was very pleased about.', 'Он получил стипендию, чему очень обрадовался.', 'Він отримав стипендію, з чого дуже зрадів.', 'Burs aldı; buna çok sevindi.'], { h: 'wo' }),
+    gap('G8', 'weshalb', I.word, 'Der Autor wollte anonym bleiben, ', ' das Buch unter einem falschen Namen erschien.', ['weshalb', 'weswegen', 'sodass'], ['wobei', 'womit'],
+      ['The author wanted to remain anonymous, which is why the book appeared under a false name.', 'Автор хотел остаться анонимным, поэтому книга вышла под вымышленным именем.', 'Автор хотів залишитися анонімним, тому книжка вийшла під вигаданим ім’ям.', 'Yazar kimliğini gizli tutmak istiyordu; bu yüzden kitap takma adla yayımlandı.'], 'weshalb / wobei / womit', { h: 'folge' }),
+
+    mc('G9', 'dieser im Nebensatz', I.choose, '„Der Erzähler beobachtet den Fremden, bis dieser im Nebel verschwindet.“ – Wer verschwindet?', ['der Fremde', 'der Erzähler', 'das lässt der Satz offen'],
+      ['“Der Erzähler beobachtet den Fremden, bis dieser im Nebel verschwindet.” – Who disappears?', '«Der Erzähler beobachtet den Fremden, bis dieser im Nebel verschwindet.» – Кто исчезает?', '«Der Erzähler beobachtet den Fremden, bis dieser im Nebel verschwindet.» – Хто зникає?', '“Der Erzähler beobachtet den Fremden, bis dieser im Nebel verschwindet.” – Kim kayboluyor?'], { h: 'pronomen' }),
+    mc('G9', 'Oberbegriff für Roman', I.choose, 'Welches Wort kann „der Roman“ ersetzen, damit man es nicht wiederholen muss?', ['das Werk', 'der Verfasser', 'der Schauplatz'],
+      ['Which word can replace “der Roman” so that you do not have to repeat it?', 'Каким словом можно заменить «der Roman», чтобы не повторять его?', 'Яким словом можна замінити «der Roman», щоб не повторювати його?', 'Yinelememek için “der Roman” yerine hangi sözcük kullanılabilir?'], { h: 'oberbegriff' }),
+    gap('G9', 'Ersterer', I.pronoun, 'Im Mittelpunkt stehen ein Vater und sein Sohn. ', ' schweigt meist, der Sohn redet ohne Pause.', ['Ersterer', 'Jener'], ['Letzterer', 'Dieser'],
+      ['At the centre are a father and his son. The former is mostly silent; the son talks without a pause.', 'В центре повествования – отец и его сын. Первый чаще молчит, сын говорит без умолку.', 'У центрі оповіді – батько і його син. Перший здебільшого мовчить, син говорить без упину.', 'Merkezde bir baba ile oğlu var. İlki çoğunlukla susuyor, oğul ise durmadan konuşuyor.'], 'Ersterer / Letzterer / Dieser', { h: 'ersterer' }),
+
+    mc('Z1', 'Interpretation: Zweck der Beschreibung', I.read, `${INTERPRETATION} Wozu beschreibt Keller den Schauplatz so ausführlich?`, ['um das Schweigen der Brüder spürbar zu machen', 'um den Grund für die Rückkehr zu erklären', 'um den Leser von der Handlung abzulenken'],
+      ['For what purpose does Keller describe the setting in such detail?', 'С какой целью Келлер так подробно описывает место действия?', 'З якою метою Келлер так докладно описує місце дії?', 'Keller olay yerini ne amaçla bu kadar ayrıntılı betimliyor?']),
+    mc('Z1', 'Interpretation: Bezug von Daran', I.read, `${INTERPRETATION} Worauf bezieht sich „Daran“ in „Daran wird sichtbar, dass Nähe sich nicht erzwingen lässt“?`, ['darauf, dass Emil trotz des reparierten Dachs abreist', 'darauf, dass das Bauernhaus verfallen ist', 'darauf, dass der Erzähler keinen Grund nennt'],
+      ['What does “Daran” refer to in “Daran wird sichtbar, dass Nähe sich nicht erzwingen lässt”?', 'К чему относится «Daran» в «Daran wird sichtbar, dass Nähe sich nicht erzwingen lässt»?', 'Чого стосується «Daran» у «Daran wird sichtbar, dass Nähe sich nicht erzwingen lässt»?', '“Daran wird sichtbar, dass Nähe sich nicht erzwingen lässt” cümlesinde “Daran” neye gönderme yapıyor?']),
+  ],
+}
+
+export default check
