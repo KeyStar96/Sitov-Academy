@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { ArrowLeft, ArrowRight, BookOpen, Check, CheckCircle2, CircleHelp, Clock3, Headphones, Info, ListChecks, LockKeyhole, MessageCircle, Pencil, RotateCcw, Send, XCircle } from 'lucide-react'
 import * as actions from '@/app/actions/exam-simulation'
-import { SIMULATION_LEVELS, SIMULATION_SKILL_LABELS } from '@/lib/exam-simulation/catalogue'
+import { SIMULATION_OFFERED_LEVELS, SIMULATION_SKILL_LABELS, isSimulationLevelOffered } from '@/lib/exam-simulation/catalogue'
 import { sitovSimulationCopy, sitovSimulationDescription, sitovSimulationError, sitovSimulationHeadline, sitovSimulationNextStep } from '@/lib/exam-simulation/ui-copy'
 import { sitovSimulationFeedbackCopy } from '@/lib/exam-simulation/feedback-copy'
 import { sitovSimulationCriterion } from '@/lib/exam-simulation/criterion-copy'
@@ -29,7 +29,7 @@ export default function ExamSimulation({lang,initial,catalog,initialLevel,previe
   lang:string; initial:SimulationState; catalog:SimulationProfile[]; initialLevel?:string; preview?:boolean
 }) {
   const copy=sitovSimulationCopy(lang)
-  const [level,setLevel] = useState<SimulationLevel|null>(SIMULATION_LEVELS.includes(initialLevel as SimulationLevel) ? initialLevel as SimulationLevel : null)
+  const [level,setLevel] = useState<SimulationLevel|null>(isSimulationLevelOffered(initialLevel) ? initialLevel : null)
   const selected=catalog.find(profile=>profile.level===level&&profile.provider==='sitov')??null
   const [session,setSession] = useState(initial.active)
   const [history,setHistory] = useState(initial.history)
@@ -75,7 +75,7 @@ export default function ExamSimulation({lang,initial,catalog,initialLevel,previe
     <motion.div className={styles.stage} key={stage} initial={reduced?false:{opacity:0,y:8}} animate={{opacity:1,y:0}} transition={{duration:reduced?0:MOTION.slow,ease:EASE_OUT_SOFT}}>
       {!selected ? <>
         <h2 className={styles.srOnly}>{copy.t('examLevel')}</h2>
-        <div className={`${styles.grid} ${styles.levels}`}>{SIMULATION_LEVELS.map(item=><PressableCard key={item} className={styles.card} onClick={()=>{setLevel(item);setError('')}} aria-label={`${item} – ${copy.level(item)}`}><strong className={styles.levelCode}>{item}</strong><small>{copy.level(item)}</small><ArrowRight className={styles.cardArrow} size={20} aria-hidden="true"/></PressableCard>)}</div>
+        <div className={`${styles.grid} ${styles.levels}`}>{SIMULATION_OFFERED_LEVELS.map(item=><PressableCard key={item} className={styles.card} onClick={()=>{setLevel(item);setError('')}} aria-label={`${item} – ${copy.level(item)}`}><strong className={styles.levelCode}>{item}</strong><small>{copy.level(item)}</small><ArrowRight className={styles.cardArrow} size={20} aria-hidden="true"/></PressableCard>)}</div>
       </> : <>
         <PressableCard className={styles.link} onClick={()=>setLevel(null)}><ArrowLeft size={18} aria-hidden="true"/>{copy.t('changeLevel')}</PressableCard>
         <section className={styles.panel}><div><span className={styles.eyebrow}>{copy.t('ready')}</span><h2>{copy.t('selectedExam',{level:selected.level})}</h2></div>

@@ -22,7 +22,8 @@ beforeEach(()=>{jest.clearAllMocks();window.scrollTo=jest.fn();Object.defineProp
 it('offers level and start in the Russian interface while announcing that the exam is in German',()=>{
   const copy=sitovSimulationCopy('ru')
   render(<ExamSimulation lang="ru" initial={empty} catalog={readyCatalog}/>)
-  expect(screen.getAllByRole('button',{name:/^(A1|A2|B1|B2|C1|C2) –/})).toHaveLength(6)
+  expect(screen.getAllByRole('button',{name:/^(A1|A2|B1|B2|C1|C2) –/}).map(button=>button.querySelector('strong')?.textContent)).toEqual(['A1','A2','B1','B2','C1'])
+  expect(screen.queryByRole('button',{name:/^C2 –/})).not.toBeInTheDocument()
   fireEvent.click(screen.getByRole('button',{name:/A1 –/}))
   expect(screen.getByRole('heading',{name:copy.t('selectedExam',{level:'A1'})})).toBeInTheDocument()
   expect(screen.getByRole('button',{name:copy.t('startExam')})).toBeInTheDocument()

@@ -8,7 +8,8 @@ import {createClient} from '@/utils/supabase/server'
 import {createAdminClient} from '@/utils/supabase/admin'
 import {loadLevelAccessProfile} from '@/lib/access/server'
 import {findCachedAudio} from '@/lib/audio/neural-cache'
-import {hasSimulationFeatureAccess,hasSimulationLevelAccess} from '@/lib/exam-simulation/server'
+import {hasSimulationFeatureAccess,hasSimulationLevelAccess,simulationCatalog} from '@/lib/exam-simulation/server'
+import {SIMULATION_LEVELS,SIMULATION_OFFERED_LEVELS,isSimulationLevelOffered} from '@/lib/exam-simulation/catalogue'
 import * as simulationServer from '@/lib/exam-simulation/server'
 import {buildSimulation,finishSimulation,publicSimulation,type StoredSimulationSession} from '@/lib/exam-simulation/engine'
 import {getSimulationState,startExamSimulation,saveSimulationAnswer,finishExamSimulation,startPreviewExamSimulation,savePreviewSimulationAnswer,finishPreviewExamSimulation,reviewExamSimulationTask,createSimulationUpload,grantSimulationFeature,resetStudentSimulationProgress,sitovAssignSimulationStudent,getSimulationTeacherState} from '@/app/actions/exam-simulation'
@@ -63,11 +64,26 @@ it('uses explicit level access regardless of UI language and rejects advanced st
  expect(hasSimulationLevelAccess({role:'student',allowed_levels:['A1.1']},'B1')).toBe(false)
  expect(hasSimulationLevelAccess({role:'student',allowed_levels:['C1']},'C1')).toBe(false)
  expect(hasSimulationLevelAccess({role:'student',allowed_levels:[],simulation_levels:['C1']},'C1')).toBe(true)
- expect(hasSimulationLevelAccess({role:'teacher',allowed_levels:[]},'C2')).toBe(true)
+ expect(hasSimulationLevelAccess({role:'teacher',allowed_levels:[]},'C1')).toBe(true)
+ // B2 and C1 follow the released learning levels as well as the additional simulation grant.
+ expect(hasSimulationLevelAccess({role:'student',allowed_levels:['B2.1']},'B2')).toBe(true)
+ expect(hasSimulationLevelAccess({role:'student',allowed_levels:['C1.2']},'C1')).toBe(true)
+ expect(hasSimulationLevelAccess({role:'student',allowed_levels:['B2.1']},'C1')).toBe(false)
+})
+it('does not offer the C2 simulation for now: nobody chooses, starts or receives it, whatever is stored',async()=>{
+ expect(SIMULATION_OFFERED_LEVELS).toEqual(['A1','A2','B1','B2','C1'])
+ expect(SIMULATION_LEVELS).toContain('C2')
+ expect(isSimulationLevelOffered('C2')).toBe(false);expect(isSimulationLevelOffered('C1')).toBe(true);expect(isSimulationLevelOffered(undefined)).toBe(false)
+ for(const profile of [{role:'student',allowed_levels:[],simulation_enabled:true,simulation_levels:['C2'] as const},{role:'teacher',allowed_levels:[]},{role:'admin',allowed_levels:[]}])
+  expect(hasSimulationLevelAccess(profile,'C2')).toBe(false)
+ setup({featureGranted:true,levels:['A1.1'],advancedLevels:['B2','C1','C2']})
+ expect(await startExamSimulation({level:'C2',requestId:request})).toMatchObject({success:false,error:'Bitte prüfe deine Eingaben.'})
+ expect(mutations).toEqual([])
+ expect((await simulationCatalog()).map(profile=>profile.level)).toEqual(['A1','A2','B1','B2','C1'])
 })
 it('locks every student level behind a separate feature grant even when all course and advanced grants exist',async()=>{
  setup({featureGranted:false,levels:['A1.1','A2.1','B1.2'],advancedLevels:['B2','C1','C2']})
- for(const level of ['A1','A2','B1','B2','C1','C2'] as const)expect(await startExamSimulation({level,requestId:request})).toMatchObject({success:false,error:expect.stringContaining('noch nicht freigegeben')})
+ for(const level of ['A1','A2','B1','B2','C1'] as const)expect(await startExamSimulation({level,requestId:request})).toMatchObject({success:false,error:expect.stringContaining('noch nicht freigegeben')})
  expect(mutations).toEqual([]);expect(findCachedAudio).not.toHaveBeenCalled()
 })
 it('revoking feature access blocks read/save/finish/upload without closing or deleting an existing attempt',async()=>{

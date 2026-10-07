@@ -33,7 +33,7 @@ export default function ExamSimulationTeacher({initial,lang,preview=false}:{init
   const pending=transitionPending||resetPending
   const [studentId,setStudentId]=useState(initial.students[0]?.id??'')
   const [teacherId,setTeacherId]=useState(initial.teachers[0]?.id??'')
-  const [accessLevel,setAccessLevel]=useState<'B2'|'C1'|'C2'>('B2')
+  const [accessLevel,setAccessLevel]=useState<'B2'|'C1'>('B2')
   const [failedRecording,setFailedRecording]=useState('')
   const waiting=state.runs.flatMap(run=>run.session.tasks.filter(task=>{
     const answer=run.session.answers[task.id]

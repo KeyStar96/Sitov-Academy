@@ -1,6 +1,15 @@
 import type { SimulationFamily, SimulationLevel, SimulationProfile, SimulationProvider, SimulationSkill } from './types'
 
 export const SIMULATION_LEVELS: SimulationLevel[] = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2']
+/**
+ * The levels offered in the learning environment. The C2 simulation stays authored and stored,
+ * but is hidden for now: Sitov Academy currently concentrates on the levels up to C1.2. Nobody
+ * can choose, start, reopen or grant C2; adding 'C2' here offers it again with all stored data.
+ */
+export const SIMULATION_OFFERED_LEVELS: SimulationLevel[] = ['A1', 'A2', 'B1', 'B2', 'C1']
+export function isSimulationLevelOffered(level: unknown): level is SimulationLevel {
+  return typeof level === 'string' && (SIMULATION_OFFERED_LEVELS as readonly string[]).includes(level)
+}
 export const SIMULATION_PROVIDERS: { id: Exclude<SimulationProvider, 'sitov'>; title: string; description: string }[] = [
   { id: 'telc', title: 'telc', description: 'Alltag, Beruf und gemeinsam planen' },
   { id: 'goethe', title: 'Goethe', description: 'Vier Fertigkeiten und eigene Module' },

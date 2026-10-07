@@ -10,7 +10,8 @@ import teacherStyles from './TeacherExamSimulationPanel.module.css'
 import { sitovTeacherText } from '@/lib/exam-simulation/teacher-ui-copy'
 import { sitovSimulationCopy, sitovSimulationHeadline, sitovSimulationDescription } from '@/lib/exam-simulation/ui-copy'
 
-type AdvancedLevel = Extract<SimulationLevel, 'B2' | 'C1' | 'C2'>
+/** The additional level rights follow the offered simulation levels: C2 is hidden for now. */
+type AdvancedLevel = Extract<SimulationLevel, 'B2' | 'C1'>
 
 export default function TeacherExamSimulationPanel({ lang = 'de', state, studentId, accessLevel, pending, preview = false, onStudentChange, onLevelChange, onFeatureChange, onLevelAccessChange, onAssignStudent, onRefresh }: {
   lang?: string
@@ -46,8 +47,8 @@ export default function TeacherExamSimulationPanel({ lang = 'de', state, student
       <p className={teacherStyles.accessStatus} data-enabled={featureEnabled}>{featureEnabled ? <CheckCircle2 size={22} aria-hidden="true" /> : <LockKeyhole size={22} aria-hidden="true" />}<span><strong>{student?.name}: {featureEnabled ? t("Prüfung freigegeben") : t("Prüfung gesperrt")}</strong><small>{featureEnabled ? t("Der Prüfungsbereich ist geöffnet. Die bestehenden Niveaurechte bestimmen die erreichbaren Prüfungen.") : t("Auch freigegebene Lernniveaus öffnen die simulierte Prüfung erst nach dieser persönlichen Freigabe.")}</small></span></p>
       {state.actorRole === 'admin' && <p className={styles.muted}>{t("Prüfungslehrkraft:")} {teacher?.name ?? t("Noch nicht zugeordnet")}</p>}
       <button type="button" className={featureEnabled ? styles.secondary : styles.primary} disabled={pending || preview || !state.success || !student} onClick={() => onFeatureChange(!featureEnabled)}>{pending ? t("Wird gespeichert …") : featureEnabled ? t("Prüfung für {name} sperren", {name:student?.name ?? ""}) : t("Prüfung für {name} freigeben", {name:student?.name ?? ""})}</button>
-      <details className={styles.details}><summary>{t("Zusätzliche Niveaurechte: B2, C1 und C2")}</summary><p className={styles.muted}>{t("Erst die persönliche Prüfungsfreigabe, dann das passende Niveau. A1 bis B1 verwenden die vorhandenen Lernniveaurechte.")}</p>
-        <label className={styles.label}>{t("Prüfungsniveau")}<select className={styles.select} value={accessLevel} disabled={pending || !featureEnabled} onChange={event => onLevelChange(event.target.value as AdvancedLevel)}><option>B2</option><option>C1</option><option>C2</option></select></label>
+      <details className={styles.details}><summary>{t("Zusätzliche Niveaurechte: B2 und C1")}</summary><p className={styles.muted}>{t("Erst die persönliche Prüfungsfreigabe, dann das passende Niveau. A1 bis B1 verwenden die vorhandenen Lernniveaurechte.")}</p>
+        <label className={styles.label}>{t("Prüfungsniveau")}<select className={styles.select} value={accessLevel} disabled={pending || !featureEnabled} onChange={event => onLevelChange(event.target.value as AdvancedLevel)}><option>B2</option><option>C1</option></select></label>
         <p className={styles.muted}>{accessLevel}: {levelEnabled ? t("Niveau freigegeben") : t("Niveau noch gesperrt")}</p>
         <button type="button" className={styles.secondary} disabled={pending || preview || !featureEnabled || !state.success} onClick={() => onLevelAccessChange(!levelEnabled)}>{levelEnabled ? t("{level}-Freigabe entfernen", {level:accessLevel}) : t("{level} freigeben", {level:accessLevel})}</button>
       </details>

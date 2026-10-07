@@ -4,7 +4,7 @@ import { revalidatePath } from 'next/cache'
 import { z } from 'zod'
 import { createAdminClient } from '@/utils/supabase/admin'
 import { EXAM_AUDIO_MIME_TYPES, EXAM_BUCKET, EXAM_MAX_UPLOAD_BYTES } from '@/lib/exam-preparation/server'
-import { SIMULATION_LEVELS, getSimulationProfile } from '@/lib/exam-simulation/catalogue'
+import { SIMULATION_OFFERED_LEVELS, getSimulationProfile, isSimulationLevelOffered } from '@/lib/exam-simulation/catalogue'
 import { buildSimulation, finishSimulation, submitSimulationAnswer, reviewSimulationTask, publicSimulation, type StoredSimulationSession } from '@/lib/exam-simulation/engine'
 import {
  getSimulationActor, hasSimulationFeatureAccess, requireSimulationLevel, loadSimulationState, loadSimulationRun, simulationSnapshot,
@@ -15,7 +15,7 @@ import type { Json } from '@/supabase/database.types'
 import type { SimulationActionResult, SimulationAnswer, SimulationLevel, SimulationMode, SimulationProvider, SimulationState } from '@/lib/exam-simulation/types'
 
 const uuid=z.uuid(),key=z.string().min(1).max(160)
-const startSchema=z.object({level:z.enum(SIMULATION_LEVELS as [SimulationLevel,...SimulationLevel[]]),provider:z.literal('sitov').default('sitov'),mode:z.enum(['practice','exam']).default('exam'),requestId:uuid})
+const startSchema=z.object({level:z.enum(SIMULATION_OFFERED_LEVELS as [SimulationLevel,...SimulationLevel[]]),provider:z.literal('sitov').default('sitov'),mode:z.enum(['practice','exam']).default('exam'),requestId:uuid})
 const answerSchema=z.union([z.string().max(20000),z.array(z.string().max(1000)).max(100),z.object({text:z.string().max(20000),audioPath:z.string().max(300).optional()})])
 const saveSchema=z.object({runId:uuid,taskId:key,answer:answerSchema,requestId:uuid})
 const refresh=()=>{try{revalidatePath('/[lang]/dashboard/exam-simulation','page');revalidatePath('/[lang]/admin/exam-simulation','page');revalidatePath('/[lang]/dashboard','page')}catch{console.error('Simulation saved; refresh failed')}}
@@ -153,6 +153,8 @@ export async function resetStudentSimulationProgress(input:{studentId:string;req
 export async function grantSimulationLevel(input:{studentId:string;level:'B2'|'C1'|'C2';enabled:boolean}):Promise<{success:boolean;error?:string}>{try{
  const value=z.object({studentId:uuid,level:z.enum(['B2','C1','C2']),enabled:z.boolean()}).parse(input),actor=await getSimulationActor(true)
  await requireSimulationStudentManagement(actor,value.studentId)
+ // A level that is not offered (currently C2) cannot be granted; a stored grant can still be removed.
+ if(value.enabled&&!isSimulationLevelOffered(value.level))throw new Error('Dieses Prüfungsniveau wird derzeit nicht angeboten.')
  const admin=createAdminClient(),student=await admin.from('profiles').select('role').eq('id',value.studentId).maybeSingle()
  if(student.error||student.data?.role!=='student')throw new Error('Bitte wähle ein bestehendes Schülerprofil.')
  const saved=value.enabled?await admin.from('sitov_simulation_level_grants').upsert({student_id:value.studentId,level:value.level,granted_by:actor.userId,granted_at:new Date().toISOString()}):await admin.from('sitov_simulation_level_grants').delete().eq('student_id',value.studentId).eq('level',value.level)

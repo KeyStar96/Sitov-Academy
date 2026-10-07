@@ -8,6 +8,7 @@ import { allExamRows, EXAM_BUCKET, verifyExamStoredMedia } from '@/lib/exam-prep
 import { findCachedAudio, neuralAudioPath } from '@/lib/audio/neural-cache'
 import { normalizeAudioText } from '@/lib/audio/neural-config'
 import { publicSimulation, finishSimulation, getUniversalReadiness, SIMULATION_AUDIO_SOURCES, type StoredSimulationSession } from './engine'
+import { isSimulationLevelOffered } from './catalogue'
 import type { SimulationRunRow } from '@/supabase/exam-simulation.types'
 import type { Json } from '@/supabase/database.types'
 import type { SimulationAnswer, SimulationLevel, SimulationProfile, SimulationSession, SimulationState } from './types'
@@ -18,6 +19,8 @@ export function hasSimulationFeatureAccess(profile:SimulationAccessProfile|null)
  return ['teacher','admin'].includes(profile?.role??'')||profile?.simulation_enabled===true
 }
 export function hasSimulationLevelAccess(profile:SimulationAccessProfile|null,level:SimulationLevel,simulationLevels:readonly SimulationLevel[]=profile?.simulation_levels??[]):boolean {
+ // A level that is not offered (currently C2) is closed for everyone, whatever grant is stored.
+ if(!isSimulationLevelOffered(level))return false
  return hasLevelAccess(profile,`${level}.1`)||hasLevelAccess(profile,`${level}.2`)||(['B2','C1','C2'].includes(level)&&simulationLevels.includes(level))
 }
 export async function getSimulationActor(staffOnly=false) {
@@ -68,7 +71,7 @@ export async function presentSimulation(snapshot:StoredSimulationSession):Promis
  return session
 }
 export async function simulationCatalog(actor?:Awaited<ReturnType<typeof getSimulationActor>>):Promise<SimulationProfile[]> {
- const profiles=getUniversalReadiness(await preparedSimulationAudio())
+ const profiles=getUniversalReadiness(await preparedSimulationAudio()).filter(profile=>isSimulationLevelOffered(profile.level))
  return profiles.map(profile=>({...profile,fullExamReleased:profile.fullExamReleased&&(!actor||(hasSimulationFeatureAccess(actor.profile)&&hasSimulationLevelAccess(actor.profile,profile.level))),practiceAvailable:profile.practiceAvailable&&(!actor||(hasSimulationFeatureAccess(actor.profile)&&hasSimulationLevelAccess(actor.profile,profile.level))),blockers:[...profile.blockers,...(actor&&!hasSimulationFeatureAccess(actor.profile)?['Deine Lehrkraft hat die simulierte Prüfung noch nicht freigegeben.']:[]),...(actor&&!hasSimulationLevelAccess(actor.profile,profile.level)?['Deine Niveau-Freigabe fehlt.']:[])]}))
 }
 /** Proof is read from the imported immutable Qwen cache. Missing media never synthesizes. */
