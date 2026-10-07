@@ -1,5 +1,14 @@
 # Sitov Academy: Simulierte Prüfung und Prüfungsvorbereitung
 
+> **Nachtrag 7. Oktober 2026 (Release `fa3cd094ea97`):** Die **C2-Simulation ist vorerst
+> ausgeblendet**; Sitov Academy konzentriert sich auf die Niveaus bis C1.2. Niveauwahl, Katalog,
+> Start und die zusätzlichen Niveaurechte der Lehrkraft bieten A1 bis C1 an
+> (`SIMULATION_OFFERED_LEVELS` in `lib/exam-simulation/catalogue.ts`), und
+> `hasSimulationLevelAccess` lehnt C2 für alle Rollen ab. Inhalte, Hörquellen und gespeicherte
+> Freigaben bleiben erhalten; `'C2'` in dieser Liste bietet die Prüfung wieder an. B2 und C1
+> folgen seitdem zusätzlich den freigegebenen Lernniveaus B2.1/B2.2 und C1.1/C1.2. Die
+> Beschreibung unten gibt den Stand vom 4. Oktober wieder.
+
 Stand: **4. Oktober 2026, produktiv veröffentlicht**. Release
 **`f79ee90b0513`** ist aktiv; der Sprach-/Proxy-Nachtrag wurde um **18:35:45 Uhr CEST**
 bestätigt. Implementiert ist eine eigene,
