@@ -873,5 +873,33 @@
     "Баллы (от 0 до {count})",
     "Бали (від 0 до {count})",
     "Puanlar (0 ile {count} arası)"
+  ],
+  "Der Prüfungsbereich ist geöffnet. Gib jedes Prüfungsniveau unten separat frei.": [
+    "Der Prüfungsbereich ist geöffnet. Gib jedes Prüfungsniveau unten separat frei.",
+    "The exam area is open. Grant access to each exam level separately below.",
+    "Раздел экзаменов открыт. Ниже открой доступ к каждому уровню экзамена отдельно.",
+    "Розділ іспитів відкрито. Нижче надай доступ до кожного рівня іспиту окремо.",
+    "Sınav alanı açık. Aşağıda her sınav seviyesine ayrı ayrı erişim ver."
+  ],
+  "Trainer-Freigaben öffnen keine simulierte Prüfung. Öffne zuerst den Prüfungsbereich und anschließend das gewünschte Prüfungsniveau.": [
+    "Trainer-Freigaben öffnen keine simulierte Prüfung. Öffne zuerst den Prüfungsbereich und anschließend das gewünschte Prüfungsniveau.",
+    "Trainer access does not open a simulated exam. First open the exam area, then grant the desired exam level.",
+    "Доступ к тренажёрам не открывает пробный экзамен. Сначала открой раздел экзаменов, затем нужный уровень экзамена.",
+    "Доступ до тренажерів не відкриває пробний іспит. Спочатку відкрий розділ іспитів, потім потрібний рівень іспиту.",
+    "Alıştırma erişimi deneme sınavını açmaz. Önce sınav alanını, ardından istediğin sınav seviyesini aç."
+  ],
+  "Prüfungsniveaus separat freigeben": [
+    "Prüfungsniveaus separat freigeben",
+    "Grant exam levels separately",
+    "Открыть уровни экзамена отдельно",
+    "Надати доступ до рівнів іспиту окремо",
+    "Sınav seviyelerini ayrı ayrı aç"
+  ],
+  "A1 bis C1 besitzen eigene Prüfungsfreigaben. Änderungen an Trainer-Niveaus ändern diese Freigaben nicht.": [
+    "A1 bis C1 besitzen eigene Prüfungsfreigaben. Änderungen an Trainer-Niveaus ändern diese Freigaben nicht.",
+    "A1 to C1 have their own exam access grants. Changing trainer levels does not change these grants.",
+    "Уровни A1–C1 имеют отдельный доступ к экзамену. Изменения уровней тренажёров не меняют этот доступ.",
+    "Рівні A1–C1 мають окремий доступ до іспиту. Зміни рівнів тренажерів не змінюють цей доступ.",
+    "A1–C1 seviyelerinin ayrı sınav erişimleri vardır. Alıştırma seviyelerini değiştirmek bu erişimleri değiştirmez."
   ]
 }

@@ -32,7 +32,7 @@ it.each(languages)('renders %s staff access and name-confirmed reset without cha
   render(<ExamSimulationTeacher lang={lang} initial={teacherState} />)
   expect(screen.getByRole('button',{name:t('Freigaben')})).toHaveAttribute('aria-pressed','true')
   expect(screen.getByRole('button',{name:t('Prüfung für {name} freigeben',{name:'Max'})})).toBeEnabled()
-  expect(screen.getByRole('button',{name:t('{level} freigeben',{level:'B2'})})).toBeDisabled()
+  expect(screen.getByRole('button',{name:t('{level} freigeben',{level:'A1'})})).toBeDisabled()
   fireEvent.change(screen.getByLabelText(t('Lernende suchen')),{target:{value:'DAN'}})
   expect(screen.getByLabelText(t('Teilnehmender ohne Prüfungslehrkraft'))).toHaveValue('daniel')
   expect(screen.getByRole('button',{name:t('Übernehmen und für {name} freigeben',{name:'Daniel'})})).toBeEnabled()

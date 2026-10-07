@@ -47,8 +47,8 @@ export const SITOV_UPCOMING_LEVELS = [] as const
 /** Alle feingranularen Niveaus der Plattform in Lernreihenfolge: freigegebene, dann vorbereitete. */
 export const SITOV_PLATFORM_LEVELS = [...ACCESS_LEVELS, ...SITOV_UPCOMING_LEVELS] as const
 export type SitovPlatformLevel = (typeof SITOV_PLATFORM_LEVELS)[number]
-/** The coarse verb contexts B2 and C1 stay stored for staff grants; learners navigate the sublevels. */
-export const SITOV_VERB_LEVELS = [...ACCESS_LEVELS, 'B2', 'C1'] as const
+/** Trainer grants only use the platform's sublevels; coarse levels belong to the exam catalogue. */
+export const SITOV_VERB_LEVELS = ACCESS_LEVELS
 export type SitovTrainerLevel = (typeof SITOV_VERB_LEVELS)[number]
 
 /** Rollen mit uneingeschränktem Zugriff auf alle Niveaus. */
@@ -134,7 +134,8 @@ const SITOV_ABSENT_TRAINERS: Readonly<Record<string, readonly Trainer[]>> = { 'C
 
 /** Ob es den Trainer auf dem Niveau überhaupt gibt – unabhängig von Rolle und Freigabe. */
 export function sitovLevelHasTrainer(level: string, trainer: Trainer): boolean {
-  return !SITOV_ABSENT_TRAINERS[level.trim()]?.includes(trainer)
+  const normalized = level.trim()
+  return isAccessLevel(normalized) && !SITOV_ABSENT_TRAINERS[normalized]?.includes(trainer)
 }
 
 /** Die Trainer eines Niveaus in der festen Reihenfolge von TRAINERS. */

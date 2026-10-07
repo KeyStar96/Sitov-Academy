@@ -76,7 +76,7 @@ export default async function AdminDashboardPage({ params }: { params: Promise<{
 
       <section aria-labelledby="kpi-heading" className="space-y-3">
         <h2 id="kpi-heading" className="sr-only">{t('overview_kpi_title')}</h2>
-        <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
+        <div className="grid grid-cols-2 items-start gap-3 lg:grid-cols-4">
           <StatTile label={t('kpi_students')} value={stats.studentCount} hint={t('kpi_students_hint')} icon={Users} href={`${base}/students`} />
           <StatTile label={t('kpi_activated')} value={stats.activatedCount} hint={t('kpi_activated_share', { percent: share })} icon={UserCheck} href={`${base}/students`} />
           <StatTile
@@ -86,8 +86,9 @@ export default async function AdminDashboardPage({ params }: { params: Promise<{
             icon={MessageSquareText}
             tone={stats.pendingSubmissions > 0 ? 'accent' : 'neutral'}
             href={`${base}/submissions`}
+            className="col-span-2 lg:col-span-1"
           />
-          <Suspense fallback={<div aria-hidden="true" className="min-h-32 animate-pulse rounded-xl border border-[var(--admin-line)] bg-[var(--surface)]" />}>
+          <Suspense fallback={<div aria-hidden="true" className="col-span-2 min-h-32 animate-pulse rounded-xl border border-[var(--admin-line)] bg-[var(--surface)] lg:col-span-1" />}>
             <MediaStorageUsage dictionary={dict} lang={lang} />
           </Suspense>
         </div>

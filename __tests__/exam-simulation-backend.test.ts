@@ -12,7 +12,7 @@ import {hasSimulationFeatureAccess,hasSimulationLevelAccess,simulationCatalog} f
 import {SIMULATION_LEVELS,SIMULATION_OFFERED_LEVELS,isSimulationLevelOffered} from '@/lib/exam-simulation/catalogue'
 import * as simulationServer from '@/lib/exam-simulation/server'
 import {buildSimulation,finishSimulation,publicSimulation,type StoredSimulationSession} from '@/lib/exam-simulation/engine'
-import {getSimulationState,startExamSimulation,saveSimulationAnswer,finishExamSimulation,startPreviewExamSimulation,savePreviewSimulationAnswer,finishPreviewExamSimulation,reviewExamSimulationTask,createSimulationUpload,grantSimulationFeature,resetStudentSimulationProgress,sitovAssignSimulationStudent,getSimulationTeacherState} from '@/app/actions/exam-simulation'
+import {grantSimulationLevel,getSimulationState,startExamSimulation,saveSimulationAnswer,finishExamSimulation,startPreviewExamSimulation,savePreviewSimulationAnswer,finishPreviewExamSimulation,reviewExamSimulationTask,createSimulationUpload,grantSimulationFeature,resetStudentSimulationProgress,sitovAssignSimulationStudent,getSimulationTeacherState} from '@/app/actions/exam-simulation'
 import {SIMULATION_TASK_POOL} from '@/lib/exam-simulation/content'
 import type {SimulationRunRow} from '@/supabase/exam-simulation.types'
 import type {Json} from '@/supabase/database.types'
@@ -20,13 +20,13 @@ const student='00000000-0000-4000-8000-000000000001',outsider='00000000-0000-400
 const request='00000000-0000-4000-8000-000000000060'
 let runs:SimulationRunRow[]=[],receipts:Record<string,unknown>[]=[],mutations:Record<string,unknown>[]=[]
 function row(snapshot:StoredSimulationSession,owner=student):SimulationRunRow {return {id:snapshot.id,student_id:owner,level:snapshot.level,provider:snapshot.provider,mode:snapshot.mode,status:snapshot.status,started_at:snapshot.startedAt,expires_at:snapshot.expiresAt,completed_at:snapshot.completedAt??null,revision:0,generation:0,start_request_id:request,start_request_hash:'hash',server_snapshot:snapshot as unknown as Json}}
-function setup({authenticated=true,role='student',levels=['B1.2'],featureGranted=true,advancedLevels=[] as string[],assignedStudentIds=[] as string[],otherAssignedStudentIds=[] as string[],extraStudents=[] as string[],generation=0,resetPending=false}={}){
+function setup({authenticated=true,role='student',levels=['B1.2'],featureGranted=true,simulationLevels=['B1'] as string[],assignedStudentIds=[] as string[],otherAssignedStudentIds=[] as string[],extraStudents=[] as string[],generation=0,resetPending=false}={}){
  runs=[];receipts=[];mutations=[]
  let featureGrants:Record<string,unknown>[]=featureGranted?[{student_id:student}]:[]
  const from=jest.fn((table:string)=>{
   const filters:Record<string,unknown>={};let inserted:Record<string,unknown>|undefined,removed=false
   const matching=()=>{
-   const rows:Record<string,unknown>[]=table==='sitov_simulation_runs'?runs as unknown as Record<string,unknown>[]:table==='sitov_simulation_receipts'?receipts:table==='sitov_simulation_feature_grants'?featureGrants:table==='sitov_simulation_level_grants'?advancedLevels.map(level=>({student_id:student,level})):table==='sitov_simulation_learning_state'?[{student_id:student,generation,reset_pending:resetPending?request:null}]:table==='profiles'?[{id:student,role},{id:outsider,role:'student'},...extraStudents.map(id=>({id,role:'student'}))]:table==='sitov_exam_teacher_assignments'?[...assignedStudentIds.map(student_id=>({student_id,teacher_id:student})),...otherAssignedStudentIds.map(student_id=>({student_id,teacher_id:request}))]:[]
+   const rows:Record<string,unknown>[]=table==='sitov_simulation_runs'?runs as unknown as Record<string,unknown>[]:table==='sitov_simulation_receipts'?receipts:table==='sitov_simulation_feature_grants'?featureGrants:table==='sitov_simulation_level_grants'?simulationLevels.map(level=>({student_id:student,level})):table==='sitov_simulation_learning_state'?[{student_id:student,generation,reset_pending:resetPending?request:null}]:table==='profiles'?[{id:student,role},{id:outsider,role:'student'},...extraStudents.map(id=>({id,role:'student'}))]:table==='sitov_exam_teacher_assignments'?[...assignedStudentIds.map(student_id=>({student_id,teacher_id:student})),...otherAssignedStudentIds.map(student_id=>({student_id,teacher_id:request}))]:[]
    return rows.filter(item=>Object.entries(filters).every(([key,value])=>Array.isArray(value)?value.includes(item[key]):item[key]===value))
   }
   const builder={select:jest.fn().mockReturnThis(),order:jest.fn().mockReturnThis(),eq:jest.fn((key:string,value:unknown)=>{filters[key]=value;return builder}),
@@ -56,19 +56,20 @@ function setup({authenticated=true,role='student',levels=['B1.2'],featureGranted
  return {from,rpc,client,remove}
 }
 beforeEach(()=>{jest.clearAllMocks();jest.mocked(findCachedAudio).mockResolvedValue(null);setup()})
-it('uses explicit level access regardless of UI language and rejects advanced student grants outside the catalogue',()=>{
+it('uses independent exam grants regardless of trainer access and UI language',()=>{
  expect(hasSimulationFeatureAccess({role:'student',allowed_levels:['A1.1','A2.1','B1.2'],simulation_levels:['B2','C1','C2']})).toBe(false)
  expect(hasSimulationFeatureAccess({role:'student',allowed_levels:[],simulation_enabled:true})).toBe(true)
  expect(hasSimulationFeatureAccess({role:'teacher',allowed_levels:[]})).toBe(true)
- expect(hasSimulationLevelAccess({role:'student',ui_language:'de',allowed_levels:['B1.2']},'B1')).toBe(true)
+ expect(hasSimulationLevelAccess({role:'student',ui_language:'de',allowed_levels:['B1.2']},'B1')).toBe(false)
  expect(hasSimulationLevelAccess({role:'student',allowed_levels:['A1.1']},'B1')).toBe(false)
  expect(hasSimulationLevelAccess({role:'student',allowed_levels:['C1']},'C1')).toBe(false)
  expect(hasSimulationLevelAccess({role:'student',allowed_levels:[],simulation_levels:['C1']},'C1')).toBe(true)
  expect(hasSimulationLevelAccess({role:'teacher',allowed_levels:[]},'C1')).toBe(true)
- // B2 and C1 follow the released learning levels as well as the additional simulation grant.
- expect(hasSimulationLevelAccess({role:'student',allowed_levels:['B2.1']},'B2')).toBe(true)
- expect(hasSimulationLevelAccess({role:'student',allowed_levels:['C1.2']},'C1')).toBe(true)
+ // Trainer subdivisions never imply a simulated-exam grant.
+ expect(hasSimulationLevelAccess({role:'student',allowed_levels:['B2.1']},'B2')).toBe(false)
+ expect(hasSimulationLevelAccess({role:'student',allowed_levels:['C1.2']},'C1')).toBe(false)
  expect(hasSimulationLevelAccess({role:'student',allowed_levels:['B2.1']},'C1')).toBe(false)
+ for(const level of ['A1','A2','B1','B2','C1'] as const)expect(hasSimulationLevelAccess({role:'student',allowed_levels:[],simulation_levels:[level]},level)).toBe(true)
 })
 it('does not offer the C2 simulation for now: nobody chooses, starts or receives it, whatever is stored',async()=>{
  expect(SIMULATION_OFFERED_LEVELS).toEqual(['A1','A2','B1','B2','C1'])
@@ -76,13 +77,13 @@ it('does not offer the C2 simulation for now: nobody chooses, starts or receives
  expect(isSimulationLevelOffered('C2')).toBe(false);expect(isSimulationLevelOffered('C1')).toBe(true);expect(isSimulationLevelOffered(undefined)).toBe(false)
  for(const profile of [{role:'student',allowed_levels:[],simulation_enabled:true,simulation_levels:['C2'] as const},{role:'teacher',allowed_levels:[]},{role:'admin',allowed_levels:[]}])
   expect(hasSimulationLevelAccess(profile,'C2')).toBe(false)
- setup({featureGranted:true,levels:['A1.1'],advancedLevels:['B2','C1','C2']})
+ setup({featureGranted:true,levels:['A1.1'],simulationLevels:['B2','C1','C2']})
  expect(await startExamSimulation({level:'C2',requestId:request})).toMatchObject({success:false,error:'Bitte prüfe deine Eingaben.'})
  expect(mutations).toEqual([])
  expect((await simulationCatalog()).map(profile=>profile.level)).toEqual(['A1','A2','B1','B2','C1'])
 })
 it('locks every student level behind a separate feature grant even when all course and advanced grants exist',async()=>{
- setup({featureGranted:false,levels:['A1.1','A2.1','B1.2'],advancedLevels:['B2','C1','C2']})
+ setup({featureGranted:false,levels:['A1.1','A2.1','B1.2'],simulationLevels:['B2','C1','C2']})
  for(const level of ['A1','A2','B1','B2','C1'] as const)expect(await startExamSimulation({level,requestId:request})).toMatchObject({success:false,error:expect.stringContaining('noch nicht freigegeben')})
  expect(mutations).toEqual([]);expect(findCachedAudio).not.toHaveBeenCalled()
 })
@@ -184,7 +185,7 @@ it('blocks learner actions while staff cleanup is pending and records the curren
 })
 it('refuses unauthenticated starts and B1 starts without B1 access before touching private persistence',async()=>{
  setup({authenticated:false});expect(await startExamSimulation({level:'B1',requestId:request})).toMatchObject({success:false});expect(mutations).toEqual([])
- setup({levels:['A1.1']});expect(await startExamSimulation({level:'B1',requestId:request})).toMatchObject({success:false,error:expect.stringContaining('Niveau-Freigabe')});expect(mutations).toEqual([])
+ setup({levels:['A1.1'],simulationLevels:['A1']});expect(await startExamSimulation({level:'B1',requestId:request})).toMatchObject({success:false,error:expect.stringContaining('Niveau-Freigabe')});expect(mutations).toEqual([])
 })
 it('creates one authoritative randomized run, resumes the same start receipt and refuses a changed provider under that receipt',async()=>{
  jest.mocked(findCachedAudio).mockResolvedValue({audioUrl:'https://prepared.test/verified.mp3',wordTimings:[{start:0,end:1}]})
@@ -211,7 +212,7 @@ it('never creates a new provider-specific or partial rehearsal after the univers
  expect(await startExamSimulation({level:'B1',mode:'practice',requestId:request})).toMatchObject({success:false});expect(mutations).toEqual([])
 })
 it('closes an inaccessible active snapshot privately so a revoked level cannot block another allowed level',async()=>{
- setup({levels:['A1.1']});const snapshot=buildSimulation({level:'B1',provider:'telc',mode:'practice'});runs.push(row(snapshot))
+ setup({levels:['A1.1'],simulationLevels:['A1']});const snapshot=buildSimulation({level:'B1',provider:'telc',mode:'practice'});runs.push(row(snapshot))
  const state=await getSimulationState()
  expect(state).toMatchObject({available:true,active:null,history:[]});expect(runs[0].status).toBe('completed')
  expect(JSON.stringify(state)).not.toContain('correctAnswer')
@@ -232,7 +233,7 @@ it('evaluates only a frozen server assignment and never returns correctness unti
  expect(completed.session?.result?.feedback.find(item=>item.taskId===task.id)?.correct).toBe(true)
 })
 it('persists A1 form fields under the frozen own rubric without accepting student grading or exposing active keys',async()=>{
- setup({levels:['A1.1']})
+ setup({levels:['A1.1'],simulationLevels:['A1']})
  jest.mocked(findCachedAudio).mockResolvedValue({audioUrl:'https://prepared.test/verified.mp3',wordTimings:[{start:0,end:1}]})
  const started=await startExamSimulation({level:'A1',requestId:request})
  expect(started.success).toBe(true)
@@ -303,4 +304,20 @@ it('starts a complete development preview only from verified imported hearing wi
 it('public engine serialization masks all secrets on active runs',()=>{
  const snapshot=buildSimulation({level:'B1',provider:'telc',mode:'practice'}),safe=publicSimulation(snapshot)
  expect(safe.result).toBeUndefined();expect(JSON.stringify(safe)).not.toContain('correctAnswer');expect(JSON.stringify(safe)).not.toContain('spokenText')
+})
+
+it.each(['A1','A2','B1','B2','C1'] as const)('grants %s only in the independent simulation table without trainer writes',async level=>{
+ setup({role:'teacher',assignedStudentIds:[outsider],levels:[],simulationLevels:[]})
+ expect(await grantSimulationLevel({studentId:outsider,level,enabled:true})).toEqual({success:true})
+ expect(mutations).toEqual([expect.objectContaining({student_id:outsider,level,granted_by:student})])
+})
+it('never grants levels for an unassigned teacher or a pupil and keeps C2 closed',async()=>{
+ setup({role:'teacher'});expect((await grantSimulationLevel({studentId:outsider,level:'A1',enabled:true})).success).toBe(false);expect(mutations).toEqual([])
+ setup();expect((await grantSimulationLevel({studentId:outsider,level:'A1',enabled:true})).success).toBe(false);expect(mutations).toEqual([])
+ setup({role:'admin'});expect((await grantSimulationLevel({studentId:outsider,level:'C2',enabled:true})).success).toBe(false);expect(mutations).toEqual([])
+})
+it('trainer grants cannot start a full exam without its own A1 grant',async()=>{
+ setup({levels:['A1.1','A1.2'],simulationLevels:[]})
+ expect(await startExamSimulation({level:'A1',requestId:request})).toMatchObject({success:false,error:expect.stringContaining('Niveau-Freigabe')})
+ expect(mutations).toEqual([]);expect(findCachedAudio).not.toHaveBeenCalled()
 })

@@ -1,4 +1,5 @@
-export const SITOV_VERB_LEVELS = [
+/** Offered trainer contexts. Coarse B2/C1 remain authored catalogue levels only. */
+export const SITOV_VERB_TRAINER_LEVELS = [
   "A1.1",
   "A1.2",
   "A2.1",
@@ -7,9 +8,9 @@ export const SITOV_VERB_LEVELS = [
   "B1.2",
   "B2.1",
   "B2.2",
-  "B2",
-  "C1",
 ] as const;
+export type SitovVerbTrainerLevel = (typeof SITOV_VERB_TRAINER_LEVELS)[number];
+export const SITOV_VERB_LEVELS = [...SITOV_VERB_TRAINER_LEVELS, "B2", "C1"] as const;
 export type SitovVerbLevel = (typeof SITOV_VERB_LEVELS)[number];
 /**
  * Contexts without verbs of their own: at B2.1 and B2.2 the trainer repeats every verb up to

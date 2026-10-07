@@ -22,8 +22,8 @@ test('an unauthenticated action stops before content access or grading', async (
  expect(await submitSitovVerbAnswer({ exerciseId: challengeId, answer: ['fährt'] })).toEqual({ error: 'not_authenticated' })
  expect(rpc).not.toHaveBeenCalled();expect(from).not.toHaveBeenCalled()
 })
-test('trainer and advanced level revocation stop server loads', async () => {
- expect(await loadSitovVerbTrainer('B2')).toEqual({ error: 'not_authorized' })
+test('retired coarse contexts and trainer revocation stop server loads', async () => {
+ for (const level of ['B2', 'C1']) expect(await loadSitovVerbTrainer(level)).toEqual({ error: 'invalid_input' })
  jest.mocked(loadLevelAccessProfile).mockResolvedValue({ role: 'student', allowed_levels: ['A1.1'], trainer_grants: [{ level: 'A1.1', trainer: 'verbs', enabled: false }] })
  expect(await loadSitovVerbTrainer('A1.1')).toEqual({ error: 'not_authorized' })
  expect(from).not.toHaveBeenCalled()

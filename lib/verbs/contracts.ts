@@ -1,10 +1,10 @@
-import type { SitovVerbEntry, SitovVerbExercise, SitovVerbLevel, SitovVerbProgress, SitovVerbTense } from './types'
+import type { SitovVerbEntry, SitovVerbExercise, SitovVerbTrainerLevel, SitovVerbProgress, SitovVerbTense } from './types'
 
 export type SitovVerbResult<T> = { data: T; error?: never } | { data?: never; error: string }
 export interface SitovVerbTrainerState {
   learnerId: string
-  level: SitovVerbLevel
-  authorizedLevels: SitovVerbLevel[]
+  level: SitovVerbTrainerLevel
+  authorizedLevels: SitovVerbTrainerLevel[]
   tenses: SitovVerbTense[]
   verbs: (SitovVerbEntry & { unitId: string })[]
   selectedIds: string[]

@@ -67,12 +67,12 @@ it('allows zero points for a missing dialogue but requires explicit interaction 
  await waitFor(()=>expect(reviewExamSimulationTask).toHaveBeenCalledWith(expect.objectContaining({score:16,interactionConfirmed:true,taskId:task.id})))
 })
 
-it('keeps the feature gate closed before separate advanced level controls',()=>{
+it('keeps the feature gate closed before separate exam level controls',()=>{
  render(<ExamSimulationTeacher initial={state()} lang="ru"/> )
  expect(screen.getByRole('button',{name:'Доступ'})).toHaveAttribute('aria-pressed','true')
  expect(screen.getByText('Max: Экзамен закрыт')).toBeInTheDocument()
  expect(screen.getByRole('button',{name:'Открыть экзамен для Max'})).toBeEnabled()
- expect(screen.getByRole('button',{name:'Открыть B2'})).toBeDisabled()
+ expect(screen.getByRole('button',{name:'Открыть A1'})).toBeDisabled()
  expect(grantSimulationFeature).not.toHaveBeenCalled()
 })
 it('grants and revokes only the selected learner through an authoritative refresh',async()=>{
@@ -83,7 +83,7 @@ it('grants and revokes only the selected learner through an authoritative refres
  fireEvent.click(screen.getByRole('button',{name:'Prüfung für Max freigeben'}))
  await waitFor(()=>expect(screen.getByText('Max: Prüfung freigegeben')).toBeInTheDocument())
  expect(grantSimulationFeature).toHaveBeenNthCalledWith(1,{studentId:'student',enabled:true})
- expect(screen.getByRole('button',{name:'B2 freigeben'})).toBeEnabled()
+ expect(screen.getByRole('button',{name:'A1 freigeben'})).toBeEnabled()
  fireEvent.click(screen.getByRole('button',{name:'Prüfung für Max sperren'}))
  await waitFor(()=>expect(screen.getByText('Max: Prüfung gesperrt')).toBeInTheDocument())
  expect(grantSimulationFeature).toHaveBeenNthCalledWith(2,{studentId:'student',enabled:false})
@@ -216,4 +216,19 @@ it('the development teacher preview never allows a reset preparation',()=>{
  render(<ExamSimulationTeacher initial={state()} lang="de" preview/> )
  expect(screen.getByRole('button',{name:'Reset für Max vorbereiten'})).toBeDisabled()
  expect(resetStudentSimulationProgress).not.toHaveBeenCalled()
+})
+
+it('offers an independent A1 simulated-exam grant and refreshes authoritative state',async()=>{
+ const initial=state();initial.featureGrants=[{studentId:'student'}]
+ const next={...initial,levelGrants:[{studentId:'student',level:'A1' as const}]}
+ jest.mocked(grantSimulationLevel).mockResolvedValue({success:true})
+ jest.mocked(getSimulationTeacherState).mockResolvedValue(next)
+ render(<ExamSimulationTeacher initial={initial} lang="de"/> )
+ const select=screen.getByLabelText('Prüfungsniveau')
+ expect(select).toHaveValue('A1')
+ expect(Array.from(select.querySelectorAll('option')).map(option=>option.textContent)).toEqual(['A1 · Simulierte Prüfung','A2 · Simulierte Prüfung','B1 · Simulierte Prüfung','B2 · Simulierte Prüfung','C1 · Simulierte Prüfung'])
+ expect(screen.getByText(/Änderungen an Trainer-Niveaus ändern diese Freigaben nicht/)).toBeInTheDocument()
+ fireEvent.click(screen.getByRole('button',{name:'A1 freigeben'}))
+ await waitFor(()=>expect(screen.getByRole('button',{name:'A1-Freigabe entfernen'})).toBeInTheDocument())
+ expect(grantSimulationLevel).toHaveBeenCalledWith({studentId:'student',level:'A1',enabled:true})
 })

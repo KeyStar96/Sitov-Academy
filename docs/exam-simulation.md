@@ -1,12 +1,26 @@
 # Sitov Academy: Simulierte Prüfung und Prüfungsvorbereitung
 
+> **Freigabenkorrektur vom 7. Oktober 2026 (Migration 88):** Jedes angebotene Prüfungsniveau
+> **A1, A2, B1, B2 und C1** besitzt eine eigene Freigabe in
+> `sitov_simulation_level_grants`, zusätzlich zur persönlichen Freigabe des Prüfungsbereichs.
+> Trainer-Niveaus öffnen keine Prüfung und ändern keine Prüfungsfreigabe. Die Lehrkraft wählt
+> beispielsweise **„A1 · Simulierte Prüfung“** und gibt dieses Niveau separat frei.
+> Die Migration übernimmt zuvor aus Trainer-Niveaus abgeleitete Prüfungsrechte einmalig für
+> Lernende, deren persönlicher Prüfungsbereich bereits freigegeben war. Wiederholtes Ausführen
+> stellt danach entzogene Prüfungsrechte nicht wieder her. Bestehende C2-Freigaben bleiben
+> gespeichert; C2 wird weiterhin nicht angeboten. Grobe Trainer-Kontexte **B2 und C1** sind
+> aus Trainer-Freigaben und Verbtrainer entfernt; gespeicherte Inhalte, IDs und Fortschritte
+> bleiben erhalten. Die Trainer-Unterstufen B2.1/B2.2 und C1.1/C1.2 bleiben bestehen.
+> Freigabeprüfungen greifen auch bei Antworten, Start und bereits ausgestellten Audio-Uploads.
+
 > **Nachtrag 7. Oktober 2026 (Release `fa3cd094ea97`):** Die **C2-Simulation ist vorerst
 > ausgeblendet**; Sitov Academy konzentriert sich auf die Niveaus bis C1.2. Niveauwahl, Katalog,
 > Start und die zusätzlichen Niveaurechte der Lehrkraft bieten A1 bis C1 an
 > (`SIMULATION_OFFERED_LEVELS` in `lib/exam-simulation/catalogue.ts`), und
 > `hasSimulationLevelAccess` lehnt C2 für alle Rollen ab. Inhalte, Hörquellen und gespeicherte
 > Freigaben bleiben erhalten; `'C2'` in dieser Liste bietet die Prüfung wieder an. B2 und C1
-> folgen seitdem zusätzlich den freigegebenen Lernniveaus B2.1/B2.2 und C1.1/C1.2. Die
+> folgten in diesem Release zusätzlich den freigegebenen Lernniveaus B2.1/B2.2 und C1.1/C1.2;
+> Migration 88 ersetzt diese Kopplung durch unabhängige Prüfungsrechte. Die
 > Beschreibung unten gibt den Stand vom 4. Oktober wieder.
 
 Stand: **4. Oktober 2026, produktiv veröffentlicht**. Release
@@ -140,8 +154,8 @@ durch die aktuell zugeordnete Lehrkraft oder Administration. Ohne Eintrag in
 Der kompakte Sperrbildschirm zeigt die Begründung und den Verweis auf die
 Lehrkraft, keine irreführende Niveauauswahl oder Startschaltfläche.
 
-Erst danach gelten die Niveaurechte: A1–B1 verwenden vorhandene Trainerrechte,
-B2/C1/C2 eigene zusätzliche Simulationsrechte. Niveaurechte allein öffnen den
+Erst danach gelten die separaten Prüfungsrechte für A1, A2, B1, B2 und C1.
+Trainerrechte werden dabei nicht berücksichtigt. Niveaurechte allein öffnen den
 Prüfungsbereich nicht. Beide Freigaben öffnen keine anderen Trainer. Ein Entzug
 sperrt Schülerzugriffe und weitere Änderungen; die zugeordnete Lehrkraft kann
 gespeicherte abgeschlossene Durchgänge weiterhin fachlich prüfen.
@@ -150,7 +164,7 @@ gespeicherte abgeschlossene Durchgänge weiterhin fachlich prüfen.
 
 Unter **Prüfungen → Simulierte Prüfung → Freigaben** verwalten Lehrkräfte ihre
 Lernenden mit einer Übersicht über gesperrte und freigegebene Zugänge. Für den
-ausgewählten Teilnehmenden lassen sich die persönliche Freigabe und zusätzliche
+ausgewählten Teilnehmenden lassen sich die persönliche Freigabe und separate
 Niveaurechte einzeln ändern. „Aktualisieren“ lädt die aktuellen Zuordnungen und
 Freigaben erneut. Die Administration sieht alle Lernenden und kann die
 Prüfungslehrkraft in derselben Ansicht zuordnen oder wechseln.
@@ -247,8 +261,8 @@ Interaktion nicht.
 Das Lehrer-Dashboard enthält einen eigenen Einstieg **Simulierte Prüfung** und
 eine Navigationsgruppe **Prüfungen**. Unter `/{lang}/admin/exam-simulation`
 stehen **Freigaben · Antworten bewerten · Ergebnisse** getrennt bereit. Die
-Standardansicht öffnet die persönliche Freigabe für einen ausgewählten Lernenden;
-zusätzliche B2-/C1-/C2-Rechte folgen erst danach.
+Standardansicht öffnet die persönliche Freigabe für einen ausgewählten Lernenden
+und zeigt direkt darunter die unabhängigen Prüfungsrechte A1 bis C1.
 
 Die Lehrkraft bewertet abgeschlossene produktive Leistungen mit Punkten und
 konkreter schriftlicher Rückmeldung. Die Ergebnisansicht zeigt alle abgeschlossenen
@@ -284,7 +298,8 @@ Die additive Migration
 `supabase/vps/75_sitov_exam_simulation.sql` und im VPS-Migrationsrunner registriert.
 Sie ergänzt `sitov_simulation_runs` mit privatem Lösungssnapshot und Fristen,
 `sitov_simulation_receipts` für idempotente Änderungen und
-`sitov_simulation_level_grants` für fortgeschrittene Niveaurechte.
+`sitov_simulation_level_grants` für Prüfungsrechte. Migration 88 erweitert diese
+auf alle angebotenen Niveaus A1 bis C1 und trennt sie von Trainerfreigaben.
 `sitov_store_simulation_change` ist ein ausschließlich serverseitiger atomarer
 Schreibweg mit Zeilensperre, Revisionskontrolle und Fristprüfung.
 

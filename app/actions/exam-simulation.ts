@@ -150,8 +150,8 @@ export async function resetStudentSimulationProgress(input:{studentId:string;req
   return {success:false,...(started?{pending:true}:{}),error:started?'Der Prüfungsreset bleibt sicher zur Fortsetzung vorgemerkt. Bitte wiederhole den Vorgang.':message(error)}
  }
 }
-export async function grantSimulationLevel(input:{studentId:string;level:'B2'|'C1'|'C2';enabled:boolean}):Promise<{success:boolean;error?:string}>{try{
- const value=z.object({studentId:uuid,level:z.enum(['B2','C1','C2']),enabled:z.boolean()}).parse(input),actor=await getSimulationActor(true)
+export async function grantSimulationLevel(input:{studentId:string;level:SimulationLevel;enabled:boolean}):Promise<{success:boolean;error?:string}>{try{
+ const value=z.object({studentId:uuid,level:z.enum(['A1','A2','B1','B2','C1','C2']),enabled:z.boolean()}).parse(input),actor=await getSimulationActor(true)
  await requireSimulationStudentManagement(actor,value.studentId)
  // A level that is not offered (currently C2) cannot be granted; a stored grant can still be removed.
  if(value.enabled&&!isSimulationLevelOffered(value.level))throw new Error('Dieses Prüfungsniveau wird derzeit nicht angeboten.')

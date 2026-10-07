@@ -16,6 +16,7 @@ import teacherStyles from './TeacherExamSimulationPanel.module.css'
 import { sitovTeacherText, sitovTeacherError } from '@/lib/exam-simulation/teacher-ui-copy'
 import { sitovSimulationCopy } from '@/lib/exam-simulation/ui-copy'
 import { sitovSimulationCriterion } from '@/lib/exam-simulation/criterion-copy'
+import { SIMULATION_OFFERED_LEVELS } from '@/lib/exam-simulation/catalogue'
 
 export default function ExamSimulationTeacher({initial,lang,preview=false}:{initial:SimulationTeacherState;lang:string;preview?:boolean}) {
   const t = (text:string, values?:Record<string,string|number>) => sitovTeacherText(lang,text,values)
@@ -33,7 +34,7 @@ export default function ExamSimulationTeacher({initial,lang,preview=false}:{init
   const pending=transitionPending||resetPending
   const [studentId,setStudentId]=useState(initial.students[0]?.id??'')
   const [teacherId,setTeacherId]=useState(initial.teachers[0]?.id??'')
-  const [accessLevel,setAccessLevel]=useState<'B2'|'C1'>('B2')
+  const [accessLevel,setAccessLevel]=useState<(typeof SIMULATION_OFFERED_LEVELS)[number]>('A1')
   const [failedRecording,setFailedRecording]=useState('')
   const waiting=state.runs.flatMap(run=>run.session.tasks.filter(task=>{
     const answer=run.session.answers[task.id]

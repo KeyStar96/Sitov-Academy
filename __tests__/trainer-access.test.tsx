@@ -21,7 +21,7 @@ describe('Trainer entitlement decisions', () => {
   expect(hasLevelAccess(profile, level)).toBe(false)
   expect(hasTrainerAccess(profile, level, 'verbs')).toBe(false)
   expect(getAllowedLessons(profile, level, 'verbs')).toEqual([])
-  expect(hasConfiguredTrainerAccess({ ...profile, role: 'teacher' }, level, 'verbs')).toBe(true)
+  expect(hasConfiguredTrainerAccess({ ...profile, role: 'teacher' }, level, 'verbs')).toBe(false)
  })
  test.each(TRAINERS)('inherits existing level rights for %s', trainer => {
   expect(hasTrainerAccess(student,'A1.1',trainer)).toBe(true)
@@ -129,6 +129,7 @@ describe('Teacher trainer controls', () => {
   expect(within(table).queryByRole('checkbox')).toBeNull()
   expect(table.querySelector('details')).toBeNull()
   openAccess()
+  expect(Array.from(screen.getByLabelText(de.admin.access_level_select).querySelectorAll('option')).map(option=>option.value)).toEqual(['A1.1','A1.2','A2.1','A2.2','B1.1','B1.2','B2.1','B2.2','C1.1','C1.2'])
   expect(screen.getAllByRole('dialog')).toHaveLength(1)
   expect(document.body.style.overflow).toBe('hidden')
   const checkbox=screen.getByLabelText('Lernende · A1.1 · Grammatikübungen')

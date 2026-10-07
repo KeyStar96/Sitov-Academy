@@ -36,7 +36,7 @@ export function useStudentAccess<T extends AdminStudentRow>(initial: T[]) {
   }
   const handleTrainerToggle = async (id: string, level: SitovTrainerLevel, trainer: Trainer) => {
     const student = students.find(row => row.id === id)
-    if (lock.current || !student || (!(level === 'B2' || level === 'C1') && !student.allowed_levels?.includes(level))) return
+    if (lock.current || !student || !student.allowed_levels?.includes(level)) return
     lock.current = true
     const previous = students
     const enabled = !hasConfiguredTrainerAccess(student, level, trainer)

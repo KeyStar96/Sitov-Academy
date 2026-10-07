@@ -72,13 +72,13 @@ describe('Sitov platform levels', () => {
       }
       for (const trainer of sitovLevelTrainers(level)) expect(hasTrainerAccess(learner, level, trainer)).toBe(true)
     }
-    // Every other level keeps all five trainers and modes; the coarse verb contexts are untouched.
+    // Every other level keeps all five trainers and modes; stored coarse catalogue entries are not offered as trainers.
     for (const level of ['A1.1', 'B1.2', 'B2.1', 'B2.2']) {
       expect(sitovLevelTrainers(level)).toEqual([...TRAINERS])
       expect(sitovLevelModes(level)).toEqual([...LEARNING_MODES])
       expect(hasTrainerAccess(learner, level, 'verbs')).toBe(level.startsWith('B2'))
     }
-    expect(hasTrainerAccess({ role: 'teacher', allowed_levels: [] }, 'C1', 'verbs')).toBe(true)
+    expect(hasTrainerAccess({ role: 'teacher', allowed_levels: [] }, 'C1', 'verbs')).toBe(false)
   })
 
   it('repeats every earlier verb on B2.1 and B2.2 without verbs of their own', () => {

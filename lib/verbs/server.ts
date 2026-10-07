@@ -9,10 +9,10 @@ import { hasTrainerAccess } from '@/lib/access/levels'
 import { readAllRows } from '@/lib/supabase-read'
 import { getSitovVerbById, getSitovVerbCatalog, getSitovVerbTenses } from './catalog'
 import { buildSitovVerbExercise, prioritizeSitovVerbTasks } from './engine'
-import { SITOV_VERB_LEVELS, type SitovVerbLocale } from './types'
+import { SITOV_VERB_TRAINER_LEVELS, type SitovVerbLocale } from './types'
 import type { SitovVerbPublicExercise, SitovVerbResult, SitovVerbReviewResult, SitovVerbTrainerState } from './contracts'
 
-const sitovLevel = z.enum(SITOV_VERB_LEVELS)
+const sitovLevel = z.enum(SITOV_VERB_TRAINER_LEVELS)
 const sitovTense = z.enum(['present', 'perfect', 'past'])
 const sitovNextInput = z.object({ level: sitovLevel, tenses: z.array(sitovTense).min(1).max(3).optional(), excludeVerbId: z.string().max(160).optional() }).strict()
 const sitovBoxInput = z.object({ level: sitovLevel, verbIds: z.array(z.string().min(1).max(160)).min(1).max(1000), selected: z.boolean() }).strict()
@@ -57,7 +57,7 @@ async function sitovLoad(client: Awaited<ReturnType<typeof createClient>>, learn
   const visible = new Set(verbs.map(verb => verb.id))
   return {
     learnerId, level: parsed.data,
-    authorizedLevels: SITOV_VERB_LEVELS.filter(item => SITOV_VERB_LEVELS.indexOf(item) <= SITOV_VERB_LEVELS.indexOf(parsed.data) && hasTrainerAccess(profile, item, 'verbs')),
+    authorizedLevels: SITOV_VERB_TRAINER_LEVELS.filter(item => SITOV_VERB_TRAINER_LEVELS.indexOf(item) <= SITOV_VERB_TRAINER_LEVELS.indexOf(parsed.data) && hasTrainerAccess(profile, item, 'verbs')),
     tenses: getSitovVerbTenses(parsed.data), verbs,
     selectedIds: box.filter(row => row.selected).map(row => row.verb_id),
     progress: progress.filter(row => visible.has(row.verb_id)).map(row => sitovProgressSchema.parse({ verbId: row.verb_id, tense: row.tense, box: row.box, attempts: row.attempts, correct: row.correct, lapses: row.lapses, nextReviewAt: row.next_review_at, lastAnsweredAt: row.last_answered_at })),

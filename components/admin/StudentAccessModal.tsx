@@ -24,8 +24,7 @@ export default function StudentAccessModal({ student, loading, message, hasError
   const [trainer, setTrainer] = useState<Trainer | null>(null)
   const [savingLessons, setSavingLessons] = useState(false)
   const name = student.person?.display_name || student.person?.email || t('unknown_name')
-  const advanced = level === 'B2' || level === 'C1'
-  const levelEnabled = advanced || (student.allowed_levels?.includes(level) ?? false)
+  const levelEnabled = student.allowed_levels?.includes(level) ?? false
   const busy = loading || savingLessons
 
   return (
@@ -55,15 +54,14 @@ export default function StudentAccessModal({ student, loading, message, hasError
                 {SITOV_VERB_LEVELS.map(item => <option key={item} value={item}>{item}</option>)}
               </select>
             </label>
-            {!advanced && <button type="button" role="checkbox" aria-checked={levelEnabled} aria-label={t('level_toggle_aria', { level, name, action: levelEnabled ? t('level_revoke') : t('level_grant') })} disabled={busy} onClick={() => onLevelToggle(student.id, level)} className={adminButton(levelEnabled ? 'secondary' : 'primary', 'md', 'flex-1')}>
+            <button type="button" role="checkbox" aria-checked={levelEnabled} aria-label={t('level_toggle_aria', { level, name, action: levelEnabled ? t('level_revoke') : t('level_grant') })} disabled={busy} onClick={() => onLevelToggle(student.id, level)} className={adminButton(levelEnabled ? 'secondary' : 'primary', 'md', 'flex-1')}>
               {levelEnabled ? <LockOpen size={20} aria-hidden="true" /> : <Lock size={20} aria-hidden="true" />}{level} · {t(levelEnabled ? 'level_revoke' : 'level_grant')}
-            </button>}
+            </button>
           </div>
-          {advanced && <p className="text-sm text-[var(--muted)]">{t('verbs_advanced_access')}</p>}
           {!levelEnabled && <p className="text-sm text-[var(--muted)]">{t('trainer_level_required')}</p>}
           <fieldset disabled={busy || !levelEnabled} className="grid gap-3 sm:grid-cols-2">
             <legend className="mb-3 text-sm font-semibold">{t('trainer_access_level', { level })}</legend>
-            {sitovLevelTrainers(level).filter(item => !advanced || item === 'verbs').map(item => {
+            {sitovLevelTrainers(level).map(item => {
               const enabled = hasConfiguredTrainerAccess(student, level, item)
               const allowedLessons = student.trainer_grants?.find(rule => rule.level === level && rule.trainer === item)?.unit_ids
               const restricted = allowedLessons !== undefined && allowedLessons !== null

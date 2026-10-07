@@ -24,3 +24,9 @@ test('JSON authorization failure cannot acknowledge or refresh an access change'
  expect(await updateStudentTrainerAccess(input)).toEqual({success:false})
  expect(revalidatePath).not.toHaveBeenCalled()
 })
+
+test.each(['B2','C1'])('rejects retired coarse trainer grants for %s before an RPC write',async level=>{
+ session('teacher')
+ expect(await updateStudentTrainerAccess({...input,level:level as unknown as typeof input.level,trainer:'verbs'})).toEqual({success:false})
+ expect(rpc).not.toHaveBeenCalled()
+})

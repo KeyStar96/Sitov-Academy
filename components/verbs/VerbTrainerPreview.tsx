@@ -5,15 +5,15 @@ import VerbTrainerClient, { type SitovVerbTrainerActions } from './VerbTrainerCl
 import SitovPreviewAppearance from '@/components/dashboard/SitovPreviewAppearance'
 import { getSitovVerbCatalog } from '@/lib/verbs/catalog'
 import { buildSitovVerbExercise, evaluateSitovVerbAnswer, getSitovVerbTenses } from '@/lib/verbs/engine'
-import { SITOV_VERB_LEVELS, type SitovVerbExercise, type SitovVerbLevel, type SitovVerbProgress } from '@/lib/verbs/types'
+import { SITOV_VERB_TRAINER_LEVELS, type SitovVerbExercise, type SitovVerbTrainerLevel, type SitovVerbProgress } from '@/lib/verbs/types'
 import type { SitovVerbTrainerState } from '@/lib/verbs/contracts'
 import { toUiLocale } from '@/lib/locale-routing'
 
 /** Local fixtures behind the development-only route. No learner state is written. */
-function SitovVerbFixture({ level, lang, empty }: { level: SitovVerbLevel; lang: string; empty: boolean }) {
+function SitovVerbFixture({ level, lang, empty }: { level: SitovVerbTrainerLevel; lang: string; empty: boolean }) {
   const verbs = useMemo(() => getSitovVerbCatalog(level).map(verb => ({ ...verb, unitId: verb.id })), [level])
   const initial = useMemo<SitovVerbTrainerState>(() => ({ learnerId: 'sitov-development-preview', level,
-    authorizedLevels: SITOV_VERB_LEVELS.filter(item => SITOV_VERB_LEVELS.indexOf(item) <= SITOV_VERB_LEVELS.indexOf(level)),
+    authorizedLevels: SITOV_VERB_TRAINER_LEVELS.filter(item => SITOV_VERB_TRAINER_LEVELS.indexOf(item) <= SITOV_VERB_TRAINER_LEVELS.indexOf(level)),
     tenses: getSitovVerbTenses(level), verbs,
     selectedIds: empty ? [] : verbs.filter(verb => ['sprechen', 'fahren', 'anrufen', 'sich freuen', 'sein', 'schreiben', 'abfahren', 'sich anziehen'].includes(verb.infinitive)).map(verb => verb.id), progress: [] }), [level, verbs, empty])
   const selected = useRef(initial.selectedIds)
@@ -56,12 +56,12 @@ function SitovVerbFixture({ level, lang, empty }: { level: SitovVerbLevel; lang:
 }
 
 export default function VerbTrainerPreview({ lang }: { lang: string }) {
-  const [level, setLevel] = useState<SitovVerbLevel>('A1.2')
+  const [level, setLevel] = useState<SitovVerbTrainerLevel>('A1.2')
   const [empty, setEmpty] = useState(false)
   return <div className="academy-container space-y-5 py-8">
     <p className="text-sm text-[var(--muted)]">Sitov Academy · Development preview · local practice only</p>
     <SitovPreviewAppearance />
-    <div className="flex flex-wrap items-center gap-4"><label className="flex items-center gap-2">Level <select value={level} onChange={event => setLevel(event.target.value as SitovVerbLevel)} className="rounded-lg border border-[var(--border)] bg-[var(--surface)] p-2">{SITOV_VERB_LEVELS.map(item => <option key={item}>{item}</option>)}</select></label>
+    <div className="flex flex-wrap items-center gap-4"><label className="flex items-center gap-2">Level <select value={level} onChange={event => setLevel(event.target.value as SitovVerbTrainerLevel)} className="rounded-lg border border-[var(--border)] bg-[var(--surface)] p-2">{SITOV_VERB_TRAINER_LEVELS.map(item => <option key={item}>{item}</option>)}</select></label>
       <label className="flex items-center gap-2"><input type="checkbox" checked={empty} onChange={event => setEmpty(event.target.checked)} />Empty box</label></div>
     <SitovVerbFixture key={`${level}:${empty}`} level={level} lang={lang} empty={empty} />
   </div>

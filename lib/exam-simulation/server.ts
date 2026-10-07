@@ -3,7 +3,7 @@ import { createHash, randomUUID } from 'node:crypto'
 import { createClient } from '@/utils/supabase/server'
 import { createAdminClient } from '@/utils/supabase/admin'
 import { loadLevelAccessProfile } from '@/lib/access/server'
-import { hasLevelAccess, type LevelAccessProfile } from '@/lib/access/levels'
+import { hasFullAccessRole, type LevelAccessProfile } from '@/lib/access/levels'
 import { allExamRows, EXAM_BUCKET, verifyExamStoredMedia } from '@/lib/exam-preparation/server'
 import { findCachedAudio, neuralAudioPath } from '@/lib/audio/neural-cache'
 import { normalizeAudioText } from '@/lib/audio/neural-config'
@@ -21,7 +21,7 @@ export function hasSimulationFeatureAccess(profile:SimulationAccessProfile|null)
 export function hasSimulationLevelAccess(profile:SimulationAccessProfile|null,level:SimulationLevel,simulationLevels:readonly SimulationLevel[]=profile?.simulation_levels??[]):boolean {
  // A level that is not offered (currently C2) is closed for everyone, whatever grant is stored.
  if(!isSimulationLevelOffered(level))return false
- return hasLevelAccess(profile,`${level}.1`)||hasLevelAccess(profile,`${level}.2`)||(['B2','C1','C2'].includes(level)&&simulationLevels.includes(level))
+ return !!profile&&(hasFullAccessRole(profile.role)||(profile.role==='student'&&simulationLevels.includes(level)))
 }
 export async function getSimulationActor(staffOnly=false) {
  const client=await createClient(),{data:{user}}=await client.auth.getUser()
@@ -95,6 +95,7 @@ export async function persistSimulationChange(row:SimulationRunRow,snapshot:Stor
  if(error){
   if(error.message.includes('simulation_time_expired'))throw new Error('Die Prüfungszeit ist abgelaufen. Beende den Durchgang, um deine Auswertung zu sehen.')
   if(error.message.includes('simulation_feature_not_granted'))throw new Error('Die simulierte Prüfung ist für dich noch nicht freigegeben. Bitte wende dich an deine Lehrkraft.')
+  if(error.message.includes('simulation_level_not_granted'))throw new Error(`Für ${row.level} fehlt die Niveau-Freigabe. Bitte wende dich an deine Lehrkraft.`)
   if(/simulation_reset_in_progress|simulation_generation_changed/.test(error.message))throw new Error('Der Prüfungsfortschritt wurde von deiner Lehrkraft zurückgesetzt. Bitte lade die Seite erneut.')
   if(error.message.includes('simulation_request_reused'))throw new Error('Diese Speicheranfrage wurde bereits für eine andere Eingabe verwendet.')
   if(error.message.includes('learning_reset_in_progress'))throw new Error('Deine Lerndaten werden gerade zurückgesetzt. Bitte warte, bis der Vorgang beendet ist.')

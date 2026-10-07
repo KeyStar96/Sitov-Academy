@@ -35,10 +35,22 @@ Die Storage-Zähler werden in derselben Transaktion wie die Objektänderung aktu
 
 Die Größen stammen aus Storage-Systemmetadaten, nicht aus frei veränderbaren `user_metadata`. Das auf dem VPS verwendete [Storage v1.44.2](https://github.com/supabase/storage/blob/v1.44.2/src/storage/uploader.ts) führt eine zurückgerollte Berechtigungsprüfung vor dem Dateiupload durch, schreibt finale Metadaten mit Serverrechten und plant bei Fehlern die physische Bereinigung. Daher gilt die atomare Quote für committed Storage-Objekte. Temporäre Übertragungen, unvollständige S3-/TUS-Multiparts und eine verzögerte physische Bereinigung können kurzfristig zusätzlichen Platz benötigen. Request-/Verbindungslimits, ausreichender freier Speicher, Bereinigungsjobs und Speicheralarme ergänzen diese Quoten. Die Quoten allein sind kein Dateisystemlimit und schützen keine beliebig vielen gleichzeitigen, noch laufenden Transfers.
 
+## Speicheranzeige im Lehrer-Dashboard
+
+Migration `89_sitov_media_storage_usage_breakdown.sql` trennt drei Größen: Der Medienspeicher zählt die gemessenen Dateigrößen aller vorhandenen Storage-Objekte, die Aufschlüsselung nach Medientyp zeigt die jeweiligen Bucket-Uploadgrenzen, und der Server-Datenträger zeigt zusätzlich Datenbank, Backups, Anwendung und Betriebssystem. Der freie Datenträgerplatz stammt aus `statfs.bavail`; für Root reservierte Blöcke werden nicht als für die Anwendung nutzbar ausgegeben. Arbeitsspeicher/RAM ist eine andere Größe und wird hier nicht dargestellt. Ein ausgefallener Datenträgerabruf verdeckt die weiter verfügbaren Medienzahlen nicht.
+
+„Kursmaterial je Trainerniveau“ umfasst nur `course-assets` (Videos und Präsentationen). Vorbereitete Audios, Ausspracheaufnahmen und Prüfungsabgaben haben eigene Medientypen und werden nicht künstlich auf Trainer-Niveaus verteilt. Die gespeicherten groben Niveaus B2, C1 und C2 erscheinen nicht als Trainerzeilen; vorhandene Kursmaterialien außerhalb der feinen Trainer-Niveaus bleiben im Gesamtwert enthalten und werden als „Weitere Kursmaterialien“ ausgewiesen. Die bisherige RPC-Eigenschaft `total_bytes` bleibt aus Kompatibilitätsgründen der Kursmaterial-Gesamtwert, `storage_total_bytes` ist die neue Summe aller Storage-Buckets.
+
+Die Anzeige verwendet B, KiB, MiB oder GiB nach Größe, damit kleine Dateien nicht auf „0 GiB“ gerundet werden. Fehlende oder ungültige historische Größenangaben werden als unbekannte Dateien ausgewiesen; sie sind keine bekannten Null-Dateien. Uploadgrenzen reservieren keinen physischen Datenträgerplatz und lassen sich wegen der zusätzlichen gemeinsamen Quoten nicht zu einer Gesamtkapazität addieren. Geöffnete Details vergrößern nur die Speicherkarte; auf schmalen Displays hat sie die volle Breite.
+
+Die rein synthetische Vorschau unter `/{lang}/sitov-preview/teacher-storage` liest keine echten Statistiken und ist ausschließlich im Entwicklungsmodus verfügbar.
+
 ## Verifikation
 
 ```sh
 node --test supabase/tests/sitov-storage-security-limits.test.mjs
+node --test supabase/tests/sitov-media-storage-usage.test.mjs
+npx jest --runInBand __tests__/media-storage-usage.test.ts __tests__/media-storage-ui.test.tsx
 SITOV_QUOTA_POSTGRES_BIN=/opt/homebrew/opt/postgresql@17/bin node --test supabase/tests/sitov-storage-quota-concurrency.test.mjs
 npx jest --runInBand __tests__/generate-audio.test.ts __tests__/sitov-upload-ticket-guards.test.ts __tests__/exam-backend.test.ts __tests__/exam-simulation-backend.test.ts __tests__/neural-audio-cache.test.ts __tests__/exam-preparation-language.test.tsx __tests__/exam-simulation-localization.test.tsx
 ```

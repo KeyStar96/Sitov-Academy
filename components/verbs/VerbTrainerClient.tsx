@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef, useState, type CSSProperties, type FormEven
 import { ArrowRight, Check, CheckCheck, CircleHelp, Flame, Layers3, LoaderCircle, LockKeyhole, Plus, RotateCcw, Search, Sparkles, Target, Trash2, X, Zap } from 'lucide-react'
 import { nextSitovVerbExercise, setSitovVerbBox, submitSitovVerbAnswer } from '@/app/actions/verbs'
 import { getSitovVerbCopy } from '@/lib/verbs/i18n'
-import { SITOV_VERB_LEVELS, SITOV_VERB_REVIEW_LEVELS, type SitovVerbTense } from '@/lib/verbs/types'
+import { SITOV_VERB_TRAINER_LEVELS, SITOV_VERB_REVIEW_LEVELS, type SitovVerbTense } from '@/lib/verbs/types'
 import { getSitovVerbTenses } from '@/lib/verbs/engine'
 import type { SitovVerbPublicExercise, SitovVerbReviewResult, SitovVerbTrainerState } from '@/lib/verbs/contracts'
 import { toUiLocale } from '@/lib/locale-routing'
@@ -227,7 +227,7 @@ export default function VerbTrainerClient({ initialState, lang, actions = sitovA
       {view === 'box' ? <section className={styles.sitovBox}>
         <div className={styles.sitovSectionHead}><div><h2>{copy.boxTitle}</h2><p>{copy.boxHint}</p></div><span className={styles.sitovRetained}><CheckCheck size={16} />{copy.retained}</span></div>
         <div className={styles.sitovLevels} aria-label={copy.availableLevels}><button aria-pressed={poolLevel === 'all'} onClick={() => setPoolLevel('all')}>{copy.all}</button>
-          {SITOV_VERB_LEVELS.filter(level => !SITOV_VERB_REVIEW_LEVELS.includes(level)).map(level => { const available = initialState.authorizedLevels.includes(level); return <button key={level} aria-pressed={poolLevel === level} disabled={!available} title={available ? level : copy.levelLocked} onClick={() => setPoolLevel(level)}>{!available && <LockKeyhole size={13} aria-hidden="true" />}{level}</button> })}</div>
+          {SITOV_VERB_TRAINER_LEVELS.filter(level => !SITOV_VERB_REVIEW_LEVELS.includes(level)).map(level => { const available = initialState.authorizedLevels.includes(level); return <button key={level} aria-pressed={poolLevel === level} disabled={!available} title={available ? level : copy.levelLocked} onClick={() => setPoolLevel(level)}>{!available && <LockKeyhole size={13} aria-hidden="true" />}{level}</button> })}</div>
         <div className={styles.sitovFilters}><label className={styles.sitovSearch}><Search size={19} aria-hidden="true" /><input value={search} onChange={event => setSearch(event.target.value)} placeholder={copy.search} aria-label={copy.search} /></label>
           <label className={styles.sitovOnly}><input type="checkbox" checked={onlySelected} onChange={event => setOnlySelected(event.target.checked)} />{copy.onlySelected}</label></div>
         <div className={styles.sitovBoxToolbar}><span>{visibleVerbs.length} / {initialState.verbs.length}</span><button disabled={busy || !visibleVerbs.some(verb => !selected.has(verb.id))} onClick={() => void changeBox(visibleVerbs.filter(verb => !selected.has(verb.id)).map(verb => verb.id), true)}><Plus size={17} />{busy ? copy.saving : copy.addVisible}</button></div>

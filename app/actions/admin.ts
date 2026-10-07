@@ -234,7 +234,6 @@ export async function updateStudentTrainerAccess(input: z.infer<typeof trainerAc
   try {
     await requireAdmin()
     const parsed = trainerAccessInput.parse(input)
-    if ((parsed.level === 'B2' || parsed.level === 'C1') && parsed.trainer !== 'verbs') return { success: false }
     if (!sitovLevelHasTrainer(parsed.level, parsed.trainer)) return { success: false }
     if (parsed.allowedLessons != null) {
       const catalog = await getAvailableLessons(parsed.level, parsed.trainer)
@@ -262,7 +261,6 @@ export async function getAvailableLessons(level: string, trainer: string): Promi
     await requireAdmin()
     const validLevel = z.enum(SITOV_VERB_LEVELS).parse(level)
     const validTrainer = z.enum(TRAINERS).parse(trainer)
-    if ((validLevel === 'B2' || validLevel === 'C1') && validTrainer !== 'verbs') return { success: false }
     if (!sitovLevelHasTrainer(validLevel, validTrainer)) return { success: false }
     const supabase = await createClient()
     const units = await readAllRows((from, to) => supabase.from('learning_units').select('id,label')
