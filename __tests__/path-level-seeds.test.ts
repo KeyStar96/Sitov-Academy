@@ -6,12 +6,12 @@ import { learningPathSeedSchema } from '@/lib/learning-path-schema'
 import { EXERCISE_TYPES } from '@/lib/types/exercise'
 
 /**
- * Lernpfade ab A1.2 (supabase/seeds/path-<niveau>.json), derzeit A1.2, A2.1, A2.2, B1.1, B1.2, B2.1, B2.2 und C1.1. Die Seeds entstehen aus den
+ * Lernpfade ab A1.2 (supabase/seeds/path-<niveau>.json), derzeit A1.2, A2.1, A2.2, B1.1, B1.2, B2.1, B2.2, C1.1 und C1.2. Die Seeds entstehen aus den
  * Quellen in supabase/seeds/path-src/<niveau>/ (scripts/build-path-seed.mjs) und müssen
  * denselben Vertrag erfüllen wie A1.1: Pfade → Lektionen mit Merkkarte → Wiederholung →
  * Test, jedes Lernziel geübt, wiederholt und geprüft, alles in fünf Sprachen.
  * „from“ in LATER: erst ab diesem Pfad eingeführte Formen dürfen vorher in keiner Aufgabe stehen.
- * „paths“: Anzahl der Pfade eines Niveaus, wenn es nicht sieben sind (B2.1 bis C1.1 folgen sechs Modulen).
+ * „paths“: Anzahl der Pfade eines Niveaus, wenn es nicht sieben sind (B2.1 bis C1.2 folgen sechs Modulen).
  */
 type Locale = 'en' | 'ru' | 'uk' | 'tr'
 interface SeedExercise {
@@ -110,6 +110,18 @@ const LEVELS: Record<string, LevelRules> = {
     { from: 5, words: ['zufolge'] },
     // Schriftsprachliche Präpositionen folgen in Pfad 6.
     { from: 6, words: ['mithilfe', 'anhand', 'mittels', 'hinsichtlich', 'bezüglich', 'anlässlich', 'zwecks', 'gemäß'] },
+  ] },
+  'C1.2': { paths: 6, later: [
+    // Kausale und konsekutive Verdichtung ist Stoff von Pfad 2; „aufgrund“ und „infolge“ sind seit B2 bekannt.
+    { from: 2, words: ['mangels', 'zumal', 'demzufolge', 'mithin'] },
+    // Der präpositionale Argumentationsstil folgt in Pfad 3; „trotz“ und „bei“ kommen schon vorher vor.
+    { from: 3, words: ['angesichts', 'ungeachtet'] },
+    // Finale Präpositionen und weiterführende Nebensätze folgen in Pfad 4; „was“ und „wobei“ sind auch Fragewörter.
+    { from: 4, words: ['zwecks', 'woraufhin'] },
+    // Formelle Nomen-Verb-Verbindungen des Geschäftsregisters folgen in Pfad 5.
+    { from: 5, words: ['unterbreiten', 'unterbreitet', 'rücksprache'] },
+    // Das Funktionsverb „erfolgen“ gehört zum wissenschaftlichen Nominalstil in Pfad 6; „Erfolg“ und „erfolgreich“ sind andere Wörter.
+    { from: 6, words: ['erfolgen', 'erfolgt', 'erfolgte', 'erfolgten'] },
   ] },
 }
 const LOCALES: Locale[] = ['en', 'ru', 'uk', 'tr']
