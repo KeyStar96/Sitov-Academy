@@ -1,0 +1,113 @@
+import { I, gap, mc, sb } from '../shared.mjs'
+
+const EMAIL = 'Aus einer E-Mail an einen Geschäftspartner: „Sehr geehrter Herr Okafor, vielen Dank für Ihre gestern eingegangene Anfrage. Das von Ihnen gewünschte Angebot finden Sie im Anhang. Die darin genannten Preise gelten für alle bis zum 30. Juni erteilten Aufträge. Die Kosten für die von uns durchzuführende Schulung Ihrer Techniker stellen wir gesondert in Rechnung. Bezüglich der noch offenen Frage der Zahlungsfrist stehen wir mit unserer Bank in Verbindung und setzen Sie umgehend in Kenntnis. Für Rückfragen steht Ihnen unser in Lagos tätiger Vertreter, Herr Brandt, zur Verfügung. Wir würden uns freuen, mit Ihnen eine langfristige Geschäftsbeziehung aufzubauen.“'
+
+/** C1.2 · Pfad 5 · Internationale Geschäftskontakte – Wiederholung und Testpool. */
+const check = {
+  review: [
+    mc('W1', 'Vereinbarung', I.choose, 'Was ist eine „Vereinbarung“?', ['das, worauf sich beide Seiten geeinigt haben', 'der Ort, an dem beide Seiten verhandeln', 'die Person, die beide Seiten berät'],
+      ['What is a “Vereinbarung”?', 'Что такое «Vereinbarung»?', 'Що таке «Vereinbarung»?', '“Vereinbarung” nedir?']),
+    mc('G1', 'Passiv → Partizip II', I.choose, 'der Preis, der im Angebot genannt wurde = …', ['der im Angebot genannte Preis', 'der im Angebot nennende Preis', 'der im Angebot Preis genannte'],
+      ['the price that was stated in the offer = the price stated in the offer', 'цена, которая была указана в предложении = указанная в предложении цена', 'ціна, яку було вказано в пропозиції = вказана в пропозиції ціна', 'teklifte belirtilen fiyat'], { h: 'bildung' }),
+    mc('G2', 'Partizip I im Akkusativ', I.ending, 'Wir reagieren auf die … Nachfrage mit einer zweiten Schicht.', ['wachsende', 'wachsenden', 'gewachsen'],
+      ['We are responding to the growing demand with a second shift.', 'На растущий спрос мы отвечаем введением второй смены.', 'На зростання попиту ми відповідаємо запровадженням другої зміни.', 'Artan talebe ikinci bir vardiyayla karşılık veriyoruz.'], { h: 'endung' }),
+    mc('G3', 'die einzuhaltenden Fristen', I.choose, 'Was bedeutet: „die einzuhaltenden Fristen“?', ['die Fristen, die eingehalten werden müssen', 'die Fristen, die eingehalten worden sind', 'die Fristen, die niemand einhalten kann'],
+      ['What does this mean: “die einzuhaltenden Fristen”?', 'Что означает: «die einzuhaltenden Fristen»?', 'Що означає: «die einzuhaltenden Fristen»?', 'Şu ne demek: “die einzuhaltenden Fristen”?'], { h: 'bedeutung' }),
+    mc('G4', 'Anfrage vom + Datum', I.prep, 'Vielen Dank für Ihre Anfrage … 8. Oktober.', ['vom', 'am', 'im'],
+      ['Thank you for your enquiry of 8 October.', 'Благодарим за ваш запрос от 8 октября.', 'Дякуємо за ваш запит від 8 жовтня.', '8 Ekim tarihli talebiniz için teşekkür ederiz.'], { h: 'praep' }),
+    mc('G5', 'Artikel und Kernnomen im Dativ', I.choose, 'Zu welchem Nomen gehört „den“? „mit den von Ihnen am Telefon genannten Preisen“', ['zu „Preisen“', 'zu „Telefon“', 'zu „Ihnen“'],
+      ['Which noun does “den” belong to? “mit den von Ihnen am Telefon genannten Preisen”', 'К какому существительному относится «den»? «mit den von Ihnen am Telefon genannten Preisen»', 'Якого іменника стосується «den»? «mit den von Ihnen am Telefon genannten Preisen»', '“den” hangi isme ait? “mit den von Ihnen am Telefon genannten Preisen”'], { h: 'grenze' }),
+    mc('G6', 'Stellung nehmen', I.verb, 'Zu den Verzögerungen wird der Lieferant morgen Stellung …', ['nehmen', 'halten', 'treffen'],
+      ['The supplier will comment on the delays tomorrow.', 'Поставщик завтра выскажется по поводу задержек.', 'Постачальник завтра висловиться щодо затримок.', 'Tedarikçi gecikmeler hakkında yarın görüş bildirecek.'], { h: 'verb' }),
+    mc('G7', 'einen Auftrag erteilen', I.participle, 'Der Konzern hat der Firma einen Auftrag über zehn Millionen Euro …', ['erteilt', 'gehalten', 'genommen'],
+      ['The group has awarded the company a contract worth ten million euros.', 'Концерн выдал фирме заказ на десять миллионов евро.', 'Концерн надав фірмі замовлення на десять мільйонів євро.', 'Holding, firmaya on milyon avroluk bir sipariş verdi.'], { h: 'verb' }),
+    mc('G8', 'sich einigen → zu einer Einigung kommen', I.choose, 'Wir haben uns auf einen Preis geeinigt. = Wir sind in der Preisfrage …', ['zu einer Einigung gekommen.', 'zu einer Einigung gestellt.', 'in eine Einigung gesetzt.'],
+      ['We have agreed on a price.', 'Мы договорились о цене.', 'Ми домовилися про ціну.', 'Fiyat konusunda anlaştık.'], { h: 'paar' }),
+    mc('G9', 'Register: formelles Schreiben', I.choose, 'Welche Formulierung passt in ein formelles Schreiben?', ['Über den Liefertermin setzen wir Sie rechtzeitig in Kenntnis.', 'Wann das Zeug kommt, sagen wir euch dann noch.', 'Wegen dem Termin melden wir uns dann mal bei euch.'],
+      ['Which wording fits in a formal letter?', 'Какая формулировка подходит для официального письма?', 'Яке формулювання підходить для офіційного листа?', 'Hangi ifade resmî bir yazıya uyar?'], { h: 'brief' }),
+    mc('Z1', 'E-Mail: erteilte Aufträge', I.read, `${EMAIL} Für welche Aufträge gelten die genannten Preise?`, ['für Aufträge, die bis zum 30. Juni erteilt werden', 'für Aufträge, die nach dem 30. Juni eingehen', 'für Aufträge, die Herr Brandt in Lagos annimmt'],
+      ['For which orders do the stated prices apply?', 'Для каких заказов действуют указанные цены?', 'Для яких замовлень діють зазначені ціни?', 'Belirtilen fiyatlar hangi siparişler için geçerli?']),
+    gap('G3', 'die zu bezahlende Rechnung', I.participle, 'Die bis Freitag zu ', ' Rechnung liegt diesem Schreiben bei.', ['bezahlende', 'zahlende', 'begleichende'], ['bezahlte', 'bezahlenden'],
+      ['The invoice to be paid by Friday is enclosed with this letter.', 'Счёт, который нужно оплатить до пятницы, приложен к этому письму.', 'Рахунок, який потрібно сплатити до п’ятниці, додано до цього листа.', 'Cumaya kadar ödenmesi gereken fatura bu yazının ekindedir.'], 'bezahlen', { h: 'bildung' }),
+    sb('G6', 'Kontakt aufnehmen mit', I.order, 'Bitte / nehmen / Sie / mit / unserem Vertrieb / Kontakt / auf.',
+      ['Please get in touch with our sales department.', 'Пожалуйста, свяжитесь с нашим отделом продаж.', 'Будь ласка, зв’яжіться з нашим відділом продажу.', 'Lütfen satış ekibimizle iletişime geçin.'], { h: 'verb' }),
+  ],
+  size: 13,
+  test: [
+    mc('W1', 'Auftrag', I.choose, 'Was ist ein „Auftrag“ im Geschäftsleben?', ['die verbindliche Bestellung einer Ware oder Leistung', 'die unverbindliche Frage nach einem Preis', 'die Rede zur Eröffnung einer Messe'],
+      ['What is an “Auftrag” in business?', 'Что такое «Auftrag» в деловой жизни?', 'Що таке «Auftrag» у діловому житті?', 'İş hayatında “Auftrag” nedir?']),
+    mc('W1', 'Geschäftsbeziehung', I.choose, 'Eine langjährige … verbindet die Firma mit ihrem wichtigsten Lieferanten.', ['Geschäftsbeziehung', 'Geschäftsreise', 'Geschäftsidee'],
+      ['A long-standing … links the company with its most important supplier.', 'Многолетние … связывают фирму с её главным поставщиком.', 'Багаторічні … пов’язують фірму з її головним постачальником.', 'Firmayı en önemli tedarikçisine uzun yıllara dayanan bir … bağlıyor.']),
+    gap('W1', 'Angebot', I.word, 'Wir haben drei Firmen um ein ', ' gebeten und uns für das günstigste entschieden.', 'Angebot', ['Gebot', 'Verbot'],
+      ['We asked three companies for a quotation and chose the cheapest.', 'Мы запросили предложение у трёх фирм и выбрали самое выгодное.', 'Ми попросили пропозицію у трьох фірм і вибрали найвигіднішу.', 'Üç firmadan teklif istedik ve en uygununu seçtik.'],
+      ['offer, quotation', 'коммерческое предложение', 'комерційна пропозиція', 'teklif']),
+
+    mc('G1', 'Attribut mit von auflösen', I.choose, 'Was bedeutet: „der von beiden Seiten unterschriebene Vertrag“?', ['der Vertrag, den beide Seiten unterschrieben haben', 'der Vertrag, den beide Seiten unterschreiben müssen', 'der Vertrag, der beide Seiten unterschreibt'],
+      ['What does this mean: “der von beiden Seiten unterschriebene Vertrag”?', 'Что означает: «der von beiden Seiten unterschriebene Vertrag»?', 'Що означає: «der von beiden Seiten unterschriebene Vertrag»?', 'Şu ne demek: “der von beiden Seiten unterschriebene Vertrag”?'], { h: 'agens' }),
+    mc('G1', 'Endung im Dativ feminin', I.ending, 'Die Preise finden Sie in der … Liste.', ['beigefügten', 'beigefügte', 'beigefügter'],
+      ['You will find the prices in the enclosed list.', 'Цены вы найдёте в приложенном списке.', 'Ціни ви знайдете в доданому списку.', 'Fiyatları ekteki listede bulabilirsiniz.'], { h: 'endung' }),
+    gap('G1', 'das zugesandte Muster', I.participle, 'Wir danken Ihnen für das gestern ', ' Muster.', ['zugesandte', 'zugesendete'], ['zugesandten', 'zugesandt'],
+      ['We thank you for the sample sent yesterday.', 'Благодарим вас за присланный вчера образец.', 'Дякуємо вам за надісланий учора зразок.', 'Dün gönderdiğiniz numune için teşekkür ederiz.'], 'zusenden', { h: 'endung' }),
+
+    mc('G2', 'Aktiv → Partizip I', I.choose, 'die Messe, die morgen in Köln beginnt = …', ['die morgen in Köln beginnende Messe', 'die morgen in Köln begonnene Messe', 'die morgen in Köln beginnen Messe'],
+      ['the trade fair that begins in Cologne tomorrow', 'ярмарка, которая начинается завтра в Кёльне = начинающаяся завтра в Кёльне ярмарка', 'ярмарок, який починається завтра в Кельні = ярмарок, що починається завтра в Кельні', 'yarın Köln’de başlayan fuar'], { h: 'aktiv' }),
+    mc('G2', 'steigend oder gestiegen', I.choose, 'Welche Gruppe bedeutet „die Kosten, die gerade steigen“?', ['die steigenden Kosten', 'die gestiegenen Kosten', 'die zu steigenden Kosten'],
+      ['Which group means “the costs that are rising at the moment”?', 'Какая группа означает «расходы, которые сейчас растут»?', 'Яка група означає «витрати, які зараз зростають»?', 'Hangi öbek “şu anda artmakta olan maliyetler” anlamına gelir?'], { h: 'vergleich' }),
+    gap('G2', 'einen Japanisch sprechenden Vertreter', I.participle, 'Wir suchen einen fließend Japanisch ', ' Vertreter.', 'sprechenden', ['gesprochenen', 'sprechende'],
+      ['We are looking for a representative who speaks fluent Japanese.', 'Мы ищем представителя, свободно говорящего по-японски.', 'Ми шукаємо представника, який вільно розмовляє японською.', 'Akıcı Japonca konuşan bir temsilci arıyoruz.'], 'sprechen', { h: 'aktiv' }),
+
+    mc('G3', 'müssen verzollt werden → zu verzollende', I.choose, 'die Waren, die verzollt werden müssen = …', ['die zu verzollenden Waren', 'die verzollten Waren', 'die verzollenden Waren'],
+      ['the goods that have to be cleared through customs', 'товары, которые необходимо растаможить = подлежащие растаможиванию товары', 'товари, які потрібно розмитнити = товари, що підлягають розмитненню', 'gümrüklenmesi gereken mallar'], { h: 'bildung' }),
+    mc('G3', 'vorzulegende Unterlagen', I.form, 'die Unterlagen, die vorgelegt werden müssen = die … Unterlagen', ['vorzulegenden', 'zu vorlegenden', 'vorgelegten'],
+      ['the documents that have to be submitted', 'документы, которые необходимо представить = подлежащие представлению документы', 'документи, які потрібно подати = документи, що підлягають поданню', 'sunulması gereken belgeler'], { h: 'trennbar' }),
+    gap('G3', 'der zu zahlende Betrag', I.participle, 'Der noch zu ', ' Betrag beläuft sich auf 2 000 Euro.', ['zahlende', 'bezahlende', 'begleichende', 'überweisende'], ['zahlenden', 'gezahlte'],
+      ['The amount still to be paid comes to 2,000 euros.', 'Сумма, которую ещё предстоит уплатить, составляет 2 000 евро.', 'Сума, яку ще треба сплатити, становить 2 000 євро.', 'Henüz ödenmesi gereken tutar 2 000 avrodur.'], 'zahlen', { h: 'bildung' }),
+
+    mc('G4', 'Relativsatz → Präpositionalattribut', I.choose, 'die Vertreter, die aus Brasilien kommen = …', ['die Vertreter aus Brasilien', 'die Vertreter von Brasilien aus', 'die brasilianisch Vertreter'],
+      ['the representatives who come from Brazil = the representatives from Brazil', 'представители, которые приезжают из Бразилии = представители из Бразилии', 'представники, які приїжджають із Бразилії = представники з Бразилії', 'Brezilya’dan gelen temsilciler = Brezilyalı temsilciler'], { h: 'praep' }),
+    mc('G4', 'Objekt → Genitiv feminin', I.choose, 'Man eröffnet eine Niederlassung. → die Eröffnung …', ['einer Niederlassung', 'eine Niederlassung', 'einem Niederlassung'],
+      ['A branch is being opened. → the opening of a branch', 'Открывают филиал. → открытие филиала', 'Відкривають філію. → відкриття філії', 'Bir şube açılıyor. → bir şubenin açılması'], { h: 'genitiv' }),
+    gap('G4', 'die Antwort auf', I.prep, 'Wir warten seit zwei Wochen auf Ihre Antwort ', ' unsere Anfrage.', 'auf', ['an', 'über'],
+      ['We have been waiting for two weeks for your reply to our enquiry.', 'Мы уже две недели ждём вашего ответа на наш запрос.', 'Ми вже два тижні чекаємо на вашу відповідь на наш запит.', 'İki haftadır talebimize vereceğiniz yanıtı bekliyoruz.'], 'auf / an / über', { h: 'praep' }),
+
+    mc('G5', 'langes Attribut auflösen', I.choose, 'Was bedeutet: „die von unserem Vertreter in Lagos vorgeschlagene Lösung“?', ['die Lösung, die unser Vertreter in Lagos vorgeschlagen hat', 'der Vertreter, der in Lagos eine Lösung vorschlagen muss', 'die Lösung, die unseren Vertreter nach Lagos vorschlägt'],
+      ['What does this mean: “die von unserem Vertreter in Lagos vorgeschlagene Lösung”?', 'Что означает: «die von unserem Vertreter in Lagos vorgeschlagene Lösung»?', 'Що означає: «die von unserem Vertreter in Lagos vorgeschlagene Lösung»?', 'Şu ne demek: “die von unserem Vertreter in Lagos vorgeschlagene Lösung”?'], { h: 'grenze' }),
+    mc('G5', 'Fassung für das Gespräch', I.choose, 'Welche Fassung ist für ein Gespräch am besten geeignet?', ['Die Maschine, die wir letzte Woche geliefert haben, läuft jetzt.', 'Die von uns in der vergangenen Woche gelieferte Maschine befindet sich in Betrieb.', 'Die letzte Woche von uns gelieferte und inzwischen in Betrieb genommene Maschine läuft.'],
+      ['Which version is best suited to a conversation?', 'Какой вариант лучше всего подходит для разговора?', 'Який варіант найкраще підходить для розмови?', 'Hangi biçim bir konuşma için en uygun?'], { h: 'stil' }),
+
+    mc('G6', 'in Verbindung stehen', I.choose, 'Wir stehen mit dem Hersteller bereits in …', ['Verbindung', 'Verbund', 'Verband'],
+      ['We are already in contact with the manufacturer.', 'Мы уже поддерживаем связь с производителем.', 'Ми вже підтримуємо зв’язок із виробником.', 'Üreticiyle zaten iletişim hâlindeyiz.'], { h: 'bedeutung' }),
+    mc('G6', 'Bedeutung von Rücksprache halten', I.choose, 'Was bedeutet: „mit jemandem Rücksprache halten“?', ['etwas mit jemandem klären, bevor man entscheidet', 'jemandem laut und deutlich widersprechen', 'jemanden nach einem Streit um Verzeihung bitten'],
+      ['What does “mit jemandem Rücksprache halten” mean?', 'Что означает «mit jemandem Rücksprache halten»?', 'Що означає «mit jemandem Rücksprache halten»?', '“mit jemandem Rücksprache halten” ne demek?'], { h: 'bedeutung' }),
+    gap('G6', 'Bezug nehmen auf', I.word, 'In Ihrem Schreiben nehmen Sie ', ' auf unser Gespräch in Wien.', 'Bezug', ['Betrug', 'Bezirk'],
+      ['In your letter you refer to our conversation in Vienna.', 'В своём письме вы ссылаетесь на наш разговор в Вене.', 'У своєму листі ви посилаєтеся на нашу розмову у Відні.', 'Yazınızda Viyana’daki görüşmemize atıfta bulunuyorsunuz.'],
+      ['reference; Bezug nehmen auf = to refer to', 'ссылка; Bezug nehmen auf = ссылаться на', 'посилання; Bezug nehmen auf = посилатися на', 'gönderme; Bezug nehmen auf = …e atıfta bulunmak'], { h: 'praep' }),
+
+    mc('G7', 'ein Angebot unterbreiten', I.participle, 'Der Hersteller hat uns ein sehr günstiges Angebot …', ['unterbreitet', 'unterbrochen', 'untergebracht'],
+      ['The manufacturer has made us a very favourable offer.', 'Производитель сделал нам очень выгодное предложение.', 'Виробник зробив нам дуже вигідну пропозицію.', 'Üretici bize çok uygun bir teklif sundu.'], { h: 'verb' }),
+    mc('G7', 'Bedeutung von in Kraft treten', I.choose, 'Was bedeutet: „Die Vereinbarung tritt am 1. März in Kraft.“?', ['Sie wird am 1. März gültig.', 'Sie wird am 1. März gekündigt.', 'Sie wird am 1. März verhandelt.'],
+      ['What does this mean: “Die Vereinbarung tritt am 1. März in Kraft.”?', 'Что означает: «Die Vereinbarung tritt am 1. März in Kraft.»?', 'Що означає: «Die Vereinbarung tritt am 1. März in Kraft.»?', 'Şu ne demek: “Die Vereinbarung tritt am 1. März in Kraft.”?'], { h: 'bedeutung' }),
+    gap('G7', 'in Rechnung stellen', I.word, 'Für die Überstunden unserer Techniker stellen wir Ihnen nichts in ', '.', 'Rechnung', ['Rechnen', 'Rechenschaft'],
+      ['We will not charge you anything for our technicians’ overtime.', 'За сверхурочную работу наших техников мы ничего вам не выставим.', 'За понаднормову роботу наших техніків ми нічого вам не виставимо.', 'Teknisyenlerimizin fazla mesaisi için size hiçbir şey fatura etmeyeceğiz.'],
+      ['invoice; in Rechnung stellen = to charge', 'счёт; in Rechnung stellen = выставить счёт', 'рахунок; in Rechnung stellen = виставити рахунок', 'fatura; in Rechnung stellen = fatura etmek'], { h: 'bedeutung' }),
+
+    mc('G8', 'sich äußern → Stellung nehmen', I.choose, 'Der Kunde äußerte sich nicht zu unserem Vorschlag. = Der Kunde …', ['nahm zu unserem Vorschlag nicht Stellung.', 'hielt zu unserem Vorschlag nicht Stellung.', 'traf zu unserem Vorschlag keine Stellung.'],
+      ['The customer did not comment on our proposal.', 'Клиент не высказался по поводу нашего предложения.', 'Клієнт не висловився щодо нашої пропозиції.', 'Müşteri önerimiz hakkında görüş bildirmedi.'], { h: 'paar' }),
+    mc('G8', 'vereinbaren → die Vereinbarung treffen', I.choose, 'Wir haben vereinbart, die Preise bis Jahresende nicht zu ändern. = Wir haben …, die Preise bis Jahresende nicht zu ändern.', ['die Vereinbarung getroffen', 'die Vereinbarung gestellt', 'zur Vereinbarung gekommen'],
+      ['We have agreed not to change the prices until the end of the year.', 'Мы договорились не менять цены до конца года.', 'Ми домовилися не змінювати ціни до кінця року.', 'Fiyatları yıl sonuna kadar değiştirmeme konusunda anlaştık.'], { h: 'paar' }),
+    gap('G8', 'jemanden in Kenntnis setzen', I.article, 'Wir informieren den Kunden. = Wir setzen ', ' Kunden in Kenntnis.', 'den', ['dem', 'der'],
+      ['We are informing the customer.', 'Мы информируем клиента.', 'Ми інформуємо клієнта.', 'Müşteriyi bilgilendiriyoruz.'], 'den / dem / der', { h: 'kasus' }),
+
+    mc('G9', 'Kollokation: Auftrag', I.choose, 'Welche Verbindung ist richtig?', ['einen Auftrag erteilen', 'einen Auftrag treffen', 'einen Auftrag halten'],
+      ['Which combination is correct?', 'Какое сочетание правильное?', 'Яке сполучення правильне?', 'Hangi birleşim doğru?'], { h: 'kollokation' }),
+    mc('G9', 'Register: Nachricht an einen Kollegen', I.natural, 'Ein Mitarbeiter schreibt einem befreundeten Kollegen eine kurze Nachricht.', ['Ich schick dir das Angebot gleich rüber.', 'Hiermit unterbreite ich dir das von dir angeforderte Angebot.', 'Bezug nehmend auf deine Anfrage setze ich dich in Kenntnis.'],
+      ['An employee is writing a short message to a colleague who is a friend.', 'Сотрудник пишет короткое сообщение коллеге, с которым дружит.', 'Працівник пише коротке повідомлення колезі, з яким дружить.', 'Bir çalışan, arkadaşı olan bir meslektaşına kısa bir mesaj yazıyor.'], { h: 'gespraech' }),
+
+    mc('Z1', 'E-Mail: durchzuführende Schulung', I.read, `${EMAIL} Was ist mit der „von uns durchzuführenden Schulung“ gemeint?`, ['eine Schulung, die von uns durchgeführt werden soll', 'eine Schulung, die wir bereits durchgeführt haben', 'eine Schulung, die der Kunde selbst durchführt'],
+      ['What is meant by the “von uns durchzuführenden Schulung”?', 'Что имеется в виду под «von uns durchzuführenden Schulung»?', 'Що мається на увазі під «von uns durchzuführenden Schulung»?', '“von uns durchzuführenden Schulung” ile ne kastediliyor?']),
+    mc('Z1', 'E-Mail: in Rechnung stellen', I.read, `${EMAIL} Wie werden die Kosten der Schulung behandelt?`, ['Sie werden zusätzlich berechnet.', 'Sie sind im Angebotspreis enthalten.', 'Sie werden von der Bank übernommen.'],
+      ['How are the costs of the training dealt with?', 'Как учитываются расходы на обучение?', 'Як ураховуються витрати на навчання?', 'Eğitim masrafları nasıl ele alınıyor?']),
+  ],
+}
+
+export default check
