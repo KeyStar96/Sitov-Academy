@@ -71,6 +71,16 @@ function sitovWheel(target: HTMLElement, deltaX: number, deltaY = 0, shiftKey = 
 }
 
 describe('Sitov Academy shared Home and Learn trainer carousel', () => {
+  it('shows the first unfinished topic when a later topic has already passed its test', () => {
+    const status: LevelLearningStatus = {
+      level: 'A1.1', lessons: [], ownWords: null, vocabulary: null, pronunciation: null, media: null,
+      grammar: { locked: false, total: 6, solved: 3, topics: 3, openTopics: 2, currentTopic: 1 },
+    }
+    render(<TrainerStatusTiles lang="en" level="A1.1" status={status} languageLocked={false} />)
+    sitovChoose('path')
+    expect(screen.getByRole('link')).toHaveTextContent('Topic 1 of 3')
+  })
+
   it.each(['compact', 'modes'] as const)('keeps all trainer routes, descriptions and learning statuses in the %s carousel', layout => {
     const status: LevelLearningStatus = {
       level: 'A1.1', lessons: [], ownWords: null,

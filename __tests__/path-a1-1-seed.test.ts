@@ -6,11 +6,10 @@ import { EXERCISE_TYPES } from '@/lib/types/exercise'
 
 /**
  * Lernpfad A1.1 (supabase/seeds/path-a1.1.json): Pfade → Knoten → Übungen.
- * Heutige Abbildung: unit → learning_units, node.topic → learning_exercises.topic,
- * exercise_type/content → learning_exercises.type/content, hint/explanation (de) und
- * translations.<locale>.hint/explanation → grammar_translations. Knoten (practice |
- * review | test), Merkkarte, test_size und translations.<locale>.instruction folgen dem
- * Datenmodell aus MASTER-PROMPT-4, Phase 3.3, das noch keine Tabellen hat.
+ * Der aktuelle Autorenvertrag steht in lib/learning-path-schema.ts; der Import
+ * in scripts/import_learning_path.ts bildet Pfade, Knoten, Aufgaben und ihre
+ * Übersetzungen auf die Lernpfadtabellen ab. Gemeinsame Inhaltsvalidatoren
+ * bleiben auch nach Entfernung des Alt-Grammatik-Trainers erforderlich.
  */
 type Locale = 'en' | 'ru' | 'uk' | 'tr'
 interface SeedExercise {
@@ -52,7 +51,7 @@ const NOT_GERMAN = /[Ѐ-ԯᲀ-᲏ᴫᵸⷠ-ⷿꙀ-ꚟ\u{1E030}-\u{1E08F}ığşİ
 const GERMAN_FIELDS = ['instruction', 'text_before', 'text_after', 'question', 'correct_answer', 'gap_hint', 'options', 'accepted_answers', 'parts', 'target_form']
 const TASK_FIELDS = ['text_before', 'text_after', 'question', 'correct_answer', 'options', 'accepted_answers', 'parts', 'target_form']
 const CYRILLIC = /[Ѐ-ӿ]/
-// Kein Vorgriff (MASTER-PROMPT-4, 4.2/4.4): Wortlisten je Pfad; feste Wendungen sind ausdrücklich erlaubt.
+// Kein Vorgriff auf spätere Lernziele: Wortlisten je Pfad; feste Wendungen sind ausdrücklich erlaubt.
 const LATER: { from: number; words: string[]; phrases: string[] }[] = [
   { from: 6, words: ['einen', 'keinen', 'meinen', 'deinen', 'seinen', 'ihren', 'unseren', 'euren', 'ihn', 'den'], phrases: [] },
   { from: 7, words: ['gemacht', 'gespielt', 'gekauft', 'gearbeitet', 'gelernt', 'gewohnt', 'gekocht', 'gehört', 'getroffen', 'getrunken',

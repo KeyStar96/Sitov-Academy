@@ -344,10 +344,12 @@ describe('Wörterbücher', () => {
     expect(dict.registration.flow.consents.recording_notice).toBeTruthy()
     expect(dict.registration.legal.video_recording).toContain('info@sitov-academy.com')
     const recordingSection = dict.privacy.sections.find((section: { title: string }) => section.title.startsWith('9.'))
-    const recordingCopy = [dict.registration.flow.consents.intro, dict.registration.flow.consents.video_recording,
+    const recordingTexts = [dict.registration.flow.consents.intro, dict.registration.flow.consents.video_recording,
       dict.registration.flow.consents.recording_notice, dict.registration.legal.video_recording,
       recordingSection.content[0], recordingSection.content[8], dict.agb.sections[1].content[3],
-      ...dict.sections.courses.categories.online.map((course: { description: string }) => course.description)].join(' ')
+      dict.profile.recording_consent, dict.profile.recording_notice, dict.profile.recording_withdrawal]
+    expect(recordingTexts.every(value => typeof value === 'string' && value.trim().length > 0)).toBe(true)
+    const recordingCopy = recordingTexts.join(' ')
     expect(recordingCopy).toContain('Microsoft Teams')
     expect(recordingCopy).not.toMatch(/freiwillig|voluntary|optional|without this consent|без этого согласия|добровольн|добровільн|gönüllü|isteğe bağlı/i)
     expect(recordingSection.content[8]).toMatch(/Privatunterricht|private lessons|Индивидуальн|Індивідуальн|özel dersler/i)

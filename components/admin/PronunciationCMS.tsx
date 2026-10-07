@@ -74,7 +74,6 @@ export default function PronunciationCMS({ prompts, translations, lang, initialL
    <p className="max-w-3xl text-sm leading-relaxed">{t('cms_scope')}</p>
    <div className="flex shrink-0 flex-wrap gap-2">
     <Link href={`/${lang}/admin/content/vocabulary`} className={button}>{t('cms_scope_vocabulary')}<ArrowRight size={16} aria-hidden="true" /></Link>
-    <Link href={`/${lang}/admin/content/exercises`} className={button}>{t('cms_scope_grammar')}<ArrowRight size={16} aria-hidden="true" /></Link>
    </div>
   </div>
 

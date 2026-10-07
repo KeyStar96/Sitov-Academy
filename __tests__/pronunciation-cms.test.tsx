@@ -24,11 +24,11 @@ const prompts = [
 const renderCms = (initialLevel?: string) => render(<PronunciationCMS prompts={prompts} translations={getPronunciationTranslations('de')} lang="de" initialLevel={initialLevel} />)
 beforeEach(() => jest.clearAllMocks())
 
-it('names the pronunciation trainer and links to the other trainers', () => {
+it('names the pronunciation trainer and links to vocabulary', () => {
   renderCms()
   expect(screen.getByText(de.cms_trainer_badge)).toBeInTheDocument()
   expect(screen.getByRole('link', { name: de.cms_scope_vocabulary })).toHaveAttribute('href', '/de/admin/content/vocabulary')
-  expect(screen.getByRole('link', { name: de.cms_scope_grammar })).toHaveAttribute('href', '/de/admin/content/exercises')
+  expect(screen.getAllByRole('link')).toHaveLength(1)
 })
 
 it('shows only what students see by default and keeps archived single sentences apart', async () => {

@@ -4,7 +4,7 @@ import { randomUUID } from 'node:crypto'
 import ru from '../dictionaries/ru.json'
 
 /** Real UI + RPC + persisted progress; the marker prevents production writes. */
-async function learner(page: Page, request: APIRequestContext, trainer: 'exercises' | 'vocabulary') {
+async function learner(page: Page, request: APIRequestContext, trainer: 'vocabulary') {
   const api = process.env.E2E_SUPABASE_URL
   const key = process.env.E2E_SUPABASE_SERVICE_ROLE_KEY
   expect(api, 'Start the isolated VPS test gateway and load its private env').toBeTruthy()
@@ -23,7 +23,6 @@ async function learner(page: Page, request: APIRequestContext, trainer: 'exercis
   expect(people.error).toBeNull()
   const cleanup = async () => {
     expect((await admin.auth.admin.deleteUser(userId)).error).toBeNull()
-    expect((await admin.from('learning_exercises').delete().eq('unit_id', unitId)).error).toBeNull()
     expect((await admin.from('learning_vocabulary_cards').delete().eq('unit_id', unitId)).error).toBeNull()
     expect((await admin.from('learning_units').delete().eq('id', unitId)).error).toBeNull()
     for (const person of people.data ?? []) expect((await admin.from('people').delete().eq('id', person.id)).error).toBeNull()
@@ -42,36 +41,6 @@ async function learner(page: Page, request: APIRequestContext, trainer: 'exercis
     return { admin, userId, unitId, lesson: `Lerntest ${token}`, cleanup }
   } catch (error) { await cleanup(); throw error }
 }
-
-test('canonical alternatives persist and a new grammar card clears input before Russian soft feedback', async ({ page, request }) => {
-  const fixture = await learner(page, request, 'exercises')
-  const { admin, userId, unitId } = fixture
-  const [first, second] = [randomUUID(), randomUUID()].sort()
-  try {
-    expect((await admin.from('learning_exercises').insert([
-      { id: first, unit_id: unitId, topic: 'Begrüßung', type: 'fill_in_blank', content: { text_before: 'Begrüßung: ', text_after: '', correct_answer: 'Guten Tag.', accepted_answers: ['Guten Tag.', 'Hallo.'], target_form: ['begrüßen'], options: ['Guten Tag.', 'Danke.'] } },
-      { id: second, unit_id: unitId, topic: 'Begrüßung', type: 'fill_in_blank', content: { text_before: 'Bedanke dich: ', text_after: '', correct_answer: 'Danke.', accepted_answers: ['Danke.'], target_form: ['danken'], options: ['Danke.', 'Bitte.'] } },
-    ])).error).toBeNull()
-    await page.goto('/ru/dashboard/level/A1.1/exercises')
-    await page.getByRole('button', { name: /^Begrüßung:/ }).click()
-    await page.getByRole('textbox').fill('Hallo.')
-    await page.getByRole('button', { name: ru.exercises.check_answer, exact: true }).click()
-    await expect(page.getByRole('button', { name: ru.exercises.next_exercise, exact: true })).toBeVisible()
-    const firstProgress = await admin.from('user_exercise_progress').select('completed,score').eq('auth_user_id', userId).eq('exercise_id', first).single()
-    expect(firstProgress.error).toBeNull()
-    expect(firstProgress.data).toEqual({ completed: true, score: 100 })
-    await page.getByRole('button', { name: ru.exercises.next_exercise, exact: true }).click()
-    await expect(page.getByRole('textbox')).toHaveValue('')
-    await page.getByRole('textbox').fill('Danke')
-    await page.getByRole('button', { name: ru.exercises.check_answer, exact: true }).click()
-    const badge = page.getByText(ru.exercises.soft_error.punctuation, { exact: true })
-    await expect(badge).toBeVisible()
-    await expect(badge.locator('..')).toHaveClass(/bg-\[var\(--warning\)\]/)
-    const secondProgress = await admin.from('user_exercise_progress').select('completed,score').eq('auth_user_id', userId).eq('exercise_id', second).single()
-    expect(secondProgress.error).toBeNull()
-    expect(secondProgress.data).toEqual({ completed: true, score: 90 })
-  } finally { await fixture.cleanup() }
-})
 
 test('typed vocabulary answer earns a soft ascent with the previous interval and no lapse', async ({ page, request }) => {
   const fixture = await learner(page, request, 'vocabulary')
@@ -94,43 +63,5 @@ test('typed vocabulary answer earns a soft ascent with the previous interval and
     const berlinDay = (date: Date) => Date.parse(new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Berlin' }).format(date))
     expect(new Intl.DateTimeFormat('de-DE', { timeZone: 'Europe/Berlin', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).format(due)).toBe('00:00')
     expect((berlinDay(due) - berlinDay(new Date(result.data!.last_answered_at))) / 86400000).toBe(3)
-  } finally { await fixture.cleanup() }
-})
-
-test('CMS requires a target form and publishes the localized translation prompt with its German target', async ({ page, request }) => {
-  const fixture = await learner(page, request, 'exercises')
-  const { admin, userId, unitId, lesson } = fixture
-  try {
-    expect((await admin.from('profiles').update({ role: 'teacher' }).eq('id', userId)).error).toBeNull()
-    await page.goto('/de/admin/content/exercises')
-    await expect(page.getByText('Unvollständig', { exact: true }).first()).toBeVisible()
-    await page.getByRole('button', { name: 'Neue Übung', exact: true }).click()
-    await page.getByLabel('Lektion', { exact: true }).fill(lesson)
-    await page.getByLabel('Thema', { exact: true }).fill('Vorstellung')
-    await page.getByLabel('Richtige Antwort', { exact: true }).fill('Wie heißen Sie?')
-    await page.getByLabel('Antwortmöglichkeiten – eine pro Zeile', { exact: true }).fill('Wie heißen Sie?\nWie geht es Ihnen?')
-    await page.getByLabel('Übersetzungsaufgabe (RU, optional)', { exact: true }).fill('Как вас зовут?')
-    const target = page.getByLabel('Zielwerte – eine Grundform pro Zeile (Pflichtfeld)', { exact: true })
-    await page.getByRole('button', { name: 'Übung speichern', exact: true }).click()
-    await expect(target).toBeVisible()
-    const unsaved = await admin.from('learning_exercises').select('id').eq('unit_id', unitId)
-    expect(unsaved.error).toBeNull()
-    expect(unsaved.data).toEqual([])
-    await target.fill('heißen')
-    await page.getByRole('button', { name: 'Übung speichern', exact: true }).click()
-    await expect(page.getByText('Die Übung wurde gespeichert.', { exact: true })).toBeVisible()
-    const saved = await admin.from('learning_exercises').select('id,content,content_status,translations:grammar_translations(locale,prompt)').eq('unit_id', unitId).single()
-    expect(saved.error).toBeNull()
-    expect(saved.data).toMatchObject({ content_status: 'ready', content: { target_form: ['heißen'] }, translations: expect.arrayContaining([{ locale: 'ru', prompt: 'Как вас зовут?' }]) })
-    expect((await admin.from('profiles').update({ role: 'student' }).eq('id', userId)).error).toBeNull()
-    await page.goto('/ru/dashboard/level/A1.1/exercises')
-    await page.getByRole('button', { name: /^Vorstellung:/ }).click()
-    await expect(page.getByText('Как вас зовут? [heißen]', { exact: true })).toBeVisible()
-    await page.getByRole('textbox').fill('Wie heißen Sie?')
-    await page.getByRole('button', { name: ru.exercises.check_answer, exact: true }).click()
-    await expect(page.getByRole('button', { name: /Завершить/ })).toBeVisible()
-    const progress = await admin.from('user_exercise_progress').select('completed,score').eq('auth_user_id', userId).eq('exercise_id', saved.data!.id).single()
-    expect(progress.error).toBeNull()
-    expect(progress.data).toEqual({ completed: true, score: 100 })
   } finally { await fixture.cleanup() }
 })

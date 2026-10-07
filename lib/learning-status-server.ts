@@ -2,7 +2,7 @@ import 'server-only'
 
 import { cache } from 'react'
 import { getVocabularyOverview } from '@/app/actions/vocabulary'
-import { getExercises } from '@/app/actions/exercises'
+import { readSitovLearningPathStatistics } from '@/lib/sitov-learning-path-statistics'
 import { loadSitovPronunciationReadiness } from '@/lib/sitov-pronunciation-readiness-server'
 import { requestSession } from '@/lib/request-session'
 import { hasConfiguredTrainerAccess, hasTrainerAccess, type LevelAccessProfile } from '@/lib/access/levels'
@@ -32,7 +32,8 @@ type Client = Awaited<ReturnType<typeof createClient>>
 export interface LevelLearningStatus {
   level: string
   vocabulary: { locked: boolean; due: number; activeWords: number; total: number; learned: number } | null
-  grammar: { locked: boolean; total: number; solved: number; topics: number; openTopics: number } | null
+  /** Kernknoten und Themen des Lernpfads; ein Thema ist nach bestandenem Test abgeschlossen. */
+  grammar: { locked: boolean; total: number; solved: number; topics: number; openTopics: number; currentTopic?: number | null } | null
   pronunciation: { locked: boolean; texts: number; open: number; waiting: number; unread: number; readyTexts?: number; lockedTexts?: number; readinessTier?: number } | null
   media: { locked: boolean; total: number; fresh: number } | null
   /** Modi mit „Neu"-Kennzeichen (Phase 6.1): neue Inhalte oder der Modus selbst. */
@@ -122,9 +123,9 @@ export async function loadLevelLearningStatus({ supabase, userId, profile, level
     media: !hasConfiguredTrainerAccess(profile, level, 'videos'),
     verbs: !hasTrainerAccess(profile, level, 'verbs'),
   }
-  const [vocabulary, exercises, pronunciation, media, news, verbs] = await Promise.all([
+  const [vocabulary, path, pronunciation, media, news, verbs] = await Promise.all([
     locked.vocabulary ? null : settle(() => vocabularyOverview(level), () => console.error('[learning-status] vocabulary_unavailable')),
-    locked.grammar ? null : settle(() => getExercises(level, lang), () => console.error('[learning-status] grammar_unavailable')),
+    locked.grammar ? null : settle(() => readSitovLearningPathStatistics(supabase, level, lang), () => console.error('[learning-status] path_unavailable')),
     locked.pronunciation ? null : settle(() => pronunciationStatus(userId, level), () => console.error('[learning-status] pronunciation_unavailable')),
     locked.media ? null : settle(() => loadMedia(supabase, level), () => console.error('[learning-status] media_unavailable')),
     loadLearningNewCounts(),
@@ -132,8 +133,6 @@ export async function loadLevelLearningStatus({ supabase, userId, profile, level
   ])
   const levelNew = news?.levels[level]
 
-  const topics = new Map<string, boolean>()
-  for (const exercise of exercises ?? []) topics.set(exercise.topic, (topics.get(exercise.topic) ?? true) && exercise.completed)
   const courseLessons = (vocabulary?.stats ?? []).filter(stat => !isOwnWordsLesson(stat.lesson))
   const station = ({ lesson, total, active, learned, untouched, due, paused }: LessonStat): LessonStation =>
     ({ lesson, total, active, learned, untouched, due, paused: paused === true })
@@ -149,10 +148,7 @@ export async function loadLevelLearningStatus({ supabase, userId, profile, level
         total: vocabulary.stats.reduce((sum, stat) => sum + stat.total, 0), learned: vocabulary.ownBox.learned,
       },
     grammar: locked.grammar ? { locked: true, total: 0, solved: 0, topics: 0, openTopics: 0 }
-      : exercises && {
-        locked: false, total: exercises.length, solved: exercises.filter(exercise => exercise.completed).length,
-        topics: topics.size, openTopics: [...topics.values()].filter(done => !done).length,
-      },
+      : path && { locked: false, ...path },
     pronunciation: locked.pronunciation ? { locked: true, texts: 0, open: 0, waiting: 0, unread: 0 }
       : pronunciation && { locked: false, ...pronunciation },
     // „Neu" pro Person aus der Datenbank (Migration 42); ersetzt die frühere 14-Tage-Regel der Medien.

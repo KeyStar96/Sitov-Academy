@@ -97,7 +97,6 @@ export function buildAdminNav(lang: string): AdminNavSection[] {
       basePaths: [`${base}/content`],
       items: [
         { labelKey: 'nav_vocabulary', href: `${base}/content/vocabulary`, icon: 'vocabulary' },
-        { labelKey: 'nav_learning_path', href: `${base}/content/exercises`, icon: 'path' },
         { labelKey: 'nav_media', href: `${base}/content/media`, icon: 'media' },
         { labelKey: 'nav_pronunciation', href: `${base}/content/pronunciation`, icon: 'pronunciation' },
       ],

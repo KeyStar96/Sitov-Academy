@@ -40,7 +40,7 @@ test.afterEach(async ({ page }) => { expect(errors.get(page) ?? []).toEqual([]) 
 const routes = [
   ['overview', ''], ['new-students', '/new-students'], ['students', '/students'], ['student', `/students/${STUDENT}`], ['student-activity', `/students/${STUDENT}?tab=activity`],
   ['corrections', '/submissions'], ['analytics', '/analytics'], ['courses', '/courses'], ['cancellations', '/courses/cancellations'],
-  ['content', '/content'], ['vocabulary', '/content/vocabulary'], ['path', '/content/exercises'], ['media', '/content/media'], ['pronunciation', '/content/pronunciation'],
+  ['content', '/content'], ['vocabulary', '/content/vocabulary'], ['media', '/content/media'], ['pronunciation', '/content/pronunciation'],
   ['finance', '/finance'], ['registrations', '/registrations'], ['invoices', '/invoices'], ['bookings', '/bookings'], ['certificates', '/finance/certificates'], ['imports', '/finance/imports'],
 ] as const
 

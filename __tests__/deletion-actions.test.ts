@@ -18,7 +18,8 @@ const mockRemove = jest.fn()
 const mockBucket = jest.fn(() => ({ remove: mockRemove }))
 const mockFrom = jest.fn()
 const mockSignedUrl = jest.fn(async (path: string) => ({ data: { signedUrl: `https://files.test/${path}` }, error: null }))
-const mockClient = { auth: { getUser: mockGetUser, signOut: mockSignOut }, rpc: mockRpc, from: mockFrom, storage: { from: jest.fn(() => ({ createSignedUrl: mockSignedUrl })) } }
+const mockSignedUrls = jest.fn(async (paths: string[]) => ({ data: paths.map(path => ({ path, signedUrl: `https://files.test/${path}`, error: null })), error: null }))
+const mockClient = { auth: { getUser: mockGetUser, signOut: mockSignOut }, rpc: mockRpc, from: mockFrom, storage: { from: jest.fn(() => ({ createSignedUrl: mockSignedUrl, createSignedUrls: mockSignedUrls })) } }
 jest.mock('server-only', () => ({}), { virtual: true })
 jest.mock('@/utils/supabase/server', () => ({ createClient: jest.fn(async () => mockClient) }))
 const mockAdminFrom = jest.fn()
@@ -165,6 +166,10 @@ describe('what staff and learners see afterwards', () => {
     expect(own?.messages.map(message => message.id)).toEqual([`recording-${thread}`, teacherReply, followUp, question])
     expect(own?.status).toBe('pending')
     expect(own?.messages.filter(message => message.audioUrl)).toHaveLength(2)
+    expect(own?.messages.find(message => message.id === `recording-${thread}`)?.audioUrl).toBe(`https://files.test/${recording}`)
+    expect(own?.messages.find(message => message.id === followUp)?.audioUrl).toBe(`https://files.test/${recording}`)
+    expect(mockSignedUrls).toHaveBeenCalledWith([recording], 3600)
+    expect(mockSignedUrl).not.toHaveBeenCalled()
   })
   it('counts open corrections the way staff see them and falls back to the stored status', async () => {
     mockFrom.mockImplementation(() => query({ data: { role: 'teacher' }, error: null }))

@@ -58,13 +58,14 @@ export default function TrainerStatusTiles({ lang, level, status, languageLocked
           : vocab.activeWords + vocab.learned === 0 ? { text: t('status_vocab_setup'), tone: 'action' as const }
             : { text: t('status_vocab_rest'), tone: 'done' as const }) })
 
-  // Bis Phase 3 ist der Lernpfad die Grammatik: Position = erstes offenes Thema.
+  // Position des ersten offenen Lernpfad-Themas, auch nach bestandenem
+  // Einstufungstest eines späteren Themas.
   const grammar = status?.grammar
   tiles.push({ id: 'path', title: 'area_path', badge: 0, ...(
     grammar?.locked ? { text: lockedText('other'), tone: 'locked' as const }
       : !grammar ? { text: t('status_open'), tone: 'calm' as const }
         : grammar.total === 0 || grammar.topics === 0 ? { text: t('status_empty'), tone: 'calm' as const }
-          : grammar.openTopics > 0 ? { text: t('status_path_position', { current: grammar.topics - grammar.openTopics + 1, total: grammar.topics }), tone: 'action' as const }
+          : grammar.openTopics > 0 ? { text: t('status_path_position', { current: grammar.currentTopic ?? grammar.topics - grammar.openTopics + 1, total: grammar.topics }), tone: 'action' as const }
             : { text: t('status_grammar_done'), tone: 'done' as const }) })
 
   const speech = status?.pronunciation

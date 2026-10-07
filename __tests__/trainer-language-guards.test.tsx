@@ -7,7 +7,7 @@ import React from 'react'
 import { render, screen } from '@testing-library/react'
 import VocabularyPage from '@/app/[lang]/dashboard/level/[level]/vocabulary/page'
 import TrainPage from '@/app/[lang]/dashboard/level/[level]/vocabulary/train/page'
-import ExercisesPage from '@/app/[lang]/dashboard/level/[level]/path/page'
+import LearningPathPage from '@/app/[lang]/dashboard/level/[level]/path/page'
 import PronunciationPage from '@/app/[lang]/dashboard/level/[level]/pronunciation/page'
 import VideosPage from '@/app/[lang]/dashboard/level/[level]/videos/page'
 import VideoPage from '@/app/[lang]/dashboard/level/[level]/videos/[id]/page'
@@ -15,7 +15,7 @@ import TrainerAccessGuard from '@/components/dashboard/TrainerAccessGuard'
 import TrainerLanguageRequired from '@/components/dashboard/TrainerLanguageRequired'
 import { getDictionary } from '@/lib/dictionary'
 import { getVocabularySession, getVocabularyOverview } from '@/app/actions/vocabulary'
-import { getExercises } from '@/app/actions/exercises'
+import { getLearningPath } from '@/app/actions/learning-path'
 import { getPronunciationPrompts } from '@/app/actions/pronunciation'
 import { getPronunciationConversations } from '@/app/actions/pronunciation-conversations'
 import { currentUserHasTrainerAccess } from '@/lib/access/server'
@@ -25,11 +25,11 @@ jest.unmock('lucide-react')
 jest.mock('@/lib/learning-new-server', () => ({ loadLearningNewItems: jest.fn().mockResolvedValue({ items: {}, lessonIds: {} }), loadLearningNewCounts: jest.fn().mockResolvedValue(null) }))
 jest.mock('@/components/vocabulary/VocabTrainerPageClient', () => () => null)
 jest.mock('@/components/vocabulary/VocabCardSession', () => () => null)
-jest.mock('@/components/exercises/ExerciseClient', () => () => null)
+jest.mock('@/components/learning-path/LearningPathClient', () => () => null)
 jest.mock('@/components/audio/PronunciationStudio', () => () => null)
 jest.mock('@/components/dashboard/VideoLibrary', () => () => null)
 jest.mock('@/app/actions/vocabulary', () => ({ getVocabularySession: jest.fn(), getVocabularyOverview: jest.fn() }))
-jest.mock('@/app/actions/exercises', () => ({ getExercises: jest.fn() }))
+jest.mock('@/app/actions/learning-path', () => ({ getLearningPath: jest.fn() }))
 jest.mock('@/app/actions/pronunciation', () => ({ getPronunciationPrompts: jest.fn() }))
 jest.mock('@/app/actions/sitov-pronunciation-access', () => ({ getSitovPronunciationReadiness: jest.fn().mockResolvedValue(null) }))
 jest.mock('@/app/actions/pronunciation-conversations', () => ({ getPronunciationConversations: jest.fn() }))
@@ -42,7 +42,7 @@ const params = Promise.resolve({ lang: 'de', level: 'A1.1', id: 'video-id' })
 const cases = [
   ['vocabulary', () => VocabularyPage({ params })],
   ['learning box', () => TrainPage({ params, searchParams: Promise.resolve({}) })],
-  ['grammar', () => ExercisesPage({ params })],
+  ['learning path', () => LearningPathPage({ params })],
   ['pronunciation', () => PronunciationPage({ params, searchParams: Promise.resolve({}) })],
   ['video deep link', () => VideoPage({ params })],
   ['trainer guard', () => TrainerAccessGuard({ params, trainer: 'vocabulary', children: <p>Hidden trainer</p> })],
@@ -53,7 +53,7 @@ beforeEach(() => jest.clearAllMocks())
 test.each(cases)('German %s shows a language choice before loading learner data', async (_name, page) => {
   render(await page())
   expect(screen.getByRole('link', { name: 'Sprache im Profil auswählen' })).toHaveAttribute('href', '/de/dashboard/profile#language-settings')
-  for (const loader of [getDictionary, getVocabularySession, getVocabularyOverview, getExercises, getPronunciationPrompts, getPronunciationConversations, currentUserHasTrainerAccess, createClient]) expect(loader).not.toHaveBeenCalled()
+  for (const loader of [getDictionary, getVocabularySession, getVocabularyOverview, getLearningPath, getPronunciationPrompts, getPronunciationConversations, currentUserHasTrainerAccess, createClient]) expect(loader).not.toHaveBeenCalled()
   expect(screen.queryByText('Hidden trainer')).not.toBeInTheDocument()
 })
 

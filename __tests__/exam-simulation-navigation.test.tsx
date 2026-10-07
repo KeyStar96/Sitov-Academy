@@ -24,3 +24,10 @@ it('safe teacher preview uses the same active navigation without changing produc
   render(<AdminI18nProvider translations={ru.admin}><TeacherSidebar lang="ru" sitovPreviewPathname="/ru/admin/exam-simulation" /></AdminI18nProvider>)
   expect(screen.getByRole('link', { name: ru.admin.nav_exam_simulation })).toHaveAttribute('aria-current', 'page')
 })
+
+it('offers only existing content editors after the legacy grammar editor is removed', () => {
+  const content = buildAdminNav('ru').find(section => section.id === 'content')
+  expect(content?.items.map(item => item.href)).toEqual([
+    '/ru/admin/content/vocabulary', '/ru/admin/content/media', '/ru/admin/content/pronunciation',
+  ])
+})

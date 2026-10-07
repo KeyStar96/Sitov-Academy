@@ -8,10 +8,6 @@ jest.mock('@/lib/learning-new-server', () => ({ loadLearningNewItems: jest.fn().
 jest.mock('@/app/actions/learning-path', () => ({ getLearningPath: jest.fn() }))
 jest.mock('@/components/learning-path/LearningPathClient', () => () => null)
 jest.mock('@/components/dashboard/TrainerLanguageRequired', () => () => null)
-jest.mock('@/app/actions/exercises', () => ({ getExercises: jest.fn() }))
-jest.mock('@/app/actions/learning-checkpoints', () => ({ loadLearningCheckpoint: jest.fn().mockResolvedValue({ ok: true, checkpoint: null, learnerId: 'student' }) }))
-jest.mock('@/components/exercises/ExerciseClient', () => () => null)
-jest.mock('@/lib/dictionary', () => ({ getDictionary: jest.fn() }))
 jest.mock('next/navigation', () => ({ redirect: jest.fn() }))
 
 beforeEach(() => jest.clearAllMocks())
@@ -24,6 +20,25 @@ test('one path RPC supplies the complete map on the canonical route', async () =
   expect(getLearningPath).toHaveBeenCalledWith('A1.1', 'en')
   expect(element.props.initialPath).toBe(map)
 })
+
+test('a level without imported paths stays on the learning-path empty state', async () => {
+  const map = { level: 'B1.2', paths: [], completed: false, next_level: null, next_level_available: false }
+  ;(getLearningPath as jest.Mock).mockResolvedValue({ data: map })
+  const element = await LearningPathPage({ params: Promise.resolve({ lang: 'ru', level: 'B1.2' }) })
+  expect(element.props.initialPath).toBe(map)
+  expect(element.props.initialError).toBeUndefined()
+  expect(getLearningPath).toHaveBeenCalledTimes(1)
+})
+
+test.each(['backend_unavailable', 'request_failed', 'invalid_response', 'access_denied'])(
+  'a %s error stays visible in the learning path and never loads legacy grammar', async error => {
+    ;(getLearningPath as jest.Mock).mockResolvedValue({ error })
+    const element = await LearningPathPage({ params: Promise.resolve({ lang: 'uk', level: 'A1.1' }) })
+    expect(element.props.initialError).toBe(error)
+    expect(element.props.initialPath).toBeUndefined()
+    expect(getLearningPath).toHaveBeenCalledTimes(1)
+  },
+)
 
 test('old bookmarks redirect without loading or grading exercises', async () => {
   await ExercisesPage({ params: Promise.resolve({ lang: 'uk', level: 'A1.1' }) })

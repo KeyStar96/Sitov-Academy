@@ -8,7 +8,6 @@ import LogoutButton from '@/components/dashboard/LogoutButton'
 import StudentNavigation from '@/components/dashboard/StudentNavigation'
 import ProfileSettings from '@/components/dashboard/ProfileSettings'
 import { SessionBoxMoves, AssessmentResult } from '@/components/vocabulary/SuccessMoments'
-import { buildWordTiles } from '@/components/exercises/FillInBlankExercise'
 import { toStations } from '@/lib/lesson-stations'
 import { courseSessionsInMonth } from '@/lib/profile-month'
 import { studentTranslator, STUDENT_MESSAGES } from '@/lib/student-ui-i18n'
@@ -23,7 +22,7 @@ jest.mock('@/app/actions/auth', () => ({ logout: jest.fn() }))
 jest.mock('@/app/actions/pronunciation-conversations', () => ({ markPronunciationSeen: jest.fn().mockResolvedValue({ success: true }), getPronunciationConversations: jest.fn() }))
 jest.mock('@/components/audio/WaveformPlayer', () => ({ __esModule: true, default: ({ onProgress }: { onProgress?: (state: { playing: boolean; fraction: number; ended: boolean }) => void }) =>
   <button type="button" onClick={() => { onProgress?.({ playing: true, fraction: 0.2, ended: false }); onProgress?.({ playing: false, fraction: 1, ended: true }) }}>play</button> }))
-jest.mock('next/navigation', () => ({ usePathname: () => '/de/dashboard/level/A1.2/exercises', useRouter: () => ({ refresh: jest.fn(), push: jest.fn() }) }))
+jest.mock('next/navigation', () => ({ usePathname: () => '/de/dashboard/level/A1.2/path', useRouter: () => ({ refresh: jest.fn(), push: jest.fn() }) }))
 
 const t = studentTranslator('de')
 const labels = { whatsapp: 'WhatsApp', phone: '+49 1', phoneLabel: 'Anrufen', telegram: 'Telegram', email: 'a@b.test', emailLabel: 'E-Mail' }
@@ -74,14 +73,6 @@ describe('Kalender', () => {
     expect(courseSessionsInMonth([{ weekday: 2 }, { weekday: 4 }], '2026-10-01', null, null)).toBe(9)
     expect(courseSessionsInMonth([{ weekday: 2 }], '2026-10-01', '2026-10-14', null)).toBe(2)
     expect(courseSessionsInMonth([], '2026-10-01', null, null)).toBeNull()
-  })
-})
-
-describe('Grammatik-Kärtchen', () => {
-  it('splits multi-word answers into word cards and keeps single answers whole', () => {
-    expect(buildWordTiles(['ein Tisch', 'eine Tisch'], 'ein Tisch')).toEqual(['ein', 'Tisch', 'eine'])
-    expect(buildWordTiles(['die die', 'der'], 'die die')).toEqual(['die', 'die', 'der'])
-    expect(buildWordTiles(['lernst', 'lernt', 'lernst'], 'lernst')).toEqual(['lernst', 'lernt'])
   })
 })
 

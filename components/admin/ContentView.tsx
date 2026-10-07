@@ -9,8 +9,8 @@ import { buildAdminNav } from '@/lib/admin-navigation'
 import { contentAdminCopy } from '@/lib/content-admin-i18n'
 
 /**
- * Übersicht „Lerninhalte“: die vier eigenständigen Verwaltungsbereiche
- * (Vokabeltrainer, Learning Path, Mediathek, Aussprache-Trainer) als Einstiege.
+ * Übersicht „Lerninhalte“: die eigenständigen Verwaltungsbereiche
+ * (Vokabeltrainer, Mediathek, Aussprache-Trainer) als Einstiege.
  * Die Bereiche selbst sind vollständig getrennt; diese Seite bleibt als Hub
  * und für alte Lesezeichen erhalten.
  */
@@ -20,7 +20,6 @@ export default function ContentView({ lang }: { lang: string }) {
   const section = buildAdminNav(lang).find(entry => entry.id === 'content')
   const descriptions: Record<string, string> = {
     vocabulary: copy.vocabularyIntro,
-    path: copy.pathIntro,
     media: copy.mediaIntro,
     pronunciation: copy.pronunciationIntro,
   }

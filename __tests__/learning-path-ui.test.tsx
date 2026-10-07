@@ -34,6 +34,22 @@ async function openPractice() {
   await screen.findByTestId('path-answer')
 }
 
+it('shows the localized empty state for a level without imported paths', () => {
+  render(<LearningPathClient initialPath={{ ...map, paths: [] }} level="A1.1" lang="uk" />)
+  expect(screen.getByText(learningPathMessages.uk.empty)).toBeVisible()
+  expect(screen.queryByTestId('path-answer')).not.toBeInTheDocument()
+  expect(startLearningNode).not.toHaveBeenCalled()
+})
+
+it('shows a missing-backend error and retries through the same learning-path RPC', async () => {
+  render(<LearningPathClient initialError="backend_unavailable" level="A1.1" lang="en" />)
+  expect(screen.getByRole('alert')).toHaveTextContent(pathErrorText('en', 'backend_unavailable'))
+  fireEvent.click(screen.getByRole('button', { name: learningPathMessages.en.retry }))
+  await waitFor(() => expect(screen.queryByRole('alert')).not.toBeInTheDocument())
+  expect(getLearningPath).toHaveBeenCalledWith('A1.1', 'en')
+  expect(screen.getByTestId(`path-node-${id}`)).toBeInTheDocument()
+})
+
 it('shows the translated rule card before the first exercise and honours server locks', async () => {
   render(<LearningPathClient initialPath={map} level="A1.1" lang="en" />)
   expect(screen.getByTestId(`path-node-${nextId}`)).toBeDisabled()

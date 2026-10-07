@@ -2,6 +2,21 @@
 
 import { createClient } from '@/utils/supabase/server'
 import { readVocabularyProgress } from '@/lib/vocabulary-queries'
+import { ACCESS_LEVELS } from '@/lib/access/levels'
+import { readSitovLearningPathStatistics } from '@/lib/sitov-learning-path-statistics'
+
+async function readSitovCourseVocabulary(supabase: Awaited<ReturnType<typeof createClient>>) {
+  const cards: { id: string; unit: { level: string } }[] = []
+  for (let offset = 0; ; offset += 500) {
+    const { data, error } = await supabase.from('learning_vocabulary_cards')
+      .select('id, unit:learning_units!inner(level,owner_auth_user_id)')
+      .is('unit.owner_auth_user_id', null).eq('unit.is_active', true)
+      .order('id').range(offset, offset + 499)
+    if (error) throw new Error(`level_progress_unavailable: ${error.code}`)
+    cards.push(...(data ?? []))
+    if (!data || data.length < 500) return cards
+  }
+}
 
 export async function getAllLevelsProgress() {
   const supabase = await createClient()
@@ -9,56 +24,34 @@ export async function getAllLevelsProgress() {
 
   if (!user) return {}
 
-  // R10: Ein Lesefehler darf niemals als "0 % Fortschritt" erscheinen. Ohne die
-  // Fehlerprüfung liefert PostgREST `data: null`, und die Nullish-Guards weiter
-  // unten erzeugen daraus stillschweigend einen falschen, zu niedrigen Wert.
-  // 1. Hole alle Übungen und deren Level
-  const { data: exercises, error: exercisesError } = await supabase.from('learning_exercises').select('id, unit:learning_units!inner(level)')
-
-  // 2. Hole alle Vokabelkarten und deren Level — nur Kursvokabeln: „Eigene
-  //    Wörter" zählen in der Lernbox, nicht im Kursfortschritt des Niveaus.
-  const { data: vocabCards, error: vocabCardsError } = await supabase.from('learning_vocabulary_cards')
-    .select('id, unit:learning_units!inner(level,owner_auth_user_id)').is('unit.owner_auth_user_id', null)
-
-  // 3. Hole den Fortschritt des Users für Übungen
-  const { data: exerciseProgress, error: exerciseProgressError } = await supabase
-    .from('user_exercise_progress')
-    .select('exercise_id')
-    .eq('auth_user_id', user.id)
-    .eq('completed', true)
-
-  const readFailure = exercisesError ?? vocabCardsError ?? exerciseProgressError
-  if (readFailure) {
+  // R10: Fehler bleiben Fehler, statt als „0 %“ zu erscheinen. Der Lernpfad
+  // ersetzt den Alt-Grammatik-Katalog vollständig; seine Kernknoten zählen
+  // einmal, optionale Zusatzknoten nicht. Alle Vokabelabfragen sind paginiert.
+  const [paths, vocabCards, vocabProgress] = await Promise.all([
+    Promise.all(ACCESS_LEVELS.map(async level => ({ level,
+      stats: await readSitovLearningPathStatistics(supabase, level, 'de') }))),
+    readSitovCourseVocabulary(supabase),
+    readVocabularyProgress(supabase, user.id),
+  ]).catch(error => {
     console.error('[progress] level_progress_unavailable')
-    throw new Error(`level_progress_unavailable: ${readFailure.code ?? 'unknown'}`)
-  }
+    throw error
+  })
 
-  // 4. Hole den Fortschritt des Users für Vokabeln (Box 7 = gemeistert)
-  const vocabProgress = (await readVocabularyProgress(supabase, user.id)).filter(row => row.box_number === 7)
+  // Nur aktive Kurslektionen: eigene Wörter zählen weiterhin in der Lernbox.
+  const vocabLevelMap = new Map(vocabCards.map(card => [card.id, card.unit.level]))
 
-  // Map IDs to Level
-  const exerciseLevelMap = new Map((exercises || []).map(e => [e.id, e.unit.level]))
-  const vocabLevelMap = new Map((vocabCards || []).map(v => [v.id, v.unit.level]))
-
-  // Total items per level
   const totalPerLevel: Record<string, number> = {}
-  exercises?.forEach(e => {
-    totalPerLevel[e.unit.level] = (totalPerLevel[e.unit.level] || 0) + 1
-  })
-  vocabCards?.forEach(v => {
-    totalPerLevel[v.unit.level] = (totalPerLevel[v.unit.level] || 0) + 1
-  })
-
-  // Completed items per level
   const completedPerLevel: Record<string, number> = {}
-  exerciseProgress?.forEach(p => {
-    const level = exerciseLevelMap.get(p.exercise_id)
-    if (level) {
-      completedPerLevel[level] = (completedPerLevel[level] || 0) + 1
-    }
+  paths.forEach(({ level, stats }) => {
+    if (!stats) return // Absichtlich gesperrte Trainer tragen keinen Nenner bei.
+    totalPerLevel[level] = stats.total
+    completedPerLevel[level] = stats.solved
+  })
+  vocabCards.forEach(card => {
+    totalPerLevel[card.unit.level] = (totalPerLevel[card.unit.level] || 0) + 1
   })
   const learnedDirections = new Map<string, Set<string>>()
-  vocabProgress?.forEach(item => {
+  vocabProgress.filter(row => row.box_number === 7).forEach(item => {
     const directions = learnedDirections.get(item.card_id) ?? new Set<string>()
     directions.add(item.direction)
     learnedDirections.set(item.card_id, directions)
@@ -71,21 +64,11 @@ export async function getAllLevelsProgress() {
     }
   })
 
-  // Calculate percentages
   const progressPercentages: Record<string, number> = {}
-  
-  // Initialize all known levels with 0%
-  Object.keys(totalPerLevel).forEach(level => {
-    progressPercentages[level] = 0
-  })
-
-  // Calculate actual percentage
   Object.keys(totalPerLevel).forEach(level => {
     const total = totalPerLevel[level] || 0
-    if (total > 0) {
-      const completed = completedPerLevel[level] || 0
-      progressPercentages[level] = Math.round((completed / total) * 100)
-    }
+    const completed = completedPerLevel[level] || 0
+    progressPercentages[level] = total > 0 ? Math.round((completed / total) * 100) : 0
   })
 
   return progressPercentages

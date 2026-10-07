@@ -30,5 +30,5 @@ export function runSitovSimulationAudio() {
 
 if (require.main === module) {
   try { console.log(JSON.stringify(runSitovSimulationAudio())) }
-  catch (error) { console.error(error instanceof Error ? error.message : 'Audio preparation failed'); process.exitCode = 1 }
+  catch { console.error('[sitov-simulation-audio] preparation_failed'); process.exitCode = 1 }
 }

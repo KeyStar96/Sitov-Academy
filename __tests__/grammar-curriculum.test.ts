@@ -1,8 +1,5 @@
 import curriculum from '@/supabase/seeds/grammar-curriculum-2026.json'
 import { grammarWriteSchema } from '@/lib/grammar-validation'
-import { GRAMMAR_COPY, grammarTranslator } from '@/lib/grammar-i18n'
-import { createGrammarSession, groupGrammarTopics } from '@/lib/grammar-session'
-import type { StudentExercise } from '@/lib/types/exercise'
 
 const authored = {
   level: 'A1.1', lesson: '01', topic: 'Sein', type: 'fill_in_blank', solution_audio_url: null,
@@ -45,37 +42,9 @@ describe('Original grammar curriculum', () => {
     expect(grammarWriteSchema.safeParse({ ...first, solution_audio_url: 'javascript:alert(1)' }).success).toBe(false)
     expect(grammarWriteSchema.safeParse({ ...first, type: 'sentence_building' }).success).toBe(false)
   })
-  it.each(['de', 'en', 'ru', 'uk', 'tr'] as const)('has complete studio and editor labels in %s', lang => {
-    expect(Object.keys(GRAMMAR_COPY[lang]).sort()).toEqual(Object.keys(GRAMMAR_COPY.de).sort())
-    expect(grammarTranslator(lang)('topicProgress', { done: 2, total: 10 })).not.toMatch(/\{\w+\}/)
-  })
 })
 
-function exercise(index: number, completed = false, topic = 'Artikel'): StudentExercise {
-  return { id: String(index), lesson: '01', topic, level: 'A1.1', type: 'multiple_choice',
-    content: { target_form: ['bestimmter Artikel'], question: '… Tisch', options: ['der', 'die', 'das'], correct_answer: 'der' },
-    completed, score: 0, attempts: 0, hint: null }
-}
-describe('Grammar sessions', () => {
-  const exercises = [exercise(0, true), ...Array.from({ length: 15 }, (_, index) => exercise(index + 1)), exercise(20, false, 'Verben')]
-  it('limits sessions to ten unfinished exercises without mutating the library', () => {
-    const session = createGrammarSession(exercises)
-    expect(session).toHaveLength(10)
-    expect(session[0].id).toBe('1')
-    expect(exercises[0].completed).toBe(true)
-  })
-  it('keeps topic boundaries and allows completed material to be reviewed', () => {
-    expect(createGrammarSession(exercises, { topic: 'Verben' }).map(row => row.id)).toEqual(['20'])
-    expect(createGrammarSession([exercise(0, true)])).toHaveLength(0)
-    expect(createGrammarSession([exercise(0, true)], { review: true })).toHaveLength(1)
-    expect(createGrammarSession(exercises, { topic: 'Missing' })).toHaveLength(0)
-  })
-  it('reports persisted progress separately for every topic', () => {
-    expect(groupGrammarTopics(exercises)).toEqual([{ name: 'Artikel', total: 16, completed: 1 }, { name: 'Verben', total: 1, completed: 0 }])
-  })
-})
-
-describe('Grammar CMS authored data validation', () => {
+describe('Authored grammar data validation', () => {
   it('accepts seed string explanations and multilingual metadata without mixing them', () => {
     const result = grammarWriteSchema.parse({ ...authored, hint: { ru: 'Сравнение', uk: 'Порівняння' } })
     expect(result.hint).toEqual({ ru: 'Сравнение', uk: 'Порівняння' })

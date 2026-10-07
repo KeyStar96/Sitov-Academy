@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/** Local, server-only curriculum importer. Usage: see the Phase-4 hand-over in docs/master-4/STATUS.md (archived guide: git show fc1d859:docs/master-4/phase-4-import.md). */
+/** Local, server-only curriculum importer. Usage: npm run seed:learning-path -- --help; prepare and import German audio first as documented in docs/audio-authoring.md. */
 import { createHash } from 'node:crypto'
 import { createReadStream } from 'node:fs'
 import { readFile, realpath, stat, writeFile } from 'node:fs/promises'
