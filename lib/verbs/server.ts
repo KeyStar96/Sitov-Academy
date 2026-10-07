@@ -9,12 +9,13 @@ import { hasTrainerAccess } from '@/lib/access/levels'
 import { readAllRows } from '@/lib/supabase-read'
 import { getSitovVerbById, getSitovVerbCatalog, getSitovVerbTenses } from './catalog'
 import { buildSitovVerbExercise, prioritizeSitovVerbTasks } from './engine'
+import { buildSitovVerbLearningBox } from './learning-box'
 import { SITOV_VERB_TRAINER_LEVELS, type SitovVerbLocale } from './types'
 import type { SitovVerbPublicExercise, SitovVerbResult, SitovVerbReviewResult, SitovVerbTrainerState } from './contracts'
 
 const sitovLevel = z.enum(SITOV_VERB_TRAINER_LEVELS)
 const sitovTense = z.enum(['present', 'perfect', 'past'])
-const sitovNextInput = z.object({ level: sitovLevel, tenses: z.array(sitovTense).min(1).max(3).optional(), excludeVerbId: z.string().max(160).optional() }).strict()
+const sitovNextInput = z.object({ level: sitovLevel, tenses: z.array(sitovTense).min(1).max(3).optional(), excludeVerbId: z.string().max(160).optional(), box: z.number().int().min(1).max(7).optional() }).strict()
 const sitovBoxInput = z.object({ level: sitovLevel, verbIds: z.array(z.string().min(1).max(160)).min(1).max(1000), selected: z.boolean() }).strict()
 const sitovAnswerInput = z.object({ exerciseId: z.uuid(), answer: z.array(z.string().max(240)).min(1).max(3) }).strict()
 const sitovProgressSchema = z.object({ verbId: z.string(), tense: sitovTense, box: z.number().int().min(1).max(7), attempts: z.number().int().nonnegative(), correct: z.number().int().nonnegative(), lapses: z.number().int().nonnegative(), nextReviewAt: z.string().nullable(), lastAnsweredAt: z.string().nullable() }).transform(row => ({ ...row, nextReviewAt: row.nextReviewAt ?? null, lastAnsweredAt: row.lastAnsweredAt ?? null }))
@@ -81,7 +82,9 @@ export function nextSitovVerbExercise(input: z.infer<typeof sitovNextInput>, lan
     if (!parsed.success) throw new SitovVerbError('invalid_input')
     const state = await sitovLoad(client, learnerId, parsed.data.level)
     if (parsed.data.tenses?.some(tense => !state.tenses.includes(tense))) throw new SitovVerbError('not_authorized')
-    const selected = state.verbs.filter(verb => state.selectedIds.includes(verb.id))
+    const selected = parsed.data.box == null
+      ? state.verbs.filter(verb => state.selectedIds.includes(verb.id))
+      : buildSitovVerbLearningBox(state).cards.filter(card => card.box === parsed.data.box).map(card => card.verb)
     let tasks = prioritizeSitovVerbTasks(selected, state.progress, state.level, parsed.data.tenses)
     if (tasks.length > 1 && parsed.data.excludeVerbId) {
       const others = tasks.filter(task => task.verbId !== parsed.data.excludeVerbId)
@@ -109,7 +112,7 @@ export function submitSitovVerbAnswer(input: z.infer<typeof sitovAnswerInput>): 
   })
 }
 export function sitovVerbStats(state: SitovVerbTrainerState, now = Date.now()) {
-  const active = state.verbs.filter(verb => state.selectedIds.includes(verb.id))
-  const tasks = prioritizeSitovVerbTasks(active, state.progress, state.level, undefined, now)
-  return { total: state.verbs.length, selected: active.length, due: tasks.filter(task => task.due).length, mastered: state.progress.filter(progress => state.selectedIds.includes(progress.verbId) && progress.box >= 6).length }
+  const box = buildSitovVerbLearningBox(state, now)
+  return { total: state.verbs.length, selected: box.totalVerbs, due: box.dueForms, mastered: box.confidentForms,
+    learned: box.learnedVerbs, practicedForms: box.practicedForms, totalForms: box.totalForms }
 }

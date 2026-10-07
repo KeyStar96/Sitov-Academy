@@ -18848,10 +18848,12 @@ DECLARE known integer; nodes integer; tests integer; legacy integer; topics inte
  WITH paired AS (
   SELECT c.id,c.word_de,c.plural FROM public.vocabulary_direction_progress p
   JOIN public.learning_vocabulary_cards c ON c.id=p.card_id JOIN public.learning_units u ON u.id=c.unit_id
-  WHERE p.auth_user_id=p_student AND u.owner_auth_user_id IS NULL AND EXISTS(
-   SELECT 1 FROM vocabulary_private.answer_receipts r WHERE r.auth_user_id=p_student AND r.progress_id=p.id
-    AND nullif(btrim(r.typed_answer),'') IS NOT NULL AND r.response->>'isCorrect'='true' AND r.response ? 'correctAnswer')
-  GROUP BY c.id,c.word_de,c.plural HAVING count(DISTINCT p.direction)=2 AND min(p.box_number)>=3
+  WHERE p.auth_user_id=p_student AND u.owner_auth_user_id IS NULL
+  GROUP BY c.id,c.word_de,c.plural
+  HAVING count(DISTINCT p.direction)=2 AND min(p.box_number)>=3
+   AND bool_or(p.direction='native_to_de' AND EXISTS(
+    SELECT 1 FROM vocabulary_private.answer_receipts r WHERE r.auth_user_id=p_student AND r.progress_id=p.id
+     AND nullif(btrim(r.typed_answer),'') IS NOT NULL AND r.response->>'isCorrect'='true' AND r.response ? 'correctAnswer'))
  ), words AS (SELECT id,unnest(sitov_pronunciation_private.content_keys(word_de||' '||coalesce(plural,''))) key FROM paired)
  SELECT (SELECT count(DISTINCT lower(btrim(word_de)))::integer FROM paired),coalesce(array_agg(DISTINCT key),'{}'::text[]) INTO known,keys FROM words;
  SELECT count(*)::integer INTO nodes FROM public.path_node_progress p JOIN public.path_nodes n ON n.id=p.node_id

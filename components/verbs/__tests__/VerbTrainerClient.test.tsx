@@ -1,4 +1,4 @@
-import { fireEvent, render, screen, waitFor } from '@testing-library/react'
+import { fireEvent, render, screen, waitFor, within } from '@testing-library/react'
 import VerbTrainerClient, { type SitovVerbTrainerActions } from '../VerbTrainerClient'
 import type { SitovVerbTrainerState, SitovVerbPublicExercise, SitovVerbReviewResult } from '@/lib/verbs/contracts'
 
@@ -102,4 +102,62 @@ test('focused practice never starts with no selected tense and future levels rem
   expect(screen.getByRole('button', { name: 'Start a focused round' })).toBeDisabled()
   fireEvent.click(screen.getByRole('button', { name: 'My verb box' }))
   expect(screen.getByRole('button', { name: 'B1.1' })).toBeDisabled()
+})
+
+test('the independent box shows a verb once and its exact separate tense progress', async () => {
+  const source = { ...sitovState, progress: [{ ...sitovReview.progress, box: 6, attempts: 6, correct: 6 }] }
+  render(<VerbTrainerClient initialState={source} lang="en" actions={sitovActions()} />)
+  fireEvent.click(screen.getByRole('button', { name: 'Open Box 1 · New' }))
+  const dialog = await screen.findByRole('dialog')
+  expect(within(dialog).getByText('fahren')).toHaveAttribute('translate', 'no')
+  expect(within(dialog).getByText('Box 6 · Confident')).toBeInTheDocument()
+  expect(within(dialog).getByText('Box 1 · New', { selector: 'span' })).toBeInTheDocument()
+  expect(within(dialog).getByText('Some tenses are already further along')).toBeInTheDocument()
+  expect(within(dialog).getByText('Not practised yet')).toBeInTheDocument()
+  fireEvent.change(within(dialog).getByRole('textbox', { name: 'Search this box for a verb or meaning' }), { target: { value: 'absent' } })
+  expect(within(dialog).getByText('No verbs match this selection.')).toBeInTheDocument()
+})
+
+test('a compartment round keeps its server box scope, drains cleanly and never replays a stale zero-score completion', async () => {
+  const actions = sitovActions()
+  actions.next = jest.fn().mockResolvedValueOnce({ data: sitovExercise }).mockResolvedValue({ data: null })
+  render(<VerbTrainerClient initialState={sitovState} lang="en" actions={actions} />)
+  fireEvent.click(screen.getByRole('button', { name: 'Open Box 1 · New' }))
+  fireEvent.click(await screen.findByRole('button', { name: 'Practise this compartment' }))
+  fireEvent.change(await screen.findByRole('textbox', { name: 'Your answer 1' }), { target: { value: 'fährst' } })
+  fireEvent.click(screen.getByRole('button', { name: 'Check answer' }))
+  fireEvent.click(await screen.findByRole('button', { name: 'Next form' }))
+  expect(await screen.findByRole('heading', { name: 'One round further.' })).toBeInTheDocument()
+  expect(actions.next).toHaveBeenLastCalledWith({ level: 'A1.2', tenses: ['present', 'perfect'], excludeVerbId: 'sitov-fahren', box: 1 }, 'en')
+  fireEvent.click(screen.getByRole('button', { name: 'Another round' }))
+  expect(await screen.findByRole('heading', { name: 'There are no tasks for this selection yet.' })).toBeInTheDocument()
+  expect(screen.queryByRole('heading', { name: 'One round further.' })).not.toBeInTheDocument()
+  expect(actions.next).toHaveBeenCalledTimes(3)
+})
+
+test('a failed inspector removal closes the modal so access errors and reload remain operable', async () => {
+  const actions = sitovActions()
+  actions.box = jest.fn().mockResolvedValue({ error: 'not_authorized' })
+  render(<VerbTrainerClient initialState={sitovState} lang="en" actions={actions} />)
+  const opener = screen.getByRole('button', { name: 'Open Box 1 · New' })
+  fireEvent.click(opener)
+  fireEvent.click(await screen.findByRole('button', { name: 'Remove from verb box: fahren' }))
+  await waitFor(() => expect(screen.queryByRole('dialog')).not.toBeInTheDocument())
+  expect(screen.getByRole('alert')).toHaveTextContent('Your access has changed')
+  expect(screen.getByRole('button', { name: 'Reload' })).toBeEnabled()
+  expect(opener).toHaveFocus()
+  expect(screen.getByRole('region', { name: 'Your verb learning box' }).querySelector('[data-sitov-stat="verbs"]')).toHaveTextContent('1')
+})
+
+test('automatic practice after a compartment round clears the previous server box filter', async () => {
+  const actions = sitovActions()
+  render(<VerbTrainerClient initialState={sitovState} lang="en" actions={actions} />)
+  fireEvent.click(screen.getByRole('button', { name: 'Open Box 1 · New' }))
+  fireEvent.click(await screen.findByRole('button', { name: 'Practise this compartment' }))
+  await screen.findByRole('textbox', { name: 'Your answer 1' })
+  fireEvent.click(screen.getByRole('button', { name: 'End round' }))
+  fireEvent.click(await screen.findByRole('button', { name: 'Back to verb trainer' }))
+  fireEvent.click(screen.getByRole('button', { name: 'Start practising' }))
+  await screen.findByRole('textbox', { name: 'Your answer 1' })
+  expect(actions.next).toHaveBeenLastCalledWith({ level: 'A1.2', tenses: ['present', 'perfect'], excludeVerbId: undefined }, 'en')
 })

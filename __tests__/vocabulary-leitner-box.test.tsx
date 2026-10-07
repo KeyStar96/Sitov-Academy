@@ -1,4 +1,5 @@
 import { fireEvent, render, screen, waitFor, within } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import LeitnerBoxOverview, { stackFill, stackLines } from '@/components/vocabulary/LeitnerBoxOverview'
 import { getPhaseCards } from '@/app/actions/vocabulary'
 import { summarizeBox, computeWordBoxState, type DirectionProgressRow } from '@/lib/vocabulary-box'
@@ -38,6 +39,8 @@ function mount() {
 }
 
 beforeEach(() => {
+  // Framer's native keyboard press feedback dispatches a pointer event; jsdom lacks this constructor.
+  window.PointerEvent = MouseEvent as typeof PointerEvent
   jest.clearAllMocks()
   jest.mocked(getPhaseCards).mockResolvedValue({ key: 1, cards: [halfKnown], total: 1, truncated: false })
 })
@@ -92,8 +95,12 @@ it('macht den Kartenstapel mit der Zahl der Vokabeln dicker', () => {
 })
 
 it('öffnet ein Fach per Tastatur', async () => {
+  const user = userEvent.setup()
   mount()
-  fireEvent.keyDown(screen.getByRole('button', { name: 'In das Fach „Neu“ hineinschauen' }), { key: 'Enter' })
+  const button = screen.getByRole('button', { name: 'In das Fach „Neu“ hineinschauen' })
+  expect(button.tagName).toBe('BUTTON')
+  button.focus()
+  await user.keyboard('{Enter}')
   expect(await screen.findByRole('dialog', { name: 'Fach 1: Neu' })).toBeInTheDocument()
 })
 

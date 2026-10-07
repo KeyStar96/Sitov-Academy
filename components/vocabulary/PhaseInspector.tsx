@@ -51,7 +51,7 @@ function CardRow({ card, t, lang }: { card: PhaseCardView; t: ReturnType<typeof 
   return (
     <li className="min-w-0 border-b border-[var(--border)] py-4 last:border-b-0">
       <div className="flex min-w-0 flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-        <p className={cn('min-w-0 break-words text-xl font-semibold leading-snug', articleColorClass(card.article))}>{word}</p>
+        <p lang="de" translate="no" className={cn('min-w-0 break-words text-xl font-semibold leading-snug', articleColorClass(card.article))}>{word}</p>
         <p className="min-w-0 break-words text-lg text-[var(--muted)]">{card.translation}</p>
       </div>
       <div className="mt-2.5 flex flex-wrap items-center gap-2">

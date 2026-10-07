@@ -1,17 +1,16 @@
 'use client'
 
 import { useId, useState, type CSSProperties } from 'react'
-import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import { Archive, ArrowLeftRight, CalendarCheck, Check, ChevronDown, Lightbulb, RotateCcw, Sparkles, X, type LucideIcon } from 'lucide-react'
 import { LEITNER_PHASES, PHASE_INTERVALS_IN_DAYS } from '@/lib/leitner'
 import { phaseTone } from '@/lib/vocabulary-box'
 import type { createVocabularyTranslator } from '@/lib/vocabulary-i18n'
 import { cn } from '@/lib/utils'
+import { EASE_OUT_SOFT, MOTION, staggerDelay, useReducedMotionSafe } from '@/lib/motion'
 
 type Translator = ReturnType<typeof createVocabularyTranslator>
 type StepKey = 'new' | 'right' | 'wrong' | 'both' | 'learned'
-
-const EASE = [0.22, 1, 0.36, 1] as const
 
 /** Die Regeln aus `22_vocabulary_phase6_rules.sql`, in der Reihenfolge, in der eine Karte sie erlebt. */
 const STEPS: readonly { key: StepKey; icon: LucideIcon; tone: 'accent' | 'success' | 'danger' | 'violet' }[] = [
@@ -61,7 +60,7 @@ function GuideTrack({ t }: { t: Translator }) {
  * Kasten steht sie offen, weil dann genau diese Frage ansteht.
  */
 export default function LernkastenGuide({ t, defaultOpen = false }: { t: Translator; defaultOpen?: boolean }) {
-  const reduced = useReducedMotion() ?? false
+  const reduced = useReducedMotionSafe()
   const [open, setOpen] = useState(defaultOpen)
   const id = useId()
   const toggleId = `${id}-toggle`
@@ -92,7 +91,7 @@ export default function LernkastenGuide({ t, defaultOpen = false }: { t: Transla
             initial={reduced ? false : { height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={reduced ? { opacity: 0 } : { height: 0, opacity: 0 }}
-            transition={{ duration: reduced ? 0 : 0.42, ease: EASE }}
+            transition={{ duration: reduced ? 0 : MOTION.slow, ease: EASE_OUT_SOFT }}
           >
             <div className="lb-guide__body">
               <GuideTrack t={t} />
@@ -103,7 +102,7 @@ export default function LernkastenGuide({ t, defaultOpen = false }: { t: Transla
                     className="lb-guide__step"
                     initial={reduced ? false : { opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.35, ease: EASE, delay: reduced ? 0 : 0.12 + index * 0.06 }}
+                    transition={{ duration: reduced ? 0 : MOTION.slow, ease: EASE_OUT_SOFT, delay: reduced ? 0 : staggerDelay(index) }}
                   >
                     <span className="lb-guide__step-icon" data-tone={tone} aria-hidden="true"><Icon size={18} strokeWidth={2.5} /></span>
                     <span><b>{t(`box_guide_${key}_label`)}:</b> {t(`box_guide_${key}`)}</span>
@@ -114,7 +113,7 @@ export default function LernkastenGuide({ t, defaultOpen = false }: { t: Transla
                 className="lb-guide__tip"
                 initial={reduced ? false : { opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.35, ease: EASE, delay: reduced ? 0 : 0.12 + STEPS.length * 0.06 }}
+                transition={{ duration: reduced ? 0 : MOTION.slow, ease: EASE_OUT_SOFT, delay: reduced ? 0 : staggerDelay(STEPS.length) }}
               >
                 <CalendarCheck size={20} aria-hidden="true" className="mt-0.5 shrink-0 text-[var(--accent-text)]" />
                 <span>{t('box_guide_tip')}</span>

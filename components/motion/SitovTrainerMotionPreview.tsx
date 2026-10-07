@@ -13,6 +13,7 @@ import { computeWordBoxState, summarizeBox } from '@/lib/vocabulary-box'
 import type { DueVocabularyCard } from '@/lib/types/vocabulary'
 import type { PathMap } from '@/lib/learning-path-contract'
 import type { PronunciationPrompt } from '@/lib/pronunciation-prompts'
+import type { VocabularyTranslations } from '@/lib/vocabulary-i18n'
 import de from '@/dictionaries/de.json'
 
 const sitovId = (n: number) => `00000000-0000-4000-8000-${String(n).padStart(12, '0')}`
@@ -43,8 +44,9 @@ const sitovPrompts: PronunciationPrompt[] = [
 ]
 
 /** All requests in visual QA use the read-only loopback fixture. */
-export default function SitovTrainerMotionPreview({ lang, initialView = 'vocabulary' }: {
+export default function SitovTrainerMotionPreview({ lang, initialView = 'vocabulary', vocabularyTranslations = de.vocabulary }: {
   lang: string
+  vocabularyTranslations?: VocabularyTranslations
   initialView?: 'vocabulary' | 'path' | 'pronunciation'
 }) {
   const [view, setView] = useState(initialView)
@@ -60,7 +62,7 @@ export default function SitovTrainerMotionPreview({ lang, initialView = 'vocabul
       <label className="flex min-h-12 items-center gap-2"><input type="checkbox" checked={empty} onChange={event => setEmpty(event.target.checked)} />Leerzustand</label>
     </div>
     {view === 'vocabulary' && <VocabTrainerPageClient key={String(empty)} learnerId={sitovId(1)} initialCards={empty ? [] : sitovCards}
-      boxSummary={empty ? summarizeBox([]) : sitovSummary} translations={de.vocabulary} lang={lang} level="A1.1" />}
+      boxSummary={empty ? summarizeBox([]) : sitovSummary} translations={vocabularyTranslations} lang={lang} level="A1.1" />}
     {view === 'path' && <>
       <LearningPathClient initialPath={empty ? { ...sitovMap, paths: [] } : sitovMap} lang={lang} level="A1.1" />
       {!empty && <div className={pathStyles.root}><SitovMotionStage className={pathStyles.sitovView}>

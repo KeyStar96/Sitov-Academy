@@ -1,13 +1,16 @@
 'use client'
 
 import { useEffect, useMemo, useRef, useState, type CSSProperties, type FormEvent, type ReactNode } from 'react'
-import { ArrowRight, Check, CheckCheck, CircleHelp, Flame, Layers3, LoaderCircle, LockKeyhole, Plus, RotateCcw, Search, Sparkles, Target, Trash2, X, Zap } from 'lucide-react'
+import { ArrowRight, Check, CheckCheck, CircleHelp, Layers3, LoaderCircle, LockKeyhole, Plus, RotateCcw, Search, Sparkles, Target, Trash2, X, Zap } from 'lucide-react'
 import { nextSitovVerbExercise, setSitovVerbBox, submitSitovVerbAnswer } from '@/app/actions/verbs'
 import { getSitovVerbCopy } from '@/lib/verbs/i18n'
 import { SITOV_VERB_TRAINER_LEVELS, SITOV_VERB_REVIEW_LEVELS, type SitovVerbTense } from '@/lib/verbs/types'
 import { getSitovVerbTenses } from '@/lib/verbs/engine'
+import { buildSitovVerbLearningBox, sitovVerbBoxValue, type SitovVerbBoxKey } from '@/lib/verbs/learning-box'
+import { getSitovVerbBoxCopy, sitovVerbBoxText } from '@/lib/verbs/learning-box-i18n'
 import type { SitovVerbPublicExercise, SitovVerbReviewResult, SitovVerbTrainerState } from '@/lib/verbs/contracts'
 import { toUiLocale } from '@/lib/locale-routing'
+import VerbLearningBox from './VerbLearningBox'
 import styles from './VerbTrainer.module.css'
 
 export interface SitovVerbTrainerActions {
@@ -59,6 +62,7 @@ export default function VerbTrainerClient({ initialState, lang, actions = sitovA
   initialState: SitovVerbTrainerState; lang: string; actions?: SitovVerbTrainerActions
 }) {
   const copy = getSitovVerbCopy(lang)
+  const boxCopy = getSitovVerbBoxCopy(lang)
   const locale = toUiLocale(lang)
   const [view, setView] = useState<View>('automatic')
   const [selectedIds, setSelectedIds] = useState(initialState.selectedIds)
@@ -75,6 +79,7 @@ export default function VerbTrainerClient({ initialState, lang, actions = sitovA
   const [round, setRound] = useState<{ total: number; correct: number; finished: boolean } | null>(null)
   const [noTasks, setNoTasks] = useState(false)
   const [sessionTenses, setSessionTenses] = useState<SitovVerbTense[]>(initialState.tenses)
+  const [sessionBox, setSessionBox] = useState<number | undefined>()
   const inputRef = useRef<HTMLInputElement>(null)
   const sessionRef = useRef<HTMLElement>(null)
   const sessionActive = !!round
@@ -84,12 +89,8 @@ export default function VerbTrainerClient({ initialState, lang, actions = sitovA
   const lockedOperation = useRef(false)
   const selected = useMemo(() => new Set(selectedIds), [selectedIds])
   const selectedVerbs = initialState.verbs.filter(verb => selected.has(verb.id))
-  const now = Date.now()
-  const activeProgress = progress.filter(item => selectedVerbs.some(verb => verb.id === item.verbId && getSitovVerbTenses(initialState.level, verb).includes(item.tense)))
-  const mastered = activeProgress.filter(item => item.box >= 6).length
-  const due = activeProgress.filter(item => !item.nextReviewAt || Date.parse(item.nextReviewAt) <= now).length
-  const fresh = selectedVerbs.reduce((count, verb) => count + getSitovVerbTenses(initialState.level, verb).filter(tense =>
-    !progress.some(item => item.verbId === verb.id && item.tense === tense)).length, 0)
+  const boxState = useMemo(() => ({ ...initialState, selectedIds, progress }), [initialState, selectedIds, progress])
+  const boxCards = useMemo(() => new Map(buildSitovVerbLearningBox(boxState).cards.map(card => [card.verb.id, card])), [boxState])
   const visibleVerbs = initialState.verbs.filter(verb => (poolLevel === 'all' || verb.level === poolLevel)
     && (!onlySelected || selected.has(verb.id))
     && `${verb.infinitive} ${verb.translations[locale]}`.toLocaleLowerCase(locale).includes(search.toLocaleLowerCase(locale).trim()))
@@ -106,34 +107,41 @@ export default function VerbTrainerClient({ initialState, lang, actions = sitovA
   useEffect(() => { if (round?.finished) completionRef.current?.focus() }, [round?.finished])
 
   async function changeBox(verbIds: string[], add: boolean) {
-    if (lockedOperation.current || !verbIds.length) return
+    if (lockedOperation.current || !verbIds.length) return false
     lockedOperation.current = true; setBusy(true); setError(null)
     try {
       const result = await actions.box({ level: initialState.level, verbIds, selected: add })
-      if (result.error) setError(result.error)
-      else setSelectedIds(result.data.selectedIds)
-    } catch { setError('save_failed') }
+      if (result.error) { setError(result.error); return false }
+      setSelectedIds(result.data.selectedIds)
+      return true
+    } catch { setError('save_failed'); return false }
     finally { lockedOperation.current = false; setBusy(false) }
   }
 
-  async function loadExercise(chosen: SitovVerbTense[], excludeVerbId?: string) {
+  async function loadExercise(chosen: SitovVerbTense[], excludeVerbId?: string, box?: number, endWhenEmpty = false) {
     if (lockedOperation.current) return
     lockedOperation.current = true; setBusy(true); setError(null); setNoTasks(false)
     try {
-      const result = await actions.next({ level: initialState.level, tenses: chosen, excludeVerbId }, lang)
+      const result = await actions.next({ level: initialState.level, tenses: chosen, excludeVerbId, ...(box == null ? {} : { box }) }, lang)
       if (result.error) { setError(result.error); return }
       setReview(null)
-      if (!result.data) { setNoTasks(true); setExercise(null); return }
+      if (!result.data) {
+        setExercise(null)
+        if (box != null && endWhenEmpty) { setRound(value => value && { ...value, finished: true }); setNoTasks(false) }
+        else setNoTasks(true)
+        return
+      }
       setExercise(result.data); setAnswer(Array(result.data.parts.length - 1).fill('')); focusedBlank.current = 0
     } catch { setError('load_failed') }
     finally { lockedOperation.current = false; setBusy(false) }
   }
 
-  async function start(automatic = false) {
+  async function start(automatic = false, phase?: SitovVerbBoxKey) {
     const chosen = !automatic && view === 'targeted' ? tenses : initialState.tenses
     if (!chosen.length || !selectedVerbs.length) return
-    setRound({ total: 0, correct: 0, finished: false }); setSessionTenses(chosen)
-    await loadExercise(chosen)
+    const box = phase == null ? undefined : sitovVerbBoxValue(phase)
+    setRound({ total: 0, correct: 0, finished: false }); setSessionTenses(chosen); setSessionBox(box)
+    await loadExercise(chosen, undefined, box)
   }
 
   async function submit(reveal = false) {
@@ -151,7 +159,7 @@ export default function VerbTrainerClient({ initialState, lang, actions = sitovA
 
   async function next() {
     if ((round?.total ?? 0) >= sitovRoundLength) { finish(); return }
-    await loadExercise(sessionTenses, exercise?.verbId)
+    await loadExercise(sessionTenses, exercise?.verbId, sessionBox, true)
   }
   function finish() { setRound(value => value && { ...value, finished: true }); setExercise(null); setReview(null); setNoTasks(false); setError(null) }
   function home() { setRound(null); setExercise(null); setReview(null); setNoTasks(false); setError(null) }
@@ -176,11 +184,8 @@ export default function VerbTrainerClient({ initialState, lang, actions = sitovA
       </div>}
     </header>
 
-    {!sessionActive && <section className={styles.sitovStats} aria-label={copy.summary}>
-      {[{ label: copy.selected, value: selectedVerbs.length, icon: Layers3 }, { label: copy.due, value: due + fresh, icon: Flame },
-        { label: copy.mastered, value: mastered, icon: CheckCheck }, { label: copy.pool, value: initialState.verbs.length, icon: Sparkles }].map(({ label, value, icon: Icon }) =>
-        <div key={label}><Icon size={18} aria-hidden="true" /><strong key={value}>{value}</strong><span>{label}</span></div>)}
-    </section>}
+    {!sessionActive && <VerbLearningBox state={boxState} lang={lang} busy={busy} onManage={() => chooseView('box')}
+      onPractice={phase => void start(true, phase)} onRemove={id => changeBox([id], false)} />}
 
     {message && <div className={styles.sitovError} role="alert"><CircleHelp size={20} aria-hidden="true" /><span>{message}</span>
       {permissionError && <button type="button" onClick={() => window.location.reload()}>{copy.reload}</button>}</div>}
@@ -190,7 +195,7 @@ export default function VerbTrainerClient({ initialState, lang, actions = sitovA
         <div className={styles.sitovVictory} aria-hidden="true"><CheckCheck size={42} />{Array.from({ length: 12 }, (_, index) => <span key={index} style={{ '--sitov-i': index } as CSSProperties} />)}</div>
         <p className={styles.sitovEyebrow}>{copy.round}</p><h2 ref={completionRef} tabIndex={-1}>{copy.complete}</h2><p>{copy.completeHint}</p>
         <strong className={styles.sitovScore}>{round.correct}<span> / {round.total}</span></strong><p>{copy.right}</p>
-        <div className={styles.sitovActions}><button className={styles.sitovPrimary} disabled={busy} onClick={() => { setRound({ total: 0, correct: 0, finished: false }); void loadExercise(sessionTenses) }}><RotateCcw size={18} />{copy.again}</button>
+        <div className={styles.sitovActions}><button className={styles.sitovPrimary} disabled={busy} onClick={() => { setRound({ total: 0, correct: 0, finished: false }); void loadExercise(sessionTenses, undefined, sessionBox) }}><RotateCcw size={18} />{copy.again}</button>
           <button className={styles.sitovSecondary} onClick={home}>{copy.back}</button></div>
       </div> : <>
         <div className={styles.sitovRoundHead}><span>{copy.round}<strong>{Math.min(round.total + (review ? 0 : 1), sitovRoundLength)} / {sitovRoundLength}</strong></span>
@@ -200,10 +205,10 @@ export default function VerbTrainerClient({ initialState, lang, actions = sitovA
         {noTasks ? <div className={styles.sitovEmpty}><Layers3 size={38} /><h2>{copy.noTasks}</h2><p>{copy.noTasksHint}</p><button className={styles.sitovSecondary} onClick={home}>{copy.back}</button></div>
           : exercise ? <form onSubmit={onSubmit} className={styles.sitovTask} key={exercise.exerciseId} data-result={review ? review.correct ? 'correct' : 'incorrect' : 'waiting'}>
             <div className={styles.sitovTaskTags}><span>{copy[exercise.tense]}</span><span>{exerciseKind}</span></div>
-            <h2 className={styles.sitovInfinitive} lang="de">{exercise.infinitive}</h2><p className={styles.sitovTranslation}>{exercise.translation}</p>
-            {currentVerb?.note && <details className={styles.sitovNote}><summary>{copy.note}</summary><p lang="de">{currentVerb.note}</p></details>}
-            <p className={styles.sitovPrompt} lang="de">{exercise.prompt}</p>
-            <div className={styles.sitovSentence} lang="de">{exercise.parts.map((part, index) => <span key={index}>
+            <h2 className={styles.sitovInfinitive} lang="de" translate="no">{exercise.infinitive}</h2><p className={styles.sitovTranslation}>{exercise.translation}</p>
+            {currentVerb?.note && <details className={styles.sitovNote}><summary>{copy.note}</summary><p lang="de" translate="no">{currentVerb.note}</p></details>}
+            <p className={styles.sitovPrompt} lang="de" translate="no">{exercise.prompt}</p>
+            <div className={styles.sitovSentence} lang="de" translate="no">{exercise.parts.map((part, index) => <span key={index}>
               {part}{index < exercise.parts.length - 1 && <input ref={index === 0 ? inputRef : undefined} aria-label={`${copy.answer} ${index + 1}`} value={answer[index] ?? ''}
                 onFocus={() => { focusedBlank.current = index }} onChange={event => setAnswer(values => values.map((value, pos) => pos === index ? event.target.value : value))}
                 disabled={busy || !!review} autoComplete="off" autoCapitalize="none" spellCheck={false} maxLength={100} size={Math.max(8, Math.min(22, (answer[index]?.length ?? 0) + 2))} />}
@@ -213,13 +218,13 @@ export default function VerbTrainerClient({ initialState, lang, actions = sitovA
               document.querySelector<HTMLInputElement>(`[aria-label="${copy.answer} ${index + 1}"]`)?.focus({ preventScroll: true })
             }}>{char}</button>)}</div>}
             {review ? <div className={styles.sitovFeedback} role="status"><span className={styles.sitovFeedbackIcon}>{review.correct ? <Check size={24} /> : <RotateCcw size={24} />}</span>
-              <div><strong>{review.correct ? copy.correct : copy.incorrect}</strong><span>{copy.solution}: <b lang="de">{review.solution}</b></span></div>
+              <div><strong>{review.correct ? copy.correct : copy.incorrect}</strong><span>{copy.solution}: <b lang="de" translate="no">{review.solution}</b></span></div>
               {review.correct && <div className={styles.sitovCelebration} aria-hidden="true">{Array.from({ length: 8 }, (_, index) => <i key={index} style={{ '--sitov-i': index } as CSSProperties} />)}</div>}
             </div> : null}
             <div className={styles.sitovActions}>{review ? <button ref={nextRef} className={styles.sitovPrimary} disabled={busy} type="submit">{busy ? <LoaderCircle className={styles.sitovSpinner} size={19} /> : <ArrowRight size={19} />}{round.total >= sitovRoundLength ? copy.finish : copy.next}</button>
               : <><button className={styles.sitovPrimary} disabled={busy || answer.some(value => !value.trim())} type="submit">{busy ? <LoaderCircle className={styles.sitovSpinner} size={19} /> : <Check size={19} />}{busy ? copy.saving : copy.check}</button>
                 <button className={styles.sitovSecondary} disabled={busy} type="button" onClick={() => void submit(true)}>{copy.reveal}</button></>}</div>
-          </form> : <div className={styles.sitovEmpty} role="status">{busy ? <><LoaderCircle className={styles.sitovSpinner} size={30} /><p>{copy.loading}</p></> : <button className={styles.sitovPrimary} onClick={() => void loadExercise(sessionTenses)}>{copy.retry}</button>}</div>}
+          </form> : <div className={styles.sitovEmpty} role="status">{busy ? <><LoaderCircle className={styles.sitovSpinner} size={30} /><p>{copy.loading}</p></> : <button className={styles.sitovPrimary} onClick={() => void loadExercise(sessionTenses, undefined, sessionBox)}>{copy.retry}</button>}</div>}
       </>}
     </section> : <>
       <nav className={styles.sitovTabs} aria-label={copy.eyebrow}>{([{ id: 'automatic', icon: Zap }, { id: 'targeted', icon: Target }, { id: 'box', icon: Layers3 }] as const).map(({ id, icon: Icon }) =>
@@ -233,14 +238,16 @@ export default function VerbTrainerClient({ initialState, lang, actions = sitovA
         <div className={styles.sitovBoxToolbar}><span>{visibleVerbs.length} / {initialState.verbs.length}</span><button disabled={busy || !visibleVerbs.some(verb => !selected.has(verb.id))} onClick={() => void changeBox(visibleVerbs.filter(verb => !selected.has(verb.id)).map(verb => verb.id), true)}><Plus size={17} />{busy ? copy.saving : copy.addVisible}</button></div>
         {!visibleVerbs.length && <p className={styles.sitovEmpty}>{copy.noResults}</p>}
         <ul className={styles.sitovVerbList}>{visibleVerbs.map(verb => <li key={verb.id} data-selected={selected.has(verb.id)}>
-          <div className={styles.sitovVerbRow}><div><span className={styles.sitovLevel}>{verb.level}</span><strong lang="de">{verb.infinitive}</strong><p>{verb.translations[locale]}</p></div>
+          <div className={styles.sitovVerbRow}><div><span className={styles.sitovLevel}>{verb.level}</span><strong lang="de" translate="no">{verb.infinitive}</strong><p>{verb.translations[locale]}</p></div>
             <button className={styles.sitovAdd} disabled={busy} aria-label={`${selected.has(verb.id) ? copy.remove : copy.add}: ${verb.infinitive}`} aria-pressed={selected.has(verb.id)} onClick={() => void changeBox([verb.id], !selected.has(verb.id))}>
               {selected.has(verb.id) ? <Trash2 size={18} /> : <Plus size={19} />}<span>{selected.has(verb.id) ? copy.added : copy.add}</span></button></div>
-          {selected.has(verb.id) && <div className={styles.sitovFormProgress} aria-label={copy.progress}>{getSitovVerbTenses(initialState.level, verb).map(tense => {
-            const item = progress.find(item => item.verbId === verb.id && item.tense === tense)
-            const tone = !item?.attempts ? 'new' : item.box >= 6 ? 'secure' : 'learning'
-            return <span key={tense} data-tone={tone}><i aria-hidden="true" />{copy[tense]}<b>{tone === 'new' ? copy.newForm : tone === 'secure' ? copy.secure : copy.learning}</b></span>
-          })}</div>}
+          {selected.has(verb.id) && <div className={styles.sitovFormProgress} aria-label={copy.progress}>
+            <strong>{boxCards.get(verb.id)?.key === 'learned' ? boxCopy.learned : sitovVerbBoxText(boxCopy.phase, { box: boxCards.get(verb.id)?.box ?? 1 })}</strong>
+            {getSitovVerbTenses(initialState.level, verb).map(tense => {
+              const form = boxCards.get(verb.id)?.forms.find(item => item.tense === tense)
+              const tone = !form?.progress?.attempts ? 'new' : form.box >= 6 ? 'secure' : 'learning'
+              return <span key={tense} data-tone={tone}><i aria-hidden="true" />{copy[tense]}<b>{form?.box === 7 ? boxCopy.learned : sitovVerbBoxText(boxCopy.phase, { box: form?.box ?? 1 })}</b></span>
+            })}</div>}
         </li>)}</ul>
       </section> : <section className={styles.sitovLaunch} key={view}>
         <div className={styles.sitovLaunchIcon} aria-hidden="true">{view === 'automatic' ? <Zap size={32} /> : <Target size={32} />}</div>

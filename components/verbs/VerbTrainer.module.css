@@ -1,10 +1,10 @@
 .sitovTrainer { --sitov-verb: #a21caf; --sitov-verb-bright: #e879f9; --sitov-verb-text: #86198f; --sitov-verb-soft: #fae8ff; --sitov-x: 70%; --sitov-y: 20%; display: grid; gap: 1.4rem; color: var(--foreground); }
 :global(html.dark) .sitovTrainer { --sitov-verb: #a21caf; --sitov-verb-text: #f0abfc; --sitov-verb-soft: #3a1644; }
-.sitovTrainer button, .sitovTrainer input { -webkit-tap-highlight-color: transparent; }
-.sitovTrainer button { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; min-height: 46px; font-weight: 750; transition: transform .22s cubic-bezier(.22,1,.36,1), background .2s, border-color .2s, box-shadow .2s; }
-.sitovTrainer button:disabled { opacity: .55; cursor: default; }
-.sitovTrainer button:focus-visible, .sitovTrainer input:focus-visible, .sitovTrainer summary:focus-visible { outline: 3px solid var(--sitov-verb-text); outline-offset: 4px; }
-.sitovTrainer button:active:not(:disabled) { transform: scale(.96); }
+.sitovTrainer button:not([data-sitov-box-key]), .sitovTrainer input { -webkit-tap-highlight-color: transparent; }
+.sitovTrainer button:not([data-sitov-box-key]) { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; min-height: 46px; font-weight: 750; transition: transform .22s cubic-bezier(.22,1,.36,1), background .2s, border-color .2s, box-shadow .2s; }
+.sitovTrainer button:not([data-sitov-box-key]):disabled { opacity: .55; cursor: default; }
+.sitovTrainer button:not([data-sitov-box-key]):focus-visible, .sitovTrainer input:focus-visible, .sitovTrainer summary:focus-visible { outline: 3px solid var(--sitov-verb-text); outline-offset: 4px; }
+.sitovTrainer button:not([data-sitov-box-key]):active:not(:disabled) { transform: scale(.96); }
 .sitovHero { position: relative; isolation: isolate; display: grid; grid-template-columns: 1fr 230px; align-items: center; gap: 1rem; min-height: 270px; padding: 2rem 2.2rem; border: 1px solid color-mix(in srgb, var(--sitov-verb) 44%, var(--border)); border-radius: 2rem; overflow: hidden; background: linear-gradient(115deg,var(--surface),color-mix(in srgb,var(--sitov-verb) 9%,var(--surface))); box-shadow: 0 20px 60px -42px var(--sitov-verb); }
 .sitovTrainer .sitovHeroAction { position: absolute; z-index: 3; inset: 0; width: 100%; height: 100%; border: 0; border-radius: inherit; background: transparent; cursor: pointer; }
 .sitovTrainer .sitovHeroAction:hover { box-shadow: none; }
@@ -146,7 +146,7 @@
 .sitovError svg { flex-shrink: 0; }
 .sitovError button { flex-shrink: 0; margin-left: auto; }
 .sitovSpinner { animation: sitov-orbit 1.2s linear infinite; }
-@media (hover:hover) { .sitovTrainer button:hover:not(:disabled) { box-shadow: 0 5px 16px -10px var(--sitov-verb-text); border-color: var(--sitov-verb-text); } .sitovTrainer .sitovPrimary:hover:not(:disabled) { background: #86198f; } }
+@media (hover:hover) { .sitovTrainer button:not([data-sitov-box-key]):hover:not(:disabled) { box-shadow: 0 5px 16px -10px var(--sitov-verb-text); border-color: var(--sitov-verb-text); } .sitovTrainer .sitovPrimary:hover:not(:disabled) { background: #86198f; } }
 @keyframes sitov-aurora { from { transform: rotate(-12deg) scale(1); opacity: .6; } to { transform: rotate(9deg) scale(1.15); opacity: 1; } }
 @keyframes sitov-word { 0%,100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-7px) rotate(1deg); } }
 @keyframes sitov-core { 0%,100% { transform: rotate(-5deg) scale(1); } 50% { transform: rotate(5deg) scale(1.045); } }
@@ -203,5 +203,5 @@
 @media (prefers-reduced-motion:reduce) {
   .sitovTrainer *, .sitovTrainer *::before, .sitovTrainer *::after { animation: none !important; transition: none !important; }
   .sitovHero::before, .sitovPrimary::after, .sitovCelebration { display: none; }
-  .sitovTrainer button:active:not(:disabled) { transform: none; }
+  .sitovTrainer button:not([data-sitov-box-key]):active:not(:disabled) { transform: none; }
 }
