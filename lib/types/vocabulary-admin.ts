@@ -1,10 +1,11 @@
 import { z } from 'zod'
 import type { VocabularyCardRow } from '@/lib/types/vocabulary'
+import { ACCESS_LEVELS } from '@/lib/access/levels'
 
 const shortText = z.string().trim().max(500)
 const sentence = z.string().trim().max(1000)
 export const vocabWriteSchema = z.object({
-  level: z.enum(['A1.1', 'A1.2', 'A2.1', 'A2.2', 'B1.1', 'B1.2']),
+  level: z.enum(ACCESS_LEVELS),
   lesson: z.string().trim().min(1).max(120),
   word_de: z.string().trim().min(1).max(300),
   content_kind: z.enum(['vocabulary', 'chunk']).optional(),

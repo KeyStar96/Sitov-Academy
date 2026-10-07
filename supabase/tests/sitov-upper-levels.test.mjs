@@ -18,10 +18,11 @@ await test('B2.1, B2.2, C1.1 and C1.2 exist as inactive levels and accept path s
   const [source] = JSON.parse(await readFile(new URL('../seeds/path-a1.2.json', import.meta.url), 'utf8'))
   const db = await createCurrentDatabase()
   try {
-    // The live catalogue before 85: the released levels and the coarse verb contexts of migration 63.
-    await db.exec(`INSERT INTO cefr_levels(code) VALUES('A1'),('A2'),('B1'),('B2'),('C1') ON CONFLICT DO NOTHING;
+    // The live catalogue before 85, as read from production: the released levels and the stored
+    // coarse levels B2, C1 and C2 (inactive). C2 occupies sort_order 9, the later place of B2.
+    await db.exec(`INSERT INTO cefr_levels(code) VALUES('A1'),('A2'),('B1'),('B2'),('C1'),('C2') ON CONFLICT DO NOTHING;
       INSERT INTO learning_levels(code,cefr_level,sort_order,is_active) VALUES('A1.1','A1',1,true),('A1.2','A1',2,true),('A2.1','A2',3,true),
-       ('A2.2','A2',4,true),('B1.1','B1',5,true),('B1.2','B1',6,true),('B2','B2',7,true),('C1','C1',8,true) ON CONFLICT(code) DO NOTHING;`)
+       ('A2.2','A2',4,true),('B1.1','B1',5,true),('B1.2','B1',6,true),('B2','B2',7,false),('C1','C1',8,false),('C2','C2',9,false) ON CONFLICT(code) DO NOTHING;`)
     const before = { levels: await levels(db), shape: await catalog(db) }
     for (const level of UPPER) assert.equal(await valid(db, pathFor(source, level)), false, `${level} is refused before 85`)
     await apply(db, [migration])
@@ -31,14 +32,14 @@ await test('B2.1, B2.2, C1.1 and C1.2 exist as inactive levels and accept path s
       assert.deepEqual(current.slice(0, 6), before.levels.slice(0, 6), 'A1.1 … B1.2 are untouched')
       assert.deepEqual(current.slice(6), [
         { code: 'B2.1', cefr: 'B2', position: 7, active: false }, { code: 'B2.2', cefr: 'B2', position: 8, active: false },
-        { code: 'B2', cefr: 'B2', position: 9, active: true },
+        { code: 'B2', cefr: 'B2', position: 9, active: false },
         { code: 'C1.1', cefr: 'C1', position: 10, active: false }, { code: 'C1.2', cefr: 'C1', position: 11, active: false },
-        { code: 'C1', cefr: 'C1', position: 12, active: true },
+        { code: 'C1', cefr: 'C1', position: 12, active: false }, { code: 'C2', cefr: 'C2', position: 13, active: false },
       ])
-      // The level after B1.2 that learner-facing rules pick is still an active one.
-      const next = await result(db, `SELECT n.code result FROM learning_levels n JOIN learning_levels l ON l.code='B1.2'
+      // Structure only: learner-facing rules still find no level after B1.2 (the release is migration 86).
+      const next = await db.query(`SELECT n.code FROM learning_levels n JOIN learning_levels l ON l.code='B1.2'
         WHERE n.sort_order>l.sort_order AND n.is_active ORDER BY n.sort_order LIMIT 1`)
-      assert.equal(next, 'B2')
+      assert.deepEqual(next.rows, [])
     })
 
     await t.test('the migration changes the level list of the seed check only and is repeatable', async () => {
@@ -49,7 +50,7 @@ await test('B2.1, B2.2, C1.1 and C1.2 exist as inactive levels and accept path s
       assert.equal(definition, previous.replace("'B1.1','B1.2')", "'B1.1','B1.2','B2.1','B2.2','C1.1','C1.2')"))
       await apply(db, [migration])
       assert.deepEqual(await catalog(db), current)
-      assert.equal((await levels(db)).length, 12)
+      assert.equal((await levels(db)).length, 13)
       const timestamped = await readFile(new URL('../migrations/20261005210000_sitov_upper_levels.sql', import.meta.url), 'utf8')
       assert.equal(timestamped, await readFile(new URL(`../vps/${migration}`, import.meta.url), 'utf8'))
       assert.ok((await readFile(new URL('../schema.sql', import.meta.url), 'utf8')).includes(`-- Consolidated correction: ${migration}\n${timestamped}`))

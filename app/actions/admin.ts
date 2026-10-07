@@ -7,7 +7,7 @@ import { createClient } from '@/utils/supabase/server'
 import { requireSitovStaffMfa } from '@/lib/sitov-staff-mfa'
 import { createAdminClient } from '@/utils/supabase/admin'
 import { revalidatePath } from 'next/cache'
-import { sanitizeAllowedLevels, ACCESS_LEVELS, SITOV_VERB_LEVELS, TRAINERS } from '@/lib/access/levels'
+import { sanitizeAllowedLevels, ACCESS_LEVELS, SITOV_VERB_LEVELS, TRAINERS, sitovLevelHasTrainer } from '@/lib/access/levels'
 import { withBackendSession, checkDatabaseError, checkRpcError, revalidateBackendPages } from '@/lib/actions/backend'
 import { profileRoleSchema, uuidSchema } from '@/lib/types/backend'
 import { loadUnassignedStudents } from '@/lib/admin-new-students'
@@ -235,6 +235,7 @@ export async function updateStudentTrainerAccess(input: z.infer<typeof trainerAc
     await requireAdmin()
     const parsed = trainerAccessInput.parse(input)
     if ((parsed.level === 'B2' || parsed.level === 'C1') && parsed.trainer !== 'verbs') return { success: false }
+    if (!sitovLevelHasTrainer(parsed.level, parsed.trainer)) return { success: false }
     if (parsed.allowedLessons != null) {
       const catalog = await getAvailableLessons(parsed.level, parsed.trainer)
       if (!catalog.success || parsed.allowedLessons.some(id => !catalog.lessons.some(unit => unit.id === id))) return { success: false }
@@ -262,6 +263,7 @@ export async function getAvailableLessons(level: string, trainer: string): Promi
     const validLevel = z.enum(SITOV_VERB_LEVELS).parse(level)
     const validTrainer = z.enum(TRAINERS).parse(trainer)
     if ((validLevel === 'B2' || validLevel === 'C1') && validTrainer !== 'verbs') return { success: false }
+    if (!sitovLevelHasTrainer(validLevel, validTrainer)) return { success: false }
     const supabase = await createClient()
     const units = await readAllRows((from, to) => supabase.from('learning_units').select('id,label')
       .eq('level', validLevel).eq('trainer', validTrainer).eq('is_active', true).is('owner_auth_user_id', null).order('sort_order').order('id').range(from, to))

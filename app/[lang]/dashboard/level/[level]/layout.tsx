@@ -12,7 +12,7 @@ import { loadModeDock, modeLock } from '@/lib/learning-status-server'
 import LevelNewTracker from '@/components/dashboard/LevelNewTracker'
 import { loadLearningNewCounts } from '@/lib/learning-new-server'
 import { newModes } from '@/lib/learning-new'
-import { LEARNING_MODES } from '@/lib/mode-targets'
+import { sitovLevelModes } from '@/lib/mode-targets'
 
 export const dynamic = 'force-dynamic'
 
@@ -57,7 +57,7 @@ export default async function LevelAccessLayout({
   }
 
   // Sperren stehen sofort fest; die Zähler kommen nach, ohne die Seite aufzuhalten.
-  const plain = LEARNING_MODES.map(mode => ({ mode, lock: modeLock(profile, decodedLevel, lang, mode) }))
+  const plain = sitovLevelModes(decodedLevel).map(mode => ({ mode, lock: modeLock(profile, decodedLevel, lang, mode) }))
   const levelNew = news?.levels[decodedLevel]
   const flagged = newModes(levelNew).filter(mode => levelNew?.modeNew[mode])
   const visit = !!news && !news.visited.includes(decodedLevel)

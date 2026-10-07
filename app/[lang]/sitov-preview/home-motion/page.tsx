@@ -12,6 +12,7 @@ import DailyQuestEntry from '@/components/dashboard/DailyQuestEntry'
 import TrainerStatusTiles from '@/components/dashboard/TrainerStatusTiles'
 import ExamEntry from '@/components/exam-preparation/ExamEntry'
 import sitovHomeGrid from '@/components/dashboard/home/SitovHomeGrid.module.css'
+import { ACCESS_LEVELS, sitovLevelCopyKeys, sitovLevelRange } from '@/lib/access/levels'
 import { getDictionary } from '@/lib/dictionary'
 import { createDashboardTranslator } from '@/lib/dashboard-i18n'
 import { studentTranslator } from '@/lib/student-ui-i18n'
@@ -77,14 +78,13 @@ export default async function SitovHomeMotionPreviewPage({ params, searchParams 
     learned: empty || noLevel ? ['2026-10-03'] : ['2026-09-28', '2026-09-30', '2026-10-01', '2026-10-03'],
     today: '2026-10-03',
   }
-  const levels = [
-    { id: 'A1.1', title: dict.dashboard.level_a11_title, description: dict.dashboard.level_a11_desc },
-    { id: 'A1.2', title: dict.dashboard.level_a12_title, description: dict.dashboard.level_a12_desc },
-    { id: 'A2.1', title: dict.dashboard.level_a21_title, description: dict.dashboard.level_a21_desc },
-    { id: 'A2.2', title: dict.dashboard.level_a22_title, description: dict.dashboard.level_a22_desc },
-    { id: 'B1.1', title: dict.dashboard.level_b11_title, description: dict.dashboard.level_b11_desc },
-    { id: 'B1.2', title: dict.dashboard.level_b12_title, description: dict.dashboard.level_b12_desc },
-  ]
+  // The released levels, exactly as on Home; `?state=all` opens every card to check the new levels.
+  const levelCopy = dict.dashboard as Record<string, string>
+  const levels = ACCESS_LEVELS.map(id => {
+    const [title, description] = sitovLevelCopyKeys(id)
+    return { id, title: levelCopy[title], description: levelCopy[description] }
+  })
+  const allOpen = query.state === 'all'
   const support = {
     whatsapp: dict.academy.support_whatsapp, phone: dict.Footer.Contact.phone, phoneLabel: dict.Footer.Contact.phone_label,
     telegram: dict.Footer.Contact.telegram_button, email: dict.Footer.Contact.email, emailLabel: dict.Footer.Contact.email_button,
@@ -98,7 +98,7 @@ export default async function SitovHomeMotionPreviewPage({ params, searchParams 
         <summary className="text-sm font-bold cursor-pointer">Sitov Academy · Preview fixtures</summary>
         <SitovPreviewAppearance />
         <nav aria-label="Preview fixtures" className="flex flex-wrap gap-2">
-          {['active', 'empty', 'done', 'no-access'].map(state => <Link key={state} href={`${route}?state=${state}&days=${days}`} className="st-link-pill">{state}</Link>)}
+          {['active', 'empty', 'done', 'no-access', 'all'].map(state => <Link key={state} href={`${route}?state=${state}&days=${days}`} className="st-link-pill">{state}</Link>)}
           {[7, 30, 90].map(range => <Link key={range} href={`${route}?state=${query.state ?? 'active'}&days=${range}`} className="st-link-pill">{range} days</Link>)}
         </nav>
       </details>
@@ -121,9 +121,9 @@ export default async function SitovHomeMotionPreviewPage({ params, searchParams 
       </div>
       <ExamEntry lang={lang} />
       <section aria-labelledby="academy-levels-title">
-        <div className="academy-level-heading"><h2 id="academy-levels-title">{dict.academy.dashboard_levels}</h2><span>A1—B1</span></div>
+        <div className="academy-level-heading"><h2 id="academy-levels-title">{dict.academy.dashboard_levels}</h2><span>{sitovLevelRange()}</span></div>
         <div className="academy-level-grid">{levels.map((level, index) => <LevelCard key={level.id} {...level} index={index}
-          href={`/${lang}/dashboard/level/${level.id}`} locked={noLevel || index > (empty ? 0 : 1)} progress={empty ? 0 : index === 0 ? 58 : 12}
+          href={`/${lang}/dashboard/level/${level.id}`} locked={noLevel || (!allOpen && index > (empty ? 0 : 1))} progress={empty ? 0 : index === 0 ? 58 : 12}
           fresh={!empty && index === 1} copy={{ start: t('start'), continueLearning: t('continue_learning'), lockedHint: t('level_locked_hint'), newLabel: s('media_new') }} />)}</div>
       </section>
       <SupportWidget lang={lang} labels={support} />

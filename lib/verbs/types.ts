@@ -5,10 +5,18 @@ export const SITOV_VERB_LEVELS = [
   "A2.2",
   "B1.1",
   "B1.2",
+  "B2.1",
+  "B2.2",
   "B2",
   "C1",
 ] as const;
 export type SitovVerbLevel = (typeof SITOV_VERB_LEVELS)[number];
+/**
+ * Contexts without verbs of their own: at B2.1 and B2.2 the trainer repeats every verb up to
+ * B1.2. The order mirrors `learning_levels.sort_order` (migration 85): the coarse contexts B2
+ * and C1 follow their sublevels, and C1.1/C1.2 have no verb trainer at all.
+ */
+export const SITOV_VERB_REVIEW_LEVELS: readonly SitovVerbLevel[] = ["B2.1", "B2.2"];
 export type SitovVerbTense = "present" | "perfect" | "past";
 export type SitovVerbLocale = "de" | "en" | "ru" | "uk" | "tr";
 export type SitovVerbExerciseKind =

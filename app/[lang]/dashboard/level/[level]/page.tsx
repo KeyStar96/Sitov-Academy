@@ -5,7 +5,7 @@ import { getDictionary } from '@/lib/dictionary'
 import { loadLastActiveLevel, type LevelActivity } from '@/lib/last-active-level'
 import { loadLevelLearningStatus, modeLock, type LevelLearningStatus } from '@/lib/learning-status-server'
 import { toStations } from '@/lib/lesson-stations'
-import { LEARNING_MODES, lessonsHref, modeHref, type LearningMode } from '@/lib/mode-targets'
+import { lessonsHref, modeHref, sitovLevelModes, type LearningMode } from '@/lib/mode-targets'
 import { studentTranslator } from '@/lib/student-ui-i18n'
 import { createVocabularyTranslator, type VocabularyTranslations } from '@/lib/vocabulary-i18n'
 import { lessonLabel } from '@/lib/vocabulary-own-words'
@@ -86,6 +86,6 @@ function resumeTarget({ lang, level, status, activity, locked, s, place, current
   if (vocabulary && due > 0) return { mode: 'vocabulary', href: modeHref(lang, level, 'vocabulary'), place: null, hint: hintFor('vocabulary'), resumes: false }
   if (vocabulary && currentLesson) return { mode: 'vocabulary', href: lessonsHref(lang, level), place: null, hint: s('lessons_next_lesson', { lesson: currentLesson }), resumes: false }
   if (grammar && grammar.openTopics > 0) return { mode: 'path', href: modeHref(lang, level, 'path'), place: null, hint: hintFor('path'), resumes: false }
-  const first = LEARNING_MODES.find(mode => !locked(mode))
+  const first = sitovLevelModes(level).find(mode => !locked(mode))
   return first ? { mode: first, href: hrefFor(first), place: null, hint: s(CONTINUE_TO[first]), resumes: false } : null
 }

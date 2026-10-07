@@ -12,7 +12,7 @@ import { isOwnWordsLesson } from '@/lib/vocabulary-own-words'
 import type { LessonStat, VocabularyCarryoverSummary } from '@/lib/types/vocabulary'
 import { berlinNow } from '@/lib/dashboard-next-course'
 import { createClient } from '@/utils/supabase/server'
-import { LEARNING_MODES, MODE_TRAINERS, type LearningMode } from '@/lib/mode-targets'
+import { LEARNING_MODES, MODE_TRAINERS, sitovLevelModes, type LearningMode } from '@/lib/mode-targets'
 import { modeIsNew } from '@/lib/learning-new'
 import { loadLearningNewCounts } from '@/lib/learning-new-server'
 import { loadSitovVerbTrainer, sitovVerbStats } from '@/lib/verbs/server'
@@ -190,7 +190,7 @@ export async function loadModeDock({ userId, profile, level, lang }: {
     lock('pronunciation') ? null : settle(() => pronunciationStatus(userId, level), () => console.error('[mode-dock] pronunciation_unavailable')),
     loadLearningNewCounts(),
   ])
-  return LEARNING_MODES.map(mode => ({
+  return sitovLevelModes(level).map(mode => ({
     mode,
     lock: lock(mode),
     fresh: !lock(mode) && modeIsNew(news?.levels[level], mode),

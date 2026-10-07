@@ -5,8 +5,10 @@
 -- is_active=true here plus the access lists (lib/access/levels.ts and the student allowlists).
 INSERT INTO public.cefr_levels(code) VALUES('B2'),('C1') ON CONFLICT DO NOTHING;
 
--- The coarse verb contexts B2 and C1 stay behind their sublevels: … B1.2, B2.1, B2.2, B2, C1.1, C1.2, C1.
--- Their order relative to every existing level is unchanged.
+-- The coarse verb contexts B2 and C1 stay behind their sublevels: … B1.2, B2.1, B2.2, B2, C1.1, C1.2, C1, C2.
+-- Their order relative to every existing level is unchanged. sort_order is unique, so the
+-- positions are freed from the top down; production also carries the coarse level C2 at 9.
+UPDATE public.learning_levels SET sort_order=13 WHERE code='C2' AND sort_order=9;
 UPDATE public.learning_levels SET sort_order=12 WHERE code='C1' AND sort_order=8;
 UPDATE public.learning_levels SET sort_order=9 WHERE code='B2' AND sort_order=7;
 INSERT INTO public.learning_levels(code,cefr_level,sort_order,is_active) VALUES

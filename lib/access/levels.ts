@@ -28,21 +28,26 @@ export const ACCESS_LEVELS = [
   'A2.2',
   'B1.1',
   'B1.2',
+  'B2.1',
+  'B2.2',
+  'C1.1',
+  'C1.2',
 ] as const
 
 export type AccessLevel = (typeof ACCESS_LEVELS)[number]
 /**
- * Niveaus in Vorbereitung: Sie existieren als Grundstruktur (inaktive Zeilen in `learning_levels`,
- * Migration 85), Lehrkräfte können Inhalte vorbereiten und Lernpfad-Seeds importieren. Für
- * Lernende sind sie unsichtbar und nicht freischaltbar, solange sie nicht in ACCESS_LEVELS stehen.
+ * Niveaus in Vorbereitung: Sie existieren als Grundstruktur (inaktive Zeilen in `learning_levels`),
+ * Lehrkräfte können Inhalte vorbereiten und Lernpfad-Seeds importieren. Für Lernende sind sie
+ * unsichtbar und nicht freischaltbar, solange sie nicht in ACCESS_LEVELS stehen.
  * Freigabe eines Niveaus: hier nach ACCESS_LEVELS verschieben, in der Datenbank `is_active` setzen
- * und die Schüler-Niveaulisten der Zugriffsfunktionen erweitern.
+ * und die Schüler-Niveaulisten der Zugriffsfunktionen erweitern (Vorlage: Migration 86).
+ * B2.1, B2.2, C1.1 und C1.2 sind seit Migration 86 freigegeben; aktuell ist nichts in Vorbereitung.
  */
-export const SITOV_UPCOMING_LEVELS = ['B2.1', 'B2.2', 'C1.1', 'C1.2'] as const
+export const SITOV_UPCOMING_LEVELS = [] as const
 /** Alle feingranularen Niveaus der Plattform in Lernreihenfolge: freigegebene, dann vorbereitete. */
 export const SITOV_PLATFORM_LEVELS = [...ACCESS_LEVELS, ...SITOV_UPCOMING_LEVELS] as const
 export type SitovPlatformLevel = (typeof SITOV_PLATFORM_LEVELS)[number]
-/** Advanced verb content stays stored; student navigation and grants currently stop at B1.2. */
+/** The coarse verb contexts B2 and C1 stay stored for staff grants; learners navigate the sublevels. */
 export const SITOV_VERB_LEVELS = [...ACCESS_LEVELS, 'B2', 'C1'] as const
 export type SitovTrainerLevel = (typeof SITOV_VERB_LEVELS)[number]
 
@@ -63,6 +68,11 @@ export function isSitovPlatformLevel(value: unknown): value is SitovPlatformLeve
 export function sitovLevelCopyKeys(level: SitovPlatformLevel): readonly [title: string, description: string] {
   const key = level.replace('.', '').toLowerCase()
   return [`level_${key}_title`, `level_${key}_desc`]
+}
+
+/** Spanne der freigegebenen Niveaus als Kurzangabe über der Niveau-Übersicht: „A1—C1". */
+export function sitovLevelRange(): string {
+  return `${ACCESS_LEVELS[0].slice(0, 2)}—${ACCESS_LEVELS[ACCESS_LEVELS.length - 1].slice(0, 2)}`
 }
 
 /**
@@ -99,8 +109,8 @@ export function hasLevelAccess(
   if (!profile) return false
   if (profile.role && FULL_ACCESS_ROLES.has(profile.role)) return true
   const normalized = level.trim()
-  // Retain stored grants for later publication; advanced levels are currently
-  // outside the student catalog, including direct links to the verb trainer.
+  // Only released levels: a stored grant for a level in preparation or for a coarse
+  // verb context (B2, C1) never opens student navigation.
   if (!isAccessLevel(normalized)) return false
   return (profile.allowed_levels ?? []).includes(normalized)
 }
@@ -115,9 +125,26 @@ export const TRAINERS = ['vocabulary', 'exercises', 'pronunciation', 'videos', '
 export type Trainer = (typeof TRAINERS)[number]
 export interface TrainerAccessRule { level: string; trainer: string; enabled: boolean; unit_ids?: string[] | null }
 
+/**
+ * Trainer, die es auf einem Niveau nicht gibt. Ab C1 kommen keine neuen Verben mehr hinzu, deshalb
+ * haben C1.1 und C1.2 keinen Verbtrainer: Er erscheint dort weder im Dock noch im Karussell noch in
+ * den Freigaben, und die Datenbank (Migration 86) lässt ihn für diese Niveaus nicht zu.
+ */
+const SITOV_ABSENT_TRAINERS: Readonly<Record<string, readonly Trainer[]>> = { 'C1.1': ['verbs'], 'C1.2': ['verbs'] }
+
+/** Ob es den Trainer auf dem Niveau überhaupt gibt – unabhängig von Rolle und Freigabe. */
+export function sitovLevelHasTrainer(level: string, trainer: Trainer): boolean {
+  return !SITOV_ABSENT_TRAINERS[level.trim()]?.includes(trainer)
+}
+
+/** Die Trainer eines Niveaus in der festen Reihenfolge von TRAINERS. */
+export function sitovLevelTrainers(level: string): Trainer[] {
+  return TRAINERS.filter(trainer => sitovLevelHasTrainer(level, trainer))
+}
+
 /** Configuration shown to teachers is independent from a student's interface choice. */
 export function hasConfiguredTrainerAccess(profile: LevelAccessProfile | null | undefined, level: string, trainer: Trainer): boolean {
-  if (!profile) return false
+  if (!profile || !sitovLevelHasTrainer(level, trainer)) return false
   if (hasFullAccessRole(profile.role)) return true
   if (!isAccessLevel(level.trim())) return false
   if (!hasLevelAccess(profile, level)) return false
@@ -125,6 +152,7 @@ export function hasConfiguredTrainerAccess(profile: LevelAccessProfile | null | 
 }
 
 export function hasTrainerAccess(profile: LevelAccessProfile | null | undefined, level: string, trainer: Trainer): boolean {
+  if (!sitovLevelHasTrainer(level, trainer)) return false
   if (hasFullAccessRole(profile?.role)) return true
   if ((trainer !== 'verbs' && profile?.ui_language === 'de') || !hasConfiguredTrainerAccess(profile, level, trainer)) return false
   const restriction = profile?.trainer_grants?.find(rule => rule.level === level.trim() && rule.trainer === trainer)?.unit_ids

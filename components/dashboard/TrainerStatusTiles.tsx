@@ -11,7 +11,7 @@ import styles from './TrainerStatusTiles.module.css'
 import CountUp from '@/components/motion/CountUp'
 import NewBadge from '@/components/motion/NewBadge'
 import type { LevelLearningStatus } from '@/lib/learning-status-server'
-import { LEARNING_MODES, modeHref, type LearningMode } from '@/lib/mode-targets'
+import { modeHref, sitovLevelModes, type LearningMode } from '@/lib/mode-targets'
 import { studentTranslator, type StudentMessageKey } from '@/lib/student-ui-i18n'
 
 type Tone = 'action' | 'calm' | 'done' | 'locked'
@@ -94,7 +94,7 @@ export default function TrainerStatusTiles({ lang, level, status, languageLocked
             : verbs.selected > 0 ? { text: t.count('status_verbs_selected', verbs.selected), tone: 'calm' as const }
               : { text: t.count('status_verbs_total', verbs.total), tone: 'action' as const }) })
 
-  const sitovSlides = LEARNING_MODES.map(mode => tiles.find(tile => tile.id === mode)!).map(tile => {
+  const sitovSlides = sitovLevelModes(level).map(mode => tiles.find(tile => tile.id === mode)!).map(tile => {
     const sitovVerbArt = <span className={styles.sitovVerbOrbit} aria-hidden="true"><span className={styles.sitovOrbitRing} /><span className={styles.sitovOrbitRing} /><span className={styles.sitovOrbitWord}>ich</span><span className={styles.sitovOrbitWord}>du</span><span className={styles.sitovOrbitWord}>wir</span><Waypoints size={30} /></span>
     const content = (
             <>

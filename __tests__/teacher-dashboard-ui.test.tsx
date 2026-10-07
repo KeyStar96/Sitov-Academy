@@ -8,6 +8,7 @@ import { interveneTeacherPath } from '@/app/actions/teacher-dashboard'
 import { updateStudentAllowedLevels } from '@/app/actions/admin'
 import type { TeacherDetailData, TeacherStudent } from '@/lib/teacher-dashboard-contract'
 import de from '@/dictionaries/de.json'
+import { ACCESS_LEVELS } from '@/lib/access/levels'
 
 jest.unmock('lucide-react')
 jest.mock('@/app/actions/teacher-dashboard', () => ({ interveneTeacherPath: jest.fn() }))
@@ -71,10 +72,11 @@ it('links to the dedicated student page and filters dates in Berlin consistently
   expect(screen.queryByTestId(`teacher-student-${id}`)).not.toBeInTheDocument()
 })
 it('unlocks every level together with a single authoritative update', async () => {
-  jest.mocked(updateStudentAllowedLevels).mockResolvedValue({ success: true, allowedLevels: ['A1.1', 'A1.2', 'A2.1', 'A2.2', 'B1.1', 'B1.2'] })
+  jest.mocked(updateStudentAllowedLevels).mockResolvedValue({ success: true, allowedLevels: [...ACCESS_LEVELS] })
   render(<AdminI18nProvider translations={de.admin}><TeacherStudentOverview student={student} lang="de" currentUserId={nodeId} currentUserRole="teacher" /></AdminI18nProvider>)
   fireEvent.click(screen.getByRole('button', { name: 'Alle Niveaus auswählen' }))
   expect(updateStudentAllowedLevels).not.toHaveBeenCalled()
   fireEvent.click(screen.getByRole('button', { name: 'Ausgewählte Niveaus speichern' }))
-  await waitFor(() => expect(updateStudentAllowedLevels).toHaveBeenCalledWith(id, ['A1.1', 'A1.2', 'A2.1', 'A2.2', 'B1.1', 'B1.2']))
+  await waitFor(() => expect(updateStudentAllowedLevels).toHaveBeenCalledWith(id, [...ACCESS_LEVELS]))
+  expect(ACCESS_LEVELS).toHaveLength(10)
 })

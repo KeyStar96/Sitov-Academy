@@ -29,7 +29,7 @@ const cardSchema = z.object({
   }
 })
 export const vocabularySeedSchema = z.object({ version: z.literal(1), units: z.array(z.object({
-  id: z.uuid(), level: z.enum(['A1.1', 'A1.2', 'A2.1', 'A2.2', 'B1.1', 'B1.2']), label: text(200),
+  id: z.uuid(), level: z.enum(['A1.1', 'A1.2', 'A2.1', 'A2.2', 'B1.1', 'B1.2', 'B2.1', 'B2.2', 'C1.1', 'C1.2']), label: text(200),
   sort_order: z.number().int().min(0).max(1000000), cards: z.array(cardSchema).min(1).max(1000),
 }).passthrough()).min(1).max(100) }).passthrough().superRefine((seed, ctx) => {
   const units = new Set(), unitIds = new Set(), sources = new Set(), cardIds = new Set()

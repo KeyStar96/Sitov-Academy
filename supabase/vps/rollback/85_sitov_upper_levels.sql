@@ -12,5 +12,6 @@ END $patch$;
 DELETE FROM public.learning_levels WHERE code IN('B2.1','B2.2','C1.1','C1.2');
 UPDATE public.learning_levels SET sort_order=7 WHERE code='B2' AND sort_order=9;
 UPDATE public.learning_levels SET sort_order=8 WHERE code='C1' AND sort_order=12;
+UPDATE public.learning_levels SET sort_order=9 WHERE code='C2' AND sort_order=13;
 
 NOTIFY pgrst,'reload schema';

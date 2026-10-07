@@ -1,4 +1,4 @@
-import type { Trainer } from '@/lib/access/levels'
+import { sitovLevelHasTrainer, type Trainer } from '@/lib/access/levels'
 
 /**
  * Die fünf gleichberechtigten Modi eines Niveaus (D6), ihre Anzeigereihenfolge und Ziele.
@@ -32,6 +32,14 @@ export const MODE_TRAINERS: Record<LearningMode, Trainer> = {
   pronunciation: 'pronunciation',
   media: 'videos',
   verbs: 'verbs',
+}
+
+/**
+ * Die Modi, die es auf einem Niveau gibt, in Anzeigereihenfolge. C1.1 und C1.2 haben keinen
+ * Verbtrainer; Dock, Karussell und „Weiter" zeigen dort vier Modi statt eines gesperrten fünften.
+ */
+export function sitovLevelModes(level: string): LearningMode[] {
+  return LEARNING_MODES.filter(mode => sitovLevelHasTrainer(level, MODE_TRAINERS[mode]))
 }
 
 /** Modus der Lernhandlung aus `get_last_active_level()` (Trainer-Namen der Datenbank). */

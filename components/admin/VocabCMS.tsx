@@ -9,6 +9,7 @@ import { useAdminTranslator } from './AdminI18nProvider'
 import { cn } from '@/lib/utils'
 import { adminButton, adminInput } from './ui'
 import { preparedAudioAuthorHint } from '@/lib/audio/preparation-i18n'
+import { ACCESS_LEVELS } from '@/lib/access/levels'
 
 const fieldClass = adminInput
 const buttonClass = adminButton('secondary', 'sm')
@@ -16,7 +17,7 @@ const primaryClass = adminButton('primary', 'md')
 const translationFields = ['translation_ru', 'translation_en', 'translation_uk', 'translation_tr'] as const
 const sentenceFields = ['context_sentence_de', 'context_sentence_ru', 'context_sentence_en', 'context_sentence_uk', 'context_sentence_tr'] as const
 const sitovChunkFields = ['chunk_translation_en', 'chunk_translation_ru', 'chunk_translation_uk', 'chunk_translation_tr'] as const
-const levels = ['A1.1', 'A1.2', 'A2.1', 'A2.2', 'B1.1', 'B1.2'] as const
+const levels = ACCESS_LEVELS
 const pageSize = 30
 
 export default function VocabCMS({ initialData }: { initialData: VocabularyCardRow[] }) {

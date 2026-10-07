@@ -5,7 +5,7 @@ import { createDashboardTranslator, type DashboardTranslations } from '@/lib/das
 import type { PronunciationTranslations } from '@/lib/pronunciation-i18n'
 import { createClient } from '@/utils/supabase/server'
 import { loadLevelAccessProfile } from '@/lib/access/server'
-import { ACCESS_LEVELS, hasLevelAccess, hasTrainerAccess, sitovLevelCopyKeys } from '@/lib/access/levels'
+import { ACCESS_LEVELS, hasLevelAccess, hasTrainerAccess, sitovLevelCopyKeys, sitovLevelRange } from '@/lib/access/levels'
 import { loadProfileMonthlyState } from '@/lib/profile-dashboard-server'
 import { loadProfileCourseCalendar } from '@/lib/profile-course-calendar-server'
 import { formatCalendarDate } from '@/lib/profile-course-calendar'
@@ -150,7 +150,7 @@ export default async function DashboardPage({ params, searchParams }: {
 
     <ExamEntry lang={lang} />
     <section aria-labelledby="academy-levels-title">
-      <div className="academy-level-heading"><h2 id="academy-levels-title">{copy.dashboard_levels}</h2><span>A1—B1</span></div>
+      <div className="academy-level-heading"><h2 id="academy-levels-title">{copy.dashboard_levels}</h2><span>{sitovLevelRange()}</span></div>
       <div className="academy-level-grid">
         {levels.map((level, index) => <LevelCard key={level.id} id={level.id} title={level.title} description={level.description}
           index={index} href={`/${lang}/dashboard/level/${level.id}`} locked={!hasLevelAccess(accessProfile, level.id)}

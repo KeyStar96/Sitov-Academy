@@ -1,5 +1,4 @@
 import curriculum from '@/supabase/seeds/grammar-curriculum-2026.json'
-import { ACCESS_LEVELS } from '@/lib/access/levels'
 import { grammarWriteSchema } from '@/lib/grammar-validation'
 import { GRAMMAR_COPY, grammarTranslator } from '@/lib/grammar-i18n'
 import { createGrammarSession, groupGrammarTopics } from '@/lib/grammar-session'
@@ -11,8 +10,11 @@ const authored = {
     options: ['bin', 'bist', 'ist'], smart_hint: 'Das Verb passt zur Person.' },
 }
 
+/** The historical seed covers the levels of its time; B2.1 … C1.2 get their grammar from the learning path. */
+const CURRICULUM_LEVELS = ['A1.1', 'A1.2', 'A2.1', 'A2.2', 'B1.1', 'B1.2'] as const
+
 describe('Original grammar curriculum', () => {
-  it.each(ACCESS_LEVELS)('%s preserves 100 historical exercises that need authored target forms before reuse', level => {
+  it.each(CURRICULUM_LEVELS)('%s preserves 100 historical exercises that need authored target forms before reuse', level => {
     const rows = curriculum.filter(row => row.level === level)
     expect(rows).toHaveLength(100)
     expect(new Set(rows.map(row => row.topic)).size).toBe(10)

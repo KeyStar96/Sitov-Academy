@@ -89,6 +89,24 @@ describe('Student trainer tiles', () => {
   expect(screen.getByRole('link', { name: /Verbtrainer.*6 Verbformen zum Wiederholen/ })).toHaveAttribute('href', '/de/dashboard/level/A1.1/verbs')
   expect(screen.getAllByRole('listitem', { hidden: true })).toHaveLength(5)
  })
+ test('a new level without content shows every trainer of the level as open and empty; C1 has four trainers', () => {
+  const empty = (level: string) => ({ level, lessons: [], ownWords: null,
+   vocabulary: { locked: false, due: 0, activeWords: 0, total: 0, learned: 0 }, grammar: { locked: false, total: 0, solved: 0, topics: 0, openTopics: 0 },
+   pronunciation: { locked: false, texts: 0, open: 0, waiting: 0, unread: 0 }, media: { locked: false, total: 0, fresh: 0 },
+   verbs: level.startsWith('C1') ? { locked: true, total: 0, selected: 0, due: 0, mastered: 0 } : { locked: false, total: 586, selected: 0, due: 0, mastered: 0 } })
+  const b2 = render(<TrainerStatusTiles layout="modes" lang="en" level="B2.1" status={empty('B2.1')} languageLocked={false} />)
+  expect(screen.getAllByRole('listitem', { hidden: true })).toHaveLength(5)
+  expect(screen.getByText('Verb trainer').closest('a')).toHaveAttribute('href', '/en/dashboard/level/B2.1/verbs')
+  expect(screen.getByText('Learning path').closest('a')).toHaveAttribute('href', '/en/dashboard/level/B2.1/path')
+  expect(b2.container.querySelector('[aria-disabled="true"]')).toBeNull()
+  b2.unmount()
+  const c1 = render(<TrainerStatusTiles layout="modes" lang="en" level="C1.1" status={empty('C1.1')} languageLocked={false} />)
+  expect(screen.getAllByRole('listitem', { hidden: true })).toHaveLength(4)
+  expect(screen.queryByText('Verb trainer')).toBeNull()
+  expect(c1.container.querySelector('[data-area="verbs"]')).toBeNull()
+  expect(c1.container.querySelector('[aria-disabled="true"]')).toBeNull()
+  for (const area of ['vocabulary', 'path', 'pronunciation', 'media']) expect(c1.container.querySelector(`[data-area="${area}"]`)).not.toBeNull()
+ })
 })
 describe('Teacher trainer controls', () => {
  const id='00000000-0000-4000-8000-000000000001'

@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { Loader2, Lock, LockOpen, SlidersHorizontal } from 'lucide-react'
-import { ACCESS_LEVELS, SITOV_VERB_LEVELS, TRAINERS, hasConfiguredTrainerAccess, type Trainer, type SitovTrainerLevel } from '@/lib/access/levels'
+import { ACCESS_LEVELS, SITOV_VERB_LEVELS, hasConfiguredTrainerAccess, sitovLevelTrainers, type Trainer, type SitovTrainerLevel } from '@/lib/access/levels'
 import type { AdminStudentRow } from '@/lib/types/admin-staff'
 import { useAdminTranslator } from './AdminI18nProvider'
 import AdminDialog from './AdminDialog'
@@ -63,7 +63,7 @@ export default function StudentAccessModal({ student, loading, message, hasError
           {!levelEnabled && <p className="text-sm text-[var(--muted)]">{t('trainer_level_required')}</p>}
           <fieldset disabled={busy || !levelEnabled} className="grid gap-3 sm:grid-cols-2">
             <legend className="mb-3 text-sm font-semibold">{t('trainer_access_level', { level })}</legend>
-            {TRAINERS.filter(item => !advanced || item === 'verbs').map(item => {
+            {sitovLevelTrainers(level).filter(item => !advanced || item === 'verbs').map(item => {
               const enabled = hasConfiguredTrainerAccess(student, level, item)
               const allowedLessons = student.trainer_grants?.find(rule => rule.level === level && rule.trainer === item)?.unit_ids
               const restricted = allowedLessons !== undefined && allowedLessons !== null

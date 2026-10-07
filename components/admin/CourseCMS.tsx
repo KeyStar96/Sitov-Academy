@@ -2,7 +2,7 @@
 import {useMemo,useState,useTransition,type ReactNode} from 'react'
 import Link from 'next/link'
 import {useRouter} from 'next/navigation'
-import {Plus,Pencil,CalendarDays,CalendarX2,Loader2,Trash2,BookOpen} from 'lucide-react'
+import {Plus,Pencil,CalendarDays,CalendarX2,Loader2,Trash2,BookOpen,Power,PowerOff} from 'lucide-react'
 import AdminDialog from './AdminDialog'
 import {Badge,Card,EmptyState,Notice,PageHeader,adminButton,adminChip,adminInput,adminLabel} from './ui'
 import {courseCmsCopy} from '@/lib/course-cms-i18n'
@@ -22,7 +22,9 @@ function EditorSection({title,children}:{title:string;children:ReactNode}){
 function berlinToday(){return new Intl.DateTimeFormat('sv-SE',{timeZone:'Europe/Berlin'}).format(new Date())}
 
 /**
- * Kurse: sachliche Liste mit Filter „Aktiv/Archiviert“ und Editor im Dialog.
+ * Kurse: sachliche Liste mit Filter „Aktiv/Inaktiv“ und Editor im Dialog. Ein inaktiver Kurs
+ * (`courses.archived_at`) verschwindet aus Startseite und Kursanmeldung und ist nicht neu buchbar;
+ * der Schalter an jeder Zeile stellt ihn ohne Umweg über den Editor um.
  * Ausfälle werden nicht mehr hier, sondern unter „Kursausfälle“ gepflegt;
  * die Server-Action übernimmt beim Speichern stets die gespeicherten Ausfälle.
  */
@@ -31,6 +33,7 @@ export default function CourseCMS({initial,lang,failed}:{initial:CourseEditor[];
  const [editor,setEditor]=useState<CourseEditor|null>(null)
  const [view,setView]=useState<'active'|'archived'>('active')
  const [error,setError]=useState(false),[saving,startTransition]=useTransition()
+ const [switching,setSwitching]=useState<string|null>(null),[switchFailed,setSwitchFailed]=useState(false),[,startSwitch]=useTransition()
  const set=<K extends keyof CourseEditor>(key:K,value:CourseEditor[K])=>setEditor(current=>current?{...current,[key]:value}:null)
  const cancellationsHref=`/${lang}/admin/courses/cancellations`
  const today=useMemo(berlinToday,[])
@@ -48,6 +51,15 @@ export default function CourseCMS({initial,lang,failed}:{initial:CourseEditor[];
   if(!parsed.success){setError(true);return}
   startTransition(async()=>{try{const result=await saveCourse(parsed.data);if(!result.success)throw new Error('save_failed');setEditor(null);router.refresh()}catch{setError(true)}})
  }
+ /** Stellt einen gespeicherten Kurs um; alle übrigen Kursdaten gehen unverändert zurück. */
+ function toggle(course:CourseEditor){
+  if(!course.id||switching)return
+  const parsed=courseEditorSchema.safeParse({...course,archived:!course.archived})
+  setSwitchFailed(!parsed.success)
+  if(!parsed.success)return
+  setSwitching(course.id)
+  startSwitch(async()=>{try{const result=await saveCourse(parsed.data);if(!result.success)throw new Error('save_failed');router.refresh()}catch{setSwitchFailed(true)}finally{setSwitching(null)}})
+ }
 
  return <div className="min-w-0 space-y-5 text-[var(--foreground)] sm:space-y-6">
   <PageHeader title={t.title} description={t.intro} actions={<button type="button" className={adminButton('primary')} onClick={()=>open(fresh())}><Plus size={17} aria-hidden="true"/>{t.add}</button>}/>
@@ -57,6 +69,7 @@ export default function CourseCMS({initial,lang,failed}:{initial:CourseEditor[];
    </button>)}
   </div>
   <Notice tone="info" action={<Link href={cancellationsHref} className={adminButton('secondary','sm','w-full sm:w-auto')}><CalendarX2 size={16} aria-hidden="true"/>{t.cancellationsLink}</Link>}>{t.cancellationsHint}</Notice>
+  {switchFailed&&<Notice tone="warning" role="alert">{t.switchFailed}</Notice>}
   {failed?<Notice tone="warning" role="alert" action={<button type="button" onClick={()=>router.refresh()} className={adminButton('secondary','sm')}>{t.reload}</button>}>{t.failed}</Notice>
   :visible.length===0?<Card><EmptyState icon={BookOpen} title={view==='archived'?t.emptyArchived:t.empty}/></Card>
   :<Card as="div"><ul className="divide-y divide-[var(--admin-line)]">{visible.map(course=>{
@@ -75,7 +88,14 @@ export default function CourseCMS({initial,lang,failed}:{initial:CourseEditor[];
       :<p className="mt-1.5 text-sm">{t.noTimes}</p>}
       {upcoming>0&&<Link href={cancellationsHref} className="mt-2 inline-flex min-h-11 items-center"><Badge tone="warning"><CalendarX2 size={13} aria-hidden="true"/>{t.upcomingCancellations.replace('{count}',String(upcoming))}</Badge></Link>}
      </div>
-     <button type="button" className={adminButton('secondary','sm','shrink-0')} onClick={()=>open(course)} aria-label={t.editAria.replace('{title}',course.title)}><Pencil size={16} aria-hidden="true"/><span className="hidden sm:inline">{t.edit}</span></button>
+     <div className="flex shrink-0 flex-col gap-2 sm:flex-row">
+      {course.id&&<button type="button" className={adminButton(course.archived?'primary':'secondary','sm')} disabled={switching!==null} aria-busy={switching===course.id} onClick={()=>toggle(course)}
+       aria-label={(course.archived?t.activateAria:t.deactivateAria).replace('{title}',course.title)} title={switching===course.id?t.switching:undefined}>
+       {switching===course.id?<Loader2 className="animate-spin motion-reduce:animate-none" size={16} aria-hidden="true"/>:course.archived?<Power size={16} aria-hidden="true"/>:<PowerOff size={16} aria-hidden="true"/>}
+       <span className="hidden sm:inline">{course.archived?t.activate:t.deactivate}</span>
+      </button>}
+      <button type="button" className={adminButton('secondary','sm')} onClick={()=>open(course)} aria-label={t.editAria.replace('{title}',course.title)}><Pencil size={16} aria-hidden="true"/><span className="hidden sm:inline">{t.edit}</span></button>
+     </div>
     </li>})}</ul></Card>}
   {editor&&<AdminDialog title={editor.id?t.edit:t.add} subtitle={editor.title} onClose={()=>setEditor(null)} dismissible={!saving}>
    <form onSubmit={e=>{e.preventDefault();save()}} className="flex min-h-0 flex-1 flex-col">
