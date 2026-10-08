@@ -1,0 +1,17 @@
+.sitovPanel { min-width: 0; display: grid; gap: 1rem; padding: clamp(1rem, 3vw, 1.5rem); border: 1px solid var(--border); border-radius: 1.5rem; color: var(--foreground); background: var(--surface); overflow-wrap: anywhere; font-size: 1rem; line-height: 1.5; }
+.sitovPanel h2 { font-size: clamp(1.3rem, 3vw, 1.8rem); font-weight: 700; }
+.sitovPanel h3 { font-weight: 700; }
+.sitovPanel progress { width: 100%; height: .6rem; accent-color: var(--accent); }
+.sitovTask { min-width: 0; border: 0; display: grid; gap: .75rem; }
+.sitovTask legend { margin-bottom: .75rem; font-size: 1.15rem; font-weight: 650; }
+.sitovOption { display: flex; align-items: center; gap: .75rem; min-height: 48px; padding: .75rem; border: 2px solid var(--border); border-radius: 1rem; cursor: pointer; transition: background var(--motion-fast) var(--ease-out-soft), border-color var(--motion-fast) var(--ease-out-soft); }
+.sitovOption input { flex-shrink: 0; width: 1.25rem; height: 1.25rem; accent-color: var(--accent); }
+.sitovOption[data-selected="true"] { border-color: var(--accent); background: var(--accent-soft); }
+.sitovOption:focus-within, .sitovPanel button:focus-visible, .sitovPanel a:focus-visible, .sitovTask legend:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.sitovFeedback { min-height: 3rem; }
+.sitovActions { display: flex; flex-wrap: wrap; gap: .75rem; }
+.sitovPanel button, .sitovPanel a { min-height: 48px; padding: .75rem 1rem; border: 1px solid var(--border); border-radius: 1rem; font-weight: 650; white-space: normal; text-align: center; }
+.sitovPanel button:disabled { cursor: not-allowed; opacity: .65; }
+.sitovActions > * { flex: 1 1 130px; }
+@media (prefers-reduced-motion: reduce) { .sitovPanel *, .sitovOption { transition: none; animation: none; } }
+@media (forced-colors: active) { .sitovOption[data-selected="true"] { border-color: Highlight; } .sitovPanel button, .sitovPanel a { border-color: ButtonText; } }

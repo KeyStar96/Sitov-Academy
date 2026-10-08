@@ -9,7 +9,7 @@ import { useScrollLock } from '@/components/ui/useScrollLock'
 import { buildSitovVerbLearningBox, SITOV_VERB_REVIEW_DAYS, sitovVerbBoxValue, type SitovVerbBoxCard, type SitovVerbBoxKey } from '@/lib/verbs/learning-box'
 import { getSitovVerbBoxCopy, sitovVerbBoxText } from '@/lib/verbs/learning-box-i18n'
 import { getSitovVerbCopy } from '@/lib/verbs/i18n'
-import { sitovTrainerUiCopy } from '@/lib/sitov-trainer-ui-i18n'
+import { sitovTrainerHelpCopy } from '@/lib/sitov-trainer-help-copy'
 import { toUiLocale } from '@/lib/locale-routing'
 import type { SitovVerbTrainerState } from '@/lib/verbs/contracts'
 import type { SitovVerbTense } from '@/lib/verbs/types'
@@ -108,7 +108,7 @@ export default function VerbLearningBox({ state, lang, busy, onPractice, onRemov
   onRemove: (id: string) => Promise<boolean>
 }) {
   const copy = getSitovVerbBoxCopy(lang)
-  const uiCopy = sitovTrainerUiCopy(lang)
+  const help = sitovTrainerHelpCopy(lang)
   const box = useMemo(() => buildSitovVerbLearningBox(state), [state])
   const [inspector, setInspector] = useState<{ phase: SitovVerbBoxKey; opener: HTMLElement } | null>(null)
   const phase = inspector?.phase ?? null
@@ -125,9 +125,12 @@ export default function VerbLearningBox({ state, lang, busy, onPractice, onRemov
       selected={phase} buckets={buckets} onOpen={(key, from) => setInspector({ phase: key, opener: from })}
       stats={[{ key: 'verbs', label: copy.selected, value: box.totalVerbs }, { key: 'practiced', label: copy.practiced, value: box.practicedForms },
         { key: 'learned', label: copy.learnedVerbs, value: box.learnedVerbs }, { key: 'due', label: copy.dueForms, value: box.dueForms }]}>
-      <SitovTrainerHelp title={uiCopy.help} className={styles.sitovGuide}>
+      <section aria-label={help.verbs}>
+      <SitovTrainerHelp title={help.label} className={styles.sitovGuide}>
+      <h3 className="font-semibold">{help.verbs}</h3>
       <SitovVerbLearningGuide lang={lang} tenses={state.tenses} />
       </SitovTrainerHelp>
+      </section>
     </SitovLearningBox>
     {inspector && <SitovVerbBoxInspector key={inspector.phase} phase={inspector.phase} cards={box.cards} state={state} lang={lang} busy={busy} opener={inspector.opener}
       onClose={() => setInspector(null)} onPractice={onPractice} onRemove={onRemove} />}
