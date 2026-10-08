@@ -1,0 +1,77 @@
+/** @jest-environment node */
+jest.mock('server-only', () => ({}), { virtual: true })
+jest.mock('@/utils/supabase/server', () => ({ createClient: jest.fn() }))
+jest.mock('@/lib/access/server', () => ({ currentUserHasContentAccess: jest.fn() }))
+import { createClient } from '@/utils/supabase/server'
+import { currentUserHasContentAccess } from '@/lib/access/server'
+import { resolveSitovLearningRecommendations } from '@/lib/learning/sitov-learning-recommendations-server'
+import { sitovLearningRecommendationInputSchema } from '@/lib/learning/sitov-learning-recommendations-contract'
+import { SITOV_TOPIC_MAPPING } from '@/lib/learning/sitov-topic-mapping'
+const topic = SITOV_TOPIC_MAPPING[0]
+const target = topic.targets.find(t => t.kind === 'vocabulary_card')!
+const unit = target.kind === 'vocabulary_card' ? target.unitId : ''
+const progressId='88888888-8888-4888-8888-888888888888'
+const client = { auth: { getUser: jest.fn() }, rpc: jest.fn(), from: jest.fn() }
+let allowed: string[]; let failProgress = false; let foreignUnit = false; let duplicate = false
+const filters: Record<string, unknown>[] = []
+beforeEach(() => {
+ jest.clearAllMocks(); filters.length=0; allowed=[target.id];failProgress=false;foreignUnit=false;duplicate=false
+ ;(createClient as jest.Mock).mockResolvedValue(client)
+ client.auth.getUser.mockResolvedValue({ data: { user: { id: 'account-a' } }, error: null })
+ ;(currentUserHasContentAccess as jest.Mock).mockImplementation(({id}) => allowed.includes(id))
+ client.rpc.mockImplementation(async (name, args) => {
+  if(name==='get_sitov_access_catalog') return { error:null, data:{version:1,level:args.p_level,trainer:args.p_trainer,units: args.p_trainer==='vocabulary'?[{id:foreignUnit?'99999999-9999-4999-9999-999999999999':unit, items:[{kind:'vocabulary_card',id:target.id,published:true},...(duplicate?[{kind:'vocabulary_card',id:target.id,published:true}]:[])]}]:[]} }
+  if(name==='sitov_learning_checkpoint')return {error:null,data:{checkpoint:null}}
+  throw new Error('unexpected rpc')
+ })
+ client.from.mockImplementation(table => {
+  const where: Record<string, unknown> = {table}; filters.push(where)
+  const query: Record<string, unknown> = {}
+  for(const method of ['select','eq','limit']) query[method]=jest.fn((key,value)=>{if(method==='eq')where[key]=value;return query})
+  query.then=(resolve: (v:unknown)=>void)=>resolve({error: table==='vocabulary_direction_progress'&&failProgress?{code:'offline'}:null,data:table==='vocabulary_direction_progress'?[{id:progressId,direction:'native_to_de',box_number:3}]:[]})
+  return query
+ })
+})
+const input={topicIds:[topic.topicId],locale:'uk',limit:3}
+it('strictly rejects caller identity/URLs/unknown IDs and unsupported counts',async()=>{
+ for(const value of [{...input,account:'other'},{...input,href:'//evil'},{...input,topicIds:['sitov.topic.foreign']},{...input,limit:4}])expect((await resolveSitovLearningRecommendations(value)).ok).toBe(false)
+ expect(client.auth.getUser).not.toHaveBeenCalled()
+ expect(sitovLearningRecommendationInputSchema.parse({topicIds:[topic.topicId],locale:'de'}).limit).toBe(3)
+})
+it('requires a verified session',async()=>{client.auth.getUser.mockResolvedValue({data:{user:null},error:null});expect(await resolveSitovLearningRecommendations(input)).toEqual({ok:false,error:'authentication_required',retryable:false});expect(client.rpc).not.toHaveBeenCalled()})
+it('returns only exact authorized selected item and real account progress',async()=>{
+ const result=await resolveSitovLearningRecommendations(input);expect(result.ok).toBe(true)
+ if(!result.ok)throw new Error('unexpected failure')
+ expect(result.data.items).toHaveLength(1)
+ expect(result.data.items[0]).toMatchObject({kind:'vocabulary',targetId:target.id,action:'practice',progress:{directions:[{direction:'native_to_de',box:3}],checkpoint:false},href:`/uk/dashboard/level/A1.1/vocabulary/train?lesson=${unit}&sitov_target=${target.id}`})
+ expect(filters.find(f=>f.table==='vocabulary_direction_progress')).toMatchObject({auth_user_id:'account-a',card_id:target.id})
+})
+it('omits commercial denial without revealing target or reading progress',async()=>{allowed=[];const result=await resolveSitovLearningRecommendations(input);expect(result).toEqual({ok:true,data:{mappingVersion:1,items:[]}});expect(filters.some(f=>f.table==='vocabulary_direction_progress')).toBe(false)})
+it('does not turn a progress read failure into invented zero',async()=>{failProgress=true;expect(await resolveSitovLearningRecommendations(input)).toEqual({ok:false,error:'retryable_failure',retryable:true})})
+it.each(['foreign','ambiguous'])('omits %s canonical unit/target matches',async(type)=>{foreignUnit=type==='foreign';duplicate=type==='ambiguous';expect(await resolveSitovLearningRecommendations(input)).toEqual({ok:true,data:{mappingVersion:1,items:[]}})})
+it.each(['de','en','ru','uk','tr'])('uses the requested %s UI locale without changing IDs',async(locale)=>{const r=await resolveSitovLearningRecommendations({...input,locale});expect(r.ok).toBe(true);if(r.ok)expect(r.data.items[0].href).toBe(`/${locale}/dashboard/level/A1.1/vocabulary/train?lesson=${unit}&sitov_target=${target.id}`)})
+it('preserves a persisted checkpoint as continue and never copies another account',async()=>{const old=client.rpc.getMockImplementation()!;client.rpc.mockImplementation((name,args)=>name==='sitov_learning_checkpoint'?Promise.resolve({error:null,data:{checkpoint:{revision:2,updatedAt:'2026-10-09',state:{plan:[progressId]}}}}):old(name,args));const r=await resolveSitovLearningRecommendations(input);if(!r.ok)throw new Error('failure');expect(r.data.items[0].action).toBe('continue')})
+it('does not treat a card UUID as a resumable direction-progress UUID',async()=>{const old=client.rpc.getMockImplementation()!;client.rpc.mockImplementation((name,args)=>name==='sitov_learning_checkpoint'?Promise.resolve({error:null,data:{checkpoint:{revision:2,updatedAt:'2026-10-09',state:{plan:[target.id]}}}}):old(name,args));const r=await resolveSitovLearningRecommendations(input);if(!r.ok)throw new Error('failure');expect(r.data.items[0].action).toBe('practice')})
+it('can recommend individual pronunciation pretest with no vocabulary/path/verb evidence',async()=>{
+ const reading=topic.targets.find(t=>t.kind==='reading_text')!;const readingUnit='77777777-7777-4777-8777-777777777777';allowed=[reading.id]
+ client.rpc.mockImplementation(async(name,args)=>{
+  if(name==='get_sitov_access_catalog')return {error:null,data:{version:1,level:args.p_level,trainer:args.p_trainer,units:args.p_trainer==='pronunciation'?[{id:readingUnit,items:[{kind:'reading_text',id:reading.id,published:true}]}]:[]}}
+  if(name==='sitov_get_pronunciation_pretests')return {error:null,data:{ok:true,data:[{textId:reading.id,unitId:readingUnit,level:topic.level,title:'Guten Tag',focus:null,kind:'regular',textVersion:'a'.repeat(64),testVersion:'b'.repeat(64),status:'available',lockedReason:null,attempt:null,proof:null,target:'pretest'}]}}
+  throw new Error('unexpected progress prerequisite')
+ })
+ const r=await resolveSitovLearningRecommendations(input);if(!r.ok)throw new Error('failure');expect(r.data.items).toHaveLength(1);expect(r.data.items[0]).toMatchObject({kind:'pronunciation',action:'pretest',href:`/uk/dashboard/level/A1.1/pronunciation?sitov_target=${reading.id}`});expect(filters.some(f=>String(f.table).includes('progress'))).toBe(false)
+})
+it('resolves a level-qualified stored node and truthful completed review',async()=>{
+ const nodeId='66666666-6666-4666-8666-666666666666';const pathUnit='55555555-5555-4555-8555-555555555555';allowed=[nodeId]
+ const old=client.from.getMockImplementation()!
+ client.from.mockImplementation(table=>{const query=old(table);query.then=(resolve:(v:unknown)=>void)=>resolve({error:null,data:table==='learning_units'?[{id:pathUnit,level:'A1.1',trainer:'exercises',is_path:true,is_active:true}]:table==='path_nodes'?[{id:nodeId}]:[]});return query})
+ client.rpc.mockImplementation(async(name,args)=>{
+  if(name==='get_sitov_access_catalog')return {error:null,data:{version:1,level:args.p_level,trainer:args.p_trainer,units:args.p_trainer==='exercises'?[{id:pathUnit,items:[{kind:'path_node',id:nodeId,published:true}]}]:[]}}
+  if(name==='get_learning_path')return {error:null,data:{level:'A1.1',completed:false,next_level:null,next_level_available:false,paths:[{id:pathUnit,source_id:'P1',title:'Pfad',sort_order:1,available:true,completed:false,nodes:[{id:nodeId,kind:'practice',title:'Namen',sort_order:1,available:true,status:'completed',stars:2,tests:[]}]}]}}
+  throw new Error('unexpected rpc')
+ })
+ const r=await resolveSitovLearningRecommendations(input);if(!r.ok)throw new Error('failure');expect(r.data.items).toHaveLength(1);expect(r.data.items[0]).toMatchObject({kind:'learning_path',targetId:nodeId,action:'review',progress:{status:'completed'},href:`/uk/dashboard/level/A1.1/path?sitov_target=${nodeId}`})
+ expect(filters.find(f=>f.table==='learning_units')).toMatchObject({level:'A1.1',trainer:'exercises',path_source_id:'P1'})
+ expect(filters.find(f=>f.table==='path_nodes')).toMatchObject({unit_id:pathUnit,source_id:'P1-N3'})
+})
+it('treats access-catalog transport failure as retryable without returning metadata',async()=>{client.rpc.mockResolvedValue({data:null,error:{code:'offline'}});expect(await resolveSitovLearningRecommendations(input)).toEqual({ok:false,error:'retryable_failure',retryable:true})})
