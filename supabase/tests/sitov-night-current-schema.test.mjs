@@ -1,6 +1,11 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import { sitovCurrentPlan, sitovRightsSnapshot, sitovHistorySnapshot, sitovUsers, sitovId } from './helpers/sitov-night-current-db.mjs'
+import { execFileSync } from 'node:child_process'
+import { readFile, mkdtemp, mkdir, copyFile, writeFile, rm } from 'node:fs/promises'
+import { tmpdir } from 'node:os'
+import { join } from 'node:path'
+import { pathToFileURL } from 'node:url'
+import { sitovCurrentSchema, sitovPinnedLookups, sitovBaseline92, sitovVerifyPinnedContent, sitovCurrentPlan, sitovRightsSnapshot, sitovHistorySnapshot, sitovUsers, sitovId } from './helpers/sitov-night-current-db.mjs'
 import { SitovNativeDatabase, createSitovCurrentNativeDatabase } from './helpers/sitov-night-current-native-db.mjs'
 
 test('reviewed runner inventory covers every migration through 92, excludes 93',async()=>{
@@ -11,6 +16,35 @@ test('reviewed runner inventory covers every migration through 92, excludes 93',
  assert.equal(plan.migrations.find(m=>m.name.startsWith('62_')).transaction,'separate')
 })
 
+test('an expanded canonical schema/seed beside the helper cannot contaminate baseline92',async()=>{
+ const root=await mkdtemp(join(tmpdir(),'sitov-baseline92-'))
+ try {
+  const helpers=join(root,'supabase/tests/helpers'),fixtures=join(root,'supabase/tests/fixtures')
+  await mkdir(helpers,{recursive:true});await mkdir(fixtures,{recursive:true})
+  await mkdir(join(root,'supabase/seeds'),{recursive:true})
+  await copyFile(new URL('./helpers/sitov-night-current-db.mjs',import.meta.url),join(helpers,'plan.mjs'))
+  await copyFile(sitovCurrentSchema,join(fixtures,'sitov-night-current92-schema.sql'))
+  await copyFile(sitovPinnedLookups,join(fixtures,'sitov-night-current92-lookups.sql'))
+  await writeFile(join(root,'supabase/schema.sql'),'DO $$ BEGIN RAISE EXCEPTION \'unassigned-future-schema\'; END $$;')
+  await writeFile(join(root,'supabase/seeds/vps-content.sql'),'SELECT unassigned_future_seed;')
+  const copied=await import(pathToFileURL(join(helpers,'plan.mjs')).href)
+  assert.equal((await copied.sitovCurrentPlan()).schemaSha256,sitovBaseline92.schemaSha256)
+  await writeFile(join(fixtures,'sitov-night-current92-schema.sql'),'SELECT corrupt_baseline;')
+  await assert.rejects(copied.sitovCurrentPlan(),/checksum mismatch/)
+ } finally {await rm(root,{recursive:true,force:true})}
+})
+
+test('baseline92 pins exact e22 bytes and fails closed on altered checksum or future target',async()=>{
+ const schema=await readFile(sitovCurrentSchema,'utf8')
+ const assigned=execFileSync('git',['show',`${sitovBaseline92.sourceSha}:${sitovBaseline92.sourcePath}`],{encoding:'utf8',maxBuffer:8*1024*1024})
+ assert.equal(schema,assigned)
+ assert.equal(sitovCurrentSchema.pathname.endsWith('/fixtures/sitov-night-current92-schema.sql'),true)
+ assert.throws(()=>sitovVerifyPinnedContent(schema+'\nSELECT 93;',sitovBaseline92.schemaSha256,'schema'),/checksum mismatch/)
+ await assert.rejects(sitovCurrentPlan({target:'canonical'}),/Unsupported/)
+ await assert.rejects(createSitovCurrentNativeDatabase({target:'integrated96',database:'not_a_database'}),/Unsupported/)
+ assert.throws(()=>execFileSync(process.execPath,['scripts/sitov-night-current-db.mjs','plan','--target','canonical'],{stdio:'pipe'}),/Command failed/)
+})
+
 test('native PostgreSQL17: reproducible full current install, effective rights and private history',
  {skip:process.env.SITOV_NIGHT_NATIVE!=='1'},async t=>{
  const admin=new SitovNativeDatabase()
@@ -18,7 +52,17 @@ test('native PostgreSQL17: reproducible full current install, effective rights a
  admin.raw(`CREATE DATABASE ${database}`)
  let db
  try {
-  db=await createSitovCurrentNativeDatabase({database})
+  const output=execFileSync(process.execPath,['scripts/sitov-night-current-db.mjs','install',
+   '--target','baseline92','--database',database],{encoding:'utf8',maxBuffer:1024*1024})
+  db=new SitovNativeDatabase(database)
+  db.installPlan=JSON.parse(output).plan
+  assert.equal(db.installPlan.target,'baseline92')
+  assert.deepEqual((await db.query('SELECT target,source_sha,schema_sha256,reviewed_through FROM sitov_qa_fixture.installation')).rows,
+   [{target:'baseline92',source_sha:sitovBaseline92.sourceSha,schema_sha256:sitovBaseline92.schemaSha256,reviewed_through:92}])
+  const cliSnapshot=JSON.parse(execFileSync(process.execPath,['scripts/sitov-night-current-db.mjs','snapshot',
+   '--target','baseline92','--database',database],{encoding:'utf8',maxBuffer:1024*1024}))
+  assert.equal(cliSnapshot.installation[0].target,'baseline92')
+  assert.equal(cliSnapshot.history.storage.length,1)
   await t.test('current security/media/pronunciation/verb definitions are effective',async()=>{
    const rows=(await db.query(`SELECT
     position('sitov-media-visibility-v1' in pg_get_functiondef('public.get_learning_progress(uuid,text,integer)'::regprocedure))>0 media_current,

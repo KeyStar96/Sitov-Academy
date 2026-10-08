@@ -1,6 +1,6 @@
 import { execFileSync } from 'node:child_process'
 import { readFile } from 'node:fs/promises'
-import { sitovCurrentSchema, sitovPrerequisites, sitovBaseline, sitovCurrentPlan } from './sitov-night-current-db.mjs'
+import { sitovPrerequisites, sitovBaseline, sitovCurrentPlan, sitovLoadInstallTarget } from './sitov-night-current-db.mjs'
 
 const socket = '/tmp/sitov-night-2026-10-08-pg'
 const port = '55438'
@@ -47,29 +47,29 @@ export class SitovNativeDatabase {
  async close() {}
 }
 
-export async function createSitovCurrentNativeDatabase({database='sitov_night_fixture',seed=true}={}) {
+export async function createSitovBaseline92NativeDatabase({database='sitov_night_fixture',seed=true,target='baseline92'}={}) {
+ const plan = await sitovCurrentPlan({target})
+ const {schema,lookups} = await sitovLoadInstallTarget({target})
  const db = new SitovNativeDatabase(database)
  const safety = JSON.parse(db.raw(`SELECT json_build_object('listen',current_setting('listen_addresses'),
   'version',current_setting('server_version_num'),'tables',(SELECT count(*) FROM information_schema.tables
   WHERE table_schema NOT IN('pg_catalog','information_schema')))`))
  if (safety.listen !== '' || Number(safety.version)<170000 || safety.tables!==0)
   throw new Error('Fixture install requires an empty database on the dedicated socket-only PostgreSQL17 instance')
- const plan = await sitovCurrentPlan()
- const schema = await readFile(sitovCurrentSchema,'utf8')
  const marker = '-- PostgreSQL database dump complete'
  if (schema.split(marker).length !== 2) throw new Error('Canonical snapshot boundary changed')
- const lookups = (await readFile(new URL('../../seeds/vps-content.sql',import.meta.url),'utf8'))
-  .split('\n').filter(line => /^INSERT INTO public\.(cefr_levels|locales|learning_levels|learning_trainers) \(/.test(line)).join('\n')
  // The normalized snapshot creates final enum labels directly, so no ALTER TYPE
  // value is consumed before commit. Legacy migrations are inventoried, not replayed.
  db.raw(`BEGIN; ${await readFile(sitovPrerequisites,'utf8')} DROP SCHEMA public; SET ROLE postgres;
   ${schema.replace(marker,`${marker}\n${lookups}`)} COMMIT;
   SET check_function_bodies=on; SET row_security=on; SET search_path=public;`)
- // Explicit current overlays: schema.sql contains 92 but lacks effective 91.
- // Keep each runner migration in its own committed transaction.
- for (const name of ['90_sitov_pronunciation_recall_evidence.sql',
-  '91_sitov_learning_progress_media_visibility.sql','92_sitov_verb_vocabulary_parity.sql'])
-  await db.exec(`BEGIN; ${await readFile(new URL(`../../vps/${name}`,import.meta.url),'utf8')} COMMIT;`)
+ // Exact e22 snapshot already includes effective 90/91/92. No mutable overlays.
+ await db.exec(`CREATE SCHEMA sitov_qa_fixture;
+  REVOKE ALL ON SCHEMA sitov_qa_fixture FROM PUBLIC,anon,authenticated;
+  CREATE TABLE sitov_qa_fixture.installation(target text PRIMARY KEY,source_sha text NOT NULL,
+   schema_sha256 text NOT NULL,lookup_sha256 text NOT NULL,reviewed_through integer NOT NULL);
+  INSERT INTO sitov_qa_fixture.installation VALUES(${literal(plan.target)},${literal(plan.sourceSha)},
+   ${literal(plan.schemaSha256)},${literal(plan.lookupSha256)},${plan.through});`)
  // Auth-owned triggers are outside the application-only dump. Invoke the real
  // application provisioner rather than fabricating profiles in test code.
  await db.exec(`CREATE TRIGGER on_auth_user_created AFTER INSERT ON auth.users
@@ -78,3 +78,6 @@ export async function createSitovCurrentNativeDatabase({database='sitov_night_fi
  db.installPlan=plan
  return db
 }
+
+// Compatibility alias: this always installs baseline92, never the live canonical.
+export const createSitovCurrentNativeDatabase = createSitovBaseline92NativeDatabase
