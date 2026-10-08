@@ -11,6 +11,7 @@ import { sanitizeAllowedLevels, ACCESS_LEVELS, SITOV_VERB_LEVELS, TRAINERS, sito
 import { withBackendSession, checkDatabaseError, checkRpcError, revalidateBackendPages } from '@/lib/actions/backend'
 import { profileRoleSchema, uuidSchema } from '@/lib/types/backend'
 import { loadUnassignedStudents } from '@/lib/admin-new-students'
+import { loadSitovStudentStatistics } from '@/lib/sitov-student-statistics'
 import type { AdminNavCounts } from '@/lib/admin-navigation'
 import { loadStaffPronunciationView } from '@/lib/pronunciation-playback-server'
 import { runConfirmedDelete } from '@/lib/confirmed-delete'
@@ -39,19 +40,9 @@ export async function getAdminStats() {
     await requireAdmin()
     const supabase = createAdminClient()
     
-    // R10: `count` ist bei einem Fehler `null`. Ohne diese Prüfung würde
-    // `count || 0` einen Datenbankausfall in glaubwürdig aussehende Nullen
-    // verwandeln — der Lehrer hielte ein leeres Dashboard für die Wahrheit.
-    // Get total students
-    const { count: studentCount, error: studentError } = await supabase
-      .from('profiles')
-      .select('id', { count: 'exact', head: true })
-      .eq('role', 'student')
-
-    // Freigeschaltete Nutzer: mind. ein Sprachniveau freigegeben.
-    const { count: activatedCount, error: activatedError } = await supabase
-      .from('profiles')
-      .select('id,student_level_access!inner(auth_user_id)', { count: 'exact', head: true })
+    // Schüler, Freischaltungen und neue Konten aus derselben Grundmenge:
+    // Lehrkräfte/Administratoren mit Niveau-Freigaben zählen hier nicht mit.
+    const studentStatistics = await loadSitovStudentStatistics(supabase)
 
     // Get pending submissions
     const { count: pendingSubmissions, error: pendingError } = await supabase
@@ -59,19 +50,14 @@ export async function getAdminStats() {
       .select('*', { count: 'exact', head: true })
       .eq('status', 'pending')
 
-    const readFailure = studentError ?? activatedError ?? pendingError
-    if (readFailure) throw new Error(`admin_stats_unavailable: ${readFailure.code ?? 'unknown'}`)
+    // Ein Datenbankausfall darf nicht als glaubwürdig aussehende Null erscheinen.
+    if (pendingError) throw new Error(`admin_stats_unavailable: ${pendingError.code ?? 'unknown'}`)
     // Offen ist, was Lehrkräfte noch sehen: aus der Lehreransicht Entferntes zählt nicht (Migration 57).
     const staffPending = (await loadStaffPronunciationView(await createClient())).pendingCount
 
-    // Neue Registrierungen ohne Niveau-Zuordnung (eigene Definition in lib/admin-new-students).
-    const unassigned = await loadUnassignedStudents(supabase)
-
     return {
-      studentCount: studentCount ?? 0,
-      activatedCount: activatedCount ?? 0,
+      ...studentStatistics,
       pendingSubmissions: staffPending ?? pendingSubmissions ?? 0,
-      newStudentCount: unassigned.length,
     }
   } catch (error) {
     // Weiterwerfen statt Nullen: app/[lang]/admin/error.tsx zeigt eine ehrliche
